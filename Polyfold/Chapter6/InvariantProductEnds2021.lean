@@ -17,7 +17,10 @@ Everything is stated for an abstract `(k+1)`-manifold with corners `M` with a pr
   product charts `(t, y) ↦ (t − a, e(y))` (`endChart`, built from `consQuad`) of the charts
   `e = chartAt y` of `N` belong to the maximal atlas of `M`; `modelEnd` is a model instance.
 * `ProductEnd.IsEndProductOrientation oM oN`: `oM = e ∧ oN` on the end (the time direction
-  first), a hypothesis (wave 1c-2 proves it for the orientation of `S_F`); it holds for the
+  first), a hypothesis; for the orientation `cobOr` of `S_F` (`CobordismOrientation2021`, built from
+  `SectionOrientation.prodFirst`) it is what `CobordismOrientationHyp` asks
+  (`cobordismOrientation_of_ends`), proved as `isEndProductOrientation_cobOr`
+  (`CobordismOrientationEnds2021d`); it holds for the
   standard orientations on `modelEnd` (`modelEnd_isEndProductOrientation`).
 * `ProductEnd.integral_end_fubini`: a form `Θ` supported in the end whose coefficient in the
   product charts is `h(t)` times that of `ω` on `N` has `∫_M Θ = (∫ₐᵇ h) ∫_N ω`; for
@@ -34,7 +37,7 @@ Everything is stated for an abstract `(k+1)`-manifold with corners `M` with a pr
 
 Not built here: the corner coordinates of `S_F` from those of `S_i` (`CornerCoords.prodRn`), which
 would give a `ProductEnd` for the index parts of `S_F` with their corner charted spaces, and the
-expression of the forms `p₁^*ω` in the product charts.
+expression of the forms `p₁^*ω` in the product charts. (Both are in `InvariantProductEnds2021b`.)
 -/
 
 open Set Filter Topology Manifold Module MeasureTheory

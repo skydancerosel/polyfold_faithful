@@ -24,6 +24,7 @@ sc-Fredholm operator of index `0`, hence an sc-isomorphism").  Together with
   `Polyfold.familyCompactness_derivFamOp` (the compactness property `FamilyCompactness` of the
   family from (2), Finding 73).
 * `Polyfold.theorem_3_7_1`: **Theorem 3.7.1 (preprint 3.58)** in the coordinates `E = ℝⁿ ⊕ X`, `F = ℝᴺ ⊕ Y`.
+  For a general sc-splitting `E = B ⊕ X` it is `theorem_3_7_1_general` (`GapP1_Theorem371General.lean`).
 
 ## Remarks on the text
 

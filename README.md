@@ -51,10 +51,22 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (10 November 2026)
+## Status (12 November 2026)
 
-* **Part I, Chapters 1–6, is formalized**, Chapter 6 except two steps of the proof of Theorem 6.7.1
-  (preprint 6.43; the invariant `Ψ_(f,o)`), which is proved with them as hypotheses (below).
+* **Part I, Chapters 1–6, is formalized**, with Theorem 6.7.1 (preprint 6.43; the invariant `Ψ_(f,o)`)
+  proved without hypotheses on the cobordism (below). Since the
+  Part I completion wave of 12 November 2026 every gap of Chapters 1–3 is closed, and of the 78 gaps of
+  Chapters 1–6 three remain open: the wedge product on `Ω*_∞(X, ∂X)` and the pull-back of forms on `∂X`
+  along general maps (G.80 in part), the sc-smooth contractibility of Proposition 6.6.3 (1) (G.61), and
+  families on `[0, 1]ⁿ` beyond Proposition 6.6.3 (3)–(4) and Lemmas 6.6.4–6.6.5 (G.65 in part). Three
+  more have nothing to formalize: the text's open question after Proposition 4.2.3 (G.34; its settled
+  sentence is proved), a remark on the literature (G.43), and preprint Theorem 5.27, which the 2021
+  edition drops (G.49).
+  Closed in this wave, among others: Example 1.1.3 (the weighted Sobolev spaces on `ℝ × S¹`, with
+  Rellich's theorem on bounded cylinders), Proposition 2.1.2, Lemma 2.4.9, Lemmas 2.7.3, 3.8.1–3.8.3,
+  3.8.9–3.8.11, 3.8.20, Theorem 3.7.1 for a general sc-splitting, Lemma 4.1.11, Theorem 5.3.15, the
+  Banach-space Theorems 5.5.5, 5.5.13 and 5.5.16, Corollary 5.5.17 without hypothesis, Lemma 6.6.5 with
+  `L` a smooth bundle, and the remarks on `DET(E, F)` and on the orientation bundle.
 * **Part II, Chapters 7 and 8, is formalized** (ep-groupoids, orbit spaces, invariant partitions of
   unity; the tangent ep-groupoid and functor, strong bundles over ep-groupoids, proper covering
   functors). In the 2021 text the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem
@@ -68,24 +80,26 @@ GitHub displays it directly.
   ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
   the topology of the orientation space (Theorem 6.6.17), the rewritten §7.2 and the Zhou condition
   (§7.4, §8.1).
-* **The sc-differential forms of §4.4 are formalized except the wedge product and the Poincaré
-  lemma**: Definitions 4.4.1–4.4.2 (the forms read in the charts of the Whitney sum, the direct
+* **The sc-differential forms of §4.4 are formalized**, with the wedge product (a graded algebra,
+  `d` a derivation) and the Poincaré Lemmas 4.4.8 and 4.5.2: Definitions 4.4.1–4.4.2 (the forms read in the charts of the Whitney sum, the direct
   limit `Ω*_∞(X)`), the exterior derivative on an M-polyfold with `d² = 0`, the sc-de Rham
   cohomology of Definition 4.4.6, the pull-back `f^*` with `f^*d = df^*`, forms on `∂X` (read as
   forms on the tame boundary `bX` that agree over `bX → X`), `j^*` with `dj^* = j^*d`, the relative
   complex `Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, and Theorem 4.4.7 (Stokes) for sc-forms restricted to
   finite-dimensional submanifolds with a corner structure. The formula for `dω` on p. 197 holds
   with the sign `(−1)^{ℓ+j+1}` for the text's bracket; with the printed sign it does not hold as we
-  read it. Open: whether the agreement of a form on `∂X` implies that of its `d` (assumed in the
-  definition, so the forms on `∂X` may be fewer than in the text), and the faces of a submanifold
-  as tame M-polyfolds (G.37, G.39 closed; G.40, G.80 in part).
+  read it. The agreement of a form on `∂X` implies that of its `d` (so the forms on `∂X` are those of
+  the text), and Theorem 4.4.7 holds with the sum over the faces of a face-structured submanifold
+  (G.37, G.39, G.40 closed; G.80 in part: the wedge product on `Ω*_∞(X, ∂X)`).
 * **Theorem 6.7.1 (the invariant `Ψ_(f,o)` on `H*_dR(X, ∂X)`) and its case `∂X = ∅` are proved
-  under two hypotheses** that are steps of the text's proof, not hypotheses of the text
-  (`theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`, `Polyfold/Chapter6/Theorem671Assembly2021.lean`;
-  narrower): the orientation of the cobordism `S_F` of the proof, of product form `e ∧ o` on its
-  ends (`CobordismOrientationHyp`, G.66), and a closed relative form on `S_F` that reads as the
-  integrand on its ends, which needs the pull-back of forms on `∂X` to `∂(ℝ¹ × X)`
-  (`CobordismRelativeFormsHyp`, G.54). Proved: the admissible sections of §6.7 (G.55 closed), the
+  without hypotheses on the cobordism** (`theorem_6_7_1`, `theorem_6_7_1_noBoundary`,
+  `Polyfold/Chapter6/Theorem671Final2021.lean`; restated; G.54 closed): the standing hypotheses are those of
+  the text, `X` tame with sc-smooth bump functions, and the proper oriented homotopy of (2) is read as in
+  R-d. Proved on 12 November 2026: the product orientation `SectionOrientation.prodFirst` of Remark 6.6.19
+  (G.66 closed), the orientation `cobOr` of the cobordism `S_F` and its value `e ∧ o_{S_i}` on the two ends,
+  the time vector first and with no sign (`cobordismOrientationHyp`, `isEndProductOrientation_cobOr`), and
+  the closed relative form on `S_F` (`cobordismRelativeFormsInner`, built on
+  inner ends, with the pull-back of forms on `∂X` along `p₁`). Proved before: the admissible sections of §6.7 (G.55 closed), the
   index parts of `S_{f+s}` as compact oriented manifolds, `Ψ` for one admissible section, well
   defined on classes, the cobordism identity, and the theorem from its two independence statements.
   The homotopies of (2), which the text does not define, are read through Remark 6.6.19 (Findings,
@@ -126,13 +140,13 @@ GitHub displays it directly.
   13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133). Not formalized besides: the
   structures of Proposition 11.1.6, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128, G.134,
   G.135).
-* About 264,000 lines of Lean in 437 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (13,708 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* About 314,400 lines of Lean in 573 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (15,124 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (839 items, each with
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (871 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 49 items are narrower than the text, each
-  with its reason; 65 of the 135 gaps are closed and 70 remain.
+  list of what is not formalized and why (G.1–G.135). 42 items are narrower than the text, each
+  with its reason; 101 of the 135 gaps are closed, 3 have nothing to formalize, and 31 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -170,7 +184,8 @@ Open the HTML pages in a browser straight from the folder; they need no server.
    tame charts for the germ data (the 2021 text uses "tame strong bundle" from Theorem 3.6.8 on
    without defining it, and its Definition 3.6.3 no longer says "tame"; we read the phrase as the
    preprint and the 2017 version define it, and the theorems hold for the plain 2021 notion at
-   germs centred at interior points, G.79); "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.2.1
+   germs centred at interior points; with the 2021 notion as printed Theorem 3.6.8 (2) does not hold as we
+   read it, Findings, Chapter 3, item 388, G.79); "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.2.1
    (preprint 6.1), p. 239, with locally defined sections. Each is recorded in the Findings with its reason.
 3. **The new arguments** supplied where we could not complete a proof step from the text alone,
    before anyone cites them:
@@ -195,7 +210,12 @@ Open the HTML pages in a browser straight from the folder; they need no server.
    example; fixed at Lemma 5.3.16, since Definition 5.3.13 (3) now asks `dt` onto at every smooth
    point, which supplies the hypothesis the proof of Theorem 5.3.15 (preprint 5.22) needed
    (`Exposition/BookConcordance.md`, `Findings.md`, marks "book 2021"). Also: hypotheses a proof seems
-   to use without stating them, and possible misprints; the tameness of `X` in Theorem 5.3.10
+   to use without stating them, and possible misprints. Since 12 November 2026 three more printed claims do not
+   hold as we read them, each with a Lean counterexample: Theorem 3.6.8 (2), p. 136, and the sub-M-polyfold
+   conclusion of Theorem 3.1.22, with the 2021 germ data as printed, by a tame strong bundle over `ℝ` whose
+   solution set is a closed half-line (`theorem_3_6_8_untamed_not`, V3.130; Findings, Chapter 3, item 388);
+   Lemma 3.8.1, p. 145, at `P = {0}` (V3.123; item 386); and the remark that `DET(E, F)` is not orientable,
+   p. 262, for finite-dimensional `E`, `F` (V6.80; Chapter 6, item 135). Also: the tameness of `X` in Theorem 5.3.10
    (preprint 5.18), p. 220, was added in the 2017 version and is kept in 2021.
 5. **The remark after Definition 7.1.7** (2017: 7.7), Part II, p. 291 (2017 pp. 228–229): that a
    functor between ep-groupoids which is sc-smooth on objects is sc-smooth on morphisms does not hold
@@ -262,10 +282,6 @@ None of these is a hypothesis of a theorem of the project; each is stated precis
 
 * Whether the text's germ reading and the stricter whole-chart reading of Definition 3.1.11 (preprint 3.11), p. 96, agree for
   sections sc-smooth on `X` (Chapter 3, item 264).
-* Whether germ data can always be moved to a compatible tame chart when the atlas is tame (item 199;
-  re-centring a chart of the atlas provably cannot do it, items 350–353; the kernel condition can
-  always be met, by stabilization, item 379; germ data in a chart centred at an interior point are
-  tame after shrinking the chart, item 382). The open case is a chart centred at a boundary point.
 * Whether a weak bump function (Definition 5.5.2 (preprint 5.29), p. 229) gives one non-zero at a given point of a
   general M-polyfold (Chapter 5, item 163; on an sc-Banach space it does at every point, since its bump points
   are all points or none, item 180).
@@ -274,24 +290,23 @@ None of these is a hypothesis of a theorem of the project; each is stated precis
   is proved, Chapter 5, item 181).
 * The text's own open question after Proposition 4.2.3 (preprint 4.15), Question 4.2.4, p. 187.
 
-Settled since: the text's own question on p. 340 of Part II (2017: p. 249), whether property (5) of a
+Settled since: whether germ data can always be moved to a compatible tame chart when the atlas is tame
+(Chapter 3, items 199, 350–353, 379, 382): they cannot, `UntamedCorner.isScFredholmGerm2021_not_tame`
+(`Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean`; item 388). The text's own question on p. 340 of Part II (2017: p. 249), whether property (5) of a
 paracompact orbit space follows from properties (1)–(4) of an ep-groupoid, has a negative answer: the Čech
 groupoid of a Prüfer-type surface with uncountably many charts is an ep-groupoid whose orbit space is not
 paracompact (`exists_epGroupoid_not_hasParacompactOrbitSpace`, `Polyfold/Chapter7/PropertyFiveResearch.lean`;
 Chapter 7, item 152).
 
-Not formalized (by decision, see the gap list in the comparison): Theorems 5.3.15 (preprint 5.22),
-p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-space theorems 5.5.5,
-5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43; cited, used as hypotheses), the parts of §4.4, pp. 198–199,
-listed above: the wedge product and the Poincaré lemma (the forms on an M-polyfold, `d`, `d² = 0`,
-`H*_sc(X)`, the pull-back, forms on `∂X`, the relative complex, `H*_dR(X, ∂X)`, the Lie bracket and
-Stokes' theorem for sc-forms on submanifolds are formalized), Lemma 4.1.11 (preprint 4.10), the
-dense form of Theorem 5.3.12 (preprint 5.19), and two steps of the proof of Theorem 6.7.1 (preprint
-6.43), p. 277, which is proved with them as hypotheses: the orientation of the cobordism `S_F` with
-product form on its ends (G.66; items 1–4, 6, 7 of the orientation plan, about 680 lines) and the
-relative form on `S_F` (G.54; the pull-back of forms on `∂X` along `p₁ : ℝ¹ × X → X` and the face
-forms on `∂S_F`, 600–1000 lines). Not formalized either: the infinite-dimensional examples of the applications (weighted
-Sobolev scales, splicings). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
+Not formalized (by decision, see the gap list in the comparison): preprint Theorem 5.27 (in neither the 2017 nor
+the 2021 text), the wedge product on the relative complex `Ω*_∞(X, ∂X)` and the pull-back of forms on `∂X` along a
+general sc-smooth map (G.80 in part; the forms on an M-polyfold, `d`, the wedge product, the Poincaré lemmas, the
+pull-back, forms on `∂X`, the relative complex and Stokes' theorem are formalized), the sc-smooth contractibility of
+Proposition 6.6.3 (1) (G.61), the families on `[0, 1]ⁿ` beyond Proposition 6.6.3 (3)–(4) and Lemmas 6.6.4–6.6.5
+(G.65 in part), the sc-structure `W^{1+m,4}(Ω)` of the Sobolev remark after Theorem 5.5.5 for bounded domains other
+than `(0, 1)` (G.51, closed for that domain). (Theorem 6.7.1 (preprint 6.43) is proved without hypotheses on the
+cobordism since 12 November 2026, `theorem_6_7_1`, G.54 closed.) Not formalized either: the infinite-dimensional examples of the applications (splicings; the
+weighted Sobolev scale of Example 1.1.3 is formalized). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
 Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
 (Definitions 8.2.1, 8.2.2, pp. 372–373; 2017: 8.2, 8.3; G.74), and Lemma 8.1.2 (2017: 8.1), p. 359,

@@ -31,6 +31,7 @@ VERDICT_NAME = {
     'same': 'as in the book', 'explicit': 'hypotheses explicit', 'stronger': 'stronger',
     'narrower': 'narrower', 'restated': 'restated', 'extra': 'not in the book',
     'sign': 'value differs', 'gap': 'not formalized', 'closed': 'formalized since',
+    'nothing': 'nothing to formalize',
 }
 
 

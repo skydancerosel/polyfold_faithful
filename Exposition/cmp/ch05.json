@@ -1041,14 +1041,16 @@
     "statement": "Over a tame $X$ with bump functions, $f$ sc-Fredholm with compact solution set, $(f, x)$ in good position at the zeros on $\\partial X$: $U$ with $S_{f+s}$ compact for $s \\in \\Gamma^{+,1}_U(P)$, and an arbitrarily small $s \\in \\Gamma^{+,1}_U(P)$ with $s = 0$ near $\\partial X$, $f + s$ transversal, \"$(f, x)$\" in good position at every $x \\in S_{f+s}$, $S_{f+s}$ a compact manifold with boundary with corners."
    },
    "lean": {
-    "statement": "`theorem_5_3_12_book_2021def`: the statement below with $f$ sc-Fredholm in the 2021 sense, the boundary hypothesis and the good-position conclusion (`IsScFredholmSectionTame2021`, `IsGoodPositionGermTame2021`; germ data in a tame chart, read as in V3.103). `theorem_5_3_12` ($f$ with tame germ data, no tameness of $X$): an open $U \\supseteq S_f$ with $S_{f+s}$ compact for every $s \\in \\Gamma^{+,1}_U(P)$, and for every $\\varepsilon > 0$ an $s \\in \\Gamma^{+,1}_U(P)$ with $N(s(x)) \\le \\varepsilon$ for all $x$, $s = 0$ near $\\partial X$, $f + s$ transversal and in good position at every zero, and $S_{f+s}$, if nonempty, a sub-M-polyfold with the structure of a manifold with boundary with corners; from `theorem_5_3_12_param`. The form the proof produces is kept: `theorem_5_3_12_param`, allowable $t_i$ with supports disjoint from $\\partial X$, $\\delta$, a null $CV$; for $|\\lambda| < \\delta$, $\\lambda \\notin CV$: $\\sum\\lambda_it_i$ allowable, $0$ near $\\partial X$, $f + s_\\lambda$ transversal and in good position at every zero, $S_{f+s_\\lambda}$ compact, a tame manifold with corners. Good position depends only on the germ (`IsGoodPositionGermTame.congr_nhds`).",
+    "statement": "`theorem_5_3_12_book_2021def`: the statement below with $f$ sc-Fredholm in the 2021 sense, the boundary hypothesis and the good-position conclusion (`IsScFredholmSectionTame2021`, `IsGoodPositionGermTame2021`; germ data in a tame chart, read as in V3.103). `theorem_5_3_12` ($f$ with tame germ data, no tameness of $X$): an open $U \\supseteq S_f$ with $S_{f+s}$ compact for every $s \\in \\Gamma^{+,1}_U(P)$, and for every $\\varepsilon > 0$ an $s \\in \\Gamma^{+,1}_U(P)$ with $N(s(x)) \\le \\varepsilon$ for all $x$, $s = 0$ near $\\partial X$, $f + s$ transversal and in good position at every zero, and $S_{f+s}$, if nonempty, a sub-M-polyfold with the structure of a manifold with boundary with corners; from `theorem_5_3_12_param`. The form the proof produces is kept: `theorem_5_3_12_param`, allowable $t_i$ with supports disjoint from $\\partial X$, $\\delta$, a null $CV$; for $|\\lambda| < \\delta$, $\\lambda \\notin CV$: $\\sum\\lambda_it_i$ allowable, $0$ near $\\partial X$, $f + s_\\lambda$ transversal and in good position at every zero, $S_{f+s_\\lambda}$ compact, a tame manifold with corners. Good position depends only on the germ (`IsGoodPositionGermTame.congr_nhds`). `theorem_5_3_12_dense`: with the same hypotheses, for every $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ and every $\\varepsilon > 0$ an $s \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ with $N(s - s') \\le \\varepsilon$ everywhere and all the conclusions; from `theorem_5_3_12_param_rel`, $s = (1 - \\varepsilon')s' + \\sum\\lambda_it_i$.",
     "decls": [
      "Chapter5/MainTheoremsBookForm2021 · theorem_5_3_12_book_2021def",
      "Chapter5/MainTheoremsBookForm · theorem_5_3_12",
      "Chapter3/MainTheorems2021 · theorem_5_3_12_2021def",
      "Chapter5/GeneralPosition · theorem_5_3_12_param",
      "Chapter3/Chapter5BridgeG · StrongBundle.IsGoodPositionGermTame.congr_nhds",
-     "Chapter3/Counterexamples2021 · Counterexamples2021.theorem_5_3_12_goodPosition_not_stable"
+     "Chapter3/Counterexamples2021 · Counterexamples2021.theorem_5_3_12_goodPosition_not_stable",
+     "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_dense",
+     "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_param_rel"
     ]
    },
    "chips": [
@@ -1060,7 +1062,7 @@
     "Updated (2026-11-09): the theorem is stated with the book's quantifiers, \\\"arbitrarily small\\\" read as $N(s(x)) \\le \\varepsilon$ for all $x$ (`theorem_5_3_12`); the generic form of the proof is kept (`theorem_5_3_12_param`) (Findings, Chapter 5, item 182).",
     "\"$(f, x)$ in good position\" is $(f + s, x)$ (Findings, Chapter 5, item 87).",
     "\\\"As before\\\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\\mathbb R \\times \\cdot$, as $\\mathbb R(1, 1)$ in $[0, \\infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).",
-    "No dense form (gap G.45).",
+    "(2026-11-12) The dense form is proved too: within $N$-distance $\\varepsilon$ of any $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).",
     "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter3/MainTheorems2021.lean`).",
     "(2026-11-09) The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookForm2021.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`."
    ]
@@ -1087,7 +1089,7 @@
     "ends = restrictions"
    ],
    "diff": [
-    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68)."
+    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is formalized as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68)."
    ]
   },
   {
@@ -1111,7 +1113,8 @@
     "needs $dt(x) \\ne 0$"
    ],
    "diff": [
-    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \\ne 0$ (V5.69)."
+    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \\ne 0$ (V5.69).",
+    "(2026-11-12) Theorem 5.3.15 is formalized in its 2021 form, where this hypothesis is supplied (V5.71; gap G.48 closed)."
    ]
   },
   {
@@ -1160,7 +1163,8 @@
     "no graph needed"
    ],
    "diff": [
-    "\"The image of any vector in $T_xS$ belongs to $Y_\\infty$\" is not formalized; it becomes the hypothesis on $e$. The graph of $S$ and the case \"the operator is zero\" are not needed (Findings, Chapter 5, item 102)."
+    "\"The image of any vector in $T_xS$ belongs to $Y_\\infty$\" is not formalized; it becomes the hypothesis on $e$. The graph of $S$ and the case \"the operator is zero\" are not needed (Findings, Chapter 5, item 102).",
+    "(2026-11-12) For the use in Theorem 5.3.15 the hypothesis is discharged: the value is $-c\\,f'(x)w_1$ for a smooth tangent vector $w_1$, a smooth point of the fibre (`exists_hasRegularFamilyParam`, V5.72; Findings, Chapter 5, item 183). Lemma 5.3.17 itself is not restated."
    ]
   },
   {
@@ -1400,25 +1404,28 @@
   {
    "id": "V5.55",
    "title": "Theorem 5.5.10 (preprint 5.37) \"(i) ⇒ (ii)\"",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§5.5 (preprint §5.4.2), proof of Theorem 5.5.10 (preprint 5.37), pp. 232–233 (preprint pp. 195–196)",
     "page": 195,
     "statement": "For an atlas of charts $\\varphi : U \\to O$, \"the sc-smooth function $f \\circ \\varphi$\" extended by $0$ is supported in $W = \\varphi^{-1}(V)$ \"satisfying $\\operatorname{cl}_X(W) \\subseteq U$\", and is approximated by $\\sum\\beta_xg(x)$."
    },
    "lean": {
-    "statement": "`hasApproxProperty_restrict`: with sc-smooth partitions of unity, every chart restricted to an open $s$ with $\\operatorname{cl}_X(s) \\subseteq \\operatorname{dom}\\varphi$ has the approximation property. `MChart.isClosed_inter_preimage`: $\\varphi^{-1}(A)$ closed for closed $A \\subseteq \\varphi(s)$.",
+    "statement": "`hasApproxProperty_of_isChart`: with sc-smooth partitions of unity, every chart of the M-polyfold has the approximation property, and `theorem_5_5_10_every_chart` states (i) ⇔ (ii) for all charts. Write the chart domain as $\\{d > 0\\}$; the function is cut by sc-smooth Urysohn functions $\\kappa_n$ on the shells $\\{1/(n+2) \\le d \\le 1/(n+1)\\}$, each piece is approximated with support closed in $X$ (`AdmitsScPartitionsOfUnity.exists_approx`), and the pieces are summed with the locally finite weights $\\kappa_n\\prod_{j<n}(1-\\kappa_j)$. `hasApproxProperty_restrict` (restricted charts) and `MChart.isClosed_inter_preimage` are kept.",
     "decls": [
      "Chapter5/PartitionsOfUnity · hasApproxProperty_restrict",
-     "Chapter5/PartitionsOfUnity · MChart.isClosed_inter_preimage"
+     "Chapter5/PartitionsOfUnity · MChart.isClosed_inter_preimage",
+     "Chapter5/GapP1_ApproxEveryChart · hasApproxProperty_of_isChart",
+     "Chapter5/GapP1_ApproxEveryChart · theorem_5_5_10_every_chart",
+     "Chapter5/GapP1_ApproxEveryChart · MPolyfold.AdmitsScPartitionsOfUnity.exists_approx"
     ]
    },
    "chips": [
-    "restricted charts",
-    "every chart: open"
+    "every chart",
+    "shells instead of a closure step"
    ],
    "diff": [
-    "$\\operatorname{cl}_X(W) \\subseteq U$ does not follow from $\\operatorname{cl}_C(V) \\subseteq O$, and $f \\circ \\varphi$ is only continuous; whether every chart has the property is not settled (Findings, Chapter 5, item 111)."
+    "The text's $\\operatorname{cl}_X(W) \\subseteq U$ does not follow from $\\operatorname{cl}_C(V) \\subseteq O$, and $f \\circ \\varphi$ is only continuous; the formal proof avoids the step with the shells. Whether every chart has the property is settled: it does (Findings, Chapter 5, items 111, 184)."
    ]
   },
   {
@@ -1502,21 +1509,25 @@
     "statement": "$c_0(\\Gamma)$: $f : \\Gamma \\to \\mathbb R$ with $\\{\\gamma \\mid |f(\\gamma)| > \\varepsilon\\}$ finite for every $\\varepsilon$, norm $\\max_\\gamma|f(\\gamma)|$; coordinate-wise $C^k$ homeomorphic embeddings. Theorem 5.5.13 (preprint 5.40) (Toruńczyk): $C^k$ partitions of unity iff such an embedding into some $c_0(\\Gamma)$."
    },
    "lean": {
-    "statement": "`cZero Γ` (a subspace of $\\ell^\\infty(\\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.5.13 (preprint 5.40), not proved, not used.",
+    "statement": "`cZero Γ` (a subspace of $\\ell^\\infty(\\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.5.13 (preprint 5.40); `theorem_5_5_13` proves it for every real Banach space and every $k \\in \\mathbb N \\cup \\{\\infty\\}$: (⇒) $h(x) = (\\rho_{n,c}(x)/(n+1))_{(n,c)}$ from partitions of unity subordinate to the balls of radius $1/(n+1)$ is a coordinate-wise $C^k$ embedding into $c_0(\\mathbb N \\times V)$ (`torunczyk_forward`); (⇐) products $\\prod_\\gamma\\theta((n+1)h(x)(\\gamma) - \\sigma(\\gamma))$ over finitely supported lattice points, made locally finite by Michael's products, give $C^k$ Urysohn functions (`torunczyk_backward`, `exists_contDiff_urysohn_of_embedding`).",
     "decls": [
      "Chapter5/PartitionsOfUnity · cZero",
      "Chapter5/PartitionsOfUnity · mem_cZero_iff",
      "Chapter5/PartitionsOfUnity · norm_cZero",
      "Chapter5/PartitionsOfUnity · IsCoordinatewiseContDiffEmbedding",
-     "Chapter5/PartitionsOfUnity · TorunczykStatement"
+     "Chapter5/PartitionsOfUnity · TorunczykStatement",
+     "Chapter5/GapP1_Torunczyk · theorem_5_5_13",
+     "Chapter5/GapP1_Torunczyk · torunczyk_forward",
+     "Chapter5/GapP1_Torunczyk · torunczyk_backward",
+     "Chapter5/GapP1_Torunczyk · exists_contDiff_urysohn_of_embedding"
     ]
    },
    "chips": [
     "max = sup",
-    "Theorem 5.5.13 (preprint 5.40) not proved"
+    "Theorem 5.5.13 proved"
    ],
    "diff": [
-    "Theorem 5.5.13 (preprint 5.40) is gap G.52 (Findings, Chapter 5, items 114, 117)."
+    "The text's \"max\" norm is the supremum. Theorem 5.5.13 (preprint 5.40), cited from [9], is proved (2026-11-12; gap G.52 closed) (Findings, Chapter 5, items 114, 117)."
    ]
   },
   {
@@ -1569,48 +1580,64 @@
   {
    "id": "V5.62",
    "title": "Theorem 5.5.16 (preprint 5.43) as a statement; Hilbert spaces",
-   "verdict": "extra",
+   "verdict": "same",
    "book": {
     "label": "§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198); proof of Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)",
     "page": 198,
     "statement": "Theorem 5.5.16 (preprint 5.43) ([12]): a WCG space with a $C^k$-bump function admits $C^k$ partitions of unity. \"A Hilbert space is reflexive and hence a WCG-space.\""
    },
    "lean": {
-    "statement": "`GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.5.16 (preprint 5.43) (not proved). `hasContDiffBump_of_hilbert`: a $C^\\infty$-bump $\\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\\|v\\|^2 = b(v, v)$ ⇒ reflexive.",
+    "statement": "`GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.5.16 (preprint 5.43): WCG and a $C^k$ bump ⇒ $C^k$ partitions of unity subordinate to every open cover. `theorem_5_5_16 (V) [CompleteSpace V] (k)` proves it for every real Banach space of any density and every $k$: the Amir–Lindenstrauss projectional resolution of the identity, built from Lindenstrauss pairs (`IsLPair.exists_proj`; `priP_cont`, `pri_finite`, `pri_approx`), strong induction on a cardinal bounding a dense set (`admitsContDiffPartitionsOfUnity_of_wcg_card`), the separable case as base (`admitsContDiffPartitionsOfUnity_of_separable`, Bonic–Frampton), and the gluing lemma (`isRelC0Base_glue`) through Toruńczyk's theorem (V5.59). Hilbert spaces of any density directly: `godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace`. `hasContDiffBump_of_hilbert`: a $C^\\infty$-bump $\\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\\|v\\|^2 = b(v, v)$ ⇒ reflexive.",
     "decls": [
      "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
      "Chapter5/PartitionsOfUnity · hasContDiffBump_of_hilbert",
-     "Chapter5/PartitionsOfUnity · isReflexive_of_hilbert"
+     "Chapter5/PartitionsOfUnity · isReflexive_of_hilbert",
+     "Chapter5/GapP1_GTWZ · theorem_5_5_16",
+     "Chapter5/GapP1_GTWZ · admitsContDiffPartitionsOfUnity_of_wcg_card",
+     "Chapter5/GapP1_C0Base · isRelC0Base_glue",
+     "Chapter5/GapP1_LindenstraussPair · IsLPair.exists_proj",
+     "Chapter5/GapP1_WCGPRI · priP_cont",
+     "Chapter5/GapP1_WCGPRI · pri_finite",
+     "Chapter5/GapP1_WCGPRI · pri_approx",
+     "Chapter5/GapP1_SeparablePOU · admitsContDiffPartitionsOfUnity_of_separable",
+     "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+     "Chapter5/GapP1_HilbertPOU · godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace"
     ]
    },
    "chips": [
-    "Theorem 5.5.16 (preprint 5.43) not proved"
+    "Theorem 5.5.16 proved",
+    "\"Banach\" = `CompleteSpace`"
    ],
    "diff": [
-    "Theorem 5.5.16 (preprint 5.43) is gap G.53 (Findings, Chapter 5, items 116, 117)."
+    "The recorded statement leaves completeness out; `theorem_5_5_16` assumes `CompleteSpace`, the text's \"Banach\". The theorem, cited from [12] and [9], is proved (2026-11-12; gap G.53 closed); the route avoids Krein's and the Eberlein–Šmulian theorems and transfinite recursion (Findings, Chapter 5, items 116, 117, 184)."
    ]
   },
   {
    "id": "V5.63",
    "title": "Corollary 5.5.17 (preprint 5.44)",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§5.5 (preprint §5.4.2), Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)",
     "page": 199,
     "statement": "If $E_0$ is a Hilbert space, $(O, C, E)$ has the sc-smooth approximation property (\"a Hilbert space is reflexive and hence a WCG-space ... from Theorem 5.43 ... in view of Theorem 5.37\")."
    },
    "lean": {
-    "statement": "`corollary_5_5_17`: $\\|v\\|^2 = b(v, v)$ and Theorem 5.5.16 (preprint 5.43) for $E_0$, $k = \\infty$, as a hypothesis ⇒ the approximation property; `admitsScPartitionsOfUnity_of_hilbert` for M-polyfolds covered by such charts.",
+    "statement": "`corollary_5_5_17_unconditional`: if $\\|v\\|^2 = b(v, v)$ on $E_0$, the local model has the sc-smooth approximation property, with no further hypothesis. $E_0$ is separable for every sc-Banach space: the range of the compact inclusion $E_1 \\to E_0$ is separable and dense (`ScBanach.separableSpace_zero`). Theorem 5.5.16 is proved for separable spaces (`admitsContDiffPartitionsOfUnity_of_separable`; in general `theorem_5_5_16`, V5.62), and Proposition 5.5.11 applies. `MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional` is the M-polyfold form. `corollary_5_5_17` (Theorem 5.5.16 for $E_0$ as a hypothesis) and `admitsScPartitionsOfUnity_of_hilbert` are kept.",
     "decls": [
      "Chapter5/PartitionsOfUnity · corollary_5_5_17",
-     "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert"
+     "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert",
+     "Chapter5/GapP1_SeparablePOU · corollary_5_5_17_unconditional",
+     "Chapter5/GapP1_SeparablePOU · ScBanach.separableSpace_zero",
+     "Chapter5/GapP1_SeparablePOU · admitsContDiffPartitionsOfUnity_of_separable",
+     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional"
     ]
    },
    "chips": [
-    "Theorem 5.5.16 (preprint 5.43) a hypothesis"
+    "no hypothesis",
+    "$E_0$ separable: Bonic–Frampton suffices"
    ],
    "diff": [
-    "\"In view of Theorem 5.37\" is Proposition 5.5.11 (preprint 5.38); the bump Theorem 5.5.16 (preprint 5.43) needs is the classical $C^\\infty$ one (Findings, Chapter 5, item 116)."
+    "\"In view of Theorem 5.37\" is Proposition 5.5.11 (preprint 5.38). The WCG theorem is needed only for separable spaces, where it is the classical Bonic–Frampton construction; the bump it needs is the classical $C^\\infty$ one (Findings, Chapter 5, items 116, 117, 184)."
    ]
   },
   {
@@ -1746,7 +1773,7 @@
     "ends = restrictions"
    ],
    "diff": [
-    "2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\\tau$, $0 < \\tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is still not formalized (gap G.47; Findings, Chapter 5, items 175, 176)."
+    "2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\\tau$, $0 < \\tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is formalized on this definition as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, items 175, 176)."
    ]
   },
   {
@@ -1771,7 +1798,7 @@
     "$Z$ algebraic, not shown smooth"
    ],
    "diff": [
-    "The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\\ell$ is non-zero, its smoothness is not part of the statement (gap G.48 changed; Findings, Chapter 5, items 101, 178)."
+    "The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\\ell$ is non-zero, its smoothness is not part of the statement (Theorem 5.3.15: V5.71, gap G.48 closed; Findings, Chapter 5, items 101, 178)."
    ]
   },
   {
@@ -1798,6 +1825,229 @@
    ],
    "diff": [
     "Not in the book (Findings, Chapter 5, item 177)."
+   ]
+  },
+  {
+   "id": "V5.71",
+   "title": "Theorem 5.3.15 (preprint 5.22): general position and Morse-type critical points of $t$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))",
+    "page": 181,
+    "statement": "For a generalized compact homotopy with end problems in general position and $\\partial X = X_0 \\sqcup X_1$, an arbitrarily small $s_0 \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \\to [0, 1]$ a function with only Morse-type critical points."
+   },
+   "lean": {
+    "statement": "`theorem_5_3_15`: $X$ with sc-smooth bump functions, $(f, t)$ a generalized compact homotopy (`IsSubmersiveGenCompactHomotopy`, Definition 5.3.13 in the 2021 form, V5.68), the ends $X_i = t^{-1}(i)$ without boundary and $(f|X_i, x)$ in general position at every zero (`IsGeneralPositionAtEnds`), $\\partial X = X_0 \\cup X_1$, $N$ an auxiliary norm. Then there is an open $U \\supseteq S_f$ with $S_{f+s}$ compact for every $s \\in \\Gamma^{+,1}_U(P)$, and for every $\\varepsilon > 0$ an $s_0 \\in \\Gamma^{+,1}_U(P)$ with $N(s_0(x)) \\le \\varepsilon$, $s_0 = 0$ near $\\partial X$, such that (1) $(f + s_0, x)$ is in general position at every $x \\in S_{f+s_0}$ and (2) $t$ has only Morse-type critical points on $S_{f+s_0}$ (`MPolyfold.HasOnlyMorseCriticalPoints`). Conclusion (1) alone, with the same hypotheses, is `theorem_5_3_15_generalPosition`; the general position at $\\partial X$ comes from the ends (`isGeneralPositionGerm_of_mem_boundary`, `isGeneralPositionGerm_of_restrict`). The local data of the proof are derived (`StrongBundle.hasMorseLocalData`): smooth parametrizations of the families with $\\mu$ a submersion (`hasFamilyParam`), small sections making an interior zero a regular point (`exists_hasRegularFamilyParam`), and regular points of $t|S$ at the zeros on $\\partial X$ at every degeneracy index (`isRegularPointOn_of_extremum`, from `scDeriv_eq_zero_of_extremum`). \"Morse-type\" does not depend on the parametrization (`MPolyfold.IsMorseOrRegularPoint.morseClause`). The hypotheses are satisfiable (`theorem_5_3_15_generalPosition_witness`).",
+    "decls": [
+     "Chapter5/Theorem5315_Final · theorem_5_3_15",
+     "Chapter5/Theorem5315_Ends · theorem_5_3_15_generalPosition",
+     "Chapter5/Theorem5315_Ends · StrongBundle.IsGeneralPositionAtEnds",
+     "Chapter5/Theorem5315_Ends · StrongBundle.IsSubmersiveGenCompactHomotopy.isGeneralPositionGerm_of_mem_boundary",
+     "Chapter5/Theorem5315_Ends · isGeneralPositionGerm_of_restrict",
+     "Chapter5/Theorem5315_Ends · theorem_5_3_15_generalPosition_witness",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.hasMorseLocalData",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.hasFamilyParam",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.exists_hasRegularFamilyParam",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.isRegularPointOn_of_extremum",
+     "Chapter5/Theorem5315_LocalTangent · scDeriv_eq_zero_of_extremum",
+     "Chapter5/Theorem5315_LocalTangent · StrongBundle.exists_fderivWithin_eq_scDeriv_of_mem_linKer",
+     "Chapter5/Theorem5315_MorseParam · MPolyfold.IsSmoothParam",
+     "Chapter5/Theorem5315_MorseParam · MPolyfold.IsMorseOrRegularPoint",
+     "Chapter5/Theorem5315_MorseParam · MPolyfold.HasOnlyMorseCriticalPoints",
+     "Chapter5/Theorem5315_LocalInvarianceClause · MPolyfold.IsMorseOrRegularPoint.morseClause",
+     "Chapter5/Theorem5315_LocalInvarianceClause · MPolyfold.IsSmoothParam.fderivWithin_ne_zero_congr",
+     "Chapter5/Theorem5315_LocalInvariance · MPolyfold.IsSmoothParam.hessian_injective_congr"
+    ]
+   },
+   "chips": [
+    "no bump functions on $X_i$",
+    "Morse-type via parametrizations",
+    "no added hypothesis"
+   ],
+   "diff": [
+    "No added hypothesis. The bump functions on the $X_i$ are not assumed, and of $\\partial X = X_0 \\sqcup X_1$ only $\\partial X \\subseteq X_0 \\cup X_1$ is used. The end problems are the restrictions $f|X_i$ in the pull-back bundles (Definition 5.3.13 (2) as read in V5.68; up to isomorphism, Remark 5.3.14 is V5.73).",
+    "\"Morse-type critical points\" (not defined in the text) is read through smooth parametrizations of $S_{f+s_0}$: around every point a parametrization by a subset of $\\mathbb R^n$ with unique derivatives in which a critical point of $t$ is interior with injective Hessian; the clause then holds in every such parametrization (`IsMorseOrRegularPoint.morseClause`). The comparison with the charts of the Mathlib manifold structure of the solution set is not formalized.",
+    "The hidden hypothesis $dt(x) \\ne 0$ of V5.42 is supplied by the 2021 Definition 5.3.13 (3) (V5.69). At a zero on $\\partial X$, $t$ has an extremum, so $dt(x)$ vanishes on the reduced tangent space at every degeneracy index; with general position $dt(x) \\ne 0$ on $\\ker f'(x)$ (Findings, Chapter 5, items 101, 178, 183).",
+    "The proof is V5.72 (gap G.48 closed)."
+   ]
+  },
+  {
+   "id": "V5.72",
+   "title": "Proof of Theorem 5.3.15 (preprint 5.22): (5.12)–(5.14), the parametrized Sard step and the covering argument",
+   "verdict": "explicit",
+   "book": {
+    "label": "§5.3, proof of Theorem 5.3.15 (preprint 5.22), pp. 223–228 (preprint pp. 181–186)",
+    "page": 181,
+    "statement": "Near a critical point of $t|S$, sections $s_i$ built with Lemma 5.3.17 and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family $f + \\sum\\lambda_is_i$ make $(\\lambda, y) \\mapsto d(t \\circ \\Phi_\\lambda)(y)$ transversal to the zero section ((5.12)–(5.14)); a parameterized version of Sard's theorem gives, for almost every small $\\lambda$, only Morse-type critical points near that point; finitely many such neighbourhoods cover the solution set, and \"by construction\" the union of the families keeps the transversality."
+   },
+   "lean": {
+    "statement": "In a chart: `ae_hasOnlyMorseCriticalPointsOn` ($g : \\Lambda \\times E \\to \\mathbb R$ of class $C^2$ with $(\\lambda, z) \\mapsto \\partial_zg$ transversal to $0$: for almost every $\\lambda$, $g(\\lambda, \\cdot)$ has only Morse-type critical points), from `ae_forall_injective_of_surjective` (inverse function theorem and Sard in equal dimensions); `ae_hasOnlyMorseCriticalPointsOn_add_linear` ($h + \\ell$ is Morse for almost every $\\ell \\in E^*$). On the solution manifold: the sections are $a_i\\sigma$, so $S_\\lambda$ is a level set in the solution manifold $M$ of $f + \\sum\\mu_j\\sigma_j$ (`famZero`, `isZeroAt_paramSlice_smul_iff`); critical points of $t$ on level sets are handled with Lagrange multipliers (`lagrangian`, `IsLagrangeNondegenerate`, `injective_hessian_comp_of_lagrange`, `exists_levelSet_param`); (5.13)–(5.14) become `surjective_fderiv_famGradient`; the Sard step for the family is `ae_isLagrangeNondegenerate_family`, the local statement `ae_isMorseOrRegularPoint_famSlice`; the transversality persists in the union of the families (`exists_spanning_of_group`); the covering argument is `exists_morse_perturbation_hyp`, and `theorem_5_3_15_hyp` the theorem from the local data, discharged by `StrongBundle.hasMorseLocalData` (V5.71).",
+    "decls": [
+     "Chapter5/Theorem5315_ParametricMorse · ae_hasOnlyMorseCriticalPointsOn",
+     "Chapter5/Theorem5315_ParametricMorse · ae_forall_injective_of_surjective",
+     "Chapter5/Theorem5315_ParametricMorse · ae_hasOnlyMorseCriticalPointsOn_add_linear",
+     "Chapter5/Theorem5315_ParametricMorse · HasOnlyMorseCriticalPointsOn",
+     "Chapter5/Theorem5315_MorseLagrange · lagrangian",
+     "Chapter5/Theorem5315_MorseLagrange · IsLagrangeNondegenerate",
+     "Chapter5/Theorem5315_MorseLagrange · fderiv_lagrangian_eq_zero_iff",
+     "Chapter5/Theorem5315_MorseLagrange · injective_hessian_comp_of_lagrange",
+     "Chapter5/Theorem5315_MorseLagrange · exists_levelSet_param",
+     "Chapter5/Theorem5315_MorseFamily · surjective_fderiv_famGradient",
+     "Chapter5/Theorem5315_MorseFamily · ae_isLagrangeNondegenerate_family",
+     "Chapter5/Theorem5315_MorseParam · ae_isMorseOrRegularPoint_famSlice",
+     "Chapter5/Theorem5315_MorseParam · famShift",
+     "Chapter5/Theorem5315_MorseTransfer · exists_spanning_of_group",
+     "Chapter5/Theorem5315_MorseTransfer · MPolyfold.IsSmoothParam.fderivWithin_eq_zero_of_multiplier",
+     "Chapter5/Theorem5315_Morse · famZero",
+     "Chapter5/Theorem5315_Morse · isZeroAt_paramSlice_smul_iff",
+     "Chapter5/Theorem5315_Morse · StrongBundle.HasMorseLocalData",
+     "Chapter5/Theorem5315_Morse · exists_morse_perturbation_hyp",
+     "Chapter5/Theorem5315_Morse · theorem_5_3_15_hyp",
+     "Chapter5/Theorem5315_LocalParam · MPolyfold.TangentGermChart.exists_isSmoothParam",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.exists_isSmoothParam_solutionSet",
+     "Chapter5/Theorem5315_LocalData · StrongBundle.exists_isSmoothParam_famZero"
+    ]
+   },
+   "chips": [
+    "Lagrange multipliers",
+    "no $\\Phi_\\lambda$",
+    "equal-dimension Sard",
+    "smooth tangent vector"
+   ],
+   "diff": [
+    "Lagrange multipliers on level sets of the solution manifold of $f + \\sum\\mu_j\\sigma_j$ replace the trivialization $\\Phi_\\lambda$; only first derivatives of $f$ at the point enter. The parameterized Sard theorem follows in a chart from the inverse function theorem and Sard in equal dimensions (Mathlib).",
+    "The persistence of the transversality in the union of the families of several critical points (p. 227, \"by construction\") is proved with the functions $a_0 = 1$ and $a_i = \\arctan(q_i)/2$ (Findings, Chapter 5, item 183).",
+    "The sections of Lemma 5.3.17 pass through $-c\\,f'(x)w_1$ for a smooth tangent vector $w_1$ with $dt(x)w_1 \\ne 0$: the text's $b(e_i)$ lies in an algebraic complement $Z$, and for the sc$^+$-section through the value to exist (Lemma 5.3.3) the value must be a smooth point of the fibre. Smooth such $w_1$ exist by density (`exists_hasRegularFamilyParam`; Findings, Chapter 5, item 183)."
+   ]
+  },
+  {
+   "id": "V5.73",
+   "title": "Remark 5.3.8 (preprint 5.16): a general sc-Fredholm arc made transversal",
+   "verdict": "restated",
+   "book": {
+    "label": "§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)",
+    "page": 176,
+    "statement": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\"."
+   },
+   "lean": {
+    "statement": "`remark_5_3_8_arc`: let $F(t, x) = f_t(x)$ be a section of the pull-back of $P$ to $\\mathbb R^1 \\times X$ with tame germ data, over a tame $X$ with bump functions, in general position at its zeros with $t \\notin (a, b)$ ($0 < a$, $b < 1$), with compact zeros over $[0, 1]$. Then for every $\\varepsilon > 0$ there are $0 < c' < a$, $b < d' < 1$ and an sc⁺-section $s$ with $N(s) \\le \\varepsilon$, $s(t, \\cdot) = 0$ for $t \\notin (c', d')$, such that $F + s$ is in general position at every zero and its zeros over $[0, 1]$ are compact. It is the instance $\\tau = t$, $[c, d] = [0, 1]$ of `remark_5_3_8_relative` (any continuous time function $\\tau$ on a tame $X$), proved through Theorem 5.3.10 relative to a compact part; `exists_margin_of_isCompact` gives the compactness margin. The arcs $f_0 + S(t, \\cdot)$ between admissible sections are `exists_cobordism`, `exists_homotopy_cobordism` (V6.76).",
+    "decls": [
+     "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
+     "Chapter5/GapP1_Remark538 · remark_5_3_8_relative",
+     "Chapter5/GapP1_Remark538 · exists_margin_of_isCompact",
+     "Chapter5/CylinderPerturbation2021 · exists_cobordism",
+     "Chapter5/CylinderPerturbation2021 · theorem_5_3_10_relative_hyp",
+     "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism"
+    ]
+   },
+   "chips": [
+    "D2: $\\mathbb R^1 \\times X$",
+    "transversal = general position",
+    "orientation: G.66"
+   ],
+   "diff": [
+    "Reading D2: the text's $[0, 1] \\times X$ is $\\mathbb R^1 \\times X$; \"transversal near $t = 0, 1$\" is general position at the zeros with $t \\notin (a, b)$, and \"$s$ vanishing near $t = 0, 1$\" is $s(t, \\cdot) = 0$ for $t \\notin (c', d')$. The compact solution set of the arc is asked over $[0, 1]$. The orientation of the cobordism is gap G.66."
+   ]
+  },
+  {
+   "id": "V5.74",
+   "title": "Remark 5.3.14 (preprint 5.21): end problems up to isomorphism, made part of the data",
+   "verdict": "restated",
+   "book": {
+    "label": "§5.3, Remark 5.3.14 (preprint 5.21), p. 223 (preprint p. 181)",
+    "page": 181,
+    "statement": "Instead of $(f|X_i, P|Y_i) = (f_i, P_i)$ one should require that the problems are isomorphic and make this part of the data."
+   },
+   "lean": {
+    "statement": "`StrongBundle.IsProblemIso B f B' f'`: a strong bundle isomorphism $(h, \\Phi)$ with $\\Phi \\circ f = f' \\circ h$ (`.refl`, `.symm`, `.trans`; `.image_solutionSet`: $h(S_f) = S_{f'}$; `.isCompact_solutionSet_iff`). `StrongBundle.EndIso`: the restriction of the problem to a sub-M-polyfold is isomorphic to a given problem. `StrongBundle.IsGenCompactHomotopyBetween B f t B₀ f₀ B₁ f₁`: a 2021 generalized compact homotopy (`IsSubmersiveGenCompactHomotopy`, V5.68) with `EndIso` at $t^{-1}(0)$ to $(B_0, f_0)$ and at $t^{-1}(1)$ to $(B_1, f_1)$; it is invariant under isomorphism of the end problems (`congr_left`, `congr_right`) and the end solution sets are compact (`isCompact_solutionSet_left`, `isCompact_solutionSet_right`). Every generalized compact homotopy is one between its own restrictions, with identity isomorphisms (`IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween`).",
+    "decls": [
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso.image_solutionSet",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.EndIso",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.congr_left",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.congr_right",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.isCompact_solutionSet_left",
+     "Chapter5/GapP1_Remark5314 · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
+    ]
+   },
+   "chips": [
+    "isomorphism = strong bundle iso",
+    "on the 2021 Definition 5.3.13"
+   ],
+   "diff": [
+    "\"Isomorphic problems\" is read as a strong bundle isomorphism carrying $f$ to $f'$; it is put on the 2021 form of Definition 5.3.13 (V5.68). The notion is satisfiable: every generalized compact homotopy is one between its restrictions (Findings, Chapter 5, item 100)."
+   ]
+  },
+  {
+   "id": "V5.75",
+   "title": "Theorem 5.5.5 (preprint 5.32): the differentiability of $\\|\\cdot\\|^p$ on $L^p$ (Bonic–Frampton)",
+   "verdict": "same",
+   "book": {
+    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)",
+    "page": 193,
+    "statement": "On $L^p$, $\\|\\cdot\\|^p$ is $C^\\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer."
+   },
+   "lean": {
+    "statement": "`BonicFrampton.theorem_5_5_5 (p) [Fact (1 ≤ ENNReal.ofReal p)]`: for $F(f) = \\|f\\|^p$ on the real $L^p(\\mu)$ of any measure space, (1) $p = 2k$ ⇒ $F$ is $C^\\infty$; (2) $p = 2k + 1$ ⇒ $F$ is $C^{2k} = C^{p-1}$; (3) $p \\notin \\mathbb N$ ⇒ $F$ is $C^{[p]}$. For even $p$, $\\|\\cdot\\|^p$ is the diagonal of the continuous $p$-linear form $\\int\\prod h_i$ (`wMul`, generalized Hölder; `theorem_5_5_5_even`). For every $p \\ge 1$ the forms $T_j(f) = \\int g_j(f)\\prod h_i$, with $g_j$ the $j$-th derivative of $|t|^p$ and $g_j(f) \\in L^{p/(p-j)}$, are a Taylor series of $\\|\\cdot\\|^p$ up to every integer $n < p$ (`hasFTaylorSeriesUpTo_normRpow`, `contDiff_normRpow_of_lt`).",
+    "decls": [
+     "Chapter5/GapP1_BonicFrampton · BonicFrampton.theorem_5_5_5",
+     "Chapter5/GapP1_BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt",
+     "Chapter5/GapP1_BonicFrampton · BonicFrampton.hasFTaylorSeriesUpTo_normRpow",
+     "Chapter5/GapP1_LpWeightedProduct · BonicFrampton.theorem_5_5_5_even",
+     "Chapter5/GapP1_LpWeightedProduct · BonicFrampton.wMul"
+    ]
+   },
+   "chips": [
+    "any measure space",
+    "real $L^p$, $p \\ge 1$"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V5.76",
+   "title": "The $L^p$ and Sobolev remark after Theorem 5.5.5: $W^{k,p}$ norms, bumps, $W^{1,4}$ and $W^{1,3/2}$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§5.5 (preprint §5.4.2), pp. 230–231 (preprint pp. 193–194)",
+    "page": 193,
+    "statement": "The usual norms of $W^{k,p}(\\Omega)$ have the differentiability of $\\|\\cdot\\|_{L^p}$; $\\beta(\\|x\\|^p)$ is a bump function of $L^p$; $W^{1,4}(\\Omega)$ with $E_m = W^{1+m,4}(\\Omega)$ admits sc-smooth bump functions, while for $W^{1,3/2}(\\Omega)$ the straightforward one is only sc¹ — \"does there exist a sc-smooth bump function on $E$?\""
+   },
+   "lean": {
+    "statement": "$W^{k,p}(\\Omega)$, $\\Omega \\subseteq \\mathbb R^n$, $p \\ge 1$ (`SobolevRemark.Wsub`): the closed subspace of the $\\ell^p$-product $\\prod_{|\\alpha| \\le k}L^p(\\Omega)$ cut out by the weak-derivative identities; a Banach space with $\\|u\\|^p = \\sum\\|D^\\alpha u\\|^p_{L^p}$ (`norm_rpow_W`), weak derivatives unique on open $\\Omega$ (`Dop_zero_injective`). (1) Its norm has the differentiability of Theorem 5.5.5 (`remark_5_5_5_sobolev`). (2) $\\beta(\\|x\\|^p)$ is a bump of $L^p$ and of $W^{k,p}(\\Omega)$ in the three cases (`hasContDiffBump_Lp`, `remark_5_5_5_sobolev_bump`). (3) Every sc-Banach space with $E_0 \\cong W^{1,4}(\\Omega)$ admits sc-smooth bump functions, and so do its local models and M-polyfolds modelled on it (`remark_5_5_5_W14`), through `LocalModel.hasBumpProperty_of_hasContDiffBump`. (4) On $W^{1,3/2}(\\Omega)$ the bump $\\beta(\\|x\\|^{3/2})$ is sc¹ (`remark_5_5_5_W1_3_2`). The sc-structure $E_m = W^{1+m,p}(\\Omega)$ is `sobolevSc`, which takes the compactness of the inclusions (`hc`) and the density of $E_\\infty$ (`hd`) as hypotheses; they are discharged for $\\Omega = (0,1) \\subset \\mathbb R^1$ and every $p > 1$ (`SobolevCube.cubeSc`: Rellich `isCompactOperator_inclW_cube` through the compact Volterra operator, density `dense_smoothLvl_cube`), where `remark_5_5_5_W14_cube`, `remark_5_5_5_W14_instance` and `remark_5_5_5_W1_3_2_cube` give the claims on the text's sc-structure; `sobolevSc_hyps_empty` is the trivial instance $\\Omega = \\emptyset$.",
+    "decls": [
+     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.Wsub",
+     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.norm_rpow_W",
+     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.Dop_zero_injective",
+     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev",
+     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev_bump",
+     "Chapter5/GapP1_SobolevRemark1 · SobolevRemark.hasContDiffBump_Lp",
+     "Chapter5/GapP1_SobolevRemark1 · SobolevRemark.theorem_5_5_5_sum",
+     "Chapter5/GapP1_SobolevRemark1 · LocalModel.hasBumpProperty_of_hasContDiffBump",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W14",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W1_3_2",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_hyps_empty",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_admitsBumpFunctions",
+     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.example_1_1_3_scPolyfold",
+     "Chapter5/GapP1_SobolevCube1 · SobolevCube.isCompactOperator_V",
+     "Chapter5/GapP1_SobolevCube4 · SobolevCube.isCompactOperator_inclW_cube",
+     "Chapter5/GapP1_SobolevCube5 · SobolevCube.dense_smoothLvl_cube",
+     "Chapter5/GapP1_SobolevCube5 · SobolevCube.cubeSc",
+     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_cube",
+     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_instance",
+     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W1_3_2_cube"
+    ]
+   },
+   "chips": [
+    "sc-structure on $(0,1)$ only",
+    "bumps: every $\\Omega$, level 0 only",
+    "$\\beta(0) \\ne 0$"
+   ],
+   "diff": [
+    "The remark presupposes that $E_m = W^{1+m,4}(\\Omega)$ is an sc-structure on any bounded domain $\\Omega \\subseteq \\mathbb R^n$. `sobolevSc` takes the compactness of the inclusions and the density of $E_\\infty$ as hypotheses; they are proved only for the unit interval $(0,1) \\subset \\mathbb R^1$, every $p > 1$ (`cubeSc`). Cubes in $\\mathbb R^n$ with $n \\ge 2$ and other bounded domains (where, as we read it, a regular boundary is presupposed) are not done; hence narrower.",
+    "The bump statements (3), (4) are stronger than printed: they hold for every sc-structure on $W^{1,4}(\\Omega)$ resp. $W^{1,3/2}(\\Omega)$ and every $\\Omega$, since they use only $E_0$. \"Non-vanishing $\\beta$\" is read as $\\beta(0) \\ne 0$, as in the Hilbert example on p. 229.",
+    "The closing question is a question, not a claim (Findings, Chapter 5, items 118, 185)."
    ]
   }
  ],
@@ -1840,21 +2090,28 @@
    "label": "§5.3, Remark 5.3.6 (preprint 5.14), p. 218 (preprint p. 175)",
    "page": 175,
    "book": "In [21] the fibres were separable sc-Hilbert spaces and auxiliary norms had more properties involving weak convergence; neither is needed here, \"due to an improved treatment of the compactness\".",
-   "instead": "**Not formalized** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1.1 (preprint 5.1) is as stated (V5.3, V5.10)."
+   "instead": "**Nothing to formalize** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1.1 (preprint 5.1) is as stated (V5.3, V5.10).",
+   "nothing": true
   },
   {
    "title": "Remark 5.3.8 (preprint 5.16)",
    "label": "§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)",
    "page": 176,
    "book": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\".",
-   "instead": "**Formalized in part** (2026-11-09; a sketch in the text, left to the reader). The cobordism is formalized in the form the proof of Theorem 6.7.1 uses (`exists_cobordism`, `Chapter5/CylinderPerturbation2021.lean`). Two sections $s_0, s_1$ admissible for $(N, U)$ are joined by an sc⁺-section $S$ of the pull-back to $\\mathbb R^1 \\times X$, equal to $s_i$ near the ends, with $\\tilde f + S$ in general position at every zero and compact zero sets over compact $t$-intervals. The perturbation comes from Theorem 5.3.10 relative to a compact part (`theorem_5_3_10_relative_hyp`), applied on $\\mathbb R^1 \\times X$. The text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ with sections stationary near $t = 0, 1$ (decision D2), and \"transversal $f_0$, $f_1$\" as general position of $f + s_i$ at every zero (the admissible case). The homotopy form is formalized too (`exists_homotopy_cobordism`, `Chapter6/ProperHomotopy2021.lean`). For a proper homotopy $F = \\tilde f_0 + S$ from $f_0$ to $f_1 = f_0 + S(1, \\cdot)$, sections $s_0$, $s_1$ admissible for $f_0$, $f_1$ are joined by an sc⁺-section $\\hat S$ of the pull-back, with $\\tilde f_0 + \\hat S$ equal to $f_0 + s_0$ near $t = 0$, equal to $f_1 + s_1$ near $t = 1$, in general position at every zero, and with compact zeros over compact $t$-intervals; such $s_0$, $s_1$ exist inside any given neighbourhoods (`exists_homotopy_cobordism_data`). Both cobordisms give the same data (`IsCobordismData`), which the proof of Theorem 6.7.1 uses (V6.76). The orientation of the cobordism is gap G.66. **Not formalized**: general sc-Fredholm arcs $f_t$ that are not of the form $f_0 + S(t, \\cdot)$ with $S$ sc⁺; for them the relative theorem applies directly to the arc on $\\mathbb R^1 \\times X$ when it is stationary and in general position near the ends and has the compactness margin.",
+   "instead": "**Formalized** (2026-11-12; V5.73). For an arbitrary sc-Fredholm arc on $\\mathbb R^1 \\times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \\cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2). The orientation of the cobordism is gap G.66.",
    "decls": [
     "Chapter5/CylinderPerturbation2021 · exists_cobordism",
     "Chapter5/CylinderPerturbation2021 · theorem_5_3_10_relative_hyp",
     "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism",
     "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism_data",
     "Chapter6/ProperHomotopy2021 · StrongBundle.IsCobordismData",
-    "Chapter6/ProperHomotopy2021 · exists_isCobordismData"
+    "Chapter6/ProperHomotopy2021 · exists_isCobordismData",
+    "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
+    "Chapter5/GapP1_Remark538 · remark_5_3_8_relative",
+    "Chapter5/GapP1_Remark538 · exists_margin_of_isCompact"
+   ],
+   "formalized": [
+    "V5.73"
    ]
   },
   {
@@ -1862,9 +2119,14 @@
    "label": "§5.3, Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)",
    "page": 180,
    "book": "\"There exists an arbitrarily small section $s \\in \\Gamma^{+,1}_U(P)$ satisfying $s(x) = 0$ near $\\partial X$\" with the properties of the theorem.",
-   "instead": "**Not formalized in the dense form.** The generic form gives $s_\\lambda = \\sum\\lambda_it_i$ for $\\lambda$ off a null set of a small ball, so arbitrarily small as $\\lambda \\to 0$ (V5.40); density around a given allowable $s'$, as in Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18), is not stated (Findings, Chapter 5, item 89).",
+   "instead": "**Formalized** (2026-11-12; V5.40). `theorem_5_3_12_dense`, with the hypotheses of Theorem 5.3.12: around every $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$, within $N$-distance $\\varepsilon$, there is an $s \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ with all the conclusions of the theorem. The proof is the generic form around a given section, `theorem_5_3_12_param_rel`: $s = (1-\\varepsilon')s' + \\sum\\lambda_it_i$ for $\\lambda$ off a null set of a small ball, as in Theorems 5.3.5 and 5.3.10 (Findings, Chapter 5, item 89).",
    "decls": [
-    "Chapter5/GeneralPosition · theorem_5_3_12_param"
+    "Chapter5/GeneralPosition · theorem_5_3_12_param",
+    "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_dense",
+    "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_param_rel"
+   ],
+   "formalized": [
+    "V5.40"
    ]
   },
   {
@@ -1889,19 +2151,38 @@
    "label": "§5.3, Remark 5.3.14 (preprint 5.21), p. 223 (preprint p. 181)",
    "page": 181,
    "book": "Instead of $(f|X_i, P|Y_i) = (f_i, P_i)$ one should require that the problems are isomorphic and make this part of the data.",
-   "instead": "**Not formalized.** Definition 5.3.13 (preprint 5.20) takes the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ as the end problems (V5.41) (Findings, Chapter 5, item 100)."
+   "instead": "**Formalized** (2026-11-12; V5.74). `IsGenCompactHomotopyBetween`: a 2021 generalized compact homotopy together with isomorphisms of problems (`IsProblemIso`: a strong bundle isomorphism carrying $f$ to $f'$) from the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ to the given end problems; it is invariant under isomorphism of the ends, and every generalized compact homotopy is one between its restrictions (Findings, Chapter 5, item 100).",
+   "formalized": [
+    "V5.74"
+   ],
+   "decls": [
+    "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso",
+    "Chapter5/GapP1_Remark5314 · StrongBundle.EndIso",
+    "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween",
+    "Chapter5/GapP1_Remark5314 · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
+   ]
   },
   {
    "title": "Theorem 5.3.15 (preprint 5.22): Morse-type structure",
    "label": "§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))",
    "page": 181,
    "book": "For a generalized compact homotopy with end problems in general position and $\\partial X = X_0 \\sqcup X_1$, an arbitrarily small $s_0 \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \\to [0, 1]$ a function with only Morse-type critical points.",
-   "instead": "**Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family (not \"the classical standard implicit function theorem\"); its proof also needs $dt(x) \\ne 0$ at the critical points of $t|S$, which the preprint and 2017 statements do not assume (V5.42); the 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth point and so supplies it (`lemma_5_3_16`, V5.69), but the theorem itself is still not formalized. Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178).",
+   "instead": "**Formalized** (2026-11-12; V5.71, V5.72). `theorem_5_3_15` is the printed statement with both conclusions and no added hypothesis: general position at every zero from the ends, and only Morse-type critical points of $t$ (read through smooth parametrizations of the solution set). The proof replaces the trivialization $\\Phi_\\lambda$ by Lagrange multipliers on level sets of the solution manifold of $f + \\sum\\mu_j\\sigma_j$; the local data come from Theorem 3.6.8 and Definition 5.3.13 (3) (`StrongBundle.hasMorseLocalData`). Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178, 183).",
    "decls": [
     "Chapter5/Homotopy · lemma_5_3_16_preprint",
     "Chapter5/Homotopy · lemma_5_3_17",
     "Chapter5/Homotopy · ne_zero_of_isCompl_ker",
-    "Chapter5/Book2021 · lemma_5_3_16"
+    "Chapter5/Book2021 · lemma_5_3_16",
+    "Chapter5/Theorem5315_Final · theorem_5_3_15",
+    "Chapter5/Theorem5315_Ends · theorem_5_3_15_generalPosition",
+    "Chapter5/Theorem5315_LocalData · StrongBundle.hasMorseLocalData",
+    "Chapter5/Theorem5315_Morse · exists_morse_perturbation_hyp",
+    "Chapter5/Theorem5315_MorseFamily · ae_isLagrangeNondegenerate_family",
+    "Chapter5/Theorem5315_LocalInvarianceClause · MPolyfold.IsMorseOrRegularPoint.morseClause"
+   ],
+   "formalized": [
+    "V5.71",
+    "V5.72"
    ]
   },
   {
@@ -1909,30 +2190,61 @@
    "label": "§5.3, Theorem 5.27 (preprint), preprint p. 188",
    "page": 188,
    "book": "For a proper homotopy $f_t$ and perturbations $s_0$, $s_1$ putting $f + s_i$ in good position, there is $s(x, t)$ with $s(\\cdot, i) = s_i$ such that $f + s$ is in good position at all smooth points; its solution set is a compact manifold with corners meeting $\\{i\\} \\times X$ in $S_0$, $S_1$.",
-   "instead": "**Not formalized**: \"the proof is left to the reader\" (Findings, Chapter 5, item 104)."
+   "instead": "**Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, gap G.44). For good position at the corner points $\\{i\\} \\times \\partial X$ the step of G.46 would be needed: $\\mathbb R \\times \\ker$ need not be in good position to $[0,\\infty) \\times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).",
+   "decls": [
+    "Chapter5/CylinderPerturbation2021 · exists_cobordism",
+    "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism",
+    "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
+    "Chapter3/Counterexamples2021 · Counterexamples2021.not_isInGoodPosition_prod_diag"
+   ],
+   "nothing": true
   },
   {
    "title": "Theorem 5.5.5 (preprint 5.32): Bonic–Frampton",
    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)",
    "page": 193,
    "book": "On $L^p$, $\\|\\cdot\\|^p$ is $C^\\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.",
-   "instead": "**Not formalized** (cited from [9], Theorem 1, in the 2021 edition from [25]; deep Banach space geometry, not used on the main line; the preprint statement misses \"$p$\" in (1), (2), which the 2017 and 2021 statements print) (Findings, Chapter 5, items 117, 120, 179)."
+   "instead": "**Formalized** (2026-11-12; V5.75), as printed, for the real $L^p(\\mu)$ of any measure space (`BonicFrampton.theorem_5_5_5`): for even $p$ the norm power is the diagonal of a continuous $p$-linear form; for every $p \\ge 1$ the forms $\\int g_j(f)\\prod h_i$ are a Taylor series of $\\|\\cdot\\|^p$ up to every integer $n < p$ (Findings, Chapter 5, items 117, 120, 179).",
+   "formalized": [
+    "V5.75"
+   ],
+   "decls": [
+    "Chapter5/GapP1_BonicFrampton · BonicFrampton.theorem_5_5_5",
+    "Chapter5/GapP1_BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt"
+   ]
   },
   {
    "title": "The $L^p$ and Sobolev remark",
    "label": "§5.5 (preprint §5.4.2), pp. 230–231 (preprint pp. 193–194)",
    "page": 193,
    "book": "The usual norms of $W^{k,p}(\\Omega)$ have the differentiability of $\\|\\cdot\\|_{L^p}$; $\\beta(\\|x\\|^p)$ is a bump function of $L^p$; $W^{1,4}(\\Omega)$ with $E_m = W^{1+m,4}(\\Omega)$ admits sc-smooth bump functions, while for $W^{1,3/2}(\\Omega)$ the straightforward one is only sc¹ — \"does there exist a sc-smooth bump function on $E$?\"",
-   "instead": "**Not formalized.** It needs Sobolev spaces with their sc-structures (gap G.1) and Theorem 5.5.5 (preprint 5.32) (Findings, Chapter 5, item 118)."
+   "instead": "**Formalized** (2026-11-12; V5.76), with the sc-structure on one bounded domain only. The $W^{k,p}$ norms have the differentiability of Theorem 5.5.5, $\\beta(\\|x\\|^p)$ is a bump of $L^p$ and $W^{k,p}(\\Omega)$, every sc-Banach space with $E_0 \\cong W^{1,4}(\\Omega)$ admits sc-smooth bump functions (`remark_5_5_5_W14`), and on $W^{1,3/2}$ the bump is sc¹ (`remark_5_5_5_W1_3_2`). The sc-structure $E_m = W^{1+m,p}(\\Omega)$, `sobolevSc`, takes the compactness and the density as hypotheses; they are discharged only for $\\Omega = (0,1) \\subset \\mathbb R^1$ and every $p > 1$ (`SobolevCube.cubeSc`, `remark_5_5_5_W14_cube`). Cubes in $\\mathbb R^n$, $n \\ge 2$, and other bounded domains are not done; `sobolevSc_hyps_empty` ($\\Omega = \\emptyset$) is the trivial instance (Findings, Chapter 5, items 118, 185).",
+   "formalized": [
+    "V5.76"
+   ],
+   "decls": [
+    "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev",
+    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W14",
+    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc",
+    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_hyps_empty",
+    "Chapter5/GapP1_SobolevCube5 · SobolevCube.cubeSc",
+    "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_cube"
+   ]
   },
   {
    "title": "Theorem 5.5.13 (preprint 5.40): Toruńczyk",
    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.13 (preprint 5.40), p. 234 (preprint p. 198)",
    "page": 198,
    "book": "A Banach space $E$ admits a $C^k$-partition of unity iff there are a set $\\Gamma$ and a coordinate-wise $C^k$ homeomorphic embedding of $E$ into $c_0(\\Gamma)$.",
-   "instead": "**Stated, not proved** (`TorunczykStatement`, V5.59), and not used (cited from [9], Theorem 30) (Findings, Chapter 5, item 117).",
+   "instead": "**Formalized** (2026-11-12; V5.59): `theorem_5_5_13 : TorunczykStatement V k` for every real Banach space and every $k$. (⇒) by a coordinate-wise $C^k$ embedding into $c_0(\\mathbb N \\times V)$ built from partitions of unity; (⇐) by lattice-point products and Michael's products, which give $C^k$ Urysohn functions and then partitions of unity (Findings, Chapter 5, item 117).",
    "decls": [
-    "Chapter5/PartitionsOfUnity · TorunczykStatement"
+    "Chapter5/PartitionsOfUnity · TorunczykStatement",
+    "Chapter5/GapP1_Torunczyk · theorem_5_5_13",
+    "Chapter5/GapP1_Torunczyk · torunczyk_forward",
+    "Chapter5/GapP1_Torunczyk · torunczyk_backward"
+   ],
+   "formalized": [
+    "V5.59"
    ]
   },
   {
@@ -1940,10 +2252,17 @@
    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198)",
    "page": 198,
    "book": "If the WCG space $E$ admits a $C^k$-bump function, then it also admits $C^k$-partitions of unity.",
-   "instead": "**Stated, not proved** (`GodefroyTroyanskiWhitfieldZizlerStatement`, V5.62; cited from [12] and [9], Theorem 31); it is an explicit hypothesis of Corollary 5.5.17 (preprint 5.44) (V5.63) (Findings, Chapter 5, items 116, 117).",
+   "instead": "**Formalized** (2026-11-12; V5.62, V5.63): `theorem_5_5_16` for every WCG Banach space and every $k$, through the Amir–Lindenstrauss projectional resolution of the identity, induction on the density with the separable (Bonic–Frampton) case as base, and Toruńczyk's theorem (G.52) for the gluing. Corollary 5.5.17 no longer takes it as a hypothesis; it needs only the separable case, since $E_0$ is separable for every sc-Banach space (`ScBanach.separableSpace_zero`) (Findings, Chapter 5, items 116, 117, 184).",
    "decls": [
     "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
-    "Chapter5/PartitionsOfUnity · corollary_5_5_17"
+    "Chapter5/GapP1_GTWZ · theorem_5_5_16",
+    "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+    "Chapter5/GapP1_SeparablePOU · ScBanach.separableSpace_zero",
+    "Chapter5/GapP1_SeparablePOU · corollary_5_5_17_unconditional"
+   ],
+   "formalized": [
+    "V5.62",
+    "V5.63"
    ]
   }
  ]

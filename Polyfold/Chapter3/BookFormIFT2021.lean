@@ -46,11 +46,10 @@ strong bundle", row V3.103).
 
 ## What is not here
 
-* **"`ker f'(y) = T_yS(f, U)`"** (Theorem 3.1.22, last clause) stays in the chart of the tangent
-  germ data (`theorem_3_6_8_ker_eq_tangent`, row V3.99): the project has no intrinsic
-  linearization `f'(y) : T_yX → Y_y`, only its chart forms `linAt`, and the identification of the
-  chart image of `T_yS ⊆ T_yX` (`subInclusionCLM`) with the tangent space `N_v` of the graph is not
-  proved.
+* **"`ker f'(y) = T_yS(f, U)`"** (Theorem 3.1.22, last clause) is stated here in the chart of the
+  tangent germ data (`theorem_3_6_8_ker_eq_tangent`, row V3.99). In `T_yX`, with the intrinsic
+  linearization `StrongBundle.linIntr` (chart-independent), it is `theorem_3_1_22_book_ker`
+  (`GapP1_Theorem3122Ker.lean`, 2026-11-12).
 * The graph description of the proof, `ψφ(S) = {v + σ(v) | v ∈ V'}` (row V3.48,
   `theorem_3_6_8_graph`), is a step of the proof stated in the chart at `x₀`; it is not repeated
   here.
@@ -147,7 +146,8 @@ operator; (b) if `f'(x₀)` is surjective (`IsLinSurjAt`), there are an open `U 
 that at every zero `y ∈ U` the linearization `f'(y)` is surjective, Fredholm of index
 `d = dim ker f'(y)` (in every chart), and `S(f, U)` is a sub-M-polyfold whose induced structure is
 that of a `d`-dimensional manifold without boundary — its dimension is the Fredholm index.
-"`ker f'(y) = T_yS(f, U)`" is stated in a chart: `theorem_3_6_8_ker_eq_tangent`. -/
+"`ker f'(y) = T_yS(f, U)`" is stated in a chart: `theorem_3_6_8_ker_eq_tangent`; in `T_yX` it is
+`theorem_3_1_22_book_ker` (`GapP1_Theorem3122Ker.lean`). -/
 theorem theorem_3_1_22_book (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTame2021 f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) :
     (∀ c : StrongBundleChart PX P, B.IsChart c → x₀ ∈ c.φ.source →

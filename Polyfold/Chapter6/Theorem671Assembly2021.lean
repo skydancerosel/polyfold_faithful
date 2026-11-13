@@ -25,7 +25,8 @@ is built for `N₀`, on a neighbourhood of `S_{f₁}` with the margin for `N₀`
 
 ## Main declarations
 
-* `CobordismOrientationHyp B hX`, `CobordismRelativeFormsHyp B hX`: the two remaining hypotheses.
+* `CobordismOrientationHyp B hX`, `CobordismRelativeFormsHyp B hX`: the two remaining hypotheses
+  (since proved, resp. no longer needed: `cobordismOrientationHyp`, `cobordismRelativeFormsInner`).
 * `psiAt_eq_of_admissible_hyp`: (A), `PsiIndepAdmissible B hX hbump`.
 * `psiAt_eq_of_homotopy_hyp`: (B), `PsiIndepHomotopy B hX hbump`.
 * `theorem_6_7_1_hyp`: 2021 Theorem 6.7.1 under the two hypotheses.
@@ -56,6 +57,17 @@ the faces of `S_F`, the pull-back of `ManifoldForm`s along the end projection, a
 property (`IsExtendedBy`) at the face points of the ends. Neither hypothesis quantifies over all
 orientations: the orientations are fixed by `o` (part (1)) and by `o₀`, `S` (part (2)), and the
 relative forms do not involve orientations. No Lean witness of the two hypotheses is given here.
+
+Superseded in part (2026-11-12). `SectionOrientation.prodFirst` is built
+(`ProductSectionOrientation2021c`–`f`), and `CobordismOrientation2021` gives the continuous
+orientation `cobOr` of `S_F` and reduces `CobordismOrientationHyp` to its product form on the two
+ends (`cobordismOrientation_of_ends`); the end statement is proved in `CobordismOrientationEnds2021d`
+(`cobordismOrientationHyp`). The relative form is
+built on the inner ends (`cobordismRelativeFormsInner`, `CobordismRelativeForms2021b`), and
+`theorem_6_7_1_of_orientation`, `theorem_6_7_1_noBoundary_of_orientation` state the theorem under
+`CobordismOrientationHyp` alone. Theorem 6.7.1 without hypotheses on the cobordism is
+`theorem_6_7_1`, `theorem_6_7_1_noBoundary` (`Theorem671Final2021`). `CobordismRelativeFormsHyp` and
+the `_hyp` theorems here are kept.
 -/
 
 open Set
@@ -82,7 +94,10 @@ p. 276; proof of Theorem 6.7.1, p. 278–279; gap G.66): 4b's `CobordismOrientat
   `(N, U)`, both ends oriented by `o`;
 * part (2): cobordism data `Ŝ` between `f₀ + s₀` and `f₀ + (S(1, ·) + s₁) = f₁ + s₁` for a proper
   oriented homotopy `S` from `(f₀, o₀)` to `(f₁, o₁)` (`IsProperOrientedHomotopyBetween`).
-Not proved: it needs `SectionOrientation.prodFirst` (items 1–4, 6, 7 of `w1c2-prodor`). -/
+Proved: `cobordismOrientationHyp` (`CobordismOrientationEnds2021d`), from
+`SectionOrientation.prodFirst` (`ProductSectionOrientation2021f`), `cobordismOrientation_of_ends`
+(`CobordismOrientation2021`) and the value `e ∧ o_{S_i}` of `cobOr` on the two ends
+(`isEndProductOrientation_cobOr`). -/
 def CobordismOrientationHyp : Prop :=
   haveI := paracompactSpace_rn_prod PX 1
   haveI := paracompactSpace_rn_pullback B 1
@@ -109,8 +124,10 @@ def CobordismOrientationHyp : Prop :=
 
 /-- **The relative forms on the cobordisms of the proof of 2021 Theorem 6.7.1** (the form
 `p₁^*ω − dβ` on `S_F`, p. 278): 4b's `CobordismRelativeForms` for all cobordism data `Ŝ` between
-`f₀ + s₀` and `f₀ + σ₁ = f₁ + s₁` (orientations play no role). Not proved: it needs the pull-back
-of forms on `∂X` to `∂(ℝ¹ × X)` and the face-form part of `w3b2-ends`. -/
+`f₀ + s₀` and `f₀ + σ₁ = f₁ + s₁` (orientations play no role). Not proved as stated (on the full
+ends it would need a smooth extension across `t = 1/8`); no longer needed: the inner-end form
+`cobordismRelativeFormsInner` (`CobordismRelativeForms2021b`) replaces it in
+`theorem_6_7_1_of_orientation`. -/
 def CobordismRelativeFormsHyp : Prop :=
   haveI := paracompactSpace_rn_prod PX 1
   haveI := paracompactSpace_rn_pullback B 1
@@ -195,7 +212,9 @@ The statement is that of `theorem_6_7_1_of_indep` (where the trace of each hypot
 is given); its hypotheses (A) and (B) are discharged by `psiAt_eq_of_admissible_hyp` and
 `psiAt_eq_of_homotopy_hyp`. What remains are `CobordismOrientationHyp` (the orientation of the
 cobordism `S_F`, Remark 6.6.19, gap G.66) and `CobordismRelativeFormsHyp` (a relative form on
-`S_F`), which are steps of the text's proof, not hypotheses of the text. (2) is read as in R-d. -/
+`S_F`), which are steps of the text's proof, not hypotheses of the text. (2) is read as in R-d.
+Superseded by `theorem_6_7_1` (`Theorem671Final2021`), the same statement without the two
+hypotheses. -/
 theorem theorem_6_7_1_hyp (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hOr : CobordismOrientationHyp B hX) (hRel : CobordismRelativeFormsHyp B hX) :
     ∃ Ψ : ∀ (f : X → Y) (hf : B.IsScFredholmSectionTame f), B.IsProper f →
@@ -230,7 +249,7 @@ theorem theorem_6_7_1_hyp (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
 p. 233), under the two cobordism hypotheses: the statement of
 `theorem_6_7_1_noBoundary_of_indep` (`Φ([ω]) = ∫_{S_{f+s}} ω` in the degree `n` of the constant
 index, `Φ = 0` in the other degrees, homotopy invariance), with (A) and (B) discharged as in
-`theorem_6_7_1_hyp`. -/
+`theorem_6_7_1_hyp`. Superseded by `theorem_6_7_1_noBoundary` (`Theorem671Final2021`). -/
 theorem theorem_6_7_1_noBoundary_hyp (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hbd : PX.IsWithoutBoundary) (hOr : CobordismOrientationHyp B hX)
     (hRel : CobordismRelativeFormsHyp B hX) :

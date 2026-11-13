@@ -64,7 +64,7 @@ CHAPTERS = [
            'homotopies, partitions of unity'),
     ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm '
            'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
-           'sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) under two stated hypotheses (V6.76)'),
+           'sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) (V6.76)'),
     ('V7', 'Part II, Chapter 7', 'HWZ Part II, Chapter 7 §§7.1–7.3, 7.5–7.6, pp. 287–356 (2017 §§7.1–7.5, pp. 225–256; '
            'Part II has no 2014 preprint): ep-groupoids, natural representations of the '
            'isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of '
@@ -107,6 +107,7 @@ VERDICTS = [
     ('sign',      'value differs',       'The formal value differs from the book’s, through a difference of convention.'),
     ('gap',       'not formalized',      'The book states it; the formalization does not prove it.'),
     ('closed',    'formalized since',    'Listed as not formalized in the first edition of this page; proved since, in the rows named.'),
+    ('nothing',   'nothing to formalize', 'A question, a comment, or a preprint statement absent from the 2021 edition: nothing to prove. What it has of mathematics is formalized in the declarations named.'),
 ]
 VNAME = {k: n for k, n, _ in VERDICTS}
 
@@ -205,7 +206,7 @@ def load():
                 pos += 1
                 k = pos
             done = g.get('formalized') or []
-            items.append({'id': f'G.{k}', 'title': g['title'], 'verdict': 'closed' if done else 'gap',
+            items.append({'id': f'G.{k}', 'title': g['title'], 'verdict': 'closed' if done else ('nothing' if g.get('nothing') else 'gap'),
                           BOOK_KEY: {'label': g['label'], 'page': g.get('page'), 'statement': g['book']},
                           'lean': {'statement': g['instead'], 'decls': g.get('decls', [])},
                           'chips': [f'now {v}' for v in done], 'diff': []})
@@ -229,7 +230,7 @@ def validate(items):
             bad.append(f'{vid}: empty {BOOK_SHORT} statement')
         if not it.get('lean', {}).get('statement'):
             bad.append(f'{vid}: empty formal statement')
-        if not it.get('lean', {}).get('decls') and it.get('verdict') != 'gap':
+        if not it.get('lean', {}).get('decls') and it.get('verdict') not in ('gap', 'nothing'):
             bad.append(f'{vid}: no declarations')
         for ch in it.get('chips', []):
             if len(ch) > 44:
@@ -397,7 +398,7 @@ def render_item(it):
 {f'<div class="chips">{chips}</div>' if chips else ''}
 <div class="cols">
 <div class="col book"><p class="clabel">{BOOK_SHORT} <span class="src">{src}</span></p>{md(book['statement'])}{note}</div>
-<div class="col lean"><p class="clabel">{'In the formalization' if v in ('gap', 'closed') else 'Proved in Lean'}</p>{md(lean['statement'])}
+<div class="col lean"><p class="clabel">{'In the formalization' if v in ('gap', 'closed', 'nothing') else 'Proved in Lean'}</p>{md(lean['statement'])}
 {f'<div class="decls">{"".join(decl_html)}</div>' if decl_html else ''}{''.join(code_html)}</div>
 </div>{diff_html}</article>"""
 

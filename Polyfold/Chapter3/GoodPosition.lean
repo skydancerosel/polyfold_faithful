@@ -51,9 +51,14 @@ of indices vanishing at some nonzero point of `N ∩ C`.  (Proposition 3.8.12 (p
   (`Σ = ∅`) every nonzero point of `N ∩ C` has all coordinates positive and a line argument shows
   `dim N = 1` (`quadrantNormalForm_of_vanIdx_empty`).  The case `N ∩ C = N` (all `ℓ_i` vanish on
   `N`, e.g. `N ⊆ W`), which the text's case distinction does not single out, is treated first.
+  (2026-11-12) The extreme-ray lemmas themselves are now formalized, though still not used here:
+  Lemmas 3.8.1–3.8.3 in `Polyfold/Chapter3/GapP1_ExtremeRays.lean` (`lemma_3_8_1` for `P ≠ {0}`,
+  `lemma_3_8_1_zero_union`, `lemma_3_8_2`, `lemma_3_8_3`) and Lemmas 3.8.9–3.8.11 in
+  `GapP1_Lemma389.lean`, `GapP1_Lemma389Sc.lean` (`lemma_3_8_9_sc`, `lemma_3_8_10`, `lemma_3_8_11`).
 * **Only the algebraic splitting `E₀ = N ⊕ P` is used**: neither the sc-structure of `P` nor its
   closedness enters Proposition 3.1.25 (preprint 3.22), Lemma 3.5.9 (preprint 3.45), Lemma 3.8.8 (preprint 3.65) or Proposition 3.8.12 (preprint 3.69).  The text's
-  Lemma 3.8.9 (preprint 3.66) (`Ñ` is in good position with good complement `(N ∩ W) ⊕ N^⊥`) is not needed either.
+  Lemma 3.8.9 (preprint 3.66) (`Ñ` is in good position with good complement `(N ∩ W) ⊕ N^⊥`) is not needed either
+  (it is formalized separately, `lemma_3_8_9_sc`).
 * **Proposition 3.8.12 (preprint 3.69) (2)** `d_{N ∩ C}(x) = dim N − dim(N ∩ W)` is stated as
   `d_{N ∩ C}(x) + dim(N ∩ W) = dim N`; the subspace `N ∩ W` is `ker((x ↦ x.1) ∘ ι_N)`.  In the
   normal form the `ℝᵏ`-component of `e` vanishes on `N ∩ W` and `k = dim N − dim(N ∩ W)`.

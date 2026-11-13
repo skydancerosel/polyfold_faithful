@@ -153,7 +153,8 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
   chart domains (`V ≅ O`, Corollary 2.1.7, Proposition 2.1.8 (2)) and condition (b) from
   Lemma 2.3.5; "(3) the topology on level `0`" is the topology of `X`.
 * Not formalized here: Lemma 2.7.3 and Proposition 2.7.4 of the appendix (2017 Lemma 2.7,
-  Proposition 2.17), which `Metrizable.lean` bypasses.
+  Proposition 2.17), which `Metrizable.lean` bypasses; they are formalized in `GapP1_Michael.lean`
+  (`lemma_2_7_3`, `proposition_2_7_4`).
 -/
 
 open Set Filter Topology TopologicalSpace Function

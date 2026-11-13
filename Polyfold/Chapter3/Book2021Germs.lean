@@ -80,9 +80,12 @@ if `(a_k, w_k) ∈ S` converges to `0` in `E₀`, then for every `m` there is `k
   `ker Tf̃(0)` in `T₀O` (`IsGoodPositionAtGerm`) all hold, `hK` fails, and `ker Dg(0) = 0 ⊕ ℝ` is
   not in good position to `C` in `E` (`theorem_3_6_8_tame_step`).  Since `X = ℝ` there has no
   boundary, tameness of the chart enters even the proof of Theorem 3.6.10 (`∂X = ∅`).  The
-  conclusions of these theorems are not refuted by the example (its solution set `O ≅ ℝ` is a
-  manifold): whether they hold for untamed germ data is open (Findings, Chapter 3, item 353, the
-  passage from germ data in some compatible chart to germ data in a tame one).
+  example's solution set `O ≅ ℝ` is still a manifold.  For untamed germ data the conclusions do
+  not hold as we read it: `UntamedCorner.theorem_3_6_8_untamed_not` and
+  `UntamedCorner.theorem_3_1_22_untamed_not` (`GapP1_UntamedBundleTheorem.lean`) give a tame strong
+  bundle over `ℝ` with a 2021 sc-Fredholm section whose solution set near a zero in good position
+  is a closed half-line, and germ data in a compatible chart need not move to a tame one
+  (`UntamedCorner.isScFredholmGerm2021_not_tame`; Findings, Chapter 3, items 353, 388).
 * **`r(0) = 0`** is a field of `IsFilling2021`; the text "assumes" it.  In the project's charts it
   follows from `c.φ x₀ = 0` and `0 ∈ O = r(U)`.
 * **Theorem 3.5.1.**  As in `theorem_3_1_13_local`, the basic germ `h` and the sc⁺-germ `s` live on
@@ -535,8 +538,8 @@ theorem isScFredholmGerm2017_iff {x₀ : X} :
     exact ⟨hs, c, hc.1, hxV, hφ0, h0, g, s,
       ⟨hfill.isFilling2021 (zero_mem_O_of_chart hxV hφ0), hc.2⟩, hsm, hs0, hconj⟩
 
-/-- **2017 ⟹ 2021** for sc-Fredholm germs.  (The converse is open: Findings, Chapter 3,
-item 353.) -/
+/-- **2017 ⟹ 2021** for sc-Fredholm germs.  (The converse does not hold:
+`UntamedCorner.isScFredholmGerm2021_not_2017`; Findings, Chapter 3, items 353, 388.) -/
 theorem IsScFredholmGerm2017.isScFredholmGerm2021 {x₀ : X} (h : B.IsScFredholmGerm2017 f x₀) :
     B.IsScFredholmGerm2021 f x₀ :=
   isScFredholmGerm2021_iff.2 (isScFredholmGerm2017_iff.1 h).isScFredholmGerm

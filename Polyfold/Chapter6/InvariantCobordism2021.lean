@@ -25,6 +25,16 @@ homotopies), modulo two inputs that are not in the library:
 Both are stated as `def`s so they can be discharged later; `psiAt_eq_of_admissible_hyp` and
 `psiAt_eq_of_homotopy_hyp` are parts (A) and (B) under these hypotheses.
 
+Later files (2026-11-12): `SectionOrientation.prodFirst` (`ProductSectionOrientation2021c`–`f`)
+gives the orientation `cobOr` of `S_F`, continuous (`isContinuous_cobOr`), and
+`cobordismOrientation_of_ends` (`CobordismOrientation2021`) reduces `CobordismOrientation` to its
+product form on the two ends, proved in `CobordismOrientationEnds2021d` (`cobordismOrientationHyp`).
+The relative form is built on the inner ends
+`(0, 1/16) × S₀`, `(15/16, 1) × S₁` (`cobordismRelativeFormsInner`, `CobordismRelativeForms2021b`),
+and the identity is re-run there (`psiAt_eq_of_cobordism_of_orientation`), so
+`theorem_6_7_1_of_orientation` needs `CobordismOrientationHyp` only, and `theorem_6_7_1`
+(`Theorem671Final2021`) needs neither.
+
 The route (which avoids a face-form Fubini on `∂S_F`): the invariant is the integral over `S_i`
 of the closed form `a_i = ω|_{S_i} + dγ_i` with `γ_i` an extension of `−τ|_{∂S_i}`
 (`IsPsiIntegrand`, `IsPsiIntegrand.psiAt_eq`). For the closed form `A` on `S_F` with `j^*A = 0`
@@ -613,8 +623,13 @@ abbrev cobEndRight (x₀ : ↥(B.solPart f₁ s₁ k)) :
 Theorem 6.7.1, p. 278; gap G.66): a continuous orientation of `S_F^{k+1}` which on the ends is
 the product `e ∧ o_{S_i}` of the time direction with the orientations `solPartOr` of
 `S₀ = S_{f₀+s₀}` and `S₁ = S_{f₁+s₁}` induced by `o₀`, `o₁` (`ProductEnd.IsEndProductOrientation`
-of `InvariantProductEnds2021`). Not proved here: it needs `SectionOrientation.prodFirst` (wave
-1c). For the data of part (1), `o₁ = o₀`; for part (2), `o₁ = o₀.sectionAdd S(1, ·)` and
+of `InvariantProductEnds2021`). Not proved here; proved for the data of Theorem 6.7.1 in
+`CobordismOrientationEnds2021d` (`cobordismOrientation_of_induced`, `cobordismOrientationHyp`).
+`SectionOrientation.prodFirst` is built
+(`ProductSectionOrientation2021f`) and gives the continuous orientation `cobOr`;
+`cobordismOrientation_of_ends` (`CobordismOrientation2021`) reduces this `Prop` to the value
+`e ∧ o_{S_i}` of `cobOr` on the two ends (`isEndProductOrientation_cobOr`). For the data of part (1),
+`o₁ = o₀`; for part (2), `o₁ = o₀.sectionAdd S(1, ·)` and
 `σ₁ = S(1, ·) + s₁`, so the orientation `e ∧ o₀.sectionAdd σ₁` of `S_F` at the right end is
 `e ∧ o₁.sectionAdd s₁` (`orSectionAdd_apply`). -/
 def CobordismOrientation : Prop :=
@@ -633,10 +648,12 @@ def CobordismOrientation : Prop :=
 `j^*β = p₁^*τ` on `∂S_F`): for every closed relative form `c = (ω, τ)` of degree `k` and
 integrands `a₀`, `a₁` of `c` on the ends (`IsPsiIntegrand`), a closed `C^∞` `k`-form `A` on
 `S_F^{k+1}` with vanishing face restriction which reads as `a₀` and `a₁` on the two product ends
-(`ProductEnd.IsEndPullback`). Not proved here: `A = p₁^*ω|_{S_F} + dγ_F` with `γ_F` an extension
-of `−(p₁^*τ)|_{∂S_F}` glued from `p₁^*γ_i` on the ends; this needs the pull-back of forms on
-`∂X` to `∂(ℝ¹ × X)` (see `w3b2-ends.md`). The part `p₁^*ω|_{S_F}` is available
-(`isEndPullback_formsInftyRestrict_snd`). -/
+(`ProductEnd.IsEndPullback`). Not proved here as stated: on the full ends `(0, 1/8) × S₀`,
+`(7/8, 1) × S₁` it would need a smooth extension across `t = 1/8`, where the cobordism data give no
+product structure. The same statement on the inner ends, `CobordismRelativeFormsInner`, is proved
+for all cobordism data (`cobordismRelativeFormsInner`, `CobordismRelativeForms2021b`:
+`A = p₁^*ω|_{S_F} + dγ_F` with `γ_F` an extension of `−(p₁^*τ)|_{∂S_F}` glued from `p₁^*γ_i`),
+and it is what `theorem_6_7_1_of_orientation` uses. -/
 def CobordismRelativeForms : Prop :=
   letI := solPartChartedSpace hX hf₀ hs₀ k
   letI := solPartChartedSpace hX hf₁ hs₁ k

@@ -707,7 +707,9 @@ theorem theorem_3_2_3_isManifoldWithCorners [ParacompactSpace M]
 Proposition 2.5.6 (preprint 2.36)): since the chart `π ∘ ϕ` has the tame model `(V, N ∩ C, N)`,
 `d_M(y) = d_{N ∩ C}(π ∘ ϕ(y))` for `y ∈ M ∩ U₀`.  (Lemma 3.8.13 (preprint 3.70) then gives
 `d_{N ∩ C}(v) = d_C(v + δ(v)) = d_X(y)` for `v = π ∘ ϕ(y) ∉ N ∩ W` near `0`, in the model
-`E = ℝⁿ ⊕ W`; its transport to a general presentation of `C` is not done here.) -/
+`E = ℝⁿ ⊕ W`; its transport to a general presentation of `C` is `lemma_3_8_13_general`
+(`GapP1_Lemma3813.lean`), and `d_M = d_X` near the centre is `MPolyfold.theorem_3_2_3_degIndex_eq`
+(`GapP1_Theorem323Deg.lean`).) -/
 theorem theorem_3_2_3_degIndex [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) {x : X}
     (d : P.TangentGermChart M x n) (hreg : d.IsRegular) (a₀ : M) {y : M} (hy : y.1 ∈ d.U₀) :

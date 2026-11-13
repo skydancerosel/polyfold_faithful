@@ -3,7 +3,8 @@ import Polyfold.Chapter1.ScBanach
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1,
 Definitions 1.11–1.15 (the preprint's Definition 1.14 and the inductive definition of `sc^k`
-that follows it; its Remark 1.1.17 (preprint 1.15) on partial cones is not formalized).
+that follows it; its Remark 1.1.17 (preprint 1.15) on partial cones is formalized in
+`GapP1_PartialCones.lean`: `IsPartialCone.isScDomain`, `remark_1_1_17_chainRule`).
 
 # Partial quadrants, sc⁰ maps, the tangent construction, sc¹, sc^k and sc-smooth maps
 

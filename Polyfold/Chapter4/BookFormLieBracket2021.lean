@@ -25,7 +25,9 @@ pull-back of `TX → X¹` by the inclusion `X² → X¹`.
 ## The reading
 
 * "An sc-smooth section of `TX|X² → X²`" is read as an sc-smooth map `X² → TX` covering the
-  inclusion `X² → X¹`; the pull-back bundle itself is not built (gap G.92).
+  inclusion `X² → X¹`.  The pull-back bundle itself, as a sub-M-polyfold of `X² × TX`, with
+  `[A, B]` an sc-smooth section of it, is `proposition_4_4_5_section` (`GapP1_Lemma451Bundle.lean`,
+  gap G.92).
 -/
 
 open Set Function

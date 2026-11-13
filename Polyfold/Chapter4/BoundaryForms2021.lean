@@ -36,12 +36,13 @@ on `∂X` is then a form on all local faces at once that coincides on their inte
   `dτ` agrees over `Bⁱ⁺¹`**.  The second condition makes `d` map `Ωᵏ(∂Xⁱ)` to `Ωᵏ⁺¹(∂Xⁱ⁺¹)`
   (`extD_mem_bForms`, by `d ∘ d = 0`), which the text uses when it writes `dτ`.  For a manifold with
   corners it follows from the first (the corner strata are submanifolds with
-  `T(F ∩ F') = TF ∩ TF'`); in the sc-setting that implication would need the corner strata of tame
-  retracts as sub-M-polyfolds and common tame charts for two faces at a corner, which the library
-  does not have, so we put the condition into the definition.  It excludes no form the text needs:
-  `j^*ω` and `d(j^*ω) = j^*(dω)` both agree (`formsPullback_mem_bForms`), and so does `0`.
-  `bForms` is the largest family of agreeing forms that `d` maps into itself (`le_bForms`); so if
-  the implication holds, `bForms` is exactly the set of agreeing sc-forms.
+  `T(F ∩ F') = TF ∩ TF'`).  The condition was put into the definition when that implication was not
+  available in the sc-setting; it is proved since (2026-11-12, `A3BoundaryForms2021b.lean`:
+  `isFaceCompatible_extD`, without building the corner strata as sub-M-polyfolds), so `bForms` is
+  exactly the set of agreeing sc-forms (`bForms_eq_agreeForms`, `mem_bForms_iff`).  It excludes no
+  form the text needs: `j^*ω` and `d(j^*ω) = j^*(dω)` both agree (`formsPullback_mem_bForms`), and
+  so does `0`.  `bForms` is the largest family of agreeing forms that `d` maps into itself
+  (`le_bForms`).
 * `Ωᵏ_∞(∂X)` (`bFormsInfty`) is the direct limit of the `Ωᵏ(∂Xⁱ)` under the maps of (4.4), as
   `Ωᵏ_∞(X)` in Definition 4.4.2.
 
@@ -70,9 +71,11 @@ face-wise datum that is restricted to the faces of solution sets later.
 
 ## Not formalized
 
-The implication "`τ` agrees over `B` ⇒ `dτ` agrees over `B¹`" (see the reading); the wedge
-product, so `Ω*_∞(X, ∂X)` as a differential algebra (the complex is formalized degree by degree,
-as a graded vector space).
+The wedge product on `Ω*_∞(X, ∂X)`, so that complex as a differential algebra (it is formalized
+degree by degree, as a graded vector space; on `Ω*_∞(X)` the wedge product and the graded
+differential algebra are `ScFormsWedge2021.lean`, `ScFormsWedge2021b.lean`).  The implication
+"`τ` agrees over `B` ⇒ `dτ` agrees over `B¹`" (see the reading) is proved in
+`A3BoundaryForms2021b.lean` (`isFaceCompatible_extD`).
 -/
 
 open Set Function

@@ -31,7 +31,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ScBanach.shift` — Polyfold/Chapter1/ScBanach.lean, line 315
 - `Polyfold.ScBanach.shift_smoothLvl` — Polyfold/Chapter1/ScBanach.lean, line 326
 - `Polyfold.ScBanach.shiftK` — Polyfold/Chapter1/ScBanach.lean, line 330
-- `Polyfold.ScBanach.lvlSet` — Polyfold/Chapter1/ScSmooth.lean, line 72
+- `Polyfold.ScBanach.lvlSet` — Polyfold/Chapter1/ScSmooth.lean, line 73
 
 *What differs.*
 - The text's $E_m$ are subsets of one space $E$; the formal scale is a family of separate Banach spaces with injective compact inclusions, and "$x \in E_m$" for $x \in E_0$ means $x \in \iota_m(E_m)$. The two pictures are equivalent, and nothing in Chapter 1 uses more than the family.
@@ -201,16 +201,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The *quadrant* of $\mathbb R^n \oplus W$ (with $\mathbb R^n$ carrying its constant structure) is, on every level, the set of $(a, w)$ with all $a_i \ge 0$; it is closed and convex with non-empty interior, and its level sets are the quadrants of the levels. $C \subseteq E_0$ is a *partial quadrant* if $C = T_0^{-1}(\text{quadrant})$ for some $n$, some sc-Banach space $W$ and some sc-isomorphism $T : E \to \mathbb R^n \oplus W$. Then every level set $C_m$ is closed and convex with non-empty interior in $E_m$ and has unique differentiability at each of its points; the whole space is a partial quadrant ($n = 0$). $(U, C, E)$ is a *tuple* if $C$ is a partial quadrant and $U = O \cap C$ for an open $O \subseteq E_0$.
 
-- `Polyfold.quadrant` — Polyfold/Chapter1/ScSmooth.lean, line 394
-- `Polyfold.quadrant_convex` — Polyfold/Chapter1/ScSmooth.lean, line 397
-- `Polyfold.quadrant_isClosed` — Polyfold/Chapter1/ScSmooth.lean, line 401
-- `Polyfold.lvlSet_quadrant` — Polyfold/Chapter1/ScSmooth.lean, line 418
-- `Polyfold.IsPartialQuadrant` — Polyfold/Chapter1/ScSmooth.lean, line 427
-- `Polyfold.IsPartialQuadrant.convex` — Polyfold/Chapter1/ScSmooth.lean, line 458
-- `Polyfold.IsPartialQuadrant.isClosed` — Polyfold/Chapter1/ScSmooth.lean, line 460
-- `Polyfold.IsPartialQuadrant.uniqueDiffWithinAt_lvlSet` — Polyfold/Chapter1/ScSmooth.lean, line 462
-- `Polyfold.isPartialQuadrant_univ` — Polyfold/Chapter1/ScSmooth.lean, line 469
-- `Polyfold.IsRelOpenInQuadrant` — Polyfold/Chapter1/ScSmooth.lean, line 478
+- `Polyfold.quadrant` — Polyfold/Chapter1/ScSmooth.lean, line 395
+- `Polyfold.quadrant_convex` — Polyfold/Chapter1/ScSmooth.lean, line 398
+- `Polyfold.quadrant_isClosed` — Polyfold/Chapter1/ScSmooth.lean, line 402
+- `Polyfold.lvlSet_quadrant` — Polyfold/Chapter1/ScSmooth.lean, line 419
+- `Polyfold.IsPartialQuadrant` — Polyfold/Chapter1/ScSmooth.lean, line 428
+- `Polyfold.IsPartialQuadrant.convex` — Polyfold/Chapter1/ScSmooth.lean, line 459
+- `Polyfold.IsPartialQuadrant.isClosed` — Polyfold/Chapter1/ScSmooth.lean, line 461
+- `Polyfold.IsPartialQuadrant.uniqueDiffWithinAt_lvlSet` — Polyfold/Chapter1/ScSmooth.lean, line 463
+- `Polyfold.isPartialQuadrant_univ` — Polyfold/Chapter1/ScSmooth.lean, line 470
+- `Polyfold.IsRelOpenInQuadrant` — Polyfold/Chapter1/ScSmooth.lean, line 479
 
 *What differs.*
 - "Closed convex" is a consequence of $C = T^{-1}([0,\infty)^n \oplus W)$ and is proved rather than assumed; since $T_0$ is a bijection, $T(C) = Q$ and $C = T^{-1}(Q)$ say the same.
@@ -224,14 +224,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $f : E_0 \to F_0$ the level map $f_m : E_m \to F_m$ sends $x$ to the unique $y$ with $\iota_m y = f(\iota_m x)$ when it exists (a junk value otherwise). $f$ is *$\mathrm{sc}^0$ on $U \subseteq E_0$* if for every $m$ and every $x \in U_m$, $f(\iota_m x) \in \iota_m(F_m)$, and $f_m$ is continuous on $U_m$. Then $f$ is continuous on $U$; if moreover $f(U) \subseteq V$ then $f_m(U_m) \subseteq V_m$; $\mathrm{sc}^0$ depends only on the values of $f$ on $U$, passes to subsets, and the composition of $\mathrm{sc}^0$ maps is $\mathrm{sc}^0$. The identity and every sc-operator are $\mathrm{sc}^0$, with level maps the $T_m$.
 
-- `Polyfold.levelMap` — Polyfold/Chapter1/ScSmooth.lean, line 147
-- `Polyfold.IsSc0` — Polyfold/Chapter1/ScSmooth.lean, line 164
-- `Polyfold.IsSc0.levelMap_mapsTo` — Polyfold/Chapter1/ScSmooth.lean, line 176
-- `Polyfold.IsSc0.continuousOn_base` — Polyfold/Chapter1/ScSmooth.lean, line 181
-- `Polyfold.IsSc0.congr` — Polyfold/Chapter1/ScSmooth.lean, line 194
-- `Polyfold.IsSc0.comp` — Polyfold/Chapter1/ScSmooth.lean, line 206
-- `Polyfold.isSc0_id` — Polyfold/Chapter1/ScSmooth.lean, line 218
-- `Polyfold.ScOperator.isSc0` — Polyfold/Chapter1/ScSmooth.lean, line 223
+- `Polyfold.levelMap` — Polyfold/Chapter1/ScSmooth.lean, line 148
+- `Polyfold.IsSc0` — Polyfold/Chapter1/ScSmooth.lean, line 165
+- `Polyfold.IsSc0.levelMap_mapsTo` — Polyfold/Chapter1/ScSmooth.lean, line 177
+- `Polyfold.IsSc0.continuousOn_base` — Polyfold/Chapter1/ScSmooth.lean, line 182
+- `Polyfold.IsSc0.congr` — Polyfold/Chapter1/ScSmooth.lean, line 195
+- `Polyfold.IsSc0.comp` — Polyfold/Chapter1/ScSmooth.lean, line 207
+- `Polyfold.isSc0_id` — Polyfold/Chapter1/ScSmooth.lean, line 219
+- `Polyfold.ScOperator.isSc0` — Polyfold/Chapter1/ScSmooth.lean, line 224
 
 *What differs.*
 - Maps are total functions $E_0 \to F_0$ and only their values on $U$ matter; the target tuple plays no role in the definition beyond $f(U) \subseteq U'$, so it is not an argument of `IsSc0` (the text's own definition writes "$f(U_m) \subset V_m$" with $V$ meaning $U'$).
@@ -245,10 +245,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The *tangent* $TE$ of an sc-Banach space is $E^1 \oplus E$, the sc-Banach space with levels $E_{m+1} \times E_m$; for $U \subseteq E_0$, $TU \subseteq (TE)_0 = E_1 \times E_0$ is the set of $(x, h)$ with $x \in U_1$, and its level-$m$ part is $U_{m+1} \times E_m$. $TU$ is monotone in $U$. If $U$ is an sc-domain (open-in-convex levels with unique differentiability, V1.27) so is $TU$ in $TE$, and $T(U^1) = (TU)^1$.
 
-- `Polyfold.ScBanach.tangent` — Polyfold/Chapter1/ScSmooth.lean, line 104
-- `Polyfold.ScBanach.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 116
-- `Polyfold.ScBanach.lvlSet_tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 132
-- `Polyfold.IsScDomain.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 504
+- `Polyfold.ScBanach.tangent` — Polyfold/Chapter1/ScSmooth.lean, line 105
+- `Polyfold.ScBanach.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 117
+- `Polyfold.ScBanach.lvlSet_tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 133
+- `Polyfold.IsScDomain.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 505
 - `Polyfold.ScBanach.shift_tangentSet` — Polyfold/Chapter1/Levels.lean, line 320
 
 *What differs.*
@@ -264,16 +264,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a family $D : E_1 \to \mathcal L(E_0, F_0)$ the tangent map $T_Df : TE \to TF$ is $(x, h) \mapsto (f_1(x), D(x)h)$. $f$ is *$\mathrm{sc}^1$ on $U$ with derivatives $D$* if (1) $f$ is $\mathrm{sc}^0$ on $U$; (2) for every $x \in U_1$ the map $f \circ \iota_1 : E_1 \to F_0$ has derivative $D(x) \circ \iota_1$ at $x$ within $U_1$ (Mathlib's `HasFDerivWithinAt`); (3) $T_Df$ is $\mathrm{sc}^0$ on $TU$. $f$ is *$\mathrm{sc}^1$ on $U$* if such a $D$ exists; `scDeriv` is a chosen one, and `tangentMap` the tangent map built from it. If $U_1$ has unique differentiability at $x \in U_1$, any two derivative families satisfying (2) agree at $x$ (the inclusion $E_1 \to E_0$ has dense range); on an sc-domain the chosen derivative therefore agrees with any admissible one on $U_1$, and the tangent map on $TU$. Being $\mathrm{sc}^1$ depends only on the values on $U$. Level $0$ of (3) says $(x, h) \mapsto D(x)h$ is continuous on $U_1 \times E_0$, and this gives uniform continuity of $D$ on compact subsets of $E_0$; for maps between finite-dimensional spaces on an open set, $\mathrm{sc}^1$ is $C^1$. The derivative need not be norm continuous: on $E = \mathbb R \oplus X$, with $X$ the sc-Banach space whose level $m$ consists of the sequences with $(k+1)^m x_k \to 0$, normed by $\sup_k (k+1)^m|x_k|$, the map $f(t, x)_k = \cos(kt)x_k$ is $\mathrm{sc}^1$ into $X$, and for every derivative family $D$ of $f$, $x \mapsto D(x)$ is not continuous on $E_1$ into $\mathcal L(E_0, X_0)$ with the operator norm.
 
-- `Polyfold.tangentMapWith` — Polyfold/Chapter1/ScSmooth.lean, line 234
-- `Polyfold.IsSc1With` — Polyfold/Chapter1/ScSmooth.lean, line 241
-- `Polyfold.IsSc1` — Polyfold/Chapter1/ScSmooth.lean, line 249
-- `Polyfold.scDeriv` — Polyfold/Chapter1/ScSmooth.lean, line 253
-- `Polyfold.tangentMap` — Polyfold/Chapter1/ScSmooth.lean, line 257
-- `Polyfold.IsSc1With.eq_of_uniqueDiffWithinAt` — Polyfold/Chapter1/ScSmooth.lean, line 289
-- `Polyfold.IsSc1.scDeriv_eqOn` — Polyfold/Chapter1/ScSmooth.lean, line 321
-- `Polyfold.IsSc1.tangentMap_eqOn` — Polyfold/Chapter1/ScSmooth.lean, line 328
-- `Polyfold.IsSc1.congr` — Polyfold/Chapter1/ScSmooth.lean, line 335
-- `Polyfold.IsSc1With.continuousOn_deriv` — Polyfold/Chapter1/ScSmooth.lean, line 272
+- `Polyfold.tangentMapWith` — Polyfold/Chapter1/ScSmooth.lean, line 235
+- `Polyfold.IsSc1With` — Polyfold/Chapter1/ScSmooth.lean, line 242
+- `Polyfold.IsSc1` — Polyfold/Chapter1/ScSmooth.lean, line 250
+- `Polyfold.scDeriv` — Polyfold/Chapter1/ScSmooth.lean, line 254
+- `Polyfold.tangentMap` — Polyfold/Chapter1/ScSmooth.lean, line 258
+- `Polyfold.IsSc1With.eq_of_uniqueDiffWithinAt` — Polyfold/Chapter1/ScSmooth.lean, line 290
+- `Polyfold.IsSc1.scDeriv_eqOn` — Polyfold/Chapter1/ScSmooth.lean, line 322
+- `Polyfold.IsSc1.tangentMap_eqOn` — Polyfold/Chapter1/ScSmooth.lean, line 329
+- `Polyfold.IsSc1.congr` — Polyfold/Chapter1/ScSmooth.lean, line 336
+- `Polyfold.IsSc1With.continuousOn_deriv` — Polyfold/Chapter1/ScSmooth.lean, line 273
 - `Polyfold.IsSc1With.exists_delta_deriv` — Polyfold/Chapter1/Properties.lean, line 69
 - `isSc1_iff_contDiffOn_of_finiteDimensional` — Polyfold/Test.lean, line 124
 - `Polyfold.exists_isSc1_not_continuousOn_deriv` — Polyfold/Chapter1/ScOneNotNormContinuous.lean, line 690
@@ -295,11 +295,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $f$ is *$\mathrm{sc}^k$ on $U$* by recursion on $k$: $\mathrm{sc}^0$ means $\mathrm{sc}^0$; $\mathrm{sc}^{k+1}$ means $\mathrm{sc}^1$ on $U$ with the tangent map $Tf$ (built from the chosen derivative) $\mathrm{sc}^k$ on $TU \subseteq TE$. $f$ is *sc-smooth* if it is $\mathrm{sc}^k$ for every $k$. Then $\mathrm{sc}^{k+1}$ implies $\mathrm{sc}^k$ (and $\mathrm{sc}^l$ for $l \le k$); $f$ is sc-smooth iff it is $\mathrm{sc}^1$ with sc-smooth tangent map; on an sc-domain, $\mathrm{sc}^k$ depends only on the values on $U$.
 
-- `Polyfold.IsSck` — Polyfold/Chapter1/ScSmooth.lean, line 344
-- `Polyfold.IsScSmooth` — Polyfold/Chapter1/ScSmooth.lean, line 349
-- `Polyfold.IsSck.of_succ` — Polyfold/Chapter1/ScSmooth.lean, line 366
-- `Polyfold.IsSck.of_le` — Polyfold/Chapter1/ScSmooth.lean, line 371
-- `Polyfold.isScSmooth_iff` — Polyfold/Chapter1/ScSmooth.lean, line 384
+- `Polyfold.IsSck` — Polyfold/Chapter1/ScSmooth.lean, line 345
+- `Polyfold.IsScSmooth` — Polyfold/Chapter1/ScSmooth.lean, line 350
+- `Polyfold.IsSck.of_succ` — Polyfold/Chapter1/ScSmooth.lean, line 367
+- `Polyfold.IsSck.of_le` — Polyfold/Chapter1/ScSmooth.lean, line 372
+- `Polyfold.isScSmooth_iff` — Polyfold/Chapter1/ScSmooth.lean, line 385
 - `Polyfold.IsSck.congr` — Polyfold/Chapter1/ChainRule.lean, line 298
 
 *What differs.*
@@ -542,9 +542,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $U \subseteq E_0$ is an *sc-domain* if, for every $m$, the level set $U_m$ is the intersection of an open and a convex subset of $E_m$ and has unique differentiability at each of its points. A relatively open subset of a partial quadrant is an sc-domain; if $U$ is an sc-domain then so are $TU$ in $TE$ and $U^1 = U_1$ in $E^1$.
 
-- `Polyfold.IsScDomain` — Polyfold/Chapter1/ScSmooth.lean, line 487
-- `Polyfold.IsRelOpenInQuadrant.isScDomain` — Polyfold/Chapter1/ScSmooth.lean, line 491
-- `Polyfold.IsScDomain.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 504
+- `Polyfold.IsScDomain` — Polyfold/Chapter1/ScSmooth.lean, line 488
+- `Polyfold.IsRelOpenInQuadrant.isScDomain` — Polyfold/Chapter1/ScSmooth.lean, line 492
+- `Polyfold.IsScDomain.tangentSet` — Polyfold/Chapter1/ScSmooth.lean, line 505
 - `Polyfold.IsScDomain.shift` — Polyfold/Chapter1/Levels.lean, line 377
 
 *What differs.*
@@ -610,10 +610,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $E$ be an sc-Banach space with $E_0$ finite-dimensional. Then every point of $E_0$ is smooth, every inclusion $\iota_m : E_m \to E_0$ is bijective, and the $\iota_m$ form an sc-isomorphism of $E$ onto $E_0$ with the constant structure. For any scale, if one inclusion $E_{m+1} \to E_m$ is surjective then $E_m$ is finite-dimensional.
 
-- `Polyfold.ScBanach.smooth_eq_top_of_finiteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 94
-- `Polyfold.ScBanach.toBase_bijective_of_finiteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 100
-- `Polyfold.ScBanach.isoConstOfFiniteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 109
-- `Polyfold.ScScale.finiteDimensional_of_surjective_incl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 73
+- `Polyfold.ScBanach.smooth_eq_top_of_finiteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 96
+- `Polyfold.ScBanach.toBase_bijective_of_finiteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 102
+- `Polyfold.ScBanach.isoConstOfFiniteDimensional` — Polyfold/Chapter1/ExpositionLemmas.lean, line 111
+- `Polyfold.ScScale.finiteDimensional_of_surjective_incl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 75
 
 *What differs.*
 - With sc-Banach spaces as families, "$E_m = E$" becomes "$\iota_m$ is bijective", and "precisely one structure" becomes: the identity of $E_0$ extends to an sc-isomorphism with the constant structure, so all the level norms are equivalent. "The constant structure is not an sc-structure" becomes: an onto inclusion forces finite dimension (open mapping theorem, then the identity is compact).
@@ -626,15 +626,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** If $E = A \oplus B$ is an sc-splitting, the projections of $E_m$ onto $A_m$ along $B_m$ are continuous and form an sc-operator $P$ with $P_m^2 = P_m$, $P_m(E_m) = A_m$ and $\ker P_m = B_m$ for every $m$. Conversely, if $P : E \to E$ is an sc-operator with $P_0^2 = P_0$, then $P_m^2 = P_m$ and $P(E)_m = P_m(E_m)$ for every $m$, and $E = P(E) \oplus \ker P$ is an sc-splitting. So $E = A \oplus B$ is an sc-splitting iff there is an sc-operator $P$ with $P^2 = P$, $P(E) = A$, $\ker P = B$.
 
-- `Polyfold.ScBanach.IsScSplitting.isTopCompl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 126
-- `Polyfold.ScBanach.IsScSplitting.scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 134
-- `Polyfold.ScBanach.IsScSplitting.scProj_idem` — Polyfold/Chapter1/ExpositionLemmas.lean, line 154
-- `Polyfold.ScBanach.IsScSplitting.range_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 159
-- `Polyfold.ScBanach.IsScSplitting.ker_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 167
-- `Polyfold.ScOperator.idem_lvl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 175
-- `Polyfold.ScOperator.levelSub_range_eq` — Polyfold/Chapter1/ExpositionLemmas.lean, line 180
-- `Polyfold.ScBanach.isScSplitting_of_idem` — Polyfold/Chapter1/ExpositionLemmas.lean, line 196
-- `Polyfold.ScBanach.isScSplitting_iff_exists_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 234
+- `Polyfold.ScBanach.IsScSplitting.isTopCompl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 128
+- `Polyfold.ScBanach.IsScSplitting.scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 136
+- `Polyfold.ScBanach.IsScSplitting.scProj_idem` — Polyfold/Chapter1/ExpositionLemmas.lean, line 156
+- `Polyfold.ScBanach.IsScSplitting.range_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 161
+- `Polyfold.ScBanach.IsScSplitting.ker_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 169
+- `Polyfold.ScOperator.idem_lvl` — Polyfold/Chapter1/ExpositionLemmas.lean, line 177
+- `Polyfold.ScOperator.levelSub_range_eq` — Polyfold/Chapter1/ExpositionLemmas.lean, line 182
+- `Polyfold.ScBanach.isScSplitting_of_idem` — Polyfold/Chapter1/ExpositionLemmas.lean, line 198
+- `Polyfold.ScBanach.isScSplitting_iff_exists_scProj` — Polyfold/Chapter1/ExpositionLemmas.lean, line 236
 
 *What differs.*
 - The text uses the equivalence in the proof of Proposition 1.1.7 (preprint 1.6) without stating it (the exposition's Lemma 2.B). The formal proof of Proposition 1.1.7 (preprint 1.6) (V1.5) builds the complement directly and does not depend on this item. The complement is written $\ker P$, the same subspace as the text's $(1 - P)(E)$.
@@ -647,8 +647,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $A$ be an sc-subspace of $E$ and $x \in E_0$. If for every $j$ some point of $E_j$ differs from $x$ by an element of $A$, then some smooth point of $E$ differs from $x$ by an element of $A$. Equivalently, the class of $x$ is a smooth point of the quotient $E/A$ if and only if $x + A$ contains a smooth point of $E$.
 
-- `Polyfold.ScBanach.exists_smooth_mem_coset` — Polyfold/Chapter1/ExpositionLemmas.lean, line 293
-- `Polyfold.ScBanach.mk_mem_quotient_smooth_iff` — Polyfold/Chapter1/ExpositionLemmas.lean, line 363
+- `Polyfold.ScBanach.exists_smooth_mem_coset` — Polyfold/Chapter1/ExpositionLemmas.lean, line 295
+- `Polyfold.ScBanach.mk_mem_quotient_smooth_iff` — Polyfold/Chapter1/ExpositionLemmas.lean, line 365
 
 *What differs.*
 - The text asserts the equality without proof; only the inclusion "$\supseteq$" is needed for Proposition 1.1.8 (preprint 1.7) (V1.6). The converse is the exposition's Lemma 2.C: correct the choices $x_j \in (x + A) \cap E_j$ by smooth elements of $A$ so that the corrections form a series converging on every level (density of $A_\infty$ in every $A_j$, completeness, and a bound for the norms of the inclusions).
@@ -661,8 +661,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $X$ be a metric space, $Y$, $Z$ real normed spaces, $s \subseteq X$ and $A : X \to \mathcal L(Y, Z)$. Then $(x, h) \mapsto A(x)h$ is continuous on $s \times Y$ if and only if, for every $x \in s$, every compact $K \subseteq Y$ and every $\varepsilon > 0$, $\|A(x')w - A(x)w\| < \varepsilon$ for all $w \in K$ and all $x' \in s$ near $x$. In particular, for $f$ $\mathrm{sc}^1$ on $U$ with derivatives $Df$, $x \mapsto Df(x)$ is continuous on $U_1$ in this sense. The negative half holds by an example (V1.13): there is an $\mathrm{sc}^1$ map $f$ on a relatively open $U$ in a partial quadrant such that, for every derivative family $D$ of $f$, $x \mapsto D(x)$ is not continuous on $U_1$ into $\mathcal L(E_0, F_0)$ with the operator norm.
 
-- `Polyfold.continuousOn_apply_iff_uniformOnCompact` — Polyfold/Chapter1/ExpositionLemmas.lean, line 390
-- `Polyfold.IsSc1With.deriv_uniformOnCompact` — Polyfold/Chapter1/ExpositionLemmas.lean, line 440
+- `Polyfold.continuousOn_apply_iff_uniformOnCompact` — Polyfold/Chapter1/ExpositionLemmas.lean, line 392
+- `Polyfold.IsSc1With.deriv_uniformOnCompact` — Polyfold/Chapter1/ExpositionLemmas.lean, line 442
 - `Polyfold.exists_isSc1_not_continuousOn_deriv` — Polyfold/Chapter1/ScOneNotNormContinuous.lean, line 690
 
 *What differs.*
@@ -676,12 +676,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $V$, $W$ be finite-dimensional real normed spaces with their constant sc-structures, $f : V \to W$, and $U \subseteq V$ an sc-domain, in particular a relatively open subset of a partial quadrant of $V$. Then $f$ is $\mathrm{sc}^1$ on $U$ iff $f$ is $C^1$ within $U$, i.e. differentiable within $U$ at every point of $U$ with $x \mapsto \mathrm{fderivWithin}\,f\,U\,x$ continuous on $U$; and $f$ is sc-smooth on $U$ iff it is $C^\infty$ within $U$.
 
-- `Polyfold.ScBanach.lvlSet_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 456
-- `Polyfold.isSc1_iff_contDiffOn_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 467
-- `Polyfold.isSc1_iff_fderivWithin_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 481
-- `Polyfold.isScSmooth_iff_contDiffOn_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 492
-- `Polyfold.isSc1_iff_contDiffOn_of_isRelOpenInQuadrant` — Polyfold/Chapter1/ExpositionLemmas.lean, line 506
-- `Polyfold.isScSmooth_iff_contDiffOn_of_isRelOpenInQuadrant` — Polyfold/Chapter1/ExpositionLemmas.lean, line 512
+- `Polyfold.ScBanach.lvlSet_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 458
+- `Polyfold.isSc1_iff_contDiffOn_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 469
+- `Polyfold.isSc1_iff_fderivWithin_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 483
+- `Polyfold.isScSmooth_iff_contDiffOn_const` — Polyfold/Chapter1/ExpositionLemmas.lean, line 494
+- `Polyfold.isSc1_iff_contDiffOn_of_isRelOpenInQuadrant` — Polyfold/Chapter1/ExpositionLemmas.lean, line 508
+- `Polyfold.isScSmooth_iff_contDiffOn_of_isRelOpenInQuadrant` — Polyfold/Chapter1/ExpositionLemmas.lean, line 514
 - `isSc1_iff_contDiffOn_of_finiteDimensional` — Polyfold/Test.lean, line 124
 
 *What differs.*
@@ -816,6 +816,62 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 *What differs.*
 - The index statement, the exposition's addition in V1.30, is now the book's; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28).
+
+### V1.42. Example 1.1.3 (preprint 1.2): the weighted Sobolev spaces $H^{m,\delta_m}(\mathbb R \times S^1)$ form an sc-structure
+
+*restated* · strip ℝ × (0,1] with periodic tests · one norm of the usual equivalent ones · hypotheses as printed
+
+**HWZ (§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)).** With $0 = \delta_0 < \delta_1 < \cdots$, the spaces $E_m = H^{m,\delta_m}(\mathbb R \times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\mathbb R \times S^1)$, "using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\delta_m)$ is strictly increasing".
+
+**Proved in Lean.** `example_1_1_3 δ h0 hmono : ScBanach`, for every $\delta : \mathbb N \to \mathbb R$ with $\delta_0 = 0$ and $\delta$ strictly increasing, has the levels $E_m = H^{m,\delta_m}(\mathbb R \times S^1)$ (`example_1_1_3_lvl`, by definition), with $E_{m+1} \to E_m$ the identity on the underlying $L^2$ function (`inclH`, `valCLM_inclH`). The ingredients of the text's proof: each $H^{m,\delta}$ is a Banach space (`completeSpace_H`, an isometric embedding into a finite product of $L^2$ spaces with closed range); the inclusion is compact for $\delta < \delta'$ (`isCompactOperator_inclH`), by Rellich on bounded cylinders (`rellich`, with Fourier series on boxes, Parseval `hasSum_bc`) and the weight tail estimate (`tail_le`); test functions lie in every level and are dense in it (`IsTest.mem_Hsub`, `dense_test`, by cut-off `tendsto_cut` with the Leibniz rule `leibniz`, and Fourier truncation `approx_supp`); level $0$ is $L^2(\mathbb R \times S^1)$ (`level0_isometry`, `level0_surjective`).
+
+- `Polyfold.GapP1Sobolev.example_1_1_3` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 49
+- `Polyfold.GapP1Sobolev.example_1_1_3_lvl` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 58
+- `Polyfold.GapP1Sobolev.inclH` — Polyfold/Chapter1/GapP1_Sobolev4.lean, line 154
+- `Polyfold.GapP1Sobolev.valCLM_inclH` — Polyfold/Chapter1/GapP1_Sobolev4.lean, line 159
+- `Polyfold.GapP1Sobolev.completeSpace_H` — Polyfold/Chapter1/GapP1_Sobolev4.lean, line 95
+- `Polyfold.GapP1Sobolev.isClosed_range_ΦH` — Polyfold/Chapter1/GapP1_Sobolev4.lean, line 42
+- `Polyfold.GapP1Sobolev.isCompactOperator_inclH` — Polyfold/Chapter1/GapP1_Sobolev6.lean, line 106
+- `Polyfold.GapP1Sobolev.rellich` — Polyfold/Chapter1/GapP1_Sobolev5.lean, line 342
+- `Polyfold.GapP1Sobolev.hasSum_bc` — Polyfold/Chapter1/GapP1_Sobolev2.lean, line 115
+- `Polyfold.GapP1Sobolev.tail_le` — Polyfold/Chapter1/GapP1_Sobolev6.lean, line 94
+- `Polyfold.GapP1Sobolev.dense_test` — Polyfold/Chapter1/GapP1_Sobolev12.lean, line 281
+- `Polyfold.GapP1Sobolev.IsTest.mem_Hsub` — Polyfold/Chapter1/GapP1_Sobolev7.lean, line 177
+- `Polyfold.GapP1Sobolev.SmPer.hasWeakDeriv` — Polyfold/Chapter1/GapP1_Sobolev7.lean, line 146
+- `Polyfold.GapP1Sobolev.tendsto_cut` — Polyfold/Chapter1/GapP1_Sobolev10.lean, line 232
+- `Polyfold.GapP1Sobolev.leibniz` — Polyfold/Chapter1/GapP1_Sobolev8.lean, line 134
+- `Polyfold.GapP1Sobolev.approx_supp` — Polyfold/Chapter1/GapP1_Sobolev12.lean, line 80
+- `Polyfold.GapP1Sobolev.level0_isometry` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 64
+- `Polyfold.GapP1Sobolev.level0_surjective` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 82
+- `Polyfold.GapP1Sobolev.HasWeakDeriv` — Polyfold/Chapter1/GapP1_Sobolev1.lean, line 286
+- `Polyfold.GapP1Sobolev.IsTest` — Polyfold/Chapter1/GapP1_Sobolev1.lean, line 133
+- `Polyfold.GapP1Sobolev.H` — Polyfold/Chapter1/GapP1_Sobolev3.lean, line 233
+- `Polyfold.GapP1Sobolev.nonneg_of_strictMono` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 26
+
+*What differs.*
+- $\mathbb R \times S^1$ is the strip $\mathbb R \times (0, 1]$ with Lebesgue measure; $S^1 = \mathbb R/\mathbb Z$ enters through the test functions (`IsTest`: smooth, $1$-periodic in $t$, zero for $|s|$ large), against which weak derivatives are defined (`HasWeakDeriv`); this is the distributional derivative on the cylinder.
+- The norm is $\|u\|^2_{m,\delta} = \sum_{a+b \le m} \|e^{\delta|s|}\partial_s^a\partial_t^b u\|^2_{L^2}$. The text fixes no norm; the usual choices are equivalent, and an sc-structure depends only on the topologies. Derivatives are taken in the order $\partial_s^a\partial_t^b$, which for test functions does not matter.
+- The hypotheses are the text's: $\delta_0 = 0$ and $(\delta_m)$ strictly increasing; $\delta_m \ge 0$ is derived (`nonneg_of_strictMono`). The proof follows the text's outline (compact embedding on bounded domains plus the growth of the weights); the exposition's Proposition 1.C is the paper proof.
+
+### V1.43. Remark 1.1.17 (preprint 1.15): partial cones in place of partial quadrants
+
+*restated* · the results of §§1.2–1.3 via sc-domains · later chapters stay with quadrants
+
+**HWZ (§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)).** Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\lambda P \subset P$ for $\lambda \ge 0$) with non-empty interior; for $U$ open in $P$, $\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \oplus E$, again a closed cone with non-empty interior. Many results should carry over, "but one should check carefully which arguments carry over".
+
+**Proved in Lean.** `IsPartialCone E P`: $P$ closed, convex, $\lambda P \subseteq P$ for $\lambda \ge 0$, with nonempty interior. For $U = O \cap P$ with $O$ open, $U$ is an sc-domain (V1.27; `IsPartialCone.isScDomain`; convexity and nonempty interior suffice, `IsPartialCone.isScDomain_of_convex`, since every level set $P_m$ has nonempty interior, `interior_lvlSet_nonempty_of_interior`). $TP = P^1 \oplus E$ is again a closed convex partial cone with nonempty interior (`IsPartialCone.tangentSet`). Partial quadrants are partial cones (`IsPartialQuadrant.isPartialCone`), and the chain rule holds for relatively open subsets of partial cones (`remark_1_1_17_chainRule`).
+
+- `Polyfold.IsPartialCone` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 40
+- `Polyfold.IsPartialCone.isScDomain` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 81
+- `Polyfold.IsPartialCone.isScDomain_of_convex` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 68
+- `Polyfold.IsPartialCone.tangentSet` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 87
+- `Polyfold.IsPartialQuadrant.isPartialCone` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 106
+- `Polyfold.remark_1_1_17_chainRule` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 128
+- `Polyfold.interior_lvlSet_nonempty_of_interior` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 54
+
+*What differs.*
+- The remark says that many results should carry over and that one should check which arguments do. Here: $\mathrm{sc}^1$ (`IsSc1`) is defined for every $U$, and the results of §§1.2–1.3 are stated for sc-domains, so they hold for relatively open subsets of partial cones; the chain rule is recorded as an instance.
+- The degeneracy index, tameness and faces (Chapters 2 ff.) use the quadrant structure and are not generalized, as in the text.
 
 ## Chapter 2
 
@@ -1383,8 +1439,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.lemma_2_4_3` — Polyfold/Chapter2/DegeneracyIndex.lean, line 677
 - `Polyfold.eventually_degIndexWith_le` — Polyfold/Chapter2/DegeneracyIndex.lean, line 164
-- `Polyfold.MPolyfold.isOpen_setOf_degIndex_lt` — Polyfold/Chapter2/Boundary.lean, line 94
-- `Polyfold.MPolyfold.isClosed_setOf_le_degIndex` — Polyfold/Chapter2/Boundary.lean, line 100
+- `Polyfold.MPolyfold.isOpen_setOf_degIndex_lt` — Polyfold/Chapter2/Boundary.lean, line 96
+- `Polyfold.MPolyfold.isClosed_setOf_le_degIndex` — Polyfold/Chapter2/Boundary.lean, line 102
 
 *What differs.*
 - As in the text (\"evident\"): a chart realizing $d_X(x)$ and the semicontinuity of $d_C$.
@@ -1418,11 +1474,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.boundary` — Polyfold/Chapter2/DegeneracyIndex.lean, line 684
 - `Polyfold.MPolyfold.IsWithoutBoundary` — Polyfold/Chapter2/DegeneracyIndex.lean, line 687
 - `Polyfold.MPolyfold.isWithoutBoundary_iff` — Polyfold/Chapter2/DegeneracyIndex.lean, line 689
-- `Polyfold.MPolyfold.isClosed_boundary` — Polyfold/Chapter2/Boundary.lean, line 107
-- `Polyfold.MPolyfold.isOpen_interior` — Polyfold/Chapter2/Boundary.lean, line 110
-- `Polyfold.MPolyfold.corners` — Polyfold/Chapter2/Boundary.lean, line 118
-- `Polyfold.MPolyfold.isClosed_corners` — Polyfold/Chapter2/Boundary.lean, line 120
-- `Polyfold.MPolyfold.IsScDiffeoOn.mem_boundary_iff` — Polyfold/Chapter2/Boundary.lean, line 139
+- `Polyfold.MPolyfold.isClosed_boundary` — Polyfold/Chapter2/Boundary.lean, line 109
+- `Polyfold.MPolyfold.isOpen_interior` — Polyfold/Chapter2/Boundary.lean, line 112
+- `Polyfold.MPolyfold.corners` — Polyfold/Chapter2/Boundary.lean, line 120
+- `Polyfold.MPolyfold.isClosed_corners` — Polyfold/Chapter2/Boundary.lean, line 122
+- `Polyfold.MPolyfold.IsScDiffeoOn.mem_boundary_iff` — Polyfold/Chapter2/Boundary.lean, line 141
 
 *What differs.*
 - As in the text; the closedness statements and the invariance are consequences of V2.27 and V2.28 recorded for later use.
@@ -1452,13 +1508,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.mem_minimalSubspaceWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 133
 - `Polyfold.isClosed_minimalSubspaceWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 143
 - `Polyfold.finrank_quotient_minimalSubspaceWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 148
-- `Polyfold.partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 99
-- `Polyfold.minimalSubspaceWith_subset_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 103
-- `Polyfold.isClosed_partialQuadrantAtWith` — Polyfold/Chapter2/Boundary.lean, line 154
+- `Polyfold.partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 101
+- `Polyfold.minimalSubspaceWith_subset_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 105
+- `Polyfold.isClosed_partialQuadrantAtWith` — Polyfold/Chapter2/Boundary.lean, line 156
 - `Polyfold.exists_tendsto_lvl1_degIndexWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 183
 - `Polyfold.exists_tendsto_smooth_degIndexWith` — Polyfold/Chapter2/TameRetracts.lean, line 227
 - `Polyfold.ScBanach.subset_closure_ker_inter_range_toBase` — Polyfold/Chapter2/DegeneracyIndex.lean, line 312
-- `Polyfold.partialQuadrantAtWith_subset_closure` — Polyfold/Chapter2/Boundary.lean, line 165
+- `Polyfold.partialQuadrantAtWith_subset_closure` — Polyfold/Chapter2/Boundary.lean, line 167
 
 *What differs.*
 - Defined through a presentation of $C$, transported from the model; the text works in the model $E = \mathbb R^k \oplus W$.
@@ -1472,11 +1528,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a retraction $r$, a presentation $T$ of $C$ and $x \in O_1$: $T^R_xO = Dr(x)(E_0) \cap E_x$ (a subspace) and $C_xO = Dr(x)(E_0) \cap C_x$; $\dim(T_xO/T^R_xO)$ is the natural number $\dim(A/(A \cap B))$ for $A = T_xO$, $B = E_x$, and it is at most $d_C(x)$.
 
-- `Polyfold.reducedTangentSpaceWith` — Polyfold/Chapter2/Tame.lean, line 182
-- `Polyfold.partialConeWith` — Polyfold/Chapter2/Tame.lean, line 187
-- `Polyfold.quotDim` — Polyfold/Chapter2/Boundary.lean, line 491
-- `Polyfold.quotDim_inf_minimalSubspace_le` — Polyfold/Chapter2/Boundary.lean, line 503
-- `Polyfold.quotDim_reducedTangentSpaceWith_le` — Polyfold/Chapter2/Boundary.lean, line 536
+- `Polyfold.reducedTangentSpaceWith` — Polyfold/Chapter2/Tame.lean, line 184
+- `Polyfold.partialConeWith` — Polyfold/Chapter2/Tame.lean, line 189
+- `Polyfold.quotDim` — Polyfold/Chapter2/Boundary.lean, line 493
+- `Polyfold.quotDim_inf_minimalSubspace_le` — Polyfold/Chapter2/Boundary.lean, line 505
+- `Polyfold.quotDim_reducedTangentSpaceWith_le` — Polyfold/Chapter2/Boundary.lean, line 538
 
 *What differs.*
 - Defined at every $x \in O_1$, not only at smooth points; the statements of §2.4 (preprint §2.3) hold there.
@@ -1490,7 +1546,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $T^R_xO \subseteq C_xO$, and $C_xO \subseteq T_xO$ by definition. **The negative claim is false**: at every smooth point $x$ of every sc-smooth retract (no tameness), $T_xO$ and $T^R_xO$ are sc-subspaces of $E$ and $C_xO$ is a partial quadrant in the sc-Banach space $T_xO$ (with the sc-structure induced from $E$), of dimension $\operatorname{rank} M = \dim(T_xO/T^R_xO) \le d_C(x)$, $M$ the matrix of $Dr(x)$ on $E/E_x \cong \mathbb R^{I(x)}$. The core is Flor's theorem in the needed case: for a nonnegative idempotent matrix $M$, the cone $\operatorname{range} M \cap [0, \infty)^\iota$ is generated by linearly independent columns of $M$.
 
-- `Polyfold.reducedTangentSpaceWith_subset_partialConeWith` — Polyfold/Chapter2/Tame.lean, line 192
+- `Polyfold.reducedTangentSpaceWith_subset_partialConeWith` — Polyfold/Chapter2/Tame.lean, line 194
 - `Polyfold.remark_2_4_8_isPartialQuadrant` — Polyfold/Chapter2/PartialConeQuadrant.lean, line 655
 - `Polyfold.remark_2_4_8_partialConeWith` — Polyfold/Chapter2/PartialConeQuadrant.lean, line 760
 - `Polyfold.flor_nonnegRange_simplicial` — Polyfold/Chapter2/PartialConeQuadrant.lean, line 375
@@ -1513,14 +1569,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.IsSc1With.deriv_mem_minimalSubspace_of_lvl1` — Polyfold/Chapter2/DegeneracyIndex.lean, line 264
 - `Polyfold.IsSc1With.mapsTo_minimalSubspace` — Polyfold/Chapter2/DegeneracyIndex.lean, line 357
-- `Polyfold.IsSc1With.deriv_mem_partialQuadrant_of_lvl1` — Polyfold/Chapter2/Boundary.lean, line 250
-- `Polyfold.IsSc1With.mapsTo_partialQuadrant` — Polyfold/Chapter2/Boundary.lean, line 288
+- `Polyfold.IsSc1With.deriv_mem_partialQuadrant_of_lvl1` — Polyfold/Chapter2/Boundary.lean, line 252
+- `Polyfold.IsSc1With.mapsTo_partialQuadrant` — Polyfold/Chapter2/Boundary.lean, line 290
 - `Polyfold.eventually_add_smul_mem_lvlSet` — Polyfold/Chapter2/DegeneracyIndex.lean, line 226
-- `Polyfold.eventually_add_smul_mem_lvlSet_of_cone` — Polyfold/Chapter2/Boundary.lean, line 195
+- `Polyfold.eventually_add_smul_mem_lvlSet_of_cone` — Polyfold/Chapter2/Boundary.lean, line 197
 - `Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace` — Polyfold/Chapter2/TameRetracts.lean, line 126
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_reduced` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 269
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_cone` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 311
 
 *What differs.*
-- Lemma 2.4.9 (preprint 2.29) itself, in its path formulation, is not formalized (G.10). Its derivative-level content, which is all Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, is formalized directly, for sc¹ maps and level-$1$ points.
+- Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized from these sign arguments (V2.109; G.10, closed: `lemma_2_4_9_reduced`, `lemma_2_4_9_cone`). Its derivative-level content, which is all Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, is formalized directly, for sc¹ maps and level-$1$ points.
 - The text's \"the closure of $(T^R_xO)_\infty$ is $T^R_xO$\" becomes the density of level-$1$ points of $E_x$ and $C_x$ (V2.31).
 
 ### V2.35. Proposition 2.4.10 (preprint 2.30): invariance of $T^R_xO$ and $C_xO$
@@ -1531,12 +1589,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $r$, $r'$ be retractions onto $O$, $O'$, and $F$, $G$ maps with $F \circ r$, $G \circ r'$ sc¹, $F(O) \subseteq O'$, $G(O') \subseteq O$, inverse to each other on $O$, $O'$ (a germ of sc-diffeomorphisms; every sc-smooth map between retracts with sc-smooth inverse is one). For $x \in O_1$ and $y = (F \circ r)(x)$, with $Tf(x) = D(F \circ r)(x)$: $Tf(x)(T^R_xO) = T^R_yO'$ and $Tf(x)(C_xO) = C_yO'$. Moreover $D(G \circ r')(y) \circ D(F \circ r)(x) = Dr(x)$, $D(F \circ r)(x) \circ D(G \circ r')(y) = Dr'(y)$.
 
-- `Polyfold.ScRetraction.IsDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 322
-- `Polyfold.IsScSmoothRetractMap.isDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 354
-- `Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv` — Polyfold/Chapter2/Boundary.lean, line 380
-- `Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv` — Polyfold/Chapter2/Boundary.lean, line 390
-- `Polyfold.proposition_2_4_10_reduced` — Polyfold/Chapter2/Boundary.lean, line 426
-- `Polyfold.proposition_2_4_10_cone` — Polyfold/Chapter2/Boundary.lean, line 457
+- `Polyfold.ScRetraction.IsDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 324
+- `Polyfold.IsScSmoothRetractMap.isDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 356
+- `Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv` — Polyfold/Chapter2/Boundary.lean, line 382
+- `Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv` — Polyfold/Chapter2/Boundary.lean, line 392
+- `Polyfold.proposition_2_4_10_reduced` — Polyfold/Chapter2/Boundary.lean, line 428
+- `Polyfold.proposition_2_4_10_cone` — Polyfold/Chapter2/Boundary.lean, line 459
 
 *What differs.*
 - Proved at every $x \in O_1$ and for germs that are only sc¹; the text has smooth $x$ and sc-smooth germs.
@@ -1554,7 +1612,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.LocalModel.toMPolyfold` — Polyfold/Chapter2/MPolyfold.lean, line 707
 - `Polyfold.IsRelOpenInQuadrant.toMPolyfold` — Polyfold/Chapter2/MPolyfold.lean, line 716
 - `Polyfold.IsRelOpenInQuadrant.selfChart_isChart` — Polyfold/Chapter2/DegeneracyIndex.lean, line 858
-- `Polyfold.MChart.Compatible.isDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 656
+- `Polyfold.MChart.Compatible.isDiffeoGerm` — Polyfold/Chapter2/Boundary.lean, line 658
 
 *What differs.*
 - The text's description of $d_O$ as a minimum over germs into retracts is replaced by Definition 2.4.1 (preprint 2.22) for the atlas $\{\mathrm{id}\}$, whose charts are such germs restricted to open subsets.
@@ -1568,11 +1626,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For every M-polyfold $X$, every chart $\varphi$ around $x$ with $\varphi(x)$ on level $1$, every retraction $r$ onto the model $O$ and every presentation of $C$: $\dim(T_{\varphi(x)}O/T^R_{\varphi(x)}O) \le d_X(x)$. In the text's form, for a retract $O$ as an M-polyfold and $x \in O_1$: $\dim(T_xO/T^R_xO) \le d_O(x)$. The core: along a germ of sc-diffeomorphisms $F$ between retracts, $\dim(T_xO/T^R_xO) \le d_{C'}(F(x))$. The second statement holds without the equality: $C_xO$ is a partial quadrant in $T_xO$ at every smooth $x$ (V2.33).
 
-- `Polyfold.theorem_2_4_12` — Polyfold/Chapter2/Boundary.lean, line 715
-- `Polyfold.theorem_2_4_12_retract` — Polyfold/Chapter2/Boundary.lean, line 731
-- `Polyfold.ScRetraction.IsDiffeoGerm.quotDim_le` — Polyfold/Chapter2/Boundary.lean, line 572
-- `Polyfold.MPolyfold.quotDim_le_chartDegIndex` — Polyfold/Chapter2/Boundary.lean, line 686
-- `Polyfold.ScRetraction.scDeriv_restrict` — Polyfold/Chapter2/Boundary.lean, line 544
+- `Polyfold.theorem_2_4_12` — Polyfold/Chapter2/Boundary.lean, line 717
+- `Polyfold.theorem_2_4_12_retract` — Polyfold/Chapter2/Boundary.lean, line 733
+- `Polyfold.ScRetraction.IsDiffeoGerm.quotDim_le` — Polyfold/Chapter2/Boundary.lean, line 574
+- `Polyfold.MPolyfold.quotDim_le_chartDegIndex` — Polyfold/Chapter2/Boundary.lean, line 688
+- `Polyfold.ScRetraction.scDeriv_restrict` — Polyfold/Chapter2/Boundary.lean, line 546
 - `Polyfold.degIndexWith_le_of_germ` — Polyfold/Chapter2/DegeneracyIndex.lean, line 424
 - `Polyfold.remark_2_4_8_isPartialQuadrant` — Polyfold/Chapter2/PartialConeQuadrant.lean, line 655
 
@@ -1608,10 +1666,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a presentation $T$ of $C$: $C_e = \{v : (Tv)_i \ge 0 \text{ for } (Te)_i = 0\}$ and $E_e = \{v : (Tv)_i = 0 \text{ for } (Te)_i = 0\}$, convex resp. a closed subspace, $E_e \subseteq C_e$, $\dim(E_0/E_e) = d_C(e)$. $E_e$ is the same for every presentation of $C$.
 
-- `Polyfold.partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 99
+- `Polyfold.partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 101
 - `Polyfold.minimalSubspaceWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 129
-- `Polyfold.minimalSubspaceWith_subset_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 103
-- `Polyfold.convex_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 108
+- `Polyfold.minimalSubspaceWith_subset_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 105
+- `Polyfold.convex_partialQuadrantAtWith` — Polyfold/Chapter2/Tame.lean, line 110
 - `Polyfold.finrank_quotient_minimalSubspaceWith` — Polyfold/Chapter2/DegeneracyIndex.lean, line 148
 - `Polyfold.minimalSubspaceWith_le` — Polyfold/Chapter2/TameFaces.lean, line 113
 - `Polyfold.minimalSubspaceWith_eq` — Polyfold/Chapter2/TameFaces.lean, line 133
@@ -1628,11 +1686,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $r$ is tame for the presentation $T$ if (1) $d_C(r(x)) = d_C(x)$ for $x \in U$ and (2) for every smooth $x \in O_1$ there is $A \le E_x$ with $E = Dr(x)E \oplus A$ an sc-splitting (both summands sc-subspaces, complementary on every level). $r$ is tame if it is tame for every presentation of $C$, equivalently for one; a tame retract is the retract of a tame retraction. The identity of a relatively open $U \subseteq C$ is tame, and restrictions of tame retractions to $U \cap r^{-1}(V)$, $V$ open, are tame.
 
-- `Polyfold.ScRetraction.IsTameWith` — Polyfold/Chapter2/Tame.lean, line 122
-- `Polyfold.ScRetraction.IsTame` — Polyfold/Chapter2/Tame.lean, line 131
-- `Polyfold.IsTameRetract` — Polyfold/Chapter2/Tame.lean, line 137
-- `Polyfold.IsTameRetract.isScRetract` — Polyfold/Chapter2/Tame.lean, line 140
-- `Polyfold.ScRetraction.id_isTame` — Polyfold/Chapter2/Tame.lean, line 146
+- `Polyfold.ScRetraction.IsTameWith` — Polyfold/Chapter2/Tame.lean, line 124
+- `Polyfold.ScRetraction.IsTame` — Polyfold/Chapter2/Tame.lean, line 133
+- `Polyfold.IsTameRetract` — Polyfold/Chapter2/Tame.lean, line 139
+- `Polyfold.IsTameRetract.isScRetract` — Polyfold/Chapter2/Tame.lean, line 142
+- `Polyfold.ScRetraction.id_isTame` — Polyfold/Chapter2/Tame.lean, line 148
 - `Polyfold.ScRetraction.IsTameWith.isTame` — Polyfold/Chapter2/TameFaces.lean, line 141
 - `Polyfold.ScRetraction.IsTameWith.restrict` — Polyfold/Chapter2/TameFaces.lean, line 152
 
@@ -1692,7 +1750,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $X$ is tame if some atlas equivalent to its atlas consists of charts modelled on tame retracts; then every point lies in a chart of the structure with a tame model.
 
-- `Polyfold.MPolyfold.IsTame` — Polyfold/Chapter2/Tame.lean, line 211
+- `Polyfold.MPolyfold.IsTame` — Polyfold/Chapter2/Tame.lean, line 213
 - `Polyfold.MPolyfold.isChart_of_mem_equiv` — Polyfold/Chapter2/TameRetracts.lean, line 1202
 - `Polyfold.MPolyfold.IsTame.exists_chart` — Polyfold/Chapter2/TameRetracts.lean, line 1208
 
@@ -1707,10 +1765,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $F$ is a face of $X$ if $F = \overline{G}$ for the connected component $G$ in $\{d_X = 1\}$ of a point with $d_X = 1$; $X$ is face-structured if $\#\{F : F \text{ a face}, x \in F\} = d_X(x)$ for every $x$ (cardinality in $\mathbb N \cup \{\infty\}$). Faces are closed and lie in $\partial X$.
 
-- `Polyfold.MPolyfold.IsFace` — Polyfold/Chapter2/Tame.lean, line 216
-- `Polyfold.MPolyfold.IsFaceStructured` — Polyfold/Chapter2/Tame.lean, line 220
-- `Polyfold.MPolyfold.IsFace.isClosed` — Polyfold/Chapter2/Tame.lean, line 224
-- `Polyfold.MPolyfold.IsFace.subset_boundary` — Polyfold/Chapter2/Boundary.lean, line 126
+- `Polyfold.MPolyfold.IsFace` — Polyfold/Chapter2/Tame.lean, line 218
+- `Polyfold.MPolyfold.IsFaceStructured` — Polyfold/Chapter2/Tame.lean, line 222
+- `Polyfold.MPolyfold.IsFace.isClosed` — Polyfold/Chapter2/Tame.lean, line 226
+- `Polyfold.MPolyfold.IsFace.subset_boundary` — Polyfold/Chapter2/Boundary.lean, line 128
 
 *What differs.*
 - Defined for every M-polyfold; the theorems about faces assume tameness, as the text does.
@@ -1920,10 +1978,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $\Phi : E_0 \times F_0 \to E'_0 \times F'_0$ is a strong bundle map on $U \triangleleft F$ if it maps $U \times F$ into $U' \times F'$, its first component does not depend on $h$, its second is linear in $h$ for $u \in U$, it maps $U_m \oplus F_k$ into $U'_m \oplus F'_k$ for $k \le m + 1$, and it is sc-smooth on $U \times F_0$ for $E \oplus F$ and (through the lift of the fibre component to $F'_1$) on $U \times F_1$ for $E \oplus F^1$. A strong bundle retraction is one with $R \circ R = R$; its base $r(u) = R(u, 0)_1$ is an sc-smooth retraction on $U$, $\Gamma(u, \cdot)$ is a projection for $u \in O$, and $R$ is an sc-smooth retraction on $(U \triangleleft F)[0]$ and on $(U \triangleleft F)[1]$. $C \times F$ is a partial quadrant in $E \oplus F$ and $U \times F$ is relatively open in it.
 
-- `Polyfold.doubleLevel` — Polyfold/Chapter2/Tame.lean, line 237
-- `Polyfold.shiftFiber` — Polyfold/Chapter2/Tame.lean, line 245
-- `Polyfold.IsStrongBundleMap` — Polyfold/Chapter2/Tame.lean, line 252
-- `Polyfold.IsStrongBundleRetraction` — Polyfold/Chapter2/Tame.lean, line 267
+- `Polyfold.doubleLevel` — Polyfold/Chapter2/Tame.lean, line 239
+- `Polyfold.shiftFiber` — Polyfold/Chapter2/Tame.lean, line 247
+- `Polyfold.IsStrongBundleMap` — Polyfold/Chapter2/Tame.lean, line 254
+- `Polyfold.IsStrongBundleRetraction` — Polyfold/Chapter2/Tame.lean, line 269
 - `Polyfold.IsPartialQuadrant.prod_univ` — Polyfold/Chapter2/StrongBundle.lean, line 216
 - `Polyfold.IsRelOpenInQuadrant.prod_univ` — Polyfold/Chapter2/StrongBundle.lean, line 229
 - `Polyfold.IsStrongBundleRetraction.baseRetraction` — Polyfold/Chapter2/StrongBundle.lean, line 253
@@ -1947,10 +2005,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $K \subseteq E_0 \times F_0$ is a local strong bundle retract over $C$ if $K = R(U \times F_0)$ for a strong bundle retraction on some relatively open $U \subseteq C$; then $K = \{(u, h) : u \in O, \Gamma(u, h) = h\}$. Its double filtration $K_{m,k}$ and $K[1] = \{(u, h) \in E_0 \times F_1 : (u, h) \in K\}$ are defined level by level. $K$ is an sc-smooth retract in $(C \times F, E \oplus F)$ and $K[1]$ one in $(C \times F, E \oplus F^1)$, $K[1]$ being the image of $R$ on $(U \triangleleft F)[1]$; $p : K[i] \to O$ and the inclusion $K[1] \to K[0]$ are sc-smooth.
 
-- `Polyfold.IsStrongBundleRetract` — Polyfold/Chapter2/Tame.lean, line 273
-- `Polyfold.strongLevel` — Polyfold/Chapter2/Tame.lean, line 279
-- `Polyfold.strongLevelShift` — Polyfold/Chapter2/Tame.lean, line 283
-- `Polyfold.strongShiftOne` — Polyfold/Chapter2/Tame.lean, line 287
+- `Polyfold.IsStrongBundleRetract` — Polyfold/Chapter2/Tame.lean, line 275
+- `Polyfold.strongLevel` — Polyfold/Chapter2/Tame.lean, line 281
+- `Polyfold.strongLevelShift` — Polyfold/Chapter2/Tame.lean, line 285
+- `Polyfold.strongShiftOne` — Polyfold/Chapter2/Tame.lean, line 289
 - `Polyfold.IsStrongBundleRetraction.mem_image_iff` — Polyfold/Chapter2/StrongBundle.lean, line 294
 - `Polyfold.IsStrongBundleRetraction.toScRetractionOne_retract` — Polyfold/Chapter2/StrongBundle.lean, line 353
 - `Polyfold.IsStrongBundleRetract.isScRetract` — Polyfold/Chapter2/StrongBundle.lean, line 383
@@ -1971,9 +2029,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** An sc-smooth section is $f$ with $f(x)_1 = x$ on $O$ and $f$ sc-smooth from $(O, C, E)$ to $(K, C \times F, E \oplus F)$; an sc⁺-section is $f : E_0 \to E_0 \times F_1$ with $f(x)_1 = x$ on $O$, sc-smooth into $(K[1], C \times F, E \oplus F^1)$. An sc⁺-section is an sc-smooth section.
 
-- `Polyfold.IsScSmoothSection` — Polyfold/Chapter2/Tame.lean, line 296
-- `Polyfold.IsScPlusSection` — Polyfold/Chapter2/Tame.lean, line 303
-- `Polyfold.IsScPlusSection.mem` — Polyfold/Chapter2/Tame.lean, line 309
+- `Polyfold.IsScSmoothSection` — Polyfold/Chapter2/Tame.lean, line 298
+- `Polyfold.IsScPlusSection` — Polyfold/Chapter2/Tame.lean, line 305
+- `Polyfold.IsScPlusSection.mem` — Polyfold/Chapter2/Tame.lean, line 311
 - `Polyfold.IsScPlusSection.isScSmoothSection` — Polyfold/Chapter2/StrongBundle.lean, line 443
 - `Polyfold.SBR` — Polyfold/Chapter3/StrongBundleIsoSBR.lean, line 115
 - `Polyfold.SBR.IsHom` — Polyfold/Chapter3/StrongBundleIsoSBR.lean, line 142
@@ -2194,9 +2252,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Every $x \in O$ has open $V \subseteq W$ in $O$ with $\mathrm{cl}_O(V) \subseteq W$ and $\mathrm{cl}_O(V)$ complete for the metric of $E_0$, with $W$ inside any given neighbourhood of $x$; $O \cap \bar B_\varepsilon(x)$ is closed in $E_0$ for small $\varepsilon$.
 
-- `Polyfold.ScRetraction.exists_isClosed_retract_inter_closedBall` — Polyfold/Chapter2/LocalTopology.lean, line 519
-- `Polyfold.IsScRetract.exists_isComplete_closure` — Polyfold/Chapter2/LocalTopology.lean, line 552
-- `Polyfold.proposition_2_1_4` — Polyfold/Chapter2/LocalTopology.lean, line 585
+- `Polyfold.ScRetraction.exists_isClosed_retract_inter_closedBall` — Polyfold/Chapter2/LocalTopology.lean, line 520
+- `Polyfold.IsScRetract.exists_isComplete_closure` — Polyfold/Chapter2/LocalTopology.lean, line 553
+- `Polyfold.proposition_2_1_4` — Polyfold/Chapter2/LocalTopology.lean, line 586
 
 *What differs.*
 - The proof uses $O \cap \bar B_\varepsilon(x)$ in place of the text's set $V'$ with $r(V') \subseteq V'$.
@@ -2209,20 +2267,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Every $x$ has open $V \ni x$ and $W$ with $\mathrm{cl}_X(V) \subseteq W$ and a metric on $W$ inducing its subspace topology for which $\mathrm{cl}_X(V)$ is complete. Such a space is regular, $T_1$ and Hausdorff, and $W$ can be chosen inside any neighbourhood of $x$; complete metric spaces, $\mathbb R$ in particular, are locally complete.
 
-- `Polyfold.AdmitsCompleteMetricOn` — Polyfold/Chapter2/LocalTopology.lean, line 183
-- `Polyfold.admitsCompleteMetricOn_of_isComplete` — Polyfold/Chapter2/LocalTopology.lean, line 187
-- `Polyfold.AdmitsCompleteMetricOn.metrizableSpace` — Polyfold/Chapter2/LocalTopology.lean, line 192
-- `Polyfold.AdmitsCompleteMetricOn.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 201
-- `Polyfold.AdmitsCompleteMetricOn.mono` — Polyfold/Chapter2/LocalTopology.lean, line 216
-- `Polyfold.isComplete_inter_of_isClosed` — Polyfold/Chapter2/LocalTopology.lean, line 171
-- `Polyfold.IsLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 234
-- `Polyfold.IsLocallyComplete.exists_subset` — Polyfold/Chapter2/LocalTopology.lean, line 239
-- `Polyfold.IsLocallyComplete.regularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 274
-- `Polyfold.IsLocallyComplete.t1Space` — Polyfold/Chapter2/LocalTopology.lean, line 281
-- `Polyfold.IsLocallyComplete.t2Space` — Polyfold/Chapter2/LocalTopology.lean, line 296
-- `Polyfold.isLocallyComplete_of_completeSpace` — Polyfold/Chapter2/LocalTopology.lean, line 302
-- `Polyfold.isLocallyComplete_real` — Polyfold/Chapter2/LocalTopology.lean, line 309
-- `Polyfold.isLocallyComplete_of_metric` — Polyfold/Chapter2/LocalTopology.lean, line 313
+- `Polyfold.AdmitsCompleteMetricOn` — Polyfold/Chapter2/LocalTopology.lean, line 184
+- `Polyfold.admitsCompleteMetricOn_of_isComplete` — Polyfold/Chapter2/LocalTopology.lean, line 188
+- `Polyfold.AdmitsCompleteMetricOn.metrizableSpace` — Polyfold/Chapter2/LocalTopology.lean, line 193
+- `Polyfold.AdmitsCompleteMetricOn.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 202
+- `Polyfold.AdmitsCompleteMetricOn.mono` — Polyfold/Chapter2/LocalTopology.lean, line 217
+- `Polyfold.isComplete_inter_of_isClosed` — Polyfold/Chapter2/LocalTopology.lean, line 172
+- `Polyfold.IsLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 235
+- `Polyfold.IsLocallyComplete.exists_subset` — Polyfold/Chapter2/LocalTopology.lean, line 240
+- `Polyfold.IsLocallyComplete.regularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 275
+- `Polyfold.IsLocallyComplete.t1Space` — Polyfold/Chapter2/LocalTopology.lean, line 282
+- `Polyfold.IsLocallyComplete.t2Space` — Polyfold/Chapter2/LocalTopology.lean, line 297
+- `Polyfold.isLocallyComplete_of_completeSpace` — Polyfold/Chapter2/LocalTopology.lean, line 303
+- `Polyfold.isLocallyComplete_real` — Polyfold/Chapter2/LocalTopology.lean, line 310
+- `Polyfold.isLocallyComplete_of_metric` — Polyfold/Chapter2/LocalTopology.lean, line 314
 
 *What differs.*
 - The Hausdorff assumption is not part of the definition: it follows ($T_1$ from the metrizable $W$, regularity from $\mathrm{cl}_X(V) \subseteq W$). So Proposition 2.1.8, Lemma 2.1.9 and Proposition 2.1.10 need no Hausdorff hypothesis (except for the $T_{3\frac12}$ conclusion).
@@ -2236,9 +2294,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `remark_2_1_6_book`: if $\mathrm{cl}_X(V) \subseteq W$ then $\mathrm{cl}_W(V) = \mathrm{cl}_X(V)$. Local completeness implies the modified notion ($V \subseteq W$, $\mathrm{cl}_W(V)$ complete). Some Hausdorff space ($\mathbb R$ with the K-topology, V2.91) satisfies the modified notion without being locally complete, so the modified notion is strictly weaker.
 
 - `Polyfold.remark_2_1_6_book` — Polyfold/Chapter2/BookFormLocalCompleteness2021.lean, line 40
-- `Polyfold.remark_2_1_6` — Polyfold/Chapter2/LocalTopology.lean, line 332
-- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 346
-- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 351
+- `Polyfold.remark_2_1_6` — Polyfold/Chapter2/LocalTopology.lean, line 333
+- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 347
+- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 352
 - `Polyfold.remark_2_1_6_strict` — Polyfold/Chapter2/LocalTopologyExample.lean, line 256
 
 *What differs.*
@@ -2252,8 +2310,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** An sc-smooth retract $O$ with the topology of $E_0$ is locally complete; so is $E_0$.
 
-- `Polyfold.corollary_2_1_7` — Polyfold/Chapter2/LocalTopology.lean, line 592
-- `Polyfold.isLocallyComplete_univ_retract` — Polyfold/Chapter2/LocalTopology.lean, line 597
+- `Polyfold.corollary_2_1_7` — Polyfold/Chapter2/LocalTopology.lean, line 593
+- `Polyfold.isLocallyComplete_univ_retract` — Polyfold/Chapter2/LocalTopology.lean, line 598
 
 ### V2.70. Proposition 2.1.8: permanence of local completeness
 
@@ -2263,11 +2321,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same, without Hausdorff hypotheses; more generally a space embedded in a locally complete $X$ with locally closed image is locally complete.
 
-- `Polyfold.IsLocallyComplete.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 414
-- `Polyfold.proposition_2_1_8_1` — Polyfold/Chapter2/LocalTopology.lean, line 441
-- `Polyfold.proposition_2_1_8_2` — Polyfold/Chapter2/LocalTopology.lean, line 447
-- `Polyfold.proposition_2_1_8_3` — Polyfold/Chapter2/LocalTopology.lean, line 453
-- `Polyfold.proposition_2_1_8_4` — Polyfold/Chapter2/LocalTopology.lean, line 460
+- `Polyfold.IsLocallyComplete.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 415
+- `Polyfold.proposition_2_1_8_1` — Polyfold/Chapter2/LocalTopology.lean, line 442
+- `Polyfold.proposition_2_1_8_2` — Polyfold/Chapter2/LocalTopology.lean, line 448
+- `Polyfold.proposition_2_1_8_3` — Polyfold/Chapter2/LocalTopology.lean, line 454
+- `Polyfold.proposition_2_1_8_4` — Polyfold/Chapter2/LocalTopology.lean, line 461
 
 *What differs.*
 - "Locally closed" is Mathlib's notion (open $\cap$ closed), equivalent to the text's use.
@@ -2280,9 +2338,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** A locally complete space is first countable and completely regular; if Hausdorff, it is $T_{3\frac12}$.
 
-- `Polyfold.lemma_2_1_9` — Polyfold/Chapter2/LocalTopology.lean, line 361
-- `Polyfold.IsLocallyComplete.completelyRegularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 370
-- `Polyfold.proposition_2_1_10` — Polyfold/Chapter2/LocalTopology.lean, line 406
+- `Polyfold.lemma_2_1_9` — Polyfold/Chapter2/LocalTopology.lean, line 362
+- `Polyfold.IsLocallyComplete.completelyRegularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 371
+- `Polyfold.proposition_2_1_10` — Polyfold/Chapter2/LocalTopology.lean, line 407
 
 *What differs.*
 - The proofs work with neighbourhood filters and a bump function built in the metrizable $W(x)$, instead of sequences.
@@ -2295,17 +2353,17 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $k \in \mathbb N$, $U_k \subseteq E_k$ is path-connected; $U_\infty$, as the compatible sequences $(v_m) \in \prod_m E_m$ with $v_0 \in U$ (the topology of all the norms), is path-connected. Smooth points are dense in every $C_m$.
 
-- `Polyfold.ScBanach.lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 778
-- `Polyfold.ScBanach.smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 782
-- `Polyfold.ScBanach.toBase_smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 785
-- `Polyfold.ScBanach.smoothSeq_mem` — Polyfold/Chapter2/LocalTopology.lean, line 789
-- `Polyfold.ScBanach.smoothSeq_zero` — Polyfold/Chapter2/LocalTopology.lean, line 794
-- `Polyfold.ScBanach.image_lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 799
-- `Polyfold.ScBanach.joinedIn_lvlSetInfty_of_segment` — Polyfold/Chapter2/LocalTopology.lean, line 810
-- `Polyfold.IsPartialQuadrant.exists_smooth_near` — Polyfold/Chapter2/LocalTopology.lean, line 828
-- `Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset` — Polyfold/Chapter2/LocalTopology.lean, line 842
-- `Polyfold.lemma_2_2_1` — Polyfold/Chapter2/LocalTopology.lean, line 921
-- `Polyfold.lemma_2_2_1_infty` — Polyfold/Chapter2/LocalTopology.lean, line 852
+- `Polyfold.ScBanach.lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 779
+- `Polyfold.ScBanach.smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 783
+- `Polyfold.ScBanach.toBase_smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 786
+- `Polyfold.ScBanach.smoothSeq_mem` — Polyfold/Chapter2/LocalTopology.lean, line 790
+- `Polyfold.ScBanach.smoothSeq_zero` — Polyfold/Chapter2/LocalTopology.lean, line 795
+- `Polyfold.ScBanach.image_lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 800
+- `Polyfold.ScBanach.joinedIn_lvlSetInfty_of_segment` — Polyfold/Chapter2/LocalTopology.lean, line 811
+- `Polyfold.IsPartialQuadrant.exists_smooth_near` — Polyfold/Chapter2/LocalTopology.lean, line 829
+- `Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset` — Polyfold/Chapter2/LocalTopology.lean, line 843
+- `Polyfold.lemma_2_2_1` — Polyfold/Chapter2/LocalTopology.lean, line 922
+- `Polyfold.lemma_2_2_1_infty` — Polyfold/Chapter2/LocalTopology.lean, line 853
 
 *What differs.*
 - The text does not specify the topology of $E_\infty$; the Lean uses that of all the norms $|\cdot|_m$.
@@ -2319,9 +2377,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same, with $V(x) = V' \cap U$, $V'$ open in $E_0$; Definition 2.2.3 is Mathlib's local path-connectedness.
 
-- `Polyfold.lemma_2_2_2` — Polyfold/Chapter2/LocalTopology.lean, line 967
-- `Polyfold.definition_2_2_3` — Polyfold/Chapter2/LocalTopology.lean, line 1001
-- `Polyfold.theorem_2_2_4` — Polyfold/Chapter2/LocalTopology.lean, line 1021
+- `Polyfold.lemma_2_2_2` — Polyfold/Chapter2/LocalTopology.lean, line 968
+- `Polyfold.definition_2_2_3` — Polyfold/Chapter2/LocalTopology.lean, line 1002
+- `Polyfold.theorem_2_2_4` — Polyfold/Chapter2/LocalTopology.lean, line 1022
 - `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 107
 
 *What differs.*
@@ -2335,9 +2393,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same definition; sc-smooth retracts and $E_0$ are almost locally contractible.
 
-- `Polyfold.IsAlmostLocallyContractible` — Polyfold/Chapter2/LocalTopology.lean, line 1034
-- `Polyfold.proposition_2_2_6` — Polyfold/Chapter2/LocalTopology.lean, line 1043
-- `Polyfold.isAlmostLocallyContractible_univ` — Polyfold/Chapter2/LocalTopology.lean, line 1101
+- `Polyfold.IsAlmostLocallyContractible` — Polyfold/Chapter2/LocalTopology.lean, line 1035
+- `Polyfold.proposition_2_2_6` — Polyfold/Chapter2/LocalTopology.lean, line 1044
+- `Polyfold.isAlmostLocallyContractible_univ` — Polyfold/Chapter2/LocalTopology.lean, line 1102
 
 ### V2.75. Definition 2.3.4 (preprint 2.13), the footnote: paracompactness without Hausdorff
 
@@ -2347,13 +2405,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Paracompact* (every open cover has a locally finite open refinement) is Mathlib's paracompactness, so "Hausdorff paracompact*" is exactly the hypothesis of an M-polyfold. With "subcover" in place of "refinement", $\mathbb R$ is not paracompact.
 
-- `Polyfold.IsLocallyFiniteSetFamily` — Polyfold/Chapter2/LocalTopology.lean, line 614
-- `Polyfold.IsParacompactStar` — Polyfold/Chapter2/LocalTopology.lean, line 620
-- `Polyfold.isParacompactStar_iff` — Polyfold/Chapter2/LocalTopology.lean, line 627
-- `Polyfold.definition_2_3_4` — Polyfold/Chapter2/LocalTopology.lean, line 659
-- `Polyfold.isParacompactStar_real` — Polyfold/Chapter2/LocalTopology.lean, line 664
-- `Polyfold.IsParacompactBySubcover` — Polyfold/Chapter2/LocalTopology.lean, line 669
-- `Polyfold.not_isParacompactBySubcover_real` — Polyfold/Chapter2/LocalTopology.lean, line 676
+- `Polyfold.IsLocallyFiniteSetFamily` — Polyfold/Chapter2/LocalTopology.lean, line 615
+- `Polyfold.IsParacompactStar` — Polyfold/Chapter2/LocalTopology.lean, line 621
+- `Polyfold.isParacompactStar_iff` — Polyfold/Chapter2/LocalTopology.lean, line 628
+- `Polyfold.definition_2_3_4` — Polyfold/Chapter2/LocalTopology.lean, line 660
+- `Polyfold.isParacompactStar_real` — Polyfold/Chapter2/LocalTopology.lean, line 665
+- `Polyfold.IsParacompactBySubcover` — Polyfold/Chapter2/LocalTopology.lean, line 670
+- `Polyfold.not_isParacompactBySubcover_real` — Polyfold/Chapter2/LocalTopology.lean, line 677
 
 *What differs.*
 - The subcover wording of Appendix 2.7.2 (and 2017 Appendix 2.6.2) does not hold as we read it for $\mathbb R$ (the cover by $(-n-1, n+1)$); it is read as "refinement", as in the footnote (possible misprint).
@@ -2366,9 +2424,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same; Lemma 2.7.2 for regular spaces, Lemma 2.3.5 for Hausdorff paracompact spaces, with $V$ inside any given neighbourhood.
 
-- `Polyfold.lemma_2_7_2` — Polyfold/Chapter2/LocalTopology.lean, line 700
-- `Polyfold.exists_isOpen_closure_subset_of_paracompact` — Polyfold/Chapter2/LocalTopology.lean, line 709
-- `Polyfold.lemma_2_3_5` — Polyfold/Chapter2/LocalTopology.lean, line 737
+- `Polyfold.lemma_2_7_2` — Polyfold/Chapter2/LocalTopology.lean, line 701
+- `Polyfold.exists_isOpen_closure_subset_of_paracompact` — Polyfold/Chapter2/LocalTopology.lean, line 710
+- `Polyfold.lemma_2_3_5` — Polyfold/Chapter2/LocalTopology.lean, line 738
 
 ### V2.77. Propositions 2.3.6 and 2.3.7: M-polyfolds are locally complete and locally path-connected
 
@@ -2378,10 +2436,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same; chart domains are locally complete.
 
-- `Polyfold.MChart.isLocallyComplete_source` — Polyfold/Chapter2/LocalTopology.lean, line 723
-- `Polyfold.MPolyfold.isLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 742
-- `Polyfold.proposition_2_3_6` — Polyfold/Chapter2/LocalTopology.lean, line 756
-- `Polyfold.proposition_2_3_7` — Polyfold/Chapter2/LocalTopology.lean, line 764
+- `Polyfold.MChart.isLocallyComplete_source` — Polyfold/Chapter2/LocalTopology.lean, line 724
+- `Polyfold.MPolyfold.isLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 743
+- `Polyfold.proposition_2_3_6` — Polyfold/Chapter2/LocalTopology.lean, line 757
+- `Polyfold.proposition_2_3_7` — Polyfold/Chapter2/LocalTopology.lean, line 765
 - `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 168
 
 *What differs.*
@@ -3035,6 +3093,125 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.quadrantPolyfold_bChartData_nonempty` — Polyfold/Chapter2/TameBoundaryStructure.lean, line 997
 - `Polyfold.MPolyfold.quadrantPolyfold_degIndex_tameBoundary` — Polyfold/Chapter2/TameBoundaryStructure.lean, line 1005
 
+### V2.108. Proposition 2.1.2 (preprint 2.2): the image of a classical smooth retraction is a submanifold
+
+*restated* · ψ(x) = 0 for the printed ψ(0) = x · proof by conjugation, not estimates
+
+**HWZ (§2.1, Proposition 2.1.2 (preprint 2.2), p. 22 (preprint p. 18) (proof §2.7.1 (preprint §2.6.1), preprint pp. 54–55)).** If $r : U \to U$ is a $C^\infty$ retraction of an open subset of a Banach space $E$, then $O = r(U)$ is a $C^\infty$ submanifold: near each $x \in O$ there are a splitting $E = R \oplus N$ and a diffeomorphism $\psi : V \to W$ with $\psi(O \cap V) = R \cap W$ (the text prints $\psi(0) = x$ for $\psi(x) = 0$).
+
+**Proved in Lean.** `proposition_2_1_2`: for a real Banach space $E$, $U \subseteq E$ open, $r$ $C^\infty$ on $U$ with $r(U) \subseteq U$ and $r \circ r = r$ on $U$, and $x \in r(U)$, there are open $V \ni x$ with $V \subseteq U$, open $W \ni 0$, closed complementary subspaces $R = \operatorname{range} Dr(x)$ and $N = \ker Dr(x)$, and a $C^\infty$ diffeomorphism $\psi : V \to W$ ($\psi$ and $\psi^{-1}$ $C^\infty$) with $\psi(x) = 0$ and $\psi(r(U) \cap V) = R \cap W$.
+
+- `Polyfold.GapP1Prop212.proposition_2_1_2` — Polyfold/Chapter2/GapP1_Prop212.lean, line 95
+- `Polyfold.GapP1Prop212.isIdempotentElem_fderiv` — Polyfold/Chapter2/GapP1_Prop212.lean, line 43
+- `Polyfold.GapP1Prop212.retractChart` — Polyfold/Chapter2/GapP1_Prop212.lean, line 39
+- `Polyfold.GapP1Prop212.retractChart_comp` — Polyfold/Chapter2/GapP1_Prop212.lean, line 58
+- `Polyfold.GapP1Prop212.hasFDerivAt_retractChart` — Polyfold/Chapter2/GapP1_Prop212.lean, line 66
+
+*What differs.*
+- The printed normalization $\psi(0) = x$, for $\psi : V \to W$ with $x \in V$ and $0 \in W$, is read as $\psi(x) = 0$.
+- The proof is not the text's (the estimates of §2.7.1): $P = Dr(x)$ is idempotent by the chain rule (`isIdempotentElem_fderiv`); $\varphi(y) = P(r(y) - x) + (1 - P)(y - r(y))$ (`retractChart`) has $D\varphi(x) = 1$ (`hasFDerivAt_retractChart`) and conjugates $r$ to $P$, $\varphi \circ r = P \circ \varphi$ (`retractChart_comp`); Mathlib's inverse function theorem gives $\psi$. $C^\infty$ is `ContDiffOn ℝ ∞` (smooth, not analytic).
+
+### V2.109. Lemma 2.4.9 (preprint 2.29): $T^R_xO$ and $C_xO$ through sc-smooth paths; $T_xO = C_xO - C_xO$
+
+*as in the book* · as printed · (3) for every x ∈ O₁
+
+**HWZ (§2.4 (preprint §2.3), Lemma 2.4.9 (preprint 2.29), pp. 48–49 (preprint pp. 33–35)).** For a retract and a smooth $x \in O$: (1) $T^R_xO$ is the closure of the derivatives $\dot\alpha(0)$ of sc-smooth paths $\alpha : (-\varepsilon, \varepsilon) \to O$ through $x$; (2) $C_xO$ the closure of the one-sided derivatives of sc-smooth paths $\alpha : [0, \varepsilon) \to O$; (3) $T_xO = C_xO - C_xO$.
+
+**Proved in Lean.** For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\alpha : \mathbb R \to E_0$, sc-smooth on $(-\varepsilon, \varepsilon)$ or on $[0, \varepsilon)$ for the constant sc-structure on $\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\alpha(0) = x$; $\dot\alpha(0)$ is `pathDeriv`, $D\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \in O$: (1) $T^R_xO$ is the closure of the set of $\dot\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\dot\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\dot\alpha(0) = \dot\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).
+
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_reduced` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 269
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_cone` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 311
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_tangent` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 351
+- `Polyfold.GapP1Lemma249.pathDeriv` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 69
+- `Polyfold.GapP1Lemma249.twoSidedPathDerivs` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 212
+- `Polyfold.GapP1Lemma249.oneSidedPathDerivs` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 217
+- `Polyfold.GapP1Lemma249.hasDerivWithinAt_pathDeriv` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 73
+- `Polyfold.GapP1Lemma249.scDeriv_pathDeriv` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 94
+- `Polyfold.GapP1Lemma249.pathDeriv_mem_minimalSubspaceWith` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 120
+- `Polyfold.GapP1Lemma249.pathDeriv_mem_partialQuadrantAtWith` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 138
+- `Polyfold.GapP1Lemma249.path_retract_segment` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 163
+- `Polyfold.GapP1Lemma249.partialConeWith_subset_closure` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 233
+- `Polyfold.GapP1Lemma249.isScDomain_Ioo` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 61
+- `Polyfold.GapP1Lemma249.isScDomain_Ico` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 64
+
+### V2.110. The extended faces of a partial quadrant, intrinsically (preprint p. 39)
+
+*restated* · half-space $H_f$ read as $C + f$ · intrinsic: only $C$ and $d_C$
+
+**HWZ (§2.5 (preprint §2.4), preprint p. 39).** $\{e \in C : d_C(e) = 1\}$ has exactly $k$ connected components $A_i$; each lies in a smallest subspace $f_i$ (an extended face), with a half-space $H_{f_i} \supset C$; $\mathcal F(e) = \{f : e \in f\}$ and $d_C(e) = \#\mathcal F(e)$.
+
+**Proved in Lean.** The definitions use only $C$ and $d_C$: `stratumOne` $= \{e \in C \mid d_C(e) = 1\}$, `faceComponents` its connected components, `extendedFaces` the spans of the components (the smallest linear subspaces containing them), `facesAt e` $= \mathcal F(e) = \{f \mid e \in f\}$. For any presentation $T$ (used only in the proofs): the components are $A_i = \{(Te)_i = 0,\ (Te)_j > 0\ (j \ne i)\}$ (`faceComponents_eq`) and there are exactly $k$ of them (`ncard_faceComponents`); $\operatorname{span} A_i = f_i = \{(Te)_i = 0\}$ (`span_faceOpen`, `extendedFaces_eq`), so there are exactly $k$ extended faces (`ncard_extendedFaces`); $C + f_i = \{(Te)_i \ge 0\}$, closed and containing $C$ (`add_coordFace`, `isClosed_add_coordFace`, `subset_add_coordFace`); $d_C(e) = \#\mathcal F(e)$ (`ncard_facesAt`); and $\bigcap_{f \in \mathcal F(e)} (C + f) = C_e$ (`iInter_facesAt`, Definition 2.5.1).
+
+- `Polyfold.GapP1ExtendedFaces.stratumOne` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 47
+- `Polyfold.GapP1ExtendedFaces.faceComponents` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 50
+- `Polyfold.GapP1ExtendedFaces.extendedFaces` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 54
+- `Polyfold.GapP1ExtendedFaces.facesAt` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 58
+- `Polyfold.GapP1ExtendedFaces.faceComponents_eq` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 186
+- `Polyfold.GapP1ExtendedFaces.ncard_faceComponents` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 205
+- `Polyfold.GapP1ExtendedFaces.span_faceOpen` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 210
+- `Polyfold.GapP1ExtendedFaces.extendedFaces_eq` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 248
+- `Polyfold.GapP1ExtendedFaces.ncard_extendedFaces` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 256
+- `Polyfold.GapP1ExtendedFaces.add_coordFace` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 262
+- `Polyfold.GapP1ExtendedFaces.isClosed_add_coordFace` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 284
+- `Polyfold.GapP1ExtendedFaces.subset_add_coordFace` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 288
+- `Polyfold.GapP1ExtendedFaces.ncard_facesAt` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 301
+- `Polyfold.GapP1ExtendedFaces.iInter_facesAt` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 312
+- `Polyfold.GapP1ExtendedFaces.connectedComponentIn_eq` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 152
+
+*What differs.*
+- The text names a half-space $H_{f_i} \supset C$ without a formula; it is read as $C + f_i$, which is the half-space $H_i$ of (2.14) (preprint numbering) for every presentation.
+- The presentation-based forms that the proofs of §2.5 use remain V2.39 and V2.45.
+
+### V2.111. Definition 2.5.8 (preprint 2.38): $T^R_xX$ and $C_xX$ of an M-polyfold; $C_xX$ a partial quadrant, $d_X(x) = d_{C_xX}(0_x)$
+
+*restated* · sc-structure of $T_xX$ up to sc-isomorphism · tame chart at a smooth point
+
+**HWZ (§2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42)).** For a smooth $x \in X$, $T^R_xX$ and $C_xX$ are the preimages of $T^R_oO$ and $C_oO$ under $T\psi(x)$ for any chart $\psi$; well defined by Proposition 2.4.10 (preprint 2.30). For tame $X$, $C_xX$ is a partial quadrant and $d_X(x) = \dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$.
+
+**Proved in Lean.** With the linear structure of $T_xX$ (G.7), $T^R_xX$ and $C_xX$ are the preimages under $T\varphi(x)$ of $T^R_{\varphi(x)}O$ and $C_{\varphi(x)}O$ (`reducedTangentFiber`, `partialConeFiber`) and do not depend on the chart or the presentation (`reducedTangentFiber_eq`, `partialConeFiber_eq`, by Proposition 2.4.10); $T^R_xX = C_xX \cap (-C_xX)$ (`mem_reducedTangentFiber_iff_lineality`). At a smooth $x$, $T_xX$ carries the sc-structure of $T_{\varphi(x)}O$ transported by $T\varphi(x)$; in it $C_xX$ is a partial quadrant (any chart, `isPartialQuadrant_partialConeFiberModel`), and in a tame chart $d_X(x) = \dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$ (`definition_2_5_8_degIndex`). For two charts the transition derivative $T_{\varphi(x)}O \to T_{\psi(x)}O$ is an sc-isomorphism (`tangentFiberScIso`, from `ScBanach.subspaceIso`) that carries $\varphi$-coordinates to $\psi$-coordinates (`tangentFiberScIso_comp`) and the model of $C_xX$ onto the model (`tangentFiberScIso_image_partialConeFiberModel`); `definition_2_5_8_scStructure` collects the definition. $d_C(0) = \dim(F/(C \cap -C))$ for every partial quadrant (`degIndex_zero_eq_finrank_quotient`).
+
+- `Polyfold.MPolyfold.reducedTangentFiber` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 104
+- `Polyfold.MPolyfold.partialConeFiber` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 110
+- `Polyfold.MPolyfold.reducedTangentFiber_eq` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 213
+- `Polyfold.MPolyfold.partialConeFiber_eq` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 242
+- `Polyfold.MPolyfold.finrank_quotient_reducedTangentFiber_eq_degIndex` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 289
+- `Polyfold.degIndex_zero_eq_finrank_quotient` — Polyfold/Chapter2/GapP1_Def258.lean, line 46
+- `Polyfold.mem_minimalSubspaceWith_iff_lineality` — Polyfold/Chapter2/GapP1_Def258.lean, line 60
+- `Polyfold.MPolyfold.mem_reducedTangentFiber_iff_lineality` — Polyfold/Chapter2/GapP1_Def258.lean, line 80
+- `Polyfold.MPolyfold.partialConeFiberModel` — Polyfold/Chapter2/GapP1_Def258.lean, line 88
+- `Polyfold.MPolyfold.mem_partialConeFiberModel_iff` — Polyfold/Chapter2/GapP1_Def258.lean, line 94
+- `Polyfold.MPolyfold.isPartialQuadrant_partialConeFiberModel` — Polyfold/Chapter2/GapP1_Def258.lean, line 108
+- `Polyfold.MPolyfold.degIndex_partialConeFiberModel_eq_finrank` — Polyfold/Chapter2/GapP1_Def258.lean, line 135
+- `Polyfold.MPolyfold.definition_2_5_8_degIndex` — Polyfold/Chapter2/GapP1_Def258.lean, line 164
+- `Polyfold.ScBanach.IsScOperator.toBase_toScOperator` — Polyfold/Chapter2/GapP1_Def258b.lean, line 38
+- `Polyfold.ScBanach.restrLvl` — Polyfold/Chapter2/GapP1_Def258b.lean, line 44
+- `Polyfold.ScBanach.subspaceIso` — Polyfold/Chapter2/GapP1_Def258b.lean, line 62
+- `Polyfold.MPolyfold.fiberCoord_eq_transitionCLM` — Polyfold/Chapter2/GapP1_Def258b.lean, line 97
+- `Polyfold.MPolyfold.transitionCLM_transitionCLM` — Polyfold/Chapter2/GapP1_Def258b.lean, line 104
+- `Polyfold.MPolyfold.tangentFiberScIso` — Polyfold/Chapter2/GapP1_Def258b.lean, line 113
+- `Polyfold.MPolyfold.fiberCoordSc` — Polyfold/Chapter2/GapP1_Def258b.lean, line 131
+- `Polyfold.MPolyfold.tangentFiberScIso_comp` — Polyfold/Chapter2/GapP1_Def258b.lean, line 137
+- `Polyfold.MPolyfold.mem_partialConeFiberModel_fiberCoordSc` — Polyfold/Chapter2/GapP1_Def258b.lean, line 146
+- `Polyfold.MPolyfold.tangentFiberScIso_image_partialConeFiberModel` — Polyfold/Chapter2/GapP1_Def258b.lean, line 153
+- `Polyfold.MPolyfold.definition_2_5_8_scStructure` — Polyfold/Chapter2/GapP1_Def258b.lean, line 195
+
+*What differs.*
+- The sc-structure of $T_xX$ is that of $T_{\varphi(x)}O$, well defined up to the sc-isomorphisms `tangentFiberScIso` between charts; this is what the text uses. $d_{C_xX}(0_x)$ does not depend on the choice (`degIndex_zero_eq_finrank_quotient`, `mem_reducedTangentFiber_iff_lineality`).
+- The local forms are V2.32, V2.35; in a chart, "partial quadrant" is V2.42 (`proposition_2_5_6_partialCone`).
+
+### V2.112. Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57): paracompactness through closed locally finite refinements
+
+*as in the book* · as printed · not used by the library's proofs
+
+**HWZ (§2.7.2 (preprint §2.6.2), Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), p. 74 (preprint p. 56)).** Lemma 2.7.3 (preprint 2.56) (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.7.4 (preprint 2.57): a regular space with a locally finite cover by closed paracompact subspaces is paracompact.
+
+**Proved in Lean.** `lemma_2_7_3 [T3Space X]`: $X$ is paracompact (`ParacompactSpace`) iff every open cover has a closed locally finite refinement; the converse direction holds for every topological space (`paracompactSpace_of_closed_refinement`), the direct one for regular paracompact spaces (`exists_closed_refinement`). `proposition_2_7_4 [T3Space Y]`: a locally finite cover of $Y$ by closed sets, each paracompact as a subspace, makes $Y$ paracompact.
+
+- `Polyfold.GapP1Michael.lemma_2_7_3` — Polyfold/Chapter2/GapP1_Michael.lean, line 150
+- `Polyfold.GapP1Michael.proposition_2_7_4` — Polyfold/Chapter2/GapP1_Michael.lean, line 159
+- `Polyfold.GapP1Michael.paracompactSpace_of_closed_refinement` — Polyfold/Chapter2/GapP1_Michael.lean, line 51
+- `Polyfold.GapP1Michael.exists_closed_refinement` — Polyfold/Chapter2/GapP1_Michael.lean, line 127
+
 ## Chapter 3
 
 *HWZ Chapter 3: sc-Fredholm sections and the implicit function theorem*
@@ -3425,8 +3602,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsGoodComplement E C N P`: $E_0 = N \oplus P$ algebraically and the $\varepsilon$-condition; `IsInGoodPosition E C N`: $N \cap C$ has nonempty interior in $N$ and $N$ has a good complement. $N$ finite-dimensional is a separate instance argument. Definition 3.1.24 (preprint 3.21) as written: `IsScGoodComplement` ($E = N \oplus P$ an sc-splitting, with the constant $\varepsilon$) and `IsInGoodPositionSc`; each implies the project's form. On a partial quadrant a smooth finite-dimensional $N$ in good position (algebraic complement) is in good position with an sc-complement, also inside any sc-subspace $T \supseteq N$; for smooth $N$ the text's good complements are the project's closed ones, and Definition 3.1.24 (preprint 3.21) as written is the project's good position together with $N \subseteq E_\infty$.
 
-- `Polyfold.IsGoodComplement` — Polyfold/Chapter3/GoodPosition.lean, line 615
-- `Polyfold.IsInGoodPosition` — Polyfold/Chapter3/GoodPosition.lean, line 622
+- `Polyfold.IsGoodComplement` — Polyfold/Chapter3/GoodPosition.lean, line 620
+- `Polyfold.IsInGoodPosition` — Polyfold/Chapter3/GoodPosition.lean, line 627
 - `Polyfold.IsScGoodComplement` — Polyfold/Chapter3/GoodPositionSc.lean, line 116
 - `Polyfold.IsInGoodPositionSc` — Polyfold/Chapter3/GoodPositionSc.lean, line 123
 - `Polyfold.IsInGoodPositionSc.toIsInGoodPosition` — Polyfold/Chapter3/GoodPositionSc.lean, line 150
@@ -3448,11 +3625,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $N$ finite-dimensional in good position to the partial quadrant $C$: $N \cap C$ is a partial quadrant in $N$ (constant sc-structure). The core: for continuous functionals $\ell_1, \dots, \ell_n$ jointly onto $\mathbb R^n$ with $C = \{\ell_i \ge 0\}$, a linear isomorphism $e : N \to \mathbb R^k \times N_0$ with $N \cap C = e^{-1}([0, \infty)^k \times N_0)$, $k = \dim N - \dim(N \cap W)$.
 
-- `Polyfold.proposition_3_1_25` — Polyfold/Chapter3/GoodPosition.lean, line 682
-- `Polyfold.exists_quadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 556
-- `Polyfold.QuadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 305
-- `Polyfold.mem_quadCone_of_vanIdx` — Polyfold/Chapter3/GoodPosition.lean, line 199
-- `Polyfold.sigmaCoord_surjective` — Polyfold/Chapter3/GoodPosition.lean, line 161
+- `Polyfold.proposition_3_1_25` — Polyfold/Chapter3/GoodPosition.lean, line 687
+- `Polyfold.exists_quadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 561
+- `Polyfold.QuadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 310
+- `Polyfold.mem_quadCone_of_vanIdx` — Polyfold/Chapter3/GoodPosition.lean, line 204
+- `Polyfold.sigmaCoord_surjective` — Polyfold/Chapter3/GoodPosition.lean, line 166
 
 *What differs.*
 - The statement is the text's. The proof keeps the text's case distinction but replaces Lemmas 3.8.1–3.8.3 (preprint 3.62–3.64; Krein–Milman for cones, extreme-ray counts, cited from [21]) and 3.8.9–3.8.11 (preprint 3.66–3.68) by a segment argument and the surjectivity of $Q : N \to \mathbb R^\Sigma$ from Lemma 3.8.8 (preprint 3.65); the case $N \cap C = N$ is treated separately (Findings, Chapter 3, item 18).
@@ -3489,9 +3666,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For an sc-diffeomorphism $\psi : X \to X'$ of M-polyfolds with inverse $\psi'$ (sc-smooth both ways on all of $X$, $X'$) and $\psi(M) = M'$: $M'$ has the $n$-dimensional tangent germ property iff $M$ has it. The data at $\psi(x)$ are the transported chart $\varphi \circ \psi^{-1}$ with the same $N$, $Y$, $V$, $\delta$; $\psi(M) \subseteq X'_\infty$ because sc-smooth maps preserve the levels.
 
-- `Polyfold.proposition_3_2_2` — Polyfold/Chapter3/TangentGerm.lean, line 843
-- `Polyfold.proposition_3_2_2_image` — Polyfold/Chapter3/TangentGerm.lean, line 825
-- `Polyfold.MPolyfold.TangentGermChart.transport` — Polyfold/Chapter3/TangentGerm.lean, line 773
+- `Polyfold.proposition_3_2_2` — Polyfold/Chapter3/TangentGerm.lean, line 845
+- `Polyfold.proposition_3_2_2_image` — Polyfold/Chapter3/TangentGerm.lean, line 827
+- `Polyfold.MPolyfold.TangentGermChart.transport` — Polyfold/Chapter3/TangentGerm.lean, line 775
 
 *What differs.*
 - As in the text, for Definition 3.2.1 (preprint 3.25) as formalized (V3.22, $Y$ closed); the tameness of $X$ is not used (the chart models are tame retracts as part of the data).
@@ -3511,7 +3688,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_2_3_isManifold_2021def` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 353
 - `Polyfold.MPolyfold.HasTangentGermProperty.exists_isRegular` — Polyfold/Chapter3/TangentGermProjecting.lean, line 652
 - `Polyfold.MPolyfold.TangentGermChart.exists_projecting` — Polyfold/Chapter3/TangentGermProjecting.lean, line 579
-- `Polyfold.theorem_3_2_3_of_isRegular` — Polyfold/Chapter3/TangentGerm.lean, line 728
+- `Polyfold.theorem_3_2_3_of_isRegular` — Polyfold/Chapter3/TangentGerm.lean, line 730
 - `Polyfold.theorem_3_2_3_isSubMPolyfold` — Polyfold/Chapter3/TangentGerm.lean, line 450
 - `Polyfold.MPolyfold.TangentGermChart.IsRegular` — Polyfold/Chapter3/TangentGerm.lean, line 324
 - `Polyfold.MPolyfold.TangentGermChart.chart` — Polyfold/Chapter3/TangentGerm.lean, line 499
@@ -3519,7 +3696,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.theorem_3_2_3_isTame` — Polyfold/Chapter3/TangentGerm.lean, line 690
 - `Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners` — Polyfold/Chapter3/TangentGerm.lean, line 699
 - `Polyfold.MPolyfold.IsManifoldWithCorners` — Polyfold/Chapter3/TangentGerm.lean, line 467
-- `Polyfold.MPolyfold.theorem_3_2_3_degIndex` — Polyfold/Chapter3/TangentGerm.lean, line 711
+- `Polyfold.MPolyfold.theorem_3_2_3_degIndex` — Polyfold/Chapter3/TangentGerm.lean, line 713
 - `Polyfold.isScSmooth_subtype_val` — Polyfold/Chapter3/TangentGerm.lean, line 195
 - `Polyfold.Recentre2021.not_theorem_3_2_3_germNearEveryPoint` — Polyfold/Chapter3/RecentreCounterexample2021.lean, line 491
 - `Polyfold.Recentre2021.CE.hasTangentGermPropertyLit_M` — Polyfold/Chapter3/RecentreCounterexample2021.lean, line 336
@@ -3803,8 +3980,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For any continuous linear isomorphism $S : E_0 \to E'_0$ with $x \in C \iff Sx \in C'$: $S$ carries a good complement $P$ of $N$ to a good complement $S(P)$ of $S(N)$, with $\varepsilon' = \varepsilon/(\|S\|\|S^{-1}\| + 1)$, and good position to good position.
 
-- `Polyfold.IsGoodComplement.map` — Polyfold/Chapter3/GoodPosition.lean, line 694
-- `Polyfold.IsInGoodPosition.map` — Polyfold/Chapter3/GoodPosition.lean, line 734
+- `Polyfold.IsGoodComplement.map` — Polyfold/Chapter3/GoodPosition.lean, line 699
+- `Polyfold.IsInGoodPosition.map` — Polyfold/Chapter3/GoodPosition.lean, line 739
 
 *What differs.*
 - Stated for any linear isomorphism carrying $C$ onto $C'$ (Findings, Chapter 3, item 21); since the coordinate change of Theorem 3.4.2 (preprint 3.38) is linear, this is the form used.
@@ -3951,7 +4128,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_book`, for an sc-Fredholm section with germ data in tame charts (`IsScFredholmSectionTame2021`, V3.103) and a zero $x_0$ in good position (`IsGoodPositionGermTame2021`): there are an open $V \ni x_0$ and $d$ such that (1) every zero $y \in V$ is in good position, with $f'(y)$ onto of index $d = \dim\ker f'(y)$ in every strong bundle chart (`IsSurjLinOfIndex`); and (2) $S = \{y \in V \mid f(y) = 0\}$ is a sub-M-polyfold whose induced structure is that of a $d$-dimensional manifold with boundary with corners, and is tame. The proof's graph description (3) is `theorem_3_6_8_graph`, in the chart at $x_0$: a tame chart $\varphi$ centred at $x_0$, the conjugating sc-diffeomorphism $\psi$ with its inverse, a basic germ $h' = h + (t_{\mathbb R^N}, 0)$ with the data of Theorem 3.4.2 (preprint 3.38) and $D(h + t)(0)$ surjective with kernel $K$ in good position, $K$ a smooth subspace; a **closed** good complement $Y$; $V'$ relatively open in $K \cap C'$, $\sigma : V' \to Y$ $C^1$ with values on level $1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, every $v + \sigma(v)$ a zero of $h + t$, and $C^k$-lifts $\sigma_k : V_k \to E'_k$ near $0$ for every $k$ (Theorem 3.5.11 (1) (preprint Corollary 3.47)); and an open $V_x \ni x_0$ on which $\psi\varphi$ is injective, $f(y) = 0 \iff (h + t)(\psi\varphi(y)) = 0$, and $\psi\varphi(\{y \in V_x \mid f(y) = 0\}) = \{v + \sigma(v) \mid v \in V'\}$.
 
-- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT2021.lean, line 81
+- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT2021.lean, line 80
 - `Polyfold.theorem_3_6_8_graph` — Polyfold/Chapter3/GlobalIFTG.lean, line 281
 - `Polyfold.theorem_3_6_8_linear` — Polyfold/Chapter3/GoodPositionGermG.lean, line 236
 - `Polyfold.theorem_3_6_8_linear_of_isTameWith` — Polyfold/Chapter3/GoodPositionGermG.lean, line 254
@@ -4078,9 +4255,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For functionals $\ell_i$ cutting out $C$ and a good complement $P$ of $N$: $\ell_i(p) = 0$ for $p \in P$ and $i \in \Sigma$. Consequence: $Q = (\ell_i)_{i \in \Sigma} : N \to \mathbb R^\Sigma$ is onto.
 
-- `Polyfold.lemma_3_8_8` — Polyfold/Chapter3/GoodPosition.lean, line 124
-- `Polyfold.vanIdx` — Polyfold/Chapter3/GoodPosition.lean, line 108
-- `Polyfold.sigmaCoord_surjective` — Polyfold/Chapter3/GoodPosition.lean, line 161
+- `Polyfold.lemma_3_8_8` — Polyfold/Chapter3/GoodPosition.lean, line 129
+- `Polyfold.vanIdx` — Polyfold/Chapter3/GoodPosition.lean, line 113
+- `Polyfold.sigmaCoord_surjective` — Polyfold/Chapter3/GoodPosition.lean, line 166
 
 *What differs.*
 - As in the text (its $\mathbb R^\Sigma \oplus W$ is the set where the coordinates in $\Sigma$ vanish), for any family of functionals cutting out $C$.
@@ -4093,8 +4270,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** In the model: (1) as stated; (2) as $d_{N \cap C}(x) + \dim(N \cap W) = \dim N$, with $N \cap W$ the kernel of $N \to \mathbb R^n$.
 
-- `Polyfold.proposition_3_8_12` — Polyfold/Chapter3/GoodPosition.lean, line 761
-- `Polyfold.QuadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 305
+- `Polyfold.proposition_3_8_12` — Polyfold/Chapter3/GoodPosition.lean, line 766
+- `Polyfold.QuadrantNormalForm` — Polyfold/Chapter3/GoodPosition.lean, line 310
 
 *What differs.*
 - (2) additively (natural-number subtraction avoided); proof read off the normal form of Proposition 3.1.25 (preprint 3.22) (Findings, Chapter 3, item 20).
@@ -4123,10 +4300,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $C$ a partial quadrant in a finite-dimensional $V$ and $f$ of class $C^j$, $j \ge 1$, with (1), (2): relatively open $U' \subseteq U$, $V'$ containing $0$ with $f(U') = V'$, $f$ injective on $U'$, and an inverse $g$ of class $C^j$ on $V'$.
 
-- `Polyfold.theorem_3_8_15` — Polyfold/Chapter3/QuadrantInverse.lean, line 530
-- `Polyfold.surjective_of_image_eq` — Polyfold/Chapter3/QuadrantInverse.lean, line 506
-- `Polyfold.degIndex_map_eq` — Polyfold/Chapter3/QuadrantInverse.lean, line 155
-- `Polyfold.degIndex_eq_zero_iff` — Polyfold/Chapter3/QuadrantInverse.lean, line 121
+- `Polyfold.theorem_3_8_15` — Polyfold/Chapter3/QuadrantInverse.lean, line 532
+- `Polyfold.surjective_of_image_eq` — Polyfold/Chapter3/QuadrantInverse.lean, line 508
+- `Polyfold.degIndex_map_eq` — Polyfold/Chapter3/QuadrantInverse.lean, line 157
+- `Polyfold.degIndex_eq_zero_iff` — Polyfold/Chapter3/QuadrantInverse.lean, line 123
 
 *What differs.*
 - For $C^j$, each $j \ge 1$ (smooth = all $j$). Hypothesis (2) is used only through \"$x$ interior iff $f(x)$ interior\" (Findings, Chapter 3, item 27). \"$Df(0)$ is an isomorphism from $\mathbb R^n = C - C$\": surjectivity needs only an interior point of $C$ (item 29).
@@ -4139,9 +4316,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Under `InvData` ($U$ relatively open and convex in $C$, $f : U \to C$ of class $C^j$, $\|Df - 1\| \le \tfrac12$, $f$ preserving interior points): $f(U)$ is relatively open in $C$, $f$ is injective on $U$, with an inverse of class $C^j$ on $f(U)$.
 
-- `Polyfold.proposition_3_8_17` — Polyfold/Chapter3/QuadrantInverse.lean, line 483
-- `Polyfold.InvData` — Polyfold/Chapter3/QuadrantInverse.lean, line 177
-- `Polyfold.InvData.contDiffOn_inv` — Polyfold/Chapter3/QuadrantInverse.lean, line 461
+- `Polyfold.proposition_3_8_17` — Polyfold/Chapter3/QuadrantInverse.lean, line 485
+- `Polyfold.InvData` — Polyfold/Chapter3/QuadrantInverse.lean, line 179
+- `Polyfold.InvData.contDiffOn_inv` — Polyfold/Chapter3/QuadrantInverse.lean, line 463
 
 *What differs.*
 - $0 \in U$ and $f(0) = 0$ are not used; (3) only through interior points (Findings, Chapter 3, items 27, 29). Regularity of the inverse by bootstrapping $Dg = [Df]^{-1} \circ g$ instead of Lemma 3.8.20 (preprint 3.76) (item 28).
@@ -4155,11 +4332,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Under `InvData`: the two estimates (70), injectivity, $B(f(x'), r) \cap C \subseteq f(U)$ when $B(x', 3r) \cap C \subseteq U$, and $f(U)$ relatively open in $C$.
 
-- `Polyfold.InvData.half_norm_le` — Polyfold/Chapter3/QuadrantInverse.lean, line 225
-- `Polyfold.InvData.norm_sub_le` — Polyfold/Chapter3/QuadrantInverse.lean, line 234
-- `Polyfold.InvData.injOn` — Polyfold/Chapter3/QuadrantInverse.lean, line 242
-- `Polyfold.InvData.ball_inter_subset_image` — Polyfold/Chapter3/QuadrantInverse.lean, line 280
-- `Polyfold.InvData.image_relOpen` — Polyfold/Chapter3/QuadrantInverse.lean, line 373
+- `Polyfold.InvData.half_norm_le` — Polyfold/Chapter3/QuadrantInverse.lean, line 227
+- `Polyfold.InvData.norm_sub_le` — Polyfold/Chapter3/QuadrantInverse.lean, line 236
+- `Polyfold.InvData.injOn` — Polyfold/Chapter3/QuadrantInverse.lean, line 244
+- `Polyfold.InvData.ball_inter_subset_image` — Polyfold/Chapter3/QuadrantInverse.lean, line 282
+- `Polyfold.InvData.image_relOpen` — Polyfold/Chapter3/QuadrantInverse.lean, line 375
 
 *What differs.*
 - The Cauchy-sequence step is replaced by the compactness of $f(\bar B(x', 2r) \cap C)$; the interior starting point must be chosen with $f(x_0) \in B(y', r)$; typos \"$\tau_n \to \tau'$\", \"$B(x^0, r)$\" *(book 2017: both unchanged, Lemma 3.24, p. 122)* (Findings, Chapter 3, items 28, 30). Openness of $f$ on all relatively open subsets is not stated separately.
@@ -4172,24 +4349,31 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Under `InvData`: $f$ continuous on $U$, its inverse continuous on $f(U)$, inverse to each other.
 
-- `Polyfold.corollary_3_8_19` — Polyfold/Chapter3/QuadrantInverse.lean, line 492
+- `Polyfold.corollary_3_8_19` — Polyfold/Chapter3/QuadrantInverse.lean, line 494
 
 *What differs.*
 - As in the text ($V$ relatively open by V3.60).
 
 ### V3.62. Lemma 3.8.21 (preprint 3.77): the inverse is $C^1$
 
-*narrower* · under the hypotheses of Prop. 3.8.17
+*stronger* · the text’s hypotheses, $f$ only $C^1$ · $f \in C^j$ gives $g \in C^j$
 
 **HWZ (§3.8.5 (preprint §3.8.4), Lemma 3.8.21 (preprint 3.77), p. 168 (preprint p. 140)).** $U$ relatively open in $C$, $f : U \to C$ smooth with $V = f(U)$ relatively open, $f : U \to V$ a homeomorphism, $Df(x)$ invertible. Then $g = f^{-1}$ is $C^1$ with $Dg(y) = [Df(g(y))]^{-1}$.
 
-**Proved in Lean.** Under `InvData`: the inverse is differentiable within $f(U)$ with $Dg(y) = [Df(g(y))]^{-1}$; it is of class $C^j$ by bootstrapping.
+**Proved in Lean.** `lemma_3_8_21`: for $U$ relatively open in a partial quadrant $C$ of a finite-dimensional space, $f : U \to C$ of class $C^1$ with $f(U)$ relatively open, a continuous inverse $g$ on $f(U)$ and $Df(x)$ invertible, $g$ is $C^1$ on $f(U)$ with $Dg(y) = [Df(g(y))]^{-1}$. If $f$ is $C^j$ ($j \ge 1$) or $C^\infty$, so is $g$ (`lemma_3_8_21_contDiffOn`, `lemma_3_8_21_smooth`). The form first proved, under `InvData` (the hypotheses of Proposition 3.8.17 (preprint 3.73)), is kept (`lemma_3_8_21_printed`, `InvData.hasFDerivWithinAt_inv`).
 
-- `Polyfold.InvData.hasFDerivWithinAt_inv` — Polyfold/Chapter3/QuadrantInverse.lean, line 423
-- `Polyfold.InvData.contDiffOn_inverse_deriv` — Polyfold/Chapter3/QuadrantInverse.lean, line 447
+- `Polyfold.lemma_3_8_21` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 140
+- `Polyfold.lemma_3_8_21_contDiffOn` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 110
+- `Polyfold.lemma_3_8_21_smooth` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 155
+- `Polyfold.lemma_3_8_21_printed` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 168
+- `Polyfold.hasFDerivWithinAt_inverse_of_isUnit` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 63
+- `Polyfold.contDiffOn_inverse_deriv_comp` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 88
+- `Polyfold.IsRelOpenInQuadrant.uniqueDiffOn_const` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 48
+- `Polyfold.InvData.hasFDerivWithinAt_inv` — Polyfold/Chapter3/QuadrantInverse.lean, line 425
+- `Polyfold.InvData.contDiffOn_inverse_deriv` — Polyfold/Chapter3/QuadrantInverse.lean, line 449
 
 *What differs.*
-- Proved under the hypotheses of Proposition 3.8.17 (preprint 3.73), of which the lemma's three extra hypotheses are consequences; the general form (any homeomorphism with invertible derivative) is not stated (Findings, Chapter 3, item 28). The text cites \"Theorem 3.73\" for Proposition 3.8.17 (preprint 3.73) *(book 2017: unchanged, renumbered: Lemma 3.26, p. 124, cites "Theorem 3.7" for Proposition 3.7)*.
+- The text assumes $f$ smooth; $C^1$ suffices for the conclusion, and $f \in C^j$ ($j \ge 1$) gives $g \in C^j$: a stronger statement. "Homeomorphism onto $V$" is read as a continuous inverse $g$ on $V = f(U)$ with $g(f(x)) = x$, which is the same. This general form is what Lemma 3.8.20 (preprint 3.76) needs (V3.127): the iterated tangent maps do not satisfy the hypotheses of Proposition 3.8.17 (preprint 3.73), under which alone the lemma was stated before 2026-11-12 (Findings, Chapter 3, item 28). The text cites \"Theorem 3.73\" for Proposition 3.8.17 (preprint 3.73) *(book 2017: unchanged, renumbered: Lemma 3.26, p. 124, cites "Theorem 3.7" for Proposition 3.7)*.
 - With the hypotheses its proof uses, without the partial quadrant: V3.90.
 
 ### V3.63. Theorem 3.8.22 (preprint 3.78): the implicit function theorem in partial quadrants
@@ -4275,13 +4459,22 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V3.68. Theorem 3.1.22 (preprint 3.19): the implicit function theorem, interior case (first form)
 
-*narrower* · $\ker f'(y) = T_yS$ in a chart only · book form: the text’s hypotheses · repaired: tame charts (V3.103) · $f'(x_0)$ sc-Fredholm, onto on all levels
+*restated* · $\ker f'(y) = T_yS$ in $T_yX$, level 1 · book form: the text’s hypotheses · repaired: tame charts (V3.103) · $f'(x_0)$ sc-Fredholm, onto on all levels
 
 **HWZ (§3.1, Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74)).** Let $X$ be an M-polyfold with $d_X \equiv 0$, $f$ an sc-Fredholm section of a strong bundle and $f(x_0) = 0$. Then $f'(x_0) : T_{x_0}X \to Y_{x_0}$ is sc-Fredholm. If it is surjective, there is an open $U \ni x_0$ such that $S(f, U) = \{y \in U \mid f(y) = 0\}$ is a sub-M-polyfold whose induced structure is that of a smooth manifold of dimension the Fredholm index, $f'(y)$ is surjective at every $y \in S(f, U)$, and $\ker f'(y) = T_yS(f, U)$.
 
-**Proved in Lean.** `theorem_3_1_22_book`, for $d_X \equiv 0$, an sc-Fredholm section with germ data in tame charts (V3.103) and $f(x_0) = 0$: $f'(x_0)$ is sc-Fredholm in every strong bundle chart around $x_0$ ($\mathrm{Lin}(z)$ the restriction of an sc-operator to sc-subspaces); if $f'(x_0)$ is surjective (`IsLinSurjAt`, the text's hypothesis), there are an open $U \ni x_0$ and $d$ such that at every zero $y \in U$, $f'(y)$ is surjective and Fredholm of index $d = \dim\ker f'(y)$, and $S(f, U)$ is a sub-M-polyfold with the structure of a $d$-dimensional manifold without boundary. "$\ker f'(y) = T_yS(f, U)$" is stated in the chart (`theorem_3_6_8_ker_eq_tangent`, V3.99). The forms first proved are kept: `theorem_3_1_22`, with good position for "surjective" and the filler condition at the nearby zeros, and the first clause on every level, in the chart at $x_0$ and in every strong bundle chart (`theorem_3_1_22_linearization_sc`, `StrongBundle.linAt_isScFredholm`, V3.46, V3.96).
+**Proved in Lean.** `theorem_3_1_22_book`, for $d_X \equiv 0$, an sc-Fredholm section with germ data in tame charts (V3.103) and $f(x_0) = 0$: $f'(x_0)$ is sc-Fredholm in every strong bundle chart around $x_0$ ($\mathrm{Lin}(z)$ the restriction of an sc-operator to sc-subspaces); if $f'(x_0)$ is surjective (`IsLinSurjAt`, the text's hypothesis), there are an open $U \ni x_0$ and $d$ such that at every zero $y \in U$, $f'(y)$ is surjective and Fredholm of index $d = \dim\ker f'(y)$, and $S(f, U)$ is a sub-M-polyfold with the structure of a $d$-dimensional manifold without boundary. `theorem_3_1_22_book_ker` adds the last clause: at every $y \in S(f, U)$ on level 1 and through every strong bundle chart around $y$, the kernel of the intrinsic linearization $f'(y) = \Phi_y^{-1} \circ \mathrm{Lin}(\varphi(y)) \circ T\varphi(y) : T_yX \to Y_y$ (`StrongBundle.linIntr`, the same map for any two strong bundle charts, `linIntr_chart_independent`) is $Ti(T_yS(f, U))$ (`ker_linIntr_eq_subTangentRange`). The chart form is kept (`theorem_3_6_8_ker_eq_tangent`, V3.99). The forms first proved are kept: `theorem_3_1_22`, with good position for "surjective" and the filler condition at the nearby zeros, and the first clause on every level, in the chart at $x_0$ and in every strong bundle chart (`theorem_3_1_22_linearization_sc`, `StrongBundle.linAt_isScFredholm`, V3.46, V3.96).
 
 - `Polyfold.theorem_3_1_22_book` — Polyfold/Chapter3/BookFormIFT2021.lean, line 151
+- `Polyfold.theorem_3_1_22_book_ker` — Polyfold/Chapter3/GapP1_Theorem3122Ker.lean, line 166
+- `Polyfold.StrongBundle.ker_linIntr_eq_subTangentRange` — Polyfold/Chapter3/GapP1_Theorem3122Ker.lean, line 93
+- `Polyfold.StrongBundle.coe_map_ker_linIntr` — Polyfold/Chapter3/GapP1_Theorem3122Ker.lean, line 60
+- `Polyfold.StrongBundle.linIntr` — Polyfold/Chapter3/GapP1_LinIntrinsic.lean, line 150
+- `Polyfold.StrongBundle.linIntr_chart_independent` — Polyfold/Chapter3/GapP1_LinIntrinsic.lean, line 168
+- `Polyfold.StrongBundle.fiberLin_linIntr` — Polyfold/Chapter3/GapP1_LinIntrinsic.lean, line 156
+- `Polyfold.StrongBundleChart.fiberLin` — Polyfold/Chapter3/GapP1_LinIntrinsic.lean, line 50
+- `Polyfold.StrongBundleChart.linChart` — Polyfold/Chapter3/GapP1_LinIntrinsic.lean, line 96
+- `Polyfold.linAt_chart_change_key` — Polyfold/Chapter3/GapP1_LinKey.lean, line 41
 - `Polyfold.theorem_3_6_8_ker_eq_tangent` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 708
 - `Polyfold.MPolyfold.coe_map_range_subInclusionCLM` — Polyfold/Chapter2/BookFormTameSub2021.lean, line 123
 - `Polyfold.theorem_3_1_22` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 209
@@ -4293,7 +4486,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.linAt_isScFredholm` — Polyfold/Chapter3/LinearizationChartsScG.lean, line 400
 
 *What differs.*
-- The last clause is in a chart only: there is no intrinsic linearization $f'(y) : T_yX \to Y_y$ (the project has its chart forms `linAt`), and the image of $T_yS$ in $T_yX$ under $Ti$ is identified only with the tangent space of the chart image of $S$ (`coe_map_range_subInclusionCLM`, V2.78), not yet with the graph's $N_v$ and its transport through $\psi$. Everything else is the text's statement with its hypothesis "$f'(x_0)$ surjective" (`IsLinSurjAt`) (Findings, Chapter 3, item 384).
+- The last clause holds in $T_yX$ (`theorem_3_1_22_book_ker`, 2026-11-12), with the intrinsic $f'(y)$ (`StrongBundle.linIntr`; V3.78 has its chart forms). It is stated at the points of $S(f, U)$ on level 1, which include the smooth points where the text states it; $T_yS \subseteq T_yX$ is read through $Ti$ (injective, Proposition 2.3.19 (preprint 2.21); V2.78). The binder $f(y) = 0$ of the last clause is redundant (it follows from $y \in S(f, U)$) and is kept because `linIntr` takes it. Everything else is the text's statement with its hypothesis "$f'(x_0)$ surjective" (`IsLinSurjAt`) (Findings, Chapter 3, item 384).
 - The forms first proved read "surjective" as good position (the same at $d_X = 0$, V3.100) and took the filler condition at the nearby zeros, a theorem since (V3.102); the forms with the text's hypotheses are V3.95, V3.101. The first clause is proved on every level, in the chart at $x_0$ by Propositions 3.1.10, 1.1.11 and 3.1.5 in sc form and in every strong bundle chart (V3.46, V3.96). Updated after the repair of the tameness hypothesis (V3.103, V3.104) (Findings, Chapter 3, items 154, 174, 180, 190–192, 235, 236).
 
 ### V3.69. Theorem 3.1.26 (preprint 3.23): the implicit function theorem, boundary case
@@ -4312,7 +4505,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_1_26_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 547
 - `Polyfold.theorem_3_1_26` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 166
 - `Polyfold.theorem_3_6_8_two` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 83
-- `Polyfold.theorem_3_2_3_of_isRegular` — Polyfold/Chapter3/TangentGerm.lean, line 728
+- `Polyfold.theorem_3_2_3_of_isRegular` — Polyfold/Chapter3/TangentGerm.lean, line 730
 - `Polyfold.MPolyfold.subPolyfold` — Polyfold/Chapter2/SubMPolyfold.lean, line 329
 - `Polyfold.MPolyfold.IsManifoldWithCorners` — Polyfold/Chapter3/TangentGerm.lean, line 467
 
@@ -4534,7 +4727,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_book`: at every zero $y \in V$, $(f, y)$ is in good position (Definition 3.6.6: $f'(y)$ onto with kernel in good position, in a tame chart, `IsGoodPositionGermTame2021`), and $f'(y)$ is onto, of index $d$, in every strong bundle chart (`IsSurjLinOfIndex`). In the chart at $x_0$, `theorem_3_6_8_nearby`: in the data of V3.48 there are a presentation $T$ of $C'$ and an open $V_{x,1} \ni x_0$ such that for every zero $y \in V_{x,1}$ with $\psi\varphi(y) = v + \sigma(v)$: $v + \sigma(v)$ lies on level $1$ and $D(h + t)$ there is surjective Fredholm of index $n - N$; $v + \sigma(v) \in C'$; and $Y$ is a good complement of $N_v = \{k + D\sigma(v)k\}$ with respect to $C'_{v + \sigma(v)}$, with $N_v$ in good position. Lemma 3.6.9 (preprint 3.55) for $\sigma$ on a relatively open $V \subseteq N \cap C$, any presentation of $C$, closed $Y$; with the book's good complement, an sc-complement, which is closed: `lemma_3_6_9`.
 
-- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT2021.lean, line 81
+- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT2021.lean, line 80
 - `Polyfold.theorem_3_6_8_nearby` — Polyfold/Chapter3/GlobalIFTFullG.lean, line 43
 - `Polyfold.lemma_3_6_9_relOpen` — Polyfold/Chapter3/GlobalIFTFull.lean, line 118
 - `Polyfold.lemma_3_6_9` — Polyfold/Chapter3/GoodComplementClosed.lean, line 269
@@ -4629,7 +4822,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_tangentGermProperty`: there are an open $U \ni x_0$ and $d = \mathrm{ind}\, f'(x_0) = \dim\ker f'(x_0)$ (`IsSurjLinOfIndex`) such that $S(f, U)$ has the $d$-dimensional tangent germ property of 2021 Definition 3.2.1 as written (`HasTangentGermProperty2021`) at every point of $S(f, U)$; by Theorem 3.2.3, $S(f, U)$ is a tame sub-M-polyfold with the structure of a $d$-dimensional manifold with boundary with corners. The data at $x_0$ in the chart (`theorem_3_6_8_tangentGermChart_proj`): the chart $\psi \circ \varphi$ onto the tame retract $\psi(O)$, $N = \ker D(h + t)(0)$ (smooth), the closed projecting good complement and $\sigma$ of V3.77, with $\pi(O) \subseteq C$; $\sigma$ is an sc$^\infty$-germ because of its lifts.
 
-- `Polyfold.theorem_3_6_8_tangentGermProperty` — Polyfold/Chapter3/BookFormIFT2021.lean, line 101
+- `Polyfold.theorem_3_6_8_tangentGermProperty` — Polyfold/Chapter3/BookFormIFT2021.lean, line 100
 - `Polyfold.theorem_3_6_8_tangentGermChart_proj` — Polyfold/Chapter3/GlobalIFTCenterG.lean, line 125
 - `Polyfold.theorem_3_6_8_tangentGermChart` — Polyfold/Chapter3/GlobalIFTCenterG.lean, line 136
 - `Polyfold.MChart.compDiffeo` — Polyfold/Chapter3/GlobalIFTCenter.lean, line 89
@@ -4661,12 +4854,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_6_8` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 108
 - `Polyfold.theorem_3_6_8_tangentGermChart_solutionSet` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 58
 - `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally` — Polyfold/Chapter3/SolutionGermRecentre.lean, line 1152
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 138
 
 *What differs.*
 - Proved in full in V3.94; the narrower form first recorded here is kept (`theorem_3_6_8_two`, `theorem_3_6_8`).
 - (2) is proved from (1), with the nearby good position as a hypothesis; `theorem_3_6_8` proves (1) under the filler condition of V3.82, which follows from good position (V3.102); Theorem 3.6.8 (preprint 3.54) with the text's hypotheses is V3.94, with the index V3.98. The manifold structure follows by Theorem 3.2.3 (preprint 3.27) (V3.69). The regularity conditions of Theorem 3.2.3 (preprint 3.27), hypotheses for general sets (V3.24), are theorems for the solution set (V3.74, V3.77); the dimension is locally constant (Findings, Chapter 3, items 151–153). Added after the first edition of this page.
 - Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).
-- (2026-11-09) “Tame strong bundle” is read as germ data in a tame chart (V3.103). That is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, without “tame”, and the 2021 text does not define “tame strong bundle”, only a tame strong bundle retraction (p. 65), so for the 2021 text this is our reading of the phrase (gap G.79).
+- (2026-11-09) “Tame strong bundle” is read as germ data in a tame chart (V3.103). That is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, without “tame”, and the 2021 text does not define “tame strong bundle”, only a tame strong bundle retraction (p. 65), so for the 2021 text this is our reading of the phrase. (2026-11-12) The reading is needed: the 2021 Definition 3.6.3 does not ask the chart of the germ data to be tame, the proof (p. 137) takes it tame, and with `IsScFredholmSection2021` and good position in the chart of the germ data the statement does not hold as we read it (`theorem_3_6_8_untamed_not`: a tame strong bundle over $O \cong \mathbb R$, a zero with $d_X = 0$ and zero fibre, solution set a closed half-line; V3.130, gap G.79).
 
 ### V3.86. Theorem 3.6.10 (preprint 3.56): the global implicit function theorem, $\partial X = \emptyset$
 
@@ -4730,23 +4924,42 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V3.89. Theorem 3.7.1 (preprint 3.58): the basic germ criterion
 
-*narrower* · in the coordinates of the proof · hypotheses (1), (2) weakened · smallness in (2): the text’s order
+*restated* · general sc-splitting $E = B \oplus X$ · readings of (1)–(3): see the diff · target splitting constructed
 
 **HWZ (§3.7, Theorem 3.7.1 (preprint 3.58), p. 140 (preprint p. 116) (proof pp. 140–145 (preprint pp. 116–120))).** Under (1) $Df(x)$ sc-Fredholm of constant index at smooth points, (2) a splitting $E = B \oplus X$ with $B \supseteq \ker Df(0)$, $Y = Df(0)X$ and a compactness condition, (3) a uniform estimate on $D_2f$: $f - f(0)$ is conjugated near $0$ to a basic germ.
 
-**Proved in Lean.** In coordinates $E = \mathbb R^n \oplus X$, $C = \widetilde C \oplus X$, $F = \mathbb R^N \oplus Y$: let $f$ be sc-smooth on $U$ with (1) $Df(b, 0)$ sc-Fredholm with the sc-index of $Df(0)$ at every $(b, 0) \in U$, $b \in \widetilde C$; (2) $h \mapsto (Df(0)(0, h))_Y$ bijective on level $0$ and `CompactnessCondition`; (3) `DerivCondition`. Then there are an open $V_o \ni 0$ and sc-isomorphisms $L(b) = P_Y Df(b, 0)|_X$ for $b \in V_o \cap \widetilde C$ with the conclusions of V3.88: $f - f(0)$ is conjugated to a basic germ.
+**Proved in Lean.** `theorem_3_7_1_general`: for an sc-splitting $E = B \oplus X$ with $B$ finite-dimensional, $U$ relatively open in a partial quadrant $C$ with $0 \in U$ and $f$ sc-smooth on $U$, with (1) $Df(x)$ sc-Fredholm at every smooth $x \in U$, of the same index at any two (`derivOpAt`); (2) $\ker Df(0) \subseteq B$, $X \subseteq C$ and the compactness condition (`CompactnessCondition371`); (3) the estimate on $D_2f$ (`DerivCondition371`): there is an open $V \ni 0$ such that $f - f(0)$ is conjugated on $U \cap V$ to a basic germ. The target splitting $F = Y \oplus A$ is constructed as in the proof (`exists_targetSplitting371`). The proof reduces to the coordinates of the text's proof, the form first proved (`theorem_3_7_1`, kept, with the conclusions of V3.88): the coordinates $E \cong B \oplus X$ (`ScBanach.splitScIso`) carry $C$ onto $(C \cap B) \oplus X$ with $C \cap B$ a partial quadrant in $B$ (`splitScIso_preimage`, `isPartialQuadrant_of_isScSplitting`); the hypotheses pass to the conjugate $T \circ f \circ S^{-1}$ (`isScFredholm_of_conj`, `compactnessCondition_conj`, `derivCondition_conj`), and the conclusion passes back (`IsConjugateToBasicGerm.of_scIso`).
 
-- `Polyfold.theorem_3_7_1` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 417
-- `Polyfold.CompactnessCondition` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 310
-- `Polyfold.familyCompactness_derivFamOp` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 324
-- `Polyfold.fredholmIndex_block` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 139
-- `Polyfold.surjective_of_fredholmIndex_block` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 178
-- `Polyfold.derivFamOp` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 266
+- `Polyfold.theorem_3_7_1_general` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 362
+- `Polyfold.CompactnessCondition371` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 69
+- `Polyfold.DerivCondition371` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 82
+- `Polyfold.derivOpAt` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 55
+- `Polyfold.exists_targetSplitting371` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 100
+- `Polyfold.compactnessCondition_conj` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 240
+- `Polyfold.derivCondition_conj` — Polyfold/Chapter3/GapP1_Theorem371General.lean, line 299
+- `Polyfold.ScBanach.splitScIso` — Polyfold/Chapter3/GapP1_Theorem371Split.lean, line 137
+- `Polyfold.splitScIso_preimage` — Polyfold/Chapter3/GapP1_Theorem371Split.lean, line 223
+- `Polyfold.isPartialQuadrant_of_isScSplitting` — Polyfold/Chapter3/GapP1_Theorem371Split.lean, line 217
+- `Polyfold.isInGoodPosition_of_isScSplitting` — Polyfold/Chapter3/GapP1_Theorem371Split.lean, line 191
+- `Polyfold.IsConjugateToBasicGerm.of_scIso` — Polyfold/Chapter3/GapP1_Theorem371Transport.lean, line 31
+- `Polyfold.scIsoConjMap` — Polyfold/Chapter3/GapP1_ScIsoConj.lean, line 38
+- `Polyfold.isScSmooth_conjMap` — Polyfold/Chapter3/GapP1_ScIsoConj.lean, line 48
+- `Polyfold.scDeriv_conjMap` — Polyfold/Chapter3/GapP1_ScIsoConj.lean, line 57
+- `Polyfold.isScFredholm_of_conj` — Polyfold/Chapter3/GapP1_ScIsoConj.lean, line 98
+- `Polyfold.theorem_3_7_1` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 418
+- `Polyfold.CompactnessCondition` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 311
+- `Polyfold.familyCompactness_derivFamOp` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 325
+- `Polyfold.fredholmIndex_block` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 140
+- `Polyfold.surjective_of_fredholmIndex_block` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 179
+- `Polyfold.derivFamOp` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 267
 - `Polyfold.lemma_3_7_2` — Polyfold/Chapter3/BasicGermCriterion.lean, line 49
 - `Polyfold.lemma_3_7_3` — Polyfold/Chapter3/BasicGermCriterion.lean, line 93
 
 *What differs.*
-- Proved in the coordinates of the text's proof; the reduction of a general sc-splitting $E = B \oplus X$, $F = A \oplus Y$ to them, and the transport of the conclusion of V3.88 back through the sc-isomorphisms, are not formalized. $X \subseteq C$ forces $X$ into the lineality space of $C$, so $C = (C \cap B) \oplus X$ with $C \cap B$ a partial quadrant in $B$; the reduction is routine but long. This is the only narrowing. The hypotheses are weaker than the text's: condition (1) is used only at the points $(b, 0)$, each a smooth point, and “$B \supseteq \ker Df(0)$, $Y = Df(0)X$” is replaced by the bijectivity it implies. The smallness of $b$ in the compactness condition is uniform in the level, which follows the text's order of quantifiers (“for $b \in B \cap U$ small enough” before “bounded on level $m$”): a reading, not a narrowing (Findings, Chapter 3, item 385). The text's “injective sc-Fredholm of index $0$, hence an sc-isomorphism” is the block index formula $\mathrm{ind}\,T = \dim\mathbb R^n + \mathrm{ind}\,L - \dim\mathbb R^N$ on every level; Lemmas 3.7.2, 3.7.3 (preprint 3.59, 3.60) are applied with their hypotheses derived from (2) (Findings, Chapter 3, item 73). Added after the first edition of this page.
+- Condition (3) is printed for $h \in E_m$; $D_2f$ is the derivative along $X$, so it is read for $h \in X_m$: $\|Df(b)h - Df(b + x)h\|_m \le \varepsilon\|h\|_m$ for $b \in B$, $\|b\| < r$, $x \in X_{m+1}$, $\|x\|_m < r$ and $b, b + x \in U_{m+1}$, with $r$ depending on $m$ and $\varepsilon$, as in the text.
+- In (2), "for $b \in B \cap U$ small enough" is read with one radius for all levels, the text's order of quantifiers (Findings, Chapter 3, item 385); since $B \subseteq E_\infty$ is finite-dimensional this is no restriction. The limit of the convergent subsequence lies in $X_m$ because $X_m$ is closed.
+- A smooth point $x \in U$ in (1) is a point of $U \cap E_\infty$, and $Df(x)$ is the sc-operator built from the derivative (`derivOpAt`); "constant index" is equality of the indices at any two smooth points.
+- The form in the coordinates of the proof is kept (`theorem_3_7_1`): there (1) is used only at the points $(b, 0)$, and "$B \supseteq \ker Df(0)$, $Y = Df(0)X$" is replaced by the bijectivity it implies; the text's "injective sc-Fredholm of index $0$, hence an sc-isomorphism" is the block index formula, and Lemmas 3.7.2, 3.7.3 (preprint 3.59, 3.60) are applied with their hypotheses derived from (2) (Findings, Chapter 3, item 73). Until 2026-11-12 the reduction of a general splitting to these coordinates was the only narrowing.
 
 ### V3.90. Proposition 3.8.17 (preprint 3.73) and Lemma 3.8.21 (preprint 3.77) with the hypotheses their proofs use
 
@@ -4850,12 +5063,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_6_8_one_sc_of_tame` — Polyfold/Chapter3/GoodPositionScG.lean, line 262
 - `Polyfold.theorem_3_6_8_one_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 274
 - `Polyfold.theorem_3_6_8_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 285
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 159
 
 *What differs.*
 - **No hypothesis is added.** (2) is stated as regular tangent germ data with locally constant dimension, from which Theorem 3.2.3 (preprint 3.27) gives the manifold structure of the local solution set (V3.95). The surjectivity in (1) is V3.93, carried to the chart centred at $y$ through V3.79 and read in the tame chart of the germ data at $y$ (V3.107); the kernel half is V3.81; for $\dim K = 0$ the only zero near $x_0$ is $x_0$. The text's statement is true, its proof incomplete; the same holds for the book's arXiv version (Findings, Chapter 3, items 157, 180, 189). Added in the second addendum of this page.
 - Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).
 - The project's good position asks only for an algebraic good complement (V3.20), which as a conclusion is less than the text's; the sc form of (1) follows at each zero by the upgrade of V3.47, with no hypothesis added (Findings, Chapter 3, items 210, 213). The case distinction $d_X(x) \ge 1$ of Definition 3.6.6 (2) (preprint 3.53) is not made, which makes hypothesis and conclusion stronger (item 214). Updated in the third addendum of this page.
 - (2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_8_2021def` (`Chapter3/MainTheorems2021.lean`). (2026-11-09) In Mathlib's language: near $x_0$ the solution set is a submanifold of dimension the index (`theorem_3_6_8_isSubmanifoldOfDim`, V3.97), and with the charted space of its induced corner structure a smooth manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`, `Chapter9/MathlibSolutionSets.lean`).
+- (2026-11-12) With the 2021 definitions as printed (germ data in any strong bundle chart) the conclusion does not hold as we read it, also over an M-polyfold without boundary (`theorem_3_6_8_untamed_not`, `theorem_3_1_22_untamed_not`; V3.130, gap G.79 settled).
 
 ### V3.95. Theorems 3.1.26 and 3.1.22 (preprint 3.23 and 3.19) with the text's hypotheses
 
@@ -5075,14 +5290,17 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.isScFredholmGermTame2021_iff` — Polyfold/Chapter3/MainTheorems2021.lean, line 115
 - `Polyfold.StrongBundle.isScFredholmGermTame2021_iff_2017` — Polyfold/Chapter3/MainTheorems2021.lean, line 126
 - `Polyfold.StrongBundle.IsScFredholmSectionTame2021` — Polyfold/Chapter3/MainTheorems2021.lean, line 139
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 352
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 453
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 159
 
 *What differs.*
 - Updated (2026-11-09): **which text the tame reading follows.** The reading in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text, “where $K \to O$ is a tame strong local bundle”. The 2021 Definition 3.6.3 (p. 135) says “strong local bundle”, without “tame”, while Theorem 3.6.8 and the later theorems say “tame strong bundle”, a phrase the 2021 text does not define (it defines a tame strong bundle retraction, p. 65); for the 2021 text the tame-chart reading is our reading of that phrase. With the 2021 filling it is `IsScFredholmGermTame2021`, the 2017 germ (`isScFredholmGermTame2021_iff_2017`). Germ data in a chart centred at a point of the interior of $C$ are tame germ data after shrinking the chart (`isScFredholmGermTame_of_chart_interior`), so there the theorems hold for the plain 2021 notion; charts with $d_C(\varphi(x_0)) \ge 1$ are open (gap G.79; Findings, Chapter 3, item 382).
 - These are the hypotheses of the implicit function theorems of §3.6 (V3.48, V3.68–V3.70, V3.80–V3.82, V3.84–V3.87, V3.94–V3.102). They were first proved with “tame strong bundle” read as: the base retraction of **every** strong bundle chart compatible with the atlas is tame. No strong bundle over a nonempty base satisfies that (V3.104), so those first statements were vacuous; the proofs used the tameness only for particular charts, and the repair changed the statements, not the arguments (Findings, Chapter 3, items 190–192, 198).
 - Whether germ data in some chart (V3.13) can be moved to some compatible tame chart when the atlas consists of tame charts (Definition 3.1.11 (preprint 3.11) $\Rightarrow$ Definition 3.6.3 (preprint 3.50)) is open. It cannot be done by re-centring a chart of the tame atlas: whether a filling exists in a chart depends on the chart ($\ker Dr(0) \cong \ker\rho(0)$ is necessary, `IsFillingGerm.nonempty_kerEquiv`), and the trivial bundle with the one-chart tame atlas of `evenBundleChart` has sc-Fredholm sections with tame germ data in compatible charts but none in the atlas chart (`tame_atlas_no_germData_in_atlas_chart`). The preprint and the 2017 text build the tame chart into Definition 3.6.3 (preprint 3.50); the 2021 text asks it of the bundle in the theorems (“tame strong bundle”), see the first entry (Findings, Chapter 3, items 199, 350–353). Updated in the fourth addendum of this page.
 - **Germs.** Since the switch to the text’s germ reading (phase 2) the three notions carry the germ data of the text (V3.13, V3.45); the earlier whole-chart forms are `IsScFredholmGermTameWholeChart`, `IsGoodPositionGermTameWholeChart`, `IsScFredholmSectionTameWholeChart`, and the non-vacuity witnesses satisfy both readings (Findings, Chapter 3, items 220–221, 304, 330). For Definition 3.6.6 (preprint 3.53) the comparison is that of V3.47. Hence “hypotheses explicit” again (“restated” in the third addendum).
+- (2026-11-12) With the 2021 definitions as printed (germ data in any strong bundle chart) the conclusion does not hold as we read it, also over an M-polyfold without boundary (`theorem_3_6_8_untamed_not`, `theorem_3_1_22_untamed_not`; V3.130, gap G.79 settled).
+- (2026-11-12) The open question of the third entry is answered in the negative: a 2021 sc-Fredholm germ of a tame strong bundle need not have germ data in a tame chart (`isScFredholmGerm2021_not_tame`, V3.131).
 
 ### V3.104. A non-tame retraction onto a product with a point: the earlier tameness hypothesis cannot be met
 
@@ -5154,17 +5372,17 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same, as a germ on an sc-germ of neighbourhoods inside $U$, with $r(0) = 0$ a condition. It is the filling of V3.7 plus $r(0) = 0$ (automatic when $0 \in O$); the 2017 filling (tame $r$) implies it; the identity retraction gives fillings.
 
-- `Polyfold.IsFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 119
-- `Polyfold.HasFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 134
-- `Polyfold.IsFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 141
-- `Polyfold.isFilling2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 151
-- `Polyfold.IsFilling2021.isFillingGerm` — Polyfold/Chapter3/Book2021Germs.lean, line 157
-- `Polyfold.IsFillingGerm.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 163
-- `Polyfold.IsFilledVersion.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 168
-- `Polyfold.IsFilling2017.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 173
-- `Polyfold.isFilling2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 178
-- `Polyfold.isFilling2017_id` — Polyfold/Chapter3/Book2021Germs.lean, line 184
-- `Polyfold.isFilling2017_rn` — Polyfold/Chapter3/Book2021Germs.lean, line 191
+- `Polyfold.IsFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 122
+- `Polyfold.HasFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 137
+- `Polyfold.IsFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 144
+- `Polyfold.isFilling2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 154
+- `Polyfold.IsFilling2021.isFillingGerm` — Polyfold/Chapter3/Book2021Germs.lean, line 160
+- `Polyfold.IsFillingGerm.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 166
+- `Polyfold.IsFilledVersion.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 171
+- `Polyfold.IsFilling2017.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 176
+- `Polyfold.isFilling2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 181
+- `Polyfold.isFilling2017_id` — Polyfold/Chapter3/Book2021Germs.lean, line 187
+- `Polyfold.isFilling2017_rn` — Polyfold/Chapter3/Book2021Germs.lean, line 194
 
 *What differs.*
 - The 2021 change brings the text to the germ reading of V3.7, which never asked for tameness.
@@ -5177,13 +5395,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** On $C = U = [0, \infty) \times \mathbb R$ with $R((a, b), h) = ((0, b), 0)$: $r(a, b) = (0, b)$ is not tame, and $g(a, b) = a$ is a 2021 filling of the zero section, so not a 2017 filling.
 
-- `Polyfold.CornerFilling.Rc` — Polyfold/Chapter3/Book2021Germs.lean, line 220
-- `Polyfold.CornerFilling.gc` — Polyfold/Chapter3/Book2021Germs.lean, line 251
-- `Polyfold.CornerFilling.isFilledVersion_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 304
-- `Polyfold.CornerFilling.isFilling2021_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 319
-- `Polyfold.CornerFilling.not_isTame_r` — Polyfold/Chapter3/Book2021Germs.lean, line 325
-- `Polyfold.CornerFilling.not_isFilling2017_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 339
-- `Polyfold.exists_isFilling2021_not_isFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 423
+- `Polyfold.CornerFilling.Rc` — Polyfold/Chapter3/Book2021Germs.lean, line 223
+- `Polyfold.CornerFilling.gc` — Polyfold/Chapter3/Book2021Germs.lean, line 254
+- `Polyfold.CornerFilling.isFilledVersion_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 307
+- `Polyfold.CornerFilling.isFilling2021_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 322
+- `Polyfold.CornerFilling.not_isTame_r` — Polyfold/Chapter3/Book2021Germs.lean, line 328
+- `Polyfold.CornerFilling.not_isFilling2017_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 342
+- `Polyfold.exists_isFilling2021_not_isFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 426
 
 ### V3.110. Definitions 3.1.11, 3.1.16 = 3.6.3, 3.6.4 (preprint 3.11, 3.14 = 3.50, 3.51) with the 2021 filling
 
@@ -5193,24 +5411,25 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same with the 2021 filling; the 2021 germ is the project's sc-Fredholm germ, the 2021 section the project's sc-Fredholm section, the 2017 germ the germ with tame germ data; graph sections are witnesses.
 
-- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 481
-- `Polyfold.StrongBundle.IsScFredholmGerm2017` — Polyfold/Chapter3/Book2021Germs.lean, line 492
-- `Polyfold.StrongBundle.IsScFredholmSection2021` — Polyfold/Chapter3/Book2021Germs.lean, line 504
-- `Polyfold.StrongBundle.zero_mem_O_of_chart` — Polyfold/Chapter3/Book2021Germs.lean, line 510
-- `Polyfold.StrongBundle.isScFredholmGerm2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 517
-- `Polyfold.StrongBundle.isScFredholmGerm2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 528
-- `Polyfold.StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 540
-- `Polyfold.StrongBundle.isScFredholmSection2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 545
-- `Polyfold.isScFredholmSection2021_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 616
-- `Polyfold.isScFredholmGerm2017_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 623
-- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 405
-- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame` — Polyfold/Chapter3/TameGermTransfer.lean, line 429
-- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017` — Polyfold/Chapter3/TameGermTransfer.lean, line 436
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 453
-- `Polyfold.TrivialBundle.isScFredholmGermInterior_graphSection` — Polyfold/Chapter3/TameGermTransfer.lean, line 484
+- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 484
+- `Polyfold.StrongBundle.IsScFredholmGerm2017` — Polyfold/Chapter3/Book2021Germs.lean, line 495
+- `Polyfold.StrongBundle.IsScFredholmSection2021` — Polyfold/Chapter3/Book2021Germs.lean, line 507
+- `Polyfold.StrongBundle.zero_mem_O_of_chart` — Polyfold/Chapter3/Book2021Germs.lean, line 513
+- `Polyfold.StrongBundle.isScFredholmGerm2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 520
+- `Polyfold.StrongBundle.isScFredholmGerm2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 531
+- `Polyfold.StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 543
+- `Polyfold.StrongBundle.isScFredholmSection2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 548
+- `Polyfold.isScFredholmSection2021_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 619
+- `Polyfold.isScFredholmGerm2017_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 626
+- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 407
+- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame` — Polyfold/Chapter3/TameGermTransfer.lean, line 431
+- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017` — Polyfold/Chapter3/TameGermTransfer.lean, line 438
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
+- `Polyfold.TrivialBundle.isScFredholmGermInterior_graphSection` — Polyfold/Chapter3/TameGermTransfer.lean, line 486
 
 *What differs.*
 - Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353). (2026-11-09) In part: 2021 germ data in a chart centred at a point of the interior of $C$, i.e. with $d_C(\varphi(x_0)) = 0$, give tame germ data and the 2017 germ (`IsScFredholmGermInterior.isScFredholmGermTame`, `IsScFredholmGermInterior.isScFredholmGerm2017`), and a 2021 sc-Fredholm section with such data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`); the case $d_C(\varphi(x_0)) \ge 1$ is open. The tame reading is the preprint and 2017 wording of Definition 3.6.3 (V3.103).
+- (2026-11-12) The case $d_C(\varphi(x_0)) \ge 1$ is settled in the negative (V3.130, V3.131; gap G.79).
 
 ### V3.111. Proposition 3.1.5 (preprint 3.5) for the 2021 filling
 
@@ -5220,7 +5439,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same for a 2021 filling; $Dg(0)$ maps $T_0O$ into $K_0$, so that the restriction is defined.
 
-- `Polyfold.proposition_3_1_5` — Polyfold/Chapter3/Book2021Germs.lean, line 642
+- `Polyfold.proposition_3_1_5` — Polyfold/Chapter3/Book2021Germs.lean, line 645
 
 ### V3.112. Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) for the 2021 definitions
 
@@ -5230,8 +5449,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same for 2021 sc-Fredholm germs.
 
-- `Polyfold.theorem_3_1_13` — Polyfold/Chapter3/Book2021Germs.lean, line 558
-- `Polyfold.corollary_3_1_15` — Polyfold/Chapter3/Book2021Germs.lean, line 567
+- `Polyfold.theorem_3_1_13` — Polyfold/Chapter3/Book2021Germs.lean, line 561
+- `Polyfold.corollary_3_1_15` — Polyfold/Chapter3/Book2021Germs.lean, line 570
 
 ### V3.113. Theorems 3.1.18 (preprint 3.15) and 3.1.21 (preprint 3.18) for the 2021 definitions
 
@@ -5241,8 +5460,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same for 2021 sc-Fredholm sections.
 
-- `Polyfold.theorem_3_1_18` — Polyfold/Chapter3/Book2021Germs.lean, line 576
-- `Polyfold.theorem_3_1_21` — Polyfold/Chapter3/Book2021Germs.lean, line 582
+- `Polyfold.theorem_3_1_18` — Polyfold/Chapter3/Book2021Germs.lean, line 579
+- `Polyfold.theorem_3_1_21` — Polyfold/Chapter3/Book2021Germs.lean, line 585
 
 ### V3.114. Proposition 3.6.5 (preprint 3.52) for the 2021 definitions
 
@@ -5252,24 +5471,26 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a 2021 sc-Fredholm germ, in a chart centred at the zero: $Dg(0)$ and the restriction $T_0O \to K_0$ are Fredholm of index $n - N$.
 
-- `Polyfold.proposition_3_6_5` — Polyfold/Chapter3/Book2021Germs.lean, line 596
+- `Polyfold.proposition_3_6_5` — Polyfold/Chapter3/Book2021Germs.lean, line 599
 
 ### V3.115. Theorem 3.6.8 (preprint 3.54): the proof step on p. 138 without a tame chart
 
-*not in the book* · needs a tame chart · conclusion not refuted · untamed data: G.79
+*not in the book* · needs a tame chart · untamed data: half-line (G.79)
 
 **HWZ (§3.6, Theorem 3.6.8 (preprint 3.54), p. 136 (preprint p. 111), proof pp. 137–138).** The proof passes from good position of $\ker T\hat f(0)$ in $T_0O$ to good position of $\ker Dg(0)$ in $E$ through the sc-complement $\ker Dr(0) \subseteq E_0$ of $T_0O$ (Proposition 2.5.3 (preprint 2.35)), the retract being tame "by assumption".
 
 **Proved in Lean.** In the example of V3.109 the filling, $\hat f(0) = 0$, $Dg(0)$ onto, and good position in $T_0O$ hold, but the range of $1 - Dr(0)$ is not in $E_0$ and $\ker Dg(0) = 0 \oplus \mathbb R$ is not in good position to $C$.
 
-- `Polyfold.CornerFilling.isGoodPositionAtGerm_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 354
-- `Polyfold.CornerFilling.not_isInGoodPosition_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 377
-- `Polyfold.CornerFilling.not_range_le_minimalSubspace` — Polyfold/Chapter3/Book2021Germs.lean, line 407
-- `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/Book2021Germs.lean, line 440
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 352
+- `Polyfold.CornerFilling.isGoodPositionAtGerm_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 357
+- `Polyfold.CornerFilling.not_isInGoodPosition_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 380
+- `Polyfold.CornerFilling.not_range_le_minimalSubspace` — Polyfold/Chapter3/Book2021Germs.lean, line 410
+- `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/Book2021Germs.lean, line 443
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 107
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 138
 
 *What differs.*
-- With the untamed 2021 definitions the step does not hold as we read it; the example's solution set is a manifold, so the theorem is not refuted. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103); for untamed data it is gap G.79. (2026-11-09) In part: germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110); open for charts with $d_C(\varphi(x_0)) \ge 1$ (gap G.79).
+- With the untamed 2021 definitions neither the step nor the conclusion holds as we read it: the strong bundle `bundle` over $O \cong \mathbb R$ with the section `sec` (`GapP1_UntamedBundle*.lean`) is a tame strong bundle with an sc-Fredholm section in the 2021 sense and a zero in good position whose solution set is a closed half-line (`theorem_3_6_8_untamed_example`, `theorem_3_6_8_untamed_not`; V3.130). In the corner example of V3.109 the solution set is still a manifold. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103). (2026-11-09) Germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110).
 
 ### V3.116. Theorem 3.5.1 (preprint 3.40) with the 2021 sequential conclusion
 
@@ -5279,8 +5500,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same, the closure in $E_0$, convergence on level $m$ through lifts $y_k \in E_m$ equal to $x_k$ for $k$ large.
 
-- `Polyfold.IsBasicGerm.solves` — Polyfold/Chapter3/Book2021Germs.lean, line 671
-- `Polyfold.theorem_3_5_1` — Polyfold/Chapter3/Book2021Germs.lean, line 691
+- `Polyfold.IsBasicGerm.solves` — Polyfold/Chapter3/Book2021Germs.lean, line 674
+- `Polyfold.theorem_3_5_1` — Polyfold/Chapter3/Book2021Germs.lean, line 694
 
 ### V3.117. Closed convex cones and extreme rays (p. 145)
 
@@ -5290,14 +5511,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same definitions, with witnesses; and for $N$ in good position with $N \cap C$ pointed, $N \cap C$ is carried onto $[0, \infty)^{\dim N}$ by a linear isomorphism.
 
-- `Polyfold.IsClosedConvexCone` — Polyfold/Chapter3/Book2021Items.lean, line 90
-- `Polyfold.IsExtremeRayGen` — Polyfold/Chapter3/Book2021Items.lean, line 98
-- `Polyfold.IsClosedConvexCone.eq_zero` — Polyfold/Chapter3/Book2021Items.lean, line 101
-- `Polyfold.isClosedConvexCone_Ici` — Polyfold/Chapter3/Book2021Items.lean, line 108
-- `Polyfold.isExtremeRayGen_one` — Polyfold/Chapter3/Book2021Items.lean, line 120
-- `Polyfold.isExtremeRayGen_symm_single` — Polyfold/Chapter3/Book2021Items.lean, line 128
-- `Polyfold.exists_sub_single_mem` — Polyfold/Chapter3/Book2021Items.lean, line 149
-- `Polyfold.exists_quadrantEquiv_of_pointed` — Polyfold/Chapter3/Book2021Items.lean, line 174
+- `Polyfold.IsClosedConvexCone` — Polyfold/Chapter3/Book2021Items.lean, line 91
+- `Polyfold.IsExtremeRayGen` — Polyfold/Chapter3/Book2021Items.lean, line 99
+- `Polyfold.IsClosedConvexCone.eq_zero` — Polyfold/Chapter3/Book2021Items.lean, line 102
+- `Polyfold.isClosedConvexCone_Ici` — Polyfold/Chapter3/Book2021Items.lean, line 109
+- `Polyfold.isExtremeRayGen_one` — Polyfold/Chapter3/Book2021Items.lean, line 121
+- `Polyfold.isExtremeRayGen_symm_single` — Polyfold/Chapter3/Book2021Items.lean, line 129
+- `Polyfold.exists_sub_single_mem` — Polyfold/Chapter3/Book2021Items.lean, line 150
+- `Polyfold.exists_quadrantEquiv_of_pointed` — Polyfold/Chapter3/Book2021Items.lean, line 175
 
 *What differs.*
 - The quadrant normal form replaces the Krein–Milman-type Lemmas 3.8.1–3.8.3 in the proofs.
@@ -5310,8 +5531,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same; (1) and (3) hold without the cone hypothesis (Lemma 3.8.8), (2) uses only that $N \cap C$ is pointed.
 
-- `Polyfold.lemma_3_8_4` — Polyfold/Chapter3/Book2021Items.lean, line 207
-- `Polyfold.lemma_3_8_8` — Polyfold/Chapter3/GoodPosition.lean, line 124
+- `Polyfold.lemma_3_8_4` — Polyfold/Chapter3/Book2021Items.lean, line 208
+- `Polyfold.lemma_3_8_8` — Polyfold/Chapter3/GoodPosition.lean, line 129
 
 ### V3.119. Lemma 3.8.5
 
@@ -5321,8 +5542,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Either $N \cap (\mathbb R^{\Gamma^c} \oplus W) = \{0\}$, or $N \subseteq \mathbb R^{\Gamma^c} \oplus W$, $\dim N = 1$, $\Gamma = \emptyset$. For $N = 0$ in $E = \mathbb R$, $C = [0, \infty)$: $N \subseteq \mathbb R^{\Gamma^c} \oplus W$ and $\dim N = 0$.
 
-- `Polyfold.lemma_3_8_5` — Polyfold/Chapter3/Book2021Items.lean, line 243
-- `Polyfold.lemma_3_8_5_not_literal` — Polyfold/Chapter3/Book2021Items.lean, line 390
+- `Polyfold.lemma_3_8_5` — Polyfold/Chapter3/Book2021Items.lean, line 244
+- `Polyfold.lemma_3_8_5_not_literal` — Polyfold/Chapter3/Book2021Items.lean, line 391
 
 *What differs.*
 - Read as "$N \subseteq \mathbb R^{\Gamma^c} \oplus W$ implies $\dim N = 1$", the lemma does not hold as we read it for $N = 0$; the proof assumes $N \cap (\mathbb R^{\Gamma^c} \oplus W) \ne \{0\}$.
@@ -5335,9 +5556,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** (1) without the cone hypothesis; (2) for $N \ne 0$; the hypotheses of (2) are satisfiable.
 
-- `Polyfold.lemma_3_8_6` — Polyfold/Chapter3/Book2021Items.lean, line 314
-- `Polyfold.lemma_3_8_6_two` — Polyfold/Chapter3/Book2021Items.lean, line 347
-- `Polyfold.halfLine_witness` — Polyfold/Chapter3/Book2021Items.lean, line 425
+- `Polyfold.lemma_3_8_6` — Polyfold/Chapter3/Book2021Items.lean, line 315
+- `Polyfold.lemma_3_8_6_two` — Polyfold/Chapter3/Book2021Items.lean, line 348
+- `Polyfold.halfLine_witness` — Polyfold/Chapter3/Book2021Items.lean, line 426
 - `Polyfold.Counterexamples2021.not_lemma_3_8_6_two` — Polyfold/Chapter3/Counterexamples2021.lean, line 123
 
 *What differs.*
@@ -5351,10 +5572,234 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The same, and $N \cap C$ is carried onto $[0, \infty)^{\dim N}$ by a linear isomorphism $N \cong \mathbb R^{\dim N}$.
 
-- `Polyfold.corollary_3_8_7` — Polyfold/Chapter3/Book2021Items.lean, line 368
+- `Polyfold.corollary_3_8_7` — Polyfold/Chapter3/Book2021Items.lean, line 369
 
 *What differs.*
 - The partial quadrant holds without the cone hypothesis (Proposition 3.1.25 (preprint 3.22), V3.21).
+
+### V3.122. Remark 3.3.8 (preprint 3.36): the quantitative solution germ
+
+*as in the book* · all four quantitative statements
+
+**HWZ (§3.3, Remark 3.3.8 (preprint 3.36), p. 113 (preprint p. 89)).** Decreasing sequences $(\varepsilon_i)$, $(\tau_i)$ with: $\delta$ on $\{|a|_0 \le \varepsilon_0\}$ a continuous solution, unique for $|w|_0 \le \tau_0$; $\delta(a) \in W_i$, $|\delta(a)|_i \le \tau_i$ for $|a|_0 \le \varepsilon_i$; $\delta : \{|a|_0 \le \varepsilon_i\} \to W_i$ of class $C^i$.
+
+**Proved in Lean.** `remark_3_3_8`: for an sc⁰-contraction germ $f(a, w) = w - B(a, w)$ that is sc-smooth, on a quadrant-like $\widetilde C$, there are $\delta$ and decreasing positive sequences $(\varepsilon_i)$, $(\tau_i)$ such that $\delta(0) = 0$; on $\{|a|_0 \le \varepsilon_0\}$, $\delta$ is continuous with $|\delta(a)|_0 \le \tau_0$ and $f(a, \delta(a)) = 0$; a solution $w$ with $|w|_0 \le \tau_0$ is $\delta(a)$; $\delta(a) \in W_i$ and $|\delta(a)|_i \le \tau_i$ for $|a|_0 \le \varepsilon_i$; and $\delta : \{|a|_0 \le \varepsilon_i\} \to W_i$ is of class $C^i$.
+
+- `Polyfold.remark_3_3_8` — Polyfold/Chapter3/GapP1_Remark338.lean, line 97
+- `Polyfold.ContractionGerm.exists_radius` — Polyfold/Chapter3/GapP1_Remark338.lean, line 50
+- `Polyfold.ContractionGerm.fixLvl_zero_eq` — Polyfold/Chapter3/GapP1_Remark338.lean, line 42
+- `Polyfold.exists_antitone_le` — Polyfold/Chapter3/GapP1_Remark338.lean, line 76
+
+*What differs.*
+- Obtained from Theorem 3.3.2 (preprint 3.29) and Corollary 3.3.7 (preprint 3.34) (V3.26, V3.31) by choosing $\varepsilon_i$ and $\tau_i$ as running minima of the radii on each level; "decreasing" is read as non-increasing.
+
+### V3.123. Lemma 3.8.1 (preprint 3.62): a closed convex cone is the closed convex hull of its extreme rays
+
+*narrower* · $P \ne \{0\}$; at $P = \{0\}$ counterexample · with $0$ adjoined: every cone
+
+**HWZ (§3.8.1, Lemma 3.8.1 (preprint 3.62), p. 145 (preprint p. 121)).** A closed convex cone $P$ in a finite-dimensional vector space $N$ is the closed convex hull of its extreme rays (a version of the Krein–Milman theorem, cited from the literature).
+
+**Proved in Lean.** `lemma_3_8_1`: for a closed convex cone $P \ne \{0\}$ in a finite-dimensional space, $P$ is the closure of the convex hull of the union of its extreme rays (`extremeRays`; an extreme ray is a set, `IsExtremeRay`, equivalent to the project's generator form, `IsClosedConvexCone.isExtremeRay_rayOf_iff`). `not_lemma_3_8_1_zero`: the statement for every closed convex cone does not hold as we read it, at $P = \{0\}$. `lemma_3_8_1_zero_union`: with $0$ adjoined to the extreme rays it holds for every closed convex cone.
+
+- `Polyfold.lemma_3_8_1` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 214
+- `Polyfold.not_lemma_3_8_1_zero` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 278
+- `Polyfold.lemma_3_8_1_zero_union` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 287
+- `Polyfold.rayOf` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 56
+- `Polyfold.IsExtremeRay` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 60
+- `Polyfold.extremeRays` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 64
+- `Polyfold.IsClosedConvexCone.isExtremeRay_rayOf_iff` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 531
+- `Polyfold.IsClosedConvexCone.exists_pos_functional` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 125
+
+*What differs.*
+- As printed the lemma does not hold as we read it for $P = \{0\}$: $\{0\}$ is a closed convex cone without extreme rays, and the closed convex hull of the empty family is empty (`not_lemma_3_8_1_zero`; Findings, Chapter 3, item 386). It is proved for $P \ne \{0\}$, by a functional positive on $P \setminus 0$ and Mathlib's Krein–Milman theorem on the compact base, and with $0$ adjoined for every cone. Nothing in the text depends on the case $P = \{0\}$: in Lemma 3.8.11 (preprint 3.68) the cone has nonempty interior in $\widetilde N \ne 0$ (V3.125).
+
+### V3.124. Lemmas 3.8.2, 3.8.3 (preprint 3.63, 3.64): quadrants and extreme rays; $\dim N - 1 \le \#\sigma_a$
+
+*as in the book* · proved; 3.8.2 is cited in the text · the text’s model $\mathbb R^n \oplus W$
+
+**HWZ (§3.8.1, Lemmas 3.8.2, 3.8.3 (preprint 3.63, 3.64), pp. 145–146 (preprint pp. 121–122)).** A closed convex cone with nonempty interior in $N$ is a quadrant iff it has $\dim N$ extreme rays (3.8.2, cited from the literature). In $E = \mathbb R^n \oplus W$, $C = [0, \infty)^n \oplus W$, $N$ finite-dimensional and smooth with $N \cap C$ a closed convex cone: a generator $a$ of an extreme ray of $N \cap C$ has $\dim N - 1 \le \#\sigma_a$, with equality if $N$ is in good position (3.8.3).
+
+**Proved in Lean.** `lemma_3_8_2`: for a closed convex cone $P$ with nonempty interior in a finite-dimensional $N$, $P$ is a quadrant (`IsQuadrantIn`: a linear isomorphism $N \cong \mathbb R^{\dim N}$ carrying $P$ onto $[0, \infty)^{\dim N}$) iff its set of extreme rays has `encard` $\dim N$. `lemma_3_8_3`, `lemma_3_8_3_goodPosition`: in the text's model, if $N \cap C$ is a closed convex cone and $a$ generates an extreme ray of it, $\dim N - 1 \le \#\sigma_a$ (`quadrantDeg`), with equality when $N$ is in good position; the map (3.34) is `zeroIdxProj`, (3.33) is `ker_zeroIdxProj_le`.
+
+- `Polyfold.lemma_3_8_2` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 433
+- `Polyfold.IsQuadrantIn` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 305
+- `Polyfold.extremeRays_nonnegOrthant` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 356
+- `Polyfold.encard_extremeRays_nonnegOrthant` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 403
+- `Polyfold.extremeRays_image` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 336
+- `Polyfold.lemma_3_8_3` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 628
+- `Polyfold.lemma_3_8_3_goodPosition` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 645
+- `Polyfold.zeroIdxProj` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 544
+- `Polyfold.ker_zeroIdxProj_le` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 589
+
+*What differs.*
+- "$\dim N$-many extreme rays" is read as `encard`. Lemma 3.8.2 is cited by the text from the literature; here it is proved. The formal proof of Proposition 3.1.25 (preprint 3.22) still does not use these lemmas (V3.21; Findings, Chapter 3, item 18).
+
+### V3.125. Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68): the complement $\widetilde N$
+
+*as in the book* · the text’s notions on both sides · the text’s model $\mathbb R^n \oplus W$
+
+**HWZ (§3.8.1, Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68), pp. 150–152 (preprint pp. 123–125)).** $\widetilde N$ is in good position with good complement $(N \cap W) \oplus N^\perp$ (3.66); $C \cap \widetilde N$ is a closed convex cone whose extreme rays satisfy $\dim\widetilde N - 1 = \#\sigma_a = d_C(a)$ (3.67); either $\widetilde N \cap (\mathbb R^{\Sigma^c} \oplus W) = \{0\}$ or $\widetilde N \subseteq \mathbb R^{\Sigma^c} \oplus W$ with $\dim\widetilde N = 1$, $\Sigma = \emptyset$ (3.68).
+
+**Proved in Lean.** In the text's model $E = \mathbb R^n \oplus W$, $C = [0, \infty)^n \oplus W$, with $N$ in good position (`IsInGoodPositionSc`), $N^\perp$ a good sc-complement (`IsScGoodComplement`) and $\widetilde N$ an algebraic complement of $N \cap W$ in $N$: `lemma_3_8_9_sc`: $\widetilde N$ is in good position and $(N \cap W) \oplus N^\perp$ is a good sc-complement of it (an sc-subspace by `ScBanach.isScSubspace_sup_of_le_smooth`; the algebraic core is `lemma_3_8_9`, which needs only $N^\perp$ closed). `lemma_3_8_10`: $C \cap \widetilde N$ is a closed convex cone in $\widetilde N$, and a generator $a$ of an extreme ray has $\dim \widetilde N - 1 = \#\sigma_a = d_C(a)$. `lemma_3_8_11`: $\widetilde N \cap (\mathbb R^{\Sigma^c} \oplus W) = 0$, or $\widetilde N \subseteq \mathbb R^{\Sigma^c} \oplus W$ with $\dim \widetilde N = 1$ and $\Sigma = \emptyset$.
+
+- `Polyfold.lemma_3_8_9_sc` — Polyfold/Chapter3/GapP1_Lemma389Sc.lean, line 111
+- `Polyfold.lemma_3_8_9` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 140
+- `Polyfold.lemma_3_8_9_of_isClosed` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 76
+- `Polyfold.lemma_3_8_10` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 176
+- `Polyfold.isClosedConvexCone_of_disjoint` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 152
+- `Polyfold.lemma_3_8_11` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 242
+- `Polyfold.exists_eq_smul_of_isExtremeRayGen` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 214
+- `Polyfold.wPart` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 47
+- `Polyfold.bigSigma` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 60
+- `Polyfold.sigmaCompl` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 64
+- `Polyfold.ScBanach.isScSubspace_sup_of_le_smooth` — Polyfold/Chapter3/GapP1_Lemma389Sc.lean, line 36
+- `Polyfold.ScBanach.isCompl_levelSub_of_isScSplitting` — Polyfold/Chapter3/GapP1_Lemma389Sc.lean, line 64
+
+*What differs.*
+- The proofs are the text's; Lemma 3.8.11 (preprint 3.68) uses Lemma 3.8.1 (preprint 3.62) with $0$ adjoined (V3.123). The formal proof of Proposition 3.1.25 (preprint 3.22) still treats its cases directly (V3.21).
+
+### V3.126. Definition 3.8.14 (preprint 3.71): class $C^k$ on partial quadrants
+
+*restated* · agrees with Mathlib’s `ContDiffOn` · agrees with sc¹ and sc$^\infty$
+
+**HWZ (§3.8.5 (preprint §3.8.4), Definition 3.8.14 (preprint 3.71), p. 164 (preprint p. 135)).** $f : U \to \mathbb R^m$ on a relatively open subset of a partial quadrant is $C^1$ if it has one-sided derivatives depending continuously on $x$; $C^k$ if $f$ and $Tf$ are $C^{k-1}$.
+
+**Proved in Lean.** `IsClassC1On U f`: there is $Df$ with $f$ differentiable within $U$ at every $x \in U$ with derivative $Df(x)$ (one-sided derivatives in the directions into $U$; the limit form is `isClassC1On_iff_tendsto`) and $Df$ continuous on $U$. `IsClassCOn k U f` by recursion through the text's tangent map $Tf(x, h) = (f(x), Df(x)h)$ (`bookTangentMap`): $C^0$ is continuity, $C^{k+2}$ means $f$ and $Tf$ on $U \times V$ are $C^{k+1}$; `IsClassSmoothOn` is $C^k$ for all $k$. On every set with unique derivatives it agrees with Mathlib's `ContDiffOn` (`isClassCOn_iff_contDiffOn`), in particular on relatively open subsets of partial quadrants, where it also agrees with sc¹ and sc$^\infty$ (`isSc1_iff_isClassC1On`, `isScSmooth_iff_isClassSmoothOn`).
+
+- `Polyfold.IsClassCOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 77
+- `Polyfold.IsClassC1On` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 55
+- `Polyfold.IsClassSmoothOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 85
+- `Polyfold.bookTangentMap` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 72
+- `Polyfold.isClassC1On_iff_tendsto` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 60
+- `Polyfold.isClassC1On_iff_contDiffOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 98
+- `Polyfold.isClassCOn_iff_contDiffOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 144
+- `Polyfold.isClassSmoothOn_iff_contDiffOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 157
+- `Polyfold.isClassCOn_iff_contDiffOn_of_isRelOpenInQuadrant` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 171
+- `Polyfold.isSc1_iff_isClassC1On` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 177
+- `Polyfold.isScSmooth_iff_isClassSmoothOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 183
+
+*What differs.*
+- The one-sided derivatives are derivatives within $U$ (`HasFDerivWithinAt`), which on these sets are unique. The theorems of §§3.8.5–3.8.6 (preprint §§3.8.4–3.8.5) keep Mathlib's `ContDiffOn`, which is this class by `isClassCOn_iff_contDiffOn_of_isRelOpenInQuadrant`.
+
+### V3.127. Lemma 3.8.20 (preprint 3.76): iterated tangent maps
+
+*stronger* · any smooth homeomorphism, $Df$ invertible · the printed form: `lemma_3_8_20_printed`
+
+**HWZ (§3.8.5 (preprint §3.8.4), Lemma 3.8.20 (preprint 3.76), p. 167 (preprint p. 139)).** Under the assumptions of Proposition 3.8.17 (preprint 3.73) the iterated tangent maps $T^kf : T^kU \to T^kV$ are smooth homeomorphisms.
+
+**Proved in Lean.** `lemma_3_8_20`: let $f$ be a smooth homeomorphism between relatively open subsets $U$, $f(U)$ of a partial quadrant $C$ in a finite-dimensional space, with $Df(x)$ invertible (`QuadMapData.IsSmoothHomeo`). Then for every $k$ the iterated tangent map $T^kf$ (`QuadMapData.iterTangent`; $TU = U \times V$ in $C \times V$) is again a smooth homeomorphism of this kind, and its inverse is $C^\infty$ (by Lemma 3.8.21 (preprint 3.77) in its general form, V3.62). `lemma_3_8_20_printed` is the statement under the hypotheses of Proposition 3.8.17 (preprint 3.73).
+
+- `Polyfold.lemma_3_8_20` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 255
+- `Polyfold.lemma_3_8_20_printed` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 271
+- `Polyfold.QuadMapData` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 152
+- `Polyfold.QuadMapData.IsSmoothHomeo` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 178
+- `Polyfold.QuadMapData.tangent` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 170
+- `Polyfold.QuadMapData.IsSmoothHomeo.tangent` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 205
+- `Polyfold.QuadMapData.iterTangent` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 240
+- `Polyfold.constProdIso` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 57
+
+*What differs.*
+- Proved for every smooth homeomorphism with invertible derivative, of which the hypotheses of Proposition 3.8.17 (preprint 3.73) are a case. The proof is the text's: Lemma 3.8.21 applied to $T^kf$, which needs the general form of Lemma 3.8.21, since $T^kf$ does not satisfy the hypotheses of Proposition 3.8.17. The regularity of $f^{-1}$ in Proposition 3.8.17 is still proved by bootstrapping (V3.59).
+
+### V3.128. Lemma 3.8.13 (preprint 3.70) and Lemma 3.6.9 (preprint 3.55) in a general presentation of $C$; Theorem 3.2.3 (preprint 3.27) and $d_X$
+
+*stronger* · any presentation of the partial quadrant · $d_M = d_X$ near the centre (not printed)
+
+**HWZ (§3.8.4 (preprint §3.8.3), Lemma 3.8.13 (preprint 3.70), p. 154 (preprint p. 127); §3.2, proof of Theorem 3.2.3 (preprint 3.27)).** In $E = \mathbb R^n \oplus W$, $C = [0, \infty)^n \oplus W$: for $N$ smooth, finite-dimensional, in good position with good complement $Y$, and $\tau : N \cap C \to Y_1$ of class $C^1$ with $\tau(0) = 0$, $D\tau(0) = 0$: $d_{N \cap C}(v) = d_C(v + \tau(v))$ for $v \in N \cap C \setminus N \cap W$ near $0$. The proof of Theorem 3.2.3 (preprint 3.27) uses it to compute $d_{N \cap C}(v) = d_X(y)$; Lemma 3.6.9 (preprint 3.55) is stated for any partial quadrant $C \subseteq E$.
+
+**Proved in Lean.** `lemma_3_8_13_general`: for any partial quadrant $C$ of an sc-Banach space, $N$ in good position with a good complement $Y$ and $\tau : N \to Y$ of class $C^1$ on $N \cap C$ with $\tau(0) = 0$, $D\tau(0) = 0$, there is $\rho > 0$ such that for $v \in N \cap C$ with $|v| < \rho$, $v + \tau(v) \in C$, and $d_{N \cap C}(v) = d_C(v + \tau(v))$ if $-v \notin C$ (in the text's model: $v \notin N \cap W$). `lemma_3_8_13_local`: the same with $\tau$ given only on a relatively open $V \ni 0$. `proposition_3_8_12_general`: Proposition 3.8.12 (preprint 3.69) for any presentation of $C$. `MPolyfold.theorem_3_2_3_degIndex_eq`: in Theorem 3.2.3 (preprint 3.27), near the centre of a regular datum and off the lineality space, $d_M(y) = d_X(y)$. Lemma 3.6.9 (preprint 3.55) for any presentation is V3.80.
+
+- `Polyfold.lemma_3_8_13_general` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 120
+- `Polyfold.lemma_3_8_13_local` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 172
+- `Polyfold.proposition_3_8_12_general` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 81
+- `Polyfold.mem_lineality_iff` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 61
+- `Polyfold.coordCLMOf` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 48
+- `Polyfold.mem_nullSpace_coordFun_iff` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 70
+- `Polyfold.MPolyfold.theorem_3_2_3_degIndex_eq` — Polyfold/Chapter3/GapP1_Theorem323Deg.lean, line 42
+
+*What differs.*
+- The text states Lemma 3.8.13 in the model $\mathbb R^n \oplus W$; it holds for every presentation of $C$, with "$v \notin N \cap W$" as "$-v \notin C$", which is the same in the model.
+- The text does not print $d_M = d_X$ as part of Theorem 3.2.3 (preprint 3.27); the proved form holds near the centre of a datum, off the lineality space, and some restriction is needed: for the diagonal $M$ in $[0, \infty)^2$, $d_M(0) = 1$ while $d_X(0) = 2$ (an example in the docstring, not in Lean; Findings, Chapter 3, item 387). The 2021 use of Lemma 3.8.13 is in the proof of Theorem 3.5.11, (3.30), p. 132.
+
+### V3.129. An sc-smooth family of projections whose rank jumps, and a strong bundle retraction with jumping fibre
+
+*not in the book* · first sc-smooth map not levelwise $C^1$ · jumping fibre
+
+**HWZ (no counterpart in the text (fillings over sc-smooth retractions, Definition 3.1.4, p. 91; retracts of locally varying dimension, after Theorem 2.3.16, p. 40)).** Not stated. After Theorem 2.3.16 the text refers to the literature for retracts of locally varying dimension.
+
+**Proved in Lean.** `Jump.Family.isScSmooth_map`: a family of operators $A_m(t)$ on the levels, compatible with the inclusions, continuous in $(t, h)$, norm-differentiable in $t$ on $V_{m+1}$ with derivative $A'_m(t)$, and with $(s, t, h) \mapsto sA'(t)h$ sc-smooth, gives an sc-smooth map $(t, h) \mapsto A(t)h : \mathbb R \oplus V \to V$ (`Jump.Family`). On a weighted sequence space there is such a family of projections $\pi_t$ with $\pi_t = 0$ for $t \le 0$ and of rank one for $0 < t < 1$ (`Jump.family`, `Jump.proj_of_nonpos`, `Jump.exists_proj_eq`, `Jump.proj_proj`); it is not $C^1$ on any one level, so Proposition 1.2.4 does not produce it. $(((a, t), w), (x, h)) \mapsto (((0, t), 0), (0, \pi_t h))$ is a strong bundle retraction whose fibre jumps (`UntamedCorner.isStrongBundleRetraction_R`), over a base retraction that is not tame (`UntamedCorner.not_isTame_baseRetr`).
+
+- `Polyfold.Jump.Family` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 78
+- `Polyfold.Jump.Family.isScSmooth_map` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 263
+- `Polyfold.Jump.family` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 997
+- `Polyfold.Jump.exists_proj_eq` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 1172
+- `Polyfold.Jump.proj_proj` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 1178
+- `Polyfold.Jump.proj_of_nonpos` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 1094
+- `Polyfold.UntamedCorner.isStrongBundleRetraction_R` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 309
+- `Polyfold.UntamedCorner.not_isTame_baseRetr` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 862
+
+*What differs.*
+- A tool built for the formalization; it gives the jumping fibre of the counterexample V3.130 (gap G.79).
+
+### V3.130. Theorem 3.6.8 with the 2021 germ data as printed: a tame strong bundle over $\mathbb R$ whose solution set is a half-line
+
+*narrower* · does not hold as we read it (2021 data) · counterexample: half-line solution set · holds with tame germ data (V3.94)
+
+**HWZ (§3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11).** Theorem 3.6.8 (p. 136) for an sc-Fredholm section of a tame strong bundle, with the 2021 Definition 3.6.3 (p. 135): the germ data are taken in “a strong bundle chart around $x$”, with a filling over an sc-smooth retraction (Definitions 3.1.4, 3.6.1, pp. 91, 134), not asked to be tame. Conclusion (2): near a zero in good position the solution set is a sub-M-polyfold with the structure of a manifold with boundary with corners. Theorems 3.1.22 and 3.1.26 give the same over an M-polyfold without boundary.
+
+**Proved in Lean.** With the 2021 definitions as printed the statement does not hold as we read it. `bundle : K → O` is a strong bundle over the tame M-polyfold without boundary $O \cong \mathbb R$, with an atlas of tame strong bundle charts (`isTameBundle_bundle`, `chartTame`, `exists_isTameChart`); the fibre is $0$ for $t \le 0$ and a line for $0 < t < 1$. The section `sec` is sc-Fredholm in the sense of 2021 Definitions 3.1.16 = 3.6.4 (`isScFredholmSection2021_sec`): at $x_0$ ($t = 0$) its germ data lie in the atlas chart `chart0`, whose base retraction is not tame (`isScFredholmGerm2021_sec_zero`), at the other points in tame charts (`isScFredholmGermTame_sec_of_ne`, from the frames `frame0`, `frame1`). $x_0$ is a zero in good position (`isGoodPositionGerm_sec_zero`; $d_X(x_0) = 0$, fibre $0$, `subsingleton_fiber_zero`). The solution set is the closed half-line $\{t \le 0\}$ (`solutionSet_sec`): it has no tangent germ data at $x_0$ (`isEmpty_tangentGermChart`) and is not a sub-M-polyfold near $x_0$ (`not_isSubMPolyfold_zeroSet`). Collected in `theorem_3_6_8_untamed_example`; the universal statements are `theorem_3_6_8_untamed_not` (Theorem 3.6.8, conclusion (1) weakened to good position, so only (2) fails) and `theorem_3_1_22_untamed_not` (Theorems 3.1.22, 3.1.26). With tame germ data the theorem holds (V3.85, V3.94, V3.103).
+
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 138
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 159
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 107
+- `Polyfold.UntamedCorner.not_theorem_3_6_8_conclusion` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 121
+- `Polyfold.StrongBundle.IsTameBundle` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 84
+- `Polyfold.UntamedCorner.isTameBundle_bundle` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 93
+- `Polyfold.UntamedCorner.bundle` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 195
+- `Polyfold.UntamedCorner.chart0` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 167
+- `Polyfold.UntamedCorner.sec` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 234
+- `Polyfold.UntamedCorner.isScSmoothSection_sec` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 250
+- `Polyfold.UntamedCorner.solutionSet_sec` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 290
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_sec_zero` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 309
+- `Polyfold.UntamedCorner.isGoodPositionGerm_sec_zero` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 317
+- `Polyfold.UntamedCorner.subsingleton_fiber_zero` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 326
+- `Polyfold.UntamedCorner.not_isSubMPolyfold_zeroSet` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 372
+- `Polyfold.UntamedCorner.isEmpty_tangentGermChart` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 432
+- `Polyfold.UntamedCorner.Frame` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 70
+- `Polyfold.UntamedCorner.Frame.chart` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 201
+- `Polyfold.UntamedCorner.Frame.compatible_chart0` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 428
+- `Polyfold.UntamedCorner.Frame.isScFredholmGermInterior_sec` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 499
+- `Polyfold.UntamedCorner.frame0` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 573
+- `Polyfold.UntamedCorner.frame1` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 682
+- `Polyfold.UntamedCorner.isScFredholmGermTame_sec_of_ne` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 735
+- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 743
+- `Polyfold.UntamedCorner.chartTame` — Polyfold/Chapter3/GapP1_UntamedBundleTame.lean, line 187
+- `Polyfold.UntamedCorner.isStrongBundleRetraction_RT` — Polyfold/Chapter3/GapP1_UntamedBundleTame.lean, line 89
+- `Polyfold.UntamedCorner.compatible_chart0_chartTame` — Polyfold/Chapter3/GapP1_UntamedBundleTame.lean, line 316
+- `Polyfold.UntamedCorner.isTameChart_chartTame` — Polyfold/Chapter3/GapP1_UntamedBundleTame.lean, line 362
+- `Polyfold.UntamedCorner.exists_isTameChart` — Polyfold/Chapter3/GapP1_UntamedBundleTame.lean, line 367
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_local` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 1037
+- `Polyfold.UntamedCorner.not_isTame_baseRetr` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 862
+
+*What differs.*
+- Every printed hypothesis holds in the example (p1-U-untamed2, §0): the bundle is a strong bundle with a strong bundle atlas over a tame M-polyfold, and it is a “tame strong bundle” in both readings of that undefined phrase (the base is tame, and every point lies in a tame strong bundle chart of the structure, `IsTameBundle`); the germ data at $x_0$ are in a chart of the atlas, as Definition 3.6.3 asks; the filling, the sc⁺-section $s = 0$ and the basic germ are those of Definitions 3.1.4, 3.1.7, 3.1.11; good position holds at $x_0$ in every reading ($d_X \equiv 0$, $f'(x_0)$ onto the zero fibre).
+- Only the proof (p. 137) takes the chart of the germ data tame; the preprint and the 2017 text put the tame retraction into the filling. With that reading the theorem is verified (V3.85, V3.94, V3.103). Mechanism: the fibre jumps from $0$ to a line at $x_0$ through the sc-smooth family of projections of V3.129, which is not $C^1$ on any level (Findings, Chapter 3, item 388; gap G.79).
+
+### V3.131. A 2021 sc-Fredholm germ with no tame germ data, and not a 2017 germ
+
+*not in the book* · 2021 germ ⇏ 2017 germ · no tame germ data
+
+**HWZ (§3.6, Definition 3.6.3, p. 135; Definitions 3.1.4, 3.6.1, pp. 91, 134 (no counterpart)).** Not stated. Definition 3.6.3 takes the germ data in “a strong bundle chart around $x$”; the 2017 text and the preprint take the filling over a tame retraction.
+
+**Proved in Lean.** There are a tame strong bundle and an sc-Fredholm section in the sense of 2021 Definitions 3.1.16 = 3.6.4 with a point at which the germ has germ data (Definition 3.6.3) in a strong bundle chart of the structure but none in a tame one: `not_isScFredholmGermTame_sec_zero` (with tame data at $x_0$, Theorem 3.6.8 in its tame form would give tangent germ data, which do not exist), `isScFredholmGerm2021_not_tame` (the universal form), `isScFredholmGerm2021_not_2017` (a 2021 germ that is not a 2017 germ).
+
+- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 175
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_tame` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 190
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 202
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_sec_zero` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 309
+
+*What differs.*
+- Answers in the negative whether germ data in a compatible chart can be moved to a tame chart (Findings, Chapter 3, items 353, 388; gap G.79).
 
 ## Chapter 4
 
@@ -5840,11 +6285,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsSmoothSubmanifold A`: every $a \in A$ has an open $V \ni a$ and an sc⁺-retraction on $V$ (V4.9) with $s(V) = A \cap V$. $A$ is a sub-M-polyfold with the induced structure.
 
-- `Polyfold.MPolyfold.IsSmoothSubmanifold` — Polyfold/Chapter4/Submanifolds.lean, line 751
-- `Polyfold.MPolyfold.SubmanifoldData` — Polyfold/Chapter4/Submanifolds.lean, line 738
-- `Polyfold.MPolyfold.isSmoothSubmanifold_iff` — Polyfold/Chapter4/Submanifolds.lean, line 757
-- `Polyfold.MPolyfold.SubmanifoldData.toSubData` — Polyfold/Chapter4/Submanifolds.lean, line 772
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSubMPolyfold` — Polyfold/Chapter4/Submanifolds.lean, line 941
+- `Polyfold.MPolyfold.IsSmoothSubmanifold` — Polyfold/Chapter4/Submanifolds.lean, line 753
+- `Polyfold.MPolyfold.SubmanifoldData` — Polyfold/Chapter4/Submanifolds.lean, line 740
+- `Polyfold.MPolyfold.isSmoothSubmanifold_iff` — Polyfold/Chapter4/Submanifolds.lean, line 759
+- `Polyfold.MPolyfold.SubmanifoldData.toSubData` — Polyfold/Chapter4/Submanifolds.lean, line 774
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSubMPolyfold` — Polyfold/Chapter4/Submanifolds.lean, line 943
 
 *What differs.*
 - Findings, item 60.
@@ -5857,10 +6302,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $W = V \cap \operatorname{dom}\varphi \cap s^{-1}(V \cap \operatorname{dom}\varphi)$: the lift of $\varphi \circ s \circ \varphi^{-1}$ to $E^1$ is sc-smooth on $\varphi(W)$; for every retraction $r$ onto $O$ there is an sc⁺-retraction $t = \varphi \circ s \circ \varphi^{-1} \circ r$ on $U \cap r^{-1}(G)$ onto $\varphi(W \cap A)$; so $\varphi(W \cap A)$ is an sc⁺-retract of smooth points.
 
-- `Polyfold.MPolyfold.SubmanifoldData.isScSmoothRetractMap_lift` — Polyfold/Chapter4/Submanifolds.lean, line 800
-- `Polyfold.MPolyfold.SubmanifoldData.exists_chartRetraction` — Polyfold/Chapter4/Submanifolds.lean, line 823
-- `Polyfold.MPolyfold.SubmanifoldData.isScPlusRetract_image` — Polyfold/Chapter4/Submanifolds.lean, line 855
-- `Polyfold.MPolyfold.SubmanifoldData.apply_mem_smooth` — Polyfold/Chapter4/Submanifolds.lean, line 863
+- `Polyfold.MPolyfold.SubmanifoldData.isScSmoothRetractMap_lift` — Polyfold/Chapter4/Submanifolds.lean, line 802
+- `Polyfold.MPolyfold.SubmanifoldData.exists_chartRetraction` — Polyfold/Chapter4/Submanifolds.lean, line 825
+- `Polyfold.MPolyfold.SubmanifoldData.isScPlusRetract_image` — Polyfold/Chapter4/Submanifolds.lean, line 857
+- `Polyfold.MPolyfold.SubmanifoldData.apply_mem_smooth` — Polyfold/Chapter4/Submanifolds.lean, line 865
 
 *What differs.*
 - Findings, item 60.
@@ -5873,30 +6318,35 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** At $a \in A \cap V \cap \operatorname{dom}\varphi$ and $z$ over $\varphi(a)$: $z$ is smooth; the tangent map of $\varphi \circ s \circ \varphi^{-1}$ maps $T_zO$ onto $T_z(\varphi(W \cap A))$; $T_z(\varphi(W \cap A)) \subseteq T_zO$ and is finite-dimensional.
 
-- `Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2` — Polyfold/Chapter4/Submanifolds.lean, line 877
+- `Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2` — Polyfold/Chapter4/Submanifolds.lean, line 879
 
 *What differs.*
 - The sc⁺-operator is $Dt(z)$ for the chart retraction of V4.30, not $Ts(a)$ (Findings, item 61). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)
 
 ### V4.32. Remark 4.2.2 (preprint 4.14): points with $d_X = 0$
 
-*narrower* · $d_X = 0$: local form proved · 2021 $d_A$ wording: G.33
+*as in the book* · $d_X = 0$: local form proved · $d_A = 0$, $d_A = 1$ (2021): proved
 
 **HWZ (§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)).** Near points $a \in A$ with $d_X(a) = 0$, $A$ is a smooth finite-dimensional manifold in the classical sense; the same where $T_aA$ is in good position.
 
-**Proved in Lean.** `remark_4_2_2_interior`: for a smooth finite-dimensional submanifold $A$, the open piece $A \cap \{d_X = 0\}$ is a smooth finite-dimensional submanifold whose induced structure has a corner structure (Definition 4.1.1 (preprint 4.1)); `remark_4_2_2_near`: every $a$ with $d_X(a) = 0$ has an open $U \ni a$ with $A \cap U$ such a submanifold. No tameness of $X$. Also: every subspace is in good position to the whole space; $C_e = E$ where $d_C(e) = 0$; at $a \in A$ with $d_X(a) = 0$, $A$ is in good position; if $d_X = 0$ on all of $A$, $A$ has a corner structure, and with a dimension $n$ it is `IsManifold (𝓡 n) ∞` in Mathlib's language (`IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero`).
+**Proved in Lean.** `remark_4_2_2_interior`: for a smooth finite-dimensional submanifold $A$, the open piece $A \cap \{d_X = 0\}$ is a smooth finite-dimensional submanifold whose induced structure has a corner structure (Definition 4.1.1 (preprint 4.1)); `remark_4_2_2_near`: every $a$ with $d_X(a) = 0$ has an open $U \ni a$ with $A \cap U$ such a submanifold. No tameness of $X$. Also: every subspace is in good position to the whole space; $C_e = E$ where $d_C(e) = 0$; at $a \in A$ with $d_X(a) = 0$, $A$ is in good position; if $d_X = 0$ on all of $A$, $A$ has a corner structure, and with a dimension $n$ it is `IsManifold (𝓡 n) ∞` in Mathlib's language (`IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero`). The 2021 wording, both without tameness: `remark_4_2_2_dA_zero` (the open piece $\{d_A = 0\}$ of $A$ is a smooth submanifold of $A$ that is a manifold without boundary; `remark_4_2_2_dA_zero_near` near one point) and `remark_4_2_2_dA_one` (the open piece $\{d_A \le 1\}$ has a corner structure with $d \le 1$, i.e. is a manifold with boundary; `remark_4_2_2_dA_one_near` at a point with $d_A(a) \le 1$). The key step is `hasCornerStructure_of_degIndex_le_one`: an M-polyfold with $X_0 = X_\infty$, $1_0^1$ sc-smooth and $d_X \le 1$ has a corner structure.
 
 - `Polyfold.MPolyfold.remark_4_2_2_interior` — Polyfold/Chapter4/RemarkLocalForm.lean, line 57
 - `Polyfold.MPolyfold.remark_4_2_2_near` — Polyfold/Chapter4/RemarkLocalForm.lean, line 69
-- `Polyfold.isInGoodPosition_univ` — Polyfold/Chapter4/Submanifolds.lean, line 531
-- `Polyfold.partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 539
-- `Polyfold.MPolyfold.isGoodPositionAt_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1499
-- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1530
+- `Polyfold.isInGoodPosition_univ` — Polyfold/Chapter4/Submanifolds.lean, line 533
+- `Polyfold.partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 541
+- `Polyfold.MPolyfold.isGoodPositionAt_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1501
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1532
 - `Polyfold.MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 685
 - `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 650
+- `Polyfold.MPolyfold.remark_4_2_2_dA_zero` — Polyfold/Chapter4/GapP1_Remark422.lean, line 153
+- `Polyfold.MPolyfold.remark_4_2_2_dA_zero_near` — Polyfold/Chapter4/GapP1_Remark422.lean, line 172
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 201
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 220
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 101
 
 *What differs.*
-- Updated (2026-11-09): the local form near the points with $d_X(a) = 0$, the preprint's wording, is proved (`Chapter4/RemarkLocalForm.lean`). The 2021 Remark 4.2.2 (p. 184) speaks of the points with $d_A(a) = 0$, more points since $d_A \le d_X$, and adds that near $d_A(a) = 1$ the set $A$ is a manifold with boundary; neither is formalized (gap G.33, open in part), hence still “narrower” (Findings, Chapter 4, item 165).
+- Updated (2026-11-12): the 2021 wording is proved, near $d_A(a) = 0$ (manifold without boundary) and near $d_A(a) = 1$ (manifold with boundary), with no tameness (`Chapter4/GapP1_Remark422.lean`, `GapP1_Remark422One.lean`; gap G.33, closed). In a chart realizing $d_A(a) = 1$, re-centred at $a$, with boundary coordinate $\lambda$, $T_aA$ is in good position when $\lambda|_{T_aA} \ne 0$; the case $\lambda|_{T_aA} = 0$ is excluded by the graph argument of Lemma 9.2.13 (`degIndex_eq_zero_of_isReducedTangentAt`), which would give $d_A(a) = 0$. The preprint's $d_X$ wording is the special case, since $d_A \le d_X$; the switch to $d_A$ covers more points, e.g. the parabola $\{(y^2, y)\}$ in $[0, \infty) \times \mathbb R$, where $d_A \equiv 0$ and $d_X(0, 0) = 1$ (Findings, Chapter 4, items 165, 176). The sentence on $d_A \ge 2$ is qualitative.
 - The case of good position is Theorem 4.2.7 (preprint 4.18) (V4.41).
 
 ### V4.33. Proposition 4.2.3 (1) (preprint 4.15)
@@ -5907,9 +6357,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $A \subseteq X_\infty$; the levels of the induced structure are the traces of those of $X$; every point of $A$ is smooth for the induced structure.
 
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet` — Polyfold/Chapter4/Submanifolds.lean, line 953
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff` — Polyfold/Chapter4/Submanifolds.lean, line 965
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one` — Polyfold/Chapter4/Submanifolds.lean, line 995
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet` — Polyfold/Chapter4/Submanifolds.lean, line 955
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff` — Polyfold/Chapter4/Submanifolds.lean, line 967
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one` — Polyfold/Chapter4/Submanifolds.lean, line 997
 
 *What differs.*
 - "A sc⁺-retraction $s$ has its image in $X_\infty$" is Lemma 4.1.7 (i) (preprint 4.7) through the chart retraction (Findings, item 62).
@@ -5922,7 +6372,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsLocallyClosed A` (Mathlib: an intersection of an open and a closed set).
 
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two` — Polyfold/Chapter4/Submanifolds.lean, line 1007
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two` — Polyfold/Chapter4/Submanifolds.lean, line 1009
 
 *What differs.*
 - Read as $V(a) \cap \overline A \subseteq A$; a filter replaces the sequence, so no metrizability is needed (Findings, item 63).
@@ -5935,7 +6385,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The boundary of the induced M-polyfold $A$ lies in $\partial X$ (by $d_A \le d_X$, Lemma 2.4.6 (preprint 2.26)).
 
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_three` — Polyfold/Chapter4/Submanifolds.lean, line 1030
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_three` — Polyfold/Chapter4/Submanifolds.lean, line 1032
 
 *What differs.*
 - Typo "$d_A(x)$" for $d_A(a)$ (Findings, item 64).
@@ -5948,7 +6398,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For the induced structure: every point of $A$ is smooth and `toLevelOne` is sc-smooth (any junk value).
 
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four` — Polyfold/Chapter4/Submanifolds.lean, line 981
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four` — Polyfold/Chapter4/Submanifolds.lean, line 983
 
 *What differs.*
 - The text: "the postulated sc⁺-retraction is the identity on the retract $A$"; the proof uses V4.30 and V4.14 (Findings, item 62).
@@ -5961,9 +6411,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $T_z(Q \cap K) = T_zQ$ for open $K$; $T_zQ \subseteq T_zO$ for retracts $Q \subseteq O$; $D(F \circ r)(z)$ maps $T_zQ$ into $T_{F(z)}Q'$ when $F(Q) \subseteq Q'$.
 
-- `Polyfold.tangentSpace_inter_isOpen` — Polyfold/Chapter4/Submanifolds.lean, line 129
-- `Polyfold.tangentSpace_subset_of_subset` — Polyfold/Chapter4/Submanifolds.lean, line 145
-- `Polyfold.scDeriv_mem_tangentSpace_of_subset` — Polyfold/Chapter4/Submanifolds.lean, line 171
+- `Polyfold.tangentSpace_inter_isOpen` — Polyfold/Chapter4/Submanifolds.lean, line 131
+- `Polyfold.tangentSpace_subset_of_subset` — Polyfold/Chapter4/Submanifolds.lean, line 147
+- `Polyfold.scDeriv_mem_tangentSpace_of_subset` — Polyfold/Chapter4/Submanifolds.lean, line 173
 
 ### V4.38. Definition 4.2.5 (preprint 4.16): good position, in a chart
 
@@ -5973,10 +6423,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsGoodPositionRetractAt`: $T_zQ$ in good position to $C_z$ inside $T_zO$. `IsGoodPositionAt A a`: this for $Q = \varphi(W \cap A)$ in some chart, data, presentation and lift; explicitly, $Dt(z)E$ in good position to $C_z$ inside $Dr(z)E$.
 
-- `Polyfold.IsGoodPositionRetractAt` — Polyfold/Chapter4/Submanifolds.lean, line 222
-- `Polyfold.MPolyfold.SubmanifoldData.IsGoodPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1230
-- `Polyfold.MPolyfold.IsGoodPositionAt` — Polyfold/Chapter4/Submanifolds.lean, line 1242
-- `Polyfold.MPolyfold.SubmanifoldData.isGoodPositionChart_iff` — Polyfold/Chapter4/Submanifolds.lean, line 1293
+- `Polyfold.IsGoodPositionRetractAt` — Polyfold/Chapter4/Submanifolds.lean, line 224
+- `Polyfold.MPolyfold.SubmanifoldData.IsGoodPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1232
+- `Polyfold.MPolyfold.IsGoodPositionAt` — Polyfold/Chapter4/Submanifolds.lean, line 1244
+- `Polyfold.MPolyfold.SubmanifoldData.isGoodPositionChart_iff` — Polyfold/Chapter4/Submanifolds.lean, line 1295
 
 *What differs.*
 - Findings, item 66. (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)
@@ -5989,11 +6439,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Good position of a sub-retract is carried by germs of sc-diffeomorphisms; good position at $a$ holds for every data, chart, presentation and lift, and is equivalent to the condition for all of them.
 
-- `Polyfold.IsGoodPositionRetractAt.transport` — Polyfold/Chapter4/Submanifolds.lean, line 247
-- `Polyfold.MPolyfold.chart_change_of_transport` — Polyfold/Chapter4/Submanifolds.lean, line 1065
-- `Polyfold.MPolyfold.isGoodPositionRetractAt_chart_change` — Polyfold/Chapter4/Submanifolds.lean, line 1177
-- `Polyfold.MPolyfold.IsGoodPositionAt.isGoodPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1255
-- `Polyfold.MPolyfold.isGoodPositionAt_iff_forall` — Polyfold/Chapter4/Submanifolds.lean, line 1274
+- `Polyfold.IsGoodPositionRetractAt.transport` — Polyfold/Chapter4/Submanifolds.lean, line 249
+- `Polyfold.MPolyfold.chart_change_of_transport` — Polyfold/Chapter4/Submanifolds.lean, line 1067
+- `Polyfold.MPolyfold.isGoodPositionRetractAt_chart_change` — Polyfold/Chapter4/Submanifolds.lean, line 1179
+- `Polyfold.MPolyfold.IsGoodPositionAt.isGoodPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1257
+- `Polyfold.MPolyfold.isGoodPositionAt_iff_forall` — Polyfold/Chapter4/Submanifolds.lean, line 1276
 
 *What differs.*
 - Through Proposition 2.4.10 (preprint 2.30) and Lemma 3.5.9 (preprint 3.45) (Findings, item 66).
@@ -6006,7 +6456,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsTameSubmanifold A`: a smooth finite-dimensional submanifold whose induced structure is tame.
 
-- `Polyfold.MPolyfold.IsTameSubmanifold` — Polyfold/Chapter4/Submanifolds.lean, line 1390
+- `Polyfold.MPolyfold.IsTameSubmanifold` — Polyfold/Chapter4/Submanifolds.lean, line 1392
 
 ### V4.41. Theorem 4.2.7 (preprint 4.18): submanifolds in good position are manifolds with corners
 
@@ -6016,9 +6466,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $X$ tame and `IsSmoothSubmanifold A` with `IsGoodPositionAt A a` for all $a \in A$: the induced structure has `HasCornerStructure` and `IsTameSubmanifold A`.
 
-- `Polyfold.MPolyfold.theorem_4_2_7` — Polyfold/Chapter4/Submanifolds.lean, line 1485
-- `Polyfold.MPolyfold.hasCornerStructure_of_centred_isInGoodPosition` — Polyfold/Chapter4/Submanifolds.lean, line 1400
-- `Polyfold.MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame` — Polyfold/Chapter4/Submanifolds.lean, line 1441
+- `Polyfold.MPolyfold.theorem_4_2_7` — Polyfold/Chapter4/Submanifolds.lean, line 1487
+- `Polyfold.MPolyfold.hasCornerStructure_of_centred_isInGoodPosition` — Polyfold/Chapter4/Submanifolds.lean, line 1402
+- `Polyfold.MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame` — Polyfold/Chapter4/Submanifolds.lean, line 1443
 - `Polyfold.MPolyfold.theorem_4_2_7_isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 676
 - `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 637
 
@@ -6034,8 +6484,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a bounded idempotent $\pi$ with $(1 - \pi)E_0$ in the minimal subspace at $0$ and $N$ in good position to $C$ inside $\pi E_0$: $N$ is in good position to $C$, and $Y \oplus (1 - \pi)E_0$ is a good complement for every good complement $Y$ inside $\pi E_0$, with constant $\varepsilon/(\|\pi\| + 1)$.
 
-- `Polyfold.isGoodComplement_sup_range` — Polyfold/Chapter4/Submanifolds.lean, line 648
-- `Polyfold.lemma_4_2_8` — Polyfold/Chapter4/Submanifolds.lean, line 713
+- `Polyfold.isGoodComplement_sup_range` — Polyfold/Chapter4/Submanifolds.lean, line 650
+- `Polyfold.lemma_4_2_8` — Polyfold/Chapter4/Submanifolds.lean, line 715
 - `Polyfold.IsInGoodPositionIn.isInGoodPosition` — Polyfold/Chapter3/GoodPositionGerm.lean, line 139
 
 *What differs.*
@@ -6049,8 +6499,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $X$ tame: there is an open $U \ni a$ with `IsGoodPositionAt A b` for all $b \in U \cap A$. Along the graph of Proposition 4.1.9 (preprint 4.9), $T_yQ = D\Gamma(v)N$ and $p \circ D\Gamma(v) = 1$.
 
-- `Polyfold.tangentSpace_eq_range_graph` — Polyfold/Chapter4/Submanifolds.lean, line 579
-- `Polyfold.MPolyfold.remark_4_2_9` — Polyfold/Chapter4/Submanifolds.lean, line 1560
+- `Polyfold.tangentSpace_eq_range_graph` — Polyfold/Chapter4/Submanifolds.lean, line 581
+- `Polyfold.MPolyfold.remark_4_2_9` — Polyfold/Chapter4/Submanifolds.lean, line 1562
 - `Polyfold.lemma_3_6_9_relOpen` — Polyfold/Chapter3/GlobalIFTFull.lean, line 118
 - `Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le` — Polyfold/Chapter3/GlobalIFTNearbyGraph.lean, line 518
 
@@ -6065,9 +6515,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsGeneralPositionRetractAt`: an sc-subspace $B \subseteq T_zO \cap E_z$ with $(T_zO)_m = (T_zQ)_m \oplus B_m$ on every level. `IsGeneralPositionAt A a`: this for $Q = \varphi(W \cap A)$ in some chart, data, presentation and lift.
 
-- `Polyfold.IsGeneralPositionRetractAt` — Polyfold/Chapter4/Submanifolds.lean, line 344
-- `Polyfold.MPolyfold.SubmanifoldData.IsGeneralPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1329
-- `Polyfold.MPolyfold.IsGeneralPositionAt` — Polyfold/Chapter4/Submanifolds.lean, line 1341
+- `Polyfold.IsGeneralPositionRetractAt` — Polyfold/Chapter4/Submanifolds.lean, line 346
+- `Polyfold.MPolyfold.SubmanifoldData.IsGeneralPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1331
+- `Polyfold.MPolyfold.IsGeneralPositionAt` — Polyfold/Chapter4/Submanifolds.lean, line 1343
 
 *What differs.*
 - The sc-structure of $T_zO$ is the one induced from $E$ at the smooth point (Findings, item 71). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)
@@ -6080,10 +6530,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** General position of a sub-retract is carried by germs of sc-diffeomorphisms at smooth points; general position at $a$ holds for every data, chart, presentation and lift.
 
-- `Polyfold.IsGeneralPositionRetractAt.transport` — Polyfold/Chapter4/Submanifolds.lean, line 366
-- `Polyfold.MPolyfold.isGeneralPositionRetractAt_chart_change` — Polyfold/Chapter4/Submanifolds.lean, line 1199
-- `Polyfold.MPolyfold.IsGeneralPositionAt.isGeneralPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1350
-- `Polyfold.MPolyfold.isGeneralPositionAt_iff_forall` — Polyfold/Chapter4/Submanifolds.lean, line 1369
+- `Polyfold.IsGeneralPositionRetractAt.transport` — Polyfold/Chapter4/Submanifolds.lean, line 368
+- `Polyfold.MPolyfold.isGeneralPositionRetractAt_chart_change` — Polyfold/Chapter4/Submanifolds.lean, line 1201
+- `Polyfold.MPolyfold.IsGeneralPositionAt.isGeneralPositionChart` — Polyfold/Chapter4/Submanifolds.lean, line 1352
+- `Polyfold.MPolyfold.isGeneralPositionAt_iff_forall` — Polyfold/Chapter4/Submanifolds.lean, line 1371
 
 *What differs.*
 - Through Proposition 2.4.10 (preprint 2.30) (Findings, item 66).
@@ -6152,18 +6602,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V4.50. Theorem 4.2.11 (preprint 4.22): local structure in general position
 
-*restated* · (4) proved; the text has no proof · (1) about the chart model
+*restated* · (4) proved; the text has no proof · (1) proved for faces of U · (4) for germs at x
 
 **HWZ (§4.2, Theorem 4.2.11 (preprint 4.22), p. 190 (preprint p. 162) (proof pp. 190–193 (preprint pp. 162–164))).** Let $A$ be a smooth submanifold of the tame $X$, in general position at $x$. There is an open $U \ni x$ with (1) precisely $d = d_X(x)$ local faces $F_1, \dots, F_d$ in $U$; (2) $d_X(a) = d_A(a)$ on $A \cap U$; (3) general position on $A \cap U$; (4) for $\sigma \subseteq \{1, \dots, d\}$, $F_\sigma$ is a tame M-polyfold and $A \cap F_\sigma$ a tame smooth submanifold of $F_\sigma$ in general position in $F_\sigma$.
 
-**Proved in Lean.** A tame chart $\psi$ with $\psi(x) = 0$ ($n$ half-line coordinates) and an open $U \ni x$ with: (1) $d_X(x) = n$ and $\psi(x)$ in exactly $d_X(x)$ faces of $O$; (2) $d_A = d_X$ on $A \cap U$; (3) general position on $U \cap A$; (4) for every $\sigma$, faces $F_i \ni 0$, open $G \ni 0$, $F_\sigma = \psi^{-1}(G \cap \bigcap F_i) \subseteq U$ a tame sub-M-polyfold with $d_{F_\sigma} + \#\sigma = d_X$, $A \cap F_\sigma$ a tame submanifold of $F_\sigma$ in general position.
+**Proved in Lean.** A tame chart $\psi$ with $\psi(x) = 0$ ($n$ half-line coordinates) and an open $U \ni x$ with: (1) $d_X(x) = n$ and $\psi(x)$ in exactly $d_X(x)$ faces of $O$; (2) $d_A = d_X$ on $A \cap U$; (3) general position on $U \cap A$; (4) for every $\sigma$, faces $F_i \ni 0$, open $G \ni 0$, $F_\sigma = \psi^{-1}(G \cap \bigcap F_i) \subseteq U$ a tame sub-M-polyfold with $d_{F_\sigma} + \#\sigma = d_X$, $A \cap F_\sigma$ a tame submanifold of $F_\sigma$ in general position. With the text's local faces (`theorem_4_2_11_faces`): for the tame centred chart $\psi$ and a face-structured open $U \ni x$, the faces of $U$ through $x$ (closures in $U$ of the components of $U \cap \{d_X = 1\}$) are exactly $d_X(x) = n$ distinct sets $\theta_1, \dots, \theta_n$, near $x$ equal to the chart faces $\psi^{-1}\{\lambda_i = 0\}$ (`exists_faces_chart`); (2) and (3) hold on $U$; and for every $\sigma$ the intersection $\bigcap_{i \in \sigma}\theta_i$ agrees near $x$ with $\psi^{-1}(G \cap \bigcap F_i)$, which carries the properties of (4). `theorem_4_2_11_one`: an open $U \ni x$ with exactly $d_X(x)$ faces of $U$ through $x$, $U$ face-structured, and (2), (3) on $U$.
 
 - `Polyfold.MPolyfold.theorem_4_2_11_preprint` — Polyfold/Chapter4/LocalStructure.lean, line 1541
+- `Polyfold.MPolyfold.theorem_4_2_11_faces` — Polyfold/Chapter4/GapP1_LocalFaces.lean, line 225
+- `Polyfold.MPolyfold.exists_faces_chart` — Polyfold/Chapter4/GapP1_LocalFaces.lean, line 50
+- `Polyfold.MPolyfold.theorem_4_2_11_one` — Polyfold/Chapter4/GapP1_Theorem4211.lean, line 54
 
 *What differs.*
-- (1) does not identify the local faces of the chart with global faces (G.35); $F_\sigma$ is a germ inside $U$ (Findings, items 80, 86, 89). The dimension count $\dim(A \cap F_\sigma) = \dim A - \#\sigma$, used later, is V4.57.
-- (1) and (4) differ in content, not only in form. The formal statement counts the faces through $0$ of the model retract of a tame chart $\psi$ centred at $x$ and takes $F_\sigma = \psi^{-1}(G \cap \bigcap_{i \in \sigma} F_i)$ with $G$ depending on $\sigma$; the text's local faces are faces of the neighbourhood $U$ itself (the closures in $U$ of the components of $U \cap \{d_X = 1\}$, all through $x$). (2) and (3) are the text's (round-trip item V4.50).
-- Identifying the two kinds of faces needs a local face theorem for small neighbourhoods, which identifies the faces of $U$ with the $\psi$-preimages of the faces of the model retract; it is believed true for tame $X$ and not formalized (Findings, Chapter 4, items 90, 130; G.35). Recorded in the third addendum of this page.
+- (1) is the text's: the faces of $U$ through $x$ are $d_X(x)$ distinct sets, near $x$ equal to the chart faces $\psi^{-1}\{\lambda_i = 0\}$ (`theorem_4_2_11_faces`, `exists_faces_chart`; gap G.35, closed). (2) and (3) are the text's (round-trip item V4.50). The dimension count $\dim(A \cap F_\sigma) = \dim A - \#\sigma$, used later, is V4.57.
+- (4) is proved for the germ at $x$ of the text's $F_\sigma = \bigcap_{i \in \sigma}\theta_i$: near $x$ it coincides with $\psi^{-1}(G \cap \bigcap F_i)$, a tame sub-M-polyfold with the stated properties. The text's $F_\sigma$ on all of $U$ is not shown to be a sub-M-polyfold (the chart faces need not match the faces of $U$ away from $x$); the later chapters use the germ (Findings, Chapter 4, items 80, 86, 89, 90, 130).
 
 ### V4.51. Theorem 4.2.11 (4) (preprint 4.22) in the chart: the sc⁺-retraction onto $A \cap F_\sigma$
 
@@ -6198,20 +6650,23 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V4.53. The family $\mathbb R^m \times X$ and stratified regular points
 
-*restated* · in a chart; independence: G.36
+*restated* · in a chart; chart-independent
 
 **HWZ (§4.3, preprint p. 164, and the proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)).** $Z = \mathbb R^m \oplus X$ with the product charts is tame; $P(\lambda, x) = \lambda$; the proof uses regular values of the maps $p_\sigma : A \cap F_\sigma^\circ \to \mathbb R^m$.
 
 **Proved in Lean.** $\mathbb R^m \times X$ is tame for tame $X$; `fibreSet A λ` $= \{x : (\lambda, x) \in A\}$. `IsStratRegularPoint`: in some product chart, the projection maps $T_zA \cap E_z$ (the stratum's tangent space) onto $\mathbb R^m$; `IsStratRegularValue`: every point of $A$ over $\lambda$ is one.
 
 - `Polyfold.prod_rn_isTame` — Polyfold/Chapter3/ParamPerturbation.lean, line 267
-- `Polyfold.fibreSet` — Polyfold/Chapter4/Families.lean, line 528
-- `Polyfold.rnPres` — Polyfold/Chapter4/Families.lean, line 532
-- `Polyfold.IsStratRegularPoint` — Polyfold/Chapter4/Families.lean, line 552
-- `Polyfold.IsStratRegularValue` — Polyfold/Chapter4/Families.lean, line 565
+- `Polyfold.fibreSet` — Polyfold/Chapter4/Families.lean, line 529
+- `Polyfold.rnPres` — Polyfold/Chapter4/Families.lean, line 533
+- `Polyfold.IsStratRegularPoint` — Polyfold/Chapter4/Families.lean, line 553
+- `Polyfold.IsStratRegularValue` — Polyfold/Chapter4/Families.lean, line 566
+- `Polyfold.isStratRegularPoint_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 330
+- `Polyfold.isStratRegularValue_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 356
 
 *What differs.*
 - "Regular value of every $p_\sigma$" at a point is regularity on the stratum through it (Findings, item 102).
+- The chart condition does not depend on the product chart, the data, the presentation or the lift (`isStratRegularPoint_iff_forall`; V4.93, gap G.36 closed).
 
 ### V4.54. Theorem 4.3.1 (preprint 4.23): families and Sard's theorem
 
@@ -6221,7 +6676,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** With (2) read as general position at every point: there is $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ with Lebesgue-null complement, of stratified regular values, such that each $A_\lambda$, $\lambda \in \Sigma$, is compact, a smooth finite-dimensional submanifold of $X$ in general position, with a corner structure, tame.
 
-- `Polyfold.theorem_4_3_1_preprint` — Polyfold/Chapter4/Families.lean, line 940
+- `Polyfold.theorem_4_3_1_preprint` — Polyfold/Chapter4/Families.lean, line 941
 
 *What differs.*
 - Stratified regular values are regular values. With ordinary regular values the conclusion fails at the value: $A = \{(x, x) : 0 \le x < 1\} \cup (-1, 1) \times \{5\}$ in $\mathbb R \times [0, \infty)$, $A_0 = \{0, 5\}$ meets $\partial X$ (Findings, items 101, 102).
@@ -6331,9 +6786,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $\tau(e) = (\Gamma(\rho(p(t(c, e)))))_2$ is an sc⁺-retraction of $E$ onto $\{e : (c, e) \in t(U) \cap W, p(c, e) \in O'\}$; its tangent space at the point over $\Gamma(v_0)_2$ contains the second components of the vertical tangent vectors of $A$. The slice $e \mapsto (c, e)$ is sc-smooth.
 
-- `Polyfold.isScSmooth_slice` — Polyfold/Chapter4/Families.lean, line 102
-- `Polyfold.scDeriv_slice` — Polyfold/Chapter4/Families.lean, line 113
-- `Polyfold.exists_slice_retraction` — Polyfold/Chapter4/Families.lean, line 168
+- `Polyfold.isScSmooth_slice` — Polyfold/Chapter4/Families.lean, line 103
+- `Polyfold.scDeriv_slice` — Polyfold/Chapter4/Families.lean, line 114
+- `Polyfold.exists_slice_retraction` — Polyfold/Chapter4/Families.lean, line 169
 
 *What differs.*
 - Findings, item 105 (a).
@@ -6346,7 +6801,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** If the chart model of $A$ is in general position at $z = (c, y)$, $T_zA \cap E_z$ projects onto $\mathbb R^m$, and $\tau$ is an sc⁺-retraction whose tangent space at $y$ contains the vertical tangent vectors of $A$, then $\tau$'s retract is in general position at $y$.
 
-- `Polyfold.isGeneralPositionRetractAt_slice` — Polyfold/Chapter4/Families.lean, line 424
+- `Polyfold.isGeneralPositionRetractAt_slice` — Polyfold/Chapter4/Families.lean, line 425
 
 *What differs.*
 - $(0, w) = a + b$, corrected by $a_2 \in T_zA \cap E_z$ with the same first component (Findings, item 106).
@@ -6359,8 +6814,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Every $z_0 \in A$ has an open $U$ and a null $\mathrm{CV} \subseteq \mathbb R^m$ such that at every $z \in A \cap U$ with $z_1 \notin \mathrm{CV}$: $z$ is stratified regular, $A_{z_1}$ is near $z_2$ the image of an sc⁺-retraction on an open set, in general and in good position at $z_2$.
 
-- `Polyfold.FibreLocal` — Polyfold/Chapter4/Families.lean, line 572
-- `Polyfold.exists_local_family` — Polyfold/Chapter4/Families.lean, line 593
+- `Polyfold.FibreLocal` — Polyfold/Chapter4/Families.lean, line 573
+- `Polyfold.exists_local_family` — Polyfold/Chapter4/Families.lean, line 594
 
 *What differs.*
 - The text cites "By Theorem 4.23" for Theorem 4.2.11 (preprint 4.22) (Findings, item 107).
@@ -6373,7 +6828,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $A$ with compact closure, in general position everywhere, and any $S \subseteq \mathbb R^m$: there is $\Sigma \subseteq S$ with $S \setminus \Sigma$ null, consisting of stratified regular values, with the local conclusions at every point of $A_\lambda$.
 
-- `Polyfold.theorem_4_3_1_of_subset` — Polyfold/Chapter4/Families.lean, line 888
+- `Polyfold.theorem_4_3_1_of_subset` — Polyfold/Chapter4/Families.lean, line 889
 
 *What differs.*
 - The set need not be compact: $A = (-2\varepsilon, 2\varepsilon) \times \{2\} \cup \{(\varepsilon(1 - x), x) : 0 < x < 1\}$; $A$ is second countable (compact closure in the metrizable $\mathbb R^m \times X$), and a countable subcover suffices (Findings, item 103).
@@ -6401,7 +6856,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `theorem_4_3_1`: for $X$ tame, $A$ with tame induced structure and compact closure, (1) compact fibres over $|\lambda| \le \varepsilon$, (2) general position everywhere: a measurable $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ with null complement there, of stratified regular values, with $A_\lambda$ compact, a submanifold in general position, with a corner structure, tame.
 
 - `Polyfold.theorem_4_3_1` — Polyfold/Chapter4/Book2021.lean, line 155
-- `Polyfold.theorem_4_3_1_of_subset` — Polyfold/Chapter4/Families.lean, line 888
+- `Polyfold.theorem_4_3_1_of_subset` — Polyfold/Chapter4/Families.lean, line 889
 
 *What differs.*
 - $\Sigma$ is that of V4.64 with a measurable null hull of its exceptional set removed (`MeasureTheory.toMeasurable`). Not used, as in V4.54: the tameness of $A$ and $\varepsilon > 0$; (1) gives the compactness of $A_\lambda$. Hypothesis (2) is printed as before and read as general position (Findings, Chapter 4, items 101, 151).
@@ -6414,11 +6869,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsRetractVectorField E C O A`: $x \mapsto (x, A(x))$ is sc-smooth from $(O^1, C^1, E^1)$ to $(TO, TC, TE)$. Then $(x, A(x)) \in TO$ on $O_1$, $A \circ r^1$ is sc-smooth, $Dr(x)A(x) = A(x)$ on $O_1$; $0$ is a vector field on every retract.
 
-- `Polyfold.IsRetractVectorField` — Polyfold/Chapter4/VectorFields.lean, line 111
-- `Polyfold.isRetractVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 116
-- `Polyfold.IsRetractVectorField.mem_retractTangent` — Polyfold/Chapter4/VectorFields.lean, line 125
-- `Polyfold.IsRetractVectorField.isScSmooth_comp` — Polyfold/Chapter4/VectorFields.lean, line 130
-- `Polyfold.IsRetractVectorField.scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 137
+- `Polyfold.IsRetractVectorField` — Polyfold/Chapter4/VectorFields.lean, line 113
+- `Polyfold.isRetractVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 118
+- `Polyfold.IsRetractVectorField.mem_retractTangent` — Polyfold/Chapter4/VectorFields.lean, line 127
+- `Polyfold.IsRetractVectorField.isScSmooth_comp` — Polyfold/Chapter4/VectorFields.lean, line 132
+- `Polyfold.IsRetractVectorField.scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 139
 
 *What differs.*
 - The definition read in the model of a chart, where Appendix 4.5 works; the principal part $A : E_1 \to E_0$ is the second component of the section (Findings, Chapter 4, item 152).
@@ -6431,11 +6886,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `MPolyfold.IsScVectorField`: $A : X^1 \to TX$ sc-smooth for the M-polyfold structures of $X^1$ and $TX$, with $p(A(x)) = x$. The zero section (reading $(\psi(x), 0)$ in every chart) is continuous and a vector field.
 
-- `Polyfold.MPolyfold.IsScVectorField` — Polyfold/Chapter4/VectorFields.lean, line 541
-- `Polyfold.MPolyfold.zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 561
-- `Polyfold.MPolyfold.tangentChartMap_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 577
-- `Polyfold.MPolyfold.continuous_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 584
-- `Polyfold.MPolyfold.isScVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 599
+- `Polyfold.MPolyfold.IsScVectorField` — Polyfold/Chapter4/VectorFields.lean, line 543
+- `Polyfold.MPolyfold.zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 563
+- `Polyfold.MPolyfold.tangentChartMap_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 579
+- `Polyfold.MPolyfold.continuous_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 586
+- `Polyfold.MPolyfold.isScVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 601
 
 *What differs.*
 - Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are V4.78 and V4.76, with Lemma 4.5.1 in V4.74, V4.75 and V4.77.
@@ -6459,8 +6914,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.BundledMPolyfold.tangentLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 310
 - `Polyfold.BundledMPolyfold.shiftLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 316
 - `Polyfold.proposition_2_3_17_all` — Polyfold/Chapter2/TangentLiftAll.lean, line 397
-- `Polyfold.retractTangent_shift` — Polyfold/Chapter4/VectorFields.lean, line 146
-- `Polyfold.IsRetractVectorField.shift` — Polyfold/Chapter4/VectorFields.lean, line 183
+- `Polyfold.retractTangent_shift` — Polyfold/Chapter4/VectorFields.lean, line 148
+- `Polyfold.IsRetractVectorField.shift` — Polyfold/Chapter4/VectorFields.lean, line 185
 
 *What differs.*
 - Proved in full in V4.79; the narrower form first recorded here is kept (`IsRetractVectorField.shift`, local model, $i = 1$).
@@ -6474,11 +6929,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `scSecondDeriv U f z a b` ($z \in U_2$, $a, b \in E_1$): the second component of $D(Tf)(z, a)(b, 0)$. `scSecondDeriv_symm`: for $f$ sc² on $U$ relatively open in a partial quadrant, $D^2f(z)(a, b) = D^2f(z)(b, a)$.
 
-- `Polyfold.scSecondDeriv` — Polyfold/Chapter4/VectorFields.lean, line 215
-- `Polyfold.scSecondDeriv_symm` — Polyfold/Chapter4/VectorFields.lean, line 292
-- `Polyfold.fderivWithin_fderivWithin_eq` — Polyfold/Chapter4/VectorFields.lean, line 249
-- `Polyfold.IsRelOpenInQuadrant.mem_closure_interior_lvlSet` — Polyfold/Chapter4/VectorFields.lean, line 276
-- `Polyfold.scDeriv_tangentMap_inr` — Polyfold/Chapter4/VectorFields.lean, line 318
+- `Polyfold.scSecondDeriv` — Polyfold/Chapter4/VectorFields.lean, line 217
+- `Polyfold.scSecondDeriv_symm` — Polyfold/Chapter4/VectorFields.lean, line 294
+- `Polyfold.fderivWithin_fderivWithin_eq` — Polyfold/Chapter4/VectorFields.lean, line 251
+- `Polyfold.IsRelOpenInQuadrant.mem_closure_interior_lvlSet` — Polyfold/Chapter4/VectorFields.lean, line 278
+- `Polyfold.scDeriv_tangentMap_inr` — Polyfold/Chapter4/VectorFields.lean, line 320
 
 *What differs.*
 - $r$ is twice differentiable only on level $2$, while $A(x)$, $B(x)$ lie in $E_1$; $D^2r(x)(a, b)$ is defined through the sc²-structure. Symmetry for $a, b \in E_2$ is Mathlib's `ContDiffWithinAt.isSymmSndFDerivWithinAt` (points of a partial quadrant lie in the closure of its interior), and extends to $E_1$ by density and continuity of $D(Tf)$ (Findings, Chapter 4, item 154).
@@ -6491,10 +6946,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `retractLieBracket R A B x` $= D\tilde A(x)B_1(x) - D\tilde B(x)A_1(x)$, $\tilde A = A \circ r^1$; antisymmetric. `IsRetractVectorField.diff_identity`: $D^2r(x)(A(x), b) + Dr(x)D\tilde A(x)b = D\tilde A(x)b$ for $b \in T_x(O^1)$. `retractLieBracket_mem_tangent`: $Dr(x)[A, B](x) = [A, B](x)$ on $O_2$.
 
-- `Polyfold.retractLieBracket` — Polyfold/Chapter4/VectorFields.lean, line 365
-- `Polyfold.retractLieBracket_antisymm` — Polyfold/Chapter4/VectorFields.lean, line 372
-- `Polyfold.IsRetractVectorField.diff_identity` — Polyfold/Chapter4/VectorFields.lean, line 392
-- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 445
+- `Polyfold.retractLieBracket` — Polyfold/Chapter4/VectorFields.lean, line 367
+- `Polyfold.retractLieBracket_antisymm` — Polyfold/Chapter4/VectorFields.lean, line 374
+- `Polyfold.IsRetractVectorField.diff_identity` — Polyfold/Chapter4/VectorFields.lean, line 394
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 447
 
 *What differs.*
 - The principal part is defined only on $O^1$, so $DA(x)$ is read as the derivative of $\tilde A = A \circ r^1$; the computation is the text's, with the symmetry of V4.70 (Findings, Chapter 4, item 154).
@@ -6507,11 +6962,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \to TX$ (`lieBracket`) is given in every chart $\psi$ by $T\psi([A, B](x)) = (\psi(x), [A_\psi, B_\psi](\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \in TO$ for $x \in O_2$, and $x \mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.
 
-- `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket2021.lean, line 50
-- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 495
-- `Polyfold.isScSmooth_scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 472
-- `Polyfold.levelMap_shift_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 462
-- `Polyfold.levelMap_comp_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 377
+- `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket2021.lean, line 52
+- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 497
+- `Polyfold.isScSmooth_scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 474
+- `Polyfold.levelMap_shift_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 464
+- `Polyfold.levelMap_comp_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 379
 
 *What differs.*
 - "An sc-smooth section of $TX|X^2 \to X^2$" is read as an sc-smooth map $X^2 \to TX$ covering the inclusion, as in V4.76, with which this row is merged; the pull-back bundle is not built (gap G.92). Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, is V4.74, V4.75 and V4.77 (gap G.38, closed). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, items 155, 166).
@@ -6580,11 +7035,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V4.76. Proposition 4.4.5 (preprint 4.26) on an M-polyfold: the bracket $[A, B] : X^2 \to TX$
 
-*restated* · section of $TX|X^2$ read as a map to $TX$ · gap G.38 closed · pull-back bundle: G.92
+*restated* · section of $TX|X^2$: proved · gap G.38 closed · pull-back bundle: G.92 closed
 
 **HWZ (§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)).** (2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula in local coordinates defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \to X^2$, the pull-back of $TX \to X^1$ by the inclusion $X^2 \to X^1$ (the earlier texts quote it from another paper, as a vector field on $X^1$).
 
-**Proved in Lean.** `MPolyfold.lieBracket hA hB : X^2 \to TX`, the class of $[A_\varphi, B_\varphi](\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\psi$ around $x$, $T\psi([A, B](x)) = (\psi(x), [A_\psi, B_\psi](\psi(x)))$. `proposition_4_4_5`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$.
+**Proved in Lean.** `MPolyfold.lieBracket hA hB : X^2 \to TX`, the class of $[A_\varphi, B_\varphi](\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\psi$ around $x$, $T\psi([A, B](x)) = (\psi(x), [A_\psi, B_\psi](\psi(x)))$. `proposition_4_4_5`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$. In the text's form (2026-11-12): the pull-back bundle $TX|X^2 = \{(x, \alpha) \in X^2 \times TX \mid p(\alpha) = x\}$ is a sub-M-polyfold of $X^2 \times TX$ (`isSubMPolyfold_tangentPullback`; in product charts its retraction is $(z, (y, v)) \mapsto (z, Tr(\iota z, v))$), with sc-smooth projection to $X^2$ and fibres $T_xX$ (`tangentPullbackPolyfold`, `isScSmoothMap_tangentPullbackProj`, `tangentPullbackFiberEquiv`), and `proposition_4_4_5_section`: $x \mapsto (x, [A, B](x))$ is an sc-smooth section of it.
 
 - `Polyfold.MPolyfold.levelLift_levelChart_spec` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 547
 - `Polyfold.MPolyfold.lieBracketPre` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 561
@@ -6594,27 +7049,38 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.tangentChartMap_lieBracket_eq` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 637
 - `Polyfold.MPolyfold.continuous_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 648
 - `Polyfold.proposition_4_4_5` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 678
-- `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket2021.lean, line 50
+- `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket2021.lean, line 52
+- `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 343
+- `Polyfold.MPolyfold.tangentPullbackPolyfold` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 365
+- `Polyfold.MPolyfold.isScSmoothMap_tangentPullbackProj` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 378
+- `Polyfold.MPolyfold.tangentPullbackFiberEquiv` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 390
+- `Polyfold.MPolyfold.lieBracketSection` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 465
+- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 471
 
 *What differs.*
-- "An sc-smooth section of $TX|X^2 \to X^2$" is read as an sc-smooth map $X^2 \to TX$ covering the inclusion $X^2 \to X^1$; the pull-back bundle itself is not built (gap G.92). In the chart $(\psi^1)^1$ of $X^2$ and the tangent chart $T\psi$ the bracket reads $z \mapsto (z, [A_\psi, B_\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161). (2026-11-09) The book form, with the formula in every chart, is V4.72 (`proposition_4_4_5_book`; Findings, Chapter 4, item 166).
+- "An sc-smooth section of $TX|X^2 \to X^2$" is proved in two forms: as an sc-smooth map $X^2 \to TX$ covering the inclusion $X^2 \to X^1$ (`proposition_4_4_5`), and (2026-11-12) as an sc-smooth section of the pull-back bundle, which the text gives no structure and which is built as a sub-M-polyfold of $X^2 \times TX$ (`proposition_4_4_5_section`; gap G.92, closed). In the chart $(\psi^1)^1$ of $X^2$ and the tangent chart $T\psi$ the bracket reads $z \mapsto (z, [A_\psi, B_\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161). (2026-11-09) The book form, with the formula in every chart, is V4.72 (`proposition_4_4_5_book`; Findings, Chapter 4, item 166).
 - The earlier statement, a vector field on $X^1$ (a section of $T(X^1) \to X^2$), would through $\Phi$ (V4.78) put $[A, B](x)$ in $E_1$ for $x \in X_2$, which the example of V4.73 excludes; as we read it, it does not hold, and the 2021 statement does (Findings, Chapter 4, item 161).
 
 ### V4.77. Lemma 4.5.1 on M-polyfolds: sc-smooth maps relate brackets
 
-*restated* · any sc-smooth $f : X \to Y$ · relations on $X^1$ · open subsets: G.92
+*restated* · any sc-smooth $f : X \to Y$ · relations on $X^1$ · open subsets: `lemma_4_5_1_open`
 
 **HWZ (Appendix 4.5, Lemma 4.5.1, p. 201).** (New in the 2021 edition; the proof is left to the reader.) For a local sc-diffeomorphism $\varphi : X \to X$ and sc-smooth vector fields with $T\varphi(A(x)) = A(\varphi(x))$ and $T\varphi(B(x)) = B(\varphi(x))$ at points of $X_2$, $T\varphi([A, B](x)) = [A, B](\varphi(x))$ for $x \in X_2$.
 
-**Proved in Lean.** `lemma_4_5_1`: for an sc-smooth $f : X \to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \in X^2$ (`levelTwoMap`).
+**Proved in Lean.** `lemma_4_5_1`: for an sc-smooth $f : X \to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \in X^2$ (`levelTwoMap`). (2026-11-12) Between open subsets: for open $U, U' \subseteq X$ (Part I's open sub-M-polyfolds, `restrictOpen`), the vector fields restricted to them (`restrictVectorField`, `IsScVectorField.restrictOpen`), and an sc-smooth $\varphi : U \to U'$, in particular a local sc-diffeomorphism between open subsets, relating the restrictions on $U^1$: $T\varphi \circ [A|U, B|U] = [A|U', B|U'] \circ \varphi_2$ on $U^2$ (`lemma_4_5_1_open`; read in $TX$, `lemma_4_5_1_open_ambient`); the bracket of the restrictions is the restriction of the bracket (`lieBracket_restrictOpen`). On sections of $TX|X^2 \to X^2$: $(f_2, Tf) \circ [A, B] = [A', B'] \circ f_2$ with the sc-smooth bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`).
 
 - `Polyfold.MPolyfold.liftLevelOneMap` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 713
 - `Polyfold.MPolyfold.levelTwoMap` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 717
 - `Polyfold.MPolyfold.levelMap_coord_levelLift` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 723
 - `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
+- `Polyfold.MPolyfold.restrictVectorField` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 57
+- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 115
+- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 135
+- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 150
+- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 521
 
 *What differs.*
-- More general in the map: any sc-smooth $f$ between two M-polyfolds, with a pair of vector fields on each side. The relations are assumed on all of $X^1$, not only at the points of $X_2$, since the computation of §4.5.2 differentiates them. A local sc-diffeomorphism between open subsets of $X$ is covered only through such an $f$; open subsets of an M-polyfold as M-polyfolds are not built (gap G.92) (Findings, Chapter 4, item 162).
+- More general in the map: any sc-smooth $f$ between two M-polyfolds, with a pair of vector fields on each side. The relations are assumed on all of $X^1$, not only at the points of $X_2$, since the computation of §4.5.2 differentiates them. A local sc-diffeomorphism between open subsets $U, U'$ of $X$ is covered by `lemma_4_5_1_open`, with $U, U'$ Part I's open sub-M-polyfolds and the vector fields restricted to them; the bracket of the restrictions is the restriction of the bracket (`lieBracket_restrictOpen`; gap G.92, closed) (Findings, Chapter 4, items 162, 163).
 
 ### V4.78. Lemma 4.4.4 on an M-polyfold, $i = 1$: $A^{(1)} = \Phi^{-1} \circ A_1$
 
@@ -6795,7 +7261,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.extD_add` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 418
 - `Polyfold.MPolyfold.extD_smul` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 429
 - `Polyfold.MPolyfold.extDₗ` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 444
-- `Polyfold.BundledMPolyfold.formsD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 193
+- `Polyfold.BundledMPolyfold.formsD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 195
 
 *What differs.*
 - $d$ is the local formula in charts (V4.84), not the vector-field formula, which is proved on normed spaces only (V4.83). Domain and target are those of the 2021 text, the direction item 120 proposed for the preprint. On a family that is not an sc-form, `extD` is $0$ by convention (Findings, Chapter 4, item 169).
@@ -6813,29 +7279,39 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ambientD_ambientD` — Polyfold/Chapter4/ScFormsSquare2021.lean, line 168
 - `Polyfold.retractD_shift_retractD` — Polyfold/Chapter4/ScFormsSquare2021.lean, line 198
 - `Polyfold.MPolyfold.extD_extD` — Polyfold/Chapter4/ScFormsSquare2021.lean, line 264
-- `Polyfold.BundledMPolyfold.formsInftyD_comp_formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 227
-- `Polyfold.BundledMPolyfold.formsInftyGradedD_comp_self` — Polyfold/Chapter4/ScFormsLower2021.lean, line 248
+- `Polyfold.BundledMPolyfold.formsInftyD_comp_formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 229
+- `Polyfold.BundledMPolyfold.formsInftyGradedD_comp_self` — Polyfold/Chapter4/ScFormsLower2021.lean, line 250
 
 *What differs.*
 - The text states $d^2 = 0$ without proof (Findings, Chapter 4, item 121); it is proved here in the sc setting, level by level, by the symmetry of the second derivative (item 170).
 
 ### V4.87. $d$ commutes with $X^{i+1} \to X^i$; $d$ on $\Omega^*_\infty(X)$
 
-*as in the book* · the limit: `Module.DirectLimit.lift` · wedge product: not formalized
+*as in the book* · the limit: `Module.DirectLimit.lift` · wedge: classical convention · text: $\wedge$ not defined
 
 **HWZ (§4.4, pp. 197–198 (preprint p. 168)).** $d$ commutes with the inclusion $X^{i+1} \to X^i$ of the directed system (the square from $\Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$ to $\Omega^k(X^{i+1}) \to \Omega^{k+1}(X^{i+2})$); passing to the limit gives $d : \Omega^*_\infty(X) \to \Omega^*_\infty(X)$.
 
-**Proved in Lean.** `extD_formLower`: $d(\iota^*\omega) = \iota^*(d\omega)$ for $\iota : X^1 \to X$; `formsD_formsStep` and `formsD_formsMap` give the squares with the maps of (4.4). `formsInftyD A k` $: \Omega^k_\infty(X) \to \Omega^{k+1}_\infty(X)$ is the induced map (`formsInftyD_of`: $d[\omega] = [d\omega]$), and `formsInftyGradedD` the same map on $\oplus_k\Omega^k_\infty(X)$, of degree $+1$.
+**Proved in Lean.** `extD_formLower`: $d(\iota^*\omega) = \iota^*(d\omega)$ for $\iota : X^1 \to X$; `formsD_formsStep` and `formsD_formsMap` give the squares with the maps of (4.4). `formsInftyD A k` $: \Omega^k_\infty(X) \to \Omega^{k+1}_\infty(X)$ is the induced map (`formsInftyD_of`: $d[\omega] = [d\omega]$), and `formsInftyGradedD` the same map on $\oplus_k\Omega^k_\infty(X)$, of degree $+1$. (2026-11-12) The wedge product: `formWedge` is the pointwise $\omega \wedge \tau$, with $\Omega^k(X) \wedge \Omega^l(X) \subseteq \Omega^{k+l}(X)$ (`formWedge_mem_scForms`) and $d(\omega \wedge \tau) = d\omega \wedge \iota^*\tau + (-1)^k\iota^*\omega \wedge d\tau$ (`extD_formWedge`); `formsInftyWedge` is the induced bilinear map on $\Omega^*_\infty(X)$, associative, graded commutative and unital (`formsInftyWedge_assoc`, `formsInftyWedge_comm`, `formsInftyOne`), with $d(a \wedge b) = da \wedge b + (-1)^k a \wedge db$ (`formsInftyD_formsInftyWedge`). $\bigoplus_k\Omega^k_\infty(X)$ is a graded $\mathbb R$-algebra (`formsInftyGAlgebra`, Mathlib's `DirectSum.GAlgebra`), graded commutative (`formsInftyGraded_of_mul_of_comm`), on which $d$ is a derivation of degree $+1$ (`formsInftyGradedD_of_mul_of`) with $d^2 = 0$ (`formsInftyGradedD_comp_self`).
 
-- `Polyfold.MPolyfold.extD_formLower` — Polyfold/Chapter4/ScFormsLower2021.lean, line 150
-- `Polyfold.BundledMPolyfold.formsD_formsStep` — Polyfold/Chapter4/ScFormsLower2021.lean, line 199
-- `Polyfold.BundledMPolyfold.formsD_formsMap` — Polyfold/Chapter4/ScFormsLower2021.lean, line 204
-- `Polyfold.BundledMPolyfold.formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 216
-- `Polyfold.BundledMPolyfold.formsInftyD_of` — Polyfold/Chapter4/ScFormsLower2021.lean, line 222
-- `Polyfold.BundledMPolyfold.formsInftyGradedD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 238
+- `Polyfold.MPolyfold.extD_formLower` — Polyfold/Chapter4/ScFormsLower2021.lean, line 152
+- `Polyfold.BundledMPolyfold.formsD_formsStep` — Polyfold/Chapter4/ScFormsLower2021.lean, line 201
+- `Polyfold.BundledMPolyfold.formsD_formsMap` — Polyfold/Chapter4/ScFormsLower2021.lean, line 206
+- `Polyfold.BundledMPolyfold.formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 218
+- `Polyfold.BundledMPolyfold.formsInftyD_of` — Polyfold/Chapter4/ScFormsLower2021.lean, line 224
+- `Polyfold.BundledMPolyfold.formsInftyGradedD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 240
+- `Polyfold.MPolyfold.formWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 687
+- `Polyfold.MPolyfold.formWedge_mem_scForms` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 727
+- `Polyfold.MPolyfold.extD_formWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 776
+- `Polyfold.BundledMPolyfold.formsInftyWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 965
+- `Polyfold.BundledMPolyfold.formsInftyD_formsInftyWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 1049
+- `Polyfold.BundledMPolyfold.formsInftyWedge_assoc` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 453
+- `Polyfold.BundledMPolyfold.formsInftyWedge_comm` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 485
+- `Polyfold.BundledMPolyfold.formsInftyGAlgebra` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 570
+- `Polyfold.BundledMPolyfold.formsInftyGraded_of_mul_of_comm` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 599
+- `Polyfold.BundledMPolyfold.formsInftyGradedD_of_mul_of` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 610
 
 *What differs.*
-- "Passing to the limit" is Mathlib's `Module.DirectLimit.lift`. The next sentence of the text, that $(\Omega^*_\infty(X), d)$ is a graded differential algebra, needs the wedge product, which is not formalized (gap G.80) (Findings, Chapter 4, item 170).
+- "Passing to the limit" is Mathlib's `Module.DirectLimit.lift`. The next sentence of the text calls $(\Omega^*_\infty(X), d)$ a graded differential algebra without defining $\wedge$; we take the classical $(k!\,l!)^{-1}$-normalised wedge, $(a \wedge b)(v) = (k!\,l!)^{-1}\sum_\sigma \operatorname{sign}\sigma\, a(v_{\sigma(1..k)})\,b(v_{\sigma(k+1..k+l)})$, and prove associativity, graded commutativity, the unit and the Leibniz rule, whose sign $(-1)^k$ holds as we read it; the algebra is Mathlib's `DirectSum.GAlgebra` structure on $\bigoplus_k\Omega^k_\infty(X)$ (gap G.80; Findings, Chapter 4, items 170, 177).
 
 ### V4.88. Definition 4.4.6 (preprint 4.27): the sc-de Rham cohomology $H^*_{sc}(X)$
 
@@ -6845,11 +7321,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `BundledMPolyfold.scDeRham A k` is $\ker d/\operatorname{im} d$ in degree $k$, a real vector space, with `formsInftyDRange` the image $d(\Omega^{k-1}_\infty(X))$ ($0$ for $k = 0$) and `formsInftyDRange_le_ker`: $\operatorname{im} d \subseteq \ker d$. `scDeRhamMk_eq_iff`: two closed forms have the same class iff they differ by an exact form.
 
-- `Polyfold.BundledMPolyfold.formsInftyDRange` — Polyfold/Chapter4/ScFormsLower2021.lean, line 259
-- `Polyfold.BundledMPolyfold.formsInftyDRange_le_ker` — Polyfold/Chapter4/ScFormsLower2021.lean, line 264
-- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 273
-- `Polyfold.BundledMPolyfold.scDeRhamMk` — Polyfold/Chapter4/ScFormsLower2021.lean, line 278
-- `Polyfold.BundledMPolyfold.scDeRhamMk_eq_iff` — Polyfold/Chapter4/ScFormsLower2021.lean, line 282
+- `Polyfold.BundledMPolyfold.formsInftyDRange` — Polyfold/Chapter4/ScFormsLower2021.lean, line 261
+- `Polyfold.BundledMPolyfold.formsInftyDRange_le_ker` — Polyfold/Chapter4/ScFormsLower2021.lean, line 266
+- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 275
+- `Polyfold.BundledMPolyfold.scDeRhamMk` — Polyfold/Chapter4/ScFormsLower2021.lean, line 280
+- `Polyfold.BundledMPolyfold.scDeRhamMk_eq_iff` — Polyfold/Chapter4/ScFormsLower2021.lean, line 284
 
 *What differs.*
 - The text writes $H^*_{sc}(X)$ for the graded space; it is read degree by degree. The relative version $H^*_{dR}(X, \partial X)$ is V4.90–V4.91 (gap G.39) (Findings, Chapter 4, items 170, 173).
@@ -6860,7 +7336,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **HWZ (§4.4, p. 198 (2017 p. 150; preprint p. 168)).** An sc-smooth $f : X \to Y$ induces $f^* : \Omega^*_\infty(Y) \to \Omega^*_\infty(X)$, on a representative $\omega \in \Omega^k(Y^i)$ by $\omega \circ (Tf \oplus \cdots \oplus Tf)$ with $f$ raised to the index $i$, and $f^*\circ d_Y = d_X\circ f^*$, the limit of the commutative squares $\Omega^k(Y^i) \to \Omega^k(X^i)$, $\Omega^{k+1}(Y^{i+1}) \to \Omega^{k+1}(X^{i+1})$ (left to the reader). The 2017 text and the preprint have only the first sentence.
 
-**Proved in Lean.** `formPullback hf ω` is $\omega(f(x))(Tf\,\alpha_1, \dots, Tf\,\alpha_k)$, with $Tf$ on the fibres the continuous linear map `tangentFiberMap` (`tangentMapCLM`). In charts it is $\omega_\psi \circ \oplus_kT(\psi\circ f\circ\varphi^{-1})$ (`chartForm_formPullback`), so it maps $\Omega^k(Y)$ to $\Omega^k(X)$ (`formPullback_mem_scForms`). `extD_formPullback`: $d(f^*\omega) = (f^1)^*d\omega$, chartwise from the naturality of the local $d$. `formPullback_comp`, `formPullback_id`, `formLower_formPullback` (it commutes with (4.4)). On the lifts, `formsPullback` is $(f^i)^* : \Omega^k(Y^i) \to \Omega^k(X^i)$ and `formsInftyPullback` the limit map $\Omega^k_\infty(Y) \to \Omega^k_\infty(X)$, with `formsInftyD_comp_formsInftyPullback` ($d\circ f^* = f^*\circ d$), `formsInftyPullback_comp`, `formsInftyPullback_id`, and `scDeRhamPullback` on $H^k_{sc}$.
+**Proved in Lean.** `formPullback hf ω` is $\omega(f(x))(Tf\,\alpha_1, \dots, Tf\,\alpha_k)$, with $Tf$ on the fibres the continuous linear map `tangentFiberMap` (`tangentMapCLM`). In charts it is $\omega_\psi \circ \oplus_kT(\psi\circ f\circ\varphi^{-1})$ (`chartForm_formPullback`), so it maps $\Omega^k(Y)$ to $\Omega^k(X)$ (`formPullback_mem_scForms`). `extD_formPullback`: $d(f^*\omega) = (f^1)^*d\omega$, chartwise from the naturality of the local $d$. `formPullback_comp`, `formPullback_id`, `formLower_formPullback` (it commutes with (4.4)). On the lifts, `formsPullback` is $(f^i)^* : \Omega^k(Y^i) \to \Omega^k(X^i)$ and `formsInftyPullback` the limit map $\Omega^k_\infty(Y) \to \Omega^k_\infty(X)$, with `formsInftyD_comp_formsInftyPullback` ($d\circ f^* = f^*\circ d$), `formsInftyPullback_comp`, `formsInftyPullback_id`, and `scDeRhamPullback` on $H^k_{sc}$. $f^*$ is multiplicative and unital, a morphism of graded algebras (`formPullback_formWedge`, `formsInftyPullback_formsInftyWedge`, `formsInftyPullback_formsInftyOne`).
 
 - `Polyfold.MPolyfold.tangentFiberMap` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 75
 - `Polyfold.MPolyfold.formPullback` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 89
@@ -6875,60 +7351,69 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.BundledMPolyfold.formsInftyD_comp_formsInftyPullback` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 461
 - `Polyfold.BundledMPolyfold.formsInftyPullback_comp` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 499
 - `Polyfold.BundledMPolyfold.scDeRhamPullback` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 531
+- `Polyfold.MPolyfold.formPullback_formWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 734
+- `Polyfold.BundledMPolyfold.formsInftyPullback_formsInftyWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 1083
+- `Polyfold.BundledMPolyfold.formsInftyPullback_formsInftyOne` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 647
 
 *What differs.*
 - The text writes $\Omega^*_\infty$; the map is given degree by degree, as for $d$ (V4.87). "Raising the index" is `liftLevelOneMap` on $X^1$ and `BundledMPolyfold.liftMap` on $X^i$. $f^*\circ d_Y = d_X\circ f^*$ is left to the reader in the text (2021 only); it holds as we read it and is proved here (Findings, Chapter 4, item 173).
 
 ### V4.90. Forms on $\partial X$ and the pull-back $j^*$ (pp. 198–199)
 
-*restated* · reading: forms on $\partial X$ through $bX$ · $d\tau$ agreement in the definition · degree by degree
+*as in the book* · reading: forms on $\partial X$ through $bX$ · $d\tau$ agreement: proved from $\tau$ · degree by degree
 
 **HWZ (§4.4, pp. 198–199 (2017 p. 150; preprint p. 168)).** For a tame $X$ the inclusion $\partial X \to X$ is sc-smooth on local faces, and local faces and their intersections are tame M-polyfolds, so differential forms on $\partial X$ and $\partial X^i$ make sense; $j : \partial X \to X$ is the inclusion.
 
-**Proved in Lean.** `bForms hP k i` $= \Omega^k(\partial X^i)$: the sc-forms $\tau \in \Omega^k(bX^i)$ on the tame boundary (Theorem 2.7.13) such that $\tau$ agrees over $B^i$ (`IsFaceCompatible`: $\tau_p(v) = \tau_{p'}(v')$ when $Bp = Bp'$ and $TB\,v_j = TB\,v'_j$) and $d\tau$ agrees over $B^{i+1}$. `extD_mem_bForms`: $d$ maps $\Omega^k(\partial X^i)$ to $\Omega^{k+1}(\partial X^{i+1})$; `le_bForms`: it is the largest $d$-stable family of agreeing forms. `bFormsInfty` is the direct limit, `jStar` $= B^* : \Omega^k_\infty(X) \to \Omega^k_\infty(\partial X)$ (`formsPullback_mem_bForms`), `jStar_comp_D`: $dj^* = j^*d$.
+**Proved in Lean.** `bForms hP k i` $= \Omega^k(\partial X^i)$: the sc-forms $\tau \in \Omega^k(bX^i)$ on the tame boundary (Theorem 2.7.13) that agree over $B^i$ (`IsFaceCompatible`: $\tau_p(v) = \tau_{p'}(v')$ when $Bp = Bp'$ and $TB\,v_j = TB\,v'_j$); `mem_bForms_iff`, `bForms_eq_agreeForms`. The definition also lists the agreement of $d\tau$ over $B^{i+1}$, which follows (`isFaceCompatible_extD`, from the general `BundledMPolyfold.isAgreeingOver_extD` with `isTangentInjective_bdryMap` and `hasCornerCover_bdryMap`). `extD_mem_bForms`: $d$ maps $\Omega^k(\partial X^i)$ to $\Omega^{k+1}(\partial X^{i+1})$. `bFormsInfty` is the direct limit, `jStar` $= B^* : \Omega^k_\infty(X) \to \Omega^k_\infty(\partial X)$ (`formsPullback_mem_bForms`), `jStar_comp_D`: $dj^* = j^*d$.
 
-- `Polyfold.MPolyfold.IsAgreeingOver` — Polyfold/Chapter4/BoundaryForms2021.lean, line 97
-- `Polyfold.MPolyfold.IsFaceCompatible` — Polyfold/Chapter4/BoundaryForms2021.lean, line 460
-- `Polyfold.MPolyfold.bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 468
-- `Polyfold.MPolyfold.extD_mem_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 485
-- `Polyfold.MPolyfold.le_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 477
-- `Polyfold.MPolyfold.bFormsInfty` — Polyfold/Chapter4/BoundaryForms2021.lean, line 496
-- `Polyfold.MPolyfold.jStar` — Polyfold/Chapter4/BoundaryForms2021.lean, line 509
-- `Polyfold.MPolyfold.formsPullback_mem_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 525
-- `Polyfold.MPolyfold.jStar_comp_D` — Polyfold/Chapter4/BoundaryForms2021.lean, line 514
+- `Polyfold.MPolyfold.IsAgreeingOver` — Polyfold/Chapter4/BoundaryForms2021.lean, line 100
+- `Polyfold.MPolyfold.IsFaceCompatible` — Polyfold/Chapter4/BoundaryForms2021.lean, line 463
+- `Polyfold.MPolyfold.bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 471
+- `Polyfold.MPolyfold.extD_mem_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 488
+- `Polyfold.MPolyfold.le_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 480
+- `Polyfold.MPolyfold.bFormsInfty` — Polyfold/Chapter4/BoundaryForms2021.lean, line 499
+- `Polyfold.MPolyfold.jStar` — Polyfold/Chapter4/BoundaryForms2021.lean, line 512
+- `Polyfold.MPolyfold.formsPullback_mem_bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 528
+- `Polyfold.MPolyfold.jStar_comp_D` — Polyfold/Chapter4/BoundaryForms2021.lean, line 517
+- `Polyfold.MPolyfold.isFaceCompatible_extD` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 749
+- `Polyfold.MPolyfold.bForms_eq_agreeForms` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 756
+- `Polyfold.MPolyfold.mem_bForms_iff` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 760
+- `Polyfold.MPolyfold.hasCornerCover_bdryMap` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 722
+- `Polyfold.MPolyfold.isTangentInjective_bdryMap` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 157
+- `Polyfold.MPolyfold.CornerChart.exists_tangent` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 547
+- `Polyfold.BundledMPolyfold.isAgreeingOver_extD` — Polyfold/Chapter4/A3BoundaryForms2021.lean, line 245
 
 *What differs.*
-- The text gives no definition of forms on $\partial X$, which is not an M-polyfold (Findings, Chapter 4, item 122). We read them as forms on the tame boundary $bX$ (Theorem 2.7.13) that coincide on intersections of local faces, i.e. agree over $B$ (reading R-a; item 173). The definition also asks $d\tau$ to agree. That makes $d$ act on them, keeps every $j^*\omega$, and gives the largest $d$-stable choice, so it is the set of agreeing forms whenever those are closed under $d$, as for manifolds with corners.
-- Whether the agreement of $\tau$ alone implies that of $d\tau$ for tame M-polyfolds (step A3 of the plan) is not proved: it needs the corner strata of tame retracts as sub-M-polyfolds. If it holds, `bForms` is the set of agreeing forms, the text's reading; if not, it is the largest complex inside it.
+- The text gives no definition of forms on $\partial X$, which is not an M-polyfold (Findings, Chapter 4, item 122). We read them as forms on the tame boundary $bX$ (Theorem 2.7.13) that coincide on intersections of local faces, i.e. agree over $B$ (reading R-a; item 173). That $d$ preserves this (the text writes $d\tau$) is proved (2026-11-12): if $\tau$ agrees over $B^i$, $d\tau$ agrees over $B^{i+1}$ (`isFaceCompatible_extD`), so `bForms` is the set of agreeing sc-forms (`bForms_eq_agreeForms`). The proof takes, at two faces through a point $x$, a tame chart with retraction $r$ and coordinates $\lambda_i$, $\lambda_j$ vanishing on the two faces; $r \circ P_i \circ P_j$ maps a neighbourhood in the partial quadrant into both faces, its two lifts to $bX$ have the same composite with $B$, and $T_xF \cap T_xF'$ is the image of its tangent map (`CornerChart.exists_tangent`); then $d\tau$ is compared by $df^* = f^*d$. No smoothness of $x$ is needed.
 - $dj^* = j^*d$, stated without proof (item 121), is proved.
 
 ### V4.91. The relative complex $\Omega^*_\infty(X, \partial X)$, $d \circ d = 0$ and $H^*_{dR}(X, \partial X)$ (p. 199)
 
-*as in the book* · degree by degree · $d \circ d = 0$ proved (text: easy) · wedge product: not formalized
+*as in the book* · degree by degree · $d \circ d = 0$ proved (text: easy) · relative wedge: not formalized
 
 **HWZ (§4.4, p. 199 (2017 p. 150; preprint p. 168)).** $\Omega^*_\infty(X, \partial X) = \Omega^*_\infty(X) \oplus \Omega^{*-1}_\infty(\partial X)$ with $d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$; one easily verifies $d \circ d = 0$; the cohomology is $H^*_{dR}(X, \partial X)$.
 
 **Proved in Lean.** `RelForms hP k` is $\Omega^0_\infty(X)$ for $k = 0$ and $\Omega^{k}_\infty(X) \times \Omega^{k-1}_\infty(\partial X)$ otherwise. `relD` is $d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$ ($\omega \mapsto (d\omega, j^*\omega)$ in degree 0). `relD_comp_relD`: $d \circ d = 0$, from $d^2 = 0$ on $X$ and $\partial X$ and $dj^* = j^*d$. `relDeRham hP k` $= \ker d/\operatorname{im} d$, a real vector space, with `relDeRhamMk_eq_iff`. `relDeRhamEquivOfNoBoundary`: for $\partial X = \emptyset$, $bX = \emptyset$ and $H^k_{dR}(X, \partial X) \cong H^k_{sc}(X)$.
 
-- `Polyfold.MPolyfold.RelForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 537
-- `Polyfold.MPolyfold.relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 590
-- `Polyfold.MPolyfold.relD_comp_relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 619
-- `Polyfold.MPolyfold.relDRange` — Polyfold/Chapter4/BoundaryForms2021.lean, line 630
-- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 642
-- `Polyfold.MPolyfold.relDeRhamMk` — Polyfold/Chapter4/BoundaryForms2021.lean, line 646
-- `Polyfold.MPolyfold.relDeRhamMk_eq_iff` — Polyfold/Chapter4/BoundaryForms2021.lean, line 650
-- `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary` — Polyfold/Chapter4/BoundaryForms2021.lean, line 754
+- `Polyfold.MPolyfold.RelForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 540
+- `Polyfold.MPolyfold.relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 593
+- `Polyfold.MPolyfold.relD_comp_relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 622
+- `Polyfold.MPolyfold.relDRange` — Polyfold/Chapter4/BoundaryForms2021.lean, line 633
+- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 645
+- `Polyfold.MPolyfold.relDeRhamMk` — Polyfold/Chapter4/BoundaryForms2021.lean, line 649
+- `Polyfold.MPolyfold.relDeRhamMk_eq_iff` — Polyfold/Chapter4/BoundaryForms2021.lean, line 653
+- `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary` — Polyfold/Chapter4/BoundaryForms2021.lean, line 757
 
 *What differs.*
-- The text writes the graded sum; it is read degree by degree, with $\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is not formalized (G.80). The identification for $\partial X = \emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\partial X$ are those of V4.90 (Findings, Chapter 4, item 173).
+- The text writes the graded sum; it is read degree by degree, with $\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is formalized on $\Omega^*_\infty(X)$ (`formsInftyWedge`, V4.87) but not on the relative complex (G.80). The identification for $\partial X = \emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\partial X$ are those of V4.90 (Findings, Chapter 4, item 173).
 
 ### V4.92. Theorem 4.4.7 (preprint 4.28) for sc-forms on a finite-dimensional submanifold: Stokes
 
-*restated* · the face sum read as $\int_{\partial S}$ · $N$: a corner structure of dimension $n + 1$ · proved; the text gives no proof
+*restated* · union of faces: face-structured · $N$: a corner structure of dimension $n + 1$ · proved; the text gives no proof
 
 **HWZ (§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)).** For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\omega$, $\int_N d\omega = \sum_F\int_F\omega$.
 
-**Proved in Lean.** `MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$ (then $S \subseteq X_\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$. The restriction $\omega \mapsto \omega|_S$ (`scFormRestrict` on $\Omega^k(X^i)$, `formsInftyRestrict` on $\Omega^k_\infty(X)$) is the pull-back along $S \to X^i$ (V4.89) read on the corner frames of $T_xS = \mathbb R^n$; in a chart of $X$ it is $\omega_\varphi \circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\int_{\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`).
+**Proved in Lean.** `MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$ (then $S \subseteq X_\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$. The restriction $\omega \mapsto \omega|_S$ (`scFormRestrict` on $\Omega^k(X^i)$, `formsInftyRestrict` on $\Omega^k_\infty(X)$) is the pull-back along $S \to X^i$ (V4.89) read on the corner frames of $T_xS = \mathbb R^n$; in a chart of $X$ it is $\omega_\varphi \circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\int_{\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`). (2026-11-12) With the faces: `MPolyfold.theorem_4_4_7_hyp`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$, face-structured (Definition 2.5.10), a continuous tangent orientation $o$ of the Mathlib manifold $S$ and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \sum_F \int_F \omega|_F$, the sum over the finitely many faces $F$ of $S$ (`finite_setOf_isFace`). Each face is a Mathlib manifold modelled on $[0, \infty)^n$ through a corner structure of dimension $n$ (`hasCornerStructureOfDim_face`), oriented by the induced orientation, outward vector first (`faceOrientation`, `IsInducedOrientation`, unique and continuous); $\omega|_F$ is the pull-back of $\omega|_S$ along $F \hookrightarrow S$ (`restrictForm`). The face sum equals the boundary integral of $S$ (`sum_integral_restrictForm_eq_boundaryIntegral`), and `stokes_formsInftyRestrict` gives the rest.
 
 - `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1057
 - `Polyfold.MPolyfold.scFormRestrict` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 968
@@ -6940,10 +7425,108 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 918
 - `Polyfold.exists_hasCornerStructureOfDim_of_tame` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1089
 - `Polyfold.exists_hasCornerStructureOfDim_solutionSet` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1103
+- `Polyfold.MPolyfold.theorem_4_4_7_hyp` — Polyfold/Chapter9/GapP1_Stokes2021.lean, line 397
+- `Polyfold.MPolyfold.faceOrientation` — Polyfold/Chapter9/GapP1_Stokes2021.lean, line 333
+- `Polyfold.MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero` — Polyfold/Chapter9/GapP1_Stokes2021.lean, line 366
+- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter4/GapP1_StokesFaceCharts.lean, line 353
+- `Polyfold.sum_integral_restrictForm_eq_boundaryIntegral` — Polyfold/Chapter4/GapP1_StokesFaceIntegral.lean, line 531
+- `Polyfold.restrictForm` — Polyfold/Chapter4/GapP1_StokesFaceIntegral.lean, line 103
+- `Polyfold.IsInducedOrientation` — Polyfold/Chapter4/GapP1_StokesFaceOrientation.lean, line 277
+- `Polyfold.inducedOrientation` — Polyfold/Chapter4/GapP1_StokesFaceOrientation.lean, line 301
+- `Polyfold.MPolyfold.finite_setOf_isFace` — Polyfold/Chapter4/GapP1_StokesFaces.lean, line 55
 
 *What differs.*
 - The text's $N$ is an oriented compact tame smooth submanifold; here $S$ is a compact sub-M-polyfold with a corner structure of dimension $n + 1$, which every submanifold in good position of a tame $X$ has, with a continuous tangent orientation (as Theorem 6.6.18 gives the solution sets, V6.61).
-- The sum $\sum_F\int_F\omega$ over the faces of $\partial N$ is read as the boundary integral of the Mathlib manifold $S$, the sum of the face integrals in the charts, each face oriented outward vector first (Findings, Chapter 4, item 171); the faces $F$ as tame M-polyfolds in their own right are not formalized (gap G.40). The restriction of $\omega$ to $N$, "clearly" a classical form in the text (p. 199), is the pull-back along the inclusion (items 172, 174). The 2021 text writes $\int_N$, the preprint and 2017 $\int_M$ (item 123).
+- The boundary being a union of faces is read as $S$ face-structured (Definition 2.5.10): every point lies on exactly $d_S(x)$ faces. This is a reading, used through "a face is a coordinate face near each of its points" and "a point of degeneracy index 1 lies on exactly one face"; whether it can be dropped is not examined. It is satisfiable: it holds without boundary (`isFaceStructured_of_forall_degIndex_eq_zero`; then the sum is empty and the theorem says $\int_S d\omega = 0$) and for the quadrants (`isFaceStructured_quadrant`). The faces are manifolds in their own right and the sum is over them, each with the induced orientation (outward vector first, Findings, Chapter 4, item 171; gap G.40, closed). The restriction of $\omega$ to $N$, "clearly" a classical form in the text (p. 199), is the pull-back along the inclusion (items 172, 174, 177). The 2021 text writes $\int_N$, the preprint and 2017 $\int_M$ (item 123).
+
+### V4.93. Theorem 4.3.1 (preprint 4.23): stratified regularity does not depend on the chart
+
+*restated* · some chart ⇔ every chart · the transport argument of V4.39
+
+**HWZ (§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)).** Regular values of the maps $p_\sigma : A \cap F_\sigma^\circ \to \mathbb R^m$, intrinsic to $A$ and its strata.
+
+**Proved in Lean.** `StratRegCond` is the chart condition of `IsStratRegularPoint` (every $\mu \in \mathbb R^m$ is $v_1$ for some $v \in T_yQ$ with $v_2$ in the minimal subspace of $C$ at $y_2$); it depends only on the tangent space (`StratRegCond.congr`) and is carried by germs of sc-diffeomorphisms $F$ with $(Fw)_1 = w_1 + c$ that preserve the product partial quadrants (`StratRegCond.transport`). Product-chart transitions have first component $w_1 + a - a'$ (`transition_rnChart_prod_fst`), so their derivatives fix the $\mathbb R^m$-component (`scDeriv_fst_eq_of_fst_eq`), and the condition passes from one product chart, presentation, data and level-1 lift to any other (`stratRegCond_chart_change`). `IsStratRegularPoint.stratRegCond`: a stratified regular point satisfies the condition in every product chart $(r \mapsto r - a') \times \varphi'$, every data of Definition 4.2.1, every presentation and every lift; `isStratRegularPoint_iff_forall`, `isStratRegularValue_iff_forall`: "some chart" $\Leftrightarrow$ "every chart".
+
+- `Polyfold.StratRegCond` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 86
+- `Polyfold.StratRegCond.transport` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 128
+- `Polyfold.stratRegCond_chart_change` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 200
+- `Polyfold.IsStratRegularPoint.stratRegCond` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 304
+- `Polyfold.isStratRegularPoint_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 330
+- `Polyfold.isStratRegularValue_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 356
+
+*What differs.*
+- Stratified regularity is read as in V4.53: regularity of $p$ on the stratum through the point, in a product chart (Findings, Chapter 4, items 102, 108). That it is intrinsic to $A$ and its strata, which the proof of Theorem 4.3.1 (preprint 4.23) takes for granted, is proved by the transport argument of V4.39 (gap G.36, closed).
+
+### V4.94. Lemma 4.1.11 (preprint 4.10): the section $u \mapsto (1 - p)(u - t(u))$ is sc-Fredholm
+
+*restated* · good sc-complement: `hsplit` · sc-Fredholm: 2021 Definition 3.1.16 · not used by Proposition 4.1.9 here
+
+**HWZ (§4.1, Lemma 4.1.11 (preprint 4.10), pp. 179–181 (preprint pp. 151–153)).** The section $u \mapsto (u, \mathbf f(u))$, $\mathbf f(u) = (1 - p)(u - t(u))$, of the local strong bundle $U \triangleleft Y \to U$ is sc-Fredholm.
+
+**Proved in Lean.** `lemma_4_1_11`: in the setting of Proposition 4.1.9 (an sc⁺-retraction $t$ onto $O \ni 0$, $N = T_0O$ in good position, $Y$ a good sc-complement (`hsplit : E.IsScSplitting N Y`), $p$ the projection onto $N$ along $Y$), the section $u \mapsto (u, (1 - p)(u - t(u)))$ of the local strong bundle $U \triangleleft Y \to U$ (`LocalBundle.bundle`, `LocalBundle.sec`, one chart with the identity strong bundle retraction) is sc-Fredholm in the sense of 2021 Definition 3.1.16 (`IsScFredholmSection2021`), on all of $U$. Regularizing: $u = (1 - p)(u - tu) + tu + p(u - tu)$. Germ at a smooth $e$: the chart centred at $e$ (`LocalBundle.centred`), whose retraction is pointwise the identity, so the principal part fills itself (`isFilling2021_of_R_eq_self`); $s(v) = (1 - p)(e - t(v + e))$ is the text's $s$, and $g - s = (1 - p)v$ is conjugated to the basic germ $(a + b, w) \mapsto (b, w)$ (`isConjugateToBasicGerm_qOp`), with the splitting $E \cong (T_0O \oplus B) \oplus W$, $B$ smooth, $W = Y \cap \ker L$ (`exists_splitData`, `isScSubspace_splitW`).
+
+- `Polyfold.lemma_4_1_11` — Polyfold/Chapter4/GapP1_Lemma4111.lean, line 64
+- `Polyfold.isConjugateToBasicGerm_qOp` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 316
+- `Polyfold.exists_splitData` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 140
+- `Polyfold.isScSubspace_splitW` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 195
+- `Polyfold.qOp` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 269
+- `Polyfold.LocalBundle.bundle` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 156
+- `Polyfold.LocalBundle.sec` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 198
+- `Polyfold.LocalBundle.isScSmoothSection_sec` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 203
+- `Polyfold.isFilling2021_of_R_eq_self` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 56
+
+*What differs.*
+- The text's "good sc-complement" is the hypothesis `hsplit : E.IsScSplitting N Y` together with the project's `IsGoodComplement`, which keeps only the algebraic splitting; it is a hypothesis of the text, not an added one (satisfiable wherever Proposition 4.1.9 applies, with the closed complement chosen there). No witness of the full data of Proposition 4.1.9 is built.
+- In the proof, $B$ must lie in $Y_\infty$ for $E = (T_0O \oplus B) \oplus W$ to be an sc-splitting; such $B$ exists, since $L(Y \cap E_\infty) = L(Y)$ (`map_le_map_smooth`). The text gets "$C \cap (T_0O \oplus B)$ is a partial quadrant" from good position; here it comes from the corner coordinates on $T_0O \oplus B$, which vanish on $W$. The slips of the printed proof (Findings, item 57) do not enter. Proposition 4.1.9 (preprint 4.9), its only use, is proved directly (V4.20).
+
+### V4.95. Lemma 4.4.8: the Poincaré lemma for sc-forms (p. 199)
+
+*restated* · degrees $k + 1$, $k$ for $k$, $k - 1$ · Lemma 4.5.2 about a smooth centre · proved as in §4.5.3
+
+**HWZ (§4.4, Lemma 4.4.8, p. 199 (proof §4.5.3, pp. 202–204) (2021)).** (New in the 2021 edition.) Every $x \in X$ has open neighbourhoods $V(x) \subseteq U(x)$ such that every closed $[\omega] \in \Omega^k_\infty(U(x))$, $k \ge 1$, has $[\tau] \in \Omega^{k-1}_\infty(V(x))$ with $d[\tau] = [\omega]$ on $V(x)$. The proof applies Lemma 4.5.2 in a chart to $B_\delta(x) \cap C$, working with $C^i \subset E^i$ on the levels.
+
+**Proved in Lean.** `lemma_4_4_8 A x`: there are open $V \subseteq U \ni x$ such that for every $k$ every $a \in \Omega^{k+1}_\infty(U)$ with $da = 0$ has $b \in \Omega^k_\infty(V)$ with $db = a|_V$. $U$, $V$ are Part I's open sub-M-polyfolds (`restrictOpen`, bundled as `BundledMPolyfold.openSub`); forms restrict to open subsets, commuting with $d$ (`formRestrict`, `extD_formRestrict`, `formsInftyResOpen`, `formsInftyResOpenOpen`), and "$[\omega] = [\tau]$ on $V$" of (4.7) is `FormsInftyEqOn` (`formsInftyEqOn_of_iff`). The proof is the text's: a chart $\varphi$ and retraction $r$ with $r(B_\delta \cap C) \subseteq B_\varepsilon$ (`exists_poincareChart`), $V(x) = \varphi^{-1}(B_\delta(\varphi x))$, the M-polyfold $O^m$ as the $m$-th lift (`LocalModel.liftEquiv`), Lemma 4.5.2 on $B_\delta(\varphi x) \cap C$ about a smooth centre on every level (`LocalPoincare`, `hasPoincare_lift`, `localPoincare`), and $d(j^*\tau) = (r \circ j)^*\omega$ on the direct limits (`exists_primitive_of_factor`, `lemma_4_4_8_of_local`).
+
+- `Polyfold.lemma_4_4_8` — Polyfold/Chapter4/Poincare2021b.lean, line 860
+- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter4/Poincare448.lean, line 311
+- `Polyfold.LocalPoincare` — Polyfold/Chapter4/Poincare448.lean, line 94
+- `Polyfold.localPoincare` — Polyfold/Chapter4/Poincare2021b.lean, line 853
+- `Polyfold.hasPoincare_lift` — Polyfold/Chapter4/Poincare448.lean, line 99
+- `Polyfold.exists_primitive_of_factor` — Polyfold/Chapter4/Poincare448.lean, line 240
+- `Polyfold.MPolyfold.HasPoincare` — Polyfold/Chapter4/Poincare448Shift.lean, line 44
+- `Polyfold.LocalModel.liftEquiv` — Polyfold/Chapter4/Poincare448Shift.lean, line 200
+- `Polyfold.MPolyfold.formRestrict` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 54
+- `Polyfold.MPolyfold.extD_formRestrict` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 72
+- `Polyfold.BundledMPolyfold.openSub` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 88
+- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 120
+- `Polyfold.BundledMPolyfold.formsInftyResOpenOpen` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 125
+- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 153
+- `Polyfold.BundledMPolyfold.formsInftyEqOn_of_iff` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 158
+
+*What differs.*
+- $U(x)$, $V(x)$ are Part I's open sub-M-polyfolds (nonempty, as they contain $x$); "$d[\tau] = [\omega]$ on $V(x)$" is $db = a|_V$; the text's degrees $k \ge 1$, $k - 1$ are $k + 1$, $k$. In the proof Lemma 4.5.2 is applied to the convex set $B_\delta(\varphi(x)) \cap C$, which need not contain $0$, and the remark after Lemma 4.5.2 (a centre $(0, w_0)$) does not cover it; Lemma 4.5.2 is therefore used with the homotopy about any smooth centre, which the same proof gives (V4.96; Findings, Chapter 4, item 177).
+
+### V4.96. Lemma 4.5.2: the local Poincaré lemma on a convex relatively open set (p. 202)
+
+*restated* · degrees $k + 1$, $k$ for $k$, $k - 1$ · $d\tau = \iota^*\omega$ on $U^1$ · any smooth centre $c \in U$
+
+**HWZ (Appendix 4.5, Lemma 4.5.2, p. 202 (proof §4.5.3, pp. 202–204) (2021)).** (New in the 2021 edition.) For $U$ a relatively open convex neighbourhood of $0$ in $[0, \infty)^n \oplus W$ and a closed sc-form $\omega$ on $U$ of degree $k \ge 1$, there is an sc-form $\tau$ on $U$ with $d\tau = \omega$ on $U^1$; $\tau$ is given by the homotopy formula $\tau(y)(v) = \int_0^1 t^{k-1}\omega(ty)(y, v)\,dt$.
+
+**Proved in Lean.** `hasPoincare_relOpen_of_zero_mem`: for a local model $M$ with $M.O$ relatively open in the partial quadrant and convex, $0 \in M.O$, and every $k$, every $\sigma \in \Omega^{k+1}(O)$ with $d\sigma = 0$ has $\tau \in \Omega^k(O)$ with $d\tau = \iota^*\sigma$ on $O^1$ (`MPolyfold.HasPoincare`); `hasPoincare_relOpen` is the same about any smooth centre $c \in M.O$. The primitive is the homotopy form $\tau(y)(v) = \int_0^1 t^k\,\omega(c + t(y - c))(y - c, v)\,dt$ (`homotopyForm`, `relOpenForm`), sc-smooth by the sc-smoothness of parametric integrals over $[0, 1]$ (`isScSmooth_intervalIntegral`, `isSck_intervalIntegral`, `scDeriv_intervalIntegral`, by sc-induction through the tangent map) (`isScSmooth_homotopyForm`); `ambientD_homotopyForm` and `lemma_4_5_2` give $d\tau = \omega$ in the chart, with the local $d$ the `deltaFun` of the derivative and the identity $d_r = $ the ambient $d$ on a relatively open set (`retractD_eq_ambientD`).
+
+- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter4/Poincare2021b.lean, line 844
+- `Polyfold.hasPoincare_relOpen` — Polyfold/Chapter4/Poincare2021b.lean, line 796
+- `Polyfold.lemma_4_5_2` — Polyfold/Chapter4/Poincare2021b.lean, line 666
+- `Polyfold.homotopyForm` — Polyfold/Chapter4/Poincare2021b.lean, line 175
+- `Polyfold.isScSmooth_homotopyForm` — Polyfold/Chapter4/Poincare2021b.lean, line 210
+- `Polyfold.ambientD_homotopyForm` — Polyfold/Chapter4/Poincare2021b.lean, line 580
+- `Polyfold.retractD_eq_ambientD` — Polyfold/Chapter4/Poincare2021b.lean, line 723
+- `Polyfold.isScSmooth_intervalIntegral` — Polyfold/Chapter4/Poincare2021.lean, line 412
+- `Polyfold.isSck_intervalIntegral` — Polyfold/Chapter4/Poincare2021.lean, line 398
+- `Polyfold.scDeriv_intervalIntegral` — Polyfold/Chapter4/Poincare2021.lean, line 328
+
+*What differs.*
+- The text's degrees $k \ge 1$, $k - 1$ are $k + 1$, $k$; "$d\tau = \omega$ on $U^1$" is $d\tau = \iota^*\omega$ for $\iota : U^1 \to U$, and "closed" is $d\omega = 0$. The printed case is the centre $c = 0$ (`hasPoincare_relOpen_of_zero_mem`); any smooth centre is allowed (`hasPoincare_relOpen`), which Lemma 4.4.8 needs (V4.95). No hypothesis is added: the hypotheses (convex, relatively open, a smooth centre) are satisfiable, e.g. $D = C = $ the whole space with $c = 0$ (Findings, Chapter 4, item 177).
 
 ## Chapter 5
 
@@ -7610,7 +8193,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **HWZ (§5.3, Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)).** Over a tame $X$ with bump functions, $f$ sc-Fredholm with compact solution set, $(f, x)$ in good position at the zeros on $\partial X$: $U$ with $S_{f+s}$ compact for $s \in \Gamma^{+,1}_U(P)$, and an arbitrarily small $s \in \Gamma^{+,1}_U(P)$ with $s = 0$ near $\partial X$, $f + s$ transversal, "$(f, x)$" in good position at every $x \in S_{f+s}$, $S_{f+s}$ a compact manifold with boundary with corners.
 
-**Proved in Lean.** `theorem_5_3_12_book_2021def`: the statement below with $f$ sc-Fredholm in the 2021 sense, the boundary hypothesis and the good-position conclusion (`IsScFredholmSectionTame2021`, `IsGoodPositionGermTame2021`; germ data in a tame chart, read as in V3.103). `theorem_5_3_12` ($f$ with tame germ data, no tameness of $X$): an open $U \supseteq S_f$ with $S_{f+s}$ compact for every $s \in \Gamma^{+,1}_U(P)$, and for every $\varepsilon > 0$ an $s \in \Gamma^{+,1}_U(P)$ with $N(s(x)) \le \varepsilon$ for all $x$, $s = 0$ near $\partial X$, $f + s$ transversal and in good position at every zero, and $S_{f+s}$, if nonempty, a sub-M-polyfold with the structure of a manifold with boundary with corners; from `theorem_5_3_12_param`. The form the proof produces is kept: `theorem_5_3_12_param`, allowable $t_i$ with supports disjoint from $\partial X$, $\delta$, a null $CV$; for $|\lambda| < \delta$, $\lambda \notin CV$: $\sum\lambda_it_i$ allowable, $0$ near $\partial X$, $f + s_\lambda$ transversal and in good position at every zero, $S_{f+s_\lambda}$ compact, a tame manifold with corners. Good position depends only on the germ (`IsGoodPositionGermTame.congr_nhds`).
+**Proved in Lean.** `theorem_5_3_12_book_2021def`: the statement below with $f$ sc-Fredholm in the 2021 sense, the boundary hypothesis and the good-position conclusion (`IsScFredholmSectionTame2021`, `IsGoodPositionGermTame2021`; germ data in a tame chart, read as in V3.103). `theorem_5_3_12` ($f$ with tame germ data, no tameness of $X$): an open $U \supseteq S_f$ with $S_{f+s}$ compact for every $s \in \Gamma^{+,1}_U(P)$, and for every $\varepsilon > 0$ an $s \in \Gamma^{+,1}_U(P)$ with $N(s(x)) \le \varepsilon$ for all $x$, $s = 0$ near $\partial X$, $f + s$ transversal and in good position at every zero, and $S_{f+s}$, if nonempty, a sub-M-polyfold with the structure of a manifold with boundary with corners; from `theorem_5_3_12_param`. The form the proof produces is kept: `theorem_5_3_12_param`, allowable $t_i$ with supports disjoint from $\partial X$, $\delta$, a null $CV$; for $|\lambda| < \delta$, $\lambda \notin CV$: $\sum\lambda_it_i$ allowable, $0$ near $\partial X$, $f + s_\lambda$ transversal and in good position at every zero, $S_{f+s_\lambda}$ compact, a tame manifold with corners. Good position depends only on the germ (`IsGoodPositionGermTame.congr_nhds`). `theorem_5_3_12_dense`: with the same hypotheses, for every $s' \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ and every $\varepsilon > 0$ an $s \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ with $N(s - s') \le \varepsilon$ everywhere and all the conclusions; from `theorem_5_3_12_param_rel`, $s = (1 - \varepsilon')s' + \sum\lambda_it_i$.
 
 - `Polyfold.theorem_5_3_12_book_2021def` — Polyfold/Chapter5/MainTheoremsBookForm2021.lean, line 72
 - `Polyfold.theorem_5_3_12` — Polyfold/Chapter5/MainTheoremsBookForm.lean, line 115
@@ -7618,12 +8201,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_5_3_12_param` — Polyfold/Chapter5/GeneralPosition.lean, line 2119
 - `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds` — Polyfold/Chapter3/Chapter5BridgeG.lean, line 77
 - `Polyfold.Counterexamples2021.theorem_5_3_12_goodPosition_not_stable` — Polyfold/Chapter3/Counterexamples2021.lean, line 262
+- `Polyfold.theorem_5_3_12_dense` — Polyfold/Chapter5/GapP1_DenseGoodPosition.lean, line 409
+- `Polyfold.theorem_5_3_12_param_rel` — Polyfold/Chapter5/GapP1_DenseGoodPosition.lean, line 97
 
 *What differs.*
 - Updated (2026-11-09): the theorem is stated with the book's quantifiers, \"arbitrarily small\" read as $N(s(x)) \le \varepsilon$ for all $x$ (`theorem_5_3_12`); the generic form of the proof is kept (`theorem_5_3_12_param`) (Findings, Chapter 5, item 182).
 - "$(f, x)$ in good position" is $(f + s, x)$ (Findings, Chapter 5, item 87).
 - \"As before\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\mathbb R \times \cdot$, as $\mathbb R(1, 1)$ in $[0, \infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).
-- No dense form (gap G.45).
+- (2026-11-12) The dense form is proved too: within $N$-distance $\varepsilon$ of any $s' \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).
 - (2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter3/MainTheorems2021.lean`).
 - (2026-11-09) The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookForm2021.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`.
 
@@ -7636,11 +8221,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `IsGenCompactHomotopy f t`: $X$ tame, $f$ with tame germ data and compact solution set, $t$ sc-smooth with $t(X) = [0, 1]$, every $t^{-1}(\tau)$ a sub-M-polyfold with tame induced structure on which `restrictSection` (a section of the pull-back) has tame germ data. The restricted problems have compact solution sets.
 
 - `Polyfold.restrictSection` — Polyfold/Chapter5/Homotopy.lean, line 205
-- `Polyfold.StrongBundle.IsGenCompactHomotopy` — Polyfold/Chapter5/Homotopy.lean, line 233
-- `Polyfold.StrongBundle.IsGenCompactHomotopy.isCompact_solutionSet_restrict` — Polyfold/Chapter5/Homotopy.lean, line 252
+- `Polyfold.StrongBundle.IsGenCompactHomotopy` — Polyfold/Chapter5/Homotopy.lean, line 234
+- `Polyfold.StrongBundle.IsGenCompactHomotopy.isCompact_solutionSet_restrict` — Polyfold/Chapter5/Homotopy.lean, line 253
 
 *What differs.*
-- The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68).
+- The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is formalized as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68).
 
 ### V5.42. Lemma 5.3.16 (preprint 5.23), and the hidden hypothesis of Theorem 5.3.15 (preprint 5.22)
 
@@ -7656,6 +8241,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 *What differs.*
 - At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \ne 0$ (V5.69).
+- (2026-11-12) Theorem 5.3.15 is formalized in its 2021 form, where this hypothesis is supplied (V5.71; gap G.48 closed).
 
 ### V5.43. The product rule at a level-$1$ point
 
@@ -7665,10 +8251,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `scDeriv_smul_apply`: $D(a \cdot w)(z)v = Da(z)v \cdot w(z) + a(z)Dw(z)v$; `scDeriv_clm_sub_apply`: $D(\ell(\rho(\cdot) - p))(z) = \ell \circ D\rho(z)$; `chartLinCutoff` $\beta \cdot \ell(\varphi(\cdot) - \varphi(x))$ is sc-smooth.
 
-- `Polyfold.scDeriv_smul_apply` — Polyfold/Chapter5/Homotopy.lean, line 276
-- `Polyfold.scDeriv_clm_sub_apply` — Polyfold/Chapter5/Homotopy.lean, line 302
-- `Polyfold.chartLinCutoff` — Polyfold/Chapter5/Homotopy.lean, line 337
-- `Polyfold.isScSmoothMap_chartLinCutoff` — Polyfold/Chapter5/Homotopy.lean, line 346
+- `Polyfold.scDeriv_smul_apply` — Polyfold/Chapter5/Homotopy.lean, line 277
+- `Polyfold.scDeriv_clm_sub_apply` — Polyfold/Chapter5/Homotopy.lean, line 303
+- `Polyfold.chartLinCutoff` — Polyfold/Chapter5/Homotopy.lean, line 338
+- `Polyfold.isScSmoothMap_chartLinCutoff` — Polyfold/Chapter5/Homotopy.lean, line 347
 
 *What differs.*
 - Calculus the text uses without statement.
@@ -7681,11 +8267,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `exists_scPlusSection_linAt`: an sc⁺-section with $s(x) = 0$, small support and $\mathrm{Lin}_s(z)v = \ell(v)\Phi(e)_2$ on $T_zO$. `lemma_5_3_17`: for finite-dimensional $K \subseteq T_zO$ and $b : K \to T_zO$ with $\mathrm{Lin}_f(z)(bv) \in \mathbb R\Phi(e)_2$, an $s$ with $\mathrm{Lin}_f(z)(bv) + \mathrm{Lin}_s(z)v = 0$ on $K$.
 
-- `Polyfold.exists_scPlusSection_linAt` — Polyfold/Chapter5/Homotopy.lean, line 415
-- `Polyfold.lemma_5_3_17` — Polyfold/Chapter5/Homotopy.lean, line 527
+- `Polyfold.exists_scPlusSection_linAt` — Polyfold/Chapter5/Homotopy.lean, line 416
+- `Polyfold.lemma_5_3_17` — Polyfold/Chapter5/Homotopy.lean, line 528
 
 *What differs.*
 - "The image of any vector in $T_xS$ belongs to $Y_\infty$" is not formalized; it becomes the hypothesis on $e$. The graph of $S$ and the case "the operator is zero" are not needed (Findings, Chapter 5, item 102).
+- (2026-11-12) For the use in Theorem 5.3.15 the hypothesis is discharged: the value is $-c\,f'(x)w_1$ for a smooth tangent vector $w_1$, a smooth point of the fibre (`exists_hasRegularFamilyParam`, V5.72; Findings, Chapter 5, item 183). Lemma 5.3.17 itself is not restated.
 
 ### V5.45. Theorem 5.25 (preprint; not in the 2021 edition): perturbation into good position
 
@@ -7723,8 +8310,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `AdmitsScPartitionsOfUnity`: for every open cover $(U_i)_{i \in \iota}$ ($\iota$ in the universe of $X$) a Mathlib `PartitionOfUnity` with $\operatorname{supp}\rho_i \subseteq U_i$ and every $\rho_i$ sc-smooth.
 
-- `Polyfold.MPolyfold.IsScSmoothPartitionOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 358
-- `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 365
+- `Polyfold.MPolyfold.IsScSmoothPartitionOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 363
+- `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 370
 
 *What differs.*
 - Every cover can be indexed by subsets of $X$, so nothing is lost (Findings, Chapter 5, item 110).
@@ -7737,14 +8324,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Sums, differences, products, finite sums and products, locally finite sums of sc-smooth functions are sc-smooth; sc-smoothness is local; a function supported in a chart domain with sc-smooth representative is sc-smooth (`isScSmoothMap_real_of_chart`).
 
-- `Polyfold.MPolyfold.IsScSmoothMap.real_add` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 201
-- `Polyfold.MPolyfold.IsScSmoothMap.real_sub` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 221
-- `Polyfold.MPolyfold.IsScSmoothMap.real_mul` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 211
-- `Polyfold.isScSmoothMap_real_finsetSum` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 231
-- `Polyfold.isScSmoothMap_real_finsetProd` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 247
-- `Polyfold.isScSmoothMap_real_finsum` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 263
-- `Polyfold.isScSmoothMap_real_of_eventuallyEq` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 187
-- `Polyfold.isScSmoothMap_real_of_chart` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 272
+- `Polyfold.MPolyfold.IsScSmoothMap.real_add` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 206
+- `Polyfold.MPolyfold.IsScSmoothMap.real_sub` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 226
+- `Polyfold.MPolyfold.IsScSmoothMap.real_mul` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 216
+- `Polyfold.isScSmoothMap_real_finsetSum` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 236
+- `Polyfold.isScSmoothMap_real_finsetProd` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 252
+- `Polyfold.isScSmoothMap_real_finsum` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 268
+- `Polyfold.isScSmoothMap_real_of_eventuallyEq` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 192
+- `Polyfold.isScSmoothMap_real_of_chart` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 277
 
 *What differs.*
 - Needed for Theorem 5.5.10 (preprint 5.37) and not stated in the text (Findings, Chapter 5, item 112).
@@ -7757,7 +8344,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `AdmitsScPartitionsOfUnity.admitsBumpFunctions`: sc-smooth partitions of unity give bump functions in the sense of V5.16.
 
-- `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1116
+- `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1124
 
 *What differs.*
 - The converse, open in the text, is not addressed (Findings, Chapter 5, item 119).
@@ -7770,8 +8357,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `HasContDiffBump V k`; `AdmitsContDiffPartitionsOfUnity V k`: every open cover has a subordinate $C^k$ partition of unity.
 
-- `Polyfold.HasContDiffBump` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 779
-- `Polyfold.AdmitsContDiffPartitionsOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 772
+- `Polyfold.HasContDiffBump` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 784
+- `Polyfold.AdmitsContDiffPartitionsOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 777
 
 *What differs.*
 - As in the text (Findings, Chapter 5, item 114).
@@ -7826,24 +8413,27 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `LocalModel.HasApproxProperty`: the same with $V = O \cap W$, $W$ open in $E_0$, closures in $E_0$, supports taken in $O$.
 
-- `Polyfold.LocalModel.HasApproxProperty` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 376
+- `Polyfold.LocalModel.HasApproxProperty` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 381
 
 *What differs.*
 - $C$ is closed, so $\operatorname{cl}_C = \operatorname{cl}_{E_0}$ on subsets of $C$ (Findings, Chapter 5, item 110).
 
 ### V5.55. Theorem 5.5.10 (preprint 5.37) "(i) ⇒ (ii)"
 
-*narrower* · restricted charts · every chart: open
+*restated* · every chart · shells instead of a closure step
 
 **HWZ (§5.5 (preprint §5.4.2), proof of Theorem 5.5.10 (preprint 5.37), pp. 232–233 (preprint pp. 195–196)).** For an atlas of charts $\varphi : U \to O$, "the sc-smooth function $f \circ \varphi$" extended by $0$ is supported in $W = \varphi^{-1}(V)$ "satisfying $\operatorname{cl}_X(W) \subseteq U$", and is approximated by $\sum\beta_xg(x)$.
 
-**Proved in Lean.** `hasApproxProperty_restrict`: with sc-smooth partitions of unity, every chart restricted to an open $s$ with $\operatorname{cl}_X(s) \subseteq \operatorname{dom}\varphi$ has the approximation property. `MChart.isClosed_inter_preimage`: $\varphi^{-1}(A)$ closed for closed $A \subseteq \varphi(s)$.
+**Proved in Lean.** `hasApproxProperty_of_isChart`: with sc-smooth partitions of unity, every chart of the M-polyfold has the approximation property, and `theorem_5_5_10_every_chart` states (i) ⇔ (ii) for all charts. Write the chart domain as $\{d > 0\}$; the function is cut by sc-smooth Urysohn functions $\kappa_n$ on the shells $\{1/(n+2) \le d \le 1/(n+1)\}$, each piece is approximated with support closed in $X$ (`AdmitsScPartitionsOfUnity.exists_approx`), and the pieces are summed with the locally finite weights $\kappa_n\prod_{j<n}(1-\kappa_j)$. `hasApproxProperty_restrict` (restricted charts) and `MChart.isClosed_inter_preimage` are kept.
 
-- `Polyfold.hasApproxProperty_restrict` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 626
-- `Polyfold.MChart.isClosed_inter_preimage` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 393
+- `Polyfold.hasApproxProperty_restrict` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 631
+- `Polyfold.MChart.isClosed_inter_preimage` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 398
+- `Polyfold.hasApproxProperty_of_isChart` — Polyfold/Chapter5/GapP1_ApproxEveryChart.lean, line 187
+- `Polyfold.theorem_5_5_10_every_chart` — Polyfold/Chapter5/GapP1_ApproxEveryChart.lean, line 405
+- `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.exists_approx` — Polyfold/Chapter5/GapP1_ApproxEveryChart.lean, line 129
 
 *What differs.*
-- $\operatorname{cl}_X(W) \subseteq U$ does not follow from $\operatorname{cl}_C(V) \subseteq O$, and $f \circ \varphi$ is only continuous; whether every chart has the property is not settled (Findings, Chapter 5, item 111).
+- The text's $\operatorname{cl}_X(W) \subseteq U$ does not follow from $\operatorname{cl}_C(V) \subseteq O$, and $f \circ \varphi$ is only continuous; the formal proof avoids the step with the shells. Whether every chart has the property is settled: it does (Findings, Chapter 5, items 111, 184).
 
 ### V5.56. Theorem 5.5.10 (preprint 5.37) "(ii) ⇒ (i)"
 
@@ -7853,10 +8443,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `exists_isScSmoothMap_urysohn`: a covering family of charts with the approximation property gives sc-smooth Urysohn functions $F = \tau(4\sum\hat g_x - 1)$; `admitsScPartitionsOfUnity_of_approx`: then sc-smooth partitions of unity (Mathlib bump coverings).
 
-- `Polyfold.MChart.exists_small_nhds` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 412
-- `Polyfold.LocalModel.HasApproxProperty.exists_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 442
-- `Polyfold.exists_isScSmoothMap_urysohn` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 513
-- `Polyfold.admitsScPartitionsOfUnity_of_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 597
+- `Polyfold.MChart.exists_small_nhds` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 417
+- `Polyfold.LocalModel.HasApproxProperty.exists_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 447
+- `Polyfold.exists_isScSmoothMap_urysohn` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 518
+- `Polyfold.admitsScPartitionsOfUnity_of_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 602
 
 *What differs.*
 - The refinement with the same index set does not exist in general (the cover $\{X\}$); $\operatorname{cl}_C(\varphi(W_\lambda)) \subseteq O$ is not arranged in the text (Findings, Chapter 5, item 112).
@@ -7869,7 +8459,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_5_5_10`: (i) iff some family of charts of $X$ covering $X$ has local models with the approximation property.
 
-- `Polyfold.theorem_5_5_10` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 742
+- `Polyfold.theorem_5_5_10` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 747
 
 *What differs.*
 - For "(i) ⇒ (ii)" the family is that of the restricted charts (V5.55) (Findings, Chapter 5, items 111, 112).
@@ -7882,27 +8472,31 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `proposition_5_5_11`: if $E_0$ admits $C^\infty$ partitions of unity, $(O, C, E)$ has the approximation property.
 
-- `Polyfold.proposition_5_5_11` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 793
+- `Polyfold.proposition_5_5_11` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 798
 
 *What differs.*
 - Theorem 5.5.10 (preprint 5.37) gives some atlas, not the given model; the argument of "(i) ⇒ (ii)" is repeated in $E_0$ (Findings, Chapter 5, item 113).
 
 ### V5.59. Definition 5.5.12 (preprint 5.39); Theorem 5.5.13 (preprint 5.40) as a statement
 
-*restated* · max = sup · Theorem 5.5.13 (preprint 5.40) not proved
+*restated* · max = sup · Theorem 5.5.13 proved
 
 **HWZ (§5.5 (preprint §5.4.2), Definition 5.5.12 (preprint 5.39), Theorem 5.5.13 (preprint 5.40), p. 234 (preprint p. 198)).** $c_0(\Gamma)$: $f : \Gamma \to \mathbb R$ with $\{\gamma \mid |f(\gamma)| > \varepsilon\}$ finite for every $\varepsilon$, norm $\max_\gamma|f(\gamma)|$; coordinate-wise $C^k$ homeomorphic embeddings. Theorem 5.5.13 (preprint 5.40) (Toruńczyk): $C^k$ partitions of unity iff such an embedding into some $c_0(\Gamma)$.
 
-**Proved in Lean.** `cZero Γ` (a subspace of $\ell^\infty(\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.5.13 (preprint 5.40), not proved, not used.
+**Proved in Lean.** `cZero Γ` (a subspace of $\ell^\infty(\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.5.13 (preprint 5.40); `theorem_5_5_13` proves it for every real Banach space and every $k \in \mathbb N \cup \{\infty\}$: (⇒) $h(x) = (\rho_{n,c}(x)/(n+1))_{(n,c)}$ from partitions of unity subordinate to the balls of radius $1/(n+1)$ is a coordinate-wise $C^k$ embedding into $c_0(\mathbb N \times V)$ (`torunczyk_forward`); (⇐) products $\prod_\gamma\theta((n+1)h(x)(\gamma) - \sigma(\gamma))$ over finitely supported lattice points, made locally finite by Michael's products, give $C^k$ Urysohn functions (`torunczyk_backward`, `exists_contDiff_urysohn_of_embedding`).
 
-- `Polyfold.cZero` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 874
-- `Polyfold.mem_cZero_iff` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 887
-- `Polyfold.norm_cZero` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 900
-- `Polyfold.IsCoordinatewiseContDiffEmbedding` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 908
-- `Polyfold.TorunczykStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 915
+- `Polyfold.cZero` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 879
+- `Polyfold.mem_cZero_iff` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 892
+- `Polyfold.norm_cZero` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 905
+- `Polyfold.IsCoordinatewiseContDiffEmbedding` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 913
+- `Polyfold.TorunczykStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 921
+- `Polyfold.theorem_5_5_13` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 680
+- `Polyfold.torunczyk_forward` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 129
+- `Polyfold.torunczyk_backward` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 670
+- `Polyfold.exists_contDiff_urysohn_of_embedding` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 508
 
 *What differs.*
-- Theorem 5.5.13 (preprint 5.40) is gap G.52 (Findings, Chapter 5, items 114, 117).
+- The text's "max" norm is the supremum. Theorem 5.5.13 (preprint 5.40), cited from [9], is proved (2026-11-12; gap G.52 closed) (Findings, Chapter 5, items 114, 117).
 
 ### V5.60. Definition 5.5.14 (preprint 5.41): WCG spaces
 
@@ -7912,8 +8506,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsWCG`: a set compact in `WeakSpace` with dense span. `IsReflexive`: $V \to V''$ onto.
 
-- `Polyfold.IsWCG` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 930
-- `Polyfold.IsReflexive` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 934
+- `Polyfold.IsWCG` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 936
+- `Polyfold.IsReflexive` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 940
 
 *What differs.*
 - "Reflexive", used in Proposition 5.5.15 (preprint 5.42), is not defined in the text (Findings, Chapter 5, item 114).
@@ -7926,41 +8520,55 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `proposition_5_5_15_reflexive`, `proposition_5_5_15_separable`.
 
-- `Polyfold.proposition_5_5_15_reflexive` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 953
-- `Polyfold.proposition_5_5_15_separable` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 980
-- `Polyfold.span_closedBall_eq_top` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 938
+- `Polyfold.proposition_5_5_15_reflexive` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 959
+- `Polyfold.proposition_5_5_15_separable` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 986
+- `Polyfold.span_closedBall_eq_top` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 944
 
 *What differs.*
 - In (ii) a dense sequence of $V$ scaled by $1/((n + 1)(|y_n| + 1))$ replaces "$\{0\} \cup \{x_n/n\}$" (index range missing in the text) (Findings, Chapter 5, item 115).
 
 ### V5.62. Theorem 5.5.16 (preprint 5.43) as a statement; Hilbert spaces
 
-*not in the book* · Theorem 5.5.16 (preprint 5.43) not proved
+*as in the book* · Theorem 5.5.16 proved · "Banach" = `CompleteSpace`
 
 **HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198); proof of Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)).** Theorem 5.5.16 (preprint 5.43) ([12]): a WCG space with a $C^k$-bump function admits $C^k$ partitions of unity. "A Hilbert space is reflexive and hence a WCG-space."
 
-**Proved in Lean.** `GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.5.16 (preprint 5.43) (not proved). `hasContDiffBump_of_hilbert`: a $C^\infty$-bump $\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\|v\|^2 = b(v, v)$ ⇒ reflexive.
+**Proved in Lean.** `GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.5.16 (preprint 5.43): WCG and a $C^k$ bump ⇒ $C^k$ partitions of unity subordinate to every open cover. `theorem_5_5_16 (V) [CompleteSpace V] (k)` proves it for every real Banach space of any density and every $k$: the Amir–Lindenstrauss projectional resolution of the identity, built from Lindenstrauss pairs (`IsLPair.exists_proj`; `priP_cont`, `pri_finite`, `pri_approx`), strong induction on a cardinal bounding a dense set (`admitsContDiffPartitionsOfUnity_of_wcg_card`), the separable case as base (`admitsContDiffPartitionsOfUnity_of_separable`, Bonic–Frampton), and the gluing lemma (`isRelC0Base_glue`) through Toruńczyk's theorem (V5.59). Hilbert spaces of any density directly: `godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace`. `hasContDiffBump_of_hilbert`: a $C^\infty$-bump $\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\|v\|^2 = b(v, v)$ ⇒ reflexive.
 
-- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1072
-- `Polyfold.hasContDiffBump_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1020
-- `Polyfold.isReflexive_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1040
+- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1079
+- `Polyfold.hasContDiffBump_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1026
+- `Polyfold.isReflexive_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1046
+- `Polyfold.theorem_5_5_16` — Polyfold/Chapter5/GapP1_GTWZ.lean, line 199
+- `Polyfold.admitsContDiffPartitionsOfUnity_of_wcg_card` — Polyfold/Chapter5/GapP1_GTWZ.lean, line 96
+- `Polyfold.isRelC0Base_glue` — Polyfold/Chapter5/GapP1_C0Base.lean, line 236
+- `Polyfold.IsLPair.exists_proj` — Polyfold/Chapter5/GapP1_LindenstraussPair.lean, line 144
+- `Polyfold.priP_cont` — Polyfold/Chapter5/GapP1_WCGPRI.lean, line 191
+- `Polyfold.pri_finite` — Polyfold/Chapter5/GapP1_WCGPRI.lean, line 54
+- `Polyfold.pri_approx` — Polyfold/Chapter5/GapP1_WCGPRI.lean, line 82
+- `Polyfold.admitsContDiffPartitionsOfUnity_of_separable` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 287
+- `Polyfold.godefroyTroyanskiWhitfieldZizlerStatement_of_separable` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 311
+- `Polyfold.godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace` — Polyfold/Chapter5/GapP1_HilbertPOU.lean, line 237
 
 *What differs.*
-- Theorem 5.5.16 (preprint 5.43) is gap G.53 (Findings, Chapter 5, items 116, 117).
+- The recorded statement leaves completeness out; `theorem_5_5_16` assumes `CompleteSpace`, the text's "Banach". The theorem, cited from [12] and [9], is proved (2026-11-12; gap G.53 closed); the route avoids Krein's and the Eberlein–Šmulian theorems and transfinite recursion (Findings, Chapter 5, items 116, 117, 184).
 
 ### V5.63. Corollary 5.5.17 (preprint 5.44)
 
-*narrower* · Theorem 5.5.16 (preprint 5.43) a hypothesis
+*restated* · no hypothesis · $E_0$ separable: Bonic–Frampton suffices
 
 **HWZ (§5.5 (preprint §5.4.2), Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)).** If $E_0$ is a Hilbert space, $(O, C, E)$ has the sc-smooth approximation property ("a Hilbert space is reflexive and hence a WCG-space ... from Theorem 5.43 ... in view of Theorem 5.37").
 
-**Proved in Lean.** `corollary_5_5_17`: $\|v\|^2 = b(v, v)$ and Theorem 5.5.16 (preprint 5.43) for $E_0$, $k = \infty$, as a hypothesis ⇒ the approximation property; `admitsScPartitionsOfUnity_of_hilbert` for M-polyfolds covered by such charts.
+**Proved in Lean.** `corollary_5_5_17_unconditional`: if $\|v\|^2 = b(v, v)$ on $E_0$, the local model has the sc-smooth approximation property, with no further hypothesis. $E_0$ is separable for every sc-Banach space: the range of the compact inclusion $E_1 \to E_0$ is separable and dense (`ScBanach.separableSpace_zero`). Theorem 5.5.16 is proved for separable spaces (`admitsContDiffPartitionsOfUnity_of_separable`; in general `theorem_5_5_16`, V5.62), and Proposition 5.5.11 applies. `MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional` is the M-polyfold form. `corollary_5_5_17` (Theorem 5.5.16 for $E_0$ as a hypothesis) and `admitsScPartitionsOfUnity_of_hilbert` are kept.
 
-- `Polyfold.corollary_5_5_17` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1083
-- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1101
+- `Polyfold.corollary_5_5_17` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1091
+- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1109
+- `Polyfold.corollary_5_5_17_unconditional` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 325
+- `Polyfold.ScBanach.separableSpace_zero` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 71
+- `Polyfold.admitsContDiffPartitionsOfUnity_of_separable` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 287
+- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 338
 
 *What differs.*
-- "In view of Theorem 5.37" is Proposition 5.5.11 (preprint 5.38); the bump Theorem 5.5.16 (preprint 5.43) needs is the classical $C^\infty$ one (Findings, Chapter 5, item 116).
+- "In view of Theorem 5.37" is Proposition 5.5.11 (preprint 5.38). The WCG theorem is needed only for separable spaces, where it is the classical Bonic–Frampton construction; the bump it needs is the classical $C^\infty$ one (Findings, Chapter 5, items 116, 117, 184).
 
 ### V5.64. Definition 5.2.1 (preprint 5.4), 2021 form: weakly proper on $U$, weakly proper$_{<\infty}$, proper$_{<\infty}$
 
@@ -8045,7 +8653,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.isCompactFredholmRestriction_of_eq_empty` — Polyfold/Chapter5/Book2021.lean, line 445
 
 *What differs.*
-- 2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\tau$, $0 < \tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is still not formalized (gap G.47; Findings, Chapter 5, items 175, 176).
+- 2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\tau$, $0 < \tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is formalized on this definition as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, items 175, 176).
 
 ### V5.69. Lemma 5.3.16 (preprint 5.23) under the 2021 Definition 5.3.13 (3)
 
@@ -8060,7 +8668,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.exists_isCompl_ker_of_ne_zero` — Polyfold/Chapter5/Homotopy.lean, line 162
 
 *What differs.*
-- The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\ell$ is non-zero, its smoothness is not part of the statement (gap G.48 changed; Findings, Chapter 5, items 101, 178).
+- The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\ell$ is non-zero, its smoothness is not part of the statement (Theorem 5.3.15: V5.71, gap G.48 closed; Findings, Chapter 5, items 101, 178).
 
 ### V5.70. A generalized compact homotopy in the 2021 sense that is not one in the earlier sense
 
@@ -8078,9 +8686,166 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 *What differs.*
 - Not in the book (Findings, Chapter 5, item 177).
 
+### V5.71. Theorem 5.3.15 (preprint 5.22): general position and Morse-type critical points of $t$
+
+*stronger* · no bump functions on $X_i$ · Morse-type via parametrizations · no added hypothesis
+
+**HWZ (§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))).** For a generalized compact homotopy with end problems in general position and $\partial X = X_0 \sqcup X_1$, an arbitrarily small $s_0 \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \to [0, 1]$ a function with only Morse-type critical points.
+
+**Proved in Lean.** `theorem_5_3_15`: $X$ with sc-smooth bump functions, $(f, t)$ a generalized compact homotopy (`IsSubmersiveGenCompactHomotopy`, Definition 5.3.13 in the 2021 form, V5.68), the ends $X_i = t^{-1}(i)$ without boundary and $(f|X_i, x)$ in general position at every zero (`IsGeneralPositionAtEnds`), $\partial X = X_0 \cup X_1$, $N$ an auxiliary norm. Then there is an open $U \supseteq S_f$ with $S_{f+s}$ compact for every $s \in \Gamma^{+,1}_U(P)$, and for every $\varepsilon > 0$ an $s_0 \in \Gamma^{+,1}_U(P)$ with $N(s_0(x)) \le \varepsilon$, $s_0 = 0$ near $\partial X$, such that (1) $(f + s_0, x)$ is in general position at every $x \in S_{f+s_0}$ and (2) $t$ has only Morse-type critical points on $S_{f+s_0}$ (`MPolyfold.HasOnlyMorseCriticalPoints`). Conclusion (1) alone, with the same hypotheses, is `theorem_5_3_15_generalPosition`; the general position at $\partial X$ comes from the ends (`isGeneralPositionGerm_of_mem_boundary`, `isGeneralPositionGerm_of_restrict`). The local data of the proof are derived (`StrongBundle.hasMorseLocalData`): smooth parametrizations of the families with $\mu$ a submersion (`hasFamilyParam`), small sections making an interior zero a regular point (`exists_hasRegularFamilyParam`), and regular points of $t|S$ at the zeros on $\partial X$ at every degeneracy index (`isRegularPointOn_of_extremum`, from `scDeriv_eq_zero_of_extremum`). "Morse-type" does not depend on the parametrization (`MPolyfold.IsMorseOrRegularPoint.morseClause`). The hypotheses are satisfiable (`theorem_5_3_15_generalPosition_witness`).
+
+- `Polyfold.theorem_5_3_15` — Polyfold/Chapter5/Theorem5315_Final.lean, line 61
+- `Polyfold.theorem_5_3_15_generalPosition` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 452
+- `Polyfold.StrongBundle.IsGeneralPositionAtEnds` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 401
+- `Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isGeneralPositionGerm_of_mem_boundary` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 418
+- `Polyfold.isGeneralPositionGerm_of_restrict` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 323
+- `Polyfold.theorem_5_3_15_generalPosition_witness` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 475
+- `Polyfold.StrongBundle.hasMorseLocalData` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 611
+- `Polyfold.StrongBundle.hasFamilyParam` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 403
+- `Polyfold.StrongBundle.exists_hasRegularFamilyParam` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 479
+- `Polyfold.StrongBundle.isRegularPointOn_of_extremum` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 141
+- `Polyfold.scDeriv_eq_zero_of_extremum` — Polyfold/Chapter5/Theorem5315_LocalTangent.lean, line 284
+- `Polyfold.StrongBundle.exists_fderivWithin_eq_scDeriv_of_mem_linKer` — Polyfold/Chapter5/Theorem5315_LocalTangent.lean, line 227
+- `Polyfold.MPolyfold.IsSmoothParam` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 73
+- `Polyfold.MPolyfold.IsMorseOrRegularPoint` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 130
+- `Polyfold.MPolyfold.HasOnlyMorseCriticalPoints` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 138
+- `Polyfold.MPolyfold.IsMorseOrRegularPoint.morseClause` — Polyfold/Chapter5/Theorem5315_LocalInvarianceClause.lean, line 182
+- `Polyfold.MPolyfold.IsSmoothParam.fderivWithin_ne_zero_congr` — Polyfold/Chapter5/Theorem5315_LocalInvarianceClause.lean, line 97
+- `Polyfold.MPolyfold.IsSmoothParam.hessian_injective_congr` — Polyfold/Chapter5/Theorem5315_LocalInvariance.lean, line 58
+
+*What differs.*
+- No added hypothesis. The bump functions on the $X_i$ are not assumed, and of $\partial X = X_0 \sqcup X_1$ only $\partial X \subseteq X_0 \cup X_1$ is used. The end problems are the restrictions $f|X_i$ in the pull-back bundles (Definition 5.3.13 (2) as read in V5.68; up to isomorphism, Remark 5.3.14 is V5.73).
+- "Morse-type critical points" (not defined in the text) is read through smooth parametrizations of $S_{f+s_0}$: around every point a parametrization by a subset of $\mathbb R^n$ with unique derivatives in which a critical point of $t$ is interior with injective Hessian; the clause then holds in every such parametrization (`IsMorseOrRegularPoint.morseClause`). The comparison with the charts of the Mathlib manifold structure of the solution set is not formalized.
+- The hidden hypothesis $dt(x) \ne 0$ of V5.42 is supplied by the 2021 Definition 5.3.13 (3) (V5.69). At a zero on $\partial X$, $t$ has an extremum, so $dt(x)$ vanishes on the reduced tangent space at every degeneracy index; with general position $dt(x) \ne 0$ on $\ker f'(x)$ (Findings, Chapter 5, items 101, 178, 183).
+- The proof is V5.72 (gap G.48 closed).
+
+### V5.72. Proof of Theorem 5.3.15 (preprint 5.22): (5.12)–(5.14), the parametrized Sard step and the covering argument
+
+*hypotheses explicit* · Lagrange multipliers · no $\Phi_\lambda$ · equal-dimension Sard · smooth tangent vector
+
+**HWZ (§5.3, proof of Theorem 5.3.15 (preprint 5.22), pp. 223–228 (preprint pp. 181–186)).** Near a critical point of $t|S$, sections $s_i$ built with Lemma 5.3.17 and a trivialization $\Phi_\lambda : S \to S_\lambda$ of the family $f + \sum\lambda_is_i$ make $(\lambda, y) \mapsto d(t \circ \Phi_\lambda)(y)$ transversal to the zero section ((5.12)–(5.14)); a parameterized version of Sard's theorem gives, for almost every small $\lambda$, only Morse-type critical points near that point; finitely many such neighbourhoods cover the solution set, and "by construction" the union of the families keeps the transversality.
+
+**Proved in Lean.** In a chart: `ae_hasOnlyMorseCriticalPointsOn` ($g : \Lambda \times E \to \mathbb R$ of class $C^2$ with $(\lambda, z) \mapsto \partial_zg$ transversal to $0$: for almost every $\lambda$, $g(\lambda, \cdot)$ has only Morse-type critical points), from `ae_forall_injective_of_surjective` (inverse function theorem and Sard in equal dimensions); `ae_hasOnlyMorseCriticalPointsOn_add_linear` ($h + \ell$ is Morse for almost every $\ell \in E^*$). On the solution manifold: the sections are $a_i\sigma$, so $S_\lambda$ is a level set in the solution manifold $M$ of $f + \sum\mu_j\sigma_j$ (`famZero`, `isZeroAt_paramSlice_smul_iff`); critical points of $t$ on level sets are handled with Lagrange multipliers (`lagrangian`, `IsLagrangeNondegenerate`, `injective_hessian_comp_of_lagrange`, `exists_levelSet_param`); (5.13)–(5.14) become `surjective_fderiv_famGradient`; the Sard step for the family is `ae_isLagrangeNondegenerate_family`, the local statement `ae_isMorseOrRegularPoint_famSlice`; the transversality persists in the union of the families (`exists_spanning_of_group`); the covering argument is `exists_morse_perturbation_hyp`, and `theorem_5_3_15_hyp` the theorem from the local data, discharged by `StrongBundle.hasMorseLocalData` (V5.71).
+
+- `Polyfold.ae_hasOnlyMorseCriticalPointsOn` — Polyfold/Chapter5/Theorem5315_ParametricMorse.lean, line 252
+- `Polyfold.ae_forall_injective_of_surjective` — Polyfold/Chapter5/Theorem5315_ParametricMorse.lean, line 194
+- `Polyfold.ae_hasOnlyMorseCriticalPointsOn_add_linear` — Polyfold/Chapter5/Theorem5315_ParametricMorse.lean, line 295
+- `Polyfold.HasOnlyMorseCriticalPointsOn` — Polyfold/Chapter5/Theorem5315_ParametricMorse.lean, line 230
+- `Polyfold.lagrangian` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 131
+- `Polyfold.IsLagrangeNondegenerate` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 198
+- `Polyfold.fderiv_lagrangian_eq_zero_iff` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 165
+- `Polyfold.injective_hessian_comp_of_lagrange` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 256
+- `Polyfold.exists_levelSet_param` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 347
+- `Polyfold.surjective_fderiv_famGradient` — Polyfold/Chapter5/Theorem5315_MorseFamily.lean, line 324
+- `Polyfold.ae_isLagrangeNondegenerate_family` — Polyfold/Chapter5/Theorem5315_MorseFamily.lean, line 377
+- `Polyfold.ae_isMorseOrRegularPoint_famSlice` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 318
+- `Polyfold.famShift` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 273
+- `Polyfold.exists_spanning_of_group` — Polyfold/Chapter5/Theorem5315_MorseTransfer.lean, line 260
+- `Polyfold.MPolyfold.IsSmoothParam.fderivWithin_eq_zero_of_multiplier` — Polyfold/Chapter5/Theorem5315_MorseTransfer.lean, line 164
+- `Polyfold.famZero` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 108
+- `Polyfold.isZeroAt_paramSlice_smul_iff` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 136
+- `Polyfold.StrongBundle.HasMorseLocalData` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 681
+- `Polyfold.exists_morse_perturbation_hyp` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 315
+- `Polyfold.theorem_5_3_15_hyp` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 709
+- `Polyfold.MPolyfold.TangentGermChart.exists_isSmoothParam` — Polyfold/Chapter5/Theorem5315_LocalParam.lean, line 49
+- `Polyfold.StrongBundle.exists_isSmoothParam_solutionSet` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 90
+- `Polyfold.StrongBundle.exists_isSmoothParam_famZero` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 350
+
+*What differs.*
+- Lagrange multipliers on level sets of the solution manifold of $f + \sum\mu_j\sigma_j$ replace the trivialization $\Phi_\lambda$; only first derivatives of $f$ at the point enter. The parameterized Sard theorem follows in a chart from the inverse function theorem and Sard in equal dimensions (Mathlib).
+- The persistence of the transversality in the union of the families of several critical points (p. 227, "by construction") is proved with the functions $a_0 = 1$ and $a_i = \arctan(q_i)/2$ (Findings, Chapter 5, item 183).
+- The sections of Lemma 5.3.17 pass through $-c\,f'(x)w_1$ for a smooth tangent vector $w_1$ with $dt(x)w_1 \ne 0$: the text's $b(e_i)$ lies in an algebraic complement $Z$, and for the sc$^+$-section through the value to exist (Lemma 5.3.3) the value must be a smooth point of the fibre. Smooth such $w_1$ exist by density (`exists_hasRegularFamilyParam`; Findings, Chapter 5, item 183).
+
+### V5.73. Remark 5.3.8 (preprint 5.16): a general sc-Fredholm arc made transversal
+
+*restated* · D2: $\mathbb R^1 \times X$ · transversal = general position · orientation: G.66
+
+**HWZ (§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)).** For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; "the reader will be able to carry out this construction in more detail".
+
+**Proved in Lean.** `remark_5_3_8_arc`: let $F(t, x) = f_t(x)$ be a section of the pull-back of $P$ to $\mathbb R^1 \times X$ with tame germ data, over a tame $X$ with bump functions, in general position at its zeros with $t \notin (a, b)$ ($0 < a$, $b < 1$), with compact zeros over $[0, 1]$. Then for every $\varepsilon > 0$ there are $0 < c' < a$, $b < d' < 1$ and an sc⁺-section $s$ with $N(s) \le \varepsilon$, $s(t, \cdot) = 0$ for $t \notin (c', d')$, such that $F + s$ is in general position at every zero and its zeros over $[0, 1]$ are compact. It is the instance $\tau = t$, $[c, d] = [0, 1]$ of `remark_5_3_8_relative` (any continuous time function $\tau$ on a tame $X$), proved through Theorem 5.3.10 relative to a compact part; `exists_margin_of_isCompact` gives the compactness margin. The arcs $f_0 + S(t, \cdot)$ between admissible sections are `exists_cobordism`, `exists_homotopy_cobordism` (V6.76).
+
+- `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/GapP1_Remark538.lean, line 172
+- `Polyfold.remark_5_3_8_relative` — Polyfold/Chapter5/GapP1_Remark538.lean, line 106
+- `Polyfold.exists_margin_of_isCompact` — Polyfold/Chapter5/GapP1_Remark538.lean, line 65
+- `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation2021.lean, line 1599
+- `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation2021.lean, line 946
+- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 789
+
+*What differs.*
+- Reading D2: the text's $[0, 1] \times X$ is $\mathbb R^1 \times X$; "transversal near $t = 0, 1$" is general position at the zeros with $t \notin (a, b)$, and "$s$ vanishing near $t = 0, 1$" is $s(t, \cdot) = 0$ for $t \notin (c', d')$. The compact solution set of the arc is asked over $[0, 1]$. The orientation of the cobordism is gap G.66.
+
+### V5.74. Remark 5.3.14 (preprint 5.21): end problems up to isomorphism, made part of the data
+
+*restated* · isomorphism = strong bundle iso · on the 2021 Definition 5.3.13
+
+**HWZ (§5.3, Remark 5.3.14 (preprint 5.21), p. 223 (preprint p. 181)).** Instead of $(f|X_i, P|Y_i) = (f_i, P_i)$ one should require that the problems are isomorphic and make this part of the data.
+
+**Proved in Lean.** `StrongBundle.IsProblemIso B f B' f'`: a strong bundle isomorphism $(h, \Phi)$ with $\Phi \circ f = f' \circ h$ (`.refl`, `.symm`, `.trans`; `.image_solutionSet`: $h(S_f) = S_{f'}$; `.isCompact_solutionSet_iff`). `StrongBundle.EndIso`: the restriction of the problem to a sub-M-polyfold is isomorphic to a given problem. `StrongBundle.IsGenCompactHomotopyBetween B f t B₀ f₀ B₁ f₁`: a 2021 generalized compact homotopy (`IsSubmersiveGenCompactHomotopy`, V5.68) with `EndIso` at $t^{-1}(0)$ to $(B_0, f_0)$ and at $t^{-1}(1)$ to $(B_1, f_1)$; it is invariant under isomorphism of the end problems (`congr_left`, `congr_right`) and the end solution sets are compact (`isCompact_solutionSet_left`, `isCompact_solutionSet_right`). Every generalized compact homotopy is one between its own restrictions, with identity isomorphisms (`IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween`).
+
+- `Polyfold.StrongBundle.IsProblemIso` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 56
+- `Polyfold.StrongBundle.IsProblemIso.image_solutionSet` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 91
+- `Polyfold.StrongBundle.EndIso` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 145
+- `Polyfold.StrongBundle.IsGenCompactHomotopyBetween` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 161
+- `Polyfold.StrongBundle.IsGenCompactHomotopyBetween.congr_left` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 181
+- `Polyfold.StrongBundle.IsGenCompactHomotopyBetween.congr_right` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 192
+- `Polyfold.StrongBundle.IsGenCompactHomotopyBetween.isCompact_solutionSet_left` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 221
+- `Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 238
+
+*What differs.*
+- "Isomorphic problems" is read as a strong bundle isomorphism carrying $f$ to $f'$; it is put on the 2021 form of Definition 5.3.13 (V5.68). The notion is satisfiable: every generalized compact homotopy is one between its restrictions (Findings, Chapter 5, item 100).
+
+### V5.75. Theorem 5.5.5 (preprint 5.32): the differentiability of $\|\cdot\|^p$ on $L^p$ (Bonic–Frampton)
+
+*as in the book* · any measure space · real $L^p$, $p \ge 1$
+
+**HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)).** On $L^p$, $\|\cdot\|^p$ is $C^\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.
+
+**Proved in Lean.** `BonicFrampton.theorem_5_5_5 (p) [Fact (1 ≤ ENNReal.ofReal p)]`: for $F(f) = \|f\|^p$ on the real $L^p(\mu)$ of any measure space, (1) $p = 2k$ ⇒ $F$ is $C^\infty$; (2) $p = 2k + 1$ ⇒ $F$ is $C^{2k} = C^{p-1}$; (3) $p \notin \mathbb N$ ⇒ $F$ is $C^{[p]}$. For even $p$, $\|\cdot\|^p$ is the diagonal of the continuous $p$-linear form $\int\prod h_i$ (`wMul`, generalized Hölder; `theorem_5_5_5_even`). For every $p \ge 1$ the forms $T_j(f) = \int g_j(f)\prod h_i$, with $g_j$ the $j$-th derivative of $|t|^p$ and $g_j(f) \in L^{p/(p-j)}$, are a Taylor series of $\|\cdot\|^p$ up to every integer $n < p$ (`hasFTaylorSeriesUpTo_normRpow`, `contDiff_normRpow_of_lt`).
+
+- `Polyfold.BonicFrampton.theorem_5_5_5` — Polyfold/Chapter5/GapP1_BonicFrampton.lean, line 582
+- `Polyfold.BonicFrampton.contDiff_normRpow_of_lt` — Polyfold/Chapter5/GapP1_BonicFrampton.lean, line 567
+- `Polyfold.BonicFrampton.hasFTaylorSeriesUpTo_normRpow` — Polyfold/Chapter5/GapP1_BonicFrampton.lean, line 540
+- `Polyfold.BonicFrampton.theorem_5_5_5_even` — Polyfold/Chapter5/GapP1_LpWeightedProduct.lean, line 221
+- `Polyfold.BonicFrampton.wMul` — Polyfold/Chapter5/GapP1_LpWeightedProduct.lean, line 142
+
+### V5.76. The $L^p$ and Sobolev remark after Theorem 5.5.5: $W^{k,p}$ norms, bumps, $W^{1,4}$ and $W^{1,3/2}$
+
+*narrower* · sc-structure on $(0,1)$ only · bumps: every $\Omega$, level 0 only · $\beta(0) \ne 0$
+
+**HWZ (§5.5 (preprint §5.4.2), pp. 230–231 (preprint pp. 193–194)).** The usual norms of $W^{k,p}(\Omega)$ have the differentiability of $\|\cdot\|_{L^p}$; $\beta(\|x\|^p)$ is a bump function of $L^p$; $W^{1,4}(\Omega)$ with $E_m = W^{1+m,4}(\Omega)$ admits sc-smooth bump functions, while for $W^{1,3/2}(\Omega)$ the straightforward one is only sc¹ — "does there exist a sc-smooth bump function on $E$?"
+
+**Proved in Lean.** $W^{k,p}(\Omega)$, $\Omega \subseteq \mathbb R^n$, $p \ge 1$ (`SobolevRemark.Wsub`): the closed subspace of the $\ell^p$-product $\prod_{|\alpha| \le k}L^p(\Omega)$ cut out by the weak-derivative identities; a Banach space with $\|u\|^p = \sum\|D^\alpha u\|^p_{L^p}$ (`norm_rpow_W`), weak derivatives unique on open $\Omega$ (`Dop_zero_injective`). (1) Its norm has the differentiability of Theorem 5.5.5 (`remark_5_5_5_sobolev`). (2) $\beta(\|x\|^p)$ is a bump of $L^p$ and of $W^{k,p}(\Omega)$ in the three cases (`hasContDiffBump_Lp`, `remark_5_5_5_sobolev_bump`). (3) Every sc-Banach space with $E_0 \cong W^{1,4}(\Omega)$ admits sc-smooth bump functions, and so do its local models and M-polyfolds modelled on it (`remark_5_5_5_W14`), through `LocalModel.hasBumpProperty_of_hasContDiffBump`. (4) On $W^{1,3/2}(\Omega)$ the bump $\beta(\|x\|^{3/2})$ is sc¹ (`remark_5_5_5_W1_3_2`). The sc-structure $E_m = W^{1+m,p}(\Omega)$ is `sobolevSc`, which takes the compactness of the inclusions (`hc`) and the density of $E_\infty$ (`hd`) as hypotheses; they are discharged for $\Omega = (0,1) \subset \mathbb R^1$ and every $p > 1$ (`SobolevCube.cubeSc`: Rellich `isCompactOperator_inclW_cube` through the compact Volterra operator, density `dense_smoothLvl_cube`), where `remark_5_5_5_W14_cube`, `remark_5_5_5_W14_instance` and `remark_5_5_5_W1_3_2_cube` give the claims on the text's sc-structure; `sobolevSc_hyps_empty` is the trivial instance $\Omega = \emptyset$.
+
+- `Polyfold.SobolevRemark.Wsub` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 157
+- `Polyfold.SobolevRemark.norm_rpow_W` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 189
+- `Polyfold.SobolevRemark.Dop_zero_injective` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 233
+- `Polyfold.SobolevRemark.remark_5_5_5_sobolev` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 201
+- `Polyfold.SobolevRemark.remark_5_5_5_sobolev_bump` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 210
+- `Polyfold.SobolevRemark.hasContDiffBump_Lp` — Polyfold/Chapter5/GapP1_SobolevRemark1.lean, line 163
+- `Polyfold.SobolevRemark.theorem_5_5_5_sum` — Polyfold/Chapter5/GapP1_SobolevRemark1.lean, line 64
+- `Polyfold.LocalModel.hasBumpProperty_of_hasContDiffBump` — Polyfold/Chapter5/GapP1_SobolevRemark1.lean, line 184
+- `Polyfold.SobolevRemark.remark_5_5_5_W14` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 137
+- `Polyfold.SobolevRemark.remark_5_5_5_W1_3_2` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 165
+- `Polyfold.SobolevRemark.sobolevSc` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 191
+- `Polyfold.SobolevRemark.sobolevSc_hyps_empty` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 241
+- `Polyfold.SobolevRemark.sobolevSc_admitsBumpFunctions` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 216
+- `Polyfold.SobolevRemark.example_1_1_3_scPolyfold` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 94
+- `Polyfold.SobolevCube.isCompactOperator_V` — Polyfold/Chapter5/GapP1_SobolevCube1.lean, line 275
+- `Polyfold.SobolevCube.isCompactOperator_inclW_cube` — Polyfold/Chapter5/GapP1_SobolevCube4.lean, line 74
+- `Polyfold.SobolevCube.dense_smoothLvl_cube` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 135
+- `Polyfold.SobolevCube.cubeSc` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 156
+- `Polyfold.SobolevCube.remark_5_5_5_W14_cube` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 165
+- `Polyfold.SobolevCube.remark_5_5_5_W14_instance` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 175
+- `Polyfold.SobolevCube.remark_5_5_5_W1_3_2_cube` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 183
+
+*What differs.*
+- The remark presupposes that $E_m = W^{1+m,4}(\Omega)$ is an sc-structure on any bounded domain $\Omega \subseteq \mathbb R^n$. `sobolevSc` takes the compactness of the inclusions and the density of $E_\infty$ as hypotheses; they are proved only for the unit interval $(0,1) \subset \mathbb R^1$, every $p > 1$ (`cubeSc`). Cubes in $\mathbb R^n$ with $n \ge 2$ and other bounded domains (where, as we read it, a regular boundary is presupposed) are not done; hence narrower.
+- The bump statements (3), (4) are stronger than printed: they hold for every sc-structure on $W^{1,4}(\Omega)$ resp. $W^{1,3/2}(\Omega)$ and every $\Omega$, since they use only $E_0$. "Non-vanishing $\beta$" is read as $\beta(0) \ne 0$, as in the Hilbert example on p. 229.
+- The closing question is a question, not a claim (Findings, Chapter 5, items 118, 185).
+
 ## Chapter 6
 
-*HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) under two stated hypotheses (V6.76)*
+*HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) (V6.76)*
 
 ### V6.1. Definition 6.2.1 (preprint 6.1): the space $\mathrm{Lin}(f, x)$ of linearizations
 
@@ -8220,7 +8985,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.8. Definition 6.4.1 (preprint 6.7): the determinant $\det(T)$
 
-*as in the book* · alternative definition: gap G.57
+*as in the book* · alternative definition: V6.78
 
 **HWZ (§6.4 (preprint §6.3), Definition 6.4.1 (preprint 6.7), p. 246 (preprint p. 208)).** For a bounded Fredholm operator $T : E \to F$ between real Banach spaces, $\det(T) = \lambda(\ker T) \otimes \lambda^*(\operatorname{coker} T)$, a line. Some authors use $\lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$; the two are naturally isomorphic given a convention identifying $\lambda^*(A)$ and $\lambda(A^*)$.
 
@@ -8232,7 +8997,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.linDetEquivOfEq` — Polyfold/Chapter6/FredholmDet.lean, line 60
 
 *What differs.*
-- As in the text; the alternative definition and its identification with Definition 6.4.1 (preprint 6.7) are not formalized and not used (gap G.57; Findings, Chapter 6, item 10).
+- As in the text; the alternative definition and its identification with Definition 6.4.1 (preprint 6.7) are formalized since 2026-11-12 and not used (V6.78, gap G.57 closed; Findings, Chapter 6, item 10).
 
 ### V6.9. Definition 6.4.2 (preprint 6.8): orientations of a Fredholm operator
 
@@ -8384,7 +9149,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.18. Proposition 6.4.15 (preprint 6.15): the isomorphism $\iota_\varphi : \det(T) \to \det(T_\varphi)$
 
-*restated* · $m + l = n$ proved · (95): gap G.58
+*restated* · $m + l = n$ proved · (95): V6.79
 
 **HWZ (§6.4 (preprint §6.3), Proposition 6.4.15 (preprint 6.15), p. 257 (preprint p. 213)).** With (94), $\iota_\varphi$ is given as follows: for a basis $a$ of $\ker T$, $\bar d_i = \varphi(\bar c_i) + R(T)$ a basis of $F/R(T)$ and $\bar b_j = (b_j, r_j)$ completing $(a_i, 0)$ to a basis of $\ker T_\varphi$, the $r_j$ and $\bar c_i$ form a basis of $\mathbb R^n$, and $\iota_\varphi(h) = \det(\bar c_1, \dots, \bar c_m, r_1, \dots, r_l)^{-1}((a_1, 0) \wedge \dots \wedge (a_k, 0) \wedge \bar b_1 \wedge \dots \wedge \bar b_l) \otimes 1^*$.
 
@@ -8398,7 +9163,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 *What differs.*
 - The two facts the text notices, $m + l = n$ and the basis of $\mathbb R^n$, are proved. The statement calls $\psi$ "$\varphi$", already the name of the stabilizing map (possible misprint) (Findings, Chapter 6, item 9).
-- The identification (95) and the maps $V \otimes \lambda(\mathbb R^n) \to V$, $V \otimes \lambda^*(\mathbb R^n) \to V$ after the proposition are not formalized; the formal statements use (94) only (gap G.58; Findings, Chapter 6, item 10).
+- The identification (95) and the maps $V \otimes \lambda(\mathbb R^n) \to V$, $V \otimes \lambda^*(\mathbb R^n) \to V$ after the proposition are formalized since 2026-11-12 (V6.79, gap G.58 closed); the formal statements use (94) only (Findings, Chapter 6, item 10).
 
 ### V6.19. Definition 6.4.16 (preprint 6.16): the direct sum convention
 
@@ -8620,11 +9385,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.32. Proposition 6.6.3 (preprint 6.28): the neighbourhoods $U(x)$
 
-*narrower* · (1′) in place of (1): gap G.61 · global sections, bump functions · (3) for families $\mathbb R^n \to X$
+*narrower* · (1′) in place of (1): gap G.61 · global sections, bump functions · (3) for families $\mathbb R^n \to X$ · (3), (4) on $[0,1]^n \times X$
 
 **HWZ (§6.6 (preprint §6.5), Proposition 6.6.3 (preprint 6.28), p. 263 (preprint p. 220) (proof pp. 263–264 (preprint pp. 220–221))).** For an sc-Fredholm section $f$, every smooth $x$ has an open $U$ with (1) $U$ sc-smoothly contractible; (2) $\{y \in \operatorname{cl}_X(U) \mid f(y) = 0\}$ compact; (3) for every sc-smooth path $\varphi : [0, 1] \to U$ an sc⁺-section $s : U \times [0, 1] \to Y$ with $s(\varphi(t), t) = f(\varphi(t))$; (4) for $t_0 \in [0, 1]$, $y_0 \in U_\infty$ and a smooth $e_0 \in Y_{y_0}$ an sc⁺-section $q$ with $q(y_0, t_0) = e_0$. The proof contracts $U = r(V')$, $V'$ convex, by $(t, y) \mapsto r(ty)$.
 
-**Proved in Lean.** `proposition_6_6_3` (bump functions): open $U \subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\{y \in \operatorname{cl}(U) \mid f(y) = 0\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n) \subseteq W$ an sc⁺-section $S$ of $\pi^*P \to \mathbb R^n \times X$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \in [0, 1]^n$ only through $\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\mathbb R^n \times X$ and $\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`).
+**Proved in Lean.** `proposition_6_6_3` (bump functions): open $U \subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\{y \in \operatorname{cl}(U) \mid f(y) = 0\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n) \subseteq W$ an sc⁺-section $S$ of $\pi^*P \to \mathbb R^n \times X$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \in [0, 1]^n$ only through $\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\mathbb R^n \times X$ and $\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`). `proposition_6_6_3_three_interval`, `proposition_6_6_3_four_interval`: (3) and (4) for paths $[0, 1] \to X$ with sc⁺-sections over the M-polyfold $[0, 1] \times X$, with $(f + S)(t, \varphi(t)) = 0$ for every $t \in [0, 1]$. `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`: (3), (4) for families $[0,1]^n \to X$ over the M-polyfold with corners $[0,1]^n \times X$ (`cubePolyfold`).
 
 - `Polyfold.IsScHomotopyRel` — Polyfold/Chapter6/OrientableNbhd.lean, line 276
 - `Polyfold.pt1` — Polyfold/Chapter6/OrientableNbhd.lean, line 267
@@ -8638,35 +9403,49 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.proposition_6_6_3` — Polyfold/Chapter6/OrientableNbhd.lean, line 529
 - `Polyfold.MPolyfold.paracompactSpace_prod` — Polyfold/Chapter2/FibredProduct.lean, line 455
 - `Polyfold.paracompactSpace_pullbackSpace` — Polyfold/Chapter2/StrongBundlePullback.lean, line 555
+- `Polyfold.proposition_6_6_3_three_interval` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 362
+- `Polyfold.proposition_6_6_3_four_interval` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 509
+- `Polyfold.proposition_6_6_3_three_cube` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 507
+- `Polyfold.proposition_6_6_3_four_cube` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 605
+- `Polyfold.cubePolyfold` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 213
 
 *What differs.*
 - As we read it, (1) is not established for $U$ by the proof: $r(ty)$ contracts $r(V)$ for a convex $V$, but for $U = r(V')$ it needs $r(V') \subseteq V'$, which is not stated. What Theorem 6.6.11 (preprint 6.35) uses is (1′), proved with $W = O \cap B_\delta$, $U = O \cap B_{\delta'}$, $r(B_{\delta'}) \subseteq B_\delta$ and the homotopy $\Phi(\tau, t) = r((1 - \rho(\tau))\varphi(\gamma_0(t)) + \rho(\tau)\varphi(\gamma_1(t)))$ in the chart (gap G.61; Findings, Chapter 6, item 45).
 - The sections of (3) and (4) are global sc⁺-sections of the pull-back, made with bump functions, in place of sections over $U \times [0, 1]$ after "assuming $X = U$" (the text assumes partitions of unity from §6.3 (preprint §6.2) on); (3) is stated for families, as the homotopies of Theorem 6.6.11 (preprint 6.35) need it. Neither the smoothness of $x$ nor the tameness of $X$ is used (Findings, Chapter 6, items 43, 46).
-- Paths and families are maps on $\mathbb R$, $\mathbb R^n$ of which only $[0, 1]$, $[0, 1]^n$ matters, and $U \times [0, 1]$ is read through $\mathbb R^n \times X$ (decision D2; gap G.65).
+- Paths and families are maps on $\mathbb R$, $\mathbb R^n$ of which only $[0, 1]$, $[0, 1]^n$ matters, and $U \times [0, 1]$ is read through $\mathbb R^n \times X$ (decision D2; gap G.65). (3) and (4) are also proved for paths over the M-polyfold $[0, 1] \times X$ and for families on $[0, 1]^n$ over the M-polyfold $[0, 1]^n \times X$ (2026-11-12, `proposition_6_6_3_three_interval`, `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`); Lemmas 6.6.4–6.6.5 are proved in both forms (V6.33, V6.34).
 
 ### V6.33. Lemma 6.6.4 (preprint 6.29): the sections $s_1, \dots, s_k$
 
-*narrower* · $X$ tame, tame germ data · general position of $F$, not (P) · the proof of Theorem 5.3.10 (preprint 5.18)
+*restated* · $X$ tame, tame germ data · (P) from the general position of $F$ · the proof of Theorem 5.3.10 (preprint 5.18) · on $[0,1]^n$ as printed
 
 **HWZ (§6.6 (preprint §6.5), the section $F$, preprint p. 221; Lemma 6.6.4 (preprint 6.29) and the paragraph after it, preprint p. 222).** With $s(\varphi(t), t) = f(\varphi(t))$ and $F(t, y, \lambda) = f(y) - s(y, t) + \sum\lambda_is_i(y, t)$ on $[0, 1] \times X \times \mathbb R^k$, there are finitely many sc⁺-sections $s_1, \dots, s_k$ with (P): for every fixed $t$, $F_t$ is at $(\varphi(t), 0)$ in general position to the boundary of $X \times \mathbb R^k$. (P) implies that $F$ is in general position at all $(t, \varphi(t), 0)$. The choice is made "using the results from the transversality theory".
 
-**Proved in Lean.** `lemma_6_6_4` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\Phi : \mathbb R^n \to X$ and an sc⁺-section $S$ of $\pi^*P$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \dots, s_k$ of $\pi^*P$ such that $F(\lambda, (q, y)) = f(y) + S(q, y) + \sum\lambda_is_i(q, y)$ is in general position at $(0, (q, \Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`).
+**Proved in Lean.** `lemma_6_6_4` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\Phi : \mathbb R^n \to X$ and an sc⁺-section $S$ of $\pi^*P$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \dots, s_k$ of $\pi^*P$ such that $F(\lambda, (q, y)) = f(y) + S(q, y) + \sum\lambda_is_i(q, y)$ is in general position at $(0, (q, \Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`). `lemma_6_6_4_propertyP`: the same sections also give (P), the general position of every slice $F_q$ at $(0, \Phi(q))$ (`isGeneralPositionGerm_slice`). On $[0,1]^n$ itself: `lemma_6_6_4_propertyP_cube`. There are sc⁺-sections over $[0,1]^n \times X$ such that, for **every** $q \in [0,1]^n$, the slice $F_q$ is in general position at $(0,\Phi(q))$ (P) and $F$ is in general position at $(0,(q,\Phi(q)))$. The two are equivalent at every $q$ (`isGeneralPositionGerm_cubeSlice_iff`). `lemma_6_6_4_cube`: general position of $F$ on $[0,1]^n$ for an sc-smooth $\Phi : [0,1]^n \to X$, with $S$ from Proposition 6.6.3 (3) in `lemma_6_6_4_cube_family`.
 
 - `Polyfold.isZeroAt_paramSection_zero` — Polyfold/Chapter6/Lemma629.lean, line 81
 - `Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact` — Polyfold/Chapter6/Lemma629.lean, line 102
 - `Polyfold.lemma_6_6_4` — Polyfold/Chapter6/Lemma629.lean, line 203
+- `Polyfold.lemma_6_6_4_propertyP` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 391
+- `Polyfold.isGeneralPositionGerm_slice` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 330
+- `Polyfold.isParamGP_slice_of_isParamGP` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 197
+- `Polyfold.lemma_6_6_4_propertyP_cube` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 484
+- `Polyfold.isGeneralPositionGerm_cubeSlice_iff` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 415
+- `Polyfold.isParamGP_cubeSlice_of_isParamGP` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 190
+- `Polyfold.isParamGP_of_isParamGP_cubeSlice` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 269
+- `Polyfold.lemma_6_6_4_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 129
+- `Polyfold.lemma_6_6_4_cube_family` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 171
 
 *What differs.*
 - The text gives no proof; the one formalized is that of Theorem 5.3.10 (preprint 5.18) (V5.38), under its hypotheses, which are the standing ones of §6.6 (preprint §6.5) (Findings, Chapter 6, item 47).
-- The conclusion is the general position of $F$ at the points $(t, \varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.6.5, 6.6.6 (preprint 6.30, 6.31) use. (P) itself, the general position of each slice $F_t$, is not stated; as we read it, it follows, since the tangent vectors of the family of zeros lie in $\ker F'$ and $\mathbb R^n$ has no boundary (gap G.63; Findings, Chapter 6, item 47).
+- The conclusion of `lemma_6_6_4` is the general position of $F$ at the points $(t, \varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.6.5, 6.6.6 (preprint 6.30, 6.31) use. (P) is derived from the general position of $F$, the converse of the text's order: the tangent vectors of the family of zeros lie in $\ker F'$, and $\mathbb R^n$ has no boundary (`isParamGP_slice_of_isParamGP`; gap G.63 closed; Findings, Chapter 6, item 47). (2026-11-12: on $[0,1]^n$ itself, (P) and the general position of $F$ hold at every $q$, boundary points included, and are equivalent there. The direction (P) ⟹ $F$ is the text's 'automatically implies'. On the boundary, the $\mathbb R^n$ argument is replaced by a one-sided minimum along reduced directions (`mem_minimalSubspaceWith_of_hasFDerivWithinAt`).)
 
 ### V6.34. Lemma 6.6.5 (preprint 6.30): the kernels along a family of zeros
 
-*narrower* · a continuous family of kernels · manifold near the family: proved · $\pi$ off the family, $S_t$: G.62
+*restated* · a continuous family of kernels · manifold near the family: proved · smooth $L$: proved (one chart)
 
 **HWZ (§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30), p. 265 (preprint p. 222)).** The solution set $S$ of $F = 0$ near $(t, \varphi(t), 0)$ is a smooth manifold with boundary with corners containing $\{(t, \varphi(t), 0)\}$; by (P) the projection $\pi : S \to [0, 1]$ is a submersion, and its fibres $S_t$ are manifolds with boundary with corners. $L_t = T_{(\varphi(t),0)}S_t = \ker F_t'(\varphi(t), 0)$, and $L$ is a smooth vector bundle over $[0, 1]$.
 
-**Proved in Lean.** For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\mathbb R^n \to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`). `lemma_6_6_5_isManifold`, `lemma_6_6_5_isSubmanifoldOfDim`: near $(0, (q, \Phi(q)))$, $q$ near $[0, 1]^n$, the solution set of $F$ is a Mathlib manifold with boundary and corners and a submanifold of dimension the index. `lemma_6_6_5_submersion`: at these points the tangent space is $\ker F'$ (in the product chart) and $d\pi$ maps it onto $\mathbb R^n$ (`exists_mem_linKer_sliceProj_eq`).
+**Proved in Lean.** For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\mathbb R^n \to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`). `lemma_6_6_5_isManifold`, `lemma_6_6_5_isSubmanifoldOfDim`: near $(0, (q, \Phi(q)))$, $q$ near $[0, 1]^n$, the solution set of $F$ is a Mathlib manifold with boundary and corners and a submanifold of dimension the index. `lemma_6_6_5_submersion`: at these points the tangent space is $\ker F'$ (in the product chart) and $d\pi$ maps it onto $\mathbb R^n$ (`exists_mem_linKer_sliceProj_eq`). `lemma_6_6_5_fibre_isManifold`: the fibres $S_q$ near $(0,\Phi(q))$ are Mathlib manifolds with boundary and corners. `lemma_6_6_5_submersion_nhds`: at every zero near the family, $d\pi$ maps $\ker F'$ onto $\mathbb R^n$. `lemma_6_6_5_smoothBundle`: over an open connected $V \supseteq [0,1]^n$, the spaces $L_q = \ker F'(0,(q,z_q)) \cap \{dq = 0\}$ form a smooth family of subspaces (`SmoothSubspaceFamily`) and a Mathlib $C^\infty$ vector bundle (`ContMDiffVectorBundle`), with frames $DS(z_q)b_i$ that are $C^\infty$ into every level (`exists_local_smooth_frame_linKer`). On $[0,1]^n$ itself, at every $q$, boundary points included: `lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_isSubmanifoldOfDim_cube` (the solution set), `lemma_6_6_5_fibre_isManifold_cube` (the fibre $S_q$ is a manifold with boundary and corners near $(0,\Phi(q))$), `lemma_6_6_5_submersion_cube` (in the chart $(\lambda \mapsto \lambda) \times (\chi_q \times \varphi_c)$, the tangent space of $S$ is $\ker F'$, $d\pi$ maps it onto $\mathbb R^n$, and its reduced part onto the reduced tangent space of $[0,1]^n$ at $q$).
 
 - `Polyfold.StrongBundle.IsSurjLinOfIndex.finrank_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 57
 - `Polyfold.exists_local_frame_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 94
@@ -8677,9 +9456,24 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.lemma_6_6_5_isSubmanifoldOfDim` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 208
 - `Polyfold.lemma_6_6_5_submersion` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 253
 - `Polyfold.exists_mem_linKer_sliceProj_eq` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 78
+- `Polyfold.lemma_6_6_5_fibre_isManifold` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 463
+- `Polyfold.isScFredholmSectionTame_slice` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 426
+- `Polyfold.lemma_6_6_5_submersion_nhds` — Polyfold/Chapter6/GapP1_SubmersionNearFamily.lean, line 231
+- `Polyfold.exists_nhds_surjective_linKer` — Polyfold/Chapter6/GapP1_SubmersionNearFamily.lean, line 151
+- `Polyfold.lemma_6_6_5_smoothBundle` — Polyfold/Chapter6/GapP1_SmoothL3.lean, line 244
+- `Polyfold.exists_local_smooth_frame_linKer` — Polyfold/Chapter6/GapP1_SmoothL3.lean, line 85
+- `Polyfold.SmoothSubspaceFamily` — Polyfold/Chapter6/GapP1_SmoothL2.lean, line 46
+- `Polyfold.SmoothSubspaceFamily.contMDiffVectorBundle` — Polyfold/Chapter6/GapP1_SmoothL2.lean, line 293
+- `Polyfold.IsScSmooth.contDiffOn_levelMap_const` — Polyfold/Chapter6/GapP1_SmoothL1.lean, line 49
+- `Polyfold.lemma_6_6_5_isManifold_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 214
+- `Polyfold.lemma_6_6_5_isSubmanifoldOfDim_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 258
+- `Polyfold.lemma_6_6_5_fibre_isManifold_cube` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 525
+- `Polyfold.lemma_6_6_5_submersion_cube` — Polyfold/Chapter6/GapP1_CubeBoundarySubmersion.lean, line 266
+- `Polyfold.submersion_cube_of_isGeneralPositionGerm` — Polyfold/Chapter6/GapP1_CubeBoundarySubmersion.lean, line 193
 
 *What differs.*
-- The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \varphi(t), 0)$, the map $\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48). (2026-11-09: the solution set near the family as a manifold, and $\pi$ as a submersion at the points of the family, are formalized (`Chapter6/SolutionManifoldFamily2021.lean`); $\pi$ off the family, the fibres $S_t$ (property (P) for slices, G.63) and the smooth structure of $L$ are not (gap G.62, in part; Findings, Chapter 6, item 126).)
+- The kernels along the family form a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction; this is what the continuation of orientations uses. (2026-11-09, 2026-11-12: the solution set near the family is a manifold and $\pi$ is a submersion near the family; the fibres $S_t$ near the family are manifolds; $L$ is a $C^\infty$ vector bundle over a neighbourhood of $[0,1]^n$, with frames $DS(z_q)b_i$ that are $C^\infty$ into every level (`lemma_6_6_5_fibre_isManifold`, `lemma_6_6_5_submersion_nhds`, `lemma_6_6_5_smoothBundle`).) The remaining differences are decision D2 and the reading in one chart containing $\Phi([0,1]^n)$, which is the text's "$X = U$"; gap G.62 closed (Findings, Chapter 6, items 48, 126).
+- Also for families on the M-polyfold $[0,1]^n$ itself, whose corners then appear in those of the solution set (`Chapter6/GapP1_CubeLemmas.lean`): there $\pi$ is a submersion in the corner sense at the points over $\partial[0,1]^n$, and the fibres there are manifolds with corners (`lemma_6_6_5_submersion_cube`, `lemma_6_6_5_fibre_isManifold_cube`), read at the chart level: $d\pi$ on $\ker F'$ and on its reduced part, not as a Mathlib submersion of manifolds with corners. The smooth bundle $L$ is over a neighbourhood of $[0,1]^n$ in $\mathbb R^n$ (decision D2).
 
 ### V6.35. Continuous families of subspaces and their determinant lines
 
@@ -8701,7 +9495,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.SubspaceFamily.transport_comp` — Polyfold/Chapter6/SubspaceBundle.lean, line 403
 
 *What differs.*
-- "Vector bundle" is read as a family of subspaces of one model space with continuous local frames; the smooth structure of $L$ is not used (gap G.62).
+- "Vector bundle" is read as a family of subspaces of one model space with continuous local frames; the smooth structure of $L$ is not used; it is formalized as well (V6.34, gap G.62 closed).
 
 ### V6.36. Kernels, images and cuts of continuous families
 
@@ -8833,18 +9627,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.42. Lemma 6.6.5 (preprint 6.30) for the push-forward: the stabilized kernels exist
 
-*narrower* · manifold statements: G.62 (in part)
+*restated* · smooth $L$: proved
 
 **HWZ (§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30) and the bundle $L$ after it, pp. 264–266 (preprint pp. 222–223)).** Along the path the kernels $L_t = \ker F_t'(\varphi(t), 0)$, tangent spaces of the solution manifold $S_t$ of Lemma 6.6.5 (preprint 6.30), form the smooth vector bundle $L$ over $[0, 1]$.
 
-**Proved in Lean.** `exists_isStabKernels`: for an sc-smooth $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n)$ in the domain of a chart, an sc⁺-section $S$ with $f + S = 0$ along $\Phi$ near $[0, 1]^n$ and sc⁺-sections $s_1, \dots, s_k$ as in V6.33, the stabilized kernels of the slices form a continuous family over $[0, 1]^n$ (`IsStabKernels`), the points read through continuous lifts into the chart (`exists_continuousOn_lift_chart`).
+**Proved in Lean.** `exists_isStabKernels`: for an sc-smooth $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n)$ in the domain of a chart, an sc⁺-section $S$ with $f + S = 0$ along $\Phi$ near $[0, 1]^n$ and sc⁺-sections $s_1, \dots, s_k$ as in V6.33, the stabilized kernels of the slices form a continuous family over $[0, 1]^n$ (`IsStabKernels`), the points read through continuous lifts into the chart (`exists_continuousOn_lift_chart`). `lemma_6_6_5_smoothBundle`: the same kernels over an open connected neighbourhood of $[0,1]^n$ form a smooth vector bundle (`SmoothSubspaceFamily`, `ContMDiffVectorBundle ∞`).
 
 - `Polyfold.exists_continuousOn_lift_chart` — Polyfold/Chapter6/StabKernelsExist.lean, line 57
 - `Polyfold.exists_isStabKernels` — Polyfold/Chapter6/StabKernelsExist.lean, line 88
 - `Polyfold.lemma_6_6_5_submersion` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 253
+- `Polyfold.lemma_6_6_5_smoothBundle` — Polyfold/Chapter6/GapP1_SmoothL3.lean, line 244
 
 *What differs.*
-- As V6.34 (gap G.62; the tangent spaces at the family points are $\ker F'$ and project onto $\mathbb R^n$, `lemma_6_6_5_submersion`): the family is the tangent spaces of the solution set (V6.34) cut by $\{dt = 0\}$ (V6.36) and identified with $\ker(T_q \oplus \varphi_q)$ (V6.37) (Findings, Chapter 6, items 48, 126).
+- As V6.34 (gap G.62 closed: $L$ is a $C^\infty$ vector bundle, `lemma_6_6_5_smoothBundle`; the tangent spaces at the family points are $\ker F'$ and project onto $\mathbb R^n$, `lemma_6_6_5_submersion`): the family is the tangent spaces of the solution set (V6.34) cut by $\{dt = 0\}$ (V6.36) and identified with $\ker(T_q \oplus \varphi_q)$ (V6.37) (Findings, Chapter 6, items 48, 126).
+- The continuous family of `exists_isStabKernels` is what the continuation uses; the smooth one is its refinement in the same chart.
 
 ### V6.43. Push-forward data along paths
 
@@ -9034,11 +9830,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.52. The path category $PX$
 
-*restated* · a groupoid · identities: the constant paths · second piece read as $\psi(\beta(s) - 1)$
+*restated* · a groupoid · identities: the constant paths · second piece read as $\psi(\beta(s) - 1)$ · on $[0, 1]$ and on $\mathbb R$, equivalent
 
 **HWZ (§6.6 (preprint §6.5), the classes $[\varphi]$, their composition and the category $PX$, pp. 272–274 (preprint pp. 227–228)).** For $t([\varphi]) = s([\psi])$, $[\psi] * [\varphi]$ is the class of $\gamma$, equal to $\varphi(\beta(s))$ on $[0, 1/2]$ and $\psi(\beta(s))$ on $[1/2, 1]$; this gives a category $PX$ whose objects are the smooth points of $X$ and whose morphisms $x \to y$ are the classes with source $x$ and target $y$.
 
-**Proved in Lean.** `ScHomotopic`: sc-smooth homotopy with the end points fixed, an equivalence relation on the sc-smooth paths `ScPath` between two points (`ScHomotopic.refl`, `ScHomotopic.symm`, `ScHomotopic.trans`). `ScPath.concat` is well defined on classes (`ScPath.concat_congr`), associative (`ScPath.concat_assoc`, via `assocReparam`, `isScHomotopyRel_triHomotopy`), with the classes of the constant paths as units (`ScPath.const_concat`, `ScPath.concat_const`) and the reversed paths as inverses (`ScPath.concat_reverse`, `ScPath.reverse_concat`). `PathCat`: the smooth points with the classes `ScPathClass` form a category (`PathCat.category`), indeed a groupoid (`PathCat.groupoid`).
+**Proved in Lean.** `ScHomotopic`: sc-smooth homotopy with the end points fixed, an equivalence relation on the sc-smooth paths `ScPath` between two points (`ScHomotopic.refl`, `ScHomotopic.symm`, `ScHomotopic.trans`). `ScPath.concat` is well defined on classes (`ScPath.concat_congr`), associative (`ScPath.concat_assoc`, via `assocReparam`, `isScHomotopyRel_triHomotopy`), with the classes of the constant paths as units (`ScPath.const_concat`, `ScPath.concat_const`) and the reversed paths as inverses (`ScPath.concat_reverse`, `ScPath.reverse_concat`). `PathCat`: the smooth points with the classes `ScPathClass` form a category (`PathCat.category`), indeed a groupoid (`PathCat.groupoid`). `PathCatI`: the text's category on $[0, 1]$ itself: paths $[0, 1] \to X$, homotopies sc-smooth on the M-polyfold $[0, 1]^2$ with end points fixed (`ScHomotopicI`), concatenation with the text's $\beta(s) = \kappa(3s) + \kappa(3s - 2)$ (`betaConcat`, `ScPathI.concat_toFun_of_le`, `ScPathI.concat_toFun_of_ge`); a groupoid (`PathCatI.groupoid`), equivalent to `PathCat` (`PathCatI.toPathCat_isEquivalence`).
 
 - `Polyfold.smoothTransition_half` — Polyfold/Chapter6/PathCategory.lean, line 80
 - `Polyfold.isScSmoothMap_const_of_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 87
@@ -9075,9 +9871,22 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.PathCat.mk_eq_mk_iff` — Polyfold/Chapter6/PathCategory.lean, line 878
 - `Polyfold.PathCat.exists_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 883
 - `Polyfold.PathCat.inv_mk` — Polyfold/Chapter6/PathCategory.lean, line 898
+- `Polyfold.PathCatI` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 720
+- `Polyfold.PathCatI.category` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 732
+- `Polyfold.PathCatI.groupoid` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 759
+- `Polyfold.PathCatI.toPathCat` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 770
+- `Polyfold.PathCatI.toPathCat_isEquivalence` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 800
+- `Polyfold.ScPathI.concat` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 553
+- `Polyfold.ScPathI.concat_toFun_of_le` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 578
+- `Polyfold.ScPathI.concat_toFun_of_ge` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 588
+- `Polyfold.ScHomotopicI` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 254
+- `Polyfold.scHomotopicI_iff` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 384
+- `Polyfold.betaConcat` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 431
+- `Polyfold.isScSmoothMap_square_of_contDiff` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 134
+- `Polyfold.isScSmoothMap_toUnitInterval_of_rn` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 77
 
 *What differs.*
-- The edge conditions of a homotopy hold only on $[0, 1]$ (decision D2), so transitivity is proved after reparametrizing by $\kappa$; the identities, which the text does not name, are the classes of the constant paths (Findings, Chapter 6, item 71).
+- The category is built twice: on $[0, 1]$ as in the text (`PathCatI`, homotopies on the M-polyfold $[0, 1]^2$), and on $\mathbb R$ (`PathCat`, decision D2, where the edge conditions of a homotopy hold only on $[0, 1]$ and transitivity is proved after reparametrizing by $\kappa$), and the two are equivalent (`PathCatI.toPathCat_isEquivalence`); the identities, which the text does not name, are the classes of the constant paths (Findings, Chapter 6, item 71).
 - With $\beta([1/2, 1]) = [1, 2]$ the second piece $\psi(\beta(s))$ leaves $[0, 1]$; it is read as $\psi(\beta(s) - 1)$ (possible misprint). Mathlib's $[\varphi] \gg [\psi]$ is the text's $[\psi] * [\varphi]$ (Findings, Chapter 6, item 55).
 
 ### V6.53. Transferring orientations between chart points
@@ -9359,14 +10168,31 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - "A natural orientation" of the manifold $S$ is read as a continuous orientation of its tangent spaces (`TangentOrientation.IsContinuous`), not as an oriented atlas: for the quadrant model the two differ, since in dimension 1 $[0, 1]$ has no atlas of quadrant charts with positive chart changes (a chart at $0$ increases, a chart at $1$ decreases), and in dimension 0 every atlas is oriented while a tangent orientation is a sign at every point. An oriented atlas follows whenever the positive charts cover $S$ (`isOrientedAtlas_positiveCharts`) (Findings, Chapter 6, items 92, 127).
 - Tame germ data is the standing hypothesis of Chapter 5; the orientation $o$ exists iff $f$ is orientable (V6.60). "Proper" is the text's hypothesis; the proof uses only the compactness of $S$, which for sc-Fredholm sections is equivalent to it (V5.10), so nothing of the hypothesis is lost (Findings, Chapter 6, item 90).
 
-### V6.62. Remark 6.6.19 (preprint 6.42): the orientation over $X \times [0, 1]$, at a point
+### V6.62. Remark 6.6.19 (preprint 6.42): the orientation over $X \times [0, 1]$
 
-*narrower* · at a point · 2021 map $e \wedge h$, as printed · $X \times [0, 1]$ as $\mathbb R \times X$
+*restated* · an orientation of $\hat f$ (Def. 6.6.16) · 2021 map $e \wedge h$, as printed · $X \times [0, 1]$ as $\mathbb R \times X$
 
 **HWZ (§6.6 (preprint §6.5), Remark 6.6.19 (preprint 6.42), p. 276 (preprint p. 230)).** For an oriented $(f, o)$ and an sc⁺-section $s$ of $Y \to X \times [0, 1]$, $\hat f(x, t) = f(x) + s(x, t)$ has a natural orientation from $o$ and the standard orientation of $[0, 1]$: for $L = (f - t)'(x)$ oriented by $h = (a_1 \wedge \dots \wedge a_n) \otimes (b_1 \wedge \dots \wedge b_l)^*$, the operator $\tilde L(a, b) = La$ on $T_{(x,t)}(X \times [0, 1])$ is oriented by $\tilde h = (e \wedge a_1 \wedge \dots \wedge a_n) \otimes (b_1 \wedge \dots \wedge b_l)^*$ (2021; the preprint puts $e$ last), $e$ the standard orientation of $[0, 1]$, and $\tilde L$ lies in the linearization space of $\hat f$ at $(x, t)$.
 
-**Proved in Lean.** `extDetFirst`: the 2021 map $h \mapsto \tilde h$, $(a_1 \wedge \dots \wedge a_n) \otimes d^* \mapsto (e \wedge (a_1, 0) \wedge \dots \wedge (a_n, 0)) \otimes d^*$ (`extDetFirst_wedge_tmul`), is $(-1)^{\mathrm{ind}\,L}$ times the sign-normalized `extDetN` (`extDetFirst_eq_indSign_smul_extDetN`); the index being locally constant (`eventually_indSign_eq`), it pulls continuous orientations back (`isLineOrientation_extPullFirst`). `ChartPoint.existsUnique_prodOrFirst`: an orientation $o$ of $\mathrm{DET}(f, x)$ gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f, (t, x))$ with $\hat o(\hat L) = e \wedge o(L)$ for every $L \in \mathrm{Lin}(f, x)$; on $\mathrm{Lin}(f, x)$ the 2021 map is the map of the first form times one constant sign $(-1)^{\mathrm{ind}(f, x)}$ (`exists_extConjDetFirst_eq_sign_smul`). The form first recorded, with $e$ last and the sign $(-1)^{\dim\operatorname{coker}L}$: `extOp`: for Fredholm $L$, $\tilde L = L \oplus 0 : E \times \mathbb R \to F$ is Fredholm (`isFredholm_extOp`) with $\ker\tilde L = \ker L \times \mathbb R$ and $\operatorname{coker}\tilde L = \operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \mapsto \tilde h$, $(a_1 \wedge \dots \wedge a_n) \otimes d^* \mapsto ((a_1, 0) \wedge \dots \wedge (a_n, 0) \wedge e) \otimes d^*$ with $e = (0, 1)$, an isomorphism $\det(L) \cong \det(\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\dim F/R(P) + \dim\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\dim\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \mapsto \tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\hat f = \tilde f + S$, $\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\pi^*P \to \mathbb R \times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\hat L(\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\mathrm{Lin}(\hat f, (t, x))$ for every $L \in \mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\mathrm{DET}(f, x)$ gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f, (t, x))$ with $\hat o(\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \mapsto \hat o$ is injective (`ChartPoint.prodOr_injective`).
+**Proved in Lean.** `SectionOrientation.prodFirst hX hbump hf o hS` (`Chapter6/ProductSectionOrientation2021f.lean`) is an orientation (Definition 6.6.16 (preprint 6.40)) of $\hat f = \tilde f + S$ over $\mathbb R^1 \times X$; in the product chart point over a chart point $p$ of $X$ its value at $\hat L = $ `prodLin` $L$ is $h \mapsto e \wedge h$ (`extConjDetFirst`) of $o(L)$ for every $L \in \mathrm{Lin}(f, x)$ (`ChartPoint.prodOrFirst₀_apply`, `toChartOr_prodFirstFun`). `isSectionOrientation_prodFirstFun`: $(t, x) \mapsto e \wedge o_x$ (`prodFirstFun`) is carried by every push-forward of $\tilde f$: a push-forward datum of $f$ along $\gamma$ lifts to one of $\tilde f$ along $(\tau, \gamma)$ (sections `liftProd`, stabilized kernels $\mathbb R \times \Lambda$, `IsStabKernels.prodLift`, `SubspaceFamily.prodLine`, continuation commuting with $e \wedge \cdot$, `SubspaceFamily.cont_prodLine`), and the lifted push-forward maps $e \wedge o$ to $e \wedge$ (push-forward of $o$) with no sign (`IsPush.prodLift`); the chart of $X$ plays no role (`prodOrOf_orTransfer`). At a point: `extDetFirst`: the 2021 map $h \mapsto \tilde h$, $(a_1 \wedge \dots \wedge a_n) \otimes d^* \mapsto (e \wedge (a_1, 0) \wedge \dots \wedge (a_n, 0)) \otimes d^*$ (`extDetFirst_wedge_tmul`), is $(-1)^{\mathrm{ind}\,L}$ times the sign-normalized `extDetN` (`extDetFirst_eq_indSign_smul_extDetN`); the index being locally constant (`eventually_indSign_eq`), it pulls continuous orientations back (`isLineOrientation_extPullFirst`). `ChartPoint.existsUnique_prodOrFirst`: an orientation $o$ of $\mathrm{DET}(f, x)$ gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f, (t, x))$ with $\hat o(\hat L) = e \wedge o(L)$ for every $L \in \mathrm{Lin}(f, x)$; on $\mathrm{Lin}(f, x)$ the 2021 map is the map of the first form times one constant sign $(-1)^{\mathrm{ind}(f, x)}$ (`exists_extConjDetFirst_eq_sign_smul`). The form first recorded, with $e$ last and the sign $(-1)^{\dim\operatorname{coker}L}$: `extOp`: for Fredholm $L$, $\tilde L = L \oplus 0 : E \times \mathbb R \to F$ is Fredholm (`isFredholm_extOp`) with $\ker\tilde L = \ker L \times \mathbb R$ and $\operatorname{coker}\tilde L = \operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \mapsto \tilde h$, $(a_1 \wedge \dots \wedge a_n) \otimes d^* \mapsto ((a_1, 0) \wedge \dots \wedge (a_n, 0) \wedge e) \otimes d^*$ with $e = (0, 1)$, an isomorphism $\det(L) \cong \det(\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\dim F/R(P) + \dim\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\dim\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \mapsto \tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\hat f = \tilde f + S$, $\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\pi^*P \to \mathbb R \times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\hat L(\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\mathrm{Lin}(\hat f, (t, x))$ for every $L \in \mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\mathrm{DET}(f, x)$ gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f, (t, x))$ with $\hat o(\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \mapsto \hat o$ is injective (`ChartPoint.prodOr_injective`). On a product end the induced orientation of the solution set is the product orientation, the time vector first (`isEndProductOrientation_cobOr`).
 
+- `Polyfold.SectionOrientation.prodFirst` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 311
+- `Polyfold.SectionOrientation.prodFirst₀` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 293
+- `Polyfold.isSectionOrientation_prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 196
+- `Polyfold.prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 139
+- `Polyfold.toChartOr_prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 157
+- `Polyfold.prodOrOf_orTransfer` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 121
+- `Polyfold.IsPush.prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 131
+- `Polyfold.IsStabKernels.orRay_prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 49
+- `Polyfold.prodOrOf` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 113
+- `Polyfold.ChartPoint.prodOrFirst₀` — Polyfold/Chapter6/ProductSectionOrientation2021d.lean, line 79
+- `Polyfold.ChartPoint.prodOrFirst₀_apply` — Polyfold/Chapter6/ProductSectionOrientation2021d.lean, line 88
+- `Polyfold.liftProd` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 38
+- `Polyfold.isScPlusSection_liftProd` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 75
+- `Polyfold.SubspaceFamily.prodLine` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 379
+- `Polyfold.SubspaceFamily.cont_prodLine` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 464
+- `Polyfold.IsStabKernels.prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 727
+- `Polyfold.stabRayEquiv_extConjDetFirst` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 190
 - `Polyfold.ChartPoint.existsUnique_prodOrFirst` — Polyfold/Chapter6/OrientationConvention2021.lean, line 455
 - `Polyfold.ChartPoint.prodOrFirst` — Polyfold/Chapter6/OrientationConvention2021.lean, line 484
 - `Polyfold.extDetFirst` — Polyfold/Chapter6/OrientationConvention2021.lean, line 124
@@ -9405,11 +10231,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ChartPoint.prodOr` — Polyfold/Chapter6/ProductOrientation.lean, line 1165
 - `Polyfold.ChartPoint.prodOr_apply` — Polyfold/Chapter6/ProductOrientation.lean, line 1174
 - `Polyfold.ChartPoint.prodOr_injective` — Polyfold/Chapter6/ProductOrientation.lean, line 1188
+- `Polyfold.isEndProductOrientation_cobOr` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 232
 
 *What differs.*
 - Updated (2026-11-09): **the 2021 convention is used as printed** (`Chapter6/OrientationConvention2021.lean`): with $e$ first, $h \mapsto e \wedge h$ differs from the continuous sign-normalized map by $(-1)^{\mathrm{ind}\,L}$, which is locally constant, so it is continuous in $L$ and no sign is changed. The preprint (Remark 6.42) puts $e$ last; that map, as we read it, is not continuous in $L$ where the parity of $\dim\operatorname{coker}L$ changes, and the first form used the sign $(-1)^{\dim\operatorname{coker}L}$ (the sign of V6.40), which is kept (`extDetN`, `existsUnique_prodOr`) (Findings, Chapter 6, items 95, 122).
-- $X \times [0, 1]$ is read as $\mathbb R \times X$ (decision D2), with the parameter first, so $\tilde L(a, b) = La$ is conjugated by the swap of the factors. Only an orientation of $\mathrm{DET}(f, x)$ at the one point and $\mathrm{Lin}(f, x) \ne \emptyset$ (bump functions, V6.1) are used, not an orientation of $f$ (Findings, Chapter 6, item 96).
-- That $(t, y) \mapsto \hat o$ is an orientation of $\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orientation of $f$, is not formalized (gap G.66; Findings, Chapter 6, item 97).
+- At a point (`ChartPoint.existsUnique_prodOrFirst`): $X \times [0, 1]$ is read as $\mathbb R \times X$ (decision D2), with the parameter first, so $\tilde L(a, b) = La$ is conjugated by the swap of the factors. Only an orientation of $\mathrm{DET}(f, x)$ at the one point and $\mathrm{Lin}(f, x) \ne \emptyset$ (bump functions, V6.1) are used, not an orientation of $f$ (Findings, Chapter 6, item 96).
+- (2026-11-12) That $(t, y) \mapsto e \wedge o_y$ is an orientation of $\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orientation of $f$, is formalized (`SectionOrientation.prodFirst`; gap G.66 closed), with the "choices made during the construction" shown compatible with the convention. $X \times [0, 1]$ is read as $\mathbb R^1 \times X$ with the parameter first (decision D2), so $[0, 1]$ is replaced by $\mathbb R^1$; the hypotheses $X$ tame with sc-smooth bump functions and tame germ data of $f$ are those of `theorem_6_6_18_oriented` (Findings, Chapter 6, item 97).
 
 ### V6.63. §6.8.1 (preprint §6.7.1): the proof of Lemma 6.3.3 (preprint 6.5)
 
@@ -9660,7 +10487,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V6.75. Theorem 6.6.17: the unique Hausdorff topology on $O_f$
 
-*restated* · the text's hypotheses only · uniqueness from (1), (3) alone · (3) also for paths on $[0, 1]$ · remarks after it: G.91
+*restated* · the text's hypotheses only · uniqueness from (1), (3) alone · (3) also for paths on $[0, 1]$ · remarks after it: V6.82
 
 **HWZ (§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)).** Let $P : Y \to X$ be a strong bundle over the tame M-polyfold $X$ and $f$ an sc-Fredholm section. Then there exists a uniquely defined Hausdorff topology on $O_f$ characterized by (1), (2), (3). The easy proof is left to the reader.
 
@@ -9681,31 +10508,43 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 *What differs.*
 - Updated (2026-11-09): **stated with the text's hypotheses only**, $X$ tame with bump functions and $f$ sc-Fredholm with tame germ data, the reading of “tame strong bundle” of V3.103 (`theorem_6_6_17`, `Chapter6/OrientationMainClean.lean`): `HasConnectedSmoothNbhds` is no longer a hypothesis, since it holds for every M-polyfold (`MPolyfold.hasConnectedSmoothNbhds`, in the same file; gap G.90), the sc⁺-sections through the smooth fibre points come from the bump functions, and the paracompactness instances are proved; the form with them is kept (`theorem_6_6_17_hyp`). Property (3) is also stated for paths on $[0, 1]$ (`theorem_6_6_17_interval`; gap G.65 in part). The uniqueness is stronger than stated: neither Hausdorffness nor (2) is used (Findings, Chapter 6, items 119, 120, 122).
-- The remarks after the theorem — the orientation bundle, orientability iff a global continuous section, the continuous $\mathbb Z_2$-action and $\det_f$ — are gap G.91 (Findings, Chapter 6, item 121).
+- The remarks after the theorem — the orientation bundle, orientability iff a global continuous section, the continuous $\mathbb Z_2$-action and $\det_f$ — are V6.82 (gap G.91, closed 2026-11-12; Findings, Chapter 6, item 121).
 
 ### V6.76. Theorem 6.7.1 (preprint 6.43): the invariant $\Psi_{(f,o)}$
 
-*narrower* · narrower: two proof steps assumed · (2) read as in R-d · degree $k$ with $S_k$ (R-c) · every $N$, every $U$ with a margin (R-b)
+*restated* · (2) read as in R-d · degree $k$ with $S_k$ (R-c) · every $N$, every $U$ with a margin (R-b)
 
 **HWZ (§6.7 (preprint §6.6), Theorem 6.7.1 (preprint 6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233))).** Over a tame $X$ with sc-smooth bump functions there is a well-defined map associating with a proper oriented sc-Fredholm section $(f, o)$ a linear map $\Psi_{(f,o)} : H^*_{dR}(X, \partial X) \to \mathbb R$ with (1) for an auxiliary norm $N$ and $s$ admissible for $(N, U)$, $S_{f+s}$ is an oriented compact manifold with boundary with corners and $\Psi_{(f,o)}([\omega, \tau]) = \int_{S_{f+s}}\omega - \int_{\partial S_{f+s}}\tau$, the integrals being zero if the dimensions do not agree; and (2) $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy. The proof compares two admissible sections through the cobordism $S_F$ of Remark 5.3.8, oriented from $o$ and the standard orientation of $[0, 1]$, and gets (2) by "the same homotopy argument".
 
-**Proved in Lean.** `theorem_6_7_1_hyp` (`Chapter6/Theorem671Assembly2021.lean`): under `CobordismOrientationHyp` and `CobordismRelativeFormsHyp`, there is $\Psi$ assigning to a proper tame sc-Fredholm section $f$ with an orientation $o$ a linear map $\Psi_{(f,o)} : H^k_{dR}(X, \partial X) \to \mathbb R$ (`relDeRham`, V4.91) in every degree $k$ with (1): for every auxiliary norm $N$ there are open $U \supseteq S_f$ with $\mathrm{cl}\{x \in U \mid N(f(x)) \le C\}$ compact for $C > 0$; for each such $U$, $S_{f+s}$ is compact for every allowable $s$, admissible sections exist (`StrongBundle.IsAdmissible`), and for each admissible $s$, $S_{f+s}$ is the union of its index parts $S_k$, each a compact oriented Mathlib manifold of dimension $k$ (`SolPartIsOrientedManifold`), with $\Psi([\omega, \tau]) = \int_{S_k}\omega|_S - \int_{\partial S_k}\tau|_{\partial S}$ (`solIntegral`, `solBoundaryIntegral`); and (2): $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy (`IsProperOrientedHomotopyBetween`). $\Psi$ is `psiAt` for one chosen admissible section; `psiAt` is well defined on classes by Stokes on $S_k$ and on its faces (`psiForms_relD`). `theorem_6_7_1_of_indep` proves the theorem from (A) `PsiIndepAdmissible` and (B) `PsiIndepHomotopy` with no other hypothesis; `psiAt_eq_of_admissible_hyp` and `psiAt_eq_of_homotopy_hyp` prove (A) and (B) under the two hypotheses from the cobordism identity `psiAt_eq_of_cobordism` (Stokes on the index-$(k+1)$ part of $S_F$ with a cut-off in time, `integral_eq_of_cutCobordism`) and the cobordism data `exists_isCobordismData`, `exists_homotopy_cobordism_data`. On the point $\mathbb R^0$ with $f = 0$, $\Psi([1]) = \pm1$ (`theorem_6_7_1_witness`).
+**Proved in Lean.** `theorem_6_7_1` (`Chapter6/Theorem671Final2021.lean`): for $X$ tame with sc-smooth bump functions there is $\Psi$ assigning to a proper tame sc-Fredholm section $f$ with an orientation $o$ a linear map $\Psi_{(f,o)} : H^k_{dR}(X, \partial X) \to \mathbb R$ (`relDeRham`, V4.91) in every degree $k$ with (1): for every auxiliary norm $N$ there are open $U \supseteq S_f$ with $\mathrm{cl}\{x \in U \mid N(f(x)) \le C\}$ compact for $C > 0$; for each such $U$, $S_{f+s}$ is compact for every allowable $s$, admissible sections exist (`StrongBundle.IsAdmissible`), and for each admissible $s$, $S_{f+s}$ is the union of its index parts $S_k$, each a compact oriented Mathlib manifold of dimension $k$ (`SolPartIsOrientedManifold`), with $\Psi([\omega, \tau]) = \int_{S_k}\omega|_S - \int_{\partial S_k}\tau|_{\partial S}$ (`solIntegral`, `solBoundaryIntegral`); and (2): $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy (`IsProperOrientedHomotopyBetween`). $\Psi$ is `psiAt` for one chosen admissible section; `psiAt` is well defined on classes by Stokes on $S_k$ and on its faces (`psiForms_relD`). `theorem_6_7_1_of_indep` proves the theorem from (A) `PsiIndepAdmissible` and (B) `PsiIndepHomotopy` with no other hypothesis; `psiAt_eq_of_admissible_of_orientation` and `psiAt_eq_of_homotopy_of_orientation` prove (A) and (B) from the cobordism identity `psiAt_eq_of_cobordism_of_orientation` (Stokes on the index-$(k+1)$ part of $S_F$ with a cut-off in time, `integral_eq_of_cutCobordism`, for the relative form `cobordismRelativeFormsInner`) and the cobordism data `exists_isCobordismData`, `exists_homotopy_cobordism_data`. On the point $\mathbb R^0$ with $f = 0$, $\Psi([1]) = \pm1$ (`theorem_6_7_1_witness`). In `theorem_6_7_1` these two are applied to `cobordismOrientationHyp`: the cobordism $S_F$ carries the orientation $e \wedge o_0$ of $F$ (`cobOr`, `SectionOrientation.prodFirst`), which is $e \wedge o_{S_i}$ on its two ends (`isEndProductOrientation_cobOr`), and the relative form `cobordismRelativeFormsInner`. The earlier form `theorem_6_7_1_of_orientation` (`Chapter6/CobordismRelativeForms2021b.lean`) took the orientation of $S_F$ as a hypothesis.
 
-- `Polyfold.theorem_6_7_1_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 199
-- `Polyfold.CobordismOrientationHyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 86
-- `Polyfold.CobordismRelativeFormsHyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 114
-- `Polyfold.psiAt_eq_of_admissible_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 139
-- `Polyfold.psiAt_eq_of_homotopy_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 155
+- `Polyfold.theorem_6_7_1` — Polyfold/Chapter6/Theorem671Final2021.lean, line 46
+- `Polyfold.cobordismOrientationHyp` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 372
+- `Polyfold.isEndProductOrientation_cobOr` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 232
+- `Polyfold.theorem_6_7_1_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 1021
+- `Polyfold.cobordismRelativeFormsInner` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 853
+- `Polyfold.CobordismRelativeFormsInner` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 728
+- `Polyfold.psiAt_eq_of_cobordism_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 913
+- `Polyfold.psiAt_eq_of_admissible_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 961
+- `Polyfold.psiAt_eq_of_homotopy_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 975
+- `Polyfold.MPolyfold.exists_closed_form_of_ends` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 408
+- `Polyfold.MPolyfold.faceRestriction_pullOver` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 183
+- `Polyfold.ProductEnd.pullAt` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 113
+- `Polyfold.exists_glued_extension` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 347
+- `Polyfold.ProductEnd.IsEndProductOrientation.of_subEnd` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 281
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 289
+- `Polyfold.MPolyfold.isChartFaceForm_faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 495
+- `Polyfold.cobOr` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 60
+- `Polyfold.isContinuous_cobOr` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 76
+- `Polyfold.cobordismOrientation_of_ends` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 94
 - `Polyfold.theorem_6_7_1_of_indep` — Polyfold/Chapter6/Theorem671_2021.lean, line 277
 - `Polyfold.PsiIndepAdmissible` — Polyfold/Chapter6/Theorem671_2021.lean, line 71
 - `Polyfold.PsiIndepHomotopy` — Polyfold/Chapter6/Theorem671_2021.lean, line 85
 - `Polyfold.psiInvariant_spec` — Polyfold/Chapter6/Theorem671_2021.lean, line 195
 - `Polyfold.psiInvariant_homotopy` — Polyfold/Chapter6/Theorem671_2021.lean, line 223
 - `Polyfold.theorem_6_7_1_witness` — Polyfold/Chapter6/Theorem671_2021.lean, line 683
-- `Polyfold.psiAt_eq_of_cobordism` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 698
-- `Polyfold.CobordismOrientation` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 620
-- `Polyfold.CobordismRelativeForms` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 640
-- `Polyfold.integral_eq_of_cutCobordism` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 236
+- `Polyfold.CobordismOrientation` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 635
+- `Polyfold.integral_eq_of_cutCobordism` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 246
 - `Polyfold.psiAt` — Polyfold/Chapter6/InvariantSingle2021.lean, line 842
 - `Polyfold.psiForms_relD` — Polyfold/Chapter6/InvariantSingle2021.lean, line 822
 - `Polyfold.StrongBundle.IsAdmissible` — Polyfold/Chapter6/InvariantSingle2021.lean, line 262
@@ -9713,28 +10552,140 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.IsProperOrientedHomotopyBetween` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 440
 
 *What differs.*
-- Proved under two hypotheses that are steps of the text's proof, not hypotheses of the text: the orientation of the cobordism $S_F$, of product form $e \wedge o_{S_i}$ on its two ends (`CobordismOrientationHyp`, 4b's `CobordismOrientation` for the cobordisms of (1) and (2); Remark 6.6.19, gap G.66), and a closed relative form on $S_F$ that reads as $\omega|_{S_i} + d\gamma_i$ on the ends (`CobordismRelativeFormsHyp`, 4b's `CobordismRelativeForms`), which needs the pull-back of forms on $\partial X$ to $\partial(\mathbb R^1 \times X)$ (gap G.54). Neither quantifies over all orientations; no Lean witness of them is given (Findings, Chapter 6, item 134).
+- (2026-11-12) No hypothesis beyond the text's: the orientation of the cobordism $S_F$, of product form $e \wedge o_{S_i}$ on its two ends, is proved (`cobordismOrientationHyp`), and the relative form $p_1^*\omega - d\beta$ on $S_F$ is built on the inner ends $(0, 1/16) \times S_0$ and $(15/16, 1) \times S_1$ (`cobordismRelativeFormsInner`), since the cobordism data give the product structure only for $t \le 1/8$ and $t \ge 7/8$. Before 2026-11-12 the orientation was a hypothesis (`theorem_6_7_1_of_orientation`; Findings, Chapter 6, items 134, 136).
 - The proper oriented homotopy of (2), which the text does not define, is read as in R-d: $f_1 = f_0 + S(1, \cdot)$ for an sc⁺-section $S$ over $\mathbb R^1 \times X$ with $S(0, \cdot) = 0$, compact zeros over $t \in [0, 1]$ and the properness clause on that slab, and $o_1 = o_0$ transported (`IsProperOrientedHomotopyBetween`; Findings, Chapter 6, item 130).
 - The neighbourhood $U$ of (1) carries the margin of reading R-b, and (1) holds for every auxiliary norm and every such $U$; the text defines $\Psi$ from one $N$ (item 128). "Zero if the dimensions do not agree" pairs degree $k$ with the index-$k$ part $S_k$ (R-c, item 129). The text's $[0, 1] \times X$ is read as $\mathbb R^1 \times X$ (decision D2), and the decomposition $\partial S_F = S_0 \cup S_1 \cup \tilde S$ is replaced by a cut-off in time on the product ends (items 131–133).
 
 ### V6.77. Theorem 6.7.1 (preprint 6.43) for $\partial X = \emptyset$ (p. 279)
 
-*narrower* · narrower: as V6.76 · constant index; $\Phi = 0$ off degree $n$ · $H^n_{dR}(X)$ read as $H^n_{sc}(X)$
+*restated* · (2) read as in R-d, as V6.76 · constant index; $\Phi = 0$ off degree $n$ · $H^n_{dR}(X)$ read as $H^n_{sc}(X)$
 
 **HWZ (§6.7 (preprint §6.6), after the proof of Theorem 6.7.1 (preprint 6.43), p. 279 (preprint p. 233)).** For $\partial X = \emptyset$, $\Psi_{(f,o)} : H^n_{dR}(X) \to \mathbb R$ is $\Psi_{(f,o)}([\omega]) = \int_{S_{f+s}}\omega$ for $[\omega] \in H^n_{dR}(X)$ if $n$ is the index of $f$, and zero otherwise.
 
-**Proved in Lean.** `theorem_6_7_1_noBoundary_hyp`: under the two hypotheses of V6.76 and $\partial X = \emptyset$ (`IsWithoutBoundary`), there is $\Phi$ with $\Phi_{(f,o)} : H^k_{sc}(X) \to \mathbb R$ in every degree ($\Phi = \Psi$ under $H^k_{dR}(X, \partial X) \cong H^k_{sc}(X)$, `relDeRhamEquivOfNoBoundary`) such that for every $N$, every $U$ as in (1) and every admissible $s$: if the index of $f$ is $n$ at every smooth point, then $S_{f+s}$ is compact and equal to $S_n$, $\Phi([\omega]) = \int_{S_{f+s}}\omega|_S$ in degree $n$, and $\Phi = 0$ in every degree $k \ne n$; and $\Phi$ is invariant under proper oriented homotopies. `theorem_6_7_1_noBoundary_of_indep` is the same from (A) and (B).
+**Proved in Lean.** `theorem_6_7_1_noBoundary` (`Chapter6/Theorem671Final2021.lean`): for $X$ tame with sc-smooth bump functions and $\partial X = \emptyset$ (`IsWithoutBoundary`), there is $\Phi$ with $\Phi_{(f,o)} : H^k_{sc}(X) \to \mathbb R$ in every degree ($\Phi = \Psi$ under $H^k_{dR}(X, \partial X) \cong H^k_{sc}(X)$, `relDeRhamEquivOfNoBoundary`) such that for every $N$, every $U$ as in (1) and every admissible $s$: if the index of $f$ is $n$ at every smooth point, then $S_{f+s}$ is compact and equal to $S_n$, $\Phi([\omega]) = \int_{S_{f+s}}\omega|_S$ in degree $n$, and $\Phi = 0$ in every degree $k \ne n$; and $\Phi$ is invariant under proper oriented homotopies. `theorem_6_7_1_noBoundary_of_indep` is the same from (A) and (B); `theorem_6_7_1_noBoundary_of_orientation` is the earlier form under the orientation of the cobordism.
 
-- `Polyfold.theorem_6_7_1_noBoundary_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 234
+- `Polyfold.theorem_6_7_1_noBoundary` — Polyfold/Chapter6/Theorem671Final2021.lean, line 80
+- `Polyfold.theorem_6_7_1_noBoundary_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 1054
 - `Polyfold.theorem_6_7_1_noBoundary_of_indep` — Polyfold/Chapter6/Theorem671_2021.lean, line 434
 - `Polyfold.psiInvariantNoBoundary` — Polyfold/Chapter6/Theorem671_2021.lean, line 330
 - `Polyfold.psiInvariantNoBoundary_mk` — Polyfold/Chapter6/Theorem671_2021.lean, line 357
 - `Polyfold.psiInvariantNoBoundary_of_ne` — Polyfold/Chapter6/Theorem671_2021.lean, line 401
-- `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary` — Polyfold/Chapter4/BoundaryForms2021.lean, line 754
+- `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary` — Polyfold/Chapter4/BoundaryForms2021.lean, line 757
 
 *What differs.*
-- Narrower as V6.76: the two cobordism hypotheses, and homotopies read as in R-d.
+- As V6.76: no hypothesis beyond the text's (the orientation of the cobordism is proved, `cobordismOrientationHyp`), and homotopies are read as in R-d.
 - The text's "if $n$ is equal to the index, and zero otherwise" is stated as two clauses for a constant index $n$: the integral in degree $n$, and $\Phi = 0$ in the other degrees (R-c). The text writes $H^n_{dR}(X)$; for $\partial X = \emptyset$ it is $H^n_{sc}(X)$ (Definition 4.4.6, V4.88), identified with $H^n_{dR}(X, \partial X)$ by `relDeRhamEquivOfNoBoundary` (V4.91).
+
+### V6.78. The alternative determinant $\lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$ (p. 246)
+
+*as in the book* · the convention $\iota$ of Definition 6.3.1 · not used by the chapter
+
+**HWZ (§6.4 (preprint §6.3), after Definition 6.4.1 (preprint 6.7), p. 246 (preprint p. 208)).** Some authors use $\det(T) = \lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$; the two definitions are naturally isomorphic, given a convention identifying $\lambda^*(A)$ and $\lambda(A^*)$.
+
+**Proved in Lean.** `iotaDualEquiv`: the convention $\iota$ of Definition 6.3.1 (preprint 6.3) is an isomorphism $\lambda(A^*) \cong \lambda^*(A)$ for finite-dimensional $A$, natural by Proposition 6.3.2 (preprint 6.4) (V6.3, V6.4). `altLinDet T` $= \lambda(\ker T) \otimes \lambda((F/R(T))^*)$ and `altLinDetEquiv T` $= \mathrm{id} \otimes \iota : \lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*) \cong \det(T)$; it maps $(a_1 \wedge \dots \wedge a_k) \otimes (d_1^* \wedge \dots \wedge d_m^*)$ to $(a_1 \wedge \dots \wedge a_k) \otimes (d_1 \wedge \dots \wedge d_m)^*$ for a basis $d$ of the cokernel and its dual basis (`altLinDetEquiv_tmul_dualBasis`). For Fredholm $T$: `altFredholmDet`, `altFredholmDetEquiv`, `finrank_altFredholmDet`.
+
+- `Polyfold.iotaDualEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 59
+- `Polyfold.altLinDet` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 74
+- `Polyfold.altLinDetEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 80
+- `Polyfold.altLinDetEquiv_tmul_dualBasis` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 91
+- `Polyfold.altFredholmDet` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 101
+- `Polyfold.altFredholmDetEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 107
+- `Polyfold.finrank_altFredholmDet` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 114
+
+*What differs.*
+- As in the text, with the convention $\iota$ of Definition 6.3.1 (preprint 6.3) as the identification of $\lambda^*(A)$ and $\lambda(A^*)$. The chapter's statements use Definition 6.4.1 (preprint 6.7) (V6.8) (Findings, Chapter 6, item 10).
+
+### V6.79. The identification (6.25) (preprint (95)) and $V \otimes \lambda(\mathbb R^n) \to V$, $V \otimes \lambda^*(\mathbb R^n) \to V$ (p. 257)
+
+*stronger* · every $V$, not only finite-dimensional · not used by the chapter
+
+**HWZ (§6.4 (preprint §6.3), after Proposition 6.4.15 (preprint 6.15), p. 257 (preprint p. 213)).** Dual to (94), $\mathbb R \to \lambda(\mathbb R^n)$ maps $1$ to the wedge of the standard basis, with inverse (95) $c_1 \wedge \dots \wedge c_n \mapsto \det([c_1, \dots, c_n])$; this gives identifications $V \otimes \lambda(\mathbb R^n) \to V$ and $V \otimes \lambda^*(\mathbb R^n) \to V$ for every finite-dimensional $V$.
+
+**Proved in Lean.** `stdLine n` $: \mathbb R \cong \lambda(\mathbb R^n)$, $1 \mapsto e_1 \wedge \dots \wedge e_n$ (`stdLine_one`), with inverse (6.25) $c_1 \wedge \dots \wedge c_n \mapsto \det([c_1, \dots, c_n])$, the matrix with columns $c_j$ (`stdLine_symm_wedge`). Its transpose `stdLineDual n` $: \lambda^*(\mathbb R^n) \cong \mathbb R^*$, $(e_1 \wedge \dots \wedge e_n)^* \mapsto 1^*$ (`stdLineDual_dualVec`), is the isomorphism of Proposition 6.4.15 (preprint 6.15). `tensorStdLine n V` $: V \otimes \lambda(\mathbb R^n) \cong V$ and `tensorStdLineDual n V` $: V \otimes \lambda^*(\mathbb R^n) \cong V$ send $v \otimes (e_1 \wedge \dots \wedge e_n)$ and $v \otimes (e_1 \wedge \dots \wedge e_n)^*$ to $v$ (`tensorStdLine_tmul_stdWedge`, `tensorStdLineDual_tmul_dualVec`), and $v \otimes (c_1 \wedge \dots \wedge c_n)$ to $\det([c])\,v$ (`tensorStdLine_tmul_wedge`), for every $V$.
+
+- `Polyfold.stdLine` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 128
+- `Polyfold.stdLine_one` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 136
+- `Polyfold.stdLine_symm_wedge` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 140
+- `Polyfold.stdLineDual` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 148
+- `Polyfold.stdLineDual_dualVec` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 155
+- `Polyfold.tensorStdLine` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 163
+- `Polyfold.tensorStdLine_tmul_stdWedge` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 170
+- `Polyfold.tensorStdLine_tmul_wedge` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 174
+- `Polyfold.tensorStdLineDual` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 180
+- `Polyfold.tensorStdLineDual_tmul_dualVec` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 190
+
+*What differs.*
+- The text asks $V$ to be finite-dimensional; the identifications hold for every $V$. The formal statements of the chapter use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).
+
+### V6.80. The remark that $\mathrm{DET}(E, F)$ is not orientable (end of §6.5, p. 262)
+
+*narrower* · finite-dimensional: two orientations · every infinite-dimensional Hilbert space · complex structure, odd kernel
+
+**HWZ (§6.5 (preprint §6.4), after Lemma 6.5.9 (preprint 6.25), p. 262 (preprint p. 218)).** The text remarks, with no hypothesis on $E$, $F$ and no proof or reference, that the line bundle $\mathrm{DET}(E, F)$ over the Fredholm operators $\mathcal F(E, F)$ (with the topology of Proposition 6.5.8 (preprint 6.24)) is known to be non-orientable, though orientable over certain subsets.
+
+**Proved in Lean.** Non-orientable is `IsEmpty (LineOrientation (DetFiber (E := E) (F := F)))`: $\mathrm{DET}(E, F)$ over all Fredholm operators has no orientation in the sense of Proposition 6.6.1 (preprint 6.26). `isEmpty_lineOrientation_det_hilbert`: none for $E = F = H$, every infinite-dimensional real Hilbert space $H$ (separable or not); `isEmpty_lineOrientation_det_of_equiv_hilbert`: none when $E$ and $F$ are isomorphic to such an $H$; `isEmpty_lineOrientation_det_of_equiv_prod`: none when $E$, $F$ are isomorphic to $H \times H$ for a Banach space $H$ with a surjective $S : H \to H$ with odd-dimensional kernel, e.g. $H \cong \mathbb R \times H$; `isEmpty_lineOrientation_det_ellTwo`: $\ell^2 \times \ell^2$. In general, `isEmpty_lineOrientation_det_of_complexStructure`: none whenever $E$ and $F$ carry bounded $J$ with $J^2 = -1$ and there is a surjective $T : E \to F$ with kernel of odd finite dimension; the loop $A_\theta = R'_\theta T R_{-\theta}$, $\theta \in [0, \pi]$, $R_\theta = \cos\theta + \sin\theta J$, consists of surjective operators, a basis of the kernels $R_\theta(\ker T)$ is a continuous section of $\mathrm{DET}$ in the chart with $P = 1$ (`continuous_kerDetMk`), and it returns to its negative (`isEmpty_lineOrientation_det_of_kernel_loop`, `isEmpty_lineOrientation_of_loop`). Orientability depends only on the isomorphism classes of $E$ and $F$ (`nonempty_lineOrientation_det_iff_of_equiv`, through `LineOrientation.conj`). For finite-dimensional $E$, $F$: `exists_two_lineOrientation_det_of_finiteDimensional`, $\mathrm{DET}(E, F)$ has exactly two orientations.
+
+- `Polyfold.isEmpty_lineOrientation_det_hilbert` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 297
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv_hilbert` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 310
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv_prod` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 142
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv_ellTwo` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 151
+- `Polyfold.isEmpty_lineOrientation_det_ltwo` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 279
+- `Polyfold.nonempty_lineOrientation_det_iff_of_equiv` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 119
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 126
+- `Polyfold.isEmpty_lineOrientation_det_ellTwo` — Polyfold/Chapter6/GapP1_DetNonOrientableEll2.lean, line 92
+- `Polyfold.isEmpty_lineOrientation_det_of_complexStructure` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 392
+- `Polyfold.isEmpty_lineOrientation_det_of_kernel_loop` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 306
+- `Polyfold.isEmpty_lineOrientation_det_prod` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 495
+- `Polyfold.isEmpty_lineOrientation_det_prod_of_equiv` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 511
+- `Polyfold.continuous_kerDetMk` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 268
+- `Polyfold.isEmpty_lineOrientation_of_loop` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 119
+- `Polyfold.exists_two_lineOrientation_det_of_finiteDimensional` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 443
+- `Polyfold.nonempty_lineOrientation_det_of_finiteDimensional` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 458
+
+*What differs.*
+- The text gives no hypothesis on $E$, $F$. For finite-dimensional $E$, $F$ the remark does not hold as we read it: every operator is Fredholm, the base $L(E, F)$ is convex, and $\mathrm{DET}(E, F)$ has exactly two orientations (`exists_two_lineOrientation_det_of_finiteDimensional`, on $\mathrm{DET}(E, F)$ itself) (Findings, Chapter 6, items 26, 135).
+- Proved under hypotheses: $E$, $F$ isomorphic to one infinite-dimensional Hilbert space, or to $H \times H$ with $H \cong \mathbb R \times H$, or, in general, complex structures on $E$ and $F$ and a surjective operator with kernel of odd finite dimension. Non-orientability for infinite-dimensional Banach spaces without such structures is not formalized and not claimed. The remark presumably intends infinite-dimensional spaces of the kind in the applications. The orientability "over certain subsets" is Proposition 6.6.1 (preprint 6.26) (V6.30).
+
+### V6.81. The classical determinant line bundle at the opening of §6.6 (p. 262)
+
+*narrower* · $C^1$ in place of smooth · topological, not smooth, line bundle
+
+**HWZ (§6.6 (preprint §6.5), the opening paragraph, p. 262 (preprint p. 219)).** For a classical Fredholm map $f : U \to F$ on an open $U \subseteq E$, the determinant line bundle of the $Df(x)$ is a smooth line bundle over $U$, with precisely two orientations if $U$ is contractible.
+
+**Proved in Lean.** For $f$ of class $C^1$ on an open $U \subseteq E$ with every $Df(x)$ Fredholm: `derivFredholm`, $x \mapsto Df(x)$ as a continuous map $U \to \mathcal F(E, F)$; `ClassicalDet`, the pull-back of $\mathrm{DET}(E, F)$ along it, with fibre $\det(Df(x))$ (`classicalDet_apply`), a topological line bundle (`classicalDet_vectorBundle`). `classicalDet_two_orientations`: for contractible $U$ it has precisely two orientations, and every orientation of one line $\det(Df(x_0))$ extends to exactly one orientation of the bundle.
+
+- `Polyfold.derivFredholm` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 47
+- `Polyfold.ClassicalDet` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 55
+- `Polyfold.classicalDet_apply` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 61
+- `Polyfold.classicalDet_vectorBundle` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 66
+- `Polyfold.classicalDet_two_orientations` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 74
+
+*What differs.*
+- $f$ is of class $C^1$, which is weaker than the text's "smooth". The bundle is a topological line bundle, the pull-back of $\mathrm{DET}(E, F)$ (V6.28); its smoothness, for which smooth frames of Fredholm charts would be needed, is not formalized (Findings, Chapter 6, item 26).
+
+### V6.82. The remarks after Theorem 6.6.17: the orientation bundle, orientability, $\mathbb Z_2$ and $\det_f$ (p. 275)
+
+*restated* · the hypotheses of Theorem 6.6.17 · $\det_f$ as a vector bundle core
+
+**HWZ (§6.6, after Theorem 6.6.17, p. 275 (new in the 2021 edition)).** $\pi_f : O_f \to X_\infty$ with the topology of Theorem 6.6.17 is the orientation bundle of $f$; $f$ is orientable iff $\pi_f$ has a global continuous section; $\mathbb Z_2$ acts continuously on $O_f$ by $(x, o_x) \mapsto (x, -o_x)$; $\det_f = \mathbb R \otimes_{\mathbb Z_2} O_f \to X_\infty$ is the determinant bundle of $f$.
+
+**Proved in Lean.** With the topology of Theorem 6.6.17 (`orTopology`, V6.73–V6.75), for $\Gamma_f$ (`orLocalTransport`): `isSectionOrientation_iff_continuous`: $y \mapsto (y, o_y)$ (`orSec o`) is continuous iff $o$ is an orientation of $f$ (Definition 6.6.16 (preprint 6.40)); `exists_eq_orSec`: every section of $\pi_f$ has this form; `isOrientableSection_iff_exists_continuous_section`: $f$ is orientable (Definitions 6.6.14–6.6.15 (preprint 6.38–6.39)) iff $\pi_f$ has a global continuous section. `orNegHomeomorph`: $(x, o_x) \mapsto (x, -o_x)$ is a homeomorphism over $\pi_f$ without fixed points (`orNeg_ne`), giving a continuous action of $\mathbb Z^\times \cong \mathbb Z_2$ (`orMulAction`, `continuous_orUnitsAct`). `detCore`, `detBundleCore`: $\det_f$ as a Mathlib `VectorBundleCore` with fibre $\mathbb R$ over $X_\infty$, trivialized by the continuous orientations $(U, o)$ with coordinate changes $\pm 1$; its fibre is $\mathbb R \otimes_{\mathbb Z_2} \mathrm{Or}^f_x$: $r \otimes a = r' \otimes a'$ iff $(r', a') = (\pm r, \pm a)$ (`detMk_eq_iff`, `localTriv_detMk`). The generic statements hold for any local transport with two-element fibres (`continuous_orSec_iff`).
+
+- `Polyfold.isSectionOrientation_iff_continuous` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 422
+- `Polyfold.isOrientableSection_iff_exists_continuous_section` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 441
+- `Polyfold.continuous_orSec_iff` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 176
+- `Polyfold.exists_eq_orSec` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 115
+- `Polyfold.orNegHomeomorph` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 223
+- `Polyfold.orNeg_ne` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 205
+- `Polyfold.orMulAction` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 248
+- `Polyfold.continuous_orUnitsAct` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 253
+- `Polyfold.detCore` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 310
+- `Polyfold.detBundleCore` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 457
+- `Polyfold.detMk_eq_iff` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 360
+- `Polyfold.localTriv_detMk` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 342
+
+*What differs.*
+- The hypotheses are those of the existence part of Theorem 6.6.17 (V6.75: tame $X$, bump functions, tame germ data, sc⁺-sections through points); nothing is added. $\det_f = \mathbb R \otimes_{\mathbb Z_2} O_f$ is built as the vector bundle core whose trivializations are the continuous orientations, and its fibres are identified with $\mathbb R \otimes_{\mathbb Z_2} \mathrm{Or}^f_x$ (Findings, Chapter 6, item 121).
 
 ## Part II, Chapter 7
 
@@ -9919,7 +10870,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `EpGroupoid.IsTame` is `MPolyfold.IsTame` of the object M-polyfold: an equivalent atlas of charts modelled on tame retracts exists (Definition 2.5.7 (2017: 2.19)). A chart is transported along an sc-diffeomorphism to a tame chart (`MPolyfold.IsScDiffeoOn.exists_tame_chart`), so the domain of a local sc-diffeomorphism into a tame M-polyfold is tame (`MPolyfold.IsLocalScDiffeo.isTame`), and for surjective ones the domain is tame iff the target is (`MPolyfold.IsLocalScDiffeo.isTame_iff_of_surjective`); applied to $s$, this is the tameness of $\mathbf X$.
 
 - `Polyfold.EpGroupoid.IsTame` — Polyfold/Chapter7/EpGroupoid.lean, line 432
-- `Polyfold.MPolyfold.IsTame` — Polyfold/Chapter2/Tame.lean, line 211
+- `Polyfold.MPolyfold.IsTame` — Polyfold/Chapter2/Tame.lean, line 213
 - `Polyfold.MPolyfold.IsScDiffeoOn.exists_tame_chart` — Polyfold/Chapter7/LocalDiffeo.lean, line 337
 - `Polyfold.MPolyfold.IsLocalScDiffeo.isTame` — Polyfold/Chapter7/LocalDiffeo.lean, line 352
 - `Polyfold.MPolyfold.IsLocalScDiffeo.isTame_iff_of_surjective` — Polyfold/Chapter7/LocalDiffeo.lean, line 358
@@ -10851,7 +11802,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `HasScPartitionsOfUnity`: for every type $\iota$ in the universe of $X$ and every cover $(U_i)_{i \in \iota}$ of $X$ by saturated open sets there is a subordinate partition of unity $(\beta_i)$, sc-smooth in Part I's sense (`MPolyfold.IsScSmoothPartitionOfUnity`: every $\beta_i$ sc-smooth), such that (1) every $x$ has a saturated open neighbourhood meeting only finitely many of the closed supports `tsupport` $\beta_i$, and (2) $\beta_i(s(\varphi)) = \beta_i(t(\varphi))$ for every morphism $\varphi$.
 
 - `Polyfold.EpGroupoid.HasScPartitionsOfUnity` — Polyfold/Chapter7/EpGroupoid.lean, line 626
-- `Polyfold.MPolyfold.IsScSmoothPartitionOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 358
+- `Polyfold.MPolyfold.IsScSmoothPartitionOfUnity` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 363
 
 *What differs.*
 - Index types are restricted to the universe of $X$; $\mathrm{supp}$ is the closed support (`tsupport`); (2) is stated along morphisms, which is the same condition (Findings, Chapter 7, item 91).
@@ -10864,7 +11815,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **No formal content**: the remark is an assessment, not a statement. The one case it sets apart, sc-Hilbert spaces, is Part I's `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (used for Corollary 7.6.6 (2017: 7.3), V7.68), with the theorem of Godefroy–Troyanski–Whitfield–Zizler as an explicit hypothesis (gap G.53).
 
-- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1101
+- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1109
 
 *What differs.*
 - Exposition/verification/ch07.md lists the remark among what is not verified, as having no formal content; it has no gap number (Findings, Chapter 7, items 91, 113).
@@ -11028,7 +11979,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.orbitExtension` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 342
 - `Polyfold.EpGroupoid.isScSmoothMap_orbitExtension` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 375
 - `Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 525
-- `Polyfold.admitsScPartitionsOfUnity_of_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 597
+- `Polyfold.admitsScPartitionsOfUnity_of_approx` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 602
 - `Polyfold.EpGroupoid.theorem_7_5_7` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 654
 
 *What differs.*
@@ -11046,8 +11997,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `corollary_7_6_6`: if $|X|$ is paracompact and every $x$ lies in a chart of the object M-polyfold whose $E_0$ is a Hilbert space ($\|v\|^2 = b(v, v)$ for a continuous bilinear $b$) and **satisfies** `GodefroyTroyanskiWhitfieldZizlerStatement` (Part I's Theorem 5.5.16 (2017: 5.14) for $E_0$ and $k = \infty$), then $X$ has sc-smooth partitions of unity. `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`: the step of Part I. `corollary_7_6_6_hypotheses_rn`: the hypotheses hold for the trivial ep-groupoid of $\mathbb R^1$.
 
 - `Polyfold.EpGroupoid.corollary_7_6_6` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 691
-- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1101
-- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1072
+- `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1109
+- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1079
 - `Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn` — Polyfold/Chapter7/PartitionsOfUnity.lean, line 720
 
 *What differs.*
@@ -16717,21 +17668,33 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.1. Example 1.1.3 (preprint 1.2): the weighted Sobolev spaces $H^{m,\delta_m}(\mathbb R \times S^1)$
 
-*not formalized*
+*formalized since* · now V1.42
 
 **HWZ (§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)).** With $0 = \delta_0 < \delta_1 < \cdots$, the spaces $E_m = H^{m,\delta_m}(\mathbb R \times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\mathbb R \times S^1)$, "using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\delta_m)$ is strictly increasing".
 
-**Proved in Lean.** **Not formalized.** Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem; the exposition proves the example in full (Proposition 1.C). The only examples of sc-Banach spaces built here are the constant structure on a finite-dimensional space, and the sums, shifts, sc-subspaces and quotients of sc-Banach spaces (V1.1, V1.4, V1.6). This example, with the shift map of the 2010 paper, is the project's planned step H2.
+**Proved in Lean.** **Formalized** (2026-11-12; V1.42). Formalized in `GapP1_Sobolev1`–`GapP1_Sobolev13` (`example_1_1_3`): for $\delta_0 = 0$ and $(\delta_m)$ strictly increasing, the spaces $H^{m,\delta_m}(\mathbb R \times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\mathbb R \times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.
 
+- `Polyfold.GapP1Sobolev.example_1_1_3` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 49
+- `Polyfold.GapP1Sobolev.example_1_1_3_lvl` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 58
+- `Polyfold.GapP1Sobolev.isCompactOperator_inclH` — Polyfold/Chapter1/GapP1_Sobolev6.lean, line 106
+- `Polyfold.GapP1Sobolev.dense_test` — Polyfold/Chapter1/GapP1_Sobolev12.lean, line 281
+- `Polyfold.GapP1Sobolev.level0_isometry` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 64
+- `Polyfold.GapP1Sobolev.level0_surjective` — Polyfold/Chapter1/GapP1_Sobolev13.lean, line 82
 
 ### G.2. Remark 1.1.17 (preprint 1.15): partial cones in place of partial quadrants
 
-*not formalized*
+*formalized since* · now V1.43
 
 **HWZ (§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)).** Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\lambda P \subset P$ for $\lambda \ge 0$) with non-empty interior; for $U$ open in $P$, $\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \oplus E$, again a closed cone with non-empty interior. Many results should carry over, "but one should check carefully which arguments carry over".
 
-**Proved in Lean.** **Not formalized**, as in the exposition, which stays with quadrants. The proofs of §§1.2–1.3 use of the quadrant only the sc-domain property (V1.27: open-in-convex level sets with unique derivatives), so they apply to any $U$ with that property; whether relatively open subsets of partial cones have it is not examined. (Proposition 1.2.4 and Corollary 1.2.5 (preprint Propositions 1.19 and 1.20) under the text's hypothesis, listed here until 2026-10-25, are now proved as stated, V1.18–V1.19.)
+**Proved in Lean.** **Formalized** (2026-11-12; V1.43). For a closed convex partial cone $P$ with nonempty interior, relatively open $U \subseteq P$ are sc-domains (`IsPartialCone.isScDomain`), so §§1.2–1.3 apply, and $TP = P^1 \oplus E$ is again such a cone (`IsPartialCone.tangentSet`); the chain rule is `remark_1_1_17_chainRule`.
 
+- `Polyfold.IsPartialCone` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 40
+- `Polyfold.IsPartialCone.isScDomain` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 81
+- `Polyfold.IsPartialCone.isScDomain_of_convex` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 68
+- `Polyfold.IsPartialCone.tangentSet` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 87
+- `Polyfold.IsPartialQuadrant.isPartialCone` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 106
+- `Polyfold.remark_1_1_17_chainRule` — Polyfold/Chapter1/GapP1_PartialCones.lean, line 128
 
 ### G.3. Definition 1.1.15 (preprint 1.14): $Df$ need not be norm continuous
 
@@ -16747,12 +17710,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.4. Proposition 2.1.2 (preprint 2.2): classical smooth retractions have submanifold images
 
-*not formalized*
+*formalized since* · now V2.108
 
 **HWZ (§2.1, Proposition 2.1.2 (preprint 2.2), p. 22 (preprint p. 18) (proof §2.7.1 (preprint §2.6.1), preprint pp. 54–55)).** If $r : U \to U$ is a $C^\infty$ retraction of an open subset of a Banach space $E$, then $O = r(U)$ is a $C^\infty$ submanifold: near each $x \in O$ there are a splitting $E = R \oplus N$ and a diffeomorphism $\psi : V \to W$ with $\psi(O \cap V) = R \cap W$ (the text prints $\psi(0) = x$ for $\psi(x) = 0$).
 
-**Proved in Lean.** **Not formalized.** The proposition is classical and is used only as motivation (the contrast with sc-smooth retractions, whose images can change dimension). The exposition proves it in §8.1 with the inverse function theorem; its Lean version would need Mathlib's inverse function theorem for $C^\infty$ maps between Banach spaces and the splitting by the projection $Dr(0)$. Not attempted.
+**Proved in Lean.** **Formalized** (2026-11-12; V2.108). For a $C^\infty$ retraction $r$ of an open subset of a Banach space, $r(U)$ is near each of its points the image of the closed subspace $R = \operatorname{range} Dr(x)$ under a $C^\infty$ chart, with $\psi(x) = 0$ for the printed $\psi(0) = x$ (`proposition_2_1_2`); the proof conjugates $r$ to the projection $Dr(x)$.
 
+- `Polyfold.GapP1Prop212.proposition_2_1_2` — Polyfold/Chapter2/GapP1_Prop212.lean, line 95
+- `Polyfold.GapP1Prop212.isIdempotentElem_fderiv` — Polyfold/Chapter2/GapP1_Prop212.lean, line 43
+- `Polyfold.GapP1Prop212.retractChart` — Polyfold/Chapter2/GapP1_Prop212.lean, line 39
+- `Polyfold.GapP1Prop212.retractChart_comp` — Polyfold/Chapter2/GapP1_Prop212.lean, line 58
+- `Polyfold.GapP1Prop212.hasFDerivAt_retractChart` — Polyfold/Chapter2/GapP1_Prop212.lean, line 66
 
 ### G.5. Definition 2.1.16 (preprint 2.9): sc-smooth bundle retractions and bundle maps
 
@@ -16823,12 +17791,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.10. Lemma 2.4.9 (preprint 2.29): $T^R_xO$ and $C_xO$ through sc-smooth paths; $T_xO = C_xO - C_xO$
 
-*not formalized*
+*formalized since* · now V2.109
 
 **HWZ (§2.4 (preprint §2.3), Lemma 2.4.9 (preprint 2.29), pp. 48–49 (preprint pp. 33–35)).** For a retract and a smooth $x \in O$: (1) $T^R_xO$ is the closure of the derivatives $\dot\alpha(0)$ of sc-smooth paths $\alpha : (-\varepsilon, \varepsilon) \to O$ through $x$; (2) $C_xO$ the closure of the one-sided derivatives of sc-smooth paths $\alpha : [0, \varepsilon) \to O$; (3) $T_xO = C_xO - C_xO$.
 
-**Proved in Lean.** **Not formalized in the path formulation.** Sc-smooth paths would need the constant sc-structure on an interval as a retract and the density of smooth points of $T^R_xO$ and $C_xO$ (the exposition's Lemma 3.A on all levels). The sign arguments that the proof consists of are formalized (V2.34), and Proposition 2.4.10 (preprint 2.30) is proved from them, not from the lemma. (3) is not formalized.
+**Proved in Lean.** **Formalized** (2026-11-12; V2.109). At a smooth $x \in O$, $T^R_xO$ and $C_xO$ are the closures of the derivatives at $0$ of sc-smooth two-sided and one-sided paths in $O$ through $x$ (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`), and $T_xO = C_xO - C_xO$ (`lemma_2_4_9_tangent`), with the text's proof.
 
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_reduced` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 269
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_cone` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 311
+- `Polyfold.GapP1Lemma249.lemma_2_4_9_tangent` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 351
+- `Polyfold.GapP1Lemma249.pathDeriv` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 69
+- `Polyfold.GapP1Lemma249.twoSidedPathDerivs` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 212
+- `Polyfold.GapP1Lemma249.oneSidedPathDerivs` — Polyfold/Chapter2/GapP1_Lemma249.lean, line 217
 
 ### G.11. Theorem 2.4.12 (preprint 2.31), second statement: equality makes $C_xO$ a partial quadrant
 
@@ -16842,26 +17816,35 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.12. The extended faces of a partial quadrant, intrinsically
 
-*not formalized*
+*formalized since* · now V2.110
 
 **HWZ (§2.5 (preprint §2.4), preprint p. 39).** $\{e \in C : d_C(e) = 1\}$ has exactly $k$ connected components $A_i$; each lies in a smallest subspace $f_i$ (an extended face), with a half-space $H_{f_i} \supset C$; $\mathcal F(e) = \{f : e \in f\}$ and $d_C(e) = \#\mathcal F(e)$.
 
-**Proved in Lean.** **Not formalized as stated.** The formalization works with a presentation $T$ of $C$ and takes the coordinate hyperplanes $f_i = \{\lambda_i = 0\}$ as the extended faces (`coordHyper`); that a connected piece of $\{d_C = 1\}$ lies in one $f_i$ is `subset_coordHyper_of_isPreconnected` (V2.45). That $E_x$ does not depend on the presentation is proved (`minimalSubspaceWith_eq`, V2.39); the count of components, the minimality of $f_i$ and the intrinsic description of the extended faces are not formalized.
+**Proved in Lean.** **Formalized** (2026-11-12; V2.110). From $C$ and $d_C$ alone: $\{d_C = 1\}$ has exactly $k$ connected components, their spans are the $k$ extended faces $f_i$, the half-spaces are $C + f_i$, $d_C(e) = \#\mathcal F(e)$, and $\bigcap_{f \in \mathcal F(e)} H_f = C_e$ (`ncard_faceComponents`, `ncard_extendedFaces`, `add_coordFace`, `ncard_facesAt`, `iInter_facesAt`).
 
+- `Polyfold.GapP1ExtendedFaces.faceComponents` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 50
+- `Polyfold.GapP1ExtendedFaces.extendedFaces` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 54
+- `Polyfold.GapP1ExtendedFaces.ncard_faceComponents` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 205
+- `Polyfold.GapP1ExtendedFaces.ncard_extendedFaces` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 256
+- `Polyfold.GapP1ExtendedFaces.add_coordFace` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 262
+- `Polyfold.GapP1ExtendedFaces.ncard_facesAt` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 301
+- `Polyfold.GapP1ExtendedFaces.iInter_facesAt` — Polyfold/Chapter2/GapP1_ExtendedFaces.lean, line 312
 
 ### G.13. Definition 2.5.8 (preprint 2.38): $T^R_xX$ and $C_xX$ of an M-polyfold
 
-*not formalized*
+*formalized since* · now V2.111
 
 **HWZ (§2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42)).** For a smooth $x \in X$, $T^R_xX$ and $C_xX$ are the preimages of $T^R_oO$ and $C_oO$ under $T\psi(x)$ for any chart $\psi$; well defined by Proposition 2.4.10 (preprint 2.30). For tame $X$, $C_xX$ is a partial quadrant and $d_X(x) = \dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$.
 
-**Proved in Lean.** **Formalized in part since the first edition of this page.** With the linear structure of $T_xX$ (G.7, closed), $T^R_xX$ and $C_xX$ are defined in $T_xX$ as the preimages under $T\varphi(x)$ of $T^R_{\varphi(x)}O$ and $C_{\varphi(x)}O$, for a chart and a presentation of its partial quadrant (`reducedTangentFiber`, `partialConeFiber`), and they do not depend on the chart or the presentation, at every $x \in X_1$ (`reducedTangentFiber_eq`, `partialConeFiber_eq`, by Proposition 2.4.10 (preprint 2.30)); in a tame chart at a smooth $x$, $d_X(x) = \dim(T_xX/T^R_xX)$ (`finrank_quotient_reducedTangentFiber_eq_degIndex`). **Not formalized**: that $C_xX$ is a partial quadrant in $T_xX$ and $d_{C_xX}(0_x) = d_X(x)$; in a chart this is V2.42 (`proposition_2_5_6_partialCone`). The local forms are V2.32, V2.35.
+**Proved in Lean.** **Formalized** (2026-11-12; V2.111). At a smooth $x$, $C_xX$ is a partial quadrant in $T_xX$ and, for tame $X$, $d_X(x) = \dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$ (`definition_2_5_8_degIndex`, `definition_2_5_8_scStructure`); the sc-structure of $T_xX$ is transported from $T_{\varphi(x)}O$, and for two charts the transition derivative is an sc-isomorphism matching the coordinates and the partial cones (`tangentFiberScIso`, `tangentFiberScIso_comp`, `tangentFiberScIso_image_partialConeFiberModel`).
 
 - `Polyfold.MPolyfold.reducedTangentFiber` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 104
 - `Polyfold.MPolyfold.partialConeFiber` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 110
-- `Polyfold.MPolyfold.reducedTangentFiber_eq` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 213
-- `Polyfold.MPolyfold.partialConeFiber_eq` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 242
-- `Polyfold.MPolyfold.finrank_quotient_reducedTangentFiber_eq_degIndex` — Polyfold/Chapter2/ReducedTangentIntrinsic.lean, line 289
+- `Polyfold.MPolyfold.definition_2_5_8_degIndex` — Polyfold/Chapter2/GapP1_Def258.lean, line 164
+- `Polyfold.MPolyfold.definition_2_5_8_scStructure` — Polyfold/Chapter2/GapP1_Def258b.lean, line 195
+- `Polyfold.MPolyfold.tangentFiberScIso` — Polyfold/Chapter2/GapP1_Def258b.lean, line 113
+- `Polyfold.MPolyfold.tangentFiberScIso_comp` — Polyfold/Chapter2/GapP1_Def258b.lean, line 137
+- `Polyfold.MPolyfold.tangentFiberScIso_image_partialConeFiberModel` — Polyfold/Chapter2/GapP1_Def258b.lean, line 153
 
 ### G.14. Definition 2.6.1 (preprint 2.47): strong bundle isomorphisms; the category $\mathcal{SBR}$
 
@@ -16879,12 +17862,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.15. Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57): closed locally finite refinements
 
-*not formalized*
+*formalized since* · now V2.112
 
 **HWZ (§2.7.2 (preprint §2.6.2), Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), p. 74 (preprint p. 56)).** Lemma 2.7.3 (preprint 2.56) (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.7.4 (preprint 2.57): a regular space with a locally finite cover by closed paracompact subspaces is paracompact.
 
-**Proved in Lean.** **Not formalized, because not needed.** The proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) avoid them (V2.17, V2.20, V2.62). The text applies Proposition 2.7.4 (preprint 2.57) to $X_m$ and $TX$ without checking that they are regular.
+**Proved in Lean.** **Formalized** (2026-11-12; V2.112). Lemma 2.7.3 (Michael) and Proposition 2.7.4 hold as printed, with Mathlib's `ParacompactSpace` and `T3Space` (`lemma_2_7_3`, `proposition_2_7_4`). The library's proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) still avoid them (V2.17, V2.20, V2.62); the text applies Proposition 2.7.4 to $X_m$ and $TX$ without checking that they are regular.
 
+- `Polyfold.GapP1Michael.lemma_2_7_3` — Polyfold/Chapter2/GapP1_Michael.lean, line 150
+- `Polyfold.GapP1Michael.proposition_2_7_4` — Polyfold/Chapter2/GapP1_Michael.lean, line 159
+- `Polyfold.GapP1Michael.paracompactSpace_of_closed_refinement` — Polyfold/Chapter2/GapP1_Michael.lean, line 51
+- `Polyfold.GapP1Michael.exists_closed_refinement` — Polyfold/Chapter2/GapP1_Michael.lean, line 127
 
 ### G.76. Remark 2.1.6: the modified local completeness is strictly weaker
 
@@ -16894,8 +17881,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **Formalized since the first edition of this page** (V2.91). The implication is V2.68. $\mathbb R$ with the K-topology ($K = \{1/(n+1)\}$) is Hausdorff and locally complete in the modified sense, but not regular, hence not locally complete in the sense of Definition 2.1.5 (`remark_2_1_6_strict`); so the notion is strictly weaker, and the remark holds as we read it (Findings, Chapter 2, items 61, 75). (2026-11-09) The implication and the strictness in one statement: `remark_2_1_6_book` (V2.68; Findings, Chapter 2, item 89).
 
-- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 346
-- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 351
+- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 347
+- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 352
 - `Polyfold.remark_2_1_6_strict` — Polyfold/Chapter2/LocalTopologyExample.lean, line 256
 - `Polyfold.RealKTop.not_isLocallyComplete` — Polyfold/Chapter2/LocalTopologyExample.lean, line 202
 - `Polyfold.remark_2_1_6_book` — Polyfold/Chapter2/BookFormLocalCompleteness2021.lean, line 40
@@ -16976,12 +17963,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.19. Remark 3.3.8 (preprint 3.36): the quantitative solution germ
 
-*not formalized*
+*formalized since* · now V3.122
 
 **HWZ (§3.3, Remark 3.3.8 (preprint 3.36), p. 113 (preprint p. 89)).** Decreasing sequences $(\varepsilon_i)$, $(\tau_i)$ with: $\delta$ on $\{|a|_0 \le \varepsilon_0\}$ a continuous solution, unique for $|w|_0 \le \tau_0$; $\delta(a) \in W_i$, $|\delta(a)|_i \le \tau_i$ for $|a|_0 \le \varepsilon_i$; $\delta : \{|a|_0 \le \varepsilon_i\} \to W_i$ of class $C^i$.
 
-**Proved in Lean.** **Not formalized in quantitative form.** Its content is Theorem 3.3.2 (preprint 3.29) (existence, uniqueness in $O(0)$, $\delta_i(a) \in K(i)$; V3.26) and Corollary 3.3.7 (preprint 3.34) with $m = k = i$ (V3.31), with $\varepsilon_i$ below the radius of $N(2i + 2^i - 1)$.
+**Proved in Lean.** **Formalized** (2026-11-12; V3.122). Remark 3.3.8 (preprint 3.36) is `remark_3_3_8`, with all four quantitative statements, obtained from Theorem 3.3.2 (preprint 3.29) and Corollary 3.3.7 (preprint 3.34) by choosing $\varepsilon_i$ and $\tau_i$ as running minima.
 
+- `Polyfold.remark_3_3_8` — Polyfold/Chapter3/GapP1_Remark338.lean, line 97
+- `Polyfold.ContractionGerm.exists_radius` — Polyfold/Chapter3/GapP1_Remark338.lean, line 50
 
 ### G.20. Corollary 3.4.3 (preprint 3.39): composition with a given conjugation
 
@@ -17037,53 +18026,74 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **Formalized since the first edition of this page**, in the coordinates of the text's proof ($E = \mathbb R^n \oplus X$, $F = \mathbb R^N \oplus Y$; V3.89, with the second half of the proof V3.88): under (1)–(3), $f - f(0)$ is conjugated near $0$ to a basic germ. The reduction of a general sc-splitting to these coordinates is not formalized.
 
-- `Polyfold.theorem_3_7_1` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 417
+- `Polyfold.theorem_3_7_1` — Polyfold/Chapter3/BasicGermCriterionIndex.lean, line 418
 - `Polyfold.theorem_3_7_1_of_family` — Polyfold/Chapter3/BasicGermCriterionProof.lean, line 649
 
 ### G.25. Lemmas 3.8.1–3.8.3 (preprint 3.62–3.64): extreme rays
 
-*not formalized*
+*formalized since* · now V3.123 · now V3.124
 
 **HWZ (§3.8.1, Lemmas 3.8.1–3.8.3 (preprint 3.62–3.64), pp. 145–147 (preprint pp. 121–122)).** A closed convex cone in finite dimensions is the closed convex hull of its extreme rays (3.62); a cone with interior is a quadrant iff it has $\dim N$ extreme rays (3.63, from [21]); a generator $a$ of an extreme ray of $N \cap C$ has $\dim N - 1 \le \#\sigma_a$ (3.64).
 
-**Proved in Lean.** **Superseded, not formalized**: the proof of Proposition 3.1.25 (preprint 3.22) (V3.21) avoids extreme rays (a segment argument and Lemma 3.8.8 (preprint 3.65); Findings, Chapter 3, item 18).
+**Proved in Lean.** **Formalized** (2026-11-12; V3.123, V3.124). Lemma 3.8.1 (preprint 3.62) is `lemma_3_8_1` for $P \ne \{0\}$; at $P = \{0\}$ it does not hold as we read it (`not_lemma_3_8_1_zero`), and with $0$ adjoined it holds for every closed convex cone (`lemma_3_8_1_zero_union`; Findings, Chapter 3, item 386). Lemmas 3.8.2, 3.8.3 (preprint 3.63, 3.64) are `lemma_3_8_2` and `lemma_3_8_3`, `lemma_3_8_3_goodPosition`. The formal proof of Proposition 3.1.25 (preprint 3.22) still avoids them (V3.21; Findings, Chapter 3, item 18).
 
+- `Polyfold.lemma_3_8_1` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 214
+- `Polyfold.not_lemma_3_8_1_zero` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 278
+- `Polyfold.lemma_3_8_1_zero_union` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 287
+- `Polyfold.lemma_3_8_2` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 433
+- `Polyfold.lemma_3_8_3` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 628
+- `Polyfold.lemma_3_8_3_goodPosition` — Polyfold/Chapter3/GapP1_ExtremeRays.lean, line 645
 
 ### G.26. Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68): the complement $\widetilde N$
 
-*not formalized*
+*formalized since* · now V3.125
 
 **HWZ (§3.8.1, Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68), pp. 150–152 (preprint pp. 123–125)).** $\widetilde N$ is in good position with good complement $(N \cap W) \oplus N^\perp$ (3.66); $C \cap \widetilde N$ is a closed convex cone whose extreme rays satisfy $\dim\widetilde N - 1 = \#\sigma_a = d_C(a)$ (3.67); either $\widetilde N \cap (\mathbb R^{\Sigma^c} \oplus W) = \{0\}$ or $\widetilde N \subseteq \mathbb R^{\Sigma^c} \oplus W$ with $\dim\widetilde N = 1$, $\Sigma = \emptyset$ (3.68).
 
-**Proved in Lean.** **Superseded, not formalized as stated**: the normal form of Proposition 3.1.25 (preprint 3.22) (V3.21) treats the three cases $N \cap C = N$, $\Sigma = \emptyset$, $\Sigma \ne \emptyset$ directly; the content of Lemma 3.8.11's (preprint 3.68) second case is `quadrantNormalForm_of_vanIdx_empty`.
+**Proved in Lean.** **Formalized** (2026-11-12; V3.125). Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68) are `lemma_3_8_9_sc`, `lemma_3_8_10` and `lemma_3_8_11`, in the text's model with the text's notions: a good sc-complement $N^\perp$ gives the good sc-complement $(N \cap W) \oplus N^\perp$ of $\widetilde N$. The formal proof of Proposition 3.1.25 (preprint 3.22) still avoids them (V3.21).
 
+- `Polyfold.lemma_3_8_9_sc` — Polyfold/Chapter3/GapP1_Lemma389Sc.lean, line 111
+- `Polyfold.lemma_3_8_9` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 140
+- `Polyfold.lemma_3_8_10` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 176
+- `Polyfold.lemma_3_8_11` — Polyfold/Chapter3/GapP1_Lemma389.lean, line 242
 
 ### G.27. Definition 3.8.14 (preprint 3.71): class $C^k$ on partial quadrants
 
-*not formalized*
+*formalized since* · now V3.126
 
 **HWZ (§3.8.5 (preprint §3.8.4), Definition 3.8.14 (preprint 3.71), p. 164 (preprint p. 135)).** $f : U \to \mathbb R^m$ on a relatively open subset of a partial quadrant is $C^1$ if it has one-sided derivatives depending continuously on $x$; $C^k$ if $f$ and $Tf$ are $C^{k-1}$.
 
-**Proved in Lean.** **Not formalized separately**: the theorems of §§3.8.5–3.8.6 (preprint §§3.8.4–3.8.5) use Mathlib's $C^k$ within the set (`ContDiffOn`), which on relatively open subsets of partial quadrants agrees with sc$^1$ = $C^1$ (`isSc1_iff_contDiffOn_of_isRelOpenInQuadrant`, Chapter 1, V1.35).
+**Proved in Lean.** **Formalized** (2026-11-12; V3.126). Definition 3.8.14 (preprint 3.71) is `IsClassCOn`; on every set with unique derivatives it agrees with Mathlib's `ContDiffOn` (`isClassCOn_iff_contDiffOn`), and on relatively open subsets of partial quadrants also with sc¹ and sc$^\infty$ (`isSc1_iff_isClassC1On`, `isScSmooth_iff_isClassSmoothOn`).
 
+- `Polyfold.IsClassCOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 77
+- `Polyfold.isClassCOn_iff_contDiffOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 144
+- `Polyfold.isSc1_iff_isClassC1On` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 177
+- `Polyfold.isScSmooth_iff_isClassSmoothOn` — Polyfold/Chapter3/GapP1_Definition3814.lean, line 183
 
 ### G.28. Lemma 3.8.20 (preprint 3.76): iterated tangent maps
 
-*not formalized*
+*formalized since* · now V3.127 · now V3.62
 
 **HWZ (§3.8.5 (preprint §3.8.4), Lemma 3.8.20 (preprint 3.76), p. 167 (preprint p. 139)).** Under the assumptions of Proposition 3.8.17 (preprint 3.73) the iterated tangent maps $T^kf : T^kU \to T^kV$ are smooth homeomorphisms.
 
-**Proved in Lean.** **Superseded, not formalized**: the regularity of $f^{-1}$ is proved by bootstrapping $Dg = [Df]^{-1} \circ g$ (V3.59, V3.62; Findings, Chapter 3, item 28).
+**Proved in Lean.** **Formalized** (2026-11-12; V3.127, V3.62). Lemma 3.8.20 (preprint 3.76) is `lemma_3_8_20`, for every smooth homeomorphism with invertible derivative between relatively open subsets of a partial quadrant (`lemma_3_8_20_printed` under the hypotheses of Proposition 3.8.17 (preprint 3.73)), through Lemma 3.8.21 (preprint 3.77) in its general form (V3.62). The regularity of $f^{-1}$ in Proposition 3.8.17 is still proved by bootstrapping (V3.59).
 
+- `Polyfold.lemma_3_8_20` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 255
+- `Polyfold.lemma_3_8_20_printed` — Polyfold/Chapter3/GapP1_Lemma3820.lean, line 271
+- `Polyfold.lemma_3_8_21` — Polyfold/Chapter3/GapP1_Lemma3821.lean, line 140
 
 ### G.29. Lemma 3.8.13 (preprint 3.70) and Lemma 3.6.9 (preprint 3.55) in a general presentation of $C$; Theorem 3.2.3 (preprint 3.27) and $d_X$
 
-*not formalized*
+*formalized since* · now V3.128 · now V3.80
 
 **HWZ (§§3.8.1, §3.8.4 (preprint §3.8.1, §3.8.3), Lemmas 3.8.13, 3.6.9 (preprint 3.70, 3.55); §3.2, proof of Theorem 3.2.3 (preprint 3.27), preprint p. 127).** Lemma 3.6.9 (preprint 3.55) is stated for any partial quadrant $C \subseteq E$; the proof of Theorem 3.2.3 (preprint 3.27) uses Lemma 3.8.13 (preprint 3.70) to get $d_{N \cap C}(v) = d_X(y)$.
 
-**Proved in Lean.** **Lemma 3.8.13 (preprint 3.70) is formalized in the model $\mathbb R^n \oplus W$**; Lemma 3.6.9 (preprint 3.55) in the model, in coordinates for functionals cutting out $C$, and, since the first edition of this page, for any presentation of $C$ and $\sigma$ on a relatively open domain (V3.80). The transport of Lemma 3.8.13 (preprint 3.70) to a general presentation, and hence $d_M = d_X$ on $M$ in Theorem 3.2.3 (preprint 3.27), is not done (Findings, Chapter 3, item 84).
+**Proved in Lean.** **Formalized** (2026-11-12; V3.128, V3.80). Lemma 3.8.13 (preprint 3.70) and Proposition 3.8.12 (preprint 3.69) hold for any presentation of the partial quadrant (`lemma_3_8_13_general`, `proposition_3_8_12_general`); in Theorem 3.2.3 (preprint 3.27) this gives $d_M = d_X$ near the centre of a datum, off the lineality space (`theorem_3_2_3_degIndex_eq`), which the text does not print (Findings, Chapter 3, items 84, 387). Lemma 3.6.9 (preprint 3.55) is general (V3.80).
 
+- `Polyfold.lemma_3_8_13_general` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 120
+- `Polyfold.lemma_3_8_13_local` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 172
+- `Polyfold.proposition_3_8_12_general` — Polyfold/Chapter3/GapP1_Lemma3813.lean, line 81
+- `Polyfold.MPolyfold.theorem_3_2_3_degIndex_eq` — Polyfold/Chapter3/GapP1_Theorem323Deg.lean, line 42
 
 ### G.30. Theorem 3.1.22 (preprint 3.19): the dimension is the index; $\ker f'(y) = T_yS$; good position for $d_X \equiv 0$
 
@@ -17101,18 +18111,32 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.79. The 2021 (untamed) sc-Fredholm germs: tame fillings, and Theorem 3.6.8 for untamed data
 
-*not formalized*
+*formalized since* · now V3.130 · now V3.131 · now V3.85 · now V3.94 · now V3.103
 
 **HWZ (§3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11).** The 2021 filling asks only for an sc-smooth retraction (no tameness). Theorem 3.6.8 describes the solution set near a zero in good position; its proof (p. 138) uses that the retract is tame. Theorems 3.1.22, 3.1.26, Corollary 3.1.27 and Theorems 3.6.10, 3.6.11 rest on it.
 
-**Proved in Lean.** **Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114. (2026-11-09) **In part.** Germ data in a compatible chart centred at a point of the interior of its partial quadrant, $d_C(\varphi(x_0)) = 0$, give tame germ data: the chart shrunk into the interior is tame and carries the restricted data (`isScFredholmGermTame_of_chart_interior`, `IsScFredholmGermInterior`); so a 2021 sc-Fredholm section with such germ data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`), and Theorem 3.6.8 and the results resting on it hold for it; the hypothesis is satisfiable (`isScFredholmGermInterior_graphSection`). **Open**: germ data in a chart with $d_C(\varphi(x_0)) \ge 1$, which includes every point of $\partial X$ and corner charts at interior points of $X$ (`CornerFilling.zero_not_mem_interior`). **The reading.** Germ data in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, and the 2021 theorems' “tame strong bundle” is not defined in the 2021 text, which defines a tame strong bundle retraction (p. 65). For the 2021 text the tame reading is therefore our reading of that phrase (V3.103; Findings, Chapter 3, item 382).
+**Proved in Lean.** **Settled** (2026-11-12; V3.130, V3.131): read with the 2021 definitions as printed, Theorem 3.6.8 does not hold as we read it. A tame strong bundle over $O \cong \mathbb R$ with an sc-Fredholm section in the 2021 sense has a zero in good position whose solution set is a closed half-line, not a sub-M-polyfold (`theorem_3_6_8_untamed_not`; `theorem_3_1_22_untamed_not` for Theorems 3.1.22, 3.1.26); at that zero the germ has no tame germ data (`not_isScFredholmGermTame_sec_zero`) and is not a 2017 germ (`isScFredholmGerm2021_not_2017`). Corrected form: germ data in a tame chart, the wording of the 2017 text and the preprint and the chart the 2021 proof takes (p. 137): V3.85, V3.94, V3.103; germ data in a chart centred at an interior point of its quadrant are tame (`isScFredholmGermTame_of_chart_interior`). Earlier text of this entry: **Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114. (2026-11-09) **In part.** Germ data in a compatible chart centred at a point of the interior of its partial quadrant, $d_C(\varphi(x_0)) = 0$, give tame germ data: the chart shrunk into the interior is tame and carries the restricted data (`isScFredholmGermTame_of_chart_interior`, `IsScFredholmGermInterior`); so a 2021 sc-Fredholm section with such germ data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`), and Theorem 3.6.8 and the results resting on it hold for it; the hypothesis is satisfiable (`isScFredholmGermInterior_graphSection`). **Open**: germ data in a chart with $d_C(\varphi(x_0)) \ge 1$, which includes every point of $\partial X$ and corner charts at interior points of $X$ (`CornerFilling.zero_not_mem_interior`). **The reading.** Germ data in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, and the 2021 theorems' “tame strong bundle” is not defined in the 2021 text, which defines a tame strong bundle retraction (p. 65). For the 2021 text the tame reading is therefore our reading of that phrase (V3.103; Findings, Chapter 3, item 382). (2026-11-12) A local model with untamed germ data is formalized: an sc-smooth family of projections whose rank jumps (`Jump.family`, `Jump.Family.isScSmooth_map`, V3.129) gives a 2021 filling over a non-tame retraction, conjugated to a basic germ and in good position (`UntamedCorner.isFilling2021_g`, `UntamedCorner.isConjugateToBasicGerm_g`, `UntamedCorner.isGoodPositionAtGerm_g`), whose solution set is computed (`UntamedCorner.solutionSet_eq`, `UntamedCorner.theorem_3_6_8_untamed_local`).
 
-- `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/Book2021Germs.lean, line 440
-- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 481
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 352
-- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 405
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 453
-- `Polyfold.CornerFilling.zero_not_mem_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 505
+- `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/Book2021Germs.lean, line 443
+- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 484
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
+- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 407
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
+- `Polyfold.CornerFilling.zero_not_mem_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 508
+- `Polyfold.Jump.family` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 997
+- `Polyfold.Jump.Family.isScSmooth_map` — Polyfold/Chapter3/GapP1_UntamedJump.lean, line 263
+- `Polyfold.UntamedCorner.isFilling2021_g` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 592
+- `Polyfold.UntamedCorner.isConjugateToBasicGerm_g` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 632
+- `Polyfold.UntamedCorner.isGoodPositionAtGerm_g` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 666
+- `Polyfold.UntamedCorner.solutionSet_eq` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 403
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_local` — Polyfold/Chapter3/GapP1_UntamedCounterexample.lean, line 1037
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 138
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 159
+- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 175
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter3/GapP1_UntamedBundleTheorem.lean, line 202
+- `Polyfold.UntamedCorner.bundle` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 195
+- `Polyfold.UntamedCorner.sec` — Polyfold/Chapter3/GapP1_UntamedBundle.lean, line 234
+- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter3/GapP1_UntamedBundleFrame.lean, line 743
 
 ### G.31. Remark 4.1.3 (preprint 4.3): “$X^1 \ne X$ is possible”
 
@@ -17130,53 +18154,80 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.32. Lemma 4.1.11 (preprint 4.10): the section $u \mapsto (1 - p)(u - t(u))$ is sc-Fredholm
 
-*not formalized*
+*formalized since* · now V4.94
 
 **HWZ (§4.1, Lemma 4.1.11 (preprint 4.10), pp. 179–181 (preprint pp. 151–153)).** The section $u \mapsto (u, \mathbf f(u))$, $\mathbf f(u) = (1 - p)(u - t(u))$, of the local strong bundle $U \triangleleft Y \to U$ is sc-Fredholm.
 
-**Proved in Lean.** **Not formalized, because no longer used**: Proposition 4.1.9 (preprint 4.9), its only use, is proved directly (V4.20–V4.25). It would need $U \triangleleft Y$ as a strong bundle, $Y$ and $Y \cap F$ as sc-subspaces, the sc-isomorphism $E \cong (T_0O \oplus B) \oplus W$ with $B \subseteq Y_\infty$, and at each smooth point the re-centred strong bundle chart (V4.18), filler and conjugation. The text's proof has a sign slip in $D\mathbf f(u)$, calls $D\mathbf f(u)$ an sc⁺-operator, writes $L(T_0O)$ for $L(Y)$, and omits the interior points of $(T_0O \oplus B) \cap C$ (Findings, item 57).
+**Proved in Lean.** **Formalized** (2026-11-12; V4.94), as printed: the section $u \mapsto (u, (1 - p)(u - t(u)))$ of the local strong bundle $U \triangleleft Y \to U$ is sc-Fredholm in the sense of 2021 Definition 3.1.16 on all of $U$ (`lemma_4_1_11`), with the conjugation of $(1 - p)v$ to a basic germ at each smooth point (`isConjugateToBasicGerm_qOp`). It is still not used: Proposition 4.1.9 (preprint 4.9) is proved directly (V4.20–V4.25). The text's proof has a sign slip in $D\mathbf f(u)$, calls $D\mathbf f(u)$ an sc⁺-operator, writes $L(T_0O)$ for $L(Y)$, and omits the interior points of $(T_0O \oplus B) \cap C$ (Findings, item 57).
 
+- `Polyfold.lemma_4_1_11` — Polyfold/Chapter4/GapP1_Lemma4111.lean, line 64
+- `Polyfold.isConjugateToBasicGerm_qOp` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 316
+- `Polyfold.exists_splitData` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 140
+- `Polyfold.isScSubspace_splitW` — Polyfold/Chapter4/GapP1_Lemma4111Split.lean, line 195
+- `Polyfold.LocalBundle.bundle` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 156
+- `Polyfold.LocalBundle.sec` — Polyfold/Chapter4/GapP1_LocalStrongBundle.lean, line 198
 
 ### G.33. Remark 4.2.2 (preprint 4.14): the local form near $\{d_X = 0\}$
 
-*not formalized*
+*formalized since* · now V4.32
 
 **HWZ (§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)).** Near points $a \in A$ with $d_X(a) = 0$ the submanifold $A$ is a smooth finite-dimensional manifold in the classical sense.
 
-**Proved in Lean.** **Formalized in part since the first edition of this page** (V4.32). Near the points with $d_X(a) = 0$, the preprint's wording, $A$ is a smooth finite-dimensional submanifold with a corner structure on an open neighbourhood, without tameness of $X$ (`remark_4_2_2_interior`, `remark_4_2_2_near`); globally if $d_X = 0$ on all of $A$ (`hasCornerStructure_of_degIndex_eq_zero`). **Not formalized**: the 2021 wording, near the points $a \in A$ with $d_A(a) = 0$ (more points, since $d_A \le d_X$), and the 2021 sentence that near $d_A(a) = 1$ the set $A$ is a smooth manifold with boundary (Findings, Chapter 4, items 61, 165).
+**Proved in Lean.** **Formalized** (2026-11-12; V4.32), in the 2021 wording and without tameness. Near $d_A(a) = 0$ the open piece $\{d_A = 0\}$ of $A$ is a smooth submanifold of $A$ that is a manifold without boundary (`remark_4_2_2_dA_zero`, `remark_4_2_2_dA_zero_near`); near $d_A(a) = 1$ the open piece $\{d_A \le 1\}$ is a manifold with boundary, a corner structure with $d \le 1$ (`remark_4_2_2_dA_one`, `remark_4_2_2_dA_one_near`): in a re-centred chart realizing $d_A(a) = 1$, $T_aA$ is in good position unless the boundary coordinate vanishes on it, and then $A$ is near $a$ a graph over $T_aA$ and $d_A(a) = 0$ (the argument of Lemma 9.2.13). The preprint's wording ($d_X(a) = 0$) remains as before (`remark_4_2_2_interior`, `remark_4_2_2_near`) (Findings, Chapter 4, items 61, 165, 176).
 
-- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1530
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1532
 - `Polyfold.MPolyfold.remark_4_2_2_interior` — Polyfold/Chapter4/RemarkLocalForm.lean, line 57
 - `Polyfold.MPolyfold.remark_4_2_2_near` — Polyfold/Chapter4/RemarkLocalForm.lean, line 69
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 201
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 220
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 101
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 174
+- `Polyfold.isInGoodPosition_halfSpace` — Polyfold/Chapter4/GapP1_Remark422One.lean, line 54
+- `Polyfold.MPolyfold.remark_4_2_2_dA_zero` — Polyfold/Chapter4/GapP1_Remark422.lean, line 153
+- `Polyfold.MPolyfold.remark_4_2_2_dA_zero_near` — Polyfold/Chapter4/GapP1_Remark422.lean, line 172
+- `Polyfold.MPolyfold.degIndex_eq_zero_of_isReducedTangentAt` — Polyfold/Chapter9/BoundaryPositionConverse.lean, line 453
 
 ### G.34. The open question after Proposition 4.2.3 (preprint 4.15)
 
-*not formalized*
+*nothing to formalize*
 
 **HWZ (§4.2, Open Question, preprint p. 159).** Is a sub-M-polyfold with $A = A_\infty$ and $\dim T_aA$ finite and locally constant a smooth finite-dimensional submanifold? Is the "T" $\{(x, 0) : |x| < 1\} \cup \{(0, y) : 0 \le y < 1\}$ homeomorphic to a retract $O = O_\infty$? Impossible for sc⁺-retracts.
 
-**Proved in Lean.** **Not formalized** (a question, not a statement). The last sentence, for a retract without boundary, is V4.32 with $A = O$: an sc⁺-retract in $(O, E, E)$ is a manifold; that the "T" is not a topological manifold is not formalized (Findings, item 65).
+**Proved in Lean.** **Nothing to formalize** (a question, not a statement). (2026-11-12) The settled sentence is formalized: `question_4_2_4_scPlus` shows that an sc⁺-retract $(O, E, E)$ is never homeomorphic to the "T", because no neighbourhood of $(0, 0)$ in the "T" is homeomorphic to an open subset of a finite-dimensional space (`not_homeomorph_open`: case $k = 0$; case $k = 1$, three arms on two sides; case $k \ge 2$, a punctured ball is connected), while near each point an sc⁺-retract with $C = E$ is the graph of a map on its finite-dimensional tangent space (`IsScPlus.exists_flat`, the argument of Lemma 9.2.13). The question for sc-retracts that are not sc⁺ is open in the text and not addressed (Findings, item 65). The same holds on the piece $\{d_O = 0\}$ of any sc⁺-retract (`remark_4_2_2_dA_zero`, V4.32).
 
+- `Polyfold.Question424.question_4_2_4_scPlus` — Polyfold/Chapter4/GapP1_Question424.lean, line 315
+- `Polyfold.Question424.not_homeomorph_open` — Polyfold/Chapter4/GapP1_Question424.lean, line 110
+- `Polyfold.Question424.tSet` — Polyfold/Chapter4/GapP1_Question424.lean, line 45
+- `Polyfold.ScRetraction.IsScPlus.exists_flat` — Polyfold/Chapter9/BoundaryPositionConverse.lean, line 307
 
 ### G.35. Theorem 4.2.11 (1) (preprint 4.22): local faces of the chart as global local faces
 
-*not formalized*
+*formalized since* · now V4.50
 
 **HWZ (§4.2, Theorem 4.2.11 (1) (preprint 4.22), p. 190 (preprint p. 162)).** There are precisely $d = d_X(x)$ local faces $F_1, \dots, F_d$ contained in $U$.
 
-**Proved in Lean.** **Formalized for the chart model only** (V4.50): $d_X(x) = n$, all coordinates vanish at the centre, and $\psi(x)$ lies in exactly $d_X(x)$ faces of the M-polyfold $O$. The identification of these faces with (germs of) global faces of $X$ (Theorem 2.5.17 (preprint 2.45) in the face-structured case) is not formalized (Findings, items 86, 90). The text's local faces are faces of the neighbourhood $U$ itself (closures in $U$ of the components of $U \cap \{d_X = 1\}$), so (4) is affected as well; the missing step is a local face theorem for small neighbourhoods, believed true for tame $X$ (Findings, Chapter 4, item 130; third addendum).
+**Proved in Lean.** **Formalized** (2026-11-12; V4.50). There is a face-structured open $U \ni x$ such that the faces of $U$ through $x$ (the local faces: closures in $U$ of the components of $U \cap \{d_X = 1\}$) are exactly $d_X(x) = n$ distinct sets $\theta_1, \dots, \theta_n$, and near $x$ each $\theta_i$ is the chart face $\psi^{-1}\{\lambda_i = 0\}$ (`theorem_4_2_11_faces`, `exists_faces_chart`, by Lemmas 4.A and 4.C of the exposition); (2) and (3) hold on $U$. For every $\sigma$ the text's $F_\sigma = \bigcap_{i \in \sigma}\theta_i$ agrees near $x$ with $\psi^{-1}(G \cap \bigcap_{i\in\sigma} F_i)$, which carries the properties of (4) (`theorem_4_2_11_preprint`), so (4) is proved for the germ of $F_\sigma$ at $x$, which is what the later chapters use (Findings, items 86, 90; Chapter 4, item 130).
 
 - `Polyfold.MPolyfold.theorem_4_2_11_preprint` — Polyfold/Chapter4/LocalStructure.lean, line 1541
+- `Polyfold.MPolyfold.theorem_4_2_11_faces` — Polyfold/Chapter4/GapP1_LocalFaces.lean, line 225
+- `Polyfold.MPolyfold.exists_faces_chart` — Polyfold/Chapter4/GapP1_LocalFaces.lean, line 50
+- `Polyfold.MPolyfold.theorem_4_2_11_one` — Polyfold/Chapter4/GapP1_Theorem4211.lean, line 54
+- `Polyfold.TameBoundary.exists_nbhd_forall_isFaceStructuredOpen` — Polyfold/Chapter2/TameBoundary.lean, line 538
 
 ### G.36. Theorem 4.3.1 (preprint 4.23): chart independence of stratified regularity
 
-*not formalized*
+*formalized since* · now V4.93
 
 **HWZ (§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)).** Regular values of the maps $p_\sigma : A \cap F_\sigma^\circ \to \mathbb R^m$, intrinsic to $A$ and its strata.
 
-**Proved in Lean.** **Not formalized.** Stratified regularity is defined in some product chart (V4.53); its independence of the chart is true by the transport argument of V4.39 (the transition maps of product charts are $\mathrm{id} \times \tau$ up to translation) but not formalized. Theorem 4.3.1 (preprint 4.23) is unaffected: it produces $\Sigma$ (Findings, items 102, 108).
+**Proved in Lean.** **Formalized** (2026-11-12; V4.93). Stratified regularity of $p = P|_A$ at $z$ (`IsStratRegularPoint`, defined in some product chart) holds in every product chart at $z$, for every data of Definition 4.2.1, every presentation of the partial quadrant and every level-1 lift (`IsStratRegularPoint.stratRegCond`), so it is intrinsic to $A$ and its strata (`isStratRegularPoint_iff_forall`, `isStratRegularValue_iff_forall`). The proof is the transport argument of V4.39: product-chart transitions have first component $w_1 + a - a'$, so their derivatives fix the $\mathbb R^m$-component and carry tangent spaces and minimal subspaces (Findings, items 102, 108).
 
-- `Polyfold.IsStratRegularPoint` — Polyfold/Chapter4/Families.lean, line 552
+- `Polyfold.IsStratRegularPoint.stratRegCond` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 304
+- `Polyfold.isStratRegularPoint_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 330
+- `Polyfold.isStratRegularValue_iff_forall` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 356
+- `Polyfold.stratRegCond_chart_change` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 200
+- `Polyfold.StratRegCond.transport` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 128
+- `Polyfold.StratRegCond` — Polyfold/Chapter4/GapP1_Theorem431.lean, line 86
 
 ### G.37. Definition 4.4.1 (preprint 4.25): sc-differential forms and the directed system
 
@@ -17206,8 +18257,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.tangentChartMap_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 592
 - `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
 - `Polyfold.retractLieBracket_natural` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 232
-- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 495
-- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 445
+- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 497
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 447
 
 ### G.39. The exterior derivative, Definition 4.4.6 (preprint 4.27) and the relative complex
 
@@ -17215,31 +18266,33 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§4.4, pp. 195–199 (preprint pp. 167–168), Definition 4.4.6 (preprint 4.27)).** $d : \Omega^k(X^{i+1}) \to \Omega^{k+1}(X^i)$ by the usual formula, $d^2 = 0$; $H^*_{sc}(X) = \ker d/\operatorname{im} d$; the relative complex $\Omega^*_\infty(X) \oplus \Omega^{*-1}_\infty(\partial X)$ with $d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$.
 
-**Proved in Lean.** **Formalized** (2026-11-09, 2026-11-10; V4.84–V4.88, V4.90, V4.91). The exterior derivative on an M-polyfold runs in the 2021 direction $\Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$, the direction item 120 proposed for the preprint: `MPolyfold.extD` is given in charts by the local formula $d(\omega_\varphi)$, does not depend on the chart (`extD_apply`), maps $\Omega^k(X)$ to $\Omega^{k+1}(X^1)$ (`extD_mem_scForms`) and is linear (`extDₗ`). $d \circ d = 0$ is proved (`extD_extD`, by the symmetry of the second derivative); $d$ commutes with $X^{i+1} \to X^i$ (`extD_formLower`) and passes to $\Omega^*_\infty(X)$ with $d^2 = 0$ (`formsInftyD`, `formsInftyGradedD_comp_self`); Definition 4.4.6 is `BundledMPolyfold.scDeRham`, read degree by degree. The formula of p. 197 holds with the sign $(-1)^{\ell+j+1}$ for the text's bracket; with the printed $(-1)^{\ell+k}$ it does not hold as we read it (V4.83). Forms on $\partial X$ are read through the tame boundary $B : bX \to X$ (Theorem 2.7.13): `bForms hP k i` $= \Omega^k(\partial X^i)$ are the sc-forms $\tau$ on $bX^i$ such that $\tau$ and $d\tau$ agree over $B$ (on two local faces through a point the forms coincide on vectors with the same image in $TX$), the largest $d$-stable family of agreeing forms (`le_bForms`). $j^* = B^*$ (`jStar`, the pull-back of V4.89) with $dj^* = j^*d$ (`jStar_comp_D`); the relative complex `RelForms`, `relD` ($d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$), `relD_comp_relD` ($d \circ d = 0$) and `relDeRham` ($H^k_{dR}(X, \partial X)$, degree by degree) (V4.90, V4.91). Not proved: that the agreement of $\tau$ alone implies that of $d\tau$; if it does, `bForms` is the set of agreeing forms (Findings, Chapter 4, items 120–122, 167, 169, 170, 173).
+**Proved in Lean.** **Formalized** (2026-11-09, 2026-11-10; V4.84–V4.88, V4.90, V4.91). The exterior derivative on an M-polyfold runs in the 2021 direction $\Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$, the direction item 120 proposed for the preprint: `MPolyfold.extD` is given in charts by the local formula $d(\omega_\varphi)$, does not depend on the chart (`extD_apply`), maps $\Omega^k(X)$ to $\Omega^{k+1}(X^1)$ (`extD_mem_scForms`) and is linear (`extDₗ`). $d \circ d = 0$ is proved (`extD_extD`, by the symmetry of the second derivative); $d$ commutes with $X^{i+1} \to X^i$ (`extD_formLower`) and passes to $\Omega^*_\infty(X)$ with $d^2 = 0$ (`formsInftyD`, `formsInftyGradedD_comp_self`); Definition 4.4.6 is `BundledMPolyfold.scDeRham`, read degree by degree. The formula of p. 197 holds with the sign $(-1)^{\ell+j+1}$ for the text's bracket; with the printed $(-1)^{\ell+k}$ it does not hold as we read it (V4.83). Forms on $\partial X$ are read through the tame boundary $B : bX \to X$ (Theorem 2.7.13): `bForms hP k i` $= \Omega^k(\partial X^i)$ are the sc-forms $\tau$ on $bX^i$ that agree over $B$ (on two local faces through a point the forms coincide on vectors with the same image in $TX$); the definition also lists the agreement of $d\tau$, which follows (2026-11-12; `isFaceCompatible_extD`, `bForms_eq_agreeForms`). $j^* = B^*$ (`jStar`, the pull-back of V4.89) with $dj^* = j^*d$ (`jStar_comp_D`); the relative complex `RelForms`, `relD` ($d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$), `relD_comp_relD` ($d \circ d = 0$) and `relDeRham` ($H^k_{dR}(X, \partial X)$, degree by degree) (V4.90, V4.91). The agreement of $\tau$ implies that of $d\tau$ (`isFaceCompatible_extD`), so `bForms` is the set of agreeing sc-forms (`bForms_eq_agreeForms`) (Findings, Chapter 4, items 120–122, 167, 169, 170, 173).
 
 - `Polyfold.MPolyfold.extD` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 261
 - `Polyfold.MPolyfold.extD_apply` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 281
 - `Polyfold.MPolyfold.extD_mem_scForms` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 367
 - `Polyfold.MPolyfold.extDₗ` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 444
 - `Polyfold.MPolyfold.extD_extD` — Polyfold/Chapter4/ScFormsSquare2021.lean, line 264
-- `Polyfold.MPolyfold.extD_formLower` — Polyfold/Chapter4/ScFormsLower2021.lean, line 150
-- `Polyfold.BundledMPolyfold.formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 216
-- `Polyfold.BundledMPolyfold.formsInftyGradedD_comp_self` — Polyfold/Chapter4/ScFormsLower2021.lean, line 248
-- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 273
-- `Polyfold.MPolyfold.bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 468
-- `Polyfold.MPolyfold.jStar` — Polyfold/Chapter4/BoundaryForms2021.lean, line 509
-- `Polyfold.MPolyfold.jStar_comp_D` — Polyfold/Chapter4/BoundaryForms2021.lean, line 514
-- `Polyfold.MPolyfold.relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 590
-- `Polyfold.MPolyfold.relD_comp_relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 619
-- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 642
+- `Polyfold.MPolyfold.extD_formLower` — Polyfold/Chapter4/ScFormsLower2021.lean, line 152
+- `Polyfold.BundledMPolyfold.formsInftyD` — Polyfold/Chapter4/ScFormsLower2021.lean, line 218
+- `Polyfold.BundledMPolyfold.formsInftyGradedD_comp_self` — Polyfold/Chapter4/ScFormsLower2021.lean, line 250
+- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 275
+- `Polyfold.MPolyfold.bForms` — Polyfold/Chapter4/BoundaryForms2021.lean, line 471
+- `Polyfold.MPolyfold.jStar` — Polyfold/Chapter4/BoundaryForms2021.lean, line 512
+- `Polyfold.MPolyfold.jStar_comp_D` — Polyfold/Chapter4/BoundaryForms2021.lean, line 517
+- `Polyfold.MPolyfold.relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 593
+- `Polyfold.MPolyfold.relD_comp_relD` — Polyfold/Chapter4/BoundaryForms2021.lean, line 622
+- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 645
+- `Polyfold.MPolyfold.isFaceCompatible_extD` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 749
+- `Polyfold.MPolyfold.bForms_eq_agreeForms` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 756
 
 ### G.40. Theorem 4.4.7 (preprint 4.28): Stokes' theorem
 
-*not formalized*
+*formalized since* · now V4.92
 
 **HWZ (§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)).** For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\omega$, $\int_N d\omega = \sum_F\int_F\omega$.
 
-**Proved in Lean.** **Formalized in part** (2026-11-09). Stokes' theorem is formalized for classical forms on Mathlib manifolds with boundary with corners. For a compact Hausdorff Mathlib manifold $M$ modelled on $[0, \infty)^{n+1}$ with a continuous tangent orientation $o$ (as Theorem 6.6.18 gives the solution sets, V6.61) and a $C^1$ $n$-form $\omega$ (`ManifoldForm`, `ContMDiffForm`), $\int_M d\omega = \int_{\partial M}\omega$ (`stokes_of_compactSpace`; `integral_extDeriv_eq_boundaryIntegral` for compact support). $d$ is Mathlib's exterior derivative read in charts, and does not depend on the chart (`ManifoldForm.chartForm_extDeriv`). $\int_M$ is defined through signed charts and a smooth partition of unity and does not depend on these choices (`IntegrationData.integral_eq`); the charts carry a sign since the quadrant model gives $[0, 1]$ no oriented atlas. $\int_{\partial M}$ is the sum of the face integrals in the charts, each face oriented outward vector first as in Definition 9.3.8 (`det_cons_neg_stdFrame_faceFrame`); for $C^1$ forms it does not depend on the choices (`IntegrationData.boundaryIntegral_eq`), the corners are a null set (`chartBoundaryIntegral_eq_sum_openQuadrant`), and chart changes preserve the faces and their induced orientation at the boundary points of degeneracy index $1$ (`exists_face_chartChange`, `orientation_face_chartChange`). The chart-level layer is Stokes' theorem on a quadrant and on a relatively open part of it (`stokes_quadrant`, `stokes_quadrant_inter_open`), with the change of variables $\int_{\varphi(s)}\omega = \pm\int_s\varphi^*\omega$ (`topFormIntegral_image_of_det_pos`, `topFormIntegral_image_of_det_neg`). Forms given only on the boundary are formalized (2026-11-09) as families of forms on the faces of the charts, smooth, compatible under chart changes and agreeing on the corners (`IsChartFaceForm`, `ChartFaceForm`). Every compactly supported one is the face restriction $j^*\beta$ of a smooth compactly supported form on $M$ (`exists_extension`, inclusion–exclusion in box charts glued by a partition of unity). Its integral over $\partial M$ is that of any extension (`ChartFaceForm.integral`, `faceIntegral_eq`), linear, with $\int_{\partial M} j^*\beta = \int_{\partial M} \beta$ (`ChartFaceForm.integral_ofForm`) and $\int_{\partial M} d\tau = 0$ (`ChartFaceForm.integral_d_eq_zero`). $d \circ d = 0$ holds for `ManifoldForm` (`ManifoldForm.extDeriv_extDeriv`) and on the faces (`ChartFaceForm.d_d`), with $j^*d = dj^*$ (`faceRestriction_extDeriv`). In dimension 0 the integral is a signed sum over the points (`ManifoldForm.integral_eq_sum_of_dim_zero`). (2026-11-09) For sc-forms: for a compact $S \subseteq X$ with a corner structure of dimension $n + 1$ (e.g. a compact submanifold in good position of a tame $X$), a continuous tangent orientation and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$ (`MPolyfold.stokes_formsInftyRestrict`, V4.92), with $\omega|_S$ the restriction of V4.92 and $\int_{\partial S}$ the boundary integral of the Mathlib manifold $S$ (outward vector first). On a product end $(a, b) \times N$ the boundary integral of $h(t)\,dt \wedge \beta_N$ is $-(\int h)\int_{\partial N} \beta_N$, also for face data (`ProductEnd.boundaryIntegral_end_sign`, `ProductEnd.faceIntegral_end_sign`). **Not formalized**: $\partial N$ and its faces $F$ as tame M-polyfolds in their own right, so the text's sum $\sum_F\int_F\omega$ as it writes it; it is read as the boundary integral, the sum of the face integrals in the charts (V4.92). The preprint and 2017 formulas write $\int_M$ for $\int_N$; the 2021 text writes $\int_N$ (Findings, Chapter 4, items 123, 171, 172).
+**Proved in Lean.** **Formalized** (2026-11-09, 2026-11-12; V4.92). Stokes' theorem is formalized for classical forms on Mathlib manifolds with boundary with corners. For a compact Hausdorff Mathlib manifold $M$ modelled on $[0, \infty)^{n+1}$ with a continuous tangent orientation $o$ (as Theorem 6.6.18 gives the solution sets, V6.61) and a $C^1$ $n$-form $\omega$ (`ManifoldForm`, `ContMDiffForm`), $\int_M d\omega = \int_{\partial M}\omega$ (`stokes_of_compactSpace`; `integral_extDeriv_eq_boundaryIntegral` for compact support). $d$ is Mathlib's exterior derivative read in charts, and does not depend on the chart (`ManifoldForm.chartForm_extDeriv`). $\int_M$ is defined through signed charts and a smooth partition of unity and does not depend on these choices (`IntegrationData.integral_eq`); the charts carry a sign since the quadrant model gives $[0, 1]$ no oriented atlas. $\int_{\partial M}$ is the sum of the face integrals in the charts, each face oriented outward vector first as in Definition 9.3.8 (`det_cons_neg_stdFrame_faceFrame`); for $C^1$ forms it does not depend on the choices (`IntegrationData.boundaryIntegral_eq`), the corners are a null set (`chartBoundaryIntegral_eq_sum_openQuadrant`), and chart changes preserve the faces and their induced orientation at the boundary points of degeneracy index $1$ (`exists_face_chartChange`, `orientation_face_chartChange`). The chart-level layer is Stokes' theorem on a quadrant and on a relatively open part of it (`stokes_quadrant`, `stokes_quadrant_inter_open`), with the change of variables $\int_{\varphi(s)}\omega = \pm\int_s\varphi^*\omega$ (`topFormIntegral_image_of_det_pos`, `topFormIntegral_image_of_det_neg`). Forms given only on the boundary are formalized (2026-11-09) as families of forms on the faces of the charts, smooth, compatible under chart changes and agreeing on the corners (`IsChartFaceForm`, `ChartFaceForm`). Every compactly supported one is the face restriction $j^*\beta$ of a smooth compactly supported form on $M$ (`exists_extension`, inclusion–exclusion in box charts glued by a partition of unity). Its integral over $\partial M$ is that of any extension (`ChartFaceForm.integral`, `faceIntegral_eq`), linear, with $\int_{\partial M} j^*\beta = \int_{\partial M} \beta$ (`ChartFaceForm.integral_ofForm`) and $\int_{\partial M} d\tau = 0$ (`ChartFaceForm.integral_d_eq_zero`). $d \circ d = 0$ holds for `ManifoldForm` (`ManifoldForm.extDeriv_extDeriv`) and on the faces (`ChartFaceForm.d_d`), with $j^*d = dj^*$ (`faceRestriction_extDeriv`). In dimension 0 the integral is a signed sum over the points (`ManifoldForm.integral_eq_sum_of_dim_zero`). (2026-11-09) For sc-forms: for a compact $S \subseteq X$ with a corner structure of dimension $n + 1$ (e.g. a compact submanifold in good position of a tame $X$), a continuous tangent orientation and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$ (`MPolyfold.stokes_formsInftyRestrict`, V4.92), with $\omega|_S$ the restriction of V4.92 and $\int_{\partial S}$ the boundary integral of the Mathlib manifold $S$ (outward vector first). On a product end $(a, b) \times N$ the boundary integral of $h(t)\,dt \wedge \beta_N$ is $-(\int h)\int_{\partial N} \beta_N$, also for face data (`ProductEnd.boundaryIntegral_end_sign`, `ProductEnd.faceIntegral_end_sign`). On a manifold with a product end, the pull-back of a form along the end projection is a smooth form after a cut-off, $d$ commutes with it, and an extension of face data can be glued from two ends (`ProductEnd.pullAt`, `ProductEnd.IsEndPullback.extDeriv`, `exists_glued_extension`). (2026-11-12) The faces in their own right: a compact tame M-polyfold has finitely many faces (`finite_setOf_isFace`), and in a face-structured one a face is, near each of its points and in any chart modelled on a tame retract, exactly a coordinate face (`exists_face_eq_coordHyper`). For $S$ face-structured (Definition 2.5.10, the reading of "a union of smooth faces"), every face $F$ has a corner structure of dimension $n$ (`hasCornerStructureOfDim_face`, via the coordinate faces in corner coordinates, `CornerCoords.exists_faceData`), so it is a Mathlib manifold; the induced orientation, outward vector first, exists, is unique and continuous (`inducedOrientation`; the chart changes of the faces are the face restrictions of those of $S$, `FaceChartPair.chartChangeDeriv_face`); and $\sum_F \int_F \omega|_F = \int_{\partial S}\omega$ (`sum_integral_restrictForm_eq_boundaryIntegral`), so Theorem 4.4.7 holds as printed, with the sum over the faces (`MPolyfold.theorem_4_4_7_hyp`, V4.92). The face-structured hypothesis is satisfiable: it holds without boundary (`isFaceStructured_of_forall_degIndex_eq_zero`) and for the quadrants (`isFaceStructured_quadrant`). The preprint and 2017 formulas write $\int_M$ for $\int_N$; the 2021 text writes $\int_N$ (Findings, Chapter 4, items 123, 171, 172, 177).
 
 - `Polyfold.ManifoldForm.stokes_of_compactSpace` — Polyfold/Chapter4/ManifoldStokes2021.lean, line 383
 - `Polyfold.ManifoldForm.integral_extDeriv_eq_boundaryIntegral` — Polyfold/Chapter4/ManifoldStokes2021.lean, line 370
@@ -17261,6 +18314,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.ChartFaceForm.integral_d_eq_zero` — Polyfold/Chapter4/ManifoldFaceForms2021.lean, line 1656
 - `Polyfold.ManifoldForm.extDeriv_extDeriv` — Polyfold/Chapter4/ManifoldFaceForms2021.lean, line 190
 - `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1057
+- `Polyfold.MPolyfold.theorem_4_4_7_hyp` — Polyfold/Chapter9/GapP1_Stokes2021.lean, line 397
+- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter4/GapP1_StokesFaceCharts.lean, line 353
+- `Polyfold.inducedOrientation` — Polyfold/Chapter4/GapP1_StokesFaceOrientation.lean, line 301
+- `Polyfold.FaceChartPair.chartChangeDeriv_face` — Polyfold/Chapter4/GapP1_StokesFaceOrientation.lean, line 193
+- `Polyfold.sum_integral_restrictForm_eq_boundaryIntegral` — Polyfold/Chapter4/GapP1_StokesFaceIntegral.lean, line 531
+- `Polyfold.MPolyfold.finite_setOf_isFace` — Polyfold/Chapter4/GapP1_StokesFaces.lean, line 55
+- `Polyfold.MPolyfold.exists_face_eq_coordHyper` — Polyfold/Chapter4/GapP1_StokesFaces.lean, line 72
+- `Polyfold.MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero` — Polyfold/Chapter9/GapP1_Stokes2021.lean, line 366
+- `Polyfold.ProductEnd.pullAt` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 113
+- `Polyfold.exists_glued_extension` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 347
 
 ### G.80. 2021 §4.4 and Appendix 4.5: sc-differential forms, the exterior derivative, Stokes, the Poincaré lemma
 
@@ -17268,34 +18331,58 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§4.4 and Appendix 4.5, pp. 195–208 (2021)).** Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\oplus_kTX$, the direct limit $\Omega^*_\infty(X)$), the exterior derivative $d : \Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).
 
-**Proved in Lean.** **Formalized in part** (2026-11-09; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\oplus_kTX$ read in its charts $\oplus_kT\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \to X^i$ and passing to $\Omega^*_\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners (gap G.40 in part). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\Omega^k(X^i)$ and on $\Omega^k_\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\int_{\partial S} j^*\omega = \int_{\partial S} \omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\int_{\partial M} d\tau = 0$ (G.40); on a product end $(a, b) \times S$ of $S' \subseteq \mathbb R^1 \times X$, the restriction of $p_1^*\omega$ is the pull-back of $\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). **Not formalized**: the wedge product, so neither $\Omega^*_\infty(X)$ nor $\Omega^*_\infty(X, \partial X)$ is a graded differential algebra here; the pull-back of forms on $\partial X$ along sc-smooth maps of tame M-polyfolds such as $p_1 : \mathbb R^1 \times X \to X$ (used for Theorem 6.7.1, gap G.54); the faces of $N$ as tame M-polyfolds in Theorem 4.4.7 (G.40); the Poincaré Lemma 4.4.8 and its local form Lemma 4.5.2, proved in §4.5.3 (Findings, Chapter 4, items 158, 167–173).
+**Proved in Lean.** **Formalized in part** (2026-11-09, 2026-11-12; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\oplus_kTX$ read in its charts $\oplus_kT\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \to X^i$ and passing to $\Omega^*_\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners, and Theorem 4.4.7 with the sum over the faces (gap G.40, closed; V4.92). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\Omega^k(X^i)$ and on $\Omega^k_\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\int_{\partial S} j^*\omega = \int_{\partial S} \omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\int_{\partial M} d\tau = 0$ (G.40); on a product end $(a, b) \times S$ of $S' \subseteq \mathbb R^1 \times X$, the restriction of $p_1^*\omega$ is the pull-back of $\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). (2026-11-12) Also formalized: the wedge product of sc-forms, read classically as $(a\wedge b)(v) = (k!\,l!)^{-1}\sum_\sigma \operatorname{sign}\sigma\, a(v_{\sigma(1..k)})\,b(v_{\sigma(k+1..k+l)})$ since the text uses it without a definition (`formWedge`, `formsInftyWedge`): it is bilinear, associative, graded commutative and unital, and satisfies the Leibniz rule (`extD_formWedge`, `formsInftyD_formsInftyWedge`); $\Omega^*_\infty(X) = \bigoplus_k\Omega^k_\infty(X)$ is thereby a graded $\mathbb R$-algebra (`formsInftyGAlgebra`) on which $d$ is a derivation of degree $+1$ with $d^2 = 0$ (`formsInftyGradedD_of_mul_of`), the graded differential algebra of p. 198, and $f^*$ is a morphism of graded algebras (V4.87, V4.89); sc-forms on open subsets, with the restrictions $\Omega^k(X) \to \Omega^k(U)$ and $\Omega^k_\infty(X) \to \Omega^k_\infty(U)$ commuting with $d$ (`formRestrict`, `formsInftyResOpen`) and "$[\omega] = [\tau]$ on $V$" of (4.7) (`FormsInftyEqOn`, `formsInftyEqOn_of_iff`); the Poincaré Lemma 4.4.8 (`lemma_4_4_8`, V4.95) and its local form Lemma 4.5.2 for a convex relatively open $U \subseteq C$ (`hasPoincare_relOpen_of_zero_mem`, `lemma_4_5_2`, V4.96), with the homotopy operator $\tau(y)(v) = \int_0^1 t^k\,\omega(c + t(y-c))(y-c, v)\,dt$ about a smooth centre $c$ ($c = 0$ in the text; Lemma 4.4.8 needs a general one, since $B_\delta(x) \cap C$ need not contain $0$), sc-smooth as a parametric integral (`isScSmooth_intervalIntegral`); the agreement of $d\tau$ for forms $\tau$ on $\partial X$ that agree (V4.90); the pull-back of forms on $\partial X$ to the faces of a finite-dimensional sub-M-polyfold $S$ of a second tame M-polyfold along an sc-smooth $G : S \to X$ with $d_S = d_X \circ G$, with $d$ commuting and $(G^*\eta)_S$ extending $(G^*j^*\eta)|_{\partial S}$ (`faceAlongData`, `faceAlongData_formsD`, `isExtendedBy_faceAlongData_formsPullback`), the case $G = p_1$ used for Theorem 6.7.1 (gap G.54). **Not formalized**: the wedge product on $\Omega^*_\infty(X, \partial X)$, so that complex is formalized as a graded vector space with $d$ (V4.91); the pull-back of forms on $\partial X$ along a general sc-smooth map of tame M-polyfolds, beyond the faces of finite-dimensional sub-M-polyfolds above (Findings, Chapter 4, items 158, 167–173, 177).
 
 - `Polyfold.MPolyfold.scForms` — Polyfold/Chapter4/ScForms2021.lean, line 731
 - `Polyfold.BundledMPolyfold.formsInfty` — Polyfold/Chapter4/ScForms2021.lean, line 928
 - `Polyfold.MPolyfold.extD` — Polyfold/Chapter4/ScFormsGlobal2021.lean, line 261
 - `Polyfold.MPolyfold.extD_extD` — Polyfold/Chapter4/ScFormsSquare2021.lean, line 264
-- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 273
+- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 275
 - `Polyfold.extDeriv_eq_invariantFormula` — Polyfold/Chapter4/ScExteriorDerivative2021.lean, line 100
 - `Polyfold.ManifoldForm.stokes_of_compactSpace` — Polyfold/Chapter4/ManifoldStokes2021.lean, line 383
 - `Polyfold.BundledMPolyfold.formsInftyPullback` — Polyfold/Chapter4/ScFormsPullback2021.lean, line 444
-- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 642
+- `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms2021.lean, line 645
 - `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1006
 - `Polyfold.MPolyfold.extDeriv_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge2021.lean, line 1034
 - `Polyfold.MPolyfold.solFaceForm` — Polyfold/Chapter9/SolutionFaceForms2021.lean, line 1036
 - `Polyfold.MPolyfold.solFaceForm_jStar_integral` — Polyfold/Chapter9/SolutionFaceForms2021.lean, line 1083
 - `Polyfold.MPolyfold.solFaceForm_d` — Polyfold/Chapter9/SolutionFaceForms2021.lean, line 1067
 - `Polyfold.MPolyfold.isEndPullback_formsInftyRestrict_snd` — Polyfold/Chapter6/InvariantProductEnds2021b.lean, line 1338
+- `Polyfold.MPolyfold.formWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 687
+- `Polyfold.MPolyfold.extD_formWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 776
+- `Polyfold.BundledMPolyfold.formsInftyWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 965
+- `Polyfold.BundledMPolyfold.formsInftyD_formsInftyWedge` — Polyfold/Chapter4/ScFormsWedge2021.lean, line 1049
+- `Polyfold.BundledMPolyfold.formsInftyGAlgebra` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 570
+- `Polyfold.BundledMPolyfold.formsInftyGradedD_of_mul_of` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 610
+- `Polyfold.BundledMPolyfold.formsInftyGraded_of_mul_of_comm` — Polyfold/Chapter4/ScFormsWedge2021b.lean, line 599
+- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 120
+- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter4/GapP1_OpenForms.lean, line 153
+- `Polyfold.lemma_4_4_8` — Polyfold/Chapter4/Poincare2021b.lean, line 860
+- `Polyfold.lemma_4_5_2` — Polyfold/Chapter4/Poincare2021b.lean, line 666
+- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter4/Poincare2021b.lean, line 844
+- `Polyfold.isScSmooth_intervalIntegral` — Polyfold/Chapter4/Poincare2021.lean, line 412
+- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter4/Poincare448.lean, line 311
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 289
+- `Polyfold.MPolyfold.faceAlongData_formsD` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 462
+- `Polyfold.MPolyfold.isExtendedBy_faceAlongData_formsPullback` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 448
+- `Polyfold.MPolyfold.isFaceCompatible_extD` — Polyfold/Chapter4/A3BoundaryForms2021b.lean, line 749
 
 ### G.92. Lemma 4.5.1 for local sc-diffeomorphisms between open subsets; the pull-back bundle $TX|X^2 \to X^2$
 
-*not formalized*
+*formalized since* · now V4.76 · now V4.77
 
 **HWZ (§4.4, Proposition 4.4.5, p. 196, and Appendix 4.5, Lemma 4.5.1, p. 201 (2021)).** (New in the 2021 edition.) Lemma 4.5.1: a local sc-diffeomorphism $\varphi : X \to X$ that relates two vector fields relates their brackets. Proposition 4.4.5: the bracket is an sc-smooth section of the pull-back $TX|X^2 \to X^2$ of $TX \to X^1$ by the inclusion $X^2 \to X^1$.
 
-**Proved in Lean.** **Formalized for every sc-smooth map $f : X \to Y$ of M-polyfolds** (V4.77), with the relations on $X^1$, and with the bracket an sc-smooth map $X^2 \to TX$ over the inclusion (V4.76). **Not formalized:** a local sc-diffeomorphism between open subsets of $X$, which would need open subsets of an M-polyfold as M-polyfolds (it is covered only when it is the restriction of such an $f$), and the pull-back bundle $TX|X^2 \to X^2$ as a bundle object (Findings, Chapter 4, item 163).
+**Proved in Lean.** **Formalized** (2026-11-12; V4.76, V4.77). Lemma 4.5.1 holds for every sc-smooth map $f : X \to Y$ (V4.77) and for maps between open subsets ($U, U'$ Part I's open sub-M-polyfolds, `lemma_4_5_1_open`, `lemma_4_5_1_open_ambient`; the bracket is local, `lieBracket_restrictOpen`), in particular for a local sc-diffeomorphism between open subsets of $X$. The pull-back bundle $TX|X^2 = \{(x, \alpha) \in X^2 \times TX \mid p(\alpha) = x\}$ is a sub-M-polyfold of $X^2 \times TX$ (`isSubMPolyfold_tangentPullback`), with sc-smooth projection to $X^2$ and fibres $T_xX$; $[A, B]$ is an sc-smooth section of it (`proposition_4_4_5_section`), and Lemma 4.5.1 holds for the sections with the bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`). The text gives $TX|X^2$ no structure; the sub-M-polyfold structure is used (Findings, Chapter 4, item 163).
 
 - `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
 - `Polyfold.proposition_4_4_5` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 678
+- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 135
+- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 150
+- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter4/GapP1_Lemma451.lean, line 115
+- `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 343
+- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 471
+- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/GapP1_Lemma451Bundle.lean, line 521
 
 ### G.41. Corollary 5.2.5 (preprint 5.8) beyond the chart level
 
@@ -17325,20 +18412,20 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.43. Remark 5.3.6 (preprint 5.14)
 
-*not formalized*
+*nothing to formalize*
 
 **HWZ (§5.3, Remark 5.3.6 (preprint 5.14), p. 218 (preprint p. 175)).** In [21] the fibres were separable sc-Hilbert spaces and auxiliary norms had more properties involving weak convergence; neither is needed here, "due to an improved treatment of the compactness".
 
-**Proved in Lean.** **Not formalized** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1.1 (preprint 5.1) is as stated (V5.3, V5.10).
+**Proved in Lean.** **Nothing to formalize** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1.1 (preprint 5.1) is as stated (V5.3, V5.10).
 
 
 ### G.44. Remark 5.3.8 (preprint 5.16)
 
-*not formalized*
+*formalized since* · now V5.73
 
 **HWZ (§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)).** For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; "the reader will be able to carry out this construction in more detail".
 
-**Proved in Lean.** **Formalized in part** (2026-11-09; a sketch in the text, left to the reader). The cobordism is formalized in the form the proof of Theorem 6.7.1 uses (`exists_cobordism`, `Chapter5/CylinderPerturbation2021.lean`). Two sections $s_0, s_1$ admissible for $(N, U)$ are joined by an sc⁺-section $S$ of the pull-back to $\mathbb R^1 \times X$, equal to $s_i$ near the ends, with $\tilde f + S$ in general position at every zero and compact zero sets over compact $t$-intervals. The perturbation comes from Theorem 5.3.10 relative to a compact part (`theorem_5_3_10_relative_hyp`), applied on $\mathbb R^1 \times X$. The text's $[0, 1] \times X$ is read as $\mathbb R^1 \times X$ with sections stationary near $t = 0, 1$ (decision D2), and "transversal $f_0$, $f_1$" as general position of $f + s_i$ at every zero (the admissible case). The homotopy form is formalized too (`exists_homotopy_cobordism`, `Chapter6/ProperHomotopy2021.lean`). For a proper homotopy $F = \tilde f_0 + S$ from $f_0$ to $f_1 = f_0 + S(1, \cdot)$, sections $s_0$, $s_1$ admissible for $f_0$, $f_1$ are joined by an sc⁺-section $\hat S$ of the pull-back, with $\tilde f_0 + \hat S$ equal to $f_0 + s_0$ near $t = 0$, equal to $f_1 + s_1$ near $t = 1$, in general position at every zero, and with compact zeros over compact $t$-intervals; such $s_0$, $s_1$ exist inside any given neighbourhoods (`exists_homotopy_cobordism_data`). Both cobordisms give the same data (`IsCobordismData`), which the proof of Theorem 6.7.1 uses (V6.76). The orientation of the cobordism is gap G.66. **Not formalized**: general sc-Fredholm arcs $f_t$ that are not of the form $f_0 + S(t, \cdot)$ with $S$ sc⁺; for them the relative theorem applies directly to the arc on $\mathbb R^1 \times X$ when it is stationary and in general position near the ends and has the compactness margin.
+**Proved in Lean.** **Formalized** (2026-11-12; V5.73). For an arbitrary sc-Fredholm arc on $\mathbb R^1 \times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \times X$ is read as $\mathbb R^1 \times X$ (decision D2). The orientation of the cobordism is gap G.66.
 
 - `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation2021.lean, line 1599
 - `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation2021.lean, line 946
@@ -17346,16 +18433,21 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.exists_homotopy_cobordism_data` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 1002
 - `Polyfold.StrongBundle.IsCobordismData` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 474
 - `Polyfold.exists_isCobordismData` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 566
+- `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/GapP1_Remark538.lean, line 172
+- `Polyfold.remark_5_3_8_relative` — Polyfold/Chapter5/GapP1_Remark538.lean, line 106
+- `Polyfold.exists_margin_of_isCompact` — Polyfold/Chapter5/GapP1_Remark538.lean, line 65
 
 ### G.45. A dense form of Theorem 5.3.12 (preprint 5.19)
 
-*not formalized*
+*formalized since* · now V5.40
 
 **HWZ (§5.3, Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)).** "There exists an arbitrarily small section $s \in \Gamma^{+,1}_U(P)$ satisfying $s(x) = 0$ near $\partial X$" with the properties of the theorem.
 
-**Proved in Lean.** **Not formalized in the dense form.** The generic form gives $s_\lambda = \sum\lambda_it_i$ for $\lambda$ off a null set of a small ball, so arbitrarily small as $\lambda \to 0$ (V5.40); density around a given allowable $s'$, as in Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18), is not stated (Findings, Chapter 5, item 89).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.40). `theorem_5_3_12_dense`, with the hypotheses of Theorem 5.3.12: around every $s' \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$, within $N$-distance $\varepsilon$, there is an $s \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ with all the conclusions of the theorem. The proof is the generic form around a given section, `theorem_5_3_12_param_rel`: $s = (1-\varepsilon')s' + \sum\lambda_it_i$ for $\lambda$ off a null set of a small ball, as in Theorems 5.3.5 and 5.3.10 (Findings, Chapter 5, item 89).
 
 - `Polyfold.theorem_5_3_12_param` — Polyfold/Chapter5/GeneralPosition.lean, line 2119
+- `Polyfold.theorem_5_3_12_dense` — Polyfold/Chapter5/GapP1_DenseGoodPosition.lean, line 409
+- `Polyfold.theorem_5_3_12_param_rel` — Polyfold/Chapter5/GapP1_DenseGoodPosition.lean, line 97
 
 ### G.46. Finding 88: the parametrized section at the boundary zeros
 
@@ -17373,91 +18465,128 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.47. Remark 5.3.14 (preprint 5.21)
 
-*not formalized*
+*formalized since* · now V5.74
 
 **HWZ (§5.3, Remark 5.3.14 (preprint 5.21), p. 223 (preprint p. 181)).** Instead of $(f|X_i, P|Y_i) = (f_i, P_i)$ one should require that the problems are isomorphic and make this part of the data.
 
-**Proved in Lean.** **Not formalized.** Definition 5.3.13 (preprint 5.20) takes the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ as the end problems (V5.41) (Findings, Chapter 5, item 100).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.74). `IsGenCompactHomotopyBetween`: a 2021 generalized compact homotopy together with isomorphisms of problems (`IsProblemIso`: a strong bundle isomorphism carrying $f$ to $f'$) from the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ to the given end problems; it is invariant under isomorphism of the ends, and every generalized compact homotopy is one between its restrictions (Findings, Chapter 5, item 100).
 
+- `Polyfold.StrongBundle.IsProblemIso` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 56
+- `Polyfold.StrongBundle.EndIso` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 145
+- `Polyfold.StrongBundle.IsGenCompactHomotopyBetween` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 161
+- `Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween` — Polyfold/Chapter5/GapP1_Remark5314.lean, line 238
 
 ### G.48. Theorem 5.3.15 (preprint 5.22): Morse-type structure
 
-*not formalized*
+*formalized since* · now V5.71 · now V5.72
 
 **HWZ (§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))).** For a generalized compact homotopy with end problems in general position and $\partial X = X_0 \sqcup X_1$, an arbitrarily small $s_0 \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \to [0, 1]$ a function with only Morse-type critical points.
 
-**Proved in Lean.** **Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\Phi_\lambda : S \to S_\lambda$ of the family (not "the classical standard implicit function theorem"); its proof also needs $dt(x) \ne 0$ at the critical points of $t|S$, which the preprint and 2017 statements do not assume (V5.42); the 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth point and so supplies it (`lemma_5_3_16`, V5.69), but the theorem itself is still not formalized. Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.71, V5.72). `theorem_5_3_15` is the printed statement with both conclusions and no added hypothesis: general position at every zero from the ends, and only Morse-type critical points of $t$ (read through smooth parametrizations of the solution set). The proof replaces the trivialization $\Phi_\lambda$ by Lagrange multipliers on level sets of the solution manifold of $f + \sum\mu_j\sigma_j$; the local data come from Theorem 3.6.8 and Definition 5.3.13 (3) (`StrongBundle.hasMorseLocalData`). Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178, 183).
 
 - `Polyfold.lemma_5_3_16_preprint` — Polyfold/Chapter5/Homotopy.lean, line 106
-- `Polyfold.lemma_5_3_17` — Polyfold/Chapter5/Homotopy.lean, line 527
+- `Polyfold.lemma_5_3_17` — Polyfold/Chapter5/Homotopy.lean, line 528
 - `Polyfold.ne_zero_of_isCompl_ker` — Polyfold/Chapter5/Homotopy.lean, line 150
 - `Polyfold.lemma_5_3_16` — Polyfold/Chapter5/Book2021.lean, line 400
+- `Polyfold.theorem_5_3_15` — Polyfold/Chapter5/Theorem5315_Final.lean, line 61
+- `Polyfold.theorem_5_3_15_generalPosition` — Polyfold/Chapter5/Theorem5315_Ends.lean, line 452
+- `Polyfold.StrongBundle.hasMorseLocalData` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 611
+- `Polyfold.exists_morse_perturbation_hyp` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 315
+- `Polyfold.ae_isLagrangeNondegenerate_family` — Polyfold/Chapter5/Theorem5315_MorseFamily.lean, line 377
+- `Polyfold.MPolyfold.IsMorseOrRegularPoint.morseClause` — Polyfold/Chapter5/Theorem5315_LocalInvarianceClause.lean, line 182
 
 ### G.49. Theorem 5.27 (preprint; not in the 2021 edition): cobordism between good position perturbations
 
-*not formalized*
+*nothing to formalize*
 
 **HWZ (§5.3, Theorem 5.27 (preprint), preprint p. 188).** For a proper homotopy $f_t$ and perturbations $s_0$, $s_1$ putting $f + s_i$ in good position, there is $s(x, t)$ with $s(\cdot, i) = s_i$ such that $f + s$ is in good position at all smooth points; its solution set is a compact manifold with corners meeting $\{i\} \times X$ in $S_0$, $S_1$.
 
-**Proved in Lean.** **Not formalized**: "the proof is left to the reader" (Findings, Chapter 5, item 104).
+**Proved in Lean.** **Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, gap G.44). For good position at the corner points $\{i\} \times \partial X$ the step of G.46 would be needed: $\mathbb R \times \ker$ need not be in good position to $[0,\infty) \times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).
 
+- `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation2021.lean, line 1599
+- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy2021.lean, line 789
+- `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/GapP1_Remark538.lean, line 172
+- `Polyfold.Counterexamples2021.not_isInGoodPosition_prod_diag` — Polyfold/Chapter3/Counterexamples2021.lean, line 215
 
 ### G.50. Theorem 5.5.5 (preprint 5.32): Bonic–Frampton
 
-*not formalized*
+*formalized since* · now V5.75
 
 **HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)).** On $L^p$, $\|\cdot\|^p$ is $C^\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.
 
-**Proved in Lean.** **Not formalized** (cited from [9], Theorem 1, in the 2021 edition from [25]; deep Banach space geometry, not used on the main line; the preprint statement misses "$p$" in (1), (2), which the 2017 and 2021 statements print) (Findings, Chapter 5, items 117, 120, 179).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.75), as printed, for the real $L^p(\mu)$ of any measure space (`BonicFrampton.theorem_5_5_5`): for even $p$ the norm power is the diagonal of a continuous $p$-linear form; for every $p \ge 1$ the forms $\int g_j(f)\prod h_i$ are a Taylor series of $\|\cdot\|^p$ up to every integer $n < p$ (Findings, Chapter 5, items 117, 120, 179).
 
+- `Polyfold.BonicFrampton.theorem_5_5_5` — Polyfold/Chapter5/GapP1_BonicFrampton.lean, line 582
+- `Polyfold.BonicFrampton.contDiff_normRpow_of_lt` — Polyfold/Chapter5/GapP1_BonicFrampton.lean, line 567
 
 ### G.51. The $L^p$ and Sobolev remark
 
-*not formalized*
+*formalized since* · now V5.76
 
 **HWZ (§5.5 (preprint §5.4.2), pp. 230–231 (preprint pp. 193–194)).** The usual norms of $W^{k,p}(\Omega)$ have the differentiability of $\|\cdot\|_{L^p}$; $\beta(\|x\|^p)$ is a bump function of $L^p$; $W^{1,4}(\Omega)$ with $E_m = W^{1+m,4}(\Omega)$ admits sc-smooth bump functions, while for $W^{1,3/2}(\Omega)$ the straightforward one is only sc¹ — "does there exist a sc-smooth bump function on $E$?"
 
-**Proved in Lean.** **Not formalized.** It needs Sobolev spaces with their sc-structures (gap G.1) and Theorem 5.5.5 (preprint 5.32) (Findings, Chapter 5, item 118).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.76), with the sc-structure on one bounded domain only. The $W^{k,p}$ norms have the differentiability of Theorem 5.5.5, $\beta(\|x\|^p)$ is a bump of $L^p$ and $W^{k,p}(\Omega)$, every sc-Banach space with $E_0 \cong W^{1,4}(\Omega)$ admits sc-smooth bump functions (`remark_5_5_5_W14`), and on $W^{1,3/2}$ the bump is sc¹ (`remark_5_5_5_W1_3_2`). The sc-structure $E_m = W^{1+m,p}(\Omega)$, `sobolevSc`, takes the compactness and the density as hypotheses; they are discharged only for $\Omega = (0,1) \subset \mathbb R^1$ and every $p > 1$ (`SobolevCube.cubeSc`, `remark_5_5_5_W14_cube`). Cubes in $\mathbb R^n$, $n \ge 2$, and other bounded domains are not done; `sobolevSc_hyps_empty` ($\Omega = \emptyset$) is the trivial instance (Findings, Chapter 5, items 118, 185).
 
+- `Polyfold.SobolevRemark.remark_5_5_5_sobolev` — Polyfold/Chapter5/GapP1_SobolevRemark2.lean, line 201
+- `Polyfold.SobolevRemark.remark_5_5_5_W14` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 137
+- `Polyfold.SobolevRemark.sobolevSc` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 191
+- `Polyfold.SobolevRemark.sobolevSc_hyps_empty` — Polyfold/Chapter5/GapP1_SobolevRemark3.lean, line 241
+- `Polyfold.SobolevCube.cubeSc` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 156
+- `Polyfold.SobolevCube.remark_5_5_5_W14_cube` — Polyfold/Chapter5/GapP1_SobolevCube5.lean, line 165
 
 ### G.52. Theorem 5.5.13 (preprint 5.40): Toruńczyk
 
-*not formalized*
+*formalized since* · now V5.59
 
 **HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.13 (preprint 5.40), p. 234 (preprint p. 198)).** A Banach space $E$ admits a $C^k$-partition of unity iff there are a set $\Gamma$ and a coordinate-wise $C^k$ homeomorphic embedding of $E$ into $c_0(\Gamma)$.
 
-**Proved in Lean.** **Stated, not proved** (`TorunczykStatement`, V5.59), and not used (cited from [9], Theorem 30) (Findings, Chapter 5, item 117).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.59): `theorem_5_5_13 : TorunczykStatement V k` for every real Banach space and every $k$. (⇒) by a coordinate-wise $C^k$ embedding into $c_0(\mathbb N \times V)$ built from partitions of unity; (⇐) by lattice-point products and Michael's products, which give $C^k$ Urysohn functions and then partitions of unity (Findings, Chapter 5, item 117).
 
-- `Polyfold.TorunczykStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 915
+- `Polyfold.TorunczykStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 921
+- `Polyfold.theorem_5_5_13` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 680
+- `Polyfold.torunczyk_forward` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 129
+- `Polyfold.torunczyk_backward` — Polyfold/Chapter5/GapP1_Torunczyk.lean, line 670
 
 ### G.53. Theorem 5.5.16 (preprint 5.43): Godefroy–Troyanski–Whitfield–Zizler
 
-*not formalized*
+*formalized since* · now V5.62 · now V5.63
 
 **HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198)).** If the WCG space $E$ admits a $C^k$-bump function, then it also admits $C^k$-partitions of unity.
 
-**Proved in Lean.** **Stated, not proved** (`GodefroyTroyanskiWhitfieldZizlerStatement`, V5.62; cited from [12] and [9], Theorem 31); it is an explicit hypothesis of Corollary 5.5.17 (preprint 5.44) (V5.63) (Findings, Chapter 5, items 116, 117).
+**Proved in Lean.** **Formalized** (2026-11-12; V5.62, V5.63): `theorem_5_5_16` for every WCG Banach space and every $k$, through the Amir–Lindenstrauss projectional resolution of the identity, induction on the density with the separable (Bonic–Frampton) case as base, and Toruńczyk's theorem (G.52) for the gluing. Corollary 5.5.17 no longer takes it as a hypothesis; it needs only the separable case, since $E_0$ is separable for every sc-Banach space (`ScBanach.separableSpace_zero`) (Findings, Chapter 5, items 116, 117, 184).
 
-- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1072
-- `Polyfold.corollary_5_5_17` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1083
+- `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1079
+- `Polyfold.theorem_5_5_16` — Polyfold/Chapter5/GapP1_GTWZ.lean, line 199
+- `Polyfold.godefroyTroyanskiWhitfieldZizlerStatement_of_separable` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 311
+- `Polyfold.ScBanach.separableSpace_zero` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 71
+- `Polyfold.corollary_5_5_17_unconditional` — Polyfold/Chapter5/GapP1_SeparablePOU.lean, line 325
 
 ### G.54. Theorem 6.7.1 (preprint 6.43): the invariant $\Psi_{(f,o)}$
 
-*not formalized*
+*formalized since* · now V6.76 · now V6.77
 
 **HWZ (§6.7 (preprint §6.6), Theorem 6.7.1 (preprint 6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233))).** Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\Psi_{(f,o)} : H^*_{dR}(X, \partial X) \to \mathbb R$ with (1) $\Psi_{(f,o)}([\omega, \tau]) = \int_{S_{f+s}}\omega - \int_{\partial S_{f+s}}\tau$ for every $s$ admissible for $(N, U)$, and (2) $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\partial X = \emptyset$, $\Psi_{(f,o)}([\omega]) = \int_{S_{f+s}}\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 279 (preprint p. 233)).
 
-**Proved in Lean.** **Formalized in part** (2026-11-10; V6.76, V6.77). The theorem and the case $\partial X = \emptyset$ are proved under two hypotheses that are steps of the proof (`theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`, `Chapter6/Theorem671Assembly2021.lean`). What is formalized: the relative complex and $H^*_{dR}(X, \partial X)$ (gap G.39 closed, V4.90, V4.91); the restriction $\omega \mapsto \omega|_S$ of $\Omega^k_\infty(X)$ to the oriented solution sets as smooth Mathlib forms, with $d(\omega|_S) = (d\omega)|_S$ and Stokes' theorem for it (V4.92); the restriction $\tau \mapsto \tau|_{\partial S}$ of $\Omega^k_\infty(\partial X)$ to the faces of $S$ (`solFaceForm`): the faces of $S_{f+s}$ lie in faces of $X$ (`CornerCoords.zero_coord_face_solutionSet`, from $d_S = d_X$), and the value at a face point is $\tau$ at a lift of the face vectors to $bX$, independent of the lift by the agreement over $B$, with $\int_{\partial S} (j^*\omega)|_{\partial S} = \int_{\partial S} \omega|_S$ (`solFaceForm_jStar_integral`) and $(d\tau)|_{\partial S} = d(\tau|_{\partial S})$ (`solFaceForm_d`); the admissible sections (gap G.55 closed) and the index parts $S_k$ of $S_{f+s}$ as compact oriented Mathlib manifolds of dimension $k$ (`solPartIsOrientedManifold`); for one admissible $s$, the right-hand side of (6.35) as a linear map on $H^k_{dR}(X, \partial X)$ (`psiAt`, well defined by Stokes on $S_k$ and its faces, `psiForms_relD`; in degree 0 a signed count, `psiAt_mk_zero_eq_sum`; it depends on $s$ only, `psiAt_congr_admissible`); the cobordisms of (1) and (2) (gap G.44 in part, `IsCobordismData`), the proper oriented homotopy of (2) in reading R-d (`IsProperOrientedHomotopyBetween`) and the properness of its ends; the ends of $S_F$ as product ends $(a, b) \times S_i$ for the corner charted spaces, with the index of $F$ one more than that of $f + \sigma_i$ (`productEndOfSub`, `isLinOfIndex_end_iff`), $p_1^*\omega|_{S_F}$ reading as the pull-back of $\omega|_{S_i}$ there (`isEndPullback_formsInftyRestrict_snd`), and the Fubini identity on a product end (`ProductEnd.integral_end_fubini`); the cobordism identity $\Psi_{s_0}(f_0, o_0) = \Psi_{s_1}(f_1, o_1)$ for cobordism data with an oriented $S_F$ and a relative form on it (`psiAt_eq_of_cobordism`, by a cut-off in time, `integral_eq_of_cutCobordism`); the assembly from the two steps (A) and (B) of the proof (`theorem_6_7_1_of_indep`, different norms compared through `exists_admissible_two`), and (A), (B) from the cobordism identity (`psiAt_eq_of_admissible_hyp`, `psiAt_eq_of_homotopy_hyp`). On the point $\mathbb R^0$ with $f = 0$, $\Psi([1]) = \pm1$ (`theorem_6_7_1_witness`). **Not formalized**: the two hypotheses. `CobordismOrientationHyp` is the orientation of $S_F$ of product form $e \wedge o_{S_i}$ on the ends (gap G.66). `CobordismRelativeFormsHyp` is a closed form $A = p_1^*\omega|_{S_F} + d\gamma_F$ on $S_F$ with vanishing face restriction, $\gamma_F$ an extension of $-(p_1^*\tau)|_{\partial S_F}$ equal to $p_1^*\gamma_i$ on the ends; it needs the pull-back of forms on $\partial X$ to $\partial(\mathbb R^1 \times X)$ along $p_1$, its reading in the product charts of the faces of $S_F$, the pull-back of `ManifoldForm`s along the end projection, and the extension property at the face points of the ends (Findings, Chapter 6, items 100, 128–134).
+**Proved in Lean.** **Formalized** without hypotheses on the cobordism (2026-11-12; V6.76, V6.77): `theorem_6_7_1`, `theorem_6_7_1_noBoundary` (`Chapter6/Theorem671Final2021.lean`), for $X$ tame with sc-smooth bump functions. Earlier forms: under the orientation of the cobordism, `theorem_6_7_1_of_orientation`, `theorem_6_7_1_noBoundary_of_orientation` (`Chapter6/CobordismRelativeForms2021b.lean`), and before that under two hypotheses, `theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`. What is formalized: the relative complex and $H^*_{dR}(X, \partial X)$ (gap G.39 closed, V4.90, V4.91); the restriction $\omega \mapsto \omega|_S$ of $\Omega^k_\infty(X)$ to the oriented solution sets as smooth Mathlib forms, with $d(\omega|_S) = (d\omega)|_S$ and Stokes' theorem for it (V4.92); the restriction $\tau \mapsto \tau|_{\partial S}$ of $\Omega^k_\infty(\partial X)$ to the faces of $S$ (`solFaceForm`): the faces of $S_{f+s}$ lie in faces of $X$ (`CornerCoords.zero_coord_face_solutionSet`, from $d_S = d_X$), and the value at a face point is $\tau$ at a lift of the face vectors to $bX$, independent of the lift by the agreement over $B$, with $\int_{\partial S} (j^*\omega)|_{\partial S} = \int_{\partial S} \omega|_S$ (`solFaceForm_jStar_integral`) and $(d\tau)|_{\partial S} = d(\tau|_{\partial S})$ (`solFaceForm_d`); the admissible sections (gap G.55 closed) and the index parts $S_k$ of $S_{f+s}$ as compact oriented Mathlib manifolds of dimension $k$ (`solPartIsOrientedManifold`); for one admissible $s$, the right-hand side of (6.35) as a linear map on $H^k_{dR}(X, \partial X)$ (`psiAt`, well defined by Stokes on $S_k$ and its faces, `psiForms_relD`; in degree 0 a signed count, `psiAt_mk_zero_eq_sum`; it depends on $s$ only, `psiAt_congr_admissible`); the cobordisms of (1) and (2) (gap G.44 in part, `IsCobordismData`), the proper oriented homotopy of (2) in reading R-d (`IsProperOrientedHomotopyBetween`) and the properness of its ends; the ends of $S_F$ as product ends $(a, b) \times S_i$ for the corner charted spaces, with the index of $F$ one more than that of $f + \sigma_i$ (`productEndOfSub`, `isLinOfIndex_end_iff`), $p_1^*\omega|_{S_F}$ reading as the pull-back of $\omega|_{S_i}$ there (`isEndPullback_formsInftyRestrict_snd`), and the Fubini identity on a product end (`ProductEnd.integral_end_fubini`); the cobordism identity $\Psi_{s_0}(f_0, o_0) = \Psi_{s_1}(f_1, o_1)$ for cobordism data with an oriented $S_F$ and a relative form on it (`psiAt_eq_of_cobordism`, by a cut-off in time, `integral_eq_of_cutCobordism`); the assembly from the two steps (A) and (B) of the proof (`theorem_6_7_1_of_indep`, different norms compared through `exists_admissible_two`), and (A), (B) from the cobordism identity (`psiAt_eq_of_admissible_hyp`, `psiAt_eq_of_homotopy_hyp`). On the point $\mathbb R^0$ with $f = 0$, $\Psi([1]) = \pm1$ (`theorem_6_7_1_witness`). (2026-11-12) The relative form on the cobordism: the pull-back of $\tau \in \Omega^k_\infty(\partial X)$ to the faces of $S_F$ along $p_1$ (`faceAlongData`; $p_1$ maps the faces of $S_F$ into faces of $X$, `CornerCoords.zero_coord_face_along`, from $d_{S_F}(t, x) = d_X(x)$), the pull-back of the Mathlib forms $\gamma_i$ on $S_i$ along the end projection (`ProductEnd.pullAt`, `MPolyfold.pullOver`) with face restriction $-(p_1^*\tau)|_{\partial S_F}$ (`faceRestriction_pullOver`), and the closed form $A = p_1^*\omega|_{S_F} + d\gamma_F$ with vanishing face restriction reading as $\omega|_{S_i} + d\gamma_i$ on the inner ends $(0, 1/16) \times S_0$, $(15/16, 1) \times S_1$ (`cobordismRelativeFormsInner`); the cobordism identity from the orientation alone (`psiAt_eq_of_cobordism_of_orientation`). The orientation of the cobordism exists and is continuous (`cobOr`, `isContinuous_cobOr`, from `SectionOrientation.prodFirst`, gap G.66 closed); `CobordismOrientationHyp` is reduced to its product form on the two ends (`cobordismOrientation_of_ends`). (2026-11-12) The orientation of the cobordism $S_F$: `cobOr` (given by `SectionOrientation.prodFirst` $o_0$) is continuous and is $e \wedge o_{S_i}$ on the ends $(0, 1/8) \times S_0$, $(7/8, 1) \times S_1$ (`cobordismOrientationHyp`, `isEndProductOrientation_cobOr`): the linearization of $F$ on an end is $(\sigma, v) \mapsto (f_i + s_i)'(x) v$ (`ChartPoint.linZero_congr_of_eventuallyEq`, `ChartPoint.linZero_prodPt_paramLift`), the tangent map of $S_F \hookrightarrow \mathbb R^1 \times X$ in the coordinates `prodRn` is $(s, w) \mapsto (s, T\iota(w))$ (`modelDeriv_prodRn`), and $e \wedge o$ read in $\ker F' = \mathbb R \times \ker (f_i + s_i)'$ is $\hat e \wedge o$ (`pullOr_surjRay_extConjDetFirst_iff`). In part (2) the right end carries `(o₀.sectionAdd S(1, ·)).sectionAdd s₁`, which has the values of $o_0$ (`IsInducedSectionOrientation.sectionAdd`). Nothing of the proof is assumed. (`CobordismRelativeFormsHyp` is not used: the relative form is built on inner ends, `cobordismRelativeFormsInner`.) (Findings, Chapter 6, items 100, 128–134, 136.)
 
-- `Polyfold.theorem_6_7_1_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 199
-- `Polyfold.theorem_6_7_1_noBoundary_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 234
+- `Polyfold.theorem_6_7_1` — Polyfold/Chapter6/Theorem671Final2021.lean, line 46
+- `Polyfold.theorem_6_7_1_noBoundary` — Polyfold/Chapter6/Theorem671Final2021.lean, line 80
+- `Polyfold.cobordismOrientationHyp` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 372
+- `Polyfold.cobordismOrientation_of_induced` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 340
+- `Polyfold.isEndProductOrientation_cobOr` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 232
+- `Polyfold.IsInducedSectionOrientation.sectionAdd` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 64
+- `Polyfold.ChartPoint.linZero_prodPt_paramLift` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 131
+- `Polyfold.modelDeriv_prodRn` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 346
+- `Polyfold.pullOr_surjRay_extConjDetFirst_iff` — Polyfold/Chapter6/CobordismOrientationEnds2021b.lean, line 164
+- `Polyfold.theorem_6_7_1_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 218
+- `Polyfold.theorem_6_7_1_noBoundary_hyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 253
 - `Polyfold.theorem_6_7_1_of_indep` — Polyfold/Chapter6/Theorem671_2021.lean, line 277
 - `Polyfold.theorem_6_7_1_noBoundary_of_indep` — Polyfold/Chapter6/Theorem671_2021.lean, line 434
 - `Polyfold.theorem_6_7_1_witness` — Polyfold/Chapter6/Theorem671_2021.lean, line 683
 - `Polyfold.psiInvariant_spec` — Polyfold/Chapter6/Theorem671_2021.lean, line 195
-- `Polyfold.psiAt_eq_of_cobordism` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 698
-- `Polyfold.CobordismOrientation` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 620
-- `Polyfold.CobordismRelativeForms` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 640
+- `Polyfold.psiAt_eq_of_cobordism` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 715
+- `Polyfold.CobordismOrientation` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 635
+- `Polyfold.CobordismRelativeForms` — Polyfold/Chapter6/InvariantCobordism2021.lean, line 657
 - `Polyfold.psiAt` — Polyfold/Chapter6/InvariantSingle2021.lean, line 842
 - `Polyfold.psiAt_mk` — Polyfold/Chapter6/InvariantSingle2021.lean, line 850
 - `Polyfold.psiForms_relD` — Polyfold/Chapter6/InvariantSingle2021.lean, line 822
@@ -17475,8 +18604,20 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.theorem_6_6_18_hyp` — Polyfold/Chapter6/SolutionOrientation.lean, line 892
 - `Polyfold.ManifoldForm.stokes_of_compactSpace` — Polyfold/Chapter4/ManifoldStokes2021.lean, line 383
 - `Polyfold.ManifoldForm.integral_neg_orientation` — Polyfold/Chapter4/ManifoldIntegral2021.lean, line 630
-- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 273
+- `Polyfold.BundledMPolyfold.scDeRham` — Polyfold/Chapter4/ScFormsLower2021.lean, line 275
 - `Polyfold.theorem_6_6_18_oriented` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 1244
+- `Polyfold.theorem_6_7_1_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 1021
+- `Polyfold.theorem_6_7_1_noBoundary_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 1054
+- `Polyfold.cobordismRelativeFormsInner` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 853
+- `Polyfold.psiAt_eq_of_cobordism_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 913
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 289
+- `Polyfold.MPolyfold.CornerCoords.zero_coord_face_along` — Polyfold/Chapter4/BoundaryFormsPullback2021.lean, line 97
+- `Polyfold.ProductEnd.pullAt` — Polyfold/Chapter6/CobordismRelativeForms2021.lean, line 113
+- `Polyfold.MPolyfold.pullOver` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 102
+- `Polyfold.MPolyfold.faceRestriction_pullOver` — Polyfold/Chapter6/CobordismRelativeForms2021b.lean, line 183
+- `Polyfold.cobOr` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 60
+- `Polyfold.isContinuous_cobOr` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 76
+- `Polyfold.cobordismOrientation_of_ends` — Polyfold/Chapter6/CobordismOrientation2021.lean, line 94
 
 ### G.55. §6.7 (preprint §6.6): the sections admissible for $(N, U)$
 
@@ -17510,24 +18651,29 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.57. The alternative determinant $\lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$
 
-*not formalized*
+*formalized since* · now V6.78
 
 **HWZ (§6.4 (preprint §6.3), after Definition 6.4.1 (preprint 6.7), p. 246 (preprint p. 208)).** Some authors use $\det(T) = \lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$; the two definitions are naturally isomorphic, given a convention identifying $\lambda^*(A)$ and $\lambda(A^*)$.
 
-**Proved in Lean.** **Not formalized**, and not used: the chapter's formal statements use Definition 6.4.1 (preprint 6.7) (V6.8); the convention $\iota$ of Definition 6.3.1 (preprint 6.3) is V6.3 (Findings, Chapter 6, item 10).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.78; `Chapter6/GapP1_DetConventions.lean`). With $\iota$ of Definition 6.3.1 (preprint 6.3), an isomorphism $\lambda(A^*) \cong \lambda^*(A)$ (`iotaDualEquiv`), $\mathrm{id} \otimes \iota : \lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*) \cong \det(T)$ (`altLinDetEquiv`, `altFredholmDetEquiv`), with its value on wedges of a cokernel basis and its dual (`altLinDetEquiv_tmul_dualBasis`). The chapter's statements use Definition 6.4.1 (preprint 6.7) (V6.8) (Findings, Chapter 6, item 10).
 
-- `Polyfold.fredholmDet` — Polyfold/Chapter6/FredholmDet.lean, line 133
-- `Polyfold.iotaDual` — Polyfold/Chapter6/DetLine.lean, line 601
+- `Polyfold.iotaDualEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 59
+- `Polyfold.altLinDetEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 80
+- `Polyfold.altLinDetEquiv_tmul_dualBasis` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 91
+- `Polyfold.altFredholmDetEquiv` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 107
 
 ### G.58. The identification (95) and the maps $V \otimes \lambda(\mathbb R^n) \to V$
 
-*not formalized*
+*formalized since* · now V6.79
 
 **HWZ (§6.4 (preprint §6.3), after Proposition 6.4.15 (preprint 6.15), p. 257 (preprint p. 213)).** Dual to (94), $\mathbb R \to \lambda(\mathbb R^n)$ maps $1$ to the wedge of the standard basis, with inverse (95) $c_1 \wedge \dots \wedge c_n \mapsto \det([c_1, \dots, c_n])$; this gives identifications $V \otimes \lambda(\mathbb R^n) \to V$ and $V \otimes \lambda^*(\mathbb R^n) \to V$ for every finite-dimensional $V$.
 
-**Proved in Lean.** **Not formalized**, and not used: the formal statements use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.79; `Chapter6/GapP1_DetConventions.lean`): $\mathbb R \cong \lambda(\mathbb R^n)$ with inverse (6.25) (`stdLine`, `stdLine_symm_wedge`), its transpose, the isomorphism of Proposition 6.4.15 (preprint 6.15) (`stdLineDual`), and $V \otimes \lambda(\mathbb R^n) \cong V$, $V \otimes \lambda^*(\mathbb R^n) \cong V$ for every $V$ (`tensorStdLine`, `tensorStdLineDual`). The formal statements of the chapter use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).
 
-- `Polyfold.stabPsi_dualVec` — Polyfold/Chapter6/Stabilization.lean, line 295
+- `Polyfold.stdLine_symm_wedge` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 140
+- `Polyfold.stdLineDual_dualVec` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 155
+- `Polyfold.tensorStdLine_tmul_stdWedge` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 170
+- `Polyfold.tensorStdLineDual_tmul_dualVec` — Polyfold/Chapter6/GapP1_DetConventions.lean, line 190
 
 ### G.59. Lemma 6.5.3 (preprint 6.19) in general
 
@@ -17548,12 +18694,24 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.60. $\mathrm{DET}(E, F)$ is not orientable; the classical case
 
-*not formalized*
+*formalized since* · now V6.80 · now V6.81
 
 **HWZ (§6.5 (preprint §6.4), preprint p. 218; the opening of §6.6 (preprint §6.5), preprint p. 219).** The text remarks that $\mathrm{DET}(E, F)$ is known to be non-orientable, though orientable over certain subsets. For a classical Fredholm map $f : U \to F$, the determinant line bundle of the $Df(x)$ is a smooth line bundle over $U$, with precisely two orientations if $U$ is contractible.
 
-**Proved in Lean.** **Not formalized** (remarks, not used). The orientability over convex sets of Fredholm operators, which is what the chapter uses, is Proposition 6.6.1 (preprint 6.26) (V6.30) (Findings, Chapter 6, item 26).
+**Proved in Lean.** **Formalized, with a corrected form** (2026-11-12; V6.80, V6.81; `Chapter6/GapP1_DetNonOrientable.lean`, `…Ell2.lean`, `…Transport.lean`, `Chapter6/GapP1_ClassicalDetBundle.lean`). The text gives no hypothesis on $E$, $F$. $\mathrm{DET}(H, H)$ has no orientation for every infinite-dimensional real Hilbert space $H$ (`isEmpty_lineOrientation_det_hilbert`), and $\mathrm{DET}(E, F)$ has none when $E$ and $F$ are isomorphic to such an $H$ (`isEmpty_lineOrientation_det_of_equiv_hilbert`) or to $H \times H$ for a Banach space $H \cong \mathbb R \times H$ (`isEmpty_lineOrientation_det_of_equiv_prod`). In general it has none whenever $E$ and $F$ carry bounded $J$ with $J^2 = -1$ and there is a surjective $T : E \to F$ with kernel of odd finite dimension (`isEmpty_lineOrientation_det_of_complexStructure`): along the loop $A_\theta = R'_\theta T R_{-\theta}$, $\theta \in [0,\pi]$, $R_\theta = \cos\theta + \sin\theta J$, of surjective operators the kernels form a Möbius band, and a basis of the kernels is a continuous section of $\mathrm{DET}$ in the chart with $P = 1$ (`continuous_kerDetMk`, `isEmpty_lineOrientation_det_of_kernel_loop`). Orientability depends only on the isomorphism classes of $E$ and $F$ (`nonempty_lineOrientation_det_iff_of_equiv`, through `LineOrientation.conj`). For finite-dimensional $E$, $F$ the remark does not hold as we read it: every operator is Fredholm and $\mathrm{DET}(E,F)$ has exactly two orientations (`exists_two_lineOrientation_det_of_finiteDimensional`). The classical case: for $f$ of class $C^1$ on an open $U$ with Fredholm derivatives the lines $\det(Df(x))$ form a topological line bundle with precisely two orientations if $U$ is contractible (`classicalDet_two_orientations`). **Not formalized**: the smoothness of the classical bundle; non-orientability for infinite-dimensional Banach spaces without these structures (Findings, Chapter 6, items 26, 135).
 
+- `Polyfold.isEmpty_lineOrientation_det_of_complexStructure` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 392
+- `Polyfold.isEmpty_lineOrientation_det_of_kernel_loop` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 306
+- `Polyfold.isEmpty_lineOrientation_det_prod` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 495
+- `Polyfold.continuous_kerDetMk` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 268
+- `Polyfold.exists_two_lineOrientation_det_of_finiteDimensional` — Polyfold/Chapter6/GapP1_DetNonOrientable.lean, line 443
+- `Polyfold.isEmpty_lineOrientation_det_ellTwo` — Polyfold/Chapter6/GapP1_DetNonOrientableEll2.lean, line 92
+- `Polyfold.isEmpty_lineOrientation_det_hilbert` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 297
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv_hilbert` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 310
+- `Polyfold.isEmpty_lineOrientation_det_of_equiv_prod` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 142
+- `Polyfold.nonempty_lineOrientation_det_iff_of_equiv` — Polyfold/Chapter6/GapP1_DetNonOrientableTransport.lean, line 119
+- `Polyfold.classicalDet_two_orientations` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 74
+- `Polyfold.classicalDet_vectorBundle` — Polyfold/Chapter6/GapP1_ClassicalDetBundle.lean, line 66
 - `Polyfold.proposition_6_6_1` — Polyfold/Chapter6/DetBundle.lean, line 356
 
 ### G.61. Proposition 6.6.3 (1) (preprint 6.28): sc-smooth contractibility
@@ -17569,11 +18727,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.62. Lemma 6.6.5 (preprint 6.30) as a statement about manifolds
 
-*not formalized*
+*formalized since* · now V6.34 · now V6.42
 
 **HWZ (§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30), p. 265 (preprint p. 222)).** The solution set of $F = 0$ near $(t, \varphi(t), 0)$ is a smooth manifold with boundary with corners, $\pi : S \to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.
 
-**Proved in Lean.** **Formalized in part.** For $F = f + S + \sum\lambda_is_i$ near the family $(0, (q, \Phi(q)))$, $q$ near $[0, 1]^n$ (decision D2), in the setting of Lemma 6.6.4: the solution set is a Mathlib manifold with boundary and corners (`lemma_6_6_5_isManifold`, from `theorem_3_1_26_isManifold`), a submanifold of dimension the index (`lemma_6_6_5_isSubmanifoldOfDim`), and $\pi$ is a submersion at the points of the family (`lemma_6_6_5_submersion`): the tangent space $\ker F'$ is mapped onto $\mathbb R^n$ by $d\pi$ (`Chapter6/SolutionManifoldFamily2021.lean`, 2026-11-09). **Not formalized**: $\pi$ as a submersion off the family, which would need a curve of zeros through every point of $S$, the fibres $S_t$ (they need property (P) for the slices, G.63), and $L$ as a smooth vector bundle. The kernels form a continuous family (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, items 48, 126).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.34, V6.42). In the setting of Lemma 6.6.4, near the family $(0,(q,\Phi(q)))$, $q$ near $[0,1]^n$ (decision D2): the solution set is a Mathlib manifold with boundary and corners (`lemma_6_6_5_isManifold`) and a submanifold of dimension the index (`lemma_6_6_5_isSubmanifoldOfDim`); $\pi$ is a submersion on a neighbourhood of the family (`lemma_6_6_5_submersion_nhds`); the fibres $S_q$ are manifolds with boundary and corners (`lemma_6_6_5_fibre_isManifold`); and **$L$ is a smooth vector bundle**: over an open connected neighbourhood $V$ of $[0,1]^n$, the spaces $L_q = \ker F'(0,(q,z_q)) \cap \{dq = 0\}$ form a smooth family of subspaces of the model space of the product chart, and a Mathlib `ContMDiffVectorBundle` (`lemma_6_6_5_smoothBundle`, `Chapter6/GapP1_SmoothL3.lean`). The frames are $e_i(q) = DS(z_q)\,b_i$, for an sc-retraction $S$ onto the solution set and a basis $b$ of one kernel, which consists of smooth points (`IsSc1With.apply_mem_smooth_of_finiteDimensional`); they are $C^\infty$ into every level, because an sc-smooth map from $\mathbb R^n$ is $C^\infty$ into every $E_m$ (`IsScSmooth.contDiffOn_levelMap_const`, `exists_local_smooth_frame_linKer`), and their coordinate changes are $C^\infty$ (`SmoothSubspaceFamily.contMDiffVectorBundle`, `SmoothSubspaceFamily.infKer`). As in the text ("$X = U$"), the family is read in one chart containing $\Phi([0,1]^n)$. On the M-polyfold $[0,1]^n$ the solution set, the fibres and $\pi$ (in the corner sense, in charts) are formalized at every $q$ (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_fibre_isManifold_cube`, `lemma_6_6_5_submersion_cube`) (Findings, Chapter 6, items 48, 126).
 
 - `Polyfold.exists_subspaceFamily_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 166
 - `Polyfold.exists_isStabKernels` — Polyfold/Chapter6/StabKernelsExist.lean, line 88
@@ -17582,16 +18740,32 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.lemma_6_6_5_isManifold` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 166
 - `Polyfold.lemma_6_6_5_isSubmanifoldOfDim` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 208
 - `Polyfold.lemma_6_6_5_submersion` — Polyfold/Chapter6/SolutionManifoldFamily2021.lean, line 253
+- `Polyfold.lemma_6_6_5_fibre_isManifold` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 463
+- `Polyfold.isScFredholmSectionTame_slice` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 426
+- `Polyfold.lemma_6_6_5_submersion_nhds` — Polyfold/Chapter6/GapP1_SubmersionNearFamily.lean, line 231
+- `Polyfold.exists_nhds_surjective_linKer` — Polyfold/Chapter6/GapP1_SubmersionNearFamily.lean, line 151
+- `Polyfold.lemma_6_6_5_smoothBundle` — Polyfold/Chapter6/GapP1_SmoothL3.lean, line 244
+- `Polyfold.exists_local_smooth_frame_linKer` — Polyfold/Chapter6/GapP1_SmoothL3.lean, line 85
+- `Polyfold.SmoothSubspaceFamily.contMDiffVectorBundle` — Polyfold/Chapter6/GapP1_SmoothL2.lean, line 293
+- `Polyfold.SmoothSubspaceFamily.infKer` — Polyfold/Chapter6/GapP1_SmoothL2.lean, line 367
+- `Polyfold.IsScSmooth.contDiffOn_levelMap_const` — Polyfold/Chapter6/GapP1_SmoothL1.lean, line 49
+- `Polyfold.IsSc1With.apply_mem_smooth_of_finiteDimensional` — Polyfold/Chapter6/GapP1_SmoothL1.lean, line 158
+- `Polyfold.lemma_6_6_5_submersion_cube` — Polyfold/Chapter6/GapP1_CubeBoundarySubmersion.lean, line 266
 
 ### G.63. Property (P) of Lemma 6.6.4 (preprint 6.29) for the slices $F_t$
 
-*not formalized*
+*formalized since* · now V6.33
 
 **HWZ (§6.6 (preprint §6.5), Lemma 6.6.4 (preprint 6.29), p. 265 (preprint p. 222)).** (P): for every fixed $t \in [0, 1]$, the section $F_t$ is at $(\varphi(t), 0)$ in general position to the boundary of $X \times \mathbb R^k$.
 
-**Proved in Lean.** **Not formalized.** The general position of $F$ at the points $(t, \varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.6.5, 6.6.6 (preprint 6.30, 6.31) use, is proved (V6.33). As we read it, (P) follows, since the tangent vectors of the family of zeros lie in $\ker F'$ and $\mathbb R^n$ has no boundary; this chart computation is not carried out (Findings, Chapter 6, item 47).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.33; `Chapter6/GapP1_SlicePropertyP.lean`, `Chapter6/GapP1_CubeBoundaryP.lean`). `lemma_6_6_4_propertyP`: under the hypotheses of `lemma_6_6_4` there are finitely many sc⁺-sections such that, for all $q$ near $[0,1]^n$ (decision D2), the slice $F_q$ is in general position at $(0, \Phi(q))$ (property (P)) and $F$ is in general position at $(0,(q,\Phi(q)))$. (P) is derived from the general position of $F$ (`isGeneralPositionGerm_slice`): in the chart, the tangent vectors of the family of zeros lie in $\ker F'$, and their $X$-components lie in the reduced tangent space because $\mathbb R^n$ has no boundary (`isParamGP_slice_of_isParamGP`, `fderiv_mem_minimalSubspaceWith_of_centre`). On the M-polyfold $[0,1]^n$ itself, (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ there (`lemma_6_6_4_propertyP_cube`, `isGeneralPositionGerm_cubeSlice_iff`) (Findings, Chapter 6, item 47).
 
-- `Polyfold.lemma_6_6_4` — Polyfold/Chapter6/Lemma629.lean, line 203
+- `Polyfold.lemma_6_6_4_propertyP` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 391
+- `Polyfold.isGeneralPositionGerm_slice` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 330
+- `Polyfold.isParamGP_slice_of_isParamGP` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 197
+- `Polyfold.fderiv_mem_minimalSubspaceWith_of_centre` — Polyfold/Chapter6/GapP1_SlicePropertyP.lean, line 71
+- `Polyfold.lemma_6_6_4_propertyP_cube` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 484
+- `Polyfold.isGeneralPositionGerm_cubeSlice_iff` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 415
 
 ### G.64. $\mathrm{Lin}(f, x)$ as sc-Fredholm operators on every level
 
@@ -17611,7 +18785,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§6.6 (preprint §6.5), pp. 263–276 (preprint pp. 220–230)).** Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \times [0, 1]$, $[0, 1] \times X \times \mathbb R^k$ are M-polyfolds with boundary (Proposition 6.6.3 (preprint 6.28), Lemmas 6.6.4–6.6.10 (preprint 6.29–6.34), Theorem 6.6.11 (preprint 6.35), Remark 6.6.19 (preprint 6.42)).
 
-**Proved in Lean.** **Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \times [0, 1]$ is tame for tame $X$ with $d_{X \times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\sin^2$ of an sc-smooth path on $\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$, and so are the paths between smooth points of a component (`paths_before_proposition_6_2_2`, G.56). **Still read on $\mathbb R$** (decision D2): the path category with the text's concatenation (V6.52), Proposition 6.6.3 (1′), (3) and the families on $[0, 1]^n$ (V6.32), and Remark 6.6.19 over $X \times [0, 1]$ (V6.62) (Findings, Chapter 6, items 71, 102, 122, 124).
+**Proved in Lean.** **Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \times [0, 1]$ is tame for tame $X$ with $d_{X \times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\sin^2$ of an sc-smooth path on $\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$, and so are the paths between smooth points of a component (`paths_before_proposition_6_2_2`, G.56). (2026-11-12) Proposition 6.6.3 (3) and (4) hold for paths $\varphi : [0, 1] \to X$ with sections over the M-polyfold $[0, 1] \times X$: with bump functions, there is an sc⁺-section $S$ of the pull-back of $P$ to $[0, 1] \times X$ whose fibre part is the text's $R(y, f(\varphi(t)))$ (with the sign of `sectionAdd`, cut off outside the chart) and with $(f + S)(t, \varphi(t)) = 0$ for every $t \in [0, 1]$ (`proposition_6_6_3_three_interval`), and $[0, 1] \times X$ admits sc-smooth bump functions, so its pull-back bundle has sc⁺-sections through all smooth fibre points (`proposition_6_6_3_four_interval`); the construction works in any product chart $\chi \times \varphi_c$ of $Q \times X$ (`PullbackChartData.ofProdChart`, `exists_isScPlusSection_prodChart`). The same holds for families $\varphi : [0, 1]^n \to X$ for every $n$, with sections over the M-polyfold with corners $[0, 1]^n \times X$ (`cubePolyfold`, whose degeneracy index counts the coordinates in $\{0, 1\}$; `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`). Lemmas 6.6.4–6.6.5 (preprint 6.29–6.30) are also stated for families on $[0,1]^n$ itself, boundary and corners included: the pull-back of a tame sc-Fredholm section to $[0,1]^n \times X$ is tame sc-Fredholm, with charts of $[0,1]^n$ centred at every point and their mixed partial quadrants (`IsScFredholmSectionTame.paramCube`, `cChart`, `IsConjugateToBasicGerm.quadExtend`); there are sc⁺-sections such that $F$ is in general position at every $(0,(q,\Phi(q)))$, $q \in [0,1]^n$ (`lemma_6_6_4_cube`, `lemma_6_6_4_cube_family`), and near these points the solution set is a manifold with boundary and corners and a submanifold of dimension the index (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_isSubmanifoldOfDim_cube`). On $[0,1]^n$, property (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ at $(0,(q,\Phi(q)))$ (`isGeneralPositionGerm_cubeSlice_iff`, `lemma_6_6_4_propertyP_cube`); the tangent vectors of the family of zeros in reduced directions of $[0,1]^n$ have reduced $X$-components, by a one-sided minimum argument (`mem_minimalSubspaceWith_of_hasFDerivWithinAt`). At these points $\pi$ is a submersion in the corner sense: $d\pi$ maps $\ker F'$ onto $\mathbb R^n$, and its reduced part onto the reduced tangent space of $[0,1]^n$ (`lemma_6_6_5_submersion_cube`; `Chapter6/GapP1_Cube*.lean`). The category $PX$ of p. 272 is also built on $[0, 1]$ as printed (`PathCatI`, `Chapter6/GapP1_PathCategoryInterval.lean`) and is equivalent to the category on $\mathbb R$ (V6.52). **Still read on $\mathbb R$** (decision D2): Proposition 6.6.3 (1′) (V6.32; (1) is gap G.61), the smooth bundle $L$ of Lemma 6.6.5 over a neighbourhood of $[0, 1]^n$ in $\mathbb R^n$ (V6.34), the stabilized kernels and their continuation (V6.42), and Remark 6.6.19 over $\mathbb R^1 \times X$ (V6.62) (Findings, Chapter 6, items 71, 102, 122, 124).
 
 - `Polyfold.unitIntervalPolyfold` — Polyfold/Chapter3/UnitIntervalPolyfold.lean, line 242
 - `Polyfold.isTame_prod_unitInterval` — Polyfold/Chapter6/PathsInterval.lean, line 173
@@ -17621,14 +18795,39 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.orTransportI_eq_of_homotopy` — Polyfold/Chapter6/PathsInterval.lean, line 387
 - `Polyfold.theorem_6_6_17_interval` — Polyfold/Chapter6/PathsInterval.lean, line 603
 - `Polyfold.proposition_6_2_2_interval` — Polyfold/Chapter3/IndexAlongPathsInterval.lean, line 89
+- `Polyfold.proposition_6_6_3_three_interval` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 362
+- `Polyfold.proposition_6_6_3_four_interval` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 509
+- `Polyfold.exists_isScPlusSection_prodChart` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 146
+- `Polyfold.PullbackChartData.ofProdChart` — Polyfold/Chapter6/GapP1_UnitIntervalSections.lean, line 120
+- `Polyfold.cubePolyfold` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 213
+- `Polyfold.cubePolyfold_degIndex` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 285
+- `Polyfold.prod_cube_isTame` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 306
+- `Polyfold.proposition_6_6_3_three_cube` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 507
+- `Polyfold.proposition_6_6_3_four_cube` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 605
+- `Polyfold.admitsBumpFunctions_prod_cube` — Polyfold/Chapter6/GapP1_CubeSections.lean, line 569
+- `Polyfold.UnitCube.cChart` — Polyfold/Chapter6/GapP1_CubeCharts.lean, line 46
+- `Polyfold.UnitCube.cChart_relOpen` — Polyfold/Chapter6/GapP1_CubeCharts.lean, line 60
+- `Polyfold.IsConjugateToBasicGerm.quadExtend` — Polyfold/Chapter6/GapP1_CubeGerms.lean, line 258
+- `Polyfold.StrongBundle.IsScFredholmSectionTame.paramCube` — Polyfold/Chapter6/GapP1_CubeFredholm.lean, line 250
+- `Polyfold.theorem_3_1_21_tame_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 81
+- `Polyfold.lemma_6_6_4_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 129
+- `Polyfold.lemma_6_6_4_cube_family` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 171
+- `Polyfold.lemma_6_6_5_isManifold_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 214
+- `Polyfold.lemma_6_6_5_isSubmanifoldOfDim_cube` — Polyfold/Chapter6/GapP1_CubeLemmas.lean, line 258
+- `Polyfold.mem_minimalSubspaceWith_of_hasFDerivWithinAt` — Polyfold/Chapter6/GapP1_CubeBoundarySlice.lean, line 345
+- `Polyfold.isGeneralPositionGerm_cubeSlice_iff` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 415
+- `Polyfold.lemma_6_6_4_propertyP_cube` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 484
+- `Polyfold.lemma_6_6_5_fibre_isManifold_cube` — Polyfold/Chapter6/GapP1_CubeBoundaryP.lean, line 525
+- `Polyfold.lemma_6_6_5_submersion_cube` — Polyfold/Chapter6/GapP1_CubeBoundarySubmersion.lean, line 266
+- `Polyfold.PathCatI.toPathCat_isEquivalence` — Polyfold/Chapter6/GapP1_PathCategoryInterval.lean, line 800
 
 ### G.66. Remark 6.6.19 (preprint 6.42) beyond a point
 
-*not formalized*
+*formalized since* · now V6.62
 
 **HWZ (§6.6 (preprint §6.5), Remark 6.6.19 (preprint 6.42), p. 276 (preprint p. 230)).** $\hat f(x, t) = f(x) + s(x, t)$ on $X \times [0, 1]$ has a natural orientation associated with $o$ and the standard orientation of $[0, 1]$.
 
-**Proved in Lean.** **Formalized in part** (`Chapter6/ProductSectionOrientation2021.lean`, `…2021b.lean`). Beyond the orientation at a point (`ChartPoint.prodOrFirst`), two of the "choices made during the construction" are shown compatible with the convention $h \mapsto e \wedge h$: the stabilization isomorphism of Lemma 6.4.14 (`detEquiv_stabIota_extDetFirst`, `stabRayEquiv_extDetFirst`, no sign) and the chart of $X$ at $x$ (`ChartPoint.orTransfer_prodPt_prodOrFirst`: the product orientation read over a chart point $p$, transferred to the product chart point over $p'$, is the product orientation of the transfer of $o$; the transitions of the product charts are $1 \times D(\tau \circ r)$ and $\Gamma$, `baseDeriv_prodPt`, `fiberMap_prodPt`). The interface the orientation of the cobordism $S_F$ has to meet on its ends is `ProductEnd.IsEndProductOrientation` (time direction first); it is satisfiable (`modelEnd_isEndProductOrientation`). **Not formalized**: the lift of the push data of $f$ to $\hat f$ (sc⁺-sections pulled back along $(\tau, (t, x)) \mapsto (\tau, x)$, the stabilized kernels $\mathbb R \times \Lambda$, continuation commuting with $e \wedge \cdot$, the push relation for `prodOrFirst`) and hence `SectionOrientation.prodFirst` (Definition 6.6.16 for $\hat f$) and its value $e \wedge o$ on the end slices. (2026-11-10) This is the hypothesis `CobordismOrientationHyp` of Theorem 6.7.1 (V6.76). At a point the remark is V6.62 (Findings, Chapter 6, item 97).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.62; `Chapter6/ProductSectionOrientation2021c–f.lean`). `SectionOrientation.prodFirst o hS` is the orientation of $\hat f = \tilde f + S$ over $\mathbb R^1 \times X$ associated with an orientation $o$ of $f$, in the sense of Definition 6.6.16 (preprint 6.40): $(t, x) \mapsto e \wedge o_x$ (`prodFirstFun`, the 2021 convention $e$ first) is carried by every push-forward of $\tilde f$ (`isSectionOrientation_prodFirstFun`). The "choices made during the construction" are shown compatible with the convention: a push-forward datum of $f$ along $\gamma$ lifts to one of $\tilde f$ along $(\tau, \gamma)$ (sections `liftProd`, stabilized kernels $\mathbb R \times \Lambda$), and the lifted push-forward maps $e \wedge o$ to $e \wedge$ (push-forward of $o$) (`IsPush.prodLift`), with no sign; the chart of $X$ plays no role (`prodOrOf_orTransfer`). Hypotheses: $X$ tame with sc-smooth bump functions, $f$ with tame germ data (those of `theorem_6_6_18_oriented`). Earlier pieces: the orientation at a point (`ChartPoint.prodOrFirst`), the stabilization isomorphism (`detEquiv_stabIota_extDetFirst`) and the chart transfer (`ChartPoint.orTransfer_prodPt_prodOrFirst`). On a product end $(a, b) \times S_{f+s}$ of the solution set of $F = \tilde f + \hat S$ the orientation $e \wedge o$ induces the product orientation $e \wedge o_{S_{f+s}}$ of the tangent spaces, the time direction first (`isEndProductOrientation_cobOr`, `ChartPoint.pullOr_tangentOrOf_prodOrFirst₀_iff`); this is the orientation of the cobordism $S_F$ used in Theorem 6.7.1 (`cobordismOrientationHyp`, V6.76, gap G.54 closed) (Findings, Chapter 6, item 97).
 
 - `Polyfold.ChartPoint.existsUnique_prodOr` — Polyfold/Chapter6/ProductOrientation.lean, line 1136
 - `Polyfold.ChartPoint.orTransfer_prodPt_prodOrFirst` — Polyfold/Chapter6/ProductSectionOrientation2021b.lean, line 426
@@ -17636,9 +18835,37 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.ChartPoint.baseDeriv_prodPt` — Polyfold/Chapter6/ProductSectionOrientation2021b.lean, line 151
 - `Polyfold.ChartPoint.fiberMap_prodPt` — Polyfold/Chapter6/ProductSectionOrientation2021b.lean, line 208
 - `Polyfold.detEquiv_stabIota_extDetFirst` — Polyfold/Chapter6/ProductSectionOrientation2021.lean, line 351
-- `Polyfold.ProductEnd.IsEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds2021.lean, line 578
-- `Polyfold.modelEnd_isEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds2021.lean, line 763
-- `Polyfold.CobordismOrientationHyp` — Polyfold/Chapter6/Theorem671Assembly2021.lean, line 86
+- `Polyfold.ProductEnd.IsEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds2021.lean, line 581
+- `Polyfold.modelEnd_isEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds2021.lean, line 766
+- `Polyfold.SectionOrientation.prodFirst` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 311
+- `Polyfold.SectionOrientation.prodFirst₀` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 293
+- `Polyfold.isSectionOrientation_prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 196
+- `Polyfold.prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 139
+- `Polyfold.toChartOr_prodFirstFun` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 157
+- `Polyfold.prodOrOf_orTransfer` — Polyfold/Chapter6/ProductSectionOrientation2021f.lean, line 121
+- `Polyfold.IsPush.prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 131
+- `Polyfold.IsStabKernels.orRay_prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 49
+- `Polyfold.prodOrOf` — Polyfold/Chapter6/ProductSectionOrientation2021e.lean, line 113
+- `Polyfold.ChartPoint.prodOrFirst₀` — Polyfold/Chapter6/ProductSectionOrientation2021d.lean, line 79
+- `Polyfold.ChartPoint.prodOrFirst₀_apply` — Polyfold/Chapter6/ProductSectionOrientation2021d.lean, line 88
+- `Polyfold.liftProd` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 38
+- `Polyfold.isScPlusSection_liftProd` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 75
+- `Polyfold.SubspaceFamily.prodLine` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 379
+- `Polyfold.SubspaceFamily.cont_prodLine` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 464
+- `Polyfold.IsStabKernels.prodLift` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 727
+- `Polyfold.stabRayEquiv_extConjDetFirst` — Polyfold/Chapter6/ProductSectionOrientation2021c.lean, line 190
+- `Polyfold.isEndProductOrientation_cobOr` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 232
+- `Polyfold.solReadOrOpen_prodFirst_iff` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 97
+- `Polyfold.IsInducedSectionOrientation` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 49
+- `Polyfold.cobordismOrientationHyp` — Polyfold/Chapter6/CobordismOrientationEnds2021d.lean, line 372
+- `Polyfold.ChartPoint.pullOr_tangentOrOf_prodOrFirst₀_iff` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 166
+- `Polyfold.tangentOr_toChartOr_prodFirst` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 283
+- `Polyfold.modelDeriv_prodRn` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 346
+- `Polyfold.ChartPoint.linZero_congr_of_eventuallyEq` — Polyfold/Chapter6/CobordismOrientationEnds2021c.lean, line 82
+- `Polyfold.pullOr_surjRay_extConjDetFirst_iff` — Polyfold/Chapter6/CobordismOrientationEnds2021b.lean, line 164
+- `Polyfold.surjRay_extConjDetFirst` — Polyfold/Chapter6/CobordismOrientationEnds2021b.lean, line 108
+- `Polyfold.pullOr_wedgeExtLeft_eq_std_iff` — Polyfold/Chapter6/CobordismOrientationEnds2021.lean, line 66
+- `Polyfold.MPolyfold.derivIn_prodRn` — Polyfold/Chapter6/CobordismOrientationEnds2021.lean, line 128
 
 ### G.67. Theorem 6.6.18 (preprint 6.41): the orientation of $S$ as a manifold
 
@@ -17712,14 +18939,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.91. The remarks after Theorem 6.6.17: the orientation bundle, orientability, $\mathbb Z_2$ and $\det_f$
 
-*not formalized*
+*formalized since* · now V6.82
 
 **HWZ (§6.6, after Theorem 6.6.17, p. 275 (new in the 2021 edition)).** $\pi_f : O_f \to X_\infty$ with the topology of Theorem 6.6.17 is the orientation bundle of $f$; $f$ is orientable iff $\pi_f$ has a global continuous section; $\mathbb Z_2$ acts continuously on $O_f$ by $(x, o_x) \mapsto (x, -o_x)$; $\det_f = \mathbb R \otimes_{\mathbb Z_2} O_f \to X_\infty$ is the determinant bundle of $f$.
 
-**Proved in Lean.** **Not formalized.** The topology itself is V6.73–V6.75; the comparison of global continuous sections of $\pi_f$ with the orientations of Definitions 6.6.14–6.6.16 (V6.58–V6.60), the $\mathbb Z_2$-action and the line bundle $\det_f$ are not formalized (Findings, Chapter 6, item 121).
+**Proved in Lean.** **Formalized** (2026-11-12; V6.82; `Chapter6/GapP1_OrientationBundle.lean`). With the topology of Theorem 6.6.17, $y \mapsto (y, o_y)$ is continuous iff $o$ is an orientation of $f$ (`isSectionOrientation_iff_continuous`), so $f$ is orientable iff $\pi_f$ has a global continuous section (`isOrientableSection_iff_exists_continuous_section`); $(x, o_x) \mapsto (x, -o_x)$ is a fixed-point-free homeomorphism giving a continuous $\mathbb Z_2$-action (`orNegHomeomorph`, `orMulAction`); $\det_f$ is a vector bundle core with fibre $\mathbb R \otimes_{\mathbb Z_2} \mathrm{Or}^f_x$ (`detCore`, `detBundleCore`, `detMk_eq_iff`) (Findings, Chapter 6, item 121).
 
-- `Polyfold.orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 411
-- `Polyfold.theorem_6_6_17_hyp` — Polyfold/Chapter6/OrientationSpace.lean, line 899
+- `Polyfold.isSectionOrientation_iff_continuous` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 422
+- `Polyfold.isOrientableSection_iff_exists_continuous_section` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 441
+- `Polyfold.orNegHomeomorph` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 223
+- `Polyfold.orMulAction` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 248
+- `Polyfold.detBundleCore` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 457
+- `Polyfold.detMk_eq_iff` — Polyfold/Chapter6/GapP1_OrientationBundle.lean, line 360
 
 ### G.70. Definition 7.1.4 (2017: 7.4): the tangent $T\varphi$ as an sc-isomorphism
 

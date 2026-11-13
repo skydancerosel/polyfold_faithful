@@ -1005,7 +1005,9 @@
      "Chapter2/Boundary · IsSc1With.mapsTo_partialQuadrant",
      "Chapter2/DegeneracyIndex · eventually_add_smul_mem_lvlSet",
      "Chapter2/Boundary · eventually_add_smul_mem_lvlSet_of_cone",
-     "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace"
+     "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone"
     ]
    },
    "verdict": "extra",
@@ -1013,7 +1015,7 @@
     "replaces the path formulation"
    ],
    "diff": [
-    "Lemma 2.4.9 (preprint 2.29) itself, in its path formulation, is not formalized (G.10). Its derivative-level content, which is all Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, is formalized directly, for sc¹ maps and level-$1$ points.",
+    "Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized from these sign arguments (V2.109; G.10, closed: `lemma_2_4_9_reduced`, `lemma_2_4_9_cone`). Its derivative-level content, which is all Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, is formalized directly, for sc¹ maps and level-$1$ points.",
     "The text's \\\"the closure of $(T^R_xO)_\\infty$ is $T^R_xO$\\\" becomes the density of level-$1$ points of $E_x$ and $C_x$ (V2.31)."
    ]
   },
@@ -3245,6 +3247,177 @@
     "satisfiability"
    ],
    "diff": []
+  },
+  {
+   "id": "V2.108",
+   "title": "Proposition 2.1.2 (preprint 2.2): the image of a classical smooth retraction is a submanifold",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.1, Proposition 2.1.2 (preprint 2.2), p. 22 (preprint p. 18) (proof §2.7.1 (preprint §2.6.1), preprint pp. 54–55)",
+    "page": 18,
+    "statement": "If $r : U \\to U$ is a $C^\\infty$ retraction of an open subset of a Banach space $E$, then $O = r(U)$ is a $C^\\infty$ submanifold: near each $x \\in O$ there are a splitting $E = R \\oplus N$ and a diffeomorphism $\\psi : V \\to W$ with $\\psi(O \\cap V) = R \\cap W$ (the text prints $\\psi(0) = x$ for $\\psi(x) = 0$)."
+   },
+   "lean": {
+    "statement": "`proposition_2_1_2`: for a real Banach space $E$, $U \\subseteq E$ open, $r$ $C^\\infty$ on $U$ with $r(U) \\subseteq U$ and $r \\circ r = r$ on $U$, and $x \\in r(U)$, there are open $V \\ni x$ with $V \\subseteq U$, open $W \\ni 0$, closed complementary subspaces $R = \\operatorname{range} Dr(x)$ and $N = \\ker Dr(x)$, and a $C^\\infty$ diffeomorphism $\\psi : V \\to W$ ($\\psi$ and $\\psi^{-1}$ $C^\\infty$) with $\\psi(x) = 0$ and $\\psi(r(U) \\cap V) = R \\cap W$.",
+    "decls": [
+     "Chapter2/GapP1_Prop212 · GapP1Prop212.proposition_2_1_2",
+     "Chapter2/GapP1_Prop212 · GapP1Prop212.isIdempotentElem_fderiv",
+     "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart",
+     "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart_comp",
+     "Chapter2/GapP1_Prop212 · GapP1Prop212.hasFDerivAt_retractChart"
+    ]
+   },
+   "chips": [
+    "ψ(x) = 0 for the printed ψ(0) = x",
+    "proof by conjugation, not estimates"
+   ],
+   "diff": [
+    "The printed normalization $\\psi(0) = x$, for $\\psi : V \\to W$ with $x \\in V$ and $0 \\in W$, is read as $\\psi(x) = 0$.",
+    "The proof is not the text's (the estimates of §2.7.1): $P = Dr(x)$ is idempotent by the chain rule (`isIdempotentElem_fderiv`); $\\varphi(y) = P(r(y) - x) + (1 - P)(y - r(y))$ (`retractChart`) has $D\\varphi(x) = 1$ (`hasFDerivAt_retractChart`) and conjugates $r$ to $P$, $\\varphi \\circ r = P \\circ \\varphi$ (`retractChart_comp`); Mathlib's inverse function theorem gives $\\psi$. $C^\\infty$ is `ContDiffOn ℝ ∞` (smooth, not analytic)."
+   ]
+  },
+  {
+   "id": "V2.109",
+   "title": "Lemma 2.4.9 (preprint 2.29): $T^R_xO$ and $C_xO$ through sc-smooth paths; $T_xO = C_xO - C_xO$",
+   "verdict": "same",
+   "book": {
+    "label": "§2.4 (preprint §2.3), Lemma 2.4.9 (preprint 2.29), pp. 48–49 (preprint pp. 33–35)",
+    "page": 33,
+    "statement": "For a retract and a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the derivatives $\\dot\\alpha(0)$ of sc-smooth paths $\\alpha : (-\\varepsilon, \\varepsilon) \\to O$ through $x$; (2) $C_xO$ the closure of the one-sided derivatives of sc-smooth paths $\\alpha : [0, \\varepsilon) \\to O$; (3) $T_xO = C_xO - C_xO$."
+   },
+   "lean": {
+    "statement": "For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\\alpha : \\mathbb R \\to E_0$, sc-smooth on $(-\\varepsilon, \\varepsilon)$ or on $[0, \\varepsilon)$ for the constant sc-structure on $\\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\\alpha(0) = x$; $\\dot\\alpha(0)$ is `pathDeriv`, $D\\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the set of $\\dot\\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\\dot\\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \\in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\\dot\\alpha(0) = \\dot\\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).",
+    "decls": [
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_tangent",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.twoSidedPathDerivs",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.oneSidedPathDerivs",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.hasDerivWithinAt_pathDeriv",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.scDeriv_pathDeriv",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv_mem_minimalSubspaceWith",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv_mem_partialQuadrantAtWith",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.path_retract_segment",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.partialConeWith_subset_closure",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.isScDomain_Ioo",
+     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.isScDomain_Ico"
+    ]
+   },
+   "chips": [
+    "as printed",
+    "(3) for every x ∈ O₁"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.110",
+   "title": "The extended faces of a partial quadrant, intrinsically (preprint p. 39)",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.5 (preprint §2.4), preprint p. 39",
+    "page": 39,
+    "statement": "$\\{e \\in C : d_C(e) = 1\\}$ has exactly $k$ connected components $A_i$; each lies in a smallest subspace $f_i$ (an extended face), with a half-space $H_{f_i} \\supset C$; $\\mathcal F(e) = \\{f : e \\in f\\}$ and $d_C(e) = \\#\\mathcal F(e)$."
+   },
+   "lean": {
+    "statement": "The definitions use only $C$ and $d_C$: `stratumOne` $= \\{e \\in C \\mid d_C(e) = 1\\}$, `faceComponents` its connected components, `extendedFaces` the spans of the components (the smallest linear subspaces containing them), `facesAt e` $= \\mathcal F(e) = \\{f \\mid e \\in f\\}$. For any presentation $T$ (used only in the proofs): the components are $A_i = \\{(Te)_i = 0,\\ (Te)_j > 0\\ (j \\ne i)\\}$ (`faceComponents_eq`) and there are exactly $k$ of them (`ncard_faceComponents`); $\\operatorname{span} A_i = f_i = \\{(Te)_i = 0\\}$ (`span_faceOpen`, `extendedFaces_eq`), so there are exactly $k$ extended faces (`ncard_extendedFaces`); $C + f_i = \\{(Te)_i \\ge 0\\}$, closed and containing $C$ (`add_coordFace`, `isClosed_add_coordFace`, `subset_add_coordFace`); $d_C(e) = \\#\\mathcal F(e)$ (`ncard_facesAt`); and $\\bigcap_{f \\in \\mathcal F(e)} (C + f) = C_e$ (`iInter_facesAt`, Definition 2.5.1).",
+    "decls": [
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.stratumOne",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.facesAt",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents_eq",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.span_faceOpen",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces_eq",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.isClosed_add_coordFace",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.subset_add_coordFace",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt",
+     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.connectedComponentIn_eq"
+    ]
+   },
+   "chips": [
+    "half-space $H_f$ read as $C + f$",
+    "intrinsic: only $C$ and $d_C$"
+   ],
+   "diff": [
+    "The text names a half-space $H_{f_i} \\supset C$ without a formula; it is read as $C + f_i$, which is the half-space $H_i$ of (2.14) (preprint numbering) for every presentation.",
+    "The presentation-based forms that the proofs of §2.5 use remain V2.39 and V2.45."
+   ]
+  },
+  {
+   "id": "V2.111",
+   "title": "Definition 2.5.8 (preprint 2.38): $T^R_xX$ and $C_xX$ of an M-polyfold; $C_xX$ a partial quadrant, $d_X(x) = d_{C_xX}(0_x)$",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42)",
+    "page": 42,
+    "statement": "For a smooth $x \\in X$, $T^R_xX$ and $C_xX$ are the preimages of $T^R_oO$ and $C_oO$ under $T\\psi(x)$ for any chart $\\psi$; well defined by Proposition 2.4.10 (preprint 2.30). For tame $X$, $C_xX$ is a partial quadrant and $d_X(x) = \\dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$."
+   },
+   "lean": {
+    "statement": "With the linear structure of $T_xX$ (G.7), $T^R_xX$ and $C_xX$ are the preimages under $T\\varphi(x)$ of $T^R_{\\varphi(x)}O$ and $C_{\\varphi(x)}O$ (`reducedTangentFiber`, `partialConeFiber`) and do not depend on the chart or the presentation (`reducedTangentFiber_eq`, `partialConeFiber_eq`, by Proposition 2.4.10); $T^R_xX = C_xX \\cap (-C_xX)$ (`mem_reducedTangentFiber_iff_lineality`). At a smooth $x$, $T_xX$ carries the sc-structure of $T_{\\varphi(x)}O$ transported by $T\\varphi(x)$; in it $C_xX$ is a partial quadrant (any chart, `isPartialQuadrant_partialConeFiberModel`), and in a tame chart $d_X(x) = \\dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$ (`definition_2_5_8_degIndex`). For two charts the transition derivative $T_{\\varphi(x)}O \\to T_{\\psi(x)}O$ is an sc-isomorphism (`tangentFiberScIso`, from `ScBanach.subspaceIso`) that carries $\\varphi$-coordinates to $\\psi$-coordinates (`tangentFiberScIso_comp`) and the model of $C_xX$ onto the model (`tangentFiberScIso_image_partialConeFiberModel`); `definition_2_5_8_scStructure` collects the definition. $d_C(0) = \\dim(F/(C \\cap -C))$ for every partial quadrant (`degIndex_zero_eq_finrank_quotient`).",
+    "decls": [
+     "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber",
+     "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber",
+     "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber_eq",
+     "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber_eq",
+     "Chapter2/ReducedTangentIntrinsic · MPolyfold.finrank_quotient_reducedTangentFiber_eq_degIndex",
+     "Chapter2/GapP1_Def258 · degIndex_zero_eq_finrank_quotient",
+     "Chapter2/GapP1_Def258 · mem_minimalSubspaceWith_iff_lineality",
+     "Chapter2/GapP1_Def258 · MPolyfold.mem_reducedTangentFiber_iff_lineality",
+     "Chapter2/GapP1_Def258 · MPolyfold.partialConeFiberModel",
+     "Chapter2/GapP1_Def258 · MPolyfold.mem_partialConeFiberModel_iff",
+     "Chapter2/GapP1_Def258 · MPolyfold.isPartialQuadrant_partialConeFiberModel",
+     "Chapter2/GapP1_Def258 · MPolyfold.degIndex_partialConeFiberModel_eq_finrank",
+     "Chapter2/GapP1_Def258 · MPolyfold.definition_2_5_8_degIndex",
+     "Chapter2/GapP1_Def258b · ScBanach.IsScOperator.toBase_toScOperator",
+     "Chapter2/GapP1_Def258b · ScBanach.restrLvl",
+     "Chapter2/GapP1_Def258b · ScBanach.subspaceIso",
+     "Chapter2/GapP1_Def258b · MPolyfold.fiberCoord_eq_transitionCLM",
+     "Chapter2/GapP1_Def258b · MPolyfold.transitionCLM_transitionCLM",
+     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso",
+     "Chapter2/GapP1_Def258b · MPolyfold.fiberCoordSc",
+     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_comp",
+     "Chapter2/GapP1_Def258b · MPolyfold.mem_partialConeFiberModel_fiberCoordSc",
+     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_image_partialConeFiberModel",
+     "Chapter2/GapP1_Def258b · MPolyfold.definition_2_5_8_scStructure"
+    ]
+   },
+   "chips": [
+    "sc-structure of $T_xX$ up to sc-isomorphism",
+    "tame chart at a smooth point"
+   ],
+   "diff": [
+    "The sc-structure of $T_xX$ is that of $T_{\\varphi(x)}O$, well defined up to the sc-isomorphisms `tangentFiberScIso` between charts; this is what the text uses. $d_{C_xX}(0_x)$ does not depend on the choice (`degIndex_zero_eq_finrank_quotient`, `mem_reducedTangentFiber_iff_lineality`).",
+    "The local forms are V2.32, V2.35; in a chart, \"partial quadrant\" is V2.42 (`proposition_2_5_6_partialCone`)."
+   ]
+  },
+  {
+   "id": "V2.112",
+   "title": "Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57): paracompactness through closed locally finite refinements",
+   "verdict": "same",
+   "book": {
+    "label": "§2.7.2 (preprint §2.6.2), Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), p. 74 (preprint p. 56)",
+    "page": 56,
+    "statement": "Lemma 2.7.3 (preprint 2.56) (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.7.4 (preprint 2.57): a regular space with a locally finite cover by closed paracompact subspaces is paracompact."
+   },
+   "lean": {
+    "statement": "`lemma_2_7_3 [T3Space X]`: $X$ is paracompact (`ParacompactSpace`) iff every open cover has a closed locally finite refinement; the converse direction holds for every topological space (`paracompactSpace_of_closed_refinement`), the direct one for regular paracompact spaces (`exists_closed_refinement`). `proposition_2_7_4 [T3Space Y]`: a locally finite cover of $Y$ by closed sets, each paracompact as a subspace, makes $Y$ paracompact.",
+    "decls": [
+     "Chapter2/GapP1_Michael · GapP1Michael.lemma_2_7_3",
+     "Chapter2/GapP1_Michael · GapP1Michael.proposition_2_7_4",
+     "Chapter2/GapP1_Michael · GapP1Michael.paracompactSpace_of_closed_refinement",
+     "Chapter2/GapP1_Michael · GapP1Michael.exists_closed_refinement"
+    ]
+   },
+   "chips": [
+    "as printed",
+    "not used by the library's proofs"
+   ],
+   "diff": []
   }
  ],
  "notFormalized": [
@@ -3253,7 +3426,17 @@
    "label": "§2.1, Proposition 2.1.2 (preprint 2.2), p. 22 (preprint p. 18) (proof §2.7.1 (preprint §2.6.1), preprint pp. 54–55)",
    "page": 18,
    "book": "If $r : U \\to U$ is a $C^\\infty$ retraction of an open subset of a Banach space $E$, then $O = r(U)$ is a $C^\\infty$ submanifold: near each $x \\in O$ there are a splitting $E = R \\oplus N$ and a diffeomorphism $\\psi : V \\to W$ with $\\psi(O \\cap V) = R \\cap W$ (the text prints $\\psi(0) = x$ for $\\psi(x) = 0$).",
-   "instead": "**Not formalized.** The proposition is classical and is used only as motivation (the contrast with sc-smooth retractions, whose images can change dimension). The exposition proves it in §8.1 with the inverse function theorem; its Lean version would need Mathlib's inverse function theorem for $C^\\infty$ maps between Banach spaces and the splitting by the projection $Dr(0)$. Not attempted."
+   "instead": "**Formalized** (2026-11-12; V2.108). For a $C^\\infty$ retraction $r$ of an open subset of a Banach space, $r(U)$ is near each of its points the image of the closed subspace $R = \\operatorname{range} Dr(x)$ under a $C^\\infty$ chart, with $\\psi(x) = 0$ for the printed $\\psi(0) = x$ (`proposition_2_1_2`); the proof conjugates $r$ to the projection $Dr(x)$.",
+   "formalized": [
+    "V2.108"
+   ],
+   "decls": [
+    "Chapter2/GapP1_Prop212 · GapP1Prop212.proposition_2_1_2",
+    "Chapter2/GapP1_Prop212 · GapP1Prop212.isIdempotentElem_fderiv",
+    "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart",
+    "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart_comp",
+    "Chapter2/GapP1_Prop212 · GapP1Prop212.hasFDerivAt_retractChart"
+   ]
   },
   {
    "title": "Definition 2.1.16 (preprint 2.9): sc-smooth bundle retractions and bundle maps",
@@ -3345,7 +3528,18 @@
    "label": "§2.4 (preprint §2.3), Lemma 2.4.9 (preprint 2.29), pp. 48–49 (preprint pp. 33–35)",
    "page": 33,
    "book": "For a retract and a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the derivatives $\\dot\\alpha(0)$ of sc-smooth paths $\\alpha : (-\\varepsilon, \\varepsilon) \\to O$ through $x$; (2) $C_xO$ the closure of the one-sided derivatives of sc-smooth paths $\\alpha : [0, \\varepsilon) \\to O$; (3) $T_xO = C_xO - C_xO$.",
-   "instead": "**Not formalized in the path formulation.** Sc-smooth paths would need the constant sc-structure on an interval as a retract and the density of smooth points of $T^R_xO$ and $C_xO$ (the exposition's Lemma 3.A on all levels). The sign arguments that the proof consists of are formalized (V2.34), and Proposition 2.4.10 (preprint 2.30) is proved from them, not from the lemma. (3) is not formalized."
+   "instead": "**Formalized** (2026-11-12; V2.109). At a smooth $x \\in O$, $T^R_xO$ and $C_xO$ are the closures of the derivatives at $0$ of sc-smooth two-sided and one-sided paths in $O$ through $x$ (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`), and $T_xO = C_xO - C_xO$ (`lemma_2_4_9_tangent`), with the text's proof.",
+   "formalized": [
+    "V2.109"
+   ],
+   "decls": [
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone",
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_tangent",
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv",
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.twoSidedPathDerivs",
+    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.oneSidedPathDerivs"
+   ]
   },
   {
    "title": "Theorem 2.4.12 (preprint 2.31), second statement: equality makes $C_xO$ a partial quadrant",
@@ -3366,20 +3560,37 @@
    "label": "§2.5 (preprint §2.4), preprint p. 39",
    "page": 39,
    "book": "$\\{e \\in C : d_C(e) = 1\\}$ has exactly $k$ connected components $A_i$; each lies in a smallest subspace $f_i$ (an extended face), with a half-space $H_{f_i} \\supset C$; $\\mathcal F(e) = \\{f : e \\in f\\}$ and $d_C(e) = \\#\\mathcal F(e)$.",
-   "instead": "**Not formalized as stated.** The formalization works with a presentation $T$ of $C$ and takes the coordinate hyperplanes $f_i = \\{\\lambda_i = 0\\}$ as the extended faces (`coordHyper`); that a connected piece of $\\{d_C = 1\\}$ lies in one $f_i$ is `subset_coordHyper_of_isPreconnected` (V2.45). That $E_x$ does not depend on the presentation is proved (`minimalSubspaceWith_eq`, V2.39); the count of components, the minimality of $f_i$ and the intrinsic description of the extended faces are not formalized."
+   "instead": "**Formalized** (2026-11-12; V2.110). From $C$ and $d_C$ alone: $\\{d_C = 1\\}$ has exactly $k$ connected components, their spans are the $k$ extended faces $f_i$, the half-spaces are $C + f_i$, $d_C(e) = \\#\\mathcal F(e)$, and $\\bigcap_{f \\in \\mathcal F(e)} H_f = C_e$ (`ncard_faceComponents`, `ncard_extendedFaces`, `add_coordFace`, `ncard_facesAt`, `iInter_facesAt`).",
+   "formalized": [
+    "V2.110"
+   ],
+   "decls": [
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
+    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt"
+   ]
   },
   {
    "title": "Definition 2.5.8 (preprint 2.38): $T^R_xX$ and $C_xX$ of an M-polyfold",
    "label": "§2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42)",
    "page": 42,
    "book": "For a smooth $x \\in X$, $T^R_xX$ and $C_xX$ are the preimages of $T^R_oO$ and $C_oO$ under $T\\psi(x)$ for any chart $\\psi$; well defined by Proposition 2.4.10 (preprint 2.30). For tame $X$, $C_xX$ is a partial quadrant and $d_X(x) = \\dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$.",
-   "instead": "**Formalized in part since the first edition of this page.** With the linear structure of $T_xX$ (G.7, closed), $T^R_xX$ and $C_xX$ are defined in $T_xX$ as the preimages under $T\\varphi(x)$ of $T^R_{\\varphi(x)}O$ and $C_{\\varphi(x)}O$, for a chart and a presentation of its partial quadrant (`reducedTangentFiber`, `partialConeFiber`), and they do not depend on the chart or the presentation, at every $x \\in X_1$ (`reducedTangentFiber_eq`, `partialConeFiber_eq`, by Proposition 2.4.10 (preprint 2.30)); in a tame chart at a smooth $x$, $d_X(x) = \\dim(T_xX/T^R_xX)$ (`finrank_quotient_reducedTangentFiber_eq_degIndex`). **Not formalized**: that $C_xX$ is a partial quadrant in $T_xX$ and $d_{C_xX}(0_x) = d_X(x)$; in a chart this is V2.42 (`proposition_2_5_6_partialCone`). The local forms are V2.32, V2.35.",
+   "instead": "**Formalized** (2026-11-12; V2.111). At a smooth $x$, $C_xX$ is a partial quadrant in $T_xX$ and, for tame $X$, $d_X(x) = \\dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$ (`definition_2_5_8_degIndex`, `definition_2_5_8_scStructure`); the sc-structure of $T_xX$ is transported from $T_{\\varphi(x)}O$, and for two charts the transition derivative is an sc-isomorphism matching the coordinates and the partial cones (`tangentFiberScIso`, `tangentFiberScIso_comp`, `tangentFiberScIso_image_partialConeFiberModel`).",
    "decls": [
     "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber",
     "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber",
-    "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber_eq",
-    "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber_eq",
-    "Chapter2/ReducedTangentIntrinsic · MPolyfold.finrank_quotient_reducedTangentFiber_eq_degIndex"
+    "Chapter2/GapP1_Def258 · MPolyfold.definition_2_5_8_degIndex",
+    "Chapter2/GapP1_Def258b · MPolyfold.definition_2_5_8_scStructure",
+    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso",
+    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_comp",
+    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_image_partialConeFiberModel"
+   ],
+   "formalized": [
+    "V2.111"
    ]
   },
   {
@@ -3405,7 +3616,16 @@
    "label": "§2.7.2 (preprint §2.6.2), Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), p. 74 (preprint p. 56)",
    "page": 56,
    "book": "Lemma 2.7.3 (preprint 2.56) (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.7.4 (preprint 2.57): a regular space with a locally finite cover by closed paracompact subspaces is paracompact.",
-   "instead": "**Not formalized, because not needed.** The proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) avoid them (V2.17, V2.20, V2.62). The text applies Proposition 2.7.4 (preprint 2.57) to $X_m$ and $TX$ without checking that they are regular."
+   "instead": "**Formalized** (2026-11-12; V2.112). Lemma 2.7.3 (Michael) and Proposition 2.7.4 hold as printed, with Mathlib's `ParacompactSpace` and `T3Space` (`lemma_2_7_3`, `proposition_2_7_4`). The library's proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) still avoid them (V2.17, V2.20, V2.62); the text applies Proposition 2.7.4 to $X_m$ and $TX$ without checking that they are regular.",
+   "formalized": [
+    "V2.112"
+   ],
+   "decls": [
+    "Chapter2/GapP1_Michael · GapP1Michael.lemma_2_7_3",
+    "Chapter2/GapP1_Michael · GapP1Michael.proposition_2_7_4",
+    "Chapter2/GapP1_Michael · GapP1Michael.paracompactSpace_of_closed_refinement",
+    "Chapter2/GapP1_Michael · GapP1Michael.exists_closed_refinement"
+   ]
   },
   {
    "g": 76,

@@ -575,6 +575,34 @@ each chapter lands)
     product (G.80). Small text fixes not made: `build_comparison.py` line 67 still says Theorem 6.7.1
     is not formalized; `CylinderPerturbation2021.lean` cites p. 215 where p. 219 is meant.
 
+20. **Part I completion wave (2021 Chapters 1–6)** (2026-11-12). New Lean in 136 files (imported in
+    `Polyfold.lean` in dependency order, 1,416 axiom lines in `Test.lean`, blocks "Axioms: Part I completion
+    wave (2026-11-12)", "Axioms: Theorem 3.6.8 with untamed 2021 germ data" and "Axioms: Theorem 6.7.1 without
+    hypotheses on the cobordism"; notes `narrow/p1-*.md`,
+    integration report `narrow/integrate-p1.md`). No name clashed on import. 32 new rows (V1.42–V1.43,
+    V2.108–V2.112, V3.122–V3.131, V4.93–V4.96, V5.71–V5.76, V6.78–V6.82). Closed: every gap of Chapters 1–3
+    (G.1, G.2, G.4, G.10, G.12, G.13, G.15, G.19, G.25–G.29, G.79), and G.32, G.33, G.35, G.36, G.40, G.92
+    (Ch4), G.44, G.45, G.47, G.48, G.50–G.53 (Ch5), G.54, G.57, G.58, G.60, G.62, G.63, G.66, G.91 (Ch6). Open in
+    Part I: G.61, G.65 (in part), G.80 (in part); nothing to formalize: G.34 (a question), G.43 (a comment), G.49 (not in 2021).
+    Lifted from narrower: V3.62, V3.68, V3.89, V4.32, V5.55, V5.63, V6.33, V6.34, V6.42, V6.62, V6.76, V6.77; new narrower
+    rows V3.123 (Lemma 3.8.1 at `P = {0}`), V3.130 (Theorem 3.6.8 with the 2021 untamed germ data), V5.76 (the
+    Sobolev remark, sc-structure only on `(0, 1)`), V6.80, V6.81 (`DET(E, F)`). Now 42 rows are narrower and
+    101 of the 135 gaps closed. Findings: Chapter 3 items 386 (Lemma 3.8.1 at `P = {0}` does not hold as we
+    read it), 387 (reading of Theorem 3.2.3), 388 (Theorem 3.6.8 (2) and Theorem 3.1.22 do not hold as we read
+    them with the 2021 untamed germ data, `theorem_3_6_8_untamed_not`); Chapter 4 items 175 (good position
+    automatic in tame M-polyfolds), 176 (Remark 4.2.2, 2021 wording), 177 (§4.4 reading points); Chapter 5
+    items 183–186 (Theorem 5.3.15 remarks, `E₀` separable, the Sobolev remark, preprint Theorem 5.27);
+    Chapter 6 items 135 (`DET(E, F)` for finite-dimensional `E`, `F`), 136 (relative-form readings). Theorem
+    6.7.1 is proved without hypotheses on the cobordism: `theorem_6_7_1`, `theorem_6_7_1_noBoundary`
+    (`Chapter6/Theorem671Final2021.lean`, agent R-ends671, files `Chapter6/CobordismOrientationEnds2021*.lean`;
+    standing hypotheses `X` tame and sc-smooth bump functions only), through `cobordismOrientationHyp`: the
+    orientation `e ∧ o₀` of `S_F` is `e ∧ o_{S_i}` on its ends, the time vector first and with no sign
+    (`isEndProductOrientation_cobOr`). The earlier forms `theorem_6_7_1_of_orientation`, `theorem_6_7_1_hyp`
+    stay, with docstrings pointing to `theorem_6_7_1`. Docstrings that said "not
+    formalized" for what this wave did were updated (comment text only). Left: G.80 (wedge on
+    `Ω*_∞(X, ∂X)`), G.61, G.65; the Sobolev structure for `n ≥ 2`; a Chapter 7 file discharging the GTWZ
+    hypothesis of Corollary 7.6.6 with `theorem_5_5_16`.
+
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
 Polyfold project to leave memory for `lake build`.

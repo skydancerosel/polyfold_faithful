@@ -4,8 +4,11 @@ import Polyfold.Chapter5.BumpFunctions
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Appendix 5.4.2
 (notes on partitions of unity and bump functions, the part not in `BumpFunctions.lean`):
 **Definitions 5.5.1, 5.5.4, 5.5.9, 5.5.12, 5.5.14 (preprint 5.28, 5.31, 5.36, 5.39, 5.41), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Corollary
-5.44**; Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) as statements (cited, not formalized; 5.43 an explicit
-hypothesis of Corollary 5.5.17 (preprint 5.44)); Theorem 5.5.5 (preprint 5.32) not formalized
+5.44**; Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) as statements (5.43 an explicit
+hypothesis of Corollary 5.5.17 (preprint 5.44) here); since 2026-11-12 Theorems 5.5.5, 5.5.13 and
+5.5.16 are proved in `GapP1_BonicFrampton.lean` (`BonicFrampton.theorem_5_5_5`),
+`GapP1_Torunczyk.lean` (`theorem_5_5_13`) and `GapP1_GTWZ.lean` (`theorem_5_5_16`), and Corollary
+5.5.17 holds with no hypothesis (`corollary_5_5_17_unconditional`, `GapP1_SeparablePOU.lean`)
 *(book 2017: see `BookConcordance.md`)*.
 
 # Sc-smooth partitions of unity
@@ -124,10 +127,12 @@ functions, so Theorem 5.5.16 (preprint 5.43) and Theorem 5.5.10 (preprint 5.37) 
   Theorem 5.5.16 (preprint 5.43) needs is the classical `τ(1 − |v|²)`.  The proof's "admits sc-smooth partition of
   unity" means `C^∞` partitions of unity of `E₀`, and "in view of Theorem 5.37" means Proposition
   5.38.  Theorem 5.5.16 (preprint 5.43) is an explicit hypothesis.
-* **Not formalized**: Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton) and the remarks on `Lᵖ` and Sobolev spaces
-  (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`: gap G.1); Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) (stated only);
-  they are deep Banach space geometry, and nothing on the main line uses partitions of unity (the
-  transversality theorems use bump functions, whose Hilbert case, Proposition 5.5.8 (preprint 5.35), is elementary).
+* **Not in this file**: Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton) and the remarks on `Lᵖ` and Sobolev spaces
+  (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`); Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) (stated only here);
+  nothing on the main line uses partitions of unity (the transversality theorems use bump functions, whose Hilbert
+  case, Proposition 5.5.8 (preprint 5.35), is elementary).  Since 2026-11-12 they are proved in the files
+  `GapP1_BonicFrampton.lean`, `GapP1_SobolevRemark1–3.lean`, `GapP1_SobolevCube1–5.lean`, `GapP1_Torunczyk.lean`
+  and `GapP1_GTWZ.lean`.
 -/
 
 open Set Filter Topology Function
@@ -911,7 +916,8 @@ def IsCoordinatewiseContDiffEmbedding {Γ : Type*} (k : ℕ∞) (h : V → cZero
 variable (V) in
 /-- **Theorem 5.5.13 (preprint 5.40)** (Toruńczyk; [9], Theorem 30), **cited, not formalized**: the statement, for
 the Banach space `V` and `k`: `V` admits `C^k` partitions of unity if and only if there are a set
-`Γ` and a coordinate-wise `C^k` homeomorphic embedding of `V` into `c₀(Γ)`.  It is not used. -/
+`Γ` and a coordinate-wise `C^k` homeomorphic embedding of `V` into `c₀(Γ)`.  It is not used here;
+it is proved for every real Banach space as `theorem_5_5_13` (`GapP1_Torunczyk.lean`, 2026-11-12). -/
 def TorunczykStatement (k : ℕ∞) : Prop :=
   AdmitsContDiffPartitionsOfUnity V k ↔
     ∃ (Γ : Type u) (h : V → cZero Γ), IsCoordinatewiseContDiffEmbedding k h
@@ -1066,16 +1072,18 @@ theorem isReflexive_of_hilbert [CompleteSpace V] (b : V →L[ℝ] V →L[ℝ] �
 
 variable (V) in
 /-- **Theorem 5.5.16 (preprint 5.43)** ([12] = Godefroy, Troyanski, Whitfield, Zizler, J. Funct. Anal. 1983; [9],
-Theorem 31), **cited, not formalized**: the statement, for the Banach space `V` and `k`: if `V` is
+Theorem 31): the statement, for the Banach space `V` and `k`: if `V` is
 WCG and admits a `C^k`-bump function, then it admits `C^k` partitions of unity.  Used as an
-explicit hypothesis in Corollary 5.5.17 (preprint 5.44). -/
+explicit hypothesis in Corollary 5.5.17 (preprint 5.44) here; proved for every real Banach space
+(`theorem_5_5_16`, `GapP1_GTWZ.lean`, 2026-11-12). -/
 def GodefroyTroyanskiWhitfieldZizlerStatement (k : ℕ∞) : Prop :=
   IsWCG V → HasContDiffBump V k → AdmitsContDiffPartitionsOfUnity V k
 
 /-- **Corollary 5.5.17 (preprint 5.44)**: if `E₀` is a Hilbert space (its norm comes from a continuous bilinear form,
 `‖v‖² = b(v, v)`, as in Proposition 5.5.8 (preprint 5.35)), then the local model `(O, C, E)` has the sc-smooth
 approximation property — **under the explicit hypothesis that Theorem 5.5.16 (preprint 5.43) holds for `E₀` and
-`k = ∞`** (a deep result of Banach space geometry, cited from [12] and not formalized).  The proof
+`k = ∞`** (a deep result of Banach space geometry, cited from [12]; it is proved since 2026-11-12 as
+`theorem_5_5_16`, and the corollary without the hypothesis is `corollary_5_5_17_unconditional`).  The proof
 is the text's: `E₀` is reflexive (`isReflexive_of_hilbert`), hence WCG (Proposition 5.5.15 (preprint 5.42) (i)),
 and has a `C^∞` bump function (`hasContDiffBump_of_hilbert`); Theorem 5.5.16 (preprint 5.43) gives `C^∞`
 partitions of unity on `E₀`, and Proposition 5.5.11 (preprint 5.38) (not Theorem 5.37, as the text says) the

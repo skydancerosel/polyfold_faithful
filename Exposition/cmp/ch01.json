@@ -1228,6 +1228,83 @@
    "diff": [
     "The index statement, the exposition's addition in V1.30, is now the book's; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28)."
    ]
+  },
+  {
+   "id": "V1.42",
+   "title": "Example 1.1.3 (preprint 1.2): the weighted Sobolev spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-structure",
+   "verdict": "restated",
+   "book": {
+    "label": "§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)",
+    "page": 6,
+    "statement": "With $0 = \\delta_0 < \\delta_1 < \\cdots$, the spaces $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\\mathbb R \\times S^1)$, \"using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\\delta_m)$ is strictly increasing\"."
+   },
+   "lean": {
+    "statement": "`example_1_1_3 δ h0 hmono : ScBanach`, for every $\\delta : \\mathbb N \\to \\mathbb R$ with $\\delta_0 = 0$ and $\\delta$ strictly increasing, has the levels $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ (`example_1_1_3_lvl`, by definition), with $E_{m+1} \\to E_m$ the identity on the underlying $L^2$ function (`inclH`, `valCLM_inclH`). The ingredients of the text's proof: each $H^{m,\\delta}$ is a Banach space (`completeSpace_H`, an isometric embedding into a finite product of $L^2$ spaces with closed range); the inclusion is compact for $\\delta < \\delta'$ (`isCompactOperator_inclH`), by Rellich on bounded cylinders (`rellich`, with Fourier series on boxes, Parseval `hasSum_bc`) and the weight tail estimate (`tail_le`); test functions lie in every level and are dense in it (`IsTest.mem_Hsub`, `dense_test`, by cut-off `tendsto_cut` with the Leibniz rule `leibniz`, and Fourier truncation `approx_supp`); level $0$ is $L^2(\\mathbb R \\times S^1)$ (`level0_isometry`, `level0_surjective`).",
+    "decls": [
+     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3",
+     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3_lvl",
+     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.inclH",
+     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.valCLM_inclH",
+     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.completeSpace_H",
+     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.isClosed_range_ΦH",
+     "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.isCompactOperator_inclH",
+     "Chapter1/GapP1_Sobolev5 · GapP1Sobolev.rellich",
+     "Chapter1/GapP1_Sobolev2 · GapP1Sobolev.hasSum_bc",
+     "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.tail_le",
+     "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.dense_test",
+     "Chapter1/GapP1_Sobolev7 · GapP1Sobolev.IsTest.mem_Hsub",
+     "Chapter1/GapP1_Sobolev7 · GapP1Sobolev.SmPer.hasWeakDeriv",
+     "Chapter1/GapP1_Sobolev10 · GapP1Sobolev.tendsto_cut",
+     "Chapter1/GapP1_Sobolev8 · GapP1Sobolev.leibniz",
+     "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.approx_supp",
+     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_isometry",
+     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_surjective",
+     "Chapter1/GapP1_Sobolev1 · GapP1Sobolev.HasWeakDeriv",
+     "Chapter1/GapP1_Sobolev1 · GapP1Sobolev.IsTest",
+     "Chapter1/GapP1_Sobolev3 · GapP1Sobolev.H",
+     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.nonneg_of_strictMono"
+    ]
+   },
+   "chips": [
+    "strip ℝ × (0,1] with periodic tests",
+    "one norm of the usual equivalent ones",
+    "hypotheses as printed"
+   ],
+   "diff": [
+    "$\\mathbb R \\times S^1$ is the strip $\\mathbb R \\times (0, 1]$ with Lebesgue measure; $S^1 = \\mathbb R/\\mathbb Z$ enters through the test functions (`IsTest`: smooth, $1$-periodic in $t$, zero for $|s|$ large), against which weak derivatives are defined (`HasWeakDeriv`); this is the distributional derivative on the cylinder.",
+    "The norm is $\\|u\\|^2_{m,\\delta} = \\sum_{a+b \\le m} \\|e^{\\delta|s|}\\partial_s^a\\partial_t^b u\\|^2_{L^2}$. The text fixes no norm; the usual choices are equivalent, and an sc-structure depends only on the topologies. Derivatives are taken in the order $\\partial_s^a\\partial_t^b$, which for test functions does not matter.",
+    "The hypotheses are the text's: $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing; $\\delta_m \\ge 0$ is derived (`nonneg_of_strictMono`). The proof follows the text's outline (compact embedding on bounded domains plus the growth of the weights); the exposition's Proposition 1.C is the paper proof."
+   ]
+  },
+  {
+   "id": "V1.43",
+   "title": "Remark 1.1.17 (preprint 1.15): partial cones in place of partial quadrants",
+   "verdict": "restated",
+   "book": {
+    "label": "§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)",
+    "page": 11,
+    "statement": "Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\\lambda P \\subset P$ for $\\lambda \\ge 0$) with non-empty interior; for $U$ open in $P$, $\\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \\oplus E$, again a closed cone with non-empty interior. Many results should carry over, \"but one should check carefully which arguments carry over\"."
+   },
+   "lean": {
+    "statement": "`IsPartialCone E P`: $P$ closed, convex, $\\lambda P \\subseteq P$ for $\\lambda \\ge 0$, with nonempty interior. For $U = O \\cap P$ with $O$ open, $U$ is an sc-domain (V1.27; `IsPartialCone.isScDomain`; convexity and nonempty interior suffice, `IsPartialCone.isScDomain_of_convex`, since every level set $P_m$ has nonempty interior, `interior_lvlSet_nonempty_of_interior`). $TP = P^1 \\oplus E$ is again a closed convex partial cone with nonempty interior (`IsPartialCone.tangentSet`). Partial quadrants are partial cones (`IsPartialQuadrant.isPartialCone`), and the chain rule holds for relatively open subsets of partial cones (`remark_1_1_17_chainRule`).",
+    "decls": [
+     "Chapter1/GapP1_PartialCones · IsPartialCone",
+     "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain",
+     "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain_of_convex",
+     "Chapter1/GapP1_PartialCones · IsPartialCone.tangentSet",
+     "Chapter1/GapP1_PartialCones · IsPartialQuadrant.isPartialCone",
+     "Chapter1/GapP1_PartialCones · remark_1_1_17_chainRule",
+     "Chapter1/GapP1_PartialCones · interior_lvlSet_nonempty_of_interior"
+    ]
+   },
+   "chips": [
+    "the results of §§1.2–1.3 via sc-domains",
+    "later chapters stay with quadrants"
+   ],
+   "diff": [
+    "The remark says that many results should carry over and that one should check which arguments do. Here: $\\mathrm{sc}^1$ (`IsSc1`) is defined for every $U$, and the results of §§1.2–1.3 are stated for sc-domains, so they hold for relatively open subsets of partial cones; the chain rule is recorded as an instance.",
+    "The degeneracy index, tameness and faces (Chapters 2 ff.) use the quadrant structure and are not generalized, as in the text."
+   ]
   }
  ],
  "notFormalized": [
@@ -1236,14 +1313,36 @@
    "label": "§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)",
    "page": 6,
    "book": "With $0 = \\delta_0 < \\delta_1 < \\cdots$, the spaces $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\\mathbb R \\times S^1)$, \"using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\\delta_m)$ is strictly increasing\".",
-   "instead": "**Not formalized.** Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem; the exposition proves the example in full (Proposition 1.C). The only examples of sc-Banach spaces built here are the constant structure on a finite-dimensional space, and the sums, shifts, sc-subspaces and quotients of sc-Banach spaces (V1.1, V1.4, V1.6). This example, with the shift map of the 2010 paper, is the project's planned step H2."
+   "instead": "**Formalized** (2026-11-12; V1.42). Formalized in `GapP1_Sobolev1`–`GapP1_Sobolev13` (`example_1_1_3`): for $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing, the spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\\mathbb R \\times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.",
+   "formalized": [
+    "V1.42"
+   ],
+   "decls": [
+    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3",
+    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3_lvl",
+    "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.isCompactOperator_inclH",
+    "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.dense_test",
+    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_isometry",
+    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_surjective"
+   ]
   },
   {
    "title": "Remark 1.1.17 (preprint 1.15): partial cones in place of partial quadrants",
    "label": "§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)",
    "page": 11,
    "book": "Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\\lambda P \\subset P$ for $\\lambda \\ge 0$) with non-empty interior; for $U$ open in $P$, $\\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \\oplus E$, again a closed cone with non-empty interior. Many results should carry over, \"but one should check carefully which arguments carry over\".",
-   "instead": "**Not formalized**, as in the exposition, which stays with quadrants. The proofs of §§1.2–1.3 use of the quadrant only the sc-domain property (V1.27: open-in-convex level sets with unique derivatives), so they apply to any $U$ with that property; whether relatively open subsets of partial cones have it is not examined. (Proposition 1.2.4 and Corollary 1.2.5 (preprint Propositions 1.19 and 1.20) under the text's hypothesis, listed here until 2026-10-25, are now proved as stated, V1.18–V1.19.)"
+   "instead": "**Formalized** (2026-11-12; V1.43). For a closed convex partial cone $P$ with nonempty interior, relatively open $U \\subseteq P$ are sc-domains (`IsPartialCone.isScDomain`), so §§1.2–1.3 apply, and $TP = P^1 \\oplus E$ is again such a cone (`IsPartialCone.tangentSet`); the chain rule is `remark_1_1_17_chainRule`.",
+   "formalized": [
+    "V1.43"
+   ],
+   "decls": [
+    "Chapter1/GapP1_PartialCones · IsPartialCone",
+    "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain",
+    "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain_of_convex",
+    "Chapter1/GapP1_PartialCones · IsPartialCone.tangentSet",
+    "Chapter1/GapP1_PartialCones · IsPartialQuadrant.isPartialCone",
+    "Chapter1/GapP1_PartialCones · remark_1_1_17_chainRule"
+   ]
   },
   {
    "title": "Definition 1.1.15 (preprint 1.14): $Df$ need not be norm continuous",

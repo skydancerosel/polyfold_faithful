@@ -109,7 +109,9 @@ at `a` if `T_aA` has in `T_aX` an sc-complement contained in `T_a^R X`.
   3.55 needs a closed good complement, chosen by the normal form (`exists_proj_goodComplement`).
 * **Definition 4.2.10 (preprint 4.21)** uses the sc-structure induced on `T_zO` (an sc-subspace of `E` at a smooth
   point); the transport of the sc-complement needs the smoothness of the point, which holds on `A`.
-* The **open question** after Proposition 4.2.3 (preprint 4.15) (lines ≈ 6497–6510) is not formalized.
+* The **open question** after Proposition 4.2.3 (preprint 4.15) (lines ≈ 6497–6510) is not
+  formalized; its settled last sentence (no sc⁺-retract `(O, E, E)` is homeomorphic to the "T") is
+  `Question424.question_4_2_4_scPlus` (`GapP1_Question424.lean`).
 -/
 
 open Set Filter Topology Function Module

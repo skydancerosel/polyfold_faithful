@@ -48,7 +48,9 @@ is a partial quadrant in `T_xO`.
 
 ## What the text leaves implicit, and the choices made
 
-* Lemma 2.4.9 (preprint 2.29) is not formalized in its path formulation (gap G.10 of the report).  An sc-smooth path from an interval
+* Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized in `GapP1_Lemma249.lean`
+  (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`, `lemma_2_4_9_tangent`; gap G.10, closed), from the
+  sign arguments below.  An sc-smooth path from an interval
   (with the constant sc-structure on `ℝ`) takes values in `O_∞` and has a smooth derivative, so the
   lemma is a statement about smooth vectors and needs the density of the smooth points of
   `T_x^R O` and of `C_xO` (the exposition's Lemma 3.A), which the text asserts without proof.

@@ -21,11 +21,13 @@ the sc-de Rham cohomology.
 * `scDeRham A k = ker d / im d` in degree `k` (Definition 4.4.6), `scDeRhamMk`,
   `scDeRhamMk_eq_iff`.
 
-## Not formalized
+## Not in this file
 
-The wedge product (so `Ω*_∞(X)` as a graded differential algebra), the pull-back `f^*` along
-sc-smooth maps between M-polyfolds and `f^* ∘ d = d ∘ f^*` (p. 198), forms on `∂X`, the relative
-complex `Ω*_∞(X, ∂X)`, and the restriction of sc-forms to finite-dimensional sub-M-polyfolds.
+The wedge product (so `Ω*_∞(X)` as a graded differential algebra: `ScFormsWedge2021.lean`,
+`ScFormsWedge2021b.lean`), the pull-back `f^*` along sc-smooth maps between M-polyfolds and
+`f^* ∘ d = d ∘ f^*` (p. 198: `ScFormsPullback2021.lean`), forms on `∂X` and the relative complex
+`Ω*_∞(X, ∂X)` (`BoundaryForms2021.lean`, `A3BoundaryForms2021b.lean`), and the restriction of
+sc-forms to finite-dimensional sub-M-polyfolds (`Chapter9/MathlibFormsBridge2021.lean`).
 -/
 
 open Set Function
