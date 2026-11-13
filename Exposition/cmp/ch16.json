@@ -1,0 +1,331 @@
+{
+ "items": [
+  {
+   "id": "V16.1",
+   "title": "Definition 16.1.1 (2017: 16.1), polyfold structures",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1)",
+    "page": 705,
+    "statement": "A polyfold structure on a space $Z$ is a pair $(X, \\beta)$: an ep-groupoid $X$ with $|X|$ paracompact satisfying (ZHOU), and a homeomorphism $\\beta : |X| \\to Z$."
+   },
+   "lean": {
+    "statement": "`structure PolyfoldStructure (Z)`, with fields `X`, `paracompact : X.X.HasParacompactOrbitSpace`, `isZhou : X.X.IsZhou` and `β : X.X.OrbitSpace ≃ₜ Z`; `toOrbitChart` (the pair of Remark 10.3.18) and `isLR`. Witness: `z3PolyfoldStructure` on $\\mathbb R$ (the trivial $\\mathbb Z/3$-action).",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.toOrbitChart",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.isLR",
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.z3PolyfoldStructure"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "metrizability remark: G.146"
+   ],
+   "diff": [
+    "$Z$ lives in the universe of the object and morphism sets of $X$. The text's remark that $Z$ is then metrizable is gap G.146. The 2017 definition had neither (ZHOU) nor paracompactness."
+   ]
+  },
+  {
+   "id": "V16.2",
+   "title": "Definition 16.1.2 (2017: 16.2), equivalent polyfold structures",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2)",
+    "page": 707,
+    "statement": "$(X, \\alpha) \\sim (Y, \\beta)$ if there is a generalized isomorphism $f : X \\to Y$ with $\\alpha = \\beta \\circ |f|$."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.Equiv p q := ∃ f, IsGeneralizedIso f ∧ ⇑p.β = ⇑q.β ∘ orbitMap f`; an equivalence relation (`setoid`), equal to Remark 10.3.18's relation (`equiv_iff_rel`); $|f| = \\beta^{-1} \\circ \\alpha$ (`orbitMap_eq_of_equiv`).",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.Equiv",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.setoid",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.equiv_iff_rel",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.orbitMap_eq_of_equiv"
+    ]
+   },
+   "chips": [
+    "as stated; uniqueness sentence: V16.3"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V16.3",
+   "title": "The uniqueness sentence after Definition 16.1.2",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.1, after Definition 16.1.2, p. 707 (2017: Definition 16.2)",
+    "page": 707,
+    "statement": "The generalized isomorphism $f$ with $\\alpha = \\beta \\circ |f|$ is unique, as a consequence of (ZHOU) (through Theorem 10.3.19)."
+   },
+   "lean": {
+    "statement": "Does not hold as we read it: `PolyfoldStructure.not_uniqueness_16_1_2 : ¬ Uniqueness_16_1_2`. The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$ satisfies (ZHOU) (`isZhou_trivialZ3`) and has paracompact orbit space, so it is a polyfold structure on $\\mathbb R$ in the sense of Definition 16.1.1; the identity and the generalized isomorphism through the inversion functor both satisfy $\\alpha = \\alpha \\circ |f|$ and differ (`uniqueness_16_1_2_counterexample`). It holds when the target is effective: `uniqueness_16_1_2_of_isEffective` ((ZHOU) gives the local regularity property, then Theorem 10.3.19 for effective ep-groupoids).",
+    "decls": [
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.Uniqueness_16_1_2",
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.not_uniqueness_16_1_2",
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.uniqueness_16_1_2_counterexample",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.uniqueness_16_1_2_of_isEffective"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "holds for an effective target"
+   ],
+   "diff": [
+    "The sentence does not hold as we read it (Findings, Chapter 16, item 1): the counterexample satisfies every printed hypothesis, (ZHOU), paracompact $|X|$ and $\\beta$ a homeomorphism, all proved for the instance. It is the pair behind `not_theorem_10_3_19` (Chapter 10). The effective form is proved. The 2017 text (Definition 16.2) says \"$f$ is necessarily unique\", citing the theorem that is now 10.3.19; the 2021 text adds \"as a consequence of (ZHOU)\"."
+   ]
+  },
+  {
+   "id": "V16.4",
+   "title": "Definition 16.1.3 (2017: 16.3), polyfolds",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.3, p. 707 (2017: Definition 16.3)",
+    "page": 707,
+    "statement": "A polyfold is a pair $(Z, c)$, $c$ an equivalence class of polyfold structures on $Z$."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass Z := Quotient (PolyfoldStructure.setoid Z)`; witness `z3Polyfold`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass",
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.z3Polyfold"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "A class is a Lean quotient; the book's footnote on classes does not arise."
+   ]
+  },
+  {
+   "id": "V16.5",
+   "title": "Proposition 16.1.4 (2017: 16.2), bump functions and partitions of unity are invariant",
+   "verdict": "explicit",
+   "book": {
+    "label": "§16.1, Proposition 16.1.4, p. 708 (2017: Proposition 16.2)",
+    "page": 708,
+    "statement": "For equivalent $(X, \\alpha)$, $(Y, \\beta)$: (1) $X$ admits sc-smooth bump functions iff $Y$ does; (2) $X$ admits sc-smooth partitions of unity iff $Y$ does."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.proposition_16_1_4`: `(p.X.X.PObj.AdmitsBumpFunctions ↔ q.X.X.PObj.AdmitsBumpFunctions) ∧ (p.X.X.HasScPartitionsOfUnity ↔ q.X.X.HasScPartitionsOfUnity)`; parts `proposition_16_1_4_one`, `_two`, through equivalences (`IsEquivalence.admitsBumpFunctions_iff`, `IsEquivalence.hasScPartitionsOfUnity_iff`); the \"easy exercise\" is `isScSmoothMap_comp_π_of_comp_obj`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4",
+     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4_two",
+     "Chapter16/P3Z_PolyfoldPartitions · EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff",
+     "Chapter16/P3Z_PolyfoldPartitions · EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj",
+     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.hasScPartitionsOfUnity_iff_orbit",
+     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.HasOrbitScPartitionsOfUnity",
+     "Chapter16/P3Z_PolyfoldBump · PolyfoldStructure.proposition_16_1_4_one",
+     "Chapter16/P3Z_PolyfoldBump · EpFunctor.IsEquivalence.admitsBumpFunctions_iff",
+     "Chapter16/P3Z_PolyfoldBump · MPolyfold.IsScDiffeoOn.hasBumpAt",
+     "Chapter16/P3Z_PolyfoldBump · EpGroupoid.hasBumpAt_tgt"
+    ]
+   },
+   "chips": [
+    "(1) for the object M-polyfold"
+   ],
+   "diff": [
+    "(1) is read for the object M-polyfold (Definition 5.3.1, $f(x) \\ne 0$), as the proof uses it; Definition 12.3.1's notion is equivalent by Theorem 12.3.2 (1) (V12.11). (2) is Definition 7.5.5. The proof route differs: local inverses for (1), partitions descended to $|X|$ for (2)."
+   ]
+  },
+  {
+   "id": "V16.6",
+   "title": "Definition 16.1.5 (2017: 16.4), polyfolds with bump functions and partitions of unity",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.5, p. 708 (2017: Definition 16.4)",
+    "page": 708,
+    "statement": "$(Z, c)$ admits sc-smooth bump functions (partitions of unity) if some $(X, \\alpha) \\in c$ does; then all do."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.AdmitsBumpFunctions`, `PolyfoldClass.AdmitsScPartitionsOfUnity` (some structure in $c$); `definition_16_1_5_one`, `_two`: equivalent to \"every structure in $c$\". Witnesses `z3Polyfold_admitsBumpFunctions`, `z3Polyfold_admitsScPartitionsOfUnity`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldBump · PolyfoldClass.AdmitsBumpFunctions",
+     "Chapter16/P3Z_PolyfoldBump · PolyfoldClass.definition_16_1_5_one",
+     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldClass.AdmitsScPartitionsOfUnity",
+     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldClass.definition_16_1_5_two",
+     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsBumpFunctions",
+     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "\"then all do\" proved"
+   ],
+   "diff": [
+    "Bump functions with the object M-polyfold reading, as in V16.5."
+   ]
+  },
+  {
+   "id": "V16.7",
+   "title": "Remark 16.1.7 (2017: 16.1), at most one generalized isomorphism over a homeomorphism",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.1, Remark 16.1.7, p. 711 (2017: Remark 16.1), and pp. 709–710",
+    "page": 711,
+    "statement": "For a homeomorphism $h : Z \\to W$ there is at most one generalized isomorphism $f$ with $h \\circ \\alpha = \\beta \\circ |f|$; for continuous $h$ there may be none or many. (Also pp. 709–710: for isomorphisms of polyfold structures, the generalized isomorphism is determined by the map, as a consequence of Theorem 10.3.19.)"
+   },
+   "lean": {
+    "statement": "Does not hold as we read it: `PolyfoldStructure.not_remark_16_1_7 : ¬ Remark_16_1_7` (the pair of V16.3, $h = \\mathrm{id}$); the same pair contradicts the sentence on pp. 709–710. Holds for an effective target: `remark_16_1_7_of_isEffective`.",
+    "decls": [
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.Remark_16_1_7",
+     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.not_remark_16_1_7",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.remark_16_1_7_of_isEffective"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "holds for an effective target"
+   ],
+   "diff": [
+    "Does not hold as we read it (Findings, Chapter 16, item 2); the effective form is proved. The \"none or many\" sentence for continuous $h$ has no content beyond an example and is not formalized."
+   ]
+  },
+  {
+   "id": "V16.8",
+   "title": "Lemma 16.1.13 (2017: 16.1), the degeneracy index does not depend on the structure",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Lemma 16.1.13, p. 712 (2017: Lemma 16.1)",
+    "page": 712,
+    "statement": "Equivalent structures give $d_{(X,\\beta)} = d_{(X',\\beta')}$, where $d_{(X,\\beta)}(z) = d_X(x)$ for $\\beta(|x|) = z$."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.degIndex p z := d_{|X|}(β⁻¹ z)`, equal to $d_X(x)$ for every $x$ with $\\beta(|x|) = z$ (`degIndex_eq`); `lemma_16_1_13 (h : Equiv p q) : p.degIndex = q.degIndex`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.degIndex",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.degIndex_eq",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.lemma_16_1_13"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V16.9",
+   "title": "Definition 16.1.14 (2017: 16.9), the degeneracy index of a polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.14, p. 712 (2017: Definition 16.9)",
+    "page": 712,
+    "statement": "$d_Z : Z \\to \\mathbb N$ with $d_Z(z) = d_X(x)$ for every $(X, \\beta) \\in c$ and $\\beta(|x|) = z$."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.degIndex c` (`Quotient.lift`); `definition_16_1_14`: `c.degIndex z = d_X(x)` for every representative and every $x$ over $z$. Witness `z3Polyfold_degIndex`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.degIndex",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.definition_16_1_14",
+     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_degIndex"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V16.10",
+   "title": "Definition 16.1.17 (2017: 16.11), the boundary of a polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.17, p. 713 (2017: Definition 16.11)",
+    "page": 713,
+    "statement": "$\\partial Z = \\{z \\mid d_Z(z) \\ge 1\\}$."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.boundary c := {z | 1 ≤ c.degIndex z}`; `mem_boundary_iff` (through any representative). Witness `z3Polyfold_boundary` ($= \\emptyset$).",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.boundary",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.mem_boundary_iff",
+     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_boundary"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V16.11",
+   "title": "Lemma 16.1.19 (2017: 16.2), tameness is invariant",
+   "verdict": "stronger",
+   "book": {
+    "label": "§16.1, Lemma 16.1.19, p. 714 (2017: Lemma 16.2)",
+    "page": 714,
+    "statement": "If $(X, \\alpha) \\sim (Y, \\beta)$ and $X$ is tame, so is $Y$."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.lemma_16_1_19 (h : Equiv p q) : p.X.X.IsTame ↔ q.X.X.IsTame` (Chapter 11's `IsEquivalence.isTame_iff`).",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.lemma_16_1_19"
+    ]
+   },
+   "chips": [
+    "an iff"
+   ],
+   "diff": [
+    "An iff, trivially by symmetry."
+   ]
+  },
+  {
+   "id": "V16.12",
+   "title": "Definition 16.1.20 (2017: 16.12), tame polyfolds",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, Definition 16.1.20, p. 714 (2017: Definition 16.12)",
+    "page": 714,
+    "statement": "$(Z, c)$ is tame if one (then every) $(X, \\beta) \\in c$ has $X$ tame."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.IsTame c := ∃ p, ⟦p⟧ = c ∧ p.X.X.IsTame`; `definition_16_1_20`: equivalent to every representative tame. Witness `z3Polyfold_isTame`.",
+    "decls": [
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.IsTame",
+     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.definition_16_1_20",
+     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_isTame"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V16.13",
+   "title": "The polyfold $\\mathbb R$ with nontrivial isotropy (witness)",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (witness for §16.1)",
+    "page": null,
+    "statement": "The definitions of §16.1 have instances."
+   },
+   "lean": {
+    "statement": "The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$: $\\pi$ is injective and a homeomorphism onto $\\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comapP3Z`, `EpGroupoid.descendP3Z`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`.",
+    "decls": [
+     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.injective_π_trivialZ3",
+     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.isHomeomorph_π_trivialZ3",
+     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.trivialZ3OrbitHomeomorph",
+     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3",
+     "Chapter16/P3Z_PolyfoldPartitions · PartitionOfUnity.comapP3Z",
+     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.descendP3Z",
+     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.preimage_closure_π",
+     "Chapter16/P3Z_PolyfoldBump · MPolyfold.isScSmoothMap_real_of_locally"
+    ]
+   },
+   "chips": [],
+   "diff": []
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 146,
+   "title": "Polyfolds are metrizable (the remark after Definition 16.1.1)",
+   "label": "§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)",
+   "page": 706,
+   "book": "If $|X|$ is paracompact, $Z \\cong |X|$ is metrizable (locally metrizable, regular, Hausdorff and paracompact: Nagata–Smirnov).",
+   "instead": "Local metrizability of $|X|$ (`lemma_7_3_2_naturalRep`), regularity and the Hausdorff property (Lemmas 7.3.4, 7.3.5) exist; the Smirnov metrization theorem is not in Mathlib (estimate 600–1,500 lines). In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose."
+  }
+ ]
+}

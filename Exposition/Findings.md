@@ -7837,6 +7837,58 @@ Follow-ups (2026-11-09).
      good position of `ker(f + s_i)'(x)` to `C_x` does not imply (`not_isInGoodPosition_prod_diag`, gap G.46). No
      counterexample to the theorem is built, and the 2021 edition drops it.
 
+Found in Part III wave 1 (2026-11-13; files `Chapter5/P3R_*`, `P3B_*`): the reflexive auxiliary norms of §§5.1–5.2 and
+the ∂-extension theorem of §5.4.
+
+187. **Definition 5.1.4: "an (equivalent) atlas of reflexive charts"** *(Definition 5.1.4, p. 207 (2017: Definition
+     5.2); not in the preprint)* (2026-11-13). `Chapter5/P3R_Reflexive2021.lean`. Read as: the compatible strong bundle
+     charts with reflexive `F₁` cover `X` (`StrongBundle.HasReflexiveFibers`); an atlas all of whose charts have
+     reflexive `F₁` gives it (`hasReflexiveFibers_of_atlas`). Reflexivity is the project's §5.5 notion `IsReflexive`
+     (the canonical map to the bidual is onto). Witness: the trivial bundle `ℝⁿ × ℝᵏ → ℝⁿ`
+     (`TrivialBundle.hasReflexiveFibers_bundle`). Lemma 5.1.5 is proved in a strong form that identifies the two weak
+     limits as one point of `Y₀,₁` (`lemma_5_1_5_limit`), which the proof uses; Proposition 5.1.8, whose proof is left
+     to the reader, is proved with the glued norm of Proposition 5.1.3 over the reflexive charts (rows V5.77, V5.78,
+     V5.81). Status: **settled**.
+
+188. **Definition 5.1.7: "lim inf as k → 0" read as k → ∞** *(Definition 5.1.7, p. 208 (2017: Definition 5.4))*
+     (2026-11-13). The lower semicontinuity condition prints `liminf_{k→0} N(y_k)`; presumably `k → ∞`, the index of a
+     sequence. The liminf is taken in `EReal`, so that an unbounded sequence has liminf `∞`
+     (`StrongBundle.IsReflexiveAuxNorm`; equivalent forms `IsReflexiveAuxNorm.le_of_frequently_le`,
+     `le_liminf_coe_of_eventually`; row V5.80). A reading point. Status: **settled**.
+
+189. **Definition 5.2.6: "N(f(x)) ≤ 1" read as N(f(q)) ≤ 1** *(Definition 5.2.6, p. 214 (2017: Definition 5.6))*
+     (2026-11-13). In `{q ∈ U(x) | N(f(x)) ≤ 1}` the bound variable is `q`; presumably `N(f(q))`
+     (`StrongBundle.HasReflexiveLocalCompactness`; row V5.82). The standing assumptions of the definition (reflexive
+     fibres, `f` sc-smooth and regularizing) are hypotheses of the statements that use it. A reading point. Status:
+     **settled**.
+
+190. **The remark after Proposition 5.2.7: "x ∈ X" read as x ∈ U** *(Proposition 5.2.7 and the remark after it, p. 214
+     (2017: Proposition 5.3))* (2026-11-13). The closure is printed as `cl_X({x ∈ X | N(f(x)) ≤ 1})`; presumably
+     `x ∈ U`, as in the argument above it about `x_k ∈ U`. With that reading the inclusion
+     `cl{x ∈ U | N(f(x)) ≤ 1} ⊆ {x ∈ cl_X(U) | N(f(x)) ≤ 1}` holds for every `U` and every continuous section, with no
+     compactness assumption (`StrongBundle.closure_auxLe_subset`; row V5.84). A reading point. Status: **settled**.
+
+191. **Proposition 5.2.7 and Theorem 5.2.8 need fewer hypotheses** *(Proposition 5.2.7, p. 214, Theorem 5.2.8, p. 215
+     (2017: Proposition 5.3, Theorem 5.4))* (2026-11-13). `Chapter5/P3R_ReflexiveCompactness2021.lean`. Both are proved
+     with the text's hypotheses (`proposition_5_2_7`, `theorem_5_2_8`) and in stronger forms. In Proposition 5.2.7 the
+     local compactness hypothesis is not used, and part (2) holds for every continuous section
+     (`StrongBundle.exists_nhds_not_auxLe`). In Theorem 5.2.8 tameness and the sc-Fredholm property are not used:
+     continuity of `f`, compactness of `S`, local compactness at the given `N` and `∂X` closed suffice
+     (`theorem_5_2_8_of_continuous`). The witness `TrivialBundle.theorem_5_2_8_witness` satisfies all the text's
+     hypotheses at once (rows V5.83, V5.85). Status: **settled**.
+
+192. **Definition 5.4.1 and Theorem 5.4.2: local faces read chart-wise; the proof sketch carried out** *(Definition
+     5.4.1, Theorem 5.4.2, p. 228 (2017: Definition 5.11, Theorem 5.9))* (2026-11-13).
+     `Chapter5/P3B_BoundaryExtension2021.lean`, `Chapter12/P3B_LocalBoundaryExtension.lean`. "Its restrictions to the
+     local faces at x are sc⁺" is read in every tame strong bundle chart and every tame presentation: for `i ∈ I(φ(x))`
+     the local representative is sc⁺ on `O ∩ V ∩ {t_i = 0}` for some open `V ∋ φ(x)`
+     (`StrongBundle.IsBoundaryScPlusSection`, `IsScPlusOnFaceNear`); the zero section satisfies the all-charts condition
+     (`isBoundaryScPlusSection_fiberZero`). The values `s(x) ∈ W₀,₁` are required outright, so that `N(s(x))` is defined
+     at every boundary point. The text sketches the proof of Theorem 5.4.2 (Proposition 12.3.7 locally, then a partition
+     of unity); the sketch is carried out (`theorem_5_4_2`, with `exists_local_extension`, `exists_local_bounded`,
+     `exists_boundary_extension`). "Strong bundle over a tame M-polyfold" is the project's `IsTameBundle`; the proof
+     does not use that `Ũ` is open or contains `supp(s)` (rows V5.88, V5.89). Status: **settled**.
+
 ## Chapter 6 (Linearizations, orientations and invariants; Lean `Polyfold/Chapter6/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per phase of the work, so
@@ -12836,3 +12888,251 @@ Witnesses and the hypotheses taken (2026-11-08).
     `GenSBMap.proposition_11_5_3_book` state Lemma 11.5.2 and Proposition 11.5.3 for sc⁺-multisections, with no added
     hypothesis; the last clause of Proposition 11.5.3 is read for generalized strong bundle isomorphisms, as in item
     61. Status: **settled** (rows V11.31, V11.32; gap G.133 closed).
+
+## Chapter 12 (Fredholm theory in ep-groupoids; Lean `Polyfold/Chapter12/`)
+
+*Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
+Statement numbers and pages are those of the Springer edition (2021, pp. 569–598), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch12.md` (V12.1–V12.27); the gaps are G.136–G.140.
+
+Found while formalizing §§12.1–12.5 in Part III wave 1 (2026-11-13; files `Chapter12/P3N_*`, `P3S_*`, `P3B_*`, `P3O_*`).
+
+1. **The remark after Definition 12.1.1: f(φ) as a section of the pull-back bundle** *(Definition 12.1.1 and the remark
+   after it, p. 569 (2017: Definition 12.1))* (2026-11-13). `Chapter12/P3S_CompactnessEp.lean`. The regularizing
+   property on morphisms is read for the induced section of the pull-back bundle `𝐗 ₛ×_P W → 𝐗`, `φ ↦ (φ, f(s φ))`; it
+   follows through the pull-back projection, a strong bundle map (`remark_12_1_1_regularizing_mor`; row V12.2). Status:
+   **settled**.
+
+2. **Theorem 12.2.7: the local step taken as a hypothesis** *(Theorem 12.2.7, pp. 574–576 (2017: Theorem 12.3); gap
+   G.136)* (2026-11-13). `Chapter12/P3N_AuxNormExtension.lean`. The global part of the proof is formalized: the
+   extension property survives the `G_x`-average because `N` is invariant, the transport to the saturation, natural
+   representations inside `X ∖ ∂X` carrying a Part I norm, and the gluing (each nonzero term is `β_x N`). The local
+   coordinate step near `x₀ ∈ ∂X` in a tame strong bundle chart (the map `r ∘ q` into `∂O` and the norm
+   `N(rq(u), A(rq(u))w) + ‖w − A(rq(u))w‖`) is the hypothesis `HasLocalExtensions X B N` of `theorem_12_2_7_hyp`, with
+   witness `theorem_12_2_7_hyp_witness`; every restriction of a global auxiliary norm satisfies it
+   (`hasLocalExtensions_of_isAuxNorm`). It needs tame strong bundle charts around boundary points, not available in the
+   project (row V12.9). Status: **open (gap G.136)**.
+
+3. **Definition 12.3.1 and Part I's Definition 5.3.1: two readings of "bump function"** *(Definition 12.3.1, Theorem
+   12.3.2, p. 579, Theorem 12.3.3, p. 581 (2017: Definition 12.7, Theorems 12.6, 12.7); Chapter 5, items 41, 160–163)*
+   (2026-11-13). `Chapter12/P3S_BumpEp.lean`, `P3S_ScPlusSectionFunctor.lean`. Definition 12.3.1 asks for `f` not
+   identically 0; the project reads Part I's Definition 5.3.1 pointwise (`f(x) ≠ 0`). Theorem 12.3.2 (1) is proved in
+   each consistent pairing (`theorem_12_3_2_1` pointwise on both sides, `theorem_12_3_2_1_weak` with "not identically 0"
+   on both sides); the mixed pairing of the printed text would, in direction (⇒), be Part I's open question whether the
+   weak reading gives a bump function non-zero at a given point (Chapter 5, item 163). Theorem 12.3.2 (2) and Theorem
+   12.3.3 are proved with the pointwise reading (`AdmitsBumpFunctionsPointwise`, witness
+   `admitsBumpFunctionsPointwise_trivial_rn`); rows V12.10–V12.13. Status: **in part (the weak-to-pointwise question of
+   Part I is open)**.
+
+4. **Theorem 12.2.2: the transport needs only invariance under G_x** *(Theorem 12.2.2, pp. 570, 572–574 (2017: Theorem
+   12.1))* (2026-11-13). `Chapter12/P3N_AuxNormEp.lean`, `P3N_GoodNeighborhood.lean`. The local norm is a Part I
+   auxiliary norm (Proposition 5.1.3) averaged over `G_x`; its transport through a chosen morphism to the saturation
+   does not depend on the choice because of the `G_x`-invariance (`transNorm_μ`), so property (5) of Theorem 12.2.6 is
+   not needed. The completeness of the glued fibre norms, asserted in the text, follows from a general fact: a
+   continuous fibrewise seminorm with property (2) of Definition 5.1.1 is squeezed near each point between multiples of
+   the chart norm (`StrongBundle.isAuxNorm_of_tendsto`; rows V12.4, V12.27). Status: **settled**.
+
+5. **Theorem 12.3.2 (1), (⇒): averaging f² rather than f** *(Theorem 12.3.2, proof, pp. 579–580 (2017: Theorem 12.6))*
+   (2026-11-13). The proof averages a bump function `f` over `G_x`; the average of a function that takes both signs can
+   vanish at `x`. Averaging `f²` keeps `f(x) ≠ 0`, presumably what is intended, since the functions of Proposition 5.5.3
+   are `≥ 0` (`exists_natAverage`; row V12.11). A reading point. Status: **settled**.
+
+6. **Theorems 12.3.3 and 12.4.2: paracompactness not used; the labels of the proof of 12.4.2** *(Theorem 12.3.3, p. 581,
+   Theorem 12.4.2, pp. 587–588 (2017: Theorems 12.7, 12.9))* (2026-11-13). `Chapter12/P3S_ScPlusSectionFunctor.lean`,
+   `P3S_CompactnessEp.lean`. In Theorem 12.3.3 paracompactness of `|X|` serves only the existence of `N`, which is a
+   hypothesis; in Theorem 12.4.2 the three notions quantify over all auxiliary norms. Both are kept as in the text. The
+   steps of the proof of Theorem 12.4.2 are labelled "(3)⇒(2), (2)⇒(1), (1)⇒(3)"; their arguments prove (3)⇒(1),
+   (1)⇒(2), (2)⇒(3), presumably the intended labels. The shrinking to natural neighbourhoods is not needed (rows V12.13,
+   V12.20). A reading point. Status: **settled**.
+
+7. **Proposition 12.3.7: the face germs at x₀ suffice** *(Proposition 12.3.7, p. 585 (2017: Proposition 12.2))*
+   (2026-11-13). `Chapter12/P3B_LocalBoundaryExtension.lean`. The alternating sum
+   `Σ_{∅≠I} (−1)^{|I|+1} R((t,h), s((t,h)_I))` is formalized for an arbitrary tame presentation (`boundaryExtension`,
+   equal to the text's formula by `boundaryExtension_toBase_snd`), and it needs the face condition only at `x₀`
+   (`proposition_12_3_7_of_faces_at`); the cancellation is `sum_powerset_erase_empty_alternating`. Witness with
+   `∂O ≠ ∅`: `proposition_12_3_7_nonvacuous` (row V12.17). Status: **settled**.
+
+8. **Corollary 12.3.8: the isotropy action with a lift, made explicit** *(Corollary 12.3.8, p. 586 (2017: Corollary
+   12.1))* (2026-11-13). "`G_{x₀}` acts by sc-diffeomorphisms with a lift to `K`" is the structure `LocalBundleAction`
+   (an action on `O` by sc-smooth maps with an sc-smooth fibre-linear lift to `K[1]`, unit and composition laws); that
+   the group fixes `x₀` is the explicit hypothesis `hfix`; "invariant" is read as equivariant. Witness:
+   `LocalBundleAction.trivial` (row V12.18). Status: **settled**.
+
+9. **Lemma 12.5.1: proved from the local strong bundle isomorphism of a morphism** *(Lemma 12.5.1, p. 592 (2017: Lemma
+   12.2))* (2026-11-13). `Chapter12/P3O_PullChart.lean`, `P3O_MorphismIso.lean`, `P3O_OrientationBundleEp.lean`. The
+   text calls the lemma obvious. The proof pushes `(f − s₀)'(x)` by the local strong bundle isomorphism `morIso` of the
+   sheet of `φ` to `(f − Φ̂_* s₀)'(x')` (`linSet_pullPt`, using `f = Ψ ∘ f ∘ φ` by functoriality) and gets functoriality
+   from the germ identity of the local inverses (`germAgree_morIso_comp`); (2) is proved directly. `Lin(f, x)` is read
+   in chart points, Part I's convention, and is nonempty under Part I's hypothesis `HasScPlusSectionsThrough`, a
+   consequence of bump functions (row V12.22). Status: **settled**.
+
+10. **Theorem 12.5.3 and Proposition 12.5.6: Part I's hypotheses, and the continuity of Φ̂_*** *(Theorem 12.5.3, p. 594,
+    Proposition 12.5.6, p. 595 (2017: Theorem 12.11, Proposition 12.4); gaps G.138–G.140)* (2026-11-13).
+    `Chapter12/P3O_OrientationOrbit.lean`. The topology of `O_f` is Part I's, through `theorem_6_6_17`, which carries
+    bump functions on the object M-polyfold and tame germ data; `theorem_12_5_3_hyp` passes them through (gap G.140),
+    where the text assumes a tame `X` only. The last sentence of Theorem 12.5.3 (morphisms keep continuous local
+    sections continuous) needs the naturality of Part I's path transport under `morIso` and is not proved (gap G.138);
+    Proposition 12.5.6 (⇒) is proved, and (⇐) gives a functorial section lifting the section of `|σ|` without its
+    continuity (gap G.139). The orbit relations `OrRel`, `SmoothRel` used for `|O_f|` and `|X_∞|` are defined here; the
+    text does not define them (rows V12.23–V12.26). Status: **open (gaps G.138–G.140)**.
+
+11. **Every hypothesis taken in Chapter 12 is satisfiable** *(§§12.2–12.5)* (2026-11-13). Hypotheses:
+    `HasLocalExtensions` in Theorem 12.2.7 (`theorem_12_2_7_hyp_witness`), the pointwise bump reading in Theorems 12.3.2
+    (2), 12.3.3 (`admitsBumpFunctionsPointwise_trivial_rn`), `HasScPlusSectionsThrough` in §12.5
+    (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`, `StrongBundle.hasScPlusSectionsThrough_of_chart`). The
+    hypotheses of Part I's Theorem 6.6.17 in Theorem 12.5.3 are inherited (Chapter 6 rows V6.74, V6.75); no new witness
+    is built for them here. The all-charts definitions of the boundary sections have the zero section
+    (`isBoundaryScPlusSectionOn_zero`, `proposition_12_3_7_nonvacuous`), Corollary 12.3.8 the trivial action
+    (`LocalBundleAction.trivial`). Status: **settled (Theorem 12.5.3: inherited from Part I)**.
+
+## Chapter 13 (sc⁺-multisections; Lean `Polyfold/Chapter13/`)
+
+*Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
+Statement numbers and pages are those of the Springer edition (2021, pp. 599–640), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch13.md` (V13.1–V13.20); the gaps are G.141–G.143.
+
+Found while formalizing §§13.1–13.2 in Part III wave 1 (2026-11-13; files `Chapter13/P3G_*`, `P3M_*`).
+
+1. **"U(x) equipped with the natural G_x-action" read as a natural neighbourhood** *(Lemma 13.1.1, p. 599, Definition
+   13.1.2, Proposition 13.1.3, p. 600 (2017: Lemma 13.1, Definition 13.1, Proposition 13.1))* (2026-11-13).
+   `Chapter13/P3G_GoodSystem.lean`. `NatNbhd x`: an open subset of the domain of a natural representation at `x`,
+   invariant under its `Φ_g`; it need not be connected. With this reading Proposition 13.1.3 holds as printed; with "the
+   domain of a natural representation", which is connected, an invariant open shrinking could fail to be one. Components
+   of `𝒰(x,x')` are indexed by a point in them; for open components condition (3) is injectivity of `s` and `t`
+   (`isDiffeoComponent_iff_injOn`). Chapter 11's reading of Definition 13.2.1 and Definition 13.2.5 keeps the connected
+   domain (item 8) (rows V13.1–V13.6). Status: **settled**.
+
+2. **Lemma 13.1.1: the invariance of V is not used** *(Lemma 13.1.1, p. 599 (2017: Lemma 13.1))* (2026-11-13). (⇒) uses
+   only properness (Proposition 7.1.10); (⇐) only the natural action, by a pigeonhole argument over the finite `G_x`
+   (`lemma_13_1_1`; the form with the invariance hypothesis is `lemma_13_1_1_book`; row V13.1). Status: **settled**.
+
+3. **Theorem 13.1.7: properness relative to Q** *(Theorem 13.1.7, p. 602 (2017: Theorem 13.1); gap G.141)* (2026-11-13).
+   `Chapter13/P3G_GoodSystemExistence.lean`. The hypothesis is a good system of the full sub-ep-groupoid on `Q`, whose
+   condition (1) is properness inside `Q`. The formalization asks it in `X` (`IsGoodOn N Q`, witness
+   `GoodSystem.isGoodOn`), and is otherwise stronger: `Q` need not be open, and the given `U(q)` are kept. That
+   properness in `Q` implies properness in `X` when `|Q| = |X|` is presumably true and is not formalized. The proof uses
+   transports carrying `U(y)` into `U(q_y)`, not the text's smallness condition on the closures (row V13.7). Status:
+   **open (gap G.141)**.
+
+4. **Theorem 13.1.8: "for all ∈ X" read as "for all x ∈ X"** *(Theorem 13.1.8, p. 604 (2017: Theorem 13.2))*
+   (2026-11-13). The variable is missing in the printed quantifier. The proof uses the paracompactness of `|X|` through
+   a precise refinement and the shrinking lemma; metrizability is not used (`theorem_13_1_8`; row V13.8). A reading
+   point. Status: **settled**.
+
+5. **Proposition 13.1.9: uniqueness among all maps** *(Proposition 13.1.9 and the discussion before it, pp. 606–607
+   (2017: Proposition 13.2))* (2026-11-13). `Chapter13/P3G_BiAction.lean`. The isomorphism `g ↦ g'(g)` of stabilisers is
+   unique among all maps with the intertwining property, not only among homomorphisms; the proof goes through Lemma
+   13.1.6 and the bi-action laws (`GoodSystem.proposition_13_1_9`, `proposition_13_1_9_D`; row V13.9). The bi-action of
+   Definition 13.1.5 is given by the formula used in the book's proofs (`biact`; row V13.5). Status: **settled**.
+
+6. **§13.2: the algebra at functor level; decorations and inverses not formalized** *(Definitions 13.2.7–13.2.10, Lemmas
+   13.2.11, 13.2.13, pp. 610–612 (2017: Definitions 13.9–13.12, Lemmas 13.4, 13.5); gaps G.142, G.143)* (2026-11-13).
+   `Chapter13/P3M_*.lean`. Sums, scalar multiples, products with sc-smooth functors and locally finite sums of
+   sc⁺-multisection functors are sc⁺-multisections, with their local representations
+   (`multisectionAdd_eq_sum_of_isLocalRepOn`, `multisectionSmul_eq_sum_of_isLocalRepOn`, `isLocalRepOn_conv`). Decorated
+   sc⁺-multisections (systems of symmetric structures over a good system, their equivalence) and the decorated
+   conclusions are gap G.142; the remark that inverses do not exist in general is gap G.143 (rows V13.15–V13.19).
+   Status: **open (gaps G.142, G.143)**.
+
+7. **Lemma 13.2.13: the sum over an infinite index set** *(Lemma 13.2.13, p. 612 (2017: Lemma 13.5))* (2026-11-13). The
+   text does not write out `⊕_j Λ_j` for infinite `J`. It is read through finitely supported families:
+   `lfSum Λ w = ∑ᶠ v, [∑ v = w] ∏ᶠ_j Λ_j(v_j)`, where the indices off `J_x` contribute the zero vector with weight 1; it
+   agrees with Definition 13.2.9 (1) for finite `J` (`lfSum_eq_conv`) and near `x` with the finite convolution over
+   `J_x` (`lfSum_eq_conv_of_mem`; row V13.19). Status: **settled**.
+
+8. **Definition 13.2.5: the reading of the symmetric structure** *(Definition 13.2.5, Lemma 13.2.6, p. 610 (2017:
+   Definition 13.8, Lemma 13.3))* (2026-11-13). "`G_x`-invariant with the natural action" is read as "`U(x)` is the
+   domain of a natural representation", Chapter 11's reading of Definition 13.2.1, which includes connectedness;
+   properness is the existing `HasPropernessProperty`; the weights are in `ℚ≥0`. Lemma 13.2.6 is the text's construction
+   before Definition 13.2.5, with the sections extended by 0 off `U` before transporting (`SymmetricStructure`,
+   `lemma_13_2_6`; rows V13.13, V13.14). Status: **settled**.
+
+9. **Every hypothesis taken in Chapter 13 is satisfiable** *(§§13.1–13.2)* (2026-11-13). One hypothesis: properness in
+   `X` in Theorem 13.1.7 (`GoodSystem.isGoodOn`). Every M-polyfold as a trivial ep-groupoid has a good system
+   (`nonempty_goodSystem_trivial`), and natural neighbourhoods with proper closure exist inside every open set
+   (`exists_natNbhd_isProperSubset`). §13.2 adds no hypothesis. Status: **settled**.
+
+## Chapter 15 (Transversality and invariants; Lean `Polyfold/Chapter15/`)
+
+*Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
+Statement numbers and pages are those of the Springer edition (2021, pp. 683–703), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch15.md` (V15.1–V15.8); the gaps are G.144, G.145.
+
+Found while formalizing §15.1 in Part III wave 1 (2026-11-13; files `Chapter15/P3T_*`).
+
+1. **Theorem 15.1.1, reading (a): the topology of the separation argument** *(Theorem 15.1.1, proof, pp. 684–687 (2017:
+   Theorem 15.1))* (2026-11-13). `Chapter15/P3T_LinearizationModel.lean`, `P3T_SeparationLemmas.lean`. The separation
+   argument (Proposition 15.1.3, Lemmas 15.1.4, 15.1.5) is run in the level-1 topology, and the "weak topology" in which
+   the derivatives converge is read as pointwise convergence on `E₀`: the derivatives `D(g ∘ r)` of an sc¹ map are
+   continuous only from level 1 (`continuousOn_scDeriv_coe`; row V15.2). A reading point. Status: **settled**.
+
+2. **Theorem 15.1.1, reading (b): the index set of the final display** *(Theorem 15.1.1, proof, p. 687 (2017: Theorem
+   15.1))* (2026-11-13). In the final display, presumably the sum runs over `{i : f(0) = s_i(0)}`, since `f(0) = s_i(0)`
+   need not hold for all `i`. The proof compares the formal sums of the pairs `(s_i(r(y)), D((f − s_i) ∘ r)(y))`
+   (`wsum_pair_eq_of_isLocal`, `wsum_model_eq`; row V15.2). A reading point. Status: **settled**.
+
+3. **Proposition 15.1.3 at an isolated point** *(Proposition 15.1.3, p. 684 (2017: Proposition 15.1))* (2026-11-13). The
+   proposition asks for `x_k → 0` with `x_k ≠ 0`. At an isolated point of the local model, for instance when `X` is
+   zero-dimensional near `x`, no such sequence exists, so the proposition does not hold as we read it there
+   (`not_proposition_15_1_3_of_isolated`, `not_proposition_15_1_3_point`). It is proved for `x₀` not isolated
+   (`proposition_15_1_3_hyp`, witness `proposition_15_1_3_hyp_witness`), in a topological form with no sc-structure.
+   Theorem 15.1.1 is unaffected: its core lemma handles isolated points through locality. A degenerate case and a
+   reading point, not a question for the authors (row V15.4). Status: **settled**.
+
+4. **Theorem 15.1.1: the functor property and the Fredholm summands** *(Theorem 15.1.1, pp. 683–684 (2017: §15.1,
+   Theorem 15.1); gaps G.144, G.145)* (2026-11-13). `Chapter15/P3T_LinearizationIntrinsic.lean`. The value
+   `T(f, Λ)(x) ∈ GrF(x)` is defined and proved independent of the local section structure and the chart at every level-1
+   point, for `Λ` not necessarily a functor (`theorem_15_1_1_intrinsic`, `linearization_eq`). Not formalized: the action
+   `φ_*` on `GrF` and the functor property `T(f, Λ)(tφ) = φ_* T(f, Λ)(sφ)` (gap G.144), and that the summands are
+   sc-Fredholm (gap G.145); `GrF(x)` allows all linear maps (rows V15.1, V15.2, V15.8). Status: **open (gaps G.144,
+   G.145)**.
+
+## Chapter 16 (Polyfolds; Lean `Polyfold/Chapter16/`)
+
+*Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
+Statement numbers and pages are those of the Springer edition (2021, pp. 705–740), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch16.md` (V16.1–V16.13); the gap is G.146.
+
+Found while formalizing §16.1 in Part III wave 1 (2026-11-13; files `Chapter16/P3Z_*`).
+
+1. **The uniqueness sentence after Definition 16.1.2 does not hold as we read it** *(Definition 16.1.2 and the sentence
+   after it, p. 707 (2017: Definition 16.2); Chapter 10, item 58)* (2026-11-13).
+   `Chapter16/P3Z_ZhouUniquenessCheck.lean`, `P3Z_PolyfoldStructure.lean`. The sentence says that the generalized
+   isomorphism `f` with `α = β ∘ |f|` is unique, as a consequence of (ZHOU). The trivial `ℤ/3`-ep-groupoid on `ℝ`
+   satisfies (ZHOU) (`isZhou_trivialZ3`: every element of `G_x` acts trivially), and its orbit space is homeomorphic to
+   `ℝ`, hence paracompact, so `(ℤ/3 × ℝ ⇉ ℝ, π⁻¹)` is a polyfold structure on `ℝ` in the exact sense of Definition
+   16.1.1 (`z3PolyfoldStructure`). The identity and the generalized isomorphism through the inversion functor both
+   satisfy `α = α ∘ |f|` and differ (`uniqueness_16_1_2_counterexample`, `not_uniqueness_16_1_2`); this is the pair
+   behind `not_theorem_10_3_19` (Chapter 10, item 58). Uniqueness holds when the target is effective: (ZHOU) gives the
+   local regularity property, and Theorem 10.3.19 holds for effective ep-groupoids (`uniqueness_16_1_2_of_isEffective`).
+   In 2017, Definition 16.2 says that `f` is necessarily unique, citing Theorem 10.7 (2021: 10.3.19); the 2021 text adds
+   "as a consequence of (ZHOU)". Definitions 16.1.2, 16.1.3 and the rest of wave 1 do not use the uniqueness; Lemma
+   16.2.1 and the isomorphisms of polyfold structures in Definitions 16.1.6–16.1.11 rest on it and will carry either
+   effectiveness or the generalized isomorphism as data. Candidate for the notes to the authors (rows V16.2, V16.3).
+   Status: **does not hold as we read it; the effective form is proved**.
+
+2. **Remark 16.1.7 and the sentence on pp. 709–710 do not hold as we read them** *(Remark 16.1.7, p. 711, and pp.
+   709–710 (2017: Remark 16.1))* (2026-11-13). Remark 16.1.7 says that over a homeomorphism `h : Z → W` there is at most
+   one generalized isomorphism `f` with `h ∘ α = β ∘ |f|`; the sentence on pp. 709–710 says that for an isomorphism of
+   polyfold structures the generalized isomorphism is determined by the map, as a consequence of Theorem 10.3.19. With
+   `h = id`, the pair of item 1 contradicts both (`not_remark_16_1_7`). Both hold for an effective target
+   (`remark_16_1_7_of_isEffective`). Part of the same candidate for the notes to the authors as item 1 (row V16.7).
+   Status: **does not hold as we read it; the effective form is proved**.
+
+3. **The metrizability remark after Definition 16.1.1** *(the remark after Definition 16.1.1, p. 706 (2017: Proposition
+   16.1); gap G.146)* (2026-11-13). The text remarks that `Z` is metrizable when `|X|` is paracompact (in 2017 the
+   numbered Proposition 16.1). The ingredients exist: local metrizability of `|X|` (`lemma_7_3_2_naturalRep`),
+   regularity and the Hausdorff property (Lemmas 7.3.4, 7.3.5); the Smirnov metrization theorem is not in Mathlib
+   (estimate 600–1,500 lines; row V16.1). Status: **open (gap G.146)**.
+
+4. **Proposition 16.1.4 (1): bump functions on the object M-polyfold** *(Proposition 16.1.4, p. 708 (2017: Proposition
+   16.2))* (2026-11-13). `Chapter16/P3Z_PolyfoldBump.lean`, `P3Z_PolyfoldPartitions.lean`. (1) is read for the object
+   M-polyfold (Definition 5.3.1, `f(x) ≠ 0`), as the proof uses it; Definition 12.3.1's notion is equivalent to it by
+   Theorem 12.3.2 (1) in the pointwise reading (Chapter 12, item 3). The proof differs from the text's: local inverses
+   for (1), partitions of unity descended to `|X|` for (2) (`proposition_16_1_4`; row V16.5). Status: **settled**.
+
+5. **Definition 16.1.1 in 2017 and 2021** *(Definition 16.1.1, p. 705 (2017: Definition 16.1))* (2026-11-13). The 2021
+   definition adds (ZHOU) and the paracompactness of `|X|`, which the 2017 definition does not have; `Z` lives in the
+   universe of the object and morphism sets of `X` (`PolyfoldStructure`; row V16.1). Every definition of §16.1 has a
+   witness: the polyfold `ℝ` with the trivial `ℤ/3`-action (`z3Polyfold` and the `z3Polyfold_*` declarations; row
+   V16.13). Status: **settled**.

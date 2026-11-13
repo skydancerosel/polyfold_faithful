@@ -17,7 +17,8 @@ CMP = os.path.join(os.path.dirname(HERE), 'cmp', 'ch%02d.json')
 spec = json.load(open(SPEC))
 tiers = [t['key'] for t in spec['tiers']]
 rows = {}; decl2rows = collections.defaultdict(list); rowidx = {}
-for n in range(1, 12):
+for n in range(1, 17):
+    if not os.path.exists(CMP % n): continue
     for x in json.load(open(CMP % n))['items']:
         rowidx[x['id']] = len(rows); rows[x['id']] = x
         for d in x['lean'].get('decls', []):
@@ -47,7 +48,7 @@ num = lambda lab: lab.split()[1]
 thmrows = collections.OrderedDict()
 for tier, lab, nm, m, ds in mains:
     rs = decl2rows.get(nm, [])
-    pick = [r for r in rs if re.search(r'(Theorem|Corollary|Proposition) ' + re.escape(num(lab)) + r'\b', rows[r]['book']['label'])] or rs
+    pick = [r for r in rs if re.search(r'(Theorem|Corollary|Proposition|Lemma) ' + re.escape(num(lab)) + r'\b', rows[r]['book']['label'])] or rs
     pick = [r for r in pick if 'proof of' not in rows[r]['book']['label']] or pick
     for r in pick: thmrows.setdefault(r, set()).add((tier, lab, nm))
 mapped = {x for x in reach if x in decl2rows}

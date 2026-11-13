@@ -1,4 +1,4 @@
-# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III wave 1, Chapters 12–16)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
@@ -1316,6 +1316,79 @@ Rows follow the 2017 order; the preprint column is the number in the table of th
 | Lemma 8.10 | Lemma 8.6.2 | 398 | same |
 | Lemma 8.11 | Lemma 8.6.3 | 398 | same |
 | Proposition 8.4 | Proposition 8.6.4 | 399 | same |
+
+### Part III, items formalized in wave 1 (Chapters 12, 13, 15, 16; 2026-11-13)
+
+Part III has no preprint. The Lean names and the reports carry the 2021 numbers, with the 2017 numbers in parentheses. The 2017 numbers below were checked in the 2017 text (2026-11-13); where a wave-1 note gave another 2017 number it is said in the last column (the notes S and M; the Lean docstrings of those files may still carry the numbers of the notes). The statements were not compared word by word between 2017 and 2021, except where a row says so. The Chapter 5 items of wave 1 (Definitions 5.1.4–5.4.1 and Theorem 5.4.2) are in the Chapter 5 table above.
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
+| Definition 12.1 | Definition 12.1.1 | 569 | V12.1, V12.2 |  |
+| Definition 12.2 | Definition 12.2.1 | 570 | V12.3 |  |
+| Theorem 12.1 | Theorem 12.2.2 | 570 | V12.4 |  |
+| Definition 12.3 | Definition 12.2.3 | 570 | V12.5 |  |
+| Definition 12.4 | Definition 12.2.4 | 571 | V12.6 |  |
+| Proposition 12.1 | Proposition 12.2.5 | 571 | V12.7 |  |
+| Theorem 12.2 | Theorem 12.2.6 | 571 | V12.8 |  |
+| Theorem 12.3 | Theorem 12.2.7 | 574 | V12.9 |  |
+| Definition 12.7 | Definition 12.3.1 | 579 | V12.10 | note S gave 12.6 |
+| Theorem 12.6 | Theorem 12.3.2 | 579 | V12.11, V12.12 | wave-1 note S gave 12.4 |
+| Theorem 12.7 | Theorem 12.3.3 | 581 | V12.13 | note S gave 12.5 |
+| Remark 12.3 | Remark 12.3.4 | 584 | V12.14 | note S gave 12.4 |
+| Remark 12.4 | Remark 12.3.5 | 584 | V12.15 | note S gave 12.5 |
+| Definition 12.8 | Definition 12.3.6 | 584 | V12.16 |  |
+| Proposition 12.2 | Proposition 12.3.7 | 585 | V12.17 |  |
+| Corollary 12.1 | Corollary 12.3.8 | 586 | V12.18 |  |
+| Definition 12.9 | Definition 12.4.1 | 587 | V12.19 | note S gave 12.11 |
+| Theorem 12.9 | Theorem 12.4.2 | 587 | V12.20 | note S gave 12.6 |
+| Lemma 12.1 | Lemma 12.4.4 | 589 | V12.21 | note S gave 12.3 |
+| Lemma 12.2 | Lemma 12.5.1 | 592 | V12.22 |  |
+| Definition 12.11 | Definition 12.5.2 | 593 | V12.23 |  |
+| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24 |  |
+| Definition 12.12 | Definition 12.5.4 | 594 | V12.25 |  |
+| Remark 12.5 | Remark 12.5.5 | 595 | — | prose, no row |
+| Proposition 12.4 | Proposition 12.5.6 | 595 | V12.26 |  |
+| Lemma 13.1 | Lemma 13.1.1 | 599 | V13.1 |  |
+| Definition 13.1 | Definition 13.1.2 | 600 | V13.2 |  |
+| Proposition 13.1 | Proposition 13.1.3 | 600 | V13.3 |  |
+| Definition 13.2 | Definition 13.1.4 | 600 | V13.4 |  |
+| Definition 13.3 | Definition 13.1.5 | 601 | V13.5 |  |
+| Lemma 13.2 | Lemma 13.1.6 | 602 | V13.6 |  |
+| Theorem 13.1 | Theorem 13.1.7 | 602 | V13.7 |  |
+| Theorem 13.2 | Theorem 13.1.8 | 604 | V13.8 |  |
+| Proposition 13.2 | Proposition 13.1.9 | 607 | V13.9 |  |
+| Definition 13.4 | Definition 13.2.1 | 607 | (Chapter 11) | note M gave other 2017 numbers for §13.2 |
+| Definition 13.5 | Definition 13.2.2 | 608 | V13.10 |  |
+| Definition 13.6 | Definition 13.2.3 | 608 | V13.11 |  |
+| Definition 13.7 | Definition 13.2.4 | 609 | V13.12 |  |
+| Definition 13.8 | Definition 13.2.5 | 610 | V13.13 |  |
+| Lemma 13.3 | Lemma 13.2.6 | 610 | V13.14 |  |
+| Definition 13.9 | Definition 13.2.7 | 610 | G.142 |  |
+| Definition 13.10 | Definition 13.2.8 | 611 | G.142 |  |
+| Definition 13.11 | Definition 13.2.9 | 611 | V13.15 |  |
+| Definition 13.12 | Definition 13.2.10 | 611 | V13.16 |  |
+| Lemma 13.4 | Lemma 13.2.11 | 612 | V13.17 |  |
+| Definition 13.13 | Definition 13.2.12 | 612 | V13.18 |  |
+| Lemma 13.5 | Lemma 13.2.13 | 612 | V13.19 |  |
+| Theorem 15.1 | Theorem 15.1.1 | 684 | V15.2 |  |
+| Remark 15.1 | Remark 15.1.2 | 684 | V15.3 |  |
+| Proposition 15.1 | Proposition 15.1.3 | 684 | V15.4 |  |
+| Lemma 15.1 | Lemma 15.1.4 | 685 | V15.5 |  |
+| Lemma 15.2 | Lemma 15.1.5 | 685 | V15.6 |  |
+| — | Remark 15.1.6 | 686 | V15.7 | new in 2021 |
+| Definition 15.1 | Definition 15.1.7 | 687 | V15.8 |  |
+| Definition 16.1 | Definition 16.1.1 | 705 | V16.1 | 2021 adds (ZHOU) and paracompactness |
+| Proposition 16.1 | remark after Definition 16.1.1 | 706 | G.146 | numbered in 2017, prose in 2021 |
+| Definition 16.2 | Definition 16.1.2 | 707 | V16.2, V16.3 | 2021 adds "as a consequence of (ZHOU)" |
+| Definition 16.3 | Definition 16.1.3 | 707 | V16.4 |  |
+| Proposition 16.2 | Proposition 16.1.4 | 708 | V16.5 |  |
+| Definition 16.4 | Definition 16.1.5 | 708 | V16.6 |  |
+| Remark 16.1 | Remark 16.1.7 | 711 | V16.7 |  |
+| Lemma 16.1 | Lemma 16.1.13 | 712 | V16.8 |  |
+| Definition 16.9 | Definition 16.1.14 | 712 | V16.9 |  |
+| Definition 16.11 | Definition 16.1.17 | 713 | V16.10 |  |
+| Lemma 16.2 | Lemma 16.1.19 | 714 | V16.11 |  |
+| Definition 16.12 | Definition 16.1.20 | 714 | V16.12 |  |
 
 ### Items of the 2021 text without a 2017 counterpart
 

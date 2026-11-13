@@ -39,8 +39,8 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
     ("03", "Ch. 3", "sc-Fredholm sections and the implicit function theorem", ["Chapter3"]),
     ("04", "Ch. 4, §§4.1–4.4", "manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth "
      "finite-dimensional submanifolds, families and Sard's theorem (vendored)", ["Chapter4", "Vendor/MilnorSard"]),
-    ("05", "Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4)", "the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and "
-     "bump functions, transversality, general and good position, homotopies, partitions of unity", ["Chapter5"]),
+    ("05", "Ch. 5, §§5.1–5.5 (preprint §§5.1–5.4)", "the Fredholm package for M-polyfolds: auxiliary norms and reflexive auxiliary norms, compactness, sc⁺-sections and "
+     "bump functions, transversality, general and good position, homotopies, the ∂-extension theorem, partitions of unity", ["Chapter5"]),
     ("06", "Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7)", "linearizations and orientations: determinant lines and exact sequences, the "
      "determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the "
      "propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of "
@@ -63,15 +63,26 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
     ("11", "Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11)", "geometry up to equivalences: the tangent functor and "
      "faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to "
      "equivalence, coverings and equivalences (sc-differential forms and integration not formalized)", ["Chapter11"]),
+    ("12", "Part III, Ch. 12, §§12.1–12.5 (2017 Chapter 12)", "Fredholm theory in ep-groupoids: sc-Fredholm section "
+     "functors, auxiliary norms, the good neighbourhood theorem, continuous partitions of unity, the extension of "
+     "auxiliary norms from the boundary, bump functions and sc⁺-section functors, extension from the boundary in a "
+     "local model, compactness and properness, the orientation bundle (wave 1)", ["Chapter12"]),
+    ("13", "Part III, Ch. 13, §§13.1–13.2 (2017 Chapter 13)", "sc⁺-multisections: good systems of neighbourhoods, "
+     "the natural bi-action, existence and extension of good systems; support, pointwise norm, symmetric structures, "
+     "sums, scalar multiples and locally finite sums at functor level (wave 1)", ["Chapter13"]),
+    ("15", "Part III, Ch. 15, §15.1 (2017 Chapter 15)", "transversality and invariants: the linearization "
+     "T(f, Λ), its well-definedness, the separation lemmas (wave 1)", ["Chapter15"]),
+    ("16", "Part III, Ch. 16, §16.1 (2017 Chapter 16)", "polyfolds: polyfold structures and their equivalence, "
+     "bump functions and partitions of unity, the degeneracy index, the boundary, tameness (wave 1)", ["Chapter16"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapters 7–11 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, of Chapters 7–11 of Part II and of Part III (in progress), of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
-for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's
+for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Parts II and III, which have no preprint, the book's
 arXiv version, 1707.08941 ("2017"); a page that could not be located in the Springer text is given in the old
 numbering only, marked as such. The V- and G-numbers are the project's own, and the Lean names carry the preprint's
 (Part I) and the 2017 (Part II) numbers; `Exposition/BookConcordance.md` gives the correspondence). That

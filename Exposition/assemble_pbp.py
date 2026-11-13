@@ -18,14 +18,14 @@ HERE = pathlib.Path(__file__).resolve().parent
 PBP = HERE / 'pbp'
 OUT = HERE / 'ProofByProof.md'
 TITLE = '# Polyfold Theory, proof by proof'
-DEK = ('*The formal proof of Hofer–Wysocki–Zehnder\'s* Polyfold and Fredholm Theory, *Part I and Part II, Chapters 7–11, retold '
+DEK = ('*The formal proof of Hofer–Wysocki–Zehnder\'s* Polyfold and Fredholm Theory, *Parts I–III, Chapters 1–16, retold '
        'as mathematics: every definition as the formalization makes it, every proof step by step as '
        'the Lean proof goes, and on every step of substance a trace tag naming the declaration that '
        'proves it.*')
 # ------------------------------------------------------------------------------------------------
 
 ROMAN = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX',
-         10: 'X', 11: 'XI', 12: 'XII', 13: 'XIII'}
+         10: 'X', 11: 'XI', 12: 'XII', 13: 'XIII', 14: 'XIV', 15: 'XV', 16: 'XVI'}
 
 
 def parts():

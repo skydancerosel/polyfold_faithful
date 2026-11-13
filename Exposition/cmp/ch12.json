@@ -1,0 +1,753 @@
+{
+ "items": [
+  {
+   "id": "V12.1",
+   "title": "Definition 12.1.1 (2017: 12.1), sc-Fredholm section functors",
+   "verdict": "same",
+   "book": {
+    "label": "§12.1, Definition 12.1.1, p. 569 (2017: Definition 12.1)",
+    "page": 569,
+    "statement": "An sc-smooth section functor $f$ of a strong bundle over an ep-groupoid is sc-Fredholm if it is an sc-Fredholm section of $W \\to X$ over the object M-polyfold."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.definition_12_1_1`: `E.IsScFredholmSectionFunctor f ↔ E.IsScSmoothSectionFunctor f ∧ B.IsScFredholmSection f` (`Iff.rfl`, Definition 8.3.4 (3)).",
+    "decls": [
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.definition_12_1_1"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The project's existing definition, unfolded."
+   ]
+  },
+  {
+   "id": "V12.2",
+   "title": "The remark after Definition 12.1.1: regularizing on objects and morphisms, germs",
+   "verdict": "explicit",
+   "book": {
+    "label": "§12.1, after Definition 12.1.1, p. 569 (2017: after Definition 12.1)",
+    "page": 569,
+    "statement": "$f$ is regularizing; on morphisms, $\\varphi \\in \\mathbf X_m$ and $f(\\varphi) \\in \\mathbf W_{m,m+1}$ give $\\varphi \\in \\mathbf X_{m+1}$, since $s(\\varphi) \\in X_{m+1}$. Germs at smooth points are sc-Fredholm germs."
+   },
+   "lean": {
+    "statement": "Objects: $x \\in X_m$ and $f(x) \\in W_{m,m+1}$ give $x \\in X_{m+1}$ (`remark_12_1_1_regularizing_obj`). Morphisms: $\\varphi \\in \\mathbf X_m$ and $f(\\varphi) = (\\varphi, f(s\\varphi)) \\in (\\mathbf X\\,{}_s\\!\\times_P W)_{m,m+1}$ give $\\varphi \\in \\mathbf X_{m+1}$ (`remark_12_1_1_regularizing_mor`, through the pull-back projection, a strong bundle map). Germs: `IsScFredholmGerm` at each smooth $x$ (`remark_12_1_1_germ`).",
+    "decls": [
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_obj",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_mor",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_germ"
+    ]
+   },
+   "chips": [
+    "$f(\\varphi)$: a pull-back bundle section"
+   ],
+   "diff": [
+    "\"$f(\\varphi)$\" is read as the induced section of the pull-back bundle $\\mathbf X\\,{}_s\\!\\times_P W \\to \\mathbf X$."
+   ]
+  },
+  {
+   "id": "V12.3",
+   "title": "Definition 12.2.1 (2017: 12.2), auxiliary norms",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Definition 12.2.1, p. 570 (2017: Definition 12.2)",
+    "page": 570,
+    "statement": "An auxiliary norm for $(P : W \\to X, \\mu)$ is a continuous $N : W_{0,1} \\to [0, \\infty)$ that is a complete norm on every fibre, with $N(h_k) \\to 0$ and $P(h_k) \\to x$ implying $h_k \\to 0_x$, and $N(\\mu(\\varphi, k)) = N(k)$."
+   },
+   "lean": {
+    "statement": "The existing `EpStrongBundle.IsAuxNorm` (Definition 8.3.5): `B.IsAuxNorm N` (Definition 5.1.1: continuity, (1), (2)) and invariance under $\\mu$ (3).",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.IsAuxNorm"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "recalls Definition 8.3.5"
+   ],
+   "diff": [
+    "The text itself recalls Definition 8.3.5; no new declaration. Non-negativity follows from (1)."
+   ]
+  },
+  {
+   "id": "V12.4",
+   "title": "Theorem 12.2.2 (2017: 12.1), existence of auxiliary norms",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Theorem 12.2.2, p. 570 (proof pp. 572–574) (2017: Theorem 12.1)",
+    "page": 570,
+    "statement": "Every strong bundle over an ep-groupoid with paracompact orbit space admits an auxiliary norm."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_2_2 (h : X.HasParacompactOrbitSpace) : ∃ N, E.IsAuxNorm N`, and the form `SEP.theorem_12_2_2`. The proof follows the text's three steps: average a local norm over $G_x$ on $U(x)$ (`avgNorm`), transport it to the saturation (`transNorm`, invariant under all morphisms by `transNorm_μ`), glue with a partition of unity of $|X|$ (`isAuxNorm_glueNorm`).",
+    "decls": [
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.theorem_12_2_2",
+     "Chapter12/P3N_AuxNormEp · SEP.theorem_12_2_2",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.avgNorm",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isLocalAuxNorm_avgNorm",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.avgNorm_actOne",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.transNorm",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isLocalAuxNorm_transNorm",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.transNorm_μ",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.glueNorm",
+     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isAuxNorm_glueNorm"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "Theorem 12.2.6 (5) not needed"
+   ],
+   "diff": [
+    "The local norm is a Part I auxiliary norm (Proposition 5.1.3) instead of a chart norm, and the transport through a chosen morphism uses the invariance under $G_x$, so Theorem 12.2.6 (5) is not needed. Completeness of the glued fibre norms comes from `StrongBundle.isAuxNorm_of_tendsto` (V12.29)."
+   ]
+  },
+  {
+   "id": "V12.5",
+   "title": "Definition 12.2.3 (2017: 12.3) and the remark after it, continuous partitions of unity",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Definition 12.2.3, pp. 570–571 (2017: Definition 12.3)",
+    "page": 570,
+    "statement": "Continuous $\\beta_\\lambda : X \\to [0,1]$, constant along morphisms, locally finite on saturated neighbourhoods, with $\\sum_\\lambda \\beta_\\lambda = 1$. A partition of unity of $|X|$ composed with $\\pi$ is one; conversely, one on $X$ descends to $|X|$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.IsContPartitionOfUnity β`, with fields `continuous`, `mem_Icc`, `map_mor`, `locallyFinite` and `sum_eq_one` (as `finsum`). Both directions of the remark: `isContPartitionOfUnity_comp_π` (Mathlib `PartitionOfUnity` on the orbit space composed with $\\pi$) and `IsContPartitionOfUnity.descend` (a `PartitionOfUnity` on $|X|$ with $\\beta'_i(\\pi y) = \\beta_i(y)$).",
+    "decls": [
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity",
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.isContPartitionOfUnity_comp_π",
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity.descend",
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.isSubordinate_comp_π"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "remark: both directions"
+   ],
+   "diff": [
+    "The supports are closures in $X$. The paracompactness of $|X|$ in the preamble is not needed for the definition. The descent uses that $\\pi$ is open (Proposition 7.1.8)."
+   ]
+  },
+  {
+   "id": "V12.6",
+   "title": "Definition 12.2.4 (2017: 12.4), subordinate partitions of unity",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Definition 12.2.4, p. 571 (2017: Definition 12.4)",
+    "page": 571,
+    "statement": "For a saturated open cover $(U_\\lambda)$, a continuous partition of unity indexed by the same set is subordinate if $\\mathrm{supp}\\,\\beta_\\lambda \\subset U_\\lambda$."
+   },
+   "lean": {
+    "statement": "`IsContPartitionOfUnity.IsSubordinate X U`: `∀ i, tsupport (β i) ⊆ U i`.",
+    "decls": [
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity.IsSubordinate"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V12.7",
+   "title": "Proposition 12.2.5 (2017: 12.1), subordinate continuous partitions of unity exist",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Proposition 12.2.5, p. 571 (2017: Proposition 12.1)",
+    "page": 571,
+    "statement": "If $|X|$ is paracompact, every open cover of $X$ by saturated sets has a subordinate continuous partition of unity."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.proposition_12_2_5`: for `X.HasParacompactOrbitSpace` and saturated open $U_i$ covering $X$ there is a continuous partition of unity subordinate to $(U_i)$.",
+    "decls": [
+     "Chapter12/P3N_AuxNormEp · EpGroupoid.proposition_12_2_5"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's proof: a partition of unity of $|X|$ subordinate to $(\\pi(U_\\lambda))$, composed with $\\pi$; $|X|$ is normal by Theorem 7.3.1."
+   ]
+  },
+  {
+   "id": "V12.8",
+   "title": "Theorem 12.2.6 (2017: 12.2), the good neighbourhood theorem",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Theorem 12.2.6, pp. 571–572 (2017: Theorem 12.2)",
+    "page": 571,
+    "statement": "Every object $x$ has open neighbourhoods $U'(x) \\subset U''(x)$ with (1) $\\overline{U'} \\subset U''$; (2) $U''$ carries the natural $G_x$-action, leaving $U'$ invariant; (3) $W|U''$ is isomorphic to a local strong bundle model; (4) morphisms with sources in $\\overline{U''}$ and convergent targets have a convergent subsequence; (5) $(\\pi^{-1}(\\pi(U')) \\setminus U') \\cap \\overline{U''} = \\emptyset$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.theorem_12_2_6 B x`: there are $U'$, $U''$ and a natural representation `R : X.NaturalRep x` with `R.U = U''`, $U'$ open, $x \\in U'$, and (1)–(5): (2) $\\Phi(g)(U') = U'$ for $g \\in G_x$; (3) $U''$ lies in the base domain of one strong bundle chart compatible with the atlas; (4) with sequences and a strictly monotone reindexing.",
+    "decls": [
+     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.theorem_12_2_6",
+     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.exists_subseq_of_isProperMap",
+     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.NaturalRep.image_Φ_eq"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's proof: properness of $t$ on $s^{-1}(\\overline{V_0})$, two shrinkings, and (5) from the uniqueness in Theorem 7.1.13 (3)."
+   ]
+  },
+  {
+   "id": "V12.9",
+   "title": "Theorem 12.2.7 (2017: 12.3), extension of auxiliary norms from the boundary",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.2, Theorem 12.2.7, pp. 574–576 (2017: Theorem 12.3)",
+    "page": 574,
+    "statement": "For a strong bundle over a tame ep-groupoid with paracompact $|X|$, an auxiliary norm for $W|\\partial X$ extends to an auxiliary norm of $W$. The proof extends $N$ near $x_0 \\in \\partial X$ in a tame local model by $N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$, then averages over $G_{x_0}$, transports to the saturation and glues as in Theorem 12.2.2."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_2_7_hyp (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N) (hloc : HasLocalExtensions X B N)`: there is $\\tilde N$ with `E.IsAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$; `HasLocalExtensions X B N` says that every $x \\in \\partial X$ has an open $V \\ni x$ and a local auxiliary norm $M$ on $V$ equal to $N$ over $V \\cap \\partial X$. Witness: `theorem_12_2_7_hyp_witness` (every bundle with paracompact $|X|$ has such an $N$); every restriction of a global auxiliary norm satisfies `hloc` (`hasLocalExtensions_of_isAuxNorm`).",
+    "decls": [
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp",
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp_witness",
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.IsAuxNormOn",
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.IsAuxNorm.isAuxNormOn",
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.HasLocalExtensions",
+     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.hasLocalExtensions_of_isAuxNorm",
+     "Chapter12/P3N_AuxNormExtension · EpGroupoid.tgt_mem_boundary_iff",
+     "Chapter12/P3N_AuxNormExtension · EpGroupoid.isOpen_compl_boundary",
+     "Chapter12/P3N_AuxNormExtension · StrongBundle.IsLocalAuxNorm.mono"
+    ]
+   },
+   "chips": [
+    "local step as hypothesis `hloc` (G.136)",
+    "global part proved; tameness unused"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hloc : HasLocalExtensions X B N`, the local step of the text's proof, with the witness `theorem_12_2_7_hyp_witness`.",
+    "The local coordinate step in a tame strong bundle chart is gap G.136. All of the global part is proved: the extension property survives the $G_x$-average because $N$ is invariant, the transport to the saturation, natural representations inside $X \\setminus \\partial X$ carrying a Part I norm, and the gluing (each nonzero term is $\\beta_x N$, since the saturation of an interior neighbourhood misses $\\partial X$). Tameness is used only to discharge `hloc`. The text's $N$ is defined on $W_{0,1}|\\partial X$; here it is a function on $W_{0,1}$ with conditions only over $\\partial X$, which is equivalent."
+   ]
+  },
+  {
+   "id": "V12.10",
+   "title": "Definition 12.3.1 (2017: 12.7), sc-smooth bump functions on ep-groupoids",
+   "verdict": "same",
+   "book": {
+    "label": "§12.3, Definition 12.3.1, p. 579 (2017: Definition 12.7)",
+    "page": 579,
+    "statement": "$X$ admits sc-smooth bump functions if for every $x$ and saturated open $U \\ni x$ there is an sc-smooth $f : X \\to \\mathbb R$, not identically 0, with $\\mathrm{supp} f \\subset U$ and $f(s\\varphi) = f(t\\varphi)$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.AdmitsBumpFunctions`, the printed form (`f ≠ 0`, `tsupport f ⊆ U`). The variant with $f(x) \\ne 0$, the project's reading of Part I's Definition 5.3.1, is `AdmitsBumpFunctionsPointwise`; it implies the printed form (`AdmitsBumpFunctionsPointwise.weak`). Witness: the trivial ep-groupoid on $\\mathbb R^n$ (`admitsBumpFunctionsPointwise_trivial_rn`).",
+    "decls": [
+     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctions",
+     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise",
+     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise.weak",
+     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+    ]
+   },
+   "chips": [
+    "as printed",
+    "pointwise variant kept"
+   ],
+   "diff": [
+    "Part I's Definition 5.3.1 is read pointwise in this project (Findings, Chapter 5, items 41, 160–163); both readings are kept here."
+   ]
+  },
+  {
+   "id": "V12.11",
+   "title": "Theorem 12.3.2 (1) (2017: 12.6 (1)), bump functions on $X$ and on the object M-polyfold",
+   "verdict": "restated",
+   "book": {
+    "label": "§12.3, Theorem 12.3.2 (1), p. 579 (2017: Theorem 12.6 (1))",
+    "page": 579,
+    "statement": "$X$ admits sc-smooth bump functions if and only if the object M-polyfold does."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.theorem_12_3_2_1`: `X.AdmitsBumpFunctionsPointwise ↔ X.PObj.AdmitsBumpFunctions` (pointwise on both sides). `theorem_12_3_2_1_weak`: `X.AdmitsBumpFunctions ↔ X.PObj.AdmitsBumpFunctionsWeak` (\"not identically 0\" on both sides). No hypothesis.",
+    "decls": [
+     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_1",
+     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_1_weak",
+     "Chapter12/P3S_BumpEp · EpGroupoid.exists_objBump_of_epBump",
+     "Chapter12/P3S_BumpEp · EpGroupoid.exists_epBump_of_objBump",
+     "Chapter12/P3S_BumpEp · EpGroupoid.exists_natAverage",
+     "Chapter12/P3S_BumpEp · EpGroupoid.exists_invariant_extension"
+    ]
+   },
+   "chips": [
+    "proved in each consistent reading",
+    "average $f^2$, not $f$"
+   ],
+   "diff": [
+    "The printed statement pairs Definition 12.3.1 (\"not identically 0\") with Part I's Definition 5.3.1 (read pointwise); its (⇒) direction would then be Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163), so the theorem is proved in each consistent reading.",
+    "The text averages a bump function $f$ over $G_x$, and that average can cancel to $0$; we average $f^2$ (presumably intended, since Proposition 5.5.3's functions are $\\ge 0$). (⇐) uses the properness of $\\mathrm{cl}\\,V$ for closedness of the saturation."
+   ]
+  },
+  {
+   "id": "V12.12",
+   "title": "Theorem 12.3.2 (2) (2017: 12.6 (2)), invariant bump functions with $f(x) = 1$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.3, Theorem 12.3.2 (2), p. 579 (2017: Theorem 12.6 (2))",
+    "page": 579,
+    "statement": "If $X$ admits sc-smooth bump functions, then for every $x$ and saturated open $U(x)$ there is an sc-smooth $f : X \\to [0,1]$ with $f(x) = 1$, $\\mathrm{supp} f \\subset U(x)$, constant along morphisms."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.theorem_12_3_2_2`: from `X.AdmitsBumpFunctionsPointwise`, an sc-smooth $f$ with values in $[0,1]$, $f(x) = 1$, `tsupport f ⊆ U` and $f(s\\varphi) = f(t\\varphi)$. Witness of the hypothesis: `admitsBumpFunctionsPointwise_trivial_rn`.",
+    "decls": [
+     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_2",
+     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+    ]
+   },
+   "chips": [
+    "pointwise bump reading of Def. 12.3.1"
+   ],
+   "diff": [
+    "Hidden hypotheses: the pointwise reading of Definition 12.3.1 ($f(x) \\ne 0$), the project's reading of Part I; witness `admitsBumpFunctionsPointwise_trivial_rn`.",
+    "From the printed \"not identically 0\" reading the result would need Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163). The proof is the text's: Proposition 5.5.3, then average, then extend."
+   ]
+  },
+  {
+   "id": "V12.13",
+   "title": "Theorem 12.3.3 (2017: 12.7), sc⁺-section functors through invariant points",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.3, Theorem 12.3.3, p. 581 (2017: Theorem 12.7)",
+    "page": 581,
+    "statement": "For a strong bundle over $X$ with bump functions and paracompact $|X|$, an auxiliary norm $N$, a smooth $x$, a smooth $e \\in W_x$ fixed by $G_x$, an open $\\hat O \\ni |x|$ and $\\varepsilon > 0$, there is an sc⁺-section functor $\\sigma$ with support in $\\pi^{-1}(\\hat O)$, $\\sigma(x) = e$ and $N(\\sigma(y)) \\le N(e) + \\varepsilon$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_3_3`, with `X.AdmitsBumpFunctionsPointwise`, `X.HasParacompactOrbitSpace`, `E.IsAuxNorm N`, $x$ smooth, $e$ smooth with $P(e) = x$ and $\\mu(g, e) = e$ for $g \\in G_x$, $O$ open with $\\pi(x) \\in O$, $\\varepsilon > 0$: $e \\in W_{0,1}$ and there is $\\sigma$ with `E.IsScPlusSectionFunctor σ`, support in $\\pi^{-1}(O)$, $\\sigma(x) = e$ and $N(\\sigma(y)) \\le N(e) + \\varepsilon$.",
+    "decls": [
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.theorem_12_3_3",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.exists_equivariant_average",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natTerm",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natTerm_tgt",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.exists_isScSmoothOn_one_secAct",
+     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+    ]
+   },
+   "chips": [
+    "pointwise bump reading",
+    "paracompactness kept, unused"
+   ],
+   "diff": [
+    "Hidden hypotheses: the pointwise reading of Definition 12.3.1, as in V12.12; witness `admitsBumpFunctionsPointwise_trivial_rn`.",
+    "Paracompactness is kept but unused: the text needs it only for the existence of $N$, which is a hypothesis. The local section through $e$ is Part I's Lemma 5.3.3 (cut-off and bound included); averaging $\\sigma'' = |G_x|^{-1}\\sum_k h_k$ (`exists_equivariant_average`); the extension uses the morphisms (V12.15)."
+   ]
+  },
+  {
+   "id": "V12.14",
+   "title": "Remark 12.3.4 (2017: 12.3), functoriality and transversality compete",
+   "verdict": "explicit",
+   "book": {
+    "label": "§12.3, Remark 12.3.4, p. 584 (2017: Remark 12.3)",
+    "page": 584,
+    "statement": "Functoriality and transversality compete; without the $G_x$-invariance of $e$ there would be no section functor as in Theorem 12.3.3."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.remark_12_3_4`: for every functorial section $\\sigma$ and $g \\in G_x$, $\\mu(g, \\sigma(x)) = \\sigma(x)$, so the invariance hypothesis of Theorem 12.3.3 is necessary.",
+    "decls": [
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.remark_12_3_4"
+    ]
+   },
+   "chips": [
+    "the checkable claim"
+   ],
+   "diff": [
+    "Only the checkable claim is formalized; the rest of the remark is commentary."
+   ]
+  },
+  {
+   "id": "V12.15",
+   "title": "Remark 12.3.5 (2017: 12.4), extension of equivariant local sc⁺-sections",
+   "verdict": "explicit",
+   "book": {
+    "label": "§12.3, Remark 12.3.5, p. 584 (2017: Remark 12.4)",
+    "page": 584,
+    "statement": "A local sc⁺-section near $x$, compatible with the $G_x$-action on $U(x)$ and cut off by an invariant function, extends to all of $X$, determined by it and controlled by $N$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.remark_12_3_5`: for `R : NaturalRep x`, `closure V ⊆ R.U` proper, $\\sigma$ sc⁺, equivariant on the morphisms of $U(x)$, with support in `closure V`: `natExtension E R` is an sc⁺-section functor equal to $\\sigma$ on $U(x)$, supported in the saturation of the support of $\\sigma$, and every bound $N(\\sigma) \\le b$ passes to it.",
+    "decls": [
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.remark_12_3_5",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_eq",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_isFunctorial",
+     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_eq_zero"
+    ]
+   },
+   "chips": [
+    "\"controlled\" = the sup bound"
+   ],
+   "diff": [
+    "The section $\\sigma$ plays the role of $f \\cdot s$ (already cut off); \"controlled\" becomes the bound $b$."
+   ]
+  },
+  {
+   "id": "V12.16",
+   "title": "Definition 12.3.6 (2017: 12.8), sc⁺-sections over the boundary: the local form",
+   "verdict": "restated",
+   "book": {
+    "label": "§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)",
+    "page": 584,
+    "statement": "Over a tame ep-groupoid, $s : \\partial X \\to W$ with $P \\circ s = \\mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \\in \\partial X$ and every local face $F \\ni x$, $s|F$ is an sc⁺-section of $W|F \\to F$."
+   },
+   "lean": {
+    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The M-polyfold form is Definition 5.4.1 (V5.88), applicable to the object M-polyfold. Witness: the zero section (`isBoundaryScPlusSectionOn_zero`).",
+    "decls": [
+     "Chapter12/P3B_LocalBoundaryExtension · retractBoundary",
+     "Chapter12/P3B_LocalBoundaryExtension · IsScPlusOnFaceNear",
+     "Chapter12/P3B_LocalBoundaryExtension · IsBoundaryScPlusSectionOn",
+     "Chapter12/P3B_LocalBoundaryExtension · mem_retractBoundary_iff",
+     "Chapter12/P3B_LocalBoundaryExtension · isBoundaryScPlusSectionOn_zero",
+     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.IsBoundaryScPlusSection"
+    ]
+   },
+   "chips": [
+    "chart-level form",
+    "ep wrapper: G.137"
+   ],
+   "diff": [
+    "This is the chart-level content used by Proposition 12.3.7 and Corollary 12.3.8; the named ep-groupoid wrapper is gap G.137."
+   ]
+  },
+  {
+   "id": "V12.17",
+   "title": "Proposition 12.3.7 (2017: 12.2), local extension from the boundary",
+   "verdict": "stronger",
+   "book": {
+    "label": "§12.3, Proposition 12.3.7, p. 585 (2017: Proposition 12.2)",
+    "page": 585,
+    "statement": "For a tame local strong bundle model $K \\to O$ and an sc⁺-section $s$ over the boundary near $x_0 \\in \\partial O$, there are $V(x_0) \\subset O$ and an sc⁺-section $\\tilde s$ of $K|V$ with $\\tilde s = s$ on $\\partial O$ near $x_0$; the proof uses $\\tilde s(t,h) = \\sum_{\\emptyset \\ne I}(-1)^{|I|+1}R((t,h), s((t,h)_I))$."
+   },
+   "lean": {
+    "statement": "`proposition_12_3_7` (book form): for $V_0$ open, $x_0 \\in \\partial O \\cap V_0$ and the face condition on $\\partial O \\cap V_0$, an open $V \\ni x_0$ with $O \\cap V$ a retract and $\\tilde s$ sc⁺ on $O \\cap V$ equal to $s$ on $\\partial O \\cap V$. Stronger: `proposition_12_3_7_of_faces_at` needs the face condition only at $x_0$, with the explicit extension `boundaryExtension`, which agrees with the text's formula (`boundaryExtension_toBase_snd`). Witness with $\\partial O \\ne \\emptyset$: `proposition_12_3_7_nonvacuous`.",
+    "decls": [
+     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7",
+     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7_of_faces_at",
+     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7_nonvacuous",
+     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension",
+     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_toBase_snd",
+     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_fst",
+     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_mem",
+     "Chapter12/P3B_LocalBoundaryExtension · exists_isScSmooth_faceTerm",
+     "Chapter12/P3B_LocalBoundaryExtension · sum_powerset_erase_empty_alternating",
+     "Chapter12/P3B_LocalBoundaryExtension · cornerKill_insert_of_coord_eq_zero"
+    ]
+   },
+   "chips": [
+    "face germs at $x_0$ only",
+    "any tame presentation"
+   ],
+   "diff": [
+    "Only the face germs at $x_0$ itself are used; $E = \\mathbb R^n \\oplus H$ is replaced by an arbitrary tame presentation $T$; $(t,h)_I = r(t_I, h)$ is `base RB (cornerKill T I 0 z)`; the cancellation is `sum_powerset_erase_empty_alternating`."
+   ]
+  },
+  {
+   "id": "V12.18",
+   "title": "Corollary 12.3.8 (2017: 12.1), equivariant local extension from the boundary",
+   "verdict": "explicit",
+   "book": {
+    "label": "§12.3, Corollary 12.3.8, p. 586 (2017: Corollary 12.1)",
+    "page": 586,
+    "statement": "If $G_{x_0}$ acts by sc-diffeomorphisms on $O$ with a lift to $K$, and $s$ is an equivariant sc⁺-section over the boundary near $x_0$ on an invariant neighbourhood, there is an invariant sc⁺-section $\\hat s$ near $x_0$ restricting to $s$ on $\\partial O$; the proof averages $\\hat s(x) = |G|^{-1}\\sum_g g^{-1} * \\tilde s(g * x)$."
+   },
+   "lean": {
+    "statement": "`corollary_12_3_8` for a finite group $G$ with `A : LocalBundleAction G C O K` (an action by sc-smooth maps of $O$ with an sc-smooth, fibre-linear lift to $K[1]$ covering it, unit and composition laws), with `hfix` ($G$ fixes $x_0$), $\\partial O \\cap V_0$ invariant, the face condition and equivariance of $s$ there: an open invariant $V \\ni x_0$ and $\\hat s$ (`LocalBundleAction.average` of the extension of Proposition 12.3.7), sc⁺ on $O \\cap V$, equivariant, equal to $s$ on $\\partial O \\cap V$. Witness: `LocalBundleAction.trivial`.",
+    "decls": [
+     "Chapter12/P3B_LocalBoundaryExtension · corollary_12_3_8",
+     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction",
+     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction.trivial",
+     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction.average",
+     "Chapter12/P3B_LocalBoundaryExtension · mem_strongShiftOne_sum_smul"
+    ]
+   },
+   "chips": [
+    "\"acts with a lift\" as a structure",
+    "$G_{x_0}$ fixes $x_0$ made explicit"
+   ],
+   "diff": [
+    "\"$G_{x_0}$ acts with a lift to $K$\" is the structure `LocalBundleAction`; that the isotropy group fixes $x_0$ is the explicit `hfix`; \"invariant\" is read as equivariant, $\\hat s(gx) = g * \\hat s(x)$."
+   ]
+  },
+  {
+   "id": "V12.19",
+   "title": "Definition 12.4.1 (2017: 12.9), compact solution set, proper, proper$_{<\\infty}$",
+   "verdict": "same",
+   "book": {
+    "label": "§12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9)",
+    "page": 587,
+    "statement": "(1) compact solution set: $|S_f|$ compact; (2) proper: $|S_f|$ compact, and for every auxiliary norm $N$ a saturated open $U \\supset S_f$ with $\\mathrm{cl}_{|X|}|\\{x \\in U : N(f(x)) \\le 1\\}|$ compact; (3) proper$_{<\\infty}$: the same for every $0 < C < \\infty$, with one $U$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.HasCompactSolutionSetEp`, `IsProperFunctor`, `IsProperLtInftyFunctor`, with Chapter 8's auxiliary norms and Part I's `AuxLe` for $N(f(x)) \\le C$.",
+    "decls": [
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.HasCompactSolutionSetEp",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperFunctor",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V12.20",
+   "title": "Theorem 12.4.2 (2017: 12.9), the three compactness notions agree",
+   "verdict": "same",
+   "book": {
+    "label": "§12.4, Theorem 12.4.2, pp. 587–588 (2017: Theorem 12.9)",
+    "page": 587,
+    "statement": "For an sc-Fredholm $f$ with $|X|$ paracompact, proper, compact solution set and proper$_{<\\infty}$ are equivalent."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_4_2 (hf : E.IsScFredholmSectionFunctor f) (_hpara : X.HasParacompactOrbitSpace)`: `List.TFAE [IsProperFunctor, HasCompactSolutionSetEp, IsProperLtInftyFunctor]`.",
+    "decls": [
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.theorem_12_4_2",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.isProperLtInftyFunctor_of_hasCompactSolutionSetEp",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperFunctor.hasCompactSolutionSetEp",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor.isProperFunctor",
+     "Chapter12/P3S_CompactnessEp · EpStrongBundle.auxLe_tgt_of_auxLe_src",
+     "Chapter12/P3S_CompactnessEp · exists_nhds_isCompact_closure_auxLe"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "proof labels read as a cycle"
+   ],
+   "diff": [
+    "Paracompactness is kept but unused, since (1)–(3) quantify over all auxiliary norms. The proof's labels \"(3)⇒(2), (2)⇒(1), (1)⇒(3)\" are presumably (3)⇒(1), (1)⇒(2), (2)⇒(3), matching their arguments. The shrinking to natural neighbourhoods is not needed: the closure lies in a finite union of compact sets. The local step is Part I's Theorem 5.2.2."
+   ]
+  },
+  {
+   "id": "V12.21",
+   "title": "Lemma 12.4.4 (2017: 12.1), closures in $|X|$ and in $X$",
+   "verdict": "same",
+   "book": {
+    "label": "§12.4, Lemma 12.4.4, p. 589 (2017: Lemma 12.1)",
+    "page": 589,
+    "statement": "(1) $\\mathrm{cl}_{|X|}|\\Sigma| = |\\mathrm{cl}_X\\Sigma|$ for saturated $\\Sigma$; (2) the same for $\\Sigma$ with compact closure."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_12_4_4_1 (hA : X.IsSaturated A) : closure (π '' A) = π '' closure A`; `lemma_12_4_4_2 (hA : IsCompact (closure A))`, the same conclusion; `isClosed_image_π_of_isSaturated`.",
+    "decls": [
+     "Chapter12/P3S_CompactnessEp · EpGroupoid.lemma_12_4_4_1",
+     "Chapter12/P3S_CompactnessEp · EpGroupoid.lemma_12_4_4_2",
+     "Chapter12/P3S_CompactnessEp · EpGroupoid.isClosed_image_π_of_isSaturated"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "Through $\\pi$ open (`IsOpenMap.preimage_closure_eq_closure_preimage`)."
+   ]
+  },
+  {
+   "id": "V12.22",
+   "title": "Lemma 12.5.1 (2017: 12.2), morphisms act on the linearizations",
+   "verdict": "explicit",
+   "book": {
+    "label": "§12.5, Lemma 12.5.1, p. 592 (2017: Lemma 12.2)",
+    "page": 592,
+    "statement": "For smooth $x, x'$ and $\\varphi : x \\to x'$: (1) $\\varphi_*S = \\mu(\\varphi, S \\circ (T\\varphi)^{-1}) \\in \\mathrm{Lin}(f, x')$ for $S \\in \\mathrm{Lin}(f, x)$; (2) $\\varphi_*$ is a bijection; (3) $(1_x)_* = \\mathrm{Id}$ and $(\\psi \\circ \\varphi)_* = \\psi_* \\circ \\varphi_*$. The same holds for the orientations $\\varphi_* o$."
+   },
+   "lean": {
+    "statement": "`lemma_12_5_1_one` (membership), `lemma_12_5_1_two` (`Set.BijOn (linMor …) (Lin x) (Lin x′)`), `lemma_12_5_1_three_unit`, `lemma_12_5_1_three_comp`; on orientations `orMor` with `orMor_comp`, `orMor_unit`, `orMor_inv`. $\\mathrm{Lin}$ is Part I's, read in chart points; $T\\varphi$ and $\\mu(\\varphi, \\cdot)$ are the chart identifications `morTx`, `morKx`, built from the local strong bundle isomorphism `morIso` of the sheet of $\\varphi$.",
+    "decls": [
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_one",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_two",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_unit",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_comp",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.linMor",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morTx",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morKx",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morTx_comp",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_comp",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_unit",
+     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_inv",
+     "Chapter12/P3O_PullChart · StrongBundle.LocalIso.pullPt",
+     "Chapter12/P3O_PullChart · StrongBundle.LocalIso.linSet_pullPt",
+     "Chapter12/P3O_MorphismIso · EpStrongBundle.morIso",
+     "Chapter12/P3O_MorphismIso · EpStrongBundle.eqOn_morIso",
+     "Chapter12/P3O_MorphismIso · EpStrongBundle.germAgree_morIso_comp"
+    ]
+   },
+   "chips": [
+    "`hsec`: sc⁺-sections through fibre points",
+    "Lin read in chart points (Part I)"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hsec : B.HasScPlusSectionsThrough` (sc⁺-sections through smooth fibre points), Part I's standing hypothesis for $\\mathrm{Lin}(f, x) \\ne \\emptyset$; it follows from bump functions (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`).",
+    "Lin is read in chart points, Part I's convention. \"(1) and (3) give (2)\" is proved directly, by conjugation with isomorphisms. The text calls the lemma obvious; the proof pushes $(f - s_0)'(x)$ by $\\hat\\Phi$ to $(f - \\hat\\Phi_* s_0)'(x')$ (`linSet_pullPt`, using $f = \\Psi \\circ f \\circ \\phi$ by functoriality) and gets functoriality from the germ identity of the local inverses (`germAgree_morIso_comp`)."
+   ]
+  },
+  {
+   "id": "V12.23",
+   "title": "Definition 12.5.2 (2017: 12.11), the orientation bundle $O_f$",
+   "verdict": "restated",
+   "book": {
+    "label": "§12.5, Definition 12.5.2, p. 593 (2017: Definition 12.11)",
+    "page": 593,
+    "statement": "For a strong bundle over a tame ep-groupoid and an sc-Fredholm functor $f$, $O_f$ is the set of $(x, o)$ with $x \\in X_\\infty$ and $o$ an orientation of $\\mathrm{DET}(f, x) \\to \\mathrm{Lin}(f, x)$; $\\sigma : O_f \\to X_\\infty$ is the surjective two-to-one projection; $O_f$ carries the topology making every germ $\\hat o^{(x)}$ continuous."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.definition_12_5_2 := OrSpace f hF.2`, Part I's orientation space of $f$ on the object M-polyfold, with `orProj`; exactly two points over each $x$ (`orProj_two`, with `hsec`); the topology is Part I's, characterized in V12.24. The action of morphisms as a relation: `OrRel` (an equivalence, `orRel_equivalence`), the orbit map `orbitProj : |O_f| → |X_∞|`.",
+    "decls": [
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.definition_12_5_2",
+     "Chapter12/P3O_OrientationOrbit · orProj_two",
+     "Chapter12/P3O_OrientationOrbit · exists_other_or",
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.OrRel",
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.orRel_equivalence",
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.orbitProj",
+     "Chapter12/P3O_OrientationOrbit · EpGroupoid.SmoothRel",
+     "Chapter12/P3O_OrientationOrbit · EpGroupoid.smoothRel_equivalence"
+    ]
+   },
+   "chips": [
+    "$O_f$ = Part I's `OrSpace`",
+    "orbit spaces defined here"
+   ],
+   "diff": [
+    "$O_f$ and its topology are Part I's (germs continuous = Part I's `IsContOrOn`, via path transport); `orProj_two` needs `hsec` (as in V12.22). The relations `OrRel`, `SmoothRel` and the orbit spaces used in Proposition 12.5.6 are not defined in the text."
+   ]
+  },
+  {
+   "id": "V12.24",
+   "title": "Theorem 12.5.3 (2017: 12.11), the topology of $O_f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.5, Theorem 12.5.3, p. 594 (2017: Theorem 12.11)",
+    "page": 594,
+    "statement": "For a tame ep-groupoid and an sc-Fredholm section functor, $\\sigma : O_f \\to X_\\infty$ is a local homeomorphism with two-point fibres, the local sections $\\hat o^{(x)}$ are continuous, and for a morphism $\\varphi$ the local $\\hat\\Phi$ pushes continuous local sections to continuous local sections."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`.",
+    "decls": [
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.theorem_12_5_3_hyp"
+    ]
+   },
+   "chips": [
+    "Part I's `hbump`, tame germ data (G.140)",
+    "last clause: G.138"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, the hypotheses of Part I's Theorem 6.6.17, inherited (gap G.140); the text assumes a tame $X$ only.",
+    "The last sentence ($\\hat\\Phi$ keeps continuous local sections continuous) is not proved (gap G.138). The fibre bijection of a morphism and its functoriality are `orMor` (V12.22)."
+   ]
+  },
+  {
+   "id": "V12.25",
+   "title": "Definition 12.5.4 (2017: 12.12), orientations of sc-Fredholm functors",
+   "verdict": "same",
+   "book": {
+    "label": "§12.5, Definition 12.5.4, p. 594 (2017: Definition 12.12)",
+    "page": 594,
+    "statement": "An orientation of $f$ ($X$ tame) is a continuous global section $x \\mapsto o_x$ of $\\sigma$ with $\\varphi_* o_{s(\\varphi)} = o_{t(\\varphi)}$ for every smooth morphism."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.definition_12_5_4 t o`: `Continuous[t] (orSec o)` and `orMor φ (o x) = o x′` for every morphism $\\varphi : x \\to x'$ between smooth points, for a topology `t` on $O_f$ (Part I's, by V12.24).",
+    "decls": [
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.definition_12_5_4"
+    ]
+   },
+   "chips": [
+    "topology as a parameter"
+   ],
+   "diff": [
+    "With Part I's hypotheses the topology is the unique one of `theorem_12_5_3_hyp`. \"Smooth morphism\" is read as a morphism with smooth source and target (equivalent by `mem_smoothSet_src_iff`)."
+   ]
+  },
+  {
+   "id": "V12.26",
+   "title": "Proposition 12.5.6 (2017: 12.4), orientability through $|\\sigma|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.5, Proposition 12.5.6, p. 595 (2017: Proposition 12.4)",
+    "page": 595,
+    "statement": "$f$ is orientable if and only if $|\\sigma| : |O_f| \\to |X_\\infty|$ is two-to-one and has a global continuous section."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\\sigma|$, a section $o$ of $\\sigma$ with $\\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`.",
+    "decls": [
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mp",
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mpr_invariant",
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.IsTwoToOne"
+    ]
+   },
+   "chips": [
+    "(⇐) without continuity (G.139)",
+    "`hsec` as in L12.5.1"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hsec`, as in V12.22.",
+    "(⇒) is complete. (⇐) is proved without the continuity of $o$, which needs the last clause of Theorem 12.5.3 (gaps G.138, G.139). The orbit spaces are quotients defined here."
+   ]
+  },
+  {
+   "id": "V12.27",
+   "title": "Complete fibre norms are automatic (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (used for Definition 5.1.1 (1) and Definition 12.2.1 (1))",
+    "page": null,
+    "statement": "The text asserts that the glued fibre norms are complete."
+   },
+   "lean": {
+    "statement": "`StrongBundle.isAuxNorm_of_tendsto`: a continuous fibrewise seminorm with property (2) of Definition 5.1.1 is an auxiliary norm, since near each point it is squeezed between multiples of the chart norm $|\\cdot|_1$.",
+    "decls": [
+     "Chapter12/P3N_AuxNormEp · StrongBundle.isAuxNorm_of_tendsto",
+     "Chapter12/P3N_AuxNormEp · StrongBundle.exists_norm_liftOne_le_of_tendsto",
+     "Chapter12/P3N_AuxNormEp · StrongBundle.IsFiberSeminorm",
+     "Chapter12/P3N_AuxNormEp · StrongBundle.TendstoZeroOne"
+    ]
+   },
+   "chips": [
+    "replaces the completeness claim"
+   ],
+   "diff": []
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 136,
+   "title": "Theorem 12.2.7, the local extension of an auxiliary norm from $\\partial X$",
+   "label": "§12.2, Theorem 12.2.7, pp. 574–576 (local step, p. 575) (2017: Theorem 12.3)",
+   "page": 575,
+   "book": "Near $x_0 \\in \\partial X$, in a tame local model with $O \\subset [0,\\infty)^n \\oplus H$ and retraction $R(u,w) = (r(u), A(u)w)$, with $q(t,h) = (t,h) - \\min(t)(1,\\dots,1,0)$: $r \\circ q$ maps a neighbourhood of $x_0$ into $\\partial O$, and $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ is a local auxiliary norm equal to $N$ over $\\partial X$.",
+   "instead": "`EpStrongBundle.theorem_12_2_7_hyp` takes exactly this local step as the hypothesis `HasLocalExtensions X B N` (V12.9); the rest of the proof is formalized. Missing: (a) a tame strong bundle chart around every boundary point (the project's strong bundle charts are not known to have tame base retractions), about 500–1,000 lines; (b) the map $r \\circ q$ with its continuity and boundary properties in quadrant coordinates, about 300–500 lines; (c) the level-1 continuity of $u \\mapsto A(u)$ and conditions (1)–(2) for $N'$, about 500–1,000 lines. Total about 1,300–2,500 lines."
+  },
+  {
+   "g": 137,
+   "title": "Definition 12.3.6, the ep-groupoid form",
+   "label": "§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)",
+   "page": 584,
+   "book": "An sc⁺-section over the boundary of a strong bundle over a tame ep-groupoid.",
+   "instead": "The chart-level form (`IsBoundaryScPlusSectionOn`, V12.16) and the M-polyfold form (`StrongBundle.IsBoundaryScPlusSection`, V5.88, applicable to the object M-polyfold) exist. A named ep-groupoid wrapper, the M-polyfold form on objects with the remark that it does not involve $\\mu$, is about 30 lines; it belongs with Theorem 12.3.9 (wave 2)."
+  },
+  {
+   "g": 138,
+   "title": "Theorem 12.5.3, last sentence: morphisms keep local orientation sections continuous",
+   "label": "§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)",
+   "page": 594,
+   "book": "For a morphism $\\varphi : x \\to x'$ between smooth points, the local $\\hat\\Phi$ pushes a continuous local section of $\\sigma$ to a continuous local section.",
+   "instead": "Not formalized. It needs the naturality of Part I's path transport (`LocalTransport`, `IsContOrOn`) under the local strong bundle isomorphism `EpStrongBundle.morIso`: for an sc-smooth path near $x'$, transport along it commutes with `orVia` along its image. The pointwise data exist (`StrongBundle.LocalIso.orVia`, `orVia_eq`, `morT_comp`; V12.22); missing is the comparison of Part I's propagation charts with pulled charts along a path. Estimate 1,000–1,500 lines."
+  },
+  {
+   "g": 139,
+   "title": "Proposition 12.5.6 (⇐), continuity of the orientation",
+   "label": "§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)",
+   "page": 595,
+   "book": "If $|\\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.",
+   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section $o$ lifting the section of $|\\sigma|$ (V12.26); its continuity for Part I's topology is not proved. It follows from G.138 ($O_f \\to |O_f|$ is then a local homeomorphism near each point, and $o$ agrees locally with a continuous germ). Estimate 300–500 lines after G.138."
+  },
+  {
+   "g": 140,
+   "title": "§12.5 with a tame $X$ only: Part I's bump functions and tame germ data",
+   "label": "§12.5, Theorem 12.5.3, p. 594 (2017: Theorem 12.11)",
+   "page": 594,
+   "book": "The orientation bundle and its topology for an sc-Fredholm section functor over a tame ep-groupoid, with no further hypothesis.",
+   "instead": "`EpStrongBundle.theorem_12_5_3_hyp` (V12.24) carries the hypotheses of Part I's Theorem 6.6.17, `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, passed through unchanged, and Lemma 12.5.1 and Proposition 12.5.6 take `hsec : B.HasScPlusSectionsThrough` (a consequence of bump functions). These are Part I's inherited hypotheses (rows V6.74, V6.75), not new ones; removing them needs Part I's orientation transport without bump functions and for untamed germ data."
+  }
+ ]
+}

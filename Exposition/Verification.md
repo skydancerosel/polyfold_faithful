@@ -1,9 +1,9 @@
 # Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapters 7–11 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, of Chapters 7–11 of Part II and of Part III (in progress), of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
-for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's
+for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Parts II and III, which have no preprint, the book's
 arXiv version, 1707.08941 ("2017"); a page that could not be located in the Springer text is given in the old
 numbering only, marked as such. The V- and G-numbers are the project's own, and the Lean names carry the preprint's
 (Part I) and the 2017 (Part II) numbers; `Exposition/BookConcordance.md` gives the correspondence). That
@@ -44,15 +44,19 @@ A result has the same number, V1.5 say, in this edition, the comparison and the 
 | Chapter 2 | Ch. 2 | sc-smooth retractions and retracts, M-polyfolds, the degeneracy index, tame M-polyfolds, strong bundles | **verified; Remark 2.4.8's (preprint 2.28) negative claim is false** | 27,046 |
 | Chapter 3 | Ch. 3 | sc-Fredholm sections and the implicit function theorem | **partly verified** | 69,061 |
 | Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except two remarks** | 34,173 |
-| Chapter 5 | Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorem 5.27 (preprint; not in the 2021 edition) and the Sobolev sc-structure on general bounded domains** | 27,490 |
+| Chapter 5 | Ch. 5, §§5.1–5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms and reflexive auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, the ∂-extension theorem, partitions of unity | **verified except Theorem 5.27 (preprint; not in the 2021 edition) and the Sobolev sc-structure on general bounded domains** | 29,166 |
 | Chapter 6 | Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7) | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except the global parts of Theorem 6.6.18 (preprint 6.41)** | 48,976 |
 | Chapter 7 | Part II, Ch. 7, §§7.1–7.3, 7.5–7.6 (2017 §§7.1–7.5) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.1.4 (2017 Definition 7.4), the remark after Definition 7.1.7 (2017 Definition 7.7) in its 2017 form, and the Hausdorff property of $\mathbf X^R$ in the 2017 Proposition 7.9 and Proposition 7.10 (rewritten in 2021 as Proposition 7.2.10 and Theorem 7.2.14, which assume it)** | 23,439 |
 | Chapter 8 | Part II, Ch. 8, §§8.1–8.3, 8.5–8.6 (2017 §§8.1–8.5) | bundles and covering functors: the tangent ep-groupoid and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting of the fibres | **8.3) for nonempty $D$ and the degeneracy remark after Definition 8.5.1 for tame $X$, $Y$** | 15,943 |
 | Chapter 9 | Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9) | branched ep⁺-subgroupoids: local branching structures, the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of measure zero and the canonical σ-algebras (integration and Stokes not formalized) | **verified for §§9.1–9.4 and §9.6.1 with the readings and hypotheses recorded below, unconditionally for ep-groupoids whose object M-polyfold is $\mathbb R^m$, except the global part of Proposition 9.1.11, Lemma 9.4.3 and, in Figure 9.1, the orientations of the faces of the faces; for §9.5 the sets of measure zero, the σ-algebras and the isotropy factors are verified, branched integration of sc-forms over sheets covered by countably many graph charts, with "oriented, tame" read as a covering by oriented tame structures, the boundary measures and Stokes' theorem as printed for every $n \ge 1$, and Remark 9.5.20 in part (its M-polyfold, the $\mathbb Z_3$-action and the effective isotropy of the boundary points)** | 59,408 |
 | Chapter 10 | Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10) | equivalences and localization: equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized maps, strong bundle equivalences, localization in the strong bundle case | **verified for equivalences, natural equivalences, the weak fibred product, the localization $\mathcal{EP}(E^{-1})$ with its universal property, strong bundle equivalences and generalized strong bundle maps, Remark 10.1.8 with Zhou's example, and Propositions 10.4.6, 10.4.7 and 10.5.6 with Definition 8.4.2 read for local strong bundle isomorphisms, with the readings recorded below; Theorems 10.3.19 and 10.5.7 do not hold as we read them, and Theorem 10.3.19 holds for an effective target** | 17,543 |
 | Chapter 11 | Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11) | geometry up to equivalences: the tangent functor and faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and equivalences (sc-differential forms and integration not formalized) | **verified for the tangent functor and faces up to equivalence, sc-differential forms up to equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids with their tangents, boundaries and orientations, auxiliary norms and multisection functors under generalized strong bundle isomorphisms, proper coverings and proper strong bundle coverings up to equivalence with their localizations, and the canonical measures and boundary measures under generalized isomorphisms, with the readings recorded below (the intersection clause of Proposition 11.1.6 does not hold as we read it), except the boundary operations of Theorem 11.3.9 along equivalences; Theorems 11.4.4 and 11.4.5 are verified with the text's hypotheses for every $n \ge 1$** | 20,313 |
+| Chapter 12 | Part III, Ch. 12, §§12.1–12.5 (2017 Chapter 12) | Fredholm theory in ep-groupoids: sc-Fredholm section functors, auxiliary norms, the good neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the boundary, bump functions and sc⁺-section functors, extension from the boundary in a local model, compactness and properness, the orientation bundle (wave 1) | **begun 2026-11-13 (Part III wave 1), verified for sc-Fredholm section functors, auxiliary norms and their existence, continuous partitions of unity, the good neighbourhood theorem, bump functions and sc⁺-section functors (Theorems 12.3.2 (2) and 12.3.3 with the pointwise reading of bump functions), the local and equivariant extension from the boundary, the three compactness notions and Lemma 12.4.4, and the orientation bundle with Part I's hypotheses, except the local step of Theorem 12.2.7, the last clause of Theorem 12.5.3 and the continuity in Proposition 12.5.6 (⇐); the reflexive auxiliary norms (Definition 12.2.8 to Theorem 12.2.13), Theorem 12.3.9, Definition 12.4.3 to Theorem 12.4.6 and Theorem 12.5.7 are not yet begun** | 5,088 |
+| Chapter 13 | Part III, Ch. 13, §§13.1–13.2 (2017 Chapter 13) | sc⁺-multisections: good systems of neighbourhoods, the natural bi-action, existence and extension of good systems; support, pointwise norm, symmetric structures, sums, scalar multiples and locally finite sums at functor level (wave 1) | **begun 2026-11-13 (Part III wave 1), verified for good systems of neighbourhoods, the natural bi-action, the extension and existence of good systems and Proposition 13.1.9, and for the support, pointwise norm, symmetric structures, sums, scalar multiples, products with functions and locally finite sums of sc⁺-multisections at functor level, except properness relative to $Q$ in Theorem 13.1.7 and the decorated forms (Definitions 13.2.7, 13.2.8 and the decorated conclusions of 13.2.9 to 13.2.13); §§13.3–13.5 are not yet begun** | 3,465 |
+| Chapter 15 | Part III, Ch. 15, §15.1 (2017 Chapter 15) | transversality and invariants: the linearization T(f, Λ), its well-definedness, the separation lemmas (wave 1) | **begun 2026-11-13 (Part III wave 1), verified for the well-definedness of the linearization $T(f, \Lambda)$ at every level-1 point and the separation lemmas (Proposition 15.1.3 for a non-isolated point), except the functor property of $T(f, \Lambda)$ and the sc-Fredholm property of its summands; §§15.2–15.4 are not yet begun** | 1,592 |
+| Chapter 16 | Part III, Ch. 16, §16.1 (2017 Chapter 16) | polyfolds: polyfold structures and their equivalence, bump functions and partitions of unity, the degeneracy index, the boundary, tameness (wave 1) | **begun 2026-11-13 (Part III wave 1), verified for polyfold structures, their equivalence, polyfolds, the invariance of bump functions, partitions of unity and tameness, the degeneracy index and the boundary, with the readings recorded below (the uniqueness sentence after Definition 16.1.2 and Remark 16.1.7 do not hold as we read them, and are verified for an effective target), except the metrizability remark; Definition 16.1.6 to Proposition 16.1.12, Definitions 16.1.15, 16.1.21, Proposition 16.1.22 and §§16.2–16.6 are not yet begun** | 912 |
 
-Total: 354,097 lines of Lean in 747 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 13 November 2026.
+Total: 366,830 lines of Lean in 780 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 13 November 2026.
 
 ---
 
@@ -5625,7 +5629,7 @@ commutes with $\Phi_i$ (Proposition 2.3.17).
 
 ---
 
-## 6. Chapter 5 (HWZ §§5.1–5.3, 5.5 (preprint §§5.1–5.4)): verified except Theorem 5.27 (preprint; not in the 2021 edition) and the Sobolev sc-structure on general bounded domains
+## 6. Chapter 5 (HWZ §§5.1–5.5 (preprint §§5.1–5.4)): verified except Theorem 5.27 (preprint; not in the 2021 edition) and the Sobolev sc-structure on general bounded domains
 
 Chapter 5 of Part I (pp. 205–236 (preprint pp. 169–199)) is the Fredholm package for M-polyfolds. §5.1 introduces auxiliary norms
 on the part $Y_{0,1}$ of biregularity $(0, 1)$ of a strong bundle (Definition 5.1.1 (preprint 5.1), Lemma 5.1.2 (preprint 5.2), Proposition 5.1.3 (preprint 5.3)). §5.2
@@ -5685,6 +5689,15 @@ bundle chart, as the operator $\mathrm{Lin}(z) : T_zO \to K_z$ of Chapter 3, bec
 at the zeros near a zero in good position (V5.34). In the perturbation theorems $|\lambda|$ is the maximum norm on $\mathbb
 R^m$, and "the solution set is a manifold" is stated for a non-empty solution set (the empty set is trivially one).
 Findings referred to below are those of `Exposition/Findings.md`, "Chapter 5".
+
+*Update (2026-11-13, Part III wave 1):* the reflexive auxiliary norms and the reflexive local compactness of §§5.1–5.2
+(Definitions 5.1.4, 5.1.6, 5.1.7, 5.2.6, Lemma 5.1.5, Propositions 5.1.8, 5.2.7, Theorem 5.2.8, Remarks 5.2.9, 5.2.10
+(2017: Definitions 5.2–5.4, 5.6, Lemma 5.2, Propositions 5.2, 5.3, Theorem 5.4, Remarks 5.1, 5.2); not in the preprint)
+and §5.4, the ∂-extension theorem (Definition 5.4.1, Theorem 5.4.2 (2017: Definition 5.11, Theorem 5.9)), are verified
+(V5.77–V5.89), Proposition 5.2.7, Theorem 5.2.8 and the remark after Proposition 5.2.7 in stronger forms; tools V5.90,
+V5.91. No hypothesis is added: the trivial bundle $\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ is a witness of all
+hypotheses of Theorem 5.2.8 at once (`Polyfold.TrivialBundle.theorem_5_2_8_witness`), and the zero section of the
+all-charts Definition 5.4.1 (`Polyfold.StrongBundle.isBoundaryScPlusSection_fiberZero`).
 
 **V5.1 (the charts $\Phi[1]$ for every strong bundle chart; `Polyfold.StrongBundle.oneChartOf`,
 `Polyfold.StrongBundle.isChart_oneChartOf`, `Polyfold.StrongBundle.oneChartOf_compatible`,
@@ -6501,6 +6514,154 @@ hence narrower. The bump statements (3), (4) are stronger than printed: they hol
 resp. $W^{1,3/2}(\Omega)$ and every $\Omega$, since they use only $E_0$. "Non-vanishing $\beta$" is read as $\beta(0) \ne 0$, as
 in the Hilbert example on p. 229. The closing question is a question, not a claim (Findings, Chapter 5, items 118, 185).
 
+**V5.77 (Definition 5.1.4 (2017: 5.2), reflexive $(0,1)$-fibres; `Polyfold.StrongBundle.HasReflexiveFibers`,
+`Polyfold.StrongBundle.hasReflexiveFibers_of_atlas`, `Polyfold.IsReflexive`,
+`Polyfold.TrivialBundle.hasReflexiveFibers_bundle`).** `StrongBundle.HasReflexiveFibers B`: every $x \in X$ lies in the
+domain of a strong bundle chart $c$ compatible with the atlas (`B.IsChart c`) with `IsReflexive (c.F 1)`, the canonical
+map $F_1 \to F_1^{**}$ onto (the project's §5.5 definition). If all charts of the given atlas have reflexive $F_1$, the
+bundle has reflexive fibres (`hasReflexiveFibers_of_atlas`). Witness: the trivial bundle
+$\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ (`TrivialBundle.hasReflexiveFibers_bundle`). *Book:* §5.1, Definition
+5.1.4, p. 207 (2017: Definition 5.2; not in the preprint). *Hidden hypotheses:* none. *Deviation (restated):* "There
+exists an (equivalent) atlas of reflexive charts" is read as "the reflexive compatible charts cover $X$"; they cover
+$Y$, since chart domains are $P^{-1}(V)$.
+
+**V5.78 (Lemma 5.1.5 (2017: 5.2), weak convergence of the fibre parts is chart independent; `Polyfold.lemma_5_1_5`,
+`Polyfold.lemma_5_1_5_limit`, `Polyfold.StrongBundle.exists_limit_of_weakTendsto`,
+`Polyfold.StrongBundle.weakTendsto_transfer`, `Polyfold.StrongBundle.weakTendsto_liftOneSnd_of_tendsto`,
+`Polyfold.StrongBundleChart.mem_K_of_tendsto`, `Polyfold.StrongBundleChart.liftOneSnd`).** `lemma_5_1_5`: for compatible
+charts $c, c'$ with reflexive $F_1$, $F'_1$, $x$ in both chart domains and $P(w_k) \to x$:
+$(\exists h,\ h_k \rightharpoonup h) \iff (\exists h',\ h'_k \rightharpoonup h')$, $h_k$ =
+`c.liftOneSnd (B.oneVal (w k))`. Strong form `lemma_5_1_5_limit`: if $h_k \rightharpoonup h$ (only $F'_1$ reflexive
+needed), there is one $y \in Y_{0,1}$ over $x$ with $\Psi$-part $h$, $y_k \to y$ in $Y$, and $h'_k \rightharpoonup$ the
+$\Psi'$-part of $y$. *Book:* §5.1, Lemma 5.1.5, p. 207 (2017: Lemma 5.2; not in the preprint). *Hidden hypotheses:*
+none. *Deviation (same):* The strong form identifies the two limits (one point of $Y_{0,1}$), which the text's proof
+uses implicitly. Steps made explicit: weak convergence and the compact inclusion $F_1 \to F_0$ give norm convergence in
+$F_0$; the limit lies in $K$; the uniform bound is the local comparison of $|\cdot|_1$ in two charts; bounded and
+level-0 convergent gives weakly convergent in a reflexive space. Fibre parts are read in the chart only for large $k$.
+
+**V5.79 (Definition 5.1.6 (2017: 5.3), mixed convergence; `Polyfold.StrongBundle.MixedTendsto`,
+`Polyfold.StrongBundle.MixedTendsto.weakTendsto_of_isChart`, `Polyfold.StrongBundle.MixedTendsto.tendsto_oneVal`).**
+`StrongBundle.MixedTendsto B w y`, exactly this, with a compatible chart. Then $h'_k \rightharpoonup h'$ in every
+compatible chart around $P(y)$ with reflexive $F'_1$ (`MixedTendsto.weakTendsto_of_isChart`, chart independence), and
+$y_k \to y$ in $Y$ (`MixedTendsto.tendsto_oneVal`). *Book:* §5.1, Definition 5.1.6, p. 207 (2017: Definition 5.3; not in
+the preprint). *Hidden hypotheses:* none. *Deviation (same):* The chart independence ("in view of this lemma we can
+define") is proved, not assumed.
+
+**V5.80 (Definition 5.1.7 (2017: 5.4), reflexive auxiliary norms; `Polyfold.StrongBundle.IsReflexiveAuxNorm`,
+`Polyfold.StrongBundle.IsReflexiveAuxNorm.le_of_frequently_le`, `Polyfold.StrongBundle.le_liminf_coe_of_eventually`).**
+`StrongBundle.IsReflexiveAuxNorm B N`: `B.IsAuxNorm N` and
+$(N(y) : \overline{\mathbb R}) \le \liminf_k (N(w_k) : \overline{\mathbb R})$ for `B.MixedTendsto w y`. Equivalent
+forms: `IsReflexiveAuxNorm.le_of_frequently_le` ($N(y_k) \le r$ infinitely often implies $N(y) \le r$) and the criterion
+`le_liminf_coe_of_eventually`. *Book:* §5.1, Definition 5.1.7, p. 208 (2017: Definition 5.4; not in the preprint).
+*Hidden hypotheses:* none. *Deviation (same):* The text prints $\liminf_{k \to 0}$; presumably $k \to \infty$. The
+liminf is taken in `EReal`, so that unbounded sequences have liminf $\infty$.
+
+**V5.81 (Proposition 5.1.8 (2017: 5.2), existence and comparison of reflexive auxiliary norms;
+`Polyfold.proposition_5_1_8_exists`, `Polyfold.proposition_5_1_8_compare`, `Polyfold.proposition_5_1_8`,
+`Polyfold.StrongBundle.isReflexiveAuxNorm_gluedNorm`, `Polyfold.StrongBundle.le_liminf_gluedNorm`).**
+`proposition_5_1_8_exists` (`B.HasReflexiveFibers` gives some `B.IsReflexiveAuxNorm N`), `proposition_5_1_8_compare`,
+and `proposition_5_1_8` (both). The norm is the glued norm $\sum_i \rho_i(P w)\,|\Phi_i[1](w)|_1$ over the reflexive
+compatible charts (`isReflexiveAuxNorm_gluedNorm`, lower semicontinuity `le_liminf_gluedNorm`). *Book:* §5.1,
+Proposition 5.1.8, p. 208 (2017: Proposition 5.2; not in the preprint). *Hidden hypotheses:* none. *Deviation (same):*
+The text gives no proof. Existence: Proposition 5.1.3's glued norm over the reflexive charts is an auxiliary norm by
+Lemma 5.1.2; near $P(y)$ only finitely many terms matter, in each chart the fibre parts converge weakly, and the norm is
+weakly lower semicontinuous. Comparison: a reflexive auxiliary norm is an auxiliary norm, then Proposition 5.1.3.
+
+**V5.82 (Definition 5.2.6 (2017: 5.6), reflexive local compactness;
+`Polyfold.StrongBundle.HasReflexiveLocalCompactness`, `Polyfold.TrivialBundle.hasReflexiveLocalCompactness_bundle`).**
+`StrongBundle.HasReflexiveLocalCompactness B f`: for every `N` with `B.IsReflexiveAuxNorm N` and every `x` there is an
+open `U ∋ x` with `IsCompact (closure {q ∈ U | B.AuxLe N (f q) 1})`. Witness: every section of the trivial bundle
+(`TrivialBundle.hasReflexiveLocalCompactness_bundle`). *Book:* §5.2, Definition 5.2.6, p. 214 (2017: Definition 5.6; not
+in the preprint). *Hidden hypotheses:* none. *Deviation (same):* The set prints "$N(f(x)) \le 1$" inside
+$\{q \in U(x) \mid \ldots\}$; presumably $N(f(q))$. $N = \infty$ off $Y_{0,1}$ is `AuxLe`. The standing assumptions
+(reflexive fibres, sc-smooth, regularizing) are hypotheses of the statements that use the notion.
+
+**V5.83 (Proposition 5.2.7 (2017: 5.3), $N(f) > 1$ near points off $X_1$; `Polyfold.proposition_5_2_7`,
+`Polyfold.StrongBundle.exists_nhds_not_auxLe`, `Polyfold.StrongBundle.not_auxLe_of_not_mem_levelSet`,
+`Polyfold.StrongBundle.isClosed_setOf_auxLe`, `Polyfold.StrongBundle.exists_mixedTendsto_subseq`).**
+`proposition_5_2_7`, with the book's hypotheses, both parts. Stronger: (2) holds for every continuous section, with no
+regularity and no local compactness (`StrongBundle.exists_nhds_not_auxLe`); $f$ regularizing gives $N(f(x)) = \infty$
+off $X_1$ (`not_auxLe_of_not_mem_levelSet`); $\{N \circ f \le r\}$ is closed (`isClosed_setOf_auxLe`). *Book:* §5.2,
+Proposition 5.2.7, p. 214 (2017: Proposition 5.3; not in the preprint). *Hidden hypotheses:* none. *Deviation
+(stronger):* The local compactness hypothesis is not used; (2) needs only continuity of $f$. The sequence argument uses
+that $X$ is metrizable (Theorem 2.3.10); the mixed convergent subsequence is `exists_mixedTendsto_subseq` (Lemma 5.1.2
+bound in a reflexive chart and weak sequential compactness).
+
+**V5.84 (The remark after Proposition 5.2.7, the closure of $\{N(f) \le 1\}$;
+`Polyfold.StrongBundle.closure_auxLe_subset`).** `StrongBundle.closure_auxLe_subset`: for every $U$, every continuous
+section, reflexive fibres and a reflexive $N$. *Book:* §5.2, after Proposition 5.2.7, p. 214 (not in the preprint).
+*Hidden hypotheses:* none. *Deviation (stronger):* The printed set is $\mathrm{cl}_X(\{x \in X \mid \ldots\})$;
+presumably $x \in U$ (the argument above it is about $x_k \in U$). No compactness assumption is needed.
+
+**V5.85 (Theorem 5.2.8 (2017: 5.4), compactness control extends from the boundary; `Polyfold.theorem_5_2_8`,
+`Polyfold.theorem_5_2_8_of_continuous`, `Polyfold.TrivialBundle.theorem_5_2_8_witness`).** `theorem_5_2_8`, with the
+book's hypotheses (`PX.IsTame`, `B.HasReflexiveFibers`, `B.IsScFredholmSection f`, $S$ compact,
+`B.HasReflexiveLocalCompactness f`, `B.IsReflexiveAuxNorm N`, $U_\partial = W \cap \partial X$ with $W$ open).
+`theorem_5_2_8_of_continuous`: the same for every continuous section on every M-polyfold. Witness of all hypotheses at
+once: `TrivialBundle.theorem_5_2_8_witness` ($\mathbb R^n$, the graph section of the identity,
+$U_\partial = \emptyset$). *Book:* §5.2, Theorem 5.2.8, p. 215 (2017: Theorem 5.4; not in the preprint). *Hidden
+hypotheses:* none. *Deviation (stronger):* Tameness and the sc-Fredholm property are not used: only continuity of $f$,
+compactness of $S$, local compactness at the given $N$, and $\partial X$ closed. The text's $\tilde U$ is
+$U(\bar x_1) \cup \dots \cup U(\bar x_\ell) \cup \{N \circ f > 1\}$, open by Proposition 5.2.7 (2).
+
+**V5.86 (Remark 5.2.9 (2017: 5.1), Theorem 5.2.8 in words; `Polyfold.theorem_5_2_8`).** The statement of
+`theorem_5_2_8`. *Book:* §5.2, Remark 5.2.9, p. 215 (2017: Remark 5.1; not in the preprint). *Hidden hypotheses:* none.
+*Deviation (restated):* none.
+
+**V5.87 (Remark 5.2.10 (2017: 5.2), use in inductive perturbation arguments).** A comment; nothing to formalize. *Book:*
+§5.2, Remark 5.2.10, p. 216 (2017: Remark 5.2; not in the preprint). *Hidden hypotheses:* none. *Deviation (nothing):*
+none.
+
+**V5.88 (Definition 5.4.1 (2017: 5.11), sc⁺-sections over $\partial X$; `Polyfold.StrongBundle.IsBoundaryScPlusSection`,
+`Polyfold.StrongBundle.isBoundaryScPlusSection_fiberZero`, `Polyfold.StrongBundle.boundarySupport`,
+`Polyfold.IsScPlusOnFaceNear`).** `StrongBundle.IsBoundaryScPlusSection B s`: for $x \in \partial X$, $P(s(x)) = x$ and
+$s(x) \in W_{0,1}$; and for every tame strong bundle chart (`B.IsTameChart c`), every tame presentation $T$, every
+$x \in \partial X$ in the chart and every $i \in I(\varphi(x))$, the local representative restricted to
+$O \cap V \cap \{t_i = 0\}$ is an sc⁺-section for some open $V \ni \varphi(x)$, and that face germ is an sc-retract
+(`IsScPlusOnFaceNear`). The zero section satisfies it for every strong bundle (`isBoundaryScPlusSection_fiberZero`).
+*Book:* §5.4, Definition 5.4.1, p. 228 (2017: Definition 5.11; not in the preprint). *Hidden hypotheses:* none.
+*Deviation (restated):* The local faces at $x$ are the germs $O \cap \{t_i = 0\}$, $i \in I(\varphi(x))$, in tame
+coordinates; "the restriction is sc⁺" is read chart-wise, in every tame chart and presentation (the all-charts
+quantifier is satisfiable: the zero section). $s(x) \in W_{0,1}$ is stated outright, so that $N(s(x))$ in Theorem 5.4.2
+is defined at every boundary point.
+
+**V5.89 (Theorem 5.4.2 (2017: 5.9), the ∂-extension theorem; `Polyfold.theorem_5_4_2`,
+`Polyfold.StrongBundle.exists_boundary_extension`, `Polyfold.StrongBundle.exists_local_bounded`,
+`Polyfold.StrongBundle.exists_local_extension`, `Polyfold.StrongBundle.degIndex_ne_zero_of_mem_boundary`,
+`Polyfold.StrongBundle.isScPlusSection_of_locally_p3b`).** `theorem_5_4_2`, with the hypotheses `B.IsTameBundle`,
+`PX.AdmitsScPartitionsOfUnity`, `B.IsBoundaryScPlusSection s`, `B.IsAuxNorm N`, $\tilde U$ open containing
+`boundarySupport PX P s`, $f$ continuous, $f \ge 0$, `tsupport f ⊆ Ũ` and $N(s(x)) < f(x)$ on the support: there is an
+sc⁺-section $\tilde s$ with $N(\tilde s(x)) \le f(x)$, `sectionSupport P s̃ ⊆ Ũ` and $\tilde s = s$ on $\partial X$. The
+proof is complete: the local step `exists_local_extension` (Proposition 12.3.7 in a tame chart, then a bump function),
+the local bound `exists_local_bounded`, the gluing `exists_boundary_extension`. *Book:* §5.4, Theorem 5.4.2, p. 228
+(2017: Theorem 5.9; not in the preprint). *Hidden hypotheses:* none. *Deviation (same):* "Strong bundle over a tame
+M-polyfold" is the project's `IsTameBundle` (the base is tame and every point lies in a tame strong bundle chart); this
+forces `X Y : Type`, and the universe-polymorphic core `exists_boundary_extension` takes only the chart hypothesis.
+$\mathrm{supp}(s)$ is the closure of $\{x \in \partial X : s(x) \ne 0_x\}$. The proof does not use that $\tilde U$ is
+open or contains $\mathrm{supp}(s)$; both are kept as in the text.
+
+**V5.90 (Weak sequential compactness in reflexive spaces (tool); `Polyfold.exists_subseq_weakTendsto`,
+`Polyfold.exists_subseq_weakTendsto_of_eventually`, `Polyfold.WeakTendsto`,
+`Polyfold.WeakTendsto.tendsto_of_isCompactOperator`, `Polyfold.weakTendsto_of_bounded_of_tendsto`,
+`Polyfold.WeakTendsto.exists_bound`, `Polyfold.WeakTendsto.eventually_norm_gt`,
+`Polyfold.isReflexive_of_finiteDimensional`).** In a reflexive real normed space every bounded sequence has a weakly
+convergent subsequence (`exists_subseq_weakTendsto`; `WeakTendsto u h` means $g(u_k) \to g(h)$ for all $g \in F^*$),
+through the separable closed span, countably many norming functionals, a diagonal subsequence, Banach–Alaoglu in the
+bidual and reflexivity. Tools: a compact operator maps weakly convergent sequences to norm convergent ones
+(`WeakTendsto.tendsto_of_isCompactOperator`), bounded and level-0 convergent gives weakly convergent
+(`weakTendsto_of_bounded_of_tendsto`), uniform boundedness (`WeakTendsto.exists_bound`), weak lower semicontinuity of
+the norm (`WeakTendsto.eventually_norm_gt`), finite-dimensional spaces are reflexive
+(`isReflexive_of_finiteDimensional`). *Book:* not in the book (used in §§5.1–5.2 and Part III, §12.2). *Hidden
+hypotheses:* none. *Deviation (extra):* none.
+
+**V5.91 (Rescaled and sandwiched (reflexive) auxiliary norms, M-polyfold forms (tool);
+`Polyfold.StrongBundle.IsAuxNorm.comp_mul`, `Polyfold.StrongBundle.IsReflexiveAuxNorm.comp_mul`,
+`Polyfold.StrongBundle.exists_reflexiveAuxNorm_sandwich`).** `StrongBundle.IsAuxNorm.comp_mul`,
+`StrongBundle.IsReflexiveAuxNorm.comp_mul`: $(g \circ P) \cdot N$ is a (reflexive) auxiliary norm for continuous
+$g > 0$. `StrongBundle.exists_reflexiveAuxNorm_sandwich`: with reflexive fibres every auxiliary norm $N'$ has reflexive
+$N_1 \le N' \le N_2$. *Book:* not in the book in this form (M-polyfold forms of Remark 12.2.12 (1) and of the last
+clause of Theorem 12.2.11, p. 577). *Hidden hypotheses:* none. *Deviation (extra):* none.
+
 ### What is not verified in this chapter
 
 - p. 213 (preprint p. 173), Corollary 5.2.5 (preprint 5.8) as one statement for all $i$: it is verified for each fixed $i$ by iterating the shift ($i = 1, 2$ stated;
@@ -6534,6 +6695,8 @@ in the Hilbert example on p. 229. The closing question is a question, not a clai
   zeros near a zero in good position (V5.34), since $T_xX$ carries no linear structure here (gap G.7 of Chapter 2).
 - p. 209, the remark after Definition 5.2.1 (2021) that for sc-smooth sections the five compactness properties are in general not
   equivalent: no example is formalized (Findings, item 171).
+- p. 216, Remark 5.2.10 (2017: 5.2): a comment on inductive perturbation arguments, nothing to formalize (V5.87).
+  Readings of §§5.1–5.2 and §5.4 (2026-11-13): Findings, Chapter 5, items 187–192.
 
 ---
 
@@ -10118,7 +10281,221 @@ The setting. Ep-groupoids, sc-smooth functors, orbit spaces, the degeneracy inde
 
 ---
 
-## 13. Sign-off
+## 13. Chapter 12 (HWZ, Part III, §§12.1–12.5 (2017 §§12.1–12.5)): begun 2026-11-13 (Part III wave 1), verified for sc-Fredholm section functors, auxiliary norms and their existence, continuous partitions of unity, the good neighbourhood theorem, bump functions and sc⁺-section functors (Theorems 12.3.2 (2) and 12.3.3 with the pointwise reading of bump functions), the local and equivariant extension from the boundary, the three compactness notions and Lemma 12.4.4, and the orientation bundle with Part I's hypotheses, except the local step of Theorem 12.2.7, the last clause of Theorem 12.5.3 and the continuity in Proposition 12.5.6 (⇐); the reflexive auxiliary norms (Definition 12.2.8 to Theorem 12.2.13), Theorem 12.3.9, Definition 12.4.3 to Theorem 12.4.6 and Theorem 12.5.7 are not yet begun
+
+Chapter 12 (pp. 569–598; numbers and pages are those of the book (Springer 2021), with the 2017 text's numbers in parentheses) is the Fredholm theory of Part I carried to strong bundles over ep-groupoids. §12.1 defines sc-Fredholm section functors (Definition 12.1.1 (2017: 12.1)). §12.2 defines auxiliary norms (Definition 12.2.1 (2017: 12.2)) and proves their existence (Theorem 12.2.2 (2017: 12.1)), with continuous partitions of unity (Definitions 12.2.3, 12.2.4, Proposition 12.2.5 (2017: Definitions 12.3, 12.4, Proposition 12.1)), the good neighbourhood theorem (Theorem 12.2.6 (2017: 12.2)) and the extension from the boundary (Theorem 12.2.7 (2017: 12.3)). §12.3 treats bump functions and sc⁺-section functors (Definition 12.3.1, Theorems 12.3.2, 12.3.3, Remarks 12.3.4, 12.3.5 (2017: Definition 12.7, Theorems 12.6, 12.7, Remarks 12.3, 12.4)) and the extension of sc⁺-sections from the boundary (Definition 12.3.6, Proposition 12.3.7, Corollary 12.3.8 (2017: Definition 12.8, Proposition 12.2, Corollary 12.1)). §12.4 compares compactness notions (Definition 12.4.1, Theorem 12.4.2, Lemma 12.4.4 (2017: Definition 12.9, Theorem 12.9, Lemma 12.1)). §12.5 builds the orientation bundle (Lemma 12.5.1, Definition 12.5.2, Theorem 12.5.3, Definition 12.5.4, Proposition 12.5.6 (2017: Lemma 12.2, Definition 12.11, Theorem 12.11, Definition 12.12, Proposition 12.4)). The rest of §12.2 (reflexive auxiliary norms), Theorem 12.3.9, the reflexive part of §12.4 and Theorem 12.5.7 are planned for Part III wave 2.
+
+What is verified. §12.1 and Definition 12.2.1 are verified as stated (V12.1–V12.3). Theorem 12.2.2, Definitions 12.2.3, 12.2.4, Proposition 12.2.5 and Theorem 12.2.6 are verified as stated (V12.4–V12.8); Theorem 12.2.7 is verified with its local coordinate step as a hypothesis, the global part of the proof being formalized (V12.9; gap G.136). Definition 12.3.1 is verified as printed, with the pointwise variant kept (V12.10); Theorem 12.3.2 (1) is proved in each consistent pairing of Definition 12.3.1 with Part I's Definition 5.3.1 (V12.11); Theorem 12.3.2 (2) and Theorem 12.3.3 are verified with the pointwise reading of bump functions (V12.12, V12.13); the checkable claims of Remarks 12.3.4 and 12.3.5 are proved (V12.14, V12.15). Definition 12.3.6 is verified at chart level (V12.16; the ep-groupoid wrapper is gap G.137), Proposition 12.3.7 in a stronger form (V12.17) and Corollary 12.3.8 with the isotropy action made explicit (V12.18). §12.4 up to Lemma 12.4.4 is verified as stated (V12.19–V12.21). In §12.5 Lemma 12.5.1, Definitions 12.5.2, 12.5.4 are verified with Part I's hypothesis of sc⁺-sections through fibre points (V12.22, V12.23, V12.25); Theorem 12.5.3 is verified with Part I's hypotheses of Theorem 6.6.17, except its last clause (V12.24; gaps G.138, G.140); Proposition 12.5.6 (⇒) is verified, and (⇐) without the continuity of the lifted section (V12.26; gap G.139).
+
+The hypotheses. `Polyfold.EpStrongBundle.HasLocalExtensions` in Theorem 12.2.7, the local step of the text's proof (witness `Polyfold.EpStrongBundle.theorem_12_2_7_hyp_witness`; every restriction of a global auxiliary norm satisfies it, `Polyfold.EpStrongBundle.hasLocalExtensions_of_isAuxNorm`). The pointwise reading of Definition 12.3.1, `Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise`, in Theorems 12.3.2 (2) and 12.3.3 (witness `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`). In §12.5, `Polyfold.StrongBundle.HasScPlusSectionsThrough` (a consequence of bump functions, `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`), and, in Theorem 12.5.3, the hypotheses of Part I's Theorem 6.6.17 (bump functions on the object M-polyfold and tame germ data), inherited from Part I (gap G.140). The all-charts definitions of the boundary sections have the zero section as witness (`Polyfold.isBoundaryScPlusSectionOn_zero`, `Polyfold.proposition_12_3_7_nonvacuous`), and the isotropy action of Corollary 12.3.8 the trivial action (`Polyfold.LocalBundleAction.trivial`).
+
+The setting. Ep-groupoids, natural representations and orbit spaces are those of Chapter 7; strong bundles over ep-groupoids, section functors and auxiliary norms those of Chapter 8 (`Polyfold.EpStrongBundle`, `Polyfold.EpStrongBundle.IsAuxNorm`, `Polyfold.EpStrongBundle.IsScFredholmSectionFunctor`); sc⁺-sections, linearizations, the determinant bundle and the orientation space $O_f$ with its topology are Part I's (Chapters 5 and 6). Tame local strong bundle models are those of Chapter 2.
+
+**V12.1 (Definition 12.1.1 (2017: 12.1), sc-Fredholm section functors; `Polyfold.EpStrongBundle.definition_12_1_1`).** `EpStrongBundle.definition_12_1_1`: `E.IsScFredholmSectionFunctor f ↔ E.IsScSmoothSectionFunctor f ∧ B.IsScFredholmSection f` (`Iff.rfl`, Definition 8.3.4 (3)). *Book:* §12.1, Definition 12.1.1, p. 569 (2017: Definition 12.1). *Hidden hypotheses:* none. *Deviation (same):* The project's existing definition, unfolded.
+
+**V12.2 (The remark after Definition 12.1.1: regularizing on objects and morphisms, germs; `Polyfold.EpStrongBundle.remark_12_1_1_regularizing_obj`, `Polyfold.EpStrongBundle.remark_12_1_1_regularizing_mor`, `Polyfold.EpStrongBundle.remark_12_1_1_germ`).** Objects: $x \in X_m$ and $f(x) \in W_{m,m+1}$ give $x \in X_{m+1}$ (`remark_12_1_1_regularizing_obj`). Morphisms: $\varphi \in \mathbf X_m$ and $f(\varphi) = (\varphi, f(s\varphi)) \in (\mathbf X\,{}_s\!\times_P W)_{m,m+1}$ give $\varphi \in \mathbf X_{m+1}$ (`remark_12_1_1_regularizing_mor`, through the pull-back projection, a strong bundle map). Germs: `IsScFredholmGerm` at each smooth $x$ (`remark_12_1_1_germ`). *Book:* §12.1, after Definition 12.1.1, p. 569 (2017: after Definition 12.1). *Hidden hypotheses:* none. *Deviation (explicit):* "$f(\varphi)$" is read as the induced section of the pull-back bundle $\mathbf X\,{}_s\!\times_P W \to \mathbf X$.
+
+**V12.3 (Definition 12.2.1 (2017: 12.2), auxiliary norms; `Polyfold.EpStrongBundle.IsAuxNorm`).** The existing `EpStrongBundle.IsAuxNorm` (Definition 8.3.5): `B.IsAuxNorm N` (Definition 5.1.1: continuity, (1), (2)) and invariance under $\mu$ (3). *Book:* §12.2, Definition 12.2.1, p. 570 (2017: Definition 12.2). *Hidden hypotheses:* none. *Deviation (same):* The text itself recalls Definition 8.3.5; no new declaration. Non-negativity follows from (1).
+
+**V12.4 (Theorem 12.2.2 (2017: 12.1), existence of auxiliary norms; `Polyfold.EpStrongBundle.theorem_12_2_2`, `Polyfold.SEP.theorem_12_2_2`, `Polyfold.EpStrongBundle.avgNorm`, `Polyfold.EpStrongBundle.isLocalAuxNorm_avgNorm`, `Polyfold.EpStrongBundle.avgNorm_actOne`, `Polyfold.EpStrongBundle.transNorm`, `Polyfold.EpStrongBundle.isLocalAuxNorm_transNorm`, `Polyfold.EpStrongBundle.transNorm_μ`, `Polyfold.EpStrongBundle.glueNorm`, `Polyfold.EpStrongBundle.isAuxNorm_glueNorm`).** `EpStrongBundle.theorem_12_2_2 (h : X.HasParacompactOrbitSpace) : ∃ N, E.IsAuxNorm N`, and the form `SEP.theorem_12_2_2`. The proof follows the text's three steps: average a local norm over $G_x$ on $U(x)$ (`avgNorm`), transport it to the saturation (`transNorm`, invariant under all morphisms by `transNorm_μ`), glue with a partition of unity of $|X|$ (`isAuxNorm_glueNorm`). *Book:* §12.2, Theorem 12.2.2, p. 570 (proof pp. 572–574) (2017: Theorem 12.1). *Hidden hypotheses:* none. *Deviation (same):* The local norm is a Part I auxiliary norm (Proposition 5.1.3) instead of a chart norm, and the transport through a chosen morphism uses the invariance under $G_x$, so Theorem 12.2.6 (5) is not needed. Completeness of the glued fibre norms comes from `StrongBundle.isAuxNorm_of_tendsto` (V12.29).
+
+**V12.5 (Definition 12.2.3 (2017: 12.3) and the remark after it, continuous partitions of unity; `Polyfold.EpGroupoid.IsContPartitionOfUnity`, `Polyfold.EpGroupoid.isContPartitionOfUnity_comp_π`, `Polyfold.EpGroupoid.IsContPartitionOfUnity.descend`, `Polyfold.EpGroupoid.isSubordinate_comp_π`).** `EpGroupoid.IsContPartitionOfUnity β`, with fields `continuous`, `mem_Icc`, `map_mor`, `locallyFinite` and `sum_eq_one` (as `finsum`). Both directions of the remark: `isContPartitionOfUnity_comp_π` (Mathlib `PartitionOfUnity` on the orbit space composed with $\pi$) and `IsContPartitionOfUnity.descend` (a `PartitionOfUnity` on $|X|$ with $\beta'_i(\pi y) = \beta_i(y)$). *Book:* §12.2, Definition 12.2.3, pp. 570–571 (2017: Definition 12.3). *Hidden hypotheses:* none. *Deviation (same):* The supports are closures in $X$. The paracompactness of $|X|$ in the preamble is not needed for the definition. The descent uses that $\pi$ is open (Proposition 7.1.8).
+
+**V12.6 (Definition 12.2.4 (2017: 12.4), subordinate partitions of unity; `Polyfold.EpGroupoid.IsContPartitionOfUnity.IsSubordinate`).** `IsContPartitionOfUnity.IsSubordinate X U`: `∀ i, tsupport (β i) ⊆ U i`. *Book:* §12.2, Definition 12.2.4, p. 571 (2017: Definition 12.4). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V12.7 (Proposition 12.2.5 (2017: 12.1), subordinate continuous partitions of unity exist; `Polyfold.EpGroupoid.proposition_12_2_5`).** `EpGroupoid.proposition_12_2_5`: for `X.HasParacompactOrbitSpace` and saturated open $U_i$ covering $X$ there is a continuous partition of unity subordinate to $(U_i)$. *Book:* §12.2, Proposition 12.2.5, p. 571 (2017: Proposition 12.1). *Hidden hypotheses:* none. *Deviation (same):* The text's proof: a partition of unity of $|X|$ subordinate to $(\pi(U_\lambda))$, composed with $\pi$; $|X|$ is normal by Theorem 7.3.1.
+
+**V12.8 (Theorem 12.2.6 (2017: 12.2), the good neighbourhood theorem; `Polyfold.EpGroupoid.theorem_12_2_6`, `Polyfold.EpGroupoid.exists_subseq_of_isProperMap`, `Polyfold.EpGroupoid.NaturalRep.image_Φ_eq`).** `EpGroupoid.theorem_12_2_6 B x`: there are $U'$, $U''$ and a natural representation `R : X.NaturalRep x` with `R.U = U''`, $U'$ open, $x \in U'$, and (1)–(5): (2) $\Phi(g)(U') = U'$ for $g \in G_x$; (3) $U''$ lies in the base domain of one strong bundle chart compatible with the atlas; (4) with sequences and a strictly monotone reindexing. *Book:* §12.2, Theorem 12.2.6, pp. 571–572 (2017: Theorem 12.2). *Hidden hypotheses:* none. *Deviation (same):* The text's proof: properness of $t$ on $s^{-1}(\overline{V_0})$, two shrinkings, and (5) from the uniqueness in Theorem 7.1.13 (3).
+
+**V12.9 (Theorem 12.2.7 (2017: 12.3), extension of auxiliary norms from the boundary; `Polyfold.EpStrongBundle.theorem_12_2_7_hyp`, `Polyfold.EpStrongBundle.theorem_12_2_7_hyp_witness`, `Polyfold.EpStrongBundle.IsAuxNormOn`, `Polyfold.EpStrongBundle.IsAuxNorm.isAuxNormOn`, `Polyfold.EpStrongBundle.HasLocalExtensions`, `Polyfold.EpStrongBundle.hasLocalExtensions_of_isAuxNorm`, `Polyfold.EpGroupoid.tgt_mem_boundary_iff`, `Polyfold.EpGroupoid.isOpen_compl_boundary`, `Polyfold.StrongBundle.IsLocalAuxNorm.mono`).** `EpStrongBundle.theorem_12_2_7_hyp (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N) (hloc : HasLocalExtensions X B N)`: there is $\tilde N$ with `E.IsAuxNorm Ñ` and $\tilde N = N$ over $\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$; `HasLocalExtensions X B N` says that every $x \in \partial X$ has an open $V \ni x$ and a local auxiliary norm $M$ on $V$ equal to $N$ over $V \cap \partial X$. Witness: `theorem_12_2_7_hyp_witness` (every bundle with paracompact $|X|$ has such an $N$); every restriction of a global auxiliary norm satisfies `hloc` (`hasLocalExtensions_of_isAuxNorm`). *Book:* §12.2, Theorem 12.2.7, pp. 574–576 (2017: Theorem 12.3). *Hidden hypotheses:* `hloc : HasLocalExtensions X B N`, the local step of the text's proof, with the witness `theorem_12_2_7_hyp_witness`. *Deviation (narrower):* The local coordinate step in a tame strong bundle chart is gap G.136. All of the global part is proved: the extension property survives the $G_x$-average because $N$ is invariant, the transport to the saturation, natural representations inside $X \setminus \partial X$ carrying a Part I norm, and the gluing (each nonzero term is $\beta_x N$, since the saturation of an interior neighbourhood misses $\partial X$). Tameness is used only to discharge `hloc`. The text's $N$ is defined on $W_{0,1}|\partial X$; here it is a function on $W_{0,1}$ with conditions only over $\partial X$, which is equivalent.
+
+**V12.10 (Definition 12.3.1 (2017: 12.7), sc-smooth bump functions on ep-groupoids; `Polyfold.EpGroupoid.AdmitsBumpFunctions`, `Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise`, `Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise.weak`, `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`).** `EpGroupoid.AdmitsBumpFunctions`, the printed form (`f ≠ 0`, `tsupport f ⊆ U`). The variant with $f(x) \ne 0$, the project's reading of Part I's Definition 5.3.1, is `AdmitsBumpFunctionsPointwise`; it implies the printed form (`AdmitsBumpFunctionsPointwise.weak`). Witness: the trivial ep-groupoid on $\mathbb R^n$ (`admitsBumpFunctionsPointwise_trivial_rn`). *Book:* §12.3, Definition 12.3.1, p. 579 (2017: Definition 12.7). *Hidden hypotheses:* none. *Deviation (same):* Part I's Definition 5.3.1 is read pointwise in this project (Findings, Chapter 5, items 41, 160–163); both readings are kept here.
+
+**V12.11 (Theorem 12.3.2 (1) (2017: 12.6 (1)), bump functions on $X$ and on the object M-polyfold; `Polyfold.EpGroupoid.theorem_12_3_2_1`, `Polyfold.EpGroupoid.theorem_12_3_2_1_weak`, `Polyfold.EpGroupoid.exists_objBump_of_epBump`, `Polyfold.EpGroupoid.exists_epBump_of_objBump`, `Polyfold.EpGroupoid.exists_natAverage`, `Polyfold.EpGroupoid.exists_invariant_extension`).** `EpGroupoid.theorem_12_3_2_1`: `X.AdmitsBumpFunctionsPointwise ↔ X.PObj.AdmitsBumpFunctions` (pointwise on both sides). `theorem_12_3_2_1_weak`: `X.AdmitsBumpFunctions ↔ X.PObj.AdmitsBumpFunctionsWeak` ("not identically 0" on both sides). No hypothesis. *Book:* §12.3, Theorem 12.3.2 (1), p. 579 (2017: Theorem 12.6 (1)). *Hidden hypotheses:* none. *Deviation (restated):* The printed statement pairs Definition 12.3.1 ("not identically 0") with Part I's Definition 5.3.1 (read pointwise); its (⇒) direction would then be Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163), so the theorem is proved in each consistent reading. The text averages a bump function $f$ over $G_x$, and that average can cancel to $0$; we average $f^2$ (presumably intended, since Proposition 5.5.3's functions are $\ge 0$). (⇐) uses the properness of $\mathrm{cl}\,V$ for closedness of the saturation.
+
+**V12.12 (Theorem 12.3.2 (2) (2017: 12.6 (2)), invariant bump functions with $f(x) = 1$; `Polyfold.EpGroupoid.theorem_12_3_2_2`, `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`).** `EpGroupoid.theorem_12_3_2_2`: from `X.AdmitsBumpFunctionsPointwise`, an sc-smooth $f$ with values in $[0,1]$, $f(x) = 1$, `tsupport f ⊆ U` and $f(s\varphi) = f(t\varphi)$. Witness of the hypothesis: `admitsBumpFunctionsPointwise_trivial_rn`. *Book:* §12.3, Theorem 12.3.2 (2), p. 579 (2017: Theorem 12.6 (2)). *Hidden hypotheses:* the pointwise reading of Definition 12.3.1 ($f(x) \ne 0$), the project's reading of Part I; witness `admitsBumpFunctionsPointwise_trivial_rn`. *Deviation (narrower):* From the printed "not identically 0" reading the result would need Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163). The proof is the text's: Proposition 5.5.3, then average, then extend.
+
+**V12.13 (Theorem 12.3.3 (2017: 12.7), sc⁺-section functors through invariant points; `Polyfold.EpStrongBundle.theorem_12_3_3`, `Polyfold.EpStrongBundle.exists_equivariant_average`, `Polyfold.EpStrongBundle.natTerm`, `Polyfold.EpStrongBundle.natTerm_tgt`, `Polyfold.EpStrongBundle.exists_isScSmoothOn_one_secAct`, `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`).** `EpStrongBundle.theorem_12_3_3`, with `X.AdmitsBumpFunctionsPointwise`, `X.HasParacompactOrbitSpace`, `E.IsAuxNorm N`, $x$ smooth, $e$ smooth with $P(e) = x$ and $\mu(g, e) = e$ for $g \in G_x$, $O$ open with $\pi(x) \in O$, $\varepsilon > 0$: $e \in W_{0,1}$ and there is $\sigma$ with `E.IsScPlusSectionFunctor σ`, support in $\pi^{-1}(O)$, $\sigma(x) = e$ and $N(\sigma(y)) \le N(e) + \varepsilon$. *Book:* §12.3, Theorem 12.3.3, p. 581 (2017: Theorem 12.7). *Hidden hypotheses:* the pointwise reading of Definition 12.3.1, as in V12.12; witness `admitsBumpFunctionsPointwise_trivial_rn`. *Deviation (narrower):* Paracompactness is kept but unused: the text needs it only for the existence of $N$, which is a hypothesis. The local section through $e$ is Part I's Lemma 5.3.3 (cut-off and bound included); averaging $\sigma'' = |G_x|^{-1}\sum_k h_k$ (`exists_equivariant_average`); the extension uses the morphisms (V12.15).
+
+**V12.14 (Remark 12.3.4 (2017: 12.3), functoriality and transversality compete; `Polyfold.EpStrongBundle.remark_12_3_4`).** `EpStrongBundle.remark_12_3_4`: for every functorial section $\sigma$ and $g \in G_x$, $\mu(g, \sigma(x)) = \sigma(x)$, so the invariance hypothesis of Theorem 12.3.3 is necessary. *Book:* §12.3, Remark 12.3.4, p. 584 (2017: Remark 12.3). *Hidden hypotheses:* none. *Deviation (explicit):* Only the checkable claim is formalized; the rest of the remark is commentary.
+
+**V12.15 (Remark 12.3.5 (2017: 12.4), extension of equivariant local sc⁺-sections; `Polyfold.EpStrongBundle.remark_12_3_5`, `Polyfold.EpStrongBundle.natExtension`, `Polyfold.EpStrongBundle.natExtension_eq`, `Polyfold.EpStrongBundle.natExtension_isFunctorial`, `Polyfold.EpStrongBundle.natExtension_eq_zero`).** `EpStrongBundle.remark_12_3_5`: for `R : NaturalRep x`, `closure V ⊆ R.U` proper, $\sigma$ sc⁺, equivariant on the morphisms of $U(x)$, with support in `closure V`: `natExtension E R` is an sc⁺-section functor equal to $\sigma$ on $U(x)$, supported in the saturation of the support of $\sigma$, and every bound $N(\sigma) \le b$ passes to it. *Book:* §12.3, Remark 12.3.5, p. 584 (2017: Remark 12.4). *Hidden hypotheses:* none. *Deviation (explicit):* The section $\sigma$ plays the role of $f \cdot s$ (already cut off); "controlled" becomes the bound $b$.
+
+**V12.16 (Definition 12.3.6 (2017: 12.8), sc⁺-sections over the boundary: the local form; `Polyfold.retractBoundary`, `Polyfold.IsScPlusOnFaceNear`, `Polyfold.IsBoundaryScPlusSectionOn`, `Polyfold.mem_retractBoundary_iff`, `Polyfold.isBoundaryScPlusSectionOn_zero`, `Polyfold.StrongBundle.IsBoundaryScPlusSection`).** In a tame local strong bundle model $K = R(U \triangleleft F) \to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \in D$ and $i \in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\partial O$, with `mem_retractBoundary_iff`. The M-polyfold form is Definition 5.4.1 (V5.88), applicable to the object M-polyfold. Witness: the zero section (`isBoundaryScPlusSectionOn_zero`). *Book:* §12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8). *Hidden hypotheses:* none. *Deviation (restated):* This is the chart-level content used by Proposition 12.3.7 and Corollary 12.3.8; the named ep-groupoid wrapper is gap G.137.
+
+**V12.17 (Proposition 12.3.7 (2017: 12.2), local extension from the boundary; `Polyfold.proposition_12_3_7`, `Polyfold.proposition_12_3_7_of_faces_at`, `Polyfold.proposition_12_3_7_nonvacuous`, `Polyfold.boundaryExtension`, `Polyfold.boundaryExtension_toBase_snd`, `Polyfold.boundaryExtension_fst`, `Polyfold.boundaryExtension_mem`, `Polyfold.exists_isScSmooth_faceTerm`, `Polyfold.sum_powerset_erase_empty_alternating`, `Polyfold.cornerKill_insert_of_coord_eq_zero`).** `proposition_12_3_7` (book form): for $V_0$ open, $x_0 \in \partial O \cap V_0$ and the face condition on $\partial O \cap V_0$, an open $V \ni x_0$ with $O \cap V$ a retract and $\tilde s$ sc⁺ on $O \cap V$ equal to $s$ on $\partial O \cap V$. Stronger: `proposition_12_3_7_of_faces_at` needs the face condition only at $x_0$, with the explicit extension `boundaryExtension`, which agrees with the text's formula (`boundaryExtension_toBase_snd`). Witness with $\partial O \ne \emptyset$: `proposition_12_3_7_nonvacuous`. *Book:* §12.3, Proposition 12.3.7, p. 585 (2017: Proposition 12.2). *Hidden hypotheses:* none. *Deviation (stronger):* Only the face germs at $x_0$ itself are used; $E = \mathbb R^n \oplus H$ is replaced by an arbitrary tame presentation $T$; $(t,h)_I = r(t_I, h)$ is `base RB (cornerKill T I 0 z)`; the cancellation is `sum_powerset_erase_empty_alternating`.
+
+**V12.18 (Corollary 12.3.8 (2017: 12.1), equivariant local extension from the boundary; `Polyfold.corollary_12_3_8`, `Polyfold.LocalBundleAction`, `Polyfold.LocalBundleAction.trivial`, `Polyfold.LocalBundleAction.average`, `Polyfold.mem_strongShiftOne_sum_smul`).** `corollary_12_3_8` for a finite group $G$ with `A : LocalBundleAction G C O K` (an action by sc-smooth maps of $O$ with an sc-smooth, fibre-linear lift to $K[1]$ covering it, unit and composition laws), with `hfix` ($G$ fixes $x_0$), $\partial O \cap V_0$ invariant, the face condition and equivariance of $s$ there: an open invariant $V \ni x_0$ and $\hat s$ (`LocalBundleAction.average` of the extension of Proposition 12.3.7), sc⁺ on $O \cap V$, equivariant, equal to $s$ on $\partial O \cap V$. Witness: `LocalBundleAction.trivial`. *Book:* §12.3, Corollary 12.3.8, p. 586 (2017: Corollary 12.1). *Hidden hypotheses:* none. *Deviation (explicit):* "$G_{x_0}$ acts with a lift to $K$" is the structure `LocalBundleAction`; that the isotropy group fixes $x_0$ is the explicit `hfix`; "invariant" is read as equivariant, $\hat s(gx) = g * \hat s(x)$.
+
+**V12.19 (Definition 12.4.1 (2017: 12.9), compact solution set, proper, proper$_{<\infty}$; `Polyfold.EpStrongBundle.HasCompactSolutionSetEp`, `Polyfold.EpStrongBundle.IsProperFunctor`, `Polyfold.EpStrongBundle.IsProperLtInftyFunctor`).** `EpStrongBundle.HasCompactSolutionSetEp`, `IsProperFunctor`, `IsProperLtInftyFunctor`, with Chapter 8's auxiliary norms and Part I's `AuxLe` for $N(f(x)) \le C$. *Book:* §12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V12.20 (Theorem 12.4.2 (2017: 12.9), the three compactness notions agree; `Polyfold.EpStrongBundle.theorem_12_4_2`, `Polyfold.EpStrongBundle.isProperLtInftyFunctor_of_hasCompactSolutionSetEp`, `Polyfold.EpStrongBundle.IsProperFunctor.hasCompactSolutionSetEp`, `Polyfold.EpStrongBundle.IsProperLtInftyFunctor.isProperFunctor`, `Polyfold.EpStrongBundle.auxLe_tgt_of_auxLe_src`, `Polyfold.exists_nhds_isCompact_closure_auxLe`).** `EpStrongBundle.theorem_12_4_2 (hf : E.IsScFredholmSectionFunctor f) (_hpara : X.HasParacompactOrbitSpace)`: `List.TFAE [IsProperFunctor, HasCompactSolutionSetEp, IsProperLtInftyFunctor]`. *Book:* §12.4, Theorem 12.4.2, pp. 587–588 (2017: Theorem 12.9). *Hidden hypotheses:* none. *Deviation (same):* Paracompactness is kept but unused, since (1)–(3) quantify over all auxiliary norms. The proof's labels "(3)⇒(2), (2)⇒(1), (1)⇒(3)" are presumably (3)⇒(1), (1)⇒(2), (2)⇒(3), matching their arguments. The shrinking to natural neighbourhoods is not needed: the closure lies in a finite union of compact sets. The local step is Part I's Theorem 5.2.2.
+
+**V12.21 (Lemma 12.4.4 (2017: 12.1), closures in $|X|$ and in $X$; `Polyfold.EpGroupoid.lemma_12_4_4_1`, `Polyfold.EpGroupoid.lemma_12_4_4_2`, `Polyfold.EpGroupoid.isClosed_image_π_of_isSaturated`).** `EpGroupoid.lemma_12_4_4_1 (hA : X.IsSaturated A) : closure (π '' A) = π '' closure A`; `lemma_12_4_4_2 (hA : IsCompact (closure A))`, the same conclusion; `isClosed_image_π_of_isSaturated`. *Book:* §12.4, Lemma 12.4.4, p. 589 (2017: Lemma 12.1). *Hidden hypotheses:* none. *Deviation (same):* Through $\pi$ open (`IsOpenMap.preimage_closure_eq_closure_preimage`).
+
+**V12.22 (Lemma 12.5.1 (2017: 12.2), morphisms act on the linearizations; `Polyfold.EpStrongBundle.lemma_12_5_1_one`, `Polyfold.EpStrongBundle.lemma_12_5_1_two`, `Polyfold.EpStrongBundle.lemma_12_5_1_three_unit`, `Polyfold.EpStrongBundle.lemma_12_5_1_three_comp`, `Polyfold.EpStrongBundle.linMor`, `Polyfold.EpStrongBundle.morTx`, `Polyfold.EpStrongBundle.morKx`, `Polyfold.EpStrongBundle.morTx_comp`, `Polyfold.EpStrongBundle.orMor`, `Polyfold.EpStrongBundle.orMor_comp`, `Polyfold.EpStrongBundle.orMor_unit`, `Polyfold.EpStrongBundle.orMor_inv`, `Polyfold.StrongBundle.LocalIso.pullPt`, `Polyfold.StrongBundle.LocalIso.linSet_pullPt`, `Polyfold.EpStrongBundle.morIso`, `Polyfold.EpStrongBundle.eqOn_morIso`, `Polyfold.EpStrongBundle.germAgree_morIso_comp`).** `lemma_12_5_1_one` (membership), `lemma_12_5_1_two` (`Set.BijOn (linMor …) (Lin x) (Lin x′)`), `lemma_12_5_1_three_unit`, `lemma_12_5_1_three_comp`; on orientations `orMor` with `orMor_comp`, `orMor_unit`, `orMor_inv`. $\mathrm{Lin}$ is Part I's, read in chart points; $T\varphi$ and $\mu(\varphi, \cdot)$ are the chart identifications `morTx`, `morKx`, built from the local strong bundle isomorphism `morIso` of the sheet of $\varphi$. *Book:* §12.5, Lemma 12.5.1, p. 592 (2017: Lemma 12.2). *Hidden hypotheses:* `hsec : B.HasScPlusSectionsThrough` (sc⁺-sections through smooth fibre points), Part I's standing hypothesis for $\mathrm{Lin}(f, x) \ne \emptyset$; it follows from bump functions (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`). *Deviation (explicit):* Lin is read in chart points, Part I's convention. "(1) and (3) give (2)" is proved directly, by conjugation with isomorphisms. The text calls the lemma obvious; the proof pushes $(f - s_0)'(x)$ by $\hat\Phi$ to $(f - \hat\Phi_* s_0)'(x')$ (`linSet_pullPt`, using $f = \Psi \circ f \circ \phi$ by functoriality) and gets functoriality from the germ identity of the local inverses (`germAgree_morIso_comp`).
+
+**V12.23 (Definition 12.5.2 (2017: 12.11), the orientation bundle $O_f$; `Polyfold.EpStrongBundle.definition_12_5_2`, `Polyfold.orProj_two`, `Polyfold.exists_other_or`, `Polyfold.EpStrongBundle.OrRel`, `Polyfold.EpStrongBundle.orRel_equivalence`, `Polyfold.EpStrongBundle.orbitProj`, `Polyfold.EpGroupoid.SmoothRel`, `Polyfold.EpGroupoid.smoothRel_equivalence`).** `EpStrongBundle.definition_12_5_2 := OrSpace f hF.2`, Part I's orientation space of $f$ on the object M-polyfold, with `orProj`; exactly two points over each $x$ (`orProj_two`, with `hsec`); the topology is Part I's, characterized in V12.24. The action of morphisms as a relation: `OrRel` (an equivalence, `orRel_equivalence`), the orbit map `orbitProj : |O_f| → |X_∞|`. *Book:* §12.5, Definition 12.5.2, p. 593 (2017: Definition 12.11). *Hidden hypotheses:* none. *Deviation (restated):* $O_f$ and its topology are Part I's (germs continuous = Part I's `IsContOrOn`, via path transport); `orProj_two` needs `hsec` (as in V12.22). The relations `OrRel`, `SmoothRel` and the orbit spaces used in Proposition 12.5.6 are not defined in the text.
+
+**V12.24 (Theorem 12.5.3 (2017: 12.11), the topology of $O_f$; `Polyfold.EpStrongBundle.theorem_12_5_3_hyp`).** `EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`. *Book:* §12.5, Theorem 12.5.3, p. 594 (2017: Theorem 12.11). *Hidden hypotheses:* `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, the hypotheses of Part I's Theorem 6.6.17, inherited (gap G.140); the text assumes a tame $X$ only. *Deviation (narrower):* The last sentence ($\hat\Phi$ keeps continuous local sections continuous) is not proved (gap G.138). The fibre bijection of a morphism and its functoriality are `orMor` (V12.22).
+
+**V12.25 (Definition 12.5.4 (2017: 12.12), orientations of sc-Fredholm functors; `Polyfold.EpStrongBundle.definition_12_5_4`).** `EpStrongBundle.definition_12_5_4 t o`: `Continuous[t] (orSec o)` and `orMor φ (o x) = o x′` for every morphism $\varphi : x \to x'$ between smooth points, for a topology `t` on $O_f$ (Part I's, by V12.24). *Book:* §12.5, Definition 12.5.4, p. 594 (2017: Definition 12.12). *Hidden hypotheses:* none. *Deviation (same):* With Part I's hypotheses the topology is the unique one of `theorem_12_5_3_hyp`. "Smooth morphism" is read as a morphism with smooth source and target (equivalent by `mem_smoothSet_src_iff`).
+
+**V12.26 (Proposition 12.5.6 (2017: 12.4), orientability through $|\sigma|$; `Polyfold.EpStrongBundle.proposition_12_5_6_mp`, `Polyfold.EpStrongBundle.proposition_12_5_6_mpr_invariant`, `Polyfold.EpStrongBundle.IsTwoToOne`).** `EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\sigma|$, a section $o$ of $\sigma$ with $\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`. *Book:* §12.5, Proposition 12.5.6, p. 595 (2017: Proposition 12.4). *Hidden hypotheses:* `hsec`, as in V12.22. *Deviation (narrower):* (⇒) is complete. (⇐) is proved without the continuity of $o$, which needs the last clause of Theorem 12.5.3 (gaps G.138, G.139). The orbit spaces are quotients defined here.
+
+**V12.27 (Complete fibre norms are automatic (tool); `Polyfold.StrongBundle.isAuxNorm_of_tendsto`, `Polyfold.StrongBundle.exists_norm_liftOne_le_of_tendsto`, `Polyfold.StrongBundle.IsFiberSeminorm`, `Polyfold.StrongBundle.TendstoZeroOne`).** `StrongBundle.isAuxNorm_of_tendsto`: a continuous fibrewise seminorm with property (2) of Definition 5.1.1 is an auxiliary norm, since near each point it is squeezed between multiples of the chart norm $|\cdot|_1$. *Book:* not in the book (used for Definition 5.1.1 (1) and Definition 12.2.1 (1)). *Hidden hypotheses:* none. *Deviation (extra):* none.
+
+### What is not verified in this chapter
+
+- pp. 575–576, Theorem 12.2.7 (2017: 12.3): the local extension of an auxiliary norm near a boundary point in a tame local model, taken as the hypothesis `Polyfold.EpStrongBundle.HasLocalExtensions` (V12.9; gap G.136; Findings, item 2).
+- p. 584, Definition 12.3.6 (2017: 12.8): the ep-groupoid wrapper of the chart-level definition (V12.16; gap G.137).
+- p. 579, Theorem 12.3.2 (2) and p. 581, Theorem 12.3.3 (2017: 12.6 (2), 12.7): from the printed reading of Definition 12.3.1 they would need Part I's open question whether a bump function not identically 0 gives one non-zero at a given point (V12.12, V12.13; Findings, Chapter 5, item 163; Chapter 12, item 3).
+- p. 594, Theorem 12.5.3 (2017: 12.11), last sentence: morphisms keep continuous local sections of $\sigma$ continuous (V12.24; gap G.138); with it, the continuity in Proposition 12.5.6 (⇐) (V12.26; gap G.139). Theorem 12.5.3 for a tame $X$ only, without Part I's hypotheses of Theorem 6.6.17 (gap G.140; Findings, item 10).
+- p. 595, Remark 12.5.5 (2017: 12.5): prose on orientations of solution sets; no row.
+- Not yet begun (Part III wave 2): Definition 12.2.8 to Theorem 12.2.13, Theorem 12.3.9, Definition 12.4.3, Proposition 12.4.5, Theorem 12.4.6, Theorem 12.5.7.
+
+---
+
+## 14. Chapter 13 (HWZ, Part III, §§13.1–13.2 (2017 §§13.1–13.2)): begun 2026-11-13 (Part III wave 1), verified for good systems of neighbourhoods, the natural bi-action, the extension and existence of good systems and Proposition 13.1.9, and for the support, pointwise norm, symmetric structures, sums, scalar multiples, products with functions and locally finite sums of sc⁺-multisections at functor level, except properness relative to $Q$ in Theorem 13.1.7 and the decorated forms (Definitions 13.2.7, 13.2.8 and the decorated conclusions of 13.2.9 to 13.2.13); §§13.3–13.5 are not yet begun
+
+Chapter 13 (pp. 599–640; §§13.1–13.2 are pp. 599–612; numbers and pages are those of the book (Springer 2021), with the 2017 text's numbers in parentheses) is the theory of sc⁺-multisections. §13.1 constructs good systems of neighbourhoods (Lemma 13.1.1, Definition 13.1.2, Proposition 13.1.3, Definitions 13.1.4, 13.1.5, Lemma 13.1.6, Theorems 13.1.7, 13.1.8, Proposition 13.1.9 (2017: Lemma 13.1, Definition 13.1, Proposition 13.1, Definitions 13.2, 13.3, Lemma 13.2, Theorems 13.1, 13.2, Proposition 13.2)). §13.2 defines sc⁺-multisections (Definition 13.2.1 (2017: 13.4), formalized in Chapter 11), their support and pointwise norm (Definitions 13.2.2–13.2.4 (2017: 13.5–13.7)), symmetric structures (Definition 13.2.5, Lemma 13.2.6 (2017: Definition 13.8, Lemma 13.3)), decorated multisections (Definitions 13.2.7, 13.2.8 (2017: 13.9, 13.10)) and their algebra (Definitions 13.2.9, 13.2.10, Lemma 13.2.11, Definition 13.2.12, Lemma 13.2.13 (2017: Definitions 13.11, 13.12, Lemma 13.4, Definition 13.13, Lemma 13.5)).
+
+What is verified. In §13.1 Lemma 13.1.1 holds without the invariance of $V$ (V13.1); Definition 13.1.2, Proposition 13.1.3, Definitions 13.1.4, 13.1.5 and Lemma 13.1.6 are verified with the reading of “$U(x)$ with the natural $G_x$-action” as an open invariant subset of the domain of a natural representation (V13.2–V13.6); Theorem 13.1.7 is verified with the properness of the given neighbourhoods read in $X$ (V13.7; gap G.141), Theorem 13.1.8 as stated (V13.8) and Proposition 13.1.9 in a stronger form (V13.9). In §13.2 Definitions 13.2.2–13.2.5, 13.2.12 and Lemma 13.2.6 are verified (V13.10–V13.14, V13.18); Definitions 13.2.9, 13.2.10 and Lemmas 13.2.11, 13.2.13 are verified at the level of sc⁺-multisection functors and their local representations, not of decorations (V13.15–V13.17, V13.19; gap G.142).
+
+The hypotheses. One reading is taken as a hypothesis: in Theorem 13.1.7, the properness of the given neighbourhoods in $X$ (`Polyfold.EpGroupoid.IsGoodOn`), where the text has a good system of the sub-ep-groupoid on $Q$ (witness `Polyfold.EpGroupoid.GoodSystem.isGoodOn`; every M-polyfold as a trivial ep-groupoid has a good system, `Polyfold.EpGroupoid.nonempty_goodSystem_trivial`). Natural neighbourhoods with proper closure exist inside every open set (`Polyfold.EpGroupoid.exists_natNbhd_isProperSubset`). §13.2 adds no hypothesis.
+
+The setting. Ep-groupoids, natural representations, proper subsets and orbit spaces are Chapter 7's; strong bundles over ep-groupoids, auxiliary norms and the localization of strong bundles are Chapter 8's and Chapter 10's; sc⁺-multisection functors and local section structures are Chapter 11's (`Polyfold.SBLocalization.IsScPlusMultisection`, `Polyfold.SBLocalization.IsLocalRepOn`).
+
+**V13.1 (Lemma 13.1.1 (2017: 13.1), closures in $X$ and in $|X|$; `Polyfold.EpGroupoid.lemma_13_1_1`, `Polyfold.EpGroupoid.lemma_13_1_1_book`, `Polyfold.EpGroupoid.exists_natNbhd_isProperSubset`).** `EpGroupoid.lemma_13_1_1`: for `N : X.NatNbhd x` with `X.IsProperSubset (closure N.U)` and any $V \subseteq N.U$, $\overline V \subseteq N.U \iff \overline{\pi(V)} \subseteq \pi(N.U)$. `lemma_13_1_1_book` adds the invariance hypothesis. *Book:* §13.1, Lemma 13.1.1, p. 599 (2017: Lemma 13.1). *Hidden hypotheses:* none. *Deviation (stronger):* The $G_x$-invariance of $V$ is not used. (⇒) uses only properness (Proposition 7.1.10); (⇐) uses only the natural action (pigeonhole over the finite $G_x$). "$U(x)$ equipped with the natural $G_x$-action" is read as a `NatNbhd`: an open invariant subset of the domain of a natural representation, which need not be connected (Findings, Chapter 13, item 1).
+
+**V13.2 (Definition 13.1.2 (2017: 13.1), good systems of neighbourhoods; `Polyfold.EpGroupoid.NatNbhd`, `Polyfold.EpGroupoid.morBetween`, `Polyfold.EpGroupoid.IsDiffeoComponent`, `Polyfold.EpGroupoid.isDiffeoComponent_iff_injOn`, `Polyfold.EpGroupoid.GoodSystem`, `Polyfold.EpGroupoid.nonempty_goodSystem_trivial`).** `EpGroupoid.GoodSystem`, with fields `nbhd : ∀ x, X.NatNbhd x` (2), `isProperSubset_closure` (1) and `isDiffeoComponent` (3): for $\varphi \in \mathcal U(x,x')$, the component of $\varphi$ in `morBetween U(x) U(x′)` is an `IsDiffeoComponent` ($s$, $t$ sc-diffeomorphisms onto their images, which are open automatically). For open components (3) is injectivity of $s$ and $t$ (`isDiffeoComponent_iff_injOn`). Witness: every M-polyfold, as a trivial ep-groupoid, has a good system (`nonempty_goodSystem_trivial`). *Book:* §13.1, Definition 13.1.2, p. 600 (2017: Definition 13.1). *Hidden hypotheses:* none. *Deviation (restated):* Condition (2) is read through `NatNbhd` (Findings, Chapter 13, item 1); components are indexed by a point in them.
+
+**V13.3 (Proposition 13.1.3 (2017: 13.1), invariant shrinkings of good systems; `Polyfold.EpGroupoid.proposition_13_1_3`, `Polyfold.EpGroupoid.GoodSystem.restrict`, `Polyfold.EpGroupoid.GoodSystem.exists_refinement_subset`, `Polyfold.EpGroupoid.NatNbhd.invariantCore`, `Polyfold.EpGroupoid.GoodSystem.isDiffeoComponent_of_subset`).** `EpGroupoid.proposition_13_1_3`: for open $W(x) \ni x$ inside $U(x)$, invariant under the $\Phi_g$ of $U(x)$, there is a good system with $U'(x) = W(x)$ and the same natural representations (`GoodSystem.restrict`). `GoodSystem.exists_refinement_subset`: an invariant refinement inside $U(x) \cap V(x)$ (`NatNbhd.invariantCore`). *Book:* §13.1, Proposition 13.1.3, p. 600 (2017: Proposition 13.1). *Hidden hypotheses:* none. *Deviation (same):* Holds as printed with the `NatNbhd` reading; with "natural action on a connected domain", $\tilde U(x)$ could fail to be the domain of a natural representation. (1) and (3) pass to subsets: closed subsets of proper sets are proper, and components of a smaller set lie in components of the larger one.
+
+**V13.4 (Definition 13.1.4 (2017: 13.2), refinements and subordinate good systems; `Polyfold.EpGroupoid.GoodSystem.IsRefinement`, `Polyfold.EpGroupoid.GoodSystem.IsSubordinate`, `Polyfold.EpGroupoid.GoodSystem.isRefinement_restrict`).** `GoodSystem.IsRefinement 𝒲 𝒰 := ∀ x, 𝒲.U x ⊆ 𝒰.U x`; `GoodSystem.IsSubordinate 𝒰 O := ∀ x, ∃ i, 𝒰.U x ⊆ O i`; `isRefinement_restrict`. *Book:* §13.1, Definition 13.1.4, p. 600 (2017: Definition 13.2). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V13.5 (Definition 13.1.5 (2017: 13.3), the natural bi-action; `Polyfold.EpGroupoid.biact`, `Polyfold.EpGroupoid.src_biact`, `Polyfold.EpGroupoid.tgt_biact`, `Polyfold.EpGroupoid.biact_mem`, `Polyfold.EpGroupoid.biact_biact`, `Polyfold.EpGroupoid.isScSmoothOn_biact`, `Polyfold.EpGroupoid.biactMulAction`, `Polyfold.EpGroupoid.GoodSystem.biact`).** `EpGroupoid.biact N N' g' φ g` $= \Gamma'(g', t\varphi) \circ \varphi \circ \Gamma(g, \Phi_{g^{-1}}(s\varphi))$, with source $\Phi_{g^{-1}}(s\varphi)$ (`src_biact`), target $\Phi'_{g'}(t\varphi)$ (`tgt_biact`), values in $\mathcal U(x,x')$ (`biact_mem`), the action laws (`biact_biact`) and sc-smoothness of each map (`isScSmoothOn_biact`); packaged as a `MulAction` (`biactMulAction`). *Book:* §13.1, Definition 13.1.5, p. 601 (2017: Definition 13.3). *Hidden hypotheses:* none. *Deviation (restated):* The book names the map; the formula is the one used in the book's proofs. Convention: `biact g′ φ g` is the book's $g' * \varphi * g$, with source $g^{-1} * s(\varphi)$.
+
+**V13.6 (Lemma 13.1.6 (2017: 13.2), with the discussion before it; `Polyfold.EpGroupoid.GoodSystem.image_biact_comp`, `Polyfold.EpGroupoid.GoodSystem.image_inv_comp`, `Polyfold.EpGroupoid.GoodSystem.components`, `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_one`, `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_two`, `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_three_src`, `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_three_tgt`, `Polyfold.EpGroupoid.GoodSystem.eq_one_of_biact_left_mem`, `Polyfold.EpGroupoid.GoodSystem.eq_one_of_biact_right_mem`, `Polyfold.EpGroupoid.GoodSystem.exists_biact_left_of_src`, `Polyfold.EpGroupoid.GoodSystem.exists_biact_right_of_tgt`).** `GoodSystem.image_biact_comp` (components go to components; `image_inv_comp` for inversion; the components partition $\mathcal U(x,x')$). `lemma_13_1_6_one`, `lemma_13_1_6_two` from the pointwise forms `eq_one_of_biact_left_mem`, `eq_one_of_biact_right_mem` (one $\psi \in \Sigma$ with $g' * \psi \in \Sigma$ forces $g' = 1$); `lemma_13_1_6_three_src`, `_tgt` for the components of any two morphisms. *Book:* §13.1, Lemma 13.1.6, p. 602 (2017: Lemma 13.2), and the discussion before it. *Hidden hypotheses:* none. *Deviation (stronger):* (1) and (2) need only one $\psi \in \Sigma$ with $g' * \psi \in \Sigma$; (3) has no membership hypotheses (for $\varphi \notin \mathcal U(x,x')$ the component is empty).
+
+**V13.7 (Theorem 13.1.7 (2017: 13.1), extension of good partial systems; `Polyfold.EpGroupoid.theorem_13_1_7`, `Polyfold.EpGroupoid.IsTransport`, `Polyfold.EpGroupoid.injOn_comp_of_transport`, `Polyfold.EpGroupoid.exists_nhds_injOn_of_isProperSubset`, `Polyfold.EpGroupoid.exists_transport_of_isGoodOn`, `Polyfold.EpGroupoid.IsGoodOn`).** `EpGroupoid.theorem_13_1_7`: for any $Q$ with $\pi(Q) = |X|$, a family `N : ∀ x, X.NatNbhd x` with `X.IsGoodOn N Q`, and open $W(y) \ni y$, there is a good system with `𝒰.nbhd q = N q` for $q \in Q$ and $U(y) \subseteq W(y)$ for $y \notin Q$. `IsGoodOn N Q`: $U(q) \subseteq Q$, $t : s^{-1}(\mathrm{cl}_X U(q)) \to X$ proper, and (3) on $\mathcal U(q,q')$. Witness: `GoodSystem.isGoodOn`. *Book:* §13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1). *Hidden hypotheses:* properness of the given $U(q)$ in $X$ (`IsGoodOn`); the book's good system for the sub-ep-groupoid on $Q$ gives properness in $Q$. That $Q$-properness implies $X$-properness when $|Q| = |X|$ is presumably true and not formalized (gap G.141); witness `GoodSystem.isGoodOn`. *Deviation (narrower):* Otherwise stronger: $Q$ need not be open, and the given $U(q)$ are kept unchanged. The natural action and $\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$.
+
+**V13.8 (Theorem 13.1.8 (2017: 13.2), existence of good systems; `Polyfold.EpGroupoid.theorem_13_1_8`).** `EpGroupoid.theorem_13_1_8 (hX : X.HasParacompactOrbitSpace) W hW hxW : ∃ 𝒰 : X.GoodSystem, ∀ x, 𝒰.U x ⊆ W x`. *Book:* §13.1, Theorem 13.1.8, p. 604 (2017: Theorem 13.2). *Hidden hypotheses:* none. *Deviation (same):* The book's "for all $\in X$" is read as "for all $x \in X$". The proof uses paracompactness of $|X|$ through a precise refinement and the shrinking lemma; metrizability is not used.
+
+**V13.9 (Proposition 13.1.9 (2017: 13.2), with the stabilisers and $D_\Sigma$ before it; `Polyfold.EpGroupoid.GoodSystem.stabSrc`, `Polyfold.EpGroupoid.GoodSystem.stabTgt`, `Polyfold.EpGroupoid.GoodSystem.D`, `Polyfold.EpGroupoid.GoodSystem.isScDiffeoOn_D`, `Polyfold.EpGroupoid.GoodSystem.proposition_13_1_9`, `Polyfold.EpGroupoid.GoodSystem.proposition_13_1_9_D`, `Polyfold.EpGroupoid.GoodSystem.partner`, `Polyfold.EpGroupoid.GoodSystem.partnerHom`, `Polyfold.EpGroupoid.GoodSystem.srcInv`).** `GoodSystem.stabSrc`, `stabTgt` (subgroups), `GoodSystem.D` with `isScDiffeoOn_D`. `GoodSystem.proposition_13_1_9 (hφ : φ ∈ 𝒰.mor x x′)`: `f : stabSrc ≃* stabTgt` with $\mathrm{srcInv}(\Phi_g z) = \mathrm{biact}(f g)(\mathrm{srcInv}\,z)\,g^{-1}$ on $s(\Sigma)$, and every map with this property equals $f$; `proposition_13_1_9_D`: $\Phi'_{g'(g)} \circ D_\Sigma = D_\Sigma \circ \Phi_g$ on $s(\Sigma)$. *Book:* §13.1, Proposition 13.1.9, p. 607 (2017: Proposition 13.2), and the discussion before it, p. 606. *Hidden hypotheses:* none. *Deviation (stronger):* Uniqueness holds among all maps, not only homomorphisms. The proof goes through Lemma 13.1.6 and the bi-action laws, not through smoothness of $\Theta_g$.
+
+**V13.10 (Definition 13.2.2 (2017: 13.5), domain support and support; `Polyfold.SBLocalization.supp`, `Polyfold.SBLocalization.suppAt`, `Polyfold.SBLocalization.domSupp`, `Polyfold.SBLocalization.IsLocalRepOn.suppAt_eq`, `Polyfold.SBLocalization.IsScPlusMultisection.finite_suppAt`, `Polyfold.SBLocalization.IsScPlusMultisection.sum_suppAt`, `Polyfold.SBLocalization.IsScPlusMultisection.suppAt_nonempty`, `Polyfold.SBLocalization.domSupp_eq_closure_image`).** `SBLocalization.domSupp Λ = closure {x | ∃ w, P w = x ∧ w ≠ 0_x ∧ 0 < Λ w}`, `supp`, `suppAt`; the claims: `IsLocalRepOn.suppAt_eq`, `IsScPlusMultisection.finite_suppAt`, `sum_suppAt`, `suppAt_nonempty`, and `domSupp_eq_closure_image` (the first relation after Definition 13.2.3). *Book:* §13.2, Definition 13.2.2, p. 608 (2017: Definition 13.5). *Hidden hypotheses:* none. *Deviation (same):* At functor level: $\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\Lambda, U, S]$ are gap G.142.
+
+**V13.11 (Definition 13.2.3 (2017: 13.6), the pointwise norm $N(\Lambda)$; `Polyfold.SBLocalization.normW`, `Polyfold.SBLocalization.pointwiseNorm`, `Polyfold.SBLocalization.IsScPlusMultisection.suppAt_subset_oneSet`, `Polyfold.SBLocalization.IsScPlusMultisection.isGreatest_pointwiseNorm`, `Polyfold.SBLocalization.IsScPlusMultisection.domSupp_eq_closure_pointwiseNorm`).** `SBLocalization.pointwiseNorm N Λ x = sSup (normW N '' suppAt Λ x)`, with the supremum attained (`isGreatest_pointwiseNorm`); both relations for every auxiliary norm (`domSupp_eq_closure_pointwiseNorm`). *Book:* §13.2, Definition 13.2.3, p. 608 (2017: Definition 13.6). *Hidden hypotheses:* none. *Deviation (restated):* The maximum is written as a supremum with an attainment lemma; attainment uses that sc⁺-section values lie in $W_{0,1}$.
+
+**V13.12 (Definition 13.2.4 (2017: 13.7), trivial on $V$; `Polyfold.SBLocalization.IsTrivialOn`, `Polyfold.SBLocalization.IsScPlusMultisection.apply_fiberZero_eq_one_iff`, `Polyfold.SBLocalization.IsScPlusMultisection.isLeast_domSupp`).** `SBLocalization.IsTrivialOn Λ V := ∀ x ∈ V, Λ (0_x) = 1`; the "hence" clause is `apply_fiberZero_eq_one_iff` (an iff); the remark is `isLeast_domSupp`. *Book:* §13.2, Definition 13.2.4, p. 609 (2017: Definition 13.7). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V13.13 (Definition 13.2.5 (2017: 13.8), symmetric sc⁺-section structures; `Polyfold.SBLocalization.SymmetricStructure`, `Polyfold.SBLocalization.prodIsotropyAction`).** `SBLocalization.SymmetricStructure A Λ x`, with a natural representation `R` ($U = R.U$), the properness property, a finite index type `I` with a `MulAction` of the isotropy group, sections `s`, sc⁺-regularity, equivariance and the representation of $\Lambda$. *Book:* §13.2, Definition 13.2.5, p. 610 (2017: Definition 13.8). *Hidden hypotheses:* none. *Deviation (restated):* "$G_x$-invariant with the natural action" is read as "$U(x)$ is the domain of a natural representation", Chapter 11's reading of Definition 13.2.1, which includes connectedness; properness is the existing `HasPropernessProperty`; weights are in $\mathbb Q_{\ge 0}$.
+
+**V13.14 (Lemma 13.2.6 (2017: 13.3), symmetric structures exist locally; `Polyfold.SBLocalization.transportSection`, `Polyfold.SBLocalization.isScPlusSectionOn_transportSection`, `Polyfold.SBLocalization.IsLocalRepOn.exists_equal_weights`, `Polyfold.SBLocalization.lemma_13_2_6`, `Polyfold.SBLocalization.extendZero`, `Polyfold.SBLocalization.IsLocalRepOn.extendZero`).** `SBLocalization.lemma_13_2_6 (hΛ : IsScPlusMultisection A Λ) (x) : Nonempty (SymmetricStructure A Λ x)`, by the text's construction: shrink a local representation to a natural representation with the properness property, equalise the weights (`IsLocalRepOn.exists_equal_weights`), and transport by $G_x$ (`transportSection`, index set $I \times G_x$). *Book:* §13.2, Lemma 13.2.6, p. 610 (2017: Lemma 13.3). *Hidden hypotheses:* none. *Deviation (same):* Before transporting, the sections are extended by 0 off $U$, so that sections are global functions.
+
+**V13.15 (Definition 13.2.9 (2017: 13.11), the sum $\Lambda' \oplus \Lambda''$; `Polyfold.SBLocalization.addAt`, `Polyfold.SBLocalization.multisectionAdd`, `Polyfold.SBLocalization.multisectionAdd_eq_conv`, `Polyfold.SBLocalization.multisectionAdd_eq_sum_of_isLocalRepOn`, `Polyfold.SBLocalization.definition_13_2_9`, `Polyfold.SBLocalization.multisectionAdd_comm`, `Polyfold.SBLocalization.multisectionAdd_assoc`, `Polyfold.SBLocalization.convAt`, `Polyfold.SBLocalization.conv`, `Polyfold.SBLocalization.isLocalRepOn_conv`, `Polyfold.SBLocalization.isScPlusMultisection_conv`, `Polyfold.SBLocalization.IsScPlusSectionOn.sectionAdd`).** `SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form of (3): `multisectionAdd_eq_sum_of_isLocalRepOn` (sections $s'_i + s''_j$, weights $\sigma'_i\sigma''_j$); `multisectionAdd_comm` (for all functions), `multisectionAdd_assoc` (for sc⁺-multisections); the $n$-fold sum `conv` with `isScPlusMultisection_conv`. *Book:* §13.2, Definition 13.2.9, p. 611 (2017: Definition 13.11). *Hidden hypotheses:* none. *Deviation (narrower):* (1) and the closure under $\oplus$ are as printed; (2)–(3) are kept at the level of local representations, not of decorations (gap G.142).
+
+**V13.16 (Definition 13.2.10 (2017: 13.12), scalar multiples $a\Lambda$; `Polyfold.SBLocalization.smulAt`, `Polyfold.SBLocalization.multisectionSmul`, `Polyfold.SBLocalization.multisectionSmul_zero`, `Polyfold.SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn`, `Polyfold.SBLocalization.definition_13_2_10`, `Polyfold.SBLocalization.IsScPlusSectionOn.sectionSmul`).** `SBLocalization.multisectionSmul a Λ`, exactly these cases; $0\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`). *Book:* §13.2, Definition 13.2.10, p. 611 (2017: Definition 13.12). *Hidden hypotheses:* none. *Deviation (narrower):* As printed at functor level; the decorated form is gap G.142.
+
+**V13.17 (Lemma 13.2.11 (2017: 13.4), $\beta \odot \Lambda$; `Polyfold.SBLocalization.multisectionSmulFun`, `Polyfold.SBLocalization.lemma_13_2_11`).** `SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\beta$ sc-smooth on the object M-polyfold (the book's "sc-smooth functor"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`. *Book:* §13.2, Lemma 13.2.11, p. 612 (2017: Lemma 13.4). *Hidden hypotheses:* none. *Deviation (narrower):* As printed at functor level; the decorated conclusion is gap G.142.
+
+**V13.18 (Definition 13.2.12 (2017: 13.13), locally finite families; `Polyfold.SBLocalization.nontrivIdx`, `Polyfold.SBLocalization.nontrivIdx_mono`, `Polyfold.SBLocalization.IsLocallyFiniteFamily`, `Polyfold.SBLocalization.IsLocallyFiniteFamily.exists_stable`).** `SBLocalization.IsLocallyFiniteFamily Λ := ∀ x, ∃ O, IsOpen O ∧ IsSaturated O ∧ x ∈ O ∧ (nontrivIdx Λ O).Finite`; the stability remark is `IsLocallyFiniteFamily.exists_stable` (minimising the cardinality), for open saturated $O' \ni x$. *Book:* §13.2, Definition 13.2.12, p. 612 (2017: Definition 13.13). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V13.19 (Lemma 13.2.13 (2017: 13.5), locally finite sums; `Polyfold.SBLocalization.lfSum`, `Polyfold.SBLocalization.lfSum_eq_conv`, `Polyfold.SBLocalization.lfSum_eq_conv_of_mem`, `Polyfold.SBLocalization.trivial_of_not_mem_nontrivIdx`, `Polyfold.SBLocalization.lemma_13_2_13`).** `SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`. *Book:* §13.2, Lemma 13.2.13, p. 612 (2017: Lemma 13.5). *Hidden hypotheses:* none. *Deviation (narrower):* The text does not write out $\oplus$ over infinite $J$; it is read through finitely supported families (indices off $J_x$ contribute the zero vector with weight 1), which agrees with Definition 13.2.9 (1) for finite $J$. The decorated conclusion is gap G.142.
+
+**V13.20 (Tools for good systems; `Polyfold.MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn`, `Polyfold.EpGroupoid.continuousOn_comp_of_continuousOn`, `Polyfold.EpGroupoid.exists_natNbhd_isProperSubset`, `Polyfold.EpGroupoid.exists_isOpen_injOn_src_tgt`).** `MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn`: a local sc-diffeomorphism injective on an open $S$ is an sc-diffeomorphism $S \to f(S)$ with inverse `invFunOn`; `exists_natNbhd_isProperSubset`: neighbourhoods with the natural action and proper closure inside any open $W \ni x$; `exists_isOpen_injOn_src_tgt`. *Book:* not in the book (used in §13.1). *Hidden hypotheses:* none. *Deviation (extra):* none.
+
+### What is not verified in this chapter
+
+- p. 602, Theorem 13.1.7 (2017: 13.1): that a good system of the sub-ep-groupoid on $Q$ is proper in $X$ when $|Q| = |X|$ (V13.7; gap G.141; Findings, item 3).
+- pp. 610–612, Definitions 13.2.7, 13.2.8 (2017: 13.9, 13.10) and the decorated conclusions of Definitions 13.2.9, 13.2.10 and Lemmas 13.2.11, 13.2.13: decorated sc⁺-multisections are not formalized (V13.15–V13.17, V13.19; gap G.142; Findings, item 6).
+- p. 611, the remark after Definition 13.2.9 that sc⁺-multisections have in general no inverse: no example is formalized (gap G.143).
+- Not yet begun (Part III wave 2): §§13.3–13.5.
+
+---
+
+## 15. Chapter 15 (HWZ, Part III, §15.1 (2017 §15.1)): begun 2026-11-13 (Part III wave 1), verified for the well-definedness of the linearization $T(f, \Lambda)$ at every level-1 point and the separation lemmas (Proposition 15.1.3 for a non-isolated point), except the functor property of $T(f, \Lambda)$ and the sc-Fredholm property of its summands; §§15.2–15.4 are not yet begun
+
+Chapter 15 (pp. 683–703; §15.1 is pp. 683–687; numbers and pages are those of the book (Springer 2021), with the 2017 text's numbers in parentheses) is transversality and the invariants for sc-Fredholm section functors perturbed by sc⁺-multisections. §15.1 defines the linearization $T(f, \Lambda)$ with values in $\mathrm{GrF}$ (preamble, Theorem 15.1.1, Remark 15.1.2, Definition 15.1.7 (2017: Theorem 15.1, Remark 15.1, Definition 15.1)), proved through separating sequences (Proposition 15.1.3, Lemmas 15.1.4, 15.1.5, Remark 15.1.6 (2017: Proposition 15.1, Lemmas 15.1, 15.2; the remark is new in 2021)).
+
+What is verified. The well-definedness of $T(f, \Lambda)(x)$, the substance of Theorem 15.1.1, is proved at every level-1 point, independent of the local section structure and of the chart (V15.2), together with Remark 15.1.2 and Definition 15.1.7 (V15.3, V15.8); the functor property and the Fredholm property of the summands are not (gaps G.144, G.145). Proposition 15.1.3 is verified for a non-isolated point; at an isolated point no such sequence exists, a degenerate case (V15.4; Findings, item 3). Lemmas 15.1.4, 15.1.5 are verified in a more general topological setting, and Remark 15.1.6 with “slightly” made explicit (V15.5–V15.7).
+
+The hypotheses. One: $x_0$ is not isolated in Proposition 15.1.3 (`(𝓝[≠] x₀).NeBot`; witness `Polyfold.Linearization15.proposition_15_1_3_hyp_witness`). The readings (a) and (b) of the proof of Theorem 15.1.1 are recorded in Findings, items 1 and 2.
+
+The setting. Sc-Fredholm section functors are Chapter 12's (V12.1); sc⁺-multisections and local section structures are Chapter 11's; the tangent fibre $T_xX$ and the linearizations are Part I's, read in charts and transported to the intrinsic fibres.
+
+**V15.1 (The preamble of §15.1: $\mathrm{GrF}(x)$; `Polyfold.SBLocalization.GrF`, `Polyfold.Linearization15.GrFModel`).** `SBLocalization.GrF x := (T_xX →ₗ[ℝ] W_x) →₀ ℚ≥0` for $x \in X_1$, with $W_x = P^{-1}(x)$ and $T_xX$ the project's tangent fibre; the chart version `Linearization15.GrFModel`. *Book:* §15.1, preamble, p. 683 (2017: §15.1). *Hidden hypotheses:* none. *Deviation (restated):* Formal sums are finitely supported functions, defined at all level-1 points. That the summands are sc-Fredholm is not part of the type (gap G.145); $\varphi_*$ and $\mathrm{GrF}(X)$ as a category are not built (gap G.144).
+
+**V15.2 (Theorem 15.1.1 (2017: 15.1), the linearization $T(f,\Lambda)$ is well defined; `Polyfold.SBLocalization.theorem_15_1_1_intrinsic`, `Polyfold.SBLocalization.linSumIntr`, `Polyfold.SBLocalization.linSumIntr_chart_independent`, `Polyfold.SBLocalization.toIntr_chart_independent`, `Polyfold.SBLocalization.toIntr`, `Polyfold.SBLocalization.sectionSubOn`, `Polyfold.SBLocalization.linearization_eq`, `Polyfold.SBLocalization.nonempty_localLinData`, `Polyfold.SBLocalization.theorem_15_1_1`, `Polyfold.SBLocalization.linSumChart`, `Polyfold.SBLocalization.IsLocalRepOn.count_eq`, `Polyfold.Linearization15.theorem_15_1_1_model`, `Polyfold.Linearization15.wsum_model_eq`, `Polyfold.Linearization15.continuousOn_scDeriv_coe`, `Polyfold.Linearization15.wsum_pair_eq_of_isLocal`).** `theorem_15_1_1_intrinsic`: for `A.E.IsScFredholmSectionFunctor f`, two local section structures `IsLocalRepOn A Λ O s σ`, `IsLocalRepOn A Λ O′ t τ` on open sets and compatible charts with domains inside them, `linSumIntr c hx f s σ = linSumIntr c′ hx′ f t τ` at every $x \in X_1$ in both charts ($\sum_{f(x) = s_i(x)} \sigma_i\,\Phi_x^{-1} \circ D((\hat f - \hat s_i) \circ r)(\varphi x) \circ T\varphi$ in $\mathrm{GrF}(x)$). Chart form `theorem_15_1_1`, model form `theorem_15_1_1_model`. The value: `linearization_eq` (property (2) for any data), `nonempty_localLinData`; property (1): `linearization_eq_zero`. *Book:* §15.1, Theorem 15.1.1, pp. 684–687 (2017: Theorem 15.1). *Hidden hypotheses:* none. *Deviation (narrower):* The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. Narrower because the functor property $T(f,\Lambda)(t\varphi) = \varphi_* T(f,\Lambda)(s\varphi)$ (gap G.144) and the sc-Fredholm property of the summands (gap G.145) are not formalized. Readings (Findings, Chapter 15, items 1, 2): (a) the separation argument runs in the level-1 topology, and the "weak topology" of the limit of derivatives is read as pointwise convergence on $E_0$ (the derivatives $D(g \circ r)$ of an sc¹ map are continuous only from level 1); (b) in the final display, presumably the sum is over $\{i : f(0) = s_i(0)\}$, since $f(0) = s_i(0)$ need not hold for all $i$; the proof compares the formal sums of pairs $(s_i(r(y)), D((f - s_i) \circ r)(y))$. "Without loss of generality $X = O$" is the chart change `toIntr_chart_independent`.
+
+**V15.3 (Remark 15.1.2 (2017: 15.1), (1) follows from (2); `Polyfold.SBLocalization.linearization_eq_zero`, `Polyfold.SBLocalization.remark_15_1_2`, `Polyfold.Linearization15.remark_15_1_2_model`, `Polyfold.Linearization15.mem_support_linSumModel_iff`).** `SBLocalization.linearization_eq_zero`: if $\Lambda(f(x)) = 0$ then `linearization f Λ x = 0`; chart forms `remark_15_1_2`, `remark_15_1_2_model`; with positive weights an operator lies in the support iff some $i$ with $s_i(y) = f(y)$ produces it (`mem_support_linSumModel_iff`). *Book:* §15.1, Remark 15.1.2, p. 684 (2017: Remark 15.1). *Hidden hypotheses:* none. *Deviation (restated):* In Lean $(f - s_i)'$ is defined for every $i$ and the sum is filtered by $s_i(y) = f(y)$; (1) is derived from positivity of the weights and the count formula.
+
+**V15.4 (Proposition 15.1.3 (2017: 15.1), separating sequences; `Polyfold.Linearization15.proposition_15_1_3_hyp`, `Polyfold.Linearization15.proposition_15_1_3_hyp_witness`, `Polyfold.Linearization15.not_proposition_15_1_3_of_isolated`, `Polyfold.Linearization15.not_proposition_15_1_3_point`, `Polyfold.Linearization15.IsSeparatedAt`, `Polyfold.Linearization15.IsLocDich`, `Polyfold.Linearization15.exists_isLocDich_mem`, `Polyfold.Linearization15.exists_isSeparatedAt_subseq`).** `Linearization15.proposition_15_1_3_hyp`: in a first countable $T_1$ space $Z$, for finitely many maps continuous on an open $V \ni x_0$ with values in a Hausdorff space, and **$x_0$ not isolated** (`(𝓝[≠] x₀).NeBot`): $x_k \in V$, $x_k \ne x_0$, $x_k \to x_0$, and one partition $e : I \to \mathrm{Fin}\,p$ with `IsSeparatedAt s e (x k)` for all $k$. At an isolated point no such sequence exists: `not_proposition_15_1_3_of_isolated`, `not_proposition_15_1_3_point` (a one-point model). Witness: `proposition_15_1_3_hyp_witness` ($\mathbb R$ at 0). *Book:* §15.1, Proposition 15.1.3, p. 684 (2017: Proposition 15.1). *Hidden hypotheses:* $x_0$ is not isolated; witness `proposition_15_1_3_hyp_witness`. *Deviation (narrower):* At an isolated point of the local model (for instance a zero-dimensional $X$) a sequence $x_k \ne 0$, $x_k \to 0$ cannot exist, so the proposition does not hold as we read it there (`not_proposition_15_1_3_of_isolated`); a degenerate case (Findings, Chapter 15, item 3). Theorem 15.1.1 is unaffected: its core lemma handles isolated points through locality. Otherwise the statement is more general: topological, with no sc-structure.
+
+**V15.5 (Lemma 15.1.4 (2017: 15.1), finite closed covers of a ball; `Polyfold.Linearization15.lemma_15_1_4`, `Polyfold.Linearization15.exists_nonempty_interior_of_finite_closed_cover`, `Polyfold.Linearization15.interior_biUnion_eq_empty`).** `Linearization15.lemma_15_1_4`, in any pseudo-metric space: for finitely many relatively closed $A_i$ with $\bigcup A_i = B_\varepsilon(y)$, some $A_i$ has nonempty interior; topological core `exists_nonempty_interior_of_finite_closed_cover`. *Book:* §15.1, Lemma 15.1.4, p. 685 (2017: Lemma 15.1). *Hidden hypotheses:* none. *Deviation (stronger):* The proof is by induction on the index set instead of moving $z$ step by step; it is applied on the level-1 topology (reading (a) of V15.2).
+
+**V15.6 (Lemma 15.1.5 (2017: 15.2), local dichotomy of finitely many sections; `Polyfold.Linearization15.lemma_15_1_5`, `Polyfold.Linearization15.exists_isOpen_dichotomy`, `Polyfold.Linearization15.exists_fin_partition`).** `Linearization15.lemma_15_1_5`: in a pseudo-metric space, for finitely many maps continuous on $B_\varepsilon(y)$ into a Hausdorff space, exactly these conclusions, the partition a surjection $e : I \to \mathrm{Fin}\,p$; topological form `exists_isOpen_dichotomy`. *Book:* §15.1, Lemma 15.1.5, p. 685 (2017: Lemma 15.2). *Hidden hypotheses:* none. *Deviation (stronger):* The maps need only be continuous with values in a Hausdorff space; the sections need not be sc⁺.
+
+**V15.7 (Remark 15.1.6, modifying the sequence; `Polyfold.Linearization15.remark_15_1_6`, `Polyfold.Linearization15.IsSeparatedAt.eventually`).** `Linearization15.remark_15_1_6` (metric space): from $x'_k \to x_0$ in $V$, points $x''_k \in V$ with $d(x'_k, x''_k) < 1/(k+1)$, $x''_k \to x_0$, a subsequence and a partition with `IsSeparatedAt` along it. `IsSeparatedAt.eventually`: separation at $z$ persists near $z$. *Book:* §15.1, Remark 15.1.6, p. 686 (not in the 2017 text). *Hidden hypotheses:* none. *Deviation (restated):* "Slightly" is $d < 1/(k+1)$ in the first part and "eventually near $z$" in the second.
+
+**V15.8 (Definition 15.1.7 (2017: 15.1), the linearization of $\Lambda \circ f$; `Polyfold.SBLocalization.linearization`, `Polyfold.SBLocalization.LocalLinData`, `Polyfold.SBLocalization.LocalLinData.sum`, `Polyfold.SBLocalization.linearization_eq`, `Polyfold.SBLocalization.nonempty_localLinData`, `Polyfold.SBLocalization.linearizationIn`, `Polyfold.SBLocalization.linearizationIn_eq`).** `SBLocalization.linearization f Λ x : GrF x` for $x \in X_1$, the formal sum of some `LocalLinData A Λ x` (a local section structure and a chart around $x$ inside it), $0$ if there is none; independent of the choice (`linearization_eq`), data exist (`nonempty_localLinData`), $0$ off the support (`linearization_eq_zero`). Chart reading `linearizationIn`. *Book:* §15.1, Definition 15.1.7, p. 687 (2017: Definition 15.1). *Hidden hypotheses:* none. *Deviation (restated):* none.
+
+### What is not verified in this chapter
+
+- p. 684, Theorem 15.1.1 (2017: 15.1): the functor property $T(f, \Lambda)(t\varphi) = \varphi_* T(f, \Lambda)(s\varphi)$ and $\mathrm{GrF}(X)$ as a category (V15.2; gap G.144; Findings, item 4).
+- pp. 683–684, the preamble and Theorem 15.1.1 (2): the summands of $T(f, \Lambda)(x)$ are sc-Fredholm operators (V15.1, V15.2; gap G.145).
+- p. 684, Proposition 15.1.3 (2017: 15.1) at an isolated point: does not hold as we read it, a degenerate case not used by Theorem 15.1.1 (V15.4; Findings, item 3).
+- Not yet begun (Part III wave 2 and later): §§15.2–15.4.
+
+---
+
+## 16. Chapter 16 (HWZ, Part III, §16.1 (2017 §16.1)): begun 2026-11-13 (Part III wave 1), verified for polyfold structures, their equivalence, polyfolds, the invariance of bump functions, partitions of unity and tameness, the degeneracy index and the boundary, with the readings recorded below (the uniqueness sentence after Definition 16.1.2 and Remark 16.1.7 do not hold as we read them, and are verified for an effective target), except the metrizability remark; Definition 16.1.6 to Proposition 16.1.12, Definitions 16.1.15, 16.1.21, Proposition 16.1.22 and §§16.2–16.6 are not yet begun
+
+Chapter 16 (pp. 705–740; §16.1 is pp. 705–715; numbers and pages are those of the book (Springer 2021), with the 2017 text's numbers in parentheses) defines polyfolds and their structures. §16.1 defines polyfold structures (Definition 16.1.1 (2017: 16.1)), their equivalence (Definition 16.1.2 (2017: 16.2)) and polyfolds (Definition 16.1.3 (2017: 16.3)), shows that bump functions and partitions of unity do not depend on the structure (Proposition 16.1.4, Definition 16.1.5 (2017: Proposition 16.2, Definition 16.4)), discusses generalized isomorphisms over homeomorphisms (Remark 16.1.7 (2017: 16.1)), and defines the degeneracy index, the boundary and tameness (Lemma 16.1.13, Definitions 16.1.14, 16.1.17, Lemma 16.1.19, Definition 16.1.20 (2017: Lemma 16.1, Definitions 16.9, 16.11, Lemma 16.2, Definition 16.12)).
+
+What is verified. Definitions 16.1.1–16.1.3, 16.1.5, 16.1.14, 16.1.17, 16.1.20 and Lemma 16.1.13 are verified as stated (V16.1, V16.2, V16.4, V16.6, V16.8–V16.10, V16.12); Proposition 16.1.4 with bump functions on the object M-polyfold (V16.5); Lemma 16.1.19 as an iff (V16.11). The sentence after Definition 16.1.2 that the generalized isomorphism is unique, as a consequence of (ZHOU), and Remark 16.1.7 with the sentence on pp. 709–710, do not hold as we read them: the trivial $\mathbb Z/3$-ep-groupoid on $\mathbb R$ is a polyfold structure in the sense of Definition 16.1.1, and the identity and the inversion give two generalized isomorphisms with the same orbit map; both statements are proved for an effective target (V16.3, V16.7; Findings, items 1, 2).
+
+The hypotheses. None beyond the text's statements. Every definition has a witness: the polyfold $\mathbb R$ with the trivial $\mathbb Z/3$-action (`Polyfold.PolyfoldStructure.z3PolyfoldStructure`, `Polyfold.PolyfoldStructure.z3Polyfold` and the `z3Polyfold_*` declarations; V16.13).
+
+The setting. Ep-groupoids, orbit spaces, the degeneracy index on $|X|$ and tameness are Chapter 7's; generalized isomorphisms and the localization $\mathcal{EP}(E^{-1})$ are Chapter 10's, with (ZHOU) and Theorem 10.3.19 for effective ep-groupoids; the invariance of tameness under equivalences is Chapter 11's.
+
+**V16.1 (Definition 16.1.1 (2017: 16.1), polyfold structures; `Polyfold.PolyfoldStructure`, `Polyfold.PolyfoldStructure.toOrbitChart`, `Polyfold.PolyfoldStructure.isLR`, `Polyfold.PolyfoldStructure.z3PolyfoldStructure`).** `structure PolyfoldStructure (Z)`, with fields `X`, `paracompact : X.X.HasParacompactOrbitSpace`, `isZhou : X.X.IsZhou` and `β : X.X.OrbitSpace ≃ₜ Z`; `toOrbitChart` (the pair of Remark 10.3.18) and `isLR`. Witness: `z3PolyfoldStructure` on $\mathbb R$ (the trivial $\mathbb Z/3$-action). *Book:* §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1). *Hidden hypotheses:* none. *Deviation (same):* $Z$ lives in the universe of the object and morphism sets of $X$. The text's remark that $Z$ is then metrizable is gap G.146. The 2017 definition had neither (ZHOU) nor paracompactness.
+
+**V16.2 (Definition 16.1.2 (2017: 16.2), equivalent polyfold structures; `Polyfold.PolyfoldStructure.Equiv`, `Polyfold.PolyfoldStructure.setoid`, `Polyfold.PolyfoldStructure.equiv_iff_rel`, `Polyfold.PolyfoldStructure.orbitMap_eq_of_equiv`).** `PolyfoldStructure.Equiv p q := ∃ f, IsGeneralizedIso f ∧ ⇑p.β = ⇑q.β ∘ orbitMap f`; an equivalence relation (`setoid`), equal to Remark 10.3.18's relation (`equiv_iff_rel`); $|f| = \beta^{-1} \circ \alpha$ (`orbitMap_eq_of_equiv`). *Book:* §16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V16.3 (The uniqueness sentence after Definition 16.1.2; `Polyfold.PolyfoldStructure.Uniqueness_16_1_2`, `Polyfold.PolyfoldStructure.not_uniqueness_16_1_2`, `Polyfold.PolyfoldStructure.uniqueness_16_1_2_counterexample`, `Polyfold.PolyfoldStructure.uniqueness_16_1_2_of_isEffective`).** Does not hold as we read it: `PolyfoldStructure.not_uniqueness_16_1_2 : ¬ Uniqueness_16_1_2`. The trivial $\mathbb Z/3$-ep-groupoid on $\mathbb R$ satisfies (ZHOU) (`isZhou_trivialZ3`) and has paracompact orbit space, so it is a polyfold structure on $\mathbb R$ in the sense of Definition 16.1.1; the identity and the generalized isomorphism through the inversion functor both satisfy $\alpha = \alpha \circ |f|$ and differ (`uniqueness_16_1_2_counterexample`). It holds when the target is effective: `uniqueness_16_1_2_of_isEffective` ((ZHOU) gives the local regularity property, then Theorem 10.3.19 for effective ep-groupoids). *Book:* §16.1, after Definition 16.1.2, p. 707 (2017: Definition 16.2). *Hidden hypotheses:* none. *Deviation (narrower):* The sentence does not hold as we read it (Findings, Chapter 16, item 1): the counterexample satisfies every printed hypothesis, (ZHOU), paracompact $|X|$ and $\beta$ a homeomorphism, all proved for the instance. It is the pair behind `not_theorem_10_3_19` (Chapter 10). The effective form is proved. The 2017 text (Definition 16.2) says "$f$ is necessarily unique", citing the theorem that is now 10.3.19; the 2021 text adds "as a consequence of (ZHOU)".
+
+**V16.4 (Definition 16.1.3 (2017: 16.3), polyfolds; `Polyfold.PolyfoldClass`, `Polyfold.PolyfoldStructure.z3Polyfold`).** `PolyfoldClass Z := Quotient (PolyfoldStructure.setoid Z)`; witness `z3Polyfold`. *Book:* §16.1, Definition 16.1.3, p. 707 (2017: Definition 16.3). *Hidden hypotheses:* none. *Deviation (same):* A class is a Lean quotient; the book's footnote on classes does not arise.
+
+**V16.5 (Proposition 16.1.4 (2017: 16.2), bump functions and partitions of unity are invariant; `Polyfold.PolyfoldStructure.proposition_16_1_4`, `Polyfold.PolyfoldStructure.proposition_16_1_4_two`, `Polyfold.EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff`, `Polyfold.EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj`, `Polyfold.EpGroupoid.hasScPartitionsOfUnity_iff_orbit`, `Polyfold.EpGroupoid.HasOrbitScPartitionsOfUnity`, `Polyfold.PolyfoldStructure.proposition_16_1_4_one`, `Polyfold.EpFunctor.IsEquivalence.admitsBumpFunctions_iff`, `Polyfold.MPolyfold.IsScDiffeoOn.hasBumpAt`, `Polyfold.EpGroupoid.hasBumpAt_tgt`).** `PolyfoldStructure.proposition_16_1_4`: `(p.X.X.PObj.AdmitsBumpFunctions ↔ q.X.X.PObj.AdmitsBumpFunctions) ∧ (p.X.X.HasScPartitionsOfUnity ↔ q.X.X.HasScPartitionsOfUnity)`; parts `proposition_16_1_4_one`, `_two`, through equivalences (`IsEquivalence.admitsBumpFunctions_iff`, `IsEquivalence.hasScPartitionsOfUnity_iff`); the "easy exercise" is `isScSmoothMap_comp_π_of_comp_obj`. *Book:* §16.1, Proposition 16.1.4, p. 708 (2017: Proposition 16.2). *Hidden hypotheses:* none. *Deviation (explicit):* (1) is read for the object M-polyfold (Definition 5.3.1, $f(x) \ne 0$), as the proof uses it; Definition 12.3.1's notion is equivalent by Theorem 12.3.2 (1) (V12.11). (2) is Definition 7.5.5. The proof route differs: local inverses for (1), partitions descended to $|X|$ for (2).
+
+**V16.6 (Definition 16.1.5 (2017: 16.4), polyfolds with bump functions and partitions of unity; `Polyfold.PolyfoldClass.AdmitsBumpFunctions`, `Polyfold.PolyfoldClass.definition_16_1_5_one`, `Polyfold.PolyfoldClass.AdmitsScPartitionsOfUnity`, `Polyfold.PolyfoldClass.definition_16_1_5_two`, `Polyfold.PolyfoldStructure.z3Polyfold_admitsBumpFunctions`, `Polyfold.PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity`).** `PolyfoldClass.AdmitsBumpFunctions`, `PolyfoldClass.AdmitsScPartitionsOfUnity` (some structure in $c$); `definition_16_1_5_one`, `_two`: equivalent to "every structure in $c$". Witnesses `z3Polyfold_admitsBumpFunctions`, `z3Polyfold_admitsScPartitionsOfUnity`. *Book:* §16.1, Definition 16.1.5, p. 708 (2017: Definition 16.4). *Hidden hypotheses:* none. *Deviation (same):* Bump functions with the object M-polyfold reading, as in V16.5.
+
+**V16.7 (Remark 16.1.7 (2017: 16.1), at most one generalized isomorphism over a homeomorphism; `Polyfold.PolyfoldStructure.Remark_16_1_7`, `Polyfold.PolyfoldStructure.not_remark_16_1_7`, `Polyfold.PolyfoldStructure.remark_16_1_7_of_isEffective`).** Does not hold as we read it: `PolyfoldStructure.not_remark_16_1_7 : ¬ Remark_16_1_7` (the pair of V16.3, $h = \mathrm{id}$); the same pair contradicts the sentence on pp. 709–710. Holds for an effective target: `remark_16_1_7_of_isEffective`. *Book:* §16.1, Remark 16.1.7, p. 711 (2017: Remark 16.1), and pp. 709–710. *Hidden hypotheses:* none. *Deviation (narrower):* Does not hold as we read it (Findings, Chapter 16, item 2); the effective form is proved. The "none or many" sentence for continuous $h$ has no content beyond an example and is not formalized.
+
+**V16.8 (Lemma 16.1.13 (2017: 16.1), the degeneracy index does not depend on the structure; `Polyfold.PolyfoldStructure.degIndex`, `Polyfold.PolyfoldStructure.degIndex_eq`, `Polyfold.PolyfoldStructure.lemma_16_1_13`).** `PolyfoldStructure.degIndex p z := d_{|X|}(β⁻¹ z)`, equal to $d_X(x)$ for every $x$ with $\beta(|x|) = z$ (`degIndex_eq`); `lemma_16_1_13 (h : Equiv p q) : p.degIndex = q.degIndex`. *Book:* §16.1, Lemma 16.1.13, p. 712 (2017: Lemma 16.1). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V16.9 (Definition 16.1.14 (2017: 16.9), the degeneracy index of a polyfold; `Polyfold.PolyfoldClass.degIndex`, `Polyfold.PolyfoldClass.definition_16_1_14`, `Polyfold.PolyfoldStructure.z3Polyfold_degIndex`).** `PolyfoldClass.degIndex c` (`Quotient.lift`); `definition_16_1_14`: `c.degIndex z = d_X(x)` for every representative and every $x$ over $z$. Witness `z3Polyfold_degIndex`. *Book:* §16.1, Definition 16.1.14, p. 712 (2017: Definition 16.9). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V16.10 (Definition 16.1.17 (2017: 16.11), the boundary of a polyfold; `Polyfold.PolyfoldClass.boundary`, `Polyfold.PolyfoldClass.mem_boundary_iff`, `Polyfold.PolyfoldStructure.z3Polyfold_boundary`).** `PolyfoldClass.boundary c := {z | 1 ≤ c.degIndex z}`; `mem_boundary_iff` (through any representative). Witness `z3Polyfold_boundary` ($= \emptyset$). *Book:* §16.1, Definition 16.1.17, p. 713 (2017: Definition 16.11). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V16.11 (Lemma 16.1.19 (2017: 16.2), tameness is invariant; `Polyfold.PolyfoldStructure.lemma_16_1_19`).** `PolyfoldStructure.lemma_16_1_19 (h : Equiv p q) : p.X.X.IsTame ↔ q.X.X.IsTame` (Chapter 11's `IsEquivalence.isTame_iff`). *Book:* §16.1, Lemma 16.1.19, p. 714 (2017: Lemma 16.2). *Hidden hypotheses:* none. *Deviation (stronger):* An iff, trivially by symmetry.
+
+**V16.12 (Definition 16.1.20 (2017: 16.12), tame polyfolds; `Polyfold.PolyfoldClass.IsTame`, `Polyfold.PolyfoldClass.definition_16_1_20`, `Polyfold.PolyfoldStructure.z3Polyfold_isTame`).** `PolyfoldClass.IsTame c := ∃ p, ⟦p⟧ = c ∧ p.X.X.IsTame`; `definition_16_1_20`: equivalent to every representative tame. Witness `z3Polyfold_isTame`. *Book:* §16.1, Definition 16.1.20, p. 714 (2017: Definition 16.12). *Hidden hypotheses:* none. *Deviation (same):* none.
+
+**V16.13 (The polyfold $\mathbb R$ with nontrivial isotropy (witness); `Polyfold.EpGroupoid.Examples.injective_π_trivialZ3`, `Polyfold.EpGroupoid.Examples.isHomeomorph_π_trivialZ3`, `Polyfold.EpGroupoid.Examples.trivialZ3OrbitHomeomorph`, `Polyfold.EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3`, `Polyfold.PartitionOfUnity.comapP3Z`, `Polyfold.EpGroupoid.descendP3Z`, `Polyfold.EpGroupoid.preimage_closure_π`, `Polyfold.MPolyfold.isScSmoothMap_real_of_locally`).** The trivial $\mathbb Z/3$-ep-groupoid on $\mathbb R$: $\pi$ is injective and a homeomorphism onto $\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comapP3Z`, `EpGroupoid.descendP3Z`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`. *Book:* not in the book (witness for §16.1). *Hidden hypotheses:* none. *Deviation (extra):* none.
+
+### What is not verified in this chapter
+
+- p. 706, the remark after Definition 16.1.1 (2017: Proposition 16.1) that $Z$ is metrizable: the Smirnov metrization theorem is not in Mathlib (V16.1; gap G.146; Findings, item 3).
+- p. 707, the uniqueness sentence after Definition 16.1.2, and p. 711, Remark 16.1.7 (2017: 16.1), with pp. 709–710: do not hold as we read them; the effective forms are verified (V16.3, V16.7; Findings, items 1, 2).
+- p. 711, Remark 16.1.7, the sentence on continuous $h$ (none or many generalized isomorphisms): an example, not formalized.
+- Not yet begun (Part III wave 2 and later): Definition 16.1.6 to Proposition 16.1.12, Definition 16.1.15, Remark 16.1.16, Example 16.1.18, Definition 16.1.21, Proposition 16.1.22, §§16.2–16.6.
+
+---
+
+## 17. Sign-off
 
 The statements below are the ones the reader is asked to confirm say what HWZ mean. Each is a summary of the V-item it names; the standing hypotheses of that item are not repeated.
 
@@ -10540,417 +10917,499 @@ The statements below are the ones the reader is asked to confirm say what HWZ me
 416. (V5.68) Definition 5.3.13 (preprint 5.20) in the 2021 form, with $dt(x)$ onto read in a chart; the earlier data together with (3) give it.
 417. (V5.69) Under the 2021 condition (3), $dt(x) \ne 0$ in a chart, and Lemma 5.3.16 (preprint 5.23) holds with a one-dimensional complement $Z$ of its kernel.
 418. (V5.70) On $\mathbb R$, the graph section of the identity with $t(x) = 1/2 + \arctan(x)/\pi$ is a generalized compact homotopy in the 2021 sense but not in the earlier one.
-419. (V6.1) At a chart point, $\mathrm{Lin}(f, x)$ is $(f + s)'(x)$ plus the sc⁺-operators; its members are Fredholm on level $0$ of one index, and it is convex and, with sections through $f(x)$, nonempty.
-420. (V6.2) $\lambda(E)$ and $\lambda^*(E)$ are lines; wedges change by determinants; $\lambda(\Phi)$ is functorial and nonzero iff $\Phi$ is bijective.
-421. (V6.3) $\iota : \lambda(E^*) \to \lambda^*(E)$ is given by $\det(e_i^*(a_j))$ and maps the dual-basis wedge to $(e_1 \wedge \dots \wedge e_n)^*$.
-422. (V6.4) $\lambda^*(\Phi) \circ \iota = \iota \circ \lambda(\Phi^*)$ for an isomorphism $\Phi$.
-423. (V6.5) $\Phi_E$ of a four-term exact sequence is the isomorphism of lines given by (91) for one choice.
-424. (V6.6) Formula (91) holds for every choice.
-425. (V6.7) $\Psi_E$ maps the wedge of the basis of $C$, in the order of (91), and $a \otimes d^*$ to the wedge of the basis of $B$.
-426. (V6.8) $\det(T) = \lambda(\ker T) \otimes \lambda^*(\operatorname{coker} T)$ is a line for $T$ Fredholm.
-427. (V6.9) An orientation of $T$ is a ray of $\det(T)$; there are exactly two.
-428. (V6.10) Good left-projections are as in Definition 6.4.3 (preprint 6.9), $\le$ is a partial order, the remarks after the definition hold, and $\Pi_T \ne \emptyset$ for $T$ Fredholm.
-429. (V6.11) Two good left-projections have a common lower bound in $\Pi_T$, for any bounded $T$; the text's candidate need not be one.
-430. (V6.12) The sequence $E(T, P)$ is exact.
-431. (V6.13) $\gamma^P_T = \Phi_{E(T,P)}$ is an isomorphism $\det(T) \to \det(PT)$ given on wedges by (91).
-432. (V6.14) For $P \le Q$, $\gamma^P_{QT} \circ \gamma^Q_T = \gamma^P_T$.
-433. (V6.15) $(\gamma^P_{RT})^{-1} \circ \gamma^P_{ST} = \gamma^R_T \circ (\gamma^S_T)^{-1}$ for $P \le S, R$.
-434. (V6.16) The stabilization sequence of $T_\varphi$ is exact, and stabilizations exist.
-435. (V6.17) $\psi((c_1 \wedge \dots \wedge c_n)^*) = \det[c]^{-1}1^*$.
-436. (V6.18) $\iota_\varphi$ is an isomorphism given by the formula of Proposition 6.4.15 (preprint 6.15), and $m + l = n$ always holds.
-437. (V6.19) $T \oplus S$ is Fredholm and $\det(T) \otimes \det(S) \to \det(T \oplus S)$ is the isomorphism given by the formula for every choice.
-438. (V6.20) Lemma 6.5.1 (preprint 6.17) holds, without the hypothesis that $T$ is Fredholm.
-439. (V6.21) The kernels $\ker(PS)$ near $T$ are trivialized continuously by $k \mapsto k + y(k, S)$, with continuous inverse.
-440. (V6.22) The frames $\omega(S)$ are nowhere zero, and the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.
-441. (V6.23) $\gamma^Q_{PS}$ maps the $P$-frame to a continuous nowhere-zero multiple of the $Q$-frame, for any two charts.
-442. (V6.24) The charts $\gamma_{(T,P,\varepsilon)}$, read in frames, form a vector prebundle with fibres $\det(S)$.
-443. (V6.25) $\mathcal B$ is the collection of Definition 6.5.6 (preprint 6.22), read in the frames.
-444. (V6.26) $\mathcal B$ is a basis of the topology of $\mathrm{DET}(E, F)$.
-445. (V6.27) $\mathrm{DET}(E, F)$ is a topological line bundle, trivialized by the $\gamma_{(T,P,\varepsilon)}$.
-446. (V6.28) The transition maps are multiplications by continuous nowhere-zero functions.
-447. (V6.29) A line bundle over a nonempty simply connected, locally path-connected base has exactly two orientations.
-448. (V6.30) $\mathrm{DET}(E, F)$ over a nonempty convex set of Fredholm operators is a line bundle with exactly two orientations.
-449. (V6.31) $\mathrm{Or}^f_x$, the orientations of $\mathrm{DET}(f, x)$, has exactly two elements, each determined by its value at one $L$.
-450. (V6.32) Proposition 6.6.3 (preprint 6.28) holds with (1) in its 2021 form and with (1′), with global sections over $\mathbb R^n \times X$.
-451. (V6.33) Finitely many sc⁺-sections put $F$ in general position at all points $(0, (q, \Phi(q)))$, $q$ near $[0, 1]^n$.
-452. (V6.34) The kernels of the linearizations along a continuous family of zeros in good position form a continuous family of subspaces.
-453. (V6.35) Continuous families of subspaces have determinant line bundles, and orientations are continued along $[0, 1]$.
-454. (V6.36) Kernels, images and cuts of continuous families are continuous families, with their orientations.
-455. (V6.37) In the product chart the slice kernel is $\ker(T \oplus \varphi)$ with $T \in \mathrm{Lin}(f, x)$, and $T \oplus \varphi$ is onto.
-456. (V6.38) The sequence (96) is exact.
-457. (V6.39) Continuation and the stabilization isomorphisms compose to a bijection of the rays at the two ends.
-458. (V6.40) With the sign $(-1)^{\dim\operatorname{coker}T}$ the orientations carried by $\Phi_E$ along a family are continuous; without it they need not be.
-459. (V6.41) The push-forward along stabilized kernels is defined with that sign and is compatible with pull-back and concatenation.
-460. (V6.42) With the sections of Lemma 6.6.4 (preprint 6.29) the stabilized kernels along a family form a continuous family.
-461. (V6.43) Push-forwards along sc-smooth paths exist in the sets of Proposition 6.6.3 (preprint 6.28) and split along halves.
-462. (V6.44) Two push-forwards along the same path agree.
-463. (V6.45) Appending sections does not change the push-forward.
-464. (V6.46) Affine reparametrizations keep sc⁺-sections, and adding sections keeps general position.
-465. (V6.47) Push-forwards along the two edges of a square of stabilized kernels with fixed end points agree.
-466. (V6.48) Every smooth point has an open neighbourhood on which push-forwards exist and depend only on the end points.
-467. (V6.49) Nearby smooth points are joined by sc-smooth paths in a chart, and concatenations are sc-smooth.
-468. (V6.50) An orientable neighbourhood (a pair $V \subseteq U$) has exactly two continuous orientations, and every smooth point has one.
-469. (V6.51) Reparametrizations of a path are homotopic to it with the end points fixed.
-470. (V6.52) The sc-smooth homotopy classes of paths form a groupoid $PX$ on the smooth points.
-471. (V6.53) Two chart points at $x$ identify $\mathrm{Lin}(f, x)$ and $\mathrm{Or}^f_x$, with the cocycle rules.
-472. (V6.54) Under this identification the local propagations of two charts agree.
-473. (V6.55) $\mathrm{Or}^f_x$ read in a chosen chart has two elements and is identified with that of any chart at $x$.
-474. (V6.56) Local push-forwards give a transport along paths, homotopy invariant, functorial, and unique.
-475. (V6.57) There is exactly one functor $\Gamma_f$ on $PX$ with property (∗).
-476. (V6.58) Orientability in the sense of Definition 6.6.14 (preprint 6.38) is the existence of a family $o_y$ preserved by $\Gamma_f$.
-477. (V6.59) Definitions 6.6.14 and 6.6.15 (preprint 6.38 and 6.39) are equivalent.
-478. (V6.60) Orientations of $f$ are the families preserved by $\Gamma_f$; they exist iff $f$ is orientable, two on each class.
-479. (V6.61) For a proper $f$ in general position at its zeros, $S$ is a compact manifold with boundary with corners, and the tangent orientations $o_x$ of $T_xS = \ker f'(x)$ vary continuously along the sc-smooth paths of zeros in a chart.
-480. (V6.62) An orientation of $\mathrm{DET}(f, x)$ gives exactly one orientation of $\mathrm{DET}(\hat f, (t, x))$, by $h \mapsto \tilde h$ with the sign $(-1)^{\dim\operatorname{coker}L}$, independent of $L$.
-481. (V6.63) The proof of Lemma 6.3.3 (preprint 6.5) in §6.8.1 (preprint §6.7.1) goes through, with homogeneity in the bases of $A$ and $D$.
-482. (V6.64) The proof of Proposition 6.4.11 (preprint 6.12) in §6.8.2 (preprint §6.7.2) goes through, with the spanning proved directly in $F$.
-483. (V6.65) Near $(T_0, P_0)$, $T$ is Fredholm, $P \in \Pi_T$, and $\mathrm{ind}(PT) = \mathrm{ind}(T) = \mathrm{ind}(T_0) = \mathrm{ind}(P_0T_0)$, the indices taken as maps $E \to F$.
-484. (V6.66) Two finite-dimensional subspaces of the same dimension have a common algebraic complement.
-485. (V6.67) For $P, Q \in \Pi_T$ with the same range, the text's $A_T$ and $B_T$ are isomorphisms making the diagram of $E(T, P)$ and $E(T, Q)$ commute; their continuity in $T$ is V6.70.
-486. (V6.68) Appending zero sections (Lemma 6.6.8) or arbitrary sections (Lemma 6.6.9) does not change the push-forward of orientations.
-487. (V6.69) Two finite-dimensional subspaces of the same dimension of a normed space have a common closed, topological complement.
-488. (V6.70) With such a closed $X$, $A_S$ (on $E$) and $B_S$ (lifted to $F$) depend continuously on $S$ near $T$, also jointly with the vector, and for every such $S$ they are the text's isomorphisms filling the diagram of $E(S, P)$ and $E(S, Q)$.
-489. (V6.71) $O_f$ is the set of $(x, o)$, $x \in X_\infty$, $o \in \mathrm{Or}^f_x$, over $X_\infty$ with the topology of Theorem 2.3.10, and properties (1)–(3) of Theorem 6.6.17 are stated as the text does, (3) with the push-forward along segments of the path.
-490. (V6.72) Sc-smooth maps $\mathbb R^n \to X$ are continuous into $X_\infty$, and points of $X_\infty$ near $x$ are joined to $x$ by sc-smooth paths inside any given neighbourhood of $x$ in $X_\infty$.
-491. (V6.73) The topology defined by the continuous orientations is Hausdorff and makes $\pi_f$ a local homeomorphism.
-492. (V6.74) Over M-polyfolds whose smooth points have small open neighbourhoods with connected smooth part ($\mathbb R^n$, for instance), that topology has exactly two continuous sections over such neighbourhoods.
-493. (V6.75) Under the hypotheses of Theorem 6.6.13, it has property (3), it is the only topology with (1) and (3), and so the only Hausdorff one with (1)–(3); (2) is proved under the hypothesis of V6.74.
-494. (V7.1) A groupoid is a structure of maps with the laws on composable pairs, and $|X|$ is its orbit space with $\pi$.
-495. (V7.2) The isotropy group $G_x$ has the multiplication $gh = g \circ h$.
-496. (V7.3) An ep-groupoid satisfies (1)–(4) of Definition 7.1.3 (2017: 7.3), with (3) existential and (4) on the fibred product of Part I's Proposition 2.5.20 (2017: 2.15), equivalently in sheet form.
-497. (V7.4) Properness of $t : s^{-1}(Q) \to X$ is equivalent to the sequential criterion and passes to smaller closures.
-498. (V7.5) $\hat\varphi = t \circ (s|\mathbf U(\varphi))^{-1}$ is an sc-diffeomorphism with $\hat\varphi(x) = y$; $T\varphi$ is only defined.
-499. (V7.6) $s, t$ preserve levels and the degeneracy index, so $ml$ and $d_X$ are constant on classes.
-500. (V7.7) $d_{|X|}(|x|) = d_X(x)$ is well defined.
-501. (V7.8) If $X$ is tame, so is $\mathbf X$.
-502. (V7.9) The ep-groupoids and the functors sc-smooth on objects and morphisms form the category $\mathcal{EP}$.
-503. (V7.10) A functor sc-smooth on objects and continuous on morphisms is sc-smooth on morphisms (2021); without continuity (2017) it need not be.
-504. (V7.11) $\pi : X \to |X|$ is open.
-505. (V7.12) Every point of $|X|$ has a monotone countable basis of open neighbourhoods.
-506. (V7.13) $\pi(\mathrm{cl}_X A) = \mathrm{cl}_{|X|}\pi(A)$ for every $A \subseteq \mathrm{cl}_X U$, $U$ with the properness property.
-507. (V7.14) Only finitely many $\psi$ have $s(\psi) = x$ and $t(\psi) \in U(x_0)$, and likewise with $s$ and $t$ exchanged.
-508. (V7.15) $G_x$ is finite.
-509. (V7.16) $g \mapsto \varphi g \varphi^{-1}$ is an isomorphism $G_x \to G_y$, unique up to an inner automorphism of $G_y$.
-510. (V7.17) Inside every open $V \ni x$ there is a natural representation on a connected open $U$ with (1)–(3) of Theorem 7.1.13 (2017: 7.1).
-511. (V7.18) M-polyfolds are locally path connected.
-512. (V7.19) $\mathbf U(x)$ is the disjoint union of the connected open $\mathbf U(g)$, on which $s, t$ are sc-diffeomorphisms onto $U(x)$.
-513. (V7.20) $G \times U$ is an M-polyfold on which sc-smoothness is sc-smoothness on each slice.
-514. (V7.21) $G_x \ltimes U(x)$ is an ep-groupoid.
-515. (V7.22) $\Gamma : G_x \ltimes U(x) \to X$ is a fully faithful functor onto the full subcategory on $U(x)$.
-516. (V7.23) $\hat\Phi$ is a homomorphism into the sc-diffeomorphisms of $\mathbf U(x)$ with the two commutative diagrams.
-517. (V7.24) Two natural representations at $x$ agree on the component of $x$ in $U \cap U'$, and they restrict to invariant connected open neighbourhoods.
-518. (V7.25) Every finite set of mutually isomorphic objects has a natural representation on neighbourhoods inside a given neighbourhood.
-519. (V7.26) Definition 7.1.18 (2017: 7.8) is the datum of Proposition 7.1.15 (2017: 7.5).
-520. (V7.27) $\tau : G_x\backslash U(x) \to \pi(U(x))$ is a homeomorphism, and the functor $G_x \ltimes U(x) \to X$ is fully faithful.
-521. (V7.28) Every natural representation is a local uniformizer, local uniformizers exist inside every neighbourhood, and they are injective on objects and morphisms.
-522. (V7.29) An ep-subgroupoid is the full subcategory of a saturated sub-M-polyfold.
-523. (V7.30) The inclusion $A \to X$ and the maps $i^{-1} \circ r$ are sc-smooth.
-524. (V7.31) For saturated $A$, $\mathbf A = s^{-1}(A)$ is a sub-M-polyfold of $\mathbf X$.
-525. (V7.32) The full subcategory of a saturated sub-M-polyfold is an ep-groupoid with the restricted structure maps.
-526. (V7.33) Effectiveness and regularity are as in Definition 7.2.1 (2017: 7.11), and the targets of morphisms from regular objects are regular.
-527. (V7.34) $X_{reg}$ is open.
-528. (V7.35) $X$ is effective iff natural representations with injective $\Phi$ exist inside every neighbourhood.
-529. (V7.36) For effective $X$, $X_{reg}$ is open and dense; conversely, density implies effectiveness.
-530. (V7.37) $T_x$ is a normal subgroup, the kernel of $\Phi$ for small $U(x)$, characterized by $s = t$ near $g$, and conjugation carries $T_x$ to $T_y$.
-531. (V7.38) $\sim$ is an equivalence relation, and $\mathbf X^R$ is the quotient.
-532. (V7.39) The charts $\psi \circ \sigma \circ s$ cover $\mathbf X^R$ and have sc-smooth transitions, with no hypothesis.
-533. (V7.40) If $T_R$ is Hausdorff, $X_R$ is an effective ep-groupoid with isotropy $G_x/T_x$.
-534. (V7.41) The isotropy group of $x$ in $X_R$ is $G_x/T_x = G^{\mathrm{eff}}_x$.
-535. (V7.42) $|X|$ is locally metrizable, regular and Hausdorff, and metrizable if paracompact.
-536. (V7.43) $|U(x)|$ is metrizable.
-537. (V7.44) Every point of $|X|$ has a monotone countable basis of open neighbourhoods.
-538. (V7.45) $|X|$ is Hausdorff.
-539. (V7.46) $|X|$ is regular.
-540. (V7.47) A second countable $|X|$ is metrizable.
-541. (V7.48) Subsets of $|X|$ are locally metrizable, and paracompact ones are metrizable.
-542. (V7.49) Component compact means compact in every connected component.
-543. (V7.50) Michael's characterization of paracompactness and the paracompactness of locally finite unions of closed paracompact sets hold for regular spaces.
-544. (V7.51) A component compact $K$ has an open neighbourhood with paracompact metrizable closure.
-545. (V7.52) $X^1$ is an ep-groupoid, tame if $X$ is.
-546. (V7.53) Definition 7.5.1 (2017: 7.15) is paracompactness of $|X|$, implied by second countability of $X$.
-547. (V7.54) If $|X|$ is paracompact, $|X^1|$ is metrizable, hence paracompact.
-548. (V7.55) For paracompact $|X|$, saturated open covers have invariant continuous partitions of unity.
-549. (V7.56) Definition 7.5.5 (2017: 7.16) is the existence of invariant sc-smooth partitions of unity with saturated local finiteness.
-550. (V7.57) Remark 7.5.6 (2017: 7.2) has no formal content.
-551. (V7.58) Paracompact $|X|$ and sc-smooth partitions of unity on $X$ give sc-smooth partitions of unity of $X$.
-552. (V7.59) Proper subsets and the properness property are as in Definition 7.5.8 (2017: 7.17).
-553. (V7.60) Proper subsets are closed.
-554. (V7.61) $\pi$ maps proper subsets to closed sets, and for paracompact $|X|$ every closed set is so obtained.
-555. (V7.62) Theorem 7.6.1 (2017: 7.5) is Theorem 7.1.13 (2017: 7.1), proved along Appendix 7.6.1 (2017 7.5.1).
-556. (V7.63) Morphisms between points of a small $U_1$ lie in the given open $N_g$.
-557. (V7.64) $U = \bigcup_g t_g s_g^{-1}(U_2)$ is a connected invariant neighbourhood inside $U_1$.
-558. (V7.65) Theorem 7.6.4 (2017: 7.6) is Theorem 7.5.7 (2017: 7.4).
-559. (V7.66) Invariant continuous $\beta$ supported in $U(x)$ have invariant sc-smooth majorants supported in $\mathrm{cl}_X U(x)$.
-560. (V7.67) The proof of Theorem 7.5.7 (2017: 7.4) goes through, with the support bound of Lemma 7.6.5 (2017: 7.10) and Mathlib's bump coverings.
-561. (V7.68) With $|X|$ paracompact, a Hilbert atlas gives sc-smooth partitions of unity of $X$.
-562. (V7.69) A functor sc-smooth on objects and continuous on morphisms is sc-smooth on morphisms, with the local formula of the 2021 remark.
-563. (V7.70) The data (7.3) exist, and on a small invariant $V(x)$ the natural representation is $\Gamma(g, v) = s_g^{-1}(v)$, $\Phi(g)(v) = t(s_g^{-1}(v))$.
-564. (V7.71) Proposition 7.1.15 holds in its 2021 form; the printed 2017 form of (2) would force $s(\psi) = t(\psi)$.
-565. (V7.72) Limits of sequences in $\mathbf U(\psi)$ whose sources or targets converge in $U(s(\psi)) \cup U(t(\psi))$ stay in $\mathbf U(\psi)$.
-566. (V7.73) Corollary 7.1.17 (4)–(7): the natural action, equivariance along $\gamma_\varphi$, the multiplication as an sc-diffeomorphism onto $\mathbf U(\psi \circ \varphi)$, and the properness property.
-567. (V7.74) $T_x$ is the maximal subgroup acting trivially on a small $W(x)$, and conjugation by $\varphi$ maps $T_x$ onto $T_y$.
-568. (V7.75) $T_R$ is the finest topology making $\pi$ continuous, and $\pi$ is an open quotient map.
-569. (V7.76) The conclusion of Lemma 7.2.11 holds at every morphism iff $T_R$ is Hausdorff.
-570. (V7.77) $T_R$ is paracompact for every ep-groupoid.
-571. (V7.78) The natural charts give an M-polyfold structure iff $T_R$ is Hausdorff, and then $X_R$ is an effective ep-groupoid.
-572. (V7.79) $T_R$ is Hausdorff iff $\mathbf X^T$ is closed in $\mathbf X$.
-573. (V7.80) LUC is as in Definition 7.2.18, independent of the natural representation, and satisfiable, also for non-effective $X$.
-574. (V7.81) $T_R$ Hausdorff, LUC and $\mathbf X^T$ closed are equivalent, and under LUC $X_R$ is well defined.
-575. (V7.82) In Zhou's example $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$ is one point, $T_R$ is not Hausdorff and LUC fails.
-576. (V7.83) Under (SLUC), $(X^i)_R \cong (X_R)^i$ in $\mathcal{EP}$ for every $i$; for $i = 1$ the identification is an sc-diffeomorphism.
-577. (V7.84) $X^{i+1} = (X^i)^1$, and under LUC every natural representation has the LUC property.
-578. (V7.85) If $X^i$ has LUC and the level-one sets $U(x) \cap X_1$ are connected and dense, every $X^k$, $k \le i$, has LUC.
-579. (V7.86) The Part I facts used in §7.4 are explicit hypotheses, satisfiable on a point.
-580. (V7.87) $Tg$, defined without charts, is $T\Phi(g)$ on $T_xX$ for every natural representation.
-581. (V7.88) (ZHOU), $T_x^\infty$ and (ZHOU') are as in Definitions 7.4.5 and 7.4.7, and hold when $T_x = G_x$.
-582. (V7.89) With the Part I facts, (ZHOU) and (ZHOU') are equivalent.
-583. (V7.90) With the Part I facts, (ZHOU) gives LUC for $X$ and $X^1$, and for every $X^i$ if (ZHOU) holds for every $X^i$.
-584. (V7.91) (SLUC) is LUC for every $X^i$, and (ZHOU) with the Part I facts for every $X^i$ gives (SLUC).
-585. (V7.92) (VSLUC) implies LUC for $X$ and $X^1$, (VSLUC) for every $X^i$ gives (SLUC), and (ZHOU) implies (VSLUC).
-586. (V7.93) (LR) and (LR') are as in Definitions 7.4.19, 7.4.21 and are equivalent by Lemma 7.4.20.
-587. (V7.94) With the Part I facts, (ZHOU) implies (LR), and (ZHOU) for every $X^i$ gives (SLR).
-588. (V7.95) Zhou's example fails (ZHOU), with no hypothesis.
-589. (V7.96) Index-preserving local homeomorphisms induce local homeomorphisms of the tame boundaries.
-590. (V7.97) (7.25)–(7.29) define the groupoid $(bX, b\mathbf X)$, and $B$ is a functor.
-591. (V7.98) Theorem 7.6.9 holds in its topological part: metrizable $bX$, $b\mathbf X$, continuous $B$ with $d$ preimages, local homeomorphisms $s, t$, continuous $u, \iota, m$, properness.
-592. (V7.99) A continuous map of tame boundaries that covers an sc-smooth map is sc-smooth; lifts of local sc-diffeomorphisms are local sc-diffeomorphisms.
-593. (V7.100) For a tame ep-groupoid, $(bX, b\mathbf X)$ with (7.25)–(7.29) is a tame ep-groupoid, and $B$ is an ep-functor.
-594. (V7.101) Theorem 7.6.9 holds in full: (1)–(5), with the characterization and its uniqueness for centred $V$.
-595. (V7.102) Under (ZHOU) for $X$ and the Part I facts on every level, every $X^i$ satisfies (ZHOU) and has LUC, and $X$ has (SLUC) and (SLR).
-596. (V7.103) (VSLUC) for $X$ passes to every $X^i$; with the Part I facts, every $X^i$ has LUC and $X$ has (SLUC).
-597. (V7.104) With the density of $X_\infty$ and level-connected natural representations, (SLUC) implies (VSLUC); so (VSLUC) and (SLUC) are equivalent.
-598. (V8.1) The tangent data are Part I's tangent maps of $s, t, u, \iota$ and the composition (8.5), unique on composable pairs.
-599. (V8.2) Maps sc-smooth on open sets and local sc-diffeomorphisms have tangents with the chain rule, and local sc-diffeomorphisms have local sc-diffeomorphisms as tangents, bijective on the fibres.
-600. (V8.3) $T(X, \mathbf X)$ is an ep-groupoid with the text's structure maps, tame if $X$ is, and $(p, \mathbf p)$ is an sc-smooth functor into $X^1$.
-601. (V8.4) On a sheet of $s$, the composition of $T\mathbf X$ is the tangent of $\varphi' \mapsto m(\sigma(t\varphi'), \varphi')$; $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ and $m_{T\mathbf X} = Tm$.
-602. (V8.5) $s_T(\Psi \circ \Phi) = s_T(\Phi)$ and $t_T(\Psi \circ \Phi) = t_T(\Psi)$.
-603. (V8.6) The composition of $T\mathbf X$ is associative.
-604. (V8.7) $1_q = (1_x, Ts(1_x)^{-1}q)$ is a two-sided unit.
-605. (V8.8) $(\varphi^{-1}, T\iota(\varphi)k)$ is a two-sided inverse of $(\varphi, k)$.
-606. (V8.9) $s_T, t_T$ are surjective local sc-diffeomorphisms and all structure maps of $T(X, \mathbf X)$ are sc-smooth.
-607. (V8.10) $T(X, \mathbf X)$ has the properness property, with $V' = p^{-1}(V)$.
-608. (V8.11) If $X$ is tame, $Tr$ is a tame retraction and $T(X, \mathbf X)$ is tame.
-609. (V8.12) $T\varphi = t_T \circ (s_T|T_\varphi\mathbf X)^{-1}$ is functorial and $G$ is an sc-diffeomorphism onto the labelled pairs $\mathbf X^1\,{}_s{\times}_p\,TX$, compatible with the compositions.
-610. (V8.13) The tangent of an sc-smooth functor is an sc-smooth functor.
-611. (V8.14) $T : \mathcal{EP} \to \mathcal{EP}$ is a functor preserving tameness.
-612. (V8.15) Natural transformations and natural equivalence are as in Definition 8.1.13 (2017: 8.1).
-613. (V8.16) Natural equivalence is an equivalence relation.
-614. (V8.17) The tangent of a natural transformation is a natural transformation between the tangent functors.
-615. (V8.18) If $|X|$ is paracompact, $|TX|$ is metrizable, hence paracompact.
-616. (V8.19) Strong bundle maps between strong bundles over M-polyfolds, read globally, preserve the double filtration, and the pull-back along $s$ has its universal property on $[0]$ and $[1]$.
-617. (V8.20) A strong bundle over an ep-groupoid is a structure map $\mu$ on the pull-back with (1)–(3) of Definition 8.3.1 (2017: 8.4).
-618. (V8.21) $\mu(\psi, \cdot) : W_x \to W_y$ is a topological linear isomorphism.
-619. (V8.22) $(W, \mathbf X\,{}_s{\times}_P\,W)$ is an ep-groupoid and $(P, \pi_1)$ an sc-smooth functor.
-620. (V8.23) A strong bundle map over ep-groupoids is compatible with $\mu$ as in Definition 8.3.2 (2017: 8.5).
-621. (V8.24) A strong bundle functor is a functor of the functorial pictures inducing strong bundle maps on objects and morphisms.
-622. (V8.25) Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6) are equivalent, and the strong bundle functor is determined by its object map.
-623. (V8.26) Section functors are as in Definition 8.3.4 (2017: 8.7), and $\Gamma$, $\Gamma^+$ are closed under the linear operations.
-624. (V8.27) A proper covering functor satisfies (1)–(3) of Definition 8.5.1 (2017: 8.8), with (3) on Part I's fibred product.
-625. (V8.28) $L_F$ preserves the degeneracy index, and for tame $X$, $Y$, $d_{\mathbf X\,{}_s{\times}_F\,Y} = \tfrac12 d_{\mathbf X \times Y}$ along its image.
-626. (V8.29) Composites of proper covering functors are proper covering functors.
-627. (V8.30) Theorem 8.5.3 (2017: 8.5) holds for every natural representation on a small enough connected $U(x)$, with (5) read with $s$.
-628. (V8.31) Morphisms over $F^{-1}(x)$ go to $G_x$, and the data of Theorem 8.5.3 (2017: 8.5) are determined by $U(x)$.
-629. (V8.32) $\mathrm{Diff}_{sc}$, covering functors and geometric lifts are as in Definition 8.5.5 (2017: 8.9), with $C =$ `SingleObj G`.
-630. (V8.33) The $\varphi_{yy'}$ are functorial and the $\tau(y)$ are equivariant along $f : G_y \to G_x$.
-631. (V8.34) Disjoint unions of M-polyfolds are M-polyfolds, with summand-wise sc-smoothness, degeneracy and tameness.
-632. (V8.35) For nonempty $D$, a geometric lift of a covering functor gives a proper covering functor onto $G_x \ltimes U(x)$.
-633. (V8.36) For ep-groupoids in `Type`, a proper covering functor is near $x$ and $F^{-1}(x)$ the functor of a geometric lift, up to fully faithful open embeddings.
-634. (V8.37) Proper strong bundle covering functors are as in Definition 8.5.9 (2017: 8.10), with (3) on a pull-back.
-635. (V8.38) $\#\mathrm{mor}(F^{-1}(x)) = \#G_x \cdot \#F^{-1}(x)$, and the classes of $F^{-1}(x)$ are indexed by their images in $|Y|$.
-636. (V8.39) $\#G_x \cdot \#\Theta_j = \#G_{y_0} \cdot (\#\Theta_j)^2$ and $\#G_x = \#G_{y_0} \cdot \#\Theta_j$.
-637. (V8.40) For isomorphic $x, x'$ the classes of $F^{-1}(x)$ and $F^{-1}(x')$ correspond, with a unique common index.
-638. (V8.41) For isomorphic $x, x'$, corresponding classes have equal cardinality and $\#F^{-1}(x) = \#F^{-1}(x')$.
-639. (V8.42) $\#F^{-1}(x)$ is constant on connected components of $|X|$ and an sc-smooth functor $X \to \mathbb N$.
-640. (V8.43) $\mu_X(F(\varphi)) \circ A_{s(\varphi)} = A_{t(\varphi)} \circ \mu_Y(\varphi)$ for every morphism $\varphi$ of $Y$.
-641. (V8.44) If $X$ satisfies (ZHOU) and $T(g, h) = \mathrm{id}$ implies $Tg = \mathrm{id}$, then $TX$ satisfies (ZHOU).
-642. (V8.45) With $U(x) \cap X_1$ connected and dense and $p$ open, LUC for $X^1$, or (SLUC) for $X$, gives LUC for $TX$.
-643. (V8.46) Auxiliary norms over ep-groupoids are Part I's auxiliary norms invariant under $\mu$.
-644. (V8.47) $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together, $|W[1]|$ as an orbit space.
-645. (V8.48) The local regularity property of strong bundles is as in Definition 8.4.2, and holds over trivial ep-groupoids.
-646. (V8.49) A covering functor is injective on isotropy groups, and Example 8.5.6 shows it need not be surjective.
-647. (V8.50) Definition 8.5.9 in the 2021 form is equivalent to the reading of Definition 8.10 (2017) in V8.37.
-648. (V8.51) $B(w) = (P(w), A(w))$ is a strong bundle isomorphism $W \to F^*V$ covering the identity, compatible with the structure maps by (8.23).
-649. (V8.52) If $X$ has (SLUC), with the hypotheses of Proposition 8.1.17 (1) on every $X^i$, then $TX$ has (SLUC), through $T(X^i) \cong (TX)^i$.
-650. (V9.1) A branched ep⁺-subgroupoid is a nonnegative functor, supported in the smooth set with paracompact orbit support, locally a weighted sum of indicators of properly embedded smooth submanifolds through the point.
-651. (V9.2) The dimension of a submanifold at a point is the dimension of its tangent space in a chart, independent of the chart; $\Theta$ is $n$-dimensional if it has $n$-dimensional local branching structures.
-652. (V9.3) On $\mathbb R^n$, finite weighted sums of indicators of closed submanifolds and indicators of locally closed submanifolds are branched ep⁺-subgroupoids.
-653. (V9.4) The graphs of $\beta_1$, $\beta_2$ and those of $0$, $\beta_1 + \beta_2$ are two local branching structures of one $\Theta$ on $\mathbb R^2$ with no common sheet near the origin.
-654. (V9.5) $|\mathrm{supp}(\Theta)|$ is locally closed in $|X|$.
-655. (V9.6) $\Theta$ is closed or compact if $|\mathrm{supp}(\Theta)|$ is closed or compact in $|X|$.
-656. (V9.7) At every point of the support there are symmetric local branching structures inside every neighbourhood.
-657. (V9.8) $\Theta$ is of orbifold type if its values are $0$ and $1$, of manifold type if moreover there is at most one morphism between two points of its support.
-658. (V9.9) The local dimensional decomposition $\Theta = \sum_k \Theta_k$ is constructed; the uniqueness of the global decomposition, as stated, does not hold as we read it.
-659. (V9.10) The dimensional decompositions of two local branching structures agree near the point, unconditionally over $\mathbb R^m$ and under the graph representation in general.
-660. (V9.11) $\mathrm{Gr}(X)$ is the category of formal rational sums of tangent sets at smooth points, with the push-forward by morphisms.
-661. (V9.12) $T_yM$ is the set of tangent vectors fixed by the tangent of the retraction; in a chart it is a linear subspace of the dimension of $M$.
-662. (V9.13) If the tangent sums do not depend on the structure, $T_\Theta$ is a section functor of $\mathrm{Gr}(X)$ with the text's (1) and (2).
-663. (V9.14) The tangent sums do not depend on the structure, unconditionally over $\mathbb R^m$ and under the graph representation and local constancy of dimension in general.
-664. (V9.15) A point is good if near it all sheets through it coincide, equivalently if $\Theta$ is constant on the support near it.
-665. (V9.16) Being a good point does not depend on the local branching structure.
-666. (V9.17) Good points are good for every structure, and near a good point $\Theta$ is a multiple of the indicator of one submanifold.
-667. (V9.18) $s(\varphi)$ is good iff $t(\varphi)$ is good.
-668. (V9.19) The good and bad sets are saturated subsets of the support.
-669. (V9.20) The good set is open and dense in the support, the bad set closed and nowhere dense.
-670. (V9.21) Every sheet of an $n$-dimensional structure at $x$ contains good points converging to $x$, unconditionally over $\mathbb R^m$ and under invariance of domain in general.
-671. (V9.22) Under the graph representation, each class of sheets with one tangent space at $x$ has finite slices near $x$ whose $\Theta$-values sum to the weights of the class.
-672. (V9.23) $T\Theta$ is a well-defined nonnegative functor on $TX$, and a branched ep⁺-subgroupoid if the $TM_i$ are smooth submanifolds of $TX$ and $|X|$ is paracompact.
-673. (V9.24) For $x \in M \cap \partial X$, $d_M(x) = 0$ iff $T_xM \subseteq T^R_xX$; this also holds at every $x \in M$, while the printed (2) ⇒ (1) does not hold as we read it at interior points.
-674. (V9.25) $x \in \partial M$ iff $x \in \partial X$ and $T_xM \not\subseteq T^R_xX$.
-675. (V9.26) The boundary weights do not depend on the structure, vanish where $d_X = 0$, and define a nonnegative functor $\partial\Theta$ supported in $\partial X$.
-676. (V9.27) $\partial\Theta$ satisfies (1) and (2) and is the only functor vanishing off $\mathrm{supp}(\Theta)$ with (2) on $\mathrm{supp}(\Theta)$; (1) and (2) alone do not determine it.
-677. (V9.28) $\partial\Theta \le \Theta$, and $\partial\Theta$ need not be $\Theta$ restricted to $\partial X$.
-678. (V9.29) Oriented tangent spaces are tangent sets with a chart-independent class of positive frames, and $\widehat{\mathrm{Gr}}(X)$ is the category of their formal sums.
-679. (V9.30) An orientation of $\Theta$ is a natural lift of $T_\Theta$ that is locally the oriented sum of an oriented local branching structure.
-680. (V9.31) The indicator of a point has infinitely many orientations.
-681. (V9.32) Two orientations of an $n$-dimensional $\Theta$ that agree at good points agree at all smooth points; without equidimensionality the lemma does not hold as we read it.
-682. (V9.33) In Example 9.3.5 the two orientations agree at the origin, differ for $x > 0$, agree for $x < 0$; $\Theta$ has infinitely many orientations, a three-parameter rational family, of which six have integer weights.
-683. (V9.34) $\Theta$ is tame if it has local branching structures with tame induced structures on domains with the natural $G_x$-action and the properness property.
-684. (V9.35) Tame submanifolds with the same tangent space at $y$ have the same degeneracy index at $y$.
-685. (V9.36) The outward-first convention orients a hyperplane of $T_yM$, independently of the outward vector chosen; for a tame sheet the stratum $\{d_M = 1\}$ is an $(n-1)$-dimensional submanifold oriented by it.
-686. (V9.37) The degree-$\ell$ parts of the oriented sums of two structures agree, so the boundary orientation (9.12) does not depend on the structure.
-687. (V9.38) $\hat T_{\partial\Theta}$ is $0$ off the support and the weighted sum of the boundary orientations of the sheets with $d_{M_i}(y) = 1$; on a face-structured sheet these orientations extend uniquely to the closed faces, as Part I's face orientations.
-688. (V9.39) The relative tangent space $T^K_zM$ is the span of limiting unit directions in a chart, independent of the chart, and essential points are limits of points where it is everything.
-689. (V9.40) The essential set of $K$ is closed in $K$.
-690. (V9.41) Property (T) says that the orientation relation of two sheets with the same tangent space is the same wherever their tangent spaces agree.
-691. (V9.42) For sheets of one dimension, also in M-polyfold charts, essentiality in $M_i \cap M_{i'}$ does not depend on the reference sheet; for different dimensions it does.
-692. (V9.43) A set has measure zero if its chart images have Lebesgue measure zero.
-693. (V9.44) The non-essential points of any subset of a finite-dimensional manifold, or of an $n$-dimensional submanifold of an M-polyfold, form a set of measure zero.
-694. (V9.45) $y$-equivalence is an equivalence relation on the sheets through $y$, and equivalent sheets have the same tangent space.
-695. (V9.46) The points of $M_U$ with at least two $y$-classes form a null set.
-696. (V9.47) Off a null set, $M_U$ splits into pieces $M^J_U$ on which $\Theta$, $T_\Theta$ and $\hat T_\Theta$ have the text's constant form.
-697. (V9.48) Two oriented structures with the same weights and oriented sums agree, off a null set, piece by piece as in (1)–(5) of the text, without Property (T).
-698. (V9.49) A subset of $S = |\mathrm{supp}(\Theta)|$ has measure zero if, for a system of null sets in the sheets of a class, a tame local branching structure at every point of the support has null preimages.
-699. (V9.50) For an $n$-dimensional $\Theta$, measure zero does not depend on the local branching structures chosen; across dimensions the transfer of null sets between sheets does not hold.
-700. (V9.51) $L(S)$ is the σ-algebra generated by the Borel sets and the sets of measure zero, and its members are the sets that differ from a Borel set by a set of measure zero.
-701. (V9.52) Measure zero in $\partial S$ and $L(\partial S)$ are defined from the $(n-1)$-dimensional Hausdorff null sets in the boundaries of the sheets and do not depend on the structures chosen.
-702. (V9.53) The hypotheses of §9.5 are satisfiable on $\mathbb R^2$, with nonempty sets of measure zero and members of $L(S)$ that are not Borel.
-703. (V9.54) For a natural representation of $G_x$ and $y \in U(x)$, $\#(G_x/H) \cdot \#G_y = \#G_x$, and preimages decompose disjointly over coset representatives on a slice around $y$; the measures of sc-forms on $U$ and on $V$ agree.
-704. (V9.55) $\#T_x \cdot \#G^{\mathrm{eff}}_x = \#G_x$, and under LUC (9.23) holds and the effective measures agree.
-705. (V9.56) The orders of the isotropy groups and of the effective isotropy groups are invariant along morphisms, $|M_U| = |M_{U'}|$, and the measures of sc-forms are invariant.
-706. (V9.57) For effective $X$ the effective and full isotropy orders agree, and the effective order on $X$ is the isotropy order on $X_R$; under LUC the effective integral on $X$ is the integral on $X_R$.
-707. (V9.58) Two structures at $x$ have the same top dimension.
-708. (V9.59) The unions of the top-dimensional sheets of two structures agree on the common domain.
-709. (V9.60) At top-good points the top-dimensional parts of two structures agree.
-710. (V9.61) Top-goodness does not depend on the structure, unconditionally over $\mathbb R^m$ and under the graph representation in general.
-711. (V9.62) The top-dimensional part at $x$ is the sum of $\Theta$ over finite top slices, and the class sums agree for two structures.
-712. (V9.63) A paracompact subset of $|X|$ is metrizable, and if $|\mathrm{supp}(\Theta)|$ is component compact it is paracompact.
-713. (V9.64) $|\mathrm{supp}(\Theta)|$ carries a unique M-polyfold structure in case (1) and, in case (2), the orbifold structure of the text's groupoid, independent of the choices up to a generalized isomorphism.
-714. (V9.65) For $n$-dimensional $\Theta$ with $d_{|X|} = 0$ on the support, these are Mathlib manifolds and local diffeomorphisms, except the composition of the orbifold groupoid, which is sc-smooth.
-715. (V9.66) For every integration of forms over the oriented sheets, the branched measures of Theorems 9.5.4, 9.5.5 exist and are unique; for sc-forms and $n \ge 1$ the integration is constructed, and the theorems hold as printed with "oriented, tame" read as a covering by oriented tame structures.
-716. (V9.67) For every $n \ge 1$ the boundary measures of Theorems 9.5.15, 9.5.16 exist and are unique, with the local formula for every oriented tame structure, under the text's hypotheses.
-717. (V9.68) $\int_{\hat\Theta} d\omega = \mu^{\partial\hat\Theta}_\omega(\partial S)$ for every $n \ge 1$, and the effective form under LUC, under the text's hypotheses; the closed hemisphere and the closed half-circle satisfy them with $\partial S \ne \emptyset$.
-718. (V9.69) The measure of $f\cdot\omega$ has density $\bar f$ with respect to the measure of $\omega$, globally on $L(S)$, for bounded measurable $\bar f$.
-719. (V10.1) An equivalence of ep-groupoids is a full and faithful sc-smooth functor, a local sc-diffeomorphism on objects, inducing a homeomorphism of orbit spaces.
-720. (V10.2) An sc-smooth functor is an equivalence iff it is an equivalence of categories and a local sc-diffeomorphism on objects.
-721. (V10.3) The refinement of a nonempty ep-groupoid along an open covering is an ep-groupoid, and its projection to the ep-groupoid is an equivalence.
-722. (V10.4) Natural equivalence of sc-smooth functors is an equivalence relation compatible with composition on both sides.
-723. (V10.5) A functor naturally equivalent to an equivalence is an equivalence.
-724. (V10.6) If $F$ and $\Phi \circ F$ are equivalences, so is $\Phi$.
-725. (V10.7) The tangent of an equivalence is an equivalence.
-726. (V10.8) For $\mathrm{id}$ and $-\mathrm{id}$ on $\mathbb Z/2 \ltimes \mathbb R^2$, no family through $1_0$ is even continuous at $0$, while $\alpha_z = (-1, z)$ is sc-smooth.
-727. (V10.9) For an equivalence and $\psi : F(x) \to y$, $g \mapsto \psi \circ F(g) \circ \psi^{-1}$ is an isomorphism $G_x \to G_y$ mapping $T_x$ onto $T_y$.
-728. (V10.10) For an equivalence, $F_R$ is continuous and open, and one reduced morphism space is Hausdorff iff the other is.
-729. (V10.11) An equivalence with Hausdorff reduced morphism spaces descends to an equivalence of the reduced ep-groupoids.
-730. (V10.12) The functor of Example 10.1.15 is compatible with no map of the reduced morphism spaces.
-731. (V10.13) (LUC) holds for one side of an equivalence iff it holds for the other.
-732. (V10.14) The Zhou condition holds for one side of an equivalence iff it holds for the other.
-733. (V10.15) (SLUC) holds for one side of an equivalence iff it holds for the other.
-734. (V10.16) (SLR) passes along equivalences, through Proposition 10.1.9 for the lifts.
-735. (V10.17) The weak fibred product of two sc-smooth functors is a groupoid with the structure maps of Definition 10.2.1.
-736. (V10.18) If $F$ or $G$ is a local sc-diffeomorphism on objects, the weak fibred product is an ep-groupoid with the iterated sub-M-polyfold structures.
-737. (V10.19) For $F$ an equivalence, $\pi_Z$ is an equivalence, $F \circ \pi_X \simeq G \circ \pi_Z$, $d = d_Z \circ \pi_Z$, and tameness and paracompactness of the orbit space pass from $Z$.
-738. (V10.20) For $G$ an equivalence, $\pi_X$ is an equivalence and $d = d_X \circ \pi_X$; for two equivalences, $d_X(x) = d(x, \phi, z) = d_Z(z)$.
-739. (V10.21) For two equivalences both projections of the weak fibred product are equivalences, and $\tau(x, \phi, z) = \phi$ is natural.
-740. (V10.22) A strong bundle equivalence is a strong bundle functor over an equivalence, an equivalence at level $[0]$, a homeomorphism of $|W[1]|$, and locally a strong bundle isomorphism on objects and morphisms.
-741. (V10.23) Push-forward and pull-back of section functors along a strong bundle equivalence are well defined and mutually inverse.
-742. (V10.24) $|\Phi| = |\Psi|$ implies $\Phi^*f' = \Psi^*f'$ for every section functor $f'$.
-743. (V10.25) $|\Phi| = |\Psi|$ implies $\Phi_*f = \Psi_*f$ for every section functor $f$.
-744. (V10.26) $(\Psi \circ \Phi)^* = \Phi^* \circ \Psi^*$ and $(\Psi \circ \Phi)_* = \Psi_* \circ \Phi_*$.
-745. (V10.27) $\Phi_*$ and $\Phi^*$ are mutually inverse bijections of sc-smooth section functors, depend only on $|\Phi|$, and preserve $\mathrm{sc}^+$-section functors.
-746. (V10.28) A natural transformation of strong bundle functors is a natural family $T(w) : \Phi(w) \to \Psi(w)$ over a natural transformation $\tau$ of the base functors.
-747. (V10.29) $T(w) = (\tau(P(w)), \Phi(w))$ and $\Psi(w) = \mu'(\tau(P(w)), \Phi(w))$, so $T$ and $\Psi$ are determined by $\Phi$ and $\tau$, and $T$ is a strong bundle map.
-748. (V10.30) Definitions 10.4.8 and 10.4.10 agree for strong bundle functors, and naturally equivalent strong bundle functors induce the same map of orbit spaces.
-749. (V10.31) Strong bundles over ep-groupoids and strong bundle functors form a category with the strong bundle equivalences as a distinguished class.
-750. (V10.32) Isomorphisms of $\mathcal{EP}$ and composites of equivalences are equivalences, and so is a functor naturally equivalent to one.
-751. (V10.33) A refinement of a diagram $X \leftarrow A \to Y$ is given by an equivalence of the middle ep-groupoids commuting with both legs up to natural equivalence.
-752. (V10.34) A refinement of a refinement is a refinement.
-753. (V10.35) A common refinement of two diagrams refines both.
-754. (V10.36) Having a common refinement is transitive, through the weak fibred product (10.11).
-755. (V10.37) Equivalence of diagrams is an equivalence relation.
-756. (V10.38) The map $|\Phi| \circ |F|^{-1}$ of orbit spaces is continuous and unchanged under refinement.
-757. (V10.39) $|[d]|$ is well defined, and a homeomorphism when both legs are equivalences.
-758. (V10.40) The composition of classes of diagrams through weak fibred products is well defined, associative and unital.
-759. (V10.41) Generalized isomorphisms are the isomorphisms of $\mathcal{EP}(E^{-1})$.
-760. (V10.42) $[X \leftarrow A \xrightarrow{\Phi} Y]$ is a generalized isomorphism iff $\Phi$ is an equivalence, with the reversed diagram as inverse.
-761. (V10.43) $|g \circ f| = |g| \circ |f|$ for generalized maps.
-762. (V10.44) Ep-groupoids and generalized maps form the category $\mathcal{EP}(E^{-1})$.
-763. (V10.45) $i : \mathcal{EP} \to \mathcal{EP}(E^{-1})$ is a functor inverting the equivalences, with $i(F)^{-1} = [Y \xleftarrow{F} X \xrightarrow{1} X]$.
-764. (V10.46) The orbit spaces and the maps $|[d]|$ form a functor $\mathcal{EP}(E^{-1}) \to \mathrm{TOP}$.
-765. (V10.47) (LUC) is invariant under generalized isomorphisms.
-766. (V10.48) Equivalence of pairs $(X, \beta)$ by generalized isomorphisms is an equivalence relation.
-767. (V10.49) The ep-groupoids with (LR) span full subcategories of $\mathcal{EP}$ and $\mathcal{EP}(E^{-1})$.
-768. (V10.50) (LR), (LUC), (SLR), (SLUC) and (ZHOU) are invariant under generalized isomorphisms.
-769. (V10.51) Refinement of diagrams of strong bundles is reflexive and transitive, having a common refinement is an equivalence relation, and generalized strong bundle maps are its classes.
-770. (V10.52) A generalized strong bundle map covers a generalized map of the base ep-groupoids, and $|[D]| = |\Psi| \circ |\Phi|^{-1}$ is continuous and independent of the representative.
-771. (V10.53) $|P'| \circ |[D]| = |[d]| \circ |P|$.
-772. (V10.54) A diagram of ep-groupoids and $|[d]|(|x|) = |x'|$ give morphisms $a$, $b$ and a group homomorphism $\gamma : G_x \to G'_{x'}$, an isomorphism when the second leg is an equivalence.
-773. (V10.55) Strong bundles over ep-groupoids and generalized strong bundle maps form a category $\mathcal{SEP}(F^{-1})$, with a functor from $\mathcal{SEP}$ that inverts the strong bundle equivalences.
-774. (V10.56) A generalized strong bundle isomorphism is the class of a diagram whose two legs are strong bundle equivalences.
-775. (V10.57) A generalized strong bundle isomorphism covers a generalized isomorphism of the base, induces one of the total spaces, has a homeomorphism as its orbit map, and is an isomorphism of $\mathcal{SEP}(F^{-1})$.
-776. (V10.58) Push-forward and pull-back of section functors along a diagram of strong bundle equivalences depend only on its map of orbit spaces.
-777. (V10.59) A generalized strong bundle isomorphism induces mutually inverse bijections $[D]_*$, $[D]^*$ of the sc-smooth and of the $\mathrm{sc}^+$-section functors, which depend only on $|[D]|$.
-778. (V10.60) There are generalized strong bundle isomorphisms $[D] \neq [D']$ with $|[D]| = |[D']|$, whose base classes differ too.
-779. (V10.61) For a generalized strong bundle isomorphism, one strong bundle has the local regularity property (read with local strong bundle isomorphisms) iff the other has.
-780. (V10.62) (LR) passes along equivalences, with natural representations carried along $Q = \hat\psi \circ F$.
-781. (V10.63) Equivalences with $|F| = |G|$ have local sc-smooth families $\alpha_z : F(z) \to G(z)$ and $|TF| = |TG|$ when one side has (LR).
-782. (V10.64) (LR) is invariant under generalized isomorphisms.
-783. (V10.65) On $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ with the trivial action, which has (LR), two generalized isomorphisms with the same orbit map differ, so Theorem 10.3.19 does not hold as we read it.
-784. (V10.66) Generalized isomorphisms with the same orbit map are equal when one side has (LR) and the target is effective.
-785. (V10.67) The strong bundle of Remark 10.5.5 has the local regularity property, so Theorem 10.5.7 does not hold as we read it.
-786. (V10.68) For a strong bundle equivalence $\Phi$ and a strong bundle functor $\Psi$ with the same target, the pull-back of the source of $\Psi$ to the weak fibred product of the bases is a weak fibred product of strong bundles: one projection is a strong bundle equivalence, the square commutes up to natural equivalence, and the other projection is a strong bundle equivalence when $\Psi$ is one.
-787. (V10.69) Having a common refinement is an equivalence relation on diagrams of strong bundles, and two diagrams have the same class iff they have a common refinement.
-788. (V10.70) The composite of diagrams of strong bundles through the weak fibred product is compatible with refinements, associative and unital up to equivalence, and functorial on strong bundle functors.
-789. (V10.71) A diagram of strong bundles represents an isomorphism of $\mathcal{SEP}(F^{-1})$ iff its second leg is a strong bundle equivalence, and then the reversed diagram is its inverse.
-790. (V11.1) The tangent functor induces a functor $T : \mathcal{EP}(E^{-1}) \to \mathcal{EP}(E^{-1})$, $[X \leftarrow A \to Y] \mapsto [TX \leftarrow TA \to TY]$, extending $T$ on $\mathcal{EP}$.
-791. (V11.2) A generalized isomorphism preserves the degeneracy index: $d_X(x_0) = d_Y(y_0)$ whenever $|f|(|x_0|) = |y_0|$.
-792. (V11.3) A face of a tame ep-groupoid is the full subcategory over the closure in $|X|$ of a connected component of $\{d_{|X|} = 1\}$; face structured means every $z$ lies in exactly $d_{|X|}(z)$ faces of $|X|$.
-793. (V11.4) $[0, \infty)^2 \oplus W$ with only identities is face structured; with $\mathbb Z/2$ exchanging the coordinates it is weakly face structured and not face structured.
-794. (V11.5) An equivalence induces the bijection $\theta \mapsto |\Phi|(\theta)$ of faces, with $\Phi_*(X_\theta) = \mathrm{saturation}(\Phi(X_\theta))$ and $\Phi^*(Y_{\theta'}) = \Phi^{-1}(Y_{\theta'})$; for generalized isomorphisms $[d]_* = \Psi_* \circ \Phi^*$ and $[d]^* = \Phi_* \circ \Psi^*$ are mutually inverse.
-795. (V11.6) A generalized isomorphism induces a bijection of the faces of $|X|$ onto those of $|Y|$ and homeomorphisms $\theta \to [d]_*\theta$; for face structured $X$ each face is a tame ep-groupoid and $[d]$ restricts to generalized isomorphisms $[d]_F$; two faces meet in a union of faces of each, and in general not in one face.
-796. (V11.7) Being tame and face structured is invariant under generalized isomorphisms.
-797. (V11.8) Generalized isomorphisms with $|f| = |g|$ induce the same bijection of faces, and the generalized isomorphisms $f_F$, $g_F$ on faces have the same orbit map.
-798. (V11.9) $d \circ d = 0$; generalized maps have pull-backs commuting with $d$; generalized isomorphisms have push-forwards commuting with $d$ and inverse to the pull-backs; under the local regularity property they depend only on the orbit maps.
-799. (V11.10) For an equivalence $F$, $F^*$ on forms is a bijection, and its inverse $F_*$ is given by $(F_*\omega)_y(T\psi(TF(x)l_1), \ldots) = \omega_x(l_1, \ldots)$, independently of the choices.
-800. (V11.11) Push-forwards and pull-backs of forms along equivalences compose, are mutually inverse, agree for naturally equivalent functors and are unchanged by refinements.
-801. (V11.12) $[d]^* = F_* \circ G^*$ and $[d]_* = G_* \circ F^*$ are independent of the representing diagram.
-802. (V11.13) Under the local regularity property, equivalences and generalized isomorphisms with the same orbit map have the same push-forwards and pull-backs of forms.
-803. (V11.14) $F^*\Theta' = \Theta' \circ F$ and $(F_*\Theta)(y) = \Theta(x)$ for a chosen morphism $F(x) \to y$.
-804. (V11.15) For full $F$, $F_*\Theta$ is a well-defined functor with $F^*F_*\Theta = \Theta$; for essentially surjective $F$, $F_*F^*\Theta' = \Theta'$; naturally equivalent functors have the same push-forwards and pull-backs.
-805. (V11.16) $f^* = F_*\Phi^*$ is well defined for generalized maps and $f_* = \Phi_*F^*$ for generalized isomorphisms, with $(g \circ f)^* = f^* \circ g^*$, $(g \circ f)_* = g_* \circ f_*$ and $(f^{-1})_* = f^*$.
-806. (V11.17) Along an equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids are branched ep⁺-subgroupoids, with closedness, compactness, type, dimension and dimensional decompositions preserved.
-807. (V11.18) Generalized isomorphisms carry branched ep⁺-subgroupoids to branched ep⁺-subgroupoids and preserve properties (3)–(6) of Theorem 11.3.3, (6) for every dimensional decomposition.
-808. (V11.19) $1_{\{0\}}$ on $\mathbb Z/2 \ltimes \mathbb R$ is a branched ep⁺-subgroupoid whose pull-back to a refinement is $1$ at two objects.
-809. (V11.20) Section functors of $\widehat{Gr}$ are pushed forward by (11.8) and pulled back by (11.9) along equivalences, and along generalized isomorphisms by representatives, independently of the choices.
-810. (V11.21) Generalized isomorphisms carry orientations of branched ep⁺-subgroupoids to orientations of their push-forwards and pull-backs.
-811. (V11.22) $f_*\hat\Theta = (f_*\Theta, f_*\hat T_\Theta)$ and $f^*\hat\Theta'$ are oriented branched ep⁺-subgroupoids, with $(g \circ f)_* = g_* \circ f_*$ and $(g \circ f)^* = f^* \circ g^*$.
-812. (V11.23) $(Tf)_*T\Theta = T(f_*\Theta)$ and $(Tf)^*T\Theta' = T(f^*\Theta')$.
-813. (V11.24) $f_*(\partial\Theta) = \partial(f_*\Theta)$ and $f^*(\partial\Theta') = \partial(f^*\Theta')$.
-814. (V11.25) For a representative whose transfer maps carry the boundary operations into each other, push-forward and pull-back commute with taking oriented boundaries; the general form is not verified.
-815. (V11.26) The orientation of Example 9.3.5 is a section functor and an oriented branched ep⁺-subgroupoid moved along the identity.
-816. (V11.27) A generalized isomorphism carries the canonical measures of oriented compact $n$-dimensional branched ep⁺-subgroupoids, and under LUC the effective ones, by $|f|$, with $|f|$ preserving $\mathcal L$: $\mu^{f^*\hat\Theta'}_{f^*\omega'} = \mu^{\hat\Theta'}_{\omega'} \circ |f|$ and $\mu^{\hat\Theta}_\omega = \mu^{f_*\hat\Theta}_{f_*\omega} \circ |f|$.
-817. (V11.28) For $\beta' \circ |f| = \beta$ the measures on $Z$ of corresponding forms over corresponding branched ep⁺-subgroupoids agree, and so do the integrals.
-818. (V11.29) The boundary measures, and under LUC the effective ones, transform by $|f|$, with $|f|$ preserving $\mathcal L(\partial S)$, for every $n \ge 1$ under the text's hypotheses.
-819. (V11.30) Pull-backs and push-forwards of auxiliary norms along generalized strong bundle isomorphisms are well defined, continuous, invariant, mutually inverse and depend only on $|[D]|$; conditions (1) and (2) of Definition 8.3.5 are not verified.
-820. (V11.31) The push-forward of a multisection functor along a strong bundle equivalence is a well-defined functor, inverse to the pull-back.
-821. (V11.32) Push-forward and pull-back of multisection functors along generalized strong bundle isomorphisms are well defined, mutually inverse and depend only on $|[D]|$.
-822. (V11.33) A proper covering functor is a surjective local sc-diffeomorphism on morphisms.
-823. (V11.34) $G_x$ acts on $F^{-1}(x)$ by $g * y = t(\alpha^{-1}(g, y))$, and $Y(x)$ is isomorphic to $G_x \ltimes F^{-1}(x)$ by the identity on objects and $\alpha$ on morphisms.
-824. (V11.35) A morphism $\varphi : x \to x'$ induces an equivariant bijection $B_\varphi$ and an isomorphism $G_x \ltimes Y_x \to G_{x'} \ltimes Y_{x'}$.
-825. (V11.36) A functor between proper coverings is a commuting pair $(\Psi, \Phi)$; it is an equivalence iff $\Psi$ and $\Phi$ are equivalences, the fibre condition being automatic.
-826. (V11.37) Natural transformations between functors of proper coverings are compatible pairs $(\tau_Y, \tau_X)$; natural equivalence is an equivalence relation compatible with composition.
-827. (V11.38) $H : Y \times_{Y'} Y'' \to X \times_{X'} X''$ is a proper covering functor when $\Psi$, $\Phi$ are local sc-diffeomorphisms on objects and $\Psi$ is onto on fibres.
-828. (V11.39) For an equivalence $(\Psi, \Phi)$, $H$ is a proper covering, $(\pi_{Y''}, \pi_{X''})$ is an equivalence, the two composites to $F'$ are naturally equivalent, and tameness passes from $X''$ to $P$ and $Q$.
-829. (V11.40) Proper coverings form a category $\mathcal{PC}$ with a multiplicative class of equivalences, and diagrams between them have common refinements as in Definition 11.6.7.
-830. (V11.41) Having a common refinement is an equivalence relation on diagrams of proper coverings.
-831. (V11.42) Proper strong bundle coverings form a category with a class of equivalences; Theorem 11.6.6 holds for them, and their localization is described by diagrams under common refinement.
-832. (V11.43) Classes of diagrams of proper coverings form a category $\mathcal{PC}(E^{-1})$ with a well-defined composition, and $I : \mathcal{PC} \to \mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms.
+419. (V5.77) A strong bundle has reflexive $(0,1)$-fibres when the compatible charts with reflexive $F_1$ cover $X$.
+420. (V5.78) Weak convergence of the fibre parts in $F_1$ does not depend on the reflexive chart, and the two limits are the same point of $Y_{0,1}$.
+421. (V5.79) Mixed convergence is well defined and implies convergence in $Y$.
+422. (V5.80) A reflexive auxiliary norm is an auxiliary norm with $N(y) \le \liminf N(y_k)$ along mixed convergent sequences.
+423. (V5.81) With reflexive fibres a reflexive auxiliary norm exists, and it is comparable to every auxiliary norm by a continuous $f > 0$.
+424. (V5.82) Reflexive local compactness: every point has a neighbourhood $U$ with $\mathrm{cl}\{q \in U \mid N(f(q)) \le 1\}$ compact, for every reflexive $N$.
+425. (V5.83) Points off $X_1$, and points with $N(f(x)) > 1$, have neighbourhoods on which $N(f) > 1$.
+426. (V5.84) The closure of $\{x \in U \mid N(f(x)) \le 1\}$ lies in $\{x \in \mathrm{cl}(U) \mid N(f(x)) \le 1\}$.
+427. (V5.85) Compactness control on a neighbourhood of $S \cap \partial X$ in $\partial X$ extends to an open $U \supseteq S$ with the same trace on $\partial X$.
+428. (V5.86) Remark 5.2.9 restates Theorem 5.2.8.
+429. (V5.88) An sc⁺-section over $\partial X$ is a section over $\partial X$ with values in $W_{0,1}$ whose restrictions to the local faces are sc⁺ in every tame chart.
+430. (V5.89) An sc⁺-section over $\partial X$ extends to an sc⁺-section $\tilde s$ with $N(\tilde s) \le f$ and support in $\tilde U$.
+431. (V5.90) Bounded sequences in a reflexive Banach space have weakly convergent subsequences.
+432. (V5.91) $(g \circ P) \cdot N$ is a (reflexive) auxiliary norm for continuous $g > 0$, and every auxiliary norm lies between two reflexive ones.
+433. (V6.1) At a chart point, $\mathrm{Lin}(f, x)$ is $(f + s)'(x)$ plus the sc⁺-operators; its members are Fredholm on level $0$ of one index, and it is convex and, with sections through $f(x)$, nonempty.
+434. (V6.2) $\lambda(E)$ and $\lambda^*(E)$ are lines; wedges change by determinants; $\lambda(\Phi)$ is functorial and nonzero iff $\Phi$ is bijective.
+435. (V6.3) $\iota : \lambda(E^*) \to \lambda^*(E)$ is given by $\det(e_i^*(a_j))$ and maps the dual-basis wedge to $(e_1 \wedge \dots \wedge e_n)^*$.
+436. (V6.4) $\lambda^*(\Phi) \circ \iota = \iota \circ \lambda(\Phi^*)$ for an isomorphism $\Phi$.
+437. (V6.5) $\Phi_E$ of a four-term exact sequence is the isomorphism of lines given by (91) for one choice.
+438. (V6.6) Formula (91) holds for every choice.
+439. (V6.7) $\Psi_E$ maps the wedge of the basis of $C$, in the order of (91), and $a \otimes d^*$ to the wedge of the basis of $B$.
+440. (V6.8) $\det(T) = \lambda(\ker T) \otimes \lambda^*(\operatorname{coker} T)$ is a line for $T$ Fredholm.
+441. (V6.9) An orientation of $T$ is a ray of $\det(T)$; there are exactly two.
+442. (V6.10) Good left-projections are as in Definition 6.4.3 (preprint 6.9), $\le$ is a partial order, the remarks after the definition hold, and $\Pi_T \ne \emptyset$ for $T$ Fredholm.
+443. (V6.11) Two good left-projections have a common lower bound in $\Pi_T$, for any bounded $T$; the text's candidate need not be one.
+444. (V6.12) The sequence $E(T, P)$ is exact.
+445. (V6.13) $\gamma^P_T = \Phi_{E(T,P)}$ is an isomorphism $\det(T) \to \det(PT)$ given on wedges by (91).
+446. (V6.14) For $P \le Q$, $\gamma^P_{QT} \circ \gamma^Q_T = \gamma^P_T$.
+447. (V6.15) $(\gamma^P_{RT})^{-1} \circ \gamma^P_{ST} = \gamma^R_T \circ (\gamma^S_T)^{-1}$ for $P \le S, R$.
+448. (V6.16) The stabilization sequence of $T_\varphi$ is exact, and stabilizations exist.
+449. (V6.17) $\psi((c_1 \wedge \dots \wedge c_n)^*) = \det[c]^{-1}1^*$.
+450. (V6.18) $\iota_\varphi$ is an isomorphism given by the formula of Proposition 6.4.15 (preprint 6.15), and $m + l = n$ always holds.
+451. (V6.19) $T \oplus S$ is Fredholm and $\det(T) \otimes \det(S) \to \det(T \oplus S)$ is the isomorphism given by the formula for every choice.
+452. (V6.20) Lemma 6.5.1 (preprint 6.17) holds, without the hypothesis that $T$ is Fredholm.
+453. (V6.21) The kernels $\ker(PS)$ near $T$ are trivialized continuously by $k \mapsto k + y(k, S)$, with continuous inverse.
+454. (V6.22) The frames $\omega(S)$ are nowhere zero, and the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.
+455. (V6.23) $\gamma^Q_{PS}$ maps the $P$-frame to a continuous nowhere-zero multiple of the $Q$-frame, for any two charts.
+456. (V6.24) The charts $\gamma_{(T,P,\varepsilon)}$, read in frames, form a vector prebundle with fibres $\det(S)$.
+457. (V6.25) $\mathcal B$ is the collection of Definition 6.5.6 (preprint 6.22), read in the frames.
+458. (V6.26) $\mathcal B$ is a basis of the topology of $\mathrm{DET}(E, F)$.
+459. (V6.27) $\mathrm{DET}(E, F)$ is a topological line bundle, trivialized by the $\gamma_{(T,P,\varepsilon)}$.
+460. (V6.28) The transition maps are multiplications by continuous nowhere-zero functions.
+461. (V6.29) A line bundle over a nonempty simply connected, locally path-connected base has exactly two orientations.
+462. (V6.30) $\mathrm{DET}(E, F)$ over a nonempty convex set of Fredholm operators is a line bundle with exactly two orientations.
+463. (V6.31) $\mathrm{Or}^f_x$, the orientations of $\mathrm{DET}(f, x)$, has exactly two elements, each determined by its value at one $L$.
+464. (V6.32) Proposition 6.6.3 (preprint 6.28) holds with (1) in its 2021 form and with (1′), with global sections over $\mathbb R^n \times X$.
+465. (V6.33) Finitely many sc⁺-sections put $F$ in general position at all points $(0, (q, \Phi(q)))$, $q$ near $[0, 1]^n$.
+466. (V6.34) The kernels of the linearizations along a continuous family of zeros in good position form a continuous family of subspaces.
+467. (V6.35) Continuous families of subspaces have determinant line bundles, and orientations are continued along $[0, 1]$.
+468. (V6.36) Kernels, images and cuts of continuous families are continuous families, with their orientations.
+469. (V6.37) In the product chart the slice kernel is $\ker(T \oplus \varphi)$ with $T \in \mathrm{Lin}(f, x)$, and $T \oplus \varphi$ is onto.
+470. (V6.38) The sequence (96) is exact.
+471. (V6.39) Continuation and the stabilization isomorphisms compose to a bijection of the rays at the two ends.
+472. (V6.40) With the sign $(-1)^{\dim\operatorname{coker}T}$ the orientations carried by $\Phi_E$ along a family are continuous; without it they need not be.
+473. (V6.41) The push-forward along stabilized kernels is defined with that sign and is compatible with pull-back and concatenation.
+474. (V6.42) With the sections of Lemma 6.6.4 (preprint 6.29) the stabilized kernels along a family form a continuous family.
+475. (V6.43) Push-forwards along sc-smooth paths exist in the sets of Proposition 6.6.3 (preprint 6.28) and split along halves.
+476. (V6.44) Two push-forwards along the same path agree.
+477. (V6.45) Appending sections does not change the push-forward.
+478. (V6.46) Affine reparametrizations keep sc⁺-sections, and adding sections keeps general position.
+479. (V6.47) Push-forwards along the two edges of a square of stabilized kernels with fixed end points agree.
+480. (V6.48) Every smooth point has an open neighbourhood on which push-forwards exist and depend only on the end points.
+481. (V6.49) Nearby smooth points are joined by sc-smooth paths in a chart, and concatenations are sc-smooth.
+482. (V6.50) An orientable neighbourhood (a pair $V \subseteq U$) has exactly two continuous orientations, and every smooth point has one.
+483. (V6.51) Reparametrizations of a path are homotopic to it with the end points fixed.
+484. (V6.52) The sc-smooth homotopy classes of paths form a groupoid $PX$ on the smooth points.
+485. (V6.53) Two chart points at $x$ identify $\mathrm{Lin}(f, x)$ and $\mathrm{Or}^f_x$, with the cocycle rules.
+486. (V6.54) Under this identification the local propagations of two charts agree.
+487. (V6.55) $\mathrm{Or}^f_x$ read in a chosen chart has two elements and is identified with that of any chart at $x$.
+488. (V6.56) Local push-forwards give a transport along paths, homotopy invariant, functorial, and unique.
+489. (V6.57) There is exactly one functor $\Gamma_f$ on $PX$ with property (∗).
+490. (V6.58) Orientability in the sense of Definition 6.6.14 (preprint 6.38) is the existence of a family $o_y$ preserved by $\Gamma_f$.
+491. (V6.59) Definitions 6.6.14 and 6.6.15 (preprint 6.38 and 6.39) are equivalent.
+492. (V6.60) Orientations of $f$ are the families preserved by $\Gamma_f$; they exist iff $f$ is orientable, two on each class.
+493. (V6.61) For a proper $f$ in general position at its zeros, $S$ is a compact manifold with boundary with corners, and the tangent orientations $o_x$ of $T_xS = \ker f'(x)$ vary continuously along the sc-smooth paths of zeros in a chart.
+494. (V6.62) An orientation of $\mathrm{DET}(f, x)$ gives exactly one orientation of $\mathrm{DET}(\hat f, (t, x))$, by $h \mapsto \tilde h$ with the sign $(-1)^{\dim\operatorname{coker}L}$, independent of $L$.
+495. (V6.63) The proof of Lemma 6.3.3 (preprint 6.5) in §6.8.1 (preprint §6.7.1) goes through, with homogeneity in the bases of $A$ and $D$.
+496. (V6.64) The proof of Proposition 6.4.11 (preprint 6.12) in §6.8.2 (preprint §6.7.2) goes through, with the spanning proved directly in $F$.
+497. (V6.65) Near $(T_0, P_0)$, $T$ is Fredholm, $P \in \Pi_T$, and $\mathrm{ind}(PT) = \mathrm{ind}(T) = \mathrm{ind}(T_0) = \mathrm{ind}(P_0T_0)$, the indices taken as maps $E \to F$.
+498. (V6.66) Two finite-dimensional subspaces of the same dimension have a common algebraic complement.
+499. (V6.67) For $P, Q \in \Pi_T$ with the same range, the text's $A_T$ and $B_T$ are isomorphisms making the diagram of $E(T, P)$ and $E(T, Q)$ commute; their continuity in $T$ is V6.70.
+500. (V6.68) Appending zero sections (Lemma 6.6.8) or arbitrary sections (Lemma 6.6.9) does not change the push-forward of orientations.
+501. (V6.69) Two finite-dimensional subspaces of the same dimension of a normed space have a common closed, topological complement.
+502. (V6.70) With such a closed $X$, $A_S$ (on $E$) and $B_S$ (lifted to $F$) depend continuously on $S$ near $T$, also jointly with the vector, and for every such $S$ they are the text's isomorphisms filling the diagram of $E(S, P)$ and $E(S, Q)$.
+503. (V6.71) $O_f$ is the set of $(x, o)$, $x \in X_\infty$, $o \in \mathrm{Or}^f_x$, over $X_\infty$ with the topology of Theorem 2.3.10, and properties (1)–(3) of Theorem 6.6.17 are stated as the text does, (3) with the push-forward along segments of the path.
+504. (V6.72) Sc-smooth maps $\mathbb R^n \to X$ are continuous into $X_\infty$, and points of $X_\infty$ near $x$ are joined to $x$ by sc-smooth paths inside any given neighbourhood of $x$ in $X_\infty$.
+505. (V6.73) The topology defined by the continuous orientations is Hausdorff and makes $\pi_f$ a local homeomorphism.
+506. (V6.74) Over M-polyfolds whose smooth points have small open neighbourhoods with connected smooth part ($\mathbb R^n$, for instance), that topology has exactly two continuous sections over such neighbourhoods.
+507. (V6.75) Under the hypotheses of Theorem 6.6.13, it has property (3), it is the only topology with (1) and (3), and so the only Hausdorff one with (1)–(3); (2) is proved under the hypothesis of V6.74.
+508. (V7.1) A groupoid is a structure of maps with the laws on composable pairs, and $|X|$ is its orbit space with $\pi$.
+509. (V7.2) The isotropy group $G_x$ has the multiplication $gh = g \circ h$.
+510. (V7.3) An ep-groupoid satisfies (1)–(4) of Definition 7.1.3 (2017: 7.3), with (3) existential and (4) on the fibred product of Part I's Proposition 2.5.20 (2017: 2.15), equivalently in sheet form.
+511. (V7.4) Properness of $t : s^{-1}(Q) \to X$ is equivalent to the sequential criterion and passes to smaller closures.
+512. (V7.5) $\hat\varphi = t \circ (s|\mathbf U(\varphi))^{-1}$ is an sc-diffeomorphism with $\hat\varphi(x) = y$; $T\varphi$ is only defined.
+513. (V7.6) $s, t$ preserve levels and the degeneracy index, so $ml$ and $d_X$ are constant on classes.
+514. (V7.7) $d_{|X|}(|x|) = d_X(x)$ is well defined.
+515. (V7.8) If $X$ is tame, so is $\mathbf X$.
+516. (V7.9) The ep-groupoids and the functors sc-smooth on objects and morphisms form the category $\mathcal{EP}$.
+517. (V7.10) A functor sc-smooth on objects and continuous on morphisms is sc-smooth on morphisms (2021); without continuity (2017) it need not be.
+518. (V7.11) $\pi : X \to |X|$ is open.
+519. (V7.12) Every point of $|X|$ has a monotone countable basis of open neighbourhoods.
+520. (V7.13) $\pi(\mathrm{cl}_X A) = \mathrm{cl}_{|X|}\pi(A)$ for every $A \subseteq \mathrm{cl}_X U$, $U$ with the properness property.
+521. (V7.14) Only finitely many $\psi$ have $s(\psi) = x$ and $t(\psi) \in U(x_0)$, and likewise with $s$ and $t$ exchanged.
+522. (V7.15) $G_x$ is finite.
+523. (V7.16) $g \mapsto \varphi g \varphi^{-1}$ is an isomorphism $G_x \to G_y$, unique up to an inner automorphism of $G_y$.
+524. (V7.17) Inside every open $V \ni x$ there is a natural representation on a connected open $U$ with (1)–(3) of Theorem 7.1.13 (2017: 7.1).
+525. (V7.18) M-polyfolds are locally path connected.
+526. (V7.19) $\mathbf U(x)$ is the disjoint union of the connected open $\mathbf U(g)$, on which $s, t$ are sc-diffeomorphisms onto $U(x)$.
+527. (V7.20) $G \times U$ is an M-polyfold on which sc-smoothness is sc-smoothness on each slice.
+528. (V7.21) $G_x \ltimes U(x)$ is an ep-groupoid.
+529. (V7.22) $\Gamma : G_x \ltimes U(x) \to X$ is a fully faithful functor onto the full subcategory on $U(x)$.
+530. (V7.23) $\hat\Phi$ is a homomorphism into the sc-diffeomorphisms of $\mathbf U(x)$ with the two commutative diagrams.
+531. (V7.24) Two natural representations at $x$ agree on the component of $x$ in $U \cap U'$, and they restrict to invariant connected open neighbourhoods.
+532. (V7.25) Every finite set of mutually isomorphic objects has a natural representation on neighbourhoods inside a given neighbourhood.
+533. (V7.26) Definition 7.1.18 (2017: 7.8) is the datum of Proposition 7.1.15 (2017: 7.5).
+534. (V7.27) $\tau : G_x\backslash U(x) \to \pi(U(x))$ is a homeomorphism, and the functor $G_x \ltimes U(x) \to X$ is fully faithful.
+535. (V7.28) Every natural representation is a local uniformizer, local uniformizers exist inside every neighbourhood, and they are injective on objects and morphisms.
+536. (V7.29) An ep-subgroupoid is the full subcategory of a saturated sub-M-polyfold.
+537. (V7.30) The inclusion $A \to X$ and the maps $i^{-1} \circ r$ are sc-smooth.
+538. (V7.31) For saturated $A$, $\mathbf A = s^{-1}(A)$ is a sub-M-polyfold of $\mathbf X$.
+539. (V7.32) The full subcategory of a saturated sub-M-polyfold is an ep-groupoid with the restricted structure maps.
+540. (V7.33) Effectiveness and regularity are as in Definition 7.2.1 (2017: 7.11), and the targets of morphisms from regular objects are regular.
+541. (V7.34) $X_{reg}$ is open.
+542. (V7.35) $X$ is effective iff natural representations with injective $\Phi$ exist inside every neighbourhood.
+543. (V7.36) For effective $X$, $X_{reg}$ is open and dense; conversely, density implies effectiveness.
+544. (V7.37) $T_x$ is a normal subgroup, the kernel of $\Phi$ for small $U(x)$, characterized by $s = t$ near $g$, and conjugation carries $T_x$ to $T_y$.
+545. (V7.38) $\sim$ is an equivalence relation, and $\mathbf X^R$ is the quotient.
+546. (V7.39) The charts $\psi \circ \sigma \circ s$ cover $\mathbf X^R$ and have sc-smooth transitions, with no hypothesis.
+547. (V7.40) If $T_R$ is Hausdorff, $X_R$ is an effective ep-groupoid with isotropy $G_x/T_x$.
+548. (V7.41) The isotropy group of $x$ in $X_R$ is $G_x/T_x = G^{\mathrm{eff}}_x$.
+549. (V7.42) $|X|$ is locally metrizable, regular and Hausdorff, and metrizable if paracompact.
+550. (V7.43) $|U(x)|$ is metrizable.
+551. (V7.44) Every point of $|X|$ has a monotone countable basis of open neighbourhoods.
+552. (V7.45) $|X|$ is Hausdorff.
+553. (V7.46) $|X|$ is regular.
+554. (V7.47) A second countable $|X|$ is metrizable.
+555. (V7.48) Subsets of $|X|$ are locally metrizable, and paracompact ones are metrizable.
+556. (V7.49) Component compact means compact in every connected component.
+557. (V7.50) Michael's characterization of paracompactness and the paracompactness of locally finite unions of closed paracompact sets hold for regular spaces.
+558. (V7.51) A component compact $K$ has an open neighbourhood with paracompact metrizable closure.
+559. (V7.52) $X^1$ is an ep-groupoid, tame if $X$ is.
+560. (V7.53) Definition 7.5.1 (2017: 7.15) is paracompactness of $|X|$, implied by second countability of $X$.
+561. (V7.54) If $|X|$ is paracompact, $|X^1|$ is metrizable, hence paracompact.
+562. (V7.55) For paracompact $|X|$, saturated open covers have invariant continuous partitions of unity.
+563. (V7.56) Definition 7.5.5 (2017: 7.16) is the existence of invariant sc-smooth partitions of unity with saturated local finiteness.
+564. (V7.57) Remark 7.5.6 (2017: 7.2) has no formal content.
+565. (V7.58) Paracompact $|X|$ and sc-smooth partitions of unity on $X$ give sc-smooth partitions of unity of $X$.
+566. (V7.59) Proper subsets and the properness property are as in Definition 7.5.8 (2017: 7.17).
+567. (V7.60) Proper subsets are closed.
+568. (V7.61) $\pi$ maps proper subsets to closed sets, and for paracompact $|X|$ every closed set is so obtained.
+569. (V7.62) Theorem 7.6.1 (2017: 7.5) is Theorem 7.1.13 (2017: 7.1), proved along Appendix 7.6.1 (2017 7.5.1).
+570. (V7.63) Morphisms between points of a small $U_1$ lie in the given open $N_g$.
+571. (V7.64) $U = \bigcup_g t_g s_g^{-1}(U_2)$ is a connected invariant neighbourhood inside $U_1$.
+572. (V7.65) Theorem 7.6.4 (2017: 7.6) is Theorem 7.5.7 (2017: 7.4).
+573. (V7.66) Invariant continuous $\beta$ supported in $U(x)$ have invariant sc-smooth majorants supported in $\mathrm{cl}_X U(x)$.
+574. (V7.67) The proof of Theorem 7.5.7 (2017: 7.4) goes through, with the support bound of Lemma 7.6.5 (2017: 7.10) and Mathlib's bump coverings.
+575. (V7.68) With $|X|$ paracompact, a Hilbert atlas gives sc-smooth partitions of unity of $X$.
+576. (V7.69) A functor sc-smooth on objects and continuous on morphisms is sc-smooth on morphisms, with the local formula of the 2021 remark.
+577. (V7.70) The data (7.3) exist, and on a small invariant $V(x)$ the natural representation is $\Gamma(g, v) = s_g^{-1}(v)$, $\Phi(g)(v) = t(s_g^{-1}(v))$.
+578. (V7.71) Proposition 7.1.15 holds in its 2021 form; the printed 2017 form of (2) would force $s(\psi) = t(\psi)$.
+579. (V7.72) Limits of sequences in $\mathbf U(\psi)$ whose sources or targets converge in $U(s(\psi)) \cup U(t(\psi))$ stay in $\mathbf U(\psi)$.
+580. (V7.73) Corollary 7.1.17 (4)–(7): the natural action, equivariance along $\gamma_\varphi$, the multiplication as an sc-diffeomorphism onto $\mathbf U(\psi \circ \varphi)$, and the properness property.
+581. (V7.74) $T_x$ is the maximal subgroup acting trivially on a small $W(x)$, and conjugation by $\varphi$ maps $T_x$ onto $T_y$.
+582. (V7.75) $T_R$ is the finest topology making $\pi$ continuous, and $\pi$ is an open quotient map.
+583. (V7.76) The conclusion of Lemma 7.2.11 holds at every morphism iff $T_R$ is Hausdorff.
+584. (V7.77) $T_R$ is paracompact for every ep-groupoid.
+585. (V7.78) The natural charts give an M-polyfold structure iff $T_R$ is Hausdorff, and then $X_R$ is an effective ep-groupoid.
+586. (V7.79) $T_R$ is Hausdorff iff $\mathbf X^T$ is closed in $\mathbf X$.
+587. (V7.80) LUC is as in Definition 7.2.18, independent of the natural representation, and satisfiable, also for non-effective $X$.
+588. (V7.81) $T_R$ Hausdorff, LUC and $\mathbf X^T$ closed are equivalent, and under LUC $X_R$ is well defined.
+589. (V7.82) In Zhou's example $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$ is one point, $T_R$ is not Hausdorff and LUC fails.
+590. (V7.83) Under (SLUC), $(X^i)_R \cong (X_R)^i$ in $\mathcal{EP}$ for every $i$; for $i = 1$ the identification is an sc-diffeomorphism.
+591. (V7.84) $X^{i+1} = (X^i)^1$, and under LUC every natural representation has the LUC property.
+592. (V7.85) If $X^i$ has LUC and the level-one sets $U(x) \cap X_1$ are connected and dense, every $X^k$, $k \le i$, has LUC.
+593. (V7.86) The Part I facts used in §7.4 are explicit hypotheses, satisfiable on a point.
+594. (V7.87) $Tg$, defined without charts, is $T\Phi(g)$ on $T_xX$ for every natural representation.
+595. (V7.88) (ZHOU), $T_x^\infty$ and (ZHOU') are as in Definitions 7.4.5 and 7.4.7, and hold when $T_x = G_x$.
+596. (V7.89) With the Part I facts, (ZHOU) and (ZHOU') are equivalent.
+597. (V7.90) With the Part I facts, (ZHOU) gives LUC for $X$ and $X^1$, and for every $X^i$ if (ZHOU) holds for every $X^i$.
+598. (V7.91) (SLUC) is LUC for every $X^i$, and (ZHOU) with the Part I facts for every $X^i$ gives (SLUC).
+599. (V7.92) (VSLUC) implies LUC for $X$ and $X^1$, (VSLUC) for every $X^i$ gives (SLUC), and (ZHOU) implies (VSLUC).
+600. (V7.93) (LR) and (LR') are as in Definitions 7.4.19, 7.4.21 and are equivalent by Lemma 7.4.20.
+601. (V7.94) With the Part I facts, (ZHOU) implies (LR), and (ZHOU) for every $X^i$ gives (SLR).
+602. (V7.95) Zhou's example fails (ZHOU), with no hypothesis.
+603. (V7.96) Index-preserving local homeomorphisms induce local homeomorphisms of the tame boundaries.
+604. (V7.97) (7.25)–(7.29) define the groupoid $(bX, b\mathbf X)$, and $B$ is a functor.
+605. (V7.98) Theorem 7.6.9 holds in its topological part: metrizable $bX$, $b\mathbf X$, continuous $B$ with $d$ preimages, local homeomorphisms $s, t$, continuous $u, \iota, m$, properness.
+606. (V7.99) A continuous map of tame boundaries that covers an sc-smooth map is sc-smooth; lifts of local sc-diffeomorphisms are local sc-diffeomorphisms.
+607. (V7.100) For a tame ep-groupoid, $(bX, b\mathbf X)$ with (7.25)–(7.29) is a tame ep-groupoid, and $B$ is an ep-functor.
+608. (V7.101) Theorem 7.6.9 holds in full: (1)–(5), with the characterization and its uniqueness for centred $V$.
+609. (V7.102) Under (ZHOU) for $X$ and the Part I facts on every level, every $X^i$ satisfies (ZHOU) and has LUC, and $X$ has (SLUC) and (SLR).
+610. (V7.103) (VSLUC) for $X$ passes to every $X^i$; with the Part I facts, every $X^i$ has LUC and $X$ has (SLUC).
+611. (V7.104) With the density of $X_\infty$ and level-connected natural representations, (SLUC) implies (VSLUC); so (VSLUC) and (SLUC) are equivalent.
+612. (V8.1) The tangent data are Part I's tangent maps of $s, t, u, \iota$ and the composition (8.5), unique on composable pairs.
+613. (V8.2) Maps sc-smooth on open sets and local sc-diffeomorphisms have tangents with the chain rule, and local sc-diffeomorphisms have local sc-diffeomorphisms as tangents, bijective on the fibres.
+614. (V8.3) $T(X, \mathbf X)$ is an ep-groupoid with the text's structure maps, tame if $X$ is, and $(p, \mathbf p)$ is an sc-smooth functor into $X^1$.
+615. (V8.4) On a sheet of $s$, the composition of $T\mathbf X$ is the tangent of $\varphi' \mapsto m(\sigma(t\varphi'), \varphi')$; $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ and $m_{T\mathbf X} = Tm$.
+616. (V8.5) $s_T(\Psi \circ \Phi) = s_T(\Phi)$ and $t_T(\Psi \circ \Phi) = t_T(\Psi)$.
+617. (V8.6) The composition of $T\mathbf X$ is associative.
+618. (V8.7) $1_q = (1_x, Ts(1_x)^{-1}q)$ is a two-sided unit.
+619. (V8.8) $(\varphi^{-1}, T\iota(\varphi)k)$ is a two-sided inverse of $(\varphi, k)$.
+620. (V8.9) $s_T, t_T$ are surjective local sc-diffeomorphisms and all structure maps of $T(X, \mathbf X)$ are sc-smooth.
+621. (V8.10) $T(X, \mathbf X)$ has the properness property, with $V' = p^{-1}(V)$.
+622. (V8.11) If $X$ is tame, $Tr$ is a tame retraction and $T(X, \mathbf X)$ is tame.
+623. (V8.12) $T\varphi = t_T \circ (s_T|T_\varphi\mathbf X)^{-1}$ is functorial and $G$ is an sc-diffeomorphism onto the labelled pairs $\mathbf X^1\,{}_s{\times}_p\,TX$, compatible with the compositions.
+624. (V8.13) The tangent of an sc-smooth functor is an sc-smooth functor.
+625. (V8.14) $T : \mathcal{EP} \to \mathcal{EP}$ is a functor preserving tameness.
+626. (V8.15) Natural transformations and natural equivalence are as in Definition 8.1.13 (2017: 8.1).
+627. (V8.16) Natural equivalence is an equivalence relation.
+628. (V8.17) The tangent of a natural transformation is a natural transformation between the tangent functors.
+629. (V8.18) If $|X|$ is paracompact, $|TX|$ is metrizable, hence paracompact.
+630. (V8.19) Strong bundle maps between strong bundles over M-polyfolds, read globally, preserve the double filtration, and the pull-back along $s$ has its universal property on $[0]$ and $[1]$.
+631. (V8.20) A strong bundle over an ep-groupoid is a structure map $\mu$ on the pull-back with (1)–(3) of Definition 8.3.1 (2017: 8.4).
+632. (V8.21) $\mu(\psi, \cdot) : W_x \to W_y$ is a topological linear isomorphism.
+633. (V8.22) $(W, \mathbf X\,{}_s{\times}_P\,W)$ is an ep-groupoid and $(P, \pi_1)$ an sc-smooth functor.
+634. (V8.23) A strong bundle map over ep-groupoids is compatible with $\mu$ as in Definition 8.3.2 (2017: 8.5).
+635. (V8.24) A strong bundle functor is a functor of the functorial pictures inducing strong bundle maps on objects and morphisms.
+636. (V8.25) Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6) are equivalent, and the strong bundle functor is determined by its object map.
+637. (V8.26) Section functors are as in Definition 8.3.4 (2017: 8.7), and $\Gamma$, $\Gamma^+$ are closed under the linear operations.
+638. (V8.27) A proper covering functor satisfies (1)–(3) of Definition 8.5.1 (2017: 8.8), with (3) on Part I's fibred product.
+639. (V8.28) $L_F$ preserves the degeneracy index, and for tame $X$, $Y$, $d_{\mathbf X\,{}_s{\times}_F\,Y} = \tfrac12 d_{\mathbf X \times Y}$ along its image.
+640. (V8.29) Composites of proper covering functors are proper covering functors.
+641. (V8.30) Theorem 8.5.3 (2017: 8.5) holds for every natural representation on a small enough connected $U(x)$, with (5) read with $s$.
+642. (V8.31) Morphisms over $F^{-1}(x)$ go to $G_x$, and the data of Theorem 8.5.3 (2017: 8.5) are determined by $U(x)$.
+643. (V8.32) $\mathrm{Diff}_{sc}$, covering functors and geometric lifts are as in Definition 8.5.5 (2017: 8.9), with $C =$ `SingleObj G`.
+644. (V8.33) The $\varphi_{yy'}$ are functorial and the $\tau(y)$ are equivariant along $f : G_y \to G_x$.
+645. (V8.34) Disjoint unions of M-polyfolds are M-polyfolds, with summand-wise sc-smoothness, degeneracy and tameness.
+646. (V8.35) For nonempty $D$, a geometric lift of a covering functor gives a proper covering functor onto $G_x \ltimes U(x)$.
+647. (V8.36) For ep-groupoids in `Type`, a proper covering functor is near $x$ and $F^{-1}(x)$ the functor of a geometric lift, up to fully faithful open embeddings.
+648. (V8.37) Proper strong bundle covering functors are as in Definition 8.5.9 (2017: 8.10), with (3) on a pull-back.
+649. (V8.38) $\#\mathrm{mor}(F^{-1}(x)) = \#G_x \cdot \#F^{-1}(x)$, and the classes of $F^{-1}(x)$ are indexed by their images in $|Y|$.
+650. (V8.39) $\#G_x \cdot \#\Theta_j = \#G_{y_0} \cdot (\#\Theta_j)^2$ and $\#G_x = \#G_{y_0} \cdot \#\Theta_j$.
+651. (V8.40) For isomorphic $x, x'$ the classes of $F^{-1}(x)$ and $F^{-1}(x')$ correspond, with a unique common index.
+652. (V8.41) For isomorphic $x, x'$, corresponding classes have equal cardinality and $\#F^{-1}(x) = \#F^{-1}(x')$.
+653. (V8.42) $\#F^{-1}(x)$ is constant on connected components of $|X|$ and an sc-smooth functor $X \to \mathbb N$.
+654. (V8.43) $\mu_X(F(\varphi)) \circ A_{s(\varphi)} = A_{t(\varphi)} \circ \mu_Y(\varphi)$ for every morphism $\varphi$ of $Y$.
+655. (V8.44) If $X$ satisfies (ZHOU) and $T(g, h) = \mathrm{id}$ implies $Tg = \mathrm{id}$, then $TX$ satisfies (ZHOU).
+656. (V8.45) With $U(x) \cap X_1$ connected and dense and $p$ open, LUC for $X^1$, or (SLUC) for $X$, gives LUC for $TX$.
+657. (V8.46) Auxiliary norms over ep-groupoids are Part I's auxiliary norms invariant under $\mu$.
+658. (V8.47) $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together, $|W[1]|$ as an orbit space.
+659. (V8.48) The local regularity property of strong bundles is as in Definition 8.4.2, and holds over trivial ep-groupoids.
+660. (V8.49) A covering functor is injective on isotropy groups, and Example 8.5.6 shows it need not be surjective.
+661. (V8.50) Definition 8.5.9 in the 2021 form is equivalent to the reading of Definition 8.10 (2017) in V8.37.
+662. (V8.51) $B(w) = (P(w), A(w))$ is a strong bundle isomorphism $W \to F^*V$ covering the identity, compatible with the structure maps by (8.23).
+663. (V8.52) If $X$ has (SLUC), with the hypotheses of Proposition 8.1.17 (1) on every $X^i$, then $TX$ has (SLUC), through $T(X^i) \cong (TX)^i$.
+664. (V9.1) A branched ep⁺-subgroupoid is a nonnegative functor, supported in the smooth set with paracompact orbit support, locally a weighted sum of indicators of properly embedded smooth submanifolds through the point.
+665. (V9.2) The dimension of a submanifold at a point is the dimension of its tangent space in a chart, independent of the chart; $\Theta$ is $n$-dimensional if it has $n$-dimensional local branching structures.
+666. (V9.3) On $\mathbb R^n$, finite weighted sums of indicators of closed submanifolds and indicators of locally closed submanifolds are branched ep⁺-subgroupoids.
+667. (V9.4) The graphs of $\beta_1$, $\beta_2$ and those of $0$, $\beta_1 + \beta_2$ are two local branching structures of one $\Theta$ on $\mathbb R^2$ with no common sheet near the origin.
+668. (V9.5) $|\mathrm{supp}(\Theta)|$ is locally closed in $|X|$.
+669. (V9.6) $\Theta$ is closed or compact if $|\mathrm{supp}(\Theta)|$ is closed or compact in $|X|$.
+670. (V9.7) At every point of the support there are symmetric local branching structures inside every neighbourhood.
+671. (V9.8) $\Theta$ is of orbifold type if its values are $0$ and $1$, of manifold type if moreover there is at most one morphism between two points of its support.
+672. (V9.9) The local dimensional decomposition $\Theta = \sum_k \Theta_k$ is constructed; the uniqueness of the global decomposition, as stated, does not hold as we read it.
+673. (V9.10) The dimensional decompositions of two local branching structures agree near the point, unconditionally over $\mathbb R^m$ and under the graph representation in general.
+674. (V9.11) $\mathrm{Gr}(X)$ is the category of formal rational sums of tangent sets at smooth points, with the push-forward by morphisms.
+675. (V9.12) $T_yM$ is the set of tangent vectors fixed by the tangent of the retraction; in a chart it is a linear subspace of the dimension of $M$.
+676. (V9.13) If the tangent sums do not depend on the structure, $T_\Theta$ is a section functor of $\mathrm{Gr}(X)$ with the text's (1) and (2).
+677. (V9.14) The tangent sums do not depend on the structure, unconditionally over $\mathbb R^m$ and under the graph representation and local constancy of dimension in general.
+678. (V9.15) A point is good if near it all sheets through it coincide, equivalently if $\Theta$ is constant on the support near it.
+679. (V9.16) Being a good point does not depend on the local branching structure.
+680. (V9.17) Good points are good for every structure, and near a good point $\Theta$ is a multiple of the indicator of one submanifold.
+681. (V9.18) $s(\varphi)$ is good iff $t(\varphi)$ is good.
+682. (V9.19) The good and bad sets are saturated subsets of the support.
+683. (V9.20) The good set is open and dense in the support, the bad set closed and nowhere dense.
+684. (V9.21) Every sheet of an $n$-dimensional structure at $x$ contains good points converging to $x$, unconditionally over $\mathbb R^m$ and under invariance of domain in general.
+685. (V9.22) Under the graph representation, each class of sheets with one tangent space at $x$ has finite slices near $x$ whose $\Theta$-values sum to the weights of the class.
+686. (V9.23) $T\Theta$ is a well-defined nonnegative functor on $TX$, and a branched ep⁺-subgroupoid if the $TM_i$ are smooth submanifolds of $TX$ and $|X|$ is paracompact.
+687. (V9.24) For $x \in M \cap \partial X$, $d_M(x) = 0$ iff $T_xM \subseteq T^R_xX$; this also holds at every $x \in M$, while the printed (2) ⇒ (1) does not hold as we read it at interior points.
+688. (V9.25) $x \in \partial M$ iff $x \in \partial X$ and $T_xM \not\subseteq T^R_xX$.
+689. (V9.26) The boundary weights do not depend on the structure, vanish where $d_X = 0$, and define a nonnegative functor $\partial\Theta$ supported in $\partial X$.
+690. (V9.27) $\partial\Theta$ satisfies (1) and (2) and is the only functor vanishing off $\mathrm{supp}(\Theta)$ with (2) on $\mathrm{supp}(\Theta)$; (1) and (2) alone do not determine it.
+691. (V9.28) $\partial\Theta \le \Theta$, and $\partial\Theta$ need not be $\Theta$ restricted to $\partial X$.
+692. (V9.29) Oriented tangent spaces are tangent sets with a chart-independent class of positive frames, and $\widehat{\mathrm{Gr}}(X)$ is the category of their formal sums.
+693. (V9.30) An orientation of $\Theta$ is a natural lift of $T_\Theta$ that is locally the oriented sum of an oriented local branching structure.
+694. (V9.31) The indicator of a point has infinitely many orientations.
+695. (V9.32) Two orientations of an $n$-dimensional $\Theta$ that agree at good points agree at all smooth points; without equidimensionality the lemma does not hold as we read it.
+696. (V9.33) In Example 9.3.5 the two orientations agree at the origin, differ for $x > 0$, agree for $x < 0$; $\Theta$ has infinitely many orientations, a three-parameter rational family, of which six have integer weights.
+697. (V9.34) $\Theta$ is tame if it has local branching structures with tame induced structures on domains with the natural $G_x$-action and the properness property.
+698. (V9.35) Tame submanifolds with the same tangent space at $y$ have the same degeneracy index at $y$.
+699. (V9.36) The outward-first convention orients a hyperplane of $T_yM$, independently of the outward vector chosen; for a tame sheet the stratum $\{d_M = 1\}$ is an $(n-1)$-dimensional submanifold oriented by it.
+700. (V9.37) The degree-$\ell$ parts of the oriented sums of two structures agree, so the boundary orientation (9.12) does not depend on the structure.
+701. (V9.38) $\hat T_{\partial\Theta}$ is $0$ off the support and the weighted sum of the boundary orientations of the sheets with $d_{M_i}(y) = 1$; on a face-structured sheet these orientations extend uniquely to the closed faces, as Part I's face orientations.
+702. (V9.39) The relative tangent space $T^K_zM$ is the span of limiting unit directions in a chart, independent of the chart, and essential points are limits of points where it is everything.
+703. (V9.40) The essential set of $K$ is closed in $K$.
+704. (V9.41) Property (T) says that the orientation relation of two sheets with the same tangent space is the same wherever their tangent spaces agree.
+705. (V9.42) For sheets of one dimension, also in M-polyfold charts, essentiality in $M_i \cap M_{i'}$ does not depend on the reference sheet; for different dimensions it does.
+706. (V9.43) A set has measure zero if its chart images have Lebesgue measure zero.
+707. (V9.44) The non-essential points of any subset of a finite-dimensional manifold, or of an $n$-dimensional submanifold of an M-polyfold, form a set of measure zero.
+708. (V9.45) $y$-equivalence is an equivalence relation on the sheets through $y$, and equivalent sheets have the same tangent space.
+709. (V9.46) The points of $M_U$ with at least two $y$-classes form a null set.
+710. (V9.47) Off a null set, $M_U$ splits into pieces $M^J_U$ on which $\Theta$, $T_\Theta$ and $\hat T_\Theta$ have the text's constant form.
+711. (V9.48) Two oriented structures with the same weights and oriented sums agree, off a null set, piece by piece as in (1)–(5) of the text, without Property (T).
+712. (V9.49) A subset of $S = |\mathrm{supp}(\Theta)|$ has measure zero if, for a system of null sets in the sheets of a class, a tame local branching structure at every point of the support has null preimages.
+713. (V9.50) For an $n$-dimensional $\Theta$, measure zero does not depend on the local branching structures chosen; across dimensions the transfer of null sets between sheets does not hold.
+714. (V9.51) $L(S)$ is the σ-algebra generated by the Borel sets and the sets of measure zero, and its members are the sets that differ from a Borel set by a set of measure zero.
+715. (V9.52) Measure zero in $\partial S$ and $L(\partial S)$ are defined from the $(n-1)$-dimensional Hausdorff null sets in the boundaries of the sheets and do not depend on the structures chosen.
+716. (V9.53) The hypotheses of §9.5 are satisfiable on $\mathbb R^2$, with nonempty sets of measure zero and members of $L(S)$ that are not Borel.
+717. (V9.54) For a natural representation of $G_x$ and $y \in U(x)$, $\#(G_x/H) \cdot \#G_y = \#G_x$, and preimages decompose disjointly over coset representatives on a slice around $y$; the measures of sc-forms on $U$ and on $V$ agree.
+718. (V9.55) $\#T_x \cdot \#G^{\mathrm{eff}}_x = \#G_x$, and under LUC (9.23) holds and the effective measures agree.
+719. (V9.56) The orders of the isotropy groups and of the effective isotropy groups are invariant along morphisms, $|M_U| = |M_{U'}|$, and the measures of sc-forms are invariant.
+720. (V9.57) For effective $X$ the effective and full isotropy orders agree, and the effective order on $X$ is the isotropy order on $X_R$; under LUC the effective integral on $X$ is the integral on $X_R$.
+721. (V9.58) Two structures at $x$ have the same top dimension.
+722. (V9.59) The unions of the top-dimensional sheets of two structures agree on the common domain.
+723. (V9.60) At top-good points the top-dimensional parts of two structures agree.
+724. (V9.61) Top-goodness does not depend on the structure, unconditionally over $\mathbb R^m$ and under the graph representation in general.
+725. (V9.62) The top-dimensional part at $x$ is the sum of $\Theta$ over finite top slices, and the class sums agree for two structures.
+726. (V9.63) A paracompact subset of $|X|$ is metrizable, and if $|\mathrm{supp}(\Theta)|$ is component compact it is paracompact.
+727. (V9.64) $|\mathrm{supp}(\Theta)|$ carries a unique M-polyfold structure in case (1) and, in case (2), the orbifold structure of the text's groupoid, independent of the choices up to a generalized isomorphism.
+728. (V9.65) For $n$-dimensional $\Theta$ with $d_{|X|} = 0$ on the support, these are Mathlib manifolds and local diffeomorphisms, except the composition of the orbifold groupoid, which is sc-smooth.
+729. (V9.66) For every integration of forms over the oriented sheets, the branched measures of Theorems 9.5.4, 9.5.5 exist and are unique; for sc-forms and $n \ge 1$ the integration is constructed, and the theorems hold as printed with "oriented, tame" read as a covering by oriented tame structures.
+730. (V9.67) For every $n \ge 1$ the boundary measures of Theorems 9.5.15, 9.5.16 exist and are unique, with the local formula for every oriented tame structure, under the text's hypotheses.
+731. (V9.68) $\int_{\hat\Theta} d\omega = \mu^{\partial\hat\Theta}_\omega(\partial S)$ for every $n \ge 1$, and the effective form under LUC, under the text's hypotheses; the closed hemisphere and the closed half-circle satisfy them with $\partial S \ne \emptyset$.
+732. (V9.69) The measure of $f\cdot\omega$ has density $\bar f$ with respect to the measure of $\omega$, globally on $L(S)$, for bounded measurable $\bar f$.
+733. (V10.1) An equivalence of ep-groupoids is a full and faithful sc-smooth functor, a local sc-diffeomorphism on objects, inducing a homeomorphism of orbit spaces.
+734. (V10.2) An sc-smooth functor is an equivalence iff it is an equivalence of categories and a local sc-diffeomorphism on objects.
+735. (V10.3) The refinement of a nonempty ep-groupoid along an open covering is an ep-groupoid, and its projection to the ep-groupoid is an equivalence.
+736. (V10.4) Natural equivalence of sc-smooth functors is an equivalence relation compatible with composition on both sides.
+737. (V10.5) A functor naturally equivalent to an equivalence is an equivalence.
+738. (V10.6) If $F$ and $\Phi \circ F$ are equivalences, so is $\Phi$.
+739. (V10.7) The tangent of an equivalence is an equivalence.
+740. (V10.8) For $\mathrm{id}$ and $-\mathrm{id}$ on $\mathbb Z/2 \ltimes \mathbb R^2$, no family through $1_0$ is even continuous at $0$, while $\alpha_z = (-1, z)$ is sc-smooth.
+741. (V10.9) For an equivalence and $\psi : F(x) \to y$, $g \mapsto \psi \circ F(g) \circ \psi^{-1}$ is an isomorphism $G_x \to G_y$ mapping $T_x$ onto $T_y$.
+742. (V10.10) For an equivalence, $F_R$ is continuous and open, and one reduced morphism space is Hausdorff iff the other is.
+743. (V10.11) An equivalence with Hausdorff reduced morphism spaces descends to an equivalence of the reduced ep-groupoids.
+744. (V10.12) The functor of Example 10.1.15 is compatible with no map of the reduced morphism spaces.
+745. (V10.13) (LUC) holds for one side of an equivalence iff it holds for the other.
+746. (V10.14) The Zhou condition holds for one side of an equivalence iff it holds for the other.
+747. (V10.15) (SLUC) holds for one side of an equivalence iff it holds for the other.
+748. (V10.16) (SLR) passes along equivalences, through Proposition 10.1.9 for the lifts.
+749. (V10.17) The weak fibred product of two sc-smooth functors is a groupoid with the structure maps of Definition 10.2.1.
+750. (V10.18) If $F$ or $G$ is a local sc-diffeomorphism on objects, the weak fibred product is an ep-groupoid with the iterated sub-M-polyfold structures.
+751. (V10.19) For $F$ an equivalence, $\pi_Z$ is an equivalence, $F \circ \pi_X \simeq G \circ \pi_Z$, $d = d_Z \circ \pi_Z$, and tameness and paracompactness of the orbit space pass from $Z$.
+752. (V10.20) For $G$ an equivalence, $\pi_X$ is an equivalence and $d = d_X \circ \pi_X$; for two equivalences, $d_X(x) = d(x, \phi, z) = d_Z(z)$.
+753. (V10.21) For two equivalences both projections of the weak fibred product are equivalences, and $\tau(x, \phi, z) = \phi$ is natural.
+754. (V10.22) A strong bundle equivalence is a strong bundle functor over an equivalence, an equivalence at level $[0]$, a homeomorphism of $|W[1]|$, and locally a strong bundle isomorphism on objects and morphisms.
+755. (V10.23) Push-forward and pull-back of section functors along a strong bundle equivalence are well defined and mutually inverse.
+756. (V10.24) $|\Phi| = |\Psi|$ implies $\Phi^*f' = \Psi^*f'$ for every section functor $f'$.
+757. (V10.25) $|\Phi| = |\Psi|$ implies $\Phi_*f = \Psi_*f$ for every section functor $f$.
+758. (V10.26) $(\Psi \circ \Phi)^* = \Phi^* \circ \Psi^*$ and $(\Psi \circ \Phi)_* = \Psi_* \circ \Phi_*$.
+759. (V10.27) $\Phi_*$ and $\Phi^*$ are mutually inverse bijections of sc-smooth section functors, depend only on $|\Phi|$, and preserve $\mathrm{sc}^+$-section functors.
+760. (V10.28) A natural transformation of strong bundle functors is a natural family $T(w) : \Phi(w) \to \Psi(w)$ over a natural transformation $\tau$ of the base functors.
+761. (V10.29) $T(w) = (\tau(P(w)), \Phi(w))$ and $\Psi(w) = \mu'(\tau(P(w)), \Phi(w))$, so $T$ and $\Psi$ are determined by $\Phi$ and $\tau$, and $T$ is a strong bundle map.
+762. (V10.30) Definitions 10.4.8 and 10.4.10 agree for strong bundle functors, and naturally equivalent strong bundle functors induce the same map of orbit spaces.
+763. (V10.31) Strong bundles over ep-groupoids and strong bundle functors form a category with the strong bundle equivalences as a distinguished class.
+764. (V10.32) Isomorphisms of $\mathcal{EP}$ and composites of equivalences are equivalences, and so is a functor naturally equivalent to one.
+765. (V10.33) A refinement of a diagram $X \leftarrow A \to Y$ is given by an equivalence of the middle ep-groupoids commuting with both legs up to natural equivalence.
+766. (V10.34) A refinement of a refinement is a refinement.
+767. (V10.35) A common refinement of two diagrams refines both.
+768. (V10.36) Having a common refinement is transitive, through the weak fibred product (10.11).
+769. (V10.37) Equivalence of diagrams is an equivalence relation.
+770. (V10.38) The map $|\Phi| \circ |F|^{-1}$ of orbit spaces is continuous and unchanged under refinement.
+771. (V10.39) $|[d]|$ is well defined, and a homeomorphism when both legs are equivalences.
+772. (V10.40) The composition of classes of diagrams through weak fibred products is well defined, associative and unital.
+773. (V10.41) Generalized isomorphisms are the isomorphisms of $\mathcal{EP}(E^{-1})$.
+774. (V10.42) $[X \leftarrow A \xrightarrow{\Phi} Y]$ is a generalized isomorphism iff $\Phi$ is an equivalence, with the reversed diagram as inverse.
+775. (V10.43) $|g \circ f| = |g| \circ |f|$ for generalized maps.
+776. (V10.44) Ep-groupoids and generalized maps form the category $\mathcal{EP}(E^{-1})$.
+777. (V10.45) $i : \mathcal{EP} \to \mathcal{EP}(E^{-1})$ is a functor inverting the equivalences, with $i(F)^{-1} = [Y \xleftarrow{F} X \xrightarrow{1} X]$.
+778. (V10.46) The orbit spaces and the maps $|[d]|$ form a functor $\mathcal{EP}(E^{-1}) \to \mathrm{TOP}$.
+779. (V10.47) (LUC) is invariant under generalized isomorphisms.
+780. (V10.48) Equivalence of pairs $(X, \beta)$ by generalized isomorphisms is an equivalence relation.
+781. (V10.49) The ep-groupoids with (LR) span full subcategories of $\mathcal{EP}$ and $\mathcal{EP}(E^{-1})$.
+782. (V10.50) (LR), (LUC), (SLR), (SLUC) and (ZHOU) are invariant under generalized isomorphisms.
+783. (V10.51) Refinement of diagrams of strong bundles is reflexive and transitive, having a common refinement is an equivalence relation, and generalized strong bundle maps are its classes.
+784. (V10.52) A generalized strong bundle map covers a generalized map of the base ep-groupoids, and $|[D]| = |\Psi| \circ |\Phi|^{-1}$ is continuous and independent of the representative.
+785. (V10.53) $|P'| \circ |[D]| = |[d]| \circ |P|$.
+786. (V10.54) A diagram of ep-groupoids and $|[d]|(|x|) = |x'|$ give morphisms $a$, $b$ and a group homomorphism $\gamma : G_x \to G'_{x'}$, an isomorphism when the second leg is an equivalence.
+787. (V10.55) Strong bundles over ep-groupoids and generalized strong bundle maps form a category $\mathcal{SEP}(F^{-1})$, with a functor from $\mathcal{SEP}$ that inverts the strong bundle equivalences.
+788. (V10.56) A generalized strong bundle isomorphism is the class of a diagram whose two legs are strong bundle equivalences.
+789. (V10.57) A generalized strong bundle isomorphism covers a generalized isomorphism of the base, induces one of the total spaces, has a homeomorphism as its orbit map, and is an isomorphism of $\mathcal{SEP}(F^{-1})$.
+790. (V10.58) Push-forward and pull-back of section functors along a diagram of strong bundle equivalences depend only on its map of orbit spaces.
+791. (V10.59) A generalized strong bundle isomorphism induces mutually inverse bijections $[D]_*$, $[D]^*$ of the sc-smooth and of the $\mathrm{sc}^+$-section functors, which depend only on $|[D]|$.
+792. (V10.60) There are generalized strong bundle isomorphisms $[D] \neq [D']$ with $|[D]| = |[D']|$, whose base classes differ too.
+793. (V10.61) For a generalized strong bundle isomorphism, one strong bundle has the local regularity property (read with local strong bundle isomorphisms) iff the other has.
+794. (V10.62) (LR) passes along equivalences, with natural representations carried along $Q = \hat\psi \circ F$.
+795. (V10.63) Equivalences with $|F| = |G|$ have local sc-smooth families $\alpha_z : F(z) \to G(z)$ and $|TF| = |TG|$ when one side has (LR).
+796. (V10.64) (LR) is invariant under generalized isomorphisms.
+797. (V10.65) On $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ with the trivial action, which has (LR), two generalized isomorphisms with the same orbit map differ, so Theorem 10.3.19 does not hold as we read it.
+798. (V10.66) Generalized isomorphisms with the same orbit map are equal when one side has (LR) and the target is effective.
+799. (V10.67) The strong bundle of Remark 10.5.5 has the local regularity property, so Theorem 10.5.7 does not hold as we read it.
+800. (V10.68) For a strong bundle equivalence $\Phi$ and a strong bundle functor $\Psi$ with the same target, the pull-back of the source of $\Psi$ to the weak fibred product of the bases is a weak fibred product of strong bundles: one projection is a strong bundle equivalence, the square commutes up to natural equivalence, and the other projection is a strong bundle equivalence when $\Psi$ is one.
+801. (V10.69) Having a common refinement is an equivalence relation on diagrams of strong bundles, and two diagrams have the same class iff they have a common refinement.
+802. (V10.70) The composite of diagrams of strong bundles through the weak fibred product is compatible with refinements, associative and unital up to equivalence, and functorial on strong bundle functors.
+803. (V10.71) A diagram of strong bundles represents an isomorphism of $\mathcal{SEP}(F^{-1})$ iff its second leg is a strong bundle equivalence, and then the reversed diagram is its inverse.
+804. (V11.1) The tangent functor induces a functor $T : \mathcal{EP}(E^{-1}) \to \mathcal{EP}(E^{-1})$, $[X \leftarrow A \to Y] \mapsto [TX \leftarrow TA \to TY]$, extending $T$ on $\mathcal{EP}$.
+805. (V11.2) A generalized isomorphism preserves the degeneracy index: $d_X(x_0) = d_Y(y_0)$ whenever $|f|(|x_0|) = |y_0|$.
+806. (V11.3) A face of a tame ep-groupoid is the full subcategory over the closure in $|X|$ of a connected component of $\{d_{|X|} = 1\}$; face structured means every $z$ lies in exactly $d_{|X|}(z)$ faces of $|X|$.
+807. (V11.4) $[0, \infty)^2 \oplus W$ with only identities is face structured; with $\mathbb Z/2$ exchanging the coordinates it is weakly face structured and not face structured.
+808. (V11.5) An equivalence induces the bijection $\theta \mapsto |\Phi|(\theta)$ of faces, with $\Phi_*(X_\theta) = \mathrm{saturation}(\Phi(X_\theta))$ and $\Phi^*(Y_{\theta'}) = \Phi^{-1}(Y_{\theta'})$; for generalized isomorphisms $[d]_* = \Psi_* \circ \Phi^*$ and $[d]^* = \Phi_* \circ \Psi^*$ are mutually inverse.
+809. (V11.6) A generalized isomorphism induces a bijection of the faces of $|X|$ onto those of $|Y|$ and homeomorphisms $\theta \to [d]_*\theta$; for face structured $X$ each face is a tame ep-groupoid and $[d]$ restricts to generalized isomorphisms $[d]_F$; two faces meet in a union of faces of each, and in general not in one face.
+810. (V11.7) Being tame and face structured is invariant under generalized isomorphisms.
+811. (V11.8) Generalized isomorphisms with $|f| = |g|$ induce the same bijection of faces, and the generalized isomorphisms $f_F$, $g_F$ on faces have the same orbit map.
+812. (V11.9) $d \circ d = 0$; generalized maps have pull-backs commuting with $d$; generalized isomorphisms have push-forwards commuting with $d$ and inverse to the pull-backs; under the local regularity property they depend only on the orbit maps.
+813. (V11.10) For an equivalence $F$, $F^*$ on forms is a bijection, and its inverse $F_*$ is given by $(F_*\omega)_y(T\psi(TF(x)l_1), \ldots) = \omega_x(l_1, \ldots)$, independently of the choices.
+814. (V11.11) Push-forwards and pull-backs of forms along equivalences compose, are mutually inverse, agree for naturally equivalent functors and are unchanged by refinements.
+815. (V11.12) $[d]^* = F_* \circ G^*$ and $[d]_* = G_* \circ F^*$ are independent of the representing diagram.
+816. (V11.13) Under the local regularity property, equivalences and generalized isomorphisms with the same orbit map have the same push-forwards and pull-backs of forms.
+817. (V11.14) $F^*\Theta' = \Theta' \circ F$ and $(F_*\Theta)(y) = \Theta(x)$ for a chosen morphism $F(x) \to y$.
+818. (V11.15) For full $F$, $F_*\Theta$ is a well-defined functor with $F^*F_*\Theta = \Theta$; for essentially surjective $F$, $F_*F^*\Theta' = \Theta'$; naturally equivalent functors have the same push-forwards and pull-backs.
+819. (V11.16) $f^* = F_*\Phi^*$ is well defined for generalized maps and $f_* = \Phi_*F^*$ for generalized isomorphisms, with $(g \circ f)^* = f^* \circ g^*$, $(g \circ f)_* = g_* \circ f_*$ and $(f^{-1})_* = f^*$.
+820. (V11.17) Along an equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids are branched ep⁺-subgroupoids, with closedness, compactness, type, dimension and dimensional decompositions preserved.
+821. (V11.18) Generalized isomorphisms carry branched ep⁺-subgroupoids to branched ep⁺-subgroupoids and preserve properties (3)–(6) of Theorem 11.3.3, (6) for every dimensional decomposition.
+822. (V11.19) $1_{\{0\}}$ on $\mathbb Z/2 \ltimes \mathbb R$ is a branched ep⁺-subgroupoid whose pull-back to a refinement is $1$ at two objects.
+823. (V11.20) Section functors of $\widehat{Gr}$ are pushed forward by (11.8) and pulled back by (11.9) along equivalences, and along generalized isomorphisms by representatives, independently of the choices.
+824. (V11.21) Generalized isomorphisms carry orientations of branched ep⁺-subgroupoids to orientations of their push-forwards and pull-backs.
+825. (V11.22) $f_*\hat\Theta = (f_*\Theta, f_*\hat T_\Theta)$ and $f^*\hat\Theta'$ are oriented branched ep⁺-subgroupoids, with $(g \circ f)_* = g_* \circ f_*$ and $(g \circ f)^* = f^* \circ g^*$.
+826. (V11.23) $(Tf)_*T\Theta = T(f_*\Theta)$ and $(Tf)^*T\Theta' = T(f^*\Theta')$.
+827. (V11.24) $f_*(\partial\Theta) = \partial(f_*\Theta)$ and $f^*(\partial\Theta') = \partial(f^*\Theta')$.
+828. (V11.25) For a representative whose transfer maps carry the boundary operations into each other, push-forward and pull-back commute with taking oriented boundaries; the general form is not verified.
+829. (V11.26) The orientation of Example 9.3.5 is a section functor and an oriented branched ep⁺-subgroupoid moved along the identity.
+830. (V11.27) A generalized isomorphism carries the canonical measures of oriented compact $n$-dimensional branched ep⁺-subgroupoids, and under LUC the effective ones, by $|f|$, with $|f|$ preserving $\mathcal L$: $\mu^{f^*\hat\Theta'}_{f^*\omega'} = \mu^{\hat\Theta'}_{\omega'} \circ |f|$ and $\mu^{\hat\Theta}_\omega = \mu^{f_*\hat\Theta}_{f_*\omega} \circ |f|$.
+831. (V11.28) For $\beta' \circ |f| = \beta$ the measures on $Z$ of corresponding forms over corresponding branched ep⁺-subgroupoids agree, and so do the integrals.
+832. (V11.29) The boundary measures, and under LUC the effective ones, transform by $|f|$, with $|f|$ preserving $\mathcal L(\partial S)$, for every $n \ge 1$ under the text's hypotheses.
+833. (V11.30) Pull-backs and push-forwards of auxiliary norms along generalized strong bundle isomorphisms are well defined, continuous, invariant, mutually inverse and depend only on $|[D]|$; conditions (1) and (2) of Definition 8.3.5 are not verified.
+834. (V11.31) The push-forward of a multisection functor along a strong bundle equivalence is a well-defined functor, inverse to the pull-back.
+835. (V11.32) Push-forward and pull-back of multisection functors along generalized strong bundle isomorphisms are well defined, mutually inverse and depend only on $|[D]|$.
+836. (V11.33) A proper covering functor is a surjective local sc-diffeomorphism on morphisms.
+837. (V11.34) $G_x$ acts on $F^{-1}(x)$ by $g * y = t(\alpha^{-1}(g, y))$, and $Y(x)$ is isomorphic to $G_x \ltimes F^{-1}(x)$ by the identity on objects and $\alpha$ on morphisms.
+838. (V11.35) A morphism $\varphi : x \to x'$ induces an equivariant bijection $B_\varphi$ and an isomorphism $G_x \ltimes Y_x \to G_{x'} \ltimes Y_{x'}$.
+839. (V11.36) A functor between proper coverings is a commuting pair $(\Psi, \Phi)$; it is an equivalence iff $\Psi$ and $\Phi$ are equivalences, the fibre condition being automatic.
+840. (V11.37) Natural transformations between functors of proper coverings are compatible pairs $(\tau_Y, \tau_X)$; natural equivalence is an equivalence relation compatible with composition.
+841. (V11.38) $H : Y \times_{Y'} Y'' \to X \times_{X'} X''$ is a proper covering functor when $\Psi$, $\Phi$ are local sc-diffeomorphisms on objects and $\Psi$ is onto on fibres.
+842. (V11.39) For an equivalence $(\Psi, \Phi)$, $H$ is a proper covering, $(\pi_{Y''}, \pi_{X''})$ is an equivalence, the two composites to $F'$ are naturally equivalent, and tameness passes from $X''$ to $P$ and $Q$.
+843. (V11.40) Proper coverings form a category $\mathcal{PC}$ with a multiplicative class of equivalences, and diagrams between them have common refinements as in Definition 11.6.7.
+844. (V11.41) Having a common refinement is an equivalence relation on diagrams of proper coverings.
+845. (V11.42) Proper strong bundle coverings form a category with a class of equivalences; Theorem 11.6.6 holds for them, and their localization is described by diagrams under common refinement.
+846. (V11.43) Classes of diagrams of proper coverings form a category $\mathcal{PC}(E^{-1})$ with a well-defined composition, and $I : \mathcal{PC} \to \mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms.
+847. (V12.1) An sc-Fredholm section functor is an sc-smooth section functor that is sc-Fredholm on the object M-polyfold.
+848. (V12.2) An sc-Fredholm section functor is regularizing on objects and on morphisms, and its germs at smooth points are sc-Fredholm germs.
+849. (V12.3) An auxiliary norm of a strong bundle over an ep-groupoid is Definition 5.1.1 together with invariance under $\mu$.
+850. (V12.4) Every strong bundle over an ep-groupoid with paracompact orbit space has an auxiliary norm.
+851. (V12.5) Continuous partitions of unity of $X$ are the partitions of unity of $|X|$ composed with $\pi$.
+852. (V12.6) A continuous partition of unity is subordinate to a saturated cover when $\mathrm{supp}\,\beta_\lambda \subset U_\lambda$.
+853. (V12.7) For paracompact $|X|$ every saturated open cover has a subordinate continuous partition of unity.
+854. (V12.8) Every object has nested neighbourhoods $U' \subset U''$ with the natural action, a local strong bundle model, the sequence property and (5).
+855. (V12.9) An auxiliary norm over $\partial X$ with local extensions near $\partial X$ extends to an auxiliary norm of $W$.
+856. (V12.10) $X$ admits sc-smooth bump functions: for $x$ and saturated $U \ni x$, an sc-smooth functor $f \ne 0$ supported in $U$.
+857. (V12.11) $X$ admits sc-smooth bump functions if and only if its object M-polyfold does, in each consistent reading of the two definitions.
+858. (V12.12) With pointwise bump functions there are invariant sc-smooth $f : X \to [0,1]$ with $f(x) = 1$ supported in a given saturated neighbourhood.
+859. (V12.13) A $G_x$-fixed smooth $e \in W_x$ is the value at $x$ of an sc⁺-section functor supported near $|x|$ with $N(\sigma) \le N(e) + \varepsilon$.
+860. (V12.14) The value of a section functor at $x$ is fixed by $G_x$.
+861. (V12.15) An equivariant local sc⁺-section with support in $\mathrm{cl}\,V$ extends to an sc⁺-section functor with the same bound.
+862. (V12.16) In a tame local strong bundle model, an sc⁺-section over the boundary is sc⁺ on every local face germ.
+863. (V12.17) An sc⁺-section over the boundary extends near $x_0 \in \partial O$ to an sc⁺-section, by the alternating sum over the corner faces.
+864. (V12.18) For an isotropy action with a lift to $K$, an equivariant sc⁺-section over the boundary has an equivariant local extension.
+865. (V12.19) Compact solution set, proper and proper$_{<\infty}$ for section functors.
+866. (V12.20) For sc-Fredholm section functors, proper, compact solution set and proper$_{<\infty}$ are equivalent.
+867. (V12.21) Closure commutes with $\pi$ for saturated sets and for sets with compact closure.
+868. (V12.22) A morphism $\varphi : x \to x'$ maps $\mathrm{Lin}(f, x)$ bijectively onto $\mathrm{Lin}(f, x')$, functorially, and acts on orientations.
+869. (V12.23) The orientation space $O_f$ has two points over each smooth $x$; morphisms act on it by an equivalence relation.
+870. (V12.24) With Part I's hypotheses, $O_f$ has exactly one topology making $\sigma$ a two-sheeted local homeomorphism with continuous local sections.
+871. (V12.25) An orientation of $f$ is a continuous section of $\sigma$ preserved by the morphisms.
+872. (V12.26) An orientation makes $|\sigma|$ two-to-one with a continuous section; conversely a section of $|\sigma|$ lifts to a functorial section of $\sigma$.
+873. (V12.27) A continuous fibrewise seminorm with property (2) of Definition 5.1.1 is an auxiliary norm.
+874. (V13.1) For a neighbourhood with the natural action and proper closure, $\mathrm{cl}_X(V) \subset U(x)$ if and only if $\mathrm{cl}_{|X|}|V| \subset |U(x)|$.
+875. (V13.2) A good system: natural neighbourhoods with proper closures whose morphism components are sc-diffeomorphisms under $s$ and $t$.
+876. (V13.3) Invariant open shrinkings of a good system are good systems, and invariant refinements exist.
+877. (V13.4) Refinements of good systems and good systems subordinate to a cover.
+878. (V13.5) The natural bi-action of $G_{x'} \times G_x$ on $\mathcal U(x,x')$ is an action by sc-smooth maps.
+879. (V13.6) The bi-action permutes the components of $\mathcal U(x,x')$ freely on each side, and their images under $s$ and $t$ are equal or disjoint.
+880. (V13.7) A good system on $Q$ with $|Q| = |X|$, proper in $X$, extends to a good system of $X$ inside given neighbourhoods.
+881. (V13.8) For paracompact $|X|$ there is a good system inside any given neighbourhoods.
+882. (V13.9) A component $\Sigma$ determines a unique isomorphism of stabilisers $G_{x,\Sigma} \to G_{x',\Sigma}$ intertwining $D_\Sigma$.
+883. (V13.10) Domain support and support of an sc⁺-multisection; the support is finite over each point with weights summing to 1.
+884. (V13.11) The pointwise norm $N(\Lambda)(x)$ is attained, and the domain support is $\mathrm{cl}\{N(\Lambda) > 0\}$.
+885. (V13.12) $\Lambda$ is trivial on $V$ when $\Lambda(0_x) = 1$ there; the domain support is the least closed set outside which $\Lambda$ is trivial.
+886. (V13.13) A symmetric sc⁺-section structure at $x$: a natural representation, sections indexed by a finite $G_x$-set, equivariant, representing $\Lambda$.
+887. (V13.14) Every sc⁺-multisection admits a symmetric sc⁺-section structure at every point.
+888. (V13.15) The convolution $\Lambda' \oplus \Lambda''$ of sc⁺-multisections is an sc⁺-multisection; $\oplus$ is associative and commutative.
+889. (V13.16) Scalar multiples $a\Lambda$ of sc⁺-multisections are sc⁺-multisections.
+890. (V13.17) $\beta\Lambda$ is an sc⁺-multisection for every sc-smooth functor $\beta$.
+891. (V13.18) Locally finite families of sc⁺-multisections, with stable index sets.
+892. (V13.19) The sum of a locally finite family of sc⁺-multisections is an sc⁺-multisection.
+893. (V13.20) Local sc-diffeomorphisms injective on open sets are sc-diffeomorphisms onto their images; natural neighbourhoods with proper closure exist.
+894. (V15.1) $\mathrm{GrF}(x)$ is the set of finitely supported $\mathbb Q_{\ge 0}$-combinations of linear maps $T_xX \to W_x$.
+895. (V15.2) The formal sum $\sum_{f(x) = s_i(x)} \sigma_i (f - s_i)'(x)$ does not depend on the local section structure or the chart.
+896. (V15.3) The linearization vanishes off the support of $\Lambda \circ f$.
+897. (V15.4) At a non-isolated point there are $x_k \to x_0$, $x_k \ne x_0$, along which the local sections separate by one partition; at an isolated point there are none.
+898. (V15.5) A ball that is a finite union of relatively closed sets has one of them with nonempty interior.
+899. (V15.6) Finitely many continuous maps on a ball coincide or differ pointwise on a smaller ball, by one partition of the index set.
+900. (V15.7) Any sequence $x'_k \to x_0$ can be modified slightly and thinned to a separating sequence.
+901. (V15.8) The linearization $T(f,\Lambda)(x) \in \mathrm{GrF}(x)$ at every level-1 point.
+902. (V16.1) A polyfold structure on $Z$ is an ep-groupoid with paracompact orbit space satisfying (ZHOU) and a homeomorphism $|X| \to Z$.
+903. (V16.2) Equivalence of polyfold structures through a generalized isomorphism compatible with the homeomorphisms is an equivalence relation.
+904. (V16.3) The generalized isomorphism of an equivalence need not be unique (an example on $\mathbb R$ with $\mathbb Z/3$ isotropy); it is unique for an effective target.
+905. (V16.4) A polyfold is a space with an equivalence class of polyfold structures.
+906. (V16.5) Equivalent polyfold structures both admit, or both do not admit, sc-smooth bump functions and sc-smooth partitions of unity.
+907. (V16.6) A polyfold admits bump functions (partitions of unity) if one, equivalently every, structure in its class does.
+908. (V16.7) Over a homeomorphism there can be two generalized isomorphisms (the example of V16.3); there is at most one for an effective target.
+909. (V16.8) Equivalent structures give the same degeneracy index on $Z$.
+910. (V16.9) The degeneracy index $d_Z$ of a polyfold.
+911. (V16.10) The boundary $\partial Z = \{d_Z \ge 1\}$.
+912. (V16.11) Tameness of polyfold structures is invariant under equivalence.
+913. (V16.12) A polyfold is tame if one, equivalently every, structure in its class is tame.
+914. (V16.13) $\mathbb R$ with the trivial $\mathbb Z/3$-action is a polyfold structure with paracompact orbit space.

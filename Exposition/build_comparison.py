@@ -33,11 +33,11 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7–11 · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Parts I–III, Chapters 1–16 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition '
        '(2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the '
-       'book’s arXiv version (1707.08941, “2017”) for Part II, from Chapter 7 on, which has no preprint; the '
+       'book’s arXiv version (1707.08941, “2017”) for Parts II and III, from Chapter 7 on, which have no preprint; the '
        'correspondence is in Exposition/BookConcordance.md. The right column is the '
        'formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration '
        'to see the Lean it names.')
@@ -46,8 +46,8 @@ OUT_PREVIEW = 'preview-cmp.html'
 OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021), paraphrased, with its numbers and pages, followed in parentheses by those of the 2014 '
-        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7–11, '
-        'which has no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
+        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Parts II and III, Chapters 7–16, '
+        'which have no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
         'source. Companion texts: Exposition/Verification.md, Exposition/ProofByProof.md.')
@@ -59,9 +59,9 @@ CHAPTERS = [
     ('V3', 'Chapter 3', 'HWZ Chapter 3: sc-Fredholm sections and the implicit function theorem'),
     ('V4', 'Chapter 4', 'HWZ Chapter 4 §§4.1–4.4, pp. 175–204 (preprint pp. 147–168): manifolds with boundary with corners — '
            'sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard’s theorem'),
-    ('V5', 'Chapter 5', 'HWZ Chapter 5 §§5.1–5.3, 5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199): the Fredholm package for M-polyfolds — '
-           'auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, '
-           'homotopies, partitions of unity'),
+    ('V5', 'Chapter 5', 'HWZ Chapter 5 §§5.1–5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199; 2017 for the items new since the preprint): the Fredholm package for M-polyfolds — '
+           'auxiliary norms and reflexive auxiliary norms, compactness and reflexive local compactness, sc⁺-sections and bump functions, transversality, general and good position, '
+           'homotopies, the ∂-extension theorem, partitions of unity'),
     ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm '
            'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
            'sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) (V6.76)'),
@@ -87,6 +87,22 @@ CHAPTERS = [
             'Part II has no 2014 preprint): the tangent functor and faces up to equivalence, branched '
             'ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and '
             'equivalences, sc-differential forms (§11.2) and integration up to equivalence (§11.4)'),
+    ('V12', 'Part III, Chapter 12', 'HWZ Part III, Chapter 12 §§12.1–12.5, pp. 569–597 (2017 Chapter 12; '
+            'Part III has no 2014 preprint): sc-Fredholm section functors, auxiliary norms and the good '
+            'neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the '
+            'boundary, sc-smooth bump functions and sc⁺-section functors, extension from the boundary in a local '
+            'model, compactness and properness, the orientation bundle (wave 1 of Part III)'),
+    ('V13', 'Part III, Chapter 13', 'HWZ Part III, Chapter 13 §§13.1–13.2, pp. 599–612 (2017 Chapter 13; '
+            'Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, their '
+            'existence and extension; the functor-level algebra of sc⁺-multisections (support, pointwise norm, '
+            'symmetric structures, sums, scalar multiples, locally finite sums) (wave 1 of Part III)'),
+    ('V15', 'Part III, Chapter 15', 'HWZ Part III, Chapter 15 §15.1, pp. 683–687 (2017 Chapter 15; '
+            'Part III has no 2014 preprint): the linearization $T(f,\\Lambda)$ of an sc-Fredholm section '
+            'perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas (wave 1 of Part III)'),
+    ('V16', 'Part III, Chapter 16', 'HWZ Part III, Chapter 16 §16.1, pp. 705–714 (2017 Chapter 16; '
+            'Part III has no 2014 preprint): polyfold structures and their equivalence, polyfolds, bump '
+            'functions and partitions of unity, the degeneracy index and the boundary, tame polyfolds; the '
+            'uniqueness sentence after Definition 16.1.2 (wave 1 of Part III)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

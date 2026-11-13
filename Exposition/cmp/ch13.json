@@ -1,0 +1,558 @@
+{
+ "items": [
+  {
+   "id": "V13.1",
+   "title": "Lemma 13.1.1 (2017: 13.1), closures in $X$ and in $|X|$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.1, Lemma 13.1.1, p. 599 (2017: Lemma 13.1)",
+    "page": 599,
+    "statement": "Let $U(x)$ carry the natural $G_x$-action with $t : s^{-1}(\\mathrm{cl}_X U(x)) \\to X$ proper, and $V \\subset U(x)$ $G_x$-invariant. Then $\\mathrm{cl}_X(V) \\subset U(x)$ if and only if $\\mathrm{cl}_{|X|}(|V|) \\subset |U(x)|$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_13_1_1`: for `N : X.NatNbhd x` with `X.IsProperSubset (closure N.U)` and any $V \\subseteq N.U$, $\\overline V \\subseteq N.U \\iff \\overline{\\pi(V)} \\subseteq \\pi(N.U)$. `lemma_13_1_1_book` adds the invariance hypothesis.",
+    "decls": [
+     "Chapter13/P3G_GoodSystem · EpGroupoid.lemma_13_1_1",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.lemma_13_1_1_book",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset"
+    ]
+   },
+   "chips": [
+    "invariance of $V$ not used",
+    "`NatNbhd` reading"
+   ],
+   "diff": [
+    "The $G_x$-invariance of $V$ is not used. (⇒) uses only properness (Proposition 7.1.10); (⇐) uses only the natural action (pigeonhole over the finite $G_x$). \"$U(x)$ equipped with the natural $G_x$-action\" is read as a `NatNbhd`: an open invariant subset of the domain of a natural representation, which need not be connected (Findings, Chapter 13, item 1)."
+   ]
+  },
+  {
+   "id": "V13.2",
+   "title": "Definition 13.1.2 (2017: 13.1), good systems of neighbourhoods",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.1, Definition 13.1.2, p. 600 (2017: Definition 13.1)",
+    "page": 600,
+    "statement": "A good system of open neighbourhoods is a family $(U(x))_{x \\in X}$ with (1) $t : s^{-1}(\\mathrm{cl}_X U(x)) \\to X$ proper; (2) $U(x)$ carries the natural $G_x$-action; (3) for every connected component $\\Sigma$ of $\\mathcal U(x,x') = \\{\\varphi : s\\varphi \\in U(x),\\ t\\varphi \\in U(x')\\}$, $s|_\\Sigma$ and $t|_\\Sigma$ are sc-diffeomorphisms onto open subsets."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.GoodSystem`, with fields `nbhd : ∀ x, X.NatNbhd x` (2), `isProperSubset_closure` (1) and `isDiffeoComponent` (3): for $\\varphi \\in \\mathcal U(x,x')$, the component of $\\varphi$ in `morBetween U(x) U(x′)` is an `IsDiffeoComponent` ($s$, $t$ sc-diffeomorphisms onto their images, which are open automatically). For open components (3) is injectivity of $s$ and $t$ (`isDiffeoComponent_iff_injOn`). Witness: every M-polyfold, as a trivial ep-groupoid, has a good system (`nonempty_goodSystem_trivial`).",
+    "decls": [
+     "Chapter13/P3G_GoodSystem · EpGroupoid.NatNbhd",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.morBetween",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.IsDiffeoComponent",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.isDiffeoComponent_iff_injOn",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.nonempty_goodSystem_trivial"
+    ]
+   },
+   "chips": [
+    "(2) read through `NatNbhd`",
+    "components indexed by a point"
+   ],
+   "diff": [
+    "Condition (2) is read through `NatNbhd` (Findings, Chapter 13, item 1); components are indexed by a point in them."
+   ]
+  },
+  {
+   "id": "V13.3",
+   "title": "Proposition 13.1.3 (2017: 13.1), invariant shrinkings of good systems",
+   "verdict": "same",
+   "book": {
+    "label": "§13.1, Proposition 13.1.3, p. 600 (2017: Proposition 13.1)",
+    "page": 600,
+    "statement": "If $(U(x))$ is a good system and $\\tilde U(x) \\subset U(x)$ are $G_x$-invariant open neighbourhoods, then $(\\tilde U(x))$ is a good system. After the proposition: invariant refinements inside given neighbourhoods exist."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.proposition_13_1_3`: for open $W(x) \\ni x$ inside $U(x)$, invariant under the $\\Phi_g$ of $U(x)$, there is a good system with $U'(x) = W(x)$ and the same natural representations (`GoodSystem.restrict`). `GoodSystem.exists_refinement_subset`: an invariant refinement inside $U(x) \\cap V(x)$ (`NatNbhd.invariantCore`).",
+    "decls": [
+     "Chapter13/P3G_GoodSystem · EpGroupoid.proposition_13_1_3",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.restrict",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.exists_refinement_subset",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.NatNbhd.invariantCore",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.isDiffeoComponent_of_subset"
+    ]
+   },
+   "chips": [
+    "as stated (`NatNbhd` reading)"
+   ],
+   "diff": [
+    "Holds as printed with the `NatNbhd` reading; with \"natural action on a connected domain\", $\\tilde U(x)$ could fail to be the domain of a natural representation. (1) and (3) pass to subsets: closed subsets of proper sets are proper, and components of a smaller set lie in components of the larger one."
+   ]
+  },
+  {
+   "id": "V13.4",
+   "title": "Definition 13.1.4 (2017: 13.2), refinements and subordinate good systems",
+   "verdict": "same",
+   "book": {
+    "label": "§13.1, Definition 13.1.4, p. 600 (2017: Definition 13.2)",
+    "page": 600,
+    "statement": "A good system $\\mathcal W$ refines $\\mathcal U$ if $W(x) \\subset U(x)$ for all $x$; $\\mathcal U$ is subordinate to an open cover if every $U(x)$ lies in a member of the cover."
+   },
+   "lean": {
+    "statement": "`GoodSystem.IsRefinement 𝒲 𝒰 := ∀ x, 𝒲.U x ⊆ 𝒰.U x`; `GoodSystem.IsSubordinate 𝒰 O := ∀ x, ∃ i, 𝒰.U x ⊆ O i`; `isRefinement_restrict`.",
+    "decls": [
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.IsRefinement",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.IsSubordinate",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.isRefinement_restrict"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V13.5",
+   "title": "Definition 13.1.5 (2017: 13.3), the natural bi-action",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.1, Definition 13.1.5, p. 601 (2017: Definition 13.3)",
+    "page": 601,
+    "statement": "For neighbourhoods $U(x)$, $U(x')$ with their natural actions, the natural bi-action is the map $G_{x'} \\times \\mathcal U(x,x') \\times G_x \\to \\mathcal U(x,x')$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.biact N N' g' φ g` $= \\Gamma'(g', t\\varphi) \\circ \\varphi \\circ \\Gamma(g, \\Phi_{g^{-1}}(s\\varphi))$, with source $\\Phi_{g^{-1}}(s\\varphi)$ (`src_biact`), target $\\Phi'_{g'}(t\\varphi)$ (`tgt_biact`), values in $\\mathcal U(x,x')$ (`biact_mem`), the action laws (`biact_biact`) and sc-smoothness of each map (`isScSmoothOn_biact`); packaged as a `MulAction` (`biactMulAction`).",
+    "decls": [
+     "Chapter13/P3G_BiAction · EpGroupoid.biact",
+     "Chapter13/P3G_BiAction · EpGroupoid.src_biact",
+     "Chapter13/P3G_BiAction · EpGroupoid.tgt_biact",
+     "Chapter13/P3G_BiAction · EpGroupoid.biact_mem",
+     "Chapter13/P3G_BiAction · EpGroupoid.biact_biact",
+     "Chapter13/P3G_BiAction · EpGroupoid.isScSmoothOn_biact",
+     "Chapter13/P3G_BiAction · EpGroupoid.biactMulAction",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.biact"
+    ]
+   },
+   "chips": [
+    "formula of the proofs",
+    "action laws and smoothness proved"
+   ],
+   "diff": [
+    "The book names the map; the formula is the one used in the book's proofs. Convention: `biact g′ φ g` is the book's $g' * \\varphi * g$, with source $g^{-1} * s(\\varphi)$."
+   ]
+  },
+  {
+   "id": "V13.6",
+   "title": "Lemma 13.1.6 (2017: 13.2), with the discussion before it",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.1, Lemma 13.1.6, p. 602 (2017: Lemma 13.2), and the discussion before it",
+    "page": 602,
+    "statement": "$g' * \\Sigma * g^{-1}$ is again a component of $\\mathcal U(x,x')$. For a component $\\Sigma$: (1) $g' * \\Sigma = \\Sigma$ implies $g' = 1$; (2) $\\Sigma * g = \\Sigma$ implies $g = 1$; (3) for components $\\Sigma_1, \\Sigma_2$, $s(\\Sigma_1)$ and $s(\\Sigma_2)$ are equal or disjoint, and likewise for $t$."
+   },
+   "lean": {
+    "statement": "`GoodSystem.image_biact_comp` (components go to components; `image_inv_comp` for inversion; the components partition $\\mathcal U(x,x')$). `lemma_13_1_6_one`, `lemma_13_1_6_two` from the pointwise forms `eq_one_of_biact_left_mem`, `eq_one_of_biact_right_mem` (one $\\psi \\in \\Sigma$ with $g' * \\psi \\in \\Sigma$ forces $g' = 1$); `lemma_13_1_6_three_src`, `_tgt` for the components of any two morphisms.",
+    "decls": [
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.image_biact_comp",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.image_inv_comp",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.components",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_one",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_two",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_src",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_tgt",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_left_mem",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_right_mem",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.exists_biact_left_of_src",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.exists_biact_right_of_tgt"
+    ]
+   },
+   "chips": [
+    "one $\\psi$ suffices",
+    "(3) without membership hypotheses"
+   ],
+   "diff": [
+    "(1) and (2) need only one $\\psi \\in \\Sigma$ with $g' * \\psi \\in \\Sigma$; (3) has no membership hypotheses (for $\\varphi \\notin \\mathcal U(x,x')$ the component is empty)."
+   ]
+  },
+  {
+   "id": "V13.7",
+   "title": "Theorem 13.1.7 (2017: 13.1), extension of good partial systems",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
+    "page": 602,
+    "statement": "Let $Q$ be an open subset of the objects with $|Q| = |Y|$ and $(U(q))_{q \\in Q}$ a good system for the full sub-ep-groupoid on $Q$. Given open $W(y) \\ni y$ for $y \\notin Q$, there are $U(y) \\subset W(y)$ such that $(U(y))_{y \\in Y}$ is a good system."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.theorem_13_1_7`: for any $Q$ with $\\pi(Q) = |X|$, a family `N : ∀ x, X.NatNbhd x` with `X.IsGoodOn N Q`, and open $W(y) \\ni y$, there is a good system with `𝒰.nbhd q = N q` for $q \\in Q$ and $U(y) \\subseteq W(y)$ for $y \\notin Q$. `IsGoodOn N Q`: $U(q) \\subseteq Q$, $t : s^{-1}(\\mathrm{cl}_X U(q)) \\to X$ proper, and (3) on $\\mathcal U(q,q')$. Witness: `GoodSystem.isGoodOn`.",
+    "decls": [
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.theorem_13_1_7",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.IsTransport",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.injOn_comp_of_transport",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_nhds_injOn_of_isProperSubset",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_transport_of_isGoodOn",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.IsGoodOn"
+    ]
+   },
+   "chips": [
+    "properness read in $X$, not in $Q$ (G.141)",
+    "$Q$ need not be open"
+   ],
+   "diff": [
+    "Hidden hypotheses: properness of the given $U(q)$ in $X$ (`IsGoodOn`); the book's good system for the sub-ep-groupoid on $Q$ gives properness in $Q$. That $Q$-properness implies $X$-properness when $|Q| = |X|$ is presumably true and not formalized (gap G.141); witness `GoodSystem.isGoodOn`.",
+    "Otherwise stronger: $Q$ need not be open, and the given $U(q)$ are kept unchanged. The natural action and $\\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$."
+   ]
+  },
+  {
+   "id": "V13.8",
+   "title": "Theorem 13.1.8 (2017: 13.2), existence of good systems",
+   "verdict": "same",
+   "book": {
+    "label": "§13.1, Theorem 13.1.8, p. 604 (2017: Theorem 13.2)",
+    "page": 604,
+    "statement": "If $X$ has paracompact orbit space and $W(x) \\ni x$ are open, there is a good system with $U(x) \\subset W(x)$ for all $x$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.theorem_13_1_8 (hX : X.HasParacompactOrbitSpace) W hW hxW : ∃ 𝒰 : X.GoodSystem, ∀ x, 𝒰.U x ⊆ W x`.",
+    "decls": [
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.theorem_13_1_8"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "\"for all $\\in X$\" read \"for all $x \\in X$\""
+   ],
+   "diff": [
+    "The book's \"for all $\\in X$\" is read as \"for all $x \\in X$\". The proof uses paracompactness of $|X|$ through a precise refinement and the shrinking lemma; metrizability is not used."
+   ]
+  },
+  {
+   "id": "V13.9",
+   "title": "Proposition 13.1.9 (2017: 13.2), with the stabilisers and $D_\\Sigma$ before it",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.1, Proposition 13.1.9, p. 607 (2017: Proposition 13.2), and the discussion before it, p. 606",
+    "page": 607,
+    "statement": "For a component $\\Sigma \\subset \\mathcal U(x,x')$ with stabilisers $G_{x,\\Sigma}$, $G_{x',\\Sigma}$ and the sc-diffeomorphism $D_\\Sigma = t \\circ (s|_\\Sigma)^{-1}$, there is a unique group isomorphism $g \\mapsto g'(g)$, $G_{x,\\Sigma} \\to G_{x',\\Sigma}$, with $(s|_\\Sigma)^{-1}(g * z) = g'(g) * (s|_\\Sigma)^{-1}(z) * g^{-1}$."
+   },
+   "lean": {
+    "statement": "`GoodSystem.stabSrc`, `stabTgt` (subgroups), `GoodSystem.D` with `isScDiffeoOn_D`. `GoodSystem.proposition_13_1_9 (hφ : φ ∈ 𝒰.mor x x′)`: `f : stabSrc ≃* stabTgt` with $\\mathrm{srcInv}(\\Phi_g z) = \\mathrm{biact}(f g)(\\mathrm{srcInv}\\,z)\\,g^{-1}$ on $s(\\Sigma)$, and every map with this property equals $f$; `proposition_13_1_9_D`: $\\Phi'_{g'(g)} \\circ D_\\Sigma = D_\\Sigma \\circ \\Phi_g$ on $s(\\Sigma)$.",
+    "decls": [
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.stabSrc",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.stabTgt",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.D",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.isScDiffeoOn_D",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.proposition_13_1_9",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.proposition_13_1_9_D",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.partner",
+     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.partnerHom",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.srcInv"
+    ]
+   },
+   "chips": [
+    "uniqueness among all maps"
+   ],
+   "diff": [
+    "Uniqueness holds among all maps, not only homomorphisms. The proof goes through Lemma 13.1.6 and the bi-action laws, not through smoothness of $\\Theta_g$."
+   ]
+  },
+  {
+   "id": "V13.10",
+   "title": "Definition 13.2.2 (2017: 13.5), domain support and support",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Definition 13.2.2, p. 608 (2017: Definition 13.5)",
+    "page": 608,
+    "statement": "The domain support and the support of an sc⁺-multisection $\\Lambda$; $\\mathrm{supp}(\\Lambda)(x)$ is finite with weights summing to 1 and equals $\\{s_1(x), \\dots, s_k(x)\\}$ on $U(x_0)$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.domSupp Λ = closure {x | ∃ w, P w = x ∧ w ≠ 0_x ∧ 0 < Λ w}`, `supp`, `suppAt`; the claims: `IsLocalRepOn.suppAt_eq`, `IsScPlusMultisection.finite_suppAt`, `sum_suppAt`, `suppAt_nonempty`, and `domSupp_eq_closure_image` (the first relation after Definition 13.2.3).",
+    "decls": [
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.supp",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.suppAt",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.domSupp",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsLocalRepOn.suppAt_eq",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.finite_suppAt",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.sum_suppAt",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_nonempty",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.domSupp_eq_closure_image"
+    ]
+   },
+   "chips": [
+    "as stated, at functor level"
+   ],
+   "diff": [
+    "At functor level: $\\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\\Lambda, U, S]$ are gap G.142."
+   ]
+  },
+  {
+   "id": "V13.11",
+   "title": "Definition 13.2.3 (2017: 13.6), the pointwise norm $N(\\Lambda)$",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.2, Definition 13.2.3, p. 608 (2017: Definition 13.6)",
+    "page": 608,
+    "statement": "$N(\\Lambda)(x) = \\max N$ on $\\mathrm{supp}(\\Lambda)(x)$; the domain support is $\\mathrm{cl}\\,P(\\mathrm{supp} \\setminus 0_W) = \\mathrm{cl}\\{N(\\Lambda) > 0\\}$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.pointwiseNorm N Λ x = sSup (normW N '' suppAt Λ x)`, with the supremum attained (`isGreatest_pointwiseNorm`); both relations for every auxiliary norm (`domSupp_eq_closure_pointwiseNorm`).",
+    "decls": [
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.normW",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.pointwiseNorm",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_subset_oneSet",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.isGreatest_pointwiseNorm",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.domSupp_eq_closure_pointwiseNorm"
+    ]
+   },
+   "chips": [
+    "max as an attained `sSup`"
+   ],
+   "diff": [
+    "The maximum is written as a supremum with an attainment lemma; attainment uses that sc⁺-section values lie in $W_{0,1}$."
+   ]
+  },
+  {
+   "id": "V13.12",
+   "title": "Definition 13.2.4 (2017: 13.7), trivial on $V$",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Definition 13.2.4, p. 609 (2017: Definition 13.7)",
+    "page": 609,
+    "statement": "$\\Lambda$ is trivial on $V$ if $\\Lambda(0_x) = 1$ on $V$, and hence $\\Lambda(w_x) = 0$ for $w_x \\ne 0$. The domain support is the smallest closed set outside which $\\Lambda$ is trivial."
+   },
+   "lean": {
+    "statement": "`SBLocalization.IsTrivialOn Λ V := ∀ x ∈ V, Λ (0_x) = 1`; the \"hence\" clause is `apply_fiberZero_eq_one_iff` (an iff); the remark is `isLeast_domSupp`.",
+    "decls": [
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsTrivialOn",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.apply_fiberZero_eq_one_iff",
+     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.isLeast_domSupp"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V13.13",
+   "title": "Definition 13.2.5 (2017: 13.8), symmetric sc⁺-section structures",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.2, Definition 13.2.5, p. 610 (2017: Definition 13.8)",
+    "page": 610,
+    "statement": "A $G_x$-invariant open $U(x)$ with the natural action and $t : s^{-1}(\\mathrm{cl}\\,U(x)) \\to X$ proper, finitely many sc⁺-sections $(s_i)_{i \\in I_x}$ on $U(x)$ and a $G_x$-action on $I_x$ with $s_{g(i)}(g * y) = \\mu(\\Gamma(g,y), s_i(y))$ and $\\Lambda(w) = |I_x|^{-1}\\#\\{i \\mid s_i(P w) = w\\}$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.SymmetricStructure A Λ x`, with a natural representation `R` ($U = R.U$), the properness property, a finite index type `I` with a `MulAction` of the isotropy group, sections `s`, sc⁺-regularity, equivariance and the representation of $\\Lambda$.",
+    "decls": [
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.SymmetricStructure",
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.prodIsotropyAction"
+    ]
+   },
+   "chips": [
+    "$U(x)$ = domain of a natural representation"
+   ],
+   "diff": [
+    "\"$G_x$-invariant with the natural action\" is read as \"$U(x)$ is the domain of a natural representation\", Chapter 11's reading of Definition 13.2.1, which includes connectedness; properness is the existing `HasPropernessProperty`; weights are in $\\mathbb Q_{\\ge 0}$."
+   ]
+  },
+  {
+   "id": "V13.14",
+   "title": "Lemma 13.2.6 (2017: 13.3), symmetric structures exist locally",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Lemma 13.2.6, p. 610 (2017: Lemma 13.3)",
+    "page": 610,
+    "statement": "Every sc⁺-multisection functor locally admits a symmetric sc⁺-section structure (the proof is the text before Definition 13.2.5)."
+   },
+   "lean": {
+    "statement": "`SBLocalization.lemma_13_2_6 (hΛ : IsScPlusMultisection A Λ) (x) : Nonempty (SymmetricStructure A Λ x)`, by the text's construction: shrink a local representation to a natural representation with the properness property, equalise the weights (`IsLocalRepOn.exists_equal_weights`), and transport by $G_x$ (`transportSection`, index set $I \\times G_x$).",
+    "decls": [
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.transportSection",
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.isScPlusSectionOn_transportSection",
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.IsLocalRepOn.exists_equal_weights",
+     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.lemma_13_2_6",
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.extendZero",
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsLocalRepOn.extendZero"
+    ]
+   },
+   "chips": [
+    "as stated, at every point"
+   ],
+   "diff": [
+    "Before transporting, the sections are extended by 0 off $U$, so that sections are global functions."
+   ]
+  },
+  {
+   "id": "V13.15",
+   "title": "Definition 13.2.9 (2017: 13.11), the sum $\\Lambda' \\oplus \\Lambda''$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.2, Definition 13.2.9, p. 611 (2017: Definition 13.11)",
+    "page": 611,
+    "statement": "(1) The convolution formula for $\\Lambda' \\oplus \\Lambda''$; (2)–(3) the decoration $U'' = U \\cap U'$, $I'' = I \\times I'$, $s_{(i,i')} = s_i + s'_{i'}$; $\\oplus$ is associative and commutative."
+   },
+   "lean": {
+    "statement": "`SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form of (3): `multisectionAdd_eq_sum_of_isLocalRepOn` (sections $s'_i + s''_j$, weights $\\sigma'_i\\sigma''_j$); `multisectionAdd_comm` (for all functions), `multisectionAdd_assoc` (for sc⁺-multisections); the $n$-fold sum `conv` with `isScPlusMultisection_conv`.",
+    "decls": [
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.addAt",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_eq_conv",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_eq_sum_of_isLocalRepOn",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.definition_13_2_9",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_assoc",
+     "Chapter13/P3M_MultisectionConvolution · SBLocalization.convAt",
+     "Chapter13/P3M_MultisectionConvolution · SBLocalization.conv",
+     "Chapter13/P3M_MultisectionConvolution · SBLocalization.isLocalRepOn_conv",
+     "Chapter13/P3M_MultisectionConvolution · SBLocalization.isScPlusMultisection_conv",
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionAdd"
+    ]
+   },
+   "chips": [
+    "functor level; decoration: G.142"
+   ],
+   "diff": [
+    "(1) and the closure under $\\oplus$ are as printed; (2)–(3) are kept at the level of local representations, not of decorations (gap G.142)."
+   ]
+  },
+  {
+   "id": "V13.16",
+   "title": "Definition 13.2.10 (2017: 13.12), scalar multiples $a\\Lambda$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.2, Definition 13.2.10, p. 611 (2017: Definition 13.12)",
+    "page": 611,
+    "statement": "$(0\\Lambda)(w) = 0$ for $w \\ne 0$ and $(0\\Lambda)(0) = 1$; $(a\\Lambda)(w) = \\Lambda(w/a)$; the new sections are $a s_i$; for decorated $\\Lambda$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.multisectionSmul a Λ`, exactly these cases; $0\\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`).",
+    "decls": [
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.smulAt",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_zero",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.definition_13_2_10",
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionSmul"
+    ]
+   },
+   "chips": [
+    "functor level; decoration: G.142"
+   ],
+   "diff": [
+    "As printed at functor level; the decorated form is gap G.142."
+   ]
+  },
+  {
+   "id": "V13.17",
+   "title": "Lemma 13.2.11 (2017: 13.4), $\\beta \\odot \\Lambda$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.2, Lemma 13.2.11, p. 612 (2017: Lemma 13.4)",
+    "page": 612,
+    "statement": "For an sc-smooth functor $\\beta : X \\to \\mathbb R$, $(\\beta\\Lambda)(w) = (\\beta(Pw)\\Lambda)(w)$ is a decorated sc⁺-multisection."
+   },
+   "lean": {
+    "statement": "`SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\\beta$ sc-smooth on the object M-polyfold (the book's \"sc-smooth functor\"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`.",
+    "decls": [
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmulFun",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.lemma_13_2_11"
+    ]
+   },
+   "chips": [
+    "functor level; decoration: G.142"
+   ],
+   "diff": [
+    "As printed at functor level; the decorated conclusion is gap G.142."
+   ]
+  },
+  {
+   "id": "V13.18",
+   "title": "Definition 13.2.12 (2017: 13.13), locally finite families",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Definition 13.2.12, p. 612 (2017: Definition 13.13)",
+    "page": 612,
+    "statement": "Every $x$ has an open saturated $O(x)$ with only finitely many $j$ having some $w \\ne 0$ over $O(x)$ with $\\Lambda_j(w) > 0$; $O(x)$ can be chosen so that the index set is stable under smaller saturated $O'$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.IsLocallyFiniteFamily Λ := ∀ x, ∃ O, IsOpen O ∧ IsSaturated O ∧ x ∈ O ∧ (nontrivIdx Λ O).Finite`; the stability remark is `IsLocallyFiniteFamily.exists_stable` (minimising the cardinality), for open saturated $O' \\ni x$.",
+    "decls": [
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.nontrivIdx",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.nontrivIdx_mono",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily.exists_stable"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "stability for open saturated $O'$"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V13.19",
+   "title": "Lemma 13.2.13 (2017: 13.5), locally finite sums",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.2, Lemma 13.2.13, p. 612 (2017: Lemma 13.5)",
+    "page": 612,
+    "statement": "$\\oplus_j \\Lambda_j$ of a locally finite family is a decorated sc⁺-multisection, with $U(x) = O(x) \\cap \\bigcap_{j \\in J_x} U_j(x)$, $I_x = \\prod I^j_x$, $s = \\sum_j s^j_{i_j}$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`.",
+    "decls": [
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv_of_mem",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.trivial_of_not_mem_nontrivIdx",
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lemma_13_2_13"
+    ]
+   },
+   "chips": [
+    "finitely supported families",
+    "functor level; decoration: G.142"
+   ],
+   "diff": [
+    "The text does not write out $\\oplus$ over infinite $J$; it is read through finitely supported families (indices off $J_x$ contribute the zero vector with weight 1), which agrees with Definition 13.2.9 (1) for finite $J$. The decorated conclusion is gap G.142."
+   ]
+  },
+  {
+   "id": "V13.20",
+   "title": "Tools for good systems",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (used in §13.1)",
+    "page": null,
+    "statement": "The text uses local sc-diffeomorphisms injective on open sets and neighbourhoods with the natural action and proper closure."
+   },
+   "lean": {
+    "statement": "`MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn`: a local sc-diffeomorphism injective on an open $S$ is an sc-diffeomorphism $S \\to f(S)$ with inverse `invFunOn`; `exists_natNbhd_isProperSubset`: neighbourhoods with the natural action and proper closure inside any open $W \\ni x$; `exists_isOpen_injOn_src_tgt`.",
+    "decls": [
+     "Chapter13/P3G_GoodSystem · MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.continuousOn_comp_of_continuousOn",
+     "Chapter13/P3G_GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset",
+     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_isOpen_injOn_src_tgt"
+    ]
+   },
+   "chips": [],
+   "diff": []
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 141,
+   "title": "Theorem 13.1.7, properness relative to $Q$ versus relative to $X$",
+   "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
+   "page": 602,
+   "book": "The hypothesis is a good system for the full sub-ep-groupoid on the open set $Q$; its properness condition (1) is read inside $Q$.",
+   "instead": "`EpGroupoid.theorem_13_1_7` (V13.7) takes `IsGoodOn N Q`, which asks properness of $t : s^{-1}(\\mathrm{cl}_X U(q)) \\to X$ in $X$; everything else is as in the book, and $Q$ need not be open. Missing: $Q$-properness implies $X$-properness when $|Q| = |X|$ (first $\\mathrm{cl}_X U(q) \\subseteq Q$, by extending a morphism from a limit point through the natural representation; then compact sets of targets are moved into $Q$ by finitely many local transports). About 150–250 lines, with a structure for the sub-ep-groupoid on an open set, which does not exist yet."
+  },
+  {
+   "g": 142,
+   "title": "Definitions 13.2.7–13.2.8: decorated sc⁺-multisections, and the decorated forms of Definitions 13.2.9–13.2.10, Lemmas 13.2.11, 13.2.13",
+   "label": "§13.2, Definitions 13.2.7, 13.2.8, pp. 610–611 (2017: Definitions 13.9, 13.10), and pp. 611–612",
+   "page": 610,
+   "book": "An sc⁺-multisection with a system of symmetric sc⁺-section structures, equivalence of systems, decorated sc⁺-multisections; their sums, scalar multiples, products with functions and locally finite sums are decorated.",
+   "instead": "The functor-level algebra is formalized (V13.10–V13.19), with `SymmetricStructure` and its local existence (V13.14), good systems (V13.2–V13.9), and the local-representation forms of the sums (`multisectionAdd_eq_sum_of_isLocalRepOn`, `multisectionSmul_eq_sum_of_isLocalRepOn`, `isLocalRepOn_conv`). Missing: the system of symmetric structures over a good system (about 40 lines), the equivalence of systems with the equivariant bijections and the quotient (about 60 lines), and closure of symmetric structures under $\\oplus$, $a\\cdot$, $\\beta\\cdot$ and locally finite sums (about 200 lines). Planned for wave 2."
+  },
+  {
+   "g": 143,
+   "title": "The remark after Definition 13.2.9: in general there are no inverses",
+   "label": "§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)",
+   "page": 611,
+   "book": "In general, an sc⁺-multisection has no inverse for $\\oplus$.",
+   "instead": "Not formalized. An example needs a strong bundle with a nonzero fibre and a two-valued $\\Lambda$; about 60 lines."
+  }
+ ]
+}

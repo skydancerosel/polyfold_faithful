@@ -1,6 +1,6 @@
 # Polyfold Theory beside Lean
 
-*Every result of the book beside the statement the machine actually checked. The left column is Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition (2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the book’s arXiv version (1707.08941, “2017”) for Part II, from Chapter 7 on, which has no preprint; the correspondence is in Exposition/BookConcordance.md. The right column is the formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration to see the Lean it names.*
+*Every result of the book beside the statement the machine actually checked. The left column is Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition (2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the book’s arXiv version (1707.08941, “2017”) for Parts II and III, from Chapter 7 on, which have no preprint; the correspondence is in Exposition/BookConcordance.md. The right column is the formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration to see the Lean it names.*
 
 Left: the statement as the book states it. Right: the statement proved in Lean, with the hypotheses written out. Each declaration is given with its file and line.
 
@@ -6478,7 +6478,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V4.42. Lemma 4.2.8 (preprint 4.19)
 
-*hypotheses explicit* · the step “$z \in Z \subset C$” does not hold as we read it
+*hypotheses explicit* · step “$z \in Z \subset C$”: not as read
 
 **HWZ (§4.2, Lemma 4.2.8 (preprint 4.19), p. 188 (preprint p. 160)).** $N = T\varphi(a)(T_aA)$ is in good position to $C$, and $Y \oplus Z$ is a good complement ($Z \subseteq C$ the sc-complement of $T_0O$ of Proposition 2.5.3 (preprint 2.35)).
 
@@ -7538,7 +7538,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ## Chapter 5
 
-*HWZ Chapter 5 §§5.1–5.3, 5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199): the Fredholm package for M-polyfolds — auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity*
+*HWZ Chapter 5 §§5.1–5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199; 2017 for the items new since the preprint): the Fredholm package for M-polyfolds — auxiliary norms and reflexive auxiliary norms, compactness and reflexive local compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, the ∂-extension theorem, partitions of unity*
 
 ### V5.1. The charts $\Phi[1]$ for every strong bundle chart
 
@@ -7908,7 +7908,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.TrivialBundle.completeSpace_allowableSections_point` — Polyfold/Chapter5/AllowableSectionsMetric.lean, line 556
 
 *What differs.*
-- The text’s “$(\Gamma^{+,1}_U(P), \rho)$ is not complete” is false without a hypothesis: for $U = \emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \sqrt{x^2 + 1/(j+1)^2}/(2\sqrt{1 + x^2}))$ form a $\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; gap G.42).
+- The text’s “$(\Gamma^{+,1}_U(P), \rho)$ is not complete” does not hold as we read it without a hypothesis: for $U = \emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \sqrt{x^2 + 1/(j+1)^2}/(2\sqrt{1 + x^2}))$ form a $\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; gap G.42).
 - Only Definition 5.1.1 (1) (preprint 5.1) is used for the metric axioms (symmetry and subadditivity of the fibre norms, $N$ vanishing only at $0_x$); the density statements of Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18) are $\rho(s, s') \le \varepsilon$ (`allowableDist_le_iff`; V5.30, V5.39). Hence still “restated”; before the fourth addendum of this page $\rho$ was used pointwise only and the metric space was not formalized (Findings, Chapter 5, item 47).
 
 ### V5.22. Remark 5.3.4 (preprint 5.12)
@@ -8850,6 +8850,229 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - The remark presupposes that $E_m = W^{1+m,4}(\Omega)$ is an sc-structure on any bounded domain $\Omega \subseteq \mathbb R^n$. `sobolevSc` takes the compactness of the inclusions and the density of $E_\infty$ as hypotheses; they are proved only for the unit interval $(0,1) \subset \mathbb R^1$, every $p > 1$ (`cubeSc`). Cubes in $\mathbb R^n$ with $n \ge 2$ and other bounded domains (where, as we read it, a regular boundary is presupposed) are not done; hence narrower.
 - The bump statements (3), (4) are stronger than printed: they hold for every sc-structure on $W^{1,4}(\Omega)$ resp. $W^{1,3/2}(\Omega)$ and every $\Omega$, since they use only $E_0$. "Non-vanishing $\beta$" is read as $\beta(0) \ne 0$, as in the Hilbert example on p. 229.
 - The closing question is a question, not a claim (Findings, Chapter 5, items 118, 185).
+
+### V5.77. Definition 5.1.4 (2017: 5.2), reflexive $(0,1)$-fibres
+
+*restated* · atlas: reflexive compatible charts cover $X$
+
+**HWZ (§5.1, Definition 5.1.4, p. 207 (2017: Definition 5.2; not in the preprint)).** $P : Y \to X$ has reflexive $(0,1)$-fibres if some (equivalent) strong bundle atlas has, for every chart, a local model $K \subset C \triangleleft F$ with $F_1$ reflexive.
+
+**Proved in Lean.** `StrongBundle.HasReflexiveFibers B`: every $x \in X$ lies in the domain of a strong bundle chart $c$ compatible with the atlas (`B.IsChart c`) with `IsReflexive (c.F 1)`, the canonical map $F_1 \to F_1^{**}$ onto (the project's §5.5 definition). If all charts of the given atlas have reflexive $F_1$, the bundle has reflexive fibres (`hasReflexiveFibers_of_atlas`). Witness: the trivial bundle $\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ (`TrivialBundle.hasReflexiveFibers_bundle`).
+
+- `Polyfold.StrongBundle.HasReflexiveFibers` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 149
+- `Polyfold.StrongBundle.hasReflexiveFibers_of_atlas` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 153
+- `Polyfold.IsReflexive` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 940
+- `Polyfold.TrivialBundle.hasReflexiveFibers_bundle` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 288
+
+*What differs.*
+- "There exists an (equivalent) atlas of reflexive charts" is read as "the reflexive compatible charts cover $X$"; they cover $Y$, since chart domains are $P^{-1}(V)$.
+
+### V5.78. Lemma 5.1.5 (2017: 5.2), weak convergence of the fibre parts is chart independent
+
+*as in the book* · as stated · the two limits identified
+
+**HWZ (§5.1, Lemma 5.1.5, p. 207 (2017: Lemma 5.2; not in the preprint)).** For $y_k \in Y_{0,1}$ with $P(y_k) \to x$ on level 0 and two strong bundle charts $\Psi, \Psi'$ around $x$ with $F_1$, $F'_1$ reflexive, the fibre parts $h_k$ of $\Psi(y_k)$ converge weakly in $F_1$ if and only if those of $\Psi'(y_k)$ converge weakly in $F'_1$.
+
+**Proved in Lean.** `lemma_5_1_5`: for compatible charts $c, c'$ with reflexive $F_1$, $F'_1$, $x$ in both chart domains and $P(w_k) \to x$: $(\exists h,\ h_k \rightharpoonup h) \iff (\exists h',\ h'_k \rightharpoonup h')$, $h_k$ = `c.liftOneSnd (B.oneVal (w k))`. Strong form `lemma_5_1_5_limit`: if $h_k \rightharpoonup h$ (only $F'_1$ reflexive needed), there is one $y \in Y_{0,1}$ over $x$ with $\Psi$-part $h$, $y_k \to y$ in $Y$, and $h'_k \rightharpoonup$ the $\Psi'$-part of $y$.
+
+- `Polyfold.lemma_5_1_5` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 280
+- `Polyfold.lemma_5_1_5_limit` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 297
+- `Polyfold.StrongBundle.exists_limit_of_weakTendsto` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 187
+- `Polyfold.StrongBundle.weakTendsto_transfer` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 255
+- `Polyfold.StrongBundle.weakTendsto_liftOneSnd_of_tendsto` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 233
+- `Polyfold.StrongBundleChart.mem_K_of_tendsto` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 117
+- `Polyfold.StrongBundleChart.liftOneSnd` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 108
+
+*What differs.*
+- The strong form identifies the two limits (one point of $Y_{0,1}$), which the text's proof uses implicitly. Steps made explicit: weak convergence and the compact inclusion $F_1 \to F_0$ give norm convergence in $F_0$; the limit lies in $K$; the uniform bound is the local comparison of $|\cdot|_1$ in two charts; bounded and level-0 convergent gives weakly convergent in a reflexive space. Fibre parts are read in the chart only for large $k$.
+
+### V5.79. Definition 5.1.6 (2017: 5.3), mixed convergence
+
+*as in the book* · chart independence proved
+
+**HWZ (§5.1, Definition 5.1.6, p. 207 (2017: Definition 5.3; not in the preprint)).** $y_k \in Y_{0,1}$ converges mixed to $y \in Y_{0,1}$ if $P(y_k) \to P(y)$ in $X_0$ and, in some strong bundle chart around $P(y)$ with $F_1$ reflexive, $h_k \rightharpoonup h$ in $F_1$.
+
+**Proved in Lean.** `StrongBundle.MixedTendsto B w y`, exactly this, with a compatible chart. Then $h'_k \rightharpoonup h'$ in every compatible chart around $P(y)$ with reflexive $F'_1$ (`MixedTendsto.weakTendsto_of_isChart`, chart independence), and $y_k \to y$ in $Y$ (`MixedTendsto.tendsto_oneVal`).
+
+- `Polyfold.StrongBundle.MixedTendsto` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 318
+- `Polyfold.StrongBundle.MixedTendsto.weakTendsto_of_isChart` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 326
+- `Polyfold.StrongBundle.MixedTendsto.tendsto_oneVal` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 337
+
+*What differs.*
+- The chart independence ("in view of this lemma we can define") is proved, not assumed.
+
+### V5.80. Definition 5.1.7 (2017: 5.4), reflexive auxiliary norms
+
+*as in the book* · $\liminf_{k \to 0}$ read $k \to \infty$ · liminf in `EReal`
+
+**HWZ (§5.1, Definition 5.1.7, p. 208 (2017: Definition 5.4; not in the preprint)).** A reflexive auxiliary norm is a continuous $N : Y_{0,1} \to [0,\infty)$, a complete norm on each fibre, with (2) of Definition 5.1.1, and $N(y) \le \liminf N(y_k)$ whenever $y_k$ converges mixed to $y$.
+
+**Proved in Lean.** `StrongBundle.IsReflexiveAuxNorm B N`: `B.IsAuxNorm N` and $(N(y) : \overline{\mathbb R}) \le \liminf_k (N(w_k) : \overline{\mathbb R})$ for `B.MixedTendsto w y`. Equivalent forms: `IsReflexiveAuxNorm.le_of_frequently_le` ($N(y_k) \le r$ infinitely often implies $N(y) \le r$) and the criterion `le_liminf_coe_of_eventually`.
+
+- `Polyfold.StrongBundle.IsReflexiveAuxNorm` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 380
+- `Polyfold.StrongBundle.IsReflexiveAuxNorm.le_of_frequently_le` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 386
+- `Polyfold.StrongBundle.le_liminf_coe_of_eventually` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 395
+
+*What differs.*
+- The text prints $\liminf_{k \to 0}$; presumably $k \to \infty$. The liminf is taken in `EReal`, so that unbounded sequences have liminf $\infty$.
+
+### V5.81. Proposition 5.1.8 (2017: 5.2), existence and comparison of reflexive auxiliary norms
+
+*as in the book* · proof supplied
+
+**HWZ (§5.1, Proposition 5.1.8, p. 208 (2017: Proposition 5.2; not in the preprint)).** With reflexive $(0,1)$-fibres a reflexive auxiliary norm exists; for an auxiliary norm $N_0$ and a reflexive one $N_1$ there is a continuous $f : X \to (0,\infty)$ with $f(x)N_0 \le N_1 \le f(x)^{-1}N_0$ on the fibre over $x$. The proof is left to the reader.
+
+**Proved in Lean.** `proposition_5_1_8_exists` (`B.HasReflexiveFibers` gives some `B.IsReflexiveAuxNorm N`), `proposition_5_1_8_compare`, and `proposition_5_1_8` (both). The norm is the glued norm $\sum_i \rho_i(P w)\,|\Phi_i[1](w)|_1$ over the reflexive compatible charts (`isReflexiveAuxNorm_gluedNorm`, lower semicontinuity `le_liminf_gluedNorm`).
+
+- `Polyfold.proposition_5_1_8_exists` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 506
+- `Polyfold.proposition_5_1_8_compare` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 520
+- `Polyfold.proposition_5_1_8` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 528
+- `Polyfold.StrongBundle.isReflexiveAuxNorm_gluedNorm` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 481
+- `Polyfold.StrongBundle.le_liminf_gluedNorm` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 429
+
+*What differs.*
+- The text gives no proof. Existence: Proposition 5.1.3's glued norm over the reflexive charts is an auxiliary norm by Lemma 5.1.2; near $P(y)$ only finitely many terms matter, in each chart the fibre parts converge weakly, and the norm is weakly lower semicontinuous. Comparison: a reflexive auxiliary norm is an auxiliary norm, then Proposition 5.1.3.
+
+### V5.82. Definition 5.2.6 (2017: 5.6), reflexive local compactness
+
+*as in the book* · $N(f(x))$ read $N(f(q))$
+
+**HWZ (§5.2, Definition 5.2.6, p. 214 (2017: Definition 5.6; not in the preprint)).** For reflexive fibres and $f$ sc-smooth and regularizing: $f$ has the reflexive local compactness property if for every reflexive auxiliary norm $N$ and $x \in X$ there is an open $U(x)$ with $\mathrm{cl}_X\{q \in U(x) \mid N(f(q)) \le 1\}$ compact.
+
+**Proved in Lean.** `StrongBundle.HasReflexiveLocalCompactness B f`: for every `N` with `B.IsReflexiveAuxNorm N` and every `x` there is an open `U ∋ x` with `IsCompact (closure {q ∈ U | B.AuxLe N (f q) 1})`. Witness: every section of the trivial bundle (`TrivialBundle.hasReflexiveLocalCompactness_bundle`).
+
+- `Polyfold.StrongBundle.HasReflexiveLocalCompactness` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 96
+- `Polyfold.TrivialBundle.hasReflexiveLocalCompactness_bundle` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 299
+
+*What differs.*
+- The set prints "$N(f(x)) \le 1$" inside $\{q \in U(x) \mid \ldots\}$; presumably $N(f(q))$. $N = \infty$ off $Y_{0,1}$ is `AuxLe`. The standing assumptions (reflexive fibres, sc-smooth, regularizing) are hypotheses of the statements that use the notion.
+
+### V5.83. Proposition 5.2.7 (2017: 5.3), $N(f) > 1$ near points off $X_1$
+
+*stronger* · local compactness not used · (2) for every continuous section
+
+**HWZ (§5.2, Proposition 5.2.7, p. 214 (2017: Proposition 5.3; not in the preprint)).** Reflexive fibres, $f$ sc-smooth, regularizing, with the reflexive local compactness property, $N$ a reflexive auxiliary norm: (1) every $x \in X_0 \setminus X_1$ has a neighbourhood on which $N(f(q)) > 1$; (2) so does every $x$ with $N(f(x)) > 1$.
+
+**Proved in Lean.** `proposition_5_2_7`, with the book's hypotheses, both parts. Stronger: (2) holds for every continuous section, with no regularity and no local compactness (`StrongBundle.exists_nhds_not_auxLe`); $f$ regularizing gives $N(f(x)) = \infty$ off $X_1$ (`not_auxLe_of_not_mem_levelSet`); $\{N \circ f \le r\}$ is closed (`isClosed_setOf_auxLe`).
+
+- `Polyfold.proposition_5_2_7` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 174
+- `Polyfold.StrongBundle.exists_nhds_not_auxLe` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 105
+- `Polyfold.StrongBundle.not_auxLe_of_not_mem_levelSet` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 141
+- `Polyfold.StrongBundle.isClosed_setOf_auxLe` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 148
+- `Polyfold.StrongBundle.exists_mixedTendsto_subseq` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 354
+
+*What differs.*
+- The local compactness hypothesis is not used; (2) needs only continuity of $f$. The sequence argument uses that $X$ is metrizable (Theorem 2.3.10); the mixed convergent subsequence is `exists_mixedTendsto_subseq` (Lemma 5.1.2 bound in a reflexive chart and weak sequential compactness).
+
+### V5.84. The remark after Proposition 5.2.7, the closure of $\{N(f) \le 1\}$
+
+*stronger* · no compactness needed · $x \in X$ read $x \in U$
+
+**HWZ (§5.2, after Proposition 5.2.7, p. 214 (not in the preprint)).** For $U$ open with $\mathrm{cl}\{x \in U \mid N(f(x)) \le 1\}$ compact, the closure of $\{x \in U \mid N(f(x)) \le 1\}$ lies in $\{x \in \mathrm{cl}_X(U) \mid N(f(x)) \le 1\}$.
+
+**Proved in Lean.** `StrongBundle.closure_auxLe_subset`: for every $U$, every continuous section, reflexive fibres and a reflexive $N$.
+
+- `Polyfold.StrongBundle.closure_auxLe_subset` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 158
+
+*What differs.*
+- The printed set is $\mathrm{cl}_X(\{x \in X \mid \ldots\})$; presumably $x \in U$ (the argument above it is about $x_k \in U$). No compactness assumption is needed.
+
+### V5.85. Theorem 5.2.8 (2017: 5.4), compactness control extends from the boundary
+
+*stronger* · tameness and Fredholm not used · "open in $\partial X$" = $W \cap \partial X$
+
+**HWZ (§5.2, Theorem 5.2.8, p. 215 (2017: Theorem 5.4; not in the preprint)).** $X$ tame, reflexive fibres, $f$ sc-Fredholm with compact solution set $S$ and the reflexive local compactness property, $N$ a reflexive auxiliary norm, $U_\partial$ an open neighbourhood of $S \cap \partial X$ in $\partial X$ with $\mathrm{cl}\{x \in U_\partial \mid N(f(x)) \le 1\}$ compact. Then there is an open $U \supseteq S$ with $U \cap \partial X = U_\partial$ and $\mathrm{cl}\{x \in U \mid N(f(x)) \le 1\}$ compact.
+
+**Proved in Lean.** `theorem_5_2_8`, with the book's hypotheses (`PX.IsTame`, `B.HasReflexiveFibers`, `B.IsScFredholmSection f`, $S$ compact, `B.HasReflexiveLocalCompactness f`, `B.IsReflexiveAuxNorm N`, $U_\partial = W \cap \partial X$ with $W$ open). `theorem_5_2_8_of_continuous`: the same for every continuous section on every M-polyfold. Witness of all hypotheses at once: `TrivialBundle.theorem_5_2_8_witness` ($\mathbb R^n$, the graph section of the identity, $U_\partial = \emptyset$).
+
+- `Polyfold.theorem_5_2_8` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 268
+- `Polyfold.theorem_5_2_8_of_continuous` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 190
+- `Polyfold.TrivialBundle.theorem_5_2_8_witness` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 307
+
+*What differs.*
+- Tameness and the sc-Fredholm property are not used: only continuity of $f$, compactness of $S$, local compactness at the given $N$, and $\partial X$ closed. The text's $\tilde U$ is $U(\bar x_1) \cup \dots \cup U(\bar x_\ell) \cup \{N \circ f > 1\}$, open by Proposition 5.2.7 (2).
+
+### V5.86. Remark 5.2.9 (2017: 5.1), Theorem 5.2.8 in words
+
+*restated* · restatement of Theorem 5.2.8
+
+**HWZ (§5.2, Remark 5.2.9, p. 215 (2017: Remark 5.1; not in the preprint)).** If $(U_\partial, N)$ controls compactness on the boundary, some $(U, N)$ with $U \cap \partial X = U_\partial$ controls it on $X$.
+
+**Proved in Lean.** The statement of `theorem_5_2_8`.
+
+- `Polyfold.theorem_5_2_8` — Polyfold/Chapter5/P3R_ReflexiveCompactness2021.lean, line 268
+
+### V5.87. Remark 5.2.10 (2017: 5.2), use in inductive perturbation arguments
+
+*nothing to formalize*
+
+**HWZ (§5.2, Remark 5.2.10, p. 216 (2017: Remark 5.2; not in the preprint)).** The theorem is crucial for inductive perturbation arguments (for instance in SFT).
+
+**Proved in Lean.** A comment; nothing to formalize.
+
+
+### V5.88. Definition 5.4.1 (2017: 5.11), sc⁺-sections over $\partial X$
+
+*restated* · faces read chart-wise · all tame charts: zero section witness
+
+**HWZ (§5.4, Definition 5.4.1, p. 228 (2017: Definition 5.11; not in the preprint)).** A section $s$ of $W|\partial X \to \partial X$ is an sc⁺-section over $\partial X$ if, for every $x \in \partial X$, its restrictions to the local faces at $x$ are sc⁺-sections.
+
+**Proved in Lean.** `StrongBundle.IsBoundaryScPlusSection B s`: for $x \in \partial X$, $P(s(x)) = x$ and $s(x) \in W_{0,1}$; and for every tame strong bundle chart (`B.IsTameChart c`), every tame presentation $T$, every $x \in \partial X$ in the chart and every $i \in I(\varphi(x))$, the local representative restricted to $O \cap V \cap \{t_i = 0\}$ is an sc⁺-section for some open $V \ni \varphi(x)$, and that face germ is an sc-retract (`IsScPlusOnFaceNear`). The zero section satisfies it for every strong bundle (`isBoundaryScPlusSection_fiberZero`).
+
+- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 92
+- `Polyfold.StrongBundle.isBoundaryScPlusSection_fiberZero` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 115
+- `Polyfold.StrongBundle.boundarySupport` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 102
+- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 147
+
+*What differs.*
+- The local faces at $x$ are the germs $O \cap \{t_i = 0\}$, $i \in I(\varphi(x))$, in tame coordinates; "the restriction is sc⁺" is read chart-wise, in every tame chart and presentation (the all-charts quantifier is satisfiable: the zero section). $s(x) \in W_{0,1}$ is stated outright, so that $N(s(x))$ in Theorem 5.4.2 is defined at every boundary point.
+
+### V5.89. Theorem 5.4.2 (2017: 5.9), the ∂-extension theorem
+
+*as in the book* · as stated · the sketch carried out
+
+**HWZ (§5.4, Theorem 5.4.2, p. 228 (2017: Theorem 5.9; not in the preprint)).** For a strong bundle over a tame M-polyfold admitting sc-smooth partitions of unity, an sc⁺-section $s$ over $\partial X$, an auxiliary norm $N$, an open $\tilde U \supseteq \mathrm{supp}(s)$ and a continuous $f \ge 0$ supported in $\tilde U$ with $N(s(x)) < f(x)$ on $\mathrm{supp}(s)$, there is an sc⁺-section $\tilde s$ with $N(\tilde s) \le f$, $\mathrm{supp}(\tilde s) \subset \tilde U$ and $\tilde s|\partial X = s$. The text sketches the proof: Proposition 12.3.7 locally, glued by a partition of unity.
+
+**Proved in Lean.** `theorem_5_4_2`, with the hypotheses `B.IsTameBundle`, `PX.AdmitsScPartitionsOfUnity`, `B.IsBoundaryScPlusSection s`, `B.IsAuxNorm N`, $\tilde U$ open containing `boundarySupport PX P s`, $f$ continuous, $f \ge 0$, `tsupport f ⊆ Ũ` and $N(s(x)) < f(x)$ on the support: there is an sc⁺-section $\tilde s$ with $N(\tilde s(x)) \le f(x)$, `sectionSupport P s̃ ⊆ Ũ` and $\tilde s = s$ on $\partial X$. The proof is complete: the local step `exists_local_extension` (Proposition 12.3.7 in a tame chart, then a bump function), the local bound `exists_local_bounded`, the gluing `exists_boundary_extension`.
+
+- `Polyfold.theorem_5_4_2` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 382
+- `Polyfold.StrongBundle.exists_boundary_extension` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 278
+- `Polyfold.StrongBundle.exists_local_bounded` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 236
+- `Polyfold.StrongBundle.exists_local_extension` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 145
+- `Polyfold.StrongBundle.degIndex_ne_zero_of_mem_boundary` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 132
+- `Polyfold.StrongBundle.isScPlusSection_of_locally_p3b` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 220
+
+*What differs.*
+- "Strong bundle over a tame M-polyfold" is the project's `IsTameBundle` (the base is tame and every point lies in a tame strong bundle chart); this forces `X Y : Type`, and the universe-polymorphic core `exists_boundary_extension` takes only the chart hypothesis. $\mathrm{supp}(s)$ is the closure of $\{x \in \partial X : s(x) \ne 0_x\}$. The proof does not use that $\tilde U$ is open or contains $\mathrm{supp}(s)$; both are kept as in the text.
+
+### V5.90. Weak sequential compactness in reflexive spaces (tool)
+
+*not in the book* · (b′) of the Part III plan
+
+**HWZ (not in the book (used in §§5.1–5.2 and Part III, §12.2)).** The text uses that bounded sequences in a reflexive Banach space have weakly convergent subsequences.
+
+**Proved in Lean.** In a reflexive real normed space every bounded sequence has a weakly convergent subsequence (`exists_subseq_weakTendsto`; `WeakTendsto u h` means $g(u_k) \to g(h)$ for all $g \in F^*$), through the separable closed span, countably many norming functionals, a diagonal subsequence, Banach–Alaoglu in the bidual and reflexivity. Tools: a compact operator maps weakly convergent sequences to norm convergent ones (`WeakTendsto.tendsto_of_isCompactOperator`), bounded and level-0 convergent gives weakly convergent (`weakTendsto_of_bounded_of_tendsto`), uniform boundedness (`WeakTendsto.exists_bound`), weak lower semicontinuity of the norm (`WeakTendsto.eventually_norm_gt`), finite-dimensional spaces are reflexive (`isReflexive_of_finiteDimensional`).
+
+- `Polyfold.exists_subseq_weakTendsto` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 129
+- `Polyfold.exists_subseq_weakTendsto_of_eventually` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 246
+- `Polyfold.WeakTendsto` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 55
+- `Polyfold.WeakTendsto.tendsto_of_isCompactOperator` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 256
+- `Polyfold.weakTendsto_of_bounded_of_tendsto` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 271
+- `Polyfold.WeakTendsto.exists_bound` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 87
+- `Polyfold.WeakTendsto.eventually_norm_gt` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 103
+- `Polyfold.isReflexive_of_finiteDimensional` — Polyfold/Chapter5/P3R_WeakSeqCompact.lean, line 291
+
+### V5.91. Rescaled and sandwiched (reflexive) auxiliary norms, M-polyfold forms (tool)
+
+*not in the book* · for wave 2 (§12.2.8 ff.)
+
+**HWZ (not in the book in this form (M-polyfold forms of Remark 12.2.12 (1) and of the last clause of Theorem 12.2.11, p. 577)).** For ep-groupoids: $(g \circ P) \cdot N$ is a (reflexive) auxiliary norm for continuous $g > 0$, and every auxiliary norm lies between two reflexive ones.
+
+**Proved in Lean.** `StrongBundle.IsAuxNorm.comp_mul`, `StrongBundle.IsReflexiveAuxNorm.comp_mul`: $(g \circ P) \cdot N$ is a (reflexive) auxiliary norm for continuous $g > 0$. `StrongBundle.exists_reflexiveAuxNorm_sandwich`: with reflexive fibres every auxiliary norm $N'$ has reflexive $N_1 \le N' \le N_2$.
+
+- `Polyfold.StrongBundle.IsAuxNorm.comp_mul` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 553
+- `Polyfold.StrongBundle.IsReflexiveAuxNorm.comp_mul` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 588
+- `Polyfold.StrongBundle.exists_reflexiveAuxNorm_sandwich` — Polyfold/Chapter5/P3R_Reflexive2021.lean, line 611
 
 ## Chapter 6
 
@@ -18611,6 +18834,1137 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 *What differs.*
 - The text leaves the well-definedness of the composition to the reader; it is proved with the common refinement of Definition 11.6.7 directly, through maps of weak fibred products built from natural transformations (`PC.fibredLift`), which are equivalences by two out of three (`PC.IsEquivalence.of_comp_left`). The middle of the composite is $A' \times_{F'} A$, the text's $A \times_{F'} A'$ with the factors exchanged, since Theorem 11.6.6 is formalized with the equivalence on the left (Findings, Chapter 11, items 76, 78).
 
+## Part III, Chapter 12
+
+*HWZ Part III, Chapter 12 §§12.1–12.5, pp. 569–597 (2017 Chapter 12; Part III has no 2014 preprint): sc-Fredholm section functors, auxiliary norms and the good neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the boundary, sc-smooth bump functions and sc⁺-section functors, extension from the boundary in a local model, compactness and properness, the orientation bundle (wave 1 of Part III)*
+
+### V12.1. Definition 12.1.1 (2017: 12.1), sc-Fredholm section functors
+
+*as in the book* · as stated
+
+**HWZ (§12.1, Definition 12.1.1, p. 569 (2017: Definition 12.1)).** An sc-smooth section functor $f$ of a strong bundle over an ep-groupoid is sc-Fredholm if it is an sc-Fredholm section of $W \to X$ over the object M-polyfold.
+
+**Proved in Lean.** `EpStrongBundle.definition_12_1_1`: `E.IsScFredholmSectionFunctor f ↔ E.IsScSmoothSectionFunctor f ∧ B.IsScFredholmSection f` (`Iff.rfl`, Definition 8.3.4 (3)).
+
+- `Polyfold.EpStrongBundle.definition_12_1_1` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 153
+
+*What differs.*
+- The project's existing definition, unfolded.
+
+### V12.2. The remark after Definition 12.1.1: regularizing on objects and morphisms, germs
+
+*hypotheses explicit* · $f(\varphi)$: a pull-back bundle section
+
+**HWZ (§12.1, after Definition 12.1.1, p. 569 (2017: after Definition 12.1)).** $f$ is regularizing; on morphisms, $\varphi \in \mathbf X_m$ and $f(\varphi) \in \mathbf W_{m,m+1}$ give $\varphi \in \mathbf X_{m+1}$, since $s(\varphi) \in X_{m+1}$. Germs at smooth points are sc-Fredholm germs.
+
+**Proved in Lean.** Objects: $x \in X_m$ and $f(x) \in W_{m,m+1}$ give $x \in X_{m+1}$ (`remark_12_1_1_regularizing_obj`). Morphisms: $\varphi \in \mathbf X_m$ and $f(\varphi) = (\varphi, f(s\varphi)) \in (\mathbf X\,{}_s\!\times_P W)_{m,m+1}$ give $\varphi \in \mathbf X_{m+1}$ (`remark_12_1_1_regularizing_mor`, through the pull-back projection, a strong bundle map). Germs: `IsScFredholmGerm` at each smooth $x$ (`remark_12_1_1_germ`).
+
+- `Polyfold.EpStrongBundle.remark_12_1_1_regularizing_obj` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 161
+- `Polyfold.EpStrongBundle.remark_12_1_1_regularizing_mor` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 169
+- `Polyfold.EpStrongBundle.remark_12_1_1_germ` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 184
+
+*What differs.*
+- "$f(\varphi)$" is read as the induced section of the pull-back bundle $\mathbf X\,{}_s\!\times_P W \to \mathbf X$.
+
+### V12.3. Definition 12.2.1 (2017: 12.2), auxiliary norms
+
+*as in the book* · as stated · recalls Definition 8.3.5
+
+**HWZ (§12.2, Definition 12.2.1, p. 570 (2017: Definition 12.2)).** An auxiliary norm for $(P : W \to X, \mu)$ is a continuous $N : W_{0,1} \to [0, \infty)$ that is a complete norm on every fibre, with $N(h_k) \to 0$ and $P(h_k) \to x$ implying $h_k \to 0_x$, and $N(\mu(\varphi, k)) = N(k)$.
+
+**Proved in Lean.** The existing `EpStrongBundle.IsAuxNorm` (Definition 8.3.5): `B.IsAuxNorm N` (Definition 5.1.1: continuity, (1), (2)) and invariance under $\mu$ (3).
+
+- `Polyfold.EpStrongBundle.IsAuxNorm` — Polyfold/Chapter8/Book2021.lean, line 319
+
+*What differs.*
+- The text itself recalls Definition 8.3.5; no new declaration. Non-negativity follows from (1).
+
+### V12.4. Theorem 12.2.2 (2017: 12.1), existence of auxiliary norms
+
+*as in the book* · as stated · Theorem 12.2.6 (5) not needed
+
+**HWZ (§12.2, Theorem 12.2.2, p. 570 (proof pp. 572–574) (2017: Theorem 12.1)).** Every strong bundle over an ep-groupoid with paracompact orbit space admits an auxiliary norm.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_2_2 (h : X.HasParacompactOrbitSpace) : ∃ N, E.IsAuxNorm N`, and the form `SEP.theorem_12_2_2`. The proof follows the text's three steps: average a local norm over $G_x$ on $U(x)$ (`avgNorm`), transport it to the saturation (`transNorm`, invariant under all morphisms by `transNorm_μ`), glue with a partition of unity of $|X|$ (`isAuxNorm_glueNorm`).
+
+- `Polyfold.EpStrongBundle.theorem_12_2_2` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 915
+- `Polyfold.SEP.theorem_12_2_2` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 942
+- `Polyfold.EpStrongBundle.avgNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 420
+- `Polyfold.EpStrongBundle.isLocalAuxNorm_avgNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 440
+- `Polyfold.EpStrongBundle.avgNorm_actOne` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 429
+- `Polyfold.EpStrongBundle.transNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 476
+- `Polyfold.EpStrongBundle.isLocalAuxNorm_transNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 629
+- `Polyfold.EpStrongBundle.transNorm_μ` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 637
+- `Polyfold.EpStrongBundle.glueNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 795
+- `Polyfold.EpStrongBundle.isAuxNorm_glueNorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 817
+
+*What differs.*
+- The local norm is a Part I auxiliary norm (Proposition 5.1.3) instead of a chart norm, and the transport through a chosen morphism uses the invariance under $G_x$, so Theorem 12.2.6 (5) is not needed. Completeness of the glued fibre norms comes from `StrongBundle.isAuxNorm_of_tendsto` (V12.29).
+
+### V12.5. Definition 12.2.3 (2017: 12.3) and the remark after it, continuous partitions of unity
+
+*as in the book* · as stated · remark: both directions
+
+**HWZ (§12.2, Definition 12.2.3, pp. 570–571 (2017: Definition 12.3)).** Continuous $\beta_\lambda : X \to [0,1]$, constant along morphisms, locally finite on saturated neighbourhoods, with $\sum_\lambda \beta_\lambda = 1$. A partition of unity of $|X|$ composed with $\pi$ is one; conversely, one on $X$ descends to $|X|$.
+
+**Proved in Lean.** `EpGroupoid.IsContPartitionOfUnity β`, with fields `continuous`, `mem_Icc`, `map_mor`, `locallyFinite` and `sum_eq_one` (as `finsum`). Both directions of the remark: `isContPartitionOfUnity_comp_π` (Mathlib `PartitionOfUnity` on the orbit space composed with $\pi$) and `IsContPartitionOfUnity.descend` (a `PartitionOfUnity` on $|X|$ with $\beta'_i(\pi y) = \beta_i(y)$).
+
+- `Polyfold.EpGroupoid.IsContPartitionOfUnity` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 693
+- `Polyfold.EpGroupoid.isContPartitionOfUnity_comp_π` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 711
+- `Polyfold.EpGroupoid.IsContPartitionOfUnity.descend` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 735
+- `Polyfold.EpGroupoid.isSubordinate_comp_π` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 726
+
+*What differs.*
+- The supports are closures in $X$. The paracompactness of $|X|$ in the preamble is not needed for the definition. The descent uses that $\pi$ is open (Proposition 7.1.8).
+
+### V12.6. Definition 12.2.4 (2017: 12.4), subordinate partitions of unity
+
+*as in the book* · as stated
+
+**HWZ (§12.2, Definition 12.2.4, p. 571 (2017: Definition 12.4)).** For a saturated open cover $(U_\lambda)$, a continuous partition of unity indexed by the same set is subordinate if $\mathrm{supp}\,\beta_\lambda \subset U_\lambda$.
+
+**Proved in Lean.** `IsContPartitionOfUnity.IsSubordinate X U`: `∀ i, tsupport (β i) ⊆ U i`.
+
+- `Polyfold.EpGroupoid.IsContPartitionOfUnity.IsSubordinate` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 703
+
+### V12.7. Proposition 12.2.5 (2017: 12.1), subordinate continuous partitions of unity exist
+
+*as in the book* · as stated
+
+**HWZ (§12.2, Proposition 12.2.5, p. 571 (2017: Proposition 12.1)).** If $|X|$ is paracompact, every open cover of $X$ by saturated sets has a subordinate continuous partition of unity.
+
+**Proved in Lean.** `EpGroupoid.proposition_12_2_5`: for `X.HasParacompactOrbitSpace` and saturated open $U_i$ covering $X$ there is a continuous partition of unity subordinate to $(U_i)$.
+
+- `Polyfold.EpGroupoid.proposition_12_2_5` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 764
+
+*What differs.*
+- The text's proof: a partition of unity of $|X|$ subordinate to $(\pi(U_\lambda))$, composed with $\pi$; $|X|$ is normal by Theorem 7.3.1.
+
+### V12.8. Theorem 12.2.6 (2017: 12.2), the good neighbourhood theorem
+
+*as in the book* · as stated
+
+**HWZ (§12.2, Theorem 12.2.6, pp. 571–572 (2017: Theorem 12.2)).** Every object $x$ has open neighbourhoods $U'(x) \subset U''(x)$ with (1) $\overline{U'} \subset U''$; (2) $U''$ carries the natural $G_x$-action, leaving $U'$ invariant; (3) $W|U''$ is isomorphic to a local strong bundle model; (4) morphisms with sources in $\overline{U''}$ and convergent targets have a convergent subsequence; (5) $(\pi^{-1}(\pi(U')) \setminus U') \cap \overline{U''} = \emptyset$.
+
+**Proved in Lean.** `EpGroupoid.theorem_12_2_6 B x`: there are $U'$, $U''$ and a natural representation `R : X.NaturalRep x` with `R.U = U''`, $U'$ open, $x \in U'$, and (1)–(5): (2) $\Phi(g)(U') = U'$ for $g \in G_x$; (3) $U''$ lies in the base domain of one strong bundle chart compatible with the atlas; (4) with sequences and a strictly monotone reindexing.
+
+- `Polyfold.EpGroupoid.theorem_12_2_6` — Polyfold/Chapter12/P3N_GoodNeighborhood.lean, line 90
+- `Polyfold.EpGroupoid.exists_subseq_of_isProperMap` — Polyfold/Chapter12/P3N_GoodNeighborhood.lean, line 65
+- `Polyfold.EpGroupoid.NaturalRep.image_Φ_eq` — Polyfold/Chapter12/P3N_GoodNeighborhood.lean, line 56
+
+*What differs.*
+- The text's proof: properness of $t$ on $s^{-1}(\overline{V_0})$, two shrinkings, and (5) from the uniqueness in Theorem 7.1.13 (3).
+
+### V12.9. Theorem 12.2.7 (2017: 12.3), extension of auxiliary norms from the boundary
+
+*narrower* · local step as hypothesis `hloc` (G.136) · global part proved; tameness unused
+
+**HWZ (§12.2, Theorem 12.2.7, pp. 574–576 (2017: Theorem 12.3)).** For a strong bundle over a tame ep-groupoid with paracompact $|X|$, an auxiliary norm for $W|\partial X$ extends to an auxiliary norm of $W$. The proof extends $N$ near $x_0 \in \partial X$ in a tame local model by $N(rq(u), A(rq(u))w) + \|w - A(rq(u))w\|_{F_1}$, then averages over $G_{x_0}$, transports to the saturation and glues as in Theorem 12.2.2.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_2_7_hyp (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N) (hloc : HasLocalExtensions X B N)`: there is $\tilde N$ with `E.IsAuxNorm Ñ` and $\tilde N = N$ over $\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$; `HasLocalExtensions X B N` says that every $x \in \partial X$ has an open $V \ni x$ and a local auxiliary norm $M$ on $V$ equal to $N$ over $V \cap \partial X$. Witness: `theorem_12_2_7_hyp_witness` (every bundle with paracompact $|X|$ has such an $N$); every restriction of a global auxiliary norm satisfies `hloc` (`hasLocalExtensions_of_isAuxNorm`).
+
+- `Polyfold.EpStrongBundle.theorem_12_2_7_hyp` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 142
+- `Polyfold.EpStrongBundle.theorem_12_2_7_hyp_witness` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 221
+- `Polyfold.EpStrongBundle.IsAuxNormOn` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 110
+- `Polyfold.EpStrongBundle.IsAuxNorm.isAuxNormOn` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 122
+- `Polyfold.EpStrongBundle.HasLocalExtensions` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 133
+- `Polyfold.EpStrongBundle.hasLocalExtensions_of_isAuxNorm` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 214
+- `Polyfold.EpGroupoid.tgt_mem_boundary_iff` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 78
+- `Polyfold.EpGroupoid.isOpen_compl_boundary` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 84
+- `Polyfold.StrongBundle.IsLocalAuxNorm.mono` — Polyfold/Chapter12/P3N_AuxNormExtension.lean, line 61
+
+*What differs.*
+- Hidden hypotheses: `hloc : HasLocalExtensions X B N`, the local step of the text's proof, with the witness `theorem_12_2_7_hyp_witness`.
+- The local coordinate step in a tame strong bundle chart is gap G.136. All of the global part is proved: the extension property survives the $G_x$-average because $N$ is invariant, the transport to the saturation, natural representations inside $X \setminus \partial X$ carrying a Part I norm, and the gluing (each nonzero term is $\beta_x N$, since the saturation of an interior neighbourhood misses $\partial X$). Tameness is used only to discharge `hloc`. The text's $N$ is defined on $W_{0,1}|\partial X$; here it is a function on $W_{0,1}$ with conditions only over $\partial X$, which is equivalent.
+
+### V12.10. Definition 12.3.1 (2017: 12.7), sc-smooth bump functions on ep-groupoids
+
+*as in the book* · as printed · pointwise variant kept
+
+**HWZ (§12.3, Definition 12.3.1, p. 579 (2017: Definition 12.7)).** $X$ admits sc-smooth bump functions if for every $x$ and saturated open $U \ni x$ there is an sc-smooth $f : X \to \mathbb R$, not identically 0, with $\mathrm{supp} f \subset U$ and $f(s\varphi) = f(t\varphi)$.
+
+**Proved in Lean.** `EpGroupoid.AdmitsBumpFunctions`, the printed form (`f ≠ 0`, `tsupport f ⊆ U`). The variant with $f(x) \ne 0$, the project's reading of Part I's Definition 5.3.1, is `AdmitsBumpFunctionsPointwise`; it implies the printed form (`AdmitsBumpFunctionsPointwise.weak`). Witness: the trivial ep-groupoid on $\mathbb R^n$ (`admitsBumpFunctionsPointwise_trivial_rn`).
+
+- `Polyfold.EpGroupoid.AdmitsBumpFunctions` — Polyfold/Chapter12/P3S_BumpEp.lean, line 76
+- `Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise` — Polyfold/Chapter12/P3S_BumpEp.lean, line 83
+- `Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise.weak` — Polyfold/Chapter12/P3S_BumpEp.lean, line 91
+- `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn` — Polyfold/Chapter12/P3S_BumpEp.lean, line 404
+
+*What differs.*
+- Part I's Definition 5.3.1 is read pointwise in this project (Findings, Chapter 5, items 41, 160–163); both readings are kept here.
+
+### V12.11. Theorem 12.3.2 (1) (2017: 12.6 (1)), bump functions on $X$ and on the object M-polyfold
+
+*restated* · proved in each consistent reading · average $f^2$, not $f$
+
+**HWZ (§12.3, Theorem 12.3.2 (1), p. 579 (2017: Theorem 12.6 (1))).** $X$ admits sc-smooth bump functions if and only if the object M-polyfold does.
+
+**Proved in Lean.** `EpGroupoid.theorem_12_3_2_1`: `X.AdmitsBumpFunctionsPointwise ↔ X.PObj.AdmitsBumpFunctions` (pointwise on both sides). `theorem_12_3_2_1_weak`: `X.AdmitsBumpFunctions ↔ X.PObj.AdmitsBumpFunctionsWeak` ("not identically 0" on both sides). No hypothesis.
+
+- `Polyfold.EpGroupoid.theorem_12_3_2_1` — Polyfold/Chapter12/P3S_BumpEp.lean, line 306
+- `Polyfold.EpGroupoid.theorem_12_3_2_1_weak` — Polyfold/Chapter12/P3S_BumpEp.lean, line 331
+- `Polyfold.EpGroupoid.exists_objBump_of_epBump` — Polyfold/Chapter12/P3S_BumpEp.lean, line 236
+- `Polyfold.EpGroupoid.exists_epBump_of_objBump` — Polyfold/Chapter12/P3S_BumpEp.lean, line 275
+- `Polyfold.EpGroupoid.exists_natAverage` — Polyfold/Chapter12/P3S_BumpEp.lean, line 161
+- `Polyfold.EpGroupoid.exists_invariant_extension` — Polyfold/Chapter12/P3S_BumpEp.lean, line 202
+
+*What differs.*
+- The printed statement pairs Definition 12.3.1 ("not identically 0") with Part I's Definition 5.3.1 (read pointwise); its (⇒) direction would then be Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163), so the theorem is proved in each consistent reading.
+- The text averages a bump function $f$ over $G_x$, and that average can cancel to $0$; we average $f^2$ (presumably intended, since Proposition 5.5.3's functions are $\ge 0$). (⇐) uses the properness of $\mathrm{cl}\,V$ for closedness of the saturation.
+
+### V12.12. Theorem 12.3.2 (2) (2017: 12.6 (2)), invariant bump functions with $f(x) = 1$
+
+*narrower* · pointwise bump reading of Def. 12.3.1
+
+**HWZ (§12.3, Theorem 12.3.2 (2), p. 579 (2017: Theorem 12.6 (2))).** If $X$ admits sc-smooth bump functions, then for every $x$ and saturated open $U(x)$ there is an sc-smooth $f : X \to [0,1]$ with $f(x) = 1$, $\mathrm{supp} f \subset U(x)$, constant along morphisms.
+
+**Proved in Lean.** `EpGroupoid.theorem_12_3_2_2`: from `X.AdmitsBumpFunctionsPointwise`, an sc-smooth $f$ with values in $[0,1]$, $f(x) = 1$, `tsupport f ⊆ U` and $f(s\varphi) = f(t\varphi)$. Witness of the hypothesis: `admitsBumpFunctionsPointwise_trivial_rn`.
+
+- `Polyfold.EpGroupoid.theorem_12_3_2_2` — Polyfold/Chapter12/P3S_BumpEp.lean, line 361
+- `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn` — Polyfold/Chapter12/P3S_BumpEp.lean, line 404
+
+*What differs.*
+- Hidden hypotheses: the pointwise reading of Definition 12.3.1 ($f(x) \ne 0$), the project's reading of Part I; witness `admitsBumpFunctionsPointwise_trivial_rn`.
+- From the printed "not identically 0" reading the result would need Part I's open weak-to-pointwise question (Findings, Chapter 5, item 163). The proof is the text's: Proposition 5.5.3, then average, then extend.
+
+### V12.13. Theorem 12.3.3 (2017: 12.7), sc⁺-section functors through invariant points
+
+*narrower* · pointwise bump reading · paracompactness kept, unused
+
+**HWZ (§12.3, Theorem 12.3.3, p. 581 (2017: Theorem 12.7)).** For a strong bundle over $X$ with bump functions and paracompact $|X|$, an auxiliary norm $N$, a smooth $x$, a smooth $e \in W_x$ fixed by $G_x$, an open $\hat O \ni |x|$ and $\varepsilon > 0$, there is an sc⁺-section functor $\sigma$ with support in $\pi^{-1}(\hat O)$, $\sigma(x) = e$ and $N(\sigma(y)) \le N(e) + \varepsilon$.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_3_3`, with `X.AdmitsBumpFunctionsPointwise`, `X.HasParacompactOrbitSpace`, `E.IsAuxNorm N`, $x$ smooth, $e$ smooth with $P(e) = x$ and $\mu(g, e) = e$ for $g \in G_x$, $O$ open with $\pi(x) \in O$, $\varepsilon > 0$: $e \in W_{0,1}$ and there is $\sigma$ with `E.IsScPlusSectionFunctor σ`, support in $\pi^{-1}(O)$, $\sigma(x) = e$ and $N(\sigma(y)) \le N(e) + \varepsilon$.
+
+- `Polyfold.EpStrongBundle.theorem_12_3_3` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 665
+- `Polyfold.EpStrongBundle.exists_equivariant_average` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 395
+- `Polyfold.EpStrongBundle.natTerm` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 301
+- `Polyfold.EpStrongBundle.natTerm_tgt` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 364
+- `Polyfold.EpStrongBundle.exists_isScSmoothOn_one_secAct` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 176
+- `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn` — Polyfold/Chapter12/P3S_BumpEp.lean, line 404
+
+*What differs.*
+- Hidden hypotheses: the pointwise reading of Definition 12.3.1, as in V12.12; witness `admitsBumpFunctionsPointwise_trivial_rn`.
+- Paracompactness is kept but unused: the text needs it only for the existence of $N$, which is a hypothesis. The local section through $e$ is Part I's Lemma 5.3.3 (cut-off and bound included); averaging $\sigma'' = |G_x|^{-1}\sum_k h_k$ (`exists_equivariant_average`); the extension uses the morphisms (V12.15).
+
+### V12.14. Remark 12.3.4 (2017: 12.3), functoriality and transversality compete
+
+*hypotheses explicit* · the checkable claim
+
+**HWZ (§12.3, Remark 12.3.4, p. 584 (2017: Remark 12.3)).** Functoriality and transversality compete; without the $G_x$-invariance of $e$ there would be no section functor as in Theorem 12.3.3.
+
+**Proved in Lean.** `EpStrongBundle.remark_12_3_4`: for every functorial section $\sigma$ and $g \in G_x$, $\mu(g, \sigma(x)) = \sigma(x)$, so the invariance hypothesis of Theorem 12.3.3 is necessary.
+
+- `Polyfold.EpStrongBundle.remark_12_3_4` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 693
+
+*What differs.*
+- Only the checkable claim is formalized; the rest of the remark is commentary.
+
+### V12.15. Remark 12.3.5 (2017: 12.4), extension of equivariant local sc⁺-sections
+
+*hypotheses explicit* · "controlled" = the sup bound
+
+**HWZ (§12.3, Remark 12.3.5, p. 584 (2017: Remark 12.4)).** A local sc⁺-section near $x$, compatible with the $G_x$-action on $U(x)$ and cut off by an invariant function, extends to all of $X$, determined by it and controlled by $N$.
+
+**Proved in Lean.** `EpStrongBundle.remark_12_3_5`: for `R : NaturalRep x`, `closure V ⊆ R.U` proper, $\sigma$ sc⁺, equivariant on the morphisms of $U(x)$, with support in `closure V`: `natExtension E R` is an sc⁺-section functor equal to $\sigma$ on $U(x)$, supported in the saturation of the support of $\sigma$, and every bound $N(\sigma) \le b$ passes to it.
+
+- `Polyfold.EpStrongBundle.remark_12_3_5` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 593
+- `Polyfold.EpStrongBundle.natExtension` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 492
+- `Polyfold.EpStrongBundle.natExtension_eq` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 508
+- `Polyfold.EpStrongBundle.natExtension_isFunctorial` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 544
+- `Polyfold.EpStrongBundle.natExtension_eq_zero` — Polyfold/Chapter12/P3S_ScPlusSectionFunctor.lean, line 572
+
+*What differs.*
+- The section $\sigma$ plays the role of $f \cdot s$ (already cut off); "controlled" becomes the bound $b$.
+
+### V12.16. Definition 12.3.6 (2017: 12.8), sc⁺-sections over the boundary: the local form
+
+*restated* · chart-level form · ep wrapper: G.137
+
+**HWZ (§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)).** Over a tame ep-groupoid, $s : \partial X \to W$ with $P \circ s = \mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \in \partial X$ and every local face $F \ni x$, $s|F$ is an sc⁺-section of $W|F \to F$.
+
+**Proved in Lean.** In a tame local strong bundle model $K = R(U \triangleleft F) \to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \in D$ and $i \in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\partial O$, with `mem_retractBoundary_iff`. The M-polyfold form is Definition 5.4.1 (V5.88), applicable to the object M-polyfold. Witness: the zero section (`isBoundaryScPlusSectionOn_zero`).
+
+- `Polyfold.retractBoundary` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 142
+- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 147
+- `Polyfold.IsBoundaryScPlusSectionOn` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 156
+- `Polyfold.mem_retractBoundary_iff` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 162
+- `Polyfold.isBoundaryScPlusSectionOn_zero` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 415
+- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter5/P3B_BoundaryExtension2021.lean, line 92
+
+*What differs.*
+- This is the chart-level content used by Proposition 12.3.7 and Corollary 12.3.8; the named ep-groupoid wrapper is gap G.137.
+
+### V12.17. Proposition 12.3.7 (2017: 12.2), local extension from the boundary
+
+*stronger* · face germs at $x_0$ only · any tame presentation
+
+**HWZ (§12.3, Proposition 12.3.7, p. 585 (2017: Proposition 12.2)).** For a tame local strong bundle model $K \to O$ and an sc⁺-section $s$ over the boundary near $x_0 \in \partial O$, there are $V(x_0) \subset O$ and an sc⁺-section $\tilde s$ of $K|V$ with $\tilde s = s$ on $\partial O$ near $x_0$; the proof uses $\tilde s(t,h) = \sum_{\emptyset \ne I}(-1)^{|I|+1}R((t,h), s((t,h)_I))$.
+
+**Proved in Lean.** `proposition_12_3_7` (book form): for $V_0$ open, $x_0 \in \partial O \cap V_0$ and the face condition on $\partial O \cap V_0$, an open $V \ni x_0$ with $O \cap V$ a retract and $\tilde s$ sc⁺ on $O \cap V$ equal to $s$ on $\partial O \cap V$. Stronger: `proposition_12_3_7_of_faces_at` needs the face condition only at $x_0$, with the explicit extension `boundaryExtension`, which agrees with the text's formula (`boundaryExtension_toBase_snd`). Witness with $\partial O \ne \emptyset$: `proposition_12_3_7_nonvacuous`.
+
+- `Polyfold.proposition_12_3_7` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 372
+- `Polyfold.proposition_12_3_7_of_faces_at` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 277
+- `Polyfold.proposition_12_3_7_nonvacuous` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 445
+- `Polyfold.boundaryExtension` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 178
+- `Polyfold.boundaryExtension_toBase_snd` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 186
+- `Polyfold.boundaryExtension_fst` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 197
+- `Polyfold.boundaryExtension_mem` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 205
+- `Polyfold.exists_isScSmooth_faceTerm` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 238
+- `Polyfold.sum_powerset_erase_empty_alternating` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 110
+- `Polyfold.cornerKill_insert_of_coord_eq_zero` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 90
+
+*What differs.*
+- Only the face germs at $x_0$ itself are used; $E = \mathbb R^n \oplus H$ is replaced by an arbitrary tame presentation $T$; $(t,h)_I = r(t_I, h)$ is `base RB (cornerKill T I 0 z)`; the cancellation is `sum_powerset_erase_empty_alternating`.
+
+### V12.18. Corollary 12.3.8 (2017: 12.1), equivariant local extension from the boundary
+
+*hypotheses explicit* · "acts with a lift" as a structure · $G_{x_0}$ fixes $x_0$ made explicit
+
+**HWZ (§12.3, Corollary 12.3.8, p. 586 (2017: Corollary 12.1)).** If $G_{x_0}$ acts by sc-diffeomorphisms on $O$ with a lift to $K$, and $s$ is an equivariant sc⁺-section over the boundary near $x_0$ on an invariant neighbourhood, there is an invariant sc⁺-section $\hat s$ near $x_0$ restricting to $s$ on $\partial O$; the proof averages $\hat s(x) = |G|^{-1}\sum_g g^{-1} * \tilde s(g * x)$.
+
+**Proved in Lean.** `corollary_12_3_8` for a finite group $G$ with `A : LocalBundleAction G C O K` (an action by sc-smooth maps of $O$ with an sc-smooth, fibre-linear lift to $K[1]$ covering it, unit and composition laws), with `hfix` ($G$ fixes $x_0$), $\partial O \cap V_0$ invariant, the face condition and equivariance of $s$ there: an open invariant $V \ni x_0$ and $\hat s$ (`LocalBundleAction.average` of the extension of Proposition 12.3.7), sc⁺ on $O \cap V$, equivariant, equal to $s$ on $\partial O \cap V$. Witness: `LocalBundleAction.trivial`.
+
+- `Polyfold.corollary_12_3_8` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 545
+- `Polyfold.LocalBundleAction` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 502
+- `Polyfold.LocalBundleAction.trivial` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 518
+- `Polyfold.LocalBundleAction.average` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 532
+- `Polyfold.mem_strongShiftOne_sum_smul` — Polyfold/Chapter12/P3B_LocalBoundaryExtension.lean, line 481
+
+*What differs.*
+- "$G_{x_0}$ acts with a lift to $K$" is the structure `LocalBundleAction`; that the isotropy group fixes $x_0$ is the explicit `hfix`; "invariant" is read as equivariant, $\hat s(gx) = g * \hat s(x)$.
+
+### V12.19. Definition 12.4.1 (2017: 12.9), compact solution set, proper, proper$_{<\infty}$
+
+*as in the book* · as stated
+
+**HWZ (§12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9)).** (1) compact solution set: $|S_f|$ compact; (2) proper: $|S_f|$ compact, and for every auxiliary norm $N$ a saturated open $U \supset S_f$ with $\mathrm{cl}_{|X|}|\{x \in U : N(f(x)) \le 1\}|$ compact; (3) proper$_{<\infty}$: the same for every $0 < C < \infty$, with one $U$.
+
+**Proved in Lean.** `EpStrongBundle.HasCompactSolutionSetEp`, `IsProperFunctor`, `IsProperLtInftyFunctor`, with Chapter 8's auxiliary norms and Part I's `AuxLe` for $N(f(x)) \le C$.
+
+- `Polyfold.EpStrongBundle.HasCompactSolutionSetEp` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 211
+- `Polyfold.EpStrongBundle.IsProperFunctor` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 217
+- `Polyfold.EpStrongBundle.IsProperLtInftyFunctor` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 226
+
+### V12.20. Theorem 12.4.2 (2017: 12.9), the three compactness notions agree
+
+*as in the book* · as stated · proof labels read as a cycle
+
+**HWZ (§12.4, Theorem 12.4.2, pp. 587–588 (2017: Theorem 12.9)).** For an sc-Fredholm $f$ with $|X|$ paracompact, proper, compact solution set and proper$_{<\infty}$ are equivalent.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_4_2 (hf : E.IsScFredholmSectionFunctor f) (_hpara : X.HasParacompactOrbitSpace)`: `List.TFAE [IsProperFunctor, HasCompactSolutionSetEp, IsProperLtInftyFunctor]`.
+
+- `Polyfold.EpStrongBundle.theorem_12_4_2` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 284
+- `Polyfold.EpStrongBundle.isProperLtInftyFunctor_of_hasCompactSolutionSetEp` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 249
+- `Polyfold.EpStrongBundle.IsProperFunctor.hasCompactSolutionSetEp` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 241
+- `Polyfold.EpStrongBundle.IsProperLtInftyFunctor.isProperFunctor` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 234
+- `Polyfold.EpStrongBundle.auxLe_tgt_of_auxLe_src` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 192
+- `Polyfold.exists_nhds_isCompact_closure_auxLe` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 115
+
+*What differs.*
+- Paracompactness is kept but unused, since (1)–(3) quantify over all auxiliary norms. The proof's labels "(3)⇒(2), (2)⇒(1), (1)⇒(3)" are presumably (3)⇒(1), (1)⇒(2), (2)⇒(3), matching their arguments. The shrinking to natural neighbourhoods is not needed: the closure lies in a finite union of compact sets. The local step is Part I's Theorem 5.2.2.
+
+### V12.21. Lemma 12.4.4 (2017: 12.1), closures in $|X|$ and in $X$
+
+*as in the book* · as stated
+
+**HWZ (§12.4, Lemma 12.4.4, p. 589 (2017: Lemma 12.1)).** (1) $\mathrm{cl}_{|X|}|\Sigma| = |\mathrm{cl}_X\Sigma|$ for saturated $\Sigma$; (2) the same for $\Sigma$ with compact closure.
+
+**Proved in Lean.** `EpGroupoid.lemma_12_4_4_1 (hA : X.IsSaturated A) : closure (π '' A) = π '' closure A`; `lemma_12_4_4_2 (hA : IsCompact (closure A))`, the same conclusion; `isClosed_image_π_of_isSaturated`.
+
+- `Polyfold.EpGroupoid.lemma_12_4_4_1` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 77
+- `Polyfold.EpGroupoid.lemma_12_4_4_2` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 86
+- `Polyfold.EpGroupoid.isClosed_image_π_of_isSaturated` — Polyfold/Chapter12/P3S_CompactnessEp.lean, line 93
+
+*What differs.*
+- Through $\pi$ open (`IsOpenMap.preimage_closure_eq_closure_preimage`).
+
+### V12.22. Lemma 12.5.1 (2017: 12.2), morphisms act on the linearizations
+
+*hypotheses explicit* · `hsec`: sc⁺-sections through fibre points · Lin read in chart points (Part I)
+
+**HWZ (§12.5, Lemma 12.5.1, p. 592 (2017: Lemma 12.2)).** For smooth $x, x'$ and $\varphi : x \to x'$: (1) $\varphi_*S = \mu(\varphi, S \circ (T\varphi)^{-1}) \in \mathrm{Lin}(f, x')$ for $S \in \mathrm{Lin}(f, x)$; (2) $\varphi_*$ is a bijection; (3) $(1_x)_* = \mathrm{Id}$ and $(\psi \circ \varphi)_* = \psi_* \circ \varphi_*$. The same holds for the orientations $\varphi_* o$.
+
+**Proved in Lean.** `lemma_12_5_1_one` (membership), `lemma_12_5_1_two` (`Set.BijOn (linMor …) (Lin x) (Lin x′)`), `lemma_12_5_1_three_unit`, `lemma_12_5_1_three_comp`; on orientations `orMor` with `orMor_comp`, `orMor_unit`, `orMor_inv`. $\mathrm{Lin}$ is Part I's, read in chart points; $T\varphi$ and $\mu(\varphi, \cdot)$ are the chart identifications `morTx`, `morKx`, built from the local strong bundle isomorphism `morIso` of the sheet of $\varphi$.
+
+- `Polyfold.EpStrongBundle.lemma_12_5_1_one` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 515
+- `Polyfold.EpStrongBundle.lemma_12_5_1_two` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 541
+- `Polyfold.EpStrongBundle.lemma_12_5_1_three_unit` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 556
+- `Polyfold.EpStrongBundle.lemma_12_5_1_three_comp` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 566
+- `Polyfold.EpStrongBundle.linMor` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 498
+- `Polyfold.EpStrongBundle.morTx` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 308
+- `Polyfold.EpStrongBundle.morKx` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 316
+- `Polyfold.EpStrongBundle.morTx_comp` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 382
+- `Polyfold.EpStrongBundle.orMor` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 584
+- `Polyfold.EpStrongBundle.orMor_comp` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 605
+- `Polyfold.EpStrongBundle.orMor_unit` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 622
+- `Polyfold.EpStrongBundle.orMor_inv` — Polyfold/Chapter12/P3O_OrientationBundleEp.lean, line 632
+- `Polyfold.StrongBundle.LocalIso.pullPt` — Polyfold/Chapter12/P3O_PullChart.lean, line 79
+- `Polyfold.StrongBundle.LocalIso.linSet_pullPt` — Polyfold/Chapter12/P3O_PullChart.lean, line 184
+- `Polyfold.EpStrongBundle.morIso` — Polyfold/Chapter12/P3O_MorphismIso.lean, line 146
+- `Polyfold.EpStrongBundle.eqOn_morIso` — Polyfold/Chapter12/P3O_MorphismIso.lean, line 209
+- `Polyfold.EpStrongBundle.germAgree_morIso_comp` — Polyfold/Chapter12/P3O_MorphismIso.lean, line 240
+
+*What differs.*
+- Hidden hypotheses: `hsec : B.HasScPlusSectionsThrough` (sc⁺-sections through smooth fibre points), Part I's standing hypothesis for $\mathrm{Lin}(f, x) \ne \emptyset$; it follows from bump functions (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`).
+- Lin is read in chart points, Part I's convention. "(1) and (3) give (2)" is proved directly, by conjugation with isomorphisms. The text calls the lemma obvious; the proof pushes $(f - s_0)'(x)$ by $\hat\Phi$ to $(f - \hat\Phi_* s_0)'(x')$ (`linSet_pullPt`, using $f = \Psi \circ f \circ \phi$ by functoriality) and gets functoriality from the germ identity of the local inverses (`germAgree_morIso_comp`).
+
+### V12.23. Definition 12.5.2 (2017: 12.11), the orientation bundle $O_f$
+
+*restated* · $O_f$ = Part I's `OrSpace` · orbit spaces defined here
+
+**HWZ (§12.5, Definition 12.5.2, p. 593 (2017: Definition 12.11)).** For a strong bundle over a tame ep-groupoid and an sc-Fredholm functor $f$, $O_f$ is the set of $(x, o)$ with $x \in X_\infty$ and $o$ an orientation of $\mathrm{DET}(f, x) \to \mathrm{Lin}(f, x)$; $\sigma : O_f \to X_\infty$ is the surjective two-to-one projection; $O_f$ carries the topology making every germ $\hat o^{(x)}$ continuous.
+
+**Proved in Lean.** `EpStrongBundle.definition_12_5_2 := OrSpace f hF.2`, Part I's orientation space of $f$ on the object M-polyfold, with `orProj`; exactly two points over each $x$ (`orProj_two`, with `hsec`); the topology is Part I's, characterized in V12.24. The action of morphisms as a relation: `OrRel` (an equivalence, `orRel_equivalence`), the orbit map `orbitProj : |O_f| → |X_∞|`.
+
+- `Polyfold.EpStrongBundle.definition_12_5_2` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 107
+- `Polyfold.orProj_two` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 73
+- `Polyfold.exists_other_or` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 88
+- `Polyfold.EpStrongBundle.OrRel` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 110
+- `Polyfold.EpStrongBundle.orRel_equivalence` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 115
+- `Polyfold.EpStrongBundle.orbitProj` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 129
+- `Polyfold.EpGroupoid.SmoothRel` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 55
+- `Polyfold.EpGroupoid.smoothRel_equivalence` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 58
+
+*What differs.*
+- $O_f$ and its topology are Part I's (germs continuous = Part I's `IsContOrOn`, via path transport); `orProj_two` needs `hsec` (as in V12.22). The relations `OrRel`, `SmoothRel` and the orbit spaces used in Proposition 12.5.6 are not defined in the text.
+
+### V12.24. Theorem 12.5.3 (2017: 12.11), the topology of $O_f$
+
+*narrower* · Part I's `hbump`, tame germ data (G.140) · last clause: G.138
+
+**HWZ (§12.5, Theorem 12.5.3, p. 594 (2017: Theorem 12.11)).** For a tame ep-groupoid and an sc-Fredholm section functor, $\sigma : O_f \to X_\infty$ is a local homeomorphism with two-point fibres, the local sections $\hat o^{(x)}$ are continuous, and for a morphism $\varphi$ the local $\hat\Phi$ pushes continuous local sections to continuous local sections.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`.
+
+- `Polyfold.EpStrongBundle.theorem_12_5_3_hyp` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 141
+
+*What differs.*
+- Hidden hypotheses: `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, the hypotheses of Part I's Theorem 6.6.17, inherited (gap G.140); the text assumes a tame $X$ only.
+- The last sentence ($\hat\Phi$ keeps continuous local sections continuous) is not proved (gap G.138). The fibre bijection of a morphism and its functoriality are `orMor` (V12.22).
+
+### V12.25. Definition 12.5.4 (2017: 12.12), orientations of sc-Fredholm functors
+
+*as in the book* · topology as a parameter
+
+**HWZ (§12.5, Definition 12.5.4, p. 594 (2017: Definition 12.12)).** An orientation of $f$ ($X$ tame) is a continuous global section $x \mapsto o_x$ of $\sigma$ with $\varphi_* o_{s(\varphi)} = o_{t(\varphi)}$ for every smooth morphism.
+
+**Proved in Lean.** `EpStrongBundle.definition_12_5_4 t o`: `Continuous[t] (orSec o)` and `orMor φ (o x) = o x′` for every morphism $\varphi : x \to x'$ between smooth points, for a topology `t` on $O_f$ (Part I's, by V12.24).
+
+- `Polyfold.EpStrongBundle.definition_12_5_4` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 157
+
+*What differs.*
+- With Part I's hypotheses the topology is the unique one of `theorem_12_5_3_hyp`. "Smooth morphism" is read as a morphism with smooth source and target (equivalent by `mem_smoothSet_src_iff`).
+
+### V12.26. Proposition 12.5.6 (2017: 12.4), orientability through $|\sigma|$
+
+*narrower* · (⇐) without continuity (G.139) · `hsec` as in L12.5.1
+
+**HWZ (§12.5, Proposition 12.5.6, p. 595 (2017: Proposition 12.4)).** $f$ is orientable if and only if $|\sigma| : |O_f| \to |X_\infty|$ is two-to-one and has a global continuous section.
+
+**Proved in Lean.** `EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\sigma|$, a section $o$ of $\sigma$ with $\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`.
+
+- `Polyfold.EpStrongBundle.proposition_12_5_6_mp` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 179
+- `Polyfold.EpStrongBundle.proposition_12_5_6_mpr_invariant` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 221
+- `Polyfold.EpStrongBundle.IsTwoToOne` — Polyfold/Chapter12/P3O_OrientationOrbit.lean, line 171
+
+*What differs.*
+- Hidden hypotheses: `hsec`, as in V12.22.
+- (⇒) is complete. (⇐) is proved without the continuity of $o$, which needs the last clause of Theorem 12.5.3 (gaps G.138, G.139). The orbit spaces are quotients defined here.
+
+### V12.27. Complete fibre norms are automatic (tool)
+
+*not in the book* · replaces the completeness claim
+
+**HWZ (not in the book (used for Definition 5.1.1 (1) and Definition 12.2.1 (1))).** The text asserts that the glued fibre norms are complete.
+
+**Proved in Lean.** `StrongBundle.isAuxNorm_of_tendsto`: a continuous fibrewise seminorm with property (2) of Definition 5.1.1 is an auxiliary norm, since near each point it is squeezed between multiples of the chart norm $|\cdot|_1$.
+
+- `Polyfold.StrongBundle.isAuxNorm_of_tendsto` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 191
+- `Polyfold.StrongBundle.exists_norm_liftOne_le_of_tendsto` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 121
+- `Polyfold.StrongBundle.IsFiberSeminorm` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 79
+- `Polyfold.StrongBundle.TendstoZeroOne` — Polyfold/Chapter12/P3N_AuxNormEp.lean, line 113
+
+## Part III, Chapter 13
+
+*HWZ Part III, Chapter 13 §§13.1–13.2, pp. 599–612 (2017 Chapter 13; Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, their existence and extension; the functor-level algebra of sc⁺-multisections (support, pointwise norm, symmetric structures, sums, scalar multiples, locally finite sums) (wave 1 of Part III)*
+
+### V13.1. Lemma 13.1.1 (2017: 13.1), closures in $X$ and in $|X|$
+
+*stronger* · invariance of $V$ not used · `NatNbhd` reading
+
+**HWZ (§13.1, Lemma 13.1.1, p. 599 (2017: Lemma 13.1)).** Let $U(x)$ carry the natural $G_x$-action with $t : s^{-1}(\mathrm{cl}_X U(x)) \to X$ proper, and $V \subset U(x)$ $G_x$-invariant. Then $\mathrm{cl}_X(V) \subset U(x)$ if and only if $\mathrm{cl}_{|X|}(|V|) \subset |U(x)|$.
+
+**Proved in Lean.** `EpGroupoid.lemma_13_1_1`: for `N : X.NatNbhd x` with `X.IsProperSubset (closure N.U)` and any $V \subseteq N.U$, $\overline V \subseteq N.U \iff \overline{\pi(V)} \subseteq \pi(N.U)$. `lemma_13_1_1_book` adds the invariance hypothesis.
+
+- `Polyfold.EpGroupoid.lemma_13_1_1` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 282
+- `Polyfold.EpGroupoid.lemma_13_1_1_book` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 345
+- `Polyfold.EpGroupoid.exists_natNbhd_isProperSubset` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 271
+
+*What differs.*
+- The $G_x$-invariance of $V$ is not used. (⇒) uses only properness (Proposition 7.1.10); (⇐) uses only the natural action (pigeonhole over the finite $G_x$). "$U(x)$ equipped with the natural $G_x$-action" is read as a `NatNbhd`: an open invariant subset of the domain of a natural representation, which need not be connected (Findings, Chapter 13, item 1).
+
+### V13.2. Definition 13.1.2 (2017: 13.1), good systems of neighbourhoods
+
+*restated* · (2) read through `NatNbhd` · components indexed by a point
+
+**HWZ (§13.1, Definition 13.1.2, p. 600 (2017: Definition 13.1)).** A good system of open neighbourhoods is a family $(U(x))_{x \in X}$ with (1) $t : s^{-1}(\mathrm{cl}_X U(x)) \to X$ proper; (2) $U(x)$ carries the natural $G_x$-action; (3) for every connected component $\Sigma$ of $\mathcal U(x,x') = \{\varphi : s\varphi \in U(x),\ t\varphi \in U(x')\}$, $s|_\Sigma$ and $t|_\Sigma$ are sc-diffeomorphisms onto open subsets.
+
+**Proved in Lean.** `EpGroupoid.GoodSystem`, with fields `nbhd : ∀ x, X.NatNbhd x` (2), `isProperSubset_closure` (1) and `isDiffeoComponent` (3): for $\varphi \in \mathcal U(x,x')$, the component of $\varphi$ in `morBetween U(x) U(x′)` is an `IsDiffeoComponent` ($s$, $t$ sc-diffeomorphisms onto their images, which are open automatically). For open components (3) is injectivity of $s$ and $t$ (`isDiffeoComponent_iff_injOn`). Witness: every M-polyfold, as a trivial ep-groupoid, has a good system (`nonempty_goodSystem_trivial`).
+
+- `Polyfold.EpGroupoid.NatNbhd` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 154
+- `Polyfold.EpGroupoid.morBetween` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 354
+- `Polyfold.EpGroupoid.IsDiffeoComponent` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 368
+- `Polyfold.EpGroupoid.isDiffeoComponent_iff_injOn` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 373
+- `Polyfold.EpGroupoid.GoodSystem` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 416
+- `Polyfold.EpGroupoid.nonempty_goodSystem_trivial` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 380
+
+*What differs.*
+- Condition (2) is read through `NatNbhd` (Findings, Chapter 13, item 1); components are indexed by a point in them.
+
+### V13.3. Proposition 13.1.3 (2017: 13.1), invariant shrinkings of good systems
+
+*as in the book* · as stated (`NatNbhd` reading)
+
+**HWZ (§13.1, Proposition 13.1.3, p. 600 (2017: Proposition 13.1)).** If $(U(x))$ is a good system and $\tilde U(x) \subset U(x)$ are $G_x$-invariant open neighbourhoods, then $(\tilde U(x))$ is a good system. After the proposition: invariant refinements inside given neighbourhoods exist.
+
+**Proved in Lean.** `EpGroupoid.proposition_13_1_3`: for open $W(x) \ni x$ inside $U(x)$, invariant under the $\Phi_g$ of $U(x)$, there is a good system with $U'(x) = W(x)$ and the same natural representations (`GoodSystem.restrict`). `GoodSystem.exists_refinement_subset`: an invariant refinement inside $U(x) \cap V(x)$ (`NatNbhd.invariantCore`).
+
+- `Polyfold.EpGroupoid.proposition_13_1_3` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 612
+- `Polyfold.EpGroupoid.GoodSystem.restrict` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 569
+- `Polyfold.EpGroupoid.GoodSystem.exists_refinement_subset` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 598
+- `Polyfold.EpGroupoid.NatNbhd.invariantCore` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 192
+- `Polyfold.EpGroupoid.GoodSystem.isDiffeoComponent_of_subset` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 558
+
+*What differs.*
+- Holds as printed with the `NatNbhd` reading; with "natural action on a connected domain", $\tilde U(x)$ could fail to be the domain of a natural representation. (1) and (3) pass to subsets: closed subsets of proper sets are proper, and components of a smaller set lie in components of the larger one.
+
+### V13.4. Definition 13.1.4 (2017: 13.2), refinements and subordinate good systems
+
+*as in the book* · as stated
+
+**HWZ (§13.1, Definition 13.1.4, p. 600 (2017: Definition 13.2)).** A good system $\mathcal W$ refines $\mathcal U$ if $W(x) \subset U(x)$ for all $x$; $\mathcal U$ is subordinate to an open cover if every $U(x)$ lies in a member of the cover.
+
+**Proved in Lean.** `GoodSystem.IsRefinement 𝒲 𝒰 := ∀ x, 𝒲.U x ⊆ 𝒰.U x`; `GoodSystem.IsSubordinate 𝒰 O := ∀ x, ∃ i, 𝒰.U x ⊆ O i`; `isRefinement_restrict`.
+
+- `Polyfold.EpGroupoid.GoodSystem.IsRefinement` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 585
+- `Polyfold.EpGroupoid.GoodSystem.IsSubordinate` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 589
+- `Polyfold.EpGroupoid.GoodSystem.isRefinement_restrict` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 591
+
+### V13.5. Definition 13.1.5 (2017: 13.3), the natural bi-action
+
+*restated* · formula of the proofs · action laws and smoothness proved
+
+**HWZ (§13.1, Definition 13.1.5, p. 601 (2017: Definition 13.3)).** For neighbourhoods $U(x)$, $U(x')$ with their natural actions, the natural bi-action is the map $G_{x'} \times \mathcal U(x,x') \times G_x \to \mathcal U(x,x')$.
+
+**Proved in Lean.** `EpGroupoid.biact N N' g' φ g` $= \Gamma'(g', t\varphi) \circ \varphi \circ \Gamma(g, \Phi_{g^{-1}}(s\varphi))$, with source $\Phi_{g^{-1}}(s\varphi)$ (`src_biact`), target $\Phi'_{g'}(t\varphi)$ (`tgt_biact`), values in $\mathcal U(x,x')$ (`biact_mem`), the action laws (`biact_biact`) and sc-smoothness of each map (`isScSmoothOn_biact`); packaged as a `MulAction` (`biactMulAction`).
+
+- `Polyfold.EpGroupoid.biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 85
+- `Polyfold.EpGroupoid.src_biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 118
+- `Polyfold.EpGroupoid.tgt_biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 123
+- `Polyfold.EpGroupoid.biact_mem` — Polyfold/Chapter13/P3G_BiAction.lean, line 128
+- `Polyfold.EpGroupoid.biact_biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 152
+- `Polyfold.EpGroupoid.isScSmoothOn_biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 232
+- `Polyfold.EpGroupoid.biactMulAction` — Polyfold/Chapter13/P3G_BiAction.lean, line 263
+- `Polyfold.EpGroupoid.GoodSystem.biact` — Polyfold/Chapter13/P3G_BiAction.lean, line 281
+
+*What differs.*
+- The book names the map; the formula is the one used in the book's proofs. Convention: `biact g′ φ g` is the book's $g' * \varphi * g$, with source $g^{-1} * s(\varphi)$.
+
+### V13.6. Lemma 13.1.6 (2017: 13.2), with the discussion before it
+
+*stronger* · one $\psi$ suffices · (3) without membership hypotheses
+
+**HWZ (§13.1, Lemma 13.1.6, p. 602 (2017: Lemma 13.2), and the discussion before it).** $g' * \Sigma * g^{-1}$ is again a component of $\mathcal U(x,x')$. For a component $\Sigma$: (1) $g' * \Sigma = \Sigma$ implies $g' = 1$; (2) $\Sigma * g = \Sigma$ implies $g = 1$; (3) for components $\Sigma_1, \Sigma_2$, $s(\Sigma_1)$ and $s(\Sigma_2)$ are equal or disjoint, and likewise for $t$.
+
+**Proved in Lean.** `GoodSystem.image_biact_comp` (components go to components; `image_inv_comp` for inversion; the components partition $\mathcal U(x,x')$). `lemma_13_1_6_one`, `lemma_13_1_6_two` from the pointwise forms `eq_one_of_biact_left_mem`, `eq_one_of_biact_right_mem` (one $\psi \in \Sigma$ with $g' * \psi \in \Sigma$ forces $g' = 1$); `lemma_13_1_6_three_src`, `_tgt` for the components of any two morphisms.
+
+- `Polyfold.EpGroupoid.GoodSystem.image_biact_comp` — Polyfold/Chapter13/P3G_BiAction.lean, line 300
+- `Polyfold.EpGroupoid.GoodSystem.image_inv_comp` — Polyfold/Chapter13/P3G_BiAction.lean, line 398
+- `Polyfold.EpGroupoid.GoodSystem.components` — Polyfold/Chapter13/P3G_BiAction.lean, line 378
+- `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_one` — Polyfold/Chapter13/P3G_BiAction.lean, line 442
+- `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_two` — Polyfold/Chapter13/P3G_BiAction.lean, line 447
+- `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_three_src` — Polyfold/Chapter13/P3G_BiAction.lean, line 453
+- `Polyfold.EpGroupoid.GoodSystem.lemma_13_1_6_three_tgt` — Polyfold/Chapter13/P3G_BiAction.lean, line 469
+- `Polyfold.EpGroupoid.GoodSystem.eq_one_of_biact_left_mem` — Polyfold/Chapter13/P3G_BiAction.lean, line 416
+- `Polyfold.EpGroupoid.GoodSystem.eq_one_of_biact_right_mem` — Polyfold/Chapter13/P3G_BiAction.lean, line 429
+- `Polyfold.EpGroupoid.GoodSystem.exists_biact_left_of_src` — Polyfold/Chapter13/P3G_BiAction.lean, line 341
+- `Polyfold.EpGroupoid.GoodSystem.exists_biact_right_of_tgt` — Polyfold/Chapter13/P3G_BiAction.lean, line 356
+
+*What differs.*
+- (1) and (2) need only one $\psi \in \Sigma$ with $g' * \psi \in \Sigma$; (3) has no membership hypotheses (for $\varphi \notin \mathcal U(x,x')$ the component is empty).
+
+### V13.7. Theorem 13.1.7 (2017: 13.1), extension of good partial systems
+
+*narrower* · properness read in $X$, not in $Q$ (G.141) · $Q$ need not be open
+
+**HWZ (§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)).** Let $Q$ be an open subset of the objects with $|Q| = |Y|$ and $(U(q))_{q \in Q}$ a good system for the full sub-ep-groupoid on $Q$. Given open $W(y) \ni y$ for $y \notin Q$, there are $U(y) \subset W(y)$ such that $(U(y))_{y \in Y}$ is a good system.
+
+**Proved in Lean.** `EpGroupoid.theorem_13_1_7`: for any $Q$ with $\pi(Q) = |X|$, a family `N : ∀ x, X.NatNbhd x` with `X.IsGoodOn N Q`, and open $W(y) \ni y$, there is a good system with `𝒰.nbhd q = N q` for $q \in Q$ and $U(y) \subseteq W(y)$ for $y \notin Q$. `IsGoodOn N Q`: $U(q) \subseteq Q$, $t : s^{-1}(\mathrm{cl}_X U(q)) \to X$ proper, and (3) on $\mathcal U(q,q')$. Witness: `GoodSystem.isGoodOn`.
+
+- `Polyfold.EpGroupoid.theorem_13_1_7` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 270
+- `Polyfold.EpGroupoid.IsTransport` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 76
+- `Polyfold.EpGroupoid.injOn_comp_of_transport` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 95
+- `Polyfold.EpGroupoid.exists_nhds_injOn_of_isProperSubset` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 177
+- `Polyfold.EpGroupoid.exists_transport_of_isGoodOn` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 233
+- `Polyfold.EpGroupoid.IsGoodOn` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 429
+
+*What differs.*
+- Hidden hypotheses: properness of the given $U(q)$ in $X$ (`IsGoodOn`); the book's good system for the sub-ep-groupoid on $Q$ gives properness in $Q$. That $Q$-properness implies $X$-properness when $|Q| = |X|$ is presumably true and not formalized (gap G.141); witness `GoodSystem.isGoodOn`.
+- Otherwise stronger: $Q$ need not be open, and the given $U(q)$ are kept unchanged. The natural action and $\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$.
+
+### V13.8. Theorem 13.1.8 (2017: 13.2), existence of good systems
+
+*as in the book* · as stated · "for all $\in X$" read "for all $x \in X$"
+
+**HWZ (§13.1, Theorem 13.1.8, p. 604 (2017: Theorem 13.2)).** If $X$ has paracompact orbit space and $W(x) \ni x$ are open, there is a good system with $U(x) \subset W(x)$ for all $x$.
+
+**Proved in Lean.** `EpGroupoid.theorem_13_1_8 (hX : X.HasParacompactOrbitSpace) W hW hxW : ∃ 𝒰 : X.GoodSystem, ∀ x, 𝒰.U x ⊆ W x`.
+
+- `Polyfold.EpGroupoid.theorem_13_1_8` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 288
+
+*What differs.*
+- The book's "for all $\in X$" is read as "for all $x \in X$". The proof uses paracompactness of $|X|$ through a precise refinement and the shrinking lemma; metrizability is not used.
+
+### V13.9. Proposition 13.1.9 (2017: 13.2), with the stabilisers and $D_\Sigma$ before it
+
+*stronger* · uniqueness among all maps
+
+**HWZ (§13.1, Proposition 13.1.9, p. 607 (2017: Proposition 13.2), and the discussion before it, p. 606).** For a component $\Sigma \subset \mathcal U(x,x')$ with stabilisers $G_{x,\Sigma}$, $G_{x',\Sigma}$ and the sc-diffeomorphism $D_\Sigma = t \circ (s|_\Sigma)^{-1}$, there is a unique group isomorphism $g \mapsto g'(g)$, $G_{x,\Sigma} \to G_{x',\Sigma}$, with $(s|_\Sigma)^{-1}(g * z) = g'(g) * (s|_\Sigma)^{-1}(z) * g^{-1}$.
+
+**Proved in Lean.** `GoodSystem.stabSrc`, `stabTgt` (subgroups), `GoodSystem.D` with `isScDiffeoOn_D`. `GoodSystem.proposition_13_1_9 (hφ : φ ∈ 𝒰.mor x x′)`: `f : stabSrc ≃* stabTgt` with $\mathrm{srcInv}(\Phi_g z) = \mathrm{biact}(f g)(\mathrm{srcInv}\,z)\,g^{-1}$ on $s(\Sigma)$, and every map with this property equals $f$; `proposition_13_1_9_D`: $\Phi'_{g'(g)} \circ D_\Sigma = D_\Sigma \circ \Phi_g$ on $s(\Sigma)$.
+
+- `Polyfold.EpGroupoid.GoodSystem.stabSrc` — Polyfold/Chapter13/P3G_BiAction.lean, line 487
+- `Polyfold.EpGroupoid.GoodSystem.stabTgt` — Polyfold/Chapter13/P3G_BiAction.lean, line 507
+- `Polyfold.EpGroupoid.GoodSystem.D` — Polyfold/Chapter13/P3G_BiAction.lean, line 527
+- `Polyfold.EpGroupoid.GoodSystem.isScDiffeoOn_D` — Polyfold/Chapter13/P3G_BiAction.lean, line 532
+- `Polyfold.EpGroupoid.GoodSystem.proposition_13_1_9` — Polyfold/Chapter13/P3G_BiAction.lean, line 676
+- `Polyfold.EpGroupoid.GoodSystem.proposition_13_1_9_D` — Polyfold/Chapter13/P3G_BiAction.lean, line 717
+- `Polyfold.EpGroupoid.GoodSystem.partner` — Polyfold/Chapter13/P3G_BiAction.lean, line 590
+- `Polyfold.EpGroupoid.GoodSystem.partnerHom` — Polyfold/Chapter13/P3G_BiAction.lean, line 621
+- `Polyfold.EpGroupoid.GoodSystem.srcInv` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 499
+
+*What differs.*
+- Uniqueness holds among all maps, not only homomorphisms. The proof goes through Lemma 13.1.6 and the bi-action laws, not through smoothness of $\Theta_g$.
+
+### V13.10. Definition 13.2.2 (2017: 13.5), domain support and support
+
+*as in the book* · as stated, at functor level
+
+**HWZ (§13.2, Definition 13.2.2, p. 608 (2017: Definition 13.5)).** The domain support and the support of an sc⁺-multisection $\Lambda$; $\mathrm{supp}(\Lambda)(x)$ is finite with weights summing to 1 and equals $\{s_1(x), \dots, s_k(x)\}$ on $U(x_0)$.
+
+**Proved in Lean.** `SBLocalization.domSupp Λ = closure {x | ∃ w, P w = x ∧ w ≠ 0_x ∧ 0 < Λ w}`, `supp`, `suppAt`; the claims: `IsLocalRepOn.suppAt_eq`, `IsScPlusMultisection.finite_suppAt`, `sum_suppAt`, `suppAt_nonempty`, and `domSupp_eq_closure_image` (the first relation after Definition 13.2.3).
+
+- `Polyfold.SBLocalization.supp` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 77
+- `Polyfold.SBLocalization.suppAt` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 80
+- `Polyfold.SBLocalization.domSupp` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 84
+- `Polyfold.SBLocalization.IsLocalRepOn.suppAt_eq` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 89
+- `Polyfold.SBLocalization.IsScPlusMultisection.finite_suppAt` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 109
+- `Polyfold.SBLocalization.IsScPlusMultisection.sum_suppAt` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 134
+- `Polyfold.SBLocalization.IsScPlusMultisection.suppAt_nonempty` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 151
+- `Polyfold.SBLocalization.domSupp_eq_closure_image` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 161
+
+*What differs.*
+- At functor level: $\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\Lambda, U, S]$ are gap G.142.
+
+### V13.11. Definition 13.2.3 (2017: 13.6), the pointwise norm $N(\Lambda)$
+
+*restated* · max as an attained `sSup`
+
+**HWZ (§13.2, Definition 13.2.3, p. 608 (2017: Definition 13.6)).** $N(\Lambda)(x) = \max N$ on $\mathrm{supp}(\Lambda)(x)$; the domain support is $\mathrm{cl}\,P(\mathrm{supp} \setminus 0_W) = \mathrm{cl}\{N(\Lambda) > 0\}$.
+
+**Proved in Lean.** `SBLocalization.pointwiseNorm N Λ x = sSup (normW N '' suppAt Λ x)`, with the supremum attained (`isGreatest_pointwiseNorm`); both relations for every auxiliary norm (`domSupp_eq_closure_pointwiseNorm`).
+
+- `Polyfold.SBLocalization.normW` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 176
+- `Polyfold.SBLocalization.pointwiseNorm` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 186
+- `Polyfold.SBLocalization.IsScPlusMultisection.suppAt_subset_oneSet` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 191
+- `Polyfold.SBLocalization.IsScPlusMultisection.isGreatest_pointwiseNorm` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 199
+- `Polyfold.SBLocalization.IsScPlusMultisection.domSupp_eq_closure_pointwiseNorm` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 230
+
+*What differs.*
+- The maximum is written as a supremum with an attainment lemma; attainment uses that sc⁺-section values lie in $W_{0,1}$.
+
+### V13.12. Definition 13.2.4 (2017: 13.7), trivial on $V$
+
+*as in the book* · as stated
+
+**HWZ (§13.2, Definition 13.2.4, p. 609 (2017: Definition 13.7)).** $\Lambda$ is trivial on $V$ if $\Lambda(0_x) = 1$ on $V$, and hence $\Lambda(w_x) = 0$ for $w_x \ne 0$. The domain support is the smallest closed set outside which $\Lambda$ is trivial.
+
+**Proved in Lean.** `SBLocalization.IsTrivialOn Λ V := ∀ x ∈ V, Λ (0_x) = 1`; the "hence" clause is `apply_fiberZero_eq_one_iff` (an iff); the remark is `isLeast_domSupp`.
+
+- `Polyfold.SBLocalization.IsTrivialOn` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 256
+- `Polyfold.SBLocalization.IsScPlusMultisection.apply_fiberZero_eq_one_iff` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 261
+- `Polyfold.SBLocalization.IsScPlusMultisection.isLeast_domSupp` — Polyfold/Chapter13/P3M_MultisectionSupport.lean, line 303
+
+### V13.13. Definition 13.2.5 (2017: 13.8), symmetric sc⁺-section structures
+
+*restated* · $U(x)$ = domain of a natural representation
+
+**HWZ (§13.2, Definition 13.2.5, p. 610 (2017: Definition 13.8)).** A $G_x$-invariant open $U(x)$ with the natural action and $t : s^{-1}(\mathrm{cl}\,U(x)) \to X$ proper, finitely many sc⁺-sections $(s_i)_{i \in I_x}$ on $U(x)$ and a $G_x$-action on $I_x$ with $s_{g(i)}(g * y) = \mu(\Gamma(g,y), s_i(y))$ and $\Lambda(w) = |I_x|^{-1}\#\{i \mid s_i(P w) = w\}$.
+
+**Proved in Lean.** `SBLocalization.SymmetricStructure A Λ x`, with a natural representation `R` ($U = R.U$), the properness property, a finite index type `I` with a `MulAction` of the isotropy group, sections `s`, sc⁺-regularity, equivariance and the representation of $\Lambda$.
+
+- `Polyfold.SBLocalization.SymmetricStructure` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 155
+- `Polyfold.SBLocalization.prodIsotropyAction` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 180
+
+*What differs.*
+- "$G_x$-invariant with the natural action" is read as "$U(x)$ is the domain of a natural representation", Chapter 11's reading of Definition 13.2.1, which includes connectedness; properness is the existing `HasPropernessProperty`; weights are in $\mathbb Q_{\ge 0}$.
+
+### V13.14. Lemma 13.2.6 (2017: 13.3), symmetric structures exist locally
+
+*as in the book* · as stated, at every point
+
+**HWZ (§13.2, Lemma 13.2.6, p. 610 (2017: Lemma 13.3)).** Every sc⁺-multisection functor locally admits a symmetric sc⁺-section structure (the proof is the text before Definition 13.2.5).
+
+**Proved in Lean.** `SBLocalization.lemma_13_2_6 (hΛ : IsScPlusMultisection A Λ) (x) : Nonempty (SymmetricStructure A Λ x)`, by the text's construction: shrink a local representation to a natural representation with the properness property, equalise the weights (`IsLocalRepOn.exists_equal_weights`), and transport by $G_x$ (`transportSection`, index set $I \times G_x$).
+
+- `Polyfold.SBLocalization.transportSection` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 56
+- `Polyfold.SBLocalization.isScPlusSectionOn_transportSection` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 66
+- `Polyfold.SBLocalization.IsLocalRepOn.exists_equal_weights` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 108
+- `Polyfold.SBLocalization.lemma_13_2_6` — Polyfold/Chapter13/P3M_MultisectionSymmetric.lean, line 193
+- `Polyfold.SBLocalization.extendZero` — Polyfold/Chapter13/P3M_ScPlusSectionOn.lean, line 296
+- `Polyfold.SBLocalization.IsLocalRepOn.extendZero` — Polyfold/Chapter13/P3M_ScPlusSectionOn.lean, line 317
+
+*What differs.*
+- Before transporting, the sections are extended by 0 off $U$, so that sections are global functions.
+
+### V13.15. Definition 13.2.9 (2017: 13.11), the sum $\Lambda' \oplus \Lambda''$
+
+*narrower* · functor level; decoration: G.142
+
+**HWZ (§13.2, Definition 13.2.9, p. 611 (2017: Definition 13.11)).** (1) The convolution formula for $\Lambda' \oplus \Lambda''$; (2)–(3) the decoration $U'' = U \cap U'$, $I'' = I \times I'$, $s_{(i,i')} = s_i + s'_{i'}$; $\oplus$ is associative and commutative.
+
+**Proved in Lean.** `SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form of (3): `multisectionAdd_eq_sum_of_isLocalRepOn` (sections $s'_i + s''_j$, weights $\sigma'_i\sigma''_j$); `multisectionAdd_comm` (for all functions), `multisectionAdd_assoc` (for sc⁺-multisections); the $n$-fold sum `conv` with `isScPlusMultisection_conv`.
+
+- `Polyfold.SBLocalization.addAt` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 57
+- `Polyfold.SBLocalization.multisectionAdd` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 63
+- `Polyfold.SBLocalization.multisectionAdd_eq_conv` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 78
+- `Polyfold.SBLocalization.multisectionAdd_eq_sum_of_isLocalRepOn` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 126
+- `Polyfold.SBLocalization.definition_13_2_9` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 143
+- `Polyfold.SBLocalization.multisectionAdd_comm` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 152
+- `Polyfold.SBLocalization.multisectionAdd_assoc` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 182
+- `Polyfold.SBLocalization.convAt` — Polyfold/Chapter13/P3M_MultisectionConvolution.lean, line 76
+- `Polyfold.SBLocalization.conv` — Polyfold/Chapter13/P3M_MultisectionConvolution.lean, line 81
+- `Polyfold.SBLocalization.isLocalRepOn_conv` — Polyfold/Chapter13/P3M_MultisectionConvolution.lean, line 197
+- `Polyfold.SBLocalization.isScPlusMultisection_conv` — Polyfold/Chapter13/P3M_MultisectionConvolution.lean, line 215
+- `Polyfold.SBLocalization.IsScPlusSectionOn.sectionAdd` — Polyfold/Chapter13/P3M_ScPlusSectionOn.lean, line 153
+
+*What differs.*
+- (1) and the closure under $\oplus$ are as printed; (2)–(3) are kept at the level of local representations, not of decorations (gap G.142).
+
+### V13.16. Definition 13.2.10 (2017: 13.12), scalar multiples $a\Lambda$
+
+*narrower* · functor level; decoration: G.142
+
+**HWZ (§13.2, Definition 13.2.10, p. 611 (2017: Definition 13.12)).** $(0\Lambda)(w) = 0$ for $w \ne 0$ and $(0\Lambda)(0) = 1$; $(a\Lambda)(w) = \Lambda(w/a)$; the new sections are $a s_i$; for decorated $\Lambda$.
+
+**Proved in Lean.** `SBLocalization.multisectionSmul a Λ`, exactly these cases; $0\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`).
+
+- `Polyfold.SBLocalization.smulAt` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 203
+- `Polyfold.SBLocalization.multisectionSmul` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 208
+- `Polyfold.SBLocalization.multisectionSmul_zero` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 216
+- `Polyfold.SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 241
+- `Polyfold.SBLocalization.definition_13_2_10` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 277
+- `Polyfold.SBLocalization.IsScPlusSectionOn.sectionSmul` — Polyfold/Chapter13/P3M_ScPlusSectionOn.lean, line 212
+
+*What differs.*
+- As printed at functor level; the decorated form is gap G.142.
+
+### V13.17. Lemma 13.2.11 (2017: 13.4), $\beta \odot \Lambda$
+
+*narrower* · functor level; decoration: G.142
+
+**HWZ (§13.2, Lemma 13.2.11, p. 612 (2017: Lemma 13.4)).** For an sc-smooth functor $\beta : X \to \mathbb R$, $(\beta\Lambda)(w) = (\beta(Pw)\Lambda)(w)$ is a decorated sc⁺-multisection.
+
+**Proved in Lean.** `SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\beta$ sc-smooth on the object M-polyfold (the book's "sc-smooth functor"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`.
+
+- `Polyfold.SBLocalization.multisectionSmulFun` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 291
+- `Polyfold.SBLocalization.lemma_13_2_11` — Polyfold/Chapter13/P3M_MultisectionAlgebra.lean, line 297
+
+*What differs.*
+- As printed at functor level; the decorated conclusion is gap G.142.
+
+### V13.18. Definition 13.2.12 (2017: 13.13), locally finite families
+
+*as in the book* · as stated · stability for open saturated $O'$
+
+**HWZ (§13.2, Definition 13.2.12, p. 612 (2017: Definition 13.13)).** Every $x$ has an open saturated $O(x)$ with only finitely many $j$ having some $w \ne 0$ over $O(x)$ with $\Lambda_j(w) > 0$; $O(x)$ can be chosen so that the index set is stable under smaller saturated $O'$.
+
+**Proved in Lean.** `SBLocalization.IsLocallyFiniteFamily Λ := ∀ x, ∃ O, IsOpen O ∧ IsSaturated O ∧ x ∈ O ∧ (nontrivIdx Λ O).Finite`; the stability remark is `IsLocallyFiniteFamily.exists_stable` (minimising the cardinality), for open saturated $O' \ni x$.
+
+- `Polyfold.SBLocalization.nontrivIdx` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 71
+- `Polyfold.SBLocalization.nontrivIdx_mono` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 74
+- `Polyfold.SBLocalization.IsLocallyFiniteFamily` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 80
+- `Polyfold.SBLocalization.IsLocallyFiniteFamily.exists_stable` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 85
+
+### V13.19. Lemma 13.2.13 (2017: 13.5), locally finite sums
+
+*narrower* · finitely supported families · functor level; decoration: G.142
+
+**HWZ (§13.2, Lemma 13.2.13, p. 612 (2017: Lemma 13.5)).** $\oplus_j \Lambda_j$ of a locally finite family is a decorated sc⁺-multisection, with $U(x) = O(x) \cap \bigcap_{j \in J_x} U_j(x)$, $I_x = \prod I^j_x$, $s = \sum_j s^j_{i_j}$.
+
+**Proved in Lean.** `SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`.
+
+- `Polyfold.SBLocalization.lfSum` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 110
+- `Polyfold.SBLocalization.lfSum_eq_conv` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 175
+- `Polyfold.SBLocalization.lfSum_eq_conv_of_mem` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 193
+- `Polyfold.SBLocalization.trivial_of_not_mem_nontrivIdx` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 182
+- `Polyfold.SBLocalization.lemma_13_2_13` — Polyfold/Chapter13/P3M_MultisectionLocallyFinite.lean, line 224
+
+*What differs.*
+- The text does not write out $\oplus$ over infinite $J$; it is read through finitely supported families (indices off $J_x$ contribute the zero vector with weight 1), which agrees with Definition 13.2.9 (1) for finite $J$. The decorated conclusion is gap G.142.
+
+### V13.20. Tools for good systems
+
+*not in the book*
+
+**HWZ (not in the book (used in §13.1)).** The text uses local sc-diffeomorphisms injective on open sets and neighbourhoods with the natural action and proper closure.
+
+**Proved in Lean.** `MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn`: a local sc-diffeomorphism injective on an open $S$ is an sc-diffeomorphism $S \to f(S)$ with inverse `invFunOn`; `exists_natNbhd_isProperSubset`: neighbourhoods with the natural action and proper closure inside any open $W \ni x$; `exists_isOpen_injOn_src_tgt`.
+
+- `Polyfold.MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 90
+- `Polyfold.EpGroupoid.continuousOn_comp_of_continuousOn` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 133
+- `Polyfold.EpGroupoid.exists_natNbhd_isProperSubset` — Polyfold/Chapter13/P3G_GoodSystem.lean, line 271
+- `Polyfold.EpGroupoid.exists_isOpen_injOn_src_tgt` — Polyfold/Chapter13/P3G_GoodSystemExistence.lean, line 165
+
+## Part III, Chapter 15
+
+*HWZ Part III, Chapter 15 §15.1, pp. 683–687 (2017 Chapter 15; Part III has no 2014 preprint): the linearization $T(f,\Lambda)$ of an sc-Fredholm section perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas (wave 1 of Part III)*
+
+### V15.1. The preamble of §15.1: $\mathrm{GrF}(x)$
+
+*restated* · finitely supported sums · summands: all linear maps (G.145)
+
+**HWZ (§15.1, preamble, p. 683 (2017: §15.1)).** $\mathrm{GrF}(x)$ is the set of finite formal sums with coefficients in $\mathbb Q^+$ of sc-Fredholm operators $T_xX \to W_x$, for smooth $x$; a morphism $\varphi$ acts by $\varphi_*$.
+
+**Proved in Lean.** `SBLocalization.GrF x := (T_xX →ₗ[ℝ] W_x) →₀ ℚ≥0` for $x \in X_1$, with $W_x = P^{-1}(x)$ and $T_xX$ the project's tangent fibre; the chart version `Linearization15.GrFModel`.
+
+- `Polyfold.SBLocalization.GrF` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 63
+- `Polyfold.Linearization15.GrFModel` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 104
+
+*What differs.*
+- Formal sums are finitely supported functions, defined at all level-1 points. That the summands are sc-Fredholm is not part of the type (gap G.145); $\varphi_*$ and $\mathrm{GrF}(X)$ as a category are not built (gap G.144).
+
+### V15.2. Theorem 15.1.1 (2017: 15.1), the linearization $T(f,\Lambda)$ is well defined
+
+*narrower* · well-definedness: stronger · functor property: G.144 · Fredholm summands: G.145
+
+**HWZ (§15.1, Theorem 15.1.1, pp. 684–687 (2017: Theorem 15.1)).** For an sc-Fredholm section $f$ and an sc⁺-multisection $\Lambda$ there is a unique section functor $T(f,\Lambda)$ of $\mathrm{GrF}(X) \to X_\infty$ with (1) $T(f,\Lambda)(x) = 0$ off $\mathrm{supp}(\Lambda \circ f)$ and (2) $T(f,\Lambda)(y) = \sum_{f(y) = s_i(y)} \sigma_i (f - s_i)'(y)$ for any local sc⁺-section structure.
+
+**Proved in Lean.** `theorem_15_1_1_intrinsic`: for `A.E.IsScFredholmSectionFunctor f`, two local section structures `IsLocalRepOn A Λ O s σ`, `IsLocalRepOn A Λ O′ t τ` on open sets and compatible charts with domains inside them, `linSumIntr c hx f s σ = linSumIntr c′ hx′ f t τ` at every $x \in X_1$ in both charts ($\sum_{f(x) = s_i(x)} \sigma_i\,\Phi_x^{-1} \circ D((\hat f - \hat s_i) \circ r)(\varphi x) \circ T\varphi$ in $\mathrm{GrF}(x)$). Chart form `theorem_15_1_1`, model form `theorem_15_1_1_model`. The value: `linearization_eq` (property (2) for any data), `nonempty_localLinData`; property (1): `linearization_eq_zero`.
+
+- `Polyfold.SBLocalization.theorem_15_1_1_intrinsic` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 371
+- `Polyfold.SBLocalization.linSumIntr` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 102
+- `Polyfold.SBLocalization.linSumIntr_chart_independent` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 323
+- `Polyfold.SBLocalization.toIntr_chart_independent` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 248
+- `Polyfold.SBLocalization.toIntr` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 81
+- `Polyfold.SBLocalization.sectionSubOn` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 135
+- `Polyfold.SBLocalization.linearization_eq` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 441
+- `Polyfold.SBLocalization.nonempty_localLinData` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 425
+- `Polyfold.SBLocalization.theorem_15_1_1` — Polyfold/Chapter15/P3T_Linearization.lean, line 170
+- `Polyfold.SBLocalization.linSumChart` — Polyfold/Chapter15/P3T_Linearization.lean, line 141
+- `Polyfold.SBLocalization.IsLocalRepOn.count_eq` — Polyfold/Chapter15/P3T_Linearization.lean, line 106
+- `Polyfold.Linearization15.theorem_15_1_1_model` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 193
+- `Polyfold.Linearization15.wsum_model_eq` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 136
+- `Polyfold.Linearization15.continuousOn_scDeriv_coe` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 93
+- `Polyfold.Linearization15.wsum_pair_eq_of_isLocal` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 520
+
+*What differs.*
+- The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. Narrower because the functor property $T(f,\Lambda)(t\varphi) = \varphi_* T(f,\Lambda)(s\varphi)$ (gap G.144) and the sc-Fredholm property of the summands (gap G.145) are not formalized.
+- Readings (Findings, Chapter 15, items 1, 2): (a) the separation argument runs in the level-1 topology, and the "weak topology" of the limit of derivatives is read as pointwise convergence on $E_0$ (the derivatives $D(g \circ r)$ of an sc¹ map are continuous only from level 1); (b) in the final display, presumably the sum is over $\{i : f(0) = s_i(0)\}$, since $f(0) = s_i(0)$ need not hold for all $i$; the proof compares the formal sums of pairs $(s_i(r(y)), D((f - s_i) \circ r)(y))$. "Without loss of generality $X = O$" is the chart change `toIntr_chart_independent`.
+
+### V15.3. Remark 15.1.2 (2017: 15.1), (1) follows from (2)
+
+*restated* · $(f - s_i)'$ for all $i$, sum filtered
+
+**HWZ (§15.1, Remark 15.1.2, p. 684 (2017: Remark 15.1)).** $(f - s_i)'(y)$ is not defined unless $f(y) = s_i(y)$, but then it is not counted; with the empty sum $0$, (1) follows from (2).
+
+**Proved in Lean.** `SBLocalization.linearization_eq_zero`: if $\Lambda(f(x)) = 0$ then `linearization f Λ x = 0`; chart forms `remark_15_1_2`, `remark_15_1_2_model`; with positive weights an operator lies in the support iff some $i$ with $s_i(y) = f(y)$ produces it (`mem_support_linSumModel_iff`).
+
+- `Polyfold.SBLocalization.linearization_eq_zero` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 449
+- `Polyfold.SBLocalization.remark_15_1_2` — Polyfold/Chapter15/P3T_Linearization.lean, line 227
+- `Polyfold.Linearization15.remark_15_1_2_model` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 290
+- `Polyfold.Linearization15.mem_support_linSumModel_iff` — Polyfold/Chapter15/P3T_LinearizationModel.lean, line 305
+
+*What differs.*
+- In Lean $(f - s_i)'$ is defined for every $i$ and the sum is filtered by $s_i(y) = f(y)$; (1) is derived from positivity of the weights and the count formula.
+
+### V15.4. Proposition 15.1.3 (2017: 15.1), separating sequences
+
+*narrower* · $x_0$ not isolated · isolated point: no sequence (degenerate) · topological; no sc-structure needed
+
+**HWZ (§15.1, Proposition 15.1.3, p. 684 (2017: Proposition 15.1)).** In the local model there are $x_k \to 0$ with $x_k \ne 0$ and a partition $I = I_1 \sqcup \dots \sqcup I_p$ such that $s_i(x_k) = s_{i'}(x_k)$ iff $i, i'$ lie in the same $I_e$, and then $s_i = s_{i'}$ near $x_k$.
+
+**Proved in Lean.** `Linearization15.proposition_15_1_3_hyp`: in a first countable $T_1$ space $Z$, for finitely many maps continuous on an open $V \ni x_0$ with values in a Hausdorff space, and **$x_0$ not isolated** (`(𝓝[≠] x₀).NeBot`): $x_k \in V$, $x_k \ne x_0$, $x_k \to x_0$, and one partition $e : I \to \mathrm{Fin}\,p$ with `IsSeparatedAt s e (x k)` for all $k$. At an isolated point no such sequence exists: `not_proposition_15_1_3_of_isolated`, `not_proposition_15_1_3_point` (a one-point model). Witness: `proposition_15_1_3_hyp_witness` ($\mathbb R$ at 0).
+
+- `Polyfold.Linearization15.proposition_15_1_3_hyp` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 411
+- `Polyfold.Linearization15.proposition_15_1_3_hyp_witness` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 442
+- `Polyfold.Linearization15.not_proposition_15_1_3_of_isolated` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 434
+- `Polyfold.Linearization15.not_proposition_15_1_3_point` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 450
+- `Polyfold.Linearization15.IsSeparatedAt` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 343
+- `Polyfold.Linearization15.IsLocDich` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 337
+- `Polyfold.Linearization15.exists_isLocDich_mem` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 348
+- `Polyfold.Linearization15.exists_isSeparatedAt_subseq` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 381
+
+*What differs.*
+- Hidden hypotheses: $x_0$ is not isolated; witness `proposition_15_1_3_hyp_witness`.
+- At an isolated point of the local model (for instance a zero-dimensional $X$) a sequence $x_k \ne 0$, $x_k \to 0$ cannot exist, so the proposition does not hold as we read it there (`not_proposition_15_1_3_of_isolated`); a degenerate case (Findings, Chapter 15, item 3). Theorem 15.1.1 is unaffected: its core lemma handles isolated points through locality. Otherwise the statement is more general: topological, with no sc-structure.
+
+### V15.5. Lemma 15.1.4 (2017: 15.1), finite closed covers of a ball
+
+*stronger* · any pseudo-metric space
+
+**HWZ (§15.1, Lemma 15.1.4, p. 685 (2017: Lemma 15.1)).** If a ball $B_\varepsilon(y)$ in $\mathcal O$ (metric of $E_0$) is a finite union of sets closed in the ball, one of them has nonempty interior.
+
+**Proved in Lean.** `Linearization15.lemma_15_1_4`, in any pseudo-metric space: for finitely many relatively closed $A_i$ with $\bigcup A_i = B_\varepsilon(y)$, some $A_i$ has nonempty interior; topological core `exists_nonempty_interior_of_finite_closed_cover`.
+
+- `Polyfold.Linearization15.lemma_15_1_4` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 218
+- `Polyfold.Linearization15.exists_nonempty_interior_of_finite_closed_cover` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 200
+- `Polyfold.Linearization15.interior_biUnion_eq_empty` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 186
+
+*What differs.*
+- The proof is by induction on the index set instead of moving $z$ step by step; it is applied on the level-1 topology (reading (a) of V15.2).
+
+### V15.6. Lemma 15.1.5 (2017: 15.2), local dichotomy of finitely many sections
+
+*stronger* · continuous maps suffice
+
+**HWZ (§15.1, Lemma 15.1.5, p. 685 (2017: Lemma 15.2)).** For $y$ and $\varepsilon > 0$ there are $z$ with $d(z,y) < \varepsilon$, $\delta > 0$ and a partition $I_1, \dots, I_p$ with $B_\delta(z) \subset B_\varepsilon(y)$, $s_i = s_{i'}$ on $B_\delta(z)$ within one piece and $s_i \ne s_j$ pointwise on $B_\delta(z)$ across pieces.
+
+**Proved in Lean.** `Linearization15.lemma_15_1_5`: in a pseudo-metric space, for finitely many maps continuous on $B_\varepsilon(y)$ into a Hausdorff space, exactly these conclusions, the partition a surjection $e : I \to \mathrm{Fin}\,p$; topological form `exists_isOpen_dichotomy`.
+
+- `Polyfold.Linearization15.lemma_15_1_5` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 307
+- `Polyfold.Linearization15.exists_isOpen_dichotomy` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 250
+- `Polyfold.Linearization15.exists_fin_partition` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 288
+
+*What differs.*
+- The maps need only be continuous with values in a Hausdorff space; the sections need not be sc⁺.
+
+### V15.7. Remark 15.1.6, modifying the sequence
+
+*restated* · "slightly" made explicit
+
+**HWZ (§15.1, Remark 15.1.6, p. 686 (not in the 2017 text)).** One can start from any sequence $x'_k \to 0$, modify it slightly to $x''_k$ and take a subsequence with the properties of Proposition 15.1.3; slight modifications keep the properties.
+
+**Proved in Lean.** `Linearization15.remark_15_1_6` (metric space): from $x'_k \to x_0$ in $V$, points $x''_k \in V$ with $d(x'_k, x''_k) < 1/(k+1)$, $x''_k \to x_0$, a subsequence and a partition with `IsSeparatedAt` along it. `IsSeparatedAt.eventually`: separation at $z$ persists near $z$.
+
+- `Polyfold.Linearization15.remark_15_1_6` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 458
+- `Polyfold.Linearization15.IsSeparatedAt.eventually` — Polyfold/Chapter15/P3T_SeparationLemmas.lean, line 359
+
+*What differs.*
+- "Slightly" is $d < 1/(k+1)$ in the first part and "eventually near $z$" in the second.
+
+### V15.8. Definition 15.1.7 (2017: 15.1), the linearization of $\Lambda \circ f$
+
+*restated* · value at every level-1 point · not yet a section functor (G.144)
+
+**HWZ (§15.1, Definition 15.1.7, p. 687 (2017: Definition 15.1)).** $T(f,\Lambda)$ is the linearization of $\Lambda \circ f$ on $\mathrm{supp}(\Lambda \circ f)$, and $T(f,\Lambda)(x)$ the linearization at $x$.
+
+**Proved in Lean.** `SBLocalization.linearization f Λ x : GrF x` for $x \in X_1$, the formal sum of some `LocalLinData A Λ x` (a local section structure and a chart around $x$ inside it), $0$ if there is none; independent of the choice (`linearization_eq`), data exist (`nonempty_localLinData`), $0$ off the support (`linearization_eq_zero`). Chart reading `linearizationIn`.
+
+- `Polyfold.SBLocalization.linearization` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 436
+- `Polyfold.SBLocalization.LocalLinData` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 396
+- `Polyfold.SBLocalization.LocalLinData.sum` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 414
+- `Polyfold.SBLocalization.linearization_eq` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 441
+- `Polyfold.SBLocalization.nonempty_localLinData` — Polyfold/Chapter15/P3T_LinearizationIntrinsic.lean, line 425
+- `Polyfold.SBLocalization.linearizationIn` — Polyfold/Chapter15/P3T_Linearization.lean, line 202
+- `Polyfold.SBLocalization.linearizationIn_eq` — Polyfold/Chapter15/P3T_Linearization.lean, line 212
+
+## Part III, Chapter 16
+
+*HWZ Part III, Chapter 16 §16.1, pp. 705–714 (2017 Chapter 16; Part III has no 2014 preprint): polyfold structures and their equivalence, polyfolds, bump functions and partitions of unity, the degeneracy index and the boundary, tame polyfolds; the uniqueness sentence after Definition 16.1.2 (wave 1 of Part III)*
+
+### V16.1. Definition 16.1.1 (2017: 16.1), polyfold structures
+
+*as in the book* · as stated · metrizability remark: G.146
+
+**HWZ (§16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1)).** A polyfold structure on a space $Z$ is a pair $(X, \beta)$: an ep-groupoid $X$ with $|X|$ paracompact satisfying (ZHOU), and a homeomorphism $\beta : |X| \to Z$.
+
+**Proved in Lean.** `structure PolyfoldStructure (Z)`, with fields `X`, `paracompact : X.X.HasParacompactOrbitSpace`, `isZhou : X.X.IsZhou` and `β : X.X.OrbitSpace ≃ₜ Z`; `toOrbitChart` (the pair of Remark 10.3.18) and `isLR`. Witness: `z3PolyfoldStructure` on $\mathbb R$ (the trivial $\mathbb Z/3$-action).
+
+- `Polyfold.PolyfoldStructure` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 64
+- `Polyfold.PolyfoldStructure.toOrbitChart` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 79
+- `Polyfold.PolyfoldStructure.isLR` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 82
+- `Polyfold.PolyfoldStructure.z3PolyfoldStructure` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 85
+
+*What differs.*
+- $Z$ lives in the universe of the object and morphism sets of $X$. The text's remark that $Z$ is then metrizable is gap G.146. The 2017 definition had neither (ZHOU) nor paracompactness.
+
+### V16.2. Definition 16.1.2 (2017: 16.2), equivalent polyfold structures
+
+*as in the book* · as stated; uniqueness sentence: V16.3
+
+**HWZ (§16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2)).** $(X, \alpha) \sim (Y, \beta)$ if there is a generalized isomorphism $f : X \to Y$ with $\alpha = \beta \circ |f|$.
+
+**Proved in Lean.** `PolyfoldStructure.Equiv p q := ∃ f, IsGeneralizedIso f ∧ ⇑p.β = ⇑q.β ∘ orbitMap f`; an equivalence relation (`setoid`), equal to Remark 10.3.18's relation (`equiv_iff_rel`); $|f| = \beta^{-1} \circ \alpha$ (`orbitMap_eq_of_equiv`).
+
+- `Polyfold.PolyfoldStructure.Equiv` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 87
+- `Polyfold.PolyfoldStructure.setoid` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 106
+- `Polyfold.PolyfoldStructure.equiv_iff_rel` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 91
+- `Polyfold.PolyfoldStructure.orbitMap_eq_of_equiv` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 113
+
+### V16.3. The uniqueness sentence after Definition 16.1.2
+
+*narrower* · does not hold as we read it · holds for an effective target
+
+**HWZ (§16.1, after Definition 16.1.2, p. 707 (2017: Definition 16.2)).** The generalized isomorphism $f$ with $\alpha = \beta \circ |f|$ is unique, as a consequence of (ZHOU) (through Theorem 10.3.19).
+
+**Proved in Lean.** Does not hold as we read it: `PolyfoldStructure.not_uniqueness_16_1_2 : ¬ Uniqueness_16_1_2`. The trivial $\mathbb Z/3$-ep-groupoid on $\mathbb R$ satisfies (ZHOU) (`isZhou_trivialZ3`) and has paracompact orbit space, so it is a polyfold structure on $\mathbb R$ in the sense of Definition 16.1.1; the identity and the generalized isomorphism through the inversion functor both satisfy $\alpha = \alpha \circ |f|$ and differ (`uniqueness_16_1_2_counterexample`). It holds when the target is effective: `uniqueness_16_1_2_of_isEffective` ((ZHOU) gives the local regularity property, then Theorem 10.3.19 for effective ep-groupoids).
+
+- `Polyfold.PolyfoldStructure.Uniqueness_16_1_2` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 99
+- `Polyfold.PolyfoldStructure.not_uniqueness_16_1_2` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 145
+- `Polyfold.PolyfoldStructure.uniqueness_16_1_2_counterexample` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 133
+- `Polyfold.PolyfoldStructure.uniqueness_16_1_2_of_isEffective` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 121
+
+*What differs.*
+- The sentence does not hold as we read it (Findings, Chapter 16, item 1): the counterexample satisfies every printed hypothesis, (ZHOU), paracompact $|X|$ and $\beta$ a homeomorphism, all proved for the instance. It is the pair behind `not_theorem_10_3_19` (Chapter 10). The effective form is proved. The 2017 text (Definition 16.2) says "$f$ is necessarily unique", citing the theorem that is now 10.3.19; the 2021 text adds "as a consequence of (ZHOU)".
+
+### V16.4. Definition 16.1.3 (2017: 16.3), polyfolds
+
+*as in the book* · as stated
+
+**HWZ (§16.1, Definition 16.1.3, p. 707 (2017: Definition 16.3)).** A polyfold is a pair $(Z, c)$, $c$ an equivalence class of polyfold structures on $Z$.
+
+**Proved in Lean.** `PolyfoldClass Z := Quotient (PolyfoldStructure.setoid Z)`; witness `z3Polyfold`.
+
+- `Polyfold.PolyfoldClass` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 178
+- `Polyfold.PolyfoldStructure.z3Polyfold` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 90
+
+*What differs.*
+- A class is a Lean quotient; the book's footnote on classes does not arise.
+
+### V16.5. Proposition 16.1.4 (2017: 16.2), bump functions and partitions of unity are invariant
+
+*hypotheses explicit* · (1) for the object M-polyfold
+
+**HWZ (§16.1, Proposition 16.1.4, p. 708 (2017: Proposition 16.2)).** For equivalent $(X, \alpha)$, $(Y, \beta)$: (1) $X$ admits sc-smooth bump functions iff $Y$ does; (2) $X$ admits sc-smooth partitions of unity iff $Y$ does.
+
+**Proved in Lean.** `PolyfoldStructure.proposition_16_1_4`: `(p.X.X.PObj.AdmitsBumpFunctions ↔ q.X.X.PObj.AdmitsBumpFunctions) ∧ (p.X.X.HasScPartitionsOfUnity ↔ q.X.X.HasScPartitionsOfUnity)`; parts `proposition_16_1_4_one`, `_two`, through equivalences (`IsEquivalence.admitsBumpFunctions_iff`, `IsEquivalence.hasScPartitionsOfUnity_iff`); the "easy exercise" is `isScSmoothMap_comp_π_of_comp_obj`.
+
+- `Polyfold.PolyfoldStructure.proposition_16_1_4` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 232
+- `Polyfold.PolyfoldStructure.proposition_16_1_4_two` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 225
+- `Polyfold.EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 173
+- `Polyfold.EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 142
+- `Polyfold.EpGroupoid.hasScPartitionsOfUnity_iff_orbit` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 87
+- `Polyfold.EpGroupoid.HasOrbitScPartitionsOfUnity` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 65
+- `Polyfold.PolyfoldStructure.proposition_16_1_4_one` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 168
+- `Polyfold.EpFunctor.IsEquivalence.admitsBumpFunctions_iff` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 148
+- `Polyfold.MPolyfold.IsScDiffeoOn.hasBumpAt` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 74
+- `Polyfold.EpGroupoid.hasBumpAt_tgt` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 135
+
+*What differs.*
+- (1) is read for the object M-polyfold (Definition 5.3.1, $f(x) \ne 0$), as the proof uses it; Definition 12.3.1's notion is equivalent by Theorem 12.3.2 (1) (V12.11). (2) is Definition 7.5.5. The proof route differs: local inverses for (1), partitions descended to $|X|$ for (2).
+
+### V16.6. Definition 16.1.5 (2017: 16.4), polyfolds with bump functions and partitions of unity
+
+*as in the book* · as stated · "then all do" proved
+
+**HWZ (§16.1, Definition 16.1.5, p. 708 (2017: Definition 16.4)).** $(Z, c)$ admits sc-smooth bump functions (partitions of unity) if some $(X, \alpha) \in c$ does; then all do.
+
+**Proved in Lean.** `PolyfoldClass.AdmitsBumpFunctions`, `PolyfoldClass.AdmitsScPartitionsOfUnity` (some structure in $c$); `definition_16_1_5_one`, `_two`: equivalent to "every structure in $c$". Witnesses `z3Polyfold_admitsBumpFunctions`, `z3Polyfold_admitsScPartitionsOfUnity`.
+
+- `Polyfold.PolyfoldClass.AdmitsBumpFunctions` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 182
+- `Polyfold.PolyfoldClass.definition_16_1_5_one` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 187
+- `Polyfold.PolyfoldClass.AdmitsScPartitionsOfUnity` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 245
+- `Polyfold.PolyfoldClass.definition_16_1_5_two` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 250
+- `Polyfold.PolyfoldStructure.z3Polyfold_admitsBumpFunctions` — Polyfold/Chapter16/P3Z_PolyfoldExamples.lean, line 35
+- `Polyfold.PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity` — Polyfold/Chapter16/P3Z_PolyfoldExamples.lean, line 41
+
+*What differs.*
+- Bump functions with the object M-polyfold reading, as in V16.5.
+
+### V16.7. Remark 16.1.7 (2017: 16.1), at most one generalized isomorphism over a homeomorphism
+
+*narrower* · does not hold as we read it · holds for an effective target
+
+**HWZ (§16.1, Remark 16.1.7, p. 711 (2017: Remark 16.1), and pp. 709–710).** For a homeomorphism $h : Z \to W$ there is at most one generalized isomorphism $f$ with $h \circ \alpha = \beta \circ |f|$; for continuous $h$ there may be none or many. (Also pp. 709–710: for isomorphisms of polyfold structures, the generalized isomorphism is determined by the map, as a consequence of Theorem 10.3.19.)
+
+**Proved in Lean.** Does not hold as we read it: `PolyfoldStructure.not_remark_16_1_7 : ¬ Remark_16_1_7` (the pair of V16.3, $h = \mathrm{id}$); the same pair contradicts the sentence on pp. 709–710. Holds for an effective target: `remark_16_1_7_of_isEffective`.
+
+- `Polyfold.PolyfoldStructure.Remark_16_1_7` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 109
+- `Polyfold.PolyfoldStructure.not_remark_16_1_7` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 153
+- `Polyfold.PolyfoldStructure.remark_16_1_7_of_isEffective` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 132
+
+*What differs.*
+- Does not hold as we read it (Findings, Chapter 16, item 2); the effective form is proved. The "none or many" sentence for continuous $h$ has no content beyond an example and is not formalized.
+
+### V16.8. Lemma 16.1.13 (2017: 16.1), the degeneracy index does not depend on the structure
+
+*as in the book* · as stated
+
+**HWZ (§16.1, Lemma 16.1.13, p. 712 (2017: Lemma 16.1)).** Equivalent structures give $d_{(X,\beta)} = d_{(X',\beta')}$, where $d_{(X,\beta)}(z) = d_X(x)$ for $\beta(|x|) = z$.
+
+**Proved in Lean.** `PolyfoldStructure.degIndex p z := d_{|X|}(β⁻¹ z)`, equal to $d_X(x)$ for every $x$ with $\beta(|x|) = z$ (`degIndex_eq`); `lemma_16_1_13 (h : Equiv p q) : p.degIndex = q.degIndex`.
+
+- `Polyfold.PolyfoldStructure.degIndex` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 147
+- `Polyfold.PolyfoldStructure.degIndex_eq` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 150
+- `Polyfold.PolyfoldStructure.lemma_16_1_13` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 156
+
+### V16.9. Definition 16.1.14 (2017: 16.9), the degeneracy index of a polyfold
+
+*as in the book* · as stated
+
+**HWZ (§16.1, Definition 16.1.14, p. 712 (2017: Definition 16.9)).** $d_Z : Z \to \mathbb N$ with $d_Z(z) = d_X(x)$ for every $(X, \beta) \in c$ and $\beta(|x|) = z$.
+
+**Proved in Lean.** `PolyfoldClass.degIndex c` (`Quotient.lift`); `definition_16_1_14`: `c.degIndex z = d_X(x)` for every representative and every $x$ over $z$. Witness `z3Polyfold_degIndex`.
+
+- `Polyfold.PolyfoldClass.degIndex` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 187
+- `Polyfold.PolyfoldClass.definition_16_1_14` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 194
+- `Polyfold.PolyfoldStructure.z3Polyfold_degIndex` — Polyfold/Chapter16/P3Z_PolyfoldExamples.lean, line 46
+
+### V16.10. Definition 16.1.17 (2017: 16.11), the boundary of a polyfold
+
+*as in the book* · as stated
+
+**HWZ (§16.1, Definition 16.1.17, p. 713 (2017: Definition 16.11)).** $\partial Z = \{z \mid d_Z(z) \ge 1\}$.
+
+**Proved in Lean.** `PolyfoldClass.boundary c := {z | 1 ≤ c.degIndex z}`; `mem_boundary_iff` (through any representative). Witness `z3Polyfold_boundary` ($= \emptyset$).
+
+- `Polyfold.PolyfoldClass.boundary` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 200
+- `Polyfold.PolyfoldClass.mem_boundary_iff` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 202
+- `Polyfold.PolyfoldStructure.z3Polyfold_boundary` — Polyfold/Chapter16/P3Z_PolyfoldExamples.lean, line 56
+
+### V16.11. Lemma 16.1.19 (2017: 16.2), tameness is invariant
+
+*stronger* · an iff
+
+**HWZ (§16.1, Lemma 16.1.19, p. 714 (2017: Lemma 16.2)).** If $(X, \alpha) \sim (Y, \beta)$ and $X$ is tame, so is $Y$.
+
+**Proved in Lean.** `PolyfoldStructure.lemma_16_1_19 (h : Equiv p q) : p.X.X.IsTame ↔ q.X.X.IsTame` (Chapter 11's `IsEquivalence.isTame_iff`).
+
+- `Polyfold.PolyfoldStructure.lemma_16_1_19` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 167
+
+*What differs.*
+- An iff, trivially by symmetry.
+
+### V16.12. Definition 16.1.20 (2017: 16.12), tame polyfolds
+
+*as in the book* · as stated
+
+**HWZ (§16.1, Definition 16.1.20, p. 714 (2017: Definition 16.12)).** $(Z, c)$ is tame if one (then every) $(X, \beta) \in c$ has $X$ tame.
+
+**Proved in Lean.** `PolyfoldClass.IsTame c := ∃ p, ⟦p⟧ = c ∧ p.X.X.IsTame`; `definition_16_1_20`: equivalent to every representative tame. Witness `z3Polyfold_isTame`.
+
+- `Polyfold.PolyfoldClass.IsTame` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 210
+- `Polyfold.PolyfoldClass.definition_16_1_20` — Polyfold/Chapter16/P3Z_PolyfoldStructure.lean, line 214
+- `Polyfold.PolyfoldStructure.z3Polyfold_isTame` — Polyfold/Chapter16/P3Z_PolyfoldExamples.lean, line 31
+
+### V16.13. The polyfold $\mathbb R$ with nontrivial isotropy (witness)
+
+*not in the book*
+
+**HWZ (not in the book (witness for §16.1)).** The definitions of §16.1 have instances.
+
+**Proved in Lean.** The trivial $\mathbb Z/3$-ep-groupoid on $\mathbb R$: $\pi$ is injective and a homeomorphism onto $\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comapP3Z`, `EpGroupoid.descendP3Z`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`.
+
+- `Polyfold.EpGroupoid.Examples.injective_π_trivialZ3` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 58
+- `Polyfold.EpGroupoid.Examples.isHomeomorph_π_trivialZ3` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 64
+- `Polyfold.EpGroupoid.Examples.trivialZ3OrbitHomeomorph` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 69
+- `Polyfold.EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3` — Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean, line 73
+- `Polyfold.PartitionOfUnity.comapP3Z` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 46
+- `Polyfold.EpGroupoid.descendP3Z` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 73
+- `Polyfold.EpGroupoid.preimage_closure_π` — Polyfold/Chapter16/P3Z_PolyfoldPartitions.lean, line 82
+- `Polyfold.MPolyfold.isScSmoothMap_real_of_locally` — Polyfold/Chapter16/P3Z_PolyfoldBump.lean, line 55
+
 ## Not formalized
 
 *What the book states and the formalization does not prove, and what it does instead; an entry proved since the first edition of this page keeps its number and is marked “formalized since”*
@@ -19360,7 +20714,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§5.3, preprint p. 174).** $\Gamma^{+,1}_U(P)$ "becomes a metric space with respect to the uniform distance $\rho(s, s') = \sup_xN(s(x) - s'(x))$. The metric space $(\Gamma^{+,1}_U(P), \rho)$ is not complete."
 
-**Proved in Lean.** **Formalized since the first edition of this page, with a correction** (fourth addendum; V5.21). $\rho$ is a metric on $\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\rho \le 2$); the density statements $N(s(x) - s'(x)) \le \varepsilon$ of V5.30, V5.39 are $\rho(s, s') \le \varepsilon$. “Not complete” is proved for the trivial bundle $\mathbb R \times \mathbb R \to \mathbb R$ ($N(x, v) = |v|$, $U = \mathbb R$) and is false without a hypothesis: the space is complete for $U = \emptyset$ and over a point with finite-dimensional fibre. Not formalized: a general sufficient condition for non-completeness, and the identification of the metric completion with the sections of Remark 5.3.4 (preprint 5.12) (V5.22) (Findings, Chapter 5, items 150–153).
+**Proved in Lean.** **Formalized since the first edition of this page, with an added hypothesis** (fourth addendum; V5.21). $\rho$ is a metric on $\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\rho \le 2$); the density statements $N(s(x) - s'(x)) \le \varepsilon$ of V5.30, V5.39 are $\rho(s, s') \le \varepsilon$. “Not complete” is proved for the trivial bundle $\mathbb R \times \mathbb R \to \mathbb R$ ($N(x, v) = |v|$, $U = \mathbb R$) and does not hold as we read it without a hypothesis: the space is complete for $U = \emptyset$ and over a point with finite-dimensional fibre. Not formalized: a general sufficient condition for non-completeness, and the identification of the metric completion with the sections of Remark 5.3.4 (preprint 5.12) (V5.22) (Findings, Chapter 5, items 150–153).
 
 - `Polyfold.StrongBundle.allowableMetric` — Polyfold/Chapter5/AllowableSectionsMetric.lean, line 184
 - `Polyfold.TrivialBundle.not_completeSpace_allowableSections` — Polyfold/Chapter5/AllowableSectionsMetric.lean, line 491
@@ -21240,4 +22594,103 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.SBPCLoc.homMk_eq` — Polyfold/Chapter11/GapP2_H3SBLocalization.lean, line 486
 - `Polyfold.SBPCLoc.fromLoc` — Polyfold/Chapter11/GapP2_H3SBLocalization.lean, line 513
 - `Polyfold.SBPC.Examples.theorem_11_6_6_ep` — Polyfold/Chapter11/GapP2_H3SBLocalization.lean, line 528
+
+### G.136. Theorem 12.2.7, the local extension of an auxiliary norm from $\partial X$
+
+*not formalized*
+
+**HWZ (§12.2, Theorem 12.2.7, pp. 574–576 (local step, p. 575) (2017: Theorem 12.3)).** Near $x_0 \in \partial X$, in a tame local model with $O \subset [0,\infty)^n \oplus H$ and retraction $R(u,w) = (r(u), A(u)w)$, with $q(t,h) = (t,h) - \min(t)(1,\dots,1,0)$: $r \circ q$ maps a neighbourhood of $x_0$ into $\partial O$, and $N'(u,w) = N(rq(u), A(rq(u))w) + \|w - A(rq(u))w\|_{F_1}$ is a local auxiliary norm equal to $N$ over $\partial X$.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_2_7_hyp` takes exactly this local step as the hypothesis `HasLocalExtensions X B N` (V12.9); the rest of the proof is formalized. Missing: (a) a tame strong bundle chart around every boundary point (the project's strong bundle charts are not known to have tame base retractions), about 500–1,000 lines; (b) the map $r \circ q$ with its continuity and boundary properties in quadrant coordinates, about 300–500 lines; (c) the level-1 continuity of $u \mapsto A(u)$ and conditions (1)–(2) for $N'$, about 500–1,000 lines. Total about 1,300–2,500 lines.
+
+
+### G.137. Definition 12.3.6, the ep-groupoid form
+
+*not formalized*
+
+**HWZ (§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)).** An sc⁺-section over the boundary of a strong bundle over a tame ep-groupoid.
+
+**Proved in Lean.** The chart-level form (`IsBoundaryScPlusSectionOn`, V12.16) and the M-polyfold form (`StrongBundle.IsBoundaryScPlusSection`, V5.88, applicable to the object M-polyfold) exist. A named ep-groupoid wrapper, the M-polyfold form on objects with the remark that it does not involve $\mu$, is about 30 lines; it belongs with Theorem 12.3.9 (wave 2).
+
+
+### G.138. Theorem 12.5.3, last sentence: morphisms keep local orientation sections continuous
+
+*not formalized*
+
+**HWZ (§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)).** For a morphism $\varphi : x \to x'$ between smooth points, the local $\hat\Phi$ pushes a continuous local section of $\sigma$ to a continuous local section.
+
+**Proved in Lean.** Not formalized. It needs the naturality of Part I's path transport (`LocalTransport`, `IsContOrOn`) under the local strong bundle isomorphism `EpStrongBundle.morIso`: for an sc-smooth path near $x'$, transport along it commutes with `orVia` along its image. The pointwise data exist (`StrongBundle.LocalIso.orVia`, `orVia_eq`, `morT_comp`; V12.22); missing is the comparison of Part I's propagation charts with pulled charts along a path. Estimate 1,000–1,500 lines.
+
+
+### G.139. Proposition 12.5.6 (⇐), continuity of the orientation
+
+*not formalized*
+
+**HWZ (§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)).** If $|\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.
+
+**Proved in Lean.** `EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section $o$ lifting the section of $|\sigma|$ (V12.26); its continuity for Part I's topology is not proved. It follows from G.138 ($O_f \to |O_f|$ is then a local homeomorphism near each point, and $o$ agrees locally with a continuous germ). Estimate 300–500 lines after G.138.
+
+
+### G.140. §12.5 with a tame $X$ only: Part I's bump functions and tame germ data
+
+*not formalized*
+
+**HWZ (§12.5, Theorem 12.5.3, p. 594 (2017: Theorem 12.11)).** The orientation bundle and its topology for an sc-Fredholm section functor over a tame ep-groupoid, with no further hypothesis.
+
+**Proved in Lean.** `EpStrongBundle.theorem_12_5_3_hyp` (V12.24) carries the hypotheses of Part I's Theorem 6.6.17, `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, passed through unchanged, and Lemma 12.5.1 and Proposition 12.5.6 take `hsec : B.HasScPlusSectionsThrough` (a consequence of bump functions). These are Part I's inherited hypotheses (rows V6.74, V6.75), not new ones; removing them needs Part I's orientation transport without bump functions and for untamed germ data.
+
+
+### G.141. Theorem 13.1.7, properness relative to $Q$ versus relative to $X$
+
+*not formalized*
+
+**HWZ (§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)).** The hypothesis is a good system for the full sub-ep-groupoid on the open set $Q$; its properness condition (1) is read inside $Q$.
+
+**Proved in Lean.** `EpGroupoid.theorem_13_1_7` (V13.7) takes `IsGoodOn N Q`, which asks properness of $t : s^{-1}(\mathrm{cl}_X U(q)) \to X$ in $X$; everything else is as in the book, and $Q$ need not be open. Missing: $Q$-properness implies $X$-properness when $|Q| = |X|$ (first $\mathrm{cl}_X U(q) \subseteq Q$, by extending a morphism from a limit point through the natural representation; then compact sets of targets are moved into $Q$ by finitely many local transports). About 150–250 lines, with a structure for the sub-ep-groupoid on an open set, which does not exist yet.
+
+
+### G.142. Definitions 13.2.7–13.2.8: decorated sc⁺-multisections, and the decorated forms of Definitions 13.2.9–13.2.10, Lemmas 13.2.11, 13.2.13
+
+*not formalized*
+
+**HWZ (§13.2, Definitions 13.2.7, 13.2.8, pp. 610–611 (2017: Definitions 13.9, 13.10), and pp. 611–612).** An sc⁺-multisection with a system of symmetric sc⁺-section structures, equivalence of systems, decorated sc⁺-multisections; their sums, scalar multiples, products with functions and locally finite sums are decorated.
+
+**Proved in Lean.** The functor-level algebra is formalized (V13.10–V13.19), with `SymmetricStructure` and its local existence (V13.14), good systems (V13.2–V13.9), and the local-representation forms of the sums (`multisectionAdd_eq_sum_of_isLocalRepOn`, `multisectionSmul_eq_sum_of_isLocalRepOn`, `isLocalRepOn_conv`). Missing: the system of symmetric structures over a good system (about 40 lines), the equivalence of systems with the equivariant bijections and the quotient (about 60 lines), and closure of symmetric structures under $\oplus$, $a\cdot$, $\beta\cdot$ and locally finite sums (about 200 lines). Planned for wave 2.
+
+
+### G.143. The remark after Definition 13.2.9: in general there are no inverses
+
+*not formalized*
+
+**HWZ (§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)).** In general, an sc⁺-multisection has no inverse for $\oplus$.
+
+**Proved in Lean.** Not formalized. An example needs a strong bundle with a nonzero fibre and a two-valued $\Lambda$; about 60 lines.
+
+
+### G.144. Theorem 15.1.1, the functor property of $T(f,\Lambda)$
+
+*not formalized*
+
+**HWZ (§15.1, Theorem 15.1.1, p. 684 (2017: Theorem 15.1)).** For a morphism $\varphi : x \to y$ between smooth points, $T(f,\Lambda)(y) = \varphi_* T(f,\Lambda)(x)$, where $\varphi_*$ maps $\sum \sigma_i L_i$ to $\sum \sigma_i\,\mu(\varphi,\cdot) \circ L_i \circ T\varphi^{-1}$.
+
+**Proved in Lean.** $T(f,\Lambda)(x)$ is defined and well defined at every $x \in X_1$ (`SBLocalization.linearization`, `linearization_eq`; V15.2, V15.8), and the linear tangent map of a morphism exists (`EpGroupoid.tangentMorCLM`). Missing: the action $\varphi_*$ on `GrF`, the transport of a local section structure along $t \circ s^{-1}$ near $\varphi$, and the chain rule for `linAt` along it. Estimate 300–500 lines.
+
+
+### G.145. §15.1 and Theorem 15.1.1 (2): the summands of $T(f,\Lambda)(x)$ are sc-Fredholm
+
+*not formalized*
+
+**HWZ (§15.1, preamble and Theorem 15.1.1 (2), pp. 683–684 (2017: §15.1, Theorem 15.1)).** Each $(f - s_i)'(x)$ with $f(x) = s_i(x)$ is an sc-Fredholm operator $T_xX \to W_x$, so $T(f,\Lambda)(x) \in \mathrm{GrF}(x)$.
+
+**Proved in Lean.** `SBLocalization.GrF x` allows all linear maps, and `toIntr` is the intrinsic $(f - s_i)'(x)$ (V15.1, V15.2). Missing: $f - s_i$ is sc-Fredholm near $x$ (an sc⁺-perturbation), its linearization at a zero is sc-Fredholm (identifying `linAt` with the sc-Fredholm germ linearization), and a subtype of `GrF` with Fredholm summands. Estimate 200–400 lines.
+
+
+### G.146. Polyfolds are metrizable (the remark after Definition 16.1.1)
+
+*not formalized*
+
+**HWZ (§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)).** If $|X|$ is paracompact, $Z \cong |X|$ is metrizable (locally metrizable, regular, Hausdorff and paracompact: Nagata–Smirnov).
+
+**Proved in Lean.** Local metrizability of $|X|$ (`lemma_7_3_2_naturalRep`), regularity and the Hausdorff property (Lemmas 7.3.4, 7.3.5) exist; the Smirnov metrization theorem is not in Mathlib (estimate 600–1,500 lines). In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.
+
 

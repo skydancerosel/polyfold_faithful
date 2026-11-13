@@ -44,6 +44,7 @@ def mains : List (String × String) := [
   ("core|Thm 5.3.10", "theorem_5_3_10_book_2021def"),
   ("core|Thm 5.3.12", "theorem_5_3_12_book_2021def"),
   ("core|Prop 6.2.2", "proposition_6_2_2_interval_2021def"),
+  ("core|Thm 5.4.2", "theorem_5_4_2"),
   ("orientation|Thm 6.6.11", "theorem_6_6_11"),
   ("orientation|Thm 6.6.13", "theorem_6_6_13"),
   ("orientation|Thm 6.6.17", "theorem_6_6_17"),
@@ -97,6 +98,12 @@ def mains : List (String × String) := [
   ("partII|Thm 11.3.9", "EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation"),
   ("partII|Thm 11.3.9", "EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation"),
   ("partII|Thm 11.6.6", "ProperCoveringHom.theorem_11_6_6"),
+  ("partIII|Thm 12.2.2", "EpStrongBundle.theorem_12_2_2"),
+  ("partIII|Thm 12.4.2", "EpStrongBundle.theorem_12_4_2"),
+  ("partIII|Thm 13.1.8", "EpGroupoid.theorem_13_1_8"),
+  ("partIII|Prop 16.1.4", "PolyfoldStructure.proposition_16_1_4"),
+  ("partIII|Lemma 16.1.13", "PolyfoldStructure.lemma_16_1_13"),
+  ("partIII|Lemma 16.1.19", "PolyfoldStructure.lemma_16_1_19"),
   ("tame|Thm 2.7.13", "MPolyfold.theorem_2_7_13_book"),
   ("tame|Thm 7.6.9", "EpGroupoid.theorem_7_6_9_book")]
 

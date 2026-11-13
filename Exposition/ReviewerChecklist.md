@@ -22,9 +22,10 @@ The second command prints the axioms of every theorem; each must list only `prop
 
 | Tier | Statements | New definition rows | Lean helper constants without a row |
 |---|---|---|---|
-| Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 27 | 87 | 80 |
+| Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 28 | 91 | 80 |
 | Orientation (Chapter 6) | 5 | 65 | 227 |
-| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 34 | 86 | 130 |
+| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 34 | 85 | 130 |
+| Part III (wave 1): Fredholm theory in ep-groupoids, good systems, polyfolds | 6 | 7 | 2 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 4 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -64,8 +65,9 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 5.3.10 | `theorem_5_3_10_book_2021def` (Chapter5/MainTheoremsBookForm2021.lean) | V5.38 |
 | Thm 5.3.12 | `theorem_5_3_12_book_2021def` (Chapter5/MainTheoremsBookForm2021.lean) | V5.40 |
 | Prop 6.2.2 | `proposition_6_2_2_interval_2021def` (Chapter3/IndexAlongPathsInterval2021.lean) | V3.98 |
+| Thm 5.4.2 | `theorem_5_4_2` (Chapter5/P3B_BoundaryExtension2021.lean) | V5.89 |
 
-### Definition rows (87), in dependency order
+### Definition rows (91), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
@@ -111,6 +113,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V2.52 | §2.5 (preprint §2.4), proof of Proposition 2.5.20 (preprint 2.46), preprint p. 47 | `MChart.prod`, `MPolyfold.prod` |
 | V2.54 | §2.6 (preprint §2.5), Definition 2.6.1 (preprint 2.47), p. 65 (preprint p. 48) | `IsStrongBundleMap`, `IsStrongBundleRetraction`, `IsStrongBundleRetraction.baseRetraction`, `shiftFiber` |
 | V2.55 | §2.6 (preprint §2.5), Definition 2.6.2 (preprint 2.48) and the remarks after it, pp. 65–67 (preprint pp. 49–50) | `strongShiftOne` |
+| V2.56 | §2.6 (preprint §2.5), Definition 2.6.3 (preprint 2.49), p. 66 (preprint p. 50) | `IsScPlusSection` |
 | V2.57 | §2.6 (preprint §2.5), Definition 2.6.4 (preprint 2.50), pp. 67–68 (preprint pp. 51–52) | `IsBanachable`, `StrongBundleAtlas`, `StrongBundleChart`, `StrongBundleChart.Compatible` and 1 more |
 | V2.58 | §2.6 (preprint §2.5), Definition 2.6.5 (preprint 2.51) and the remarks after it, preprint p. 52 | `StrongBundle`, `StrongBundle.atlas0`, `StrongBundle.atlas1`, `StrongBundle.doubleLevel` and 4 more |
 | V2.64 | §2.6 (preprint §2.5), after Definition 2.6.5 (preprint 2.51), p. 68 (preprint p. 52) | `StrongBundle.One`, `StrongBundle.oneSet` |
@@ -136,6 +139,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V3.108 | §3.1, Definition 3.1.4 (preprint 3.4), p. 91 (preprint p. 64); §3.6, Definition 3.6.1 (preprint 3.48), p. 134 (preprint p. 109) | `IsFilling2021` |
 | V3.110 | §3.1, Definitions 3.1.11, p. 96, and 3.1.16, p. 97 (preprint 3.11, 3.14, pp. 69–70); §3.6, Definitions 3.6.3, 3.6.4, p. 135 (preprint 3.50, 3.51, p. 110) | `StrongBundle.IsScFredholmGerm2021`, `StrongBundle.IsScFredholmSection2021` |
 | V3.103 | §3.6, Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51), p. 135 (preprint p. 110); Definition 3.6.6 (preprint 3.53), p. 136 (preprint p. 111) | `StrongBundle.IsScFredholmGermTame`, `StrongBundle.IsScFredholmGermTame2021`, `StrongBundle.IsScFredholmSectionTame`, `StrongBundle.IsScFredholmSectionTame2021` and 1 more |
+| V3.130 | §3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11 | `StrongBundle.IsTameBundle` |
 | V4.1 | §4.1, Definition 4.1.1 (preprint 4.1), p. 175 (preprint p. 147) | `MChart.IsCornerChart`, `MPolyfold.HasCornerStructure`, `MPolyfold.HasCornerStructureOfDim`, `MPolyfold.cornerChartedSpace` |
 | V4.6 | §4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148) | `MPolyfold.toLevelOne` |
 | V4.9 | §4.1, Definition 4.1.4 (preprint 4.4), p. 176 (preprint p. 148) | `MPolyfold.IsScPlusRetractionOn` |
@@ -156,6 +160,8 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V5.23 | §5.3, Definition 5.3.7 (preprint 5.15), p. 218 (preprint p. 175) | `StrongBundle.IsTransversal` |
 | V5.29 | §5.3, Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175) (proof pp. 218–219 (preprint pp. 175–176)) | `StrongBundle.SolutionSetIsManifold` |
 | V5.31 | §5.3, Definition 5.3.9 (preprint 5.17), p. 220 (preprint p. 177) | `StrongBundle.IsGeneralPositionGerm`, `StrongBundleChart.linKer` |
+| V5.47 | §5.5 (preprint §5.4.2), Definition 5.5.1 (preprint 5.28), p. 229 (preprint p. 192) | `MPolyfold.AdmitsScPartitionsOfUnity`, `MPolyfold.IsScSmoothPartitionOfUnity` |
+| V5.88 | §5.4, Definition 5.4.1, p. 228 (2017: Definition 5.11; not in the preprint) | `IsScPlusOnFaceNear`, `StrongBundle.IsBoundaryScPlusSection`, `StrongBundle.boundarySupport` |
 
 <details><summary>80 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
@@ -377,14 +383,13 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 11.3.9 | `EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation` (Chapter11/BoundaryOrientationEquiv.lean) | V11.25 |
 | Thm 11.6.6 | `ProperCoveringHom.theorem_11_6_6` (Chapter11/CoveringEquivalenceTheorem.lean) | V11.39 |
 
-### Definition rows (86), in dependency order
+### Definition rows (85), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
 | V2.28 | §2.4 (preprint §2.3), Proposition 2.4.4 (preprint 2.24), p. 45 (preprint p. 31) | `MPolyfold.IsScDiffeoOn` |
 | V2.53 | §2.5 (preprint §2.4), Proposition 2.5.20 (preprint 2.46), pp. 63–64 (preprint pp. 46–47) | `MPolyfold.IsLocalScDiffeo`, `MPolyfold.fibredProduct` |
 | V2.78 | §2.5, Definition 2.5.18, p. 62, and Definition 2.5.19, p. 63 (new in the 2021 edition) | `MPolyfold.HasTameInducedStructure` |
-| V5.47 | §5.5 (preprint §5.4.2), Definition 5.5.1 (preprint 5.28), p. 229 (preprint p. 192) | `MPolyfold.AdmitsScPartitionsOfUnity`, `MPolyfold.IsScSmoothPartitionOfUnity` |
 | V7.1 | §7.1, Definition 7.1.1 (2017: 7.1) and the paragraph after it, pp. 287–288 (2017 pp. 225–226) | `GroupoidStr`, `GroupoidStr.IsSaturated`, `GroupoidStr.Isomorphic`, `GroupoidStr.Ob` and 6 more |
 | V7.2 | §7.1, Definition 7.1.2 (2017: 7.2), p. 288 (2017 p. 226) | `GroupoidStr.Isotropy` |
 | V7.3 | §7.1, Definition 7.1.3 (2017: 7.3), pp. 288 ff. (2017 pp. 226–227) | `EpGroupoid`, `IsScSmoothComp` |
@@ -517,6 +522,38 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter9/GapP3_K2_ZeroForms.lean: `BundledMPolyfold.zeroVal`, `EP.baseVal`, `EP.liftPt`, `EP.zeroFormEvalInv`, `EP.zeroLevelEval`, `EpGroupoid.SheetIntegration.comap`
 * Chapter9/OrientationBasic.lean: `MPolyfold.SubmanifoldOrientation.restrict`, `MPolyfold.SubmanifoldOrientation.tangent`
 * Chapter9/Tangent.lean: `EpGroupoid.SmoothCat.mor`, `EpGroupoid.SmoothCat.pt`, `EpGroupoid.grEval`, `EpGroupoid.instCategoryGrObj`, `MPolyfold.SubmanifoldData.tmap`
+
+</details>
+
+## Part III (wave 1): Fredholm theory in ep-groupoids, good systems, polyfolds
+
+### Statements
+
+| Book | Lean declaration | Comparison row |
+|---|---|---|
+| Thm 12.2.2 | `EpStrongBundle.theorem_12_2_2` (Chapter12/P3N_AuxNormEp.lean) | V12.4 |
+| Thm 12.4.2 | `EpStrongBundle.theorem_12_4_2` (Chapter12/P3S_CompactnessEp.lean) | V12.20 |
+| Thm 13.1.8 | `EpGroupoid.theorem_13_1_8` (Chapter13/P3G_GoodSystemExistence.lean) | V13.8 |
+| Prop 16.1.4 | `PolyfoldStructure.proposition_16_1_4` (Chapter16/P3Z_PolyfoldPartitions.lean) | V16.5 |
+| Lemma 16.1.13 | `PolyfoldStructure.lemma_16_1_13` (Chapter16/P3Z_PolyfoldStructure.lean) | V16.8 |
+| Lemma 16.1.19 | `PolyfoldStructure.lemma_16_1_19` (Chapter16/P3Z_PolyfoldStructure.lean) | V16.11 |
+
+### Definition rows (7), in dependency order
+
+| Row | Book | Lean declarations used by the statements |
+|---|---|---|
+| V7.7 | §7.1, Definition 7.1.5 (2017: 7.5), p. 290 (2017 p. 228) | `EpGroupoid.degIndexOrbit` |
+| V8.26 | §8.3, Definition 8.3.4 (2017: 8.7), pp. 379 ff. (2017 pp. 274–275) | `EpStrongBundle.IsFunctorialSection`, `EpStrongBundle.IsScFredholmSectionFunctor`, `EpStrongBundle.IsScSmoothSectionFunctor` |
+| V8.46 | §8.3, Definition 8.3.5, p. 379 (new in the 2021 edition) | `EpStrongBundle.IsAuxNorm` |
+| V12.19 | §12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9) | `EpStrongBundle.HasCompactSolutionSetEp`, `EpStrongBundle.IsProperFunctor`, `EpStrongBundle.IsProperLtInftyFunctor` |
+| V13.2 | §13.1, Definition 13.1.2, p. 600 (2017: Definition 13.1) | `EpGroupoid.GoodSystem`, `EpGroupoid.IsDiffeoComponent`, `EpGroupoid.NatNbhd`, `EpGroupoid.morBetween` |
+| V16.1 | §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1) | `PolyfoldStructure` |
+| V16.2 | §16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2) | `PolyfoldStructure.Equiv` |
+
+<details><summary>2 helper constants without a row of their own (accessors, coercions, instances)</summary>
+
+* Chapter13/P3G_GoodSystem.lean: `EpGroupoid.GoodSystem.U`
+* Chapter8/EpStrongBundle.lean: `EpStrongBundle.sectionPair`
 
 </details>
 

@@ -1,4 +1,4 @@
-# Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory*, Part I, in Lean 4
+# Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory*, Parts I–III, in Lean 4
 
 Part I of HWZ's book, *Basic Theory in M-Polyfolds* (the sc-calculus, retracts and M-polyfolds,
 strong bundles, sc-Fredholm sections, the implicit function theorems, the Fredholm package and
@@ -7,7 +7,8 @@ formalized against Mathlib with the same faithful layer as our formalizations of
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*,
 Chapters 7–11, is formalized, except part of the example of Remark 9.5.20 (its branched
-subgroupoid and integrals). The authoritative text is the
+subgroupoid and integrals). Part III, *Fredholm Theory in Polyfolds*, Chapters 12–16, is begun
+(wave 1 of 13 November 2026, below). The authoritative text is the
 Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names use the
@@ -33,7 +34,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 832 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 914 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -51,7 +52,7 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (13 November 2026)
+## Status (13 November 2026): Parts I–III
 
 * **Part I, Chapters 1–6, is formalized**, with Theorem 6.7.1 (preprint 6.43; the invariant `Ψ_(f,o)`)
   proved without hypotheses on the cobordism (below). Since the
@@ -182,15 +183,35 @@ GitHub displays it directly.
   the canonical measures and their effective versions by `|f|` (Theorems 11.4.1, 11.4.2, Remark
   11.4.3), and the boundary measures, with the text's hypotheses for every `n ≥ 1` since 13
   November 2026 (Theorems 11.4.4, 11.4.5; G.131 closed).
-* About 372,800 lines of Lean in 749 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (17,971 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* **Part III, Chapters 12–16, is begun** (wave 1, 13 November 2026; 33 files, 12,733 lines, in
+  `Polyfold/Chapter12/`, `Chapter13/`, `Chapter15/`, `Chapter16/` and `Chapter5/P3R_*`, `P3B_*`).
+  Part I prerequisites: the reflexive auxiliary norms and the reflexive local compactness of
+  §§5.1–5.2 (Definitions 5.1.4–5.2.6, Proposition 5.1.8, Theorem 5.2.8) and the ∂-extension
+  theorem 5.4.2, with weak sequential compactness in reflexive spaces. Chapter 12: sc-Fredholm
+  section functors, the existence of auxiliary norms (Theorem 12.2.2), continuous partitions of
+  unity, the good neighbourhood theorem, the extension of auxiliary norms from the boundary
+  (Theorem 12.2.7, its local step as a hypothesis, G.136), bump functions and sc⁺-section
+  functors (Theorems 12.3.2, 12.3.3), the local and equivariant extension from the boundary
+  (Proposition 12.3.7, Corollary 12.3.8), the three compactness notions (Theorem 12.4.2) and the
+  orientation bundle (§12.5, with Part I's hypotheses; G.138–G.140). Chapter 13: good systems of
+  neighbourhoods and their existence (Theorem 13.1.8), the bi-action and Proposition 13.1.9, and
+  the support, norm, symmetric structures and algebra of sc⁺-multisections at functor level
+  (decorations G.142). Chapter 15: the linearization `T(f, Λ)` is well defined (Theorem 15.1.1;
+  the functor property and the Fredholm summands G.144, G.145). Chapter 16: polyfold structures,
+  polyfolds, the invariance of bump functions, partitions of unity, tameness and the degeneracy
+  index (§16.1); the uniqueness sentence after Definition 16.1.2 and Remark 16.1.7 do not hold as
+  we read them (below, item 14) and are proved for an effective target. Chapter 14 is not begun.
+* About 387,000 lines of Lean in 782 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (18,686 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (886 items, each with
-  a verdict: same, restated, hypothesis made explicit, stronger, narrower, extra, or nothing to
-  formalize), with a gap list of what is not formalized and why (G.1–G.135). 26 items are narrower
-  than the text, each with its reason; 130 of the 135 gaps are closed, 3 have nothing to formalize,
-  and 2 remain, both in part: G.65 in Part I (families on `[0, 1]ⁿ`, read on `ℝⁿ`) and G.110 in
-  Part II (the example of Remark 9.5.20: its `Θ` and integrals).
+* **Every numbered item of Chapters 1–11, and of the parts of Chapters 12, 13, 15, 16 done so far,
+  is compared with its formal version** (969 items, each with a verdict: same, restated,
+  hypothesis made explicit, stronger, narrower, extra, or nothing to formalize), with a gap list of
+  what is not formalized and why (G.1–G.146). 40 items are narrower than the text, each with its
+  reason (14 of them in Part III wave 1); 130 of the 146 gaps are closed, 3 have nothing to
+  formalize, and 13 remain: G.65 in Part I (families on `[0, 1]ⁿ`, read on `ℝⁿ`) and G.110 in Part
+  II (the example of Remark 9.5.20: its `Θ` and integrals), both in part, and the eleven Part III
+  gaps G.136–G.146 of wave 1.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -204,7 +225,7 @@ GitHub displays it directly.
 
 | Document | What it is |
 |---|---|
-| `Exposition/ReviewerChecklist.md` | **Start here to review.** The statements and definitions a person has to check (Lean checks the rest), in four tiers: the Part I core, orientation, Part II, the tame boundary. |
+| `Exposition/ReviewerChecklist.md` | **Start here to review.** The statements and definitions a person has to check (Lean checks the rest), in five tiers: the Part I core, orientation, Part II, Part III (wave 1), the tame boundary. |
 | `Exposition/polyfold-beside-lean.html` | The comparison: the book's statement beside the formal one, in mathematical language, with the verdict and every difference listed. |
 | `Exposition/polyfold-signoff.html` | The sign-off list: one sentence per item to confirm or flag. Ticks are kept in your browser and can be exported as text. |
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |
@@ -327,6 +348,15 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     V11.6; Findings, Chapter 11, item 9). What is proved for every face structured ep-groupoid is
     that the intersection is the union of the faces of each that it contains
     (`IsEpFaceStructured.facesMeetInUnions`). Is "a union of faces" meant?
+14. **The sentence after Definition 16.1.2 and Remark 16.1.7** (pp. 707, 711, with pp. 709–710;
+    2017: Definition 16.2, Remark 16.1): that the generalized isomorphism between equivalent
+    polyfold structures is unique, as a consequence of (ZHOU), does not hold as we read it. The
+    trivial `ℤ/3`-ep-groupoid on `ℝ` satisfies (ZHOU) and has paracompact orbit space, so it is a
+    polyfold structure on `ℝ`, and the pair of item 12 gives two generalized isomorphisms with the
+    same orbit map (`PolyfoldStructure.not_uniqueness_16_1_2`, `not_remark_16_1_7`,
+    `Polyfold/Chapter16/P3Z_ZhouUniquenessCheck.lean`; V16.3, V16.7; Findings, Chapter 16, items
+    1, 2). Both hold for an effective target (`uniqueness_16_1_2_of_isEffective`,
+    `remark_16_1_7_of_isEffective`). Is an effectiveness hypothesis intended here as well?
 
 ## Open questions
 

@@ -656,6 +656,27 @@ each chapter lands)
     (`n = 2`, with LUC: `E8W.k2_hemisphere_stokes_eff`), half-circle (`n = 1`, `K2Arc.k2_arc_hypotheses`).
     Findings: Ch4 178, Ch6 137, 138, Ch9 120 (notes on 4.177, 6.45, 6.53, 6.54, 9.119, 11.50). `ProofByProof.md`
     Parts IV, VI, IX, XI updated; `checklist/mains.json` gains Theorem 6.7.1 and Theorems 9.5.15–9.5.18.
+23. **Part III wave 1** (2026-11-13). Nine agents (R, B, N, S, O, G, M, T, Z; notes `narrow/p3w1-*.md` in the lead's
+    scratchpad, plan `narrow/PART3-PLAN.md`). New Lean in 33 files, 12,733 lines (`Polyfold/Chapter5/P3R_*`,
+    `P3B_*`, `Chapter12/P3{B,N,S,O}_*`, `Chapter13/P3{G,M}_*`, `Chapter15/P3T_*`, `Chapter16/P3Z_*`), imported in
+    `Polyfold.lean` (764 lines); `Test.lean` blocks "Axioms: Part III wave 1 (2026-11-13), Chapter N" for N = 5, 12,
+    13, 15, 16, 663 theorems and 52 definitions; now 18,686, all on propext/Classical.choice/Quot.sound. No name
+    clashed. New report files `cmp/ch12.json`, `ch13.json`, `ch15.json`, `ch16.json` and `verification/ch12.md`,
+    `ch13.md`, `ch15.md`, `ch16.md`; Chapter 5 rows V5.77–V5.91. Rows: V12.1–V12.27, V13.1–V13.20, V15.1–V15.8,
+    V16.1–V16.13 (83 new rows with Chapter 5, 14 narrower). New gaps G.136–G.146, all open: G.136 (local step of
+    Theorem 12.2.7), G.137 (ep wrapper of Definition 12.3.6), G.138–G.140 (§12.5: last clause of Theorem 12.5.3,
+    continuity in Proposition 12.5.6 (⇐), Part I's `hbump` and tame germ data), G.141 (Q-properness in Theorem
+    13.1.7), G.142, G.143 (decorated multisections, the "no inverses" remark), G.144, G.145 (functor property and
+    Fredholm summands of `T(f, Λ)`), G.146 (metrizability of polyfolds, Smirnov). Readings: the pointwise bump
+    reading in Theorems 12.3.2 (2), 12.3.3; Proposition 15.1.3 for `x₀` not isolated (at an isolated point it does
+    not hold as we read it, a degenerate case); the uniqueness sentence after Definition 16.1.2 and Remark 16.1.7
+    do not hold as we read them (trivial `ℤ/3` on `ℝ`, which satisfies (ZHOU)), proved for an effective target
+    (README item 14; a candidate for the notes to the authors). Findings: Ch5 187–192, new sections Ch12 1–11,
+    Ch13 1–9, Ch15 1–4, Ch16 1–5. `BookConcordance.md` gains a Part III table (2017 numbers checked; the notes S and
+    M gave other 2017 numbers, still in the docstrings of `P3S_*`, `P3M_*`). `checklist/mains.json` gains Theorem
+    5.4.2 and a tier `partIII` (Theorems 12.2.2, 12.4.2, 13.1.8, Proposition 16.1.4, Lemmas 16.1.13, 16.1.19).
+    Builder scripts: Part III chapters V12, V13, V15, V16 (no V14 yet). Next: wave 2 (reflexive norms of §12.2,
+    Theorem 12.3.9, §12.4 rest, Theorem 12.5.7, §§13.3–13.5, Chapter 14, §§15.2–15.4, the rest of Chapter 16).
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

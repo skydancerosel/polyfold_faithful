@@ -1057,7 +1057,7 @@
     ]
    },
    "chips": [
-    "the step “$z \\in Z \\subset C$” does not hold as we read it"
+    "step “$z \\in Z \\subset C$”: not as read"
    ],
    "diff": [
     "$n + y \\in C$ from $n + y + z \\in C$ needs $-z \\in C$ ($C = [0, \\infty)$, $z = 1$, $n + y = -\\frac12$); true because $Z \\subseteq E_0 \\subseteq C \\cap (-C)$ at the corner of the centred chart (Findings, item 69)."
