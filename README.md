@@ -5,10 +5,9 @@ strong bundles, sc-Fredholm sections, the implicit function theorems, the Fredho
 orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
-([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
-under way: Chapters 7–11 are formalized, except §11.4 (integration up to equivalence) and, in
-§9.5, the integral of a form over a sheet (branched integration and Stokes' theorems are proved
-from their local inputs). The authoritative text is the
+([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*,
+Chapters 7–11, is formalized, except part of the example of Remark 9.5.20 (its branched
+subgroupoid and integrals). The authoritative text is the
 Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names use the
@@ -57,9 +56,13 @@ GitHub displays it directly.
 * **Part I, Chapters 1–6, is formalized**, with Theorem 6.7.1 (preprint 6.43; the invariant `Ψ_(f,o)`)
   proved without hypotheses on the cobordism (below). Since the
   Part I completion wave of 12 November 2026 every gap of Chapters 1–3 is closed, and of the 78 gaps of
-  Chapters 1–6 three remain open: the wedge product on `Ω*_∞(X, ∂X)` and the pull-back of forms on `∂X`
-  along general maps (G.80 in part), the sc-smooth contractibility of Proposition 6.6.3 (1) (G.61), and
-  families on `[0, 1]ⁿ` beyond Proposition 6.6.3 (3)–(4) and Lemmas 6.6.4–6.6.5 (G.65 in part). Three
+  Chapters 1–6 one remains open in part: families on `[0, 1]ⁿ` beyond Proposition 6.6.3 and Lemmas
+  6.6.4–6.6.5 (G.65 in part; since 13 November 2026 (1′) holds for paths on `[0, 1]` and `L` is a bundle
+  over `[0, 1]` for `n = 1`). Closed on 13 November 2026 (wave K): the wedge product on `Ω*_∞(X, ∂X)`,
+  with the product of the mapping cone of `j^*` (the text gives none; our choice), the pull-back of forms
+  on `∂X` along a general map being neither defined in the 2021 text nor used beyond Theorem 6.7.1, where
+  it is formalized (G.80); and Proposition 6.6.3 (1) in its 2021 wording, `U′ ⊂ U` sc-smoothly
+  contractible in `U` (G.61; the earlier reading, `U` itself contractible, was the preprint's). Three
   more have nothing to formalize: the text's open question after Proposition 4.2.3 (G.34; its settled
   sentence is proved), a remark on the literature (G.43), and preprint Theorem 5.27, which the 2021
   edition drops (G.49).
@@ -100,7 +103,7 @@ GitHub displays it directly.
   with the sign `(−1)^{ℓ+j+1}` for the text's bracket; with the printed sign it does not hold as we
   read it. The agreement of a form on `∂X` implies that of its `d` (so the forms on `∂X` are those of
   the text), and Theorem 4.4.7 holds with the sum over the faces of a face-structured submanifold
-  (G.37, G.39, G.40 closed; G.80 in part: the wedge product on `Ω*_∞(X, ∂X)`).
+  (G.37, G.39, G.40 closed; G.80 closed on 13 November 2026 with the wedge product on `Ω*_∞(X, ∂X)`).
 * **Theorem 6.7.1 (the invariant `Ψ_(f,o)` on `H*_dR(X, ∂X)`) and its case `∂X = ∅` are proved
   without hypotheses on the cobordism** (`theorem_6_7_1`, `theorem_6_7_1_noBoundary`,
   `Polyfold/Chapter6/Theorem671Final2021.lean`; restated; G.54 closed): the standing hypotheses are those of
@@ -137,11 +140,16 @@ GitHub displays it directly.
   9.5.13 hold for it, reading the text's "oriented, tame" as: near every point of the support an
   oriented tame structure describes the orientation (derived when there is no boundary); the unit
   circle in `ℝ²` witnesses the hypotheses (G.107). The `(n − 1)`-dimensional null sets of the
-  boundaries are Hausdorff null sets in the charts (G.108). The boundary measures of Theorems
-  9.5.15, 9.5.16 and Stokes' Theorems 9.5.17, 9.5.18 are proved under one added class condition
-  (the boundary sheets have finite integrals near the corners of the sheets), witnessed by a closed
-  hemisphere with nonempty boundary; that condition near corners, the case `n = 1` of the measure
-  form, and Remark 9.5.20 are open (G.109, G.110 in part).
+  boundaries are Hausdorff null sets in the charts (G.108). Since wave K (13 November 2026) the boundary
+  measures of Theorems 9.5.15, 9.5.16 and Stokes' Theorems 9.5.17, 9.5.18 are proved as printed,
+  for every `n ≥ 1` and with the text's hypotheses only (`EP.theorem_9_5_15` … `EP.theorem_9_5_18`,
+  the `_dim1` forms for `n = 1`): the finiteness of the integrals over the boundary sheets, which
+  the text uses tacitly, is derived near the corners from Part I's chart forms and toward the
+  frontier by comparing tangent spaces (G.109 closed). Witnesses with nonempty boundary: a closed
+  hemisphere (`n = 2`, also with LUC) and a closed half-circle (`n = 1`). Remark 9.5.20 is formalized
+  in part: its M-polyfold with dimension jumps `0 → 3 → 0`, the `ℤ₃`-action with LUC and the
+  effective isotropy `3` versus `1` of a boundary point read in `X` and in `∂X`; its `Θ` and
+  integrals are not (G.110 in part, for the remark only).
 * **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.3
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
   equivalences, the category of generalized maps and the orbit-space functor, strong bundle
@@ -172,17 +180,17 @@ GitHub displays it directly.
   intersection clause of Proposition 11.1.6 does not hold as we read it (below, item 13); its
   union form is proved. Since 13 November 2026 also §11.4: generalized isomorphisms transform
   the canonical measures and their effective versions by `|f|` (Theorems 11.4.1, 11.4.2, Remark
-  11.4.3), and the boundary measures under the class condition of Theorems 9.5.15, 9.5.16
-  (Theorems 11.4.4, 11.4.5; G.131 in part).
-* About 363,600 lines of Lean in 722 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (17,475 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  11.4.3), and the boundary measures, with the text's hypotheses for every `n ≥ 1` since 13
+  November 2026 (Theorems 11.4.4, 11.4.5; G.131 closed).
+* About 372,800 lines of Lean in 749 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (17,971 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of Chapters 1–11 is compared with its formal version** (886 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, extra, or nothing to
-  formalize), with a gap list of what is not formalized and why (G.1–G.135). 30 items are narrower
-  than the text, each with its reason; 126 of the 135 gaps are closed, 3 have nothing to formalize,
-  and 6 remain, all in part: G.61, G.65, G.80 in Part I, and in Part II G.109, G.110 (§9.5, the
-  class condition near corners, `n = 1`, Remark 9.5.20) and G.131 (§11.4, the same condition).
+  formalize), with a gap list of what is not formalized and why (G.1–G.135). 26 items are narrower
+  than the text, each with its reason; 130 of the 135 gaps are closed, 3 have nothing to formalize,
+  and 2 remain, both in part: G.65 in Part I (families on `[0, 1]ⁿ`, read on `ℝⁿ`) and G.110 in
+  Part II (the example of Remark 9.5.20: its `Θ` and integrals).
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -343,20 +351,20 @@ paracompact (`exists_epGroupoid_not_hasParacompactOrbitSpace`, `Polyfold/Chapter
 Chapter 7, item 152).
 
 Not formalized (by decision, see the gap list in the comparison): preprint Theorem 5.27 (in neither the 2017 nor
-the 2021 text), the wedge product on the relative complex `Ω*_∞(X, ∂X)` and the pull-back of forms on `∂X` along a
-general sc-smooth map (G.80 in part; the forms on an M-polyfold, `d`, the wedge product, the Poincaré lemmas, the
-pull-back, forms on `∂X`, the relative complex and Stokes' theorem are formalized), the sc-smooth contractibility of
-Proposition 6.6.3 (1) (G.61), the families on `[0, 1]ⁿ` beyond Proposition 6.6.3 (3)–(4) and Lemmas 6.6.4–6.6.5
-(G.65 in part), the sc-structure `W^{1+m,4}(Ω)` of the Sobolev remark after Theorem 5.5.5 for bounded domains other
+the 2021 text), the pull-back of forms on `∂X` along a general sc-smooth map, which the 2021 text neither defines nor
+uses beyond Theorem 6.7.1 (G.80 closed; the forms on an M-polyfold, `d`, the wedge product, also on `Ω*_∞(X, ∂X)`, the
+Poincaré lemmas, the pull-back, forms on `∂X`, the relative complex and Stokes' theorem are formalized), the preprint's
+form of Proposition 6.6.3 (1), `U` itself contractible (the 2021 form is proved, G.61 closed), the families on
+`[0, 1]ⁿ` beyond Proposition 6.6.3 and Lemmas 6.6.4–6.6.5, `L` over `[0, 1]ⁿ` for `n ≥ 2` and Remark 6.6.19 over
+`[0, 1] × X` (G.65 in part), the sc-structure `W^{1+m,4}(Ω)` of the Sobolev remark after Theorem 5.5.5 for bounded domains other
 than `(0, 1)` (G.51, closed for that domain). (Theorem 6.7.1 (preprint 6.43) is proved without hypotheses on the
 cobordism since 12 November 2026, `theorem_6_7_1`, G.54 closed.) Not formalized either: the infinite-dimensional examples of the applications (splicings; the
 weighted Sobolev scale of Example 1.1.3 is formalized). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
-Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Part II: in §9.5 the class condition of Theorems 9.5.15–9.5.18
-(finite integrals of the boundary sheets near the corners of the sheets; it needs the closed faces as
-submanifolds, estimated at 800–1,200 lines), the measure form of Stokes' theorem for `n = 1`, and the example
-of Remark 9.5.20 (an M-polyfold with dimension jumps `0 → 3 → 0`, estimated at 2,000–3,500 lines) (G.109,
-G.110 in part), and with them Theorems 11.4.4, 11.4.5 without the class condition (G.131 in part); the product
+Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Part II: in §9.5 the branched subgroupoid `Θ`, `∮_Θ̂ df` and the
+two boundary integrals of Remark 9.5.20 (its M-polyfold, the `ℤ₃`-action and the effective isotropy are formalized;
+estimated at 2,340–3,790 lines, the risks being sc-smooth partitions of unity on a `c₀` scale and tameness at the
+infinite-dimensional ends) (G.110 in part); the product
 `f·ω` of a form with a non-constant function in `Ω*_ep(X)` ((9.22) is proved through the evaluation).
 Also not formalized: Remark 9.1.10 for `Θ` of several dimensions; `W[1]` as an ep-groupoid (its orbit space
 is); the wedge product on `Ω*_{ep,∞}` as a graded algebra on the type (it is a DG subalgebra of Part I's);

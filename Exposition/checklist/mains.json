@@ -142,6 +142,10 @@
     [
      "Thm 6.6.18",
      "Polyfold.theorem_6_6_18"
+    ],
+    [
+     "Thm 6.7.1",
+     "Polyfold.theorem_6_7_1"
     ]
    ]
   },
@@ -208,6 +212,38 @@
     [
      "Thm 9.2.1",
      "Polyfold.EpGroupoid.theorem_9_2_1"
+    ],
+    [
+     "Thm 9.5.15",
+     "Polyfold.EP.theorem_9_5_15"
+    ],
+    [
+     "Thm 9.5.15",
+     "Polyfold.EP.theorem_9_5_15_dim1_all"
+    ],
+    [
+     "Thm 9.5.16",
+     "Polyfold.EP.theorem_9_5_16"
+    ],
+    [
+     "Thm 9.5.16",
+     "Polyfold.EP.theorem_9_5_16_dim1_all"
+    ],
+    [
+     "Thm 9.5.17",
+     "Polyfold.EP.theorem_9_5_17"
+    ],
+    [
+     "Thm 9.5.17",
+     "Polyfold.EP.theorem_9_5_17_dim1"
+    ],
+    [
+     "Thm 9.5.18",
+     "Polyfold.EP.theorem_9_5_18"
+    ],
+    [
+     "Thm 9.5.18",
+     "Polyfold.EP.theorem_9_5_18_dim1_isLUC"
     ],
     [
      "Thm 10.1.7",

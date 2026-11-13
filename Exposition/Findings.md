@@ -6616,6 +6616,27 @@ comparison items V4.80–V4.88; gap G.37 closed, G.39, G.40, G.80 in part.)
      (`isFaceStructured_of_forall_degIndex_eq_zero`) and for the quadrants (`isFaceStructured_quadrant`); whether it
      can be dropped is not examined. A compact tame M-polyfold has finitely many faces (`finite_setOf_isFace`).
      Status: **settled** (rows V4.87, V4.92, V4.95, V4.96; gap G.40 closed, gap G.80 in part).
+     (2026-11-13) The wedge product on `Ω*_∞(X, ∂X)` of (a) is formalized with the product of the mapping cone of
+     `j^*` (item 178; gap G.80 closed).
+
+178. **The product on `Ω*_∞(X, ∂X)`: the mapping cone of `j^*` (our choice; gap G.80 closed)** *(§4.4, p. 199)*
+     (2026-11-13). `Polyfold/Chapter4/GapP3_K4_BoundaryWedge.lean`, `GapP3_K4_RelWedge.lean`. The text calls
+     `Ω*_∞(X, ∂X) = Ω*_∞(X) ⊕ Ω*⁻¹_∞(∂X)` a differential algebra and gives no product. We take the product of the
+     mapping cone of `j^*`: `(ω, τ)(ω′, τ′) = (ω∧ω′, (−1)ᵏ j^*ω∧τ′)` for `(ω, τ)` of degree `k` (`relWedge`). With it
+     `d(ω, τ) = (dω, j^*ω − dτ)` is a derivation of degree +1 (`relD_relWedge`, `relGradedD_of_mul_of`), the product
+     is associative (`relWedge_assoc`, `relGraded_mul_assoc`), `⊕ₖ Ωᵏ_∞(X, ∂X)` is an associative non-unital ring
+     (`relGradedNonUnitalRing`), and the projection to `Ω*_∞(X)` is multiplicative (`relFst_relWedge`). `(1, 0)` is a
+     unit on the left only: `x·(1, 0) = (ω, 0)` (`relWedge_relOne`), and the product is not graded commutative;
+     relative cohomology has no unit in general either, so this is a property of the construction, not a reading of a
+     printed claim. For it, the wedge product of agreeing forms on `∂X` is agreeing and makes `Ω*_∞(∂X)` an
+     associative unital algebra with the Leibniz rule, and `j^*` is multiplicative (`agreeDFormsInftyWedge`,
+     `agreeDFormsInftyD_agreeDFormsInftyWedge`, `agreeDFormsInftyWedge_assoc`, `jStar_formsInftyWedge`). On the
+     pull-back of forms on `∂X`: the 2021 text of §4.4 (pp. 198–199) defines `f^*` for sc-smooth maps of M-polyfolds
+     and, on `∂X`, only `j^*`; Parts I–II pull forms on `∂X` back along a map only in the proof of Theorem 6.7.1 (p.
+     279), along `p₁` on the faces of the solution set `S_F`, and that is formalized (`faceAlongData`; Chapter 6, item
+     136). The pull-back along a general sc-smooth map of tame M-polyfolds is not formalized (estimate 600–1,500
+     lines); no statement of Parts I–II depends on it. No counterexample; nothing is found not to hold as we read it.
+     Status: **settled** (row V4.91; gap G.80 closed; completes item 177 (a)).
 
 ## Chapter 5 (The Fredholm package for M-polyfolds; Lean `Polyfold/Chapter5/`)
 
@@ -8008,6 +8029,9 @@ Found while formalizing Definition 6.2.1 (preprint 6.1) and §6.6 (preprint §6.
     `Φ(τ, t) = r((1 − ρ(τ)) φ(γ₀(σ(t))) + ρ(τ) φ(γ₁(σ(t))))` in the chart, with `σ` the identity
     near `[0, 1]` and taking values where both paths lie in `U` (the paths lie in `U` only on
     `[0, 1]`; `exists_contDiff_eq_id_near_Icc_mapsTo`) (gap G.61).
+    (2026-11-13) This item reads the preprint's (1). The 2021 text, as the 2017 one, prints (1) as "`U′ ⊂ U` is
+    sc-smoothly contractible in `U` to the point `x`", and that form is proved (`proposition_6_6_3_one`, item 137; gap
+    G.61 closed).
 46. **Proposition 6.6.3 (preprint 6.28): the sections are global, (3) is stated for families, and the smoothness of
     `x` is not used** *(book 2017: Proposition 6.12, p. 205)*. The sections of (3) and (4) are
     global sc⁺-sections of `ℝⁿ × X → Y`, made with bump functions, in place of sections over
@@ -8089,6 +8113,8 @@ Found while formalizing Definition 6.2.1 (preprint 6.1) and §6.6 (preprint §6.
     smooth transition function, with three homotopies whose edges are exact for all `t`
     (`push_eq_of_homotopy`). The neighbourhood is not shown to be sc-smoothly contractible (gap
     G.61).
+    (2026-11-13) In 2021 Theorem 6.6.11 (p. 272) asks for an open neighbourhood, without "contractible"; Proposition
+    6.6.3 (1) holds in its 2021 form (item 137).
 54. **Definition 6.6.12 (preprint 6.36) is read over a pair `V ⊆ U`** *(book 2017: Definition 6.10, p. 212, "open path
     connected", without "contractible")*. Since
     Proposition 6.6.3 (preprint 6.28) gives (1′), an orientable neighbourhood is `U` with the local propagation
@@ -8096,6 +8122,8 @@ Found while formalizing Definition 6.2.1 (preprint 6.1) and §6.6 (preprint §6.
     (`exists_nhds_scPath`); the continuous orientations live over `V_∞` and are preserved by the
     push-forwards along paths in `U` (`IsContinuousOrientation`). "An orientable neighborhood has
     precisely two continuous orientations" is `exists_two_isContinuousOrientation`.
+    (2026-11-13) Proposition 6.6.3 (1) in its 2021 form gives a `U′` contractible in `U` (item 137); the pair `V ⊆ U`
+    is kept, since what the push-forwards use is (1′).
 55. **The composition of paths on preprint p. 228 writes `ψ(β(s))` on `[1/2, 1]`, read as `ψ(β(s) − 1)`**
     *(book 2017: before Theorem 6.2, p. 213, the same wording)* *(book 2021: corrected to `ψ(β(s) − 1)`, before Theorem 6.6.13, p. 273)*. With `β([1/2, 1]) = [1, 2]`,
     `ψ(β(s))` leaves `[0, 1]`; the second piece is read as `ψ(β(s) − 1)` (possible misprint).
@@ -8630,6 +8658,39 @@ read it.
      (`CobordismRelativeFormsHyp`) would need a smooth extension across `t = 1/8` and is no longer used. No
      counterexample; nothing is found not to hold as we read it. Status: **settled** (rows V6.76, V6.77; gap G.54
      closed).
+
+137. **Proposition 6.6.3 (1): the 2021 wording, `U′ ⊂ U` contractible in `U`, holds (gap G.61 closed; a reading point
+     on item 45)** *(book 2021: Proposition 6.6.3 (1), p. 263; 2017: Proposition 6.12, p. 205; preprint 6.28, p. 220)*
+     (2026-11-13). `Polyfold/Chapter6/GapP3_K4_Contractible.lean`, `GapP3_K4_IntervalHomotopy.lean`. The 2021 text, as
+     the 2017 one, prints (1) with a second neighbourhood: "`U′ ⊂ U` is sc-smoothly contractible in `U` to the point
+     `x`". The reading of gap G.61 and item 45, (1) for `U` itself, is the preprint's wording; it is a reading point
+     on the preprint, not an item that does not hold. The 2021 form is proved for every smooth `x` and every open
+     `U ∋ x`: in a chart `φ` with retraction `r`, `H(t, y) = φ⁻¹ r(φ(x) + t(φ(y) − φ(x)))` on `U′ = φ⁻¹(B_ε(φ(x)))`,
+     with `ε` so small that `B_ε ∩ C` lies in the domain of `r` and `φ⁻¹ r(B_ε ∩ C) ⊆ U`; `H` is sc-smooth on the
+     product M-polyfold `[0, 1] × U′`, with `H(0, ·) = x`, `H(1, ·) = id` and `H(t, x) = x` (`IsScContraction`,
+     `exists_isScContraction`; with parameter ℝ, `exists_isScContractionRn`). The text's `r̂(t, y) = r(ty)` is this
+     map for `x = 0`. The smoothness of `x` is used: `φ(x)` must be a smooth point for the constant to be sc-smooth.
+     `proposition_6_6_3_one` states Proposition 6.6.3 as printed in 2021, with (1), (1′), (2), (3), (4) in one chart.
+     The preprint's "`U` contractible", which needs `r(V′) ⊆ V′`, is not formalized; nothing here shows that it fails.
+     In 2021, Theorem 6.6.11 (p. 272) asks only for an open neighbourhood and Definition 6.6.12 (p. 273) for an open
+     path-connected one (items 53, 54). No counterexample. Status: **settled** (row V6.32, now restated; gap G.61
+     closed).
+
+138. **Paths on `[0, 1]`: (1′) with homotopies on `[0, 1]²`, and `L` over `[0, 1]` (gap G.65 in part)** *(book 2021:
+     Proposition 6.6.3 and Lemma 6.6.5, pp. 263–265)* (2026-11-13).
+     `Polyfold/Chapter6/GapP3_K4_IntervalHomotopy.lean`, `GapP3_K4_SmoothLInterval.lean`. Two sc-smooth paths
+     `γ₀, γ₁ : [0, 1] → U` with the same end points are joined by the segment homotopy
+     `H(τ, t) = φ⁻¹ r(φγ₀(t) + τ(φγ₁(t) − φγ₀(t)))`, sc-smooth on the M-polyfold `[0, 1]²` (`unitSquarePolyfold`,
+     `exists_isScHomotopyI`). The parameter must stay in `[0, 1]`: outside it the segment leaves the partial quadrant
+     `C`; in the charts `t` and `1 − t` of `[0, 1]` the representative is `(v, a, b) ↦ r(a + s(v)(b − a))`
+     (`isScSmoothOn_chartSegment`). No reparametrization is needed: the edge conditions hold exactly, which is the
+     hypothesis of `orTransportI_eq_of_homotopy`. With (1) in its 2021 form this gives `proposition_6_6_3_interval`.
+     For a path (`n = 1`) the bundle `L` of Lemma 6.6.5 is a smooth vector bundle over Mathlib's manifold with
+     boundary `[0, 1]` itself, the pull-back along the `C^∞` inclusion (`lemma_6_6_5_smoothBundle_interval`,
+     `SmoothSubspaceFamily.comp`). Still read on ℝ (decision D2): `L` over `[0, 1]ⁿ` for `n ≥ 2` (Mathlib has no
+     manifold-with-corners structure on the cube; estimate 300–600 lines), the stabilized kernels for families with
+     sections over `[0, 1]ⁿ × X` (400–700 lines), and Remark 6.6.19 over `[0, 1] × X` (1,500–2,500 lines). Status:
+     **open** in part (rows V6.32, V6.34; gap G.65 in part; items 71, 102, 122, 124).
 
 ## Chapter 7 (Ep-groupoids; Lean `Polyfold/Chapter7/`)
 
@@ -11630,6 +11691,47 @@ Follow-up for the notes to the authors (2026-11-09).
      counterexample; nothing is found not to hold as we read it. Status: **settled** for gaps G.103, G.107, G.108
      (rows V9.36, V9.38, V9.52, V9.54–V9.57, V9.66, V9.69); gaps G.109, G.110 open in part (rows V9.67, V9.68,
      narrower).
+     (2026-11-13) The open points of (9) and the form with `μ^∂` for `n = 1` are settled by item 120 (gap G.109
+     closed; G.110 in part for Remark 9.5.20 only).
+
+120. **§9.5 completed: the boundary measures and Stokes' theorem with the text's hypotheses, `n = 1`, and Remark
+     9.5.20 in part (gap G.109 closed, G.110 in part)** *(Theorems 9.5.15–9.5.18, pp. 449–451; Remark 9.5.20, pp.
+     451–452)* (2026-11-13). `Polyfold/Chapter9/GapP3_K1_*.lean`, `GapP3_K2_*.lean`, `GapP3_K3_*.lean`. (1) *The class
+     condition near the corners.* Item 119 (9) recorded that the text integrates over `∂₁Mᵢ` without saying that these
+     integrals are finite near the corners of `Mᵢ`. This holds for every oriented tame structure, so the condition is
+     a tacit step, not an added hypothesis. Near a sheet's own corners, Part I's chart forms of `ω ∈ Ωᵐ_{ep,∞}` are
+     continuous up to the corners, and on a face set of a corner chart `|ev ω|` is `|det|` times the face pull-back,
+     integrable on the preimage of a compact set (`FormEval.boundaryStratum_inter_mem_msheets`, `abs_ev_faceFrame`,
+     `integrableOn_facePullback_of_isCompact`); a structure is shrunk into a closed neighbourhood, and `Mᵢ ∩ K` is
+     compact because `Mᵢ → U` is proper (`exists_restrict_boundary_mem_msheets`, `isCompact_M_inter`). Toward the
+     frontier of `U(x)`, `HasTameInducedStructure` does not give `d_{Mᵢ} = d_X`, and it is not needed, since `{d = 1}`
+     depends only on the tangent space: at each point of `∂₁Mᵢ` a sheet of another structure has the same tangent
+     space, by the null-set argument of Lemma 9.4.6 (`MPolyfold.k1_exists_tangent_eq`), so `∂₁Mᵢ` lies in finitely
+     many boundary sheets of good structures (`EP.boundarySheet_mem_msheets_of_loc`). Hence Theorems 9.5.15–9.5.18
+     hold for `n ≥ 2` with the text's hypotheses only, with the local formula for every structure
+     (`EP.theorem_9_5_15`, …, `EP.theorem_9_5_18`). (2) *`n = 1`.* The boundary sheets are finite sets of points;
+     `ω ∈ Ω⁰_{ep,∞}(X)` is read as a function on objects (`EP.zeroFormEval`), and `∫ ω|(∂₁Mᵢ, o)` over a finite set is
+     the signed sum `Σ ±ω(p)`, the reading of the text's integral in dimension 0 (`EP.finZeroFormIntegration`); Part
+     I's boundary integral of a 1-dimensional sheet is this value (`boundaryIntegral_eq_pointInteg`). Each `∂₁Mᵢ` is
+     finite by the covering argument of (1) (`EP.boundarySheet_finite_of_loc`), and Theorems 9.5.15–9.5.18 hold for
+     `n = 1` (`EP.theorem_9_5_15_dim1_all`, `EP.theorem_9_5_16_dim1_all`, `EP.theorem_9_5_17_dim1`,
+     `EP.theorem_9_5_18_dim1_isLUC`). (3) *Witnesses.* The trivial ep-groupoid of the closed upper hemisphere has LUC
+     (`E8W.e8w_isLUC`), so it witnesses Theorem 9.5.18 too (`E8W.k2_hemisphere_stokes_eff`); for `n = 1` the closed
+     right half-circle in `[0, ∞) × ℝ`, a tame 1-dimensional sub-M-polyfold whose boundary is its two end points,
+     satisfies every hypothesis with `supp ∂Θ ≠ ∅` (`K2Arc.k2_arc_hypotheses`, `K2Arc.k2_arc_stokes`,
+     `K2Arc.k2_arc_stokes_eff`). Neither witness has corners, branching or nontrivial isotropy. (4) *Remark 9.5.20.*
+     In finite dimensions the remark's phenomenon cannot occur: a finite group fixing a boundary point and acting
+     trivially on the face acts trivially on the inward normal, so `X` must be infinite-dimensional at `(±1, 0)`. "One
+     can equip `X` with an M-polyfold structure" is realized by our choice of one chart onto an sc-smooth retract of a
+     partial quadrant in `ℝ² ⊕ c₀ ⊕ c₀` (the rank-one family of Remark 4.3 over the quarter circle); with it
+     `∂X = {(±1, 0)}` (`K3.boundary_eq`, the lower bound by Theorem 2.4.12), `ℤ₃ ⋉ X` has LUC, `♯G^eff = 3` on `M`,
+     and at a boundary point the isotropy group is `ℤ₃` read in `X` and in the sub-ep-groupoid `∂X`, with
+     `♯G^eff_x = 3` in `X` and `1` in `∂X` (`K3.remark_9_5_20_effIsotropy`): these claims of the remark hold as we
+     read them. Not formalized: `Θ`, `∮_Θ̂ df = ⅓(φ(1) − φ(−1))` and the two boundary integrals (estimate 2,340–3,790
+     lines; the main risks are sc-smooth partitions of unity on a `c₀` scale, since Corollary 7.6.6 needs a Hilbert
+     `E₀`, and the tameness of `M` at the infinite-dimensional ends), and that `∂X` is a smooth submanifold. No
+     counterexample; nothing is found not to hold as we read it. Status: **settled** for Theorems 9.5.15–9.5.18 (rows
+     V9.67, V9.68, restated; gap G.109 closed); Remark 9.5.20 **open** in part (gap G.110 in part).
 
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
@@ -12519,7 +12621,7 @@ Found while formalizing the rest of §11.3, Lemma 11.3.4 to Theorem 11.3.9 (2026
 
 Found while reading §11.4 (2026-11-08).
 
-50. **§11.4: integration up to equivalence (formalized since 2026-11-13, Theorems 11.4.4, 11.4.5 in part)** *(Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017:
+50. **§11.4: integration up to equivalence (formalized since 2026-11-13, Theorems 11.4.4, 11.4.5 completed 2026-11-13)** *(Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017:
     Theorems 11.8, 11.9 and Remark 11.3, pp. 396–399); Theorems 11.4.2 and 11.4.5 new in the 2021 edition)*. The
     transformation of the canonical measures and boundary measures under generalized isomorphisms needs
     sc-differential forms (G.74, G.80), branched integration and the boundary measures (G.107–G.109), and the
@@ -12554,6 +12656,14 @@ Found while reading §11.4 (2026-11-08).
     hemisphere, `E8W.e8w_hcov` with `EP.hcovB_of_hcovS`) and need `n ≥ 2`. Status: Theorems 11.4.1, 11.4.2 and Remark
     11.4.3 **settled**; Theorems 11.4.4 and 11.4.5 **in part** (the class condition near the corners of the sheets,
     Chapter 9 gap G.109, and `n = 1` are open) (gap G.131 in part).
+    (2026-11-13) Wave K: Theorems 11.4.4 and 11.4.5 hold with the text's hypotheses only, for every `n ≥ 1`. For
+    `n ≥ 2` the class hypothesis is derived (Chapter 9, item 120): `EPLoc.theorem_11_4_4_pull_loc`, `_push_loc`,
+    `EPLoc.theorem_11_4_5_pull_loc`, `_push_loc`, with the measures of Theorems 9.5.15/9.5.16
+    (`EP.boundaryMeasure_eq`). For `n = 1` the boundary measure, a signed sum over the boundary points, is transported
+    along equivalences, spans and generalized isomorphisms: a boundary point moves to its image with the same value of
+    the 0-form (`EP.zeroFormEval_epFormsInftyPullback`) and the same orientation sign (`boundarySheetSum_move_dim1`;
+    `EPLoc.theorem_11_4_4_pull_dim1`, `_push_dim1`, `EPLoc.theorem_11_4_5_pull_dim1`, `_push_dim1`). Status:
+    **settled** (row V11.29, restated; gap G.131 closed).
 
 Found while formalizing §11.5 (2026-11-08).
 

@@ -78,7 +78,7 @@ CHAPTERS = [
            'Part II has no 2014 preprint): branched ep⁺-subgroupoids and local branching structures, the tangent and '
            'the boundary, good points, orientations, the geometry of local branching structures, sets of measure '
            'zero and the canonical σ-algebras, branched integration (Theorems 9.5.4, 9.5.5) and Stokes’ theorems '
-           '(Theorems 9.5.15–9.5.18 under an added class condition on the boundary sheets; Remark 9.5.20 not formalized)'),
+           '(Theorems 9.5.15–9.5.18 with the text’s hypotheses, every n ≥ 1; Remark 9.5.20 in part)'),
     ('V10', 'Part II, Chapter 10', 'HWZ Part II, Chapter 10 §§10.1–10.6, pp. 461–520 (2017 Chapter 10, pp. 333–374; '
             'Part II has no 2014 preprint): equivalences of ep-groupoids and natural equivalences, the weak fibred '
             'product, localization at the system of equivalences and generalized maps, strong bundle equivalences, '
@@ -86,8 +86,7 @@ CHAPTERS = [
     ('V11', 'Part II, Chapter 11', 'HWZ Part II, Chapter 11 §§11.1–11.6, pp. 521–566 (2017 Chapter 11, pp. 375–416; '
             'Part II has no 2014 preprint): the tangent functor and faces up to equivalence, branched '
             'ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and '
-            'equivalences, sc-differential forms (§11.2) and integration up to equivalence (§11.4; Theorems 11.4.4, 11.4.5 '
-            'under the class condition of Theorems 9.5.15, 9.5.16)'),
+            'equivalences, sc-differential forms (§11.2) and integration up to equivalence (§11.4)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

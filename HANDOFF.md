@@ -639,6 +639,23 @@ each chapter lands)
     Chapter 9 files. `Exposition/Chapter10.md` and `ProofByProof.md` (§X.25, V10.61) updated for G.122, G.124,
     G.126. Left: the class condition near corners, `m = 0`, Remark 9.5.20; `f·ω` for non-constant `f`; a LUC
     witness for Theorem 9.5.18; the Ch9/Ch11 parts of `ProofByProof.md` (§9.5, §11.2, §11.4) predate the wave.
+22. **Corner wave K** (2026-11-13). New Lean in 27 files, 8,691 lines (`Polyfold/Chapter4/GapP3_K4_*`,
+    `Chapter6/GapP3_K4_*`, `Chapter9/GapP3_K1_*`, `GapP3_K2_*`, `GapP3_K3_*`, `Chapter11/GapP3_K1_*`, `GapP3_K2_*`;
+    notes `narrow/p3-K1.md` … `p3-K4.md` in the lead's scratchpad), imported in `Polyfold.lean` (731 imports);
+    `Test.lean` block "Axioms: wave K (2026-11-13)", 480 theorems and 16 definitions; now 17,971, all on
+    propext/Classical.choice/Quot.sound. No name clashed. Closed: G.109 (Theorems 9.5.15, 9.5.16 as stated, every
+    `n ≥ 1`, local formula for every structure: the class condition is derived, near the corners by an estimate in
+    the corner charts, toward the frontier by tangent comparison; `n = 1` with 0-forms summed over the finite
+    boundary sheets), G.131 (Theorems 11.4.4, 11.4.5 with the text's hypotheses, every `n ≥ 1`), G.80 (the wedge on
+    `Ω*_∞(X, ∂X)` as the mapping cone of `j^*`, our choice; the general pull-back on `∂X` is not in the 2021 text),
+    G.61 (Proposition 6.6.3 (1) in the 2021 wording `U′ ⊂ U` contractible in `U`; "U contractible" was the
+    preprint's). In part: G.110 for Remark 9.5.20 only (its M-polyfold, `ℤ₃ ⋉ X` with LUC, `♯G^eff` 3 vs 1 formalized;
+    `Θ` and the integrals not, 2,340–3,790 lines), G.65 ((1′) on `[0, 1]`, `L` over `[0, 1]`; still on ℝ: `L` over
+    `[0, 1]ⁿ`, `n ≥ 2`, stabilized kernels, Remark 6.6.19). Verdicts: V9.67, V9.68, V11.29, V6.32 restated. Now 886
+    rows, 26 narrower, 130 of 135 gaps closed (open in part: G.65, G.110). Witnesses with `∂S ≠ ∅`: hemisphere
+    (`n = 2`, with LUC: `E8W.k2_hemisphere_stokes_eff`), half-circle (`n = 1`, `K2Arc.k2_arc_hypotheses`).
+    Findings: Ch4 178, Ch6 137, 138, Ch9 120 (notes on 4.177, 6.45, 6.53, 6.54, 9.119, 11.50). `ProofByProof.md`
+    Parts IV, VI, IX, XI updated; `checklist/mains.json` gains Theorem 6.7.1 and Theorems 9.5.15–9.5.18.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

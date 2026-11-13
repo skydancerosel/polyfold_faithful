@@ -1057,7 +1057,7 @@
     ]
    },
    "chips": [
-    "the step “$z \\in Z \\subset C$” is false"
+    "the step “$z \\in Z \\subset C$” does not hold as we read it"
    ],
    "diff": [
     "$n + y \\in C$ from $n + y + z \\in C$ needs $-z \\in C$ ($C = [0, \\infty)$, $z = 1$, $n + y = -\\frac12$); true because $Z \\subseteq E_0 \\subseteq C \\cap (-C)$ at the corner of the centred chart (Findings, item 69)."
@@ -2440,7 +2440,7 @@
     "statement": "$\\Omega^*_\\infty(X, \\partial X) = \\Omega^*_\\infty(X) \\oplus \\Omega^{*-1}_\\infty(\\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$; one easily verifies $d \\circ d = 0$; the cohomology is $H^*_{dR}(X, \\partial X)$."
    },
    "lean": {
-    "statement": "`RelForms hP k` is $\\Omega^0_\\infty(X)$ for $k = 0$ and $\\Omega^{k}_\\infty(X) \\times \\Omega^{k-1}_\\infty(\\partial X)$ otherwise. `relD` is $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$ ($\\omega \\mapsto (d\\omega, j^*\\omega)$ in degree 0). `relD_comp_relD`: $d \\circ d = 0$, from $d^2 = 0$ on $X$ and $\\partial X$ and $dj^* = j^*d$. `relDeRham hP k` $= \\ker d/\\operatorname{im} d$, a real vector space, with `relDeRhamMk_eq_iff`. `relDeRhamEquivOfNoBoundary`: for $\\partial X = \\emptyset$, $bX = \\emptyset$ and $H^k_{dR}(X, \\partial X) \\cong H^k_{sc}(X)$.",
+    "statement": "`RelForms hP k` is $\\Omega^0_\\infty(X)$ for $k = 0$ and $\\Omega^{k}_\\infty(X) \\times \\Omega^{k-1}_\\infty(\\partial X)$ otherwise. `relD` is $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$ ($\\omega \\mapsto (d\\omega, j^*\\omega)$ in degree 0). `relD_comp_relD`: $d \\circ d = 0$, from $d^2 = 0$ on $X$ and $\\partial X$ and $dj^* = j^*d$. `relDeRham hP k` $= \\ker d/\\operatorname{im} d$, a real vector space, with `relDeRhamMk_eq_iff`. `relDeRhamEquivOfNoBoundary`: for $\\partial X = \\emptyset$, $bX = \\emptyset$ and $H^k_{dR}(X, \\partial X) \\cong H^k_{sc}(X)$. (2026-11-13) `relWedge` (the product of the mapping cone of $j^*$), `relD_relWedge` ($d$ is a derivation), `relWedge_assoc`, `relCast_relWedge_relOne` (unit on the left), `relGradedNonUnitalRing`, `relGradedD_of_mul_of`, `relGradedD_comp_self`: $\\Omega^*_\\infty(X, \\partial X)$ is a differential algebra.",
     "decls": [
      "Chapter4/BoundaryForms2021 · MPolyfold.RelForms",
      "Chapter4/BoundaryForms2021 · MPolyfold.relD",
@@ -2449,16 +2449,24 @@
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRham",
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk",
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk_eq_iff",
-     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamEquivOfNoBoundary"
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamEquivOfNoBoundary",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relD_relWedge",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_assoc",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_of_mul_of",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedNonUnitalRing",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relCast_relWedge_relOne",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_relOne",
+     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_comp_self"
     ]
    },
    "chips": [
     "degree by degree",
     "$d \\circ d = 0$ proved (text: easy)",
-    "relative wedge: not formalized"
+    "relative wedge: mapping cone (our choice)"
    ],
    "diff": [
-    "The text writes the graded sum; it is read degree by degree, with $\\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is formalized on $\\Omega^*_\\infty(X)$ (`formsInftyWedge`, V4.87) but not on the relative complex (G.80). The identification for $\\partial X = \\emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\\partial X$ are those of V4.90 (Findings, Chapter 4, item 173)."
+    "The text writes the graded sum; it is read degree by degree, with $\\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is formalized on $\\Omega^*_\\infty(X)$ (`formsInftyWedge`, V4.87) and on the relative complex with the product $(\\omega, \\tau)(\\omega', \\tau') = (\\omega\\wedge\\omega', (-1)^k j^*\\omega\\wedge\\tau')$, which the text does not give (our choice); it has a unit on the left only (G.80, closed). The identification for $\\partial X = \\emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\\partial X$ are those of V4.90 (Findings, Chapter 4, item 173)."
    ]
   },
   {
@@ -2870,7 +2878,7 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Formalized in part** (2026-11-09, 2026-11-12; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners, and Theorem 4.4.7 with the sum over the faces (gap G.40, closed; V4.92). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\\Omega^k(X^i)$ and on $\\Omega^k_\\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\\int_{\\partial S} j^*\\omega = \\int_{\\partial S} \\omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\\int_{\\partial M} d\\tau = 0$ (G.40); on a product end $(a, b) \\times S$ of $S' \\subseteq \\mathbb R^1 \\times X$, the restriction of $p_1^*\\omega$ is the pull-back of $\\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). (2026-11-12) Also formalized: the wedge product of sc-forms, read classically as $(a\\wedge b)(v) = (k!\\,l!)^{-1}\\sum_\\sigma \\operatorname{sign}\\sigma\\, a(v_{\\sigma(1..k)})\\,b(v_{\\sigma(k+1..k+l)})$ since the text uses it without a definition (`formWedge`, `formsInftyWedge`): it is bilinear, associative, graded commutative and unital, and satisfies the Leibniz rule (`extD_formWedge`, `formsInftyD_formsInftyWedge`); $\\Omega^*_\\infty(X) = \\bigoplus_k\\Omega^k_\\infty(X)$ is thereby a graded $\\mathbb R$-algebra (`formsInftyGAlgebra`) on which $d$ is a derivation of degree $+1$ with $d^2 = 0$ (`formsInftyGradedD_of_mul_of`), the graded differential algebra of p. 198, and $f^*$ is a morphism of graded algebras (V4.87, V4.89); sc-forms on open subsets, with the restrictions $\\Omega^k(X) \\to \\Omega^k(U)$ and $\\Omega^k_\\infty(X) \\to \\Omega^k_\\infty(U)$ commuting with $d$ (`formRestrict`, `formsInftyResOpen`) and \"$[\\omega] = [\\tau]$ on $V$\" of (4.7) (`FormsInftyEqOn`, `formsInftyEqOn_of_iff`); the Poincaré Lemma 4.4.8 (`lemma_4_4_8`, V4.95) and its local form Lemma 4.5.2 for a convex relatively open $U \\subseteq C$ (`hasPoincare_relOpen_of_zero_mem`, `lemma_4_5_2`, V4.96), with the homotopy operator $\\tau(y)(v) = \\int_0^1 t^k\\,\\omega(c + t(y-c))(y-c, v)\\,dt$ about a smooth centre $c$ ($c = 0$ in the text; Lemma 4.4.8 needs a general one, since $B_\\delta(x) \\cap C$ need not contain $0$), sc-smooth as a parametric integral (`isScSmooth_intervalIntegral`); the agreement of $d\\tau$ for forms $\\tau$ on $\\partial X$ that agree (V4.90); the pull-back of forms on $\\partial X$ to the faces of a finite-dimensional sub-M-polyfold $S$ of a second tame M-polyfold along an sc-smooth $G : S \\to X$ with $d_S = d_X \\circ G$, with $d$ commuting and $(G^*\\eta)_S$ extending $(G^*j^*\\eta)|_{\\partial S}$ (`faceAlongData`, `faceAlongData_formsD`, `isExtendedBy_faceAlongData_formsPullback`), the case $G = p_1$ used for Theorem 6.7.1 (gap G.54). **Not formalized**: the wedge product on $\\Omega^*_\\infty(X, \\partial X)$, so that complex is formalized as a graded vector space with $d$ (V4.91); the pull-back of forms on $\\partial X$ along a general sc-smooth map of tame M-polyfolds, beyond the faces of finite-dimensional sub-M-polyfolds above (Findings, Chapter 4, items 158, 167–173, 177).",
+   "instead": "**Formalized** (2026-11-09, 2026-11-12, 2026-11-13; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners, and Theorem 4.4.7 with the sum over the faces (gap G.40, closed; V4.92). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\\Omega^k(X^i)$ and on $\\Omega^k_\\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\\int_{\\partial S} j^*\\omega = \\int_{\\partial S} \\omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\\int_{\\partial M} d\\tau = 0$ (G.40); on a product end $(a, b) \\times S$ of $S' \\subseteq \\mathbb R^1 \\times X$, the restriction of $p_1^*\\omega$ is the pull-back of $\\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). (2026-11-12) Also formalized: the wedge product of sc-forms, read classically as $(a\\wedge b)(v) = (k!\\,l!)^{-1}\\sum_\\sigma \\operatorname{sign}\\sigma\\, a(v_{\\sigma(1..k)})\\,b(v_{\\sigma(k+1..k+l)})$ since the text uses it without a definition (`formWedge`, `formsInftyWedge`): it is bilinear, associative, graded commutative and unital, and satisfies the Leibniz rule (`extD_formWedge`, `formsInftyD_formsInftyWedge`); $\\Omega^*_\\infty(X) = \\bigoplus_k\\Omega^k_\\infty(X)$ is thereby a graded $\\mathbb R$-algebra (`formsInftyGAlgebra`) on which $d$ is a derivation of degree $+1$ with $d^2 = 0$ (`formsInftyGradedD_of_mul_of`), the graded differential algebra of p. 198, and $f^*$ is a morphism of graded algebras (V4.87, V4.89); sc-forms on open subsets, with the restrictions $\\Omega^k(X) \\to \\Omega^k(U)$ and $\\Omega^k_\\infty(X) \\to \\Omega^k_\\infty(U)$ commuting with $d$ (`formRestrict`, `formsInftyResOpen`) and \"$[\\omega] = [\\tau]$ on $V$\" of (4.7) (`FormsInftyEqOn`, `formsInftyEqOn_of_iff`); the Poincaré Lemma 4.4.8 (`lemma_4_4_8`, V4.95) and its local form Lemma 4.5.2 for a convex relatively open $U \\subseteq C$ (`hasPoincare_relOpen_of_zero_mem`, `lemma_4_5_2`, V4.96), with the homotopy operator $\\tau(y)(v) = \\int_0^1 t^k\\,\\omega(c + t(y-c))(y-c, v)\\,dt$ about a smooth centre $c$ ($c = 0$ in the text; Lemma 4.4.8 needs a general one, since $B_\\delta(x) \\cap C$ need not contain $0$), sc-smooth as a parametric integral (`isScSmooth_intervalIntegral`); the agreement of $d\\tau$ for forms $\\tau$ on $\\partial X$ that agree (V4.90); the pull-back of forms on $\\partial X$ to the faces of a finite-dimensional sub-M-polyfold $S$ of a second tame M-polyfold along an sc-smooth $G : S \\to X$ with $d_S = d_X \\circ G$, with $d$ commuting and $(G^*\\eta)_S$ extending $(G^*j^*\\eta)|_{\\partial S}$ (`faceAlongData`, `faceAlongData_formsD`, `isExtendedBy_faceAlongData_formsPullback`), the case $G = p_1$ used for Theorem 6.7.1 (gap G.54). (2026-11-13; `Chapter4/GapP3_K4_BoundaryWedge.lean`, `GapP3_K4_RelWedge.lean`) The wedge product on the relative complex is formalized, so $\\Omega^*_\\infty(X, \\partial X)$ is a differential algebra. On the forms on $\\partial X$: the wedge product of agreeing forms is agreeing, and on $\\Omega^*_\\infty(\\partial X)$ it is bilinear, associative and unital with the Leibniz rule (`agreeDFormsInftyWedge`, `agreeDFormsInftyD_agreeDFormsInftyWedge`, `agreeDFormsInftyWedge_assoc`); $j^*$ is multiplicative (`jStar_formsInftyWedge`). On $\\Omega^*_\\infty(X, \\partial X)$ the text gives no product; our choice is the product of the mapping cone of $j^*$, $(\\omega, \\tau)(\\omega', \\tau') = (\\omega\\wedge\\omega', (-1)^k j^*\\omega\\wedge\\tau')$ for $(\\omega, \\tau)$ of degree $k$ (`relWedge`): $d$ is a derivation of degree $+1$ (`relD_relWedge`, `relGradedD_of_mul_of`) with $d^2 = 0$ (`relGradedD_comp_self`), the product is associative (`relWedge_assoc`, `relGraded_mul_assoc`), so $\\bigoplus_k\\Omega^k_\\infty(X, \\partial X)$ is an associative ring (`relGradedNonUnitalRing`), and $(1, 0)$ is a unit on the left (`relCast_relWedge_relOne`) but not on the right (`relWedge_relOne`); the projection to $\\Omega^*_\\infty(X)$ is multiplicative (`relFst_relWedge`). The 2021 text of §4.4 (pp. 198–199) defines $f^*$ for sc-smooth maps of M-polyfolds (formalized, V4.89) and, on $\\partial X$, only $j^*$ for the inclusion; it does not define a pull-back of forms on $\\partial X$ along a general sc-smooth map. Such a pull-back is used only in the proof of Theorem 6.7.1, for $p_1$ on the faces of the solution set $S_F \\subseteq \\partial X\\times[0, 1]$, and that use is formalized (`faceAlongData` above, gap G.54); the general pull-back is not formalized and no statement of Parts I–II depends on it (Findings, Chapter 4, items 158, 167–173, 177, 178).",
    "decls": [
     "Chapter4/ScForms2021 · MPolyfold.scForms",
     "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
@@ -2904,7 +2912,31 @@
     "Chapter4/BoundaryFormsPullback2021 · MPolyfold.faceAlongData",
     "Chapter4/BoundaryFormsPullback2021 · MPolyfold.faceAlongData_formsD",
     "Chapter4/BoundaryFormsPullback2021 · MPolyfold.isExtendedBy_faceAlongData_formsPullback",
-    "Chapter4/A3BoundaryForms2021b · MPolyfold.isFaceCompatible_extD"
+    "Chapter4/A3BoundaryForms2021b · MPolyfold.isFaceCompatible_extD",
+    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge",
+    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relD_relWedge",
+    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_assoc",
+    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_of_mul_of",
+    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedNonUnitalRing",
+    "Chapter4/GapP3_K4_BoundaryWedge · BundledMPolyfold.agreeDFormsInftyWedge",
+    "Chapter4/GapP3_K4_BoundaryWedge · BundledMPolyfold.agreeDFormsInftyD_agreeDFormsInftyWedge",
+    "Chapter4/GapP3_K4_BoundaryWedge · MPolyfold.jStar_formsInftyWedge"
+   ],
+   "formalized": [
+    "V4.80",
+    "V4.81",
+    "V4.82",
+    "V4.84",
+    "V4.85",
+    "V4.86",
+    "V4.87",
+    "V4.88",
+    "V4.89",
+    "V4.90",
+    "V4.91",
+    "V4.92",
+    "V4.95",
+    "V4.96"
    ]
   },
   {

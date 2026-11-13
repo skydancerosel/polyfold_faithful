@@ -955,7 +955,7 @@
    "chips": [
     "as stated (Thm 9.5.4/9.5.5 measures)",
     "$|f|$ preserves $L$: proved",
-    "G.131 in part"
+    "G.131 closed"
    ],
    "diff": [
     "The statement is the text's, with two choices of data. (1) 'Oriented, tame' is read as in Theorem 9.5.4's Lean form: a structure with sheets in the class of the integrated sheets that describes $\\hat T_\\Theta$ (`FormEval.hcov_of_loc` gives it from the plain oriented tame branching structure; gap G.107 closed). (2) $\\hat\\Theta$ satisfies `HasIndependentTangentSums`, the hypothesis under which Theorem 11.3.5 (Lean) transports orientations; it holds for every $\\Theta$ (`hasIndependentTangentSums`). $f_*$ is computed on the chosen representative `rep f`, as in Chapter 11's `EPLoc.pushTheta`/`pushSection`. For Theorem 11.4.2 the covering hypothesis is Theorem 9.5.5's Lean form (each structure's representation has the property of Definition 7.2.18); under the book's LUC hypothesis this holds for every natural representation (`isLUC_iff_forall_naturalRep`). That $|f|$ maps $\\mathcal L$ onto $\\mathcal L$, used by the text without comment, is proved (`measurable_suppMap`, `measurable_suppInv`; Findings, Chapter 11, item 50)."
@@ -981,7 +981,7 @@
    "chips": [
     "as stated",
     "measures on $Z$",
-    "G.131 in part"
+    "G.131 closed"
    ],
    "diff": [
     "The text's 'obvious consequence' is stated for the measures on $Z$; $\\beta$, $\\beta'$ need not be homeomorphisms for this. Nothing else differs (Findings, Chapter 11, item 50)."
@@ -990,14 +990,14 @@
   {
    "id": "V11.29",
    "title": "Theorems 11.4.4 and 11.4.5 (2017: Theorem 11.9), boundary measures",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§11.4, Theorem 11.4.4, p. 545 (2017: Theorem 11.9, p. 397), and Theorem 11.4.5, p. 546 (new in the 2021 edition)",
     "page": 545,
     "statement": "The canonical boundary measures, and in Theorem 11.4.5 the effective ones, transform by $|f|$ as in Theorem 11.4.1."
    },
    "lean": {
-    "statement": "Theorem 11.4.4 for a generalized isomorphism $f$ (`EPLoc.theorem_11_4_4_pull`, `EPLoc.theorem_11_4_4_push`): on $|\\mathrm{supp}(\\partial\\Theta)|$, $|f|(K) \\in \\mathcal L(\\partial S)$, $\\mu^{\\partial\\hat\\Theta}_\\omega(K) = \\mu^{\\partial f_*\\hat\\Theta}_{f_*\\omega}(|f|(K))$ and $\\mu^{\\partial f^*\\hat\\Theta'}_{f^*\\omega'}(K) = \\mu^{\\partial\\hat\\Theta'}_{\\omega'}(|f|(K))$, for forms of degree $n-1 = m$ in $\\Omega^{m}_{ep,\\infty}$, $m > 0$. The measures are those of Theorem 9.5.15 in E7's form (`theorem_9_5_15_msheets`, multi-chart sheet integrals of Chapter 9), under its class hypothesis `hcov`. Theorem 11.4.5 (`EPLoc.theorem_11_4_5_pull`, `_push`, hypotheses `X.X.IsLUC`, `Y.X.IsLUC`): the same for the effective boundary measures of Theorem 9.5.16. Also proved: the same for a diagram $X \\leftarrow A \\rightarrow Y$ and for an equivalence with any evaluation of forms compatible with the pull-back. `hcov` passes along equivalences and generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`), and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$ (`measurable_bsuppMap`, `measurable_bsuppInv`).",
+    "statement": "Theorem 11.4.4 for a generalized isomorphism $f$, with the text's hypotheses (`EPLoc.theorem_11_4_4_pull_loc`, `EPLoc.theorem_11_4_4_push_loc`): $\\hat\\Theta$ (resp. $\\hat\\Theta'$) is branched, compact, oriented and tame (`hloc`: an oriented tame structure of dimension $n = m + 1$ describing $\\hat T$ at every point of the support), $m > 0$. On $|\\mathrm{supp}(\\partial\\Theta)|$, $|f|(K) \\in \\mathcal L(\\partial S)$, $\\mu^{\\partial\\hat\\Theta}_\\omega(K) = \\mu^{\\partial f_*\\hat\\Theta}_{f_*\\omega}(|f|(K))$ and $\\mu^{\\partial f^*\\hat\\Theta'}_{f^*\\omega'}(K) = \\mu^{\\partial\\hat\\Theta'}_{\\omega'}(|f|(K))$, for $\\omega \\in \\Omega^m_{ep,\\infty}$. Theorem 11.4.5 (`_loc` versions, hypotheses `X.X.IsLUC`, `Y.X.IsLUC`): the same for the effective boundary measures. The measures are those of Theorems 9.5.15 and 9.5.16 (`EP.boundaryMeasure_eq`, `EP.boundaryMeasureEff_eq`). $n = 1$ (`EPLoc.theorem_11_4_4_pull_dim1`, `_push_dim1`, `EPLoc.theorem_11_4_5_pull_dim1`, `_push_dim1`): the same statements for $\\omega \\in \\Omega^0_{ep,\\infty}$ and the measures `EP.boundaryBranchedMeasureDim1`, `…EffDim1`, with the same hypotheses in dimension $1$; also for equivalences (`EpFunctor.theorem_11_4_4_pull_equiv_dim1`, …). The versions with E7's class hypothesis `hcov` (`EPLoc.theorem_11_4_4_pull`, `_push`, `EPLoc.theorem_11_4_5_pull`, `_push`) remain, as do the forms for a diagram $X \\leftarrow A \\rightarrow Y$ and for an equivalence with any evaluation of forms compatible with the pull-back; `hcov` passes along equivalences and generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`), and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$ (`measurable_bsuppMap`, `measurable_bsuppInv`).",
     "decls": [
      "Chapter11/GapP2_H4BdDiagram · EPLocalization.EPLoc.theorem_11_4_4_pull",
      "Chapter11/GapP2_H4BdDiagram · EPLocalization.EPLoc.theorem_11_4_4_push",
@@ -1036,19 +1036,36 @@
      "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_msheets_of_isCompact",
      "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_zero",
      "Chapter9/GapP2_E8_Stokes · EP.hcovB_of_hcovS",
-     "Chapter9/GapP2_E8W_Witness · E8W.e8w_hcov"
+     "Chapter9/GapP2_E8W_Witness · E8W.e8w_hcov",
+     "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_4_pull_loc",
+     "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_4_push_loc",
+     "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_5_pull_loc",
+     "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_5_push_loc",
+     "Chapter11/GapP3_K1_BoundaryLoc · EP.boundaryMeasure_eq",
+     "Chapter11/GapP3_K1_BoundaryLoc · EP.boundaryMeasureEff_eq",
+     "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_4_pull_dim1",
+     "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_4_push_dim1",
+     "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_5_pull_dim1",
+     "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_5_push_dim1",
+     "Chapter11/GapP3_K2_H4BdDiagramDim1 · EpFunctor.measure_span_core_bd_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_4_pull_equiv_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_4_push_equiv_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_5_pull_equiv_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_5_push_equiv_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.measure_pull_core_bd_dim1",
+     "Chapter11/GapP3_K2_H4BdDim1 · EP.zeroFormEval_epFormsInftyPullback",
+     "Chapter11/GapP3_K2_H4BdDim1 · EpGroupoid.OrientedTameStructure.boundarySheetSum_move_dim1"
     ]
    },
    "chips": [
-    "added: class condition `hcov` (G.109)",
-    "witness: closed hemisphere",
-    "$n \\ge 2$ ($m > 0$)",
-    "G.131 in part"
+    "text's hypotheses only",
+    "all $n \\ge 1$",
+    "$f_*$ on `rep f`",
+    "G.131 closed"
    ],
    "diff": [
-    "(1) The boundary measures carry the class hypothesis `hcov` of Theorems 9.5.15/9.5.16 (Lean, gap G.109): each point of $\\mathrm{supp}(\\partial\\Theta)$ has an oriented tame structure describing $\\hat T$ whose nonempty boundary sheets lie in the class of integrated sheets (finite $\\int|\\omega|$ over $\\partial_1M_i$). It is not derived from the text near the corners of the sheets; it is a hypothesis on $\\hat\\Theta$ (resp. $\\hat\\Theta'$) only and is proved for the transported subgroupoid (`hcovB_pull`, `hcovB_push`), so nothing is added beyond Theorems 9.5.15/9.5.16 (Lean). It holds for compact boundary sheets (`hcov_msheets_of_isCompact`) and, with $\\partial S \\ne \\emptyset$, for the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ (`E8W.e8w_hcov` with `EP.hcovB_of_hcovS`).",
-    "(2) The dimension is $n = m + 1$ with $m > 0$, as in E7's `theorem_9_5_15_msheets`; $n = 1$ is not covered.",
-    "(3) $f_*$ is computed on the representative `rep f`, as for Theorem 11.4.1; 'oriented, tame' is read as for Theorem 11.4.1, and `HasIndependentTangentSums` holds for every $\\Theta$ and is not a hypothesis (Findings, Chapter 11, item 50)."
+    "(1) No hypothesis beyond the text's: E7's class hypothesis `hcov` is derived from tameness (`EP.hcov_of_loc`, gap G.109); it passes to the transported subgroupoids (`hcovB_pull`, `hcovB_push`). Every $n \\ge 1$ is covered ($n = 1$ in the `_dim1` theorems, with $\\Omega^0$ integrated over oriented points).",
+    "(2) $f_*$ is computed on the representative `rep f`, as for Theorem 11.4.1; 'oriented, tame' is read as for Theorem 11.4.1, and `HasIndependentTangentSums` holds for every $\\Theta$ and is not a hypothesis (Findings, Chapter 11, item 50)."
    ]
   },
   {
@@ -1677,7 +1694,7 @@
    "label": "§11.4, Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017: Theorems 11.8, 11.9, Remark 11.3, pp. 396–399)",
    "page": 542,
    "book": "Generalized isomorphisms transform the canonical measures and the canonical boundary measures (and their effective versions) of oriented compact branched ep⁺-subgroupoids by $|f|$.",
-   "instead": "**Formalized in part** (2026-11-13; V11.27–V11.29; `Chapter11/GapP2_H4Compat.lean`, `GapP2_H4CrossChart.lean`, `GapP2_H4CompatInst.lean`, `GapP2_H4Move.lean`, `GapP2_H4Pairs.lean`, `GapP2_H4Measure.lean`, `GapP2_H4Diagram.lean`, `GapP2_H4Eff.lean`, `GapP2_H4EffDiagram.lean`, `GapP2_H4MSheets.lean`, `GapP2_H4BdGeom.lean`, `GapP2_H4Bd.lean`, `GapP2_H4BdDiagram.lean`). Theorem 11.4.1 and Remark 11.4.3 are formalized for the canonical measures of Theorem 9.5.4 built from the concrete sheet integrals of Chapter 9 (dimension $n\\ge1$, forms $\\Omega^n_{ep,\\infty}$), with no added hypothesis. The proof follows the text: structures are moved along the local sc-diffeomorphisms of an equivalence, (11.12) = (11.13), uniqueness of the glued measure, then $G_*F^*$ for $X \\leftarrow A \\rightarrow Y$; $|f|$ is shown to map $\\mathcal L(|\\mathrm{supp}\\,\\Theta|)$ onto $\\mathcal L(|\\mathrm{supp}\\,f_*\\Theta|)$. Theorem 11.4.2 is formalized in the same way for the effective measures of Theorem 9.5.5 (`GapP2_H4Eff.lean`, `GapP2_H4EffDiagram.lean`): under LUC, $\\sharp G_x^{eff} = \\sharp G_y^{eff}$ along the local sc-diffeomorphisms of an equivalence. Theorems 11.4.4 and 11.4.5 are formalized for the boundary measures of Theorems 9.5.15/9.5.16 in their Lean form (`Chapter9/GapP2_E7_BoundaryMeasure.lean`): the boundary sheets of a moved structure are the moved boundary sheets with the moved boundary orientation, the multi-chart integrals change variables along the local sc-diffeomorphisms, and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$. They carry the class hypothesis `hcov` of Theorems 9.5.15/9.5.16 (the nonempty boundary sheets lie in the integration class), which is not derived from the text near the corners of the sheets; it passes along generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`), and it holds for compact boundary sheets (`hcov_msheets_of_isCompact`) and, with $\\partial S \\ne \\emptyset$, for the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ (`E8W.e8w_hcov`, `EP.hcovB_of_hcovS`); the dimension is $n = m + 1$ with $m > 0$. **Not formalized**: the class condition near the corners of the sheets (the closed faces as submanifolds, estimate 800–1,200 lines; gap G.109) and the case $n = 1$ of Theorems 11.4.4/11.4.5 (Findings, Chapter 11, item 50).",
+   "instead": "**Formalized** (2026-11-13; V11.27–V11.29; `Chapter11/GapP2_H4Compat.lean`, `GapP2_H4CrossChart.lean`, `GapP2_H4CompatInst.lean`, `GapP2_H4Move.lean`, `GapP2_H4Pairs.lean`, `GapP2_H4Measure.lean`, `GapP2_H4Diagram.lean`, `GapP2_H4Eff.lean`, `GapP2_H4EffDiagram.lean`, `GapP2_H4MSheets.lean`, `GapP2_H4BdGeom.lean`, `GapP2_H4Bd.lean`, `GapP2_H4BdDiagram.lean`). Theorem 11.4.1 and Remark 11.4.3 are formalized for the canonical measures of Theorem 9.5.4 built from the concrete sheet integrals of Chapter 9 (dimension $n\\ge1$, forms $\\Omega^n_{ep,\\infty}$), with no added hypothesis. The proof follows the text: structures are moved along the local sc-diffeomorphisms of an equivalence, (11.12) = (11.13), uniqueness of the glued measure, then $G_*F^*$ for $X \\leftarrow A \\rightarrow Y$; $|f|$ is shown to map $\\mathcal L(|\\mathrm{supp}\\,\\Theta|)$ onto $\\mathcal L(|\\mathrm{supp}\\,f_*\\Theta|)$. Theorem 11.4.2 is formalized in the same way for the effective measures of Theorem 9.5.5 (`GapP2_H4Eff.lean`, `GapP2_H4EffDiagram.lean`): under LUC, $\\sharp G_x^{eff} = \\sharp G_y^{eff}$ along the local sc-diffeomorphisms of an equivalence. Theorems 11.4.4 and 11.4.5 are formalized for the boundary measures of Theorems 9.5.15/9.5.16 in their Lean form (`Chapter9/GapP2_E7_BoundaryMeasure.lean`): the boundary sheets of a moved structure are the moved boundary sheets with the moved boundary orientation, the multi-chart integrals change variables along the local sc-diffeomorphisms, and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$. They were first proved under the class hypothesis `hcov` of Theorems 9.5.15/9.5.16, which passes along generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`). Since wave K (2026-11-13) they hold with the text's hypotheses only, for every $n \\ge 1$ (`Chapter11/GapP3_K1_BoundaryLoc.lean`, `GapP3_K2_H4BdDim1.lean`, `GapP3_K2_H4BdDiagramDim1.lean`): $\\hat\\Theta$ compact, branched, oriented and tame in the reading of G.107, with `hcov` derived (gap G.109) (`EPLoc.theorem_11_4_4_pull_loc`, `_push_loc`, `EPLoc.theorem_11_4_5_pull_loc`, `_push_loc` for $n \\ge 2$, the measures being those of Theorems 9.5.15/9.5.16, `EP.boundaryMeasure_eq`); for $n = 1$ the boundary measures of the $n = 1$ Theorems 9.5.15/9.5.16 are transported along equivalences, spans and generalized isomorphisms, a boundary point moving to its image with the same value of the $0$-form and the same orientation sign (`EPLoc.theorem_11_4_4_pull_dim1`, `_push_dim1`, `EPLoc.theorem_11_4_5_pull_dim1`, `_push_dim1`; `OrientedTameStructure.boundarySheetSum_move_dim1`) (Findings, Chapter 11, item 50).",
    "decls": [
     "Chapter11/GapP2_H4Diagram · EPLocalization.EPLoc.theorem_11_4_1_pull",
     "Chapter11/GapP2_H4Diagram · EPLocalization.EPLoc.theorem_11_4_1_push",
@@ -1762,7 +1779,30 @@
     "Chapter11/GapP2_H4MSheets · EpGroupoid.FormEval.isMeasIn_image_cross",
     "Chapter11/GapP2_H4MSheets · EpGroupoid.FormEval.image_mem_msheets_cross",
     "Chapter11/GapP2_H4MSheets · EpGroupoid.FormEval.msInteg_image_cross",
-    "Chapter11/GapP2_H4MSheets · EpGroupoid.FormEval.ChartCover.imageCross"
+    "Chapter11/GapP2_H4MSheets · EpGroupoid.FormEval.ChartCover.imageCross",
+    "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_4_pull_loc",
+    "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_4_push_loc",
+    "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_5_pull_loc",
+    "Chapter11/GapP3_K1_BoundaryLoc · EPLocalization.EPLoc.theorem_11_4_5_push_loc",
+    "Chapter11/GapP3_K1_BoundaryLoc · EP.boundaryMeasure_eq",
+    "Chapter11/GapP3_K1_BoundaryLoc · EP.boundaryMeasureEff_eq",
+    "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_4_pull_dim1",
+    "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_4_push_dim1",
+    "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_5_pull_dim1",
+    "Chapter11/GapP3_K2_H4BdDiagramDim1 · EPLocalization.EPLoc.theorem_11_4_5_push_dim1",
+    "Chapter11/GapP3_K2_H4BdDiagramDim1 · EpFunctor.measure_span_core_bd_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_4_pull_equiv_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_4_push_equiv_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_5_pull_equiv_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.theorem_11_4_5_push_equiv_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpFunctor.measure_pull_core_bd_dim1",
+    "Chapter11/GapP3_K2_H4BdDim1 · EP.zeroFormEval_epFormsInftyPullback",
+    "Chapter11/GapP3_K2_H4BdDim1 · EpGroupoid.OrientedTameStructure.boundarySheetSum_move_dim1"
+   ],
+   "formalized": [
+    "V11.27",
+    "V11.28",
+    "V11.29"
    ]
   },
   {
