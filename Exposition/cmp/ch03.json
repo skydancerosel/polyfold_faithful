@@ -1729,13 +1729,13 @@
    "lean": {
     "statement": "`lemma_3_8_21`: for $U$ relatively open in a partial quadrant $C$ of a finite-dimensional space, $f : U \\to C$ of class $C^1$ with $f(U)$ relatively open, a continuous inverse $g$ on $f(U)$ and $Df(x)$ invertible, $g$ is $C^1$ on $f(U)$ with $Dg(y) = [Df(g(y))]^{-1}$. If $f$ is $C^j$ ($j \\ge 1$) or $C^\\infty$, so is $g$ (`lemma_3_8_21_contDiffOn`, `lemma_3_8_21_smooth`). The form first proved, under `InvData` (the hypotheses of Proposition 3.8.17 (preprint 3.73)), is kept (`lemma_3_8_21_printed`, `InvData.hasFDerivWithinAt_inv`).",
     "decls": [
-     "Chapter3/GapP1_Lemma3821 · lemma_3_8_21",
-     "Chapter3/GapP1_Lemma3821 · lemma_3_8_21_contDiffOn",
-     "Chapter3/GapP1_Lemma3821 · lemma_3_8_21_smooth",
-     "Chapter3/GapP1_Lemma3821 · lemma_3_8_21_printed",
-     "Chapter3/GapP1_Lemma3821 · hasFDerivWithinAt_inverse_of_isUnit",
-     "Chapter3/GapP1_Lemma3821 · contDiffOn_inverse_deriv_comp",
-     "Chapter3/GapP1_Lemma3821 · IsRelOpenInQuadrant.uniqueDiffOn_const",
+     "Chapter3/QuadrantInverseSmooth · lemma_3_8_21",
+     "Chapter3/QuadrantInverseSmooth · lemma_3_8_21_contDiffOn",
+     "Chapter3/QuadrantInverseSmooth · lemma_3_8_21_smooth",
+     "Chapter3/QuadrantInverseSmooth · lemma_3_8_21_printed",
+     "Chapter3/QuadrantInverseSmooth · hasFDerivWithinAt_inverse_of_isUnit",
+     "Chapter3/QuadrantInverseSmooth · contDiffOn_inverse_deriv_comp",
+     "Chapter3/QuadrantInverseSmooth · IsRelOpenInQuadrant.uniqueDiffOn_const",
      "Chapter3/QuadrantInverse · InvData.hasFDerivWithinAt_inv",
      "Chapter3/QuadrantInverse · InvData.contDiffOn_inverse_deriv"
     ]
@@ -1889,15 +1889,15 @@
     "statement": "`theorem_3_1_22_book`, for $d_X \\equiv 0$, an sc-Fredholm section with germ data in tame charts (V3.103) and $f(x_0) = 0$: $f'(x_0)$ is sc-Fredholm in every strong bundle chart around $x_0$ ($\\mathrm{Lin}(z)$ the restriction of an sc-operator to sc-subspaces); if $f'(x_0)$ is surjective (`IsLinSurjAt`, the text's hypothesis), there are an open $U \\ni x_0$ and $d$ such that at every zero $y \\in U$, $f'(y)$ is surjective and Fredholm of index $d = \\dim\\ker f'(y)$, and $S(f, U)$ is a sub-M-polyfold with the structure of a $d$-dimensional manifold without boundary. `theorem_3_1_22_book_ker` adds the last clause: at every $y \\in S(f, U)$ on level 1 and through every strong bundle chart around $y$, the kernel of the intrinsic linearization $f'(y) = \\Phi_y^{-1} \\circ \\mathrm{Lin}(\\varphi(y)) \\circ T\\varphi(y) : T_yX \\to Y_y$ (`StrongBundle.linIntr`, the same map for any two strong bundle charts, `linIntr_chart_independent`) is $Ti(T_yS(f, U))$ (`ker_linIntr_eq_subTangentRange`). The chart form is kept (`theorem_3_6_8_ker_eq_tangent`, V3.99). The forms first proved are kept: `theorem_3_1_22`, with good position for \"surjective\" and the filler condition at the nearby zeros, and the first clause on every level, in the chart at $x_0$ and in every strong bundle chart (`theorem_3_1_22_linearization_sc`, `StrongBundle.linAt_isScFredholm`, V3.46, V3.96).",
     "decls": [
      "Chapter3/BookFormIFT2021 · theorem_3_1_22_book",
-     "Chapter3/GapP1_Theorem3122Ker · theorem_3_1_22_book_ker",
-     "Chapter3/GapP1_Theorem3122Ker · StrongBundle.ker_linIntr_eq_subTangentRange",
-     "Chapter3/GapP1_Theorem3122Ker · StrongBundle.coe_map_ker_linIntr",
-     "Chapter3/GapP1_LinIntrinsic · StrongBundle.linIntr",
-     "Chapter3/GapP1_LinIntrinsic · StrongBundle.linIntr_chart_independent",
-     "Chapter3/GapP1_LinIntrinsic · StrongBundle.fiberLin_linIntr",
-     "Chapter3/GapP1_LinIntrinsic · StrongBundleChart.fiberLin",
-     "Chapter3/GapP1_LinIntrinsic · StrongBundleChart.linChart",
-     "Chapter3/GapP1_LinKey · linAt_chart_change_key",
+     "Chapter3/SolutionTangentKernel · theorem_3_1_22_book_ker",
+     "Chapter3/SolutionTangentKernel · StrongBundle.ker_linIntr_eq_subTangentRange",
+     "Chapter3/SolutionTangentKernel · StrongBundle.coe_map_ker_linIntr",
+     "Chapter3/LinearizationIntrinsic · StrongBundle.linIntr",
+     "Chapter3/LinearizationIntrinsic · StrongBundle.linIntr_chart_independent",
+     "Chapter3/LinearizationIntrinsic · StrongBundle.fiberLin_linIntr",
+     "Chapter3/LinearizationIntrinsic · StrongBundleChart.fiberLin",
+     "Chapter3/LinearizationIntrinsic · StrongBundleChart.linChart",
+     "Chapter3/LinearizationChartChange · linAt_chart_change_key",
      "Chapter3/GlobalIFTIndexG · theorem_3_6_8_ker_eq_tangent",
      "Chapter2/BookFormTameSub2021 · MPolyfold.coe_map_range_subInclusionCLM",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_1_22",
@@ -2459,7 +2459,7 @@
      "Chapter3/GlobalIFTTheoremsG · theorem_3_6_8",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_6_8_tangentGermChart_solutionSet",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_isRegular_of_locally",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not"
     ]
    },
    "verdict": "restated",
@@ -2580,22 +2580,22 @@
    "lean": {
     "statement": "`theorem_3_7_1_general`: for an sc-splitting $E = B \\oplus X$ with $B$ finite-dimensional, $U$ relatively open in a partial quadrant $C$ with $0 \\in U$ and $f$ sc-smooth on $U$, with (1) $Df(x)$ sc-Fredholm at every smooth $x \\in U$, of the same index at any two (`derivOpAt`); (2) $\\ker Df(0) \\subseteq B$, $X \\subseteq C$ and the compactness condition (`CompactnessCondition371`); (3) the estimate on $D_2f$ (`DerivCondition371`): there is an open $V \\ni 0$ such that $f - f(0)$ is conjugated on $U \\cap V$ to a basic germ. The target splitting $F = Y \\oplus A$ is constructed as in the proof (`exists_targetSplitting371`). The proof reduces to the coordinates of the text's proof, the form first proved (`theorem_3_7_1`, kept, with the conclusions of V3.88): the coordinates $E \\cong B \\oplus X$ (`ScBanach.splitScIso`) carry $C$ onto $(C \\cap B) \\oplus X$ with $C \\cap B$ a partial quadrant in $B$ (`splitScIso_preimage`, `isPartialQuadrant_of_isScSplitting`); the hypotheses pass to the conjugate $T \\circ f \\circ S^{-1}$ (`isScFredholm_of_conj`, `compactnessCondition_conj`, `derivCondition_conj`), and the conclusion passes back (`IsConjugateToBasicGerm.of_scIso`).",
     "decls": [
-     "Chapter3/GapP1_Theorem371General · theorem_3_7_1_general",
-     "Chapter3/GapP1_Theorem371General · CompactnessCondition371",
-     "Chapter3/GapP1_Theorem371General · DerivCondition371",
-     "Chapter3/GapP1_Theorem371General · derivOpAt",
-     "Chapter3/GapP1_Theorem371General · exists_targetSplitting371",
-     "Chapter3/GapP1_Theorem371General · compactnessCondition_conj",
-     "Chapter3/GapP1_Theorem371General · derivCondition_conj",
-     "Chapter3/GapP1_Theorem371Split · ScBanach.splitScIso",
-     "Chapter3/GapP1_Theorem371Split · splitScIso_preimage",
-     "Chapter3/GapP1_Theorem371Split · isPartialQuadrant_of_isScSplitting",
-     "Chapter3/GapP1_Theorem371Split · isInGoodPosition_of_isScSplitting",
-     "Chapter3/GapP1_Theorem371Transport · IsConjugateToBasicGerm.of_scIso",
-     "Chapter3/GapP1_ScIsoConj · scIsoConjMap",
-     "Chapter3/GapP1_ScIsoConj · isScSmooth_conjMap",
-     "Chapter3/GapP1_ScIsoConj · scDeriv_conjMap",
-     "Chapter3/GapP1_ScIsoConj · isScFredholm_of_conj",
+     "Chapter3/BasicGermCriterionGeneral · theorem_3_7_1_general",
+     "Chapter3/BasicGermCriterionGeneral · CompactnessCondition371",
+     "Chapter3/BasicGermCriterionGeneral · DerivCondition371",
+     "Chapter3/BasicGermCriterionGeneral · derivOpAt",
+     "Chapter3/BasicGermCriterionGeneral · exists_targetSplitting371",
+     "Chapter3/BasicGermCriterionGeneral · compactnessCondition_conj",
+     "Chapter3/BasicGermCriterionGeneral · derivCondition_conj",
+     "Chapter3/BasicGermCriterionSplit · ScBanach.splitScIso",
+     "Chapter3/BasicGermCriterionSplit · splitScIso_preimage",
+     "Chapter3/BasicGermCriterionSplit · isPartialQuadrant_of_isScSplitting",
+     "Chapter3/BasicGermCriterionSplit · isInGoodPosition_of_isScSplitting",
+     "Chapter3/BasicGermCriterionTransport · IsConjugateToBasicGerm.of_scIso",
+     "Chapter3/ScIsoConjugation · scIsoConjMap",
+     "Chapter3/ScIsoConjugation · isScSmooth_conjMap",
+     "Chapter3/ScIsoConjugation · scDeriv_conjMap",
+     "Chapter3/ScIsoConjugation · isScFredholm_of_conj",
      "Chapter3/BasicGermCriterionIndex · theorem_3_7_1",
      "Chapter3/BasicGermCriterionIndex · CompactnessCondition",
      "Chapter3/BasicGermCriterionIndex · familyCompactness_derivFamOp",
@@ -2766,7 +2766,7 @@
      "Chapter3/GoodPositionScG · theorem_3_6_8_one_sc_of_tame",
      "Chapter3/GoodPositionScG · theorem_3_6_8_one_sc",
      "Chapter3/GoodPositionScG · theorem_3_6_8_sc",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not"
     ]
    },
    "verdict": "restated",
@@ -3098,7 +3098,7 @@
      "Chapter3/MainTheorems2021 · StrongBundle.IsScFredholmSectionTame2021",
      "Chapter3/TameGermTransfer · StrongBundle.isScFredholmGermTame_of_chart_interior",
      "Chapter3/TameGermTransfer · StrongBundle.isScFredholmSectionTame_of_interior",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not"
     ]
    },
    "verdict": "explicit",
@@ -3414,8 +3414,8 @@
      "Chapter3/Book2021Germs · CornerFilling.not_range_le_minimalSubspace",
      "Chapter3/Book2021Germs · theorem_3_6_8_tame_step",
      "Chapter3/TameGermTransfer · StrongBundle.isScFredholmGermTame_of_chart_interior",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_example",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_example",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not"
     ]
    },
    "chips": [
@@ -3423,7 +3423,7 @@
     "untamed data: half-line (G.79)"
    ],
    "diff": [
-    "With the untamed 2021 definitions neither the step nor the conclusion holds as we read it: the strong bundle `bundle` over $O \\cong \\mathbb R$ with the section `sec` (`GapP1_UntamedBundle*.lean`) is a tame strong bundle with an sc-Fredholm section in the 2021 sense and a zero in good position whose solution set is a closed half-line (`theorem_3_6_8_untamed_example`, `theorem_3_6_8_untamed_not`; V3.130). In the corner example of V3.109 the solution set is still a manifold. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103). (2026-11-09) Germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110)."
+    "With the untamed 2021 definitions neither the step nor the conclusion holds as we read it: the strong bundle `bundle` over $O \\cong \\mathbb R$ with the section `sec` (`UntamedBundle*.lean`) is a tame strong bundle with an sc-Fredholm section in the 2021 sense and a zero in good position whose solution set is a closed half-line (`theorem_3_6_8_untamed_example`, `theorem_3_6_8_untamed_not`; V3.130). In the corner example of V3.109 the solution set is still a manifold. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103). (2026-11-09) Germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110)."
    ]
   },
   {
@@ -3583,10 +3583,10 @@
    "lean": {
     "statement": "`remark_3_3_8`: for an sc⁰-contraction germ $f(a, w) = w - B(a, w)$ that is sc-smooth, on a quadrant-like $\\widetilde C$, there are $\\delta$ and decreasing positive sequences $(\\varepsilon_i)$, $(\\tau_i)$ such that $\\delta(0) = 0$; on $\\{|a|_0 \\le \\varepsilon_0\\}$, $\\delta$ is continuous with $|\\delta(a)|_0 \\le \\tau_0$ and $f(a, \\delta(a)) = 0$; a solution $w$ with $|w|_0 \\le \\tau_0$ is $\\delta(a)$; $\\delta(a) \\in W_i$ and $|\\delta(a)|_i \\le \\tau_i$ for $|a|_0 \\le \\varepsilon_i$; and $\\delta : \\{|a|_0 \\le \\varepsilon_i\\} \\to W_i$ is of class $C^i$.",
     "decls": [
-     "Chapter3/GapP1_Remark338 · remark_3_3_8",
-     "Chapter3/GapP1_Remark338 · ContractionGerm.exists_radius",
-     "Chapter3/GapP1_Remark338 · ContractionGerm.fixLvl_zero_eq",
-     "Chapter3/GapP1_Remark338 · exists_antitone_le"
+     "Chapter3/SolutionGermQuantitative · remark_3_3_8",
+     "Chapter3/SolutionGermQuantitative · ContractionGerm.exists_radius",
+     "Chapter3/SolutionGermQuantitative · ContractionGerm.fixLvl_zero_eq",
+     "Chapter3/SolutionGermQuantitative · exists_antitone_le"
     ]
    },
    "chips": [
@@ -3608,14 +3608,14 @@
    "lean": {
     "statement": "`lemma_3_8_1`: for a closed convex cone $P \\ne \\{0\\}$ in a finite-dimensional space, $P$ is the closure of the convex hull of the union of its extreme rays (`extremeRays`; an extreme ray is a set, `IsExtremeRay`, equivalent to the project's generator form, `IsClosedConvexCone.isExtremeRay_rayOf_iff`). `not_lemma_3_8_1_zero`: the statement for every closed convex cone does not hold as we read it, at $P = \\{0\\}$. `lemma_3_8_1_zero_union`: with $0$ adjoined to the extreme rays it holds for every closed convex cone.",
     "decls": [
-     "Chapter3/GapP1_ExtremeRays · lemma_3_8_1",
-     "Chapter3/GapP1_ExtremeRays · not_lemma_3_8_1_zero",
-     "Chapter3/GapP1_ExtremeRays · lemma_3_8_1_zero_union",
-     "Chapter3/GapP1_ExtremeRays · rayOf",
-     "Chapter3/GapP1_ExtremeRays · IsExtremeRay",
-     "Chapter3/GapP1_ExtremeRays · extremeRays",
-     "Chapter3/GapP1_ExtremeRays · IsClosedConvexCone.isExtremeRay_rayOf_iff",
-     "Chapter3/GapP1_ExtremeRays · IsClosedConvexCone.exists_pos_functional"
+     "Chapter3/ExtremeRays · lemma_3_8_1",
+     "Chapter3/ExtremeRays · not_lemma_3_8_1_zero",
+     "Chapter3/ExtremeRays · lemma_3_8_1_zero_union",
+     "Chapter3/ExtremeRays · rayOf",
+     "Chapter3/ExtremeRays · IsExtremeRay",
+     "Chapter3/ExtremeRays · extremeRays",
+     "Chapter3/ExtremeRays · IsClosedConvexCone.isExtremeRay_rayOf_iff",
+     "Chapter3/ExtremeRays · IsClosedConvexCone.exists_pos_functional"
     ]
    },
    "chips": [
@@ -3638,15 +3638,15 @@
    "lean": {
     "statement": "`lemma_3_8_2`: for a closed convex cone $P$ with nonempty interior in a finite-dimensional $N$, $P$ is a quadrant (`IsQuadrantIn`: a linear isomorphism $N \\cong \\mathbb R^{\\dim N}$ carrying $P$ onto $[0, \\infty)^{\\dim N}$) iff its set of extreme rays has `encard` $\\dim N$. `lemma_3_8_3`, `lemma_3_8_3_goodPosition`: in the text's model, if $N \\cap C$ is a closed convex cone and $a$ generates an extreme ray of it, $\\dim N - 1 \\le \\#\\sigma_a$ (`quadrantDeg`), with equality when $N$ is in good position; the map (3.34) is `zeroIdxProj`, (3.33) is `ker_zeroIdxProj_le`.",
     "decls": [
-     "Chapter3/GapP1_ExtremeRays · lemma_3_8_2",
-     "Chapter3/GapP1_ExtremeRays · IsQuadrantIn",
-     "Chapter3/GapP1_ExtremeRays · extremeRays_nonnegOrthant",
-     "Chapter3/GapP1_ExtremeRays · encard_extremeRays_nonnegOrthant",
-     "Chapter3/GapP1_ExtremeRays · extremeRays_image",
-     "Chapter3/GapP1_ExtremeRays · lemma_3_8_3",
-     "Chapter3/GapP1_ExtremeRays · lemma_3_8_3_goodPosition",
-     "Chapter3/GapP1_ExtremeRays · zeroIdxProj",
-     "Chapter3/GapP1_ExtremeRays · ker_zeroIdxProj_le"
+     "Chapter3/ExtremeRays · lemma_3_8_2",
+     "Chapter3/ExtremeRays · IsQuadrantIn",
+     "Chapter3/ExtremeRays · extremeRays_nonnegOrthant",
+     "Chapter3/ExtremeRays · encard_extremeRays_nonnegOrthant",
+     "Chapter3/ExtremeRays · extremeRays_image",
+     "Chapter3/ExtremeRays · lemma_3_8_3",
+     "Chapter3/ExtremeRays · lemma_3_8_3_goodPosition",
+     "Chapter3/ExtremeRays · zeroIdxProj",
+     "Chapter3/ExtremeRays · ker_zeroIdxProj_le"
     ]
    },
    "chips": [
@@ -3669,18 +3669,18 @@
    "lean": {
     "statement": "In the text's model $E = \\mathbb R^n \\oplus W$, $C = [0, \\infty)^n \\oplus W$, with $N$ in good position (`IsInGoodPositionSc`), $N^\\perp$ a good sc-complement (`IsScGoodComplement`) and $\\widetilde N$ an algebraic complement of $N \\cap W$ in $N$: `lemma_3_8_9_sc`: $\\widetilde N$ is in good position and $(N \\cap W) \\oplus N^\\perp$ is a good sc-complement of it (an sc-subspace by `ScBanach.isScSubspace_sup_of_le_smooth`; the algebraic core is `lemma_3_8_9`, which needs only $N^\\perp$ closed). `lemma_3_8_10`: $C \\cap \\widetilde N$ is a closed convex cone in $\\widetilde N$, and a generator $a$ of an extreme ray has $\\dim \\widetilde N - 1 = \\#\\sigma_a = d_C(a)$. `lemma_3_8_11`: $\\widetilde N \\cap (\\mathbb R^{\\Sigma^c} \\oplus W) = 0$, or $\\widetilde N \\subseteq \\mathbb R^{\\Sigma^c} \\oplus W$ with $\\dim \\widetilde N = 1$ and $\\Sigma = \\emptyset$.",
     "decls": [
-     "Chapter3/GapP1_Lemma389Sc · lemma_3_8_9_sc",
-     "Chapter3/GapP1_Lemma389 · lemma_3_8_9",
-     "Chapter3/GapP1_Lemma389 · lemma_3_8_9_of_isClosed",
-     "Chapter3/GapP1_Lemma389 · lemma_3_8_10",
-     "Chapter3/GapP1_Lemma389 · isClosedConvexCone_of_disjoint",
-     "Chapter3/GapP1_Lemma389 · lemma_3_8_11",
-     "Chapter3/GapP1_Lemma389 · exists_eq_smul_of_isExtremeRayGen",
-     "Chapter3/GapP1_Lemma389 · wPart",
-     "Chapter3/GapP1_Lemma389 · bigSigma",
-     "Chapter3/GapP1_Lemma389 · sigmaCompl",
-     "Chapter3/GapP1_Lemma389Sc · ScBanach.isScSubspace_sup_of_le_smooth",
-     "Chapter3/GapP1_Lemma389Sc · ScBanach.isCompl_levelSub_of_isScSplitting"
+     "Chapter3/GoodComplementIntersectionSc · lemma_3_8_9_sc",
+     "Chapter3/GoodComplementIntersection · lemma_3_8_9",
+     "Chapter3/GoodComplementIntersection · lemma_3_8_9_of_isClosed",
+     "Chapter3/GoodComplementIntersection · lemma_3_8_10",
+     "Chapter3/GoodComplementIntersection · isClosedConvexCone_of_disjoint",
+     "Chapter3/GoodComplementIntersection · lemma_3_8_11",
+     "Chapter3/GoodComplementIntersection · exists_eq_smul_of_isExtremeRayGen",
+     "Chapter3/GoodComplementIntersection · wPart",
+     "Chapter3/GoodComplementIntersection · bigSigma",
+     "Chapter3/GoodComplementIntersection · sigmaCompl",
+     "Chapter3/GoodComplementIntersectionSc · ScBanach.isScSubspace_sup_of_le_smooth",
+     "Chapter3/GoodComplementIntersectionSc · ScBanach.isCompl_levelSub_of_isScSplitting"
     ]
    },
    "chips": [
@@ -3703,17 +3703,17 @@
    "lean": {
     "statement": "`IsClassC1On U f`: there is $Df$ with $f$ differentiable within $U$ at every $x \\in U$ with derivative $Df(x)$ (one-sided derivatives in the directions into $U$; the limit form is `isClassC1On_iff_tendsto`) and $Df$ continuous on $U$. `IsClassCOn k U f` by recursion through the text's tangent map $Tf(x, h) = (f(x), Df(x)h)$ (`bookTangentMap`): $C^0$ is continuity, $C^{k+2}$ means $f$ and $Tf$ on $U \\times V$ are $C^{k+1}$; `IsClassSmoothOn` is $C^k$ for all $k$. On every set with unique derivatives it agrees with Mathlib's `ContDiffOn` (`isClassCOn_iff_contDiffOn`), in particular on relatively open subsets of partial quadrants, where it also agrees with sc¹ and sc$^\\infty$ (`isSc1_iff_isClassC1On`, `isScSmooth_iff_isClassSmoothOn`).",
     "decls": [
-     "Chapter3/GapP1_Definition3814 · IsClassCOn",
-     "Chapter3/GapP1_Definition3814 · IsClassC1On",
-     "Chapter3/GapP1_Definition3814 · IsClassSmoothOn",
-     "Chapter3/GapP1_Definition3814 · bookTangentMap",
-     "Chapter3/GapP1_Definition3814 · isClassC1On_iff_tendsto",
-     "Chapter3/GapP1_Definition3814 · isClassC1On_iff_contDiffOn",
-     "Chapter3/GapP1_Definition3814 · isClassCOn_iff_contDiffOn",
-     "Chapter3/GapP1_Definition3814 · isClassSmoothOn_iff_contDiffOn",
-     "Chapter3/GapP1_Definition3814 · isClassCOn_iff_contDiffOn_of_isRelOpenInQuadrant",
-     "Chapter3/GapP1_Definition3814 · isSc1_iff_isClassC1On",
-     "Chapter3/GapP1_Definition3814 · isScSmooth_iff_isClassSmoothOn"
+     "Chapter3/QuadrantClassCk · IsClassCOn",
+     "Chapter3/QuadrantClassCk · IsClassC1On",
+     "Chapter3/QuadrantClassCk · IsClassSmoothOn",
+     "Chapter3/QuadrantClassCk · bookTangentMap",
+     "Chapter3/QuadrantClassCk · isClassC1On_iff_tendsto",
+     "Chapter3/QuadrantClassCk · isClassC1On_iff_contDiffOn",
+     "Chapter3/QuadrantClassCk · isClassCOn_iff_contDiffOn",
+     "Chapter3/QuadrantClassCk · isClassSmoothOn_iff_contDiffOn",
+     "Chapter3/QuadrantClassCk · isClassCOn_iff_contDiffOn_of_isRelOpenInQuadrant",
+     "Chapter3/QuadrantClassCk · isSc1_iff_isClassC1On",
+     "Chapter3/QuadrantClassCk · isScSmooth_iff_isClassSmoothOn"
     ]
    },
    "chips": [
@@ -3736,14 +3736,14 @@
    "lean": {
     "statement": "`lemma_3_8_20`: let $f$ be a smooth homeomorphism between relatively open subsets $U$, $f(U)$ of a partial quadrant $C$ in a finite-dimensional space, with $Df(x)$ invertible (`QuadMapData.IsSmoothHomeo`). Then for every $k$ the iterated tangent map $T^kf$ (`QuadMapData.iterTangent`; $TU = U \\times V$ in $C \\times V$) is again a smooth homeomorphism of this kind, and its inverse is $C^\\infty$ (by Lemma 3.8.21 (preprint 3.77) in its general form, V3.62). `lemma_3_8_20_printed` is the statement under the hypotheses of Proposition 3.8.17 (preprint 3.73).",
     "decls": [
-     "Chapter3/GapP1_Lemma3820 · lemma_3_8_20",
-     "Chapter3/GapP1_Lemma3820 · lemma_3_8_20_printed",
-     "Chapter3/GapP1_Lemma3820 · QuadMapData",
-     "Chapter3/GapP1_Lemma3820 · QuadMapData.IsSmoothHomeo",
-     "Chapter3/GapP1_Lemma3820 · QuadMapData.tangent",
-     "Chapter3/GapP1_Lemma3820 · QuadMapData.IsSmoothHomeo.tangent",
-     "Chapter3/GapP1_Lemma3820 · QuadMapData.iterTangent",
-     "Chapter3/GapP1_Lemma3820 · constProdIso"
+     "Chapter3/IteratedTangentMaps · lemma_3_8_20",
+     "Chapter3/IteratedTangentMaps · lemma_3_8_20_printed",
+     "Chapter3/IteratedTangentMaps · QuadMapData",
+     "Chapter3/IteratedTangentMaps · QuadMapData.IsSmoothHomeo",
+     "Chapter3/IteratedTangentMaps · QuadMapData.tangent",
+     "Chapter3/IteratedTangentMaps · QuadMapData.IsSmoothHomeo.tangent",
+     "Chapter3/IteratedTangentMaps · QuadMapData.iterTangent",
+     "Chapter3/IteratedTangentMaps · constProdIso"
     ]
    },
    "chips": [
@@ -3766,13 +3766,13 @@
    "lean": {
     "statement": "`lemma_3_8_13_general`: for any partial quadrant $C$ of an sc-Banach space, $N$ in good position with a good complement $Y$ and $\\tau : N \\to Y$ of class $C^1$ on $N \\cap C$ with $\\tau(0) = 0$, $D\\tau(0) = 0$, there is $\\rho > 0$ such that for $v \\in N \\cap C$ with $|v| < \\rho$, $v + \\tau(v) \\in C$, and $d_{N \\cap C}(v) = d_C(v + \\tau(v))$ if $-v \\notin C$ (in the text's model: $v \\notin N \\cap W$). `lemma_3_8_13_local`: the same with $\\tau$ given only on a relatively open $V \\ni 0$. `proposition_3_8_12_general`: Proposition 3.8.12 (preprint 3.69) for any presentation of $C$. `MPolyfold.theorem_3_2_3_degIndex_eq`: in Theorem 3.2.3 (preprint 3.27), near the centre of a regular datum and off the lineality space, $d_M(y) = d_X(y)$. Lemma 3.6.9 (preprint 3.55) for any presentation is V3.80.",
     "decls": [
-     "Chapter3/GapP1_Lemma3813 · lemma_3_8_13_general",
-     "Chapter3/GapP1_Lemma3813 · lemma_3_8_13_local",
-     "Chapter3/GapP1_Lemma3813 · proposition_3_8_12_general",
-     "Chapter3/GapP1_Lemma3813 · mem_lineality_iff",
-     "Chapter3/GapP1_Lemma3813 · coordCLMOf",
-     "Chapter3/GapP1_Lemma3813 · mem_nullSpace_coordFun_iff",
-     "Chapter3/GapP1_Theorem323Deg · MPolyfold.theorem_3_2_3_degIndex_eq"
+     "Chapter3/GraphDegeneracyIndex · lemma_3_8_13_general",
+     "Chapter3/GraphDegeneracyIndex · lemma_3_8_13_local",
+     "Chapter3/GraphDegeneracyIndex · proposition_3_8_12_general",
+     "Chapter3/GraphDegeneracyIndex · mem_lineality_iff",
+     "Chapter3/GraphDegeneracyIndex · coordCLMOf",
+     "Chapter3/GraphDegeneracyIndex · mem_nullSpace_coordFun_iff",
+     "Chapter3/TangentGermDegeneracy · MPolyfold.theorem_3_2_3_degIndex_eq"
     ]
    },
    "chips": [
@@ -3796,14 +3796,14 @@
    "lean": {
     "statement": "`Jump.Family.isScSmooth_map`: a family of operators $A_m(t)$ on the levels, compatible with the inclusions, continuous in $(t, h)$, norm-differentiable in $t$ on $V_{m+1}$ with derivative $A'_m(t)$, and with $(s, t, h) \\mapsto sA'(t)h$ sc-smooth, gives an sc-smooth map $(t, h) \\mapsto A(t)h : \\mathbb R \\oplus V \\to V$ (`Jump.Family`). On a weighted sequence space there is such a family of projections $\\pi_t$ with $\\pi_t = 0$ for $t \\le 0$ and of rank one for $0 < t < 1$ (`Jump.family`, `Jump.proj_of_nonpos`, `Jump.exists_proj_eq`, `Jump.proj_proj`); it is not $C^1$ on any one level, so Proposition 1.2.4 does not produce it. $(((a, t), w), (x, h)) \\mapsto (((0, t), 0), (0, \\pi_t h))$ is a strong bundle retraction whose fibre jumps (`UntamedCorner.isStrongBundleRetraction_R`), over a base retraction that is not tame (`UntamedCorner.not_isTame_baseRetr`).",
     "decls": [
-     "Chapter3/GapP1_UntamedJump · Jump.Family",
-     "Chapter3/GapP1_UntamedJump · Jump.Family.isScSmooth_map",
-     "Chapter3/GapP1_UntamedJump · Jump.family",
-     "Chapter3/GapP1_UntamedJump · Jump.exists_proj_eq",
-     "Chapter3/GapP1_UntamedJump · Jump.proj_proj",
-     "Chapter3/GapP1_UntamedJump · Jump.proj_of_nonpos",
-     "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.isStrongBundleRetraction_R",
-     "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.not_isTame_baseRetr"
+     "Chapter3/UntamedJump · Jump.Family",
+     "Chapter3/UntamedJump · Jump.Family.isScSmooth_map",
+     "Chapter3/UntamedJump · Jump.family",
+     "Chapter3/UntamedJump · Jump.exists_proj_eq",
+     "Chapter3/UntamedJump · Jump.proj_proj",
+     "Chapter3/UntamedJump · Jump.proj_of_nonpos",
+     "Chapter3/UntamedCounterexample · UntamedCorner.isStrongBundleRetraction_R",
+     "Chapter3/UntamedCounterexample · UntamedCorner.not_isTame_baseRetr"
     ]
    },
    "chips": [
@@ -3826,37 +3826,37 @@
    "lean": {
     "statement": "With the 2021 definitions as printed the statement does not hold as we read it. `bundle : K → O` is a strong bundle over the tame M-polyfold without boundary $O \\cong \\mathbb R$, with an atlas of tame strong bundle charts (`isTameBundle_bundle`, `chartTame`, `exists_isTameChart`); the fibre is $0$ for $t \\le 0$ and a line for $0 < t < 1$. The section `sec` is sc-Fredholm in the sense of 2021 Definitions 3.1.16 = 3.6.4 (`isScFredholmSection2021_sec`): at $x_0$ ($t = 0$) its germ data lie in the atlas chart `chart0`, whose base retraction is not tame (`isScFredholmGerm2021_sec_zero`), at the other points in tame charts (`isScFredholmGermTame_sec_of_ne`, from the frames `frame0`, `frame1`). $x_0$ is a zero in good position (`isGoodPositionGerm_sec_zero`; $d_X(x_0) = 0$, fibre $0$, `subsingleton_fiber_zero`). The solution set is the closed half-line $\\{t \\le 0\\}$ (`solutionSet_sec`): it has no tangent germ data at $x_0$ (`isEmpty_tangentGermChart`) and is not a sub-M-polyfold near $x_0$ (`not_isSubMPolyfold_zeroSet`). Collected in `theorem_3_6_8_untamed_example`; the universal statements are `theorem_3_6_8_untamed_not` (Theorem 3.6.8, conclusion (1) weakened to good position, so only (2) fails) and `theorem_3_1_22_untamed_not` (Theorems 3.1.22, 3.1.26). With tame germ data the theorem holds (V3.85, V3.94, V3.103).",
     "decls": [
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_example",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.not_theorem_3_6_8_conclusion",
-     "Chapter3/GapP1_UntamedBundleTheorem · StrongBundle.IsTameBundle",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.isTameBundle_bundle",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.bundle",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.chart0",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.sec",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.isScSmoothSection_sec",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.solutionSet_sec",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.isScFredholmGerm2021_sec_zero",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.isGoodPositionGerm_sec_zero",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.subsingleton_fiber_zero",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.not_isSubMPolyfold_zeroSet",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.isEmpty_tangentGermChart",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.Frame",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.Frame.chart",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.Frame.compatible_chart0",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.Frame.isScFredholmGermInterior_sec",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.frame0",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.frame1",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.isScFredholmGermTame_sec_of_ne",
-     "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.isScFredholmSection2021_sec",
-     "Chapter3/GapP1_UntamedBundleTame · UntamedCorner.chartTame",
-     "Chapter3/GapP1_UntamedBundleTame · UntamedCorner.isStrongBundleRetraction_RT",
-     "Chapter3/GapP1_UntamedBundleTame · UntamedCorner.compatible_chart0_chartTame",
-     "Chapter3/GapP1_UntamedBundleTame · UntamedCorner.isTameChart_chartTame",
-     "Chapter3/GapP1_UntamedBundleTame · UntamedCorner.exists_isTameChart",
-     "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.theorem_3_6_8_untamed_local",
-     "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.not_isTame_baseRetr"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_example",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.not_theorem_3_6_8_conclusion",
+     "Chapter3/UntamedBundleTheorem · StrongBundle.IsTameBundle",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.isTameBundle_bundle",
+     "Chapter3/UntamedBundle · UntamedCorner.bundle",
+     "Chapter3/UntamedBundle · UntamedCorner.chart0",
+     "Chapter3/UntamedBundle · UntamedCorner.sec",
+     "Chapter3/UntamedBundle · UntamedCorner.isScSmoothSection_sec",
+     "Chapter3/UntamedBundle · UntamedCorner.solutionSet_sec",
+     "Chapter3/UntamedBundle · UntamedCorner.isScFredholmGerm2021_sec_zero",
+     "Chapter3/UntamedBundle · UntamedCorner.isGoodPositionGerm_sec_zero",
+     "Chapter3/UntamedBundle · UntamedCorner.subsingleton_fiber_zero",
+     "Chapter3/UntamedBundle · UntamedCorner.not_isSubMPolyfold_zeroSet",
+     "Chapter3/UntamedBundle · UntamedCorner.isEmpty_tangentGermChart",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.Frame",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.Frame.chart",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.Frame.compatible_chart0",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.Frame.isScFredholmGermInterior_sec",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.frame0",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.frame1",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.isScFredholmGermTame_sec_of_ne",
+     "Chapter3/UntamedBundleFrame · UntamedCorner.isScFredholmSection2021_sec",
+     "Chapter3/UntamedBundleTame · UntamedCorner.chartTame",
+     "Chapter3/UntamedBundleTame · UntamedCorner.isStrongBundleRetraction_RT",
+     "Chapter3/UntamedBundleTame · UntamedCorner.compatible_chart0_chartTame",
+     "Chapter3/UntamedBundleTame · UntamedCorner.isTameChart_chartTame",
+     "Chapter3/UntamedBundleTame · UntamedCorner.exists_isTameChart",
+     "Chapter3/UntamedCounterexample · UntamedCorner.theorem_3_6_8_untamed_local",
+     "Chapter3/UntamedCounterexample · UntamedCorner.not_isTame_baseRetr"
     ]
    },
    "chips": [
@@ -3881,10 +3881,10 @@
    "lean": {
     "statement": "There are a tame strong bundle and an sc-Fredholm section in the sense of 2021 Definitions 3.1.16 = 3.6.4 with a point at which the germ has germ data (Definition 3.6.3) in a strong bundle chart of the structure but none in a tame one: `not_isScFredholmGermTame_sec_zero` (with tame data at $x_0$, Theorem 3.6.8 in its tame form would give tangent germ data, which do not exist), `isScFredholmGerm2021_not_tame` (the universal form), `isScFredholmGerm2021_not_2017` (a 2021 germ that is not a 2017 germ).",
     "decls": [
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.not_isScFredholmGermTame_sec_zero",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_tame",
-     "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_2017",
-     "Chapter3/GapP1_UntamedBundle · UntamedCorner.isScFredholmGerm2021_sec_zero"
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.not_isScFredholmGermTame_sec_zero",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_tame",
+     "Chapter3/UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_2017",
+     "Chapter3/UntamedBundle · UntamedCorner.isScFredholmGerm2021_sec_zero"
     ]
    },
    "chips": [
@@ -3969,8 +3969,8 @@
     "V3.122"
    ],
    "decls": [
-    "Chapter3/GapP1_Remark338 · remark_3_3_8",
-    "Chapter3/GapP1_Remark338 · ContractionGerm.exists_radius"
+    "Chapter3/SolutionGermQuantitative · remark_3_3_8",
+    "Chapter3/SolutionGermQuantitative · ContractionGerm.exists_radius"
    ]
   },
   {
@@ -4061,12 +4061,12 @@
     "V3.124"
    ],
    "decls": [
-    "Chapter3/GapP1_ExtremeRays · lemma_3_8_1",
-    "Chapter3/GapP1_ExtremeRays · not_lemma_3_8_1_zero",
-    "Chapter3/GapP1_ExtremeRays · lemma_3_8_1_zero_union",
-    "Chapter3/GapP1_ExtremeRays · lemma_3_8_2",
-    "Chapter3/GapP1_ExtremeRays · lemma_3_8_3",
-    "Chapter3/GapP1_ExtremeRays · lemma_3_8_3_goodPosition"
+    "Chapter3/ExtremeRays · lemma_3_8_1",
+    "Chapter3/ExtremeRays · not_lemma_3_8_1_zero",
+    "Chapter3/ExtremeRays · lemma_3_8_1_zero_union",
+    "Chapter3/ExtremeRays · lemma_3_8_2",
+    "Chapter3/ExtremeRays · lemma_3_8_3",
+    "Chapter3/ExtremeRays · lemma_3_8_3_goodPosition"
    ]
   },
   {
@@ -4079,10 +4079,10 @@
     "V3.125"
    ],
    "decls": [
-    "Chapter3/GapP1_Lemma389Sc · lemma_3_8_9_sc",
-    "Chapter3/GapP1_Lemma389 · lemma_3_8_9",
-    "Chapter3/GapP1_Lemma389 · lemma_3_8_10",
-    "Chapter3/GapP1_Lemma389 · lemma_3_8_11"
+    "Chapter3/GoodComplementIntersectionSc · lemma_3_8_9_sc",
+    "Chapter3/GoodComplementIntersection · lemma_3_8_9",
+    "Chapter3/GoodComplementIntersection · lemma_3_8_10",
+    "Chapter3/GoodComplementIntersection · lemma_3_8_11"
    ]
   },
   {
@@ -4095,10 +4095,10 @@
     "V3.126"
    ],
    "decls": [
-    "Chapter3/GapP1_Definition3814 · IsClassCOn",
-    "Chapter3/GapP1_Definition3814 · isClassCOn_iff_contDiffOn",
-    "Chapter3/GapP1_Definition3814 · isSc1_iff_isClassC1On",
-    "Chapter3/GapP1_Definition3814 · isScSmooth_iff_isClassSmoothOn"
+    "Chapter3/QuadrantClassCk · IsClassCOn",
+    "Chapter3/QuadrantClassCk · isClassCOn_iff_contDiffOn",
+    "Chapter3/QuadrantClassCk · isSc1_iff_isClassC1On",
+    "Chapter3/QuadrantClassCk · isScSmooth_iff_isClassSmoothOn"
    ]
   },
   {
@@ -4112,9 +4112,9 @@
     "V3.62"
    ],
    "decls": [
-    "Chapter3/GapP1_Lemma3820 · lemma_3_8_20",
-    "Chapter3/GapP1_Lemma3820 · lemma_3_8_20_printed",
-    "Chapter3/GapP1_Lemma3821 · lemma_3_8_21"
+    "Chapter3/IteratedTangentMaps · lemma_3_8_20",
+    "Chapter3/IteratedTangentMaps · lemma_3_8_20_printed",
+    "Chapter3/QuadrantInverseSmooth · lemma_3_8_21"
    ]
   },
   {
@@ -4128,10 +4128,10 @@
     "V3.80"
    ],
    "decls": [
-    "Chapter3/GapP1_Lemma3813 · lemma_3_8_13_general",
-    "Chapter3/GapP1_Lemma3813 · lemma_3_8_13_local",
-    "Chapter3/GapP1_Lemma3813 · proposition_3_8_12_general",
-    "Chapter3/GapP1_Theorem323Deg · MPolyfold.theorem_3_2_3_degIndex_eq"
+    "Chapter3/GraphDegeneracyIndex · lemma_3_8_13_general",
+    "Chapter3/GraphDegeneracyIndex · lemma_3_8_13_local",
+    "Chapter3/GraphDegeneracyIndex · proposition_3_8_12_general",
+    "Chapter3/TangentGermDegeneracy · MPolyfold.theorem_3_2_3_degIndex_eq"
    ]
   },
   {
@@ -4169,20 +4169,20 @@
     "Chapter3/TameGermTransfer · StrongBundle.IsScFredholmGermInterior",
     "Chapter3/TameGermTransfer · StrongBundle.isScFredholmSectionTame_of_interior",
     "Chapter3/TameGermTransfer · CornerFilling.zero_not_mem_interior",
-    "Chapter3/GapP1_UntamedJump · Jump.family",
-    "Chapter3/GapP1_UntamedJump · Jump.Family.isScSmooth_map",
-    "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.isFilling2021_g",
-    "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.isConjugateToBasicGerm_g",
-    "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.isGoodPositionAtGerm_g",
-    "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.solutionSet_eq",
-    "Chapter3/GapP1_UntamedCounterexample · UntamedCorner.theorem_3_6_8_untamed_local",
-    "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not",
-    "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not",
-    "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.not_isScFredholmGermTame_sec_zero",
-    "Chapter3/GapP1_UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_2017",
-    "Chapter3/GapP1_UntamedBundle · UntamedCorner.bundle",
-    "Chapter3/GapP1_UntamedBundle · UntamedCorner.sec",
-    "Chapter3/GapP1_UntamedBundleFrame · UntamedCorner.isScFredholmSection2021_sec"
+    "Chapter3/UntamedJump · Jump.family",
+    "Chapter3/UntamedJump · Jump.Family.isScSmooth_map",
+    "Chapter3/UntamedCounterexample · UntamedCorner.isFilling2021_g",
+    "Chapter3/UntamedCounterexample · UntamedCorner.isConjugateToBasicGerm_g",
+    "Chapter3/UntamedCounterexample · UntamedCorner.isGoodPositionAtGerm_g",
+    "Chapter3/UntamedCounterexample · UntamedCorner.solutionSet_eq",
+    "Chapter3/UntamedCounterexample · UntamedCorner.theorem_3_6_8_untamed_local",
+    "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_6_8_untamed_not",
+    "Chapter3/UntamedBundleTheorem · UntamedCorner.theorem_3_1_22_untamed_not",
+    "Chapter3/UntamedBundleTheorem · UntamedCorner.not_isScFredholmGermTame_sec_zero",
+    "Chapter3/UntamedBundleTheorem · UntamedCorner.isScFredholmGerm2021_not_2017",
+    "Chapter3/UntamedBundle · UntamedCorner.bundle",
+    "Chapter3/UntamedBundle · UntamedCorner.sec",
+    "Chapter3/UntamedBundleFrame · UntamedCorner.isScFredholmSection2021_sec"
    ],
    "formalized": [
     "V3.130",

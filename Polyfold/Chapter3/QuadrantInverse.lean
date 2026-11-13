@@ -62,8 +62,8 @@ iterated tangent maps `T^k f` are homeomorphisms and satisfy the hypotheses of L
 * **Lemma 3.8.21 (preprint 3.77)** is stated with the extra hypotheses "`V = f(U)` relatively open, `f : U → V` a
   homeomorphism, `Df(x)` invertible"; all three are consequences of Proposition 3.8.17 (preprint 3.73)'s hypotheses
   (`‖Df − 1‖ ≤ 1/2` makes `Df(x)` a unit), so only `InvData` is assumed here.  The general form, for any
-  `C¹` homeomorphism with invertible derivative, is `lemma_3_8_21` (`GapP1_Lemma3821.lean`, 2026-11-12); Lemma
-  3.8.20 (preprint 3.76) through it is `lemma_3_8_20` (`GapP1_Lemma3820.lean`).
+  `C¹` homeomorphism with invertible derivative, is `lemma_3_8_21` (`QuadrantInverseSmooth.lean`, 2026-11-12); Lemma
+  3.8.20 (preprint 3.76) through it is `lemma_3_8_20` (`IteratedTangentMaps.lean`).
 * **`Df(0)` is an isomorphism** from `Df(0)C = C` because `C` has an interior point
   (`Polyfold.surjective_of_image_eq`; the text: `ℝⁿ = C − C`); `0 ∈ U` and `f(0) = 0` are not
   used in Proposition 3.8.17 (preprint 3.73) (`InvData` has neither).

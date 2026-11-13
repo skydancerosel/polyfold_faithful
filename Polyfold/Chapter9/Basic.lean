@@ -89,9 +89,9 @@ orbifold-type if it takes only the values `0`, `1`.
 * In Definition 9.1.2 (4) the 2021 text reads "the data in (2) and (3)" (2017: "(ii) and (iii)",
   a possible misprint there); "see the next 9.1" on p. 291 of the 2017 text refers to Remark 9.1.
 * Not formalized here: Remark 9.1.3 (b) (graphs as submanifolds).  Remark 9.1.4 is in
-  `Polyfold/Chapter9/GapP2_CRemark914.lean`; Proposition 9.1.9 and Remark 9.1.10 are in
-  `GapP2_CProp919.lean`, `GapP2_CProp919Manifold.lean`, `GapP2_C2Prop919Text.lean`,
-  `GapP2_C2Remark9110.lean` and `GapP2_C2Remark9110Etale.lean` (2026-11-12).  The restriction
+  `Polyfold/Chapter9/OrbitSubsetMetrizable.lean`; Proposition 9.1.9 and Remark 9.1.10 are in
+  `SupportOrbifold.lean`, `SupportManifold.lean`, `SupportGroupoidNaturality.lean`,
+  `SupportClassicalStructures.lean` and `SupportGroupoidEtale.lean` (2026-11-12).  The restriction
   remark and Lemma 9.1.7 are in `Polyfold/Chapter9/Symmetric.lean`.
 -/
 

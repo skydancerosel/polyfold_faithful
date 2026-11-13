@@ -72,7 +72,7 @@ text's `B` is a strong bundle isomorphism of `W|U(x)` only.
 * The text assumes Definition 8.4.2 for both bundles.  We use it for the target `W'` of the two
   functors `Ψ ∘ ΠX, Ψ' ∘ ΠZ` out of the weak fibred product; this avoids Proposition 10.4.6 (the
   property under strong bundle equivalences), formalized since 2026-11-12 as
-  `EpStrongBundle.proposition_10_4_6` (`GapP2_GBundleLR.lean`).  For `x` in the base of the
+  `EpStrongBundle.proposition_10_4_6` (`StrongBundleLocalRegularity.lean`).  For `x` in the base of the
   weak fibred product, `ψ₀ : ϕ_G(x) → ϕ_F(x)`, `Q = ψ̂₀ ∘ ϕ_G` (`EpFunctor.TransportChart`) and the
   local inverse `F⁻¹` of `F` near `x` (Definition 10.4.1 (2)), the map
   `B(w) = μ'(ψ_{ϕ_F⁻¹(P'(w))}, G(F⁻¹(w)))` is a strong bundle isomorphism of `W'|U(ϕ_F(x))`

@@ -61,11 +61,11 @@ equivalence) and `ΠV''(p, w) = Φ'_{p.z}⁻¹(μ'(p.φ, Ψ(w)))` (`compRight`);
 ## Not formalized
 
 * The universal property of the localization `SEP → SEP(F⁻¹)` (for `EP → EP(E⁻¹)` it is
-  `EPLoc.universal_property`, `GapP2_F_LocUniversal.lean`).
+  `EPLoc.universal_property`, `LocalizationUniversal.lean`).
 
 The converse (an isomorphism of `SEP(F⁻¹)` is a generalized strong bundle isomorphism), of which
 this file has the base half `isEquivalence_base_of_isIso`, is proved since 2026-11-12 in
-`GapP2_F2_SBConverse.lean` (`SEPLoc.equivalences_Ψ_of_isIso`, `SEPLoc.isIso_homMk_iff`,
+`StrongBundleIsoConverse.lean` (`SEPLoc.equivalences_Ψ_of_isIso`, `SEPLoc.isIso_homMk_iff`,
 `SEPLoc.isIso_iff_isGeneralizedIso`), by a saturation argument in place of strong bundle versions
 of the claims (C1), (C2) of Appendix 10.6.2 (pp. 515–519).
 -/

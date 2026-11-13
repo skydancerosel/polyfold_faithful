@@ -61,14 +61,14 @@ codimension `1` suffices, and for tame `A` it is `d_A(y) = 1`.
   `SubmanifoldOrientation` of any submanifold with these tangent spaces lying in the stratum.
   (2026-11-12) For a sheet with tame induced structure the stratum is open and dense in `∂M`
   (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`,
-  `GapP2_DBoundaryStratum.lean`); it is not built as a submanifold.  (2026-11-13) It is built
-  as one in `GapP2_E6_StratumRetraction.lean`, `GapP2_E6_StratumTangent.lean`
+  `BoundaryStratumDense.lean`); it is not built as a submanifold.  (2026-11-13) It is built
+  as one in `StratumRetraction.lean`, `StratumTangent.lean`
   (`isSubmanifoldOfDim_stratumOne`, `submanifoldTangent_stratumOne`: dimension `n - 1`, tangent
   spaces `T^R_yM`), oriented by `o_{∂M}` in the sense of Definition 9.3.3
-  (`stratumOrientation`, `GapP2_E6_BoundaryOrientation.lean`).
+  (`stratumOrientation`, `BoundaryOrientation.lean`).
 * The extension to the closed faces (Figure 9.1).  Remark 9.3.11 is a comment, with nothing to
   formalize.  (2026-11-13) For face-structured sheets: `figure_9_1_existsUnique_faceOrientation`
-  (`GapP2_D3FaceOrientation.lean`).
+  (`FaceOrientation.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

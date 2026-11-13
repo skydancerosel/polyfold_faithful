@@ -67,7 +67,7 @@ On an M-polyfold:
   they are in `Polyfold/Chapter4/ScForms2021.lean` – `ScFormsLower2021.lean`.  Stokes' theorem
   for classical forms on Mathlib manifolds with corners is in
   `Polyfold/Chapter4/ManifoldStokes2021.lean`.  Theorem 4.4.7 (Stokes) for sc-forms is
-  `Chapter9/MathlibFormsBridge2021.lean` and `Chapter9/GapP1_Stokes2021.lean`
+  `Chapter9/MathlibFormsBridge2021.lean` and `Chapter9/StokesFaceSum.lean`
   (`theorem_4_4_7_hyp`), Lemmas 4.4.8 and 4.5.2 (Poincaré) are `Poincare2021b.lean`
   (`lemma_4_4_8`, `lemma_4_5_2`).
 

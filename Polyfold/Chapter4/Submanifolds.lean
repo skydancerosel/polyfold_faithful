@@ -111,7 +111,7 @@ at `a` if `T_aA` has in `T_aX` an sc-complement contained in `T_a^R X`.
   point); the transport of the sc-complement needs the smoothness of the point, which holds on `A`.
 * The **open question** after Proposition 4.2.3 (preprint 4.15) (lines ≈ 6497–6510) is not
   formalized; its settled last sentence (no sc⁺-retract `(O, E, E)` is homeomorphic to the "T") is
-  `Question424.question_4_2_4_scPlus` (`GapP1_Question424.lean`).
+  `Question424.question_4_2_4_scPlus` (`ScPlusRetractQuestion.lean`).
 -/
 
 open Set Filter Topology Function Module

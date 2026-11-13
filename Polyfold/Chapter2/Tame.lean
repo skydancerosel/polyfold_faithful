@@ -77,8 +77,8 @@ filtration, has the form `Φ(u, h) = (φ(u), Γ(u, h))` with `Γ` linear in `h`,
   `FibredProduct.lean`; the global strong bundles (Definitions 2.6.4–2.6.7 (preprint 2.50–2.53), `Y[0]`) in
   `StrongBundle.lean`, Proposition 2.6.8 (preprint 2.54) in `StrongBundlePullback.lean`, `Y[1]` and `P[1]` in
   `StrongBundleOne.lean`.  The intrinsic extended faces (G.12) and Definition 2.5.8 (preprint 2.38)
-  in `T_xX` (G.13) are formalized in `GapP1_ExtendedFaces.lean`, `GapP1_Def258.lean` and
-  `GapP1_Def258b.lean`.  Strong bundle isomorphisms and the category `SBR` (G.14) are
+  in `T_xX` (G.13) are formalized in `ExtendedFaces.lean`, `TangentConeQuadrant.lean` and
+  `TangentSpaceChartIndependent.lean`.  Strong bundle isomorphisms and the category `SBR` (G.14) are
   formalized since (`IsStrongBundleIso`, `SBR`, `SBR.forget0`, `SBR.forget1`).
 -/
 

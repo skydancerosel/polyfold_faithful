@@ -48,7 +48,7 @@ is a partial quadrant in `T_xO`.
 
 ## What the text leaves implicit, and the choices made
 
-* Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized in `GapP1_Lemma249.lean`
+* Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized in `TangentConePaths.lean`
   (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`, `lemma_2_4_9_tangent`; gap G.10, closed), from the
   sign arguments below.  An sc-smooth path from an interval
   (with the constant sc-structure on `ℝ`) takes values in `O_∞` and has a smooth derivative, so the

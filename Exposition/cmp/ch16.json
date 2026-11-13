@@ -12,10 +12,10 @@
    "lean": {
     "statement": "`structure PolyfoldStructure (Z)`, with fields `X`, `paracompact : X.X.HasParacompactOrbitSpace`, `isZhou : X.X.IsZhou` and `β : X.X.OrbitSpace ≃ₜ Z`; `toOrbitChart` (the pair of Remark 10.3.18) and `isLR`. Witness: `z3PolyfoldStructure` on $\\mathbb R$ (the trivial $\\mathbb Z/3$-action).",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.toOrbitChart",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.isLR",
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.z3PolyfoldStructure"
+     "Chapter16/PolyfoldStructure · PolyfoldStructure",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.toOrbitChart",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.isLR",
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.z3PolyfoldStructure"
     ]
    },
    "chips": [
@@ -38,10 +38,10 @@
    "lean": {
     "statement": "`PolyfoldStructure.Equiv p q := ∃ f, IsGeneralizedIso f ∧ ⇑p.β = ⇑q.β ∘ orbitMap f`; an equivalence relation (`setoid`), equal to Remark 10.3.18's relation (`equiv_iff_rel`); $|f| = \\beta^{-1} \\circ \\alpha$ (`orbitMap_eq_of_equiv`).",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.Equiv",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.setoid",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.equiv_iff_rel",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.orbitMap_eq_of_equiv"
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.Equiv",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.setoid",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.equiv_iff_rel",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.orbitMap_eq_of_equiv"
     ]
    },
    "chips": [
@@ -61,10 +61,10 @@
    "lean": {
     "statement": "Does not hold as we read it: `PolyfoldStructure.not_uniqueness_16_1_2 : ¬ Uniqueness_16_1_2`. The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$ satisfies (ZHOU) (`isZhou_trivialZ3`) and has paracompact orbit space, so it is a polyfold structure on $\\mathbb R$ in the sense of Definition 16.1.1; the identity and the generalized isomorphism through the inversion functor both satisfy $\\alpha = \\alpha \\circ |f|$ and differ (`uniqueness_16_1_2_counterexample`). It holds when the target is effective: `uniqueness_16_1_2_of_isEffective` ((ZHOU) gives the local regularity property, then Theorem 10.3.19 for effective ep-groupoids).",
     "decls": [
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.Uniqueness_16_1_2",
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.not_uniqueness_16_1_2",
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.uniqueness_16_1_2_counterexample",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.uniqueness_16_1_2_of_isEffective"
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.Uniqueness_16_1_2",
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.not_uniqueness_16_1_2",
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.uniqueness_16_1_2_counterexample",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.uniqueness_16_1_2_of_isEffective"
     ]
    },
    "chips": [
@@ -87,8 +87,8 @@
    "lean": {
     "statement": "`PolyfoldClass Z := Quotient (PolyfoldStructure.setoid Z)`; witness `z3Polyfold`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass",
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.z3Polyfold"
+     "Chapter16/PolyfoldStructure · PolyfoldClass",
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.z3Polyfold"
     ]
    },
    "chips": [
@@ -110,16 +110,16 @@
    "lean": {
     "statement": "`PolyfoldStructure.proposition_16_1_4`: `(p.X.X.PObj.AdmitsBumpFunctions ↔ q.X.X.PObj.AdmitsBumpFunctions) ∧ (p.X.X.HasScPartitionsOfUnity ↔ q.X.X.HasScPartitionsOfUnity)`; parts `proposition_16_1_4_one`, `_two`, through equivalences (`IsEquivalence.admitsBumpFunctions_iff`, `IsEquivalence.hasScPartitionsOfUnity_iff`); the \"easy exercise\" is `isScSmoothMap_comp_π_of_comp_obj`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4",
-     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4_two",
-     "Chapter16/P3Z_PolyfoldPartitions · EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff",
-     "Chapter16/P3Z_PolyfoldPartitions · EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj",
-     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.hasScPartitionsOfUnity_iff_orbit",
-     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.HasOrbitScPartitionsOfUnity",
-     "Chapter16/P3Z_PolyfoldBump · PolyfoldStructure.proposition_16_1_4_one",
-     "Chapter16/P3Z_PolyfoldBump · EpFunctor.IsEquivalence.admitsBumpFunctions_iff",
-     "Chapter16/P3Z_PolyfoldBump · MPolyfold.IsScDiffeoOn.hasBumpAt",
-     "Chapter16/P3Z_PolyfoldBump · EpGroupoid.hasBumpAt_tgt"
+     "Chapter16/PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4",
+     "Chapter16/PolyfoldPartitions · PolyfoldStructure.proposition_16_1_4_two",
+     "Chapter16/PolyfoldPartitions · EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff",
+     "Chapter16/PolyfoldPartitions · EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj",
+     "Chapter16/PolyfoldPartitions · EpGroupoid.hasScPartitionsOfUnity_iff_orbit",
+     "Chapter16/PolyfoldPartitions · EpGroupoid.HasOrbitScPartitionsOfUnity",
+     "Chapter16/PolyfoldBump · PolyfoldStructure.proposition_16_1_4_one",
+     "Chapter16/PolyfoldBump · EpFunctor.IsEquivalence.admitsBumpFunctions_iff",
+     "Chapter16/PolyfoldBump · MPolyfold.IsScDiffeoOn.hasBumpAt",
+     "Chapter16/PolyfoldBump · EpGroupoid.hasBumpAt_tgt"
     ]
    },
    "chips": [
@@ -141,12 +141,12 @@
    "lean": {
     "statement": "`PolyfoldClass.AdmitsBumpFunctions`, `PolyfoldClass.AdmitsScPartitionsOfUnity` (some structure in $c$); `definition_16_1_5_one`, `_two`: equivalent to \"every structure in $c$\". Witnesses `z3Polyfold_admitsBumpFunctions`, `z3Polyfold_admitsScPartitionsOfUnity`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldBump · PolyfoldClass.AdmitsBumpFunctions",
-     "Chapter16/P3Z_PolyfoldBump · PolyfoldClass.definition_16_1_5_one",
-     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldClass.AdmitsScPartitionsOfUnity",
-     "Chapter16/P3Z_PolyfoldPartitions · PolyfoldClass.definition_16_1_5_two",
-     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsBumpFunctions",
-     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity"
+     "Chapter16/PolyfoldBump · PolyfoldClass.AdmitsBumpFunctions",
+     "Chapter16/PolyfoldBump · PolyfoldClass.definition_16_1_5_one",
+     "Chapter16/PolyfoldPartitions · PolyfoldClass.AdmitsScPartitionsOfUnity",
+     "Chapter16/PolyfoldPartitions · PolyfoldClass.definition_16_1_5_two",
+     "Chapter16/PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsBumpFunctions",
+     "Chapter16/PolyfoldExamples · PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity"
     ]
    },
    "chips": [
@@ -169,9 +169,9 @@
    "lean": {
     "statement": "Does not hold as we read it: `PolyfoldStructure.not_remark_16_1_7 : ¬ Remark_16_1_7` (the pair of V16.3, $h = \\mathrm{id}$); the same pair contradicts the sentence on pp. 709–710. Holds for an effective target: `remark_16_1_7_of_isEffective`.",
     "decls": [
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.Remark_16_1_7",
-     "Chapter16/P3Z_ZhouUniquenessCheck · PolyfoldStructure.not_remark_16_1_7",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.remark_16_1_7_of_isEffective"
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.Remark_16_1_7",
+     "Chapter16/ZhouUniquenessCheck · PolyfoldStructure.not_remark_16_1_7",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.remark_16_1_7_of_isEffective"
     ]
    },
    "chips": [
@@ -194,9 +194,9 @@
    "lean": {
     "statement": "`PolyfoldStructure.degIndex p z := d_{|X|}(β⁻¹ z)`, equal to $d_X(x)$ for every $x$ with $\\beta(|x|) = z$ (`degIndex_eq`); `lemma_16_1_13 (h : Equiv p q) : p.degIndex = q.degIndex`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.degIndex",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.degIndex_eq",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.lemma_16_1_13"
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.degIndex",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.degIndex_eq",
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.lemma_16_1_13"
     ]
    },
    "chips": [
@@ -216,9 +216,9 @@
    "lean": {
     "statement": "`PolyfoldClass.degIndex c` (`Quotient.lift`); `definition_16_1_14`: `c.degIndex z = d_X(x)` for every representative and every $x$ over $z$. Witness `z3Polyfold_degIndex`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.degIndex",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.definition_16_1_14",
-     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_degIndex"
+     "Chapter16/PolyfoldStructure · PolyfoldClass.degIndex",
+     "Chapter16/PolyfoldStructure · PolyfoldClass.definition_16_1_14",
+     "Chapter16/PolyfoldExamples · PolyfoldStructure.z3Polyfold_degIndex"
     ]
    },
    "chips": [
@@ -238,9 +238,9 @@
    "lean": {
     "statement": "`PolyfoldClass.boundary c := {z | 1 ≤ c.degIndex z}`; `mem_boundary_iff` (through any representative). Witness `z3Polyfold_boundary` ($= \\emptyset$).",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.boundary",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.mem_boundary_iff",
-     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_boundary"
+     "Chapter16/PolyfoldStructure · PolyfoldClass.boundary",
+     "Chapter16/PolyfoldStructure · PolyfoldClass.mem_boundary_iff",
+     "Chapter16/PolyfoldExamples · PolyfoldStructure.z3Polyfold_boundary"
     ]
    },
    "chips": [
@@ -260,7 +260,7 @@
    "lean": {
     "statement": "`PolyfoldStructure.lemma_16_1_19 (h : Equiv p q) : p.X.X.IsTame ↔ q.X.X.IsTame` (Chapter 11's `IsEquivalence.isTame_iff`).",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldStructure.lemma_16_1_19"
+     "Chapter16/PolyfoldStructure · PolyfoldStructure.lemma_16_1_19"
     ]
    },
    "chips": [
@@ -282,9 +282,9 @@
    "lean": {
     "statement": "`PolyfoldClass.IsTame c := ∃ p, ⟦p⟧ = c ∧ p.X.X.IsTame`; `definition_16_1_20`: equivalent to every representative tame. Witness `z3Polyfold_isTame`.",
     "decls": [
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.IsTame",
-     "Chapter16/P3Z_PolyfoldStructure · PolyfoldClass.definition_16_1_20",
-     "Chapter16/P3Z_PolyfoldExamples · PolyfoldStructure.z3Polyfold_isTame"
+     "Chapter16/PolyfoldStructure · PolyfoldClass.IsTame",
+     "Chapter16/PolyfoldStructure · PolyfoldClass.definition_16_1_20",
+     "Chapter16/PolyfoldExamples · PolyfoldStructure.z3Polyfold_isTame"
     ]
    },
    "chips": [
@@ -304,14 +304,14 @@
    "lean": {
     "statement": "The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$: $\\pi$ is injective and a homeomorphism onto $\\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comapP3Z`, `EpGroupoid.descendP3Z`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`.",
     "decls": [
-     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.injective_π_trivialZ3",
-     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.isHomeomorph_π_trivialZ3",
-     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.trivialZ3OrbitHomeomorph",
-     "Chapter16/P3Z_ZhouUniquenessCheck · EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3",
-     "Chapter16/P3Z_PolyfoldPartitions · PartitionOfUnity.comapP3Z",
-     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.descendP3Z",
-     "Chapter16/P3Z_PolyfoldPartitions · EpGroupoid.preimage_closure_π",
-     "Chapter16/P3Z_PolyfoldBump · MPolyfold.isScSmoothMap_real_of_locally"
+     "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.injective_π_trivialZ3",
+     "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.isHomeomorph_π_trivialZ3",
+     "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.trivialZ3OrbitHomeomorph",
+     "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3",
+     "Chapter16/PolyfoldPartitions · PartitionOfUnity.comapP3Z",
+     "Chapter16/PolyfoldPartitions · EpGroupoid.descendP3Z",
+     "Chapter16/PolyfoldPartitions · EpGroupoid.preimage_closure_π",
+     "Chapter16/PolyfoldBump · MPolyfold.isScSmoothMap_real_of_locally"
     ]
    },
    "chips": [],
@@ -329,7 +329,7 @@
    "lean": {
     "statement": "`PolyfoldStructure.metrizableSpace (p : PolyfoldStructure Z) : MetrizableSpace Z`, from Theorem 7.3.1's `theorem_7_3_1_metrizable` (paracompact, locally metrizable and Hausdorff orbit space) and $\\beta$.",
     "decls": [
-     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.metrizableSpace"
+     "Chapter16/TangentPolyfold · PolyfoldStructure.metrizableSpace"
     ]
    },
    "chips": [
@@ -351,14 +351,14 @@
    "lean": {
     "statement": "`PolyfoldStructure.Lemma_16_2_1 : Prop` is the printed statement ($\\mathfrak f, \\mathfrak g$ generalized isomorphisms, $f \\circ \\alpha = \\beta \\circ |\\mathfrak f|$, $g \\circ \\alpha = \\beta \\circ |\\mathfrak g|$, $f = g$); `T𝔣` is `EPLoc.tangentHom 𝔣`, the class of $[TX \\leftarrow TA \\to TY]$. `not_lemma_16_2_1 : ¬ Lemma_16_2_1.{0}` (data `lemma_16_2_1_counterexample`). What holds: `lemma_16_2_1_orbit` (under the printed hypotheses, $|\\mathfrak f| = |\\mathfrak g|$ and $|T\\mathfrak f| = |T\\mathfrak g|$) and `lemma_16_2_1_of_isEffective` (for $Y$ effective, $\\mathfrak f = \\mathfrak g$ and $T\\mathfrak f = T\\mathfrak g$), with witness `lemma_16_2_1_of_isEffective_hypotheses` (the point ep-groupoid).",
     "decls": [
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.Lemma_16_2_1",
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.not_lemma_16_2_1",
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_counterexample",
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_orbit",
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective",
-     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective_hypotheses",
-     "Chapter16/P3H_TangentLemma · EPLocalization.EPLoc.tangentHom",
-     "Chapter16/P3H_TangentLemma · EPLocalization.EPLoc.orbitMap_tangentHom_eq"
+     "Chapter16/TangentLemma · PolyfoldStructure.Lemma_16_2_1",
+     "Chapter16/TangentLemma · PolyfoldStructure.not_lemma_16_2_1",
+     "Chapter16/TangentLemma · PolyfoldStructure.lemma_16_2_1_counterexample",
+     "Chapter16/TangentLemma · PolyfoldStructure.lemma_16_2_1_orbit",
+     "Chapter16/TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective",
+     "Chapter16/TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective_hypotheses",
+     "Chapter16/TangentLemma · EPLocalization.EPLoc.tangentHom",
+     "Chapter16/TangentLemma · EPLocalization.EPLoc.orbitMap_tangentHom_eq"
     ]
    },
    "chips": [
@@ -382,12 +382,12 @@
    "lean": {
     "statement": "`PolyfoldClass.TangentSpace c := |T X₀|` with $(X_0,\\alpha_0)$ = `c.out`; `tangentMap q hq` $= T\\alpha := |T\\mathfrak f|$ for any $\\mathfrak f : X \\to X_0$ with $\\alpha_0 \\circ |\\mathfrak f| = \\alpha$, independent of $\\mathfrak f$ (`tangentMap_eq`); `tangentMap_comp` is (16.5) for every $h$ with $\\beta \\circ |h| = \\alpha$; `isHomeomorph_tangentMap`, `tangentHomeomorph`.",
     "decls": [
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.TangentSpace",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap_eq",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap_comp",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.isHomeomorph_tangentMap",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentHomeomorph"
+     "Chapter16/TangentPolyfold · PolyfoldClass.TangentSpace",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentMap",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentMap_eq",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentMap_comp",
+     "Chapter16/TangentPolyfold · PolyfoldClass.isHomeomorph_tangentMap",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentHomeomorph"
     ]
    },
    "chips": [
@@ -410,8 +410,8 @@
    "lean": {
     "statement": "`PolyfoldClass.lemma_16_2_2 c`: every `tangentMap q hq` is a homeomorphism for `tangentSpaceTopology c`; a topology for which one $T\\alpha$ is a homeomorphism equals it; `MetrizableSpace (TangentSpace c)` (Theorem 8.1.15's `metrizableSpace_tangent_orbitSpace`).",
     "decls": [
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.lemma_16_2_2",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentSpaceTopology"
+     "Chapter16/TangentPolyfold · PolyfoldClass.lemma_16_2_2",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentSpaceTopology"
     ]
    },
    "chips": [],
@@ -431,12 +431,12 @@
    "lean": {
     "statement": "`PolyfoldClass.tangentStructure q hq : PolyfoldStructure (TangentSpace c)` ($|TX|$ paracompact by Theorem 8.1.15, `tangent_paracompact`; $TX$ satisfies ZHOU by Proposition 8.1.16, `tangent_isZhou`), `tangentStructure_equiv`, `PolyfoldClass.tangent c`, `definition_16_2_3` ($[(TX, T\\alpha)] = Tc$ for every $(X,\\alpha) \\in c$). Instance check: `example : PolyfoldClass (TangentSpace z3Polyfold)`.",
     "decls": [
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentStructure",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentStructure_equiv",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangent",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.definition_16_2_3",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.tangent_paracompact",
-     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.tangent_isZhou"
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentStructure",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangentStructure_equiv",
+     "Chapter16/TangentPolyfold · PolyfoldClass.tangent",
+     "Chapter16/TangentPolyfold · PolyfoldClass.definition_16_2_3",
+     "Chapter16/TangentPolyfold · PolyfoldStructure.tangent_paracompact",
+     "Chapter16/TangentPolyfold · PolyfoldStructure.tangent_isZhou"
     ]
    },
    "chips": [
@@ -458,8 +458,8 @@
    "lean": {
     "statement": "Proposition 11.2.9 (`EPLoc.formsPush_eq_of_orbitMap_eq`, Part II) and its forms with (LR) on either side, `EPLoc.formsPush_eq_of_orbitMap_eq_or`, `formsPullback_eq_of_orbitMap_eq_or` (Proposition 10.3.16).",
     "decls": [
-     "Chapter16/P3H_FormsIndependence · EPLocalization.EPLoc.formsPush_eq_of_orbitMap_eq_or",
-     "Chapter16/P3H_FormsIndependence · EPLocalization.EPLoc.formsPullback_eq_of_orbitMap_eq_or"
+     "Chapter16/FormsIndependence · EPLocalization.EPLoc.formsPush_eq_of_orbitMap_eq_or",
+     "Chapter16/FormsIndependence · EPLocalization.EPLoc.formsPullback_eq_of_orbitMap_eq_or"
     ]
    },
    "chips": [
@@ -481,15 +481,15 @@
    "lean": {
     "statement": "`PolyfoldClass.FormRep`, `FormRep.Rel` (an equivalence relation), `ScForm c k` (the quotient), `ScForm.mk`; `ScForm.toStructure`, `equivStructure` (for every $p \\in c$ a bijection to $\\Omega^k_{ep,\\infty}(X)$); the vector-space structure with `mk_add`, `mk_smul` (the text's formulas for every representative) and `equivStructureₗ`.",
     "decls": [
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.FormRep",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.FormRep.Rel",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.toStructure",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.equivStructure",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk_add",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk_smul",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.equivStructureₗ"
+     "Chapter16/PolyfoldForms · PolyfoldClass.FormRep",
+     "Chapter16/PolyfoldForms · PolyfoldClass.FormRep.Rel",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.mk",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.toStructure",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.equivStructure",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.mk_add",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.mk_smul",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.equivStructureₗ"
     ]
    },
    "chips": [],
@@ -509,19 +509,19 @@
    "lean": {
     "statement": "`PolyfoldClass.theorem_16_2_6_complex c k`: $d[(\\omega,q)] = [(d\\omega,q)]$, $d \\circ d = 0$, and $\\omega \\mapsto [(\\omega,q)]$ is the linear isomorphism `equivStructureₗ.symm`; `ScForm.d`, `d_mk`, `d_comp_d`.\n\nThe pull-back by sc-smooth maps of polyfolds: `ScMap.pullback F k` (linear). It is well defined on every class, with no effectiveness assumption (`MapRep.pullback_eq_of_equiv`). `pullback_mk`: the text's formula, for every representative. `d_comp_pullback`, `pullback_id`. `pullback_mk_comp`: $(\\hat g\\circ\\hat f)^*=\\hat f^*\\circ\\hat g^*$ on representatives. `pullback_comp`: the same for an effective middle polyfold. `PolyfoldClass.theorem_16_2_6_pullback`.",
     "decls": [
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.theorem_16_2_6_complex",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d_mk",
-     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d_comp_d",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.MapRep.pullback",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.MapRep.pullback_eq_of_equiv",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.pullback",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.pullback_mk",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.d_comp_pullback",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.pullback_id",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.pullback_mk_comp",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.ScMap.pullback_comp",
-     "Chapter16/P3W3Y_FormsPullback · PolyfoldClass.theorem_16_2_6_pullback"
+     "Chapter16/PolyfoldForms · PolyfoldClass.theorem_16_2_6_complex",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.d",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.d_mk",
+     "Chapter16/PolyfoldForms · PolyfoldClass.ScForm.d_comp_d",
+     "Chapter16/FormsPullback · PolyfoldClass.MapRep.pullback",
+     "Chapter16/FormsPullback · PolyfoldClass.MapRep.pullback_eq_of_equiv",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.pullback",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.pullback_mk",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.d_comp_pullback",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.pullback_id",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.pullback_mk_comp",
+     "Chapter16/FormsPullback · PolyfoldClass.ScMap.pullback_comp",
+     "Chapter16/FormsPullback · PolyfoldClass.theorem_16_2_6_pullback"
     ]
    },
    "chips": [
@@ -544,13 +544,13 @@
    "lean": {
     "statement": "`PolyfoldClass.BranchedRep`, `BranchedRep.Rel` (an equivalence relation), `BranchedSuborbifold c`; `BranchedSuborbifold.toFun` ($\\theta$), `definition_16_4_1_wellDefined` ($\\theta(\\alpha|x|) = \\Theta(x)$ for every representative); key lemma `EPLoc.pullTheta_eq_of_orbitMap` ($(f^*\\Theta')(x) = \\Theta'(y)$ when $|f||x| = |y|$), `EPLoc.pullTheta_id_of_isFunctorial`.",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedRep",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedRep.Rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_1_wellDefined",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_eq_of_orbitMap",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_id_of_isFunctorial"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedRep",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedRep.Rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_1_wellDefined",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_eq_of_orbitMap",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_id_of_isFunctorial"
     ]
    },
    "chips": [],
@@ -570,29 +570,29 @@
    "lean": {
     "statement": "`HasRepProperty P θ` (some representative has $P$), `hasRepProperty_iff` (for $P$ stable under pull-backs, some iff all); `IsClosed`, `IsCompact`, `IsManifoldType`, `IsOrbifoldType`, `IsNDimensional`, each with the all-representatives form `definition_16_4_2_closed`, `_compact`, `_manifold`, `_orbifold`, `_nDim` (from Theorem 11.3.3 (3)–(6)); `IsTame` (Definition 9.3.6): some representative is tame, and `definition_16_4_2_tame` gives every representative (G.154 closed).\n\nTameness is invariant: `TameBranchingStructure.restrictRep` and `move`: D9.3.6 structures restricted, and moved by sc-diffeomorphisms. `EpFunctor.isTameBranched_pullbackTheta`, `isTameBranched_pushforwardTheta`, `isTameBranched_pullbackTheta_iff`, along transport charts as in Theorem 11.4.1. `EPLoc.isTameBranched_pullTheta`. **`BranchedSuborbifold.definition_16_4_2_tame`**: $\\theta$ is tame iff every representative is. Oriented: `OrientedRep.Rel.isTameOriented(_iff)`, from the structures of Theorem 11.4.1 (`hcov_pullTheta`). `OrientedSuborbifold.IsTameOriented` with `isTameOriented_iff` (all representatives).",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.HasRepProperty",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.hasRepProperty_iff",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsClosed",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsCompact",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsManifoldType",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsOrbifoldType",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsTame",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_closed",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_compact",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_manifold",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_orbifold",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_nDim",
-     "Chapter16/P3W3Y_BranchedTame · EpGroupoid.TameBranchingStructure.restrictRep",
-     "Chapter16/P3W3Y_BranchedTame · EpGroupoid.TameBranchingStructure.move",
-     "Chapter16/P3W3Y_BranchedTame · EpFunctor.isTameBranched_pullbackTheta",
-     "Chapter16/P3W3Y_BranchedTame · EpFunctor.isTameBranched_pushforwardTheta",
-     "Chapter16/P3W3Y_BranchedTame · EpFunctor.isTameBranched_pullbackTheta_iff",
-     "Chapter16/P3W3Y_BranchedTame · EPLocalization.EPLoc.isTameBranched_pullTheta",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_tame",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented_iff",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.IsTameOriented",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.isTameOriented_iff"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.HasRepProperty",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.hasRepProperty_iff",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsClosed",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsCompact",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsManifoldType",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsOrbifoldType",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsTame",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_closed",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_compact",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_manifold",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_orbifold",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_nDim",
+     "Chapter16/BranchedTame · EpGroupoid.TameBranchingStructure.restrictRep",
+     "Chapter16/BranchedTame · EpGroupoid.TameBranchingStructure.move",
+     "Chapter16/BranchedTame · EpFunctor.isTameBranched_pullbackTheta",
+     "Chapter16/BranchedTame · EpFunctor.isTameBranched_pushforwardTheta",
+     "Chapter16/BranchedTame · EpFunctor.isTameBranched_pullbackTheta_iff",
+     "Chapter16/BranchedTame · EPLocalization.EPLoc.isTameBranched_pullTheta",
+     "Chapter16/BranchedTame · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_tame",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented_iff",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.IsTameOriented",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.isTameOriented_iff"
     ]
    },
    "chips": [
@@ -613,26 +613,26 @@
     "statement": "$A = \\mathrm{supp}\\,\\theta$ has a natural smooth manifold (orbifold) structure for $\\theta$ of manifold-type (orbifold-type), induced from the overhead (Proposition 9.1.9, Theorem 11.3.3)."
    },
    "lean": {
-    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).\n\nNaturality (Part III wave 5, `Chapter16/P3W5PC_SuppNaturality.lean`): **`proposition_16_4_3_naturality c : proposition_16_4_3_naturality_statement c`**. `suppTransition_orbitSuppProj`: for a generalized isomorphism $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} X']$ between the representatives, the transition sends $|F b|$ to $|\\Phi b|$ for $b \\in \\mathrm{supp}(\\Phi^*\\Theta')$. `isScSmoothOn_suppTransition`: for any induced structures (Proposition 9.1.9 (1)) the transition is sc-smooth; near $|F b|$ it is $p' \\circ \\Phi|_{\\mathrm{supp}} \\circ (F|_{\\mathrm{supp}})^{-1} \\circ p^{-1}$, with the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$. `proposition_16_4_3_naturality_all`: an sc-diffeomorphism for any induced structures, for $\\Theta$, $\\Theta'$ of orbifold type.",
+    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).\n\nNaturality (Part III wave 5, `Chapter16/SuppNaturality.lean`): **`proposition_16_4_3_naturality c : proposition_16_4_3_naturality_statement c`**. `suppTransition_orbitSuppProj`: for a generalized isomorphism $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} X']$ between the representatives, the transition sends $|F b|$ to $|\\Phi b|$ for $b \\in \\mathrm{supp}(\\Phi^*\\Theta')$. `isScSmoothOn_suppTransition`: for any induced structures (Proposition 9.1.9 (1)) the transition is sc-smooth; near $|F b|$ it is $p' \\circ \\Phi|_{\\mathrm{supp}} \\circ (F|_{\\mathrm{supp}})^{-1} \\circ p^{-1}$, with the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$. `proposition_16_4_3_naturality_all`: an sc-diffeomorphism for any induced structures, for $\\Theta$, $\\Theta'$ of orbifold type.",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.supp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_supp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_homeomorph",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_orbifold",
-     "Chapter16/P3W4SM_SuppNaturality · suppTransition",
-     "Chapter16/P3W4SM_SuppNaturality · β_suppTransition",
-     "Chapter16/P3W4SM_SuppNaturality · suppTransition_eq_iff",
-     "Chapter16/P3W4SM_SuppNaturality · suppTransition_self",
-     "Chapter16/P3W4SM_SuppNaturality · suppTransition_trans",
-     "Chapter16/P3W4SM_SuppNaturality · suppTransition_symm",
-     "Chapter16/P3W4SM_SuppNaturality · IsInducedSuppStructure",
-     "Chapter16/P3W4SM_SuppNaturality · proposition_16_4_3_naturality_statement",
-     "Chapter16/P3W4SM_SuppNaturality · proposition_16_4_3_naturality_self",
-     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.suppTransition_orbitSuppProj",
-     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.isScSmoothOn_suppTransition",
-     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all",
-     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.supp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_supp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_homeomorph",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_orbifold",
+     "Chapter16/SuppNaturalityStatement · suppTransition",
+     "Chapter16/SuppNaturalityStatement · β_suppTransition",
+     "Chapter16/SuppNaturalityStatement · suppTransition_eq_iff",
+     "Chapter16/SuppNaturalityStatement · suppTransition_self",
+     "Chapter16/SuppNaturalityStatement · suppTransition_trans",
+     "Chapter16/SuppNaturalityStatement · suppTransition_symm",
+     "Chapter16/SuppNaturalityStatement · IsInducedSuppStructure",
+     "Chapter16/SuppNaturalityStatement · proposition_16_4_3_naturality_statement",
+     "Chapter16/SuppNaturalityStatement · proposition_16_4_3_naturality_self",
+     "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.suppTransition_orbitSuppProj",
+     "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.isScSmoothOn_suppTransition",
+     "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all",
+     "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality"
     ]
    },
    "chips": [
@@ -654,12 +654,12 @@
    "lean": {
     "statement": "`PolyfoldClass.OrientedRep` (fields `p`, `mem`, `A : OrientedBranched p.X`, `smooth`), `OrientedRep.Rel` (an equivalence relation, by `OrientedBranched.pull`, `pull_comp`, `EPLoc.pull_id_of_mem`), `OrientedSuborbifold c`, `OrientedSuborbifold.toBranched`.",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.Rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold.toBranched",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pull_id_of_mem",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullSection_id_of_mem"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.Rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold.toBranched",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.pull_id_of_mem",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.pullSection_id_of_mem"
     ]
    },
    "chips": [
@@ -681,9 +681,9 @@
    "lean": {
     "statement": "`definition_16_4_5_wellDefined` (related representatives, via $f$, have $f^*\\partial\\Theta' = \\partial\\Theta$ and $f^*\\hat T_{\\partial\\Theta'} = \\hat T_{\\partial\\Theta}$); `OrientedRep.boundaryFun` ($\\partial\\theta = |\\partial\\Theta| \\circ \\alpha^{-1}$), `boundaryFun_eq_of_rel` (independent of the representative).",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.definition_16_4_5_wellDefined",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun_eq_of_rel"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.definition_16_4_5_wellDefined",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun_eq_of_rel"
     ]
    },
    "chips": [
@@ -705,23 +705,23 @@
    "lean": {
     "statement": "On a representative with `IsTameOriented a n` (Chapter 9's `hloc`): `OrientedRep.integral`, `integralEff` (LUC from ZHOU, Proposition 7.4.10), `boundaryIntegral`, `boundaryIntegralEff`. Independence among tame compact representatives: `integral_eq_of_rel` (Theorem 11.4.1 via `EPLoc.tameBranchedIntegral_pull`), `integralEff_eq_of_rel` (Theorem 11.4.2 via `EPLoc.tameBranchedIntegralEff_pull`), and for the boundary integrals `boundaryIntegral_eq_of_rel`, `boundaryIntegralEff_eq_of_rel`, `boundaryIntegralDim1_eq_of_rel` (with partitions of unity, from Stokes).\n\nOn classes: `OrientedSuborbifold.integral` and `integralEff` for tame compact $\\hat\\theta$ (`θ.toBranched.IsCompact`, `θ.IsTameOriented n`). `integral_eq` and `integralEff_eq`: the integral is computed on **every** representative.",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.IsTameOriented",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integral",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integral_eq_of_rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff_eq_of_rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral_eq_of_rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff_eq_of_rel",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralDim1_eq_of_rel",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegral_pull",
-     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegralEff_pull",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.integral",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.integral_eq",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.integralEff",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.integralEff_eq",
-     "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.isCompactBranched_of_mk"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.IsTameOriented",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.integral",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.integral_eq_of_rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff_eq_of_rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral_eq_of_rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff_eq_of_rel",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralDim1_eq_of_rel",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegral_pull",
+     "Chapter16/BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegralEff_pull",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.integral",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.integral_eq",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.integralEff",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.integralEff_eq",
+     "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.isCompactBranched_of_mk"
     ]
    },
    "chips": [
@@ -745,12 +745,12 @@
    "lean": {
     "statement": "`OrientedRep.theorem_16_4_6_hyp (hPU : c.AdmitsScPartitionsOfUnity)` for $n = m + 1 \\ge 2$ (from `EP.theorem_9_5_17`); `theorem_16_4_6_eff_hyp` (`EP.theorem_9_5_18`, LUC from ZHOU); `theorem_16_4_6_dim1_hyp`, `theorem_16_4_6_eff_dim1_hyp` for $n = 1$ (`theorem_9_5_17_dim1`, `theorem_9_5_18_dim1`); `theorem_16_4_6_both_hyp`. Witness: `theorem_16_4_6_hyp_witness` (= `z3Polyfold_admitsScPartitionsOfUnity`).",
     "decls": [
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_hyp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_hyp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_dim1_hyp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_both_hyp",
-     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp_witness"
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_hyp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_hyp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_dim1_hyp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_both_hyp",
+     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp_witness"
     ]
    },
    "chips": [
@@ -774,15 +774,15 @@
    "lean": {
     "statement": "`PSHom p q` has fields `f`, `gen` and `comm`. `PSHom.id`, `PSHom.comp`, `PSHom.f_eq` ($f=\\beta\\circ|\\mathfrak f|\\circ\\alpha^{-1}$), `continuous_f`, `ext`. `PSCat` with a Mathlib `Category` instance. `PSHom.IsIdIso` (an isomorphism $(h,\\mathrm{Id})$) with `inv`, `comp_inv`, `inv_comp`.",
     "decls": [
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.id",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.comp",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.f_eq",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.continuous_f",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.ext",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.IsIdIso",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.IsIdIso.inv",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSCat"
+     "Chapter16/PolyfoldMaps · PSHom",
+     "Chapter16/PolyfoldMaps · PSHom.id",
+     "Chapter16/PolyfoldMaps · PSHom.comp",
+     "Chapter16/PolyfoldMaps · PSHom.f_eq",
+     "Chapter16/PolyfoldMaps · PSHom.continuous_f",
+     "Chapter16/PolyfoldMaps · PSHom.ext",
+     "Chapter16/PolyfoldMaps · PSHom.IsIdIso",
+     "Chapter16/PolyfoldMaps · PSHom.IsIdIso.inv",
+     "Chapter16/PolyfoldMaps · PSCat"
     ]
    },
    "chips": [
@@ -804,14 +804,14 @@
    "lean": {
     "statement": "`PSHom.Equiv` (literally the square in PS) and `Equiv.f_eq` ($f=f'$). `Equiv.refl/symm/trans`, `equiv_comp_left/right`. `MapRep c d` with `MapRep.setoid`. `ScMap.exists_rep`: every class has a representative between any two given structures.",
     "decls": [
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv.f_eq",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv.refl",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv.symm",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv.trans",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.MapRep",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.MapRep.setoid",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.exists_rep"
+     "Chapter16/PolyfoldMaps · PSHom.Equiv",
+     "Chapter16/PolyfoldMaps · PSHom.Equiv.f_eq",
+     "Chapter16/PolyfoldMaps · PSHom.Equiv.refl",
+     "Chapter16/PolyfoldMaps · PSHom.Equiv.symm",
+     "Chapter16/PolyfoldMaps · PSHom.Equiv.trans",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.MapRep",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.MapRep.setoid",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.exists_rep"
     ]
    },
    "chips": [],
@@ -831,12 +831,12 @@
    "lean": {
     "statement": "`PolyfoldClass.ScMap c d` (the quotient) and `ScMap.mk`. `ScMap.toFun`, and `ScMap.remark_16_1_9`: $f$ is continuous and equals $\\beta\\circ|\\mathfrak f|\\circ\\alpha^{-1}$ for every representative. `ScMap.id` with `id_eq`: the class of $([1_X],\\mathrm{Id}_Z)$ for every $(X,\\alpha)\\in c$.",
     "decls": [
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.mk",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.toFun",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.remark_16_1_9",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.id",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.id_eq"
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.mk",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.toFun",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.remark_16_1_9",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.id",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.id_eq"
     ]
    },
    "chips": [],
@@ -856,21 +856,21 @@
    "lean": {
     "statement": "`PSHom.Definition_16_1_10 : Prop` is the independence claim: equivalent pairs have equivalent composites. `not_definition_16_1_10 : ¬ PSHom.Definition_16_1_10.{0}`. `not_exists_comp`: no composition map on classes agrees with the representatives. Effective form: `PSHom.Equiv.comp_of_isEffective` holds for an effective middle structure. `MapRep.comp_equiv` and `ScMap.comp hd` (with `hd : d.IsEffective`), with `comp_mk`, `id_comp`, `comp_id`, `comp_assoc`.",
     "decls": [
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Definition_16_1_10",
-     "Chapter16/P3W3Y_PolyfoldMaps · PSHom.Equiv.comp_of_isEffective",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.MapRep.comp",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.MapRep.comp_equiv",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.comp",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.comp_mk",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.id_comp",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.comp_id",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.ScMap.comp_assoc",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.not_definition_16_1_10",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.not_exists_comp",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.not_equiv_comp",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.a_equiv",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.not_isEffective_k2",
-     "Chapter16/P3W3Y_CompositionCounterexample · CompositionCounterexample.k2Structure"
+     "Chapter16/PolyfoldMaps · PSHom.Definition_16_1_10",
+     "Chapter16/PolyfoldMaps · PSHom.Equiv.comp_of_isEffective",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.MapRep.comp",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.MapRep.comp_equiv",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.comp",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.comp_mk",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.id_comp",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.comp_id",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.ScMap.comp_assoc",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.not_definition_16_1_10",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.not_exists_comp",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.not_equiv_comp",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.a_equiv",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.not_isEffective_k2",
+     "Chapter16/CompositionCounterexample · CompositionCounterexample.k2Structure"
     ]
    },
    "chips": [
@@ -894,13 +894,13 @@
    "lean": {
     "statement": "`EffPolyfold` (fields `Z`, `top`, `c`, `isEffective`) with a Mathlib `Category` instance, for **effective** polyfolds. The witness is `EffPolyfold.point`. `PolyfoldClass.IsEffective` with `isEffective_iff`: one structure is effective iff all are. The supporting invariance lemmas are `EpFunctor.IsEquivalence.isEffective_iff` and `EPLoc.isEffective_iff_of_isGeneralizedIso` (Remark 10.1.12).",
     "decls": [
-     "Chapter16/P3W3Y_PolyfoldMaps · EffPolyfold",
-     "Chapter16/P3W3Y_PolyfoldMaps · EffPolyfold.point",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.IsEffective",
-     "Chapter16/P3W3Y_PolyfoldMaps · PolyfoldClass.isEffective_iff",
-     "Chapter16/P3W3Y_PolyfoldMaps · EpFunctor.IsEquivalence.isEffective_iff",
-     "Chapter16/P3W3Y_PolyfoldMaps · EPLoc.isEffective_iff_of_isGeneralizedIso",
-     "Chapter16/P3W3Y_PolyfoldMaps · EP.isEffective_iff_trivialSet"
+     "Chapter16/PolyfoldMaps · EffPolyfold",
+     "Chapter16/PolyfoldMaps · EffPolyfold.point",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.IsEffective",
+     "Chapter16/PolyfoldMaps · PolyfoldClass.isEffective_iff",
+     "Chapter16/PolyfoldMaps · EpFunctor.IsEquivalence.isEffective_iff",
+     "Chapter16/PolyfoldMaps · EPLoc.isEffective_iff_of_isGeneralizedIso",
+     "Chapter16/PolyfoldMaps · EP.isEffective_iff_trivialSet"
     ]
    },
    "chips": [
@@ -920,30 +920,30 @@
     "statement": "On P there is a natural functor $T$: $(Z,c)\\mapsto T(Z,c)$ and $\\hat f\\mapsto T\\hat f=[(Tf,T\\mathfrak f)]$, where $Tf$ is given by $|k|=|T\\mathfrak f|(|h|)$."
    },
    "lean": {
-    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.\n\nPart III wave 5 (`Chapter16/P3W5PC_TangentEffective.lean`): `EpGroupoid.isEffective_tangentEpGroupoid (hE : X.IsEffective) (hZ : X.IsZhou) : X.tangentEpGroupoid.IsEffective`; `PolyfoldClass.IsEffective.tangent : c.IsEffective → c.tangent.IsEffective` ((ZHOU) is a field of polyfold structures); `ScMap.tangent_comp_of_isEffective (hd : d.IsEffective)`: $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$; **`EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`**, a Mathlib functor with `map_id = tangent_id` and `map_comp = tangent_comp_of_isEffective`; `theorem_16_2_4_eff`. Helpers `linearMap_eq_self_of_eqOn_isOpen`, `EpGroupoid.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.tangent_isotropy_eq_one`.",
+    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.\n\nPart III wave 5 (`Chapter16/TangentEffective.lean`): `EpGroupoid.isEffective_tangentEpGroupoid (hE : X.IsEffective) (hZ : X.IsZhou) : X.tangentEpGroupoid.IsEffective`; `PolyfoldClass.IsEffective.tangent : c.IsEffective → c.tangent.IsEffective` ((ZHOU) is a field of polyfold structures); `ScMap.tangent_comp_of_isEffective (hd : d.IsEffective)`: $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$; **`EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`**, a Mathlib functor with `map_id = tangent_id` and `map_comp = tangent_comp_of_isEffective`; `theorem_16_2_4_eff`. Helpers `linearMap_eq_self_of_eqOn_isOpen`, `EpGroupoid.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.tangent_isotropy_eq_one`.",
     "decls": [
-     "Chapter16/P3W3Y_TangentFunctor · PSCat.tangentFunctor",
-     "Chapter16/P3W3Y_TangentFunctor · PSHom.ofGen'",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldStructure.tangentSelf",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.tangent_isIdIso",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.MapRep.tangent",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.MapRep.tangent_equiv",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_mk",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_toFun",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_id",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_mk_comp",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.theorem_16_2_4",
-     "Chapter16/P3W5PC_TangentEffective · linearMap_eq_self_of_eqOn_isOpen",
-     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.levelVal_tangentProj_mem_smoothSet",
-     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.tangent_isotropy_eq_one",
-     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.isEffective_tangentEpGroupoid",
-     "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.IsEffective.tangent",
-     "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
-     "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangent",
-     "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangentFunctor",
-     "Chapter16/P3W5PC_TangentEffective · theorem_16_2_4_eff"
+     "Chapter16/TangentFunctor · PSCat.tangentFunctor",
+     "Chapter16/TangentFunctor · PSHom.ofGen'",
+     "Chapter16/TangentFunctor · PolyfoldStructure.tangentSelf",
+     "Chapter16/TangentFunctor · PolyfoldClass.tangent_isIdIso",
+     "Chapter16/TangentFunctor · PolyfoldClass.MapRep.tangent",
+     "Chapter16/TangentFunctor · PolyfoldClass.MapRep.tangent_equiv",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_mk",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_toFun",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_id",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_mk_comp",
+     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
+     "Chapter16/TangentFunctor · PolyfoldClass.theorem_16_2_4",
+     "Chapter16/TangentEffective · linearMap_eq_self_of_eqOn_isOpen",
+     "Chapter16/TangentEffective · EpGroupoid.levelVal_tangentProj_mem_smoothSet",
+     "Chapter16/TangentEffective · EpGroupoid.tangent_isotropy_eq_one",
+     "Chapter16/TangentEffective · EpGroupoid.isEffective_tangentEpGroupoid",
+     "Chapter16/TangentEffective · PolyfoldClass.IsEffective.tangent",
+     "Chapter16/TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
+     "Chapter16/TangentEffective · EffPolyfold.tangent",
+     "Chapter16/TangentEffective · EffPolyfold.tangentFunctor",
+     "Chapter16/TangentEffective · theorem_16_2_4_eff"
     ]
    },
    "chips": [
@@ -966,35 +966,35 @@
    "lean": {
     "statement": "Generalized maps: `Diagram.liftOne`, `EPLoc.liftOneHom` (`liftOneHom_homMk`, `liftOneHom_id`, `liftOneHom_comp`, `isGeneralizedIso_liftOneHom`), `orbitIncl_orbitMap_liftOneHom` (`|f¹| = |f|` on `|X¹| ⊆ |X|`). `RaisedSpace c` (`|X₀¹|`, `(X₀, α₀) = c.out`), `raiseMap` (α¹, `raiseMap_eq`, `raiseMap_comp`, a homeomorphism), `raiseStructure` (ZHOU, paracompact), `raise c` (the class c₁) with `raise_eq`. `raiseIncl c : RaisedSpace c → Z`, injective, continuous, `range_raiseIncl : range (raiseIncl c) = β '' |X|₁` for every `(X, β) ∈ c`; `raiseN c i` (`raiseN_zero`, `raiseN_succ`).",
     "decls": [
-     "Chapter16/P3W4SM_RaisedPolyfold · EpFunctor.liftOne_comp",
-     "Chapter16/P3W4SM_RaisedPolyfold · EpFunctor.liftOne_id",
-     "Chapter16/P3W4SM_RaisedPolyfold · EpFunctor.orbitIncl_orbitMap_liftOne",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.liftOne",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.IsRefinement.liftOne",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.Equiv.liftOne",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.isRefinement_liftOne_id",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.isRefinement_liftOne_comp",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.liftOneHom",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.liftOneHom_id",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.liftOneHom_comp",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.isGeneralizedIso_liftOneHom",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.orbitIncl_orbitMap_liftOneHom",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.orbitMap_liftOneHom_eq",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldStructure.liftOne_paracompact",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldStructure.liftOne_isZhou",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.RaisedSpace",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseMap",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseMap_eq",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseMap_comp",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseHomeomorph",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseStructure",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseStructure_equiv",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raise",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raise_eq",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseIncl",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.range_raiseIncl",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.PolyfoldPair",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseN"
+     "Chapter16/RaisedPolyfold · EpFunctor.liftOne_comp",
+     "Chapter16/RaisedPolyfold · EpFunctor.liftOne_id",
+     "Chapter16/RaisedPolyfold · EpFunctor.orbitIncl_orbitMap_liftOne",
+     "Chapter16/RaisedPolyfold · Diagram.liftOne",
+     "Chapter16/RaisedPolyfold · Diagram.IsRefinement.liftOne",
+     "Chapter16/RaisedPolyfold · Diagram.Equiv.liftOne",
+     "Chapter16/RaisedPolyfold · Diagram.isRefinement_liftOne_id",
+     "Chapter16/RaisedPolyfold · Diagram.isRefinement_liftOne_comp",
+     "Chapter16/RaisedPolyfold · EPLoc.liftOneHom",
+     "Chapter16/RaisedPolyfold · EPLoc.liftOneHom_id",
+     "Chapter16/RaisedPolyfold · EPLoc.liftOneHom_comp",
+     "Chapter16/RaisedPolyfold · EPLoc.isGeneralizedIso_liftOneHom",
+     "Chapter16/RaisedPolyfold · EPLoc.orbitIncl_orbitMap_liftOneHom",
+     "Chapter16/RaisedPolyfold · EPLoc.orbitMap_liftOneHom_eq",
+     "Chapter16/RaisedPolyfold · PolyfoldStructure.liftOne_paracompact",
+     "Chapter16/RaisedPolyfold · PolyfoldStructure.liftOne_isZhou",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.RaisedSpace",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseMap",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseMap_eq",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseMap_comp",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseHomeomorph",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseStructure",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseStructure_equiv",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raise",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raise_eq",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseIncl",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.range_raiseIncl",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.PolyfoldPair",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseN"
     ]
    },
    "chips": [
@@ -1016,13 +1016,13 @@
    "lean": {
     "statement": "`PolyfoldClass.tangentProj c : TangentSpace c → RaisedSpace c`, `continuous_tangentProj`, `tangentProj_tangentMap` (τ_Z ∘ Tα = α¹ ∘ |τ_X| for every `(X, α) ∈ c`), `raiseIncl_tangentProj_tangentMap` (the square with values in `Z`); from `EPLoc.orbitMap_tangentProj_tangentHom` (τ is natural for generalized maps).",
     "decls": [
-     "Chapter16/P3W4SM_RaisedPolyfold · EpFunctor.orbitMap_tangentProj_tangent",
-     "Chapter16/P3W4SM_RaisedPolyfold · Diagram.orbitMap_tangentProj_tangentAny",
-     "Chapter16/P3W4SM_RaisedPolyfold · EPLoc.orbitMap_tangentProj_tangentHom",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.tangentProj",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.continuous_tangentProj",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.tangentProj_tangentMap",
-     "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseIncl_tangentProj_tangentMap"
+     "Chapter16/RaisedPolyfold · EpFunctor.orbitMap_tangentProj_tangent",
+     "Chapter16/RaisedPolyfold · Diagram.orbitMap_tangentProj_tangentAny",
+     "Chapter16/RaisedPolyfold · EPLoc.orbitMap_tangentProj_tangentHom",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.tangentProj",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.continuous_tangentProj",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.tangentProj_tangentMap",
+     "Chapter16/RaisedPolyfold · PolyfoldClass.raiseIncl_tangentProj_tangentMap"
     ]
    },
    "chips": [],
@@ -1042,12 +1042,12 @@
    "lean": {
     "statement": "`structure StrongPolyfoldBundleStructure (p : Y → Z)` with fields `A : SEP` (the strong bundle), `isZhou`, `paracompact` (`HasParacompactOrbitSpace`), `isLR : A.E.IsLR` (D8.4.2), `Γ : |W| ≃ₜ Y`, `γ : |X| ≃ₜ Z`, `comm : p ∘ Γ = γ ∘ |P|`. Consequences: `p_eq` ($p=\\gamma\\circ|P|\\circ\\Gamma^{-1}$), `p_Γ`, `continuous_p`, `surjective_p`.",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_eq",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_Γ",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.continuous_p",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.surjective_p",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3Structure"
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_eq",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_Γ",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.continuous_p",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.surjective_p",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Structure"
     ]
    },
    "chips": [],
@@ -1067,7 +1067,7 @@
    "lean": {
     "statement": "`lemma_16_3_2 (S : StrongPolyfoldBundleStructure p) : MetrizableSpace Y ∧ MetrizableSpace Z` ($|X|$ by Theorem 7.3.1, $|W|=|W[0]|$ via Proposition 8.4.1's paracompactness).",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.lemma_16_3_2"
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.lemma_16_3_2"
     ]
    },
    "chips": [],
@@ -1087,26 +1087,26 @@
    "lean": {
     "statement": "`StrongPolyfoldBundleStructure.Equiv S S' := ∃ F : GenSBMap S.A S'.A, F.IsGeneralizedIso ∧ γ' ∘ |F.base| = γ ∧ Γ' ∘ |F| = Γ`; `Equiv.refl`, `Equiv.symm`, `Equiv.trans`, `setoid p`, `equiv_iff`. The strong bundle form of Proposition 10.3.11 needed for `trans` is new: `SDiagram.orbitMap_comp'`, `GenSBMap.orbitMap_comp`, `base_comp`, `baseOrbitMap_comp`, `SEPLoc.orbitMap_comp`, `orbitMap_id`, `baseOrbitMap_comp`, `baseOrbitMap_id`, `orbitMap_inv_comp`, `orbitMap_comp_inv`, `baseOrbitMap_comp_inv`. Also `Γ_base` (the $\\gamma$-condition follows from the $\\Gamma$-condition) and `equiv_iff_exists_Γ`.",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_comp'",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_id'",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.GenSBMap.orbitMap_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.GenSBMap.base_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.GenSBMap.baseOrbitMap_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_id",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_id",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_inv_comp",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_comp_inv",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_comp_inv",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.refl",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.symm",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.trans",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.setoid",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.equiv_iff",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundleStructure.Γ_base",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundleStructure.equiv_iff_exists_Γ"
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_comp'",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_id'",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.GenSBMap.orbitMap_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.GenSBMap.base_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.GenSBMap.baseOrbitMap_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_id",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_id",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_inv_comp",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.orbitMap_comp_inv",
+     "Chapter16/StrongPolyfoldBundle · SBLocalization.SEPLoc.baseOrbitMap_comp_inv",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.refl",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.symm",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.Equiv.trans",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.setoid",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.equiv_iff",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundleStructure.Γ_base",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundleStructure.equiv_iff_exists_Γ"
     ]
    },
    "chips": [
@@ -1128,15 +1128,15 @@
    "lean": {
     "statement": "`not_uniqueness_16_3_3 : ¬ Uniqueness_16_3_3.{0}`, where `Uniqueness_16_3_3` is the claim (for all $p$, $S$, $S'$ and generalized strong bundle isomorphisms $F,F'$ satisfying both conditions: `F.base = F'.base ∧ F = F'`). Counterexample `uniqueness_16_3_3_counterexample k`: for `z3Structure k` ($\\mathbb R\\times\\mathbb R^k\\to\\mathbb R$ over $\\mathbb Z/3\\times\\mathbb R\\rightrightarrows\\mathbb R$ with trivial actions; (ZHOU) `isZhou_trivialZ3`, paracompact `hasParacompactOrbitSpace_trivialZ3`, (LR) `isLR_z3EpBundle`; $\\Gamma=\\gamma=\\mathrm{id}$), the generalized strong bundle isomorphisms $[W\\xleftarrow{1}W\\xrightarrow{\\mathrm{Inv}}W]$ and $[1_W]$ of Remark 10.5.5 both satisfy $\\gamma'\\circ|f|=\\gamma$ and $\\Gamma'\\circ|F|=\\Gamma$, and differ already on the bases. Positive form `uniqueness_16_3_3_of_isEffective (hS' : S'.A.X.IsEffective)`: then `F.base = F'.base ∧ F = F'` (Theorem 10.5.7 for an effective base; (ZHOU) gives (LR) by `proposition_7_4_22_of_isZhou`). `not_isEffective_z3Structure`.",
     "decls": [
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.Uniqueness_16_3_3",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.uniqueness_16_3_3_of_isEffective",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3Structure",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3Bundle",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3_orbitMap_id",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3_baseOrbitMap_id",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.uniqueness_16_3_3_counterexample",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.not_uniqueness_16_3_3",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.not_isEffective_z3Structure"
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.Uniqueness_16_3_3",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.uniqueness_16_3_3_of_isEffective",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Structure",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Bundle",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3_orbitMap_id",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3_baseOrbitMap_id",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.uniqueness_16_3_3_counterexample",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.not_uniqueness_16_3_3",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.not_isEffective_z3Structure"
     ]
    },
    "chips": [
@@ -1159,10 +1159,10 @@
    "lean": {
     "statement": "`toPolyfoldStructure S = ⟨S.A.baseEP, S.paracompact, S.isZhou, S.γ⟩`, `toPolyfoldStructure_equiv` (equivalent bundle structures give equivalent polyfold structures, via `F.base`), `StrongPolyfoldBundle.polyfold` (`Quotient.map`), `polyfold_mk`.",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.toPolyfoldStructure",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundleStructure.toPolyfoldStructure_equiv",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.polyfold",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.polyfold_mk"
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.toPolyfoldStructure",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.toPolyfoldStructure_equiv",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.polyfold",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.polyfold_mk"
     ]
    },
    "chips": [],
@@ -1182,8 +1182,8 @@
    "lean": {
     "statement": "`abbrev StrongPolyfoldBundle p := Quotient (StrongPolyfoldBundleStructure.setoid p)`; witness `z3Bundle k`.",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle",
-     "Chapter16/P3W3V_UniquenessCheck · StrongPolyfoldBundleStructure.z3Bundle"
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle",
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Bundle"
     ]
    },
    "chips": [],
@@ -1203,14 +1203,14 @@
    "lean": {
     "statement": "`StrongPolyfoldBundle.IsTame c := c.polyfold.IsTame` (D16.1.20), `isTame_iff` (iff every representative's base is tame); `IsWeaklyFaceStructured`, `IsFaceStructured` through `PolyfoldClass.IsWeaklyFaceStructured`, `PolyfoldClass.IsFaceStructured` (some representative weakly face structured / face structured, D11.1.3), `PolyfoldClass.isFaceStructured_iff` (one representative iff all, Remark 11.1.7). Witness `z3Bundle_isTame`.",
     "decls": [
-     "Chapter16/P3W3V_StrongPolyfoldBundle · PolyfoldClass.IsWeaklyFaceStructured",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · PolyfoldClass.IsFaceStructured",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · PolyfoldClass.isFaceStructured_iff",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.IsTame",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.IsWeaklyFaceStructured",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.IsFaceStructured",
-     "Chapter16/P3W3V_StrongPolyfoldBundle · StrongPolyfoldBundle.isTame_iff",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.z3Bundle_isTame"
+     "Chapter16/StrongPolyfoldBundle · PolyfoldClass.IsWeaklyFaceStructured",
+     "Chapter16/StrongPolyfoldBundle · PolyfoldClass.IsFaceStructured",
+     "Chapter16/StrongPolyfoldBundle · PolyfoldClass.isFaceStructured_iff",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.IsTame",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.IsWeaklyFaceStructured",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.IsFaceStructured",
+     "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundle.isTame_iff",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.z3Bundle_isTame"
     ]
    },
    "chips": [
@@ -1232,21 +1232,21 @@
    "lean": {
     "statement": "`structure SPBS` (fields `Y Z p S`), `SPBS.mk'`; `SPBS.Hom` (fields `F f continuous_F continuous_f 𝔄 Γ_comm γ_comm`, $\\mathfrak a$ = `𝔄.base`); `Hom.p_comm` (derived); `Hom.id`, `Hom.comp`, `instance category : Category.{u+1} SPBS.{u}`; `Hom.IsInvertible`, `Hom.inv`, `Hom.comp_inv`, `Hom.inv_comp`, `isIso_iff_isInvertible` (invertible in the text's sense iff `IsIso` in the category). Witness `z3_id_isInvertible`.",
     "decls": [
-     "Chapter16/P3W3V_BundleCategory · SPBS",
-     "Chapter16/P3W3V_BundleCategory · SPBS.mk'",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.p_comm",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.id",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.comp",
-     "Chapter16/P3W3V_BundleCategory · SPBS.category",
-     "Chapter16/P3W3V_BundleCategory · SPBS.comp_𝔄",
-     "Chapter16/P3W3V_BundleCategory · SPBS.id_𝔄",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.IsInvertible",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.inv",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.comp_inv",
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.inv_comp",
-     "Chapter16/P3W3V_BundleCategory · SPBS.isIso_iff_isInvertible",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.z3_id_isInvertible"
+     "Chapter16/PolyfoldBundleCategory · SPBS",
+     "Chapter16/PolyfoldBundleCategory · SPBS.mk'",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.p_comm",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.id",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.comp",
+     "Chapter16/PolyfoldBundleCategory · SPBS.category",
+     "Chapter16/PolyfoldBundleCategory · SPBS.comp_𝔄",
+     "Chapter16/PolyfoldBundleCategory · SPBS.id_𝔄",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.IsInvertible",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.inv",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.comp_inv",
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.inv_comp",
+     "Chapter16/PolyfoldBundleCategory · SPBS.isIso_iff_isInvertible",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.z3_id_isInvertible"
     ]
    },
    "chips": [
@@ -1268,9 +1268,9 @@
    "lean": {
     "statement": "`exists_isInvertible_iff_equiv`: for $S,S'$ over the same $p$, an invertible morphism $(\\mathfrak A,\\mathrm{Id}_Y)$ exists iff `Equiv S S'` (D16.3.3); `Hom.f_eq_id` ($A=\\mathrm{id}$ forces $a=\\mathrm{id}$), `inv_F_eq_id`.",
     "decls": [
-     "Chapter16/P3W3V_BundleCategory · SPBS.Hom.f_eq_id",
-     "Chapter16/P3W3V_BundleCategory · SPBS.exists_isInvertible_iff_equiv",
-     "Chapter16/P3W3V_BundleCategory · SPBS.inv_F_eq_id"
+     "Chapter16/PolyfoldBundleCategory · SPBS.Hom.f_eq_id",
+     "Chapter16/PolyfoldBundleCategory · SPBS.exists_isInvertible_iff_equiv",
+     "Chapter16/PolyfoldBundleCategory · SPBS.inv_F_eq_id"
     ]
    },
    "chips": [],
@@ -1290,12 +1290,12 @@
    "lean": {
     "statement": "`MorEquiv m₀ m₁` (the defining equation in the category, with `IsIso` of both special morphisms); `MorEquiv.F_eq` ($A_1=A_0$), `MorEquiv.f_eq` ($a_1=a_0$), `MorEquiv.refl/symm/trans`.",
     "decls": [
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv.F_eq",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv.f_eq",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv.refl",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv.symm",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorEquiv.trans"
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv.F_eq",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv.f_eq",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv.refl",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv.symm",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorEquiv.trans"
     ]
    },
    "chips": [],
@@ -1315,16 +1315,16 @@
    "lean": {
     "statement": "`structure MorRep c c'` (structures $S\\in\\bar c$, $S'\\in\\bar c'$ and a morphism `mk' S ⟶ mk' S'`), `MorRep.Rel` (= `MorEquiv`), `MorRep.setoid`, `abbrev StrongPolyfoldBundleMap c c'`; `toFun` ($A$, well defined by `MorEquiv.F_eq`), `baseFun`, `continuous_toFun`, `p_comm`, `id`, `toFun_id`.",
     "decls": [
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorRep",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorRep.Rel",
-     "Chapter16/P3W3V_BundleCategory · SPBS.MorRep.setoid",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.toFun",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.baseFun",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.continuous_toFun",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.p_comm",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.id",
-     "Chapter16/P3W3V_BundleCategory · SPBS.StrongPolyfoldBundleMap.toFun_id"
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorRep",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorRep.Rel",
+     "Chapter16/PolyfoldBundleCategory · SPBS.MorRep.setoid",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.toFun",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.baseFun",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.continuous_toFun",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.p_comm",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.id",
+     "Chapter16/PolyfoldBundleCategory · SPBS.StrongPolyfoldBundleMap.toFun_id"
     ]
    },
    "chips": [],
@@ -1344,27 +1344,27 @@
    "lean": {
     "statement": "Per structure: `oneToY e = Γ(π(oneVal e))`, `Y01 = range oneToY`, `normOf n e = n(oneToY e)`, `IsAuxNormFor n := S.A.E.IsAuxNorm (S.normOf n)`; `normOrbit`, `continuous_normOrbit` (continuity on $|W[1]|$), `isOneInvariant_normOf`, `descend` (an invariant $N$ read on $Y$, 0 off $Y_{0,1}$), `normOf_descend`, `descend_oneToY`. (16.7): `oneToY_pull`, `normOf_pull` (`normOf n = GenSBMap.pullNorm hF (S'.normOf n)` when $\\Gamma'\\circ|F|=\\Gamma$), `isAuxNormFor_of_equiv` (Proposition 11.5.1), `Y01_subset_of_equiv`, `Y01_eq_of_equiv` (independence of $m$). `StrongPolyfoldBundle.Y01`, `Y01_eq`; `IsAuxNorm c n := ∀ S, ⟦S⟧ = c → S.IsAuxNormFor n`; `definition_16_3_9` (∀ ↔ ∃ structure), `IsAuxNorm.nonneg`, `isAuxNorm_descend`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.oneToY",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.IsAuxNormFor",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOrbit",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.continuous_normOrbit",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.isOneInvariant_normOf",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.descend",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf_descend",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.descend_oneToY",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.oneToY_pull",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf_pull",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.isAuxNormFor_of_equiv",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01_subset_of_equiv",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01_eq_of_equiv",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.Y01",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.Y01_eq",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.definition_16_3_9",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm.nonneg",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.isAuxNorm_descend"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.oneToY",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.IsAuxNormFor",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOrbit",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.continuous_normOrbit",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.isOneInvariant_normOf",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.descend",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf_descend",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.descend_oneToY",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.oneToY_pull",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.normOf_pull",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.isAuxNormFor_of_equiv",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01_subset_of_equiv",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundleStructure.Y01_eq_of_equiv",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.Y01",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.Y01_eq",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.definition_16_3_9",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm.nonneg",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.isAuxNorm_descend"
     ]
    },
    "chips": [
@@ -1386,8 +1386,8 @@
    "lean": {
     "statement": "`proposition_16_3_10 (c) : ∃ n : Y → ℝ, c.IsAuxNorm n` (Theorem 12.2.2 in a representative, `descend`, then `isAuxNormFor_of_equiv`). Witness `z3Bundle_exists_auxNorm`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_10",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.z3Bundle_exists_auxNorm"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_10",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.z3Bundle_exists_auxNorm"
     ]
    },
    "chips": [],
@@ -1407,7 +1407,7 @@
    "lean": {
     "statement": "Nothing to formalize: a comment. `n` is a function on $Y$ (V16.48).",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNorm"
     ]
    },
    "chips": [
@@ -1429,9 +1429,9 @@
    "lean": {
     "statement": "`HasReflexiveFibers c := ∃ S, ⟦S⟧ = c ∧ S.A.E.HasReflexiveFibers` (the ep-groupoid notion, V12.28). Witness `z3Bundle_hasReflexiveFibers`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.HasReflexiveFibers",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.z3Bundle_hasReflexiveFibers",
-     "Chapter16/P3W7W6_ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.HasReflexiveFibers",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.z3Bundle_hasReflexiveFibers",
+     "Chapter16/ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall"
     ]
    },
    "chips": [
@@ -1453,9 +1453,9 @@
    "lean": {
     "statement": "`IsReflexiveAuxNorm c n := c.IsAuxNorm n ∧ ∃ S, ⟦S⟧ = c ∧ S.A.E.IsReflexiveAuxNorm (S.normOf n)`. Witness `z3Bundle_exists_reflexiveAuxNorm`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.IsReflexiveAuxNorm",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.z3Bundle_exists_reflexiveAuxNorm",
-     "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.isReflexiveAuxNorm_iff_forall"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.IsReflexiveAuxNorm",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.z3Bundle_exists_reflexiveAuxNorm",
+     "Chapter16/MixedTransfer · StrongPolyfoldBundle.isReflexiveAuxNorm_iff_forall"
     ]
    },
    "chips": [],
@@ -1475,11 +1475,11 @@
    "lean": {
     "statement": "`MixedTendstoIn S y y₀` (representatives $w_k,w_0\\in W_{0,1}$ with `oneToY` values $y_k,y_0$ and `S.A.E.MixedTendsto w w₀`, D12.2.8); `MixedTendsto c y y₀ := ∃ S, ⟦S⟧ = c ∧ HasReflexiveFibers ∧ (∃ N reflexive) ∧ MixedTendstoIn S y y₀`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.MixedTendstoIn",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.MixedTendsto",
-     "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
-     "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundleStructure.mixedTendstoIn_of_equiv",
-     "Chapter16/P3W7W6_MixedTransfer · StrongBundle.LocalIso.mixedTendsto"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.MixedTendstoIn",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.MixedTendsto",
+     "Chapter16/MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
+     "Chapter16/MixedTransfer · StrongPolyfoldBundleStructure.mixedTendstoIn_of_equiv",
+     "Chapter16/MixedTransfer · StrongBundle.LocalIso.mixedTendsto"
     ]
    },
    "chips": [],
@@ -1499,8 +1499,8 @@
    "lean": {
     "statement": "`theorem_16_3_15_one (hc : c.HasReflexiveFibers) : ∃ n, c.IsReflexiveAuxNorm n`; `theorem_16_3_15_two (hc) (hn : c.IsAuxNorm n) : ∃ n₁ n₂, c.IsReflexiveAuxNorm n₁ ∧ c.IsReflexiveAuxNorm n₂ ∧ ∀ y ∈ c.Y01, n₁ y ≤ n y ∧ n y ≤ n₂ y` (`theorem_12_2_11_exists`, `theorem_12_2_11_sandwich` in the reflexive representative, `descend`, `isAuxNorm_descend`).",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_15_one",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_15_two"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_15_one",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_15_two"
     ]
    },
    "chips": [],
@@ -1520,7 +1520,7 @@
    "lean": {
     "statement": "`proposition_16_3_16_one (hn : c.IsAuxNorm n) (hS : ⟦S⟧ = c) {q : ℕ → |W[1]|} {x}` ($p(\\Gamma(q_k))\\to\\gamma(|x|)$, $n(\\Gamma(q_k))\\to0$) : `Tendsto q atTop (𝓝 |0_x|)` in $|W[1]|$ (Theorem 12.2.2's compactness property via `EpGroupoid.exists_lift_tendsto`).",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_one"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_one"
     ]
    },
    "chips": [
@@ -1540,11 +1540,11 @@
     "statement": "If $y_k$ is mixed convergent to $y$, then $n(y)\\le\\liminf n(y_k)$."
    },
    "lean": {
-    "statement": "`proposition_16_3_16_two_of_mem (hN : S.A.E.IsReflexiveAuxNorm (S.normOf n)) (hm : MixedTendstoIn S y y₀) : (n y₀ : EReal) ≤ liminf (fun k => (n (y k) : EReal)) atTop`.\n\nThe text's form (Part III wave 7, `Chapter16/P3W7W6_MixedTransfer.lean`): **`proposition_16_3_16_two`** with `hc : c.HasReflexiveFibers`: for $y_k \\to^m y$ and a reflexive auxiliary norm $n$, $n(y) \\le \\liminf n(y_k)$, with the models of $n$ and of the convergence independent (`mixedTendsto_iff_forall`, `IsReflexiveAuxNorm.of_mem`).",
+    "statement": "`proposition_16_3_16_two_of_mem (hN : S.A.E.IsReflexiveAuxNorm (S.normOf n)) (hm : MixedTendstoIn S y y₀) : (n y₀ : EReal) ≤ liminf (fun k => (n (y k) : EReal)) atTop`.\n\nThe text's form (Part III wave 7, `Chapter16/MixedTransfer.lean`): **`proposition_16_3_16_two`** with `hc : c.HasReflexiveFibers`: for $y_k \\to^m y$ and a reflexive auxiliary norm $n$, $n(y) \\le \\liminf n(y_k)$, with the models of $n$ and of the convergence independent (`mixedTendsto_iff_forall`, `IsReflexiveAuxNorm.of_mem`).",
     "decls": [
-     "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.proposition_16_3_16_two",
-     "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem"
+     "Chapter16/MixedTransfer · StrongPolyfoldBundle.proposition_16_3_16_two",
+     "Chapter16/MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem"
     ]
    },
    "chips": [
@@ -1566,11 +1566,11 @@
    "lean": {
     "statement": "`IsAuxNormBoundary c n := ∀ S, ⟦S⟧ = c → S.A.E.IsAuxNormOn ∂X (S.normOf n)`; `mem_boundary_iff` ($p(\\Gamma|e|)\\in\\partial Z\\iff P(e)\\in\\partial X$); `theorem_16_3_17_one (hc : c.IsTame) (hn : c.IsAuxNormBoundary n) : ∃ ñ, c.IsAuxNorm ñ ∧ ∀ y ∈ c.Y01, p y ∈ c.polyfold.boundary → ñ y = n y` (Theorem 12.2.7 in one structure, then `isAuxNormFor_of_equiv`). Witnesses `IsAuxNorm.isAuxNormBoundary`, `theorem_16_3_17_one_witness`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNormBoundary",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.mem_boundary_iff",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_one",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.IsAuxNorm.isAuxNormBoundary",
-     "Chapter16/P3W3V_Examples · StrongPolyfoldBundle.theorem_16_3_17_one_witness"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.IsAuxNormBoundary",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.mem_boundary_iff",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_one",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.IsAuxNorm.isAuxNormBoundary",
+     "Chapter16/PolyfoldBundleExamples · StrongPolyfoldBundle.theorem_16_3_17_one_witness"
     ]
    },
    "chips": [],
@@ -1590,8 +1590,8 @@
    "lean": {
     "statement": "`theorem_16_3_17_two_hyp (hn : c.IsAuxNormBoundary n) (hS : ⟦S⟧ = c) (hB : S.A.E.HasReflexiveFibers) (hr : S.A.E.IsReflexiveAuxNormOn ∂X (S.normOf n)) (hloc : HasReflexiveLocalExtensions S.A.X S.A.B (S.normOf n)) : ∃ ñ, c.IsReflexiveAuxNorm ñ ∧ ∀ y ∈ c.Y01, p y ∈ c.polyfold.boundary → ñ y = n y` (`theorem_12_2_13_hyp`). Witness `theorem_16_3_17_two_hyp_witness (hc : c.HasReflexiveFibers)`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_two_hyp",
-     "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_two_hyp_witness"
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_two_hyp",
+     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.theorem_16_3_17_two_hyp_witness"
     ]
    },
    "chips": [
@@ -1613,21 +1613,21 @@
    "lean": {
     "statement": "`StrongPolyfoldBundleStructure.zeroAt S z = Γ(|0_x|)` for any `x` with `γ|x| = z` (`zeroAt_eq`), `p_zeroAt`, `zeroAt_eq_of_equiv` (equivalent structures give the same `zeroAt`, via `GenSBMap.orbitMap_π_fiberZero`: generalized strong bundle maps send orbits of zeros to orbits of zeros), `Γ_π_eq_zeroAt_iff`; on the class: `StrongPolyfoldBundle.zeroAt`, `zeroAt_eq_of_mem`, `p_zeroAt`. Also `normY c n` ($n$ extended by $0$ off $Y_{0,1}$) and `normY_Γ` (`n(Γ|w|) = N(w)` with `N = normOf n`).",
     "decls": [
-     "Chapter16/P3W4PB_ZeroSection · SBLocalization.π_fiberZero_eq_of_π_eq",
-     "Chapter16/P3W4PB_ZeroSection · SBLocalization.μ_ne_fiberZero",
-     "Chapter16/P3W4PB_ZeroSection · SBLocalization.π_eq_fiberZero_iff",
-     "Chapter16/P3W4PB_ZeroSection · SBLocalization.SDiagram.orbitMap_π_fiberZero",
-     "Chapter16/P3W4PB_ZeroSection · SBLocalization.GenSBMap.orbitMap_π_fiberZero",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundleStructure.zeroAt",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundleStructure.zeroAt_eq",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundleStructure.p_zeroAt",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundleStructure.zeroAt_eq_of_equiv",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundleStructure.Γ_π_eq_zeroAt_iff",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.zeroAt",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.zeroAt_eq_of_mem",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.p_zeroAt",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.normY",
-     "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.normY_Γ"
+     "Chapter16/FibreZero · SBLocalization.π_fiberZero_eq_of_π_eq",
+     "Chapter16/FibreZero · SBLocalization.μ_ne_fiberZero",
+     "Chapter16/FibreZero · SBLocalization.π_eq_fiberZero_iff",
+     "Chapter16/FibreZero · SBLocalization.SDiagram.orbitMap_π_fiberZero",
+     "Chapter16/FibreZero · SBLocalization.GenSBMap.orbitMap_π_fiberZero",
+     "Chapter16/FibreZero · StrongPolyfoldBundleStructure.zeroAt",
+     "Chapter16/FibreZero · StrongPolyfoldBundleStructure.zeroAt_eq",
+     "Chapter16/FibreZero · StrongPolyfoldBundleStructure.p_zeroAt",
+     "Chapter16/FibreZero · StrongPolyfoldBundleStructure.zeroAt_eq_of_equiv",
+     "Chapter16/FibreZero · StrongPolyfoldBundleStructure.Γ_π_eq_zeroAt_iff",
+     "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt",
+     "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt_eq_of_mem",
+     "Chapter16/FibreZero · StrongPolyfoldBundle.p_zeroAt",
+     "Chapter16/FibreZero · StrongPolyfoldBundle.normY",
+     "Chapter16/FibreZero · StrongPolyfoldBundle.normY_Γ"
     ]
    },
    "chips": [
@@ -1650,15 +1650,15 @@
    "lean": {
     "statement": "`SectionRep c` (fields `S hS F hF f continuous_f isSection comm`), `SectionRep.Rel` (as printed); `pushforward_eq_of_Γ` ($\\mathfrak A_*F=F'$ follows from $f=f'$ and $\\Gamma'\\circ|\\mathfrak A|=\\Gamma$: `eq_of_forall_π_eq`, `π_pushforward`); `rel_iff` (∼ iff $f=f'$ and `Equiv a.S b.S`), `rel_of_f_eq`, `Rel.refl/symm/trans`, `setoid`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.pushforward_eq_of_Γ",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.rel_iff",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.rel_of_f_eq",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.refl",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.symm",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.trans",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.SectionRep.setoid"
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.pushforward_eq_of_Γ",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.rel_iff",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.rel_of_f_eq",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.refl",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.symm",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.Rel.trans",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.SectionRep.setoid"
     ]
    },
    "chips": [
@@ -1680,11 +1680,11 @@
    "lean": {
     "statement": "`abbrev ScSection c := Quotient (SectionRep.setoid c)`; `toFun` (the section $f$, well defined), `p_toFun`, `continuous_toFun`, `ext_toFun`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.toFun",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.p_toFun",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.continuous_toFun",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.ext_toFun"
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.toFun",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.p_toFun",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.continuous_toFun",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.ext_toFun"
     ]
    },
    "chips": [],
@@ -1704,9 +1704,9 @@
    "lean": {
     "statement": "`ScSection.IsScPlus s := ∃ a, ⟦a⟧ = s ∧ a.F ∈ plusSectionFunctors`, `isScPlus_iff` (one representative iff all, Theorem 10.5.4), `abbrev ScPlusSection c := {s : ScSection c // s.IsScPlus}`.",
     "decls": [
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.IsScPlus",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScSection.isScPlus_iff",
-     "Chapter16/P3W3V_PolyfoldSections · StrongPolyfoldBundle.ScPlusSection"
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.IsScPlus",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScSection.isScPlus_iff",
+     "Chapter16/PolyfoldSections · StrongPolyfoldBundle.ScPlusSection"
     ]
    },
    "chips": [],
@@ -1726,10 +1726,10 @@
    "lean": {
     "statement": "`SDiagram.isStructurable_pushMult D hΨ h : IsStructurable A' (D.pushMult hΨ Λ)` ($\\Psi_*\\Phi^*$), `SDiagram.isStructurable_pullMult`, `GenSBMap.isStructurable_pushMult hf h`, `GenSBMap.isStructurable_pullMult hf h`.",
     "decls": [
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.SDiagram.isStructurable_pushMult",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.SDiagram.isStructurable_pullMult",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pullMult"
+     "Chapter13/MultisectionPushforward · SBLocalization.SDiagram.isStructurable_pushMult",
+     "Chapter13/MultisectionPushforward · SBLocalization.SDiagram.isStructurable_pullMult",
+     "Chapter13/MultisectionPushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
+     "Chapter13/MultisectionPushforward · SBLocalization.GenSBMap.isStructurable_pullMult"
     ]
    },
    "chips": [
@@ -1751,24 +1751,24 @@
    "lean": {
     "statement": "`MultisectionRep c` (fields `S hS Λ isScPlusMultisection lam comm`), `MultisectionRep.Rel` (as printed, $\\bar f^*$ = `GenSBMap.pullMult`), `rel_iff` (Rel iff `lam = lam'`), `rel_of_lam_eq`, `setoid`, `ScPlusMultisection c` (quotient), `toFun`, `toFun_mk`, `ext_toFun`, `ofFunctor`, `exists_rep_of_mem` (every structure of $\\bar c$ carries a representative of every $\\lambda$; Proposition 11.5.3), witness `zero c`. Key lemma `pullMult_eq_of_Γ`: for **every** $\\bar f$ with $\\Gamma'\\circ|\\bar f|=\\Gamma$, $\\bar f^*\\Lambda'(w)=\\lambda(\\Gamma|w|)$.",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundleStructure.continuous_γπ",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundleStructure.surjective_γπ",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundleStructure.isSaturated_preimage_γπ",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundleStructure.p_Γ_π",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.pullMult_eq_of_Γ",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.MultisectionRep",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.MultisectionRep.Rel",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.MultisectionRep.rel_iff",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.MultisectionRep.rel_of_lam_eq",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.MultisectionRep.setoid",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.toFun",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.toFun_mk",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.ext_toFun",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ofFunctor",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.exists_rep_of_mem",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.zero",
-     "Chapter16/P3W4PB_Checks · StrongPolyfoldBundle.pullMult_z3_independent"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundleStructure.continuous_γπ",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundleStructure.surjective_γπ",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundleStructure.isSaturated_preimage_γπ",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundleStructure.p_Γ_π",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.pullMult_eq_of_Γ",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.MultisectionRep",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.MultisectionRep.Rel",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.MultisectionRep.rel_iff",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.MultisectionRep.rel_of_lam_eq",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.MultisectionRep.setoid",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.toFun",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.toFun_mk",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.ext_toFun",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ofFunctor",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.exists_rep_of_mem",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.zero",
+     "Chapter16/RepresentativeChecks · StrongPolyfoldBundle.pullMult_z3_independent"
     ]
    },
    "chips": [
@@ -1790,12 +1790,12 @@
    "lean": {
     "statement": "`ScPlusMultisection.domSupp` (with $y\\neq 0_z$, as in Definition 13.2.2); printed form `domSuppText`, `domSuppText_eq_univ` (it is all of $Z$, since weights over a fibre sum to $1$).",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.domSupp",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.domSuppText",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.domSuppText_eq_univ",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.nzSet",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.isSaturated_nzSet",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.image_nzSet"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.domSupp",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.domSuppText",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.domSuppText_eq_univ",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.nzSet",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.isSaturated_nzSet",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.image_nzSet"
     ]
    },
    "chips": [
@@ -1817,7 +1817,7 @@
    "lean": {
     "statement": "`remark_16_5_3 a : γ(|domSupp Λ|) = domSupp λ`.",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.remark_16_5_3"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.remark_16_5_3"
     ]
    },
    "chips": [],
@@ -1835,18 +1835,18 @@
     "statement": "$n(\\lambda)(z)=\\max\\{n(y)\\mid p(y)=z,\\ \\lambda(y)\\neq0\\}$, \"a continuous map\"."
    },
    "lean": {
-    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).\n\nContinuity (Part III wave 5, `Chapter16/P3W5PC_NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq` (in a local section structure $N(\\Lambda) = \\max_i N(s_i)$), `IsScPlusMultisection.continuous_pointwiseNorm (hΛ) (hN : Continuous N)` (Definition 13.2.3's $N(\\Lambda)$ is continuous on $X$), `isQuotientMap_γπ`, **`ScPlusMultisection.continuous_normLam (s) (hn : c.IsAuxNorm n) : Continuous (c.normLam n s.toFun)`**, `isGreatest_normLam` (the maximum is attained), `normLam_nonneg`.",
+    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).\n\nContinuity (Part III wave 5, `Chapter16/NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq` (in a local section structure $N(\\Lambda) = \\max_i N(s_i)$), `IsScPlusMultisection.continuous_pointwiseNorm (hΛ) (hN : Continuous N)` (Definition 13.2.3's $N(\\Lambda)$ is continuous on $X$), `isQuotientMap_γπ`, **`ScPlusMultisection.continuous_normLam (s) (hn : c.IsAuxNorm n) : Continuous (c.normLam n s.toFun)`**, `isGreatest_normLam` (the maximum is attained), `normLam_nonneg`.",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.image_normY_eq",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam_eq",
-     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsLocalRepOn.pointwiseNorm_eq",
-     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsLocalRepOn.univ_nonempty",
-     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm",
-     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.isQuotientMap_γπ",
-     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
-     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.isGreatest_normLam",
-     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.normLam_nonneg"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.image_normY_eq",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.normLam",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.normLam_eq",
+     "Chapter16/NormLamContinuous · SBLocalization.IsLocalRepOn.pointwiseNorm_eq",
+     "Chapter16/NormLamContinuous · SBLocalization.IsLocalRepOn.univ_nonempty",
+     "Chapter16/NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm",
+     "Chapter16/NormLamContinuous · StrongPolyfoldBundle.isQuotientMap_γπ",
+     "Chapter16/NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
+     "Chapter16/NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.isGreatest_normLam",
+     "Chapter16/NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.normLam_nonneg"
     ]
    },
    "chips": [
@@ -1868,12 +1868,12 @@
    "lean": {
     "statement": "`ScPlusMultisection.IsStructurable` (some representative, Definition 13.3.6); `definition_16_5_4_hyp (hT : StructurablePullback)` (\"therefore all\"); `StructurablePullback` = structurability is preserved by `GenSBMap.pullMult` along generalized isomorphisms (Theorems 13.4.1, 13.4.3 for generalized isomorphisms). Witness `zero_isStructurable`.\n\n\"One, and therefore all\": `definition_16_5_4` (`s.IsStructurable ↔` every representative is structurable), with `StructurablePullback` proved as `fnStructurablePullback` from Theorems 13.4.1 and 13.4.3 for generalized strong bundle isomorphisms (`GenSBMap.isStructurable_pullMult`, V16.63).",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StructurablePullback",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.IsStructurable",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.ScPlusMultisection.definition_16_5_4_hyp",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.zero_isStructurable",
-     "Chapter16/P3W4FN_StructurablePullback · fnStructurablePullback",
-     "Chapter16/P3W4FN_StructurablePullback · StrongPolyfoldBundle.ScPlusMultisection.definition_16_5_4"
+     "Chapter16/PolyfoldMultisections · StructurablePullback",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.IsStructurable",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.ScPlusMultisection.definition_16_5_4_hyp",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.zero_isStructurable",
+     "Chapter16/StructurablePullback · fnStructurablePullback",
+     "Chapter16/StructurablePullback · StrongPolyfoldBundle.ScPlusMultisection.definition_16_5_4"
     ]
    },
    "chips": [
@@ -1895,16 +1895,16 @@
    "lean": {
     "statement": "`BoundaryMultisectionRep c` (`comm` only over $\\partial X$), `Rel` ($\\lambda=\\lambda'$ over $p^{-1}(\\partial Z)$; $\\bar f^*$ in orbit form: $\\Lambda(w)=\\Lambda'(w')$ when $|\\bar f||w|=|w'|$, $P w\\in\\partial X$), `rel_iff`, `rel_of_lam_eq`, `setoid`, `BoundaryMultisection c`, `toFun` ($0$ off $p^{-1}\\partial Z$), `toFun_mk_of_mem`, `BoundaryMultisection.domSupp`, `mem_boundary_iff_obj`.",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.mem_boundary_iff_obj",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisectionRep",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisectionRep.Rel",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisectionRep.rel_iff",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisectionRep.rel_of_lam_eq",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisectionRep.setoid",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisection",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisection.toFun",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisection.toFun_mk_of_mem",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisection.domSupp"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.mem_boundary_iff_obj",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisectionRep",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisectionRep.Rel",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisectionRep.rel_iff",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisectionRep.rel_of_lam_eq",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisectionRep.setoid",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisection",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisection.toFun",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisection.toFun_mk_of_mem",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisection.domSupp"
     ]
    },
    "chips": [
@@ -1926,8 +1926,8 @@
    "lean": {
     "statement": "`BoundaryMultisection.IsStructurable` (`IsBoundaryStructurable`), `boundaryDomSupp_subset`.",
     "decls": [
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.BoundaryMultisection.IsStructurable",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.boundaryDomSupp_subset"
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.BoundaryMultisection.IsStructurable",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.boundaryDomSupp_subset"
     ]
    },
    "chips": [],
@@ -1945,14 +1945,14 @@
     "statement": "Tame $Z$ with sc-smooth partitions of unity, $\\lambda$ structurable over $\\partial Z$, $\\tilde U\\supseteq$ dom-supp open, $f\\ge0$ continuous, support in $\\tilde U$, $n(\\lambda)<f$ on dom-supp: there is a structurable $\\lambda'$ with $n(\\lambda')\\le f$, dom-supp$(\\lambda')\\subseteq\\tilde U$, $\\lambda'=\\lambda$ over $\\partial Z$."
    },
    "lean": {
-    "statement": "Part III wave 6 (`Chapter16/P3W6A6_Theorem1657.lean`): **`StrongPolyfoldBundle.theorem_16_5_7_a6 hc hPU hB hn s (hs : s.IsStructurableNe) …`**, the theorem without `h1419`, from `theorem_14_1_9_charged_a6` in a model (V14.8). `BoundaryMultisection.IsStructurableNe`: Definition 16.5.6 with a representative that charges every boundary fibre (`.isStructurable`); `hB`: tame strong bundle charts in the models. The proof is the earlier one.\n\nThe earlier form: `theorem_16_5_7_hyp (h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A) (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) …` proved from statement in one model. Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).",
+    "statement": "Part III wave 6 (`Chapter16/PolyfoldBoundaryExtension.lean`): **`StrongPolyfoldBundle.theorem_16_5_7_a6 hc hPU hB hn s (hs : s.IsStructurableNe) …`**, the theorem without `h1419`, from `theorem_14_1_9_charged_a6` in a model (V14.8). `BoundaryMultisection.IsStructurableNe`: Definition 16.5.6 with a representative that charges every boundary fibre (`.isStructurable`); `hB`: tame strong bundle charts in the models. The proof is the earlier one.\n\nThe earlier form: `theorem_16_5_7_hyp (h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A) (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) …` proved from statement in one model. Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).",
     "decls": [
-     "Chapter16/P3W6A6_Theorem1657 · StrongPolyfoldBundle.theorem_16_5_7_a6",
-     "Chapter16/P3W6A6_Theorem1657 · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe",
-     "Chapter16/P3W6A6_Theorem1657 · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe.isStructurable",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.tsupport_comp_subset_preimage'",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.theorem_16_5_7_hyp",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.theorem_16_5_7_hyp_witness"
+     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.theorem_16_5_7_a6",
+     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe",
+     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe.isStructurable",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.tsupport_comp_subset_preimage'",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.theorem_16_5_7_hyp",
+     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.theorem_16_5_7_hyp_witness"
     ]
    },
    "chips": [
@@ -1976,8 +1976,8 @@
    "lean": {
     "statement": "`ScSection.IsFredholm` (some representative), `isFredholm_iff` (iff all; Theorem 10.5.4 `theorem_10_5_4_fred`).",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.IsFredholm",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.isFredholm_iff"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.IsFredholm",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.isFredholm_iff"
     ]
    },
    "chips": [],
@@ -1997,8 +1997,8 @@
    "lean": {
     "statement": "`FredholmSection c := {s : ScSection c // s.IsFredholm}`; `ScSection.exists_rep_of_mem` (every structure of $\\bar c$ carries a representative).",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.FredholmSection",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.exists_rep_of_mem"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.FredholmSection",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.exists_rep_of_mem"
     ]
    },
    "chips": [],
@@ -2018,12 +2018,12 @@
    "lean": {
     "statement": "`ScSection.solutionSet` (via `zeroAt`), `HasCompactSolutionSet`; `SectionRep.solutionSet_eq` ($S_f=\\gamma(|S_F|)$), `hasCompactSolutionSet_iff` (iff Definition 12.4.1 (1) in any representative).",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.solutionSet",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.HasCompactSolutionSet",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.g",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.isSection_F",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_eq",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.hasCompactSolutionSet_iff"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.solutionSet",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.HasCompactSolutionSet",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.g",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.isSection_F",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_eq",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.hasCompactSolutionSet_iff"
     ]
    },
    "chips": [],
@@ -2043,23 +2043,23 @@
    "lean": {
     "statement": "`ScSection.sublevel` ($f(z)\\in Y_{0,1}$ and $n(f(z))\\le C$), `ControlsCompactness`, `IsProper`, `IsProperLtInfty`; in a representative: `Γ_mem_Y01_iff`, `sublevel_eq`, `isCompact_closure_g_image_iff`, `isOpen_g_image`, `preimage_g_image`, `forall_iff_of_saturated`, `forall_iff_of_open`, `solutionSet_subset_iff`, `solutionSet_subset_preimage_iff`, `forall_auxNorm_iff`, `isProper_iff`, `isProperLtInfty_iff` (Definition 12.4.1 (2), (3)), `controlsCompactness_iff` (Definition 15.3.1).",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.sublevel",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.ControlsCompactness",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.IsProper",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScSection.IsProperLtInfty",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.Γ_mem_Y01_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.sublevel_eq",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.isCompact_closure_g_image_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.isOpen_g_image",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.preimage_g_image",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.forall_iff_of_saturated",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.forall_iff_of_open",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_subset_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_subset_preimage_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.forall_auxNorm_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.isProper_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.isProperLtInfty_iff",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.SectionRep.controlsCompactness_iff"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.sublevel",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.ControlsCompactness",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.IsProper",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScSection.IsProperLtInfty",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.Γ_mem_Y01_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.sublevel_eq",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.isCompact_closure_g_image_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.isOpen_g_image",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.preimage_g_image",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.forall_iff_of_saturated",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.forall_iff_of_open",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_subset_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.solutionSet_subset_preimage_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.forall_auxNorm_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.isProper_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.isProperLtInfty_iff",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.SectionRep.controlsCompactness_iff"
     ]
    },
    "chips": [],
@@ -2079,7 +2079,7 @@
    "lean": {
     "statement": "`theorem_16_6_4 (s : FredholmSection c) : List.TFAE [s.1.HasCompactSolutionSet, s.1.IsProper, s.1.IsProperLtInfty]`, proved (Theorem 12.4.2 in a representative).",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.theorem_16_6_4"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.theorem_16_6_4"
     ]
    },
    "chips": [
@@ -2099,14 +2099,14 @@
     "statement": "An orientation of $f$ is the choice of an orientation of a representative $(W,F)$ (transported by Theorem 12.5.7)."
    },
    "lean": {
-    "statement": "`OrientationRep s` (representative, `HasScPlusSectionsThrough`, topology `t` on $O_F$ with `IsOrientationTopology`, `o` with `definition_12_5_4`), `FredholmSection.IsOrientable`.\n\nTransport (Part III wave 6, `Chapter16/P3W6O6_OrientationTransport.lean`): **`SDiagram.orientation_transport_hyp`**: for $F' = [D]_* F$, an orientation $o$ of $F$ (Definition 12.5.4 for any `IsOrientationTopology`) has exactly one invariant $o'$ compatible over the middle, and $o'$ satisfies Definition 12.5.4 for every `IsOrientationTopology` on $O_{F'}$; `SDiagram.exists_orientation_of_eq`; `OrientationRep.exists_diagram` (a diagram exists for every other representative); **`OrientationRep.transport_hyp`**: an `OrientationRep` on any representative $b$.",
+    "statement": "`OrientationRep s` (representative, `HasScPlusSectionsThrough`, topology `t` on $O_F$ with `IsOrientationTopology`, `o` with `definition_12_5_4`), `FredholmSection.IsOrientable`.\n\nTransport (Part III wave 6, `Chapter16/OrientationTransport.lean`): **`SDiagram.orientation_transport_hyp`**: for $F' = [D]_* F$, an orientation $o$ of $F$ (Definition 12.5.4 for any `IsOrientationTopology`) has exactly one invariant $o'$ compatible over the middle, and $o'$ satisfies Definition 12.5.4 for every `IsOrientationTopology` on $O_{F'}$; `SDiagram.exists_orientation_of_eq`; `OrientationRep.exists_diagram` (a diagram exists for every other representative); **`OrientationRep.transport_hyp`**: an `OrientationRep` on any representative $b$.",
     "decls": [
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.OrientationRep",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.FredholmSection.IsOrientable",
-     "Chapter16/P3W6O6_OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp",
-     "Chapter16/P3W6O6_OrientationTransport · SBLocalization.SDiagram.exists_orientation_of_eq",
-     "Chapter16/P3W6O6_OrientationTransport · StrongPolyfoldBundle.OrientationRep.exists_diagram",
-     "Chapter16/P3W6O6_OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp"
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.OrientationRep",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.FredholmSection.IsOrientable",
+     "Chapter16/OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp",
+     "Chapter16/OrientationTransport · SBLocalization.SDiagram.exists_orientation_of_eq",
+     "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.exists_diagram",
+     "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp"
     ]
    },
    "chips": [
@@ -2127,39 +2127,39 @@
     "statement": "$\\partial Z=\\emptyset$, $f$ oriented, compact solution set, $(n,U)$ controls compactness, $\\lambda$ controlled by $(n,U)$, $(f,\\lambda)$ in general position: the branched integrals over $\\lambda\\circ f$ define a map on cohomology, independent of $\\lambda$."
    },
    "lean": {
-    "statement": "Part III wave 6 (`Chapter16/P3W6S6_Theorem16_6_6.lean`), on the polyfold: the integrals $\\int$, $\\oint$ of `CompactOrientedSuborbifold c m` are additive and well defined (`integral_mk_rep`: in every model the polyfold integral is the ep-level integral of Definition 9.5.6); for `c.boundary = ∅` and partitions of unity, $\\int d\\eta = \\oint d\\eta = 0$ (`OrientedSuborbifold.integral_d_eq_zero`, `integralEff_d_eq_zero`, from Theorem 16.4.6), hence **`integral_add_d`**, `integralEff_add_d`: the integrals depend only on $[\\tau]$. `HasCobordism`, `HasCobordismEff` and **`integral_eq_of_hasCobordism`**, **`integralEff_eq_of_hasCobordismEff`** (Theorem 9.5.18 on $Y$): cobordant perturbations give equal integrals of closed forms; `hasCobordism_refl`, `hasCobordismEff_refl`. Bundle level: `OrientedPerturbation s m` (a compact oriented suborbifold with $\\theta = \\lambda \\circ f$), `IsAdmissible n U`; **`theorem_16_6_6_statement s n U m IsInherited`** ((i) $\\int(\\tau + d\\eta) = \\int\\tau$ and $\\oint(\\tau + d\\eta) = \\oint\\tau$; (ii) for two admissible perturbations with the inherited orientation, equal $\\int$ and $\\oint$ of closed $\\tau$) and **`theorem_16_6_6_hyp`** from `hPU` and `hcob`, `hcobEff` (cobordisms between any two admissible inherited-orientation perturbations); `theorem_16_6_6_hyp_hcob_witness`.\n\nThe earlier reduction: `ScPlusMultisection.IsControlledBy` ($n(\\lambda)\\le1$, dom-supp $\\subseteq U$); `theorem_16_6_6_reduction` (in every structure $S\\in\\bar c$ the representatives satisfy $\\partial X=\\emptyset$, Fredholm, `HasCompactSolutionSetEp`, `ControlsCompactness` for `(normOf n, γπ⁻¹U)`, $N(\\Lambda)\\le1$, dom-supp$(\\Lambda)\\subseteq\\gamma\\pi^{-1}U$: the hypotheses of §§15.3–15.4); `exists_generalPosition_hyp` (from `theorem_15_3_7_statement` in a model: a structurable $\\lambda$ controlled by $(n,U)$ with $n(\\lambda)<1$, representative transversal and in general position).",
+    "statement": "Part III wave 6 (`Chapter16/PerturbedIntegralIndependence.lean`), on the polyfold: the integrals $\\int$, $\\oint$ of `CompactOrientedSuborbifold c m` are additive and well defined (`integral_mk_rep`: in every model the polyfold integral is the ep-level integral of Definition 9.5.6); for `c.boundary = ∅` and partitions of unity, $\\int d\\eta = \\oint d\\eta = 0$ (`OrientedSuborbifold.integral_d_eq_zero`, `integralEff_d_eq_zero`, from Theorem 16.4.6), hence **`integral_add_d`**, `integralEff_add_d`: the integrals depend only on $[\\tau]$. `HasCobordism`, `HasCobordismEff` and **`integral_eq_of_hasCobordism`**, **`integralEff_eq_of_hasCobordismEff`** (Theorem 9.5.18 on $Y$): cobordant perturbations give equal integrals of closed forms; `hasCobordism_refl`, `hasCobordismEff_refl`. Bundle level: `OrientedPerturbation s m` (a compact oriented suborbifold with $\\theta = \\lambda \\circ f$), `IsAdmissible n U`; **`theorem_16_6_6_statement s n U m IsInherited`** ((i) $\\int(\\tau + d\\eta) = \\int\\tau$ and $\\oint(\\tau + d\\eta) = \\oint\\tau$; (ii) for two admissible perturbations with the inherited orientation, equal $\\int$ and $\\oint$ of closed $\\tau$) and **`theorem_16_6_6_hyp`** from `hPU` and `hcob`, `hcobEff` (cobordisms between any two admissible inherited-orientation perturbations); `theorem_16_6_6_hyp_hcob_witness`.\n\nThe earlier reduction: `ScPlusMultisection.IsControlledBy` ($n(\\lambda)\\le1$, dom-supp $\\subseteq U$); `theorem_16_6_6_reduction` (in every structure $S\\in\\bar c$ the representatives satisfy $\\partial X=\\emptyset$, Fredholm, `HasCompactSolutionSetEp`, `ControlsCompactness` for `(normOf n, γπ⁻¹U)`, $N(\\Lambda)\\le1$, dom-supp$(\\Lambda)\\subseteq\\gamma\\pi^{-1}U$: the hypotheses of §§15.3–15.4); `exists_generalPosition_hyp` (from `theorem_15_3_7_statement` in a model: a structurable $\\lambda$ controlled by $(n,U)$ with $n(\\lambda)<1$, representative transversal and in general position).",
     "decls": [
-     "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_hyp",
-     "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_statement",
-     "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_hyp_hcob_witness",
-     "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.OrientedPerturbation",
-     "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.OrientedPerturbation.IsAdmissible",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.integral",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.integralEff",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.integral_mk_rep",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.HasCobordism",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.integral_eq_of_hasCobordism",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.hasCobordism_refl",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.HasCobordismEff",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.integralEff_eq_of_hasCobordismEff",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.CompactOrientedSuborbifold.hasCobordismEff_refl",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedRep.integral_add",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedRep.integralEff_add",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedRep.integral_d_eq_zero_of_boundary",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedRep.integralEff_d_eq_zero_of_boundary",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integral_add",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integralEff_add",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integral_d_eq_zero",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integralEff_d_eq_zero",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integral_add_d",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.OrientedSuborbifold.integralEff_add_d",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.ScForm.toStructure_add",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.ScForm.toStructure_zero",
-     "Chapter16/P3W6S6_Theorem16_6_6 · PolyfoldClass.not_mem_boundary_of_eq_empty",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.ScPlusMultisection.IsControlledBy",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.theorem_16_6_6_reduction",
-     "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.exists_generalPosition_hyp"
+     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp",
+     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement",
+     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp_hcob_witness",
+     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.OrientedPerturbation",
+     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.OrientedPerturbation.IsAdmissible",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.integral",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.integralEff",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.integral_mk_rep",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.HasCobordism",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.integral_eq_of_hasCobordism",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.hasCobordism_refl",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.HasCobordismEff",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.integralEff_eq_of_hasCobordismEff",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.CompactOrientedSuborbifold.hasCobordismEff_refl",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedRep.integral_add",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedRep.integralEff_add",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedRep.integral_d_eq_zero_of_boundary",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedRep.integralEff_d_eq_zero_of_boundary",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integral_add",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integralEff_add",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integral_d_eq_zero",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integralEff_d_eq_zero",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integral_add_d",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.OrientedSuborbifold.integralEff_add_d",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.ScForm.toStructure_add",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.ScForm.toStructure_zero",
+     "Chapter16/PerturbedIntegralIndependence · PolyfoldClass.not_mem_boundary_of_eq_empty",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.ScPlusMultisection.IsControlledBy",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.theorem_16_6_6_reduction",
+     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.exists_generalPosition_hyp"
     ]
    },
    "chips": [
@@ -2183,16 +2183,16 @@
     "statement": "If some structure $m \\in \\bar c$ has reflexive fibres $W_{0,1}$, so have the equivalent structures."
    },
    "lean": {
-    "statement": "`StrongBundle.LocalIso.exists_reflexive_chart`: for a local strong bundle isomorphism $\\Phi : Y|U \\to Y'|U'$ covering $\\phi$ and $x \\in U$, a compatible chart of $Y'$ at $\\phi(x)$ with $F_1$ reflexive gives one of $Y$ at $x$ (restrict the chart to $U'$, then transport it; the fibre model is unchanged). `StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn`: if $X$ is covered by domains of such isomorphisms, reflexive $(0,1)$-fibres pull back. **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of`**: for a strong bundle equivalence $\\Phi : W \\to W'$ (Definition 10.4.1), `B'.HasReflexiveFibers → B.HasReflexiveFibers`.\n\nPush direction (Part III wave 7, `Chapter16/P3W7W6_ReflexivePush.lean`): **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push`** (for $x' \\in X'$ pick $x$ and $\\sigma : \\phi(x) \\to x'$; a reflexive chart at $\\phi(x)$ from `exists_reflexive_chart` for `L.symm`, moved to $x'$ by `EpStrongBundle.exists_localIso_mor σ`), `hasReflexiveFibers_iff`, `SDiagram.hasReflexiveFibers_of`, `GenSBMap.hasReflexiveFibers_iff`, `StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv`, **`StrongPolyfoldBundle.hasReflexiveFibers_iff_forall`**.",
+    "statement": "`StrongBundle.LocalIso.exists_reflexive_chart`: for a local strong bundle isomorphism $\\Phi : Y|U \\to Y'|U'$ covering $\\phi$ and $x \\in U$, a compatible chart of $Y'$ at $\\phi(x)$ with $F_1$ reflexive gives one of $Y$ at $x$ (restrict the chart to $U'$, then transport it; the fibre model is unchanged). `StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn`: if $X$ is covered by domains of such isomorphisms, reflexive $(0,1)$-fibres pull back. **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of`**: for a strong bundle equivalence $\\Phi : W \\to W'$ (Definition 10.4.1), `B'.HasReflexiveFibers → B.HasReflexiveFibers`.\n\nPush direction (Part III wave 7, `Chapter16/ReflexivePush.lean`): **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push`** (for $x' \\in X'$ pick $x$ and $\\sigma : \\phi(x) \\to x'$; a reflexive chart at $\\phi(x)$ from `exists_reflexive_chart` for `L.symm`, moved to $x'$ by `EpStrongBundle.exists_localIso_mor σ`), `hasReflexiveFibers_iff`, `SDiagram.hasReflexiveFibers_of`, `GenSBMap.hasReflexiveFibers_iff`, `StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv`, **`StrongPolyfoldBundle.hasReflexiveFibers_iff_forall`**.",
     "decls": [
-     "Chapter16/P3W5PC_ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
-     "Chapter16/P3W5PC_ReflexivePull · StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn",
-     "Chapter16/P3W5PC_ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
-     "Chapter16/P3W7W6_ReflexivePush · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push",
-     "Chapter16/P3W7W6_ReflexivePush · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_iff",
-     "Chapter16/P3W7W6_ReflexivePush · SBLocalization.GenSBMap.hasReflexiveFibers_iff",
-     "Chapter16/P3W7W6_ReflexivePush · StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv",
-     "Chapter16/P3W7W6_ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall"
+     "Chapter16/ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
+     "Chapter16/ReflexivePull · StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn",
+     "Chapter16/ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
+     "Chapter16/ReflexivePush · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push",
+     "Chapter16/ReflexivePush · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_iff",
+     "Chapter16/ReflexivePush · SBLocalization.GenSBMap.hasReflexiveFibers_iff",
+     "Chapter16/ReflexivePush · StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv",
+     "Chapter16/ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall"
     ]
    },
    "chips": [
@@ -2214,21 +2214,21 @@
    "lean": {
     "statement": "`BranchedRep.rel_of_toFun_eq`, **`BranchedSuborbifold.toFun_injective`**: a branched suborbifold of a polyfold is determined by $\\theta : Z \\to \\mathbb Q$. `perturbedFun s t` $= \\lambda \\circ f$, `IsPerturbedSuborbifold s t θ`; `perturbedRep hS F Λ hbr` (the representative $(\\Lambda \\circ F, (X, \\gamma))$ in a model), `exists_functor_rep`, `perturbedRep_toFun` ($|\\Lambda \\circ F| \\circ \\gamma^{-1} = \\lambda \\circ f$ in every model), `isPerturbedSuborbifold_iff`, `isPerturbedSuborbifold_unique`; `ScSection.IsInGeneralPositionWith s t` (general position in some model). **`exists_isPerturbedSuborbifold_hyp`** ($\\partial Z = \\emptyset$, $f$ sc-Fredholm, $(n, U)$ controlling compactness, $\\lambda$ controlled by $(n, U)$, general position in the model of $a$, tame germ data): $\\exists\\theta$ with $\\theta = \\lambda \\circ f$, compact.",
     "decls": [
-     "Chapter16/P3W6S6_PerturbedSuborbifold · PolyfoldClass.BranchedRep.rel_of_toFun_eq",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun_injective",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun_mk",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.toPolyfoldStructure_mem",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.perturbedFun",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.IsPerturbedSuborbifold",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.lam_f_eq",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.exists_functor_rep",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep_toFun",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep_toFun_ofFunctor",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_iff",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_unique",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith",
-     "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp"
+     "Chapter16/PerturbedSuborbifold · PolyfoldClass.BranchedRep.rel_of_toFun_eq",
+     "Chapter16/PerturbedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun_injective",
+     "Chapter16/PerturbedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun_mk",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.toPolyfoldStructure_mem",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.perturbedFun",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.IsPerturbedSuborbifold",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.lam_f_eq",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.exists_functor_rep",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep_toFun",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.perturbedRep_toFun_ofFunctor",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_iff",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_unique",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith",
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp"
     ]
    },
    "chips": [
@@ -2251,12 +2251,12 @@
    "lean": {
     "statement": "`StrongPolyfoldBundle.continuous_zeroAt`, `zeroRepOf S hS : SectionRep c` ($F$ = `fiberZero`), **`zeroSection c : ScSection c`** (`toFun_zeroSection`: it is `c.zeroAt`), `zeroSection_eq_mk` (every structure's zero functor gives the same class), **`isScPlus_zeroSection`**, `zeroPlusSection`, `ScSection.eq_zeroSection_iff_F`, `solutionSet_zeroSection` ($= Z$).",
     "decls": [
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.zeroSection",
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.zeroSection_eq_mk",
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.isScPlus_zeroSection",
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.zeroPlusSection",
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.ScSection.eq_zeroSection_iff_F",
-     "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.solutionSet_zeroSection"
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.zeroSection",
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.zeroSection_eq_mk",
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.isScPlus_zeroSection",
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.zeroPlusSection",
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.ScSection.eq_zeroSection_iff_F",
+     "Chapter16/ZeroSection · StrongPolyfoldBundle.solutionSet_zeroSection"
     ]
    },
    "chips": [
@@ -2274,12 +2274,12 @@
    "label": "§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)",
    "page": 706,
    "book": "If $|X|$ is paracompact, $Z \\cong |X|$ is metrizable (locally metrizable, regular, Hausdorff and paracompact: Nagata–Smirnov).",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V16.14): `PolyfoldStructure.metrizableSpace` (`P3H_TangentPolyfold.lean`), from Theorem 7.3.1's `theorem_7_3_1_metrizable`. The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed. In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V16.14): `PolyfoldStructure.metrizableSpace` (`TangentPolyfold.lean`), from Theorem 7.3.1's `theorem_7_3_1_metrizable`. The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed. In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.",
    "formalized": [
     "V16.14"
    ],
    "decls": [
-    "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.metrizableSpace"
+    "Chapter16/TangentPolyfold · PolyfoldStructure.metrizableSpace"
    ]
   },
   {
@@ -2290,7 +2290,7 @@
    "book": "$\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ with no hypothesis on $(Z,c)$ beyond being a polyfold (the standing assumption of Chapter 16 is ZHOU; partitions of unity are not assumed).",
    "instead": "`theorem_16_4_6_hyp` and `theorem_16_4_6_eff_hyp` (V16.28), with `c.AdmitsScPartitionsOfUnity` as Theorem 9.5.17 assumes. Removing it needs Stokes on ep-groupoids without partitions of unity, using the compactness of $\\mathrm{supp}\\,\\Theta$ for a finite cut-off. Estimate 300–600 lines.",
    "decls": [
-    "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"
+    "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"
    ]
   },
   {
@@ -2299,12 +2299,12 @@
    "label": "§16.4, p. 729, and Definition 16.4.2 (5), p. 730 (2017: Definition 16.30)",
    "page": 729,
    "book": "If $\\Theta$ is tame, so are $f_*\\Theta$ and $f^*\\Theta$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 3; V16.23, V16.27; `Chapter16/P3W3Y_BranchedTame.lean`): `TameBranchingStructure.restrictRep` and `move` (Definition 9.3.6 structures restricted, and moved by sc-diffeomorphisms), `EpFunctor.isTameBranched_pullbackTheta`, `isTameBranched_pushforwardTheta`, `isTameBranched_pullbackTheta_iff` along transport charts as in Theorem 11.4.1, `EPLoc.isTameBranched_pullTheta`; `BranchedSuborbifold.definition_16_4_2_tame` ($\\theta$ is tame iff every representative is); for the oriented form `OrientedRep.Rel.isTameOriented` and `OrientedSuborbifold.isTameOriented_iff`; the integrals on classes `OrientedSuborbifold.integral`, `integralEff` with `integral_eq`, `integralEff_eq`.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V16.23, V16.27; `Chapter16/BranchedTame.lean`): `TameBranchingStructure.restrictRep` and `move` (Definition 9.3.6 structures restricted, and moved by sc-diffeomorphisms), `EpFunctor.isTameBranched_pullbackTheta`, `isTameBranched_pushforwardTheta`, `isTameBranched_pullbackTheta_iff` along transport charts as in Theorem 11.4.1, `EPLoc.isTameBranched_pullTheta`; `BranchedSuborbifold.definition_16_4_2_tame` ($\\theta$ is tame iff every representative is); for the oriented form `OrientedRep.Rel.isTameOriented` and `OrientedSuborbifold.isTameOriented_iff`; the integrals on classes `OrientedSuborbifold.integral`, `integralEff` with `integral_eq`, `integralEff_eq`.",
    "decls": [
-    "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_tame",
-    "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented",
-    "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.isTameOriented_iff",
-    "Chapter16/P3W3Y_BranchedTame · PolyfoldClass.OrientedSuborbifold.integral"
+    "Chapter16/BranchedTame · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_tame",
+    "Chapter16/BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented",
+    "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.isTameOriented_iff",
+    "Chapter16/BranchedTame · PolyfoldClass.OrientedSuborbifold.integral"
    ],
    "formalized": [
     "V16.23",
@@ -2317,14 +2317,14 @@
    "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
    "page": 730,
    "book": "The manifold (orbifold) structure on $\\mathrm{supp}\\,\\theta$ is induced from the overhead and does not depend on the representative.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.24; `Chapter16/P3W5PC_SuppNaturality.lean`): `proposition_16_4_3_naturality` (the statement `proposition_16_4_3_naturality_statement`, proved), from `isScSmoothOn_suppTransition` (the transition is sc-smooth for any induced structures; the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$) and `proposition_16_4_3_naturality_all` (any induced structures, orbifold type).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.24; `Chapter16/SuppNaturality.lean`): `proposition_16_4_3_naturality` (the statement `proposition_16_4_3_naturality_statement`, proved), from `isScSmoothOn_suppTransition` (the transition is sc-smooth for any induced structures; the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$) and `proposition_16_4_3_naturality_all` (any induced structures, orbifold type).",
    "decls": [
-    "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
-    "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.suppTransition",
-    "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_statement",
-    "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_self",
-    "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality",
-    "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all"
+    "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
+    "Chapter16/SuppNaturalityStatement · PolyfoldClass.BranchedSuborbifold.suppTransition",
+    "Chapter16/SuppNaturalityStatement · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_statement",
+    "Chapter16/SuppNaturalityStatement · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_self",
+    "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality",
+    "Chapter16/SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all"
    ],
    "formalized": [
     "V16.24"
@@ -2336,13 +2336,13 @@
    "label": "§16.2, pp. 715 and 717 (2017: §16.2)",
    "page": 715,
    "book": "$(Z,c)^i = (Z_i, c_i)$, and $\\tau_Z : T(Z,c) \\to Z^1$ with $\\tau_Z \\circ T\\alpha = \\alpha \\circ |\\tau_X|$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 4; V16.35, V16.36; `Chapter16/P3W4SM_RaisedPolyfold.lean`): the raised structures through `Diagram.liftOne` and `EPLoc.liftOneHom` (`RaisedSpace c`, `raiseMap`, `raiseStructure`, `raise c` with `raise_eq`, the injection `raiseIncl` with image $Z_1$, `raiseN`), and $\\tau_Z$ = `tangentProj` with $\\tau_Z \\circ T\\alpha = \\alpha^1 \\circ |\\tau_X|$ (`tangentProj_tangentMap`, from the naturality `EPLoc.orbitMap_tangentProj_tangentHom`). $(Z,c)^1$ carries the topology of $|X^1|$, not the subspace topology of $Z$.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 4; V16.35, V16.36; `Chapter16/RaisedPolyfold.lean`): the raised structures through `Diagram.liftOne` and `EPLoc.liftOneHom` (`RaisedSpace c`, `raiseMap`, `raiseStructure`, `raise c` with `raise_eq`, the injection `raiseIncl` with image $Z_1$, `raiseN`), and $\\tau_Z$ = `tangentProj` with $\\tau_Z \\circ T\\alpha = \\alpha^1 \\circ |\\tau_X|$ (`tangentProj_tangentMap`, from the naturality `EPLoc.orbitMap_tangentProj_tangentHom`). $(Z,c)^1$ carries the topology of $|X^1|$, not the subspace topology of $Z$.",
    "decls": [
-    "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.RaisedSpace",
-    "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raise",
-    "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.raiseIncl",
-    "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.tangentProj",
-    "Chapter16/P3W4SM_RaisedPolyfold · PolyfoldClass.tangentProj_tangentMap"
+    "Chapter16/RaisedPolyfold · PolyfoldClass.RaisedSpace",
+    "Chapter16/RaisedPolyfold · PolyfoldClass.raise",
+    "Chapter16/RaisedPolyfold · PolyfoldClass.raiseIncl",
+    "Chapter16/RaisedPolyfold · PolyfoldClass.tangentProj",
+    "Chapter16/RaisedPolyfold · PolyfoldClass.tangentProj_tangentMap"
    ],
    "formalized": [
     "V16.35",
@@ -2355,14 +2355,14 @@
    "label": "§16.2, Theorem 16.2.4, p. 719 (2017: Theorem 16.1)",
    "page": 719,
    "book": "$T$ is a functor on the polyfold category.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.34; `Chapter16/P3W5PC_TangentEffective.lean`): `PolyfoldClass.IsEffective.tangent` (the tangent of an effective polyfold is effective, through a smooth point and (ZHOU)), `ScMap.tangent_comp_of_isEffective`, and `EffPolyfold.tangentFunctor`, a Mathlib functor on effective polyfolds. (Until 2026-11-13 this entry was \"The tangent functor and the pull-back of forms on the polyfold category\"; the morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back were formalized in Part III wave 3.)",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.34; `Chapter16/TangentEffective.lean`): `PolyfoldClass.IsEffective.tangent` (the tangent of an effective polyfold is effective, through a smooth point and (ZHOU)), `ScMap.tangent_comp_of_isEffective`, and `EffPolyfold.tangentFunctor`, a Mathlib functor on effective polyfolds. (Until 2026-11-13 this entry was \"The tangent functor and the pull-back of forms on the polyfold category\"; the morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back were formalized in Part III wave 3.)",
    "decls": [
-    "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
-    "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.theorem_16_2_4",
-    "Chapter16/P3W3Y_TangentFunctor · PSCat.tangentFunctor",
-    "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.IsEffective.tangent",
-    "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
-    "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangentFunctor"
+    "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
+    "Chapter16/TangentFunctor · PolyfoldClass.theorem_16_2_4",
+    "Chapter16/TangentFunctor · PSCat.tangentFunctor",
+    "Chapter16/TangentEffective · PolyfoldClass.IsEffective.tangent",
+    "Chapter16/TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
+    "Chapter16/TangentEffective · EffPolyfold.tangentFunctor"
    ],
    "formalized": [
     "V16.34"
@@ -2374,17 +2374,17 @@
    "label": "§16.3, Definition 16.3.12 (parenthetical), p. 727; Definition 16.3.14 and Proposition 16.3.16 (2), pp. 727–728; the remark before Theorem 16.3.17, p. 728 (2017: Definitions 16.24, 16.26, Proposition 16.5)",
    "page": 727,
    "book": "Equivalent strong polyfold bundle structures also have reflexive 1-fibres; pull-backs and push-forwards of reflexive auxiliary norms under generalized strong bundle isomorphisms are reflexive, and mixed convergence does not depend on the model.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.51–V16.53, V16.56, V16.79; `Chapter16/P3W7W6_ReflexivePush.lean`, `P3W7W6_MixedTransfer.lean`, with the pull direction of Part III wave 5, `P3W5PC_ReflexivePull.lean`): reflexive 1-fibres in every model (`hasReflexiveFibers_iff_forall`), mixed convergence and reflexive auxiliary norms independent of the model (`mixedTendsto_iff_forall`, `isReflexiveAuxNorm_iff_forall`, from Part I's `StrongBundle.LocalIso.mixedTendsto`), pull-backs and push-forwards of reflexive auxiliary norms (`GenSBMap.isReflexiveAuxNorm_pullNorm`, `GenSBMap.isReflexiveAuxNorm_pushNorm`), and Proposition 16.3.16 (2) in the text's form (`proposition_16_3_16_two`).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.51–V16.53, V16.56, V16.79; `Chapter16/ReflexivePush.lean`, `MixedTransfer.lean`, with the pull direction of Part III wave 5, `ReflexivePull.lean`): reflexive 1-fibres in every model (`hasReflexiveFibers_iff_forall`), mixed convergence and reflexive auxiliary norms independent of the model (`mixedTendsto_iff_forall`, `isReflexiveAuxNorm_iff_forall`, from Part I's `StrongBundle.LocalIso.mixedTendsto`), pull-backs and push-forwards of reflexive auxiliary norms (`GenSBMap.isReflexiveAuxNorm_pullNorm`, `GenSBMap.isReflexiveAuxNorm_pushNorm`), and Proposition 16.3.16 (2) in the text's form (`proposition_16_3_16_two`).",
    "decls": [
-    "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem",
-    "Chapter16/P3W5PC_ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
-    "Chapter16/P3W5PC_ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
-    "Chapter16/P3W7W6_ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall",
-    "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
-    "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.isReflexiveAuxNorm_iff_forall",
-    "Chapter16/P3W7W6_MixedTransfer · SBLocalization.GenSBMap.isReflexiveAuxNorm_pullNorm",
-    "Chapter16/P3W7W6_MixedTransfer · SBLocalization.GenSBMap.isReflexiveAuxNorm_pushNorm",
-    "Chapter16/P3W7W6_MixedTransfer · StrongPolyfoldBundle.proposition_16_3_16_two"
+    "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem",
+    "Chapter16/ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
+    "Chapter16/ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
+    "Chapter16/ReflexivePush · StrongPolyfoldBundle.hasReflexiveFibers_iff_forall",
+    "Chapter16/MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
+    "Chapter16/MixedTransfer · StrongPolyfoldBundle.isReflexiveAuxNorm_iff_forall",
+    "Chapter16/MixedTransfer · SBLocalization.GenSBMap.isReflexiveAuxNorm_pullNorm",
+    "Chapter16/MixedTransfer · SBLocalization.GenSBMap.isReflexiveAuxNorm_pushNorm",
+    "Chapter16/MixedTransfer · StrongPolyfoldBundle.proposition_16_3_16_two"
    ],
    "formalized": [
     "V16.51",
@@ -2399,12 +2399,12 @@
    "label": "§16.3, before Definition 16.3.18, p. 728 (2017: before Definition 16.27)",
    "page": 728,
    "book": "$(p, \\bar c)$ has a canonical zero section $z \\mapsto 0_z$ induced from the zero sections of the models.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.81; `Chapter16/P3W7W6_ZeroSection.lean`): `StrongPolyfoldBundle.zeroSection c : ScSection c`, induced by the zero section functor of any structure (`zeroSection_eq_mk`), sc⁺ (`isScPlus_zeroSection`), with solution set $Z$.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.81; `Chapter16/ZeroSection.lean`): `StrongPolyfoldBundle.zeroSection c : ScSection c`, induced by the zero section functor of any structure (`zeroSection_eq_mk`), sc⁺ (`isScPlus_zeroSection`), with solution set $Z$.",
    "decls": [
-    "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.zeroAt",
-    "Chapter16/P3W4PB_ZeroSection · StrongPolyfoldBundle.zeroAt_eq_of_mem",
-    "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.zeroSection",
-    "Chapter16/P3W7W6_ZeroSection · StrongPolyfoldBundle.isScPlus_zeroSection"
+    "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt",
+    "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt_eq_of_mem",
+    "Chapter16/ZeroSection · StrongPolyfoldBundle.zeroSection",
+    "Chapter16/ZeroSection · StrongPolyfoldBundle.isScPlus_zeroSection"
    ],
    "formalized": [
     "V16.81"
@@ -2416,11 +2416,11 @@
    "label": "§16.5, (16.8), p. 733 (2017: §16.5)",
    "page": 733,
    "book": "$z \\mapsto n(\\lambda)(z) = \\max\\{n(y) \\mid p(y) = z, \\lambda(y) \\ne 0\\}$ is continuous.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.67; `Chapter16/P3W5PC_NormLamContinuous.lean`): `IsScPlusMultisection.continuous_pointwiseNorm` (ep level, $N(\\Lambda) = \\max_i N(s_i)$ locally) and `ScPlusMultisection.continuous_normLam` (descent through the quotient maps $\\gamma\\pi$), with `isGreatest_normLam`.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.67; `Chapter16/NormLamContinuous.lean`): `IsScPlusMultisection.continuous_pointwiseNorm` (ep level, $N(\\Lambda) = \\max_i N(s_i)$ locally) and `ScPlusMultisection.continuous_normLam` (descent through the quotient maps $\\gamma\\pi$), with `isGreatest_normLam`.",
    "decls": [
-    "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam",
-    "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
-    "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm"
+    "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.normLam",
+    "Chapter16/NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
+    "Chapter16/NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm"
    ],
    "formalized": [
     "V16.67"
@@ -2432,12 +2432,12 @@
    "label": "§16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8)",
    "page": 739,
    "book": "$\\Phi_{(f,o)}([\\omega]) = \\int_{(\\lambda \\circ f, o)} \\omega$ is well defined on the de Rham cohomology of $Z$, independent of $\\lambda$.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.78, V16.80; `Chapter16/P3W6S6_*`): `theorem_16_6_6_hyp` proves `theorem_16_6_6_statement`. Proved from the text's hypotheses plus partitions of unity: the integrals $\\int$, $\\oint$ over $\\lambda \\circ f$ are well defined on the polyfold and depend only on $[\\tau]$; $\\theta = \\lambda \\circ f$ is a branched suborbifold, unique and model independent, existing under general position (`exists_isPerturbedSuborbifold_hyp`). Independence of $\\lambda$ for closed $\\tau$ given (a) and (b). Missing: (a) `IsInherited`, the orientation of $\\lambda \\circ f$ inherited from $(f, o)$ on the polyfold: Theorem 15.4.1 and Definition 15.4.2 in a model (gap G.159), the lift of $\\hat T$ to an `OrientedRep` on `S.toPolyfoldStructure` (`HasIndependentTangentSums` for $\\Lambda \\circ F$, $\\hat T = 0$ off $X_\\infty$), and independence of the model (transport of $o$, gap G.176, and pull-back of $\\hat T$ under generalized isomorphisms), 250–450 lines after gap G.159; (b) the cobordism between two admissible perturbations (`hcob`, `hcobEff`): Corollary 15.4.4's cobordism in a model (gap G.182) and its transfer to `HasCobordism` (`integral_mk_rep` does the integral side), 80–150 lines after gap G.182.",
+   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.78, V16.80; `Chapter16/PerturbedSuborbifold`, `PerturbedIntegralIndependence`): `theorem_16_6_6_hyp` proves `theorem_16_6_6_statement`. Proved from the text's hypotheses plus partitions of unity: the integrals $\\int$, $\\oint$ over $\\lambda \\circ f$ are well defined on the polyfold and depend only on $[\\tau]$; $\\theta = \\lambda \\circ f$ is a branched suborbifold, unique and model independent, existing under general position (`exists_isPerturbedSuborbifold_hyp`). Independence of $\\lambda$ for closed $\\tau$ given (a) and (b). Missing: (a) `IsInherited`, the orientation of $\\lambda \\circ f$ inherited from $(f, o)$ on the polyfold: Theorem 15.4.1 and Definition 15.4.2 in a model (gap G.159), the lift of $\\hat T$ to an `OrientedRep` on `S.toPolyfoldStructure` (`HasIndependentTangentSums` for $\\Lambda \\circ F$, $\\hat T = 0$ off $X_\\infty$), and independence of the model (transport of $o$, gap G.176, and pull-back of $\\hat T$ under generalized isomorphisms), 250–450 lines after gap G.159; (b) the cobordism between two admissible perturbations (`hcob`, `hcobEff`): Corollary 15.4.4's cobordism in a model (gap G.182) and its transfer to `HasCobordism` (`integral_mk_rep` does the integral side), 80–150 lines after gap G.182.",
    "decls": [
-    "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.theorem_16_6_6_reduction",
-    "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_hyp",
-    "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_statement",
-    "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp"
+    "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.theorem_16_6_6_reduction",
+    "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp",
+    "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement",
+    "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp"
    ]
   },
   {
@@ -2446,13 +2446,13 @@
    "label": "§16.6, Definition 16.6.5, p. 739 (2017: Definition 16.42)",
    "page": 739,
    "book": "An orientation of one representative determines orientations of all, via Theorem 12.5.7.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.77; `Chapter16/P3W6O6_OrientationTransport.lean`): the transport with continuity along any diagram $D$ with $[D]_* F = F'$ (`SDiagram.orientation_transport_hyp`), and an `OrientationRep` on every other representative (`OrientationRep.transport_hyp`). Missing: (i) two diagrams give the same transported orientation (a common refinement, Chapter 10's `IsRefinement`, then the compatibility of `orEqv` with composition and with natural equivalences, as in `theorem_12_5_7_rep_indep`, V12.39), 200–300 lines; (ii) the transfer of tameness, bump functions and tame Fredholm germs along strong bundle equivalences, so that the hypotheses on the middle bundle can be dropped, 100–200 lines.",
+   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.77; `Chapter16/OrientationTransport.lean`): the transport with continuity along any diagram $D$ with $[D]_* F = F'$ (`SDiagram.orientation_transport_hyp`), and an `OrientationRep` on every other representative (`OrientationRep.transport_hyp`). Missing: (i) two diagrams give the same transported orientation (a common refinement, Chapter 10's `IsRefinement`, then the compatibility of `orEqv` with composition and with natural equivalences, as in `theorem_12_5_7_rep_indep`, V12.39), 200–300 lines; (ii) the transfer of tameness, bump functions and tame Fredholm germs along strong bundle equivalences, so that the hypotheses on the middle bundle can be dropped, 100–200 lines.",
    "decls": [
-    "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.OrientationRep",
-    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
-    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
-    "Chapter16/P3W6O6_OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp",
-    "Chapter16/P3W6O6_OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp"
+    "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.OrientationRep",
+    "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.isContOrOn_pullOrx",
+    "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_hyp",
+    "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp",
+    "Chapter16/OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp"
    ]
   },
   {
@@ -2463,7 +2463,7 @@
    "book": "$(f, \\lambda)$ in general position, for a polyfold Fredholm section and an sc⁺-multisection.",
    "instead": "`ScSection.IsInGeneralPositionWith` asks it in some model (V16.80). Missing: invariance of `IsInGeneralPosition` under generalized strong bundle isomorphisms (linearizations transported by the local sc-diffeomorphisms, as for Fredholmness in Theorem 10.5.4). Estimate 200–350 lines.",
    "decls": [
-    "Chapter16/P3W6S6_PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith"
+    "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith"
    ]
   },
   {
@@ -2474,7 +2474,7 @@
    "book": "The invariant for a closed form of degree $k$ equal to the index, including $k = 0$.",
    "instead": "`theorem_16_6_6_statement` is stated for dimension $m+1 \\ge 1$ (V16.78). Missing: the 0-dimensional branched integral (a weighted count, Definition 9.5.6 with $n = 0$), which `tameBranchedIntegral` excludes. Estimate 150–300 lines (Chapter 9 level).",
    "decls": [
-    "Chapter16/P3W6S6_Theorem16_6_6 · StrongPolyfoldBundle.theorem_16_6_6_statement"
+    "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement"
    ]
   }
  ]

@@ -69,7 +69,7 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
   is an equation in `W`.
 * Proposition 8.4.1: only `W[0]` is treated here, since `W[1]` (the bundle `W_{0,1} → X` with the
   sc-structure shifted by one) is not built as an ep-groupoid in the project; (3), with `|W[1]|`
-  an orbit space, is `GapP2_CProp841W1.lean` (`proposition_8_4_1`, 2026-11-12).  Our proof of
+  an orbit space, is `BundleOrbitParacompactOne.lean` (`proposition_8_4_1`, 2026-11-12).  Our proof of
   (2) ⇒ (1) goes through metrizability (Theorem 7.3.1 and Smirnov's theorem) instead of "closed
   subsets of paracompact spaces are paracompact".  (1) ⇒ (2) is not proved here: it is
   `proposition_8_4_1_one_imp_two` (`BundleOrbitParacompact2021.lean`, 2026-11-09), through the

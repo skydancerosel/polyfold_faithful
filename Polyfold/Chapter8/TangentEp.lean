@@ -86,7 +86,7 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   `t ∘ (s|U(1_x))⁻¹ = id` near `x`; with `tangent_ext` this is (8.8) (`tUnit_eq`).
 * **The sheet form of condition (4)** in place of `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`.  The
   identification of the tangent of the fibred product with the fibred product of tangents is not
-  needed here; it is proved, with `m_{T𝐗} = Tm`, in `GapP2_B_TangentFibred.lean`
+  needed here; it is proved, with `m_{T𝐗} = Tm`, in `TangentFibred.lean`
   (`isScDiffeoOn_tangentCompPairs`, `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; gap G.75 closed,
   2026-11-12).  Lemma 8.1.2 (2017: 8.1) is stated in the form the text's proof uses: for a sheet `s : W → V` with
   inverse `σ = (s|U(ψ))⁻¹`, `g(φ') = m(σ(t φ'), φ')` (the text's `m(F(φ'), φ')`) is sc-smooth on
@@ -102,7 +102,7 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   entry is read as `Tφ` labelled by `φ` (as a bare map, distinct morphisms with the same `Tφ`,
   e.g. isotropy acting trivially, would make `G` non-injective); `G = remarkG` then is a bijection
   onto `{(φ, a) | φ ∈ 𝐗₁, a ∈ T_{s φ}X}`.  The M-polyfold structure on the pairs, for which `G` is
-  an sc-diffeomorphism, and the triples `(a, φ, b)` are in `GapP2_B_RemarkPairs.lean`
+  an sc-diffeomorphism, and the triples `(a, φ, b)` are in `TangentPairs.lean`
   (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`, 2026-11-12).  Linearity of `Tφ` is not
   treated here: it is `tangentMorCLE` (`Chapter7/TangentMorphismLinear.lean`; gap G.7 closed).
 * **Universes.**  Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so the tangent

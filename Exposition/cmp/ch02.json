@@ -1006,8 +1006,8 @@
      "Chapter2/DegeneracyIndex · eventually_add_smul_mem_lvlSet",
      "Chapter2/Boundary · eventually_add_smul_mem_lvlSet_of_cone",
      "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone"
+     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
+     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone"
     ]
    },
    "verdict": "extra",
@@ -3260,11 +3260,11 @@
    "lean": {
     "statement": "`proposition_2_1_2`: for a real Banach space $E$, $U \\subseteq E$ open, $r$ $C^\\infty$ on $U$ with $r(U) \\subseteq U$ and $r \\circ r = r$ on $U$, and $x \\in r(U)$, there are open $V \\ni x$ with $V \\subseteq U$, open $W \\ni 0$, closed complementary subspaces $R = \\operatorname{range} Dr(x)$ and $N = \\ker Dr(x)$, and a $C^\\infty$ diffeomorphism $\\psi : V \\to W$ ($\\psi$ and $\\psi^{-1}$ $C^\\infty$) with $\\psi(x) = 0$ and $\\psi(r(U) \\cap V) = R \\cap W$.",
     "decls": [
-     "Chapter2/GapP1_Prop212 · GapP1Prop212.proposition_2_1_2",
-     "Chapter2/GapP1_Prop212 · GapP1Prop212.isIdempotentElem_fderiv",
-     "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart",
-     "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart_comp",
-     "Chapter2/GapP1_Prop212 · GapP1Prop212.hasFDerivAt_retractChart"
+     "Chapter2/SmoothRetractImage · GapP1Prop212.proposition_2_1_2",
+     "Chapter2/SmoothRetractImage · GapP1Prop212.isIdempotentElem_fderiv",
+     "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart",
+     "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart_comp",
+     "Chapter2/SmoothRetractImage · GapP1Prop212.hasFDerivAt_retractChart"
     ]
    },
    "chips": [
@@ -3288,20 +3288,20 @@
    "lean": {
     "statement": "For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\\alpha : \\mathbb R \\to E_0$, sc-smooth on $(-\\varepsilon, \\varepsilon)$ or on $[0, \\varepsilon)$ for the constant sc-structure on $\\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\\alpha(0) = x$; $\\dot\\alpha(0)$ is `pathDeriv`, $D\\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the set of $\\dot\\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\\dot\\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \\in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\\dot\\alpha(0) = \\dot\\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).",
     "decls": [
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_tangent",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.twoSidedPathDerivs",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.oneSidedPathDerivs",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.hasDerivWithinAt_pathDeriv",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.scDeriv_pathDeriv",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv_mem_minimalSubspaceWith",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv_mem_partialQuadrantAtWith",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.path_retract_segment",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.partialConeWith_subset_closure",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.isScDomain_Ioo",
-     "Chapter2/GapP1_Lemma249 · GapP1Lemma249.isScDomain_Ico"
+     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
+     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone",
+     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_tangent",
+     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv",
+     "Chapter2/TangentConePaths · GapP1Lemma249.twoSidedPathDerivs",
+     "Chapter2/TangentConePaths · GapP1Lemma249.oneSidedPathDerivs",
+     "Chapter2/TangentConePaths · GapP1Lemma249.hasDerivWithinAt_pathDeriv",
+     "Chapter2/TangentConePaths · GapP1Lemma249.scDeriv_pathDeriv",
+     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv_mem_minimalSubspaceWith",
+     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv_mem_partialQuadrantAtWith",
+     "Chapter2/TangentConePaths · GapP1Lemma249.path_retract_segment",
+     "Chapter2/TangentConePaths · GapP1Lemma249.partialConeWith_subset_closure",
+     "Chapter2/TangentConePaths · GapP1Lemma249.isScDomain_Ioo",
+     "Chapter2/TangentConePaths · GapP1Lemma249.isScDomain_Ico"
     ]
    },
    "chips": [
@@ -3322,21 +3322,21 @@
    "lean": {
     "statement": "The definitions use only $C$ and $d_C$: `stratumOne` $= \\{e \\in C \\mid d_C(e) = 1\\}$, `faceComponents` its connected components, `extendedFaces` the spans of the components (the smallest linear subspaces containing them), `facesAt e` $= \\mathcal F(e) = \\{f \\mid e \\in f\\}$. For any presentation $T$ (used only in the proofs): the components are $A_i = \\{(Te)_i = 0,\\ (Te)_j > 0\\ (j \\ne i)\\}$ (`faceComponents_eq`) and there are exactly $k$ of them (`ncard_faceComponents`); $\\operatorname{span} A_i = f_i = \\{(Te)_i = 0\\}$ (`span_faceOpen`, `extendedFaces_eq`), so there are exactly $k$ extended faces (`ncard_extendedFaces`); $C + f_i = \\{(Te)_i \\ge 0\\}$, closed and containing $C$ (`add_coordFace`, `isClosed_add_coordFace`, `subset_add_coordFace`); $d_C(e) = \\#\\mathcal F(e)$ (`ncard_facesAt`); and $\\bigcap_{f \\in \\mathcal F(e)} (C + f) = C_e$ (`iInter_facesAt`, Definition 2.5.1).",
     "decls": [
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.stratumOne",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.facesAt",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents_eq",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.span_faceOpen",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces_eq",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.isClosed_add_coordFace",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.subset_add_coordFace",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt",
-     "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.connectedComponentIn_eq"
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.stratumOne",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.facesAt",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents_eq",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.span_faceOpen",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces_eq",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.isClosed_add_coordFace",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.subset_add_coordFace",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt",
+     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.connectedComponentIn_eq"
     ]
    },
    "chips": [
@@ -3365,25 +3365,25 @@
      "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber_eq",
      "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber_eq",
      "Chapter2/ReducedTangentIntrinsic · MPolyfold.finrank_quotient_reducedTangentFiber_eq_degIndex",
-     "Chapter2/GapP1_Def258 · degIndex_zero_eq_finrank_quotient",
-     "Chapter2/GapP1_Def258 · mem_minimalSubspaceWith_iff_lineality",
-     "Chapter2/GapP1_Def258 · MPolyfold.mem_reducedTangentFiber_iff_lineality",
-     "Chapter2/GapP1_Def258 · MPolyfold.partialConeFiberModel",
-     "Chapter2/GapP1_Def258 · MPolyfold.mem_partialConeFiberModel_iff",
-     "Chapter2/GapP1_Def258 · MPolyfold.isPartialQuadrant_partialConeFiberModel",
-     "Chapter2/GapP1_Def258 · MPolyfold.degIndex_partialConeFiberModel_eq_finrank",
-     "Chapter2/GapP1_Def258 · MPolyfold.definition_2_5_8_degIndex",
-     "Chapter2/GapP1_Def258b · ScBanach.IsScOperator.toBase_toScOperator",
-     "Chapter2/GapP1_Def258b · ScBanach.restrLvl",
-     "Chapter2/GapP1_Def258b · ScBanach.subspaceIso",
-     "Chapter2/GapP1_Def258b · MPolyfold.fiberCoord_eq_transitionCLM",
-     "Chapter2/GapP1_Def258b · MPolyfold.transitionCLM_transitionCLM",
-     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso",
-     "Chapter2/GapP1_Def258b · MPolyfold.fiberCoordSc",
-     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_comp",
-     "Chapter2/GapP1_Def258b · MPolyfold.mem_partialConeFiberModel_fiberCoordSc",
-     "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_image_partialConeFiberModel",
-     "Chapter2/GapP1_Def258b · MPolyfold.definition_2_5_8_scStructure"
+     "Chapter2/TangentConeQuadrant · degIndex_zero_eq_finrank_quotient",
+     "Chapter2/TangentConeQuadrant · mem_minimalSubspaceWith_iff_lineality",
+     "Chapter2/TangentConeQuadrant · MPolyfold.mem_reducedTangentFiber_iff_lineality",
+     "Chapter2/TangentConeQuadrant · MPolyfold.partialConeFiberModel",
+     "Chapter2/TangentConeQuadrant · MPolyfold.mem_partialConeFiberModel_iff",
+     "Chapter2/TangentConeQuadrant · MPolyfold.isPartialQuadrant_partialConeFiberModel",
+     "Chapter2/TangentConeQuadrant · MPolyfold.degIndex_partialConeFiberModel_eq_finrank",
+     "Chapter2/TangentConeQuadrant · MPolyfold.definition_2_5_8_degIndex",
+     "Chapter2/TangentSpaceChartIndependent · ScBanach.IsScOperator.toBase_toScOperator",
+     "Chapter2/TangentSpaceChartIndependent · ScBanach.restrLvl",
+     "Chapter2/TangentSpaceChartIndependent · ScBanach.subspaceIso",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.fiberCoord_eq_transitionCLM",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.transitionCLM_transitionCLM",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.fiberCoordSc",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso_comp",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.mem_partialConeFiberModel_fiberCoordSc",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso_image_partialConeFiberModel",
+     "Chapter2/TangentSpaceChartIndependent · MPolyfold.definition_2_5_8_scStructure"
     ]
    },
    "chips": [
@@ -3407,10 +3407,10 @@
    "lean": {
     "statement": "`lemma_2_7_3 [T3Space X]`: $X$ is paracompact (`ParacompactSpace`) iff every open cover has a closed locally finite refinement; the converse direction holds for every topological space (`paracompactSpace_of_closed_refinement`), the direct one for regular paracompact spaces (`exists_closed_refinement`). `proposition_2_7_4 [T3Space Y]`: a locally finite cover of $Y$ by closed sets, each paracompact as a subspace, makes $Y$ paracompact.",
     "decls": [
-     "Chapter2/GapP1_Michael · GapP1Michael.lemma_2_7_3",
-     "Chapter2/GapP1_Michael · GapP1Michael.proposition_2_7_4",
-     "Chapter2/GapP1_Michael · GapP1Michael.paracompactSpace_of_closed_refinement",
-     "Chapter2/GapP1_Michael · GapP1Michael.exists_closed_refinement"
+     "Chapter2/MichaelRefinement · GapP1Michael.lemma_2_7_3",
+     "Chapter2/MichaelRefinement · GapP1Michael.proposition_2_7_4",
+     "Chapter2/MichaelRefinement · GapP1Michael.paracompactSpace_of_closed_refinement",
+     "Chapter2/MichaelRefinement · GapP1Michael.exists_closed_refinement"
     ]
    },
    "chips": [
@@ -3431,11 +3431,11 @@
     "V2.108"
    ],
    "decls": [
-    "Chapter2/GapP1_Prop212 · GapP1Prop212.proposition_2_1_2",
-    "Chapter2/GapP1_Prop212 · GapP1Prop212.isIdempotentElem_fderiv",
-    "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart",
-    "Chapter2/GapP1_Prop212 · GapP1Prop212.retractChart_comp",
-    "Chapter2/GapP1_Prop212 · GapP1Prop212.hasFDerivAt_retractChart"
+    "Chapter2/SmoothRetractImage · GapP1Prop212.proposition_2_1_2",
+    "Chapter2/SmoothRetractImage · GapP1Prop212.isIdempotentElem_fderiv",
+    "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart",
+    "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart_comp",
+    "Chapter2/SmoothRetractImage · GapP1Prop212.hasFDerivAt_retractChart"
    ]
   },
   {
@@ -3533,12 +3533,12 @@
     "V2.109"
    ],
    "decls": [
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_reduced",
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_cone",
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.lemma_2_4_9_tangent",
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.pathDeriv",
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.twoSidedPathDerivs",
-    "Chapter2/GapP1_Lemma249 · GapP1Lemma249.oneSidedPathDerivs"
+    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
+    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone",
+    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_tangent",
+    "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv",
+    "Chapter2/TangentConePaths · GapP1Lemma249.twoSidedPathDerivs",
+    "Chapter2/TangentConePaths · GapP1Lemma249.oneSidedPathDerivs"
    ]
   },
   {
@@ -3565,13 +3565,13 @@
     "V2.110"
    ],
    "decls": [
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.faceComponents",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
-    "Chapter2/GapP1_ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt"
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
+    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt"
    ]
   },
   {
@@ -3583,11 +3583,11 @@
    "decls": [
     "Chapter2/ReducedTangentIntrinsic · MPolyfold.reducedTangentFiber",
     "Chapter2/ReducedTangentIntrinsic · MPolyfold.partialConeFiber",
-    "Chapter2/GapP1_Def258 · MPolyfold.definition_2_5_8_degIndex",
-    "Chapter2/GapP1_Def258b · MPolyfold.definition_2_5_8_scStructure",
-    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso",
-    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_comp",
-    "Chapter2/GapP1_Def258b · MPolyfold.tangentFiberScIso_image_partialConeFiberModel"
+    "Chapter2/TangentConeQuadrant · MPolyfold.definition_2_5_8_degIndex",
+    "Chapter2/TangentSpaceChartIndependent · MPolyfold.definition_2_5_8_scStructure",
+    "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso",
+    "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso_comp",
+    "Chapter2/TangentSpaceChartIndependent · MPolyfold.tangentFiberScIso_image_partialConeFiberModel"
    ],
    "formalized": [
     "V2.111"
@@ -3621,10 +3621,10 @@
     "V2.112"
    ],
    "decls": [
-    "Chapter2/GapP1_Michael · GapP1Michael.lemma_2_7_3",
-    "Chapter2/GapP1_Michael · GapP1Michael.proposition_2_7_4",
-    "Chapter2/GapP1_Michael · GapP1Michael.paracompactSpace_of_closed_refinement",
-    "Chapter2/GapP1_Michael · GapP1Michael.exists_closed_refinement"
+    "Chapter2/MichaelRefinement · GapP1Michael.lemma_2_7_3",
+    "Chapter2/MichaelRefinement · GapP1Michael.proposition_2_7_4",
+    "Chapter2/MichaelRefinement · GapP1Michael.paracompactSpace_of_closed_refinement",
+    "Chapter2/MichaelRefinement · GapP1Michael.exists_closed_refinement"
    ]
   },
   {

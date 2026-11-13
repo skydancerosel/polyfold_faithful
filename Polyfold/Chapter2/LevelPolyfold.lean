@@ -51,7 +51,7 @@ theorem).
   closed cover by paracompact subspaces is paracompact"), which also needs `X_m` to be *regular*,
   a point the text does not check (a Hausdorff locally metrizable space need not be regular; it
   holds here because `X_m → X` is continuous and `X` is regular).  The formal proof avoids Lemma
-  2.56 and Proposition 2.7.4 (preprint 2.57) (not needed; formalized since in `GapP1_Michael.lean`, G.15): a partition of unity of `X`
+  2.56 and Proposition 2.7.4 (preprint 2.57) (not needed; formalized since in `MichaelRefinement.lean`, G.15): a partition of unity of `X`
   pulled back to `X_m` gives a metric (`Polyfold.metrizableSpace_of_pullback`, Smirnov's theorem),
   and paracompactness follows by Stone's theorem.
 * The Hausdorff property of `X_m` is proved from the continuity and injectivity of the inclusion

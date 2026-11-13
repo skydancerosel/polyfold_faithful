@@ -79,18 +79,18 @@ strong bundles it is built into the definition.
   isomorphism of the base ep-groupoids (Theorem 10.3.10), induces one of the total spaces, and
   `|[D]|` is a homeomorphism.  Its converse, that the isomorphisms of `SEP(F⁻¹)` are exactly the
   generalized strong bundle isomorphisms, is `SEPLoc.isIso_iff_isGeneralizedIso`
-  (`GapP2_F2_SBConverse.lean`).
+  (`StrongBundleIsoConverse.lean`).
 
 ## Formalized in later files
 
 * The equivariant germ `q` and its lift `Q` (10.25), local expressions which depend on the
   representative and on neighbourhoods with natural representations, are stated for each choice
-  of data: `Diagram.exists_germ_q` (`GapP2_GDiagram.lean`) and `SDiagram.exists_lift_Q`
-  (`GapP2_GDiagramLift.lean`); (10.24) with generalized vertical maps is `SDiagram.square_10_24`.
+  of data: `Diagram.exists_germ_q` (`StrongBundleDiagram.lean`) and `SDiagram.exists_lift_Q`
+  (`StrongBundleDiagramLift.lean`); (10.24) with generalized vertical maps is `SDiagram.square_10_24`.
 * The composition in `SEP(F⁻¹)` and the transitivity of `Equiv` are in
   `StrongBundleLocalizationCategory.lean` (with the weak fibred product of strong bundles,
   `StrongBundleWeakFibredProduct.lean`), and the strong bundle version of Theorem 10.3.10
-  mentioned in Remark 10.5.3, in both directions, there and in `GapP2_F2_SBConverse.lean`.
+  mentioned in Remark 10.5.3, in both directions, there and in `StrongBundleIsoConverse.lean`.
 -/
 
 set_option maxSynthPendingDepth 3

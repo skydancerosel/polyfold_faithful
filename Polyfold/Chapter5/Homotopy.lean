@@ -64,7 +64,7 @@ multiple of `s` does the job.
   inclusion (sc-smooth by Proposition 2.3.19 (preprint 2.21)), with tame germ data as for the tame strong bundle `P`.
   "`(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)`" identifies the end problems with the restrictions; the formalization
   takes the restrictions as the end problems (the identification up to isomorphism of Remark 5.3.14 (preprint 5.21)
-  is `StrongBundle.IsGenCompactHomotopyBetween`, `GapP1_Remark5314.lean`).
+  is `StrongBundle.IsGenCompactHomotopyBetween`, `CompactHomotopyIso.lean`).
 * **Lemma 5.3.16 (preprint 5.23)** is linear algebra; "sc-operator" is automatic (`T_xS` is finite-dimensional and
   `Z` smooth).  **Hidden hypothesis of Theorem 5.3.15 (preprint 5.22)**: the decomposition `T_xX = Z ⊕ ker dt(x)`
   with `dim Z = 1` needs `dt(x) ≠ 0` (`ne_zero_of_isCompl_ker`), i.e. `t` a submersion at the
@@ -230,7 +230,7 @@ sc-Fredholm section, with tame germ data, of the pull-back `Y|X_τ = ι*Y` of `P
 inclusion `ι : X_τ → X` (Proposition 2.6.8 (preprint 2.54), `StrongBundle.pullback`; `ι` is sc-smooth by
 Proposition 2.3.19 (preprint 2.21)).  The text's `(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)` identifies the given end problems with
 these restrictions (Remark 5.3.14 (preprint 5.21): up to an isomorphism, see
-`StrongBundle.IsGenCompactHomotopyBetween` in `GapP1_Remark5314.lean`). -/
+`StrongBundle.IsGenCompactHomotopyBetween` in `CompactHomotopyIso.lean`). -/
 structure StrongBundle.IsGenCompactHomotopy (f : X → Y) (t : X → ℝ) : Prop where
   isTame : PX.IsTame
   isScFredholm : B.IsScFredholmSectionTame f

@@ -82,7 +82,7 @@ if `(a_k, w_k) ∈ S` converges to `0` in `E₀`, then for every `m` there is `k
   boundary, tameness of the chart enters even the proof of Theorem 3.6.10 (`∂X = ∅`).  The
   example's solution set `O ≅ ℝ` is still a manifold.  For untamed germ data the conclusions do
   not hold as we read it: `UntamedCorner.theorem_3_6_8_untamed_not` and
-  `UntamedCorner.theorem_3_1_22_untamed_not` (`GapP1_UntamedBundleTheorem.lean`) give a tame strong
+  `UntamedCorner.theorem_3_1_22_untamed_not` (`UntamedBundleTheorem.lean`) give a tame strong
   bundle over `ℝ` with a 2021 sc-Fredholm section whose solution set near a zero in good position
   is a closed half-line, and germ data in a compatible chart need not move to a tame one
   (`UntamedCorner.isScFredholmGerm2021_not_tame`; Findings, Chapter 3, items 353, 388).

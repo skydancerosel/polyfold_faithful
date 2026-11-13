@@ -43,9 +43,9 @@ The comparison with Definition 9.4.1 in the induced manifold structure of a shee
 of the sheet and the M-polyfold chart, and Lemma 9.4.6 in this reading; so the fields of
 `SheetGeometry` for M-polyfold sheets are not built from this file.  Since 2026-11-12 Lemma 9.4.6
 in this reading is `MPolyfold.lemma_9_4_6_chart` and the `SheetGeometry` of the `n`-dimensional
-submanifolds is `MPolyfold.sheetGeometry` (`GapP2_DSheetEssential.lean`); measure zero in the
+submanifolds is `MPolyfold.sheetGeometry` (`SheetEssential.lean`); measure zero in the
 M-polyfold charts agrees with the corner-chart reading on tame sheets
-(`isHNull_iff_isMeasureZero_sheet`, `GapP2_DSheetNullBridge.lean`).
+(`isHNull_iff_isMeasureZero_sheet`, `SheetNullBridge.lean`).
 -/
 
 open Set Module Submodule Filter Topology

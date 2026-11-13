@@ -1162,7 +1162,7 @@
      "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_isEffective",
      "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_t3",
      "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.exists_not_t2Space_reducedMor",
-     "Chapter7/GapP2_AReduced · EpGroupoid.proposition_7_2_10_natural_charts",
+     "Chapter7/ReducedNaturalCharts · EpGroupoid.proposition_7_2_10_natural_charts",
      "Chapter7/ReducedCriterion · EpGroupoid.paracompactSpace_reducedMor"
     ]
    },
@@ -1207,8 +1207,8 @@
      "Chapter7/Reduced · EpGroupoid.isEffective_reducedEpGroupoid",
      "Chapter7/Reduced · EpGroupoid.proposition_7_10_2017",
      "Chapter7/Reduced · EpGroupoid.reductionIso",
-     "Chapter7/GapP2_AReduced · EpGroupoid.theorem_7_2_14_reduced",
-     "Chapter7/GapP2_AReduced · EpGroupoid.proposition_7_2_16"
+     "Chapter7/ReducedNaturalCharts · EpGroupoid.theorem_7_2_14_reduced",
+     "Chapter7/ReducedNaturalCharts · EpGroupoid.proposition_7_2_16"
     ]
    },
    "chips": [
@@ -1649,8 +1649,8 @@
    "lean": {
     "statement": "**No formal content**: the remark is an assessment (\"a zoo\", possibly easier on concrete scales), not a statement. The case it sets apart, sc-Hilbert spaces, is Corollary 7.6.6 (V7.68), proved with no hypothesis (`corollary_7_6_6_unconditional`; for M-polyfolds `MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional`).",
     "decls": [
-     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_unconditional",
-     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
+     "Chapter7/HilbertPartitionsOfUnityEp · EpGroupoid.corollary_7_6_6_unconditional",
+     "Chapter5/SeparablePartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert"
     ]
    },
@@ -1931,11 +1931,11 @@
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert",
      "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
      "Chapter7/PartitionsOfUnity · EpGroupoid.corollary_7_6_6_hypotheses_rn",
-     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_unconditional",
-     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_hypotheses_rn_unconditional",
-     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
-     "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
-     "Chapter5/GapP1_GTWZ · theorem_5_5_16"
+     "Chapter7/HilbertPartitionsOfUnityEp · EpGroupoid.corollary_7_6_6_unconditional",
+     "Chapter7/HilbertPartitionsOfUnityEp · EpGroupoid.corollary_7_6_6_hypotheses_rn_unconditional",
+     "Chapter5/SeparablePartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
+     "Chapter5/SeparablePartitionsOfUnity · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+     "Chapter5/WCGPartitionsOfUnity · theorem_5_5_16"
     ]
    },
    "chips": [
@@ -2333,19 +2333,19 @@
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.remark_7_2_19",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_t2Space_reducedMor",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isLUC",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.mem_O_iff'",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
-     "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
-     "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
-     "Chapter7/GapP2_A2Family · ZhouLine.zhouRetraction",
-     "Chapter7/GapP2_A2Family · ZhouLine.isLossFamily_zhouFam",
-     "Chapter7/GapP2_A2Line · ZhouLine.lineSc",
-     "Chapter7/GapP2_AZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_t2Space_reducedMor",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isLUC",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.mem_O_iff'",
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
+     "Chapter7/ZhouSigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
+     "Chapter7/ZhouSigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
+     "Chapter7/ZhouRetraction · ZhouLine.zhouRetraction",
+     "Chapter7/ZhouRetraction · ZhouLine.isLossFamily_zhouFam",
+     "Chapter7/LineSobolevScale · ZhouLine.lineSc",
+     "Chapter7/ZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
     ]
    },
    "chips": [
@@ -2355,7 +2355,7 @@
    ],
    "diff": [
     "As printed: $\\mathbf X^T$ and $\\mathrm{cl}(\\mathbf X^T)\\setminus\\mathbf X^T$ are computed on $\\{0,1\\}\\times\\Sigma$ through the text's homeomorphism $\\Sigma\\cong Y$ (`sigmaHomeo`, `appendix_7_6_3_sigma`), and also on $Y$ itself (`appendix_7_6_3`). $\\beta\\ge0$ is not needed. $H^{m,\\delta}(\\mathbb R)$ is defined by lifting to $\\mathbb R\\times S^1$, with the same norm. The sc-smoothness of the retraction, cited by the text from [60], is proved (`isLossFamily_zhouFam`).",
-    "The analogue `JumpingRetract.X` (V7.39) and its exact computation (`GapP2_AZhouRetract.lean`) remain as a second example; the round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is of the kind Remark 7.2.8 announces (Findings, Chapter 7, items 107, 129, 130)."
+    "The analogue `JumpingRetract.X` (V7.39) and its exact computation (`ZhouRetract.lean`) remain as a second example; the round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is of the kind Remark 7.2.8 announces (Findings, Chapter 7, items 107, 129, 130)."
    ]
   },
   {
@@ -2395,17 +2395,17 @@
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.theorem_7_6_7_point",
      "Chapter7/Zhou · EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point",
-     "Chapter7/GapP2_ARaise · EpGroupoid.reducedRaise",
-     "Chapter7/GapP2_ARaise · EpGroupoid.isScDiffeoOn_reducedRaise",
-     "Chapter7/GapP2_ARaise · EpGroupoid.raiseReducedFunctor",
-     "Chapter7/GapP2_ARaise · EpGroupoid.raiseReducedFunctorInv",
-     "Chapter7/GapP2_ARaise · EpGroupoid.theorem_7_6_7_one",
-     "Chapter7/GapP2_ARaise · EP.reducedOfLUC",
-     "Chapter7/GapP2_ARaise · EP.liftOneIso",
-     "Chapter7/GapP2_ARaise · EP.raiseReducedIso",
-     "Chapter7/GapP2_ARaise · EP.theorem_7_6_7",
-     "Chapter7/GapP2_ARaise · EP.corollary_7_6_8",
-     "Chapter7/GapP2_ARaise · EpGroupoid.Examples.theorem_7_6_7_pointEP"
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.reducedRaise",
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.isScDiffeoOn_reducedRaise",
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.raiseReducedFunctor",
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.raiseReducedFunctorInv",
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.theorem_7_6_7_one",
+     "Chapter7/RaisedEpGroupoid · EP.reducedOfLUC",
+     "Chapter7/RaisedEpGroupoid · EP.liftOneIso",
+     "Chapter7/RaisedEpGroupoid · EP.raiseReducedIso",
+     "Chapter7/RaisedEpGroupoid · EP.theorem_7_6_7",
+     "Chapter7/RaisedEpGroupoid · EP.corollary_7_6_8",
+     "Chapter7/RaisedEpGroupoid · EpGroupoid.Examples.theorem_7_6_7_pointEP"
     ]
    },
    "chips": [
@@ -2811,7 +2811,7 @@
     "decls": [
      "Chapter7/SmoothRegularAssembly · EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional",
      "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou",
-     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou"
+     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou"
     ]
    },
    "chips": [
@@ -3265,9 +3265,9 @@
     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_6_7",
     "Chapter7/ReducedCriterion · EpGroupoid.corollary_7_6_8",
     "Chapter7/ReducedCriterion · EpGroupoid.HasConnectedDenseLevelOneReps",
-    "Chapter7/GapP2_ARaise · EpGroupoid.theorem_7_6_7_one",
-    "Chapter7/GapP2_ARaise · EP.theorem_7_6_7",
-    "Chapter7/GapP2_ARaise · EP.corollary_7_6_8"
+    "Chapter7/RaisedEpGroupoid · EpGroupoid.theorem_7_6_7_one",
+    "Chapter7/RaisedEpGroupoid · EP.theorem_7_6_7",
+    "Chapter7/RaisedEpGroupoid · EP.corollary_7_6_8"
    ],
    "formalized": [
     "V7.83"
@@ -3285,16 +3285,16 @@
     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
     "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou",
     "Chapter7/SmoothRegularAssembly · EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional",
-    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
-    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
-    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
-    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou",
-    "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
-    "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
-    "Chapter7/GapP2_A2Family · ZhouLine.zhouRetraction",
-    "Chapter7/GapP2_A2Family · ZhouLine.isLossFamily_zhouFam",
-    "Chapter7/GapP2_A2Line · ZhouLine.lineSc",
-    "Chapter7/GapP2_AZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
+    "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
+    "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
+    "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
+    "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou",
+    "Chapter7/ZhouSigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
+    "Chapter7/ZhouSigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
+    "Chapter7/ZhouRetraction · ZhouLine.zhouRetraction",
+    "Chapter7/ZhouRetraction · ZhouLine.isLossFamily_zhouFam",
+    "Chapter7/LineSobolevScale · ZhouLine.lineSc",
+    "Chapter7/ZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
    ],
    "formalized": [
     "V7.82",

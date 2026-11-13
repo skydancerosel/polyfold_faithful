@@ -135,7 +135,7 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   chart has a Hilbert `E₀`" would be unsatisfiable (PLAN II.5, 2).  Theorem 5.5.16 (2017: 5.14) [5.43]
   (Godefroy–Troyanski–Whitfield–Zizler) is an explicit hypothesis here,
   `GodefroyTroyanskiWhitfieldZizlerStatement`; since 2026-11-12 it is proved (`theorem_5_5_16`), and
-  `corollary_7_6_6_unconditional` (`GapP2_ACor766.lean`) has no such hypothesis.
+  `corollary_7_6_6_unconditional` (`HilbertPartitionsOfUnityEp.lean`) has no such hypothesis.
   The text's references Proposition
   5.6 [5.35], Theorem 5.5.10 (2017: 5.12) [5.37] and Corollary 5.5.17 (2017: 5.2) [5.44] are the ingredients of that theorem.
 * **Hypotheses.**  No hypothesis "for all charts" is added.  The hypotheses of Theorems 7.5.7 (2017: 7.4) and
@@ -692,7 +692,7 @@ cover of `X` by saturated open sets has a subordinate sc-smooth partition of uni
 ep-groupoid — **under the explicit hypothesis that Theorem 5.5.16 (2017: 5.14) [5.43] holds** for these `E₀`
 (`GodefroyTroyanskiWhitfieldZizlerStatement`).  This form is kept; since 2026-11-12 Theorem
 5.5.16 is proved (`theorem_5_5_16`), and Corollary 7.6.6 as printed, with no such hypothesis, is
-`corollary_7_6_6_unconditional` (`Chapter7/GapP2_ACor766.lean`). -/
+`corollary_7_6_6_unconditional` (`Chapter7/HilbertPartitionsOfUnityEp.lean`). -/
 theorem corollary_7_6_6 (hpara : X.HasParacompactOrbitSpace)
     (h : ∀ x, ∃ φ : MChart Obj, X.PObj.IsChart φ ∧ x ∈ φ.source ∧
       (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧

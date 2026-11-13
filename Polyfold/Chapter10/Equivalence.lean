@@ -74,10 +74,10 @@ surjectivity, fullness and faithfulness via `Tt ∘ (Ts)⁻¹`.
   transport along a morphism `F(x) → y` (`isLocalScDiffeoAt_obj_tgt`).  The proof writes
   `|Φ| : |X| → |Y|` for the map `|Y| → |Z|` (possible misprint).
 * Not in this file, formalized in later files: the subcategory `EP_lreg` (not a numbered item;
-  `EP.lreg`, `EP.Lreg`, `GapP2_F_LReg.lean`); Remark 10.1.8 (p. 467, new in the 2021 edition:
+  `EP.lreg`, `EP.Lreg`, `LocalRegularitySubcategory.lean`); Remark 10.1.8 (p. 467, new in the 2021 edition:
   Zhou's example on the weighted-Sobolev sc-retract of Appendix 10.6.3,
-  `ZhouTenSix.remark_10_1_8`, `GapP2_A2TenSix.lean`, and a variant with the projections of
-  Remark 4.1.3, `ZhouSigma.remark_10_1_8`, `GapP2_F_ZhouExample.lean`); Proposition 10.1.9
+  `ZhouTenSix.remark_10_1_8`, `ZhouExampleRealScale.lean`, and a variant with the projections of
+  Remark 4.1.3, `ZhouSigma.remark_10_1_8`, `ZhouExample.lean`); Proposition 10.1.9
   (p. 468, new in the 2021 edition: (LR) under equivalences), Proposition 10.1.10 (p. 470 (2017:
   Proposition 10.4, p. 340)) and Proposition 10.1.19 (p. 477, new in the 2021 edition: (SLR)),
   all in `EquivalenceLR.lean`.

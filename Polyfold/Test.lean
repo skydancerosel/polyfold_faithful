@@ -14752,7 +14752,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part I completion wave (2026-11-12) -/
 
--- Polyfold.Chapter1.GapP1_PartialCones
+-- Polyfold.Chapter1.PartialCones
 #print axioms Polyfold.IsPartialCone
 #print axioms Polyfold.IsPartialCone.convex
 #print axioms Polyfold.IsPartialCone.isScDomain
@@ -14761,7 +14761,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.IsPartialQuadrant.isPartialCone
 #print axioms Polyfold.interior_lvlSet_nonempty_of_interior
 #print axioms Polyfold.remark_1_1_17_chainRule
--- Polyfold.Chapter1.GapP1_Sobolev1
+-- Polyfold.Chapter1.CylinderWeakDerivatives
 #print axioms Polyfold.GapP1Sobolev.Ds
 #print axioms Polyfold.GapP1Sobolev.Ds_Dt
 #print axioms Polyfold.GapP1Sobolev.Dt
@@ -14779,7 +14779,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.pD
 #print axioms Polyfold.GapP1Sobolev.pD_succ_s
 #print axioms Polyfold.GapP1Sobolev.pD_succ_t
--- Polyfold.Chapter1.GapP1_Sobolev2
+-- Polyfold.Chapter1.CylinderFourier
 #print axioms Polyfold.GapP1Sobolev.HasWeakDeriv.ae_eq
 #print axioms Polyfold.GapP1Sobolev.ae_eq_zero_of_forall_test
 #print axioms Polyfold.GapP1Sobolev.bc
@@ -14791,7 +14791,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.exists_cutoff
 #print axioms Polyfold.GapP1Sobolev.hasSum_bc
 #print axioms Polyfold.GapP1Sobolev.phase
--- Polyfold.Chapter1.GapP1_Sobolev3
+-- Polyfold.Chapter1.CylinderSobolevSpaces
 #print axioms Polyfold.GapP1Sobolev.H
 #print axioms Polyfold.GapP1Sobolev.H.toSub
 #print axioms Polyfold.GapP1Sobolev.Hsub
@@ -14812,7 +14812,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.wt
 #print axioms Polyfold.GapP1Sobolev.Φ
 #print axioms Polyfold.GapP1Sobolev.ΦH
--- Polyfold.Chapter1.GapP1_Sobolev4
+-- Polyfold.Chapter1.CylinderSobolevComplete
 #print axioms Polyfold.GapP1Sobolev.Hsub.toH
 #print axioms Polyfold.GapP1Sobolev.Hsub_mono
 #print axioms Polyfold.GapP1Sobolev.Minv
@@ -14822,7 +14822,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.inclL
 #print axioms Polyfold.GapP1Sobolev.isClosed_range_ΦH
 #print axioms Polyfold.GapP1Sobolev.valCLM_inclH
--- Polyfold.Chapter1.GapP1_Sobolev5
+-- Polyfold.Chapter1.CylinderRellich
 #print axioms Polyfold.GapP1Sobolev.H1ball
 #print axioms Polyfold.GapP1Sobolev.cutR
 #print axioms Polyfold.GapP1Sobolev.exists_N_eta
@@ -14834,14 +14834,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.summable_freq_bc
 #print axioms Polyfold.GapP1Sobolev.totallyBounded_image_of_coords
 #print axioms Polyfold.GapP1Sobolev.tsum_sub_le
--- Polyfold.Chapter1.GapP1_Sobolev6
+-- Polyfold.Chapter1.CylinderCompactInclusions
 #print axioms Polyfold.GapP1Sobolev.cutWt
 #print axioms Polyfold.GapP1Sobolev.dvCLM_mem_H1ball
 #print axioms Polyfold.GapP1Sobolev.dv_inclH
 #print axioms Polyfold.GapP1Sobolev.isCompactOperator_inclH
 #print axioms Polyfold.GapP1Sobolev.tail_le
 #print axioms Polyfold.GapP1Sobolev.totallyBounded_of_isometry
--- Polyfold.Chapter1.GapP1_Sobolev7
+-- Polyfold.Chapter1.CylinderIntegrationByParts
 #print axioms Polyfold.GapP1Sobolev.IsTest.integral_ds
 #print axioms Polyfold.GapP1Sobolev.IsTest.integral_dt
 #print axioms Polyfold.GapP1Sobolev.IsTest.memLp_wt
@@ -14853,7 +14853,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.SmPer.integral_mul_ds
 #print axioms Polyfold.GapP1Sobolev.SmPer.integral_mul_dt
 #print axioms Polyfold.GapP1Sobolev.SmPer.smooth
--- Polyfold.Chapter1.GapP1_Sobolev8
+-- Polyfold.Chapter1.CylinderLeibniz
 #print axioms Polyfold.GapP1Sobolev.HasWeakDeriv.add'
 #print axioms Polyfold.GapP1Sobolev.HasWeakDeriv.mul_s'
 #print axioms Polyfold.GapP1Sobolev.HasWeakDeriv.sum
@@ -14865,7 +14865,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.leib_succ
 #print axioms Polyfold.GapP1Sobolev.leibniz
 #print axioms Polyfold.GapP1Sobolev.locL_of_memLp
--- Polyfold.Chapter1.GapP1_Sobolev9
+-- Polyfold.Chapter1.CylinderMultipliers
 #print axioms Polyfold.GapP1Sobolev.Gu
 #print axioms Polyfold.GapP1Sobolev.Gu_hwd
 #print axioms Polyfold.GapP1Sobolev.Gu_s
@@ -14877,7 +14877,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.mulχ
 #print axioms Polyfold.GapP1Sobolev.norm_H_le_sum
 #print axioms Polyfold.GapP1Sobolev.norm_le_sum_of_ae
--- Polyfold.Chapter1.GapP1_Sobolev10
+-- Polyfold.Chapter1.CylinderCutoff
 #print axioms Polyfold.GapP1Sobolev.bdd_iteratedDeriv
 #print axioms Polyfold.GapP1Sobolev.chi
 #print axioms Polyfold.GapP1Sobolev.chi_bdd
@@ -14889,7 +14889,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.rho
 #print axioms Polyfold.GapP1Sobolev.tendsto_cut
 #print axioms Polyfold.GapP1Sobolev.tendsto_tail
--- Polyfold.Chapter1.GapP1_Sobolev11
+-- Polyfold.Chapter1.CylinderTrigPolynomials
 #print axioms Polyfold.GapP1Sobolev.Ds_trig
 #print axioms Polyfold.GapP1Sobolev.Dt_trig
 #print axioms Polyfold.GapP1Sobolev.Pc
@@ -14903,7 +14903,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.tendsto_box_sq
 #print axioms Polyfold.GapP1Sobolev.term
 #print axioms Polyfold.GapP1Sobolev.trig
--- Polyfold.Chapter1.GapP1_Sobolev12
+-- Polyfold.Chapter1.CylinderTestDensity
 #print axioms Polyfold.GapP1Sobolev.approx_supp
 #print axioms Polyfold.GapP1Sobolev.dense_test
 #print axioms Polyfold.GapP1Sobolev.exists_win
@@ -14912,7 +14912,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.supp_mulH_chi
 #print axioms Polyfold.GapP1Sobolev.toH
 #print axioms Polyfold.GapP1Sobolev.win_mult
--- Polyfold.Chapter1.GapP1_Sobolev13
+-- Polyfold.Chapter1.CylinderScBanach
 #print axioms Polyfold.GapP1Sobolev.example_1_1_3
 #print axioms Polyfold.GapP1Sobolev.example_1_1_3_lvl
 #print axioms Polyfold.GapP1Sobolev.level0_isometry
@@ -14920,7 +14920,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Sobolev.nonneg_of_strictMono
 #print axioms Polyfold.GapP1Sobolev.scaleH
 #print axioms Polyfold.GapP1Sobolev.toBase_toH
--- Polyfold.Chapter2.GapP1_Def258
+-- Polyfold.Chapter2.TangentConeQuadrant
 #print axioms Polyfold.MPolyfold.definition_2_5_8_degIndex
 #print axioms Polyfold.MPolyfold.degIndex_partialConeFiberModel_eq_finrank
 #print axioms Polyfold.MPolyfold.isPartialQuadrant_partialConeFiberModel
@@ -14929,7 +14929,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.partialConeFiberModel
 #print axioms Polyfold.degIndex_zero_eq_finrank_quotient
 #print axioms Polyfold.mem_minimalSubspaceWith_iff_lineality
--- Polyfold.Chapter2.GapP1_Def258b
+-- Polyfold.Chapter2.TangentSpaceChartIndependent
 #print axioms Polyfold.MPolyfold.coe_tangentFiberScIso_zero
 #print axioms Polyfold.MPolyfold.definition_2_5_8_scStructure
 #print axioms Polyfold.MPolyfold.fiberCoordSc
@@ -14945,7 +14945,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ScBanach.restrLvl
 #print axioms Polyfold.ScBanach.subspaceIso
 #print axioms Polyfold.ScBanach.toBase_restrLvl
--- Polyfold.Chapter2.GapP1_ExtendedFaces
+-- Polyfold.Chapter2.ExtendedFaces
 #print axioms Polyfold.GapP1ExtendedFaces.add_coordFace
 #print axioms Polyfold.GapP1ExtendedFaces.connectedComponentIn_eq
 #print axioms Polyfold.GapP1ExtendedFaces.extendedFaces
@@ -14961,7 +14961,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1ExtendedFaces.span_faceOpen
 #print axioms Polyfold.GapP1ExtendedFaces.stratumOne
 #print axioms Polyfold.GapP1ExtendedFaces.subset_add_coordFace
--- Polyfold.Chapter2.GapP1_Lemma249
+-- Polyfold.Chapter2.TangentConePaths
 #print axioms Polyfold.GapP1Lemma249.hasDerivWithinAt_pathDeriv
 #print axioms Polyfold.GapP1Lemma249.isScDomain_Ico
 #print axioms Polyfold.GapP1Lemma249.isScDomain_Ioo
@@ -14976,18 +14976,18 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GapP1Lemma249.path_retract_segment
 #print axioms Polyfold.GapP1Lemma249.scDeriv_pathDeriv
 #print axioms Polyfold.GapP1Lemma249.twoSidedPathDerivs
--- Polyfold.Chapter2.GapP1_Michael
+-- Polyfold.Chapter2.MichaelRefinement
 #print axioms Polyfold.GapP1Michael.exists_closed_refinement
 #print axioms Polyfold.GapP1Michael.lemma_2_7_3
 #print axioms Polyfold.GapP1Michael.paracompactSpace_of_closed_refinement
 #print axioms Polyfold.GapP1Michael.proposition_2_7_4
--- Polyfold.Chapter2.GapP1_Prop212
+-- Polyfold.Chapter2.SmoothRetractImage
 #print axioms Polyfold.GapP1Prop212.hasFDerivAt_retractChart
 #print axioms Polyfold.GapP1Prop212.isIdempotentElem_fderiv
 #print axioms Polyfold.GapP1Prop212.proposition_2_1_2
 #print axioms Polyfold.GapP1Prop212.retractChart
 #print axioms Polyfold.GapP1Prop212.retractChart_comp
--- Polyfold.Chapter3.GapP1_Lemma3821
+-- Polyfold.Chapter3.QuadrantInverseSmooth
 #print axioms Polyfold.IsRelOpenInQuadrant.uniqueDiffOn_const
 #print axioms Polyfold.contDiffOn_inverse_deriv_comp
 #print axioms Polyfold.hasFDerivWithinAt_inverse_of_isUnit
@@ -14995,7 +14995,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.lemma_3_8_21_contDiffOn
 #print axioms Polyfold.lemma_3_8_21_printed
 #print axioms Polyfold.lemma_3_8_21_smooth
--- Polyfold.Chapter3.GapP1_Definition3814
+-- Polyfold.Chapter3.QuadrantClassCk
 #print axioms Polyfold.IsClassC1On
 #print axioms Polyfold.IsClassC1On.eqOn_fderivWithin
 #print axioms Polyfold.IsClassCOn
@@ -15009,7 +15009,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isClassSmoothOn_iff_contDiffOn
 #print axioms Polyfold.isSc1_iff_isClassC1On
 #print axioms Polyfold.isScSmooth_iff_isClassSmoothOn
--- Polyfold.Chapter3.GapP1_ExtremeRays
+-- Polyfold.Chapter3.ExtremeRays
 #print axioms Polyfold.IsClosedConvexCone.exists_pos_functional
 #print axioms Polyfold.IsClosedConvexCone.isExtremeRay_rayOf_iff
 #print axioms Polyfold.IsExtremeRay
@@ -15027,14 +15027,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.not_lemma_3_8_1_zero
 #print axioms Polyfold.rayOf
 #print axioms Polyfold.zeroIdxProj
--- Polyfold.Chapter3.GapP1_Lemma3813
+-- Polyfold.Chapter3.GraphDegeneracyIndex
 #print axioms Polyfold.coordCLMOf
 #print axioms Polyfold.lemma_3_8_13_general
 #print axioms Polyfold.lemma_3_8_13_local
 #print axioms Polyfold.mem_lineality_iff
 #print axioms Polyfold.mem_nullSpace_coordFun_iff
 #print axioms Polyfold.proposition_3_8_12_general
--- Polyfold.Chapter3.GapP1_Lemma3820
+-- Polyfold.Chapter3.IteratedTangentMaps
 #print axioms Polyfold.QuadMapData
 #print axioms Polyfold.QuadMapData.C
 #print axioms Polyfold.QuadMapData.IsSmoothHomeo
@@ -15048,7 +15048,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.constProdIso
 #print axioms Polyfold.lemma_3_8_20
 #print axioms Polyfold.lemma_3_8_20_printed
--- Polyfold.Chapter3.GapP1_Lemma389
+-- Polyfold.Chapter3.GoodComplementIntersection
 #print axioms Polyfold.bigSigma
 #print axioms Polyfold.exists_eq_smul_of_isExtremeRayGen
 #print axioms Polyfold.isClosedConvexCone_of_disjoint
@@ -15058,13 +15058,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.lemma_3_8_9_of_isClosed
 #print axioms Polyfold.sigmaCompl
 #print axioms Polyfold.wPart
--- Polyfold.Chapter3.GapP1_Lemma389Sc
+-- Polyfold.Chapter3.GoodComplementIntersectionSc
 #print axioms Polyfold.ScBanach.isCompl_levelSub_of_isScSplitting
 #print axioms Polyfold.ScBanach.isScSubspace_sup_of_le_smooth
 #print axioms Polyfold.lemma_3_8_9_sc
--- Polyfold.Chapter3.GapP1_LinKey
+-- Polyfold.Chapter3.LinearizationChartChange
 #print axioms Polyfold.linAt_chart_change_key
--- Polyfold.Chapter3.GapP1_LinIntrinsic
+-- Polyfold.Chapter3.LinearizationIntrinsic
 #print axioms Polyfold.StrongBundle.fiberLin_linIntr
 #print axioms Polyfold.StrongBundle.isSc1_principal_comp_r
 #print axioms Polyfold.StrongBundle.linIntr
@@ -15076,12 +15076,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundleChart.linChart_mem
 #print axioms Polyfold.StrongBundleChart.mem_range_fiberLin
 #print axioms Polyfold.StrongBundleChart.transitionFiberCLM_fiberLin
--- Polyfold.Chapter3.GapP1_Remark338
+-- Polyfold.Chapter3.SolutionGermQuantitative
 #print axioms Polyfold.ContractionGerm.exists_radius
 #print axioms Polyfold.ContractionGerm.fixLvl_zero_eq
 #print axioms Polyfold.exists_antitone_le
 #print axioms Polyfold.remark_3_3_8
--- Polyfold.Chapter3.GapP1_ScIsoConj
+-- Polyfold.Chapter3.ScIsoConjugation
 #print axioms Polyfold.ScOperator.shift_toBase_apply
 #print axioms Polyfold.isScFredholm_of_conj
 #print axioms Polyfold.isScSmooth_conjMap
@@ -15089,13 +15089,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.scDeriv_conjMap
 #print axioms Polyfold.scIsoConjMap
 #print axioms Polyfold.scIsoConjMap_eq
--- Polyfold.Chapter3.GapP1_Theorem3122Ker
+-- Polyfold.Chapter3.SolutionTangentKernel
 #print axioms Polyfold.StrongBundle.coe_map_ker_linIntr
 #print axioms Polyfold.StrongBundle.ker_linIntr_eq_subTangentRange
 #print axioms Polyfold.theorem_3_1_22_book_ker
--- Polyfold.Chapter3.GapP1_Theorem323Deg
+-- Polyfold.Chapter3.TangentGermDegeneracy
 #print axioms Polyfold.MPolyfold.theorem_3_2_3_degIndex_eq
--- Polyfold.Chapter3.GapP1_Theorem371Split
+-- Polyfold.Chapter3.BasicGermCriterionSplit
 #print axioms Polyfold.IsPartialQuadrant.add_mem
 #print axioms Polyfold.IsPartialQuadrant.add_mem_iff_of_mem
 #print axioms Polyfold.ScBanach.liftB
@@ -15109,9 +15109,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isPartialQuadrant_of_isScSplitting
 #print axioms Polyfold.isPartialQuadrant_split
 #print axioms Polyfold.splitScIso_preimage
--- Polyfold.Chapter3.GapP1_Theorem371Transport
+-- Polyfold.Chapter3.BasicGermCriterionTransport
 #print axioms Polyfold.IsConjugateToBasicGerm.of_scIso
--- Polyfold.Chapter3.GapP1_Theorem371General
+-- Polyfold.Chapter3.BasicGermCriterionGeneral
 #print axioms Polyfold.CompactnessCondition371
 #print axioms Polyfold.DerivCondition371
 #print axioms Polyfold.ScOperator.map_smooth
@@ -15128,7 +15128,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.splitScIso_symm_param
 #print axioms Polyfold.symm_preimage_C
 #print axioms Polyfold.theorem_3_7_1_general
--- Polyfold.Chapter3.GapP1_UntamedJump
+-- Polyfold.Chapter3.UntamedJump
 #print axioms Polyfold.Jump.CLM
 #print axioms Polyfold.Jump.Family
 #print axioms Polyfold.Jump.Family.A
@@ -15155,7 +15155,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Jump.proj_ne_zero
 #print axioms Polyfold.Jump.proj_of_nonpos
 #print axioms Polyfold.Jump.proj_proj
--- Polyfold.Chapter3.GapP1_UntamedCounterexample
+-- Polyfold.Chapter3.UntamedCounterexample
 #print axioms Polyfold.UntamedCorner.C
 #print axioms Polyfold.UntamedCorner.E
 #print axioms Polyfold.UntamedCorner.F
@@ -15264,7 +15264,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.faceAlongData_subIncl
 #print axioms Polyfold.MPolyfold.isChartFaceForm_faceAlongData
 #print axioms Polyfold.MPolyfold.isExtendedBy_faceAlongData_formsPullback
--- Polyfold.Chapter4.GapP1_Lemma4111Split
+-- Polyfold.Chapter4.RetractionSectionSplitting
 #print axioms Polyfold.ScBanach.topIso
 #print axioms Polyfold.exists_splitData
 #print axioms Polyfold.isConjugateToBasicGerm_qOp
@@ -15272,7 +15272,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isScSubspace_splitW
 #print axioms Polyfold.map_le_map_smooth
 #print axioms Polyfold.qOp
--- Polyfold.Chapter4.GapP1_LocalStrongBundle
+-- Polyfold.Chapter4.LocalStrongBundle
 #print axioms Polyfold.LocalBundle.bundle
 #print axioms Polyfold.LocalBundle.centred
 #print axioms Polyfold.LocalBundle.centred_R_apply
@@ -15284,9 +15284,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalBundle.proj
 #print axioms Polyfold.LocalBundle.sec
 #print axioms Polyfold.isFilling2021_of_R_eq_self
--- Polyfold.Chapter4.GapP1_Lemma4111
+-- Polyfold.Chapter4.RetractionSectionFredholm
 #print axioms Polyfold.lemma_4_1_11
--- Polyfold.Chapter4.GapP1_Lemma451
+-- Polyfold.Chapter4.LieBracketOpenSubsets
 #print axioms Polyfold.MPolyfold.IsScVectorField.restrictOpen
 #print axioms Polyfold.MPolyfold.lieBracket_restrictOpen
 #print axioms Polyfold.MPolyfold.restrictVectorField
@@ -15294,7 +15294,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentMap_restrictVectorField
 #print axioms Polyfold.lemma_4_5_1_open
 #print axioms Polyfold.lemma_4_5_1_open_ambient
--- Polyfold.Chapter4.GapP1_Lemma451Bundle
+-- Polyfold.Chapter4.LieBracketBundle
 #print axioms Polyfold.MPolyfold.isScSmoothMap_tangentPullbackMap
 #print axioms Polyfold.MPolyfold.isScSmoothMap_tangentPullbackProj
 #print axioms Polyfold.MPolyfold.isScSmoothMap_tangentPullbackVec
@@ -15314,12 +15314,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.proposition_4_4_5_section
 #print axioms Polyfold.tangentPullbackLocal
 #print axioms Polyfold.tangentPullbackOp
--- Polyfold.Chapter4.GapP1_Theorem4211
+-- Polyfold.Chapter4.GeneralPositionLocalFaces
 #print axioms Polyfold.MPolyfold.theorem_4_2_11_one
--- Polyfold.Chapter4.GapP1_LocalFaces
+-- Polyfold.Chapter4.LocalFaces
 #print axioms Polyfold.MPolyfold.exists_faces_chart
 #print axioms Polyfold.MPolyfold.theorem_4_2_11_faces
--- Polyfold.Chapter4.GapP1_OpenForms
+-- Polyfold.Chapter4.OpenForms
 #print axioms Polyfold.BundledMPolyfold.FormsInftyEqOn
 #print axioms Polyfold.BundledMPolyfold.formsInftyD_formsInftyResOpen
 #print axioms Polyfold.BundledMPolyfold.formsInftyEqOn_of_iff
@@ -15329,11 +15329,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.extD_formRestrict
 #print axioms Polyfold.MPolyfold.formRestrict
 #print axioms Polyfold.MPolyfold.formRestrict_mem_scForms
--- Polyfold.Chapter4.GapP1_Question424
+-- Polyfold.Chapter4.ScPlusRetractQuestion
 #print axioms Polyfold.Question424.not_homeomorph_open
 #print axioms Polyfold.Question424.question_4_2_4_scPlus
 #print axioms Polyfold.Question424.tSet
--- Polyfold.Chapter4.GapP1_Remark422
+-- Polyfold.Chapter4.SubmanifoldNearInterior
 #print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_isTame
 #print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_univ_subPolyfold
 #print axioms Polyfold.MPolyfold.hasCornerStructure_of_isTame
@@ -15342,19 +15342,19 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.remark_4_2_2_dA_zero_near
 #print axioms Polyfold.ScRetraction.interior_rangeS_scDeriv_zero_nonempty
 #print axioms Polyfold.ScRetraction.isInGoodPosition_rangeS_of_isTameWith
--- Polyfold.Chapter4.GapP1_Remark422One
+-- Polyfold.Chapter4.SubmanifoldNearBoundary
 #print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one
 #print axioms Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one
 #print axioms Polyfold.MPolyfold.isOpen_degIndex_le
 #print axioms Polyfold.MPolyfold.remark_4_2_2_dA_one
 #print axioms Polyfold.MPolyfold.remark_4_2_2_dA_one_near
 #print axioms Polyfold.isInGoodPosition_halfSpace
--- Polyfold.Chapter4.GapP1_StokesFaces
+-- Polyfold.Chapter4.StokesFaces
 #print axioms Polyfold.MPolyfold.IsFace.nonempty
 #print axioms Polyfold.MPolyfold.exists_face_eq_coordHyper
 #print axioms Polyfold.MPolyfold.finite_setOf_isFace
 #print axioms Polyfold.MPolyfold.finite_setOf_isFace_mem
--- Polyfold.Chapter4.GapP1_StokesFaceCharts
+-- Polyfold.Chapter4.StokesFaceCharts
 #print axioms Polyfold.MPolyfold.CornerCoords.exists_faceData
 #print axioms Polyfold.MPolyfold.CornerCoords.linChart
 #print axioms Polyfold.MPolyfold.CornerCoords.linChart_isChart
@@ -15371,7 +15371,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.FaceData.image_eq
 #print axioms Polyfold.MPolyfold.HasCornerStructureOfDim.isTame
 #print axioms Polyfold.MPolyfold.hasCornerStructureOfDim_face
--- Polyfold.Chapter4.GapP1_StokesFaceOrientation
+-- Polyfold.Chapter4.StokesFaceOrientation
 #print axioms Polyfold.FaceChartPair
 #print axioms Polyfold.FaceChartPair.chartChangeDeriv_face
 #print axioms Polyfold.FaceChartPair.e
@@ -15384,7 +15384,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.inducedOrientation
 #print axioms Polyfold.isContinuous_inducedOrientation
 #print axioms Polyfold.isInducedOrientation_inducedOrientation
--- Polyfold.Chapter4.GapP1_StokesFaceIntegral
+-- Polyfold.Chapter4.StokesFaceIntegral
 #print axioms Polyfold.FaceChartPair.chartForm_restrictForm
 #print axioms Polyfold.FaceChartPair.mfderiv_eq
 #print axioms Polyfold.GoodRegion
@@ -15399,7 +15399,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.contMDiffForm_restrictForm
 #print axioms Polyfold.restrictForm
 #print axioms Polyfold.sum_integral_restrictForm_eq_boundaryIntegral
--- Polyfold.Chapter4.GapP1_Theorem431
+-- Polyfold.Chapter4.StratifiedRegularValues
 #print axioms Polyfold.IsStratRegularPoint.stratRegCond
 #print axioms Polyfold.StratRegCond
 #print axioms Polyfold.StratRegCond.congr
@@ -15510,7 +15510,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.wedgeFun_assoc
 #print axioms Polyfold.wedgeFun_comm
 #print axioms Polyfold.wedge_sum_collapse_left
--- Polyfold.Chapter5.GapP1_ApproxEveryChart
+-- Polyfold.Chapter5.ApproxPropertyEveryChart
 #print axioms Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.exists_approx
 #print axioms Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.exists_urysohn
 #print axioms Polyfold.abs_sub_sum_mul_le
@@ -15518,7 +15518,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.hasApproxProperty_of_isChart
 #print axioms Polyfold.sum_mul_mem_Icc
 #print axioms Polyfold.theorem_5_5_10_every_chart
--- Polyfold.Chapter5.GapP1_LpWeightedProduct
+-- Polyfold.Chapter5.LpWeightedProduct
 #print axioms Polyfold.BonicFrampton.eLpNorm_prod_le
 #print axioms Polyfold.BonicFrampton.norm_wMul_le
 #print axioms Polyfold.BonicFrampton.theorem_5_5_5_even
@@ -15526,7 +15526,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.BonicFrampton.wMul_congr
 #print axioms Polyfold.BonicFrampton.wMul_curryLeft
 #print axioms Polyfold.BonicFrampton.wMul_sub
--- Polyfold.Chapter5.GapP1_BonicFrampton
+-- Polyfold.Chapter5.BonicFrampton
 #print axioms Polyfold.BonicFrampton.Tj
 #print axioms Polyfold.BonicFrampton.contDiff_normRpow_of_lt
 #print axioms Polyfold.BonicFrampton.continuous_Tj
@@ -15537,7 +15537,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.BonicFrampton.kern_sub_le
 #print axioms Polyfold.BonicFrampton.taylor1_le
 #print axioms Polyfold.BonicFrampton.theorem_5_5_5
--- Polyfold.Chapter5.GapP1_SeparablePOU
+-- Polyfold.Chapter5.SeparablePartitionsOfUnity
 #print axioms Polyfold.HasContDiffBump.exists_one_on_ball
 #print axioms Polyfold.IsCompactOperator.isSeparable_range
 #print axioms Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional
@@ -15546,7 +15546,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.corollary_5_5_17_unconditional
 #print axioms Polyfold.exists_contDiff_urysohn_of_separable
 #print axioms Polyfold.godefroyTroyanskiWhitfieldZizlerStatement_of_separable
--- Polyfold.Chapter5.GapP1_Torunczyk
+-- Polyfold.Chapter5.Torunczyk
 #print axioms Polyfold.abs_cz_sub_le
 #print axioms Polyfold.admitsContDiffPartitionsOfUnity_of_urysohn
 #print axioms Polyfold.contDiff_finsum_of_locallyFinite
@@ -15562,7 +15562,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.torunczyk_backward
 #print axioms Polyfold.torunczyk_forward
 #print axioms Polyfold.tsupport_latticeBump_subset_ball
--- Polyfold.Chapter5.GapP1_C0Base
+-- Polyfold.Chapter5.LocallyFiniteBases
 #print axioms Polyfold.HasContDiffBump.exists_cutoff
 #print axioms Polyfold.IsRelC0Base
 #print axioms Polyfold.IsRelC0Base.comp
@@ -15570,13 +15570,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.admitsContDiffPartitionsOfUnity_of_isRelC0Base
 #print axioms Polyfold.exists_isRelC0Base_of_admits
 #print axioms Polyfold.isRelC0Base_glue
--- Polyfold.Chapter5.GapP1_DenseGoodPosition
+-- Polyfold.Chapter5.DenseGoodPosition
 #print axioms Polyfold.eventually_isZeroAt_nhdsSet_iff
 #print axioms Polyfold.paramSlice_apply_of_isZeroAt
 #print axioms Polyfold.sectionAdd_eq_of_not_mem_support
 #print axioms Polyfold.theorem_5_3_12_dense
 #print axioms Polyfold.theorem_5_3_12_param_rel
--- Polyfold.Chapter5.GapP1_LindenstraussPair
+-- Polyfold.Chapter5.AmirLindenstrauss
 #print axioms Polyfold.IsLPair
 #print axioms Polyfold.IsLPair.exists_proj
 #print axioms Polyfold.IsLPair.sub
@@ -15585,7 +15585,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.lclA
 #print axioms Polyfold.lclA_finite
 #print axioms Polyfold.lclD
--- Polyfold.Chapter5.GapP1_WCGPRI
+-- Polyfold.Chapter5.ProjectionalResolution
 #print axioms Polyfold.PRICont
 #print axioms Polyfold.priP
 #print axioms Polyfold.priP_comm₁
@@ -15593,17 +15593,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.priP_top
 #print axioms Polyfold.pri_approx
 #print axioms Polyfold.pri_finite
--- Polyfold.Chapter5.GapP1_GTWZ
+-- Polyfold.Chapter5.WCGPartitionsOfUnity
 #print axioms Polyfold.HasContDiffBump.submodule
 #print axioms Polyfold.IsWCG.of_proj
 #print axioms Polyfold.admitsContDiffPartitionsOfUnity_of_wcg_card
 #print axioms Polyfold.exists_dense_card_le
 #print axioms Polyfold.theorem_5_5_16
--- Polyfold.Chapter5.GapP1_HilbertPOU
+-- Polyfold.Chapter5.HilbertPartitionsOfUnity
 #print axioms Polyfold.admitsContDiffPartitionsOfUnity_of_hilbertSpace
 #print axioms Polyfold.godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace
 #print axioms Polyfold.l2_inverse_estimate
--- Polyfold.Chapter5.GapP1_Remark5314
+-- Polyfold.Chapter5.CompactHomotopyIso
 #print axioms Polyfold.StrongBundle.EndIso
 #print axioms Polyfold.StrongBundle.EndIso.isCompact_solutionSet
 #print axioms Polyfold.StrongBundle.EndIso.trans
@@ -15619,11 +15619,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.IsProblemIso.symm
 #print axioms Polyfold.StrongBundle.IsProblemIso.trans
 #print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween
--- Polyfold.Chapter5.GapP1_Remark538
+-- Polyfold.Chapter5.FredholmArcPerturbation
 #print axioms Polyfold.exists_margin_of_isCompact
 #print axioms Polyfold.remark_5_3_8_arc
 #print axioms Polyfold.remark_5_3_8_relative
--- Polyfold.Chapter5.GapP1_SobolevRemark1
+-- Polyfold.Chapter5.SobolevRemarkAbstract
 #print axioms Polyfold.HasContDiffBump.of_equiv
 #print axioms Polyfold.LocalModel.hasBumpProperty_of_hasContDiffBump
 #print axioms Polyfold.MPolyfold.admitsBumpFunctions_of_hasContDiffBump
@@ -15634,7 +15634,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevRemark.hasContDiffBump_sum_cases
 #print axioms Polyfold.SobolevRemark.theorem_5_5_5_sum
 #print axioms Polyfold.exists_isSck_bump
--- Polyfold.Chapter5.GapP1_SobolevRemark2
+-- Polyfold.Chapter5.SobolevRemarkSpaces
 #print axioms Polyfold.SobolevRemark.Dm
 #print axioms Polyfold.SobolevRemark.Dop
 #print axioms Polyfold.SobolevRemark.Dop_zero_injective
@@ -15653,7 +15653,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevRemark.remark_5_5_5_sobolev
 #print axioms Polyfold.SobolevRemark.remark_5_5_5_sobolev_bump
 #print axioms Polyfold.SobolevRemark.wk
--- Polyfold.Chapter5.GapP1_SobolevRemark3
+-- Polyfold.Chapter5.SobolevRemarkScStructures
 #print axioms Polyfold.SobolevRemark.contDiff_norm_sq_H
 #print axioms Polyfold.SobolevRemark.example_1_1_3_admitsBumpFunctions
 #print axioms Polyfold.SobolevRemark.example_1_1_3_hasBumpProperty
@@ -15670,7 +15670,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevRemark.sobolevSc_hyps_empty
 #print axioms Polyfold.SobolevRemark.sobolevSc_zero
 #print axioms Polyfold.SobolevRemark.sobolevScale
--- Polyfold.Chapter5.GapP1_SobolevCube1
+-- Polyfold.Chapter5.SobolevCubeVolterra
 #print axioms Polyfold.SobolevCube.I
 #print axioms Polyfold.SobolevCube.L
 #print axioms Polyfold.SobolevCube.V
@@ -15680,7 +15680,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevCube.integral_abs_le
 #print axioms Polyfold.SobolevCube.isCompactOperator_V
 #print axioms Polyfold.SobolevCube.norm_V_le
--- Polyfold.Chapter5.GapP1_SobolevCube2
+-- Polyfold.Chapter5.SobolevCubeWeakDerivatives
 #print axioms Polyfold.SobolevCube.IsTestI
 #print axioms Polyfold.SobolevCube.V_toLpS
 #print axioms Polyfold.SobolevCube.cst
@@ -15692,7 +15692,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevCube.norm_cst
 #print axioms Polyfold.SobolevCube.pairI
 #print axioms Polyfold.SobolevCube.toLpS
--- Polyfold.Chapter5.GapP1_SobolevCube3
+-- Polyfold.Chapter5.SobolevCubeSpaces
 #print axioms Polyfold.SobolevCube.Dm_comp_eval
 #print axioms Polyfold.SobolevCube.IsTestI.comp_eval
 #print axioms Polyfold.SobolevCube.IsTestOn.comp_emb
@@ -15706,11 +15706,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SobolevCube.ofSmooth
 #print axioms Polyfold.SobolevCube.wcond
 #print axioms Polyfold.SobolevCube.Ω1
--- Polyfold.Chapter5.GapP1_SobolevCube4
+-- Polyfold.Chapter5.SobolevCubeRellich
 #print axioms Polyfold.SobolevCube.abs_cst_le
 #print axioms Polyfold.SobolevCube.isCompactOperator_inclW_cube
 #print axioms Polyfold.SobolevCube.totallyBounded_comp
--- Polyfold.Chapter5.GapP1_SobolevCube5
+-- Polyfold.Chapter5.SobolevCubeDensity
 #print axioms Polyfold.SobolevCube.cubeSc
 #print axioms Polyfold.SobolevCube.cubeSc_zero
 #print axioms Polyfold.SobolevCube.dense_smoothLvl_cube
@@ -15939,13 +15939,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.psiAt_eq_of_homotopy_of_orientation
 #print axioms Polyfold.theorem_6_7_1_noBoundary_of_orientation
 #print axioms Polyfold.theorem_6_7_1_of_orientation
--- Polyfold.Chapter6.GapP1_ClassicalDetBundle
+-- Polyfold.Chapter6.ClassicalDetBundle
 #print axioms Polyfold.ClassicalDet
 #print axioms Polyfold.classicalDet_apply
 #print axioms Polyfold.classicalDet_two_orientations
 #print axioms Polyfold.classicalDet_vectorBundle
 #print axioms Polyfold.derivFredholm
--- Polyfold.Chapter6.GapP1_UnitIntervalSections
+-- Polyfold.Chapter6.UnitIntervalSections
 #print axioms Polyfold.PullbackChartData.ofProdChart
 #print axioms Polyfold.admitsBumpFunctions_prod_unitInterval
 #print axioms Polyfold.exists_isScPlusSection_prodChart
@@ -15956,7 +15956,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.proposition_6_6_3_four_interval
 #print axioms Polyfold.proposition_6_6_3_three_interval
 #print axioms Polyfold.sectionAdd_pullback_snd_apply
--- Polyfold.Chapter6.GapP1_CubeSections
+-- Polyfold.Chapter6.CubeSections
 #print axioms Polyfold.UnitCube.chart
 #print axioms Polyfold.UnitCube.chart_compatible
 #print axioms Polyfold.UnitCube.corner
@@ -15978,7 +15978,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.prod_cube_isTame
 #print axioms Polyfold.proposition_6_6_3_four_cube
 #print axioms Polyfold.proposition_6_6_3_three_cube
--- Polyfold.Chapter6.GapP1_CubeCharts
+-- Polyfold.Chapter6.CubeCharts
 #print axioms Polyfold.UnitCube.cChart
 #print axioms Polyfold.UnitCube.cChart_relOpen
 #print axioms Polyfold.UnitCube.cChart_self
@@ -15989,7 +15989,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.UnitCube.mem_cChart
 #print axioms Polyfold.prod_cube_mem_levelSet_iff
 #print axioms Polyfold.prod_cube_mem_smoothSet_iff
--- Polyfold.Chapter6.GapP1_CubeGerms
+-- Polyfold.Chapter6.CubeGerms
 #print axioms Polyfold.IsBasicGerm.paramExtendQ
 #print axioms Polyfold.IsConjugateToBasicGerm.quadExtend
 #print axioms Polyfold.IsPartialQuadrant.const_prod
@@ -16001,7 +16001,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.IsStrongBundleMap.mono
 #print axioms Polyfold.ScNbhdGerm.paramExtendQ
 #print axioms Polyfold.ScNbhdGerm.quadProd
--- Polyfold.Chapter6.GapP1_CubeFredholm
+-- Polyfold.Chapter6.CubeFredholm
 #print axioms Polyfold.StrongBundle.IsScFredholmGermTame.paramCube
 #print axioms Polyfold.StrongBundle.IsScFredholmSectionTame.paramCube
 #print axioms Polyfold.StrongBundle.regularizing_cubeLift
@@ -16009,14 +16009,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.cubeProdData
 #print axioms Polyfold.cubeProd_isFillingGerm
 #print axioms Polyfold.cubeProd_isTame
--- Polyfold.Chapter6.GapP1_CubeLemmas
+-- Polyfold.Chapter6.CubeFamilyLemmas
 #print axioms Polyfold.isZeroAt_stab_cube
 #print axioms Polyfold.lemma_6_6_4_cube
 #print axioms Polyfold.lemma_6_6_4_cube_family
 #print axioms Polyfold.lemma_6_6_5_isManifold_cube
 #print axioms Polyfold.lemma_6_6_5_isSubmanifoldOfDim_cube
 #print axioms Polyfold.theorem_3_1_21_tame_cube
--- Polyfold.Chapter6.GapP1_CubeBoundarySlice
+-- Polyfold.Chapter6.CubeBoundarySlice
 #print axioms Polyfold.IsSection.prodSlice
 #print axioms Polyfold.StrongBundle.IsScPlusSection.cubeSlice
 #print axioms Polyfold.cubePC
@@ -16024,7 +16024,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.linAt_cubePC_slice
 #print axioms Polyfold.mem_minimalSubspaceWith_of_hasFDerivWithinAt
 #print axioms Polyfold.prodSlice
--- Polyfold.Chapter6.GapP1_CubeBoundaryP
+-- Polyfold.Chapter6.CubePropertyP
 #print axioms Polyfold.exists_cubeCurveDeriv
 #print axioms Polyfold.isGeneralPositionGerm_cubeSlice_iff
 #print axioms Polyfold.isParamGP_cubeSlice_of_isParamGP
@@ -16032,12 +16032,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.lemma_6_6_4_propertyP_cube
 #print axioms Polyfold.lemma_6_6_5_fibre_isManifold_cube
 #print axioms Polyfold.linAt_cubePC_eq
--- Polyfold.Chapter6.GapP1_CubeBoundarySubmersion
+-- Polyfold.Chapter6.CubeBoundarySubmersion
 #print axioms Polyfold.exists_stabCubeCurveDeriv
 #print axioms Polyfold.lemma_6_6_5_submersion_cube
 #print axioms Polyfold.stabCubePC
 #print axioms Polyfold.submersion_cube_of_isGeneralPositionGerm
--- Polyfold.Chapter6.GapP1_DetConventions
+-- Polyfold.Chapter6.DetConventions
 #print axioms Polyfold.altFredholmDet
 #print axioms Polyfold.altFredholmDetEquiv
 #print axioms Polyfold.altLinDet
@@ -16057,7 +16057,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.tensorStdLineDual_tmul_dualVec
 #print axioms Polyfold.tensorStdLine_tmul_stdWedge
 #print axioms Polyfold.tensorStdLine_tmul_wedge
--- Polyfold.Chapter6.GapP1_DetNonOrientable
+-- Polyfold.Chapter6.DetNonOrientable
 #print axioms Polyfold.LocalDetChart.coord_kerDetVec
 #print axioms Polyfold.continuous_kerDetMk
 #print axioms Polyfold.continuous_rotJ
@@ -16077,13 +16077,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.rotJ
 #print axioms Polyfold.rotJEquiv
 #print axioms Polyfold.rotJ_rotJ_neg
--- Polyfold.Chapter6.GapP1_DetNonOrientableEll2
+-- Polyfold.Chapter6.DetNonOrientableHilbert
 #print axioms Polyfold.EllTwo
 #print axioms Polyfold.ellTwoShift
 #print axioms Polyfold.ellTwoShift_surjective
 #print axioms Polyfold.isEmpty_lineOrientation_det_ellTwo
 #print axioms Polyfold.kerEllTwoShiftEquiv
--- Polyfold.Chapter6.GapP1_DetNonOrientableTransport
+-- Polyfold.Chapter6.DetNonOrientableTransport
 #print axioms Polyfold.IsLineOrientation.pullback
 #print axioms Polyfold.LTwo
 #print axioms Polyfold.detOfDetOnFredholm
@@ -16101,7 +16101,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.nonempty_lineOrientation_det_iff_of_equiv
 #print axioms Polyfold.nonempty_lineOrientation_det_of_equiv
 #print axioms Polyfold.wcomp
--- Polyfold.Chapter6.GapP1_OrientationBundle
+-- Polyfold.Chapter6.OrientationBundle
 #print axioms Polyfold.DetIndex
 #print axioms Polyfold.IsContOrOn.other
 #print axioms Polyfold.IsTwoPointed
@@ -16132,7 +16132,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.orProj_orUnitsAct
 #print axioms Polyfold.orUnitsAct
 #print axioms Polyfold.transport_apply_eq_of_continuous
--- Polyfold.Chapter6.GapP1_PathCategoryInterval
+-- Polyfold.Chapter6.PathCategoryInterval
 #print axioms Polyfold.IsScHomotopyRelI
 #print axioms Polyfold.IsScHomotopyRelI.one
 #print axioms Polyfold.PathCatI
@@ -16174,7 +16174,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isScSmoothMap_toUnitInterval_of_rn
 #print axioms Polyfold.monotone_betaConcat
 #print axioms Polyfold.scHomotopicI_iff
--- Polyfold.Chapter6.GapP1_SlicePropertyP
+-- Polyfold.Chapter6.SlicePropertyP
 #print axioms Polyfold.curve_slicePC
 #print axioms Polyfold.fderiv_mem_minimalSubspaceWith_of_centre
 #print axioms Polyfold.isGeneralPositionGerm_slice
@@ -16187,7 +16187,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.principal_slicePC_zero
 #print axioms Polyfold.pullbackSlice_paramSlice
 #print axioms Polyfold.slicePC
--- Polyfold.Chapter6.GapP1_SmoothL1
+-- Polyfold.Chapter6.SmoothFiniteDimRanges
 #print axioms Polyfold.IsSc1With.apply_mem_smooth_of_finiteDimensional
 #print axioms Polyfold.IsScSmooth.contDiffOn_const
 #print axioms Polyfold.IsScSmooth.contDiffOn_levelMap_const
@@ -16195,7 +16195,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isScSmooth_const_iff
 #print axioms Polyfold.isScSmooth_tangentLift
 #print axioms Polyfold.range_subset_range_toBase_of_finiteDimensional
--- Polyfold.Chapter6.GapP1_SmoothL2
+-- Polyfold.Chapter6.SmoothSubspaceFamilies
 #print axioms Polyfold.SmoothSubspaceFamily
 #print axioms Polyfold.SmoothSubspaceFamily.Frame.U
 #print axioms Polyfold.SmoothSubspaceFamily.Frame.change
@@ -16211,16 +16211,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SmoothSubspaceFamily.n
 #print axioms Polyfold.SmoothSubspaceFamily.prebundle
 #print axioms Polyfold.SmoothSubspaceFamily.toSubspaceFamily
--- Polyfold.Chapter6.GapP1_SmoothL3
+-- Polyfold.Chapter6.SmoothKernelFrames
 #print axioms Polyfold.exists_local_smooth_frame_linKer
 #print axioms Polyfold.isScSmooth_chart_comp_of_isOpen
 #print axioms Polyfold.lemma_6_6_5_smoothBundle
--- Polyfold.Chapter6.GapP1_SubmersionNearFamily
+-- Polyfold.Chapter6.SubmersionNearFamily
 #print axioms Polyfold.eventually_surjective_of_frame
 #print axioms Polyfold.exists_continuousOn_levelLift_solutionSet
 #print axioms Polyfold.exists_nhds_surjective_linKer
 #print axioms Polyfold.lemma_6_6_5_submersion_nhds
--- Polyfold.Chapter9.GapP1_Stokes2021
+-- Polyfold.Chapter9.StokesFaceSum
 #print axioms Polyfold.MPolyfold.CornerCoords.exists_coord_one_zero
 #print axioms Polyfold.MPolyfold.FaceData.pair
 #print axioms Polyfold.MPolyfold.faceChartedSpace
@@ -16236,7 +16236,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.theorem_4_4_7_hyp
 
 /-! ### Axioms: Theorem 3.6.8 with untamed 2021 germ data, the strong bundle form (2026-11-12) -/
--- Polyfold.Chapter3.GapP1_UntamedBundle
+-- Polyfold.Chapter3.UntamedBundle
 #print axioms Polyfold.UntamedCorner.bundle
 #print axioms Polyfold.UntamedCorner.chart0
 #print axioms Polyfold.UntamedCorner.sec
@@ -16247,13 +16247,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.UntamedCorner.subsingleton_fiber_zero
 #print axioms Polyfold.UntamedCorner.not_isSubMPolyfold_zeroSet
 #print axioms Polyfold.UntamedCorner.isEmpty_tangentGermChart
--- Polyfold.Chapter3.GapP1_UntamedBundleTame
+-- Polyfold.Chapter3.UntamedBundleTame
 #print axioms Polyfold.UntamedCorner.chartTame
 #print axioms Polyfold.UntamedCorner.isStrongBundleRetraction_RT
 #print axioms Polyfold.UntamedCorner.compatible_chart0_chartTame
 #print axioms Polyfold.UntamedCorner.isTameChart_chartTame
 #print axioms Polyfold.UntamedCorner.exists_isTameChart
--- Polyfold.Chapter3.GapP1_UntamedBundleFrame
+-- Polyfold.Chapter3.UntamedBundleFrame
 #print axioms Polyfold.UntamedCorner.Frame
 #print axioms Polyfold.UntamedCorner.Frame.chart
 #print axioms Polyfold.UntamedCorner.Frame.compatible_chart0
@@ -16262,7 +16262,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.UntamedCorner.frame1
 #print axioms Polyfold.UntamedCorner.isScFredholmGermTame_sec_of_ne
 #print axioms Polyfold.UntamedCorner.isScFredholmSection2021_sec
--- Polyfold.Chapter3.GapP1_UntamedBundleTheorem
+-- Polyfold.Chapter3.UntamedBundleTheorem
 #print axioms Polyfold.UntamedCorner.theorem_3_6_8_untamed_not
 #print axioms Polyfold.UntamedCorner.theorem_3_1_22_untamed_not
 #print axioms Polyfold.UntamedCorner.theorem_3_6_8_untamed_example
@@ -16310,7 +16310,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part II wave (2026-11-13) -/
 
--- Polyfold.Chapter7.GapP2_A2Flat
+-- Polyfold.Chapter7.FlatGluing
 #print axioms Polyfold.ZhouFlat.contDiffOn_eInv
 #print axioms Polyfold.ZhouFlat.contDiffOn_inv_Ioi
 #print axioms Polyfold.ZhouFlat.contDiff_flat_comp
@@ -16326,7 +16326,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ZhouFlat.one_le_inv_of_le_one
 #print axioms Polyfold.ZhouFlat.tendsto_pow_mul_exp_neg_mul
 #print axioms Polyfold.ZhouFlat.uniform_decay
--- Polyfold.Chapter7.GapP2_A2Line
+-- Polyfold.Chapter7.LineSobolevScale
 #print axioms Polyfold.GapP1Sobolev.inclH.congr_simp
 #print axioms Polyfold.ZhouLine.Ds_liftFun
 #print axioms Polyfold.ZhouLine.Dt_liftFun
@@ -16403,7 +16403,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ZhouLine.val_ofTest1
 #print axioms Polyfold.ZhouLine.val_toBase
 #print axioms Polyfold.ZhouLine.wt_mul_avgL
--- Polyfold.Chapter7.GapP2_A2Shift
+-- Polyfold.Chapter7.LineTranslates
 #print axioms Polyfold.GapP1Sobolev.H.congr_simp
 #print axioms Polyfold.ZhouLine.Ds_zero
 #print axioms Polyfold.ZhouLine.Dt_zero
@@ -16451,7 +16451,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ZhouLine.val1CLM_apply
 #print axioms Polyfold.ZhouLine.val_toH1
 #print axioms Polyfold.ZhouLine.val_trH
--- Polyfold.Chapter7.GapP2_A2Family
+-- Polyfold.Chapter7.ZhouRetraction
 #print axioms Polyfold.ZhouLine.contDiff_zhouFam_comp
 #print axioms Polyfold.ZhouLine.contDiff_zhouQ
 #print axioms Polyfold.ZhouLine.continuous_apply_of_dense
@@ -16473,7 +16473,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ZhouLine.zhouFam_pos
 #print axioms Polyfold.ZhouLine.zhouFam_toBase
 #print axioms Polyfold.ZhouLine.zhouRetraction_apply
--- Polyfold.Chapter7.GapP2_A2ZhouGroupoid
+-- Polyfold.Chapter7.ZhouGroupoid
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.Data.h0
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.Data.hmono
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.Data.hβ
@@ -16509,7 +16509,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.w_ne_zero
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.yn_neg
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.zero_mem
--- Polyfold.Chapter7.GapP2_A2Sigma
+-- Polyfold.Chapter7.ZhouSigma
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_sigma
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.continuousAt_tr0
@@ -16525,10 +16525,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.toSig_toY
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.toY_toSig
 #print axioms Polyfold.EpGroupoid.Examples.ZhouRetract.val_w
--- Polyfold.Chapter7.GapP2_ACor766
+-- Polyfold.Chapter7.HilbertPartitionsOfUnityEp
 #print axioms Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn_unconditional
 #print axioms Polyfold.EpGroupoid.corollary_7_6_6_unconditional
--- Polyfold.Chapter7.GapP2_ARaise
+-- Polyfold.Chapter7.RaisedEpGroupoid
 #print axioms Polyfold.EP.corollary_7_6_8
 #print axioms Polyfold.EP.theorem_7_6_7
 #print axioms Polyfold.EpGroupoid.Examples.theorem_7_6_7_pointEP
@@ -16551,11 +16551,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.surjective_reducedπOne
 #print axioms Polyfold.EpGroupoid.tgt_reducedRaise
 #print axioms Polyfold.EpGroupoid.theorem_7_6_7_one
--- Polyfold.Chapter7.GapP2_AReduced
+-- Polyfold.Chapter7.ReducedNaturalCharts
 #print axioms Polyfold.EpGroupoid.proposition_7_2_10_natural_charts
 #print axioms Polyfold.EpGroupoid.proposition_7_2_16
 #print axioms Polyfold.EpGroupoid.theorem_7_2_14_reduced
--- Polyfold.Chapter7.GapP2_AZhouRetract
+-- Polyfold.Chapter7.ZhouRetract
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.appendix_7_6_3
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.closure_nonEffectivePart_diff
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.exists_fam_ne_zero
@@ -16563,7 +16563,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.neg_one_not_mem_nonEffectivePart
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.nonEffectivePart_eq
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.snd_eq_zero_of_nonpos
--- Polyfold.Chapter8.GapP2_B_EpForms
+-- Polyfold.Chapter8.EpForms
 #print axioms Polyfold.EP.coe_epFormsD
 #print axioms Polyfold.EP.coe_epFormsStep
 #print axioms Polyfold.EP.coe_epFormsToForms
@@ -16595,7 +16595,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isMorCompatible_iff_formPullback
 #print axioms Polyfold.EpGroupoid.mem_epForms
 #print axioms Polyfold.EpGroupoid.mem_epForms_iff_formPullback
--- Polyfold.Chapter8.GapP2_B_EpFormsFunctor
+-- Polyfold.Chapter8.EpFormsFunctor
 #print axioms Polyfold.EP.coe_epFormsPullback
 #print axioms Polyfold.EP.epFormsD_epFormsPullback
 #print axioms Polyfold.EP.epFormsInftyD_comp_epFormsInftyPullback
@@ -16612,7 +16612,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.liftFunctor_id_obj
 #print axioms Polyfold.EP.liftFunctor_succ
 #print axioms Polyfold.EP.liftFunctor_zero
--- Polyfold.Chapter8.GapP2_B_EpFormsObj
+-- Polyfold.Chapter8.EpFormsObj
 #print axioms Polyfold.BundledMPolyfold.castForms_extD
 #print axioms Polyfold.BundledMPolyfold.castForms_lowerStep
 #print axioms Polyfold.EP.epDeRhamComplex_X
@@ -16625,10 +16625,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.epFormsToObj_injective
 #print axioms Polyfold.EP.formsInftyD_comp_epFormsInftyToObj
 #print axioms Polyfold.EP.objPolyfold_lift
--- Polyfold.Chapter8.GapP2_B_EpPoincare
+-- Polyfold.Chapter8.EpPoincare
 #print axioms Polyfold.EP.objPolyfold_carrier
 #print axioms Polyfold.EP.proposition_8_2_3_object
--- Polyfold.Chapter8.GapP2_B_TangentFibred
+-- Polyfold.Chapter8.TangentFibred
 #print axioms Polyfold.EpGroupoid.bijective_tangentCompPairsInto
 #print axioms Polyfold.EpGroupoid.compFst_tangentCompPairsInto
 #print axioms Polyfold.EpGroupoid.compPairs_ext
@@ -16660,7 +16660,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tangentCompPairs_injective
 #print axioms Polyfold.MPolyfold.IsLocalScDiffeo.isScDiffeoOn_of_bijective
 #print axioms Polyfold.MPolyfold.isLocalScDiffeo_of_comp_eq
--- Polyfold.Chapter8.GapP2_B_RemarkPairs
+-- Polyfold.Chapter8.TangentPairs
 #print axioms Polyfold.EpGroupoid.bijective_remarkGInto
 #print axioms Polyfold.EpGroupoid.continuous_remarkGInto
 #print axioms Polyfold.EpGroupoid.instParacompactSpaceTangentPairs
@@ -16673,7 +16673,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.remark_8_1_10_scDiffeo
 #print axioms Polyfold.EpGroupoid.remark_8_1_10_triples
 #print axioms Polyfold.MPolyfold.isLocalScDiffeo_sndOfFibredProduct
--- Polyfold.Chapter8.GapP2_CProp841W1
+-- Polyfold.Chapter8.BundleOrbitParacompactOne
 #print axioms Polyfold.EpStrongBundle.continuous_bundleOneSmul
 #print axioms Polyfold.EpStrongBundle.continuous_inclOrbitMapOne
 #print axioms Polyfold.EpStrongBundle.continuous_projOrbitMapOne
@@ -16705,7 +16705,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.πOne_eq_πOne_iff_exists_smul
 #print axioms Polyfold.EpStrongBundle.πOne_eq_πOne_iff_π
 #print axioms Polyfold.EpStrongBundle.πOne_mem_range_zeroOrbitMapOne_iff
--- Polyfold.Chapter9.GapP2_CDescentPolyfold
+-- Polyfold.Chapter9.DescentPolyfold
 #print axioms Polyfold.MPolyfold.IsDescentMap.continuous
 #print axioms Polyfold.MPolyfold.IsDescentMap.isOpenMap
 #print axioms Polyfold.MPolyfold.IsDescentMap.locInj
@@ -16725,7 +16725,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isChart_descChart
 #print axioms Polyfold.MPolyfold.isLocalScDiffeo_descend
 #print axioms Polyfold.MPolyfold.p_descInv
--- Polyfold.Chapter9.GapP2_CProp919
+-- Polyfold.Chapter9.SupportOrbifold
 #print axioms Polyfold.EpGroupoid.bijective_orbitSuppMap
 #print axioms Polyfold.EpGroupoid.isEpSubgroupoid_supp_of_isOrbifoldType
 #print axioms Polyfold.EpGroupoid.isSaturated_supp
@@ -16735,13 +16735,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.orbitSuppMap_mk
 #print axioms Polyfold.EpGroupoid.proposition_9_1_9_two
 #print axioms Polyfold.EpGroupoid.supp_inter_eq_of_isOrbifoldType
--- Polyfold.Chapter9.GapP2_CProp919Manifold
+-- Polyfold.Chapter9.SupportManifold
 #print axioms Polyfold.EpGroupoid.injOn_π_of_subsingleton_isotropy
 #print axioms Polyfold.EpGroupoid.isDescentMap_orbitSupp
 #print axioms Polyfold.EpGroupoid.orbitSuppProj_eq
 #print axioms Polyfold.EpGroupoid.proposition_9_1_9_one
 #print axioms Polyfold.EpGroupoid.subsingleton_isotropy_of_isManifoldType
--- Polyfold.Chapter9.GapP2_C2Prop919Text
+-- Polyfold.Chapter9.SupportGroupoidNaturality
 #print axioms Polyfold.EpGroupoid.OpenCover.functor_comp_refineFunctor
 #print axioms Polyfold.EpGroupoid.OpenCover.isEquivalence_refineFunctor
 #print axioms Polyfold.EpGroupoid.image_sheetCover_set
@@ -16753,7 +16753,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.proposition_9_1_9_two_text
 #print axioms Polyfold.EpGroupoid.textOrbitHomeomorph_eq
 #print axioms Polyfold.EpGroupoid.textOrbitHomeomorph_π
--- Polyfold.Chapter9.GapP2_C2Remark9110
+-- Polyfold.Chapter9.SupportClassicalStructures
 #print axioms Polyfold.EpGroupoid.degIndex_eq_zero_of_mem_supp
 #print axioms Polyfold.EpGroupoid.hasCornerStructureOfDim_subObj
 #print axioms Polyfold.EpGroupoid.isSubmanifoldOfDim_supp
@@ -16763,7 +16763,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.HasCornerStructureOfDim.of_isLocalScDiffeo_surjective
 #print axioms Polyfold.MPolyfold.exists_ofRelOpen_inter
 #print axioms Polyfold.MPolyfold.isCornerChart_transportChart
--- Polyfold.Chapter9.GapP2_C2Remark9110Etale
+-- Polyfold.Chapter9.SupportGroupoidEtale
 #print axioms Polyfold.EpGroupoid.isLocalScDiffeo_inv
 #print axioms Polyfold.EpGroupoid.isLocalScDiffeo_unit
 #print axioms Polyfold.EpGroupoid.remark_9_1_10_manifold_proj
@@ -16773,7 +16773,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.CornerCoords.pullback_s
 #print axioms Polyfold.MPolyfold.contMDiff_of_isLocalScDiffeo
 #print axioms Polyfold.MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo
--- Polyfold.Chapter9.GapP2_CRemark914
+-- Polyfold.Chapter9.OrbitSubsetMetrizable
 #print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_of_isComponentCompact
 #print axioms Polyfold.EpGroupoid.isComponentCompact_of_isCompact
 #print axioms Polyfold.EpGroupoid.metrizableSpace_of_isComponentCompact
@@ -16782,13 +16782,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.remark_9_1_4_exists_nhds
 #print axioms Polyfold.EpGroupoid.remark_9_1_4_metrizable
 #print axioms Polyfold.EpGroupoid.remark_9_1_4_paracompactSpace
--- Polyfold.Chapter9.GapP2_DExample935
+-- Polyfold.Chapter9.OrientationExampleSigns
 #print axioms Polyfold.example_9_3_5_six
 #print axioms Polyfold.ncard_signOrientations
 #print axioms Polyfold.orientedLift1_const_eq_orientedLift2_const
 #print axioms Polyfold.orientedLift1_eq_orientedLift2_iff
 #print axioms Polyfold.orientedLift2_injective
--- Polyfold.Chapter9.GapP2_DSheetNull
+-- Polyfold.Chapter9.SheetNull
 #print axioms Polyfold.HNull.image_lipschitzOn
 #print axioms Polyfold.HNull.mono
 #print axioms Polyfold.HNull.of_image_antilipschitzOn
@@ -16811,7 +16811,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.hNull_iff
 #print axioms Polyfold.isSeparable_of_antilipschitzOn
 #print axioms Polyfold.not_hNull_of_ball_subset
--- Polyfold.Chapter9.GapP2_DSheetChartChange
+-- Polyfold.Chapter9.SheetChartChange
 #print axioms Polyfold.MPolyfold.chartRelTangent_eq_of_chart
 #print axioms Polyfold.MPolyfold.exists_clm_tangentCone_chart_change
 #print axioms Polyfold.MPolyfold.exists_hasFDerivWithinAt_transition
@@ -16822,14 +16822,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ScRetraction.exists_lift_lipschitz
 #print axioms Polyfold.ScRetraction.hasFDerivWithinAt_of_isSc1
 #print axioms Polyfold.hNull_image_of_pointwise_lipschitz
--- Polyfold.Chapter9.GapP2_DSheetEssential
+-- Polyfold.Chapter9.SheetEssential
 #print axioms Polyfold.MPolyfold.diff_chartEssentialSet_subset
 #print axioms Polyfold.MPolyfold.exists_hNull_chart_not_isRelTangentFull
 #print axioms Polyfold.MPolyfold.exists_mem_tangentConeAt_proj
 #print axioms Polyfold.MPolyfold.isHNull_setOf_not_isRelTangentFull
 #print axioms Polyfold.MPolyfold.lemma_9_4_6_chart
 #print axioms Polyfold.MPolyfold.sheetMeasureGeometry_toSheetNullSets
--- Polyfold.Chapter9.GapP2_DSheetMeasure
+-- Polyfold.Chapter9.SheetMeasure
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.hasNullPreimages_sheetNullSets_iff
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isOfDim_of_isNDimensional
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_4_4_of_isNDimensional
@@ -16844,10 +16844,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.remark_9_5_3_H
 #print axioms Polyfold.hNull_lineH
 #print axioms Polyfold.isHNull_mixed_dim
--- Polyfold.Chapter9.GapP2_DOrientationDim
+-- Polyfold.Chapter9.OrientationAnyDim
 #print axioms Polyfold.EpGroupoid.IsOrientation.isOrientationOfDim
 #print axioms Polyfold.EpGroupoid.lemma_9_3_4_of_isNDimensional
--- Polyfold.Chapter9.GapP2_D2Example935Sheets
+-- Polyfold.Chapter9.OrientationExampleSheets
 #print axioms Polyfold.Ex935.abs_snd_eq_of_mem_Z
 #print axioms Polyfold.Ex935.beta1_false_apply
 #print axioms Polyfold.Ex935.beta1_true_apply
@@ -16876,7 +16876,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Ex935.submanifoldTangent_eq_of_subset_Z
 #print axioms Polyfold.Ex935.supp_example935Theta
 #print axioms Polyfold.Ex935.tangent_eq_orTan_or
--- Polyfold.Chapter9.GapP2_D2Example935Class
+-- Polyfold.Chapter9.OrientationExampleClasses
 #print axioms Polyfold.Ex935.classOrient_coef
 #print axioms Polyfold.Ex935.classOrient_injective
 #print axioms Polyfold.Ex935.coefOf_pt_neg
@@ -16946,29 +16946,29 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.example_9_3_5_infinite
 #print axioms Polyfold.example_9_3_5_integral
 #print axioms Polyfold.example_9_3_5_integral_ncard
--- Polyfold.Chapter9.GapP2_DBoundaryChar
+-- Polyfold.Chapter9.BoundaryCharacterization
 #print axioms Polyfold.EpGroupoid.IsBoundaryCharacterized.eq_boundaryTheta_iff
 #print axioms Polyfold.EpGroupoid.IsBoundaryCharacterized.eq_boundaryTheta_on
 #print axioms Polyfold.EpGroupoid.IsBoundaryCharacterized.supp_subset
 #print axioms Polyfold.EpGroupoid.definition_9_2_16_existsUnique
--- Polyfold.Chapter9.GapP2_DBoundaryStratum
+-- Polyfold.Chapter9.BoundaryStratumDense
 #print axioms Polyfold.MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one
 #print axioms Polyfold.MPolyfold.exists_isOpen_boundaryStratum_eq
 #print axioms Polyfold.MPolyfold.isOpen_degIndex_le_one
 #print axioms Polyfold.MPolyfold.setOf_degIndex_eq_one
 #print axioms Polyfold.MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum
--- Polyfold.Chapter9.GapP2_DSheetGeometryCor
+-- Polyfold.Chapter9.SheetGeometryFree
 #print axioms Polyfold.EpGroupoid.lemma_9_4_8_of_isNDimensional
 #print axioms Polyfold.EpGroupoid.proposition_9_4_10_of_isNDimensional
 #print axioms Polyfold.EpGroupoid.proposition_9_4_9_of_isNDimensional
--- Polyfold.Chapter9.GapP2_DSheetNullBridge
+-- Polyfold.Chapter9.SheetNullBridge
 #print axioms Polyfold.MPolyfold.CornerCoords.hNull_chart_iff_volume
 #print axioms Polyfold.MPolyfold.isHNull_iff_isMeasureZero_cornerChartedSpace
 #print axioms Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet
 #print axioms Polyfold.MPolyfold.isHNull_iff_subPolyfold
 #print axioms Polyfold.hNull_iff_volume_euclidean
 #print axioms Polyfold.hNull_image_affine_iff
--- Polyfold.Chapter9.GapP2_E1_SheetIntegration
+-- Polyfold.Chapter9.SheetIntegrationAbstract
 #print axioms Polyfold.EpGroupoid.SheetIntegration.carrier_eq_of_mem_piece
 #print axioms Polyfold.EpGroupoid.SheetIntegration.image_mem
 #print axioms Polyfold.EpGroupoid.SheetIntegration.integ_add
@@ -17011,7 +17011,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SheetNullSets.isMeasIn_of_borel
 #print axioms Polyfold.SheetNullSets.isMeasIn_of_isNull
 #print axioms Polyfold.SheetNullSets.isMeasIn_self
--- Polyfold.Chapter9.GapP2_E1_LocalMeasure
+-- Polyfold.Chapter9.LocalMeasure
 #print axioms Polyfold.EpGroupoid.NaturalRep.isMorTangentOn_Φ
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.IsMeas.image
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.IsMeas.of_subset_MU
@@ -17040,7 +17040,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_of_morDiffeo
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_smul
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.subset_MU
--- Polyfold.Chapter9.GapP2_E2MeasureGlue
+-- Polyfold.Chapter9.MeasureGlue
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.exists_isClosed_eq_inter
 #print axioms Polyfold.EpGroupoid.exists_isClosed_submanifoldBoundary_eq
 #print axioms Polyfold.EpGroupoid.isClosed_orbitSupp_boundaryTheta
@@ -17055,7 +17055,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.measurableSet_firstPiece
 #print axioms Polyfold.pairwise_disjoint_firstPiece
 #print axioms Polyfold.subset_iUnion_firstPiece
--- Polyfold.Chapter9.GapP2_E1_BranchedIntegral
+-- Polyfold.Chapter9.BranchedIntegral
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.MU_subset_rep
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.exists_local_agreement
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.exists_slice_pair
@@ -17075,7 +17075,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.proposition_9_5_13_1
 #print axioms Polyfold.EpGroupoid.theorem_9_5_4
 #print axioms Polyfold.EpGroupoid.theorem_9_5_5
--- Polyfold.Chapter9.GapP2_E2BoundaryNull
+-- Polyfold.Chapter9.BoundaryFaceNullSets
 #print axioms Polyfold.EpGroupoid.boundaryMeasureZeroSets_point
 #print axioms Polyfold.EpGroupoid.isMeasureZeroBoundary_point_iff
 #print axioms Polyfold.EpGroupoid.lebesgueSigmaBoundary_point
@@ -17094,7 +17094,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.halfLine_orbitSupp_boundary_nonempty
 #print axioms Polyfold.isOpen_setOf_forall_pos
 #print axioms Polyfold.not_isMeasureZero_univ_quadrant
--- Polyfold.Chapter9.GapP2_E1_PointIntegration
+-- Polyfold.Chapter9.PointIntegration
 #print axioms Polyfold.EpGroupoid.dim_eq_zero_of_isOrientedAt_singleton
 #print axioms Polyfold.EpGroupoid.eq_singleton_of_mem_pointSheets
 #print axioms Polyfold.EpGroupoid.frameSign_eq_neg
@@ -17104,7 +17104,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.pointInteg_of_mem
 #print axioms Polyfold.EpGroupoid.pointIntegration_integ_singleton
 #print axioms Polyfold.EpGroupoid.subsingleton_of_mem_pointSheets
--- Polyfold.Chapter9.GapP2_E2Stokes
+-- Polyfold.Chapter9.StokesLocalFormulas
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.M_subset_supp
 #print axioms Polyfold.EpGroupoid.NaturalRep.exists_ultrafilter_le_nhds
 #print axioms Polyfold.EpGroupoid.TameBranchingStructure.isCompact_inter
@@ -17121,7 +17121,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.OrientedSheet.stokes
 #print axioms Polyfold.MPolyfold.stokes_formsInftyRestrict_of_isCompact
 #print axioms Polyfold.MPolyfold.stokes_formsInftyRestrict_of_vanishes
--- Polyfold.Chapter10.GapP2_F_ZhouExample
+-- Polyfold.Chapter10.ZhouExample
 #print axioms Polyfold.EpGroupoid.Examples.ZhouSigma.continuous_smul₂
 #print axioms Polyfold.EpGroupoid.Examples.ZhouSigma.continuous_ηO
 #print axioms Polyfold.EpGroupoid.Examples.ZhouSigma.exists_smul_eq_ηO
@@ -17164,7 +17164,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.IsLossFamily.add
 #print axioms Polyfold.IsLossFamily.comp_neg
 #print axioms Polyfold.IsLossFamily.sub
--- Polyfold.Chapter10.GapP2_A2TenSix
+-- Polyfold.Chapter10.ZhouExampleRealScale
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.continuous_smul₂
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.continuous_ηO
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.exists_smul_eq_ηO
@@ -17197,7 +17197,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.ηO_o₂
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.ηO_ηO
 #print axioms Polyfold.EpGroupoid.Examples.ZhouTenSix.π_ηO
--- Polyfold.Chapter10.GapP2_GLocalIso
+-- Polyfold.Chapter10.StrongBundleLocalIso
 #print axioms Polyfold.EpStrongBundle.isLocalIso₂_lrAct
 #print axioms Polyfold.EpStrongBundle.lrAct_comp
 #print axioms Polyfold.EpStrongBundle.natLift_eq_lrAct
@@ -17222,7 +17222,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.IsLocalIso₂.zero
 #print axioms Polyfold.StrongBundle.IsStrongBundleIsoOn.exists_isLocalIso₂
 #print axioms Polyfold.StrongBundle.exists_linear_inv_of
--- Polyfold.Chapter10.GapP2_GBundleLR
+-- Polyfold.Chapter10.StrongBundleLocalRegularity
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.P_transport
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.exists_transport
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.transport_Γ
@@ -17234,7 +17234,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.proposition_10_4_6
 #print axioms Polyfold.SBLocalization.proposition_10_5_6
 #print axioms Polyfold.StrongBundle.IsLocalIso₂.congr_base
--- Polyfold.Chapter10.GapP2_F2_SBConverse
+-- Polyfold.Chapter10.StrongBundleIsoConverse
 #print axioms Polyfold.EpGroupoid.exists_eqOn_of_src
 #print axioms Polyfold.EpStrongBundle.act_eq_lrAct
 #print axioms Polyfold.SBLocalization.SDiagram.exists_natEquiv_of_equiv
@@ -17257,7 +17257,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SEP.isLocalStrongBundleIso_mor_of_obj
 #print axioms Polyfold.SEP.isStrongBundleIsoOn_of_rightInv
 #print axioms Polyfold.StrongBundle.IsStrongBundleIsoOn.of_eq_map
--- Polyfold.Chapter10.GapP2_F_LReg
+-- Polyfold.Chapter10.LocalRegularitySubcategory
 #print axioms Polyfold.EP.instFaithfulFullSubcategoryLregι
 #print axioms Polyfold.EP.instFullFullSubcategoryLregι
 #print axioms Polyfold.EP.isClosedUnderIsomorphisms_lreg
@@ -17265,7 +17265,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.lreg_pointEP
 #print axioms Polyfold.EPLocalization.EPLoc.isClosedUnderIsomorphisms_lreg
 #print axioms Polyfold.EPLocalization.EPLoc.lreg_A_of_lreg
--- Polyfold.Chapter10.GapP2_F_LocUniversal
+-- Polyfold.Chapter10.LocalizationUniversal
 #print axioms Polyfold.EPLocalization.EPLoc.eq_lift
 #print axioms Polyfold.EPLocalization.EPLoc.fac
 #print axioms Polyfold.EPLocalization.EPLoc.isLocalization
@@ -17285,7 +17285,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EPLocalization.secHom_cylRight
 #print axioms Polyfold.EPLocalization.src_secMor
 #print axioms Polyfold.EPLocalization.tgt_secMor
--- Polyfold.Chapter10.GapP2_F_TripleProduct
+-- Polyfold.Chapter10.WeakFibredProductTriple
 #print axioms Polyfold.MPolyfold.isScDiffeoOn_prodSubtype
 #print axioms Polyfold.MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn
 #print axioms Polyfold.MPolyfold.isSubMPolyfold_univ_prod
@@ -17294,13 +17294,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.WeakFibredProduct.morSetTriple_eq
 #print axioms Polyfold.WeakFibredProduct.objSetTriple_eq
 #print axioms Polyfold.WeakFibredProduct.theorem_10_2_2_triple
--- Polyfold.Chapter10.GapP2_GBundleFamily
+-- Polyfold.Chapter10.StrongBundleLocalFamilies
 #print axioms Polyfold.EpStrongBundle.proposition_10_4_7
 #print axioms Polyfold.EpStrongBundle.proposition_10_4_7'
 #print axioms Polyfold.EpStrongBundle.π_base_eq_of_orbitMap_eq
 #print axioms Polyfold.EpStrongBundle.π_obj_eq_of_orbitMap_eq
 #print axioms Polyfold.GapP2_GBundleFamilyExamples.proposition_10_4_7_hypotheses
--- Polyfold.Chapter10.GapP2_GDiagram
+-- Polyfold.Chapter10.StrongBundleDiagram
 #print axioms Polyfold.EPLocalization.Diagram.exists_germ_q
 #print axioms Polyfold.EPLocalization.Diagram.isotropyHom.congr_simp
 #print axioms Polyfold.EPLocalization.Diagram.isotropyHom_conj
@@ -17309,7 +17309,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.GenSBMap.square_10_24
 #print axioms Polyfold.SBLocalization.SDiagram.square_10_24
 #print axioms Polyfold.SEP.projEP_comp
--- Polyfold.Chapter10.GapP2_GDiagramLift
+-- Polyfold.Chapter10.StrongBundleDiagramLift
 #print axioms Polyfold.SBLocalization.SDiagram.exists_lift_Q
 #print axioms Polyfold.StrongBundle.IsLocalIso₂.isLocalMap₂
 #print axioms Polyfold.StrongBundle.IsLocalMap₂.comp
@@ -17319,7 +17319,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.IsLocalMap₂.one
 #print axioms Polyfold.StrongBundle.IsLocalMap₂.zero
 #print axioms Polyfold.StrongBundle.IsStrongBundleMap.isLocalMap₂
--- Polyfold.Chapter11.GapP2_B2_FormDescent
+-- Polyfold.Chapter11.FormDescent
 #print axioms Polyfold.MPolyfold.IsLocalScDiffeo.coe_tangentFiberEquiv
 #print axioms Polyfold.MPolyfold.IsLocalScDiffeo.exists_level_lift
 #print axioms Polyfold.MPolyfold.IsLocalScDiffeo.exists_tangentFiber_lift
@@ -17328,7 +17328,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.formPullback_injective_of_isLocalScDiffeo
 #print axioms Polyfold.MPolyfold.isChartScSmooth_of_formRestrict
 #print axioms Polyfold.MPolyfold.isScForm_of_formPullback
--- Polyfold.Chapter11.GapP2_B2_EquivForms
+-- Polyfold.Chapter11.EquivalenceForms
 #print axioms Polyfold.EpFunctor.IsEquivalence.bijective_formPullback
 #print axioms Polyfold.EpFunctor.IsEquivalence.definition_11_2_3
 #print axioms Polyfold.EpFunctor.IsEquivalence.exists_formPullback_eq
@@ -17347,7 +17347,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.formPullback_tgt_comm
 #print axioms Polyfold.EpFunctor.surjective_mor_of_full
 #print axioms Polyfold.EpGroupoid.tTgt_eq_tSrc_of_tBase_unit
--- Polyfold.Chapter11.GapP2_B2_EquivFormsInfty
+-- Polyfold.Chapter11.EquivalenceFormsInfty
 #print axioms Polyfold.EP.epFormsInftyD_comp_epFormsInftyPush
 #print axioms Polyfold.EP.epFormsInftyPullback_comp_epFormsInftyPush
 #print axioms Polyfold.EP.epFormsInftyPullback_epFormsInftyPush
@@ -17366,7 +17366,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.lemma_11_2_5_push
 #print axioms Polyfold.EP.lemma_11_2_6
 #print axioms Polyfold.EP.lemma_11_2_6_push
--- Polyfold.Chapter11.GapP2_B2_Averaging
+-- Polyfold.Chapter11.FormAveraging
 #print axioms Polyfold.EP.epFormsPullback_sum_epFormsPullback
 #print axioms Polyfold.EP.exists_epForms_sum_pullback
 #print axioms Polyfold.EP.exists_liftNatTrans_app_eq
@@ -17378,7 +17378,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.isLocalScDiffeo_liftNatTrans_app
 #print axioms Polyfold.EP.surjective_liftFunctor_obj
 #print axioms Polyfold.MPolyfold.formPullback_injective_of_family
--- Polyfold.Chapter11.GapP2_B2_EpWedge
+-- Polyfold.Chapter11.EpFormsWedge
 #print axioms Polyfold.BundledMPolyfold.castForms_formOne
 #print axioms Polyfold.BundledMPolyfold.castForms_formWedge
 #print axioms Polyfold.EP.epFormsInftyToObj_of_formWedge
@@ -17387,7 +17387,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.formsInftyD_mem_epFormsRange
 #print axioms Polyfold.EP.formsInftyOne_mem_epFormsRange
 #print axioms Polyfold.EP.formsInftyWedge_mem_epFormsRange
--- Polyfold.Chapter11.GapP2_B2_GeneralizedForms
+-- Polyfold.Chapter11.GeneralizedForms
 #print axioms Polyfold.EP.epFormsInftyPush_comp_epFormsInftyPullback_of_square
 #print axioms Polyfold.EP.epFormsInftyPush_epFormsInftyPullback_of_square
 #print axioms Polyfold.EP.epFormsInftyPush_id
@@ -17412,7 +17412,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_2_1_one
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_2_1_three
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_2_1_two
--- Polyfold.Chapter11.GapP2_B2_OrbitForms
+-- Polyfold.Chapter11.OrbitForms
 #print axioms Polyfold.EP.epFormsInftyPullback_eq_of_hasLocalNatIso
 #print axioms Polyfold.EP.epFormsInftyPullback_eq_of_orbitMap_eq
 #print axioms Polyfold.EP.epFormsInftyPush_eq_of_orbitMap_eq
@@ -17427,9 +17427,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.HasLocalNatIso.liftOne
 #print axioms Polyfold.EpFunctor.NaturallyEquivalent.hasLocalNatIso
 #print axioms Polyfold.EpFunctor.hasLocalNatIso_of_orbitMap_eq
--- Polyfold.Chapter11.GapP2_B2_TranslationAverage
+-- Polyfold.Chapter11.TranslationAverage
 #print axioms Polyfold.EpGroupoid.NaturalRep.exists_primitive_translation
--- Polyfold.Chapter11.GapP2_B2_SubGroupoidModel
+-- Polyfold.Chapter11.SubGroupoidModel
 #print axioms Polyfold.EP.isEpSubgroupoid_modelSet
 #print axioms Polyfold.EP.isEquivalence_modelFunctor
 #print axioms Polyfold.EP.isLocalScDiffeo_subFunctor_obj
@@ -17445,7 +17445,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.codRestrict_mor_val
 #print axioms Polyfold.EpFunctor.codRestrict_obj_val
 #print axioms Polyfold.MPolyfold.isLocalScDiffeo_val_subPolyfold_of_isOpen
--- Polyfold.Chapter11.GapP2_B2_Poincare
+-- Polyfold.Chapter11.EpPoincareLemma
 #print axioms Polyfold.BundledMPolyfold.castForms_pullScForm
 #print axioms Polyfold.BundledMPolyfold.heq_scMap_shift
 #print axioms Polyfold.EP.epFormsInftyToObj_epFormsInftyPullback
@@ -17458,7 +17458,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.proposition_8_2_3
 #print axioms Polyfold.EP.proposition_8_2_3_of_isOpen
 #print axioms Polyfold.EP.src_eq_tgt_lift
--- Polyfold.Chapter11.GapP2_HFaces
+-- Polyfold.Chapter11.FaceEpGroupoids
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.existsUnique_face_subset
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.exists_nhds_eq_face
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.isWeaklyFaceStructured
@@ -17485,7 +17485,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isScSmoothOn_sub_of_val
 #print axioms Polyfold.MPolyfold.isSubMPolyfold_of_forall_nhds
 #print axioms Polyfold.MPolyfold.subIncl_val
--- Polyfold.Chapter11.GapP2_H2FaceMeet
+-- Polyfold.Chapter11.FaceIntersectionCounterexample
 #print axioms Polyfold.EpGroupoid.isEpFaceStructured_trivial_restrictOpen
 #print axioms Polyfold.FaceMeetExample.cF_lt_or_gt
 #print axioms Polyfold.FaceMeetExample.cF_xs
@@ -17519,13 +17519,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isDHomeoOn_subtypeVal
 #print axioms Polyfold.MPolyfold.isFaceStructuredOpen_restrictOpen
 #print axioms Polyfold.MPolyfold.isTame_restrictOpen
--- Polyfold.Chapter11.GapP2_H2FaceMeetUnion
+-- Polyfold.Chapter11.FaceIntersectionUnion
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.exists_nhds_degIndex_two
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.faceObj_inter_eq_sUnion
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.face_ne_of_subset
 #print axioms Polyfold.EpGroupoid.IsEpFaceStructured.facesMeetInUnions
 #print axioms Polyfold.MPolyfold.mem_closure_inter_faces
--- Polyfold.Chapter11.GapP2_HPCLocalization
+-- Polyfold.Chapter11.ProperCoveringLocalization
 #print axioms Polyfold.PC.Diagram.hasCommonRefinement_assoc
 #print axioms Polyfold.PC.Diagram.hasCommonRefinement_comp
 #print axioms Polyfold.PC.Diagram.hasCommonRefinement_comp_id
@@ -17568,7 +17568,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.WeakFibredProduct.projRight_comp_pairFunctor
 #print axioms Polyfold.WeakFibredProduct.src_pairMor
 #print axioms Polyfold.WeakFibredProduct.tgt_pairMor
--- Polyfold.Chapter11.GapP2_H2SBPC
+-- Polyfold.Chapter11.ProperStrongBundleCoverings
 #print axioms Polyfold.SBPC.Hom.comm
 #print axioms Polyfold.SBPC.Hom.ext
 #print axioms Polyfold.SBPC.Hom.ext_iff
@@ -17604,7 +17604,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBPC.toSEPLocV_fac
 #print axioms Polyfold.SBPC.toSEPLocW_fac
 #print axioms Polyfold.SBPC.uniq
--- Polyfold.Chapter11.GapP2_H3SBPullback
+-- Polyfold.Chapter11.StrongBundleCoveringPullback
 #print axioms Polyfold.EpStrongBundle.isProperStrongBundleCovering2021_of
 #print axioms Polyfold.EpStrongBundle.isStrongBundleIso_fibredLift_of_isProperCovering
 #print axioms Polyfold.SEP.isProperStrongBundleCovering2021_pullbackCovering
@@ -17612,7 +17612,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SEP.pullbackCovering_comp_pullbackHom
 #print axioms Polyfold.SEP.pullbackCovering_ϕ
 #print axioms Polyfold.StrongBundle.evenlyCovered_of_isStrongBundleIsoOn
--- Polyfold.Chapter11.GapP2_H3SBFibred
+-- Polyfold.Chapter11.StrongBundleCoveringFibredProduct
 #print axioms Polyfold.SBPC.NatTrans.comm
 #print axioms Polyfold.SBPC.NatTrans.comm_total
 #print axioms Polyfold.SBPC.NatTrans.mk.inj
@@ -17636,7 +17636,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBPC.theorem_11_6_6
 #print axioms Polyfold.SEP.Hom.obj_μ
 #print axioms Polyfold.SEP.natTransOfEq_τ
--- Polyfold.Chapter11.GapP2_H3SBLocalization
+-- Polyfold.Chapter11.StrongBundleCoveringLocalization
 #print axioms Polyfold.SBPC.Diagram.CommonRefinement.isEquivalence_H
 #print axioms Polyfold.SBPC.Diagram.CommonRefinement.isEquivalence_H'
 #print axioms Polyfold.SBPC.Diagram.CommonRefinement.mk.inj
@@ -17686,7 +17686,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SEP.wfpLift_projX
 #print axioms Polyfold.SEP.wfpLift_projZ
 #print axioms Polyfold.SEP.wfpLift_ϕ
--- Polyfold.Chapter11.GapP2_HFaceIso
+-- Polyfold.Chapter11.FaceGeneralizedIso
 #print axioms Polyfold.EPLocalization.Diagram.Equiv.restrictFace
 #print axioms Polyfold.EPLocalization.Diagram.IsRefinement.restrictFace
 #print axioms Polyfold.EPLocalization.Diagram.isEpFaceStructured_A
@@ -17717,12 +17717,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part II wave, second integration (2026-11-13) -/
 
--- Polyfold.Chapter9.GapP2_C2Witness
+-- Polyfold.Chapter9.XAxisWitness
 #print axioms Polyfold.EpGroupoid.axis_degIndexOrbit_eq_zero
 #print axioms Polyfold.EpGroupoid.axis_isManifoldType
 #print axioms Polyfold.EpGroupoid.nonempty_supp_axis
 #print axioms Polyfold.EpGroupoid.remark_9_1_10_hypotheses_axis
--- Polyfold.Chapter9.GapP2_E3_GraphChart
+-- Polyfold.Chapter9.GraphChart
 #print axioms Polyfold.EpGroupoid.FormEval.ev_add
 #print axioms Polyfold.EpGroupoid.FormEval.ev_continuousOn
 #print axioms Polyfold.EpGroupoid.FormEval.ev_det
@@ -17743,7 +17743,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.GraphChart.range_L
 #print axioms Polyfold.MPolyfold.GraphChart.subset_source
 #print axioms Polyfold.integral_image_eq_of_det
--- Polyfold.Chapter9.GapP2_E3_FormEvalEp
+-- Polyfold.Chapter9.FormEvalEp
 #print axioms Polyfold.EP.formEvalInfty_of
 #print axioms Polyfold.EP.formEval_epFormsMap
 #print axioms Polyfold.EpGroupoid.epFormEval_ev
@@ -17758,13 +17758,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.evalFamily_smul
 #print axioms Polyfold.MPolyfold.exists_fiber_lift
 #print axioms Polyfold.alternatingMap_sum_smul
--- Polyfold.Chapter9.GapP2_E3_ChartVec
+-- Polyfold.Chapter9.ChartVectors
 #print axioms Polyfold.MPolyfold.IsOrientedAt.mem_frames_iff_det_pos
 #print axioms Polyfold.MPolyfold.IsOrientedAt.mem_frames_iff_notMem
 #print axioms Polyfold.MPolyfold.chartVec_eq_scDeriv_transition
 #print axioms Polyfold.MPolyfold.continuousOn_chartVec_of_chart
 #print axioms Polyfold.MPolyfold.exists_transition_deriv_chartVec
--- Polyfold.Chapter9.GapP2_E3_GraphCoord
+-- Polyfold.Chapter9.GraphCoord
 #print axioms Polyfold.MPolyfold.GraphChart.L_apply
 #print axioms Polyfold.MPolyfold.GraphChart.L_injective
 #print axioms Polyfold.MPolyfold.GraphChart.L_p_of_mem
@@ -17790,11 +17790,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.GraphChart.tvec_mem
 #print axioms Polyfold.MPolyfold.GraphChart.tvec_spec
 #print axioms Polyfold.MPolyfold.GraphChart.volume_coord_image_eq_zero
--- Polyfold.Chapter9.GapP2_E3_Transition
+-- Polyfold.Chapter9.GraphChartTransition
 #print axioms Polyfold.MPolyfold.GraphChart.det_matrix_bvec
 #print axioms Polyfold.MPolyfold.GraphChart.exists_transition
 #print axioms Polyfold.MPolyfold.GraphChart.setIntegral_coord_image_eq
--- Polyfold.Chapter9.GapP2_E3_FrameSign
+-- Polyfold.Chapter9.FrameSign
 #print axioms Polyfold.MPolyfold.GraphChart.chartVec_tvec_eq_sum_transMatrix
 #print axioms Polyfold.MPolyfold.GraphChart.dim_eq_of_orientation
 #print axioms Polyfold.MPolyfold.GraphChart.exists_isOpen_isPos
@@ -17809,7 +17809,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.isPos_tangent
 #print axioms Polyfold.MPolyfold.exists_isOpen_eq_inter_of_local
 #print axioms Polyfold.MPolyfold.linearIndependent_chartVec_of_chart
--- Polyfold.Chapter9.GapP2_E3_GraphDiffeo
+-- Polyfold.Chapter9.GraphDiffeo
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeo_coord
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeo_dom
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeo_q
@@ -17818,7 +17818,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo_frames_iff
 #print axioms Polyfold.MPolyfold.chartVec_transport_tangentMapOn
 #print axioms Polyfold.MPolyfold.measurableSet_borel_image_of_isScDiffeoOn
--- Polyfold.Chapter9.GapP2_E3_ChartIntegral
+-- Polyfold.Chapter9.ChartIntegral
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_congr
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_mapDiffeo
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_neg
@@ -17830,7 +17830,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.sgn_mul_ev_eq
 #print axioms Polyfold.MPolyfold.GraphChart.frameSgn_tangent
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeo.congr_simp
--- Polyfold.Chapter9.GapP2_E3_SheetIntegration
+-- Polyfold.Chapter9.SheetIntegrationConcrete
 #print axioms Polyfold.EpGroupoid.FormEval.chart.congr_simp
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_add
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_of_inter_eq_empty
@@ -17850,7 +17850,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.sheetIntegration_integ
 #print axioms Polyfold.EpGroupoid.FormEval.sheetNull_isNull_iff
 #print axioms Polyfold.iff_iff_iff_of_iff_iff
--- Polyfold.Chapter9.GapP2_E3_ManifoldBridge
+-- Polyfold.Chapter9.ManifoldBridge
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_eq_setIntegral_corner
 #print axioms Polyfold.EpGroupoid.FormEval.cornerDensity.congr_simp
 #print axioms Polyfold.EpGroupoid.FormEval.sgn_mul_ev_incFrame
@@ -17872,7 +17872,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.orientationIn_bridgeOrientation
 #print axioms Polyfold.MPolyfold.orientation_eq_orIn_iff
 #print axioms Polyfold.modelDeriv.congr_simp
--- Polyfold.Chapter9.GapP2_E5_BoundaryNull
+-- Polyfold.Chapter9.BoundaryNotNull
 #print axioms Polyfold.MPolyfold.CornerCoords.dropCoord_apply
 #print axioms Polyfold.MPolyfold.CornerCoords.lipschitzWith_dropCoord
 #print axioms Polyfold.MPolyfold.CornerCoords.not_hNull_chart_coord_eq_zero
@@ -17882,7 +17882,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.preimage_submanifoldBoundary
 #print axioms Polyfold.MPolyfold.submanifoldBoundary_subset
 #print axioms Polyfold.not_hNull_of_lipschitzOn_ball
--- Polyfold.Chapter9.GapP2_E6_StratumRetraction
+-- Polyfold.Chapter9.StratumRetraction
 #print axioms Polyfold.MPolyfold.CornerCoords.contDiff_update_zero
 #print axioms Polyfold.MPolyfold.CornerCoords.continuousOn_faceRet
 #print axioms Polyfold.MPolyfold.CornerCoords.continuous_update_zero
@@ -17903,7 +17903,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.stratumOne_eq_boundaryStratum
 #print axioms Polyfold.MPolyfold.stratumOne_subset
 #print axioms Polyfold.MPolyfold.stratumOne_subset_submanifoldBoundary
--- Polyfold.Chapter9.GapP2_E6_StratumTangent
+-- Polyfold.Chapter9.StratumTangent
 #print axioms Polyfold.MPolyfold.chartTangent_stratumOne_eq
 #print axioms Polyfold.MPolyfold.coord_symm_of_mem_stratumDom
 #print axioms Polyfold.MPolyfold.eventually_line_mem_stratumDom
@@ -17924,7 +17924,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.clm_deriv_eq_zero_of_line
 #print axioms Polyfold.deriv_mem_span_tangentConeAt_of_line
 #print axioms Polyfold.tangentConeAt_subset_map_of_param
--- Polyfold.Chapter9.GapP2_E6_BoundaryOrientation
+-- Polyfold.Chapter9.BoundaryOrientation
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.stratumOrientation_frames
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.stratumOrientation_tangent
 #print axioms Polyfold.MPolyfold.eventually_ray_mem_quadDom
@@ -17936,7 +17936,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.quadDom_subset_range
 #print axioms Polyfold.MPolyfold.sub_single_mem_coordHyperplane
 #print axioms Polyfold.clm_deriv_nonneg_of_ray
--- Polyfold.Chapter9.GapP2_D3FaceOrientation
+-- Polyfold.Chapter9.FaceOrientation
 #print axioms Polyfold.MPolyfold.CornerCoords.mem_facePiece_of_degIndex_eq_one
 #print axioms Polyfold.MPolyfold.dense_faceStratum
 #print axioms Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation
@@ -17954,11 +17954,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.orientation_consFaceBasis_eq_iff
 #print axioms Polyfold.orientation_eq_of_forall_basis
 #print axioms Polyfold.orientation_eq_std_iff_det_pos
--- Polyfold.Chapter9.GapP2_E3_GraphChartExists
+-- Polyfold.Chapter9.GraphChartExists
 #print axioms Polyfold.MPolyfold.exists_graphChart
 #print axioms Polyfold.MPolyfold.isClosed_image_of_antilipschitzOn
 #print axioms Polyfold.ScRetraction.exists_graphData
--- Polyfold.Chapter9.GapP2_E3_Covering
+-- Polyfold.Chapter9.IntegralCovering
 #print axioms Polyfold.EpGroupoid.FormEval.continuousOn_ev_tvec
 #print axioms Polyfold.EpGroupoid.FormEval.exists_mem_sheets
 #print axioms Polyfold.EpGroupoid.FormEval.exists_restrict_mem_sheets
@@ -17969,7 +17969,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_4_concrete
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_5_concrete
 #print axioms Polyfold.MPolyfold.exists_compact_nhds_submanifold
--- Polyfold.Chapter9.GapP2_E3_Density
+-- Polyfold.Chapter9.DensityLocal
 #print axioms Polyfold.EpGroupoid.FormEval.IsMul.add_smul
 #print axioms Polyfold.EpGroupoid.FormEval.IsMul.density_eq
 #print axioms Polyfold.EpGroupoid.FormEval.absInteg_nonneg
@@ -17987,7 +17987,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_eq_sum_setIntegral_mul
 #print axioms Polyfold.EpGroupoid.abs_branchedMeasure_sub_le
 #print axioms Polyfold.EpGroupoid.branchedMeasure_eq_mul_of_eqOn
--- Polyfold.Chapter9.GapP2_E3_FormEvalInfty
+-- Polyfold.Chapter9.FormEvalInfty
 #print axioms Polyfold.EP.epFormsInftyEval_of
 #print axioms Polyfold.EP.epFormsInftyEval_of_zero
 #print axioms Polyfold.EP.epFormsLevelEval_ev
@@ -18023,7 +18023,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.mem_submanifoldTangent_levelOne_iff
 #print axioms Polyfold.MPolyfold.mem_submanifoldTangent_levelOne_of_tangentLower
 #print axioms Polyfold.MPolyfold.toBase_chartVec_levelOne
--- Polyfold.Chapter9.GapP2_E3_ManifoldBridge2
+-- Polyfold.Chapter9.ManifoldIntegralBridge
 #print axioms Polyfold.EP.epFormsInftyEval_integ_eq_integral_scFormRestrict
 #print axioms Polyfold.EpGroupoid.FormEval.density_eq_zero_of_ev_eq_zero
 #print axioms Polyfold.EpGroupoid.FormEval.integ_eq_manifoldIntegral
@@ -18031,7 +18031,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.weighted_corner
 #print axioms Polyfold.EpGroupoid.epFormEval_integ_eq_integral_scFormRestrict
 #print axioms Polyfold.EpGroupoid.orientedSheet_integral_eq
--- Polyfold.Chapter9.GapP2_E3_TameOpen
+-- Polyfold.Chapter9.TameOpen
 #print axioms Polyfold.EpGroupoid.FormEval.hcovEff_of_loc
 #print axioms Polyfold.EpGroupoid.FormEval.hcov_of_loc
 #print axioms Polyfold.EpGroupoid.FormEval.tameOpen
@@ -18040,14 +18040,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.exists_orientedTameStructure_sum_rn
 #print axioms Polyfold.EpGroupoid.hcov_axis
 #print axioms Polyfold.MPolyfold.HasTameInducedStructure.inter_isOpen
--- Polyfold.Chapter9.GapP2_E4_ChartAbs
+-- Polyfold.Chapter9.ChartAbsIntegral
 #print axioms Polyfold.EpGroupoid.FormEval.abs_chartInteg_le
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_congr
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_hasSum
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_mapDiffeo
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_mono
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_nonneg
--- Polyfold.Chapter9.GapP2_E4_Circle
+-- Polyfold.Chapter9.CircleWitness
 #print axioms Polyfold.EpGroupoid.circleSheet_isClosed
 #print axioms Polyfold.EpGroupoid.circleSheet_isSubmanifoldOfDim
 #print axioms Polyfold.EpGroupoid.circleTheta_apply
@@ -18078,7 +18078,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.rnPolyfold_isSubmanifoldOfDim_unitCircle2
 #print axioms Polyfold.tangentSpace_unitCircle2
 #print axioms Polyfold.unitCircle2_subset_punctured2
--- Polyfold.Chapter9.GapP2_E4_MultiChart
+-- Polyfold.Chapter9.MultiChart
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.P_subset
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.abs_term_le
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.chartAbs_eq_of_mem
@@ -18113,7 +18113,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.isMeasIn_transfer
 #print axioms Polyfold.EpGroupoid.FormEval.msheetNull_isMeasIn_iff
 #print axioms Polyfold.hasSum_of_double
--- Polyfold.Chapter9.GapP2_E4_MultiChartInteg
+-- Polyfold.Chapter9.MultiChartIntegration
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.gInteg_inter
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.isMeasIn_piece
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.mk.congr_simp
@@ -18132,21 +18132,21 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.msheets_secondCountable
 #print axioms Polyfold.EpGroupoid.FormEval.sheets_subset_msheets
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.restrict.congr_simp
--- Polyfold.Chapter9.GapP2_E4_MultiChartTheorem
+-- Polyfold.Chapter9.MultiChartTheorem
 #print axioms Polyfold.EpGroupoid.FormEval.hcovEff_msheets_of_loc
 #print axioms Polyfold.EpGroupoid.FormEval.hcov_msheets_of_loc
 #print axioms Polyfold.EpGroupoid.FormEval.sheetSum_msheet_eq
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_4_multi
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_5_multi
--- Polyfold.Chapter9.GapP2_E4_Hloc
+-- Polyfold.Chapter9.CoveringFromText
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_4_of_degIndex_eq_zero
 #print axioms Polyfold.EpGroupoid.degIndex_rnPolyfold_trivial
 #print axioms Polyfold.EpGroupoid.exists_orientedTameStructure_of_degIndex_eq_zero
 #print axioms Polyfold.EpGroupoid.hloc_of_degIndex_eq_zero
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.tangent_cast
--- Polyfold.Chapter9.GapP2_E4_MultiChartCompact
+-- Polyfold.Chapter9.MultiChartCompact
 #print axioms Polyfold.EpGroupoid.FormEval.msheets_of_isCompact
--- Polyfold.Chapter9.GapP2_E4_CircleMulti
+-- Polyfold.Chapter9.CircleOneSheet
 #print axioms Polyfold.EpGroupoid.circleStructure_M
 #print axioms Polyfold.EpGroupoid.circleStructure_U
 #print axioms Polyfold.EpGroupoid.circleStructure_admissible
@@ -18154,7 +18154,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.circleStructure_represents
 #print axioms Polyfold.EpGroupoid.circle_multiBranchedIntegral
 #print axioms Polyfold.EpGroupoid.circle_theorem_9_5_4_multi
--- Polyfold.Chapter9.GapP2_E4_DensitySigned
+-- Polyfold.Chapter9.SignedMeasureIntegrals
 #print axioms Polyfold.SignedDensity.abs_setIntegral_sub_le
 #print axioms Polyfold.SignedDensity.abs_sub_le_of_mem_piece
 #print axioms Polyfold.SignedDensity.biUnion_piece
@@ -18172,7 +18172,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SignedDensity.setIntegral_eq_jordan
 #print axioms Polyfold.SignedDensity.setIntegral_sub_toSignedMeasure
 #print axioms Polyfold.SignedDensity.sum_eq_of_additive
--- Polyfold.Chapter9.GapP2_E4_Density
+-- Polyfold.Chapter9.DensitySignedMeasure
 #print axioms Polyfold.EpGroupoid.FormEval.absInteg_empty
 #print axioms Polyfold.EpGroupoid.FormEval.absInteg_union
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.absSheetSum_union
@@ -18183,7 +18183,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.branchedMeasure_eq_setIntegral_mul_of_continuous
 #print axioms Polyfold.EpGroupoid.eq_setIntegral_of_sheetSum
 #print axioms Polyfold.EpGroupoid.measurable_and_bounded_of_continuous
--- Polyfold.Chapter9.GapP2_E4_FiniteDominated
+-- Polyfold.Chapter9.FiniteDominated
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_diff_null
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_empty
 #print axioms Polyfold.EpGroupoid.FormEval.chartAbs_eq_of_borel
@@ -18192,7 +18192,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.isFinite_of_dominated
 #print axioms Polyfold.EpGroupoid.FormEval.msheets_of_dominated
 #print axioms Polyfold.EpGroupoid.FormEval.msheets_of_list
--- Polyfold.Chapter9.GapP2_E4_FiniteTheorem
+-- Polyfold.Chapter9.FiniteTheorem
 #print axioms Polyfold.EpGroupoid.FormEval.exists_sheets_nhds_supp
 #print axioms Polyfold.EpGroupoid.FormEval.isNDimensional_of_loc
 #print axioms Polyfold.EpGroupoid.FormEval.msheets_of_orientedTameStructure
@@ -18202,11 +18202,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.exists_isCompact_lift
 #print axioms Polyfold.EpGroupoid.exists_isCompact_nhds_supp
 #print axioms Polyfold.EpGroupoid.exists_isCompact_supp_inter
--- Polyfold.Chapter9.GapP2_E4_FiniteCircle
+-- Polyfold.Chapter9.FiniteTheoremText
 #print axioms Polyfold.EpGroupoid.FormEval.theorem_9_5_4_full_of_degIndex_eq_zero
 #print axioms Polyfold.EpGroupoid.circle_msheets_of_orientedTameStructure
 #print axioms Polyfold.EpGroupoid.circle_theorem_9_5_4_full
--- Polyfold.Chapter9.GapP2_E4_ReducedRep
+-- Polyfold.Chapter9.ReducedRep
 #print axioms Polyfold.EpGroupoid.HasPropernessProperty.toReduced
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.toReduced_of_paracompact
 #print axioms Polyfold.EpGroupoid.IsOrientation.toReduced
@@ -18228,7 +18228,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.surjective_reducedIsotropyHomR
 #print axioms Polyfold.EpGroupoid.tangentMor_reducedπ
 #print axioms Polyfold.EpGroupoid.tangentValue_reduced
--- Polyfold.Chapter9.GapP2_E4_ReducedIntegral
+-- Polyfold.Chapter9.ReducedIntegral
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.toReduced
 #print axioms Polyfold.EpGroupoid.IsCompactBranched.toReduced
 #print axioms Polyfold.EpGroupoid.coe_orbitSuppHomeomorphReduced
@@ -18244,10 +18244,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.proposition_9_5_13_2
 #print axioms Polyfold.EpGroupoid.proposition_9_5_13_2_measure
 #print axioms Polyfold.EpGroupoid.proposition_9_5_13_2_of_t2Space
--- Polyfold.Chapter9.GapP2_E4_ReducedCircle
+-- Polyfold.Chapter9.ReducedCircle
 #print axioms Polyfold.EpGroupoid.circle_hcovL
 #print axioms Polyfold.EpGroupoid.circle_proposition_9_5_13_2
--- Polyfold.Chapter9.GapP2_E5_BoundaryNullSigma
+-- Polyfold.Chapter9.BoundaryNullSigmaAlgebra
 #print axioms Polyfold.EpGroupoid.TameBranchingStructure.submanifoldBoundary_mem
 #print axioms Polyfold.EpGroupoid.borel_le_lebesgueSigmaBoundaryH
 #print axioms Polyfold.EpGroupoid.isHNull_boundary_of_isMeasureZeroBoundary
@@ -18263,7 +18263,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.hNull_setOf_coord_eq_zero
 #print axioms Polyfold.hNull_setOf_two_coord_eq_zero
 #print axioms Polyfold.lipschitzWith_insertNth_zero
--- Polyfold.Chapter9.GapP2_E5_FunForm
+-- Polyfold.Chapter9.FunctionTimesForm
 #print axioms Polyfold.EP.coe_epFormsSmul
 #print axioms Polyfold.EP.epFormsInftyEval_epFormsInftySmul
 #print axioms Polyfold.EP.epFormsInftySmul.congr_simp
@@ -18288,7 +18288,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.formSmulFun_mem_scForms
 #print axioms Polyfold.MPolyfold.formSmulFun_smul
 #print axioms Polyfold.MPolyfold.isScSmoothRetractMap_whitneyBase
--- Polyfold.Chapter9.GapP2_E5_LevelRestrict
+-- Polyfold.Chapter9.LevelRestrict
 #print axioms Polyfold.BundledMPolyfold.evalFamily_castForms
 #print axioms Polyfold.BundledMPolyfold.lowerEv_castEv
 #print axioms Polyfold.EP.epFormsInftyEval_integ_eq_integral
@@ -18299,13 +18299,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.alongLift.congr_simp
 #print axioms Polyfold.MPolyfold.lowerEvIter_tangentMap
 #print axioms Polyfold.MPolyfold.tangentLower_tangentMap_alongLift
--- Polyfold.Chapter9.GapP2_E5_MeasureLocal
+-- Polyfold.Chapter9.MeasureWholeSheets
 #print axioms Polyfold.EpGroupoid.isClosed_π_image
 #print axioms Polyfold.EpGroupoid.isSaturated_tsupport
 #print axioms Polyfold.EpGroupoid.measure_eq_zero_of_integ_eq_zero
 #print axioms Polyfold.EpGroupoid.measure_univ_eq_of_integ_eq_zero
 #print axioms Polyfold.signedMeasure_eq_zero_of_openCover
--- Polyfold.Chapter9.GapP2_E5_StokesSheet
+-- Polyfold.Chapter9.StokesSheet
 #print axioms Polyfold.EP.epFormsInftyEval_eq_zero_of_restrict
 #print axioms Polyfold.EP.formsInftyRestrict_d_smul_eq_zero
 #print axioms Polyfold.EP.formsInftyRestrict_smul_eq_zero
@@ -18315,7 +18315,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.stokes_one_structure
 #print axioms Polyfold.EpGroupoid.FormEval.sigmaCompactSpace_of_mem_sheets
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.orientedSheet_carrier
--- Polyfold.Chapter9.GapP2_E5_Stokes
+-- Polyfold.Chapter9.StokesPartition
 #print axioms Polyfold.EP.exists_boundary_functional
 #print axioms Polyfold.EP.exists_stokes_partition
 #print axioms Polyfold.EP.stokes_of_boundary_functional
@@ -18324,13 +18324,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.theorem_9_5_17_of_boundary
 #print axioms Polyfold.EP.theorem_9_5_18_boundary_sum
 #print axioms Polyfold.EP.theorem_9_5_18_of_boundary
--- Polyfold.Chapter9.GapP2_E6_BoundarySheets
+-- Polyfold.Chapter9.BoundarySheets
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundaryOrient_tangent
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundaryOrientation_eq_sum
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundarySheet_subset
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.exists_boundarySheet_mem_sheets
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.isSubmanifoldOfDim_boundarySheet
--- Polyfold.Chapter9.GapP2_E6_StokesDim1
+-- Polyfold.Chapter9.StokesSheetAllDegrees
 #print axioms Polyfold.BundledMPolyfold.castForms_formSmulFun
 #print axioms Polyfold.BundledMPolyfold.castFun_comp_levelVal
 #print axioms Polyfold.EP.castFun_liftFun
@@ -18341,7 +18341,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.integ_d_smul_eq_zero_all
 #print axioms Polyfold.EP.stokes_off_support_all
 #print axioms Polyfold.EP.stokes_one_structure_all
--- Polyfold.Chapter9.GapP2_E6_StokesDim1b
+-- Polyfold.Chapter9.StokesPartitionAllDegrees
 #print axioms Polyfold.EP.exists_boundary_functional_all
 #print axioms Polyfold.EP.stokes_of_boundary_functional_all
 #print axioms Polyfold.EP.stokes_of_partition_all
@@ -18349,7 +18349,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.theorem_9_5_17_of_boundary_all
 #print axioms Polyfold.EP.theorem_9_5_18_boundary_sum_all
 #print axioms Polyfold.EP.theorem_9_5_18_of_boundary_all
--- Polyfold.Chapter9.GapP2_E7_SheetFamily
+-- Polyfold.Chapter9.SheetFamily
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.IsMeas.image
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.IsMeas.of_subset_MU
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.MU_eq
@@ -18389,7 +18389,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_toFamily
 #print axioms Polyfold.EpGroupoid.isMorSaturated_supp
 #print axioms Polyfold.EpGroupoid.isNaturalOn_of_isOrientation
--- Polyfold.Chapter9.GapP2_E7_FamilyMeasure
+-- Polyfold.Chapter9.FamilyMeasure
 #print axioms Polyfold.EpGroupoid.NaturalRep.exists_slice_pair
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.exists_local_agreement
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.image_inter_D_subset
@@ -18400,7 +18400,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.card_effIsotropy_normalizing
 #print axioms Polyfold.EpGroupoid.card_isotropy_normalizing
 #print axioms Polyfold.EpGroupoid.existsUnique_familyMeasure
--- Polyfold.Chapter9.GapP2_E7_BoundaryFamily
+-- Polyfold.Chapter9.BoundaryFamily
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundaryFamily_N
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.iUnion_boundarySheet
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.mem_boundaryStratumSet_iff
@@ -18414,7 +18414,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.reducedCodimPart_natural
 #print axioms Polyfold.finsupp_filter_mapDomain_of_iff
 #print axioms Polyfold.finsupp_sum_single_ne_zero
--- Polyfold.Chapter9.GapP2_E7_BoundaryMeasure
+-- Polyfold.Chapter9.BoundaryMeasure
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.nonemptyPart_N
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.nonemptyPart_rep
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.orientedSum_nonemptyPart
@@ -18431,7 +18431,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.theorem_9_5_15_msheets
 #print axioms Polyfold.EpGroupoid.theorem_9_5_16_hyp
 #print axioms Polyfold.EpGroupoid.theorem_9_5_16_msheets
--- Polyfold.Chapter9.GapP2_E8F_FaceFrame
+-- Polyfold.Chapter9.FaceFrame
 #print axioms Polyfold.EpGroupoid.FormEval.chartVec_eq_sum_tvec
 #print axioms Polyfold.EpGroupoid.FormEval.density_eq_zero_of_frame
 #print axioms Polyfold.EpGroupoid.FormEval.det_ne_zero_of_frame
@@ -18442,7 +18442,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.faceSign_eq_orSign
 #print axioms Polyfold.MPolyfold.linearIndependent_chartVec_faceFrame
 #print axioms Polyfold.MPolyfold.orSign_mul_faceSign
--- Polyfold.Chapter9.GapP2_E8F_FaceChange
+-- Polyfold.Chapter9.FaceChange
 #print axioms Polyfold.EpGroupoid.FormEval.faceDensity.congr_simp
 #print axioms Polyfold.EpGroupoid.FormEval.face_change
 #print axioms Polyfold.MPolyfold.CornerCoords.continuousOn_facePt
@@ -18463,19 +18463,19 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.facePt_mem_boundaryStratum
 #print axioms Polyfold.MPolyfold.hasFDerivWithinAt_coord_facePt
 #print axioms Polyfold.MPolyfold.measurableSet_faceSet_inter_preimage
--- Polyfold.Chapter9.GapP2_E8F_FaceIntegrand
+-- Polyfold.Chapter9.FaceIntegrand
 #print axioms Polyfold.EpGroupoid.FormEval.orSign_mul_faceSign_mul_facePullback_eq
 #print axioms Polyfold.ManifoldForm.integrableOn_facePullback_chartForm
--- Polyfold.Chapter9.GapP2_E8F_FaceSum
+-- Polyfold.Chapter9.BoundaryIntegralFaces
 #print axioms Polyfold.EpGroupoid.FormEval.density_eq_zero_of_restrict_eq_zero
 #print axioms Polyfold.EpGroupoid.FormEval.face_term_eq
 #print axioms Polyfold.EpGroupoid.FormEval.integral_density_eq_sum_face
 #print axioms Polyfold.MPolyfold.CornerCoords.faceSet_ae_eq
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.stratumOrientation.congr_simp
--- Polyfold.Chapter9.GapP2_E8F_BoundaryIntegral
+-- Polyfold.Chapter9.BoundaryIntegralStratum
 #print axioms Polyfold.EP.boundaryIntegral_eq_msInteg
 #print axioms Polyfold.EpGroupoid.FormEval.boundaryIntegral_eq_msInteg
--- Polyfold.Chapter9.GapP2_E8W_Sphere
+-- Polyfold.Chapter9.SphereRadialRetraction
 #print axioms Polyfold.E8W.contDiffOn_rho
 #print axioms Polyfold.E8W.continuousOn_frameVec
 #print axioms Polyfold.E8W.continuous_nsq
@@ -18512,7 +18512,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.E8W.rho_image
 #print axioms Polyfold.E8W.rho_mem_sphere3
 #print axioms Polyfold.E8W.sphere3_subset_punct3
--- Polyfold.Chapter9.GapP2_E8W_Hemisphere
+-- Polyfold.Chapter9.HemisphereSheet
 #print axioms Polyfold.E8W.Ph_degIndex
 #print axioms Polyfold.E8W.Ph_degIndex_le
 #print axioms Polyfold.E8W.Ph_hasCornerStructure
@@ -18557,7 +18557,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.E8W.shrink_hemiData
 #print axioms Polyfold.E8W.tangentSpace_hemi
 #print axioms Polyfold.E8W.toBase_lev1
--- Polyfold.Chapter9.GapP2_E8W_Witness
+-- Polyfold.Chapter9.HemisphereWitness
 #print axioms Polyfold.E8W.Ph_admitsScPartitionsOfUnity
 #print axioms Polyfold.E8W.TH_mem_GrHat
 #print axioms Polyfold.E8W.boundaryStratum_inter_isOpen
@@ -18587,7 +18587,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.E8W.one_add_pos_of_mem
 #print axioms Polyfold.E8W.pt0_mem_hemi
 #print axioms Polyfold.E8W.supp_thetaH
--- Polyfold.Chapter9.GapP2_E8_BoundaryLocal
+-- Polyfold.Chapter9.BoundaryLocal
 #print axioms Polyfold.EpGroupoid.FormEval.msInteg_empty
 #print axioms Polyfold.EpGroupoid.FormEval.msInteg_eq_zero_of_ev_eq_zero
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundarySheet_eq_empty
@@ -18599,7 +18599,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.mem_compl_preimage_orbitSupp_boundaryTheta
 #print axioms Polyfold.EpGroupoid.mem_supp_boundaryTheta_of_π_eq
 #print axioms Polyfold.EpGroupoid.sum_nonempty_eq
--- Polyfold.Chapter9.GapP2_E8_Stokes
+-- Polyfold.Chapter9.StokesBoundaryMeasure
 #print axioms Polyfold.EP.hcovB_of_hcovS
 #print axioms Polyfold.EP.msInteg_smul_eq_zero
 #print axioms Polyfold.EP.stokes_of_boundaryMeasure
@@ -18608,12 +18608,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.theorem_9_5_17_msheets
 #print axioms Polyfold.EP.theorem_9_5_18_hyp
 #print axioms Polyfold.EP.theorem_9_5_18_msheets
--- Polyfold.Chapter9.GapP2_E8_Hemisphere
+-- Polyfold.Chapter9.HemisphereStokes
 #print axioms Polyfold.E8W.e8_hemisphere_stokes
--- Polyfold.Chapter11.GapP2_H4Compat
+-- Polyfold.Chapter11.FormEvalPullback
 #print axioms Polyfold.EpGroupoid.FormEval.IsPullback.ev_pull
 #print axioms Polyfold.EpGroupoid.FormEval.IsPullback.surjective
--- Polyfold.Chapter11.GapP2_H4CrossChart
+-- Polyfold.Chapter11.GraphChartsDiffeo
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeoCross_coord
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeoCross_dom
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeoCross_q
@@ -18624,7 +18624,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo_symm_mapDiffeo_frames
 #print axioms Polyfold.MPolyfold.chartVec_transport_tangentMapOn_cross
 #print axioms Polyfold.MPolyfold.measurableSet_borel_image_of_isScDiffeoOn_cross
--- Polyfold.Chapter11.GapP2_H4Move
+-- Polyfold.Chapter11.OrientedStructureDiffeo
 #print axioms Polyfold.EpGroupoid.FormEval.chartInteg_mapDiffeoCross
 #print axioms Polyfold.EpGroupoid.FormEval.image_mem_sheets_cross
 #print axioms Polyfold.EpGroupoid.FormEval.integ_image_cross
@@ -18642,7 +18642,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_move
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.toOriented_move
 #print axioms Polyfold.MPolyfold.GraphChart.mapDiffeoCross.congr_simp
--- Polyfold.Chapter11.GapP2_H4MSheets
+-- Polyfold.Chapter11.MultiChartSheetsEquivalence
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.imageCross_P
 #print axioms Polyfold.EpGroupoid.FormEval.ChartCover.imageCross_isFinite
 #print axioms Polyfold.EpGroupoid.FormEval.EvCompatOn.inter_isOpen
@@ -18660,7 +18660,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.FormEval.msInteg_image_cross_of_mem_sheets
 #print axioms Polyfold.EpGroupoid.FormEval.msInteg_image_cross_of_tangent
 #print axioms Polyfold.EpGroupoid.FormEval.msInteg_inter_sheet
--- Polyfold.Chapter11.GapP2_H4BdGeom
+-- Polyfold.Chapter11.BoundarySheetsDiffeo
 #print axioms Polyfold.EpGroupoid.FormEval.msheetIntegration.congr_simp
 #print axioms Polyfold.EpGroupoid.OrientedSheetFamily.sheetSum_nonemptyPart
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.M_subset_W
@@ -18672,7 +18672,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundarySheet_subset_W
 #print axioms Polyfold.EpGroupoid.boundaryStratum_image_cross
 #print axioms Polyfold.EpGroupoid.boundaryStratum_inter_isOpen
--- Polyfold.Chapter11.GapP2_H4Pairs
+-- Polyfold.Chapter11.OrientedStructurePairs
 #print axioms Polyfold.EpFunctor.TransportChart.evCompatOn_Q
 #print axioms Polyfold.EpFunctor.TransportChart.evCompatOn_Qinv
 #print axioms Polyfold.EpFunctor.TransportChart.exists_rep_push
@@ -18689,7 +18689,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.represents_pullStructure
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.restrictRep_U_subset_W'
 #print axioms Polyfold.EpGroupoid.rel_symm
--- Polyfold.Chapter11.GapP2_H4Measure
+-- Polyfold.Chapter11.MeasureEquivalence
 #print axioms Polyfold.EpFunctor.IsPulled.mem_sheets
 #print axioms Polyfold.EpFunctor.IsPulled.represents
 #print axioms Polyfold.EpFunctor.continuous_suppInv
@@ -18718,7 +18718,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.theorem_11_4_1_push_equiv
 #print axioms Polyfold.EpFunctor.val_image_preimage
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.move_isNull
--- Polyfold.Chapter11.GapP2_H4Eff
+-- Polyfold.Chapter11.EffectiveMeasureEquivalence
 #print axioms Polyfold.EpFunctor.TransportChart.card_effIsotropy_eq
 #print axioms Polyfold.EpFunctor.hcovL_pull
 #print axioms Polyfold.EpFunctor.hcovL_push
@@ -18728,7 +18728,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.plainCov
 #print axioms Polyfold.EpFunctor.theorem_11_4_2_pull_equiv
 #print axioms Polyfold.EpFunctor.theorem_11_4_2_push_equiv
--- Polyfold.Chapter11.GapP2_H4Bd
+-- Polyfold.Chapter11.BoundaryMeasureEquivalence
 #print axioms Polyfold.EpFunctor.IsBPulled.mem_msheets
 #print axioms Polyfold.EpFunctor.IsBPulled.represents
 #print axioms Polyfold.EpFunctor.continuous_bsuppInv
@@ -18755,7 +18755,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.boundaryMeasure_apply
 #print axioms Polyfold.EpGroupoid.hcovB_addLUC
 #print axioms Polyfold.EpGroupoid.hcovB_dropLUC
--- Polyfold.Chapter11.GapP2_H4CompatInst
+-- Polyfold.Chapter11.FormEvalPullbackEquivalence
 #print axioms Polyfold.EP.epFormsInftyEval_isPullback
 #print axioms Polyfold.EP.epFormsLevelEval_epFormsPullback
 #print axioms Polyfold.EP.levelEv_epFormsPullback
@@ -18765,7 +18765,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.isSubTuple_tangent_obj
 #print axioms Polyfold.EpGroupoid.epFormEval_ev_formPullback
 #print axioms Polyfold.MPolyfold.evalFamily_formPullback
--- Polyfold.Chapter11.GapP2_H4Diagram
+-- Polyfold.Chapter11.MeasureGeneralizedIso
 #print axioms Polyfold.EPLocalization.Diagram.hcov_pullTheta
 #print axioms Polyfold.EPLocalization.Diagram.hcov_pushTheta
 #print axioms Polyfold.EPLocalization.Diagram.isBranchedEpSubgroupoid_pullTheta
@@ -18789,7 +18789,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_1_push
 #print axioms Polyfold.EpFunctor.measurableSet_preimage_val
 #print axioms Polyfold.EpFunctor.measure_span_core
--- Polyfold.Chapter11.GapP2_H4BdDiagram
+-- Polyfold.Chapter11.BoundaryMeasureGeneralizedIso
 #print axioms Polyfold.EPLocalization.Diagram.hcovB_pullTheta
 #print axioms Polyfold.EPLocalization.Diagram.hcovB_pushTheta
 #print axioms Polyfold.EPLocalization.Diagram.isNDimensional_dPullTheta
@@ -18803,7 +18803,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_5_pull
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_5_push
 #print axioms Polyfold.EpFunctor.measure_span_core_bd
--- Polyfold.Chapter11.GapP2_H4EffDiagram
+-- Polyfold.Chapter11.EffectiveMeasureGeneralizedIso
 #print axioms Polyfold.EPLocalization.Diagram.hcovL_pullTheta
 #print axioms Polyfold.EPLocalization.Diagram.hcovL_pushTheta
 #print axioms Polyfold.EPLocalization.Diagram.theorem_11_4_2_pull
@@ -18816,7 +18816,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: wave K (2026-11-13) -/
 
--- Polyfold.Chapter4.GapP3_K4_BoundaryWedge
+-- Polyfold.Chapter4.BoundaryWedge
 #print axioms Polyfold.BundledMPolyfold.agreeDFormsCast_agreeDFormsWedge_formsOne
 #print axioms Polyfold.BundledMPolyfold.agreeDFormsD_agreeDFormsWedge
 #print axioms Polyfold.BundledMPolyfold.agreeDFormsInftyCast_agreeDFormsInftyOne_wedge
@@ -18857,7 +18857,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.IsAgreeingOver.formCast
 #print axioms Polyfold.MPolyfold.IsAgreeingOver.formWedge
 #print axioms Polyfold.MPolyfold.jStar_formsInftyWedge
--- Polyfold.Chapter4.GapP3_K4_RelWedge
+-- Polyfold.Chapter4.RelativeWedge
 #print axioms Polyfold.BundledMPolyfold.agreeDFormsInftyCast.congr_simp
 #print axioms Polyfold.MPolyfold.gradedMonoid_mk_relCast
 #print axioms Polyfold.MPolyfold.relCast_relWedge_relOne
@@ -18887,7 +18887,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.relSnd_relWedge_zero
 #print axioms Polyfold.MPolyfold.relWedge_assoc
 #print axioms Polyfold.MPolyfold.relWedge_relOne
--- Polyfold.Chapter6.GapP3_K4_Contractible
+-- Polyfold.Chapter6.ScContractible
 #print axioms Polyfold.IsScContraction.fix
 #print axioms Polyfold.IsScContraction.isScSmoothOn
 #print axioms Polyfold.IsScContraction.mapsTo
@@ -18901,15 +18901,15 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.exists_isScContraction
 #print axioms Polyfold.exists_isScContractionRn
 #print axioms Polyfold.proposition_6_6_3_one
--- Polyfold.Chapter6.GapP3_K4_IntervalHomotopy
+-- Polyfold.Chapter6.IntervalHomotopy
 #print axioms Polyfold.exists_isScHomotopyI
 #print axioms Polyfold.isScSmoothOn_chartSegment
 #print axioms Polyfold.proposition_6_6_3_interval
--- Polyfold.Chapter6.GapP3_K4_SmoothLInterval
+-- Polyfold.Chapter6.KernelBundleInterval
 #print axioms Polyfold.SmoothSubspaceFamily.comp_L
 #print axioms Polyfold.contMDiff_unitIntervalToOpens
 #print axioms Polyfold.lemma_6_6_5_smoothBundle_interval
--- Polyfold.Chapter9.GapP3_K1_CornerFinite
+-- Polyfold.Chapter9.CornerFinite
 #print axioms Polyfold.EpGroupoid.FormEval.abs_ev_faceFrame
 #print axioms Polyfold.EpGroupoid.FormEval.boundaryStratum_inter_mem_msheets
 #print axioms Polyfold.EpGroupoid.FormEval.exists_chartCover_of_isLindelof
@@ -18917,7 +18917,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.integrableOn_facePullback_of_isCompact
 #print axioms Polyfold.k1_isClosedEmbedding_quadrant
 #print axioms Polyfold.k1_locallyCompactSpace_quadrant
--- Polyfold.Chapter9.GapP3_K1_BoundaryCover
+-- Polyfold.Chapter9.BoundaryCover
 #print axioms Polyfold.EP.boundaryStratum_inter_mem_msheets
 #print axioms Polyfold.EP.exists_restrict_boundary_mem_msheets
 #print axioms Polyfold.EP.hcovS_of_loc
@@ -18928,14 +18928,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isCompact_M_inter
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.exists_restrict_eq
 #print axioms Polyfold.MPolyfold.k1_boundaryStratum_inter_isOpen
--- Polyfold.Chapter9.GapP3_K1_Theorems
+-- Polyfold.Chapter9.StokesTextHypotheses
 #print axioms Polyfold.EP.boundaryMeasure_spec
 #print axioms Polyfold.EP.hloc_hasLUC
 #print axioms Polyfold.EP.theorem_9_5_15_class
 #print axioms Polyfold.EP.theorem_9_5_16_class
 #print axioms Polyfold.EP.theorem_9_5_17
 #print axioms Polyfold.EP.theorem_9_5_18
--- Polyfold.Chapter9.GapP3_K1_AllStructures
+-- Polyfold.Chapter9.AllStructures
 #print axioms Polyfold.EP.boundaryMeasure_apply_all
 #print axioms Polyfold.EP.boundarySheet_mem_msheets_of_loc
 #print axioms Polyfold.EP.theorem_9_5_15
@@ -18944,10 +18944,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.k1_exists_isOpen_disjoint
 #print axioms Polyfold.MPolyfold.k1_exists_tangent_eq
 #print axioms Polyfold.MPolyfold.k1_mem_boundaryStratum_of_tangent_eq
--- Polyfold.Chapter9.GapP3_K1_Hemisphere
+-- Polyfold.Chapter9.HemisphereBoundaryMeasure
 #print axioms Polyfold.E8W.k1_hemisphere_stokes
 #print axioms Polyfold.E8W.k1_hloc
--- Polyfold.Chapter9.GapP3_K2_ZeroForms
+-- Polyfold.Chapter9.ZeroFormValues
 #print axioms Polyfold.BundledMPolyfold.castFun_zeroVal
 #print axioms Polyfold.BundledMPolyfold.zeroVal_add
 #print axioms Polyfold.BundledMPolyfold.zeroVal_levelVal
@@ -18974,7 +18974,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.zeroVal_epFormsToObj
 #print axioms Polyfold.EpGroupoid.SheetIntegration.comap_integ
 #print axioms Polyfold.EpGroupoid.src_mem_smoothSet_iff
--- Polyfold.Chapter9.GapP3_K2_FinPoints
+-- Polyfold.Chapter9.FinitePointIntegration
 #print axioms Polyfold.EP.finZeroFormIntegration_integ
 #print axioms Polyfold.EP.finZeroFormIntegration_integ_eq
 #print axioms Polyfold.EP.finZeroFormIntegration_integ_of_subset
@@ -18989,7 +18989,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isMeasIn_point_finite
 #print axioms Polyfold.EpGroupoid.pointSheets_subset_finPointSheets
 #print axioms Polyfold.EpGroupoid.submanifoldTangent_finite_eq
--- Polyfold.Chapter9.GapP3_K2_BoundaryDim1
+-- Polyfold.Chapter9.BoundaryMeasureDimOne
 #print axioms Polyfold.EP.theorem_9_5_15_dim1
 #print axioms Polyfold.EP.theorem_9_5_16_dim1
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundarySheet_mem_pointSheets
@@ -19000,13 +19000,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.point_isNull_iff_isHNull_zero
 #print axioms Polyfold.MPolyfold.boundaryStratum_inter_subset
 #print axioms Polyfold.MPolyfold.exists_isOpen_boundaryStratum_subsingleton
--- Polyfold.Chapter9.GapP3_K2_FaceDim1
+-- Polyfold.Chapter9.FaceIntegralDimOne
 #print axioms Polyfold.EP.boundaryIntegral_eq_zeroFormIntegration
 #print axioms Polyfold.EpGroupoid.boundaryIntegral_eq_pointInteg
 #print axioms Polyfold.EpGroupoid.face_term_eq_dim1
 #print axioms Polyfold.EpGroupoid.orSign_mul_faceSign_mul_facePullback_eq_dim1
 #print axioms Polyfold.setIntegral_euclideanSpace_fin_zero
--- Polyfold.Chapter9.GapP3_K2_StokesDim1
+-- Polyfold.Chapter9.StokesDimOne
 #print axioms Polyfold.EP.exists_good_dim1
 #print axioms Polyfold.EP.stokes_of_boundaryMeasure_dim1
 #print axioms Polyfold.EP.sum_boundaryIntegral_smul_eq_dim1
@@ -19015,11 +19015,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.zeroFormIntegration_smul_eq_zero
 #print axioms Polyfold.EpGroupoid.boundaryMeasure_eq_zero_of_integ_eq_zeroI
 #print axioms Polyfold.EpGroupoid.boundaryMeasure_univ_eqI
--- Polyfold.Chapter9.GapP3_K2_LUCDim1
+-- Polyfold.Chapter9.EffectiveDimOneLUC
 #print axioms Polyfold.EP.hloc_hasLUC_dim1
 #print axioms Polyfold.EP.theorem_9_5_16_dim1_isLUC
 #print axioms Polyfold.EP.theorem_9_5_18_dim1_isLUC
--- Polyfold.Chapter9.GapP3_K2_AllStructuresDim1
+-- Polyfold.Chapter9.AllStructuresDimOne
 #print axioms Polyfold.EP.boundaryBranchedMeasureDim1_apply_all
 #print axioms Polyfold.EP.boundaryBranchedMeasureEffDim1_apply_all
 #print axioms Polyfold.EP.boundarySheet_finite_of_loc
@@ -19027,7 +19027,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.sheetSum_finZeroFormIntegration_eq
 #print axioms Polyfold.EP.theorem_9_5_15_dim1_all
 #print axioms Polyfold.EP.theorem_9_5_16_dim1_all
--- Polyfold.Chapter9.GapP3_K2_Arc
+-- Polyfold.Chapter9.HalfCircleSheet
 #print axioms Polyfold.K2Arc.Pa_degIndex
 #print axioms Polyfold.K2Arc.Pa_degIndex_le
 #print axioms Polyfold.K2Arc.Pa_hasCornerStructure
@@ -19098,12 +19098,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.K2Arc.shrink_arcData
 #print axioms Polyfold.K2Arc.tangentSpace_arc
 #print axioms Polyfold.K2Arc.toBase_lev1
--- Polyfold.Chapter9.GapP3_K2_HemisphereEff
+-- Polyfold.Chapter9.HemisphereStokesEffective
 #print axioms Polyfold.E8W.e8_hemisphere_stokes_eff
 #print axioms Polyfold.E8W.e8w_hcovEff
 #print axioms Polyfold.E8W.e8w_stokes_eff_hypotheses
 #print axioms Polyfold.E8W.hasLUC_trivial
--- Polyfold.Chapter9.GapP3_K2_ArcWitness
+-- Polyfold.Chapter9.HalfCircleWitness
 #print axioms Polyfold.K2Arc.Pa_admitsScPartitionsOfUnity
 #print axioms Polyfold.K2Arc.TA_mem_GrHat
 #print axioms Polyfold.K2Arc.arcBranching_orientedSum
@@ -19133,10 +19133,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.K2Arc.one_add_pos_of_mem
 #print axioms Polyfold.K2Arc.pt1_mem_arc
 #print axioms Polyfold.K2Arc.supp_thetaA
--- Polyfold.Chapter9.GapP3_K2_HemisphereLUC
+-- Polyfold.Chapter9.HemisphereStokesLUC
 #print axioms Polyfold.E8W.e8w_isLUC
 #print axioms Polyfold.E8W.k2_hemisphere_stokes_eff
--- Polyfold.Chapter9.GapP3_K3_Retract
+-- Polyfold.Chapter9.DimensionJumpRetract
 #print axioms Polyfold.IsLossFamily.comp_contDiff
 #print axioms Polyfold.IsLossFamily.diag
 #print axioms Polyfold.K3.L_apply
@@ -19160,7 +19160,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.K3.ρ_of_mem_arc
 #print axioms Polyfold.K3.ρ_ρ
 #print axioms Polyfold.diagFam_apply
--- Polyfold.Chapter9.GapP3_K3_MPolyfold
+-- Polyfold.Chapter9.DimensionJumpPolyfold
 #print axioms Polyfold.K3.G_eq_τ_tOf
 #print axioms Polyfold.K3.G_of_mem_O_nonpos
 #print axioms Polyfold.K3.IsEnd.mem
@@ -19238,7 +19238,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.K3.ψfun_ψinv
 #print axioms Polyfold.K3.ψinv_mem
 #print axioms Polyfold.K3.ψinv_ψfun
--- Polyfold.Chapter9.GapP3_K3_Groupoid
+-- Polyfold.Chapter9.CyclicGroupoidIsotropy
 #print axioms Polyfold.K3.card_Z3
 #print axioms Polyfold.K3.card_effIsotropy_end
 #print axioms Polyfold.K3.card_effIsotropy_of_snd_eq_zero
@@ -19285,14 +19285,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.K3.ω_pow_three
 #print axioms Polyfold.K3.ω_sq
 #print axioms Polyfold.K3.ω_sq_ne_one
--- Polyfold.Chapter11.GapP3_K1_BoundaryLoc
+-- Polyfold.Chapter11.BoundaryMeasureTextHypotheses
 #print axioms Polyfold.EP.boundaryMeasureEff_eq
 #print axioms Polyfold.EP.boundaryMeasure_eq
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_4_pull_loc
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_4_push_loc
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_5_pull_loc
 #print axioms Polyfold.EPLocalization.EPLoc.theorem_11_4_5_push_loc
--- Polyfold.Chapter11.GapP3_K2_H4BdDim1
+-- Polyfold.Chapter11.BoundaryMeasureEquivalenceDimOne
 #print axioms Polyfold.EP.boundaryBranchedMeasureDim1_spec
 #print axioms Polyfold.EP.boundaryBranchedMeasureEffDim1_spec
 #print axioms Polyfold.EP.levelBase_liftFunctor
@@ -19311,7 +19311,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.theorem_11_4_5_pull_equiv_dim1
 #print axioms Polyfold.EpFunctor.theorem_11_4_5_push_equiv_dim1
 #print axioms Polyfold.EpGroupoid.OrientedTameStructure.boundarySheetSum_move_dim1
--- Polyfold.Chapter11.GapP3_K2_H4BdDiagramDim1
+-- Polyfold.Chapter11.BoundaryMeasureGeneralizedIsoDimOne
 #print axioms Polyfold.EPLocalization.Diagram.hloc_pullTheta_dim1
 #print axioms Polyfold.EPLocalization.Diagram.hloc_pushTheta_dim1
 #print axioms Polyfold.EPLocalization.Diagram.theorem_11_4_4_pull_dim1
@@ -19343,7 +19343,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 1 (2026-11-13), Chapter 5 -/
 
--- Polyfold.Chapter5.P3R_WeakSeqCompact
+-- Polyfold.Chapter5.WeakSequentialCompactness
 #print axioms Filter.Tendsto.weakTendsto
 #print axioms Polyfold.WeakTendsto.comp_strictMono
 #print axioms Polyfold.WeakTendsto.congr_eventually
@@ -19358,7 +19358,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.weakTendsto_const
 #print axioms Polyfold.weakTendsto_iff_shift
 #print axioms Polyfold.weakTendsto_of_bounded_of_tendsto
--- Polyfold.Chapter5.P3R_Reflexive2021
+-- Polyfold.Chapter5.ReflexiveFibres
 #print axioms Polyfold.StrongBundle.IsAuxNorm.comp_mul
 #print axioms Polyfold.StrongBundle.IsReflexiveAuxNorm.comp_mul
 #print axioms Polyfold.StrongBundle.IsReflexiveAuxNorm.eventually_sub_lt
@@ -19390,7 +19390,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.proposition_5_1_8_exists
 #print axioms Polyfold.StrongBundle.HasReflexiveFibers
 #print axioms Polyfold.StrongBundle.MixedTendsto
--- Polyfold.Chapter5.P3R_ReflexiveCompactness2021
+-- Polyfold.Chapter5.ReflexiveCompactness
 #print axioms Polyfold.StrongBundle.closure_auxLe_subset
 #print axioms Polyfold.StrongBundle.exists_nhds_not_auxLe
 #print axioms Polyfold.StrongBundle.isClosed_setOf_auxLe
@@ -19404,7 +19404,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.theorem_5_2_8
 #print axioms Polyfold.theorem_5_2_8_of_continuous
 #print axioms Polyfold.StrongBundle.HasReflexiveLocalCompactness
--- Polyfold.Chapter5.P3B_BoundaryExtension2021
+-- Polyfold.Chapter5.BoundaryExtension
 #print axioms Polyfold.StrongBundle.aux_fiberZero
 #print axioms Polyfold.StrongBundle.degIndex_ne_zero_of_mem_boundary
 #print axioms Polyfold.StrongBundle.exists_boundary_extension
@@ -19419,7 +19419,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 1 (2026-11-13), Chapter 12 -/
 
--- Polyfold.Chapter12.P3B_LocalBoundaryExtension
+-- Polyfold.Chapter12.LocalBoundaryExtension
 #print axioms Polyfold.IsScSmooth.p3bConstSmul
 #print axioms Polyfold.IsStrongBundleRetraction.baseRetraction.congr_simp
 #print axioms Polyfold.LocalBundleAction.act_mul
@@ -19456,11 +19456,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalBundleAction.average
 #print axioms Polyfold.LocalBundleAction.trivial
 #print axioms Polyfold.boundaryExtension
--- Polyfold.Chapter12.P3N_GoodNeighborhood
+-- Polyfold.Chapter12.GoodNeighborhood
 #print axioms Polyfold.EpGroupoid.NaturalRep.image_Φ_eq
 #print axioms Polyfold.EpGroupoid.exists_subseq_of_isProperMap
 #print axioms Polyfold.EpGroupoid.theorem_12_2_6
--- Polyfold.Chapter12.P3N_AuxNormEp
+-- Polyfold.Chapter12.AuxNormEp
 #print axioms Polyfold.EpGroupoid.IsContPartitionOfUnity.continuous
 #print axioms Polyfold.EpGroupoid.IsContPartitionOfUnity.descend
 #print axioms Polyfold.EpGroupoid.IsContPartitionOfUnity.locallyFinite
@@ -19525,7 +19525,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.avgNorm
 #print axioms Polyfold.EpStrongBundle.glueNorm
 #print axioms Polyfold.EpStrongBundle.transNorm
--- Polyfold.Chapter12.P3N_AuxNormExtension
+-- Polyfold.Chapter12.AuxNormExtension
 #print axioms Polyfold.EpGroupoid.isOpen_compl_boundary
 #print axioms Polyfold.EpGroupoid.tgt_mem_boundary_iff
 #print axioms Polyfold.EpStrongBundle.IsAuxNorm.isAuxNormOn
@@ -19538,7 +19538,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.theorem_12_2_7_hyp_witness
 #print axioms Polyfold.StrongBundle.IsLocalAuxNorm.mono
 #print axioms Polyfold.EpStrongBundle.HasLocalExtensions
--- Polyfold.Chapter12.P3S_BumpEp
+-- Polyfold.Chapter12.BumpEp
 #print axioms Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise.weak
 #print axioms Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_of_objects
 #print axioms Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn
@@ -19556,7 +19556,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.theorem_12_3_2_2
 #print axioms Polyfold.EpGroupoid.AdmitsBumpFunctions
 #print axioms Polyfold.EpGroupoid.AdmitsBumpFunctionsPointwise
--- Polyfold.Chapter12.P3S_CompactnessEp
+-- Polyfold.Chapter12.CompactnessEp
 #print axioms Polyfold.EpGroupoid.isClosed_image_π_of_isSaturated
 #print axioms Polyfold.EpGroupoid.lemma_12_4_4_1
 #print axioms Polyfold.EpGroupoid.lemma_12_4_4_2
@@ -19572,7 +19572,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.exists_nhds_isCompact_closure_auxLe
 #print axioms Polyfold.EpStrongBundle.IsProperFunctor
 #print axioms Polyfold.EpStrongBundle.IsProperLtInftyFunctor
--- Polyfold.Chapter12.P3S_ScPlusSectionFunctor
+-- Polyfold.Chapter12.ScPlusSectionFunctor
 #print axioms Polyfold.EpStrongBundle.IsAuxNorm.secAct_eq
 #print axioms Polyfold.EpStrongBundle.P_secAct
 #print axioms Polyfold.EpStrongBundle.exists_equivariant_average
@@ -19609,7 +19609,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.eq_fiberZero_of_notMem_sectionSupport
 #print axioms Polyfold.StrongBundle.isScPlusSection_of_locally
 #print axioms Polyfold.EpStrongBundle.natExtension
--- Polyfold.Chapter12.P3O_PullChart
+-- Polyfold.Chapter12.ChartPull
 #print axioms Polyfold.StrongBundle.LocalIso.GermAgree.exists_nhds
 #print axioms Polyfold.StrongBundle.LocalIso.baseDeriv_pullPt
 #print axioms Polyfold.StrongBundle.LocalIso.baseDeriv_pullPt_pullPt
@@ -19625,7 +19625,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.transferK_pullPt_pullPt
 #print axioms Polyfold.StrongBundle.LocalIso.transferT_pullPt
 #print axioms Polyfold.StrongBundle.LocalIso.transferT_pullPt_pullPt
--- Polyfold.Chapter12.P3O_MorphismIso
+-- Polyfold.Chapter12.MorphismIso
 #print axioms Polyfold.EpStrongBundle.P_sectionAct_morInvSec
 #print axioms Polyfold.EpStrongBundle.P_sectionAct_srcInv
 #print axioms Polyfold.EpStrongBundle.eqOn_morIso
@@ -19647,7 +19647,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.tgtInv_tgt
 #print axioms Polyfold.EpStrongBundle.tgt_mem_morIso
 #print axioms Polyfold.EpStrongBundle.morIso
--- Polyfold.Chapter12.P3O_OrientationBundleEp
+-- Polyfold.Chapter12.OrientationBundleEp
 #print axioms Polyfold.EpStrongBundle.comp_unit_unit
 #print axioms Polyfold.EpStrongBundle.functorial_of_isScFredholmSectionFunctor
 #print axioms Polyfold.EpStrongBundle.isOpen_compSet
@@ -19699,7 +19699,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.linMor
 #print axioms Polyfold.EpStrongBundle.orMor
 #print axioms Polyfold.StrongBundle.LocalIso.orVia
--- Polyfold.Chapter12.P3O_OrientationOrbit
+-- Polyfold.Chapter12.OrientationOrbit
 #print axioms Polyfold.EpGroupoid.smoothRel_equivalence
 #print axioms Polyfold.EpGroupoid.smoothRel_of_quot_eq
 #print axioms Polyfold.EpStrongBundle.orRel_equivalence
@@ -19715,7 +19715,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 1 (2026-11-13), Chapter 13 -/
 
--- Polyfold.Chapter13.P3G_GoodSystem
+-- Polyfold.Chapter13.GoodSystem
 #print axioms Polyfold.EpGroupoid.GoodSystem.comp_eq
 #print axioms Polyfold.EpGroupoid.GoodSystem.comp_subset
 #print axioms Polyfold.EpGroupoid.GoodSystem.exists_refinement_subset
@@ -19796,7 +19796,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn
 #print axioms Polyfold.EpGroupoid.GoodSystem.ofIsGoodOn
 #print axioms Polyfold.EpGroupoid.GoodSystem.restrict
--- Polyfold.Chapter13.P3G_BiAction
+-- Polyfold.Chapter13.BiAction
 #print axioms Polyfold.EpGroupoid.GoodSystem.biact_mem
 #print axioms Polyfold.EpGroupoid.GoodSystem.biact_mem_comp_of
 #print axioms Polyfold.EpGroupoid.GoodSystem.comp_mem_components
@@ -19842,7 +19842,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.GoodSystem.partnerHom
 #print axioms Polyfold.EpGroupoid.biact
 #print axioms Polyfold.EpGroupoid.biactMulAction
--- Polyfold.Chapter13.P3G_GoodSystemExistence
+-- Polyfold.Chapter13.GoodSystemExistence
 #print axioms Polyfold.EpGroupoid.IsTransport.continuousOn
 #print axioms Polyfold.EpGroupoid.IsTransport.injOn
 #print axioms Polyfold.EpGroupoid.IsTransport.mapsTo
@@ -19855,7 +19855,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.nonempty_goodSystem_trivial
 #print axioms Polyfold.EpGroupoid.theorem_13_1_7
 #print axioms Polyfold.EpGroupoid.theorem_13_1_8
--- Polyfold.Chapter13.P3M_ScPlusSectionOn
+-- Polyfold.Chapter13.ScPlusSectionOn
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.extendZero
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.congr
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.extendZero
@@ -19873,7 +19873,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.isSection_extendZero
 #print axioms Polyfold.SBLocalization.localRepOne_eq_liftOne
 #print axioms Polyfold.SBLocalization.toBase_localRepOne_snd_of_mem
--- Polyfold.Chapter13.P3M_MultisectionSupport
+-- Polyfold.Chapter13.MultisectionSupport
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.apply_of_proj
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.sum_image_eq_one
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.suppAt_eq
@@ -19895,7 +19895,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.normW_of_mem
 #print axioms Polyfold.SBLocalization.domSupp
 #print axioms Polyfold.SBLocalization.pointwiseNorm
--- Polyfold.Chapter13.P3M_MultisectionConvolution
+-- Polyfold.Chapter13.MultisectionConvolution
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.apply_fib
 #print axioms Polyfold.SBLocalization.convAt_eq_sum
 #print axioms Polyfold.SBLocalization.convAt_map
@@ -19907,7 +19907,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.isScPlusMultisection_conv
 #print axioms Polyfold.SBLocalization.isWFunctor_conv
 #print axioms Polyfold.SBLocalization.conv
--- Polyfold.Chapter13.P3M_MultisectionAlgebra
+-- Polyfold.Chapter13.MultisectionAlgebra
 #print axioms Polyfold.SBLocalization.IsScPlusMultisection.exists_fib_rep
 #print axioms Polyfold.SBLocalization.addAt_eq_convAt
 #print axioms Polyfold.SBLocalization.addAt_eq_sum
@@ -19929,7 +19929,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.multisectionAdd
 #print axioms Polyfold.SBLocalization.multisectionSmul
 #print axioms Polyfold.SBLocalization.multisectionSmulFun
--- Polyfold.Chapter13.P3M_MultisectionLocallyFinite
+-- Polyfold.Chapter13.MultisectionLocallyFinite
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.congr_fun
 #print axioms Polyfold.SBLocalization.IsLocallyFiniteFamily.exists_stable
 #print axioms Polyfold.SBLocalization.convAt_comp_equiv
@@ -19942,7 +19942,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.nontrivIdx_mono
 #print axioms Polyfold.SBLocalization.trivial_of_not_mem_nontrivIdx
 #print axioms Polyfold.SBLocalization.lfSum
--- Polyfold.Chapter13.P3M_MultisectionSymmetric
+-- Polyfold.Chapter13.MultisectionSymmetric
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.exists_equal_weights
 #print axioms Polyfold.SBLocalization.SymmetricStructure.equivariant
 #print axioms Polyfold.SBLocalization.SymmetricStructure.hasPropernessProperty
@@ -19958,7 +19958,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 1 (2026-11-13), Chapter 15 -/
 
--- Polyfold.Chapter15.P3T_SeparationLemmas
+-- Polyfold.Chapter15.SeparationLemmas
 #print axioms Polyfold.Linearization15.IsSeparatedAt.eventually
 #print axioms Polyfold.Linearization15.exists_fin_partition
 #print axioms Polyfold.Linearization15.exists_isLocDich_mem
@@ -19982,7 +19982,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Linearization15.wsum_pair_eq_at_of_isLocDich
 #print axioms Polyfold.Linearization15.wsum_pair_eq_of_isLocal
 #print axioms Polyfold.Linearization15.wsum_pair_of_const
--- Polyfold.Chapter15.P3T_LinearizationModel
+-- Polyfold.Chapter15.LinearizationModel
 #print axioms Polyfold.Linearization15.continuousOn_comp_toBase_one
 #print axioms Polyfold.Linearization15.continuousOn_scDeriv_coe
 #print axioms Polyfold.Linearization15.linSumModelMap_apply
@@ -19994,7 +19994,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Linearization15.theorem_15_1_1_model_map
 #print axioms Polyfold.Linearization15.wsum_model_eq
 #print axioms Polyfold.Linearization15.linSumModel
--- Polyfold.Chapter15.P3T_Linearization
+-- Polyfold.Chapter15.Linearization
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.count_eq
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.isScSmooth_principal_comp_r
 #print axioms Polyfold.SBLocalization.apply_localSection
@@ -20005,7 +20005,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.remark_15_1_2
 #print axioms Polyfold.SBLocalization.theorem_15_1_1
 #print axioms Polyfold.SBLocalization.linearizationIn
--- Polyfold.Chapter15.P3T_LinearizationIntrinsic
+-- Polyfold.Chapter15.LinearizationIntrinsic
 #print axioms Polyfold.SBLocalization.LocalLinData.isChart
 #print axioms Polyfold.SBLocalization.LocalLinData.isOpen
 #print axioms Polyfold.SBLocalization.LocalLinData.mem
@@ -20036,7 +20036,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 1 (2026-11-13), Chapter 16 -/
 
--- Polyfold.Chapter16.P3Z_PolyfoldStructure
+-- Polyfold.Chapter16.PolyfoldStructure
 #print axioms Polyfold.PolyfoldClass.definition_16_1_14
 #print axioms Polyfold.PolyfoldClass.definition_16_1_20
 #print axioms Polyfold.PolyfoldClass.degIndex_mk
@@ -20064,7 +20064,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.degIndex
 #print axioms Polyfold.PolyfoldStructure.degIndex
 #print axioms Polyfold.PolyfoldStructure.setoid
--- Polyfold.Chapter16.P3Z_ZhouUniquenessCheck
+-- Polyfold.Chapter16.ZhouUniquenessCheck
 #print axioms Polyfold.EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3
 #print axioms Polyfold.EpGroupoid.Examples.injective_π_trivialZ3
 #print axioms Polyfold.EpGroupoid.Examples.isHomeomorph_π_trivialZ3
@@ -20078,7 +20078,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.trivialZ3OrbitHomeomorph
 #print axioms Polyfold.PolyfoldStructure.z3Polyfold
 #print axioms Polyfold.PolyfoldStructure.z3PolyfoldStructure
--- Polyfold.Chapter16.P3Z_PolyfoldBump
+-- Polyfold.Chapter16.PolyfoldBump
 #print axioms Polyfold.EpFunctor.IsEquivalence.admitsBumpFunctions_iff
 #print axioms Polyfold.EpFunctor.IsEquivalence.hasBumpAt_obj_of_hasBumpAt
 #print axioms Polyfold.EpFunctor.IsEquivalence.hasBumpAt_of_hasBumpAt_obj
@@ -20087,7 +20087,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isScSmoothMap_real_of_locally
 #print axioms Polyfold.PolyfoldClass.definition_16_1_5_one
 #print axioms Polyfold.PolyfoldStructure.proposition_16_1_4_one
--- Polyfold.Chapter16.P3Z_PolyfoldPartitions
+-- Polyfold.Chapter16.PolyfoldPartitions
 #print axioms Polyfold.EpFunctor.IsEquivalence.hasScPartitionsOfUnity_iff
 #print axioms Polyfold.EpFunctor.IsEquivalence.isScSmoothMap_comp_π_of_comp_obj
 #print axioms Polyfold.EpGroupoid.descendP3Z_π
@@ -20097,7 +20097,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.definition_16_1_5_two
 #print axioms Polyfold.PolyfoldStructure.proposition_16_1_4
 #print axioms Polyfold.PolyfoldStructure.proposition_16_1_4_two
--- Polyfold.Chapter16.P3Z_PolyfoldExamples
+-- Polyfold.Chapter16.PolyfoldExamples
 #print axioms Polyfold.PolyfoldStructure.z3Polyfold_admitsBumpFunctions
 #print axioms Polyfold.PolyfoldStructure.z3Polyfold_admitsScPartitionsOfUnity
 #print axioms Polyfold.PolyfoldStructure.z3Polyfold_boundary
@@ -20106,7 +20106,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 2 (2026-11-13), Chapter 12 -/
 
--- Polyfold.Chapter12.P3E_AuxNormLocalExtension
+-- Polyfold.Chapter12.AuxNormLocalExtension
 #print axioms Polyfold.EpStrongBundle.hasLocalExtensions_of_isTame
 #print axioms Polyfold.EpStrongBundle.theorem_12_2_7
 #print axioms Polyfold.MChart.tendsto_of_tendsto_apply
@@ -20142,7 +20142,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.retractTransport
 #print axioms Polyfold.boundaryShift
 #print axioms Polyfold.minCoord
--- Polyfold.Chapter12.P3R2_ReflexiveAuxNormEp
+-- Polyfold.Chapter12.ReflexiveAuxNormEp
 #print axioms Polyfold.EpStrongBundle.IsReflexiveAuxNorm.le_liminf
 #print axioms Polyfold.EpStrongBundle.IsReflexiveAuxNorm.mixedLscAt
 #print axioms Polyfold.EpStrongBundle.IsReflexiveAuxNorm.toIsAuxNorm
@@ -20180,7 +20180,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.HasReflexiveFibers
 #print axioms Polyfold.EpStrongBundle.MixedTendsto
 #print axioms Polyfold.StrongBundle.MixedLscAt
--- Polyfold.Chapter12.P3R2_ReflexiveAuxNormExtension
+-- Polyfold.Chapter12.ReflexiveAuxNormExtension
 #print axioms Polyfold.EpStrongBundle.HasReflexiveLocalExtensions.hasLocalExtensions
 #print axioms Polyfold.EpStrongBundle.IsReflexiveAuxNorm.isReflexiveAuxNormOn
 #print axioms Polyfold.EpStrongBundle.IsReflexiveAuxNormOn.le_liminf
@@ -20190,7 +20190,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.theorem_12_2_13_hyp_witness
 #print axioms Polyfold.TrivialBundle.epBundle_reflexive_witness
 #print axioms Polyfold.EpStrongBundle.HasReflexiveLocalExtensions
--- Polyfold.Chapter12.P3R2_ReflexiveCompactnessEp
+-- Polyfold.Chapter12.ReflexiveCompactnessEp
 #print axioms Polyfold.EpGroupoid.exists_lift_tendsto
 #print axioms Polyfold.EpGroupoid.isCompact_closure_of_isProperMap
 #print axioms Polyfold.EpGroupoid.isSaturated_inter
@@ -20201,7 +20201,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.theorem_12_4_6
 #print axioms Polyfold.EpStrongBundle.theorem_12_4_6_of_continuous
 #print axioms Polyfold.EpStrongBundle.HasReflexiveLocalCompactnessEp
--- Polyfold.Chapter12.P3X_ScPlusExtension
+-- Polyfold.Chapter12.ScPlusExtension
 #print axioms Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity
 #print axioms Polyfold.EpGroupoid.isSaturated_compl_boundary_p3x
 #print axioms Polyfold.EpGroupoid.isSaturated_compl_p3x
@@ -20232,7 +20232,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.IsBoundaryScPlusSection
 #print axioms Polyfold.EpStrongBundle.IsBoundaryScPlusSectionFunctor
 #print axioms Polyfold.glueSection
--- Polyfold.Chapter12.P3F_MixedPull
+-- Polyfold.Chapter12.ChartPullTwoBundles
 #print axioms Polyfold.StrongBundle.LocalIso.GermAgree₄.exists_nhds
 #print axioms Polyfold.StrongBundle.LocalIso.baseDeriv_mpullPt
 #print axioms Polyfold.StrongBundle.LocalIso.baseDeriv_mpullPt₄
@@ -20262,7 +20262,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.morPull
 #print axioms Polyfold.StrongBundle.LocalIso.morVia
 #print axioms Polyfold.StrongBundle.LocalIso.mpullPt
--- Polyfold.Chapter12.P3F_EquivalenceOr
+-- Polyfold.Chapter12.OrientationEquivalenceStep
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.continuous_mor
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eK_eq
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eT_eq
@@ -20292,7 +20292,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.locSet
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.locSet'
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orEqv
--- Polyfold.Chapter12.P3F_Naturality
+-- Polyfold.Chapter12.OrientationNaturality
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.exists_smooth_iso
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pullOr
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pushOr
@@ -20317,7 +20317,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 2 (2026-11-13), Chapter 13 -/
 
--- Polyfold.Chapter13.P3E_GoodSystemRelative
+-- Polyfold.Chapter13.GoodSystemRelative
 #print axioms Polyfold.EpGroupoid.GoodSystem.isGoodIn_univ
 #print axioms Polyfold.EpGroupoid.IsGoodIn.closure_subset
 #print axioms Polyfold.EpGroupoid.IsGoodIn.isDiffeoComponent
@@ -20339,7 +20339,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.IsProperSubsetIn
 #print axioms Polyfold.EpGroupoid.subSrc
 #print axioms Polyfold.EpGroupoid.subTgt
--- Polyfold.Chapter13.P3D_SymmetricOn
+-- Polyfold.Chapter13.SymmetricOn
 #print axioms Polyfold.EpGroupoid.NatNbhd.Le.refl
 #print axioms Polyfold.EpGroupoid.NatNbhd.Le.subset
 #print axioms Polyfold.EpGroupoid.NatNbhd.Le.trans
@@ -20384,7 +20384,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.SymmetricStructureOn.smulSection
 #print axioms Polyfold.SBLocalization.SymmetricStructureOn.sumSection
 #print axioms Polyfold.SBLocalization.fibAct
--- Polyfold.Chapter13.P3D_Decorated
+-- Polyfold.Chapter13.DecoratedMultisection
 #print axioms Polyfold.EpGroupoid.GoodSystem.exists_subset_inter
 #print axioms Polyfold.EpGroupoid.GoodSystem.ofSubset_nbhd
 #print axioms Polyfold.SBLocalization.DecoratedMultisection.add_assoc
@@ -20428,7 +20428,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.lemma_13_2_11_decorated
 #print axioms Polyfold.SBLocalization.lemma_13_2_13_decorated
 #print axioms Polyfold.SBLocalization.lfSumStructure
--- Polyfold.Chapter13.P3D_NoInverse
+-- Polyfold.Chapter13.MultisectionNoInverse
 #print axioms Polyfold.SBLocalization.NoInverse.add_le_one_of_ne
 #print axioms Polyfold.SBLocalization.NoInverse.exists_no_inverse
 #print axioms Polyfold.SBLocalization.NoInverse.isLocalRepOn_twoValued
@@ -20439,7 +20439,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.NoInverse.constSec
 #print axioms Polyfold.SBLocalization.NoInverse.secs
 #print axioms Polyfold.SBLocalization.NoInverse.twoValued
--- Polyfold.Chapter13.P3D_Correspondence
+-- Polyfold.Chapter13.Correspondence
 #print axioms Polyfold.SBLocalization.IndexCorr.biact_biact
 #print axioms Polyfold.SBLocalization.IndexCorr.biact_one_one
 #print axioms Polyfold.SBLocalization.IndexCorr.example_13_3_3
@@ -20492,7 +20492,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.IndexDiagram.setoid
 #print axioms Polyfold.SBLocalization.IndexDiagram.swap
 #print axioms Polyfold.SBLocalization.IndexDiagram.toUnit
--- Polyfold.Chapter13.P3D_Structurable
+-- Polyfold.Chapter13.StructurableMultisection
 #print axioms Polyfold.EpGroupoid.GoodSystem.biact_congr_of_le
 #print axioms Polyfold.EpGroupoid.GoodSystem.comp_mono
 #print axioms Polyfold.EpGroupoid.GoodSystem.mor_mono
@@ -20540,7 +20540,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.StructuredMultisection.forget
 #print axioms Polyfold.SBLocalization.StructuredTuple.Equiv
 #print axioms Polyfold.SBLocalization.StructuredTuple.setoid
--- Polyfold.Chapter13.P3D_Tight
+-- Polyfold.Chapter13.TightMultisection
 #print axioms Polyfold.SBLocalization.Decoration.IsTight.unique
 #print axioms Polyfold.SBLocalization.Decoration.IsTight.zero
 #print axioms Polyfold.SBLocalization.Decoration.IsTight.τ_NT
@@ -20576,7 +20576,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.SymmetricStructureOn.tight
 #print axioms Polyfold.SBLocalization.TightIdx
 #print axioms Polyfold.SBLocalization.trivialSet
--- Polyfold.Chapter13.P3A_Atomic
+-- Polyfold.Chapter13.AtomicMultisection
 #print axioms Polyfold.SBLocalization.AtomicData.IsRelated.eq_mult
 #print axioms Polyfold.SBLocalization.AtomicData.IsRelated.nonempty
 #print axioms Polyfold.SBLocalization.AtomicData.card_filter_μ_Γ
@@ -20624,7 +20624,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.AtomicData.mult
 #print axioms Polyfold.SBLocalization.AtomicData.zero
 #print axioms Polyfold.SBLocalization.IsAtomic
--- Polyfold.Chapter13.P3A_AtomicConstruction
+-- Polyfold.Chapter13.AtomicConstruction
 #print axioms Polyfold.SBLocalization.AtomicData.isLocalRepOn_mult
 #print axioms Polyfold.SBLocalization.AtomicData.pointwiseNorm_mult_le
 #print axioms Polyfold.SBLocalization.SymmetricFamily.eq_zero_iff
@@ -20656,7 +20656,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.SymmetricFamily.fintype
 #print axioms Polyfold.SBLocalization.SymmetricFamily.mulAction
 #print axioms Polyfold.SBLocalization.SymmetricFamily.ofSeed
--- Polyfold.Chapter13.P3A_AtomicStructurable
+-- Polyfold.Chapter13.AtomicStructurableLocal
 #print axioms Polyfold.SBLocalization.theorem_13_5_3_hyp
 #print axioms Polyfold.SBLocalization.theorem_13_5_3_hyp_witness
 #print axioms Polyfold.SBLocalization.theorem_13_5_3_local
@@ -20665,7 +20665,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 2 (2026-11-13), Chapter 15 -/
 
--- Polyfold.Chapter15.P3L_LocalScPlus
+-- Polyfold.Chapter15.LocalScPlus
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.isScSmoothRetractMap_localRepOne_of_isChart
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.principal_mem_range_of_isChart
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.restrictOpen
@@ -20676,7 +20676,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.principal_subSec
 #print axioms Polyfold.SBLocalization.subRestrict
 #print axioms Polyfold.SBLocalization.subSec
--- Polyfold.Chapter15.P3L_LocalIFT
+-- Polyfold.Chapter15.LocalIFT
 #print axioms Polyfold.SBLocalization.chartOnto_of_isLinSurjAt_subRestrict
 #print axioms Polyfold.SBLocalization.exists_solutionSet_interior
 #print axioms Polyfold.SBLocalization.exists_solutionSet_of_isGoodPosition
@@ -20686,7 +20686,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.surjective_toIntr_subDeriv_iff
 #print axioms Polyfold.SBLocalization.ChartOnto
 #print axioms Polyfold.SBLocalization.subDeriv
--- Polyfold.Chapter15.P3L_Transversality
+-- Polyfold.Chapter15.Transversality
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.continuousOn
 #print axioms Polyfold.SBLocalization.exists_branch_interior
 #print axioms Polyfold.SBLocalization.isOntoAtLevel_iff
@@ -20703,18 +20703,18 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.IsOntoAtLevel
 #print axioms Polyfold.SBLocalization.IsTransversal
 #print axioms Polyfold.SBLocalization.IsTransversalAt
--- Polyfold.Chapter15.P3L_BoundaryPerturbation
+-- Polyfold.Chapter15.BoundaryPerturbation
 #print axioms Polyfold.SBLocalization.exists_branch_goodPosition
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_hyp
 #print axioms Polyfold.SBLocalization.IsBranchGoodPosition
 #print axioms Polyfold.SBLocalization.IsGoodPositionAt
--- Polyfold.Chapter15.P3L_FredholmSummands
+-- Polyfold.Chapter15.FredholmSummands
 #print axioms Polyfold.SBLocalization.linearization_summand_isScFredholm
 #print axioms Polyfold.SBLocalization.subDeriv_isScFredholm
--- Polyfold.Chapter15.P3L_Witness
+-- Polyfold.Chapter15.InteriorPerturbationWitness
 #print axioms Polyfold.SBLocalization.remark_15_2_3_isBranchedEpSubgroupoid_hyp_witness
 #print axioms Polyfold.SBLocalization.theorem_15_2_2_hyp_witness
--- Polyfold.Chapter15.P3P_ProductEp
+-- Polyfold.Chapter15.ProductEp
 #print axioms Polyfold.EpGroupoid.degIndex_prod
 #print axioms Polyfold.EpGroupoid.isTame_prod
 #print axioms Polyfold.EpGroupoid.prodFst_obj
@@ -20744,7 +20744,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.prodFst
 #print axioms Polyfold.EpGroupoid.prodSnd
 #print axioms Polyfold.GroupoidStr.prod
--- Polyfold.Chapter15.P3P_CubeEp
+-- Polyfold.Chapter15.CubeEp
 #print axioms Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_cubeProd
 #print axioms Polyfold.EpGroupoid.continuous_cubeOrbitMap
 #print axioms Polyfold.EpGroupoid.cubeOrbitMap_mk
@@ -20782,7 +20782,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SEP.cubeLiftEp
 #print axioms Polyfold.SEP.cubeSEP
 #print axioms Polyfold.SEP.cubeVal
--- Polyfold.Chapter15.P3P_GeneralPosition
+-- Polyfold.Chapter15.ControllingPairs
 #print axioms Finsupp.support_mapDomain_nnrat
 #print axioms Polyfold.SBLocalization.ControlsCompactness.mono
 #print axioms Polyfold.SBLocalization.IsInGeneralPosition.surjective
@@ -20799,7 +20799,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.IsAdmissible
 #print axioms Polyfold.SBLocalization.IsInGeneralPosition
 #print axioms Polyfold.SBLocalization.reducedLinearization
--- Polyfold.Chapter15.P3P_CubeAuxNorm
+-- Polyfold.Chapter15.CubeAuxNorm
 #print axioms Polyfold.SEP.auxLe_cubeAuxNorm_iff
 #print axioms Polyfold.SEP.continuous_cubeCoord
 #print axioms Polyfold.SEP.continuous_cubeTime
@@ -20838,7 +20838,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 2 (2026-11-13), Chapter 16 -/
 
--- Polyfold.Chapter16.P3H_TangentLemma
+-- Polyfold.Chapter16.TangentLemma
 #print axioms Polyfold.EP.tangentAny_eq_tangent
 #print axioms Polyfold.EPLocalization.Diagram.Equiv.tangentAny
 #print axioms Polyfold.EPLocalization.Diagram.IsRefinement.tangentAny
@@ -20861,10 +20861,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EPLocalization.Diagram.tangentAny
 #print axioms Polyfold.EPLocalization.EPLoc.tangentHom
 #print axioms Polyfold.PolyfoldStructure.Lemma_16_2_1
--- Polyfold.Chapter16.P3H_FormsIndependence
+-- Polyfold.Chapter16.FormsIndependence
 #print axioms Polyfold.EPLocalization.EPLoc.formsPullback_eq_of_orbitMap_eq_or
 #print axioms Polyfold.EPLocalization.EPLoc.formsPush_eq_of_orbitMap_eq_or
--- Polyfold.Chapter16.P3H_PolyfoldForms
+-- Polyfold.Chapter16.PolyfoldForms
 #print axioms Polyfold.EPLocalization.EPLoc.formsPush.congr_simp
 #print axioms Polyfold.EPLocalization.EPLoc.formsPush_comp
 #print axioms Polyfold.EPLocalization.EPLoc.formsPush_eq_formsPullback
@@ -20910,7 +20910,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.ScForm.mk
 #print axioms Polyfold.PolyfoldClass.ScForm.toStructure
 #print axioms Polyfold.PolyfoldClass.ScForm.toStructureₗ
--- Polyfold.Chapter16.P3H_TangentPolyfold
+-- Polyfold.Chapter16.TangentPolyfold
 #print axioms Polyfold.EPLocalization.EPLoc.isHomeomorph_orbitMap_of_isGeneralizedIso
 #print axioms Polyfold.PolyfoldClass.definition_16_2_3
 #print axioms Polyfold.PolyfoldClass.isHomeomorph_tangentMap
@@ -20928,7 +20928,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.tangentMap
 #print axioms Polyfold.PolyfoldClass.tangentSpaceTopology
 #print axioms Polyfold.PolyfoldClass.tangentStructure
--- Polyfold.Chapter16.P3H_BranchedSuborbifold
+-- Polyfold.Chapter16.BranchedSuborbifold
 #print axioms Polyfold.EPLocalization.EPLoc.pullSection_id_of_mem
 #print axioms Polyfold.EPLocalization.EPLoc.pullTheta_eq_of_orbitMap
 #print axioms Polyfold.EPLocalization.EPLoc.pullTheta_id_of_isFunctorial
@@ -21013,7 +21013,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 3-4 (2026-11-13), Chapter 12 -/
 
--- Polyfold.Chapter12.P3W3K_ReflexiveLocalExtension
+-- Polyfold.Chapter12.ReflexiveLocalExtension
 #print axioms Polyfold.EpStrongBundle.hasReflexiveLocalExtensions_of_isTame
 #print axioms Polyfold.EpStrongBundle.theorem_12_2_13
 #print axioms Polyfold.StrongBundle.exists_norm_chartFibMap_le
@@ -21023,11 +21023,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.weakTendsto_chartFibMap
 #print axioms Polyfold.TrivialBundle.theorem_12_2_13_witness
 #print axioms Polyfold.WeakTendsto.sub
--- Polyfold.Chapter12.P3W3O_SectionPull
+-- Polyfold.Chapter12.SectionPull
 #print axioms Polyfold.StrongBundle.LocalIso.Kg_ofProd_transportChart
 #print axioms Polyfold.StrongBundle.LocalIso.exists_pullSection
 #print axioms Polyfold.StrongBundle.LocalIso.ofProd_transportChart_O
--- Polyfold.Chapter12.P3W3O_StabTransfer
+-- Polyfold.Chapter12.StabilizedKernelPull
 #print axioms Polyfold.LineOrientation.conj_refl_apply
 #print axioms Polyfold.StrongBundle.LocalIso.isStabKernels_mpull
 #print axioms Polyfold.StrongBundle.LocalIso.linAt_transportChart_sectionAdd
@@ -21036,13 +21036,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.principal_transportChart_eq
 #print axioms Polyfold.StrongBundle.LocalIso.principal_transportChart_sectionAdd
 #print axioms Polyfold.StrongBundle.LocalIso.push_mpull
--- Polyfold.Chapter12.P3W3O_PushPull
+-- Polyfold.Chapter12.PushDataPull
 #print axioms Polyfold.StrongBundle.LocalIso.isPush_mpull
 #print axioms Polyfold.StrongBundle.LocalIso.isZeroAt_of_transportChart
 
 /-! ### Axioms: Part III waves 3-4 (2026-11-13), Chapter 13 -/
 
--- Polyfold.Chapter13.P3W3C_PiCorrespondence
+-- Polyfold.Chapter13.PiCorrespondence
 #print axioms Polyfold.SBLocalization.IndexCorr.biact_pi
 #print axioms Polyfold.SBLocalization.IndexCorr.mk_out
 #print axioms Polyfold.SBLocalization.IndexCorr.pi_congr
@@ -21056,7 +21056,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.fibAct_sum
 #print axioms Polyfold.SBLocalization.finite_pi_of_subsingleton
 #print axioms Polyfold.SBLocalization.SymmetricStructureOn.reindex
--- Polyfold.Chapter13.P3W3C_TightOn
+-- Polyfold.Chapter13.TightOn
 #print axioms Polyfold.SBLocalization.Decoration.IsAdapted.le
 #print axioms Polyfold.SBLocalization.Decoration.IsAdapted.triv
 #print axioms Polyfold.SBLocalization.Decoration.isTight_tightOn
@@ -21067,7 +21067,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.Decoration.Tau.tightOn
 #print axioms Polyfold.SBLocalization.Decoration.tightOn
 #print axioms Polyfold.SBLocalization.SymmetricStructureOn.tightRel
--- Polyfold.Chapter13.P3W3C_LocallyFiniteStructurable
+-- Polyfold.Chapter13.LocallyFiniteStructurable
 #print axioms Polyfold.SBLocalization.LFStructData.M_le_F
 #print axioms Polyfold.SBLocalization.LFStructData.M_subset_V
 #print axioms Polyfold.SBLocalization.LFStructData.O_subset_trivialSet
@@ -21104,7 +21104,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.subset_trivialSet_of_not_mem_nontrivIdx
 #print axioms Polyfold.SBLocalization.tightIdx_elim_zero
 #print axioms Polyfold.SBLocalization.LFStructData.Dsum
--- Polyfold.Chapter13.P3W3C_AtomicStructurable
+-- Polyfold.Chapter13.AtomicStructurable
 #print axioms Polyfold.SBLocalization.AtomicStructData.H_biact
 #print axioms Polyfold.SBLocalization.AtomicStructData.H_comp
 #print axioms Polyfold.SBLocalization.AtomicStructData.H_eq_of_rel
@@ -21183,7 +21183,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.AtomicStructData.corr
 #print axioms Polyfold.SBLocalization.IndexCorr.full
 #print axioms Polyfold.SBLocalization.IndexDiagram.full
--- Polyfold.Chapter13.P3W3Q_Commensurable
+-- Polyfold.Chapter13.Commensurable
 #print axioms Polyfold.SBLocalization.CommData.Over.eq_sumMult
 #print axioms Polyfold.SBLocalization.CommData.Over.isScPlusMultisection
 #print axioms Polyfold.SBLocalization.CommData.Over.mk.inj
@@ -21257,7 +21257,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.CommData.sumMult
 #print axioms Polyfold.SBLocalization.CommData.sumSec
 #print axioms Polyfold.SBLocalization.Commensurable
--- Polyfold.Chapter13.P3W3Q_AtomicSum
+-- Polyfold.Chapter13.AtomicSum
 #print axioms Polyfold.SBLocalization.AtomicDataOn.closure_V_subset
 #print axioms Polyfold.SBLocalization.AtomicDataOn.equivariant
 #print axioms Polyfold.SBLocalization.AtomicDataOn.isOpen_V
@@ -21282,7 +21282,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.AtomicDataOn.mulAction
 #print axioms Polyfold.SBLocalization.CommData.smulFunOver
 #print axioms Polyfold.SBLocalization.IsAtomicOn
--- Polyfold.Chapter13.P3W4FN_PullMap
+-- Polyfold.Chapter13.StrongBundlePullMap
 #print axioms Polyfold.EpGroupoid.isOpen_setOf_eq_of_src
 #print axioms Polyfold.SBLocalization.PullMap.P_pullSec
 #print axioms Polyfold.SBLocalization.PullMap.covers
@@ -21311,7 +21311,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.PullMap.ofEquivalence
 #print axioms Polyfold.SBLocalization.PullMap.pull
 #print axioms Polyfold.SBLocalization.PullMap.pullSec
--- Polyfold.Chapter13.P3W4FN_Pullback
+-- Polyfold.Chapter13.MultisectionPullback
 #print axioms Polyfold.SBLocalization.PullMap.IsPullNbhd.injOn
 #print axioms Polyfold.SBLocalization.PullMap.IsPullNbhd.mapsTo
 #print axioms Polyfold.SBLocalization.PullMap.IsPullNbhd.mor_biact
@@ -21350,7 +21350,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.PullMap.pullTau
 #print axioms Polyfold.SBLocalization.PullMap.pullTuple
 #print axioms Polyfold.SBLocalization.PullMap.somePullData
--- Polyfold.Chapter13.P3W4FN_PushChart
+-- Polyfold.Chapter13.SymmetricStructurePush
 #print axioms Polyfold.SBLocalization.IsPushNbhd.P_obj
 #print axioms Polyfold.SBLocalization.IsPushNbhd.Q_Qinv
 #print axioms Polyfold.SBLocalization.IsPushNbhd.Qinv_mem
@@ -21383,7 +21383,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.pushChart
 #print axioms Polyfold.SBLocalization.pushSec
 #print axioms Polyfold.SBLocalization.pushStructure
--- Polyfold.Chapter13.P3W4FN_Pushforward
+-- Polyfold.Chapter13.MultisectionPushforward
 #print axioms Polyfold.SBLocalization.GenSBMap.isStructurable_pullMult
 #print axioms Polyfold.SBLocalization.GenSBMap.isStructurable_pushMult
 #print axioms Polyfold.SBLocalization.PushChart.comp_liftMor
@@ -21426,7 +21426,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.pushNbhd
 #print axioms Polyfold.SBLocalization.pushTau
 #print axioms Polyfold.SBLocalization.pushTuple
--- Polyfold.Chapter13.P3W4SM_LocallyFiniteBridge
+-- Polyfold.Chapter13.LocallyFiniteSupports
 #print axioms Polyfold.SBLocalization.isLocallyFiniteFamily_of_locallyFinite
 #print axioms Polyfold.SBLocalization.proposition_13_3_19_locallyFinite
 #print axioms Polyfold.SBLocalization.proposition_13_3_19_locallyFinite_of_paracompact
@@ -21434,7 +21434,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 3-4 (2026-11-13), Chapter 14 -/
 
--- Polyfold.Chapter14.P3W3B1_GoodBoundary
+-- Polyfold.Chapter14.GoodBoundary
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.deg_eq
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.injective
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.inter_boundary_eq
@@ -21459,7 +21459,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameBoundary.isCenteredAt_connectedComponentIn
 #print axioms Polyfold.TameBoundary.isPreconnected_faceAt
 #print axioms Polyfold.EpGroupoid.NatNbhd.bdry
--- Polyfold.Chapter14.P3W3B1_BoundaryMultisection
+-- Polyfold.Chapter14.BoundaryMultisection
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.U_subset_boundary
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.exists_refinement
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.isDiffeoComponent
@@ -21509,7 +21509,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.avgSection
 #print axioms Polyfold.SBLocalization.avgTerm
 #print axioms Polyfold.SBLocalization.zeroBoundaryStructure
--- Polyfold.Chapter14.P3W3B1_BoundaryStructured
+-- Polyfold.Chapter14.BoundaryStructured
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.Tau.biact
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.Tau.compat
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.Tau.diag
@@ -21542,7 +21542,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.IsBoundaryStructurable
 #print axioms Polyfold.SBLocalization.boundaryDomSupp
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_statement
--- Polyfold.Chapter14.P3W3B1_GoodStructured
+-- Polyfold.Chapter14.GoodStructured
 #print axioms Polyfold.EpGroupoid.lemma_14_2_1
 #print axioms Polyfold.EpGroupoid.lemma_14_2_1_system
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.mor_mono
@@ -21556,7 +21556,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.restrictTo
 #print axioms Polyfold.SBLocalization.BoundaryStructuredTuple.HasP4
 #print axioms Polyfold.SBLocalization.BoundaryStructuredTuple.restrict
--- Polyfold.Chapter14.P3W3B2_Cover
+-- Polyfold.Chapter14.BoundaryCover
 #print axioms Polyfold.EpGroupoid.IsSaturated.tgt_mem
 #print axioms Polyfold.EpGroupoid.exists_nhds_of_isProperSubset
 #print axioms Polyfold.EpGroupoid.isClosed_π_image_of_isSaturated
@@ -21567,7 +21567,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.lemma_14_3_7
 #print axioms Polyfold.EpGroupoid.lemma_14_3_7_stab
 #print axioms Polyfold.EpGroupoid.lemma_14_5_1
--- Polyfold.Chapter14.P3W3B2_FiniteRep
+-- Polyfold.Chapter14.FiniteRepresentation
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.F_equivariant
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.F_isotropy
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.bijOn_comp
@@ -21582,7 +21582,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.tgt_mem
 #print axioms Polyfold.EpGroupoid.exists_naturalRepFinite_subset
 #print axioms Polyfold.EpGroupoid.lemma_14_4_7
--- Polyfold.Chapter14.P3W3B2_ZLoops
+-- Polyfold.Chapter14.ZLoops
 #print axioms Polyfold.EpGroupoid.ZSetup.Arc.brecOn
 #print axioms Polyfold.EpGroupoid.ZSetup.Arc.props
 #print axioms Polyfold.EpGroupoid.ZSetup.Arc.symm
@@ -21611,7 +21611,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.ZSetup.trivialSetup
 #print axioms Polyfold.EpGroupoid.ZSetup.zClass
 #print axioms Polyfold.SBLocalization.IndexCorr.Pairs
--- Polyfold.Chapter14.P3W4S3_ExtendCorrespondences
+-- Polyfold.Chapter14.ExtendCorrespondences
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.biact_mem_mor_p3w4
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.inv_mem_mor_p3w4
 #print axioms Polyfold.EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor_p3w4
@@ -21701,7 +21701,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.P5Nbhds.nbhd
 #print axioms Polyfold.SBLocalization.P5Nbhds.ofGood
 #print axioms Polyfold.SBLocalization.boundaryMor
--- Polyfold.Chapter14.P3W4S3_CoverVHat
+-- Polyfold.Chapter14.CoverVHat
 #print axioms Polyfold.EpGroupoid.isSaturated_boundary_p3w4
 #print axioms Polyfold.EpGroupoid.proposition_14_3_8
 #print axioms Polyfold.SBLocalization.CorrExtension.OhatObj_of_mem
@@ -21723,18 +21723,18 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.P5Nbhds.P6Nbhds.nbhd
 #print axioms Polyfold.SBLocalization.P5Nbhds.P6Nbhds.nbhdObj
 #print axioms Polyfold.SBLocalization.P5Nbhds.nbhdObj
--- Polyfold.Chapter14.P3W4LX_LocalExtension
+-- Polyfold.Chapter14.LocalExtension
 #print axioms Polyfold.SBLocalization.exists_scPlusSection_extension_of_face
 #print axioms Polyfold.SBLocalization.proposition_14_1_4
 #print axioms Polyfold.SBLocalization.proposition_14_1_4_of_closure
 #print axioms Polyfold.StrongBundle.exists_local_extension_of_face
--- Polyfold.Chapter14.P3W4LX_OpenExtension
+-- Polyfold.Chapter14.OpenExtension
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.of_locally_p3w4
 #print axioms Polyfold.SBLocalization.exists_scPlusSectionOn_extension_of_face
 #print axioms Polyfold.SBLocalization.exists_scSmooth_cutoff_p3w4
 #print axioms Polyfold.SBLocalization.proposition_14_1_4_full
 #print axioms Polyfold.SBLocalization.proposition_14_1_4_hypotheses_rn
--- Polyfold.Chapter14.P3W4LX_CoherentExtension
+-- Polyfold.Chapter14.CoherentExtension
 #print axioms Polyfold.SBLocalization.CoherentNbhdSystem.O_subset
 #print axioms Polyfold.SBLocalization.CoherentNbhdSystem.approx_s0
 #print axioms Polyfold.SBLocalization.CoherentNbhdSystem.eqvGen_s0
@@ -21764,7 +21764,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.LocalExtensionBase.mulAction
 #print axioms Polyfold.SBLocalization.LocalExtensionBase.ofZSetup
 #print axioms Polyfold.SBLocalization.LocalExtensionBase.zero
--- Polyfold.Chapter14.P3W4Z4_Deform
+-- Polyfold.Chapter14.ZLoopDeform
 #print axioms Polyfold.EpGroupoid.Sheet.continuousAt_srcInv
 #print axioms Polyfold.EpGroupoid.Sheet.eventually_srcInv_eq_unit
 #print axioms Polyfold.EpGroupoid.Sheet.isOpen_carrier
@@ -21788,7 +21788,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tendsto_comp_of_eventually
 #print axioms Polyfold.EpGroupoid.ZData.toZSetup
 #print axioms Polyfold.EpGroupoid.ZData.trivial
--- Polyfold.Chapter14.P3W4Z4_Theta
+-- Polyfold.Chapter14.ZRelationClosure
 #print axioms Polyfold.EpGroupoid.NatNbhd.continuousAt_Φ
 #print axioms Polyfold.EpGroupoid.NatNbhd.exists_equivariant_nbhds
 #print axioms Polyfold.EpGroupoid.NatNbhd.image_Φ_eq
@@ -21811,7 +21811,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.ZData.Approx
 #print axioms Polyfold.EpGroupoid.ZData.Theta
 #print axioms Polyfold.EpGroupoid.ZData.approxClass
--- Polyfold.Chapter14.P3W4Z4_Coherent
+-- Polyfold.Chapter14.ZLoopCoherent
 #print axioms Polyfold.SBLocalization.HasThetaLocalEq.proposition_14_4_6_2
 #print axioms Polyfold.SBLocalization.ZCoherentNbhdSystem.disjoint
 #print axioms Polyfold.SBLocalization.ZCoherentNbhdSystem.disjoint_orbit
@@ -21852,11 +21852,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.HasThetaLocalEq
 #print axioms Polyfold.SBLocalization.ZSections.zero
 #print axioms Polyfold.SBLocalization.proposition_14_4_6_2_statement
--- Polyfold.Chapter14.P3W4Z4_Instantiate
+-- Polyfold.Chapter14.ZDataLocalExtension
 #print axioms Polyfold.SBLocalization.coherentNbhdSystem_hyp
 #print axioms Polyfold.SBLocalization.proposition_14_4_14_of_hyp
 #print axioms Polyfold.SBLocalization.ZSections.toLocalExtensionBase
--- Polyfold.Chapter14.P3W4GL_Criterion
+-- Polyfold.Chapter14.StructurabilityCriterion
 #print axioms Polyfold.SBLocalization.CriterionData.Transport.H_comp
 #print axioms Polyfold.SBLocalization.CriterionData.Transport.H_eq_of_rel
 #print axioms Polyfold.SBLocalization.CriterionData.Transport.H_eventually
@@ -21932,7 +21932,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.CriterionData.Transport.corr
 #print axioms Polyfold.SBLocalization.CriterionData.fintype
 #print axioms Polyfold.SBLocalization.CriterionData.mulAction
--- Polyfold.Chapter14.P3W4GL_NormControl
+-- Polyfold.Chapter14.NormControl
 #print axioms Polyfold.SBLocalization.IsScPlusSectionOn.continuousOn_normW
 #print axioms Polyfold.SBLocalization.domSupp_zeroMultisection_gl
 #print axioms Polyfold.SBLocalization.isOpen_pointwiseNorm_lt
@@ -21948,7 +21948,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_extension_statement_of_boundary_eq_empty
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_hyp
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_extension_statement
--- Polyfold.Chapter14.P3W4GL_Transport
+-- Polyfold.Chapter14.TransportStatement
 #print axioms Polyfold.SBLocalization.TransportInput.closure_support_β
 #print axioms Polyfold.SBLocalization.TransportInput.isOpen_V
 #print axioms Polyfold.SBLocalization.TransportInput.isScPlusSectionOn_sh
@@ -21969,7 +21969,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 3-4 (2026-11-13), Chapter 15 -/
 
--- Polyfold.Chapter15.P3W3K_LinearizationFunctor
+-- Polyfold.Chapter15.LinearizationFunctor
 #print axioms Polyfold.EpGroupoid.tangentMorCLE.congr_simp
 #print axioms Polyfold.SBLocalization.P_transSec
 #print axioms Polyfold.SBLocalization.chartVec_transport
@@ -21993,12 +21993,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.muLin
 #print axioms Polyfold.SBLocalization.transSec
 #print axioms Polyfold.SBLocalization.transSet
--- Polyfold.Chapter15.P3W3G_GoodPosition
+-- Polyfold.Chapter15.GoodPositionBranches
 #print axioms Polyfold.SBLocalization.exists_reduced_preimage
 #print axioms Polyfold.SBLocalization.isGeneralPositionGerm_branch
 #print axioms Polyfold.SBLocalization.isGeneralPositionGerm_subRestrict
 #print axioms Polyfold.SBLocalization.remark_15_3_6_goodPosition_hyp
--- Polyfold.Chapter15.P3W3G_GeneralPosition
+-- Polyfold.Chapter15.GeneralPositionBranched
 #print axioms Polyfold.SBLocalization.domSupp_zeroMultisection
 #print axioms Polyfold.SBLocalization.isClosed_orbitSupp_comp
 #print axioms Polyfold.SBLocalization.isClosed_supp_comp
@@ -22014,7 +22014,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_of_isInGeneralPosition_zero
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement
--- Polyfold.Chapter15.P3W4GP_ParamFamily
+-- Polyfold.Chapter15.ParamFamily
 #print axioms Polyfold.SBLocalization.GPFamily.domSupp_subset
 #print axioms Polyfold.SBLocalization.GPFamily.isLinear
 #print axioms Polyfold.SBLocalization.GPFamily.isStructurable
@@ -22051,7 +22051,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.parL
 #print axioms Polyfold.SBLocalization.parR
 #print axioms Polyfold.SBLocalization.paramSec
--- Polyfold.Chapter15.P3W4GP_GeneralPosition
+-- Polyfold.Chapter15.GeneralPositionAssembly
 #print axioms Polyfold.SBLocalization.exists_gpFamily_of_compact
 #print axioms Polyfold.SBLocalization.exists_norm_lt_of_ae
 #print axioms Polyfold.SBLocalization.fiber_eq_epSEP_zero
@@ -22066,7 +22066,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_hyp
 #print axioms Polyfold.SBLocalization.HasLocalGPFamilies
 #print axioms Polyfold.SBLocalization.HasParametricGeneralPosition
--- Polyfold.Chapter15.P3W4SM_GeneralPositionLocal
+-- Polyfold.Chapter15.GeneralPositionLocal
 #print axioms Polyfold.SBLocalization.exists_reduced_preimage_of_isGeneralPositionGerm
 #print axioms Polyfold.SBLocalization.isGeneralPositionGerm_branch_at
 #print axioms Polyfold.SBLocalization.isGoodPositionAt_of_isInGeneralPositionAt
@@ -22077,11 +22077,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.linKer_sup_reduced_eq_of_isGeneralPositionAt
 #print axioms Polyfold.SBLocalization.IsInGeneralPositionAt
 #print axioms Polyfold.SBLocalization.IsReducedOntoAtLevel
--- Polyfold.Chapter15.P3W4SM_GoodPositionWitness
+-- Polyfold.Chapter15.GoodPositionWitness
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_generalPosition_hyp_witness
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_hyp_applies
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_hyp_witness
--- Polyfold.Chapter15.P3W4TX_TransversalExtension
+-- Polyfold.Chapter15.TransversalExtension
 #print axioms Polyfold.SBLocalization.IsInGeneralPosition.isTransversal
 #print axioms Polyfold.SBLocalization.boundaryDomSupp_epSEP
 #print axioms Polyfold.SBLocalization.boundary_epSEP_eq_empty
@@ -22095,13 +22095,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.lemma_15_3_9_cutoff_statement
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_relative_statement
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_statement
--- Polyfold.Chapter15.P3W4TX_RegularPerturbations
+-- Polyfold.Chapter15.RegularPerturbations
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_1_hyp
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_3_hyp
 #print axioms Polyfold.SBLocalization.isScFredholmSectionTame_cubeLiftEp
 #print axioms Polyfold.SBLocalization.mem_boundary_cubeSEP_iff
 #print axioms Polyfold.SBLocalization.IsRegularPerturbation
--- Polyfold.Chapter15.P3W4TX_Invariants
+-- Polyfold.Chapter15.PerturbedStokesInvariants
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.hasOrientedCobordism_refl
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.isBranched
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.isCompact
@@ -22129,7 +22129,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 3-4 (2026-11-13), Chapter 16 -/
 
--- Polyfold.Chapter16.P3W3V_StrongPolyfoldBundle
+-- Polyfold.Chapter16.StrongPolyfoldBundle
 #print axioms Polyfold.PolyfoldClass.isFaceStructured_iff
 #print axioms Polyfold.SBLocalization.GenSBMap.baseOrbitMap_comp
 #print axioms Polyfold.SBLocalization.GenSBMap.base_comp
@@ -22172,7 +22172,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundleStructure.Equiv
 #print axioms Polyfold.StrongPolyfoldBundleStructure.setoid
 #print axioms Polyfold.StrongPolyfoldBundleStructure.toPolyfoldStructure
--- Polyfold.Chapter16.P3W3V_UniquenessCheck
+-- Polyfold.Chapter16.PolyfoldBundleUniqueness
 #print axioms Polyfold.StrongPolyfoldBundleStructure.not_isEffective_z3Structure
 #print axioms Polyfold.StrongPolyfoldBundleStructure.not_uniqueness_16_3_3
 #print axioms Polyfold.StrongPolyfoldBundleStructure.uniqueness_16_3_3_counterexample
@@ -22182,7 +22182,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundleStructure.Uniqueness_16_3_3
 #print axioms Polyfold.StrongPolyfoldBundleStructure.z3Bundle
 #print axioms Polyfold.StrongPolyfoldBundleStructure.z3Structure
--- Polyfold.Chapter16.P3W3V_BundleCategory
+-- Polyfold.Chapter16.PolyfoldBundleCategory
 #print axioms Polyfold.SPBS.Hom.comp_inv
 #print axioms Polyfold.SPBS.Hom.continuous_F
 #print axioms Polyfold.SPBS.Hom.continuous_f
@@ -22234,7 +22234,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SPBS.StrongPolyfoldBundleMap.toFun
 #print axioms Polyfold.SPBS.category
 #print axioms Polyfold.SPBS.mk'
--- Polyfold.Chapter16.P3W3V_PolyfoldAuxNorm
+-- Polyfold.Chapter16.PolyfoldAuxNorm
 #print axioms Polyfold.StrongPolyfoldBundle.IsAuxNorm.nonneg
 #print axioms Polyfold.StrongPolyfoldBundle.Y01_eq
 #print axioms Polyfold.StrongPolyfoldBundle.definition_16_3_9
@@ -22270,7 +22270,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundleStructure.normOf
 #print axioms Polyfold.StrongPolyfoldBundleStructure.normOrbit
 #print axioms Polyfold.StrongPolyfoldBundleStructure.oneToY
--- Polyfold.Chapter16.P3W3V_PolyfoldSections
+-- Polyfold.Chapter16.PolyfoldSections
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.continuous_toFun
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.ext_toFun
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.isScPlus_iff
@@ -22297,7 +22297,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.toFun
 #print axioms Polyfold.StrongPolyfoldBundle.SectionRep.Rel
 #print axioms Polyfold.StrongPolyfoldBundle.SectionRep.setoid
--- Polyfold.Chapter16.P3W3V_Examples
+-- Polyfold.Chapter16.PolyfoldBundleExamples
 #print axioms Polyfold.StrongPolyfoldBundle.IsAuxNorm.isAuxNormBoundary
 #print axioms Polyfold.StrongPolyfoldBundle.theorem_16_3_17_one_witness
 #print axioms Polyfold.StrongPolyfoldBundle.z3Bundle_exists_auxNorm
@@ -22305,7 +22305,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.z3Bundle_hasReflexiveFibers
 #print axioms Polyfold.StrongPolyfoldBundle.z3Bundle_isTame
 #print axioms Polyfold.StrongPolyfoldBundle.z3_id_isInvertible
--- Polyfold.Chapter16.P3W3Y_PolyfoldMaps
+-- Polyfold.Chapter16.PolyfoldMaps
 #print axioms Polyfold.EP.isEffective_iff_trivialSet
 #print axioms Polyfold.EPLoc.isEffective_iff_of_isGeneralizedIso
 #print axioms Polyfold.EffPolyfold.isEffective
@@ -22381,7 +22381,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.transport
 #print axioms Polyfold.instCategoryEffPolyfold
 #print axioms Polyfold.instCategoryPSCat
--- Polyfold.Chapter16.P3W3Y_CompositionCounterexample
+-- Polyfold.Chapter16.CompositionCounterexample
 #print axioms Polyfold.CompositionCounterexample.a_equiv
 #print axioms Polyfold.CompositionCounterexample.gen_comp_one
 #print axioms Polyfold.CompositionCounterexample.gen_comp_σ
@@ -22404,7 +22404,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.CompositionCounterexample.ι_σ_pr₁
 #print axioms Polyfold.CompositionCounterexample.σ_σ
 #print axioms Polyfold.CompositionCounterexample.k2Structure
--- Polyfold.Chapter16.P3W3Y_TangentFunctor
+-- Polyfold.Chapter16.TangentFunctor
 #print axioms Polyfold.PSCat.tangentFunctor_map_gen
 #print axioms Polyfold.PSHom.ofGen'_comp
 #print axioms Polyfold.PSHom.ofGen'_gen
@@ -22422,7 +22422,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.MapRep.tangent
 #print axioms Polyfold.PolyfoldClass.ScMap.tangent
 #print axioms Polyfold.PolyfoldStructure.tangentSelf
--- Polyfold.Chapter16.P3W3Y_FormsPullback
+-- Polyfold.Chapter16.FormsPullback
 #print axioms Polyfold.PolyfoldClass.MapRep.pullback_apply
 #print axioms Polyfold.PolyfoldClass.MapRep.pullback_eq_of_equiv
 #print axioms Polyfold.PolyfoldClass.ScMap.d_comp_pullback
@@ -22433,7 +22433,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.theorem_16_2_6_pullback
 #print axioms Polyfold.PolyfoldClass.MapRep.pullback
 #print axioms Polyfold.PolyfoldClass.ScMap.pullback
--- Polyfold.Chapter16.P3W3Y_BranchedTame
+-- Polyfold.Chapter16.BranchedTame
 #print axioms Polyfold.EPLocalization.EPLoc.isTameBranched_pullTheta
 #print axioms Polyfold.EpFunctor.isTameBranched_pullbackTheta
 #print axioms Polyfold.EpFunctor.isTameBranched_pullbackTheta_iff
@@ -22453,7 +22453,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.OrientedSuborbifold.IsTameOriented
 #print axioms Polyfold.PolyfoldClass.OrientedSuborbifold.integral
 #print axioms Polyfold.PolyfoldClass.OrientedSuborbifold.integralEff
--- Polyfold.Chapter16.P3W4PB_ZeroSection
+-- Polyfold.Chapter16.FibreZero
 #print axioms Polyfold.SBLocalization.GenSBMap.orbitMap_π_fiberZero
 #print axioms Polyfold.SBLocalization.SDiagram.orbitMap_π_fiberZero
 #print axioms Polyfold.SBLocalization.π_eq_fiberZero_iff
@@ -22468,7 +22468,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.normY
 #print axioms Polyfold.StrongPolyfoldBundle.zeroAt
 #print axioms Polyfold.StrongPolyfoldBundleStructure.zeroAt
--- Polyfold.Chapter16.P3W4PB_Multisections
+-- Polyfold.Chapter16.PolyfoldMultisections
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisection.toFun_mk_of_mem
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisectionRep.comm
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisectionRep.hS
@@ -22525,7 +22525,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.ofFunctor
 #print axioms Polyfold.StrongPolyfoldBundle.zero
 #print axioms Polyfold.StructurablePullback
--- Polyfold.Chapter16.P3W4PB_FredholmSections
+-- Polyfold.Chapter16.PolyfoldFredholmSections
 #print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.hF
 #print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.ha
 #print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.hsec
@@ -22566,12 +22566,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.solutionSet
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.sublevel
 #print axioms Polyfold.StrongPolyfoldBundle.SectionRep.g
--- Polyfold.Chapter16.P3W4PB_Checks
+-- Polyfold.Chapter16.RepresentativeChecks
 #print axioms Polyfold.StrongPolyfoldBundle.pullMult_z3_independent
--- Polyfold.Chapter16.P3W4FN_StructurablePullback
+-- Polyfold.Chapter16.StructurablePullback
 #print axioms Polyfold.StrongPolyfoldBundle.ScPlusMultisection.definition_16_5_4
 #print axioms Polyfold.fnStructurablePullback
--- Polyfold.Chapter16.P3W4SM_RaisedPolyfold
+-- Polyfold.Chapter16.RaisedPolyfold
 #print axioms Polyfold.EPLocalization.Diagram.Equiv.liftOne
 #print axioms Polyfold.EPLocalization.Diagram.IsRefinement.liftOne
 #print axioms Polyfold.EPLocalization.Diagram.isRefinement_liftOne_comp
@@ -22620,7 +22620,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.raiseN
 #print axioms Polyfold.PolyfoldClass.raiseStructure
 #print axioms Polyfold.PolyfoldClass.tangentProj
--- Polyfold.Chapter16.P3W4SM_SuppNaturality
+-- Polyfold.Chapter16.SuppNaturalityStatement
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_self
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.suppTransition_eq_iff
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.suppTransition_self
@@ -22633,7 +22633,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 5 -/
 
--- Polyfold.Chapter5.P3W5TY_DegZeroTame
+-- Polyfold.Chapter5.DegeneracyZeroTame
 #print axioms Polyfold.EpGroupoid.isTame_of_degIndex_eq_zero
 #print axioms Polyfold.MPolyfold.isTame_of_degIndex_eq_zero
 #print axioms Polyfold.degIndexWith_eq_zero_iff_ty
@@ -22643,7 +22643,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 12 -/
 
--- Polyfold.Chapter12.P3W5OR_PathInduction
+-- Polyfold.Chapter12.DyadicPathInduction
 #print axioms Polyfold.IsContOrOn.congr_or
 #print axioms Polyfold.IsContOrOn.mono_or
 #print axioms Polyfold.isContOrOn_of_local_or
@@ -22651,7 +22651,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.scPath_induction_or
 #print axioms Polyfold.smoothTransPath_or_mem
 #print axioms Polyfold.smoothTransPath_or
--- Polyfold.Chapter12.P3W5OR_LocalComm
+-- Polyfold.Chapter12.OrientationLocalCommute
 #print axioms Polyfold.LocalTransport.transport.congr_simp
 #print axioms Polyfold.StrongBundle.LocalIso.innerPt_sub
 #print axioms Polyfold.StrongBundle.LocalIso.isContOrOn_pullOrx
@@ -22665,12 +22665,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.innerPt
 #print axioms Polyfold.StrongBundle.LocalIso.orxVia
 #print axioms Polyfold.StrongBundle.LocalIso.pullOrx
--- Polyfold.Chapter12.P3W5OR_Theorem1253
+-- Polyfold.Chapter12.OrientationMorphismContinuity
 #print axioms Polyfold.EpStrongBundle.eqOn_morIso_of_functor
 #print axioms Polyfold.EpStrongBundle.pullOrx_morIso_tgt
 #print axioms Polyfold.EpStrongBundle.theorem_12_5_3_push
 #print axioms Polyfold.EpStrongBundle.theorem_12_5_3_push_hyp
--- Polyfold.Chapter12.P3W5OR_Germ
+-- Polyfold.Chapter12.OrientationGerm
 #print axioms Polyfold.EpGroupoid.Sheet.tgtInv_eq_near_or
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orEqv_eq_orxVia
@@ -22684,7 +22684,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.morVia_germ
 #print axioms Polyfold.StrongBundle.LocalIso.transferK_mpullPt_germ
 #print axioms Polyfold.StrongBundle.LocalIso.transferT_mpullPt_germ
--- Polyfold.Chapter12.P3W5OR_Orientable
+-- Polyfold.Chapter12.OrientationFromSection
 #print axioms Polyfold.EpStrongBundle.eq_of_quot_eq_of_isTwoToOne
 #print axioms Polyfold.EpStrongBundle.exists_nhds_orMor_eq_hyp
 #print axioms Polyfold.EpStrongBundle.isOpen_orSat_hyp
@@ -22692,7 +22692,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.orMor_isotropy_of_isTwoToOne
 #print axioms Polyfold.EpStrongBundle.proposition_12_5_6_mpr_hyp
 #print axioms Polyfold.EpStrongBundle.proposition_12_5_6_mpr_hyp'
--- Polyfold.Chapter12.P3W5OR_EquivCont
+-- Polyfold.Chapter12.OrientationEquivalenceContinuity
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pullOr_hyp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pushOr_hyp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullOr_eq_pullOrx
@@ -22702,7 +22702,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 13 -/
 
--- Polyfold.Chapter13.P3W5FM_ExtensionData
+-- Polyfold.Chapter13.StructuredExtensionData
 #print axioms Polyfold.SBLocalization.ExtChart.isProper
 #print axioms Polyfold.SBLocalization.ExtChart.isPush
 #print axioms Polyfold.SBLocalization.ExtChart.mk.inj
@@ -22750,7 +22750,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.StructuredTuple.toStructuredOn
 #print axioms Polyfold.SBLocalization.extendMult
 #print axioms Polyfold.SBLocalization.unitChart
--- Polyfold.Chapter13.P3W5FM_Extension
+-- Polyfold.Chapter13.StructuredExtension
 #print axioms Polyfold.SBLocalization.ExtChart.instNonemptyISym
 #print axioms Polyfold.SBLocalization.ExtChart.isDiffeoComponent
 #print axioms Polyfold.SBLocalization.extSym_s_of_eq
@@ -22764,7 +22764,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 14 -/
 
--- Polyfold.Chapter14.P3W5T9_TransportProof
+-- Polyfold.Chapter14.TransportProof
 #print axioms Polyfold.SBLocalization.IndexCorr.exists_pairs_left_t9
 #print axioms Polyfold.SBLocalization.IndexCorr.rel_of_sat_t9
 #print axioms Polyfold.SBLocalization.IndexCorr.sat_of_pairs_t9
@@ -22790,7 +22790,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.TransportInput.SuppInSat
 #print axioms Polyfold.SBLocalization.TransportInput.bsec
 #print axioms Polyfold.SBLocalization.TransportInput.tsec
--- Polyfold.Chapter14.P3W5T9_SumSections
+-- Polyfold.Chapter14.TransportedSum
 #print axioms Polyfold.SBLocalization.AssemblyInput.K_subset
 #print axioms Polyfold.SBLocalization.AssemblyInput.P_tsec
 #print axioms Polyfold.SBLocalization.AssemblyInput.biact_τ
@@ -22830,7 +22830,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.AssemblyInput.ssec
 #print axioms Polyfold.SBLocalization.AssemblyInput.sumFib
 #print axioms Polyfold.SBLocalization.AssemblyInput.usec
--- Polyfold.Chapter14.P3W5T9_Assembly
+-- Polyfold.Chapter14.ExtensionAssembly
 #print axioms Polyfold.SBLocalization.AssemblyInput.P_ssec_ne
 #print axioms Polyfold.SBLocalization.AssemblyInput.biact_toUnit_swap_t9
 #print axioms Polyfold.SBLocalization.AssemblyInput.biact_toUnit_t9
@@ -22873,7 +22873,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.emptyAssemblyInput
 #print axioms Polyfold.SBLocalization.emptyTransportInput
 #print axioms Polyfold.SBLocalization.emptyZSetup
--- Polyfold.Chapter14.P3W5Z5_LimitLoops
+-- Polyfold.Chapter14.ZLoopLimits
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.eq_of_mem_U_z5
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.eq_of_mem_sheet_z5
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.exists_sheet_z5
@@ -22906,7 +22906,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.ZLimitSetting.mk.injEq
 #print axioms Polyfold.SBLocalization.ZLimitSetting.mk.sizeOf_spec
 #print axioms Polyfold.SBLocalization.ZSections.CompatNbhd
--- Polyfold.Chapter14.P3W5Z5_LimitExists
+-- Polyfold.Chapter14.ZLoopLimitExists
 #print axioms Polyfold.SBLocalization.ZLimitSetting.exists_limitRep
 #print axioms Polyfold.SBLocalization.ZLimitSetting.exists_nbhd_near
 #print axioms Polyfold.SBLocalization.ZLimitSetting.exists_nbhd_yb
@@ -22918,7 +22918,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.proposition_14_4_14_of_limit
 #print axioms Polyfold.SBLocalization.proposition_14_4_6_2_of_limit
 #print axioms Polyfold.SBLocalization.sections_eq_of_theta_closure
--- Polyfold.Chapter14.P3W5Z5_Instance
+-- Polyfold.Chapter14.ZLoopSetting
 #print axioms Polyfold.SBLocalization.IndexCorr.sat_pairs_z5
 #print axioms Polyfold.SBLocalization.ZConcrete.A_subset
 #print axioms Polyfold.SBLocalization.ZConcrete.Vh_subset
@@ -22960,7 +22960,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.ZConcrete.toZSections
 #print axioms Polyfold.SBLocalization.bdryRetr_z5
 #print axioms Polyfold.SBLocalization.isoRetr_z5
--- Polyfold.Chapter14.P3W5F6_FaceGerm
+-- Polyfold.Chapter14.FaceGerm
 #print axioms Polyfold.EpGroupoid.IsEpFace.subset_boundary
 #print axioms Polyfold.EpGroupoid.NaturalRep.eventually_Γ_eq
 #print axioms Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq
@@ -22976,7 +22976,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.localRepOne_congr
 #print axioms Polyfold.SBLocalization.FaceGermIn
 #print axioms Polyfold.SBLocalization.IsFaceRelScPlusSectionOn
--- Polyfold.Chapter14.P3W5F6_FaceStructured
+-- Polyfold.Chapter14.FaceStructured
 #print axioms Polyfold.SBLocalization.FaceStructuredTuple.isFaceRelScPlus
 #print axioms Polyfold.SBLocalization.FaceStructuredTuple.mk.inj
 #print axioms Polyfold.SBLocalization.FaceStructuredTuple.mk.injEq
@@ -23027,7 +23027,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.RelTuple.Sigma
 #print axioms Polyfold.SBLocalization.RelTuple.nbhd
 #print axioms Polyfold.SBLocalization.RelTuple.restrictTo
--- Polyfold.Chapter14.P3W5F6_Theorem1463
+-- Polyfold.Chapter14.FaceAssembly
 #print axioms Polyfold.EpGroupoid.IsEpFace.tgt_mem
 #print axioms Polyfold.EpGroupoid.IsEpFace.tgt_mem_iff
 #print axioms Polyfold.EpGroupoid.IsEpFace.Φ_mem
@@ -23058,7 +23058,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.CompatibleFaceData.faceSel
 #print axioms Polyfold.SBLocalization.CompatibleFaceData.glue
 #print axioms Polyfold.SBLocalization.CompatibleFaceData.zero
--- Polyfold.Chapter14.P3W5F6_FaceTame
+-- Polyfold.Chapter14.FaceTame
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.eq_faceAt
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.face_isTame
 #print axioms Polyfold.EpGroupoid.HasBoundaryFaces.facesThrough_eq
@@ -23073,7 +23073,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.IsGoodBoundaryNbhd.faces_isSubMPolyfold
 #print axioms Polyfold.MPolyfold.isFaceStructured_iff_univ
 #print axioms Polyfold.MPolyfold.isFace_iff_isFaceIn_univ
--- Polyfold.Chapter14.P3W5FM_BoundaryPull
+-- Polyfold.Chapter14.BoundaryPull
 #print axioms Polyfold.IsScPlusOnFaceNear.congr_open_fm
 #print axioms Polyfold.SBLocalization.BoundaryDecoration.isBoundaryScPlusMultisection_fm
 #print axioms Polyfold.SBLocalization.IsFaceScPlusSectionOn.congr_fm
@@ -23100,7 +23100,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.PullMap.bdryPullStructure
 #print axioms Polyfold.SBLocalization.PullMap.bdryPullTau
 #print axioms Polyfold.SBLocalization.PullMap.bdryPullTuple
--- Polyfold.Chapter14.P3W5FM_BoundaryPush
+-- Polyfold.Chapter14.BoundaryPush
 #print axioms Polyfold.SBLocalization.IsBoundaryWFunctor.eq_of_π_eq_fm
 #print axioms Polyfold.SBLocalization.IsPushNbhd.P_obj_fm
 #print axioms Polyfold.SBLocalization.IsPushNbhd.Qinv_mem_bdry_fm
@@ -23129,7 +23129,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 15 -/
 
--- Polyfold.Chapter15.P3W5GA_ParamOntoTransport
+-- Polyfold.Chapter15.ParamOntoTransport
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.congr_eqOn
 #print axioms Polyfold.SBLocalization.IsParamOntoAt.of_mor
 #print axioms Polyfold.SBLocalization.IsParamOntoAt.of_mor_inv
@@ -23142,7 +23142,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.transSec_eq_muLin
 #print axioms Polyfold.SBLocalization.transSec_of_eq_tgt
 #print axioms Polyfold.SBLocalization.IsParamOntoVec
--- Polyfold.Chapter15.P3W5GA_LocalFamilies
+-- Polyfold.Chapter15.LocalFamilies
 #print axioms Polyfold.SBLocalization.SeedData.atom_R
 #print axioms Polyfold.SBLocalization.SeedData.atom_V
 #print axioms Polyfold.SBLocalization.SeedData.closure_V_subset
@@ -23184,7 +23184,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.SeedData.atom
 #print axioms Polyfold.SBLocalization.SeedData.branch
 #print axioms Polyfold.SBLocalization.SeedData.gpFamily
--- Polyfold.Chapter15.P3W5GA_Seeds
+-- Polyfold.Chapter15.LocalSeeds
 #print axioms Polyfold.SBLocalization.hasLocalParamSeeds_of
 #print axioms Polyfold.SBLocalization.hasParamOntoOpen_epSEP_zero
 #print axioms Polyfold.SBLocalization.hasPointwiseParamOnto_epSEP_zero
@@ -23193,10 +23193,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_pointwise
 #print axioms Polyfold.SBLocalization.HasParamOntoOpen
 #print axioms Polyfold.SBLocalization.HasPointwiseParamOnto
--- Polyfold.Chapter15.P3W5GB_LocalSlice
+-- Polyfold.Chapter15.LocalSlice
 #print axioms Polyfold.MPolyfold.IsGeneralPositionAt.exists_inter
 #print axioms Polyfold.StrongBundle.exists_null_isGeneralPositionGerm_paramSlice_near
--- Polyfold.Chapter15.P3W5GB_BranchChart
+-- Polyfold.Chapter15.BranchChart
 #print axioms Polyfold.SBLocalization.fiberLin_toIntr_subDeriv
 #print axioms Polyfold.SBLocalization.isParamGP_restrictTo_of_onto
 #print axioms Polyfold.SBLocalization.isScPlusSection_negRestrict
@@ -23210,7 +23210,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundleChart.fiberLin.congr_simp
 #print axioms Polyfold.SBLocalization.negRestrict
 #print axioms Polyfold.SBLocalization.pbLin
--- Polyfold.Chapter15.P3W5GB_ParametricGP
+-- Polyfold.Chapter15.ParametricGeneralPosition
 #print axioms Polyfold.SBLocalization.auxLe_of_pos
 #print axioms Polyfold.SBLocalization.exists_local_paramGP
 #print axioms Polyfold.SBLocalization.exists_pos_auxLe_subset
@@ -23222,7 +23222,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_hyp_local
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_of_local
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_local
--- Polyfold.Chapter15.P3W5TY_Cutoff
+-- Polyfold.Chapter15.CutoffFunctor
 #print axioms Polyfold.SBLocalization.BoundarySymmetricStructure.mem_suppAt_iff_ty
 #print axioms Polyfold.SBLocalization.IsBoundaryScPlusMultisection.suppAt_subset_oneSet_ty
 #print axioms Polyfold.SBLocalization.boundaryDomSupp_subset_boundary_ty
@@ -23232,7 +23232,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.normW_image_suppAt_subset_ty
 #print axioms Polyfold.SBLocalization.pointwiseNorm_tgt_of_boundary_ty
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_of_extension_ty
--- Polyfold.Chapter15.P3W5TY_Cylinder
+-- Polyfold.Chapter15.Cylinder
 #print axioms Polyfold.EpGroupoid.hasParacompactOrbitSpace_cubeProd
 #print axioms Polyfold.EpGroupoid.injective_cubeOrbitMap
 #print axioms Polyfold.EpGroupoid.isOpenMap_cubeOrbitMap
@@ -23247,7 +23247,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.isReducedOntoAtPt_of_injective
 #print axioms Polyfold.SBLocalization.zeroMultisection_eq_one_of_injective
 #print axioms Polyfold.EpGroupoid.cubeOrbitHomeomorph
--- Polyfold.Chapter15.P3W5TY_CylinderGlue
+-- Polyfold.Chapter15.CylinderGlue
 #print axioms Polyfold.SBLocalization.IsRegularPerturbation.of_max_left
 #print axioms Polyfold.SBLocalization.IsRegularPerturbation.of_max_right
 #print axioms Polyfold.SBLocalization.P_cubeVal_snd
@@ -23265,7 +23265,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.pointwiseNorm_cubeGlue_le_zero
 #print axioms Polyfold.SBLocalization.pointwiseNorm_le_max_left
 #print axioms Polyfold.SBLocalization.cubeGlue
--- Polyfold.Chapter15.P3W5PR_TameBranched
+-- Polyfold.Chapter15.TameBranched
 #print axioms Polyfold.SBLocalization.exists_tame_solutionSet_of_isBranchGoodPosition
 #print axioms Polyfold.SBLocalization.isGoodPositionAt_of_interior
 #print axioms Polyfold.SBLocalization.remark_15_2_3_isTameBranched_hyp
@@ -23274,7 +23274,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_isTameBranched_hyp
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_tame_hyp
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_in_particular_tame_hyp
--- Polyfold.Chapter15.P3W5PR_RestrictedEp
+-- Polyfold.Chapter15.RestrictedEp
 #print axioms Polyfold.EpGroupoid.NaturalRep.finite_fiber_translation_π
 #print axioms Polyfold.EpGroupoid.NaturalRep.isClosedMap_translation_π
 #print axioms Polyfold.EpGroupoid.NaturalRep.isTameBranched_translation
@@ -23286,16 +23286,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.remark_15_2_3_restricted_hyp
 #print axioms Polyfold.SBLocalization.theorem_15_2_5_restricted_hyp
 #print axioms Polyfold.locallyFinite_image_of_isClosedMap
--- Polyfold.Chapter15.P3W5PR_TameWitness
+-- Polyfold.Chapter15.TameWitness
 #print axioms Polyfold.SBLocalization.remark_15_2_3_isTameBranched_hyp_witness
 #print axioms Polyfold.SBLocalization.remark_15_2_3_restricted_hyp_witness
--- Polyfold.Chapter15.P3W5GB_Combined
+-- Polyfold.Chapter15.GeneralPositionPointwise
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_of_paramOnto
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_paramOnto
 
 /-! ### Axioms: Part III wave 5 (2026-11-13), Chapter 16 -/
 
--- Polyfold.Chapter16.P3W5PC_TangentEffective
+-- Polyfold.Chapter16.TangentEffective
 #print axioms Polyfold.EpGroupoid.isEffective_tangentEpGroupoid
 #print axioms Polyfold.EpGroupoid.levelVal_tangentProj_mem_smoothSet
 #print axioms Polyfold.EpGroupoid.tangent_isotropy_eq_one
@@ -23305,7 +23305,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.theorem_16_2_4_eff
 #print axioms Polyfold.EffPolyfold.tangent
 #print axioms Polyfold.EffPolyfold.tangentFunctor
--- Polyfold.Chapter16.P3W5PC_NormLamContinuous
+-- Polyfold.Chapter16.NormLamContinuous
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.pointwiseNorm_eq
 #print axioms Polyfold.SBLocalization.IsLocalRepOn.univ_nonempty
 #print axioms Polyfold.SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm
@@ -23313,35 +23313,35 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.ScPlusMultisection.isGreatest_normLam
 #print axioms Polyfold.StrongPolyfoldBundle.ScPlusMultisection.normLam_nonneg
 #print axioms Polyfold.StrongPolyfoldBundle.isQuotientMap_γπ
--- Polyfold.Chapter16.P3W5PC_SuppNaturality
+-- Polyfold.Chapter16.SuppNaturality
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.isScSmoothOn_suppTransition
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.suppTransition_orbitSuppProj
--- Polyfold.Chapter16.P3W5PC_ReflexivePull
+-- Polyfold.Chapter16.ReflexivePull
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of
 #print axioms Polyfold.StrongBundle.LocalIso.exists_reflexive_chart
 #print axioms Polyfold.StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn
 
 /-! ### Axioms: Part III waves 6-7 (2026-11-13), Chapter 5 -/
 
--- Polyfold.Chapter5.P3W7W3_SmoothLevelCont
+-- Polyfold.Chapter5.SmoothLevelContinuity
 #print axioms Polyfold.MPolyfold.IsScSmoothMap.continuous_smoothLevel
 #print axioms Polyfold.MPolyfold.IsScSmoothOn.continuousOn_level_comp
 #print axioms Polyfold.MPolyfold.IsScSmoothOn.continuousOn_smoothLevel
 #print axioms Polyfold.MPolyfold.continuousAt_levelLift
--- Polyfold.Chapter5.P3W7W5_CubePartitions
+-- Polyfold.Chapter5.CubePartitions
 #print axioms Polyfold.admitsScPartitionsOfUnity_cubeProd
 #print axioms Polyfold.admitsScPartitionsOfUnity_of_urysohn
 #print axioms Polyfold.exists_cubeProd_urysohn_w5
 
 /-! ### Axioms: Part III waves 6-7 (2026-11-13), Chapter 12 -/
 
--- Polyfold.Chapter12.P3W6O6_ContOr
+-- Polyfold.Chapter12.ContinuousOrientationSection
 #print axioms Polyfold.isContOrOn_univ_iff_continuous
 #print axioms Polyfold.isContOrOn_univ_of_continuous_orSec
 #print axioms Polyfold.isOpen_setOf_orSec_eq
--- Polyfold.Chapter12.P3W7W3_OrbitHomeo
+-- Polyfold.Chapter12.OrientationOrbitHomeo
 #print axioms Polyfold.EpGroupoid.isOpenMap_quotMk_smooth
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.continuous_orSpaceMap
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.continuous_smoothMap
@@ -23368,12 +23368,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitHomeo
 #print axioms Polyfold.MPolyfold.IsScDiffeoOn.smoothBwd
 #print axioms Polyfold.MPolyfold.IsScDiffeoOn.smoothFwd
--- Polyfold.Chapter12.P3W7W3_Theorem1257
+-- Polyfold.Chapter12.OrientationTransferTheorem
 #print axioms Polyfold.theorem_12_5_7_one_homeo
 #print axioms Polyfold.theorem_12_5_7_one_homeo_hyp
 #print axioms Polyfold.theorem_12_5_7_two_book
 #print axioms Polyfold.theorem_12_5_7_two_book_hyp
--- Polyfold.Chapter12.P3W7W3_OrEqvComp
+-- Polyfold.Chapter12.OrientationEquivalenceComp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eK_comp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eT_comp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.germ_comp
@@ -23389,7 +23389,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.LocalIso.transferK_mpullPt₃
 #print axioms Polyfold.StrongBundle.LocalIso.transferT_mpullPt₃
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.compLocSet
--- Polyfold.Chapter12.P3W7W3_OrEqvNat
+-- Polyfold.Chapter12.OrientationEquivalenceNatural
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.continuous_natApp
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eK_nat
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eT_nat
@@ -23400,7 +23400,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orRel_orSpaceMap_nat
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_nat
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_nat
--- Polyfold.Chapter12.P3W7W3_RepIndep
+-- Polyfold.Chapter12.OrientationRepresentativeIndep
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_refine
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_refine
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial
@@ -23412,7 +23412,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 6-7 (2026-11-13), Chapter 14 -/
 
--- Polyfold.Chapter14.P3W6A6_EmptyIndex
+-- Polyfold.Chapter14.EmptyIndex
 #print axioms Polyfold.SBLocalization.BoundaryStructuredTuple.nonempty_I_a6
 #print axioms Polyfold.SBLocalization.BoundarySymmetricStructure.nonempty_I_a6
 #print axioms Polyfold.SBLocalization.IndexCorr.eq_of_isEmpty_a6
@@ -23426,7 +23426,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.emptyBoundaryStructure_a6
 #print axioms Polyfold.SBLocalization.emptyTau_a6
 #print axioms Polyfold.SBLocalization.pemptyAction_a6
--- Polyfold.Chapter14.P3W6A6_Instance
+-- Polyfold.Chapter14.AssemblyInputInstance
 #print axioms Polyfold.SBLocalization.ZConcrete.biact_eq_a6
 #print axioms Polyfold.SBLocalization.ZConcrete.biact_τ_a6
 #print axioms Polyfold.SBLocalization.ZConcrete.exists_betaSpec
@@ -23441,7 +23441,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.ZConcrete.assemblyInput_a6
 #print axioms Polyfold.SBLocalization.ZConcrete.shA6
 #print axioms Polyfold.SBLocalization.ZConcrete.transportInput_a6
--- Polyfold.Chapter14.P3W6A6_Theorem1419
+-- Polyfold.Chapter14.BoundaryExtensionTheorem
 #print axioms Polyfold.SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_a6
 #print axioms Polyfold.SBLocalization.boundary_eq_empty_of_assemblyHyp_a6
 #print axioms Polyfold.SBLocalization.sizeControl_a6
@@ -23449,12 +23449,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_iff_a6
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_statement_of_boundary_eq_empty_a6
 #print axioms Polyfold.SBLocalization.theorem_14_1_9_charged_statement
--- Polyfold.Chapter14.P3W6P6_FaceTransport
+-- Polyfold.Chapter14.FaceTransport
 #print axioms Polyfold.IsScPlusOnFaceNear.of_restrict_p6
 #print axioms Polyfold.SBLocalization.PullMap.facePull_hyp
 #print axioms Polyfold.SBLocalization.isFaceScPlusSectionOn_iff_singleton
 #print axioms Polyfold.SBLocalization.isFaceScPlusSectionOn_of_localIso
--- Polyfold.Chapter14.P3W6P6_FacePush
+-- Polyfold.Chapter14.FacePush
 #print axioms Polyfold.SBLocalization.GenSBMap.proposition_14_1_8
 #print axioms Polyfold.SBLocalization.GenSBMap.proposition_14_1_8_pullMult
 #print axioms Polyfold.SBLocalization.PullMap.isBoundaryStructurable_pull
@@ -23466,7 +23466,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.proposition_14_1_8_pullMult
 #print axioms Polyfold.SBLocalization.proposition_14_1_8_pullMult_tame
 #print axioms Polyfold.SBLocalization.proposition_14_1_8_tame
--- Polyfold.Chapter14.P3W7W1_HalfSpaceSEP
+-- Polyfold.Chapter14.HalfSpaceBundle
 #print axioms Polyfold.HalfSpaceBundle.admitsScPartitionsOfUnity_halfSEP
 #print axioms Polyfold.HalfSpaceBundle.hB_halfSEP
 #print axioms Polyfold.HalfSpaceBundle.halfSEP_PObj
@@ -23480,7 +23480,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.HalfSpaceBundle.zero_mem_boundary_halfSEP
 #print axioms Polyfold.HalfSpaceBundle.epBundleW1
 #print axioms Polyfold.HalfSpaceBundle.halfSEP
--- Polyfold.Chapter14.P3W7W1_ConstSection
+-- Polyfold.Chapter14.HalfSpaceConstSection
 #print axioms Polyfold.HalfSpaceBundle.boundaryDomSupp_constMulti_nonempty
 #print axioms Polyfold.HalfSpaceBundle.chargesBoundary_constMulti
 #print axioms Polyfold.HalfSpaceBundle.constMulti_constSec
@@ -23496,7 +23496,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.HalfSpaceBundle.constSec
 #print axioms Polyfold.HalfSpaceBundle.constStructure
 #print axioms Polyfold.HalfSpaceBundle.constTau
--- Polyfold.Chapter14.P3W7W6_FaceGoodSystem
+-- Polyfold.Chapter14.FaceGoodSystem
 #print axioms Polyfold.EpGroupoid.GoodSystem.isDiffeoComponent_face
 #print axioms Polyfold.EpGroupoid.GoodSystem.isProperSubset_face
 #print axioms Polyfold.EpGroupoid.NatNbhd.shrink_U_subset
@@ -23514,7 +23514,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NatNbhd.shrink
 #print axioms Polyfold.SBLocalization.FaceStructuredTuple.shrink
 #print axioms Polyfold.SBLocalization.RelTuple.shrink
--- Polyfold.Chapter14.P3W7W6_CornerScPlus
+-- Polyfold.Chapter14.CornerScPlus
 #print axioms Polyfold.IsScPlusOnCornerNear.symm
 #print axioms Polyfold.IsScPlusOnFaceNear.isScPlusOnCornerNear
 #print axioms Polyfold.SBLocalization.FaceStructuredTuple.restrictFace_isCornerRelScPlus
@@ -23528,21 +23528,21 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 6-7 (2026-11-13), Chapter 15 -/
 
--- Polyfold.Chapter15.P3W6G6_ParamOntoBridge
+-- Polyfold.Chapter15.ParamOntoBridge
 #print axioms Polyfold.SBLocalization.isParamGP_iff_onto_chart
 #print axioms Polyfold.SBLocalization.isParamOntoVec_iff_isParamGP
 #print axioms Polyfold.SBLocalization.levelLift_eq_zero_of_centred
 #print axioms Polyfold.SBLocalization.linAt_principal_eq_subDeriv
 #print axioms Polyfold.SBLocalization.mem_support_linearization_zero_iff
 #print axioms Polyfold.SBLocalization.onto_chart_iff
--- Polyfold.Chapter15.P3W6G6_GeneralPosition
+-- Polyfold.Chapter15.GeneralPositionGoodSystem
 #print axioms Polyfold.SBLocalization.exists_tameChart_centred
 #print axioms Polyfold.SBLocalization.hasParamOntoOpen
 #print axioms Polyfold.SBLocalization.hasPointwiseParamOnto
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_of_goodSystem
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_of_paracompact
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_goodSystem
--- Polyfold.Chapter15.P3W6G6_Existence
+-- Polyfold.Chapter15.GeneralPositionExistence
 #print axioms Polyfold.SBLocalization.ScPlusGPFamily.domSupp_subset
 #print axioms Polyfold.SBLocalization.ScPlusGPFamily.isLinear
 #print axioms Polyfold.SBLocalization.ScPlusGPFamily.isScPlus
@@ -23562,7 +23562,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.ScPlusGPFamily.zero
 #print axioms Polyfold.SBLocalization.SeedData.scPlusGPFamily
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_existence_statement
--- Polyfold.Chapter15.P3W6O6_OrientedLin
+-- Polyfold.Chapter15.OrientedLinearizations
 #print axioms Polyfold.ChartPoint.canonLift_add
 #print axioms Polyfold.ChartPoint.canonLift_eq_of_mapDomain_eq
 #print axioms Polyfold.ChartPoint.canonLift_injective_o
@@ -23587,7 +23587,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ChartPoint.orKer
 #print axioms Polyfold.ChartPoint.orKerEquiv
 #print axioms Polyfold.ChartPoint.orKerOrientation
--- Polyfold.Chapter15.P3W6O6_CanonicalLift
+-- Polyfold.Chapter15.CanonicalLift
 #print axioms Polyfold.SBLocalization.branchOr_injective
 #print axioms Polyfold.SBLocalization.canonLift_linW_eq_sum
 #print axioms Polyfold.SBLocalization.canonLift_spec
@@ -23610,7 +23610,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.liftPt
 #print axioms Polyfold.SBLocalization.linW
 #print axioms Polyfold.SBLocalization.subOp
--- Polyfold.Chapter15.P3W6R6_RelativeFamilies
+-- Polyfold.Chapter15.RelativeFamilies
 #print axioms Polyfold.SBLocalization.IsParamOntoAtRel.famAdd_left
 #print axioms Polyfold.SBLocalization.IsParamOntoAtRel.famAdd_right
 #print axioms Polyfold.SBLocalization.IsParamOntoAtRel.of_reducedOnto
@@ -23631,7 +23631,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.RelGPFamily.mono
 #print axioms Polyfold.SBLocalization.RelGPFamily.zero
 #print axioms Polyfold.SBLocalization.RelGPFamily.zeroOn
--- Polyfold.Chapter15.P3W6R6_RelativeReduction
+-- Polyfold.Chapter15.RelativeReduction
 #print axioms Polyfold.SBLocalization.exists_relGPFamily_of_compact
 #print axioms Polyfold.SBLocalization.hasLocalGPFamiliesRel_epSEP_zero
 #print axioms Polyfold.SBLocalization.hasLocalGPFamiliesRel_of_boundary
@@ -23644,12 +23644,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_of_rel_hyp
 #print axioms Polyfold.SBLocalization.HasLocalGPFamiliesRel
 #print axioms Polyfold.SBLocalization.HasParametricGeneralPositionRel
--- Polyfold.Chapter15.P3W6R6_RelativeBranch
+-- Polyfold.Chapter15.RelativeBranch
 #print axioms Polyfold.SBLocalization.isGeneralPositionGerm_branchParam_rel
 #print axioms Polyfold.SBLocalization.isLocalRepOn_multisectionAdd
 #print axioms Polyfold.SBLocalization.isParamGP_restrictTo_of_onto_rel
 #print axioms Polyfold.SBLocalization.paramSlice_branch_eq_rel
--- Polyfold.Chapter15.P3W6R6_RelativeParametric
+-- Polyfold.Chapter15.RelativeParametric
 #print axioms Polyfold.SBLocalization.exists_local_paramGP_rel
 #print axioms Polyfold.SBLocalization.exists_of_multisectionAdd_pos_at
 #print axioms Polyfold.SBLocalization.exists_pos_supp_rel_subset
@@ -23659,7 +23659,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_relative_of_local
 #print axioms Polyfold.SBLocalization.theorem_15_3_7_relative_statement_epSEP_zero_of_local
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_of_local_rel
--- Polyfold.Chapter15.P3W6R6_ChargedExtension
+-- Polyfold.Chapter15.ChargedExtensionFibres
 #print axioms Polyfold.SBLocalization.chargesBoundary_of_theorem_15_3_9_r6
 #print axioms Polyfold.SBLocalization.relative_local_families_statement_epSEP_zero
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_charged_hyp
@@ -23668,7 +23668,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_charged_statement_epSEP_zero
 #print axioms Polyfold.SBLocalization.relative_local_families_statement
 #print axioms Polyfold.SBLocalization.theorem_15_3_9_charged_statement
--- Polyfold.Chapter15.P3W7W2_CylinderEnds
+-- Polyfold.Chapter15.CylinderEnds
 #print axioms Polyfold.EpGroupoid.continuous_cylEndMap
 #print axioms Polyfold.EpGroupoid.continuous_cylOrbitTime
 #print axioms Polyfold.EpGroupoid.cylEndMap_π
@@ -23691,14 +23691,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.cylEnd
 #print axioms Polyfold.EpGroupoid.cylEndMap
 #print axioms Polyfold.EpGroupoid.cylOrbitTime
--- Polyfold.Chapter15.P3W7W2_ChargedExtension
+-- Polyfold.Chapter15.ChargedExtensionCylinder
 #print axioms Polyfold.SBLocalization.chargesBoundary_cubeGlue
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_3_charged
 #print axioms Polyfold.SBLocalization.exists_ne_zero_of_isScPlusMultisection
 #print axioms Polyfold.SBLocalization.not_theorem_15_3_9_statement_cube_w2
 #print axioms Polyfold.SBLocalization.not_theorem_15_3_9_statement_w2
 #print axioms Polyfold.SBLocalization.pointwiseNorm_zeroFun_w2
--- Polyfold.Chapter15.P3W7W2_CylinderCobordism
+-- Polyfold.Chapter15.CylinderCobordism
 #print axioms Polyfold.EpGroupoid.branchedMeasureEff.congr_simp
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.hasOrientedCobordismEff_refl
 #print axioms Polyfold.SBLocalization.corollary_15_4_4_cylinder_hyp
@@ -23719,7 +23719,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.HasOrientedCobordismEff
 #print axioms Polyfold.SBLocalization.OrientedRegularPerturbation.integralEff
 #print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_statement
--- Polyfold.Chapter15.P3W7W4_ProductStrongBundle
+-- Polyfold.Chapter15.ProductStrongBundle
 #print axioms Polyfold.IsScSmoothRetractMap.prodBundleMap
 #print axioms Polyfold.IsStrongBundleMap.prod
 #print axioms Polyfold.IsStrongBundleRetract.prod
@@ -23741,7 +23741,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ScBanach.bundleSwapOp
 #print axioms Polyfold.bundleSwap
 #print axioms Polyfold.prodBundleMap
--- Polyfold.Chapter15.P3W7W4_ProductBundle
+-- Polyfold.Chapter15.ProductBundle
 #print axioms Polyfold.IsBanachable.of_equiv
 #print axioms Polyfold.IsBanachable.prod
 #print axioms Polyfold.IsSection.prodMap
@@ -23765,7 +23765,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.prodFiberEquiv
 #print axioms Polyfold.prodFiber_addCommGroup
 #print axioms Polyfold.prodFiber_module
--- Polyfold.Chapter15.P3W7W4_ProductBundleLevels
+-- Polyfold.Chapter15.ProductBundleLevels
 #print axioms Polyfold.StrongBundle.continuousOn_liftOne
 #print axioms Polyfold.StrongBundle.continuous_prodOneFst
 #print axioms Polyfold.StrongBundle.continuous_prodOneSnd
@@ -23781,12 +23781,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundleChart.liftOne_prod
 #print axioms Polyfold.StrongBundleChart.mem_strongShiftOne_prod_K
 #print axioms Polyfold.StrongBundle.prodOneHomeomorph
--- Polyfold.Chapter15.P3W7W4_ProductBundleMap
+-- Polyfold.Chapter15.ProductBundleMap
 #print axioms Polyfold.StrongBundle.IsStrongBundleMap.prod
 #print axioms Polyfold.StrongBundle.isScSmoothMap_prodMap_one
 #print axioms Polyfold.StrongBundle.isScSmoothMap_prodMap_zero
 #print axioms Polyfold.StrongBundle.oneRestrict_prodMap
--- Polyfold.Chapter15.P3W7W4_ProductEpBundle
+-- Polyfold.Chapter15.ProductEpBundle
 #print axioms Polyfold.EpStrongBundle.IsFunctorialSection.prod
 #print axioms Polyfold.EpStrongBundle.IsScPlusSectionFunctor.prod
 #print axioms Polyfold.EpStrongBundle.IsScSmoothSectionFunctor.prod
@@ -23798,7 +23798,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.prod
 #print axioms Polyfold.prodPullbackJoin
 #print axioms Polyfold.prodPullbackSplit
--- Polyfold.Chapter15.P3W7W4_ProductAuxNorm
+-- Polyfold.Chapter15.ProductAuxNorm
 #print axioms Polyfold.EpStrongBundle.isAuxNorm_prodAuxNorm
 #print axioms Polyfold.StrongBundle.isAuxNorm_prodAuxNorm
 #print axioms Polyfold.StrongBundle.prodAuxNorm_toOne
@@ -23818,7 +23818,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.prodOneHomeomorph_toOne_snd
 #print axioms Polyfold.StrongBundle.prodAuxNorm
 #print axioms Polyfold.StrongBundle.prodOneFiberFst
--- Polyfold.Chapter15.P3W7W5_CubeLift
+-- Polyfold.Chapter15.CubeLift
 #print axioms Polyfold.SBLocalization.P_cubeLiftSec
 #print axioms Polyfold.SBLocalization.cubeIso_val
 #print axioms Polyfold.SBLocalization.cubeLiftSec_eq_iff
@@ -23836,11 +23836,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.cubeLiftSec
 #print axioms Polyfold.SBLocalization.fixSec
 #print axioms Polyfold.SBLocalization.liftStructure
--- Polyfold.Chapter15.P3W7W5_CylinderPartitions
+-- Polyfold.Chapter15.CylinderPartitions
 #print axioms Polyfold.SBLocalization.admitsScPartitionsOfUnity_cubeSEP
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_3_glue_w5
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_3_pu_w5
--- Polyfold.Chapter15.P3W7W5_GlueStructurable
+-- Polyfold.Chapter15.GlueStructurable
 #print axioms Polyfold.SBLocalization.continuous_cubeT
 #print axioms Polyfold.SBLocalization.corollary_15_3_10_3_struct_w5
 #print axioms Polyfold.SBLocalization.cubeGlue_eq_side
@@ -23878,16 +23878,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! ### Axioms: Part III waves 6-7 (2026-11-13), Chapter 16 -/
 
--- Polyfold.Chapter16.P3W6A6_Theorem1657
+-- Polyfold.Chapter16.PolyfoldBoundaryExtension
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe.isStructurable
 #print axioms Polyfold.StrongPolyfoldBundle.theorem_16_5_7_a6
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe
--- Polyfold.Chapter16.P3W6O6_OrientationTransport
+-- Polyfold.Chapter16.OrientationTransport
 #print axioms Polyfold.SBLocalization.SDiagram.exists_orientation_of_eq
 #print axioms Polyfold.SBLocalization.SDiagram.orientation_transport_hyp
 #print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.exists_diagram
 #print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.transport_hyp
--- Polyfold.Chapter16.P3W6S6_PerturbedSuborbifold
+-- Polyfold.Chapter16.PerturbedSuborbifold
 #print axioms Polyfold.PolyfoldClass.BranchedRep.rel_of_toFun_eq
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.toFun_injective
 #print axioms Polyfold.PolyfoldClass.BranchedSuborbifold.toFun_mk
@@ -23903,7 +23903,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith
 #print axioms Polyfold.StrongPolyfoldBundle.perturbedFun
 #print axioms Polyfold.StrongPolyfoldBundle.perturbedRep
--- Polyfold.Chapter16.P3W6S6_Theorem16_6_6
+-- Polyfold.Chapter16.PerturbedIntegralIndependence
 #print axioms Polyfold.PolyfoldClass.CompactOrientedSuborbifold.hasCobordismEff_refl
 #print axioms Polyfold.PolyfoldClass.CompactOrientedSuborbifold.hasCobordism_refl
 #print axioms Polyfold.PolyfoldClass.CompactOrientedSuborbifold.integralEff_eq_of_hasCobordismEff
@@ -23940,7 +23940,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.CompactOrientedSuborbifold.integralEff
 #print axioms Polyfold.StrongPolyfoldBundle.OrientedPerturbation.IsAdmissible
 #print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_statement
--- Polyfold.Chapter16.P3W7W6_ZeroSection
+-- Polyfold.Chapter16.ZeroSection
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.eq_zeroSection_iff
 #print axioms Polyfold.StrongPolyfoldBundle.ScSection.eq_zeroSection_iff_F
 #print axioms Polyfold.StrongPolyfoldBundle.continuous_fiberZero_W
@@ -23953,7 +23953,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.zeroPlusSection
 #print axioms Polyfold.StrongPolyfoldBundle.zeroRepOf
 #print axioms Polyfold.StrongPolyfoldBundle.zeroSection
--- Polyfold.Chapter16.P3W7W6_ReflexivePush
+-- Polyfold.Chapter16.ReflexivePush
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_iff
 #print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push
 #print axioms Polyfold.SBLocalization.GenSBMap.hasReflexiveFibers_iff
@@ -23961,7 +23961,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.HasReflexiveFibers.of_mem
 #print axioms Polyfold.StrongPolyfoldBundle.hasReflexiveFibers_iff_forall
 #print axioms Polyfold.StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv
--- Polyfold.Chapter16.P3W7W6_MixedTransfer
+-- Polyfold.Chapter16.MixedTransfer
 #print axioms Polyfold.SBLocalization.GenSBMap.isReflexiveAuxNorm_pullNorm
 #print axioms Polyfold.SBLocalization.GenSBMap.isReflexiveAuxNorm_pushNorm
 #print axioms Polyfold.SBLocalization.GenSBMap.rep.congr_simp

@@ -12,9 +12,9 @@
    "lean": {
     "statement": "`EpGroupoid.lemma_13_1_1`: for `N : X.NatNbhd x` with `X.IsProperSubset (closure N.U)` and any $V \\subseteq N.U$, $\\overline V \\subseteq N.U \\iff \\overline{\\pi(V)} \\subseteq \\pi(N.U)$. `lemma_13_1_1_book` adds the invariance hypothesis.",
     "decls": [
-     "Chapter13/P3G_GoodSystem · EpGroupoid.lemma_13_1_1",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.lemma_13_1_1_book",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset"
+     "Chapter13/GoodSystem · EpGroupoid.lemma_13_1_1",
+     "Chapter13/GoodSystem · EpGroupoid.lemma_13_1_1_book",
+     "Chapter13/GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset"
     ]
    },
    "chips": [
@@ -37,12 +37,12 @@
    "lean": {
     "statement": "`EpGroupoid.GoodSystem`, with fields `nbhd : ∀ x, X.NatNbhd x` (2), `isProperSubset_closure` (1) and `isDiffeoComponent` (3): for $\\varphi \\in \\mathcal U(x,x')$, the component of $\\varphi$ in `morBetween U(x) U(x′)` is an `IsDiffeoComponent` ($s$, $t$ sc-diffeomorphisms onto their images, which are open automatically). For open components (3) is injectivity of $s$ and $t$ (`isDiffeoComponent_iff_injOn`). Witness: every M-polyfold, as a trivial ep-groupoid, has a good system (`nonempty_goodSystem_trivial`).",
     "decls": [
-     "Chapter13/P3G_GoodSystem · EpGroupoid.NatNbhd",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.morBetween",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.IsDiffeoComponent",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.isDiffeoComponent_iff_injOn",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.nonempty_goodSystem_trivial"
+     "Chapter13/GoodSystem · EpGroupoid.NatNbhd",
+     "Chapter13/GoodSystem · EpGroupoid.morBetween",
+     "Chapter13/GoodSystem · EpGroupoid.IsDiffeoComponent",
+     "Chapter13/GoodSystem · EpGroupoid.isDiffeoComponent_iff_injOn",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem",
+     "Chapter13/GoodSystemExistence · EpGroupoid.nonempty_goodSystem_trivial"
     ]
    },
    "chips": [
@@ -65,11 +65,11 @@
    "lean": {
     "statement": "`EpGroupoid.proposition_13_1_3`: for open $W(x) \\ni x$ inside $U(x)$, invariant under the $\\Phi_g$ of $U(x)$, there is a good system with $U'(x) = W(x)$ and the same natural representations (`GoodSystem.restrict`). `GoodSystem.exists_refinement_subset`: an invariant refinement inside $U(x) \\cap V(x)$ (`NatNbhd.invariantCore`).",
     "decls": [
-     "Chapter13/P3G_GoodSystem · EpGroupoid.proposition_13_1_3",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.restrict",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.exists_refinement_subset",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.NatNbhd.invariantCore",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.isDiffeoComponent_of_subset"
+     "Chapter13/GoodSystem · EpGroupoid.proposition_13_1_3",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.restrict",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.exists_refinement_subset",
+     "Chapter13/GoodSystem · EpGroupoid.NatNbhd.invariantCore",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.isDiffeoComponent_of_subset"
     ]
    },
    "chips": [
@@ -91,9 +91,9 @@
    "lean": {
     "statement": "`GoodSystem.IsRefinement 𝒲 𝒰 := ∀ x, 𝒲.U x ⊆ 𝒰.U x`; `GoodSystem.IsSubordinate 𝒰 O := ∀ x, ∃ i, 𝒰.U x ⊆ O i`; `isRefinement_restrict`.",
     "decls": [
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.IsRefinement",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.IsSubordinate",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.isRefinement_restrict"
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.IsRefinement",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.IsSubordinate",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.isRefinement_restrict"
     ]
    },
    "chips": [
@@ -113,14 +113,14 @@
    "lean": {
     "statement": "`EpGroupoid.biact N N' g' φ g` $= \\Gamma'(g', t\\varphi) \\circ \\varphi \\circ \\Gamma(g, \\Phi_{g^{-1}}(s\\varphi))$, with source $\\Phi_{g^{-1}}(s\\varphi)$ (`src_biact`), target $\\Phi'_{g'}(t\\varphi)$ (`tgt_biact`), values in $\\mathcal U(x,x')$ (`biact_mem`), the action laws (`biact_biact`) and sc-smoothness of each map (`isScSmoothOn_biact`); packaged as a `MulAction` (`biactMulAction`).",
     "decls": [
-     "Chapter13/P3G_BiAction · EpGroupoid.biact",
-     "Chapter13/P3G_BiAction · EpGroupoid.src_biact",
-     "Chapter13/P3G_BiAction · EpGroupoid.tgt_biact",
-     "Chapter13/P3G_BiAction · EpGroupoid.biact_mem",
-     "Chapter13/P3G_BiAction · EpGroupoid.biact_biact",
-     "Chapter13/P3G_BiAction · EpGroupoid.isScSmoothOn_biact",
-     "Chapter13/P3G_BiAction · EpGroupoid.biactMulAction",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.biact"
+     "Chapter13/BiAction · EpGroupoid.biact",
+     "Chapter13/BiAction · EpGroupoid.src_biact",
+     "Chapter13/BiAction · EpGroupoid.tgt_biact",
+     "Chapter13/BiAction · EpGroupoid.biact_mem",
+     "Chapter13/BiAction · EpGroupoid.biact_biact",
+     "Chapter13/BiAction · EpGroupoid.isScSmoothOn_biact",
+     "Chapter13/BiAction · EpGroupoid.biactMulAction",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.biact"
     ]
    },
    "chips": [
@@ -143,17 +143,17 @@
    "lean": {
     "statement": "`GoodSystem.image_biact_comp` (components go to components; `image_inv_comp` for inversion; the components partition $\\mathcal U(x,x')$). `lemma_13_1_6_one`, `lemma_13_1_6_two` from the pointwise forms `eq_one_of_biact_left_mem`, `eq_one_of_biact_right_mem` (one $\\psi \\in \\Sigma$ with $g' * \\psi \\in \\Sigma$ forces $g' = 1$); `lemma_13_1_6_three_src`, `_tgt` for the components of any two morphisms.",
     "decls": [
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.image_biact_comp",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.image_inv_comp",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.components",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_one",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_two",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_src",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_tgt",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_left_mem",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_right_mem",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.exists_biact_left_of_src",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.exists_biact_right_of_tgt"
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.image_biact_comp",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.image_inv_comp",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.components",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_one",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_two",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_src",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.lemma_13_1_6_three_tgt",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_left_mem",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.eq_one_of_biact_right_mem",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.exists_biact_left_of_src",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.exists_biact_right_of_tgt"
     ]
    },
    "chips": [
@@ -176,24 +176,24 @@
    "lean": {
     "statement": "Printed form: `EpGroupoid.theorem_13_1_7_book (hQ : IsOpen Q) (hπQ : X.π '' Q = univ) N (hN : X.IsGoodIn N Q) W hW hyW : ∃ 𝒰 : X.GoodSystem, (∀ q ∈ Q, 𝒰.nbhd q = N q) ∧ ∀ y ∉ Q, 𝒰.U y ⊆ W y`. `IsGoodIn N Q`: for $q \\in Q$, $U(q) \\subseteq Q$; (1) read in the full subcategory on $Q$ (`X.IsProperSubsetIn Q (closure (↑⁻¹' U(q) : Set Q))`: $t : s^{-1}(\\mathrm{cl}_Q U(q)) \\cap \\mathrm{Mor}(Q) \\to Q$ proper, through `subSrc`, `subTgt` on `X.morOn Q`); (3) for $q, q' \\in Q$. `isGoodIn_iff (hQ) (hπQ) : X.IsGoodIn N Q ↔ X.IsGoodOn N Q ∧ ∀ q ∈ Q, closure (N q).U ⊆ Q`. Stronger form: `EpGroupoid.theorem_13_1_7` for any $Q$ with $\\pi(Q) = |X|$ and `X.IsGoodOn N Q` (properness in $X$): there is a good system with `𝒰.nbhd q = N q` for $q \\in Q$ and $U(y) \\subseteq W(y)$ for $y \\notin Q$. Witnesses: `GoodSystem.isGoodOn`, `GoodSystem.isGoodIn_univ`.",
     "decls": [
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.subSrc",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.subTgt",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isGoodIn_iff",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn.isGoodOn",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn.closure_subset",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubsetIn_of_isProperSubset",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.GoodSystem.isGoodIn_univ",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.theorem_13_1_7",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.IsTransport",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.injOn_comp_of_transport",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_nhds_injOn_of_isProperSubset",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_transport_of_isGoodOn",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.IsGoodOn"
+     "Chapter13/GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
+     "Chapter13/GoodSystemRelative · EpGroupoid.IsGoodIn",
+     "Chapter13/GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
+     "Chapter13/GoodSystemRelative · EpGroupoid.subSrc",
+     "Chapter13/GoodSystemRelative · EpGroupoid.subTgt",
+     "Chapter13/GoodSystemRelative · EpGroupoid.isGoodIn_iff",
+     "Chapter13/GoodSystemRelative · EpGroupoid.IsGoodIn.isGoodOn",
+     "Chapter13/GoodSystemRelative · EpGroupoid.IsGoodIn.closure_subset",
+     "Chapter13/GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn",
+     "Chapter13/GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
+     "Chapter13/GoodSystemRelative · EpGroupoid.isProperSubsetIn_of_isProperSubset",
+     "Chapter13/GoodSystemRelative · EpGroupoid.GoodSystem.isGoodIn_univ",
+     "Chapter13/GoodSystemExistence · EpGroupoid.theorem_13_1_7",
+     "Chapter13/GoodSystemExistence · EpGroupoid.IsTransport",
+     "Chapter13/GoodSystemExistence · EpGroupoid.injOn_comp_of_transport",
+     "Chapter13/GoodSystemExistence · EpGroupoid.exists_nhds_injOn_of_isProperSubset",
+     "Chapter13/GoodSystemExistence · EpGroupoid.exists_transport_of_isGoodOn",
+     "Chapter13/GoodSystem · EpGroupoid.IsGoodOn"
     ]
    },
    "chips": [
@@ -218,7 +218,7 @@
    "lean": {
     "statement": "`EpGroupoid.theorem_13_1_8 (hX : X.HasParacompactOrbitSpace) W hW hxW : ∃ 𝒰 : X.GoodSystem, ∀ x, 𝒰.U x ⊆ W x`.",
     "decls": [
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.theorem_13_1_8"
+     "Chapter13/GoodSystemExistence · EpGroupoid.theorem_13_1_8"
     ]
    },
    "chips": [
@@ -241,15 +241,15 @@
    "lean": {
     "statement": "`GoodSystem.stabSrc`, `stabTgt` (subgroups), `GoodSystem.D` with `isScDiffeoOn_D`. `GoodSystem.proposition_13_1_9 (hφ : φ ∈ 𝒰.mor x x′)`: `f : stabSrc ≃* stabTgt` with $\\mathrm{srcInv}(\\Phi_g z) = \\mathrm{biact}(f g)(\\mathrm{srcInv}\\,z)\\,g^{-1}$ on $s(\\Sigma)$, and every map with this property equals $f$; `proposition_13_1_9_D`: $\\Phi'_{g'(g)} \\circ D_\\Sigma = D_\\Sigma \\circ \\Phi_g$ on $s(\\Sigma)$.",
     "decls": [
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.stabSrc",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.stabTgt",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.D",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.isScDiffeoOn_D",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.proposition_13_1_9",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.proposition_13_1_9_D",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.partner",
-     "Chapter13/P3G_BiAction · EpGroupoid.GoodSystem.partnerHom",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.GoodSystem.srcInv"
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.stabSrc",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.stabTgt",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.D",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.isScDiffeoOn_D",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.proposition_13_1_9",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.proposition_13_1_9_D",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.partner",
+     "Chapter13/BiAction · EpGroupoid.GoodSystem.partnerHom",
+     "Chapter13/GoodSystem · EpGroupoid.GoodSystem.srcInv"
     ]
    },
    "chips": [
@@ -271,14 +271,14 @@
    "lean": {
     "statement": "`SBLocalization.domSupp Λ = closure {x | ∃ w, P w = x ∧ w ≠ 0_x ∧ 0 < Λ w}`, `supp`, `suppAt`; the claims: `IsLocalRepOn.suppAt_eq`, `IsScPlusMultisection.finite_suppAt`, `sum_suppAt`, `suppAt_nonempty`, and `domSupp_eq_closure_image` (the first relation after Definition 13.2.3).",
     "decls": [
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.supp",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.suppAt",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.domSupp",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsLocalRepOn.suppAt_eq",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.finite_suppAt",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.sum_suppAt",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_nonempty",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.domSupp_eq_closure_image"
+     "Chapter13/MultisectionSupport · SBLocalization.supp",
+     "Chapter13/MultisectionSupport · SBLocalization.suppAt",
+     "Chapter13/MultisectionSupport · SBLocalization.domSupp",
+     "Chapter13/MultisectionSupport · SBLocalization.IsLocalRepOn.suppAt_eq",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.finite_suppAt",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.sum_suppAt",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_nonempty",
+     "Chapter13/MultisectionSupport · SBLocalization.domSupp_eq_closure_image"
     ]
    },
    "chips": [
@@ -300,11 +300,11 @@
    "lean": {
     "statement": "`SBLocalization.pointwiseNorm N Λ x = sSup (normW N '' suppAt Λ x)`, with the supremum attained (`isGreatest_pointwiseNorm`); both relations for every auxiliary norm (`domSupp_eq_closure_pointwiseNorm`).",
     "decls": [
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.normW",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.pointwiseNorm",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_subset_oneSet",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.isGreatest_pointwiseNorm",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.domSupp_eq_closure_pointwiseNorm"
+     "Chapter13/MultisectionSupport · SBLocalization.normW",
+     "Chapter13/MultisectionSupport · SBLocalization.pointwiseNorm",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.suppAt_subset_oneSet",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.isGreatest_pointwiseNorm",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.domSupp_eq_closure_pointwiseNorm"
     ]
    },
    "chips": [
@@ -326,9 +326,9 @@
    "lean": {
     "statement": "`SBLocalization.IsTrivialOn Λ V := ∀ x ∈ V, Λ (0_x) = 1`; the \"hence\" clause is `apply_fiberZero_eq_one_iff` (an iff); the remark is `isLeast_domSupp`.",
     "decls": [
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsTrivialOn",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.apply_fiberZero_eq_one_iff",
-     "Chapter13/P3M_MultisectionSupport · SBLocalization.IsScPlusMultisection.isLeast_domSupp"
+     "Chapter13/MultisectionSupport · SBLocalization.IsTrivialOn",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.apply_fiberZero_eq_one_iff",
+     "Chapter13/MultisectionSupport · SBLocalization.IsScPlusMultisection.isLeast_domSupp"
     ]
    },
    "chips": [
@@ -348,8 +348,8 @@
    "lean": {
     "statement": "`SBLocalization.SymmetricStructure A Λ x`, with a natural representation `R` ($U = R.U$), the properness property, a finite index type `I` with a `MulAction` of the isotropy group, sections `s`, sc⁺-regularity, equivariance and the representation of $\\Lambda$.",
     "decls": [
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.SymmetricStructure",
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.prodIsotropyAction"
+     "Chapter13/MultisectionSymmetric · SBLocalization.SymmetricStructure",
+     "Chapter13/MultisectionSymmetric · SBLocalization.prodIsotropyAction"
     ]
    },
    "chips": [
@@ -371,12 +371,12 @@
    "lean": {
     "statement": "`SBLocalization.lemma_13_2_6 (hΛ : IsScPlusMultisection A Λ) (x) : Nonempty (SymmetricStructure A Λ x)`, by the text's construction: shrink a local representation to a natural representation with the properness property, equalise the weights (`IsLocalRepOn.exists_equal_weights`), and transport by $G_x$ (`transportSection`, index set $I \\times G_x$).",
     "decls": [
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.transportSection",
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.isScPlusSectionOn_transportSection",
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.IsLocalRepOn.exists_equal_weights",
-     "Chapter13/P3M_MultisectionSymmetric · SBLocalization.lemma_13_2_6",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.extendZero",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsLocalRepOn.extendZero"
+     "Chapter13/MultisectionSymmetric · SBLocalization.transportSection",
+     "Chapter13/MultisectionSymmetric · SBLocalization.isScPlusSectionOn_transportSection",
+     "Chapter13/MultisectionSymmetric · SBLocalization.IsLocalRepOn.exists_equal_weights",
+     "Chapter13/MultisectionSymmetric · SBLocalization.lemma_13_2_6",
+     "Chapter13/ScPlusSectionOn · SBLocalization.extendZero",
+     "Chapter13/ScPlusSectionOn · SBLocalization.IsLocalRepOn.extendZero"
     ]
    },
    "chips": [
@@ -398,38 +398,38 @@
    "lean": {
     "statement": "`SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form `multisectionAdd_eq_sum_of_isLocalRepOn`; at functor level `multisectionAdd_comm`, `multisectionAdd_assoc`; the $n$-fold sum `conv`. Decorated: `Decoration.add` with `add_I` ($I_x = I'_x \\times I''_x$), `add_s_apply` ($s_{(i,i')}(y) = s'_i(y) + s''_{i'}(y)$), `add_U_subset` ($U(x) \\subseteq U'(x) \\cap U''(x)$), `definition_13_2_9_decorated`; the sum respects Definition 13.2.8 (`Decoration.add_rel`), so it is defined on decorated sc⁺-multisections (`DecoratedMultisection.add`, `forget_add`), commutative and associative there (`DecoratedMultisection.add_comm`, `add_assoc`).",
     "decls": [
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.addAt",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_eq_conv",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_eq_sum_of_isLocalRepOn",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.definition_13_2_9",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_assoc",
-     "Chapter13/P3M_MultisectionConvolution · SBLocalization.convAt",
-     "Chapter13/P3M_MultisectionConvolution · SBLocalization.conv",
-     "Chapter13/P3M_MultisectionConvolution · SBLocalization.isLocalRepOn_conv",
-     "Chapter13/P3M_MultisectionConvolution · SBLocalization.isScPlusMultisection_conv",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionAdd",
-     "Chapter13/P3D_SymmetricOn · EpGroupoid.NatNbhd.Le",
-     "Chapter13/P3D_SymmetricOn · EpGroupoid.NatNbhd.exists_le_of_finite",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionAdd",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.restrict",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.add",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.exists_common",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_I",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_s_apply",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_U_subset",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_rel",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_comm_rel",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_assoc_rel",
-     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_9_decorated",
-     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_9_decorated_equiv",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.forget_add",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_assoc"
+     "Chapter13/MultisectionAlgebra · SBLocalization.addAt",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd_eq_conv",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd_eq_sum_of_isLocalRepOn",
+     "Chapter13/MultisectionAlgebra · SBLocalization.definition_13_2_9",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd_assoc",
+     "Chapter13/MultisectionConvolution · SBLocalization.convAt",
+     "Chapter13/MultisectionConvolution · SBLocalization.conv",
+     "Chapter13/MultisectionConvolution · SBLocalization.isLocalRepOn_conv",
+     "Chapter13/MultisectionConvolution · SBLocalization.isScPlusMultisection_conv",
+     "Chapter13/ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionAdd",
+     "Chapter13/SymmetricOn · EpGroupoid.NatNbhd.Le",
+     "Chapter13/SymmetricOn · EpGroupoid.NatNbhd.exists_le_of_finite",
+     "Chapter13/SymmetricOn · SBLocalization.fibAct",
+     "Chapter13/SymmetricOn · SBLocalization.fibAct_sectionAdd",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.restrict",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.add",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.exists_common",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_I",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_s_apply",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_U_subset",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_rel",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_comm_rel",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add_assoc_rel",
+     "Chapter13/DecoratedMultisection · SBLocalization.definition_13_2_9_decorated",
+     "Chapter13/DecoratedMultisection · SBLocalization.definition_13_2_9_decorated_equiv",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.forget_add",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add_comm",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add_assoc"
     ]
    },
    "chips": [
@@ -452,19 +452,19 @@
    "lean": {
     "statement": "`SBLocalization.multisectionSmul a Λ`, exactly the printed cases; $0\\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`). Decorated: `Decoration.smul` ($(\\mathcal U, (a s^x_i))$, the same index sets), `definition_13_2_10_decorated`, and on classes `DecoratedMultisection.smul a` (well defined by `Decoration.smulFun_rel`).",
     "decls": [
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.smulAt",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_zero",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.definition_13_2_10",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionSmul",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection_apply",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionSmul",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smul",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smul",
-     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_10_decorated",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.smul"
+     "Chapter13/MultisectionAlgebra · SBLocalization.smulAt",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionSmul",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionSmul_zero",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn",
+     "Chapter13/MultisectionAlgebra · SBLocalization.definition_13_2_10",
+     "Chapter13/ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionSmul",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection_apply",
+     "Chapter13/SymmetricOn · SBLocalization.fibAct_sectionSmul",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.smul",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.smul",
+     "Chapter13/DecoratedMultisection · SBLocalization.definition_13_2_10_decorated",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.smul"
     ]
    },
    "chips": [
@@ -486,12 +486,12 @@
    "lean": {
     "statement": "`SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\\beta$ sc-smooth on the object M-polyfold (the book's \"sc-smooth functor\"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`. Decorated: `Decoration.smulFun` (sections $\\beta s^x_i$, the same good system and index sets), `lemma_13_2_11_decorated`, `Decoration.smulFun_rel` (compatible with Definition 13.2.8).",
     "decls": [
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmulFun",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.lemma_13_2_11",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulFun",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun_rel",
-     "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_11_decorated"
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionSmulFun",
+     "Chapter13/MultisectionAlgebra · SBLocalization.lemma_13_2_11",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.smulFun",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.smulFun",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.smulFun_rel",
+     "Chapter13/DecoratedMultisection · SBLocalization.lemma_13_2_11_decorated"
     ]
    },
    "chips": [
@@ -513,10 +513,10 @@
    "lean": {
     "statement": "`SBLocalization.IsLocallyFiniteFamily Λ := ∀ x, ∃ O, IsOpen O ∧ IsSaturated O ∧ x ∈ O ∧ (nontrivIdx Λ O).Finite`; the stability remark is `IsLocallyFiniteFamily.exists_stable` (minimising the cardinality), for open saturated $O' \\ni x$.",
     "decls": [
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.nontrivIdx",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.nontrivIdx_mono",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily.exists_stable"
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.nontrivIdx",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.nontrivIdx_mono",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.IsLocallyFiniteFamily.exists_stable"
     ]
    },
    "chips": [
@@ -537,20 +537,20 @@
    "lean": {
     "statement": "`SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`. Decorated: `Decoration.lfSum hΛ hlf D 𝒰₀`, with $U(x) \\subseteq O(x) \\cap \\bigcap_{j \\in J_x} U_j(x)$ (with the natural action of $U_0(x)$, agreeing with those of $U_j(x)$), index set $\\prod_{j \\in J_x} I^j_x$ and sections $\\sum_{j \\in J_x} s^{j,x}_{i_j}$ (`lfSumStructure`, through `SymmetricStructureOn.pi`); `lemma_13_2_13_decorated`.",
     "decls": [
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv_of_mem",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.trivial_of_not_mem_nontrivIdx",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lemma_13_2_13",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection_apply",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionSum",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.pi",
-     "Chapter13/P3D_Decorated · SBLocalization.SymmetricStructureOn.congr",
-     "Chapter13/P3D_Decorated · SBLocalization.exists_lfData",
-     "Chapter13/P3D_Decorated · SBLocalization.lfSumStructure",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum",
-     "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_13_decorated"
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.lfSum",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv_of_mem",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.trivial_of_not_mem_nontrivIdx",
+     "Chapter13/MultisectionLocallyFinite · SBLocalization.lemma_13_2_13",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection_apply",
+     "Chapter13/SymmetricOn · SBLocalization.fibAct_sectionSum",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.pi",
+     "Chapter13/DecoratedMultisection · SBLocalization.SymmetricStructureOn.congr",
+     "Chapter13/DecoratedMultisection · SBLocalization.exists_lfData",
+     "Chapter13/DecoratedMultisection · SBLocalization.lfSumStructure",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.lfSum",
+     "Chapter13/DecoratedMultisection · SBLocalization.lemma_13_2_13_decorated"
     ]
    },
    "chips": [
@@ -573,10 +573,10 @@
    "lean": {
     "statement": "`MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn`: a local sc-diffeomorphism injective on an open $S$ is an sc-diffeomorphism $S \\to f(S)$ with inverse `invFunOn`; `exists_natNbhd_isProperSubset`: neighbourhoods with the natural action and proper closure inside any open $W \\ni x$; `exists_isOpen_injOn_src_tgt`.",
     "decls": [
-     "Chapter13/P3G_GoodSystem · MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.continuousOn_comp_of_continuousOn",
-     "Chapter13/P3G_GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset",
-     "Chapter13/P3G_GoodSystemExistence · EpGroupoid.exists_isOpen_injOn_src_tgt"
+     "Chapter13/GoodSystem · MPolyfold.IsLocalScDiffeo.isScDiffeoOn_invFunOn",
+     "Chapter13/GoodSystem · EpGroupoid.continuousOn_comp_of_continuousOn",
+     "Chapter13/GoodSystem · EpGroupoid.exists_natNbhd_isProperSubset",
+     "Chapter13/GoodSystemExistence · EpGroupoid.exists_isOpen_injOn_src_tgt"
     ]
    },
    "chips": [],
@@ -594,11 +594,11 @@
    "lean": {
     "statement": "`isProperMap_iff_ultrafilter_of_isInducing` (proper maps on subspaces via ultrafilters on the ambient space), `isProperSubset_iff_ultrafilter` (Definition 7.5.8 by ultrafilters), `isProperSubsetIn_iff_ultrafilter`, `exists_localSection` (a local section of $s$ through $\\chi$ with targets in an open set), `exists_mor_tgt_mem`.",
     "decls": [
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperMap_iff_ultrafilter_of_isInducing",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_iff_ultrafilter",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubsetIn_iff_ultrafilter",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.exists_localSection",
-     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.exists_mor_tgt_mem"
+     "Chapter13/GoodSystemRelative · EpGroupoid.isProperMap_iff_ultrafilter_of_isInducing",
+     "Chapter13/GoodSystemRelative · EpGroupoid.isProperSubset_iff_ultrafilter",
+     "Chapter13/GoodSystemRelative · EpGroupoid.isProperSubsetIn_iff_ultrafilter",
+     "Chapter13/GoodSystemRelative · EpGroupoid.exists_localSection",
+     "Chapter13/GoodSystemRelative · EpGroupoid.exists_mor_tgt_mem"
     ]
    },
    "chips": [],
@@ -618,17 +618,17 @@
    "lean": {
     "statement": "`structure Decoration A Λ` with `𝒰 : A.X.GoodSystem` and `S : ∀ x, SymmetricStructureOn A Λ (𝒰.nbhd x)`; `structure DecoratedTuple A` with `Λ`, `isScPlusMultisection`, `dec : Decoration A Λ`. `SymmetricStructureOn A Λ N` is Definition 13.2.5 on the neighbourhood $N$ of $x$ with its natural $G_x$-action: a finite $I$ with a $G_x$-action, sc⁺-sections $s_i$ on $N.U$ with $s_{g(i)}(g * y) = \\mu(\\Gamma(g,y), s_i(y))$ and $\\Lambda(w) = |I|^{-1}\\#\\{i \\mid s_i(P(w)) = w\\}$ over $N.U$. Witnesses: `exists_decoration` (for paracompact $|X|$, from Lemma 13.2.6 and Theorem 13.1.8), `exists_symmetricStructureOn`.",
     "decls": [
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.P_s",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.apply_fib",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.rep_of_apply_fib",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.card_pos",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.s_eq_fiberZero",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructure.toOn",
-     "Chapter13/P3D_SymmetricOn · SBLocalization.exists_symmetricStructureOn",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple",
-     "Chapter13/P3D_Decorated · SBLocalization.exists_decoration"
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.P_s",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.apply_fib",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.rep_of_apply_fib",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.card_pos",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructureOn.s_eq_fiberZero",
+     "Chapter13/SymmetricOn · SBLocalization.SymmetricStructure.toOn",
+     "Chapter13/SymmetricOn · SBLocalization.exists_symmetricStructureOn",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedTuple",
+     "Chapter13/DecoratedMultisection · SBLocalization.exists_decoration"
     ]
    },
    "chips": [
@@ -650,18 +650,18 @@
    "lean": {
     "statement": "`Decoration.Rel D D'` (conditions (1)–(2), for decorations of possibly different functors), `Rel.refl`, `Rel.symm`, `Rel.trans`; `DecoratedTuple.Equiv T T' := T.Λ = T'.Λ ∧ T.dec.Rel T'.dec`, `DecoratedTuple.equivalence`; `DecoratedMultisection A` (the quotient), `DecoratedMultisection.forget`, `isScPlusMultisection_forget`.",
     "decls": [
-     "Chapter13/P3D_Decorated · EpGroupoid.GoodSystem.ofSubset",
-     "Chapter13/P3D_Decorated · EpGroupoid.GoodSystem.exists_subset_inter",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.refl",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.symm",
-     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.trans",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.Equiv",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.equivalence",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.setoid",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.forget",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.isScPlusMultisection_forget"
+     "Chapter13/DecoratedMultisection · EpGroupoid.GoodSystem.ofSubset",
+     "Chapter13/DecoratedMultisection · EpGroupoid.GoodSystem.exists_subset_inter",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.Rel",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.Rel.refl",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.Rel.symm",
+     "Chapter13/DecoratedMultisection · SBLocalization.Decoration.Rel.trans",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedTuple.Equiv",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedTuple.equivalence",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedTuple.setoid",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.forget",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.isScPlusMultisection_forget"
     ]
    },
    "chips": [
@@ -683,14 +683,14 @@
    "lean": {
     "statement": "`multisectionAdd_zeroMultisection`: the zero multisection $\\Lambda_0$ is neutral, $\\Lambda \\oplus \\Lambda_0 = \\Lambda$. `NoInverse.remark_13_2_9_no_inverse`: on the trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid, for $c \\ne 0$ the sc⁺-multisection `twoValued c` (weight ½ on the zero section and ½ on the constant section $c$) satisfies $\\mathrm{twoValued}\\,c \\oplus \\Lambda' \\ne \\Lambda_0$ for every sc⁺-multisection $\\Lambda'$. `NoInverse.exists_no_inverse` ($k \\ge 1$): such $\\Lambda$ exists.",
     "decls": [
-     "Chapter13/P3D_NoInverse · SBLocalization.zeroMultisection_fib",
-     "Chapter13/P3D_NoInverse · SBLocalization.multisectionAdd_zeroMultisection",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.twoValued",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.isLocalRepOn_twoValued",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.isScPlusMultisection_twoValued",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.add_le_one_of_ne",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
-     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.exists_no_inverse"
+     "Chapter13/MultisectionNoInverse · SBLocalization.zeroMultisection_fib",
+     "Chapter13/MultisectionNoInverse · SBLocalization.multisectionAdd_zeroMultisection",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.twoValued",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.isLocalRepOn_twoValued",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.isScPlusMultisection_twoValued",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.add_le_one_of_ne",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
+     "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.exists_no_inverse"
     ]
    },
    "chips": [
@@ -713,14 +713,14 @@
    "lean": {
     "statement": "`structure IndexDiagram α β` (fields `I`, `Fintype I`, `a`, `b`, `surjective_a`, `surjective_b`, `uniform_a`, `uniform_b`, with `Nat.card` of the fibres); `IndexDiagram.Equiv`, `IndexDiagram.equivalence`, `IndexDiagram.setoid`; `IndexCorr α β` (the quotient, $J(x,x')$ for $\\alpha = I_x$, $\\beta = I_{x'}$), `IndexCorr.mk`, `mk_eq_mk`, `ind`.",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.Equiv",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.equivalence",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.setoid",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.mk",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.mk_eq_mk",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ind"
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.Equiv",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.equivalence",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.setoid",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.mk",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.mk_eq_mk",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.ind"
     ]
    },
    "chips": [],
@@ -740,17 +740,17 @@
    "lean": {
     "statement": "`IndexCorr.swap`, `swap_swap`, `swapEquiv` (a bijection); `IndexCorr.biact g' τ g` for actions of groups $G$, $G'$ on $I_x$, $I_{x'}$, with `biact_one_one` and `biact_biact` ($g' * (h' * \\tau * h) * g = (g'h') * \\tau * (hg)$, an action of $G_{x'} \\times G_x^{op}$).",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swap_swap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swapEquiv",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact_one_one",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact_biact",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.swap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.map",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map_refl",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map_map"
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.swap",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.swap_swap",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.swapEquiv",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.biact",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.biact_one_one",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.biact_biact",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.swap",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.map",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.map",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.map_refl",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.map_map"
     ]
    },
    "chips": [
@@ -772,7 +772,7 @@
    "lean": {
     "statement": "`IndexCorr.example_13_3_3`: for any group actions, `biact g' τ g = τ` for every `τ : IndexCorr PUnit β`.",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.example_13_3_3"
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.example_13_3_3"
     ]
    },
    "chips": [],
@@ -792,8 +792,8 @@
    "lean": {
     "statement": "`Decoration.IsCorrespondence D x x' τ` with fields `locallyConstant` (for $\\varphi \\in \\mathcal U(x,x')$, eventually $\\tau\\psi = \\tau\\varphi$ near $\\varphi$), `finite` ($\\tau(\\mathcal U(x,x'))$ finite), `biact` (with wave 1's `GoodSystem.biact`) and `compat` (`(τ φ).Sat` of `Decoration.Compat`, condition (3) for every representative).",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Compat",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.IsCorrespondence"
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Compat",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.IsCorrespondence"
     ]
    },
    "chips": [],
@@ -813,16 +813,16 @@
    "lean": {
     "statement": "For any relation $R$ on $I_x \\times I_{x'}$: `IndexDiagram.sat_iff_of_equiv` (\"$R(a(k), b(k))$ for all $k$\" is invariant under equivalence), hence `IndexCorr.Sat R` is defined on classes, and `IndexCorr.sat_iff` ($\\tau$ satisfies $R$ iff every representative does).",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.Sat",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.sat_iff_of_equiv",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.Sat",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_mk",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_iff",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_map",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_swap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_mono",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_of_forall",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_prod"
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.Sat",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.sat_iff_of_equiv",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.Sat",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_mk",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_iff",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_map",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_swap",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_mono",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_of_forall",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.sat_prod"
     ]
    },
    "chips": [],
@@ -842,14 +842,14 @@
    "lean": {
     "statement": "`structure Decoration.Tau D` (fields `τ`, `isCorrespondence`, `diag` with `IndexCorr.ofPerm g`, `swap` for $\\varphi \\in \\mathcal U(x',x)$); `DecoratedMultisection.IsStructurable` (some representative carries a `Tau`); for functors `IsStructurable A Λ := IsScPlusMultisection A Λ ∧ ∃ D, Nonempty D.Tau`, with `isStructurable_iff` (a functor is structurable iff it is `forget` of a structurable decorated class). Witness: `isStructurable_zeroMultisection` (the zero multisection, $\\tau \\equiv [\\{*\\} \\leftarrow \\{*\\} \\to \\{*\\}]$, for paracompact $|X|$).",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ofEquiv",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ofPerm",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau",
-     "Chapter13/P3D_Structurable · SBLocalization.IsStructurable",
-     "Chapter13/P3D_Structurable · SBLocalization.DecoratedMultisection.IsStructurable",
-     "Chapter13/P3D_Structurable · SBLocalization.isStructurable_iff",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.zeroTau",
-     "Chapter13/P3D_Structurable · SBLocalization.isStructurable_zeroMultisection"
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.ofEquiv",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.ofPerm",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau",
+     "Chapter13/StructurableMultisection · SBLocalization.IsStructurable",
+     "Chapter13/StructurableMultisection · SBLocalization.DecoratedMultisection.IsStructurable",
+     "Chapter13/StructurableMultisection · SBLocalization.isStructurable_iff",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.zeroTau",
+     "Chapter13/StructurableMultisection · SBLocalization.isStructurable_zeroMultisection"
     ]
    },
    "chips": [],
@@ -869,7 +869,7 @@
    "lean": {
     "statement": "`structure StructuredTuple A extends DecoratedTuple A` with `tau : dec.Tau`.",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple"
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple"
     ]
    },
    "chips": [],
@@ -889,12 +889,12 @@
    "lean": {
     "statement": "`StructuredTuple.Equiv` (with `hI : ∀ x, (T.dec.S x).I = (T'.dec.S x).I` and `τ' = τ.map (Equiv.cast (hI x)) (Equiv.cast (hI x'))` on $\\mathcal U''(x,x')$), `StructuredTuple.equivalence`, `StructuredTuple.setoid`.",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.Equiv",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.equivalence",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.setoid",
-     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_rfl",
-     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_symm",
-     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_trans"
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.Equiv",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.equivalence",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.setoid",
+     "Chapter13/StructurableMultisection · SBLocalization.IndexCorr.map_cast_rfl",
+     "Chapter13/StructurableMultisection · SBLocalization.IndexCorr.map_cast_symm",
+     "Chapter13/StructurableMultisection · SBLocalization.IndexCorr.map_cast_trans"
     ]
    },
    "chips": [
@@ -916,7 +916,7 @@
    "lean": {
     "statement": "Nothing to formalize: a comment on the choice of definition. The relabelling it uses is `IndexCorr.map`.",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map"
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.map"
     ]
    },
    "chips": [
@@ -938,8 +938,8 @@
    "lean": {
     "statement": "`StructuredMultisection A := Quotient (StructuredTuple.setoid A)`, `StructuredMultisection.forget`.",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.forget"
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredMultisection",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredMultisection.forget"
     ]
    },
    "chips": [],
@@ -959,12 +959,12 @@
    "lean": {
     "statement": "`Γm A`, `Γs A` (sets of functors), `Γst A := StructuredMultisection A`, `Γs_subset_Γm`, `StructuredMultisection.forget_mem_Γs`, `StructuredMultisection.range_forget` (`range forget = Γs A`).",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.Γm",
-     "Chapter13/P3D_Structurable · SBLocalization.Γs",
-     "Chapter13/P3D_Structurable · SBLocalization.Γst",
-     "Chapter13/P3D_Structurable · SBLocalization.Γs_subset_Γm",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.forget_mem_Γs",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.range_forget"
+     "Chapter13/StructurableMultisection · SBLocalization.Γm",
+     "Chapter13/StructurableMultisection · SBLocalization.Γs",
+     "Chapter13/StructurableMultisection · SBLocalization.Γst",
+     "Chapter13/StructurableMultisection · SBLocalization.Γs_subset_Γm",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredMultisection.forget_mem_Γs",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredMultisection.range_forget"
     ]
    },
    "chips": [],
@@ -984,21 +984,21 @@
    "lean": {
     "statement": "`proposition_13_3_12 : IsStructurable A Λ' → IsStructurable A Λ'' → IsStructurable A (multisectionAdd Λ' Λ'')`; structured: `Decoration.Tau.add` (a `Tau` for `D'.add D''`), `StructuredTuple.add`, `StructuredTuple.add_Λ`; on a common good system `Decoration.Tau.prod` with `IndexCorr.prod` ($[a_1,b_1] \\times [a_2,b_2] = [a_1 \\times a_2, b_1 \\times b_2]$, `prod_swap`, `prod_biact`, `prod_ofPerm`).",
     "decls": [
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.prod",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.card_fiber_prodMap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_swap",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_biact",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_ofPerm",
-     "Chapter13/P3D_Structurable · EpGroupoid.biact_congr_of_le",
-     "Chapter13/P3D_Structurable · EpGroupoid.GoodSystem.biact_congr_of_le",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.restrictTo",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.restrict",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.prod",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.add",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add",
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add_Λ",
-     "Chapter13/P3D_Structurable · SBLocalization.proposition_13_3_12"
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.prod",
+     "Chapter13/Correspondence · SBLocalization.IndexDiagram.card_fiber_prodMap",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.prod",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.prod_swap",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.prod_biact",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.prod_ofPerm",
+     "Chapter13/StructurableMultisection · EpGroupoid.biact_congr_of_le",
+     "Chapter13/StructurableMultisection · EpGroupoid.GoodSystem.biact_congr_of_le",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.restrictTo",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau.restrict",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau.prod",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau.add",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.add",
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.add_Λ",
+     "Chapter13/StructurableMultisection · SBLocalization.proposition_13_3_12"
     ]
    },
    "chips": [
@@ -1020,9 +1020,9 @@
    "lean": {
     "statement": "The agreement of the functors: `StructuredTuple.add_Λ` with `multisectionAdd_comm`; on decorated classes `DecoratedMultisection.add_comm`. The difference of the structured classes is not expressible: Lean cannot prove two product types unequal, so \"$I^1_x \\times I^2_x \\ne I^2_x \\times I^1_x$\" has no Lean statement.",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add_Λ",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
-     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm"
+     "Chapter13/StructurableMultisection · SBLocalization.StructuredTuple.add_Λ",
+     "Chapter13/MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
+     "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add_comm"
     ]
    },
    "chips": [
@@ -1044,10 +1044,10 @@
    "lean": {
     "statement": "`lemma_13_3_14 (h : IsStructurable A Λ) (a : ℝ) : IsStructurable A (multisectionSmul a Λ)`, `lemma_13_3_14_fun` (for $\\beta$ as in Lemma 13.2.11); the same $\\tau$ serves (`Decoration.Tau.smul`, `Decoration.Tau.smulFun`).",
     "decls": [
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.smulFun",
-     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.smul",
-     "Chapter13/P3D_Structurable · SBLocalization.lemma_13_3_14",
-     "Chapter13/P3D_Structurable · SBLocalization.lemma_13_3_14_fun"
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau.smulFun",
+     "Chapter13/StructurableMultisection · SBLocalization.Decoration.Tau.smul",
+     "Chapter13/StructurableMultisection · SBLocalization.lemma_13_3_14",
+     "Chapter13/StructurableMultisection · SBLocalization.lemma_13_3_14_fun"
     ]
    },
    "chips": [],
@@ -1067,20 +1067,20 @@
    "lean": {
     "statement": "`trivialSet Λ`, `isOpen_trivialSet`, `isTrivialOn_trivialSet`; `TightIdx p I` ($= \\{* \\mid p\\} \\sqcup \\{i \\in I \\mid \\neg p\\}$) with `TightIdx.eT : {∗} ≃ I'_x` ($x \\in T_\\Lambda$), `TightIdx.eN : I_x ≃ I'_x` ($x \\notin T_\\Lambda$); `SymmetricStructureOn.tight`, `Decoration.tightNbhd`, `Decoration.tight`, `Decoration.tightτ` (`tightτ_TT`, `_TN`, `_NT`, `_NN`), `Decoration.Tau.tight` (the new tuple is structured).",
     "decls": [
-     "Chapter13/P3D_Tight · SBLocalization.trivialSet",
-     "Chapter13/P3D_Tight · SBLocalization.isOpen_trivialSet",
-     "Chapter13/P3D_Tight · SBLocalization.isTrivialOn_trivialSet",
-     "Chapter13/P3D_Tight · SBLocalization.apply_fiberZero_tgt",
-     "Chapter13/P3D_Tight · SBLocalization.TightIdx",
-     "Chapter13/P3D_Tight · SBLocalization.TightIdx.eT",
-     "Chapter13/P3D_Tight · SBLocalization.TightIdx.eN",
-     "Chapter13/P3D_Tight · SBLocalization.SymmetricStructureOn.tight",
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.tightNbhd",
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.tight",
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.tightτ",
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.Tau.tight",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.toUnit",
-     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.fromUnit"
+     "Chapter13/TightMultisection · SBLocalization.trivialSet",
+     "Chapter13/TightMultisection · SBLocalization.isOpen_trivialSet",
+     "Chapter13/TightMultisection · SBLocalization.isTrivialOn_trivialSet",
+     "Chapter13/TightMultisection · SBLocalization.apply_fiberZero_tgt",
+     "Chapter13/TightMultisection · SBLocalization.TightIdx",
+     "Chapter13/TightMultisection · SBLocalization.TightIdx.eT",
+     "Chapter13/TightMultisection · SBLocalization.TightIdx.eN",
+     "Chapter13/TightMultisection · SBLocalization.SymmetricStructureOn.tight",
+     "Chapter13/TightMultisection · SBLocalization.Decoration.tightNbhd",
+     "Chapter13/TightMultisection · SBLocalization.Decoration.tight",
+     "Chapter13/TightMultisection · SBLocalization.Decoration.tightτ",
+     "Chapter13/TightMultisection · SBLocalization.Decoration.Tau.tight",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.toUnit",
+     "Chapter13/Correspondence · SBLocalization.IndexCorr.fromUnit"
     ]
    },
    "chips": [
@@ -1102,8 +1102,8 @@
    "lean": {
     "statement": "`proposition_13_3_15 hΛ D t`: there are `D'` and `t' : D'.Tau` with `D'.IsTight t'` ((1), (4), (5)); for $x \\in T_\\Lambda$, $U'(x) \\subseteq T_\\Lambda$ carries the action of $U(x)$; and equivariant bijections $e_x : I_x \\simeq I'_x$ for $x \\notin T_\\Lambda$ with `D'.𝒰.nbhd x = D.𝒰.nbhd x`, $s'_{e_x(i)} = s_i$, and $\\tau'_{x,x'} = \\tau_{x,x'}$ relabelled by $e_x, e_{x'}$ ((2), (3)).",
     "decls": [
-     "Chapter13/P3D_Tight · SBLocalization.proposition_13_3_15",
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.isTight_tight"
+     "Chapter13/TightMultisection · SBLocalization.proposition_13_3_15",
+     "Chapter13/TightMultisection · SBLocalization.Decoration.isTight_tight"
     ]
    },
    "chips": [
@@ -1125,7 +1125,7 @@
    "lean": {
     "statement": "Prose. The construction takes any natural neighbourhood inside $U(x) \\cap T_\\Lambda$ with the same action (`Decoration.exists_tightNbhd`).",
     "decls": [
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.exists_tightNbhd"
+     "Chapter13/TightMultisection · SBLocalization.Decoration.exists_tightNbhd"
     ]
    },
    "chips": [
@@ -1147,8 +1147,8 @@
    "lean": {
     "statement": "`structure Decoration.IsTight D t` (fields `unique`, `zero`, `τ_TN`, `τ_NT`, `τ_TT`, on $\\varphi \\in \\mathcal U(x,x')$), `StructuredMultisection.IsTight`.",
     "decls": [
-     "Chapter13/P3D_Tight · SBLocalization.Decoration.IsTight",
-     "Chapter13/P3D_Tight · SBLocalization.StructuredMultisection.IsTight"
+     "Chapter13/TightMultisection · SBLocalization.Decoration.IsTight",
+     "Chapter13/TightMultisection · SBLocalization.StructuredMultisection.IsTight"
     ]
    },
    "chips": [],
@@ -1168,8 +1168,8 @@
    "lean": {
     "statement": "`corollary_13_3_18 : IsStructurable A Λ → ∃ D t, D.IsTight t`; `corollary_13_3_18_structured`: every $\\Lambda \\in \\Gamma^+_s$ is `forget` of a tightly structured class.",
     "decls": [
-     "Chapter13/P3D_Tight · SBLocalization.corollary_13_3_18",
-     "Chapter13/P3D_Tight · SBLocalization.corollary_13_3_18_structured"
+     "Chapter13/TightMultisection · SBLocalization.corollary_13_3_18",
+     "Chapter13/TightMultisection · SBLocalization.corollary_13_3_18_structured"
     ]
    },
    "chips": [],
@@ -1189,18 +1189,18 @@
    "lean": {
     "statement": "`structure AtomicData A` holds (1)–(2): `x`, `R : NaturalRep x` with $U(x)$ = `R.U`, `hasPropernessProperty`, an open $G_x$-invariant `V` with $x \\in V$ and $\\overline V \\subseteq U(x)$, `I` with `Fintype` and `MulAction (Isotropy x)`, `s` with `isScPlusSectionOn` on $U(x)$, `equivariant` and `vanish` on $U(x) \\setminus V$. `AtomicData.IsRelated Λ` is (3). `IsAtomic A Λ := IsScPlusMultisection A Λ ∧ ∃ D, D.IsRelated Λ`. `IsRelated.symmetricStructure` (the data is a symmetric structure of Definition 13.2.5), `IsRelated.nonempty` ($I_x \\ne \\emptyset$), `count_μ_eq` (the formula in (3) does not depend on $\\varphi$), `IsRelated.eq_mult` ($\\Lambda$ is determined by the data). Witness: `isAtomic_zeroMultisection`.",
     "decls": [
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.count",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.Reach",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated",
-     "Chapter13/P3A_Atomic · SBLocalization.IsAtomic",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.count_μ_eq",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.reach_iff_mem_saturation",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.eq_mult",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.symmetricStructure",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.nonempty",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.zero",
-     "Chapter13/P3A_Atomic · SBLocalization.isAtomic_zeroMultisection"
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.count",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.Reach",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.IsRelated",
+     "Chapter13/AtomicMultisection · SBLocalization.IsAtomic",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.count_μ_eq",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.reach_iff_mem_saturation",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.IsRelated.eq_mult",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.IsRelated.symmetricStructure",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.IsRelated.nonempty",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.zero",
+     "Chapter13/AtomicMultisection · SBLocalization.isAtomic_zeroMultisection"
     ]
    },
    "chips": [
@@ -1222,7 +1222,7 @@
    "lean": {
     "statement": "Nothing to formalize beyond Theorems 13.5.4–13.5.6, which use only `AdmitsBumpFunctionsPointwise` and no partition of unity. The \"finitely many suffice\" claim belongs to Theorem 15.3.7.",
     "decls": [
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_2"
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_6_2"
     ]
    },
    "chips": [
@@ -1244,61 +1244,61 @@
    "lean": {
     "statement": "`theorem_13_5_3 (hΛ : IsAtomic A Λ) : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem`. `theorem_13_5_3_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem) (hΛ : IsAtomic A Λ) : IsStructurable A Λ`. `theorem_13_5_3_of_paracompact (hX : A.X.HasParacompactOrbitSpace)`. `IsStructurable` is Definition 13.3.6. There is no `hcrit`. The proof follows the text, with $Z=\\pi^{-1}\\pi(\\overline{V(x_0)})$ (closed, saturated): `AtomicStructData`, `exists_atomicStructData`: for $y\\in Z$, an open $O(y)\\ni y$ and $\\tau_y$ with $t\\tau_y=\\mathrm{id}$ and $s\\tau_y\\in U(x_0)$ (`exists_isLocalRepOn_transport`). `H y y' ψ ∈ G_{x₀}` is the unique $h$ with $\\Gamma(h,s\\tau_y(s\\psi))=\\tau_{y'}(t\\psi)^{-1}\\circ\\psi\\circ\\tau_y(s\\psi)$. It is functorial (`H_comp`, `H_unit`, `H_inv`). It is locally constant (`H_eventually`, from the finiteness of $G_{x_0}$ and Hausdorffness). $\\gamma_y(g)=H(\\Gamma(g,y))$ is a homomorphism (`γ`). The good system `𝒰` ⊆ the given one has the same natural actions. On it $H(\\Gamma(g,z))=\\gamma_y(g)$ for $z\\in U(y)$, $y\\in Z$, and $U(y)\\cap Z=\\emptyset$ for $y\\notin Z$. `S y` has index set $I_{x_0}$ at every $y$, with sections pulled back by $\\tau_y$ on $Z$ and zero sections off $Z$. It is equivariant through $\\gamma_y$ (`sec_compat`), and the counting formula comes from D13.5.1 (3). `corr y y' φ`: $[I\\xleftarrow{id}I\\xrightarrow{H(\\varphi)}I]$ when $y,y'$ are both in $Z$ or both outside it ($H=1$ outside); the full $[I\\leftarrow I\\times I\\to I]$ otherwise. `tau : dec.Tau` checks D13.3.4 (1)–(3) and D13.3.6 (1)–(2).",
     "decls": [
-     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.card_fst_fiber",
-     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.card_snd_fiber",
-     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.full",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.full",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.swap_full",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.biact_full",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.biact_ofEquiv",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.swap_ofEquiv",
-     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.sat_ofEquiv",
-     "Chapter13/P3W3C_AtomicStructurable · eventually_eq_of_existsUnique",
-     "Chapter13/P3W3C_AtomicStructurable · eq_of_mem_connectedComponentIn",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_comp",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_unit",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_inv_fibAct",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_fibAct_inv",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.transportSection_eq_fibAct",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.comp_inv_comp",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData",
-     "Chapter13/P3W3C_AtomicStructurable · exists_atomicStructData",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.Z",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isClosed_Z",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.mem_Z_iff_of_mor",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.σ",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.Dom",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.conj",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.existsUnique_rel",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_spec",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_unique",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_comp",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_unit",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_inv",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_eventually",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.γ",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.W",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.𝒰",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.W_cond",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec_compat",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec_eq_zero",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.S",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.dec",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.corr",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_biact",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isCorrespondence",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.tau",
-     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isStructurable",
-     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3_of_goodSystem",
-     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3",
-     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3_of_paracompact",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.AtomicData.IsLocallyTransported",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_local",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp_witness",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.exists_isLocalRepOn_transport"
+     "Chapter13/AtomicStructurable · IndexDiagram.card_fst_fiber",
+     "Chapter13/AtomicStructurable · IndexDiagram.card_snd_fiber",
+     "Chapter13/AtomicStructurable · IndexDiagram.full",
+     "Chapter13/AtomicStructurable · IndexCorr.full",
+     "Chapter13/AtomicStructurable · IndexCorr.swap_full",
+     "Chapter13/AtomicStructurable · IndexCorr.biact_full",
+     "Chapter13/AtomicStructurable · IndexCorr.biact_ofEquiv",
+     "Chapter13/AtomicStructurable · IndexCorr.swap_ofEquiv",
+     "Chapter13/AtomicStructurable · IndexCorr.sat_ofEquiv",
+     "Chapter13/AtomicStructurable · eventually_eq_of_existsUnique",
+     "Chapter13/AtomicStructurable · eq_of_mem_connectedComponentIn",
+     "Chapter13/AtomicStructurable · AtomicStructData.fibAct_comp",
+     "Chapter13/AtomicStructurable · AtomicStructData.fibAct_unit",
+     "Chapter13/AtomicStructurable · AtomicStructData.fibAct_inv_fibAct",
+     "Chapter13/AtomicStructurable · AtomicStructData.fibAct_fibAct_inv",
+     "Chapter13/AtomicStructurable · AtomicStructData.transportSection_eq_fibAct",
+     "Chapter13/AtomicStructurable · AtomicStructData.comp_inv_comp",
+     "Chapter13/AtomicStructurable · AtomicStructData",
+     "Chapter13/AtomicStructurable · exists_atomicStructData",
+     "Chapter13/AtomicStructurable · AtomicStructData.Z",
+     "Chapter13/AtomicStructurable · AtomicStructData.isClosed_Z",
+     "Chapter13/AtomicStructurable · AtomicStructData.mem_Z_iff_of_mor",
+     "Chapter13/AtomicStructurable · AtomicStructData.σ",
+     "Chapter13/AtomicStructurable · AtomicStructData.Dom",
+     "Chapter13/AtomicStructurable · AtomicStructData.conj",
+     "Chapter13/AtomicStructurable · AtomicStructData.existsUnique_rel",
+     "Chapter13/AtomicStructurable · AtomicStructData.H",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_spec",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_unique",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_comp",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_unit",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_inv",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_eventually",
+     "Chapter13/AtomicStructurable · AtomicStructData.γ",
+     "Chapter13/AtomicStructurable · AtomicStructData.W",
+     "Chapter13/AtomicStructurable · AtomicStructData.𝒰",
+     "Chapter13/AtomicStructurable · AtomicStructData.W_cond",
+     "Chapter13/AtomicStructurable · AtomicStructData.sec",
+     "Chapter13/AtomicStructurable · AtomicStructData.sec_compat",
+     "Chapter13/AtomicStructurable · AtomicStructData.sec_eq_zero",
+     "Chapter13/AtomicStructurable · AtomicStructData.S",
+     "Chapter13/AtomicStructurable · AtomicStructData.dec",
+     "Chapter13/AtomicStructurable · AtomicStructData.corr",
+     "Chapter13/AtomicStructurable · AtomicStructData.H_biact",
+     "Chapter13/AtomicStructurable · AtomicStructData.isCorrespondence",
+     "Chapter13/AtomicStructurable · AtomicStructData.tau",
+     "Chapter13/AtomicStructurable · AtomicStructData.isStructurable",
+     "Chapter13/AtomicStructurable · theorem_13_5_3_of_goodSystem",
+     "Chapter13/AtomicStructurable · theorem_13_5_3",
+     "Chapter13/AtomicStructurable · theorem_13_5_3_of_paracompact",
+     "Chapter13/AtomicStructurableLocal · SBLocalization.AtomicData.IsLocallyTransported",
+     "Chapter13/AtomicStructurableLocal · SBLocalization.theorem_13_5_3_local",
+     "Chapter13/AtomicStructurableLocal · SBLocalization.theorem_13_5_3_hyp",
+     "Chapter13/AtomicStructurableLocal · SBLocalization.theorem_13_5_3_hyp_witness",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.exists_isLocalRepOn_transport"
     ]
    },
    "chips": [
@@ -1323,13 +1323,13 @@
    "lean": {
     "statement": "`theorem_13_5_4_1 hbump hx R _hprop hVo hxV hVinv hVcl hw hwx : ∃ F : SymmetricFamily A R, (∀ i y, y ∉ V → F.s i y = 0) ∧ ∃ i₀, F.s i₀ x = w`; `theorem_13_5_4_2 … (hs : IsScPlusSectionOn A s O)`: the same with $s_{i_0} = s$ near $x$. `SymmetricFamily A R`: global sc⁺-sections of $W \\to X$ with support in `R.U`, a $G_x$-action on $I$, equivariance on $U(x)$. Proof: $I = G_x$ acting by left multiplication, $s_g$ the `natTerm` translates of a seed $s_0$ (`SymmetricFamily.ofSeed`); (1) $s_0$ from Part I's `lemma_5_3_3` with an auxiliary norm of `proposition_5_1_3_exists`; (2) $s_0 = \\beta s$ with $\\beta$ from `proposition_5_5_3` (`exists_cutoff`).",
     "decls": [
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_s",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_vanish",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.exists_cutoff",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_4_1",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_4_2"
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily",
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed",
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_s",
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_vanish",
+     "Chapter13/AtomicConstruction · SBLocalization.exists_cutoff",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_4_1",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_4_2"
     ]
    },
    "chips": [
@@ -1353,18 +1353,18 @@
    "lean": {
     "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable` (given a good system), from `theorem_13_5_3_of_goodSystem`, as in the text; the earlier hypothesis form is `theorem_13_5_5_structurable_hyp`.",
     "decls": [
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.eq_zero_iff",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.exists_vanishing_nbhd",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.ofFamily",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_5",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.mult",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isRelated_mult",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isWFunctor_mult",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.domSupp_mult_subset",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isScPlusMultisection_mult",
-     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isAtomic_mult",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable_hyp",
-     "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.eq_zero_iff",
+     "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.exists_vanishing_nbhd",
+     "Chapter13/AtomicConstruction · SBLocalization.AtomicData.ofFamily",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_5",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.mult",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.isRelated_mult",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.isWFunctor_mult",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.domSupp_mult_subset",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.isScPlusMultisection_mult",
+     "Chapter13/AtomicMultisection · SBLocalization.AtomicData.isAtomic_mult",
+     "Chapter13/AtomicStructurableLocal · SBLocalization.theorem_13_5_5_structurable_hyp",
+     "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
     ]
    },
    "chips": [
@@ -1389,12 +1389,12 @@
    "lean": {
     "statement": "`theorem_13_5_6_1 _hpara hbump _hN hw _hw0 hwx R : ∃ Λ, IsAtomic A Λ ∧ domSupp Λ ⊆ saturation R.U ∧ ∀ g, 0 < Λ (μ(g, w))`; `theorem_13_5_6_2 _hpara hbump hN R hs hε : ∃ Λ, IsAtomic A Λ ∧ domSupp Λ ⊆ saturation R.U ∧ (∀ y, pointwiseNorm N Λ y ≤ normW N (s x) + ε) ∧ ∃ O k s' σ, IsOpen O ∧ x ∈ O ∧ IsLocalRepOn A Λ O s' σ ∧ ∃ j, 0 < σ j ∧ ∀ y ∈ O, s' j y = s y`; `theorem_13_5_6` combines both, with $x = P(w)$. $N$ is `A.E.IsAuxNorm` (μ-invariant); the bound uses `normW_μ` and `AtomicData.pointwiseNorm_mult_le`.",
     "decls": [
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.normW_μ",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.pointwiseNorm_mult_le",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.isLocalRepOn_mult",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_1",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_2",
-     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6"
+     "Chapter13/AtomicConstruction · SBLocalization.normW_μ",
+     "Chapter13/AtomicConstruction · SBLocalization.AtomicData.pointwiseNorm_mult_le",
+     "Chapter13/AtomicConstruction · SBLocalization.AtomicData.isLocalRepOn_mult",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_6_1",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_6_2",
+     "Chapter13/AtomicConstruction · SBLocalization.theorem_13_5_6"
     ]
    },
    "chips": [
@@ -1418,59 +1418,59 @@
    "lean": {
     "statement": "`proposition_13_3_19 [Nonempty L] (h : ∀ l, IsStructurable A (Λ l)) (hlf : IsLocallyFiniteFamily Λ) : IsStructurable A (lfSum Λ)`. `proposition_13_3_19_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem)` covers any family, including the empty one. `proposition_13_3_19_of_paracompact (hX : A.X.HasParacompactOrbitSpace)`. The proof is the text's: `LFStructData` holds the data, with the common good system `𝒰` (`isAdapted`). Tight versions over a given good system: `Decoration.Tau.tightOn`, `isTight_tightOn` (file 2). $K_x=\\prod_{l\\in L}K^l_x$, with `finite_K`. The sum structure `Sx`, relabelled from M/`lfSumStructure`. $\\tau=\\prod_{l\\in L}\\tau^l$ via `IndexCorr.pi`, which is well defined because all but finitely many factors are $[\\{*\\}\\leftarrow\\{*\\}\\to\\{*\\}]$ (file 1). `tau : Dsum.Tau` checks Definitions 13.3.4 and 13.3.6 for it. This is the step left to the reader.\n\nWith the hypothesis as printed (the domain supports form a locally finite family of subsets of $X$): `isLocallyFiniteFamily_of_locallyFinite (hΛ : ∀ l, IsWFunctor A (Λ l)) (h : LocallyFinite fun l => domSupp (Λ l)) : IsLocallyFiniteFamily Λ`. `proposition_13_3_19_locallyFinite [Nonempty L] (h : ∀ l, IsStructurable A (Λ l)) (hlf : LocallyFinite fun l => domSupp (Λ l)) : IsStructurable A (lfSum Λ)`; `proposition_13_3_19_locallyFinite_of_paracompact (hX : A.X.HasParacompactOrbitSpace)` (any family). Proof: for `x`, an open `V ∋ x` meeting finitely many `domSupp (Λ l)`; `O = π⁻¹(π(V))` is open (Proposition 7.1.8) and saturated. A `w ≠ 0` over `y ∈ O` with `Λ_l(w) > 0` is moved by `φ : y → v`, `v ∈ V`, to `μ(φ, w) ≠ 0` over `v` (`μ_ne_fiberZero_lf`) with the same weight, so `v ∈ domSupp (Λ l) ∩ V`. Saturation of `domSupp` is not needed.",
     "decls": [
-     "Chapter13/P3W3C_PiCorrespondence · finite_pi_of_subsingleton",
-     "Chapter13/P3W3C_PiCorrespondence · IndexDiagram.card_fiber_pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexDiagram.pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.out",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.mk_out",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.subsingleton_out_I",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_eq_mk",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_congr",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.sat_pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.swap_pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.biact_pi",
-     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_ofPerm",
-     "Chapter13/P3W3C_PiCorrespondence · SymmetricStructureOn.reindex",
-     "Chapter13/P3W3C_PiCorrespondence · SymmetricStructureOn.reindex_s",
-     "Chapter13/P3W3C_PiCorrespondence · fibAct_sum",
-     "Chapter13/P3W3C_TightOn · SymmetricStructureOn.tightRel",
-     "Chapter13/P3W3C_TightOn · Decoration.IsAdapted",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOn",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_TT",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_TN",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_NT",
-     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_NN",
-     "Chapter13/P3W3C_TightOn · Decoration.Tau.tightOn",
-     "Chapter13/P3W3C_TightOn · Decoration.isTight_tightOn",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · subset_trivialSet_of_not_mem_nontrivIdx",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · tightIdx_elim_zero",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.O",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.F",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.V",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.M",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.𝒰",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isAdapted",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Dt",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.tt",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.K",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.finite_K",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Sx",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Dsum",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Sx_s_apply",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.τ",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isCorrespondence",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.tau",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isStructurable",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19_of_goodSystem",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19",
-     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19_of_paracompact",
-     "Chapter13/P3W4SM_LocallyFiniteBridge · μ_ne_fiberZero_lf",
-     "Chapter13/P3W4SM_LocallyFiniteBridge · isLocallyFiniteFamily_of_locallyFinite",
-     "Chapter13/P3W4SM_LocallyFiniteBridge · proposition_13_3_19_locallyFinite",
-     "Chapter13/P3W4SM_LocallyFiniteBridge · proposition_13_3_19_locallyFinite_of_paracompact"
+     "Chapter13/PiCorrespondence · finite_pi_of_subsingleton",
+     "Chapter13/PiCorrespondence · IndexDiagram.card_fiber_pi",
+     "Chapter13/PiCorrespondence · IndexDiagram.pi",
+     "Chapter13/PiCorrespondence · IndexCorr.out",
+     "Chapter13/PiCorrespondence · IndexCorr.mk_out",
+     "Chapter13/PiCorrespondence · IndexCorr.subsingleton_out_I",
+     "Chapter13/PiCorrespondence · IndexCorr.pi",
+     "Chapter13/PiCorrespondence · IndexCorr.pi_eq_mk",
+     "Chapter13/PiCorrespondence · IndexCorr.pi_congr",
+     "Chapter13/PiCorrespondence · IndexCorr.sat_pi",
+     "Chapter13/PiCorrespondence · IndexCorr.swap_pi",
+     "Chapter13/PiCorrespondence · IndexCorr.biact_pi",
+     "Chapter13/PiCorrespondence · IndexCorr.pi_ofPerm",
+     "Chapter13/PiCorrespondence · SymmetricStructureOn.reindex",
+     "Chapter13/PiCorrespondence · SymmetricStructureOn.reindex_s",
+     "Chapter13/PiCorrespondence · fibAct_sum",
+     "Chapter13/TightOn · SymmetricStructureOn.tightRel",
+     "Chapter13/TightOn · Decoration.IsAdapted",
+     "Chapter13/TightOn · Decoration.tightOn",
+     "Chapter13/TightOn · Decoration.tightOnτ",
+     "Chapter13/TightOn · Decoration.tightOnτ_TT",
+     "Chapter13/TightOn · Decoration.tightOnτ_TN",
+     "Chapter13/TightOn · Decoration.tightOnτ_NT",
+     "Chapter13/TightOn · Decoration.tightOnτ_NN",
+     "Chapter13/TightOn · Decoration.Tau.tightOn",
+     "Chapter13/TightOn · Decoration.isTight_tightOn",
+     "Chapter13/LocallyFiniteStructurable · subset_trivialSet_of_not_mem_nontrivIdx",
+     "Chapter13/LocallyFiniteStructurable · tightIdx_elim_zero",
+     "Chapter13/LocallyFiniteStructurable · LFStructData",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.O",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.F",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.V",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.M",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.𝒰",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.isAdapted",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.Dt",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.tt",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.K",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.finite_K",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.Sx",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.Dsum",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.Sx_s_apply",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.τ",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.isCorrespondence",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.tau",
+     "Chapter13/LocallyFiniteStructurable · LFStructData.isStructurable",
+     "Chapter13/LocallyFiniteStructurable · proposition_13_3_19_of_goodSystem",
+     "Chapter13/LocallyFiniteStructurable · proposition_13_3_19",
+     "Chapter13/LocallyFiniteStructurable · proposition_13_3_19_of_paracompact",
+     "Chapter13/LocallyFiniteSupports · μ_ne_fiberZero_lf",
+     "Chapter13/LocallyFiniteSupports · isLocallyFiniteFamily_of_locallyFinite",
+     "Chapter13/LocallyFiniteSupports · proposition_13_3_19_locallyFinite",
+     "Chapter13/LocallyFiniteSupports · proposition_13_3_19_locallyFinite_of_paracompact"
     ]
    },
    "chips": [
@@ -1494,41 +1494,41 @@
    "lean": {
     "statement": "`theorem_13_4_1 (hF : SEP.equivalences F) (h : IsStructurable A Λ') : IsStructurable C (pullMult F Λ')`. `theorem_13_4_1_structured hF`: there is `pull : StructuredMultisection A → StructuredMultisection C` with `(pull L).forget = pullMult F L.forget` and, for every structured tuple `T'` and every adapted good system `P : PullData T'.dec.𝒰`, `pull ⟦T'⟧ = ⟦pullTuple T' P⟧`, `I_x = I'_{F(x)}`, $\\tau_{x,y}(\\varphi)=\\tau'_{F(x),F(y)}(F(\\varphi))$. Uniform machinery `PullMap C A` (a map of strong bundles that is a local sc-diffeomorphism on objects, fibrewise a linear homeomorphism, faithful): `PullMap.ofEquivalence`, `PullMap.ofCovering`; adapted neighbourhoods `IsPullNbhd` ($F$ injective on $U(x)$, $F(U(x))\\subset U'(F(x))$, $F(\\Gamma(g,z))=\\Gamma'(F(g),F(z))$), `exists_isPullNbhd` (inside any open set, with properness), `PullData`, `exists_pullData`; sections `pullSec` ($\\Phi^{-1}\\circ s'\\circ F$), `isScPlusSectionOn_pullSec`; `pullStructure`, `pullDecoration`, `pullTau`, `pullTuple`, `isStructurable_pull`; canonicity `pullTuple_equiv`, `pullStructured`, `pullStructured_mk`, `forget_pullStructured`.",
     "decls": [
-     "Chapter13/P3W4FN_PullMap · EpGroupoid.isOpen_setOf_eq_of_src",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofEquivalence",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofCovering",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.covers",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.fiberEquiv",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.eq_of_obj_eq",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.obj_fibAct",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pullSec",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pullSec_eq_iff",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.isScPlusSectionOn_pullSec",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pull",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.isWFunctor_pull",
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pull_ofEquivalence",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isScPlusMultisection_pull",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.IsPullNbhd",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.exists_isPullNbhd",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isDiffeoComponent_of_isPull",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.IsPullNbhd.mor_biact",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.PullData",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.exists_pullData",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.somePullData",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructure",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullDecoration",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.biact_compHom",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.ofPerm_compHom",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTau",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTuple",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isStructurable_pull",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTuple_equiv",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructured",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructured_mk",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.forget_pullStructured",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_1",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_1_structured"
+     "Chapter13/StrongBundlePullMap · EpGroupoid.isOpen_setOf_eq_of_src",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.ofEquivalence",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.ofCovering",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.covers",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.fiberEquiv",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.eq_of_obj_eq",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.obj_fibAct",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.pullSec",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.pullSec_eq_iff",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.isScPlusSectionOn_pullSec",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.pull",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.isWFunctor_pull",
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.pull_ofEquivalence",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.isScPlusMultisection_pull",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.IsPullNbhd",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.exists_isPullNbhd",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.isDiffeoComponent_of_isPull",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.IsPullNbhd.mor_biact",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.PullData",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.exists_pullData",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.somePullData",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullStructure",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullDecoration",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.biact_compHom",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.ofPerm_compHom",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullTau",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullTuple",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.isStructurable_pull",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullTuple_equiv",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullStructured",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.pullStructured_mk",
+     "Chapter13/MultisectionPullback · SBLocalization.PullMap.forget_pullStructured",
+     "Chapter13/MultisectionPullback · SBLocalization.theorem_13_4_1",
+     "Chapter13/MultisectionPullback · SBLocalization.theorem_13_4_1_structured"
     ]
    },
    "chips": [
@@ -1550,43 +1550,43 @@
    "lean": {
     "statement": "`theorem_13_4_3 hF (h : IsStructurable C Λ) : IsStructurable A (pushMult F hF Λ)`; `theorem_13_4_3_structured hF T`: `pushTuple hF T` has $\\Lambda=\\Phi_*\\Lambda$, $I'_y=I_{x_y}$, $\\tau'_{y,y'}(\\varphi')=\\tau_{x_y,x_{y'}}(\\mathrm{liftMor}\\,\\varphi')$. Charts: `PushChart F y` / `pushChart hF y` (a point $x_y$, $\\sigma_y:F(x_y)\\to y$ and Chapter 10's `TransportChart` $Q=t\\circ(s|U(\\sigma_y))^{-1}\\circ F$ with $\\psi_u:F(u)\\to Q(u)$); `conjEquiv` ($G_{x_y}\\cong G'_y$). `IsPushNbhd T N N'` ($U'(y)\\subset Q(U(x_y))$, $\\Gamma'(\\psi F(g)\\psi^{-1},z)=\\psi_{g*u}\\circ F(\\Gamma(g,u))\\circ\\psi_u^{-1}$), `exists_isPushNbhd` (with properness), `IsPushNbhd.Γ_comp_ψ`, `Qinv_Φ`. `pushSec T s` ($z\\mapsto\\mu'(\\psi_u,\\Phi(s(u)))$), `IsPushNbhd.isScPlusSectionOn_pushSec`, `pushStructure`. `PushChart.liftMor T T' φ'` (the $\\varphi$ with $\\psi'_{u'}\\circ F(\\varphi)=\\varphi'\\circ\\psi_u$): `comp_liftMor`, `liftMor_eq_of_comp`, `continuousOn_liftMor` (via `continuousAt_of_mor`: $F$ faithful and a local sc-diffeomorphism), `injOn_liftMor`, `liftMor_comp`, `liftMor_inv`, `liftMor_Γ`, `liftMor_biact`, `pushSec_compat`, `isDiffeoComponent_push`. `pushGood`, `pushDecoration`, `pushTau`, `pushTuple`.",
     "decls": [
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_comp",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_unit",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_inv_fibAct",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_fibAct_inv",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.π_fibAct",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.pushChart",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.conjEquiv",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Φ_eq",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Qinv_Φ",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Γ_comp_ψ",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.exists_isPushNbhd",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.pushSec",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.pushSec_eq",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.isScPlusSectionOn_pushSec",
-     "Chapter13/P3W4FN_PushChart · SBLocalization.pushStructure",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.continuousAt_of_mor",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.mapsTo_connectedComponentIn",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.comp_liftMor",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_eq_of_comp",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.continuousOn_liftMor",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.injOn_liftMor",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_comp",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_inv",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_Γ",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_biact",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.pushSec_compat",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.isDiffeoComponent_push",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushNbhd",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushGood",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushDecoration",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushTau",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushTuple",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.theorem_13_4_3",
-     "Chapter13/P3W4FN_Pushforward · SBLocalization.theorem_13_4_3_structured"
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart.fibAct_comp",
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart.fibAct_unit",
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart.fibAct_inv_fibAct",
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart.fibAct_fibAct_inv",
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart.π_fibAct",
+     "Chapter13/SymmetricStructurePush · SBLocalization.PushChart",
+     "Chapter13/SymmetricStructurePush · SBLocalization.pushChart",
+     "Chapter13/SymmetricStructurePush · SBLocalization.conjEquiv",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd.Φ_eq",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd.Qinv_Φ",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd.Γ_comp_ψ",
+     "Chapter13/SymmetricStructurePush · SBLocalization.exists_isPushNbhd",
+     "Chapter13/SymmetricStructurePush · SBLocalization.pushSec",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd.pushSec_eq",
+     "Chapter13/SymmetricStructurePush · SBLocalization.IsPushNbhd.isScPlusSectionOn_pushSec",
+     "Chapter13/SymmetricStructurePush · SBLocalization.pushStructure",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.continuousAt_of_mor",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.mapsTo_connectedComponentIn",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.comp_liftMor",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor_eq_of_comp",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.continuousOn_liftMor",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.injOn_liftMor",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor_comp",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor_inv",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor_Γ",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.liftMor_biact",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.pushSec_compat",
+     "Chapter13/MultisectionPushforward · SBLocalization.PushChart.isDiffeoComponent_push",
+     "Chapter13/MultisectionPushforward · SBLocalization.pushNbhd",
+     "Chapter13/MultisectionPushforward · SBLocalization.pushGood",
+     "Chapter13/MultisectionPushforward · SBLocalization.pushDecoration",
+     "Chapter13/MultisectionPushforward · SBLocalization.pushTau",
+     "Chapter13/MultisectionPushforward · SBLocalization.pushTuple",
+     "Chapter13/MultisectionPushforward · SBLocalization.theorem_13_4_3",
+     "Chapter13/MultisectionPushforward · SBLocalization.theorem_13_4_3_structured"
     ]
    },
    "chips": [
@@ -1608,9 +1608,9 @@
    "lean": {
     "statement": "`theorem_13_4_4 (hΦ : C.E.IsProperStrongBundleCovering2021 A.E F Φ) (h : IsStructurable A Λ) : IsStructurable C (Λ ∘ Φ)`; `theorem_13_4_4_structured hΦ` (as for 13.4.1: canonical pull with $I_y=I_{F(y)}$, $\\tau_{y,y'}(\\varphi)=\\tau_{F(y),F(y')}(F(\\varphi))$, independent of choices). Same `PullMap` machinery through `PullMap.ofCovering`.",
     "decls": [
-     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofCovering",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_4",
-     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_4_structured"
+     "Chapter13/StrongBundlePullMap · SBLocalization.PullMap.ofCovering",
+     "Chapter13/MultisectionPullback · SBLocalization.theorem_13_4_4",
+     "Chapter13/MultisectionPullback · SBLocalization.theorem_13_4_4_structured"
     ]
    },
    "chips": [],
@@ -1630,20 +1630,20 @@
    "lean": {
     "statement": "`CommData A`: the choice $c$: a `GoodSystem` $\\mathcal U$, index types $I_x$ (finite, non-empty) with $G_x$-actions, and maps $\\tau_{x,x'}$ with the conditions of D13.3.4 (1)–(2) and D13.3.6 (1)–(2) that do not involve sections (`locallyConstant`, `finite`, `biact`, `diag`, `swap`). `CommData.Sections c` (sections $s^x_i$ on $U(x)$: sc⁺, equivariant, compatible with $\\tau$ — D13.3.4 (3)) and `CommData.Over c Λ` (plus the counting formula for $\\Lambda$ on every $U(x)$). `Over.toTuple`, `Over.toStructured`: the structured tuple and class. `CommData.ofTuple T`, `Over.ofTuple T`, `Over.ofTuple_toTuple` (rfl): every structured tuple is of this form. `Commensurable L₁ L₂ := ∃ c Λ₁ Λ₂ (o₁ : c.Over Λ₁) (o₂ : c.Over Λ₂), o₁.toStructured = L₁ ∧ o₂.toStructured = L₂`; `Commensurable.refl`, `Commensurable.symm`. `CommData.smul_eq_of_diag` (with `IndexCorr.ofEquiv_injective`): the $G_x$-action on $I_x$ is determined by $\\tau$ (D13.3.6 (1) at $y=x$), so taking the actions into $c$ adds nothing to \"$\\tau_1=\\tau_2$\".",
     "decls": [
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.smul_eq_of_diag",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.ofEquiv_injective",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Compat",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toTuple",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toStructured",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.ofTuple",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.ofTuple",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.ofTuple_toTuple",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable.refl",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable.symm"
+     "Chapter13/Commensurable · SBLocalization.CommData",
+     "Chapter13/Commensurable · SBLocalization.CommData.smul_eq_of_diag",
+     "Chapter13/Commensurable · SBLocalization.IndexCorr.ofEquiv_injective",
+     "Chapter13/Commensurable · SBLocalization.CommData.Compat",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.toTuple",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.toStructured",
+     "Chapter13/Commensurable · SBLocalization.CommData.ofTuple",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.ofTuple",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.ofTuple_toTuple",
+     "Chapter13/Commensurable · SBLocalization.Commensurable",
+     "Chapter13/Commensurable · SBLocalization.Commensurable.refl",
+     "Chapter13/Commensurable · SBLocalization.Commensurable.symm"
     ]
    },
    "chips": [
@@ -1665,36 +1665,36 @@
    "lean": {
     "statement": "`CommData.commSum₂ o₁ o₂` (the functor), `CommData.Over.commSum₂ o₁ o₂ : c.Over (commSum₂ o₁ o₂)` (the data $(\\mathcal U,S,\\tau)$ with the sums; `.toStructured` is the class), and `CommData.definition_13_4_5 o₁ o₂`: `IsScPlusMultisection A (commSum₂ o₁ o₂)` ∧ (on $U(x)$ the sections are $s^{1,x}_i+s^{2,x}_i$, fibrewise sum) ∧ (the counting formula at every $x$ with $P(w)\\in U(x)$). Ingredients: `IndexCorr.count_eq_of_sat` (count transport: along a correspondence the normalized counts $|I_x|^{-1}\\#\\{i\\mid s_i=v\\}$ and $|I_{x'}|^{-1}\\#\\{j\\mid s'_j=\\mu(\\varphi,v)\\}$ agree), `Sections.countAt_eq` (the count does not depend on $x$), `Sections.isWFunctor_sumMult`, `Sections.isScPlusMultisection_sumMult` (the count of any `Sections` is an sc⁺-multisection functor), `fibAct_finsum` ($\\mu(\\psi,\\cdot)$ is additive on fibres), `IsScPlusSectionOn.of_locally` (being sc⁺ on $U$ is local).",
     "decls": [
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.sat_iInter",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.card_filter_comp_eq",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.count_eq_of_sat",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.IsScPlusSectionOn.of_locally",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.countAt",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumMult",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.P_s",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.compat_self",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_fibAct",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.fibAct_unit",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.unit_mem_mor",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_eq",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.isWFunctor_sumMult",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_eq_sum",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.card_ne_zero",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.isScPlusMultisection_sumMult",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.toOver",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.eq_sumMult",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.isScPlusMultisection",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.sym",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toDecoration",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.tau",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.s_eq_fiberZero",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.fibAct_finsum",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.isLocallyFiniteFamily_of_finite",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.pairFam",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.pairOver",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.commSum₂",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.commSum₂",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.definition_13_4_5"
+     "Chapter13/Commensurable · SBLocalization.IndexCorr.sat_iInter",
+     "Chapter13/Commensurable · SBLocalization.IndexCorr.card_filter_comp_eq",
+     "Chapter13/Commensurable · SBLocalization.IndexCorr.count_eq_of_sat",
+     "Chapter13/Commensurable · SBLocalization.IsScPlusSectionOn.of_locally",
+     "Chapter13/Commensurable · SBLocalization.CommData.countAt",
+     "Chapter13/Commensurable · SBLocalization.CommData.sumMult",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.P_s",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.compat_self",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.countAt_fibAct",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.fibAct_unit",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.unit_mem_mor",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.countAt_eq",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.isWFunctor_sumMult",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.countAt_eq_sum",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.card_ne_zero",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.isScPlusMultisection_sumMult",
+     "Chapter13/Commensurable · SBLocalization.CommData.Sections.toOver",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.eq_sumMult",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.isScPlusMultisection",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.sym",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.toDecoration",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.tau",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.s_eq_fiberZero",
+     "Chapter13/Commensurable · SBLocalization.fibAct_finsum",
+     "Chapter13/Commensurable · SBLocalization.CommData.isLocallyFiniteFamily_of_finite",
+     "Chapter13/Commensurable · SBLocalization.CommData.pairFam",
+     "Chapter13/Commensurable · SBLocalization.CommData.pairOver",
+     "Chapter13/Commensurable · SBLocalization.CommData.commSum₂",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.commSum₂",
+     "Chapter13/Commensurable · SBLocalization.CommData.definition_13_4_5"
     ]
    },
    "chips": [
@@ -1717,16 +1717,16 @@
    "lean": {
     "statement": "`CommData.lfSum o hlf` (the functor), `CommData.Over.lfSum o hlf : c.Over (lfSum o hlf)` (data with $s^x_i=\\sum^f_j s^{j,x}_i$, `CommData.lfSections`), and `CommData.definition_13_4_5_lf o hlf`: `IsScPlusMultisection A (lfSum o hlf)` ∧ (on $U(x)$ the sections are the fibrewise `finsum` of the $s^{j,x}_i$) ∧ (the counting formula). Hypotheses: `o : ∀ j, c.Over (Λ j)`, `hlf : IsLocallyFiniteFamily Λ` (D13.2.12). Helpers `sumFib`, `sumSec`, `P_sumSec`, `exists_finite_support`, `support_subset`, `sumSec_eq_sectionSum` (locally the sum is the finite `sectionSum` of `extendZero`s, hence sc⁺).",
     "decls": [
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumFib",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumSec",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.P_sumSec",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.exists_finite_support",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.support_subset",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumSec_eq_sectionSum",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.lfSections",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.lfSum",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.lfSum",
-     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.definition_13_4_5_lf"
+     "Chapter13/Commensurable · SBLocalization.CommData.sumFib",
+     "Chapter13/Commensurable · SBLocalization.CommData.sumSec",
+     "Chapter13/Commensurable · SBLocalization.CommData.P_sumSec",
+     "Chapter13/Commensurable · SBLocalization.CommData.exists_finite_support",
+     "Chapter13/Commensurable · SBLocalization.CommData.support_subset",
+     "Chapter13/Commensurable · SBLocalization.CommData.sumSec_eq_sectionSum",
+     "Chapter13/Commensurable · SBLocalization.CommData.lfSections",
+     "Chapter13/Commensurable · SBLocalization.CommData.lfSum",
+     "Chapter13/Commensurable · SBLocalization.CommData.Over.lfSum",
+     "Chapter13/Commensurable · SBLocalization.CommData.definition_13_4_5_lf"
     ]
    },
    "chips": [],
@@ -1746,13 +1746,13 @@
    "lean": {
     "statement": "`AtomicDataOn A` (fields `x`, `N : NatNbhd x`, `isProperSubset_closure`, `V`, `isOpen_V`, `mem_V`, `mapsTo_V`, `closure_V_subset`, `I`, `s`, `isScPlusSectionOn`, `equivariant`, `vanish`), `AtomicDataOn.count`, `.Reach`, `.IsRelated` (condition (3)), `IsAtomicOn A Λ`. `AtomicData.toOn`, `IsAtomic.isAtomicOn`: `IsAtomic` implies it.",
     "decls": [
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.count",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.Reach",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.IsRelated",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.IsAtomicOn",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicData.toOn",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.IsAtomic.isAtomicOn"
+     "Chapter13/AtomicSum · SBLocalization.AtomicDataOn",
+     "Chapter13/AtomicSum · SBLocalization.AtomicDataOn.count",
+     "Chapter13/AtomicSum · SBLocalization.AtomicDataOn.Reach",
+     "Chapter13/AtomicSum · SBLocalization.AtomicDataOn.IsRelated",
+     "Chapter13/AtomicSum · SBLocalization.IsAtomicOn",
+     "Chapter13/AtomicSum · SBLocalization.AtomicData.toOn",
+     "Chapter13/AtomicSum · SBLocalization.IsAtomic.isAtomicOn"
     ]
    },
    "chips": [
@@ -1774,11 +1774,11 @@
    "lean": {
     "statement": "`theorem_13_5_7 (hpu : A.X.HasScPartitionsOfUnity) (T : StructuredTuple A)`: there are `Λf : A.Obj → A.W → ℚ≥0`, `o : ∀ j, (CommData.ofTuple T).Over (Λf j)`, `hlf : IsLocallyFiniteFamily Λf` with `∀ j, IsAtomicOn A (Λf j)`, `CommData.lfSum o hlf = T.Λ`, the sum's sections equal $T$'s on every $U(x)$, and `(CommData.Over.lfSum o hlf).toStructured = ⟦T⟧`. `theorem_13_5_7_book (_hpara : HasParacompactOrbitSpace) (hpu) (hΛ : IsStructurable A Λ)`: some $T$ with `T.Λ = Λ` and such a family. Proof as in the text: $O_x\\ni|x|$ open with $\\mathrm{cl}O_x\\subseteq|U(x)|$ (`exists_orbit_nbhd`, regularity of $|X|$, L7.3.5), a partition of unity $(\\beta_x)$ subordinate to $\\pi^{-1}(O_x)$, $\\Lambda_j=\\beta_j\\odot\\Lambda$ with data $\\beta_j s^x_i$ (`CommData.smulFunOver`, from `smulFun`/`Tau.smulFun`), atomic at $x_j=j$ with $V=U(j)\\cap\\pi^{-1}(O_j)$ (closure inside $U(j)$ by `lemma_13_1_1`), $\\sum_j\\beta_j=1$. Helper `multisectionSmulFun_of_eq_zero`.",
     "decls": [
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.CommData.smulFunOver",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.multisectionSmulFun_of_eq_zero",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.exists_orbit_nbhd",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.theorem_13_5_7",
-     "Chapter13/P3W3Q_AtomicSum · SBLocalization.theorem_13_5_7_book"
+     "Chapter13/AtomicSum · SBLocalization.CommData.smulFunOver",
+     "Chapter13/AtomicSum · SBLocalization.multisectionSmulFun_of_eq_zero",
+     "Chapter13/AtomicSum · SBLocalization.exists_orbit_nbhd",
+     "Chapter13/AtomicSum · SBLocalization.theorem_13_5_7",
+     "Chapter13/AtomicSum · SBLocalization.theorem_13_5_7_book"
     ]
    },
    "chips": [
@@ -1801,21 +1801,21 @@
    "lean": {
     "statement": "`proposition_13_4_2 (hV : IsOpen V) (hπV : π '' V = univ) (L : StructuredOn A V)`: (1) `IsScPlusMultisection A (extendMult V L.Λ)`, it agrees with $\\Lambda$ over $V$, and every functor $\\Lambda'$ on $W$ agreeing with $\\Lambda$ over $V$ equals it (`eq_extendMult`); (2) for every family of open $O(x) \\ni x$ there is a `StructuredTuple A` with $\\Lambda = \\bar\\Lambda$, $U(q)$ the given ones for $q \\in V$, $U(x) \\subset O(x)$ for $x \\notin V$, and $I_q$ (with its $G_q$-action), the sections on $U(q)$ and $\\tau_{q,q'}$ on $\\mathcal U(q,q')$ equal to the given ones (via casts of the index types). `proposition_13_4_2_structurable`: $\\bar\\Lambda$ is structurable. The relative data: `StructuredOn A V` (Definitions 13.3.4, 13.3.6 with all indices in $V$, the good-system condition read as `IsGoodIn` for $V$), `IsScPlusMultisectionOn A V`, `IsWFunctorOn`. The proof uses the push machinery of §13.4 for $F = \\mathrm{id}$: the unit transport chart at $q \\in V$ (`unitChart`, `isPushNbhd_unit`), push charts inside $O(x)$ for $x \\notin V$, and $\\tau$ through `liftMor`, which covers the text's cases (i)–(iii).",
     "decls": [
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.IsWFunctorOn",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.IsScPlusMultisectionOn",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredOn",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredTuple.toStructuredOn",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.isWFunctor_extendMult",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult_eq",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.eq_extendMult",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.unitChart",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.isPushNbhd_unit",
-     "Chapter13/P3W5FM_ExtensionData · SBLocalization.ExtChart",
-     "Chapter13/P3W5FM_Extension · SBLocalization.isScPlusMultisection_extendMult",
-     "Chapter13/P3W5FM_Extension · SBLocalization.extTuple",
-     "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2",
-     "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2_structurable"
+     "Chapter13/StructuredExtensionData · SBLocalization.IsWFunctorOn",
+     "Chapter13/StructuredExtensionData · SBLocalization.IsScPlusMultisectionOn",
+     "Chapter13/StructuredExtensionData · SBLocalization.StructuredOn",
+     "Chapter13/StructuredExtensionData · SBLocalization.StructuredTuple.toStructuredOn",
+     "Chapter13/StructuredExtensionData · SBLocalization.extendMult",
+     "Chapter13/StructuredExtensionData · SBLocalization.isWFunctor_extendMult",
+     "Chapter13/StructuredExtensionData · SBLocalization.extendMult_eq",
+     "Chapter13/StructuredExtensionData · SBLocalization.eq_extendMult",
+     "Chapter13/StructuredExtensionData · SBLocalization.unitChart",
+     "Chapter13/StructuredExtensionData · SBLocalization.isPushNbhd_unit",
+     "Chapter13/StructuredExtensionData · SBLocalization.ExtChart",
+     "Chapter13/StructuredExtension · SBLocalization.isScPlusMultisection_extendMult",
+     "Chapter13/StructuredExtension · SBLocalization.extTuple",
+     "Chapter13/StructuredExtension · SBLocalization.proposition_13_4_2",
+     "Chapter13/StructuredExtension · SBLocalization.proposition_13_4_2_structurable"
     ]
    },
    "chips": [
@@ -1834,17 +1834,17 @@
    "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
    "page": 602,
    "book": "The hypothesis is a good system for the full sub-ep-groupoid on the open set $Q$; its properness condition (1) is read inside $Q$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.7; `Chapter13/P3E_GoodSystemRelative.lean`): `EpGroupoid.theorem_13_1_7_book` is the printed statement, with the hypothesis read in the full subcategory on the open $Q$ (`IsGoodIn`, `IsProperSubsetIn` through `subSrc`, `subTgt` on `X.morOn Q`); `isProperSubset_of_isProperSubsetIn` proves that $Q$-properness implies $X$-properness (with $\\mathrm{cl}_X U(q) \\subseteq Q$, `closure_subset_of_isProperSubsetIn`), and `isGoodIn_iff` gives the equivalence with `IsGoodOn` plus $\\mathrm{cl}_X U(q) \\subseteq Q$. No sub-ep-groupoid structure was needed (Findings, Chapter 13, item 10).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.7; `Chapter13/GoodSystemRelative.lean`): `EpGroupoid.theorem_13_1_7_book` is the printed statement, with the hypothesis read in the full subcategory on the open $Q$ (`IsGoodIn`, `IsProperSubsetIn` through `subSrc`, `subTgt` on `X.morOn Q`); `isProperSubset_of_isProperSubsetIn` proves that $Q$-properness implies $X$-properness (with $\\mathrm{cl}_X U(q) \\subseteq Q$, `closure_subset_of_isProperSubsetIn`), and `isGoodIn_iff` gives the equivalence with `IsGoodOn` plus $\\mathrm{cl}_X U(q) \\subseteq Q$. No sub-ep-groupoid structure was needed (Findings, Chapter 13, item 10).",
    "formalized": [
     "V13.7"
    ],
    "decls": [
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn",
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isGoodIn_iff",
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
-    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn"
+    "Chapter13/GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
+    "Chapter13/GoodSystemRelative · EpGroupoid.IsGoodIn",
+    "Chapter13/GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
+    "Chapter13/GoodSystemRelative · EpGroupoid.isGoodIn_iff",
+    "Chapter13/GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
+    "Chapter13/GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn"
    ]
   },
   {
@@ -1853,7 +1853,7 @@
    "label": "§13.2, Definitions 13.2.7, 13.2.8, pp. 610–611 (2017: Definitions 13.9, 13.10), and pp. 611–612",
    "page": 610,
    "book": "An sc⁺-multisection with a system of symmetric sc⁺-section structures, equivalence of systems, decorated sc⁺-multisections; their sums, scalar multiples, products with functions and locally finite sums are decorated.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; `Chapter13/P3D_SymmetricOn.lean`, `P3D_Decorated.lean`): rows V13.22, V13.23 for Definitions 13.2.7, 13.2.8 and the decorated forms in V13.15–V13.17, V13.19. The intersections $U'(x) \\cap U''(x)$ are read with one natural action on which the given ones agree (Findings, Chapter 13, item 11).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; `Chapter13/SymmetricOn.lean`, `DecoratedMultisection.lean`): rows V13.22, V13.23 for Definitions 13.2.7, 13.2.8 and the decorated forms in V13.15–V13.17, V13.19. The intersections $U'(x) \\cap U''(x)$ are read with one natural action on which the given ones agree (Findings, Chapter 13, item 11).",
    "formalized": [
     "V13.22",
     "V13.23",
@@ -1863,18 +1863,18 @@
     "V13.19"
    ],
    "decls": [
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration",
-    "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel",
-    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.add",
-    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add",
-    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm",
-    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_assoc",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.smul",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum",
-    "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_13_decorated"
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration",
+    "Chapter13/DecoratedMultisection · SBLocalization.DecoratedTuple",
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration.Rel",
+    "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection",
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration.add",
+    "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add",
+    "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add_comm",
+    "Chapter13/DecoratedMultisection · SBLocalization.DecoratedMultisection.add_assoc",
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration.smul",
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration.smulFun",
+    "Chapter13/DecoratedMultisection · SBLocalization.Decoration.lfSum",
+    "Chapter13/DecoratedMultisection · SBLocalization.lemma_13_2_13_decorated"
    ]
   },
   {
@@ -1883,15 +1883,15 @@
    "label": "§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)",
    "page": 611,
    "book": "In general, an sc⁺-multisection has no inverse for $\\oplus$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.24; `Chapter13/P3D_NoInverse.lean`): `remark_13_2_9_no_inverse`, a two-valued sc⁺-multisection on $\\mathbb R^n \\times \\mathbb R^k$ with no inverse for $\\oplus$; the neutral element is $\\Lambda_0$ (`multisectionAdd_zeroMultisection`).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.24; `Chapter13/MultisectionNoInverse.lean`): `remark_13_2_9_no_inverse`, a two-valued sc⁺-multisection on $\\mathbb R^n \\times \\mathbb R^k$ with no inverse for $\\oplus$; the neutral element is $\\Lambda_0$ (`multisectionAdd_zeroMultisection`).",
    "formalized": [
     "V13.24"
    ],
    "decls": [
-    "Chapter13/P3D_NoInverse · SBLocalization.multisectionAdd_zeroMultisection",
-    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.twoValued",
-    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
-    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.exists_no_inverse"
+    "Chapter13/MultisectionNoInverse · SBLocalization.multisectionAdd_zeroMultisection",
+    "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.twoValued",
+    "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
+    "Chapter13/MultisectionNoInverse · SBLocalization.NoInverse.exists_no_inverse"
    ]
   },
   {
@@ -1900,13 +1900,13 @@
    "label": "§13.3, Proposition 13.3.19, p. 620 (2017: Proposition 13.5)",
    "page": 620,
    "book": "For a family $(\\Lambda_l)$ of structurable sc⁺-multisections with locally finite domain supports, $\\oplus_l \\Lambda_l$ is structurable (index sets $K_x = \\prod_l K^l_x$, sections $\\sum_l s^{l,x}_{k(l)}$, $\\tau$ the product of the tight $\\tau^l$).",
-   "instead": "**Formalized** (2026-11-13, Part III waves 3–4; V13.50; `Chapter13/P3W3C_PiCorrespondence.lean`, `P3W3C_TightOn.lean`, `P3W3C_LocallyFiniteStructurable.lean`, `P3W4SM_LocallyFiniteBridge.lean`): `proposition_13_3_19` (`[Nonempty L]`; the empty family needs a good system, `proposition_13_3_19_of_goodSystem`, `proposition_13_3_19_of_paracompact`), with the common good system, the tight versions over it (`Decoration.Tau.tightOn`), the finite products $K_x = \\prod_l K^l_x$ and $\\tau = \\prod_l \\tau^l$ (`IndexCorr.pi`); the check left to the reader is `LFStructData.isCorrespondence`. The printed hypothesis, `LocallyFinite` of the domain supports, is bridged by `isLocallyFiniteFamily_of_locallyFinite` (`proposition_13_3_19_locallyFinite`).",
+   "instead": "**Formalized** (2026-11-13, Part III waves 3–4; V13.50; `Chapter13/PiCorrespondence.lean`, `TightOn.lean`, `LocallyFiniteStructurable.lean`, `LocallyFiniteSupports.lean`): `proposition_13_3_19` (`[Nonempty L]`; the empty family needs a good system, `proposition_13_3_19_of_goodSystem`, `proposition_13_3_19_of_paracompact`), with the common good system, the tight versions over it (`Decoration.Tau.tightOn`), the finite products $K_x = \\prod_l K^l_x$ and $\\tau = \\prod_l \\tau^l$ (`IndexCorr.pi`); the check left to the reader is `LFStructData.isCorrespondence`. The printed hypothesis, `LocallyFinite` of the domain supports, is bridged by `isLocallyFiniteFamily_of_locallyFinite` (`proposition_13_3_19_locallyFinite`).",
    "decls": [
-    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19",
-    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_goodSystem",
-    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_paracompact",
-    "Chapter13/P3W4SM_LocallyFiniteBridge · SBLocalization.isLocallyFiniteFamily_of_locallyFinite",
-    "Chapter13/P3W4SM_LocallyFiniteBridge · SBLocalization.proposition_13_3_19_locallyFinite"
+    "Chapter13/LocallyFiniteStructurable · SBLocalization.proposition_13_3_19",
+    "Chapter13/LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_goodSystem",
+    "Chapter13/LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_paracompact",
+    "Chapter13/LocallyFiniteSupports · SBLocalization.isLocallyFiniteFamily_of_locallyFinite",
+    "Chapter13/LocallyFiniteSupports · SBLocalization.proposition_13_3_19_locallyFinite"
    ],
    "formalized": [
     "V13.50"
@@ -1918,12 +1918,12 @@
    "label": "§13.5, Theorem 13.5.3, p. 630 (2017: Theorem 13.6); also the last sentence of Theorem 13.5.5, p. 633",
    "page": 630,
    "book": "An atomic sc⁺-multisection functor is structurable (Definition 13.3.6).",
-   "instead": "**Formalized** (2026-11-13, Part III wave 3; V13.46, V13.48; `Chapter13/P3W3C_AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\\tau_y$, the locally constant, functorial $H$ with $\\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the earlier hypothesis form is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V13.46, V13.48; `Chapter13/AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\\tau_y$, the locally constant, functorial $H$ with $\\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the earlier hypothesis form is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.",
    "decls": [
-    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3",
-    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3_of_goodSystem",
-    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3_of_paracompact",
-    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
+    "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_3",
+    "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_3_of_goodSystem",
+    "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_3_of_paracompact",
+    "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
    ],
    "formalized": [
     "V13.46",
@@ -1936,13 +1936,13 @@
    "label": "§13.4, Proposition 13.4.2, pp. 623–625 (2017: Proposition 13.6)",
    "page": 623,
    "book": "(1) $\\Lambda$ on $W|V$ has a canonical extension $\\bar\\Lambda$ to $W$; (2) given $O(x)$ for $x \\notin V$, $\\bar\\Lambda$ has a structured version restricting to the given one on $V$ with $U(x) \\subset O(x)$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V13.59; `Chapter13/P3W5FM_ExtensionData.lean`, `P3W5FM_Extension.lean`): `proposition_13_4_2` and `proposition_13_4_2_structurable`, with the relative data `StructuredOn A V` (\"structured on $W|V$\") and uniqueness for \"canonical\"; through the push machinery of §13.4 with $F = \\mathrm{id}$ (unit chart on $V$, push charts inside $O(x)$ off $V$, $\\tau$ through `liftMor`).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V13.59; `Chapter13/StructuredExtensionData.lean`, `StructuredExtension.lean`): `proposition_13_4_2` and `proposition_13_4_2_structurable`, with the relative data `StructuredOn A V` (\"structured on $W|V$\") and uniqueness for \"canonical\"; through the push machinery of §13.4 with $F = \\mathrm{id}$ (unit chart on $V$, push charts inside $O(x)$ off $V$, $\\tau$ through `liftMor`).",
    "decls": [
-    "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
-    "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2",
-    "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2_structurable",
-    "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredOn",
-    "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult"
+    "Chapter13/MultisectionPushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
+    "Chapter13/StructuredExtension · SBLocalization.proposition_13_4_2",
+    "Chapter13/StructuredExtension · SBLocalization.proposition_13_4_2_structurable",
+    "Chapter13/StructuredExtensionData · SBLocalization.StructuredOn",
+    "Chapter13/StructuredExtensionData · SBLocalization.extendMult"
    ],
    "formalized": [
     "V13.59"

@@ -819,11 +819,11 @@
      "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
      "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero",
      "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero",
-     "Chapter4/GapP1_Remark422 · MPolyfold.remark_4_2_2_dA_zero",
-     "Chapter4/GapP1_Remark422 · MPolyfold.remark_4_2_2_dA_zero_near",
-     "Chapter4/GapP1_Remark422One · MPolyfold.remark_4_2_2_dA_one",
-     "Chapter4/GapP1_Remark422One · MPolyfold.remark_4_2_2_dA_one_near",
-     "Chapter4/GapP1_Remark422One · MPolyfold.hasCornerStructure_of_degIndex_le_one"
+     "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero",
+     "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero_near",
+     "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
+     "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
+     "Chapter4/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one"
     ]
    },
    "chips": [
@@ -831,7 +831,7 @@
     "$d_A = 0$, $d_A = 1$ (2021): proved"
    ],
    "diff": [
-    "Updated (2026-11-12): the 2021 wording is proved, near $d_A(a) = 0$ (manifold without boundary) and near $d_A(a) = 1$ (manifold with boundary), with no tameness (`Chapter4/GapP1_Remark422.lean`, `GapP1_Remark422One.lean`; gap G.33, closed). In a chart realizing $d_A(a) = 1$, re-centred at $a$, with boundary coordinate $\\lambda$, $T_aA$ is in good position when $\\lambda|_{T_aA} \\ne 0$; the case $\\lambda|_{T_aA} = 0$ is excluded by the graph argument of Lemma 9.2.13 (`degIndex_eq_zero_of_isReducedTangentAt`), which would give $d_A(a) = 0$. The preprint's $d_X$ wording is the special case, since $d_A \\le d_X$; the switch to $d_A$ covers more points, e.g. the parabola $\\{(y^2, y)\\}$ in $[0, \\infty) \\times \\mathbb R$, where $d_A \\equiv 0$ and $d_X(0, 0) = 1$ (Findings, Chapter 4, items 165, 176). The sentence on $d_A \\ge 2$ is qualitative.",
+    "Updated (2026-11-12): the 2021 wording is proved, near $d_A(a) = 0$ (manifold without boundary) and near $d_A(a) = 1$ (manifold with boundary), with no tameness (`Chapter4/SubmanifoldNearInterior.lean`, `SubmanifoldNearBoundary.lean`; gap G.33, closed). In a chart realizing $d_A(a) = 1$, re-centred at $a$, with boundary coordinate $\\lambda$, $T_aA$ is in good position when $\\lambda|_{T_aA} \\ne 0$; the case $\\lambda|_{T_aA} = 0$ is excluded by the graph argument of Lemma 9.2.13 (`degIndex_eq_zero_of_isReducedTangentAt`), which would give $d_A(a) = 0$. The preprint's $d_X$ wording is the special case, since $d_A \\le d_X$; the switch to $d_A$ covers more points, e.g. the parabola $\\{(y^2, y)\\}$ in $[0, \\infty) \\times \\mathbb R$, where $d_A \\equiv 0$ and $d_X(0, 0) = 1$ (Findings, Chapter 4, items 165, 176). The sentence on $d_A \\ge 2$ is qualitative.",
     "The case of good position is Theorem 4.2.7 (preprint 4.18) (V4.41)."
    ]
   },
@@ -1249,9 +1249,9 @@
     "statement": "A tame chart $\\psi$ with $\\psi(x) = 0$ ($n$ half-line coordinates) and an open $U \\ni x$ with: (1) $d_X(x) = n$ and $\\psi(x)$ in exactly $d_X(x)$ faces of $O$; (2) $d_A = d_X$ on $A \\cap U$; (3) general position on $U \\cap A$; (4) for every $\\sigma$, faces $F_i \\ni 0$, open $G \\ni 0$, $F_\\sigma = \\psi^{-1}(G \\cap \\bigcap F_i) \\subseteq U$ a tame sub-M-polyfold with $d_{F_\\sigma} + \\#\\sigma = d_X$, $A \\cap F_\\sigma$ a tame submanifold of $F_\\sigma$ in general position. With the text's local faces (`theorem_4_2_11_faces`): for the tame centred chart $\\psi$ and a face-structured open $U \\ni x$, the faces of $U$ through $x$ (closures in $U$ of the components of $U \\cap \\{d_X = 1\\}$) are exactly $d_X(x) = n$ distinct sets $\\theta_1, \\dots, \\theta_n$, near $x$ equal to the chart faces $\\psi^{-1}\\{\\lambda_i = 0\\}$ (`exists_faces_chart`); (2) and (3) hold on $U$; and for every $\\sigma$ the intersection $\\bigcap_{i \\in \\sigma}\\theta_i$ agrees near $x$ with $\\psi^{-1}(G \\cap \\bigcap F_i)$, which carries the properties of (4). `theorem_4_2_11_one`: an open $U \\ni x$ with exactly $d_X(x)$ faces of $U$ through $x$, $U$ face-structured, and (2), (3) on $U$.",
     "decls": [
      "Chapter4/LocalStructure · MPolyfold.theorem_4_2_11_preprint",
-     "Chapter4/GapP1_LocalFaces · MPolyfold.theorem_4_2_11_faces",
-     "Chapter4/GapP1_LocalFaces · MPolyfold.exists_faces_chart",
-     "Chapter4/GapP1_Theorem4211 · MPolyfold.theorem_4_2_11_one"
+     "Chapter4/LocalFaces · MPolyfold.theorem_4_2_11_faces",
+     "Chapter4/LocalFaces · MPolyfold.exists_faces_chart",
+     "Chapter4/GeneralPositionLocalFaces · MPolyfold.theorem_4_2_11_one"
     ]
    },
    "chips": [
@@ -1330,8 +1330,8 @@
      "Chapter4/Families · rnPres",
      "Chapter4/Families · IsStratRegularPoint",
      "Chapter4/Families · IsStratRegularValue",
-     "Chapter4/GapP1_Theorem431 · isStratRegularPoint_iff_forall",
-     "Chapter4/GapP1_Theorem431 · isStratRegularValue_iff_forall"
+     "Chapter4/StratifiedRegularValues · isStratRegularPoint_iff_forall",
+     "Chapter4/StratifiedRegularValues · isStratRegularValue_iff_forall"
     ]
    },
    "chips": [
@@ -1938,12 +1938,12 @@
      "Chapter4/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
      "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
      "Chapter4/BookFormLieBracket2021 · MPolyfold.proposition_4_4_5_book",
-     "Chapter4/GapP1_Lemma451Bundle · MPolyfold.isSubMPolyfold_tangentPullback",
-     "Chapter4/GapP1_Lemma451Bundle · MPolyfold.tangentPullbackPolyfold",
-     "Chapter4/GapP1_Lemma451Bundle · MPolyfold.isScSmoothMap_tangentPullbackProj",
-     "Chapter4/GapP1_Lemma451Bundle · MPolyfold.tangentPullbackFiberEquiv",
-     "Chapter4/GapP1_Lemma451Bundle · MPolyfold.lieBracketSection",
-     "Chapter4/GapP1_Lemma451Bundle · proposition_4_4_5_section"
+     "Chapter4/LieBracketBundle · MPolyfold.isSubMPolyfold_tangentPullback",
+     "Chapter4/LieBracketBundle · MPolyfold.tangentPullbackPolyfold",
+     "Chapter4/LieBracketBundle · MPolyfold.isScSmoothMap_tangentPullbackProj",
+     "Chapter4/LieBracketBundle · MPolyfold.tangentPullbackFiberEquiv",
+     "Chapter4/LieBracketBundle · MPolyfold.lieBracketSection",
+     "Chapter4/LieBracketBundle · proposition_4_4_5_section"
     ]
    },
    "chips": [
@@ -1972,11 +1972,11 @@
      "Chapter4/VectorFieldsGlobal · MPolyfold.levelTwoMap",
      "Chapter4/VectorFieldsGlobal · MPolyfold.levelMap_coord_levelLift",
      "Chapter4/VectorFieldsGlobal · lemma_4_5_1",
-     "Chapter4/GapP1_Lemma451 · MPolyfold.restrictVectorField",
-     "Chapter4/GapP1_Lemma451 · MPolyfold.lieBracket_restrictOpen",
-     "Chapter4/GapP1_Lemma451 · lemma_4_5_1_open",
-     "Chapter4/GapP1_Lemma451 · lemma_4_5_1_open_ambient",
-     "Chapter4/GapP1_Lemma451Bundle · lemma_4_5_1_section"
+     "Chapter4/LieBracketOpenSubsets · MPolyfold.restrictVectorField",
+     "Chapter4/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
+     "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open",
+     "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
+     "Chapter4/LieBracketBundle · lemma_4_5_1_section"
     ]
    },
    "chips": [
@@ -2450,14 +2450,14 @@
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk",
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk_eq_iff",
      "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamEquivOfNoBoundary",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relD_relWedge",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_assoc",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_of_mul_of",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedNonUnitalRing",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relCast_relWedge_relOne",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_relOne",
-     "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_comp_self"
+     "Chapter4/RelativeWedge · MPolyfold.relWedge",
+     "Chapter4/RelativeWedge · MPolyfold.relD_relWedge",
+     "Chapter4/RelativeWedge · MPolyfold.relWedge_assoc",
+     "Chapter4/RelativeWedge · MPolyfold.relGradedD_of_mul_of",
+     "Chapter4/RelativeWedge · MPolyfold.relGradedNonUnitalRing",
+     "Chapter4/RelativeWedge · MPolyfold.relCast_relWedge_relOne",
+     "Chapter4/RelativeWedge · MPolyfold.relWedge_relOne",
+     "Chapter4/RelativeWedge · MPolyfold.relGradedD_comp_self"
     ]
    },
    "chips": [
@@ -2491,15 +2491,15 @@
      "Chapter9/MathlibFormsBridge2021 · MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim",
      "Chapter9/MathlibFormsBridge2021 · exists_hasCornerStructureOfDim_of_tame",
      "Chapter9/MathlibFormsBridge2021 · exists_hasCornerStructureOfDim_solutionSet",
-     "Chapter9/GapP1_Stokes2021 · MPolyfold.theorem_4_4_7_hyp",
-     "Chapter9/GapP1_Stokes2021 · MPolyfold.faceOrientation",
-     "Chapter9/GapP1_Stokes2021 · MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero",
-     "Chapter4/GapP1_StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
-     "Chapter4/GapP1_StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
-     "Chapter4/GapP1_StokesFaceIntegral · restrictForm",
-     "Chapter4/GapP1_StokesFaceOrientation · IsInducedOrientation",
-     "Chapter4/GapP1_StokesFaceOrientation · inducedOrientation",
-     "Chapter4/GapP1_StokesFaces · MPolyfold.finite_setOf_isFace"
+     "Chapter9/StokesFaceSum · MPolyfold.theorem_4_4_7_hyp",
+     "Chapter9/StokesFaceSum · MPolyfold.faceOrientation",
+     "Chapter9/StokesFaceSum · MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero",
+     "Chapter4/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
+     "Chapter4/StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
+     "Chapter4/StokesFaceIntegral · restrictForm",
+     "Chapter4/StokesFaceOrientation · IsInducedOrientation",
+     "Chapter4/StokesFaceOrientation · inducedOrientation",
+     "Chapter4/StokesFaces · MPolyfold.finite_setOf_isFace"
     ]
    },
    "chips": [
@@ -2524,12 +2524,12 @@
    "lean": {
     "statement": "`StratRegCond` is the chart condition of `IsStratRegularPoint` (every $\\mu \\in \\mathbb R^m$ is $v_1$ for some $v \\in T_yQ$ with $v_2$ in the minimal subspace of $C$ at $y_2$); it depends only on the tangent space (`StratRegCond.congr`) and is carried by germs of sc-diffeomorphisms $F$ with $(Fw)_1 = w_1 + c$ that preserve the product partial quadrants (`StratRegCond.transport`). Product-chart transitions have first component $w_1 + a - a'$ (`transition_rnChart_prod_fst`), so their derivatives fix the $\\mathbb R^m$-component (`scDeriv_fst_eq_of_fst_eq`), and the condition passes from one product chart, presentation, data and level-1 lift to any other (`stratRegCond_chart_change`). `IsStratRegularPoint.stratRegCond`: a stratified regular point satisfies the condition in every product chart $(r \\mapsto r - a') \\times \\varphi'$, every data of Definition 4.2.1, every presentation and every lift; `isStratRegularPoint_iff_forall`, `isStratRegularValue_iff_forall`: \"some chart\" $\\Leftrightarrow$ \"every chart\".",
     "decls": [
-     "Chapter4/GapP1_Theorem431 · StratRegCond",
-     "Chapter4/GapP1_Theorem431 · StratRegCond.transport",
-     "Chapter4/GapP1_Theorem431 · stratRegCond_chart_change",
-     "Chapter4/GapP1_Theorem431 · IsStratRegularPoint.stratRegCond",
-     "Chapter4/GapP1_Theorem431 · isStratRegularPoint_iff_forall",
-     "Chapter4/GapP1_Theorem431 · isStratRegularValue_iff_forall"
+     "Chapter4/StratifiedRegularValues · StratRegCond",
+     "Chapter4/StratifiedRegularValues · StratRegCond.transport",
+     "Chapter4/StratifiedRegularValues · stratRegCond_chart_change",
+     "Chapter4/StratifiedRegularValues · IsStratRegularPoint.stratRegCond",
+     "Chapter4/StratifiedRegularValues · isStratRegularPoint_iff_forall",
+     "Chapter4/StratifiedRegularValues · isStratRegularValue_iff_forall"
     ]
    },
    "chips": [
@@ -2552,15 +2552,15 @@
    "lean": {
     "statement": "`lemma_4_1_11`: in the setting of Proposition 4.1.9 (an sc⁺-retraction $t$ onto $O \\ni 0$, $N = T_0O$ in good position, $Y$ a good sc-complement (`hsplit : E.IsScSplitting N Y`), $p$ the projection onto $N$ along $Y$), the section $u \\mapsto (u, (1 - p)(u - t(u)))$ of the local strong bundle $U \\triangleleft Y \\to U$ (`LocalBundle.bundle`, `LocalBundle.sec`, one chart with the identity strong bundle retraction) is sc-Fredholm in the sense of 2021 Definition 3.1.16 (`IsScFredholmSection2021`), on all of $U$. Regularizing: $u = (1 - p)(u - tu) + tu + p(u - tu)$. Germ at a smooth $e$: the chart centred at $e$ (`LocalBundle.centred`), whose retraction is pointwise the identity, so the principal part fills itself (`isFilling2021_of_R_eq_self`); $s(v) = (1 - p)(e - t(v + e))$ is the text's $s$, and $g - s = (1 - p)v$ is conjugated to the basic germ $(a + b, w) \\mapsto (b, w)$ (`isConjugateToBasicGerm_qOp`), with the splitting $E \\cong (T_0O \\oplus B) \\oplus W$, $B$ smooth, $W = Y \\cap \\ker L$ (`exists_splitData`, `isScSubspace_splitW`).",
     "decls": [
-     "Chapter4/GapP1_Lemma4111 · lemma_4_1_11",
-     "Chapter4/GapP1_Lemma4111Split · isConjugateToBasicGerm_qOp",
-     "Chapter4/GapP1_Lemma4111Split · exists_splitData",
-     "Chapter4/GapP1_Lemma4111Split · isScSubspace_splitW",
-     "Chapter4/GapP1_Lemma4111Split · qOp",
-     "Chapter4/GapP1_LocalStrongBundle · LocalBundle.bundle",
-     "Chapter4/GapP1_LocalStrongBundle · LocalBundle.sec",
-     "Chapter4/GapP1_LocalStrongBundle · LocalBundle.isScSmoothSection_sec",
-     "Chapter4/GapP1_LocalStrongBundle · isFilling2021_of_R_eq_self"
+     "Chapter4/RetractionSectionFredholm · lemma_4_1_11",
+     "Chapter4/RetractionSectionSplitting · isConjugateToBasicGerm_qOp",
+     "Chapter4/RetractionSectionSplitting · exists_splitData",
+     "Chapter4/RetractionSectionSplitting · isScSubspace_splitW",
+     "Chapter4/RetractionSectionSplitting · qOp",
+     "Chapter4/LocalStrongBundle · LocalBundle.bundle",
+     "Chapter4/LocalStrongBundle · LocalBundle.sec",
+     "Chapter4/LocalStrongBundle · LocalBundle.isScSmoothSection_sec",
+     "Chapter4/LocalStrongBundle · isFilling2021_of_R_eq_self"
     ]
    },
    "chips": [
@@ -2593,13 +2593,13 @@
      "Chapter4/Poincare448 · exists_primitive_of_factor",
      "Chapter4/Poincare448Shift · MPolyfold.HasPoincare",
      "Chapter4/Poincare448Shift · LocalModel.liftEquiv",
-     "Chapter4/GapP1_OpenForms · MPolyfold.formRestrict",
-     "Chapter4/GapP1_OpenForms · MPolyfold.extD_formRestrict",
-     "Chapter4/GapP1_OpenForms · BundledMPolyfold.openSub",
-     "Chapter4/GapP1_OpenForms · BundledMPolyfold.formsInftyResOpen",
-     "Chapter4/GapP1_OpenForms · BundledMPolyfold.formsInftyResOpenOpen",
-     "Chapter4/GapP1_OpenForms · BundledMPolyfold.FormsInftyEqOn",
-     "Chapter4/GapP1_OpenForms · BundledMPolyfold.formsInftyEqOn_of_iff"
+     "Chapter4/OpenForms · MPolyfold.formRestrict",
+     "Chapter4/OpenForms · MPolyfold.extD_formRestrict",
+     "Chapter4/OpenForms · BundledMPolyfold.openSub",
+     "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpen",
+     "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpenOpen",
+     "Chapter4/OpenForms · BundledMPolyfold.FormsInftyEqOn",
+     "Chapter4/OpenForms · BundledMPolyfold.formsInftyEqOn_of_iff"
     ]
    },
    "chips": [
@@ -2673,12 +2673,12 @@
     "V4.94"
    ],
    "decls": [
-    "Chapter4/GapP1_Lemma4111 · lemma_4_1_11",
-    "Chapter4/GapP1_Lemma4111Split · isConjugateToBasicGerm_qOp",
-    "Chapter4/GapP1_Lemma4111Split · exists_splitData",
-    "Chapter4/GapP1_Lemma4111Split · isScSubspace_splitW",
-    "Chapter4/GapP1_LocalStrongBundle · LocalBundle.bundle",
-    "Chapter4/GapP1_LocalStrongBundle · LocalBundle.sec"
+    "Chapter4/RetractionSectionFredholm · lemma_4_1_11",
+    "Chapter4/RetractionSectionSplitting · isConjugateToBasicGerm_qOp",
+    "Chapter4/RetractionSectionSplitting · exists_splitData",
+    "Chapter4/RetractionSectionSplitting · isScSubspace_splitW",
+    "Chapter4/LocalStrongBundle · LocalBundle.bundle",
+    "Chapter4/LocalStrongBundle · LocalBundle.sec"
    ]
   },
   {
@@ -2691,13 +2691,13 @@
     "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_interior",
     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_near",
-    "Chapter4/GapP1_Remark422One · MPolyfold.remark_4_2_2_dA_one",
-    "Chapter4/GapP1_Remark422One · MPolyfold.remark_4_2_2_dA_one_near",
-    "Chapter4/GapP1_Remark422One · MPolyfold.hasCornerStructure_of_degIndex_le_one",
-    "Chapter4/GapP1_Remark422One · MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one",
-    "Chapter4/GapP1_Remark422One · isInGoodPosition_halfSpace",
-    "Chapter4/GapP1_Remark422 · MPolyfold.remark_4_2_2_dA_zero",
-    "Chapter4/GapP1_Remark422 · MPolyfold.remark_4_2_2_dA_zero_near",
+    "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
+    "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
+    "Chapter4/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one",
+    "Chapter4/SubmanifoldNearBoundary · MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one",
+    "Chapter4/SubmanifoldNearBoundary · isInGoodPosition_halfSpace",
+    "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero",
+    "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero_near",
     "Chapter9/BoundaryPositionConverse · MPolyfold.degIndex_eq_zero_of_isReducedTangentAt"
    ],
    "formalized": [
@@ -2711,9 +2711,9 @@
    "book": "Is a sub-M-polyfold with $A = A_\\infty$ and $\\dim T_aA$ finite and locally constant a smooth finite-dimensional submanifold? Is the \"T\" $\\{(x, 0) : |x| < 1\\} \\cup \\{(0, y) : 0 \\le y < 1\\}$ homeomorphic to a retract $O = O_\\infty$? Impossible for sc⁺-retracts.",
    "instead": "**Nothing to formalize** (a question, not a statement). (2026-11-12) The settled sentence is formalized: `question_4_2_4_scPlus` shows that an sc⁺-retract $(O, E, E)$ is never homeomorphic to the \"T\", because no neighbourhood of $(0, 0)$ in the \"T\" is homeomorphic to an open subset of a finite-dimensional space (`not_homeomorph_open`: case $k = 0$; case $k = 1$, three arms on two sides; case $k \\ge 2$, a punctured ball is connected), while near each point an sc⁺-retract with $C = E$ is the graph of a map on its finite-dimensional tangent space (`IsScPlus.exists_flat`, the argument of Lemma 9.2.13). The question for sc-retracts that are not sc⁺ is open in the text and not addressed (Findings, item 65). The same holds on the piece $\\{d_O = 0\\}$ of any sc⁺-retract (`remark_4_2_2_dA_zero`, V4.32).",
    "decls": [
-    "Chapter4/GapP1_Question424 · Question424.question_4_2_4_scPlus",
-    "Chapter4/GapP1_Question424 · Question424.not_homeomorph_open",
-    "Chapter4/GapP1_Question424 · Question424.tSet",
+    "Chapter4/ScPlusRetractQuestion · Question424.question_4_2_4_scPlus",
+    "Chapter4/ScPlusRetractQuestion · Question424.not_homeomorph_open",
+    "Chapter4/ScPlusRetractQuestion · Question424.tSet",
     "Chapter9/BoundaryPositionConverse · ScRetraction.IsScPlus.exists_flat"
    ],
    "nothing": true
@@ -2726,9 +2726,9 @@
    "instead": "**Formalized** (2026-11-12; V4.50). There is a face-structured open $U \\ni x$ such that the faces of $U$ through $x$ (the local faces: closures in $U$ of the components of $U \\cap \\{d_X = 1\\}$) are exactly $d_X(x) = n$ distinct sets $\\theta_1, \\dots, \\theta_n$, and near $x$ each $\\theta_i$ is the chart face $\\psi^{-1}\\{\\lambda_i = 0\\}$ (`theorem_4_2_11_faces`, `exists_faces_chart`, by Lemmas 4.A and 4.C of the exposition); (2) and (3) hold on $U$. For every $\\sigma$ the text's $F_\\sigma = \\bigcap_{i \\in \\sigma}\\theta_i$ agrees near $x$ with $\\psi^{-1}(G \\cap \\bigcap_{i\\in\\sigma} F_i)$, which carries the properties of (4) (`theorem_4_2_11_preprint`), so (4) is proved for the germ of $F_\\sigma$ at $x$, which is what the later chapters use (Findings, items 86, 90; Chapter 4, item 130).",
    "decls": [
     "Chapter4/LocalStructure · MPolyfold.theorem_4_2_11_preprint",
-    "Chapter4/GapP1_LocalFaces · MPolyfold.theorem_4_2_11_faces",
-    "Chapter4/GapP1_LocalFaces · MPolyfold.exists_faces_chart",
-    "Chapter4/GapP1_Theorem4211 · MPolyfold.theorem_4_2_11_one",
+    "Chapter4/LocalFaces · MPolyfold.theorem_4_2_11_faces",
+    "Chapter4/LocalFaces · MPolyfold.exists_faces_chart",
+    "Chapter4/GeneralPositionLocalFaces · MPolyfold.theorem_4_2_11_one",
     "Chapter2/TameBoundary · TameBoundary.exists_nbhd_forall_isFaceStructuredOpen"
    ],
    "formalized": [
@@ -2742,12 +2742,12 @@
    "book": "Regular values of the maps $p_\\sigma : A \\cap F_\\sigma^\\circ \\to \\mathbb R^m$, intrinsic to $A$ and its strata.",
    "instead": "**Formalized** (2026-11-12; V4.93). Stratified regularity of $p = P|_A$ at $z$ (`IsStratRegularPoint`, defined in some product chart) holds in every product chart at $z$, for every data of Definition 4.2.1, every presentation of the partial quadrant and every level-1 lift (`IsStratRegularPoint.stratRegCond`), so it is intrinsic to $A$ and its strata (`isStratRegularPoint_iff_forall`, `isStratRegularValue_iff_forall`). The proof is the transport argument of V4.39: product-chart transitions have first component $w_1 + a - a'$, so their derivatives fix the $\\mathbb R^m$-component and carry tangent spaces and minimal subspaces (Findings, items 102, 108).",
    "decls": [
-    "Chapter4/GapP1_Theorem431 · IsStratRegularPoint.stratRegCond",
-    "Chapter4/GapP1_Theorem431 · isStratRegularPoint_iff_forall",
-    "Chapter4/GapP1_Theorem431 · isStratRegularValue_iff_forall",
-    "Chapter4/GapP1_Theorem431 · stratRegCond_chart_change",
-    "Chapter4/GapP1_Theorem431 · StratRegCond.transport",
-    "Chapter4/GapP1_Theorem431 · StratRegCond"
+    "Chapter4/StratifiedRegularValues · IsStratRegularPoint.stratRegCond",
+    "Chapter4/StratifiedRegularValues · isStratRegularPoint_iff_forall",
+    "Chapter4/StratifiedRegularValues · isStratRegularValue_iff_forall",
+    "Chapter4/StratifiedRegularValues · stratRegCond_chart_change",
+    "Chapter4/StratifiedRegularValues · StratRegCond.transport",
+    "Chapter4/StratifiedRegularValues · StratRegCond"
    ],
    "formalized": [
     "V4.93"
@@ -2857,14 +2857,14 @@
     "Chapter4/ManifoldFaceForms2021 · ChartFaceForm.integral_d_eq_zero",
     "Chapter4/ManifoldFaceForms2021 · ManifoldForm.extDeriv_extDeriv",
     "Chapter9/MathlibFormsBridge2021 · MPolyfold.stokes_formsInftyRestrict",
-    "Chapter9/GapP1_Stokes2021 · MPolyfold.theorem_4_4_7_hyp",
-    "Chapter4/GapP1_StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
-    "Chapter4/GapP1_StokesFaceOrientation · inducedOrientation",
-    "Chapter4/GapP1_StokesFaceOrientation · FaceChartPair.chartChangeDeriv_face",
-    "Chapter4/GapP1_StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
-    "Chapter4/GapP1_StokesFaces · MPolyfold.finite_setOf_isFace",
-    "Chapter4/GapP1_StokesFaces · MPolyfold.exists_face_eq_coordHyper",
-    "Chapter9/GapP1_Stokes2021 · MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero",
+    "Chapter9/StokesFaceSum · MPolyfold.theorem_4_4_7_hyp",
+    "Chapter4/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
+    "Chapter4/StokesFaceOrientation · inducedOrientation",
+    "Chapter4/StokesFaceOrientation · FaceChartPair.chartChangeDeriv_face",
+    "Chapter4/StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
+    "Chapter4/StokesFaces · MPolyfold.finite_setOf_isFace",
+    "Chapter4/StokesFaces · MPolyfold.exists_face_eq_coordHyper",
+    "Chapter9/StokesFaceSum · MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero",
     "Chapter6/CobordismRelativeForms2021 · ProductEnd.pullAt",
     "Chapter6/CobordismRelativeForms2021 · exists_glued_extension"
    ],
@@ -2878,7 +2878,7 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Formalized** (2026-11-09, 2026-11-12, 2026-11-13; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners, and Theorem 4.4.7 with the sum over the faces (gap G.40, closed; V4.92). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\\Omega^k(X^i)$ and on $\\Omega^k_\\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\\int_{\\partial S} j^*\\omega = \\int_{\\partial S} \\omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\\int_{\\partial M} d\\tau = 0$ (G.40); on a product end $(a, b) \\times S$ of $S' \\subseteq \\mathbb R^1 \\times X$, the restriction of $p_1^*\\omega$ is the pull-back of $\\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). (2026-11-12) Also formalized: the wedge product of sc-forms, read classically as $(a\\wedge b)(v) = (k!\\,l!)^{-1}\\sum_\\sigma \\operatorname{sign}\\sigma\\, a(v_{\\sigma(1..k)})\\,b(v_{\\sigma(k+1..k+l)})$ since the text uses it without a definition (`formWedge`, `formsInftyWedge`): it is bilinear, associative, graded commutative and unital, and satisfies the Leibniz rule (`extD_formWedge`, `formsInftyD_formsInftyWedge`); $\\Omega^*_\\infty(X) = \\bigoplus_k\\Omega^k_\\infty(X)$ is thereby a graded $\\mathbb R$-algebra (`formsInftyGAlgebra`) on which $d$ is a derivation of degree $+1$ with $d^2 = 0$ (`formsInftyGradedD_of_mul_of`), the graded differential algebra of p. 198, and $f^*$ is a morphism of graded algebras (V4.87, V4.89); sc-forms on open subsets, with the restrictions $\\Omega^k(X) \\to \\Omega^k(U)$ and $\\Omega^k_\\infty(X) \\to \\Omega^k_\\infty(U)$ commuting with $d$ (`formRestrict`, `formsInftyResOpen`) and \"$[\\omega] = [\\tau]$ on $V$\" of (4.7) (`FormsInftyEqOn`, `formsInftyEqOn_of_iff`); the Poincaré Lemma 4.4.8 (`lemma_4_4_8`, V4.95) and its local form Lemma 4.5.2 for a convex relatively open $U \\subseteq C$ (`hasPoincare_relOpen_of_zero_mem`, `lemma_4_5_2`, V4.96), with the homotopy operator $\\tau(y)(v) = \\int_0^1 t^k\\,\\omega(c + t(y-c))(y-c, v)\\,dt$ about a smooth centre $c$ ($c = 0$ in the text; Lemma 4.4.8 needs a general one, since $B_\\delta(x) \\cap C$ need not contain $0$), sc-smooth as a parametric integral (`isScSmooth_intervalIntegral`); the agreement of $d\\tau$ for forms $\\tau$ on $\\partial X$ that agree (V4.90); the pull-back of forms on $\\partial X$ to the faces of a finite-dimensional sub-M-polyfold $S$ of a second tame M-polyfold along an sc-smooth $G : S \\to X$ with $d_S = d_X \\circ G$, with $d$ commuting and $(G^*\\eta)_S$ extending $(G^*j^*\\eta)|_{\\partial S}$ (`faceAlongData`, `faceAlongData_formsD`, `isExtendedBy_faceAlongData_formsPullback`), the case $G = p_1$ used for Theorem 6.7.1 (gap G.54). (2026-11-13; `Chapter4/GapP3_K4_BoundaryWedge.lean`, `GapP3_K4_RelWedge.lean`) The wedge product on the relative complex is formalized, so $\\Omega^*_\\infty(X, \\partial X)$ is a differential algebra. On the forms on $\\partial X$: the wedge product of agreeing forms is agreeing, and on $\\Omega^*_\\infty(\\partial X)$ it is bilinear, associative and unital with the Leibniz rule (`agreeDFormsInftyWedge`, `agreeDFormsInftyD_agreeDFormsInftyWedge`, `agreeDFormsInftyWedge_assoc`); $j^*$ is multiplicative (`jStar_formsInftyWedge`). On $\\Omega^*_\\infty(X, \\partial X)$ the text gives no product; our choice is the product of the mapping cone of $j^*$, $(\\omega, \\tau)(\\omega', \\tau') = (\\omega\\wedge\\omega', (-1)^k j^*\\omega\\wedge\\tau')$ for $(\\omega, \\tau)$ of degree $k$ (`relWedge`): $d$ is a derivation of degree $+1$ (`relD_relWedge`, `relGradedD_of_mul_of`) with $d^2 = 0$ (`relGradedD_comp_self`), the product is associative (`relWedge_assoc`, `relGraded_mul_assoc`), so $\\bigoplus_k\\Omega^k_\\infty(X, \\partial X)$ is an associative ring (`relGradedNonUnitalRing`), and $(1, 0)$ is a unit on the left (`relCast_relWedge_relOne`) but not on the right (`relWedge_relOne`); the projection to $\\Omega^*_\\infty(X)$ is multiplicative (`relFst_relWedge`). The 2021 text of §4.4 (pp. 198–199) defines $f^*$ for sc-smooth maps of M-polyfolds (formalized, V4.89) and, on $\\partial X$, only $j^*$ for the inclusion; it does not define a pull-back of forms on $\\partial X$ along a general sc-smooth map. Such a pull-back is used only in the proof of Theorem 6.7.1, for $p_1$ on the faces of the solution set $S_F \\subseteq \\partial X\\times[0, 1]$, and that use is formalized (`faceAlongData` above, gap G.54); the general pull-back is not formalized and no statement of Parts I–II depends on it (Findings, Chapter 4, items 158, 167–173, 177, 178).",
+   "instead": "**Formalized** (2026-11-09, 2026-11-12, 2026-11-13; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners, and Theorem 4.4.7 with the sum over the faces (gap G.40, closed; V4.92). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\\Omega^k(X^i)$ and on $\\Omega^k_\\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\\int_{\\partial S} j^*\\omega = \\int_{\\partial S} \\omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\\int_{\\partial M} d\\tau = 0$ (G.40); on a product end $(a, b) \\times S$ of $S' \\subseteq \\mathbb R^1 \\times X$, the restriction of $p_1^*\\omega$ is the pull-back of $\\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). (2026-11-12) Also formalized: the wedge product of sc-forms, read classically as $(a\\wedge b)(v) = (k!\\,l!)^{-1}\\sum_\\sigma \\operatorname{sign}\\sigma\\, a(v_{\\sigma(1..k)})\\,b(v_{\\sigma(k+1..k+l)})$ since the text uses it without a definition (`formWedge`, `formsInftyWedge`): it is bilinear, associative, graded commutative and unital, and satisfies the Leibniz rule (`extD_formWedge`, `formsInftyD_formsInftyWedge`); $\\Omega^*_\\infty(X) = \\bigoplus_k\\Omega^k_\\infty(X)$ is thereby a graded $\\mathbb R$-algebra (`formsInftyGAlgebra`) on which $d$ is a derivation of degree $+1$ with $d^2 = 0$ (`formsInftyGradedD_of_mul_of`), the graded differential algebra of p. 198, and $f^*$ is a morphism of graded algebras (V4.87, V4.89); sc-forms on open subsets, with the restrictions $\\Omega^k(X) \\to \\Omega^k(U)$ and $\\Omega^k_\\infty(X) \\to \\Omega^k_\\infty(U)$ commuting with $d$ (`formRestrict`, `formsInftyResOpen`) and \"$[\\omega] = [\\tau]$ on $V$\" of (4.7) (`FormsInftyEqOn`, `formsInftyEqOn_of_iff`); the Poincaré Lemma 4.4.8 (`lemma_4_4_8`, V4.95) and its local form Lemma 4.5.2 for a convex relatively open $U \\subseteq C$ (`hasPoincare_relOpen_of_zero_mem`, `lemma_4_5_2`, V4.96), with the homotopy operator $\\tau(y)(v) = \\int_0^1 t^k\\,\\omega(c + t(y-c))(y-c, v)\\,dt$ about a smooth centre $c$ ($c = 0$ in the text; Lemma 4.4.8 needs a general one, since $B_\\delta(x) \\cap C$ need not contain $0$), sc-smooth as a parametric integral (`isScSmooth_intervalIntegral`); the agreement of $d\\tau$ for forms $\\tau$ on $\\partial X$ that agree (V4.90); the pull-back of forms on $\\partial X$ to the faces of a finite-dimensional sub-M-polyfold $S$ of a second tame M-polyfold along an sc-smooth $G : S \\to X$ with $d_S = d_X \\circ G$, with $d$ commuting and $(G^*\\eta)_S$ extending $(G^*j^*\\eta)|_{\\partial S}$ (`faceAlongData`, `faceAlongData_formsD`, `isExtendedBy_faceAlongData_formsPullback`), the case $G = p_1$ used for Theorem 6.7.1 (gap G.54). (2026-11-13; `Chapter4/BoundaryWedge.lean`, `RelativeWedge.lean`) The wedge product on the relative complex is formalized, so $\\Omega^*_\\infty(X, \\partial X)$ is a differential algebra. On the forms on $\\partial X$: the wedge product of agreeing forms is agreeing, and on $\\Omega^*_\\infty(\\partial X)$ it is bilinear, associative and unital with the Leibniz rule (`agreeDFormsInftyWedge`, `agreeDFormsInftyD_agreeDFormsInftyWedge`, `agreeDFormsInftyWedge_assoc`); $j^*$ is multiplicative (`jStar_formsInftyWedge`). On $\\Omega^*_\\infty(X, \\partial X)$ the text gives no product; our choice is the product of the mapping cone of $j^*$, $(\\omega, \\tau)(\\omega', \\tau') = (\\omega\\wedge\\omega', (-1)^k j^*\\omega\\wedge\\tau')$ for $(\\omega, \\tau)$ of degree $k$ (`relWedge`): $d$ is a derivation of degree $+1$ (`relD_relWedge`, `relGradedD_of_mul_of`) with $d^2 = 0$ (`relGradedD_comp_self`), the product is associative (`relWedge_assoc`, `relGraded_mul_assoc`), so $\\bigoplus_k\\Omega^k_\\infty(X, \\partial X)$ is an associative ring (`relGradedNonUnitalRing`), and $(1, 0)$ is a unit on the left (`relCast_relWedge_relOne`) but not on the right (`relWedge_relOne`); the projection to $\\Omega^*_\\infty(X)$ is multiplicative (`relFst_relWedge`). The 2021 text of §4.4 (pp. 198–199) defines $f^*$ for sc-smooth maps of M-polyfolds (formalized, V4.89) and, on $\\partial X$, only $j^*$ for the inclusion; it does not define a pull-back of forms on $\\partial X$ along a general sc-smooth map. Such a pull-back is used only in the proof of Theorem 6.7.1, for $p_1$ on the faces of the solution set $S_F \\subseteq \\partial X\\times[0, 1]$, and that use is formalized (`faceAlongData` above, gap G.54); the general pull-back is not formalized and no statement of Parts I–II depends on it (Findings, Chapter 4, items 158, 167–173, 177, 178).",
    "decls": [
     "Chapter4/ScForms2021 · MPolyfold.scForms",
     "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
@@ -2902,8 +2902,8 @@
     "Chapter4/ScFormsWedge2021b · BundledMPolyfold.formsInftyGAlgebra",
     "Chapter4/ScFormsWedge2021b · BundledMPolyfold.formsInftyGradedD_of_mul_of",
     "Chapter4/ScFormsWedge2021b · BundledMPolyfold.formsInftyGraded_of_mul_of_comm",
-    "Chapter4/GapP1_OpenForms · BundledMPolyfold.formsInftyResOpen",
-    "Chapter4/GapP1_OpenForms · BundledMPolyfold.FormsInftyEqOn",
+    "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpen",
+    "Chapter4/OpenForms · BundledMPolyfold.FormsInftyEqOn",
     "Chapter4/Poincare2021b · lemma_4_4_8",
     "Chapter4/Poincare2021b · lemma_4_5_2",
     "Chapter4/Poincare2021b · hasPoincare_relOpen_of_zero_mem",
@@ -2913,14 +2913,14 @@
     "Chapter4/BoundaryFormsPullback2021 · MPolyfold.faceAlongData_formsD",
     "Chapter4/BoundaryFormsPullback2021 · MPolyfold.isExtendedBy_faceAlongData_formsPullback",
     "Chapter4/A3BoundaryForms2021b · MPolyfold.isFaceCompatible_extD",
-    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge",
-    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relD_relWedge",
-    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relWedge_assoc",
-    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedD_of_mul_of",
-    "Chapter4/GapP3_K4_RelWedge · MPolyfold.relGradedNonUnitalRing",
-    "Chapter4/GapP3_K4_BoundaryWedge · BundledMPolyfold.agreeDFormsInftyWedge",
-    "Chapter4/GapP3_K4_BoundaryWedge · BundledMPolyfold.agreeDFormsInftyD_agreeDFormsInftyWedge",
-    "Chapter4/GapP3_K4_BoundaryWedge · MPolyfold.jStar_formsInftyWedge"
+    "Chapter4/RelativeWedge · MPolyfold.relWedge",
+    "Chapter4/RelativeWedge · MPolyfold.relD_relWedge",
+    "Chapter4/RelativeWedge · MPolyfold.relWedge_assoc",
+    "Chapter4/RelativeWedge · MPolyfold.relGradedD_of_mul_of",
+    "Chapter4/RelativeWedge · MPolyfold.relGradedNonUnitalRing",
+    "Chapter4/BoundaryWedge · BundledMPolyfold.agreeDFormsInftyWedge",
+    "Chapter4/BoundaryWedge · BundledMPolyfold.agreeDFormsInftyD_agreeDFormsInftyWedge",
+    "Chapter4/BoundaryWedge · MPolyfold.jStar_formsInftyWedge"
    ],
    "formalized": [
     "V4.80",
@@ -2949,12 +2949,12 @@
    "decls": [
     "Chapter4/VectorFieldsGlobal · lemma_4_5_1",
     "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
-    "Chapter4/GapP1_Lemma451 · lemma_4_5_1_open",
-    "Chapter4/GapP1_Lemma451 · lemma_4_5_1_open_ambient",
-    "Chapter4/GapP1_Lemma451 · MPolyfold.lieBracket_restrictOpen",
-    "Chapter4/GapP1_Lemma451Bundle · MPolyfold.isSubMPolyfold_tangentPullback",
-    "Chapter4/GapP1_Lemma451Bundle · proposition_4_4_5_section",
-    "Chapter4/GapP1_Lemma451Bundle · lemma_4_5_1_section"
+    "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open",
+    "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
+    "Chapter4/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
+    "Chapter4/LieBracketBundle · MPolyfold.isSubMPolyfold_tangentPullback",
+    "Chapter4/LieBracketBundle · proposition_4_4_5_section",
+    "Chapter4/LieBracketBundle · lemma_4_5_1_section"
    ],
    "formalized": [
     "V4.76",

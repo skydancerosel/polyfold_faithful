@@ -63,7 +63,7 @@ retract", Definition 2.6.2).  (Definition 2.5.2) `r : U → U` is tame if `d_C(r
   chart with `d_C(0) > d_X(x₀)` (the corner example of `Book2021Germs.lean`: `d_C(0) = 1`,
   `d_X = 0`; `CornerFilling.zero_not_mem_interior`).  Germ data in a chart with `d_C(0) = 0`
   are tame germ data (this file).  Germ data in a chart with `d_C(0) ≥ 1` need not move to a tame
-  chart (`UntamedCorner.isScFredholmGerm2021_not_tame`, `GapP1_UntamedBundleTheorem.lean`), and
+  chart (`UntamedCorner.isScFredholmGerm2021_not_tame`, `UntamedBundleTheorem.lean`), and
   then Theorem 3.6.8 (2) does not hold as we read it (`UntamedCorner.theorem_3_6_8_untamed_not`).
 
 ## What the text leaves implicit, and the choices made (the findings)
@@ -83,7 +83,7 @@ retract", Definition 2.6.2).  (Definition 2.5.2) `r : U → U` is tame if `d_C(r
   extension of `R` across `∂C` with the same image `K` (then this file applies to the extended
   chart) or a level-`0` inverse function theorem (item 379).  The counterexample found instead has
   a fibre that jumps at `x₀`, through an sc-smooth family of projections that is not `C¹` on any
-  level (`Jump.family`, `GapP1_UntamedJump.lean`).
+  level (`Jump.family`, `UntamedJump.lean`).
 -/
 
 open Set Filter Topology Function
@@ -504,7 +504,7 @@ namespace CornerFilling
 /-- **The corner example is not covered**: its chart is centred at `0 ∈ ∂H`, `H = [0, ∞) × ℝ`
 (`d_H(0) = 1`): the points `(−t, 0)`, `t > 0`, lie outside `H` and converge to `0`.  Whether its
 untamed germ data (`isFilling2021_gc`) can be moved to a tame chart is not settled; in the example of
-`GapP1_UntamedBundleTheorem.lean` such data cannot be (`UntamedCorner.not_isScFredholmGermTame_sec_zero`). -/
+`UntamedBundleTheorem.lean` such data cannot be (`UntamedCorner.not_isScFredholmGermTame_sec_zero`). -/
 theorem zero_not_mem_interior : (0 : Ec 0) ∉ interior Hc := by
   intro h
   have hev : ∀ᶠ t : ℝ in 𝓝 (0 : ℝ),

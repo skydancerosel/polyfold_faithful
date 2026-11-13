@@ -72,9 +72,9 @@ regularity property, `|[D]| = |[D']|` implies `[D] = [D']` (from Proposition 10.
 * **Proposition 10.5.6**: `iff_of_isGeneralizedIso` reduces it to Proposition 10.4.6 (the local
   regularity property under strong bundle equivalences), as the text does; both are formalized
   since 2026-11-12, with Definition 8.4.2 read as `IsLRLocal`: `SBLocalization.proposition_10_5_6`
-  and `EpStrongBundle.proposition_10_4_6` (`GapP2_GBundleLR.lean`).
+  and `EpStrongBundle.proposition_10_4_6` (`StrongBundleLocalRegularity.lean`).
 * **Theorem 10.5.7**: it rests on Proposition 10.4.7 (formalized since 2026-11-12,
-  `EpStrongBundle.proposition_10_4_7`, `GapP2_GBundleFamily.lean`), and turning the
+  `EpStrongBundle.proposition_10_4_7`, `StrongBundleLocalFamilies.lean`), and turning the
   local morphisms `α_z` into a common refinement of two diagrams needs the weak fibred product of
   strong bundles over ep-groupoids, which the repository does not have.  The ep-groupoid
   analogue, Theorem 10.3.19, is not formalized either.

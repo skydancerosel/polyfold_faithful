@@ -1049,8 +1049,8 @@
      "Chapter5/GeneralPosition · theorem_5_3_12_param",
      "Chapter3/Chapter5BridgeG · StrongBundle.IsGoodPositionGermTame.congr_nhds",
      "Chapter3/Counterexamples2021 · Counterexamples2021.theorem_5_3_12_goodPosition_not_stable",
-     "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_dense",
-     "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_param_rel"
+     "Chapter5/DenseGoodPosition · theorem_5_3_12_dense",
+     "Chapter5/DenseGoodPosition · theorem_5_3_12_param_rel"
     ]
    },
    "chips": [
@@ -1415,9 +1415,9 @@
     "decls": [
      "Chapter5/PartitionsOfUnity · hasApproxProperty_restrict",
      "Chapter5/PartitionsOfUnity · MChart.isClosed_inter_preimage",
-     "Chapter5/GapP1_ApproxEveryChart · hasApproxProperty_of_isChart",
-     "Chapter5/GapP1_ApproxEveryChart · theorem_5_5_10_every_chart",
-     "Chapter5/GapP1_ApproxEveryChart · MPolyfold.AdmitsScPartitionsOfUnity.exists_approx"
+     "Chapter5/ApproxPropertyEveryChart · hasApproxProperty_of_isChart",
+     "Chapter5/ApproxPropertyEveryChart · theorem_5_5_10_every_chart",
+     "Chapter5/ApproxPropertyEveryChart · MPolyfold.AdmitsScPartitionsOfUnity.exists_approx"
     ]
    },
    "chips": [
@@ -1516,10 +1516,10 @@
      "Chapter5/PartitionsOfUnity · norm_cZero",
      "Chapter5/PartitionsOfUnity · IsCoordinatewiseContDiffEmbedding",
      "Chapter5/PartitionsOfUnity · TorunczykStatement",
-     "Chapter5/GapP1_Torunczyk · theorem_5_5_13",
-     "Chapter5/GapP1_Torunczyk · torunczyk_forward",
-     "Chapter5/GapP1_Torunczyk · torunczyk_backward",
-     "Chapter5/GapP1_Torunczyk · exists_contDiff_urysohn_of_embedding"
+     "Chapter5/Torunczyk · theorem_5_5_13",
+     "Chapter5/Torunczyk · torunczyk_forward",
+     "Chapter5/Torunczyk · torunczyk_backward",
+     "Chapter5/Torunczyk · exists_contDiff_urysohn_of_embedding"
     ]
    },
    "chips": [
@@ -1592,16 +1592,16 @@
      "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
      "Chapter5/PartitionsOfUnity · hasContDiffBump_of_hilbert",
      "Chapter5/PartitionsOfUnity · isReflexive_of_hilbert",
-     "Chapter5/GapP1_GTWZ · theorem_5_5_16",
-     "Chapter5/GapP1_GTWZ · admitsContDiffPartitionsOfUnity_of_wcg_card",
-     "Chapter5/GapP1_C0Base · isRelC0Base_glue",
-     "Chapter5/GapP1_LindenstraussPair · IsLPair.exists_proj",
-     "Chapter5/GapP1_WCGPRI · priP_cont",
-     "Chapter5/GapP1_WCGPRI · pri_finite",
-     "Chapter5/GapP1_WCGPRI · pri_approx",
-     "Chapter5/GapP1_SeparablePOU · admitsContDiffPartitionsOfUnity_of_separable",
-     "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
-     "Chapter5/GapP1_HilbertPOU · godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace"
+     "Chapter5/WCGPartitionsOfUnity · theorem_5_5_16",
+     "Chapter5/WCGPartitionsOfUnity · admitsContDiffPartitionsOfUnity_of_wcg_card",
+     "Chapter5/LocallyFiniteBases · isRelC0Base_glue",
+     "Chapter5/AmirLindenstrauss · IsLPair.exists_proj",
+     "Chapter5/ProjectionalResolution · priP_cont",
+     "Chapter5/ProjectionalResolution · pri_finite",
+     "Chapter5/ProjectionalResolution · pri_approx",
+     "Chapter5/SeparablePartitionsOfUnity · admitsContDiffPartitionsOfUnity_of_separable",
+     "Chapter5/SeparablePartitionsOfUnity · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+     "Chapter5/HilbertPartitionsOfUnity · godefroyTroyanskiWhitfieldZizlerStatement_of_hilbertSpace"
     ]
    },
    "chips": [
@@ -1626,10 +1626,10 @@
     "decls": [
      "Chapter5/PartitionsOfUnity · corollary_5_5_17",
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert",
-     "Chapter5/GapP1_SeparablePOU · corollary_5_5_17_unconditional",
-     "Chapter5/GapP1_SeparablePOU · ScBanach.separableSpace_zero",
-     "Chapter5/GapP1_SeparablePOU · admitsContDiffPartitionsOfUnity_of_separable",
-     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional"
+     "Chapter5/SeparablePartitionsOfUnity · corollary_5_5_17_unconditional",
+     "Chapter5/SeparablePartitionsOfUnity · ScBanach.separableSpace_zero",
+     "Chapter5/SeparablePartitionsOfUnity · admitsContDiffPartitionsOfUnity_of_separable",
+     "Chapter5/SeparablePartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional"
     ]
    },
    "chips": [
@@ -1932,9 +1932,9 @@
    "lean": {
     "statement": "`remark_5_3_8_arc`: let $F(t, x) = f_t(x)$ be a section of the pull-back of $P$ to $\\mathbb R^1 \\times X$ with tame germ data, over a tame $X$ with bump functions, in general position at its zeros with $t \\notin (a, b)$ ($0 < a$, $b < 1$), with compact zeros over $[0, 1]$. Then for every $\\varepsilon > 0$ there are $0 < c' < a$, $b < d' < 1$ and an sc⁺-section $s$ with $N(s) \\le \\varepsilon$, $s(t, \\cdot) = 0$ for $t \\notin (c', d')$, such that $F + s$ is in general position at every zero and its zeros over $[0, 1]$ are compact. It is the instance $\\tau = t$, $[c, d] = [0, 1]$ of `remark_5_3_8_relative` (any continuous time function $\\tau$ on a tame $X$), proved through Theorem 5.3.10 relative to a compact part; `exists_margin_of_isCompact` gives the compactness margin. The arcs $f_0 + S(t, \\cdot)$ between admissible sections are `exists_cobordism`, `exists_homotopy_cobordism` (V6.76).",
     "decls": [
-     "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
-     "Chapter5/GapP1_Remark538 · remark_5_3_8_relative",
-     "Chapter5/GapP1_Remark538 · exists_margin_of_isCompact",
+     "Chapter5/FredholmArcPerturbation · remark_5_3_8_arc",
+     "Chapter5/FredholmArcPerturbation · remark_5_3_8_relative",
+     "Chapter5/FredholmArcPerturbation · exists_margin_of_isCompact",
      "Chapter5/CylinderPerturbation2021 · exists_cobordism",
      "Chapter5/CylinderPerturbation2021 · theorem_5_3_10_relative_hyp",
      "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism"
@@ -1961,14 +1961,14 @@
    "lean": {
     "statement": "`StrongBundle.IsProblemIso B f B' f'`: a strong bundle isomorphism $(h, \\Phi)$ with $\\Phi \\circ f = f' \\circ h$ (`.refl`, `.symm`, `.trans`; `.image_solutionSet`: $h(S_f) = S_{f'}$; `.isCompact_solutionSet_iff`). `StrongBundle.EndIso`: the restriction of the problem to a sub-M-polyfold is isomorphic to a given problem. `StrongBundle.IsGenCompactHomotopyBetween B f t B₀ f₀ B₁ f₁`: a 2021 generalized compact homotopy (`IsSubmersiveGenCompactHomotopy`, V5.68) with `EndIso` at $t^{-1}(0)$ to $(B_0, f_0)$ and at $t^{-1}(1)$ to $(B_1, f_1)$; it is invariant under isomorphism of the end problems (`congr_left`, `congr_right`) and the end solution sets are compact (`isCompact_solutionSet_left`, `isCompact_solutionSet_right`). Every generalized compact homotopy is one between its own restrictions, with identity isomorphisms (`IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween`).",
     "decls": [
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso.image_solutionSet",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.EndIso",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.congr_left",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.congr_right",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween.isCompact_solutionSet_left",
-     "Chapter5/GapP1_Remark5314 · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsProblemIso",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsProblemIso.image_solutionSet",
+     "Chapter5/CompactHomotopyIso · StrongBundle.EndIso",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsGenCompactHomotopyBetween",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsGenCompactHomotopyBetween.congr_left",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsGenCompactHomotopyBetween.congr_right",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsGenCompactHomotopyBetween.isCompact_solutionSet_left",
+     "Chapter5/CompactHomotopyIso · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
     ]
    },
    "chips": [
@@ -1991,11 +1991,11 @@
    "lean": {
     "statement": "`BonicFrampton.theorem_5_5_5 (p) [Fact (1 ≤ ENNReal.ofReal p)]`: for $F(f) = \\|f\\|^p$ on the real $L^p(\\mu)$ of any measure space, (1) $p = 2k$ ⇒ $F$ is $C^\\infty$; (2) $p = 2k + 1$ ⇒ $F$ is $C^{2k} = C^{p-1}$; (3) $p \\notin \\mathbb N$ ⇒ $F$ is $C^{[p]}$. For even $p$, $\\|\\cdot\\|^p$ is the diagonal of the continuous $p$-linear form $\\int\\prod h_i$ (`wMul`, generalized Hölder; `theorem_5_5_5_even`). For every $p \\ge 1$ the forms $T_j(f) = \\int g_j(f)\\prod h_i$, with $g_j$ the $j$-th derivative of $|t|^p$ and $g_j(f) \\in L^{p/(p-j)}$, are a Taylor series of $\\|\\cdot\\|^p$ up to every integer $n < p$ (`hasFTaylorSeriesUpTo_normRpow`, `contDiff_normRpow_of_lt`).",
     "decls": [
-     "Chapter5/GapP1_BonicFrampton · BonicFrampton.theorem_5_5_5",
-     "Chapter5/GapP1_BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt",
-     "Chapter5/GapP1_BonicFrampton · BonicFrampton.hasFTaylorSeriesUpTo_normRpow",
-     "Chapter5/GapP1_LpWeightedProduct · BonicFrampton.theorem_5_5_5_even",
-     "Chapter5/GapP1_LpWeightedProduct · BonicFrampton.wMul"
+     "Chapter5/BonicFrampton · BonicFrampton.theorem_5_5_5",
+     "Chapter5/BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt",
+     "Chapter5/BonicFrampton · BonicFrampton.hasFTaylorSeriesUpTo_normRpow",
+     "Chapter5/LpWeightedProduct · BonicFrampton.theorem_5_5_5_even",
+     "Chapter5/LpWeightedProduct · BonicFrampton.wMul"
     ]
    },
    "chips": [
@@ -2016,27 +2016,27 @@
    "lean": {
     "statement": "$W^{k,p}(\\Omega)$, $\\Omega \\subseteq \\mathbb R^n$, $p \\ge 1$ (`SobolevRemark.Wsub`): the closed subspace of the $\\ell^p$-product $\\prod_{|\\alpha| \\le k}L^p(\\Omega)$ cut out by the weak-derivative identities; a Banach space with $\\|u\\|^p = \\sum\\|D^\\alpha u\\|^p_{L^p}$ (`norm_rpow_W`), weak derivatives unique on open $\\Omega$ (`Dop_zero_injective`). (1) Its norm has the differentiability of Theorem 5.5.5 (`remark_5_5_5_sobolev`). (2) $\\beta(\\|x\\|^p)$ is a bump of $L^p$ and of $W^{k,p}(\\Omega)$ in the three cases (`hasContDiffBump_Lp`, `remark_5_5_5_sobolev_bump`). (3) Every sc-Banach space with $E_0 \\cong W^{1,4}(\\Omega)$ admits sc-smooth bump functions, and so do its local models and M-polyfolds modelled on it (`remark_5_5_5_W14`), through `LocalModel.hasBumpProperty_of_hasContDiffBump`. (4) On $W^{1,3/2}(\\Omega)$ the bump $\\beta(\\|x\\|^{3/2})$ is sc¹ (`remark_5_5_5_W1_3_2`). The sc-structure $E_m = W^{1+m,p}(\\Omega)$ is `sobolevSc`, which takes the compactness of the inclusions (`hc`) and the density of $E_\\infty$ (`hd`) as hypotheses; they are discharged for $\\Omega = (0,1) \\subset \\mathbb R^1$ and every $p > 1$ (`SobolevCube.cubeSc`: Rellich `isCompactOperator_inclW_cube` through the compact Volterra operator, density `dense_smoothLvl_cube`), where `remark_5_5_5_W14_cube`, `remark_5_5_5_W14_instance` and `remark_5_5_5_W1_3_2_cube` give the claims on the text's sc-structure; `sobolevSc_hyps_empty` is the trivial instance $\\Omega = \\emptyset$.",
     "decls": [
-     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.Wsub",
-     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.norm_rpow_W",
-     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.Dop_zero_injective",
-     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev",
-     "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev_bump",
-     "Chapter5/GapP1_SobolevRemark1 · SobolevRemark.hasContDiffBump_Lp",
-     "Chapter5/GapP1_SobolevRemark1 · SobolevRemark.theorem_5_5_5_sum",
-     "Chapter5/GapP1_SobolevRemark1 · LocalModel.hasBumpProperty_of_hasContDiffBump",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W14",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W1_3_2",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_hyps_empty",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_admitsBumpFunctions",
-     "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.example_1_1_3_scPolyfold",
-     "Chapter5/GapP1_SobolevCube1 · SobolevCube.isCompactOperator_V",
-     "Chapter5/GapP1_SobolevCube4 · SobolevCube.isCompactOperator_inclW_cube",
-     "Chapter5/GapP1_SobolevCube5 · SobolevCube.dense_smoothLvl_cube",
-     "Chapter5/GapP1_SobolevCube5 · SobolevCube.cubeSc",
-     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_cube",
-     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_instance",
-     "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W1_3_2_cube"
+     "Chapter5/SobolevRemarkSpaces · SobolevRemark.Wsub",
+     "Chapter5/SobolevRemarkSpaces · SobolevRemark.norm_rpow_W",
+     "Chapter5/SobolevRemarkSpaces · SobolevRemark.Dop_zero_injective",
+     "Chapter5/SobolevRemarkSpaces · SobolevRemark.remark_5_5_5_sobolev",
+     "Chapter5/SobolevRemarkSpaces · SobolevRemark.remark_5_5_5_sobolev_bump",
+     "Chapter5/SobolevRemarkAbstract · SobolevRemark.hasContDiffBump_Lp",
+     "Chapter5/SobolevRemarkAbstract · SobolevRemark.theorem_5_5_5_sum",
+     "Chapter5/SobolevRemarkAbstract · LocalModel.hasBumpProperty_of_hasContDiffBump",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.remark_5_5_5_W14",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.remark_5_5_5_W1_3_2",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.sobolevSc",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.sobolevSc_hyps_empty",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.sobolevSc_admitsBumpFunctions",
+     "Chapter5/SobolevRemarkScStructures · SobolevRemark.example_1_1_3_scPolyfold",
+     "Chapter5/SobolevCubeVolterra · SobolevCube.isCompactOperator_V",
+     "Chapter5/SobolevCubeRellich · SobolevCube.isCompactOperator_inclW_cube",
+     "Chapter5/SobolevCubeDensity · SobolevCube.dense_smoothLvl_cube",
+     "Chapter5/SobolevCubeDensity · SobolevCube.cubeSc",
+     "Chapter5/SobolevCubeDensity · SobolevCube.remark_5_5_5_W14_cube",
+     "Chapter5/SobolevCubeDensity · SobolevCube.remark_5_5_5_W14_instance",
+     "Chapter5/SobolevCubeDensity · SobolevCube.remark_5_5_5_W1_3_2_cube"
     ]
    },
    "chips": [
@@ -2062,10 +2062,10 @@
    "lean": {
     "statement": "`StrongBundle.HasReflexiveFibers B`: every $x \\in X$ lies in the domain of a strong bundle chart $c$ compatible with the atlas (`B.IsChart c`) with `IsReflexive (c.F 1)`, the canonical map $F_1 \\to F_1^{**}$ onto (the project's §5.5 definition). If all charts of the given atlas have reflexive $F_1$, the bundle has reflexive fibres (`hasReflexiveFibers_of_atlas`). Witness: the trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ (`TrivialBundle.hasReflexiveFibers_bundle`).",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.HasReflexiveFibers",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.hasReflexiveFibers_of_atlas",
+     "Chapter5/ReflexiveFibres · StrongBundle.HasReflexiveFibers",
+     "Chapter5/ReflexiveFibres · StrongBundle.hasReflexiveFibers_of_atlas",
      "Chapter5/PartitionsOfUnity · IsReflexive",
-     "Chapter5/P3R_ReflexiveCompactness2021 · TrivialBundle.hasReflexiveFibers_bundle"
+     "Chapter5/ReflexiveCompactness · TrivialBundle.hasReflexiveFibers_bundle"
     ]
    },
    "chips": [
@@ -2087,13 +2087,13 @@
    "lean": {
     "statement": "`lemma_5_1_5`: for compatible charts $c, c'$ with reflexive $F_1$, $F'_1$, $x$ in both chart domains and $P(w_k) \\to x$: $(\\exists h,\\ h_k \\rightharpoonup h) \\iff (\\exists h',\\ h'_k \\rightharpoonup h')$, $h_k$ = `c.liftOneSnd (B.oneVal (w k))`. Strong form `lemma_5_1_5_limit`: if $h_k \\rightharpoonup h$ (only $F'_1$ reflexive needed), there is one $y \\in Y_{0,1}$ over $x$ with $\\Psi$-part $h$, $y_k \\to y$ in $Y$, and $h'_k \\rightharpoonup$ the $\\Psi'$-part of $y$.",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · lemma_5_1_5",
-     "Chapter5/P3R_Reflexive2021 · lemma_5_1_5_limit",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.exists_limit_of_weakTendsto",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.weakTendsto_transfer",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.weakTendsto_liftOneSnd_of_tendsto",
-     "Chapter5/P3R_Reflexive2021 · StrongBundleChart.mem_K_of_tendsto",
-     "Chapter5/P3R_Reflexive2021 · StrongBundleChart.liftOneSnd"
+     "Chapter5/ReflexiveFibres · lemma_5_1_5",
+     "Chapter5/ReflexiveFibres · lemma_5_1_5_limit",
+     "Chapter5/ReflexiveFibres · StrongBundle.exists_limit_of_weakTendsto",
+     "Chapter5/ReflexiveFibres · StrongBundle.weakTendsto_transfer",
+     "Chapter5/ReflexiveFibres · StrongBundle.weakTendsto_liftOneSnd_of_tendsto",
+     "Chapter5/ReflexiveFibres · StrongBundleChart.mem_K_of_tendsto",
+     "Chapter5/ReflexiveFibres · StrongBundleChart.liftOneSnd"
     ]
    },
    "chips": [
@@ -2116,9 +2116,9 @@
    "lean": {
     "statement": "`StrongBundle.MixedTendsto B w y`, exactly this, with a compatible chart. Then $h'_k \\rightharpoonup h'$ in every compatible chart around $P(y)$ with reflexive $F'_1$ (`MixedTendsto.weakTendsto_of_isChart`, chart independence), and $y_k \\to y$ in $Y$ (`MixedTendsto.tendsto_oneVal`).",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.MixedTendsto",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.MixedTendsto.weakTendsto_of_isChart",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.MixedTendsto.tendsto_oneVal"
+     "Chapter5/ReflexiveFibres · StrongBundle.MixedTendsto",
+     "Chapter5/ReflexiveFibres · StrongBundle.MixedTendsto.weakTendsto_of_isChart",
+     "Chapter5/ReflexiveFibres · StrongBundle.MixedTendsto.tendsto_oneVal"
     ]
    },
    "chips": [
@@ -2140,9 +2140,9 @@
    "lean": {
     "statement": "`StrongBundle.IsReflexiveAuxNorm B N`: `B.IsAuxNorm N` and $(N(y) : \\overline{\\mathbb R}) \\le \\liminf_k (N(w_k) : \\overline{\\mathbb R})$ for `B.MixedTendsto w y`. Equivalent forms: `IsReflexiveAuxNorm.le_of_frequently_le` ($N(y_k) \\le r$ infinitely often implies $N(y) \\le r$) and the criterion `le_liminf_coe_of_eventually`.",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.IsReflexiveAuxNorm",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.IsReflexiveAuxNorm.le_of_frequently_le",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.le_liminf_coe_of_eventually"
+     "Chapter5/ReflexiveFibres · StrongBundle.IsReflexiveAuxNorm",
+     "Chapter5/ReflexiveFibres · StrongBundle.IsReflexiveAuxNorm.le_of_frequently_le",
+     "Chapter5/ReflexiveFibres · StrongBundle.le_liminf_coe_of_eventually"
     ]
    },
    "chips": [
@@ -2165,11 +2165,11 @@
    "lean": {
     "statement": "`proposition_5_1_8_exists` (`B.HasReflexiveFibers` gives some `B.IsReflexiveAuxNorm N`), `proposition_5_1_8_compare`, and `proposition_5_1_8` (both). The norm is the glued norm $\\sum_i \\rho_i(P w)\\,|\\Phi_i[1](w)|_1$ over the reflexive compatible charts (`isReflexiveAuxNorm_gluedNorm`, lower semicontinuity `le_liminf_gluedNorm`).",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · proposition_5_1_8_exists",
-     "Chapter5/P3R_Reflexive2021 · proposition_5_1_8_compare",
-     "Chapter5/P3R_Reflexive2021 · proposition_5_1_8",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.isReflexiveAuxNorm_gluedNorm",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.le_liminf_gluedNorm"
+     "Chapter5/ReflexiveFibres · proposition_5_1_8_exists",
+     "Chapter5/ReflexiveFibres · proposition_5_1_8_compare",
+     "Chapter5/ReflexiveFibres · proposition_5_1_8",
+     "Chapter5/ReflexiveFibres · StrongBundle.isReflexiveAuxNorm_gluedNorm",
+     "Chapter5/ReflexiveFibres · StrongBundle.le_liminf_gluedNorm"
     ]
    },
    "chips": [
@@ -2191,8 +2191,8 @@
    "lean": {
     "statement": "`StrongBundle.HasReflexiveLocalCompactness B f`: for every `N` with `B.IsReflexiveAuxNorm N` and every `x` there is an open `U ∋ x` with `IsCompact (closure {q ∈ U | B.AuxLe N (f q) 1})`. Witness: every section of the trivial bundle (`TrivialBundle.hasReflexiveLocalCompactness_bundle`).",
     "decls": [
-     "Chapter5/P3R_ReflexiveCompactness2021 · StrongBundle.HasReflexiveLocalCompactness",
-     "Chapter5/P3R_ReflexiveCompactness2021 · TrivialBundle.hasReflexiveLocalCompactness_bundle"
+     "Chapter5/ReflexiveCompactness · StrongBundle.HasReflexiveLocalCompactness",
+     "Chapter5/ReflexiveCompactness · TrivialBundle.hasReflexiveLocalCompactness_bundle"
     ]
    },
    "chips": [
@@ -2214,11 +2214,11 @@
    "lean": {
     "statement": "`proposition_5_2_7`, with the book's hypotheses, both parts. Stronger: (2) holds for every continuous section, with no regularity and no local compactness (`StrongBundle.exists_nhds_not_auxLe`); $f$ regularizing gives $N(f(x)) = \\infty$ off $X_1$ (`not_auxLe_of_not_mem_levelSet`); $\\{N \\circ f \\le r\\}$ is closed (`isClosed_setOf_auxLe`).",
     "decls": [
-     "Chapter5/P3R_ReflexiveCompactness2021 · proposition_5_2_7",
-     "Chapter5/P3R_ReflexiveCompactness2021 · StrongBundle.exists_nhds_not_auxLe",
-     "Chapter5/P3R_ReflexiveCompactness2021 · StrongBundle.not_auxLe_of_not_mem_levelSet",
-     "Chapter5/P3R_ReflexiveCompactness2021 · StrongBundle.isClosed_setOf_auxLe",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.exists_mixedTendsto_subseq"
+     "Chapter5/ReflexiveCompactness · proposition_5_2_7",
+     "Chapter5/ReflexiveCompactness · StrongBundle.exists_nhds_not_auxLe",
+     "Chapter5/ReflexiveCompactness · StrongBundle.not_auxLe_of_not_mem_levelSet",
+     "Chapter5/ReflexiveCompactness · StrongBundle.isClosed_setOf_auxLe",
+     "Chapter5/ReflexiveFibres · StrongBundle.exists_mixedTendsto_subseq"
     ]
    },
    "chips": [
@@ -2241,7 +2241,7 @@
    "lean": {
     "statement": "`StrongBundle.closure_auxLe_subset`: for every $U$, every continuous section, reflexive fibres and a reflexive $N$.",
     "decls": [
-     "Chapter5/P3R_ReflexiveCompactness2021 · StrongBundle.closure_auxLe_subset"
+     "Chapter5/ReflexiveCompactness · StrongBundle.closure_auxLe_subset"
     ]
    },
    "chips": [
@@ -2264,9 +2264,9 @@
    "lean": {
     "statement": "`theorem_5_2_8`, with the book's hypotheses (`PX.IsTame`, `B.HasReflexiveFibers`, `B.IsScFredholmSection f`, $S$ compact, `B.HasReflexiveLocalCompactness f`, `B.IsReflexiveAuxNorm N`, $U_\\partial = W \\cap \\partial X$ with $W$ open). `theorem_5_2_8_of_continuous`: the same for every continuous section on every M-polyfold. Witness of all hypotheses at once: `TrivialBundle.theorem_5_2_8_witness` ($\\mathbb R^n$, the graph section of the identity, $U_\\partial = \\emptyset$).",
     "decls": [
-     "Chapter5/P3R_ReflexiveCompactness2021 · theorem_5_2_8",
-     "Chapter5/P3R_ReflexiveCompactness2021 · theorem_5_2_8_of_continuous",
-     "Chapter5/P3R_ReflexiveCompactness2021 · TrivialBundle.theorem_5_2_8_witness"
+     "Chapter5/ReflexiveCompactness · theorem_5_2_8",
+     "Chapter5/ReflexiveCompactness · theorem_5_2_8_of_continuous",
+     "Chapter5/ReflexiveCompactness · TrivialBundle.theorem_5_2_8_witness"
     ]
    },
    "chips": [
@@ -2289,7 +2289,7 @@
    "lean": {
     "statement": "The statement of `theorem_5_2_8`.",
     "decls": [
-     "Chapter5/P3R_ReflexiveCompactness2021 · theorem_5_2_8"
+     "Chapter5/ReflexiveCompactness · theorem_5_2_8"
     ]
    },
    "chips": [
@@ -2325,10 +2325,10 @@
    "lean": {
     "statement": "`StrongBundle.IsBoundaryScPlusSection B s`: for $x \\in \\partial X$, $P(s(x)) = x$ and $s(x) \\in W_{0,1}$; and for every tame strong bundle chart (`B.IsTameChart c`), every tame presentation $T$, every $x \\in \\partial X$ in the chart and every $i \\in I(\\varphi(x))$, the local representative restricted to $O \\cap V \\cap \\{t_i = 0\\}$ is an sc⁺-section for some open $V \\ni \\varphi(x)$, and that face germ is an sc-retract (`IsScPlusOnFaceNear`). The zero section satisfies it for every strong bundle (`isBoundaryScPlusSection_fiberZero`).",
     "decls": [
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.IsBoundaryScPlusSection",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.isBoundaryScPlusSection_fiberZero",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.boundarySupport",
-     "Chapter12/P3B_LocalBoundaryExtension · IsScPlusOnFaceNear"
+     "Chapter5/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
+     "Chapter5/BoundaryExtension · StrongBundle.isBoundaryScPlusSection_fiberZero",
+     "Chapter5/BoundaryExtension · StrongBundle.boundarySupport",
+     "Chapter12/LocalBoundaryExtension · IsScPlusOnFaceNear"
     ]
    },
    "chips": [
@@ -2351,12 +2351,12 @@
    "lean": {
     "statement": "`theorem_5_4_2`, with the hypotheses `B.IsTameBundle`, `PX.AdmitsScPartitionsOfUnity`, `B.IsBoundaryScPlusSection s`, `B.IsAuxNorm N`, $\\tilde U$ open containing `boundarySupport PX P s`, $f$ continuous, $f \\ge 0$, `tsupport f ⊆ Ũ` and $N(s(x)) < f(x)$ on the support: there is an sc⁺-section $\\tilde s$ with $N(\\tilde s(x)) \\le f(x)$, `sectionSupport P s̃ ⊆ Ũ` and $\\tilde s = s$ on $\\partial X$. The proof is complete: the local step `exists_local_extension` (Proposition 12.3.7 in a tame chart, then a bump function), the local bound `exists_local_bounded`, the gluing `exists_boundary_extension`.",
     "decls": [
-     "Chapter5/P3B_BoundaryExtension2021 · theorem_5_4_2",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.exists_boundary_extension",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.exists_local_bounded",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.exists_local_extension",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.degIndex_ne_zero_of_mem_boundary",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.isScPlusSection_of_locally_p3b"
+     "Chapter5/BoundaryExtension · theorem_5_4_2",
+     "Chapter5/BoundaryExtension · StrongBundle.exists_boundary_extension",
+     "Chapter5/BoundaryExtension · StrongBundle.exists_local_bounded",
+     "Chapter5/BoundaryExtension · StrongBundle.exists_local_extension",
+     "Chapter5/BoundaryExtension · StrongBundle.degIndex_ne_zero_of_mem_boundary",
+     "Chapter5/BoundaryExtension · StrongBundle.isScPlusSection_of_locally_p3b"
     ]
    },
    "chips": [
@@ -2379,14 +2379,14 @@
    "lean": {
     "statement": "In a reflexive real normed space every bounded sequence has a weakly convergent subsequence (`exists_subseq_weakTendsto`; `WeakTendsto u h` means $g(u_k) \\to g(h)$ for all $g \\in F^*$), through the separable closed span, countably many norming functionals, a diagonal subsequence, Banach–Alaoglu in the bidual and reflexivity. Tools: a compact operator maps weakly convergent sequences to norm convergent ones (`WeakTendsto.tendsto_of_isCompactOperator`), bounded and level-0 convergent gives weakly convergent (`weakTendsto_of_bounded_of_tendsto`), uniform boundedness (`WeakTendsto.exists_bound`), weak lower semicontinuity of the norm (`WeakTendsto.eventually_norm_gt`), finite-dimensional spaces are reflexive (`isReflexive_of_finiteDimensional`).",
     "decls": [
-     "Chapter5/P3R_WeakSeqCompact · exists_subseq_weakTendsto",
-     "Chapter5/P3R_WeakSeqCompact · exists_subseq_weakTendsto_of_eventually",
-     "Chapter5/P3R_WeakSeqCompact · WeakTendsto",
-     "Chapter5/P3R_WeakSeqCompact · WeakTendsto.tendsto_of_isCompactOperator",
-     "Chapter5/P3R_WeakSeqCompact · weakTendsto_of_bounded_of_tendsto",
-     "Chapter5/P3R_WeakSeqCompact · WeakTendsto.exists_bound",
-     "Chapter5/P3R_WeakSeqCompact · WeakTendsto.eventually_norm_gt",
-     "Chapter5/P3R_WeakSeqCompact · isReflexive_of_finiteDimensional"
+     "Chapter5/WeakSequentialCompactness · exists_subseq_weakTendsto",
+     "Chapter5/WeakSequentialCompactness · exists_subseq_weakTendsto_of_eventually",
+     "Chapter5/WeakSequentialCompactness · WeakTendsto",
+     "Chapter5/WeakSequentialCompactness · WeakTendsto.tendsto_of_isCompactOperator",
+     "Chapter5/WeakSequentialCompactness · weakTendsto_of_bounded_of_tendsto",
+     "Chapter5/WeakSequentialCompactness · WeakTendsto.exists_bound",
+     "Chapter5/WeakSequentialCompactness · WeakTendsto.eventually_norm_gt",
+     "Chapter5/WeakSequentialCompactness · isReflexive_of_finiteDimensional"
     ]
    },
    "chips": [
@@ -2406,9 +2406,9 @@
    "lean": {
     "statement": "`StrongBundle.IsAuxNorm.comp_mul`, `StrongBundle.IsReflexiveAuxNorm.comp_mul`: $(g \\circ P) \\cdot N$ is a (reflexive) auxiliary norm for continuous $g > 0$. `StrongBundle.exists_reflexiveAuxNorm_sandwich`: with reflexive fibres every auxiliary norm $N'$ has reflexive $N_1 \\le N' \\le N_2$.",
     "decls": [
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.IsAuxNorm.comp_mul",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.IsReflexiveAuxNorm.comp_mul",
-     "Chapter5/P3R_Reflexive2021 · StrongBundle.exists_reflexiveAuxNorm_sandwich"
+     "Chapter5/ReflexiveFibres · StrongBundle.IsAuxNorm.comp_mul",
+     "Chapter5/ReflexiveFibres · StrongBundle.IsReflexiveAuxNorm.comp_mul",
+     "Chapter5/ReflexiveFibres · StrongBundle.exists_reflexiveAuxNorm_sandwich"
     ]
    },
    "chips": [
@@ -2472,9 +2472,9 @@
     "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism_data",
     "Chapter6/ProperHomotopy2021 · StrongBundle.IsCobordismData",
     "Chapter6/ProperHomotopy2021 · exists_isCobordismData",
-    "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
-    "Chapter5/GapP1_Remark538 · remark_5_3_8_relative",
-    "Chapter5/GapP1_Remark538 · exists_margin_of_isCompact"
+    "Chapter5/FredholmArcPerturbation · remark_5_3_8_arc",
+    "Chapter5/FredholmArcPerturbation · remark_5_3_8_relative",
+    "Chapter5/FredholmArcPerturbation · exists_margin_of_isCompact"
    ],
    "formalized": [
     "V5.73"
@@ -2488,8 +2488,8 @@
    "instead": "**Formalized** (2026-11-12; V5.40). `theorem_5_3_12_dense`, with the hypotheses of Theorem 5.3.12: around every $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$, within $N$-distance $\\varepsilon$, there is an $s \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ with all the conclusions of the theorem. The proof is the generic form around a given section, `theorem_5_3_12_param_rel`: $s = (1-\\varepsilon')s' + \\sum\\lambda_it_i$ for $\\lambda$ off a null set of a small ball, as in Theorems 5.3.5 and 5.3.10 (Findings, Chapter 5, item 89).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_3_12_param",
-    "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_dense",
-    "Chapter5/GapP1_DenseGoodPosition · theorem_5_3_12_param_rel"
+    "Chapter5/DenseGoodPosition · theorem_5_3_12_dense",
+    "Chapter5/DenseGoodPosition · theorem_5_3_12_param_rel"
    ],
    "formalized": [
     "V5.40"
@@ -2522,10 +2522,10 @@
     "V5.74"
    ],
    "decls": [
-    "Chapter5/GapP1_Remark5314 · StrongBundle.IsProblemIso",
-    "Chapter5/GapP1_Remark5314 · StrongBundle.EndIso",
-    "Chapter5/GapP1_Remark5314 · StrongBundle.IsGenCompactHomotopyBetween",
-    "Chapter5/GapP1_Remark5314 · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
+    "Chapter5/CompactHomotopyIso · StrongBundle.IsProblemIso",
+    "Chapter5/CompactHomotopyIso · StrongBundle.EndIso",
+    "Chapter5/CompactHomotopyIso · StrongBundle.IsGenCompactHomotopyBetween",
+    "Chapter5/CompactHomotopyIso · StrongBundle.IsSubmersiveGenCompactHomotopy.isGenCompactHomotopyBetween"
    ]
   },
   {
@@ -2560,7 +2560,7 @@
    "decls": [
     "Chapter5/CylinderPerturbation2021 · exists_cobordism",
     "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism",
-    "Chapter5/GapP1_Remark538 · remark_5_3_8_arc",
+    "Chapter5/FredholmArcPerturbation · remark_5_3_8_arc",
     "Chapter3/Counterexamples2021 · Counterexamples2021.not_isInGoodPosition_prod_diag"
    ],
    "nothing": true
@@ -2575,8 +2575,8 @@
     "V5.75"
    ],
    "decls": [
-    "Chapter5/GapP1_BonicFrampton · BonicFrampton.theorem_5_5_5",
-    "Chapter5/GapP1_BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt"
+    "Chapter5/BonicFrampton · BonicFrampton.theorem_5_5_5",
+    "Chapter5/BonicFrampton · BonicFrampton.contDiff_normRpow_of_lt"
    ]
   },
   {
@@ -2589,12 +2589,12 @@
     "V5.76"
    ],
    "decls": [
-    "Chapter5/GapP1_SobolevRemark2 · SobolevRemark.remark_5_5_5_sobolev",
-    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.remark_5_5_5_W14",
-    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc",
-    "Chapter5/GapP1_SobolevRemark3 · SobolevRemark.sobolevSc_hyps_empty",
-    "Chapter5/GapP1_SobolevCube5 · SobolevCube.cubeSc",
-    "Chapter5/GapP1_SobolevCube5 · SobolevCube.remark_5_5_5_W14_cube"
+    "Chapter5/SobolevRemarkSpaces · SobolevRemark.remark_5_5_5_sobolev",
+    "Chapter5/SobolevRemarkScStructures · SobolevRemark.remark_5_5_5_W14",
+    "Chapter5/SobolevRemarkScStructures · SobolevRemark.sobolevSc",
+    "Chapter5/SobolevRemarkScStructures · SobolevRemark.sobolevSc_hyps_empty",
+    "Chapter5/SobolevCubeDensity · SobolevCube.cubeSc",
+    "Chapter5/SobolevCubeDensity · SobolevCube.remark_5_5_5_W14_cube"
    ]
   },
   {
@@ -2605,9 +2605,9 @@
    "instead": "**Formalized** (2026-11-12; V5.59): `theorem_5_5_13 : TorunczykStatement V k` for every real Banach space and every $k$. (⇒) by a coordinate-wise $C^k$ embedding into $c_0(\\mathbb N \\times V)$ built from partitions of unity; (⇐) by lattice-point products and Michael's products, which give $C^k$ Urysohn functions and then partitions of unity (Findings, Chapter 5, item 117).",
    "decls": [
     "Chapter5/PartitionsOfUnity · TorunczykStatement",
-    "Chapter5/GapP1_Torunczyk · theorem_5_5_13",
-    "Chapter5/GapP1_Torunczyk · torunczyk_forward",
-    "Chapter5/GapP1_Torunczyk · torunczyk_backward"
+    "Chapter5/Torunczyk · theorem_5_5_13",
+    "Chapter5/Torunczyk · torunczyk_forward",
+    "Chapter5/Torunczyk · torunczyk_backward"
    ],
    "formalized": [
     "V5.59"
@@ -2621,10 +2621,10 @@
    "instead": "**Formalized** (2026-11-12; V5.62, V5.63): `theorem_5_5_16` for every WCG Banach space and every $k$, through the Amir–Lindenstrauss projectional resolution of the identity, induction on the density with the separable (Bonic–Frampton) case as base, and Toruńczyk's theorem (G.52) for the gluing. Corollary 5.5.17 no longer takes it as a hypothesis; it needs only the separable case, since $E_0$ is separable for every sc-Banach space (`ScBanach.separableSpace_zero`) (Findings, Chapter 5, items 116, 117, 184).",
    "decls": [
     "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
-    "Chapter5/GapP1_GTWZ · theorem_5_5_16",
-    "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
-    "Chapter5/GapP1_SeparablePOU · ScBanach.separableSpace_zero",
-    "Chapter5/GapP1_SeparablePOU · corollary_5_5_17_unconditional"
+    "Chapter5/WCGPartitionsOfUnity · theorem_5_5_16",
+    "Chapter5/SeparablePartitionsOfUnity · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+    "Chapter5/SeparablePartitionsOfUnity · ScBanach.separableSpace_zero",
+    "Chapter5/SeparablePartitionsOfUnity · corollary_5_5_17_unconditional"
    ],
    "formalized": [
     "V5.62",

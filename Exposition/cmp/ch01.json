@@ -1241,28 +1241,28 @@
    "lean": {
     "statement": "`example_1_1_3 δ h0 hmono : ScBanach`, for every $\\delta : \\mathbb N \\to \\mathbb R$ with $\\delta_0 = 0$ and $\\delta$ strictly increasing, has the levels $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ (`example_1_1_3_lvl`, by definition), with $E_{m+1} \\to E_m$ the identity on the underlying $L^2$ function (`inclH`, `valCLM_inclH`). The ingredients of the text's proof: each $H^{m,\\delta}$ is a Banach space (`completeSpace_H`, an isometric embedding into a finite product of $L^2$ spaces with closed range); the inclusion is compact for $\\delta < \\delta'$ (`isCompactOperator_inclH`), by Rellich on bounded cylinders (`rellich`, with Fourier series on boxes, Parseval `hasSum_bc`) and the weight tail estimate (`tail_le`); test functions lie in every level and are dense in it (`IsTest.mem_Hsub`, `dense_test`, by cut-off `tendsto_cut` with the Leibniz rule `leibniz`, and Fourier truncation `approx_supp`); level $0$ is $L^2(\\mathbb R \\times S^1)$ (`level0_isometry`, `level0_surjective`).",
     "decls": [
-     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3",
-     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3_lvl",
-     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.inclH",
-     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.valCLM_inclH",
-     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.completeSpace_H",
-     "Chapter1/GapP1_Sobolev4 · GapP1Sobolev.isClosed_range_ΦH",
-     "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.isCompactOperator_inclH",
-     "Chapter1/GapP1_Sobolev5 · GapP1Sobolev.rellich",
-     "Chapter1/GapP1_Sobolev2 · GapP1Sobolev.hasSum_bc",
-     "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.tail_le",
-     "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.dense_test",
-     "Chapter1/GapP1_Sobolev7 · GapP1Sobolev.IsTest.mem_Hsub",
-     "Chapter1/GapP1_Sobolev7 · GapP1Sobolev.SmPer.hasWeakDeriv",
-     "Chapter1/GapP1_Sobolev10 · GapP1Sobolev.tendsto_cut",
-     "Chapter1/GapP1_Sobolev8 · GapP1Sobolev.leibniz",
-     "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.approx_supp",
-     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_isometry",
-     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_surjective",
-     "Chapter1/GapP1_Sobolev1 · GapP1Sobolev.HasWeakDeriv",
-     "Chapter1/GapP1_Sobolev1 · GapP1Sobolev.IsTest",
-     "Chapter1/GapP1_Sobolev3 · GapP1Sobolev.H",
-     "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.nonneg_of_strictMono"
+     "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3",
+     "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3_lvl",
+     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.inclH",
+     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.valCLM_inclH",
+     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.completeSpace_H",
+     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.isClosed_range_ΦH",
+     "Chapter1/CylinderCompactInclusions · GapP1Sobolev.isCompactOperator_inclH",
+     "Chapter1/CylinderRellich · GapP1Sobolev.rellich",
+     "Chapter1/CylinderFourier · GapP1Sobolev.hasSum_bc",
+     "Chapter1/CylinderCompactInclusions · GapP1Sobolev.tail_le",
+     "Chapter1/CylinderTestDensity · GapP1Sobolev.dense_test",
+     "Chapter1/CylinderIntegrationByParts · GapP1Sobolev.IsTest.mem_Hsub",
+     "Chapter1/CylinderIntegrationByParts · GapP1Sobolev.SmPer.hasWeakDeriv",
+     "Chapter1/CylinderCutoff · GapP1Sobolev.tendsto_cut",
+     "Chapter1/CylinderLeibniz · GapP1Sobolev.leibniz",
+     "Chapter1/CylinderTestDensity · GapP1Sobolev.approx_supp",
+     "Chapter1/CylinderScBanach · GapP1Sobolev.level0_isometry",
+     "Chapter1/CylinderScBanach · GapP1Sobolev.level0_surjective",
+     "Chapter1/CylinderWeakDerivatives · GapP1Sobolev.HasWeakDeriv",
+     "Chapter1/CylinderWeakDerivatives · GapP1Sobolev.IsTest",
+     "Chapter1/CylinderSobolevSpaces · GapP1Sobolev.H",
+     "Chapter1/CylinderScBanach · GapP1Sobolev.nonneg_of_strictMono"
     ]
    },
    "chips": [
@@ -1288,13 +1288,13 @@
    "lean": {
     "statement": "`IsPartialCone E P`: $P$ closed, convex, $\\lambda P \\subseteq P$ for $\\lambda \\ge 0$, with nonempty interior. For $U = O \\cap P$ with $O$ open, $U$ is an sc-domain (V1.27; `IsPartialCone.isScDomain`; convexity and nonempty interior suffice, `IsPartialCone.isScDomain_of_convex`, since every level set $P_m$ has nonempty interior, `interior_lvlSet_nonempty_of_interior`). $TP = P^1 \\oplus E$ is again a closed convex partial cone with nonempty interior (`IsPartialCone.tangentSet`). Partial quadrants are partial cones (`IsPartialQuadrant.isPartialCone`), and the chain rule holds for relatively open subsets of partial cones (`remark_1_1_17_chainRule`).",
     "decls": [
-     "Chapter1/GapP1_PartialCones · IsPartialCone",
-     "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain",
-     "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain_of_convex",
-     "Chapter1/GapP1_PartialCones · IsPartialCone.tangentSet",
-     "Chapter1/GapP1_PartialCones · IsPartialQuadrant.isPartialCone",
-     "Chapter1/GapP1_PartialCones · remark_1_1_17_chainRule",
-     "Chapter1/GapP1_PartialCones · interior_lvlSet_nonempty_of_interior"
+     "Chapter1/PartialCones · IsPartialCone",
+     "Chapter1/PartialCones · IsPartialCone.isScDomain",
+     "Chapter1/PartialCones · IsPartialCone.isScDomain_of_convex",
+     "Chapter1/PartialCones · IsPartialCone.tangentSet",
+     "Chapter1/PartialCones · IsPartialQuadrant.isPartialCone",
+     "Chapter1/PartialCones · remark_1_1_17_chainRule",
+     "Chapter1/PartialCones · interior_lvlSet_nonempty_of_interior"
     ]
    },
    "chips": [
@@ -1313,17 +1313,17 @@
    "label": "§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)",
    "page": 6,
    "book": "With $0 = \\delta_0 < \\delta_1 < \\cdots$, the spaces $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\\mathbb R \\times S^1)$, \"using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\\delta_m)$ is strictly increasing\".",
-   "instead": "**Formalized** (2026-11-12; V1.42). Formalized in `GapP1_Sobolev1`–`GapP1_Sobolev13` (`example_1_1_3`): for $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing, the spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\\mathbb R \\times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.",
+   "instead": "**Formalized** (2026-11-12; V1.42). Formalized in `CylinderWeakDerivatives`–`CylinderScBanach` (`example_1_1_3`): for $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing, the spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\\mathbb R \\times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.",
    "formalized": [
     "V1.42"
    ],
    "decls": [
-    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3",
-    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.example_1_1_3_lvl",
-    "Chapter1/GapP1_Sobolev6 · GapP1Sobolev.isCompactOperator_inclH",
-    "Chapter1/GapP1_Sobolev12 · GapP1Sobolev.dense_test",
-    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_isometry",
-    "Chapter1/GapP1_Sobolev13 · GapP1Sobolev.level0_surjective"
+    "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3",
+    "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3_lvl",
+    "Chapter1/CylinderCompactInclusions · GapP1Sobolev.isCompactOperator_inclH",
+    "Chapter1/CylinderTestDensity · GapP1Sobolev.dense_test",
+    "Chapter1/CylinderScBanach · GapP1Sobolev.level0_isometry",
+    "Chapter1/CylinderScBanach · GapP1Sobolev.level0_surjective"
    ]
   },
   {
@@ -1336,12 +1336,12 @@
     "V1.43"
    ],
    "decls": [
-    "Chapter1/GapP1_PartialCones · IsPartialCone",
-    "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain",
-    "Chapter1/GapP1_PartialCones · IsPartialCone.isScDomain_of_convex",
-    "Chapter1/GapP1_PartialCones · IsPartialCone.tangentSet",
-    "Chapter1/GapP1_PartialCones · IsPartialQuadrant.isPartialCone",
-    "Chapter1/GapP1_PartialCones · remark_1_1_17_chainRule"
+    "Chapter1/PartialCones · IsPartialCone",
+    "Chapter1/PartialCones · IsPartialCone.isScDomain",
+    "Chapter1/PartialCones · IsPartialCone.isScDomain_of_convex",
+    "Chapter1/PartialCones · IsPartialCone.tangentSet",
+    "Chapter1/PartialCones · IsPartialQuadrant.isPartialCone",
+    "Chapter1/PartialCones · remark_1_1_17_chainRule"
    ]
   },
   {

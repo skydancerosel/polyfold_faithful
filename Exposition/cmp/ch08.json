@@ -126,14 +126,14 @@
      "Chapter8/TangentEp · EpGroupoid.tangentMapOn_srcInv_tSrc",
      "Chapter8/TangentEp · EpGroupoid.mem_tangentPreimage_tgt",
      "Chapter7/EpGroupoid · EpGroupoid.isScSmoothCompSheet",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.compPolyfold",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.tangentCompPairs",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.range_tangentCompPairs",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_book",
-     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
-     "Chapter8/GapP2_B_TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
+     "Chapter8/TangentFibred · EpGroupoid.compPolyfold",
+     "Chapter8/TangentFibred · EpGroupoid.tangentCompPairs",
+     "Chapter8/TangentFibred · EpGroupoid.range_tangentCompPairs",
+     "Chapter8/TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
+     "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
+     "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_book",
+     "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
+     "Chapter8/TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
     ]
    },
    "chips": [
@@ -346,11 +346,11 @@
      "Chapter7/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
      "Chapter7/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
      "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear",
-     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.tangentPairsPolyfold",
-     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remarkGInto",
-     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remark_8_1_10_scDiffeo",
-     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remarkTriple",
-     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remark_8_1_10_triples"
+     "Chapter8/TangentPairs · EpGroupoid.tangentPairsPolyfold",
+     "Chapter8/TangentPairs · EpGroupoid.remarkGInto",
+     "Chapter8/TangentPairs · EpGroupoid.remark_8_1_10_scDiffeo",
+     "Chapter8/TangentPairs · EpGroupoid.remarkTriple",
+     "Chapter8/TangentPairs · EpGroupoid.remark_8_1_10_triples"
     ]
    },
    "chips": [
@@ -1443,17 +1443,17 @@
      "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.range_bundleOrbitQuotientMap",
      "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.metrizableSpace_orbitSpace",
      "Chapter8/BundleOrbitParacompact2021 · metrizableSpace_orbitRel_quotient_finite",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_iff_three",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_imp_three",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_three_imp_one",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.OrbitSpaceOne",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.πOne_eq_πOne_iff",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isOpenMap_πOne",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.continuous_bundleOneSmul",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isOpenEmbedding_bundleOneOrbitQuotientMap",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.metrizableSpace_orbitSpaceOne",
-     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isClosedEmbedding_zeroOrbitMapOne"
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_iff_three",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_imp_three",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_three_imp_one",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.OrbitSpaceOne",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.πOne_eq_πOne_iff",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.isOpenMap_πOne",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.continuous_bundleOneSmul",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.isOpenEmbedding_bundleOneOrbitQuotientMap",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.metrizableSpace_orbitSpaceOne",
+     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.isClosedEmbedding_zeroOrbitMapOne"
     ]
    },
    "chips": [
@@ -1640,23 +1640,23 @@
    "lean": {
     "statement": "`EpGroupoid.epForms X k` is the vector space $\\Omega^k_{ep}(X)$: the families $\\omega$ with $\\omega \\in \\Omega^k(X)$ (`MPolyfold.scForms`, Definition 4.4.1 for the object M-polyfold) and $(T\\varphi)^*\\omega_y = \\omega_x$ for every $\\varphi \\in \\mathbf X_1$ (`IsMorCompatible`, with $T\\varphi$ the bounded linear isomorphism `tangentMorCLE`, V7.5). `isMorCompatible_iff_formPullback`: the condition is $s^*\\omega = t^*\\omega$ on the morphism M-polyfold. `formLower_mem_epForms`: a form on $X$ is a form on $X^1$; `EP.epForms A k i` is $\\Omega^k_{ep}(X^i)$ for Chapter 7's index lifts, `EP.epFormsMap` the directed system, `EP.epFormsInfty A k` $= \\Omega^k_{ep,\\infty}(X)$ its direct limit (`Module.DirectLimit`), with `exists_epFormsInftyOf_eq` and `epFormsInftyOf_eq_iff` (two forms represent the same class iff their pull-backs to some $X^l$ agree). `extD_mem_epForms`: $d\\omega$ is compatible with morphisms; `EP.epFormsInftyD`, $d[\\omega] = [d\\omega]$ (`epFormsInftyD_of`), $d \\circ d = 0$ (`epFormsInftyD_comp_epFormsInftyD`). Also `formWedge_mem_epForms`, `formPullback_mem_epForms` (pull-back by sc-smooth functors) and `formPullback_eq_of_natTrans`. Witness: `constForm_mem_epForms`.",
     "decls": [
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.IsMorCompatible",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.epForms",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.formLower_mem_epForms",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.extD_mem_epForms",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.formWedge_mem_epForms",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.formPullback_mem_epForms",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.formPullback_eq_of_natTrans",
-     "Chapter8/GapP2_B_EpForms · EpGroupoid.constForm_mem_epForms",
-     "Chapter8/GapP2_B_EpForms · EP.epForms",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsMap",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInfty",
-     "Chapter8/GapP2_B_EpForms · EP.exists_epFormsInftyOf_eq",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyOf_eq_iff",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_of",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_comp_epFormsInftyD"
+     "Chapter8/EpForms · EpGroupoid.IsMorCompatible",
+     "Chapter8/EpForms · EpGroupoid.epForms",
+     "Chapter8/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+     "Chapter8/EpForms · EpGroupoid.formLower_mem_epForms",
+     "Chapter8/EpForms · EpGroupoid.extD_mem_epForms",
+     "Chapter8/EpForms · EpGroupoid.formWedge_mem_epForms",
+     "Chapter8/EpForms · EpGroupoid.formPullback_mem_epForms",
+     "Chapter8/EpForms · EpGroupoid.formPullback_eq_of_natTrans",
+     "Chapter8/EpForms · EpGroupoid.constForm_mem_epForms",
+     "Chapter8/EpForms · EP.epForms",
+     "Chapter8/EpForms · EP.epFormsMap",
+     "Chapter8/EpForms · EP.epFormsInfty",
+     "Chapter8/EpForms · EP.exists_epFormsInftyOf_eq",
+     "Chapter8/EpForms · EP.epFormsInftyOf_eq_iff",
+     "Chapter8/EpForms · EP.epFormsInftyD",
+     "Chapter8/EpForms · EP.epFormsInftyD_of",
+     "Chapter8/EpForms · EP.epFormsInftyD_comp_epFormsInftyD"
     ]
    },
    "chips": [
@@ -1679,17 +1679,17 @@
    "lean": {
     "statement": "`EP.epFormsInftyGraded A` $= \\bigoplus_k \\Omega^k_{ep,\\infty}(X)$ with `epFormsInftyGradedD`, `epFormsInftyGradedD_comp_self` ($d \\circ d = 0$); as a cochain complex of real vector spaces `EP.epDeRhamComplex A`; its cohomology `EP.epDeRham A k` ($\\ker d / \\operatorname{im} d$). It is a subcomplex of Part I's $(\\Omega^*_\\infty(X), d)$ for the object M-polyfold (`epFormsInftyToObj`, injective, a chain map: `epFormsInftyToObj_injective`, `formsInftyD_comp_epFormsInftyToObj`). Beyond the text of §8.2: the pull-back $F^*$ by sc-smooth functors with $d F^* = F^* d$ (`EP.epFormsInftyPullback`, `epFormsInftyD_comp_epFormsInftyPullback`), invariant under natural equivalence (`epFormsInftyPullback_eq_of_natTrans`), the functor case of Theorem 11.2.1 (2).",
     "decls": [
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGraded",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGradedD",
-     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGradedD_comp_self",
-     "Chapter8/GapP2_B_EpForms · EP.epDeRham",
-     "Chapter8/GapP2_B_EpFormsObj · EP.epDeRhamComplex",
-     "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj",
-     "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj_injective",
-     "Chapter8/GapP2_B_EpFormsObj · EP.formsInftyD_comp_epFormsInftyToObj",
-     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyPullback",
-     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyD_comp_epFormsInftyPullback",
-     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyPullback_eq_of_natTrans"
+     "Chapter8/EpForms · EP.epFormsInftyGraded",
+     "Chapter8/EpForms · EP.epFormsInftyGradedD",
+     "Chapter8/EpForms · EP.epFormsInftyGradedD_comp_self",
+     "Chapter8/EpForms · EP.epDeRham",
+     "Chapter8/EpFormsObj · EP.epDeRhamComplex",
+     "Chapter8/EpFormsObj · EP.epFormsInftyToObj",
+     "Chapter8/EpFormsObj · EP.epFormsInftyToObj_injective",
+     "Chapter8/EpFormsObj · EP.formsInftyD_comp_epFormsInftyToObj",
+     "Chapter8/EpFormsFunctor · EP.epFormsInftyPullback",
+     "Chapter8/EpFormsFunctor · EP.epFormsInftyD_comp_epFormsInftyPullback",
+     "Chapter8/EpFormsFunctor · EP.epFormsInftyPullback_eq_of_natTrans"
     ]
    },
    "chips": [
@@ -1712,18 +1712,18 @@
    "lean": {
     "statement": "`EP.proposition_8_2_3`: for an ep-groupoid $X$ and an object $x$ there are saturated open $V \\subseteq U$, $x \\in V$, such that every $a \\in \\Omega^{k+1}_{ep,\\infty}(X|U)$ with $da = 0$ is $db$ on $V$ for some $b \\in \\Omega^k_{ep,\\infty}(X|V)$; $X|U$ is the restriction of Proposition 7.1.22 as an object of $\\mathcal{EP}$ (`EP.sub`), and 'on $V$' is the pull-back by the inclusion functor $X|V \\to X|U$ (`EP.subIncl`). `EP.proposition_8_2_3_of_isOpen`: the same for every saturated open $U \\ni x$ given in advance. No hypothesis is added.",
     "decls": [
-     "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3",
-     "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3_of_isOpen",
-     "Chapter11/GapP2_B2_Poincare · EP.epFormsInftyToObj_epFormsInftyPullback",
-     "Chapter11/GapP2_B2_Poincare · EP.epFormsInftyToObj_surjective_of_src_eq_tgt",
-     "Chapter11/GapP2_B2_SubGroupoidModel · EP.sub",
-     "Chapter11/GapP2_B2_SubGroupoidModel · EP.subIncl",
-     "Chapter11/GapP2_B2_SubGroupoidModel · EP.modelFunctor",
-     "Chapter11/GapP2_B2_SubGroupoidModel · EP.isEquivalence_modelFunctor",
-     "Chapter11/GapP2_B2_TranslationAverage · EpGroupoid.NaturalRep.exists_primitive_translation",
-     "Chapter11/GapP2_B2_Averaging · EP.exists_primitive_of_average",
-     "Chapter11/GapP2_B2_Averaging · EP.exists_primitive_of_equivalence",
-     "Chapter8/GapP2_B_EpPoincare · EP.proposition_8_2_3_object"
+     "Chapter11/EpPoincareLemma · EP.proposition_8_2_3",
+     "Chapter11/EpPoincareLemma · EP.proposition_8_2_3_of_isOpen",
+     "Chapter11/EpPoincareLemma · EP.epFormsInftyToObj_epFormsInftyPullback",
+     "Chapter11/EpPoincareLemma · EP.epFormsInftyToObj_surjective_of_src_eq_tgt",
+     "Chapter11/SubGroupoidModel · EP.sub",
+     "Chapter11/SubGroupoidModel · EP.subIncl",
+     "Chapter11/SubGroupoidModel · EP.modelFunctor",
+     "Chapter11/SubGroupoidModel · EP.isEquivalence_modelFunctor",
+     "Chapter11/TranslationAverage · EpGroupoid.NaturalRep.exists_primitive_translation",
+     "Chapter11/FormAveraging · EP.exists_primitive_of_average",
+     "Chapter11/FormAveraging · EP.exists_primitive_of_equivalence",
+     "Chapter8/EpPoincare · EP.proposition_8_2_3_object"
     ]
    },
    "chips": [
@@ -1748,14 +1748,14 @@
     "V8.54"
    ],
    "decls": [
-    "Chapter8/GapP2_B_EpForms · EpGroupoid.epForms",
-    "Chapter8/GapP2_B_EpForms · EpGroupoid.IsMorCompatible",
-    "Chapter8/GapP2_B_EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
-    "Chapter8/GapP2_B_EpForms · EP.epFormsInfty",
-    "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD",
-    "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_comp_epFormsInftyD",
-    "Chapter8/GapP2_B_EpFormsObj · EP.epDeRhamComplex",
-    "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj"
+    "Chapter8/EpForms · EpGroupoid.epForms",
+    "Chapter8/EpForms · EpGroupoid.IsMorCompatible",
+    "Chapter8/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+    "Chapter8/EpForms · EP.epFormsInfty",
+    "Chapter8/EpForms · EP.epFormsInftyD",
+    "Chapter8/EpForms · EP.epFormsInftyD_comp_epFormsInftyD",
+    "Chapter8/EpFormsObj · EP.epDeRhamComplex",
+    "Chapter8/EpFormsObj · EP.epFormsInftyToObj"
    ]
   },
   {
@@ -1767,14 +1767,14 @@
    "decls": [
     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_2",
     "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.compPolyfold",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.tangentCompPairs",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.range_tangentCompPairs",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_book",
-    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
-    "Chapter8/GapP2_B_TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
+    "Chapter8/TangentFibred · EpGroupoid.compPolyfold",
+    "Chapter8/TangentFibred · EpGroupoid.tangentCompPairs",
+    "Chapter8/TangentFibred · EpGroupoid.range_tangentCompPairs",
+    "Chapter8/TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
+    "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
+    "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_book",
+    "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
+    "Chapter8/TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
    ],
    "formalized": [
     "V8.4"
@@ -1792,9 +1792,9 @@
     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one",
     "Chapter8/BundleLocalRegularity2021 · EpStrongBundle.proposition_8_4_3",
     "Chapter8/TangentZhou · EpStrongBundle.IsLR",
-    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1",
-    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_iff_three",
-    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.OrbitSpaceOne"
+    "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1",
+    "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_iff_three",
+    "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.OrbitSpaceOne"
    ],
    "formalized": [
     "V8.47"
@@ -1811,10 +1811,10 @@
     "V8.55"
    ],
    "decls": [
-    "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3",
-    "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3_of_isOpen",
-    "Chapter11/GapP2_B2_SubGroupoidModel · EP.isEquivalence_modelFunctor",
-    "Chapter8/GapP2_B_EpPoincare · EP.proposition_8_2_3_object"
+    "Chapter11/EpPoincareLemma · EP.proposition_8_2_3",
+    "Chapter11/EpPoincareLemma · EP.proposition_8_2_3_of_isOpen",
+    "Chapter11/SubGroupoidModel · EP.isEquivalence_modelFunctor",
+    "Chapter8/EpPoincare · EP.proposition_8_2_3_object"
    ]
   },
   {

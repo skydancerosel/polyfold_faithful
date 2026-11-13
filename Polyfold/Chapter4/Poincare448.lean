@@ -1,5 +1,5 @@
 import Polyfold.Chapter4.Poincare448Shift
-import Polyfold.Chapter4.GapP1_OpenForms
+import Polyfold.Chapter4.OpenForms
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.4, **Lemma 4.4.8**

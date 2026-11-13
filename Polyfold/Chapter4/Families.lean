@@ -56,7 +56,7 @@ measure sets `Σ_σ` of regular values of `p_σ : A ∩ F_σ° → ℝᵐ`, `Σ 
 * **"Regular value" must be read in the stratified sense** of the proof (regular for every
   `p_σ`); with `Dp(z) : T_zA → ℝᵐ` onto only, the theorem is false (Findings).  It is stated in a
   chart, for some chart (as Definitions 4.2.5, 4.2.10 (preprint 4.16, 4.21)); its chart
-  independence is `isStratRegularPoint_iff_forall` (`GapP1_Theorem431.lean`).
+  independence is `isStratRegularPoint_iff_forall` (`StratifiedRegularValues.lean`).
 * **The covering step is repaired**: `{z ∈ A | |p(z)| ≤ ε}` need not be compact (Findings), so
   no finite subcover is available; `A` is second countable (its closure is compact in the
   metrizable `ℝᵐ × X`, Theorem 2.3.10 (preprint 2.16)), and a countable subcover suffices for the measure statement.

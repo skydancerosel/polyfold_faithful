@@ -605,7 +605,7 @@ each chapter lands)
 21. **Part II wave (2021 Chapters 7–11)** (2026-11-12/13). New Lean in 73 files `Polyfold/Chapter{7..11}/GapP2_*.lean`
     (imported at the end of `Polyfold.lean` in dependency order; `Test.lean` block "Axioms: Part II wave
     (2026-11-13)", 1,331 theorems; notes `narrow/p2-*.md`, integration report `narrow/integrate-p2.md`). No name
-    clashed. Agent E3 (`GapP2_E3_*.lean`, the concrete integral over sheets) was still running and is not imported.
+    clashed. Agent E3 (`ChartIntegral`, `ChartVectors`, `IntegralCovering`, `DensityLocal`, `FormEvalEp`, `FormEvalInfty`, `FrameSign`, `GraphChart`, `GraphChartExists`, `GraphCoord`, `GraphDiffeo`, `ManifoldBridge`, `ManifoldIntegralBridge`, `SheetIntegrationConcrete`, `TameOpen`, `GraphChartTransition`, the concrete integral over sheets) was still running and is not imported.
     12 new rows (V8.53–V8.55, V9.63–V9.66, V10.72–V10.75, V11.43); 829 sign-off items (new: V9.63–V9.66, V11.43). Closed: G.82, G.83 (Ch7; Zhou's retract
     itself, `ZhouRetract.appendix_7_6_3_sigma`), G.74, G.75, G.86, G.87 (Ch8), G.94, G.95, G.101, G.105, G.106
     (Ch9), G.111, G.112, G.116, G.117, G.122, G.124, G.126 (Ch10), G.128 (with a counterexample), G.129, G.134,
@@ -625,7 +625,7 @@ each chapter lands)
     integral over sheets in graph charts), E4 (16, sheets in countably many charts, Theorems 9.5.4/9.5.5 for every
     oriented tame structure, `hloc` without boundary, (9.22), Proposition 9.5.13 (2), the unit circle), E5 (7),
     E6 (6), E7 (4), E8/E8F/E8W (11, Stokes with `μ^∂`, Part I's face integrals = §9.5 boundary integrals, the closed
-    hemisphere), D3 (1, Figure 9.1), H4 (13, `Chapter11/GapP2_H4*.lean`, §11.4) and `Chapter9/GapP2_C2Witness.lean`
+    hemisphere), D3 (1, Figure 9.1), H4 (13, `Chapter11/BoundaryMeasureEquivalence`, `BoundaryMeasureGeneralizedIso`, `BoundarySheetsDiffeo`, `FormEvalPullback`, `FormEvalPullbackEquivalence`, `GraphChartsDiffeo`, `MeasureGeneralizedIso`, `EffectiveMeasureEquivalence`, `EffectiveMeasureGeneralizedIso`, `MultiChartSheetsEquivalence`, `MeasureEquivalence`, `OrientedStructureDiffeo`, `OrientedStructurePairs`, §11.4) and `Chapter9/XAxisWitness.lean`
     (the x-axis of ℝ² witnessing C2's hypotheses). `Test.lean` block "Axioms: Part II wave, second integration
     (2026-11-13)", 1,021 theorems; now 17,475, all on propext/Classical.choice/Quot.sound. No name clashed.
     Closed: G.103, G.107 (reading: the text's "oriented, tame" = `hloc`, derived without boundary), G.108. In part:
@@ -640,7 +640,7 @@ each chapter lands)
     G.126. Left: the class condition near corners, `m = 0`, Remark 9.5.20; `f·ω` for non-constant `f`; a LUC
     witness for Theorem 9.5.18; the Ch9/Ch11 parts of `ProofByProof.md` (§9.5, §11.2, §11.4) predate the wave.
 22. **Corner wave K** (2026-11-13). New Lean in 27 files, 8,691 lines (`Polyfold/Chapter4/GapP3_K4_*`,
-    `Chapter6/GapP3_K4_*`, `Chapter9/GapP3_K1_*`, `GapP3_K2_*`, `GapP3_K3_*`, `Chapter11/GapP3_K1_*`, `GapP3_K2_*`;
+    `Chapter6/ScContractible`, `IntervalHomotopy`, `KernelBundleInterval`, `Chapter9/AllStructures`, `BoundaryCover`, `CornerFinite`, `HemisphereBoundaryMeasure`, `StokesTextHypotheses`, `AllStructuresDimOne`, `HalfCircleSheet`, `HalfCircleWitness`, `BoundaryMeasureDimOne`, `FaceIntegralDimOne`, `FinitePointIntegration`, `HemisphereStokesEffective`, `HemisphereStokesLUC`, `EffectiveDimOneLUC`, `StokesDimOne`, `ZeroFormValues`, `CyclicGroupoidIsotropy`, `DimensionJumpPolyfold`, `DimensionJumpRetract`, `Chapter11/BoundaryMeasureTextHypotheses`, `BoundaryMeasureGeneralizedIsoDimOne`, `BoundaryMeasureEquivalenceDimOne`;
     notes `narrow/p3-K1.md` … `p3-K4.md` in the lead's scratchpad), imported in `Polyfold.lean` (731 imports);
     `Test.lean` block "Axioms: wave K (2026-11-13)", 480 theorems and 16 definitions; now 17,971, all on
     propext/Classical.choice/Quot.sound. No name clashed. Closed: G.109 (Theorems 9.5.15, 9.5.16 as stated, every
@@ -658,7 +658,7 @@ each chapter lands)
     Parts IV, VI, IX, XI updated; `checklist/mains.json` gains Theorem 6.7.1 and Theorems 9.5.15–9.5.18.
 23. **Part III wave 1** (2026-11-13). Nine agents (R, B, N, S, O, G, M, T, Z; notes `narrow/p3w1-*.md` in the lead's
     scratchpad, plan `narrow/PART3-PLAN.md`). New Lean in 33 files, 12,733 lines (`Polyfold/Chapter5/P3R_*`,
-    `P3B_*`, `Chapter12/P3{B,N,S,O}_*`, `Chapter13/P3{G,M}_*`, `Chapter15/P3T_*`, `Chapter16/P3Z_*`), imported in
+    `Chapter5/BoundaryExtension`, `Chapter12/LocalBoundaryExtension`, `Chapter12/P3{B,N,S,O}_*`, `Chapter13/P3{G,M}_*`, `Chapter15/Linearization`, `LinearizationIntrinsic`, `LinearizationModel`, `SeparationLemmas`, `Chapter16/PolyfoldBump`, `PolyfoldExamples`, `PolyfoldPartitions`, `PolyfoldStructure`, `ZhouUniquenessCheck`), imported in
     `Polyfold.lean` (764 lines); `Test.lean` blocks "Axioms: Part III wave 1 (2026-11-13), Chapter N" for N = 5, 12,
     13, 15, 16, 663 theorems and 52 definitions; now 18,686, all on propext/Classical.choice/Quot.sound. No name
     clashed. New report files `cmp/ch12.json`, `ch13.json`, `ch15.json`, `ch16.json` and `verification/ch12.md`,
@@ -673,18 +673,18 @@ each chapter lands)
     do not hold as we read them (trivial `ℤ/3` on `ℝ`, which satisfies (ZHOU)), proved for an effective target
     (README item 14; a candidate for the notes to the authors). Findings: Ch5 187–192, new sections Ch12 1–11,
     Ch13 1–9, Ch15 1–4, Ch16 1–5. `BookConcordance.md` gains a Part III table (2017 numbers checked; the notes S and
-    M gave other 2017 numbers, still in the docstrings of `P3S_*`, `P3M_*`). `checklist/mains.json` gains Theorem
+    M gave other 2017 numbers, still in the docstrings of `BumpEp`, `CompactnessEp`, `ScPlusSectionFunctor`, `MultisectionAlgebra`, `MultisectionConvolution`, `MultisectionLocallyFinite`, `MultisectionSupport`, `MultisectionSymmetric`, `ScPlusSectionOn`). `checklist/mains.json` gains Theorem
     5.4.2 and a tier `partIII` (Theorems 12.2.2, 12.4.2, 13.1.8, Proposition 16.1.4, Lemmas 16.1.13, 16.1.19).
     Builder scripts: Part III chapters V12, V13, V15, V16 (no V14 yet). Next: wave 2 (reflexive norms of §12.2,
     Theorem 12.3.9, §12.4 rest, Theorem 12.5.7, §§13.3–13.5, Chapter 14, §§15.2–15.4, the rest of Chapter 16).
 
 24. **Part III wave 2** (2026-11-13). Nine agents (R2, X, E, D, A, L, H, F, P; notes `narrow/p3w2-*.md` in the
     lead's scratchpad, integration report `narrow/integrate-p3w2.md`). New Lean in 33 files, 12,746 lines
-    (`Polyfold/Chapter12/P3{E,R2,X,F}_*`, `Chapter13/P3{E,D,A}_*`, `Chapter15/P3{L,P}_*`, `Chapter16/P3H_*`),
+    (`Polyfold/Chapter12/P3{E,R2,X,F}_*`, `Chapter13/P3{E,D,A}_*`, `Chapter15/P3{L,P}_*`, `Chapter16/BranchedSuborbifold`, `FormsIndependence`, `PolyfoldForms`, `TangentLemma`, `TangentPolyfold`),
     imported in `Polyfold.lean` (797 lines; list in `narrow/ip3w2/modules.txt`); `Test.lean` blocks "Axioms: Part
     III wave 2 (2026-11-13), Chapter N" for N = 12, 13, 15, 16, 675 theorems and 186 definitions; now 19,547, all on
     propext/Classical.choice/Quot.sound. No name clashed. Docstrings updated: the "Not formalized here" section of
-    `P3N_AuxNormExtension.lean` and the reading bullet of `P3G_GoodSystemExistence.lean`. Rows: V12.28–V12.44,
+    `AuxNormExtension.lean` and the reading bullet of `GoodSystemExistence.lean`. Rows: V12.28–V12.44,
     V13.21–V13.49, V15.9–V15.26, V16.14–V16.28 (79 new rows, 18 narrower); updated V12.9 (same), V12.16, V13.7
     (stronger), V13.10, V13.15–V13.17, V13.19, V15.1, V15.2, V16.1. Gaps closed: G.136, G.137, G.141, G.142, G.143,
     G.145, G.146; G.138, G.139, G.144 rewritten. New gaps G.147–G.162, all open: G.147 (reflexive local step of
@@ -706,13 +706,13 @@ each chapter lands)
     report `narrow/integrate-p3w34.md`). New Lean in 62 files, 20,072 lines (`Polyfold/Chapter12/P3W3{K,O}_*`,
     `Chapter13/P3W3{C,Q}_*`, `P3W4{FN,SM}_*`, `Chapter14/` (new: `P3W3B{1,2}_*`, `P3W4{S3,Z4,LX,GL}_*`),
     `Chapter15/P3W3{G,K}_*`, `P3W4{GP,TX,SM}_*`, `Chapter16/P3W3{V,Y}_*`, `P3W4{PB,SM,FN}_*`), imported in
-    `Polyfold.lean` (859 lines); `P3W4FN_StructurablePullback.lean` is FN's scratch proof of PB's
+    `Polyfold.lean` (859 lines); `StructurablePullback.lean` is FN's scratch proof of PB's
     `StructurablePullback`, copied by lead decision. `Test.lean` blocks "Axioms: Part III waves 3-4 (2026-11-13),
     Chapter N" for N = 12–16; now 21,090 declarations, all on propext/Classical.choice/Quot.sound. One name
-    clash: `SBLocalization.μ_ne_fiberZero` was declared in `P3W4SM_LocallyFiniteBridge` and `P3W4PB_ZeroSection`;
-    the Chapter 13 one is now `μ_ne_fiberZero_lf`. Docstrings updated (docs only): `P3T_LinearizationIntrinsic`,
-    `P3R2_ReflexiveAuxNormExtension`, `P3A_AtomicStructurable`, and the 2017 numbers in `P3R2_ReflexiveCompactnessEp`,
-    `P3L_*`, `P3P_*`, `P3W3G_*`, `P3W4{GP,SM,TX}_*` (BookConcordance's numbers). Rows: V13.50–V13.58, V14.1–V14.35
+    clash: `SBLocalization.μ_ne_fiberZero` was declared in `LocallyFiniteSupports` and `FibreZero`;
+    the Chapter 13 one is now `μ_ne_fiberZero_lf`. Docstrings updated (docs only): `LinearizationIntrinsic`,
+    `ReflexiveAuxNormExtension`, `AtomicStructurableLocal`, and the 2017 numbers in `ReflexiveCompactnessEp`,
+    `BoundaryPerturbation`, `FredholmSummands`, `LocalIFT`, `LocalScPlus`, `Transversality`, `InteriorPerturbationWitness`, `CubeAuxNorm`, `CubeEp`, `ControllingPairs`, `ProductEp`, `GeneralPositionBranched`, `GoodPositionBranches`, `P3W4{GP,SM,TX}_*` (BookConcordance's numbers). Rows: V13.50–V13.58, V14.1–V14.35
     (new `cmp/ch14.json`), V15.27–V15.38, V16.29–V16.78 (106 new rows); updated V12.34 (explicit), V13.46 (narrower:
     a good system is necessary, Chapter 13 has no standing paracompactness), V13.48, V15.2, V15.15, V16.21, V16.23
     (same), V16.24, V16.27. Gaps closed: G.144, G.147, G.148, G.149, G.151, G.154, G.156, G.161; G.138 "formalized
@@ -728,9 +728,9 @@ each chapter lands)
     assembly, ~900 lines), which would make Theorems 14.1.9, 15.3.9 and 16.5.7 unconditional.
 26. **Part III wave 5, gap closing** (2026-11-13). Ten agents (T9, Z5, F6, GA, GB, TY, OR, FM, PC, PR; notes
     `narrow/p3w5-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w5.md`). New Lean in 38 files,
-    11,190 lines (`Polyfold/Chapter12/P3W5OR_*`, `Chapter13/P3W5FM_*`, `Chapter14/P3W5{T9,Z5,F6,FM}_*`,
-    `Chapter15/P3W5{GA,GB,TY,PR}_*`, `Chapter16/P3W5PC_*`, `Chapter5/P3W5TY_DegZeroTame`), imported in `Polyfold.lean`
-    (897 lines); `Chapter15/P3W5GB_Combined.lean` (55 lines) is the integrator's corollary `theorem_15_3_7_of_paramOnto`
+    11,190 lines (`Polyfold/Chapter12/P3W5OR_*`, `Chapter13/StructuredExtension`, `StructuredExtensionData`, `Chapter14/P3W5{T9,Z5,F6,FM}_*`,
+    `Chapter15/P3W5{GA,GB,TY,PR}_*`, `Chapter16/NormLamContinuous`, `ReflexivePull`, `SuppNaturality`, `TangentEffective`, `Chapter5/DegeneracyZeroTame`), imported in `Polyfold.lean`
+    (897 lines); `Chapter15/GeneralPositionPointwise.lean` (55 lines) is the integrator's corollary `theorem_15_3_7_of_paramOnto`
     (GA's two Props with GB's `hasParametricGeneralPosition`). GB keeps private copies of two GA lemmas
     (`muLin_surjective_GB`, `tangentMorCLE_mem_reduced_GB`), no clash. `Test.lean` blocks "Axioms: Part III wave 5
     (2026-11-13), Chapter N" for N = 5, 12–16; now 21,726 declarations, all on propext/Classical.choice/Quot.sound.
@@ -751,9 +751,9 @@ each chapter lands)
 
 27. **Part III waves 6 and 7, gap closing** (2026-11-13). Wave 6: six agents (A6, G6, R6, O6, P6, S6); wave 7: six (W1–W6);
     notes `narrow/p3w6-*.md`, `narrow/p3w7-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w67.md`.
-    New Lean in 46 files, 12,010 lines (`Polyfold/Chapter12/P3W6O6_*`, `P3W7W3_*`, `Chapter14/P3W6{A6,P6}_*`,
-    `P3W7{W1,W6}_*`, `Chapter15/P3W6{G6,R6,O6}_*`, `P3W7{W2,W4,W5}_*`, `Chapter16/P3W6{A6,O6,S6}_*`, `P3W7W6_*`,
-    `Chapter5/P3W7W3_SmoothLevelCont`, `Chapter5/P3W7W5_CubePartitions`), imported in `Polyfold.lean` (943 lines); all
+    New Lean in 46 files, 12,010 lines (`Polyfold/Chapter12/P3W6O6_*`, `OrientationEquivalenceComp`, `OrientationEquivalenceNatural`, `OrientationOrbitHomeo`, `OrientationRepresentativeIndep`, `OrientationTransferTheorem`, `Chapter14/P3W6{A6,P6}_*`,
+    `P3W7{W1,W6}_*`, `Chapter15/P3W6{G6,R6,O6}_*`, `P3W7{W2,W4,W5}_*`, `Chapter16/P3W6{A6,O6,S6}_*`, `MixedTransfer`, `ReflexivePush`, `ZeroSection`,
+    `Chapter5/SmoothLevelContinuity`, `Chapter5/CubePartitions`), imported in `Polyfold.lean` (943 lines); all
     built in the full build, none left out. `Test.lean` blocks "Axioms: Part III waves 6-7 (2026-11-13), Chapter N" for
     N = 5, 12, 14–16; now 22,322 declarations, all on propext/Classical.choice/Quot.sound. Rows: V12.47–V12.48,
     V14.45–V14.47, V15.44–V15.56, V16.80–V16.81 (20 new); updated V12.39, V14.3, V14.8, V14.34, V14.41, V14.43, V14.44

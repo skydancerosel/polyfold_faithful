@@ -67,10 +67,10 @@ the smallest σ-algebra containing `B(∂S)` and the subsets of `∂S` of measur
   (`submanifoldBoundary`); the face-by-face description is not formalized in this file.  No `∂S`
   witness with a nonempty boundary is given here (the plane examples have no boundary).  Since
   2026-11-12: face by face `IsFaceNull`, the case `n = 1` and the half-line witness with `∂S ≠ ∅`
-  are in `GapP2_E2BoundaryNull.lean`; the null sets of the sheets of a general M-polyfold are
-  concrete (`MPolyfold.IsHNull`, `MPolyfold.sheetNullSets`, `GapP2_DSheetNull.lean`), and Lemma
+  are in `BoundaryFaceNullSets.lean`; the null sets of the sheets of a general M-polyfold are
+  concrete (`MPolyfold.IsHNull`, `MPolyfold.sheetNullSets`, `SheetNull.lean`), and Lemma
   9.5.2 holds for every local branching structure of an `n`-dimensional `Θ`
-  (`lemma_9_5_2_of_isNDimensional`, `GapP2_DSheetMeasure.lean`).
+  (`lemma_9_5_2_of_isNDimensional`, `SheetMeasure.lean`).
 
 ## Not formalized
 
@@ -81,7 +81,7 @@ expressions (`theorem_9_5_15_of_overlap`) and Theorems 9.5.17–9.5.18 from the 
 the proof (`theorem_9_5_17_of_localization`, `GapP2_E2*.lean`); the concrete integral over the
 sheets is not built.  (2026-11-13) It is built for sc-forms (`GapP2_E3_*`, `GapP2_E4_*`: Theorems
 9.5.4, 9.5.5 as printed, (9.22), Proposition 9.5.13 (2)); the `(n-1)`-dimensional boundary null
-sets for every `n` are in `GapP2_E5_BoundaryNullSigma.lean`, and Theorems 9.5.15–9.5.18 with the
+sets for every `n` are in `BoundaryNullSigmaAlgebra.lean`, and Theorems 9.5.15–9.5.18 with the
 boundary measures, under a class condition on the boundary sheets, in the `GapP2_E7_*` and
 `GapP2_E8_*` files.  In this file:
 forms, integrals and the measures `μ_ω` (gaps G.74, G.80): Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18,

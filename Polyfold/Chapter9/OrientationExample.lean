@@ -40,7 +40,7 @@ the second structure cannot necessarily be oriented to coincide with the first.
 ## Not formalized, and why
 
 * A classification of all orientations of `Θ` is not in this file; since 2026-11-12 it is
-  `example_9_3_5_classification` (`GapP2_D2Example935Class.lean`: a three-parameter rational
+  `example_9_3_5_classification` (`OrientationExampleClasses.lean`: a three-parameter rational
   family, infinitely many, the six sign orientations being the integral ones).  The last claim
   is proved for the orientations `± (1, β')` of the second structure.
 -/

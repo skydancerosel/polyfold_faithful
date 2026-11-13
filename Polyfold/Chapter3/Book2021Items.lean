@@ -59,7 +59,7 @@ case `dim N = 1` and `Γ = ∅`, or `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}`.
 * **Lemma 3.8.4 (1) and (3)** do not need the cone hypothesis: they are preprint Lemma 3.65
   (= 2021 Lemma 3.8.8, `lemma_3_8_8`).  **(2)** uses only `N ∩ C ∩ −(N ∩ C) = {0}`: the text's
   proof writes `a` as a sum of extreme-ray generators (Krein–Milman, Lemma 3.8.1, formalized since
-  2026-11-12 as `lemma_3_8_1` / `lemma_3_8_1_zero_union` in `GapP1_ExtremeRays`, but not used here);
+  2026-11-12 as `lemma_3_8_1` / `lemma_3_8_1_zero_union` in `ExtremeRays`, but not used here);
   here the normal form gives `N ∩ C ≅ [0, ∞)^{dim N}` directly, and for `0 ≠ a ∈ N ∩ C` with
   `a_i = 0` a generator `b = e⁻¹(e_j)` with `e(a)_j > 0` has `a − e(a)_j b ∈ N ∩ C`, which forces
   `b_i = 0`.

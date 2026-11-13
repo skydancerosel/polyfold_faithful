@@ -6,9 +6,9 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 **Definitions 5.5.1, 5.5.4, 5.5.9, 5.5.12, 5.5.14 (preprint 5.28, 5.31, 5.36, 5.39, 5.41), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Corollary
 5.44**; Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) as statements (5.43 an explicit
 hypothesis of Corollary 5.5.17 (preprint 5.44) here); since 2026-11-12 Theorems 5.5.5, 5.5.13 and
-5.5.16 are proved in `GapP1_BonicFrampton.lean` (`BonicFrampton.theorem_5_5_5`),
-`GapP1_Torunczyk.lean` (`theorem_5_5_13`) and `GapP1_GTWZ.lean` (`theorem_5_5_16`), and Corollary
-5.5.17 holds with no hypothesis (`corollary_5_5_17_unconditional`, `GapP1_SeparablePOU.lean`)
+5.5.16 are proved in `BonicFrampton.lean` (`BonicFrampton.theorem_5_5_5`),
+`Torunczyk.lean` (`theorem_5_5_13`) and `WCGPartitionsOfUnity.lean` (`theorem_5_5_16`), and Corollary
+5.5.17 holds with no hypothesis (`corollary_5_5_17_unconditional`, `SeparablePartitionsOfUnity.lean`)
 *(book 2017: see `BookConcordance.md`)*.
 
 # Sc-smooth partitions of unity
@@ -131,8 +131,8 @@ functions, so Theorem 5.5.16 (preprint 5.43) and Theorem 5.5.10 (preprint 5.37) 
   (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`); Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) (stated only here);
   nothing on the main line uses partitions of unity (the transversality theorems use bump functions, whose Hilbert
   case, Proposition 5.5.8 (preprint 5.35), is elementary).  Since 2026-11-12 they are proved in the files
-  `GapP1_BonicFrampton.lean`, `GapP1_SobolevRemark1–3.lean`, `GapP1_SobolevCube1–5.lean`, `GapP1_Torunczyk.lean`
-  and `GapP1_GTWZ.lean`.
+  `BonicFrampton.lean`, `SobolevRemarkAbstract–3.lean`, `SobolevCubeVolterra–5.lean`, `Torunczyk.lean`
+  and `WCGPartitionsOfUnity.lean`.
 -/
 
 open Set Filter Topology Function
@@ -917,7 +917,7 @@ variable (V) in
 /-- **Theorem 5.5.13 (preprint 5.40)** (Toruńczyk; [9], Theorem 30), **cited, not formalized**: the statement, for
 the Banach space `V` and `k`: `V` admits `C^k` partitions of unity if and only if there are a set
 `Γ` and a coordinate-wise `C^k` homeomorphic embedding of `V` into `c₀(Γ)`.  It is not used here;
-it is proved for every real Banach space as `theorem_5_5_13` (`GapP1_Torunczyk.lean`, 2026-11-12). -/
+it is proved for every real Banach space as `theorem_5_5_13` (`Torunczyk.lean`, 2026-11-12). -/
 def TorunczykStatement (k : ℕ∞) : Prop :=
   AdmitsContDiffPartitionsOfUnity V k ↔
     ∃ (Γ : Type u) (h : V → cZero Γ), IsCoordinatewiseContDiffEmbedding k h
@@ -1075,7 +1075,7 @@ variable (V) in
 Theorem 31): the statement, for the Banach space `V` and `k`: if `V` is
 WCG and admits a `C^k`-bump function, then it admits `C^k` partitions of unity.  Used as an
 explicit hypothesis in Corollary 5.5.17 (preprint 5.44) here; proved for every real Banach space
-(`theorem_5_5_16`, `GapP1_GTWZ.lean`, 2026-11-12). -/
+(`theorem_5_5_16`, `WCGPartitionsOfUnity.lean`, 2026-11-12). -/
 def GodefroyTroyanskiWhitfieldZizlerStatement (k : ℕ∞) : Prop :=
   IsWCG V → HasContDiffBump V k → AdmitsContDiffPartitionsOfUnity V k
 

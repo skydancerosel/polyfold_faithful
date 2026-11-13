@@ -46,7 +46,7 @@ spaces have sc-complements in `T_x^R X`.
 
 * "Local faces" are, as in `theorem_4_2_11_preprint` and `proposition_2_5_16`, the faces of the model of a
   tame chart centred at `x` (Findings Chapter 4 item 130, gap G.35: the identification with the
-  faces of the neighbourhood `U` itself is `theorem_4_2_11_faces`, `GapP1_LocalFaces.lean`).
+  faces of the neighbourhood `U` itself is `theorem_4_2_11_faces`, `LocalFaces.lean`).
 * "Regular value" is read in the stratified sense of the proof (`IsStratRegularValue`, Findings
   Chapter 4 items 102, 108), and hypothesis (2) as general position at every point, as in
   `theorem_4_3_1_preprint`.  The hypotheses "tame induced structure on `A`" and "`ε > 0`" are kept and

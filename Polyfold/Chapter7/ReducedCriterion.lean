@@ -114,8 +114,8 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
 * Appendix 7.6.3: `JumpingRetract.X` (`ReducedNotHausdorff.lean`) is not Zhou's retract but has the
   same features (a `ℤ/2`-action trivial over `t < 0` and moving points arbitrarily close to the
   origin over `t > 0`); we show `(−1, o₀) ∈ cl(𝐗^T) ∖ 𝐗^T` here; `𝐗^T` is computed exactly in
-  `GapP2_AZhouRetract.lean`, and Zhou's retract itself is `GapP2_A2ZhouGroupoid.lean` and
-  `GapP2_A2Sigma.lean` (2026-11-12).
+  `ZhouRetract.lean`, and Zhou's retract itself is `ZhouGroupoid.lean` and
+  `ZhouSigma.lean` (2026-11-12).
 * Appendix 7.6.4 is formalized for `i = 1` and as sets: the text uses that `U₁(x)` is connected
   in `X¹` and that `U(x) ∩ X_1` is dense in `U(x)` (the density of `X_1` in `X`, gap G.73;
   `Lift.lean` uses `U(x)₁` only with the restricted action); both are explicit hypotheses of
@@ -125,7 +125,7 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   which §7.4 defines: `corollary_7_6_8` takes "(ZHOU) implies LUC for `X¹`" as a hypothesis.
   Since 2026-11-09 the hypotheses hold for every ep-groupoid (`SmoothConnectedReps.lean`), and
   since 2026-11-12 the sc-diffeomorphism and every `i` are `theorem_7_6_7_one`, `EP.theorem_7_6_7`
-  and `EP.corollary_7_6_8` (`GapP2_ARaise.lean`).
+  and `EP.corollary_7_6_8` (`RaisedEpGroupoid.lean`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -944,7 +944,7 @@ def reducedLevelOneMap
 sets**: under LUC for `X¹` (the part of (SLUC) used) and `HasConnectedDenseLevelOneReps`,
 `(𝐗^T)^1 = (𝐗^1)^T`, and `[φ]₁ ↦ [φ]` is a continuous injection `(𝐗¹)^R → 𝐗^R` onto
 `π(𝐗_1)`.  The sc-diffeomorphism statement and `i ≥ 2` are `theorem_7_6_7_one` and
-`EP.theorem_7_6_7` (`GapP2_ARaise.lean`, 2026-11-12). -/
+`EP.theorem_7_6_7` (`RaisedEpGroupoid.lean`, 2026-11-12). -/
 theorem theorem_7_6_7 (hLUC : X.liftOne.IsLUC)
     (hR : X.HasConnectedDenseLevelOneReps) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,

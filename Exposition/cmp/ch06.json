@@ -832,15 +832,15 @@
      "Chapter6/OrientableNbhd · proposition_6_6_3",
      "Chapter2/FibredProduct · MPolyfold.paracompactSpace_prod",
      "Chapter2/StrongBundlePullback · paracompactSpace_pullbackSpace",
-     "Chapter6/GapP1_UnitIntervalSections · proposition_6_6_3_three_interval",
-     "Chapter6/GapP1_UnitIntervalSections · proposition_6_6_3_four_interval",
-     "Chapter6/GapP1_CubeSections · proposition_6_6_3_three_cube",
-     "Chapter6/GapP1_CubeSections · proposition_6_6_3_four_cube",
-     "Chapter6/GapP1_CubeSections · cubePolyfold",
-     "Chapter6/GapP3_K4_Contractible · proposition_6_6_3_one",
-     "Chapter6/GapP3_K4_Contractible · IsScContraction",
-     "Chapter6/GapP3_K4_IntervalHomotopy · exists_isScHomotopyI",
-     "Chapter6/GapP3_K4_IntervalHomotopy · proposition_6_6_3_interval"
+     "Chapter6/UnitIntervalSections · proposition_6_6_3_three_interval",
+     "Chapter6/UnitIntervalSections · proposition_6_6_3_four_interval",
+     "Chapter6/CubeSections · proposition_6_6_3_three_cube",
+     "Chapter6/CubeSections · proposition_6_6_3_four_cube",
+     "Chapter6/CubeSections · cubePolyfold",
+     "Chapter6/ScContractible · proposition_6_6_3_one",
+     "Chapter6/ScContractible · IsScContraction",
+     "Chapter6/IntervalHomotopy · exists_isScHomotopyI",
+     "Chapter6/IntervalHomotopy · proposition_6_6_3_interval"
     ]
    },
    "chips": [
@@ -871,15 +871,15 @@
      "Chapter6/Lemma629 · isZeroAt_paramSection_zero",
      "Chapter6/Lemma629 · exists_sections_isGeneralPositionGerm_of_isCompact",
      "Chapter6/Lemma629 · lemma_6_6_4",
-     "Chapter6/GapP1_SlicePropertyP · lemma_6_6_4_propertyP",
-     "Chapter6/GapP1_SlicePropertyP · isGeneralPositionGerm_slice",
-     "Chapter6/GapP1_SlicePropertyP · isParamGP_slice_of_isParamGP",
-     "Chapter6/GapP1_CubeBoundaryP · lemma_6_6_4_propertyP_cube",
-     "Chapter6/GapP1_CubeBoundaryP · isGeneralPositionGerm_cubeSlice_iff",
-     "Chapter6/GapP1_CubeBoundaryP · isParamGP_cubeSlice_of_isParamGP",
-     "Chapter6/GapP1_CubeBoundaryP · isParamGP_of_isParamGP_cubeSlice",
-     "Chapter6/GapP1_CubeLemmas · lemma_6_6_4_cube",
-     "Chapter6/GapP1_CubeLemmas · lemma_6_6_4_cube_family"
+     "Chapter6/SlicePropertyP · lemma_6_6_4_propertyP",
+     "Chapter6/SlicePropertyP · isGeneralPositionGerm_slice",
+     "Chapter6/SlicePropertyP · isParamGP_slice_of_isParamGP",
+     "Chapter6/CubePropertyP · lemma_6_6_4_propertyP_cube",
+     "Chapter6/CubePropertyP · isGeneralPositionGerm_cubeSlice_iff",
+     "Chapter6/CubePropertyP · isParamGP_cubeSlice_of_isParamGP",
+     "Chapter6/CubePropertyP · isParamGP_of_isParamGP_cubeSlice",
+     "Chapter6/CubeFamilyLemmas · lemma_6_6_4_cube",
+     "Chapter6/CubeFamilyLemmas · lemma_6_6_4_cube_family"
     ]
    },
    "chips": [
@@ -914,22 +914,22 @@
      "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isSubmanifoldOfDim",
      "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion",
      "Chapter6/SolutionManifoldFamily2021 · exists_mem_linKer_sliceProj_eq",
-     "Chapter6/GapP1_SlicePropertyP · lemma_6_6_5_fibre_isManifold",
-     "Chapter6/GapP1_SlicePropertyP · isScFredholmSectionTame_slice",
-     "Chapter6/GapP1_SubmersionNearFamily · lemma_6_6_5_submersion_nhds",
-     "Chapter6/GapP1_SubmersionNearFamily · exists_nhds_surjective_linKer",
-     "Chapter6/GapP1_SmoothL3 · lemma_6_6_5_smoothBundle",
-     "Chapter6/GapP1_SmoothL3 · exists_local_smooth_frame_linKer",
-     "Chapter6/GapP1_SmoothL2 · SmoothSubspaceFamily",
-     "Chapter6/GapP1_SmoothL2 · SmoothSubspaceFamily.contMDiffVectorBundle",
-     "Chapter6/GapP1_SmoothL1 · IsScSmooth.contDiffOn_levelMap_const",
-     "Chapter6/GapP1_CubeLemmas · lemma_6_6_5_isManifold_cube",
-     "Chapter6/GapP1_CubeLemmas · lemma_6_6_5_isSubmanifoldOfDim_cube",
-     "Chapter6/GapP1_CubeBoundaryP · lemma_6_6_5_fibre_isManifold_cube",
-     "Chapter6/GapP1_CubeBoundarySubmersion · lemma_6_6_5_submersion_cube",
-     "Chapter6/GapP1_CubeBoundarySubmersion · submersion_cube_of_isGeneralPositionGerm",
-     "Chapter6/GapP3_K4_SmoothLInterval · lemma_6_6_5_smoothBundle_interval",
-     "Chapter6/GapP3_K4_SmoothLInterval · SmoothSubspaceFamily.comp"
+     "Chapter6/SlicePropertyP · lemma_6_6_5_fibre_isManifold",
+     "Chapter6/SlicePropertyP · isScFredholmSectionTame_slice",
+     "Chapter6/SubmersionNearFamily · lemma_6_6_5_submersion_nhds",
+     "Chapter6/SubmersionNearFamily · exists_nhds_surjective_linKer",
+     "Chapter6/SmoothKernelFrames · lemma_6_6_5_smoothBundle",
+     "Chapter6/SmoothKernelFrames · exists_local_smooth_frame_linKer",
+     "Chapter6/SmoothSubspaceFamilies · SmoothSubspaceFamily",
+     "Chapter6/SmoothSubspaceFamilies · SmoothSubspaceFamily.contMDiffVectorBundle",
+     "Chapter6/SmoothFiniteDimRanges · IsScSmooth.contDiffOn_levelMap_const",
+     "Chapter6/CubeFamilyLemmas · lemma_6_6_5_isManifold_cube",
+     "Chapter6/CubeFamilyLemmas · lemma_6_6_5_isSubmanifoldOfDim_cube",
+     "Chapter6/CubePropertyP · lemma_6_6_5_fibre_isManifold_cube",
+     "Chapter6/CubeBoundarySubmersion · lemma_6_6_5_submersion_cube",
+     "Chapter6/CubeBoundarySubmersion · submersion_cube_of_isGeneralPositionGerm",
+     "Chapter6/KernelBundleInterval · lemma_6_6_5_smoothBundle_interval",
+     "Chapter6/KernelBundleInterval · SmoothSubspaceFamily.comp"
     ]
    },
    "chips": [
@@ -939,7 +939,7 @@
    ],
    "diff": [
     "The kernels along the family form a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction; this is what the continuation of orientations uses. (2026-11-09, 2026-11-12: the solution set near the family is a manifold and $\\pi$ is a submersion near the family; the fibres $S_t$ near the family are manifolds; $L$ is a $C^\\infty$ vector bundle over a neighbourhood of $[0,1]^n$, with frames $DS(z_q)b_i$ that are $C^\\infty$ into every level (`lemma_6_6_5_fibre_isManifold`, `lemma_6_6_5_submersion_nhds`, `lemma_6_6_5_smoothBundle`).) The remaining differences are decision D2 and the reading in one chart containing $\\Phi([0,1]^n)$, which is the text's \"$X = U$\"; gap G.62 closed (Findings, Chapter 6, items 48, 126).",
-    "Also for families on the M-polyfold $[0,1]^n$ itself, whose corners then appear in those of the solution set (`Chapter6/GapP1_CubeLemmas.lean`): there $\\pi$ is a submersion in the corner sense at the points over $\\partial[0,1]^n$, and the fibres there are manifolds with corners (`lemma_6_6_5_submersion_cube`, `lemma_6_6_5_fibre_isManifold_cube`), read at the chart level: $d\\pi$ on $\\ker F'$ and on its reduced part, not as a Mathlib submersion of manifolds with corners. The smooth bundle $L$ is over a neighbourhood of $[0,1]^n$ in $\\mathbb R^n$ (decision D2)."
+    "Also for families on the M-polyfold $[0,1]^n$ itself, whose corners then appear in those of the solution set (`Chapter6/CubeFamilyLemmas.lean`): there $\\pi$ is a submersion in the corner sense at the points over $\\partial[0,1]^n$, and the fibres there are manifolds with corners (`lemma_6_6_5_submersion_cube`, `lemma_6_6_5_fibre_isManifold_cube`), read at the chart level: $d\\pi$ on $\\ker F'$ and on its reduced part, not as a Mathlib submersion of manifolds with corners. The smooth bundle $L$ is over a neighbourhood of $[0,1]^n$ in $\\mathbb R^n$ (decision D2)."
    ]
   },
   {
@@ -1172,7 +1172,7 @@
      "Chapter6/StabKernelsExist · exists_continuousOn_lift_chart",
      "Chapter6/StabKernelsExist · exists_isStabKernels",
      "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion",
-     "Chapter6/GapP1_SmoothL3 · lemma_6_6_5_smoothBundle"
+     "Chapter6/SmoothKernelFrames · lemma_6_6_5_smoothBundle"
     ]
    },
    "chips": [
@@ -1345,7 +1345,7 @@
      "Chapter6/PathsInterval · HasLocalPropagationI",
      "Chapter6/PathsInterval · HasLocalPropagation.isPushI_iff",
      "Chapter6/PathsInterval · isTame_prod_unitInterval",
-     "Chapter6/GapP3_K4_IntervalHomotopy · exists_isScHomotopyI"
+     "Chapter6/IntervalHomotopy · exists_isScHomotopyI"
     ]
    },
    "chips": [
@@ -1500,19 +1500,19 @@
      "Chapter6/PathCategory · PathCat.mk_eq_mk_iff",
      "Chapter6/PathCategory · PathCat.exists_eq_mk",
      "Chapter6/PathCategory · PathCat.inv_mk",
-     "Chapter6/GapP1_PathCategoryInterval · PathCatI",
-     "Chapter6/GapP1_PathCategoryInterval · PathCatI.category",
-     "Chapter6/GapP1_PathCategoryInterval · PathCatI.groupoid",
-     "Chapter6/GapP1_PathCategoryInterval · PathCatI.toPathCat",
-     "Chapter6/GapP1_PathCategoryInterval · PathCatI.toPathCat_isEquivalence",
-     "Chapter6/GapP1_PathCategoryInterval · ScPathI.concat",
-     "Chapter6/GapP1_PathCategoryInterval · ScPathI.concat_toFun_of_le",
-     "Chapter6/GapP1_PathCategoryInterval · ScPathI.concat_toFun_of_ge",
-     "Chapter6/GapP1_PathCategoryInterval · ScHomotopicI",
-     "Chapter6/GapP1_PathCategoryInterval · scHomotopicI_iff",
-     "Chapter6/GapP1_PathCategoryInterval · betaConcat",
-     "Chapter6/GapP1_PathCategoryInterval · isScSmoothMap_square_of_contDiff",
-     "Chapter6/GapP1_PathCategoryInterval · isScSmoothMap_toUnitInterval_of_rn"
+     "Chapter6/PathCategoryInterval · PathCatI",
+     "Chapter6/PathCategoryInterval · PathCatI.category",
+     "Chapter6/PathCategoryInterval · PathCatI.groupoid",
+     "Chapter6/PathCategoryInterval · PathCatI.toPathCat",
+     "Chapter6/PathCategoryInterval · PathCatI.toPathCat_isEquivalence",
+     "Chapter6/PathCategoryInterval · ScPathI.concat",
+     "Chapter6/PathCategoryInterval · ScPathI.concat_toFun_of_le",
+     "Chapter6/PathCategoryInterval · ScPathI.concat_toFun_of_ge",
+     "Chapter6/PathCategoryInterval · ScHomotopicI",
+     "Chapter6/PathCategoryInterval · scHomotopicI_iff",
+     "Chapter6/PathCategoryInterval · betaConcat",
+     "Chapter6/PathCategoryInterval · isScSmoothMap_square_of_contDiff",
+     "Chapter6/PathCategoryInterval · isScSmoothMap_toUnitInterval_of_rn"
     ]
    },
    "chips": [
@@ -1735,7 +1735,7 @@
      "Chapter6/PathsInterval · orTransportI_eq_of_homotopy",
      "Chapter6/PathsInterval · orTransportI_star",
      "Chapter6/PathsInterval · orTransportI_restrict",
-     "Chapter6/GapP3_K4_IntervalHomotopy · exists_isScHomotopyI"
+     "Chapter6/IntervalHomotopy · exists_isScHomotopyI"
     ]
    },
    "chips": [
@@ -2477,13 +2477,13 @@
    "lean": {
     "statement": "`iotaDualEquiv`: the convention $\\iota$ of Definition 6.3.1 (preprint 6.3) is an isomorphism $\\lambda(A^*) \\cong \\lambda^*(A)$ for finite-dimensional $A$, natural by Proposition 6.3.2 (preprint 6.4) (V6.3, V6.4). `altLinDet T` $= \\lambda(\\ker T) \\otimes \\lambda((F/R(T))^*)$ and `altLinDetEquiv T` $= \\mathrm{id} \\otimes \\iota : \\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*) \\cong \\det(T)$; it maps $(a_1 \\wedge \\dots \\wedge a_k) \\otimes (d_1^* \\wedge \\dots \\wedge d_m^*)$ to $(a_1 \\wedge \\dots \\wedge a_k) \\otimes (d_1 \\wedge \\dots \\wedge d_m)^*$ for a basis $d$ of the cokernel and its dual basis (`altLinDetEquiv_tmul_dualBasis`). For Fredholm $T$: `altFredholmDet`, `altFredholmDetEquiv`, `finrank_altFredholmDet`.",
     "decls": [
-     "Chapter6/GapP1_DetConventions · iotaDualEquiv",
-     "Chapter6/GapP1_DetConventions · altLinDet",
-     "Chapter6/GapP1_DetConventions · altLinDetEquiv",
-     "Chapter6/GapP1_DetConventions · altLinDetEquiv_tmul_dualBasis",
-     "Chapter6/GapP1_DetConventions · altFredholmDet",
-     "Chapter6/GapP1_DetConventions · altFredholmDetEquiv",
-     "Chapter6/GapP1_DetConventions · finrank_altFredholmDet"
+     "Chapter6/DetConventions · iotaDualEquiv",
+     "Chapter6/DetConventions · altLinDet",
+     "Chapter6/DetConventions · altLinDetEquiv",
+     "Chapter6/DetConventions · altLinDetEquiv_tmul_dualBasis",
+     "Chapter6/DetConventions · altFredholmDet",
+     "Chapter6/DetConventions · altFredholmDetEquiv",
+     "Chapter6/DetConventions · finrank_altFredholmDet"
     ]
    },
    "chips": [
@@ -2506,16 +2506,16 @@
    "lean": {
     "statement": "`stdLine n` $: \\mathbb R \\cong \\lambda(\\mathbb R^n)$, $1 \\mapsto e_1 \\wedge \\dots \\wedge e_n$ (`stdLine_one`), with inverse (6.25) $c_1 \\wedge \\dots \\wedge c_n \\mapsto \\det([c_1, \\dots, c_n])$, the matrix with columns $c_j$ (`stdLine_symm_wedge`). Its transpose `stdLineDual n` $: \\lambda^*(\\mathbb R^n) \\cong \\mathbb R^*$, $(e_1 \\wedge \\dots \\wedge e_n)^* \\mapsto 1^*$ (`stdLineDual_dualVec`), is the isomorphism of Proposition 6.4.15 (preprint 6.15). `tensorStdLine n V` $: V \\otimes \\lambda(\\mathbb R^n) \\cong V$ and `tensorStdLineDual n V` $: V \\otimes \\lambda^*(\\mathbb R^n) \\cong V$ send $v \\otimes (e_1 \\wedge \\dots \\wedge e_n)$ and $v \\otimes (e_1 \\wedge \\dots \\wedge e_n)^*$ to $v$ (`tensorStdLine_tmul_stdWedge`, `tensorStdLineDual_tmul_dualVec`), and $v \\otimes (c_1 \\wedge \\dots \\wedge c_n)$ to $\\det([c])\\,v$ (`tensorStdLine_tmul_wedge`), for every $V$.",
     "decls": [
-     "Chapter6/GapP1_DetConventions · stdLine",
-     "Chapter6/GapP1_DetConventions · stdLine_one",
-     "Chapter6/GapP1_DetConventions · stdLine_symm_wedge",
-     "Chapter6/GapP1_DetConventions · stdLineDual",
-     "Chapter6/GapP1_DetConventions · stdLineDual_dualVec",
-     "Chapter6/GapP1_DetConventions · tensorStdLine",
-     "Chapter6/GapP1_DetConventions · tensorStdLine_tmul_stdWedge",
-     "Chapter6/GapP1_DetConventions · tensorStdLine_tmul_wedge",
-     "Chapter6/GapP1_DetConventions · tensorStdLineDual",
-     "Chapter6/GapP1_DetConventions · tensorStdLineDual_tmul_dualVec"
+     "Chapter6/DetConventions · stdLine",
+     "Chapter6/DetConventions · stdLine_one",
+     "Chapter6/DetConventions · stdLine_symm_wedge",
+     "Chapter6/DetConventions · stdLineDual",
+     "Chapter6/DetConventions · stdLineDual_dualVec",
+     "Chapter6/DetConventions · tensorStdLine",
+     "Chapter6/DetConventions · tensorStdLine_tmul_stdWedge",
+     "Chapter6/DetConventions · tensorStdLine_tmul_wedge",
+     "Chapter6/DetConventions · tensorStdLineDual",
+     "Chapter6/DetConventions · tensorStdLineDual_tmul_dualVec"
     ]
    },
    "chips": [
@@ -2538,22 +2538,22 @@
    "lean": {
     "statement": "Non-orientable is `IsEmpty (LineOrientation (DetFiber (E := E) (F := F)))`: $\\mathrm{DET}(E, F)$ over all Fredholm operators has no orientation in the sense of Proposition 6.6.1 (preprint 6.26). `isEmpty_lineOrientation_det_hilbert`: none for $E = F = H$, every infinite-dimensional real Hilbert space $H$ (separable or not); `isEmpty_lineOrientation_det_of_equiv_hilbert`: none when $E$ and $F$ are isomorphic to such an $H$; `isEmpty_lineOrientation_det_of_equiv_prod`: none when $E$, $F$ are isomorphic to $H \\times H$ for a Banach space $H$ with a surjective $S : H \\to H$ with odd-dimensional kernel, e.g. $H \\cong \\mathbb R \\times H$; `isEmpty_lineOrientation_det_ellTwo`: $\\ell^2 \\times \\ell^2$. In general, `isEmpty_lineOrientation_det_of_complexStructure`: none whenever $E$ and $F$ carry bounded $J$ with $J^2 = -1$ and there is a surjective $T : E \\to F$ with kernel of odd finite dimension; the loop $A_\\theta = R'_\\theta T R_{-\\theta}$, $\\theta \\in [0, \\pi]$, $R_\\theta = \\cos\\theta + \\sin\\theta J$, consists of surjective operators, a basis of the kernels $R_\\theta(\\ker T)$ is a continuous section of $\\mathrm{DET}$ in the chart with $P = 1$ (`continuous_kerDetMk`), and it returns to its negative (`isEmpty_lineOrientation_det_of_kernel_loop`, `isEmpty_lineOrientation_of_loop`). Orientability depends only on the isomorphism classes of $E$ and $F$ (`nonempty_lineOrientation_det_iff_of_equiv`, through `LineOrientation.conj`). For finite-dimensional $E$, $F$: `exists_two_lineOrientation_det_of_finiteDimensional`, $\\mathrm{DET}(E, F)$ has exactly two orientations.",
     "decls": [
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_hilbert",
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_hilbert",
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_prod",
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_ellTwo",
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_ltwo",
-     "Chapter6/GapP1_DetNonOrientableTransport · nonempty_lineOrientation_det_iff_of_equiv",
-     "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv",
-     "Chapter6/GapP1_DetNonOrientableEll2 · isEmpty_lineOrientation_det_ellTwo",
-     "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_of_complexStructure",
-     "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_of_kernel_loop",
-     "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_prod",
-     "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_prod_of_equiv",
-     "Chapter6/GapP1_DetNonOrientable · continuous_kerDetMk",
-     "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_of_loop",
-     "Chapter6/GapP1_DetNonOrientable · exists_two_lineOrientation_det_of_finiteDimensional",
-     "Chapter6/GapP1_DetNonOrientable · nonempty_lineOrientation_det_of_finiteDimensional"
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_hilbert",
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_hilbert",
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_prod",
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_ellTwo",
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_ltwo",
+     "Chapter6/DetNonOrientableTransport · nonempty_lineOrientation_det_iff_of_equiv",
+     "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv",
+     "Chapter6/DetNonOrientableHilbert · isEmpty_lineOrientation_det_ellTwo",
+     "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_of_complexStructure",
+     "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_of_kernel_loop",
+     "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_prod",
+     "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_prod_of_equiv",
+     "Chapter6/DetNonOrientable · continuous_kerDetMk",
+     "Chapter6/DetNonOrientable · isEmpty_lineOrientation_of_loop",
+     "Chapter6/DetNonOrientable · exists_two_lineOrientation_det_of_finiteDimensional",
+     "Chapter6/DetNonOrientable · nonempty_lineOrientation_det_of_finiteDimensional"
     ]
    },
    "chips": [
@@ -2578,11 +2578,11 @@
    "lean": {
     "statement": "For $f$ of class $C^1$ on an open $U \\subseteq E$ with every $Df(x)$ Fredholm: `derivFredholm`, $x \\mapsto Df(x)$ as a continuous map $U \\to \\mathcal F(E, F)$; `ClassicalDet`, the pull-back of $\\mathrm{DET}(E, F)$ along it, with fibre $\\det(Df(x))$ (`classicalDet_apply`), a topological line bundle (`classicalDet_vectorBundle`). `classicalDet_two_orientations`: for contractible $U$ it has precisely two orientations, and every orientation of one line $\\det(Df(x_0))$ extends to exactly one orientation of the bundle.",
     "decls": [
-     "Chapter6/GapP1_ClassicalDetBundle · derivFredholm",
-     "Chapter6/GapP1_ClassicalDetBundle · ClassicalDet",
-     "Chapter6/GapP1_ClassicalDetBundle · classicalDet_apply",
-     "Chapter6/GapP1_ClassicalDetBundle · classicalDet_vectorBundle",
-     "Chapter6/GapP1_ClassicalDetBundle · classicalDet_two_orientations"
+     "Chapter6/ClassicalDetBundle · derivFredholm",
+     "Chapter6/ClassicalDetBundle · ClassicalDet",
+     "Chapter6/ClassicalDetBundle · classicalDet_apply",
+     "Chapter6/ClassicalDetBundle · classicalDet_vectorBundle",
+     "Chapter6/ClassicalDetBundle · classicalDet_two_orientations"
     ]
    },
    "chips": [
@@ -2605,18 +2605,18 @@
    "lean": {
     "statement": "With the topology of Theorem 6.6.17 (`orTopology`, V6.73–V6.75), for $\\Gamma_f$ (`orLocalTransport`): `isSectionOrientation_iff_continuous`: $y \\mapsto (y, o_y)$ (`orSec o`) is continuous iff $o$ is an orientation of $f$ (Definition 6.6.16 (preprint 6.40)); `exists_eq_orSec`: every section of $\\pi_f$ has this form; `isOrientableSection_iff_exists_continuous_section`: $f$ is orientable (Definitions 6.6.14–6.6.15 (preprint 6.38–6.39)) iff $\\pi_f$ has a global continuous section. `orNegHomeomorph`: $(x, o_x) \\mapsto (x, -o_x)$ is a homeomorphism over $\\pi_f$ without fixed points (`orNeg_ne`), giving a continuous action of $\\mathbb Z^\\times \\cong \\mathbb Z_2$ (`orMulAction`, `continuous_orUnitsAct`). `detCore`, `detBundleCore`: $\\det_f$ as a Mathlib `VectorBundleCore` with fibre $\\mathbb R$ over $X_\\infty$, trivialized by the continuous orientations $(U, o)$ with coordinate changes $\\pm 1$; its fibre is $\\mathbb R \\otimes_{\\mathbb Z_2} \\mathrm{Or}^f_x$: $r \\otimes a = r' \\otimes a'$ iff $(r', a') = (\\pm r, \\pm a)$ (`detMk_eq_iff`, `localTriv_detMk`). The generic statements hold for any local transport with two-element fibres (`continuous_orSec_iff`).",
     "decls": [
-     "Chapter6/GapP1_OrientationBundle · isSectionOrientation_iff_continuous",
-     "Chapter6/GapP1_OrientationBundle · isOrientableSection_iff_exists_continuous_section",
-     "Chapter6/GapP1_OrientationBundle · continuous_orSec_iff",
-     "Chapter6/GapP1_OrientationBundle · exists_eq_orSec",
-     "Chapter6/GapP1_OrientationBundle · orNegHomeomorph",
-     "Chapter6/GapP1_OrientationBundle · orNeg_ne",
-     "Chapter6/GapP1_OrientationBundle · orMulAction",
-     "Chapter6/GapP1_OrientationBundle · continuous_orUnitsAct",
-     "Chapter6/GapP1_OrientationBundle · detCore",
-     "Chapter6/GapP1_OrientationBundle · detBundleCore",
-     "Chapter6/GapP1_OrientationBundle · detMk_eq_iff",
-     "Chapter6/GapP1_OrientationBundle · localTriv_detMk"
+     "Chapter6/OrientationBundle · isSectionOrientation_iff_continuous",
+     "Chapter6/OrientationBundle · isOrientableSection_iff_exists_continuous_section",
+     "Chapter6/OrientationBundle · continuous_orSec_iff",
+     "Chapter6/OrientationBundle · exists_eq_orSec",
+     "Chapter6/OrientationBundle · orNegHomeomorph",
+     "Chapter6/OrientationBundle · orNeg_ne",
+     "Chapter6/OrientationBundle · orMulAction",
+     "Chapter6/OrientationBundle · continuous_orUnitsAct",
+     "Chapter6/OrientationBundle · detCore",
+     "Chapter6/OrientationBundle · detBundleCore",
+     "Chapter6/OrientationBundle · detMk_eq_iff",
+     "Chapter6/OrientationBundle · localTriv_detMk"
     ]
    },
    "chips": [
@@ -2733,12 +2733,12 @@
    "label": "§6.4 (preprint §6.3), after Definition 6.4.1 (preprint 6.7), p. 246 (preprint p. 208)",
    "page": 208,
    "book": "Some authors use $\\det(T) = \\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*)$; the two definitions are naturally isomorphic, given a convention identifying $\\lambda^*(A)$ and $\\lambda(A^*)$.",
-   "instead": "**Formalized** (2026-11-12; V6.78; `Chapter6/GapP1_DetConventions.lean`). With $\\iota$ of Definition 6.3.1 (preprint 6.3), an isomorphism $\\lambda(A^*) \\cong \\lambda^*(A)$ (`iotaDualEquiv`), $\\mathrm{id} \\otimes \\iota : \\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*) \\cong \\det(T)$ (`altLinDetEquiv`, `altFredholmDetEquiv`), with its value on wedges of a cokernel basis and its dual (`altLinDetEquiv_tmul_dualBasis`). The chapter's statements use Definition 6.4.1 (preprint 6.7) (V6.8) (Findings, Chapter 6, item 10).",
+   "instead": "**Formalized** (2026-11-12; V6.78; `Chapter6/DetConventions.lean`). With $\\iota$ of Definition 6.3.1 (preprint 6.3), an isomorphism $\\lambda(A^*) \\cong \\lambda^*(A)$ (`iotaDualEquiv`), $\\mathrm{id} \\otimes \\iota : \\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*) \\cong \\det(T)$ (`altLinDetEquiv`, `altFredholmDetEquiv`), with its value on wedges of a cokernel basis and its dual (`altLinDetEquiv_tmul_dualBasis`). The chapter's statements use Definition 6.4.1 (preprint 6.7) (V6.8) (Findings, Chapter 6, item 10).",
    "decls": [
-    "Chapter6/GapP1_DetConventions · iotaDualEquiv",
-    "Chapter6/GapP1_DetConventions · altLinDetEquiv",
-    "Chapter6/GapP1_DetConventions · altLinDetEquiv_tmul_dualBasis",
-    "Chapter6/GapP1_DetConventions · altFredholmDetEquiv"
+    "Chapter6/DetConventions · iotaDualEquiv",
+    "Chapter6/DetConventions · altLinDetEquiv",
+    "Chapter6/DetConventions · altLinDetEquiv_tmul_dualBasis",
+    "Chapter6/DetConventions · altFredholmDetEquiv"
    ],
    "formalized": [
     "V6.78"
@@ -2749,12 +2749,12 @@
    "label": "§6.4 (preprint §6.3), after Proposition 6.4.15 (preprint 6.15), p. 257 (preprint p. 213)",
    "page": 213,
    "book": "Dual to (94), $\\mathbb R \\to \\lambda(\\mathbb R^n)$ maps $1$ to the wedge of the standard basis, with inverse (95) $c_1 \\wedge \\dots \\wedge c_n \\mapsto \\det([c_1, \\dots, c_n])$; this gives identifications $V \\otimes \\lambda(\\mathbb R^n) \\to V$ and $V \\otimes \\lambda^*(\\mathbb R^n) \\to V$ for every finite-dimensional $V$.",
-   "instead": "**Formalized** (2026-11-12; V6.79; `Chapter6/GapP1_DetConventions.lean`): $\\mathbb R \\cong \\lambda(\\mathbb R^n)$ with inverse (6.25) (`stdLine`, `stdLine_symm_wedge`), its transpose, the isomorphism of Proposition 6.4.15 (preprint 6.15) (`stdLineDual`), and $V \\otimes \\lambda(\\mathbb R^n) \\cong V$, $V \\otimes \\lambda^*(\\mathbb R^n) \\cong V$ for every $V$ (`tensorStdLine`, `tensorStdLineDual`). The formal statements of the chapter use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).",
+   "instead": "**Formalized** (2026-11-12; V6.79; `Chapter6/DetConventions.lean`): $\\mathbb R \\cong \\lambda(\\mathbb R^n)$ with inverse (6.25) (`stdLine`, `stdLine_symm_wedge`), its transpose, the isomorphism of Proposition 6.4.15 (preprint 6.15) (`stdLineDual`), and $V \\otimes \\lambda(\\mathbb R^n) \\cong V$, $V \\otimes \\lambda^*(\\mathbb R^n) \\cong V$ for every $V$ (`tensorStdLine`, `tensorStdLineDual`). The formal statements of the chapter use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).",
    "decls": [
-    "Chapter6/GapP1_DetConventions · stdLine_symm_wedge",
-    "Chapter6/GapP1_DetConventions · stdLineDual_dualVec",
-    "Chapter6/GapP1_DetConventions · tensorStdLine_tmul_stdWedge",
-    "Chapter6/GapP1_DetConventions · tensorStdLineDual_tmul_dualVec"
+    "Chapter6/DetConventions · stdLine_symm_wedge",
+    "Chapter6/DetConventions · stdLineDual_dualVec",
+    "Chapter6/DetConventions · tensorStdLine_tmul_stdWedge",
+    "Chapter6/DetConventions · tensorStdLineDual_tmul_dualVec"
    ],
    "formalized": [
     "V6.79"
@@ -2785,20 +2785,20 @@
    "label": "§6.5 (preprint §6.4), preprint p. 218; the opening of §6.6 (preprint §6.5), preprint p. 219",
    "page": 218,
    "book": "The text remarks that $\\mathrm{DET}(E, F)$ is known to be non-orientable, though orientable over certain subsets. For a classical Fredholm map $f : U \\to F$, the determinant line bundle of the $Df(x)$ is a smooth line bundle over $U$, with precisely two orientations if $U$ is contractible.",
-   "instead": "**Formalized, with a corrected form** (2026-11-12; V6.80, V6.81; `Chapter6/GapP1_DetNonOrientable.lean`, `…Ell2.lean`, `…Transport.lean`, `Chapter6/GapP1_ClassicalDetBundle.lean`). The text gives no hypothesis on $E$, $F$. $\\mathrm{DET}(H, H)$ has no orientation for every infinite-dimensional real Hilbert space $H$ (`isEmpty_lineOrientation_det_hilbert`), and $\\mathrm{DET}(E, F)$ has none when $E$ and $F$ are isomorphic to such an $H$ (`isEmpty_lineOrientation_det_of_equiv_hilbert`) or to $H \\times H$ for a Banach space $H \\cong \\mathbb R \\times H$ (`isEmpty_lineOrientation_det_of_equiv_prod`). In general it has none whenever $E$ and $F$ carry bounded $J$ with $J^2 = -1$ and there is a surjective $T : E \\to F$ with kernel of odd finite dimension (`isEmpty_lineOrientation_det_of_complexStructure`): along the loop $A_\\theta = R'_\\theta T R_{-\\theta}$, $\\theta \\in [0,\\pi]$, $R_\\theta = \\cos\\theta + \\sin\\theta J$, of surjective operators the kernels form a Möbius band, and a basis of the kernels is a continuous section of $\\mathrm{DET}$ in the chart with $P = 1$ (`continuous_kerDetMk`, `isEmpty_lineOrientation_det_of_kernel_loop`). Orientability depends only on the isomorphism classes of $E$ and $F$ (`nonempty_lineOrientation_det_iff_of_equiv`, through `LineOrientation.conj`). For finite-dimensional $E$, $F$ the remark does not hold as we read it: every operator is Fredholm and $\\mathrm{DET}(E,F)$ has exactly two orientations (`exists_two_lineOrientation_det_of_finiteDimensional`). The classical case: for $f$ of class $C^1$ on an open $U$ with Fredholm derivatives the lines $\\det(Df(x))$ form a topological line bundle with precisely two orientations if $U$ is contractible (`classicalDet_two_orientations`). **Not formalized**: the smoothness of the classical bundle; non-orientability for infinite-dimensional Banach spaces without these structures (Findings, Chapter 6, items 26, 135).",
+   "instead": "**Formalized, with a corrected form** (2026-11-12; V6.80, V6.81; `Chapter6/DetNonOrientable.lean`, `…Ell2.lean`, `…Transport.lean`, `Chapter6/ClassicalDetBundle.lean`). The text gives no hypothesis on $E$, $F$. $\\mathrm{DET}(H, H)$ has no orientation for every infinite-dimensional real Hilbert space $H$ (`isEmpty_lineOrientation_det_hilbert`), and $\\mathrm{DET}(E, F)$ has none when $E$ and $F$ are isomorphic to such an $H$ (`isEmpty_lineOrientation_det_of_equiv_hilbert`) or to $H \\times H$ for a Banach space $H \\cong \\mathbb R \\times H$ (`isEmpty_lineOrientation_det_of_equiv_prod`). In general it has none whenever $E$ and $F$ carry bounded $J$ with $J^2 = -1$ and there is a surjective $T : E \\to F$ with kernel of odd finite dimension (`isEmpty_lineOrientation_det_of_complexStructure`): along the loop $A_\\theta = R'_\\theta T R_{-\\theta}$, $\\theta \\in [0,\\pi]$, $R_\\theta = \\cos\\theta + \\sin\\theta J$, of surjective operators the kernels form a Möbius band, and a basis of the kernels is a continuous section of $\\mathrm{DET}$ in the chart with $P = 1$ (`continuous_kerDetMk`, `isEmpty_lineOrientation_det_of_kernel_loop`). Orientability depends only on the isomorphism classes of $E$ and $F$ (`nonempty_lineOrientation_det_iff_of_equiv`, through `LineOrientation.conj`). For finite-dimensional $E$, $F$ the remark does not hold as we read it: every operator is Fredholm and $\\mathrm{DET}(E,F)$ has exactly two orientations (`exists_two_lineOrientation_det_of_finiteDimensional`). The classical case: for $f$ of class $C^1$ on an open $U$ with Fredholm derivatives the lines $\\det(Df(x))$ form a topological line bundle with precisely two orientations if $U$ is contractible (`classicalDet_two_orientations`). **Not formalized**: the smoothness of the classical bundle; non-orientability for infinite-dimensional Banach spaces without these structures (Findings, Chapter 6, items 26, 135).",
    "decls": [
-    "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_of_complexStructure",
-    "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_of_kernel_loop",
-    "Chapter6/GapP1_DetNonOrientable · isEmpty_lineOrientation_det_prod",
-    "Chapter6/GapP1_DetNonOrientable · continuous_kerDetMk",
-    "Chapter6/GapP1_DetNonOrientable · exists_two_lineOrientation_det_of_finiteDimensional",
-    "Chapter6/GapP1_DetNonOrientableEll2 · isEmpty_lineOrientation_det_ellTwo",
-    "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_hilbert",
-    "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_hilbert",
-    "Chapter6/GapP1_DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_prod",
-    "Chapter6/GapP1_DetNonOrientableTransport · nonempty_lineOrientation_det_iff_of_equiv",
-    "Chapter6/GapP1_ClassicalDetBundle · classicalDet_two_orientations",
-    "Chapter6/GapP1_ClassicalDetBundle · classicalDet_vectorBundle",
+    "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_of_complexStructure",
+    "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_of_kernel_loop",
+    "Chapter6/DetNonOrientable · isEmpty_lineOrientation_det_prod",
+    "Chapter6/DetNonOrientable · continuous_kerDetMk",
+    "Chapter6/DetNonOrientable · exists_two_lineOrientation_det_of_finiteDimensional",
+    "Chapter6/DetNonOrientableHilbert · isEmpty_lineOrientation_det_ellTwo",
+    "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_hilbert",
+    "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_hilbert",
+    "Chapter6/DetNonOrientableTransport · isEmpty_lineOrientation_det_of_equiv_prod",
+    "Chapter6/DetNonOrientableTransport · nonempty_lineOrientation_det_iff_of_equiv",
+    "Chapter6/ClassicalDetBundle · classicalDet_two_orientations",
+    "Chapter6/ClassicalDetBundle · classicalDet_vectorBundle",
     "Chapter6/DetBundle · proposition_6_6_1"
    ],
    "formalized": [
@@ -2811,14 +2811,14 @@
    "label": "§6.6 (preprint §6.5), Proposition 6.6.3 (1) (preprint 6.28), p. 263 (preprint p. 220); Theorem 6.6.11 (preprint 6.35), Definition 6.6.12 (preprint 6.36), Theorem 6.6.13 (preprint 6.37)",
    "page": 220,
    "book": "Proposition 6.6.3 (1), 2021 p. 263 (as in 2017, Proposition 6.12): two open neighbourhoods $U' \\subseteq U$ of $x$ with \"(1) $U' \\subset U$ is sc-smoothly contractible in $U$ to the point $x$\". The preprint (6.28) has one neighbourhood and \"(1) $U$ is sc-smoothly contractible\" (by $r(ty)$ on $U = r(V')$, $V'$ convex), and its Theorem 6.6.11 (preprint 6.35), Definition 6.6.12 (preprint 6.36) and property (∗) of Theorem 6.6.13 (preprint 6.37) ask for sc-smoothly contractible neighbourhoods.",
-   "instead": "**Formalized** (2026-11-13; V6.32; `Chapter6/GapP3_K4_Contractible.lean`, `GapP3_K4_IntervalHomotopy.lean`). The 2021 text prints (1) as \"$U' \\subset U$ is sc-smoothly contractible in $U$ to the point $x$\", for a second neighbourhood $U'$; the earlier reading of this entry, (1) for $U$ itself, was the preprint's. The 2021 form is proved: for every smooth $x$ and every open $U \\ni x$ there are an open $U' \\ni x$ in $U$ and an sc-smooth $H$ on the product M-polyfold $[0, 1] \\times X$ (`IsScContraction`, `exists_isScContraction`) with values in $U$ on $[0, 1]\\times U'$, $H(0, \\cdot) = x$, $H(1, \\cdot) = \\mathrm{id}$ on $U'$ and $H(t, x) = x$. In a chart, $H(t, y) = \\varphi^{-1} r(\\varphi(x) + t(\\varphi(y) - \\varphi(x)))$ and $U' = \\varphi^{-1}(B_\\varepsilon(\\varphi(x)))$; the text's $\\hat r(t, y) = r(ty)$ is this map for $x = 0$; the smoothness of $x$ is used ($\\varphi(x)$ must be a smooth point). The parameter-$\\mathbb R$ form is `exists_isScContractionRn`. `proposition_6_6_3_one` is Proposition 6.6.3 as printed in 2021: $U' \\subseteq U \\subseteq W$ in one chart, with (1), (1′), (2), (3), (4); `proposition_6_6_3_interval` also has (1′) for paths on $[0, 1]$. The preprint's \"$U$ contractible\" (which needs $r(V') \\subseteq V'$) is not formalized, and nothing here shows that it fails; it is a reading point on the preprint, not an item that does not hold. What the proofs of Theorem 6.6.11 and Definition 6.6.12 use is (1′) (V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72, 137).",
+   "instead": "**Formalized** (2026-11-13; V6.32; `Chapter6/ScContractible.lean`, `IntervalHomotopy.lean`). The 2021 text prints (1) as \"$U' \\subset U$ is sc-smoothly contractible in $U$ to the point $x$\", for a second neighbourhood $U'$; the earlier reading of this entry, (1) for $U$ itself, was the preprint's. The 2021 form is proved: for every smooth $x$ and every open $U \\ni x$ there are an open $U' \\ni x$ in $U$ and an sc-smooth $H$ on the product M-polyfold $[0, 1] \\times X$ (`IsScContraction`, `exists_isScContraction`) with values in $U$ on $[0, 1]\\times U'$, $H(0, \\cdot) = x$, $H(1, \\cdot) = \\mathrm{id}$ on $U'$ and $H(t, x) = x$. In a chart, $H(t, y) = \\varphi^{-1} r(\\varphi(x) + t(\\varphi(y) - \\varphi(x)))$ and $U' = \\varphi^{-1}(B_\\varepsilon(\\varphi(x)))$; the text's $\\hat r(t, y) = r(ty)$ is this map for $x = 0$; the smoothness of $x$ is used ($\\varphi(x)$ must be a smooth point). The parameter-$\\mathbb R$ form is `exists_isScContractionRn`. `proposition_6_6_3_one` is Proposition 6.6.3 as printed in 2021: $U' \\subseteq U \\subseteq W$ in one chart, with (1), (1′), (2), (3), (4); `proposition_6_6_3_interval` also has (1′) for paths on $[0, 1]$. The preprint's \"$U$ contractible\" (which needs $r(V') \\subseteq V'$) is not formalized, and nothing here shows that it fails; it is a reading point on the preprint, not an item that does not hold. What the proofs of Theorem 6.6.11 and Definition 6.6.12 use is (1′) (V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72, 137).",
    "decls": [
     "Chapter6/OrientableNbhd · proposition_6_6_3",
     "Chapter6/PropagationWellDefined · theorem_6_6_11",
-    "Chapter6/GapP3_K4_Contractible · IsScContraction",
-    "Chapter6/GapP3_K4_Contractible · exists_isScContraction",
-    "Chapter6/GapP3_K4_Contractible · exists_isScContractionRn",
-    "Chapter6/GapP3_K4_Contractible · proposition_6_6_3_one"
+    "Chapter6/ScContractible · IsScContraction",
+    "Chapter6/ScContractible · exists_isScContraction",
+    "Chapter6/ScContractible · exists_isScContractionRn",
+    "Chapter6/ScContractible · proposition_6_6_3_one"
    ],
    "formalized": [
     "V6.32"
@@ -2829,7 +2829,7 @@
    "label": "§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30), p. 265 (preprint p. 222)",
    "page": 222,
    "book": "The solution set of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners, $\\pi : S \\to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.",
-   "instead": "**Formalized** (2026-11-12; V6.34, V6.42). In the setting of Lemma 6.6.4, near the family $(0,(q,\\Phi(q)))$, $q$ near $[0,1]^n$ (decision D2): the solution set is a Mathlib manifold with boundary and corners (`lemma_6_6_5_isManifold`) and a submanifold of dimension the index (`lemma_6_6_5_isSubmanifoldOfDim`); $\\pi$ is a submersion on a neighbourhood of the family (`lemma_6_6_5_submersion_nhds`); the fibres $S_q$ are manifolds with boundary and corners (`lemma_6_6_5_fibre_isManifold`); and **$L$ is a smooth vector bundle**: over an open connected neighbourhood $V$ of $[0,1]^n$, the spaces $L_q = \\ker F'(0,(q,z_q)) \\cap \\{dq = 0\\}$ form a smooth family of subspaces of the model space of the product chart, and a Mathlib `ContMDiffVectorBundle` (`lemma_6_6_5_smoothBundle`, `Chapter6/GapP1_SmoothL3.lean`). The frames are $e_i(q) = DS(z_q)\\,b_i$, for an sc-retraction $S$ onto the solution set and a basis $b$ of one kernel, which consists of smooth points (`IsSc1With.apply_mem_smooth_of_finiteDimensional`); they are $C^\\infty$ into every level, because an sc-smooth map from $\\mathbb R^n$ is $C^\\infty$ into every $E_m$ (`IsScSmooth.contDiffOn_levelMap_const`, `exists_local_smooth_frame_linKer`), and their coordinate changes are $C^\\infty$ (`SmoothSubspaceFamily.contMDiffVectorBundle`, `SmoothSubspaceFamily.infKer`). As in the text (\"$X = U$\"), the family is read in one chart containing $\\Phi([0,1]^n)$. On the M-polyfold $[0,1]^n$ the solution set, the fibres and $\\pi$ (in the corner sense, in charts) are formalized at every $q$ (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_fibre_isManifold_cube`, `lemma_6_6_5_submersion_cube`) (Findings, Chapter 6, items 48, 126).",
+   "instead": "**Formalized** (2026-11-12; V6.34, V6.42). In the setting of Lemma 6.6.4, near the family $(0,(q,\\Phi(q)))$, $q$ near $[0,1]^n$ (decision D2): the solution set is a Mathlib manifold with boundary and corners (`lemma_6_6_5_isManifold`) and a submanifold of dimension the index (`lemma_6_6_5_isSubmanifoldOfDim`); $\\pi$ is a submersion on a neighbourhood of the family (`lemma_6_6_5_submersion_nhds`); the fibres $S_q$ are manifolds with boundary and corners (`lemma_6_6_5_fibre_isManifold`); and **$L$ is a smooth vector bundle**: over an open connected neighbourhood $V$ of $[0,1]^n$, the spaces $L_q = \\ker F'(0,(q,z_q)) \\cap \\{dq = 0\\}$ form a smooth family of subspaces of the model space of the product chart, and a Mathlib `ContMDiffVectorBundle` (`lemma_6_6_5_smoothBundle`, `Chapter6/SmoothKernelFrames.lean`). The frames are $e_i(q) = DS(z_q)\\,b_i$, for an sc-retraction $S$ onto the solution set and a basis $b$ of one kernel, which consists of smooth points (`IsSc1With.apply_mem_smooth_of_finiteDimensional`); they are $C^\\infty$ into every level, because an sc-smooth map from $\\mathbb R^n$ is $C^\\infty$ into every $E_m$ (`IsScSmooth.contDiffOn_levelMap_const`, `exists_local_smooth_frame_linKer`), and their coordinate changes are $C^\\infty$ (`SmoothSubspaceFamily.contMDiffVectorBundle`, `SmoothSubspaceFamily.infKer`). As in the text (\"$X = U$\"), the family is read in one chart containing $\\Phi([0,1]^n)$. On the M-polyfold $[0,1]^n$ the solution set, the fibres and $\\pi$ (in the corner sense, in charts) are formalized at every $q$ (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_fibre_isManifold_cube`, `lemma_6_6_5_submersion_cube`) (Findings, Chapter 6, items 48, 126).",
    "decls": [
     "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
     "Chapter6/StabKernelsExist · exists_isStabKernels",
@@ -2838,17 +2838,17 @@
     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isManifold",
     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isSubmanifoldOfDim",
     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion",
-    "Chapter6/GapP1_SlicePropertyP · lemma_6_6_5_fibre_isManifold",
-    "Chapter6/GapP1_SlicePropertyP · isScFredholmSectionTame_slice",
-    "Chapter6/GapP1_SubmersionNearFamily · lemma_6_6_5_submersion_nhds",
-    "Chapter6/GapP1_SubmersionNearFamily · exists_nhds_surjective_linKer",
-    "Chapter6/GapP1_SmoothL3 · lemma_6_6_5_smoothBundle",
-    "Chapter6/GapP1_SmoothL3 · exists_local_smooth_frame_linKer",
-    "Chapter6/GapP1_SmoothL2 · SmoothSubspaceFamily.contMDiffVectorBundle",
-    "Chapter6/GapP1_SmoothL2 · SmoothSubspaceFamily.infKer",
-    "Chapter6/GapP1_SmoothL1 · IsScSmooth.contDiffOn_levelMap_const",
-    "Chapter6/GapP1_SmoothL1 · IsSc1With.apply_mem_smooth_of_finiteDimensional",
-    "Chapter6/GapP1_CubeBoundarySubmersion · lemma_6_6_5_submersion_cube"
+    "Chapter6/SlicePropertyP · lemma_6_6_5_fibre_isManifold",
+    "Chapter6/SlicePropertyP · isScFredholmSectionTame_slice",
+    "Chapter6/SubmersionNearFamily · lemma_6_6_5_submersion_nhds",
+    "Chapter6/SubmersionNearFamily · exists_nhds_surjective_linKer",
+    "Chapter6/SmoothKernelFrames · lemma_6_6_5_smoothBundle",
+    "Chapter6/SmoothKernelFrames · exists_local_smooth_frame_linKer",
+    "Chapter6/SmoothSubspaceFamilies · SmoothSubspaceFamily.contMDiffVectorBundle",
+    "Chapter6/SmoothSubspaceFamilies · SmoothSubspaceFamily.infKer",
+    "Chapter6/SmoothFiniteDimRanges · IsScSmooth.contDiffOn_levelMap_const",
+    "Chapter6/SmoothFiniteDimRanges · IsSc1With.apply_mem_smooth_of_finiteDimensional",
+    "Chapter6/CubeBoundarySubmersion · lemma_6_6_5_submersion_cube"
    ],
    "formalized": [
     "V6.34",
@@ -2860,14 +2860,14 @@
    "label": "§6.6 (preprint §6.5), Lemma 6.6.4 (preprint 6.29), p. 265 (preprint p. 222)",
    "page": 222,
    "book": "(P): for every fixed $t \\in [0, 1]$, the section $F_t$ is at $(\\varphi(t), 0)$ in general position to the boundary of $X \\times \\mathbb R^k$.",
-   "instead": "**Formalized** (2026-11-12; V6.33; `Chapter6/GapP1_SlicePropertyP.lean`, `Chapter6/GapP1_CubeBoundaryP.lean`). `lemma_6_6_4_propertyP`: under the hypotheses of `lemma_6_6_4` there are finitely many sc⁺-sections such that, for all $q$ near $[0,1]^n$ (decision D2), the slice $F_q$ is in general position at $(0, \\Phi(q))$ (property (P)) and $F$ is in general position at $(0,(q,\\Phi(q)))$. (P) is derived from the general position of $F$ (`isGeneralPositionGerm_slice`): in the chart, the tangent vectors of the family of zeros lie in $\\ker F'$, and their $X$-components lie in the reduced tangent space because $\\mathbb R^n$ has no boundary (`isParamGP_slice_of_isParamGP`, `fderiv_mem_minimalSubspaceWith_of_centre`). On the M-polyfold $[0,1]^n$ itself, (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ there (`lemma_6_6_4_propertyP_cube`, `isGeneralPositionGerm_cubeSlice_iff`) (Findings, Chapter 6, item 47).",
+   "instead": "**Formalized** (2026-11-12; V6.33; `Chapter6/SlicePropertyP.lean`, `Chapter6/CubePropertyP.lean`). `lemma_6_6_4_propertyP`: under the hypotheses of `lemma_6_6_4` there are finitely many sc⁺-sections such that, for all $q$ near $[0,1]^n$ (decision D2), the slice $F_q$ is in general position at $(0, \\Phi(q))$ (property (P)) and $F$ is in general position at $(0,(q,\\Phi(q)))$. (P) is derived from the general position of $F$ (`isGeneralPositionGerm_slice`): in the chart, the tangent vectors of the family of zeros lie in $\\ker F'$, and their $X$-components lie in the reduced tangent space because $\\mathbb R^n$ has no boundary (`isParamGP_slice_of_isParamGP`, `fderiv_mem_minimalSubspaceWith_of_centre`). On the M-polyfold $[0,1]^n$ itself, (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ there (`lemma_6_6_4_propertyP_cube`, `isGeneralPositionGerm_cubeSlice_iff`) (Findings, Chapter 6, item 47).",
    "decls": [
-    "Chapter6/GapP1_SlicePropertyP · lemma_6_6_4_propertyP",
-    "Chapter6/GapP1_SlicePropertyP · isGeneralPositionGerm_slice",
-    "Chapter6/GapP1_SlicePropertyP · isParamGP_slice_of_isParamGP",
-    "Chapter6/GapP1_SlicePropertyP · fderiv_mem_minimalSubspaceWith_of_centre",
-    "Chapter6/GapP1_CubeBoundaryP · lemma_6_6_4_propertyP_cube",
-    "Chapter6/GapP1_CubeBoundaryP · isGeneralPositionGerm_cubeSlice_iff"
+    "Chapter6/SlicePropertyP · lemma_6_6_4_propertyP",
+    "Chapter6/SlicePropertyP · isGeneralPositionGerm_slice",
+    "Chapter6/SlicePropertyP · isParamGP_slice_of_isParamGP",
+    "Chapter6/SlicePropertyP · fderiv_mem_minimalSubspaceWith_of_centre",
+    "Chapter6/CubePropertyP · lemma_6_6_4_propertyP_cube",
+    "Chapter6/CubePropertyP · isGeneralPositionGerm_cubeSlice_iff"
    ],
    "formalized": [
     "V6.33"
@@ -2893,7 +2893,7 @@
    "label": "§6.6 (preprint §6.5), pp. 263–276 (preprint pp. 220–230)",
    "page": 220,
    "book": "Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \\times [0, 1]$, $[0, 1] \\times X \\times \\mathbb R^k$ are M-polyfolds with boundary (Proposition 6.6.3 (preprint 6.28), Lemmas 6.6.4–6.6.10 (preprint 6.29–6.34), Theorem 6.6.11 (preprint 6.35), Remark 6.6.19 (preprint 6.42)).",
-   "instead": "**Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \\times [0, 1]$ is tame for tame $X$ with $d_{X \\times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\\sin^2$ of an sc-smooth path on $\\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \\to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$, and so are the paths between smooth points of a component (`paths_before_proposition_6_2_2`, G.56). (2026-11-12) Proposition 6.6.3 (3) and (4) hold for paths $\\varphi : [0, 1] \\to X$ with sections over the M-polyfold $[0, 1] \\times X$: with bump functions, there is an sc⁺-section $S$ of the pull-back of $P$ to $[0, 1] \\times X$ whose fibre part is the text's $R(y, f(\\varphi(t)))$ (with the sign of `sectionAdd`, cut off outside the chart) and with $(f + S)(t, \\varphi(t)) = 0$ for every $t \\in [0, 1]$ (`proposition_6_6_3_three_interval`), and $[0, 1] \\times X$ admits sc-smooth bump functions, so its pull-back bundle has sc⁺-sections through all smooth fibre points (`proposition_6_6_3_four_interval`); the construction works in any product chart $\\chi \\times \\varphi_c$ of $Q \\times X$ (`PullbackChartData.ofProdChart`, `exists_isScPlusSection_prodChart`). The same holds for families $\\varphi : [0, 1]^n \\to X$ for every $n$, with sections over the M-polyfold with corners $[0, 1]^n \\times X$ (`cubePolyfold`, whose degeneracy index counts the coordinates in $\\{0, 1\\}$; `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`). Lemmas 6.6.4–6.6.5 (preprint 6.29–6.30) are also stated for families on $[0,1]^n$ itself, boundary and corners included: the pull-back of a tame sc-Fredholm section to $[0,1]^n \\times X$ is tame sc-Fredholm, with charts of $[0,1]^n$ centred at every point and their mixed partial quadrants (`IsScFredholmSectionTame.paramCube`, `cChart`, `IsConjugateToBasicGerm.quadExtend`); there are sc⁺-sections such that $F$ is in general position at every $(0,(q,\\Phi(q)))$, $q \\in [0,1]^n$ (`lemma_6_6_4_cube`, `lemma_6_6_4_cube_family`), and near these points the solution set is a manifold with boundary and corners and a submanifold of dimension the index (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_isSubmanifoldOfDim_cube`). On $[0,1]^n$, property (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ at $(0,(q,\\Phi(q)))$ (`isGeneralPositionGerm_cubeSlice_iff`, `lemma_6_6_4_propertyP_cube`); the tangent vectors of the family of zeros in reduced directions of $[0,1]^n$ have reduced $X$-components, by a one-sided minimum argument (`mem_minimalSubspaceWith_of_hasFDerivWithinAt`). At these points $\\pi$ is a submersion in the corner sense: $d\\pi$ maps $\\ker F'$ onto $\\mathbb R^n$, and its reduced part onto the reduced tangent space of $[0,1]^n$ (`lemma_6_6_5_submersion_cube`; `Chapter6/GapP1_Cube*.lean`). The category $PX$ of p. 272 is also built on $[0, 1]$ as printed (`PathCatI`, `Chapter6/GapP1_PathCategoryInterval.lean`) and is equivalent to the category on $\\mathbb R$ (V6.52). (2026-11-13) Proposition 6.6.3 (1′) holds for paths on $[0, 1]$: two sc-smooth paths $[0, 1] \\to U$ with the same end points are joined by an sc-smooth homotopy $[0, 1]^2 \\to W$ (`unitSquarePolyfold`) with the end points fixed (`exists_isScHomotopyI`; the segment in a chart, sc-smooth on $[0, 1] \\times (U \\times U)$ in the charts $t$ and $1 - t$, `isScSmoothOn_chartSegment`), and (1) holds as printed in 2021 with parameter $[0, 1]$ (`exists_isScContraction`, G.61); together: `proposition_6_6_3_interval`. For a path ($n = 1$), the bundle $L$ of Lemma 6.6.5 is a smooth vector bundle over the manifold with boundary $[0, 1]$ itself (`lemma_6_6_5_smoothBundle_interval`, `Chapter6/GapP3_K4_SmoothLInterval.lean`). **Still read on $\\mathbb R$** (decision D2): the smooth bundle $L$ of Lemma 6.6.5 over a neighbourhood of $[0, 1]^n$ in $\\mathbb R^n$ for $n \\ge 2$ (V6.34; Mathlib has no smooth structure on the cube; estimate 300–600 lines), the stabilized kernels and their continuation for families with sections over $[0, 1]^n \\times X$ (V6.42; estimate 400–700 lines), and Remark 6.6.19 over $\\mathbb R^1 \\times X$ (V6.62; estimate 1,500–2,500 lines) (Findings, Chapter 6, items 71, 102, 122, 124, 138).",
+   "instead": "**Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \\times [0, 1]$ is tame for tame $X$ with $d_{X \\times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\\sin^2$ of an sc-smooth path on $\\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \\to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$, and so are the paths between smooth points of a component (`paths_before_proposition_6_2_2`, G.56). (2026-11-12) Proposition 6.6.3 (3) and (4) hold for paths $\\varphi : [0, 1] \\to X$ with sections over the M-polyfold $[0, 1] \\times X$: with bump functions, there is an sc⁺-section $S$ of the pull-back of $P$ to $[0, 1] \\times X$ whose fibre part is the text's $R(y, f(\\varphi(t)))$ (with the sign of `sectionAdd`, cut off outside the chart) and with $(f + S)(t, \\varphi(t)) = 0$ for every $t \\in [0, 1]$ (`proposition_6_6_3_three_interval`), and $[0, 1] \\times X$ admits sc-smooth bump functions, so its pull-back bundle has sc⁺-sections through all smooth fibre points (`proposition_6_6_3_four_interval`); the construction works in any product chart $\\chi \\times \\varphi_c$ of $Q \\times X$ (`PullbackChartData.ofProdChart`, `exists_isScPlusSection_prodChart`). The same holds for families $\\varphi : [0, 1]^n \\to X$ for every $n$, with sections over the M-polyfold with corners $[0, 1]^n \\times X$ (`cubePolyfold`, whose degeneracy index counts the coordinates in $\\{0, 1\\}$; `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`). Lemmas 6.6.4–6.6.5 (preprint 6.29–6.30) are also stated for families on $[0,1]^n$ itself, boundary and corners included: the pull-back of a tame sc-Fredholm section to $[0,1]^n \\times X$ is tame sc-Fredholm, with charts of $[0,1]^n$ centred at every point and their mixed partial quadrants (`IsScFredholmSectionTame.paramCube`, `cChart`, `IsConjugateToBasicGerm.quadExtend`); there are sc⁺-sections such that $F$ is in general position at every $(0,(q,\\Phi(q)))$, $q \\in [0,1]^n$ (`lemma_6_6_4_cube`, `lemma_6_6_4_cube_family`), and near these points the solution set is a manifold with boundary and corners and a submanifold of dimension the index (`lemma_6_6_5_isManifold_cube`, `lemma_6_6_5_isSubmanifoldOfDim_cube`). On $[0,1]^n$, property (P) holds at every $q$, boundary and corners included, and is equivalent to the general position of $F$ at $(0,(q,\\Phi(q)))$ (`isGeneralPositionGerm_cubeSlice_iff`, `lemma_6_6_4_propertyP_cube`); the tangent vectors of the family of zeros in reduced directions of $[0,1]^n$ have reduced $X$-components, by a one-sided minimum argument (`mem_minimalSubspaceWith_of_hasFDerivWithinAt`). At these points $\\pi$ is a submersion in the corner sense: $d\\pi$ maps $\\ker F'$ onto $\\mathbb R^n$, and its reduced part onto the reduced tangent space of $[0,1]^n$ (`lemma_6_6_5_submersion_cube`; `Chapter6/CubePropertyP`, `CubeBoundarySlice`, `CubeBoundarySubmersion`, `CubeCharts`, `CubeFredholm`, `CubeGerms`, `CubeFamilyLemmas`, `CubeSections`). The category $PX$ of p. 272 is also built on $[0, 1]$ as printed (`PathCatI`, `Chapter6/PathCategoryInterval.lean`) and is equivalent to the category on $\\mathbb R$ (V6.52). (2026-11-13) Proposition 6.6.3 (1′) holds for paths on $[0, 1]$: two sc-smooth paths $[0, 1] \\to U$ with the same end points are joined by an sc-smooth homotopy $[0, 1]^2 \\to W$ (`unitSquarePolyfold`) with the end points fixed (`exists_isScHomotopyI`; the segment in a chart, sc-smooth on $[0, 1] \\times (U \\times U)$ in the charts $t$ and $1 - t$, `isScSmoothOn_chartSegment`), and (1) holds as printed in 2021 with parameter $[0, 1]$ (`exists_isScContraction`, G.61); together: `proposition_6_6_3_interval`. For a path ($n = 1$), the bundle $L$ of Lemma 6.6.5 is a smooth vector bundle over the manifold with boundary $[0, 1]$ itself (`lemma_6_6_5_smoothBundle_interval`, `Chapter6/KernelBundleInterval.lean`). **Still read on $\\mathbb R$** (decision D2): the smooth bundle $L$ of Lemma 6.6.5 over a neighbourhood of $[0, 1]^n$ in $\\mathbb R^n$ for $n \\ge 2$ (V6.34; Mathlib has no smooth structure on the cube; estimate 300–600 lines), the stabilized kernels and their continuation for families with sections over $[0, 1]^n \\times X$ (V6.42; estimate 400–700 lines), and Remark 6.6.19 over $\\mathbb R^1 \\times X$ (V6.62; estimate 1,500–2,500 lines) (Findings, Chapter 6, items 71, 102, 122, 124, 138).",
    "decls": [
     "Chapter3/UnitIntervalPolyfold · unitIntervalPolyfold",
     "Chapter6/PathsInterval · isTame_prod_unitInterval",
@@ -2903,35 +2903,35 @@
     "Chapter6/PathsInterval · orTransportI_eq_of_homotopy",
     "Chapter6/PathsInterval · theorem_6_6_17_interval",
     "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval",
-    "Chapter6/GapP1_UnitIntervalSections · proposition_6_6_3_three_interval",
-    "Chapter6/GapP1_UnitIntervalSections · proposition_6_6_3_four_interval",
-    "Chapter6/GapP1_UnitIntervalSections · exists_isScPlusSection_prodChart",
-    "Chapter6/GapP1_UnitIntervalSections · PullbackChartData.ofProdChart",
-    "Chapter6/GapP1_CubeSections · cubePolyfold",
-    "Chapter6/GapP1_CubeSections · cubePolyfold_degIndex",
-    "Chapter6/GapP1_CubeSections · prod_cube_isTame",
-    "Chapter6/GapP1_CubeSections · proposition_6_6_3_three_cube",
-    "Chapter6/GapP1_CubeSections · proposition_6_6_3_four_cube",
-    "Chapter6/GapP1_CubeSections · admitsBumpFunctions_prod_cube",
-    "Chapter6/GapP1_CubeCharts · UnitCube.cChart",
-    "Chapter6/GapP1_CubeCharts · UnitCube.cChart_relOpen",
-    "Chapter6/GapP1_CubeGerms · IsConjugateToBasicGerm.quadExtend",
-    "Chapter6/GapP1_CubeFredholm · StrongBundle.IsScFredholmSectionTame.paramCube",
-    "Chapter6/GapP1_CubeLemmas · theorem_3_1_21_tame_cube",
-    "Chapter6/GapP1_CubeLemmas · lemma_6_6_4_cube",
-    "Chapter6/GapP1_CubeLemmas · lemma_6_6_4_cube_family",
-    "Chapter6/GapP1_CubeLemmas · lemma_6_6_5_isManifold_cube",
-    "Chapter6/GapP1_CubeLemmas · lemma_6_6_5_isSubmanifoldOfDim_cube",
-    "Chapter6/GapP1_CubeBoundarySlice · mem_minimalSubspaceWith_of_hasFDerivWithinAt",
-    "Chapter6/GapP1_CubeBoundaryP · isGeneralPositionGerm_cubeSlice_iff",
-    "Chapter6/GapP1_CubeBoundaryP · lemma_6_6_4_propertyP_cube",
-    "Chapter6/GapP1_CubeBoundaryP · lemma_6_6_5_fibre_isManifold_cube",
-    "Chapter6/GapP1_CubeBoundarySubmersion · lemma_6_6_5_submersion_cube",
-    "Chapter6/GapP1_PathCategoryInterval · PathCatI.toPathCat_isEquivalence",
-    "Chapter6/GapP3_K4_IntervalHomotopy · exists_isScHomotopyI",
-    "Chapter6/GapP3_K4_IntervalHomotopy · proposition_6_6_3_interval",
-    "Chapter6/GapP3_K4_IntervalHomotopy · isScSmoothOn_chartSegment",
-    "Chapter6/GapP3_K4_SmoothLInterval · lemma_6_6_5_smoothBundle_interval"
+    "Chapter6/UnitIntervalSections · proposition_6_6_3_three_interval",
+    "Chapter6/UnitIntervalSections · proposition_6_6_3_four_interval",
+    "Chapter6/UnitIntervalSections · exists_isScPlusSection_prodChart",
+    "Chapter6/UnitIntervalSections · PullbackChartData.ofProdChart",
+    "Chapter6/CubeSections · cubePolyfold",
+    "Chapter6/CubeSections · cubePolyfold_degIndex",
+    "Chapter6/CubeSections · prod_cube_isTame",
+    "Chapter6/CubeSections · proposition_6_6_3_three_cube",
+    "Chapter6/CubeSections · proposition_6_6_3_four_cube",
+    "Chapter6/CubeSections · admitsBumpFunctions_prod_cube",
+    "Chapter6/CubeCharts · UnitCube.cChart",
+    "Chapter6/CubeCharts · UnitCube.cChart_relOpen",
+    "Chapter6/CubeGerms · IsConjugateToBasicGerm.quadExtend",
+    "Chapter6/CubeFredholm · StrongBundle.IsScFredholmSectionTame.paramCube",
+    "Chapter6/CubeFamilyLemmas · theorem_3_1_21_tame_cube",
+    "Chapter6/CubeFamilyLemmas · lemma_6_6_4_cube",
+    "Chapter6/CubeFamilyLemmas · lemma_6_6_4_cube_family",
+    "Chapter6/CubeFamilyLemmas · lemma_6_6_5_isManifold_cube",
+    "Chapter6/CubeFamilyLemmas · lemma_6_6_5_isSubmanifoldOfDim_cube",
+    "Chapter6/CubeBoundarySlice · mem_minimalSubspaceWith_of_hasFDerivWithinAt",
+    "Chapter6/CubePropertyP · isGeneralPositionGerm_cubeSlice_iff",
+    "Chapter6/CubePropertyP · lemma_6_6_4_propertyP_cube",
+    "Chapter6/CubePropertyP · lemma_6_6_5_fibre_isManifold_cube",
+    "Chapter6/CubeBoundarySubmersion · lemma_6_6_5_submersion_cube",
+    "Chapter6/PathCategoryInterval · PathCatI.toPathCat_isEquivalence",
+    "Chapter6/IntervalHomotopy · exists_isScHomotopyI",
+    "Chapter6/IntervalHomotopy · proposition_6_6_3_interval",
+    "Chapter6/IntervalHomotopy · isScSmoothOn_chartSegment",
+    "Chapter6/KernelBundleInterval · lemma_6_6_5_smoothBundle_interval"
    ]
   },
   {
@@ -3078,14 +3078,14 @@
    "label": "§6.6, after Theorem 6.6.17, p. 275 (new in the 2021 edition)",
    "page": 275,
    "book": "$\\pi_f : O_f \\to X_\\infty$ with the topology of Theorem 6.6.17 is the orientation bundle of $f$; $f$ is orientable iff $\\pi_f$ has a global continuous section; $\\mathbb Z_2$ acts continuously on $O_f$ by $(x, o_x) \\mapsto (x, -o_x)$; $\\det_f = \\mathbb R \\otimes_{\\mathbb Z_2} O_f \\to X_\\infty$ is the determinant bundle of $f$.",
-   "instead": "**Formalized** (2026-11-12; V6.82; `Chapter6/GapP1_OrientationBundle.lean`). With the topology of Theorem 6.6.17, $y \\mapsto (y, o_y)$ is continuous iff $o$ is an orientation of $f$ (`isSectionOrientation_iff_continuous`), so $f$ is orientable iff $\\pi_f$ has a global continuous section (`isOrientableSection_iff_exists_continuous_section`); $(x, o_x) \\mapsto (x, -o_x)$ is a fixed-point-free homeomorphism giving a continuous $\\mathbb Z_2$-action (`orNegHomeomorph`, `orMulAction`); $\\det_f$ is a vector bundle core with fibre $\\mathbb R \\otimes_{\\mathbb Z_2} \\mathrm{Or}^f_x$ (`detCore`, `detBundleCore`, `detMk_eq_iff`) (Findings, Chapter 6, item 121).",
+   "instead": "**Formalized** (2026-11-12; V6.82; `Chapter6/OrientationBundle.lean`). With the topology of Theorem 6.6.17, $y \\mapsto (y, o_y)$ is continuous iff $o$ is an orientation of $f$ (`isSectionOrientation_iff_continuous`), so $f$ is orientable iff $\\pi_f$ has a global continuous section (`isOrientableSection_iff_exists_continuous_section`); $(x, o_x) \\mapsto (x, -o_x)$ is a fixed-point-free homeomorphism giving a continuous $\\mathbb Z_2$-action (`orNegHomeomorph`, `orMulAction`); $\\det_f$ is a vector bundle core with fibre $\\mathbb R \\otimes_{\\mathbb Z_2} \\mathrm{Or}^f_x$ (`detCore`, `detBundleCore`, `detMk_eq_iff`) (Findings, Chapter 6, item 121).",
    "decls": [
-    "Chapter6/GapP1_OrientationBundle · isSectionOrientation_iff_continuous",
-    "Chapter6/GapP1_OrientationBundle · isOrientableSection_iff_exists_continuous_section",
-    "Chapter6/GapP1_OrientationBundle · orNegHomeomorph",
-    "Chapter6/GapP1_OrientationBundle · orMulAction",
-    "Chapter6/GapP1_OrientationBundle · detBundleCore",
-    "Chapter6/GapP1_OrientationBundle · detMk_eq_iff"
+    "Chapter6/OrientationBundle · isSectionOrientation_iff_continuous",
+    "Chapter6/OrientationBundle · isOrientableSection_iff_exists_continuous_section",
+    "Chapter6/OrientationBundle · orNegHomeomorph",
+    "Chapter6/OrientationBundle · orMulAction",
+    "Chapter6/OrientationBundle · detBundleCore",
+    "Chapter6/OrientationBundle · detMk_eq_iff"
    ],
    "formalized": [
     "V6.82"

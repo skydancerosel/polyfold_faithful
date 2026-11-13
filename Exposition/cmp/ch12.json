@@ -12,7 +12,7 @@
    "lean": {
     "statement": "`EpStrongBundle.definition_12_1_1`: `E.IsScFredholmSectionFunctor f ↔ E.IsScSmoothSectionFunctor f ∧ B.IsScFredholmSection f` (`Iff.rfl`, Definition 8.3.4 (3)).",
     "decls": [
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.definition_12_1_1"
+     "Chapter12/CompactnessEp · EpStrongBundle.definition_12_1_1"
     ]
    },
    "chips": [
@@ -34,9 +34,9 @@
    "lean": {
     "statement": "Objects: $x \\in X_m$ and $f(x) \\in W_{m,m+1}$ give $x \\in X_{m+1}$ (`remark_12_1_1_regularizing_obj`). Morphisms: $\\varphi \\in \\mathbf X_m$ and $f(\\varphi) = (\\varphi, f(s\\varphi)) \\in (\\mathbf X\\,{}_s\\!\\times_P W)_{m,m+1}$ give $\\varphi \\in \\mathbf X_{m+1}$ (`remark_12_1_1_regularizing_mor`, through the pull-back projection, a strong bundle map). Germs: `IsScFredholmGerm` at each smooth $x$ (`remark_12_1_1_germ`).",
     "decls": [
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_obj",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_mor",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.remark_12_1_1_germ"
+     "Chapter12/CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_obj",
+     "Chapter12/CompactnessEp · EpStrongBundle.remark_12_1_1_regularizing_mor",
+     "Chapter12/CompactnessEp · EpStrongBundle.remark_12_1_1_germ"
     ]
    },
    "chips": [
@@ -81,16 +81,16 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_2_2 (h : X.HasParacompactOrbitSpace) : ∃ N, E.IsAuxNorm N`, and the form `SEP.theorem_12_2_2`. The proof follows the text's three steps: average a local norm over $G_x$ on $U(x)$ (`avgNorm`), transport it to the saturation (`transNorm`, invariant under all morphisms by `transNorm_μ`), glue with a partition of unity of $|X|$ (`isAuxNorm_glueNorm`).",
     "decls": [
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.theorem_12_2_2",
-     "Chapter12/P3N_AuxNormEp · SEP.theorem_12_2_2",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.avgNorm",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isLocalAuxNorm_avgNorm",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.avgNorm_actOne",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.transNorm",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isLocalAuxNorm_transNorm",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.transNorm_μ",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.glueNorm",
-     "Chapter12/P3N_AuxNormEp · EpStrongBundle.isAuxNorm_glueNorm"
+     "Chapter12/AuxNormEp · EpStrongBundle.theorem_12_2_2",
+     "Chapter12/AuxNormEp · SEP.theorem_12_2_2",
+     "Chapter12/AuxNormEp · EpStrongBundle.avgNorm",
+     "Chapter12/AuxNormEp · EpStrongBundle.isLocalAuxNorm_avgNorm",
+     "Chapter12/AuxNormEp · EpStrongBundle.avgNorm_actOne",
+     "Chapter12/AuxNormEp · EpStrongBundle.transNorm",
+     "Chapter12/AuxNormEp · EpStrongBundle.isLocalAuxNorm_transNorm",
+     "Chapter12/AuxNormEp · EpStrongBundle.transNorm_μ",
+     "Chapter12/AuxNormEp · EpStrongBundle.glueNorm",
+     "Chapter12/AuxNormEp · EpStrongBundle.isAuxNorm_glueNorm"
     ]
    },
    "chips": [
@@ -113,10 +113,10 @@
    "lean": {
     "statement": "`EpGroupoid.IsContPartitionOfUnity β`, with fields `continuous`, `mem_Icc`, `map_mor`, `locallyFinite` and `sum_eq_one` (as `finsum`). Both directions of the remark: `isContPartitionOfUnity_comp_π` (Mathlib `PartitionOfUnity` on the orbit space composed with $\\pi$) and `IsContPartitionOfUnity.descend` (a `PartitionOfUnity` on $|X|$ with $\\beta'_i(\\pi y) = \\beta_i(y)$).",
     "decls": [
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity",
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.isContPartitionOfUnity_comp_π",
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity.descend",
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.isSubordinate_comp_π"
+     "Chapter12/AuxNormEp · EpGroupoid.IsContPartitionOfUnity",
+     "Chapter12/AuxNormEp · EpGroupoid.isContPartitionOfUnity_comp_π",
+     "Chapter12/AuxNormEp · EpGroupoid.IsContPartitionOfUnity.descend",
+     "Chapter12/AuxNormEp · EpGroupoid.isSubordinate_comp_π"
     ]
    },
    "chips": [
@@ -139,7 +139,7 @@
    "lean": {
     "statement": "`IsContPartitionOfUnity.IsSubordinate X U`: `∀ i, tsupport (β i) ⊆ U i`.",
     "decls": [
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.IsContPartitionOfUnity.IsSubordinate"
+     "Chapter12/AuxNormEp · EpGroupoid.IsContPartitionOfUnity.IsSubordinate"
     ]
    },
    "chips": [
@@ -159,7 +159,7 @@
    "lean": {
     "statement": "`EpGroupoid.proposition_12_2_5`: for `X.HasParacompactOrbitSpace` and saturated open $U_i$ covering $X$ there is a continuous partition of unity subordinate to $(U_i)$.",
     "decls": [
-     "Chapter12/P3N_AuxNormEp · EpGroupoid.proposition_12_2_5"
+     "Chapter12/AuxNormEp · EpGroupoid.proposition_12_2_5"
     ]
    },
    "chips": [
@@ -181,9 +181,9 @@
    "lean": {
     "statement": "`EpGroupoid.theorem_12_2_6 B x`: there are $U'$, $U''$ and a natural representation `R : X.NaturalRep x` with `R.U = U''`, $U'$ open, $x \\in U'$, and (1)–(5): (2) $\\Phi(g)(U') = U'$ for $g \\in G_x$; (3) $U''$ lies in the base domain of one strong bundle chart compatible with the atlas; (4) with sequences and a strictly monotone reindexing.",
     "decls": [
-     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.theorem_12_2_6",
-     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.exists_subseq_of_isProperMap",
-     "Chapter12/P3N_GoodNeighborhood · EpGroupoid.NaturalRep.image_Φ_eq"
+     "Chapter12/GoodNeighborhood · EpGroupoid.theorem_12_2_6",
+     "Chapter12/GoodNeighborhood · EpGroupoid.exists_subseq_of_isProperMap",
+     "Chapter12/GoodNeighborhood · EpGroupoid.NaturalRep.image_Φ_eq"
     ]
    },
    "chips": [
@@ -205,24 +205,24 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_2_7 (hX : X.IsTame) (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N)`: there is $\\tilde N$ with `E.IsAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. It is `theorem_12_2_7_hyp` (the global part) with its hypothesis `HasLocalExtensions X B N` discharged by `hasLocalExtensions_of_isTame hX hN`. The local step is the Part I theorem `StrongBundle.exists_localExtension_of_isTame (hP : PX.IsTame)`: for $N$ continuous on $W_{0,1}|\\partial X$, a seminorm on the fibres over $\\partial X$ and with condition (2) for sequences in $\\partial X$, every $x_0 \\in \\partial X$ has an open $V \\ni x_0$ and a local auxiliary norm $M$ on $V$ with $M = N$ over $V \\cap \\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$.",
     "decls": [
-     "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
-     "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm",
-     "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
-     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift",
-     "Chapter12/P3E_AuxNormLocalExtension · minCoord",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp_witness",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.IsAuxNormOn",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.IsAuxNorm.isAuxNormOn",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.HasLocalExtensions",
-     "Chapter12/P3N_AuxNormExtension · EpStrongBundle.hasLocalExtensions_of_isAuxNorm",
-     "Chapter12/P3N_AuxNormExtension · EpGroupoid.tgt_mem_boundary_iff",
-     "Chapter12/P3N_AuxNormExtension · EpGroupoid.isOpen_compl_boundary",
-     "Chapter12/P3N_AuxNormExtension · StrongBundle.IsLocalAuxNorm.mono"
+     "Chapter12/AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
+     "Chapter12/AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.retractNorm",
+     "Chapter12/AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
+     "Chapter12/AuxNormLocalExtension · boundaryShift",
+     "Chapter12/AuxNormLocalExtension · minCoord",
+     "Chapter12/AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp",
+     "Chapter12/AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp_witness",
+     "Chapter12/AuxNormExtension · EpStrongBundle.IsAuxNormOn",
+     "Chapter12/AuxNormExtension · EpStrongBundle.IsAuxNorm.isAuxNormOn",
+     "Chapter12/AuxNormExtension · EpStrongBundle.HasLocalExtensions",
+     "Chapter12/AuxNormExtension · EpStrongBundle.hasLocalExtensions_of_isAuxNorm",
+     "Chapter12/AuxNormExtension · EpGroupoid.tgt_mem_boundary_iff",
+     "Chapter12/AuxNormExtension · EpGroupoid.isOpen_compl_boundary",
+     "Chapter12/AuxNormExtension · StrongBundle.IsLocalAuxNorm.mono"
     ]
    },
    "chips": [
@@ -246,10 +246,10 @@
    "lean": {
     "statement": "`EpGroupoid.AdmitsBumpFunctions`, the printed form (`f ≠ 0`, `tsupport f ⊆ U`). The variant with $f(x) \\ne 0$, the project's reading of Part I's Definition 5.3.1, is `AdmitsBumpFunctionsPointwise`; it implies the printed form (`AdmitsBumpFunctionsPointwise.weak`). Witness: the trivial ep-groupoid on $\\mathbb R^n$ (`admitsBumpFunctionsPointwise_trivial_rn`).",
     "decls": [
-     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctions",
-     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise",
-     "Chapter12/P3S_BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise.weak",
-     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+     "Chapter12/BumpEp · EpGroupoid.AdmitsBumpFunctions",
+     "Chapter12/BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise",
+     "Chapter12/BumpEp · EpGroupoid.AdmitsBumpFunctionsPointwise.weak",
+     "Chapter12/BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
     ]
    },
    "chips": [
@@ -272,12 +272,12 @@
    "lean": {
     "statement": "`EpGroupoid.theorem_12_3_2_1`: `X.AdmitsBumpFunctionsPointwise ↔ X.PObj.AdmitsBumpFunctions` (pointwise on both sides). `theorem_12_3_2_1_weak`: `X.AdmitsBumpFunctions ↔ X.PObj.AdmitsBumpFunctionsWeak` (\"not identically 0\" on both sides). No hypothesis.",
     "decls": [
-     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_1",
-     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_1_weak",
-     "Chapter12/P3S_BumpEp · EpGroupoid.exists_objBump_of_epBump",
-     "Chapter12/P3S_BumpEp · EpGroupoid.exists_epBump_of_objBump",
-     "Chapter12/P3S_BumpEp · EpGroupoid.exists_natAverage",
-     "Chapter12/P3S_BumpEp · EpGroupoid.exists_invariant_extension"
+     "Chapter12/BumpEp · EpGroupoid.theorem_12_3_2_1",
+     "Chapter12/BumpEp · EpGroupoid.theorem_12_3_2_1_weak",
+     "Chapter12/BumpEp · EpGroupoid.exists_objBump_of_epBump",
+     "Chapter12/BumpEp · EpGroupoid.exists_epBump_of_objBump",
+     "Chapter12/BumpEp · EpGroupoid.exists_natAverage",
+     "Chapter12/BumpEp · EpGroupoid.exists_invariant_extension"
     ]
    },
    "chips": [
@@ -301,8 +301,8 @@
    "lean": {
     "statement": "`EpGroupoid.theorem_12_3_2_2`: from `X.AdmitsBumpFunctionsPointwise`, an sc-smooth $f$ with values in $[0,1]$, $f(x) = 1$, `tsupport f ⊆ U` and $f(s\\varphi) = f(t\\varphi)$. Witness of the hypothesis: `admitsBumpFunctionsPointwise_trivial_rn`.",
     "decls": [
-     "Chapter12/P3S_BumpEp · EpGroupoid.theorem_12_3_2_2",
-     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+     "Chapter12/BumpEp · EpGroupoid.theorem_12_3_2_2",
+     "Chapter12/BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
     ]
    },
    "chips": [
@@ -325,12 +325,12 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_3_3`, with `X.AdmitsBumpFunctionsPointwise`, `X.HasParacompactOrbitSpace`, `E.IsAuxNorm N`, $x$ smooth, $e$ smooth with $P(e) = x$ and $\\mu(g, e) = e$ for $g \\in G_x$, $O$ open with $\\pi(x) \\in O$, $\\varepsilon > 0$: $e \\in W_{0,1}$ and there is $\\sigma$ with `E.IsScPlusSectionFunctor σ`, support in $\\pi^{-1}(O)$, $\\sigma(x) = e$ and $N(\\sigma(y)) \\le N(e) + \\varepsilon$.",
     "decls": [
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.theorem_12_3_3",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.exists_equivariant_average",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natTerm",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natTerm_tgt",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.exists_isScSmoothOn_one_secAct",
-     "Chapter12/P3S_BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.theorem_12_3_3",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.exists_equivariant_average",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natTerm",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natTerm_tgt",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.exists_isScSmoothOn_one_secAct",
+     "Chapter12/BumpEp · EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn"
     ]
    },
    "chips": [
@@ -354,7 +354,7 @@
    "lean": {
     "statement": "`EpStrongBundle.remark_12_3_4`: for every functorial section $\\sigma$ and $g \\in G_x$, $\\mu(g, \\sigma(x)) = \\sigma(x)$, so the invariance hypothesis of Theorem 12.3.3 is necessary.",
     "decls": [
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.remark_12_3_4"
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.remark_12_3_4"
     ]
    },
    "chips": [
@@ -376,11 +376,11 @@
    "lean": {
     "statement": "`EpStrongBundle.remark_12_3_5`: for `R : NaturalRep x`, `closure V ⊆ R.U` proper, $\\sigma$ sc⁺, equivariant on the morphisms of $U(x)$, with support in `closure V`: `natExtension E R` is an sc⁺-section functor equal to $\\sigma$ on $U(x)$, supported in the saturation of the support of $\\sigma$, and every bound $N(\\sigma) \\le b$ passes to it.",
     "decls": [
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.remark_12_3_5",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_eq",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_isFunctorial",
-     "Chapter12/P3S_ScPlusSectionFunctor · EpStrongBundle.natExtension_eq_zero"
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.remark_12_3_5",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natExtension",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natExtension_eq",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natExtension_isFunctorial",
+     "Chapter12/ScPlusSectionFunctor · EpStrongBundle.natExtension_eq_zero"
     ]
    },
    "chips": [
@@ -402,16 +402,16 @@
    "lean": {
     "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff_p3x`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
     "decls": [
-     "Chapter12/P3B_LocalBoundaryExtension · retractBoundary",
-     "Chapter12/P3B_LocalBoundaryExtension · IsScPlusOnFaceNear",
-     "Chapter12/P3B_LocalBoundaryExtension · IsBoundaryScPlusSectionOn",
-     "Chapter12/P3B_LocalBoundaryExtension · mem_retractBoundary_iff",
-     "Chapter12/P3B_LocalBoundaryExtension · isBoundaryScPlusSectionOn_zero",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.IsBoundaryScPlusSection",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero",
-     "Chapter12/P3X_ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff_p3x"
+     "Chapter12/LocalBoundaryExtension · retractBoundary",
+     "Chapter12/LocalBoundaryExtension · IsScPlusOnFaceNear",
+     "Chapter12/LocalBoundaryExtension · IsBoundaryScPlusSectionOn",
+     "Chapter12/LocalBoundaryExtension · mem_retractBoundary_iff",
+     "Chapter12/LocalBoundaryExtension · isBoundaryScPlusSectionOn_zero",
+     "Chapter5/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero",
+     "Chapter12/ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff_p3x"
     ]
    },
    "chips": [
@@ -434,16 +434,16 @@
    "lean": {
     "statement": "`proposition_12_3_7` (book form): for $V_0$ open, $x_0 \\in \\partial O \\cap V_0$ and the face condition on $\\partial O \\cap V_0$, an open $V \\ni x_0$ with $O \\cap V$ a retract and $\\tilde s$ sc⁺ on $O \\cap V$ equal to $s$ on $\\partial O \\cap V$. Stronger: `proposition_12_3_7_of_faces_at` needs the face condition only at $x_0$, with the explicit extension `boundaryExtension`, which agrees with the text's formula (`boundaryExtension_toBase_snd`). Witness with $\\partial O \\ne \\emptyset$: `proposition_12_3_7_nonvacuous`.",
     "decls": [
-     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7",
-     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7_of_faces_at",
-     "Chapter12/P3B_LocalBoundaryExtension · proposition_12_3_7_nonvacuous",
-     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension",
-     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_toBase_snd",
-     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_fst",
-     "Chapter12/P3B_LocalBoundaryExtension · boundaryExtension_mem",
-     "Chapter12/P3B_LocalBoundaryExtension · exists_isScSmooth_faceTerm",
-     "Chapter12/P3B_LocalBoundaryExtension · sum_powerset_erase_empty_alternating",
-     "Chapter12/P3B_LocalBoundaryExtension · cornerKill_insert_of_coord_eq_zero"
+     "Chapter12/LocalBoundaryExtension · proposition_12_3_7",
+     "Chapter12/LocalBoundaryExtension · proposition_12_3_7_of_faces_at",
+     "Chapter12/LocalBoundaryExtension · proposition_12_3_7_nonvacuous",
+     "Chapter12/LocalBoundaryExtension · boundaryExtension",
+     "Chapter12/LocalBoundaryExtension · boundaryExtension_toBase_snd",
+     "Chapter12/LocalBoundaryExtension · boundaryExtension_fst",
+     "Chapter12/LocalBoundaryExtension · boundaryExtension_mem",
+     "Chapter12/LocalBoundaryExtension · exists_isScSmooth_faceTerm",
+     "Chapter12/LocalBoundaryExtension · sum_powerset_erase_empty_alternating",
+     "Chapter12/LocalBoundaryExtension · cornerKill_insert_of_coord_eq_zero"
     ]
    },
    "chips": [
@@ -466,11 +466,11 @@
    "lean": {
     "statement": "`corollary_12_3_8` for a finite group $G$ with `A : LocalBundleAction G C O K` (an action by sc-smooth maps of $O$ with an sc-smooth, fibre-linear lift to $K[1]$ covering it, unit and composition laws), with `hfix` ($G$ fixes $x_0$), $\\partial O \\cap V_0$ invariant, the face condition and equivariance of $s$ there: an open invariant $V \\ni x_0$ and $\\hat s$ (`LocalBundleAction.average` of the extension of Proposition 12.3.7), sc⁺ on $O \\cap V$, equivariant, equal to $s$ on $\\partial O \\cap V$. Witness: `LocalBundleAction.trivial`.",
     "decls": [
-     "Chapter12/P3B_LocalBoundaryExtension · corollary_12_3_8",
-     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction",
-     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction.trivial",
-     "Chapter12/P3B_LocalBoundaryExtension · LocalBundleAction.average",
-     "Chapter12/P3B_LocalBoundaryExtension · mem_strongShiftOne_sum_smul"
+     "Chapter12/LocalBoundaryExtension · corollary_12_3_8",
+     "Chapter12/LocalBoundaryExtension · LocalBundleAction",
+     "Chapter12/LocalBoundaryExtension · LocalBundleAction.trivial",
+     "Chapter12/LocalBoundaryExtension · LocalBundleAction.average",
+     "Chapter12/LocalBoundaryExtension · mem_strongShiftOne_sum_smul"
     ]
    },
    "chips": [
@@ -493,9 +493,9 @@
    "lean": {
     "statement": "`EpStrongBundle.HasCompactSolutionSetEp`, `IsProperFunctor`, `IsProperLtInftyFunctor`, with Chapter 8's auxiliary norms and Part I's `AuxLe` for $N(f(x)) \\le C$.",
     "decls": [
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.HasCompactSolutionSetEp",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperFunctor",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor"
+     "Chapter12/CompactnessEp · EpStrongBundle.HasCompactSolutionSetEp",
+     "Chapter12/CompactnessEp · EpStrongBundle.IsProperFunctor",
+     "Chapter12/CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor"
     ]
    },
    "chips": [
@@ -515,12 +515,12 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_4_2 (hf : E.IsScFredholmSectionFunctor f) (_hpara : X.HasParacompactOrbitSpace)`: `List.TFAE [IsProperFunctor, HasCompactSolutionSetEp, IsProperLtInftyFunctor]`.",
     "decls": [
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.theorem_12_4_2",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.isProperLtInftyFunctor_of_hasCompactSolutionSetEp",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperFunctor.hasCompactSolutionSetEp",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor.isProperFunctor",
-     "Chapter12/P3S_CompactnessEp · EpStrongBundle.auxLe_tgt_of_auxLe_src",
-     "Chapter12/P3S_CompactnessEp · exists_nhds_isCompact_closure_auxLe"
+     "Chapter12/CompactnessEp · EpStrongBundle.theorem_12_4_2",
+     "Chapter12/CompactnessEp · EpStrongBundle.isProperLtInftyFunctor_of_hasCompactSolutionSetEp",
+     "Chapter12/CompactnessEp · EpStrongBundle.IsProperFunctor.hasCompactSolutionSetEp",
+     "Chapter12/CompactnessEp · EpStrongBundle.IsProperLtInftyFunctor.isProperFunctor",
+     "Chapter12/CompactnessEp · EpStrongBundle.auxLe_tgt_of_auxLe_src",
+     "Chapter12/CompactnessEp · exists_nhds_isCompact_closure_auxLe"
     ]
    },
    "chips": [
@@ -543,9 +543,9 @@
    "lean": {
     "statement": "`EpGroupoid.lemma_12_4_4_1 (hA : X.IsSaturated A) : closure (π '' A) = π '' closure A`; `lemma_12_4_4_2 (hA : IsCompact (closure A))`, the same conclusion; `isClosed_image_π_of_isSaturated`.",
     "decls": [
-     "Chapter12/P3S_CompactnessEp · EpGroupoid.lemma_12_4_4_1",
-     "Chapter12/P3S_CompactnessEp · EpGroupoid.lemma_12_4_4_2",
-     "Chapter12/P3S_CompactnessEp · EpGroupoid.isClosed_image_π_of_isSaturated"
+     "Chapter12/CompactnessEp · EpGroupoid.lemma_12_4_4_1",
+     "Chapter12/CompactnessEp · EpGroupoid.lemma_12_4_4_2",
+     "Chapter12/CompactnessEp · EpGroupoid.isClosed_image_π_of_isSaturated"
     ]
    },
    "chips": [
@@ -567,23 +567,23 @@
    "lean": {
     "statement": "`lemma_12_5_1_one` (membership), `lemma_12_5_1_two` (`Set.BijOn (linMor …) (Lin x) (Lin x′)`), `lemma_12_5_1_three_unit`, `lemma_12_5_1_three_comp`; on orientations `orMor` with `orMor_comp`, `orMor_unit`, `orMor_inv`. $\\mathrm{Lin}$ is Part I's, read in chart points; $T\\varphi$ and $\\mu(\\varphi, \\cdot)$ are the chart identifications `morTx`, `morKx`, built from the local strong bundle isomorphism `morIso` of the sheet of $\\varphi$.",
     "decls": [
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_one",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_two",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_unit",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_comp",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.linMor",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morTx",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morKx",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.morTx_comp",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_comp",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_unit",
-     "Chapter12/P3O_OrientationBundleEp · EpStrongBundle.orMor_inv",
-     "Chapter12/P3O_PullChart · StrongBundle.LocalIso.pullPt",
-     "Chapter12/P3O_PullChart · StrongBundle.LocalIso.linSet_pullPt",
-     "Chapter12/P3O_MorphismIso · EpStrongBundle.morIso",
-     "Chapter12/P3O_MorphismIso · EpStrongBundle.eqOn_morIso",
-     "Chapter12/P3O_MorphismIso · EpStrongBundle.germAgree_morIso_comp"
+     "Chapter12/OrientationBundleEp · EpStrongBundle.lemma_12_5_1_one",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.lemma_12_5_1_two",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_unit",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.lemma_12_5_1_three_comp",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.linMor",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.morTx",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.morKx",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.morTx_comp",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.orMor",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.orMor_comp",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.orMor_unit",
+     "Chapter12/OrientationBundleEp · EpStrongBundle.orMor_inv",
+     "Chapter12/ChartPull · StrongBundle.LocalIso.pullPt",
+     "Chapter12/ChartPull · StrongBundle.LocalIso.linSet_pullPt",
+     "Chapter12/MorphismIso · EpStrongBundle.morIso",
+     "Chapter12/MorphismIso · EpStrongBundle.eqOn_morIso",
+     "Chapter12/MorphismIso · EpStrongBundle.germAgree_morIso_comp"
     ]
    },
    "chips": [
@@ -607,14 +607,14 @@
    "lean": {
     "statement": "`EpStrongBundle.definition_12_5_2 := OrSpace f hF.2`, Part I's orientation space of $f$ on the object M-polyfold, with `orProj`; exactly two points over each $x$ (`orProj_two`, with `hsec`); the topology is Part I's, characterized in V12.24. The action of morphisms as a relation: `OrRel` (an equivalence, `orRel_equivalence`), the orbit map `orbitProj : |O_f| → |X_∞|`.",
     "decls": [
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.definition_12_5_2",
-     "Chapter12/P3O_OrientationOrbit · orProj_two",
-     "Chapter12/P3O_OrientationOrbit · exists_other_or",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.OrRel",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.orRel_equivalence",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.orbitProj",
-     "Chapter12/P3O_OrientationOrbit · EpGroupoid.SmoothRel",
-     "Chapter12/P3O_OrientationOrbit · EpGroupoid.smoothRel_equivalence"
+     "Chapter12/OrientationOrbit · EpStrongBundle.definition_12_5_2",
+     "Chapter12/OrientationOrbit · orProj_two",
+     "Chapter12/OrientationOrbit · exists_other_or",
+     "Chapter12/OrientationOrbit · EpStrongBundle.OrRel",
+     "Chapter12/OrientationOrbit · EpStrongBundle.orRel_equivalence",
+     "Chapter12/OrientationOrbit · EpStrongBundle.orbitProj",
+     "Chapter12/OrientationOrbit · EpGroupoid.SmoothRel",
+     "Chapter12/OrientationOrbit · EpGroupoid.smoothRel_equivalence"
     ]
    },
    "chips": [
@@ -637,18 +637,18 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`.\n\nThe last sentence (Part III wave 5): `EpStrongBundle.theorem_12_5_3_push hX hbump hfT hF σ hx hx' hs hs'`: for a morphism $\\sigma : x \\to x'$ between smooth points and a continuous orientation over an open $V \\ni x$ (`IsContOrOn L V o`, Part I's transport $L$), there is an open $V' \\ni x'$ over which the section carried by the local isomorphism of the sheet of $\\sigma$ (`(E.morIso σ).pullOrx … o`) is a continuous orientation, with value $\\sigma_* o_x$ at $x'$ (`orMor`). `theorem_12_5_3_push_hyp` is the form with Part I's instance arguments and the explicit open set $t(\\text{sheet}) \\cap \\phi^{-1}(V)$; `pullOrx_morIso_eq_orMor`: the value of the carried section at $y'$ is $\\sigma'_* o_{s(\\sigma')}$ for the sheet morphism $\\sigma'$ through $y'$. General form: `StrongBundle.LocalIso.isContOrOn_pullOrx` (a local strong bundle isomorphism between bundles over two M-polyfolds carries continuous orientations), from `LocalIso.orxVia_comm_local` and `orxVia_comm` (the transport commutes with the isomorphism along every sc-smooth path in its domain, by the dyadic induction `scPath_induction_or`).",
     "decls": [
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.theorem_12_5_3_hyp",
-     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push",
-     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push_hyp",
-     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.pullOrx_morIso_tgt",
-     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.eqOn_morIso_of_functor",
-     "Chapter12/P3W5OR_Germ · EpStrongBundle.pullOrx_morIso_eq_orMor",
-     "Chapter12/P3W5OR_Germ · EpStrongBundle.germEq_morIso_sheet",
-     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
-     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm",
-     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm_local",
-     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia",
-     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.pullOrx"
+     "Chapter12/OrientationOrbit · EpStrongBundle.theorem_12_5_3_hyp",
+     "Chapter12/OrientationMorphismContinuity · EpStrongBundle.theorem_12_5_3_push",
+     "Chapter12/OrientationMorphismContinuity · EpStrongBundle.theorem_12_5_3_push_hyp",
+     "Chapter12/OrientationMorphismContinuity · EpStrongBundle.pullOrx_morIso_tgt",
+     "Chapter12/OrientationMorphismContinuity · EpStrongBundle.eqOn_morIso_of_functor",
+     "Chapter12/OrientationGerm · EpStrongBundle.pullOrx_morIso_eq_orMor",
+     "Chapter12/OrientationGerm · EpStrongBundle.germEq_morIso_sheet",
+     "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.isContOrOn_pullOrx",
+     "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.orxVia_comm",
+     "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.orxVia_comm_local",
+     "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.orxVia",
+     "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.pullOrx"
     ]
    },
    "chips": [
@@ -672,7 +672,7 @@
    "lean": {
     "statement": "`EpStrongBundle.definition_12_5_4 t o`: `Continuous[t] (orSec o)` and `orMor φ (o x) = o x′` for every morphism $\\varphi : x \\to x'$ between smooth points, for a topology `t` on $O_f$ (Part I's, by V12.24).",
     "decls": [
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.definition_12_5_4"
+     "Chapter12/OrientationOrbit · EpStrongBundle.definition_12_5_4"
     ]
    },
    "chips": [
@@ -694,15 +694,15 @@
    "lean": {
     "statement": "`EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\\sigma|$, a section $o$ of $\\sigma$ with $\\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`.\n\n(⇐) with continuity (Part III wave 5): `EpStrongBundle.proposition_12_5_6_mpr_hyp hX hbump hfT hF h₂ hs`: with Part I's hypotheses, `IsTwoToOne` and a continuous section $s$ of $|\\sigma|$ (quotient topologies on $|O_f|$ and $|X_\\infty|$, Part I's `orTopology` on $O_f$), there is $o$ with `definition_12_5_4 hF hsec (orTopology …) o` (continuous and invariant) and $|(x, o_x)| = s(|x|)$. `proposition_12_5_6_mpr_hyp'` is the form with instance arguments. Steps: `eq_of_quot_eq_of_isTwoToOne`, `orMor_isotropy_of_isTwoToOne` ($G_x$ fixes the orientations at $x$), `exists_nhds_orMor_eq_hyp` (near $x_0$ every morphism maps a continuous $\\hat o$ to itself; natural representation, finiteness of $G_{x_0}$, the last sentence of Theorem 12.5.3), `isOpen_orSat_hyp`.",
     "decls": [
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mp",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mpr_invariant",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.IsTwoToOne",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp'",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.exists_nhds_orMor_eq_hyp",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.isOpen_orSat_hyp",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.orMor_isotropy_of_isTwoToOne",
-     "Chapter12/P3W5OR_Orientable · EpStrongBundle.eq_of_quot_eq_of_isTwoToOne"
+     "Chapter12/OrientationOrbit · EpStrongBundle.proposition_12_5_6_mp",
+     "Chapter12/OrientationOrbit · EpStrongBundle.proposition_12_5_6_mpr_invariant",
+     "Chapter12/OrientationOrbit · EpStrongBundle.IsTwoToOne",
+     "Chapter12/OrientationFromSection · EpStrongBundle.proposition_12_5_6_mpr_hyp",
+     "Chapter12/OrientationFromSection · EpStrongBundle.proposition_12_5_6_mpr_hyp'",
+     "Chapter12/OrientationFromSection · EpStrongBundle.exists_nhds_orMor_eq_hyp",
+     "Chapter12/OrientationFromSection · EpStrongBundle.isOpen_orSat_hyp",
+     "Chapter12/OrientationFromSection · EpStrongBundle.orMor_isotropy_of_isTwoToOne",
+     "Chapter12/OrientationFromSection · EpStrongBundle.eq_of_quot_eq_of_isTwoToOne"
     ]
    },
    "chips": [
@@ -726,10 +726,10 @@
    "lean": {
     "statement": "`StrongBundle.isAuxNorm_of_tendsto`: a continuous fibrewise seminorm with property (2) of Definition 5.1.1 is an auxiliary norm, since near each point it is squeezed between multiples of the chart norm $|\\cdot|_1$.",
     "decls": [
-     "Chapter12/P3N_AuxNormEp · StrongBundle.isAuxNorm_of_tendsto",
-     "Chapter12/P3N_AuxNormEp · StrongBundle.exists_norm_liftOne_le_of_tendsto",
-     "Chapter12/P3N_AuxNormEp · StrongBundle.IsFiberSeminorm",
-     "Chapter12/P3N_AuxNormEp · StrongBundle.TendstoZeroOne"
+     "Chapter12/AuxNormEp · StrongBundle.isAuxNorm_of_tendsto",
+     "Chapter12/AuxNormEp · StrongBundle.exists_norm_liftOne_le_of_tendsto",
+     "Chapter12/AuxNormEp · StrongBundle.IsFiberSeminorm",
+     "Chapter12/AuxNormEp · StrongBundle.TendstoZeroOne"
     ]
    },
    "chips": [
@@ -749,7 +749,7 @@
    "lean": {
     "statement": "`EpStrongBundle.HasReflexiveFibers E` is `B.HasReflexiveFibers`, Part I's Definition 5.1.4 (V5.77) for the object bundle $W \\to X$.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.HasReflexiveFibers"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.HasReflexiveFibers"
     ]
    },
    "chips": [
@@ -771,8 +771,8 @@
    "lean": {
     "statement": "`EpStrongBundle.MixedTendsto E w y` is `B.MixedTendsto w y` (Part I's Definition 5.1.6, V5.79); `definition_12_2_8` unfolds it (`Iff.rfl`).",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.MixedTendsto",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.definition_12_2_8"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.MixedTendsto",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.definition_12_2_8"
     ]
    },
    "chips": [],
@@ -792,12 +792,12 @@
    "lean": {
     "statement": "`EpStrongBundle.remark_12_2_9`: for $w_k \\to^m w$ (and reflexive fibres): (i) weak convergence in every compatible chart around $P(w)$ with reflexive $F_1$; (ii) $w_k \\to w$ in $W$; (iii) for every sc-smooth local section $\\alpha$ of $s$ on an open $S \\ni P(w)$, $\\mu(\\alpha(Pw_k), w_k) \\to^m \\mu(\\alpha(Pw), w)$ (`mixedTendsto_actOne`; pointwise form at a morphism `exists_mixedTendsto_μ`).",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_9",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedTendsto_actOne",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.exists_mixedTendsto_μ",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.mixedTendsto_of_bounded",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedTendsto.exists_eventually_le",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.exists_le_mul_auxNorm"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_9",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.mixedTendsto_actOne",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.exists_mixedTendsto_μ",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.mixedTendsto_of_bounded",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedTendsto.exists_eventually_le",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.exists_le_mul_auxNorm"
     ]
    },
    "chips": [
@@ -819,9 +819,9 @@
    "lean": {
     "statement": "`EpStrongBundle.IsReflexiveAuxNorm E N`: a structure extending `E.IsAuxNorm N` (Definition 12.2.1 = 8.3.5, continuity and (0)–(2)) with the field `le_liminf` (the liminf in `EReal`). `IsReflexiveAuxNorm.toStrong` gives Part I's Definition 5.1.7; `isReflexiveAuxNorm_of_mixedLscAt`.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm.toStrong",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_of_mixedLscAt"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm.toStrong",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_of_mixedLscAt"
     ]
    },
    "chips": [
@@ -843,14 +843,14 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_2_11 E h hB` (the three clauses), with the parts `theorem_12_2_11_exists`, `theorem_12_2_11_mul`, `theorem_12_2_11_sandwich`. The hypotheses are exactly `X.HasParacompactOrbitSpace` and `E.HasReflexiveFibers`.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_exists",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_mul",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_sandwich",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_avgNorm",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_transNorm",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_glueNorm",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_glueNorm"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_exists",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_mul",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_sandwich",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_avgNorm",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_transNorm",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_glueNorm",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_glueNorm"
     ]
    },
    "chips": [
@@ -873,11 +873,11 @@
    "lean": {
     "statement": "`remark_12_2_12_1` (as printed); `remark_12_2_12_2` (with $|X|$ paracompact: a continuous $f > 0$ with $f(s\\varphi) = f(t\\varphi)$ and $N_1 \\le (f \\circ P) N_2$); `remark_12_2_12_3` ($U$ open, $N \\ge 0$ and mixed-lsc over $U$, $f \\ge 0$ continuous: the liminf inequality for $\\tilde N = \\mathbf 1_U f N$).",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_1",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_2",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_3",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.mul_comp"
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_1",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_2",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_3",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt.mul_comp"
     ]
    },
    "chips": [
@@ -899,22 +899,22 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_2_13 (hX : X.IsTame) (h : X.HasParacompactOrbitSpace) (hB : E.HasReflexiveFibers) (hN : E.IsReflexiveAuxNormOn X.PObj.boundary N) : ∃ Ñ, E.IsReflexiveAuxNorm Ñ ∧ ∀ w, P (B.oneVal w) ∈ X.PObj.boundary → Ñ w = N w`. It is `theorem_12_2_13_hyp` with `hloc` discharged by `hasReflexiveLocalExtensions_of_isTame hX hB hN`. The local step is the Part I theorem `StrongBundle.exists_reflexiveLocalExtension_of_isTame (hP : PX.IsTame) (hB : B.HasReflexiveFibers)`. Suppose $N$ is continuous over $\\partial X$, a fibre seminorm over $\\partial X$, satisfies condition (2) for sequences in $\\partial X$, and is lsc along mixed convergent sequences in $\\partial X$. Then every $x_0\\in\\partial X$ has an open $V\\ni x_0$ and a local auxiliary norm $M$ on $V$ such that: $M$ is lsc along mixed convergent sequences (`MixedLscAt`) at every point over $V$; $M=N$ over $V\\cap\\partial X$. $M$ is wave 2's `retractNorm` (E), taken in a strong bundle chart around $x_0$ with reflexive $F_1$. Such a chart is supplied by `HasReflexiveFibers`.\n\nThe global part is `theorem_12_2_13_hyp` (with `hloc : HasReflexiveLocalExtensions X B N`), now discharged; its witness `theorem_12_2_13_hyp_witness` stays.",
     "decls": [
-     "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.weakTendsto_chartFibMap",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_norm_chartFibMap_le",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.toBase_chartFibMap",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · WeakTendsto.sub",
-     "Chapter12/P3W3K_ReflexiveLocalExtension · TrivialBundle.theorem_12_2_13_witness",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.IsReflexiveAuxNormOn",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions.hasLocalExtensions",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isReflexiveAuxNorm",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp_witness",
-     "Chapter12/P3R2_ReflexiveAuxNormExtension · TrivialBundle.epBundle_reflexive_witness"
+     "Chapter12/ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
+     "Chapter12/ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
+     "Chapter12/ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
+     "Chapter12/ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm",
+     "Chapter12/ReflexiveLocalExtension · StrongBundle.weakTendsto_chartFibMap",
+     "Chapter12/ReflexiveLocalExtension · StrongBundle.exists_norm_chartFibMap_le",
+     "Chapter12/ReflexiveLocalExtension · StrongBundle.toBase_chartFibMap",
+     "Chapter12/ReflexiveLocalExtension · WeakTendsto.sub",
+     "Chapter12/ReflexiveLocalExtension · TrivialBundle.theorem_12_2_13_witness",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.IsReflexiveAuxNormOn",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions.hasLocalExtensions",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isReflexiveAuxNorm",
+     "Chapter12/ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp_witness",
+     "Chapter12/ReflexiveAuxNormExtension · TrivialBundle.epBundle_reflexive_witness"
     ]
    },
    "chips": [
@@ -937,22 +937,22 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_3_9 E (hB : B.IsTameBundle) (_hpara : X.HasParacompactOrbitSpace) (hpu : X.HasScPartitionsOfUnity) (hs : E.IsBoundaryScPlusSectionFunctor s) (hU : IsOpen U) (hUsat : X.IsSaturated U) (hbU : ∂X ⊆ U)`: (1) there is $\\tilde s$ with `E.IsScPlusSectionFunctor s̃`, `sectionSupport P s̃ ⊆ U` and $\\tilde s = s$ on $\\partial X$; (2) for every `E.IsAuxNorm N`, $\\delta > 0$ and $N(s(x)) < \\delta$ on $\\partial X$, the same with $N(\\tilde s(x)) \\le \\delta$ for all $x$. The cores `exists_extension_of_tameCharts`, `exists_extension_bounded_of_tameCharts` assume only that every object lies in a tame strong bundle chart. Witness of all hypotheses: `theorem_12_3_9_hypotheses_rn`.",
     "decls": [
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.theorem_12_3_9",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.theorem_12_3_9_hypotheses_rn",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_extension_of_tameCharts",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_extension_bounded_of_tameCharts",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_local_functor_extension",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_equivariant_average_p3x",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_glueSection",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isFunctorialSection_glueSection",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isFunctorialSection_sectionSmul_p3x",
-     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_fiberZero_p3x",
-     "Chapter12/P3X_ScPlusExtension · glueSection",
-     "Chapter12/P3X_ScPlusExtension · glueSection_eq_of",
-     "Chapter12/P3X_ScPlusExtension · sectionSupport_glueSection_subset",
-     "Chapter12/P3X_ScPlusExtension · isScPlusSection_glueSection",
-     "Chapter12/P3X_ScPlusExtension · EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity",
-     "Chapter12/P3X_ScPlusExtension · EpGroupoid.isSaturated_compl_boundary_p3x"
+     "Chapter12/ScPlusExtension · EpStrongBundle.theorem_12_3_9",
+     "Chapter12/ScPlusExtension · EpStrongBundle.theorem_12_3_9_hypotheses_rn",
+     "Chapter12/ScPlusExtension · EpStrongBundle.exists_extension_of_tameCharts",
+     "Chapter12/ScPlusExtension · EpStrongBundle.exists_extension_bounded_of_tameCharts",
+     "Chapter12/ScPlusExtension · EpStrongBundle.exists_local_functor_extension",
+     "Chapter12/ScPlusExtension · EpStrongBundle.exists_equivariant_average_p3x",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_glueSection",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isFunctorialSection_glueSection",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isFunctorialSection_sectionSmul_p3x",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_fiberZero_p3x",
+     "Chapter12/ScPlusExtension · glueSection",
+     "Chapter12/ScPlusExtension · glueSection_eq_of",
+     "Chapter12/ScPlusExtension · sectionSupport_glueSection_subset",
+     "Chapter12/ScPlusExtension · isScPlusSection_glueSection",
+     "Chapter12/ScPlusExtension · EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity",
+     "Chapter12/ScPlusExtension · EpGroupoid.isSaturated_compl_boundary_p3x"
     ]
    },
    "chips": [
@@ -977,8 +977,8 @@
    "lean": {
     "statement": "`EpStrongBundle.HasReflexiveLocalCompactnessEp E f`: for every `N` with `E.IsReflexiveAuxNorm N` and every `x` there is an open `U ∋ x` with `IsCompact (closure {y ∈ U | B.AuxLe N (f y) 1})`. `hasReflexiveLocalCompactnessEp_of_strong`: Part I's Definition 5.2.6 on the object bundle implies it.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.HasReflexiveLocalCompactnessEp",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.hasReflexiveLocalCompactnessEp_of_strong"
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.HasReflexiveLocalCompactnessEp",
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.hasReflexiveLocalCompactnessEp_of_strong"
     ]
    },
    "chips": [],
@@ -998,12 +998,12 @@
    "lean": {
     "statement": "`EpStrongBundle.proposition_12_4_5 (_hB) (hf : E.IsScSmoothSectionFunctor f) (_hreg)`: `List.TFAE [(1), (2), (3)]`; `proposition_12_4_5_of_functorial` for every section functor ($f(t\\varphi) = \\mu(\\varphi, f(s\\varphi))$).",
     "decls": [
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5_of_functorial",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.isSaturated_setOf_auxLe",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.isCompact_closure_of_isProperMap",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.exists_lift_tendsto",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.isSaturated_inter"
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5",
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5_of_functorial",
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.isSaturated_setOf_auxLe",
+     "Chapter12/ReflexiveCompactnessEp · EpGroupoid.isCompact_closure_of_isProperMap",
+     "Chapter12/ReflexiveCompactnessEp · EpGroupoid.exists_lift_tendsto",
+     "Chapter12/ReflexiveCompactnessEp · EpGroupoid.isSaturated_inter"
     ]
    },
    "chips": [
@@ -1026,8 +1026,8 @@
    "lean": {
     "statement": "`EpStrongBundle.theorem_12_4_6` with the book's hypotheses (`_hT : X.IsTame`, `_hpara`, `hB`, `hN : E.IsReflexiveAuxNorm N`, `E.IsScFredholmSectionFunctor f`, `E.HasCompactSolutionSetEp f`, `E.HasReflexiveLocalCompactnessEp f`, $U_\\partial = W' \\cap \\partial X$ with $W'$ open, `X.IsSaturated Ub`, $S_f \\cap \\partial X \\subseteq U_\\partial$, the compactness). `theorem_12_4_6_of_continuous`: for every continuous section functor, with local compactness only at the given $N$.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6",
-     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6_of_continuous"
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6",
+     "Chapter12/ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6_of_continuous"
     ]
    },
    "chips": [
@@ -1048,73 +1048,73 @@
     "statement": "Strong bundles over tame ep-groupoids, a generalized strong bundle isomorphism $\\bar{\\mathfrak f}$ over $\\mathfrak f$, an sc-Fredholm section functor $f$ of $W$ and its push-forward $f'$. (1) $\\bar{\\mathfrak f}$ induces a fibre-preserving homeomorphism $|O_f| \\to |O_{f'}|$ over $|X_\\infty| \\to |X'_\\infty|$, functorially. (2) A continuous orientation section $o$ of $\\sigma$ has a push-forward $\\bar{\\mathfrak f}_* o$, which is continuous. The proof works with a representative $W \\leftarrow V \\rightarrow W'$ of strong bundle equivalences."
    },
    "lean": {
-    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.\n\n(2) with continuity (Part III wave 5): `theorem_12_5_7_two_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT'' ho hoc`: for an invariant $o$ with `IsContOrOn L univ o`, the unique invariant $o'$ of `theorem_12_5_7_two_invariant` satisfies `IsContOrOn L' univ o'`; `theorem_12_5_7_two_cont` is the same without instance arguments. For one equivalence: `IsStrongBundleEquivalence.isContOrOn_pullOr_hyp` (`pullOr` keeps continuity), `isContOrOn_pushOr_hyp` (`pushOr` of an invariant continuous $o$ is continuous on all of $X'$, near $\\phi(a)$ by `LocalIso.isContOrOn_of_pullOrx`, near any $x'$ by a morphism and the last sentence of Theorem 12.5.3), `orEqv_eq_orxVia` (`orEqv b` is the orientation map of the local isomorphism at any $a$ with $b \\in U(a)$), `LocalIso.morVia_germ` (it depends only on the germ).\n\nPart III wave 7 (`Chapter12/P3W7W3_*`). (1) as printed: `theorem_12_5_7_one_homeo_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT''`: with Part I's topology on $O_f$, $O_{f'}$ (`orTopology`), the quotient topologies on $|O_f|$, $|O_{f'}|$, $|X_\\infty|$ and the topology of Theorem 2.3.10 on $X_\\infty$, there are homeomorphisms $F : |O_f| \\simeq_t |O_{f'}|$ and $G : |X_\\infty| \\simeq_t |X'_\\infty|$ with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$ (`theorem_12_5_7_one_homeo` without instance arguments). For one equivalence: `orbitOrHomeo`, `smoothOrbitHomeo`, from `continuous_orSpaceMap`, `isOpenMap_orSpaceMap`, `continuous_smoothMap`, `isOpenMap_smoothMap` (the local sc-diffeomorphisms `smoothFwd`/`smoothBwd` and the continuity of sc-smooth maps on $X_\\infty$, V12.47), `isOpen_orSat`, `isOpenMap_quotMk_or`. (2) as printed: `theorem_12_5_7_two_book_hyp … ho`, for $o$ with `E.definition_12_5_4 hF hsec (orTopology …) o` there is exactly one $o'$ with `E'.definition_12_5_4 … o'` corresponding to $o$ over $V$; the continuity of Definition 12.5.4 is passed to and from `IsContOrOn L univ` by Part I's `continuous_orSec_iff` (V12.48). Functoriality: `orEqv_comp` ($\\mathrm{orEqv}_{\\Psi\\circ\\Phi}(a) = \\mathrm{orEqv}_\\Phi(a) \\circ \\mathrm{orEqv}_\\Psi(\\phi a)$, from `eT_comp`, `eK_comp` and the three-term transfer `transferT_mpullPt₃`), `orbitOrMap_comp`, and `theorem_12_5_7_functorial` (with `_base`): for $W \\leftarrow V_1 \\rightarrow W'$, $W' \\leftarrow V_2 \\rightarrow W''$ and a middle $V_3$ with equivalences to $V_1$, $V_2$ and a strong bundle natural transformation (Definition 10.4.8) as in Chapter 10's weak fibred product, the map of the composite is the composite of the maps. Independence of the representative: `orEqv_nat` (invariance under a natural equivalence $T : \\Phi \\simeq \\Psi$, through `germ_nat`, `eT_nat`, `eK_nat`), `orbitOrMap_nat`, `theorem_12_5_7_refinement`, and `theorem_12_5_7_rep_indep` (with `_base`): two diagrams with a common refinement (Chapter 10's `SDiagram.Equiv`) give the same maps of $|O_f|$ and $|X_\\infty|$.",
+    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.\n\n(2) with continuity (Part III wave 5): `theorem_12_5_7_two_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT'' ho hoc`: for an invariant $o$ with `IsContOrOn L univ o`, the unique invariant $o'$ of `theorem_12_5_7_two_invariant` satisfies `IsContOrOn L' univ o'`; `theorem_12_5_7_two_cont` is the same without instance arguments. For one equivalence: `IsStrongBundleEquivalence.isContOrOn_pullOr_hyp` (`pullOr` keeps continuity), `isContOrOn_pushOr_hyp` (`pushOr` of an invariant continuous $o$ is continuous on all of $X'$, near $\\phi(a)$ by `LocalIso.isContOrOn_of_pullOrx`, near any $x'$ by a morphism and the last sentence of Theorem 12.5.3), `orEqv_eq_orxVia` (`orEqv b` is the orientation map of the local isomorphism at any $a$ with $b \\in U(a)$), `LocalIso.morVia_germ` (it depends only on the germ).\n\nPart III wave 7 (`Chapter12/OrientationEquivalenceComp`, `OrientationEquivalenceNatural`, `OrientationOrbitHomeo`, `OrientationRepresentativeIndep`, `OrientationTransferTheorem`). (1) as printed: `theorem_12_5_7_one_homeo_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT''`: with Part I's topology on $O_f$, $O_{f'}$ (`orTopology`), the quotient topologies on $|O_f|$, $|O_{f'}|$, $|X_\\infty|$ and the topology of Theorem 2.3.10 on $X_\\infty$, there are homeomorphisms $F : |O_f| \\simeq_t |O_{f'}|$ and $G : |X_\\infty| \\simeq_t |X'_\\infty|$ with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$ (`theorem_12_5_7_one_homeo` without instance arguments). For one equivalence: `orbitOrHomeo`, `smoothOrbitHomeo`, from `continuous_orSpaceMap`, `isOpenMap_orSpaceMap`, `continuous_smoothMap`, `isOpenMap_smoothMap` (the local sc-diffeomorphisms `smoothFwd`/`smoothBwd` and the continuity of sc-smooth maps on $X_\\infty$, V12.47), `isOpen_orSat`, `isOpenMap_quotMk_or`. (2) as printed: `theorem_12_5_7_two_book_hyp … ho`, for $o$ with `E.definition_12_5_4 hF hsec (orTopology …) o` there is exactly one $o'$ with `E'.definition_12_5_4 … o'` corresponding to $o$ over $V$; the continuity of Definition 12.5.4 is passed to and from `IsContOrOn L univ` by Part I's `continuous_orSec_iff` (V12.48). Functoriality: `orEqv_comp` ($\\mathrm{orEqv}_{\\Psi\\circ\\Phi}(a) = \\mathrm{orEqv}_\\Phi(a) \\circ \\mathrm{orEqv}_\\Psi(\\phi a)$, from `eT_comp`, `eK_comp` and the three-term transfer `transferT_mpullPt₃`), `orbitOrMap_comp`, and `theorem_12_5_7_functorial` (with `_base`): for $W \\leftarrow V_1 \\rightarrow W'$, $W' \\leftarrow V_2 \\rightarrow W''$ and a middle $V_3$ with equivalences to $V_1$, $V_2$ and a strong bundle natural transformation (Definition 10.4.8) as in Chapter 10's weak fibred product, the map of the composite is the composite of the maps. Independence of the representative: `orEqv_nat` (invariance under a natural equivalence $T : \\Phi \\simeq \\Psi$, through `germ_nat`, `eT_nat`, `eK_nat`), `orbitOrMap_nat`, `theorem_12_5_7_refinement`, and `theorem_12_5_7_rep_indep` (with `_base`): two diagrams with a common refinement (Chapter 10's `SDiagram.Equiv`) give the same maps of $|O_f|$ and $|X_\\infty|$.",
     "decls": [
-     "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
-     "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_bijective",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitProj_orbitOrMap",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_bijective",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pullOr",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pullOr",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pushOr",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_obj",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_unique",
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pullback_pushforward_witness",
-     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv",
-     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv_apply",
-     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orMor_orEqv",
-     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.locIso",
-     "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
-     "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont",
-     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pullOr_hyp",
-     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pushOr_hyp",
-     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.pullOr_eq_pullOrx",
-     "Chapter12/P3W5OR_EquivCont · StrongBundle.LocalIso.isContOrOn_of_pullOrx",
-     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.orEqv_eq_orxVia",
-     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso",
-     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo_hyp",
-     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo",
-     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book_hyp",
-     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.orbitOrHomeo",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitHomeo",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_orSpaceMap",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_orSpaceMap",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_smoothMap",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_smoothMap",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.isOpen_orSat",
-     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.isOpenMap_quotMk_or",
-     "Chapter12/P3W7W3_OrbitHomeo · EpGroupoid.isOpenMap_quotMk_smooth",
-     "Chapter12/P3W7W3_OrbitHomeo · MPolyfold.IsScDiffeoOn.smoothFwd",
-     "Chapter12/P3W7W3_OrbitHomeo · MPolyfold.IsScDiffeoOn.smoothBwd",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orEqv_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.eT_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.eK_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.pullback_comp_of",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orSpaceMap_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_comp",
-     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.compLocSet",
-     "Chapter12/P3W7W3_OrEqvComp · StrongBundle.LocalIso.transferT_mpullPt₃",
-     "Chapter12/P3W7W3_OrEqvComp · StrongBundle.LocalIso.transferK_mpullPt₃",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.orEqv_nat",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.germ_nat",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.eT_nat",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.eK_nat",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_nat",
-     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_nat",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_refine",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_refine",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement_base",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep_base",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
-     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial_base",
-     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
+     "Chapter12/OrientationNaturality · theorem_12_5_7_one_hyp",
+     "Chapter12/OrientationNaturality · theorem_12_5_7_two_invariant",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_bijective",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.orbitProj_orbitOrMap",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_bijective",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.pullOr",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pullOr",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pushOr",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_obj",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_unique",
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsStrongBundleEquivalence.pullback_pushforward_witness",
+     "Chapter12/OrientationEquivalenceStep · EpStrongBundle.IsStrongBundleEquivalence.orEqv",
+     "Chapter12/OrientationEquivalenceStep · EpStrongBundle.IsStrongBundleEquivalence.orEqv_apply",
+     "Chapter12/OrientationEquivalenceStep · EpStrongBundle.IsStrongBundleEquivalence.orMor_orEqv",
+     "Chapter12/OrientationEquivalenceStep · EpStrongBundle.IsStrongBundleEquivalence.locIso",
+     "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_hyp",
+     "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_cont",
+     "Chapter12/OrientationEquivalenceContinuity · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pullOr_hyp",
+     "Chapter12/OrientationEquivalenceContinuity · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pushOr_hyp",
+     "Chapter12/OrientationEquivalenceContinuity · EpStrongBundle.IsStrongBundleEquivalence.pullOr_eq_pullOrx",
+     "Chapter12/OrientationEquivalenceContinuity · StrongBundle.LocalIso.isContOrOn_of_pullOrx",
+     "Chapter12/OrientationGerm · EpStrongBundle.IsStrongBundleEquivalence.orEqv_eq_orxVia",
+     "Chapter12/OrientationGerm · EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso",
+     "Chapter12/OrientationTransferTheorem · theorem_12_5_7_one_homeo_hyp",
+     "Chapter12/OrientationTransferTheorem · theorem_12_5_7_one_homeo",
+     "Chapter12/OrientationTransferTheorem · theorem_12_5_7_two_book_hyp",
+     "Chapter12/OrientationTransferTheorem · theorem_12_5_7_two_book",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.orbitOrHomeo",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitHomeo",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_orSpaceMap",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_orSpaceMap",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_smoothMap",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_smoothMap",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.isOpen_orSat",
+     "Chapter12/OrientationOrbitHomeo · EpStrongBundle.isOpenMap_quotMk_or",
+     "Chapter12/OrientationOrbitHomeo · EpGroupoid.isOpenMap_quotMk_smooth",
+     "Chapter12/OrientationOrbitHomeo · MPolyfold.IsScDiffeoOn.smoothFwd",
+     "Chapter12/OrientationOrbitHomeo · MPolyfold.IsScDiffeoOn.smoothBwd",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.orEqv_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.eT_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.eK_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.pullback_comp_of",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.orSpaceMap_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_comp",
+     "Chapter12/OrientationEquivalenceComp · EpStrongBundle.IsStrongBundleEquivalence.compLocSet",
+     "Chapter12/OrientationEquivalenceComp · StrongBundle.LocalIso.transferT_mpullPt₃",
+     "Chapter12/OrientationEquivalenceComp · StrongBundle.LocalIso.transferK_mpullPt₃",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.orEqv_nat",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.germ_nat",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.eT_nat",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.eK_nat",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_nat",
+     "Chapter12/OrientationEquivalenceNatural · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_nat",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_refine",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_refine",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement_base",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep_base",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
+     "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial_base",
+     "Chapter12/ContinuousOrientationSection · isContOrOn_univ_iff_continuous"
     ]
    },
    "chips": [
@@ -1141,12 +1141,12 @@
    "lean": {
     "statement": "`StrongBundle.MixedLscAt B M y` (for $w_k \\to^m y$ and $\\varepsilon > 0$, eventually $M(y) - \\varepsilon < M(w_k)$), with `.le_liminf`, `.add`, `.const_mul`, `.mul_comp`, `.congr`, `mixedLscAt_finset_sum`, `mixedLscAt_const`, `mixedLscAt_of_nonpos`, `isReflexiveAuxNorm_of_mixedLscAt`, `IsReflexiveAuxNorm.mixedLscAt`; ep-groupoid form `mixedLscAt_comp_actOne`.",
     "decls": [
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.le_liminf",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.add",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.const_mul",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.mixedLscAt_finset_sum",
-     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_comp_actOne"
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt.le_liminf",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt.add",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.MixedLscAt.const_mul",
+     "Chapter12/ReflexiveAuxNormEp · StrongBundle.mixedLscAt_finset_sum",
+     "Chapter12/ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_comp_actOne"
     ]
    },
    "chips": [],
@@ -1166,13 +1166,13 @@
    "lean": {
     "statement": "`MPolyfold.exists_retraction_boundary (hP : P.IsTame) (hx₀ : x₀ ∈ P.boundary)`: there are an open $V \\ni x_0$ and $\\rho$, continuous on $V$, with values in $\\partial X$ and $\\rho = \\mathrm{id}$ on $V \\cap \\partial X$. Coordinates: `minCoord`, `boundaryShift` ($q$) with `coord_boundaryShift`, `mem_quadrant_boundaryShift`, `exists_coord_boundaryShift_eq_zero`, `boundaryShift_eq_self`, `continuous_boundaryShift`.",
     "decls": [
-     "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
-     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift",
-     "Chapter12/P3E_AuxNormLocalExtension · minCoord",
-     "Chapter12/P3E_AuxNormLocalExtension · one_le_degIndexWith_iff",
-     "Chapter12/P3E_AuxNormLocalExtension · coord_boundaryShift",
-     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift_eq_self",
-     "Chapter12/P3E_AuxNormLocalExtension · continuous_boundaryShift"
+     "Chapter12/AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
+     "Chapter12/AuxNormLocalExtension · boundaryShift",
+     "Chapter12/AuxNormLocalExtension · minCoord",
+     "Chapter12/AuxNormLocalExtension · one_le_degIndexWith_iff",
+     "Chapter12/AuxNormLocalExtension · coord_boundaryShift",
+     "Chapter12/AuxNormLocalExtension · boundaryShift_eq_self",
+     "Chapter12/AuxNormLocalExtension · continuous_boundaryShift"
     ]
    },
    "chips": [
@@ -1194,13 +1194,13 @@
    "lean": {
     "statement": "`StrongBundle.isLocalAuxNorm_retractNorm hc y₀ (hV : IsOpen V) (hVc : V ⊆ c.φ.source) (hρ : ContinuousOn ρ V) (hρA : MapsTo ρ V A) (hρc) hNc hNs hN2 : B.IsLocalAuxNorm V (retractNorm hc y₀ ρ N)` for any $A \\subseteq X$ and $N$ an auxiliary norm over $A$; `retractNorm_eq`: $N' = N$ over $V \\cap A$ where $\\rho = \\mathrm{id}$. Fibre transport `retractTransport` (linear), $A(u)$ = `chartFibMap`.",
     "decls": [
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractTransport",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.chartFibMap",
-     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLinearMap_chartFibMap",
-     "Chapter12/P3E_AuxNormLocalExtension · MChart.tendsto_of_tendsto_apply"
+     "Chapter12/AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.retractNorm",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.retractTransport",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.chartFibMap",
+     "Chapter12/AuxNormLocalExtension · StrongBundle.isLinearMap_chartFibMap",
+     "Chapter12/AuxNormLocalExtension · MChart.tendsto_of_tendsto_apply"
     ]
    },
    "chips": [
@@ -1222,8 +1222,8 @@
    "lean": {
     "statement": "`EpStrongBundle.IsOrInvariant E hF hsec o` (the morphism clause alone) and `definition_12_5_4_iff : definition_12_5_4 t o ↔ Continuous (orSec o) ∧ IsOrInvariant o` (`Iff.rfl`).",
     "decls": [
-     "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant",
-     "Chapter12/P3F_Naturality · EpStrongBundle.definition_12_5_4_iff"
+     "Chapter12/OrientationNaturality · EpStrongBundle.IsOrInvariant",
+     "Chapter12/OrientationNaturality · EpStrongBundle.definition_12_5_4_iff"
     ]
    },
    "chips": [],
@@ -1243,13 +1243,13 @@
    "lean": {
     "statement": "`StrongBundle.LocalIso.mpullPt`, `linSet_mpullPt`, `transferT_mpullPt`, `transferK_mpullPt`, `morPull`, `morVia`, `morVia_apply`, `morVia_eq` (independent of the auxiliary chart point); two-step composition `GermAgree₄`, `transferT_mpullPt₄`, `transferK_mpullPt₄`; `mpullPt_eq_pullPt` (`rfl`) relates it to wave 1's `pullPt`.",
     "decls": [
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.mpullPt",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.linSet_mpullPt",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.GermAgree₄",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.transferT_mpullPt₄",
-     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.mpullPt_eq_pullPt"
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.mpullPt",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.linSet_mpullPt",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.morVia",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.morVia_eq",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.GermAgree₄",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.transferT_mpullPt₄",
+     "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.mpullPt_eq_pullPt"
     ]
    },
    "chips": [],
@@ -1269,13 +1269,13 @@
    "lean": {
     "statement": "`isContOrOn_of_local_or (hU : IsOpen U) (h : ∀ x ∈ U, x ∈ smoothSet → ∃ V, x ∈ V ∧ IsContOrOn L V o) : IsContOrOn L U o`, for any `LocalTransport` $L$; `IsContOrOn.mono_or`, `IsContOrOn.congr_or`. `scPath_induction_or`: a property of sc-smooth paths that holds on short paths and passes from the two halves to the whole path holds for every path (dyadic induction with a Lebesgue number); `smoothTransPath_or`: the reparametrization by `Real.smoothTransition`.",
     "decls": [
-     "Chapter12/P3W5OR_PathInduction · isContOrOn_of_local_or",
-     "Chapter12/P3W5OR_PathInduction · IsContOrOn.mono_or",
-     "Chapter12/P3W5OR_PathInduction · IsContOrOn.congr_or",
-     "Chapter12/P3W5OR_PathInduction · scPath_induction_or",
-     "Chapter12/P3W5OR_PathInduction · smoothTransPath_or",
-     "Chapter12/P3W5OR_PathInduction · isScSmoothMap_smoothTransPath_or",
-     "Chapter12/P3W5OR_PathInduction · smoothTransPath_or_mem"
+     "Chapter12/DyadicPathInduction · isContOrOn_of_local_or",
+     "Chapter12/DyadicPathInduction · IsContOrOn.mono_or",
+     "Chapter12/DyadicPathInduction · IsContOrOn.congr_or",
+     "Chapter12/DyadicPathInduction · scPath_induction_or",
+     "Chapter12/DyadicPathInduction · smoothTransPath_or",
+     "Chapter12/DyadicPathInduction · isScSmoothMap_smoothTransPath_or",
+     "Chapter12/DyadicPathInduction · smoothTransPath_or_mem"
     ]
    },
    "chips": [
@@ -1297,11 +1297,11 @@
    "lean": {
     "statement": "`StrongBundle.LocalIso.GermEq L₁ L₃ b`: the base and bundle maps agree on an open $N \\ni b$. `LocalIso.morVia_germ` (from `mmorT_germ`, `mmorK_germ`); `EpGroupoid.Sheet.tgtInv_eq_near_or`: two sheets through $\\sigma$ have the same $(t|)^{-1}$ near $t(\\sigma)$. Companion of V12.44.",
     "decls": [
-     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.GermEq",
-     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.morVia_germ",
-     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.mmorT_germ",
-     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.mmorK_germ",
-     "Chapter12/P3W5OR_Germ · EpGroupoid.Sheet.tgtInv_eq_near_or"
+     "Chapter12/OrientationGerm · StrongBundle.LocalIso.GermEq",
+     "Chapter12/OrientationGerm · StrongBundle.LocalIso.morVia_germ",
+     "Chapter12/OrientationGerm · StrongBundle.LocalIso.mmorT_germ",
+     "Chapter12/OrientationGerm · StrongBundle.LocalIso.mmorK_germ",
+     "Chapter12/OrientationGerm · EpGroupoid.Sheet.tgtInv_eq_near_or"
     ]
    },
    "chips": [],
@@ -1319,12 +1319,12 @@
     "statement": "An sc-smooth map is sc⁰ in charts, so it is continuous $X_m \\to Y_m$ on every level and $X_\\infty \\to Y_\\infty$; the text uses this without comment."
    },
    "lean": {
-    "statement": "`MPolyfold.IsScSmoothOn.continuousOn_level_comp`: if $u$ is continuous into $X_m$ and $v = f \\circ u$ into $Y_m$, then $v$ is continuous. `MPolyfold.IsScSmoothOn.continuousOn_smoothLevel`: the map $X_\\infty \\cap U \\to Y_\\infty$ is continuous; `MPolyfold.IsScSmoothMap.continuous_smoothLevel`; `MPolyfold.continuousAt_levelLift` (a chart is continuous on level $m$). A new Part I fact (Part III wave 7, `Chapter5/P3W7W3_SmoothLevelCont.lean`).",
+    "statement": "`MPolyfold.IsScSmoothOn.continuousOn_level_comp`: if $u$ is continuous into $X_m$ and $v = f \\circ u$ into $Y_m$, then $v$ is continuous. `MPolyfold.IsScSmoothOn.continuousOn_smoothLevel`: the map $X_\\infty \\cap U \\to Y_\\infty$ is continuous; `MPolyfold.IsScSmoothMap.continuous_smoothLevel`; `MPolyfold.continuousAt_levelLift` (a chart is continuous on level $m$). A new Part I fact (Part III wave 7, `Chapter5/SmoothLevelContinuity.lean`).",
     "decls": [
-     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.continuousAt_levelLift",
-     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothOn.continuousOn_level_comp",
-     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothOn.continuousOn_smoothLevel",
-     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothMap.continuous_smoothLevel"
+     "Chapter5/SmoothLevelContinuity · MPolyfold.continuousAt_levelLift",
+     "Chapter5/SmoothLevelContinuity · MPolyfold.IsScSmoothOn.continuousOn_level_comp",
+     "Chapter5/SmoothLevelContinuity · MPolyfold.IsScSmoothOn.continuousOn_smoothLevel",
+     "Chapter5/SmoothLevelContinuity · MPolyfold.IsScSmoothMap.continuous_smoothLevel"
     ]
    },
    "chips": [
@@ -1344,9 +1344,9 @@
    "lean": {
     "statement": "`isContOrOn_univ_of_continuous_orSec`: for any `LocalTransport L` with two orientations everywhere, on an M-polyfold with `HasConnectedSmoothNbhds`, continuity of `orSec o` for `orTopology L` gives `IsContOrOn L univ o` (a clopen argument with `isOpen_setOf_orSec_eq` and `isContOrOn_of_local_or`). **`isContOrOn_univ_iff_continuous hX hbump hfT hsec ht`**: with Part I's hypotheses, `Continuous[t] (orSec o) ↔ IsContOrOn univ o` for every topology `t` with `IsOrientationTopology`.",
     "decls": [
-     "Chapter12/P3W6O6_ContOr · isOpen_setOf_orSec_eq",
-     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_of_continuous_orSec",
-     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
+     "Chapter12/ContinuousOrientationSection · isOpen_setOf_orSec_eq",
+     "Chapter12/ContinuousOrientationSection · isContOrOn_univ_of_continuous_orSec",
+     "Chapter12/ContinuousOrientationSection · isContOrOn_univ_iff_continuous"
     ]
    },
    "chips": [
@@ -1364,17 +1364,17 @@
    "label": "§12.2, Theorem 12.2.7, pp. 574–576 (local step, p. 575) (2017: Theorem 12.3)",
    "page": 575,
    "book": "Near $x_0 \\in \\partial X$, in a tame local model with $O \\subset [0,\\infty)^n \\oplus H$ and retraction $R(u,w) = (r(u), A(u)w)$, with $q(t,h) = (t,h) - \\min(t)(1,\\dots,1,0)$: $r \\circ q$ maps a neighbourhood of $x_0$ into $\\partial O$, and $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ is a local auxiliary norm equal to $N$ over $\\partial X$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.9; `Chapter12/P3E_AuxNormLocalExtension.lean`): `EpStrongBundle.hasLocalExtensions_of_isTame` proves the hypothesis `HasLocalExtensions` of `theorem_12_2_7_hyp` for tame $X$, and `EpStrongBundle.theorem_12_2_7` is the printed theorem. The retraction $r \\circ q$ is built in a tame chart of the base (`MPolyfold.exists_retraction_boundary`) and the formula for $N'$ is evaluated in any strong bundle chart of the atlas (`StrongBundle.isLocalAuxNorm_retractNorm`), so the \"tame strong bundle chart\" of item (a) of the earlier text is not needed (Findings, Chapter 12, item 12).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.9; `Chapter12/AuxNormLocalExtension.lean`): `EpStrongBundle.hasLocalExtensions_of_isTame` proves the hypothesis `HasLocalExtensions` of `theorem_12_2_7_hyp` for tame $X$, and `EpStrongBundle.theorem_12_2_7` is the printed theorem. The retraction $r \\circ q$ is built in a tame chart of the base (`MPolyfold.exists_retraction_boundary`) and the formula for $N'$ is evaluated in any strong bundle chart of the atlas (`StrongBundle.isLocalAuxNorm_retractNorm`), so the \"tame strong bundle chart\" of item (a) of the earlier text is not needed (Findings, Chapter 12, item 12).",
    "formalized": [
     "V12.9"
    ],
    "decls": [
-    "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
-    "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
-    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
-    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
-    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
-    "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary"
+    "Chapter12/AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
+    "Chapter12/AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
+    "Chapter12/AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
+    "Chapter12/AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+    "Chapter12/AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+    "Chapter12/AuxNormLocalExtension · MPolyfold.exists_retraction_boundary"
    ]
   },
   {
@@ -1383,14 +1383,14 @@
    "label": "§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)",
    "page": 584,
    "book": "An sc⁺-section over the boundary of a strong bundle over a tame ep-groupoid.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.16; `Chapter12/P3X_ScPlusExtension.lean`): `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold) and `IsBoundaryScPlusSectionFunctor`, the form used by Theorem 12.3.9 (V12.35); witness `isBoundaryScPlusSectionFunctor_fiberZero`.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.16; `Chapter12/ScPlusExtension.lean`): `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold) and `IsBoundaryScPlusSectionFunctor`, the form used by Theorem 12.3.9 (V12.35); witness `isBoundaryScPlusSectionFunctor_fiberZero`.",
    "formalized": [
     "V12.16"
    ],
    "decls": [
-    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
-    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
-    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero"
+    "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
+    "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
+    "Chapter12/ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero"
    ]
   },
   {
@@ -1399,22 +1399,22 @@
    "label": "§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)",
    "page": 594,
    "book": "For a morphism $\\varphi : x \\to x'$ between smooth points, the local $\\hat\\Phi$ pushes a continuous local section of $\\sigma$ to a continuous local section.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.24; `Chapter12/P3W5OR_LocalComm.lean`, `P3W5OR_Theorem1253.lean`, `P3W5OR_Germ.lean`, on the chart-level transfer of `IsPush` along a `LocalIso` of Part III wave 3, `Chapter12/P3W3O_*`): `EpStrongBundle.theorem_12_5_3_push` (the last sentence, with Part I's hypotheses `hbump` and tame germ data only, gap G.140) and its general form `StrongBundle.LocalIso.isContOrOn_pullOrx` (a local strong bundle isomorphism between bundles over two M-polyfolds carries continuous orientations), with the converse `LocalIso.isContOrOn_of_pullOrx`. The missing steps of the earlier text are proved: (a) the transport commutes with the isomorphism on short paths (`LocalIso.orxVia_comm_local`, through `isPush_mpull`, the cut-off and the `orTransfer` cocycle), (b) on all paths by dyadic induction (`scPath_induction_or`, `orxVia_comm`), with the locality lemma Part I lacked (`isContOrOn_of_local_or`, V12.45).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.24; `Chapter12/OrientationLocalCommute.lean`, `OrientationMorphismContinuity.lean`, `OrientationGerm.lean`, on the chart-level transfer of `IsPush` along a `LocalIso` of Part III wave 3, `Chapter12/PushDataPull`, `SectionPull`, `StabilizedKernelPull`): `EpStrongBundle.theorem_12_5_3_push` (the last sentence, with Part I's hypotheses `hbump` and tame germ data only, gap G.140) and its general form `StrongBundle.LocalIso.isContOrOn_pullOrx` (a local strong bundle isomorphism between bundles over two M-polyfolds carries continuous orientations), with the converse `LocalIso.isContOrOn_of_pullOrx`. The missing steps of the earlier text are proved: (a) the transport commutes with the isomorphism on short paths (`LocalIso.orxVia_comm_local`, through `isPush_mpull`, the cut-off and the `orTransfer` cocycle), (b) on all paths by dyadic induction (`scPath_induction_or`, `orxVia_comm`), with the locality lemma Part I lacked (`isContOrOn_of_local_or`, V12.45).",
    "decls": [
-    "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isPush_mpull",
-    "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isZeroAt_of_transportChart",
-    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.push_mpull",
-    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.orRay_mpull",
-    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.isStabKernels_mpull",
-    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.morPull_apply",
-    "Chapter12/P3W3O_SectionPull · StrongBundle.LocalIso.exists_pullSection",
-    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
-    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq",
-    "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push",
-    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
-    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm",
-    "Chapter12/P3W5OR_PathInduction · isContOrOn_of_local_or",
-    "Chapter12/P3W5OR_PathInduction · scPath_induction_or"
+    "Chapter12/PushDataPull · StrongBundle.LocalIso.isPush_mpull",
+    "Chapter12/PushDataPull · StrongBundle.LocalIso.isZeroAt_of_transportChart",
+    "Chapter12/StabilizedKernelPull · StrongBundle.LocalIso.push_mpull",
+    "Chapter12/StabilizedKernelPull · StrongBundle.LocalIso.orRay_mpull",
+    "Chapter12/StabilizedKernelPull · StrongBundle.LocalIso.isStabKernels_mpull",
+    "Chapter12/StabilizedKernelPull · StrongBundle.LocalIso.morPull_apply",
+    "Chapter12/SectionPull · StrongBundle.LocalIso.exists_pullSection",
+    "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.morVia",
+    "Chapter12/ChartPullTwoBundles · StrongBundle.LocalIso.morVia_eq",
+    "Chapter12/OrientationMorphismContinuity · EpStrongBundle.theorem_12_5_3_push",
+    "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.isContOrOn_pullOrx",
+    "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.orxVia_comm",
+    "Chapter12/DyadicPathInduction · isContOrOn_of_local_or",
+    "Chapter12/DyadicPathInduction · scPath_induction_or"
    ],
    "formalized": [
     "V12.24"
@@ -1426,12 +1426,12 @@
    "label": "§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)",
    "page": 595,
    "book": "If $|\\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.26; `Chapter12/P3W5OR_Orientable.lean`): `EpStrongBundle.proposition_12_5_6_mpr_hyp`, (⇐) with the continuity of the orientation for Part I's topology, with Part I's hypotheses only (gap G.140): $G_x$ fixes the orientations at $x$ over a two-to-one $|\\sigma|$ (`orMor_isotropy_of_isTwoToOne`), near each point every morphism maps a continuous local orientation to itself (`exists_nhds_orMor_eq_hyp`, with the last sentence of Theorem 12.5.3), and the saturation of a continuous local section is open (`isOpen_orSat_hyp`).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.26; `Chapter12/OrientationFromSection.lean`): `EpStrongBundle.proposition_12_5_6_mpr_hyp`, (⇐) with the continuity of the orientation for Part I's topology, with Part I's hypotheses only (gap G.140): $G_x$ fixes the orientations at $x$ over a two-to-one $|\\sigma|$ (`orMor_isotropy_of_isTwoToOne`), near each point every morphism maps a continuous local orientation to itself (`exists_nhds_orMor_eq_hyp`, with the last sentence of Theorem 12.5.3), and the saturation of a continuous local section is open (`isOpen_orSat_hyp`).",
    "decls": [
-    "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant",
-    "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp",
-    "Chapter12/P3W5OR_Orientable · EpStrongBundle.exists_nhds_orMor_eq_hyp",
-    "Chapter12/P3W5OR_Orientable · EpStrongBundle.isOpen_orSat_hyp"
+    "Chapter12/OrientationNaturality · EpStrongBundle.IsOrInvariant",
+    "Chapter12/OrientationFromSection · EpStrongBundle.proposition_12_5_6_mpr_hyp",
+    "Chapter12/OrientationFromSection · EpStrongBundle.exists_nhds_orMor_eq_hyp",
+    "Chapter12/OrientationFromSection · EpStrongBundle.isOpen_orSat_hyp"
    ],
    "formalized": [
     "V12.26"
@@ -1451,12 +1451,12 @@
    "label": "§12.2, Theorem 12.2.13, p. 578 (local step; the construction is that of Theorem 12.2.7, p. 575) (2017: Theorem 12.5)",
    "page": 578,
    "book": "The local extension $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ of the proof of Theorem 12.2.7 is well behaved under mixed limits (\"by inspection\"), so it gives reflexive local extensions near $\\partial X$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 3; V12.34; `Chapter12/P3W3K_ReflexiveLocalExtension.lean`): `StrongBundle.mixedLscAt_retractNorm` (lower semicontinuity of the local extension $N'$ of Theorem 12.2.7 along mixed convergent sequences, in a strong bundle chart with reflexive $F_1$), `StrongBundle.exists_reflexiveLocalExtension_of_isTame`, `EpStrongBundle.hasReflexiveLocalExtensions_of_isTame` (it discharges `hloc` of `theorem_12_2_13_hyp`) and `EpStrongBundle.theorem_12_2_13`, the printed theorem for tame $X$, with the paracompactness of $|X|$ named (the proof uses partitions of unity \"as in Theorem 12.2.11\"). Witness for all hypotheses together: `TrivialBundle.theorem_12_2_13_witness`.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V12.34; `Chapter12/ReflexiveLocalExtension.lean`): `StrongBundle.mixedLscAt_retractNorm` (lower semicontinuity of the local extension $N'$ of Theorem 12.2.7 along mixed convergent sequences, in a strong bundle chart with reflexive $F_1$), `StrongBundle.exists_reflexiveLocalExtension_of_isTame`, `EpStrongBundle.hasReflexiveLocalExtensions_of_isTame` (it discharges `hloc` of `theorem_12_2_13_hyp`) and `EpStrongBundle.theorem_12_2_13`, the printed theorem for tame $X$, with the paracompactness of $|X|$ named (the proof uses partitions of unity \"as in Theorem 12.2.11\"). Witness for all hypotheses together: `TrivialBundle.theorem_12_2_13_witness`.",
    "decls": [
-    "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
-    "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
-    "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
-    "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm"
+    "Chapter12/ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
+    "Chapter12/ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
+    "Chapter12/ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
+    "Chapter12/ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm"
    ],
    "formalized": [
     "V12.34"
@@ -1468,17 +1468,17 @@
    "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
    "page": 595,
    "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, does not depend on the representative, and is functorial; $\\bar{\\mathfrak f}_* o$ is continuous.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 7; V12.39, V12.47, V12.48; `Chapter12/P3W7W3_*`, `Chapter12/P3W6O6_ContOr.lean`): (a) the homeomorphism, `theorem_12_5_7_one_homeo_hyp` (`orbitOrHomeo`, `smoothOrbitHomeo`, with the continuity of sc-smooth maps on $X_\\infty$, V12.47); (b) Definition 12.5.4's continuity and Part I's `IsContOrOn` agree (`isContOrOn_univ_iff_continuous`, V12.48), so (2) holds in the book's form (`theorem_12_5_7_two_book_hyp`); (c) the independence of the representative (`theorem_12_5_7_rep_indep`, through `orEqv_nat` and refinements, Chapter 10's `SDiagram.Equiv`) and the functoriality (`theorem_12_5_7_functorial`, through `orEqv_comp`), both for the data of the diagrams. The repackaging for Chapter 10's `SDiagram`/`GenSBMap` objects is gap G.192.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 7; V12.39, V12.47, V12.48; `Chapter12/OrientationEquivalenceComp`, `OrientationEquivalenceNatural`, `OrientationOrbitHomeo`, `OrientationRepresentativeIndep`, `OrientationTransferTheorem`, `Chapter12/ContinuousOrientationSection.lean`): (a) the homeomorphism, `theorem_12_5_7_one_homeo_hyp` (`orbitOrHomeo`, `smoothOrbitHomeo`, with the continuity of sc-smooth maps on $X_\\infty$, V12.47); (b) Definition 12.5.4's continuity and Part I's `IsContOrOn` agree (`isContOrOn_univ_iff_continuous`, V12.48), so (2) holds in the book's form (`theorem_12_5_7_two_book_hyp`); (c) the independence of the representative (`theorem_12_5_7_rep_indep`, through `orEqv_nat` and refinements, Chapter 10's `SDiagram.Equiv`) and the functoriality (`theorem_12_5_7_functorial`, through `orEqv_comp`), both for the data of the diagrams. The repackaging for Chapter 10's `SDiagram`/`GenSBMap` objects is gap G.192.",
    "decls": [
-    "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
-    "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
-    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
-    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont",
-    "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo_hyp",
-    "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book_hyp",
-    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
-    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
-    "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
+    "Chapter12/OrientationNaturality · theorem_12_5_7_one_hyp",
+    "Chapter12/OrientationNaturality · theorem_12_5_7_two_invariant",
+    "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_hyp",
+    "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_cont",
+    "Chapter12/OrientationTransferTheorem · theorem_12_5_7_one_homeo_hyp",
+    "Chapter12/OrientationTransferTheorem · theorem_12_5_7_two_book_hyp",
+    "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+    "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
+    "Chapter12/ContinuousOrientationSection · isContOrOn_univ_iff_continuous"
    ],
    "formalized": [
     "V12.39"
@@ -1492,8 +1492,8 @@
    "book": "$|\\bar{\\mathfrak f}|_*$ for a morphism $\\bar{\\mathfrak f}$ of the localized category (a class of diagrams).",
    "instead": "Everything is proved for the data of the diagrams (`theorem_12_5_7_rep_indep`, `theorem_12_5_7_functorial`, (1) and (2); V12.39). Missing: (a) the restatement for `SBLocalization.SDiagram A A'`: a generalized isomorphism means both legs in `SEP.equivalences`, the section functors on `D.B` are the pull-backs, and `SDiagram.Equiv` (common refinement, `SEP.NatEquiv` as `StrongBundleNatEquiv`) is unpacked into `theorem_12_5_7_rep_indep`; this gives a map on `GenSBMap A A'` (80–150 lines); (b) Chapter 10's composite diagram fed into `theorem_12_5_7_functorial` (`compMid`, `compLeft`, `compRight`; to prove: `compRight` is an equivalence when `D.Ψ` is one, and the natural equivalence `compLeft ≫ D.Ψ ≃ compRight ≫ E.Φ` from the cone), 70–150 lines. Estimate 150–300 lines.",
    "decls": [
-    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
-    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial"
+    "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+    "Chapter12/OrientationRepresentativeIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial"
    ]
   }
  ]
