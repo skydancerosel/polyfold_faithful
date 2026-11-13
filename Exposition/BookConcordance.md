@@ -1,4 +1,4 @@
-# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III waves 1–2, Chapters 12–16)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III waves 1–5, Chapters 12–16)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
@@ -1562,6 +1562,35 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Theorem 16.7 | Theorem 16.6.4 | 737 | V16.76 |  |
 | Definition 16.42 | Definition 16.6.5 | 739 | V16.77 |  |
 | Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78 |  |
+
+### Part III, items formalized in wave 5 (Chapters 12–16; 2026-11-13)
+
+Wave 5 closed or narrowed gaps of waves 1–4; the rows below are the items whose rows were added or changed. The 2017 numbers were checked in the 2017 text (2026-11-13); in particular Theorem 15.3.7 is Theorem 15.4 of 2017 (Theorem 15.6 there is the canonical orientation theorem). Items without a number in either text ((16.8), the preamble of §14.6, the sum over $a$ in the proof of Theorem 14.1.9, the instance of the setting of §14.4, the last paragraph of the proof of Corollary 15.3.10, the tools) are rows V12.45, V12.46, V14.38–V14.40, V15.39, V15.40, V15.42, V16.67. A gap number in the Rows column marks a part that is not formalized.
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
+| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24 | last sentence |
+| Proposition 12.4 | Proposition 12.5.6 | 595 | V12.26 | (⇐) with continuity |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, G.158 | (2) with continuity |
+| Proposition 13.6 | Proposition 13.4.2 | 623 | V13.59 | was G.163 |
+| after Definition 14.1 | remark after Definition 14.1.2 | 641 | V14.36 | was G.165 |
+| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44, G.164 | face condition named |
+| Proposition 14.5 | Proposition 14.4.6 | 661 | V14.25 | (2) proved, was G.168 |
+| Lemma 14.11 | Lemma 14.5.2 | 672 | V14.38, G.172 | sum identity for the sections |
+| Proposition 14.8 | Proposition 14.5.4 | 673 | V14.37 | was G.170 |
+| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, G.171 | from `AssemblyHyp` |
+| Definition 14.10 | Definition 14.6.1 | 681 | V14.41, G.184 |  |
+| Definition 14.11 | Definition 14.6.2 | 681 | V14.42 |  |
+| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | agreeing representatives |
+| Remark 15.2 | Remark 15.2.3 | 689 | V15.13 | tame; the ep-groupoid $U(x)$ |
+| Theorem 15.3 | Theorem 15.2.5 | 690 | V15.15, V15.43 | tame |
+| Remark 15.6 | Remark 15.3.6 | 693 | V15.28 | tame |
+| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.30, V15.39 | checked again: Theorem 15.4 |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.41 | step (a) |
+| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.40, V15.42 |  |
+| Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34 | functor on effective polyfolds |
+| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | parenthetical, pull direction |
+| Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 | naturality |
 
 ### Items of the 2021 text without a 2017 counterpart
 

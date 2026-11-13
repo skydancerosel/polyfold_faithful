@@ -67,24 +67,24 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "functors, auxiliary norms, the good neighbourhood theorem, continuous partitions of unity, the extension of "
      "auxiliary norms from the boundary, reflexive auxiliary norms, bump functions and sc⁺-section functors, extension "
      "from the boundary, compactness and properness, the orientation bundle and its naturality, the reflexive "
-     "local extension and Theorem 12.2.13 (waves 1–3)", ["Chapter12"]),
+     "local extension and Theorem 12.2.13 (waves 1–5)", ["Chapter12"]),
     ("13", "Part III, Ch. 13, §§13.1–13.5 (2017 Chapter 13)", "sc⁺-multisections: good systems of "
      "neighbourhoods, the natural bi-action, existence and extension of good systems; support, pointwise norm, "
      "symmetric structures, decorations, sums, scalar multiples and locally finite sums; structurable and atomic "
      "sc⁺-multisections; equivalences, coverings and structurability, commensurable sums, the constructions of "
-     "§13.5 (waves 1–4)", ["Chapter13"]),
-    ("14", "Part III, Ch. 14, §§14.1–14.5 (2017 Chapter 14)", "extension of sc⁺-multisections from the boundary: "
+     "§13.5, Proposition 13.4.2 (waves 1–5)", ["Chapter13"]),
+    ("14", "Part III, Ch. 14, §§14.1–14.6 (2017 Chapter 14)", "extension of sc⁺-multisections from the boundary: "
      "good neighbourhoods and structured multisections over ∂X, the extension of correspondences, z-loops and "
-     "coherent neighbourhood systems, local extensions, the size control; Theorem 14.1.9 in hypothesis form "
-     "(waves 3–4)", ["Chapter14"]),
+     "coherent neighbourhood systems, local extensions, the size control; Proposition 14.5.4, Theorem 14.1.9 from "
+     "the data of §§14.3–14.5, the assembly over faces (waves 3–5)", ["Chapter14"]),
     ("15", "Part III, Ch. 15, §§15.1–15.4 (2017 Chapter 15)", "transversality and invariants: the linearization "
      "T(f, Λ), its well-definedness, the separation lemmas; transversality, good position and local solution sets; "
      "compactness control, admissible perturbations and general position; orientations and invariants "
-     "(waves 1–4)", ["Chapter15"]),
+     "(waves 1–5)", ["Chapter15"]),
     ("16", "Part III, Ch. 16, §§16.1–16.6 (2017 Chapter 16)", "polyfolds: polyfold structures and their "
      "equivalence, bump functions and partitions of unity, the degeneracy index, the boundary, tameness; the tangent "
      "polyfold and sc-differential forms; strong polyfold bundles; branched suborbifolds and Stokes' theorem; "
-     "sc⁺-multisections and Fredholm theory over polyfolds (waves 1–4)", ["Chapter16"]),
+     "sc⁺-multisections and Fredholm theory over polyfolds (waves 1–5)", ["Chapter16"]),
 ]
 # ------------------------------------------------------------------------------------------------
 

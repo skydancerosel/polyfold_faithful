@@ -1788,6 +1788,43 @@
    "diff": [
     "For every structured lift $T$ (the text: \"a structured lift\"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. Atomic is `IsAtomicOn` (V13.57). With `IsAtomic` the statement would need connected natural-rep domains in the good system, which `GoodSystem` does not give. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\\beta_j)$."
    ]
+  },
+  {
+   "id": "V13.59",
+   "title": "Proposition 13.4.2 (2017: 13.6), extension of a structured sc⁺-multisection from $V$ with $|V| = |X|$",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.4, Proposition 13.4.2, pp. 623–625 (2017: Proposition 13.6)",
+    "page": 623,
+    "statement": "For open $V \\subset X$ with $|V| = |X|$ and a structured sc⁺-multisection functor $\\Lambda$ on $W|V$: (1) $\\Lambda$ has a canonical extension $\\bar\\Lambda$ to an sc⁺-multisection functor on $W$; (2) given open $O(x) \\ni x$ for $x \\notin V$, $\\bar\\Lambda$ carries a structure which on $V$ is the given one and has $U(x) \\subset O(x)$ for $x \\notin V$."
+   },
+   "lean": {
+    "statement": "`proposition_13_4_2 (hV : IsOpen V) (hπV : π '' V = univ) (L : StructuredOn A V)`: (1) `IsScPlusMultisection A (extendMult V L.Λ)`, it agrees with $\\Lambda$ over $V$, and every functor $\\Lambda'$ on $W$ agreeing with $\\Lambda$ over $V$ equals it (`eq_extendMult`); (2) for every family of open $O(x) \\ni x$ there is a `StructuredTuple A` with $\\Lambda = \\bar\\Lambda$, $U(q)$ the given ones for $q \\in V$, $U(x) \\subset O(x)$ for $x \\notin V$, and $I_q$ (with its $G_q$-action), the sections on $U(q)$ and $\\tau_{q,q'}$ on $\\mathcal U(q,q')$ equal to the given ones (via casts of the index types). `proposition_13_4_2_structurable`: $\\bar\\Lambda$ is structurable. The relative data: `StructuredOn A V` (Definitions 13.3.4, 13.3.6 with all indices in $V$, the good-system condition read as `IsGoodIn` for $V$), `IsScPlusMultisectionOn A V`, `IsWFunctorOn`. The proof uses the push machinery of §13.4 for $F = \\mathrm{id}$: the unit transport chart at $q \\in V$ (`unitChart`, `isPushNbhd_unit`), push charts inside $O(x)$ for $x \\notin V$, and $\\tau$ through `liftMor`, which covers the text's cases (i)–(iii).",
+    "decls": [
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.IsWFunctorOn",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.IsScPlusMultisectionOn",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredOn",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredTuple.toStructuredOn",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.isWFunctor_extendMult",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult_eq",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.eq_extendMult",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.unitChart",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.isPushNbhd_unit",
+     "Chapter13/P3W5FM_ExtensionData · SBLocalization.ExtChart",
+     "Chapter13/P3W5FM_Extension · SBLocalization.isScPlusMultisection_extendMult",
+     "Chapter13/P3W5FM_Extension · SBLocalization.extTuple",
+     "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2",
+     "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2_structurable"
+    ]
+   },
+   "chips": [
+    "\"structured on $W|V$\": relative data",
+    "\"canonical\": uniqueness, proved"
+   ],
+   "diff": [
+    "The project has no strong bundle over the open sub-ep-groupoid $V$; \"$\\Lambda$ structured on $W|V$\" is read as the relative data `StructuredOn A V` (Definitions 13.3.4, 13.3.6 with all indices in $V$, the good-system condition as `IsGoodIn` for $V$, as in `theorem_13_1_7_book`), and \"$\\Lambda$ an sc⁺-multisection on $W|V$\" as `IsScPlusMultisectionOn A V` (functor along morphisms inside $V$, local structures on natural neighbourhoods inside $V$). \"Canonical\" is read as uniqueness among functors on $W$ extending $\\Lambda$, which is proved. No added hypothesis; the data are inhabited (`StructuredTuple.toStructuredOn`, $V = X$, e.g. the zero multisection). Gap G.163 closed."
+   ]
   }
  ],
  "notFormalized": [
@@ -1899,9 +1936,16 @@
    "label": "§13.4, Proposition 13.4.2, pp. 623–625 (2017: Proposition 13.6)",
    "page": 623,
    "book": "(1) $\\Lambda$ on $W|V$ has a canonical extension $\\bar\\Lambda$ to $W$; (2) given $O(x)$ for $x \\notin V$, $\\bar\\Lambda$ has a structured version restricting to the given one on $V$ with $U(x) \\subset O(x)$.",
-   "instead": "No longer needed for Theorem 13.4.3, which is proved directly (V13.52). There is no strong bundle over the open sub-ep-groupoid $V$ in the project, so \"$\\Lambda$ structured on $W|V$\" has no Lean form yet. A route with the push machinery of `Chapter13/P3W4FN_PushChart.lean` and `P3W4FN_Pushforward.lean` for $F = \\mathrm{id}$: charts with $x_y \\in V$ for all $y$ and the unit chart ($Q = \\mathrm{id}$, $\\psi = 1$) at $y \\in V$, so that $U'(q) = U(q)$ and the sections and $\\tau$ on $V$ are the given ones; `exists_isPushNbhd` inside $O(x)$ for $x \\notin V$. Missing (estimates): relative structured data on $V$ (good systems on $V$ plus structures and correspondences indexed by $V$, 100–150 lines); (1), the extension functor $\\bar\\Lambda(w) = \\Lambda(\\mu(\\varphi, w))$, well defined and sc⁺ (100–150); the unit `TransportChart` and the $O(x)$ variant of `exists_isPushNbhd` (80–120); the push construction over partial source data and the restriction statement (100–150). Total 400–550 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V13.59; `Chapter13/P3W5FM_ExtensionData.lean`, `P3W5FM_Extension.lean`): `proposition_13_4_2` and `proposition_13_4_2_structurable`, with the relative data `StructuredOn A V` (\"structured on $W|V$\") and uniqueness for \"canonical\"; through the push machinery of §13.4 with $F = \\mathrm{id}$ (unit chart on $V$, push charts inside $O(x)$ off $V$, $\\tau$ through `liftMor`).",
    "decls": [
-    "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pushMult"
+    "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
+    "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2",
+    "Chapter13/P3W5FM_Extension · SBLocalization.proposition_13_4_2_structurable",
+    "Chapter13/P3W5FM_ExtensionData · SBLocalization.StructuredOn",
+    "Chapter13/P3W5FM_ExtensionData · SBLocalization.extendMult"
+   ],
+   "formalized": [
+    "V13.59"
    ]
   }
  ]

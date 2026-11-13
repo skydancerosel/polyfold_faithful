@@ -8,7 +8,7 @@ formalized against Mathlib with the same faithful layer as our formalizations of
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*,
 Chapters 7–11, is formalized, except part of the example of Remark 9.5.20 (its branched
 subgroupoid and integrals). Part III, *Fredholm Theory in Polyfolds*, Chapters 12–16, is begun
-(waves 1–4 of 13 November 2026, below). The authoritative text is the
+(waves 1–5 of 13 November 2026, below). The authoritative text is the
 Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names use the
@@ -183,57 +183,63 @@ GitHub displays it directly.
   the canonical measures and their effective versions by `|f|` (Theorems 11.4.1, 11.4.2, Remark
   11.4.3), and the boundary measures, with the text's hypotheses for every `n ≥ 1` since 13
   November 2026 (Theorems 11.4.4, 11.4.5; G.131 closed).
-* **Part III, Chapters 12–16, is begun** (waves 1–4, 13 November 2026; 128 files, 45,130 lines,
-  in `Polyfold/Chapter12/` to `Chapter16/` and `Chapter5/P3R_*`, `P3B_*`). Part I prerequisites: the
-  reflexive auxiliary norms and the reflexive local compactness of §§5.1–5.2 (Definitions
-  5.1.4–5.2.6, Proposition 5.1.8, Theorem 5.2.8) and the ∂-extension theorem 5.4.2, with weak
-  sequential compactness in reflexive spaces. Chapter 12: sc-Fredholm section functors, the
-  existence of auxiliary norms (Theorem 12.2.2), continuous partitions of unity, the good
+* **Part III, Chapters 12–16, is begun** (waves 1–5, 13 November 2026; 166 files, 56,320 lines, in
+  `Polyfold/Chapter12/` to `Chapter16/` and `Chapter5/P3R_*`, `P3B_*`, `P3W5TY_*`). Part I
+  prerequisites: the reflexive auxiliary norms and the reflexive local compactness of §§5.1–5.2
+  (Definitions 5.1.4–5.2.6, Proposition 5.1.8, Theorem 5.2.8) and the ∂-extension theorem 5.4.2,
+  with weak sequential compactness in reflexive spaces. Chapter 12: sc-Fredholm section functors,
+  the existence of auxiliary norms (Theorem 12.2.2), continuous partitions of unity, the good
   neighbourhood theorem, the extension of auxiliary norms from the boundary (Theorem 12.2.7 as
   printed), reflexive auxiliary norms (Theorems 12.2.11 and 12.2.13, the latter with the
   paracompactness of `|X|` named), bump functions and sc⁺-section functors (Theorems 12.3.2,
   12.3.3), the local and equivariant extension from the boundary (Proposition 12.3.7, Corollary
   12.3.8, Theorem 12.3.9), the compactness notions of §12.4 with the reflexive ones (Theorems
-  12.4.2, 12.4.6), and the orientation bundle (§12.5, with Part I's hypotheses; G.138–G.140;
-  Theorem 12.5.7 as a bijection with the invariant push-forward, its topology G.158). Chapter 13:
-  good systems of neighbourhoods (Theorems 13.1.7, 13.1.8), the bi-action and Proposition 13.1.9,
-  the support, norm, symmetric structures and the decorated algebra of sc⁺-multisections,
-  structurable sc⁺-multisections (§13.3 with Proposition 13.3.19), pull-back and push-forward
-  along equivalences and coverings (Theorems 13.4.1, 13.4.3, 13.4.4; Proposition 13.4.2 G.163),
-  commensurable sums, and atomic sc⁺-multisections (§13.5; Theorem 13.5.3 as an equivalence with
-  the existence of a good system, Theorem 13.5.7). Chapter 14: good neighbourhoods and structured
-  sc⁺-multisections over `∂X`, the extension of the correspondences, z-loops and coherent
-  neighbourhood systems, the local extensions (Proposition 14.4.14) and the structurability
-  criterion (Theorem 14.5.5); Theorem 14.1.9 from the extension of §§14.3–14.5 as a hypothesis,
-  whose witness is the case `∂X = ∅` only (G.164, G.165, G.168–G.173). Chapter 15: the
-  linearization `T(f, Λ)` is well defined and a functor, with sc-Fredholm summands (Theorem
-  15.1.1); transversality, good position and the local solution sets of §15.2 with Part I's tame
-  germ data (Theorems 15.2.2, 15.2.5; tameness G.150, G.152); the compactness control, admissible
-  perturbations, general position and the auxiliary norm on `[0, 1] × X` of §15.3; Theorems
-  15.3.7, 15.3.9, Corollary 15.3.10, Theorem 15.4.3 and Corollary 15.4.4 reduced to stated steps
-  of their proofs (G.159, G.160, G.162, G.177–G.183; the cylinder hypotheses of Corollary 15.3.10
-  (3) have no witness). Chapter 16: polyfold structures and their metrizability, morphisms and
-  sc-smooth maps, polyfolds, the invariance of bump functions, partitions of unity, tameness and
-  the degeneracy index (§16.1); the tangent polyfold, the raised polyfolds, the tangent functor
-  and the de Rham complex (§16.2; G.157); strong polyfold bundles, auxiliary and reflexive
-  auxiliary norms and sections (§16.3; G.166, G.167); branched suborbifolds, their integrals and
-  Stokes' theorem with sc-smooth partitions of unity (§16.4, G.153, G.155); sc⁺-multisections over
-  polyfolds and the Fredholm notions, Theorem 16.6.4 as printed and Theorems 16.5.7, 16.6.6
-  reduced to the ep-groupoid level (§§16.5–16.6, G.174–G.176). The uniqueness sentence after
-  Definition 16.1.2, Remark 16.1.7, Lemma 16.2.1, the composite of Definition 16.1.10 and the
-  uniqueness after Definition 16.3.3 do not hold as we read them (below, items 14 and 15) and are
-  proved for effective polyfolds.
-* About 420,000 lines of Lean in 894 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (21,090 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  12.4.2, 12.4.6), and the orientation bundle (§12.5, with Part I's hypotheses, G.140), with the
+  continuity statements of Theorem 12.5.3 and Proposition 12.5.6 and Theorem 12.5.7 as a bijection
+  with the invariant push-forward, continuous for continuous input (its homeomorphism and the
+  independence of the representative G.158). Chapter 13: good systems of neighbourhoods (Theorems
+  13.1.7, 13.1.8), the bi-action and Proposition 13.1.9, the support, norm, symmetric structures and
+  the decorated algebra of sc⁺-multisections, structurable sc⁺-multisections (§13.3 with Proposition
+  13.3.19), pull-back and push-forward along equivalences and coverings (Theorems 13.4.1, 13.4.3,
+  13.4.4) and the extension from `V` with `|V| = |X|` (Proposition 13.4.2), commensurable sums, and
+  atomic sc⁺-multisections (§13.5; Theorem 13.5.3 as an equivalence with the existence of a good
+  system, Theorem 13.5.7). Chapter 14: good neighbourhoods with tame faces and structured
+  sc⁺-multisections over `∂X`, Proposition 14.1.8 with the transport of the face condition named
+  (G.164), the extension of the correspondences, z-loops with Proposition 14.4.6 as printed and
+  coherent neighbourhood systems, the local extensions (Proposition 14.4.14) for the objects of
+  §14.3, Proposition 14.5.4 and the structurability criterion (Theorem 14.5.5); Theorem 14.1.9 from
+  the data of §§14.3–14.5 as one named hypothesis, whose witness is the case `∂X = ∅` only (G.171,
+  G.172); §14.6 for representatives that agree on the faces (G.173, G.184, G.185). Chapter 15: the
+  linearization `T(f, Λ)` is well defined and a functor, with sc-Fredholm summands (Theorem 15.1.1);
+  transversality, good position, tame local solution sets and the ep-groupoid `U(x)` of §15.2 with
+  Part I's tame germ data (Theorems 15.2.2, 15.2.5); the compactness control, admissible
+  perturbations, general position and the auxiliary norm on `[0, 1] × X` of §15.3; Theorem 15.3.7
+  with the parametric step proved, from (15.1) at one point and its openness (G.162); Theorem
+  15.3.9, Corollary 15.3.10, Theorem 15.4.3 and Corollary 15.4.4 reduced to stated steps of their
+  proofs (G.159, G.160, G.178–G.182; the hypotheses of Corollary 15.3.10 (3) have witnesses).
+  Chapter 16: polyfold structures and their metrizability, morphisms and sc-smooth maps, polyfolds,
+  the invariance of bump functions, partitions of unity, tameness and the degeneracy index (§16.1);
+  the tangent polyfold, the raised polyfolds, the tangent functor (a functor on effective polyfolds)
+  and the de Rham complex (§16.2); strong polyfold bundles, auxiliary and reflexive auxiliary norms
+  and sections (§16.3; G.166, G.167); branched suborbifolds with the naturality of the structure on
+  the support, their integrals and Stokes' theorem with sc-smooth partitions of unity (§16.4,
+  G.153); sc⁺-multisections over polyfolds and the Fredholm notions, Theorem 16.6.4 as printed and
+  Theorems 16.5.7, 16.6.6 reduced to the ep-groupoid level (§§16.5–16.6, G.175, G.176). The
+  uniqueness sentence after Definition 16.1.2, Remark 16.1.7, Lemma 16.2.1, the composite of
+  Definition 16.1.10 and the uniqueness after Definition 16.3.3 do not hold as we read them (below,
+  items 14 and 15) and are proved for effective polyfolds.
+* About 439,000 lines of Lean in 948 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (21,726 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of Chapters 1–11, and of the parts of Chapters 12–16 done so far,
-  is compared with its formal version** (1,154 items, each with a verdict: same, restated,
+  is compared with its formal version** (1,172 items, each with a verdict: same, restated,
   hypothesis made explicit, stronger, narrower, extra, or nothing to formalize), with a gap list of
-  what is not formalized and why (G.1–G.183). 74 items are narrower than the text, each with its
-  reason (48 of them in Part III); 145 of the 183 gaps are closed, 3 have nothing to formalize,
-  and 35 remain: G.65 in Part I (families on `[0, 1]ⁿ`, read on `ℝⁿ`) and G.110 in Part II (the
-  example of Remark 9.5.20: its `Θ` and integrals), both in part, and thirty-three Part III gaps
-  (G.138–G.140, G.150, G.152, G.153, G.155, G.157–G.160, G.162–G.183).
+  what is not formalized and why (G.1–G.185). 72 items are narrower than the text, each with its
+  reason (46 of them in Part III); 159 of the 185 gaps are closed, 3 have nothing to formalize,
+  and 23 remain: G.65 in Part I (families on `[0, 1]ⁿ`, read on `ℝⁿ`) and G.110 in Part II (the
+  example of Remark 9.5.20: its `Θ` and integrals), both in part, and twenty-one Part III gaps
+  (G.140, G.153, G.158–G.160, G.162, G.164, G.166, G.167, G.171–G.173, G.175, G.176, G.178–G.182,
+  G.184, G.185).
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -247,7 +253,7 @@ GitHub displays it directly.
 
 | Document | What it is |
 |---|---|
-| `Exposition/ReviewerChecklist.md` | **Start here to review.** The statements and definitions a person has to check (Lean checks the rest), in five tiers: the Part I core, orientation, Part II, Part III (waves 1–4), the tame boundary. |
+| `Exposition/ReviewerChecklist.md` | **Start here to review.** The statements and definitions a person has to check (Lean checks the rest), in five tiers: the Part I core, orientation, Part II, Part III (waves 1–5), the tame boundary. |
 | `Exposition/polyfold-beside-lean.html` | The comparison: the book's statement beside the formal one, in mathematical language, with the verdict and every difference listed. |
 | `Exposition/polyfold-signoff.html` | The sign-off list: one sentence per item to confirm or flag. Ticks are kept in your browser and can be exported as text. |
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |

@@ -606,14 +606,14 @@
   {
    "id": "V16.24",
    "title": "Proposition 16.4.3 (2017: 16.6), the structure on $\\mathrm{supp}\\,\\theta$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
     "page": 730,
     "statement": "$A = \\mathrm{supp}\\,\\theta$ has a natural smooth manifold (orbifold) structure for $\\theta$ of manifold-type (orbifold-type), induced from the overhead (Proposition 9.1.9, Theorem 11.3.3)."
    },
    "lean": {
-    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).",
+    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).\n\nNaturality (Part III wave 5, `Chapter16/P3W5PC_SuppNaturality.lean`): **`proposition_16_4_3_naturality c : proposition_16_4_3_naturality_statement c`**. `suppTransition_orbitSuppProj`: for a generalized isomorphism $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} X']$ between the representatives, the transition sends $|F b|$ to $|\\Phi b|$ for $b \\in \\mathrm{supp}(\\Phi^*\\Theta')$. `isScSmoothOn_suppTransition`: for any induced structures (Proposition 9.1.9 (1)) the transition is sc-smooth; near $|F b|$ it is $p' \\circ \\Phi|_{\\mathrm{supp}} \\circ (F|_{\\mathrm{supp}})^{-1} \\circ p^{-1}$, with the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$. `proposition_16_4_3_naturality_all`: an sc-diffeomorphism for any induced structures, for $\\Theta$, $\\Theta'$ of orbifold type.",
     "decls": [
      "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.supp",
      "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_supp",
@@ -628,16 +628,18 @@
      "Chapter16/P3W4SM_SuppNaturality · suppTransition_symm",
      "Chapter16/P3W4SM_SuppNaturality · IsInducedSuppStructure",
      "Chapter16/P3W4SM_SuppNaturality · proposition_16_4_3_naturality_statement",
-     "Chapter16/P3W4SM_SuppNaturality · proposition_16_4_3_naturality_self"
+     "Chapter16/P3W4SM_SuppNaturality · proposition_16_4_3_naturality_self",
+     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.suppTransition_orbitSuppProj",
+     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.isScSmoothOn_suppTransition",
+     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all",
+     "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality"
     ]
    },
    "chips": [
-    "per representative",
-    "transition homeomorphisms",
-    "\"natural\": G.155"
+    "per representative; any induced structures"
    ],
    "diff": [
-    "Done for every representative, with the transition homeomorphisms between representatives (`suppTransition`, with the cocycle identities). That they are sc-diffeomorphisms for the induced structures (\"natural\") is stated as `proposition_16_4_3_naturality_statement` and proved for $a' = a$; the general case is gap G.155."
+    "None in content. The structures are the induced structures of Proposition 9.1.9 (1), and `proposition_16_4_3_naturality_all` shows that the choice does not matter. Orbifold type is used; it follows from manifold type. Gap G.155 closed (Part III wave 5)."
    ]
   },
   {
@@ -918,7 +920,7 @@
     "statement": "On P there is a natural functor $T$: $(Z,c)\\mapsto T(Z,c)$ and $\\hat f\\mapsto T\\hat f=[(Tf,T\\mathfrak f)]$, where $Tf$ is given by $|k|=|T\\mathfrak f|(|h|)$."
    },
    "lean": {
-    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.",
+    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.\n\nPart III wave 5 (`Chapter16/P3W5PC_TangentEffective.lean`): `EpGroupoid.isEffective_tangentEpGroupoid (hE : X.IsEffective) (hZ : X.IsZhou) : X.tangentEpGroupoid.IsEffective`; `PolyfoldClass.IsEffective.tangent : c.IsEffective → c.tangent.IsEffective` ((ZHOU) is a field of polyfold structures); `ScMap.tangent_comp_of_isEffective (hd : d.IsEffective)`: $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$; **`EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`**, a Mathlib functor with `map_id = tangent_id` and `map_comp = tangent_comp_of_isEffective`; `theorem_16_2_4_eff`. Helpers `linearMap_eq_self_of_eqOn_isOpen`, `EpGroupoid.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.tangent_isotropy_eq_one`.",
     "decls": [
      "Chapter16/P3W3Y_TangentFunctor · PSCat.tangentFunctor",
      "Chapter16/P3W3Y_TangentFunctor · PSHom.ofGen'",
@@ -932,15 +934,24 @@
      "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_id",
      "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_mk_comp",
      "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
-     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.theorem_16_2_4"
+     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.theorem_16_2_4",
+     "Chapter16/P3W5PC_TangentEffective · linearMap_eq_self_of_eqOn_isOpen",
+     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.levelVal_tangentProj_mem_smoothSet",
+     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.tangent_isotropy_eq_one",
+     "Chapter16/P3W5PC_TangentEffective · EpGroupoid.isEffective_tangentEpGroupoid",
+     "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.IsEffective.tangent",
+     "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
+     "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangent",
+     "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangentFunctor",
+     "Chapter16/P3W5PC_TangentEffective · theorem_16_2_4_eff"
     ]
    },
    "chips": [
-    "functor on PS; on classes: well defined",
-    "`tangent_comp`: $T$ of effective (G.157)"
+    "functor on effective polyfolds",
+    "`tangent_comp`: hypothesis discharged"
    ],
    "diff": [
-    "There is no category of all polyfolds (D16.1.10, V16.32), so functoriality on classes is stated where composition is defined. `tangent_comp` assumes that `d.tangent` is effective. That $T$ preserves effectiveness is not formalized (gap G.157). This hypothesis has no witness yet, so `tangent_comp` is a conditional form, not a `_hyp` theorem. The unconditional content is `tangent_mk_comp` and `PSCat.tangentFunctor`."
+    "There is no category of all polyfolds (D16.1.10, V16.32), so the functor lives on effective polyfolds, where composition is defined as we read it: `EffPolyfold.tangentFunctor`, with no hypothesis beyond the text's (gap G.157 closed in Part III wave 5). The proof that $T$ preserves effectiveness goes through a smooth point and uses (ZHOU), Definition 16.1.1 (2): effectiveness is a level-0 statement, while open sets of $T\\mathbf X$ see only level 1. The hypothesis `d.tangent.IsEffective` of `tangent_comp` now holds for every effective `d` (`tangent_comp_of_isEffective`; witness `EffPolyfold.point.tangent`)."
    ]
   },
   {
@@ -1423,10 +1434,10 @@
     ]
    },
    "chips": [
-    "invariance: G.166"
+    "invariance: pull direction (V16.79), G.166"
    ],
    "diff": [
-    "The parenthetical (invariance under equivalence) is not proved; see gap G.166."
+    "The parenthetical (invariance under equivalence) is proved in the pull direction (V16.79); the push direction is gap G.166."
    ]
   },
   {
@@ -1812,25 +1823,32 @@
   {
    "id": "V16.67",
    "title": "(16.8), the function $n(\\lambda)$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§16.5, (16.8), p. 733 (2017: §16.5)",
     "page": 733,
     "statement": "$n(\\lambda)(z)=\\max\\{n(y)\\mid p(y)=z,\\ \\lambda(y)\\neq0\\}$, \"a continuous map\"."
    },
    "lean": {
-    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).",
+    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).\n\nContinuity (Part III wave 5, `Chapter16/P3W5PC_NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq` (in a local section structure $N(\\Lambda) = \\max_i N(s_i)$), `IsScPlusMultisection.continuous_pointwiseNorm (hΛ) (hN : Continuous N)` (Definition 13.2.3's $N(\\Lambda)$ is continuous on $X$), `isQuotientMap_γπ`, **`ScPlusMultisection.continuous_normLam (s) (hn : c.IsAuxNorm n) : Continuous (c.normLam n s.toFun)`**, `isGreatest_normLam` (the maximum is attained), `normLam_nonneg`.",
     "decls": [
      "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.image_normY_eq",
      "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam",
-     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam_eq"
+     "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam_eq",
+     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsLocalRepOn.pointwiseNorm_eq",
+     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsLocalRepOn.univ_nonempty",
+     "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm",
+     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.isQuotientMap_γπ",
+     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
+     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.isGreatest_normLam",
+     "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.normLam_nonneg"
     ]
    },
    "chips": [
-    "continuity: G.174"
+    "continuous, as printed"
    ],
    "diff": [
-    "Continuity not proved (gap G.174); no ep-level continuity of `pointwiseNorm` exists either."
+    "None. Continuity, the maximum and the values in $[0,\\infty)$ are proved as printed (gap G.174 closed in Part III wave 5)."
    ]
   },
   {
@@ -1934,7 +1952,7 @@
     "T14.1.9 proved for $\\partial X = \\emptyset$"
    ],
    "diff": [
-    "Hidden hypotheses: `h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A`, Theorem 14.1.9 in every model. Theorem 14.1.9 is proved only from the extension of §§14.3–14.5 (V14.8), whose witness is the case $\\partial X = \\emptyset$; the rest is gaps G.170, G.171. `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle.",
+    "Hidden hypotheses: `h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A`, Theorem 14.1.9 in every model. Theorem 14.1.9 is proved from `AssemblyHyp` (the data of §§14.3–14.5, V14.8), whose witness is the case $\\partial X = \\emptyset$; the instance of that data is gap G.171. `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle.",
     "Partitions of unity are read in the form Theorem 14.1.9 uses; \"support\" is read as `tsupport`."
    ]
   },
@@ -2110,6 +2128,30 @@
    "diff": [
     "The integrals and their independence are not stated (gap G.175): they need the canonical orientation of $\\lambda\\circ f$ (Theorem 15.4.1, Definition 15.4.2) and model-independence of polyfold forms. `corollary_15_4_4_statement` (orientation predicate `Can` as a parameter) is the model-level target."
    ]
+  },
+  {
+   "id": "V16.79",
+   "title": "Definition 16.3.12 (2017: 16.24), the parenthetical: equivalent structures also have reflexive 1-fibres (pull direction)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.3, Definition 16.3.12, p. 727 (2017: Definition 16.24)",
+    "page": 727,
+    "statement": "If some structure $m \\in \\bar c$ has reflexive fibres $W_{0,1}$, so have the equivalent structures."
+   },
+   "lean": {
+    "statement": "`StrongBundle.LocalIso.exists_reflexive_chart`: for a local strong bundle isomorphism $\\Phi : Y|U \\to Y'|U'$ covering $\\phi$ and $x \\in U$, a compatible chart of $Y'$ at $\\phi(x)$ with $F_1$ reflexive gives one of $Y$ at $x$ (restrict the chart to $U'$, then transport it; the fibre model is unchanged). `StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn`: if $X$ is covered by domains of such isomorphisms, reflexive $(0,1)$-fibres pull back. **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of`**: for a strong bundle equivalence $\\Phi : W \\to W'$ (Definition 10.4.1), `B'.HasReflexiveFibers → B.HasReflexiveFibers`.",
+    "decls": [
+     "Chapter16/P3W5PC_ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
+     "Chapter16/P3W5PC_ReflexivePull · StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn",
+     "Chapter16/P3W5PC_ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of"
+    ]
+   },
+   "chips": [
+    "pull direction only (G.166)"
+   ],
+   "diff": [
+    "For a generalized isomorphism $[W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W']$ this gives: $W'$ reflexive $\\Rightarrow$ $W''$ reflexive. From $W''$ to $W$ is the push direction, still missing (gap G.166)."
+   ]
   }
  ],
  "notFormalized": [
@@ -2162,12 +2204,17 @@
    "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
    "page": 730,
    "book": "The manifold (orbifold) structure on $\\mathrm{supp}\\,\\theta$ is induced from the overhead and does not depend on the representative.",
-   "instead": "For every representative: $\\mathrm{supp}\\,\\theta \\simeq_t |\\mathrm{supp}\\,\\Theta|$ and the induced structure (`proposition_16_4_3_manifold`, `proposition_16_4_3_orbifold`, V16.24). Also: the transition homeomorphism `suppTransition` between two representatives (with the cocycle identities), the statement `proposition_16_4_3_naturality_statement` and its case $a' = a$ (`proposition_16_4_3_naturality_self`). Missing: the general case. It needs a generalized isomorphism $X \\leftarrow A \\to X'$ between the representatives to restrict to the supports ($\\Theta$ pulls back along both legs, Theorem 11.3.3) as an equivalence of the sub-ep-groupoids on $\\mathrm{supp}\\,\\Theta$, and that an equivalence of ep-subgroupoids induces local sc-diffeomorphisms of the structures of Proposition 9.1.9 (the structures are existential, so the statement chooses them). Not checked against the trivial-action $\\mathbb Z/3$ examples; it presumably holds for manifold type. Estimate 300–450 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.24; `Chapter16/P3W5PC_SuppNaturality.lean`): `proposition_16_4_3_naturality` (the statement `proposition_16_4_3_naturality_statement`, proved), from `isScSmoothOn_suppTransition` (the transition is sc-smooth for any induced structures; the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$) and `proposition_16_4_3_naturality_all` (any induced structures, orbifold type).",
    "decls": [
     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
     "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.suppTransition",
     "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_statement",
-    "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_self"
+    "Chapter16/P3W4SM_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_self",
+    "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality",
+    "Chapter16/P3W5PC_SuppNaturality · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_all"
+   ],
+   "formalized": [
+    "V16.24"
    ]
   },
   {
@@ -2195,11 +2242,17 @@
    "label": "§16.2, Theorem 16.2.4, p. 719 (2017: Theorem 16.1)",
    "page": 719,
    "book": "$T$ is a functor on the polyfold category.",
-   "instead": "$T$ is a functor on PS (`PSCat.tangentFunctor`) and is well defined on sc-smooth maps (`ScMap.tangent`, `theorem_16_2_4`; V16.34). The pull-back of forms is formalized on every class (V16.21). $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$ is proved (`tangent_comp`) under `d.tangent.IsEffective`; this hypothesis has no witness, so `tangent_comp` is a conditional form, not a `_hyp` theorem. That $T$ preserves effectiveness, and so that $T$ is a Mathlib functor of `EffPolyfold`, is not formalized. Presumably it follows since the isotropy of $TX$ at $(x,h)$ lies in $G_x$ and morphisms near $(g,h)$ in $TX$ lie over morphisms near $g$. Estimate 60–150 lines. (Until 2026-11-13 this entry was \"The tangent functor and the pull-back of forms on the polyfold category\"; the morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back were formalized in Part III wave 3.)",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.34; `Chapter16/P3W5PC_TangentEffective.lean`): `PolyfoldClass.IsEffective.tangent` (the tangent of an effective polyfold is effective, through a smooth point and (ZHOU)), `ScMap.tangent_comp_of_isEffective`, and `EffPolyfold.tangentFunctor`, a Mathlib functor on effective polyfolds. (Until 2026-11-13 this entry was \"The tangent functor and the pull-back of forms on the polyfold category\"; the morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back were formalized in Part III wave 3.)",
    "decls": [
     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
     "Chapter16/P3W3Y_TangentFunctor · PolyfoldClass.theorem_16_2_4",
-    "Chapter16/P3W3Y_TangentFunctor · PSCat.tangentFunctor"
+    "Chapter16/P3W3Y_TangentFunctor · PSCat.tangentFunctor",
+    "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.IsEffective.tangent",
+    "Chapter16/P3W5PC_TangentEffective · PolyfoldClass.ScMap.tangent_comp_of_isEffective",
+    "Chapter16/P3W5PC_TangentEffective · EffPolyfold.tangentFunctor"
+   ],
+   "formalized": [
+    "V16.34"
    ]
   },
   {
@@ -2208,9 +2261,11 @@
    "label": "§16.3, Definition 16.3.12 (parenthetical), p. 727; Definition 16.3.14 and Proposition 16.3.16 (2), pp. 727–728; the remark before Theorem 16.3.17, p. 728 (2017: Definitions 16.24, 16.26, Proposition 16.5)",
    "page": 727,
    "book": "Equivalent strong polyfold bundle structures also have reflexive 1-fibres; pull-backs and push-forwards of reflexive auxiliary norms under generalized strong bundle isomorphisms are reflexive, and mixed convergence does not depend on the model.",
-   "instead": "`HasReflexiveFibers`, `IsReflexiveAuxNorm`, `MixedTendsto` (V16.51–V16.53) are existential in one model, as printed. Proposition 16.3.16 (2) is proved with the mixed convergence read in the model of the reflexive norm (`proposition_16_3_16_two_of_mem`, V16.56). Missing: transfer along a generalized strong bundle isomorphism $[W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W']$ of (i) reflexivity of the fibres $W_{0,1}$ (fibrewise sc-isomorphisms on level $(0,1)$ via the chart transport of Chapter 10), (ii) `MixedTendsto` (level-0 convergence plus boundedness on level 1, through $\\Phi$, $\\Psi$ as local sc-diffeomorphisms covered by strong bundle maps, with lifts of sequences via `EpGroupoid.exists_lift_tendsto`), (iii) `IsReflexiveAuxNorm` for `pullNorm`. About 300–600 lines.",
+   "instead": "**Formalized in part** (2026-11-13, Part III wave 5; V16.79; `Chapter16/P3W5PC_ReflexivePull.lean`): (i) in the pull direction, along strong bundle equivalences and local strong bundle isomorphisms (`IsStrongBundleEquivalence.hasReflexiveFibers_of`, `LocalIso.exists_reflexive_chart`). `HasReflexiveFibers`, `IsReflexiveAuxNorm`, `MixedTendsto` (V16.51–V16.53) are existential in one model, as printed; Proposition 16.3.16 (2) is proved with the mixed convergence read in the model of the reflexive norm (`proposition_16_3_16_two_of_mem`, V16.56). Missing: (i) the push direction ($W$ reflexive $\\Rightarrow$ $W'$ reflexive for a strong bundle equivalence $W \\to W'$): charts at the points $\\phi(x)$ by `exists_reflexive_chart` for `L.symm`; $\\phi$ essentially surjective; charts moved along a morphism $\\phi(x) \\to x'$ of $X'$, which needs a `LocalIso B' B'` for the action $\\mu$ over a sheet of `src` (base $t \\circ \\sigma$, level 0 `sectionAct`, level 1 `actOne`; ingredients `isScSmoothOn_sectionAct`, `continuousOn_actOne`, `isLocalScDiffeo_src`), 150–220 lines; (ii) `MixedTendsto` along $\\Phi$, $\\Psi$ (level-0 convergence plus local boundedness through `exists_le_mul_auxNorm`; lifts of sequences by `EpGroupoid.exists_lift_tendsto`), 150–250 lines; (iii) `IsReflexiveAuxNorm` for `pullNorm`, 80–150 lines. Estimate 380–620 lines.",
    "decls": [
-    "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem"
+    "Chapter16/P3W3V_PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem",
+    "Chapter16/P3W5PC_ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
+    "Chapter16/P3W5PC_ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart"
    ]
   },
   {
@@ -2231,9 +2286,14 @@
    "label": "§16.5, (16.8), p. 733 (2017: §16.5)",
    "page": 733,
    "book": "$z \\mapsto n(\\lambda)(z) = \\max\\{n(y) \\mid p(y) = z, \\lambda(y) \\ne 0\\}$ is continuous.",
-   "instead": "`normLam` with `normLam_eq` (it is $N(\\Lambda)$ on orbits; V16.67). Missing: continuity of `pointwiseNorm N Λ` on $X$ for an sc⁺-multisection functor (local representations, continuity of $N$ on $W_{0,1}$ and of the sc⁺-sections), then descent through the open quotient $\\pi$ and $\\gamma$. About 120–200 lines, most of it at the ep-groupoid level.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.67; `Chapter16/P3W5PC_NormLamContinuous.lean`): `IsScPlusMultisection.continuous_pointwiseNorm` (ep level, $N(\\Lambda) = \\max_i N(s_i)$ locally) and `ScPlusMultisection.continuous_normLam` (descent through the quotient maps $\\gamma\\pi$), with `isGreatest_normLam`.",
    "decls": [
-    "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam"
+    "Chapter16/P3W4PB_Multisections · StrongPolyfoldBundle.normLam",
+    "Chapter16/P3W5PC_NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
+    "Chapter16/P3W5PC_NormLamContinuous · SBLocalization.IsScPlusMultisection.continuous_pointwiseNorm"
+   ],
+   "formalized": [
+    "V16.67"
    ]
   },
   {
@@ -2253,9 +2313,11 @@
    "label": "§16.6, Definition 16.6.5, p. 739 (2017: Definition 16.42)",
    "page": 739,
    "book": "An orientation of one representative determines orientations of all, via Theorem 12.5.7.",
-   "instead": "`OrientationRep` on one representative (V16.77). Missing: the transport along generalized strong bundle isomorphisms with continuity (Theorem 12.5.7 is proved only without continuity, gap G.158) and the independence of the transporting $\\bar f$ (morphism invariance of $o$ should give it; on the trivial-action $\\mathbb Z/3$ example the two $\\bar f$ transport identically). About 200–350 lines.",
+   "instead": "`OrientationRep` on one representative (V16.77). Missing: the transport of the orientation, with its continuity, along the two legs of a generalized strong bundle isomorphism, and the independence of the transporting $\\bar f$ (morphism invariance of $o$ should give it; on the trivial-action $\\mathbb Z/3$ example the two $\\bar f$ transport identically). Since Part III wave 5 the prerequisites exist: continuous orientations are carried along local strong bundle isomorphisms (`StrongBundle.LocalIso.isContOrOn_pullOrx`, `theorem_12_5_3_push`; gaps G.138, G.139 closed), and Theorem 12.5.7 (2) holds with continuity for one representative (`theorem_12_5_7_two_hyp`; gap G.158 formalized in part). About 200–350 lines.",
    "decls": [
-    "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.OrientationRep"
+    "Chapter16/P3W4PB_FredholmSections · StrongPolyfoldBundle.OrientationRep",
+    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
+    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp"
    ]
   }
  ]

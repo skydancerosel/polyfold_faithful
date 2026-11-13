@@ -380,8 +380,20 @@
      "Polyfold.EpStrongBundle.theorem_12_4_2"
     ],
     [
+     "Thm 12.5.3",
+     "Polyfold.EpStrongBundle.theorem_12_5_3_push"
+    ],
+    [
+     "Prop 12.5.6",
+     "Polyfold.EpStrongBundle.proposition_12_5_6_mpr_hyp"
+    ],
+    [
      "Thm 12.5.7",
      "Polyfold.theorem_12_5_7_one_hyp"
+    ],
+    [
+     "Thm 12.5.7",
+     "Polyfold.theorem_12_5_7_two_hyp"
     ],
     [
      "Thm 13.1.8",
@@ -394,6 +406,10 @@
     [
      "Thm 13.4.1",
      "Polyfold.SBLocalization.theorem_13_4_1"
+    ],
+    [
+     "Prop 13.4.2",
+     "Polyfold.SBLocalization.proposition_13_4_2"
     ],
     [
      "Thm 13.4.3",
@@ -420,16 +436,32 @@
      "Polyfold.EpGroupoid.theorem_14_1_6_hyp"
     ],
     [
+     "Prop 14.1.8",
+     "Polyfold.SBLocalization.proposition_14_1_8_hyp"
+    ],
+    [
      "Thm 14.1.9",
-     "Polyfold.SBLocalization.theorem_14_1_9_hyp"
+     "Polyfold.SBLocalization.theorem_14_1_9_of_assembly"
+    ],
+    [
+     "Prop 14.4.6",
+     "Polyfold.SBLocalization.ZConcrete.proposition_14_4_6_2"
     ],
     [
      "Prop 14.4.14",
      "Polyfold.SBLocalization.proposition_14_4_14"
     ],
     [
+     "Prop 14.5.4",
+     "Polyfold.SBLocalization.TransportInput.proposition_14_5_4"
+    ],
+    [
      "Thm 14.5.5",
      "Polyfold.SBLocalization.theorem_14_5_5"
+    ],
+    [
+     "Thm 14.6.3",
+     "Polyfold.SBLocalization.CompatibleFaceData.theorem_14_6_3_hyp"
     ],
     [
      "Thm 15.1.1",
@@ -445,11 +477,11 @@
     ],
     [
      "Thm 15.3.7",
-     "Polyfold.SBLocalization.theorem_15_3_7_of_hyp"
+     "Polyfold.SBLocalization.theorem_15_3_7_of_paramOnto"
     ],
     [
      "Thm 15.3.9",
-     "Polyfold.SBLocalization.theorem_15_3_9_hyp"
+     "Polyfold.SBLocalization.theorem_15_3_9_of_extension_ty"
     ],
     [
      "Thm 15.4.3",
@@ -484,6 +516,10 @@
      "Polyfold.PolyfoldClass.theorem_16_2_4"
     ],
     [
+     "Thm 16.2.4",
+     "Polyfold.theorem_16_2_4_eff"
+    ],
+    [
      "Thm 16.2.6",
      "Polyfold.PolyfoldClass.theorem_16_2_6_complex"
     ],
@@ -494,6 +530,10 @@
     [
      "Thm 16.3.17",
      "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_one"
+    ],
+    [
+     "Prop 16.4.3",
+     "Polyfold.PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality"
     ],
     [
      "Thm 16.4.6",

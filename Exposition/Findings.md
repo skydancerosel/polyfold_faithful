@@ -12893,8 +12893,8 @@ Witnesses and the hypotheses taken (2026-11-08).
 
 *Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
 Statement numbers and pages are those of the Springer edition (2021, pp. 569–598), with the 2017 text's numbers in
-parentheses. The comparison items are `Exposition/verification/ch12.md` (V12.1–V12.44); the gaps are G.136–G.140, G.147,
-G.158 (G.136, G.137 closed in wave 2, G.147 in wave 3).
+parentheses. The comparison items are `Exposition/verification/ch12.md` (V12.1–V12.46); the gaps are G.136–G.140, G.147,
+G.158 (G.136, G.137 closed in wave 2, G.147 in wave 3, G.138, G.139 in wave 5).
 
 Found while formalizing §§12.1–12.5 in Part III wave 1 (2026-11-13; files `Chapter12/P3N_*`, `P3S_*`, `P3B_*`, `P3O_*`).
 
@@ -13069,12 +13069,42 @@ Found while formalizing §12.2 and §12.5 in Part III wave 3 (2026-11-13; files 
     lemmas carry only proof data and the standing `hsec` of §12.5. The texts of G.138, G.139 and G.158 now give the
     remaining steps. Status: **in part (gaps G.138, G.139, G.158 open)**.
 
+Found while formalizing §12.5 in Part III wave 5 (2026-11-13; files `Chapter12/P3W5OR_*`).
+
+21. **Theorem 12.5.3, last sentence, and Proposition 12.5.6 (⇐): the continuity is proved** *(Theorem 12.5.3, p. 594,
+    Proposition 12.5.6, p. 595 (2017: Theorem 12.11, Proposition 12.4); items 10, 17, 20; gaps G.138, G.139, closed)*
+    (2026-11-13). `Chapter12/P3W5OR_LocalComm.lean`, `P3W5OR_Theorem1253.lean`, `P3W5OR_Germ.lean`,
+    `P3W5OR_Orientable.lean`. A local strong bundle isomorphism carries continuous orientations
+    (`StrongBundle.LocalIso.isContOrOn_pullOrx`, with its converse): the orientation transport commutes with the
+    isomorphism on short paths and, by a dyadic induction, on all sc-smooth paths. `theorem_12_5_3_push` is the last
+    sentence of Theorem 12.5.3 and `proposition_12_5_6_mpr_hyp` is (⇐) with continuity, both with Part I's hypotheses
+    only (gap G.140). Readings: "continuous local section" is Part I's `IsContOrOn` over an open set, whose section $y
+    \mapsto (y, o_y)$ is continuous for Part I's topology; $\hat\Phi$ is the local isomorphism of the sheet of $\sigma$
+    (`E.morIso σ`). Two tools Part I lacked are proved: continuity of an orientation is a local property (V12.45), and
+    the orientation map of a local isomorphism depends only on its germ (V12.46) (rows V12.24, V12.26). Status:
+    **settled (gaps G.138, G.139 closed; gap G.140 remains)**.
+
+22. **Theorem 12.5.7 (2): the continuity for one representative** *(Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12);
+    item 17; gap G.158)* (2026-11-13). `Chapter12/P3W5OR_EquivCont.lean`. `theorem_12_5_7_two_hyp`: the orientation $o'$
+    carried along a generalized strong bundle isomorphism is continuous when $o$ is, with continuity read as Part I's
+    `IsContOrOn` over all of $X$ for input and output; the book's `Continuous (orSec o)` follows from it. Still open:
+    the converse of that implication, the homeomorphism of (1), the independence of the representative and functoriality
+    (gap G.158, now 650–1,050 lines; there is no Lean notion yet of equivalent representatives) (row V12.39). Status:
+    **in part (gap G.158 open)**.
+
+23. **Every hypothesis taken in Part III wave 5 for Chapter 12 is satisfiable** *(§12.5)* (2026-11-13). No hypothesis
+    beyond Part I's standing ones was added: tameness, bump functions and the tame germ data (G.140) with the witnesses
+    of `theorem_12_5_3_hyp`; the standing `hsec` of §12.5 (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`);
+    "$\hat\Phi$ maps $f$ to $f'$", discharged for morphisms (`eqOn_morIso_of_functor`) and for equivalences; Part I's
+    paracompactness instances, discharged inside the main theorems. No hypothesis quantifies over all charts. Status:
+    **settled**.
+
 ## Chapter 13 (sc⁺-multisections; Lean `Polyfold/Chapter13/`)
 
 *Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
 Statement numbers and pages are those of the Springer edition (2021, pp. 599–640), with the 2017 text's numbers in
-parentheses. The comparison items are `Exposition/verification/ch13.md` (V13.1–V13.58); the gaps are G.141–G.143, G.148,
-G.149, G.163 (G.141–G.143 closed in wave 2, G.148, G.149 in wave 3).
+parentheses. The comparison items are `Exposition/verification/ch13.md` (V13.1–V13.59); the gaps are G.141–G.143, G.148,
+G.149, G.163 (G.141–G.143 closed in wave 2, G.148, G.149 in wave 3, G.163 in wave 5).
 
 Found while formalizing §§13.1–13.2 in Part III wave 1 (2026-11-13; files `Chapter13/P3G_*`, `P3M_*`).
 
@@ -13246,12 +13276,23 @@ Found while formalizing §13.3, §13.4 and §13.5 in Part III waves 3–4 (2026-
     and sc-smooth partitions of unity in Theorem 13.5.7, as printed. §13.4 adds none. No hypothesis quantifies over all
     charts. Status: **settled**.
 
+Found while formalizing §13.4 in Part III wave 5 (2026-11-13; files `Chapter13/P3W5FM_*`).
+
+21. **Proposition 13.4.2 is proved, with the relative data named** *(Proposition 13.4.2, pp. 623–625 (2017: Proposition
+    13.6); item 18; gap G.163, closed)* (2026-11-13). `Chapter13/P3W5FM_ExtensionData.lean`, `P3W5FM_Extension.lean`.
+    "$\Lambda$ structured on $W|V$" is read as `StructuredOn A V`: the data of Definitions 13.3.4 and 13.3.6 with all
+    indices in $V$ and the good-system condition read for $V$ (`IsGoodIn`); no strong bundle over $V$ is needed.
+    "Canonical" is read as uniqueness: every functor on $W$ agreeing with $\Lambda$ over $V$ is the extension
+    (`eq_extendMult`). The push machinery of §13.4 for $F = \mathrm{id}$ covers the text's cases (i)–(iii). No
+    hypothesis is added; `StructuredOn` is inhabited (`StructuredTuple.toStructuredOn`) (row V13.59). Status: **settled
+    (gap G.163 closed); item 18 settled**.
+
 ## Chapter 14 (Extension of sc⁺-multisections; Lean `Polyfold/Chapter14/`)
 
 *Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
 Statement numbers and pages are those of the Springer edition (2021, pp. 637–682), with the 2017 text's numbers in
-parentheses. The comparison items are `Exposition/verification/ch14.md` (V14.1–V14.35); the gaps are G.164, G.165,
-G.168–G.173.
+parentheses. The comparison items are `Exposition/verification/ch14.md` (V14.1–V14.44); the gaps are G.164, G.165,
+G.168–G.173, G.184, G.185 (G.165, G.168–G.170 closed in wave 5).
 
 Found while formalizing §§14.1–14.5 in Part III waves 3–4 (2026-11-13; files `Chapter14/P3W3B1_*`, `P3W3B2_*`,
 `P3W4S3_*`, `P3W4Z4_*`, `P3W4LX_*`, `P3W4GL_*`).
@@ -13334,12 +13375,79 @@ Found while formalizing §§14.1–14.5 in Part III waves 3–4 (2026-11-13; fil
    only (item 6). Structured sc⁺-multisections over $\partial X$ exist (`isBoundaryStructurable_zero`). No hypothesis
    quantifies over all charts. Status: **settled; the extension hypothesis of Theorem 14.1.9 only for ∂X = ∅**.
 
+Found while formalizing §§14.1, 14.4–14.6 in Part III wave 5 (2026-11-13; files `Chapter14/P3W5T9_*`, `P3W5Z5_*`, `P3W5F6_*`, `P3W5FM_*`).
+
+9. **Proposition 14.4.6 (2) is proved, in a stronger form** *(Proposition 14.4.6, p. 661, Lemma 14.4.9, Proposition
+   14.4.10, Proposition 14.4.14, pp. 663–671 (2017: Propositions 14.5, 14.6, 14.7, Lemma 14.8); item 4; gaps G.168,
+   G.169, closed)* (2026-11-13). `Chapter14/P3W5Z5_*.lean`. (2) holds as printed, and also for $z_k \in \hat V_a$ (the
+   form Lemma 14.4.9 (3) uses) and at every $z_0 \in \mathrm{cl}_X(\hat V_a) \cap \partial X$. The $z_0$-loop of the
+   text is not built separately: each step of the $z_k$-loop is moved along its sheet, and the composite identity is
+   Lemma 14.4.7 (6). The facts of §14.3 used are named (`ZLimitSetting`, `CompatNbhd`) and hold for the objects of
+   §14.3 (`ZConcrete`, the instance of the setting of §14.4, with the objects indexed through $\partial X$ by a
+   retraction). Lemma 14.4.9 (3), Proposition 14.4.10, the coherent systems and Proposition 14.4.14 now hold without
+   hypothesis (rows V14.25, V14.28–V14.30, V14.33, V14.39). Status: **settled (gaps G.168, G.169 closed); item 4
+   settled**.
+
+10. **Proposition 14.5.4 and the assembly of Theorem 14.1.9 are proved; the data of §§14.3–14.5 are one named
+    hypothesis** *(Proposition 14.5.4, pp. 673–677, Lemma 14.5.2, Theorem 14.1.9, p. 646 (2017: Proposition 14.8, Lemma
+    14.11, Theorem 14.2); item 6; gaps G.170, closed, G.171, G.172)* (2026-11-13). `Chapter14/P3W5T9_*.lean`.
+    `TransportInput.proposition_14_5_4` proves Proposition 14.5.4 with Lemma 14.5.1 (1) named (`SuppInSat`; it is part
+    of the text's data, and (3) needs it); the sections are defined along chains of morphisms and agree with the text's
+    one-step form. The sum over $a$ (with the sum identity of Lemma 14.5.2 for the sections) and the assembly with
+    Theorem 14.5.5 give `theorem_14_1_9_of_assembly`: Theorem 14.1.9 from `AssemblyHyp A`, which asks for the data of
+    §§14.3–14.5 for every structurable $\Lambda$ over $\partial X$. Its witness is still the case $\partial X =
+    \emptyset$ only (`assemblyHyp_of_boundary_eq_empty`); all pieces of the instance exist, the assembly into
+    `AssemblyInput` is gap G.171 (450–700 lines). In the assembly the cut-off is folded into the sections before Theorem
+    14.5.5 is applied, and points away from all transported supports are covered by invariant cores (rows V14.8, V14.37,
+    V14.38). Status: **narrower (gap G.170 closed; gaps G.171, G.172 open); Theorem 14.1.9 and with it Theorem 16.5.7
+    have a witness only for ∂X = ∅**.
+
+11. **The remark after Definition 14.1.2: the $\bar\theta_j$ are tame** *(remark after Definition 14.1.2, p. 641 (2017:
+    after Definition 14.1); gap G.165, closed)* (2026-11-13). `Chapter14/P3W5F6_FaceTame.lean`. The faces of the open
+    set $V$ are exactly the $\bar\theta_i$, and with its structure as a face of the tame face-structured M-polyfold $V$,
+    $\bar\theta_i$ is tame with $d_X = d_{\bar\theta_i} + 1$ (`HasBoundaryFaces.face_isTame`). That this structure
+    agrees with the sub-M-polyfold structure of $X$ on the same set is not stated; both come from the same local face
+    charts (row V14.36). Status: **settled (gap G.165 closed)**.
+
+12. **§14.6: Theorem 14.6.3 for agreeing representatives** *(§14.6, Definitions 14.6.1, 14.6.2, Theorem 14.6.3, pp.
+    680–682 (2017: Definitions 14.10, 14.11, Theorem 14.4); item 7; gaps G.173, G.184, G.185)* (2026-11-13).
+    `Chapter14/P3W5F6_*.lean`. Definitions 14.6.1 and 14.6.2 are formalized on classes; Theorem 14.6.3 is
+    `theorem_14_6_3_hyp` for `CompatibleFaceData`, representatives whose sections and correspondences agree on $F \cap
+    F'$, and its extension part is conditional on Theorem 14.1.9. The text derives $s^x_{F,i} = s^x_{F',i}$ on $U_F(x)
+    \cap U_{F'}(x)$ from $\tilde\Lambda_F|F' = \tilde\Lambda_{F'}|F$, but the equivalence of Definition 14.6.2 (as of
+    Definition 13.3.8) compares $\Lambda$, the index sets and $\tau$, not the sections. Presumably the text means that
+    representatives can be chosen to agree; no counterexample was found (gap G.173: either re-choosing the
+    representatives, 350–550 lines, or a Lean example showing that the step does not hold as we read it, 150–250 lines).
+    Readings: "good $U_F(x) \subseteq F$" is $U(x) \cap F$ for a natural neighbourhood of $X$ with the properness of
+    Definition 13.1.4 (1) (condition (2) is gap G.185); sc⁺ on $W|F$ is read through local face germs of $X$ inside $F$;
+    sc⁺ on the corner $F \cap F'$ is gap G.184 (rows V14.40–V14.43). Status: **narrower (gap G.173 open, an ask: is the
+    agreement of the sections meant to be chosen?)**.
+
+13. **Proposition 14.1.8: the transport of the face condition named** *(Proposition 14.1.8, p. 645 (2017: Proposition
+    14.1); item 7; gap G.164)* (2026-11-13). `Chapter14/P3W5FM_BoundaryPull.lean`, `P3W5FM_BoundaryPush.lean`.
+    `proposition_14_1_8_hyp` proves Proposition 14.1.8 for a representative with tame middle, as in the text's proof,
+    under `PullMap.FacePull_hyp` and `FacePush_hyp`: the transport of (1) of Definition 14.1.3 along the pull-back and
+    the push-forward. Good systems for $\partial X$, structures, correspondences and functoriality over $\partial X$ are
+    proved. `FacePull_hyp` has a nonvacuous witness (the identity); `FacePush_hyp` has a witness only for $\partial X' =
+    \emptyset$, since it quantifies over all transport charts; a nonvacuous witness needs the chart-transport lemma of
+    gap G.164 (600–850 lines, plus 100–200 for the class-level form) (row V14.44). Status: **narrower (gap G.164 open);
+    `FacePush_hyp` with a witness only for ∂X = ∅**.
+
+14. **Every hypothesis taken in Part III wave 5 for Chapter 14 is satisfiable** *(§§14.1, 14.4–14.6)* (2026-11-13).
+    `SuppInSat` (`suppInSat_of_zero`; Lemma 14.5.1 gives it in general), `AssemblyHyp`
+    (`assemblyHyp_of_boundary_eq_empty`, ∂X = ∅ only), `ZLimitSetting` and `CompatNbhd` (`ZConcrete.toLimit`,
+    `ZConcrete.compatNbhd`, `exists_zConcrete_of_tame`), `CompatibleFaceData` (`CompatibleFaceData.zero`),
+    `IsEpFaceStructured` (`isEpFaceStructured_trivial_restrictOpen`), `FacePull_hyp` (`facePull_hyp_id`), `FacePush_hyp`
+    (∂X = ∅ only, item 13). `FacePush_hyp` quantifies over all transport charts. Status: **in part (`AssemblyHyp` and
+    `FacePush_hyp` with witnesses only for ∂X = ∅)**.
+
 ## Chapter 15 (Transversality and invariants; Lean `Polyfold/Chapter15/`)
 
 *Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
 Statement numbers and pages are those of the Springer edition (2021, pp. 683–703), with the 2017 text's numbers in
-parentheses. The comparison items are `Exposition/verification/ch15.md` (V15.1–V15.38); the gaps are G.144, G.145,
-G.150–G.152, G.159–G.162, G.177–G.183 (G.145 closed in wave 2, G.144, G.161 in wave 3, G.151 in wave 4).
+parentheses. The comparison items are `Exposition/verification/ch15.md` (V15.1–V15.43); the gaps are G.144, G.145,
+G.150–G.152, G.159–G.162, G.177–G.183 (G.145 closed in wave 2, G.144, G.161 in wave 3, G.151 in wave 4,
+G.150, G.152, G.177, G.183 in wave 5).
 
 Found while formalizing §15.1 in Part III wave 1 (2026-11-13; files `Chapter15/P3T_*`).
 
@@ -13480,12 +13588,62 @@ Found while formalizing §15.1, §15.2, §15.3 and §15.4 in Part III waves 3–
     cobordism of Corollary 15.4.4 (`hasOrientedCobordism_refl`). Without a witness: `hparaC`, `hPUC` and the $\Lambda_b$
     hypotheses of Corollary 15.3.10 (3) (item 14). Status: **in part (Corollary 15.3.10 (3) without a witness)**.
 
+Found while formalizing §§15.2–15.3 in Part III wave 5 (2026-11-13; files `Chapter15/P3W5GA_*`, `P3W5GB_*`, `P3W5TY_*`, `P3W5PR_*`, `Chapter5/P3W5TY_DegZeroTame.lean`).
+
+16. **Theorem 15.3.7: the parametric step and the groupoid part of the local constructions are proved** *(Theorem
+    15.3.7, pp. 693–698 (2017: Theorem 15.4); item 12; gap G.162)* (2026-11-13). `Chapter15/P3W5GA_*.lean`,
+    `P3W5GB_*.lean`. `hasParametricGeneralPosition` proves "achieving global transversality" with exactly the hypotheses
+    of the theorem. The local constructions are proved from two Props on the object M-polyfold: (15.1) at one point with
+    small vectors (`HasPointwiseParamOnto`) and its openness along $S_f$ (`HasParamOntoOpen`);
+    `theorem_15_3_7_of_paramOnto` is the theorem from these two and a good system. Reading: the text's (15.1) uses
+    $T^R_xX$, Part I's proof of Theorem 5.3.10 uses the properties (i)–(ii) with the full tangent space; the two are
+    equivalent by elementary linear algebra, and the text presumably relies on this when it cites the implicit function
+    theorem for the openness of (15.1). What remains is the bridge between the two in a chart (gap G.162, 530–950
+    lines). The passage from $V(x)$ to its saturation "by equivariance" is the morphism invariance of general position
+    at a point (`isInGeneralPositionAt_of_mor`) (rows V15.29, V15.39). The 2017 number of Theorem 15.3.7 is Theorem
+    15.4. Status: **narrower (gap G.162 open)**.
+
+17. **§15.2: tame, and the ep-groupoid $U(x)$** *(Remark 15.2.3, p. 689, Theorem 15.2.5, p. 690, Remark 15.3.6, Theorem
+    15.3.7 (2017: Remark 15.2, Theorem 15.3, Remark 15.6, Theorem 15.4); gaps G.150, G.152, closed)* (2026-11-13).
+    `Chapter15/P3W5PR_*.lean`. The local solution sets in good position have a tame induced structure, and $\Lambda
+    \circ f$ is a tame branched ep⁺-subgroupoid in Remark 15.2.3, Theorem 15.2.5, Remark 15.3.6 and the "in particular"
+    of Theorem 15.3.7. "The ep-groupoid $U(x)$" is read as the translation groupoid $G_x \ltimes U(x)$, which Chapter 7
+    proves to be an ep-groupoid isomorphic to the full subcategory on $U(x)$; on it the paracompactness of
+    $|\mathrm{supp}|$ is proved, not assumed (rows V15.13, V15.15, V15.28, V15.30, V15.43). A reading point. Status:
+    **settled (gaps G.150, G.152 closed)**.
+
+18. **Theorem 15.3.9 step (a) and Corollary 15.3.10: tame bundle charts, $d_X \equiv 0$, the cylinder** *(Theorem
+    15.3.9, p. 698, Corollary 15.3.10, pp. 699–700 (2017: Theorem 15.5, Corollary 15.1); items 13, 14; gaps G.177,
+    G.183, closed, G.179–G.181)* (2026-11-13). `Chapter15/P3W5TY_*.lean`, `Chapter5/P3W5TY_DegZeroTame.lean`. Step (a)
+    of the proof of Theorem 15.3.9 is proved given `hB`, every object in a tame strong bundle chart: without tame bundle
+    charts Definition 14.1.3 (1) says nothing about the sections and $N(\Lambda)$ need not be upper semicontinuous along
+    $\partial X$, which the text uses without comment; "a strong bundle over a tame ep-groupoid" is read as including
+    tame bundle charts, as in Chapter 14. $d_X \equiv 0$ implies tame (`EpGroupoid.isTame_of_degIndex_eq_zero`), so
+    Corollary 15.3.10 (1) no longer adds tameness. Corollary 15.3.10 (3) is in the text's form
+    (`corollary_15_3_10_3_glue_hyp`): the glued boundary data, its values, domain support and norm are derived; left are
+    its structurability and face condition (gap G.180) and partitions of unity of the cylinder (gap G.181); the text's
+    proof does not say how the face condition is checked. The last paragraph of the proof is proved (V15.42). The
+    independence of the boundary hypothesis of the extension is now estimated at 250–400 lines (gap G.179) (rows
+    V15.32–V15.34, V15.40–V15.42). Status: **narrower (gaps G.177, G.183 closed; G.178–G.181 open); item 14's flag
+    settled: Corollary 15.3.10 (3) has witnesses**.
+
+19. **Every hypothesis taken in Part III wave 5 for Chapter 15 is satisfiable** *(§§15.2–15.3)* (2026-11-13).
+    `HasPointwiseParamOnto`, `HasParamOntoOpen` (`hasPointwiseParamOnto_epSEP_zero`, `hasParamOntoOpen_epSEP_zero`,
+    jointly with the theorem `theorem_15_3_7_statement_epSEP_zero_of_paramOnto`; `HasParamOntoOpen` quantifies over all
+    sc⁺ families, but its conclusion is the text's own claim); `HasParametricGeneralPosition` is no longer a hypothesis;
+    `hB` (`proposition_14_1_4_hypotheses_rn`); the hypotheses of Corollary 15.3.10 (3)
+    (`corollary_15_3_10_3_boundary_witness`, `corollary_15_3_10_3_glue_witness`, `admitsScPartitionsOfUnity_cube_rn`;
+    that $\Lambda^i = 0$ are regular perturbations there was not re-checked); the tame forms of §15.2
+    (`remark_15_2_3_isTameBranched_hyp_witness`, `remark_15_2_3_restricted_hyp_witness`). Item 15's exception is
+    settled. Status: **settled**.
+
 ## Chapter 16 (Polyfolds; Lean `Polyfold/Chapter16/`)
 
 *Numbering.* The items of this section are numbered in order of the text; later waves continue from the last number.
 Statement numbers and pages are those of the Springer edition (2021, pp. 705–740), with the 2017 text's numbers in
-parentheses. The comparison items are `Exposition/verification/ch16.md` (V16.1–V16.78); the gaps are G.146, G.153–G.157,
-G.166, G.167, G.174–G.176 (G.146 closed in wave 2, G.154 in wave 3, G.156 in wave 4).
+parentheses. The comparison items are `Exposition/verification/ch16.md` (V16.1–V16.79); the gaps are G.146, G.153–G.157,
+G.166, G.167, G.174–G.176 (G.146 closed in wave 2, G.154 in wave 3, G.156 in wave 4,
+G.155, G.157, G.174 in wave 5).
 
 Found while formalizing §16.1 in Part III wave 1 (2026-11-13; files `Chapter16/P3Z_*`).
 
@@ -13654,3 +13812,38 @@ Found while formalizing §§16.1–16.6 in Part III waves 3–4 (2026-11-13; fil
     (`zero_isStructurable`). `h1419` in Theorem 16.5.7 holds for $\partial X = \emptyset$ only (item 16). Without a
     witness: `hTd : d.tangent.IsEffective` in `tangent_comp` (item 13). Status: **in part (`tangent_comp`
     conditional)**.
+
+Found while formalizing §§16.2–16.5 in Part III wave 5 (2026-11-13; files `Chapter16/P3W5PC_*`).
+
+18. **Theorem 16.2.4: $T$ preserves effectiveness; the tangent functor on effective polyfolds** *(Theorem 16.2.4, p. 719
+    (2017: Theorem 16.1); items 13, 17; gap G.157, closed)* (2026-11-13). `Chapter16/P3W5PC_TangentEffective.lean`. The
+    tangent of an effective polyfold is effective (`PolyfoldClass.IsEffective.tangent`), and
+    `EffPolyfold.tangentFunctor` is a Mathlib functor on effective polyfolds with no hypothesis beyond the text's. The
+    proof goes through a smooth point and uses (ZHOU), Definition 16.1.1 (2): effectiveness is a level-0 statement,
+    while open sets of $T\mathbf X$ see only level 1. The hypothesis of `tangent_comp` now holds for every effective
+    target (row V16.34). Status: **settled (gap G.157 closed); item 17's exception settled**.
+
+19. **Proposition 16.4.3 and (16.8): naturality and continuity** *(Proposition 16.4.3, p. 730, (16.8), p. 733 (2017:
+    Proposition 16.6, §16.5); items 14, 16; gaps G.155, G.174, closed)* (2026-11-13).
+    `Chapter16/P3W5PC_SuppNaturality.lean`, `P3W5PC_NormLamContinuous.lean`. The transition between the structures on
+    $\mathrm{supp}\,\theta$ of two representatives is an sc-diffeomorphism for any induced structures of Proposition
+    9.1.9 (1) (`proposition_16_4_3_naturality_all`), so the choice does not matter. $n(\lambda)$ is continuous, with the
+    maximum attained (`continuous_normLam`; at ep level `IsScPlusMultisection.continuous_pointwiseNorm`) (rows V16.24,
+    V16.67, now same). Status: **settled (gaps G.155, G.174 closed)**.
+
+20. **Definition 16.3.12: reflexive 1-fibres pull back; Definition 16.6.5 prerequisites** *(Definition 16.3.12, p. 727,
+    Definition 16.6.5, p. 739 (2017: Definitions 16.24, 16.42); items 15, 16; gaps G.166, G.176)* (2026-11-13).
+    `Chapter16/P3W5PC_ReflexivePull.lean`. The parenthetical of Definition 16.3.12 is proved in the pull direction:
+    along a strong bundle equivalence $W \to W'$, $W'$ reflexive implies $W$ reflexive
+    (`IsStrongBundleEquivalence.hasReflexiveFibers_of`). The push direction, reflexive auxiliary norms and mixed
+    convergence remain (gap G.166, 380–620 lines). For the independence of orientations of the representative (gap
+    G.176) the prerequisites now exist (Chapter 12, items 21, 22) (rows V16.51, V16.79). Theorem 16.5.7 rests on Theorem
+    14.1.9, now proved from `AssemblyHyp` (Chapter 14, item 10), still with a witness only for $\partial X = \emptyset$
+    (row V16.71). Status: **in part (gaps G.166, G.176 open)**.
+
+21. **Every hypothesis taken in Part III wave 5 for Chapter 16 is satisfiable** *(§§16.2–16.5)* (2026-11-13). No new
+    hypothesis: `isEffective_tangentEpGroupoid` takes (ZHOU) at ep level, a field of polyfold structures;
+    `proposition_16_4_3_naturality_all` takes orbifold type, given by manifold type; `continuous_normLam` takes an
+    auxiliary norm, as printed; `hasReflexiveFibers_of_isStrongBundleIsoOn` takes local isomorphisms covering $X$, (2)
+    of Definition 10.4.1 for objects. Witness `EffPolyfold.point.tangent`. Status: **settled; the witness of `h1419` in
+    Theorem 16.5.7 is still ∂X = ∅ only**.

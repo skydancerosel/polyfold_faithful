@@ -635,18 +635,29 @@
     "statement": "For a tame ep-groupoid and an sc-Fredholm section functor, $\\sigma : O_f \\to X_\\infty$ is a local homeomorphism with two-point fibres, the local sections $\\hat o^{(x)}$ are continuous, and for a morphism $\\varphi$ the local $\\hat\\Phi$ pushes continuous local sections to continuous local sections."
    },
    "lean": {
-    "statement": "`EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`.",
+    "statement": "`EpStrongBundle.theorem_12_5_3_hyp hX hbump hfT`: exactly one topology on $O_f$ with `IsOrientationTopology` (Hausdorff, `orProj` a local homeomorphism, exactly two continuous sections near each point, propagation), and every fibre has two points; through Part I's `theorem_6_6_17` and `orProj_two`.\n\nThe last sentence (Part III wave 5): `EpStrongBundle.theorem_12_5_3_push hX hbump hfT hF σ hx hx' hs hs'`: for a morphism $\\sigma : x \\to x'$ between smooth points and a continuous orientation over an open $V \\ni x$ (`IsContOrOn L V o`, Part I's transport $L$), there is an open $V' \\ni x'$ over which the section carried by the local isomorphism of the sheet of $\\sigma$ (`(E.morIso σ).pullOrx … o`) is a continuous orientation, with value $\\sigma_* o_x$ at $x'$ (`orMor`). `theorem_12_5_3_push_hyp` is the form with Part I's instance arguments and the explicit open set $t(\\text{sheet}) \\cap \\phi^{-1}(V)$; `pullOrx_morIso_eq_orMor`: the value of the carried section at $y'$ is $\\sigma'_* o_{s(\\sigma')}$ for the sheet morphism $\\sigma'$ through $y'$. General form: `StrongBundle.LocalIso.isContOrOn_pullOrx` (a local strong bundle isomorphism between bundles over two M-polyfolds carries continuous orientations), from `LocalIso.orxVia_comm_local` and `orxVia_comm` (the transport commutes with the isomorphism along every sc-smooth path in its domain, by the dyadic induction `scPath_induction_or`).",
     "decls": [
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.theorem_12_5_3_hyp"
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.theorem_12_5_3_hyp",
+     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push",
+     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push_hyp",
+     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.pullOrx_morIso_tgt",
+     "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.eqOn_morIso_of_functor",
+     "Chapter12/P3W5OR_Germ · EpStrongBundle.pullOrx_morIso_eq_orMor",
+     "Chapter12/P3W5OR_Germ · EpStrongBundle.germEq_morIso_sheet",
+     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
+     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm",
+     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm_local",
+     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia",
+     "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.pullOrx"
     ]
    },
    "chips": [
     "Part I's `hbump`, tame germ data (G.140)",
-    "last clause: G.138"
+    "last sentence: proved (G.138 closed)"
    ],
    "diff": [
     "Hidden hypotheses: `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, the hypotheses of Part I's Theorem 6.6.17, inherited (gap G.140); the text assumes a tame $X$ only.",
-    "The last sentence ($\\hat\\Phi$ keeps continuous local sections continuous) is not proved (gap G.138). The fibre bijection of a morphism and its functoriality are `orMor` (V12.22)."
+    "The last sentence is `theorem_12_5_3_push`, with Part I's hypotheses only (gap G.138 closed in Part III wave 5); \"continuous local section\" is read as Part I's `IsContOrOn` over an open set, whose section $y \\mapsto (y, o_y)$ is continuous for Part I's topology (`continuousOn_orSec`); $\\hat\\Phi$ is read as `E.morIso σ`, the local isomorphism of the sheet of $\\sigma$. The fibre bijection of a morphism and its functoriality are `orMor` (V12.22)."
    ]
   },
   {
@@ -681,20 +692,26 @@
     "statement": "$f$ is orientable if and only if $|\\sigma| : |O_f| \\to |X_\\infty|$ is two-to-one and has a global continuous section."
    },
    "lean": {
-    "statement": "`EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\\sigma|$, a section $o$ of $\\sigma$ with $\\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`.",
+    "statement": "`EpStrongBundle.proposition_12_5_6_mp`: an orientation (`definition_12_5_4 t o`) gives `IsTwoToOne` and a continuous section of `orbitProj`. `proposition_12_5_6_mpr_invariant`: from `IsTwoToOne` and any section $s$ of $|\\sigma|$, a section $o$ of $\\sigma$ with $\\varphi_* o_x = o_{x'}$ for all morphisms, lifting $s$. Orbit spaces: quotients by `SmoothRel` and `OrRel`.\n\n(⇐) with continuity (Part III wave 5): `EpStrongBundle.proposition_12_5_6_mpr_hyp hX hbump hfT hF h₂ hs`: with Part I's hypotheses, `IsTwoToOne` and a continuous section $s$ of $|\\sigma|$ (quotient topologies on $|O_f|$ and $|X_\\infty|$, Part I's `orTopology` on $O_f$), there is $o$ with `definition_12_5_4 hF hsec (orTopology …) o` (continuous and invariant) and $|(x, o_x)| = s(|x|)$. `proposition_12_5_6_mpr_hyp'` is the form with instance arguments. Steps: `eq_of_quot_eq_of_isTwoToOne`, `orMor_isotropy_of_isTwoToOne` ($G_x$ fixes the orientations at $x$), `exists_nhds_orMor_eq_hyp` (near $x_0$ every morphism maps a continuous $\\hat o$ to itself; natural representation, finiteness of $G_{x_0}$, the last sentence of Theorem 12.5.3), `isOpen_orSat_hyp`.",
     "decls": [
      "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mp",
      "Chapter12/P3O_OrientationOrbit · EpStrongBundle.proposition_12_5_6_mpr_invariant",
-     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.IsTwoToOne"
+     "Chapter12/P3O_OrientationOrbit · EpStrongBundle.IsTwoToOne",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp'",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.exists_nhds_orMor_eq_hyp",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.isOpen_orSat_hyp",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.orMor_isotropy_of_isTwoToOne",
+     "Chapter12/P3W5OR_Orientable · EpStrongBundle.eq_of_quot_eq_of_isTwoToOne"
     ]
    },
    "chips": [
-    "(⇐) without continuity (G.139)",
+    "Part I's `hbump`, tame germ data (G.140)",
     "`hsec` as in L12.5.1"
    ],
    "diff": [
-    "Hidden hypotheses: `hsec`, as in V12.22.",
-    "(⇒) is complete. (⇐) is proved without the continuity of $o$, which needs the last clause of Theorem 12.5.3 (gaps G.138, G.139). The orbit spaces are quotients defined here."
+    "Hidden hypotheses: `hbump`, the tame germ data `hfT` (Part I's, gap G.140, as in V12.24), and `hsec` as in V12.22 (taken as `hbump.hasScPlusSectionsThrough` in `proposition_12_5_6_mpr_hyp`).",
+    "(⇒) is complete; (⇐) with continuity is `proposition_12_5_6_mpr_hyp`, for Part I's topology, which by V12.24 is the unique orientation topology (gaps G.138, G.139 closed in Part III wave 5). The orbit spaces are quotients defined here."
    ]
   },
   {
@@ -1031,7 +1048,7 @@
     "statement": "Strong bundles over tame ep-groupoids, a generalized strong bundle isomorphism $\\bar{\\mathfrak f}$ over $\\mathfrak f$, an sc-Fredholm section functor $f$ of $W$ and its push-forward $f'$. (1) $\\bar{\\mathfrak f}$ induces a fibre-preserving homeomorphism $|O_f| \\to |O_{f'}|$ over $|X_\\infty| \\to |X'_\\infty|$, functorially. (2) A continuous orientation section $o$ of $\\sigma$ has a push-forward $\\bar{\\mathfrak f}_* o$, which is continuous. The proof works with a representative $W \\leftarrow V \\rightarrow W'$ of strong bundle equivalences."
    },
    "lean": {
-    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.",
+    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.\n\n(2) with continuity (Part III wave 5): `theorem_12_5_7_two_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT'' ho hoc`: for an invariant $o$ with `IsContOrOn L univ o`, the unique invariant $o'$ of `theorem_12_5_7_two_invariant` satisfies `IsContOrOn L' univ o'`; `theorem_12_5_7_two_cont` is the same without instance arguments. For one equivalence: `IsStrongBundleEquivalence.isContOrOn_pullOr_hyp` (`pullOr` keeps continuity), `isContOrOn_pushOr_hyp` (`pushOr` of an invariant continuous $o$ is continuous on all of $X'$, near $\\phi(a)$ by `LocalIso.isContOrOn_of_pullOrx`, near any $x'$ by a morphism and the last sentence of Theorem 12.5.3), `orEqv_eq_orxVia` (`orEqv b` is the orientation map of the local isomorphism at any $a$ with $b \\in U(a)$), `LocalIso.morVia_germ` (it depends only on the germ).",
     "decls": [
      "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
      "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
@@ -1049,17 +1066,26 @@
      "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv",
      "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv_apply",
      "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orMor_orEqv",
-     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.locIso"
+     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.locIso",
+     "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
+     "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont",
+     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pullOr_hyp",
+     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.isContOrOn_pushOr_hyp",
+     "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.pullOr_eq_pullOrx",
+     "Chapter12/P3W5OR_EquivCont · StrongBundle.LocalIso.isContOrOn_of_pullOrx",
+     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.orEqv_eq_orxVia",
+     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso"
     ]
    },
    "chips": [
-    "bijection; continuity: G.158",
-    "one representative",
+    "bijection; homeomorphism: G.158",
+    "(2) continuity: `theorem_12_5_7_two_hyp`",
+    "one representative (G.158)",
     "standing `hsec` (V12.22)"
    ],
    "diff": [
     "Hidden hypotheses: `hsec`, `hsec'`, `hsec''` (`HasScPlusSectionsThrough` for $W$, $W'$, $V$), the standing hypothesis of §12.5 (V12.22), with the witnesses `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` and `StrongBundle.hasScPlusSectionsThrough_of_chart`; $f'$ is any section with the same pull-back $f''$, and the push-forward is one (`pullback_pushforward_witness`); a representative is $h_1 = h_2 = \\mathrm{id}$ (`isStrongBundleEquivalence_id`).",
-    "The topology is not proved: the homeomorphism of (1) is stated as a bijection and the continuity of $o'$ in (2) is not shown. The theorem is stated for one representative; the independence of the representative and the functoriality of $|\\bar{\\mathfrak f}|_*$ (left to the reader in the text) are not formalized (gap G.158)."
+    "The homeomorphism of (1) is stated as a bijection; the continuity of $o'$ in (2) is `theorem_12_5_7_two_hyp` (Part I's hypotheses, continuity read as `IsContOrOn` over all of $X$, for input and output; the book's `Continuous (orSec o)` follows by `continuousOn_orSec`, the converse is in gap G.158). The theorem is stated for one representative; the independence of the representative and the functoriality of $|\\bar{\\mathfrak f}|_*$ (left to the reader in the text) are not formalized (gap G.158)."
    ]
   },
   {
@@ -1189,6 +1215,58 @@
    "diff": [
     "None; it generalizes wave 1's `pullPt`/`orVia` (from a bundle to itself) to maps between different bundles."
    ]
+  },
+  {
+   "id": "V12.45",
+   "title": "Continuity of an orientation is a local property (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.5, used in the proofs of Theorems 12.5.3 and 12.5.7, pp. 594–597 (2017: Theorems 12.11, 12.12)",
+    "page": 594,
+    "statement": "Used without comment in §12.5: continuity of local orientation sections is a local property."
+   },
+   "lean": {
+    "statement": "`isContOrOn_of_local_or (hU : IsOpen U) (h : ∀ x ∈ U, x ∈ smoothSet → ∃ V, x ∈ V ∧ IsContOrOn L V o) : IsContOrOn L U o`, for any `LocalTransport` $L$; `IsContOrOn.mono_or`, `IsContOrOn.congr_or`. `scPath_induction_or`: a property of sc-smooth paths that holds on short paths and passes from the two halves to the whole path holds for every path (dyadic induction with a Lebesgue number); `smoothTransPath_or`: the reparametrization by `Real.smoothTransition`.",
+    "decls": [
+     "Chapter12/P3W5OR_PathInduction · isContOrOn_of_local_or",
+     "Chapter12/P3W5OR_PathInduction · IsContOrOn.mono_or",
+     "Chapter12/P3W5OR_PathInduction · IsContOrOn.congr_or",
+     "Chapter12/P3W5OR_PathInduction · scPath_induction_or",
+     "Chapter12/P3W5OR_PathInduction · smoothTransPath_or",
+     "Chapter12/P3W5OR_PathInduction · isScSmoothMap_smoothTransPath_or",
+     "Chapter12/P3W5OR_PathInduction · smoothTransPath_or_mem"
+    ]
+   },
+   "chips": [
+    "Part I lacked the locality lemma"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V12.46",
+   "title": "The orientation map of a local isomorphism depends only on its germ (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.5, implicit in the proofs of Theorems 12.5.3 and 12.5.7, pp. 594–597 (2017: Theorems 12.11, 12.12)",
+    "page": 594,
+    "statement": "Implicit in the proofs of Theorems 12.5.3 and 12.5.7: the orientation transport through a local strong bundle isomorphism depends only on its germ."
+   },
+   "lean": {
+    "statement": "`StrongBundle.LocalIso.GermEq L₁ L₃ b`: the base and bundle maps agree on an open $N \\ni b$. `LocalIso.morVia_germ` (from `mmorT_germ`, `mmorK_germ`); `EpGroupoid.Sheet.tgtInv_eq_near_or`: two sheets through $\\sigma$ have the same $(t|)^{-1}$ near $t(\\sigma)$. Companion of V12.44.",
+    "decls": [
+     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.GermEq",
+     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.morVia_germ",
+     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.mmorT_germ",
+     "Chapter12/P3W5OR_Germ · StrongBundle.LocalIso.mmorK_germ",
+     "Chapter12/P3W5OR_Germ · EpGroupoid.Sheet.tgtInv_eq_near_or"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
   }
  ],
  "notFormalized": [
@@ -1233,7 +1311,7 @@
    "label": "§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)",
    "page": 594,
    "book": "For a morphism $\\varphi : x \\to x'$ between smooth points, the local $\\hat\\Phi$ pushes a continuous local section of $\\sigma$ to a continuous local section.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 3; `Chapter12/P3W3O_SectionPull.lean`, `P3W3O_StabTransfer.lean`, `P3W3O_PushPull.lean`): the transfer of `IsPush` along a `LocalIso`, the chart-level half of the missing comparison. The pointwise data are `StrongBundle.LocalIso.morVia` and `morVia_eq` (`Chapter12/P3F_MixedPull.lean`, V12.44). Proved:\n\n- `LocalIso.exists_pullSection`: an sc⁺-section $S'$ of $\\mathrm{pr}_2^*Y'$ is carried to one of $\\mathrm{pr}_2^*Y$ whose principal part in the transported chart $c_T$ is $\\beta \\cdot S'$;\n- `LocalIso.isStabKernels_mpull`: stabilized kernels of $(f', S', s')$ along $\\phi \\circ y$ in $c$ are stabilized kernels of the carried data along $y$ in $c_T$;\n- `LocalIso.push_mpull`: the push-forwards correspond under `morPull`;\n- `LocalIso.isPush_mpull`: `IsPush` of $f'$ along $\\phi \\circ \\gamma$ in $c_0|W$ gives `IsPush` of $f$ along $\\gamma$ in the transported chart, with $e = \\mathrm{morPull}^{-1} \\circ e' \\circ \\mathrm{morPull}$.\n\nMissing (a), about 250 lines, `isPush_morVia`: chain `IsPush.transfer` (from any chart $c'$ to $c_0|W$), then `isPush_mpull`, then `IsPush.transfer` (from $c_T$ to any chart); this gives `IsPush` with $e = \\mathrm{morVia}^{-1} \\circ e' \\circ \\mathrm{morVia}$. The cut-off $\\beta$ and $W$ are built inside the proof ($c_0 := c'$ restricted to $U'$; `exists_isScSmoothMap_eq_one_nhdsSet` on the compact $\\gamma([0,1])$ gives $\\beta = 1$ on an open $N$; $W := U' \\cap g^{-1}N$). Then compare with `orLocalTransport` on short paths (`orLocalTransport_transport_eq` on both sides, `toChartOr_trans`, the `orTransfer` cocycle).\n\nMissing (b), about 300–400 lines, the continuity statement: dyadic subdivision (`LocalTransport.transport_halves`) and a Lebesgue number of the cover $\\gamma^{-1}(U_B \\cap U \\cap \\phi^{-1}U'_{B'})$, giving `IsContOrOn L' U' o' → IsContOrOn L (U ∩ ϕ⁻¹U') (the morVia-pull of o')`, with $L$, $L'$ Part I's local transports. Part I has no locality lemma for `IsContOrOn` (open cover implies `IsContOrOn`); it is part of this estimate.\n\nThis step also gives the continuity clause of Theorem 12.5.7 (gap G.158). Estimate: 550–650 lines after the present files (1,000–1,500 lines before them).",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.24; `Chapter12/P3W5OR_LocalComm.lean`, `P3W5OR_Theorem1253.lean`, `P3W5OR_Germ.lean`, on the chart-level transfer of `IsPush` along a `LocalIso` of Part III wave 3, `Chapter12/P3W3O_*`): `EpStrongBundle.theorem_12_5_3_push` (the last sentence, with Part I's hypotheses `hbump` and tame germ data only, gap G.140) and its general form `StrongBundle.LocalIso.isContOrOn_pullOrx` (a local strong bundle isomorphism between bundles over two M-polyfolds carries continuous orientations), with the converse `LocalIso.isContOrOn_of_pullOrx`. The missing steps of the earlier text are proved: (a) the transport commutes with the isomorphism on short paths (`LocalIso.orxVia_comm_local`, through `isPush_mpull`, the cut-off and the `orTransfer` cocycle), (b) on all paths by dyadic induction (`scPath_induction_or`, `orxVia_comm`), with the locality lemma Part I lacked (`isContOrOn_of_local_or`, V12.45).",
    "decls": [
     "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isPush_mpull",
     "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isZeroAt_of_transportChart",
@@ -1243,7 +1321,15 @@
     "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.morPull_apply",
     "Chapter12/P3W3O_SectionPull · StrongBundle.LocalIso.exists_pullSection",
     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
-    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq"
+    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq",
+    "Chapter12/P3W5OR_Theorem1253 · EpStrongBundle.theorem_12_5_3_push",
+    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.isContOrOn_pullOrx",
+    "Chapter12/P3W5OR_LocalComm · StrongBundle.LocalIso.orxVia_comm",
+    "Chapter12/P3W5OR_PathInduction · isContOrOn_of_local_or",
+    "Chapter12/P3W5OR_PathInduction · scPath_induction_or"
+   ],
+   "formalized": [
+    "V12.24"
    ]
   },
   {
@@ -1252,9 +1338,15 @@
    "label": "§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)",
    "page": 595,
    "book": "If $|\\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.",
-   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section (V12.26), and in the terms of Theorem 12.5.7 it satisfies `EpStrongBundle.IsOrInvariant` (V12.43). Its continuity for Part I's topology follows from the continuity statement of G.138 (missing step (b) there): apply it to the local isomorphisms `locIso` of the morphisms; near each point $O_f \\to |O_f|$ is then a local homeomorphism, and $o$ agrees with a continuous germ (`IsContOrOn.eventually_iff`). The chart-level part of G.138 is proved (`Chapter12/P3W3O_*`). Estimate 300–500 lines after G.138.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 5; V12.26; `Chapter12/P3W5OR_Orientable.lean`): `EpStrongBundle.proposition_12_5_6_mpr_hyp`, (⇐) with the continuity of the orientation for Part I's topology, with Part I's hypotheses only (gap G.140): $G_x$ fixes the orientations at $x$ over a two-to-one $|\\sigma|$ (`orMor_isotropy_of_isTwoToOne`), near each point every morphism maps a continuous local orientation to itself (`exists_nhds_orMor_eq_hyp`, with the last sentence of Theorem 12.5.3), and the saturation of a continuous local section is open (`isOpen_orSat_hyp`).",
    "decls": [
-    "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant"
+    "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant",
+    "Chapter12/P3W5OR_Orientable · EpStrongBundle.proposition_12_5_6_mpr_hyp",
+    "Chapter12/P3W5OR_Orientable · EpStrongBundle.exists_nhds_orMor_eq_hyp",
+    "Chapter12/P3W5OR_Orientable · EpStrongBundle.isOpen_orSat_hyp"
+   ],
+   "formalized": [
+    "V12.26"
    ]
   },
   {
@@ -1284,14 +1376,16 @@
   },
   {
    "g": 158,
-   "title": "Theorem 12.5.7: the topology, the independence of the representative, functoriality",
+   "title": "Theorem 12.5.7: the homeomorphism, the independence of the representative, functoriality",
    "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
    "page": 595,
-   "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, it does not depend on the representative, it is functorial, and $\\bar{\\mathfrak f}_* o$ is continuous.",
-   "instead": "`theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces of the diagram, and `theorem_12_5_7_two_invariant` the unique invariant push-forward (V12.39; `Chapter12/P3F_Naturality.lean`). Continuity needs G.138's continuity statement, applied to `IsStrongBundleEquivalence.locIso`; the chart-level part, `IsPush` carried along a `LocalIso` (`LocalIso.isPush_mpull`, `Chapter12/P3W3O_PushPull.lean`), is proved. With G.138, `orEqv` is a local homeomorphism of the orientation spaces, and (1), (2) follow in about 300 lines. Independence of the representative: compare two representatives through a common refinement with `orMor_orEqv` and `pushOr_unique`, about 300 lines; this half does not need G.138. Estimate: 300 lines after G.138, plus 300 lines.",
+   "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, does not depend on the representative, and is functorial; $\\bar{\\mathfrak f}_* o$ is continuous.",
+   "instead": "**Formalized in part** (2026-11-13, Part III wave 5; V12.39; `Chapter12/P3W5OR_EquivCont.lean`): `theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces; `theorem_12_5_7_two_hyp` / `theorem_12_5_7_two_cont` give (2) with continuity, read as Part I's `IsContOrOn` over all of $X$; the local tools are proved (`LocalIso.isContOrOn_pullOrx`, its converse `isContOrOn_of_pullOrx`, `orEqv_eq_orxVia`). Missing: (a) `orbitOrMap` is a homeomorphism: at the level of $O_f$, $(a, \\omega) \\mapsto (\\phi(a), \\mathrm{orEqv}^{-1}\\omega)$ maps a basic set `orBasic U ô` near $a$ onto `orBasic` of the carried section (`isContOrOn_of_pullOrx`, `isOpen_orBasic`), then the quotients, about 250–350 lines; (b) `Continuous (orSec o)` for Part I's topology implies `IsContOrOn L univ o` (propagation along sc-smooth paths, `isPropagationContinuous_orTopology`, `continuous_smoothMk_comp`, connectedness of $[0,1]$ with `transport_halves`/`transport_eq_push`), which gives (2) exactly in the book's form (Definition 12.5.4), about 100–200 lines; (c) independence of the representative and functoriality: there is no Lean notion yet of equivalent representatives (a common refinement with natural transformations, Chapter 10's localization); with one, compare through the refinement with `orMor_orEqv`, `pushOr_unique` and `orEqv_eq_orxVia`, about 300–500 lines. Estimate 650–1,050 lines.",
    "decls": [
     "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
-    "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant"
+    "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
+    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
+    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont"
    ]
   }
  ]

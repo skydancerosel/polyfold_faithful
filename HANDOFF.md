@@ -726,6 +726,28 @@ each chapter lands)
     section 1–8, Ch15 10–15, Ch16 11–17. `BookConcordance.md` gains a waves 3–4 table. `checklist/mains.json` tier
     `partIII` gains 21 mains (123 in all). Next: the open Part III gaps, first G.170/G.171 (P14.5.4 and the
     assembly, ~900 lines), which would make Theorems 14.1.9, 15.3.9 and 16.5.7 unconditional.
+26. **Part III wave 5, gap closing** (2026-11-13). Ten agents (T9, Z5, F6, GA, GB, TY, OR, FM, PC, PR; notes
+    `narrow/p3w5-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w5.md`). New Lean in 38 files,
+    11,190 lines (`Polyfold/Chapter12/P3W5OR_*`, `Chapter13/P3W5FM_*`, `Chapter14/P3W5{T9,Z5,F6,FM}_*`,
+    `Chapter15/P3W5{GA,GB,TY,PR}_*`, `Chapter16/P3W5PC_*`, `Chapter5/P3W5TY_DegZeroTame`), imported in `Polyfold.lean`
+    (897 lines); `Chapter15/P3W5GB_Combined.lean` (55 lines) is the integrator's corollary `theorem_15_3_7_of_paramOnto`
+    (GA's two Props with GB's `hasParametricGeneralPosition`). GB keeps private copies of two GA lemmas
+    (`muLin_surjective_GB`, `tangentMorCLE_mem_reduced_GB`), no clash. `Test.lean` blocks "Axioms: Part III wave 5
+    (2026-11-13), Chapter N" for N = 5, 12–16; now 21,726 declarations, all on propext/Classical.choice/Quot.sound.
+    Rows: V12.45–V12.46, V13.59, V14.36–V14.44, V15.39–V15.43, V16.79 (18 new); updated V12.24, V12.26, V12.39, V14.2,
+    V14.8, V14.25, V14.28, V14.29 (now same), V14.30, V14.33, V15.13, V15.15, V15.28–V15.30, V15.32–V15.34, V16.24,
+    V16.67 (now same), V16.34, V16.51, V16.71. Gaps closed: G.138, G.139, G.150, G.152, G.155, G.157, G.163, G.165,
+    G.168, G.169, G.170, G.174, G.177, G.183 (14). Formalized in part: G.158, G.162 (T15.3.7: the bridge (15.1) ↔ Part
+    I's (i)–(ii), 530–950 lines), G.164, G.166, G.171 (the instance of `AssemblyHyp`, 450–700), G.172, G.173. Rewritten:
+    G.160 (900–1,550), G.176 (prerequisites now exist), G.179–G.181. New gaps G.184 (corner sc⁺), G.185 (good systems on
+    a face). Findings: Ch12 21–23, Ch13 21, Ch14 9–14, Ch15 16–19, Ch16 18–21. `BookConcordance.md` gains a wave 5 table
+    (T15.3.7 = 2017 Theorem 15.4, checked). `checklist/mains.json` tier `partIII`: 14.1.9, 15.3.7, 15.3.9 point to the
+    wave-5 forms, 10 mains added (133 in all). Flags that remain: Theorem 14.1.9 (hence Theorems 15.3.9, 16.5.7 and the
+    extension part of 14.6.3) has a witness of `AssemblyHyp` only for ∂X = ∅; `FacePush_hyp` (Proposition 14.1.8) only
+    for ∂X = ∅; Theorem 14.6.3 takes agreeing representatives (an ask). Settled: Corollary 15.3.10 (3) has witnesses (Λⁱ
+    = 0 regular perturbations not re-checked); `HasParametricGeneralPosition` is proved; `tangent_comp`'s hypothesis
+    holds for every effective target. Next: G.171 (makes Theorem 14.1.9 unconditional), G.162's bridge (makes Theorem
+    15.3.7 unconditional), G.178 (Theorem 15.3.9), G.164, G.173.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
