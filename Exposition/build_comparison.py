@@ -92,33 +92,33 @@ CHAPTERS = [
             'neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the '
             'boundary, reflexive auxiliary norms, sc-smooth bump functions and sc⁺-section functors, extension '
             'from the boundary in a local model and Theorem 12.3.9, compactness and properness with the reflexive '
-            'forms, the orientation bundle and its naturality, the reflexive local extension and Theorem 12.2.13 '
-            '(waves 1–5 of Part III)'),
+            'forms, the orientation bundle and its naturality, the reflexive local extension and Theorem 12.2.13, Theorem 12.5.7 as printed '
+            '(waves 1–7 of Part III)'),
     ('V13', 'Part III, Chapter 13', 'HWZ Part III, Chapter 13 §§13.1–13.5, pp. 599–635 (2017 '
             'Chapter 13; Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, '
             'their existence and extension; the algebra of sc⁺-multisections (support, pointwise norm, symmetric '
             'structures, decorations, sums, scalar multiples, locally finite sums); structurable and atomic '
             'sc⁺-multisections, Proposition 13.3.19; pull-back and push-forward along equivalences and coverings '
-            '(§13.4) and Proposition 13.4.2, commensurable sums, Theorems 13.5.3 and 13.5.7 (waves 1–5 of Part III)'),
+            '(§13.4) and Proposition 13.4.2, commensurable sums, Theorems 13.5.3 and 13.5.7 (waves 1–7 of Part III)'),
     ('V14', 'Part III, Chapter 14', 'HWZ Part III, Chapter 14 §§14.1–14.6, pp. 637–682 (2017 Chapter 14; '
             'Part III has no 2014 preprint): good neighbourhoods and structured sc⁺-multisections over the '
             'boundary, the good structured version, the extension of correspondences, z-loops and coherent '
             'neighbourhood systems, implicit structures and local extensions, the size control of the extension '
-            '(Theorem 14.5.5), Proposition 14.5.4, Theorem 14.1.9 from the data of §§14.3–14.5, Proposition 14.1.8 and '
-            'the assembly over faces (§14.6) (waves 3–5 of Part III)'),
+            '(Theorem 14.5.5), Proposition 14.5.4, Theorem 14.1.9 with nonempty index sets, Proposition 14.1.8 and '
+            'the assembly over faces (§14.6) (waves 3–7 of Part III)'),
     ('V15', 'Part III, Chapter 15', 'HWZ Part III, Chapter 15 §§15.1–15.4, pp. 683–703 (2017 Chapter 15; '
             'Part III has no 2014 preprint): the linearization $T(f,\\Lambda)$ of an sc-Fredholm section '
             'perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas; transversality, '
             'good position and local solution sets; compactness control, admissible perturbations, general '
-            'position and $[0,1] \\times X$, Theorems 15.3.7 and 15.3.9 in hypothesis form; orientations and '
-            'invariants (§15.4, Theorem 15.4.3, Corollary 15.4.4 in hypothesis form) (waves 1–5 of Part III)'),
+            'position and $[0,1] \\times X$, Theorem 15.3.7, Theorem 15.3.9 in hypothesis form; products of strong bundles; orientations and '
+            'invariants (§15.4, Theorem 15.4.1 at a chart point, Theorem 15.4.3, Corollary 15.4.4 in hypothesis form) (waves 1–7 of Part III)'),
     ('V16', 'Part III, Chapter 16', 'HWZ Part III, Chapter 16 §§16.1–16.6, pp. 705–739 (2017 Chapter 16; '
             'Part III has no 2014 preprint): polyfold structures and their equivalence, polyfolds, bump '
             'functions and partitions of unity, the degeneracy index and the boundary, tame polyfolds; the '
             'uniqueness sentence after Definition 16.1.2 and Lemma 16.2.1; the tangent polyfold and sc-differential '
             'forms; strong polyfold bundles and sc-Fredholm sections (§16.3, Definition 16.3.3 and the sentence '
             'after it); branched suborbifolds, their integrals and Stokes\' theorem; sc⁺-multisections over '
-            'polyfolds (§16.5) and Fredholm theory (§16.6, Theorem 16.6.4) (waves 1–5 of Part III)'),
+            'polyfolds (§16.5) and Fredholm theory (§16.6, Theorems 16.6.4, 16.6.6) (waves 1–7 of Part III)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

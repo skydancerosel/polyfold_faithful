@@ -353,7 +353,7 @@
   },
   {
    "key": "partIII",
-   "title": "Part III (waves 1–4): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds",
+   "title": "Part III (waves 1–7): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds",
    "mains": [
     [
      "Thm 12.2.2",
@@ -389,11 +389,15 @@
     ],
     [
      "Thm 12.5.7",
-     "Polyfold.theorem_12_5_7_one_hyp"
+     "Polyfold.theorem_12_5_7_one_homeo_hyp"
     ],
     [
      "Thm 12.5.7",
-     "Polyfold.theorem_12_5_7_two_hyp"
+     "Polyfold.theorem_12_5_7_two_book_hyp"
+    ],
+    [
+     "Thm 12.5.7",
+     "Polyfold.EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep"
     ],
     [
      "Thm 13.1.8",
@@ -437,11 +441,15 @@
     ],
     [
      "Prop 14.1.8",
-     "Polyfold.SBLocalization.proposition_14_1_8_hyp"
+     "Polyfold.SBLocalization.GenSBMap.proposition_14_1_8"
+    ],
+    [
+     "Prop 14.1.8",
+     "Polyfold.SBLocalization.GenSBMap.proposition_14_1_8_pullMult"
     ],
     [
      "Thm 14.1.9",
-     "Polyfold.SBLocalization.theorem_14_1_9_of_assembly"
+     "Polyfold.SBLocalization.theorem_14_1_9_charged_a6"
     ],
     [
      "Prop 14.4.6",
@@ -464,6 +472,10 @@
      "Polyfold.SBLocalization.CompatibleFaceData.theorem_14_6_3_hyp"
     ],
     [
+     "Thm 14.6.3",
+     "Polyfold.SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_a6"
+    ],
+    [
      "Thm 15.1.1",
      "Polyfold.SBLocalization.theorem_15_1_1_functor"
     ],
@@ -477,11 +489,15 @@
     ],
     [
      "Thm 15.3.7",
-     "Polyfold.SBLocalization.theorem_15_3_7_of_paramOnto"
+     "Polyfold.SBLocalization.theorem_15_3_7"
     ],
     [
      "Thm 15.3.9",
-     "Polyfold.SBLocalization.theorem_15_3_9_of_extension_ty"
+     "Polyfold.SBLocalization.theorem_15_3_9_charged_of_local_rel"
+    ],
+    [
+     "Thm 15.4.1",
+     "Polyfold.SBLocalization.theorem_15_4_1_lift"
     ],
     [
      "Thm 15.4.3",
@@ -489,7 +505,7 @@
     ],
     [
      "Cor 15.4.4",
-     "Polyfold.SBLocalization.corollary_15_4_4_hyp"
+     "Polyfold.SBLocalization.corollary_15_4_4_cylinder_hyp"
     ],
     [
      "Prop 16.1.4",
@@ -528,6 +544,10 @@
      "Polyfold.StrongPolyfoldBundle.theorem_16_3_15_one"
     ],
     [
+     "Prop 16.3.16",
+     "Polyfold.StrongPolyfoldBundle.proposition_16_3_16_two"
+    ],
+    [
      "Thm 16.3.17",
      "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_one"
     ],
@@ -541,11 +561,15 @@
     ],
     [
      "Thm 16.5.7",
-     "Polyfold.StrongPolyfoldBundle.theorem_16_5_7_hyp"
+     "Polyfold.StrongPolyfoldBundle.theorem_16_5_7_a6"
     ],
     [
      "Thm 16.6.4",
      "Polyfold.StrongPolyfoldBundle.theorem_16_6_4"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_hyp"
     ]
    ]
   },

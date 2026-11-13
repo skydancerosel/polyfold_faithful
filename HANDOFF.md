@@ -749,6 +749,44 @@ each chapter lands)
     holds for every effective target. Next: G.171 (makes Theorem 14.1.9 unconditional), G.162's bridge (makes Theorem
     15.3.7 unconditional), G.178 (Theorem 15.3.9), G.164, G.173.
 
+27. **Part III waves 6 and 7, gap closing** (2026-11-13). Wave 6: six agents (A6, G6, R6, O6, P6, S6); wave 7: six (W1–W6);
+    notes `narrow/p3w6-*.md`, `narrow/p3w7-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w67.md`.
+    New Lean in 46 files, 12,010 lines (`Polyfold/Chapter12/P3W6O6_*`, `P3W7W3_*`, `Chapter14/P3W6{A6,P6}_*`,
+    `P3W7{W1,W6}_*`, `Chapter15/P3W6{G6,R6,O6}_*`, `P3W7{W2,W4,W5}_*`, `Chapter16/P3W6{A6,O6,S6}_*`, `P3W7W6_*`,
+    `Chapter5/P3W7W3_SmoothLevelCont`, `Chapter5/P3W7W5_CubePartitions`), imported in `Polyfold.lean` (943 lines); all
+    built in the full build, none left out. `Test.lean` blocks "Axioms: Part III waves 6-7 (2026-11-13), Chapter N" for
+    N = 5, 12, 14–16; now 22,322 declarations, all on propext/Classical.choice/Quot.sound. Rows: V12.47–V12.48,
+    V14.45–V14.47, V15.44–V15.56, V16.80–V16.81 (20 new); updated V12.39, V14.3, V14.8, V14.34, V14.41, V14.43, V14.44
+    (now stronger), V15.29 (now explicit), V15.32–V15.34, V15.37, V16.51–V16.53, V16.56 (now same), V16.71, V16.77,
+    V16.78, V16.79 (now same). Gaps closed: G.158, G.164, G.166, G.167, G.171, G.181, G.184 (7; 166 of 193 closed, 24
+    open). Formalized in part: G.159 (Theorem 15.4.1 as an orientation, 750–1,200), G.160 (products of Fredholm germs and
+    multisections, 450–800), G.162 (Theorem 15.3.7 part formalized), G.175, G.176, G.178 (relative local families,
+    400–700), G.180, G.182, G.185. New gaps G.186 (`hB` and nonempty index sets in Definition 14.1.3), G.187, G.188
+    (Theorem 16.6.6: general position across models, index 0), G.189 (tame cylinder charts), G.190 (∂Θ̃ = Θᵢ as weights),
+    G.191 (LUC on the cylinder), G.192 (Theorem 12.5.7 for `SDiagram`/`GenSBMap`), G.193 (`CubeLiftFace`, no witness).
+    Findings: Ch12 24–25, Ch14 15–16, Ch15 20–24, Ch16 22–23. `BookConcordance.md` gains a waves 6–7 table.
+    `checklist/mains.json` tier `partIII`: 12.5.7, 14.1.8, 14.1.9, 15.3.7, 15.3.9, 15.4.4, 16.5.7 point to the new forms;
+    15.4.1, 16.3.16, 16.6.6 and second mains for 12.5.7, 14.1.8, 14.6.3 added (139 mains in all).
+    **Two results about the formalization (not the book), both proved in Lean.** (a) The formal
+    `BoundarySymmetricStructure` (Definition 14.1.3) allows $I_x = \emptyset$, which the text's factor $1/|I_x|$ excludes;
+    so `theorem_14_1_9_statement` does not hold whenever ∂X ≠ ∅ (`not_theorem_14_1_9_statement_a6`; `AssemblyHyp` holds
+    only for ∂X = ∅, `boundary_eq_empty_of_assemblyHyp_a6`). The forms resting on it are vacuous with boundary:
+    `theorem_14_1_9_hyp`, `theorem_14_1_9_of_assembly`, `theorem_14_6_3_extension_hyp`, `theorem_16_5_7_hyp`,
+    `theorem_15_3_9_hyp`. The main rows now cite `theorem_14_1_9_charged_a6` (`ChargesBoundary` necessary,
+    `theorem_14_1_9_iff_a6`), with the witness `HalfSpaceBundle.theorem_14_1_9_constSec` (∂X ≠ ∅, nonzero fibres,
+    nonempty support; the old flag "witness only for ∂X = ∅" is settled for the charged form). (b) Hence the formal
+    `theorem_15_3_9_statement` does not hold whenever ∂X ≠ ∅ and one admissible f exists
+    (`not_theorem_15_3_9_statement_w2`, `_cube_w2`); vacuous for nonempty X: `corollary_15_3_10_3_hyp`,
+    `corollary_15_3_10_3_ty`, `corollary_15_3_10_3_glue_hyp`, `corollary_15_3_10_3_pu_w5`, `corollary_15_3_10_3_glue_w5`,
+    `corollary_15_3_10_3_struct_w5` (all take the uncharged statement on `A.cubeSEP 1`), and the uncharged Theorem
+    15.3.9 forms `theorem_15_3_9_of_extension_ty`, `theorem_15_3_9_of_local_rel`, `theorem_15_3_9_of_rel_hyp`. Rows
+    cite `theorem_15_3_9_charged_of_local_rel` and `corollary_15_3_10_3_charged`. **Pending (lead):** build nonempty
+    index sets into `BoundarySymmetricStructure` (gap G.186 (a)); the vacuous forms then become meaningful again or can
+    be retired. Flags: the witnesses of `relative_local_families_statement`, of the cobordism hypotheses of Corollary
+    15.4.4 and Theorem 16.6.6, and of the Corollary 15.3.10 (3) glue are on zero fibres or self-cobordisms only (weak);
+    `CubeLiftFace`, `hBC`, `hLUCC` and `CylinderOrientationStatement` have no witness. Next: G.186 (a), G.178, G.193,
+    G.189, G.159, G.182.
+
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
 Polyfold project to leave memory for `lake build`.

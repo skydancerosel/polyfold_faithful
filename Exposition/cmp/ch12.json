@@ -1048,7 +1048,7 @@
     "statement": "Strong bundles over tame ep-groupoids, a generalized strong bundle isomorphism $\\bar{\\mathfrak f}$ over $\\mathfrak f$, an sc-Fredholm section functor $f$ of $W$ and its push-forward $f'$. (1) $\\bar{\\mathfrak f}$ induces a fibre-preserving homeomorphism $|O_f| \\to |O_{f'}|$ over $|X_\\infty| \\to |X'_\\infty|$, functorially. (2) A continuous orientation section $o$ of $\\sigma$ has a push-forward $\\bar{\\mathfrak f}_* o$, which is continuous. The proof works with a representative $W \\leftarrow V \\rightarrow W'$ of strong bundle equivalences."
    },
    "lean": {
-    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.\n\n(2) with continuity (Part III wave 5): `theorem_12_5_7_two_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT'' ho hoc`: for an invariant $o$ with `IsContOrOn L univ o`, the unique invariant $o'$ of `theorem_12_5_7_two_invariant` satisfies `IsContOrOn L' univ o'`; `theorem_12_5_7_two_cont` is the same without instance arguments. For one equivalence: `IsStrongBundleEquivalence.isContOrOn_pullOr_hyp` (`pullOr` keeps continuity), `isContOrOn_pushOr_hyp` (`pushOr` of an invariant continuous $o$ is continuous on all of $X'$, near $\\phi(a)$ by `LocalIso.isContOrOn_of_pullOrx`, near any $x'$ by a morphism and the last sentence of Theorem 12.5.3), `orEqv_eq_orxVia` (`orEqv b` is the orientation map of the local isomorphism at any $a$ with $b \\in U(a)$), `LocalIso.morVia_germ` (it depends only on the germ).",
+    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.\n\n(2) with continuity (Part III wave 5): `theorem_12_5_7_two_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT'' ho hoc`: for an invariant $o$ with `IsContOrOn L univ o`, the unique invariant $o'$ of `theorem_12_5_7_two_invariant` satisfies `IsContOrOn L' univ o'`; `theorem_12_5_7_two_cont` is the same without instance arguments. For one equivalence: `IsStrongBundleEquivalence.isContOrOn_pullOr_hyp` (`pullOr` keeps continuity), `isContOrOn_pushOr_hyp` (`pushOr` of an invariant continuous $o$ is continuous on all of $X'$, near $\\phi(a)$ by `LocalIso.isContOrOn_of_pullOrx`, near any $x'$ by a morphism and the last sentence of Theorem 12.5.3), `orEqv_eq_orxVia` (`orEqv b` is the orientation map of the local isomorphism at any $a$ with $b \\in U(a)$), `LocalIso.morVia_germ` (it depends only on the germ).\n\nPart III wave 7 (`Chapter12/P3W7W3_*`). (1) as printed: `theorem_12_5_7_one_homeo_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec'' hX hbump hfT hX' hbump' hfT' hX'' hbump'' hfT''`: with Part I's topology on $O_f$, $O_{f'}$ (`orTopology`), the quotient topologies on $|O_f|$, $|O_{f'}|$, $|X_\\infty|$ and the topology of Theorem 2.3.10 on $X_\\infty$, there are homeomorphisms $F : |O_f| \\simeq_t |O_{f'}|$ and $G : |X_\\infty| \\simeq_t |X'_\\infty|$ with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$ (`theorem_12_5_7_one_homeo` without instance arguments). For one equivalence: `orbitOrHomeo`, `smoothOrbitHomeo`, from `continuous_orSpaceMap`, `isOpenMap_orSpaceMap`, `continuous_smoothMap`, `isOpenMap_smoothMap` (the local sc-diffeomorphisms `smoothFwd`/`smoothBwd` and the continuity of sc-smooth maps on $X_\\infty$, V12.47), `isOpen_orSat`, `isOpenMap_quotMk_or`. (2) as printed: `theorem_12_5_7_two_book_hyp … ho`, for $o$ with `E.definition_12_5_4 hF hsec (orTopology …) o` there is exactly one $o'$ with `E'.definition_12_5_4 … o'` corresponding to $o$ over $V$; the continuity of Definition 12.5.4 is passed to and from `IsContOrOn L univ` by Part I's `continuous_orSec_iff` (V12.48). Functoriality: `orEqv_comp` ($\\mathrm{orEqv}_{\\Psi\\circ\\Phi}(a) = \\mathrm{orEqv}_\\Phi(a) \\circ \\mathrm{orEqv}_\\Psi(\\phi a)$, from `eT_comp`, `eK_comp` and the three-term transfer `transferT_mpullPt₃`), `orbitOrMap_comp`, and `theorem_12_5_7_functorial` (with `_base`): for $W \\leftarrow V_1 \\rightarrow W'$, $W' \\leftarrow V_2 \\rightarrow W''$ and a middle $V_3$ with equivalences to $V_1$, $V_2$ and a strong bundle natural transformation (Definition 10.4.8) as in Chapter 10's weak fibred product, the map of the composite is the composite of the maps. Independence of the representative: `orEqv_nat` (invariance under a natural equivalence $T : \\Phi \\simeq \\Psi$, through `germ_nat`, `eT_nat`, `eK_nat`), `orbitOrMap_nat`, `theorem_12_5_7_refinement`, and `theorem_12_5_7_rep_indep` (with `_base`): two diagrams with a common refinement (Chapter 10's `SDiagram.Equiv`) give the same maps of $|O_f|$ and $|X_\\infty|$.",
     "decls": [
      "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
      "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
@@ -1074,18 +1074,59 @@
      "Chapter12/P3W5OR_EquivCont · EpStrongBundle.IsStrongBundleEquivalence.pullOr_eq_pullOrx",
      "Chapter12/P3W5OR_EquivCont · StrongBundle.LocalIso.isContOrOn_of_pullOrx",
      "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.orEqv_eq_orxVia",
-     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso"
+     "Chapter12/P3W5OR_Germ · EpStrongBundle.IsStrongBundleEquivalence.germEq_locIso",
+     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo_hyp",
+     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo",
+     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book_hyp",
+     "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.orbitOrHomeo",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitHomeo",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_orSpaceMap",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_orSpaceMap",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.continuous_smoothMap",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.IsStrongBundleEquivalence.isOpenMap_smoothMap",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.isOpen_orSat",
+     "Chapter12/P3W7W3_OrbitHomeo · EpStrongBundle.isOpenMap_quotMk_or",
+     "Chapter12/P3W7W3_OrbitHomeo · EpGroupoid.isOpenMap_quotMk_smooth",
+     "Chapter12/P3W7W3_OrbitHomeo · MPolyfold.IsScDiffeoOn.smoothFwd",
+     "Chapter12/P3W7W3_OrbitHomeo · MPolyfold.IsScDiffeoOn.smoothBwd",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orEqv_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.eT_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.eK_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.pullback_comp_of",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orSpaceMap_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_comp",
+     "Chapter12/P3W7W3_OrEqvComp · EpStrongBundle.IsStrongBundleEquivalence.compLocSet",
+     "Chapter12/P3W7W3_OrEqvComp · StrongBundle.LocalIso.transferT_mpullPt₃",
+     "Chapter12/P3W7W3_OrEqvComp · StrongBundle.LocalIso.transferK_mpullPt₃",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.orEqv_nat",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.germ_nat",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.eT_nat",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.eK_nat",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_nat",
+     "Chapter12/P3W7W3_OrEqvNat · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_nat",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_refine",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_refine",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_refinement_base",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep_base",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
+     "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial_base",
+     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
     ]
    },
    "chips": [
-    "bijection; homeomorphism: G.158",
-    "(2) continuity: `theorem_12_5_7_two_hyp`",
-    "one representative (G.158)",
+    "homeomorphism (1) proved",
+    "(2) as printed",
+    "representative independence (diagram data)",
+    "functoriality (diagram data)",
     "standing `hsec` (V12.22)"
    ],
    "diff": [
     "Hidden hypotheses: `hsec`, `hsec'`, `hsec''` (`HasScPlusSectionsThrough` for $W$, $W'$, $V$), the standing hypothesis of §12.5 (V12.22), with the witnesses `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` and `StrongBundle.hasScPlusSectionsThrough_of_chart`; $f'$ is any section with the same pull-back $f''$, and the push-forward is one (`pullback_pushforward_witness`); a representative is $h_1 = h_2 = \\mathrm{id}$ (`isStrongBundleEquivalence_id`).",
-    "The homeomorphism of (1) is stated as a bijection; the continuity of $o'$ in (2) is `theorem_12_5_7_two_hyp` (Part I's hypotheses, continuity read as `IsContOrOn` over all of $X$, for input and output; the book's `Continuous (orSec o)` follows by `continuousOn_orSec`, the converse is in gap G.158). The theorem is stated for one representative; the independence of the representative and the functoriality of $|\\bar{\\mathfrak f}|_*$ (left to the reader in the text) are not formalized (gap G.158)."
+    "(1) and (2) hold as printed under Part I's hypotheses on $X$, $X'$ and $V$ (tame, bump functions, tame germ data, as in `theorem_12_5_3_hyp`; gap G.140) and the standing `hsec` (Part III wave 7; gap G.158 closed). The independence of the representative and the functoriality (left to the reader in the text) are proved for the data of the diagrams (a common refinement; a composite through equivalences with a natural equivalence), with no further hypotheses; since the underlying functions agree, so do the homeomorphisms of (1). The same statements for Chapter 10's `SDiagram` and `GenSBMap` objects are gap G.192."
    ]
   },
   {
@@ -1267,6 +1308,53 @@
    "diff": [
     "None."
    ]
+  },
+  {
+   "id": "V12.47",
+   "title": "sc-smooth maps are continuous on the levels and on $X_\\infty$ (Part I tool, used for Theorem 12.5.7 (1))",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (used in §2.3 after Definition 2.3.8 and Theorem 2.3.10, and in §12.5)",
+    "page": null,
+    "statement": "An sc-smooth map is sc⁰ in charts, so it is continuous $X_m \\to Y_m$ on every level and $X_\\infty \\to Y_\\infty$; the text uses this without comment."
+   },
+   "lean": {
+    "statement": "`MPolyfold.IsScSmoothOn.continuousOn_level_comp`: if $u$ is continuous into $X_m$ and $v = f \\circ u$ into $Y_m$, then $v$ is continuous. `MPolyfold.IsScSmoothOn.continuousOn_smoothLevel`: the map $X_\\infty \\cap U \\to Y_\\infty$ is continuous; `MPolyfold.IsScSmoothMap.continuous_smoothLevel`; `MPolyfold.continuousAt_levelLift` (a chart is continuous on level $m$). A new Part I fact (Part III wave 7, `Chapter5/P3W7W3_SmoothLevelCont.lean`).",
+    "decls": [
+     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.continuousAt_levelLift",
+     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothOn.continuousOn_level_comp",
+     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothOn.continuousOn_smoothLevel",
+     "Chapter5/P3W7W3_SmoothLevelCont · MPolyfold.IsScSmoothMap.continuous_smoothLevel"
+    ]
+   },
+   "chips": [
+    "Part I tool, new in Part III"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V12.48",
+   "title": "Continuity of an orientation: Definition 12.5.4 and Part I's `IsContOrOn` agree (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (Definition 12.5.4, p. 594, against Part I's continuity of orientations along paths)",
+    "page": null,
+    "statement": "The continuity of Definition 12.5.4 is the continuity of $x \\mapsto (x, o_x)$ into $O_f$; Part I works with continuity along sc-smooth paths (`IsContOrOn`)."
+   },
+   "lean": {
+    "statement": "`isContOrOn_univ_of_continuous_orSec`: for any `LocalTransport L` with two orientations everywhere, on an M-polyfold with `HasConnectedSmoothNbhds`, continuity of `orSec o` for `orTopology L` gives `IsContOrOn L univ o` (a clopen argument with `isOpen_setOf_orSec_eq` and `isContOrOn_of_local_or`). **`isContOrOn_univ_iff_continuous hX hbump hfT hsec ht`**: with Part I's hypotheses, `Continuous[t] (orSec o) ↔ IsContOrOn univ o` for every topology `t` with `IsOrientationTopology`.",
+    "decls": [
+     "Chapter12/P3W6O6_ContOr · isOpen_setOf_orSec_eq",
+     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_of_continuous_orSec",
+     "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
+    ]
+   },
+   "chips": [
+    "closes the converse left open in V12.39"
+   ],
+   "diff": [
+    "Neither hypothesis of `isContOrOn_univ_of_continuous_orSec` restricts: two orientations at every point hold under `hsec` (`exists_two_orx`), and every M-polyfold has connected smooth neighbourhoods (`MPolyfold.hasConnectedSmoothNbhds`)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1380,12 +1468,32 @@
    "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
    "page": 595,
    "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, does not depend on the representative, and is functorial; $\\bar{\\mathfrak f}_* o$ is continuous.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 5; V12.39; `Chapter12/P3W5OR_EquivCont.lean`): `theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces; `theorem_12_5_7_two_hyp` / `theorem_12_5_7_two_cont` give (2) with continuity, read as Part I's `IsContOrOn` over all of $X$; the local tools are proved (`LocalIso.isContOrOn_pullOrx`, its converse `isContOrOn_of_pullOrx`, `orEqv_eq_orxVia`). Missing: (a) `orbitOrMap` is a homeomorphism: at the level of $O_f$, $(a, \\omega) \\mapsto (\\phi(a), \\mathrm{orEqv}^{-1}\\omega)$ maps a basic set `orBasic U ô` near $a$ onto `orBasic` of the carried section (`isContOrOn_of_pullOrx`, `isOpen_orBasic`), then the quotients, about 250–350 lines; (b) `Continuous (orSec o)` for Part I's topology implies `IsContOrOn L univ o` (propagation along sc-smooth paths, `isPropagationContinuous_orTopology`, `continuous_smoothMk_comp`, connectedness of $[0,1]$ with `transport_halves`/`transport_eq_push`), which gives (2) exactly in the book's form (Definition 12.5.4), about 100–200 lines; (c) independence of the representative and functoriality: there is no Lean notion yet of equivalent representatives (a common refinement with natural transformations, Chapter 10's localization); with one, compare through the refinement with `orMor_orEqv`, `pushOr_unique` and `orEqv_eq_orxVia`, about 300–500 lines. Estimate 650–1,050 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 7; V12.39, V12.47, V12.48; `Chapter12/P3W7W3_*`, `Chapter12/P3W6O6_ContOr.lean`): (a) the homeomorphism, `theorem_12_5_7_one_homeo_hyp` (`orbitOrHomeo`, `smoothOrbitHomeo`, with the continuity of sc-smooth maps on $X_\\infty$, V12.47); (b) Definition 12.5.4's continuity and Part I's `IsContOrOn` agree (`isContOrOn_univ_iff_continuous`, V12.48), so (2) holds in the book's form (`theorem_12_5_7_two_book_hyp`); (c) the independence of the representative (`theorem_12_5_7_rep_indep`, through `orEqv_nat` and refinements, Chapter 10's `SDiagram.Equiv`) and the functoriality (`theorem_12_5_7_functorial`, through `orEqv_comp`), both for the data of the diagrams. The repackaging for Chapter 10's `SDiagram`/`GenSBMap` objects is gap G.192.",
    "decls": [
     "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
     "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
     "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_hyp",
-    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont"
+    "Chapter12/P3W5OR_EquivCont · theorem_12_5_7_two_cont",
+    "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_one_homeo_hyp",
+    "Chapter12/P3W7W3_Theorem1257 · theorem_12_5_7_two_book_hyp",
+    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial",
+    "Chapter12/P3W6O6_ContOr · isContOrOn_univ_iff_continuous"
+   ],
+   "formalized": [
+    "V12.39"
+   ]
+  },
+  {
+   "g": 192,
+   "title": "Theorem 12.5.7 for Chapter 10's `SDiagram`/`GenSBMap` objects",
+   "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
+   "page": 595,
+   "book": "$|\\bar{\\mathfrak f}|_*$ for a morphism $\\bar{\\mathfrak f}$ of the localized category (a class of diagrams).",
+   "instead": "Everything is proved for the data of the diagrams (`theorem_12_5_7_rep_indep`, `theorem_12_5_7_functorial`, (1) and (2); V12.39). Missing: (a) the restatement for `SBLocalization.SDiagram A A'`: a generalized isomorphism means both legs in `SEP.equivalences`, the section functors on `D.B` are the pull-backs, and `SDiagram.Equiv` (common refinement, `SEP.NatEquiv` as `StrongBundleNatEquiv`) is unpacked into `theorem_12_5_7_rep_indep`; this gives a map on `GenSBMap A A'` (80–150 lines); (b) Chapter 10's composite diagram fed into `theorem_12_5_7_functorial` (`compMid`, `compLeft`, `compRight`; to prove: `compRight` is an equivalence when `D.Ψ` is one, and the natural equivalence `compLeft ≫ D.Ψ ≃ compRight ≫ E.Φ` from the cone), 70–150 lines. Estimate 150–300 lines.",
+   "decls": [
+    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep",
+    "Chapter12/P3W7W3_RepIndep · EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_functorial"
    ]
   }
  ]

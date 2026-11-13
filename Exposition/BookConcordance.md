@@ -1,4 +1,4 @@
-# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III waves 1–5, Chapters 12–16)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III waves 1–7, Chapters 12–16)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
@@ -1591,6 +1591,37 @@ Wave 5 closed or narrowed gaps of waves 1–4; the rows below are the items whos
 | Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34 | functor on effective polyfolds |
 | Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | parenthetical, pull direction |
 | Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 | naturality |
+
+### Part III, items formalized in waves 6–7 (Chapters 12, 14–16; 2026-11-13)
+
+Waves 6 and 7 closed or narrowed gaps of waves 1–5; the rows below are the items whose rows were added or changed. The 2017 numbers are those of the existing rows (checked in the 2017 text in earlier waves). Items without a number in either text ((14.53) inside the proof of Lemma 14.5.1, the data of §§14.3–14.5, the face good systems of §14.6, the product remark after Definition 15.3.3, the parts of the proof of Corollary 15.3.10 (3), the text before Theorem 16.6.6, the tools) are rows V12.47, V12.48, V14.45–V14.47, V15.44, V15.46–V15.48, V15.53–V15.56, V16.80. A gap number in the Rows column marks a part that is not formalized.
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
+| Definition 12.12 | Definition 12.5.4 | 594 | V12.48 | the two continuity readings agree |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, V12.47, G.192 | as printed; was G.158 |
+| Definition 14.2 | Definition 14.1.3 | 642 | V14.3, G.186 | reading $I_x \ne \emptyset$ |
+| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44 | stronger; was G.164 |
+| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, V14.46, G.186 | `hB`, `ChargesBoundary`; was G.171 |
+| Lemma 14.10 | Lemma 14.5.1, (14.53) | 671 | V14.34, V14.45 | (14.53) for the $\hat V_a$ |
+| §14.6 | §14.6 | 680 | V14.47, G.185 | good systems on a face |
+| Definition 14.10 | Definition 14.6.1 | 681 | V14.41 | corner sc⁺; was G.184 |
+| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | extension part |
+| after Definition 15.5 | remark after Definition 15.3.3 | 692 | V15.53–V15.56, G.160 | product strong bundle |
+| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.44 | text's hypotheses |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.45, G.178, G.179 | nonempty index sets |
+| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.46–V15.48, G.180, G.189, G.190, G.193 | (1), (3); was G.181 |
+| before Theorem 15.6 | before Theorem 15.4.1 | 701 | V15.50 | at a chart point |
+| Theorem 15.6 | Theorem 15.4.1 | 702 | V15.51, G.159 | at a chart point |
+| Definition 15.7 | Definition 15.4.2 | 702 | V15.52, G.159 | pointwise |
+| Corollary 15.2 | Corollary 15.4.4 | 703 | V15.37, V15.49, G.182, G.191 | cylinder argument; effective |
+| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | both directions; was G.166 |
+| Definition 16.26 | Definition 16.3.14 | 727 | V16.53 | independent of the model |
+| Proposition 16.5 | Proposition 16.3.16 (2) | 728 | V16.56 | as stated |
+| Definitions 16.27, 16.28 | Definitions 16.3.18, 16.3.19 | 729 | V16.81 | zero section; was G.167 |
+| Theorem 16.6 | Theorem 16.5.7 | 735 | V16.71 | readings of Theorem 14.1.9 |
+| Definition 16.42 | Definition 16.6.5 | 739 | V16.77, G.176 | transport along a diagram |
+| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78, V16.80, G.175, G.187, G.188 | integrals well defined |
 
 ### Items of the 2021 text without a 2017 counterpart
 

@@ -25,7 +25,7 @@ The second command prints the axioms of every theorem; each must list only `prop
 | Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 28 | 91 | 80 |
 | Orientation (Chapter 6) | 5 | 65 | 227 |
 | Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 34 | 85 | 130 |
-| Part III (waves 1–4): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 46 | 122 | 104 |
+| Part III (waves 1–7): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 49 | 132 | 121 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 4 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -258,7 +258,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V6.29 | §6.6 (preprint §6.5), Proposition 6.6.1 (preprint 6.26) and the opening of §6.6 (preprint §6.5), preprint p. 219 | `IsLineOrientation`, `LineOrientation` |
 | V6.30 | §6.6 (preprint §6.5), Proposition 6.6.1 (preprint 6.26), p. 263 (preprint p. 219) | `DetOn`, `fredholmIncl` |
 | V6.31 | §6.6 (preprint §6.5), Definition 6.6.2 (preprint 6.27), p. 263 (preprint pp. 219–220) | `ChartPoint.Or`, `ChartPoint.detLin`, `ChartPoint.orEquivRay` |
-| V6.32 | §6.6 (preprint §6.5), Proposition 6.6.3 (preprint 6.28), p. 263 (preprint p. 220) (proof pp. 263–264 (preprint pp. 220–221)) | `IsScHomotopyRel`, `pt1`, `pt2` |
+| V6.32 | §6.6 (preprint §6.5), Proposition 6.6.3 (preprint 6.28), p. 263 (preprint p. 220) (proof pp. 263–264 (preprint pp. 220–221)) | `IsScHomotopyRel`, `cubePolyfold`, `pt1`, `pt2` |
 | V6.35 | §6.6 (preprint §6.5), pp. 264–266 (preprint pp. 222–223); the bundles $\tilde L$, pp. 266–273 (preprint pp. 224–227) | `SubspaceFamily`, `SubspaceFamily.Frame.pretriv`, `SubspaceFamily.det` |
 | V6.39 | §6.6 (preprint §6.5), pp. 265–269 (preprint pp. 223–224), after Lemma 6.6.6 (preprint 6.31) | `SubspaceFamily.cont`, `SubspaceFamily.contEquiv`, `detEquivOfSurjective`, `propagate` and 1 more |
 | V6.40 | §6.4 (preprint §6.3), formula (94), p. 256 (preprint p. 212), as it is used on pp. 265–272 (preprint pp. 223–226) | `stabSign` |
@@ -391,7 +391,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V2.53 | §2.5 (preprint §2.4), Proposition 2.5.20 (preprint 2.46), pp. 63–64 (preprint pp. 46–47) | `MPolyfold.IsLocalScDiffeo`, `MPolyfold.fibredProduct` |
 | V2.78 | §2.5, Definition 2.5.18, p. 62, and Definition 2.5.19, p. 63 (new in the 2021 edition) | `MPolyfold.HasTameInducedStructure` |
 | V7.1 | §7.1, Definition 7.1.1 (2017: 7.1) and the paragraph after it, pp. 287–288 (2017 pp. 225–226) | `GroupoidStr`, `GroupoidStr.IsSaturated`, `GroupoidStr.Isomorphic`, `GroupoidStr.Ob` and 7 more |
-| V7.2 | §7.1, Definition 7.1.2 (2017: 7.2), p. 288 (2017 p. 226) | `GroupoidStr.Isotropy`, `GroupoidStr.isotropyEquivVertexGroup` |
+| V7.2 | §7.1, Definition 7.1.2 (2017: 7.2), p. 288 (2017 p. 226) | `GroupoidStr.Isotropy` |
 | V7.3 | §7.1, Definition 7.1.3 (2017: 7.3), pp. 288 ff. (2017 pp. 226–227) | `EpGroupoid`, `IsScSmoothComp` |
 | V7.5 | §7.1, Definition 7.1.4 (2017: 7.4) and the paragraph before it, 2017 p. 227 | `EpGroupoid.Sheet`, `EpGroupoid.sheetAt`, `EpGroupoid.tangentMor`, `EpGroupoid.tangentMorCLE` |
 | V7.8 | §7.1, Definition 7.1.6 (2017: 7.6) and the paragraph after it, 2017 p. 228 | `EpGroupoid.IsTame` |
@@ -525,7 +525,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 
 </details>
 
-## Part III (waves 1–4): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds
+## Part III (waves 1–7): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds
 
 ### Statements
 
@@ -540,7 +540,6 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 12.2.7 | `EpStrongBundle.theorem_12_2_7` (Chapter12/P3E_AuxNormLocalExtension.lean) | V12.9 |
 | Thm 12.2.11 | `EpStrongBundle.theorem_12_2_11` (Chapter12/P3R2_ReflexiveAuxNormEp.lean) | V12.32 |
 | Thm 12.3.9 | `EpStrongBundle.theorem_12_3_9` (Chapter12/P3X_ScPlusExtension.lean) | V12.35 |
-| Thm 12.5.7 | `theorem_12_5_7_one_hyp` (Chapter12/P3F_Naturality.lean) | V12.39 |
 | Thm 13.5.6 | `SBLocalization.theorem_13_5_6` (Chapter13/P3A_AtomicConstruction.lean) | V13.49 |
 | Thm 15.2.2 | `SBLocalization.theorem_15_2_2_hyp` (Chapter15/P3L_Transversality.lean) | V15.12 |
 | Thm 15.2.5 | `SBLocalization.theorem_15_2_5_hyp` (Chapter15/P3L_BoundaryPerturbation.lean) | V15.15 |
@@ -556,31 +555,38 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 13.5.3 | `SBLocalization.theorem_13_5_3` (Chapter13/P3W3C_AtomicStructurable.lean) | — |
 | Thm 13.5.7 | `SBLocalization.theorem_13_5_7` (Chapter13/P3W3Q_AtomicSum.lean) | V13.58 |
 | Thm 14.1.6 | `EpGroupoid.theorem_14_1_6_hyp` (Chapter14/P3W3B1_BoundaryMultisection.lean) | — |
-| Thm 14.1.9 | `SBLocalization.theorem_14_1_9_of_assembly` (Chapter14/P3W5T9_Assembly.lean) | — |
 | Prop 14.4.14 | `SBLocalization.proposition_14_4_14` (Chapter14/P3W4LX_CoherentExtension.lean) | — |
 | Thm 14.5.5 | `SBLocalization.theorem_14_5_5` (Chapter14/P3W4GL_Criterion.lean) | — |
 | Thm 15.1.1 | `SBLocalization.theorem_15_1_1_functor` (Chapter15/P3W3K_LinearizationFunctor.lean) | V15.2 |
-| Thm 15.3.7 | `SBLocalization.theorem_15_3_7_of_paramOnto` (Chapter15/P3W5GB_Combined.lean) | V15.29 |
-| Thm 15.3.9 | `SBLocalization.theorem_15_3_9_of_extension_ty` (Chapter15/P3W5TY_Cutoff.lean) | V15.32 |
 | Thm 15.4.3 | `SBLocalization.theorem_15_4_3_hyp` (Chapter15/P3W4TX_Invariants.lean) | V15.36 |
-| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_hyp` (Chapter15/P3W4TX_Invariants.lean) | V15.37 |
 | Thm 16.2.4 | `PolyfoldClass.theorem_16_2_4` (Chapter16/P3W3Y_TangentFunctor.lean) | V16.34 |
 | Thm 16.3.15 | `StrongPolyfoldBundle.theorem_16_3_15_one` (Chapter16/P3W3V_PolyfoldAuxNorm.lean) | V16.54 |
 | Thm 16.3.17 | `StrongPolyfoldBundle.theorem_16_3_17_one` (Chapter16/P3W3V_PolyfoldAuxNorm.lean) | V16.57 |
-| Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7_hyp` (Chapter16/P3W4PB_Multisections.lean) | V16.71 |
 | Thm 16.6.4 | `StrongPolyfoldBundle.theorem_16_6_4` (Chapter16/P3W4PB_FredholmSections.lean) | V16.76 |
 | Thm 12.5.3 | `EpStrongBundle.theorem_12_5_3_push` (Chapter12/P3W5OR_Theorem1253.lean) | V12.24 |
 | Prop 12.5.6 | `EpStrongBundle.proposition_12_5_6_mpr_hyp` (Chapter12/P3W5OR_Orientable.lean) | V12.26 |
-| Thm 12.5.7 | `theorem_12_5_7_two_hyp` (Chapter12/P3W5OR_EquivCont.lean) | V12.39 |
 | Prop 13.4.2 | `SBLocalization.proposition_13_4_2` (Chapter13/P3W5FM_Extension.lean) | V13.59 |
-| Prop 14.1.8 | `SBLocalization.proposition_14_1_8_hyp` (Chapter14/P3W5FM_BoundaryPush.lean) | V14.44 |
 | Prop 14.4.6 | `SBLocalization.ZConcrete.proposition_14_4_6_2` (Chapter14/P3W5Z5_Instance.lean) | V14.25 |
 | Prop 14.5.4 | `SBLocalization.TransportInput.proposition_14_5_4` (Chapter14/P3W5T9_TransportProof.lean) | V14.37 |
-| Thm 14.6.3 | `SBLocalization.CompatibleFaceData.theorem_14_6_3_hyp` (Chapter14/P3W5F6_Theorem1463.lean) | V14.43 |
 | Thm 16.2.4 | `theorem_16_2_4_eff` (Chapter16/P3W5PC_TangentEffective.lean) | V16.34 |
 | Prop 16.4.3 | `PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality` (Chapter16/P3W5PC_SuppNaturality.lean) | V16.24 |
+| Thm 12.5.7 | `theorem_12_5_7_one_homeo_hyp` (Chapter12/P3W7W3_Theorem1257.lean) | V12.39 |
+| Thm 12.5.7 | `theorem_12_5_7_two_book_hyp` (Chapter12/P3W7W3_Theorem1257.lean) | V12.39 |
+| Thm 12.5.7 | `EpStrongBundle.IsStrongBundleEquivalence.theorem_12_5_7_rep_indep` (Chapter12/P3W7W3_RepIndep.lean) | V12.39 |
+| Prop 14.1.8 | `SBLocalization.GenSBMap.proposition_14_1_8` (Chapter14/P3W6P6_FacePush.lean) | V14.44 |
+| Prop 14.1.8 | `SBLocalization.GenSBMap.proposition_14_1_8_pullMult` (Chapter14/P3W6P6_FacePush.lean) | V14.44 |
+| Thm 14.1.9 | `SBLocalization.theorem_14_1_9_charged_a6` (Chapter14/P3W6A6_Theorem1419.lean) | V14.8 |
+| Thm 14.6.3 | `SBLocalization.CompatibleFaceData.theorem_14_6_3_hyp` (Chapter14/P3W5F6_Theorem1463.lean) | V14.43 |
+| Thm 14.6.3 | `SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_a6` (Chapter14/P3W6A6_Theorem1419.lean) | V14.43 |
+| Thm 15.3.7 | `SBLocalization.theorem_15_3_7` (Chapter15/P3W6G6_Existence.lean) | V15.29 |
+| Thm 15.3.9 | `SBLocalization.theorem_15_3_9_charged_of_local_rel` (Chapter15/P3W6R6_ChargedExtension.lean) | V15.32 |
+| Thm 15.4.1 | `SBLocalization.theorem_15_4_1_lift` (Chapter15/P3W6O6_CanonicalLift.lean) | V15.51 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_cylinder_hyp` (Chapter15/P3W7W2_CylinderCobordism.lean) | V15.37 |
+| Prop 16.3.16 | `StrongPolyfoldBundle.proposition_16_3_16_two` (Chapter16/P3W7W6_MixedTransfer.lean) | V16.56 |
+| Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7_a6` (Chapter16/P3W6A6_Theorem1657.lean) | V16.71 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_hyp` (Chapter16/P3W6S6_Theorem16_6_6.lean) | V16.78 |
 
-### Definition rows (122), in dependency order
+### Definition rows (132), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
@@ -593,7 +599,6 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V6.51 | §6.6 (preprint §6.5), the homotopy classes $[\varphi]$, pp. 272–274 (preprint pp. 227–228) | `leftHalf`, `rightHalf` |
 | V6.73 | §6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition) | `IsContOrOn`, `orSec`, `orTopology` |
 | V7.7 | §7.1, Definition 7.1.5 (2017: 7.5), p. 290 (2017 p. 228) | `EpGroupoid.degIndexOrbit` |
-| V7.16 | §7.1, after Proposition 7.1.12 (2017: 7.4), p. 293 (2017 p. 230) | `GroupoidStr.isotropyConj` |
 | V7.29 | §7.1, Definition 7.1.21 (2017: 7.10), p. 305 (2017 p. 237) | `EpGroupoid.IsEpSubgroupoid` |
 | V7.30 | §7.1, after Definition 7.1.21 (2017: 7.10), pp. 305–307 (2017 pp. 237–238) | `EpGroupoid.subObjPolyfold` |
 | V7.31 | §7.1, 2017 p. 238 | `EpGroupoid.subMorPolyfold` |
@@ -601,22 +606,22 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V8.23 | §8.3, Definition 8.3.2 (2017: 8.5) and the paragraph after it, 2017 p. 273 | `EpStrongBundle.IsMap` |
 | V8.25 | §8.3, between Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6), pp. 377–379 (2017 pp. 273–274) | `EpStrongBundle.IsMap.liftFunctor`, `EpStrongBundle.liftMor` |
 | V8.26 | §8.3, Definition 8.3.4 (2017: 8.7), pp. 379 ff. (2017 pp. 274–275) | `EpStrongBundle.IsFunctorialSection`, `EpStrongBundle.IsScFredholmSectionFunctor`, `EpStrongBundle.IsScPlusSectionFunctor`, `EpStrongBundle.IsScSmoothSectionFunctor` and 2 more |
+| V8.42 | §8.6.1 (2017 §8.5.1), Proposition 8.6.4 (2017: 8.4) and the paragraph before it, 2017 p. 288 | `EpGroupoid.trivial` |
 | V8.46 | §8.3, Definition 8.3.5, p. 379 (new in the 2021 edition) | `EpStrongBundle.IsAuxNorm` |
 | V8.50 | §8.5, Definition 8.5.9, p. 394 (2017: 8.10, p. 285), with (0) new in the 2021 edition | `EpStrongBundle.IsProperStrongBundleCovering2021` |
 | V8.54 | §8.2, Definition 8.2.2 (2017: 8.3), p. 373 (2017 p. 270) | `EP.epFormsInftyPullback` |
-| V10.9 | §10.1, Remark 10.1.12, p. 472 (new in the 2021 edition) | `EpFunctor.isotropyHom` |
 | V10.15 | §10.1, Proposition 10.1.18, p. 476 (new in the 2021 edition) | `EpFunctor.liftOne` |
 | V10.23 | §10.4, the pull-back and the push-forward of section functors, pp. 496–498 (2017 pp. 357–360) | `EpStrongBundle.IsStrongBundleEquivalence.preMor`, `EpStrongBundle.IsStrongBundleEquivalence.preObj`, `EpStrongBundle.IsStrongBundleEquivalence.pullback`, `EpStrongBundle.IsStrongBundleEquivalence.pushforward` |
 | V10.27 | §10.4, Theorem 10.4.5, pp. 500–501 (2017: Theorem 10.8, p. 362) | `StrongBundle.LocalIso`, `StrongBundle.LocalIso.transportChart` |
 | V10.58 | §10.5, the push-forward $[D]_*f = \Psi_*\Phi^*f$, p. 507 (2017 p. 367) | `SBLocalization.SDiagram.pushforward` |
 | V10.59 | §10.5, Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9, p. 367) | `SBLocalization.GenSBMap.pushforward`, `SBLocalization.GenSBMap.rep` |
-| V10.62 | §10.1, Proposition 10.1.9, pp. 468–470 (new in the 2021 edition) | `EpFunctor.TransportChart`, `EpFunctor.TransportChart.conj` |
+| V10.68 | §10.5, the strong bundle case, p. 504 (2017 p. 364), of Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343) | `EpStrongBundle.pullbackAlong`, `SEP.pullbackAlong` |
 | V11.3 | §11.1, Definition 11.1.3, p. 523 (2017: Definition 11.1, p. 377) | `EpGroupoid.IsEpFace`, `EpGroupoid.IsEpFaceStructured`, `EpGroupoid.IsOrbitFace`, `EpGroupoid.faceObj` and 1 more |
 | V11.10 | §11.2, Lemma 11.2.2, p. 527 (2017: Lemma 11.1, p. 380), and Definition 11.2.3, p. 528 (2017: Definition 11.2, p. 382) | `EP.epFormsInftyPush`, `EpFunctor.IsEquivalence.formPush` |
 | V11.12 | §11.2, Definition 11.2.7, p. 532 (2017: Definition 11.3, p. 386) | `EPLocalization.Diagram.formsPullback`, `EPLocalization.EPLoc.formsPullback`, `EPLocalization.EPLoc.formsPush` |
 | V11.22 | §11.3, Definition 11.3.6, p. 541 (2017: Definition 11.5, p. 394), and (11.10) | `EPLocalization.OrientedBranched`, `EPLocalization.OrientedBranched.pull`, `EPLocalization.OrientedBranched.push` |
 | V11.31 | §11.5, Lemma 11.5.2, p. 548 (2017: Lemma 11.7, p. 400), and the multisection functors, pp. 547–548 | `SBLocalization.HasLocalSectionStructure`, `SBLocalization.IsLocalRepOn`, `SBLocalization.IsScPlusMultisection`, `SBLocalization.IsScPlusSectionOn` and 3 more |
-| V11.32 | §11.5, Proposition 11.5.3, p. 548 (2017: Proposition 11.7, p. 401) | `SBLocalization.GenSBMap.pullMult`, `SBLocalization.SDiagram.pullMult`, `SBLocalization.SDiagram.pushMult` |
+| V11.32 | §11.5, Proposition 11.5.3, p. 548 (2017: Proposition 11.7, p. 401) | `SBLocalization.GenSBMap.pullMult`, `SBLocalization.GenSBMap.pushMult`, `SBLocalization.SDiagram.pullMult`, `SBLocalization.SDiagram.pushMult` |
 | V12.10 | §12.3, Definition 12.3.1, p. 579 (2017: Definition 12.7) | `EpGroupoid.AdmitsBumpFunctions`, `EpGroupoid.AdmitsBumpFunctionsPointwise` |
 | V12.16 | §12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8) | `EpStrongBundle.IsBoundaryScPlusSection`, `EpStrongBundle.IsBoundaryScPlusSectionFunctor` |
 | V12.19 | §12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9) | `EpStrongBundle.HasCompactSolutionSetEp`, `EpStrongBundle.IsProperFunctor`, `EpStrongBundle.IsProperLtInftyFunctor` |
@@ -633,7 +638,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V13.7 | §13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1) | `EpGroupoid.IsGoodIn`, `EpGroupoid.IsProperSubsetIn`, `EpGroupoid.subSrc`, `EpGroupoid.subTgt` |
 | V13.10 | §13.2, Definition 13.2.2, p. 608 (2017: Definition 13.5) | `SBLocalization.domSupp`, `SBLocalization.suppAt` |
 | V13.11 | §13.2, Definition 13.2.3, p. 608 (2017: Definition 13.6) | `SBLocalization.normW`, `SBLocalization.pointwiseNorm` |
-| V13.14 | §13.2, Lemma 13.2.6, p. 610 (2017: Lemma 13.3) | `SBLocalization.extendZero`, `SBLocalization.transportSection` |
+| V13.14 | §13.2, Lemma 13.2.6, p. 610 (2017: Lemma 13.3) | `SBLocalization.extendZero` |
 | V13.15 | §13.2, Definition 13.2.9, p. 611 (2017: Definition 13.11) | `SBLocalization.fibAct` |
 | V13.16 | §13.2, Definition 13.2.10, p. 611 (2017: Definition 13.12) | `SBLocalization.multisectionSmul`, `SBLocalization.smulAt` |
 | V13.18 | §13.2, Definition 13.2.12, p. 612 (2017: Definition 13.13) | `SBLocalization.IsLocallyFiniteFamily`, `SBLocalization.nontrivIdx` |
@@ -652,21 +657,29 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V13.55 | §13.4, Definition 13.4.5 (2), p. 628 (2017: Definition 13.22 (2)) | `SBLocalization.CommData.Over.sym`, `SBLocalization.CommData.Over.tau`, `SBLocalization.CommData.Over.toDecoration`, `SBLocalization.CommData.Sections.toOver` and 2 more |
 | V13.56 | §13.4, after Definition 13.4.5 (2), p. 629 (2017: after Definition 13.22) | `SBLocalization.CommData.Over.lfSum`, `SBLocalization.CommData.lfSections`, `SBLocalization.CommData.lfSum`, `SBLocalization.CommData.sumFib` and 1 more |
 | V13.57 | §13.5, Definition 13.5.1, p. 629 (2017: Definition 13.23) | `SBLocalization.AtomicDataOn`, `SBLocalization.AtomicDataOn.IsRelated`, `SBLocalization.AtomicDataOn.Reach`, `SBLocalization.AtomicDataOn.count` and 1 more |
+| V14.3 | §14.1, Definition 14.1.3, p. 642 (2017: Definition 14.2) | `SBLocalization.ChargesBoundary` |
 | V14.22 | §14.4, Definitions 14.4.2, 14.4.3, pp. 659–660 (2017: Definitions 14.5, 14.6) | `EpGroupoid.ZSetup`, `EpGroupoid.ZSetup.Arc`, `SBLocalization.IndexCorr.Pairs` |
 | V14.23 | §14.4, Definition 14.4.4 and (14.43), p. 660 (2017: Definition 14.7) | `EpGroupoid.ZSetup.ZRel` |
-| V14.38 | §14.5, proof of Theorem 14.1.9, pp. 676–677 (2017: §14.5, Lemma 14.11) | `SBLocalization.AssemblyInput` |
 | V14.39 | §§14.3–14.4, (14.33)–(14.38), p. 657 (2017: §§14.3–14.4) | `SBLocalization.ZConcrete`, `SBLocalization.ZConcrete.toZData`, `SBLocalization.ZConcrete.toZSections`, `SBLocalization.bdryRetr_z5` and 1 more |
 | V14.40 | §14.6, p. 680 (2017: §14.6) | `SBLocalization.FaceGermIn`, `SBLocalization.IsFaceRelScPlusSectionOn` |
 | V14.41 | §14.6, Definition 14.6.1, p. 681 (2017: Definition 14.10) | `SBLocalization.FaceStructuredTuple`, `SBLocalization.IndexFamily`, `SBLocalization.RelTuple`, `SBLocalization.RelTuple.U` |
-| V15.1 | §15.1, preamble, p. 683 (2017: §15.1) | `SBLocalization.GrF` |
+| V15.1 | §15.1, preamble, p. 683 (2017: §15.1) | `Linearization15.GrFModel`, `SBLocalization.GrF` |
 | V15.8 | §15.1, Definition 15.1.7, p. 687 (2017: Definition 15.1) | `SBLocalization.LocalLinData`, `SBLocalization.LocalLinData.sum`, `SBLocalization.linearization` |
-| V15.10 | not in the book (used by the proofs of Theorems 15.2.2 and 15.2.5, p. 689) | `SBLocalization.subRestrict`, `SBLocalization.subSec` |
+| V15.10 | not in the book (used by the proofs of Theorems 15.2.2 and 15.2.5, p. 689) | `SBLocalization.subDeriv`, `SBLocalization.subRestrict`, `SBLocalization.subSec` |
 | V15.11 | §15.2, Definition 15.2.1, p. 688 (2017: Definition 15.2) | `SBLocalization.IsOntoAt`, `SBLocalization.IsOntoAtLevel`, `SBLocalization.IsTransversal`, `SBLocalization.IsTransversalAt` |
 | V15.14 | §15.2, Definition 15.2.4, p. 689 (2017: Definition 15.3) | `SBLocalization.IsBranchGoodPosition`, `SBLocalization.IsGoodPositionAt` |
+| V15.17 | not in the book as a numbered item (used after Definition 15.3.3, in Remark 15.3.4, Corollaries 15.3.10, 15.4.4) | `EpGroupoid.prod`, `EpGroupoid.prodSnd`, `GroupoidStr.prod` |
+| V15.18 | §15.3, Corollary 15.3.10 (2) and its proof, p. 699 (2017: Corollary 15.1) | `EpGroupoid.cubeIncl`, `EpGroupoid.cubeOrbitMap`, `EpGroupoid.cubeProd`, `EpGroupoid.cubeProj` and 2 more |
 | V15.20 | §15.3, Definition 15.3.1, p. 691 (2017: Definition 15.4) | `SBLocalization.ControlsCompactness` |
 | V15.22 | §15.3, Definition 15.3.3, p. 692 (2017: Definition 15.5) | `SBLocalization.IsAdmissible` |
 | V15.24 | §15.3, Definition 15.3.5, p. 693 (2017: Definition 15.6) | `SBLocalization.IsInGeneralPosition` |
+| V15.26 | §15.3, Corollary 15.3.10 (2), p. 699, and the first step of its proof, pp. 699–700 (2017: Corollary 15.1 (2)) | `SEP.cubeAuxNorm`, `SEP.interpAuxNorm`, `SEP.interpSet` |
+| V15.45 | §15.3, proof of Theorem 15.3.9, pp. 698–699 (2017: Theorem 15.5) | `SBLocalization.HasLocalGPFamiliesRel`, `SBLocalization.IsParamOntoAtRel`, `SBLocalization.RelGPFamily` |
 | V15.33 | §15.3, Corollary 15.3.10 (1), p. 699 (2017: Corollary 15.1 (1)) | `SBLocalization.IsRegularPerturbation` |
+| V15.34 | §15.3, Corollary 15.3.10 (3), pp. 699–700 (2017: Corollary 15.1 (3)) | `EpGroupoid.cubeOrbitHomeomorph`, `SBLocalization.cubeGlue` |
+| V15.48 | §15.3, proof of Corollary 15.3.10 (3), p. 700 (2017: Corollary 15.1) | `EpGroupoid.cylEnd`, `EpGroupoid.cylOrbitTime` |
+| V15.50 | §15.4, before Theorem 15.4.1, p. 701 (2017: before Theorem 15.6) | `ChartPoint.GrFHat`, `ChartPoint.OrLin`, `ChartPoint.canonLift`, `ChartPoint.forgetOr` |
+| V15.52 | §15.4, Definition 15.4.2, p. 702 (2017: Definition 15.7) | `SBLocalization.canonicalLift` |
 | V16.1 | §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1) | `PolyfoldStructure` |
 | V16.2 | §16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2) | `PolyfoldStructure.Equiv`, `PolyfoldStructure.setoid` |
 | V16.4 | §16.1, Definition 16.1.3, p. 707 (2017: Definition 16.3) | `PolyfoldClass` |
@@ -678,8 +691,9 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.16 | §16.2, pp. 716–718 (2017: §16.2) | `PolyfoldClass.TangentSpace`, `PolyfoldClass.tangentHomeomorph`, `PolyfoldClass.tangentMap` |
 | V16.20 | §16.2, Definition 16.2.5, p. 720 (2017: Definition 16.15) | `PolyfoldClass.FormRep`, `PolyfoldClass.FormRep.Rel`, `PolyfoldClass.ScForm`, `PolyfoldClass.ScForm.equivStructure` and 3 more |
 | V16.22 | §16.4, Definition 16.4.1, p. 730 (2017: Definition 16.29) | `PolyfoldClass.BranchedRep`, `PolyfoldClass.BranchedRep.Rel`, `PolyfoldClass.BranchedSuborbifold`, `PolyfoldClass.BranchedSuborbifold.toFun` |
-| V16.25 | §16.4, Definition 16.4.4, pp. 730–731 (2017: Definition 16.31) | `PolyfoldClass.OrientedRep`, `PolyfoldClass.OrientedRep.Rel` |
-| V16.27 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4) | `PolyfoldClass.OrientedRep.IsTameOriented`, `PolyfoldClass.OrientedRep.boundaryIntegral`, `PolyfoldClass.OrientedRep.integral` |
+| V16.25 | §16.4, Definition 16.4.4, pp. 730–731 (2017: Definition 16.31) | `PolyfoldClass.OrientedRep`, `PolyfoldClass.OrientedRep.Rel`, `PolyfoldClass.OrientedSuborbifold`, `PolyfoldClass.OrientedSuborbifold.toBranched` |
+| V16.23 | §16.4, Definition 16.4.2, p. 730, and p. 729 (2017: Definition 16.30) | `PolyfoldClass.BranchedSuborbifold.HasRepProperty`, `PolyfoldClass.BranchedSuborbifold.IsCompact`, `PolyfoldClass.OrientedSuborbifold.IsTameOriented` |
+| V16.27 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4) | `PolyfoldClass.OrientedRep.IsTameOriented`, `PolyfoldClass.OrientedRep.boundaryIntegral`, `PolyfoldClass.OrientedRep.integral`, `PolyfoldClass.OrientedRep.integralEff` and 2 more |
 | V16.33 | §16.1, Definition 16.1.11, p. 711 (2017: Definition 16.8) | `EffPolyfold`, `PolyfoldClass.IsEffective` |
 | V16.29 | §16.1, before Definition 16.1.6, p. 709 (2017: §16.1) | `PSHom`, `PSHom.IsIdIso`, `PSHom.comp`, `PSHom.id` |
 | V16.30 | §16.1, Definition 16.1.6, p. 710 (2017: Definition 16.5) | `PSHom.Equiv`, `PolyfoldClass.MapRep`, `PolyfoldClass.MapRep.setoid` |
@@ -693,24 +707,27 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.48 | §16.3, Definition 16.3.9 and (16.7), p. 726 (2017: Definition 16.23) | `StrongPolyfoldBundle.IsAuxNorm`, `StrongPolyfoldBundle.Y01`, `StrongPolyfoldBundleStructure.IsAuxNormFor`, `StrongPolyfoldBundleStructure.Y01` and 2 more |
 | V16.51 | §16.3, Definition 16.3.12, p. 727 (2017: Definition 16.24) | `StrongPolyfoldBundle.HasReflexiveFibers` |
 | V16.52 | §16.3, Definition 16.3.13, p. 727 (2017: Definition 16.25) | `StrongPolyfoldBundle.IsReflexiveAuxNorm` |
+| V16.53 | §16.3, Definition 16.3.14, p. 727 (2017: Definition 16.26) | `StrongPolyfoldBundle.MixedTendsto`, `StrongPolyfoldBundle.MixedTendstoIn` |
 | V16.59 | §16.3, before Definition 16.3.18, p. 728 (2017: before Definition 16.27) | `StrongPolyfoldBundle.normY`, `StrongPolyfoldBundle.zeroAt`, `StrongPolyfoldBundleStructure.zeroAt` |
 | V16.60 | §16.3, before Definition 16.3.18, pp. 728–729 (2017: before Definition 16.27) | `StrongPolyfoldBundle.SectionRep`, `StrongPolyfoldBundle.SectionRep.Rel`, `StrongPolyfoldBundle.SectionRep.setoid` |
 | V16.61 | §16.3, Definition 16.3.18, p. 729 (2017: Definition 16.27) | `StrongPolyfoldBundle.ScSection`, `StrongPolyfoldBundle.ScSection.toFun` |
-| V16.64 | §16.5, Definition 16.5.1, p. 733 (2017: Definition 16.35) | `StrongPolyfoldBundle.MultisectionRep`, `StrongPolyfoldBundle.MultisectionRep.Rel`, `StrongPolyfoldBundle.MultisectionRep.setoid`, `StrongPolyfoldBundle.ScPlusMultisection` and 1 more |
+| V16.64 | §16.5, Definition 16.5.1, p. 733 (2017: Definition 16.35) | `StrongPolyfoldBundle.MultisectionRep`, `StrongPolyfoldBundle.MultisectionRep.Rel`, `StrongPolyfoldBundle.MultisectionRep.setoid`, `StrongPolyfoldBundle.ScPlusMultisection` and 2 more |
 | V16.65 | §16.5, Definition 16.5.2, p. 733 (2017: Definition 16.36) | `StrongPolyfoldBundle.ScPlusMultisection.domSupp` |
 | V16.67 | §16.5, (16.8), p. 733 (2017: §16.5) | `StrongPolyfoldBundle.normLam` |
 | V16.68 | §16.5, Definition 16.5.4, p. 734 (2017: Definition 16.37) | `StrongPolyfoldBundle.ScPlusMultisection.IsStructurable` |
 | V16.69 | §16.5, Definition 16.5.5, p. 734 (2017: Definition 16.38) | `StrongPolyfoldBundle.BoundaryMultisection`, `StrongPolyfoldBundle.BoundaryMultisection.domSupp`, `StrongPolyfoldBundle.BoundaryMultisection.toFun`, `StrongPolyfoldBundle.BoundaryMultisectionRep` and 2 more |
-| V16.70 | §16.5, Definition 16.5.6, p. 734 (2017: Definition 16.39) | `StrongPolyfoldBundle.BoundaryMultisection.IsStructurable` |
 | V16.72 | §16.6, before Definition 16.6.1, p. 735 (2017: before Definition 16.40) | `StrongPolyfoldBundle.ScSection.IsFredholm` |
 | V16.73 | §16.6, Definition 16.6.1, p. 736 (2017: Definition 16.40) | `StrongPolyfoldBundle.FredholmSection` |
 | V16.74 | §16.6, Definition 16.6.2, p. 736 (2017: Definition 16.41) | `StrongPolyfoldBundle.ScSection.HasCompactSolutionSet`, `StrongPolyfoldBundle.ScSection.solutionSet` |
-| V16.75 | §16.6, Definition 16.6.3, pp. 736–737 (new in 2021) | `StrongPolyfoldBundle.ScSection.IsProper`, `StrongPolyfoldBundle.ScSection.IsProperLtInfty`, `StrongPolyfoldBundle.ScSection.sublevel` |
+| V16.75 | §16.6, Definition 16.6.3, pp. 736–737 (new in 2021) | `StrongPolyfoldBundle.ScSection.ControlsCompactness`, `StrongPolyfoldBundle.ScSection.IsProper`, `StrongPolyfoldBundle.ScSection.IsProperLtInfty`, `StrongPolyfoldBundle.ScSection.sublevel` |
+| V16.77 | §16.6, Definition 16.6.5, p. 739 (2017: Definition 16.42) | `StrongPolyfoldBundle.OrientationRep` |
+| V16.80 | §16.6, p. 739, before Theorem 16.6.6 (2017: before Theorem 16.8) | `StrongPolyfoldBundle.IsPerturbedSuborbifold`, `StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith`, `StrongPolyfoldBundle.perturbedFun` |
 
-<details><summary>104 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>121 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
-* ?.lean: `MPolyfold.isOpen_transport_source`
+* ?.lean: `EpGroupoid.isLocalScDiffeo_id`, `MPolyfold.isOpen_transport_source`
 * Chapter10/FredholmEquivalence.lean: `EpGroupoid.actPair`, `EpStrongBundle.sectionAct`, `StrongBundle.IsStrongBundleIsoOn.toLocalIso`
+* Chapter10/StrongBundleWeakFibredProductPullback.lean: `EpStrongBundle.pbMorPair`, `EpStrongBundle.pbμ`
 * Chapter11/GapP2_B2_EquivForms.lean: `EpFunctor.IsEquivalence.formPullbackEquiv`, `EpFunctor.formPullbackLin`
 * Chapter11/GapP2_B2_EquivFormsInfty.lean: `EP.epFormsPush`
 * Chapter11/MultisectionLocalStructure2021.lean: `SBLocalization.zeroMultisection`
@@ -725,18 +742,20 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter13/P3M_MultisectionConvolution.lean: `SBLocalization.toFib`
 * Chapter13/P3M_MultisectionLocallyFinite.lean: `SBLocalization.lfSumAt`
 * Chapter14/P3W3B1_BoundaryMultisection.lean: `EpGroupoid.BoundaryGoodSystem`, `EpGroupoid.BoundaryGoodSystem.U`, `EpGroupoid.BoundaryGoodSystem.mor`, `SBLocalization.BoundarySymmetricStructure`, `SBLocalization.IsBoundaryScPlusMultisection`, `SBLocalization.IsBoundaryWFunctor`, `SBLocalization.IsFaceScPlusSectionOn`
-* Chapter14/P3W3B1_BoundaryStructured.lean: `SBLocalization.BoundaryDecoration`, `SBLocalization.BoundaryDecoration.Compat`, `SBLocalization.BoundaryDecoration.Tau`, `SBLocalization.BoundaryStructuredTuple`, `SBLocalization.IsBoundaryStructurable`, `SBLocalization.boundaryDomSupp`, `SBLocalization.theorem_14_1_9_statement`
+* Chapter14/P3W3B1_BoundaryStructured.lean: `SBLocalization.BoundaryDecoration`, `SBLocalization.BoundaryDecoration.Compat`, `SBLocalization.BoundaryDecoration.Tau`, `SBLocalization.BoundaryStructuredTuple`, `SBLocalization.IsBoundaryStructurable`, `SBLocalization.boundaryDomSupp`
 * Chapter14/P3W3B1_GoodBoundary.lean: `EpGroupoid.HasBoundaryFaces`, `EpGroupoid.IsGoodBoundaryNbhd`, `EpGroupoid.NatNbhd.bdry`
 * Chapter14/P3W4GL_Criterion.lean: `SBLocalization.CriterionData`
-* Chapter14/P3W4GL_NormControl.lean: `SBLocalization.theorem_14_1_9_extension_statement`
 * Chapter14/P3W4GL_Transport.lean: `SBLocalization.TransportInput`, `SBLocalization.proposition_14_5_4_statement`
 * Chapter14/P3W4LX_CoherentExtension.lean: `SBLocalization.CoherentNbhdSystem`, `SBLocalization.LocalExtensionBase`
 * Chapter14/P3W4S3_CoverVHat.lean: `SBLocalization.CorrExtension.OhatObj`, `SBLocalization.P5Nbhds.P6Nbhds`, `SBLocalization.P5Nbhds.P6Nbhds.nbhdObj`, `SBLocalization.P5Nbhds.nbhdObj`
 * Chapter14/P3W4S3_ExtendCorrespondences.lean: `SBLocalization.CorrExtension`, `SBLocalization.CorrExtension.Ohat`, `SBLocalization.CorrExtension.Ot`, `SBLocalization.CorrExtension.tauHat`, `SBLocalization.CorrPre`, `SBLocalization.P5Nbhds`, `SBLocalization.P5Nbhds.biact`, `SBLocalization.P5Nbhds.mor`, `SBLocalization.boundaryMor`
-* Chapter14/P3W5T9_Assembly.lean: `SBLocalization.AssemblyHyp`
+* Chapter15/P3P_CubeAuxNorm.lean: `SEP.cubeCoord`, `SEP.cubeTime`, `SEP.cubeWeight₀`, `SEP.cubeWeight₁`
+* Chapter15/P3P_CubeEp.lean: `SEP.cubeEP`, `SEP.cubeVal`
 * Chapter15/P3T_LinearizationIntrinsic.lean: `SBLocalization.chartOp`
-* Chapter15/P3T_LinearizationModel.lean: `Linearization15.linSumModelMap`
-* Chapter16/P3H_BranchedSuborbifold.lean: `PolyfoldClass.BranchedRep.setoid`, `PolyfoldClass.BranchedRep.toFun`, `PolyfoldClass.OrientedRep.toBranchedRep`
+* Chapter15/P3T_LinearizationModel.lean: `Linearization15.linSumModel`, `Linearization15.linSumModelMap`
+* Chapter15/P3W6O6_CanonicalLift.lean: `SBLocalization.toF`
+* Chapter15/P3W6O6_OrientedLin.lean: `ChartPoint.orLin`
+* Chapter16/P3H_BranchedSuborbifold.lean: `PolyfoldClass.BranchedRep.setoid`, `PolyfoldClass.BranchedRep.toFun`, `PolyfoldClass.OrientedRep.setoid`, `PolyfoldClass.OrientedRep.toBranchedRep`
 * Chapter16/P3H_PolyfoldForms.lean: `PolyfoldClass.FormRep.setoid`, `PolyfoldClass.ScForm.instAddCommGroup`, `PolyfoldClass.ScForm.instModuleReal`, `PolyfoldClass.ScForm.repOn`, `PolyfoldClass.ScForm.toStructureₗ`
 * Chapter16/P3H_TangentLemma.lean: `EP.tangentAny`, `EPLocalization.Diagram.tangentAny`
 * Chapter16/P3W3Y_PolyfoldMaps.lean: `PolyfoldClass.transport`, `instCategoryEffPolyfold`
@@ -748,7 +767,9 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter3/IndexLocallyConstantLocal.lean: `StrongBundle.HasScPlusSectionsThrough`
 * Chapter3/RestrictOpen.lean: `StrongBundleChart.restrictInter`
 * Chapter5/Compactness.lean: `MPolyfold.smoothMk`
-* Chapter7/Groupoid.lean: `GroupoidStr.homMk`
+* Chapter5/CylinderPerturbation2021.lean: `StrongBundle.pullbackAuxNorm`, `StrongBundle.pullbackOneMap`
+* Chapter6/GapP1_CubeSections.lean: `UnitCube.chart`, `UnitCube.fl`, `UnitCube.halfC`, `UnitCube.model`, `UnitCube.modelO`
+* Chapter7/Groupoid.lean: `GroupoidStr.trivial`
 * Chapter8/EpStrongBundle.lean: `EpStrongBundle.sectionPair`
 * Chapter8/GapP2_B_EpFormsFunctor.lean: `EP.epFormsPullback`, `EP.liftFunctor`
 * Chapter8/StrongBundleMap.lean: `StrongBundle.IsStrongBundleMap.fiberLinearMap`
