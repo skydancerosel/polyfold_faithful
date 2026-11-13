@@ -83,6 +83,9 @@ positive for `o_y`, `e` outward pointing; the resulting `o_{∂M}` fits continuo
   the closed faces (Figure 9.1) is not formalized; Remark 9.3.11 is a comment with nothing to
   formalize.  (2026-11-12) For a tame sheet the stratum is open and dense in `∂M`
   (`GapP2_DBoundaryStratum.lean`).
+  (2026-11-13) The stratum as an oriented submanifold: `GapP2_E6_StratumTangent.lean`,
+  `GapP2_E6_BoundaryOrientation.lean`; Figure 9.1 for face-structured sheets:
+  `GapP2_D3FaceOrientation.lean`.
 -/
 
 set_option maxSynthPendingDepth 3

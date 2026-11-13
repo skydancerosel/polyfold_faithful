@@ -501,7 +501,9 @@ machine (V10.27):* `Polyfold.EpStrongBundle.theorem_10_4_5`,
 
 **Proposition 10.4.6 (new in the 2021 edition) ((LR) for strong bundles).** (LR) of strong bundles is invariant under strong
 bundle equivalences (proof left to the reader), and Proposition 10.4.7 (new in the 2021 edition) is the strong bundle version
-of Proposition 10.1.10. Not formalized; only the ep-groupoid versions are (§2) (gap G.122; Findings, item 45).
+of Proposition 10.1.10. Both checked (since 2026-11-12), with Definition 8.4.2 read as `IsLRLocal` (gap G.122, closed;
+Findings, items 45, 72). *Checked by machine (V10.72, V10.73):* `Polyfold.EpStrongBundle.proposition_10_4_6`,
+`Polyfold.EpStrongBundle.proposition_10_4_7`.
 
 **Definition 10.4.8 (2017: 10.11) (natural transformation of strong bundle functors).** For strong bundle functors $\Phi,
 \Psi$ covering $\phi, \psi$, a natural transformation is a family $T(w) : \Phi(w) \to \Psi(w)$ of morphisms of $W'$, natural
@@ -542,8 +544,11 @@ representative. On orbit spaces the symbolic diagram (10.24) is the square $|P'|
 arrow is printed $|X| \to |X|$ (possible misprint for $|X'|$, in both editions; Findings, item 51). For $|[d]|(|x|) = |x'|$,
 morphisms $a : \phi(x'') \to x$, $b : \psi(x'') \to x'$ give $\gamma : G_x \to G'_{x'}$, $\gamma(g) = b \circ \psi(k) \circ
 b^{-1}$ where $\phi(k) = a^{-1} \circ g \circ a$ (2017: $a \circ g \circ a^{-1}$), an isomorphism if $\psi$ is an
-equivalence; the germs $q$, $Q$ of (10.25) are not formalized (gap G.124; Findings, item 52). *Checked by machine
-(V10.52–V10.54):* `Polyfold.SBLocalization.GenSBMap.orbitMap_square`, `Polyfold.EPLocalization.Diagram.isotropyHom`.
+equivalence; the square (10.24) with generalized vertical maps and the germs $q$, $Q$ of (10.25) are checked for each
+choice of data (since 2026-11-12; gap G.124, closed; Findings, item 52). *Checked by machine (V10.52–V10.54):*
+`Polyfold.SBLocalization.GenSBMap.orbitMap_square`, `Polyfold.EPLocalization.Diagram.isotropyHom`,
+`Polyfold.SBLocalization.GenSBMap.square_10_24`, `Polyfold.EPLocalization.Diagram.exists_germ_q`,
+`Polyfold.SBLocalization.SDiagram.exists_lift_Q`.
 
 **Definition 10.5.1 (2017: 10.14) ($\mathcal{SEP}(F^{-1})$).** Strong bundles and generalized strong bundle maps; composites
 live on pull-backs over weak fibred products and, as in Theorem 10.3.8, are well defined, associative and unital (squares
@@ -580,8 +585,9 @@ closed; Findings, item 56). *Checked by machine (V10.60):* `Polyfold.StrongBundl
 
 **Proposition 10.5.6 (new in the 2021 edition) (local regularity).** If one strong bundle has the local regularity property,
 so has the other. Checked for every property invariant under strong bundle equivalences; for local regularity that is
-Proposition 10.4.6, not formalized (gaps G.122, G.126); the text's "see Proposition 10.4.7" is read as 10.4.6 (possible
-misprint; Findings, item 57). *Checked by machine (V10.61):* `Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso`.
+Proposition 10.4.6, checked since 2026-11-12 (gaps G.122, G.126, closed); the text's "see Proposition 10.4.7" is read as
+10.4.6 (a reading point; Findings, item 57). *Checked by machine (V10.61):*
+`Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso`, `Polyfold.SBLocalization.proposition_10_5_6`.
 
 **Theorem 10.5.7 (2017: 10.10) (uniqueness).** With local regularity on both sides, $|[D]| = |[D']|$ implies $[D] = [D']$. As
 we read it, this does not hold: the strong bundle of Remark 10.5.5 has the local regularity property, its orbits being

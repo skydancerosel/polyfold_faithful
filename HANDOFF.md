@@ -621,6 +621,24 @@ each chapter lands)
     Left: after E3, an E4 agent (Stokes G.110, G.108 `n ≥ 2`, G.109, the G.103 bridge and stratum, Remark
     9.5.20), then a §11.4 agent (G.131, V11.27–V11.29), then a second small integration; witnesses in the repo
     for C2's two added hypotheses of Proposition 9.1.9 / Remark 9.1.10 (they exist only in a scratch file).
+    *Second integration (2026-11-13, report `narrow/integrate-p2b.md`).* 75 more files: E3 (16, the concrete
+    integral over sheets in graph charts), E4 (16, sheets in countably many charts, Theorems 9.5.4/9.5.5 for every
+    oriented tame structure, `hloc` without boundary, (9.22), Proposition 9.5.13 (2), the unit circle), E5 (7),
+    E6 (6), E7 (4), E8/E8F/E8W (11, Stokes with `μ^∂`, Part I's face integrals = §9.5 boundary integrals, the closed
+    hemisphere), D3 (1, Figure 9.1), H4 (13, `Chapter11/GapP2_H4*.lean`, §11.4) and `Chapter9/GapP2_C2Witness.lean`
+    (the x-axis of ℝ² witnessing C2's hypotheses). `Test.lean` block "Axioms: Part II wave, second integration
+    (2026-11-13)", 1,021 theorems; now 17,475, all on propext/Classical.choice/Quot.sound. No name clashed.
+    Closed: G.103, G.107 (reading: the text's "oriented, tame" = `hloc`, derived without boundary), G.108. In part:
+    G.109, G.110, G.131 (the class hypotheses `hcov` (E7) / `hcovS` (E8) are added, not derived near corners;
+    nonzero witness `E8W.e8_hemisphere_stokes`; open: the class condition near corners (800–1,200 lines), `m = 0`,
+    Remark 9.5.20 (2,000–3,500 lines)). New rows V9.67 (Theorems 9.5.15, 9.5.16, narrower), V9.68 (9.5.17, 9.5.18,
+    narrower), V9.69 ((9.22), explicit). 832 sign-off items (new: V9.67–V9.69). V9.36, V9.54–V9.56, V9.66 explicit; V9.57 restated; V11.27, V11.28 same,
+    V11.29 narrower. Now 886 rows, 30 narrower, 126 of 135 gaps closed (open, all in part: G.61, G.65, G.80, G.109,
+    G.110, G.131). Findings: Ch9 new item 119 (readings of §9.5 for sc-forms), updates to 57, 58, 83–85, 108, 110,
+    114, 117, 118; Ch11 item 50 (§11.4 formalized; 11.4.4/11.4.5 in part) and 80. Docstring pointers in 17
+    Chapter 9 files. `Exposition/Chapter10.md` and `ProofByProof.md` (§X.25, V10.61) updated for G.122, G.124,
+    G.126. Left: the class condition near corners, `m = 0`, Remark 9.5.20; `f·ω` for non-constant `f`; a LUC
+    witness for Theorem 9.5.18; the Ch9/Ch11 parts of `ProofByProof.md` (§9.5, §11.2, §11.4) predate the wave.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

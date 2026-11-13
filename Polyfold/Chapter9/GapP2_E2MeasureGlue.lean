@@ -45,7 +45,9 @@ The step from the compatible local expressions to the measure, and the uniquenes
 
 The local expressions themselves (the integrals of `ω` over measurable subsets of `∂Mᵢ` with the
 boundary orientation) and their agreement on overlaps, the boundary versions of Lemmas 9.5.7 and
-9.5.9–9.5.11.
+9.5.9–9.5.11.  (2026-11-13) These are in `GapP2_E7_SheetFamily.lean`, `GapP2_E7_FamilyMeasure.lean`,
+`GapP2_E7_BoundaryFamily.lean` and `GapP2_E7_BoundaryMeasure.lean` (`theorem_9_5_15_msheets`,
+under a class condition on the boundary sheets).
 -/
 
 set_option maxSynthPendingDepth 3

@@ -1197,14 +1197,14 @@
   {
    "id": "V9.36",
    "title": "Definition 9.3.8 (2017: 9.9), the boundary orientation of an oriented $M$",
-   "verdict": "restated",
+   "verdict": "explicit",
    "book": {
     "label": "§9.3, Definition 9.3.8, p. 427 (2017: Definition 9.9, p. 313)",
     "page": 427,
     "statement": "For an oriented $n$-dimensional $(M, o)$ and $y \\in \\partial M$ with $d_M(y) = 1$, a basis $(a_1, \\ldots, a_{n-1})$ of $T_y\\partial M$ is positive iff $(e, a_1, \\ldots, a_{n-1})$ is positive for $o_y$, $e$ an outward pointing vector; this orients $\\partial M$ near $y$."
    },
    "lean": {
-    "statement": "`MPolyfold.boundaryOp`: the boundary operation built from the ambient structure, $T_y(M, o) \\mapsto (T^R_yM, o_\\partial)$ with the frames $a$ of $T^R_yM$ such that $(e, a)$ is positive for every outward $e$; $T^R_yX$ and the partial cone $C_yX$ are read in a presented chart and are chart independent (`PresentedChart.exists_clm`). For an oriented $(M, o)$ of dimension $n$ and $y$ with $d_M(y) = 1$ (reduced codimension $1$ of $T_yM$): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`); outward vectors exist and are the vectors of $T_yM$ not in $C_yM$ (`IsBoundaryAdmissible.exists_outward`, `isOutward_iff_not_mem_partialCone`); and $\\mathrm{boundaryOp}(T_y(M, o))$ is an orientation of $T_y\\partial M$, given by Definition 9.3.8's frames for every outward $e$ (`SubmanifoldOrientation.boundaryOp_tangent`, `boundaryOp_eq`, `isOrientedAt_boundaryOp`). The pointwise construction first recorded: for a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$, and both orientations occur (`boundaryFrames`). The situation occurs at the corner of $[0, \\infty)$ (`exists_isBoundaryAdmissible_halfLine`). The continuity: for every oriented smooth submanifold $(A, o)$ of dimension $m + 1$ the operation is an orientation along the stratum $\\partial_1A$ of points where $T_yA$ has reduced codimension $1$, $\\{d_A = 1\\}$ for tame $A$ (`boundaryStratum`, `boundaryStratum_eq_of_tame`): near every point of $\\partial_1A$ there is a frame field, positive at every point of $\\partial_1A$ for Definition 9.3.8's orientation, with continuous chart vectors (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`, `boundaryOrientation_tame`); on any submanifold inside $\\partial_1A$ with tangent spaces $T^R_yA$ it is a `SubmanifoldOrientation` (`OrientationAlong.toSubmanifoldOrientation`).",
+    "statement": "`MPolyfold.boundaryOp`: the boundary operation built from the ambient structure, $T_y(M, o) \\mapsto (T^R_yM, o_\\partial)$ with the frames $a$ of $T^R_yM$ such that $(e, a)$ is positive for every outward $e$; $T^R_yX$ and the partial cone $C_yX$ are read in a presented chart and are chart independent (`PresentedChart.exists_clm`). For an oriented $(M, o)$ of dimension $n$ and $y$ with $d_M(y) = 1$ (reduced codimension $1$ of $T_yM$): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`); outward vectors exist and are the vectors of $T_yM$ not in $C_yM$ (`IsBoundaryAdmissible.exists_outward`, `isOutward_iff_not_mem_partialCone`); and $\\mathrm{boundaryOp}(T_y(M, o))$ is an orientation of $T_y\\partial M$, given by Definition 9.3.8's frames for every outward $e$ (`SubmanifoldOrientation.boundaryOp_tangent`, `boundaryOp_eq`, `isOrientedAt_boundaryOp`). The pointwise construction first recorded: for a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$, and both orientations occur (`boundaryFrames`). The situation occurs at the corner of $[0, \\infty)$ (`exists_isBoundaryAdmissible_halfLine`). The continuity: for every oriented smooth submanifold $(A, o)$ of dimension $m + 1$ the operation is an orientation along the stratum $\\partial_1A$ of points where $T_yA$ has reduced codimension $1$, $\\{d_A = 1\\}$ for tame $A$ (`boundaryStratum`, `boundaryStratum_eq_of_tame`): near every point of $\\partial_1A$ there is a frame field, positive at every point of $\\partial_1A$ for Definition 9.3.8's orientation, with continuous chart vectors (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`, `boundaryOrientation_tame`); on any submanifold inside $\\partial_1A$ with tangent spaces $T^R_yA$ it is a `SubmanifoldOrientation` (`OrientationAlong.toSubmanifoldOrientation`). (2026-11-13) For a tame sheet the stratum $\\{d_M = 1\\}$ is a smooth $(n-1)$-dimensional submanifold of $X$ with $T_y = T^R_yM$ (`isSubmanifoldOfDim_stratumOne`, `submanifoldTangent_stratumOne`), oriented by $o_{\\partial M}$ in the sense of Definition 9.3.3 (`stratumOrientation`); in corner coordinates the rule is \"outward normal $T\\iota(-e_i)$ first\" (`incFrame_mem_boundaryFramesAt_iff`), and for a face-structured sheet Part I's induced face orientation is $o_{\\partial M}$ at the points with $d_M = 1$ (`faceOrientation_eq_iff_mem_stratumOrientation`).",
     "decls": [
      "Chapter9/BoundaryOperation · MPolyfold.boundaryOp",
      "Chapter9/BoundaryOperation · MPolyfold.boundaryOp_eq",
@@ -1235,16 +1235,28 @@
      "Chapter9/GapP2_DBoundaryStratum · MPolyfold.isOpen_degIndex_le_one",
      "Chapter9/GapP2_DBoundaryStratum · MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one",
      "Chapter9/GapP2_DBoundaryStratum · MPolyfold.exists_isOpen_boundaryStratum_eq",
-     "Chapter9/GapP2_DBoundaryStratum · MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum"
+     "Chapter9/GapP2_DBoundaryStratum · MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum",
+     "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.stratumOne",
+     "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.isSmoothSubmanifold_stratumOne",
+     "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.exists_isScPlusRetractionOn_stratumOne",
+     "Chapter9/GapP2_E6_StratumTangent · MPolyfold.isSubmanifoldOfDim_stratumOne",
+     "Chapter9/GapP2_E6_StratumTangent · MPolyfold.submanifoldTangent_stratumOne",
+     "Chapter9/GapP2_E6_StratumTangent · MPolyfold.chartTangent_stratumOne_eq",
+     "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.SubmanifoldOrientation.stratumOrientation",
+     "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.SubmanifoldOrientation.stratumOrientation_tangent",
+     "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.isInwardVec_incFrame_iff",
+     "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.incFrame_mem_boundaryFramesAt_iff",
+     "Chapter9/GapP2_D3FaceOrientation · MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation"
     ]
    },
    "chips": [
     "$T_y\\partial M = T^R_yM$, outward: from $M$",
     "independent of the outward $e$",
-    "continuous along $\\partial_1M$, no tameness"
+    "continuous along $\\partial_1M$, no tameness",
+    "$\\{d_M = 1\\}$ a submanifold"
    ],
    "diff": [
-    "Updated (2026-11-09): $T_y\\partial M$ and the outward direction, first data $K$, $e$, are determined by $M$: $T_y\\partial M = T^R_yM$, and \"outward\" is read as \"in $T_yM$, not in $C_yM$\", both read in a presented chart and chart independent (`Chapter9/BoundaryOperation.lean`). The continuity of $o_{\\partial M}$ is proved, without tameness, along the reduced-codimension-$1$ stratum (`Chapter9/BoundaryOrientationContinuity2021.lean`; gap G.103 in part). $\\partial_1M$ is not built as a submanifold: $T_y\\partial M$ is read as $T^R_yM$ (gap G.103) (Findings, Chapter 9, items 57, 108, 110). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.) (2026-11-12) For a tame sheet the stratum $\\{d_M = 1\\}$ is open and dense in $\\partial M$ (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`, `Chapter9/GapP2_DBoundaryStratum.lean`)."
+    "Updated (2026-11-09): $T_y\\partial M$ and the outward direction, first data $K$, $e$, are determined by $M$: $T_y\\partial M = T^R_yM$, and \"outward\" is read as \"in $T_yM$, not in $C_yM$\", both read in a presented chart and chart independent (`Chapter9/BoundaryOperation.lean`). The continuity of $o_{\\partial M}$ is proved, without tameness, along the reduced-codimension-$1$ stratum (`Chapter9/BoundaryOrientationContinuity2021.lean`; gap G.103). (2026-11-13) the stratum $\\{d_M=1\\}$ is a submanifold of dimension $n-1$ with tangent spaces $T^R_yM$, oriented by $o_{\\partial M}$, and $o_{\\partial M}$ is Part I's face orientation there (gap G.103, closed); the outward direction is still read as \\\"in $T_yM$, not in $C_yM$\\\" in a presented chart, which is why the verdict is explicit rather than same (Findings, Chapter 9, items 57, 108, 110, 119). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.) (2026-11-12) For a tame sheet the stratum $\\{d_M = 1\\}$ is open and dense in $\\partial M$ (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`, `Chapter9/GapP2_DBoundaryStratum.lean`)."
    ]
   },
   {
@@ -1298,17 +1310,19 @@
      "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_zero",
      "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_of_degIndex_eq_zero",
      "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift",
-     "Chapter9/BoundaryOrientationContinuity2021 · EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation"
+     "Chapter9/BoundaryOrientationContinuity2021 · EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation",
+     "Chapter9/GapP2_D3FaceOrientation · MPolyfold.figure_9_1_existsUnique_faceOrientation",
+     "Chapter9/GapP2_D3FaceOrientation · MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation"
     ]
    },
    "chips": [
     "continuous along $\\{d_{M_i} = 1\\}$",
     "boundary operation from $M$",
-    "Figure 9.1: G.103"
+    "Figure 9.1: closed faces, unique extension"
    ],
    "diff": [
     "Updated (2026-11-09): (9.12) is formed with the boundary operation built from the submanifolds, and the intrinsic $\\hat T_{\\partial\\Theta}$ needs no choice of structure (`boundaryOrientation`) (Findings, Chapter 9, item 108).",
-    "The sheet orientations $o_{\\partial M_i}$ in (9.12) are continuous along the strata $\\{d_{M_i} = 1\\}$ (`OrientedBranchingStructure.exists_boundaryOrientation`, V9.36); the extension to the closed faces (Figure 9.1) is not formalized and Remark 9.3.11 has no formal content (gap G.103); the closed faces with their orientations exist in the corner-chart reading for face-structured sheets (`faceOrientation`), and their identification with $o_{\\partial M}$ is not formalized (Findings, Chapter 9, items 58, 108, 110)."
+    "The sheet orientations $o_{\\partial M_i}$ in (9.12) are continuous along the strata $\\{d_{M_i} = 1\\}$ (`OrientedBranchingStructure.exists_boundaryOrientation`, V9.36); (2026-11-13) for a face-structured tame sheet the orientation of the open face $\\{d_{M_i} = 1\\}$ extends to exactly one continuous orientation of the closed face, Part I's `faceOrientation` (`figure_9_1_existsUnique_faceOrientation`, Figure 9.1; gap G.103 closed); Remark 9.3.11 has no formal content (Findings, Chapter 9, items 58, 108, 110, 119)."
    ]
   },
   {
@@ -1759,16 +1773,20 @@
      "Chapter9/GapP2_E2BoundaryNull · MPolyfold.not_isFaceNull_face",
      "Chapter9/GapP2_E2BoundaryNull · SheetNullSets.point",
      "Chapter9/GapP2_E2BoundaryNull · EpGroupoid.isMeasureZeroBoundary_point_iff",
-     "Chapter9/GapP2_E2BoundaryNull · EpGroupoid.lebesgueSigmaBoundary_point"
+     "Chapter9/GapP2_E2BoundaryNull · EpGroupoid.lebesgueSigmaBoundary_point",
+     "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.boundaryNullSets",
+     "Chapter9/GapP2_E5_BoundaryNullSigma · EpGroupoid.lebesgueSigmaBoundaryH",
+     "Chapter9/GapP2_E5_BoundaryNull · MPolyfold.not_isHNull_submanifoldBoundary",
+     "Chapter9/GapP2_E5_BoundaryNullSigma · EpGroupoid.isMeasureZeroBoundary_boundaryNullSets_iff"
     ]
    },
    "chips": [
     "uses the independence (Thm 9.2.1)",
-    "faces: n = 1, face-structured (G.108)"
+    "boundary null sets: Hausdorff, all n"
    ],
    "diff": [
     "Hidden hypotheses: the independence of Theorem 9.2.1 (through which $\\partial\\Theta$ is defined).",
-    "$(n-1)$-dimensional measure zero in $\\partial M_i$ is an abstract system; face by face it is formalized for face-structured sheets (`IsFaceNull`, a proper σ-ideal: a face is not null) and, as a system, for $n = 1$ (`SheetNullSets.point`), with a witness with $\\partial S \\ne \\emptyset$, $\\Theta = 1$ on the half-line (`halfLine_orbitSupp_boundary_nonempty`, V9.53) (gap G.108, in part) (Findings, Chapter 9, items 83, 117)."
+    "$(n-1)$-dimensional measure zero in $\\partial M_i$: the Hausdorff null sets in the ambient charts, a null-set system with no hypothesis (`boundaryNullSets`, `lebesgueSigmaBoundaryH`, 2026-11-13; gap G.108 closed); face by face for face-structured sheets (`IsFaceNull`, a proper σ-ideal) and for $n = 1$ (`SheetNullSets.point`), with a witness with $\\partial S \\ne \\emptyset$, $\\Theta = 1$ on the half-line (`halfLine_orbitSupp_boundary_nonempty`, V9.53) (Findings, Chapter 9, items 83, 117, 119)."
    ]
   },
   {
@@ -1825,7 +1843,7 @@
   {
    "id": "V9.54",
    "title": "Lemma 9.5.9 (2017: 9.18), restrictions in the $G_x$-case: the isotropy and set part",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§9.5, Lemma 9.5.9, p. 442 (2017: Lemma 9.18, p. 326)",
     "page": 442,
@@ -1846,22 +1864,25 @@
      "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_card_mul_slice",
      "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.sheetSum_image",
      "Chapter9/GapP2_E1_SheetIntegration · EpGroupoid.SheetIntegration",
-     "Chapter9/GapP2_E1_PointIntegration · EpGroupoid.pointIntegration"
+     "Chapter9/GapP2_E1_PointIntegration · EpGroupoid.pointIntegration",
+     "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msheetIntegration",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.msheets_of_orientedTameStructure",
+     "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheetIntegration"
     ]
    },
    "chips": [
     "measure identity for a SheetIntegration",
     "isotropy and set part proved",
-    "sheet integrals not constructed (G.107)"
+    "sheets in countably many graph charts"
    ],
    "diff": [
-    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the integral of an sc-form over an oriented sheet of dimension $n \\ge 1$ is not constructed (gap G.107, in part). The structure on $V$ is any oriented tame structure describing $\\hat T_\\Theta$ (the text: the restriction), and \"small enough\" is the property used in the text's proof. The representatives $R$ are `Quotient.out` on $G_x/H$, and the restriction $\\tilde M_j = V \\cap M_j$ keeps the sheets through $y$ (`restrictAt`) (Findings, Chapter 9, items 84, 118)."
+    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the structure is realized for sc-forms and $n \\ge 1$ by `FormEval.msheetIntegration` (sheets covered by countably many graph charts; it contains the sheets of every oriented tame structure of a compact $n$-dimensional $\\Theta$, `msheets_of_orientedTameStructure`; 2026-11-13, gap G.107 closed). The structure on $V$ is any oriented tame structure describing $\\hat T_\\Theta$ (the text: the restriction), and \"small enough\" is the property used in the text's proof. The representatives $R$ are `Quotient.out` on $G_x/H$, and the restriction $\\tilde M_j = V \\cap M_j$ keeps the sheets through $y$ (`restrictAt`) (Findings, Chapter 9, items 84, 118, 119)."
    ]
   },
   {
    "id": "V9.55",
    "title": "Lemma 9.5.10, the effective orders and (9.23)",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§9.5, Lemma 9.5.10, p. 444, and (9.23), p. 445 (new in the 2021 edition)",
     "page": 444,
@@ -1876,7 +1897,10 @@
      "Chapter9/MeasureEffective · EpGroupoid.NaturalRep.stabilizerEquivIsotropy_mem_trivialSubgroup_iff",
      "Chapter9/MeasureEffective · EpGroupoid.NaturalRep.card_trivialSubgroup_eq",
      "Chapter9/MeasureEffective · EpGroupoid.NaturalRep.card_quotient_stabilizer_mul_card_effIsotropy",
-     "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.lemma_9_5_10"
+     "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.lemma_9_5_10",
+     "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msheetIntegration",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.msheets_of_orientedTameStructure",
+     "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheetIntegration"
     ]
    },
    "chips": [
@@ -1884,13 +1908,13 @@
     "(9.23) proved"
    ],
    "diff": [
-    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the integral of an sc-form over an oriented sheet of dimension $n \\ge 1$ is not constructed (gap G.107, in part). LUC is `NaturalRep.HasLUC` of the given $U(x)$ (Definition 7.2.18) (Findings, Chapter 9, items 84, 118)."
+    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the structure is realized for sc-forms and $n \\ge 1$ by `FormEval.msheetIntegration` (sheets covered by countably many graph charts; it contains the sheets of every oriented tame structure of a compact $n$-dimensional $\\Theta$, `msheets_of_orientedTameStructure`; 2026-11-13, gap G.107 closed). LUC is `NaturalRep.HasLUC` of the given $U(x)$ (Definition 7.2.18) (Findings, Chapter 9, items 84, 118, 119)."
    ]
   },
   {
    "id": "V9.56",
    "title": "Lemma 9.5.11 (2017: 9.19), morphism invariance: the isotropy and set part",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§9.5, Lemma 9.5.11, p. 445 (2017: Lemma 9.19, p. 326)",
     "page": 445,
@@ -1906,7 +1930,10 @@
      "Chapter9/MeasureEffective · EpGroupoid.NaturalRep.Φ_hyps",
      "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.lemma_9_5_11",
      "Chapter9/GapP2_E1_LocalMeasure · EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_of_morDiffeo",
-     "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.isMorTangentOn_hat"
+     "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.isMorTangentOn_hat",
+     "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msheetIntegration",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.msheets_of_orientedTameStructure",
+     "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheetIntegration"
     ]
    },
    "chips": [
@@ -1914,35 +1941,45 @@
     "isotropy orders invariant"
    ],
    "diff": [
-    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the integral of an sc-form over an oriented sheet of dimension $n \\ge 1$ is not constructed (gap G.107, in part). The effective identity needs neither LUC nor a smaller $U$: only $\\#G^{\\mathrm{eff}}_x = \\#G^{\\mathrm{eff}}_{x'}$ is used (Findings, Chapter 9, items 84, 118)."
+    "The integrals $\\int_{K_i}\\omega|(M_i,o_i)$ are the data of a structure `SheetIntegration` (linearity, countable additivity, null sets, agreement of two sheets where their oriented tangent spaces agree, invariance under the sc-diffeomorphisms given by morphisms), satisfiable in dimension $0$ (`pointIntegration`); the structure is realized for sc-forms and $n \\ge 1$ by `FormEval.msheetIntegration` (sheets covered by countably many graph charts; it contains the sheets of every oriented tame structure of a compact $n$-dimensional $\\Theta$, `msheets_of_orientedTameStructure`; 2026-11-13, gap G.107 closed). The effective identity needs neither LUC nor a smaller $U$: only $\\#G^{\\mathrm{eff}}_x = \\#G^{\\mathrm{eff}}_{x'}$ is used (Findings, Chapter 9, items 84, 118, 119)."
    ]
   },
   {
    "id": "V9.57",
-   "title": "Proposition 9.5.13, the normalizing factors",
-   "verdict": "narrower",
+   "title": "Proposition 9.5.13, the effective and the reduced integrals",
+   "verdict": "restated",
    "book": {
     "label": "§9.5, Proposition 9.5.13, p. 446 (new in the 2021 edition)",
     "page": 446,
     "statement": "(1) For effective $X$ the branched integral and the effective branched integral agree; (2) under LUC the effective branched integral on $X$ is the branched integral on the reduced ep-groupoid $X_R$. Proof: $T_x = \\{1\\}$, so the normalizing factors agree."
    },
    "lean": {
-    "statement": "For effective $X$, $\\#G^{\\mathrm{eff}}_x = \\#G_x$; for the reduced ep-groupoid $X_R$ (with Hausdorff paracompact morphism space), functors and local branching structures of $X$ and $X_R$ coincide and $\\#G^{\\mathrm{eff}}_x = \\#G^R_x = \\#(G^R_x)^{\\mathrm{eff}}$. (1) For a `SheetIntegration` and effective $X$: the measures of Theorems 9.5.4 and 9.5.5 coincide and $\\int_{\\hat\\Theta}\\omega = \\oint_{\\hat\\Theta}\\omega$ (`proposition_9_5_13_1`).",
+    "statement": "For effective $X$, $\\#G^{\\mathrm{eff}}_x = \\#G_x$; for a `SheetIntegration` the measures of Theorems 9.5.4 and 9.5.5 coincide and $\\int_{\\hat\\Theta}\\omega = \\oint_{\\hat\\Theta}\\omega$ (`proposition_9_5_13_1`). (2) Under LUC (which makes $T_R$ Hausdorff), a natural representation of $G_x$ on $U(x)$ with the property of Definition 7.2.18 is one of $G^R_x = G_x/T_x$ on the same $U(x)$ (`NaturalRep.toReduced`), so the oriented tame structures, the orientation $\\hat T\\Theta$, the branched ep$^+$-subgroupoid and the integration over the sheets pass to $X_R$ (`OrientedTameStructure.toReduced`, `IsOrientation.toReduced`, `SheetIntegration.toReduced`); with $|X| \\cong |X_R|$ (`orbitSuppHomeomorphReduced`), $\\mu^{\\mathrm{eff}}_{\\hat\\Theta,\\omega}(K) = \\mu_{\\hat\\Theta',\\omega'}(K)$ for $K \\in L(S)$ and $\\oint_{\\hat\\Theta}\\omega = \\int_{\\hat\\Theta'}\\omega'$ (`proposition_9_5_13_2_measure`, `proposition_9_5_13_2`). Witness with nonempty compact support: the unit circle (`circle_proposition_9_5_13_2`). Functors and local branching structures of $X$ and $X_R$ coincide and $\\#G^{\\mathrm{eff}}_x = \\#G^R_x = \\#(G^R_x)^{\\mathrm{eff}}$ (`card_effIsotropy_eq_reduced`).",
     "decls": [
      "Chapter9/MeasureEffective · EpGroupoid.card_effIsotropy_eq_of_isEffective",
      "Chapter9/MeasureEffective · EpGroupoid.isFunctorial_reduced_iff",
      "Chapter9/MeasureEffective · EpGroupoid.LocalBranchingStructure.toReduced",
      "Chapter9/MeasureEffective · EpGroupoid.card_effIsotropy_eq_reduced",
-     "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.proposition_9_5_13_1"
+     "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.proposition_9_5_13_1",
+     "Chapter9/GapP2_E4_ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
+     "Chapter9/GapP2_E4_ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
+     "Chapter9/GapP2_E4_ReducedIntegral · EpGroupoid.orbitSuppHomeomorphReduced",
+     "Chapter9/GapP2_E4_ReducedRep · EpGroupoid.NaturalRep.toReduced",
+     "Chapter9/GapP2_E4_ReducedRep · EpGroupoid.OrientedTameStructure.toReduced",
+     "Chapter9/GapP2_E4_ReducedRep · EpGroupoid.SheetIntegration.toReduced",
+     "Chapter9/GapP2_E4_ReducedRep · EpGroupoid.IsOrientation.toReduced",
+     "Chapter9/GapP2_E4_ReducedRep · EpGroupoid.tangentMor_reducedπ",
+     "Chapter9/GapP2_E4_ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2"
     ]
    },
    "chips": [
-    "(1) for a SheetIntegration (G.107)",
-    "normalizing factors proved"
+    "(1), (2) for every SheetIntegration",
+    "$X_R$ data induced, $|X| \\cong |X_R|$"
    ],
    "diff": [
-    "Hidden hypotheses: the morphism space of $X_R$ Hausdorff and paracompact (instances; Hausdorff under LUC).",
-    "(1) is proved for every `SheetIntegration` (sheet integrals not constructed, gap G.107, in part); in (2) only the normalizing factors are proved: the integrals on $X_R$ need a `SheetIntegration` on $X_R$ induced from $X$ (Findings, Chapter 9, items 84, 118)."
+    "Hidden hypotheses: none beyond the text's LUC; the morphism space of $X_R$ is Hausdorff under LUC (`t2Space_reducedMor_of_isLUC`, inside the statement of `proposition_9_5_13_2`) and paracompact (instances).",
+    "(1) and (2) are proved for every `SheetIntegration`, in particular for the integrals of sc-forms (`FormEval.msheetIntegration`, gap G.107 closed); the measures live on $|\\mathrm{supp}\\,\\Theta|$ in $|X|$ and in $|X_R|$, identified by the homeomorphism `orbitSuppHomeomorphReduced`, which preserves $L(S)$ (Findings, Chapter 9, items 84, 118, 119).",
+    "The induced data on $X_R$: $\\Theta' = \\Theta$, the same orientation and the same sheet integrals (`SheetIntegration.toReduced`); a form of $X$ is one of $X_R$ since $T[\\varphi] = T\\varphi$ (`tangentMor_reducedπ`). \"The same local branching structure for $\\hat\\Theta'$\" needs the natural $G^R_x$-action on $U(x)$, which holds under LUC for the given $U(x)$."
    ]
   },
   {
@@ -2147,7 +2184,8 @@
      "Chapter9/GapP2_CProp919Manifold · EpGroupoid.isDescentMap_orbitSupp",
      "Chapter9/GapP2_CDescentPolyfold · MPolyfold.IsDescentMap",
      "Chapter9/GapP2_CDescentPolyfold · MPolyfold.descend",
-     "Chapter9/GapP2_CDescentPolyfold · MPolyfold.isLocalScDiffeo_descend"
+     "Chapter9/GapP2_CDescentPolyfold · MPolyfold.isLocalScDiffeo_descend",
+     "Chapter9/GapP2_C2Witness · EpGroupoid.remark_9_1_10_hypotheses_axis"
     ]
    },
    "chips": [
@@ -2156,7 +2194,7 @@
     "equivalent: generalized iso of EP(E⁻¹)"
    ],
    "diff": [
-    "The paracompactness of $|X|$ is not used: Definition 9.1.2 (1) already makes $|\\mathrm{supp}(\\Theta)|$ paracompact, hence metrizable (Remark 9.1.4, V9.63). \"Natural\" in (1) is read as the uniqueness of the M-polyfold structure on $Z$ for which $\\mathrm{supp}(\\Theta) \\to Z$ is a local sc-diffeomorphism; \"equivalent orbifold structure\" in (2) as a generalized isomorphism of Chapter 10 over $Z$ through the common refinement of two choices. The form with the text's groupoid takes $\\mathrm{supp}(\\Theta) \\ne \\emptyset$, which the M-polyfold structure on an open subset needs (for $\\Theta = 0$, $Z = \\emptyset$) (gap G.95, closed) (Findings, Chapter 9, items 7, 114)."
+    "The paracompactness of $|X|$ is not used: Definition 9.1.2 (1) already makes $|\\mathrm{supp}(\\Theta)|$ paracompact, hence metrizable (Remark 9.1.4, V9.63). \"Natural\" in (1) is read as the uniqueness of the M-polyfold structure on $Z$ for which $\\mathrm{supp}(\\Theta) \\to Z$ is a local sc-diffeomorphism; \"equivalent orbifold structure\" in (2) as a generalized isomorphism of Chapter 10 over $Z$ through the common refinement of two choices. The form with the text's groupoid takes $\\mathrm{supp}(\\Theta) \\ne \\emptyset$, which the M-polyfold structure on an open subset needs (for $\\Theta = 0$, $Z = \\emptyset$); it is witnessed by the x-axis of $\\mathbb R^2$ (`remark_9_1_10_hypotheses_axis`, 2026-11-13) (gap G.95, closed) (Findings, Chapter 9, items 7, 114)."
    ]
   },
   {
@@ -2169,7 +2207,7 @@
     "statement": "The manifolds and orbifolds of Proposition 9.1.9 are the M⁺-polyfold versions; if $d_{|X|}(z) = 0$ for every $z \\in |\\mathrm{supp}(\\Theta)|$, then $S$ has a natural classical smooth manifold structure in case (1) and a natural classical smooth orbifold structure in case (2). Instead of the paracompactness of $|X|$ it suffices that $|\\mathrm{supp}(\\Theta)|$ be metrizable, for example compact."
    },
    "lean": {
-    "statement": "For $\\Theta$ $n$-dimensional (`IsNDimensional Θ n`) with $d_{|X|} = 0$ on $Z = |\\mathrm{supp}(\\Theta)|$: `remark_9_1_10_manifold`: in case (1) the M-polyfold structure of V9.64 has a corner structure of dimension $n$ with degeneracy index $0$, and $Z$ with its interior charted space is a Mathlib manifold, `IsManifold (𝓡 n) ∞`; $\\mathrm{supp}(\\Theta) \\to Z$ is a Mathlib local diffeomorphism (`remark_9_1_10_manifold_proj`). `remark_9_1_10_orbifold`: in case (2), for every choice of structures, the object space $\\bigsqcup M_x$ and the morphism space of the text's groupoid $M$ are Mathlib $n$-manifolds and $|M| \\cong Z$; `remark_9_1_10_orbifold_etale`: source, target, unit, inverse and the equivalence $M \\to \\mathrm{supp}(\\Theta)$ on objects are Mathlib local diffeomorphisms (`MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo`). The x-axis of $\\mathbb R^2$ satisfies the hypotheses ($n = 1$). The second paragraph is Remark 9.1.4 (V9.63) and V9.64 (paracompactness of $|X|$ not used).",
+    "statement": "For $\\Theta$ $n$-dimensional (`IsNDimensional Θ n`) with $d_{|X|} = 0$ on $Z = |\\mathrm{supp}(\\Theta)|$: `remark_9_1_10_manifold`: in case (1) the M-polyfold structure of V9.64 has a corner structure of dimension $n$ with degeneracy index $0$, and $Z$ with its interior charted space is a Mathlib manifold, `IsManifold (𝓡 n) ∞`; $\\mathrm{supp}(\\Theta) \\to Z$ is a Mathlib local diffeomorphism (`remark_9_1_10_manifold_proj`). `remark_9_1_10_orbifold`: in case (2), for every choice of structures, the object space $\\bigsqcup M_x$ and the morphism space of the text's groupoid $M$ are Mathlib $n$-manifolds and $|M| \\cong Z$; `remark_9_1_10_orbifold_etale`: source, target, unit, inverse and the equivalence $M \\to \\mathrm{supp}(\\Theta)$ on objects are Mathlib local diffeomorphisms (`MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo`). The x-axis of $\\mathbb R^2$ satisfies all the hypotheses together, including $\\mathrm{supp}(\\Theta) \\ne \\emptyset$ ($n = 1$, `remark_9_1_10_hypotheses_axis`). The second paragraph is Remark 9.1.4 (V9.63) and V9.64 (paracompactness of $|X|$ not used).",
     "decls": [
      "Chapter9/GapP2_C2Remark9110 · EpGroupoid.remark_9_1_10_manifold",
      "Chapter9/GapP2_C2Remark9110 · EpGroupoid.remark_9_1_10_orbifold",
@@ -2178,7 +2216,8 @@
      "Chapter9/GapP2_C2Remark9110 · EpGroupoid.hasCornerStructureOfDim_subObj",
      "Chapter9/GapP2_C2Remark9110Etale · EpGroupoid.remark_9_1_10_orbifold_etale",
      "Chapter9/GapP2_C2Remark9110Etale · EpGroupoid.remark_9_1_10_manifold_proj",
-     "Chapter9/GapP2_C2Remark9110Etale · MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo"
+     "Chapter9/GapP2_C2Remark9110Etale · MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo",
+     "Chapter9/GapP2_C2Witness · EpGroupoid.remark_9_1_10_hypotheses_axis"
     ]
    },
    "chips": [
@@ -2194,14 +2233,14 @@
   {
    "id": "V9.66",
    "title": "Theorems 9.5.4 (2017: 9.2) and 9.5.5, Definition 9.5.6, (9.21) and Lemma 9.5.7, for an integration of forms over the sheets",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§9.5, Theorem 9.5.4, p. 438 (2017: Theorem 9.2, p. 323), Theorem 9.5.5, p. 438 (new in the 2021 edition), Definition 9.5.6, (9.21), Lemma 9.5.7, pp. 439–441",
     "page": 438,
     "statement": "For an oriented, tame, compact, $n$-dimensional branched ep⁺-subgroupoid $\\hat\\Theta$ there is a unique linear map $\\omega \\mapsto \\mu^{\\hat\\Theta}_\\omega$ from sc-differential $n$-forms to signed measures on $(S, L(S))$ whose value on measurable $K \\subseteq |U(x)|$ is $(1/\\#G_x) \\sum_i \\sigma_i \\int_{K_i}\\omega|(M_i, o_i)$ for every oriented tame structure (Theorem 9.5.4); with $\\#G^{\\mathrm{eff}}_x$ under the local unique continuation property (Theorem 9.5.5). Definition 9.5.6 sets $\\int_{\\hat\\Theta}\\omega = \\mu_\\omega(S)$; Lemma 9.5.7: two oriented structures on one $U$ with the same oriented sums give the same local measure (9.21)."
    },
    "lean": {
-    "statement": "For every integration of forms over measurable subsets of the oriented sheets of a class $S$ with null sets $G$ (`SheetIntegration`: linear in $\\omega$, countably additive, zero on null sets, equal (opposite) for two sheets on a common set where their oriented tangent spaces agree (are opposite), invariant under the sc-diffeomorphisms whose tangent maps are those of morphisms, sheets Lindelöf): (9.20) for finite families of oriented sheets (`SheetIntegration.sum_integ_eq_sum_integ`); the local measures (9.21) (`localMeasure`, `localMeasureEff`); Lemma 9.5.7 (`lemma_9_5_7`); `theorem_9_5_4`: for $\\Theta$ branched, compact, with an orientation $T$ and, at every point of the support, an oriented tame structure of dimension $n$ with sheets in $S$ describing $T$ (`hcov`), there is exactly one linear map $\\Omega \\to$ signed measures on $(S, L(S))$ given on measurable $K \\subseteq |U(x)|$ by the local formula with $1/\\#G_x$, for all such structures; `theorem_9_5_5`: the same with $1/\\#G^{\\mathrm{eff}}_x$ and structures with LUC; Definition 9.5.6 (`branchedIntegral`, `branchedIntegralEff`). The gluing is `existsUnique_linearMap_signedMeasure_of_openCover`. The structure is satisfiable in dimension $0$ for every ep-groupoid (`pointIntegration`).",
+    "statement": "For every integration of forms over measurable subsets of the oriented sheets of a class $S$ with null sets $G$ (`SheetIntegration`: linear in $\\omega$, countably additive, zero on null sets, equal (opposite) for two sheets on a common set where their oriented tangent spaces agree (are opposite), invariant under the sc-diffeomorphisms whose tangent maps are those of morphisms, sheets Lindelöf): (9.20) for finite families of oriented sheets (`SheetIntegration.sum_integ_eq_sum_integ`); the local measures (9.21) (`localMeasure`, `localMeasureEff`); Lemma 9.5.7 (`lemma_9_5_7`); `theorem_9_5_4`: for $\\Theta$ branched, compact, with an orientation $T$ and, at every point of the support, an oriented tame structure of dimension $n$ with sheets in $S$ describing $T$ (`hcov`), there is exactly one linear map $\\Omega \\to$ signed measures on $(S, L(S))$ given on measurable $K \\subseteq |U(x)|$ by the local formula with $1/\\#G_x$, for all such structures; `theorem_9_5_5`: the same with $1/\\#G^{\\mathrm{eff}}_x$ and structures with LUC; Definition 9.5.6 (`branchedIntegral`, `branchedIntegralEff`). The gluing is `existsUnique_linearMap_signedMeasure_of_openCover`. The structure is satisfiable in dimension $0$ for every ep-groupoid (`pointIntegration`). (2026-11-13) For the integrals of sc-forms over sheets covered by countably many graph charts (`FormEval.msheetIntegration`, $n \\ge 1$; gap G.107): `theorem_9_5_4_full`, `theorem_9_5_5_full`. There is exactly one linear map with the local formula for every oriented tame structure describing $\\hat T_\\Theta$ (no class condition: the sheets of every oriented tame structure of a compact $n$-dimensional $\\Theta$ have finite $\\int|\\omega|$, `msheets_of_orientedTameStructure`), under the printed hypotheses with \"oriented, tame\" read as `hloc`; Definition 9.5.6: `multiBranchedIntegral`, `multiBranchedIntegralEff`. Without boundary, `hloc` comes from $n$-dimensionality and the orientation (`theorem_9_5_4_full_of_degIndex_eq_zero`). Witness with nonempty compact support: the unit circle in $\\mathbb R^2$ (`circle_theorem_9_5_4_full`).",
     "decls": [
      "Chapter9/GapP2_E1_SheetIntegration · EpGroupoid.SheetIntegration",
      "Chapter9/GapP2_E1_SheetIntegration · EpGroupoid.SheetIntegration.sum_integ_eq_sum_integ",
@@ -2218,17 +2257,154 @@
      "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.branchedIntegralEff",
      "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.branchedMeasure_eq_zero",
      "Chapter9/GapP2_E1_PointIntegration · EpGroupoid.pointIntegration",
-     "Chapter9/GapP2_E2MeasureGlue · existsUnique_linearMap_signedMeasure_of_openCover"
+     "Chapter9/GapP2_E2MeasureGlue · existsUnique_linearMap_signedMeasure_of_openCover",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.theorem_9_5_4_full",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.theorem_9_5_5_full",
+     "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.multiBranchedIntegral",
+     "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.multiBranchedIntegralEff",
+     "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.msheets_of_orientedTameStructure",
+     "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msheetIntegration",
+     "Chapter9/GapP2_E4_FiniteCircle · EpGroupoid.circle_theorem_9_5_4_full",
+     "Chapter9/GapP2_E4_FiniteCircle · EpGroupoid.FormEval.theorem_9_5_4_full_of_degIndex_eq_zero",
+     "Chapter9/GapP2_E4_Hloc · EpGroupoid.hloc_of_degIndex_eq_zero",
+     "Chapter9/GapP2_E4_Circle · EpGroupoid.circle_witness"
     ]
    },
    "chips": [
-    "for a `SheetIntegration`",
-    "sheet integrals not constructed (G.107)",
+    "sc-forms: countably many graph charts",
+    "\"oriented, tame\" read as hloc",
     "forms: a vector space $\\Omega$"
    ],
    "diff": [
-    "Hidden hypotheses: the integrals of forms over the sheets are the data of `SheetIntegration`; the forms are the elements of a real vector space $\\Omega$ seen through these integrals; the covering by oriented tame structures with sheets in the class (`hcov`; the text: \"oriented, tame, of dimension $n$\").",
-    "The integral of an sc-differential $n$-form over a measurable subset of an oriented tame $n$-dimensional sheet of an M-polyfold is not constructed as a `SheetIntegration` for $n \\ge 1$, and no witness of `hcov` with $\\mathrm{supp}(\\Theta) \\ne \\emptyset$ is given for `pointIntegration`; (9.22) is not stated ($\\Omega$ has no multiplication by functions) (gap G.107, in part) (Findings, Chapter 9, items 85, 118)."
+    "Hidden hypotheses: the text's \"oriented, tame\" is read as `hloc`: at every point of the support an oriented tame structure describes $\\hat T_\\Theta$. It follows from $n$-dimensionality and the orientation when the M-polyfold has no boundary (`hloc_of_degIndex_eq_zero`, `theorem_9_5_4_full_of_degIndex_eq_zero`, where the theorem is the text's); with boundary, that the oriented local structures can be taken with tame sheets is the reading of \"tame\".",
+    "The abstract theorems are stated for a `SheetIntegration` with forms in a real vector space $\\Omega$; since 2026-11-13 it is realized for $\\Omega^n_{ep}(X)$ and $\\Omega^n_{ep,\\infty}(X)$, $n \\ge 1$, by the integrals over sheets covered by countably many graph charts (`FormEval.msheetIntegration`), and the local formula holds for every oriented tame structure describing $\\hat T_\\Theta$ (`theorem_9_5_4_full`, `theorem_9_5_5_full`); the hypotheses hold for the unit circle (`circle_theorem_9_5_4_full`). Dimension $0$ is the abstract `pointIntegration` (gap G.107, closed) (Findings, Chapter 9, items 85, 118, 119)."
+   ]
+  },
+  {
+   "id": "V9.67",
+   "title": "Theorems 9.5.15 (2017: 9.3) and 9.5.16, the canonical boundary measures",
+   "verdict": "narrower",
+   "book": {
+    "label": "§9.5, Theorem 9.5.15, p. 449 (2017: Theorem 9.3, p. 328), and Theorem 9.5.16, p. 449 (new in the 2021 edition)",
+    "page": 449,
+    "statement": "For an oriented, tame, compact $n$-dimensional branched ep⁺-subgroupoid $\\hat\\Theta$ there is a unique linear map $\\omega \\mapsto \\mu^{\\partial\\hat\\Theta}_\\omega$ from sc-differential $(n-1)$-forms to signed measures on $(\\partial S, L(\\partial S))$ such that, for $x \\in \\mathrm{supp}(\\partial\\Theta)$, $U(x)$ with the natural $G_x$-action and the properness property and an oriented tame structure representing $\\hat\\Theta$, $\\mu^{\\partial\\hat\\Theta}_\\omega(K) = (1/\\#G_x)\\sum_i \\sigma_i \\int_{K_i}\\omega|(\\partial M_i, o_{\\partial M_i})$ for measurable $K \\subseteq |M^\\partial_U|$ (Theorem 9.5.15); with $\\#G^{\\mathrm{eff}}_x$ under LUC (Theorem 9.5.16)."
+   },
+   "lean": {
+    "statement": "`theorem_9_5_15_msheets`: for $\\Theta$ branched, compact, $(m+1)$-dimensional (`hnd`), $m \\ge 1$, with an orientation $T$, and `hcov` (at every point of $\\mathrm{supp}(\\partial\\Theta)$ an oriented tame structure describing $T$ whose nonempty boundary sheets $\\partial_1M_i = \\{d_{M_i} = 1\\}$ lie in the class `msheets` of the integration of $m$-forms over countably many graph charts), there is exactly one linear $\\Phi$ from the forms to signed measures on $(|\\mathrm{supp}\\,\\partial\\Theta|, L(\\partial S))$, $L(\\partial S)$ = `lebesgueSigmaBoundaryH`, with $\\Phi\\,\\omega\\,K = (1/\\#G_x) \\sum_{\\partial_1M_i \\ne \\emptyset} \\sigma_i \\int_{\\partial_1M_i \\cap \\pi^{-1}K} \\omega|(\\partial_1M_i, o_{\\partial M_i})$ for every $x \\in \\mathrm{supp}(\\partial\\Theta)$, every oriented tame structure at $x$ describing $T$ with nonempty boundary sheets in the class, and every measurable $K$ with $|K| \\subseteq |U(x)|$. `theorem_9_5_16_msheets`: the same with $1/\\#G^{\\mathrm{eff}}_x$ and structures with LUC. `theorem_9_5_15_hyp`, `theorem_9_5_16_hyp`: the same for every sheet integration whose null sets are those of $m$-dimensional measure zero. The proof: the boundary sheets form an oriented sheet family described by $\\hat T_{\\partial\\Theta}$ (`boundaryFamily`, `represents_boundaryFamily`), and Theorem 9.5.4's machinery is proved for such families (`existsUnique_familyMeasure`). Witnesses of `hcov`: `hcov_zero`, `hcov_msheets_of_isCompact` (compact boundary sheets), and the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ with $\\mathrm{supp}(\\partial\\Theta) \\ne \\emptyset$ (`e8w_hcov` via `hcovB_of_hcovS`).",
+    "decls": [
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_15_msheets",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_16_msheets",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_15_hyp",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_16_hyp",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.existsUnique_boundaryMeasure",
+     "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.existsUnique_familyMeasure",
+     "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.OrientedTameStructure.boundaryFamily",
+     "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.OrientedTameStructure.represents_boundaryFamily",
+     "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.isNaturalOn_boundaryOrientation",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.OrientedTameStructure.isMeasIn_boundarySheet",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.OrientedSheetFamily.nonemptyPart",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_zero",
+     "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_msheets_of_isCompact",
+     "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundarySheet",
+     "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundaryOrient",
+     "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundaryOrientation_eq_sum",
+     "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.exists_boundarySheet_mem_sheets",
+     "Chapter9/GapP2_E8_Stokes · EP.hcovB_of_hcovS",
+     "Chapter9/GapP2_E8W_Witness · E8W.e8w_hcov",
+     "Chapter9/GapP2_E8_Hemisphere · E8W.e8_hemisphere_stokes"
+    ]
+   },
+   "chips": [
+    "added `hcov`: boundary sheets in the class",
+    "witness: closed hemisphere",
+    "sum over nonempty $\\partial_1M_i$"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hcov`: the oriented tame structures at the points of $\\mathrm{supp}(\\partial\\Theta)$ can be chosen with nonempty boundary sheets in the class of the integration (for the multi-chart class: finite $\\int|\\omega|$ over $\\partial_1M_i$ near the corners of $M_i$). The text uses this tacitly when it integrates over $\\partial M_i$; it is not derived from the text's hypotheses near the corners (gap G.109, in part). It holds for compact boundary sheets and for the closed hemisphere, a witness with $\\partial S \\ne \\emptyset$. $n$-dimensionality (`hnd`) is stated explicitly; it follows from oriented tame structures at all points.",
+    "The sum runs over the nonempty $\\partial_1M_i$: empty sheets contribute nothing in the text, but $\\emptyset$ need not be in the class. The local formula is required for structures at $x \\in \\mathrm{supp}(\\partial\\Theta)$, where the text uses it. $m \\ge 1$ ($n \\ge 2$): the multi-chart class needs $m > 0$. Theorem 9.5.16 includes LUC in the class, as Theorem 9.5.5 does (Findings, Chapter 9, items 85, 117, 119)."
+   ]
+  },
+  {
+   "id": "V9.68",
+   "title": "Theorems 9.5.17 (2017: 9.4) and 9.5.18, Stokes' theorem",
+   "verdict": "narrower",
+   "book": {
+    "label": "§9.5, Theorem 9.5.17, p. 449 (2017: Theorem 9.4, p. 328), and Theorem 9.5.18, p. 450 (new in the 2021 edition), with the proof, pp. 450–451",
+    "page": 449,
+    "statement": "For an ep-groupoid $X$ admitting sc-smooth partitions of unity and an oriented, tame, compact $n$-dimensional branched ep⁺-subgroupoid $\\hat\\Theta$, $\\mu^{\\hat\\Theta}_{d\\omega}(S) = \\mu^{\\partial\\hat\\Theta}_\\omega(\\partial S)$ for every sc-differential $(n-1)$-form $\\omega$, i.e. $\\int_{\\hat\\Theta} d\\omega = \\int_{\\partial\\hat\\Theta}\\omega$ (Theorem 9.5.17); the same for the effective integrals under LUC (Theorem 9.5.18)."
+   },
+   "lean": {
+    "statement": "`EP.theorem_9_5_17_msheets (hm : 0 < m) hPU hΘ hcpt hT hcovS ω`: for $X$ with sc-smooth partitions of unity, $\\Theta$ branched and compact with an orientation $T$, `hcovS` (at every point of $\\mathrm{supp}\\,\\Theta$ an oriented tame structure describing $T$ with sheets in one graph chart and nonempty boundary sheets in the multi-chart class), and $\\omega \\in \\Omega^m_{ep,\\infty}(X)$: `tameBranchedIntegral` $(d\\omega)$ = `boundaryBranchedMeasure` $\\omega$ (univ), i.e. $\\int_{\\hat\\Theta} d\\omega = \\mu^{\\partial\\hat\\Theta}_\\omega(\\partial S)$ with the measure of Theorem 9.5.15 (V9.67). `EP.theorem_9_5_18_msheets`: the same with `tameBranchedIntegralEff` and `boundaryBranchedMeasureEff`, `hcovS` including LUC of the representations. `theorem_9_5_17_hyp`, `theorem_9_5_18_hyp`: $\\int_{\\hat\\Theta} d\\omega = \\Phi^\\partial(\\omega)(\\partial S)$ for every linear $\\Phi^\\partial$ with the local formula (`IsBoundaryLocal`). The boundary-sum form holds for every $n = m + 1 \\ge 1$ (`theorem_9_5_17_boundary_sum_all`, `theorem_9_5_18_boundary_sum_all`). Key steps: Part I's boundary integral of a sheet equals the §9.5 integral over $\\partial_1M_i$ with $o_{\\partial M_i}$ (`boundaryIntegral_eq_msInteg`); $\\mu^\\partial$ is local (`boundaryMeasure_univ_eq`). Witness with $\\mathrm{supp}(\\partial\\Theta) \\ne \\emptyset$: the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ (`e8_hemisphere_stokes`).",
+    "decls": [
+     "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_17_msheets",
+     "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_18_msheets",
+     "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_17_hyp",
+     "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_18_hyp",
+     "Chapter9/GapP2_E8_Stokes · EP.stokes_of_boundaryMeasure",
+     "Chapter9/GapP2_E8_Stokes · EP.boundaryBranchedMeasure",
+     "Chapter9/GapP2_E8_Stokes · EP.boundaryBranchedMeasureEff",
+     "Chapter9/GapP2_E8_Stokes · EP.hcovB_of_hcovS",
+     "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.IsBoundaryLocal",
+     "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.boundaryMeasure_univ_eq",
+     "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.boundaryMeasure_eq_zero_of_integ_eq_zero",
+     "Chapter9/GapP2_E8F_BoundaryIntegral · EP.boundaryIntegral_eq_msInteg",
+     "Chapter9/GapP2_E8_Hemisphere · E8W.e8_hemisphere_stokes",
+     "Chapter9/GapP2_E8W_Witness · E8W.e8w_stokes_hypotheses",
+     "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_17_boundary_sum_all",
+     "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_18_boundary_sum_all",
+     "Chapter9/GapP2_E6_StokesDim1b · EP.stokes_of_partition_all",
+     "Chapter9/GapP2_E5_Stokes · EP.exists_stokes_partition",
+     "Chapter9/GapP2_E5_LevelRestrict · EP.epFormsInftyEval_integ_eq_integral",
+     "Chapter9/GapP2_E5_FunForm · EP.epFormsInftySmul"
+    ]
+   },
+   "chips": [
+    "added `hcovS` (class condition)",
+    "witness: closed hemisphere",
+    "$m \\ge 1$ for the form with $\\mu^\\partial$"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hcovS`: the oriented tame structures at the points of $\\mathrm{supp}\\,\\Theta$ can be chosen with sheets in one graph chart and boundary sheets of finite total integral (the class condition of Theorem 9.5.15, V9.67); the text uses this tacitly when it integrates over $\\partial_1M_i$. It is satisfiable with $\\partial S \\ne \\emptyset$ (closed hemisphere, `e8_hemisphere_stokes`), and open in general only near the corners of the sheets (gap G.110, in part). For 9.5.18 `hcovS` includes LUC of the representations; no witness of that part is built.",
+    "The statement is as printed for $m \\ge 1$, with the integrals of §9.5 realized on one graph chart (interior sheets) and on countably many graph charts (boundary sheets). The case $m = 0$ (boundary of dimension $0$) is covered only in the boundary-sum form (`theorem_9_5_17_boundary_sum_all`), since the multi-chart class needs $m > 0$. Remark 9.5.20 is not formalized (gap G.110) (Findings, Chapter 9, items 85, 117, 119)."
+   ]
+  },
+  {
+   "id": "V9.69",
+   "title": "(9.22) (2017: (9.18)), the measure of $f\\cdot\\omega$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§9.5, (9.22), p. 441 (2017: (9.18), p. 325)",
+    "page": 441,
+    "statement": "If $\\tau = f\\cdot\\omega$ with $\\bar f \\circ \\pi = f$, then $d\\mu^{\\hat\\Theta,U(x)}_\\tau = \\bar f|_{|U(x)|}\\, d\\mu^{\\hat\\Theta,U(x)}_\\omega$ and $d\\mu^{\\hat\\Theta,\\mathrm{eff},U(x)}_\\tau = \\bar f|_{|U(x)|}\\, d\\mu^{\\hat\\Theta,\\mathrm{eff},U(x)}_\\omega$ (\"clear from the construction\"; used later)."
+   },
+   "lean": {
+    "statement": "For $\\tau = f\\cdot\\omega$ (`FormEval.IsMul`: $\\tau = f\\omega$ on the frames of the tangent spaces of the sheets) and $\\bar f \\circ \\pi = f$ with $\\bar f$ bounded and $L(S)$-measurable (in particular continuous): $\\mu^{\\hat\\Theta}_\\tau(K) = \\int_K \\bar f\\, d\\mu^{\\hat\\Theta}_\\omega$ and $\\mu^{\\hat\\Theta,\\mathrm{eff}}_\\tau(K) = \\int_K \\bar f\\, d\\mu^{\\hat\\Theta,\\mathrm{eff}}_\\omega$ for every $K \\in L(S)$ (`branchedMeasure_eq_setIntegral_mul`, `branchedMeasureEff_eq_setIntegral_mul`, `_of_continuous`), the integral against the signed measure being Mathlib's `VectorMeasure.integral`, equal to $\\int_K \\bar f\\, d\\mu_\\omega^+ - \\int_K \\bar f\\, d\\mu_\\omega^-$ (`branchedMeasure_eq_jordan`, `SignedDensity.setIntegral_eq_jordan`). The local form, with $f$ inserted under the sheet integrals of (9.21): `localMeasure_eq_sum_setIntegral_mul`.",
+    "decls": [
+     "Chapter9/GapP2_E4_DensitySigned · SignedDensity.setIntegral_eq_jordan",
+     "Chapter9/GapP2_E4_DensitySigned · SignedDensity.setIntegral_sub_toSignedMeasure",
+     "Chapter9/GapP2_E4_DensitySigned · SignedDensity.abs_setIntegral_sub_le",
+     "Chapter9/GapP2_E4_DensitySigned · SignedDensity.eq_setIntegral_of_estimate",
+     "Chapter9/GapP2_E4_DensitySigned · SignedDensity.eq_setIntegral_of_local_estimate",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.FormEval.absInteg_union",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.OrientedTameStructure.absSheetSum_union",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.eq_setIntegral_of_sheetSum",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasure_eq_setIntegral_mul",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasureEff_eq_setIntegral_mul",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasure_eq_jordan",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasure_eq_setIntegral_mul_of_continuous",
+     "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasureEff_eq_setIntegral_mul_of_continuous",
+     "Chapter9/GapP2_E3_Density · EpGroupoid.FormEval.IsMul",
+     "Chapter9/GapP2_E3_Density · EpGroupoid.OrientedTameStructure.localMeasure_eq_sum_setIntegral_mul",
+     "Chapter9/GapP2_E3_Density · EpGroupoid.FormEval.isMul_smul"
+    ]
+   },
+   "chips": [
+    "global form on $L(S)$",
+    "$\\tau = f\\cdot\\omega$ read on frames (IsMul)"
+   ],
+   "diff": [
+    "Hidden hypotheses: $\\bar f$ bounded and $L(S)$-measurable, weaker than the text's continuity ($f$ sc-smooth, $S$ compact).",
+    "Stated globally on $L(S)$ (the text: on $|U(x)|$; the local form follows from `branchedMeasure_apply`). $\\tau = f\\cdot\\omega$ is `FormEval.IsMul`, read through the evaluation of the forms on the frames of the sheets; the form $f\\cdot\\omega \\in \\Omega^n_{ep}(X)$ is built for constant $f$ only (`isMul_smul`), not for a non-constant sc-smooth $f$ (gap G.107) (Findings, Chapter 9, item 119)."
    ]
   }
  ],
@@ -2446,7 +2622,7 @@
    "label": "§9.3, Definition 9.3.8, p. 427 (2017: Definition 9.9, p. 313), and Definition 9.3.10, p. 428 (2017: Definition 9.11, p. 314)",
    "page": 427,
    "book": "For tame $M$ with $d_M(y) = 1$, $T_y\\partial M$ and the outward half-space are given by the cones $C_yM$; the boundary orientation is continuous along $\\partial M$ and extends to the closed faces (Figure 9.1); Remark 9.3.11 on the non-tame case.",
-   "instead": "**Formalized in part** (V9.36–V9.38): since 2026-11-09 the boundary operation is built from the submanifold (`boundaryOp`): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`), the outward vectors are those of $T_yM$ not in $C_yM$ (`isOutward_iff_not_mem_partialCone`), Definition 9.3.8 does not depend on the outward vector (`boundaryOp_eq`), $d_M(y)$ is the reduced codimension of $T_yM$ for tame $M$ (`subDegIndex_eq_quotDim_span`), and (9.12) and Proposition 9.3.9 hold with this operation (`proposition_9_3_9_boundaryOp`, `boundaryOrientation`); the cones are read in a presented chart, chart independent (`PresentedChart.exists_clm`). Since 2026-11-09 also the continuity of $o_{\\partial M}$: it is an orientation along the stratum of reduced codimension $1$ ($\\{d_M = 1\\}$ for tame $M$), with continuous positive frame fields, for every oriented submanifold, tame or not (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`, `Chapter9/BoundaryOrientationContinuity2021.lean`). **Not formalized**: the stratum $\\{d_M = 1\\}$ as a smooth submanifold of its own (its tangent space is read as $T^R_yM$; since 2026-11-12 it is open and dense in $\\partial M$ for a tame sheet, `exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`, `Chapter9/GapP2_DBoundaryStratum.lean`, and $\\{d_M \\le 1\\}$ is a manifold with boundary, `remark_4_2_2_dA_one`), the extension to the closed faces (Figure 9.1), whose faces with their orientations exist in the corner-chart reading for face-structured sheets (`faceOrientation`) but are not identified with $o_{\\partial M}$; Remark 9.3.11 is a comment, nothing to formalize (Findings, Chapter 9, items 57, 58, 108, 110).",
+   "instead": "**Formalized** (2026-11-13; V9.36–V9.38; `Chapter9/BoundaryOperation.lean`, `BoundaryOrientationContinuity2021.lean`, `GapP2_DBoundaryStratum.lean`, `GapP2_E6_StratumRetraction.lean`, `GapP2_E6_StratumTangent.lean`, `GapP2_E6_BoundaryOrientation.lean`, `GapP2_D3FaceOrientation.lean`). Since 2026-11-09 the boundary operation is built from the submanifold (`boundaryOp`): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`), the outward vectors are those of $T_yM$ not in $C_yM$ (`isOutward_iff_not_mem_partialCone`), Definition 9.3.8 does not depend on the outward vector (`boundaryOp_eq`), $d_M(y)$ is the reduced codimension of $T_yM$ for tame $M$ (`subDegIndex_eq_quotDim_span`), and (9.12) and Proposition 9.3.9 hold with this operation (`proposition_9_3_9_boundaryOp`, `boundaryOrientation`); the cones are read in a presented chart, chart independent (`PresentedChart.exists_clm`). $o_{\\partial M}$ is continuous: an orientation along the stratum of reduced codimension $1$ ($\\{d_M = 1\\}$ for tame $M$) with continuous positive frame fields, for every oriented submanifold, tame or not (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`). For a tame sheet the stratum is open and dense in $\\partial M$ (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`, 2026-11-12), and (2026-11-13) it is a smooth submanifold of $X$ of dimension $n-1$ (`isSmoothSubmanifold_stratumOne`, `isSubmanifoldOfDim_stratumOne`; the sc$^+$-retraction is $\\iota\\circ\\kappa^{-1}\\circ(y_i\\mapsto 0)\\circ\\kappa\\circ s$) with tangent spaces $T^R_yM$ (`submanifoldTangent_stratumOne`), oriented by $o_{\\partial M}$ in the sense of Definition 9.3.3 (`stratumOrientation`, `stratumOrientation_tangent`); in corner coordinates in which only $y_i$ vanishes, $T\\iota(v) \\in C_yM$ iff $v_i \\ge 0$, and a frame of $\\{v_i = 0\\}$ is positive for $o_{\\partial M}$ iff it is positive for $o$ preceded by $T\\iota(-e_i)$ (`isInwardVec_incFrame_iff`, `incFrame_mem_boundaryFramesAt_iff`). The closed faces (Figure 9.1), for a face-structured tame sheet (Definition 2.5.10, the hypothesis of Part I's Theorem 4.4.7) read as manifolds with corners (`faceChartedSpace`): Part I's induced orientation of a face (`faceOrientation`, outward normal first) is $o_{\\partial M}$ at every point of the face with $d_M = 1$: a basis $b$ of a face chart is positive iff the frame $T\\iota(\\iota_i b_1), \\ldots, T\\iota(\\iota_i b_m)$ is positive for $o_{\\partial M}$ (`faceOrientation_eq_iff_mem_stratumOrientation`, via $\\det(-e_i, \\iota_i v_1, \\ldots, \\iota_i v_m) = (-1)^{i+1}\\det v$, `det_cons_neg_stdFrame_faceEmbedding`); the points with $d_M = 1$ are dense in each face (`dense_faceStratum`), so the orientation of the open face extends to exactly one continuous orientation of the closed face, Part I's `faceOrientation` (`figure_9_1_existsUnique_faceOrientation`). At the level of the integrals, Part I's face integrals of a sheet equal the integral of §9.5 over $\\partial_1 M$ with $o_{\\partial M}$ (`boundaryIntegral_eq_msInteg`, no hypothesis beyond the class condition on $\\partial_1 M$ of gap G.109). Not formalized: the orientations of the faces of the faces (the caption's last sentence; Part I's construction applied to a face, if face-structured); Remark 9.3.11 is a comment, nothing to formalize (Findings, Chapter 9, items 57, 58, 108, 110, 119).",
    "decls": [
     "Chapter9/OrientationBoundary · MPolyfold.boundaryFrames",
     "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift",
@@ -2461,7 +2637,37 @@
     "Chapter9/BoundaryOrientationContinuity2021 · EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation",
     "Chapter9/GapP2_DBoundaryStratum · MPolyfold.exists_isOpen_boundaryStratum_eq",
     "Chapter9/GapP2_DBoundaryStratum · MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum",
-    "Chapter9/GapP2_DBoundaryStratum · MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one"
+    "Chapter9/GapP2_DBoundaryStratum · MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one",
+    "Chapter9/GapP2_DBoundaryStratum · MPolyfold.setOf_degIndex_eq_one",
+    "Chapter9/GapP2_DBoundaryStratum · MPolyfold.isOpen_degIndex_le_one",
+    "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.stratumOne",
+    "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.isSmoothSubmanifold_stratumOne",
+    "Chapter9/GapP2_E6_StratumRetraction · MPolyfold.exists_isScPlusRetractionOn_stratumOne",
+    "Chapter9/GapP2_E6_StratumTangent · MPolyfold.isSubmanifoldOfDim_stratumOne",
+    "Chapter9/GapP2_E6_StratumTangent · MPolyfold.submanifoldTangent_stratumOne",
+    "Chapter9/GapP2_E6_StratumTangent · MPolyfold.chartTangent_stratumOne_eq",
+    "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.SubmanifoldOrientation.stratumOrientation",
+    "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.SubmanifoldOrientation.stratumOrientation_tangent",
+    "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.isInwardVec_incFrame_iff",
+    "Chapter9/GapP2_E6_BoundaryOrientation · MPolyfold.incFrame_mem_boundaryFramesAt_iff",
+    "Chapter9/GapP1_Stokes2021 · MPolyfold.faceChartedSpace",
+    "Chapter9/GapP1_Stokes2021 · MPolyfold.faceOrientation",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation_pair",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.figure_9_1_existsUnique_faceOrientation",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.IsBoundaryOrientedAt",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.isBoundaryOrientedAt_faceOrientation",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.dense_faceStratum",
+    "Chapter9/GapP2_D3FaceOrientation · MPolyfold.hasTameInducedStructure_of_hasCornerStructureOfDim",
+    "Chapter9/GapP2_D3FaceOrientation · TangentOrientation.eq_of_eqOn_dense",
+    "Chapter9/GapP2_D3FaceOrientation · det_cons_neg_stdFrame_faceEmbedding",
+    "Chapter9/GapP2_D3FaceOrientation · orientation_consFaceBasis_eq_iff",
+    "Chapter9/GapP2_D3FaceOrientation · consFaceBasis",
+    "Chapter9/GapP2_E8F_BoundaryIntegral · EP.boundaryIntegral_eq_msInteg"
+   ],
+   "formalized": [
+    "V9.36",
+    "V9.38"
    ]
   },
   {
@@ -2562,7 +2768,7 @@
    "label": "§9.5, Theorem 9.5.4, p. 438 (2017: Theorem 9.2, p. 323), Theorem 9.5.5, p. 438 (new in the 2021 edition), to Proposition 9.5.13, p. 446",
    "page": 438,
    "book": "For an oriented, tame, compact, $n$-dimensional branched ep⁺-subgroupoid there is a unique linear map $\\omega \\mapsto \\mu^{\\hat\\Theta}_\\omega$ from sc-differential $n$-forms to signed measures on $(S, L(S))$, given locally by weighted integrals of $\\omega$ over the oriented sheets (Theorem 9.5.5: the effective version under LUC); the proof (Definition 9.5.6, Lemma 9.5.7, (9.21)–(9.22), Lemmas 9.5.9–9.5.11) shows that the local measures agree on overlaps; Proposition 9.5.13 compares the two integrals.",
-   "instead": "**Formalized in part** (2026-11-12; V9.54–V9.57, V9.66; `Chapter9/GapP2_E1_SheetIntegration.lean`, `GapP2_E1_LocalMeasure.lean`, `GapP2_E1_BranchedIntegral.lean`, `GapP2_E1_PointIntegration.lean`). The integrals $\\int_{K}\\omega|(M,o)$ of forms over measurable subsets of the oriented sheets of a class $S$ are the data of a structure `SheetIntegration` (linear in $\\omega$, countably additive on the measurable subsets of a sheet, zero on null sets, equal (opposite) for two sheets on a common set where their oriented tangent spaces agree (are opposite), invariant under the sc-diffeomorphisms whose tangent maps are those of morphisms; sheets Lindelöf, Lemma 9.4.6); the forms are the elements of a real vector space seen through these integrals. For every such structure: (9.20) and Lemma 9.5.7 (`sum_integ_eq_sum_integ`, `lemma_9_5_7`), the local measures (9.21), Lemmas 9.5.9–9.5.11 (`lemma_9_5_9`, `lemma_9_5_10`, `lemma_9_5_11`), Theorems 9.5.4 and 9.5.5 with existence and uniqueness on $(S, L(S))$ (`theorem_9_5_4`, `theorem_9_5_5`), Definition 9.5.6 (`branchedIntegral`, `branchedIntegralEff`) and Proposition 9.5.13 (1). The structure is satisfiable in dimension 0, for every ep-groupoid (`pointIntegration`: points, invariant functions, $\\pm f(p)$). Remark 9.5.8 has no content beyond Lemma 9.5.11. **Not formalized**: the integral of an sc-differential $n$-form over a measurable subset of an oriented tame $n$-dimensional sheet of an M-polyfold as a `SheetIntegration` ($n \\ge 1$), (9.22), Proposition 9.5.13 (2) at the level of the integrals, and a witness of the covering hypothesis with $\\mathrm{supp}(\\Theta) \\ne \\emptyset$ (Findings, Chapter 9, items 84, 85, 118).",
+   "instead": "**Formalized** (2026-11-13; V9.54–V9.57, V9.66, V9.69; `Chapter9/GapP2_E1_*.lean` for an abstract integration, `GapP2_E3_*.lean`, `GapP2_E4_*.lean` for the sc-forms). Since 2026-11-12, for every abstract integration of forms over the oriented sheets (`SheetIntegration`): (9.20), Lemma 9.5.7, the local measures (9.21), Lemmas 9.5.9–9.5.11, Theorems 9.5.4, 9.5.5 with existence and uniqueness on $(S, L(S))$ (`theorem_9_5_4`, `theorem_9_5_5`), Definition 9.5.6 and Proposition 9.5.13 (1); Remark 9.5.8 has no content beyond Lemma 9.5.11. (2026-11-13) For $n \\ge 1$ the integral $\\int_K \\omega|(M, o)$ of $\\omega \\in \\Omega^n_{ep}(X)$ or $\\omega \\in \\Omega^n_{ep,\\infty}(X)$ (Definitions 8.2.1, 8.2.2) over a measurable subset $K$ of an oriented $n$-dimensional submanifold $M$ of the object M-polyfold is the Lebesgue integral, in a graph chart of $M$ (a chart of the M-polyfold in which $M$ is a graph over $\\mathbb R^n$; such charts exist near every point, `exists_graphChart`), of $\\pm\\omega(\\partial_1, \\ldots, \\partial_n)$, with the sign $+$ where the coordinate frame is positive for the orientation of Definition 9.3.3 (`FormEval.integ`). It does not depend on the graph chart; two sheets give the same (opposite) integral over a common measurable subset on which their oriented tangent spaces agree (are opposite) (`chartInteg_congr`, `chartInteg_neg`, by the change of variables for maps differentiable on a measurable set); it is invariant under the sc-diffeomorphisms whose tangent maps are those of morphisms (`chartInteg_mapDiffeo`), countably additive, zero on the sets of $n$-dimensional measure zero of Definition 9.4.5 (`IsHNull`), and zero where $\\omega$ vanishes on the sheet (`integ_eq_zero_of_ev_eq_zero`). These integrals form a `SheetIntegration` (`FormEval.sheetIntegration`) on the class of the $n$-dimensional submanifolds lying in one graph chart on which the forms are absolutely integrable. Over sheets covered by countably many graph charts the integral is the sum over the pieces of a chart cover with $\\sum \\int|\\omega| < \\infty$; it does not depend on the cover, agrees with the one-chart integral, and again forms a `SheetIntegration` (`FormEval.msheetIntegration`). The sheets of every oriented tame structure of a compact $n$-dimensional $\\Theta$ belong to this class (`msheets_of_orientedTameStructure`: $\\mathrm{supp}\\,\\Theta \\cap U(x)$ lies in a compact part of $\\mathrm{supp}\\,\\Theta$ by the properness of $\\mathrm{cl}\\,U(x)$, and $\\int_{M_i}|\\omega|$ is dominated by finitely many one-chart sheets). Hence Theorems 9.5.4 and 9.5.5 hold as printed: there is exactly one linear $\\omega \\mapsto \\mu_\\omega$ on $(S, L(S))$ with the local formula for every oriented tame structure describing $\\hat T_\\Theta$ and every measurable $K \\subseteq |U(x)|$ (`theorem_9_5_4_full`, `theorem_9_5_5_full`; Definition 9.5.6: `multiBranchedIntegral`, `multiBranchedIntegralEff`). Reading: the hypothesis that $\\hat T_\\Theta$ is described near every point of the support by an oriented tame structure (`hloc`) is the text's \"oriented, tame\". It follows from $n$-dimensionality and the orientation when the M-polyfold has no boundary (`hloc_of_degIndex_eq_zero`, `theorem_9_5_4_full_of_degIndex_eq_zero`); with boundary, that the oriented local structures can be taken with tame sheets is the reading of \"tame\". (9.22) holds in the local form (`localMeasure_eq_sum_setIntegral_mul`) and globally as an identity of signed measures, $\\mu_\\tau(K) = \\int_K \\bar f\\, d\\mu_\\omega$ for $\\tau = f\\cdot\\omega$ (read on the frames of the tangent spaces of the sheets, `FormEval.IsMul`) with $\\bar f$ bounded and $L(S)$-measurable (e.g. continuous), the integral being Mathlib's `VectorMeasure.integral`, equal to $\\int_K \\bar f\\, d\\mu_\\omega^+ - \\int_K \\bar f\\, d\\mu_\\omega^-$ (`branchedMeasure_eq_setIntegral_mul`, `branchedMeasureEff_eq_setIntegral_mul`, `branchedMeasure_eq_jordan`; V9.69). Proposition 9.5.13 (2) holds at the level of the integrals: under LUC, $\\oint_{\\hat\\Theta}\\omega = \\int_{\\hat\\Theta'}\\omega'$ on the reduced ep-groupoid (`proposition_9_5_13_2`). The integral of §9.5 over a tame sheet of the class equals Part I's integral `ManifoldForm.integral` of the restricted form for the bridged orientation (`bridgeOrientation`), for every class in $\\Omega^n_{ep,\\infty}(X)$ whose restriction has compact support (`integ_eq_manifoldIntegral`, `epFormsInftyEval_integ_eq_integral`). The hypotheses are satisfiable jointly with compactness and nonempty support: the unit circle in $\\mathbb R^2$ with the counter-clockwise orientation (`circle_witness`, `circle_theorem_9_5_4_full`); there, with $U(x) = \\mathbb R^2$ and the whole circle as one sheet, $\\int_{\\hat\\Theta}\\omega = \\int_{S^1}\\omega$ (`circle_multiBranchedIntegral`). **Not formalized**: the form $f\\cdot\\omega \\in \\Omega^n_{ep}(X)$ for a non-constant sc-smooth $f$ ($f\\cdot\\omega$ is read through the evaluation, `IsMul`, witnessed for constants); dimension $0$ stays with the abstract `pointIntegration` (Findings, Chapter 9, items 84, 85, 118, 119).",
    "decls": [
     "Chapter9/GapP2_E1_SheetIntegration · EpGroupoid.SheetIntegration",
     "Chapter9/GapP2_E1_SheetIntegration · EpGroupoid.SheetIntegration.sum_integ_eq_sum_integ",
@@ -2576,7 +2782,82 @@
     "Chapter9/GapP2_E1_BranchedIntegral · EpGroupoid.proposition_9_5_13_1",
     "Chapter9/GapP2_E1_PointIntegration · EpGroupoid.pointIntegration",
     "Chapter9/MeasureEffective · EpGroupoid.NaturalRep.MU_inter_preimage_eq_iUnion_quotient",
-    "Chapter9/MeasureEffective · EpGroupoid.card_effIsotropy_eq_reduced"
+    "Chapter9/MeasureEffective · EpGroupoid.card_effIsotropy_eq_reduced",
+    "Chapter9/GapP2_E3_GraphChart · MPolyfold.GraphChart",
+    "Chapter9/GapP2_E3_GraphChart · EpGroupoid.FormEval",
+    "Chapter9/GapP2_E3_GraphChartExists · MPolyfold.exists_graphChart",
+    "Chapter9/GapP2_E3_Transition · MPolyfold.GraphChart.setIntegral_coord_image_eq",
+    "Chapter9/GapP2_E3_ChartIntegral · EpGroupoid.FormEval.chartInteg_congr",
+    "Chapter9/GapP2_E3_ChartIntegral · EpGroupoid.FormEval.chartInteg_neg",
+    "Chapter9/GapP2_E3_ChartIntegral · EpGroupoid.FormEval.chartInteg_mapDiffeo",
+    "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheets",
+    "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheetNull",
+    "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.integ",
+    "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.sheetIntegration",
+    "Chapter9/GapP2_E3_SheetIntegration · EpGroupoid.FormEval.integ_eq_zero_of_ev_eq_zero",
+    "Chapter9/GapP2_E3_FormEvalEp · EpGroupoid.epFormEval",
+    "Chapter9/GapP2_E3_FormEvalInfty · EP.epFormsInftyEval",
+    "Chapter9/GapP2_E3_Covering · EpGroupoid.FormEval.exists_mem_sheets",
+    "Chapter9/GapP2_E3_Covering · EpGroupoid.FormEval.exists_restrict_mem_sheets",
+    "Chapter9/GapP2_E3_TameOpen · MPolyfold.HasTameInducedStructure.inter_isOpen",
+    "Chapter9/GapP2_E3_TameOpen · EpGroupoid.FormEval.hcov_of_loc",
+    "Chapter9/GapP2_E3_TameOpen · EpGroupoid.FormEval.theorem_9_5_4_tame",
+    "Chapter9/GapP2_E3_TameOpen · EpGroupoid.FormEval.theorem_9_5_5_tame",
+    "Chapter9/GapP2_E3_TameOpen · EpGroupoid.FormEval.tameBranchedIntegral",
+    "Chapter9/GapP2_E3_TameOpen · EpGroupoid.hcov_axis",
+    "Chapter9/GapP2_E3_Density · EpGroupoid.OrientedTameStructure.localMeasure_eq_sum_setIntegral_mul",
+    "Chapter9/GapP2_E3_Density · EpGroupoid.abs_branchedMeasure_sub_le",
+    "Chapter9/GapP2_E3_ManifoldBridge2 · EpGroupoid.FormEval.integ_eq_manifoldIntegral",
+    "Chapter9/GapP2_E4_ChartAbs · EpGroupoid.FormEval.chartAbs",
+    "Chapter9/GapP2_E4_ChartAbs · EpGroupoid.FormEval.chartAbs_congr",
+    "Chapter9/GapP2_E4_ChartAbs · EpGroupoid.FormEval.chartAbs_mapDiffeo",
+    "Chapter9/GapP2_E4_MultiChart · EpGroupoid.FormEval.ChartCover",
+    "Chapter9/GapP2_E4_MultiChart · EpGroupoid.FormEval.msheets",
+    "Chapter9/GapP2_E4_MultiChart · EpGroupoid.FormEval.ChartCover.gInteg_eq_of",
+    "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msInteg_eq",
+    "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msheetIntegration",
+    "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.msInteg_eq_integ",
+    "Chapter9/GapP2_E4_MultiChartInteg · EpGroupoid.FormEval.sheets_subset_msheets",
+    "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.theorem_9_5_4_multi",
+    "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.theorem_9_5_5_multi",
+    "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.multiBranchedIntegral",
+    "Chapter9/GapP2_E4_MultiChartTheorem · EpGroupoid.FormEval.multiBranchedIntegralEff",
+    "Chapter9/GapP2_E4_MultiChartCompact · EpGroupoid.FormEval.msheets_of_isCompact",
+    "Chapter9/GapP2_E4_Hloc · EpGroupoid.exists_orientedTameStructure_of_degIndex_eq_zero",
+    "Chapter9/GapP2_E4_Hloc · EpGroupoid.hloc_of_degIndex_eq_zero",
+    "Chapter9/GapP2_E4_Hloc · EpGroupoid.FormEval.theorem_9_5_4_of_degIndex_eq_zero",
+    "Chapter9/GapP2_E4_FiniteDominated · EpGroupoid.FormEval.chartAbs_eq_of_borel",
+    "Chapter9/GapP2_E4_FiniteDominated · EpGroupoid.FormEval.isFinite_of_dominated",
+    "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.exists_isCompact_supp_inter",
+    "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.msheets_of_orientedTameStructure",
+    "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.isNDimensional_of_loc",
+    "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.theorem_9_5_4_full",
+    "Chapter9/GapP2_E4_FiniteTheorem · EpGroupoid.FormEval.theorem_9_5_5_full",
+    "Chapter9/GapP2_E4_FiniteCircle · EpGroupoid.FormEval.theorem_9_5_4_full_of_degIndex_eq_zero",
+    "Chapter9/GapP2_E4_FiniteCircle · EpGroupoid.circle_theorem_9_5_4_full",
+    "Chapter9/GapP2_E4_Circle · EpGroupoid.circle_witness",
+    "Chapter9/GapP2_E4_Circle · EpGroupoid.circle_theorem_9_5_4",
+    "Chapter9/GapP2_E4_Circle · rnPolyfold_isSubmanifoldOfDim_unitCircle2",
+    "Chapter9/GapP2_E4_Circle · circleOrientation",
+    "Chapter9/GapP2_E4_CircleMulti · EpGroupoid.circleStructure",
+    "Chapter9/GapP2_E4_CircleMulti · EpGroupoid.circleStructure_mem_msheets",
+    "Chapter9/GapP2_E4_CircleMulti · EpGroupoid.circle_multiBranchedIntegral",
+    "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasure_eq_setIntegral_mul",
+    "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasureEff_eq_setIntegral_mul",
+    "Chapter9/GapP2_E4_Density · EpGroupoid.branchedMeasure_eq_jordan",
+    "Chapter9/GapP2_E4_DensitySigned · SignedDensity.setIntegral_eq_jordan",
+    "Chapter9/GapP2_E4_ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
+    "Chapter9/GapP2_E4_ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
+    "Chapter9/GapP2_E4_ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2",
+    "Chapter9/GapP2_E5_LevelRestrict · EP.epFormsInftyEval_integ_eq_integral"
+   ],
+   "formalized": [
+    "V9.54",
+    "V9.55",
+    "V9.56",
+    "V9.57",
+    "V9.66",
+    "V9.69"
    ]
   },
   {
@@ -2585,7 +2866,7 @@
    "label": "§9.5, the paragraph before Definition 9.5.14, p. 448",
    "page": 448,
    "book": "For $K \\subseteq |\\partial M_U|$ the preimages lie in the $\\partial M_i$, where, $M_i$ being tame, $(n-1)$-dimensional measure zero makes sense in the boundary faces.",
-   "instead": "**Formalized in part** (2026-11-12; V9.52, V9.53; `Chapter9/GapP2_E2BoundaryNull.lean`). Formalized: measure zero face by face for a face-structured tame sheet, each face a manifold modelled on $[0,\\infty)^{n-1}$ (`IsFaceNull`: $K \\cap F$ null in every face $F$, Definition 9.4.5), a proper σ-ideal (a face is not null, `not_isFaceNull_face`); the case $n = 1$, where the faces are points and the null sets are those not meeting $\\partial M_i$ (`SheetNullSets.point`, no hypothesis), for which $K$ has measure zero in $\\partial S$ iff $K \\cap \\partial S = \\emptyset$ and $L(\\partial S) = \\mathcal B(\\partial S)$; the witness $\\Theta = 1$ on $[0,\\infty)$ with $\\partial S = \\{|0|\\} \\ne \\emptyset$. **Not formalized**: for $n \\ge 2$ the null sets of the boundaries $\\partial M_i$ of the sheets of a general M-polyfold as a `SheetNullSets`; with the intrinsic `IsHNull (n-1)` (G.106) the agreement of two boundaries is automatic (`MPolyfold.hNullSets`), and what remains is that a nonempty $\\partial M_i$ is not $(n-1)$-null (Findings, Chapter 9, items 83, 117).",
+   "instead": "**Formalized** (2026-11-13; V9.52, V9.53; `Chapter9/GapP2_E5_BoundaryNull.lean`, `GapP2_E5_BoundaryNullSigma.lean`; earlier `GapP2_E2BoundaryNull.lean`). The $(n-1)$-dimensional null sets of the boundaries $\\partial M_i$ are read in the M-polyfold charts with the $(n-1)$-dimensional Hausdorff measure (`MPolyfold.IsHNull (n-1)`, Definition 9.4.5 in dimension $n-1$). For an $n$-dimensional submanifold $M$ with tame induced structure, a nonempty $\\partial M$ is not such a null set (`not_isHNull_submanifoldBoundary`: near a point with $d_M = 1$ the boundary is an open piece of a coordinate hyperplane in corner coordinates). So these null sets form a null-set system on the class of the boundaries of tame sheets with no hypothesis (`MPolyfold.boundaryNullSets`), and Definition 9.5.14 is `EpGroupoid.lebesgueSigmaBoundaryH`. For an $n$-dimensional $\\Theta$, $K$ has measure zero in $\\partial S$ iff near each point of $\\mathrm{supp}(\\partial\\Theta)$ a tame structure has $\\partial M_i \\cap \\pi^{-1}(K)$ null for all $i$, and then every tame structure has (`isMeasureZeroBoundary_boundaryNullSets_iff`, `isHNull_boundary_of_isMeasureZeroBoundary`); for $n = 1$ these are the counting null sets (`boundaryNullSets_one_isNull_iff`; earlier `SheetNullSets.point`). The corners $\\{d_M \\ge 2\\}$ are null in the boundary (`isHNull_submanifoldBoundary_diff_boundaryStratum`). The witness $\\Theta = 1$ on $[0,\\infty)$ has $\\partial S = \\{|0|\\} \\ne \\emptyset$ (V9.53). Reading: measure zero \"in every boundary face\" is taken in the ambient charts; the face-by-face form for face-structured sheets is `IsFaceNull` (2026-11-12), and the comparison of the two is not formalized; the σ-ideal/completion form of `lebesgueSigmaBoundaryH` is not stated (Findings, Chapter 9, items 83, 117, 119).",
    "decls": [
     "Chapter9/Measure · EpGroupoid.IsMeasureZeroBoundary",
     "Chapter9/GapP2_E2BoundaryNull · MPolyfold.IsFaceNull",
@@ -2596,7 +2877,21 @@
     "Chapter9/GapP2_E2BoundaryNull · halfLineTame",
     "Chapter9/GapP2_E2BoundaryNull · halfLine_orbitSupp_boundary_nonempty",
     "Chapter9/GapP2_E2BoundaryNull · halfLine_lebesgueSigmaBoundary",
-    "Chapter9/GapP2_DSheetMeasure · MPolyfold.hNullSets"
+    "Chapter9/GapP2_DSheetMeasure · MPolyfold.hNullSets",
+    "Chapter9/GapP2_E5_BoundaryNull · MPolyfold.not_isHNull_submanifoldBoundary",
+    "Chapter9/GapP2_E5_BoundaryNull · MPolyfold.HasCornerStructureOfDim.not_isHNull_boundary",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.tameBoundaries",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.boundaryNullSets",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.boundaryNullSets_one_isNull_iff",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.isHNull_two_le_subDegIndex",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · MPolyfold.isHNull_submanifoldBoundary_diff_boundaryStratum",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · EpGroupoid.lebesgueSigmaBoundaryH",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · EpGroupoid.isMeasureZeroBoundary_boundaryNullSets_iff",
+    "Chapter9/GapP2_E5_BoundaryNullSigma · EpGroupoid.isHNull_boundary_of_isMeasureZeroBoundary"
+   ],
+   "formalized": [
+    "V9.52",
+    "V9.53"
    ]
   },
   {
@@ -2605,12 +2900,49 @@
    "label": "§9.5, Theorem 9.5.15, p. 449 (2017: Theorem 9.3, p. 328), and Theorem 9.5.16, p. 449 (new in the 2021 edition)",
    "page": 449,
    "book": "For an oriented, tame, compact $n$-dimensional $\\Theta$ there is a unique linear map $\\omega \\mapsto \\mu^{\\partial\\hat\\Theta}_\\omega$ from $(n-1)$-forms to signed measures on $(\\partial S, L(\\partial S))$, given locally by integrals over the $\\partial M_i$ with the boundary orientation (Theorem 9.5.16: the effective version under LUC).",
-   "instead": "**Formalized in part** (2026-11-12; `Chapter9/GapP2_E2MeasureGlue.lean`): given, for every $x \\in \\mathrm{supp}(\\partial\\Theta)$ and every tame branching structure at $x$, the local expression as a signed measure on $(\\partial S, L(\\partial S))$, linear in $\\omega$, any two agreeing on the measurable subsets of the overlaps, there is exactly one linear map $\\omega \\mapsto \\mu^{\\partial\\hat\\Theta}_\\omega$ with the characterizing identity (`theorem_9_5_15_of_overlap`, for both weights $1/\\#G_x$ and $1/\\#G^{\\mathrm{eff}}_x$, so Theorems 9.5.15 and 9.5.16); $\\partial S$ is closed in $S$, so compact (`isCompact_orbitSupp_boundaryTheta`). **Not formalized**: the local expressions (integrals of $\\omega$ over measurable subsets of the $\\partial M_i$ with the boundary orientation) and their agreement on overlaps, the boundary versions of Lemmas 9.5.7 and 9.5.9–9.5.11 (cf. G.107) (Findings, Chapter 9, items 85, 117).",
+   "instead": "**Formalized in part** (2026-11-13; V9.67; `Chapter9/GapP2_E2MeasureGlue.lean`, `GapP2_E6_BoundarySheets.lean`, `GapP2_E7_SheetFamily.lean`, `GapP2_E7_FamilyMeasure.lean`, `GapP2_E7_BoundaryFamily.lean`, `GapP2_E7_BoundaryMeasure.lean`). Theorems 9.5.15 and 9.5.16 are formalized with the printed local formula, under one added hypothesis, for every sheet integration whose null sets are those of $m$-dimensional measure zero (`theorem_9_5_15_hyp`, `theorem_9_5_16_hyp`) and for the integration of sc-forms over countably many graph charts (`theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`), $n = m + 1$, $m \\ge 1$. The boundary sheets $\\partial_1 M_i = \\{d_{M_i} = 1\\}$ of an oriented tame structure are $(n-1)$-dimensional submanifolds with the orientations $o_{\\partial M_i}$ (`boundarySheet`, `boundaryOrient`), near each of their points in the class of sheets of the integration of $(n-1)$-forms (`exists_boundarySheet_mem_sheets`), and $\\sum_{y\\in\\partial_1M_i}\\sigma_i T_y(\\partial_1M_i, o_{\\partial M_i}) = \\hat T_{\\partial\\Theta}(y)$ depends on $\\hat T_\\Theta$ only (`boundaryOrientation_eq_sum`). The machinery of Theorem 9.5.4 (Lemmas 9.5.7–9.5.11, the overlaps, the gluing) is proved for an arbitrary oriented sheet family, indexed by a morphism-saturated set $D$ and described by a natural $T'$ (`existsUnique_familyMeasure`); the boundary sheets $(\\partial_1M_i,o_{\\partial M_i})$, $(\\sigma_i)$ form such a family for $D=\\{y\\in\\mathrm{supp}\\,\\Theta \\mid \\hat T_\\Theta(y)$ has a term of reduced codimension $1\\}$ and $T'=\\hat T_{\\partial\\Theta}$ (`boundaryFamily`, `represents_boundaryFamily`, `isNaturalOn_boundaryOrientation`); the traces of $K\\in L(\\partial S)$ on $\\partial_1M_i$ are measurable (`isMeasIn_boundarySheet`). Since 2026-11-12: given local expressions agreeing on the overlaps, the boundary measure exists and is unique (`theorem_9_5_15_of_overlap`), and $\\partial S$ is compact (`isCompact_orbitSupp_boundaryTheta`). **Added hypothesis** (`hcov`): at every point of $\\mathrm{supp}(\\partial\\Theta)$ there is an oriented tame structure describing $\\hat T_\\Theta$ whose nonempty boundary sheets lie in the class of the integration; for the multi-chart class this is the finiteness of $\\int|\\omega|$ over $\\partial_1 M_i$ near the corners of $M_i$, which the text uses tacitly and which is not derived from the text's hypotheses. It is satisfiable: for $\\Theta = 0$ (`hcov_zero`), whenever the boundary sheets are compact (`hcov_msheets_of_isCompact`), and with $\\mathrm{supp}(\\partial\\Theta) \\ne \\emptyset$ for the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ (`e8w_hcov`, which gives it through `hcovB_of_hcovS`; `e8_hemisphere_stokes`). The sum runs over the nonempty $\\partial_1 M_i$ (the empty set need not be in the class), and $n$-dimensionality is stated explicitly (it follows from oriented tame structures at all points). **Not formalized**: the class condition near the corners of the sheets ($d \\ge 2$), which needs the closed faces as submanifolds (estimate 800–1,200 lines); the case $m = 0$ of the multi-chart form (Findings, Chapter 9, items 85, 117, 119).",
    "decls": [
     "Chapter9/Measure · EpGroupoid.lebesgueSigmaBoundary",
     "Chapter9/GapP2_E2MeasureGlue · EpGroupoid.theorem_9_5_15_of_overlap",
     "Chapter9/GapP2_E2MeasureGlue · existsUnique_linearMap_signedMeasure_of_openCover",
-    "Chapter9/GapP2_E2MeasureGlue · EpGroupoid.isCompact_orbitSupp_boundaryTheta"
+    "Chapter9/GapP2_E2MeasureGlue · EpGroupoid.isCompact_orbitSupp_boundaryTheta",
+    "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundarySheet",
+    "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundaryOrient",
+    "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.boundaryOrientation_eq_sum",
+    "Chapter9/GapP2_E6_BoundarySheets · EpGroupoid.OrientedTameStructure.exists_boundarySheet_mem_sheets",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.IsMorSaturated",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.IsNaturalOn",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily.sheetSum",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily.lemma_9_5_7",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily.lemma_9_5_9",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily.lemma_9_5_10",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedSheetFamily.lemma_9_5_11",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.OrientedTameStructure.toFamily",
+    "Chapter9/GapP2_E7_SheetFamily · EpGroupoid.isNaturalOn_of_isOrientation",
+    "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.OrientedSheetFamily.overlap",
+    "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.OrientedSheetFamily.localSignedMeasure",
+    "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.existsUnique_familyMeasure",
+    "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.card_isotropy_normalizing",
+    "Chapter9/GapP2_E7_FamilyMeasure · EpGroupoid.card_effIsotropy_normalizing",
+    "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.isNaturalOn_boundaryOrientation",
+    "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.boundaryStratumSet",
+    "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.isMorSaturated_boundaryStratumSet",
+    "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.OrientedTameStructure.boundaryFamily",
+    "Chapter9/GapP2_E7_BoundaryFamily · EpGroupoid.OrientedTameStructure.represents_boundaryFamily",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.OrientedSheetFamily.nonemptyPart",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.OrientedTameStructure.isMeasIn_boundarySheet",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.existsUnique_boundaryMeasure",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_15_hyp",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_16_hyp",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_15_msheets",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.theorem_9_5_16_msheets",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_msheets_of_isCompact",
+    "Chapter9/GapP2_E7_BoundaryMeasure · EpGroupoid.hcov_zero",
+    "Chapter9/GapP2_E8_Stokes · EP.hcovB_of_hcovS",
+    "Chapter9/GapP2_E8W_Witness · E8W.e8w_hcov",
+    "Chapter9/GapP2_E8W_Witness · E8W.e8w_stokes_hypotheses",
+    "Chapter9/GapP2_E8_Hemisphere · E8W.e8_hemisphere_stokes"
    ]
   },
   {
@@ -2619,7 +2951,7 @@
    "label": "§9.5, Theorem 9.5.17, p. 449 (2017: Theorem 9.4, p. 328), Theorem 9.5.18, p. 450 (new in the 2021 edition), and Remark 9.5.20, p. 451",
    "page": 449,
    "book": "For $X$ with sc-smooth partitions of unity and $\\Theta$ tame, oriented, compact, $n$-dimensional, $\\mu^{\\partial\\hat\\Theta}_\\omega(\\partial S) = \\mu^{\\hat\\Theta}_{d\\omega}(S)$ for every $(n-1)$-form $\\omega$ (Theorem 9.5.18: the effective version under LUC); Remark 9.5.20, on a translation groupoid with a $\\mathbb Z_3$-action, shows that the effective isotropy group of a boundary point depends on whether it is taken in $X$ or in $\\partial X$, which enters the normalization in Stokes' formula.",
-   "instead": "**Formalized in part** (2026-11-12; `Chapter9/GapP2_E2Stokes.lean`): the proof of pp. 450–451 from its inputs (`theorem_9_5_17_of_localization`): for linear $\\Phi$, $\\Phi^\\partial$ on $\\Omega^{n}_\\infty(X)$, $\\Omega^{n-1}_\\infty(X)$ and $\\omega = \\omega_0 + \\sum_k \\omega_k$ with $\\omega_k$ vanishing on the sheets of $U_k$ off a closed saturated $C_k \\subseteq U_k^*$, the local formulas for the $\\omega_k$ (second and fourth equalities of the display) and $\\Phi(d\\omega_0) = 0 = \\Phi^\\partial(\\omega_0)$ give $\\Phi(d\\omega) = \\Phi^\\partial(\\omega)$, for any weights ($1/\\sharp G_{x_k}$ or $1/\\sharp G^{eff}_{x_k}$); these inputs are hypotheses, satisfied trivially ($\\Phi = 0$) and by no nonzero measure yet. Proved for it: the standard Stokes theorem on the non-compact oriented sheets for forms vanishing off $C_k$ (`OrientedSheet.stokes`, `stokes_formsInftyRestrict_of_isCompact`), and that $M_i \\cap C_k$ is compact (`TameBranchingStructure.isCompact_inter`: $S$ compact, $U(x) \\to |U(x)|$ proper). **Not formalized**: the measures (gaps G.107, G.109) and so the local formulas; the forms $\\beta_k\\omega$ from an sc-smooth partition of unity; the passage from the orientations of Definition 9.3.3 to tangent orientations of the sheets; Remark 9.5.20 (its M-polyfold $X \\subseteq \\mathbb R \\times \\mathbb C$ with a jump of dimension is not constructed) (Findings, Chapter 9, items 85, 117).",
+   "instead": "**Formalized in part** (2026-11-13; V9.68; `Chapter9/GapP2_E2Stokes.lean`, the `GapP2_E5_*`, `GapP2_E6_StokesDim1*`, `GapP2_E8F_*`, `GapP2_E8_*` and `GapP2_E8W_*` files). For the branched integral of sc-forms (`tameBranchedIntegral`, `tameBranchedIntegralEff`; gap G.107), $n = m+1$, $m \\ge 1$, $X$ with sc-smooth partitions of unity, $\\Theta$ a compact branched ep⁺-subgroupoid with orientation $\\hat\\Theta$ and $\\omega \\in \\Omega^m_{ep,\\infty}(X)$: $\\int_{\\hat\\Theta} d\\omega = \\mu^{\\partial\\hat\\Theta}_\\omega(\\partial S)$ and $\\oint_{\\hat\\Theta} d\\omega = \\mu^{\\partial\\hat\\Theta,\\mathrm{eff}}_\\omega(\\partial S)$, with the boundary measures of Theorems 9.5.15, 9.5.16 (`theorem_9_5_17_msheets`, `theorem_9_5_18_msheets`), and $\\int_{\\hat\\Theta} d\\omega = \\Phi^\\partial(\\omega)(\\partial S)$ for every linear $\\Phi^\\partial$ with the local formula of Theorem 9.5.15 (9.5.16) (`theorem_9_5_17_hyp`, `theorem_9_5_18_hyp`), **under one added hypothesis** (`hcovS`): at every point of $\\mathrm{supp}\\,\\Theta$ an oriented tame structure describing $\\hat\\Theta$ whose sheets lie in one graph chart and whose nonempty boundary sheets lie in the class of the integration over countably many graph charts (the class condition `hcov` of gap G.109; for 9.5.18 also LUC on $U(x)$). The proof is the one on pp. 450–451: finitely many oriented tame structures at points $x_k$ and sc-smooth $\\beta_k$, constant on the orbits, with $\\mathrm{supp}\\,\\beta_k \\subseteq U(x_k)^*$ and $\\sum_k \\beta_k = 1$ on $\\mathrm{supp}\\,\\Theta$ give $\\int_{\\hat\\Theta} d\\omega = \\sum_k \\frac{1}{\\sharp G_{x_k}} \\sum_i \\sigma_i \\int_{\\partial(M_i,o_i)} \\beta_k\\omega$ for every $n = m + 1 \\ge 1$ (`theorem_9_5_17_boundary_sum_all`, `theorem_9_5_18_boundary_sum_all`, `stokes_of_partition_all`; first for $n \\ge 2$, `theorem_9_5_17_boundary_sum`); Part I's boundary integral of a sheet $\\int_{\\partial(M_i,o_i)}$ equals the integral over the boundary stratum $\\partial_1 M_i$ with the orientation $o_{\\partial M_i}$ of Definition 9.3.8 (`boundaryIntegral_eq_msInteg`), and $\\mu^\\partial$ is local (`boundaryMeasure_univ_eq`, `boundaryMeasure_eq_zero_of_integ_eq_zero`). Built for it: $\\beta\\omega \\in \\Omega^k_{ep,\\infty}(X)$ (`epFormsInftySmul`); the restriction of a class represented on any level $X^i$ to a tame sheet is its value on the frames of the tangent spaces, so the integral of §9.5 is Part I's manifold integral for all classes (`formsInftyRestrict_epFormsInftyToObj`, `epFormsInftyEval_integ_eq_integral`); the sheets of an oriented tame structure are oriented sheets for the tangent orientation of Definition 9.3.3 (`orientedSheet`). Witness with $\\partial S \\ne \\emptyset$: the closed upper hemisphere in $[0,\\infty)\\times\\mathbb R^2$ with the trivial ep-groupoid, $m = 1$ (`e8_hemisphere_stokes`, `e8w_stokes_hypotheses`); it has no corners and no branching, and no witness of the LUC part of 9.5.18 is built. **Not formalized**: the class condition near the corners of the sheets ($d \\ge 2$; the closed faces as submanifolds, estimate 800–1,200 lines); the case $m = 0$ of the form with $\\mu^\\partial$ (the multi-chart class needs $m > 0$); Remark 9.5.20 (its M-polyfold $X \\subseteq \\mathbb R \\times \\mathbb C$ with dimension jumps $0 \\to 3 \\to 0$ and the $\\mathbb Z_3$-action are not constructed; estimate 2,000–3,500 lines) (Findings, Chapter 9, items 85, 117, 119).",
    "decls": [
     "Chapter9/GapP2_E2Stokes · EpGroupoid.theorem_9_5_17_of_localization",
     "Chapter9/GapP2_E2Stokes · EpGroupoid.TameBranchingStructure.stokes_sheets",
@@ -2627,7 +2959,50 @@
     "Chapter9/GapP2_E2Stokes · EpGroupoid.NaturalRep.exists_ultrafilter_le_nhds",
     "Chapter9/GapP2_E2Stokes · MPolyfold.OrientedSheet",
     "Chapter9/GapP2_E2Stokes · MPolyfold.OrientedSheet.stokes",
-    "Chapter9/GapP2_E2Stokes · MPolyfold.stokes_formsInftyRestrict_of_isCompact"
+    "Chapter9/GapP2_E2Stokes · MPolyfold.stokes_formsInftyRestrict_of_isCompact",
+    "Chapter9/GapP2_E5_Stokes · EP.theorem_9_5_17_boundary_sum",
+    "Chapter9/GapP2_E5_Stokes · EP.theorem_9_5_18_boundary_sum",
+    "Chapter9/GapP2_E5_Stokes · EP.theorem_9_5_17_of_boundary",
+    "Chapter9/GapP2_E5_Stokes · EP.theorem_9_5_18_of_boundary",
+    "Chapter9/GapP2_E5_Stokes · EP.stokes_of_partition",
+    "Chapter9/GapP2_E5_Stokes · EP.exists_stokes_partition",
+    "Chapter9/GapP2_E5_Stokes · EP.exists_boundary_functional",
+    "Chapter9/GapP2_E5_StokesSheet · EP.stokes_one_structure",
+    "Chapter9/GapP2_E5_StokesSheet · EP.integ_d_smul_eq_boundaryIntegral",
+    "Chapter9/GapP2_E5_StokesSheet · EpGroupoid.OrientedTameStructure.orientedSheet",
+    "Chapter9/GapP2_E5_MeasureLocal · EpGroupoid.measure_univ_eq_of_integ_eq_zero",
+    "Chapter9/GapP2_E5_LevelRestrict · EP.formsInftyRestrict_epFormsInftyToObj",
+    "Chapter9/GapP2_E5_LevelRestrict · EP.epFormsInftyEval_integ_eq_integral",
+    "Chapter9/GapP2_E5_FunForm · EP.epFormsInftySmul",
+    "Chapter9/GapP2_E5_FunForm · EP.epFormsInftyEval_epFormsInftySmul",
+    "Chapter9/GapP2_E5_FunForm · EP.sum_epFormsInftySmul",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_17_boundary_sum_all",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_18_boundary_sum_all",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_17_of_boundary_all",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.theorem_9_5_18_of_boundary_all",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.stokes_of_partition_all",
+    "Chapter9/GapP2_E6_StokesDim1b · EP.exists_boundary_functional_all",
+    "Chapter9/GapP2_E6_StokesDim1 · EP.formsInftyRestrict_epFormsInftySmul_all",
+    "Chapter9/GapP2_E6_StokesDim1 · EP.stokes_one_structure_all",
+    "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_17_msheets",
+    "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_18_msheets",
+    "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_17_hyp",
+    "Chapter9/GapP2_E8_Stokes · EP.theorem_9_5_18_hyp",
+    "Chapter9/GapP2_E8_Stokes · EP.stokes_of_boundaryMeasure",
+    "Chapter9/GapP2_E8_Stokes · EP.boundaryBranchedMeasure",
+    "Chapter9/GapP2_E8_Stokes · EP.boundaryBranchedMeasureEff",
+    "Chapter9/GapP2_E8_Stokes · EP.hcovB_of_hcovS",
+    "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.IsBoundaryLocal",
+    "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.boundaryMeasure_univ_eq",
+    "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.boundaryMeasure_eq_zero_of_integ_eq_zero",
+    "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.OrientedTameStructure.exists_restrict_subset",
+    "Chapter9/GapP2_E8_BoundaryLocal · EpGroupoid.OrientedTameStructure.boundarySheet_eq_empty",
+    "Chapter9/GapP2_E8F_BoundaryIntegral · EP.boundaryIntegral_eq_msInteg",
+    "Chapter9/GapP2_E8F_BoundaryIntegral · EpGroupoid.FormEval.boundaryIntegral_eq_msInteg",
+    "Chapter9/GapP2_E8F_FaceFrame · MPolyfold.faceFrame_mem_stratumOrientation_iff",
+    "Chapter9/GapP2_E8_Hemisphere · E8W.e8_hemisphere_stokes",
+    "Chapter9/GapP2_E8W_Witness · E8W.e8w_stokes_hypotheses",
+    "Chapter9/GapP2_E8W_Witness · E8W.e8w_hcov"
    ]
   }
  ]

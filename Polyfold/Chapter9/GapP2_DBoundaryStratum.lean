@@ -31,6 +31,9 @@ The text: for a tame `Mᵢ`, a smooth manifold with boundary with corners, "the 
 with boundary (`remark_4_2_2_dA_one`, `Chapter4/GapP1_Remark422One.lean`), with boundary the
 stratum; the tangent space of the stratum is read as `T^R_yA` (`boundaryCarrier`).  The stratum is
 not built here as a submanifold of its own.
+(2026-11-13) It is built as one, of dimension `n - 1` with tangent spaces `T^R_yA`, in
+`GapP2_E6_StratumRetraction.lean` and `GapP2_E6_StratumTangent.lean`
+(`isSubmanifoldOfDim_stratumOne`).
 -/
 
 set_option maxSynthPendingDepth 3

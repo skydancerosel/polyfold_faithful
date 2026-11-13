@@ -10960,7 +10960,12 @@ Found while formalizing §9.3 (2026-11-08).
     (`chartVec_image_boundaryCarrier`), outward means "in `T_yM`, not in `C_yM`" (`isOutward_iff_not_mem_partialCone`),
     and the boundary operation `boundaryOp` built from them does not depend on the outward vector (`boundaryOp_eq`)
     (`Polyfold/Chapter9/BoundaryOperation.lean`; item 108). Status: **settled** except the continuity of `o_{∂M}` (gap
-    G.103).
+    G.103); the continuity settled 2026-11-09 (item 110), the stratum as an oriented submanifold 2026-11-13 (item 119;
+    gap G.103 closed).
+    (2026-11-13) For a tame sheet the stratum `{d_M = 1}` is a smooth `(n−1)`-dimensional submanifold of `X` with
+    tangent spaces `T^R_yM` (`isSubmanifoldOfDim_stratumOne`, `submanifoldTangent_stratumOne`), oriented by `o_{∂M}`
+    in the sense of Definition 9.3.3 (`stratumOrientation`); in corner coordinates the convention is "outward normal
+    `Tι(−eᵢ)` first" (`incFrame_mem_boundaryFramesAt_iff`). Item 119.
 
 58. **(9.11), Proposition 9.3.9 (new in the 2021 edition), Definition 9.3.10 and Remark 9.3.11** *(pp. 427–429
     (2017: Definition 9.11, p. 314))*. The split by degree (`degreePart`, `degreePart_orientedSum`,
@@ -10971,7 +10976,12 @@ Found while formalizing §9.3 (2026-11-08).
     formalized (gap G.103); Remark 9.3.11 has no formal content. Status: **open** (gap G.103).
     (2026-11-09) Proposition 9.3.9 and (9.12) hold with the boundary operation built from the `Mᵢ`, with no data
     hypothesis (`proposition_9_3_9_boundaryOp`), and the intrinsic `T̂_{∂Θ}` (`boundaryOrientation`) agrees with it for
-    oriented tame `Θ̂` (item 108). The continuity and Figure 9.1 stay open (gap G.103).
+    oriented tame `Θ̂` (item 108). The continuity and Figure 9.1 stay open (gap G.103); settled since, the continuity
+    on 2026-11-09 (item 110) and Figure 9.1 on 2026-11-13 (item 119; gap G.103 closed).
+    (2026-11-13) For a face-structured tame sheet Part I's face orientation is `o_{∂M}` at the points with `d_M = 1`
+    (`faceOrientation_eq_iff_mem_stratumOrientation`), and the orientation of the open face extends to exactly one
+    continuous orientation of the closed face, Part I's `faceOrientation` (`figure_9_1_existsUnique_faceOrientation`).
+    Not formalized: the orientations of the faces of the faces (the caption's last sentence). Item 119.
 
 Found while formalizing §9.4 (2026-11-08).
 
@@ -11098,12 +11108,16 @@ Found while formalizing §9.5 (2026-11-08).
     needs the independence of Theorem 9.2.1, through the local formula for `∂Θ` on every structure
     (`exists_mem_of_sum_pos`). `(n−1)`-dimensional measure zero in the `∂Mᵢ` is a second abstract system on the
     boundaries; its description face by face is not formalized, and no witness with `∂S ≠ ∅` is given (gap
-    G.108). Status: **open** in part (2026-11-12, below and item 117; gap G.108 in part).
+    G.108). Status: **settled** (2026-11-13, below and item 119; gap G.108 closed; open in part 2026-11-12, item 117).
     (2026-11-12) Face by face, measure zero in `∂Mᵢ` is `IsFaceNull` for a face-structured tame sheet, a proper
     σ-ideal; for `n = 1` the boundary null sets are a `SheetNullSets` with no hypothesis (`SheetNullSets.point`), and
     `Θ = 1` on `[0, ∞)` is a witness with `∂S = {|0|} ≠ ∅` (`halfLine_orbitSupp_boundary_nonempty`,
     `Polyfold/Chapter9/GapP2_E2BoundaryNull.lean`). For `n ≥ 2` the boundary null sets of a general M-polyfold are not
     built (item 117).
+    (2026-11-13) For every `n`: the `(n−1)`-dimensional Hausdorff null sets in the ambient charts form a null-set
+    system on the boundaries of tame sheets with no hypothesis (`MPolyfold.boundaryNullSets`), since a nonempty `∂M`
+    is not null (`not_isHNull_submanifoldBoundary`); Definition 9.5.14 is `lebesgueSigmaBoundaryH`
+    (`Polyfold/Chapter9/GapP2_E5_BoundaryNull.lean`, `GapP2_E5_BoundaryNullSigma.lean`). Item 119.
 
 84. **Lemmas 9.5.9–9.5.11 and Proposition 9.5.13: the isotropy and set parts** *(Lemma 9.5.9, p. 442, Lemma
     9.5.11, p. 445 (2017: Lemmas 9.18, 9.19, p. 326); Lemma 9.5.10, p. 444, and Proposition 9.5.13, p. 446, new
@@ -11123,10 +11137,12 @@ Found while formalizing §9.5 (2026-11-08).
     `isFunctorial_reduced_iff`, `LocalBranchingStructure.toReduced`, `card_effIsotropy_eq_reduced`, the morphism
     space of `X_R` being Hausdorff and paracompact by instances (Hausdorff under LUC). The combinatorics of
     Lemma 9.5.7 is `proposition_9_4_10`. Status: **settled** for these parts, and (2026-11-12, item 118) the measure
-    identities for every `SheetIntegration`; the integrals of forms over the sheets open (gap G.107 in part).
+    identities for every `SheetIntegration`; the integrals of forms over the sheets open (gap G.107 in part); settled
+    for the integrals of sc-forms on 2026-11-13 (item 119; gap G.107 closed).
     (2026-11-12) For every `SheetIntegration` the measure identities are proved: `OrientedTameStructure.lemma_9_5_9`,
     `lemma_9_5_10`, `lemma_9_5_11` (`Polyfold/Chapter9/GapP2_E1_LocalMeasure.lean`) and Proposition 9.5.13 (1)
-    (`proposition_9_5_13_1`); in (2) the normalizing factors only. Item 118.
+    (`proposition_9_5_13_1`); in (2) the normalizing factors only (2026-11-13: (2) at the level of the integrals,
+    `proposition_9_5_13_2`, item 119). Item 118.
 
 85. **Not formalized in §9.5: forms, integrals, measures and Stokes' theorem** *(pp. 438–452 (2017 pp.
     323–331))*. Theorems 9.5.4 (2017: 9.2) and 9.5.5 (new in 2021), Definition 9.5.6, (9.21)–(9.22), the measure
@@ -11134,13 +11150,18 @@ Found while formalizing §9.5 (2026-11-08).
     Theorems 9.5.15 (2017: 9.3) and 9.5.16 (new in 2021), the canonical boundary measures (gap G.109); Theorems
     9.5.17 (2017: 9.4) and 9.5.18 (new in 2021), Stokes' theorem, and Remark 9.5.20 (gap G.110). All need the
     sc-differential forms of §8.2 and Part I (gaps G.74, G.80). Remark 9.5.12 (history and open questions) and
-    Remark 9.5.19 (on the partition-of-unity hypothesis) have no formal content. Status: **open** in part (2026-11-12,
-    below and items 117, 118; gaps G.107, G.109, G.110 in part).
+    Remark 9.5.19 (on the partition-of-unity hypothesis) have no formal content. Status: **open** in part (2026-11-13,
+    below and items 117–119; gap G.107 closed, gaps G.109, G.110 in part).
     (2026-11-12) Theorems 9.5.4, 9.5.5, Definition 9.5.6, (9.21), Lemma 9.5.7 and Lemmas 9.5.9–9.5.11 are proved for
     an abstract integration of forms over the oriented sheets (`SheetIntegration`, item 118); Theorems 9.5.15, 9.5.16
     from local expressions agreeing on overlaps (`theorem_9_5_15_of_overlap`) and Theorems 9.5.17, 9.5.18 from the
     localization of the proof (`theorem_9_5_17_of_localization`) (item 117). The integral of an sc-form over a sheet
     of dimension `n ≥ 1`, (9.22) and Remark 9.5.20 are not formalized.
+    (2026-11-13) The integral of an sc-form over a sheet of dimension `n ≥ 1` is constructed, with Theorems 9.5.4,
+    9.5.5 as printed, (9.22) and Proposition 9.5.13 (2); Theorems 9.5.15–9.5.18 hold for `n ≥ 2` with the boundary
+    measures of the text, under a class condition on the boundary sheets near their corners (`hcov`, `hcovS`),
+    satisfiable with `∂S ≠ ∅` (item 119). Open: that class condition near the corners, `n = 1` for the form with
+    `μ^∂`, the form `f·ω` for a non-constant `f`, and Remark 9.5.20.
 
 Found while formalizing Appendix §9.6.1 (2026-11-08).
 
@@ -11345,7 +11366,8 @@ Follow-up for the notes to the authors (2026-11-09).
      `boundaryLift_boundaryOp_eq_boundaryOrientation`). The situation occurs at the corner of `[0, ∞)`
      (`exists_isBoundaryAdmissible_halfLine`). Not formalized: that `o_{∂M}` fits continuously together along `∂M`,
      which needs the stratum `{d_M = 1}` as a smooth submanifold, the extension to the closed faces (Figure 9.1) and
-     Remark 9.3.11. Status: **settled** except the continuity (gap G.103; rows V9.36–V9.38).
+     Remark 9.3.11. Status: **settled** except the continuity (gap G.103; rows V9.36–V9.38); the continuity settled
+     2026-11-09 (item 110), the rest 2026-11-13 (item 119; gap G.103 closed).
      (2026-11-09) `T_xX` now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at
      smooth points (gap G.7 closed, Chapter 2, item 87); this statement is not restated with it.
      (2026-11-09) The continuity of `o_{∂M}` is proved along the stratum of reduced codimension `1`, without tameness
@@ -11393,12 +11415,15 @@ Follow-up for the notes to the authors (2026-11-09).
      (`OrientationAlong.toSubmanifoldOrientation`). Every sheet of dimension `m + 1` of an oriented branching structure
      carries it (`OrientedBranchingStructure.exists_boundaryOrientation`), which is the continuity used in (9.12). The
      text takes the continuity as immediate; it needs no tameness, only reduced codimension `1`. Not formalized: the
-     stratum as a smooth submanifold of `∂M`, the extension to the closed faces (Figure 9.1) and Remark 9.3.11. Status:
-     **settled** for the continuity (rows V9.36, V9.38; gap G.103 open in part).
+     stratum as a smooth submanifold of `∂M`, the extension to the closed faces (Figure 9.1) and Remark 9.3.11.
+     Status: **settled** for the continuity (rows V9.36, V9.38; gap G.103 open in part; closed 2026-11-13, item 119).
      (2026-11-12) For a sheet with tame induced structure the stratum is open and dense in `∂M`
      (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`,
      `Polyfold/Chapter9/GapP2_DBoundaryStratum.lean`); it is not built as a submanifold of its own. Remark 9.3.11 is a
      comment, with nothing to formalize.
+     (2026-11-13) The stratum is a smooth `(n−1)`-dimensional submanifold of `X`, oriented by `o_{∂M}`
+     (`isSubmanifoldOfDim_stratumOne`, `stratumOrientation`, `Polyfold/Chapter9/GapP2_E6_StratumRetraction.lean`,
+     `GapP2_E6_StratumTangent.lean`, `GapP2_E6_BoundaryOrientation.lean`). Item 119.
 
 111. **Lemma 9.4.3 (gap G.104 closed)** *(Lemma 9.4.3, p. 430 (2017: Lemma 9.12, p. 316); item 71)* (2026-11-09).
      `Polyfold/Chapter9/PropertyTShrinking2021.lean`. `OrientedBranchingStructure.lemma_9_4_3`: every oriented
@@ -11463,6 +11488,9 @@ Follow-up for the notes to the authors (2026-11-09).
      diffeomorphisms (`remark_9_1_10_orbifold_etale`); the composition is sc-smooth, as for every ep-groupoid, and is
      not stated as Mathlib-smooth. No counterexample; nothing is found not to hold as we read it. Status: **settled**
      (rows V9.63 same, V9.64 restated, V9.65 narrower).
+     (2026-11-13) All hypotheses together, including `supp(Θ) ≠ ∅`, hold for the x-axis of `ℝ²`
+     (`remark_9_1_10_hypotheses_axis`, `axis_isManifoldType`, `axis_degIndexOrbit_eq_zero`, `nonempty_supp_axis`,
+     `Polyfold/Chapter9/GapP2_C2Witness.lean`).
 
 115. **Example 9.3.5: all orientations classified (gap G.101 closed)** *(Example 9.3.5, p. 425 (2017: Example 9.1, p.
      313); item 54)* (2026-11-12). `Polyfold/Chapter9/GapP2_DExample935.lean`, `GapP2_D2Example935Sheets.lean`,
@@ -11519,7 +11547,8 @@ Follow-up for the notes to the authors (2026-11-09).
      `supp β_k` is closed and saturated in `U_k^*`, `S` is compact, and `U(x) → |U(x)|` is proper for the natural
      action (`TameBranchingStructure.isCompact_inter`); the properness property of `U(x)` is not needed for this step
      (`OrientedSheet.stokes`). (4) Remark 9.5.20 has content (an M-polyfold in `ℝ × ℂ` with a jump of dimension); it
-     is not formalized. Status: **settled** for the readings; gaps G.108, G.109, G.110 open in part.
+     is not formalized. Status: **settled** for the readings; gaps G.108, G.109, G.110 open in part (2026-11-13: gap
+     G.108 closed; Theorems 9.5.15–9.5.18 with the boundary measures of the text under a class condition, item 119).
 
 118. **§9.5 for an abstract integration of forms over the sheets (gap G.107 in part)** *(Theorems 9.5.4, 9.5.5,
      Definition 9.5.6, (9.20)–(9.21), Lemma 9.5.7, pp. 438–441; Lemmas 9.5.9–9.5.11, pp. 442–445; Proposition 9.5.13,
@@ -11536,11 +11565,71 @@ Follow-up for the notes to the authors (2026-11-09).
      needs, for a measurable `K ⊆ |M_U| ∩ |M_U'|`, countably many of the neighbourhoods of Lemmas 9.5.9, 9.5.11, which
      is where the sheets being Lindelöf enters (`overlap`, `exists_slice_pair`); (3) the effective clause of Lemma
      9.5.11 holds without LUC and without shrinking `U`; (4) the decomposition of Proposition 9.4.10 is redone with
-     measurable pieces (`sum_integ_eq_zero`). Not formalized: the integral of an sc-form over an oriented sheet of
-     dimension `n ≥ 1` as a `SheetIntegration`, (9.22), Proposition 9.5.13 (2) at the level of the integrals, and a
-     witness of the covering hypothesis of `theorem_9_5_4` with `supp(Θ) ≠ ∅`. No counterexample; nothing is found not
+     measurable pieces (`sum_integ_eq_zero`). Not formalized on 2026-11-12: the integral of an sc-form over an
+     oriented sheet of dimension `n ≥ 1` as a `SheetIntegration`, (9.22), Proposition 9.5.13 (2) at the level of the
+     integrals, and a witness of the covering hypothesis of `theorem_9_5_4` with `supp(Θ) ≠ ∅`; all four are
+     formalized since 2026-11-13 (item 119), the witness with compact support (the unit circle). No counterexample;
+     nothing is found not
      to hold as we read it. Status: **settled** for a `SheetIntegration` (rows V9.54–V9.57, V9.66, narrower); gap
-     G.107 open in part.
+     G.107 open in part. Since 2026-11-13 settled for sc-forms (item 119; rows V9.54–V9.56, V9.66 explicit, V9.57
+     restated, V9.69 explicit; gap G.107 closed).
+
+119. **§9.5 for sc-forms: the integrals over the sheets, the boundary stratum, the boundary null sets and measures,
+     and Stokes' theorem (gaps G.103, G.107, G.108 closed; G.109, G.110 in part)** *(Definitions 9.3.8, 9.3.10 and
+     Figure 9.1, pp. 427–429; Theorems 9.5.4, 9.5.5, (9.22), pp. 438–441; Proposition 9.5.13, p. 446; Definition
+     9.5.14, Theorems 9.5.15–9.5.18, pp. 448–451 (2017: Definitions 9.9, 9.11, 9.17, (9.18), Theorems 9.2–9.4); items
+     57, 58, 83–85, 108, 110, 117, 118)* (2026-11-13). `Polyfold/Chapter9/GapP2_E3_*.lean`, `GapP2_E4_*.lean`,
+     `GapP2_E5_*.lean`, `GapP2_E6_*.lean`, `GapP2_E7_*.lean`, `GapP2_E8_*.lean`, `GapP2_E8F_*.lean`,
+     `GapP2_E8W_*.lean`, `GapP2_D3FaceOrientation.lean`. The integral of `ω ∈ Ωⁿ_ep(X)` or `Ωⁿ_{ep,∞}(X)`, `n ≥ 1`,
+     over a measurable subset of an oriented `n`-dimensional submanifold is the Lebesgue integral of `±ω(∂₁, …, ∂ₙ)`
+     in a graph chart (`FormEval.integ`); over sheets covered by countably many graph charts it is a
+     `SheetIntegration` (`FormEval.msheetIntegration`) containing the sheets of every oriented tame structure of a
+     compact `n`-dimensional `Θ` (`msheets_of_orientedTameStructure`), so Theorems 9.5.4, 9.5.5 hold as printed
+     (`theorem_9_5_4_full`, `theorem_9_5_5_full`; witness: the unit circle, `circle_theorem_9_5_4_full`). Readings:
+     (1) the text's `∫_{Kᵢ} ω|Mᵢ` over a measurable subset of a non-compact sheet presupposes the finiteness of
+     `∫_{Mᵢ}|ω|`, used without comment; it follows from the compactness of `|supp Θ|` and the properness property of
+     `U(x)` (`msheets_of_orientedTameStructure`). (2) "Oriented, tame" is read as `hloc`: near every point of the
+     support an oriented tame structure describes `T̂Θ`. Without boundary it follows from `n`-dimensionality and the
+     orientation (`hloc_of_degIndex_eq_zero`); with boundary the one step between the printed hypotheses and `hloc`,
+     that the oriented local structures can be taken with tame sheets, is the reading of "tame". (3) The comparison of
+     the integrals over two sheets on `K ⊆ Mᵢ ∩ Mⱼ` (proof of Lemma 9.5.7) is a change of variables on a measurable
+     set that need not be a manifold, with the derivative taken within the set where `T_yMᵢ = T_yMⱼ`
+     (`chartInteg_congr`); an open piece of a tame sheet is tame (`HasTameInducedStructure.inter_isOpen`), used
+     whenever a structure is restricted. (4) (9.22): `f·ω` is read through the evaluation on the frames of the sheets
+     (`FormEval.IsMul`), and `dμ_τ = f̄ dμ_ω` holds globally on `L(S)` for bounded measurable `f̄`
+     (`branchedMeasure_eq_setIntegral_mul`); the form `f·ω` for a non-constant sc-smooth `f` is not built. (5)
+     Proposition 9.5.13 (2): "the same local branching structure for `Θ̂'`" needs the natural `G^R_x`-action on
+     `U(x)`, which holds under LUC for the given `U(x)` (`NaturalRep.toReduced`); a form of `X` is one of `X_R` since
+     `T[φ] = Tφ` (`tangentMor_reducedπ`); the two measures live on `|supp Θ|` in `|X|` and in `|X_R|` and are compared
+     through `orbitSuppHomeomorphReduced` (`proposition_9_5_13_2`). (6) The text treats `∂M` near a point with
+     `d_M = 1` as a manifold: the stratum is the image of the sc⁺-retraction `ι∘κ⁻¹∘(yᵢ ↦ 0)∘κ∘s`
+     (`isSmoothSubmanifold_stratumOne`) with tangent spaces `T^R_yM`; the corners `{d_M ≥ 2}` are `(n−1)`-null in `∂M`
+     (`isHNull_submanifoldBoundary_diff_boundaryStratum`). (7) Figure 9.1: "the interiors of the boundary faces" are
+     read as the points of a face with `d_M = 1`, dense in the face (`dense_faceStratum`), and "extend the orientation
+     of the interior to the boundary of the face" as existence and uniqueness of a continuous extension
+     (`figure_9_1_existsUnique_faceOrientation`), for face-structured sheets. (8) Theorems 9.5.15, 9.5.16
+     (`theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`): the boundary sheets `∂₁Mᵢ` with `o_{∂Mᵢ}` form an oriented
+     sheet family described by `T̂_{∂Θ}` (`boundaryFamily`), to which the machinery of Theorem 9.5.4 applies
+     (`existsUnique_familyMeasure`); the sum runs over the nonempty `∂₁Mᵢ`, and `n`-dimensionality is stated
+     explicitly. (9) The text integrates over `∂₁Mᵢ` (pp. 448–451) without stating that these integrals are finite
+     near the corners of `Mᵢ`; this tacit assumption is the class condition `hcov` (`hcovS` for Theorems 9.5.17,
+     9.5.18, with sheets in one graph chart), not derived near the corners; it holds for compact boundary sheets
+     (`hcov_msheets_of_isCompact`) and for the closed upper hemisphere in `[0, ∞) × ℝ²` (`e8w_hcov`,
+     `e8_hemisphere_stokes`). That witness has no corners, no branching and trivial isotropy, so it shows joint
+     satisfiability with `∂S ≠ ∅`, not the corner case, the isotropy weights or the LUC part of Theorem 9.5.18. (10)
+     In the proof of Theorems 9.5.17, 9.5.18 (pp. 450–451), the step `μ_{dω_k}(S) = c_k ∑ σᵢ ∫_{(Mᵢ,oᵢ)} dω_k` uses,
+     beyond the local formula, that the measure of a form vanishing on the sheets off a closed saturated `C ⊆ U_k^*`
+     is carried by `|C|` (`measure_univ_eq_of_integ_eq_zero`) and the locality of `d` on the sheets; `supp β_k` is the
+     closed support, saturated since `β_k` is constant on the orbits; `ω` is read in `Ω^{n−1}_{ep,∞}(X)`, so `dω`
+     lives one level up, and the integral of §9.5 is compared with Part I's for classes on every level
+     (`epFormsInftyEval_integ_eq_integral`); Part I's face integrals of a sheet are the §9.5 integral over `∂₁Mᵢ` with
+     `o_{∂Mᵢ}` (`boundaryIntegral_eq_msInteg`). Not formalized: the class condition near the corners of the sheets
+     (`d ≥ 2`), the form of Theorems 9.5.17, 9.5.18 with `μ^∂` for `n = 1` (the boundary-sum form holds for every
+     `n ≥ 1`, `theorem_9_5_17_boundary_sum_all`), the form `f·ω` for a non-constant `f`, the orientations of the faces
+     of the faces, and Remark 9.5.20 (its M-polyfold with dimension jumps `0 → 3 → 0` is not constructed). No
+     counterexample; nothing is found not to hold as we read it. Status: **settled** for gaps G.103, G.107, G.108
+     (rows V9.36, V9.38, V9.52, V9.54–V9.57, V9.66, V9.69); gaps G.109, G.110 open in part (rows V9.67, V9.68,
+     narrower).
 
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
@@ -12157,11 +12246,11 @@ the tangent functor and faces (`Chapter11/EpEquivalenceGeometry.lean`, `EpEquiva
 §11.2, sc-differential forms (`GapP2_B2_*.lean`, since 2026-11-12); 30–39: §11.3 up to Theorem 11.3.3, branched
 ep⁺-subgroupoids (`BranchedEquivalence.lean`, `BranchedEquivalenceLocalization.lean`); 40–49: the rest of §11.3, Lemma
 11.3.4 to Theorem 11.3.9 (`BranchedEquivalenceTangentSection.lean`, `BranchedEquivalenceTangent.lean`,
-`BranchedEquivalenceTangentOrientation.lean`); 50–59: §11.4, integration (not formalized); 60–69: §11.5, auxiliary
-norms and multisections (`StrongBundleUpToEquivalence.lean`); 70–79: §11.6, proper coverings up to equivalence
-(`CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean`, `CoveringEquivalenceDiagram.lean`); 80–89: witnesses
-and the hypotheses taken. Statement numbers and pages are those of the Springer edition (2021, pp. 521–566), with the
-2017 text's in parentheses (2017 pp. 375–416). The comparison items are `Exposition/verification/ch11.md`
+`BranchedEquivalenceTangentOrientation.lean`); 50–59: §11.4, integration (`GapP2_H4*.lean`, since 2026-11-13); 60–69:
+§11.5, auxiliary norms and multisections (`StrongBundleUpToEquivalence.lean`); 70–79: §11.6, proper coverings up to
+equivalence (`CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean`, `CoveringEquivalenceDiagram.lean`); 80–89:
+witnesses and the hypotheses taken. Statement numbers and pages are those of the Springer edition (2021, pp. 521–566),
+with the 2017 text's in parentheses (2017 pp. 375–416). The comparison items are `Exposition/verification/ch11.md`
 (V11.1–V11.43); the gaps are G.128–G.135.
 
 Found while formalizing §11.1 (2026-11-08).
@@ -12430,7 +12519,7 @@ Found while formalizing the rest of §11.3, Lemma 11.3.4 to Theorem 11.3.9 (2026
 
 Found while reading §11.4 (2026-11-08).
 
-50. **§11.4 is not formalized** *(Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017:
+50. **§11.4: integration up to equivalence (formalized since 2026-11-13, Theorems 11.4.4, 11.4.5 in part)** *(Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017:
     Theorems 11.8, 11.9 and Remark 11.3, pp. 396–399); Theorems 11.4.2 and 11.4.5 new in the 2021 edition)*. The
     transformation of the canonical measures and boundary measures under generalized isomorphisms needs
     sc-differential forms (G.74, G.80), branched integration and the boundary measures (G.107–G.109), and the
@@ -12442,6 +12531,29 @@ Found while reading §11.4 (2026-11-08).
     `|f|_*μ` with `μ` by the uniqueness in Theorem 9.5.5. Estimate: Theorems 11.4.1/11.4.2 600–1,000 lines, Remark
     11.4.3 about 100, Theorems 11.4.4/11.4.5 300–400 more; unconditional versions wait for sheet integrals in
     dimension ≥ 1.
+    (2026-11-13) Formalized (`Chapter11/GapP2_H4*.lean`, thirteen files; rows V11.27–V11.29). Theorem 11.4.1 and
+    Remark 11.4.3 are proved for the concrete branched integrals of Chapter 9 (`EPLoc.theorem_11_4_1_pull`,
+    `EPLoc.theorem_11_4_1_push`, `EPLoc.remark_11_4_3`), and Theorem 11.4.2 the same way for the effective measures
+    under LUC (`EPLoc.theorem_11_4_2_pull`, `EPLoc.theorem_11_4_2_push`), with no hypothesis beyond the text's.
+    Reading points: (1) besides the text's steps, the proof needs that `|f|` preserves the σ-algebras `L`: the moved
+    local branching structures carry sets of measure zero to sets of measure zero, via Lemma 9.5.2, so `|f|` is a
+    measurable isomorphism of `(|supp Θ|, L)` onto `(|supp f_*Θ|, L)` (`measurable_suppMap`, `measurable_suppInv`);
+    the text uses this without comment. (2) For Theorem 11.4.2, the text's 'the proof is similar' uses that under LUC
+    the effective isotropy counts agree along the local sc-diffeomorphisms of an equivalence, `♯G_x^eff = ♯G_y^eff`,
+    from the equivariance of the transport charts (`TransportChart.card_effIsotropy_eq`). (3) Of the pull-back of
+    forms only two facts are used, `(Φ^*ω')(α) = ω'(TΦ α)` on the tangent spaces of submanifolds and surjectivity
+    (`FormEval.IsPullback`); the compatibility of sheet integrals along an equivalence is the change of variables
+    `integ_image_cross`. Theorems 11.4.4 and 11.4.5 are proved for the boundary measures of Theorems 9.5.15/9.5.16 in
+    their Lean form (`EPLoc.theorem_11_4_4_pull`, `_push`, `EPLoc.theorem_11_4_5_pull`, `_push`). Besides the text's
+    steps they need that `|f|` preserves `L(∂S)` (`measurable_bsuppMap`, `measurable_bsuppInv`) and that the class
+    hypothesis `hcov` of Theorems 9.5.15/9.5.16 passes along equivalences (`hcovB_pull`, `hcovB_push`); both follow
+    from `∂₁f(M) = f(∂₁M)` for a local sc-diffeomorphism `f`, with the boundary orientation carried along
+    (`boundaryStratum_image_cross`, `boundaryOrient_move_tangent`), and the multi-chart integrals change variables
+    along `f` (`msInteg_image_cross`). They carry `hcov` (nonempty boundary sheets in the class of integrated sheets;
+    satisfied by compact boundary sheets, `hcov_msheets_of_isCompact`, and with nonempty boundary by the closed upper
+    hemisphere, `E8W.e8w_hcov` with `EP.hcovB_of_hcovS`) and need `n ≥ 2`. Status: Theorems 11.4.1, 11.4.2 and Remark
+    11.4.3 **settled**; Theorems 11.4.4 and 11.4.5 **in part** (the class condition near the corners of the sheets,
+    Chapter 9 gap G.109, and `n = 1` are open) (gap G.131 in part).
 
 Found while formalizing §11.5 (2026-11-08).
 
@@ -12581,6 +12693,11 @@ Witnesses and the hypotheses taken (2026-11-08).
     `FaceMeetExample.XV` (item 9), `pair → point` for `PCLoc.I` (item 76), the identity of `ℝⁿ × ℝᵏ → ℝⁿ` for Theorem
     11.6.6 for SBPC (`SBPC.Examples.theorem_11_6_6_ep`), `SBPC.ofSEP` and `SBPC.equivalences_id`, and for the local
     regularity property of Propositions 11.2.8, 11.2.9 `EpGroupoid.Examples.isLR_trivialZ3`, `EP.lreg_pointEP`.
+    (2026-11-13) §11.4 takes no hypothesis of its own. `FormEval.IsPullback` in the abstract equivalence and diagram
+    forms is discharged for the forms of the text (`EP.epFormsInftyEval_isPullback`,
+    `IsEquivalence.epFormEval_isPullback`); Theorems 11.4.4 and 11.4.5 inherit the class hypothesis `hcov` of Theorems
+    9.5.15/9.5.16 (Lean) on the given subgroupoid, with the witnesses `hcov_zero`, `hcov_msheets_of_isCompact` and,
+    with nonempty boundary, the closed upper hemisphere (`E8W.e8w_hcov`, `EP.hcovB_of_hcovS`) (item 50).
 
 81. **Proposition 11.5.1 with conditions (1) and (2) of Definition 8.3.5 (gap G.132 closed)** *(Proposition 11.5.1, p.
     547 (2017: Proposition 11.6, p. 399); Definition 8.3.5; item 60)* (2026-11-09).

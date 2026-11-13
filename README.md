@@ -34,7 +34,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 829 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 832 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -123,16 +123,25 @@ GitHub displays it directly.
   and Proposition 9.1.12 hold for every ep-groupoid. The footnote to Definition 9.1.2 holds for `Θ`
   with nonempty support (for `Θ = 0` it does not hold as we read it), Lemma 9.4.3 holds as stated
   (G.104), and the boundary orientation of Definition 9.3.8 is continuous along the stratum of
-  reduced codimension 1, without tameness, and for a tame sheet that stratum is open and dense
-  in `∂M` (G.103 in part). Since 12 November 2026: Remark 9.1.4 and Proposition 9.1.9 hold, the
+  reduced codimension 1, without tameness; for a tame sheet that stratum is open and dense in `∂M`,
+  a smooth submanifold of dimension `n − 1` oriented by `o_∂M`, and Part I's face orientation is
+  `o_∂M` on it, which gives Figure 9.1 (G.103). Since 12 November 2026: Remark 9.1.4 and Proposition 9.1.9 hold, the
   latter with the text's groupoid `⊔M_x` and independent of the choices up to a generalized
   isomorphism; Remark 9.1.10 holds for `n`-dimensional `Θ`, the composition of the orbifold
   groupoid being sc-smooth (Mathlib has no classical orbifolds) (G.94, G.95). Example 9.3.5 has
   infinitely many orientations, six of them with integer weights (G.101). For the sheets of every
   M-polyfold, read in M-polyfold charts, Lemmas 9.4.4, 9.4.6 and 9.5.2 hold with Hausdorff null
-  sets (G.105, G.106). Theorems 9.5.4, 9.5.5 and Lemmas 9.5.7, 9.5.9–9.5.11 are proved for an
-  abstract integration of forms over the sheets, and Theorems 9.5.15–9.5.18 from their local
-  inputs; the integral of a form over a sheet is not yet constructed (G.107–G.110 in part).
+  sets (G.105, G.106). Since 13 November 2026 the integral of an sc-differential form over an
+  oriented sheet is constructed (in graph charts of the M-polyfold, over sheets covered by
+  countably many of them), and Theorems 9.5.4, 9.5.5, Definition 9.5.6, (9.22) and Proposition
+  9.5.13 hold for it, reading the text's "oriented, tame" as: near every point of the support an
+  oriented tame structure describes the orientation (derived when there is no boundary); the unit
+  circle in `ℝ²` witnesses the hypotheses (G.107). The `(n − 1)`-dimensional null sets of the
+  boundaries are Hausdorff null sets in the charts (G.108). The boundary measures of Theorems
+  9.5.15, 9.5.16 and Stokes' Theorems 9.5.17, 9.5.18 are proved under one added class condition
+  (the boundary sheets have finite integrals near the corners of the sheets), witnessed by a closed
+  hemisphere with nonempty boundary; that condition near corners, the case `n = 1` of the measure
+  form, and Remark 9.5.20 are open (G.109, G.110 in part).
 * **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.3
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
   equivalences, the category of generalized maps and the orbit-space functor, strong bundle
@@ -148,8 +157,7 @@ GitHub displays it directly.
   10.4.7 and 10.5.6 (Definition 8.4.2 read for local strong bundle isomorphisms), (10.24) with the
   local expressions `q`, `Q`, and the converse of the strong bundle Theorem 10.3.10 (the
   isomorphisms of `SEP(F⁻¹)` are exactly the generalized strong bundle isomorphisms).
-* **Part II, Chapter 11, is formalized** except §11.4 (integration up to equivalence, G.131),
-  which waits for the integral of forms over sheets of §9.5: the tangent functor on `EP(E⁻¹)`, the
+* **Part II, Chapter 11, is formalized**: the tangent functor on `EP(E⁻¹)`, the
   degeneracy index and the faces under generalized isomorphisms, with the faces as tame
   ep-groupoids and the generalized isomorphisms `[d]_F` (§11.1), the sc-differential forms up to
   equivalence (§11.2), branched
@@ -162,16 +170,19 @@ GitHub displays it directly.
   localization `PC(E⁻¹)` with `I : PC → PC(E⁻¹)` and the category of proper strong bundle
   coverings of Remark 11.6.9 with its localization (G.128, G.129, G.134, G.135 closed). The
   intersection clause of Proposition 11.1.6 does not hold as we read it (below, item 13); its
-  union form is proved.
-* About 339,400 lines of Lean in 647 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (16,454 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  union form is proved. Since 13 November 2026 also §11.4: generalized isomorphisms transform
+  the canonical measures and their effective versions by `|f|` (Theorems 11.4.1, 11.4.2, Remark
+  11.4.3), and the boundary measures under the class condition of Theorems 9.5.15, 9.5.16
+  (Theorems 11.4.4, 11.4.5; G.131 in part).
+* About 363,600 lines of Lean in 722 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (17,475 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (883 items, each with
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (886 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, extra, or nothing to
-  formalize), with a gap list of what is not formalized and why (G.1–G.135). 32 items are narrower
-  than the text, each with its reason; 123 of the 135 gaps are closed, 3 have nothing to formalize,
-  and 9 remain: G.61, G.65, G.80 in Part I, and in Part II G.103, G.107–G.110 (in part, §9.5) and
-  G.131 (§11.4).
+  formalize), with a gap list of what is not formalized and why (G.1–G.135). 30 items are narrower
+  than the text, each with its reason; 126 of the 135 gaps are closed, 3 have nothing to formalize,
+  and 6 remain, all in part: G.61, G.65, G.80 in Part I, and in Part II G.109, G.110 (§9.5, the
+  class condition near corners, `n = 1`, Remark 9.5.20) and G.131 (§11.4, the same condition).
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -341,11 +352,12 @@ than `(0, 1)` (G.51, closed for that domain). (Theorem 6.7.1 (preprint 6.43) is 
 cobordism since 12 November 2026, `theorem_6_7_1`, G.54 closed.) Not formalized either: the infinite-dimensional examples of the applications (splicings; the
 weighted Sobolev scale of Example 1.1.3 is formalized). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
-Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Part II (work under way): §11.4,
-integration up to equivalence (G.131), and in §9.5 the integral of an sc-differential form over an oriented
-sheet of dimension `n ≥ 1` with (9.22) (G.107), the `(n − 1)`-dimensional null sets in the boundaries for
-`n ≥ 2` (G.108), the local boundary expressions of Theorems 9.5.15–9.5.16 (G.109), the inputs of Stokes'
-theorem and Remark 9.5.20 (G.110), and the stratum `{d_M = 1}` as a submanifold with Figure 9.1 (G.103).
+Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Part II: in §9.5 the class condition of Theorems 9.5.15–9.5.18
+(finite integrals of the boundary sheets near the corners of the sheets; it needs the closed faces as
+submanifolds, estimated at 800–1,200 lines), the measure form of Stokes' theorem for `n = 1`, and the example
+of Remark 9.5.20 (an M-polyfold with dimension jumps `0 → 3 → 0`, estimated at 2,000–3,500 lines) (G.109,
+G.110 in part), and with them Theorems 11.4.4, 11.4.5 without the class condition (G.131 in part); the product
+`f·ω` of a form with a non-constant function in `Ω*_ep(X)` ((9.22) is proved through the evaluation).
 Also not formalized: Remark 9.1.10 for `Θ` of several dimensions; `W[1]` as an ep-groupoid (its orbit space
 is); the wedge product on `Ω*_{ep,∞}` as a graded algebra on the type (it is a DG subalgebra of Part I's);
 the side remark of Appendix 10.6.3 that Zhou's retract is homeomorphic to `ℝ² ∖ {(0, t) | t ≠ 0}`; and the

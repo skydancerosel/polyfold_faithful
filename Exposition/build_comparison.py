@@ -71,13 +71,14 @@ CHAPTERS = [
            'the orbit space, index lifting, paracompact orbit spaces, proper subsets, sc-smooth partitions of unity'),
     ('V8', 'Part II, Chapter 8', 'HWZ Part II, Chapter 8 §§8.1–8.3, 8.5–8.6, pp. 357–400 (2017 §§8.1–8.5, pp. 257–289; '
            'Part II has no 2014 preprint): the tangent of an ep-groupoid and the tangent '
-           'functor, sc-differential forms (not formalized), strong bundles over ep-groupoids and their sections, '
+           'functor, sc-differential forms and the sc-de Rham complex, strong bundles over ep-groupoids and their sections, '
            'proper covering functors, covering functors of finite groupoids and geometric lifts, proper strong bundle '
            'coverings'),
     ('V9', 'Part II, Chapter 9', 'HWZ Part II, Chapter 9 §§9.1–9.5, pp. 401–453 (2017 Chapter 9, pp. 291–332; '
            'Part II has no 2014 preprint): branched ep⁺-subgroupoids and local branching structures, the tangent and '
            'the boundary, good points, orientations, the geometry of local branching structures, sets of measure '
-           'zero and the canonical σ-algebras; branched integration and Stokes’ theorems are not formalized'),
+           'zero and the canonical σ-algebras, branched integration (Theorems 9.5.4, 9.5.5) and Stokes’ theorems '
+           '(Theorems 9.5.15–9.5.18 under an added class condition on the boundary sheets; Remark 9.5.20 not formalized)'),
     ('V10', 'Part II, Chapter 10', 'HWZ Part II, Chapter 10 §§10.1–10.6, pp. 461–520 (2017 Chapter 10, pp. 333–374; '
             'Part II has no 2014 preprint): equivalences of ep-groupoids and natural equivalences, the weak fibred '
             'product, localization at the system of equivalences and generalized maps, strong bundle equivalences, '
@@ -85,7 +86,8 @@ CHAPTERS = [
     ('V11', 'Part II, Chapter 11', 'HWZ Part II, Chapter 11 §§11.1–11.6, pp. 521–566 (2017 Chapter 11, pp. 375–416; '
             'Part II has no 2014 preprint): the tangent functor and faces up to equivalence, branched '
             'ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and '
-            'equivalences; sc-differential forms (§11.2) and integration (§11.4) are not formalized'),
+            'equivalences, sc-differential forms (§11.2) and integration up to equivalence (§11.4; Theorems 11.4.4, 11.4.5 '
+            'under the class condition of Theorems 9.5.15, 9.5.16)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

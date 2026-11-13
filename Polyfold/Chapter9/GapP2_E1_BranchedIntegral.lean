@@ -54,7 +54,8 @@ every point of `supp Θ`:
   9.5.5 it follows from the local unique continuation property only after shrinking the `U(x)`).
 * Proposition 9.5.13 (2) (the reduced ep-groupoid) is not in this file: it needs the natural
   representations of `X_R` built from those of `X`; the normalizing factors are in
-  `MeasureEffective.lean` (`card_effIsotropy_eq_reduced`).
+  `MeasureEffective.lean` (`card_effIsotropy_eq_reduced`).  (2026-11-13) It is in
+  `GapP2_E4_ReducedRep.lean` and `GapP2_E4_ReducedIntegral.lean` (`proposition_9_5_13_2`).
 -/
 
 set_option maxSynthPendingDepth 3

@@ -44,7 +44,10 @@ on which the sheets through a point have one tangent space and two classes of or
   (`MPolyfold.SheetGeometry`), they are the data of a structure, `SheetIntegration`; the forms are
   the elements of a real vector space `Ω`, seen through their integrals.  A witness is in
   `GapP2_E1_PointIntegration.lean` (dimension `0`: the sheets are points, the integral is the
-  signed value of an invariant function).
+  signed value of an invariant function).  (2026-11-13) For the sc-forms of Definitions 8.2.1,
+  8.2.2 and `n ≥ 1` the integral is constructed as a `SheetIntegration` in
+  `GapP2_E3_SheetIntegration.lean` (sheets in one graph chart) and
+  `GapP2_E4_MultiChartInteg.lean` (sheets covered by countably many graph charts).
 * The proof of (9.20) follows the text's, with the decomposition of Proposition 9.4.10 redone for
   measurable pieces: after removing the points where two sheets through a point have different
   tangent spaces (a null set in every sheet), `K` is cut into the finitely many pieces on which

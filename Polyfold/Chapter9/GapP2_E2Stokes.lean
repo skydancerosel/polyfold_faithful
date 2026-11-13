@@ -56,13 +56,19 @@ the standard Stokes theorem `∫_{(Mᵢ,oᵢ)} dω_k = ∫_{∂(Mᵢ,oᵢ)} ω_k
   is when `X` is second countable.
 * The orientation of a sheet is here a continuous Mathlib tangent orientation of the sheet with
   its corner charts; the passage from the orientations of Definition 9.3.3 is not formalized.
+  (2026-11-13) It is `OrientedTameStructure.orientedSheet` (`GapP2_E5_StokesSheet.lean`).
 
 ## Not formalized
 
 The measures `μ_ω`, `μ^∂_ω` (gaps G.107, G.109) and with them the second and fourth equalities
 (hypotheses here); the forms `β_k ω` (the product of an sc-form with an sc-smooth function, and
 that it vanishes on the sheets off `supp β_k`); Remark 9.5.20 (its M-polyfold `X ⊆ ℝ × ℂ` has a
-jump of dimension and is not constructed).
+jump of dimension and is not constructed).  (2026-11-13) Formalized since: the measures `μ_ω` for
+sc-forms (`GapP2_E3_*`, `GapP2_E4_*`), the forms `β ω` (`EP.epFormsInftySmul`,
+`GapP2_E5_FunForm.lean`), the comparison with Part I's integral for classes represented on any
+level (`EP.epFormsInftyEval_integ_eq_integral`, `GapP2_E5_LevelRestrict.lean`), `μ^∂_ω` under a
+class condition (`GapP2_E7_BoundaryMeasure.lean`) and Stokes' theorem with it
+(`GapP2_E8_Stokes.lean`).  Remark 9.5.20 is still not formalized.
 -/
 
 set_option maxSynthPendingDepth 3
