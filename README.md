@@ -6,8 +6,9 @@ orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
-under way: Chapters 7–11 are formalized (Chapter 11 without its §§11.2 and 11.4 on forms and
-integration). The authoritative text is the
+under way: Chapters 7–11 are formalized, except §11.4 (integration up to equivalence) and, in
+§9.5, the integral of a form over a sheet (branched integration and Stokes' theorems are proved
+from their local inputs). The authoritative text is the
 Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names use the
@@ -33,7 +34,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 824 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 829 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -51,7 +52,7 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (12 November 2026)
+## Status (13 November 2026)
 
 * **Part I, Chapters 1–6, is formalized**, with Theorem 6.7.1 (preprint 6.43; the invariant `Ψ_(f,o)`)
   proved without hypotheses on the cobordism (below). Since the
@@ -71,7 +72,16 @@ GitHub displays it directly.
   unity; the tangent ep-groupoid and functor, strong bundles over ep-groupoids, proper covering
   functors). In the 2021 text the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem
   7.2.14), and `T_R` is always paracompact (proved); that `𝐗^R` need not be Hausdorff is checked in
-  Lean. The sc-differential forms of §8.2 are not formalized. The facts of Part I that Chapter 7
+  Lean. Since the Part II wave of 12–13 November 2026 every gap of Chapters 7 and 8 is closed. In
+  Chapter 7: Corollary 7.6.6 as printed (Theorem 5.5.16 is no longer a hypothesis); Proposition
+  7.2.10, Theorem 7.2.14 and Proposition 7.2.16 in their 2021 form; Theorem 7.6.7 and Corollary
+  7.6.8 for every `i`, as isomorphisms in `EP` under (SLUC) or (ZHOU); and Zhou's example of
+  Appendix 7.6.3 itself, on `L²(ℝ)` with `E_m = H^{m,δ_m}(ℝ)`, its non-effective part computed as
+  printed (G.82, G.83). In Chapter 8: the sc-differential forms of §8.2 (Definitions 8.2.1, 8.2.2:
+  `Ωᵏ_ep(X)`, the direct limit and the sc-de Rham complex) with the Poincaré lemma, Proposition
+  8.2.3; Lemma 8.1.2 as printed; and Proposition 8.4.1 with `|W[1]|` as an orbit space (G.74, G.75,
+  G.86, G.87). Remark 8.1.10 stays narrower: with `Tφ` the bare linear map, the map `G` is not
+  injective (checked in Lean). The facts of Part I that Chapter 7
   relies on are proved for every M-polyfold: `X_∞` is dense in every `X_k`, `U ∩ X_∞` is connected
   for connected open `U`, `p : TX → X¹` is open, the tangent `Tφ` of a smooth morphism is an
   sc-isomorphism, and the orbit space has its filtration `|X_∞|` (G.8, G.70, G.72, G.73, G.85, G.90).
@@ -113,11 +123,17 @@ GitHub displays it directly.
   and Proposition 9.1.12 hold for every ep-groupoid. The footnote to Definition 9.1.2 holds for `Θ`
   with nonempty support (for `Θ = 0` it does not hold as we read it), Lemma 9.4.3 holds as stated
   (G.104), and the boundary orientation of Definition 9.3.8 is continuous along the stratum of
-  reduced codimension 1, without tameness (G.103 in part). Not yet proved in general: Lemma 9.4.4
-  for sheets in an M-polyfold beyond the reading in M-polyfold charts, and Lemma 9.4.6 for them
-  (G.105). Branched integration, the boundary measures and Stokes' theorems (Theorems
-  9.5.4, 9.5.5, 9.5.15–9.5.18) are not formalized; they need the sc-differential forms of §8.2.
-* **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.2
+  reduced codimension 1, without tameness, and for a tame sheet that stratum is open and dense
+  in `∂M` (G.103 in part). Since 12 November 2026: Remark 9.1.4 and Proposition 9.1.9 hold, the
+  latter with the text's groupoid `⊔M_x` and independent of the choices up to a generalized
+  isomorphism; Remark 9.1.10 holds for `n`-dimensional `Θ`, the composition of the orbifold
+  groupoid being sc-smooth (Mathlib has no classical orbifolds) (G.94, G.95). Example 9.3.5 has
+  infinitely many orientations, six of them with integer weights (G.101). For the sheets of every
+  M-polyfold, read in M-polyfold charts, Lemmas 9.4.4, 9.4.6 and 9.5.2 hold with Hausdorff null
+  sets (G.105, G.106). Theorems 9.5.4, 9.5.5 and Lemmas 9.5.7, 9.5.9–9.5.11 are proved for an
+  abstract integration of forms over the sheets, and Theorems 9.5.15–9.5.18 from their local
+  inputs; the integral of a form over a sheet is not yet constructed (G.107–G.110 in part).
+* **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.3
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
   equivalences, the category of generalized maps and the orbit-space functor, strong bundle
   equivalences, push-forward and pull-back of sections along generalized strong bundle
@@ -125,28 +141,37 @@ GitHub displays it directly.
   regularity under equivalences (Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16) is proved.
   Theorems 10.3.19 and 10.5.7 do not hold as we read them (counterexamples in Lean); both hold
   when the target is effective. The Fredholm parts of Theorems 10.4.5 and 10.5.4 are proved, and
-  `[D]_*` is a linear isomorphism of the section spaces. Not formalized: Proposition 10.4.6 and the
-  bundle half of Proposition 10.4.7 (local regularity for strong bundles; 10.4.7 is proved on the
-  bases), the iterated products of Theorem 10.2.2, and the universal property of the
-  localization.
-* **Part II, Chapter 11, is formalized** except §11.2 (sc-differential forms under equivalences)
-  and §11.4 (integration), which need the forms of §8.2: the tangent functor on `EP(E⁻¹)`, the
-  degeneracy index and the faces under generalized isomorphisms (§11.1), branched
+  `[D]_*` is a linear isomorphism of the section spaces. Since 12 November 2026 every gap of the
+  chapter is closed: the subcategory `EP_lreg`, Remark 10.1.8 with Zhou's example of Appendix
+  §10.6.3 as printed (on `ℝ ⊕ H^{m,δ_m}(ℝ)`), the triple-product structures of Theorem 10.2.2,
+  the universal property of the localization (`EPLoc.isLocalization`), Propositions 10.4.6,
+  10.4.7 and 10.5.6 (Definition 8.4.2 read for local strong bundle isomorphisms), (10.24) with the
+  local expressions `q`, `Q`, and the converse of the strong bundle Theorem 10.3.10 (the
+  isomorphisms of `SEP(F⁻¹)` are exactly the generalized strong bundle isomorphisms).
+* **Part II, Chapter 11, is formalized** except §11.4 (integration up to equivalence, G.131),
+  which waits for the integral of forms over sheets of §9.5: the tangent functor on `EP(E⁻¹)`, the
+  degeneracy index and the faces under generalized isomorphisms, with the faces as tame
+  ep-groupoids and the generalized isomorphisms `[d]_F` (§11.1), the sc-differential forms up to
+  equivalence (§11.2), branched
   ep⁺-subgroupoids, their tangent sections and orientations pushed forward and pulled back
   (§11.3; Theorem 11.3.9 for the generalized isomorphism itself, with the intrinsic boundary
   orientation and no added hypothesis, G.130), strong bundles up to equivalence (§11.5), and
   equivalences of proper coverings with Theorem 11.6.6 and Proposition 11.6.8 (§11.6), with
   Proposition 11.5.1 in full and the local section structures of sc⁺-multisections (Definition
-  13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133). Not formalized besides: the
-  structures of Proposition 11.1.6, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128, G.134,
-  G.135).
-* About 314,400 lines of Lean in 573 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (15,124 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133), and since 12 November 2026 the
+  localization `PC(E⁻¹)` with `I : PC → PC(E⁻¹)` and the category of proper strong bundle
+  coverings of Remark 11.6.9 with its localization (G.128, G.129, G.134, G.135 closed). The
+  intersection clause of Proposition 11.1.6 does not hold as we read it (below, item 13); its
+  union form is proved.
+* About 339,400 lines of Lean in 647 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (16,454 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (871 items, each with
-  a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 42 items are narrower than the text, each
-  with its reason; 101 of the 135 gaps are closed, 3 have nothing to formalize, and 31 remain.
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (883 items, each with
+  a verdict: same, restated, hypothesis made explicit, stronger, narrower, extra, or nothing to
+  formalize), with a gap list of what is not formalized and why (G.1–G.135). 32 items are narrower
+  than the text, each with its reason; 123 of the 135 gaps are closed, 3 have nothing to formalize,
+  and 9 remain: G.61, G.65, G.80 in Part I, and in Part II G.103, G.107–G.110 (in part, §9.5) and
+  G.131 (§11.4).
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -275,6 +300,14 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     read for local strong bundle isomorphisms (`theorem_10_5_7_of_isEffective_of_isLRLocal`,
     `Polyfold/Chapter10/LocalizationLRBundleBase.lean`; Findings, Chapter 10, items 71, 72). Is an
     effectiveness hypothesis intended?
+13. **Proposition 11.1.6** (p. 524; 2017: 11.2): that two faces of a tame face structured
+    ep-groupoid which meet do so in a face of each does not hold as we read it. The
+    counterexample, checked in Lean, is an open subset of `[0,∞)³ ⊕ W` (a 3-manifold with boundary
+    and corners for `W = 0`) in which two faces meet in an edge with a middle piece removed, two
+    components (`FaceMeetExample.not_facesMeetInFaces`, `Polyfold/Chapter11/GapP2_H2FaceMeet.lean`;
+    V11.6; Findings, Chapter 11, item 9). What is proved for every face structured ep-groupoid is
+    that the intersection is the union of the faces of each that it contains
+    (`IsEpFaceStructured.facesMeetInUnions`). Is "a union of faces" meant?
 
 ## Open questions
 
@@ -308,9 +341,17 @@ than `(0, 1)` (G.51, closed for that domain). (Theorem 6.7.1 (preprint 6.43) is 
 cobordism since 12 November 2026, `theorem_6_7_1`, G.54 closed.) Not formalized either: the infinite-dimensional examples of the applications (splicings; the
 weighted Sobolev scale of Example 1.1.3 is formalized). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
-Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
-(Definitions 8.2.1, 8.2.2, pp. 372–373; 2017: 8.2, 8.3; G.74), and Lemma 8.1.2 (2017: 8.1), p. 359,
-as printed, the identification of the tangent of the fibred product (G.75).
+Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Part II (work under way): §11.4,
+integration up to equivalence (G.131), and in §9.5 the integral of an sc-differential form over an oriented
+sheet of dimension `n ≥ 1` with (9.22) (G.107), the `(n − 1)`-dimensional null sets in the boundaries for
+`n ≥ 2` (G.108), the local boundary expressions of Theorems 9.5.15–9.5.16 (G.109), the inputs of Stokes'
+theorem and Remark 9.5.20 (G.110), and the stratum `{d_M = 1}` as a submanifold with Figure 9.1 (G.103).
+Also not formalized: Remark 9.1.10 for `Θ` of several dimensions; `W[1]` as an ep-groupoid (its orbit space
+is); the wedge product on `Ω*_{ep,∞}` as a graded algebra on the type (it is a DG subalgebra of Part I's);
+the side remark of Appendix 10.6.3 that Zhou's retract is homeomorphic to `ℝ² ∖ {(0, t) | t ≠ 0}`; and the
+identification of `H^{m,δ}(ℝ)`, defined by lifting to `ℝ × S¹` with the same norm, with the
+weak-derivative space on `ℝ`. (In Chapter 8 the forms of §8.2 and Lemma 8.1.2 as printed, gaps G.74, G.75,
+are formalized since 12 November 2026.)
 
 ## License
 

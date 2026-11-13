@@ -602,6 +602,25 @@ each chapter lands)
     formalized" for what this wave did were updated (comment text only). Left: G.80 (wedge on
     `Ω*_∞(X, ∂X)`), G.61, G.65; the Sobolev structure for `n ≥ 2`; a Chapter 7 file discharging the GTWZ
     hypothesis of Corollary 7.6.6 with `theorem_5_5_16`.
+21. **Part II wave (2021 Chapters 7–11)** (2026-11-12/13). New Lean in 73 files `Polyfold/Chapter{7..11}/GapP2_*.lean`
+    (imported at the end of `Polyfold.lean` in dependency order; `Test.lean` block "Axioms: Part II wave
+    (2026-11-13)", 1,331 theorems; notes `narrow/p2-*.md`, integration report `narrow/integrate-p2.md`). No name
+    clashed. Agent E3 (`GapP2_E3_*.lean`, the concrete integral over sheets) was still running and is not imported.
+    12 new rows (V8.53–V8.55, V9.63–V9.66, V10.72–V10.75, V11.43); 829 sign-off items (new: V9.63–V9.66, V11.43). Closed: G.82, G.83 (Ch7; Zhou's retract
+    itself, `ZhouRetract.appendix_7_6_3_sigma`), G.74, G.75, G.86, G.87 (Ch8), G.94, G.95, G.101, G.105, G.106
+    (Ch9), G.111, G.112, G.116, G.117, G.122, G.124, G.126 (Ch10), G.128 (with a counterexample), G.129, G.134,
+    G.135 (Ch11). Every gap of Chapters 7, 8 and 10 is closed. In part: G.103, G.107–G.110 (Ch9: branched
+    integration for an abstract `SheetIntegration`, Stokes from its local inputs); open: G.131 (§11.4). Lifted
+    from narrower: V7.10, V7.39, V7.40, V7.68, V7.82, V7.83, V7.95, V8.47, V9.50 (explicit), V10.61, V10.71,
+    V11.8; V7.57 (Remark 7.5.6) "nothing to formalize". Now 32 rows narrower, 123 of 135 gaps closed. Findings:
+    Ch7 156 (Zhou's retract holds as printed); Ch8 131–133; Ch9 114–118 (115: Example 9.3.5 classified, six
+    integral orientations; item 54 updated); Ch11 9 (Proposition 11.1.6, the intersection clause does not hold
+    as we read it; `FaceMeetExample.not_facesMeetInFaces`, corrected form `facesMeetInUnions`; one-line ask for
+    the authors' notes), 21, 22, 77, 78; Ch10 no new item (status changes on 7, 18, 19, 21, 36, 45, 50–53, 57,
+    72, 74). Docstrings that said "not formalized" for what this wave did were updated (comment text only).
+    Left: after E3, an E4 agent (Stokes G.110, G.108 `n ≥ 2`, G.109, the G.103 bridge and stratum, Remark
+    9.5.20), then a §11.4 agent (G.131, V11.27–V11.29), then a second small integration; witnesses in the repo
+    for C2's two added hypotheses of Proposition 9.1.9 / Remark 9.1.10 (they exist only in a scratch file).
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

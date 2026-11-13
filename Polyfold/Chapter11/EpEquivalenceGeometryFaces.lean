@@ -60,9 +60,13 @@ p. 526) If `|f| = |g|` for generalized isomorphisms of tame face-structured ep-g
 
 ## What the text leaves implicit, and the choices made
 
-* A face `X_θ` is recorded by its object set `π⁻¹(θ)` and morphism set `s⁻¹(π⁻¹(θ))`; the
-  ep-groupoid structure on it (Proposition 11.1.6) is not constructed, so `[d]_F` appears through
-  its orbit map, the restriction of `|[d]|` (`proposition_11_1_6`, `proposition_11_1_8`).
+* A face `X_θ` is recorded by its object set `π⁻¹(θ)` and morphism set `s⁻¹(π⁻¹(θ))`; here
+  `[d]_F` appears through its orbit map, the restriction of `|[d]|` (`proposition_11_1_6`,
+  `proposition_11_1_8`).  The ep-groupoid structure on it (Proposition 11.1.6) and `[d]_F` are
+  built in `GapP2_HFaces.lean` (`faceEpGroupoid`, `proposition_11_1_6_faces`) and
+  `GapP2_HFaceIso.lean` (`EPLoc.faceIso`, `proposition_11_1_6_faceIso`,
+  `proposition_11_1_8_faceIso`); the intersection clause is settled in `GapP2_H2FaceMeet.lean`
+  (it does not hold as we read it) and `GapP2_H2FaceMeetUnion.lean` (the union form).
 * Faces of `|X|` are those of Chapter 2 for the index `d_{|X|}` on the open set `|X|`, so the
   transport lemmas of Chapter 7's `TameBoundary.IsDHomeoOn` apply.
 -/

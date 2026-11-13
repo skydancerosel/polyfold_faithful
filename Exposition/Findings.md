@@ -8737,6 +8737,9 @@ Found while formalizing §7.1 up to Proposition 7.1.12 (2017: 7.4) (2026-11-07).
    through, and needs only a sheet `𝐔(ψ)` of `s` at `ψ = f(φ)` and `𝐔(φ) = f⁻¹(𝐔(ψ))`
    (`isScSmoothMap_mor_of_continuous`, `isScSmoothMap_mor_iff_continuous`, `EpFunctor.ofContinuous`;
    the formula is `mor_eq_srcInv_obj_src`).
+    (2026-11-12) The 2021 text (p. 291) asks continuity on level 0 between the morphism spaces, the hypothesis of
+    `isScSmoothMap_mor_of_continuous`, so the 2021 remark holds as we read it (row V7.10, now same); the
+    counterexample concerns the 2017 sentence. Status: **settled**.
 10. **Propositions 7.1.8 and 7.1.9 (2017: 7.1 and 7.2): the proofs** *(2017 p. 229)*. Proposition 7.1.8 (2017: 7.1) is proved through the
     saturation: `π⁻¹(π(U)) = t(s⁻¹(U))` is open since `t` is an open map
     (`proposition_7_1_8`; also `proposition_7_1_8_isOpenQuotientMap`, `proposition_7_1_8_map_nhds`); the
@@ -8951,6 +8954,9 @@ Found while formalizing §7.2 (2026-11-07).
     acting on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3)). So `reducedPolyfold`, and
     `proposition_7_2_10`, take `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` (gap G.71).
     Small sheets are not needed. The hypotheses are satisfiable (item 60).
+    (2026-11-12) For the 2021 statements only `T_R` Hausdorff remains: Proposition 7.2.10 is the charts and their
+    transitions, with no hypothesis (`proposition_7_2_10_natural_charts`), and paracompactness is an instance
+    (`paracompactSpace_reducedMor`, Proposition 7.2.12) (rows V7.39, V7.40, now same).
 57. **Possible misprints in the proof of Proposition 7.2.10 (2017: 7.9)** *(2017 pp. 242–243)* *(book 2021: rewritten as Lemma 7.2.9, Proposition 7.2.10 and the proof of Theorem 7.2.14, pp. 311–318; the first three now print the intended symbols, the garbled sentence is gone)*. "`ψ' = (s|𝐔(ψ))⁻¹(s(ψ))`"
     for `(s|𝐔(ψ))⁻¹(s(ψ'))` (a displaced prime is possible, an extraction artefact);
     "`𝐔(φ) ⊂ Ψ_{φ₀}(𝐔([φ₀]) ∩ 𝐔([ψ₀]))`" for `Ψ_{φ₀}⁻¹(…)` (a lost superscript is possible, an
@@ -9084,6 +9090,8 @@ Found while formalizing §7.5 (2017 §7.4) and Appendix 7.6.2 (2017 7.5.2) (2026
     neighbourhood meeting finitely many supports, (2) `β_λ(s φ) = β_λ(t φ)`. Remark 7.5.6 (2017: 7.2) has no formal
     content; the sc-Hilbert case it mentions is Part I's
     `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (Corollary 7.6.6 (2017: 7.3), item 95).
+    (2026-11-12) Row V7.57 now has the verdict "nothing to formalize"; the sc-Hilbert case is
+    `corollary_7_6_6_unconditional` (item 95).
 92. **Definition 7.5.8 (2017: 7.17), Propositions 7.5.9, 7.5.10 (2017: 7.13, 7.14)** *(pp. 342–344 (2017 pp. 251–252))* *(book 2021: the notation unchanged, proof of Proposition 7.5.10 (2), p. 343)*. Definition 7.5.8 (2017: 7.17) is
     `IsProperSubset` and `HasPropernessProperty`. Proposition 7.5.9 (2017: 7.13) is proved by the compactness of
     the preimage (`proposition_7_5_9`), Proposition 7.5.10 (1) (2017: 7.14) through the closedness of the saturation
@@ -9124,6 +9132,11 @@ Found while formalizing §7.5 (2017 §7.4) and Appendix 7.6.2 (2017 7.5.2) (2026
     hypothesis, `GodefroyTroyanskiWhitfieldZizlerStatement`, as in Part I (gap G.53); the text's
     references Proposition 5.5.8 (2017: 5.6), Theorem 5.5.10 (2017: 5.12) and Corollary 5.5.17 (2017: 5.2) are the ingredients of
     `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`. The corollary is `corollary_7_6_6`.
+    (2026-11-12) Theorem 5.5.16 is no longer a hypothesis: `E₀` is separable for every sc-Banach space and Theorem
+    5.5.16 holds for separable spaces (`godefroyTroyanskiWhitfieldZizlerStatement_of_separable`; in general
+    `theorem_5_5_16`, gap G.53 closed). `corollary_7_6_6_unconditional` is Corollary 7.6.6 as printed, through
+    `MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional` and Theorem 7.5.7; witness
+    `corollary_7_6_6_hypotheses_rn_unconditional` (row V7.68, now same). The form with the hypothesis is kept.
 96. **Unbalanced parentheses** *(2017 pp. 230, 248, 256)* *(book 2021: all unchanged, checked on the printed pages: Lemma 7.1.11, p. 292; (7.19), p. 327; proof of Theorem 7.5.7, p. 347)*. "`t : s⁻¹(cl_X(U(x₀)) → X`" in the statement
     and the proof of Lemma 7.1.11 (2017: 7.1) (p. 292 (2017 p. 230)), "`s⁻¹(cl_{X₁}(W(x)) → X₁`" twice in the proof of
     Proposition 7.3.9 (2017: 7.11), display (7.5) (2017 p. 248), and "`t : s⁻¹(cl_X(V(x)) → X`" in property (2) of the
@@ -9162,6 +9175,8 @@ files, 2026-11-07; not in the text).
      (`Examples.isScSmoothMap_remarkFunctor_obj`), not continuous and not sc-smooth on morphisms
      (`Examples.not_continuous_remarkFunctor_mor`, `Examples.not_isScSmoothMap_remarkFunctor_mor`),
      and not an `EpFunctor` (`Examples.not_exists_epFunctor_remarkFunctor`).
+     (2026-11-12) The 2021 sentence assumes continuity on morphisms, which this functor lacks, so it is a
+     counterexample to the 2017 sentence only (row V7.10, now same).
 105. **The trivial ep-groupoid of an M-polyfold** (`EpGroupoid.lean`, `SubGroupoid.lean`,
      `PartitionsOfUnity.lean`, `LocalDiffeo.lean`). Every M-polyfold `P` gives the ep-groupoid
      `trivial P` with only identities: tame for tame `P` (`isTame_trivial`, `isTame_trivial_rn`),
@@ -9197,6 +9212,11 @@ files, 2026-11-07; not in the text).
      hold for the trivial ep-groupoid of `ℝⁿ` (`hasParacompactOrbitSpace_trivial`,
      `trivialOrbitHomeomorph`). No hypothesis of the form "for all compatible charts" is made in
      Chapter 7.
+     (2026-11-12) (2) also `corollary_7_6_6_hypotheses_rn_unconditional`, now without Theorem 5.5.16 as a hypothesis.
+     (7) Of the two hypotheses on `𝐗^R` only `[T2Space X.ReducedMor]` remains, the 2021 text's own (Theorem 7.2.14);
+     paracompactness is an instance. (SLUC) of Theorem 7.6.7 is satisfiable: `isSLUC_pointEP`,
+     `Examples.theorem_7_6_7_pointEP`. The data of Zhou's example (weights `0 = δ₀ < δ₁ < ⋯`, `β` smooth with compact
+     support and `∫ β² = 1`) are satisfiable: `ZhouRetract.Data.std`.
 107. **`𝐗^R` need not be Hausdorff; Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017) need the hypothesis** *(book 2021: corrected, Theorem 7.2.14, p. 318, assumes `T_R` Hausdorff; Theorem 7.2.22, p. 323; Zhou's example, Appendix 7.6.3, p. 348, is of the same kind)*
      (`Examples.exists_not_t2Space_reducedMor`, `ReducedNotHausdorff.lean`; Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017),
      pp. 313–324 (2017 pp. 242–244)). `O` is the sc-retract of Part I's Remark 4.2.2 (2017: 4.3) example (`RemarkFourThree.fam`), a
@@ -9212,6 +9232,10 @@ files, 2026-11-07; not in the text).
      the splicing example of PLAN II.6, 2; the round-trip audit proved it (`RoundTrip/Items/V7_40.lean`,
      namespace `NotB`; its blind formalizer of V7.39 found the example independently), and it was
      moved into the project unchanged on 2026-11-07. It settles the Hausdorff half of gap G.71.
+     (2026-11-12) The 2021 forms are proved under `T_R` Hausdorff only: `proposition_7_2_10_natural_charts` (charts
+     and transitions, no hypothesis), `theorem_7_2_14_reduced` and `proposition_7_2_16` (rows V7.39, V7.40, now same).
+     The example settles that the 2017 Proposition 7.9 and Proposition 7.10, for every ep-groupoid, do not hold as we
+     read them.
 
 Not formalized (2026-11-07).
 
@@ -9235,6 +9259,9 @@ Not formalized (2026-11-07).
      audit), so this half of the gap is settled negatively. Not formalized: whether `𝐗^R` is
      paracompact when it is Hausdorff, and whether Hausdorff with `𝐗` second countable suffices for
      paracompactness (gap G.71).
+     (2026-11-12) Both halves are settled: paracompactness holds for every ep-groupoid (`paracompactSpace_reducedMor`,
+     Proposition 7.2.12, row V7.77), and the 2021 statements need `T_R` Hausdorff only (item 107). Status: **settled**
+     (gap G.71 closed).
 112. **The filtration of `|X|`** *(2017 p. 228)*. `|X_k|` is `orbitLevel k`; the set `|X_∞|` and the
      identity `|X_∞| = ⋂_k |X_k|` are not stated (gap G.72). The density of `X_∞` in `X_k` is item
      116 (gap G.73).
@@ -9248,6 +9275,7 @@ Not formalized (2026-11-07).
      properties (1)–(4)" (p. 340 (2017 p. 249)) is an open question of the text; unlike Part I's open question
      after Proposition 4.2.3 (preprint 4.15; gap G.34) it is not given a gap, since nothing in the chapter depends on
      it. (2026-11-09: settled negatively, item 152.)
+     (2026-11-12) Remark 7.5.6 (row V7.57) has the verdict "nothing to formalize".
 114. **Gaps of Part I taken up in Chapter 7.** G.15 (Lemma 2.7.3 (2017: 2.7) and Proposition 2.7.4 (2017: 2.17) of Part I,
      closed locally finite refinements): now formalized (`lemma_2_7_3`, `proposition_2_7_4`,
      `michael_tfae`; item 75). G.56, its first fact (an M-polyfold is locally path connected): now
@@ -9255,6 +9283,8 @@ Not formalized (2026-11-07).
      path component are joined by an sc⁺-smooth path) is not. G.53 (Theorem 5.5.16 (2017: 5.14) of Part I) remains
      an explicit hypothesis; it holds for finite-dimensional spaces
      (`godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional`).
+     (2026-11-12) G.53 is closed (`theorem_5_5_16`); Corollary 7.6.6 no longer takes it
+     (`corollary_7_6_6_unconditional`, item 95).
 115. **Chapter 5, item 145 and Proposition 7.3.9 (2017: 7.11).** `MPolyfold.IsTame.levelOne` (item 81) proves the
      tameness of the index lift of a tame M-polyfold, and with it the tameness of the lifted chart
      retraction `r¹` with respect to every presentation of `C¹`; the tame variants for `f¹`
@@ -9373,6 +9403,10 @@ V7.69–V7.104.
      `cl(𝐗^T) ∖ 𝐗^T` is exhibited; `𝐗^T` is not computed exactly, and the text's "consists of one point" is not checked for
      either retract (gap G.83) (`Examples.remark_7_2_19`). The counterexample found in the first reading is thus of the kind
      Remark 7.2.8 announces and Appendix 7.6.3 gives.
+     (2026-11-12) For the analogue `𝐗^T` is now computed exactly: `𝐗^T = ({1} × O) ∪ ({−1} × {(t, z) ∈ O | t < 0})`
+     and `cl(𝐗^T) ∖ 𝐗^T = {(−1, o₀)}`, one point (`JumpingRetract.nonEffectivePart_eq`,
+     `JumpingRetract.closure_nonEffectivePart_diff`, `JumpingRetract.appendix_7_6_3`). Zhou's retract itself is
+     formalized, item 156. Status: **settled** (gap G.83 closed; row V7.82, now same).
 131. **Theorem 7.6.7 for `i = 1`, as sets; the connectedness and density of `U(x) ∩ X₁`** *(Appendix 7.6.4, (7.24), Theorem
      7.6.7 and Corollary 7.6.8, pp. 348–351, new in the 2021 edition)*. (7.24), `(𝐗^T)¹ ⊆ (𝐗¹)^T`, holds without hypotheses
      (`mem_nonEffectivePart_liftOne_of_levelVal`). The converse uses that `U₁(x) = U(x) ∩ X₁` is connected in `X¹` and dense in
@@ -9384,6 +9418,14 @@ V7.69–V7.104.
      (2026-11-09) The hypothesis holds for every ep-groupoid: every natural representation has `U(x) ∩ X₁` connected in
      `X¹` and dense in `U(x)` (`hasConnectedDenseLevelOneReps`), so Theorem 7.6.7 for `i = 1` needs only LUC for `X¹`
      (`theorem_7_6_7_of_isLUC`) and Corollary 7.6.8 only (ZHOU) (`corollary_7_6_8_of_isZhou'`) (item 153).
+     (2026-11-12) The sc-diffeomorphism and `i ≥ 2` are proved (`Chapter7/GapP2_ARaise.lean`): `theorem_7_6_7_one`
+     (for `T_R` Hausdorff for `X` and `X¹`, the identification `(X¹)_R → (X_R)¹`, the identity on objects and
+     `[φ]₁ ↦ [φ]` on morphisms (`reducedRaise`), is an sc-diffeomorphism and an isomorphism of ep-groupoids),
+     `EP.theorem_7_6_7` (under (SLUC), `(Xⁱ)_R ≅ (X_R)ⁱ` in `𝓔𝓟` for every `i`) and `EP.corollary_7_6_8` (under
+     (ZHOU)). Reading point: for `i ≥ 2` the isomorphism is the composite
+     `(Xⁱ)_R = ((X^{i−1})¹)_R ≅ ((X^{i−1})_R)¹ ≅ ⋯ ≅ (X_R)ⁱ` of the text's identifications; "the identity on objects"
+     is stated for `i = 1` only, since for variable `i` the object types are not definitionally equal. The case `i`
+     uses LUC for `X^{i−1}` and `Xⁱ`. Status: **settled** (gap G.82 closed; row V7.83, now same).
 132. **Proposition 7.4.2 and Remark 7.4.3: the hypotheses on `U(x)` are not needed** *(Proposition 7.4.2, p. 328, Remark
      7.4.3, p. 329, new in the 2021 edition)*. Under LUC every natural representation has the property (item 128), so the
      hypotheses that `U(x)` is connected, invariant, contained in `W(x)` and has the property are not used
@@ -9453,6 +9495,8 @@ V7.69–V7.104.
      its object M-polyfold, which are a hypothesis (`JumpingRetract.not_isZhou`) (gap G.83).
      (2026-11-09) The Part I facts are theorems (item 134), so the analogue fails (ZHOU) with no hypothesis
      (`JumpingRetract.not_isZhou_unconditional`); it is still the analogue of Zhou's example (gap G.83).
+     (2026-11-12) Zhou's example itself fails (ZHOU), with no hypothesis (`ZhouRetract.not_isZhou`, item 156). Status:
+     **settled** (gap G.83 closed; row V7.95, now same).
 140. **Appendix 7.6.5: (7.25)–(7.29) through the topology of the sheets** *(Appendix 7.6.5.2, (7.25)–(7.29), pp. 353–355, new in
      the 2021 edition)*. The structure maps of `(bX, b𝐗)` are defined through sc-diffeomorphisms of sheets; what they need of
      them is that an sc-diffeomorphism between open sets is a homeomorphism preserving the degeneracy index
@@ -9635,6 +9679,23 @@ Follow-ups (2026-11-09).
      is a tame ep-groupoid with its structure maps; and `B` is an ep-functor. The reading of item 141 is kept: "onto
      `θ`" holds as we read it for centred `V` only. Status: **settled** (row V7.98).
 
+156. **Appendix 7.6.3: Zhou's retract as printed; the text's claims hold as we read them (gap G.83 closed)**
+     *(Appendix 7.6.3, p. 348, and §7.4, p. 331, new in the 2021 edition; items 107, 130, 139)* (2026-11-12).
+     `Polyfold/Chapter7/GapP2_A2Line.lean`, `GapP2_A2Flat.lean`, `GapP2_A2Shift.lean`, `GapP2_A2Family.lean`,
+     `GapP2_A2ZhouGroupoid.lean`, `GapP2_A2Sigma.lean`. The scale: `ZhouLine.lineSc` is `L²(ℝ)` with
+     `E_m = H^{m,δ_m}(ℝ)`, `0 = δ₀ < δ₁ < ⋯`, defined by lifting to the cylinder `ℝ × S¹` of Part I's Sobolev files
+     (the norm is the same; the equivalence with the 1-D weak-derivative definition is not formalized); `level0_line`
+     gives `E₀ = L²(ℝ)`. The retraction `r(t, f) = (t, π_t f)`, `π_t f = ⟨f, β(·+e^{1/t})⟩ β(·+e^{1/t})` for `t > 0`
+     and `0` for `t ≤ 0`, is sc-smooth (`ZhouLine.zhouRetraction`, `zhouRetraction_apply`): `π_t` is a loss family,
+     flat at `t = 0` because of the gap `δ_{m+1} − δ_m > 0` (`isLossFamily_zhouFam`). This is the sc-smoothness the
+     text cites from [60]; only one level of loss is needed. For `ℤ/2` acting by `(t, f) ↦ (t, −f)`:
+     `𝐗^T = ({1} × Y) ∪ ({−1} × {t < 0})` and `cl(𝐗^T) ∖ 𝐗^T = {(−1, (0, 0))}` (`ZhouRetract.nonEffectivePart_eq`,
+     `closure_nonEffectivePart_diff`), so `T_R` is not Hausdorff and (LUC) and (ZHOU) fail (`not_t2Space_reducedMor`,
+     `not_isLUC`, `not_isZhou`, collected in `appendix_7_6_3`). On `Σ` as printed: `sigmaHomeo : Σ ≃ₜ Y`,
+     `(s, t) ↦ (s, t·β(·+e^{1/s}))`, and `appendix_7_6_3_sigma` gives the printed sets on `{0, 1} × Σ` (with `0 ↦ 1`,
+     `1 ↦ −1`). The text's `β ≥ 0` is not needed; `ZhouRetract.Data.std` is a witness of the data. Nothing is found
+     not to hold as we read it. Status: **settled** (rows V7.82, V7.95, now same).
+
 ## Chapter 8 (Bundles and covering functors; Lean `Polyfold/Chapter8/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so
@@ -9712,6 +9773,8 @@ Found while formalizing §8.1 up to Proposition 8.1.14 (2017: 8.1) (2026-11-07).
    `t⁻¹(V)` (Chapter 7's sheet form, `isScSmoothCompSheet`), `k = Tσ(Tt(h))`
    (`tangentMapOn_srcInv_tSrc`) and `k ∘ h = Tg(h)` (`tComp_eq_tangentMapOn`). The proof writes
    `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)` (possible misprint).
+   (2026-11-12) The identification is formalized, with `m_{T𝐗} = Tm` on it (`isScDiffeoOn_tangentCompPairs`,
+   `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; item 131). Status: **settled** (row V8.4, same; gap G.75 closed).
 
 6. **Lemmas 8.1.3 and 8.1.5 (2017: 8.2 and 8.4): the proofs** *(pp. 359–362 (2017 pp. 259–261))* *(book 2021: proof of Lemma 8.1.3, p. 360: "`= =`" and the missing map `s` unchanged; `T t)φ)(h)` corrected)*. In Lemma 8.1.3 (2017: 8.2) the target is computed as in the
    text: `k ∘ h = Tg(h)` on a sheet (item 5), and `t ∘ g = t ∘ σ ∘ t` on `t⁻¹(V)` (the text's `α ∘ s
@@ -9772,6 +9835,10 @@ Found while formalizing §8.1 up to Proposition 8.1.14 (2017: 8.1) (2026-11-07).
     `φ` (`tangentMor_trivialZ3`), and `v ↦ (Tφ(v), Ts(v))` is not injective (`remark_8_1_10_not_injective`,
     `Polyfold/Chapter8/TangentEpNotInjective.lean`). `Tφ` is moreover a bijection, equal to `Tφ̂(s(φ))`, and in charts a
     bounded linear isomorphism (Chapter 7, item 110).
+    (2026-11-12) The bare-map reading is checked in Lean: `remark_8_1_10_not_injective` (`ℤ/3 ⋉ ℝ`, trivial action).
+    With `Tφ` a bare map the bijectivity of `G` as printed does not hold as we read it, so row V8.12 stays narrower.
+    The linearity of `Tφ` is formalized (item 112), and the M-polyfold structure on the pairs and the triples are
+    formalized (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`; item 131).
 
 11. **Theorems 8.1.11 and 8.1.12 (2017: 8.2 and 8.3)** *(pp. 365–367 (2017 pp. 265–266))*. `EpFunctor.tangent` is `(TΦ, T𝚽)`; its compatibility
     with sources, targets and the composition is proved by fibre injectivity (item 4), and the
@@ -10233,12 +10300,16 @@ Not formalized (2026-11-07).
      `T_yX` (2017 p. 269), as in Remark 8.1.10 (2017: 8.1) (item 10); in the argument that `dω` is compatible with
      morphisms (2017 p. 269), "`x = s(φ) ∈ U(x₀) ∩ X₁` and `y = t(φ₀)`" has `t(φ₀)` for `t(φ)`, the
      target of the morphism `φ` whose tangent `Tφ : T_xX → T_yX` follows.
+     (2026-11-12) Formalized: `EpGroupoid.epForms` (Definition 8.2.1), `EP.epFormsInfty`, `EP.epFormsInftyD`,
+     `EP.epDeRhamComplex` (Definition 8.2.2) (rows V8.53, V8.54; gap G.74 closed; item 132). The two places above
+     (`T_yY` for `T_yX`, and `t(φ₀)` for `t(φ)`) are reading points; the formal statements use `T_yX` and `t(φ)`.
 
 111. **Lemma 8.1.2 (2017: 8.1) as printed** *(Lemma 8.1.2 (2017: 8.1), p. 359 (2017 p. 259); the proof of Lemma 8.1.7 (2017: 8.6), p. 362 (2017 p. 262))*. The
      identification `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗` and `m_{T𝐗} = Tm` on it are not formalized (new
      gap G.75). The sheet form (item 5) is what the proofs of Lemmas 8.1.2, 8.1.3 and 8.1.7 (2017: 8.1, 8.2 and 8.6) use, and
      condition (4) of Definition 7.1.3 (2017: 7.3) for `T𝐗` is proved without the identification (item 7), so
      nothing in the chapter depends on the gap.
+     (2026-11-12) Formalized as printed (item 131; row V8.4, same; gap G.75 closed).
 
 112. **Gap G.70 in part: `Tφ` well defined and functorial** *(Remark 8.1.10 (2017: 8.1), pp. 364 ff. (2017 pp. 264–265); Chapter 7,
      Definition 7.1.4 (2017: 7.4))*. Chapter 7 left all properties of `tangentMor` unformalized (Chapter 7, item
@@ -10264,6 +10335,8 @@ Not formalized (2026-11-07).
      elsewhere in the chapter, so none is given a gap.
      (2026-11-09) `Tφ` is a linear isomorphism of `T_xX` (Chapter 7, item 154); the transported M-polyfold structure and
      the triples are still not formalized.
+     (2026-11-12) The M-polyfold structure on the pairs of Remark 8.1.10, for which `G` is an sc-diffeomorphism, and
+     the triples are formalized (item 131).
 
 114. **Gaps of Part I and Chapter 7 taken up in Chapter 8.** G.70 (Chapter 7, `Tφ` as an
      sc-isomorphism): in part (item 112). G.7 (the linear structure of `T_xX`) remains open; it now
@@ -10272,6 +10345,7 @@ Not formalized (2026-11-07).
      (gap G.74) and remain open (G.6 and G.38 are closed since: Chapter 2, item 77; Chapter 4, item 161). No other gap of Part I or Chapter 7 is used in the chapter.
      (2026-11-09) Gaps G.7 and G.70 are closed since (Chapter 2, item 87; Chapter 7, item 154); G.74 remains open for
      the Whitney sums and the M-polyfolds `X^i`.
+     (2026-11-12) G.74 is closed (item 132); every gap of the chapter is closed.
 
 Found while formalizing the additions of the 2021 edition (2026-11-08). Items 115–124: Propositions 8.1.16, 8.1.17 and
 Definition 8.4.2 (`Chapter8/TangentZhou.lean`), Definition 8.3.5, Proposition 8.4.1, Example 8.5.6, the 2021 form of
@@ -10319,6 +10393,7 @@ for every `(TX)^i` (item 124, `Chapter8/TangentZhouLevels.lean`); comparison ite
      (`EpStrongBundle.proposition_8_4_1_two_imp_one`). (1) ⇒ (2), (3) needs `G_x`-equivariant bundle charts with
      invariant metrics, and `W[1]` as an ep-groupoid, which the project does not build (gap G.86).
      (2026-11-09) (1) ⇒ (2) is proved (`proposition_8_4_1_one_iff_two`, item 127); (3) remains open (gap G.86).
+     (2026-11-12) (3) is proved as well (`proposition_8_4_1`, item 133; gap G.86 closed).
 
 119. **Definition 8.4.2: "strong bundle isomorphism `B`"; Proposition 8.4.3 not formalized** *(Definition 8.4.2 and
      Proposition 8.4.3, p. 382, new in the 2021 edition)*. `G_x` acts on `W|U(x)` by the natural lift `g * w = μ(Γ(g, P(w)), w)`
@@ -10361,6 +10436,8 @@ for every `(TX)^i` (item 124, `Chapter8/TangentZhouLevels.lean`); comparison ite
      Every object has saturated open neighbourhoods `V ⊆ U` such that every closed sc-differential form on `U` in the sense of
      §8.2 has a primitive on `V`; the proof adapts Part I's Lemma 4.4.8 (p. 199, new in the 2021 edition) on the object M-polyfold and averages
      the primitive over `G_x`. The forms of §8.2 are not formalized (gap G.74), so neither is the proposition (gap G.87).
+     (2026-11-12) Formalized as printed, with no added hypothesis: `EP.proposition_8_2_3` (row V8.55; gap G.87 closed;
+     item 132). Status: **settled**.
 124. **Proposition 8.1.17 (2) for every `(TX)^i`: "naturally `(TX)^i = T(X^i)`" through source and target** *(Proposition
      8.1.17 (2), p. 371, new in the 2021 edition)*. The proof applies (1) to every `X^i`, which needs LUC for `(X^i)¹ = X^{i+1}`
      from (SLUC) and gives LUC for `T(X^i)` (`EP.isLUC_tangent_lift`), and then identifies `T(X^i)` with `(TX)^i`. The
@@ -10413,6 +10490,8 @@ Follow-ups (2026-11-09).
      are not needed, only the continuity of `μ`. (3) is not stated, since `W[1]` is not built as an ep-groupoid: that
      needs the level-one bundles and `μ` as a local sc-diffeomorphism at level one; once `W[1]` exists the same proof
      applies. Status: **settled** for (1) ⇔ (2); (3) open (row V8.47; gap G.86).
+     (2026-11-12) (3) is proved, with `|W[1]|` an orbit space (item 133). Status: **settled** (row V8.47, restated;
+     gap G.86 closed).
 
 128. **Proposition 8.4.3 (row V8.48)** *(Definition 8.4.2 and Proposition 8.4.3, p. 382, new in the 2021 edition; item
      119)* (2026-11-09). `Polyfold/Chapter8/BundleLocalRegularity2021.lean`. `EpStrongBundle.proposition_8_4_3`: an
@@ -10439,6 +10518,61 @@ Follow-ups (2026-11-09).
      recorded "`D` nonempty" as a hidden hypothesis; the counterexample shows that the narrowing of row V8.35 is
      necessary. The hypothesis holds where the proposition is used (Theorem 8.5.8), so nothing later is affected.
      Status: **settled**; for `D = ∅` the proposition does not hold as we read it.
+
+Found while closing the gaps of Chapter 8 (2026-11-12). Items 131–133: `Chapter8/GapP2_B_TangentFibred.lean`,
+`GapP2_B_RemarkPairs.lean`, `GapP2_B_EpForms.lean`, `GapP2_B_EpFormsObj.lean`, `GapP2_B_EpFormsFunctor.lean`,
+`GapP2_B_EpPoincare.lean`, `GapP2_CProp841W1.lean`, and `Chapter11/GapP2_B2_Poincare.lean`.
+
+131. **Lemma 8.1.2 as printed and the M-polyfold of pairs of Remark 8.1.10 (gap G.75 closed)** *(Lemma 8.1.2, p.
+     359 (2017: 8.1, p. 259); Remark 8.1.10, pp. 364–365 (2017: 8.1); items 5, 10, 111, 113)* (2026-11-12). `𝐗 ₛ×ₜ 𝐗`
+     is the sub-M-polyfold `compPolyfold` of Definition 7.1.3 (4). The identification `v ↦ (Tπ₁ v, Tπ₂ v)`
+     (`tangentCompPairs`) is injective with range `{(k, h) | Ts(k) = Tt(h)}` and is an sc-diffeomorphism onto the
+     sub-M-polyfold `T𝐗 _{Ts}×_{Tt} T𝐗` of `T𝐗 × T𝐗` (`isScDiffeoOn_tangentCompPairs`); `Tm(v) = Tπ₁(v) ∘ Tπ₂(v)`
+     (`lemma_8_1_2_tangentMul`), `k ∘ h = Tm(v)` for the one `v` over `(k, h)` (`lemma_8_1_2_book`), and `m_{T𝐗} = Tm`
+     (`lemma_8_1_2_compMul`). Reading point: the proof does not differentiate `s(m(F(φ'), φ')) = s(φ')` as the text
+     does; it uses that `π₂ : 𝐗 ₛ×ₜ 𝐗 → 𝐗` is a local sc-diffeomorphism (`isLocalScDiffeo_compSnd`), so a tangent
+     vector of the fibred product is determined by its base point and `Tπ₂` (`MPolyfold.isLocalScDiffeo_of_comp_eq`).
+     For Remark 8.1.10, the M-polyfold structure on the pairs is the natural one of the fibred product
+     `𝐗¹ _{s}×_{p} TX` (Proposition 2.5.20; `tangentPairsPolyfold`), and `G` (`remarkGInto`) is an sc-diffeomorphism
+     for it (`remark_8_1_10_scDiffeo`); the triples `(Ts h, φ, Tt h)` are injective with range
+     `{(a, φ, b) | φ ∈ 𝐗₁, a ∈ T_{s(φ)}X, b = Tφ(a)}` and compatible with the compositions (`remark_8_1_10_triples`).
+     The first entry of `G` stays labelled by `φ` (item 10). Status: **settled** (rows V8.4, same; V8.12, narrower for
+     the bare-map reading).
+
+132. **§8.2: forms on ep-groupoids, the sc-de Rham complex and the Poincaré lemma (gaps G.74, G.87 closed)**
+     *(Definitions 8.2.1, 8.2.2, pp. 372–373 (2017: 8.2, 8.3, pp. 268–270); Proposition 8.2.3, pp. 373–374, new in the
+     2021 edition; items 110, 123)* (2026-11-12). `Ωᵏ_ep(X)` is `EpGroupoid.epForms`: Part I's sc-differential forms
+     of the object M-polyfold (Definition 4.4.1) with `(Tφ)^*ω_y = ω_x` for every `φ ∈ 𝐗₁`, `Tφ` the bounded linear
+     isomorphism `tangentMorCLE` (`IsMorCompatible`), equivalently `s^*ω = t^*ω` (`isMorCompatible_iff_formPullback`).
+     `Ω*_{ep,∞}(X)` is the direct limit over the index lifts (`EP.epFormsInfty`, `Module.DirectLimit`), with
+     `d[ω] = [dω]`, `d ∘ d = 0` and the complex `EP.epDeRhamComplex`, a subcomplex of Part I's complex of the object
+     M-polyfold (`epFormsInftyToObj`, injective). Proposition 8.2.3 is `EP.proposition_8_2_3`, as printed, with no
+     added hypothesis. Reading points: (a) the Whitney sum `⊕ᵏ TX` is read, as in Part I's §4.4, as families of
+     alternating maps on the tangent spaces of level-one points; (b) the compatibility of `dω` with morphisms is
+     proved by the naturality of `d` for the global maps `s, t`, where the text uses `f = t ∘ (s|U(φ₀))⁻¹`; (c) in
+     Proposition 8.2.3, `Ω_{ep,∞}(U)` is that of the restriction `X|U` (Proposition 7.1.22) as an object of `EP`
+     (`EP.sub`), 'on `V`' is the pull-back by the inclusion functor `X|V → X|U` (`EP.subIncl`), the text's `k ≥ 1` is
+     written `k + 1`, and the statement also holds inside any saturated open `U ∋ x` given in advance
+     (`EP.proposition_8_2_3_of_isOpen`); (d) the text's extension `σ(y) = ψ^*τ'(x')` is the push-forward of §11.2
+     along the equivalence `G_x ⋉ U(x) → X|π⁻¹(π(U(x)))` (`EP.isEquivalence_modelFunctor`), and the average over `G_x`
+     is taken on the translation groupoid of a natural representation (`NaturalRep.exists_primitive_translation`), so
+     the proof lives in `Chapter11/GapP2_B2_Poincare.lean`. Beyond the text of §8.2: the pull-back by sc-smooth
+     functors commutes with `d` and is invariant under natural equivalence (`EP.epFormsInftyPullback`,
+     `epFormsInftyPullback_eq_of_natTrans`). The wedge product makes `Ω*_{ep,∞}(X)` a differential graded subalgebra
+     of Part I's `Ω*_∞(Ob X)` (`Chapter11/GapP2_B2_EpWedge.lean`); the graded-algebra instances on the type itself are
+     not built (§8.2 does not use a product). Status: **settled** (rows V8.53–V8.55, same).
+
+133. **Proposition 8.4.1 (3): `|W[1]|` as an orbit space (gap G.86 closed)** *(Proposition 8.4.1, p. 380, new in
+     the 2021 edition; items 118, 127)* (2026-11-12). `EpStrongBundle.proposition_8_4_1`: `|X|`, `|W[0]|` and `|W[1]|`
+     are paracompact together (`List.TFAE`), with no added hypothesis. Reading point: the project does not build
+     `W[1]` as an ep-groupoid; `|W[1]|` is defined directly as the orbit space of the groupoid `(W[1], 𝐗 ₛ×_P W[1])`,
+     the M-polyfold `W[1]` modulo `w ∼ μ(φ, w)`, with the quotient topology (`OrbitSpaceOne`, `πOne_eq_πOne_iff`),
+     which is all the statement uses. (1) ⇒ (3) follows (1) ⇒ (2) (item 127): `G_x` acts on `W[1]|U(x)` by
+     homeomorphisms, from the sc-smoothness of `μ` at level one (`continuous_bundleOneSmul`), `W[1] → |W[1]|` is open
+     (`isOpenMap_πOne`), `G_x\W[1]|U(x) → |W[1]|` is an open embedding onto `|P[1]|⁻¹(|U(x)|)`, and Smirnov's theorem
+     pulled back along `|P[1]|` gives metrizability (`metrizableSpace_orbitSpaceOne`). (3) ⇒ (1) is the text's:
+     `|0| : |X| → |W[1]|` is a closed embedding (`isClosedEmbedding_zeroOrbitMapOne`). Status: **settled** (row V8.47,
+     restated).
 
 ## Chapter 9 (Branched ep⁺-subgroupoids; Lean `Polyfold/Chapter9/`)
 
@@ -10536,7 +10670,15 @@ Found while formalizing §9.1 (2026-11-08).
    `IsCompactBranched`, `IsOrbifoldType`, `IsManifoldType`, with `isCompactBranched_indicator`,
    `isManifoldType_indicator`. Not formalized: Remark 9.1.4, the metrizability of a paracompact subset of `|X|`
    and the compactness criterion (gap G.94); Proposition 9.1.9 and Remark 9.1.10, the manifold and orbifold
-   structures on `|supp(Θ)|` (gap G.95). Status: **open** (gaps G.94, G.95).
+   structures on `|supp(Θ)|` (gap G.95). Status: **settled** (2026-11-12, below and item 114; gaps G.94, G.95 closed;
+   rows V9.63–V9.65).
+   (2026-11-12) Remark 9.1.4 is `remark_9_1_4` with `remark_9_1_4_metrizable`, `remark_9_1_4_exists_nhds`,
+   `isBranchedEpSubgroupoid_of_isComponentCompact` (`Polyfold/Chapter9/GapP2_CRemark914.lean`): the step from the
+   paracompact neighbourhood to `K` goes through metrizability, since a subspace of a paracompact space need not be
+   paracompact. Proposition 9.1.9 is `proposition_9_1_9_one` (with `proposition_9_1_9_one_unique`) and
+   `proposition_9_1_9_two_text` (with `proposition_9_1_9_two_independent`), and Remark 9.1.10 is
+   `remark_9_1_10_manifold`, `remark_9_1_10_orbifold`, `remark_9_1_10_orbifold_etale` for `n`-dimensional `Θ`; the
+   readings are item 114.
 
 8. **Proposition 9.1.11: the uniqueness of the dimensional decomposition does not hold as we read it**
    *(Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297))*. The statement is `Proposition_9_1_11`
@@ -10709,6 +10851,11 @@ Found while formalizing §9.2 from Lemma 9.2.13: the boundary (2026-11-08).
     (`boundaryTheta_halfLine_one`), both `0` and `∂Θ` do (`not_unique_isBoundaryCharacterized_halfLine`). With
     (2) asked on `supp(Θ)` and `F = 0` off `supp(Θ)`, `F = ∂Θ` (`eq_boundaryTheta`). Status: **settled**
     (corrected reading).
+    (2026-11-12) Read as "the solution of (1) and (2) with the largest support", the characterization is unique: among
+    the `F ≥ 0` vanishing off `supp(Θ)` with (1) and (2), `∂Θ` is the one with the largest support
+    (`definition_9_2_16_existsUnique`; `F = ∂Θ` iff `supp(∂Θ) ⊆ supp(F)`,
+    `IsBoundaryCharacterized.eq_boundaryTheta_iff`), and every such `F` equals `∂Θ` on `U(x)` for `x ∈ supp(F)`
+    (`IsBoundaryCharacterized.eq_boundaryTheta_on`, `Polyfold/Chapter9/GapP2_DBoundaryChar.lean`). Row V9.27.
 
 45. **Possible misprints around Definition 9.2.16** *(pp. 420–421 (2017 p. 309))*. "In view of Proposition
     9.2.13" (2017: "Proposition 9.9", the 2017 number of Lemma 9.2.13) presumably refers to Proposition 9.2.15;
@@ -10781,10 +10928,11 @@ Found while formalizing §9.3 (2026-11-08).
     (`example_9_3_5_ne_of_pos`), and no signs on the second structure reproduce `T̂¹` near `0`
     (`example_9_3_5_cannot_coincide`; `example_9_3_5`, `example_9_3_5_rn`). They also coincide where `x < 0`
     (`example_9_3_5_eq_of_neg`), and the four sign choices on the first structure give four different
-    orientations (`orientedLift1_injective`), none of them `T̂²` (`exampleT2_ne_orientedLift1`): at least five
-    orientations with weights `1`, infinitely many with fractional weights (Remark 9.3.3). The good points
-    distinguish `T̂¹` from `T̂²` (`exists_goodSet_exampleT1_ne_exampleT2`). A classification of all orientations
-    is not formalized (gap G.101). Status: **settled**; the classification open (gap G.101).
+    orientations (`orientedLift1_injective`), none of them `T̂²` (`exampleT2_ne_orientedLift1`); with the four of the
+    second structure the sign choices give exactly six orientations with weights `1` (`ncard_signOrientations`,
+    2026-11-12), and infinitely many with fractional weights (Remark 9.3.3; classified, item 115). The good points
+    distinguish `T̂¹` from `T̂²` (`exists_goodSet_exampleT1_ne_exampleT2`). All orientations are classified
+    (2026-11-12, item 115; gap G.101 closed). Status: **settled** (row V9.33).
 
 55. **Definition 9.3.6: the corner structure of a tame `Mᵢ`** *(Definition 9.3.6, p. 425 (2017: Definition 9.10,
     p. 314))*. `TameBranchingStructure`, `IsTameBranched`, with witnesses `isTameBranched_zero` and
@@ -10855,13 +11003,16 @@ Found while formalizing §9.4 (2026-11-08).
     chart applies. The sheets of an M-polyfold carry no Mathlib manifold structure in the project, so their
     essential points and null sets are the data `MPolyfold.SheetGeometry`, with Lemma 9.4.4 (`ess_comm`), Lemma
     9.4.6 (`isNull_diff_ess`) and the note of Definition 9.4.7 (`submanifoldTangent_eq`) as fields; it is
-    satisfiable by graphs in `ℝ²` (`graphSheets`, `graphSheetGeometry`). Status: **settled** as read; for
-    M-polyfold sheets open (gap G.105).
+    satisfiable by graphs in `ℝ²` (`graphSheets`, `graphSheetGeometry`). Status: **settled** as read; for M-polyfold
+    sheets settled too (2026-11-12, below; gap G.105 closed).
     (2026-11-09) Lemma 9.4.6 holds for the sheets of a tame branching structure of dimension `n` read as Mathlib
     manifolds (`TameBranchingStructure.lemma_9_4_6`; item 109); Lemma 9.4.4 for M-polyfold sheets stays open (gap G.105
     in part).
     (2026-11-09) Lemma 9.4.4 holds for `n`-dimensional M-polyfold sheets read in M-polyfold charts
     (`lemma_9_4_4_chart`, item 113).
+    (2026-11-12) Lemma 9.4.6 holds in the chart reading and `SheetGeometry` exists with no hypothesis for the
+    `n`-dimensional submanifolds of every M-polyfold (`lemma_9_4_6_chart`, `MPolyfold.sheetGeometry`; gap G.105
+    closed; item 116).
 
 73. **Lemma 9.4.8: the last step read inside each sheet** *(Lemma 9.4.8, p. 432 (2017: Lemma 9.15, p. 318))*.
     `SheetGeometry.IsLink`, `SheetGeometry.YEquiv`, `equivalence_yEquiv`, `SheetGeometry.ySetoid`,
@@ -10898,9 +11049,11 @@ Found while formalizing §9.5 (2026-11-08).
     `IsMeasureZeroSuppAll` and the standing assumption `HasTameSheetsIn` (on `ℝⁿ`:
     `exists_tameBranchingStructure_trivial_rn`, `hasTameSheetsIn_trivial_rn`). Compactness and orientation of
     `Θ` are not used. Not formalized: Lebesgue null sets in the sheets of a general M-polyfold (gap G.106).
-    Status: **settled** as read; in general open (gap G.106).
+    Status: **settled** as read, and in general (2026-11-12, below; gap G.106 closed).
     (2026-11-09) In the sheets of a tame branching structure of dimension `n` the null sets of Definition 9.4.5 are now
     Mathlib's (item 109; gap G.106 in part); the statement is not restated with them.
+    (2026-11-12) The null sets are concrete (`IsHNull`, `sheetNullSets`, `Polyfold/Chapter9/GapP2_DSheetNull.lean`)
+    and Definition 9.5.1 is restated with them (`IsMeasureZeroH`, `lebesgueSigmaH`; gap G.106 closed; item 116).
 
 81. **Lemma 9.5.2 across dimensions does not hold as we read it** *(Lemma 9.5.2, p. 437 (2017: Lemma 9.16, p.
     322))*. The text cites the literature, without proof. The core is `isMeasureZeroSuppAll_of_any`: near a
@@ -10912,12 +11065,16 @@ Found while formalizing §9.5 (2026-11-08).
     across dimensions: the axis `ℝ × 0` has measure zero in the sheet `ℝ²` and not in itself
     (`isNull_transfer_mixed_dim`). So the lemma is proved for structures with sheets in one class, as for the
     `n`-dimensional structures of an `n`-dimensional `Θ`; for every structure of an `n`-dimensional `Θ` it would
-    need Proposition 9.1.12 in general (gap G.97). Status: **settled** for one class; in general open (gap
-    G.106).
+    need Proposition 9.1.12 in general (gap G.97). Status: **settled** for one class, and (2026-11-12, below) for
+    every structure of an `n`-dimensional `Θ` (gap G.106 closed).
     (2026-11-09) Proposition 9.1.12 now holds for every ep-groupoid (item 9); Lemma 9.5.2 for every structure of an
     `n`-dimensional `Θ` is not restated with it (gap G.106).
     (2026-11-09) In the sheets of a tame branching structure of dimension `n` the null sets of Definition 9.4.5 are now
     Mathlib's (item 109; gap G.106 in part); the statement is not restated with them.
+    (2026-11-12) With the null sets `IsHNull`, Lemma 9.5.2 holds for every local branching structure of an
+    `n`-dimensional `Θ` (`lemma_9_5_2_of_isNDimensional`, `lemma_9_5_2_tame`): every local branching structure of such
+    a `Θ` has `n`-dimensional sheets (`isOfDim_of_isNDimensional`). Across dimensions the transfer still does not hold
+    as we read it (`isHNull_mixed_dim`). Row V9.50 explicit; gap G.106 closed; item 116.
 
 82. **The remark after Definition 9.5.3, read as a completion; `L(S)` is larger than the Borel σ-algebra**
     *(Definition 9.5.3 and the remark after it, p. 438 (2017: Definition 9.16, p. 323))*. For a σ-ideal `𝒩` the
@@ -10941,7 +11098,12 @@ Found while formalizing §9.5 (2026-11-08).
     needs the independence of Theorem 9.2.1, through the local formula for `∂Θ` on every structure
     (`exists_mem_of_sum_pos`). `(n−1)`-dimensional measure zero in the `∂Mᵢ` is a second abstract system on the
     boundaries; its description face by face is not formalized, and no witness with `∂S ≠ ∅` is given (gap
-    G.108). Status: **open** (gap G.108).
+    G.108). Status: **open** in part (2026-11-12, below and item 117; gap G.108 in part).
+    (2026-11-12) Face by face, measure zero in `∂Mᵢ` is `IsFaceNull` for a face-structured tame sheet, a proper
+    σ-ideal; for `n = 1` the boundary null sets are a `SheetNullSets` with no hypothesis (`SheetNullSets.point`), and
+    `Θ = 1` on `[0, ∞)` is a witness with `∂S = {|0|} ≠ ∅` (`halfLine_orbitSupp_boundary_nonempty`,
+    `Polyfold/Chapter9/GapP2_E2BoundaryNull.lean`). For `n ≥ 2` the boundary null sets of a general M-polyfold are not
+    built (item 117).
 
 84. **Lemmas 9.5.9–9.5.11 and Proposition 9.5.13: the isotropy and set parts** *(Lemma 9.5.9, p. 442, Lemma
     9.5.11, p. 445 (2017: Lemmas 9.18, 9.19, p. 326); Lemma 9.5.10, p. 444, and Proposition 9.5.13, p. 446, new
@@ -10960,8 +11122,11 @@ Found while formalizing §9.5 (2026-11-08).
     `|φ̂(z)| = |z|`), `NaturalRep.Φ_hyps`. Proposition 9.5.13: `card_effIsotropy_eq_of_isEffective`,
     `isFunctorial_reduced_iff`, `LocalBranchingStructure.toReduced`, `card_effIsotropy_eq_reduced`, the morphism
     space of `X_R` being Hausdorff and paracompact by instances (Hausdorff under LUC). The combinatorics of
-    Lemma 9.5.7 is `proposition_9_4_10`. Status: **settled** for these parts; the measure identities open (gap
-    G.107).
+    Lemma 9.5.7 is `proposition_9_4_10`. Status: **settled** for these parts, and (2026-11-12, item 118) the measure
+    identities for every `SheetIntegration`; the integrals of forms over the sheets open (gap G.107 in part).
+    (2026-11-12) For every `SheetIntegration` the measure identities are proved: `OrientedTameStructure.lemma_9_5_9`,
+    `lemma_9_5_10`, `lemma_9_5_11` (`Polyfold/Chapter9/GapP2_E1_LocalMeasure.lean`) and Proposition 9.5.13 (1)
+    (`proposition_9_5_13_1`); in (2) the normalizing factors only. Item 118.
 
 85. **Not formalized in §9.5: forms, integrals, measures and Stokes' theorem** *(pp. 438–452 (2017 pp.
     323–331))*. Theorems 9.5.4 (2017: 9.2) and 9.5.5 (new in 2021), Definition 9.5.6, (9.21)–(9.22), the measure
@@ -10969,8 +11134,13 @@ Found while formalizing §9.5 (2026-11-08).
     Theorems 9.5.15 (2017: 9.3) and 9.5.16 (new in 2021), the canonical boundary measures (gap G.109); Theorems
     9.5.17 (2017: 9.4) and 9.5.18 (new in 2021), Stokes' theorem, and Remark 9.5.20 (gap G.110). All need the
     sc-differential forms of §8.2 and Part I (gaps G.74, G.80). Remark 9.5.12 (history and open questions) and
-    Remark 9.5.19 (on the partition-of-unity hypothesis) have no formal content. Status: **open** (gaps G.107,
-    G.109, G.110).
+    Remark 9.5.19 (on the partition-of-unity hypothesis) have no formal content. Status: **open** in part (2026-11-12,
+    below and items 117, 118; gaps G.107, G.109, G.110 in part).
+    (2026-11-12) Theorems 9.5.4, 9.5.5, Definition 9.5.6, (9.21), Lemma 9.5.7 and Lemmas 9.5.9–9.5.11 are proved for
+    an abstract integration of forms over the oriented sheets (`SheetIntegration`, item 118); Theorems 9.5.15, 9.5.16
+    from local expressions agreeing on overlaps (`theorem_9_5_15_of_overlap`) and Theorems 9.5.17, 9.5.18 from the
+    localization of the proof (`theorem_9_5_17_of_localization`) (item 117). The integral of an sc-form over a sheet
+    of dimension `n ≥ 1`, (9.22) and Remark 9.5.20 are not formalized.
 
 Found while formalizing Appendix §9.6.1 (2026-11-08).
 
@@ -11069,7 +11239,13 @@ Follow-ups of the round-trip audit (`RoundTrip/`, 2026-11-08).
      incomparable. The same holds for `SheetNullSets` in §9.5 (item 80; items V9.50–V9.52): Lemma 9.5.2 is its
      field `isNull_transfer`. For locally Hausdorff-null sets, the σ-ideal and "a sheet is not null in itself"
      need the sheets to be second countable and the `n`-dimensional sheets to have positive measure. The project
-     proves neither. Status: **open** (gap G.105).
+     proves neither. Status: **settled** for the M-polyfold sheets (2026-11-12, below; gap G.105 closed); the abstract
+     forms are kept.
+     (2026-11-12) For the `n`-dimensional submanifolds of an M-polyfold, `MPolyfold.sheetGeometry` and `sheetNullSets`
+     are built from the geometry of the sheets (essential points in M-polyfold charts, `IsHNull`), with no hypothesis,
+     and the σ-ideal and "a sheet is not null in itself" asked above hold (`isHNull_iUnion`,
+     `not_isHNull_of_hasDimAt`); so `SheetGeometry` is tied to the geometry of the sheets for this instance (item
+     116).
 
 104. **Proposition 9.6.5 (1) read literally** *(Proposition 9.6.5, pp. 456–457; round-trip item V9.62)*. With
      the printed `I_k = I¹ ⊔ ⋯ ⊔ I^p` (item 92), each tangent class contributes `∑_{i ∈ I_k} σᵢ = Θ_k(x)`, and
@@ -11198,7 +11374,11 @@ Follow-up for the notes to the authors (2026-11-09).
      9.4.5 are Mathlib's, and `K ∖ K^e` is null for every `K ⊆ Mᵢ` (`TameBranchingStructure.lemma_9_4_6`,
      `lemma_9_4_6_sheet`). Not formalized: Lemma 9.4.4 for M-polyfold sheets (the field `ess_comm`), which needs the
      change of charts between the induced structures of two sheets, and Definition 9.5.1, Lemma 9.5.2 with Mathlib null
-     sets. Status: **settled** for (1)–(3); gaps G.105, G.106 open in part (rows V9.23, V9.32, V9.34, V9.42, V9.44).
+     sets. Status: **settled** for (1)–(3), and (2026-11-12, item 116) for Lemma 9.4.4 and Definition 9.5.1, Lemma
+     9.5.2 on M-polyfold sheets (gaps G.105, G.106 closed) (rows V9.23, V9.32, V9.34, V9.42, V9.44).
+     (2026-11-12) Lemma 9.4.4 for M-polyfold sheets and Definition 9.5.1, Lemma 9.5.2 with Lebesgue null sets are
+     proved in the M-polyfold chart reading, which on a tame sheet agrees with (4) (`isHNull_iff_isMeasureZero_sheet`;
+     item 116).
 
 110. **The continuity of `o_{∂M}` along the reduced-codimension-`1` stratum, without tameness (gap G.103 in part)**
      *(Definition 9.3.8, p. 427 (2017: Definition 9.9); Definition 9.3.10, p. 428 (2017: Definition 9.11); items 57,
@@ -11215,6 +11395,10 @@ Follow-up for the notes to the authors (2026-11-09).
      text takes the continuity as immediate; it needs no tameness, only reduced codimension `1`. Not formalized: the
      stratum as a smooth submanifold of `∂M`, the extension to the closed faces (Figure 9.1) and Remark 9.3.11. Status:
      **settled** for the continuity (rows V9.36, V9.38; gap G.103 open in part).
+     (2026-11-12) For a sheet with tame induced structure the stratum is open and dense in `∂M`
+     (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`,
+     `Polyfold/Chapter9/GapP2_DBoundaryStratum.lean`); it is not built as a submanifold of its own. Remark 9.3.11 is a
+     comment, with nothing to formalize.
 
 111. **Lemma 9.4.3 (gap G.104 closed)** *(Lemma 9.4.3, p. 430 (2017: Lemma 9.12, p. 316); item 71)* (2026-11-09).
      `Polyfold/Chapter9/PropertyTShrinking2021.lean`. `OrientedBranchingStructure.lemma_9_4_3`: every oriented
@@ -11254,7 +11438,109 @@ Follow-up for the notes to the authors (2026-11-09).
      needed (item 72, `lemma_9_4_4_mixed_dim`). Not formalized: Lemma 9.4.6 in this reading, which needs a null-set
      notion on M-polyfold sheets (positive measure of the image of a sheet under a tangent projection), and the
      comparison with the corner-chart reading of the bridge; so `SheetGeometry` for M-polyfold sheets is not yet built.
-     Status: **settled** for Lemma 9.4.4 in the chart reading (rows V9.39, V9.42); gap G.105 open in part.
+     Status: **settled** for Lemma 9.4.4 in the chart reading (rows V9.39, V9.42); gap G.105 closed (2026-11-12, below
+     and item 116).
+     (2026-11-12) Lemma 9.4.6 in this reading is `lemma_9_4_6_chart`, with the null sets `IsHNull` (item 116);
+     `SheetGeometry` for M-polyfold sheets is `MPolyfold.sheetGeometry`, and on tame sheets the null sets agree with
+     those of the corner-chart reading (`isHNull_iff_isMeasureZero_sheet`). The essential points of the two readings
+     are not compared; no statement of §9.4–§9.5 needs it.
+
+114. **Proposition 9.1.9 and Remark 9.1.10: readings (gaps G.94, G.95 closed)** *(Remark 9.1.4, p. 403; Proposition
+     9.1.9, Remark 9.1.10, p. 405 (2017: Proposition 9.1, Remark 9.3, p. 294); items 7, 109)* (2026-11-12).
+     `Polyfold/Chapter9/GapP2_CRemark914.lean`, `GapP2_CProp919.lean`, `GapP2_CDescentPolyfold.lean`,
+     `GapP2_CProp919Manifold.lean`, `GapP2_C2Prop919Text.lean`, `GapP2_C2Remark9110.lean`,
+     `GapP2_C2Remark9110Etale.lean`. (1) The hypothesis "`|X|` paracompact" of Proposition 9.1.9 is not used:
+     Definition 9.1.2 (1) already makes `|supp(Θ)|` paracompact, hence metrizable (Remark 9.1.4,
+     `remark_9_1_4_metrizable`), which Remark 9.1.10 itself observes. (2) "Natural" in (1) is read as uniqueness: any
+     two M-polyfold structures on `Z = |supp(Θ)|` for which `supp(Θ) → Z` is a local sc-diffeomorphism agree
+     (`proposition_9_1_9_one_unique`). (3) "Equivalent orbifold structure" in (2) is read as a generalized isomorphism
+     of Chapter 10 over `Z`: two choices of local branching structures give `M_c ← M_{c,c'} → M_{c'}`, both legs
+     equivalences, through the common refinement (`proposition_9_1_9_two_independent`); the text's groupoid with
+     objects `⊔ M_x` is the refinement of Proposition 10.1.3 (`proposition_9_1_9_two_text`), stated for `supp(Θ) ≠ ∅`.
+     (4) Remark 9.1.10 is stated for `Θ` `n`-dimensional, since a Mathlib manifold has one model space
+     (`remark_9_1_10_manifold`: `IsManifold (𝓡 n) ∞`). Mathlib has no notion of a classical orbifold; in case (2) the
+     object and morphism spaces are Mathlib `n`-manifolds and source, target, unit and inverse are local
+     diffeomorphisms (`remark_9_1_10_orbifold_etale`); the composition is sc-smooth, as for every ep-groupoid, and is
+     not stated as Mathlib-smooth. No counterexample; nothing is found not to hold as we read it. Status: **settled**
+     (rows V9.63 same, V9.64 restated, V9.65 narrower).
+
+115. **Example 9.3.5: all orientations classified (gap G.101 closed)** *(Example 9.3.5, p. 425 (2017: Example 9.1, p.
+     313); item 54)* (2026-11-12). `Polyfold/Chapter9/GapP2_DExample935.lean`, `GapP2_D2Example935Sheets.lean`,
+     `GapP2_D2Example935Class.lean`. The orientations of `Θ` are exactly the `classOrient a`
+     (`example_9_3_5_classification`): coefficients `a(s, b) ∈ [0, 1] ∩ ℚ` for the four open arcs, constant along each
+     arc, with `a(+,↑) + a(+,↓) = a(−,↑) + a(−,↓)`, the weights at the origin being `A` on `(1, 0)` and `2 − A` on
+     `(−1, 0)` for this common sum `A`. So there are infinitely many (`example_9_3_5_infinite`), a three-parameter
+     family, and the six orientations given by signs on the two structures (four on each, the two with all signs equal
+     in common, `orientedLift1_eq_orientedLift2_iff`, `ncard_signOrientations`) are those with integer weights
+     (`example_9_3_5_integral`, `example_9_3_5_integral_ncard`). "Four different possibilities" holds for each
+     structure separately; for `Θ` it does not hold as we read it. The rigidity at the origin comes from the
+     one-dimensional submanifolds of `ℝ²` inside `supp(Θ)` through `0`: each has tangent line `ℝ(1, 0)` there and
+     meets every vertical line near `0` (`Ex935.submanifoldTangent_eq_of_subset_Z`, `Ex935.exists_mem_fst_eq`).
+     Status: **settled** (row V9.33, narrower).
+
+116. **The sheets of an M-polyfold: chart changes, essential points, null sets (gaps G.105, G.106 closed)**
+     *(Definition 9.4.1, Lemma 9.4.4, Definition 9.4.5, Lemma 9.4.6, p. 431 (2017: 9.12–9.14, p. 317); Definition
+     9.5.1, Lemma 9.5.2, p. 437 (2017: 9.15, 9.16, p. 322); items 72, 80, 81, 103, 109, 113)* (2026-11-12).
+     `Polyfold/Chapter9/GapP2_DSheetNull.lean`, `GapP2_DSheetChartChange.lean`, `GapP2_DSheetEssential.lean`,
+     `GapP2_DSheetMeasure.lean`, `GapP2_DSheetGeometryCor.lean`, `GapP2_DSheetNullBridge.lean`. (1) A reading: chart
+     changes are differentiable along finite-dimensional submanifolds for the level-`0` norms. Definition 9.4.1 says
+     the definition is independent of the chart of `M`; the proof of Lemma 9.4.4 reads `T^K_zM` in an M-polyfold chart
+     of the ambient space with the level-`0` norm. On level `0` the transition maps of an M-polyfold are only
+     continuous, so the independence of the M-polyfold chart is not immediate. It holds because the points of `ψ(M)`
+     lie on level `1` with level-`1` distance bounded by the level-`0` distance (the chart retraction of `M` is sc⁺)
+     and the transition is differentiable from level `1` to level `0` (`ScRetraction.exists_lift_lipschitz`,
+     `ScRetraction.hasFDerivWithinAt_of_isSc1`, `exists_hasFDerivWithinAt_transition`); so
+     `isRelTangentFull_of_chart`. The same fact makes Definition 9.4.5 chart independent: `IsHNull` (the
+     `n`-dimensional Hausdorff measure of the chart image is `0`) needs one chart near each point
+     (`isHNull_of_forall_exists_chart`). (2) Lemma 9.4.6 holds for every subset of an `n`-dimensional submanifold
+     (`lemma_9_4_6_chart`), and the `n`-dimensional submanifolds carry a `SheetGeometry` and a `SheetNullSets` with no
+     hypothesis (`sheetGeometry`, `sheetNullSets`; a nonempty sheet is not null, `not_isHNull_of_hasDimAt`). (3) Every
+     local branching structure of an `n`-dimensional `Θ` has `n`-dimensional sheets (`isOfDim_of_isNDimensional`), so
+     Lemmas 9.4.4, 9.4.6, 9.4.8 and Propositions 9.4.9, 9.4.10 hold for its sheets with no sheet-geometry hypothesis
+     (`lemma_9_4_4_of_isNDimensional`, `lemma_9_4_6_of_isNDimensional`, `lemma_9_4_8_of_isNDimensional`,
+     `proposition_9_4_9_of_isNDimensional` with Property (T), `proposition_9_4_10_of_isNDimensional`), and Lemma 9.5.2
+     holds as stated (`lemma_9_5_2_of_isNDimensional`). On a tame sheet `IsHNull` is Lebesgue measure zero in the
+     smooth charts of the manifold with corners (`isHNull_iff_isMeasureZero_sheet`). No counterexample; nothing is
+     found not to hold as we read it. Status: **settled** (rows V9.42–V9.44, V9.46–V9.51; V9.50 explicit).
+
+117. **Measure zero in `∂S`, the boundary measures and Stokes' theorem from their inputs (gaps G.108–G.110 in part)**
+     *(Definition 9.5.14, Theorems 9.5.15, 9.5.16, p. 448; Theorems 9.5.17, 9.5.18, pp. 449–451 (2017: 9.17, 9.3, 9.4,
+     pp. 327–330); Remark 9.5.20; items 83, 85)* (2026-11-12). `Polyfold/Chapter9/GapP2_E2BoundaryNull.lean`,
+     `GapP2_E2MeasureGlue.lean`, `GapP2_E2Stokes.lean`. (1) Measure zero face by face (`IsFaceNull`, for
+     face-structured tame sheets) and the case `n = 1` (`SheetNullSets.point`), with the witness `Θ = 1` on `[0, ∞)`,
+     `∂S ≠ ∅`; with `IsHNull (n−1)` the agreement of two boundaries is automatic (`MPolyfold.hNullSets`), and what
+     remains for `n ≥ 2` is that a nonempty `∂Mᵢ` is not `(n−1)`-null. (2) Theorems 9.5.15, 9.5.16 from local
+     expressions agreeing on the overlaps (`theorem_9_5_15_of_overlap`). A reading: `∂S` is closed in `S`
+     (`isClosed_orbitSupp_boundaryTheta`), so the compactness of `∂Θ` used on p. 448 follows from that of `Θ`
+     (`isCompact_orbitSupp_boundaryTheta`). (3) Theorems 9.5.17, 9.5.18 from the localization of the proof
+     (`theorem_9_5_17_of_localization`); its inputs are hypotheses, satisfied by `Φ = 0` and by no nonzero measure
+     yet. A reading: in the proof the standard Stokes theorem is applied to `β_k ω` on the sheets `Mᵢ`, which are
+     properly embedded in the open `U(x_k)` and not compact; that `Mᵢ ∩ supp β_k` is compact is not said. It holds:
+     `supp β_k` is closed and saturated in `U_k^*`, `S` is compact, and `U(x) → |U(x)|` is proper for the natural
+     action (`TameBranchingStructure.isCompact_inter`); the properness property of `U(x)` is not needed for this step
+     (`OrientedSheet.stokes`). (4) Remark 9.5.20 has content (an M-polyfold in `ℝ × ℂ` with a jump of dimension); it
+     is not formalized. Status: **settled** for the readings; gaps G.108, G.109, G.110 open in part.
+
+118. **§9.5 for an abstract integration of forms over the sheets (gap G.107 in part)** *(Theorems 9.5.4, 9.5.5,
+     Definition 9.5.6, (9.20)–(9.21), Lemma 9.5.7, pp. 438–441; Lemmas 9.5.9–9.5.11, pp. 442–445; Proposition 9.5.13,
+     p. 446 (2017: Theorem 9.2, Lemmas 9.18, 9.19); items 84, 85)* (2026-11-12).
+     `Polyfold/Chapter9/GapP2_E1_SheetIntegration.lean`, `GapP2_E1_LocalMeasure.lean`,
+     `GapP2_E1_BranchedIntegral.lean`, `GapP2_E1_PointIntegration.lean`. The integrals of forms over the measurable
+     subsets of the oriented sheets are the data of `SheetIntegration` (linear, countably additive, zero on null sets,
+     equal for two sheets where their oriented tangent spaces agree, invariant under the morphism diffeomorphisms;
+     sheets Lindelöf); it is satisfiable in dimension `0` for every ep-groupoid (`pointIntegration`). For every such
+     structure Theorems 9.5.4, 9.5.5 hold with existence and uniqueness on `(S, L(S))` (`theorem_9_5_4`,
+     `theorem_9_5_5`), with Definition 9.5.6, Lemma 9.5.7 and Lemmas 9.5.9–9.5.11. Readings: (1) the step of Lemma
+     9.5.9's proof that passes to another branching structure in `V_r` uses Lemma 9.5.7 (the sheets `φ_r(M̃_j)` need
+     not be sheets `Mᵢ`) and the naturality of `T̂_Θ`; (2) the independence of the choices in Theorems 9.5.4, 9.5.5
+     needs, for a measurable `K ⊆ |M_U| ∩ |M_U'|`, countably many of the neighbourhoods of Lemmas 9.5.9, 9.5.11, which
+     is where the sheets being Lindelöf enters (`overlap`, `exists_slice_pair`); (3) the effective clause of Lemma
+     9.5.11 holds without LUC and without shrinking `U`; (4) the decomposition of Proposition 9.4.10 is redone with
+     measurable pieces (`sum_integ_eq_zero`). Not formalized: the integral of an sc-form over an oriented sheet of
+     dimension `n ≥ 1` as a `SheetIntegration`, (9.22), Proposition 9.5.13 (2) at the level of the integrals, and a
+     witness of the covering hypothesis of `theorem_9_5_4` with `supp(Θ) ≠ ∅`. No counterexample; nothing is found not
+     to hold as we read it. Status: **settled** for a `SheetIntegration` (rows V9.54–V9.57, V9.66, narrower); gap
+     G.107 open in part.
 
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
@@ -11268,7 +11554,7 @@ equivalences (`StrongBundleEquivalence.lean`, `StrongBundleEquivalenceNat.lean`,
 `StrongBundleEquivalenceExamples.lean`); 50–59: reserved for §10.5; 60–69: Appendix §§10.6.1–10.6.2, the proofs of
 Theorems 10.3.8 and 10.3.10; 70–79: witnesses and the hypotheses taken. Statement numbers and pages are those of
 the Springer edition (2021, pp. 461–520), with the 2017 text's in parentheses (2017 pp. 333–374). The comparison
-items are `Exposition/verification/ch10.md` (V10.1–V10.71); the gaps are G.111–G.127.
+items are `Exposition/verification/ch10.md` (V10.1–V10.75); the gaps are G.111–G.127.
 
 Found while formalizing §10.1 (2026-11-08).
 
@@ -11319,8 +11605,11 @@ Found while formalizing §10.1 (2026-11-08).
    appendix (gap G.112). Proposition 10.1.9, new in 2021, transports a natural representation along `F` and a
    morphism `F(x) → y`; the Chapter 7 API of natural representations has no such transport (gap G.113), and with it
    the subcategory `EP_lreg` (gap G.111) and Proposition 10.1.10, which assumes (LR) and uses 10.1.9 (gap G.114),
-   remain open. Formalized since: Propositions 10.1.9 and 10.1.10 (item 16); `EP_lreg` is still not built. Status:
-   **open** (gaps G.111, G.112; G.113, G.114 closed).
+   remain open. Formalized since: Propositions 10.1.9 and 10.1.10 (item 16); and since 2026-11-12 `EP_lreg`
+   (`EP.lreg`, `EP.Lreg`, `GapP2_F_LReg.lean`; row V10.74) and Remark 10.1.8 with Appendix §10.6.3 as printed, on the
+   appendix's scale `ℝ ⊕ H^{m,δ_m}(ℝ)` with its projections (`ZhouTenSix.remark_10_1_8`, `ZhouTenSix.not_isLR`,
+   `GapP2_A2TenSix.lean`; row V10.75); a variant with the moving projections of Remark 4.1.3 is kept
+   (`ZhouSigma.remark_10_1_8`, `GapP2_F_ZhouExample.lean`). Status: **settled** (gaps G.111–G.114 closed).
 
 8. **Remark 10.1.11 in a stronger form** *(Remark 10.1.11, p. 470 (2017: Remark 10.1, p. 340))*. On `ℤ/2 ⋉ ℝ²`
    with `F = id`, `G = −id`, no family `α(z) : z → −z` with `α(0) = 1_0` is even continuous at `0`
@@ -11424,8 +11713,8 @@ Found while closing the gaps of §§10.1, 10.3 and 10.5 (2026-11-08).
     fibrewise injectivity of strong bundle equivalences. `SEP(F⁻¹)` is a category (`SEPLoc.category`) with a
     localization functor `SEP ⥤ SEP(F⁻¹)` which inverts the strong bundle equivalences (`localizationFunctor`,
     `isInvertedBy_localizationFunctor`). Witnesses over `−id`: `theorem_10_2_2_negSEPHom`, and `F ∘ F = 1` for
-    `foldDiagram` (`homMk_foldDiagram_comp`, `nonempty_comp_foldDiagram`). Status: **settled** (a reading; gap
-    G.123 closed, except the half of item 19).
+    `foldDiagram` (`homMk_foldDiagram_comp`, `nonempty_comp_foldDiagram`). Status: **settled** (a reading; gap G.123
+    closed, with the converse of item 19).
 
 19. **Remark 10.5.3 read as "generalized strong bundle isomorphisms are isomorphisms"** *(Remark 10.5.3, p. 506,
     new in the 2021 edition; Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353))*. The remark says that a result
@@ -11436,9 +11725,14 @@ Found while closing the gaps of §§10.1, 10.3 and 10.5 (2026-11-08).
     `equiv_symm_comp`). Of the converse, that every isomorphism of `SEP(F⁻¹)` is represented with both legs strong
     bundle equivalences, only the base half is proved: `[D] ↦ [d]` is a functor `SEP(F⁻¹) ⥤ EP(E⁻¹)`
     (`SEPLoc.baseFunctor`), so for an isomorphism `[D]` the functor `ψ` covered by `Ψ` is an equivalence, by
-    Theorem 10.3.10 (`isEquivalence_base_of_isIso`). For `Ψ` itself the converse would need strong bundle versions
-    of the claims (C1), (C2) of Appendix §10.6.2 (item 61). Witness: the class over `−id`
-    (`isIso_homMk_negDiagram`). Status: **open** (a reading; the converse half of gap G.123).
+    Theorem 10.3.10 (`isEquivalence_base_of_isIso`). For `Ψ` itself the converse is proved since 2026-11-12
+    (`SEPLoc.equivalences_Ψ_of_isIso`, `GapP2_F2_SBConverse.lean`): from the inverse `[E]`, `[D] ∘ [E] = 1` gives the
+    fibrewise injectivity of `Ψ` and `[E] ∘ [D] = 1` a strong bundle equivalence naturally equivalent to `Ψ ∘ G`;
+    local right inverses at levels 0 and 1 then make `Ψ` a strong bundle equivalence
+    (`SEP.equivalences_of_natEquiv_comp`). So the isomorphisms of `SEP(F⁻¹)` are exactly the generalized strong bundle
+    isomorphisms (`SEPLoc.isIso_iff_isGeneralizedIso`), with this saturation argument in place of strong bundle
+    versions of the claims (C1), (C2) of Appendix §10.6.2 (item 61). Witness: the class over `−id`
+    (`isIso_homMk_negDiagram`). Status: **settled** (a reading; gap G.123 closed; row V10.71 same).
 
 Found while formalizing §10.2 (2026-11-08).
 
@@ -11452,11 +11746,12 @@ Found while formalizing §10.2 (2026-11-08).
 21. **Theorem 10.2.2: the M-polyfold structures, and the admissibility** *(Theorem 10.2.2, pp. 477–481 (2017:
     Theorem 10.2, pp. 343–346))*. The text calls the sets sub-M-polyfolds of `X × 𝐘 × Z` and `𝐗 × 𝐘 × 𝐙`.
     The formal structures are the iterated sub-M-polyfold structures of Part I's fibred products with a local
-    sc-diffeomorphism (Proposition 2.5.20; `PObj`, `PMor`); their agreement with structures induced directly from
-    the triple products is not proved and not needed (gap G.116). The construction uses of `F` only that it is a
+    sc-diffeomorphism (Proposition 2.5.20; `PObj`, `PMor`); they agree with the structures induced directly from the
+    triple products, which nothing below needs (`theorem_10_2_2_triple`, `GapP2_F_TripleProduct.lean`; gap G.116
+    closed). The construction uses of `F` only that it is a
     local sc-diffeomorphism on objects, or the same of `G` (`WeakFibredProduct.Admissible`), which every
     equivalence supplies (`Admissible.of_isEquivalence_left`, `of_isEquivalence_right`). Status: **settled**; gap
-    G.116 open.
+    G.116 closed.
 
 22. **Theorem 10.2.2: properness, read with the closure** *(Theorem 10.2.2, proof, p. 481 (2017 p. 346))*. The text
     shows "`t : s⁻¹(U) → X` proper"; Definition 7.1.3 (3) asks it on `s⁻¹(cl U)`, which is what is proved
@@ -11521,10 +11816,11 @@ Found while formalizing §10.3 (2026-11-08).
     refinement, so it is (10.13) that refines `d_{Ψ∘Φ}`; that is what is proved (`isRefinement_ofFunctor_comp`),
     and the equality of classes is unchanged. The functor `i` inverts `E` in Mathlib's sense
     (`isInvertedBy_localizationFunctor`); the universal property of the localization, mentioned on p. 483 and not a
-    numbered statement, is not formalized: it would need that a functor inverting `E` identifies naturally
-    equivalent sc-smooth functors, through a cylinder ep-groupoid the project does not have (gap G.117). Witness:
+    numbered statement, is proved since 2026-11-12 (`EPLoc.isLocalization`, `EPLoc.universal_property`,
+    `GapP2_F_LocUniversal.lean`): a functor inverting `E` identifies naturally equivalent sc-smooth functors, with the
+    weak fibred product `X ×_Y Y` as the cylinder (`map_eq_of_naturallyEquivalent`; gap G.117 closed). Witness:
     the equivalence from the pair groupoid of `ℤ` to the point is not an isomorphism of `EP` but its image is
-    invertible (`isGeneralizedIso_pairToPoint`). Status: **settled** (a reading); gap G.117 open.
+    invertible (`isGeneralizedIso_pairToPoint`). Status: **settled** (a reading); gap G.117 closed.
 
 37. **Remark 10.3.13: no formal content** *(Remark 10.3.13, p. 491, new in the 2021 edition)*. The view of `X` as
     an atlas on `|X|` is interpretive. Status: **settled**.
@@ -11594,10 +11890,14 @@ Found while formalizing §10.4 (2026-11-08).
     Propositions 10.1.9 and 10.1.10; the proof of 10.4.6 is left to the reader in the text. Not formalized, with
     their ep-groupoid versions (gap G.122). The ep-groupoid versions are formalized since (item 16); the strong
     bundle versions need the transport `H_ψ̂` as a strong bundle isomorphism at levels 0 and 1 and the inverse of a
-    strong bundle isomorphism on an open set, which the strong bundle API (composition and restriction only) does
-    not provide. Status: **open** (gap G.122).
+    strong bundle isomorphism on an open set, which the strong bundle API (composition and restriction only) does not
+    provide. Status: see the last line.
     (2026-11-09) Proposition 10.4.7 is formalized on the bases with `IsLRLocal`; what Proposition 10.4.6 needs is item
     74.
+    (2026-11-12) Both formalized: `EpStrongBundle.proposition_10_4_6`, `EpStrongBundle.proposition_10_4_7`
+    (`GapP2_GBundleLR.lean`, `GapP2_GBundleFamily.lean`), with `IsLRLocal` (item 72); the missing inverse of a local
+    strong bundle isomorphism is `IsLocalIsoOn.exists_isLocalIso₂`, the transport
+    `IsStrongBundleEquivalence.exists_transport`. Status: **settled** (gap G.122 closed; rows V10.72, V10.73).
 
 46. **Definitions 10.4.8, 10.4.10 and Remark 10.4.9: `T` as data; `μ` for `μ'`** *(pp. 502–503 (2017: Definitions
     10.11, 10.12, Remark 10.4, pp. 362–363))*. `T` carries no smoothness in Definition 10.4.8, as in the text
@@ -11625,7 +11925,7 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     `cls_eq_cls_of_equiv`). They are the text's classes as soon as the relation is transitive, and every map
     defined on them below is well defined for the generated relation. Formalized since: the transitivity, with the
     weak fibred product of strong bundles, so that the generated relation is having a common refinement
-    (`SDiagram.lemma_10_3_4`, `cls_eq_cls_iff`; item 18). Status: **closed** (gap G.123 closed, except the half of
+    (`SDiagram.lemma_10_3_4`, `cls_eq_cls_iff`; item 18). Status: **closed** (gap G.123 closed, with the converse of
     item 19).
 
 51. **`[d]`, `|[D]|` and the square `|D|`** *(§10.5, pp. 504–505 (2017: Remark 10.5, pp. 364–365))*. A diagram of
@@ -11639,15 +11939,18 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     editions; we read `X'`. The symbolic diagram (10.24) has no formal content, and its version with generalized
     vertical maps, left to the reader, is not formalized. Status: **settled** (possible misprint; the diagram with
     generalized vertical maps is gap G.124).
+    (2026-11-12) (10.24) with the generalized maps `i(P)`, `i(P')` as vertical arrows commutes in `EP(E⁻¹)`
+    (`SDiagram.square_10_24`, `GenSBMap.square_10_24`, `GapP2_GDiagram.lean`); gap G.124 closed.
 
 52. **The homomorphism `γ : G_x → G'_{x'}`** *(§10.5, p. 505 (2017 p. 365))*. Formalized for every diagram
     `X ←φ X'' →ψ X'` of ep-groupoids (`Diagram.isotropyHom`, `isotropyHom_spec`): for `x, x'` with
     `|[d]|(|x|) = |x'|` there are `x''`, `a : φ(x'') → x` and `b : ψ(x'') → x'` (`exists_isotropyData`),
     and `γ(g) = b ∘ ψ(k) ∘ b⁻¹` for the `k` with `φ(k) = a⁻¹ ∘ g ∘ a`. It is a group homomorphism, and
     a group isomorphism when `ψ` is an equivalence (`bijective_isotropyHom`; added). The 2021 text has the first
-    step `g ↦ a⁻¹ ∘ g ∘ a`, the 2017 text `a ∘ g ∘ a⁻¹`; the 2021 form is used. The equivariant germ `q`
-    and its lift `Q` of (10.25) are not formalized: they depend on the representative, and the text uses no
-    property of them. Status: **open** (gap G.124).
+    step `g ↦ a⁻¹ ∘ g ∘ a`, the 2017 text `a ∘ g ∘ a⁻¹`; the 2021 form is used. The equivariant germ `q` and its lift
+    `Q` of (10.25) depend on the representative, and the text uses no property of them; since 2026-11-12 they are
+    formalized for each choice of data (`Diagram.exists_germ_q`, `SDiagram.exists_lift_Q`, `GapP2_GDiagram.lean`,
+    `GapP2_GDiagramLift.lean`). Status: **settled** (gap G.124 closed).
 
 53. **Definitions 10.5.1, 10.5.2 and Remark 10.5.3** *(p. 506 (2017: Definitions 10.14, 10.15, p. 366); Remark
     10.5.3 new in the 2021 edition)*. The objects of `SEP(F⁻¹)` are the strong bundles over ep-groupoids and its
@@ -11660,8 +11963,8 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     consequence for the base and the total spaces, through Theorem 10.3.10: `[d]` and the total class are
     generalized isomorphisms, and `|[D]|` is a homeomorphism (`remark_10_5_3`). Formalized since: the composition,
     so that `SEPLoc` is a category (`SEPLoc.category`; item 18), and Remark 10.5.3 in the reading of item 19
-    (`SEPLoc.isIso_of_isGeneralizedIso`). Status: **closed** (gap G.123 closed, except the converse half of item
-    19).
+    (`SEPLoc.isIso_of_isGeneralizedIso`). Status: **closed** (gap G.123 closed, with the converse of item 19,
+    `SEPLoc.isIso_iff_isGeneralizedIso`).
 
 54. **The push-forward along a diagram does not depend on the representative** *(§10.5, p. 507 (2017 p. 367))*. For
     a diagram with both legs strong bundle equivalences, `D_*f = Ψ_*Φ^*f` and `D^*g = Φ_*Ψ^*g`
@@ -11702,11 +12005,13 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
 
 57. **Proposition 10.5.6: only the reduction** *(Proposition 10.5.6, p. 508, new in the 2021 edition)*. A property
     of strong bundles that is invariant under strong bundle equivalences is invariant under generalized strong
-    bundle isomorphisms (`GenSBMap.iff_of_isGeneralizedIso`), which is the text's argument. For the local
-    regularity property this needs Proposition 10.4.6, which is not formalized (G.122). Readings (possible
+    bundle isomorphisms (`GenSBMap.iff_of_isGeneralizedIso`), which is the text's argument. For the local regularity
+    property this needs Proposition 10.4.6, formalized since 2026-11-12 with Definition 8.4.2 read as `IsLRLocal`
+    (`EpStrongBundle.proposition_10_4_6`, item 45), so Proposition 10.5.6 holds in that reading
+    (`SBLocalization.proposition_10_5_6`; row V10.61 same). Readings (possible
     misprints): "see Proposition 10.4.7 for the appropriate modification" (p. 508) is read as Proposition 10.4.6,
-    the statement used; in Proposition 10.4.6 (p. 501), "`Φ : W → W`" is read `Φ : V → W`. Status: **open**
-    (gap G.126; possible misprints).
+    the statement used; in Proposition 10.4.6 (p. 501), "`Φ : W → W`" is read `Φ : V → W`. Status: **settled** (gap
+    G.126 closed; the two readings above are reading points).
 
 58. **Theorems 10.3.19 and 10.5.7 do not hold as we read them** *(Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7,
     p. 355); Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367))*. Both statements are formalized as propositions
@@ -11811,6 +12116,8 @@ Follow-up for the notes to the authors (2026-11-09).
     there the theorem does not hold as we read it (`not_theorem_10_5_7_of_isLRLocal`). Whether the formal
     `EpStrongBundle.IsLR` alone suffices is not decided. Status: **settled** (effective target; Definition 8.4.2 read
     for local isomorphisms).
+    (2026-11-12) The same reading of Definition 8.4.2 gives Propositions 10.4.6, 10.4.7 and 10.5.6 (items 45, 57, 74;
+    rows V10.72, V10.73, V10.61).
 
 73. **Theorem 10.5.4: `[D]_*` is a linear isomorphism (row V10.59)** *(Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9,
     p. 367); Theorem 10.4.5; Definition 8.3.4; item 55)* (2026-11-09).
@@ -11822,7 +12129,7 @@ Follow-up for the notes to the authors (2026-11-09).
     Γ(P', μ')` with inverse `[D]^*`, as is `plusPushforwardEquiv` on `Γ⁺`. On `Fred`, which is not a vector space, the
     statement is the bijection `theorem_10_5_4_fred` (item 55). Status: **settled** (rows V10.27, V10.59).
 
-74. **Propositions 10.4.6 and 10.4.7: 10.4.7 on the bases, and what 10.4.6 needs (gap G.122 open)** *(Propositions
+74. **Propositions 10.4.6 and 10.4.7: 10.4.7 on the bases, and what 10.4.6 needs (gap G.122, closed since)** *(Propositions
     10.4.6 and 10.4.7, pp. 501–502, new in the 2021 edition; Definition 8.4.2; items 45, 71, 72)* (2026-11-09).
     Proposition 10.4.7 is formalized on the bases, with the local reading `IsLRLocal` of Definition 8.4.2 for the
     target (`SEP.exists_family_of_isLRLocal`, `Chapter10/LocalizationLRBundleBase.lean`): it gives the sc-smooth `z ↦
@@ -11833,23 +12140,29 @@ Follow-up for the notes to the authors (2026-11-09).
     bundle isomorphism to a global map; so the proof does not go through for `IsLR` as stated. With `IsLRLocal` the
     text's proof should work: it needs a strong bundle transport chart (`H` as a local strong bundle isomorphism at
     levels `0` and `1`, equivariant on `natLift`) and the composition and inversion of local strong bundle
-    isomorphisms; Proposition 10.5.6 for `IsLRLocal` would then follow from `GenSBMap.iff_of_isGeneralizedIso`. Status:
-    **open** (gap G.122; also row V10.61 and gap G.126).
+    isomorphisms; Proposition 10.5.6 for `IsLRLocal` would then follow from `GenSBMap.iff_of_isGeneralizedIso`.
+    Status: **settled** (gaps G.122, G.126 closed; row V10.61 same).
+    (2026-11-12) Proposition 10.4.6 is proved along these lines with `IsLRLocal` (`EpStrongBundle.proposition_10_4_6`:
+    the transport `IsStrongBundleEquivalence.exists_transport`, equivariant on the natural lifts by `transport_Γ`;
+    composition and inversion of local strong bundle isomorphisms, `StrongBundle.IsLocalIso₂`,
+    `IsLocalIsoOn.exists_isLocalIso₂`), and the bundle identity `μ'(α_z, Φ(v)) = Ψ(v)` of Proposition 10.4.7 is
+    stated, with (LR) of the target only (`proposition_10_4_7`). Whether the formal `IsLR` alone suffices is still not
+    decided.
 
 ## Chapter 11 (Geometry up to equivalences; Lean `Polyfold/Chapter11/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
-working at the same time do not collide; the gaps in the numbering are unused numbers, not deleted items. 1–19:
-§11.1, the tangent functor and faces (`Chapter11/EpEquivalenceGeometry.lean`, `EpEquivalenceGeometryFaces.lean`);
-20–29: §11.2, sc-differential forms (not formalized); 30–39: §11.3 up to Theorem 11.3.3, branched ep⁺-subgroupoids
-(`BranchedEquivalence.lean`, `BranchedEquivalenceLocalization.lean`); 40–49: the rest of §11.3, Lemma 11.3.4 to
-Theorem 11.3.9 (`BranchedEquivalenceTangentSection.lean`, `BranchedEquivalenceTangent.lean`,
+working at the same time do not collide; the gaps in the numbering are unused numbers, not deleted items. 1–19: §11.1,
+the tangent functor and faces (`Chapter11/EpEquivalenceGeometry.lean`, `EpEquivalenceGeometryFaces.lean`); 20–29:
+§11.2, sc-differential forms (`GapP2_B2_*.lean`, since 2026-11-12); 30–39: §11.3 up to Theorem 11.3.3, branched
+ep⁺-subgroupoids (`BranchedEquivalence.lean`, `BranchedEquivalenceLocalization.lean`); 40–49: the rest of §11.3, Lemma
+11.3.4 to Theorem 11.3.9 (`BranchedEquivalenceTangentSection.lean`, `BranchedEquivalenceTangent.lean`,
 `BranchedEquivalenceTangentOrientation.lean`); 50–59: §11.4, integration (not formalized); 60–69: §11.5, auxiliary
 norms and multisections (`StrongBundleUpToEquivalence.lean`); 70–79: §11.6, proper coverings up to equivalence
-(`CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean`, `CoveringEquivalenceDiagram.lean`); 80–89:
-witnesses and the hypotheses taken. Statement numbers and pages are those of the Springer edition (2021, pp.
-521–566), with the 2017 text's in parentheses (2017 pp. 375–416). The comparison items are
-`Exposition/verification/ch11.md` (V11.1–V11.42); the gaps are G.128–G.135.
+(`CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean`, `CoveringEquivalenceDiagram.lean`); 80–89: witnesses
+and the hypotheses taken. Statement numbers and pages are those of the Springer edition (2021, pp. 521–566), with the
+2017 text's in parentheses (2017 pp. 375–416). The comparison items are `Exposition/verification/ch11.md`
+(V11.1–V11.43); the gaps are G.128–G.135.
 
 Found while formalizing §11.1 (2026-11-08).
 
@@ -11878,6 +12191,7 @@ Found while formalizing §11.1 (2026-11-08).
    faces becomes one about homeomorphisms of orbit spaces preserving an index. The number of faces through a point
    is counted in `ℕ∞`. The ep-groupoid structure of a face is part of Proposition 11.1.6 (item 6). Status:
    **settled**.
+   (2026-11-12) The structure is built: `faceEpGroupoid` (`Chapter11/GapP2_HFaces.lean`; item 6).
 
 4. **Example 11.1.4: the quadrant with the swap, for any `W`** *(Example 11.1.4, p. 523 (2017: Example 11.1, p.
    377))*. Proved for `C = [0, ∞)² ⊕ W` with any sc-Banach space `W` (`example_11_1_4`): with only identities
@@ -11897,16 +12211,20 @@ Found while formalizing §11.1 (2026-11-08).
    first paragraph, on ordered face structures, has no formal content. Status: **settled**; the ordered face
    structures have no formal content.
 
-6. **Proposition 11.1.6: only the bijection of faces is formalized** *(Proposition 11.1.6, pp. 524–525 (2017:
-   Proposition 11.2, p. 378))*. Proved, for every generalized isomorphism and with no face structure assumed:
-   `[d]_*` is a bijection of the faces of `|X|` onto those of `|Y|` with inverse `[d]^*`,
+6. **Proposition 11.1.6: faces as ep-groupoids, `[d]_F`, and the intersection clause** *(Proposition 11.1.6, pp.
+   524–525 (2017: Proposition 11.2, p. 378))*. Proved, for every generalized isomorphism and with no face structure
+   assumed: `[d]_*` is a bijection of the faces of `|X|` onto those of `|Y|` with inverse `[d]^*`,
    `[d]_*(X_θ) = Y_{|[d]|(θ)}`, and `|[d]|` restricts to homeomorphisms `θ → [d]_*θ` (`proposition_11_1_6`).
-   Not formalized: the object and morphism sets of a face as sub-M-polyfolds with tame induced structures and the
-   face as a tame face structured ep-groupoid (they need the restriction of an ep-groupoid to a closed saturated
-   sub-M-polyfold, and `X_θ` as a union of faces of the object M-polyfold), the clause on the intersection of two
-   faces, and the generalized isomorphisms `[d]_F` of (11.1). Open question: whether the intersection clause holds
-   in the generality stated was not settled by the formalization; nothing is claimed either way. Status: **open**
-   (gap G.128).
+   (2026-11-12, `Chapter11/GapP2_HFaces.lean`, `GapP2_HFaceIso.lean`.) For face structured `X`: the object M-polyfold
+   is weakly face structured (`IsEpFaceStructured.isWeaklyFaceStructured`), the only extra input the proof needs; each
+   `X_θ` agrees near each of its points with one face of the object M-polyfold (`exists_nhds_eq_face`), so it is a
+   closed saturated sub-M-polyfold, and with the morphisms between its points a tame ep-groupoid with
+   `d_X = d_{X_θ} + 1` (`faceEpGroupoid`, `proposition_11_1_6_faces`); restrictions of equivalences to saturated
+   ep-subgroupoids are equivalences (`EpFunctor.IsEquivalence.restrictSub`), and `[d]_F : X_θ → Y_{[d]_*θ}`
+   (`EPLoc.faceIso`) is a generalized isomorphism, independent of the representative, whose orbit map restricts
+   `|[d]|` (`proposition_11_1_6_faceIso`). Only `X` is assumed face structured; `Y` then is (item 7). The clause that
+   two faces meet in a face of each does not hold as we read it (item 9). Status: **settled** (gap G.128 closed; row
+   V11.6 narrower by the verdict rule).
 
 7. **Remark 11.1.7: tameness transfers forward along equivalences** *(Remark 11.1.7, p. 525 (2017: Remark 11.2, p.
    379))*. Chapter 10 had tameness from `Y` to `X` (`IsEquivalence.isTame_of_isTame`). The converse, needed here,
@@ -11914,19 +12232,63 @@ Found while formalizing §11.1 (2026-11-08).
    surjective local sc-diffeomorphism on objects (`isTame_of_isTame_left`, `isTame_iff`). With item 5, "tame and
    face structured" is invariant under generalized isomorphisms (`remark_11_1_7`). Status: **settled**.
 
-8. **Proposition 11.1.8: the maps on faces read as restrictions of `|f|`** *(Proposition 11.1.8, p. 526 (2017:
-   Proposition 11.3, p. 380))*. `f_* = g_*`, `f^* = g^*` on faces and `|f| = |g|` on every face
-   (`proposition_11_1_8`). The text's maps `|F| → |f_*F|` come from the generalized isomorphisms of (11.1), which
-   are not constructed (item 6); they are read as the restrictions of `|f|`. Status: **settled** in this reading;
-   gap G.128 for the generalized isomorphisms.
+8. **Proposition 11.1.8: the maps on faces** *(Proposition 11.1.8, p. 526 (2017: Proposition 11.3, p. 380))*.
+   `f_* = g_*`, `f^* = g^*` on faces and `|f| = |g|` on every face (`proposition_11_1_8`). (2026-11-12) The text's
+   maps `|F| → |f_*F|` come from the generalized isomorphisms `f_F` of (11.1), now constructed (`EPLoc.faceIso`, item
+   6); `|f_F| = |g_F|` is `proposition_11_1_8_faceIso`, with only `X` assumed face structured. Status: **settled**
+   (row V11.8 same; gap G.128 closed).
+
+9. **Proposition 11.1.6, the intersection clause: does not hold as we read it** *(Proposition 11.1.6, p. 524 (2017:
+   Proposition 11.2, p. 378))* (2026-11-12). `Chapter11/GapP2_H2FaceMeet.lean`, `GapP2_H2FaceMeetUnion.lean`. The
+   clause, that a nonempty intersection of two faces `F`, `G` is a face in `F` as well as in `G`, is stated for two
+   distinct faces `X_θ ≠ X_θ'` in the face ep-groupoids `faceEpGroupoid` (`EpGroupoid.FacesMeetInFaces`).
+   Counterexample: for any sc-Banach space `W`, the trivial ep-groupoid of `V = ([0,∞)³ ⊕ W) ∖ K`,
+   `K = {p₀ + p₁ ≤ 1/4, 1 ≤ p₂ ≤ 2}`, an open subset of the tame quadrant, is tame and face structured
+   (`FaceMeetExample.isEpFaceStructured_XV`); its faces through the planes `p₀ = 0` and `p₁ = 0` are distinct and meet
+   in the edge `p₀ = p₁ = 0` with `p₂ ∈ [1, 2]` removed, two components; in `|X_θ₀|` every point of index 1 has
+   `p₂ < 1` or `p₂ > 2` (`cF_lt_or_gt`), so the intersection is not the closure of one component
+   (`not_isEpFace_inter`, `FaceMeetExample.not_facesMeetInFaces`). With `W = 0` it is a 3-manifold with boundary and
+   corners. Corrected form, proved for every face structured `X`: for `θ ≠ θ'`, `X_θ ∩ X_θ'` is the union of the faces
+   of `X_θ` it contains, and of the faces of `X_θ'` it contains (`IsEpFaceStructured.faceObj_inter_eq_sUnion`,
+   `IsEpFaceStructured.facesMeetInUnions`); the M-polyfold step is that in a tame M-polyfold a point on two distinct
+   faces is a limit of points of index 2 on both (`MPolyfold.mem_closure_inter_faces`, by a ray in a tame chart). The
+   text's proof does not address the clause. For the notes to the authors (one line): whether the clause is meant as
+   "a union of faces in `F` and in `G`", the form proved. Status: **settled** (row V11.6 narrower; gap G.128 closed).
 
 Found while reading §11.2 (2026-11-08).
 
-20. **§11.2 is not formalized** *(Theorem 11.2.1 to Proposition 11.2.9, pp. 526–535 (2017: Theorem 11.2 to
-    Proposition 11.5, pp. 380–389))*. The push-forward and pull-back of sc-differential forms along equivalences
-    and generalized maps, their compatibility with `d`, and their dependence on the orbit map only under the local
-    regularity property need sc-differential forms on ep-groupoids, which are not in the project (gaps G.74, G.80).
-    The same pattern for functors `Θ` is items 30–32. Status: **open** (gap G.129).
+20. **§11.2: forms up to equivalence** *(Theorem 11.2.1 to Proposition 11.2.9, pp. 526–535 (2017: Theorem 11.2 to
+    Proposition 11.5, pp. 380–389))*. (2026-11-12) Formalized as stated, with no added hypothesis, in
+    `Chapter11/GapP2_B2_FormDescent.lean`, `GapP2_B2_EquivForms.lean`, `GapP2_B2_EquivFormsInfty.lean`,
+    `GapP2_B2_GeneralizedForms.lean`, `GapP2_B2_OrbitForms.lean`, on Chapter 8's forms on ep-groupoids (gap G.74
+    closed): Theorem 11.2.1 (`EPLoc.theorem_11_2_1_one` … `_four`), Lemma 11.2.2 and Definition 11.2.3
+    (`IsEquivalence.lemma_11_2_2`, `definition_11_2_3`), Lemmas 11.2.4–11.2.6 (`EP.lemma_11_2_4_two`,
+    `EP.lemma_11_2_5_push`, `EP.lemma_11_2_6`, `EP.lemma_11_2_6_push`), Definition 11.2.7 (`EPLoc.formsPullback`,
+    `EPLoc.formsPush`), Propositions 11.2.8, 11.2.9 (`EP.proposition_11_2_8`, `EPLoc.proposition_11_2_9`). The same
+    pattern for functors `Θ` is items 30–32. Two reading points are item 21, the route item 22. Status: **settled**
+    (rows V11.9, V11.11–V11.13 same, V11.10 restated; gap G.129 closed).
+
+21. **§11.2: two reading points** *(p. 528 and the proof of Lemma 11.2.6, p. 531)* (2026-11-12). (1) The sentence
+    before Definition 11.2.3 writes `F_*ω ∈ Ω_{ep,∞}(X)` for an equivalence `F : X → Y`; we read `Ω_{ep,∞}(Y)`, as the
+    definition itself has it (row V11.10). (2) The proof of Lemma 11.2.6 cites "Lemma 11.2.2 and Lemma 11.2.3" for the
+    composition and natural-equivalence rules it uses; we read Lemmas 11.2.4 and 11.2.5 (row V11.11). Neither changes
+    a statement. Status: **settled** (readings).
+
+22. **§11.2: `F_*` as the inverse of `F^*`; the local families of Proposition 10.1.10** *(Lemma 11.2.2, Definition
+    11.2.3, Proposition 11.2.8)* (2026-11-12). For an equivalence `F`, `F^* : Ω^k_ep(Y) → Ω^k_ep(X)` is a bijection
+    (`IsEquivalence.bijective_formPullback`), proved by descent of forms along `π_Y : X ×_Y Y → Y` (the weak fibred
+    product of `F` and `1_Y`, whose objects are the text's triples `(x, ψ, y)`), a full functor and a surjective local
+    sc-diffeomorphism on objects (`MPolyfold.formDescend`, `formPullback_formDescend`; sc-smoothness by the text's
+    (11.4), `MPolyfold.isScForm_of_formPullback`). `F_*` is defined as the inverse, and the text's defining formula
+    and Lemma 11.2.2 become theorems; Lemmas 11.2.4–11.2.6 are then formal. In Proposition 11.2.8 the morphism
+    `ψ : F(x) → G(x)` with `Tψ ∘ TF(x) = TG(x)` is taken from the local sc-smooth families of Proposition 10.1.10 (1)
+    (`EpFunctor.HasLocalNatIso`), restricted to the index lifts `X^i`, so that no local regularity of the lifts is
+    needed; the conclusions hold with the local regularity property of one of `X`, `Y` only
+    (`EP.epFormsInftyPullback_eq_of_orbitMap_eq`, `EPLoc.formsPullback_eq_of_orbitMap_eq`). The push-forward is also
+    what the Poincaré lemma on ep-groupoids, Proposition 8.2.3, needs (`EP.proposition_8_2_3`,
+    `Chapter11/GapP2_B2_Poincare.lean`; Chapter 8). Not formalized: the wedge product as a graded-algebra instance on
+    `Ω*_{ep,∞}(X)` itself; `Ω*_{ep,∞}(X)` is shown to be a differential graded subalgebra of Part I's `Ω*_∞(Ob X)`
+    (`EP.formsInftyWedge_mem_epFormsRange`, `GapP2_B2_EpWedge.lean`). Status: **settled**.
 
 Found while formalizing §11.3 up to Theorem 11.3.3 (2026-11-08).
 
@@ -12073,6 +12435,13 @@ Found while reading §11.4 (2026-11-08).
     transformation of the canonical measures and boundary measures under generalized isomorphisms needs
     sc-differential forms (G.74, G.80), branched integration and the boundary measures (G.107–G.109), and the
     orientations of §11.3 (items 40–45). Status: **open** (gap G.131).
+    (2026-11-12) Still open (rows V11.27–V11.29). Now in place: forms up to equivalence (item 20; G.129 closed);
+    Chapter 9's branched integration relative to a datum `SheetIntegration` of integrals over oriented sheets, built
+    only in dimension 0 (G.107 in part); boundary measures with local expressions as hypotheses (G.108, G.109 in
+    part). Missing: a compatibility of two `SheetIntegration`s along an equivalence, and the identification of
+    `|f|_*μ` with `μ` by the uniqueness in Theorem 9.5.5. Estimate: Theorems 11.4.1/11.4.2 600–1,000 lines, Remark
+    11.4.3 about 100, Theorems 11.4.4/11.4.5 300–400 more; unconditional versions wait for sheet integrals in
+    dimension ≥ 1.
 
 Found while formalizing §11.5 (2026-11-08).
 
@@ -12152,12 +12521,45 @@ Found while formalizing §11.6 (2026-11-08).
     `hasCommonRefinement_diagram_diagram`. Status: **settled**.
 
 76. **The localization `PC(E⁻¹)` and Remark 11.6.9** *(pp. 561–563 (2017 pp. 410–412); Remark 11.6.9, pp. 563–566
-    (2017: Remark 11.4, pp. 412–413))*. The category `PC(E⁻¹)` of classes of diagrams and the functor
-    `I : PC → PC(E⁻¹)`, whose well-defined composition the text leaves to the reader, are not formalized
-    (G.134). Remark 11.6.9 recalls Definition 8.5.9, which is Chapter 8's
-    `EpStrongBundle.IsProperStrongBundleCovering2021`, and sketches the category of proper strong bundle coverings
-    with its localization, the details left to the reader; not formalized (G.135). Status: **open** (gaps G.134,
-    G.135).
+    (2017: Remark 11.4, pp. 412–413))*. (2026-11-12) `Chapter11/GapP2_HPCLocalization.lean`: classes of diagrams under
+    common refinement form a category `PCLoc`, composed through the weak fibred products of Theorem 11.6.6; the class
+    of the composite does not depend on the representatives (`PC.Diagram.hasCommonRefinement_comp`, the step left to
+    the reader); `PCLoc.I` maps equivalences to isomorphisms (`isIso_I_map`), every morphism is `I(Γ)⁻¹ ≫ I(ε)`
+    (`homMk_eq`), and a diagram with both legs equivalences has the text's inverse (`inv_homMk`). The middle of the
+    composite is `A' ×_{F'} A`, the text's `A ×_{F'} A'` with the factors exchanged, since Theorem 11.6.6 is
+    formalized with the equivalence on the left. Remark 11.6.9 recalls Definition 8.5.9
+    (`EpStrongBundle.IsProperStrongBundleCovering2021`) and sketches the category of proper strong bundle coverings:
+    `Chapter11/GapP2_H2SBPC.lean`, `GapP2_H3SBPullback.lean`, `GapP2_H3SBFibred.lean`, `GapP2_H3SBLocalization.lean`
+    build `SBPC`, the class `E_SBPC` (item 77), `SBPC[E⁻¹]` with its universal property and descents to `PCLoc` and
+    `SEPLoc`, Theorem 11.6.6 for SBPC (`SBPC.theorem_11_6_6`), Definition 11.6.7 and Proposition 11.6.8 for SBPC
+    (`SBPC.proposition_11_6_8`), and the description by diagrams `SBPCLoc` with the comparison functor
+    `SBPCLoc.fromLoc`. Witnesses: `PCLoc.Examples.not_isIso_pairToPoint_isIso_I_map`,
+    `SBPC.Examples.theorem_11_6_6_ep`. Status: **settled** (rows V11.42 same, V11.43 restated; gaps G.134, G.135
+    closed).
+
+77. **Remark 11.6.9: the equivalences and natural transformations of SBPC are read** *(Remark 11.6.9, pp. 563–566)*
+    (2026-11-12). The text defines neither a class of equivalences of proper strong bundle coverings nor natural
+    transformations of their morphisms. Readings: `E_SBPC` (`SBPC.equivalences`) consists of the morphisms whose two
+    `SEP` components are strong bundle equivalences (the class `F` of Definition 10.4.11) and whose base face lies in
+    `E_PC`; the last clause follows from the first two (`SBPC.equivalences_iff`). With it, the forgetful functor maps
+    `E_SBPC` into `E_PC` and both bundle projections map it into `F`, so the localizations are compatible with
+    `PC(E⁻¹)` and `SEP(F⁻¹)` (`SBPC.toPCLoc_fac`, `toSEPLocW`, `toSEPLocV`). A natural transformation of SBPC
+    morphisms is a pair of strong bundle natural transformations on both levels whose bases satisfy (11.20)
+    (`SBPC.NatTrans`). Status: **settled** (readings; row V11.42).
+
+78. **Definition 8.5.9 and Theorem 11.6.6 for strong bundles; well-definedness in `PC(E⁻¹)`** *(Definition 8.5.9;
+    Theorem 11.6.6; pp. 561–566)* (2026-11-12). (1) Conditions (2) (evenly covered by local strong bundle
+    isomorphisms) and (3) (the fibred lift is a strong bundle isomorphism) of Definition 8.5.9 follow from (0) and (1)
+    once the base functor is a proper covering (`EpStrongBundle.isProperStrongBundleCovering2021_of`); (3) in fact
+    holds for every strong bundle and every proper covering (`isStrongBundleIso_fibredLift_of_isProperCovering`). (2)
+    Theorem 11.6.6 for SBPC reduces to one statement: the pull-back of a proper strong bundle covering along an
+    equivalence of proper coverings is again one
+    (`SEP.isProperStrongBundleCovering2021_pullbackCovering_of_isEquivalence`); in the project the weak fibred product
+    of strong bundles is a pull-back. (3) The composition of `PC(E⁻¹)` is well defined with the common refinement of
+    Definition 11.6.7 directly: maps of weak fibred products built from natural transformations (`PC.fibredLift`) are
+    equivalences by two out of three (`PC.IsEquivalence.of_comp_left`), with no separate check of the fibre condition,
+    which is automatic for proper coverings (item 72). Nothing is found not to hold as we read it. Status:
+    **settled**.
 
 Witnesses and the hypotheses taken (2026-11-08).
 
@@ -12175,6 +12577,10 @@ Witnesses and the hypotheses taken (2026-11-08).
     diagrams with a common refinement (`isEquivalence_pairToPointCovering`,
     `naturallyEquivalent_pairToPointCovering`, `theorem_11_6_6_pairToPoint`, `nonempty_fiber_id`,
     `hasCommonRefinement_diagram`). Status: **settled** (every hypothesis satisfiable).
+    (2026-11-12) The Part II wave adds no hypothesis in Chapter 11. New witnesses: the face structured
+    `FaceMeetExample.XV` (item 9), `pair → point` for `PCLoc.I` (item 76), the identity of `ℝⁿ × ℝᵏ → ℝⁿ` for Theorem
+    11.6.6 for SBPC (`SBPC.Examples.theorem_11_6_6_ep`), `SBPC.ofSEP` and `SBPC.equivalences_id`, and for the local
+    regularity property of Propositions 11.2.8, 11.2.9 `EpGroupoid.Examples.isLR_trivialZ3`, `EP.lreg_pointEP`.
 
 81. **Proposition 11.5.1 with conditions (1) and (2) of Definition 8.3.5 (gap G.132 closed)** *(Proposition 11.5.1, p.
     547 (2017: Proposition 11.6, p. 399); Definition 8.3.5; item 60)* (2026-11-09).

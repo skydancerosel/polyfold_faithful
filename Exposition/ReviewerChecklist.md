@@ -333,7 +333,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V7.37 | §7.2, before Definition 7.2.7 (2017: 7.12), p. 310 (2017 p. 241) | `EpGroupoid.ActsTrivially`, `EpGroupoid.trivialSet`, `EpGroupoid.trivialSubgroup` |
 | V7.38 | §7.2, Definition 7.2.7 (2017: 7.12), p. 310 (2017 p. 241) | `EpGroupoid.ReducedMor`, `EpGroupoid.ReducedRel` |
 | V7.39 | §7.2, Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242) (proof 2017 pp. 242–243) | `EpGroupoid.reducedAtlas`, `EpGroupoid.reducedChart`, `EpGroupoid.reducedCharts`, `EpGroupoid.reducedπ` |
-| V7.40 | §7.2, 2017 p. 243 and Proposition 7.10 (2017), 2017 p. 244 | `EpGroupoid.reducedComp`, `EpGroupoid.reducedGroupoidStr`, `EpGroupoid.reducedInv`, `EpGroupoid.reducedSrc` and 2 more |
+| V7.40 | §7.2, Theorem 7.2.14, Proposition 7.2.16 and the isotropy sentence, pp. 318–319 (2017 p. 243 and Proposition 7.10, p. 244) | `EpGroupoid.reducedComp`, `EpGroupoid.reducedGroupoidStr`, `EpGroupoid.reducedInv`, `EpGroupoid.reducedSrc` and 2 more |
 | V7.52 | §7.3, Proposition 7.3.9 (2017: 7.11), p. 327 (2017 p. 247) (proof 2017 p. 248) | `EpGroupoid.liftComp`, `EpGroupoid.liftGroupoidStr`, `EpGroupoid.liftOne`, `EpGroupoid.liftSrc` and 1 more |
 | V7.53 | §7.5 (2017 §7.4), Definition 7.5.1 (2017: 7.15), the paragraph after it, and Remark 7.5.2 (2017: 7.1), p. 340 (2017 p. 249) | `EpGroupoid.HasParacompactOrbitSpace` |
 | V7.56 | §7.5 (2017 §7.4), Definition 7.5.5 (2017: 7.16), pp. 342 ff. (2017 pp. 250–251) | `EpGroupoid.HasScPartitionsOfUnity` |

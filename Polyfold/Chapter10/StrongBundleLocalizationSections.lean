@@ -69,10 +69,12 @@ regularity property, `|[D]| = |[D']|` implies `[D] = [D']` (from Proposition 10.
 
 * The `Fred` part of Theorem 10.5.4 is not in this file: it is `theorem_10_5_4_fred`
   (`FredholmEquivalence.lean`, with `theorem_10_4_5_fred` for Theorem 10.4.5).
-* **Proposition 10.5.6**: it rests on Proposition 10.4.6 (the local regularity property under
-  strong bundle equivalences), not formalized in §10.4; `iff_of_isGeneralizedIso` reduces it to
-  that proposition, as the text does.
-* **Theorem 10.5.7**: it rests on Proposition 10.4.7 (not formalized in §10.4), and turning the
+* **Proposition 10.5.6**: `iff_of_isGeneralizedIso` reduces it to Proposition 10.4.6 (the local
+  regularity property under strong bundle equivalences), as the text does; both are formalized
+  since 2026-11-12, with Definition 8.4.2 read as `IsLRLocal`: `SBLocalization.proposition_10_5_6`
+  and `EpStrongBundle.proposition_10_4_6` (`GapP2_GBundleLR.lean`).
+* **Theorem 10.5.7**: it rests on Proposition 10.4.7 (formalized since 2026-11-12,
+  `EpStrongBundle.proposition_10_4_7`, `GapP2_GBundleFamily.lean`), and turning the
   local morphisms `α_z` into a common refinement of two diagrams needs the weak fibred product of
   strong bundles over ep-groupoids, which the repository does not have.  The ep-groupoid
   analogue, Theorem 10.3.19, is not formalized either.

@@ -89,15 +89,16 @@
      "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isSaturated_faceObj",
      "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isOrbitFace_iff_isFaceIn",
      "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.orbitFacesThrough_eq",
-     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isEpFaceStructured_iff"
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isEpFaceStructured_iff",
+     "Chapter11/GapP2_HFaces · EpGroupoid.faceEpGroupoid"
     ]
    },
    "chips": [
     "face recorded by its object set",
-    "structure of a face: G.128"
+    "structure of a face: `faceEpGroupoid`"
    ],
    "diff": [
-    "A face of $X$ is recorded by its object set and the morphisms with source in it; its sub-M-polyfold and ep-groupoid structure is part of Proposition 11.1.6 and not formalized (G.128) (Findings, Chapter 11, item 3)."
+    "A face of $X$ is recorded by its object set and the morphisms with source in it; its sub-M-polyfold and ep-groupoid structure is part of Proposition 11.1.6, formalized since 2026-11-12 (`faceEpGroupoid`, V11.6; gap G.128 closed) (Findings, Chapter 11, item 3)."
    ]
   },
   {
@@ -168,30 +169,49 @@
   },
   {
    "id": "V11.6",
-   "title": "Proposition 11.1.6 (2017: 11.2), the part on $[d]_*$",
+   "title": "Proposition 11.1.6 (2017: 11.2)",
    "verdict": "narrower",
    "book": {
     "label": "§11.1, Proposition 11.1.6, pp. 524–525 (2017: Proposition 11.2, p. 378)",
     "page": 524,
-    "statement": "For tame face structured $X$, $Y$ and a generalized isomorphism $[d]$: faces are tame face structured ep-groupoids, two faces meet in a face of each, $[d]$ induces a bijection $[d]_*$ of faces and generalized isomorphisms $[d]_F : F \\to [d]_*F$."
+    "statement": "For tame face structured $X$, $Y$ and a generalized isomorphism $[d]$: faces are tame ep-groupoids, two faces meet in a face of each, $[d]$ induces a bijection $[d]_*$ of faces and generalized isomorphisms $[d]_F : F \\to [d]_*F$."
    },
    "lean": {
-    "statement": "For every generalized isomorphism: `faceMap` is a bijection of the faces of $|X|$ onto those of $|Y|$ with inverse `faceComap`, $[d]_*(X_\\theta) = Y_{|[d]|(\\theta)}$, and $|[d]|$ restricts to homeomorphisms $\\theta \\to [d]_*\\theta$.",
+    "statement": "For every generalized isomorphism: `faceMap` is a bijection of the faces of $|X|$ onto those of $|Y|$ with inverse `faceComap`, $[d]_*(X_\\theta) = Y_{|[d]|(\\theta)}$, and $|[d]|$ restricts to homeomorphisms $\\theta \\to [d]_*\\theta$. For ep-face structured $X$, each face $X_\\theta$ is a closed saturated sub-M-polyfold and a tame ep-groupoid with $d_X = d_{X_\\theta} + 1$ (`proposition_11_1_6_faces`, `faceEpGroupoid`), and $[d]$ restricts to a generalized isomorphism $[d]_F : X_\\theta \\to Y_{[d]_*\\theta}$, independent of the representative, whose orbit map is the restriction of $|[d]|$ (`proposition_11_1_6_faceIso`). For distinct faces with $X_\\theta \\cap X_{\\theta'} \\ne \\emptyset$, the intersection is the union of the faces of $X_\\theta$ it contains, and of the faces of $X_{\\theta'}$ it contains (`facesMeetInUnions`). The clause as printed (`FacesMeetInFaces`) does not hold as we read it: `FaceMeetExample.not_facesMeetInFaces`.",
     "decls": [
      "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6",
      "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.isOrbitFace_faceMap",
      "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.isOrbitFace_faceComap",
      "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceComap_faceMap",
-     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceMap_faceComap"
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceMap_faceComap",
+     "Chapter11/GapP2_HFaces · EpGroupoid.IsEpFaceStructured.isWeaklyFaceStructured",
+     "Chapter11/GapP2_HFaces · EpGroupoid.IsEpFaceStructured.exists_nhds_eq_face",
+     "Chapter11/GapP2_HFaces · EpGroupoid.faceEpGroupoid",
+     "Chapter11/GapP2_HFaces · EpGroupoid.isTame_faceEpGroupoid",
+     "Chapter11/GapP2_HFaces · EpGroupoid.degIndex_faceEpGroupoid",
+     "Chapter11/GapP2_HFaces · EpGroupoid.proposition_11_1_6_faces",
+     "Chapter11/GapP2_HFaceIso · EpFunctor.IsEquivalence.restrictSub",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.faceEP",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.faceIso",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.isGeneralizedIso_faceIso",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.orbitMap_faceIso",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.proposition_11_1_6_faceIso",
+     "Chapter11/GapP2_H2FaceMeet · EpGroupoid.FacesMeetInFaces",
+     "Chapter11/GapP2_H2FaceMeet · FaceMeetExample.isEpFaceStructured_XV",
+     "Chapter11/GapP2_H2FaceMeet · FaceMeetExample.not_facesMeetInFaces",
+     "Chapter11/GapP2_H2FaceMeetUnion · MPolyfold.mem_closure_inter_faces",
+     "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.IsEpFaceStructured.faceObj_inter_eq_sUnion",
+     "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.FacesMeetInUnionsOfFaces",
+     "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.IsEpFaceStructured.facesMeetInUnions"
     ]
    },
    "chips": [
-    "no face structure assumed",
-    "faces as ep-groupoids: G.128",
-    "intersection clause, $[d]_F$: G.128"
+    "no face structure assumed for $[d]_*$",
+    "intersection: union of faces",
+    "one face: counterexample"
    ],
    "diff": [
-    "The sub-M-polyfold, tame and ep-groupoid structure of a face, the intersection clause and the generalized isomorphisms $[d]_F$ of (11.1) are not formalized (G.128); whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, item 6)."
+    "The clause that two faces meet in a face of each does not hold as we read it. In the face structured trivial ep-groupoid of $([0,\\infty)^3 \\oplus W) \\setminus K$, $K = \\{p_0 + p_1 \\le 1/4,\\ 1 \\le p_2 \\le 2\\}$, the faces $\\{p_0 = 0\\}$ and $\\{p_1 = 0\\}$ meet in two pieces of the edge, which is not one face of either (`FaceMeetExample.not_facesMeetInFaces`). What is proved is that the intersection is a union of faces of each (`facesMeetInUnions`) (gap G.128 closed; Findings, Chapter 11, items 6, 9). Only $X$ is assumed ep-face structured; $Y$ then is (Remark 11.1.7). The bijection $[d]_*$ needs no face structure."
    ]
   },
   {
@@ -223,115 +243,172 @@
   {
    "id": "V11.8",
    "title": "Proposition 11.1.8 (2017: 11.3), maps of faces depend only on $|f|$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§11.1, Proposition 11.1.8, p. 526 (2017: Proposition 11.3, p. 380)",
     "page": 526,
     "statement": "If $f, g : X \\to Y$ are generalized isomorphisms of tame face structured ep-groupoids with $|f| = |g|$, then $f_* = g_*$ and the induced maps $|F| \\to |f_*F|$ agree."
    },
    "lean": {
-    "statement": "$f_* = g_*$ and $f^* = g^*$ on faces, and $|f|$ and $|g|$ agree on every face $\\theta$, mapping it into $g_*\\theta$.",
+    "statement": "$f_* = g_*$ and $f^* = g^*$ on faces; for ep-face structured $X$ the generalized isomorphisms $f_F, g_F : X_\\theta \\to Y_{f_*\\theta}$ of (11.1) (`faceIso`) have the same orbit map, the restriction of $|f| = |g|$.",
     "decls": [
-     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_8"
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_8",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.faceIso",
+     "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.proposition_11_1_8_faceIso"
     ]
    },
    "chips": [
-    "maps on faces: restrictions of $|f|$",
-    "$[d]_F$ not built (G.128)"
+    "$|f_F| = |g_F|$"
    ],
    "diff": [
-    "The maps induced by the generalized isomorphisms of (11.1) are read as restrictions of $|f|$; those generalized isomorphisms are not constructed (G.128) (Findings, Chapter 11, item 8)."
+    "$Y$ need not be assumed ep-face structured; it is, by Remark 11.1.7 (Findings, Chapter 11, item 8)."
    ]
   },
   {
    "id": "V11.9",
    "title": "Theorem 11.2.1 (2017: 11.2), sc-differential forms under generalized maps",
-   "verdict": "gap",
+   "verdict": "same",
    "book": {
     "label": "§11.2, Theorem 11.2.1, p. 526 (2017: Theorem 11.2, p. 380)",
     "page": 526,
     "statement": "$d \\circ d = 0$ on $\\Omega^*_{ep,\\infty}$; generalized maps have pull-backs commuting with $d$, generalized isomorphisms push-forwards inverse to them; under the local regularity property they depend only on the orbit maps."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.129): sc-differential forms on ep-groupoids are not in the project (G.74, G.80) (Findings, Chapter 11, item 20).",
-    "decls": []
+    "statement": "`EPLoc.theorem_11_2_1_one`: $d \\circ d = 0$ on $\\Omega^*_{ep,\\infty}(X)$. `EPLoc.theorem_11_2_1_two`: for a generalized map $f$ (a morphism of $\\mathcal{EP}(E^{-1})$), $d_X \\circ f^* = f^* \\circ d_Y$ with $f^* =$ `EPLoc.formsPullback f`, which is $F_* \\circ \\Phi^*$ for every diagram $X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y$ representing $f$ (`formsPullback_homMk`). `EPLoc.theorem_11_2_1_three`: for a generalized isomorphism $h$, $h_* \\circ d_X = d_Y \\circ h_*$, $h_* \\circ h^* = 1$, $h^* \\circ h_* = 1$, with $h_* =$ `EPLoc.formsPush h`, which is $\\Phi_* \\circ F^*$ for every representing diagram (`formsPush_homMk`). `EPLoc.theorem_11_2_1_four`: if $X$, $Y$ have the local regularity property (`IsLR`) and $|h| = |k|$, then $h_* = k_*$ and $h^* = k^*$.",
+    "decls": [
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPullback",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPush",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPullback_homMk",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPush_homMk",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.theorem_11_2_1_one",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.theorem_11_2_1_two",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.theorem_11_2_1_three",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPullback_comp",
+     "Chapter11/GapP2_B2_OrbitForms · EPLocalization.EPLoc.theorem_11_2_1_four"
+    ]
    },
    "chips": [
-    "G.129"
+    "as stated",
+    "(4) also with LR of $Y$ only"
    ],
-   "diff": []
+   "diff": [
+    "$h_*$ is defined as the pull-back by the inverse generalized map; by Theorem 10.3.10 it is the text's $G_* \\circ F^*$ (`formsPush_homMk`). Also proved, beyond the text: $(g \\circ f)^* = f^* \\circ g^*$ for generalized maps (`EPLoc.formsPullback_comp`), and (4) with the local regularity property of $Y$ only (`formsPullback_eq_of_orbitMap_eq`) (Findings, Chapter 11, items 20, 22)."
+   ]
   },
   {
    "id": "V11.10",
    "title": "Lemma 11.2.2 and Definition 11.2.3 (2017: Lemma 11.1, Definition 11.2), forms along an equivalence",
-   "verdict": "gap",
+   "verdict": "restated",
    "book": {
     "label": "§11.2, Lemma 11.2.2, p. 527 (2017: Lemma 11.1, p. 380), and Definition 11.2.3, p. 528 (2017: Definition 11.2, p. 382)",
     "page": 527,
     "statement": "For an equivalence $F$ and a form $\\omega$ on $X$, $(F_*\\omega)_y(h_1, \\ldots, h_k) = \\omega_x(l_1, \\ldots, l_k)$ with $h_j = T\\psi(TF(x)l_j)$ is well defined and sc-smooth."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.129); the analogous construction for functors $\\Theta$ is V11.14, V11.15 (Findings, Chapter 11, item 20).",
-    "decls": []
+    "statement": "`EpFunctor.IsEquivalence.formPush hF k` $: \\Omega^k_{ep}(X) \\to \\Omega^k_{ep}(Y)$ is the inverse of the bijection $F^*$ (`bijective_formPullback`); `definition_11_2_3`: for $x \\in X_1$, $\\psi : F(x) \\to y$ in $\\mathbf Y_1$ and $l_j \\in T_xX$, $(F_*\\omega)_y(T\\psi(TF(x)l_1), \\ldots, T\\psi(TF(x)l_k)) = \\omega_x(l_1, \\ldots, l_k)$; `exists_lift_tangent`: every $h_1, \\ldots, h_k \\in T_yY$ are of this form; `lemma_11_2_2`: the statement of Lemma 11.2.2. On $\\Omega^*_{ep,\\infty}$: `EP.epFormsInftyPush` ($F_*[\\omega] = [(F^i)_*\\omega]$), with $d_Y \\circ F_* = F_* \\circ d_X$ (`EP.epFormsInftyD_comp_epFormsInftyPush`, the text's (11.5)).",
+    "decls": [
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.bijective_formPullback",
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.formPush",
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.definition_11_2_3",
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.exists_lift_tangent",
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.lemma_11_2_2",
+     "Chapter11/GapP2_B2_EquivForms · EpFunctor.exists_epForms_formPullback_eq_of_surjective",
+     "Chapter11/GapP2_B2_FormDescent · MPolyfold.isScForm_of_formPullback",
+     "Chapter11/GapP2_B2_FormDescent · MPolyfold.formDescend",
+     "Chapter11/GapP2_B2_FormDescent · MPolyfold.formPullback_formDescend",
+     "Chapter11/GapP2_B2_FormDescent · MPolyfold.formPullback_injective_of_isLocalScDiffeo",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyPush",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyD_comp_epFormsInftyPush"
+    ]
    },
    "chips": [
-    "G.129"
+    "$F_*$ as the inverse of $F^*$",
+    "formula and Lemma 11.2.2 as theorems"
    ],
-   "diff": []
+   "diff": [
+    "The text defines $F_*\\omega$ by the formula and proves it well defined (Lemma 11.2.2) and sc-smooth ((11.4)). Here $F_*$ is the inverse of $F^*$, whose bijectivity is proved by descent along $\\pi_Y : X \\times_Y Y \\to Y$ (the weak fibred product of $F$ and $1_Y$, whose objects are the triples $(x, \\psi, y)$ of the definition); the formula and Lemma 11.2.2 are theorems, and the two definitions agree. Sc-smoothness is the text's argument (11.4) (`MPolyfold.isScForm_of_formPullback`). Reading point: before Definition 11.2.3 the text writes $F_*\\omega \\in \\Omega_{ep,\\infty}(X)$; we read $\\Omega_{ep,\\infty}(Y)$ (Findings, Chapter 11, items 21, 22)."
+   ]
   },
   {
    "id": "V11.11",
    "title": "Lemmas 11.2.4–11.2.6 (2017: Lemmas 11.2–11.4), composition, natural equivalence, refinement",
-   "verdict": "gap",
+   "verdict": "same",
    "book": {
     "label": "§11.2, Lemmas 11.2.4–11.2.6, pp. 528–532 (2017: Lemmas 11.2–11.4, pp. 382–386)",
     "page": 528,
     "statement": "Push-forwards and pull-backs of forms along equivalences compose and are inverse; naturally equivalent functors have the same ones; refinements do not change $G^* \\circ F_*$ and $G_* \\circ F^*$."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.129) (Findings, Chapter 11, item 20).",
-    "decls": []
+    "statement": "Lemma 11.2.4: (1) `EP.epFormsInftyPullback_comp`, (2) `EP.lemma_11_2_4_two`, (3) `EP.epFormsInftyPush_comp_epFormsInftyPullback`, `EP.epFormsInftyPullback_comp_epFormsInftyPush` (on one level: `formPush_formPullback`, `formPullback_formPush`). Lemma 11.2.5: `EP.lemma_11_2_5_push` ($F_* = G_*$), `EP.epFormsInftyPullback_eq_of_natTrans` ($F^* = G^*$, for all sc-smooth functors). Lemma 11.2.6: `EP.lemma_11_2_6`, `EP.lemma_11_2_6_push`.",
+    "decls": [
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.lemma_11_2_4_two",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyPush_comp_epFormsInftyPullback",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyPullback_comp_epFormsInftyPush",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.lemma_11_2_5_push",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.lemma_11_2_6",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.lemma_11_2_6_push",
+     "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyPush_eq_of_comp_eq_id"
+    ]
    },
    "chips": [
-    "G.129"
+    "as stated"
    ],
-   "diff": []
+   "diff": [
+    "The proofs are formal from $F_* = (F^*)^{-1}$ (`EP.epFormsInftyPush_eq_of_comp_eq_id`). Reading point: the proof of Lemma 11.2.6 cites 'Lemma 11.2.2 and Lemma 11.2.3' for what it uses; we read Lemmas 11.2.4 and 11.2.5 (Findings, Chapter 11, item 21)."
+   ]
   },
   {
    "id": "V11.12",
    "title": "Definition 11.2.7 (2017: 11.3), forms along generalized maps",
-   "verdict": "gap",
+   "verdict": "same",
    "book": {
     "label": "§11.2, Definition 11.2.7, p. 532 (2017: Definition 11.3, p. 386)",
     "page": 532,
     "statement": "$[d]^*\\omega' = F_* \\circ G^*\\omega'$ for $[d] = [X \\xleftarrow{F} A \\xrightarrow{G} Y]$, and $[d]_*\\omega = G_* \\circ F^*\\omega$ for a generalized isomorphism."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.129); the analogue for functors $\\Theta$ is V11.16 (Findings, Chapter 11, item 20).",
-    "decls": []
+    "statement": "`EPLoc.formsPullback f k` for a generalized map $f : X \\to Y$ and `EPLoc.formsPush f hf k` for a generalized isomorphism; `Diagram.formsPullback d` $= F_* \\circ \\Phi^*$, `Diagram.formsPush d` $= \\Phi_* \\circ F^*$; independence of the diagram: `Diagram.formsPullback_eq_of_equiv`, `Diagram.formsPush_eq_of_equiv`.",
+    "decls": [
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.Diagram.formsPullback",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.Diagram.formsPush",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.Diagram.formsPullback_eq_of_equiv",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.Diagram.formsPush_eq_of_equiv",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPullback",
+     "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPush"
+    ]
    },
    "chips": [
-    "G.129"
+    "as stated"
    ],
    "diff": []
   },
   {
    "id": "V11.13",
    "title": "Propositions 11.2.8 and 11.2.9 (2017: 11.4, 11.5), forms under maps with the same orbit map",
-   "verdict": "gap",
+   "verdict": "same",
    "book": {
     "label": "§11.2, Propositions 11.2.8 and 11.2.9, pp. 532–535 (2017: Propositions 11.4, 11.5, pp. 386–389)",
     "page": 532,
     "statement": "Under the local regularity property, equivalences or generalized isomorphisms with the same orbit map have the same push-forwards and pull-backs of forms."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.129); the local families of Proposition 10.1.10 used in the proof are Chapter 10's V10.63 (Findings, Chapter 11, item 20).",
-    "decls": []
+    "statement": "`EP.proposition_11_2_8`: for equivalences $F, G : X \\to Y$, $X$, $Y$ with the local regularity property (`IsLR`) and $|F| = |G|$: $F_* = G_*$ and $F^* = G^*$ on $\\Omega^*_{ep,\\infty}$. `EPLoc.proposition_11_2_9`: for generalized isomorphisms $f, g$ with $|f| = |g|$: $f_* = g_*$, $f^* = g^*$.",
+    "decls": [
+     "Chapter11/GapP2_B2_OrbitForms · EP.proposition_11_2_8",
+     "Chapter11/GapP2_B2_OrbitForms · EPLocalization.EPLoc.proposition_11_2_9",
+     "Chapter11/GapP2_B2_OrbitForms · EpFunctor.HasLocalNatIso",
+     "Chapter11/GapP2_B2_OrbitForms · EpFunctor.HasLocalNatIso.formPullback_eq",
+     "Chapter11/GapP2_B2_OrbitForms · EpFunctor.hasLocalNatIso_of_orbitMap_eq",
+     "Chapter11/GapP2_B2_OrbitForms · EP.epFormsInftyPullback_eq_of_orbitMap_eq",
+     "Chapter11/GapP2_B2_OrbitForms · EPLocalization.EPLoc.formsPullback_eq_of_orbitMap_eq"
+    ]
    },
    "chips": [
-    "G.129"
+    "local families of Proposition 10.1.10"
    ],
-   "diff": []
+   "diff": [
+    "The text takes from Proposition 10.1.10 a morphism $\\psi : F(x) \\to G(x)$ with $T\\psi \\circ TF(x) = TG(x)$; here the local sc-smooth families $\\alpha_z : F(z) \\to G(z)$ of Proposition 10.1.10 (1) are used (`EpFunctor.HasLocalNatIso`), $F = s \\circ \\alpha$, $G = t \\circ \\alpha$ locally, and they are restricted to the index lifts $X^i$ (`HasLocalNatIso.liftOne`), so that no local regularity of the lifts is needed. $F_* = G_*$ follows from $F^* = G^*$. Also proved with the local regularity property for one of $X$, $Y$ only (`EP.epFormsInftyPullback_eq_of_orbitMap_eq`, `EPLoc.formsPullback_eq_of_orbitMap_eq`). The hypothesis is satisfiable: `EpGroupoid.Examples.isLR_trivialZ3`, `EP.lreg_pointEP` (Findings, Chapter 11, item 22)."
+   ]
   },
   {
    "id": "V11.14",
@@ -820,7 +897,7 @@
     "statement": "For a generalized isomorphism $f$, $|f|_*\\mu^{\\hat\\Theta}_\\omega = \\mu^{f_*\\hat\\Theta}_{f_*\\omega}$ and $\\mu^{f^*\\hat\\Theta'}_{f^*\\omega'} = |f|^*\\mu^{\\hat\\Theta'}_{\\omega'}$; Theorem 11.4.2 for the effective measures."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.131): it needs forms and branched integration (G.74, G.80, G.107) and the orientations of §11.3 (Findings, Chapter 11, item 50).",
+    "statement": "**Not formalized** (gap G.131): it needs branched integration in dimension $\\ge 1$ (G.107) and the orientations of §11.3, with the forms of §11.2 (G.129, closed) (Findings, Chapter 11, item 50). What exists now (2026-11-12): forms up to equivalence (G.129 closed, V11.9–V11.13); Chapter 9's branched integration relative to an abstract datum of integrals over oriented sheets (`SheetIntegration`, built only in dimension $0$; G.107 in part); boundary measures in part (G.108, G.109).",
     "decls": []
    },
    "chips": [
@@ -838,7 +915,7 @@
     "statement": "Pairs $(X, \\beta)$, $(X', \\beta')$ related by a generalized isomorphism $f$ with $\\beta' \\circ |f| = \\beta$ give the same integrals of corresponding forms."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.131); the relation on pairs is Chapter 10's V10.48 (Findings, Chapter 11, item 50).",
+    "statement": "**Not formalized** (gap G.131); the relation on pairs is Chapter 10's V10.48 (Findings, Chapter 11, item 50). What exists now (2026-11-12): forms up to equivalence (G.129 closed, V11.9–V11.13); Chapter 9's branched integration relative to an abstract datum of integrals over oriented sheets (`SheetIntegration`, built only in dimension $0$; G.107 in part); boundary measures in part (G.108, G.109).",
     "decls": []
    },
    "chips": [
@@ -856,7 +933,7 @@
     "statement": "The canonical boundary measures, and in Theorem 11.4.5 the effective ones, transform by $|f|$ as in Theorem 11.4.1."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.131): it needs the boundary measures of §9.5 (G.108, G.109) (Findings, Chapter 11, item 50).",
+    "statement": "**Not formalized** (gap G.131): it needs the boundary measures of §9.5 (G.108, G.109, in part) (Findings, Chapter 11, item 50). What exists now (2026-11-12): forms up to equivalence (G.129 closed, V11.9–V11.13); Chapter 9's branched integration relative to an abstract datum of integrals over oriented sheets (`SheetIntegration`, built only in dimension $0$; G.107 in part); boundary measures in part (G.108, G.109).",
     "decls": []
    },
    "chips": [
@@ -1301,24 +1378,102 @@
   },
   {
    "id": "V11.42",
-   "title": "Remark 11.6.9 (2017: 11.4), proper strong bundle coverings",
-   "verdict": "gap",
+   "title": "Remark 11.6.9 (2017: 11.4), proper strong bundle coverings up to equivalence",
+   "verdict": "same",
    "book": {
     "label": "§11.6, Remark 11.6.9, pp. 563–566 (2017: Remark 11.4, pp. 412–413)",
     "page": 563,
     "statement": "Strong bundles and strong bundle maps as functors; proper strong bundle coverings (Definition 8.5.9); a category of them with equivalences and its localization, the details left to the reader."
    },
    "lean": {
-    "statement": "**Not formalized** (gap G.135), except Definition 8.5.9, Chapter 8's `IsProperStrongBundleCovering2021` (Findings, Chapter 11, item 76).",
+    "statement": "The category SBPC (`SBPC`, `instCategorySBPC`: objects strong bundle functors $A$ over $F$ satisfying Definition 8.5.9, Chapter 8's `IsProperStrongBundleCovering2021`; morphisms commutative cubes of `SEP` morphisms), the class $E_{SBPC}$ (`SBPC.equivalences`) and $SBPC[E^{-1}]$ with its universal property (`SBPC.Loc`, `isLocalization_Q`), with the induced functors to $\\mathcal{PC}(E^{-1})$ and $SEP(F^{-1})$. Theorem 11.6.6 for SBPC (`SBPC.theorem_11_6_6`), with natural transformations of SBPC morphisms. The description of $SBPC[E^{-1}]$ by diagrams `SBPCLoc` (Definition 11.6.7 and Proposition 11.6.8 for SBPC, composition by weak fibred products), $I$ inverting $E_{SBPC}$, every morphism $I(\\Gamma)^{-1} \\circ I(\\varepsilon)$, and the comparison functor from the universal localization (`SBPCLoc.fromLoc`). Witness: the identity of the bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ (`SBPC.Examples.theorem_11_6_6_ep`).",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021"
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
+     "Chapter11/GapP2_H2SBPC · SBPC",
+     "Chapter11/GapP2_H2SBPC · SBPC.Hom",
+     "Chapter11/GapP2_H2SBPC · SBPC.forget",
+     "Chapter11/GapP2_H2SBPC · SBPC.equivalences",
+     "Chapter11/GapP2_H2SBPC · SBPC.Loc",
+     "Chapter11/GapP2_H2SBPC · SBPC.Q",
+     "Chapter11/GapP2_H2SBPC · SBPC.isLocalization_Q",
+     "Chapter11/GapP2_H2SBPC · SBPC.lift",
+     "Chapter11/GapP2_H2SBPC · SBPC.uniq",
+     "Chapter11/GapP2_H2SBPC · SBPC.toPCLoc",
+     "Chapter11/GapP2_H2SBPC · SBPC.toPCLoc_fac",
+     "Chapter11/GapP2_H2SBPC · SBPC.toSEPLocW",
+     "Chapter11/GapP2_H2SBPC · SBPC.toSEPLocV",
+     "Chapter11/GapP2_H2SBPC · SBPC.ofSEP",
+     "Chapter11/GapP2_H3SBPullback · EpStrongBundle.isStrongBundleIso_fibredLift_of_isProperCovering",
+     "Chapter11/GapP2_H3SBPullback · StrongBundle.evenlyCovered_of_isStrongBundleIsoOn",
+     "Chapter11/GapP2_H3SBPullback · EpStrongBundle.isProperStrongBundleCovering2021_of",
+     "Chapter11/GapP2_H3SBPullback · SEP.pullbackCovering",
+     "Chapter11/GapP2_H3SBPullback · SEP.isProperStrongBundleCovering2021_pullbackCovering",
+     "Chapter11/GapP2_H3SBPullback · SEP.isProperStrongBundleCovering2021_pullbackCovering_of_isEquivalence",
+     "Chapter11/GapP2_H3SBFibred · SBPC.equivalences_iff",
+     "Chapter11/GapP2_H3SBFibred · SBPC.NatTrans",
+     "Chapter11/GapP2_H3SBFibred · SBPC.NaturallyEquivalent",
+     "Chapter11/GapP2_H3SBFibred · SBPC.fibred",
+     "Chapter11/GapP2_H3SBFibred · SBPC.fibredFst",
+     "Chapter11/GapP2_H3SBFibred · SBPC.fibredSnd",
+     "Chapter11/GapP2_H3SBFibred · SBPC.fibredNatTrans",
+     "Chapter11/GapP2_H3SBFibred · SBPC.theorem_11_6_6",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.fibredLift",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.Diagram",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.Diagram.CommonRefinement",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.proposition_11_6_8",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.Diagram.comp",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.Diagram.hasCommonRefinement_comp",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc.I",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc.isIso_I_map",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc.homMk_eq",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc.inv_homMk",
+     "Chapter11/GapP2_H3SBLocalization · SBPCLoc.fromLoc",
+     "Chapter11/GapP2_H3SBLocalization · SBPC.Examples.theorem_11_6_6_ep"
     ]
    },
    "chips": [
-    "G.135",
-    "Definition 8.5.9 in Chapter 8"
+    "Theorem 11.6.6 and diagrams for SBPC",
+    "$E_{SBPC}$ read (not defined in the text)"
    ],
-   "diff": []
+   "diff": [
+    "The text defines neither $E_{SBPC}$ nor natural transformations of SBPC morphisms. Our readings: $E_{SBPC}$ = both components strong bundle equivalences (the base-face clause of the first definition, base face in $E_{\\mathcal{PC}}$, is then automatic, `SBPC.equivalences_iff`); a natural transformation = strong bundle natural transformations on both levels whose bases satisfy (11.20). Nothing else differs (gap G.135 closed; Findings, Chapter 11, items 76, 77)."
+   ]
+  },
+  {
+   "id": "V11.43",
+   "title": "The localization $\\mathcal{PC}(E^{-1})$ and $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.6, after Proposition 11.6.8, pp. 561–563 (2017 pp. 410–412)",
+    "page": 562,
+    "statement": "Classes of diagrams under common refinement form the morphisms of a category $\\mathcal{PC}(E^{-1})$, with composition through weak fibred products, and $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms; the well-definedness of the composition is left to the reader."
+   },
+   "lean": {
+    "statement": "Classes of diagrams under common refinement are the morphisms of a category `PCLoc` ($\\mathcal{PC}(E^{-1})$), composed through the weak fibred products of Theorem 11.6.6 (`PC.Diagram.comp`); the class of the composite does not depend on the representatives (`hasCommonRefinement_comp`), and the composition is associative and unital (`hasCommonRefinement_assoc`, `_id_comp`, `_comp_id`). $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$, $I(\\varepsilon) = [F \\xleftarrow{1} F \\xrightarrow{\\varepsilon} F']$, maps equivalences to isomorphisms (`isIso_I_map`), every morphism is $I(\\Gamma)^{-1} \\circ I(\\varepsilon)$ (`homMk_eq`), and $[F \\xleftarrow{\\Gamma} A \\xrightarrow{\\Gamma'} F']$ with $\\Gamma'$ an equivalence is invertible with inverse $[F' \\xleftarrow{\\Gamma'} A \\xrightarrow{\\Gamma} F]$ (`isIso_homMk`, `inv_homMk`). Witness: `pair → point` is not an isomorphism of $\\mathcal{PC}$, but its image under $I$ is one.",
+    "decls": [
+     "Chapter11/GapP2_HPCLocalization · PC.fibredLift",
+     "Chapter11/GapP2_HPCLocalization · PC.isEquivalence_fibredLift",
+     "Chapter11/GapP2_HPCLocalization · PC.IsEquivalence.of_comp_left",
+     "Chapter11/GapP2_HPCLocalization · PC.Diagram.comp",
+     "Chapter11/GapP2_HPCLocalization · PC.Diagram.hasCommonRefinement_comp",
+     "Chapter11/GapP2_HPCLocalization · PC.Diagram.hasCommonRefinement_assoc",
+     "Chapter11/GapP2_HPCLocalization · PCLoc",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.I",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.isIso_I_map",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.homMk_eq",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.isIso_homMk",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.inv_homMk",
+     "Chapter11/GapP2_HPCLocalization · PCLoc.Examples.not_isIso_pairToPoint_isIso_I_map"
+    ]
+   },
+   "chips": [
+    "composition well defined: proved",
+    "middle factor $A' \\times_{F'} A$"
+   ],
+   "diff": [
+    "The text leaves the well-definedness of the composition to the reader; it is proved with the common refinement of Definition 11.6.7 directly, through maps of weak fibred products built from natural transformations (`PC.fibredLift`), which are equivalences by two out of three (`PC.IsEquivalence.of_comp_left`). The middle of the composite is $A' \\times_{F'} A$, the text's $A \\times_{F'} A'$ with the factors exchanged, since Theorem 11.6.6 is formalized with the equivalence on the left (Findings, Chapter 11, items 76, 78)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1327,10 +1482,34 @@
    "title": "Proposition 11.1.6, faces as ep-groupoids, the intersection clause and $[d]_F$",
    "label": "§11.1, Proposition 11.1.6, pp. 524–525 (2017: Proposition 11.2, p. 378)",
    "page": 524,
-   "book": "For tame face structured $X$: the object and morphism sets of a face are sub-M-polyfolds with tame induced structures and the face is a tame face structured ep-groupoid; two faces meet in a face of each; a generalized isomorphism induces generalized isomorphisms $[d]_F : F \\to [d]_*F$ (11.1).",
-   "instead": "**Not formalized**: it needs the restriction of an ep-groupoid to a closed saturated sub-M-polyfold and the faces $X_\\theta$ as unions of faces of the object M-polyfold. The bijection $[d]_*$ and the homeomorphisms $\\theta \\to [d]_*\\theta$ are V11.6; whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, items 6, 8). What is missing, in order: that an ep face structured $X$ has a face structured object M-polyfold, whose faces through $x$ map onto the faces of $|X|$ through $|x|$; that $X_\\theta$ is a closed saturated sub-M-polyfold (a locally finite union of object faces, locally a single face); then `subEpGroupoid` (Proposition 7.1.22) gives the ep-groupoid, and $[d]_F$ needs the restriction of equivalences to sub-ep-groupoids (2026-11-09).",
+   "book": "For tame face structured $X$: the object and morphism sets of a face are sub-M-polyfolds with tame induced structures and the face is a tame ep-groupoid; two faces meet in a face of each; a generalized isomorphism induces generalized isomorphisms $[d]_F : F \\to [d]_*F$ (11.1).",
+   "instead": "**Formalized** (2026-11-12). An ep-face structured $X$ has a weakly face structured object M-polyfold (`isWeaklyFaceStructured`). Each $X_\\theta$ agrees near each of its points with one face of the object M-polyfold, so it is a closed saturated sub-M-polyfold and, with the morphisms between its points, a tame ep-groupoid with $d_X = d_{X_\\theta} + 1$ (`proposition_11_1_6_faces`, `faceEpGroupoid`). For a generalized isomorphism $[d]$, the restricted diagram gives a generalized isomorphism $[d]_F : X_\\theta \\to Y_{[d]_*\\theta}$, independent of the representative, whose orbit map is the restriction of $|[d]|$ (`proposition_11_1_6_faceIso`, `proposition_11_1_8_faceIso`). The clause that two faces meet in a face of each does not hold as we read it: in $([0,\\infty)^3 \\oplus W) \\setminus K$ two faces meet in two pieces of an edge, which is not one face of either (`FaceMeetExample.not_facesMeetInFaces`). The corrected form holds for every ep-face structured $X$: $X_\\theta \\cap X_{\\theta'}$ is the union of the faces of $X_\\theta$ (resp. $X_{\\theta'}$) it contains (`facesMeetInUnions`) (Findings, Chapter 11, items 6, 8, 9).",
    "decls": [
-    "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6"
+    "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6",
+    "Chapter11/GapP2_HFaces · EpGroupoid.IsEpFaceStructured.isWeaklyFaceStructured",
+    "Chapter11/GapP2_HFaces · EpGroupoid.IsEpFaceStructured.exists_nhds_eq_face",
+    "Chapter11/GapP2_HFaces · EpGroupoid.faceEpGroupoid",
+    "Chapter11/GapP2_HFaces · EpGroupoid.isTame_faceEpGroupoid",
+    "Chapter11/GapP2_HFaces · EpGroupoid.degIndex_faceEpGroupoid",
+    "Chapter11/GapP2_HFaces · EpGroupoid.proposition_11_1_6_faces",
+    "Chapter11/GapP2_HFaceIso · EpFunctor.IsEquivalence.restrictSub",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.faceEP",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.faceIso",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.isGeneralizedIso_faceIso",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.orbitMap_faceIso",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.proposition_11_1_6_faceIso",
+    "Chapter11/GapP2_H2FaceMeet · EpGroupoid.FacesMeetInFaces",
+    "Chapter11/GapP2_H2FaceMeet · FaceMeetExample.isEpFaceStructured_XV",
+    "Chapter11/GapP2_H2FaceMeet · FaceMeetExample.not_facesMeetInFaces",
+    "Chapter11/GapP2_H2FaceMeetUnion · MPolyfold.mem_closure_inter_faces",
+    "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.IsEpFaceStructured.faceObj_inter_eq_sUnion",
+    "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.FacesMeetInUnionsOfFaces",
+    "Chapter11/GapP2_H2FaceMeetUnion · EpGroupoid.IsEpFaceStructured.facesMeetInUnions",
+    "Chapter11/GapP2_HFaceIso · EPLocalization.EPLoc.proposition_11_1_8_faceIso"
+   ],
+   "formalized": [
+    "V11.6",
+    "V11.8"
    ]
   },
   {
@@ -1339,7 +1518,28 @@
    "label": "§11.2, Theorem 11.2.1 to Proposition 11.2.9, pp. 526–535 (2017: Theorem 11.2 to Proposition 11.5, pp. 380–389)",
    "page": 526,
    "book": "The pull-back of sc-differential forms along generalized maps and the push-forward along generalized isomorphisms, commuting with $d$, independent of choices and, under the local regularity property, determined by the orbit maps.",
-   "instead": "**Not formalized**: sc-differential forms on ep-groupoids are not in the project (G.74, G.80) (V11.9–V11.13; Findings, Chapter 11, item 20)."
+   "instead": "**Formalized** (2026-11-12, `Chapter11/GapP2_B2_*.lean`). For an equivalence $F : X \\to Y$ the pull-back $F^* : \\Omega^k_{ep}(Y) \\to \\Omega^k_{ep}(X)$ is a bijection (`EpFunctor.IsEquivalence.bijective_formPullback`); the push-forward $F_*$ is its inverse (`formPush`, on $\\Omega^*_{ep,\\infty}$: `EP.epFormsInftyPush`), and the text's formula $(F_*\\omega)_y(T\\psi(TF(x)l_1), \\ldots) = \\omega_x(l_1, \\ldots)$ is `EpFunctor.IsEquivalence.definition_11_2_3`; Lemma 11.2.2 is `lemma_11_2_2`. Lemmas 11.2.4–11.2.6: `EP.epFormsInftyPullback_comp`, `EP.lemma_11_2_4_two`, `EP.epFormsInftyPullback_comp_epFormsInftyPush`, `EP.epFormsInftyPush_comp_epFormsInftyPullback`, `EP.lemma_11_2_5_push`, `EP.lemma_11_2_6`, `EP.lemma_11_2_6_push`; (11.5) is `EP.epFormsInftyD_comp_epFormsInftyPush`. Definition 11.2.7: `EPLocalization.EPLoc.formsPullback`, `formsPush`, with `formsPullback_homMk`, `formsPush_homMk` (the values $F_* \\circ G^*$, $G_* \\circ F^*$ on every representing diagram). Theorem 11.2.1: `EPLoc.theorem_11_2_1_one`, `_two`, `_three`, `_four`; Propositions 11.2.8, 11.2.9: `EP.proposition_11_2_8`, `EPLoc.proposition_11_2_9`. No hypothesis is added (V11.9–V11.13; Findings, Chapter 11, items 20–22).",
+   "formalized": [
+    "V11.9",
+    "V11.10",
+    "V11.11",
+    "V11.12",
+    "V11.13"
+   ],
+   "decls": [
+    "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.bijective_formPullback",
+    "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.formPush",
+    "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.definition_11_2_3",
+    "Chapter11/GapP2_B2_EquivForms · EpFunctor.IsEquivalence.lemma_11_2_2",
+    "Chapter11/GapP2_B2_EquivFormsInfty · EP.epFormsInftyPush",
+    "Chapter11/GapP2_B2_EquivFormsInfty · EP.lemma_11_2_6",
+    "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPullback",
+    "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.formsPush",
+    "Chapter11/GapP2_B2_GeneralizedForms · EPLocalization.EPLoc.theorem_11_2_1_three",
+    "Chapter11/GapP2_B2_OrbitForms · EPLocalization.EPLoc.theorem_11_2_1_four",
+    "Chapter11/GapP2_B2_OrbitForms · EP.proposition_11_2_8",
+    "Chapter11/GapP2_B2_OrbitForms · EPLocalization.EPLoc.proposition_11_2_9"
+   ]
   },
   {
    "g": 130,
@@ -1367,7 +1567,7 @@
    "label": "§11.4, Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017: Theorems 11.8, 11.9, Remark 11.3, pp. 396–399)",
    "page": 542,
    "book": "Generalized isomorphisms transform the canonical measures and the canonical boundary measures (and their effective versions) of oriented compact branched ep⁺-subgroupoids by $|f|$.",
-   "instead": "**Not formalized**: it needs forms (G.74, G.80), branched integration (G.107) and the boundary measures (G.108, G.109), and the orientations of §11.3 (V11.27–V11.29; Findings, Chapter 11, item 50)."
+   "instead": "**Not formalized** (V11.27–V11.29; Findings, Chapter 11, item 50). What exists (2026-11-12): the transport of branched ep⁺-subgroupoids and orientations along generalized isomorphisms (§11.3); forms up to equivalence, $f_*\\omega$ and $f^*\\omega$ (G.129 closed); Chapter 9's `branchedMeasure` / `branchedIntegral` (`theorem_9_5_4`, `theorem_9_5_5`) relative to a datum `SheetIntegration` of integrals over oriented sheets, built only in dimension $0$ (`pointIntegration`; G.107 in part); boundary measures with the local expressions as hypotheses (G.108, G.109 in part). Missing: a compatibility of two `SheetIntegration`s along an equivalence, the identification of $|f|_*\\mu$ with $\\mu$ by the uniqueness in Theorem 9.5.5, and unconditional sheet integrals in dimension $\\ge 1$. Estimate: Theorems 11.4.1/11.4.2 600–1,000 lines, Remark 11.4.3 about 100, Theorems 11.4.4/11.4.5 300–400 more."
   },
   {
    "g": 132,
@@ -1410,9 +1610,25 @@
    "label": "§11.6, after Proposition 11.6.8, pp. 561–563 (2017 pp. 410–412)",
    "page": 562,
    "book": "Classes of diagrams under common refinement form the morphisms of a category $\\mathcal{PC}(E^{-1})$, with composition through weak fibred products, and $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms; the well-definedness of the composition is left to the reader.",
-   "instead": "**Not formalized**: the equivalence relation on diagrams is V11.41; the category and $I$ are not built (Findings, Chapter 11, item 76).",
+   "instead": "**Formalized** (2026-11-12) in `Chapter11/GapP2_HPCLocalization.lean` (V11.43). Classes of diagrams under common refinement are the morphisms of a category `PCLoc` ($\\mathcal{PC}(E^{-1})$), composed through the weak fibred products of Theorem 11.6.6; the class of the composite does not depend on the representatives (`hasCommonRefinement_comp`, the step left to the reader), via maps of weak fibred products into `PC.fibred` built from natural transformations (`fibredLift`), which are equivalences by two out of three. $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms (`isIso_I_map`), every morphism is $I(\\Gamma)^{-1} I(\\varepsilon)$ (`homMk_eq`), and $[F \\leftarrow A \\rightarrow F']$ with both legs equivalences is invertible with the inverse of the text (`inv_homMk`). The middle of the composite is $A' \\times_{F'} A$ (Theorem 11.6.6 is formalized with the equivalence on the left) (Findings, Chapter 11, item 76).",
    "decls": [
-    "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.hasCommonRefinement_equivalence"
+    "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.hasCommonRefinement_equivalence",
+    "Chapter11/GapP2_HPCLocalization · PC.fibredLift",
+    "Chapter11/GapP2_HPCLocalization · PC.isEquivalence_fibredLift",
+    "Chapter11/GapP2_HPCLocalization · PC.IsEquivalence.of_comp_left",
+    "Chapter11/GapP2_HPCLocalization · PC.Diagram.comp",
+    "Chapter11/GapP2_HPCLocalization · PC.Diagram.hasCommonRefinement_comp",
+    "Chapter11/GapP2_HPCLocalization · PC.Diagram.hasCommonRefinement_assoc",
+    "Chapter11/GapP2_HPCLocalization · PCLoc",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.I",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.isIso_I_map",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.homMk_eq",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.isIso_homMk",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.inv_homMk",
+    "Chapter11/GapP2_HPCLocalization · PCLoc.Examples.not_isIso_pairToPoint_isIso_I_map"
+   ],
+   "formalized": [
+    "V11.43"
    ]
   },
   {
@@ -1421,9 +1637,23 @@
    "label": "§11.6, Remark 11.6.9, pp. 563–566 (2017: Remark 11.4, pp. 412–413)",
    "page": 563,
    "book": "Proper strong bundle coverings, their functors and equivalences, the analogue of Theorem 11.6.6 and the localization, the details left to the reader.",
-   "instead": "**Not formalized**; Definition 8.5.9 is Chapter 8's `IsProperStrongBundleCovering2021` (V11.42; Findings, Chapter 11, item 76).",
+   "instead": "**Formalized** (2026-11-12, `Chapter11/GapP2_H2SBPC.lean`, `GapP2_H3SBPullback.lean`, `GapP2_H3SBFibred.lean`, `GapP2_H3SBLocalization.lean`; V11.42). The category SBPC (objects: strong bundle functors $A$ over $F$ satisfying Definition 8.5.9; morphisms: commutative cubes), the class $E_{SBPC}$ (read: both components strong bundle equivalences; the text does not define it), and $SBPC[E^{-1}]$ with its universal property. Theorem 11.6.6 for SBPC: the weak fibred product of strong bundles over that of the bases is a proper strong bundle covering, $\\pi_{(A'',F'')}$ is an equivalence and the square commutes up to natural equivalence (`SBPC.theorem_11_6_6`). $SBPC[E^{-1}]$ is described by diagrams under common refinement, as for $\\mathcal{PC}(E^{-1})$ (`SBPCLoc`), with the comparison functor from the universal localization (Findings, Chapter 11, items 76–78).",
    "decls": [
-    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021"
+    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
+    "Chapter11/GapP2_H2SBPC · SBPC",
+    "Chapter11/GapP2_H2SBPC · SBPC.equivalences",
+    "Chapter11/GapP2_H2SBPC · SBPC.isLocalization_Q",
+    "Chapter11/GapP2_H3SBPullback · EpStrongBundle.isProperStrongBundleCovering2021_of",
+    "Chapter11/GapP2_H3SBFibred · SBPC.theorem_11_6_6",
+    "Chapter11/GapP2_H3SBLocalization · SBPC.proposition_11_6_8",
+    "Chapter11/GapP2_H3SBLocalization · SBPCLoc",
+    "Chapter11/GapP2_H3SBLocalization · SBPCLoc.isIso_I_map",
+    "Chapter11/GapP2_H3SBLocalization · SBPCLoc.homMk_eq",
+    "Chapter11/GapP2_H3SBLocalization · SBPCLoc.fromLoc",
+    "Chapter11/GapP2_H3SBLocalization · SBPC.Examples.theorem_11_6_6_ep"
+   ],
+   "formalized": [
+    "V11.42"
    ]
   }
  ]

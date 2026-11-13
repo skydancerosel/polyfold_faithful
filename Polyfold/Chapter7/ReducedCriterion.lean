@@ -113,15 +113,19 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   for `t([φ])`; `reducedTgt` (`Reduced.lean`) is the target map.
 * Appendix 7.6.3: `JumpingRetract.X` (`ReducedNotHausdorff.lean`) is not Zhou's retract but has the
   same features (a `ℤ/2`-action trivial over `t < 0` and moving points arbitrarily close to the
-  origin over `t > 0`); we show `(−1, o₀) ∈ cl(𝐗^T) ∖ 𝐗^T` but do not compute `𝐗^T` exactly.
+  origin over `t > 0`); we show `(−1, o₀) ∈ cl(𝐗^T) ∖ 𝐗^T` here; `𝐗^T` is computed exactly in
+  `GapP2_AZhouRetract.lean`, and Zhou's retract itself is `GapP2_A2ZhouGroupoid.lean` and
+  `GapP2_A2Sigma.lean` (2026-11-12).
 * Appendix 7.6.4 is formalized for `i = 1` and as sets: the text uses that `U₁(x)` is connected
   in `X¹` and that `U(x) ∩ X_1` is dense in `U(x)` (the density of `X_1` in `X`, gap G.73;
   `Lift.lean` uses `U(x)₁` only with the restricted action); both are explicit hypotheses of
   `levelVal_mem_nonEffectivePart_of_liftOne`, and of (SLUC) only LUC for `X¹` is used.  The
   hypotheses are satisfied by the trivial ep-groupoid of a point (`Examples.pointEpGroupoid`).
-  Not formalized: the sc-diffeomorphism `(𝐗^1)^R ≅ (𝐗^R)^1` (it needs the M-polyfold `(𝐗^R)^1`),
-  the case `i ≥ 2`, and (ZHOU), which §7.4 defines: `corollary_7_6_8` takes "(ZHOU) implies
-  LUC for `X¹`" as a hypothesis.
+  Not in this file: the sc-diffeomorphism `(𝐗^1)^R ≅ (𝐗^R)^1`, the case `i ≥ 2`, and (ZHOU),
+  which §7.4 defines: `corollary_7_6_8` takes "(ZHOU) implies LUC for `X¹`" as a hypothesis.
+  Since 2026-11-09 the hypotheses hold for every ep-groupoid (`SmoothConnectedReps.lean`), and
+  since 2026-11-12 the sc-diffeomorphism and every `i` are `theorem_7_6_7_one`, `EP.theorem_7_6_7`
+  and `EP.corollary_7_6_8` (`GapP2_ARaise.lean`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -939,7 +943,8 @@ def reducedLevelOneMap
 /-- **2021 Theorem 7.6.7, p. 351 (new in the 2021 edition), for `i = 1` and as
 sets**: under LUC for `X¹` (the part of (SLUC) used) and `HasConnectedDenseLevelOneReps`,
 `(𝐗^T)^1 = (𝐗^1)^T`, and `[φ]₁ ↦ [φ]` is a continuous injection `(𝐗¹)^R → 𝐗^R` onto
-`π(𝐗_1)`.  The sc-diffeomorphism statement and `i ≥ 2` are not formalized. -/
+`π(𝐗_1)`.  The sc-diffeomorphism statement and `i ≥ 2` are `theorem_7_6_7_one` and
+`EP.theorem_7_6_7` (`GapP2_ARaise.lean`, 2026-11-12). -/
 theorem theorem_7_6_7 (hLUC : X.liftOne.IsLUC)
     (hR : X.HasConnectedDenseLevelOneReps) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,

@@ -80,7 +80,9 @@ positive for `o_y`, `e` outward pointing; the resulting `o_{∂M}` fits continuo
 * The stratum `∂₁M = {d_M = 1}` as a smooth submanifold (`T_y∂₁M` is read as `T^R_yM`); in this
   file the operation is defined and studied pointwise.  The continuity of `o_{∂M}` along the
   stratum is in `Chapter9/BoundaryOrientationContinuity2021.lean` (2026-11-09).  The extension to
-  the closed faces (Figure 9.1) and Remark 9.3.11 are not formalized.
+  the closed faces (Figure 9.1) is not formalized; Remark 9.3.11 is a comment with nothing to
+  formalize.  (2026-11-12) For a tame sheet the stratum is open and dense in `∂M`
+  (`GapP2_DBoundaryStratum.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

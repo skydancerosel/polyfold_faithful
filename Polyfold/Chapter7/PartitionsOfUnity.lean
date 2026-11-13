@@ -46,7 +46,8 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   partition of unity of `|X|`, with `orbitPullback_apply`, `orbitPullback_src`,
   `tsupport_orbitPullback_subset`, `orbitPullback_isSubordinate`,
   `exists_isSaturated_nhds_finite_orbitPullback`.
-* **Remark 7.5.6 (2017: 7.2)**: no formal content; not formalized.
+* **Remark 7.5.6 (2017: 7.2)**: no formal content (nothing to formalize); its sc-Hilbert case is
+  Corollary 7.6.6.
 * **Lemma 7.6.5 (2017: 7.10)**: `lemma_7_6_5`.
 * **The proof of Theorem 7.5.7 (2017: 7.4)**: properties (1)–(3), `exists_invariant_nhds_of_isOpen`; property
   (4), `mem_of_π_mem_image_of_invariant` and `saturation_diff_inter_eq_empty`; the extension
@@ -132,8 +133,10 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   is existential, one chart per point, as Part I's `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`;
   "Hilbert" is read as there (`‖v‖² = b(v, v)` for a continuous bilinear `b`).  "Every compatible
   chart has a Hilbert `E₀`" would be unsatisfiable (PLAN II.5, 2).  Theorem 5.5.16 (2017: 5.14) [5.43]
-  (Godefroy–Troyanski–Whitfield–Zizler) is an explicit hypothesis,
-  `GodefroyTroyanskiWhitfieldZizlerStatement`, as in Part I.  The text's references Proposition
+  (Godefroy–Troyanski–Whitfield–Zizler) is an explicit hypothesis here,
+  `GodefroyTroyanskiWhitfieldZizlerStatement`; since 2026-11-12 it is proved (`theorem_5_5_16`), and
+  `corollary_7_6_6_unconditional` (`GapP2_ACor766.lean`) has no such hypothesis.
+  The text's references Proposition
   5.6 [5.35], Theorem 5.5.10 (2017: 5.12) [5.37] and Corollary 5.5.17 (2017: 5.2) [5.44] are the ingredients of that theorem.
 * **Hypotheses.**  No hypothesis "for all charts" is added.  The hypotheses of Theorems 7.5.7 (2017: 7.4) and
   7.6, of Lemma 7.6.5 (2017: 7.10) and of Corollary 7.6.6 (2017: 7.3) are satisfiable: the trivial ep-groupoid on `ℝⁿ` has
@@ -687,7 +690,9 @@ theorem theorem_7_6_4 (hpara : X.HasParacompactOrbitSpace)
 around every point) whose local models have Hilbert spaces `E₀` (`‖v‖² = b(v, v)`), then every
 cover of `X` by saturated open sets has a subordinate sc-smooth partition of unity of the
 ep-groupoid — **under the explicit hypothesis that Theorem 5.5.16 (2017: 5.14) [5.43] holds** for these `E₀`
-(`GodefroyTroyanskiWhitfieldZizlerStatement`, cited and not formalized, as in Part I). -/
+(`GodefroyTroyanskiWhitfieldZizlerStatement`).  This form is kept; since 2026-11-12 Theorem
+5.5.16 is proved (`theorem_5_5_16`), and Corollary 7.6.6 as printed, with no such hypothesis, is
+`corollary_7_6_6_unconditional` (`Chapter7/GapP2_ACor766.lean`). -/
 theorem corollary_7_6_6 (hpara : X.HasParacompactOrbitSpace)
     (h : ∀ x, ∃ φ : MChart Obj, X.PObj.IsChart φ ∧ x ∈ φ.source ∧
       (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧

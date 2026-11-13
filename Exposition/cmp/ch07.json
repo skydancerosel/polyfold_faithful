@@ -301,14 +301,14 @@
   {
    "id": "V7.10",
    "title": "The remark after Definition 7.1.7 (2017: 7.7): sc-smoothness on objects suffices",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.1, after Definition 7.1.7 (2017: 7.7), pp. 290 ff. (2017 pp. 228–229)",
     "page": 228,
-    "statement": "It is sufficient to require that the functor $f$ is sc-smooth between the object spaces $X \\to Y$, because the sc-smoothness of $f : \\mathbf X \\to \\mathbf Y$ follows from the properties of the source map $s : \\mathbf X \\to X$: given $\\varphi \\in \\mathbf X$ and $f(\\varphi) = \\psi \\in \\mathbf Y$ there exist open neighborhoods $\\mathbf U(\\varphi)$, $\\mathbf U(\\psi)$, $U(s(\\varphi))$ and $U(s(\\psi))$ satisfying $f(U(s(\\varphi))) \\subset U(s(\\psi))$ and $f(\\mathbf U(\\varphi)) \\subset \\mathbf U(\\psi)$; moreover, $s : \\mathbf U(\\varphi) \\to U(s(\\varphi))$ and $s : \\mathbf U(\\psi) \\to U(s(\\psi))$ are sc-diffeomorphisms. Therefore the claim follows from the formula $f(\\gamma) = (s|\\mathbf U(\\psi))^{-1}(f(s(\\gamma)))$ for all $\\gamma \\in \\mathbf U(\\varphi)$."
+    "statement": "(2021 text, p. 291.) It suffices that the functor $f$ is sc-smooth between the object spaces and continuous (on level $0$) between the morphism spaces; given $\\varphi \\in \\mathbf X$ and $f(\\varphi) = \\psi$ there are open neighborhoods $\\mathbf U(\\varphi)$, $\\mathbf U(\\psi)$, $U(s(\\varphi))$, $U(s(\\psi))$ with $f(U(s(\\varphi))) \\subset U(s(\\psi))$ and $f(\\mathbf U(\\varphi)) \\subset \\mathbf U(\\psi)$ on which $s$ is an sc-diffeomorphism, and the formula $f(\\gamma) = (s|\\mathbf U(\\psi))^{-1}(f(s(\\gamma)))$ on $\\mathbf U(\\varphi)$ gives the sc-smoothness on morphisms."
    },
    "lean": {
-    "statement": "`mor_eq_srcInv_obj_src`: if $f(\\gamma)$ lies in a sheet of $s$ with inverse $\\sigma$, then $f(\\gamma) = \\sigma(f(s(\\gamma)))$. `isScSmoothMap_mor_of_continuous`: a functor that is sc-smooth on objects and **continuous on morphisms** is sc-smooth on morphisms; `isScSmoothMap_mor_iff_continuous`: for a functor sc-smooth on objects, sc-smoothness on morphisms is equivalent to continuity there; `EpFunctor.continuous_mor`, `EpFunctor.ofContinuous`. `Examples.remark_definition_7_1_7_counterexample`: on the ep-groupoid of $\\mathbb Z/3$ acting trivially on $\\mathbb R$ there is a functor, sc-smooth on objects, that is neither continuous nor sc-smooth on morphisms and is no ep-functor.",
+    "statement": "`isScSmoothMap_mor_of_continuous`: a functor sc-smooth on objects and continuous on morphisms is sc-smooth on morphisms (`Continuous F.mor` is level-$0$ continuity: the topology of $\\mathbf X$ is that of the M-polyfold, level $0$); `mor_eq_srcInv_obj_src`: the formula, $f(\\gamma) = \\sigma(f(s(\\gamma)))$ for $f(\\gamma)$ in a sheet of $s$ with inverse $\\sigma$; `isScSmoothMap_mor_iff_continuous`; `EpFunctor.continuous_mor`, `EpFunctor.ofContinuous`. `Examples.remark_definition_7_1_7_counterexample`: without the continuity (the 2017 sentence), on the ep-groupoid of $\\mathbb Z/3$ acting trivially on $\\mathbb R$ there is a functor, sc-smooth on objects, that is neither continuous nor sc-smooth on morphisms.",
     "decls": [
      "Chapter7/Basic · EpGroupoid.mor_eq_srcInv_obj_src",
      "Chapter7/Basic · EpGroupoid.isScSmoothMap_mor_of_continuous",
@@ -319,12 +319,11 @@
     ]
    },
    "chips": [
-    "added: continuity on morphisms",
-    "a counterexample (trivial $\\mathbb Z/3$)"
+    "2021: continuity on morphisms in the text",
+    "2017 form: counterexample ($\\mathbb Z/3$)"
    ],
    "diff": [
-    "**Does not hold as we read it.** The neighbourhoods with $f(\\mathbf U(\\varphi)) \\subset \\mathbf U(\\psi)$ need $f$ to be continuous on morphisms. On the ep-groupoid of $\\mathbb Z/3$ acting trivially on $\\mathbb R$, the functor that is the identity on objects and maps $(g, y)$ to $(g, y)$ for $y \\le 0$ and to $(g^2, y)$ for $y > 0$ is sc-smooth on objects and not continuous on morphisms (Findings, Chapter 7, items 9, 104).",
-    "For functors continuous on morphisms the text's argument goes through, and needs only a sheet $\\mathbf U(\\psi)$ of $s$ at $\\psi = f(\\varphi)$ and $\\mathbf U(\\varphi) = f^{-1}(\\mathbf U(\\psi))$."
+    "*2021 edition:* the text adds \"continuous (on level 0) between morphisms\", the hypothesis formalized. The 2017 sentence, without it, does not hold as we read it: `Examples.remark_definition_7_1_7_counterexample` (the $\\mathbb Z/3$ functor, sc-smooth on objects, not continuous on morphisms) (Findings, Chapter 7, items 9, 104). The argument needs only a sheet $\\mathbf U(\\psi)$ of $s$ at $\\psi = f(\\varphi)$ and $\\mathbf U(\\varphi) = f^{-1}(\\mathbf U(\\psi))$."
    ]
   },
   {
@@ -1137,14 +1136,14 @@
   {
    "id": "V7.39",
    "title": "Proposition 7.2.10 (2017: 7.9): the M-polyfold structure of $\\mathbf X^R$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.2, Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242) (proof 2017 pp. 242–243)",
     "page": 242,
-    "statement": "The reduced morphism set $\\mathbf X^R$ has a natural M-polyfold structure. (The proof equips $\\mathbf X^R$ with the quotient topology of $\\pi : \\mathbf X \\to \\mathbf X^R$; for an open $\\mathbf U(\\varphi_0)$ on which $s$ is an sc-diffeomorphism, the maps $\\Psi_{\\varphi_0} : \\mathbf U(\\varphi_0) \\to \\mathbf U([\\varphi_0])$, $\\varphi \\mapsto [\\varphi]$, are homeomorphisms between open subsets of the M-polyfold $\\mathbf X$ and open subsets of $\\mathbf X^R$ with sc-smooth transition maps, and this defines the natural M-polyfold structure on $\\mathbf X^R$.)"
+    "statement": "(2021 statement.) The reduced morphism set $\\mathbf X^R$ with the natural topology $T_R$ admits a natural collection of charts, and the associated transition maps are sc-smooth. (The proof equips $\\mathbf X^R$ with the finest topology for which $\\pi : \\mathbf X \\to \\mathbf X^R$ is continuous, for which $\\pi$ is open; for an open $\\mathbf U(\\varphi_0)$ on which $s$ is an sc-diffeomorphism, $\\Psi_{\\varphi_0} : \\mathbf U(\\varphi_0) \\to \\mathbf U([\\varphi_0])$, $\\varphi \\mapsto [\\varphi]$, is a homeomorphism, with sc-smooth transition maps. The 2017 Proposition 7.9 claimed a natural M-polyfold structure on $\\mathbf X^R$.)"
    },
    "lean": {
-    "statement": "Without hypotheses: `reducedπ` $: \\mathbf X \\to \\mathbf X^R$ is a quotient map (`isQuotientMap_reducedπ`), open (`isOpenMap_reducedπ`), injective on every sheet of $s$ (`injOn_reducedπ`); `reducedChart` is the chart $\\psi \\circ \\sigma \\circ s$ of $\\mathbf X^R$ over $\\pi(\\mathrm{dom}\\,\\psi)$, for a chart $\\psi$ of $\\mathbf X$ inside a sheet $\\sigma$ of $s$; any two are compatible (`reducedChart_compatible`); `reducedCharts`, `reducedAtlas`. **Under** `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`: `reducedPolyfold` is $\\mathbf X^R$ as an M-polyfold, the reduced charts are charts of it (`isChart_reducedChart`), $\\pi$ is an sc-diffeomorphism on every sheet of $s$ (`isScDiffeoOn_reducedπ`) and a local sc-diffeomorphism (`isLocalScDiffeo_reducedπ`); `proposition_7_2_10` collects these. The two hypotheses hold for effective $X$ (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`), and paracompactness follows from regularity of $\\mathbf X^R$ when $\\mathbf X$ is second countable (`paracompactSpace_reducedMor_of_t3`). The Hausdorff hypothesis cannot be dropped: `Examples.exists_not_t2Space_reducedMor` gives an ep-groupoid ($\\mathbb Z/2$ acting by $(t, z) \\mapsto (t, \\pm z)$ on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3)) whose $\\mathbf X^R$ is not Hausdorff.",
+    "statement": "Without hypotheses: `proposition_7_2_10_natural_charts`: the charts $\\Psi_\\varphi = \\psi\\circ\\sigma\\circ s$ of $\\mathbf X^R$ (`reducedCharts`, for charts $\\psi$ of $\\mathbf X$ inside a sheet $\\sigma$ of $s$) cover $\\mathbf X^R$ and are pairwise sc-smoothly compatible (`reducedChart_compatible`); they form `reducedAtlas`. Also `reducedπ` is a quotient map, open, injective on sheets (`isQuotientMap_reducedπ`, `isOpenMap_reducedπ`, `injOn_reducedπ`). The M-polyfold `reducedPolyfold` needs `[T2Space X.ReducedMor]` only (paracompactness is the instance `paracompactSpace_reducedMor`, V7.77), which is Proposition 7.2.13 (V7.78); `proposition_7_2_10` collects the M-polyfold statements under it (`isChart_reducedChart`, `isScDiffeoOn_reducedπ`, `isLocalScDiffeo_reducedπ`). For effective $X$ the hypotheses hold (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`). `Examples.exists_not_t2Space_reducedMor`: $\\mathbf X^R$ need not be Hausdorff.",
     "decls": [
      "Chapter7/Reduced · EpGroupoid.reducedπ",
      "Chapter7/Reduced · EpGroupoid.isQuotientMap_reducedπ",
@@ -1162,34 +1161,34 @@
      "Chapter7/Reduced · EpGroupoid.t2Space_reducedMor_of_isEffective",
      "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_isEffective",
      "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_t3",
-     "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.exists_not_t2Space_reducedMor"
+     "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.exists_not_t2Space_reducedMor",
+     "Chapter7/GapP2_AReduced · EpGroupoid.proposition_7_2_10_natural_charts",
+     "Chapter7/ReducedCriterion · EpGroupoid.paracompactSpace_reducedMor"
     ]
    },
    "chips": [
-    "added: $\\mathbf X^R$ Hausdorff, paracompact",
+    "2021: charts and transitions, no hypotheses",
+    "M-polyfold: $T_R$ Hausdorff (7.2.13)",
     "$\\mathbf X^R$ need not be Hausdorff",
-    "charts, transitions: no hypotheses",
-    "gap G.71",
-    "2021: paracompact always, Hausdorff assumed"
+    "gap G.71 closed"
    ],
    "diff": [
-    "An M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)). As we read it, the proof gives the quotient topology, the openness of the projection, the charts and their sc-smooth transitions, but neither Hausdorffness nor paracompactness, and $\\mathbf X^R$ need not be Hausdorff (`Examples.exists_not_t2Space_reducedMor`, on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3)); both are hypotheses of `reducedPolyfold` (gap G.71) (Findings, Chapter 7, items 56, 107, 111).",
-    "The hypotheses are satisfiable: for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, $\\mathbf X \\to \\mathbf X^R$ is a homeomorphism (Findings, Chapter 7, item 60).",
-    "Four possible misprints in the proof, two of them possibly extraction artefacts: \"$\\psi' = (s|\\mathbf U(\\psi))^{-1}(s(\\psi))$\" for $(s|\\mathbf U(\\psi))^{-1}(s(\\psi'))$; \"$\\mathbf U(\\varphi) \\subset \\Psi_{\\varphi_0}(\\mathbf U([\\varphi_0]) \\cap \\mathbf U([\\psi_0]))$\" for $\\Psi_{\\varphi_0}^{-1}$; \"$T_x$ agrees with the kernel of the $G_{s(\\varphi)}$-action\" for $T_{s(\\varphi)}$; and the garbled sentence on the source and target maps (2017 p. 243) (Findings, Chapter 7, item 57).",
+    "The 2021 statement is the charts and their transitions, which hold for every ep-groupoid; the M-polyfold structure is Proposition 7.2.13 (V7.78), with $T_R$ Hausdorff, and $\\mathbf X^R$ need not be Hausdorff (`Examples.exists_not_t2Space_reducedMor`, of the kind of Remark 7.2.8 and Appendix 7.6.3) (Findings, Chapter 7, items 56, 107, 111). The 2017 Proposition 7.9, a natural M-polyfold structure for every ep-groupoid, does not hold as we read it, by the same example.",
+    "Four reading points in the 2017 proof, two of them possibly extraction artefacts: \"$\\psi' = (s|\\mathbf U(\\psi))^{-1}(s(\\psi))$\" for $(s|\\mathbf U(\\psi))^{-1}(s(\\psi'))$; \"$\\mathbf U(\\varphi) \\subset \\Psi_{\\varphi_0}(\\mathbf U([\\varphi_0]) \\cap \\mathbf U([\\psi_0]))$\" for $\\Psi_{\\varphi_0}^{-1}$; \"$T_x$ agrees with the kernel of the $G_{s(\\varphi)}$-action\" for $T_{s(\\varphi)}$; and the garbled sentence on the source and target maps (2017 p. 243) (Findings, Chapter 7, item 57).",
     "*2021 edition:* Proposition 7.2.10 (p. 313) gives the charts and transitions for the quotient topology $T_R$ without further claim, Remark 7.2.8 (p. 311) says that the M-polyfold structure fails in general, Proposition 7.2.12 (p. 317) proves $T_R$ paracompact for every ep-groupoid (`paracompactSpace_reducedMor`, an instance, V7.77), and Proposition 7.2.13 (p. 318) makes it an M-polyfold exactly when it is Hausdorff (V7.78). So of the two hypotheses only the Hausdorff one remains, and it is the 2021 text's own; the example `Examples.exists_not_t2Space_reducedMor` is of the kind of Remark 7.2.8 and Appendix 7.6.3 (V7.82) (gap G.71, closed; Findings, Chapter 7, items 125, 126, 129)."
    ]
   },
   {
    "id": "V7.40",
-   "title": "The reduced ep-groupoid $X_R$ and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14)",
-   "verdict": "narrower",
+   "title": "Theorem 7.2.14 and Proposition 7.2.16 (2017: Proposition 7.10): the reduced ep-groupoid $X_R$",
+   "verdict": "same",
    "book": {
-    "label": "§7.2, 2017 p. 243 and Proposition 7.10 (2017), 2017 p. 244",
+    "label": "§7.2, Theorem 7.2.14, Proposition 7.2.16 and the isotropy sentence, pp. 318–319 (2017 p. 243 and Proposition 7.10, p. 244)",
     "page": 243,
-    "statement": "The reduced ep-groupoid $X_R$ associated with $X$: on the object level $X_R = X$, and as morphism M-polyfold one takes $\\mathbf X^R$; the source and target maps $s, t : \\mathbf X^R \\to X$ are $s([\\varphi]) := s_X(\\varphi)$ and $t([\\varphi]) := t_X(\\varphi)$, well defined since two morphisms in an equivalence class have the same source and the same target. Through the local sc-diffeomorphisms $\\Psi_\\varphi : \\mathbf U(\\varphi) \\to \\mathbf U([\\varphi])$, with $s(\\Psi_\\varphi(\\varphi')) = s_X(\\varphi')$ and $t(\\Psi_\\varphi(\\varphi')) = t_X(\\varphi')$, the smoothness of the natural maps is reduced to the corresponding statements for $X$, and the properness can be proved similarly. Proposition 7.10 (2017): Every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$. Moreover, $X_R$ is effective."
+    "statement": "(2021 statements.) Theorem 7.2.14: if the quotient topology $T_R$ on $\\mathbf X^R$ defined by $\\pi : \\mathbf X \\to \\mathbf X^R$ is Hausdorff, then $(X, \\mathbf X^R)$ is in a natural way an ep-groupoid $X_R$: on objects $X_R = X$, on morphisms the M-polyfold $\\mathbf X^R$, with $s([\\varphi]) := s(\\varphi)$, $t([\\varphi]) := t(\\varphi)$ and the induced unit, inversion and multiplication. Proposition 7.2.16: $X_R$ is effective; the isotropy group of $x$ in $X_R$ is $G_x/T_x$. (The 2017 Proposition 7.10 claimed $X_R$ for every ep-groupoid.)"
    },
    "lean": {
-    "statement": "`reducedSrc`, `reducedTgt`, `reducedUnit` ($x \\mapsto [1_x]$), `reducedInv`, `reducedComp`: the induced structure maps, forming the groupoid `reducedGroupoidStr` (no hypotheses). **Under** `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`: (1) `isLocalScDiffeo_reducedSrc`, `isLocalScDiffeo_reducedTgt`; (2) `isScSmoothMap_reducedUnit`, `isScSmoothMap_reducedInv`; (3) `exists_isProperMap_reduced`; (4) in sheet form, `isScSmoothCompSheet_reduced`; `reducedEpGroupoid` $= X_R$, with the ep-functor `reductionFunctor` $X \\to X_R$, and $X_R$ is effective (`isEffective_reducedEpGroupoid`). `proposition_7_10_2017` collects these, together with $G_x/T_x \\cong$ the isotropy group of $x$ in $X_R$; for effective $X$, `reductionIso` is an isomorphism $X \\cong X_R$ in $\\mathcal{EP}$.",
+    "statement": "`reducedSrc`, `reducedTgt`, `reducedUnit` ($x \\mapsto [1_x]$), `reducedInv`, `reducedComp`: the induced structure maps, forming the groupoid `reducedGroupoidStr` (no hypotheses). **Under** `[T2Space X.ReducedMor]` (2021 Theorem 7.2.14's hypothesis; paracompactness is an instance): `theorem_7_2_14_reduced`: $X_R$ (`reducedEpGroupoid`) is an ep-groupoid with the descended structure maps, the object M-polyfold of $X$ and the natural M-polyfold structure on $\\mathbf X^R$; it is effective (`proposition_7_2_16`), its isotropy group at $x$ is $G_x/T_x$, and $\\pi$ is a morphism $X \\to X_R$ of $\\mathcal{EP}$. Steps: `isLocalScDiffeo_reducedSrc`, `isLocalScDiffeo_reducedTgt`, `isScSmoothMap_reducedUnit`, `isScSmoothMap_reducedInv`, `exists_isProperMap_reduced`, `isScSmoothCompSheet_reduced`, `reductionFunctor`, `isEffective_reducedEpGroupoid`; `proposition_7_10_2017` collects the 2017 form. For effective $X$, `reductionIso`.",
     "decls": [
      "Chapter7/Reduced · EpGroupoid.reducedSrc",
      "Chapter7/Reduced · EpGroupoid.reducedTgt",
@@ -1207,18 +1206,19 @@
      "Chapter7/Reduced · EpGroupoid.reductionFunctor",
      "Chapter7/Reduced · EpGroupoid.isEffective_reducedEpGroupoid",
      "Chapter7/Reduced · EpGroupoid.proposition_7_10_2017",
-     "Chapter7/Reduced · EpGroupoid.reductionIso"
+     "Chapter7/Reduced · EpGroupoid.reductionIso",
+     "Chapter7/GapP2_AReduced · EpGroupoid.theorem_7_2_14_reduced",
+     "Chapter7/GapP2_AReduced · EpGroupoid.proposition_7_2_16"
     ]
    },
    "chips": [
-    "hypotheses of V7.39: gap G.71",
+    "2021 hypothesis: $T_R$ Hausdorff",
     "effective via the intrinsic $T_x$",
-    "2021 Theorem 7.2.14: the same hypothesis"
+    "gap G.71 closed"
    ],
    "diff": [
-    "Under the two hypotheses on $\\mathbf X^R$ of V7.39, which the text does not make (gap G.71); without them $X_R$ need not be an ep-groupoid, since $\\mathbf X^R$ need not be Hausdorff (V7.39) (Findings, Chapter 7, items 56, 107, 111).",
-    "(3) via the continuous surjection $\\mathbf X \\to \\mathbf X^R$, with $t \\circ \\pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\\Phi(g)(a) \\ne a$ (Findings, Chapter 7, item 58).",
-    "*2021 edition:* Theorem 7.2.14 (p. 318), which replaces Proposition 7.10, assumes that $T_R$ is Hausdorff, the hypothesis taken here, and Theorem 7.2.22 (p. 323) shows it equivalent to LUC and to $\\mathbf X^T$ closed (V7.78, V7.81); paracompactness holds for every ep-groupoid (V7.77). The effectiveness of $X_R$ is 2021 Proposition 7.2.16 (gap G.71, closed; Findings, Chapter 7, items 126, 128, 129)."
+    "The 2017 Proposition 7.10 claims $X_R$ for every ep-groupoid, which does not hold as we read it ($\\mathbf X^R$ need not be Hausdorff, V7.39); the 2021 Theorem 7.2.14 assumes $T_R$ Hausdorff, the one hypothesis taken, and Theorem 7.2.22 characterizes it (V7.78, V7.81) (gap G.71, closed; Findings, Chapter 7, items 56, 107, 111, 126, 128, 129).",
+    "(3) via the continuous surjection $\\mathbf X \\to \\mathbf X^R$, with $t \\circ \\pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\\Phi(g)(a) \\ne a$ (Findings, Chapter 7, item 58)."
    ]
   },
   {
@@ -1640,15 +1640,17 @@
   {
    "id": "V7.57",
    "title": "Remark 7.5.6 (2017: 7.2): on sc-smooth partitions of unity",
-   "verdict": "gap",
+   "verdict": "nothing",
    "book": {
     "label": "§7.5 (2017 §7.4), Remark 7.5.6 (2017: 7.2), p. 342 (2017 p. 251)",
     "page": 251,
     "statement": "(Paraphrased.) Apart from the case of sc-Hilbert spaces, the question of sc-smooth partitions of unity is described as generally \"a zoo\", like that of classically smooth partitions of unity on Banach spaces; for sc-smoothness their existence might be easier to show on concrete scales."
    },
    "lean": {
-    "statement": "**No formal content**: the remark is an assessment, not a statement. The one case it sets apart, sc-Hilbert spaces, is Part I's `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (used for Corollary 7.6.6 (2017: 7.3), V7.68), with the theorem of Godefroy–Troyanski–Whitfield–Zizler as an explicit hypothesis (gap G.53).",
+    "statement": "**No formal content**: the remark is an assessment (\"a zoo\", possibly easier on concrete scales), not a statement. The case it sets apart, sc-Hilbert spaces, is Corollary 7.6.6 (V7.68), proved with no hypothesis (`corollary_7_6_6_unconditional`; for M-polyfolds `MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional`).",
     "decls": [
+     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_unconditional",
+     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert"
     ]
    },
@@ -1656,7 +1658,7 @@
     "no formal content"
    ],
    "diff": [
-    "Exposition/verification/ch07.md lists the remark among what is not verified, as having no formal content; it has no gap number (Findings, Chapter 7, items 91, 113)."
+    "Nothing to formalize (verdict new since 736ef0f); Exposition/verification/ch07.md lists the remark among what is not verified, as having no formal content; it has no gap number (Findings, Chapter 7, items 91, 113)."
    ]
   },
   {
@@ -1916,28 +1918,33 @@
   {
    "id": "V7.68",
    "title": "Corollary 7.6.6 (2017: 7.3): sc-Hilbert atlases",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.6.2 (2017 §7.5.2), Corollary 7.6.6 (2017: 7.3), p. 347 (2017 p. 256)",
     "page": 256,
     "statement": "Let $X$ be an ep-groupoid with paracompact orbit space $|X|$. We assume that the object M-polyfold admits an atlas consisting of charts whose local models $(O, C, E)$ have the property that the $E_0$ are Hilbert spaces. Then every open covering of $X$ by saturated open subsets $(U_\\lambda)_{\\lambda \\in \\Lambda}$ possesses a subordinate sc-smooth partition of unity of the ep-groupoid $X$. (The proof: the assumption on the atlas implies that the object M-polyfold admits sc-smooth partitions of unity, by Appendix 5.5, Proposition 5.5.8 (2017: 5.6), Theorem 5.5.10 (2017: 5.12) and Corollary 5.5.17 (2017: 5.2); then Theorem 7.5.7 (2017: 7.4) applies.)"
    },
    "lean": {
-    "statement": "`corollary_7_6_6`: if $|X|$ is paracompact and every $x$ lies in a chart of the object M-polyfold whose $E_0$ is a Hilbert space ($\\|v\\|^2 = b(v, v)$ for a continuous bilinear $b$) and **satisfies** `GodefroyTroyanskiWhitfieldZizlerStatement` (Part I's Theorem 5.5.16 (2017: 5.14) for $E_0$ and $k = \\infty$), then $X$ has sc-smooth partitions of unity. `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`: the step of Part I. `corollary_7_6_6_hypotheses_rn`: the hypotheses hold for the trivial ep-groupoid of $\\mathbb R^1$.",
+    "statement": "`corollary_7_6_6_unconditional`: if $|X|$ is paracompact and every $x$ lies in a chart of the object M-polyfold whose $E_0$ is a Hilbert space ($\\|v\\|^2 = b(v, v)$ for a continuous bilinear $b$), then $X$ has sc-smooth partitions of unity, subordinate to every cover by saturated open sets. The proof is the text's: Corollary 5.5.17 and Theorem 5.5.10 for the object M-polyfold (`MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional`), then Theorem 7.5.7. `corollary_7_6_6_hypotheses_rn_unconditional`: the hypotheses hold for the trivial ep-groupoid of $\\mathbb R^1$. The form with Theorem 5.5.16 as a hypothesis is kept (`corollary_7_6_6`, `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `corollary_7_6_6_hypotheses_rn`).",
     "decls": [
      "Chapter7/PartitionsOfUnity · EpGroupoid.corollary_7_6_6",
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert",
      "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
-     "Chapter7/PartitionsOfUnity · EpGroupoid.corollary_7_6_6_hypotheses_rn"
+     "Chapter7/PartitionsOfUnity · EpGroupoid.corollary_7_6_6_hypotheses_rn",
+     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_unconditional",
+     "Chapter7/GapP2_ACor766 · EpGroupoid.corollary_7_6_6_hypotheses_rn_unconditional",
+     "Chapter5/GapP1_SeparablePOU · MPolyfold.admitsScPartitionsOfUnity_of_hilbert_unconditional",
+     "Chapter5/GapP1_SeparablePOU · godefroyTroyanskiWhitfieldZizlerStatement_of_separable",
+     "Chapter5/GapP1_GTWZ · theorem_5_5_16"
     ]
    },
    "chips": [
-    "Theorem 5.5.16 a hypothesis (gap G.53)",
+    "no hypothesis beyond the text (G.53 closed)",
     "Hilbert atlas: one chart per point"
    ],
    "diff": [
-    "The theorem of Godefroy–Troyanski–Whitfield–Zizler (Part I's Theorem 5.5.16 (2017: 5.14), the preprint's Theorem 5.43) is an explicit hypothesis, as in Part I (gap G.53); it holds for finite-dimensional spaces (`godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional`) (Findings, Chapter 7, items 95, 114).",
-    "\"An atlas consisting of charts whose local models have Hilbert spaces $E_0$\" is existential, one chart per point; \"every compatible chart\" would be unsatisfiable (Findings, Chapter 7, item 106). Proposition 5.5.8, Theorem 5.5.10 and Corollary 5.5.17 (2017: Proposition 5.6, Theorem 5.12 and Corollary 5.2) are the preprint's Proposition 5.35, Theorem 5.37 and Corollary 5.44."
+    "\"An atlas consisting of charts whose local models have Hilbert spaces $E_0$\" is existential, one chart per point; \"every compatible chart\" would be unsatisfiable (Findings, Chapter 7, item 106). Updated (2026-11-12): Theorem 5.5.16 is no longer a hypothesis: the $0$-level of an sc-Banach space is separable and Theorem 5.5.16 holds for separable spaces (`godefroyTroyanskiWhitfieldZizlerStatement_of_separable`; in general `theorem_5_5_16`, gap G.53 closed) (Findings, Chapter 7, items 95, 114).",
+    "Proposition 5.5.8, Theorem 5.5.10 and Corollary 5.5.17 (2017: Proposition 5.6, Theorem 5.12 and Corollary 5.2) are the preprint's Proposition 5.35, Theorem 5.37 and Corollary 5.44."
    ]
   },
   {
@@ -2312,43 +2319,56 @@
   {
    "id": "V7.82",
    "title": "Appendix 7.6.3: Zhou's example, for an analogue",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.6, Appendix 7.6.3, p. 348 (new in the 2021 edition)",
     "page": 348,
     "statement": "Zhou's example: $\\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \\mapsto (s, -f)$. The set $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ consists of one point, so $\\mathbf X^T$ is not closed, $T_R$ is not Hausdorff, and LUC fails."
    },
    "lean": {
-    "statement": "For `JumpingRetract.X` ($\\mathbb Z/2$ acting by $(t, z) \\mapsto (t, \\pm z)$ on the retract of Part I's Remark 4.2.2 (2017: 4.3), `ReducedNotHausdorff.lean`, V7.39): `JumpingRetract.mem_closure_nonEffectivePart` ($(-1, o_0) \\in \\mathrm{cl}\\,\\mathbf X^T$), `JumpingRetract.not_isClosed_nonEffectivePart`, `JumpingRetract.not_t2Space_reducedMor`, `JumpingRetract.not_isLUC`; `Examples.remark_7_2_19`.",
+    "statement": "For Zhou's ep-groupoid `ZhouRetract.X D`, where `D` holds the weights $0 = \\delta_0 < \\delta_1 < \\cdots$ and $\\beta$ with $\\int\\beta^2 = 1$ (`Data.std` is an instance): `nonEffectivePart_eq` gives $\\mathbf X^T = (\\{1\\}\\times Y)\\cup(\\{-1\\}\\times\\{t<0\\})$. `closure_nonEffectivePart_diff` gives $\\mathrm{cl}(\\mathbf X^T)\\setminus\\mathbf X^T = \\{(-1,(0,0))\\}$. `not_t2Space_reducedMor` and `not_isLUC` give the rest, and `appendix_7_6_3` collects them. The retraction is `ZhouLine.zhouRetraction` on $\\mathbb R \\oplus L^2(\\mathbb R)$ with $E_m = H^{m,\\delta_m}(\\mathbb R)$ (`ZhouLine.lineSc`); its retract is described by `mem_O_iff'`. On $\\Sigma$ as printed: `sigmaHomeo` ($\\Sigma \\cong Y$, $(s,t)\\mapsto(s, t\\beta(\\cdot+e^{1/s}))$) and `appendix_7_6_3_sigma` ($\\mathbf X^T$ and $\\mathrm{cl}(\\mathbf X^T)\\setminus\\mathbf X^T = \\{1\\}\\times\\{(0,0)\\}$ on $\\{0,1\\}\\times\\Sigma$). The analogue `JumpingRetract.X` is kept, computed exactly too (`JumpingRetract.appendix_7_6_3`).",
     "decls": [
      "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
-     "Chapter7/ReducedCriterion · EpGroupoid.Examples.remark_7_2_19"
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.remark_7_2_19",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_t2Space_reducedMor",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isLUC",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.mem_O_iff'",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
+     "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
+     "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
+     "Chapter7/GapP2_A2Family · ZhouLine.zhouRetraction",
+     "Chapter7/GapP2_A2Family · ZhouLine.isLossFamily_zhouFam",
+     "Chapter7/GapP2_A2Line · ZhouLine.lineSc",
+     "Chapter7/GapP2_AZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "an analogue of Zhou's retract",
-    "gap G.83"
+    "Zhou's retract itself",
+    "gap G.83 closed"
    ],
    "diff": [
-    "Our retract is not Zhou's but has the same features: the action is trivial over $t < 0$ and moves points arbitrarily close to the origin over $t > 0$. One point of $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ is exhibited; $\\mathbf X^T$ is not computed exactly (gap G.83).",
-    "The round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is thus consistent with the 2021 text: it is of the kind Remark 7.2.8 announces and Appendix 7.6.3 gives, and it fails LUC as Theorem 7.2.22 requires (Findings, Chapter 7, items 107, 129, 130)."
+    "As printed: $\\mathbf X^T$ and $\\mathrm{cl}(\\mathbf X^T)\\setminus\\mathbf X^T$ are computed on $\\{0,1\\}\\times\\Sigma$ through the text's homeomorphism $\\Sigma\\cong Y$ (`sigmaHomeo`, `appendix_7_6_3_sigma`), and also on $Y$ itself (`appendix_7_6_3`). $\\beta\\ge0$ is not needed. $H^{m,\\delta}(\\mathbb R)$ is defined by lifting to $\\mathbb R\\times S^1$, with the same norm. The sc-smoothness of the retraction, cited by the text from [60], is proved (`isLossFamily_zhouFam`).",
+    "The analogue `JumpingRetract.X` (V7.39) and its exact computation (`GapP2_AZhouRetract.lean`) remain as a second example; the round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is of the kind Remark 7.2.8 announces (Findings, Chapter 7, items 107, 129, 130)."
    ]
   },
   {
    "id": "V7.83",
    "title": "Appendix 7.6.4: (7.24), Theorem 7.6.7 and Corollary 7.6.8 for $i = 1$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351, with Appendix 7.6.4 and (7.24), pp. 348–350 (new in the 2021 edition)",
     "page": 351,
     "statement": "Under (SLUC) (every $X^i$ has LUC): $(\\mathbf X^T)^1 \\subseteq (\\mathbf X^1)^T$ (7.24); conversely, for $g$ acting trivially near $x$ in $X^1$, $\\hat g$ is the identity on the connected set $U(x) \\cap X_1$ by LUC for $X^1$, hence on $U(x)$ by density; so $(\\mathbf X^T)^1 = (\\mathbf X^1)^T$. Theorem 7.6.7: the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism on objects and morphisms, and similarly for $(X^i)_R$ and $(X_R)^i$, every $i$. Corollary 7.6.8: the same under (ZHOU)."
    },
    "lean": {
-    "statement": "`mem_nonEffectivePart_liftOne_of_levelVal`: (7.24). `hasConnectedDenseLevelOneReps`: every ep-groupoid has `HasConnectedDenseLevelOneReps`, every natural representation having $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ (`NaturalRep.isPreconnected_liftU`, `NaturalRep.subset_closure_inter_levelSet`). `nonEffectivePart_liftOne_eq_of_isClosed`: with $(\\mathbf X^1)^T$ closed, $(\\mathbf X^1)^T = (\\mathbf X^T)^1$ (through `NaturalRep.levelOneΓ` and its lemmas). `liftOne_reducedπ_eq_iff`, `reducedLevelOneMap`. `theorem_7_6_7_of_isLUC`: under LUC for $X^1$, $[\\varphi]_1 \\mapsto [\\varphi]$ is well defined, injective and continuous $(\\mathbf X^1)^R \\to \\mathbf X^R$ with range $\\pi(\\mathbf X_1)$. `corollary_7_6_8_of_isZhou'`: the same under (ZHOU) alone; `corollary_7_6_8_of_imp`: with \\\"(ZHOU) implies LUC for $X^1$\\\" as the hypothesis. The forms with `HasConnectedDenseLevelOneReps` as a hypothesis are kept: `levelVal_mem_nonEffectivePart_of_liftOne`, `nonEffectivePart_liftOne_eq`, `theorem_7_6_7`, `corollary_7_6_8`, `corollary_7_6_8_of_isZhou`. Witnesses: `Examples.pointEpGroupoid` with `Examples.isLUC_liftOne_point`, `Examples.hasConnectedDenseLevelOneReps_point`, `Examples.theorem_7_6_7_point`, `Examples.corollary_7_6_8_of_isZhou_point`.",
+    "statement": "`mem_nonEffectivePart_liftOne_of_levelVal`: (7.24). `nonEffectivePart_liftOne_eq_of_isClosed`: $(\\mathbf X^1)^T = (\\mathbf X^T)^1$ under LUC for $X^1$ (connectedness and density of $U(x)\\cap X_1$ hold always, `hasConnectedDenseLevelOneReps`). `theorem_7_6_7_one`: if $T_R$ is Hausdorff for $X$ and $X^1$ (LUC for both), the identification $(X^1)_R \\to (X_R)^1$, the identity on objects and $[\\varphi]_1 \\mapsto [\\varphi]$ on morphisms (`reducedRaise`), is an sc-diffeomorphism on morphisms (`isScDiffeoOn_reducedRaise`) and an isomorphism of ep-groupoids (`raiseReducedFunctor`, `raiseReducedFunctorInv`). `EP.theorem_7_6_7`: under (SLUC), $(X^i)_R \\cong (X_R)^i$ in $\\mathcal{EP}$ for every $i$ (sc-smooth functors inverse to each other), by the text's induction (`EP.raiseReducedIso`, `EP.liftOneIso`, `EP.reducedOfLUC`). `EP.corollary_7_6_8`: the same under (ZHOU). Witness: `Examples.theorem_7_6_7_pointEP`. The set forms are kept (`theorem_7_6_7_of_isLUC`, `corollary_7_6_8_of_isZhou'`, `corollary_7_6_8_of_imp`, and the forms with `HasConnectedDenseLevelOneReps`: `theorem_7_6_7`, `corollary_7_6_8`).",
     "decls": [
      "Chapter7/SmoothConnectedReps · EpGroupoid.theorem_7_6_7_of_isLUC",
      "Chapter7/SmoothRegularAssembly · EpGroupoid.corollary_7_6_8_of_isZhou'",
@@ -2374,17 +2394,28 @@
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.isLUC_liftOne_point",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point",
      "Chapter7/ReducedCriterion · EpGroupoid.Examples.theorem_7_6_7_point",
-     "Chapter7/Zhou · EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point"
+     "Chapter7/Zhou · EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point",
+     "Chapter7/GapP2_ARaise · EpGroupoid.reducedRaise",
+     "Chapter7/GapP2_ARaise · EpGroupoid.isScDiffeoOn_reducedRaise",
+     "Chapter7/GapP2_ARaise · EpGroupoid.raiseReducedFunctor",
+     "Chapter7/GapP2_ARaise · EpGroupoid.raiseReducedFunctorInv",
+     "Chapter7/GapP2_ARaise · EpGroupoid.theorem_7_6_7_one",
+     "Chapter7/GapP2_ARaise · EP.reducedOfLUC",
+     "Chapter7/GapP2_ARaise · EP.liftOneIso",
+     "Chapter7/GapP2_ARaise · EP.raiseReducedIso",
+     "Chapter7/GapP2_ARaise · EP.theorem_7_6_7",
+     "Chapter7/GapP2_ARaise · EP.corollary_7_6_8",
+     "Chapter7/GapP2_ARaise · EpGroupoid.Examples.theorem_7_6_7_pointEP"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "$i = 1$, as sets, continuous",
-    "gap G.82"
+    "every $i$, in $\\mathcal{EP}$, under (SLUC)",
+    "gap G.82 closed"
    ],
    "diff": [
-    "Updated (2026-11-09): the hypothesis that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$ holds for every natural representation (gap G.85 closed; the density is that of $X_\\infty$, gap G.73 closed), so Theorem 7.6.7 for $i = 1$ needs only LUC for $X^1$ (`theorem_7_6_7_of_isLUC`) and Corollary 7.6.8 only (ZHOU) (`corollary_7_6_8_of_isZhou'`); the forms with the hypothesis are kept (`theorem_7_6_7`, `corollary_7_6_8`). Of (SLUC) only LUC for $X^1$ is used.",
-    "Not formalized: the sc-diffeomorphism $(X^1)_R \\cong (X_R)^1$, which needs the M-polyfold $(\\mathbf X^R)^1$, and $i \\ge 2$ (gap G.82) (Findings, Chapter 7, item 131)."
+    "The proof follows the text's diagram: $\\pi_1 : \\mathbf X^1 \\to (\\mathbf X^1)^R$ and the level-$1$ lift of $\\pi : \\mathbf X \\to \\mathbf X^R$ are local sc-diffeomorphisms and the identification composed with $\\pi_1$ is that lift. For $i \\ge 2$ the isomorphism is the composite $(X^i)_R = ((X^{i-1})^1)_R \\cong ((X^{i-1})_R)^1 \\cong \\dots \\cong (X_R)^i$; 'the identity on objects' is stated for $i = 1$ (for variable $i$ the object types are not definitionally equal). Of (SLUC) the case $i$ uses LUC for $X^{i-1}$ and $X^i$ (gap G.82, closed) (Findings, Chapter 7, item 131).",
+    "Updated (2026-11-09): the hypothesis that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$ holds for every natural representation (gap G.85 closed; the density is that of $X_\\infty$, gap G.73 closed)."
    ]
   },
   {
@@ -2769,27 +2800,27 @@
   {
    "id": "V7.95",
    "title": "The example of Appendix 7.6.3 fails (ZHOU)",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§7.4, p. 331 (new in the 2021 edition): the example of Appendix 7.6.3 and the Zhou condition",
     "page": 331,
     "statement": "Subsection 7.6.3 provides an example of an ep-groupoid not satisfying the Zhou condition."
    },
    "lean": {
-    "statement": "`JumpingRetract.not_isZhou_unconditional`: `JumpingRetract.X` does not satisfy `IsZhou` (it is not LUC, V7.82, and (ZHOU) implies LUC, V7.90), with no hypothesis. The form first proved, `JumpingRetract.not_isZhou`, takes `SmoothRegular` for its object M-polyfold.",
+    "statement": "`ZhouRetract.not_isZhou`: Zhou's example `ZhouRetract.X D` does not satisfy (ZHOU). It is not LUC (V7.82), and (ZHOU) implies LUC for an M-polyfold, which is always `SmoothRegular` (V7.90, G.85 closed). No hypothesis is needed. For the analogue: `JumpingRetract.not_isZhou_unconditional`, and the conditional form `JumpingRetract.not_isZhou`.",
     "decls": [
      "Chapter7/SmoothRegularAssembly · EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional",
-     "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou"
+     "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou"
     ]
    },
    "chips": [
-    "for the analogue of V7.82",
+    "Zhou's retract itself",
     "no hypothesis (G.85 closed)",
-    "gap G.83"
+    "gap G.83 closed"
    ],
    "diff": [
-    "Updated (2026-11-09): the Part I facts are theorems (gap G.85 closed), so the example fails (ZHOU) with no hypothesis (`not_isZhou_unconditional`); the conditional form is kept (`not_isZhou`). It is still our analogue of Zhou's example (gap G.83).",
-    "For our analogue of Zhou's example (gap G.83) (Findings, Chapter 7, item 139)."
+    "None beyond V7.82. The analogue's `not_isZhou_unconditional` is kept (Findings, Chapter 7, item 139)."
    ]
   },
   {
@@ -3229,11 +3260,17 @@
    "label": "§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351 (new in the 2021 edition)",
    "page": 351,
    "book": "Under (SLUC), the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism between the object spaces and the morphism spaces; for every $i$ there is a similar identification between $(X^i)_R$ and $(X_R)^i$. Corollary 7.6.8: the same under (ZHOU).",
-   "instead": "**Not formalized** beyond $i = 1$ as sets: under LUC for $X^1$ and the hypothesis that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ (the density is gap G.73), $(\\mathbf X^1)^T = (\\mathbf X^T)^1$ and $[\\varphi]_1 \\mapsto [\\varphi]$ is a continuous injection $(\\mathbf X^1)^R \\to \\mathbf X^R$ onto $\\pi(\\mathbf X_1)$ (V7.83). The sc-diffeomorphism needs the M-polyfold $(\\mathbf X^R)^1$; $i \\ge 2$ needs the lifts of $X_R$ (Findings, Chapter 7, item 131).",
+   "instead": "**Closed** (2026-11-12): `theorem_7_6_7_one` (the natural identification for $i = 1$ is an sc-diffeomorphism on objects and morphisms and an isomorphism of ep-groupoids) and `EP.theorem_7_6_7`, `EP.corollary_7_6_8` (every $i$, isomorphic in $\\mathcal{EP}$, under (SLUC), resp. (ZHOU)) (V7.83) (Findings, Chapter 7, item 131).",
    "decls": [
     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_6_7",
     "Chapter7/ReducedCriterion · EpGroupoid.corollary_7_6_8",
-    "Chapter7/ReducedCriterion · EpGroupoid.HasConnectedDenseLevelOneReps"
+    "Chapter7/ReducedCriterion · EpGroupoid.HasConnectedDenseLevelOneReps",
+    "Chapter7/GapP2_ARaise · EpGroupoid.theorem_7_6_7_one",
+    "Chapter7/GapP2_ARaise · EP.theorem_7_6_7",
+    "Chapter7/GapP2_ARaise · EP.corollary_7_6_8"
+   ],
+   "formalized": [
+    "V7.83"
    ]
   },
   {
@@ -3242,12 +3279,26 @@
    "label": "§7.6, Appendix 7.6.3, p. 348, and §7.4, p. 331 (new in the 2021 edition)",
    "page": 348,
    "book": "Zhou's example: $\\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \\mapsto (s, -f)$; $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ is one point, so $T_R$ is not Hausdorff and (LUC) fails; the example does not satisfy the Zhou condition (p. 331).",
-   "instead": "**Not formalized** for Zhou's retract: the analogue `JumpingRetract.X` ($\\mathbb Z/2$ on the retract of Part I's Remark 4.2.2 (2017: 4.3)) has a point of $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$, $T_R$ not Hausdorff and LUC failing (V7.82); $\\mathbf X^T$ is not computed exactly. That it fails (ZHOU) is proved, since 2026-11-09 with no hypothesis (`not_isZhou_unconditional`, V7.95) (Findings, Chapter 7, items 130, 139).",
+   "instead": "**Closed** (2026-11-12): Zhou's example itself. `ZhouLine.lineSc` is the sc-Hilbert space $L^2(\\mathbb R)$ with $E_m = H^{m,\\delta_m}(\\mathbb R)$. `ZhouLine.zhouRetraction` is the map $r(t,f) = (t, \\pi_t f)$, and it is an sc-smooth retraction: $\\pi_t$ is a loss family, flat at $t = 0$ because of the gap $\\delta_{m+1} - \\delta_m > 0$ (`isLossFamily_zhouFam`). For $\\mathbb Z/2$ acting by $(t,f) \\mapsto (t,-f)$, `ZhouRetract.appendix_7_6_3` computes $\\mathbf X^T = (\\{1\\}\\times Y) \\cup (\\{-1\\}\\times\\{t<0\\})$ and $\\mathrm{cl}(\\mathbf X^T)\\setminus\\mathbf X^T = \\{(-1,(0,0))\\}$ exactly as the text does. So $T_R$ is not Hausdorff, and (LUC) and (ZHOU) fail (`ZhouRetract.not_isZhou`). The identification $Y\\cong\\Sigma$ is a homeomorphism (`sigmaHomeo`), and the computation is also stated on $\\{0,1\\}\\times\\Sigma$ as printed (`appendix_7_6_3_sigma`) (V7.82, V7.95) (Findings, Chapter 7, items 130, 139).",
    "decls": [
     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart",
     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
     "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou",
-    "Chapter7/SmoothRegularAssembly · EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional"
+    "Chapter7/SmoothRegularAssembly · EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional",
+    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3",
+    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq",
+    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff",
+    "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.not_isZhou",
+    "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma",
+    "Chapter7/GapP2_A2Sigma · EpGroupoid.Examples.ZhouRetract.sigmaHomeo",
+    "Chapter7/GapP2_A2Family · ZhouLine.zhouRetraction",
+    "Chapter7/GapP2_A2Family · ZhouLine.isLossFamily_zhouFam",
+    "Chapter7/GapP2_A2Line · ZhouLine.lineSc",
+    "Chapter7/GapP2_AZhouRetract · EpGroupoid.Examples.JumpingRetract.appendix_7_6_3"
+   ],
+   "formalized": [
+    "V7.82",
+    "V7.95"
    ]
   },
   {

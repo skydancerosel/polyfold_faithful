@@ -516,7 +516,7 @@
     "statement": "If $F$ is an equivalence and $G$ sc-smooth, $X \\times_Y Z$ is an ep-groupoid with the sub-M-polyfold structures from $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$."
    },
    "lean": {
-    "statement": "If $F$ or $G$ is a local sc-diffeomorphism on objects (`Admissible`), the iterated sub-M-polyfold structures make $X \\times_Y Z$ an ep-groupoid; the projections to $Z$ (or $X$) are local sc-diffeomorphisms; properness holds for any $F$, $G$.",
+    "statement": "If $F$ or $G$ is a local sc-diffeomorphism on objects (`Admissible`), the iterated sub-M-polyfold structures make $X \\times_Y Z$ an ep-groupoid; the projections to $Z$ (or $X$) are local sc-diffeomorphisms; properness holds for any $F$, $G$. Since 2026-11-12, `theorem_10_2_2_triple`: under `Admissible F G` the sets $L$ and $\\mathbf L$ are sub-M-polyfolds of $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$, and the identifications with the iterated structures are sc-diffeomorphisms, through the transitivity of sub-M-polyfolds (`MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn`).",
     "decls": [
      "Chapter10/WeakFibredProduct · WeakFibredProduct.Admissible",
      "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.Admissible.of_isEquivalence_left",
@@ -542,16 +542,20 @@
      "Chapter10/WeakFibredProduct · MPolyfold.isLocalScDiffeo_snd_fibredProduct",
      "Chapter10/WeakFibredProduct · MPolyfold.isLocalScDiffeo_fst_fibredProduct",
      "Chapter10/WeakFibredProduct · EpGroupoid.isScSmoothOn_comp_of",
-     "Chapter10/WeakFibredProduct · EpGroupoid.tendsto_comp"
+     "Chapter10/WeakFibredProduct · EpGroupoid.tendsto_comp",
+     "Chapter10/GapP2_F_TripleProduct · WeakFibredProduct.theorem_10_2_2_triple",
+     "Chapter10/GapP2_F_TripleProduct · WeakFibredProduct.isSubMPolyfold_objSetTriple",
+     "Chapter10/GapP2_F_TripleProduct · WeakFibredProduct.isSubMPolyfold_morSetTriple",
+     "Chapter10/GapP2_F_TripleProduct · MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn"
     ]
    },
    "chips": [
     "$F$ local sc-diffeo on objects suffices",
-    "iterated structures (G.116)",
+    "triple-product structures (G.116 closed)",
     "properness read with closure"
    ],
    "diff": [
-    "The structures are Part I's iterated fibred products; their agreement with the triple-product structures is not formalized (G.116); properness is read with $\\mathrm{cl}(U)$ (Findings, Chapter 10, items 21, 22)."
+    "The structures are Part I's iterated fibred products; they agree with the triple-product structures (`theorem_10_2_2_triple`, G.116 closed); properness is read with $\\mathrm{cl}(U)$ (Findings, Chapter 10, items 21, 22)."
    ]
   },
   {
@@ -1314,7 +1318,7 @@
     "statement": "A functor $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$, identity on objects, $i(\\Phi) = [X \\xleftarrow{1} X \\xrightarrow{\\Phi} Y]$, with $i(F)$ invertible for $F \\in E$."
    },
    "lean": {
-    "statement": "The same, with the inverse; $i$ inverts $E$ (`MorphismProperty.IsInvertedBy`); a witness not an isomorphism of `EP`.",
+    "statement": "The same, with the inverse; $i$ inverts $E$ (`MorphismProperty.IsInvertedBy`); a witness not an isomorphism of `EP`. It is a localization of $\\mathcal{EP}$ at $E$ (`EPLoc.isLocalization`, Mathlib's `Functor.IsLocalization`): every functor inverting the equivalences factors uniquely through $i$ (`EPLoc.universal_property`), because such a functor identifies naturally equivalent functors, through the section `x ↦ (x, τ(x), F'(x))` of $X \\times_Y Y \\to X$ (`map_eq_of_naturallyEquivalent`).",
     "decls": [
      "Chapter10/LocalizationCategory · EPLocalization.Diagram.ofFunctor",
      "Chapter10/LocalizationCategory · EPLocalization.Diagram.isRefinement_ofFunctor_comp",
@@ -1328,13 +1332,16 @@
      "Chapter10/LocalizationCategory · EPLocalization.Examples.pairToPointEP",
      "Chapter10/LocalizationCategory · EPLocalization.Examples.not_isIso_pairToPointEP",
      "Chapter10/LocalizationCategory · EPLocalization.Examples.isGeneralizedIso_pairToPoint",
-     "Chapter10/LocalizationCategory · EPLocalization.Examples.inv_localizationFunctor_map_pairToPoint"
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.inv_localizationFunctor_map_pairToPoint",
+     "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.isLocalization",
+     "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.universal_property",
+     "Chapter10/GapP2_F_LocUniversal · EPLocalization.map_eq_of_naturallyEquivalent"
     ]
    },
    "chips": [
     "as stated",
     "refinement direction read",
-    "universal property not proved (G.117)"
+    "universal property (G.117 closed)"
    ],
    "diff": [
     "With Definition 10.3.1, (10.13) refines $d_{\\Psi \\circ \\Phi}$, not the reverse (Findings, Chapter 10, item 36)."
@@ -1575,11 +1582,14 @@
     "statement": "The symbolic diagram (10.24) becomes, on orbit spaces, the commutative square $|P'| \\circ |[D]| = |[d]| \\circ |P|$."
    },
    "lean": {
-    "statement": "The square, for diagrams and for classes.",
+    "statement": "The square, for diagrams and for classes. With the vertical arrows the generalized maps $i(P) = [W \\xleftarrow{1} W \\xrightarrow{P} X]$ (`SEP.projEP`), the square (10.24) commutes in $\\mathcal{EP}(E^{-1})$ (`SDiagram.square_10_24`, `GenSBMap.square_10_24`).",
     "decls": [
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.orbitMap_square",
      "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.orbitMap_square",
-     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.orbitMap_orbitMap_Φ"
+     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.orbitMap_orbitMap_Φ",
+     "Chapter10/GapP2_GDiagram · SBLocalization.SDiagram.square_10_24",
+     "Chapter10/GapP2_GDiagram · SBLocalization.GenSBMap.square_10_24",
+     "Chapter10/GapP2_GDiagram · SEP.projEP"
     ]
    },
    "chips": [
@@ -1587,7 +1597,7 @@
     "$|X| \\to |X|$: possible misprint"
    ],
    "diff": [
-    "The bottom arrow is printed $|X| \\to |X|$, as in (10.24) and after Remark 10.5.3, in both editions; we read $X'$. (10.24) with generalized vertical maps, left to the reader, is G.124 (Findings, Chapter 10, item 51)."
+    "The bottom arrow is printed $|X| \\to |X|$, as in (10.24) and after Remark 10.5.3, in both editions; we read $X'$. With the generalized maps $i(P)$, $i(P')$ as vertical arrows, (10.24) commutes in $\\mathcal{EP}(E^{-1})$ (`SDiagram.square_10_24`, `GenSBMap.square_10_24`; gap G.124 closed) (Findings, Chapter 10, item 51)."
    ]
   },
   {
@@ -1600,20 +1610,24 @@
     "statement": "For $|[d]|(|x|) = |x'|$ there are $x''$, $a : \\phi(x'') \\to x$ and $b : \\psi(x'') \\to x'$, and $\\gamma(g) = b \\circ \\psi(\\phi^{-1}(a^{-1} \\circ g \\circ a)) \\circ b^{-1}$ is a group homomorphism; a germ $q$ with $q(g * z) = \\gamma(g) * q(z)$ and its lift $Q$ (10.25)."
    },
    "lean": {
-    "statement": "The data exist; $\\gamma$ is the composite of the four group homomorphisms, with its values; it is bijective when $\\psi$ is an equivalence. Stated for every diagram of ep-groupoids.",
+    "statement": "The data exist; $\\gamma$ is the composite of the four group homomorphisms, with its values; it is bijective when $\\psi$ is an equivalence. Stated for every diagram of ep-groupoids. The germ $q = Q_b \\circ \\psi \\circ Q_a^{-1}$ on a natural representation $U(x)$, sc-smooth with $q(x) = x'$ and $q(g * z) = \\gamma(g) * q(z)$ (`Diagram.exists_germ_q`), and its lift $Q = H_b \\circ \\Psi \\circ H_a^{-1}$, a local strong bundle map with $P' \\circ Q = q \\circ P$, (10.25), and $Q(g * w) = \\gamma(g) * Q(w)$ on the natural lifts (`SDiagram.exists_lift_Q`), exist for every choice of data.",
     "decls": [
      "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.isotropyHom",
      "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.isotropyHom_spec",
      "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.bijective_isotropyHom",
-     "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.exists_isotropyData"
+     "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.exists_isotropyData",
+     "Chapter10/GapP2_GDiagram · EPLocalization.Diagram.exists_germ_q",
+     "Chapter10/GapP2_GDiagram · EPLocalization.Diagram.isotropyHom_conj",
+     "Chapter10/GapP2_GDiagramLift · SBLocalization.SDiagram.exists_lift_Q",
+     "Chapter10/GapP2_GDiagramLift · StrongBundle.IsLocalMap₂"
     ]
    },
    "chips": [
     "any diagram; bijective for ψ an equivalence",
-    "q, Q not formalized (G.124)"
+    "q, Q on natural representations"
    ],
    "diff": [
-    "The 2021 first step $a^{-1} \\circ g \\circ a$ is used (2017: $a \\circ g \\circ a^{-1}$) (Findings, Chapter 10, item 52)."
+    "The 2021 first step $a^{-1} \\circ g \\circ a$ is used (2017: $a \\circ g \\circ a^{-1}$) (Findings, Chapter 10, item 52). $q$ and $Q$ are stated for each choice of the data $(x'', a, b)$, since they depend on the representative, as the text says (Findings, Chapter 10, item 52)."
    ]
   },
   {
@@ -1829,26 +1843,29 @@
   },
   {
    "id": "V10.61",
-   "title": "Proposition 10.5.6, reduced to Proposition 10.4.6",
-   "verdict": "narrower",
+   "title": "Proposition 10.5.6, (LR) under generalized strong bundle isomorphisms",
+   "verdict": "same",
    "book": {
     "label": "§10.5, Proposition 10.5.6, p. 508 (new in the 2021 edition)",
     "page": 508,
     "statement": "If $[D] : (P, \\mu) \\to (P', \\mu')$ is a generalized strong bundle isomorphism and one of the strong bundles has the local regularity property, so has the other."
    },
    "lean": {
-    "statement": "A property of strong bundles invariant under strong bundle equivalences is invariant under generalized strong bundle isomorphisms.",
+    "statement": "`SBLocalization.proposition_10_5_6`: for a generalized strong bundle isomorphism $[D] : (P, \\mu) \\to (P', \\mu')$, `A.E.IsLRLocal ↔ A'.E.IsLRLocal` (Definition 8.4.2 read as `IsLRLocal`), by the reduction `GenSBMap.iff_of_isGeneralizedIso` (a property of strong bundles invariant under strong bundle equivalences is invariant under generalized strong bundle isomorphisms) and Proposition 10.4.6 (`EpStrongBundle.proposition_10_4_6`, V10.72).",
     "decls": [
-     "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.iff_of_isGeneralizedIso"
+     "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.iff_of_isGeneralizedIso",
+     "Chapter10/GapP2_GBundleLR · SBLocalization.proposition_10_5_6",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.proposition_10_4_6"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "only the reduction (G.126)",
+    "as an iff",
+    "Def. 8.4.2 read as `IsLRLocal`",
     "Proposition 10.4.7: read 10.4.6"
    ],
    "diff": [
-    "The text refers to Proposition 10.4.7 for the modification; we read Proposition 10.4.6 (possible misprint) (Findings, Chapter 10, item 57)."
+    "The text refers to Proposition 10.4.7 for the modification; we read Proposition 10.4.6 (a reading point). Definition 8.4.2 is read for local strong bundle isomorphisms, `IsLRLocal` (Findings, Chapter 10, items 57, 72)."
    ]
   },
   {
@@ -2143,15 +2160,15 @@
   },
   {
    "id": "V10.71",
-   "title": "Theorem 10.3.10 (2017: 10.4) for strong bundles, one direction",
-   "verdict": "narrower",
+   "title": "Theorem 10.3.10 (2017: 10.4) for strong bundles",
+   "verdict": "same",
    "book": {
     "label": "§10.5, Remark 10.5.3, p. 506 (new in the 2021 edition), the strong bundle case of Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353)",
     "page": 506,
     "statement": "In the strong bundle case a result similar to Theorem 10.3.10 can be proved: a generalized strong bundle map is an isomorphism iff it is represented by a diagram whose two legs are strong bundle equivalences; it is built into Definition 10.5.2."
    },
    "lean": {
-    "statement": "`SEPLoc.theorem_10_3_10`: if $\\Psi$ is a strong bundle equivalence, $[D]$ is an isomorphism of $\\mathcal{SEP}(F^{-1})$ and every inverse is $[W' \\xleftarrow{\\Psi} W'' \\xrightarrow{\\Phi} W]$; `isIso_of_isGeneralizedIso`, `inv_homMk`; `baseFunctor` to $\\mathcal{EP}(E^{-1})$ and `isEquivalence_base_of_isIso`: for an isomorphism $[D]$, $\\psi$ is an equivalence. Witness over $-\\mathrm{id}$.",
+    "statement": "`SEPLoc.theorem_10_3_10`: if $\\Psi$ is a strong bundle equivalence, $[D]$ is an isomorphism of $\\mathcal{SEP}(F^{-1})$ and every inverse is $[W' \\xleftarrow{\\Psi} W'' \\xrightarrow{\\Phi} W]$ (`isIso_of_isGeneralizedIso`, `inv_homMk`). Conversely `SEPLoc.equivalences_Ψ_of_isIso`: if $[D]$ is an isomorphism, $\\Psi$ is a strong bundle equivalence (Definition 10.4.1 in full); so `SEPLoc.isIso_homMk_iff` and `SEPLoc.isIso_iff_isGeneralizedIso`: the isomorphisms are exactly the generalized strong bundle isomorphisms of Definition 10.5.2. The proof: $[D]\\circ[E] = 1$ makes $\\Psi$ injective on the fibres (`SDiagram.fibInj_Ψ_of_equiv`), $[E]\\circ[D] = 1$ makes $\\Psi \\circ G$ naturally equivalent to a strong bundle equivalence, and these suffice (`SEP.equivalences_of_natEquiv_comp`, through transports along morphisms and local right inverses at levels 0 and 1, `SEP.exists_isStrongBundleIsoOn`); the base half `isEquivalence_base_of_isIso` is now a step. Witness over $-\\mathrm{id}$.",
     "decls": [
      "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10",
      "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isIso_of_isGeneralizedIso",
@@ -2160,16 +2177,162 @@
      "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_symm_comp",
      "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.baseFunctor",
      "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isEquivalence_base_of_isIso",
-     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.isIso_homMk_negDiagram"
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.isIso_homMk_negDiagram",
+     "Chapter10/GapP2_F2_SBConverse · SBLocalization.SEPLoc.equivalences_Ψ_of_isIso",
+     "Chapter10/GapP2_F2_SBConverse · SBLocalization.SEPLoc.isIso_homMk_iff",
+     "Chapter10/GapP2_F2_SBConverse · SBLocalization.SEPLoc.isIso_iff_isGeneralizedIso",
+     "Chapter10/GapP2_F2_SBConverse · SEP.equivalences_of_natEquiv_comp",
+     "Chapter10/GapP2_F2_SBConverse · SEP.exists_isStrongBundleIsoOn",
+     "Chapter10/GapP2_F2_SBConverse · SBLocalization.SDiagram.fibInj_Ψ_of_equiv"
     ]
    },
    "chips": [
     "new in the 2021 edition",
     "gen. isos are isos",
-    "converse: base half only (G.123)"
+    "converse (G.123 closed)"
    ],
    "diff": [
-    "The converse for the strong bundle functor $\\Psi$ itself would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 and is not formalized (Findings, Chapter 10, item 19)."
+    "None. The proof replaces the claims (C1), (C2) of Appendix §10.6.2, which the text does not restate for strong bundles, by a saturation argument (Findings, Chapter 10, item 19)."
+   ]
+  },
+  {
+   "id": "V10.72",
+   "title": "Proposition 10.4.6, (LR) under strong bundle equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition)",
+    "page": 501,
+    "statement": "For strong bundles $(P : V \\to X, \\mu)$, $(Q : W \\to Y, \\nu)$ over ep-groupoids and a strong bundle equivalence $\\Phi$ covering $F : X \\to Y$: if one of the two strong bundles has the local regularity property for strong bundles (Definition 8.4.2), so has the other. The proof transports $V|U(x)$ to $W|U(y)$ by $\\Phi$ and $H_{\\hat\\psi}$ for $\\psi : F(x) \\to y$, equivariantly for $g \\mapsto \\psi \\circ F(g) \\circ \\psi^{-1}$; the details, a strong bundle version of Proposition 10.1.9, are left to the reader."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.proposition_10_4_6`: for a strong bundle equivalence $\\Phi$ covering $\\phi$, `E.IsLRLocal ↔ E'.IsLRLocal` (Definition 8.4.2 read with local strong bundle isomorphisms of $W|U(x)$). The proof is the text's: local strong bundle isomorphisms (`StrongBundle.IsLocalIso₂`) compose, restrict and invert (`IsLocalIsoOn.exists_isLocalIso₂`); the transport $v \\mapsto \\nu(\\psi_{P(v)}, \\Phi(v))$ is one over the chart $Q$ of a transport chart (`IsStrongBundleEquivalence.exists_transport`), equivariant on the natural lifts (`transport_Γ`), and conjugating by it carries the property of one natural representation to the other (`hasLRLocal_iff_of_equivariant`).",
+    "decls": [
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.proposition_10_4_6",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.IsStrongBundleEquivalence.exists_transport",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.IsStrongBundleEquivalence.transport_Γ",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.hasLRLocal_iff_of_equivariant",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.HasLRLocal",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.isLRLocal_iff_hasLRLocal",
+     "Chapter10/GapP2_GBundleLR · EpStrongBundle.IsStrongBundleFunctor.obj_lrAct",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIso₂",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIso₂.symm",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIso₂.comp",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIso₂.restrict",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIsoOn.exists_isLocalIso₂",
+     "Chapter10/GapP2_GLocalIso · StrongBundle.IsStrongBundleIsoOn.exists_isLocalIso₂",
+     "Chapter10/GapP2_GLocalIso · EpStrongBundle.isLocalIso₂_lrAct",
+     "Chapter10/GapP2_GLocalIso · EpStrongBundle.lrAct_comp",
+     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "Def. 8.4.2 read as `IsLRLocal`",
+    "$\\Phi : W \\to W$: read $V \\to W$"
+   ],
+   "diff": [
+    "None beyond the reading of Definition 8.4.2 for local strong bundle isomorphisms of $W|U(x)$ (`IsLRLocal`); with the formal `IsLR` (maps of all of $W$) the conjugation is only local (Findings, Chapter 10, items 72, 74). \"$\\Phi : W \\to W$\" is read $V \\to W$ (Findings, Chapter 10, item 57)."
+   ]
+  },
+  {
+   "id": "V10.73",
+   "title": "Proposition 10.4.7, natural families for strong bundle equivalences",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.4, Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)",
+    "page": 501,
+    "statement": "For strong bundle equivalences $\\Phi, \\Psi : (P, \\mu) \\to (Q, \\nu)$ with $|\\Phi| = |\\Psi|$, both strong bundles having the local regularity property: for every $x$ there is an sc-smooth $U(x) \\to \\mathbf Y$, $z \\mapsto \\alpha_z$, with $\\nu(\\alpha_z, \\Phi(v)) = \\Psi(v)$ for $P(v) = z$, on a connected open $U(x)$ with the natural $G_x$-action; the proof is a modification of that of Proposition 10.1.10 (1)."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.proposition_10_4_7`: for strong bundle equivalences $\\Phi, \\Psi$ covering $\\phi, \\psi$ with $|\\Phi| = |\\Psi|$ and `IsLRLocal` for the target bundle, every $x$ and every open $O \\ni x$ have a natural representation $U(x) \\subseteq O$ and an sc-smooth $z \\mapsto \\alpha_z : \\phi(z) \\to \\psi(z)$ on $U(x)$ with $\\nu(\\alpha_z, \\Phi(v)) = \\Psi(v)$ whenever $P(v) = z$. `proposition_10_4_7'` takes (LR) of both bundles, as the text does. Witness: `proposition_10_4_7_hypotheses` on $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ (identity, `IsLRLocal`). The base part is `SEP.exists_family_of_isLRLocal`.",
+    "decls": [
+     "Chapter10/GapP2_GBundleFamily · EpStrongBundle.proposition_10_4_7",
+     "Chapter10/GapP2_GBundleFamily · EpStrongBundle.proposition_10_4_7'",
+     "Chapter10/GapP2_GBundleFamily · GapP2_GBundleFamilyExamples.proposition_10_4_7_hypotheses",
+     "Chapter10/LocalizationLRBundleBase · SEP.exists_family_of_isLRLocal"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(LR) of the target only",
+    "$U(x)$ inside any neighbourhood"
+   ],
+   "diff": [
+    "(LR) of the source bundle is not used; the primed form keeps the text's hypotheses. Definition 8.4.2 is read for local strong bundle isomorphisms (`IsLRLocal`) (Findings, Chapter 10, items 45, 72, 74)."
+   ]
+  },
+  {
+   "id": "V10.74",
+   "title": "the full subcategory $\\mathcal{EP}_{lreg}$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, the subcategory $\\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)",
+    "page": 461,
+    "statement": "The full subcategory of $\\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19)."
+   },
+   "lean": {
+    "statement": "`EP.lreg : ObjectProperty EP` is (LR) of Definition 7.4.19 (`X ↦ X.X.IsLR`) and `EP.Lreg` its full subcategory (Mathlib's `ObjectProperty.FullSubcategory`; the inclusion is fully faithful, `EP.fullyFaithful_ι_lreg`). By Proposition 10.1.9 the property passes along equivalences (`EP.lreg_iff_of_isEquivalence`), so it is closed under the isomorphisms of $\\mathcal{EP}$ and of $\\mathcal{EP}(E^{-1})$ (`isClosedUnderIsomorphisms_lreg`, by Theorem 10.3.10); the middle of a diagram out of an object of $\\mathcal{EP}_{lreg}$ is in $\\mathcal{EP}_{lreg}$ (`EPLoc.lreg_A_of_lreg`). The point ep-groupoid is an object (`EP.Lreg.point`).",
+    "decls": [
+     "Chapter10/GapP2_F_LReg · EP.lreg",
+     "Chapter10/GapP2_F_LReg · EP.Lreg",
+     "Chapter10/GapP2_F_LReg · EP.fullyFaithful_ι_lreg",
+     "Chapter10/GapP2_F_LReg · EP.lreg_iff_of_isEquivalence",
+     "Chapter10/GapP2_F_LReg · EP.isClosedUnderIsomorphisms_lreg",
+     "Chapter10/GapP2_F_LReg · EP.lreg_pointEP",
+     "Chapter10/GapP2_F_LReg · EP.Lreg.point",
+     "Chapter10/GapP2_F_LReg · EPLocalization.EPLoc.lreg",
+     "Chapter10/GapP2_F_LReg · EPLocalization.EPLoc.lreg_A_of_lreg",
+     "Chapter10/GapP2_F_LReg · EPLocalization.EPLoc.isClosedUnderIsomorphisms_lreg"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "Mathlib full subcategory"
+   ],
+   "diff": [
+    "None; the text's \"generated by\" is the full subcategory on these objects (Findings, Chapter 10, item 7)."
+   ]
+  },
+  {
+   "id": "V10.75",
+   "title": "Remark 10.1.8 and Appendix §10.6.3, Zhou's $\\beta$ with $|\\beta(y)| = |y|$ not given by the group",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Remark 10.1.8, p. 467 (new in the 2021 edition), with Appendix §10.6.3, p. 519",
+    "page": 467,
+    "statement": "For a finite group $G$ acting on an M-polyfold $U$ and an sc-diffeomorphism $\\beta$ onto an open image with $|\\beta(y)| = |y|$ fixing $x$, one might guess $\\beta(y) = g * y$ for a suitable $g$; Zhou's example (Appendix §10.6.3) shows it need not be: on $\\mathbb R \\oplus L^2(\\mathbb R)$ with $F_m = \\mathbb R \\oplus H^{m,\\delta_m}(\\mathbb R)$, $r(s, f) = (s, \\pi_{|s|} f)$ is an sc-smooth retraction with image $Y$, $\\mathbb Z/2$ acts by $(s, f) \\mapsto (s, -f)$, and $\\eta$, the identity over $s \\le 0$ and $-1$ over $s > 0$, is an sc-diffeomorphism with $|\\eta(y)| = |y|$ which is not $y \\mapsto g * y$ near $0$."
+   },
+   "lean": {
+    "statement": "`ZhouTenSix.remark_10_1_8`: for every choice `D` of the weights $0 = \\delta_0 < \\delta_1 < \\cdots$ and of $\\beta$ (smooth, compact support, $\\int \\beta^2 = 1$; `ZhouRetract.Data.std` is one), on $F = \\mathbb R \\oplus L^2(\\mathbb R)$ with $F_m = \\mathbb R \\oplus H^{m,\\delta_m}(\\mathbb R)$ (`ZhouLine.lineSc`), $r(s, f) = (s, \\pi_{|s|} f)$ is an sc-smooth retraction (`Rt₂`; $\\pi_{|s|} = \\pi_s + \\pi_{-s}$ is a loss family, `isLossFamily_piAbs`, `piAbs_eq`), $\\mathbb Z/2$ acts on its image $Y$ by $(s,f) \\mapsto (s,-f)$ (`X₂`), and $\\eta$ (`ηO`, the printed formula by `ηO_of_nonpos`, `ηO_of_pos`) is an sc-diffeomorphism of $Y$, its own inverse, fixing $0$, with $|\\eta(y)| = |y|$, and on no neighbourhood $V$ of $0$ equal to $y \\mapsto g * y$ for one $g$. `ZhouTenSix.not_isLR`: $\\mathbb Z/2 \\ltimes Y$ does not have (LR) (Definition 7.4.19). A variant with the moving projections of Remark 4.1.3 in place of the appendix's: `ZhouSigma.remark_10_1_8`, `ZhouSigma.not_isLR`.",
+    "decls": [
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.remark_10_1_8",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.not_isLR",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.isLossFamily_piAbs",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.piAbs_eq",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.Rt₂",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.X₂",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.ηO",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.ηO_of_nonpos",
+     "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.ηO_of_pos",
+     "Chapter7/GapP2_A2Line · ZhouLine.lineSc",
+     "Chapter7/GapP2_A2Family · ZhouLine.zhouFam",
+     "Chapter7/GapP2_A2Family · ZhouLine.isLossFamily_zhouFam",
+     "Chapter7/GapP2_A2ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
+     "Chapter10/GapP2_F_ZhouExample · IsLossFamily.add",
+     "Chapter10/GapP2_F_ZhouExample · IsLossFamily.sub",
+     "Chapter10/GapP2_F_ZhouExample · IsLossFamily.comp_neg",
+     "Chapter10/GapP2_F_ZhouExample · EpGroupoid.Examples.ZhouSigma.remark_10_1_8",
+     "Chapter10/GapP2_F_ZhouExample · EpGroupoid.Examples.ZhouSigma.not_isLR",
+     "Chapter10/GapP2_F_ZhouExample · EpGroupoid.Examples.ZhouSigma.naturalRep_Φ_eq"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "the appendix's own scale and projections",
+    "side remark on $Y$ not formalized"
+   ],
+   "diff": [
+    "As printed, on the appendix's scale with its projections $\\pi_t$ of Subsection 1.4.4 (`ZhouLine.zhouFam`, sc-smoothness proved, Chapter 7, V7.82). $H^{m,\\delta}(\\mathbb R)$ is defined by lifting to $\\mathbb R \\times S^1$, with the same norm. The appendix's side remark that $Y$ is homeomorphic to $\\mathbb R^2 \\setminus \\{(0,t) \\mid t \\neq 0\\}$ is not formalized; Remark 10.1.8 does not use it. The earlier variant with Remark 4.1.3's projections and the opposite sign convention for $\\eta$ is kept (`GapP2_F_ZhouExample.lean`) (Findings, Chapter 10, item 7)."
    ]
   }
  ],
@@ -2180,7 +2343,18 @@
    "label": "§10.1, the subcategory $\\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)",
    "page": 461,
    "book": "The full subcategory of $\\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19).",
-   "instead": "**Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built; its stability under equivalences is Proposition 10.1.9, formalized since (V10.62) (Findings, Chapter 10, item 7)."
+   "instead": "**Formalized** (2026-11-12; V10.74; `Chapter10/GapP2_F_LReg.lean`): `EP.lreg` is the property (LR) of Definition 7.4.19 and `EP.Lreg` its full subcategory (Mathlib's `ObjectProperty.FullSubcategory`, inclusion fully faithful). By Proposition 10.1.9 the property passes along equivalences (`EP.lreg_iff_of_isEquivalence`), so it is closed under the isomorphisms of $\\mathcal{EP}$ and of $\\mathcal{EP}(E^{-1})$ (`isClosedUnderIsomorphisms_lreg`). The point ep-groupoid is an object (`EP.Lreg.point`) (Findings, Chapter 10, item 7).",
+   "formalized": [
+    "V10.74"
+   ],
+   "decls": [
+    "Chapter10/GapP2_F_LReg · EP.lreg",
+    "Chapter10/GapP2_F_LReg · EP.Lreg",
+    "Chapter10/GapP2_F_LReg · EP.lreg_iff_of_isEquivalence",
+    "Chapter10/GapP2_F_LReg · EP.isClosedUnderIsomorphisms_lreg",
+    "Chapter10/GapP2_F_LReg · EPLocalization.EPLoc.isClosedUnderIsomorphisms_lreg",
+    "Chapter10/GapP2_F_LReg · EP.Lreg.point"
+   ]
   },
   {
    "g": 112,
@@ -2188,7 +2362,20 @@
    "label": "§10.1, Remark 10.1.8, p. 467 (new in the 2021 edition), with Appendix §10.6.3, p. 519",
    "page": 467,
    "book": "An example, due to Zhou, of a translation groupoid and an sc-smooth map $\\beta$ with $|\\beta(y)| = |y|$ which is not locally of the form $y \\mapsto g * y$; it is built in the appendix on a weighted Sobolev sc-retract.",
-   "instead": "**Not formalized**: it needs the weighted Sobolev sc-structure and the sc-retraction of the appendix (Findings, Chapter 10, item 7)."
+   "instead": "**Formalized** (2026-11-12; V10.75), as printed: on $F = \\mathbb R\\oplus L^2(\\mathbb R)$ with $F_m = \\mathbb R\\oplus H^{m,\\delta_m}(\\mathbb R)$ (`ZhouLine.lineSc`), $r(s,f) = (s,\\pi_{|s|}f)$ is an sc-smooth retraction (`ZhouTenSix.isLossFamily_piAbs`, with $\\pi_{|s|} = \\pi_s + \\pi_{-s}$ by `IsLossFamily.add` and `comp_neg`). $\\mathbb Z/2$ acts on its image $Y$ by $(s,f)\\mapsto(s,-f)$. The map $\\eta$, equal to $f$ over $s\\le0$ and $-f$ over $s>0$, is an sc-diffeomorphism fixing $0$ with $|\\eta(y)| = |y|$. On no neighbourhood of $0$ is it $y\\mapsto g*y$ (`ZhouTenSix.remark_10_1_8`), so $\\mathbb Z/2\\ltimes Y$ does not have (LR) (`ZhouTenSix.not_isLR`) (`Chapter10/GapP2_A2TenSix.lean`). `ZhouSigma.remark_10_1_8` (`Chapter10/GapP2_F_ZhouExample.lean`) is the same statement with Remark 4.1.3's moving projections in place of the appendix's, kept as a variant. Not formalized: the side remark $Y \\cong \\mathbb R^2 \\setminus \\{(0,t) \\mid t \\neq 0\\}$ (Findings, Chapter 10, item 7).",
+   "formalized": [
+    "V10.75"
+   ],
+   "decls": [
+    "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.remark_10_1_8",
+    "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.not_isLR",
+    "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.isLossFamily_piAbs",
+    "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.Rt₂",
+    "Chapter10/GapP2_A2TenSix · EpGroupoid.Examples.ZhouTenSix.ηO",
+    "Chapter10/GapP2_F_ZhouExample · IsLossFamily.add",
+    "Chapter10/GapP2_F_ZhouExample · IsLossFamily.comp_neg",
+    "Chapter10/GapP2_F_ZhouExample · EpGroupoid.Examples.ZhouSigma.remark_10_1_8"
+   ]
   },
   {
    "g": 113,
@@ -2241,10 +2428,15 @@
    "label": "§10.2, Theorem 10.2.2, pp. 478–481 (2017: Theorem 10.2, pp. 343–346), the M-polyfold structures",
    "page": 478,
    "book": "The object and morphism sets of $X \\times_Y Z$ are sub-M-polyfolds of $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$.",
-   "instead": "**Not formalized**: the structures are the iterated sub-M-polyfold structures of Part I's fibred products (V10.18); their agreement with structures induced from the triple products is not proved, and nothing uses it (Findings, Chapter 10, item 21).",
+   "instead": "**Formalized** (2026-11-12; V10.18; `Chapter10/GapP2_F_TripleProduct.lean`): $L$ and $\\mathbf L$ are sub-M-polyfolds of $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$, and the identifications with the iterated structures `PObj`, `PMor` are sc-diffeomorphisms (`theorem_10_2_2_triple`). The proof transports the iterated sub-M-polyfold along the sc-diffeomorphism $X \\times (\\mathbf Y\\,{}_t{\\times}_G Z) \\cong X \\times \\mathbf Y \\times Z \\supset X \\times (\\mathbf Y\\,{}_t{\\times}_G Z)$ and uses the transitivity of sub-M-polyfolds (`MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn`) (Findings, Chapter 10, item 21).",
    "decls": [
     "Chapter10/WeakFibredProduct · WeakFibredProduct.PObj",
-    "Chapter10/WeakFibredProduct · WeakFibredProduct.PMor"
+    "Chapter10/WeakFibredProduct · WeakFibredProduct.PMor",
+    "Chapter10/GapP2_F_TripleProduct · WeakFibredProduct.theorem_10_2_2_triple",
+    "Chapter10/GapP2_F_TripleProduct · MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn"
+   ],
+   "formalized": [
+    "V10.18"
    ]
   },
   {
@@ -2253,9 +2445,20 @@
    "label": "§10.3, the universal property of $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$, p. 483",
    "page": 483,
    "book": "The localization at $E$ inverts the equivalences, universally among functors that do.",
-   "instead": "**Not formalized**: only the inversion is proved (V10.45); the universal property would need that a functor inverting $E$ identifies naturally equivalent sc-smooth functors, through a cylinder ep-groupoid not available here (Findings, Chapter 10, item 36).",
+   "instead": "**Formalized** (2026-11-12; V10.45; `Chapter10/GapP2_F_LocUniversal.lean`). The cylinder is the weak fibred product $X \\times_Y Y$ of $F$ and $1_Y$: a natural transformation $\\tau : F \\to F'$ gives an sc-smooth section $s_\\tau$ of the equivalence $\\pi_X$ with $\\pi_Y \\circ s_\\tau = F'$, so every functor inverting $E$ identifies $F$ and $F'$ (`map_eq_of_naturallyEquivalent`). The lift $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y] \\mapsto L(F)^{-1} L(\\Phi)$ is then well defined and functorial, and $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$ has the strict universal property for every target (`EPLoc.universal_property`); it is a localization in Mathlib's sense (`EPLoc.isLocalization`) (Findings, Chapter 10, item 36).",
    "decls": [
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.secFunctor",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.map_eq_of_naturallyEquivalent",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.lift",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.liftMap_comp",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.uniq",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.strictUniversalPropertyFixedTarget",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.isLocalization",
+    "Chapter10/GapP2_F_LocUniversal · EPLocalization.EPLoc.universal_property",
     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isInvertedBy_localizationFunctor"
+   ],
+   "formalized": [
+    "V10.45"
    ]
   },
   {
@@ -2333,10 +2536,19 @@
    "label": "§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)",
    "page": 501,
    "book": "The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.",
-   "instead": "**In part.** Proposition 10.4.7 is formalized on the bases, with the local reading `IsLRLocal` of Definition 8.4.2 for the target (`SEP.exists_family_of_isLRLocal`); the identity $\\mu'(\\alpha_z, \\Phi(v)) = \\Psi(v)$ on the bundles is not stated, although it follows from the last step of that proof. Proposition 10.4.6 is not formalized. With `IsLR` (strong bundle maps of all of $W$) the text's transport $H^{-1}\\Theta H$ is only a local map, and the project has no extension of local strong bundle isomorphisms. With `IsLRLocal` it needs a strong bundle transport chart and the composition and inversion of local strong bundle isomorphisms. The ep-groupoid versions are formalized (V10.62, V10.63) (Findings, Chapter 10, items 45, 72, 74).",
+   "instead": "**Formalized** (2026-11-12; V10.72, V10.73; `Chapter10/GapP2_GLocalIso.lean`, `GapP2_GBundleLR.lean`, `GapP2_GBundleFamily.lean`), with Definition 8.4.2 read as `IsLRLocal`. Local strong bundle isomorphisms (`StrongBundle.IsLocalIso₂`) compose, restrict and invert (`IsLocalIsoOn.exists_isLocalIso₂`). The text's transport $v \\mapsto \\nu(\\psi_{P(v)}, \\Phi(v))$ is one such isomorphism over the chart $Q$, and it is equivariant on the natural lifts (`IsStrongBundleEquivalence.exists_transport`, `transport_Γ`). Conjugating by it gives Proposition 10.4.6 (`EpStrongBundle.proposition_10_4_6`). Proposition 10.4.7 is stated on the bundles, $\\nu(\\alpha_z, \\Phi(v)) = \\Psi(v)$, with (LR) of the target only (`proposition_10_4_7`; `proposition_10_4_7'` with the text's hypotheses). With the formal `IsLR` (maps of all of $W$) the conjugation is only local, as before (Findings, Chapter 10, items 45, 72, 74).",
    "decls": [
+    "Chapter10/GapP2_GBundleLR · EpStrongBundle.proposition_10_4_6",
+    "Chapter10/GapP2_GBundleFamily · EpStrongBundle.proposition_10_4_7",
+    "Chapter10/GapP2_GBundleFamily · EpStrongBundle.proposition_10_4_7'",
+    "Chapter10/GapP2_GBundleLR · EpStrongBundle.IsStrongBundleEquivalence.exists_transport",
+    "Chapter10/GapP2_GLocalIso · StrongBundle.IsLocalIsoOn.exists_isLocalIso₂",
     "Chapter10/LocalizationLRBundleBase · SEP.exists_family_of_isLRLocal",
     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal"
+   ],
+   "formalized": [
+    "V10.72",
+    "V10.73"
    ]
   },
   {
@@ -2345,12 +2557,14 @@
    "label": "§10.5, p. 504 (2017 p. 364), Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366), and Remark 10.5.3, p. 506 (new in the 2021 edition)",
    "page": 504,
    "book": "Equivalence of diagrams of strong bundles is an equivalence relation, generalized strong bundle maps compose to a category $\\mathcal{SEP}(F^{-1})$, and a generalized strong bundle map is invertible iff it is represented with both legs strong bundle equivalences.",
-   "instead": "**Formalized since the first edition of this page** (V10.68–V10.71), except the converse half of the strong bundle Theorem 10.3.10. The weak fibred product of strong bundles is the pull-back of $W''$ along $\\pi_Z$ (V10.68), the equivalence of diagrams is transitive (V10.69), and the composition makes $\\mathcal{SEP}(F^{-1})$ a category (V10.70, V10.55); a diagram with both legs strong bundle equivalences represents an isomorphism (V10.71). Still open: that an isomorphism of $\\mathcal{SEP}(F^{-1})$ is represented with both legs strong bundle equivalences, proved for the base functor only; for the strong bundle functor it would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 (Findings, Chapter 10, items 18, 19, 50, 53).",
+   "instead": "**Formalized since the first edition of this page** (V10.68–V10.71), The weak fibred product of strong bundles is the pull-back of $W''$ along $\\pi_Z$ (V10.68), the equivalence of diagrams is transitive (V10.69), and the composition makes $\\mathcal{SEP}(F^{-1})$ a category (V10.70, V10.55); a diagram with both legs strong bundle equivalences represents an isomorphism (V10.71). The converse, that an isomorphism of $\\mathcal{SEP}(F^{-1})$ is represented with both legs strong bundle equivalences, is proved (2026-11-12) in `Chapter10/GapP2_F2_SBConverse.lean` (`SEPLoc.equivalences_Ψ_of_isIso`, `SEPLoc.isIso_iff_isGeneralizedIso`), by a saturation argument in place of strong bundle versions of (C1), (C2) (Findings, Chapter 10, items 18, 19, 50, 53).",
    "decls": [
     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2",
     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.lemma_10_3_4",
     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.category",
-    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10"
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10",
+    "Chapter10/GapP2_F2_SBConverse · SBLocalization.SEPLoc.equivalences_Ψ_of_isIso",
+    "Chapter10/GapP2_F2_SBConverse · SBLocalization.SEPLoc.isIso_iff_isGeneralizedIso"
    ],
    "formalized": [
     "V10.68",
@@ -2365,9 +2579,17 @@
    "label": "§10.5, the symbolic diagram (10.24) and the diagram (10.25), pp. 505–506 (2017 pp. 365–366)",
    "page": 505,
    "book": "With generalized maps as vertical arrows the diagram (10.24) commutes (left to the reader); an equivariant sc-smooth germ $q : O(X, x) \\to O(X', x')$ with $q(g * z) = \\gamma(g) * q(z)$, and its strong bundle lift $Q$.",
-   "instead": "**Not formalized**: the text uses no property of them, and $q$, $Q$ depend on the representative; the homomorphism $\\gamma$ is formalized (V10.54) (Findings, Chapter 10, items 51, 52).",
+   "instead": "**Formalized** (2026-11-12; V10.53, V10.54; `Chapter10/GapP2_GDiagram.lean`, `GapP2_GDiagramLift.lean`). With the vertical arrows the generalized maps $i(P) = [W \\xleftarrow{1} W \\xrightarrow{P} X]$, the square (10.24) commutes in $\\mathcal{EP}(E^{-1})$ (`SDiagram.square_10_24`, `GenSBMap.square_10_24`). For the data $(x'', a, b)$ of $\\gamma$, the germ $q = Q_b \\circ \\psi \\circ Q_a^{-1}$ on a natural representation $U(x)$ is sc-smooth, has $q(x) = x'$ and is $\\gamma$-equivariant (`Diagram.exists_germ_q`). Its lift $Q = H_b \\circ \\Psi \\circ H_a^{-1}$ is a local strong bundle map with $P' \\circ Q = q \\circ P$, (10.25), and is $\\gamma$-equivariant on the natural lifts (`SDiagram.exists_lift_Q`). Both are stated for each choice of data, since they depend on the representative, as the text says (Findings, Chapter 10, items 51, 52).",
    "decls": [
+    "Chapter10/GapP2_GDiagram · SBLocalization.SDiagram.square_10_24",
+    "Chapter10/GapP2_GDiagram · SBLocalization.GenSBMap.square_10_24",
+    "Chapter10/GapP2_GDiagram · EPLocalization.Diagram.exists_germ_q",
+    "Chapter10/GapP2_GDiagramLift · SBLocalization.SDiagram.exists_lift_Q",
     "Chapter10/StrongBundleLocalization · EPLocalization.Diagram.isotropyHom"
+   ],
+   "formalized": [
+    "V10.53",
+    "V10.54"
    ]
   },
   {
@@ -2392,9 +2614,14 @@
    "label": "§10.5, Proposition 10.5.6, p. 508 (new in the 2021 edition)",
    "page": 508,
    "book": "The local regularity property passes along generalized strong bundle isomorphisms.",
-   "instead": "**Not formalized** unconditionally: the reduction to strong bundle equivalences is proved (V10.61); Proposition 10.4.6 is G.122 (Findings, Chapter 10, item 57).",
+   "instead": "**Formalized** (2026-11-12; V10.61; `Chapter10/GapP2_GBundleLR.lean`): `SBLocalization.proposition_10_5_6`, for Definition 8.4.2 read as `IsLRLocal`. It combines the reduction `GenSBMap.iff_of_isGeneralizedIso` with Proposition 10.4.6 (`EpStrongBundle.proposition_10_4_6`, V10.72, G.122) (Findings, Chapter 10, item 57).",
    "decls": [
-    "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.iff_of_isGeneralizedIso"
+    "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.iff_of_isGeneralizedIso",
+    "Chapter10/GapP2_GBundleLR · SBLocalization.proposition_10_5_6",
+    "Chapter10/GapP2_GBundleLR · EpStrongBundle.proposition_10_4_6"
+   ],
+   "formalized": [
+    "V10.61"
    ]
   },
   {

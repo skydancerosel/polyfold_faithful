@@ -69,8 +69,10 @@ and `s`, `t` are local sc-diffeomorphisms by commutative diagrams with `πZ` and
   2.5.20, `MPolyfold.isSubMPolyfold_fibredProduct`): `𝐘 ₜ×_G Z ⊆ 𝐘 × Z` since `t` is a local
   sc-diffeomorphism, then `L ⊆ X × (𝐘 ₜ×_G Z)` since `F` is one.  We read the text's
   "sub-M-polyfold of `X × 𝐘 × Z`" in this form; the two retractions of Part I's proof of Proposition
-  2.5.20 (`fibredSubDataL`) play the role of the text's (10.8), and the comparison with a
-  structure induced from the triple product is not needed below.
+  2.5.20 (`fibredSubDataL`) play the role of the text's (10.8).  The comparison with the
+  structures induced from the triple products is not needed below; it is proved in
+  `GapP2_F_TripleProduct.lean` (`theorem_10_2_2_triple`: `L`, `𝐋` are sub-M-polyfolds of
+  `X × 𝐘 × Z`, `𝐗 × 𝐘 × 𝐙`, sc-diffeomorphic to these iterated structures).
 * **Hypothesis.**  The construction uses about `F` only that it is a local sc-diffeomorphism on
   objects (the text's proof uses nothing else for this part); fullness, faithfulness and
   essential surjectivity enter only in "`πZ` is an equivalence".  `epGroupoid` takes

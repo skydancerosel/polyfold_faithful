@@ -59,7 +59,11 @@ codimension `1` suffices, and for tame `A` it is `d_A(y) = 1`.
   is `T^R_yM`: the stratum is not built as a submanifold; `T_y∂M` is read as `T^R_yM`
   (`boundaryCarrier`), and `toSubmanifoldOrientation` turns the result into a
   `SubmanifoldOrientation` of any submanifold with these tangent spaces lying in the stratum.
-* The extension to the closed faces (Figure 9.1) and Remark 9.3.11.
+  (2026-11-12) For a sheet with tame induced structure the stratum is open and dense in `∂M`
+  (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`,
+  `GapP2_DBoundaryStratum.lean`); it is not built as a submanifold.
+* The extension to the closed faces (Figure 9.1).  Remark 9.3.11 is a comment, with nothing to
+  formalize.
 -/
 
 set_option maxSynthPendingDepth 3

@@ -73,14 +73,14 @@ surjectivity, fullness and faithfulness via `Tt ∘ (Ts)⁻¹`.
 * Proposition 10.1.6: the text's sentence on objects only covers the points `F(x)`; we add the
   transport along a morphism `F(x) → y` (`isLocalScDiffeoAt_obj_tgt`).  The proof writes
   `|Φ| : |X| → |Y|` for the map `|Y| → |Z|` (possible misprint).
-* Not formalized here (G-items): the subcategory `EP_lreg` (not a numbered item); Remark 10.1.8
-  (p. 467, new in the 2021 edition: Zhou's counterexample, which needs the weighted-Sobolev
-  sc-retract of Appendix 10.6.3, not available in Lean); Proposition 10.1.9 (p. 468, new in the
-  2021 edition: (LR) under equivalences, which needs a natural representation transported along
-  `F` and `ψ : F(x) → y`, not provided by the `NaturalRep` API); Proposition 10.1.10 (p. 470
-  (2017: Proposition 10.4, p. 340), which assumes (LR) and uses Proposition 10.1.9); Proposition
-  10.1.19 (p. 477, new in the 2021 edition: (SLR), which rests on Proposition 10.1.9; its
-  reduction to 10.1.9 is `EP.isSLR_iff_of_isLR_iff`).
+* Not in this file, formalized in later files: the subcategory `EP_lreg` (not a numbered item;
+  `EP.lreg`, `EP.Lreg`, `GapP2_F_LReg.lean`); Remark 10.1.8 (p. 467, new in the 2021 edition:
+  Zhou's example on the weighted-Sobolev sc-retract of Appendix 10.6.3,
+  `ZhouTenSix.remark_10_1_8`, `GapP2_A2TenSix.lean`, and a variant with the projections of
+  Remark 4.1.3, `ZhouSigma.remark_10_1_8`, `GapP2_F_ZhouExample.lean`); Proposition 10.1.9
+  (p. 468, new in the 2021 edition: (LR) under equivalences), Proposition 10.1.10 (p. 470 (2017:
+  Proposition 10.4, p. 340)) and Proposition 10.1.19 (p. 477, new in the 2021 edition: (SLR)),
+  all in `EquivalenceLR.lean`.
 -/
 
 set_option maxSynthPendingDepth 3

@@ -59,11 +59,12 @@ the refinement `πX`, as `Φ ∘ πX ≃ πY`.  (Theorem 10.3.15, p. 492) `|·| 
 
 * **Size and order.**  `EPLoc.{u} : Type (u + 1)` wraps `EP.{u}`, with `Category.{u + 1}`, a
   large category like `EP`; `f ≫ g` is the text's `g ∘ f` (`homMk_comp`).
-* **Relation with Mathlib's localization.**  Only `MorphismProperty.IsInvertedBy` is proved
-  (`isInvertedBy_localizationFunctor`).  The universal property mentioned on p. 483 is not a
-  numbered statement and is not formalized (`Functor.IsLocalization`): it would need that any
-  functor inverting the equivalences identifies naturally equivalent sc-smooth functors (a
-  cylinder ep-groupoid), which the repository does not have.
+* **Relation with Mathlib's localization.**  This file proves `MorphismProperty.IsInvertedBy`
+  (`isInvertedBy_localizationFunctor`).  The universal property mentioned on p. 483 is proved
+  since 2026-11-12 in `GapP2_F_LocUniversal.lean` (`EPLoc.isLocalization`, Mathlib's
+  `Functor.IsLocalization`, and `EPLoc.universal_property`): a functor inverting the equivalences
+  identifies naturally equivalent sc-smooth functors, with the weak fibred product `X ×_Y Y` as
+  the cylinder (`map_eq_of_naturallyEquivalent`).
 * **Theorem 10.3.10 (2)** ("the inverse is") is stated as: every inverse of `[a]` equals
   `[Y ←G A →F X]`; `inv_homMk` is the same with Mathlib's `inv`.
 * **(C1).**  Faithfulness is checked with `k = k' = 1_b` in the text's morphisms `(h, ϕ, k)`; in
@@ -435,7 +436,8 @@ theorem theorem_10_3_14 :
 
 /-- **The relation with Mathlib's localization API**: `i` inverts the equivalences
 (`MorphismProperty.IsInvertedBy`), the property that the text's construction is designed for
-(2021 p. 483). -/
+(2021 p. 483).  The universal property itself is `EPLoc.isLocalization` and
+`EPLoc.universal_property` (`GapP2_F_LocUniversal.lean`). -/
 theorem isInvertedBy_localizationFunctor :
     EP.equivalences.{u}.IsInvertedBy localizationFunctor := fun _ _ F hF =>
   isIso_homMk (Diagram.ofFunctor F) hF

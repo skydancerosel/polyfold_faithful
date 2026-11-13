@@ -100,7 +100,9 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
 * **Hausdorff and paracompact** (PLAN P7, II.6, 2).  An M-polyfold is a Hausdorff paracompact
   space (Definition 2.3.4 (2017: 2.8) [2.13]).  The proof of Proposition 7.2.10 (2017: 7.9) gives the charts and the sc-smooth
   transitions but, as we read it, neither property, and `𝐗^R` need not be Hausdorff (the splicing
-  example of PLAN II.6, 2, not formalized: it needs a dimension-jumping retract).  So
+  example of PLAN II.6, 2, on a dimension-jumping retract: `Examples.exists_not_t2Space_reducedMor`,
+  `ReducedNotHausdorff.lean`; the 2021 text assumes `T_R` Hausdorff, and paracompactness is the
+  instance `paracompactSpace_reducedMor` of `ReducedCriterion.lean`).  So
   `reducedPolyfold`, and with it `reducedEpGroupoid`, take `[T2Space X.ReducedMor]` and
   `[ParacompactSpace X.ReducedMor]` as hypotheses.  The relation, the topology, the openness of
   `π`, the structure maps, the charts and their compatibility need neither.

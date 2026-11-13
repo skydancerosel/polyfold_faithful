@@ -112,28 +112,36 @@
   {
    "id": "V8.4",
    "title": "Lemma 8.1.2 (2017: 8.1): the composition of $T\\mathbf X$ as a tangent map",
-   "verdict": "restated",
+   "verdict": "same",
    "book": {
     "label": "§8.1, Lemma 8.1.2 (2017: 8.1) and its proof, 2017 p. 259",
     "page": 259,
     "statement": "With $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ identified with $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$: if $m$ is the multiplication of $\\mathbf X$, the multiplication (8.5) of $T\\mathbf X$ can be written as $(\\psi, k) \\circ (\\varphi, h) = Tm(\\psi, \\varphi)(k, h) = (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1} \\circ Ts(\\varphi)(h))$, keeping in mind that $k = Ts(\\psi)^{-1}(Tt(\\varphi)(h))$. In the proof, $\\psi'$ near $\\psi$ is the function $\\psi' = F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ of $\\varphi'$ near $\\varphi$, and the identity $s|\\mathbf U(\\varphi \\circ \\psi) \\circ m((s|\\mathbf U(\\psi))^{-1}(t(\\varphi')), \\varphi') = s(\\varphi')$ is differentiated at $\\varphi$ in the direction $h$."
    },
    "lean": {
-    "statement": "`lemma_8_1_2`: for a sheet $s : W \\to V$ of the source map with inverse $\\sigma$ and $k$, $h$ with $Ts(k) = Tt(h)$ and $\\mathbf p(k) \\in W$: $k = T\\sigma(Tt(h))$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t(\\varphi')), \\varphi')$, which is sc-smooth on $t^{-1}(V)$ by Chapter 7's sheet form of Definition 7.1.3 (4) (2017: 7.3) (`EpGroupoid.isScSmoothCompSheet`), and $k \\circ h$ lies over $\\mathbf p(k) \\circ \\mathbf p(h)$ with $Ts(k \\circ h) = Ts(h)$. The steps: `tComp_eq_tangentMapOn`, `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt`.",
+    "statement": "As printed (2026-11-12): $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ is the M-polyfold `compPolyfold` (the sub-M-polyfold of Definition 7.1.3 (4)). The identification $v \\mapsto (T\\pi_1 v, T\\pi_2 v)$ (`tangentCompPairs`) is injective with range $\\{(k, h) \\mid Ts(k) = Tt(h)\\}$ (`range_tangentCompPairs`) and is an sc-diffeomorphism from $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ onto the sub-M-polyfold $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ of $T\\mathbf X \\times T\\mathbf X$, the fibred product of the tangent ep-groupoid (`isScDiffeoOn_tangentCompPairs`). Lemma 8.1.2: $Tm(v) = T\\pi_1(v) \\circ T\\pi_2(v)$ (`lemma_8_1_2_tangentMul`); for $Ts(k) = Tt(h)$ there is exactly one $v$ over $(k, h)$ and $k \\circ h = Tm(v)$, over $\\mathbf p(k) \\circ \\mathbf p(h)$ with $Ts(k \\circ h) = Ts(h)$ (`lemma_8_1_2_book`); $m_{T\\mathbf X} = Tm$ on $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ (`lemma_8_1_2_compMul`). The sheet form is kept: `lemma_8_1_2`: for a sheet $s : W \\to V$ of the source map with inverse $\\sigma$ and $k$, $h$ with $Ts(k) = Tt(h)$ and $\\mathbf p(k) \\in W$: $k = T\\sigma(Tt(h))$ and $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t(\\varphi')), \\varphi')$, which is sc-smooth on $t^{-1}(V)$ by Chapter 7's sheet form of Definition 7.1.3 (4) (2017: 7.3) (`EpGroupoid.isScSmoothCompSheet`). The steps: `tComp_eq_tangentMapOn`, `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt`.",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.lemma_8_1_2",
      "Chapter8/TangentEp · EpGroupoid.tComp_eq_tangentMapOn",
      "Chapter8/TangentEp · EpGroupoid.tangentMapOn_srcInv_tSrc",
      "Chapter8/TangentEp · EpGroupoid.mem_tangentPreimage_tgt",
-     "Chapter7/EpGroupoid · EpGroupoid.isScSmoothCompSheet"
+     "Chapter7/EpGroupoid · EpGroupoid.isScSmoothCompSheet",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.compPolyfold",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.tangentCompPairs",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.range_tangentCompPairs",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_book",
+     "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
+     "Chapter8/GapP2_B_TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
     ]
    },
    "chips": [
-    "in the sheet form the proof uses",
-    "$m_{T\\mathbf X} = Tm$: gap G.75"
+    "as printed; the sheet form kept",
+    "$m_{T\\mathbf X} = Tm$: proved (G.75)"
    ],
    "diff": [
-    "Stated in the form the proof uses: $\\sigma(t(\\varphi'))$ is the text's $F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$. The identification $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$ on it are not formalized (gap G.75); nothing in Chapter 8 depends on them (Findings, Chapter 8, items 5, 111).",
+    "Updated (2026-11-12): the identification $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$ on it are formalized (gap G.75 closed). The proof uses that $\\pi_2 : \\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X \\to \\mathbf X$ is a local sc-diffeomorphism, so a tangent vector of the fibred product is determined by its base point and $T\\pi_2$, in place of differentiating $s(m(F(\\varphi'), \\varphi')) = s(\\varphi')$. The sheet form `lemma_8_1_2` is the text's proof, with $\\sigma(t(\\varphi'))$ for $F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ (Findings, Chapter 8, items 5, 111, 131).",
     "The proof writes $s|\\mathbf U(\\varphi \\circ \\psi)$ for $s|\\mathbf U(\\psi \\circ \\varphi)$ (possible misprint)."
    ]
   },
@@ -324,7 +332,7 @@
     "statement": "There are equivalent ways to turn $T\\mathbf X$ into an ep-groupoid. A morphism $\\varphi : x \\to y$ with $x \\in X_1$ has a well-defined associated linear isomorphism $T\\varphi : T_xX \\to T_yY$, the tangent map of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $x$; $(T\\varphi, h)$ is a morphism from $h$ to $T\\varphi(h)$, and $(T\\psi, h) \\circ (T\\varphi, l) = (T\\psi \\circ T\\varphi, l) = (T(\\psi \\circ \\varphi), l)$ for $h = T\\varphi(l)$. The map $G : (\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is compatible with the functorial structures, and $G : T\\mathbf X \\to \\{(T\\varphi, a) \\mid \\varphi \\in \\mathbf X_1, a \\in T_{s(\\varphi)}X\\}$ is a bijection; the right-hand side can be given an M-polyfold structure making $G$ an sc-diffeomorphism, and the pairs $(T\\varphi, a)$ can be identified with the triples $(a, T\\varphi, b)$, $b = T\\varphi(a)$. Finally, $Tt(\\varphi) \\circ Ts(\\varphi)^{-1} : T_xX \\to T_yX$ is the linearization of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $\\varphi$, hence equal to $T\\varphi$, and $t_{T\\mathbf X} \\circ (s_{T\\mathbf X}|T_xX)^{-1} = T\\varphi : T_xX \\to T_yX$ is a linear isomorphism."
    },
    "lean": {
-    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1_10`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\\varphi \\in \\mathbf X_1$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective`: on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action, where $T\\varphi = \\mathrm{id}$ for every $\\varphi$ (`tangentMor_trivialZ3`), the map $v \\mapsto (T\\mathbf p(v), Ts(v))$ with the bare $T\\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\\varphi$ is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`, V7.5).",
+    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1_10`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\\varphi \\in \\mathbf X_1$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective`: on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action, where $T\\varphi = \\mathrm{id}$ for every $\\varphi$ (`tangentMor_trivialZ3`), the map $v \\mapsto (T\\mathbf p(v), Ts(v))$ with the bare $T\\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\\varphi$ is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`, V7.5). Since 2026-11-12: `remark_8_1_10_scDiffeo`: the set of pairs is the M-polyfold $\\mathbf X^1\\,{}_s{\\times}_p\\,TX$ (`tangentPairsPolyfold`, a sub-M-polyfold of $\\mathbf X^1 \\times TX$ by Proposition 2.5.20) and $G$ (`remarkGInto`) is an sc-diffeomorphism $T\\mathbf X \\to \\mathbf X^1\\,{}_s{\\times}_p\\,TX$. `remark_8_1_10_triples`: $(\\varphi, h) \\mapsto (Ts(h), \\varphi, Tt(h))$ (`remarkTriple`) is injective with range the triples $(a, \\varphi, b)$, $\\varphi \\in \\mathbf X_1$, $a \\in T_{s(\\varphi)}X$, $b = T\\varphi(a)$, and is compatible with the compositions.",
     "decls": [
      "Chapter7/EpGroupoid · EpGroupoid.tangentMor",
      "Chapter8/TangentEp · EpGroupoid.tangentMor_tSrc",
@@ -337,17 +345,23 @@
      "Chapter7/TangentMorphism · EpGroupoid.bijOn_tangentMor",
      "Chapter7/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
      "Chapter7/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
-     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear"
+     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear",
+     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.tangentPairsPolyfold",
+     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remarkGInto",
+     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remark_8_1_10_scDiffeo",
+     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remarkTriple",
+     "Chapter8/GapP2_B_RemarkPairs · EpGroupoid.remark_8_1_10_triples"
     ]
    },
    "chips": [
     "$G(\\varphi, h) = (\\varphi, Ts(h))$",
     "bare-map reading: not injective",
-    "linearity of $T\\varphi$: proved"
+    "linearity of $T\\varphi$: proved",
+    "$G$ an sc-diffeomorphism: proved"
    ],
    "diff": [
-    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective`), so the narrowing is necessary (Findings, Chapter 8, item 10).",
-    "Updated (2026-11-09): $T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). Not formalized: the M-polyfold structure transported along $G$ and the triples $(a, T\\varphi, b)$, which have no gap since nothing depends on them (Findings, Chapter 8, items 112, 113).",
+    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective`), so the narrowing is necessary (Findings, Chapter 8, item 10). The verdict stays narrower by the verdict rule: with $T\\varphi$ the bare linear map, the bijectivity of $G$ as printed does not hold as we read it; everything else in the remark is formalized.",
+    "Updated (2026-11-09): $T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). Updated (2026-11-12): the M-polyfold structure on the pairs for which $G$ is an sc-diffeomorphism and the triples are formalized (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`); the structure is the natural one of the fibred product $\\mathbf X^1\\,{}_s{\\times}_p\\,TX$, and $G$ is an sc-diffeomorphism for it (Findings, Chapter 8, items 112, 113, 131).",
     "The remark writes \"$T\\varphi : T_xX \\to T_yY$\" for $T_yX$, and calls $T\\varphi$ the linearization \"at $x$\" and later \"at $\\varphi$\" (possible misprints)."
    ]
   },
@@ -1405,15 +1419,15 @@
   },
   {
    "id": "V8.47",
-   "title": "Proposition 8.4.1: paracompactness of $|X|$ from that of $|W[0]|$",
-   "verdict": "narrower",
+   "title": "Proposition 8.4.1: paracompactness of $|X|$, $|W[0]|$ and $|W[1]|$",
+   "verdict": "restated",
    "book": {
     "label": "§8.4, Proposition 8.4.1, p. 380 (new in the 2021 edition)",
     "page": 380,
     "statement": "For a strong bundle $P : W \\to X$ over an ep-groupoid the following are equivalent: (1) $|X|$ is paracompact; (2) $|W[0]|$ is paracompact; (3) $|W[1]|$ is paracompact."
    },
    "lean": {
-    "statement": "`proposition_8_4_1_one_iff_two`: $|X|$ is paracompact iff $|W[0]|$ is. (2) ⇒ (1) is `proposition_8_4_1_two_imp_one`: `EpStrongBundle.μ_fiberZero`, $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$; `zeroOrbitMap`, the map $|0| : |X| \\to |W[0]|$ induced by the zero section, continuous (`continuous_zeroOrbitMap`), with left inverse $|P|$ (`leftInverse_zeroOrbitMap`), a topological embedding (`isEmbedding_zeroOrbitMap`); and metrizability. (1) ⇒ (2) is `proposition_8_4_1_one_imp_two`: the lift $g * w = \\mu(\\Gamma(g, P w), w)$ of the natural action to $W|U(x)$ (`bundleMulAction`, by homeomorphisms), orbits on $W|U(x)$ being $G_x$-orbits (`π_eq_π_iff_exists_smul`), and the open embedding $G_x\\backslash W|U(x) \\to |W|$ onto $|P|^{-1}(|U(x)|)$ (`isOpenEmbedding_bundleOrbitQuotientMap`, `range_bundleOrbitQuotientMap`); then $|W[0]|$ is metrizable (`metrizableSpace_orbitSpace`).",
+    "statement": "`proposition_8_4_1`: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together (`List.TFAE`). $|W[1]|$ is `OrbitSpaceOne`, the quotient of the M-polyfold $W[1]$ by the morphisms $(\\varphi, w) \\in \\mathbf X\\,{}_s{\\times}_P\\,W[1]$, $w \\sim \\mu(\\varphi, w)$ (`πOne_eq_πOne_iff`). (1) ⇔ (2) is `proposition_8_4_1_one_iff_two`: (2) ⇒ (1) by `proposition_8_4_1_two_imp_one` (`EpStrongBundle.μ_fiberZero`, $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$; the map $|0| : |X| \\to |W[0]|$, `zeroOrbitMap`, a topological embedding with left inverse $|P|$, `isEmbedding_zeroOrbitMap`; and metrizability), (1) ⇒ (2) by `proposition_8_4_1_one_imp_two` (the lift $g * w = \\mu(\\Gamma(g, P w), w)$ of the natural action to $W|U(x)$, `bundleMulAction`; the open embedding $G_x\\backslash W|U(x) \\to |W|$ onto $|P|^{-1}(|U(x)|)$, `isOpenEmbedding_bundleOrbitQuotientMap`; `metrizableSpace_orbitSpace`). (1) ⇒ (3) is `proposition_8_4_1_one_imp_three`: $G_x$ acts on $W[1]|U(x)$ by homeomorphisms (`continuous_bundleOneSmul`, from the sc-smoothness of $\\mu$ at level one), $W[1] \\to |W[1]|$ is open (`isOpenMap_πOne`), $G_x\\backslash W[1]|U(x) \\to |W[1]|$ is an open embedding onto $|P[1]|^{-1}(|U(x)|)$ (`isOpenEmbedding_bundleOneOrbitQuotientMap`), and Smirnov's theorem pulled back along $|P[1]|$ gives metrizability (`metrizableSpace_orbitSpaceOne`). (3) ⇒ (1) is the text's: $|0| : |X| \\to |W[1]|$ is a closed embedding (`isClosedEmbedding_zeroOrbitMapOne`, `proposition_8_4_1_three_imp_one`).",
     "decls": [
      "Chapter8/Book2021 · EpStrongBundle.μ_fiberZero",
      "Chapter8/Book2021 · EpStrongBundle.zeroOrbitMap",
@@ -1428,16 +1442,27 @@
      "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.isOpenEmbedding_bundleOrbitQuotientMap",
      "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.range_bundleOrbitQuotientMap",
      "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.metrizableSpace_orbitSpace",
-     "Chapter8/BundleOrbitParacompact2021 · metrizableSpace_orbitRel_quotient_finite"
+     "Chapter8/BundleOrbitParacompact2021 · metrizableSpace_orbitRel_quotient_finite",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_iff_three",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_imp_three",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_three_imp_one",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.OrbitSpaceOne",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.πOne_eq_πOne_iff",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isOpenMap_πOne",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.continuous_bundleOneSmul",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isOpenEmbedding_bundleOneOrbitQuotientMap",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.metrizableSpace_orbitSpaceOne",
+     "Chapter8/GapP2_CProp841W1 · EpStrongBundle.isClosedEmbedding_zeroOrbitMapOne"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "(1) ⇔ (2)",
-    "(3): $W[1]$ not an ep-groupoid (G.86)"
+    "(1) ⇔ (2) ⇔ (3)",
+    "$|W[1]|$ as an orbit space"
    ],
    "diff": [
-    "Only (1) ⇔ (2): $W[1]$ is not built as an ep-groupoid in the project, so (3) is not stated (gap G.86). The proof of (1) ⇒ (2) follows Theorem 8.1.15, as `TangentOrbit.lean` does for $TX$: $|X|$ is metrizable (Theorem 7.3.1), and Smirnov's theorem is pulled back along $|P| : |W| \\to |X|$, with $|P|^{-1}(|U(x)|) \\cong G_x\\backslash W|U(x)$ metrizable (the metric $\\hat\\rho$ of Lemma 7.3.2). The text's invariant metrics on $K$, $O$ and its closed cover $(|W[i]|Q_b|)$ are not needed, only the continuity of $\\mu$. (2) ⇒ (1) goes through metrizability too (Findings, Chapter 8, items 118, 127)."
+    "Updated (2026-11-12): (3) is formalized (gap G.86 closed). $W[1]$ is not built as an ep-groupoid in the project; $|W[1]|$ is defined as the orbit space of the groupoid $(W[1], \\mathbf X\\,{}_s{\\times}_P\\,W[1])$ with the quotient topology of the M-polyfold $W[1]$, which is what the statement uses. The proofs of (1) ⇒ (2) and (1) ⇒ (3) follow Theorem 8.1.15, as `TangentOrbit.lean` does for $TX$: $|X|$ is metrizable (Theorem 7.3.1), and Smirnov's theorem is pulled back along $|P|$, with $|P|^{-1}(|U(x)|) \\cong G_x\\backslash W|U(x)$ metrizable (the metric $\\hat\\rho$ of Lemma 7.3.2). The text's invariant metrics on $K$, $O$ and its closed cover $(|W[i]|Q_b|)$ are not needed, only the continuity of $\\mu$. (2) ⇒ (1) goes through metrizability too (Findings, Chapter 8, items 118, 127, 133)."
    ]
   },
   {
@@ -1602,6 +1627,113 @@
     "Updated (2026-11-09): the hypotheses of (1) on every level are theorems (gaps G.85, G.73 and G.8 closed), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all`) (Findings, Chapter 8, item 124).",
     "\\\"Naturally $(TX)^i = T(X^i)$\\\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it (Findings, Chapter 8, item 124)."
    ]
+  },
+  {
+   "id": "V8.53",
+   "title": "Definition 8.2.1 (2017: 8.2): sc-differential forms on ep-groupoids, $\\Omega^k_{ep}(X)$ and $\\Omega^*_{ep,\\infty}(X)$",
+   "verdict": "same",
+   "book": {
+    "label": "§8.2, Definition 8.2.1 (2017: 8.2) and the paragraphs after it, pp. 372–373 (2017 pp. 268–269)",
+    "page": 268,
+    "statement": "An sc-differential $k$-form on the ep-groupoid $(X, \\mathbf X)$ is an sc-smooth map $\\omega : \\oplus^k TX \\to \\mathbb R$ on the Whitney sum of the tangent of the object M-polyfold, linear in each argument and skew-symmetric, with $(T\\varphi)^*\\omega_y = \\omega_x$ for every morphism $\\varphi : x \\to y$ in $\\mathbf X_1$; $\\Omega^k_{ep}(X)$ is the vector space of these forms. A form on $X^i$ is a form on $X^{i+1}$, and $\\Omega^*_{ep,\\infty}(X)$ is the direct limit of the directed system $\\iota_{i,k} : \\Omega^*_{ep}(X^i) \\to \\Omega^*_{ep}(X^k)$, $i \\le k$: two representatives give the same class iff their pull-backs to some $X^l$ agree. The exterior derivative is $d[\\omega] := [d\\omega]$; $d\\omega$ is compatible with morphisms (through $f = t \\circ (s|\\mathbf U(\\varphi_0))^{-1}$ and $f^* d = d f^*$), and $d \\circ d = 0$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.epForms X k` is the vector space $\\Omega^k_{ep}(X)$: the families $\\omega$ with $\\omega \\in \\Omega^k(X)$ (`MPolyfold.scForms`, Definition 4.4.1 for the object M-polyfold) and $(T\\varphi)^*\\omega_y = \\omega_x$ for every $\\varphi \\in \\mathbf X_1$ (`IsMorCompatible`, with $T\\varphi$ the bounded linear isomorphism `tangentMorCLE`, V7.5). `isMorCompatible_iff_formPullback`: the condition is $s^*\\omega = t^*\\omega$ on the morphism M-polyfold. `formLower_mem_epForms`: a form on $X$ is a form on $X^1$; `EP.epForms A k i` is $\\Omega^k_{ep}(X^i)$ for Chapter 7's index lifts, `EP.epFormsMap` the directed system, `EP.epFormsInfty A k` $= \\Omega^k_{ep,\\infty}(X)$ its direct limit (`Module.DirectLimit`), with `exists_epFormsInftyOf_eq` and `epFormsInftyOf_eq_iff` (two forms represent the same class iff their pull-backs to some $X^l$ agree). `extD_mem_epForms`: $d\\omega$ is compatible with morphisms; `EP.epFormsInftyD`, $d[\\omega] = [d\\omega]$ (`epFormsInftyD_of`), $d \\circ d = 0$ (`epFormsInftyD_comp_epFormsInftyD`). Also `formWedge_mem_epForms`, `formPullback_mem_epForms` (pull-back by sc-smooth functors) and `formPullback_eq_of_natTrans`. Witness: `constForm_mem_epForms`.",
+    "decls": [
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.IsMorCompatible",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.epForms",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.formLower_mem_epForms",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.extD_mem_epForms",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.formWedge_mem_epForms",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.formPullback_mem_epForms",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.formPullback_eq_of_natTrans",
+     "Chapter8/GapP2_B_EpForms · EpGroupoid.constForm_mem_epForms",
+     "Chapter8/GapP2_B_EpForms · EP.epForms",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsMap",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInfty",
+     "Chapter8/GapP2_B_EpForms · EP.exists_epFormsInftyOf_eq",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyOf_eq_iff",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_of",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_comp_epFormsInftyD"
+    ]
+   },
+   "chips": [
+    "$s^*\\omega = t^*\\omega$ on morphisms",
+    "gap G.74 closed"
+   ],
+   "diff": [
+    "The text proves the compatibility of $d\\omega$ with morphisms through $f = t \\circ (s|\\mathbf U(\\varphi_0))^{-1}$ and $f^* d = d f^*$; here the same naturality of $d$ (`extD_formPullback`) is applied to the global maps $s, t : \\mathbf X \\to X$. The direct limit is Mathlib's `Module.DirectLimit`, the text's $\\bigoplus_i \\Omega^*_{ep}(X^i)/D$. Definition 8.2.1 writes $T_yY$ for $T_yX$ (reading point, Findings, Chapter 8, item 110) (Findings, Chapter 8, item 132)."
+   ]
+  },
+  {
+   "id": "V8.54",
+   "title": "Definition 8.2.2 (2017: 8.3): the sc-de Rham complex $(\\Omega^*_{ep,\\infty}(X), d)$",
+   "verdict": "same",
+   "book": {
+    "label": "§8.2, Definition 8.2.2 (2017: 8.3), p. 373 (2017 p. 270)",
+    "page": 270,
+    "statement": "For an ep-groupoid $X$, $(\\Omega^*_{ep,\\infty}(X), d)$ is the sc-de Rham complex of $X$; its elements are again denoted by $\\omega$, though they are equivalence classes in a direct limit."
+   },
+   "lean": {
+    "statement": "`EP.epFormsInftyGraded A` $= \\bigoplus_k \\Omega^k_{ep,\\infty}(X)$ with `epFormsInftyGradedD`, `epFormsInftyGradedD_comp_self` ($d \\circ d = 0$); as a cochain complex of real vector spaces `EP.epDeRhamComplex A`; its cohomology `EP.epDeRham A k` ($\\ker d / \\operatorname{im} d$). It is a subcomplex of Part I's $(\\Omega^*_\\infty(X), d)$ for the object M-polyfold (`epFormsInftyToObj`, injective, a chain map: `epFormsInftyToObj_injective`, `formsInftyD_comp_epFormsInftyToObj`). Beyond the text of §8.2: the pull-back $F^*$ by sc-smooth functors with $d F^* = F^* d$ (`EP.epFormsInftyPullback`, `epFormsInftyD_comp_epFormsInftyPullback`), invariant under natural equivalence (`epFormsInftyPullback_eq_of_natTrans`), the functor case of Theorem 11.2.1 (2).",
+    "decls": [
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGraded",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGradedD",
+     "Chapter8/GapP2_B_EpForms · EP.epFormsInftyGradedD_comp_self",
+     "Chapter8/GapP2_B_EpForms · EP.epDeRham",
+     "Chapter8/GapP2_B_EpFormsObj · EP.epDeRhamComplex",
+     "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj",
+     "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj_injective",
+     "Chapter8/GapP2_B_EpFormsObj · EP.formsInftyD_comp_epFormsInftyToObj",
+     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyPullback",
+     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyD_comp_epFormsInftyPullback",
+     "Chapter8/GapP2_B_EpFormsFunctor · EP.epFormsInftyPullback_eq_of_natTrans"
+    ]
+   },
+   "chips": [
+    "subcomplex of Part I’s complex",
+    "gap G.74 closed"
+   ],
+   "diff": [
+    "None beyond Definition 8.2.1 (V8.53). The complex is also given as a `CochainComplex` of `ModuleCat ℝ` (Findings, Chapter 8, item 132)."
+   ]
+  },
+  {
+   "id": "V8.55",
+   "title": "Proposition 8.2.3 (Poincaré lemma): sc-differential forms on ep-groupoids",
+   "verdict": "same",
+   "book": {
+    "label": "§8.2, Proposition 8.2.3 and its proof, pp. 373–374 (new in the 2021 edition)",
+    "page": 373,
+    "statement": "Let $X$ be an ep-groupoid and $x \\in X$. There are saturated open neighbourhoods $V \\subseteq U$ of $x$ such that for every closed $[\\omega] \\in \\Omega^k_{ep,\\infty}(U)$, $k \\ge 1$, there is $[\\sigma] \\in \\Omega^{k-1}_{ep,\\infty}(V)$ with $d[\\sigma] = [\\omega]$ on $V$. The proof applies Lemma 4.4.8 on the object M-polyfold, averages the primitive $\\tau$ over $G_x$, $\\tau' = \\frac{1}{\\sharp G_x}\\sum_g g^*\\tau$, and extends $\\tau'$ to the saturation by $\\sigma(y) = \\psi^*\\tau'(x')$ for a morphism $\\psi : x' \\to y$."
+   },
+   "lean": {
+    "statement": "`EP.proposition_8_2_3`: for an ep-groupoid $X$ and an object $x$ there are saturated open $V \\subseteq U$, $x \\in V$, such that every $a \\in \\Omega^{k+1}_{ep,\\infty}(X|U)$ with $da = 0$ is $db$ on $V$ for some $b \\in \\Omega^k_{ep,\\infty}(X|V)$; $X|U$ is the restriction of Proposition 7.1.22 as an object of $\\mathcal{EP}$ (`EP.sub`), and 'on $V$' is the pull-back by the inclusion functor $X|V \\to X|U$ (`EP.subIncl`). `EP.proposition_8_2_3_of_isOpen`: the same for every saturated open $U \\ni x$ given in advance. No hypothesis is added.",
+    "decls": [
+     "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3",
+     "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3_of_isOpen",
+     "Chapter11/GapP2_B2_Poincare · EP.epFormsInftyToObj_epFormsInftyPullback",
+     "Chapter11/GapP2_B2_Poincare · EP.epFormsInftyToObj_surjective_of_src_eq_tgt",
+     "Chapter11/GapP2_B2_SubGroupoidModel · EP.sub",
+     "Chapter11/GapP2_B2_SubGroupoidModel · EP.subIncl",
+     "Chapter11/GapP2_B2_SubGroupoidModel · EP.modelFunctor",
+     "Chapter11/GapP2_B2_SubGroupoidModel · EP.isEquivalence_modelFunctor",
+     "Chapter11/GapP2_B2_TranslationAverage · EpGroupoid.NaturalRep.exists_primitive_translation",
+     "Chapter11/GapP2_B2_Averaging · EP.exists_primitive_of_average",
+     "Chapter11/GapP2_B2_Averaging · EP.exists_primitive_of_equivalence",
+     "Chapter8/GapP2_B_EpPoincare · EP.proposition_8_2_3_object"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "the text’s $k \\ge 1$ as $k + 1$",
+    "gap G.87 closed"
+   ],
+   "diff": [
+    "The proof is the text's, with the averaging and the extension made explicit: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on the translation groupoid $G_x \\ltimes U(x)$ of a natural representation (`NaturalRep.exists_primitive_translation`, from `EP.exists_primitive_of_average`), and the push-forward along the equivalence $G_x \\ltimes U(x) \\to X|\\pi^{-1}(\\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`, Definition 11.2.3), which is the text's $\\sigma(y) = \\psi^*\\tau'(x')$. The text's index $k \\ge 1$ is $k + 1$ here. The file is in Chapter 11 because it uses the push-forward of §11.2 (Findings, Chapter 8, items 123, 132)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1610,17 +1742,42 @@
    "label": "§8.2, Definitions 8.2.1 and 8.2.2 (2017: 8.2 and 8.3), pp. 372–375 (2017 pp. 268–270)",
    "page": 268,
    "book": "Definition 8.2.1 (2017: 8.2): an sc-differential $k$-form on the ep-groupoid $(X, \\mathbf X)$ is an sc-smooth map $\\omega : \\oplus^k TX \\to \\mathbb R$ on the Whitney sum of the tangent of the object M-polyfold, linear in each argument and skew-symmetric, with $(T\\varphi)^*\\omega_y = \\omega_x$ for every morphism $\\varphi : x \\to y$ in $\\mathbf X_1$; $\\Omega^k_{ep}(X)$ is the vector space of these forms. A form on $X^i$ is a form on $X^{i+1}$, and $\\Omega^*_{ep,\\infty}(X)$ is the direct limit of the directed system $\\Omega^*_{ep}(X^i) \\to \\Omega^*_{ep}(X^k)$, $i \\le k$. The exterior derivative is $d[\\omega] := [d\\omega]$, with $d\\omega$ compatible with morphisms and $d \\circ d = 0$. Definition 8.2.2 (2017: 8.3): $(\\Omega^*_{ep,\\infty}(X), d)$ is the sc-de Rham complex of the ep-groupoid $X$.",
-   "instead": "**Not formalized.** It needs the Whitney sums $\\oplus^k TX$ as M-polyfolds, the linear structure of $T_xX$ (gap G.7), linear maps $T\\varphi$ (gap G.70), the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6, closed since: V2.93, V2.97) and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4 (gaps G.37–G.39), which are not formalized; the Lie bracket on an M-polyfold is formalized since (V4.76, gap G.38 closed). Nothing else in Chapter 8 depends on it. Definition 8.2.1 (2017: 8.2) writes $T_yY$ for $T_yX$ (possible misprint) (Findings, Chapter 8, item 110). (2026-11-09) The linear structure of $T_xX$ (gap G.7) and the linear isomorphisms $T\\varphi$ (gap G.70) are now formalized (V2.19, V7.5); the other ingredients remain."
+   "instead": "**Formalized** (2026-11-12). $\\Omega^k_{ep}(X)$ is `EpGroupoid.epForms`: the sc-differential forms of the object M-polyfold (Definition 4.4.1) with $(T\\varphi)^*\\omega_y = \\omega_x$ for every $\\varphi \\in \\mathbf X_1$, equivalently $s^*\\omega = t^*\\omega$ (`isMorCompatible_iff_formPullback`); $\\Omega^k_{ep,\\infty}(X)$ is the direct limit over the index lifts $X^i$ (`EP.epFormsInfty`), $d[\\omega] = [d\\omega]$ with $d \\circ d = 0$ (`EP.epFormsInftyD`, `epFormsInftyD_comp_epFormsInftyD`), and the sc-de Rham complex is `EP.epDeRhamComplex`, a subcomplex of Part I's complex of the object M-polyfold (`epFormsInftyToObj`) (V8.53, V8.54). The Whitney sums $\\oplus^k TX$ are replaced, as in Part I's §4.4, by families of alternating maps on the tangent spaces. Definition 8.2.1 writes $T_yY$ for $T_yX$ (reading point) (Findings, Chapter 8, items 110, 132).",
+   "formalized": [
+    "V8.53",
+    "V8.54"
+   ],
+   "decls": [
+    "Chapter8/GapP2_B_EpForms · EpGroupoid.epForms",
+    "Chapter8/GapP2_B_EpForms · EpGroupoid.IsMorCompatible",
+    "Chapter8/GapP2_B_EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+    "Chapter8/GapP2_B_EpForms · EP.epFormsInfty",
+    "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD",
+    "Chapter8/GapP2_B_EpForms · EP.epFormsInftyD_comp_epFormsInftyD",
+    "Chapter8/GapP2_B_EpFormsObj · EP.epDeRhamComplex",
+    "Chapter8/GapP2_B_EpFormsObj · EP.epFormsInftyToObj"
+   ]
   },
   {
    "title": "Lemma 8.1.2 (2017: 8.1): $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$",
    "label": "§8.1, 2017 p. 259, the identification before Lemma 8.1.2 (2017: 8.1) and Lemma 8.1.2 (2017: 8.1) (also the proof of Lemma 8.1.7 (2017: 8.6), p. 362 (2017 p. 262))",
    "page": 259,
    "book": "The tangent $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ of the sub-M-polyfold $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ of $\\mathbf X \\times \\mathbf X$ is identified with $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X \\subseteq T\\mathbf X \\times T\\mathbf X$. Lemma 8.1.2 (2017: 8.1): the multiplication (8.5) of $T\\mathbf X$ can be written as $(\\psi, k) \\circ (\\varphi, h) = Tm(\\psi, \\varphi)(k, h) = (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1} \\circ Ts(\\varphi)(h))$, with $k = Ts(\\psi)^{-1}(Tt(\\varphi)(h))$. The proof of Lemma 8.1.7 (2017: 8.6) notes that the multiplication of $T\\mathbf X$ is precisely $Tm$, hence sc-smooth.",
-   "instead": "**Not formalized** as printed: the identification of the tangent of the fibred product with the fibred product of the tangents, and $m_{T\\mathbf X} = Tm$ on it, are not stated. Lemma 8.1.2 (2017: 8.1) is formalized in the form its proof uses: on a sheet $s : W \\to V$ with inverse $\\sigma$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t\\varphi'), \\varphi')$ (`lemma_8_1_2`, V8.4); the sc-smoothness of the multiplication of $T\\mathbf X$ on $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ is proved from Chapter 7's sheet form (`isScSmoothComp_tangent`, V8.9), so nothing in Chapter 8 depends on the identification (Findings, Chapter 8, items 5, 111).",
+   "instead": "**Formalized** (2026-11-12). $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ is the M-polyfold `compPolyfold`. The identification $v \\mapsto (T\\pi_1 v, T\\pi_2 v)$ (`tangentCompPairs`) is injective with range $\\{(k, h) \\mid Ts(k) = Tt(h)\\}$ (`range_tangentCompPairs`) and is an sc-diffeomorphism from $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ onto the sub-M-polyfold $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ of $T\\mathbf X \\times T\\mathbf X$ (`isScDiffeoOn_tangentCompPairs`). Lemma 8.1.2 as printed: $Tm(v) = T\\pi_1(v) \\circ T\\pi_2(v)$ (`lemma_8_1_2_tangentMul`), $k \\circ h = Tm(v)$ for the one $v$ over $(k, h)$ (`lemma_8_1_2_book`), and $m_{T\\mathbf X} = Tm$ (`lemma_8_1_2_compMul`) (V8.4). The sheet form `lemma_8_1_2` is kept (Findings, Chapter 8, items 5, 111, 131).",
    "decls": [
     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_2",
-    "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent"
+    "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.compPolyfold",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.tangentCompPairs",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.range_tangentCompPairs",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_tangentMul",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_book",
+    "Chapter8/GapP2_B_TangentFibred · EpGroupoid.lemma_8_1_2_compMul",
+    "Chapter8/GapP2_B_TangentFibred · MPolyfold.isLocalScDiffeo_of_comp_eq"
+   ],
+   "formalized": [
+    "V8.4"
    ]
   },
   {
@@ -1629,12 +1786,18 @@
    "label": "§8.4, Proposition 8.4.1, p. 380, and Proposition 8.4.3, p. 382 (new in the 2021 edition)",
    "page": 380,
    "book": "Proposition 8.4.1: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together.",
-   "instead": "**Not formalized:** (3), since $W[1]$ is not built as an ep-groupoid. That would need the level-one bundles $W[1] \\to X$ and $\\mathbf W[1]$ with $\\mu$ a local sc-diffeomorphism at level one, plus properness and the sc-smoothness of the structure maps at level one; once $W[1]$ exists, the proof of (1) ⇒ (2) carries over. **Formalized** (2026-11-09): (1) ⇔ (2) (`proposition_8_4_1_one_iff_two`, V8.47) and Proposition 8.4.3 (`proposition_8_4_3`, V8.48), with Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119, 127, 128).",
+   "instead": "**Formalized** (2026-11-12): (3), with $|W[1]|$ the orbit space of the groupoid $(W[1], \\mathbf X\\,{}_s{\\times}_P\\,W[1])$ with the quotient topology of the M-polyfold $W[1]$ (`OrbitSpaceOne`); `proposition_8_4_1` states (1) ⇔ (2) ⇔ (3) (V8.47). $W[1]$ is not built as an ep-groupoid; the proof uses only the sc-smoothness of $\\mu$ at level one. Earlier (2026-11-09): (1) ⇔ (2) (`proposition_8_4_1_one_iff_two`) and Proposition 8.4.3 (`proposition_8_4_3`, V8.48), with Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119, 127, 128, 133).",
    "decls": [
     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.proposition_8_4_1_one_iff_two",
     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one",
     "Chapter8/BundleLocalRegularity2021 · EpStrongBundle.proposition_8_4_3",
-    "Chapter8/TangentZhou · EpStrongBundle.IsLR"
+    "Chapter8/TangentZhou · EpStrongBundle.IsLR",
+    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1",
+    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.proposition_8_4_1_one_iff_three",
+    "Chapter8/GapP2_CProp841W1 · EpStrongBundle.OrbitSpaceOne"
+   ],
+   "formalized": [
+    "V8.47"
    ]
   },
   {
@@ -1643,7 +1806,16 @@
    "label": "§8.2, Proposition 8.2.3, p. 373 (new in the 2021 edition)",
    "page": 373,
    "book": "Poincaré lemma: every object $x$ has saturated open neighbourhoods $V \\subseteq U$ such that for every closed $[\\omega] \\in \\Omega^k_{ep,\\infty}(U)$, $k \\ge 1$, there is $[\\sigma] \\in \\Omega^{k-1}_{ep,\\infty}(V)$ with $d[\\sigma] = [\\omega]$ on $V$; the proof averages a primitive from Lemma 4.4.8 over $G_x$.",
-   "instead": "**Not formalized**, with the forms of §8.2 (gap G.74), which need the Whitney sums $\\oplus^k TX$, the linear structure of $T_xX$ (gap G.7) and the forms of Part I's §4.4 (gaps G.37–G.40) (Findings, Chapter 8, item 123). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
+   "instead": "**Formalized** (2026-11-12), as printed, with no added hypothesis: `EP.proposition_8_2_3` gives saturated open $V \\subseteq U \\ni x$ such that every closed class of $\\Omega^{k+1}_{ep,\\infty}(X|U)$ has a primitive in $\\Omega^k_{ep,\\infty}(X|V)$ on $V$ (V8.55). The proof is the text's: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on a natural representation, and the push-forward of §11.2 along the equivalence $G_x \\ltimes U(x) \\to X|\\pi^{-1}(\\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`). The forms of §8.2 are gap G.74, closed (Findings, Chapter 8, items 123, 132).",
+   "formalized": [
+    "V8.55"
+   ],
+   "decls": [
+    "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3",
+    "Chapter11/GapP2_B2_Poincare · EP.proposition_8_2_3_of_isOpen",
+    "Chapter11/GapP2_B2_SubGroupoidModel · EP.isEquivalence_modelFunctor",
+    "Chapter8/GapP2_B_EpPoincare · EP.proposition_8_2_3_object"
+   ]
   },
   {
    "g": 88,
