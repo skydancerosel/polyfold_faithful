@@ -20,10 +20,10 @@
    },
    "chips": [
     "as stated",
-    "metrizability remark: G.146"
+    "metrizability remark: V16.14"
    ],
    "diff": [
-    "$Z$ lives in the universe of the object and morphism sets of $X$. The text's remark that $Z$ is then metrizable is gap G.146. The 2017 definition had neither (ZHOU) nor paracompactness."
+    "$Z$ lives in the universe of the object and morphism sets of $X$. The text's remark that $Z$ is then metrizable is V16.14 (gap G.146 closed). The 2017 definition had neither (ZHOU) nor paracompactness."
    ]
   },
   {
@@ -316,6 +316,414 @@
    },
    "chips": [],
    "diff": []
+  },
+  {
+   "id": "V16.14",
+   "title": "The remark after Definition 16.1.1 (2017: Proposition 16.1), polyfolds are metrizable",
+   "verdict": "same",
+   "book": {
+    "label": "§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)",
+    "page": 706,
+    "statement": "If $|X|$ is paracompact, $Z \\cong |X|$ is metrizable."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.metrizableSpace (p : PolyfoldStructure Z) : MetrizableSpace Z`, from Theorem 7.3.1's `theorem_7_3_1_metrizable` (paracompact, locally metrizable and Hausdorff orbit space) and $\\beta$.",
+    "decls": [
+     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.metrizableSpace"
+    ]
+   },
+   "chips": [
+    "G.146 closed"
+   ],
+   "diff": [
+    "The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed."
+   ]
+  },
+  {
+   "id": "V16.15",
+   "title": "Lemma 16.2.1 (2017: 16.3), equal underlying maps give equal $\\mathfrak f$ and $T\\mathfrak f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.2, Lemma 16.2.1, p. 716 (2017: Lemma 16.3)",
+    "page": 716,
+    "statement": "If two isomorphisms $(f,\\mathfrak f), (g,\\mathfrak g) : (X,\\alpha) \\to (Y,\\beta)$ of polyfold structures have $f = g$, then $\\mathfrak f = \\mathfrak g$ and $T\\mathfrak f = T\\mathfrak g$ (proof: $|\\mathfrak f| = |\\mathfrak g|$ and Theorem 10.3.19)."
+   },
+   "lean": {
+    "statement": "`PolyfoldStructure.Lemma_16_2_1 : Prop` is the printed statement ($\\mathfrak f, \\mathfrak g$ generalized isomorphisms, $f \\circ \\alpha = \\beta \\circ |\\mathfrak f|$, $g \\circ \\alpha = \\beta \\circ |\\mathfrak g|$, $f = g$); `T𝔣` is `EPLoc.tangentHom 𝔣`, the class of $[TX \\leftarrow TA \\to TY]$. `not_lemma_16_2_1 : ¬ Lemma_16_2_1.{0}` (data `lemma_16_2_1_counterexample`). What holds: `lemma_16_2_1_orbit` (under the printed hypotheses, $|\\mathfrak f| = |\\mathfrak g|$ and $|T\\mathfrak f| = |T\\mathfrak g|$) and `lemma_16_2_1_of_isEffective` (for $Y$ effective, $\\mathfrak f = \\mathfrak g$ and $T\\mathfrak f = T\\mathfrak g$), with witness `lemma_16_2_1_of_isEffective_hypotheses` (the point ep-groupoid).",
+    "decls": [
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.Lemma_16_2_1",
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.not_lemma_16_2_1",
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_counterexample",
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_orbit",
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective",
+     "Chapter16/P3H_TangentLemma · PolyfoldStructure.lemma_16_2_1_of_isEffective_hypotheses",
+     "Chapter16/P3H_TangentLemma · EPLocalization.EPLoc.tangentHom",
+     "Chapter16/P3H_TangentLemma · EPLocalization.EPLoc.orbitMap_tangentHom_eq"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "orbit form; effective form"
+   ],
+   "diff": [
+    "Hidden hypotheses: $Y$ effective (`lemma_16_2_1_of_isEffective`, witness `lemma_16_2_1_of_isEffective_hypotheses`); without it only the orbit form `lemma_16_2_1_orbit` holds.",
+    "The printed statement does not hold as we read it (`not_lemma_16_2_1`; Findings, Chapter 16, item 6): $Z = W = \\mathbb R$ with $\\mathbb Z/3$ acting trivially (ZHOU, $|X|$ paracompact), $f = g = \\mathrm{id}$, $\\mathfrak f = [X \\xleftarrow{1} X \\xrightarrow{\\mathrm{Inv}} X] \\ne [1_X] = \\mathfrak g$, the same pair as `not_uniqueness_16_1_2` (items 1–2). The proof's last step is Theorem 10.3.19, which needs an effective target (`not_theorem_10_3_19`). Whether $T\\mathfrak f \\ne T\\mathfrak g$ in the counterexample is not decided; every later use in §16.2 needs only $|T\\mathfrak f|$ (V16.16)."
+   ]
+  },
+  {
+   "id": "V16.16",
+   "title": "The construction of $T(Z,c)$, the maps $T\\alpha$ and (16.5)",
+   "verdict": "same",
+   "book": {
+    "label": "§16.2, pp. 716–718 (2017: §16.2)",
+    "page": 716,
+    "statement": "$T(Z,c)$ is glued from the classes $[(z,(X,\\alpha),h)]$ by canonical bijections; $T\\alpha : |TX| \\to T(Z,c)$ is a bijection; $T\\beta \\circ |T\\mathfrak f| = T\\alpha$ (16.5) for \"the unique\" $\\mathfrak f$ with $\\beta \\circ |\\mathfrak f| = \\alpha$."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.TangentSpace c := |T X₀|` with $(X_0,\\alpha_0)$ = `c.out`; `tangentMap q hq` $= T\\alpha := |T\\mathfrak f|$ for any $\\mathfrak f : X \\to X_0$ with $\\alpha_0 \\circ |\\mathfrak f| = \\alpha$, independent of $\\mathfrak f$ (`tangentMap_eq`); `tangentMap_comp` is (16.5) for every $h$ with $\\beta \\circ |h| = \\alpha$; `isHomeomorph_tangentMap`, `tangentHomeomorph`.",
+    "decls": [
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.TangentSpace",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap_eq",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentMap_comp",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.isHomeomorph_tangentMap",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentHomeomorph"
+    ]
+   },
+   "chips": [
+    "base point `c.out`",
+    "$\\tau_Z$: G.156"
+   ],
+   "diff": [
+    "$X_0$ is a base point instead of the gluing over all structures. $\\mathfrak f$ need not be unique (V16.15); the independence of $\\mathfrak f$ is `EPLoc.orbitMap_tangentHom_eq`: (LR), from ZHOU, gives local families $F(z) \\to G(z)$ for $|F| = |G|$ (Proposition 10.1.10 (1)), hence $|TF| = |TG|$ (10.1.10 (2)). The projection $\\tau_Z$ and the raised polyfolds are gap G.156."
+   ]
+  },
+  {
+   "id": "V16.17",
+   "title": "Lemma 16.2.2 (2017: 16.4), the topology of $T(Z,c)$",
+   "verdict": "same",
+   "book": {
+    "label": "§16.2, Lemma 16.2.2, p. 718 (2017: Lemma 16.4)",
+    "page": 718,
+    "statement": "$T(Z,c)$ has a unique natural topology for which every $T\\alpha$ is a homeomorphism; it is metrizable."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.lemma_16_2_2 c`: every `tangentMap q hq` is a homeomorphism for `tangentSpaceTopology c`; a topology for which one $T\\alpha$ is a homeomorphism equals it; `MetrizableSpace (TangentSpace c)` (Theorem 8.1.15's `metrizableSpace_tangent_orbitSpace`).",
+    "decls": [
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.lemma_16_2_2",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentSpaceTopology"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V16.18",
+   "title": "Definition 16.2.3 (2017: 16.14), the tangent polyfold $(T(Z,c), Tc)$",
+   "verdict": "same",
+   "book": {
+    "label": "§16.2, Definition 16.2.3, p. 719 (2017: Definition 16.14)",
+    "page": 719,
+    "statement": "$Tc$ is the class of the structures $(TX, T\\alpha)$; $(T(Z,c), Tc)$ is a polyfold."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.tangentStructure q hq : PolyfoldStructure (TangentSpace c)` ($|TX|$ paracompact by Theorem 8.1.15, `tangent_paracompact`; $TX$ satisfies ZHOU by Proposition 8.1.16, `tangent_isZhou`), `tangentStructure_equiv`, `PolyfoldClass.tangent c`, `definition_16_2_3` ($[(TX, T\\alpha)] = Tc$ for every $(X,\\alpha) \\in c$). Instance check: `example : PolyfoldClass (TangentSpace z3Polyfold)`.",
+    "decls": [
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentStructure",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangentStructure_equiv",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.tangent",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldClass.definition_16_2_3",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.tangent_paracompact",
+     "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.tangent_isZhou"
+    ]
+   },
+   "chips": [
+    "universe `max u 1`"
+   ],
+   "diff": [
+    "`TangentSpace c : Type (max u 1)` and `tangentAny : EP.{u} → EP.{max u 1}`, as in Chapter 8. \"Equivalent via $T\\mathfrak f$\" is shown with $Th$ for any $h$ with $\\beta \\circ |h| = \\alpha$."
+   ]
+  },
+  {
+   "id": "V16.19",
+   "title": "The remark on p. 720: $h_*\\omega$ does not depend on $h$",
+   "verdict": "same",
+   "book": {
+    "label": "§16.2, before Definition 16.2.5, p. 720 (2017: before Definition 16.15)",
+    "page": 720,
+    "statement": "Given $\\alpha' \\circ |h| = \\alpha$, the push-forward $h_*\\omega$ does not depend on the choice of $h$."
+   },
+   "lean": {
+    "statement": "Proposition 11.2.9 (`EPLoc.formsPush_eq_of_orbitMap_eq`, Part II) and its forms with (LR) on either side, `EPLoc.formsPush_eq_of_orbitMap_eq_or`, `formsPullback_eq_of_orbitMap_eq_or` (Proposition 10.3.16).",
+    "decls": [
+     "Chapter16/P3H_FormsIndependence · EPLocalization.EPLoc.formsPush_eq_of_orbitMap_eq_or",
+     "Chapter16/P3H_FormsIndependence · EPLocalization.EPLoc.formsPullback_eq_of_orbitMap_eq_or"
+    ]
+   },
+   "chips": [
+    "ZHOU ⇒ (LR)"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V16.20",
+   "title": "Definition 16.2.5 (2017: 16.15), sc-differential forms on a polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§16.2, Definition 16.2.5, p. 720 (2017: Definition 16.15)",
+    "page": 720,
+    "statement": "$\\Omega^*_{sc}(Z,c)$ consists of the classes $[(\\omega,(X,\\alpha))]$ under $(\\omega,(X,\\alpha)) \\sim (h_*\\omega,(Y,\\beta))$, with the vector-space operations and $d$ on representatives."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.FormRep`, `FormRep.Rel` (an equivalence relation), `ScForm c k` (the quotient), `ScForm.mk`; `ScForm.toStructure`, `equivStructure` (for every $p \\in c$ a bijection to $\\Omega^k_{ep,\\infty}(X)$); the vector-space structure with `mk_add`, `mk_smul` (the text's formulas for every representative) and `equivStructureₗ`.",
+    "decls": [
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.FormRep",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.FormRep.Rel",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.toStructure",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.equivStructure",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk_add",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.mk_smul",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.equivStructureₗ"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "The vector-space structure is transported from `c.out` and then shown to satisfy the text's formula for every representative. The representatives are related by $f^*$ (`ScForm.toStructure_eq_formsPullback`, in the §16.4 file)."
+   ]
+  },
+  {
+   "id": "V16.21",
+   "title": "Theorem 16.2.6 (2017: 16.2), the de Rham complex of a polyfold",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.2, Theorem 16.2.6, p. 721 (2017: Theorem 16.2)",
+    "page": 721,
+    "statement": "$(\\Omega^*_{sc}(Z,c), d)$ is a de Rham complex, and sc-smooth maps of polyfolds pull it back."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.theorem_16_2_6_complex c k`: $d[(\\omega,q)] = [(d\\omega,q)]$, $d \\circ d = 0$, and $\\omega \\mapsto [(\\omega,q)]$ is the linear isomorphism `equivStructureₗ.symm`; `ScForm.d`, `d_mk`, `d_comp_d`.",
+    "decls": [
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.theorem_16_2_6_complex",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d_mk",
+     "Chapter16/P3H_PolyfoldForms · PolyfoldClass.ScForm.d_comp_d"
+    ]
+   },
+   "chips": [
+    "complex: as stated",
+    "pull-back: G.157"
+   ],
+   "diff": [
+    "The pull-back by sc-smooth maps of polyfolds needs the morphisms of Definitions 16.1.6–16.1.11, which are not formalized (gap G.157)."
+   ]
+  },
+  {
+   "id": "V16.22",
+   "title": "Definition 16.4.1 (2017: 16.29), branched suborbifolds of a polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§16.4, Definition 16.4.1, p. 730 (2017: Definition 16.29)",
+    "page": 730,
+    "statement": "A branched suborbifold is a class $[\\Theta,(X,\\alpha)]$ under $f^*\\Theta' = \\Theta$ and $\\alpha' \\circ |f| = \\alpha$; $\\theta = |\\Theta| \\circ \\alpha^{-1} : Z \\to \\mathbb Q^+$ is well defined."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.BranchedRep`, `BranchedRep.Rel` (an equivalence relation), `BranchedSuborbifold c`; `BranchedSuborbifold.toFun` ($\\theta$), `definition_16_4_1_wellDefined` ($\\theta(\\alpha|x|) = \\Theta(x)$ for every representative); key lemma `EPLoc.pullTheta_eq_of_orbitMap` ($(f^*\\Theta')(x) = \\Theta'(y)$ when $|f||x| = |y|$), `EPLoc.pullTheta_id_of_isFunctorial`.",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedRep",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedRep.Rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_1_wellDefined",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_eq_of_orbitMap",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullTheta_id_of_isFunctorial"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V16.23",
+   "title": "Definition 16.4.2 (2017: 16.30), closed, compact, manifold-type, orbifold-type, tame",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.4, Definition 16.4.2, p. 730, and p. 729 (2017: Definition 16.30)",
+    "page": 730,
+    "statement": "$\\theta$ is closed, compact, of manifold-type, of orbifold-type or tame if $\\Theta$ is; before Definition 16.4.1 (p. 729) the text says these properties are preserved by $f_*$ and $f^*$."
+   },
+   "lean": {
+    "statement": "`HasRepProperty P θ` (some representative has $P$), `hasRepProperty_iff` (for $P$ stable under pull-backs, some iff all); `IsClosed`, `IsCompact`, `IsManifoldType`, `IsOrbifoldType`, `IsNDimensional`, each with the all-representatives form `definition_16_4_2_closed`, `_compact`, `_manifold`, `_orbifold`, `_nDim` (from Theorem 11.3.3 (3)–(6)); `IsTame` (Definition 9.3.6) in the \"some representative\" form only.",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.HasRepProperty",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.hasRepProperty_iff",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsClosed",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsCompact",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsManifoldType",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsOrbifoldType",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsTame",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_closed",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_compact",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_manifold",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_orbifold",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_nDim"
+    ]
+   },
+   "chips": [
+    "(1)–(4): as stated",
+    "tame: some representative; G.154"
+   ],
+   "diff": [
+    "That tameness is preserved by generalized isomorphisms (p. 729) is not formalized (gap G.154), so \"tame\" means \"some representative is tame\"."
+   ]
+  },
+  {
+   "id": "V16.24",
+   "title": "Proposition 16.4.3 (2017: 16.6), the structure on $\\mathrm{supp}\\,\\theta$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
+    "page": 730,
+    "statement": "$A = \\mathrm{supp}\\,\\theta$ has a natural smooth manifold (orbifold) structure for $\\theta$ of manifold-type (orbifold-type), induced from the overhead (Proposition 9.1.9, Theorem 11.3.3)."
+   },
+   "lean": {
+    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.supp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_supp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_homeomorph",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_orbifold"
+    ]
+   },
+   "chips": [
+    "per representative",
+    "\"natural\": G.155"
+   ],
+   "diff": [
+    "Done for every representative. That two representatives induce diffeomorphic structures (\"natural\") is gap G.155."
+   ]
+  },
+  {
+   "id": "V16.25",
+   "title": "Definition 16.4.4 (2017: 16.31), oriented branched suborbifolds",
+   "verdict": "same",
+   "book": {
+    "label": "§16.4, Definition 16.4.4, pp. 730–731 (2017: Definition 16.31)",
+    "page": 730,
+    "statement": "Oriented branched suborbifolds are classes $[(\\Theta,\\hat T_\\Theta),(X,\\alpha)]$ under $f^*(\\Theta',\\hat T_{\\Theta'}) = (\\Theta,\\hat T_\\Theta)$ and $\\alpha' \\circ |f| = \\alpha$."
+   },
+   "lean": {
+    "statement": "`PolyfoldClass.OrientedRep` (fields `p`, `mem`, `A : OrientedBranched p.X`, `smooth`), `OrientedRep.Rel` (an equivalence relation, by `OrientedBranched.pull`, `pull_comp`, `EPLoc.pull_id_of_mem`), `OrientedSuborbifold c`, `OrientedSuborbifold.toBranched`.",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.Rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedSuborbifold.toBranched",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pull_id_of_mem",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.pullSection_id_of_mem"
+    ]
+   },
+   "chips": [
+    "$\\hat T = 0$ off $X_\\infty$"
+   ],
+   "diff": [
+    "$\\hat T$ is required to vanish off $X_\\infty$ (field `smooth`): the text's $\\hat T_\\Theta$ lives over $X_\\infty$, and $f^*$ only reads $X_\\infty$ (`EPLoc.pullSection_congr`). Reflexivity needs it ($1^*\\hat T = \\hat T$ only for such $\\hat T$). Every Chapter 11 pull-back satisfies it (`pullSection_mem`), so it is a normalization, not an added hypothesis."
+   ]
+  },
+  {
+   "id": "V16.26",
+   "title": "Definition 16.4.5 (2017: 16.34), the boundary $\\partial\\hat\\theta$",
+   "verdict": "same",
+   "book": {
+    "label": "§16.4, Definition 16.4.5, p. 731 (2017: Definition 16.34)",
+    "page": 731,
+    "statement": "For tame $\\hat\\theta$, $\\partial\\hat\\theta = [\\partial(\\Theta,\\hat T_\\Theta),(X,\\alpha)]$; it is compatible with the relation (Theorem 11.3.9)."
+   },
+   "lean": {
+    "statement": "`definition_16_4_5_wellDefined` (related representatives, via $f$, have $f^*\\partial\\Theta' = \\partial\\Theta$ and $f^*\\hat T_{\\partial\\Theta'} = \\hat T_{\\partial\\Theta}$); `OrientedRep.boundaryFun` ($\\partial\\theta = |\\partial\\Theta| \\circ \\alpha^{-1}$), `boundaryFun_eq_of_rel` (independent of the representative).",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.definition_16_4_5_wellDefined",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryFun_eq_of_rel"
+    ]
+   },
+   "chips": [
+    "componentwise, as Chapter 11"
+   ],
+   "diff": [
+    "$\\partial(\\Theta,\\hat T)$ is formalized componentwise (`boundaryTheta`, `boundaryOrientation`), as in Chapter 11, not as an `OrientedBranched`. The compatibility holds without tameness."
+   ]
+  },
+  {
+   "id": "V16.27",
+   "title": "The integrals on p. 732 and their independence of the representative",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.4, after Definition 16.4.5, p. 732 (2017: §16.4)",
+    "page": 732,
+    "statement": "$\\int_{\\hat\\theta}\\tau = \\mu^{\\hat\\Theta}_\\omega(|\\mathrm{supp}\\,\\Theta|)$ and $\\oint_{\\hat\\theta}\\tau$ (Definition 9.5.6), likewise on $\\partial\\hat\\theta$; \"the definition does not depend on the choice of the representatives\"."
+   },
+   "lean": {
+    "statement": "On a representative with `IsTameOriented a n` (Chapter 9's `hloc`): `OrientedRep.integral`, `integralEff` (LUC from ZHOU, Proposition 7.4.10), `boundaryIntegral`, `boundaryIntegralEff`. Independence among tame compact representatives: `integral_eq_of_rel` (Theorem 11.4.1 via `EPLoc.tameBranchedIntegral_pull`), `integralEff_eq_of_rel` (Theorem 11.4.2 via `EPLoc.tameBranchedIntegralEff_pull`), and for the boundary integrals `boundaryIntegral_eq_of_rel`, `boundaryIntegralEff_eq_of_rel`, `boundaryIntegralDim1_eq_of_rel` (with partitions of unity, from Stokes).",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.IsTameOriented",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integral",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integral_eq_of_rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.integralEff_eq_of_rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegral_eq_of_rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralEff_eq_of_rel",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.boundaryIntegralDim1_eq_of_rel",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegral_pull",
+     "Chapter16/P3H_BranchedSuborbifold · EPLocalization.EPLoc.tameBranchedIntegralEff_pull"
+    ]
+   },
+   "chips": [
+    "tame compact representatives (G.154)",
+    "boundary: partitions of unity (G.153)"
+   ],
+   "diff": [
+    "Hidden hypotheses: the boundary-integral independence lemmas carry `hPU : c.AdmitsScPartitionsOfUnity` (from Stokes, V16.28), with the witness `theorem_16_4_6_hyp_witness`.",
+    "The integrals are defined on tame compact representatives, and independence is proved among those, since tameness invariance is gap G.154."
+   ]
+  },
+  {
+   "id": "V16.28",
+   "title": "Theorem 16.4.6 (2017: 16.5), Stokes for branched suborbifolds of a polyfold",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.4, Theorem 16.4.6, p. 732 (2017: Theorem 16.5)",
+    "page": 732,
+    "statement": "For $\\tau = [\\omega,(X,\\alpha)]$ of degree $n - 1$ and $\\hat\\theta$ oriented, tame, compact, of dimension $n$: $\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ and $\\oint_{\\hat\\theta} d\\tau = \\oint_{\\partial\\hat\\theta}\\tau$. \"On the ep-groupoid level Stokes' Theorem holds and consequently it holds in the polyfold context as well\" (p. 732)."
+   },
+   "lean": {
+    "statement": "`OrientedRep.theorem_16_4_6_hyp (hPU : c.AdmitsScPartitionsOfUnity)` for $n = m + 1 \\ge 2$ (from `EP.theorem_9_5_17`); `theorem_16_4_6_eff_hyp` (`EP.theorem_9_5_18`, LUC from ZHOU); `theorem_16_4_6_dim1_hyp`, `theorem_16_4_6_eff_dim1_hyp` for $n = 1$ (`theorem_9_5_17_dim1`, `theorem_9_5_18_dim1`); `theorem_16_4_6_both_hyp`. Witness: `theorem_16_4_6_hyp_witness` (= `z3Polyfold_admitsScPartitionsOfUnity`).",
+    "decls": [
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_hyp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_hyp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_dim1_hyp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_both_hyp",
+     "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp_witness"
+    ]
+   },
+   "chips": [
+    "added: partitions of unity (G.153)",
+    "tame on the representative used"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hPU : c.AdmitsScPartitionsOfUnity` (Definition 16.1.5 for $c$; by D16.1.5 (2), `definition_16_1_5_two`, every representative then has them). Witness `theorem_16_4_6_hyp_witness`. Theorem 9.5.17, the ep-groupoid Stokes the text reduces to, assumes \"admitting sc-smooth partitions of unity\"; Theorem 16.4.6 does not state it, and the standing assumption of Chapter 16 is only ZHOU (p. 705). Removing it is gap G.153.",
+    "Tameness is Chapter 9's (oriented tame structures describing $\\hat T$), on the representative used (gap G.154)."
+   ]
   }
  ],
  "notFormalized": [
@@ -325,7 +733,69 @@
    "label": "§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)",
    "page": 706,
    "book": "If $|X|$ is paracompact, $Z \\cong |X|$ is metrizable (locally metrizable, regular, Hausdorff and paracompact: Nagata–Smirnov).",
-   "instead": "Local metrizability of $|X|$ (`lemma_7_3_2_naturalRep`), regularity and the Hausdorff property (Lemmas 7.3.4, 7.3.5) exist; the Smirnov metrization theorem is not in Mathlib (estimate 600–1,500 lines). In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V16.14): `PolyfoldStructure.metrizableSpace` (`P3H_TangentPolyfold.lean`), from Theorem 7.3.1's `theorem_7_3_1_metrizable`. The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed. In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.",
+   "formalized": [
+    "V16.14"
+   ],
+   "decls": [
+    "Chapter16/P3H_TangentPolyfold · PolyfoldStructure.metrizableSpace"
+   ]
+  },
+  {
+   "g": 153,
+   "title": "Stokes on polyfolds without partitions of unity",
+   "label": "§16.4, Theorem 16.4.6, p. 732 (2017: Theorem 16.5)",
+   "page": 732,
+   "book": "$\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ with no hypothesis on $(Z,c)$ beyond being a polyfold (the standing assumption of Chapter 16 is ZHOU; partitions of unity are not assumed).",
+   "instead": "`theorem_16_4_6_hyp` and `theorem_16_4_6_eff_hyp` (V16.28), with `c.AdmitsScPartitionsOfUnity` as Theorem 9.5.17 assumes. Removing it needs Stokes on ep-groupoids without partitions of unity, using the compactness of $\\mathrm{supp}\\,\\Theta$ for a finite cut-off. Estimate 300–600 lines.",
+   "decls": [
+    "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"
+   ]
+  },
+  {
+   "g": 154,
+   "title": "Tameness of branched suborbifolds is invariant",
+   "label": "§16.4, p. 729, and Definition 16.4.2 (5), p. 730 (2017: Definition 16.30)",
+   "page": 729,
+   "book": "If $\\Theta$ is tame, so are $f_*\\Theta$ and $f^*\\Theta$.",
+   "instead": "`IsTame` means some representative is tame (V16.23). The integrals are defined on tame representatives, and independence is proved among those (`integral_eq_of_rel`, V16.27). Transporting `TameBranchingStructure` (Definition 9.3.6) and `OrientedTameStructure` along equivalences of ep-groupoids is not formalized. Estimate 250–500 lines.",
+   "decls": [
+    "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.IsTame"
+   ]
+  },
+  {
+   "g": 155,
+   "title": "Naturality of the structure on $\\mathrm{supp}\\,\\theta$",
+   "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
+   "page": 730,
+   "book": "The manifold (orbifold) structure on $\\mathrm{supp}\\,\\theta$ is induced from the overhead and does not depend on the representative.",
+   "instead": "For every representative: $\\mathrm{supp}\\,\\theta \\simeq_t |\\mathrm{supp}\\,\\Theta|$ and Proposition 9.1.9 (`proposition_16_4_3_manifold`, `proposition_16_4_3_orbifold`, V16.24). That two representatives give diffeomorphic structures is not formalized. Estimate 150–300 lines.",
+   "decls": [
+    "Chapter16/P3H_BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold"
+   ]
+  },
+  {
+   "g": 156,
+   "title": "The tangent projection and the raised polyfolds",
+   "label": "§16.2, pp. 715 and 717 (2017: §16.2)",
+   "page": 715,
+   "book": "$(Z,c)^i = (Z_i, c_i)$, and $\\tau_Z : T(Z,c) \\to Z^1$ with $\\tau_Z \\circ T\\alpha = \\alpha \\circ |\\tau_X|$.",
+   "instead": "$T(Z,c)$, $T\\alpha$, (16.5), Lemma 16.2.2 and Definition 16.2.3 are formalized (`P3H_TangentPolyfold.lean`, V16.16–V16.18). The raised structures $c_i$ (via `liftOne`) and $\\tau_Z$ are not. Estimate 100–200 lines.",
+   "decls": [
+    "Chapter16/P3H_TangentPolyfold · PolyfoldClass.TangentSpace"
+   ]
+  },
+  {
+   "g": 157,
+   "title": "The tangent functor and the pull-back of forms on the polyfold category",
+   "label": "§16.2, Theorem 16.2.4, p. 719; Theorem 16.2.6 (second part), p. 721 (2017: Theorems 16.1, 16.2)",
+   "page": 719,
+   "book": "$T$ is a functor on the polyfold category; sc-smooth maps pull back $\\Omega^*_{sc}$, commuting with $d$.",
+   "instead": "Needs the morphisms of Definitions 16.1.6–16.1.11 (not formalized). The ep-level tools exist: `EPLoc.tangentHom`, `tangentHom_comp`, `EPLoc.formsPullback`, `formsPullback_comp`, `orbitMap_tangentHom_eq` (V16.15, V16.19). Estimate 300–500 lines including the category.",
+   "decls": [
+    "Chapter16/P3H_TangentLemma · EPLocalization.EPLoc.tangentHom",
+    "Chapter16/P3H_PolyfoldForms · PolyfoldClass.theorem_16_2_6_complex"
+   ]
   }
  ]
 }

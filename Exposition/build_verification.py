@@ -65,15 +65,18 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "equivalence, coverings and equivalences (sc-differential forms and integration not formalized)", ["Chapter11"]),
     ("12", "Part III, Ch. 12, §§12.1–12.5 (2017 Chapter 12)", "Fredholm theory in ep-groupoids: sc-Fredholm section "
      "functors, auxiliary norms, the good neighbourhood theorem, continuous partitions of unity, the extension of "
-     "auxiliary norms from the boundary, bump functions and sc⁺-section functors, extension from the boundary in a "
-     "local model, compactness and properness, the orientation bundle (wave 1)", ["Chapter12"]),
-    ("13", "Part III, Ch. 13, §§13.1–13.2 (2017 Chapter 13)", "sc⁺-multisections: good systems of neighbourhoods, "
-     "the natural bi-action, existence and extension of good systems; support, pointwise norm, symmetric structures, "
-     "sums, scalar multiples and locally finite sums at functor level (wave 1)", ["Chapter13"]),
-    ("15", "Part III, Ch. 15, §15.1 (2017 Chapter 15)", "transversality and invariants: the linearization "
-     "T(f, Λ), its well-definedness, the separation lemmas (wave 1)", ["Chapter15"]),
-    ("16", "Part III, Ch. 16, §16.1 (2017 Chapter 16)", "polyfolds: polyfold structures and their equivalence, "
-     "bump functions and partitions of unity, the degeneracy index, the boundary, tameness (wave 1)", ["Chapter16"]),
+     "auxiliary norms from the boundary, reflexive auxiliary norms, bump functions and sc⁺-section functors, extension "
+     "from the boundary, compactness and properness, the orientation bundle and its naturality (waves 1–2)", ["Chapter12"]),
+    ("13", "Part III, Ch. 13, §§13.1–13.3, 13.5 (2017 Chapter 13)", "sc⁺-multisections: good systems of "
+     "neighbourhoods, the natural bi-action, existence and extension of good systems; support, pointwise norm, "
+     "symmetric structures, decorations, sums, scalar multiples and locally finite sums; structurable and atomic "
+     "sc⁺-multisections (waves 1–2)", ["Chapter13"]),
+    ("15", "Part III, Ch. 15, §§15.1–15.3 (2017 Chapter 15)", "transversality and invariants: the linearization "
+     "T(f, Λ), its well-definedness, the separation lemmas; transversality, good position and local solution sets; "
+     "compactness control, admissible perturbations and general position (waves 1–2)", ["Chapter15"]),
+    ("16", "Part III, Ch. 16, §§16.1, 16.2, 16.4 (2017 Chapter 16)", "polyfolds: polyfold structures and their "
+     "equivalence, bump functions and partitions of unity, the degeneracy index, the boundary, tameness; the tangent "
+     "polyfold and sc-differential forms; branched suborbifolds and Stokes' theorem (waves 1–2)", ["Chapter16"]),
 ]
 # ------------------------------------------------------------------------------------------------
 

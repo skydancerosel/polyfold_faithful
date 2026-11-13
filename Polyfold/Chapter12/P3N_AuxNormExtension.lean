@@ -34,12 +34,13 @@ gives `Ñ`.
   auxiliary norm of `X` has local extensions) and `theorem_12_2_7_hyp_witness` (for every strong
   bundle over an ep-groupoid with paracompact `|X|`, an `N` satisfying all hypotheses exists).
 
-## Not formalized here
+## The local step
 
-The coordinate construction `N'` of the local step (it needs a strong bundle chart over a *tame*
-base chart, and the fibre maps `A(u)` at level `F₁`; the project's strong bundle charts are not
-known to have tame base retractions, so the local step needs a "tame strong bundle chart"
-construction first).  See the hand-over note for the gap text.
+The coordinate construction `N'` of the local step is in `P3E_AuxNormLocalExtension.lean`
+(Part III wave 2): `EpStrongBundle.hasLocalExtensions_of_isTame` discharges the hypothesis of
+`theorem_12_2_7_hyp` for tame `X`, and `EpStrongBundle.theorem_12_2_7` is the printed theorem.
+The retraction `r ∘ q` is built in a tame chart of the base, and the formula for `N'` is
+evaluated in any strong bundle chart of the atlas, so no "tame strong bundle chart" is needed.
 -/
 
 open Set Filter Topology Function TopologicalSpace

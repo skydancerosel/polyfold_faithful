@@ -42,8 +42,10 @@ around `Θ_x`; this gives a good system on `V`, which Theorem 13.1.7 extends.
 * **Theorem 13.1.7: "a good system for the ep-groupoid `Q`"** is `IsGoodOn N Q`: `U(q) ⊆ Q` for
   `q ∈ Q`, the natural actions and condition (3) as in `X` (they coincide for the full
   subcategory on the open `Q`), and condition (1) read in `X`: `t : s⁻¹(cl_X U(q)) → X` proper.
-  This is the form the proof uses ("`U` clearly satisfies Properties (1) and (2)"); the project
-  has no full sub-ep-groupoid on an open non-saturated `Q`.  The good system extends the given
+  This is the form the proof uses ("`U` clearly satisfies Properties (1) and (2)").  The printed
+  form, with condition (1) read in the full subcategory on `Q`, is `theorem_13_1_7_book` in
+  `P3E_GoodSystemRelative.lean` (Part III wave 2), which reduces it to this one (`Q`-properness
+  implies `X`-properness, `isProperSubset_of_isProperSubsetIn`).  The good system extends the given
   family (`𝒰.nbhd q = N q` for `q ∈ Q`).
 * **The proof of Theorem 13.1.7** is organised differently: every `x` gets a transport (the
   units for `x ∈ Q`, `(t|O(ψ_x))⁻¹` otherwise) and one argument covers the text's three cases;

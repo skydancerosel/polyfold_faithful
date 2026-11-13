@@ -196,15 +196,24 @@
   {
    "id": "V12.9",
    "title": "Theorem 12.2.7 (2017: 12.3), extension of auxiliary norms from the boundary",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§12.2, Theorem 12.2.7, pp. 574–576 (2017: Theorem 12.3)",
     "page": 574,
     "statement": "For a strong bundle over a tame ep-groupoid with paracompact $|X|$, an auxiliary norm for $W|\\partial X$ extends to an auxiliary norm of $W$. The proof extends $N$ near $x_0 \\in \\partial X$ in a tame local model by $N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$, then averages over $G_{x_0}$, transports to the saturation and glues as in Theorem 12.2.2."
    },
    "lean": {
-    "statement": "`EpStrongBundle.theorem_12_2_7_hyp (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N) (hloc : HasLocalExtensions X B N)`: there is $\\tilde N$ with `E.IsAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$; `HasLocalExtensions X B N` says that every $x \\in \\partial X$ has an open $V \\ni x$ and a local auxiliary norm $M$ on $V$ equal to $N$ over $V \\cap \\partial X$. Witness: `theorem_12_2_7_hyp_witness` (every bundle with paracompact $|X|$ has such an $N$); every restriction of a global auxiliary norm satisfies `hloc` (`hasLocalExtensions_of_isAuxNorm`).",
+    "statement": "`EpStrongBundle.theorem_12_2_7 (hX : X.IsTame) (h : X.HasParacompactOrbitSpace) (hN : E.IsAuxNormOn ∂X N)`: there is $\\tilde N$ with `E.IsAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. It is `theorem_12_2_7_hyp` (the global part) with its hypothesis `HasLocalExtensions X B N` discharged by `hasLocalExtensions_of_isTame hX hN`. The local step is the Part I theorem `StrongBundle.exists_localExtension_of_isTame (hP : PX.IsTame)`: for $N$ continuous on $W_{0,1}|\\partial X$, a seminorm on the fibres over $\\partial X$ and with condition (2) for sequences in $\\partial X$, every $x_0 \\in \\partial X$ has an open $V \\ni x_0$ and a local auxiliary norm $M$ on $V$ with $M = N$ over $V \\cap \\partial X$. `IsAuxNormOn A N` is Definition 12.2.1 over $A$.",
     "decls": [
+     "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
+     "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm",
+     "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
+     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift",
+     "Chapter12/P3E_AuxNormLocalExtension · minCoord",
      "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp",
      "Chapter12/P3N_AuxNormExtension · EpStrongBundle.theorem_12_2_7_hyp_witness",
      "Chapter12/P3N_AuxNormExtension · EpStrongBundle.IsAuxNormOn",
@@ -217,12 +226,12 @@
     ]
    },
    "chips": [
-    "local step as hypothesis `hloc` (G.136)",
-    "global part proved; tameness unused"
+    "as printed (wave 2; G.136 closed)",
+    "local step in Part I form"
    ],
    "diff": [
-    "Hidden hypotheses: `hloc : HasLocalExtensions X B N`, the local step of the text's proof, with the witness `theorem_12_2_7_hyp_witness`.",
-    "The local coordinate step in a tame strong bundle chart is gap G.136. All of the global part is proved: the extension property survives the $G_x$-average because $N$ is invariant, the transport to the saturation, natural representations inside $X \\setminus \\partial X$ carrying a Part I norm, and the gluing (each nonzero term is $\\beta_x N$, since the saturation of an interior neighbourhood misses $\\partial X$). Tameness is used only to discharge `hloc`. The text's $N$ is defined on $W_{0,1}|\\partial X$; here it is a function on $W_{0,1}$ with conditions only over $\\partial X$, which is equivalent."
+    "Hypotheses as printed (tame $X$, paracompact $|X|$, $N$ an auxiliary norm over $\\partial X$ in the reading `IsAuxNormOn`). Readings of the local step: the retraction $r \\circ q$ is built in a tame chart $\\psi$ of $X$ (`MPolyfold.exists_retraction_boundary`: $\\rho = \\psi^{-1} r q \\psi$, continuous on an open $V \\ni x_0$, values in $\\partial X$ by tameness, identity on $V \\cap \\partial X$), with $\\tau = \\min$ over the coordinates of a presentation of $C$ (`minCoord`); the fibre formula is evaluated in an arbitrary strong bundle chart of the atlas around $x_0$, through $\\Phi[1]$ (`retractNorm`), with $A(u)$ the fibre part of $R[1]$ (`chartFibMap`). The text's single local model with a tame base retraction is not needed; only the continuity of $\\rho$ and its two properties enter.",
+    "Continuity of $N'$ on $W_{0,1}$ uses the joint continuity of $(u,h) \\mapsto A(u)h$ on $U \\oplus F_1$ (level 0 of the sc-smooth $R$ on $(U \\triangleleft F)[1]$). Condition (2) for $N'$: $N(Tw_k) \\to 0$ gives $Tw_k \\to 0_{\\rho(y)}$ by (2) for $N$ (applied to a tail of the sequence), hence $A(u_k)h_k \\to 0$ in $F_1$, and $\\|h_k - A(u_k)h_k\\| \\to 0$ gives $h_k \\to 0$. The invariance of $N$ is used only in the averaging step of `theorem_12_2_7_hyp`, which stays as the global part (`theorem_12_2_7_hyp`, with the witness `theorem_12_2_7_hyp_witness` of its hypothesis). Tame $X$ is satisfiable (`isTame_trivial`)."
    ]
   },
   {
@@ -391,22 +400,26 @@
     "statement": "Over a tame ep-groupoid, $s : \\partial X \\to W$ with $P \\circ s = \\mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \\in \\partial X$ and every local face $F \\ni x$, $s|F$ is an sc⁺-section of $W|F \\to F$."
    },
    "lean": {
-    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The M-polyfold form is Definition 5.4.1 (V5.88), applicable to the object M-polyfold. Witness: the zero section (`isBoundaryScPlusSectionOn_zero`).",
+    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff_p3x`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
     "decls": [
      "Chapter12/P3B_LocalBoundaryExtension · retractBoundary",
      "Chapter12/P3B_LocalBoundaryExtension · IsScPlusOnFaceNear",
      "Chapter12/P3B_LocalBoundaryExtension · IsBoundaryScPlusSectionOn",
      "Chapter12/P3B_LocalBoundaryExtension · mem_retractBoundary_iff",
      "Chapter12/P3B_LocalBoundaryExtension · isBoundaryScPlusSectionOn_zero",
-     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.IsBoundaryScPlusSection"
+     "Chapter5/P3B_BoundaryExtension2021 · StrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero",
+     "Chapter12/P3X_ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff_p3x"
     ]
    },
    "chips": [
     "chart-level form",
-    "ep wrapper: G.137"
+    "ep form: object M-polyfold (G.137 closed)"
    ],
    "diff": [
-    "This is the chart-level content used by Proposition 12.3.7 and Corollary 12.3.8; the named ep-groupoid wrapper is gap G.137."
+    "The chart-level form is the content used by Proposition 12.3.7 and Corollary 12.3.8. The ep-groupoid form is the M-polyfold form on objects; the local faces are read chart-wise, as in Definition 5.4.1 (V5.88). The functor condition \"on $W|\\partial X$\" is read on morphisms between boundary points."
    ]
   },
   {
@@ -706,6 +719,468 @@
     "replaces the completeness claim"
    ],
    "diff": []
+  },
+  {
+   "id": "V12.28",
+   "title": "Reflexive $1$-fibres for strong bundles over ep-groupoids (before Definition 12.2.8)",
+   "verdict": "restated",
+   "book": {
+    "label": "§12.2, before Definition 12.2.8, p. 576 (2017: before Definition 12.5)",
+    "page": 576,
+    "statement": "$P : W \\to X$ over an ep-groupoid has reflexive $1$-fibres if some strong bundle atlas has local models $K \\subset C \\triangleleft F$ with $F_1$ reflexive."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.HasReflexiveFibers E` is `B.HasReflexiveFibers`, Part I's Definition 5.1.4 (V5.77) for the object bundle $W \\to X$.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.HasReflexiveFibers"
+    ]
+   },
+   "chips": [
+    "atlas read as in Part I (V5.77)"
+   ],
+   "diff": [
+    "The atlas condition is read as in Part I (V5.77): the reflexive compatible charts cover $X$."
+   ]
+  },
+  {
+   "id": "V12.29",
+   "title": "Definition 12.2.8 (2017: 12.5), mixed convergence",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Definition 12.2.8, p. 576 (2017: Definition 12.5)",
+    "page": 576,
+    "statement": "$w_k \\in W_{0,1}$ is mixed convergent to $w \\in W_{0,1}$ if $P(w_k) \\to P(w)$ in $X_0$ and, in some strong bundle chart with $F_1$ reflexive, the fibre parts converge weakly, $h_k \\rightharpoonup h$ in $F_1$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.MixedTendsto E w y` is `B.MixedTendsto w y` (Part I's Definition 5.1.6, V5.79); `definition_12_2_8` unfolds it (`Iff.rfl`).",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.MixedTendsto",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.definition_12_2_8"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V12.30",
+   "title": "Remark 12.2.9 (2017: 12.1), mixed convergence is chart independent and preserved by morphisms",
+   "verdict": "stronger",
+   "book": {
+    "label": "§12.2, Remark 12.2.9, pp. 576–577 (2017: Remark 12.1)",
+    "page": 576,
+    "statement": "Mixed convergence does not depend on the chart (Lemma 5.1.5): for a transition $\\Phi(a,h) = (\\varphi(a), A(a,h))$, $h_k \\rightharpoonup h$ gives $h_k \\to h$ in $F_0$, the $A(a_k,\\cdot)$ are uniformly bounded, so $(l_k)$ is bounded in $F'_1$ and converges on level 0, hence $l_k \\rightharpoonup l$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.remark_12_2_9`: for $w_k \\to^m w$ (and reflexive fibres): (i) weak convergence in every compatible chart around $P(w)$ with reflexive $F_1$; (ii) $w_k \\to w$ in $W$; (iii) for every sc-smooth local section $\\alpha$ of $s$ on an open $S \\ni P(w)$, $\\mu(\\alpha(Pw_k), w_k) \\to^m \\mu(\\alpha(Pw), w)$ (`mixedTendsto_actOne`; pointwise form at a morphism `exists_mixedTendsto_μ`).",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_9",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedTendsto_actOne",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.exists_mixedTendsto_μ",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.mixedTendsto_of_bounded",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedTendsto.exists_eventually_le",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.exists_le_mul_auxNorm"
+    ]
+   },
+   "chips": [
+    "morphisms preserve mixed convergence"
+   ],
+   "diff": [
+    "(i) is the remark (Part I's `MixedTendsto.weakTendsto_of_isChart`). (iii) is added: the same argument for the fibre maps of $\\mu$ instead of a transition map (level-0 continuity of $\\mu$, a local bound $N_0 \\circ \\mu(\\alpha,\\cdot) \\le C N_0$ for an auxiliary norm, `exists_le_mul_auxNorm`, then \"bounded and level-0 convergent implies mixed convergent\", `mixedTendsto_of_bounded`). It keeps the lower semicontinuity through the transports in the proofs of Theorems 12.2.11 and 12.2.13."
+   ]
+  },
+  {
+   "id": "V12.31",
+   "title": "Definition 12.2.10 (2017: 12.6), reflexive auxiliary norms on ep-groupoids",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Definition 12.2.10, p. 577 (2017: Definition 12.6)",
+    "page": 577,
+    "statement": "A continuous $N : W_{0,1} \\to [0,\\infty)$ with (0) $N(\\mu(\\varphi,h)) = N(h)$, (1) a complete norm on the fibres, (2) $P(w_k) \\to x$, $N(w_k) \\to 0$ implies $w_k \\to 0_x$, (3) $N(w) \\le \\liminf_{k \\to 0} N(w_k)$ for $w_k \\to^m w$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.IsReflexiveAuxNorm E N`: a structure extending `E.IsAuxNorm N` (Definition 12.2.1 = 8.3.5, continuity and (0)–(2)) with the field `le_liminf` (the liminf in `EReal`). `IsReflexiveAuxNorm.toStrong` gives Part I's Definition 5.1.7; `isReflexiveAuxNorm_of_mixedLscAt`.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.IsReflexiveAuxNorm.toStrong",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_of_mixedLscAt"
+    ]
+   },
+   "chips": [
+    "$\\liminf_{k\\to0}$ read $k \\to \\infty$"
+   ],
+   "diff": [
+    "The printed $\\liminf_{k \\to 0}$ is presumably $k \\to \\infty$, as in Part I (V5.80)."
+   ]
+  },
+  {
+   "id": "V12.32",
+   "title": "Theorem 12.2.11 (2017: 12.4), existence of reflexive auxiliary norms",
+   "verdict": "same",
+   "book": {
+    "label": "§12.2, Theorem 12.2.11, p. 577 (proof p. 578) (2017: Theorem 12.4)",
+    "page": 577,
+    "statement": "With reflexive $1$-fibres and $|X|$ paracompact: a reflexive auxiliary norm exists; $h \\mapsto f(P(h)) N(h)$ is one for every functorial continuous $f : X \\to (0,\\infty)$; every auxiliary norm $N'$ has reflexive $N_1 \\le N' \\le N_2$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_2_11 E h hB` (the three clauses), with the parts `theorem_12_2_11_exists`, `theorem_12_2_11_mul`, `theorem_12_2_11_sandwich`. The hypotheses are exactly `X.HasParacompactOrbitSpace` and `E.HasReflexiveFibers`.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_exists",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_mul",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.theorem_12_2_11_sandwich",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_avgNorm",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_transNorm",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_glueNorm",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.isReflexiveAuxNorm_glueNorm"
+    ]
+   },
+   "chips": [
+    "as printed",
+    "lsc kept by average, transport, gluing"
+   ],
+   "diff": [
+    "The proof is the text's: average over $G_x$ on a natural-representation domain, transport to the saturation, glue with a partition of unity of $|X|$ (wave 1's `avgNorm`, `transNorm`, `glueNorm`). The local norm is a Part I reflexive auxiliary norm (Proposition 5.1.8) instead of $\\|\\mathrm{pr}_2 \\circ \\Psi(g * h)\\|_{F_1}$. The lower semicontinuity is kept by the average (`mixedLscAt_avgNorm`), the transport (`mixedLscAt_transNorm`, through `mixedTendsto_actOne`) and the gluing (`mixedLscAt_glueNorm`: finitely many terms near $|P(w)|$, and terms with $\\beta_\\lambda(|P(w)|) = 0$ are $\\ge 0$). The sandwich: $N \\le (f \\circ P) N'$ and $N' \\le (g \\circ P) N$ by Remark 12.2.12 (2), then $N_1 = (f \\circ P)^{-1} N$, $N_2 = (g \\circ P) N$ by Remark 12.2.12 (1)."
+   ]
+  },
+  {
+   "id": "V12.33",
+   "title": "Remark 12.2.12 (2017: 12.2), scaling, comparison and cut-off of reflexive auxiliary norms",
+   "verdict": "stronger",
+   "book": {
+    "label": "§12.2, Remark 12.2.12, pp. 577–578 (2017: Remark 12.2)",
+    "page": 577,
+    "statement": "(1) $(f \\circ P) N$ is reflexive for reflexive $N$ and functorial continuous $f > 0$. (2) For auxiliary norms $N_1, N_2$ there is such an $f$ with $N_1 \\le (f \\circ P) N_2$. (3) For $U$ saturated open, $N$ reflexive for $W_{0,1}|U$ and $f \\ge 0$ functorial continuous with $\\mathrm{supp} f \\subset U$: $\\tilde N = f N$ on $U$, $0$ off $U$, satisfies $\\tilde N(w) \\le \\liminf \\tilde N(w_k)$ for $w_k \\to^m w$."
+   },
+   "lean": {
+    "statement": "`remark_12_2_12_1` (as printed); `remark_12_2_12_2` (with $|X|$ paracompact: a continuous $f > 0$ with $f(s\\varphi) = f(t\\varphi)$ and $N_1 \\le (f \\circ P) N_2$); `remark_12_2_12_3` ($U$ open, $N \\ge 0$ and mixed-lsc over $U$, $f \\ge 0$ continuous: the liminf inequality for $\\tilde N = \\mathbf 1_U f N$).",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_1",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_2",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.remark_12_2_12_3",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.mul_comp"
+    ]
+   },
+   "chips": [
+    "(3) without saturation and support"
+   ],
+   "diff": [
+    "(1) and (2) as printed; (2) uses the paracompactness of $|X|$, which the remark's context has (local comparison by the bounds of Lemma 5.1.2, made invariant, glued by a partition of unity of $|X|$). (3) holds without the saturation of $U$, the functoriality of $f$ and $\\mathrm{supp} f \\subset U$, which serve the continuity and functoriality of $\\tilde N$, not the estimate: off $U$, $\\tilde N(w) = 0 \\le \\tilde N(w_k)$."
+   ]
+  },
+  {
+   "id": "V12.34",
+   "title": "Theorem 12.2.13 (2017: 12.5), extension of reflexive auxiliary norms from the boundary",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.2, Theorem 12.2.13, p. 578 (2017: Theorem 12.5)",
+    "page": 578,
+    "statement": "With reflexive $1$-fibres and $X$ tame: a reflexive auxiliary norm $N$ for $W_{0,1}|\\partial X$ extends to a reflexive auxiliary norm $\\tilde N$ of $W$. The proof: the local extension of Theorem 12.2.7 is well behaved under mixed limits \"by inspection\"; reflexive local norms near interior points; partitions of unity as in Theorem 12.2.11."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_2_13_hyp (h : X.HasParacompactOrbitSpace) (hB : E.HasReflexiveFibers) (hN : E.IsReflexiveAuxNormOn ∂X N) (hloc : HasReflexiveLocalExtensions X B N)`: there is $\\tilde N$ with `E.IsReflexiveAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. `IsReflexiveAuxNormOn A N` is `IsAuxNormOn A N` with the liminf clause over $A$; `HasReflexiveLocalExtensions X B N`: every $x \\in \\partial X$ has an open $V \\ni x$ and $M$ with `B.IsLocalAuxNorm V M`, `B.MixedLscAt M y` for $P(y) \\in V$, and $M = N$ over $V \\cap \\partial X$.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.IsReflexiveAuxNormOn",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions.hasLocalExtensions",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isReflexiveAuxNorm",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp_witness",
+     "Chapter12/P3R2_ReflexiveAuxNormExtension · TrivialBundle.epBundle_reflexive_witness"
+    ]
+   },
+   "chips": [
+    "local step as hypothesis `hloc` (G.147)",
+    "paracompact $|X|$ assumed"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hloc : HasReflexiveLocalExtensions X B N`, the local step of the proof (the extension of Theorem 12.2.7 with its lower semicontinuity under mixed convergence), with the witnesses `hasReflexiveLocalExtensions_of_isReflexiveAuxNorm`, `theorem_12_2_13_hyp_witness` and, concretely, `TrivialBundle.epBundle_reflexive_witness` (the trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid); `h : X.HasParacompactOrbitSpace`, which the text uses through the partition of unity of Theorem 12.2.7.",
+    "Everything else is proved: interior points carry the average of a reflexive norm of Proposition 5.1.8; average, transport and gluing keep the lower semicontinuity. `HasReflexiveLocalExtensions` implies wave 1's `HasLocalExtensions` (`.hasLocalExtensions`). Tameness enters only the local step and is dropped. The local step is gap G.147: the construction of Theorem 12.2.7 now exists (`StrongBundle.isLocalAuxNorm_retractNorm`, V12.9); its lower semicontinuity under mixed convergence is not proved."
+   ]
+  },
+  {
+   "id": "V12.35",
+   "title": "Theorem 12.3.9 (2017: 12.8), extension of sc⁺-section functors from the boundary",
+   "verdict": "same",
+   "book": {
+    "label": "§12.3, Theorem 12.3.9, pp. 586–587 (2017: Theorem 12.8)",
+    "page": 586,
+    "statement": "$(P : W \\to X, \\mu)$ a strong bundle over a tame ep-groupoid with $|X|$ paracompact, admitting sc-smooth partitions of unity; $s$ an sc⁺-section functor of $W|\\partial X$, $U$ a saturated open neighbourhood of $\\partial X$. Then there is an sc⁺-section functor $\\tilde s$ supported in $U$ with $\\tilde s|\\partial X = s$. Moreover, given an auxiliary norm $N$ and $\\delta > 0$ with $N(s(x)) < \\delta$ on $\\partial X$, $\\tilde s$ can be chosen with $N(\\tilde s(x)) \\le \\delta$ for all $x$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_3_9 E (hB : B.IsTameBundle) (_hpara : X.HasParacompactOrbitSpace) (hpu : X.HasScPartitionsOfUnity) (hs : E.IsBoundaryScPlusSectionFunctor s) (hU : IsOpen U) (hUsat : X.IsSaturated U) (hbU : ∂X ⊆ U)`: (1) there is $\\tilde s$ with `E.IsScPlusSectionFunctor s̃`, `sectionSupport P s̃ ⊆ U` and $\\tilde s = s$ on $\\partial X$; (2) for every `E.IsAuxNorm N`, $\\delta > 0$ and $N(s(x)) < \\delta$ on $\\partial X$, the same with $N(\\tilde s(x)) \\le \\delta$ for all $x$. The cores `exists_extension_of_tameCharts`, `exists_extension_bounded_of_tameCharts` assume only that every object lies in a tame strong bundle chart. Witness of all hypotheses: `theorem_12_3_9_hypotheses_rn`.",
+    "decls": [
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.theorem_12_3_9",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.theorem_12_3_9_hypotheses_rn",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_extension_of_tameCharts",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_extension_bounded_of_tameCharts",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_local_functor_extension",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.exists_equivariant_average_p3x",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_glueSection",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isFunctorialSection_glueSection",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isFunctorialSection_sectionSmul_p3x",
+     "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_fiberZero_p3x",
+     "Chapter12/P3X_ScPlusExtension · glueSection",
+     "Chapter12/P3X_ScPlusExtension · glueSection_eq_of",
+     "Chapter12/P3X_ScPlusExtension · sectionSupport_glueSection_subset",
+     "Chapter12/P3X_ScPlusExtension · isScPlusSection_glueSection",
+     "Chapter12/P3X_ScPlusExtension · EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity",
+     "Chapter12/P3X_ScPlusExtension · EpGroupoid.isSaturated_compl_boundary_p3x"
+    ]
+   },
+   "chips": [
+    "as printed",
+    "paracompactness kept, unused",
+    "text's $V'$ not needed"
+   ],
+   "diff": [
+    "Readings: \"strong bundle over the tame ep-groupoid\" is `B.IsTameBundle` for the object strong bundle, as in Theorem 5.4.2; the partitions of unity are Definition 7.5.5; \"supported in $U$\" is $\\mathrm{cl}\\{\\tilde s \\ne 0\\} \\subseteq U$. Paracompactness of $|X|$ is kept and unused, since the partitions of unity are assumed.",
+    "The proof is the text's, with two differences: the local step averages Part I's local extension (Proposition 12.3.7 in a tame chart, cut off) over $G_x$ in the natural representation, which is Corollary 12.3.8's formula, and extends to the saturation with `remark_12_3_5`; the average still extends $s$ because $s$ is functorial on $\\partial X$. For the bound, the cover $\\{V, X \\setminus \\partial X\\}$ with $V = \\{N(\\tilde s) < \\delta\\}$ gives $\\beta$ with $\\mathrm{supp}\\,\\beta \\subseteq V$ and $\\beta = 1$ on $\\partial X$; the text's second neighbourhood $V'$ is not needed. Bump functions on objects come from the ep partitions of unity (`admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity`, then `theorem_12_3_2_1`), which the text uses tacitly (\"Using Theorem 12.3.2 (2)\"); no bump hypothesis is added."
+   ]
+  },
+  {
+   "id": "V12.36",
+   "title": "Definition 12.4.3 (2017: 12.10), the ep-groupoid reflexive local compactness property",
+   "verdict": "same",
+   "book": {
+    "label": "§12.4, Definition 12.4.3, pp. 588–589 (2017: Definition 12.10)",
+    "page": 588,
+    "statement": "With reflexive $(0,1)$-fibres, $f$ an sc-smooth section functor, regularizing: $f$ has the ep-groupoid reflexive local compactness property if for every reflexive auxiliary norm $N$ and object $x$ there is an open $U(x) \\ni x$ with $\\mathrm{cl}_X\\{y \\in U(x) \\mid N(f(y)) \\le 1\\}$ compact."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.HasReflexiveLocalCompactnessEp E f`: for every `N` with `E.IsReflexiveAuxNorm N` and every `x` there is an open `U ∋ x` with `IsCompact (closure {y ∈ U | B.AuxLe N (f y) 1})`. `hasReflexiveLocalCompactnessEp_of_strong`: Part I's Definition 5.2.6 on the object bundle implies it.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.HasReflexiveLocalCompactnessEp",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.hasReflexiveLocalCompactnessEp_of_strong"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "The standing assumptions are hypotheses of the statements that use the definition. $N(f(y)) \\le 1$ is `AuxLe` ($N = \\infty$ off $W_{0,1}$)."
+   ]
+  },
+  {
+   "id": "V12.37",
+   "title": "Proposition 12.4.5 (2017: 12.3), three forms of reflexive local compactness",
+   "verdict": "stronger",
+   "book": {
+    "label": "§12.4, Proposition 12.4.5, p. 590 (2017: Proposition 12.3)",
+    "page": 590,
+    "statement": "(Same standing assumptions.) Equivalent: (1) Definition 12.4.3; (2) for every reflexive $N$ and $z \\in |X|$ a saturated open $\\tilde U$ with $z \\in |\\tilde U|$ and $|\\mathrm{cl}_X\\{y \\in \\tilde U \\mid N(f(y)) \\le 1\\}|$ compact; (3) the same with $\\mathrm{cl}_{|X|}(|\\{y \\in \\tilde U \\mid N(f(y)) \\le 1\\}|)$ compact."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.proposition_12_4_5 (_hB) (hf : E.IsScSmoothSectionFunctor f) (_hreg)`: `List.TFAE [(1), (2), (3)]`; `proposition_12_4_5_of_functorial` for every section functor ($f(t\\varphi) = \\mu(\\varphi, f(s\\varphi))$).",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.proposition_12_4_5_of_functorial",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.isSaturated_setOf_auxLe",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.isCompact_closure_of_isProperMap",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.exists_lift_tendsto",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpGroupoid.isSaturated_inter"
+    ]
+   },
+   "chips": [
+    "reflexivity, regularity unused",
+    "(3) ⇒ (1) argued"
+   ],
+   "diff": [
+    "Reflexive fibres, sc-smoothness and the regularizing property are not used. (2) ⇔ (3) by Lemma 12.4.4 (1) ($\\{y \\in \\tilde U \\mid N(f(y)) \\le 1\\}$ is saturated, `isSaturated_setOf_auxLe`). (1) ⇒ (3): $\\tilde U$ is the saturation of $U(x)$, then Lemma 12.4.4 (2). (3) ⇒ (1), \"easily obtained\" in the text, needs an argument: with $V_0 \\ni x$ such that $t : s^{-1}(\\mathrm{cl} V_0) \\to X$ is proper, $U = \\tilde U \\cap V_0$; a set inside $V_0$ whose orbit set has compact closure has compact closure in $X$ (`EpGroupoid.isCompact_closure_of_isProperMap`: orbit subsequence, lift of convergent sequences of $|X|$, `exists_lift_tendsto`, connecting morphisms, properness)."
+   ]
+  },
+  {
+   "id": "V12.38",
+   "title": "Theorem 12.4.6 (2017: 12.10), compactness control extended from the boundary",
+   "verdict": "stronger",
+   "book": {
+    "label": "§12.4, Theorem 12.4.6, pp. 590–592 (2017: Theorem 12.10)",
+    "page": 590,
+    "statement": "$X$ tame, $|X|$ paracompact, reflexive $(0,1)$-fibres, $N$ reflexive, $f$ sc-Fredholm with compact solution set and reflexive local compactness, $U_\\partial \\subset \\partial X$ an open saturated neighbourhood in $\\partial X$ of $S_{\\partial f}$ with $\\mathrm{cl}_{|X|}(|\\{y \\in U_\\partial \\mid N(f(y)) \\le 1\\}|)$ compact. Then there is a saturated open $U \\supset S_f$ with (1) $U \\cap \\partial X = U_\\partial$, (2) $\\mathrm{cl}_{|X|}(|\\{x \\in U \\mid N(f(x)) \\le 1\\}|)$ compact."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.theorem_12_4_6` with the book's hypotheses (`_hT : X.IsTame`, `_hpara`, `hB`, `hN : E.IsReflexiveAuxNorm N`, `E.IsScFredholmSectionFunctor f`, `E.HasCompactSolutionSetEp f`, `E.HasReflexiveLocalCompactnessEp f`, $U_\\partial = W' \\cap \\partial X$ with $W'$ open, `X.IsSaturated Ub`, $S_f \\cap \\partial X \\subseteq U_\\partial$, the compactness). `theorem_12_4_6_of_continuous`: for every continuous section functor, with local compactness only at the given $N$.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6",
+     "Chapter12/P3R2_ReflexiveCompactnessEp · EpStrongBundle.theorem_12_4_6_of_continuous"
+    ]
+   },
+   "chips": [
+    "tameness, paracompactness unused",
+    "\"open in $\\partial X$\": $W' \\cap \\partial X$"
+   ],
+   "diff": [
+    "Tameness, paracompactness and the Fredholm property beyond continuity are not used. \"Open in $\\partial X$\" is read as $W' \\cap \\partial X$. The proof is the text's, in $|X|$: finitely many $|U(\\bar x_i)|$ cover $\\mathrm{cl}|U_\\partial \\cap \\{N \\circ f \\le 1\\}|$; $\\{N \\circ f > 1\\}$ is open (Proposition 5.2.7 (2)) and saturated; finitely many interior $|U(x_i) \\setminus \\partial X|$ cover the rest of $|S_f|$; $U$ is the preimage of the union cut by $|W'| \\cup |X \\setminus \\partial X|$, so $U \\cap \\partial X = U_\\partial$."
+   ]
+  },
+  {
+   "id": "V12.39",
+   "title": "Theorem 12.5.7 (2017: 12.12), naturality of the orientation bundle $O_f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
+    "page": 595,
+    "statement": "Strong bundles over tame ep-groupoids, a generalized strong bundle isomorphism $\\bar{\\mathfrak f}$ over $\\mathfrak f$, an sc-Fredholm section functor $f$ of $W$ and its push-forward $f'$. (1) $\\bar{\\mathfrak f}$ induces a fibre-preserving homeomorphism $|O_f| \\to |O_{f'}|$ over $|X_\\infty| \\to |X'_\\infty|$, functorially. (2) A continuous orientation section $o$ of $\\sigma$ has a push-forward $\\bar{\\mathfrak f}_* o$, which is continuous. The proof works with a representative $W \\leftarrow V \\rightarrow W'$ of strong bundle equivalences."
+   },
+   "lean": {
+    "statement": "For a representative $h_1 : V \\to W$ over $\\phi_1$, $h_2 : V \\to W'$ over $\\phi_2$ (two `IsStrongBundleEquivalence`s) with `hpb₁ : f'' = h₁.pullback f`, `hpb₂ : f'' = h₂.pullback f'` and sc-Fredholm `hF hF' hF''`: `theorem_12_5_7_one_hyp h₁ h₂ hF hF' hF'' hpb₁ hpb₂ hsec hsec' hsec''` gives bijections `F : |O_f| ≃ |O_{f'}|` and `G : |X_∞| ≃ |X'_∞|` with $|\\sigma'| \\circ F = G \\circ |\\sigma|$, $F \\circ |\\Phi_1|_* = |\\Phi_2|_*$, $G \\circ |\\phi_1| = |\\phi_2|$. `theorem_12_5_7_two_invariant … ho`: for $o$ with `E.IsOrInvariant` there is exactly one invariant $o'$ of $\\sigma'$ with $\\mathrm{orEqv}_2\\, o'_{\\phi_2 v} = \\mathrm{orEqv}_1\\, o_{\\phi_1 v}$ for every smooth $v \\in V$. Steps: `orEqv a : Or^{f'}_{ϕ a} ≃ Or^f_a` (conjugation by the linearizations of the local strong bundle isomorphism at $a$), its naturality `orMor_orEqv`, `orbitOrMap` (bijective), `pullOr`/`pushOr`, `pushOr_unique`.",
+    "decls": [
+     "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
+     "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitOrMap_bijective",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.orbitProj_orbitOrMap",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap_bijective",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pullOr",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pullOr",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.isOrInvariant_pushOr",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_obj",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pushOr_unique",
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsStrongBundleEquivalence.pullback_pushforward_witness",
+     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv",
+     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orEqv_apply",
+     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.orMor_orEqv",
+     "Chapter12/P3F_EquivalenceOr · EpStrongBundle.IsStrongBundleEquivalence.locIso"
+    ]
+   },
+   "chips": [
+    "bijection; continuity: G.158",
+    "one representative",
+    "standing `hsec` (V12.22)"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hsec`, `hsec'`, `hsec''` (`HasScPlusSectionsThrough` for $W$, $W'$, $V$), the standing hypothesis of §12.5 (V12.22), with the witnesses `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` and `StrongBundle.hasScPlusSectionsThrough_of_chart`; $f'$ is any section with the same pull-back $f''$, and the push-forward is one (`pullback_pushforward_witness`); a representative is $h_1 = h_2 = \\mathrm{id}$ (`isStrongBundleEquivalence_id`).",
+    "The topology is not proved: the homeomorphism of (1) is stated as a bijection and the continuity of $o'$ in (2) is not shown. The theorem is stated for one representative; the independence of the representative and the functoriality of $|\\bar{\\mathfrak f}|_*$ (left to the reader in the text) are not formalized (gap G.158)."
+   ]
+  },
+  {
+   "id": "V12.40",
+   "title": "Pointwise lower semicontinuity along mixed convergence and its algebra (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (used for Definition 12.2.10 (3) and Theorems 12.2.11, 12.2.13)",
+    "page": 577,
+    "statement": "(Not in the book.) Lower semicontinuity of a function on $W_{0,1}$ at a point, along mixed convergent sequences."
+   },
+   "lean": {
+    "statement": "`StrongBundle.MixedLscAt B M y` (for $w_k \\to^m y$ and $\\varepsilon > 0$, eventually $M(y) - \\varepsilon < M(w_k)$), with `.le_liminf`, `.add`, `.const_mul`, `.mul_comp`, `.congr`, `mixedLscAt_finset_sum`, `mixedLscAt_const`, `mixedLscAt_of_nonpos`, `isReflexiveAuxNorm_of_mixedLscAt`, `IsReflexiveAuxNorm.mixedLscAt`; ep-groupoid form `mixedLscAt_comp_actOne`.",
+    "decls": [
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.le_liminf",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.add",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.MixedLscAt.const_mul",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · StrongBundle.mixedLscAt_finset_sum",
+     "Chapter12/P3R2_ReflexiveAuxNormEp · EpStrongBundle.mixedLscAt_comp_actOne"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V12.41",
+   "title": "The retraction onto the boundary near a boundary point of a tame M-polyfold (proof of Theorem 12.2.7)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.2, proof of Theorem 12.2.7, p. 575 (2017: Theorem 12.3)",
+    "page": 575,
+    "statement": "(Inside the proof.) $(t,h) \\mapsto r(q(t,h))$, $q(t,h) = (t,h) - \\min(t)(1,\\dots,1,0)$, is an sc⁰-retraction defined near $(0,h_0)$ which fixes the points of $\\partial O$."
+   },
+   "lean": {
+    "statement": "`MPolyfold.exists_retraction_boundary (hP : P.IsTame) (hx₀ : x₀ ∈ P.boundary)`: there are an open $V \\ni x_0$ and $\\rho$, continuous on $V$, with values in $\\partial X$ and $\\rho = \\mathrm{id}$ on $V \\cap \\partial X$. Coordinates: `minCoord`, `boundaryShift` ($q$) with `coord_boundaryShift`, `mem_quadrant_boundaryShift`, `exists_coord_boundaryShift_eq_zero`, `boundaryShift_eq_self`, `continuous_boundaryShift`.",
+    "decls": [
+     "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary",
+     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift",
+     "Chapter12/P3E_AuxNormLocalExtension · minCoord",
+     "Chapter12/P3E_AuxNormLocalExtension · one_le_degIndexWith_iff",
+     "Chapter12/P3E_AuxNormLocalExtension · coord_boundaryShift",
+     "Chapter12/P3E_AuxNormLocalExtension · boundaryShift_eq_self",
+     "Chapter12/P3E_AuxNormLocalExtension · continuous_boundaryShift"
+    ]
+   },
+   "chips": [
+    "any boundary point, not only $(0,h_0)$"
+   ],
+   "diff": [
+    "The text assumes $x_0 = (0, h_0)$; here $x_0$ is any boundary point (if some coordinates of $x_0$ are positive, $q$ still maps into $\\partial C$ and fixes $\\partial C$). $d_X = d_C$ in the tame chart by `degIndex_eq_chartDegIndex_of_isTameWith`."
+   ]
+  },
+  {
+   "id": "V12.42",
+   "title": "The local norm $N'$ for an arbitrary continuous retraction (proof of Theorem 12.2.7)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.2, proof of Theorem 12.2.7, p. 575 (2017: Theorem 12.3)",
+    "page": 575,
+    "statement": "(Inside the proof.) $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ is a local auxiliary norm equal to $N$ over $\\partial X$."
+   },
+   "lean": {
+    "statement": "`StrongBundle.isLocalAuxNorm_retractNorm hc y₀ (hV : IsOpen V) (hVc : V ⊆ c.φ.source) (hρ : ContinuousOn ρ V) (hρA : MapsTo ρ V A) (hρc) hNc hNs hN2 : B.IsLocalAuxNorm V (retractNorm hc y₀ ρ N)` for any $A \\subseteq X$ and $N$ an auxiliary norm over $A$; `retractNorm_eq`: $N' = N$ over $V \\cap A$ where $\\rho = \\mathrm{id}$. Fibre transport `retractTransport` (linear), $A(u)$ = `chartFibMap`.",
+    "decls": [
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractTransport",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.chartFibMap",
+     "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLinearMap_chartFibMap",
+     "Chapter12/P3E_AuxNormLocalExtension · MChart.tendsto_of_tendsto_apply"
+    ]
+   },
+   "chips": [
+    "any strong bundle chart of the atlas"
+   ],
+   "diff": [
+    "The formula of the text, read through $\\Phi[1]$ in any strong bundle chart of the atlas, with $A(u)$ the fibre part of $R[1]$; continuity of $N'$ uses the joint continuity of $(u,h) \\mapsto A(u)h$ on $U \\oplus F_1$."
+   ]
+  },
+  {
+   "id": "V12.43",
+   "title": "The invariance clause of Definition 12.5.4 (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.5, Definition 12.5.4, p. 595 (2017: Definition 12.12)",
+    "page": 595,
+    "statement": "(As in V12.25.) An orientation is a continuous section of $\\sigma$ preserved by the morphisms."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.IsOrInvariant E hF hsec o` (the morphism clause alone) and `definition_12_5_4_iff : definition_12_5_4 t o ↔ Continuous (orSec o) ∧ IsOrInvariant o` (`Iff.rfl`).",
+    "decls": [
+     "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant",
+     "Chapter12/P3F_Naturality · EpStrongBundle.definition_12_5_4_iff"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None; this names the second conjunct of V12.25."
+   ]
+  },
+  {
+   "id": "V12.44",
+   "title": "Orientation transport through a local strong bundle isomorphism between different bundles (tool)",
+   "verdict": "extra",
+   "book": {
+    "label": "§12.5, proof of Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
+    "page": 595,
+    "statement": "(Used implicitly in the proof of Theorem 12.5.7: $\\bar{\\mathfrak f}$ induces maps between the orientation sets.)"
+   },
+   "lean": {
+    "statement": "`StrongBundle.LocalIso.mpullPt`, `linSet_mpullPt`, `transferT_mpullPt`, `transferK_mpullPt`, `morPull`, `morVia`, `morVia_apply`, `morVia_eq` (independent of the auxiliary chart point); two-step composition `GermAgree₄`, `transferT_mpullPt₄`, `transferK_mpullPt₄`; `mpullPt_eq_pullPt` (`rfl`) relates it to wave 1's `pullPt`.",
+    "decls": [
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.mpullPt",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.linSet_mpullPt",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.GermAgree₄",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.transferT_mpullPt₄",
+     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.mpullPt_eq_pullPt"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None; it generalizes wave 1's `pullPt`/`orVia` (from a bundle to itself) to maps between different bundles."
+   ]
   }
  ],
  "notFormalized": [
@@ -715,7 +1190,18 @@
    "label": "§12.2, Theorem 12.2.7, pp. 574–576 (local step, p. 575) (2017: Theorem 12.3)",
    "page": 575,
    "book": "Near $x_0 \\in \\partial X$, in a tame local model with $O \\subset [0,\\infty)^n \\oplus H$ and retraction $R(u,w) = (r(u), A(u)w)$, with $q(t,h) = (t,h) - \\min(t)(1,\\dots,1,0)$: $r \\circ q$ maps a neighbourhood of $x_0$ into $\\partial O$, and $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ is a local auxiliary norm equal to $N$ over $\\partial X$.",
-   "instead": "`EpStrongBundle.theorem_12_2_7_hyp` takes exactly this local step as the hypothesis `HasLocalExtensions X B N` (V12.9); the rest of the proof is formalized. Missing: (a) a tame strong bundle chart around every boundary point (the project's strong bundle charts are not known to have tame base retractions), about 500–1,000 lines; (b) the map $r \\circ q$ with its continuity and boundary properties in quadrant coordinates, about 300–500 lines; (c) the level-1 continuity of $u \\mapsto A(u)$ and conditions (1)–(2) for $N'$, about 500–1,000 lines. Total about 1,300–2,500 lines."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.9; `Chapter12/P3E_AuxNormLocalExtension.lean`): `EpStrongBundle.hasLocalExtensions_of_isTame` proves the hypothesis `HasLocalExtensions` of `theorem_12_2_7_hyp` for tame $X$, and `EpStrongBundle.theorem_12_2_7` is the printed theorem. The retraction $r \\circ q$ is built in a tame chart of the base (`MPolyfold.exists_retraction_boundary`) and the formula for $N'$ is evaluated in any strong bundle chart of the atlas (`StrongBundle.isLocalAuxNorm_retractNorm`), so the \"tame strong bundle chart\" of item (a) of the earlier text is not needed (Findings, Chapter 12, item 12).",
+   "formalized": [
+    "V12.9"
+   ],
+   "decls": [
+    "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.theorem_12_2_7",
+    "Chapter12/P3E_AuxNormLocalExtension · EpStrongBundle.hasLocalExtensions_of_isTame",
+    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.exists_localExtension_of_isTame",
+    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.isLocalAuxNorm_retractNorm",
+    "Chapter12/P3E_AuxNormLocalExtension · StrongBundle.retractNorm_eq",
+    "Chapter12/P3E_AuxNormLocalExtension · MPolyfold.exists_retraction_boundary"
+   ]
   },
   {
    "g": 137,
@@ -723,7 +1209,15 @@
    "label": "§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)",
    "page": 584,
    "book": "An sc⁺-section over the boundary of a strong bundle over a tame ep-groupoid.",
-   "instead": "The chart-level form (`IsBoundaryScPlusSectionOn`, V12.16) and the M-polyfold form (`StrongBundle.IsBoundaryScPlusSection`, V5.88, applicable to the object M-polyfold) exist. A named ep-groupoid wrapper, the M-polyfold form on objects with the remark that it does not involve $\\mu$, is about 30 lines; it belongs with Theorem 12.3.9 (wave 2)."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V12.16; `Chapter12/P3X_ScPlusExtension.lean`): `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold) and `IsBoundaryScPlusSectionFunctor`, the form used by Theorem 12.3.9 (V12.35); witness `isBoundaryScPlusSectionFunctor_fiberZero`.",
+   "formalized": [
+    "V12.16"
+   ],
+   "decls": [
+    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
+    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
+    "Chapter12/P3X_ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero"
+   ]
   },
   {
    "g": 138,
@@ -731,7 +1225,11 @@
    "label": "§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)",
    "page": 594,
    "book": "For a morphism $\\varphi : x \\to x'$ between smooth points, the local $\\hat\\Phi$ pushes a continuous local section of $\\sigma$ to a continuous local section.",
-   "instead": "Not formalized. It needs the naturality of Part I's path transport (`LocalTransport`, `IsContOrOn`) under the local strong bundle isomorphism `EpStrongBundle.morIso`: for an sc-smooth path near $x'$, transport along it commutes with `orVia` along its image. The pointwise data exist (`StrongBundle.LocalIso.orVia`, `orVia_eq`, `morT_comp`; V12.22); missing is the comparison of Part I's propagation charts with pulled charts along a path. Estimate 1,000–1,500 lines."
+   "instead": "Not formalized. The pointwise data now exist also for maps between different bundles: `StrongBundle.LocalIso.morVia` and `morVia_eq` (`Chapter12/P3F_MixedPull.lean`, V12.44), and `EpStrongBundle.orMor` (V12.22). The missing step is the comparison of Part I's propagation along an sc-smooth path (`LocalTransport`, `IsContOrOn`, Chapter 6) with `morVia` along the image path: Part I's propagation charts must be compared with pulled charts (`mpullPt`), uniformly along a path. This step also gives the continuity clause of Theorem 12.5.7 (gap G.158). Estimate 1,000–1,500 lines.",
+   "decls": [
+    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
+    "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq"
+   ]
   },
   {
    "g": 139,
@@ -739,7 +1237,10 @@
    "label": "§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)",
    "page": 595,
    "book": "If $|\\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.",
-   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section $o$ lifting the section of $|\\sigma|$ (V12.26); its continuity for Part I's topology is not proved. It follows from G.138 ($O_f \\to |O_f|$ is then a local homeomorphism near each point, and $o$ agrees locally with a continuous germ). Estimate 300–500 lines after G.138."
+   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section (V12.26); in the terms of Theorem 12.5.7 it satisfies `EpStrongBundle.IsOrInvariant` (V12.43). Its continuity for Part I's topology follows from G.138: near each point $O_f \\to |O_f|$ is then a local homeomorphism, and $o$ agrees with a continuous germ. Estimate 300–500 lines after G.138.",
+   "decls": [
+    "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant"
+   ]
   },
   {
    "g": 140,
@@ -748,6 +1249,30 @@
    "page": 594,
    "book": "The orientation bundle and its topology for an sc-Fredholm section functor over a tame ep-groupoid, with no further hypothesis.",
    "instead": "`EpStrongBundle.theorem_12_5_3_hyp` (V12.24) carries the hypotheses of Part I's Theorem 6.6.17, `hbump : X.PObj.AdmitsBumpFunctions` and the tame germ data `hfT : B.IsScFredholmSectionTame f`, passed through unchanged, and Lemma 12.5.1 and Proposition 12.5.6 take `hsec : B.HasScPlusSectionsThrough` (a consequence of bump functions). These are Part I's inherited hypotheses (rows V6.74, V6.75), not new ones; removing them needs Part I's orientation transport without bump functions and for untamed germ data."
+  },
+  {
+   "g": 147,
+   "title": "Theorem 12.2.13: lower semicontinuity of the local extension of a reflexive auxiliary norm",
+   "label": "§12.2, Theorem 12.2.13, p. 578 (local step; the construction is that of Theorem 12.2.7, p. 575) (2017: Theorem 12.5)",
+   "page": 578,
+   "book": "The local extension $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ of the proof of Theorem 12.2.7 is well behaved under mixed limits (\"by inspection\"), so it gives reflexive local extensions near $\\partial X$.",
+   "instead": "`EpStrongBundle.theorem_12_2_13_hyp` (V12.34) takes this local step as the hypothesis `HasReflexiveLocalExtensions X B N` (a local auxiliary norm, `MixedLscAt`, $= N$ over $\\partial X$), witnessed (`theorem_12_2_13_hyp_witness`, `TrivialBundle.epBundle_reflexive_witness`); the rest of the proof is formalized. The construction of Theorem 12.2.7 now exists (`StrongBundle.isLocalAuxNorm_retractNorm`, gap G.136 closed). Missing: its lower semicontinuity under mixed convergence: for $w_k \\to^m w$ with $P(w)$ near $\\partial X$, the points $(rq(u_k), A(rq(u_k))w_k)$ are mixed convergent in $W|\\partial X$ (as in `mixedTendsto_actOne`: level-0 convergence and an $N$-bound), so the first term is lsc by the lsc of $N$ over $\\partial X$; the second term is weakly lsc once $w_k - A(rq(u_k))w_k \\rightharpoonup w - A(rq(u))w$ in $F_1$ (bounded and $F_0$-convergent). About 300–600 lines.",
+   "decls": [
+    "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
+    "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions"
+   ]
+  },
+  {
+   "g": 158,
+   "title": "Theorem 12.5.7: the topology, the independence of the representative, functoriality",
+   "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
+   "page": 595,
+   "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, it does not depend on the representative, it is functorial, and $\\bar{\\mathfrak f}_* o$ is continuous.",
+   "instead": "`theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces of the diagram, and `theorem_12_5_7_two_invariant` the unique invariant push-forward (V12.39; `Chapter12/P3F_Naturality.lean`). Continuity needs the step missing in G.138 (Part I's path transport commuting with `StrongBundle.LocalIso.morVia` along a local strong bundle isomorphism); with it, `orEqv` is a local homeomorphism of the orientation spaces and (1), (2) follow in about 300 lines. Independence of the representative: compare two representatives through a common refinement with `orMor_orEqv` and `pushOr_unique`, about 300 lines. Estimate 300 lines after G.138, plus 300 lines.",
+   "decls": [
+    "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
+    "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant"
+   ]
   }
  ]
 }

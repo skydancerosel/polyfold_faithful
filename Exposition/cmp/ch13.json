@@ -167,15 +167,27 @@
   {
    "id": "V13.7",
    "title": "Theorem 13.1.7 (2017: 13.1), extension of good partial systems",
-   "verdict": "narrower",
+   "verdict": "stronger",
    "book": {
     "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
     "page": 602,
     "statement": "Let $Q$ be an open subset of the objects with $|Q| = |Y|$ and $(U(q))_{q \\in Q}$ a good system for the full sub-ep-groupoid on $Q$. Given open $W(y) \\ni y$ for $y \\notin Q$, there are $U(y) \\subset W(y)$ such that $(U(y))_{y \\in Y}$ is a good system."
    },
    "lean": {
-    "statement": "`EpGroupoid.theorem_13_1_7`: for any $Q$ with $\\pi(Q) = |X|$, a family `N : ∀ x, X.NatNbhd x` with `X.IsGoodOn N Q`, and open $W(y) \\ni y$, there is a good system with `𝒰.nbhd q = N q` for $q \\in Q$ and $U(y) \\subseteq W(y)$ for $y \\notin Q$. `IsGoodOn N Q`: $U(q) \\subseteq Q$, $t : s^{-1}(\\mathrm{cl}_X U(q)) \\to X$ proper, and (3) on $\\mathcal U(q,q')$. Witness: `GoodSystem.isGoodOn`.",
+    "statement": "Printed form: `EpGroupoid.theorem_13_1_7_book (hQ : IsOpen Q) (hπQ : X.π '' Q = univ) N (hN : X.IsGoodIn N Q) W hW hyW : ∃ 𝒰 : X.GoodSystem, (∀ q ∈ Q, 𝒰.nbhd q = N q) ∧ ∀ y ∉ Q, 𝒰.U y ⊆ W y`. `IsGoodIn N Q`: for $q \\in Q$, $U(q) \\subseteq Q$; (1) read in the full subcategory on $Q$ (`X.IsProperSubsetIn Q (closure (↑⁻¹' U(q) : Set Q))`: $t : s^{-1}(\\mathrm{cl}_Q U(q)) \\cap \\mathrm{Mor}(Q) \\to Q$ proper, through `subSrc`, `subTgt` on `X.morOn Q`); (3) for $q, q' \\in Q$. `isGoodIn_iff (hQ) (hπQ) : X.IsGoodIn N Q ↔ X.IsGoodOn N Q ∧ ∀ q ∈ Q, closure (N q).U ⊆ Q`. Stronger form: `EpGroupoid.theorem_13_1_7` for any $Q$ with $\\pi(Q) = |X|$ and `X.IsGoodOn N Q` (properness in $X$): there is a good system with `𝒰.nbhd q = N q` for $q \\in Q$ and $U(y) \\subseteq W(y)$ for $y \\notin Q$. Witnesses: `GoodSystem.isGoodOn`, `GoodSystem.isGoodIn_univ`.",
     "decls": [
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.subSrc",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.subTgt",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isGoodIn_iff",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn.isGoodOn",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn.closure_subset",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubsetIn_of_isProperSubset",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.GoodSystem.isGoodIn_univ",
      "Chapter13/P3G_GoodSystemExistence · EpGroupoid.theorem_13_1_7",
      "Chapter13/P3G_GoodSystemExistence · EpGroupoid.IsTransport",
      "Chapter13/P3G_GoodSystemExistence · EpGroupoid.injOn_comp_of_transport",
@@ -185,12 +197,13 @@
     ]
    },
    "chips": [
-    "properness read in $X$, not in $Q$ (G.141)",
+    "printed form proved (G.141 closed)",
+    "$Q$-proper ⇔ $X$-proper + closure in $Q$",
     "$Q$ need not be open"
    ],
    "diff": [
-    "Hidden hypotheses: properness of the given $U(q)$ in $X$ (`IsGoodOn`); the book's good system for the sub-ep-groupoid on $Q$ gives properness in $Q$. That $Q$-properness implies $X$-properness when $|Q| = |X|$ is presumably true and not formalized (gap G.141); witness `GoodSystem.isGoodOn`.",
-    "Otherwise stronger: $Q$ need not be open, and the given $U(q)$ are kept unchanged. The natural action and $\\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$."
+    "`theorem_13_1_7_book` is the printed statement. The project's `theorem_13_1_7` takes the weaker `IsGoodOn N Q` (properness in $X$; implied by the printed hypothesis, `IsGoodIn.isGoodOn`) and needs neither $Q$ open nor $\\mathrm{cl}_X U(q) \\subseteq Q$, so the formalization is stronger. Proof of $Q$-proper ⇒ $X$-proper (`isProperSubset_of_isProperSubsetIn`), by ultrafilters: a local section $\\sigma$ of $s$ through a morphism $\\chi : z \\to q'' \\in Q$ (it exists since $|Q| = |X|$) with $t \\circ \\sigma \\in Q$ first shows $\\mathrm{cl}_X U \\subseteq Q$, then moves $\\varphi$ to $\\sigma(t\\varphi) \\circ \\varphi$ in $\\mathrm{Mor}(Q)$ and back by $\\chi^{-1} \\circ \\rho$. No sub-ep-groupoid structure is needed: the full subcategory is described by its morphism set and its source and target maps.",
+    "Reading kept from wave 1: conditions (2), (3) are the same in $X$ and in $Q$ (a natural representation of the ep-groupoid $Q$ is one of $X$). The natural action and $\\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof of `theorem_13_1_7` does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$."
    ]
   },
   {
@@ -272,7 +285,7 @@
     "as stated, at functor level"
    ],
    "diff": [
-    "At functor level: $\\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\\Lambda, U, S]$ are gap G.142."
+    "At functor level: $\\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\\Lambda, U, S]$ are V13.22, V13.23 (gap G.142 closed)."
    ]
   },
   {
@@ -376,14 +389,14 @@
   {
    "id": "V13.15",
    "title": "Definition 13.2.9 (2017: 13.11), the sum $\\Lambda' \\oplus \\Lambda''$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§13.2, Definition 13.2.9, p. 611 (2017: Definition 13.11)",
     "page": 611,
     "statement": "(1) The convolution formula for $\\Lambda' \\oplus \\Lambda''$; (2)–(3) the decoration $U'' = U \\cap U'$, $I'' = I \\times I'$, $s_{(i,i')} = s_i + s'_{i'}$; $\\oplus$ is associative and commutative."
    },
    "lean": {
-    "statement": "`SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form of (3): `multisectionAdd_eq_sum_of_isLocalRepOn` (sections $s'_i + s''_j$, weights $\\sigma'_i\\sigma''_j$); `multisectionAdd_comm` (for all functions), `multisectionAdd_assoc` (for sc⁺-multisections); the $n$-fold sum `conv` with `isScPlusMultisection_conv`.",
+    "statement": "`SBLocalization.multisectionAdd`, (1) verbatim, is an sc⁺-multisection (`definition_13_2_9`); local form `multisectionAdd_eq_sum_of_isLocalRepOn`; at functor level `multisectionAdd_comm`, `multisectionAdd_assoc`; the $n$-fold sum `conv`. Decorated: `Decoration.add` with `add_I` ($I_x = I'_x \\times I''_x$), `add_s_apply` ($s_{(i,i')}(y) = s'_i(y) + s''_{i'}(y)$), `add_U_subset` ($U(x) \\subseteq U'(x) \\cap U''(x)$), `definition_13_2_9_decorated`; the sum respects Definition 13.2.8 (`Decoration.add_rel`), so it is defined on decorated sc⁺-multisections (`DecoratedMultisection.add`, `forget_add`), commutative and associative there (`DecoratedMultisection.add_comm`, `add_assoc`).",
     "decls": [
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.addAt",
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd",
@@ -396,64 +409,96 @@
      "Chapter13/P3M_MultisectionConvolution · SBLocalization.conv",
      "Chapter13/P3M_MultisectionConvolution · SBLocalization.isLocalRepOn_conv",
      "Chapter13/P3M_MultisectionConvolution · SBLocalization.isScPlusMultisection_conv",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionAdd"
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionAdd",
+     "Chapter13/P3D_SymmetricOn · EpGroupoid.NatNbhd.Le",
+     "Chapter13/P3D_SymmetricOn · EpGroupoid.NatNbhd.exists_le_of_finite",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionAdd",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.restrict",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.add",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.exists_common",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_I",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_s_apply",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_U_subset",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_rel",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_comm_rel",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.add_assoc_rel",
+     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_9_decorated",
+     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_9_decorated_equiv",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.forget_add",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_assoc"
     ]
    },
    "chips": [
-    "functor level; decoration: G.142"
+    "decorated form (G.142 closed)",
+    "$U' \\cap U''$ read with one natural action"
    ],
    "diff": [
-    "(1) and the closure under $\\oplus$ are as printed; (2)–(3) are kept at the level of local representations, not of decorations (gap G.142)."
+    "(1) and the closure under $\\oplus$ are as printed. $U(x) = U'(x) \\cap U''(x)$ is read as an open neighbourhood of $x$ inside the intersection with the natural action of $U'(x)$, on which the actions of $U'(x)$ and $U''(x)$ agree (`NatNbhd.exists_le_of_finite`): the intersection itself need not carry one natural action for which both structures are symmetric. The class does not depend on the choice, since Definition 13.2.8 allows shrinking. The local section structures of the decoration are symmetric with the diagonal action $g(i,i') = (g(i), g(i'))$."
    ]
   },
   {
    "id": "V13.16",
    "title": "Definition 13.2.10 (2017: 13.12), scalar multiples $a\\Lambda$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§13.2, Definition 13.2.10, p. 611 (2017: Definition 13.12)",
     "page": 611,
     "statement": "$(0\\Lambda)(w) = 0$ for $w \\ne 0$ and $(0\\Lambda)(0) = 1$; $(a\\Lambda)(w) = \\Lambda(w/a)$; the new sections are $a s_i$; for decorated $\\Lambda$."
    },
    "lean": {
-    "statement": "`SBLocalization.multisectionSmul a Λ`, exactly these cases; $0\\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`).",
+    "statement": "`SBLocalization.multisectionSmul a Λ`, exactly the printed cases; $0\\Lambda$ is the zero multisection (`multisectionSmul_zero`); $a\\Lambda$ is an sc⁺-multisection (`definition_13_2_10`); local sections $a s_i$ with the same weights (`multisectionSmul_eq_sum_of_isLocalRepOn`). Decorated: `Decoration.smul` ($(\\mathcal U, (a s^x_i))$, the same index sets), `definition_13_2_10_decorated`, and on classes `DecoratedMultisection.smul a` (well defined by `Decoration.smulFun_rel`).",
     "decls": [
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.smulAt",
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul",
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_zero",
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn",
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.definition_13_2_10",
-     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionSmul"
+     "Chapter13/P3M_ScPlusSectionOn · SBLocalization.IsScPlusSectionOn.sectionSmul",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulSection_apply",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionSmul",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smul",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smul",
+     "Chapter13/P3D_Decorated · SBLocalization.definition_13_2_10_decorated",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.smul"
     ]
    },
    "chips": [
-    "functor level; decoration: G.142"
+    "decorated form (G.142 closed)"
    ],
    "diff": [
-    "As printed at functor level; the decorated form is gap G.142."
+    "As printed. For $a = 0$ the sections $0 \\cdot s_i$ are the zero section and the counting formula gives $\\Lambda_0$."
    ]
   },
   {
    "id": "V13.17",
    "title": "Lemma 13.2.11 (2017: 13.4), $\\beta \\odot \\Lambda$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§13.2, Lemma 13.2.11, p. 612 (2017: Lemma 13.4)",
     "page": 612,
     "statement": "For an sc-smooth functor $\\beta : X \\to \\mathbb R$, $(\\beta\\Lambda)(w) = (\\beta(Pw)\\Lambda)(w)$ is a decorated sc⁺-multisection."
    },
    "lean": {
-    "statement": "`SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\\beta$ sc-smooth on the object M-polyfold (the book's \"sc-smooth functor\"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`.",
+    "statement": "`SBLocalization.lemma_13_2_11`, with `hβ : ∀ φ, β (tgt φ) = β (src φ)` and $\\beta$ sc-smooth on the object M-polyfold (the book's \"sc-smooth functor\"): `IsScPlusMultisection A (multisectionSmulFun β Λ)`. Decorated: `Decoration.smulFun` (sections $\\beta s^x_i$, the same good system and index sets), `lemma_13_2_11_decorated`, `Decoration.smulFun_rel` (compatible with Definition 13.2.8).",
     "decls": [
      "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionSmulFun",
-     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.lemma_13_2_11"
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.lemma_13_2_11",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.smulFun",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun_rel",
+     "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_11_decorated"
     ]
    },
    "chips": [
-    "functor level; decoration: G.142"
+    "decorated form (G.142 closed)"
    ],
    "diff": [
-    "As printed at functor level; the decorated conclusion is gap G.142."
+    "\"Sc-smooth functor\" is read as invariance along morphisms plus sc-smoothness on objects."
    ]
   },
   {
@@ -483,28 +528,37 @@
   {
    "id": "V13.19",
    "title": "Lemma 13.2.13 (2017: 13.5), locally finite sums",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§13.2, Lemma 13.2.13, p. 612 (2017: Lemma 13.5)",
     "page": 612,
     "statement": "$\\oplus_j \\Lambda_j$ of a locally finite family is a decorated sc⁺-multisection, with $U(x) = O(x) \\cap \\bigcap_{j \\in J_x} U_j(x)$, $I_x = \\prod I^j_x$, $s = \\sum_j s^j_{i_j}$."
    },
    "lean": {
-    "statement": "`SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`.",
+    "statement": "`SBLocalization.lfSum Λ w = ∑ᶠ v : J →₀ W_{P w}, if ∑ v = w then ∏ᶠ j, Λ j (v j) else 0`; equal to `conv` for finite $J$ and near $x$ to the finite convolution over $J_x$ (`lfSum_eq_conv_of_mem`); `lemma_13_2_13`: for sc⁺-multisections in a locally finite family, `IsScPlusMultisection A (lfSum Λ)`. Decorated: `Decoration.lfSum hΛ hlf D 𝒰₀`, with $U(x) \\subseteq O(x) \\cap \\bigcap_{j \\in J_x} U_j(x)$ (with the natural action of $U_0(x)$, agreeing with those of $U_j(x)$), index set $\\prod_{j \\in J_x} I^j_x$ and sections $\\sum_{j \\in J_x} s^{j,x}_{i_j}$ (`lfSumStructure`, through `SymmetricStructureOn.pi`); `lemma_13_2_13_decorated`.",
     "decls": [
      "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum",
      "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv",
      "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lfSum_eq_conv_of_mem",
      "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.trivial_of_not_mem_nontrivIdx",
-     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lemma_13_2_13"
+     "Chapter13/P3M_MultisectionLocallyFinite · SBLocalization.lemma_13_2_13",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.sumSection_apply",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.fibAct_sectionSum",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.pi",
+     "Chapter13/P3D_Decorated · SBLocalization.SymmetricStructureOn.congr",
+     "Chapter13/P3D_Decorated · SBLocalization.exists_lfData",
+     "Chapter13/P3D_Decorated · SBLocalization.lfSumStructure",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum",
+     "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_13_decorated"
     ]
    },
    "chips": [
     "finitely supported families",
-    "functor level; decoration: G.142"
+    "decorated form (G.142 closed)"
    ],
    "diff": [
-    "The text does not write out $\\oplus$ over infinite $J$; it is read through finitely supported families (indices off $J_x$ contribute the zero vector with weight 1), which agrees with Definition 13.2.9 (1) for finite $J$. The decorated conclusion is gap G.142."
+    "The text does not write out $\\oplus$ over infinite $J$; it is read through finitely supported families (indices off $J_x$ contribute the zero vector with weight 1), which agrees with Definition 13.2.9 (1) for finite $J$. The intersection is read as for Definition 13.2.9 (V13.15). When no $\\Lambda_j$ is non-trivial near $x$ ($J_x = \\emptyset$) the text leaves the natural action on $O(x)$ open: it is taken from a given good system $\\mathcal U_0$ (an argument of `Decoration.lfSum`; any $\\mathcal U_j$ when $J \\ne \\emptyset$, or Theorem 13.1.8 for paracompact $|X|$)."
    ]
   },
   {
@@ -527,6 +581,777 @@
    },
    "chips": [],
    "diff": []
+  },
+  {
+   "id": "V13.21",
+   "title": "Properness by ultrafilters, and local sections of $s$ (tools for Theorem 13.1.7)",
+   "verdict": "extra",
+   "book": {
+    "label": "not in the book (proof of Theorem 13.1.7, p. 602)",
+    "page": 602,
+    "statement": "(Not in the book.) Properness of $t$ on subsets of morphisms, tested by ultrafilters; local sections of $s$ through a morphism."
+   },
+   "lean": {
+    "statement": "`isProperMap_iff_ultrafilter_of_isInducing` (proper maps on subspaces via ultrafilters on the ambient space), `isProperSubset_iff_ultrafilter` (Definition 7.5.8 by ultrafilters), `isProperSubsetIn_iff_ultrafilter`, `exists_localSection` (a local section of $s$ through $\\chi$ with targets in an open set), `exists_mor_tgt_mem`.",
+    "decls": [
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperMap_iff_ultrafilter_of_isInducing",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_iff_ultrafilter",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubsetIn_iff_ultrafilter",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.exists_localSection",
+     "Chapter13/P3E_GoodSystemRelative · EpGroupoid.exists_mor_tgt_mem"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.22",
+   "title": "Definition 13.2.7 (2017: 13.9), sc⁺-multisections with a system of symmetric structures",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Definition 13.2.7, p. 610 (2017: Definition 13.9)",
+    "page": 610,
+    "statement": "An sc⁺-multisection with a system of symmetric sc⁺-section structures is $(\\Lambda, \\mathcal U, S)$: a good system $\\mathcal U$ and, for every $x$, a symmetric structure $(s^x_i)_{i \\in I_x}$ on $U(x)$ for $\\Lambda$."
+   },
+   "lean": {
+    "statement": "`structure Decoration A Λ` with `𝒰 : A.X.GoodSystem` and `S : ∀ x, SymmetricStructureOn A Λ (𝒰.nbhd x)`; `structure DecoratedTuple A` with `Λ`, `isScPlusMultisection`, `dec : Decoration A Λ`. `SymmetricStructureOn A Λ N` is Definition 13.2.5 on the neighbourhood $N$ of $x$ with its natural $G_x$-action: a finite $I$ with a $G_x$-action, sc⁺-sections $s_i$ on $N.U$ with $s_{g(i)}(g * y) = \\mu(\\Gamma(g,y), s_i(y))$ and $\\Lambda(w) = |I|^{-1}\\#\\{i \\mid s_i(P(w)) = w\\}$ over $N.U$. Witnesses: `exists_decoration` (for paracompact $|X|$, from Lemma 13.2.6 and Theorem 13.1.8), `exists_symmetricStructureOn`.",
+    "decls": [
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.P_s",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.apply_fib",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.rep_of_apply_fib",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.card_pos",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructureOn.s_eq_fiberZero",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.SymmetricStructure.toOn",
+     "Chapter13/P3D_SymmetricOn · SBLocalization.exists_symmetricStructureOn",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple",
+     "Chapter13/P3D_Decorated · SBLocalization.exists_decoration"
+    ]
+   },
+   "chips": [
+    "G.142 closed"
+   ],
+   "diff": [
+    "The good system carries a natural representation at every point (wave 1's `NatNbhd`), so \"symmetric on $U(x)$\" uses the action of $U(x)$ itself. The properness clause of Definition 13.2.5 is part of the good system (Definition 13.1.2 (1)). `exists_decoration` assumes $|X|$ paracompact, as the text takes good systems from Theorem 13.1.8 (witness `hasParacompactOrbitSpace_trivial`)."
+   ]
+  },
+  {
+   "id": "V13.23",
+   "title": "Definition 13.2.8 (2017: 13.10), equivalence of systems; decorated sc⁺-multisections",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, Definition 13.2.8, p. 611 (2017: Definition 13.10)",
+    "page": 611,
+    "statement": "$(\\Lambda, \\mathcal U, S) \\sim (\\Lambda', \\mathcal U', S')$ if $\\Lambda = \\Lambda'$, there is a good system $\\mathcal U''$ with $U''(x) \\subset U(x) \\cap U'(x)$, and $G_x$-equivariant bijections $b_x : I_x \\to I'_x$ with $s'_{b_x(i)} = s_i$ on $U''(x)$. A class $[\\Lambda, \\mathcal U, S]$ is a decorated sc⁺-multisection."
+   },
+   "lean": {
+    "statement": "`Decoration.Rel D D'` (conditions (1)–(2), for decorations of possibly different functors), `Rel.refl`, `Rel.symm`, `Rel.trans`; `DecoratedTuple.Equiv T T' := T.Λ = T'.Λ ∧ T.dec.Rel T'.dec`, `DecoratedTuple.equivalence`; `DecoratedMultisection A` (the quotient), `DecoratedMultisection.forget`, `isScPlusMultisection_forget`.",
+    "decls": [
+     "Chapter13/P3D_Decorated · EpGroupoid.GoodSystem.ofSubset",
+     "Chapter13/P3D_Decorated · EpGroupoid.GoodSystem.exists_subset_inter",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.refl",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.symm",
+     "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel.trans",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.Equiv",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.equivalence",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple.setoid",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.forget",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.isScPlusMultisection_forget"
+    ]
+   },
+   "chips": [
+    "G.142 closed"
+   ],
+   "diff": [
+    "Transitivity uses a common refinement of two good systems (`GoodSystem.exists_subset_inter`, from wave 1's `exists_refinement_subset`)."
+   ]
+  },
+  {
+   "id": "V13.24",
+   "title": "The remark after Definition 13.2.9 (2017: after 13.11): in general there are no inverses",
+   "verdict": "same",
+   "book": {
+    "label": "§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)",
+    "page": 611,
+    "statement": "In general there are no inverses for $\\oplus$."
+   },
+   "lean": {
+    "statement": "`multisectionAdd_zeroMultisection`: the zero multisection $\\Lambda_0$ is neutral, $\\Lambda \\oplus \\Lambda_0 = \\Lambda$. `NoInverse.remark_13_2_9_no_inverse`: on the trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid, for $c \\ne 0$ the sc⁺-multisection `twoValued c` (weight ½ on the zero section and ½ on the constant section $c$) satisfies $\\mathrm{twoValued}\\,c \\oplus \\Lambda' \\ne \\Lambda_0$ for every sc⁺-multisection $\\Lambda'$. `NoInverse.exists_no_inverse` ($k \\ge 1$): such $\\Lambda$ exists.",
+    "decls": [
+     "Chapter13/P3D_NoInverse · SBLocalization.zeroMultisection_fib",
+     "Chapter13/P3D_NoInverse · SBLocalization.multisectionAdd_zeroMultisection",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.twoValued",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.isLocalRepOn_twoValued",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.isScPlusMultisection_twoValued",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.add_le_one_of_ne",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
+     "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.exists_no_inverse"
+    ]
+   },
+   "chips": [
+    "G.143 closed",
+    "inverse w.r.t. $\\Lambda_0$"
+   ],
+   "diff": [
+    "\"Inverse\" is read with respect to the neutral element $\\Lambda_0$. Over $x = 0$, $(\\Lambda \\oplus \\Lambda')(0_x) = \\tfrac12(\\Lambda'(0) + \\Lambda'(-c)) \\le \\tfrac12$ (`add_le_one_of_ne`), while $\\Lambda_0(0_x) = 1$."
+   ]
+  },
+  {
+   "id": "V13.25",
+   "title": "The diagrams (13.5) and Definition 13.3.1 (2017: 13.14), correspondences $J(x,x')$",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, (13.5) and Definition 13.3.1, p. 613 (2017: Definition 13.14)",
+    "page": 613,
+    "statement": "A diagram $I_x \\xleftarrow{a} I \\xrightarrow{b} I_{x'}$ with $a, b$ surjective and all fibres of $a$ (and of $b$) of equal size; $d \\sim d'$ if a bijection $c : I \\to I'$ makes both triangles commute; $J(x,x')$ is the set of classes."
+   },
+   "lean": {
+    "statement": "`structure IndexDiagram α β` (fields `I`, `Fintype I`, `a`, `b`, `surjective_a`, `surjective_b`, `uniform_a`, `uniform_b`, with `Nat.card` of the fibres); `IndexDiagram.Equiv`, `IndexDiagram.equivalence`, `IndexDiagram.setoid`; `IndexCorr α β` (the quotient, $J(x,x')$ for $\\alpha = I_x$, $\\beta = I_{x'}$), `IndexCorr.mk`, `mk_eq_mk`, `ind`.",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.Equiv",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.equivalence",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.setoid",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.mk",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.mk_eq_mk",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ind"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$I$ is finite (the text's diagrams are between finite index sets)."
+   ]
+  },
+  {
+   "id": "V13.26",
+   "title": "Definition 13.3.2 (2017: 13.15), the pseudo-inverse and the bi-action on $J(x,x')$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.3, Definition 13.3.2, p. 614 (2017: Definition 13.15)",
+    "page": 614,
+    "statement": "The pseudo-inverse $\\sharp : J(x,x') \\to J(x',x)$ reverses the diagram and is a bijection; the bi-action $g' * [a,b] * g = [g^{-1} \\circ a, g' \\circ b]$."
+   },
+   "lean": {
+    "statement": "`IndexCorr.swap`, `swap_swap`, `swapEquiv` (a bijection); `IndexCorr.biact g' τ g` for actions of groups $G$, $G'$ on $I_x$, $I_{x'}$, with `biact_one_one` and `biact_biact` ($g' * (h' * \\tau * h) * g = (g'h') * \\tau * (hg)$, an action of $G_{x'} \\times G_x^{op}$).",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swap_swap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.swapEquiv",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact_one_one",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.biact_biact",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.swap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.map",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map_refl",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map_map"
+    ]
+   },
+   "chips": [
+    "action laws proved"
+   ],
+   "diff": [
+    "The text defines the maps; the action laws and the bijectivity of $\\sharp$ are proved."
+   ]
+  },
+  {
+   "id": "V13.27",
+   "title": "Example 13.3.3 (2017: 13.1), the bi-action is trivial when $I_x = \\{*\\}$",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Example 13.3.3, p. 614 (2017: Example 13.1)",
+    "page": 614,
+    "statement": "If $I_x = \\{*\\}$, then $g' * [d] * g = [d]$ for all $g, g'$: a bijection $c : I \\to I$ with $b \\circ c = g' \\circ b$ exists by the equal fibre sizes."
+   },
+   "lean": {
+    "statement": "`IndexCorr.example_13_3_3`: for any group actions, `biact g' τ g = τ` for every `τ : IndexCorr PUnit β`.",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.example_13_3_3"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$c$ is built fibrewise (`Equiv.ofFiberEquiv`) from the equal fibre cardinalities."
+   ]
+  },
+  {
+   "id": "V13.28",
+   "title": "Definition 13.3.4 (2017: 13.16), correspondences between local symmetric structures",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.4, p. 614 (2017: Definition 13.16)",
+    "page": 614,
+    "statement": "A correspondence between $(U(x), s^x)$ and $(U(x'), s^{x'})$ is $\\tau_{x,x'} : \\mathcal U(x,x') \\to J(x,x')$ with (1) locally constant, finitely many values; (2) $\\tau(g' * \\varphi * g) = g' * \\tau(\\varphi) * g$; (3) for every representative $I_x \\xleftarrow{a} I \\xrightarrow{b} I_{x'}$ of $\\tau(\\varphi)$: $s^{x'}_{b(k)}(t(\\psi)) = \\mu(\\psi, s^x_{a(k)}(s(\\psi)))$ for all $k$ and all $\\psi$ in the component of $\\varphi$."
+   },
+   "lean": {
+    "statement": "`Decoration.IsCorrespondence D x x' τ` with fields `locallyConstant` (for $\\varphi \\in \\mathcal U(x,x')$, eventually $\\tau\\psi = \\tau\\varphi$ near $\\varphi$), `finite` ($\\tau(\\mathcal U(x,x'))$ finite), `biact` (with wave 1's `GoodSystem.biact`) and `compat` (`(τ φ).Sat` of `Decoration.Compat`, condition (3) for every representative).",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Compat",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.IsCorrespondence"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$\\mu(\\psi, \\cdot)$ is `fibAct ψ` ($= \\mu$ on the fibre over $s(\\psi)$). The action of $G_x$ on $I_x$ is that of the symmetric structure."
+   ]
+  },
+  {
+   "id": "V13.29",
+   "title": "Remark 13.3.5 (2017: 13.1), condition (3) does not depend on the representative",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Remark 13.3.5, p. 615 (2017: Remark 13.1)",
+    "page": 615,
+    "statement": "Property (3) of Definition 13.3.4 does not depend on the representative of $\\tau(\\varphi)$."
+   },
+   "lean": {
+    "statement": "For any relation $R$ on $I_x \\times I_{x'}$: `IndexDiagram.sat_iff_of_equiv` (\"$R(a(k), b(k))$ for all $k$\" is invariant under equivalence), hence `IndexCorr.Sat R` is defined on classes, and `IndexCorr.sat_iff` ($\\tau$ satisfies $R$ iff every representative does).",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.Sat",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.sat_iff_of_equiv",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.Sat",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_mk",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_iff",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_map",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_swap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_mono",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_of_forall",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.sat_prod"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "Stated for all conditions of the form $R(a(k), b(k))$, which includes (3)."
+   ]
+  },
+  {
+   "id": "V13.30",
+   "title": "Definition 13.3.6 (2017: 13.17), structurable sc⁺-multisections",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.6, p. 615 (2017: Definition 13.17)",
+    "page": 615,
+    "statement": "A decorated $\\Lambda = [\\Lambda, \\mathcal U, S]$ is structurable if a representative carries correspondences $\\tau_{x,x'}$ for all $x, x'$ with (1) $\\tau_{x,x}(\\Gamma(g,y)) = [I_x \\xleftarrow{id} I_x \\xrightarrow{g} I_x]$, (2) $\\tau_{x',x}(\\varphi) = \\tau_{x,x'}(\\varphi^{-1})^\\sharp$."
+   },
+   "lean": {
+    "statement": "`structure Decoration.Tau D` (fields `τ`, `isCorrespondence`, `diag` with `IndexCorr.ofPerm g`, `swap` for $\\varphi \\in \\mathcal U(x',x)$); `DecoratedMultisection.IsStructurable` (some representative carries a `Tau`); for functors `IsStructurable A Λ := IsScPlusMultisection A Λ ∧ ∃ D, Nonempty D.Tau`, with `isStructurable_iff` (a functor is structurable iff it is `forget` of a structurable decorated class). Witness: `isStructurable_zeroMultisection` (the zero multisection, $\\tau \\equiv [\\{*\\} \\leftarrow \\{*\\} \\to \\{*\\}]$, for paracompact $|X|$).",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ofEquiv",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.ofPerm",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau",
+     "Chapter13/P3D_Structurable · SBLocalization.IsStructurable",
+     "Chapter13/P3D_Structurable · SBLocalization.DecoratedMultisection.IsStructurable",
+     "Chapter13/P3D_Structurable · SBLocalization.isStructurable_iff",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.zeroTau",
+     "Chapter13/P3D_Structurable · SBLocalization.isStructurable_zeroMultisection"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$\\tau_{x,x'}$ is a function on all morphisms; only its values on $\\mathcal U(x,x')$ enter."
+   ]
+  },
+  {
+   "id": "V13.31",
+   "title": "Remark 13.3.7 (2017: 13.2), the structured tuple $(\\Lambda, \\mathcal U, S, \\tau)$",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Remark 13.3.7, p. 616 (2017: Remark 13.2)",
+    "page": 616,
+    "statement": "For structurable $\\Lambda$ one considers the tuple $(\\Lambda, \\mathcal U, S, \\tau)$."
+   },
+   "lean": {
+    "statement": "`structure StructuredTuple A extends DecoratedTuple A` with `tau : dec.Tau`.",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.32",
+   "title": "Definition 13.3.8 (2017: 13.18), equivalence of structured tuples",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.8, p. 616 (2017: Definition 13.18)",
+    "page": 616,
+    "statement": "$(\\Lambda, \\mathcal U, S, \\tau) \\sim (\\Lambda', \\mathcal U', S', \\tau')$ if (1) $\\Lambda = \\Lambda'$, (2) there is a good system $\\mathcal U''$ with $U''(x) \\subset U(x) \\cap U'(x)$, (3) $I_x = I'_x$, (4) $\\tau = \\tau'$ on $\\mathcal U''(x,x')$."
+   },
+   "lean": {
+    "statement": "`StructuredTuple.Equiv` (with `hI : ∀ x, (T.dec.S x).I = (T'.dec.S x).I` and `τ' = τ.map (Equiv.cast (hI x)) (Equiv.cast (hI x'))` on $\\mathcal U''(x,x')$), `StructuredTuple.equivalence`, `StructuredTuple.setoid`.",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.Equiv",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.equivalence",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.setoid",
+     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_rfl",
+     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_symm",
+     "Chapter13/P3D_Structurable · SBLocalization.IndexCorr.map_cast_trans"
+    ]
+   },
+   "chips": [
+    "as printed; no condition on the sections"
+   ],
+   "diff": [
+    "(3) is an equality of types and (4) compares after transport along it. As printed, the definition puts no condition on the sections $s^x$, $s'^x$ (presumably they are meant to agree on $U''(x)$, as in Definition 13.2.8); it is formalized as printed, and nothing below uses the sections of an equivalent tuple."
+   ]
+  },
+  {
+   "id": "V13.33",
+   "title": "Remark 13.3.9 (2017: 13.3), another possible equivalence",
+   "verdict": "nothing",
+   "book": {
+    "label": "§13.3, Remark 13.3.9, p. 616 (2017: Remark 13.3)",
+    "page": 616,
+    "statement": "Another equivalence (equivariant bijections $b_x$ instead of $I_x = I'_x$) would have been possible."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment on the choice of definition. The relabelling it uses is `IndexCorr.map`.",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.map"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.34",
+   "title": "Definition 13.3.10 (2017: 13.19), structured sc⁺-multisections",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.10, p. 616 (2017: Definition 13.19)",
+    "page": 616,
+    "statement": "A class $[\\Lambda, \\mathcal U, S, \\tau]$ is a structured sc⁺-multisection."
+   },
+   "lean": {
+    "statement": "`StructuredMultisection A := Quotient (StructuredTuple.setoid A)`, `StructuredMultisection.forget`.",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.forget"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.35",
+   "title": "Definition 13.3.11 (2017: 13.20), $\\Gamma^+_m(P)$, $\\Gamma^+_s(P)$, $\\Gamma^+_{st}(P)$",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.11, p. 617 (2017: Definition 13.20)",
+    "page": 617,
+    "statement": "$\\Gamma^+_m(P)$, $\\Gamma^+_s(P)$, $\\Gamma^+_{st}(P)$; $\\mathrm{forget} : \\Gamma^+_{st}(P) \\to \\Gamma^+_s(P)$, and every structurable $\\Lambda$ lifts."
+   },
+   "lean": {
+    "statement": "`Γm A`, `Γs A` (sets of functors), `Γst A := StructuredMultisection A`, `Γs_subset_Γm`, `StructuredMultisection.forget_mem_Γs`, `StructuredMultisection.range_forget` (`range forget = Γs A`).",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.Γm",
+     "Chapter13/P3D_Structurable · SBLocalization.Γs",
+     "Chapter13/P3D_Structurable · SBLocalization.Γst",
+     "Chapter13/P3D_Structurable · SBLocalization.Γs_subset_Γm",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.forget_mem_Γs",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredMultisection.range_forget"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.36",
+   "title": "Proposition 13.3.12 (2017: 13.3), sums of structurable sc⁺-multisections",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.3, Proposition 13.3.12, p. 617 (2017: Proposition 13.3)",
+    "page": 617,
+    "statement": "The sum of structurable sc⁺-multisections is structurable; for structured ones it is naturally structured with $I_x = I^1_x \\times I^2_x$, $\\tau = \\tau^1 \\times \\tau^2$, $s_{(i,j)} = s^1_i + s^2_j$."
+   },
+   "lean": {
+    "statement": "`proposition_13_3_12 : IsStructurable A Λ' → IsStructurable A Λ'' → IsStructurable A (multisectionAdd Λ' Λ'')`; structured: `Decoration.Tau.add` (a `Tau` for `D'.add D''`), `StructuredTuple.add`, `StructuredTuple.add_Λ`; on a common good system `Decoration.Tau.prod` with `IndexCorr.prod` ($[a_1,b_1] \\times [a_2,b_2] = [a_1 \\times a_2, b_1 \\times b_2]$, `prod_swap`, `prod_biact`, `prod_ofPerm`).",
+    "decls": [
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.prod",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexDiagram.card_fiber_prodMap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_swap",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_biact",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.prod_ofPerm",
+     "Chapter13/P3D_Structurable · EpGroupoid.biact_congr_of_le",
+     "Chapter13/P3D_Structurable · EpGroupoid.GoodSystem.biact_congr_of_le",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.restrictTo",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.restrict",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.prod",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.add",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add",
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add_Λ",
+     "Chapter13/P3D_Structurable · SBLocalization.proposition_13_3_12"
+    ]
+   },
+   "chips": [
+    "common good system by restriction"
+   ],
+   "diff": [
+    "\"We may assume $\\mathcal U_1 = \\mathcal U_2$\" is realized by restricting both structures to the common neighbourhoods of the decorated sum (same actions; `Decoration.restrictTo`, `Decoration.Tau.restrict`, with `GoodSystem.biact_congr_of_le`: the bi-action does not change). Compatibility (3) is the text's computation (`fibAct_sectionAdd`)."
+   ]
+  },
+  {
+   "id": "V13.37",
+   "title": "Remark 13.3.13 (2017: 13.4), $\\Lambda_1 \\oplus \\Lambda_2$ versus $\\Lambda_2 \\oplus \\Lambda_1$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.3, Remark 13.3.13, p. 618 (2017: Remark 13.4)",
+    "page": 618,
+    "statement": "The structured $\\Lambda_1 \\oplus \\Lambda_2$ and $\\Lambda_2 \\oplus \\Lambda_1$ differ in general (index sets $I^1_x \\times I^2_x$ versus $I^2_x \\times I^1_x$); as structurable functors they agree."
+   },
+   "lean": {
+    "statement": "The agreement of the functors: `StructuredTuple.add_Λ` with `multisectionAdd_comm`; on decorated classes `DecoratedMultisection.add_comm`. The difference of the structured classes is not expressible: Lean cannot prove two product types unequal, so \"$I^1_x \\times I^2_x \\ne I^2_x \\times I^1_x$\" has no Lean statement.",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.StructuredTuple.add_Λ",
+     "Chapter13/P3M_MultisectionAlgebra · SBLocalization.multisectionAdd_comm",
+     "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm"
+    ]
+   },
+   "chips": [
+    "positive half only"
+   ],
+   "diff": [
+    "Only the positive half is formalized; the negative half is about the equality of types, which has no Lean statement."
+   ]
+  },
+  {
+   "id": "V13.38",
+   "title": "Lemma 13.3.14 (2017: 13.6), $r\\Lambda$ and $\\beta\\Lambda$ are structurable",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Lemma 13.3.14, p. 618 (2017: Lemma 13.6)",
+    "page": 618,
+    "statement": "$r\\Lambda$ ($r \\in \\mathbb R$) and $\\beta\\Lambda$ ($\\beta$ an sc-smooth functor) are structurable for structurable $\\Lambda$."
+   },
+   "lean": {
+    "statement": "`lemma_13_3_14 (h : IsStructurable A Λ) (a : ℝ) : IsStructurable A (multisectionSmul a Λ)`, `lemma_13_3_14_fun` (for $\\beta$ as in Lemma 13.2.11); the same $\\tau$ serves (`Decoration.Tau.smul`, `Decoration.Tau.smulFun`).",
+    "decls": [
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.smulFun",
+     "Chapter13/P3D_Structurable · SBLocalization.Decoration.Tau.smul",
+     "Chapter13/P3D_Structurable · SBLocalization.lemma_13_3_14",
+     "Chapter13/P3D_Structurable · SBLocalization.lemma_13_3_14_fun"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "Compatibility uses $\\beta(t(\\psi)) = \\beta(s(\\psi))$ (`fibAct_sectionSmul`). Includes $r = 0$."
+   ]
+  },
+  {
+   "id": "V13.39",
+   "title": "$T_\\Lambda$ and the construction before Proposition 13.3.15 (2017: before 13.4)",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.3, before Proposition 13.3.15, pp. 618–619 (2017: before Proposition 13.4)",
+    "page": 618,
+    "statement": "$\\Lambda$ is trivial near $x$ if $\\Lambda(0_y) = 1$ on a neighbourhood; $T_\\Lambda$ is the set of such $x$. Shrink $U(x)$ into $T_\\Lambda$ for $x \\in T_\\Lambda$, put the single zero section on $I'_x = \\{*\\}$ there, and replace $\\tau$ by the three unit diagrams when $x$ or $x'$ lies in $T_\\Lambda$."
+   },
+   "lean": {
+    "statement": "`trivialSet Λ`, `isOpen_trivialSet`, `isTrivialOn_trivialSet`; `TightIdx p I` ($= \\{* \\mid p\\} \\sqcup \\{i \\in I \\mid \\neg p\\}$) with `TightIdx.eT : {∗} ≃ I'_x` ($x \\in T_\\Lambda$), `TightIdx.eN : I_x ≃ I'_x` ($x \\notin T_\\Lambda$); `SymmetricStructureOn.tight`, `Decoration.tightNbhd`, `Decoration.tight`, `Decoration.tightτ` (`tightτ_TT`, `_TN`, `_NT`, `_NN`), `Decoration.Tau.tight` (the new tuple is structured).",
+    "decls": [
+     "Chapter13/P3D_Tight · SBLocalization.trivialSet",
+     "Chapter13/P3D_Tight · SBLocalization.isOpen_trivialSet",
+     "Chapter13/P3D_Tight · SBLocalization.isTrivialOn_trivialSet",
+     "Chapter13/P3D_Tight · SBLocalization.apply_fiberZero_tgt",
+     "Chapter13/P3D_Tight · SBLocalization.TightIdx",
+     "Chapter13/P3D_Tight · SBLocalization.TightIdx.eT",
+     "Chapter13/P3D_Tight · SBLocalization.TightIdx.eN",
+     "Chapter13/P3D_Tight · SBLocalization.SymmetricStructureOn.tight",
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.tightNbhd",
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.tight",
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.tightτ",
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.Tau.tight",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.toUnit",
+     "Chapter13/P3D_Correspondence · SBLocalization.IndexCorr.fromUnit"
+    ]
+   },
+   "chips": [
+    "condition (3) for $\\tau'$ checked"
+   ],
+   "diff": [
+    "The text does not check (3) of Definition 13.3.4 for the new $\\tau'$; it holds because all sections vanish at points $y$ with $\\Lambda(0_y) = 1$ (`SymmetricStructureOn.s_eq_fiberZero`) and $\\Lambda(0_{t(\\psi)}) = \\Lambda(0_{s(\\psi)})$ (`apply_fiberZero_tgt`). $I'_x = \\{*\\}$ and $I'_x = I_x$ are bijections (`eT`, `eN`), not equalities of types."
+   ]
+  },
+  {
+   "id": "V13.40",
+   "title": "Proposition 13.3.15 (2017: 13.4), the tight version of a structured tuple",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.3, Proposition 13.3.15, p. 619 (2017: Proposition 13.4)",
+    "page": 619,
+    "statement": "From a representative $(\\Lambda, \\mathcal U, S, \\tau)$ one gets a structured $(\\Lambda, \\mathcal U', S', \\tau')$ with (1) for $x \\in T_\\Lambda$: $I'_x = \\{*\\}$, $U'(x) \\subset T_\\Lambda$ with the $G_x$-action, the zero section; (2) $U'(x) = U(x)$, $I'_x = I_x$ for $x \\notin T_\\Lambda$; (3) $\\tau' = \\tau$ for $x, x' \\notin T_\\Lambda$; (4)–(5) the unit diagrams."
+   },
+   "lean": {
+    "statement": "`proposition_13_3_15 hΛ D t`: there are `D'` and `t' : D'.Tau` with `D'.IsTight t'` ((1), (4), (5)); for $x \\in T_\\Lambda$, $U'(x) \\subseteq T_\\Lambda$ carries the action of $U(x)$; and equivariant bijections $e_x : I_x \\simeq I'_x$ for $x \\notin T_\\Lambda$ with `D'.𝒰.nbhd x = D.𝒰.nbhd x`, $s'_{e_x(i)} = s_i$, and $\\tau'_{x,x'} = \\tau_{x,x'}$ relabelled by $e_x, e_{x'}$ ((2), (3)).",
+    "decls": [
+     "Chapter13/P3D_Tight · SBLocalization.proposition_13_3_15",
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.isTight_tight"
+    ]
+   },
+   "chips": [
+    "equalities of index sets as bijections"
+   ],
+   "diff": [
+    "Equalities of index sets are bijections (as for $T_\\Lambda$, V13.39); (3) holds for all morphisms."
+   ]
+  },
+  {
+   "id": "V13.41",
+   "title": "Remark 13.3.16 (2017: 13.5), the choice of $U'(x)$ for $x \\in T_\\Lambda$",
+   "verdict": "nothing",
+   "book": {
+    "label": "§13.3, Remark 13.3.16, p. 619 (2017: Remark 13.5)",
+    "page": 619,
+    "statement": "$U'(x)$ for $x \\in T_\\Lambda$ may be any invariant subset of $T_\\Lambda$ with the properness property."
+   },
+   "lean": {
+    "statement": "Prose. The construction takes any natural neighbourhood inside $U(x) \\cap T_\\Lambda$ with the same action (`Decoration.exists_tightNbhd`).",
+    "decls": [
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.exists_tightNbhd"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.42",
+   "title": "Definition 13.3.17 (2017: 13.21), tightly structured sc⁺-multisections",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Definition 13.3.17, p. 620 (2017: Definition 13.21)",
+    "page": 620,
+    "statement": "Tightly structured: a representative with (1) $I_x = \\{*\\}$ and the zero section for $x \\in T_\\Lambda$; (2) $\\tau_{x,x'} = [* \\leftarrow I_{x'} \\xrightarrow{id} I_{x'}]$, resp. $[I_x \\xleftarrow{id} I_x \\to \\{*\\}]$, when exactly one of $x, x'$ is in $T_\\Lambda$; (3) $[\\{*\\} \\leftarrow \\{*\\} \\to \\{*\\}]$ when both are."
+   },
+   "lean": {
+    "statement": "`structure Decoration.IsTight D t` (fields `unique`, `zero`, `τ_TN`, `τ_NT`, `τ_TT`, on $\\varphi \\in \\mathcal U(x,x')$), `StructuredMultisection.IsTight`.",
+    "decls": [
+     "Chapter13/P3D_Tight · SBLocalization.Decoration.IsTight",
+     "Chapter13/P3D_Tight · SBLocalization.StructuredMultisection.IsTight"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$I_x = \\{*\\}$ is a bijection $\\{*\\} \\simeq I_x$; (2)–(3) are stated for every such bijection (all are equal)."
+   ]
+  },
+  {
+   "id": "V13.43",
+   "title": "Corollary 13.3.18 (2017: 13.1), tightly structured versions exist",
+   "verdict": "same",
+   "book": {
+    "label": "§13.3, Corollary 13.3.18, p. 620 (2017: Corollary 13.1)",
+    "page": 620,
+    "statement": "Every structurable $\\Lambda$ has a tightly structured version."
+   },
+   "lean": {
+    "statement": "`corollary_13_3_18 : IsStructurable A Λ → ∃ D t, D.IsTight t`; `corollary_13_3_18_structured`: every $\\Lambda \\in \\Gamma^+_s$ is `forget` of a tightly structured class.",
+    "decls": [
+     "Chapter13/P3D_Tight · SBLocalization.corollary_13_3_18",
+     "Chapter13/P3D_Tight · SBLocalization.corollary_13_3_18_structured"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.44",
+   "title": "Definition 13.5.1 (2017: 13.23), atomic sc⁺-multisection functors",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.5, Definition 13.5.1, p. 629 (2017: Definition 13.23)",
+    "page": 629,
+    "statement": "$\\Lambda$ is atomic if there are (1) a point $x$ and a $G_x$-invariant open $U(x) \\supset \\overline{V(x)}$ with $t : s^{-1}(\\overline{U(x)}) \\to X$ proper; (2) a symmetric sc⁺-section structure $(s_i)_{i \\in I_x}$ on $U(x)$ vanishing outside $V(x)$; (3) $\\Lambda(w) = |I_x|^{-1}\\#\\{i \\mid s_i(P(w')) = w'\\}$ for $w' = \\mu(\\varphi, w)$ with $t(\\varphi) \\in U(x)$, and $\\Lambda(w) = 1$ if $w = 0$ and $0$ otherwise, when no morphism joins $P(w)$ to $U(x)$."
+   },
+   "lean": {
+    "statement": "`structure AtomicData A` holds (1)–(2): `x`, `R : NaturalRep x` with $U(x)$ = `R.U`, `hasPropernessProperty`, an open $G_x$-invariant `V` with $x \\in V$ and $\\overline V \\subseteq U(x)$, `I` with `Fintype` and `MulAction (Isotropy x)`, `s` with `isScPlusSectionOn` on $U(x)$, `equivariant` and `vanish` on $U(x) \\setminus V$. `AtomicData.IsRelated Λ` is (3). `IsAtomic A Λ := IsScPlusMultisection A Λ ∧ ∃ D, D.IsRelated Λ`. `IsRelated.symmetricStructure` (the data is a symmetric structure of Definition 13.2.5), `IsRelated.nonempty` ($I_x \\ne \\emptyset$), `count_μ_eq` (the formula in (3) does not depend on $\\varphi$), `IsRelated.eq_mult` ($\\Lambda$ is determined by the data). Witness: `isAtomic_zeroMultisection`.",
+    "decls": [
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.count",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.Reach",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated",
+     "Chapter13/P3A_Atomic · SBLocalization.IsAtomic",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.count_μ_eq",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.reach_iff_mem_saturation",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.eq_mult",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.symmetricStructure",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.IsRelated.nonempty",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.zero",
+     "Chapter13/P3A_Atomic · SBLocalization.isAtomic_zeroMultisection"
+    ]
+   },
+   "chips": [
+    "data bundled as a structure"
+   ],
+   "diff": [
+    "\"$G_x$-invariant $U(x)$ carrying a symmetric structure\" is read as in Definition 13.2.5 (wave 1): $U(x)$ is the domain of a natural representation; $V(x)$ is invariant for the natural action and contains $x$. The data is bundled as a structure; $\\Lambda$ is an sc⁺-multisection, as the text presupposes. In (3) the count is taken at $P(w') = t(\\varphi)$ (Findings, Chapter 13, item 13)."
+   ]
+  },
+  {
+   "id": "V13.45",
+   "title": "Remark 13.5.2 (2017: 13.6), atomic perturbations and bump functions",
+   "verdict": "nothing",
+   "book": {
+    "label": "§13.5, Remark 13.5.2, p. 630 (2017: Remark 13.6)",
+    "page": 630,
+    "statement": "Atomic perturbations are built from one section through a prescribed value, moved by $G_x$ and extended; finitely many suffice over a compact solution set; only bump functions are needed, not partitions of unity."
+   },
+   "lean": {
+    "statement": "Nothing to formalize beyond Theorems 13.5.4–13.5.6, which use only `AdmitsBumpFunctionsPointwise` and no partition of unity. The \"finitely many suffice\" claim belongs to Theorem 15.3.7.",
+    "decls": [
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_2"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V13.46",
+   "title": "Theorem 13.5.3 (2017: 13.6), atomic sc⁺-multisections are structurable",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.5, Theorem 13.5.3, p. 630 (2017: Theorem 13.6)",
+    "page": 630,
+    "statement": "An atomic sc⁺-multisection functor is structurable. The proof builds a good system, index sets $I_x$ (either $I_{x_0}$ or $\\{*\\}$), structures pulled back along morphisms, and correspondences."
+   },
+   "lean": {
+    "statement": "`theorem_13_5_3_local D hΛ h y : D.IsLocallyTransported Λ y` at every point (the local alternative of the proof: on an open $O \\ni y$, $\\Lambda$ is represented by $s'_i(z) = \\mu(\\tau(z), s_i(s(\\tau z)))$, $\\tau$ sc-smooth with $t(\\tau z) = z$ and $s(\\tau z) \\in U(x_0)$, index set $I$, weights $|I|^{-1}$; or $\\Lambda$ is trivial on an open $O \\ni y$). `theorem_13_5_3_hyp {Structurable} (hcrit : ∀ D Λ, IsScPlusMultisection A Λ → D.IsRelated Λ → (∀ y, D.IsLocallyTransported Λ y) → Structurable Λ) : IsAtomic A Λ → Structurable Λ`.",
+    "decls": [
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.AtomicData.IsLocallyTransported",
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_local",
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp",
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp_witness",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.exists_isLocalRepOn_transport"
+    ]
+   },
+   "chips": [
+    "correspondences: hypothesis `hcrit` (G.149)"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hcrit`, the remaining step of the proof (the transported local structures fit together by correspondences), stated for a predicate `Structurable`; witness `theorem_13_5_3_hyp_witness` (Structurable := IsScPlusMultisection). D13.3.6 (`IsStructurable`, V13.30) was written in parallel; substituting it for `Structurable` and proving `hcrit` is gap G.149.",
+    "The local structures of the proof (the families $s_x$ with $I_x = I$ or $\\{*\\}$) are proved at every point."
+   ]
+  },
+  {
+   "id": "V13.47",
+   "title": "Theorem 13.5.4 (2017: 13.7), Construction I",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.5, Theorem 13.5.4, p. 632 (2017: Theorem 13.7)",
+    "page": 632,
+    "statement": "$X$ with bump functions, $x$ smooth, $U(x)$ with the natural action and the properness property, $V(x)$ open invariant with $\\overline{V(x)} \\subseteq U(x)$. (1) For a smooth $w \\in W_x$ there are finitely many sc⁺-sections on $U(x)$ vanishing on $U \\setminus V$, with a $G_x$-action on $I$, equivariant, with $s_{i_0}(x) = w$. (2) The same for a given sc⁺-section $s$ near $x$, supported in $U(x)$, with $s_{i_0} = s$ near $x$."
+   },
+   "lean": {
+    "statement": "`theorem_13_5_4_1 hbump hx R _hprop hVo hxV hVinv hVcl hw hwx : ∃ F : SymmetricFamily A R, (∀ i y, y ∉ V → F.s i y = 0) ∧ ∃ i₀, F.s i₀ x = w`; `theorem_13_5_4_2 … (hs : IsScPlusSectionOn A s O)`: the same with $s_{i_0} = s$ near $x$. `SymmetricFamily A R`: global sc⁺-sections of $W \\to X$ with support in `R.U`, a $G_x$-action on $I$, equivariance on $U(x)$. Proof: $I = G_x$ acting by left multiplication, $s_g$ the `natTerm` translates of a seed $s_0$ (`SymmetricFamily.ofSeed`); (1) $s_0$ from Part I's `lemma_5_3_3` with an auxiliary norm of `proposition_5_1_3_exists`; (2) $s_0 = \\beta s$ with $\\beta$ from `proposition_5_5_3` (`exists_cutoff`).",
+    "decls": [
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_s",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.ofSeed_vanish",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.exists_cutoff",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_4_1",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_4_2"
+    ]
+   },
+   "chips": [
+    "pointwise bump reading (as V12.13)",
+    "global sections, vanish off $V$"
+   ],
+   "diff": [
+    "Hidden hypotheses: bump functions in the pointwise reading `AdmitsBumpFunctionsPointwise`, as in Theorem 12.3.3 (V12.13); witness `EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`.",
+    "Otherwise stronger: global sc⁺-sections that vanish off $V$, not only on $U \\setminus V$. In (2), \"$s_{i_0} = s$ near $x$\" needs $\\beta \\equiv 1$ near $x$, which Proposition 5.5.3 provides. `_hprop`, and in (2) `_hx`, are kept as in the text and unused."
+   ]
+  },
+  {
+   "id": "V13.48",
+   "title": "Theorem 13.5.5 (2017: 13.8), Construction II",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.5, Theorem 13.5.5, p. 633 (2017: Theorem 13.8)",
+    "page": 633,
+    "statement": "Finitely many sc⁺-sections $(s_i)_{i \\in I}$ of $W \\to X$, supported in $U(x)$ (natural action, properness property), with a $G_x$-action on $I$ and equivariance, give a uniquely determined atomic $\\Lambda$, supported in the saturation of $U(x)$, with $\\Lambda(w) = |I|^{-1}\\#\\{i \\mid s_i(P(w)) = w\\}$ over $U(x)$; it is structurable."
+   },
+   "lean": {
+    "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable_hyp`, from Theorem 13.5.3 in its hypothesis form.",
+    "decls": [
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.eq_zero_iff",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.exists_vanishing_nbhd",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.ofFamily",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_5",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.mult",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isRelated_mult",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isWFunctor_mult",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.domSupp_mult_subset",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isScPlusMultisection_mult",
+     "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isAtomic_mult",
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable_hyp"
+    ]
+   },
+   "chips": [
+    "existence, uniqueness as printed",
+    "structurable: via T13.5.3 (G.149)",
+    "$I \\ne \\emptyset$ (implicit)"
+   ],
+   "diff": [
+    "Hidden hypotheses: $I \\ne \\emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \\emptyset$ the printed formula gives $\\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause rests on `hcrit` of Theorem 13.5.3 (V13.46, gap G.149).",
+    "Existence and uniqueness are as printed. \"Supported in the saturation of $U(x)$\" is read as: $\\Lambda$ is trivial over points not isomorphic to a point of $U(x)$. The first-case formula of the proof is read with $w' = \\mu(\\varphi, w)$, as in Definition 13.5.1 (3). Bump functions and the smoothness of $x$ are not used."
+   ]
+  },
+  {
+   "id": "V13.49",
+   "title": "Theorem 13.5.6 (2017: 13.9), atomic sc⁺-multisections through a given vector or section",
+   "verdict": "narrower",
+   "book": {
+    "label": "§13.5, Theorem 13.5.6, p. 634 (2017: Theorem 13.9)",
+    "page": 634,
+    "statement": "$|X|$ paracompact, bump functions, an auxiliary norm $N$. (1) For smooth $w \\ne 0$ over $x$ and $U(x)$ with the natural action there is an atomic $\\Lambda$ with $\\mathrm{dom\\text{-}supp}\\,\\Lambda \\subseteq \\pi^{-1}(U(x))$ and $\\Lambda(g * w) > 0$ for all $g$. (2) For an sc⁺-section $s$ on $U(x)$ and $\\varepsilon > 0$ there is an atomic $\\Lambda$ supported in $\\pi^{-1}(U(x))$ with $N(\\Lambda)(y) \\le N(s(x)) + \\varepsilon$, whose local structure near $x$ contains $s$ with positive weight."
+   },
+   "lean": {
+    "statement": "`theorem_13_5_6_1 _hpara hbump _hN hw _hw0 hwx R : ∃ Λ, IsAtomic A Λ ∧ domSupp Λ ⊆ saturation R.U ∧ ∀ g, 0 < Λ (μ(g, w))`; `theorem_13_5_6_2 _hpara hbump hN R hs hε : ∃ Λ, IsAtomic A Λ ∧ domSupp Λ ⊆ saturation R.U ∧ (∀ y, pointwiseNorm N Λ y ≤ normW N (s x) + ε) ∧ ∃ O k s' σ, IsOpen O ∧ x ∈ O ∧ IsLocalRepOn A Λ O s' σ ∧ ∃ j, 0 < σ j ∧ ∀ y ∈ O, s' j y = s y`; `theorem_13_5_6` combines both, with $x = P(w)$. $N$ is `A.E.IsAuxNorm` (μ-invariant); the bound uses `normW_μ` and `AtomicData.pointwiseNorm_mult_le`.",
+    "decls": [
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.normW_μ",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.pointwiseNorm_mult_le",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.AtomicData.isLocalRepOn_mult",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_1",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6_2",
+     "Chapter13/P3A_AtomicConstruction · SBLocalization.theorem_13_5_6"
+    ]
+   },
+   "chips": [
+    "pointwise bump reading (as V12.13)",
+    "paracompactness kept, unused"
+   ],
+   "diff": [
+    "Hidden hypotheses: bump functions in the pointwise reading `AdmitsBumpFunctionsPointwise` (as V12.13); witness `EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`.",
+    "Otherwise as printed. $\\pi^{-1}(U(x))$ is the saturation. \"Contains $s$ with positive weight\" is read as a local representation (Definition 13.2.1) on an open $O \\ni x$, one of whose sections equals $s$ on $O$. $|X|$ paracompact is kept and unused, since the text uses it only for the existence of $N$, a hypothesis here; $N$ and $w \\ne 0$ are unused in (1). $P(w)$ smooth is derived from $w$ smooth."
+   ]
   }
  ],
  "notFormalized": [
@@ -536,7 +1361,18 @@
    "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
    "page": 602,
    "book": "The hypothesis is a good system for the full sub-ep-groupoid on the open set $Q$; its properness condition (1) is read inside $Q$.",
-   "instead": "`EpGroupoid.theorem_13_1_7` (V13.7) takes `IsGoodOn N Q`, which asks properness of $t : s^{-1}(\\mathrm{cl}_X U(q)) \\to X$ in $X$; everything else is as in the book, and $Q$ need not be open. Missing: $Q$-properness implies $X$-properness when $|Q| = |X|$ (first $\\mathrm{cl}_X U(q) \\subseteq Q$, by extending a morphism from a limit point through the natural representation; then compact sets of targets are moved into $Q$ by finitely many local transports). About 150–250 lines, with a structure for the sub-ep-groupoid on an open set, which does not exist yet."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.7; `Chapter13/P3E_GoodSystemRelative.lean`): `EpGroupoid.theorem_13_1_7_book` is the printed statement, with the hypothesis read in the full subcategory on the open $Q$ (`IsGoodIn`, `IsProperSubsetIn` through `subSrc`, `subTgt` on `X.morOn Q`); `isProperSubset_of_isProperSubsetIn` proves that $Q$-properness implies $X$-properness (with $\\mathrm{cl}_X U(q) \\subseteq Q$, `closure_subset_of_isProperSubsetIn`), and `isGoodIn_iff` gives the equivalence with `IsGoodOn` plus $\\mathrm{cl}_X U(q) \\subseteq Q$. No sub-ep-groupoid structure was needed (Findings, Chapter 13, item 10).",
+   "formalized": [
+    "V13.7"
+   ],
+   "decls": [
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.theorem_13_1_7_book",
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsGoodIn",
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.IsProperSubsetIn",
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isGoodIn_iff",
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.isProperSubset_of_isProperSubsetIn",
+    "Chapter13/P3E_GoodSystemRelative · EpGroupoid.closure_subset_of_isProperSubsetIn"
+   ]
   },
   {
    "g": 142,
@@ -544,7 +1380,29 @@
    "label": "§13.2, Definitions 13.2.7, 13.2.8, pp. 610–611 (2017: Definitions 13.9, 13.10), and pp. 611–612",
    "page": 610,
    "book": "An sc⁺-multisection with a system of symmetric sc⁺-section structures, equivalence of systems, decorated sc⁺-multisections; their sums, scalar multiples, products with functions and locally finite sums are decorated.",
-   "instead": "The functor-level algebra is formalized (V13.10–V13.19), with `SymmetricStructure` and its local existence (V13.14), good systems (V13.2–V13.9), and the local-representation forms of the sums (`multisectionAdd_eq_sum_of_isLocalRepOn`, `multisectionSmul_eq_sum_of_isLocalRepOn`, `isLocalRepOn_conv`). Missing: the system of symmetric structures over a good system (about 40 lines), the equivalence of systems with the equivariant bijections and the quotient (about 60 lines), and closure of symmetric structures under $\\oplus$, $a\\cdot$, $\\beta\\cdot$ and locally finite sums (about 200 lines). Planned for wave 2."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; `Chapter13/P3D_SymmetricOn.lean`, `P3D_Decorated.lean`): rows V13.22, V13.23 for Definitions 13.2.7, 13.2.8 and the decorated forms in V13.15–V13.17, V13.19. The intersections $U'(x) \\cap U''(x)$ are read with one natural action on which the given ones agree (Findings, Chapter 13, item 11).",
+   "formalized": [
+    "V13.22",
+    "V13.23",
+    "V13.15",
+    "V13.16",
+    "V13.17",
+    "V13.19"
+   ],
+   "decls": [
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration",
+    "Chapter13/P3D_Decorated · SBLocalization.DecoratedTuple",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.Rel",
+    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.add",
+    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add",
+    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_comm",
+    "Chapter13/P3D_Decorated · SBLocalization.DecoratedMultisection.add_assoc",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.smul",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.smulFun",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum",
+    "Chapter13/P3D_Decorated · SBLocalization.lemma_13_2_13_decorated"
+   ]
   },
   {
    "g": 143,
@@ -552,7 +1410,41 @@
    "label": "§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)",
    "page": 611,
    "book": "In general, an sc⁺-multisection has no inverse for $\\oplus$.",
-   "instead": "Not formalized. An example needs a strong bundle with a nonzero fibre and a two-valued $\\Lambda$; about 60 lines."
+   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.24; `Chapter13/P3D_NoInverse.lean`): `remark_13_2_9_no_inverse`, a two-valued sc⁺-multisection on $\\mathbb R^n \\times \\mathbb R^k$ with no inverse for $\\oplus$; the neutral element is $\\Lambda_0$ (`multisectionAdd_zeroMultisection`).",
+   "formalized": [
+    "V13.24"
+   ],
+   "decls": [
+    "Chapter13/P3D_NoInverse · SBLocalization.multisectionAdd_zeroMultisection",
+    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.twoValued",
+    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.remark_13_2_9_no_inverse",
+    "Chapter13/P3D_NoInverse · SBLocalization.NoInverse.exists_no_inverse"
+   ]
+  },
+  {
+   "g": 148,
+   "title": "Proposition 13.3.19: locally finite sums of structurable sc⁺-multisections are structurable",
+   "label": "§13.3, Proposition 13.3.19, p. 620 (2017: Proposition 13.5)",
+   "page": 620,
+   "book": "For a family $(\\Lambda_l)$ of structurable sc⁺-multisections with locally finite domain supports, $\\oplus_l \\Lambda_l$ is structurable (index sets $K_x = \\prod_l K^l_x$, sections $\\sum_l s^{l,x}_{k(l)}$, $\\tau$ the product of the tight $\\tau^l$).",
+   "instead": "What exists: the decorated locally finite sum (`Decoration.lfSum`, `lemma_13_2_13_decorated`, V13.19), tight versions (`Decoration.Tau.tight`, `proposition_13_3_15`, V13.39, V13.40), products of two correspondences (`IndexCorr.prod`, `Decoration.Tau.prod`, V13.36) and of finitely many symmetric structures (`SymmetricStructureOn.pi`). Missing: a common good system with $U(x) \\subseteq T_l$ for $l \\notin J_x$ and tight versions over that same system (the tight construction relative to a given good system, about 120 lines); the finite product of correspondences over $J_x \\cup J_{x'}$ with the unit factors for $l$ in only one of $J_x$, $J_{x'}$ (the step the text leaves to the reader, about 300 lines); the verification of Definitions 13.3.4 and 13.3.6 for it (about 150 lines). About 600 lines in all.",
+   "decls": [
+    "Chapter13/P3D_Tight · SBLocalization.proposition_13_3_15",
+    "Chapter13/P3D_Tight · SBLocalization.Decoration.Tau.tight",
+    "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum"
+   ]
+  },
+  {
+   "g": 149,
+   "title": "Theorem 13.5.3: the correspondences (atomic implies structurable)",
+   "label": "§13.5, Theorem 13.5.3, p. 630 (2017: Theorem 13.6); also the last sentence of Theorem 13.5.5, p. 633",
+   "page": 630,
+   "book": "An atomic sc⁺-multisection functor is structurable (Definition 13.3.6).",
+   "instead": "What exists: the local alternatives of the proof at every point (`theorem_13_5_3_local`), the hypothesis form `theorem_13_5_3_hyp` (V13.46) and its consequence for Theorem 13.5.5 (`theorem_13_5_5_structurable_hyp`, V13.48); the structurable predicate `IsStructurable` (V13.30). Missing: a good system refining the $O$'s of `IsLocallyTransported` (wave 1's `exists_refinement_subset`); the $G_y$-actions on $I_y = I$ through $\\gamma_y$ (`proposition_13_1_9_D`, `partnerHom`); the correspondences $\\tau_{y,y'}$ as `IndexCorr.ofPerm` of the sheet index of $\\varphi_{y'} \\circ \\varphi \\circ \\varphi_y^{-1}$ in $U(x_0)$, with `toUnit`/`fromUnit` for the trivial points; the compatibility check. Estimate 400–700 lines.",
+   "decls": [
+    "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_local",
+    "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp"
+   ]
   }
  ]
 }

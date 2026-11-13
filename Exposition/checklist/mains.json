@@ -353,19 +353,47 @@
   },
   {
    "key": "partIII",
-   "title": "Part III (wave 1): Fredholm theory in ep-groupoids, good systems, polyfolds",
+   "title": "Part III (waves 1–2): Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, transversality, polyfolds",
    "mains": [
     [
      "Thm 12.2.2",
      "Polyfold.EpStrongBundle.theorem_12_2_2"
     ],
     [
+     "Thm 12.2.7",
+     "Polyfold.EpStrongBundle.theorem_12_2_7"
+    ],
+    [
+     "Thm 12.2.11",
+     "Polyfold.EpStrongBundle.theorem_12_2_11"
+    ],
+    [
+     "Thm 12.3.9",
+     "Polyfold.EpStrongBundle.theorem_12_3_9"
+    ],
+    [
      "Thm 12.4.2",
      "Polyfold.EpStrongBundle.theorem_12_4_2"
     ],
     [
+     "Thm 12.5.7",
+     "Polyfold.theorem_12_5_7_one_hyp"
+    ],
+    [
      "Thm 13.1.8",
      "Polyfold.EpGroupoid.theorem_13_1_8"
+    ],
+    [
+     "Thm 13.5.6",
+     "Polyfold.SBLocalization.theorem_13_5_6"
+    ],
+    [
+     "Thm 15.2.2",
+     "Polyfold.SBLocalization.theorem_15_2_2_hyp"
+    ],
+    [
+     "Thm 15.2.5",
+     "Polyfold.SBLocalization.theorem_15_2_5_hyp"
     ],
     [
      "Prop 16.1.4",
@@ -378,6 +406,22 @@
     [
      "Lemma 16.1.19",
      "Polyfold.PolyfoldStructure.lemma_16_1_19"
+    ],
+    [
+     "Lemma 16.2.2",
+     "Polyfold.PolyfoldClass.lemma_16_2_2"
+    ],
+    [
+     "Def 16.2.3",
+     "Polyfold.PolyfoldClass.definition_16_2_3"
+    ],
+    [
+     "Thm 16.2.6",
+     "Polyfold.PolyfoldClass.theorem_16_2_6_complex"
+    ],
+    [
+     "Thm 16.4.6",
+     "Polyfold.PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"
     ]
    ]
   },

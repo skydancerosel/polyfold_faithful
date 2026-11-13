@@ -678,6 +678,30 @@ each chapter lands)
     Builder scripts: Part III chapters V12, V13, V15, V16 (no V14 yet). Next: wave 2 (reflexive norms of §12.2,
     Theorem 12.3.9, §12.4 rest, Theorem 12.5.7, §§13.3–13.5, Chapter 14, §§15.2–15.4, the rest of Chapter 16).
 
+24. **Part III wave 2** (2026-11-13). Nine agents (R2, X, E, D, A, L, H, F, P; notes `narrow/p3w2-*.md` in the
+    lead's scratchpad, integration report `narrow/integrate-p3w2.md`). New Lean in 33 files, 12,746 lines
+    (`Polyfold/Chapter12/P3{E,R2,X,F}_*`, `Chapter13/P3{E,D,A}_*`, `Chapter15/P3{L,P}_*`, `Chapter16/P3H_*`),
+    imported in `Polyfold.lean` (797 lines; list in `narrow/ip3w2/modules.txt`); `Test.lean` blocks "Axioms: Part
+    III wave 2 (2026-11-13), Chapter N" for N = 12, 13, 15, 16, 675 theorems and 186 definitions; now 19,547, all on
+    propext/Classical.choice/Quot.sound. No name clashed. Docstrings updated: the "Not formalized here" section of
+    `P3N_AuxNormExtension.lean` and the reading bullet of `P3G_GoodSystemExistence.lean`. Rows: V12.28–V12.44,
+    V13.21–V13.49, V15.9–V15.26, V16.14–V16.28 (79 new rows, 18 narrower); updated V12.9 (same), V12.16, V13.7
+    (stronger), V13.10, V13.15–V13.17, V13.19, V15.1, V15.2, V16.1. Gaps closed: G.136, G.137, G.141, G.142, G.143,
+    G.145, G.146; G.138, G.139, G.144 rewritten. New gaps G.147–G.162, all open: G.147 (reflexive local step of
+    12.2.13), G.148 (Proposition 13.3.19), G.149 (correspondences in Theorem 13.5.3), G.150–G.152 (tameness,
+    general-position variant and U(x) in §15.2), G.153–G.157 (Stokes without partitions of unity, tameness
+    invariance, naturality of supp θ, τ_Z and raised polyfolds, the tangent functor and pull-back of forms), G.158
+    (topology of Theorem 12.5.7), G.159 (Theorem 15.4.1, Definition 15.4.2), G.160–G.162 (product bundles, Remark
+    15.3.6 rest, Theorems 15.3.7, 15.3.9). Lemma 16.2.1 does not hold as we read it (`not_lemma_16_2_1`, the pair of
+    item 23; README item 14), with orbit and effective forms. §15.2 does not state tameness, so Theorems 15.2.2 and
+    15.2.5 carry Part I's tame germ data and are narrower; Theorem 16.4.6 does not state partitions of unity, which
+    Theorem 9.5.17 assumes, so it carries `hPU` and is narrower. Findings: Ch12 12–18, Ch13 10–15, Ch15 5–9, Ch16
+    6–10; closed items' status lines updated. `BookConcordance.md` gains a wave-2 table (2017 numbers checked; the
+    notes R2, L, P gave other 2017 numbers for 12.4.3–12.4.6, 15.2.2–15.2.6, 15.3.1–15.3.10). `checklist/mains.json`
+    tier `partIII` gains Theorems 12.2.7, 12.2.11, 12.3.9, 12.5.7, 13.5.6, 15.2.2, 15.2.5, Lemma 16.2.2, Definition
+    16.2.3, Theorems 16.2.6, 16.4.6 (102 mains). Wave 3 (P3W3 files) runs in parallel and is not integrated here.
+    Next: wave 3 (G.147–G.149, Chapter 14, §§15.3–15.4, §§16.3, 16.5–16.6).
+
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
 Polyfold project to leave memory for `lake build`.

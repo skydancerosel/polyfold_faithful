@@ -90,19 +90,24 @@ CHAPTERS = [
     ('V12', 'Part III, Chapter 12', 'HWZ Part III, Chapter 12 §§12.1–12.5, pp. 569–597 (2017 Chapter 12; '
             'Part III has no 2014 preprint): sc-Fredholm section functors, auxiliary norms and the good '
             'neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the '
-            'boundary, sc-smooth bump functions and sc⁺-section functors, extension from the boundary in a local '
-            'model, compactness and properness, the orientation bundle (wave 1 of Part III)'),
-    ('V13', 'Part III, Chapter 13', 'HWZ Part III, Chapter 13 §§13.1–13.2, pp. 599–612 (2017 Chapter 13; '
-            'Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, their '
-            'existence and extension; the functor-level algebra of sc⁺-multisections (support, pointwise norm, '
-            'symmetric structures, sums, scalar multiples, locally finite sums) (wave 1 of Part III)'),
-    ('V15', 'Part III, Chapter 15', 'HWZ Part III, Chapter 15 §15.1, pp. 683–687 (2017 Chapter 15; '
+            'boundary, reflexive auxiliary norms, sc-smooth bump functions and sc⁺-section functors, extension '
+            'from the boundary in a local model and Theorem 12.3.9, compactness and properness with the reflexive '
+            'forms, the orientation bundle and its naturality (waves 1–2 of Part III)'),
+    ('V13', 'Part III, Chapter 13', 'HWZ Part III, Chapter 13 §§13.1–13.3, 13.5, pp. 599–620, 629–635 (2017 '
+            'Chapter 13; Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, '
+            'their existence and extension; the algebra of sc⁺-multisections (support, pointwise norm, symmetric '
+            'structures, decorations, sums, scalar multiples, locally finite sums); structurable and atomic '
+            'sc⁺-multisections (waves 1–2 of Part III)'),
+    ('V15', 'Part III, Chapter 15', 'HWZ Part III, Chapter 15 §§15.1–15.3, pp. 683–700 (2017 Chapter 15; '
             'Part III has no 2014 preprint): the linearization $T(f,\\Lambda)$ of an sc-Fredholm section '
-            'perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas (wave 1 of Part III)'),
-    ('V16', 'Part III, Chapter 16', 'HWZ Part III, Chapter 16 §16.1, pp. 705–714 (2017 Chapter 16; '
+            'perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas; transversality, '
+            'good position and local solution sets; compactness control, admissible perturbations, general '
+            'position and $[0,1] \\times X$ (waves 1–2 of Part III)'),
+    ('V16', 'Part III, Chapter 16', 'HWZ Part III, Chapter 16 §§16.1, 16.2, 16.4, pp. 705–733 (2017 Chapter 16; '
             'Part III has no 2014 preprint): polyfold structures and their equivalence, polyfolds, bump '
             'functions and partitions of unity, the degeneracy index and the boundary, tame polyfolds; the '
-            'uniqueness sentence after Definition 16.1.2 (wave 1 of Part III)'),
+            'uniqueness sentence after Definition 16.1.2 and Lemma 16.2.1; the tangent polyfold and sc-differential '
+            'forms; branched suborbifolds, their integrals and Stokes\' theorem (waves 1–2 of Part III)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

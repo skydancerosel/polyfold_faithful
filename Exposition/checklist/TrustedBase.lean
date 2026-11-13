@@ -104,6 +104,17 @@ def mains : List (String × String) := [
   ("partIII|Prop 16.1.4", "PolyfoldStructure.proposition_16_1_4"),
   ("partIII|Lemma 16.1.13", "PolyfoldStructure.lemma_16_1_13"),
   ("partIII|Lemma 16.1.19", "PolyfoldStructure.lemma_16_1_19"),
+  ("partIII|Thm 12.2.7", "EpStrongBundle.theorem_12_2_7"),
+  ("partIII|Thm 12.2.11", "EpStrongBundle.theorem_12_2_11"),
+  ("partIII|Thm 12.3.9", "EpStrongBundle.theorem_12_3_9"),
+  ("partIII|Thm 12.5.7", "theorem_12_5_7_one_hyp"),
+  ("partIII|Thm 13.5.6", "SBLocalization.theorem_13_5_6"),
+  ("partIII|Thm 15.2.2", "SBLocalization.theorem_15_2_2_hyp"),
+  ("partIII|Thm 15.2.5", "SBLocalization.theorem_15_2_5_hyp"),
+  ("partIII|Lemma 16.2.2", "PolyfoldClass.lemma_16_2_2"),
+  ("partIII|Def 16.2.3", "PolyfoldClass.definition_16_2_3"),
+  ("partIII|Thm 16.2.6", "PolyfoldClass.theorem_16_2_6_complex"),
+  ("partIII|Thm 16.4.6", "PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"),
   ("tame|Thm 2.7.13", "MPolyfold.theorem_2_7_13_book"),
   ("tame|Thm 7.6.9", "EpGroupoid.theorem_7_6_9_book")]
 
