@@ -5,7 +5,7 @@ import Polyfold.Chapter13.TightMultisection
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
 **Corollary 15.3.10 (3)**, pp. 699–700: the symmetric sc⁺-section structures of `Λⁱ` on `X`
-lifted to `[0, 1] × X` along the projection (gap TY-2 (a), first part).
+lifted to `[0, 1] × X` along the projection.
 
 # Lifting symmetric structures to the cylinder
 
@@ -174,15 +174,16 @@ end Gamma
 /-- **A symmetric sc⁺-section structure of `Λ` on `N ⊆ X` lifted to `V ⊆ [0, 1] × X`**
 (Definition 14.1.3 for `W̃`): `I_z = I_{z₂}` with `G_z` acting through `cubeIso`, sections
 `(q, y) ↦ ((q, y), sᵢ(y))`, for any `Λ̃` with `Λ̃(w) = Λ(w₂)` over `V ∩ ∂([0, 1] × X)`, given
-condition (1) of Definition 14.1.3 for the lifted sections (`hface`). -/
+condition (1) of Definition 14.1.3 for the lifted sections (`hface`) and `I_{z₂} ≠ ∅` (`hne`). -/
 def liftStructure {Λc : (A.cubeSEP 1).W → ℚ≥0} {Λ : A.W → ℚ≥0} {z : (A.cubeSEP 1).Obj}
     (V : (A.cubeSEP 1).X.NatNbhd z) (hV : IsPreconnected V.U) {N : A.X.NatNbhd z.2}
-    (S : SymmetricStructureOn A Λ N) (hVN : ∀ y ∈ V.U, y.2 ∈ N.U)
+    (S : SymmetricStructureOn A Λ N) (hne : Nonempty S.I) (hVN : ∀ y ∈ V.U, y.2 ∈ N.U)
     (hface : ∀ i, IsFaceScPlusSectionOn (A.cubeSEP 1) (cubeLiftSec (S.s i)) V.bdry)
     (hrep : ∀ w, (A.cubeSEP 1).P w ∈ V.bdry → Λc w = Λ (cubeVal w).2) :
     BoundarySymmetricStructure (A.cubeSEP 1) Λc V where
   I := S.I
   mulAction := MulAction.compHom S.I (cubeIso z)
+  nonempty := hne
   s i := cubeLiftSec (S.s i)
   isFaceScPlus := hface
   equivariant g i y hy := by
@@ -215,10 +216,11 @@ def liftStructure {Λc : (A.cubeSEP 1).W → ℚ≥0} {Λ : A.W → ℚ≥0} {z 
 
 @[simp] theorem liftStructure_I {Λc : (A.cubeSEP 1).W → ℚ≥0} {Λ : A.W → ℚ≥0}
     {z : (A.cubeSEP 1).Obj} (V : (A.cubeSEP 1).X.NatNbhd z) (hV : IsPreconnected V.U)
-    {N : A.X.NatNbhd z.2} (S : SymmetricStructureOn A Λ N) (hVN : ∀ y ∈ V.U, y.2 ∈ N.U)
+    {N : A.X.NatNbhd z.2} (S : SymmetricStructureOn A Λ N) (hne : Nonempty S.I)
+    (hVN : ∀ y ∈ V.U, y.2 ∈ N.U)
     (hface : ∀ i, IsFaceScPlusSectionOn (A.cubeSEP 1) (cubeLiftSec (S.s i)) V.bdry)
     (hrep : ∀ w, (A.cubeSEP 1).P w ∈ V.bdry → Λc w = Λ (cubeVal w).2) :
-    (liftStructure V hV S hVN hface hrep).I = S.I := rfl
+    (liftStructure V hV S hne hVN hface hrep).I = S.I := rfl
 
 end SBLocalization
 

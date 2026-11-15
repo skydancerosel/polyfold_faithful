@@ -203,7 +203,7 @@
    ],
    "diff": [
     "`theorem_13_1_7_book` is the printed statement. The project's `theorem_13_1_7` takes the weaker `IsGoodOn N Q` (properness in $X$; implied by the printed hypothesis, `IsGoodIn.isGoodOn`) and needs neither $Q$ open nor $\\mathrm{cl}_X U(q) \\subseteq Q$, so the formalization is stronger. Proof of $Q$-proper ⇒ $X$-proper (`isProperSubset_of_isProperSubsetIn`), by ultrafilters: a local section $\\sigma$ of $s$ through a morphism $\\chi : z \\to q'' \\in Q$ (it exists since $|Q| = |X|$) with $t \\circ \\sigma \\in Q$ first shows $\\mathrm{cl}_X U \\subseteq Q$, then moves $\\varphi$ to $\\sigma(t\\varphi) \\circ \\varphi$ in $\\mathrm{Mor}(Q)$ and back by $\\chi^{-1} \\circ \\rho$. No sub-ep-groupoid structure is needed: the full subcategory is described by its morphism set and its source and target maps.",
-    "Reading kept from wave 1: conditions (2), (3) are the same in $X$ and in $Q$ (a natural representation of the ep-groupoid $Q$ is one of $X$). The natural action and $\\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof of `theorem_13_1_7` does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$."
+    "Reading: conditions (2), (3) are the same in $X$ and in $Q$ (a natural representation of the ep-groupoid $Q$ is one of $X$). The natural action and $\\mathcal U(q,q')$ are the same in $Q$ and in $X$. The proof of `theorem_13_1_7` does not use the book's smallness condition on the closures; it uses transports carrying $U(y)$ into $U(q_y)$."
    ]
   },
   {
@@ -635,7 +635,7 @@
     "G.142 closed"
    ],
    "diff": [
-    "The good system carries a natural representation at every point (wave 1's `NatNbhd`), so \"symmetric on $U(x)$\" uses the action of $U(x)$ itself. The properness clause of Definition 13.2.5 is part of the good system (Definition 13.1.2 (1)). `exists_decoration` assumes $|X|$ paracompact, as the text takes good systems from Theorem 13.1.8 (witness `hasParacompactOrbitSpace_trivial`)."
+    "The good system carries a natural representation at every point (`NatNbhd`), so \"symmetric on $U(x)$\" uses the action of $U(x)$ itself. The properness clause of Definition 13.2.5 is part of the good system (Definition 13.1.2 (1)). `exists_decoration` assumes $|X|$ paracompact, as the text takes good systems from Theorem 13.1.8 (witness `hasParacompactOrbitSpace_trivial`)."
    ]
   },
   {
@@ -668,7 +668,7 @@
     "G.142 closed"
    ],
    "diff": [
-    "Transitivity uses a common refinement of two good systems (`GoodSystem.exists_subset_inter`, from wave 1's `exists_refinement_subset`)."
+    "Transitivity uses a common refinement of two good systems (`GoodSystem.exists_subset_inter`, from `exists_refinement_subset`)."
    ]
   },
   {
@@ -790,7 +790,7 @@
     "statement": "A correspondence between $(U(x), s^x)$ and $(U(x'), s^{x'})$ is $\\tau_{x,x'} : \\mathcal U(x,x') \\to J(x,x')$ with (1) locally constant, finitely many values; (2) $\\tau(g' * \\varphi * g) = g' * \\tau(\\varphi) * g$; (3) for every representative $I_x \\xleftarrow{a} I \\xrightarrow{b} I_{x'}$ of $\\tau(\\varphi)$: $s^{x'}_{b(k)}(t(\\psi)) = \\mu(\\psi, s^x_{a(k)}(s(\\psi)))$ for all $k$ and all $\\psi$ in the component of $\\varphi$."
    },
    "lean": {
-    "statement": "`Decoration.IsCorrespondence D x x' τ` with fields `locallyConstant` (for $\\varphi \\in \\mathcal U(x,x')$, eventually $\\tau\\psi = \\tau\\varphi$ near $\\varphi$), `finite` ($\\tau(\\mathcal U(x,x'))$ finite), `biact` (with wave 1's `GoodSystem.biact`) and `compat` (`(τ φ).Sat` of `Decoration.Compat`, condition (3) for every representative).",
+    "statement": "`Decoration.IsCorrespondence D x x' τ` with fields `locallyConstant` (for $\\varphi \\in \\mathcal U(x,x')$, eventually $\\tau\\psi = \\tau\\varphi$ near $\\varphi$), `finite` ($\\tau(\\mathcal U(x,x'))$ finite), `biact` (with `GoodSystem.biact`) and `compat` (`(τ φ).Sat` of `Decoration.Compat`, condition (3) for every representative).",
     "decls": [
      "Chapter13/StructurableMultisection · SBLocalization.Decoration.Compat",
      "Chapter13/StructurableMultisection · SBLocalization.Decoration.IsCorrespondence"
@@ -1207,7 +1207,7 @@
     "data bundled as a structure"
    ],
    "diff": [
-    "\"$G_x$-invariant $U(x)$ carrying a symmetric structure\" is read as in Definition 13.2.5 (wave 1): $U(x)$ is the domain of a natural representation; $V(x)$ is invariant for the natural action and contains $x$. The data is bundled as a structure; $\\Lambda$ is an sc⁺-multisection, as the text presupposes. In (3) the count is taken at $P(w') = t(\\varphi)$ (Findings, Chapter 13, item 13)."
+    "\"$G_x$-invariant $U(x)$ carrying a symmetric structure\" is read as in Definition 13.2.5: $U(x)$ is the domain of a natural representation; $V(x)$ is invariant for the natural action and contains $x$. The data is bundled as a structure; $\\Lambda$ is an sc⁺-multisection, as the text presupposes. In (3) the count is taken at $P(w') = t(\\varphi)$ (Findings, Chapter 13, item 13)."
    ]
   },
   {
@@ -1308,7 +1308,7 @@
    "diff": [
     "Definition 13.3.6 includes a good system, so a structurable Λ gives one. The `↔` form shows the hypothesis `Nonempty A.X.GoodSystem` is exactly what is needed. The text takes it from Theorem 13.1.8 ($|X|$ paracompact): `theorem_13_5_3_of_paracompact`. The index set is $I_{x_0}$ everywhere, with zero sections where Λ is trivial. The text uses $\\{*\\}$ there. Between $Z$ and its complement the correspondences are the full ones. These are structures in the sense of D13.3.6, so this is a different choice of witness, not a different statement.",
     "Hidden hypotheses: `Nonempty A.X.GoodSystem`; it is necessary (the `↔` form) and holds for paracompact $|X|$ (`theorem_13_5_3_of_paracompact`, from Theorem 13.1.8). Witness: `nonempty_goodSystem_epSEP_zero` ($\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$). Theorem 13.5.3 as printed assumes no paracompactness, and Chapter 13 has no standing assumption that supplies it; the proof constructs the neighbourhoods itself. Theorem 13.1.8 is where paracompactness enters.",
-    "The earlier hypothesis form `theorem_13_5_3_hyp` (with `hcrit`) and its witness stay as supporting declarations; `hcrit` is no longer needed (gap G.149 closed)."
+    "The hypothesis form `theorem_13_5_3_hyp` (with `hcrit`) and its witness remain as supporting declarations; `hcrit` is not needed (gap G.149 closed)."
    ]
   },
   {
@@ -1351,7 +1351,7 @@
     "statement": "Finitely many sc⁺-sections $(s_i)_{i \\in I}$ of $W \\to X$, supported in $U(x)$ (natural action, properness property), with a $G_x$-action on $I$ and equivariance, give a uniquely determined atomic $\\Lambda$, supported in the saturation of $U(x)$, with $\\Lambda(w) = |I|^{-1}\\#\\{i \\mid s_i(P(w)) = w\\}$ over $U(x)$; it is structurable."
    },
    "lean": {
-    "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable` (given a good system), from `theorem_13_5_3_of_goodSystem`, as in the text; the earlier hypothesis form is `theorem_13_5_5_structurable_hyp`.",
+    "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable` (given a good system), from `theorem_13_5_3_of_goodSystem`, as in the text; the hypothesis form is `theorem_13_5_5_structurable_hyp`.",
     "decls": [
      "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.eq_zero_iff",
      "Chapter13/AtomicConstruction · SBLocalization.SymmetricFamily.exists_vanishing_nbhd",
@@ -1834,7 +1834,7 @@
    "label": "§13.1, Theorem 13.1.7, p. 602 (2017: Theorem 13.1)",
    "page": 602,
    "book": "The hypothesis is a good system for the full sub-ep-groupoid on the open set $Q$; its properness condition (1) is read inside $Q$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.7; `Chapter13/GoodSystemRelative.lean`): `EpGroupoid.theorem_13_1_7_book` is the printed statement, with the hypothesis read in the full subcategory on the open $Q$ (`IsGoodIn`, `IsProperSubsetIn` through `subSrc`, `subTgt` on `X.morOn Q`); `isProperSubset_of_isProperSubsetIn` proves that $Q$-properness implies $X$-properness (with $\\mathrm{cl}_X U(q) \\subseteq Q$, `closure_subset_of_isProperSubsetIn`), and `isGoodIn_iff` gives the equivalence with `IsGoodOn` plus $\\mathrm{cl}_X U(q) \\subseteq Q$. No sub-ep-groupoid structure was needed (Findings, Chapter 13, item 10).",
+   "instead": "**Formalized** (V13.7; `Chapter13/GoodSystemRelative.lean`): `EpGroupoid.theorem_13_1_7_book` is the printed statement, with the hypothesis read in the full subcategory on the open $Q$ (`IsGoodIn`, `IsProperSubsetIn` through `subSrc`, `subTgt` on `X.morOn Q`); `isProperSubset_of_isProperSubsetIn` proves that $Q$-properness implies $X$-properness (with $\\mathrm{cl}_X U(q) \\subseteq Q$, `closure_subset_of_isProperSubsetIn`), and `isGoodIn_iff` gives the equivalence with `IsGoodOn` plus $\\mathrm{cl}_X U(q) \\subseteq Q$. No sub-ep-groupoid structure is needed (Findings, Chapter 13, item 10).",
    "formalized": [
     "V13.7"
    ],
@@ -1853,7 +1853,7 @@
    "label": "§13.2, Definitions 13.2.7, 13.2.8, pp. 610–611 (2017: Definitions 13.9, 13.10), and pp. 611–612",
    "page": 610,
    "book": "An sc⁺-multisection with a system of symmetric sc⁺-section structures, equivalence of systems, decorated sc⁺-multisections; their sums, scalar multiples, products with functions and locally finite sums are decorated.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; `Chapter13/SymmetricOn.lean`, `DecoratedMultisection.lean`): rows V13.22, V13.23 for Definitions 13.2.7, 13.2.8 and the decorated forms in V13.15–V13.17, V13.19. The intersections $U'(x) \\cap U''(x)$ are read with one natural action on which the given ones agree (Findings, Chapter 13, item 11).",
+   "instead": "**Formalized** (`Chapter13/SymmetricOn.lean`, `DecoratedMultisection.lean`): rows V13.22, V13.23 for Definitions 13.2.7, 13.2.8 and the decorated forms in V13.15–V13.17, V13.19. The intersections $U'(x) \\cap U''(x)$ are read with one natural action on which the given ones agree (Findings, Chapter 13, item 11).",
    "formalized": [
     "V13.22",
     "V13.23",
@@ -1883,7 +1883,7 @@
    "label": "§13.2, after Definition 13.2.9, p. 611 (2017: after Definition 13.11)",
    "page": 611,
    "book": "In general, an sc⁺-multisection has no inverse for $\\oplus$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V13.24; `Chapter13/MultisectionNoInverse.lean`): `remark_13_2_9_no_inverse`, a two-valued sc⁺-multisection on $\\mathbb R^n \\times \\mathbb R^k$ with no inverse for $\\oplus$; the neutral element is $\\Lambda_0$ (`multisectionAdd_zeroMultisection`).",
+   "instead": "**Formalized** (V13.24; `Chapter13/MultisectionNoInverse.lean`): `remark_13_2_9_no_inverse`, a two-valued sc⁺-multisection on $\\mathbb R^n \\times \\mathbb R^k$ with no inverse for $\\oplus$; the neutral element is $\\Lambda_0$ (`multisectionAdd_zeroMultisection`).",
    "formalized": [
     "V13.24"
    ],
@@ -1900,7 +1900,7 @@
    "label": "§13.3, Proposition 13.3.19, p. 620 (2017: Proposition 13.5)",
    "page": 620,
    "book": "For a family $(\\Lambda_l)$ of structurable sc⁺-multisections with locally finite domain supports, $\\oplus_l \\Lambda_l$ is structurable (index sets $K_x = \\prod_l K^l_x$, sections $\\sum_l s^{l,x}_{k(l)}$, $\\tau$ the product of the tight $\\tau^l$).",
-   "instead": "**Formalized** (2026-11-13, Part III waves 3–4; V13.50; `Chapter13/PiCorrespondence.lean`, `TightOn.lean`, `LocallyFiniteStructurable.lean`, `LocallyFiniteSupports.lean`): `proposition_13_3_19` (`[Nonempty L]`; the empty family needs a good system, `proposition_13_3_19_of_goodSystem`, `proposition_13_3_19_of_paracompact`), with the common good system, the tight versions over it (`Decoration.Tau.tightOn`), the finite products $K_x = \\prod_l K^l_x$ and $\\tau = \\prod_l \\tau^l$ (`IndexCorr.pi`); the check left to the reader is `LFStructData.isCorrespondence`. The printed hypothesis, `LocallyFinite` of the domain supports, is bridged by `isLocallyFiniteFamily_of_locallyFinite` (`proposition_13_3_19_locallyFinite`).",
+   "instead": "**Formalized** (V13.50; `Chapter13/PiCorrespondence.lean`, `TightOn.lean`, `LocallyFiniteStructurable.lean`, `LocallyFiniteSupports.lean`): `proposition_13_3_19` (`[Nonempty L]`; the empty family needs a good system, `proposition_13_3_19_of_goodSystem`, `proposition_13_3_19_of_paracompact`), with the common good system, the tight versions over it (`Decoration.Tau.tightOn`), the finite products $K_x = \\prod_l K^l_x$ and $\\tau = \\prod_l \\tau^l$ (`IndexCorr.pi`); the check left to the reader is `LFStructData.isCorrespondence`. The printed hypothesis, `LocallyFinite` of the domain supports, is bridged by `isLocallyFiniteFamily_of_locallyFinite` (`proposition_13_3_19_locallyFinite`).",
    "decls": [
     "Chapter13/LocallyFiniteStructurable · SBLocalization.proposition_13_3_19",
     "Chapter13/LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_goodSystem",
@@ -1918,7 +1918,7 @@
    "label": "§13.5, Theorem 13.5.3, p. 630 (2017: Theorem 13.6); also the last sentence of Theorem 13.5.5, p. 633",
    "page": 630,
    "book": "An atomic sc⁺-multisection functor is structurable (Definition 13.3.6).",
-   "instead": "**Formalized** (2026-11-13, Part III wave 3; V13.46, V13.48; `Chapter13/AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\\tau_y$, the locally constant, functorial $H$ with $\\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the earlier hypothesis form is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.",
+   "instead": "**Formalized** (V13.46, V13.48; `Chapter13/AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\\tau_y$, the locally constant, functorial $H$ with $\\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the hypothesis form `theorem_13_5_3_hyp` is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.",
    "decls": [
     "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_3",
     "Chapter13/AtomicStructurable · SBLocalization.theorem_13_5_3_of_goodSystem",
@@ -1936,7 +1936,7 @@
    "label": "§13.4, Proposition 13.4.2, pp. 623–625 (2017: Proposition 13.6)",
    "page": 623,
    "book": "(1) $\\Lambda$ on $W|V$ has a canonical extension $\\bar\\Lambda$ to $W$; (2) given $O(x)$ for $x \\notin V$, $\\bar\\Lambda$ has a structured version restricting to the given one on $V$ with $U(x) \\subset O(x)$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V13.59; `Chapter13/StructuredExtensionData.lean`, `StructuredExtension.lean`): `proposition_13_4_2` and `proposition_13_4_2_structurable`, with the relative data `StructuredOn A V` (\"structured on $W|V$\") and uniqueness for \"canonical\"; through the push machinery of §13.4 with $F = \\mathrm{id}$ (unit chart on $V$, push charts inside $O(x)$ off $V$, $\\tau$ through `liftMor`).",
+   "instead": "**Formalized** (V13.59; `Chapter13/StructuredExtensionData.lean`, `StructuredExtension.lean`): `proposition_13_4_2` and `proposition_13_4_2_structurable`, with the relative data `StructuredOn A V` (\"structured on $W|V$\") and uniqueness for \"canonical\"; through the push machinery of §13.4 with $F = \\mathrm{id}$ (unit chart on $V$, push charts inside $O(x)$ off $V$, $\\tau$ through `liftMor`).",
    "decls": [
     "Chapter13/MultisectionPushforward · SBLocalization.GenSBMap.isStructurable_pushMult",
     "Chapter13/StructuredExtension · SBLocalization.proposition_13_4_2",

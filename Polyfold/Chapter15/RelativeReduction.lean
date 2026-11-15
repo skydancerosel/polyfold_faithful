@@ -4,7 +4,7 @@ import Polyfold.Chapter15.CutoffFunctor
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
 **Theorem 15.3.9** (Transversal Extension Theorem; 2017: Theorem 15.5), steps (c)–(d),
-pp. 698–699: the relative general position theorem (TX's `theorem_15_3_7_relative_statement`)
+pp. 698–699: the relative general position theorem (`theorem_15_3_7_relative_statement`)
 reduced to the two analytic steps of "arguing as in Theorem 15.3.7", relative to `Λ₀`.
 
 # Relative general position
@@ -29,11 +29,11 @@ and `Λ̃ = Λ_t ⊕ Λ₀` for a small regular `t`.
   (`multisectionAdd_eq_left_of_notMem_domSupp`, the families being taken with domain support in
   `U ∖ ∂X`), the bounds `dom-supp(Λ̃) ⊆ U` and `N(Λ̃) ≤ N(Λ₀) + |t|₁ (h − N(Λ₀)) < h`, and
   transversality:
-  * **`theorem_15_3_7_relative_hyp`**: the conclusion of TX's relative statement from the two
+  * **`theorem_15_3_7_relative_hyp`**: the conclusion of the relative statement from the two
     properties;
   * **`theorem_15_3_7_relative_of_hyp`**: `theorem_15_3_7_relative_statement A` from the two
     properties under the statement's hypotheses;
-  * **`theorem_15_3_9_of_rel_hyp`**: Theorem 15.3.9 (`theorem_15_3_9_statement`) from TY's tame
+  * **`theorem_15_3_9_of_rel_hyp`**: Theorem 15.3.9 (`theorem_15_3_9_statement`) from tame
     bundle charts `hB`, the extension statement of Theorem 14.1.9, and the two properties.
 * `hasLocalGPFamiliesRel_of_boundary`: at the points of `supp(Λ₀ ∘ f) ∩ ∂X` the empty family
   suffices once `(f, Λ₀)` is in general position on a saturated open neighbourhood; so
@@ -193,7 +193,7 @@ theorem theorem_15_3_7_relative_hyp (hf : A.E.IsScFredholmSectionFunctor f) (hfc
       (F.norm_le t x).trans_lt (mul_lt_of_lt_one_left hm hsum)
     linarith
 
-/-- **TX's relative statement (`theorem_15_3_7_relative_statement`, steps (c)–(d) of the proof of
+/-- **the relative statement (`theorem_15_3_7_relative_statement`, steps (c)–(d) of the proof of
 Theorem 15.3.9)** from the two relative analytic steps, assumed under the statement's
 hypotheses. -/
 theorem theorem_15_3_7_relative_of_hyp
@@ -216,11 +216,12 @@ theorem theorem_15_3_7_relative_of_hyp
   exact theorem_15_3_7_relative_hyp hf (continuousOn_univ.1 hft.isScSmooth.2.continuousOn) hcc hh
     hΛ₀ hdom hN hloc hsard
 
-/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694**, from TY's tame bundle charts
-`hB`, the extension statement of Theorem 14.1.9 (GL's `theorem_14_1_9_extension_statement`) and
-the two relative analytic steps (assumed under the hypotheses of TX's relative statement).  GL's
-extension statement does not hold when `∂X ≠ ∅` (A6); the charged form is in
-`ChargedExtensionFibres`. -/
+/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694**, from tame bundle charts
+`hB`, the extension statement of Theorem 14.1.9 (`theorem_14_1_9_extension_statement`) and
+the two relative analytic steps (assumed under the hypotheses of the relative statement).  `hB`
+and `hext` hold for every `A` (`SEP.exists_isTameChart`,
+`theorem_14_1_9_extension_statement_holds`); `theorem_15_3_9_of_rel` (file
+`ChargedExtensionFibres`) is the form without them. -/
 theorem theorem_15_3_9_of_rel_hyp
     (hB : ∀ x : A.Obj, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source)
     (hext : theorem_14_1_9_extension_statement A)
@@ -290,7 +291,7 @@ theorem hasParametricGeneralPositionRel_epSEP_zero (n : ℕ)
   fun _ _ _ _ _ _ _ => ⟨1, one_pos, ae_of_all _ fun _ _ => isInGeneralPosition_epSEP_zero n f _⟩
 
 /-- **The hypotheses of `theorem_15_3_7_relative_of_hyp` hold together** on `ℝⁿ × ℝ⁰ → ℝⁿ`, which
-gives TX's relative statement there through the reduction. -/
+gives the relative statement there through the reduction. -/
 theorem theorem_15_3_7_relative_statement_epSEP_zero_of_hyp (n : ℕ) :
     theorem_15_3_7_relative_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=
   theorem_15_3_7_relative_of_hyp fun _ _ _ f _ _ _ N U hcc _ _ _ _ Λ₀ _ _ _ _ =>

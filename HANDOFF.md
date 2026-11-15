@@ -1,58 +1,31 @@
-# Handoff: the Polyfold project (HWZ Part I)
+# Handoff: the Polyfold project (HWZ, *Polyfold and Fredholm Theory*, Parts I–III)
 
-Written 2026-10-24 at the end of a cloud session; rewritten 2026-10-26 at the end of the first local
-session on the Mac (Chapters 1–5 of Part I complete; the round-trip audit is next). Everything is committed on `main`. Resume with
-the first message in §4. Updated 2026-11-07: Chapter 6 is formalized except Theorem 6.43 (G.54) and
-§6.6 (G.55). Later on 2026-11-07: Part II has begun; Chapter 7 is formalized (waves W0–W4 of the Part
-II plan in `PLAN.md`), its reports are written (wave W5, commit 919831f) and its round-trip audit is
-done (§2, §3 item 11).
+A Lean 4 / Mathlib formalization of Hofer, Wysocki and Zehnder, *Polyfold and Fredholm Theory*
+(Springer 2021), with its reports. `README.md` is the public overview; this file is for whoever works on
+the repository. The Springer edition is the authoritative text: statement numbers and pages are its own,
+followed in parentheses by those of the 2014 preprint (arXiv 1407.3185, Part I) or of the book's arXiv
+version (1707.08941, "2017", Parts II–III); the correspondence is `Exposition/BookConcordance.md`.
 
 ## 1. Setup
 
 ```bash
 cd ~/polyfold_faithful && git pull
 lake exe cache get      # Mathlib, once
-lake build              # minutes, not hours (no Milnor/Morse dependency)
+lake build              # minutes, not hours
 ```
 
-Until 2026-11-05 this project was the folder `Polyfold/` of `github.com/skydancerosel/math_faithful`
-(now Milnor's two books only). It moved to `github.com/skydancerosel/polyfold_faithful`, which
-starts from a single snapshot of that day: the development history before it is not published,
-and the commit hashes cited below refer to that history. The local checkout moved from
-`~/math_faithful/Polyfold` to `~/polyfold_faithful`.
+Sources (not in git, folder `Exposition/sources/`, gitignored): the Springer PDF and its `pdftotext -layout` text
+`HWZ-Book-2021.txt`, the 2017 arXiv text `HWZ-Book-2017.txt` and the 2014 preprint `HWZ-PartI-2014.txt`
+(`curl -sSL https://arxiv.org/pdf/1407.3185 -o a.pdf && pdftotext -layout a.pdf Exposition/sources/HWZ-PartI-2014.txt`,
+the same for 1707.08941). The "2010 paper" of the Findings is arXiv 1002.3381.
 
-Sources (not in git): the pdftotext of the two arXiv preprints go in `Exposition/sources/` as
-`HWZ-PartI-2014.txt` (arXiv 1407.3185, Part I of the book) and `HWZ-ScSmoothness-2010.txt` (arXiv
-1002.3381): `curl -sSL https://arxiv.org/pdf/1407.3185 -o a.pdf && pdftotext -layout a.pdf
-Exposition/sources/HWZ-PartI-2014.txt`, same for the other. Chapter line ranges in the Part I text:
-Ch. 1 = 151–633, Ch. 2 = 633–2395, Ch. 3 = 2395–6021, Ch. 4 = 6021–6914, Ch. 5 = 6914–8184,
-Ch. 6 = 8185–9775 (the references follow).
-The book's PDF (Springer 2021), when available, is kept untracked as `PolyfoldFredholm.pdf`;
-every statement number and page in the exposition and reports is the preprint's, marked *(book?)*
-until checked.
-
-**On this Mac** (2026-10-26): `/usr/local/bin/git` is a stale x86 binary ("Bad CPU type"); Lean's
-process spawn finds it first on the PATH, so every `lake` call (also inside `check_names.py`) fails
-and then **deletes `.lake/packages/mathlib`**. Put a directory containing `git -> /usr/bin/git` first
-on the PATH for every lake or check-script call. Mathlib was not downloaded: `cp -c -R
-~/math_faithful/Morse/.lake/packages .lake/packages` (same Mathlib rev, already built; re-clone `mathlib` from
-Morse the same way if it disappears). The preprint text was regenerated from the local
-`~/math_faithful/1407.3185v1.pdf` (same line ranges); the 2010 paper could not be downloaded. The book's arXiv
-version (1707.08941, July 2017) is used as a stand-in for the Springer PDF (not on this Mac):
-`Exposition/BookConcordance.md` maps every numbered item of preprint Chapters 1–6 to it (Chapter 6
-added 2026-11-07; the 2017 Chapter 6 is pp. 181–221); its section "Part II" lists the items of
-Chapter 7 (pp. 225–256) by their 2017 numbers, the only numbering of Part II, which has no preprint
-(added 2026-11-07); and the
-*(book?)* marks are annotated *(book 2017: …)*. Its `pdftotext -layout` text is kept untracked as
-`Exposition/sources/HWZ-Book-2017.txt` (since 2026-11-02). On 2026-11-02 every *(book 2017: …)*
-annotation was checked against it: those of Chapters 1–3 were right; Findings Ch. 4 item 87, Ch. 5
-items 60, 61, 70–72, 80, 86, 87, 100–104 and five module docstrings (`TameGermData`,
-`LocalStructure`, `GeneralPosition`, `Homotopy`, `Transversality`) had numbers off by one or more
-and were corrected to the concordance, which the text confirms. The points of the brief to the
-authors (statements that do not hold as we read them, proof steps that needed a further argument)
-were then checked against the 2017 text: all read the same there except Theorem 5.18's unstated
-tameness (2017 Theorem 5.6 assumes `X` tame); see `BookConcordance.md`, "Is the 2017 text a later
-version in substance?".
+**On this Mac:** `/usr/local/bin/git` is a stale x86 binary ("Bad CPU type"); Lean's process spawn finds it first
+on the PATH, so every `lake` call (also inside `check_names.py`) fails and then **deletes
+`.lake/packages/mathlib`**. Put a directory containing `git -> /usr/bin/git` first on the PATH for every lake or
+check-script call. If Mathlib is missing, copy it from the Morse project (same Mathlib revision, already built):
+`cp -c -R ~/math_faithful/Morse/.lake/packages .lake/packages`. Elaborate a single file with
+`lake env lean -DmaxSynthPendingDepth=3 <file>` (the project option is not applied by plain `lake env lean`).
+At most two full `lake build` runs at a time on this machine.
 
 Checks that must stay green:
 
@@ -63,745 +36,266 @@ python3 Exposition/check_names.py                       # every cited name exist
 python3 Exposition/check_trace.py Exposition/ProofByProof.md   # 0 unresolved
 ```
 
-Rules as in Morse: no `sorry`; `#print axioms` in `Polyfold/Test.lean` for every theorem;
-temporary files only as gitignored `WIP_*.lean`; V-items keep their numbers once a human has
-started signing off (no sign-off has started on this project yet).
+Rules: no `sorry`; `#print axioms` in `Polyfold/Test.lean` for every theorem; temporary files only as gitignored
+`WIP_*.lean`; never renumber V-items, G-items or Findings items (no sign-off is recorded in the repository yet,
+so V-items may still be edited in place). Every hypothesis that quantifies over all charts is checked for
+satisfiability (Findings, Chapter 3, item 190), and every added hypothesis has a witness in the non-degenerate
+case (a witness only for $\partial X = \emptyset$ or zero fibres does not count). Lean names carry the 2021 numbers
+(`theorem_14_1_9`, `lemma_14_1_4`) with descriptive suffixes only (`_hyp` for a form with a hypothesis not in the
+text, `_book`/`_text` for the printed form when a restated form is the main one); file names are topic names in
+UpperCamelCase.
 
-Wording about the text (the project lead, 2026-11-04): in everything the authors may read (the
-brief, this README, `RoundTrip/REPORT.md`), a counterexample refutes *our reading* of a statement,
-not the statement. Say "does not hold as we read it", "we could not see why", "possible misprint";
-do not call the text wrong or speak of its "errors".
+Wording about the text: in everything the authors may read (the reports, the README, `RoundTrip/REPORT.md`), a
+counterexample refutes *our reading* of a statement, not the statement. Say "does not hold as we read it",
+"presumably …", "we read … as …"; never call the text wrong or speak of its errors, mistakes or misprints.
+The public documents describe the final state only.
 
-## 2. State (2026-10-26, end of the first local session; Chapters 6–7 added 2026-11-07, Chapters 8–11 and the 2021 edition 2026-11-08)
+## 2. Layout
 
-* **Chapters 1–6 of Part I are complete** (Chapter 6 except Theorem 6.43 and §6.6, see below): Lean,
-  exposition (`Exposition/Chapter1.md` – `Chapter6.md`) and reports (`verification/ch01–ch06.md`,
-  `cmp/ch01–ch06.json`, `pbp/part01–part06.md`; outputs
-  `polyfold-beside-lean.html`, `Verification.md/.pdf`, `ProofByProof.md/.pdf`,
-  `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
-  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68, V8.1–V8.43 for Part II's Chapters 7 and 8 (below);
-  **512 sign-off items** (401 for Part I, 68 for Chapter 7, 43 for Chapter 8); gaps G.1–G.75 (G.70–G.73
-  for Chapter 7, G.74–G.75 for Chapter 8). **Since 2026-11-08** (2021 edition and Chapters 9–11, below):
-  **824 sign-off items**, 959 comparison rows, gaps G.1–G.135, V9.1–V9.62, V10.1–V10.71, V11.1–V11.42;
-  3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
-  hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
-  sign-off page keeps ticks in browser
-  storage keyed by V-id (export SIGNOFF.md). **No sign-off is recorded in the repository yet**, so
-  V-items may still be edited in place; never renumber them.
-* **Chapter 3: the sc-Fredholm implicit function theorem holds with the text's hypotheses**
-  (Findings "## Chapter 3" 157, 189, 190–199). Theorems 3.19, 3.23, 3.54 (`theorem_3_1_22'`,
-  `theorem_3_1_26'`, `theorem_3_6_8'`, with dimension = Fredholm index and the index locally constant:
-  `theorem_3_1_26_index`, `theorem_3_6_8_index_locally_constant`), Corollary 3.24, Theorems 3.56, 3.57,
-  Theorem 3.18, Corollary 3.39, the sharp Proposition 3.52. Two gaps of the text are closed by new
-  arguments: the surjectivity of `f'(y)` at the nearby zeros (the text's Corollary 3.41 gives only
-  the filled linearization; the same gap is in the book's arXiv version, its Theorem 3.13; Findings
-  100, 180–189) and Theorem 3.27's two false steps for solution sets (Findings 82–83, 130–133,
-  150–159). **A vacuous hypothesis was found and repaired on 2026-10-26** (Findings 190–199): the
-  §3.6 theorems had assumed that the base retraction of *every* compatible strong bundle chart is
-  tame, which no strong bundle satisfies; they now assume the text's tame germ data
-  (`IsScFredholmSectionTame`, `IsGoodPositionGermTame`, `Chapter3/TameGermsG.lean`; since phase 2,
-  2026-11-01, in the text's germ reading of Definition 3.11, the whole-chart forms kept as
-  `…WholeChart`, §3 item 9). A complete
-  non-vacuity witness was added on 2026-10-31 (`Chapter3/NonVacuity.lean`, Findings 200): the
-  graph of a `C^∞` map `ℝⁿ → ℝᵏ` with `0` a regular value, in the trivial bundle, meets every
-  hypothesis of Theorem 3.57; `Chapter3/NonVacuityCorner.lean` (Findings 201) does the same over
-  the half-space `[0, ∞) × ℝᵐ`, with good position at boundary zeros (`W = 0` in both; a witness
-  with an infinite-dimensional contraction part is not done); `Chapter3/TameVacuityChart.lean`
-  (Findings 202) proves the old `htame` false for the same trivial bundle. **Proposition 6.2 and
-  the index along the zero set no longer need bump functions** (2026-11-02, Findings 349, 360–367):
-  the restriction of M-polyfolds and strong bundles to open sets (`MPolyfold.restrictOpen`,
-  `StrongBundle.restrictOpen`, germ data and the index carried over) lets the text's device run on
-  a chart domain, where its sections `R(·, e)` need no cut-off; the index of `f'(y)` is locally
-  constant along the zero set for tame germ data (`index_locally_constant_tame`), and the index
-  of Definition 6.1, read with the text's locally defined sections (`IsIndexAtLocal`), is constant
-  along every sc-smooth path `ℝ → X` (`proposition_6_2_2_local`); with bump functions the local and
-  the global reading agree (`isIndexAtLocal_iff_isIndexAt`). Comparison V3.98 stays "narrower"
-  only because the path is on `ℝ`, not `[0, 1]` (the project has no M-polyfold `[0, 1]`). Added
-  hypotheses left: `Y` closed (Def. 3.25, Lemma 3.55); the regularity conditions of Theorem 3.27
-  for general subsets (not for solution sets).
-* **Chapter 4**: complete except Lemma 4.10 (not needed; G.32), §4.4 sc-differential forms (out of
-  scope; G.37–G.40) and the open question after Prop 4.15. Remark 4.3's "X¹ ≠ X" has an example
-  since 2026-11-02 (`remark_4_1_3_example`, a retraction that loses a level, sc-smooth by a new
-  criterion `IsLossFamily.isScSmooth`; even the topologies of `X` and `X¹` differ; G.31 closed).
-  Proposition 4.9 by a direct proof (the text's route gives only germ regularity); Theorem 4.23 with
-  a repaired covering step; Sard's theorem vendored from the Milnor project into
-  `Polyfold/Vendor/MilnorSard/` (namespace `Polyfold.MilnorSard`, Milnor commit 53704ad, no lakefile
-  change).
-* **Chapter 5**: complete except Theorems 5.22 (Morse-type structure) and 5.27 (no proof in the
-  text), the dense form of Theorem 5.19, and the cited Banach-space theorems 5.32, 5.40, 5.43 (5.43
-  an explicit hypothesis of Corollary 5.44). Since 2026-11-02: Corollary 5.8 on the shifted strong
-  bundle `P¹ : Y¹ → X¹` (`corollary_5_2_5`, `corollary_5_2_5_two`; each fixed `i` by iteration, a
-  uniform family `P^i` not formalized; the filler condition on level `1` proved; G.41 closed) and
-  the metric `ρ` on `Γ^{+,1}_U(P)` (`StrongBundle.allowableMetric`; "not complete" proved for
-  `ℝ × ℝ → ℝ` and false for `U = ∅` or a point base, so it needs a hypothesis; G.42 closed). Theorem 5.18
-  needs `X` tame (hidden hypothesis); Finding 88 (the parametrized section of Theorem 5.19 is not in
-  good position at boundary zeros) is checked on paper only.
-* **Chapter 6** (2026-11-06 to 2026-11-07; plan in `PLAN.md` §6): formalized except Theorem 6.43,
-  the invariant `Ψ_(f,o)` (it needs §4.4's sc-differential forms, integration and Stokes' theorem;
-  decision D1, G.54), and the admissible sections of §6.6, used only there (G.55). V6.1–V6.64
-  (`verification/ch06.md`), Findings "## Chapter 6". Theorems 6.35 and 6.37 (the local propagation
-  of orientations and the functor `Γ_f`) hold with the readings recorded there; Proposition 6.28 (1)
-  is replaced by (1′) (G.61); Theorem 6.41 is verified as tangent orientations along the paths of
-  zeros in a chart and Remark 6.42 at a point, their global parts and the perturbation paragraph
-  after Theorem 6.41 are not formalized (G.66–G.69). Lemma 6.10 holds by another construction (the
-  text's proof and the 2017 remark do not hold as we read them; Findings Ch. 6 item 4); formula (94)
-  and Remark 6.42 are used with the sign `(−1)^{dim coker}` (items 50, 95). Paths on `ℝ` (decision
-  D2, G.65). The round-trip audit of the 60 non-extra Chapter 6 items is done (2026-11-07; `RoundTrip/REPORT.md`, "Chapter 6, audited on 2026-11-07").
-  Part II followed (next item).
-* **Part II has begun: Chapter 7** (2026-11-07; plan in `PLAN.md`, "Part II plan"): formalized in
-  `Polyfold/Chapter7/` (21 files; waves W0–W4, and `ReducedNotHausdorff.lean` after the audit);
-  V7.1–V7.68 (`verification/ch07.md`), Findings "## Chapter 7" (items 1–116, numbered in blocks), exposition `Exposition/Chapter7.md`, the "Part II"
-  table of `BookConcordance.md`. Part II has no preprint: numbers and pages are the 2017 text's
-  (pp. 225–256). Theorems 7.1–7.6 hold with the readings recorded there; Propositions 7.9 and 7.10
-  under `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`, which the proof does not give as
-  we read it (G.71; discharged for effective `X`; `Examples.exists_not_t2Space_reducedMor` shows that
-  `𝐗^R` need not be Hausdorff); `Tφ` of Definition 7.4 only defined (G.70, deferred to Chapter 8);
-  `|X_∞|` not stated (G.72); the density of `X_∞` in `X_k` not formalized (G.73). The remark after Definition 7.7 does not hold as we read it
-  (counterexample `Examples.remark_definition_7_1_7_counterexample`); it holds for functors continuous
-  on morphisms. Proved on the way: the local path connectedness of M-polyfolds (G.56, first fact),
-  Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). Wave W5 done: the reports
-  (commit 919831f) and the round-trip audit of the 64 non-extra, non-gap items (`RoundTrip/REPORT.md`,
-  "Chapter 7, audited on 2026-11-07": 39 equivalent, 5 B false). The audit proved that `𝐗^R` need
-  not be Hausdorff (`RoundTrip/Items/V7_40.lean`, namespace `NotB`, on Remark 4.3's retract), which
-  settles the Hausdorff half of G.71 negatively; moved into `Polyfold/Chapter7/ReducedNotHausdorff.lean`
-  the same day (Findings, Chapter 7, item 107). The audit also found that the density of `X_∞` in
-  `X_k` (p. 227) is not in Part I for M-polyfolds (G.73, Findings item 116).
-* **Part II, Chapter 8, Lean** (2026-11-08; plan in `PLAN.md` §II.9): formalized in
-  `Polyfold/Chapter8/` (14 files): the tangent ep-groupoid `TX` (Theorems 8.1–8.3, Lemmas 8.1–8.8,
-  Remark 8.1, Proposition 8.1, `TangentEp.lean`, `TangentTame.lean`), `|TX|` paracompact
-  (Theorem 8.4, by metrizability, `TangentOrbit.lean`), strong bundles over ep-groupoids
-  (Definitions 8.4–8.7, 8.10, §8.5.2, `EpStrongBundle.lean`), proper covering functors (Definition
-  8.8, Theorem 8.5, Remark 8.2, Lemmas 8.9–8.11, Propositions 8.2, 8.4, `ProperCovering*.lean`),
-  covering functors and geometric lifts (Definition 8.9, Proposition 8.3, Theorem 8.6,
-  `GeometricLift.lean`), witnesses (`NonVacuity.lean`, `NonVacuityBundle.lean`). Not formalized:
-  Definitions 8.2–8.3 (sc-forms, sc-de Rham; G.74) and Lemma 8.1 as printed (G.75). Reports done
-  2026-11-08: V8.1–V8.43 (`verification/ch08.md`), Findings "## Chapter 8" (items 1–114, numbered in
-  blocks), `Exposition/Chapter8.md`, `cmp/ch08.json`, `pbp/part08.md`, the Chapter 8 table of
-  `BookConcordance.md`; G.70 now partly formalized (`tangentMor_tSrc`, `tangentMor_comp`). Theorem
-  8.5 (5) as printed does not hold as we read it (counterexample
-  `CoveringExamples.theorem_8_5_3_five_as_printed`; Findings Ch. 8 item 54). The round-trip audit of
-  Chapters 8–11 is done (2026-11-08; `RoundTrip/REPORT.md`, "Chapters 8–11, audited on 2026-11-08").
-* **Part II, Chapter 9** (2026-11-08; 2021 numbering, names without suffix, e.g. `lemma_9_1_7`):
-  `Polyfold/Chapter9/` (25 files, 16,925 lines), §§9.1–9.5 and §9.6.1: branched ep⁺-subgroupoids and
-  local branching structures, dimension, the tangent and the boundary, good points, orientations,
-  the geometry of local branching structures, sets of measure zero and the canonical σ-algebras.
-  The parts that need level-0 sc-calculus in general M-polyfolds are explicit hypotheses, each shown
-  satisfiable and discharged on `ℝᵐ`. Proposition 9.1.11's uniqueness does not hold as we read it
-  (`not_proposition_9_1_11_rn`). Not formalized: branched integration, the boundary measures and
-  Stokes (Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18; they need §8.2's forms). Reports: V9.1–V9.62,
-  Findings "## Chapter 9", `Exposition/Chapter9.md`, gaps G.93–G.110.
-* **Part II, Chapter 10** (2026-11-08): `Polyfold/Chapter10/` (23 files, 11,770 lines), §§10.1–10.5
-  with the Appendix proofs 10.6.1–10.6.2: equivalences, natural equivalences, the weak fibred
-  product, the localization `EP(E⁻¹)` and its orbit-space functor, strong bundle equivalences,
-  push-forward and pull-back of sections, the strong bundle weak fibred product and the category
-  `SEP(F⁻¹)`. Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16 and Theorem 10.3.21 are proved.
-  Theorems 10.3.19 and 10.5.7 do not hold as we read them (`not_theorem_10_3_19`,
-  `not_theorem_10_5_7`, on the trivial `ℤ/3` action, `LocalizationLRCounterexample.lean`); Theorem
-  10.3.19 holds for an effective target (`theorem_10_3_19_of_isEffective`). Reports: V10.1–V10.71,
-  Findings "## Chapter 10", `Exposition/Chapter10.md`, gaps G.111–G.127 (open: G.111, G.112, G.116,
-  G.117, G.121, G.122, G.124–G.126).
-* **Part II, Chapter 11** (2026-11-08): `Polyfold/Chapter11/` (11 files, 6,508 lines), §§11.1, 11.3,
-  11.5, 11.6: the tangent functor on `EP(E⁻¹)`, the degeneracy index and the face bijection under
-  generalized isomorphisms (`EpEquivalenceGeometry*`); branched ep⁺-subgroupoids pushed forward and
-  pulled back, Γ(π̂), orientations, Theorems 11.3.3–11.3.9 (`BranchedEquivalence*`; Theorem 11.3.9 for
-  a representative under `MPolyfold.IsBoundaryTransfer`, satisfiable by `isBoundaryTransfer_id`);
-  strong bundles up to equivalence (`StrongBundleUpToEquivalence`); equivalences of proper coverings,
-  Theorem 11.6.6, Proposition 11.6.8 (`CoveringEquivalence*`). Not formalized: §11.2 (forms) and §11.4
-  (integration), which need G.74/G.80; the structures of Proposition 11.1.6; Proposition 11.5.1 (1),
-  (2); the local section structures; `PC(E⁻¹)`; Remark 11.6.9. Nothing in Chapter 11 fails to hold as
-  we read it; five possible misprints (checked against the 2021 text). Reports: V11.1–V11.42,
-  Findings "## Chapter 11", `Exposition/Chapter11.md`, gaps G.128–G.135.
-* **Lean counts** (2026-11-08, end of Chapter 11): 10,746 `#print axioms` lines in `Test.lean`
-  (4,942 for Chapters 1–6, 989 for Chapter 7, 830 for Chapter 8, 1,386 for the 2021 additions to
-  Chapters 1–8, 1,053 for Chapter 9, 1,014 for Chapter 10, 532 for Chapter 11), all on `propext,
-  Classical.choice, Quot.sound`; no `sorry`, no `axiom`; 329 Lean files and 210,713 lines under
-  `Polyfold/` (tracked files, `wc -l`), of which 25 files and 16,925 lines in `Chapter9/`, 23 files
-  and 11,770 lines in `Chapter10/`, 11 files and 6,508 lines in `Chapter11/`.
-* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter2–11/` (agents may not
-  delete; some duplicate declarations and would not compile). All of them, with `Exposition/pages/`,
-  are archived in `~/repo-history-backups/polyfold-scratch-2026-11-08-*.tar.gz`; delete them. The
-  per-chapter `Test.lean` generators are `WIP_N_list*.lean` (e.g. `Chapter11/WIP_N_list16.lean`):
-  keep them while a chapter still changes (add a module to its imports and `phaseCMods`, run it with
-  `lake env lean -DmaxSynthPendingDepth=3`, replace the block). The *(book 2017: …)* marks were
-  annotated against the arXiv version 1707.08941 before the Springer PDF arrived (next item;
-  `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010 paper's text is
-  not in `sources/`.
-* **The 2021 Springer book is the authoritative version** (user, 2026-11-08): `Exposition/sources/Polyfold
-  and Fredholm Theory.pdf` (1008 pp., gitignored with all of `sources/`; never commit it or its text),
-  extracted to `sources/HWZ-Book-2021.txt` (`pdftotext -layout`). It numbers items in three levels
-  (Definition 9.1.2 for 2017's Definition 9.1) and has other pages (Chapter 7 p. 287, Chapter 8 p. 357,
-  Chapter 9 p. 401, Chapter 10 p. 461) and some new items (e.g. Remark 9.1.4, Propositions 9.1.11–9.1.12,
-  §7.6). From Chapter 9 on, cite the 2021 numbers and pages first, the 2017 ones in parentheses.
-  **To do:** a 2021 column in `BookConcordance.md` for Part I and Chapters 7–8, a check of the *(book?)*
-  marks and of the Chapter 7–8 statements against the 2021 text (new or changed items), without
-  renumbering V-items or Lean names.
+Top level: `Polyfold.lean` (imports every module), `Polyfold/Test.lean` (`#print axioms` per theorem, one block
+per chapter), `Polyfold/Basic.lean`, `Polyfold/Vendor/MilnorSard/` (Sard's theorem, from the Milnor project),
+`Polyfold/Chapter1/` … `Polyfold/Chapter16/` (one folder per chapter of the book, files named by topic),
+`RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`), `PLAN.md`,
+`Exposition/` (§3). A statement of one chapter that needs the machinery of a later chapter lives in the later
+chapter's folder.
 
-## 3. What remains, in order (the user's instructions: after Chapter 3, build the comparison HTML,
-the proof by proof in PDF and HTML, and the sign-off HTML; then Chapter 4; update the reports as
-each chapter lands)
+**Chapter 1** (sc-calculus): `ScBanach`, `ScFredholm`, `ScFredholmCriterion`, `FredholmIndex`,
+`FredholmPerturbation`, `ScSmooth`, `Levels`, `LevelsWeak`, `Properties`, `ChainRule`, `Degeneracy`, `PartialCones`,
+`ScOneNotNormContinuous`, `ExpositionLemmas`, `Book2021`; the weighted Sobolev spaces of Example 1.1.3 on the
+cylinder in `CylinderSobolevSpaces`, `CylinderScBanach`, `CylinderSobolevComplete`, `CylinderWeakDerivatives`,
+`CylinderLeibniz`, `CylinderIntegrationByParts`, `CylinderMultipliers`, `CylinderCutoff`, `CylinderTestDensity`,
+`CylinderTrigPolynomials`, `CylinderFourier`, `CylinderRellich`, `CylinderCompactInclusions`.
 
-1. ~~**Register the four compiling files**~~ — done 2026-10-24 (commit e334145; 342 theorems).
-2. ~~**Chapter 1 consistency**~~ — done 2026-10-24 (commit 6de752e: the Fredholm index on Banach
-   spaces and Prop 1.10's index statement proved; sc¹ = C¹ on relatively open subsets of quadrants,
-   boundary included; `Chapter1/ExpositionLemmas.lean`; V1.28–V1.36; reports rebuilt). Original list:
-   (a) the exposition's Prop 1.10 / Lemma 2.D
-   claim `ind(T+S) = ind(T)` and level-wise index — `FredholmIndex.lean` was written for this; make
-   prose and Lean agree; (b) "sc¹ = C¹ in finite dimensions with one-sided derivatives at the
-   boundary" — Lean has the open-set case only; (c) Cor 1.20's "`C^{l+1}` on `U_l` for all `l` ⇒
-   sc-smooth" — Lean needs `C^∞`, or `C^{k+1}` on every level; (d) exposition Lemmas 1.A(2), 2.B,
-   2.C, 3.A(2), 3.B, 3.F have no Lean counterpart — mark or prove; (e) stale "not yet formalized"
-   notes in Chapter1.md §7, `Chapter1/Degeneracy.lean`'s docstring and Findings.md about Theorem
-   1.25 (it is proved). Then update cmp/ch01.json, verification/ch01.md (append V-items), pbp/part01.md
-   and rebuild.
-3. **Chapter 3 core** — done 2026-10-24 except Def 3.14 / Theorem 3.15 (they need strong bundle
-   charts over M-polyfolds, item 4) and the passage of Theorem 3.12 / Cor 3.13 from germs to
-   M-polyfolds (commits f3fcfd8, 2e04b7d, f89d7c3, cf7d305: `theorem_3_3_6`, `corollary_3_3_7`,
-   `theorem_3_35_preprint`, Theorem 3.40, `theorem_3_1_13_local`, fillers; **the solution germ is sc^k only on
-   a germ shrunk by `s_k` levels**, Findings "## Chapter 3" items 1–17). Original: fix and finish
-   `ContractionGerm.lean` (Def 3.28, Theorem 3.30, Lemmas
-   3.31–3.32, **Theorem 3.33 Germ-IFT**, Cor 3.34, Thm 3.35); Theorem 3.12 (local compactness), Cor
-   3.13, Def 3.14, Theorem 3.15 (stability under sc⁺), Lemma 3.17. This is the project's test:
-   formalize with the text's hypotheses; where one is missing add the weakest that works and record
-   it in the docstring and Findings.md.
-4. ~~**Chapter 2 finish**~~ — done 2026-10-24 with no added hypothesis (Props 2.35–2.46 incl. the
-   partial cone, corner germs, products and fibred products; Defs 2.50–2.54, `Y[1]`, `P[1]`;
-   Theorem 2.16 by Smirnov; Prop 2.19 (3); Prop 2.21 (3)–(4) in a chart). Left: Theorem 2.31's
-   general non-tame equality case; Prop 2.21 (3)–(4) transported to `T_aX`; the category SBR.
-   Reports: `cmp/ch02.json` V2.1–V2.64 (commits 37ee681, e492cd8).
-5. **Chapter 3 second half** — mostly done 2026-10-25: good position (3.21–3.22, 3.45, 3.65,
-   3.69–3.70), quadrant IFT 3.78 and inverse function theorem 3.72–3.75, sections of strong bundles
-   (3.1–3.11, 3.14), Theorems 3.12–3.13 on M-polyfolds, 3.15, Prop 3.5, Thm 3.38, Cor 3.41,
-   Thms 3.43/3.47 (local solvability), Prop 3.52, Lemma 3.55, Def 3.53, Thm 3.54 (3) as
-   `theorem_3_6_8_graph`, Def 3.25 and **Thm 3.27 under `IsRegular`** (two counterexamples to the
-   text's proof: Findings 82–83), Thms 3.56–3.57 of the tangent germ property. In progress (agents
-   of 2026-10-25): Lemma 3.61 and 3.58–3.60; Thm 3.54 (1)–(2) via recentring, Prop 3.26, and
-   3.19/3.23–3.24 as corollaries. Superseded by the proofs given: 3.62–3.64, 3.66–3.68, 3.76.
-5b. ~~**Chapter 3, what is left**~~ — done 2026-10-26 ((a) Findings 100–117, 150–159, 180–189;
-   (b) `IsRegular` holds for solution sets, Findings 130–133, 150–151; (c) Cor 3.39, Findings 121–123;
-   (d) `proposition_3_6_5_index`, Finding 120; (e) not done). Original list: (a) Theorem 3.54 (1)–(2)
-   at the zeros `y ≠ x₀`: the text's "proceeding as above" re-centres the chart with a new filler at
-   `y`; needs a chart centred at `y`, a filler at `y`, chart-independence of `f'(y)` surjective and
-   of good position (gap G.13, do it in charts), and `N_v = ker D(h+t)(z)` from the derivative of
-   `(h+t)(v+σ(v)) = 0` along the quadrant (Findings 87, 91, 94, 96); (b) whether `IsRegular`
-   follows from the text's hypotheses for the solution set of an sc-Fredholm section (the
-   counterexamples 82–83 are for abstract tangent-germ sets) — prove it, or record precisely why
-   not, under a Findings item "Does the sc-Fredholm IFT hold with the text's hypotheses?"; then
-   `theorem_3_6_8`, 3.19, 3.23, 3.24, 3.56, 3.57 unconditionally or under `IsRegular`; (c) Cor 3.39
-   (package Thm 3.38's linear coordinate change as an `IsStrongBundleIso` between shifted
-   structures; composition lemma; `IsConjugateToBasicGerm` for `(g+s)¹`); (d) the sharper Prop
-   3.52 (patch above); (e) Prop 3.10's second statement on levels m ≥ 1; Lemmas 3.55/3.70 for a
-   general presentation of `C` (so `d_M = d_X` in Thm 3.27); Theorem 3.18; Remark 3.36.
-5a. ~~**Cleanup after the Chapter 3 Lean settles**~~ — done 2026-10-25 (Chapter 2: 601c861; Chapter 3:
-   3faaca4; `theorem_3_3_6` keeps `∃ s`, the shift `s_k = 2^k − 1` is recorded). Original list:
-   stale docstrings calling proved things "assumed"/"not formalized" in `Chapter2/{MPolyfold,
-   LevelPolyfold,TangentBundle,SubMPolyfold,Tame,DegeneracyIndex}.lean`, `Chapter3/Filler.lean`
-   (Thm 3.15, Def 3.14) and `Chapter3/LocalCompactness.lean` (global 3.12/3.13); the docstrings of
-   `ContractionGerm.lean` (l. 28) and `GermIFT.lean` (l. 37) cite a non-existent `ContractionGerm.of`
-   (it is `IsSc0ContractionGerm.toContractionGerm`); sharpen `theorem_3_3_6`'s `∃ s` to
-   `s_k = 2^k − 1` (read off `isSckGerm_succ_of_next`) or record it; Findings "## Chapter 3":
-   item 11 superseded by 40–45, item 17 resolved by `StrongBundle.IsScFredholmGerm.sectionAdd`,
-   page refs in items 13 (p. 98) and 19 (p. 77); add items: the shrinking may not be intrinsic
-   (toy example of Chapter3.md §3), the sc^∞-germ reading needed by Def 3.25 (ii) / Thm 3.43 (1) /
-   Cor 3.47 (1), the silent sc⁺ step in Prop 3.10, the example `f(x,y) = (x, y + x²)` for Thm 3.72 (2).
-6. ~~**Exposition Chapter 3**~~ — done 2026-10-26 (§5, §8: c4b081b; §4, §6: 616e02f; the new
-   surjectivity proof in §6.3 Step 5: bd18969; the tameness repair: b6d6227).
-7. ~~**Reports for Chapters 2–3**~~ — done 2026-10-26 (Chapter 3 addenda 7ee9add, 8320424, 6e4b8cf:
-   V3.68–V3.107); Chapter 4 reports b8fa911, Chapter 5 reports 078ba09.
-8. ~~**Chapters 4 and 5**~~ — done 2026-10-26 (Lean, exposition, reports; see §2 for what is not
-   formalized and why). Optional later work, none of it on the main line: Lemma 4.10 (trivial strong
-   bundle `U ◁ Y` as a `StrongBundle`), ~~Corollary 5.8 beyond the chart level~~ (done 2026-11-02,
-   Chapter 5 Findings 140–146), the chart-level vacuity proof and "tame atlas ⇒ tame germ charts"
-   (Chapter 3 Finding 199; the re-centring strategy is refuted, the implication open, Findings
-   350–354), the dense form of Theorem 5.19, Finding 88 in Lean, Remark 3.20, Remark 3.36 quantitatively, the gaps G.6/G.7/G.13 (levels `X^i`, `i ≥ 2`, and
-   the linear structure of `T_xX`, which would let the chart-form statements be stated intrinsically).
-9. **The round-trip audit** — **done** (2026-11-01; `RoundTrip/`, README and REPORT there): all 269
-   non-extra items have a blind statement and a prover record; all compile, every proved direction
-   passes `#rt_check`. **Refreshed against HEAD on 2026-11-02**: 82 items redone, all 269 item files
-   recompile; 7 items await new blind statements for the strengthened theorems (V3.98, V5.13,
-   V5.14, V3.82, V3.85, V3.94, V3.100), in progress on 2026-11-02. The headline theorems imply
-   independent restatements of the text's claims.
-   Statements of the text that do not hold in the formal reading: Theorem 3.27's step "δ sc^∞ near every v₀" (V3.73), the finite
-   subcover in Theorem 4.23's proof (V4.64), Theorem 5.37 (i)⇒(ii) as written (V5.55), Definition
-   1.8's "F = C ⊕ T(E_m)" (V1.7). Definitional differences: germs vs the whole chart in §3.1 (the
-   project's sc-Fredholm germ was stricter than the text's; removed in phase 2, below), the
-   algebraic good complement (V3.20), bump functions. Missing in the project (REPORT, "Missing in the project"): sc-Fredholm theory on
-   all levels, restriction of strong bundle charts, transitivity of strong-atlas equivalence, several
-   examples. Remark 2.28's negative claim does not hold in the formal reading — proved after the audit (`remark_2_4_8_isPartialQuadrant`,
-   `Chapter2/PartialConeQuadrant.lean`, Flor's theorem in the needed case). Moved into the
-   project afterwards (f063505): the text's sc-complement form of Theorems 3.54 (1), 3.23, 3.56,
-   3.57 (`Chapter3/GoodPositionSc.lean`), restriction of strong bundle charts and the equivalence
-   relation on strong-bundle and M-polyfold atlases, Lemma 5.2 literally, Remark 5.12's closedness,
-   Lemma 3.9 on level m, Lemma 3.81 on all of V₀ (Findings Ch. 2 40–44, Ch. 3 210–217, Ch. 5 130–131).
-   sc-Fredholm theory on all levels, added the same day (Findings Ch. 3 items 230–236): Proposition
-   3.10's second statement on every level `m` (`proposition_3_1_10_level`); the criterion "sc-Fredholm
-   ⟺ Fredholm on level 0 and regularizing" (`isScFredholm_iff`, `Chapter1/ScFredholmCriterion.lean`);
-   Propositions 3.5, 3.52 and Theorem 3.19's "f'(x₀) is sc-Fredholm" in the centred chart
-   (`proposition_3_6_5_sc`, `theorem_3_1_22_linearization_sc`, `Chapter3/FredholmGermLinearizationSc.lean`;
-   filler condition (3) needed on level 0 only). Then (items 237–239, 250–252, Ch. 1 follow-up 1):
-   `Lin(z)` sc-Fredholm at every zero in **every** chart (`StrongBundle.linAt_isScFredholm`,
-   `Chapter3/LinearizationChartsSc.lean`, no tameness); filler (3) on every level at a zero; the
-   converse of Proposition 3.5 in sc form (needs (3) on every level — level 0 alone fails, example in
-   item 238, not formalized); the solution germ of Corollary 3.34 / Theorem 3.35 sc-smooth on one
-   germ and `f⁽¹⁾` a Definition 3.28 germ (`Chapter3/GermIFTSmooth.lean`); the example after
-   Definition 1.14, an sc¹ map with `Df` not norm-continuous (`Chapter1/ScOneNotNormContinuous.lean`,
-   gap G.3).
-   The index of `f'(y)` is locally constant along the zero set without good position, for tame germ
-   data and bump functions (`theorem_3_6_8_index_locally_constant_general`,
-   `Chapter3/IndexLocallyConstant.lean`, the text's stabilization device of Proposition 6.2; Findings
-   Ch. 3 items 240–244); with the text's hypotheses (tame germ data, no bump functions) it is the
-   same device on the restriction of the bundle to a chart domain, done 2026-11-02
-   (`index_locally_constant_tame`, items 360–363); without tame germ data it is open, the missing
-   step being `ind C(z) = 0` at nearby zeros (items 243, 343).
-   Done on 2026-11-02 (commit 08c08c6; records in the fourth addendum of the comparison):
-   Corollary 5.8 on the shifted strong bundle (`corollary_5_2_5`, `corollary_5_2_5_two`, Ch. 5 items
-   140–146); Definition 6.1 and Proposition 6.2 along sc-smooth paths `ℝ → X` by the text's device,
-   with tame germ data and bump functions (`StrongBundle.IsIndexAt`, `proposition_6_2_2`, Ch. 3 items
-   340–348); the examples of V4.6 (`remark_4_1_3_example`, Ch. 4 items 140–146) and V5.21 (`ρ` a metric,
-   not complete for `ℝ × ℝ → ℝ`, complete for `U = ∅` or a point base, Ch. 5 items 150–153); item 199
-   sharpened (re-centring an atlas chart cannot give tame germ data, Ch. 3 items 350–355); weak bump
-   functions give pointwise ones at smooth points of sc-Banach spaces (Ch. 5 items 160–164);
-   Definition 3.3 in the germ reading. Done later on 2026-11-02 (commit 12924a4; records in the
-   fifth addendum of the comparison): **Proposition 6.2 and the index along the zero set without
-   bump functions** — the restriction of M-polyfolds and strong bundles to open sets
-   (`Chapter3/RestrictOpen.lean`, `RestrictOpenGerms.lean`), the index along the zero set for tame
-   germ data (`index_locally_constant_tame`, `IndexLocallyConstantLocal.lean`), Definition 6.1 with
-   the text's locally defined sections (`StrongBundle.IsIndexAtLocal`) and Proposition 6.2 with the
-   text's hypotheses for paths `ℝ → X` (`proposition_6_2_2_local`, `IndexAlongPathsLocal.lean`), the
-   two readings of Definition 6.1 agreeing under bump functions (`isIndexAtLocal_iff_isIndexAt`,
-   `IndexAlongPathsLocalBump.lean`) (Ch. 3 items 349, 360–367).
-   Open next steps (none is the hypothesis of a theorem): whether the text's germ reading and the
-   project's earlier whole-chart reading of Definition 3.11 agree for sections sc-smooth on `X`
-   (Findings Ch. 3 item 264; the obstruction is on level 0; no theorem depends on it); item 199's
-   remaining implication, germ data in some compatible chart ⟹ germ data in some compatible tame
-   chart when the atlas is tame (Ch. 3 item 353); the weak-vs-pointwise bump question at non-smooth
-   points (Ch. 5 item 163); Proposition 6.2 for paths sc-smooth on `[0, 1]` only, which needs
-   `[0, 1]` as an M-polyfold with boundary (Ch. 3 items 347, 365); the tameness of the
-   index raises of tame charts (the tame form of Corollary 5.8) and a uniform family `P^i` with
-   `(X¹)¹ = X₂` as spaces (Ch. 5 items 145, 146; gap G.6); item 243 for non-tame germ data, the
-   local constancy of the index along the zero set, equivalent to `ind C(z) = 0` (Ch. 3 item 343).
-   **The germ-vs-whole-chart gap of §3.1 is closed (phase 2, commits b74e15e–452a9b3,
-   2026-11-01; Findings Ch. 3 items 260–334).** Definition 3.11 and everything built on it were
-   switched in place to the text's germ reading: the filling (`IsFillingGerm`) and the sc⁺-section
-   (`IsScPlusGerm`) are sc-smooth germs on germs whose levels may shrink. `StrongBundle.IsScFredholmGerm`,
-   `IsScFredholmSection`, the tame and good-position variants and the canonical theorems
-   (`theorem_3_1_13_preprint`, `theorem_3_1_18_preprint`, `theorem_3_1_21_preprint`, `proposition_3_6_5_preprint`, `theorem_3_1_22`, `theorem_3_1_26`,
-   `theorem_3_6_8`, `theorem_3_6_10`, `theorem_3_6_11`, …; Chapter 5 follows) carry the text's hypotheses
-   with no added hypothesis; the whole-chart notions and theorems are kept as `…WholeChart` /
-   `…_wholeChart` (142 renamed twins), the phase-2 names as aliases (`GermReadingAliases.lean`).
-   Item 221's example is machine-checked (`exists_isScSmoothGerm_not_isScSmooth`). Definition 3.3
-   (`IsScSmoothSectionGerm`), the hypothesis of no theorem, followed on 2026-11-02.
-   The round-trip items (`RoundTrip/Items/`) were not renamed: they are pinned to commit b4d1d8c,
-   where the canonical names denote the whole-chart notions. The comparison rows, verification text
-   and REPORT were updated for the switch (V3.5–V3.107, V5.14).
-10. ~~**Chapter 6**~~ — done 2026-11-07 except Theorem 6.43 (G.54) and §6.6 (G.55) (`PLAN.md` §6;
-    state in §2). Round-trip audit of its 60 non-extra items done 2026-11-07. Left for Chapter 6: the gaps
-    G.56–G.69.
-11. **Part II, Chapter 7** — Lean done 2026-11-07 (waves W0–W4 of the Part II plan in `PLAN.md`; state
-    in §2). Wave W5 done: the reports and the round-trip audit (2026-11-07). Left for Chapter 7: the
-    gaps G.70–G.73 (G.70 with Chapter 8; G.71 now only paracompactness, since `𝐗^R` need not be
-    Hausdorff).
-12. **Part II, Chapter 8** — Lean and reports done 2026-11-08 (`PLAN.md` §II.9; state in §2). Left:
-    the gaps G.74–G.75 (round-trip audit done 2026-11-08), and small refactors (Lemma 7.4's quotient
-    metric and two `Lift.lean` helpers are repeated privately in `TangentOrbit.lean`,
-    `TangentTame.lean`; `FullOb`, `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`,
-    `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`).
-13. **Part II, Chapter 9** (Branched Ep⁺-Subgroupoids, pp. 291–331) — started 2026-11-08: plan in
-    `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 done 2026-11-08 (`Chapter9/Basic.lean`,
-    325 lines, 38 `#print axioms` lines, 6,799 in all): Definition 9.1 (`IsBranchedEpSubgroupoid`,
-    `LocalBranchingStructure`), Definitions 9.2–9.3, Lemma 9.1 (`lemma_9_1`, by a shorter route than
-    the text), witnesses (`Θ = 0`, the indicator of a point of `ℝⁿ`). Then (same day, 2021 numbering): `Chapter9/Symmetric.lean`, the
-    restriction remark (`LocalBranchingStructure.restrict`, at `x`), Lemma 9.1.7 (2017: 9.2;
-    `lemma_9_1_7`, symmetric structures), Part I facts (`IsSmoothSubmanifold.inter_isOpen`,
-    `.image_of_isScDiffeoOn`); `Basic.lean` switched to 2021 numbering (`lemma_9_1` renamed
-    `lemma_9_1_5`) and Definition 9.1.2 (1) of 2021 adds that `|supp Θ|` is paracompact (field
-    `paracompactSpace_orbitSupp`; 2017 does not have it). 61 `#print axioms` lines for Chapter 9 (6,822
-    in all). Not yet: dimension (`n`-dimensional, locally equidimensional; Part I has no rank for
-    tangent spaces, G.7), Remark 9.1.3 (b), the restriction at another point `x₀`, Remark 9.1.4,
-    Propositions 9.1.9, 9.1.11, 9.1.12. **Next: finish W0, then decide P10.4 (forms,
-    measures, Stokes) before §9.4–§9.5.** After Chapter 9, the user's order (2026-11-08): Chapter 10
-    (Equivalences and Localization, p. 333) if budget remains.
-    Update (2026-11-08, later): `Chapter9/Propositions.lean` (3a6e377): chart-independent dimension
-    (`HasDimAt`), Proposition 9.1.11 as printed with a counterexample to its uniqueness as we read it
-    (`not_proposition_9_1_11_rn`), Proposition 9.1.12 in the equidimensional case, Remark 9.1.3 (b).
-    Chapter 9 is paused for item 14.
-14. **The Springer 2021 edition, Chapters 1–8** (user, 2026-11-08: "let us update the whole thing to
-    match the book"; chosen: reports cite 2021 numbers and pages first, old ones in parentheses;
-    the changed and new 2021 items are formalized; Lean names and V-/G-numbers are kept, new ones
-    appended; Chapters 1–8 before Chapter 9 continues). **Done (2026-11-08)**: the 2021 section of
-    `Exposition/BookConcordance.md`, 121 `(book 2021: …)` marks in `Findings.md`, all report
-    citations switched to 2021-first (9b4be2d); new Lean files with names ending in `_2021`,
-    registered in `Polyfold.lean` and in the `Test.lean` block "Axioms: Chapters 1–8, additions and
-    changes of the Springer 2021 edition" (generator `Polyfold/WIP_N_list2021.lean`, gitignored; add a
-    module to its imports and `phaseCMods`, run it, then replace the block): Chapter1/Book2021;
-    Chapter2/LocalTopology(+Example), Book2021, TameBoundary(+Topology, Example, Structure,
-    NonCentred), TameSub, TangentLift(+All); Chapter3/Book2021Germs, Book2021Items; Chapter4/Book2021,
-    VectorFields(+Global), BracketLevel; Chapter5/Book2021; Chapter6/Book2021(+Continuity),
-    OrientationSpace; Chapter7/ReducedCriterion, Book2021Basic, Zhou(+Levels), TameBoundaryEp(+Structure);
-    Chapter8/Book2021, TangentZhou(+Levels). Reports for all of them (9281a4d, bfaf619): 649 sign-off
-    items, 741 comparison rows, new gaps G.76–G.92 (pinned by a `"g"` field in `notFormalized`, read
-    by `build_comparison.py`), closed: G.6, G.38, G.48, G.71 (by the 2021 text), G.76, G.77, G.78,
-    G.81, G.84, G.88 (8.1.17 (2) only). 8,308 `#print axioms` lines in all. Findings per Lean file
-    and the G-table are in the notes folder (`2021-report-items.md`, `gtable-2021.md`). Open 2021 gaps:
-    G.79 (untamed germs), G.80/G.87 (forms, Stokes), G.82, G.83, G.85 (Part I facts as hypotheses),
-    G.86, G.89, G.90–G.92.
-    Chapter 9 resumed 2026-11-08 with wave W1 (§9.2: `Chapter9/Tangent.lean`,
-    `Chapter9/BoundaryPosition.lean`).
-15. ~~**Part II, Chapters 9–11**~~ — done 2026-11-08 (state in §2): Lean, reports, Findings, the
-    exposition `Chapter9.md`–`Chapter11.md`, gaps G.93–G.135. Part II of the book ends with Chapter
-    11; Part III, *Fredholm Theory in Ep-Groupoids*, begins with Chapter 12, *Sc-Fredholm Sections*
-    (2021 p. 569). The round-trip audit of the 211 non-extra, non-gap items of Chapters 8–11 is done (2026-11-08,
-    against caf6bfc; `RoundTrip/REPORT.md`; Findings Ch9 items 103–104). Left for Part II: the open gaps (Chapter 10:
-    Propositions 10.4.6–10.4.7, the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
-    products of Theorem 10.2.2, the universal property of the localization; Chapter 11: §§11.2,
-    11.4, G.128, G.130, G.132–G.135); the docstrings of Chapters 9–11 were checked for numbering
-    against the 2021 and 2017 texts by the report agents (slips fixed 2026-11-08).
-16. **Gap closing, 2021 names, reviewer checklist** (2026-11-09; the user: "make the math better and
-    more reliable"). New Lean in 752daae, fee9725, d9568d7 (each recorded in the comparison rows and
-    as dated notes in the Findings, 8115a42): 20 gaps closed, 37 narrower rows lifted, the main
-    theorems also stated with the 2021 definitions (`_2021def`), Theorems 5.3.10/5.3.12 in the book's
-    form, the clean orientation theorems 6.6.13/6.6.17/6.6.18, Mathlib `IsManifold` forms of the
-    solution sets. **The Lean names of Chapters 1–8 now carry the 2021 numbers** (791 declarations;
-    old name → new name in `Exposition/rename-2021.tsv`). An old form kept beside the 2021 one is
-    `_preprint`/`_2017` (the statement of the earlier version), `_hyp` (auxiliary hypotheses),
-    `_param` (the form the proof produces), `_of_isRegular` (Theorem 3.2.3 under the added
-    `IsRegular`). **Reviewer checklist**: `Exposition/ReviewerChecklist.md`, generated by
-    `lake env lean Exposition/checklist/TrustedBase.lean` and then
-    `python3 Exposition/checklist/build_checklist.py`; the main statements are listed in both
-    `checklist/mains.json` and `TrustedBase.lean` (keep them in step; regenerate when a main
-    statement or a row's declarations change). Still open: G.45, G.66, G.79 for charts centred at
-    boundary points, V3.89, Lemma 9.4.4 for M-polyfold sheets (G.105), the continuity in G.103, and
-    `d_{C_xX}(0) = d_X(x)` in G.13.
-17. **Narrower rows and gaps, second wave** (2026-11-09). New Lean in 22 files (`*2021.lean` in
-    Chapters 2–4 and 6–11; imported in `Polyfold.lean`, axioms in `Test.lean`): 17 narrower rows
-    lifted (V2.68, V2.78, V2.87, V3.48, V3.80, V3.84, V4.72, V6.22, V6.49, V8.44, V8.51, V9.36,
-    V9.38, V10.59, V11.30–V11.32), 8 gaps closed (G.56, G.59, G.88, G.89, G.93, G.104, G.132,
-    G.133), and G.62, G.86, G.103, G.105, G.122 narrowed; now 47 rows are narrower and 61 of the
-    135 gaps closed. Rule for the verdict (2026-11-09): it compares with the text as printed, so a
-    row whose printed claim does not hold as we read it stays "narrower" even when its book form
-    proves the strongest version that holds (V2.89, V2.103, V7.98: "onto θ" only for centred `V`;
-    V9.2: the footnote for `Θ ≠ 0`), as V2.104, V8.35, V9.9, V10.66 already were. Then Theorem 6.6.18 with the orientation of `S` as a Mathlib manifold (`theorem_6_6_18_oriented`, `Chapter6/ManifoldOrientation.lean` and `SolutionSetOrientation.lean`; gap G.67 closed, V6.61 restated, Findings Chapter 6 item 127): 46 rows narrower, 62 gaps closed. Book forms (`_book`) state Remark 2.1.6, Definition
-    2.5.19, Proposition 2.7.12, Theorems 2.7.13, 3.6.8, 3.1.22, Proposition 4.4.5 and Theorem 7.6.9
-    in one theorem each; the reviewer checklist now uses them for 2.7.13, 3.6.8 and 7.6.9. Two
-    degenerate cases have Lean counterexamples: Proposition 8.5.7 for `D = ∅`
-    (`not_proposition_8_5_7_empty`) and the footnote to Definition 9.1.2 for `Θ = 0`
-    (`definition_9_1_2_footnote_zero`). Findings: Chapter 2 items 88–89, Chapter 3 383–385, Chapter
-    4 166, Chapter 6 124–126, Chapter 7 155, Chapter 8 126–130, Chapter 9 110–113, Chapter 10 73–74,
-    Chapter 11 81–82. Still open, and why: G.61 (sc-smooth contractibility, research-level); G.66
-    (Remark 6.6.19 beyond a point); G.62 in part (`π` off the family; the fibres `S_t` need property
-    (P) for the slices, G.63; `L` as a smooth bundle); G.86 (3) (`W[1]` is not an ep-groupoid: the
-    level-one bundles and `μ` as a local sc-diffeomorphism at level one, well over 500 lines); G.103
-    in part (the stratum `{d_M = 1}` as a submanifold, Figure 9.1, Remark 9.3.11); G.105 (Lemma
-    9.4.6 in the chart reading needs a null-set notion on M-polyfold sheets, and the chart reading
-    is not yet compared with the bridge's); G.122 and G.126 (Proposition 10.4.6: with `IsLR` the
-    text's transport is only local; with `IsLRLocal` it needs a strong bundle transport chart, about
-    500–700 lines; the bundle identity of Proposition 10.4.7 is a short addition to
-    `LocalizationLRBundleBase.lean`); G.128 (faces of `|X|` as ep-groupoids; the missing steps are
-    listed in the gap); V10.71 (the converse in Remark 10.5.3 needs strong bundle (C1), (C2), about
-    300 lines); V3.68 (`ker f'(y) = T_yS` in `T_yX` needs an intrinsic linearization); V3.89 (the
-    reduction from a general sc-splitting to the coordinates of the proof, routine but long); V8.28
-    (equality without tameness is open: Part I's product formula is for tame M-polyfolds); V5.55 (an
-    open question, Findings, Chapter 5, item 111); G.33 (Remark 4.2.2 in the 2021 wording needs the
-    local structure of finite-dimensional retracts with corners); G.82, G.83 (Theorem 7.6.7 for `i ≥
-    2` and Zhou's retract). G.45, G.79 (charts centred at boundary points) and G.13 stay as in item
-    16. The orientation wave (G.67, V6.61) is integrated above; the forms waves (G.37, G.39, G.40,
-    G.80) are item 18.
-18. **sc-forms, integration and Stokes (2021 §4.4)** (2026-11-09). New Lean in 12 files of
-    `Polyfold/Chapter4/` (imported in `Polyfold.lean`, 354 axiom lines in `Test.lean`):
-    `ScForms2021`, `ScExteriorDerivative2021`, `ScFormsNatural2021`, `ScFormsGlobal2021`,
-    `ScFormsSquare2021`, `ScFormsLower2021` (sc-forms and `d` on M-polyfolds); `EuclideanForms2021`,
-    `EuclideanStokes2021` (integrals of top-degree forms, change of variables, Stokes on quadrants);
-    `ManifoldForms2021`, `ManifoldIntegral2021`, `ManifoldStokes2021`, `ManifoldBoundary2021`
-    (forms, `∫_M`, `∫_{∂M}` and Stokes on Mathlib manifolds modelled on `[0,∞)ⁿ`). Rows V4.80–V4.88;
-    V4.83 is narrower: the formula for `dω` on p. 197 with its printed sign `(−1)^{ℓ+k}` and the
-    bracket `DA·B − DB·A` of p. 200 does not hold as we read it
-    (`invariantFormula_printedSign_counterexample`), and it holds with `(−1)^{ℓ+j+1}`
-    (`extDeriv_eq_invariantFormula`). Closed: G.37 (Definitions 4.4.1–4.4.2, the Whitney sum read in
-    its charts `⊕ₖ Tφ`). In part: G.39 (`d` on an M-polyfold, chart independent and linear, `d² = 0`,
-    commuting with `X^{i+1} → X^i`, on `Ω*_∞(X)`, and Definition 4.4.6; missing: forms on `∂X`, the
-    relative complex `Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, since `∂X` is only a union of faces); G.40
-    (Stokes for classical `C¹` forms on compact Mathlib manifolds with corners and a continuous
-    tangent orientation, `stokes_of_compactSpace`, with `∫_M` independent of charts and partition;
-    missing: the restriction of sc-forms to `N` as a `ManifoldForm`, `∂N` and its faces as manifolds
-    and integrals of forms given only on `∂N`, `d ∘ d = 0` for `ManifoldForm`); G.80 (also missing:
-    the wedge product, `f^*` along sc-smooth maps of M-polyfolds, the Poincaré Lemma 4.4.8 and Lemma
-    4.5.2). G.54 (Theorem 6.7.1) stays open with a dated note. Now 47 rows are narrower and 63 of the
-    135 gaps closed. Findings: Chapter 4 items 167–172 (167: the p. 197 sign; 168–170: readings of
-    Definitions 4.4.1–4.4.2, of `d`, and what stands behind `d² = 0`; 171: the induced orientation of
-    the faces, outward vector first as in Definition 9.3.8; 172: `∫_N` and what of Theorem 4.4.7 is
-    formalized). Three names clashed on import with older declarations and were renamed in the new
-    files: `quadrant` → `closedQuadrant` and `interior_quadrant` → `interior_closedQuadrant` (Chapter 1
-    has `Polyfold.quadrant`, Chapter 3 `Polyfold.interior_quadrant`), and
-    `IsScSmoothRetractMap.real_add` → `real_add'` (the same lemma is in Chapter 5). Theorem 6.7.1 still
-    needs: the relative complex and `H*_dR(X, ∂X)`; the restriction `ω ↦ ω|_S` of sc-forms to
-    `S_{f+s}` as a `ManifoldForm` with `ContMDiffForm` and `d(ω|_S) = (dω)|_S` (the map `T_xS → T_xX`
-    in charts is `modelDeriv`, `Chapter6/SolutionSetOrientation.lean`; missing is that the corner
-    parametrization of `S` is sc-smooth into every level, so that restrictions are `C^∞`); forms and
-    their integrals on `∂S_{f+s}` alone, with `∫_{∂S} dβ = 0`; the pull-backs along `∂S ↪ S` and the
-    homotopy `S × [0, 1]` of Remark 5.3.8 (G.44).
-19. **Theorem 6.7.1 and the rest of §4.4 (2021 §§4.4, 6.7)** (2026-11-10). New Lean in 18 files
-    (imported in `Polyfold.lean`, 871 axiom lines in `Test.lean`, block "Axioms: Theorem 6.7.1 and its
-    prerequisites"): `Chapter4/ScFormsPullback2021` (`f^*`, `f^*d = df^*`), `BoundaryForms2021` (forms on
-    `∂X`, `j^*`, the relative complex, `H*_dR(X, ∂X)`), `ManifoldFaceForms2021` (forms on the faces of a
-    Mathlib manifold, their extension and `∫_{∂M}`, `d ∘ d = 0` for `ManifoldForm`);
-    `Chapter5/CylinderPerturbation2021` (the margin of `U`, sections admissible for two pairs, the
-    cobordism data); `Chapter6/SolutionSetOpen2021`, `ProductSectionOrientation2021(b)` (item 5 of the
-    orientation plan), `ProperHomotopy2021` (reading R-d), `InvariantProductEnds2021(b)` (product ends,
-    Fubini on them, the sign R-f), `InvariantSingle2021` (`psiAt` for one admissible section),
-    `InvariantCobordism2021` (the cut-off and the cobordism identity `psiAt_eq_of_cobordism`),
-    `Theorem671_2021` (the theorem from (A) and (B)), `Theorem671Assembly2021` (the only Lean written
-    at integration: (A) and (B) from the identity under the two hypotheses, `theorem_6_7_1_hyp`,
-    `theorem_6_7_1_noBoundary_hyp`); `Chapter9/MathlibFormsBridge2021` (`ω|_S`, Stokes for sc-forms),
-    `SolutionFaces2021`, `SolutionFaceForms2021` (`τ|_{∂S}`). No name clashed on import. Rows V4.89
-    (same), V4.90 (restated), V4.91 (same), V4.92 (restated), V6.76 and V6.77 (narrower: proved under
-    `CobordismOrientationHyp` and `CobordismRelativeFormsHyp`, steps of the text's proof; no Lean
-    witness of them). Closed: G.39 (forms on `∂X` read through `bX`, agreeing over `B`, with `dτ`
-    agreeing too; the relative complex), G.55 (admissible sections). In part: G.40 (missing only the
-    faces of `N` as M-polyfolds), G.44, G.54 (missing: the two hypotheses), G.66 (= the hypothesis
-    `CobordismOrientationHyp`), G.80 (missing: the wedge product, the pull-back of forms on `∂X` along
-    maps such as `p₁`, the Poincaré lemmas). Now 49 rows are narrower and 65 of the 135 gaps closed.
-    Findings: Chapter 4 items 173 (reading R-a, with the A3 caveat; `f^*d = df^*`; the relative
-    complex), 174 (Stokes for sc-forms); Chapter 6 items 128–133 (R-b the margin of `U`, R-c degree `k`
-    with `S_k`, R-d the homotopy, R-e the degree of `ω̄` as we read it, R-f the signs, the support of
-    the cut-off) and 134 (the status). `Exposition/checklist/mains.json` is unchanged: its entries are
-    `[label, name]` pairs with no note, and `TrustedBase.lean` must list the same names, so the
-    conditional `theorem_6_7_1_hyp` is not a main statement. Left for next week, in order:
-    (a) G.66 items 1–4, 6, 7 of `w1c2-prodor` (about 680 lines; design in the docstring of
-    `Theorem671Assembly2021.lean`), which discharge `CobordismOrientationHyp`; (b) the face-form part
-    of `w3b2-ends` (600–1000 lines: the pull-back of forms on `∂X` to `∂(ℝ¹ × X)` along `p₁`, its reading
-    on the product charts of the faces of `S_F`, the pull-back of `ManifoldForm`s along the end
-    projection, the extension property at the end faces; a face-form Fubini if the cut-off route is
-    left), which discharges `CobordismRelativeFormsHyp`; (c) A3, that the agreement of `τ` over `B`
-    implies that of `dτ` (needs the corner strata of tame retracts as sub-M-polyfolds); (d) the wedge
-    product (G.80). Small text fixes not made: `build_comparison.py` line 67 still says Theorem 6.7.1
-    is not formalized; `CylinderPerturbation2021.lean` cites p. 215 where p. 219 is meant.
+**Chapter 2** (retracts and M-polyfolds): `Retracts`, `TameRetracts`, `MPolyfold`, `LocalTopology`,
+`LocalTopologyExample`, `Metrizable`, `MichaelRefinement`, `DegeneracyIndex`, `Boundary`, `PartialCone`,
+`PartialConeQuadrant`, `CornerGerms`, `Tame`, `TameFaces`, `TameInvariance`, `TameSub`, `ExtendedFaces`,
+`SubMPolyfold`, `SubMPolyfoldTangent`, `SubMPolyfoldTangentSc`, `FibredProduct`, `LevelPolyfold`, `SmoothPaths`,
+`SmoothRetractImage`; the tangent bundle and tangent spaces in `TangentBundle`, `TangentMap`, `TangentMapLinear`,
+`TangentLift`, `TangentLiftAll`, `TangentSpaceLinear` (Definition 2.3.14), `TangentSpaceChartIndependent`,
+`TangentProjOpen`, `TangentConePaths`, `TangentConeQuadrant`, `ReducedTangentIntrinsic`; strong bundles in
+`StrongBundle`, `StrongBundleOne`, `StrongBundlePullback`, `StrongBundleRestrict`; the tame boundary of §2.7 in
+`TameBoundary`, `TameBoundaryStructure`, `TameBoundaryTopology`, `TameBoundaryExample`, `TameBoundaryNonCentred`;
+the 2021 statements in `Book2021`, `BookFormLocalCompleteness2021`, `BookFormTameBoundary2021`,
+`BookFormTameSub2021`.
 
-20. **Part I completion wave (2021 Chapters 1–6)** (2026-11-12). New Lean in 136 files (imported in
-    `Polyfold.lean` in dependency order, 1,416 axiom lines in `Test.lean`, blocks "Axioms: Part I completion
-    wave (2026-11-12)", "Axioms: Theorem 3.6.8 with untamed 2021 germ data" and "Axioms: Theorem 6.7.1 without
-    hypotheses on the cobordism"; notes `narrow/p1-*.md`,
-    integration report `narrow/integrate-p1.md`). No name clashed on import. 32 new rows (V1.42–V1.43,
-    V2.108–V2.112, V3.122–V3.131, V4.93–V4.96, V5.71–V5.76, V6.78–V6.82). Closed: every gap of Chapters 1–3
-    (G.1, G.2, G.4, G.10, G.12, G.13, G.15, G.19, G.25–G.29, G.79), and G.32, G.33, G.35, G.36, G.40, G.92
-    (Ch4), G.44, G.45, G.47, G.48, G.50–G.53 (Ch5), G.54, G.57, G.58, G.60, G.62, G.63, G.66, G.91 (Ch6). Open in
-    Part I: G.61, G.65 (in part), G.80 (in part); nothing to formalize: G.34 (a question), G.43 (a comment), G.49 (not in 2021).
-    Lifted from narrower: V3.62, V3.68, V3.89, V4.32, V5.55, V5.63, V6.33, V6.34, V6.42, V6.62, V6.76, V6.77; new narrower
-    rows V3.123 (Lemma 3.8.1 at `P = {0}`), V3.130 (Theorem 3.6.8 with the 2021 untamed germ data), V5.76 (the
-    Sobolev remark, sc-structure only on `(0, 1)`), V6.80, V6.81 (`DET(E, F)`). Now 42 rows are narrower and
-    101 of the 135 gaps closed. Findings: Chapter 3 items 386 (Lemma 3.8.1 at `P = {0}` does not hold as we
-    read it), 387 (reading of Theorem 3.2.3), 388 (Theorem 3.6.8 (2) and Theorem 3.1.22 do not hold as we read
-    them with the 2021 untamed germ data, `theorem_3_6_8_untamed_not`); Chapter 4 items 175 (good position
-    automatic in tame M-polyfolds), 176 (Remark 4.2.2, 2021 wording), 177 (§4.4 reading points); Chapter 5
-    items 183–186 (Theorem 5.3.15 remarks, `E₀` separable, the Sobolev remark, preprint Theorem 5.27);
-    Chapter 6 items 135 (`DET(E, F)` for finite-dimensional `E`, `F`), 136 (relative-form readings). Theorem
-    6.7.1 is proved without hypotheses on the cobordism: `theorem_6_7_1`, `theorem_6_7_1_noBoundary`
-    (`Chapter6/Theorem671Final2021.lean`, agent R-ends671, files `Chapter6/CobordismOrientationEnds2021*.lean`;
-    standing hypotheses `X` tame and sc-smooth bump functions only), through `cobordismOrientationHyp`: the
-    orientation `e ∧ o₀` of `S_F` is `e ∧ o_{S_i}` on its ends, the time vector first and with no sign
-    (`isEndProductOrientation_cobOr`). The earlier forms `theorem_6_7_1_of_orientation`, `theorem_6_7_1_hyp`
-    stay, with docstrings pointing to `theorem_6_7_1`. Docstrings that said "not
-    formalized" for what this wave did were updated (comment text only). Left: G.80 (wedge on
-    `Ω*_∞(X, ∂X)`), G.61, G.65; the Sobolev structure for `n ≥ 2`; a Chapter 7 file discharging the GTWZ
-    hypothesis of Corollary 7.6.6 with `theorem_5_5_16`.
-21. **Part II wave (2021 Chapters 7–11)** (2026-11-12/13). New Lean in 73 files `Polyfold/Chapter{7..11}/GapP2_*.lean`
-    (imported at the end of `Polyfold.lean` in dependency order; `Test.lean` block "Axioms: Part II wave
-    (2026-11-13)", 1,331 theorems; notes `narrow/p2-*.md`, integration report `narrow/integrate-p2.md`). No name
-    clashed. Agent E3 (`ChartIntegral`, `ChartVectors`, `IntegralCovering`, `DensityLocal`, `FormEvalEp`, `FormEvalInfty`, `FrameSign`, `GraphChart`, `GraphChartExists`, `GraphCoord`, `GraphDiffeo`, `ManifoldBridge`, `ManifoldIntegralBridge`, `SheetIntegrationConcrete`, `TameOpen`, `GraphChartTransition`, the concrete integral over sheets) was still running and is not imported.
-    12 new rows (V8.53–V8.55, V9.63–V9.66, V10.72–V10.75, V11.43); 829 sign-off items (new: V9.63–V9.66, V11.43). Closed: G.82, G.83 (Ch7; Zhou's retract
-    itself, `ZhouRetract.appendix_7_6_3_sigma`), G.74, G.75, G.86, G.87 (Ch8), G.94, G.95, G.101, G.105, G.106
-    (Ch9), G.111, G.112, G.116, G.117, G.122, G.124, G.126 (Ch10), G.128 (with a counterexample), G.129, G.134,
-    G.135 (Ch11). Every gap of Chapters 7, 8 and 10 is closed. In part: G.103, G.107–G.110 (Ch9: branched
-    integration for an abstract `SheetIntegration`, Stokes from its local inputs); open: G.131 (§11.4). Lifted
-    from narrower: V7.10, V7.39, V7.40, V7.68, V7.82, V7.83, V7.95, V8.47, V9.50 (explicit), V10.61, V10.71,
-    V11.8; V7.57 (Remark 7.5.6) "nothing to formalize". Now 32 rows narrower, 123 of 135 gaps closed. Findings:
-    Ch7 156 (Zhou's retract holds as printed); Ch8 131–133; Ch9 114–118 (115: Example 9.3.5 classified, six
-    integral orientations; item 54 updated); Ch11 9 (Proposition 11.1.6, the intersection clause does not hold
-    as we read it; `FaceMeetExample.not_facesMeetInFaces`, corrected form `facesMeetInUnions`; one-line ask for
-    the authors' notes), 21, 22, 77, 78; Ch10 no new item (status changes on 7, 18, 19, 21, 36, 45, 50–53, 57,
-    72, 74). Docstrings that said "not formalized" for what this wave did were updated (comment text only).
-    Left: after E3, an E4 agent (Stokes G.110, G.108 `n ≥ 2`, G.109, the G.103 bridge and stratum, Remark
-    9.5.20), then a §11.4 agent (G.131, V11.27–V11.29), then a second small integration; witnesses in the repo
-    for C2's two added hypotheses of Proposition 9.1.9 / Remark 9.1.10 (they exist only in a scratch file).
-    *Second integration (2026-11-13, report `narrow/integrate-p2b.md`).* 75 more files: E3 (16, the concrete
-    integral over sheets in graph charts), E4 (16, sheets in countably many charts, Theorems 9.5.4/9.5.5 for every
-    oriented tame structure, `hloc` without boundary, (9.22), Proposition 9.5.13 (2), the unit circle), E5 (7),
-    E6 (6), E7 (4), E8/E8F/E8W (11, Stokes with `μ^∂`, Part I's face integrals = §9.5 boundary integrals, the closed
-    hemisphere), D3 (1, Figure 9.1), H4 (13, `Chapter11/BoundaryMeasureEquivalence`, `BoundaryMeasureGeneralizedIso`, `BoundarySheetsDiffeo`, `FormEvalPullback`, `FormEvalPullbackEquivalence`, `GraphChartsDiffeo`, `MeasureGeneralizedIso`, `EffectiveMeasureEquivalence`, `EffectiveMeasureGeneralizedIso`, `MultiChartSheetsEquivalence`, `MeasureEquivalence`, `OrientedStructureDiffeo`, `OrientedStructurePairs`, §11.4) and `Chapter9/XAxisWitness.lean`
-    (the x-axis of ℝ² witnessing C2's hypotheses). `Test.lean` block "Axioms: Part II wave, second integration
-    (2026-11-13)", 1,021 theorems; now 17,475, all on propext/Classical.choice/Quot.sound. No name clashed.
-    Closed: G.103, G.107 (reading: the text's "oriented, tame" = `hloc`, derived without boundary), G.108. In part:
-    G.109, G.110, G.131 (the class hypotheses `hcov` (E7) / `hcovS` (E8) are added, not derived near corners;
-    nonzero witness `E8W.e8_hemisphere_stokes`; open: the class condition near corners (800–1,200 lines), `m = 0`,
-    Remark 9.5.20 (2,000–3,500 lines)). New rows V9.67 (Theorems 9.5.15, 9.5.16, narrower), V9.68 (9.5.17, 9.5.18,
-    narrower), V9.69 ((9.22), explicit). 832 sign-off items (new: V9.67–V9.69). V9.36, V9.54–V9.56, V9.66 explicit; V9.57 restated; V11.27, V11.28 same,
-    V11.29 narrower. Now 886 rows, 30 narrower, 126 of 135 gaps closed (open, all in part: G.61, G.65, G.80, G.109,
-    G.110, G.131). Findings: Ch9 new item 119 (readings of §9.5 for sc-forms), updates to 57, 58, 83–85, 108, 110,
-    114, 117, 118; Ch11 item 50 (§11.4 formalized; 11.4.4/11.4.5 in part) and 80. Docstring pointers in 17
-    Chapter 9 files. `Exposition/Chapter10.md` and `ProofByProof.md` (§X.25, V10.61) updated for G.122, G.124,
-    G.126. Left: the class condition near corners, `m = 0`, Remark 9.5.20; `f·ω` for non-constant `f`; a LUC
-    witness for Theorem 9.5.18; the Ch9/Ch11 parts of `ProofByProof.md` (§9.5, §11.2, §11.4) predate the wave.
-22. **Corner wave K** (2026-11-13). New Lean in 27 files, 8,691 lines (`Polyfold/Chapter4/GapP3_K4_*`,
-    `Chapter6/ScContractible`, `IntervalHomotopy`, `KernelBundleInterval`, `Chapter9/AllStructures`, `BoundaryCover`, `CornerFinite`, `HemisphereBoundaryMeasure`, `StokesTextHypotheses`, `AllStructuresDimOne`, `HalfCircleSheet`, `HalfCircleWitness`, `BoundaryMeasureDimOne`, `FaceIntegralDimOne`, `FinitePointIntegration`, `HemisphereStokesEffective`, `HemisphereStokesLUC`, `EffectiveDimOneLUC`, `StokesDimOne`, `ZeroFormValues`, `CyclicGroupoidIsotropy`, `DimensionJumpPolyfold`, `DimensionJumpRetract`, `Chapter11/BoundaryMeasureTextHypotheses`, `BoundaryMeasureGeneralizedIsoDimOne`, `BoundaryMeasureEquivalenceDimOne`;
-    notes `narrow/p3-K1.md` … `p3-K4.md` in the lead's scratchpad), imported in `Polyfold.lean` (731 imports);
-    `Test.lean` block "Axioms: wave K (2026-11-13)", 480 theorems and 16 definitions; now 17,971, all on
-    propext/Classical.choice/Quot.sound. No name clashed. Closed: G.109 (Theorems 9.5.15, 9.5.16 as stated, every
-    `n ≥ 1`, local formula for every structure: the class condition is derived, near the corners by an estimate in
-    the corner charts, toward the frontier by tangent comparison; `n = 1` with 0-forms summed over the finite
-    boundary sheets), G.131 (Theorems 11.4.4, 11.4.5 with the text's hypotheses, every `n ≥ 1`), G.80 (the wedge on
-    `Ω*_∞(X, ∂X)` as the mapping cone of `j^*`, our choice; the general pull-back on `∂X` is not in the 2021 text),
-    G.61 (Proposition 6.6.3 (1) in the 2021 wording `U′ ⊂ U` contractible in `U`; "U contractible" was the
-    preprint's). In part: G.110 for Remark 9.5.20 only (its M-polyfold, `ℤ₃ ⋉ X` with LUC, `♯G^eff` 3 vs 1 formalized;
-    `Θ` and the integrals not, 2,340–3,790 lines), G.65 ((1′) on `[0, 1]`, `L` over `[0, 1]`; still on ℝ: `L` over
-    `[0, 1]ⁿ`, `n ≥ 2`, stabilized kernels, Remark 6.6.19). Verdicts: V9.67, V9.68, V11.29, V6.32 restated. Now 886
-    rows, 26 narrower, 130 of 135 gaps closed (open in part: G.65, G.110). Witnesses with `∂S ≠ ∅`: hemisphere
-    (`n = 2`, with LUC: `E8W.k2_hemisphere_stokes_eff`), half-circle (`n = 1`, `K2Arc.k2_arc_hypotheses`).
-    Findings: Ch4 178, Ch6 137, 138, Ch9 120 (notes on 4.177, 6.45, 6.53, 6.54, 9.119, 11.50). `ProofByProof.md`
-    Parts IV, VI, IX, XI updated; `checklist/mains.json` gains Theorem 6.7.1 and Theorems 9.5.15–9.5.18.
-23. **Part III wave 1** (2026-11-13). Nine agents (R, B, N, S, O, G, M, T, Z; notes `narrow/p3w1-*.md` in the lead's
-    scratchpad, plan `narrow/PART3-PLAN.md`). New Lean in 33 files, 12,733 lines (`Polyfold/Chapter5/P3R_*`,
-    `Chapter5/BoundaryExtension`, `Chapter12/LocalBoundaryExtension`, `Chapter12/P3{B,N,S,O}_*`, `Chapter13/P3{G,M}_*`, `Chapter15/Linearization`, `LinearizationIntrinsic`, `LinearizationModel`, `SeparationLemmas`, `Chapter16/PolyfoldBump`, `PolyfoldExamples`, `PolyfoldPartitions`, `PolyfoldStructure`, `ZhouUniquenessCheck`), imported in
-    `Polyfold.lean` (764 lines); `Test.lean` blocks "Axioms: Part III wave 1 (2026-11-13), Chapter N" for N = 5, 12,
-    13, 15, 16, 663 theorems and 52 definitions; now 18,686, all on propext/Classical.choice/Quot.sound. No name
-    clashed. New report files `cmp/ch12.json`, `ch13.json`, `ch15.json`, `ch16.json` and `verification/ch12.md`,
-    `ch13.md`, `ch15.md`, `ch16.md`; Chapter 5 rows V5.77–V5.91. Rows: V12.1–V12.27, V13.1–V13.20, V15.1–V15.8,
-    V16.1–V16.13 (83 new rows with Chapter 5, 14 narrower). New gaps G.136–G.146, all open: G.136 (local step of
-    Theorem 12.2.7), G.137 (ep wrapper of Definition 12.3.6), G.138–G.140 (§12.5: last clause of Theorem 12.5.3,
-    continuity in Proposition 12.5.6 (⇐), Part I's `hbump` and tame germ data), G.141 (Q-properness in Theorem
-    13.1.7), G.142, G.143 (decorated multisections, the "no inverses" remark), G.144, G.145 (functor property and
-    Fredholm summands of `T(f, Λ)`), G.146 (metrizability of polyfolds, Smirnov). Readings: the pointwise bump
-    reading in Theorems 12.3.2 (2), 12.3.3; Proposition 15.1.3 for `x₀` not isolated (at an isolated point it does
-    not hold as we read it, a degenerate case); the uniqueness sentence after Definition 16.1.2 and Remark 16.1.7
-    do not hold as we read them (trivial `ℤ/3` on `ℝ`, which satisfies (ZHOU)), proved for an effective target
-    (README item 14; a candidate for the notes to the authors). Findings: Ch5 187–192, new sections Ch12 1–11,
-    Ch13 1–9, Ch15 1–4, Ch16 1–5. `BookConcordance.md` gains a Part III table (2017 numbers checked; the notes S and
-    M gave other 2017 numbers, still in the docstrings of `BumpEp`, `CompactnessEp`, `ScPlusSectionFunctor`, `MultisectionAlgebra`, `MultisectionConvolution`, `MultisectionLocallyFinite`, `MultisectionSupport`, `MultisectionSymmetric`, `ScPlusSectionOn`). `checklist/mains.json` gains Theorem
-    5.4.2 and a tier `partIII` (Theorems 12.2.2, 12.4.2, 13.1.8, Proposition 16.1.4, Lemmas 16.1.13, 16.1.19).
-    Builder scripts: Part III chapters V12, V13, V15, V16 (no V14 yet). Next: wave 2 (reflexive norms of §12.2,
-    Theorem 12.3.9, §12.4 rest, Theorem 12.5.7, §§13.3–13.5, Chapter 14, §§15.2–15.4, the rest of Chapter 16).
+**Chapter 3** (sc-Fredholm theory): germs and the contraction germ in `Germ`, `GermLevels`, `GermCalculus`,
+`GermCalculusParam`, `ContractionGerm`, `GermIFT`, `GermIFTSmooth`, `SolutionGermRegularity`,
+`SolutionGermQuantitative`, `SolutionGermRecentre`; fillers and basic germs in `Filler`, `GermFilling`,
+`GermFillingChart`, `BasicClass` and the `BasicGermCriterion*`, `BasicGermLinearization*`, `BasicGermShrink*`
+files; sc-Fredholm sections and their tame germ data in `TameGerms`, `TameGermsG`, `TameGermData`,
+`TameGermDataStabilization`, `TameGermTransfer`, `FredholmSectionsG` and the `FredholmGerm*` files; the implicit
+function theorem in the `GlobalIFT*` files (`GlobalIFTTheorems`, `GlobalIFTTheoremsG`, `GlobalIFTFull`; the
+surjectivity at nearby zeros in the `GlobalIFTNearby*` files); good position in the `GoodPosition*` and
+`GoodComplement*` files; linearizations in the `Linearization*` files; the index in the `IndexLocallyConstant*`
+and `IndexAlongPaths*` files; local solvability, compactness and quadrants in `LocalSolvability`,
+`LocalSolvabilityClosed`, `SectionCompactness`, `SectionCompactnessG`, `LocalCompactness`, `QuadrantIFT`,
+`QuadrantInverse`, `QuadrantInverseSmooth`, `QuadrantClassCk`; the all-charts tameness hypothesis that no strong
+bundle satisfies, and the non-vacuity witnesses, in `TameVacuity`, `TameVacuityChart`, `NonVacuity`,
+`NonVacuityCorner`, `NonVacuityG`; untamed bundles in the `Untamed*` files; the interval $[0,1]$ as an M-polyfold
+in `UnitIntervalPolyfold`; the 2021 statements and counterexamples to our readings in `Book2021Germs`,
+`Book2021Items`, `BookFormIFT2021`, `MainTheorems2021`, `Counterexamples2021`, `RecentreCounterexample2021`.
+Files with the suffix `G` hold the germ-reading forms of the statements of the file of the same stem.
 
-24. **Part III wave 2** (2026-11-13). Nine agents (R2, X, E, D, A, L, H, F, P; notes `narrow/p3w2-*.md` in the
-    lead's scratchpad, integration report `narrow/integrate-p3w2.md`). New Lean in 33 files, 12,746 lines
-    (`Polyfold/Chapter12/P3{E,R2,X,F}_*`, `Chapter13/P3{E,D,A}_*`, `Chapter15/P3{L,P}_*`, `Chapter16/BranchedSuborbifold`, `FormsIndependence`, `PolyfoldForms`, `TangentLemma`, `TangentPolyfold`),
-    imported in `Polyfold.lean` (797 lines; list in `narrow/ip3w2/modules.txt`); `Test.lean` blocks "Axioms: Part
-    III wave 2 (2026-11-13), Chapter N" for N = 12, 13, 15, 16, 675 theorems and 186 definitions; now 19,547, all on
-    propext/Classical.choice/Quot.sound. No name clashed. Docstrings updated: the "Not formalized here" section of
-    `AuxNormExtension.lean` and the reading bullet of `GoodSystemExistence.lean`. Rows: V12.28–V12.44,
-    V13.21–V13.49, V15.9–V15.26, V16.14–V16.28 (79 new rows, 18 narrower); updated V12.9 (same), V12.16, V13.7
-    (stronger), V13.10, V13.15–V13.17, V13.19, V15.1, V15.2, V16.1. Gaps closed: G.136, G.137, G.141, G.142, G.143,
-    G.145, G.146; G.138, G.139, G.144 rewritten. New gaps G.147–G.162, all open: G.147 (reflexive local step of
-    12.2.13), G.148 (Proposition 13.3.19), G.149 (correspondences in Theorem 13.5.3), G.150–G.152 (tameness,
-    general-position variant and U(x) in §15.2), G.153–G.157 (Stokes without partitions of unity, tameness
-    invariance, naturality of supp θ, τ_Z and raised polyfolds, the tangent functor and pull-back of forms), G.158
-    (topology of Theorem 12.5.7), G.159 (Theorem 15.4.1, Definition 15.4.2), G.160–G.162 (product bundles, Remark
-    15.3.6 rest, Theorems 15.3.7, 15.3.9). Lemma 16.2.1 does not hold as we read it (`not_lemma_16_2_1`, the pair of
-    item 23; README item 14), with orbit and effective forms. §15.2 does not state tameness, so Theorems 15.2.2 and
-    15.2.5 carry Part I's tame germ data and are narrower; Theorem 16.4.6 does not state partitions of unity, which
-    Theorem 9.5.17 assumes, so it carries `hPU` and is narrower. Findings: Ch12 12–18, Ch13 10–15, Ch15 5–9, Ch16
-    6–10; closed items' status lines updated. `BookConcordance.md` gains a wave-2 table (2017 numbers checked; the
-    notes R2, L, P gave other 2017 numbers for 12.4.3–12.4.6, 15.2.2–15.2.6, 15.3.1–15.3.10). `checklist/mains.json`
-    tier `partIII` gains Theorems 12.2.7, 12.2.11, 12.3.9, 12.5.7, 13.5.6, 15.2.2, 15.2.5, Lemma 16.2.2, Definition
-    16.2.3, Theorems 16.2.6, 16.4.6 (102 mains). Wave 3 (P3W3 files) runs in parallel and is not integrated here.
-    Next: wave 3 (G.147–G.149, Chapter 14, §§15.3–15.4, §§16.3, 16.5–16.6).
-25. **Part III waves 3 and 4** (2026-11-13). Eighteen agents (wave 3: Q, C, B1, B2, G, V, Y, O, K; wave 4: S3, Z4,
-    LX, GL, GP, FN, PB, TX, SM; notes `narrow/p3w3-*.md`, `narrow/p3w4-*.md` in the lead's scratchpad, integration
-    report `narrow/integrate-p3w34.md`). New Lean in 62 files, 20,072 lines (`Polyfold/Chapter12/P3W3{K,O}_*`,
-    `Chapter13/P3W3{C,Q}_*`, `P3W4{FN,SM}_*`, `Chapter14/` (new: `P3W3B{1,2}_*`, `P3W4{S3,Z4,LX,GL}_*`),
-    `Chapter15/P3W3{G,K}_*`, `P3W4{GP,TX,SM}_*`, `Chapter16/P3W3{V,Y}_*`, `P3W4{PB,SM,FN}_*`), imported in
-    `Polyfold.lean` (859 lines); `StructurablePullback.lean` is FN's scratch proof of PB's
-    `StructurablePullback`, copied by lead decision. `Test.lean` blocks "Axioms: Part III waves 3-4 (2026-11-13),
-    Chapter N" for N = 12–16; now 21,090 declarations, all on propext/Classical.choice/Quot.sound. One name
-    clash: `SBLocalization.μ_ne_fiberZero` was declared in `LocallyFiniteSupports` and `FibreZero`;
-    the Chapter 13 one is now `μ_ne_fiberZero_lf`. Docstrings updated (docs only): `LinearizationIntrinsic`,
-    `ReflexiveAuxNormExtension`, `AtomicStructurableLocal`, and the 2017 numbers in `ReflexiveCompactnessEp`,
-    `BoundaryPerturbation`, `FredholmSummands`, `LocalIFT`, `LocalScPlus`, `Transversality`, `InteriorPerturbationWitness`, `CubeAuxNorm`, `CubeEp`, `ControllingPairs`, `ProductEp`, `GeneralPositionBranched`, `GoodPositionBranches`, `P3W4{GP,SM,TX}_*` (BookConcordance's numbers). Rows: V13.50–V13.58, V14.1–V14.35
-    (new `cmp/ch14.json`), V15.27–V15.38, V16.29–V16.78 (106 new rows); updated V12.34 (explicit), V13.46 (narrower:
-    a good system is necessary, Chapter 13 has no standing paracompactness), V13.48, V15.2, V15.15, V16.21, V16.23
-    (same), V16.24, V16.27. Gaps closed: G.144, G.147, G.148, G.149, G.151, G.154, G.156, G.161; G.138 "formalized
-    in part"; G.139, G.152, G.155, G.157 (retitled), G.158, G.159, G.162 rewritten. New gaps G.163–G.183, all open
-    (P13.4.2; P14.1.8, θ̄ tame, P14.4.6 (2), ZData instance, P14.5.4, T14.1.9 assembly, L14.5.2, §14.6; invariance of
-    the reflexive notions, the zero section, n(λ), T16.6.6 integrals, orientations; T15.3.9 steps, C15.3.10 (3)
-    data, C15.4.4 cobordism, d_X ≡ 0 ⇒ tame). The uniqueness after Definition 16.3.3 and the composite of
-    Definition 16.1.10 do not hold as we read them (README item 15), with effective forms. Theorem 14.1.9 and
-    Theorem 16.5.7 rest on the extension of §§14.3–14.5, witnessed for ∂X = ∅ only; `tangent_comp`'s `hTd` and the
-    cylinder hypotheses of Corollary 15.3.10 (3) have no witness. Findings: Ch12 19–20, Ch13 16–20, new Chapter 14
-    section 1–8, Ch15 10–15, Ch16 11–17. `BookConcordance.md` gains a waves 3–4 table. `checklist/mains.json` tier
-    `partIII` gains 21 mains (123 in all). Next: the open Part III gaps, first G.170/G.171 (P14.5.4 and the
-    assembly, ~900 lines), which would make Theorems 14.1.9, 15.3.9 and 16.5.7 unconditional.
-26. **Part III wave 5, gap closing** (2026-11-13). Ten agents (T9, Z5, F6, GA, GB, TY, OR, FM, PC, PR; notes
-    `narrow/p3w5-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w5.md`). New Lean in 38 files,
-    11,190 lines (`Polyfold/Chapter12/P3W5OR_*`, `Chapter13/StructuredExtension`, `StructuredExtensionData`, `Chapter14/P3W5{T9,Z5,F6,FM}_*`,
-    `Chapter15/P3W5{GA,GB,TY,PR}_*`, `Chapter16/NormLamContinuous`, `ReflexivePull`, `SuppNaturality`, `TangentEffective`, `Chapter5/DegeneracyZeroTame`), imported in `Polyfold.lean`
-    (897 lines); `Chapter15/GeneralPositionPointwise.lean` (55 lines) is the integrator's corollary `theorem_15_3_7_of_paramOnto`
-    (GA's two Props with GB's `hasParametricGeneralPosition`). GB keeps private copies of two GA lemmas
-    (`muLin_surjective_GB`, `tangentMorCLE_mem_reduced_GB`), no clash. `Test.lean` blocks "Axioms: Part III wave 5
-    (2026-11-13), Chapter N" for N = 5, 12–16; now 21,726 declarations, all on propext/Classical.choice/Quot.sound.
-    Rows: V12.45–V12.46, V13.59, V14.36–V14.44, V15.39–V15.43, V16.79 (18 new); updated V12.24, V12.26, V12.39, V14.2,
-    V14.8, V14.25, V14.28, V14.29 (now same), V14.30, V14.33, V15.13, V15.15, V15.28–V15.30, V15.32–V15.34, V16.24,
-    V16.67 (now same), V16.34, V16.51, V16.71. Gaps closed: G.138, G.139, G.150, G.152, G.155, G.157, G.163, G.165,
-    G.168, G.169, G.170, G.174, G.177, G.183 (14). Formalized in part: G.158, G.162 (T15.3.7: the bridge (15.1) ↔ Part
-    I's (i)–(ii), 530–950 lines), G.164, G.166, G.171 (the instance of `AssemblyHyp`, 450–700), G.172, G.173. Rewritten:
-    G.160 (900–1,550), G.176 (prerequisites now exist), G.179–G.181. New gaps G.184 (corner sc⁺), G.185 (good systems on
-    a face). Findings: Ch12 21–23, Ch13 21, Ch14 9–14, Ch15 16–19, Ch16 18–21. `BookConcordance.md` gains a wave 5 table
-    (T15.3.7 = 2017 Theorem 15.4, checked). `checklist/mains.json` tier `partIII`: 14.1.9, 15.3.7, 15.3.9 point to the
-    wave-5 forms, 10 mains added (133 in all). Flags that remain: Theorem 14.1.9 (hence Theorems 15.3.9, 16.5.7 and the
-    extension part of 14.6.3) has a witness of `AssemblyHyp` only for ∂X = ∅; `FacePush_hyp` (Proposition 14.1.8) only
-    for ∂X = ∅; Theorem 14.6.3 takes agreeing representatives (an ask). Settled: Corollary 15.3.10 (3) has witnesses (Λⁱ
-    = 0 regular perturbations not re-checked); `HasParametricGeneralPosition` is proved; `tangent_comp`'s hypothesis
-    holds for every effective target. Next: G.171 (makes Theorem 14.1.9 unconditional), G.162's bridge (makes Theorem
-    15.3.7 unconditional), G.178 (Theorem 15.3.9), G.164, G.173.
+**Chapter 4** (manifolds with boundary with corners, sc⁺, forms): `LocalStructure`, `LocalFaces`,
+`Characterization`, `Recentre`, `Submanifolds`, `SubmanifoldNearBoundary`, `SubmanifoldNearInterior`, `ScPlus`,
+`ScPlusGraph`, `ScPlusRetractQuestion`, `Families`, `FamiliesLocal`, `GeneralPositionLocalFaces`,
+`StratifiedRegularValues`, `LocalStrongBundle`, `RetractionSectionFredholm`, `RetractionSectionSplitting`,
+`RemarkLocalForm`, `RemarkFourThreeExample`, `RemarkFourThreeFamily`; vector fields and the Lie bracket in
+`VectorFields`, `VectorFieldsGlobal`, `BracketLevel`, `LieBracketBundle`, `LieBracketOpenSubsets`,
+`BookFormLieBracket2021`; sc-differential forms and Stokes in the `ScForms*2021` files, `ScExteriorDerivative2021`,
+`OpenForms`, `BoundaryForms2021`, `BoundaryFormsPullback2021`, `A3BoundaryForms2021`, `A3BoundaryForms2021b`,
+`BoundaryWedge`, `RelativeWedge`, `EuclideanForms2021`, `EuclideanStokes2021`, `ManifoldForms2021`,
+`ManifoldFaceForms2021`, `ManifoldBoundary2021`, `ManifoldIntegral2021`, `ManifoldStokes2021`, the `StokesFace*`
+files, `Poincare448`, `Poincare448Shift`, `Poincare2021`, `Poincare2021b`; `Book2021`.
 
-27. **Part III waves 6 and 7, gap closing** (2026-11-13). Wave 6: six agents (A6, G6, R6, O6, P6, S6); wave 7: six (W1–W6);
-    notes `narrow/p3w6-*.md`, `narrow/p3w7-*.md` in the lead's scratchpad, integration report `narrow/integrate-p3w67.md`.
-    New Lean in 46 files, 12,010 lines (`Polyfold/Chapter12/P3W6O6_*`, `OrientationEquivalenceComp`, `OrientationEquivalenceNatural`, `OrientationOrbitHomeo`, `OrientationRepresentativeIndep`, `OrientationTransferTheorem`, `Chapter14/P3W6{A6,P6}_*`,
-    `P3W7{W1,W6}_*`, `Chapter15/P3W6{G6,R6,O6}_*`, `P3W7{W2,W4,W5}_*`, `Chapter16/P3W6{A6,O6,S6}_*`, `MixedTransfer`, `ReflexivePush`, `ZeroSection`,
-    `Chapter5/SmoothLevelContinuity`, `Chapter5/CubePartitions`), imported in `Polyfold.lean` (943 lines); all
-    built in the full build, none left out. `Test.lean` blocks "Axioms: Part III waves 6-7 (2026-11-13), Chapter N" for
-    N = 5, 12, 14–16; now 22,322 declarations, all on propext/Classical.choice/Quot.sound. Rows: V12.47–V12.48,
-    V14.45–V14.47, V15.44–V15.56, V16.80–V16.81 (20 new); updated V12.39, V14.3, V14.8, V14.34, V14.41, V14.43, V14.44
-    (now stronger), V15.29 (now explicit), V15.32–V15.34, V15.37, V16.51–V16.53, V16.56 (now same), V16.71, V16.77,
-    V16.78, V16.79 (now same). Gaps closed: G.158, G.164, G.166, G.167, G.171, G.181, G.184 (7; 166 of 193 closed, 24
-    open). Formalized in part: G.159 (Theorem 15.4.1 as an orientation, 750–1,200), G.160 (products of Fredholm germs and
-    multisections, 450–800), G.162 (Theorem 15.3.7 part formalized), G.175, G.176, G.178 (relative local families,
-    400–700), G.180, G.182, G.185. New gaps G.186 (`hB` and nonempty index sets in Definition 14.1.3), G.187, G.188
-    (Theorem 16.6.6: general position across models, index 0), G.189 (tame cylinder charts), G.190 (∂Θ̃ = Θᵢ as weights),
-    G.191 (LUC on the cylinder), G.192 (Theorem 12.5.7 for `SDiagram`/`GenSBMap`), G.193 (`CubeLiftFace`, no witness).
-    Findings: Ch12 24–25, Ch14 15–16, Ch15 20–24, Ch16 22–23. `BookConcordance.md` gains a waves 6–7 table.
-    `checklist/mains.json` tier `partIII`: 12.5.7, 14.1.8, 14.1.9, 15.3.7, 15.3.9, 15.4.4, 16.5.7 point to the new forms;
-    15.4.1, 16.3.16, 16.6.6 and second mains for 12.5.7, 14.1.8, 14.6.3 added (139 mains in all).
-    **Two results about the formalization (not the book), both proved in Lean.** (a) The formal
-    `BoundarySymmetricStructure` (Definition 14.1.3) allows $I_x = \emptyset$, which the text's factor $1/|I_x|$ excludes;
-    so `theorem_14_1_9_statement` does not hold whenever ∂X ≠ ∅ (`not_theorem_14_1_9_statement_a6`; `AssemblyHyp` holds
-    only for ∂X = ∅, `boundary_eq_empty_of_assemblyHyp_a6`). The forms resting on it are vacuous with boundary:
-    `theorem_14_1_9_hyp`, `theorem_14_1_9_of_assembly`, `theorem_14_6_3_extension_hyp`, `theorem_16_5_7_hyp`,
-    `theorem_15_3_9_hyp`. The main rows now cite `theorem_14_1_9_charged_a6` (`ChargesBoundary` necessary,
-    `theorem_14_1_9_iff_a6`), with the witness `HalfSpaceBundle.theorem_14_1_9_constSec` (∂X ≠ ∅, nonzero fibres,
-    nonempty support; the old flag "witness only for ∂X = ∅" is settled for the charged form). (b) Hence the formal
-    `theorem_15_3_9_statement` does not hold whenever ∂X ≠ ∅ and one admissible f exists
-    (`not_theorem_15_3_9_statement_w2`, `_cube_w2`); vacuous for nonempty X: `corollary_15_3_10_3_hyp`,
-    `corollary_15_3_10_3_ty`, `corollary_15_3_10_3_glue_hyp`, `corollary_15_3_10_3_pu_w5`, `corollary_15_3_10_3_glue_w5`,
-    `corollary_15_3_10_3_struct_w5` (all take the uncharged statement on `A.cubeSEP 1`), and the uncharged Theorem
-    15.3.9 forms `theorem_15_3_9_of_extension_ty`, `theorem_15_3_9_of_local_rel`, `theorem_15_3_9_of_rel_hyp`. Rows
-    cite `theorem_15_3_9_charged_of_local_rel` and `corollary_15_3_10_3_charged`. **Pending (lead):** build nonempty
-    index sets into `BoundarySymmetricStructure` (gap G.186 (a)); the vacuous forms then become meaningful again or can
-    be retired. Flags: the witnesses of `relative_local_families_statement`, of the cobordism hypotheses of Corollary
-    15.4.4 and Theorem 16.6.6, and of the Corollary 15.3.10 (3) glue are on zero fibres or self-cobordisms only (weak);
-    `CubeLiftFace`, `hBC`, `hLUCC` and `CylinderOrientationStatement` have no witness. Next: G.186 (a), G.178, G.193,
-    G.189, G.159, G.182.
+**Chapter 5** (the Fredholm package): `Compactness`, `SolutionSetClosed`, `AuxNorm`, `AuxNormLiteral`,
+`AllowableSectionsMetric`, `BumpFunctions`, `BumpWeakPointwise`, `BumpPointsResearch`, `ShiftTameResearch`,
+`PartitionsOfUnity`, `HilbertPartitionsOfUnity`, `SeparablePartitionsOfUnity`, `WCGPartitionsOfUnity`,
+`AmirLindenstrauss`, `BonicFrampton`, `Torunczyk`, `ProjectionalResolution`, `LocallyFiniteBases`,
+`ReflexiveCompactness`, `ReflexiveFibres`, `WeakSequentialCompactness`, `StrongBundleShift`,
+`SmoothLevelContinuity`, `DegeneracyZeroTame`, `CubePartitions`; transversality and general position in
+`Transversality`, `GeneralPosition`, `DenseGoodPosition`, `Corollary58`, `BoundaryExtension`,
+`FredholmArcPerturbation`, `CylinderPerturbation2021`; homotopy in `Homotopy`, `CompactHomotopyIso`; Theorem 5.3.15
+in the `Theorem5315_*` files; the Sobolev spaces on cubes in the `SobolevCube*`, `SobolevRemark*` and
+`LpWeightedProduct` files; the printed forms in `MainTheoremsBookForm`, `MainTheoremsBookForm2021`, `Book2021`,
+`ApproxPropertyEveryChart`.
 
-Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
-where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
-Polyfold project to leave memory for `lake build`.
+**Chapter 6** (determinants, orientations, invariants): determinant lines and bundles in `DetLine`, `DetBundle`,
+`DetConventions`, `DirectSumDet`, `ExactSequence`, `FredholmDet`, `LocalDetBundle`, `ClassicalDetBundle`,
+`DetVectorBundles2021`, the `DetNonOrientable*` files, `LineBundleOrientation`, `OrientationBundle`,
+`OrientationSpace`; linearizations and orientations in `LinSet`, `LinSetFredholm`, `LinOrientation`, `Stabilization`,
+`StabilizationContinuity`, `StabKernelsExist`, `SmoothKernelFrames`, `SmoothSubspaceFamilies`, `SubspaceBundle`,
+`GoodProjections`, `ProjectionSequence`, `SectionOrientation`, `SolutionOrientation`, `SolutionOrientationCharts`,
+`SolutionSetOrientation`, `SolutionSetOpen2021`, `SolutionManifoldFamily2021`, `ProductOrientation`, the
+`ProductSectionOrientation2021*` files, `OrientationConvention2021`, `OrientationFunctor`, `OrientationMainClean`,
+`ManifoldOrientation`, `ContinuousOrientation`, `PerturbedOrientation`, `OrientableNbhd`; paths, homotopies and
+transport in `ScPaths`, `PathsInterval`, `PathCategory`, `PathCategoryInterval`, `PathTransport`, `Propagation`,
+`PropagationWellDefined`, `Continuation`, `ScHomotopy`, `IntervalHomotopy`, `ScContractible`,
+`SmoothPathComponents2021`, `PushData`, `PushTransfer`, `ChartTransfer`, `AddSections`, `FamilySections`,
+`KernelFamily`, `KernelBundleInterval`, `ParamKernel`, `UnitIntervalSections`, `SmoothFiniteDimRanges`,
+`SubmersionNearFamily`, `Lemma629`; the invariants and cobordisms of §§6.6–6.7 in the `Cube*` files (the cube
+$[0,1]^n$ and its boundary slices), `SlicePropertyP`, `CobordismOrientation2021`, the `CobordismOrientationEnds2021*`
+and `CobordismRelativeForms2021*` files, `InvariantSingle2021`, `InvariantCobordism2021`, `InvariantProductEnds2021`,
+`InvariantProductEnds2021b`, `ProperHomotopy2021`, `Theorem671_2021`, `Theorem671Assembly2021`, `Theorem671Final2021`
+(Theorem 6.7.1); `Book2021`, `Book2021Continuity`. Families on `[0,1]ⁿ` and the cylinder `[0,1] × X` in
+`CubeManifold`, `CubeReparam`, `CubeStabKernels`, `KernelBundleCube`, `SliceGeneralPosition`, the `IntervalProduct*`,
+`IntervalSlice*`, `IntervalEnd*` files, `IntervalCobordismExistence`, `IntervalHomotopyInvariance`,
+`KernelPathOrientation`, `TangentOrientationFamily`; orientations without bump functions in `ChartSections`,
+`ChartPropagation`, `ChartOrientationSpace`, `ChartOrientationFunctor`, `TransportOrientationSpace`,
+`TransportFunctor`, `TransportSpaceEquiv`; the literal 2021 germ data in `UntamedIndexJump`, `UntamedOrientation`,
+`UntamedOrientationFunctor`.
 
-## 4. First message for the next session (local, on the Mac)
+**Chapter 7** (ep-groupoids): `Groupoid`, `EpGroupoid`, `Basic`, `Book2021Basic`, `Discrete`, `Effective`,
+`Reduced`, `ReducedCriterion`, `ReducedNaturalCharts`, `ReducedNotHausdorff`, `OrbitTopology`, `ProperMaps`,
+`ProperSubsets`, `LocalDiffeo`, `LocConnected`, `NaturalAction`, `NaturalRep`, `NaturalRepFinite`, `Uniformizer`,
+`SubGroupoid`, `SubGroupoidTangent`, `SubGroupoidTangentSc`, `TangentMorphism`, `TangentMorphismLinear`, `Lift`,
+`RaisedEpGroupoid`, `SmoothPointsDense`, `SmoothConnectedReps`, `SmoothRegularAssembly`, `FlatGluing`, `Michael`,
+`PartitionsOfUnity`, `HilbertPartitionsOfUnityEp`, `PropertyFiveResearch`, `NonVacuity`; Zhou's retract and
+(ZHOU) in the `Zhou*` files, `LineSobolevScale`, `LineTranslates`; the tame boundary in `TameBoundaryEp`,
+`TameBoundaryEpStructure`, `TameBoundaryFull`, `BookFormTameBoundaryEp2021`.
 
-> Read `HANDOFF.md` (§1 setup on this Mac, §2 state, §3 item 15) and `PLAN.md`. Work in
-> `~/polyfold_faithful` on `main` (build from the repository root, with the git shim of §1 on the
-> PATH for every lake call). Parts I and II (Chapters 1–11) of HWZ, *Polyfold and Fredholm Theory*
-> (Springer 2021, the authoritative text, in `Exposition/sources/`, gitignored), are formalized and
-> reported. The round-trip audit of Chapters 1–11 is
-> done (`RoundTrip/REPORT.md`, 604 items). Ask the user which comes next: Part III from Chapter 12 (cite 2021 numbers first; Lean names with the 2021 numbers
-> and no suffix; G-items from G.136; a new `Test.lean` block per chapter), or the open gaps of §3
-> item 15. Keep the four checks of §1 green; no `sorry`; `#print axioms` for every theorem; never
-> renumber V-items, G-items or Findings items; check every hypothesis that quantifies over all charts
-> for satisfiability (Chapter 3 Finding 190); never call HWZ wrong or speak of "errors" ("does not
-> hold as we read it", "possible misprint"), and machine-check every "does not hold" before it goes
-> into the Findings. At most two Lean agents at a time.
+**Chapter 8** (bundles and covering functors): `Basic`, `EpStrongBundle`, `StrongBundleMap`, `NatTrans`,
+`GeometricLift`, `GeometricLiftEmpty2021`, `PullbackStrongBundle2021`, `BundleLocalRegularity2021`,
+`BundleOrbitParacompact2021`, `BundleOrbitParacompactOne`, `ProperCovering`, `ProperCoveringLocal`,
+`SigmaPolyfold`, `NonVacuity`, `NonVacuityBundle`; the tangent ep-groupoid in `TangentEp`, `TangentEpNotInjective`,
+`TangentFibred`, `TangentLocal`, `TangentOrbit`, `TangentPairs`, `TangentTame`, `TangentVertical2021` and the
+`TangentZhou*` files; forms on ep-groupoids in `EpForms`, `EpFormsFunctor`, `EpFormsObj`, `EpPoincare`; `Book2021`.
+
+**Chapter 9** (branched ep⁺-subgroupoids, integration, Stokes): the definitions in `Basic`, `Symmetric`,
+`Propositions`, `Appendix`, `AppendixSlices`, `Tangent`, the `TangentSlices*` files, `TangentSubmanifoldSmooth`,
+`OrientationBasic`, `Orientation`, `OrientationAnyDim`, `OrientationBoundary`, `OrientationRn`, `OrientationTangent`,
+`OrientationUniqueness` and the `OrientationExample*` files; sheets, measures and the branched integral in the
+`Sheet*` files, `Measure`, `MeasureEffective`, `MeasureGlue`, `MeasureWholeSheets`, `LocalMeasure`, `FamilyMeasure`,
+`PointIntegration`, `FinitePointIntegration`, `BranchedIntegral`, `ReducedIntegral`, `ReducedRep`, `ReducedCircle`,
+`SignedMeasureIntegrals`, `DensityLocal`, `DensitySignedMeasure`, `FunctionTimesForm`, `ZeroFormValues`; the integral
+through graph charts in `GraphChart`, `GraphChartExists`, `GraphChartTransition`, `GraphCoord`, `GraphDiffeo`,
+`ChartIntegral`, `ChartAbsIntegral`, `ChartVectors`, `IntegralCovering`, `FormEvalEp`, `FormEvalInfty`, `FrameSign`,
+`ManifoldBridge`, `ManifoldIntegralBridge`, `MathlibFormsBridge2021`, `MathlibManifoldBridge`, `MathlibSolutionSets`,
+`TameOpen`, `MultiChart`, `MultiChartCompact`, `MultiChartIntegration`, `MultiChartTheorem`; the boundary, its faces
+and their measure in the `Boundary*` files, `CornerFinite`, `FaceChange`, `FaceFrame`, `FaceIntegrand`,
+`FaceOrientation`, `FaceIntegralDimOne`, `GeneralBoundaryPoints`, `StratumRetraction`, `StratumTangent`; dimension
+decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `DimensionJumpPolyfold`, `DimensionJumpRetract`,
+`LocallyEquidimensional2021`; Stokes in the `Stokes*` files, `FiniteTheorem`, `FiniteTheoremText`, `FiniteDominated`,
+`GeneralCorollaries`, `GeneralLevelZero`, `AllStructures`, `AllStructuresDimOne`, `EffectiveDimOneLUC`; witnesses in
+`CircleOneSheet`, `CircleWitness`, `HalfCircleSheet`, `HalfCircleWitness`, the `Hemisphere*` files, `XAxisWitness`,
+`SphereRadialRetraction`, `CyclicGroupoidIsotropy`; the support of a branched subgroupoid in the `Support*` files;
+`CoveringFromText`, `DescentPolyfold`, `GoodPoints`, `LevelRestrict`, `OrbitSubsetMetrizable`,
+`PropertyTShrinking2021`, `SolutionFaces2021`, `SolutionFaceForms2021`. Remark 9.5.20 in `DimensionJumpSheet`,
+`DimensionJumpBranched`, `DimensionJumpIntegral`, `DimensionZeroIntegral` (the boundary integral in Chapter 11,
+`DimensionJumpBoundaryIntegral`).
+
+**Chapter 10** (equivalences and localization): `Equivalence`, `EquivalenceExamples`, `EquivalenceLR`,
+`EquivalenceLREffective`, `EquivalenceReduced`, `EquivalenceRefinement`, `EquivalenceZhou`, `ZhouExample`,
+`ZhouExampleRealScale`, `WeakFibredProduct`, `WeakFibredProductTheorem`, `WeakFibredProductTriple`, `Localization`,
+`LocalizationCategory`, `LocalizationLR`, `LocalizationLRBundleBase`, `LocalizationLRCounterexample`,
+`LocalizationLREffectiveBundle`, `LocalizationProperties`, `LocalizationUniversal`, `LocalRegularitySubcategory`;
+strong bundles up to equivalence in the `StrongBundle*` files; `FredholmEquivalence`, `SectionFunctorLinear2021`.
+Local regularity in germ form in `LocalRegularityGerm`, `StrongBundleCutOff`; tame bundle charts in
+`TameBundleCharts`.
+
+**Chapter 11** (geometry up to equivalences): `EpEquivalenceGeometry`, `EpEquivalenceGeometryFaces`,
+`FaceEpGroupoids`, `FaceGeneralizedIso`, `FaceIntersectionUnion`, `FaceIntersectionCounterexample`,
+`SubGroupoidModel`, `MultisectionLocalStructure2021`, `AuxiliaryNormTransport2021`; coverings in
+`CoveringEquivalence`, `CoveringEquivalenceDiagram`, `CoveringEquivalenceTheorem`, `ProperCoveringLocalization`,
+`ProperStrongBundleCoverings`, the `StrongBundleCovering*` files, `StrongBundleUpToEquivalence`; branched subgroupoids
+and their integrals up to equivalence in the `BranchedEquivalence*` files, `MeasureEquivalence`,
+`MeasureGeneralizedIso`, `EffectiveMeasureEquivalence`, `EffectiveMeasureGeneralizedIso`, the `BoundaryMeasure*`
+files, `BoundaryOrientationEquiv`, `BoundarySheetsDiffeo`, `GraphChartsDiffeo`, `MultiChartSheetsEquivalence`,
+`OrientedStructureDiffeo`, `OrientedStructurePairs`; forms in `GeneralizedForms`, `EquivalenceForms`,
+`EquivalenceFormsInfty`, `EpFormsWedge`, `EpPoincareLemma`, `FormAveraging`, `FormDescent`, `FormEvalPullback`,
+`FormEvalPullbackEquivalence`, `OrbitForms`, `TranslationAverage`. `ChartDomainOrientation` (orientations on chart
+domains), `DimensionJumpBoundaryIntegral` (Remark 9.5.20 on `∂X`).
+
+**Chapter 12** (Fredholm theory in ep-groupoids): auxiliary norms and extensions in `AuxNormEp`, `AuxNormExtension`,
+`AuxNormLocalExtension`, `ReflexiveAuxNormEp`, `ReflexiveAuxNormExtension`, `ReflexiveLocalExtension`,
+`LocalBoundaryExtension`, `ScPlusExtension`, `ScPlusSectionFunctor`, `BumpEp`, `GoodNeighborhood`, `CompactnessEp`,
+`ReflexiveCompactnessEp`; pulls along morphisms in `ChartPull`, `ChartPullTwoBundles`, `SectionPull`, `PushDataPull`,
+`StabilizedKernelPull`, `MorphismIso`; orientations (§12.5) in `OrientationBundleEp`, `OrientationGerm`,
+`OrientationFromSection`, `ContinuousOrientationSection`, `OrientationOrbit`, `OrientationOrbitHomeo`,
+`OrientationMorphismContinuity`, `OrientationLocalCommute`, `OrientationNaturality`, `OrientationRepresentativeIndep`,
+`OrientationTransferTheorem`, the `OrientationEquivalence*` files and `DyadicPathInduction`. §12.5 on chart-domain
+restrictions (tame germ data) in `RestrictionLocalIso`, `ChartTransportCommute`, `ChartBumpTransportCommute`,
+`OrientationGermSquare` and the `LocalOrientation*` files; generalized isomorphisms in the
+`OrientationGeneralizedIso*` files, `OrientationEqualOrbitMaps`, `OrientationEqualOrbitMapsGerm`,
+`OrientationNonEffectiveExample`; the literal germ data in `UntamedOrientationEp`.
+
+**Chapter 13** (sc⁺-multisections): `Correspondence`, `PiCorrespondence`, `BiAction`, `GoodSystem`,
+`GoodSystemExistence`, `GoodSystemRelative`, `ScPlusSectionOn`, `StrongBundlePullMap`, `SymmetricOn`,
+`SymmetricStructurePush`, `StructurableMultisection`, `StructuredExtension`, `StructuredExtensionData`,
+`DecoratedMultisection`, `TightMultisection`, `TightOn`, `Commensurable`, the `Atomic*` and `Multisection*` files,
+`LocallyFiniteStructurable`, `LocallyFiniteSupports`.
+
+**Chapter 14** (extension from the boundary): boundary neighbourhoods and structures in `GoodBoundary`,
+`BoundaryCover`, `CoverVHat`, `BoundaryMultisection` (Definition 14.1.3, `BoundarySymmetricStructure`),
+`BoundaryStructured`, `GoodStructured`, `StructurabilityCriterion`, `FiniteRepresentation`, `BoundaryPull`,
+`BoundaryPush`, `FacePush`, `FaceTransport` (Proposition 14.1.8); the local extension of §§14.3–14.4 in
+`LocalExtension`, `OpenExtension`, `ExtendCorrespondences`, `ZDataLocalExtension`, `ZRelationClosure`, the `ZLoop*`
+files, `CoherentExtension`, `NormControl`; the transport of §14.5 in `TransportStatement`, `TransportProof`,
+`TransportedSum`; the assembly and Theorem 14.1.9 in `ExtensionAssembly`, `AssemblyInputInstance`, `EmptyIndex`,
+`BoundaryExtensionTheorem`, with the witness on the half-space in `HalfSpaceBundle`, `HalfSpaceConstSection`; faces
+(§14.6) in `FaceGerm`, `FaceStructured`, `FaceTame`, `FaceAssembly`, `FaceGoodSystem`, `CornerScPlus`. Lemma 14.5.2 in
+`BoundaryCommensurableSum`, `HalfSpaceCommensurableSum`; Theorem 14.6.3 with section-compatible face data in
+`FaceSectionCompatible`, `FaceNaturalRep`, with the quadrant example in `QuadrantBundle`, `FaceAssemblyCorner`;
+half-space witnesses for §12.5 in `ChartOrientationHalfSpace` and the `LocalOrientation*HalfSpace` files.
+
+**Chapter 15** (transversality and invariants): linearizations in `Linearization`, `LinearizationFunctor`,
+`LinearizationIntrinsic`, `LinearizationModel`, `OrientedLinearizations`, `CanonicalLift`; local families and general
+position in `LocalFamilies`, `LocalSeeds`, `LocalSlice`, `LocalIFT`, `LocalScPlus`, `ParamFamily`, `ParamOntoBridge`,
+`ParamOntoTransport`, `ParametricGeneralPosition`, the `GeneralPosition*` files, `GoodPositionBranches`,
+`GoodPositionWitness`, `Transversality`, `TransversalExtension`, `RegularPerturbations`,
+`InteriorPerturbationWitness`, `BoundaryPerturbation`, `ControllingPairs`, `SeparationLemmas`, `FredholmSummands`; the
+relative case (Theorem 15.3.9) in `RelativeFamilies`, `RelativeParametric`, `RelativeReduction`, `RelativeBranch`,
+`ChargedExtensionFibres`, `ChargedExtensionCylinder`; branched objects in `BranchChart`, `TameBranched`,
+`TameWitness`, `RestrictedEp`; the cylinder $[0,1] \times X$ in `Cylinder`, `CylinderEnds`, `CylinderGlue`,
+`CylinderPartitions`, `CylinderCobordism`, `CubeEp`, `CubeLift`, `CubeAuxNorm`, `CutoffFunctor`, `GlueStructurable`;
+products in the `Product*` files; the invariants in `PerturbedStokesInvariants`. The relative step in `RelativeSeeds`,
+`RelativeSeedFamilies`, `RelativeLocalFamilies`, `RelativeStepBump`, `BoundaryExtensionIndependence`,
+`BoundaryFrameCriterion`, `TransversalExtensionCorollaries`, `TransversalExtensionWitness`, `FaceOntoCorollaries`; the
+canonical orientation (Theorem 15.4.1, Definition 15.4.2) in `KernelBranching`, `KernelBranchingIndex`,
+`BranchKernelTangent`, `KernelChartChange`, `KernelFramesPerturbed`, `CanonicalOrientation`,
+`CanonicalOrientationStokes`, the `CanonicalLift*` files, `LinearizationLocalIso`, `EmbeddedSubmanifolds`,
+`FaceSliceSubmanifolds`; the cylinder and Corollary 15.4.4 in `CubeLUC`, `CubeLiftScPlus`, the `CylinderEnd*`,
+`CylinderFace*` files, `CylinderSliceKernels`, `CylinderProductOrientation`, `CylinderCanonicalOrientation`,
+`CylinderCobordismReduced`, `CylinderCollarNorm`, `CylinderPullStructurable`, `CylinderExtensionBump`,
+`CylinderMatchedBranchingWitness`, `GeneralPositionBoundaryWeight`, `HalfSpaceBoundaryWeightWitness`; general position
+along equivalences in `GeneralPositionEquivalence`.
+
+**Chapter 16** (polyfolds): `PolyfoldStructure`, `PolyfoldExamples`, `PolyfoldMaps`, `RaisedPolyfold`,
+`TangentPolyfold`, `TangentFunctor`, `TangentLemma`, `TangentEffective`, `CompositionCounterexample`,
+`StrongPolyfoldBundle`, the `PolyfoldBundle*` files, `ZeroSection`, `FibreZero`, `ReflexivePull`, `ReflexivePush`,
+`MixedTransfer`, `PolyfoldAuxNorm`, `NormLamContinuous`, `PolyfoldBump`, `PolyfoldPartitions`, `PolyfoldSections`,
+`PolyfoldFredholmSections`, `PolyfoldMultisections`, `StructurablePullback`, `PolyfoldBoundaryExtension`,
+`BranchedSuborbifold`, `BranchedTame`, `PerturbedSuborbifold`, `OrientationTransport`, `PolyfoldForms`,
+`FormsPullback`, `FormsIndependence`, `PerturbedIntegralIndependence`, `StokesWithoutPartitions`, `SuppNaturality`,
+`SuppNaturalityStatement`, `RepresentativeChecks`, `ZhouUniquenessCheck`. Orientation transport in
+`OrientationRepresentatives`, `OrientationClassIndependence`, `OrientationOrbitMapIndependence`,
+`OrientationTransportRegularity`, `OrientationNonEffectiveWitness`; witnesses for Chapter 15 in
+`HalfSpaceOrientedSection`, `CanonicalOrientationWitness`, `CylinderOrientationWitness`; Theorem 16.6.6 in
+`GeneralPositionModels`, `ModelPerturbations`, and for index 0 in `IndexZeroInvariant`, `IndexZeroPolyfoldTheorem`,
+`IndexZeroTwoModels`, `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`.
+
+## 3. The reports (`Exposition/`)
+
+- `Chapter1.md` – `Chapter11.md`: the exposition of Parts I–II.
+- `cmp/chNN.json` → `build_comparison.py` → `Comparison.json`, `Comparison.md`, `polyfold-beside-lean.html`: every
+  numbered statement of the book beside the Lean statement, with a verdict (V-rows), and the entries not
+  formalized or formalized only in part (G-numbers).
+- `verification/chNN.md` → `build_verification.py` → `Verification.md` (and `.pdf`): the verified edition, V-items
+  and the numbered sign-off items; `build_signoff.py` → `polyfold-signoff.html`, the sign-off page.
+- `pbp/partNN.md` → `assemble_pbp.py`, `build_proofbyproof.py` → `ProofByProof.md`, `.pdf`,
+  `polyfold-proof-by-proof.html`: the proofs retold step by step, with trace tags checked by `check_trace.py`.
+- `Findings.md`: reading points, hidden hypotheses and counterexamples to our readings, numbered per chapter.
+- `BookConcordance.md`: numbers and pages of the 2014, 2017 and 2021 texts side by side.
+- `checklist/` (`TrustedBase.lean`, `graph.tsv`, `mains.json`, `mains.tsv`, `build_checklist.py`) →
+  `ReviewerChecklist.md`: the definitions and main statements a reviewer must read, in tiers.
+- `STYLE.md`, `REVIEW.md`, `VERIFY.md`, `PBP.md`: conventions of the reports, from the Milnor project.
+
+Run the scripts from the project folder with the git shim of §1 on the PATH (`check_names.py` calls lake, and
+`check_trace.py` reads Mathlib's sources in `.lake/packages/mathlib`).
+
+## 4. What is open
+
+The open items are the G-entries of `Exposition/Comparison.md` that are not marked formalized, and the rows with
+the verdict "narrower"; `Exposition/Findings.md` gives the reasons, and `Exposition/Verification.md` lists per
+chapter what is not verified. Added hypotheses (`_hyp` forms) are listed with their witnesses in the rows that
+cite them.

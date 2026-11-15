@@ -69,14 +69,16 @@ namespace SBLocalization
 
 open StrongBundle EpGroupoid
 
-/-- Index sets `I_x` with `G_x`-actions, one for every object. -/
+/-- Non-empty finite index sets `I_x` with `G_x`-actions, one for every object (the weights
+`|I_x|⁻¹ #{i | sˣᵢ(P(w)) = w}` presume `I_x ≠ ∅`, as in Definitions 13.2.5 and 14.1.3). -/
 structure IndexFamily (A : SEP.{u}) where
   /-- The index set `I_x`. -/
   I : A.Obj → Type u
   [fintype : ∀ x, Fintype (I x)]
   [mulAction : ∀ x, MulAction (A.X.Isotropy x) (I x)]
+  [nonempty : ∀ x, Nonempty (I x)]
 
-attribute [instance] IndexFamily.fintype IndexFamily.mulAction
+attribute [instance] IndexFamily.fintype IndexFamily.mulAction IndexFamily.nonempty
 
 variable {A : SEP.{u}}
 

@@ -4,7 +4,7 @@ import Polyfold.Chapter15.RelativeReduction
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
 **Theorem 15.3.9** (2017: Theorem 15.5), steps (c)–(d), pp. 698–699: "Achieving global
-transversality" relative to `Λ₀`, i.e. R6's `HasParametricGeneralPositionRel`, proved under the
+transversality" relative to `Λ₀`, i.e. `HasParametricGeneralPositionRel`, proved under the
 hypotheses of the theorem (GB's `hasParametricGeneralPosition` with `Λ₀` for the trivial
 multisection).
 
@@ -35,7 +35,7 @@ parameters off which `(f, Λ̃_t)` is in general position.
 * **`hasParametricGeneralPositionRel`**: `HasParametricGeneralPositionRel A f Λ₀ N U` for tame `X`,
   an sc-Fredholm section functor `f` with tame germ data, `(N, U)` controlling compactness, and an
   sc⁺-multisection `Λ₀` with `N(Λ₀) ≤ 1`, `dom-supp(Λ₀) ⊆ U` (compactness of `|S_f|` is not used).
-* **`theorem_15_3_7_relative_of_local`**: TX's relative statement from `HasLocalGPFamiliesRel`
+* **`theorem_15_3_7_relative_of_local`**: the relative statement from `HasLocalGPFamiliesRel`
   alone; **`theorem_15_3_9_of_local_rel`**: Theorem 15.3.9 from `hB`, the extension statement of
   Theorem 14.1.9, and `HasLocalGPFamiliesRel`.
 -/
@@ -395,7 +395,7 @@ theorem exists_pos_supp_rel_subset (hf : A.E.IsScFredholmSectionFunctor f)
 set_option maxHeartbeats 1600000 in
 -- the assembly over a finite cover of `|supp(Λ₀ ∘ f)|`
 /-- **"Achieving global transversality" relative to `Λ₀`** (proof of Theorem 15.3.9, steps
-(c)–(d), "argue as in Theorem 15.3.7"): R6's `HasParametricGeneralPositionRel A f Λ₀ N U` holds
+(c)–(d), "argue as in Theorem 15.3.7"): `HasParametricGeneralPositionRel A f Λ₀ N U` holds
 for tame `X`, an sc-Fredholm section functor `f` with tame germ data, `(N, U)` controlling
 compactness and an sc⁺-multisection `Λ₀` with `N(Λ₀) ≤ 1` and `dom-supp(Λ₀) ⊆ U`.  *Proof*: the
 local step (`exists_local_paramGP_rel`) at every point of `supp(Λ₀ ∘ f)`; finitely many cover the
@@ -475,7 +475,7 @@ theorem hasParametricGeneralPositionRel (hX : A.X.IsTame)
 
 /-! ### The relative statement and Theorem 15.3.9 with one step left -/
 
-/-- **TX's relative statement (steps (c)–(d) of the proof of Theorem 15.3.9)** from the relative
+/-- **the relative statement (steps (c)–(d) of the proof of Theorem 15.3.9)** from the relative
 local families alone (`HasLocalGPFamiliesRel` with domain support in `U ∖ ∂X`, assumed under the
 statement's hypotheses); the relative parametric step is `hasParametricGeneralPositionRel`. -/
 theorem theorem_15_3_7_relative_of_local
@@ -498,11 +498,11 @@ theorem theorem_15_3_7_relative_of_local
       hasParametricGeneralPositionRel hX hf hft hcc hΛ₀.1
         (fun x => (hN x).le.trans (hh x).2) hdom⟩
 
-/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694**, from TY's tame bundle charts
+/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694**, from tame bundle charts
 `hB`, the extension statement of Theorem 14.1.9 and the relative local families
-(`HasLocalGPFamiliesRel`, assumed under the hypotheses of TX's relative statement).  GL's
-extension statement does not hold when `∂X ≠ ∅` (A6), so use `theorem_15_3_9_charged_of_local_rel`
-(file `ChargedExtensionFibres`) there. -/
+(`HasLocalGPFamiliesRel`, assumed under the hypotheses of the relative statement).  `hB` and
+`hext` hold for every `A` (`SEP.exists_isTameChart`, `theorem_14_1_9_extension_statement_holds`);
+`theorem_15_3_9_of_local_families` (file `ChargedExtensionFibres`) is the form without them. -/
 theorem theorem_15_3_9_of_local_rel
     (hB : ∀ x : A.Obj, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source)
     (hext : theorem_14_1_9_extension_statement A)

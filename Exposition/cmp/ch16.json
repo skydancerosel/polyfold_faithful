@@ -613,7 +613,7 @@
     "statement": "$A = \\mathrm{supp}\\,\\theta$ has a natural smooth manifold (orbifold) structure for $\\theta$ of manifold-type (orbifold-type), induced from the overhead (Proposition 9.1.9, Theorem 11.3.3)."
    },
    "lean": {
-    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).\n\nNaturality (Part III wave 5, `Chapter16/SuppNaturality.lean`): **`proposition_16_4_3_naturality c : proposition_16_4_3_naturality_statement c`**. `suppTransition_orbitSuppProj`: for a generalized isomorphism $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} X']$ between the representatives, the transition sends $|F b|$ to $|\\Phi b|$ for $b \\in \\mathrm{supp}(\\Phi^*\\Theta')$. `isScSmoothOn_suppTransition`: for any induced structures (Proposition 9.1.9 (1)) the transition is sc-smooth; near $|F b|$ it is $p' \\circ \\Phi|_{\\mathrm{supp}} \\circ (F|_{\\mathrm{supp}})^{-1} \\circ p^{-1}$, with the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$. `proposition_16_4_3_naturality_all`: an sc-diffeomorphism for any induced structures, for $\\Theta$, $\\Theta'$ of orbifold type.",
+    "statement": "`proposition_16_4_3_supp` ($\\mathrm{supp}\\,\\theta = \\alpha(|\\mathrm{supp}\\,\\Theta|)$), `proposition_16_4_3_homeomorph` ($|\\mathrm{supp}\\,\\Theta| \\simeq_t \\mathrm{supp}\\,\\theta$), `proposition_16_4_3_manifold` (with Proposition 9.1.9 (1): an M-polyfold structure on $|\\mathrm{supp}\\,\\Theta|$ for which $\\mathrm{supp}\\,\\Theta \\to |\\mathrm{supp}\\,\\Theta|$ is a local sc-diffeomorphism), `proposition_16_4_3_orbifold` (Proposition 9.1.9 (2)).\n\nIndependence of the representative, for the topology: `suppTransition a a' h : |supp Θ| ≃ₜ |supp Θ'|` with `β_suppTransition` (α' ∘ t = α), `suppTransition_self`, `suppTransition_trans`, `suppTransition_symm`; `IsInducedSuppStructure a PZ` (Proposition 9.1.9 (1)); `proposition_16_4_3_naturality_statement c` (Prop: suitable induced structures make the transition an sc-diffeomorphism); `proposition_16_4_3_naturality_self` (the case `a' = a`).\n\nNaturality (`Chapter16/SuppNaturality.lean`): **`proposition_16_4_3_naturality c : proposition_16_4_3_naturality_statement c`**. `suppTransition_orbitSuppProj`: for a generalized isomorphism $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} X']$ between the representatives, the transition sends $|F b|$ to $|\\Phi b|$ for $b \\in \\mathrm{supp}(\\Phi^*\\Theta')$. `isScSmoothOn_suppTransition`: for any induced structures (Proposition 9.1.9 (1)) the transition is sc-smooth; near $|F b|$ it is $p' \\circ \\Phi|_{\\mathrm{supp}} \\circ (F|_{\\mathrm{supp}})^{-1} \\circ p^{-1}$, with the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$. `proposition_16_4_3_naturality_all`: an sc-diffeomorphism for any induced structures, for $\\Theta$, $\\Theta'$ of orbifold type.",
     "decls": [
      "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.supp",
      "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_supp",
@@ -639,7 +639,7 @@
     "per representative; any induced structures"
    ],
    "diff": [
-    "None in content. The structures are the induced structures of Proposition 9.1.9 (1), and `proposition_16_4_3_naturality_all` shows that the choice does not matter. Orbifold type is used; it follows from manifold type. Gap G.155 closed (Part III wave 5)."
+    "None in content. The structures are the induced structures of Proposition 9.1.9 (1), and `proposition_16_4_3_naturality_all` shows that the choice does not matter. Orbifold type is used; it follows from manifold type. Gap G.155 closed."
    ]
   },
   {
@@ -730,7 +730,7 @@
    ],
    "diff": [
     "Hidden hypotheses: the boundary-integral independence lemmas carry `hPU : c.AdmitsScPartitionsOfUnity` (from Stokes, V16.28), with the witness `theorem_16_4_6_hyp_witness`.",
-    "The integrals $\\int_{\\hat\\theta}$, $\\oint_{\\hat\\theta}$ are defined on classes (`OrientedSuborbifold.integral`, `integralEff`) and equal the integral on every representative (`integral_eq`, `integralEff_eq`); tameness transfers between representatives (`OrientedRep.Rel.isTameOriented`; gap G.154 closed). The boundary integrals on classes are not wrapped; they follow the same pattern from `boundaryIntegral_eq_of_rel` (about 40 lines)."
+    "The integrals $\\int_{\\hat\\theta}$, $\\oint_{\\hat\\theta}$ are defined on classes (`OrientedSuborbifold.integral`, `integralEff`) and equal the integral on every representative (`integral_eq`, `integralEff_eq`); tameness transfers between representatives (`OrientedRep.Rel.isTameOriented`; gap G.154 closed). The boundary integrals on classes are not wrapped; they follow the same pattern from `boundaryIntegral_eq_of_rel`."
    ]
   },
   {
@@ -743,8 +743,18 @@
     "statement": "For $\\tau = [\\omega,(X,\\alpha)]$ of degree $n - 1$ and $\\hat\\theta$ oriented, tame, compact, of dimension $n$: $\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ and $\\oint_{\\hat\\theta} d\\tau = \\oint_{\\partial\\hat\\theta}\\tau$. \"On the ep-groupoid level Stokes' Theorem holds and consequently it holds in the polyfold context as well\" (p. 732)."
    },
    "lean": {
-    "statement": "`OrientedRep.theorem_16_4_6_hyp (hPU : c.AdmitsScPartitionsOfUnity)` for $n = m + 1 \\ge 2$ (from `EP.theorem_9_5_17`); `theorem_16_4_6_eff_hyp` (`EP.theorem_9_5_18`, LUC from ZHOU); `theorem_16_4_6_dim1_hyp`, `theorem_16_4_6_eff_dim1_hyp` for $n = 1$ (`theorem_9_5_17_dim1`, `theorem_9_5_18_dim1`); `theorem_16_4_6_both_hyp`. Witness: `theorem_16_4_6_hyp_witness` (= `z3Polyfold_admitsScPartitionsOfUnity`).",
+    "statement": "As printed, from Stokes on the ep-groupoid level (`Chapter16/StokesWithoutPartitions`): **`OrientedRep.theorem_16_4_6_of_epStokes (h : c.HasEpStokes)`** for $n = m + 1 \\ge 2$, `theorem_16_4_6_eff_of_epStokes` (LUC from ZHOU), `theorem_16_4_6_dim1_of_epStokes`, `theorem_16_4_6_eff_dim1_of_epStokes` for $n = 1$; no partitions-of-unity hypothesis on $c$. `PolyfoldClass.HasEpStokes c`: every model satisfies `EP.StokesWithoutPartitions`, the assertion of Remark 9.5.19 (Theorems 9.5.17 and 9.5.18 and their 1-dimensional forms without partitions of unity).\n\nWith partitions of unity, the case the text proves: `hasEpStokes_of_admitsScPartitionsOfUnity` (from `EP.stokesWithoutPartitions_of_hasScPartitionsOfUnity`), and directly `OrientedRep.theorem_16_4_6_hyp (hPU : c.AdmitsScPartitionsOfUnity)` (from `EP.theorem_9_5_17`), `theorem_16_4_6_eff_hyp` (`EP.theorem_9_5_18`), `theorem_16_4_6_dim1_hyp`, `theorem_16_4_6_eff_dim1_hyp` (`theorem_9_5_17_dim1`, `theorem_9_5_18_dim1`), `theorem_16_4_6_both_hyp`. Witnesses: `theorem_16_4_6_hyp_witness` (= `z3Polyfold_admitsScPartitionsOfUnity`), `PolyfoldClass.hasEpStokes_witness`, `EP.stokesWithoutPartitions_witness`.",
     "decls": [
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_of_epStokes",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_of_epStokes",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_of_epStokes",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_dim1_of_epStokes",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.HasEpStokes",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.hasEpStokes_of_admitsScPartitionsOfUnity",
+     "Chapter16/StokesWithoutPartitions · EP.StokesWithoutPartitions",
+     "Chapter16/StokesWithoutPartitions · EP.stokesWithoutPartitions_of_hasScPartitionsOfUnity",
+     "Chapter16/StokesWithoutPartitions · EP.stokesWithoutPartitions_witness",
+     "Chapter16/StokesWithoutPartitions · PolyfoldClass.hasEpStokes_witness",
      "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp",
      "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_hyp",
      "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_hyp",
@@ -754,11 +764,12 @@
     ]
    },
    "chips": [
-    "added: partitions of unity (G.153)",
+    "as printed, from ep-level Stokes",
+    "ep-level Stokes without PU: G.153",
     "tame on the representative used"
    ],
    "diff": [
-    "Hidden hypotheses: `hPU : c.AdmitsScPartitionsOfUnity` (Definition 16.1.5 for $c$; by D16.1.5 (2), `definition_16_1_5_two`, every representative then has them). Witness `theorem_16_4_6_hyp_witness`. Theorem 9.5.17, the ep-groupoid Stokes the text reduces to, assumes \"admitting sc-smooth partitions of unity\"; Theorem 16.4.6 does not state it, and the standing assumption of Chapter 16 is only ZHOU (p. 705). Removing it is gap G.153.",
+    "The printed statement is proved from `HasEpStokes`, Stokes on the ep-groupoid level without partitions of unity, which is the text's own justification (\"On the ep-groupoid level Stokes' Theorem holds\", p. 732). Theorems 9.5.17 and 9.5.18 prove it only for ep-groupoids admitting sc-smooth partitions of unity; Remark 9.5.19 says that this assumption is \"very likely not needed\" and leaves the modification to the reader. So `HasEpStokes` is an open point of the text (gap G.153, nothing to formalize) and is a hypothesis here. The case with partitions of unity is an instance (`hasEpStokes_of_admitsScPartitionsOfUnity`; `hPU : c.AdmitsScPartitionsOfUnity`, Definition 16.1.5 for $c$; by D16.1.5 (2), `definition_16_1_5_two`, every representative then has them); the standing assumption of Chapter 16 is only ZHOU (p. 705). The verdict is narrower because the hypothesis is proved for no polyfold without partitions of unity. Witnesses: `theorem_16_4_6_hyp_witness`; `hasEpStokes_witness` (weak: $[\\mathbb Z/3 \\ltimes \\mathbb R]$ has empty boundary; the boundary case is witnessed at the ep-groupoid level by `EP.stokesWithoutPartitions_witness`, the half-plane with a compact oriented half-circle $\\Theta$, $\\mathrm{supp}(\\partial\\Theta) \\ne \\emptyset$).",
     "Tameness is Chapter 9's (oriented tame structures describing $\\hat T$), on the representative used (gap G.154)."
    ]
   },
@@ -920,7 +931,7 @@
     "statement": "On P there is a natural functor $T$: $(Z,c)\\mapsto T(Z,c)$ and $\\hat f\\mapsto T\\hat f=[(Tf,T\\mathfrak f)]$, where $Tf$ is given by $|k|=|T\\mathfrak f|(|h|)$."
    },
    "lean": {
-    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.\n\nPart III wave 5 (`Chapter16/TangentEffective.lean`): `EpGroupoid.isEffective_tangentEpGroupoid (hE : X.IsEffective) (hZ : X.IsZhou) : X.tangentEpGroupoid.IsEffective`; `PolyfoldClass.IsEffective.tangent : c.IsEffective → c.tangent.IsEffective` ((ZHOU) is a field of polyfold structures); `ScMap.tangent_comp_of_isEffective (hd : d.IsEffective)`: $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$; **`EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`**, a Mathlib functor with `map_id = tangent_id` and `map_comp = tangent_comp_of_isEffective`; `theorem_16_2_4_eff`. Helpers `linearMap_eq_self_of_eqOn_isOpen`, `EpGroupoid.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.tangent_isotropy_eq_one`.",
+    "statement": "`PSCat.tangentFunctor : PSCat.{u} ⥤ PSCat.{max u 1}` is a Mathlib functor on PS, $(f,\\mathfrak f)\\mapsto(|T\\mathfrak f|,T\\mathfrak f)$. `ScMap.tangent : ScMap c d → ScMap c.tangent d.tangent` is well defined on classes (`MapRep.tangent_equiv`). `tangent_toFun`: $Tf\\circ T\\alpha=T\\beta\\circ|T\\mathfrak f|$. `tangent_id`: $T1=1$. `tangent_mk_comp`: $T$ of a composite of representatives is the composite of the tangents. `tangent_comp`: $T(\\hat g\\circ\\hat f)=T\\hat g\\circ T\\hat f$ when `d` and `d.tangent` are effective. `PolyfoldClass.theorem_16_2_4` collects these.\n\nEffective polyfolds (`Chapter16/TangentEffective.lean`): `EpGroupoid.isEffective_tangentEpGroupoid (hE : X.IsEffective) (hZ : X.IsZhou) : X.tangentEpGroupoid.IsEffective`; `PolyfoldClass.IsEffective.tangent : c.IsEffective → c.tangent.IsEffective` ((ZHOU) is a field of polyfold structures); `ScMap.tangent_comp_of_isEffective (hd : d.IsEffective)`: $T(\\hat g \\circ \\hat f) = T\\hat g \\circ T\\hat f$; **`EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`**, a Mathlib functor with `map_id = tangent_id` and `map_comp = tangent_comp_of_isEffective`; `theorem_16_2_4_eff`. Helpers `linearMap_eq_self_of_eqOn_isOpen`, `EpGroupoid.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.tangent_isotropy_eq_one`.",
     "decls": [
      "Chapter16/TangentFunctor · PSCat.tangentFunctor",
      "Chapter16/TangentFunctor · PSHom.ofGen'",
@@ -951,7 +962,7 @@
     "`tangent_comp`: hypothesis discharged"
    ],
    "diff": [
-    "There is no category of all polyfolds (D16.1.10, V16.32), so the functor lives on effective polyfolds, where composition is defined as we read it: `EffPolyfold.tangentFunctor`, with no hypothesis beyond the text's (gap G.157 closed in Part III wave 5). The proof that $T$ preserves effectiveness goes through a smooth point and uses (ZHOU), Definition 16.1.1 (2): effectiveness is a level-0 statement, while open sets of $T\\mathbf X$ see only level 1. The hypothesis `d.tangent.IsEffective` of `tangent_comp` now holds for every effective `d` (`tangent_comp_of_isEffective`; witness `EffPolyfold.point.tangent`)."
+    "There is no category of all polyfolds (D16.1.10, V16.32), so the functor lives on effective polyfolds, where composition is defined as we read it: `EffPolyfold.tangentFunctor`, with no hypothesis beyond the text's (gap G.157 closed). The proof that $T$ preserves effectiveness goes through a smooth point and uses (ZHOU), Definition 16.1.1 (2): effectiveness is a level-0 statement, while open sets of $T\\mathbf X$ see only level 1. The hypothesis `d.tangent.IsEffective` of `tangent_comp` holds for every effective `d` (`tangent_comp_of_isEffective`; witness `EffPolyfold.point.tangent`)."
    ]
   },
   {
@@ -1033,26 +1044,35 @@
   {
    "id": "V16.37",
    "title": "Definition 16.3.1 (2017: 16.16), strong polyfold bundle structures",
-   "verdict": "same",
+   "verdict": "restated",
    "book": {
     "label": "§16.3, Definition 16.3.1, pp. 721–722 (2017: Definition 16.16)",
     "page": 721,
     "statement": "For a continuous surjection $p:Y\\to Z$, a structure is $((P:W\\to X,\\mu),\\Gamma,\\gamma)$: a strong bundle over an ep-groupoid $X$ with (ZHOU) and paracompact $|X|$, with the local regularity property (D8.4.2), and homeomorphisms $\\Gamma:|W|\\to Y$, $\\gamma:|X|\\to Z$ with $p\\circ\\Gamma=\\gamma\\circ|P|$."
    },
    "lean": {
-    "statement": "`structure StrongPolyfoldBundleStructure (p : Y → Z)` with fields `A : SEP` (the strong bundle), `isZhou`, `paracompact` (`HasParacompactOrbitSpace`), `isLR : A.E.IsLR` (D8.4.2), `Γ : |W| ≃ₜ Y`, `γ : |X| ≃ₜ Z`, `comm : p ∘ Γ = γ ∘ |P|`. Consequences: `p_eq` ($p=\\gamma\\circ|P|\\circ\\Gamma^{-1}$), `p_Γ`, `continuous_p`, `surjective_p`.",
+    "statement": "`structure StrongPolyfoldBundleStructure (p : Y → Z)` with fields `A : SEP` (the strong bundle), `isZhou`, `paracompact` (`HasParacompactOrbitSpace`), `isLR : A.E.IsLR` (the local regularity property of D8.4.2 in the form `EpStrongBundle.IsLR`, see below), `Γ : |W| ≃ₜ Y`, `γ : |X| ≃ₜ Z`, `comm : p ∘ Γ = γ ∘ |P|`. Consequences: `p_eq` ($p=\\gamma\\circ|P|\\circ\\Gamma^{-1}$), `p_Γ`, `continuous_p`, `surjective_p`.",
     "decls": [
      "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure",
      "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_eq",
      "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.p_Γ",
      "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.continuous_p",
      "Chapter16/StrongPolyfoldBundle · StrongPolyfoldBundleStructure.surjective_p",
-     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Structure"
+     "Chapter16/PolyfoldBundleUniqueness · StrongPolyfoldBundleStructure.z3Structure",
+     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal",
+     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal.isLR",
+     "Chapter10/LocalRegularityGerm · EpStrongBundle.IsLRGerm",
+     "Chapter10/StrongBundleCutOff · EpStrongBundle.IsLR.isLRGerm_of_admitsBumpFunctions",
+     "Chapter10/LocalRegularityGerm · EpStrongBundle.proposition_10_4_7_of_isLRGerm"
     ]
    },
-   "chips": [],
+   "chips": [
+    "local regularity: field `IsLR` (D8.4.2)",
+    "results hold under either form"
+   ],
    "diff": [
-    "\"Continuous and surjective\" for $p$ is not a field: it follows from the structure (`continuous_p`, `surjective_p`). $Y$, $Z$ live in the universe of the object sets (as for `PolyfoldStructure`)."
+    "\"Continuous and surjective\" for $p$ is not a field: it follows from the structure (`continuous_p`, `surjective_p`). $Y$, $Z$ live in the universe of the object sets (as for `PolyfoldStructure`).",
+    "Reading point (Findings, Chapter 8): Definition 16.3.1 asks for the local regularity property \"as given in Definition 8.4.2\", which is formalized as printed in `EpStrongBundle.IsLRLocal` ($B$ a strong bundle isomorphism of $W|U(x)$). The field `isLR` carries `EpStrongBundle.IsLR`, the form for strong bundle maps defined on all of $W$; it follows from Definition 8.4.2 (`IsLRLocal.isLR`), and whether the converse holds is not known to us. With sc-smooth bump functions `IsLR` gives the germ form `IsLRGerm` (`EpStrongBundle.IsLR.isLRGerm_of_admitsBumpFunctions`), which is what Proposition 10.4.7 and Theorem 12.5.7 use (`proposition_10_4_7_of_isLRGerm`). So the results of this chapter that use the property hold under either form: for Definition 16.6.5 `exists_unique_transport_of_isLR` with the field and `exists_unique_transport_of_isLRLocal` with Definition 8.4.2 as printed (V16.77). Hence the verdict restated."
    ]
   },
   {
@@ -1085,7 +1105,7 @@
     "statement": "Two structures are equivalent if a generalized strong bundle isomorphism $F:W\\to W'$ covering $f:X\\to X'$ has $\\gamma'\\circ|f|=\\gamma$ and $\\Gamma'\\circ|F|=\\Gamma$."
    },
    "lean": {
-    "statement": "`StrongPolyfoldBundleStructure.Equiv S S' := ∃ F : GenSBMap S.A S'.A, F.IsGeneralizedIso ∧ γ' ∘ |F.base| = γ ∧ Γ' ∘ |F| = Γ`; `Equiv.refl`, `Equiv.symm`, `Equiv.trans`, `setoid p`, `equiv_iff`. The strong bundle form of Proposition 10.3.11 needed for `trans` is new: `SDiagram.orbitMap_comp'`, `GenSBMap.orbitMap_comp`, `base_comp`, `baseOrbitMap_comp`, `SEPLoc.orbitMap_comp`, `orbitMap_id`, `baseOrbitMap_comp`, `baseOrbitMap_id`, `orbitMap_inv_comp`, `orbitMap_comp_inv`, `baseOrbitMap_comp_inv`. Also `Γ_base` (the $\\gamma$-condition follows from the $\\Gamma$-condition) and `equiv_iff_exists_Γ`.",
+    "statement": "`StrongPolyfoldBundleStructure.Equiv S S' := ∃ F : GenSBMap S.A S'.A, F.IsGeneralizedIso ∧ γ' ∘ |F.base| = γ ∧ Γ' ∘ |F| = Γ`; `Equiv.refl`, `Equiv.symm`, `Equiv.trans`, `setoid p`, `equiv_iff`. The strong bundle form of Proposition 10.3.11 needed for `trans` is proved here: `SDiagram.orbitMap_comp'`, `GenSBMap.orbitMap_comp`, `base_comp`, `baseOrbitMap_comp`, `SEPLoc.orbitMap_comp`, `orbitMap_id`, `baseOrbitMap_comp`, `baseOrbitMap_id`, `orbitMap_inv_comp`, `orbitMap_comp_inv`, `baseOrbitMap_comp_inv`. Also `Γ_base` (the $\\gamma$-condition follows from the $\\Gamma$-condition) and `equiv_iff_exists_Γ`.",
     "decls": [
      "Chapter16/StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_comp'",
      "Chapter16/StrongPolyfoldBundle · SBLocalization.SDiagram.orbitMap_id'",
@@ -1144,7 +1164,7 @@
     "effective target base: holds"
    ],
    "diff": [
-    "The uniqueness does not hold as we read it (Findings, Chapter 16, item 11; the same cause as items 1, 2, 6 and 12: a non-effective isotropy group). It holds for an effective target base (`uniqueness_16_3_3_of_isEffective`, Theorem 10.5.7 for an effective base; (ZHOU) gives (LR) by `proposition_7_4_22_of_isZhou`). Definitions 16.3.3 and 16.3.4 do not depend on the uniqueness."
+    "The uniqueness does not hold as we read it (Findings, Chapter 16, item 11; the same cause as items 1, 2, 6 and 12: a non-effective isotropy group). It holds for an effective target base (`uniqueness_16_3_3_of_isEffective`, Theorem 10.5.7 for an effective base; (ZHOU) gives local regularity of the base by `proposition_7_4_22_of_isZhou`). Definitions 16.3.3 and 16.3.4 do not depend on the uniqueness. Definition 16.6.5 does not rest on it either: the orientation is carried along any $\\mathfrak A$ by Proposition 10.4.7 (V16.77)."
    ]
   },
   {
@@ -1438,7 +1458,7 @@
     "invariance proved both ways (V16.79)"
    ],
    "diff": [
-    "The parenthetical (invariance under equivalence) is proved in both directions (V16.79; gap G.166 closed in Part III wave 7); `hasReflexiveFibers_iff_forall`: $(p, \\bar c)$ has reflexive 1-fibres iff every structure in $\\bar c$ has."
+    "The parenthetical (invariance under equivalence) is proved in both directions (V16.79; gap G.166 closed); `hasReflexiveFibers_iff_forall`: $(p, \\bar c)$ has reflexive 1-fibres iff every structure in $\\bar c$ has."
    ]
   },
   {
@@ -1460,7 +1480,7 @@
    },
    "chips": [],
    "diff": [
-    "None. The notion does not depend on the model given reflexive 1-fibres (`isReflexiveAuxNorm_iff_forall`, Part III wave 7)."
+    "None. The notion does not depend on the model given reflexive 1-fibres (`isReflexiveAuxNorm_iff_forall`)."
    ]
   },
   {
@@ -1484,7 +1504,7 @@
    },
    "chips": [],
    "diff": [
-    "The model is existential, as printed. Mixed convergence does not depend on the model (`mixedTendsto_iff_forall`, through `mixedTendstoIn_of_equiv` and Part I's `StrongBundle.LocalIso.mixedTendsto`; gap G.166 closed in Part III wave 7)."
+    "The model is existential, as printed. Mixed convergence does not depend on the model (`mixedTendsto_iff_forall`, through `mixedTendstoIn_of_equiv` and Part I's `StrongBundle.LocalIso.mixedTendsto`; gap G.166 closed)."
    ]
   },
   {
@@ -1540,7 +1560,7 @@
     "statement": "If $y_k$ is mixed convergent to $y$, then $n(y)\\le\\liminf n(y_k)$."
    },
    "lean": {
-    "statement": "`proposition_16_3_16_two_of_mem (hN : S.A.E.IsReflexiveAuxNorm (S.normOf n)) (hm : MixedTendstoIn S y y₀) : (n y₀ : EReal) ≤ liminf (fun k => (n (y k) : EReal)) atTop`.\n\nThe text's form (Part III wave 7, `Chapter16/MixedTransfer.lean`): **`proposition_16_3_16_two`** with `hc : c.HasReflexiveFibers`: for $y_k \\to^m y$ and a reflexive auxiliary norm $n$, $n(y) \\le \\liminf n(y_k)$, with the models of $n$ and of the convergence independent (`mixedTendsto_iff_forall`, `IsReflexiveAuxNorm.of_mem`).",
+    "statement": "`proposition_16_3_16_two_of_mem (hN : S.A.E.IsReflexiveAuxNorm (S.normOf n)) (hm : MixedTendstoIn S y y₀) : (n y₀ : EReal) ≤ liminf (fun k => (n (y k) : EReal)) atTop`.\n\nThe text's form (`Chapter16/MixedTransfer.lean`): **`proposition_16_3_16_two`** with `hc : c.HasReflexiveFibers`: for $y_k \\to^m y$ and a reflexive auxiliary norm $n$, $n(y) \\le \\liminf n(y_k)$, with the models of $n$ and of the convergence independent (`mixedTendsto_iff_forall`, `IsReflexiveAuxNorm.of_mem`).",
     "decls": [
      "Chapter16/MixedTransfer · StrongPolyfoldBundle.proposition_16_3_16_two",
      "Chapter16/MixedTransfer · StrongPolyfoldBundle.mixedTendsto_iff_forall",
@@ -1551,7 +1571,7 @@
     "standing: reflexive 1-fibres"
    ],
    "diff": [
-    "`hc : c.HasReflexiveFibers` is the context of Definition 16.3.13 and Proposition 16.3.16, not an added hypothesis. The single-model form `proposition_16_3_16_two_of_mem` is the step; the invariance of mixed convergence and of reflexive auxiliary norms under generalized strong bundle isomorphisms (the text's remark before Theorem 16.3.17) is proved (gap G.166 closed in Part III wave 7)."
+    "`hc : c.HasReflexiveFibers` is the context of Definition 16.3.13 and Proposition 16.3.16, not an added hypothesis. The single-model form `proposition_16_3_16_two_of_mem` is the step; the invariance of mixed convergence and of reflexive auxiliary norms under generalized strong bundle isomorphisms (the text's remark before Theorem 16.3.17) is proved (gap G.166 closed)."
    ]
   },
   {
@@ -1835,7 +1855,7 @@
     "statement": "$n(\\lambda)(z)=\\max\\{n(y)\\mid p(y)=z,\\ \\lambda(y)\\neq0\\}$, \"a continuous map\"."
    },
    "lean": {
-    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).\n\nContinuity (Part III wave 5, `Chapter16/NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq` (in a local section structure $N(\\Lambda) = \\max_i N(s_i)$), `IsScPlusMultisection.continuous_pointwiseNorm (hΛ) (hN : Continuous N)` (Definition 13.2.3's $N(\\Lambda)$ is continuous on $X$), `isQuotientMap_γπ`, **`ScPlusMultisection.continuous_normLam (s) (hn : c.IsAuxNorm n) : Continuous (c.normLam n s.toFun)`**, `isGreatest_normLam` (the maximum is attained), `normLam_nonneg`.",
+    "statement": "`normLam c n λ z` (`sSup` of `normY`), `image_normY_eq`, `normLam_eq` ($n(\\lambda)(\\gamma|x|)=N(\\Lambda)(x)$, Part I's `pointwiseNorm`).\n\nContinuity (`Chapter16/NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq` (in a local section structure $N(\\Lambda) = \\max_i N(s_i)$), `IsScPlusMultisection.continuous_pointwiseNorm (hΛ) (hN : Continuous N)` (Definition 13.2.3's $N(\\Lambda)$ is continuous on $X$), `isQuotientMap_γπ`, **`ScPlusMultisection.continuous_normLam (s) (hn : c.IsAuxNorm n) : Continuous (c.normLam n s.toFun)`**, `isGreatest_normLam` (the maximum is attained), `normLam_nonneg`.",
     "decls": [
      "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.image_normY_eq",
      "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.normLam",
@@ -1853,7 +1873,7 @@
     "continuous, as printed"
    ],
    "diff": [
-    "None. Continuity, the maximum and the values in $[0,\\infty)$ are proved as printed (gap G.174 closed in Part III wave 5)."
+    "None. Continuity, the maximum and the values in $[0,\\infty)$ are proved as printed (gap G.174 closed)."
    ]
   },
   {
@@ -1938,30 +1958,29 @@
   {
    "id": "V16.71",
    "title": "Theorem 16.5.7 (2017: 16.6), the ∂-extension theorem for polyfolds",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§16.5, Theorem 16.5.7, p. 735 (2017: Theorem 16.6)",
     "page": 735,
     "statement": "Tame $Z$ with sc-smooth partitions of unity, $\\lambda$ structurable over $\\partial Z$, $\\tilde U\\supseteq$ dom-supp open, $f\\ge0$ continuous, support in $\\tilde U$, $n(\\lambda)<f$ on dom-supp: there is a structurable $\\lambda'$ with $n(\\lambda')\\le f$, dom-supp$(\\lambda')\\subseteq\\tilde U$, $\\lambda'=\\lambda$ over $\\partial Z$."
    },
    "lean": {
-    "statement": "Part III wave 6 (`Chapter16/PolyfoldBoundaryExtension.lean`): **`StrongPolyfoldBundle.theorem_16_5_7_a6 hc hPU hB hn s (hs : s.IsStructurableNe) …`**, the theorem without `h1419`, from `theorem_14_1_9_charged_a6` in a model (V14.8). `BoundaryMultisection.IsStructurableNe`: Definition 16.5.6 with a representative that charges every boundary fibre (`.isStructurable`); `hB`: tame strong bundle charts in the models. The proof is the earlier one.\n\nThe earlier form: `theorem_16_5_7_hyp (h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A) (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) …` proved from statement in one model. Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).",
+    "statement": "**`StrongPolyfoldBundle.theorem_16_5_7 (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) (hn : c.IsAuxNorm n) (s : BoundaryMultisection c) (hs : s.IsStructurable) …`** (`Chapter16/PolyfoldBoundaryExtension.lean`): Theorem 16.5.7 as printed, with Definition 16.5.6 as stated; conclusion: a structurable `t` with $n(t) \\le f$, `t.domSupp ⊆ U`, $t = s$ over $\\partial Z$. Proof: `theorem_16_5_7_hyp`, Theorem 16.5.7 from `h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A`, with `h1419` discharged in every model by `theorem_14_1_9` (V14.8). `BoundaryMultisection.isStructurableNe_iff`: a structurable representative charging every boundary fibre exists exactly when $s$ is structurable (the index sets of Definition 14.1.3 are non-empty). Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).",
     "decls": [
-     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.theorem_16_5_7_a6",
-     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe",
-     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.IsStructurableNe.isStructurable",
+     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.theorem_16_5_7",
+     "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.isStructurableNe_iff",
+     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9",
      "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.tsupport_comp_subset_preimage'",
      "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.theorem_16_5_7_hyp",
      "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.theorem_16_5_7_hyp_witness"
     ]
    },
    "chips": [
-    "added: `hB`, `IsStructurableNe` (as T14.1.9)",
-    "not instantiated with boundary"
+    "as printed",
+    "Theorem 14.1.9 in every model"
    ],
    "diff": [
-    "Added: the two readings of Theorem 14.1.9 (V14.8), tame strong bundle charts in the models (`hB`) and a representative charging every boundary fibre (`IsStructurableNe`, the reading $I_x \\ne \\emptyset$). The earlier `theorem_16_5_7_hyp` took `theorem_14_1_9_statement` in every model, which holds only for models without boundary; it is vacuous otherwise. The model witness with boundary of Theorem 14.1.9 (`theorem_14_1_9_constSec`) is not lifted to a polyfold here. `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle.",
-    "Partitions of unity are read in the form Theorem 14.1.9 uses; \"support\" is read as `tsupport`."
+    "Readings only: partitions of unity are asked in every model, the form Theorem 14.1.9 uses (by Definition 16.1.5 (2) a property of $c$); \"support\" is read as `tsupport`. The model witnesses of Theorem 14.1.9 with $\\partial X \\ne \\emptyset$ and non-zero fibres are those of V14.8; `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle."
    ]
   },
   {
@@ -2092,29 +2111,53 @@
   {
    "id": "V16.77",
    "title": "Definition 16.6.5 (2017: 16.42), orientations of sc-Fredholm sections",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§16.6, Definition 16.6.5, p. 739 (2017: Definition 16.42)",
     "page": 739,
     "statement": "An orientation of $f$ is the choice of an orientation of a representative $(W,F)$ (transported by Theorem 12.5.7)."
    },
    "lean": {
-    "statement": "`OrientationRep s` (representative, `HasScPlusSectionsThrough`, topology `t` on $O_F$ with `IsOrientationTopology`, `o` with `definition_12_5_4`), `FredholmSection.IsOrientable`.\n\nTransport (Part III wave 6, `Chapter16/OrientationTransport.lean`): **`SDiagram.orientation_transport_hyp`**: for $F' = [D]_* F$, an orientation $o$ of $F$ (Definition 12.5.4 for any `IsOrientationTopology`) has exactly one invariant $o'$ compatible over the middle, and $o'$ satisfies Definition 12.5.4 for every `IsOrientationTopology` on $O_{F'}$; `SDiagram.exists_orientation_of_eq`; `OrientationRep.exists_diagram` (a diagram exists for every other representative); **`OrientationRep.transport_hyp`**: an `OrientationRep` on any representative $b$.",
+    "statement": "`OrientationRep s` (representative, `HasScPlusSectionsThrough`, topology `t` on $O_F$ with `IsOrientationTopology`, `o` with `definition_12_5_4`), `FredholmSection.IsOrientable`.\n\nTransport and its independence (`Chapter16/OrientationTransportRegularity`): **`OrientationRep.exists_unique_transport_of_isLR`**: for an orientation `R` on `R.a` with Part I's hypotheses on $W_a$ (tame, bump functions, tame germ data) and any representative $b$, exactly one orientation $o'$ of $F_b$ (Definition 12.5.4 for every orientation topology of Theorem 12.5.3) corresponds to `R.o` over every diagram of every generalized strong bundle isomorphism $\\mathfrak A$ with $\\Gamma_b \\circ |\\mathfrak A| = \\Gamma_a$ and $\\mathfrak A_* F_a = F_b$; the base need not be effective, and the regularity used is the field `isLR` of $b$ (V16.37); `exists_unique_transport_of_isLR_polyfold` (tameness and bump functions read on the polyfold); `GenSBMap.theorem_12_5_7_two_orbitMap_unique_of_isLR`. With Definition 8.4.2 as printed: `exists_unique_transport_of_isLRLocal`, `exists_unique_transport_of_isLRLocal_polyfold` (`Chapter16/OrientationOrbitMapIndependence`). For an effective base: `exists_unique_transport_of_isEffective`, `exists_unique_transport_of_polyfold` (`Chapter16/OrientationClassIndependence`). For the $\\mathfrak A$ of the relation of representatives: `exists_unique_transport` (`Chapter16/OrientationRepresentatives`), `exists_unique_transport_left` (hypotheses on $W_a$ only), `transport`, `transport_left`. Along one diagram: `SDiagram.orientation_transport_hyp`, `OrientationRep.transport_hyp` (`Chapter16/OrientationTransport`).\n\nWitnesses: `HalfSpaceBundle.halfOrientationRep`, `exists_unique_transport_halfSpace`, `exists_unique_transport_halfSpace_of_isLR`, `polyfold_hypotheses_halfSpace` ($H \\times \\mathbb R^k \\to H$, $H = [0,\\infty) \\times \\mathbb R^m$, $\\partial H \\ne \\emptyset$, non-zero fibres, a concrete orientation); `StrongBundleLocalizationExamples.z3OrientationRep`, `exists_unique_transport_z3`, `exists_unique_transport_z3_of_isLR`, `theorem_12_5_7_two_orbitMap_unique_z3` (over $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$, not effective).",
     "decls": [
      "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.OrientationRep",
      "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.FredholmSection.IsOrientable",
+     "Chapter16/OrientationTransportRegularity · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR",
+     "Chapter16/OrientationTransportRegularity · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR_polyfold",
+     "Chapter16/OrientationTransportRegularity · SBLocalization.GenSBMap.theorem_12_5_7_two_orbitMap_unique_of_isLR",
+     "Chapter16/OrientationOrbitMapIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal",
+     "Chapter16/OrientationOrbitMapIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal_polyfold",
+     "Chapter16/OrientationOrbitMapIndependence · SBLocalization.GenSBMap.theorem_12_5_7_two_orbitMap_unique_of_isLRLocal",
+     "Chapter16/OrientationClassIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isEffective",
+     "Chapter16/OrientationClassIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_polyfold",
+     "Chapter16/OrientationClassIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_left",
+     "Chapter16/OrientationClassIndependence · StrongPolyfoldBundle.OrientationRep.transport_left",
+     "Chapter16/OrientationRepresentatives · StrongPolyfoldBundle.OrientationRep.exists_unique_transport",
+     "Chapter16/OrientationRepresentatives · StrongPolyfoldBundle.OrientationRep.transport",
      "Chapter16/OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp",
      "Chapter16/OrientationTransport · SBLocalization.SDiagram.exists_orientation_of_eq",
      "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.exists_diagram",
-     "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp"
+     "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp",
+     "Chapter16/HalfSpaceOrientedSection · HalfSpaceBundle.halfOrientationRep",
+     "Chapter16/HalfSpaceOrientedSection · HalfSpaceBundle.exists_unique_transport_halfSpace",
+     "Chapter16/HalfSpaceOrientedSection · HalfSpaceBundle.polyfold_hypotheses_halfSpace",
+     "Chapter16/OrientationTransportRegularity · HalfSpaceBundle.exists_unique_transport_halfSpace_of_isLR",
+     "Chapter16/OrientationNonEffectiveWitness · StrongBundleLocalizationExamples.z3OrientationRep",
+     "Chapter16/OrientationNonEffectiveWitness · StrongBundleLocalizationExamples.exists_unique_transport_z3",
+     "Chapter16/OrientationNonEffectiveWitness · StrongBundleLocalizationExamples.theorem_12_5_7_two_orbitMap_unique_z3",
+     "Chapter16/OrientationTransportRegularity · StrongBundleLocalizationExamples.exists_unique_transport_z3_of_isLR"
     ]
    },
    "chips": [
-    "transport along a diagram proved",
-    "independence of the diagram: G.176"
+    "Part I's hypotheses on one representative",
+    "independent of 𝔄 and of the diagram",
+    "rests on Proposition 10.4.7"
    ],
    "diff": [
-    "The orientation is data on one representative; it is carried to every other representative along a diagram $D$ with $[D]_* F = F'$, with continuity in the text's sense, using Part I's hypotheses (tame, bump functions, tame germ data) on $W$, $W'$ and the middle bundle of $D$, as in `theorem_12_5_7_two_cont`. Not formalized: the independence of the transported orientation from $D$, and dropping the hypotheses on the middle bundle (gap G.176). On the trivial-action ℤ/3 example of V16.40 the two $\\bar f$ transport identically; no counterexample found."
+    "Explicit: Part I's hypotheses of Theorem 12.5.7 (tame, sc-smooth bump functions, tame germ data) on the oriented representative; on the other representatives and on the middle bundles of the diagrams they follow along $\\mathfrak A$. In the adopted reading of Definition 3.6.3 tame germ data are printed hypotheses (Findings, Chapter 3, item 388).",
+    "The text's claim that an orientation of one representative determines orientations of all others rests on Proposition 10.4.7 (two strong bundle equivalences with the same $|\\cdot|$ are related near each point by an sc-smooth family of morphisms; it needs the local regularity property, Definition 8.4.2, part of Definition 16.3.1), not on the uniqueness of $\\mathfrak A$ after Definition 16.3.3, which does not hold as we read it for a non-effective base (V16.40). The transported orientation is independent of the diagram and of $\\mathfrak A$ when $W$ has the local regularity property; $\\mathfrak A$ itself need not be unique (Findings, Chapter 16, item 24).",
+    "The local regularity property in the form of the field `isLR` (V16.37) suffices: with sc-smooth bump functions it gives the germ form `IsLRGerm`, which is all Proposition 10.4.7 and Theorem 12.5.7 use. The condition is on $|\\mathfrak A| : |W| \\to |W'|$ (the text's $\\Gamma' \\circ |\\mathfrak A| = \\Gamma$ on the total spaces).",
+    "Witnesses: with boundary and non-zero fibres the concrete orientation `halfOrientationRep` (an effective base); over a non-effective base `z3OrientationRep` (no boundary), where $[\\mathrm{Inv}] \\ne [1_W]$ have the same $|\\cdot|$ and carry the orientation to the same $o'$. Weak: no single example is both non-effective and with boundary, and in both examples `IsLRLocal` holds as well, so they do not separate the field `isLR` from Definition 8.4.2."
    ]
   },
   {
@@ -2127,8 +2170,25 @@
     "statement": "$\\partial Z=\\emptyset$, $f$ oriented, compact solution set, $(n,U)$ controls compactness, $\\lambda$ controlled by $(n,U)$, $(f,\\lambda)$ in general position: the branched integrals over $\\lambda\\circ f$ define a map on cohomology, independent of $\\lambda$."
    },
    "lean": {
-    "statement": "Part III wave 6 (`Chapter16/PerturbedIntegralIndependence.lean`), on the polyfold: the integrals $\\int$, $\\oint$ of `CompactOrientedSuborbifold c m` are additive and well defined (`integral_mk_rep`: in every model the polyfold integral is the ep-level integral of Definition 9.5.6); for `c.boundary = ∅` and partitions of unity, $\\int d\\eta = \\oint d\\eta = 0$ (`OrientedSuborbifold.integral_d_eq_zero`, `integralEff_d_eq_zero`, from Theorem 16.4.6), hence **`integral_add_d`**, `integralEff_add_d`: the integrals depend only on $[\\tau]$. `HasCobordism`, `HasCobordismEff` and **`integral_eq_of_hasCobordism`**, **`integralEff_eq_of_hasCobordismEff`** (Theorem 9.5.18 on $Y$): cobordant perturbations give equal integrals of closed forms; `hasCobordism_refl`, `hasCobordismEff_refl`. Bundle level: `OrientedPerturbation s m` (a compact oriented suborbifold with $\\theta = \\lambda \\circ f$), `IsAdmissible n U`; **`theorem_16_6_6_statement s n U m IsInherited`** ((i) $\\int(\\tau + d\\eta) = \\int\\tau$ and $\\oint(\\tau + d\\eta) = \\oint\\tau$; (ii) for two admissible perturbations with the inherited orientation, equal $\\int$ and $\\oint$ of closed $\\tau$) and **`theorem_16_6_6_hyp`** from `hPU` and `hcob`, `hcobEff` (cobordisms between any two admissible inherited-orientation perturbations); `theorem_16_6_6_hyp_hcob_witness`.\n\nThe earlier reduction: `ScPlusMultisection.IsControlledBy` ($n(\\lambda)\\le1$, dom-supp $\\subseteq U$); `theorem_16_6_6_reduction` (in every structure $S\\in\\bar c$ the representatives satisfy $\\partial X=\\emptyset$, Fredholm, `HasCompactSolutionSetEp`, `ControlsCompactness` for `(normOf n, γπ⁻¹U)`, $N(\\Lambda)\\le1$, dom-supp$(\\Lambda)\\subseteq\\gamma\\pi^{-1}U$: the hypotheses of §§15.3–15.4); `exists_generalPosition_hyp` (from `theorem_15_3_7_statement` in a model: a structurable $\\lambda$ controlled by $(n,U)$ with $n(\\lambda)<1$, representative transversal and in general position).",
+    "statement": "On the polyfold (`Chapter16/PerturbedIntegralIndependence.lean`): the integrals $\\int$, $\\oint$ of `CompactOrientedSuborbifold c m` are additive and well defined (`integral_mk_rep`: in every model the polyfold integral is the ep-level integral of Definition 9.5.6); for `c.boundary = ∅` and partitions of unity, $\\int d\\eta = \\oint d\\eta = 0$ (`OrientedSuborbifold.integral_d_eq_zero`, `integralEff_d_eq_zero`, from Theorem 16.4.6), hence **`integral_add_d`**, `integralEff_add_d`: the integrals depend only on $[\\tau]$. `HasCobordism`, `HasCobordismEff` and **`integral_eq_of_hasCobordism`**, **`integralEff_eq_of_hasCobordismEff`** (Theorem 9.5.18 on $Y$): cobordant perturbations give equal integrals of closed forms; `hasCobordism_refl`, `hasCobordismEff_refl`. Bundle level: `OrientedPerturbation s m` (a compact oriented suborbifold with $\\theta = \\lambda \\circ f$), `IsAdmissible n U`; **`theorem_16_6_6_statement s n U m IsInherited`** ((i) $\\int(\\tau + d\\eta) = \\int\\tau$ and $\\oint(\\tau + d\\eta) = \\oint\\tau$; (ii) for two admissible perturbations with the inherited orientation, equal $\\int$ and $\\oint$ of closed $\\tau$) and **`theorem_16_6_6_hyp`** from `hPU` and `hcob`, `hcobEff` (cobordisms between any two admissible inherited-orientation perturbations); `theorem_16_6_6_hyp_hcob_witness`.\n\nThe reduction to §§15.3–15.4: `ScPlusMultisection.IsControlledBy` ($n(\\lambda)\\le1$, dom-supp $\\subseteq U$); `theorem_16_6_6_reduction` (in every structure $S\\in\\bar c$ the representatives satisfy $\\partial X=\\emptyset$, Fredholm, `HasCompactSolutionSetEp`, `ControlsCompactness` for `(normOf n, γπ⁻¹U)`, $N(\\Lambda)\\le1$, dom-supp$(\\Lambda)\\subseteq\\gamma\\pi^{-1}U$: the hypotheses of §§15.3–15.4); `exists_generalPosition_hyp` (from `theorem_15_3_7_statement` in a model: a structurable $\\lambda$ controlled by $(n,U)$ with $n(\\lambda)<1$, representative transversal and in general position).\n\nIn the model of the orientation (`Chapter16/ModelPerturbations`): `ModelPerturbation` (an oriented regular perturbation of a model with $\\hat T = 0$ off $X_\\infty$), **`ModelPerturbation.toOrientedPerturbation`** (its class is an `OrientedPerturbation` of $f$ on the polyfold; `HasIndependentTangentSums` is Theorem 9.2.1 (1)), `integral_toCompact`, `integralEff_toCompact` (polyfold integral = model integral), `hasCobordism_ofRegular`, `hasCobordismEff_ofRegular` (a model cobordism gives `HasCobordism`; every oriented regular perturbation gives a model perturbation with the same integrals), `EpGroupoid.branchedMeasure_congr_orientation` (the measures depend on $\\hat T$ only on $X_\\infty$); `IsInheritedFrom Can o Q` ($Q$ is the class of a perturbation of the model of $o$ whose orientation is singled out by `Can o`); **`theorem_16_6_6_of_model`** (from `hPU` and the cobordisms between `Can o`-perturbations in the model of $o$); `CylinderInput Can o` (the inputs of Corollaries 15.3.10 (3) and 15.4.4 on $[0,1] \\times X$: `rel`, `pu`, `luc`, `tame`, `glue`, `orient`, `orientEff`), `hasOrientedCobordism_of_cylinderInput`, **`theorem_16_6_6_of_cylinder`**; `isRegularPerturbation_of_admissible`; witness `theorem_16_6_6_of_model_hcob_witness`. `Can` is the canonical orientation of Definition 15.4.2, `SBLocalization.IsCanonicalPerturbation` (inhabited: `isCanonicalPerturbation_canonical`, `HalfSpaceBundle.exists_isCanonicalPerturbation_halfSEP`).",
     "decls": [
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.theorem_16_6_6_of_cylinder",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.theorem_16_6_6_of_model",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.CylinderInput",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.hasOrientedCobordism_of_cylinderInput",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.IsInheritedFrom",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.toOrientedPerturbation",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.integral_toCompact",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.integralEff_toCompact",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.hasCobordism_ofRegular",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.hasCobordismEff_ofRegular",
+     "Chapter16/ModelPerturbations · EpGroupoid.branchedMeasure_congr_orientation",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.isRegularPerturbation_of_admissible",
+     "Chapter16/ModelPerturbations · StrongPolyfoldBundle.theorem_16_6_6_of_model_hcob_witness",
+     "Chapter15/CanonicalLiftIndependence · SBLocalization.IsCanonicalPerturbation",
+     "Chapter15/CanonicalOrientationStokes · SBLocalization.isCanonicalPerturbation_canonical",
+     "Chapter16/CanonicalOrientationWitness · HalfSpaceBundle.exists_isCanonicalPerturbation_halfSEP",
      "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp",
      "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement",
      "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp_hcob_witness",
@@ -2164,13 +2224,13 @@
    },
    "chips": [
     "integrals well defined; rest: cobordisms",
-    "cobordism witness: self-cobordism only",
-    "inherited orientation: parameter"
+    "inherited orientation: in the model of o",
+    "cobordism witness: self-cobordism (weak)"
    ],
    "diff": [
-    "Proved without the cobordism: well-definedness of the integrals (independent of representative and model) and dependence only on $[\\tau]$. Independence of $\\lambda$ rests on `hcob`/`hcobEff` (the cobordism of Corollary 15.4.4, gap G.182) and on `IsInherited`, a parameter for the orientation inherited from $(f, o)$ (Theorem 15.4.1 at the polyfold level with the transport of orientations; gaps G.159, G.175, G.176). The theorem holds for every predicate `IsInherited`.",
-    "Added: `hPU`, partitions of unity on $Z$ (the hypothesis of Stokes, Theorem 16.4.6; witness `theorem_16_4_6_hyp_witness`). The cobordism hypotheses have only the self-cobordism witness (`theorem_16_6_6_hyp_hcob_witness`, $\\tilde\\Theta = 0$), and no concrete strong polyfold bundle with an admissible oriented perturbation of nonempty support is built: the statement is nonvacuous only through these witnesses (weak). The text's $f$ oriented, compact solution set and $(n, U)$ enter only through the perturbations and the cobordism.",
-    "Readings: the degree $k$ is the dimension $m+1 \\ge 1$ of $\\hat\\theta$ (the case $k = 0$ needs the 0-dimensional branched integral, gap G.188); \"$(f, \\lambda)$ in general position\" is read in one model (invariance under generalized isomorphisms is gap G.187); \"independent of $\\lambda$\" is equality over any two admissible perturbations with the inherited orientation. The model-level target is `corollary_15_4_4_statement` (V15.37)."
+    "Proved without the cobordism: well-definedness of the integrals (independent of representative and model) and dependence only on $[\\tau]$. Independence of $\\lambda$: in the form `theorem_16_6_6_hyp` it rests on `hcob`/`hcobEff` and on `IsInherited`, a parameter (the theorem holds for every predicate). In the model of $o$ (`theorem_16_6_6_of_model`) the inherited orientation is `IsInheritedFrom Can` with `Can` the canonical orientation of Definition 15.4.2, and the cobordisms are those of the model; along the text's argument (`theorem_16_6_6_of_cylinder`) they come from `CylinderInput`, the inputs of Corollary 15.4.4 on the cylinder. Open (gap G.175): the independence of the inherited orientation from the model carrying $o$ (the pull-back of $\\hat T$ under generalized strong bundle isomorphisms; the transport of $o$ itself is V16.77), and filling `CylinderInput` from Corollary 15.4.4's results, which keep one hypothesis `hinvC` (gap G.182).",
+    "Hypothesis: `hPU`, partitions of unity on $Z$ (the hypothesis of Stokes in the form proved, V16.28; witness `theorem_16_4_6_hyp_witness`). The cobordism hypotheses have only the self-cobordism witnesses (`theorem_16_6_6_hyp_hcob_witness`, `theorem_16_6_6_of_model_hcob_witness`, $\\tilde\\Theta = 0$), `CylinderInput` has no witness, and no concrete strong polyfold bundle with an admissible oriented perturbation of nonempty support is built: the statement is nonvacuous only through these witnesses (weak). The text's $f$ oriented, compact solution set and $(n, U)$ enter only through the perturbations and the cobordism.",
+    "Readings: the inherited orientation is read in the model that carries $o$; the perturbations compared in `theorem_16_6_6_of_model` are the structurable regular perturbations of that model (Corollary 15.3.10: structurable, $N(\\Lambda) < 1$), as in Corollary 15.4.4, and `isRegularPerturbation_of_admissible` shows that the difference from the text's \"controlled by $(n, U)$, general position\" is structurability and the strict bound. \"$(f, \\lambda)$ in general position\" in one model is no restriction (V16.80). \"Independent of $\\lambda$\" is equality over any two admissible perturbations with the inherited orientation. The degree $k$ is the dimension $m+1 \\ge 1$ of $\\hat\\theta$; the index-0 case is V16.82 (gap G.188). The model-level target is `corollary_15_4_4_statement` (V15.37)."
    ]
   },
   {
@@ -2183,7 +2243,7 @@
     "statement": "If some structure $m \\in \\bar c$ has reflexive fibres $W_{0,1}$, so have the equivalent structures."
    },
    "lean": {
-    "statement": "`StrongBundle.LocalIso.exists_reflexive_chart`: for a local strong bundle isomorphism $\\Phi : Y|U \\to Y'|U'$ covering $\\phi$ and $x \\in U$, a compatible chart of $Y'$ at $\\phi(x)$ with $F_1$ reflexive gives one of $Y$ at $x$ (restrict the chart to $U'$, then transport it; the fibre model is unchanged). `StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn`: if $X$ is covered by domains of such isomorphisms, reflexive $(0,1)$-fibres pull back. **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of`**: for a strong bundle equivalence $\\Phi : W \\to W'$ (Definition 10.4.1), `B'.HasReflexiveFibers → B.HasReflexiveFibers`.\n\nPush direction (Part III wave 7, `Chapter16/ReflexivePush.lean`): **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push`** (for $x' \\in X'$ pick $x$ and $\\sigma : \\phi(x) \\to x'$; a reflexive chart at $\\phi(x)$ from `exists_reflexive_chart` for `L.symm`, moved to $x'$ by `EpStrongBundle.exists_localIso_mor σ`), `hasReflexiveFibers_iff`, `SDiagram.hasReflexiveFibers_of`, `GenSBMap.hasReflexiveFibers_iff`, `StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv`, **`StrongPolyfoldBundle.hasReflexiveFibers_iff_forall`**.",
+    "statement": "`StrongBundle.LocalIso.exists_reflexive_chart`: for a local strong bundle isomorphism $\\Phi : Y|U \\to Y'|U'$ covering $\\phi$ and $x \\in U$, a compatible chart of $Y'$ at $\\phi(x)$ with $F_1$ reflexive gives one of $Y$ at $x$ (restrict the chart to $U'$, then transport it; the fibre model is unchanged). `StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn`: if $X$ is covered by domains of such isomorphisms, reflexive $(0,1)$-fibres pull back. **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of`**: for a strong bundle equivalence $\\Phi : W \\to W'$ (Definition 10.4.1), `B'.HasReflexiveFibers → B.HasReflexiveFibers`.\n\nPush direction (`Chapter16/ReflexivePush.lean`): **`EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_push`** (for $x' \\in X'$ pick $x$ and $\\sigma : \\phi(x) \\to x'$; a reflexive chart at $\\phi(x)$ from `exists_reflexive_chart` for `L.symm`, moved to $x'$ by `EpStrongBundle.exists_localIso_mor σ`), `hasReflexiveFibers_iff`, `SDiagram.hasReflexiveFibers_of`, `GenSBMap.hasReflexiveFibers_iff`, `StrongPolyfoldBundleStructure.hasReflexiveFibers_of_equiv`, **`StrongPolyfoldBundle.hasReflexiveFibers_iff_forall`**.",
     "decls": [
      "Chapter16/ReflexivePull · StrongBundle.LocalIso.exists_reflexive_chart",
      "Chapter16/ReflexivePull · StrongBundle.hasReflexiveFibers_of_isStrongBundleIsoOn",
@@ -2199,7 +2259,7 @@
     "both directions"
    ],
    "diff": [
-    "Proved in both directions: along a generalized isomorphism $[W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W']$ reflexive 1-fibres pass between $W$, $W''$ and $W'$ (gap G.166 closed in Part III wave 7)."
+    "Proved in both directions: along a generalized isomorphism $[W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W']$ reflexive 1-fibres pass between $W$, $W''$ and $W'$ (gap G.166 closed)."
    ]
   },
   {
@@ -2212,7 +2272,7 @@
     "statement": "For a generic sc⁺-multisection $\\lambda$, $\\theta = \\lambda \\circ f : Z \\to \\mathbb Q^+$ defines a branched suborbifold of $Z$; if $f$ is oriented, $\\theta$ has a natural orientation (Theorem 15.4.1, Definition 15.4.2)."
    },
    "lean": {
-    "statement": "`BranchedRep.rel_of_toFun_eq`, **`BranchedSuborbifold.toFun_injective`**: a branched suborbifold of a polyfold is determined by $\\theta : Z \\to \\mathbb Q$. `perturbedFun s t` $= \\lambda \\circ f$, `IsPerturbedSuborbifold s t θ`; `perturbedRep hS F Λ hbr` (the representative $(\\Lambda \\circ F, (X, \\gamma))$ in a model), `exists_functor_rep`, `perturbedRep_toFun` ($|\\Lambda \\circ F| \\circ \\gamma^{-1} = \\lambda \\circ f$ in every model), `isPerturbedSuborbifold_iff`, `isPerturbedSuborbifold_unique`; `ScSection.IsInGeneralPositionWith s t` (general position in some model). **`exists_isPerturbedSuborbifold_hyp`** ($\\partial Z = \\emptyset$, $f$ sc-Fredholm, $(n, U)$ controlling compactness, $\\lambda$ controlled by $(n, U)$, general position in the model of $a$, tame germ data): $\\exists\\theta$ with $\\theta = \\lambda \\circ f$, compact.",
+    "statement": "`BranchedRep.rel_of_toFun_eq`, **`BranchedSuborbifold.toFun_injective`**: a branched suborbifold of a polyfold is determined by $\\theta : Z \\to \\mathbb Q$. `perturbedFun s t` $= \\lambda \\circ f$, `IsPerturbedSuborbifold s t θ`; `perturbedRep hS F Λ hbr` (the representative $(\\Lambda \\circ F, (X, \\gamma))$ in a model), `exists_functor_rep`, `perturbedRep_toFun` ($|\\Lambda \\circ F| \\circ \\gamma^{-1} = \\lambda \\circ f$ in every model), `isPerturbedSuborbifold_iff`, `isPerturbedSuborbifold_unique`; `ScSection.IsInGeneralPositionWith s t` (general position in some model). **`exists_isPerturbedSuborbifold_hyp`** ($\\partial Z = \\emptyset$, $f$ sc-Fredholm, $(n, U)$ controlling compactness, $\\lambda$ controlled by $(n, U)$, general position in the model of $a$, tame germ data): $\\exists\\theta$ with $\\theta = \\lambda \\circ f$, compact.\n\nGeneral position in one model is general position in every model (`Chapter16/GeneralPositionModels`): **`FredholmSection.isInGeneralPositionWith_iff_forall`**, `ScSection.isInGeneralPositionWith_iff_of_rep`, `isInGeneralPosition_rep_iff`, `ScSection.isInGeneralPositionWith_iff_of_mem` (over any prescribed structure $S \\in \\bar c$), `exists_isPerturbedSuborbifold_of_generalPosition_hyp` (existence with general position in any model); general position at a point is carried along local strong bundle isomorphisms (`SBLocalization.isReducedOntoAtLevel_localIso_iff`), strong bundle equivalences (`SBLocalization.isInGeneralPosition_pullback_iff`) and diagrams (`SBLocalization.SDiagram.isInGeneralPosition_iff`).",
     "decls": [
      "Chapter16/PerturbedSuborbifold · PolyfoldClass.BranchedRep.rel_of_toFun_eq",
      "Chapter16/PerturbedSuborbifold · PolyfoldClass.BranchedSuborbifold.toFun_injective",
@@ -2228,15 +2288,24 @@
      "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_iff",
      "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.isPerturbedSuborbifold_unique",
      "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith",
-     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp"
+     "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_hyp",
+     "Chapter15/LinearizationLocalIso · SBLocalization.isReducedOntoAtLevel_localIso_iff",
+     "Chapter15/GeneralPositionEquivalence · SBLocalization.isInGeneralPosition_pullback_iff",
+     "Chapter15/GeneralPositionEquivalence · SBLocalization.SDiagram.isInGeneralPosition_iff",
+     "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.isInGeneralPosition_rep_iff",
+     "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.ScSection.isInGeneralPositionWith_iff_of_rep",
+     "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.FredholmSection.isInGeneralPositionWith_iff_forall",
+     "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.ScSection.isInGeneralPositionWith_iff_of_mem",
+     "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.exists_isPerturbedSuborbifold_of_generalPosition_hyp"
     ]
    },
    "chips": [
-    "generic: in one model (G.187)",
-    "orientation: G.159, G.175"
+    "generic: one model = every model",
+    "orientation: in the model of o (G.175)"
    ],
    "diff": [
-    "The branched-suborbifold part is proved: uniqueness and model independence with no extra hypothesis, existence with the inherited tame germ data (gap G.140). \"Generic\" is read as general position in some model; its invariance under generalized strong bundle isomorphisms is gap G.187. The natural orientation is not built (gaps G.159, G.175)."
+    "The branched-suborbifold part is proved: uniqueness and model independence with no extra hypothesis, existence with the tame germ data of the representative (gap G.140). \"Generic\" is read as general position at the level-1 points of a model; by `FredholmSection.isInGeneralPositionWith_iff_forall` \"in one model\" is no restriction (gap G.187), the only hypothesis being the text's, $f$ sc-Fredholm. The natural orientation is Theorem 15.4.1 and Definition 15.4.2 in a model (`SBLocalization.IsCanonicalPerturbation`), carried to the polyfold in the model of $o$ (V16.78); its independence of that model is gap G.175.",
+    "Weak: no concrete strong polyfold bundle with a pair in general position and nonempty $\\mathrm{supp}(\\lambda \\circ f)$ is built; representatives exist over every structure (`isInGeneralPositionWith_iff_of_mem`), so the \"every model\" side is not void."
    ]
   },
   {
@@ -2265,6 +2334,83 @@
    "diff": [
     "None."
    ]
+  },
+  {
+   "id": "V16.82",
+   "title": "Theorem 16.6.6 (2017: 16.8) for Fredholm index $0$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8)",
+    "page": 739,
+    "statement": "The invariant for a closed form of degree $k$ equal to the index, including $k = 0$: for $\\lambda$ controlled by $(n, U)$ in general position, the weighted counts of the 0-dimensional $\\lambda \\circ f$ with the inherited orientation do not depend on $\\lambda$."
+   },
+   "lean": {
+    "statement": "On the polyfold (`Chapter16/IndexZeroPolyfoldTheorem`): `PolyfoldClass.PointSuborbifold c` (compact, tame of dimension 0), `count`, `countEff`, `HasCobordism`, **`PointSuborbifold.count_eq_of_hasCobordism`**, `countEff_eq_of_hasCobordismEff`; `StrongPolyfoldBundle.PointOrientedPerturbation`, **`theorem_16_6_6_index_zero_polyfold_statement`** (Theorem 16.6.6 for index 0 with the counts of V16.83), **`theorem_16_6_6_index_zero_polyfold_of_model`** (from the cobordisms in the model of $o$; inherited orientation `IsInheritedFromPoint`), `theorem_16_6_6_index_zero_polyfold_of_model_statement`, `theorem_16_6_6_index_zero_polyfold_hcob_witness`. In a model (`Chapter16/IndexZeroInvariant`): `SBLocalization.PointPerturbation` with `count`, `countEff`, **`corollary_15_4_4_index_zero`**, `StrongPolyfoldBundle.theorem_16_6_6_index_zero_of_model`, `theorem_16_6_6_index_zero_hcob_witness`. Two models: `StrongPolyfoldBundle.count_eq_of_mk_eq` (`Chapter16/PointCountEquivalence`: point perturbations in the models of two representatives defining the same oriented branched suborbifold have the same counts), witness `count_eq_of_mk_eq_two_models` (`Chapter16/IndexZeroTwoModels`).",
+    "decls": [
+     "Chapter16/IndexZeroPolyfoldTheorem · PolyfoldClass.PointSuborbifold",
+     "Chapter16/IndexZeroPolyfoldTheorem · PolyfoldClass.PointSuborbifold.count_eq_of_hasCobordism",
+     "Chapter16/IndexZeroPolyfoldTheorem · PolyfoldClass.PointSuborbifold.countEff_eq_of_hasCobordismEff",
+     "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.PointOrientedPerturbation",
+     "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_statement",
+     "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_of_model",
+     "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_of_model_statement",
+     "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_hcob_witness",
+     "Chapter16/IndexZeroInvariant · SBLocalization.PointPerturbation",
+     "Chapter16/IndexZeroInvariant · SBLocalization.corollary_15_4_4_index_zero",
+     "Chapter16/IndexZeroInvariant · StrongPolyfoldBundle.theorem_16_6_6_index_zero_of_model",
+     "Chapter16/IndexZeroInvariant · StrongPolyfoldBundle.theorem_16_6_6_index_zero_hcob_witness",
+     "Chapter16/PointCountEquivalence · StrongPolyfoldBundle.count_eq_of_mk_eq",
+     "Chapter16/IndexZeroTwoModels · StrongPolyfoldBundle.count_eq_of_mk_eq_two_models"
+    ]
+   },
+   "chips": [
+    "cobordisms: hypotheses (G.188)",
+    "inherited orientation: in the model of o",
+    "witnesses weak"
+   ],
+   "diff": [
+    "The 0-dimensional counts are those of V16.83. The cobordisms between two point perturbations are hypotheses: the cylinder for index 0 (Corollary 15.3.10 (3), with the boundary of the 1-dimensional $\\tilde\\Theta$ the points of $\\Theta_1$ with sign $+$ and of $\\Theta_0$ with sign $-$) is gap G.188; it needs a signed form of the frame convention for 0-dimensional sheets (a reading point of Chapter 15). As for $k \\ge 1$ the inherited orientation is read in the model carrying $o$ (V16.78). \"Depends only on $[\\tau]$\" is void in degree 0.",
+    "Witnesses: the cobordism hypotheses hold for the predicate that singles out one perturbation (`theorem_16_6_6_index_zero_polyfold_hcob_witness`, `theorem_16_6_6_index_zero_hcob_witness`, $\\tilde\\Theta = 0$; weak). `count_eq_of_mk_eq_two_models`: two representatives $a \\ne b$ (the sections $x \\mapsto (x, x)$ and $x \\mapsto (x, -x)$ of $\\mathbb R \\times \\mathbb R \\to \\mathbb R$, non-zero fibres, $\\mathrm{supp}(\\Lambda_0 \\circ F) = \\{0\\}$, both perturbations structurable and regular); weak: $a$, $b$ share the structure and represent different sections; a pair with the same section over two structures is open (gap G.188)."
+   ]
+  },
+  {
+   "id": "V16.83",
+   "title": "The integrals on p. 732 in dimension $0$ and their independence of the representative",
+   "verdict": "same",
+   "book": {
+    "label": "§16.4, after Definition 16.4.5, p. 732 (2017: §16.4); Definition 9.5.6 for $n = 0$",
+    "page": 732,
+    "statement": "$\\int_{\\hat\\theta}\\tau = \\mu^{\\hat\\Theta}_\\omega(|\\mathrm{supp}\\,\\Theta|)$ and $\\oint_{\\hat\\theta}\\tau$ (Definition 9.5.6) for $\\hat\\theta$ of dimension 0; \"the definition does not depend on the choice of the representatives\"."
+   },
+   "lean": {
+    "statement": "Ep-groupoid level (`Chapter16/IndexZeroInvariant`): `EpGroupoid.IsPointTame` (tame of dimension 0 with point sheets), **`EP.pointBranchedIntegral`**, `EP.pointBranchedIntegralEff` (Definition 9.5.6 for $n = 0$: the total mass of the measures of Theorems 9.5.4, 9.5.5 for `EP.zeroFormIntegration`, locally $\\pm\\omega(p)$), `EP.pointIntegral_eq_of_cobordism` (Theorems 9.5.17, 9.5.18 for $n = 1$); **`EpGroupoid.isPointTame_iff`** (`Chapter16/PointTameShrinking`): tameness with point sheets is tameness of dimension 0. Independence: `EpFunctor.theorem_11_4_1_pull_equiv_point`, `EPLocalization.EPLoc.pointBranchedIntegral_pull` (`Chapter16/PointCountEquivalence`), and as measure identities for generalized isomorphisms `EPLocalization.EPLoc.point_theorem_11_4_1_pull`, `EPLocalization.EPLoc.point_theorem_11_4_1_push`, `EpFunctor.point_measure_span_core` (`Chapter16/PointMeasureGeneralizedIso`): Theorem 11.4.1 for $n = 0$. Polyfold level: **`PolyfoldClass.OrientedSuborbifold.pointIntegral`**, `pointIntegral_eq`, `pointIntegralEff` (computed on any representative), `OrientedSuborbifold.isPointTame_iff_isTameOriented`, `pointIntegralOfTame`; `StrongPolyfoldBundle.count_eq_pointIntegral` (the model counts of V16.82 are these). Witness `EpGroupoid.isPointTame_point_rn` ($\\Theta = 1_{\\{p\\}}$ on $\\mathbb R^n$, $p \\in \\mathrm{supp}\\,\\Theta$, either orientation of the point).",
+    "decls": [
+     "Chapter16/IndexZeroInvariant · EpGroupoid.IsPointTame",
+     "Chapter16/IndexZeroInvariant · EP.pointBranchedIntegral",
+     "Chapter16/IndexZeroInvariant · EP.pointBranchedIntegralEff",
+     "Chapter16/IndexZeroInvariant · EP.pointIntegral_eq_of_cobordism",
+     "Chapter16/IndexZeroInvariant · EpGroupoid.isPointTame_point_rn",
+     "Chapter16/PointTameShrinking · EpGroupoid.isPointTame_iff",
+     "Chapter16/PointTameShrinking · PolyfoldClass.OrientedSuborbifold.isPointTame_iff_isTameOriented",
+     "Chapter16/PointTameShrinking · PolyfoldClass.OrientedSuborbifold.pointIntegralOfTame",
+     "Chapter16/PointCountEquivalence · EpFunctor.theorem_11_4_1_pull_equiv_point",
+     "Chapter16/PointCountEquivalence · EPLocalization.EPLoc.pointBranchedIntegral_pull",
+     "Chapter16/PointCountEquivalence · PolyfoldClass.OrientedSuborbifold.pointIntegral",
+     "Chapter16/PointCountEquivalence · PolyfoldClass.OrientedSuborbifold.pointIntegral_eq",
+     "Chapter16/PointCountEquivalence · PolyfoldClass.OrientedSuborbifold.pointIntegralEff",
+     "Chapter16/PointCountEquivalence · StrongPolyfoldBundle.count_eq_pointIntegral",
+     "Chapter16/PointMeasureGeneralizedIso · EPLocalization.EPLoc.point_theorem_11_4_1_pull",
+     "Chapter16/PointMeasureGeneralizedIso · EPLocalization.EPLoc.point_theorem_11_4_1_push",
+     "Chapter16/PointMeasureGeneralizedIso · EpFunctor.point_measure_span_core"
+    ]
+   },
+   "chips": [
+    "Definition 9.5.6 for n = 0",
+    "independent of the representative"
+   ],
+   "diff": [
+    "No hypothesis beyond the text's (compactness, tameness of dimension 0; tameness of a pull-back follows, `isPointTame_pull`). Point sheets are no restriction (`isPointTame_iff`), so the counts are defined for every compact $\\hat\\theta$ tame of dimension 0 in the sense of Chapter 16 (`pointIntegralOfTame`). The 0-dimensional integral is defined outside Chapter 11's `FormEval` frame, which assumes $n > 0$."
+   ]
   }
  ],
  "notFormalized": [
@@ -2274,7 +2420,7 @@
    "label": "§16.1, after Definition 16.1.1, p. 706 (2017: Proposition 16.1)",
    "page": 706,
    "book": "If $|X|$ is paracompact, $Z \\cong |X|$ is metrizable (locally metrizable, regular, Hausdorff and paracompact: Nagata–Smirnov).",
-   "instead": "**Formalized** (2026-11-13, Part III wave 2; V16.14): `PolyfoldStructure.metrizableSpace` (`TangentPolyfold.lean`), from Theorem 7.3.1's `theorem_7_3_1_metrizable`. The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed. In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.",
+   "instead": "**Formalized** (V16.14): `PolyfoldStructure.metrizableSpace` (`TangentPolyfold.lean`), from Theorem 7.3.1's `theorem_7_3_1_metrizable`. The metrization step is Part I's `metrizableSpace_of_locally` (Chapter 2), so no Smirnov theorem from Mathlib is needed. In 2017 this was the numbered Proposition 16.1; in the 2021 text it is a remark in prose.",
    "formalized": [
     "V16.14"
    ],
@@ -2284,14 +2430,25 @@
   },
   {
    "g": 153,
-   "title": "Stokes on polyfolds without partitions of unity",
+   "title": "Stokes on polyfolds without partitions of unity (the text's own open question)",
    "label": "§16.4, Theorem 16.4.6, p. 732 (2017: Theorem 16.5)",
    "page": 732,
-   "book": "$\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ with no hypothesis on $(Z,c)$ beyond being a polyfold (the standing assumption of Chapter 16 is ZHOU; partitions of unity are not assumed).",
-   "instead": "`theorem_16_4_6_hyp` and `theorem_16_4_6_eff_hyp` (V16.28), with `c.AdmitsScPartitionsOfUnity` as Theorem 9.5.17 assumes. Removing it needs Stokes on ep-groupoids without partitions of unity, using the compactness of $\\mathrm{supp}\\,\\Theta$ for a finite cut-off. Estimate 300–600 lines.",
+   "book": "$\\int_{\\hat\\theta} d\\tau = \\int_{\\partial\\hat\\theta}\\tau$ with no hypothesis on $(Z,c)$ beyond being a polyfold (the standing assumption of Chapter 16 is ZHOU; partitions of unity are not assumed), because \"On the ep-groupoid level Stokes' Theorem holds\" (p. 732). Theorems 9.5.17 and 9.5.18 assume sc-smooth partitions of unity; Remark 9.5.19 calls the assumption \"very likely not needed\" and leaves the modification to the reader.",
+   "instead": "**Nothing to formalize: the text's own open question** (Remark 9.5.19). Theorem 16.4.6 as printed rests on Stokes on ep-groupoids without partitions of unity, which the text expects but does not prove. Formalized (V16.28; `Chapter16/StokesWithoutPartitions`): the assertion of Remark 9.5.19 as a statement, `EP.StokesWithoutPartitions` (Theorems 9.5.17 and 9.5.18 and their 1-dimensional forms without partitions of unity; the effective forms with LUC), and for polyfolds `PolyfoldClass.HasEpStokes` (every model satisfies it); Theorem 16.4.6 as printed from it, with no partitions-of-unity hypothesis on $c$ (`OrientedRep.theorem_16_4_6_of_epStokes`, `theorem_16_4_6_eff_of_epStokes`, `theorem_16_4_6_dim1_of_epStokes`, `theorem_16_4_6_eff_dim1_of_epStokes`). The case the text proves, with partitions of unity, is an instance (`EP.stokesWithoutPartitions_of_hasScPartitionsOfUnity`, `hasEpStokes_of_admitsScPartitionsOfUnity`; directly `theorem_16_4_6_hyp` and its companions). Witnesses: `EP.stokesWithoutPartitions_witness` (the half-plane; its compact oriented half-circle $\\Theta$ has $\\mathrm{supp}(\\partial\\Theta) \\ne \\emptyset$) and `PolyfoldClass.hasEpStokes_witness` ($[\\mathbb Z/3 \\ltimes \\mathbb R]$; weak: empty boundary). A proof of `EP.StokesWithoutPartitions` itself would follow the route of Remark 9.5.19 (local measures from the branching structures, partitions of unity on $\\mathrm{supp}\\,\\Theta$ only), which the text does not carry out.",
    "decls": [
+    "Chapter16/StokesWithoutPartitions · EP.StokesWithoutPartitions",
+    "Chapter16/StokesWithoutPartitions · EP.stokesWithoutPartitions_of_hasScPartitionsOfUnity",
+    "Chapter16/StokesWithoutPartitions · EP.stokesWithoutPartitions_witness",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.HasEpStokes",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.hasEpStokes_of_admitsScPartitionsOfUnity",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.hasEpStokes_witness",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_of_epStokes",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_of_epStokes",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_dim1_of_epStokes",
+    "Chapter16/StokesWithoutPartitions · PolyfoldClass.OrientedRep.theorem_16_4_6_eff_dim1_of_epStokes",
     "Chapter16/BranchedSuborbifold · PolyfoldClass.OrientedRep.theorem_16_4_6_hyp"
-   ]
+   ],
+   "nothing": true
   },
   {
    "g": 154,
@@ -2299,7 +2456,7 @@
    "label": "§16.4, p. 729, and Definition 16.4.2 (5), p. 730 (2017: Definition 16.30)",
    "page": 729,
    "book": "If $\\Theta$ is tame, so are $f_*\\Theta$ and $f^*\\Theta$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 3; V16.23, V16.27; `Chapter16/BranchedTame.lean`): `TameBranchingStructure.restrictRep` and `move` (Definition 9.3.6 structures restricted, and moved by sc-diffeomorphisms), `EpFunctor.isTameBranched_pullbackTheta`, `isTameBranched_pushforwardTheta`, `isTameBranched_pullbackTheta_iff` along transport charts as in Theorem 11.4.1, `EPLoc.isTameBranched_pullTheta`; `BranchedSuborbifold.definition_16_4_2_tame` ($\\theta$ is tame iff every representative is); for the oriented form `OrientedRep.Rel.isTameOriented` and `OrientedSuborbifold.isTameOriented_iff`; the integrals on classes `OrientedSuborbifold.integral`, `integralEff` with `integral_eq`, `integralEff_eq`.",
+   "instead": "**Formalized** (V16.23, V16.27; `Chapter16/BranchedTame.lean`): `TameBranchingStructure.restrictRep` and `move` (Definition 9.3.6 structures restricted, and moved by sc-diffeomorphisms), `EpFunctor.isTameBranched_pullbackTheta`, `isTameBranched_pushforwardTheta`, `isTameBranched_pullbackTheta_iff` along transport charts as in Theorem 11.4.1, `EPLoc.isTameBranched_pullTheta`; `BranchedSuborbifold.definition_16_4_2_tame` ($\\theta$ is tame iff every representative is); for the oriented form `OrientedRep.Rel.isTameOriented` and `OrientedSuborbifold.isTameOriented_iff`; the integrals on classes `OrientedSuborbifold.integral`, `integralEff` with `integral_eq`, `integralEff_eq`.",
    "decls": [
     "Chapter16/BranchedTame · PolyfoldClass.BranchedSuborbifold.definition_16_4_2_tame",
     "Chapter16/BranchedTame · PolyfoldClass.OrientedRep.Rel.isTameOriented",
@@ -2317,7 +2474,7 @@
    "label": "§16.4, Proposition 16.4.3, p. 730 (2017: Proposition 16.6)",
    "page": 730,
    "book": "The manifold (orbifold) structure on $\\mathrm{supp}\\,\\theta$ is induced from the overhead and does not depend on the representative.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.24; `Chapter16/SuppNaturality.lean`): `proposition_16_4_3_naturality` (the statement `proposition_16_4_3_naturality_statement`, proved), from `isScSmoothOn_suppTransition` (the transition is sc-smooth for any induced structures; the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$) and `proposition_16_4_3_naturality_all` (any induced structures, orbifold type).",
+   "instead": "**Formalized** (V16.24; `Chapter16/SuppNaturality.lean`): `proposition_16_4_3_naturality` (the statement `proposition_16_4_3_naturality_statement`, proved), from `isScSmoothOn_suppTransition` (the transition is sc-smooth for any induced structures; the restricted equivalences `EpFunctor.IsEquivalence.restrictSub` and the local sc-diffeomorphisms $a \\mapsto |a|$) and `proposition_16_4_3_naturality_all` (any induced structures, orbifold type).",
    "decls": [
     "Chapter16/BranchedSuborbifold · PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_manifold",
     "Chapter16/SuppNaturalityStatement · PolyfoldClass.BranchedSuborbifold.suppTransition",
@@ -2336,7 +2493,7 @@
    "label": "§16.2, pp. 715 and 717 (2017: §16.2)",
    "page": 715,
    "book": "$(Z,c)^i = (Z_i, c_i)$, and $\\tau_Z : T(Z,c) \\to Z^1$ with $\\tau_Z \\circ T\\alpha = \\alpha \\circ |\\tau_X|$.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 4; V16.35, V16.36; `Chapter16/RaisedPolyfold.lean`): the raised structures through `Diagram.liftOne` and `EPLoc.liftOneHom` (`RaisedSpace c`, `raiseMap`, `raiseStructure`, `raise c` with `raise_eq`, the injection `raiseIncl` with image $Z_1$, `raiseN`), and $\\tau_Z$ = `tangentProj` with $\\tau_Z \\circ T\\alpha = \\alpha^1 \\circ |\\tau_X|$ (`tangentProj_tangentMap`, from the naturality `EPLoc.orbitMap_tangentProj_tangentHom`). $(Z,c)^1$ carries the topology of $|X^1|$, not the subspace topology of $Z$.",
+   "instead": "**Formalized** (V16.35, V16.36; `Chapter16/RaisedPolyfold.lean`): the raised structures through `Diagram.liftOne` and `EPLoc.liftOneHom` (`RaisedSpace c`, `raiseMap`, `raiseStructure`, `raise c` with `raise_eq`, the injection `raiseIncl` with image $Z_1$, `raiseN`), and $\\tau_Z$ = `tangentProj` with $\\tau_Z \\circ T\\alpha = \\alpha^1 \\circ |\\tau_X|$ (`tangentProj_tangentMap`, from the naturality `EPLoc.orbitMap_tangentProj_tangentHom`). $(Z,c)^1$ carries the topology of $|X^1|$, not the subspace topology of $Z$.",
    "decls": [
     "Chapter16/RaisedPolyfold · PolyfoldClass.RaisedSpace",
     "Chapter16/RaisedPolyfold · PolyfoldClass.raise",
@@ -2355,7 +2512,7 @@
    "label": "§16.2, Theorem 16.2.4, p. 719 (2017: Theorem 16.1)",
    "page": 719,
    "book": "$T$ is a functor on the polyfold category.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.34; `Chapter16/TangentEffective.lean`): `PolyfoldClass.IsEffective.tangent` (the tangent of an effective polyfold is effective, through a smooth point and (ZHOU)), `ScMap.tangent_comp_of_isEffective`, and `EffPolyfold.tangentFunctor`, a Mathlib functor on effective polyfolds. (Until 2026-11-13 this entry was \"The tangent functor and the pull-back of forms on the polyfold category\"; the morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back were formalized in Part III wave 3.)",
+   "instead": "**Formalized** (V16.34; `Chapter16/TangentEffective.lean`): `PolyfoldClass.IsEffective.tangent` (the tangent of an effective polyfold is effective, through a smooth point and (ZHOU)), `ScMap.tangent_comp_of_isEffective`, and `EffPolyfold.tangentFunctor`, a Mathlib functor on effective polyfolds. The morphisms of Definitions 16.1.6–16.1.11, the functor on PS and the pull-back of forms on the polyfold category are formalized as well.",
    "decls": [
     "Chapter16/TangentFunctor · PolyfoldClass.ScMap.tangent_comp",
     "Chapter16/TangentFunctor · PolyfoldClass.theorem_16_2_4",
@@ -2374,7 +2531,7 @@
    "label": "§16.3, Definition 16.3.12 (parenthetical), p. 727; Definition 16.3.14 and Proposition 16.3.16 (2), pp. 727–728; the remark before Theorem 16.3.17, p. 728 (2017: Definitions 16.24, 16.26, Proposition 16.5)",
    "page": 727,
    "book": "Equivalent strong polyfold bundle structures also have reflexive 1-fibres; pull-backs and push-forwards of reflexive auxiliary norms under generalized strong bundle isomorphisms are reflexive, and mixed convergence does not depend on the model.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.51–V16.53, V16.56, V16.79; `Chapter16/ReflexivePush.lean`, `MixedTransfer.lean`, with the pull direction of Part III wave 5, `ReflexivePull.lean`): reflexive 1-fibres in every model (`hasReflexiveFibers_iff_forall`), mixed convergence and reflexive auxiliary norms independent of the model (`mixedTendsto_iff_forall`, `isReflexiveAuxNorm_iff_forall`, from Part I's `StrongBundle.LocalIso.mixedTendsto`), pull-backs and push-forwards of reflexive auxiliary norms (`GenSBMap.isReflexiveAuxNorm_pullNorm`, `GenSBMap.isReflexiveAuxNorm_pushNorm`), and Proposition 16.3.16 (2) in the text's form (`proposition_16_3_16_two`).",
+   "instead": "**Formalized** (V16.51–V16.53, V16.56, V16.79; `Chapter16/ReflexivePush.lean`, `MixedTransfer.lean`, with the pull direction in `ReflexivePull.lean`): reflexive 1-fibres in every model (`hasReflexiveFibers_iff_forall`), mixed convergence and reflexive auxiliary norms independent of the model (`mixedTendsto_iff_forall`, `isReflexiveAuxNorm_iff_forall`, from Part I's `StrongBundle.LocalIso.mixedTendsto`), pull-backs and push-forwards of reflexive auxiliary norms (`GenSBMap.isReflexiveAuxNorm_pullNorm`, `GenSBMap.isReflexiveAuxNorm_pushNorm`), and Proposition 16.3.16 (2) in the text's form (`proposition_16_3_16_two`).",
    "decls": [
     "Chapter16/PolyfoldAuxNorm · StrongPolyfoldBundle.proposition_16_3_16_two_of_mem",
     "Chapter16/ReflexivePull · EpStrongBundle.IsStrongBundleEquivalence.hasReflexiveFibers_of",
@@ -2399,7 +2556,7 @@
    "label": "§16.3, before Definition 16.3.18, p. 728 (2017: before Definition 16.27)",
    "page": 728,
    "book": "$(p, \\bar c)$ has a canonical zero section $z \\mapsto 0_z$ induced from the zero sections of the models.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 7; V16.81; `Chapter16/ZeroSection.lean`): `StrongPolyfoldBundle.zeroSection c : ScSection c`, induced by the zero section functor of any structure (`zeroSection_eq_mk`), sc⁺ (`isScPlus_zeroSection`), with solution set $Z$.",
+   "instead": "**Formalized** (V16.81; `Chapter16/ZeroSection.lean`): `StrongPolyfoldBundle.zeroSection c : ScSection c`, induced by the zero section functor of any structure (`zeroSection_eq_mk`), sc⁺ (`isScPlus_zeroSection`), with solution set $Z$.",
    "decls": [
     "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt",
     "Chapter16/FibreZero · StrongPolyfoldBundle.zeroAt_eq_of_mem",
@@ -2416,7 +2573,7 @@
    "label": "§16.5, (16.8), p. 733 (2017: §16.5)",
    "page": 733,
    "book": "$z \\mapsto n(\\lambda)(z) = \\max\\{n(y) \\mid p(y) = z, \\lambda(y) \\ne 0\\}$ is continuous.",
-   "instead": "**Formalized** (2026-11-13, Part III wave 5; V16.67; `Chapter16/NormLamContinuous.lean`): `IsScPlusMultisection.continuous_pointwiseNorm` (ep level, $N(\\Lambda) = \\max_i N(s_i)$ locally) and `ScPlusMultisection.continuous_normLam` (descent through the quotient maps $\\gamma\\pi$), with `isGreatest_normLam`.",
+   "instead": "**Formalized** (V16.67; `Chapter16/NormLamContinuous.lean`): `IsScPlusMultisection.continuous_pointwiseNorm` (ep level, $N(\\Lambda) = \\max_i N(s_i)$ locally) and `ScPlusMultisection.continuous_normLam` (descent through the quotient maps $\\gamma\\pi$), with `isGreatest_normLam`.",
    "decls": [
     "Chapter16/PolyfoldMultisections · StrongPolyfoldBundle.normLam",
     "Chapter16/NormLamContinuous · StrongPolyfoldBundle.ScPlusMultisection.continuous_normLam",
@@ -2432,8 +2589,16 @@
    "label": "§16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8)",
    "page": 739,
    "book": "$\\Phi_{(f,o)}([\\omega]) = \\int_{(\\lambda \\circ f, o)} \\omega$ is well defined on the de Rham cohomology of $Z$, independent of $\\lambda$.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.78, V16.80; `Chapter16/PerturbedSuborbifold`, `PerturbedIntegralIndependence`): `theorem_16_6_6_hyp` proves `theorem_16_6_6_statement`. Proved from the text's hypotheses plus partitions of unity: the integrals $\\int$, $\\oint$ over $\\lambda \\circ f$ are well defined on the polyfold and depend only on $[\\tau]$; $\\theta = \\lambda \\circ f$ is a branched suborbifold, unique and model independent, existing under general position (`exists_isPerturbedSuborbifold_hyp`). Independence of $\\lambda$ for closed $\\tau$ given (a) and (b). Missing: (a) `IsInherited`, the orientation of $\\lambda \\circ f$ inherited from $(f, o)$ on the polyfold: Theorem 15.4.1 and Definition 15.4.2 in a model (gap G.159), the lift of $\\hat T$ to an `OrientedRep` on `S.toPolyfoldStructure` (`HasIndependentTangentSums` for $\\Lambda \\circ F$, $\\hat T = 0$ off $X_\\infty$), and independence of the model (transport of $o$, gap G.176, and pull-back of $\\hat T$ under generalized isomorphisms), 250–450 lines after gap G.159; (b) the cobordism between two admissible perturbations (`hcob`, `hcobEff`): Corollary 15.4.4's cobordism in a model (gap G.182) and its transfer to `HasCobordism` (`integral_mk_rep` does the integral side), 80–150 lines after gap G.182.",
+   "instead": "**Formalized in part** (V16.78, V16.80; `Chapter16/PerturbedSuborbifold`, `PerturbedIntegralIndependence`, `ModelPerturbations`): the integrals $\\int$, $\\oint$ over $\\lambda \\circ f$ are well defined on the polyfold and depend only on $[\\tau]$ (with partitions of unity); $\\theta = \\lambda \\circ f$ is a branched suborbifold, unique and model independent; `theorem_16_6_6_hyp` proves `theorem_16_6_6_statement` from the cobordisms, for every predicate `IsInherited`. In the model of the orientation: `ModelPerturbation`, `toOrientedPerturbation` (the lift of a model orientation $\\hat T$ to an oriented perturbation on the polyfold; `HasIndependentTangentSums` is a theorem, and $\\hat T = 0$ off $X_\\infty$ by a cut-off with unchanged integrals), `integral_toCompact`, `hasCobordism_ofRegular` (model cobordisms give `HasCobordism`), `IsInheritedFrom Can`, `theorem_16_6_6_of_model`, and along the text's argument `theorem_16_6_6_of_cylinder` from `CylinderInput`; `Can` is `SBLocalization.IsCanonicalPerturbation` (Definition 15.4.2, inhabited). General position does not depend on the model (gap G.187). Missing: (a) the independence of the model carrying $o$: `IsInheritedFrom Can o Q ↔ IsInheritedFrom Can o' Q` for two `OrientationRep`s of the same orientation, i.e. the pull-back of $\\hat T$ under generalized strong bundle isomorphisms, compatible with `OrientedRep.Rel` (the transport of $o$ is gap G.176, formalized); (b) filling `CylinderInput Can o` (`rel`, `pu`, `luc`, `tame`, `glue`, `orient`, `orientEff`) from Corollary 15.4.4's results, whose cylinder orientation keeps one hypothesis `hinvC` (`corollary_15_4_4_canonicalOrientation`, gap G.182). Estimate: (a) 300–500 lines; (b) 30–80 lines once `hinvC` is discharged.",
    "decls": [
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.theorem_16_6_6_of_model",
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.theorem_16_6_6_of_cylinder",
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.CylinderInput",
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.toOrientedPerturbation",
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.integral_toCompact",
+    "Chapter16/ModelPerturbations · StrongPolyfoldBundle.ModelPerturbation.hasCobordism_ofRegular",
+    "Chapter15/CanonicalLiftIndependence · SBLocalization.IsCanonicalPerturbation",
+    "Chapter15/CylinderCanonicalOrientation · SBLocalization.corollary_15_4_4_canonicalOrientation",
     "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.theorem_16_6_6_reduction",
     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_hyp",
     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement",
@@ -2446,13 +2611,21 @@
    "label": "§16.6, Definition 16.6.5, p. 739 (2017: Definition 16.42)",
    "page": 739,
    "book": "An orientation of one representative determines orientations of all, via Theorem 12.5.7.",
-   "instead": "**Formalized in part** (2026-11-13, Part III wave 6; V16.77; `Chapter16/OrientationTransport.lean`): the transport with continuity along any diagram $D$ with $[D]_* F = F'$ (`SDiagram.orientation_transport_hyp`), and an `OrientationRep` on every other representative (`OrientationRep.transport_hyp`). Missing: (i) two diagrams give the same transported orientation (a common refinement, Chapter 10's `IsRefinement`, then the compatibility of `orEqv` with composition and with natural equivalences, as in `theorem_12_5_7_rep_indep`, V12.39), 200–300 lines; (ii) the transfer of tameness, bump functions and tame Fredholm germs along strong bundle equivalences, so that the hypotheses on the middle bundle can be dropped, 100–200 lines.",
+   "instead": "**Formalized** (V16.77; `Chapter16/OrientationTransportRegularity`, on `Chapter16/OrientationOrbitMapIndependence`, `OrientationClassIndependence`, `OrientationRepresentatives`): with Part I's hypotheses on the oriented representative (tame, bump functions, tame germ data), exactly one orientation of every other representative corresponds to the given one over every diagram of every generalized strong bundle isomorphism $\\mathfrak A$ with $\\Gamma' \\circ |\\mathfrak A| = \\Gamma$ (`OrientationRep.exists_unique_transport_of_isLR`), for effective and non-effective bases, under the structure's own field `isLR`; with Definition 8.4.2 as printed `exists_unique_transport_of_isLRLocal`; for an effective base `exists_unique_transport_of_isEffective`. The argument rests on Proposition 10.4.7, not on the uniqueness of $\\mathfrak A$ after Definition 16.3.3 (V16.40). Witnesses: `HalfSpaceBundle.halfOrientationRep`, `exists_unique_transport_halfSpace`, `exists_unique_transport_halfSpace_of_isLR` (boundary, non-zero fibres, a concrete orientation); `StrongBundleLocalizationExamples.z3OrientationRep`, `exists_unique_transport_z3`, `exists_unique_transport_z3_of_isLR` (a non-effective base). Weak: no example is both non-effective and with boundary, and `IsLRLocal` holds in both examples. Not formalized: the same for strong bundles without the local regularity property, which the text does not claim (Definition 16.3.1 has it).",
    "decls": [
-    "Chapter16/PolyfoldFredholmSections · StrongPolyfoldBundle.OrientationRep",
-    "Chapter12/OrientationLocalCommute · StrongBundle.LocalIso.isContOrOn_pullOrx",
-    "Chapter12/OrientationEquivalenceContinuity · theorem_12_5_7_two_hyp",
-    "Chapter16/OrientationTransport · StrongPolyfoldBundle.OrientationRep.transport_hyp",
-    "Chapter16/OrientationTransport · SBLocalization.SDiagram.orientation_transport_hyp"
+    "Chapter16/OrientationTransportRegularity · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR",
+    "Chapter16/OrientationOrbitMapIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal",
+    "Chapter16/OrientationClassIndependence · StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isEffective",
+    "Chapter16/OrientationRepresentatives · StrongPolyfoldBundle.OrientationRep.exists_unique_transport",
+    "Chapter16/HalfSpaceOrientedSection · HalfSpaceBundle.halfOrientationRep",
+    "Chapter16/HalfSpaceOrientedSection · HalfSpaceBundle.exists_unique_transport_halfSpace",
+    "Chapter16/OrientationTransportRegularity · HalfSpaceBundle.exists_unique_transport_halfSpace_of_isLR",
+    "Chapter16/OrientationNonEffectiveWitness · StrongBundleLocalizationExamples.z3OrientationRep",
+    "Chapter16/OrientationNonEffectiveWitness · StrongBundleLocalizationExamples.exists_unique_transport_z3",
+    "Chapter16/OrientationTransportRegularity · StrongBundleLocalizationExamples.exists_unique_transport_z3_of_isLR"
+   ],
+   "formalized": [
+    "V16.77"
    ]
   },
   {
@@ -2461,9 +2634,17 @@
    "label": "§16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8)",
    "page": 739,
    "book": "$(f, \\lambda)$ in general position, for a polyfold Fredholm section and an sc⁺-multisection.",
-   "instead": "`ScSection.IsInGeneralPositionWith` asks it in some model (V16.80). Missing: invariance of `IsInGeneralPosition` under generalized strong bundle isomorphisms (linearizations transported by the local sc-diffeomorphisms, as for Fredholmness in Theorem 10.5.4). Estimate 200–350 lines.",
+   "instead": "**Formalized** (V16.80; `Chapter15/LinearizationLocalIso`, `Chapter15/GeneralPositionEquivalence`, `Chapter16/GeneralPositionModels`): `ScSection.IsInGeneralPositionWith` (general position in some model) is equivalent to general position of the representatives in every model (`FredholmSection.isInGeneralPositionWith_iff_forall`, `ScSection.isInGeneralPositionWith_iff_of_rep`): general position at a point is carried along local strong bundle isomorphisms (`isReducedOntoAtLevel_localIso_iff`), strong bundle equivalences (`isInGeneralPosition_pullback_iff`) and diagrams (`SDiagram.isInGeneralPosition_iff`). No hypothesis beyond the text's ($f$ sc-Fredholm). Weak: no concrete strong polyfold bundle with a pair in general position and nonempty $\\mathrm{supp}(\\lambda \\circ f)$ is built.",
    "decls": [
-    "Chapter16/PerturbedSuborbifold · StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith"
+    "Chapter15/LinearizationLocalIso · SBLocalization.isReducedOntoAtLevel_localIso_iff",
+    "Chapter15/GeneralPositionEquivalence · SBLocalization.isInGeneralPosition_pullback_iff",
+    "Chapter15/GeneralPositionEquivalence · SBLocalization.SDiagram.isInGeneralPosition_iff",
+    "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.isInGeneralPosition_rep_iff",
+    "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.ScSection.isInGeneralPositionWith_iff_of_rep",
+    "Chapter16/GeneralPositionModels · StrongPolyfoldBundle.FredholmSection.isInGeneralPositionWith_iff_forall"
+   ],
+   "formalized": [
+    "V16.80"
    ]
   },
   {
@@ -2472,8 +2653,16 @@
    "label": "§16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8)",
    "page": 739,
    "book": "The invariant for a closed form of degree $k$ equal to the index, including $k = 0$.",
-   "instead": "`theorem_16_6_6_statement` is stated for dimension $m+1 \\ge 1$ (V16.78). Missing: the 0-dimensional branched integral (a weighted count, Definition 9.5.6 with $n = 0$), which `tameBranchedIntegral` excludes. Estimate 150–300 lines (Chapter 9 level).",
+   "instead": "**Formalized in part** (V16.82, V16.83; `Chapter16/IndexZeroInvariant`, `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`, `IndexZeroPolyfoldTheorem`, `IndexZeroTwoModels`): the 0-dimensional branched integral (Definition 9.5.6 for $n = 0$, `EP.pointBranchedIntegral`, `pointBranchedIntegralEff`) with the cobordism argument (`EP.pointIntegral_eq_of_cobordism`); tameness of dimension 0 is tameness with point sheets (`EpGroupoid.isPointTame_iff`, `OrientedSuborbifold.isPointTame_iff_isTameOriented`); Theorem 11.4.1 for $n = 0$, both identities as measure identities (`EPLocalization.EPLoc.point_theorem_11_4_1_pull`, `_push`), so the counts on the polyfold exist and do not depend on the model (`OrientedSuborbifold.pointIntegral`, `pointIntegral_eq`, `StrongPolyfoldBundle.count_eq_of_mk_eq`); Corollary 15.4.4 for index 0 in a model (`corollary_15_4_4_index_zero`); Theorem 16.6.6 for index 0 on the polyfold from the model form (`theorem_16_6_6_index_zero_polyfold_of_model`), with the inherited orientation read in the model of $o$ (its model independence is the dimension-0 case of gap G.175) and the cobordisms as hypotheses. Missing: (c) the cylinder for index 0, `PointPerturbation.HasOrientedCobordism` from Corollary 15.3.10 (3): the boundary of the 1-dimensional $\\tilde\\Theta$ consists of the points of $\\Theta_1$ with sign $+$ and of $\\Theta_0$ with sign $-$; it needs a signed form of the frame convention for 0-dimensional sheets (a reading point of Chapter 15); (w′) a witness for `count_eq_of_mk_eq` with the same section over two different structures (the witness `count_eq_of_mk_eq_two_models` has one structure and two sections: weak). Estimate: (c) 300–600 lines after gap G.182; (w′) 200–350.",
    "decls": [
+    "Chapter16/IndexZeroPolyfoldTheorem · StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_of_model",
+    "Chapter16/IndexZeroInvariant · SBLocalization.corollary_15_4_4_index_zero",
+    "Chapter16/IndexZeroInvariant · EP.pointBranchedIntegral",
+    "Chapter16/PointCountEquivalence · PolyfoldClass.OrientedSuborbifold.pointIntegral",
+    "Chapter16/PointCountEquivalence · StrongPolyfoldBundle.count_eq_of_mk_eq",
+    "Chapter16/PointTameShrinking · EpGroupoid.isPointTame_iff",
+    "Chapter16/PointMeasureGeneralizedIso · EPLocalization.EPLoc.point_theorem_11_4_1_pull",
+    "Chapter16/IndexZeroTwoModels · StrongPolyfoldBundle.count_eq_of_mk_eq_two_models",
     "Chapter16/PerturbedIntegralIndependence · StrongPolyfoldBundle.theorem_16_6_6_statement"
    ]
   }

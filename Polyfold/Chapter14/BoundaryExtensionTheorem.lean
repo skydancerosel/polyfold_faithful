@@ -1,5 +1,6 @@
 import Polyfold.Chapter14.AssemblyInputInstance
 import Polyfold.Chapter14.FaceAssembly
+import Polyfold.Chapter10.TameBundleCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 14,
@@ -10,23 +11,30 @@ extension part of **Theorem 14.6.3** (p. 682; 2017: Theorem 14.4), proved.
 
 ## What is formalized
 
-* `theorem_14_1_9_charged_statement A`: B1's `theorem_14_1_9_statement` with two readings made
-  explicit: the strong bundle has tame strong bundle charts around every object (the text's
-  standing assumption of Chapter 14, as in LX's and Z5's Proposition 14.4.14), and `Λ` charges every
-  fibre over `∂X` (`ChargesBoundary`, i.e. `I_x ≠ ∅` in Definition 14.1.3 (3), which divides by
-  `|I_x|`).  Without the second, B1's statement does not hold as we read it when `∂X ≠ ∅`
-  (`not_theorem_14_1_9_statement_a6`, file `EmptyIndex`); the condition is also necessary
-  for the conclusion (`chargesBoundary_of_structurable_eq_a6`).
-* `sizeControl_a6`: GL's size-control step (`theorem_14_1_9_hyp`) for one `Λ`: from extensions
+* `theorem_14_1_9_charged_statement A`: `theorem_14_1_9_statement` with tame strong bundle
+  charts around every object (as in Proposition 14.4.14) and `ChargesBoundary Λ` among the
+  hypotheses.  Both are automatic: a strong bundle over a tame ep-groupoid has tame strong bundle
+  charts (`SEP.exists_isTameChart`), and the index sets `I_x` of Definition 14.1.3 are non-empty,
+  so every structurable `Λ` over `∂X` charges every boundary fibre
+  (`IsBoundaryStructurable.chargesBoundary`, file `EmptyIndex`); the latter is also necessary for
+  the conclusion (`chargesBoundary_of_structurable_eq_a6`).
+* `sizeControl_a6`: size-control step (`theorem_14_1_9_hyp`) for one `Λ`: from extensions
   of `Λ` with `dom-supp` in any saturated open `Ũ' ⊇ dom-supp(Λ)` to the conclusion of Theorem
-  14.1.9 with `N(Λ') ≤ f`.  (The proof is GL's, specialized to one `Λ`.)
+  14.1.9 with `N(Λ') ≤ f`.  (The proof of size control, specialized to one `Λ`.)
 * **`theorem_14_1_9_charged_a6`**: Theorem 14.1.9 with no hypothesis beyond the text's (read as
-  above): Proposition 14.2.3, Proposition 14.3.8 (S3), Proposition 14.4.14 (LX, Z4, Z5),
-  Lemma 14.5.1 (B2), Proposition 14.5.4 and the assembly (T9), Theorem 14.5.5 (GL), size control.
+  above): Proposition 14.2.3, Proposition 14.3.8, Proposition 14.4.14,
+  Lemma 14.5.1, Proposition 14.5.4 and the assembly, Theorem 14.5.5, size control.
+* **`theorem_14_1_9`**: `theorem_14_1_9_statement A` itself, for every `A`: the tame strong
+  bundle charts are `SEP.exists_isTameChart` (every strong bundle over a tame M-polyfold has them,
+  file `Chapter10/TameBundleCharts`) and `ChargesBoundary Λ` is
+  `IsBoundaryStructurable.chargesBoundary`.  With it `assemblyHyp_holds` (`AssemblyHyp`) and
+  `theorem_14_1_9_extension_statement_holds` (extension statement) hold for every `A`.
 * `theorem_14_1_9_iff_a6`: for structurable `Λ` over `∂X`, an extension as in Theorem 14.1.9
-  exists iff `Λ` charges every boundary fibre.
-* **`CompatibleFaceData.theorem_14_6_3_extension_a6`**: F6's extension part of Theorem 14.6.3 with
-  Theorem 14.1.9 proved (F6's `theorem_14_6_3_extension_hyp` took B1's statement as hypothesis).
+  exists iff `Λ` charges every boundary fibre (which it does).
+* **`CompatibleFaceData.theorem_14_6_3_extension`**: extension part of Theorem 14.6.3
+  (`theorem_14_6_3_extension_hyp`) with Theorem 14.1.9 proved;
+  `CompatibleFaceData.theorem_14_6_3_extension_a6` is the same with tame strong bundle charts and
+  `ChargesBoundary` stated.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -46,8 +54,9 @@ open StrongBundle EpGroupoid
 variable {A : SEP.{u}}
 
 /-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, as a statement
-with the readings named: B1's `theorem_14_1_9_statement` plus tame strong bundle charts (`hB`, the
-standing assumption) and `ChargesBoundary Λ` (`I_x ≠ ∅`). -/
+with the readings named: `theorem_14_1_9_statement` plus tame strong bundle charts (`hB`;
+automatic, `SEP.exists_isTameChart`) and `ChargesBoundary Λ` (`I_x ≠ ∅`; automatic for
+structurable `Λ`, `IsBoundaryStructurable.chargesBoundary`). -/
 def theorem_14_1_9_charged_statement (A : SEP.{u}) : Prop :=
   A.X.IsTame → A.X.HasParacompactOrbitSpace → A.X.PObj.AdmitsScPartitionsOfUnity →
   (∀ x : A.Obj, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source) →
@@ -59,7 +68,7 @@ def theorem_14_1_9_charged_statement (A : SEP.{u}) : Prop :=
   ∃ Λ' : A.W → ℚ≥0, IsStructurable A Λ' ∧ (∀ x, pointwiseNorm N Λ' x ≤ f x) ∧
     domSupp Λ' ⊆ Ũ ∧ ∀ w, A.P w ∈ A.X.PObj.boundary → Λ' w = Λ w
 
-/-- **Size control for one `Λ`** (GL's `theorem_14_1_9_hyp`, with the extension asked only for
+/-- **Size control for one `Λ`** (`theorem_14_1_9_hyp`, with the extension asked only for
 the given `Λ`): extensions with domain support in every saturated open neighbourhood of
 `dom-supp(Λ)` give an extension with `N(Λ') ≤ f` and `dom-supp(Λ') ⊆ Ũ`. -/
 theorem sizeControl_a6 (hpara : A.X.HasParacompactOrbitSpace)
@@ -193,7 +202,7 @@ theorem theorem_14_1_9_charged_a6 : theorem_14_1_9_charged_statement A := by
 
 /-- **Theorem 14.1.9 with the condition named exactly**: under the hypotheses of Theorem 14.1.9
 (with tame strong bundle charts), a structurable `Λ` over `∂X` has an extension as in the theorem
-iff it charges every fibre over `∂X`. -/
+iff it charges every fibre over `∂X` (which it does, `IsBoundaryStructurable.chargesBoundary`). -/
 theorem theorem_14_1_9_iff_a6 (hX : A.X.IsTame) (hpara : A.X.HasParacompactOrbitSpace)
     (hpu : A.X.PObj.AdmitsScPartitionsOfUnity)
     (hB : ∀ x : A.Obj, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧
@@ -209,20 +218,34 @@ theorem theorem_14_1_9_iff_a6 (hX : A.X.IsTame) (hpara : A.X.HasParacompactOrbit
     theorem_14_1_9_charged_a6 hX hpara hpu hB Λ hΛ hch N hN Ũ hUo hUs hsub f hf hf0 hfinv
       htsupp hlt⟩
 
-/-- **B1's `theorem_14_1_9_statement` holds when `∂X = ∅`** (and fails otherwise,
-`not_theorem_14_1_9_statement_a6`). -/
+/-- **`theorem_14_1_9_statement` holds when `∂X = ∅`** (the trivial case;
+`theorem_14_1_9` is the general one). -/
 theorem theorem_14_1_9_statement_of_boundary_eq_empty_a6 (hb : A.X.PObj.boundary = ∅) :
     theorem_14_1_9_statement A :=
   theorem_14_1_9_of_assembly (assemblyHyp_of_boundary_eq_empty hb)
 
-/-- **T9's `AssemblyHyp` holds only when `∂X = ∅`** (for tame `X` with paracompact `|X|` and
-partitions of unity): it implies B1's statement (`theorem_14_1_9_of_assembly`), which does not
-hold as we read it when `∂X ≠ ∅`.  `exists_assemblyInput_a6` is the form with `ChargesBoundary`. -/
-theorem boundary_eq_empty_of_assemblyHyp_a6 (hX : A.X.IsTame)
-    (hpara : A.X.HasParacompactOrbitSpace) (hpu : A.X.PObj.AdmitsScPartitionsOfUnity)
-    (h : AssemblyHyp A) : A.X.PObj.boundary = ∅ :=
-  eq_empty_iff_forall_notMem.2 fun _ hx =>
-    not_theorem_14_1_9_statement_a6 hX hpara hpu hx (theorem_14_1_9_of_assembly h)
+/-- **`AssemblyHyp` (the data of §§14.3–14.5 for every structurable `Λ`) holds**:
+`exists_assemblyInput_a6`, with tame strong bundle charts from `SEP.exists_isTameChart` and
+`ChargesBoundary Λ` from the non-empty index sets of Definition 14.1.3. -/
+theorem assemblyHyp_holds : AssemblyHyp A :=
+  fun hX hpara hpu _ hΛ =>
+    exists_assemblyInput_a6 hX hpara hpu (A.exists_isTameChart hX) hΛ hΛ.chargesBoundary
+
+/-- **extension statement holds** (`theorem_14_1_9_extension_statement`). -/
+theorem theorem_14_1_9_extension_statement_holds : theorem_14_1_9_extension_statement A :=
+  theorem_14_1_9_extension_statement_of_assembly assemblyHyp_holds
+
+/-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, statement,
+proved: over a tame ep-groupoid with paracompact orbit space whose object M-polyfold admits
+sc-smooth partitions of unity, every structurable `Λ` over `∂X`, auxiliary norm `N`, saturated
+open `Ũ ⊇ dom-supp(Λ)` and continuous functor `f ≥ 0` with `tsupport f ⊆ Ũ` and `N(Λ) < f` on
+`dom-supp(Λ)` give a structurable `Λ'` with `N(Λ') ≤ f`, `dom-supp(Λ') ⊆ Ũ` and `Λ' = Λ` over
+`∂X`.  This is `theorem_14_1_9_charged_a6` with its two readings discharged: tame strong bundle
+charts (`SEP.exists_isTameChart`) and `ChargesBoundary Λ`
+(`IsBoundaryStructurable.chargesBoundary`). -/
+theorem theorem_14_1_9 : theorem_14_1_9_statement A :=
+  fun hX hpara hpu Λ hΛ =>
+    theorem_14_1_9_charged_a6 hX hpara hpu (A.exists_isTameChart hX) Λ hΛ hΛ.chargesBoundary
 
 /-! ### Theorem 14.6.3, the extension part -/
 
@@ -248,6 +271,23 @@ theorem theorem_14_6_3_extension_a6 (D : CompatibleFaceData A) (hX : A.X.IsEpFac
     (D.theorem_14_6_3_hyp hX hpara).1 hch N hN Ũ hŨ hŨs hdom f hf hf0 hff hfU hfN
   exact ⟨Λ', h1, h2, h3, fun F hF w hw =>
     (h4 w (IsEpFace.subset_boundary hF hw)).trans (D.Λg_eq hF hw)⟩
+
+/-- **2021 Theorem 14.6.3, p. 682 (2017: Theorem 14.4)**, the extension part, proved: over a tame
+face-structured ep-groupoid with paracompact orbit space and sc-smooth partitions of unity, the
+glued `Λ` of compatible face data extends to a structurable `Λ'` on `W` with `N(Λ') ≤ f`,
+`dom-supp(Λ') ⊆ Ũ` and `Λ' = Λ_F` over every face `F`.  `theorem_14_6_3_extension_hyp` with
+`theorem_14_1_9_statement A` discharged (`theorem_14_1_9`). -/
+theorem theorem_14_6_3_extension (D : CompatibleFaceData A) (hX : A.X.IsEpFaceStructured)
+    (hpara : A.X.HasParacompactOrbitSpace) (hpart : A.X.PObj.AdmitsScPartitionsOfUnity)
+    (N : A.B.One → ℝ) (hN : A.E.IsAuxNorm N)
+    (Ũ : Set A.Obj) (hŨ : IsOpen Ũ) (hŨs : A.X.IsSaturated Ũ) (hdom : boundaryDomSupp D.Λg ⊆ Ũ)
+    (f : A.Obj → ℝ) (hf : Continuous f) (hf0 : ∀ x, 0 ≤ f x)
+    (hff : ∀ φ, f (A.X.tgt φ) = f (A.X.src φ)) (hfU : tsupport f ⊆ Ũ)
+    (hfN : ∀ x ∈ boundaryDomSupp D.Λg, pointwiseNorm N D.Λg x < f x) :
+    ∃ Λ' : A.W → ℚ≥0, IsStructurable A Λ' ∧ (∀ x, pointwiseNorm N Λ' x ≤ f x) ∧
+      domSupp Λ' ⊆ Ũ ∧ ∀ F (hF : A.X.IsEpFace F) w, A.P w ∈ F → Λ' w = (D.T F hF).Λ w :=
+  D.theorem_14_6_3_extension_a6 hX hpara hpart (A.exists_isTameChart hX.1)
+    (D.theorem_14_6_3_hyp hX hpara).1.chargesBoundary N hN Ũ hŨ hŨs hdom f hf hf0 hff hfU hfN
 
 end CompatibleFaceData
 

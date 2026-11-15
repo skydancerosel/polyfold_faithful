@@ -14,7 +14,7 @@ Data format (one row per result; see cmp/ch01.json):
    "chips": [short strings], "diff": [bullets]}
 and "notFormalized": [{"title", "label", "page", "book", "instead"}]; an entry proved later gets
 "formalized": [the ids of the rows that prove it] and "decls": [...], keeps its place (so the G-numbers of
-the later entries do not move) and is shown with the verdict "formalized since". An entry may fix its
+the later entries do not move) and is shown with the verdict "formalized". An entry may fix its
 number with "g": k (an integer); it then keeps G.k wherever it stands, and the entries without "g" are
 numbered by position among themselves, so an entry with "g" can be added to an earlier part without
 moving the G-numbers of later parts. The Morse project's key
@@ -92,35 +92,34 @@ CHAPTERS = [
             'neighbourhood theorem, continuous partitions of unity, the extension of auxiliary norms from the '
             'boundary, reflexive auxiliary norms, sc-smooth bump functions and sc⁺-section functors, extension '
             'from the boundary in a local model and Theorem 12.3.9, compactness and properness with the reflexive '
-            'forms, the orientation bundle and its naturality, the reflexive local extension and Theorem 12.2.13, Theorem 12.5.7 as printed '
-            '(waves 1–7 of Part III)'),
+            'forms, the orientation bundle and its naturality, the reflexive local extension and Theorem 12.2.13, Theorem 12.5.7 as printed'),
     ('V13', 'Part III, Chapter 13', 'HWZ Part III, Chapter 13 §§13.1–13.5, pp. 599–635 (2017 '
             'Chapter 13; Part III has no 2014 preprint): good systems of neighbourhoods, the natural bi-action, '
             'their existence and extension; the algebra of sc⁺-multisections (support, pointwise norm, symmetric '
             'structures, decorations, sums, scalar multiples, locally finite sums); structurable and atomic '
             'sc⁺-multisections, Proposition 13.3.19; pull-back and push-forward along equivalences and coverings '
-            '(§13.4) and Proposition 13.4.2, commensurable sums, Theorems 13.5.3 and 13.5.7 (waves 1–7 of Part III)'),
+            '(§13.4) and Proposition 13.4.2, commensurable sums, Theorems 13.5.3 and 13.5.7'),
     ('V14', 'Part III, Chapter 14', 'HWZ Part III, Chapter 14 §§14.1–14.6, pp. 637–682 (2017 Chapter 14; '
             'Part III has no 2014 preprint): good neighbourhoods and structured sc⁺-multisections over the '
             'boundary, the good structured version, the extension of correspondences, z-loops and coherent '
             'neighbourhood systems, implicit structures and local extensions, the size control of the extension '
             '(Theorem 14.5.5), Proposition 14.5.4, Theorem 14.1.9 with nonempty index sets, Proposition 14.1.8 and '
-            'the assembly over faces (§14.6) (waves 3–7 of Part III)'),
+            'the assembly over faces (§14.6)'),
     ('V15', 'Part III, Chapter 15', 'HWZ Part III, Chapter 15 §§15.1–15.4, pp. 683–703 (2017 Chapter 15; '
             'Part III has no 2014 preprint): the linearization $T(f,\\Lambda)$ of an sc-Fredholm section '
             'perturbed by an sc⁺-multisection, its well-definedness and the separation lemmas; transversality, '
             'good position and local solution sets; compactness control, admissible perturbations, general '
             'position and $[0,1] \\times X$, Theorem 15.3.7, Theorem 15.3.9 in hypothesis form; products of strong bundles; orientations and '
-            'invariants (§15.4, Theorem 15.4.1 at a chart point, Theorem 15.4.3, Corollary 15.4.4 in hypothesis form) (waves 1–7 of Part III)'),
+            'invariants (§15.4, Theorem 15.4.1 at a chart point, Theorem 15.4.3, Corollary 15.4.4 in hypothesis form)'),
     ('V16', 'Part III, Chapter 16', 'HWZ Part III, Chapter 16 §§16.1–16.6, pp. 705–739 (2017 Chapter 16; '
             'Part III has no 2014 preprint): polyfold structures and their equivalence, polyfolds, bump '
             'functions and partitions of unity, the degeneracy index and the boundary, tame polyfolds; the '
             'uniqueness sentence after Definition 16.1.2 and Lemma 16.2.1; the tangent polyfold and sc-differential '
             'forms; strong polyfold bundles and sc-Fredholm sections (§16.3, Definition 16.3.3 and the sentence '
             'after it); branched suborbifolds, their integrals and Stokes\' theorem; sc⁺-multisections over '
-            'polyfolds (§16.5) and Fredholm theory (§16.6, Theorems 16.6.4, 16.6.6) (waves 1–7 of Part III)'),
+            'polyfolds (§16.5) and Fredholm theory (§16.6, Theorems 16.6.4, 16.6.6)'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
-          'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
+          'an entry that is proved keeps its number and is marked “formalized”, with the rows that prove it'),
 ]
 # ------------------------------------------------------------------------------------------------
 
@@ -139,7 +138,7 @@ VERDICTS = [
     ('extra',     'not in the book',     'A definition or a tool built for the formalization.'),
     ('sign',      'value differs',       'The formal value differs from the book’s, through a difference of convention.'),
     ('gap',       'not formalized',      'The book states it; the formalization does not prove it.'),
-    ('closed',    'formalized since',    'Listed as not formalized in the first edition of this page; proved since, in the rows named.'),
+    ('closed',    'formalized',          'A statement of the book that is proved in the rows named; the entry keeps its G-number.'),
     ('nothing',   'nothing to formalize', 'A question, a comment, or a preprint statement absent from the 2021 edition: nothing to prove. What it has of mathematics is formalized in the declarations named.'),
 ]
 VNAME = {k: n for k, n, _ in VERDICTS}
@@ -242,7 +241,7 @@ def load():
             items.append({'id': f'G.{k}', 'title': g['title'], 'verdict': 'closed' if done else ('nothing' if g.get('nothing') else 'gap'),
                           BOOK_KEY: {'label': g['label'], 'page': g.get('page'), 'statement': g['book']},
                           'lean': {'statement': g['instead'], 'decls': g.get('decls', [])},
-                          'chips': [f'now {v}' for v in done], 'diff': []})
+                          'chips': [f'proved in {v}' for v in done], 'diff': []})
     return items
 
 

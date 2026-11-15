@@ -6,7 +6,7 @@ import Polyfold.Chapter9.EffectiveDimOneLUC
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.4, p. 703:
 **Corollary 15.4.4** (2017: Corollary 15.2) through the cylinder cobordism of
 **Corollary 15.3.10 (3)** (p. 699), in the order of the text's argument, and its effective
-version (gap TX-6, in part).
+version.
 
 # Corollary 15.4.4 from the cylinder `[0, 1] × X`
 
@@ -23,19 +23,21 @@ version (gap TX-6, in part).
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
 * (b): `corollary_15_3_10_3_charged` (`ChargedExtensionCylinder`; Theorem 15.3.9 on the cylinder
-  in its charged form as `h159`, since TX's uncharged form fails there for nonempty `X`; TY-2's
-  two hypotheses on the glued data and TY-3's partitions of unity remain).  The restriction of `Θ̃`
-  to the ends and `∂X̃ ∩ supp Θ̃ = {0} × supp Θ₀ ∪ {1} × supp Θ₁` are proved in
-  `CylinderEnds`.
+  in its charged form as `h159`, equivalent to the uncharged form by
+  `theorem_15_3_9_charged_iff`; the two hypotheses on the glued data and the partitions of
+  unity remain).  The restriction of `Θ̃` to the ends and
+  `∂X̃ ∩ supp Θ̃ = {0} × supp Θ₀ ∪ {1} × supp Θ₁` are proved in `CylinderEnds`.
 * (c), the boundary identification: `μ^{∂Θ̃}(∂S) = μ^{∂Θ̃}(end 0) + μ^{∂Θ̃}(end 1)` is proved
   (`boundaryMeasure_cyl_univ`); what is left is **`IsCylinderBoundaryOf`**: on the end `1` the
   boundary measure of `pr^*ω` is `∫_{Θ₁} ω`, on the end `0` it is `−∫_{Θ₀} ω`.
   **`CylinderOrientationStatement`** asks for an orientation of `Θ̃` (Theorem 15.4.1 on the
   cylinder) with this property, for every `Λ̃` that (b) can produce.
-* **`hasOrientedCobordism_of_cylinder`**: (c) gives TX's `HasOrientedCobordism` with `Y` the
+* **`hasOrientedCobordism_of_cylinder`**: (c) gives `HasOrientedCobordism` with `Y` the
   cylinder and `F` the projection.  **`hasOrientedCobordism_cylinder_hyp`**: (b) + (c).
-* **`corollary_15_4_4_cylinder_hyp`**: Corollary 15.4.4 from (b) and (c), through TX's
-  `corollary_15_4_4_hyp` (step (d)).
+* **`corollary_15_4_4_cylinder_hyp`**: Corollary 15.4.4 from (b) and (c), through
+  `corollary_15_4_4_hyp` (step (d)); `corollary_15_4_4_cylinder_of_rel` with Theorem 15.3.9 on the
+  cylinder reduced to the relative step, and `corollary_15_4_4_of_rel` with the tame strong bundle
+  charts of the cylinder proved (`SEP.exists_isTameChart`).
 * The effective version (p. 703): `OrientedRegularPerturbation.integralEff`,
   `HasOrientedCobordismEff`, `integralEff_eq_of_cobordism` (Theorem 9.5.18 on `Y`),
   `hasOrientedCobordismEff_refl`, **`corollary_15_4_4_eff_statement`**,
@@ -44,11 +46,11 @@ version (gap TX-6, in part).
 
 ## Reading
 
-* `Φ_{(f,o)}` on `H*_dR(X)` is read degree-wise as in TX (exact forms give `0`, closed forms have
-  equal integrals), in the degree `m + 1 = dim Θ`, `m + 1 ≥ 1`.
+* `Φ_{(f,o)}` on `H*_dR(X)` is read degree-wise (exact forms give `0`, closed forms have equal
+  integrals), in the degree `m + 1 = dim Θ`, `m + 1 ≥ 1`.
 * "`∂Θ̃ = Θ₁ ⊔ −Θ₀`" is read on the level of the boundary measure of Theorem 9.5.15, which is
   what Stokes uses: the end identities of `IsCylinderBoundaryOf`.
-* The canonical orientation is a parameter `Can` (as in TX); `CylinderOrientationStatement`
+* The canonical orientation is a parameter `Can`; `CylinderOrientationStatement`
   asks only for the properties of the canonical orientation of `Θ̃` that the argument uses.
 -/
 
@@ -90,7 +92,7 @@ def IsCylinderBoundaryOf {f : A.Obj → A.W} {m : ℕ} (P₀ P₁ : OrientedRegu
         (EP.epFormsInftyPullback (A.X.cubeProj 1) (m + 1) ω) (cylEnd (X := A.X) Θ' 0) =
       -P₀.integral ω
 
-/-- **Step (c) gives TX's cobordism**: for `d_X ≡ 0` and `[0, 1] × X` with sc-smooth partitions
+/-- **Step (c) gives the cobordism**: for `d_X ≡ 0` and `[0, 1] × X` with sc-smooth partitions
 of unity, a compact oriented tame `Θ̃` of dimension `m + 2` on the cylinder with the end
 identities joins `P₀` and `P₁` (`Y = [0, 1] × X`, `F = pr`); the boundary measure splits over
 the two ends (`boundaryMeasure_cyl_univ`). -/
@@ -111,7 +113,7 @@ theorem hasOrientedCobordism_of_cylinder (hd : ∀ x, A.X.PObj.degIndex x = 0)
   ring
 
 /-- **Step (c) as a proposition about the perturbations step (b) produces**: every structurable
-regular perturbation `(Ñ, Ũ, Λ̃)` of `f̃` on `[0, 1] × X` (with `Ñ`, `Ũ` TY's interpolations)
+regular perturbation `(Ñ, Ũ, Λ̃)` of `f̃` on `[0, 1] × X` (with `Ñ`, `Ũ` interpolations)
 with `Λ̃ = Λⁱ` over `{i} × X` and `Θ̃ = Λ̃ ∘ f̃` compact and branched carries an orientation
 `T̃` (in the text: the canonical one from `(f̃, õ)`, Theorem 15.4.1), described by oriented tame
 structures of dimension `m + 2`, with the end identities `IsCylinderBoundaryOf`. -/
@@ -134,7 +136,7 @@ def CylinderOrientationStatement {f : A.Obj → A.W} (hf : IsSection A.P f) {m :
       IsCylinderBoundaryOf P₀ P₁ hΘ' hcpt' hT' hloc'
 
 /-- `[0, 1] × X` has sc-smooth partitions of unity in the sense of Definition 7.5.5 if its
-object M-polyfold admits them and `|X|` is paracompact (Theorem 7.5.7, with TY's
+object M-polyfold admits them and `|X|` is paracompact (Theorem 7.5.7, with
 `hasParacompactOrbitSpace_cubeProd`). -/
 theorem hasScPartitionsOfUnity_cyl (hpara : A.X.HasParacompactOrbitSpace)
     (hPUC : (A.cubeSEP 1).X.PObj.AdmitsScPartitionsOfUnity) :
@@ -144,10 +146,10 @@ theorem hasScPartitionsOfUnity_cyl (hpara : A.X.HasParacompactOrbitSpace)
 /-- **Steps (b) and (c): the cobordism between two oriented regular perturbations**
 (Corollary 15.3.10 (3), Corollary 15.4.4).  For `d_X ≡ 0`, `|X|` paracompact, `f` sc-Fredholm
 with tame germ data and compact `|S_f|`: if Theorem 15.3.9 (charged form) holds on `[0, 1] × X`
-(`h159`, R6's form; `theorem_15_3_9_charged_hyp` gives it from TX-2) with tame strong bundle
-charts there (`hBC`), the
-cylinder's object M-polyfold has sc-smooth partitions of unity (`hPUC`; TY-3), the glued data
-are structurable and satisfy the face condition (`hbs`, `hbonto`; TY-2), and step (c) holds
+(`h159`, the charged form; `theorem_15_3_9_charged_hyp` gives it from the relative step) with
+tame strong bundle charts there (`hBC`), the
+cylinder's object M-polyfold has sc-smooth partitions of unity (`hPUC`), the glued data
+are structurable and satisfy the face condition (`hbs`, `hbonto`), and step (c) holds
 (`hor`), then `P₀` and `P₁` are joined by an oriented compact cobordism. -/
 theorem hasOrientedCobordism_cylinder_hyp
     (h159 : theorem_15_3_9_charged_statement (A.cubeSEP 1))
@@ -173,7 +175,7 @@ theorem hasOrientedCobordism_cylinder_hyp
 with tame germ data and compact `|S_f|`, and a predicate `Can` (the canonical orientation from
 `(f, o)`), `Φ_{(f,o)}` is well defined in degree `m + 1` if Theorem 15.3.9 holds on
 `[0, 1] × X`, the cylinder has partitions of unity, and for any two `Can`-perturbations the
-glued boundary data satisfy TY-2's two conditions and step (c) holds. -/
+glued boundary data satisfy the two conditions and step (c) holds. -/
 theorem corollary_15_4_4_cylinder_hyp
     (h159 : theorem_15_3_9_charged_statement (A.cubeSEP 1))
     (hBC : ∀ x : (A.cubeSEP 1).Obj,
@@ -194,11 +196,11 @@ theorem corollary_15_4_4_cylinder_hyp
     hasOrientedCobordism_cylinder_hyp h159 hBC hd hpara hPUC hf hft hS P₀ P₁
       (hglue P₀ P₁ h₀ h₁).1 (hglue P₀ P₁ h₀ h₁).2 (hor P₀ P₁ h₀ h₁)
 
-/-- **Corollary 15.4.4 with Theorem 15.3.9 on the cylinder reduced** (R6's
+/-- **Corollary 15.4.4 with Theorem 15.3.9 on the cylinder reduced** (the charged form;
 `theorem_15_3_9_charged_hyp`):
 what is left is tame strong bundle charts on `[0, 1] × X` (`hBC`), the relative general position
-step there (`hrelC`, TX-2), partitions of unity on the cylinder (`hPUC`, TY-3), the two
-conditions on the glued data (`hglue`, TY-2) and step (c) (`hor`). -/
+step there (`hrelC`), partitions of unity on the cylinder (`hPUC`), the two
+conditions on the glued data (`hglue`) and step (c) (`hor`). -/
 theorem corollary_15_4_4_cylinder_of_rel
     (hBC : ∀ x : (A.cubeSEP 1).Obj,
       ∃ c : StrongBundleChart (A.cubeSEP 1).X.PObj (A.cubeSEP 1).P,
@@ -217,6 +219,30 @@ theorem corollary_15_4_4_cylinder_of_rel
   corollary_15_4_4_cylinder_hyp (theorem_15_3_9_charged_hyp hrelC) hBC hd hpara hPU hPUC hf hft
     hS Can hglue hor
 
+/-- **Corollary 15.4.4 with Theorem 15.3.9 on the cylinder reduced and the tame strong bundle
+charts of `[0, 1] × X` proved** (`SEP.exists_isTameChart`; the cylinder is tame since `d_X ≡ 0`):
+`corollary_15_4_4_cylinder_of_rel` without `hBC`.  What is left: the relative general position
+step on the cylinder (`hrelC`), partitions of unity on the cylinder (`hPUC`), the two
+conditions on the glued data (`hglue`) and step (c) (`hor`). -/
+theorem corollary_15_4_4_of_rel
+    (hrelC : theorem_15_3_7_relative_statement (A.cubeSEP 1))
+    (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
+    (hPU : A.X.HasScPartitionsOfUnity) (hPUC : (A.cubeSEP 1).X.PObj.AdmitsScPartitionsOfUnity)
+    {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunctor f)
+    (hft : A.B.IsScFredholmSectionTame f) (hS : A.E.HasCompactSolutionSetEp f) {m : ℕ}
+    (Can : OrientedRegularPerturbation A f m → Prop)
+    (hglue : ∀ P₀ P₁, Can P₀ → Can P₁ →
+      IsBoundaryStructurable (A.cubeSEP 1) (cubeGlue P₀.Λ P₁.Λ) ∧
+        IsBoundaryFaceOnto (cubeLiftEp (n := 1) f hf.1.1.1) (cubeGlue P₀.Λ P₁.Λ))
+    (hor : ∀ P₀ P₁, Can P₀ → Can P₁ → CylinderOrientationStatement hf.1.1.1 P₀ P₁) :
+    corollary_15_4_4_statement A f m Can := by
+  have := MPolyfold.paracompactSpace_prod (cubePolyfold 1) A.X.PObj
+  have := MPolyfold.paracompactSpace_prod (cubePolyfold 1) A.X.PMor
+  have hXC : (A.cubeSEP 1).X.IsTame :=
+    A.X.isTame_cubeProd 1 (A.X.isTame_of_degIndex_eq_zero hd)
+  exact corollary_15_4_4_cylinder_of_rel ((A.cubeSEP 1).exists_isTameChart hXC) hrelC hd hpara
+    hPU hPUC hf hft hS Can hglue hor
+
 /-! ### The effective version (p. 703) -/
 
 /-- The effective branched integral of the zero form is `0`. -/
@@ -230,7 +256,7 @@ theorem tameBranchedIntegralEff_zero {B : EP.{u}} {n : ℕ} (hn : 0 < n) {Θ : B
     branchedIntegralEff, map_zero]
   rfl
 
-/-- **The effective cobordism argument** (Corollary 15.4.4, effective version): as TX's
+/-- **The effective cobordism argument** (Corollary 15.4.4, effective version): as
 `integral_eq_of_cobordism`, with `Y` having the local unique continuation property and the
 effective boundary measure (Theorems 9.5.16, 9.5.18). -/
 theorem integralEff_eq_of_cobordism {X Y : EP.{u}} (F : EpFunctor Y.X X.X) {m : ℕ}

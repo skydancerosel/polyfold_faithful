@@ -74,7 +74,7 @@
    ],
    "diff": [
     "In the family picture an sc-operator carries its level maps as data; the text's \"one linear map $T$ mapping $E_m$ into $F_m$ continuously\" is the predicate `IsScOperator` on the base map, and the two are interchangeable (`ScOperator.isScOperator`, `IsScOperator.toScOperator`).",
-    "An sc-isomorphism is given by level-wise continuous linear equivalences; that the inverse of a bijective sc-operator is continuous on each level (the open mapping theorem) is built into this definition, and proved separately (`ScIso.ofBijective`). Likewise the continuity of $T : E_m \\to F_m$ asked by Definition 1.1.4 (preprint 1.3) is automatic for a bounded $T_0$ that maps $E_m$ into $F_m$ (`isScOperator_of_mapsTo`, the closed graph theorem; Findings, Chapter 3, item 233). Updated in the third addendum of this page."
+    "An sc-isomorphism is given by level-wise continuous linear equivalences; that the inverse of a bijective sc-operator is continuous on each level (the open mapping theorem) is built into this definition, and proved separately (`ScIso.ofBijective`). Likewise the continuity of $T : E_m \\to F_m$ asked by Definition 1.1.4 (preprint 1.3) is automatic for a bounded $T_0$ that maps $E_m$ into $F_m$ (`isScOperator_of_mapsTo`, the closed graph theorem; Findings, Chapter 3, item 233)."
    ]
   },
   {
@@ -216,7 +216,7 @@
    ],
    "diff": [
     "Condition (3), \"$T : X \\to Y$ is an sc-isomorphism\", is taken as: $T_m$ restricts to a bijection $X_m \\to Y_m$ for every $m$. The continuity of the inverses is automatic (open mapping theorem between the closed subspaces $X_m$, $Y_m$), so nothing is lost.",
-    "The text's \"$F = C \\oplus T(E_m)$\" (a slip for $F_m$) is the level-$m$ part of the splitting $F = C \\oplus Y$ together with $\\operatorname{range} T_m = Y_m$.",
+    "The text's \"$F = C \\oplus T(E_m)$\" (presumably meant as $F_m$) is the level-$m$ part of the splitting $F = C \\oplus Y$ together with $\\operatorname{range} T_m = Y_m$.",
     "The index is defined by the splitting as in the text and shown equal to $\\dim\\ker T_0 - \\dim\\operatorname{coker} T_0$, which the text does not state; the level-wise Fredholm property, the first line of §1.4.1, is a lemma."
    ]
   },
@@ -244,7 +244,7 @@
    ],
    "diff": [
     "The hypothesis is the data of Definition 1.1.9 (preprint 1.8) (a splitting) rather than its existence; the two are interchangeable, since the conclusion does not mention the splitting.",
-    "The converse, not stated in the text: together with “$T_0$ Fredholm”, being regularizing characterizes the sc-Fredholm operators (`isScFredholm_iff`). It is the construction of §1.4.1 with the two properties used there as hypotheses (V1.9), and the tool for the text's unargued “is sc-Fredholm” for operators obtained by conjugation and restriction in Chapter 3 (V3.8, V3.46, V3.96; Findings, Chapter 3, item 233). Updated in the third addendum of this page."
+    "The converse, not stated in the text: together with “$T_0$ Fredholm”, being regularizing characterizes the sc-Fredholm operators (`isScFredholm_iff`). It is the construction of §1.4.1 with the two properties used there as hypotheses (V1.9), and the tool for the text's unargued “is sc-Fredholm” for operators obtained by conjugation and restriction in Chapter 3 (V3.8, V3.46, V3.96; Findings, Chapter 3, item 233)."
    ]
   },
   {
@@ -274,7 +274,7 @@
     "§1.4.1 says \"since $T$ is regularizing, $e \\in E_m$\"; the hypothesis gives only $Te = y - Se \\in F_1$, so the regularizing step must be iterated $m$ times (`ScPlus.regularizing_add`). The same bootstrap gives $K_m = K_{m+1}$.",
     "The complement $C$ is built from a linear right inverse of $F_0 \\to F_0/Y$ with values in the smooth points rather than from a lifted basis; condition (3) of Definition 1.1.9 (preprint 1.8), which the text does not verify, is proved as the bijectivity of $(T+S)_m : X_m \\to Y_m$.",
     "The classical fact that opens §1.4.1, a compact perturbation of a Fredholm operator is Fredholm, is not in Mathlib and is proved here (V1.25). The text does not record that the index is preserved; the formalization proves it separately (V1.30).",
-    "§1.4.1 uses two properties of $T + S$ only: it is Fredholm on level $0$, and it is regularizing (so its kernel lies in $E_\\infty$, it maps $E_m$ onto $Y \\cap F_m$, and its range has a complement spanned by smooth points). With these as hypotheses the construction is a criterion for sc-Fredholm operators (`isScFredholm_of_isRegularizing`), not stated in the text (Findings, Chapter 3, item 233). Updated in the third addendum of this page."
+    "§1.4.1 uses two properties of $T + S$ only: it is Fredholm on level $0$, and it is regularizing (so its kernel lies in $E_\\infty$, it maps $E_m$ onto $Y \\cap F_m$, and its range has a complement spanned by smooth points). With these as hypotheses the construction is a criterion for sc-Fredholm operators (`isScFredholm_of_isRegularizing`), not stated in the text (Findings, Chapter 3, item 233)."
    ]
   },
   {
@@ -408,7 +408,7 @@
    "diff": [
     "Condition (2) is Mathlib's differentiability of $f : U_1 \\to F_0$ at $x$ within $U_1$, with derivative $Df(x)|_{E_1}$; the limit over $h \\in E_1$ with $x + h \\in U_1$ is exactly this.",
     "The text speaks of \"the\" operator $Df(x)$ and \"the\" tangent map; both need $Df(x)$ to be unique, which the text does not discuss. The formal definition takes the family $D$ as an explicit parameter (`IsSc1With`), proves uniqueness on $U_1$ where $U_1$ has unique differentiability (relatively open subsets of partial quadrants have it, V1.10) using the density of $E_1$ in $E_0$, and defines `tangentMap` through a choice that is then shown immaterial.",
-    "The remark on the compact-open topology is formalized here as the uniform continuity of $x \\mapsto Df(x)$ on compact sets of $E_0$, and as an equivalence with level $0$ of (3) in V1.34; the remark on finite dimensions is proved on open sets in `Polyfold/Test.lean` and on relatively open subsets of quadrants, with boundary, in V1.35. That $x \\mapsto Df(x)$ need not be norm continuous is proved by an example, which the text does not give: $f(t, x)_k = \\cos(kt)x_k$ on $\\mathbb R \\oplus X$, $X$ the weighted $c_0$ scale (the project's first infinite-dimensional sc-Banach space); the factor $k$ of the $t$-derivative is absorbed by one level, $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$, and the derivative is unique on $E_1$, so no derivative family is norm continuous (Findings, Chapter 1, follow-up item 1; formerly G.3). Updated in the third addendum of this page."
+    "The remark on the compact-open topology is formalized here as the uniform continuity of $x \\mapsto Df(x)$ on compact sets of $E_0$, and as an equivalence with level $0$ of (3) in V1.34; the remark on finite dimensions is proved on open sets in `Polyfold/Test.lean` and on relatively open subsets of quadrants, with boundary, in V1.35. That $x \\mapsto Df(x)$ need not be norm continuous is proved by an example, which the text does not give: $f(t, x)_k = \\cos(kt)x_k$ on $\\mathbb R \\oplus X$, $X$ the weighted $c_0$ scale (an infinite-dimensional sc-Banach space); the factor $k$ of the $t$-derivative is absorbed by one level, $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$, and the derivative is unique on $E_1$, so no derivative family is norm continuous (Findings, Chapter 1, follow-up item 1; gap G.3, closed)."
    ]
   },
   {
@@ -551,12 +551,12 @@
    "chips": [
     "as stated, the text's hypothesis",
     "by the induction $(\\mathrm S_k)$ (V1.38)",
-    "stronger-hypothesis version kept"
+    "stronger-hypothesis form also proved"
    ],
    "diff": [
     "\"$f$ induces a map $f : U_{m+l} \\to F_m$\" is the $\\mathrm{sc}^0$ hypothesis (the values on $U_m$ lie in $F_m$; continuity then follows from the case $l = 0$); \"of class $C^{l+1}$\" is Mathlib's $C^{l+1}$ within $U_{m+l}$, as in V1.17. The text's relatively open subset of a partial quadrant is a special case of an sc-domain (V1.27).",
     "The proof is the 2010 paper's induction $(\\mathrm S_k)$ on the elementary maps $(x, h_1, \\dots, h_j) \\mapsto d^jf(x)(h_1, \\dots, h_j)$ on mixed levels (V1.37, V1.38), with $f$ the elementary map with $j = 0$. It cannot be run on the hypothesis itself: if $f$ satisfies it with $k$, then $Tf$ in general does not satisfy it with $k - 1$, its second component $(x, h) \\mapsto Df(x)h : U_{m+l+1} \\times E_{m+l} \\to F_m$ being only $C^l$.",
-    "The earlier version under the stronger hypothesis \"$f : U_m \\to F_m$ is $C^{k+1}$ for every $m$\" (`proposition_1_2_4`, `IsScSmooth.of_contDiffOn_levels`) is kept: there the level maps of $Tf$ are $C^k$ and the induction needs no $(\\mathrm S_k)$. For $k = 0$ the two hypotheses agree (`proposition_1_2_4_zero`)."
+    "The form under the stronger hypothesis \"$f : U_m \\to F_m$ is $C^{k+1}$ for every $m$\" (`proposition_1_2_4`, `IsScSmooth.of_contDiffOn_levels`) is also proved: there the level maps of $Tf$ are $C^k$ and the induction needs no $(\\mathrm S_k)$. For $k = 0$ the two hypotheses agree (`proposition_1_2_4_zero`)."
    ]
   },
   {
@@ -582,11 +582,11 @@
    "chips": [
     "as stated, the text's hypothesis",
     "$\\mathbb R^N$ read as any finite-dim. $V$",
-    "stronger-hypothesis version kept"
+    "stronger-hypothesis form also proved"
    ],
    "diff": [
     "The corollary is Proposition 1.2.4 (preprint 1.19) (V1.18) for the constant structure: $f : U_{m+l} \\to V$ is the restriction of the $C^{l+1}$ map $f : U_l \\to V$, and $f$ is $\\mathrm{sc}^0$ because each $f : U_m \\to V$ is the continuous $f : U_0 \\to V$ composed with the inclusion, so no $\\mathrm{sc}^0$ hypothesis is needed. $\\mathbb R^N$ is any finite-dimensional normed space.",
-    "The two sc-smooth statements are the exposition's (\"$C^{l+1}$ on $U_l$ for every $l$\", and \"$C^\\infty$ on $U_0$\"), not the text's; the second gives the bump functions the theory uses. The earlier versions under the stronger hypothesis $C^{k+1}$ on every $U_m$ (`corollary_1_2_5`, `corollary_1_2_5_base`) are kept."
+    "The two sc-smooth statements are the exposition's (\"$C^{l+1}$ on $U_l$ for every $l$\", and \"$C^\\infty$ on $U_0$\"), not the text's; the second gives the bump functions the theory uses. The forms under the stronger hypothesis $C^{k+1}$ on every $U_m$ (`corollary_1_2_5`, `corollary_1_2_5_base`) are also proved."
    ]
   },
   {
@@ -1005,7 +1005,7 @@
     "the negative remark: an example (V1.13)"
    ],
    "diff": [
-    "The compact-open topology on $\\mathcal L(Y, Z)$ is written out as uniform convergence on compact sets, and the remark is strengthened to an equivalence (the exposition's Lemma 3.F): it is exactly level $0$ of condition (3) of Definition 1.1.15 (preprint 1.14). That norm continuity fails in general is proved by a sequence-space example (V1.13; formerly G.3), not by the shift map of the exposition (§6), which needs weighted Sobolev spaces (G.1). Updated in the third addendum of this page."
+    "The compact-open topology on $\\mathcal L(Y, Z)$ is written out as uniform convergence on compact sets, and the remark is strengthened to an equivalence (the exposition's Lemma 3.F): it is exactly level $0$ of condition (3) of Definition 1.1.15 (preprint 1.14). That norm continuity fails in general is proved by a sequence-space example (V1.13; gap G.3, closed), not by the shift map of the exposition (§6), which needs weighted Sobolev spaces (G.1)."
    ]
   },
   {
@@ -1226,7 +1226,7 @@
     "conjunction of V1.9 and V1.30"
    ],
    "diff": [
-    "The index statement, the exposition's addition in V1.30, is now the book's; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28)."
+    "The index statement, which the exposition adds in V1.30, is part of the 2021 statement; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28)."
    ]
   },
   {
@@ -1313,7 +1313,7 @@
    "label": "§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)",
    "page": 6,
    "book": "With $0 = \\delta_0 < \\delta_1 < \\cdots$, the spaces $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\\mathbb R \\times S^1)$, \"using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\\delta_m)$ is strictly increasing\".",
-   "instead": "**Formalized** (2026-11-12; V1.42). Formalized in `CylinderWeakDerivatives`–`CylinderScBanach` (`example_1_1_3`): for $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing, the spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\\mathbb R \\times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.",
+   "instead": "**Formalized** (V1.42), in `CylinderWeakDerivatives`–`CylinderScBanach` (`example_1_1_3`): for $\\delta_0 = 0$ and $(\\delta_m)$ strictly increasing, the spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$ form an sc-Banach space with level $0$ equal to $L^2(\\mathbb R \\times S^1)$, by Rellich on bounded cylinders (Fourier series), the weight tail estimate, and the density of test functions. The shift map of the 2010 paper on these spaces is not formalized.",
    "formalized": [
     "V1.42"
    ],
@@ -1331,7 +1331,7 @@
    "label": "§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)",
    "page": 11,
    "book": "Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\\lambda P \\subset P$ for $\\lambda \\ge 0$) with non-empty interior; for $U$ open in $P$, $\\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \\oplus E$, again a closed cone with non-empty interior. Many results should carry over, \"but one should check carefully which arguments carry over\".",
-   "instead": "**Formalized** (2026-11-12; V1.43). For a closed convex partial cone $P$ with nonempty interior, relatively open $U \\subseteq P$ are sc-domains (`IsPartialCone.isScDomain`), so §§1.2–1.3 apply, and $TP = P^1 \\oplus E$ is again such a cone (`IsPartialCone.tangentSet`); the chain rule is `remark_1_1_17_chainRule`.",
+   "instead": "**Formalized** (V1.43). For a closed convex partial cone $P$ with nonempty interior, relatively open $U \\subseteq P$ are sc-domains (`IsPartialCone.isScDomain`), so §§1.2–1.3 apply, and $TP = P^1 \\oplus E$ is again such a cone (`IsPartialCone.tangentSet`); the chain rule is `remark_1_1_17_chainRule`.",
    "formalized": [
     "V1.43"
    ],
@@ -1349,7 +1349,7 @@
    "label": "§1.1, after Definition 1.1.15 (preprint 1.14), preprint p. 11",
    "page": 11,
    "book": "\"In general, the map $U_1 \\to \\mathcal L(E_0, F_0)$, defined by $x \\mapsto Df(x)$, will not(!) be continuous, if the space of bounded linear operators is equipped with the operator norm.\"",
-   "instead": "**Formalized since the first edition of this page** (third addendum; V1.13, V1.34), by an example (the text gives none). $X$ is the sc-Banach space of sequences whose level $m$ consists of the $x$ with $(k+1)^m x_k \\to 0$, normed by $|x|_m = \\sup_k (k+1)^m|x_k|$: every level is a copy of $c_0$, the inclusion $X_{m+1} \\to X_m$ is $\\mathrm{diag}(1/(k+1))$, compact, and the finitely supported sequences are smooth points dense in every level. On $E = \\mathbb R \\oplus X$ the map $f(t, x)_k = \\cos(kt)x_k$ is $\\mathrm{sc}^1$ with $Df(t, x)(\\tau, \\xi)_k = -k\\sin(kt)x_k\\tau + \\cos(kt)\\xi_k$ (the factor $k$ is absorbed by one level). $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$ (test on the unit vector $e_{n+1}$); since the derivative is unique on $E_1$, no derivative family of $f$ is continuous for the operator norm. Not formalized: that $f$ is sc-smooth (it is), and the shift map of the exposition (§6), which needs Example 1.1.3 (preprint 1.2) (G.1).",
+   "instead": "**Formalized** (V1.13, V1.34), by an example (the text gives none). $X$ is the sc-Banach space of sequences whose level $m$ consists of the $x$ with $(k+1)^m x_k \\to 0$, normed by $|x|_m = \\sup_k (k+1)^m|x_k|$: every level is a copy of $c_0$, the inclusion $X_{m+1} \\to X_m$ is $\\mathrm{diag}(1/(k+1))$, compact, and the finitely supported sequences are smooth points dense in every level. On $E = \\mathbb R \\oplus X$ the map $f(t, x)_k = \\cos(kt)x_k$ is $\\mathrm{sc}^1$ with $Df(t, x)(\\tau, \\xi)_k = -k\\sin(kt)x_k\\tau + \\cos(kt)\\xi_k$ (the factor $k$ is absorbed by one level). $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$ (test on the unit vector $e_{n+1}$); since the derivative is unique on $E_1$, no derivative family of $f$ is continuous for the operator norm. Not formalized: that $f$ is sc-smooth (it is), and the shift map of the exposition (§6), which needs Example 1.1.3 (preprint 1.2) (G.1).",
    "formalized": [
     "V1.13",
     "V1.34"

@@ -33,10 +33,12 @@ with `U(x) ⊆ O(x)`; proof: Theorem 13.1.8 on `X`, then Proposition 14.1.1.
   (`StrongBundle.IsBoundaryScPlusSection`) with `∂X` replaced by `U`: in every tame strong bundle
   chart, at every point of `U`, `s` is sc⁺ on every local face germ.  The local faces at a point of
   `U(x)` are the germs of the `θ̄_j` through it, so this is "`s|θ̄_j` is sc⁺ for every `j`".
-* **Definition 14.1.3**: `BoundarySymmetricStructure A Λ V` (on `U(x) = V.bdry` for a good `V`),
+* **Definition 14.1.3**: `BoundarySymmetricStructure A Λ V` (on `U(x) = V.bdry` for a good `V`;
+  the index set `I_x` is non-empty, as the factor `|I_x|⁻¹` of (3) presumes),
   `IsBoundaryWFunctor` (a functor on `W|∂X`: invariance along morphisms with source in `∂X`) and
   `IsBoundaryScPlusMultisection`.  Witness: `isBoundaryScPlusMultisection_zero` (the zero
-  multisection, for tame `X`).
+  multisection, for tame `X`).  Every boundary fibre carries a point of positive weight
+  (`IsBoundaryScPlusMultisection.exists_ne_zero`).
 * **Proposition 14.1.4**: `proposition_14_1_4_hyp`: from any sc⁺-sections `s⁰ᵢ` on `V(x)` with
   `s⁰ᵢ = sᵢ` on `U(x)` the average `s̄_j(y) = |G_x|⁻¹ ∑_g μ(Γ(g⁻¹, g ∗ y), s⁰_{g(j)}(g ∗ y))` is
   an equivariant extension (Definition 13.2.5 (1)).  The existence of the `s⁰ᵢ` on all of
@@ -205,16 +207,20 @@ theorem isFaceScPlusSectionOn_fiberZero {U : Set A.Obj} (hU : U ⊆ A.X.PObj.bou
 
 /-- **2021 Definition 14.1.3, p. 642 (2017: Definition 14.2)**, the local data: a **symmetric
 sc⁺-section structure for `Λ` near `x` in `∂X`** on the good open neighbourhood
-`U(x) = V.bdry` (`V : NatNbhd x` with the natural `G_x`-action): a finite index type `I_x` with a
-`G_x`-action and sections `sᵢ` with (1) `sᵢ|θ̄_j` sc⁺ for every face (`IsFaceScPlusSectionOn`),
-(2) `s_{g(i)}(g ∗ y) = μ(Γ(g, y), sᵢ(y))` on `U(x)`, (3) `Λ(w) = |I_x|⁻¹·#{i | sᵢ(P(w)) = w}`
-for `P(w) ∈ U(x)`. -/
+`U(x) = V.bdry` (`V : NatNbhd x` with the natural `G_x`-action): a finite non-empty index type
+`I_x` with a `G_x`-action and sections `sᵢ` with (1) `sᵢ|θ̄_j` sc⁺ for every face
+(`IsFaceScPlusSectionOn`), (2) `s_{g(i)}(g ∗ y) = μ(Γ(g, y), sᵢ(y))` on `U(x)`,
+(3) `Λ(w) = |I_x|⁻¹·#{i | sᵢ(P(w)) = w}` for `P(w) ∈ U(x)`.  The factor `|I_x|⁻¹` of (3)
+presumes `I_x ≠ ∅` (field `nonempty`); with it every fibre over `U(x)` carries a point of positive
+weight (`exists_ne_zero`). -/
 structure BoundarySymmetricStructure (A : SEP.{u}) (Λ : A.W → ℚ≥0) {x : A.Obj}
     (V : A.X.NatNbhd x) where
   /-- The index set `I_x`. -/
   I : Type u
   [fintype : Fintype I]
   [mulAction : MulAction (A.X.Isotropy x) I]
+  /-- `I_x ≠ ∅`: presumed by the factor `|I_x|⁻¹` in (3). -/
+  [nonempty : Nonempty I]
   /-- The sections `sˣᵢ`. -/
   s : I → A.Obj → A.W
   /-- (1) sc⁺ on the faces. -/
@@ -227,6 +233,7 @@ structure BoundarySymmetricStructure (A : SEP.{u}) (Λ : A.W → ℚ≥0) {x : A
     Λ w = (Fintype.card I : ℚ≥0)⁻¹ * ((Finset.univ.filter fun i => s i (A.P w) = w).card : ℚ≥0)
 
 attribute [instance] BoundarySymmetricStructure.fintype BoundarySymmetricStructure.mulAction
+  BoundarySymmetricStructure.nonempty
 
 namespace BoundarySymmetricStructure
 
@@ -252,6 +259,18 @@ def restrict (S : BoundarySymmetricStructure A Λ V) {V' : A.X.NatNbhd x} (h : V
 @[simp] theorem restrict_s (S : BoundarySymmetricStructure A Λ V) {V' : A.X.NatNbhd x}
     (h : V'.Le V) : (S.restrict h).s = S.s := rfl
 
+/-- **Every fibre over `U(x)` carries a point of positive weight**: for `y ∈ U(x)` and `i ∈ I_x`,
+`Λ(sᵢ(y)) ≥ |I_x|⁻¹ > 0` (Definition 14.1.3 (3) with `I_x ≠ ∅`). -/
+theorem exists_ne_zero (S : BoundarySymmetricStructure A Λ V) {y : A.Obj} (hy : y ∈ V.bdry) :
+    ∃ w, A.P w = y ∧ Λ w ≠ 0 := by
+  classical
+  obtain ⟨i⟩ := S.nonempty
+  have hP := S.P_s i hy
+  refine ⟨S.s i y, hP, ?_⟩
+  rw [S.rep (S.s i y) (by rw [hP]; exact hy), hP]
+  refine mul_ne_zero (inv_ne_zero (Nat.cast_ne_zero.2 Fintype.card_ne_zero)) ?_
+  exact Nat.cast_ne_zero.2 (Finset.card_ne_zero.2 ⟨i, by simp⟩)
+
 end BoundarySymmetricStructure
 
 /-- **A functor `Λ : W|∂X → ℚ⁺`**: `Λ(μ(φ, w)) = Λ(w)` for every morphism `φ` with `s(φ) ∈ ∂X`
@@ -266,6 +285,14 @@ neighbourhood `U(x) = V(x) ∩ ∂X` in `∂X` carrying a symmetric sc⁺-sectio
 def IsBoundaryScPlusMultisection (A : SEP.{u}) (Λ : A.W → ℚ≥0) : Prop :=
   IsBoundaryWFunctor A Λ ∧ ∀ x ∈ A.X.PObj.boundary, ∃ V : A.X.NatNbhd x,
     A.X.IsGoodBoundaryNbhd V ∧ Nonempty (BoundarySymmetricStructure A Λ V)
+
+/-- **An sc⁺-multisection over `∂X` charges every boundary fibre**: every `x ∈ ∂X` has a point
+`w` over it with `Λ(w) ≠ 0` (`BoundarySymmetricStructure.exists_ne_zero` at `x ∈ U(x)`). -/
+theorem IsBoundaryScPlusMultisection.exists_ne_zero {A : SEP.{u}} {Λ : A.W → ℚ≥0}
+    (hΛ : IsBoundaryScPlusMultisection A Λ) {x : A.Obj} (hx : x ∈ A.X.PObj.boundary) :
+    ∃ w, A.P w = x ∧ Λ w ≠ 0 := by
+  obtain ⟨V, -, ⟨S⟩⟩ := hΛ.2 x hx
+  exact S.exists_ne_zero ⟨V.mem_U, hx⟩
 
 /-! ### The zero multisection over `∂X` (nonvacuity) -/
 

@@ -1,37 +1,36 @@
-# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8; Part III waves 1–7, Chapters 12–16)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Part I, Chapters 1–6; Part II, Chapters 7–8; Part III, Chapters 12–16)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
 carry the preprint's statement numbers. Part II has no preprint, and there the Lean names carry the
 2017 numbers (section "Part II" at the end); the V- and G-numbers of the reports are the project's
-own. The published book (Springer 2021) is now available (text in `sources/HWZ-Book-2021.txt`; not
-committed, since `sources/` is gitignored) and is the authoritative version from Chapter 9 on. The report citations of Chapters 1–8
+own. The published book (Springer 2021; text in `sources/HWZ-Book-2021.txt`, which is not in the
+repository, since `sources/` is gitignored) is the authoritative version from Chapter 9 on. The report citations of Chapters 1–8
 (`Findings.md`, the chapters, `verification/`, `pbp/`, `cmp/`) give the 2021 statement numbers and pages
 first, with the preprint's (Part I) or the 2017 text's (Part II) in parentheses, as in "Theorem 3.5.6
 (preprint 3.43), p. 126 (preprint p. 102)" or "Proposition 7.1.15 (2017: 7.5)"; a page that could not
 be located in the 2021 text keeps its old number, marked "(preprint p. …)" or "(2017 p. …)". The section
 "The Springer edition (2021), Chapters 1–8" below gives the correspondence. The book's arXiv version is
 **arXiv 1707.08941v1 (27 July 2017)**, the only version on arXiv (text in `sources/HWZ-Book-2017.txt`),
-whose Part I (Chapters 1–6) corresponds to the preprint's Part I. It was used as the proxy for the book
-until the Springer text became available: **every result recorded in the sections before "The Springer
-edition" is a result about the 2017 arXiv text**, whose pages and late corrections may differ from
-the Springer edition's; the 2021 section records the differences.
+whose Part I (Chapters 1–6) corresponds to the preprint's Part I. **Every result recorded in the
+sections before "The Springer edition" is a result about the 2017 arXiv text**, whose pages and late
+corrections may differ from the Springer edition's; the 2021 section records the differences.
 Pages of the 2017 text are its printed page numbers (Part I starts on p. 3).
 
 **Method.** The numbered items (Definition, Lemma, Proposition, Theorem, Corollary, Remark, Example)
 were extracted from `pdftotext -layout` texts of both versions with their pages, and each preprint
 item was matched to a 2017 item by the text of its statement (sequence alignment within each chapter);
-every weak or missing match was then checked by hand. Chapter 6 (added 2026-11-07) was matched by
+every weak or missing match was then checked by hand. Chapter 6 was matched by
 hand, item by item, from the statements, with the pages read off the page headers and footers of the
 two texts. All 279 numbered items of the preprint's Chapters 1–6 are listed; 274 have a counterpart,
 5 are absent, and the 2017 text has 40 numbered items in Chapters 1–6 without a preprint number
 (listed after the tables).
 
-**Annotation convention** (used in `Findings.md`, in `Chapter1.md`–`Chapter3.md`, where the marks
-*(book?)* and "check against the book" stood, and in the module docstrings of
+**Annotation convention** (used in `Findings.md`, in `Chapter1.md`–`Chapter3.md` at the places
+checked against the 2017 text, and in the module docstrings of
 `Polyfold/Chapter3/`–`Chapter6/`): *(book 2017: …)* gives the result of the check
-against arXiv 1707.08941: *unchanged* (the slip or gap is still there), *corrected*, *renumbered* (a
-citation slip carried over under the 2017 numbers), or the 2017 statement number and page, e.g.
+against arXiv 1707.08941: *unchanged* (the point or gap is in the 2017 text as well), *corrected*,
+*renumbered* (a citation number of the preprint carried over under the 2017 numbers), or the 2017 statement number and page, e.g.
 *(book 2017: Theorem 3.13, p. 99)*. A general remark such as "statement numbers are the
 preprint's" points here instead: *(book 2017: see `BookConcordance.md`)*.
 
@@ -41,8 +40,8 @@ preprint's" points here instead: *(book 2017: see `BookConcordance.md`)*.
   (Definition 3.48, Remark 3.49, Definition 3.50, …). The 2017 text has a separate counter for each
   kind of statement, so numbers collide across kinds: Definition 3.13 (the filling, p. 97) and
   Theorem 3.13 (the implicit function theorem, p. 99) are different statements. Displayed equations
-  are numbered by chapter, e.g. (3.44). Citation slips of the preprint that name the wrong kind of
-  statement ("Proposition 3.40" for Theorem 3.40) survive with the new number and may now point at an
+  are numbered by chapter, e.g. (3.44). Citations of the preprint that name another kind of
+  statement than the one presumably meant ("Proposition 3.40" for Theorem 3.40) survive with the new number and may now point at an
   existing statement of that kind with a different content (see `Findings.md`, "Numbering and pages").
 - **Chapter and section titles.**
 
@@ -135,7 +134,7 @@ Spot checks of statements and proofs that `Findings.md` flags:
   the proof of Theorem 3.13 (= 3.54, p. 101: "Property (4) follows from Corollary 3.5 and from the
   following lemma") with the filling, Definition 3.13 (= 3.48, p. 97), whose condition (3) is imposed at
   the point $0$ only — so the gap of `Findings.md` item 100 is in the 2017 text as well.
-- *Unchanged, checked 2026-11-02 (the points of the brief to the authors):* the sentence
+- *Unchanged (the points raised in the notes to the authors):* the sentence
   "$F = C \oplus T(E_m)$" after Definition 1.5 (= 1.8, p. 6); Remark 2.2 (= 2.28, p. 29); the step
   "$\delta$ is a sc$^\infty$-germ near $v_0$" in the proof of Theorem 3.6 (= 3.27, p. 74), whose
   statement is also unchanged; "the finitely many such neighborhoods" in the proof of Theorem 4.4
@@ -159,16 +158,17 @@ Spot checks of statements and proofs that `Findings.md` flags:
   enters only through the filling, Definition 3.13 (p. 97), "covering the tame retraction `r`" of
   the chart that carries the germ data. This is the reading the project chose for "tame" (germ data
   in a tame chart; `Findings.md`, Chapter 3, items 190–199).
-- *Typos:* of the 26 or so preprint typos and citation slips marked in `Findings.md` and the
-  chapters, one is corrected ("sunspace", p. 69) and all the others are still there, the citation
-  slips renumbered; a typo that was not marked is corrected too ("kerenel" in Theorem 3.15, p. 102).
+- *Points of wording:* of the 26 or so points of spelling and of citation numbers in the preprint
+  marked in `Findings.md` and the chapters, one is corrected ("sunspace", p. 69) and all the others
+  are in the 2017 text as well, the citations renumbered; an unmarked spelling is corrected too
+  ("kerenel" in Theorem 3.15, p. 102).
   One preprint number is left standing in the 2017 text: "In view of Lemma 3.44" (p. 115) for
   Lemma 3.7.
-- *Chapter 6 (checked 2026-11-07).* Of the twelve possible misprints and omissions marked in
+- *Chapter 6.* Of the twelve points of notation and omissions marked in
   `Findings.md`, Chapter 6, two are corrected: "$(f-s)'(x)$ is a sc-Fredholm operator if and only
   if $(f-s)'(x)$ is" before Definition 6.1 now has $(f-t)'(x)$ in the second place (p. 182), and
   Definition 6.39's "$y \in U_\infty$" reads "$y \in X_\infty$" (Definition 6.12, p. 213). The
-  other ten are still there: in §6.7.1 (pp. 218–219) "$\det(\tau)$" for $\det(\sigma)$, "$\beta(C)$"
+  other ten are in the 2017 text as well: in §6.7.1 (pp. 218–219) "$\det(\tau)$" for $\det(\sigma)$, "$\beta(C)$"
   and the names of the two blocks of the wedge in $C$; the same exchange of names in Proposition
   6.6 (= 6.3, p. 188); "$\alpha_q$" in §6.7.2 (p. 221); "$j(e) = (0, e)$" in the proof of Lemma
   6.14 (= 6.6, p. 199); the name $\varphi$ for the isomorphism of (94) in Proposition 6.15 (= 6.7,
@@ -744,7 +744,7 @@ printed, `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed` in `NonVacuit
 V8.30. Gaps opened in Chapter 8: G.74 (Definitions 8.2 and 8.3, pp. 268–270, sc-differential forms
 on ep-groupoids and the sc-de Rham complex) and G.75 (Lemma 8.1 as printed, p. 259, the
 identification $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ with
-$m_{T\mathbf X} = Tm$); G.70 (Definition 7.4, $T\varphi$) is now formalized in part, by Remark 8.1.
+$m_{T\mathbf X} = Tm$); G.70 (Definition 7.4, $T\varphi$) is formalized in part, by Remark 8.1.
 `verification/ch08.md` contains no *(book?)* mark: there is no other numbering to check against.
 
 ## The Springer edition (2021), Chapters 1–8
@@ -801,8 +801,8 @@ other kinds (the 2017 Question 4.1 is Question 4.2.4 in 2021, p. 187) are not co
   (footnote to Definition 2.3.4, repeated in later chapters); "Banach space" means Banachable space
   (Remark 1.1.2).
 - **Editorial.** "a sc-" becomes "an sc-" throughout; the bibliography is renumbered (2017 [36], [37],
-  [42] are [54], [55], [60] in 2021); typos of the 2017 text are mostly corrected silently (the
-  possible misprints that touch a statement are recorded below).
+  [42] are [54], [55], [60] in 2021); small points of wording of the 2017 text are mostly settled
+  silently (those that touch a statement are recorded below).
 - **Section titles.** Chapter and section titles, 2017 against 2021 (pages are the printed pages of
   each text):
 
@@ -1099,7 +1099,7 @@ Rows follow the 2017 order; the preprint column is the number in the table of th
 | Theorem 4.23 | Theorem 4.4 | Theorem 4.3.1 | 193 | changed: in (1) non-emptiness of $p^{-1}(\lambda)$ dropped; $\Sigma$ is a "measurable set of full measure" (2017: "a set of full measure") |
 | Remark 4.24 | Remark 4.5 | Remark 4.3.2 | 193 | same |
 | Definition 4.25 | Definition 4.9 | Definition 4.4.1 | 195 | same (the direct limit $\Omega^k_\infty$ and the graded space $\Omega^*_\infty$ moved to Definitions 4.4.1-4.4.2) |
-| Proposition 4.26 | Proposition 4.5 | Proposition 4.4.5 | 196 | changed: the levels of $d$ are stated as $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ (2017: $\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$, a possible misprint); $[A,B]$ is a section of $TX$ restricted to $X^2$, over $X^2$; the formula for $d$ is spelled out; proof in Appendix 4.5 |
+| Proposition 4.26 | Proposition 4.5 | Proposition 4.4.5 | 196 | changed: the levels of $d$ are stated as $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ (2017: $\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$, presumably meant as in 2021); $[A,B]$ is a section of $TX$ restricted to $X^2$, over $X^2$; the formula for $d$ is spelled out; proof in Appendix 4.5 |
 | Definition 4.27 | Definition 4.10 | Definition 4.4.6 | 198 | same |
 | Theorem 4.28 | Theorem 4.5 | Theorem 4.4.7 | 199 | same (the sentences "$N$ is not assumed face structured" and on $f^*$ dropped; the Poincar\'e lemma is stated as Lemma 4.4.8) |
 
@@ -1207,7 +1207,7 @@ Rows follow the 2017 order; the preprint column is the number in the table of th
 | Definition 6.27 | Definition 6.9 | Definition 6.6.2 | 263 | same |
 | Proposition 6.28 | Proposition 6.12 | Proposition 6.6.3 | 263 | changed: the tameness of $X$ is stated; the sc$^+$-sections $s$, $q$ take values in $Y\times[0,1]$ |
 | Lemma 6.29 | Lemma 6.12 | Lemma 6.6.4 | 265 | same |
-| Lemma 6.30 | Lemma 6.13 | Lemma 6.6.5 | 265 | changed: the solution set is taken near $(t,\varphi(t),0)$ for points $(t,y,\lambda)$ (2017: $(t,y,0)$, a possible misprint) |
+| Lemma 6.30 | Lemma 6.13 | Lemma 6.6.5 | 265 | changed: the solution set is taken near $(t,\varphi(t),0)$ for points $(t,y,\lambda)$ (2017: $(t,y,0)$, presumably meant as in 2021) |
 | Lemma 6.31 | Lemma 6.14 | Lemma 6.6.6 | 266 | same |
 | Proposition 6.32 | Proposition 6.13 | Proposition 6.6.7 | 267 | same |
 | Lemma 6.33 | Lemma 6.15 | Lemma 6.6.8 | 267 | changed: split in two: Lemma 6.6.8 (the extra parameters $\mu$ enter as dummy variables) and the new Lemma 6.6.9 (the extra sc$^+$-sections $\mu_j\bar s_j$) |
@@ -1310,16 +1310,22 @@ Rows follow the 2017 order; the preprint column is the number in the table of th
 | Remark 8.2 | Remark 8.5.4 | 386 | same |
 | Definition 8.9 | Definition 8.5.5 | 388 | same |
 | Proposition 8.3 | Proposition 8.5.7 | 390 | same |
-| Theorem 8.6 | Theorem 8.5.8 | 392 | same (in the proof $A(\psi,z)=(f(\psi),F(z))$ (2017: $(f(z),F(z))$, a possible misprint)) |
+| Theorem 8.6 | Theorem 8.5.8 | 392 | same (in the proof $A(\psi,z)=(f(\psi),F(z))$ (2017: $(f(z),F(z))$, presumably meant as in 2021)) |
 | Definition 8.10 | Definition 8.5.9 | 394 | changed: adds (0): $\tau(F(\psi),A(w))=A(\mu(\psi,w))$, the compatibility of $A$ with the strong bundle data |
 | Lemma 8.9 | Lemma 8.6.1 | 397 | same |
 | Lemma 8.10 | Lemma 8.6.2 | 398 | same |
 | Lemma 8.11 | Lemma 8.6.3 | 398 | same |
 | Proposition 8.4 | Proposition 8.6.4 | 399 | same |
 
-### Part III, items formalized in wave 1 (Chapters 12, 13, 15, 16; 2026-11-13)
+### Part III, Chapters 12–16
 
-Part III has no preprint. The Lean names and the reports carry the 2021 numbers, with the 2017 numbers in parentheses. The 2017 numbers below were checked in the 2017 text (2026-11-13); where a wave-1 note gave another 2017 number it is said in the last column (the notes S and M; the Lean docstrings of those files may still carry the numbers of the notes). The statements were not compared word by word between 2017 and 2021, except where a row says so. The Chapter 5 items of wave 1 (Definitions 5.1.4–5.4.1 and Theorem 5.4.2) are in the Chapter 5 table above.
+Part III has no preprint. The Lean names and the reports carry the 2021 numbers, with the 2017 numbers in parentheses. The tables below list, chapter by chapter in the order of the 2021 text, the numbered items of Chapters 12–16 that the Lean files formalize, with their 2017 numbers, their 2021 pages and their rows in `verification/`. The 2017 numbers were checked in the 2017 text; in particular Theorem 15.3.7 is Theorem 15.4 of 2017 (Theorem 15.6 there is the canonical orientation theorem, Theorem 15.4.1), and Theorem 15.2.5 is Theorem 15.3 of 2017. Where a Lean docstring gives another 2017 number, the last column says so. The statements were not compared word by word between 2017 and 2021, except where a row says so.
+
+An item can have several rows, one for each part or form of it that is formalized (a sub-item, a reading, a form with the text's hypotheses). A gap number in the Rows column marks an item, or a part of the form of that row, that is not formalized; "G.n closed" in the last column says that the gap is closed by the declarations of the item's rows. Definitions 5.1.4–5.4.1 and Theorem 5.4.2, which Part III uses, are in the Chapter 5 table above.
+
+Not listed are the items new in 2021 without a row of their own here (Remark 15.3.8, Lemma 16.3.2, Definition 16.6.3), the items without a number in either text and the tools: the reflexive 1-fibres, the remark after Definition 13.2.9, the locally finite commensurable sum after Definition 13.4.5, the text before Lemmas 14.2.1 and 14.3.3, the data of §§14.3–14.5, the instance of the setting of §14.4, (14.53) inside the proof of Lemma 14.5.1, the sum over $a$ in the proof of Theorem 14.1.9, the preamble of §14.6, the face good systems of §14.6, the product remark after Definition 15.3.3, the last paragraph of the proof of Corollary 15.3.10 and the parts of the proof of Corollary 15.3.10 (3), the constructions of §16.2, the remark on p. 720, the category PS, the raised polyfolds and the tangent projection, the remarks and constructions of §16.3 between numbered items, the opening of §16.5, (16.8), the claim before Definition 16.6.1 and the text before Theorem 16.6.6. They are rows V12.28, V12.40–V12.48, V13.21, V13.24, V13.56, V14.1, V14.10, V14.14, V14.38–V14.40, V14.45–V14.47, V15.10, V15.17, V15.19, V15.31, V15.39, V15.40, V15.42, V15.44, V15.46–V15.48, V15.53–V15.56, V16.14, V16.16, V16.19, V16.27, V16.29, V16.35, V16.36, V16.38, V16.40, V16.41, V16.45, V16.59, V16.60, V16.63, V16.67, V16.72, V16.75 and V16.80.
+
+#### Chapter 12
 
 | arXiv 2017 | Springer 2021 | p. | Rows | Note |
 |---|---|---|---|---|
@@ -1331,23 +1337,45 @@ Part III has no preprint. The Lean names and the reports carry the 2021 numbers,
 | Proposition 12.1 | Proposition 12.2.5 | 571 | V12.7 |  |
 | Theorem 12.2 | Theorem 12.2.6 | 571 | V12.8 |  |
 | Theorem 12.3 | Theorem 12.2.7 | 574 | V12.9 |  |
-| Definition 12.7 | Definition 12.3.1 | 579 | V12.10 | note S gave 12.6 |
-| Theorem 12.6 | Theorem 12.3.2 | 579 | V12.11, V12.12 | wave-1 note S gave 12.4 |
-| Theorem 12.7 | Theorem 12.3.3 | 581 | V12.13 | note S gave 12.5 |
-| Remark 12.3 | Remark 12.3.4 | 584 | V12.14 | note S gave 12.4 |
-| Remark 12.4 | Remark 12.3.5 | 584 | V12.15 | note S gave 12.5 |
+| Definition 12.5 | Definition 12.2.8 | 576 | V12.29 |  |
+| Remark 12.1 | Remark 12.2.9 | 576 | V12.30 |  |
+| Definition 12.6 | Definition 12.2.10 | 577 | V12.31 |  |
+| Theorem 12.4 | Theorem 12.2.11 | 577 | V12.32 |  |
+| Remark 12.2 | Remark 12.2.12 | 577 | V12.33 |  |
+| Theorem 12.5 | Theorem 12.2.13 | 578 | V12.34 |  |
+| Definition 12.7 | Definition 12.3.1 | 579 | V12.10 | Lean docstring: 2017 Definition 12.6 |
+| Theorem 12.6 | Theorem 12.3.2 | 579 | V12.11, V12.12 | Lean docstring: 2017 Theorem 12.4 |
+| Theorem 12.7 | Theorem 12.3.3 | 581 | V12.13 | Lean docstring: 2017 Theorem 12.5 |
+| Remark 12.3 | Remark 12.3.4 | 584 | V12.14 | Lean docstring: 2017 Remark 12.4 |
+| Remark 12.4 | Remark 12.3.5 | 584 | V12.15 | Lean docstring: 2017 Remark 12.5 |
 | Definition 12.8 | Definition 12.3.6 | 584 | V12.16 |  |
 | Proposition 12.2 | Proposition 12.3.7 | 585 | V12.17 |  |
 | Corollary 12.1 | Corollary 12.3.8 | 586 | V12.18 |  |
-| Definition 12.9 | Definition 12.4.1 | 587 | V12.19 | note S gave 12.11 |
-| Theorem 12.9 | Theorem 12.4.2 | 587 | V12.20 | note S gave 12.6 |
-| Lemma 12.1 | Lemma 12.4.4 | 589 | V12.21 | note S gave 12.3 |
-| Lemma 12.2 | Lemma 12.5.1 | 592 | V12.22 |  |
+| Theorem 12.8 | Theorem 12.3.9 | 586 | V12.35 |  |
+| Definition 12.9 | Definition 12.4.1 | 587 | V12.19 | Lean docstring: 2017 Definition 12.11 |
+| Theorem 12.9 | Theorem 12.4.2 | 587 | V12.20 | Lean docstring: 2017 Theorem 12.6 |
+| Definition 12.10 | Definition 12.4.3 | 588 | V12.36 |  |
+| Lemma 12.1 | Lemma 12.4.4 | 589 | V12.21 | Lean docstring: 2017 Lemma 12.3 |
+| Proposition 12.3 | Proposition 12.4.5 | 590 | V12.37 |  |
+| Theorem 12.10 | Theorem 12.4.6 | 590 | V12.38 |  |
+| Lemma 12.2 | Lemma 12.5.1 | 592 | V12.22 | Lin on chart-domain restrictions |
 | Definition 12.11 | Definition 12.5.2 | 593 | V12.23 |  |
-| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24 |  |
+| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24, G.140 | tame $X$ and tame germ data; G.140 closed |
+| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24 | last sentence |
 | Definition 12.12 | Definition 12.5.4 | 594 | V12.25 |  |
+| Definition 12.12 | Definition 12.5.4 | 594 | V12.48 | the two continuity readings agree |
 | Remark 12.5 | Remark 12.5.5 | 595 | — | prose, no row |
 | Proposition 12.4 | Proposition 12.5.6 | 595 | V12.26 |  |
+| Proposition 12.4 | Proposition 12.5.6 | 595 | V12.26 | (⇐) with continuity |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39 |  |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, G.158 | (2) with continuity; G.158 closed |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, V12.47, G.192 | as printed, for classes of diagrams; G.158, G.192 closed |
+| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, G.140 | tame $X$ and tame germ data; G.140 closed |
+
+#### Chapter 13
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
 | Lemma 13.1 | Lemma 13.1.1 | 599 | V13.1 |  |
 | Definition 13.1 | Definition 13.1.2 | 600 | V13.2 |  |
 | Proposition 13.1 | Proposition 13.1.3 | 600 | V13.3 |  |
@@ -1357,56 +1385,19 @@ Part III has no preprint. The Lean names and the reports carry the 2021 numbers,
 | Theorem 13.1 | Theorem 13.1.7 | 602 | V13.7 |  |
 | Theorem 13.2 | Theorem 13.1.8 | 604 | V13.8 |  |
 | Proposition 13.2 | Proposition 13.1.9 | 607 | V13.9 |  |
-| Definition 13.4 | Definition 13.2.1 | 607 | (Chapter 11) | note M gave other 2017 numbers for §13.2 |
+| Definition 13.4 | Definition 13.2.1 | 607 | (Chapter 11) | the Lean docstrings give other 2017 numbers for §13.2 |
 | Definition 13.5 | Definition 13.2.2 | 608 | V13.10 |  |
 | Definition 13.6 | Definition 13.2.3 | 608 | V13.11 |  |
 | Definition 13.7 | Definition 13.2.4 | 609 | V13.12 |  |
 | Definition 13.8 | Definition 13.2.5 | 610 | V13.13 |  |
 | Lemma 13.3 | Lemma 13.2.6 | 610 | V13.14 |  |
-| Definition 13.9 | Definition 13.2.7 | 610 | V13.22 | G.142 closed in wave 2 |
-| Definition 13.10 | Definition 13.2.8 | 611 | V13.23 | G.142 closed in wave 2 |
+| Definition 13.9 | Definition 13.2.7 | 610 | V13.22 | G.142 closed |
+| Definition 13.10 | Definition 13.2.8 | 611 | V13.23 | G.142 closed |
 | Definition 13.11 | Definition 13.2.9 | 611 | V13.15 |  |
 | Definition 13.12 | Definition 13.2.10 | 611 | V13.16 |  |
 | Lemma 13.4 | Lemma 13.2.11 | 612 | V13.17 |  |
 | Definition 13.13 | Definition 13.2.12 | 612 | V13.18 |  |
 | Lemma 13.5 | Lemma 13.2.13 | 612 | V13.19 |  |
-| Theorem 15.1 | Theorem 15.1.1 | 684 | V15.2, V15.9 |  |
-| Remark 15.1 | Remark 15.1.2 | 684 | V15.3 |  |
-| Proposition 15.1 | Proposition 15.1.3 | 684 | V15.4 |  |
-| Lemma 15.1 | Lemma 15.1.4 | 685 | V15.5 |  |
-| Lemma 15.2 | Lemma 15.1.5 | 685 | V15.6 |  |
-| — | Remark 15.1.6 | 686 | V15.7 | new in 2021 |
-| Definition 15.1 | Definition 15.1.7 | 687 | V15.8 |  |
-| Definition 16.1 | Definition 16.1.1 | 705 | V16.1 | 2021 adds (ZHOU) and paracompactness |
-| Proposition 16.1 | remark after Definition 16.1.1 | 706 | V16.14 | numbered in 2017, prose in 2021; G.146 closed in wave 2 |
-| Definition 16.2 | Definition 16.1.2 | 707 | V16.2, V16.3 | 2021 adds "as a consequence of (ZHOU)" |
-| Definition 16.3 | Definition 16.1.3 | 707 | V16.4 |  |
-| Proposition 16.2 | Proposition 16.1.4 | 708 | V16.5 |  |
-| Definition 16.4 | Definition 16.1.5 | 708 | V16.6 |  |
-| Remark 16.1 | Remark 16.1.7 | 711 | V16.7 |  |
-| Lemma 16.1 | Lemma 16.1.13 | 712 | V16.8 |  |
-| Definition 16.9 | Definition 16.1.14 | 712 | V16.9 |  |
-| Definition 16.11 | Definition 16.1.17 | 713 | V16.10 |  |
-| Lemma 16.2 | Lemma 16.1.19 | 714 | V16.11 |  |
-| Definition 16.12 | Definition 16.1.20 | 714 | V16.12 |  |
-
-### Part III, items formalized in wave 2 (Chapters 12, 13, 15, 16; 2026-11-13)
-
-The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-2 note gave another 2017 number, it is said in the last column (the notes R2, L and P); the 2017 numbers those notes gave do not hold as we read the 2017 text; the Lean docstrings of those files carry the numbers of this table since Part III waves 3–4. Items without a number (the reflexive 1-fibres, the remark after Definition 13.2.9, the remark on p. 720, the constructions of §16.2) and the tools are not listed; they are rows V12.28, V12.40–V12.44, V13.21, V13.24, V15.10, V15.17, V15.19, V16.14, V16.16, V16.19, V16.27. A gap number in the Rows column marks an item or a part of an item that is not formalized.
-
-| arXiv 2017 | Springer 2021 | p. | Rows | Note |
-|---|---|---|---|---|
-| Definition 12.5 | Definition 12.2.8 | 576 | V12.29 |  |
-| Remark 12.1 | Remark 12.2.9 | 576 | V12.30 |  |
-| Definition 12.6 | Definition 12.2.10 | 577 | V12.31 |  |
-| Theorem 12.4 | Theorem 12.2.11 | 577 | V12.32 |  |
-| Remark 12.2 | Remark 12.2.12 | 577 | V12.33 |  |
-| Theorem 12.5 | Theorem 12.2.13 | 578 | V12.34 |  |
-| Theorem 12.8 | Theorem 12.3.9 | 586 | V12.35 |  |
-| Definition 12.10 | Definition 12.4.3 | 588 | V12.36 | note R2 gave 12.12 |
-| Proposition 12.3 | Proposition 12.4.5 | 590 | V12.37 | note R2 gave 12.7 |
-| Theorem 12.10 | Theorem 12.4.6 | 590 | V12.38 | note R2 gave 12.7 |
-| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39 |  |
 | Definition 13.14 | Definition 13.3.1 | 613 | V13.25 |  |
 | Definition 13.15 | Definition 13.3.2 | 614 | V13.26 |  |
 | Example 13.1 | Example 13.3.3 | 614 | V13.27 |  |
@@ -1425,66 +1416,42 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Remark 13.5 | Remark 13.3.16 | 619 | V13.41 |  |
 | Definition 13.21 | Definition 13.3.17 | 620 | V13.42 |  |
 | Corollary 13.1 | Corollary 13.3.18 | 620 | V13.43 |  |
-| Proposition 13.5 | Proposition 13.3.19 | 620 | V13.50 | G.148 closed in wave 3 |
+| Proposition 13.5 | Proposition 13.3.19 | 620 | V13.50 | G.148 closed |
+| Proposition 13.5 | Proposition 13.3.19 | 620 | V13.50 |  |
+| Theorem 13.3 | Theorem 13.4.1 | 621 | V13.51 |  |
+| Proposition 13.6 | Proposition 13.4.2 | 623 | G.163 | G.163 closed |
+| Proposition 13.6 | Proposition 13.4.2 | 623 | V13.59 | G.163 closed |
+| Theorem 13.4 | Theorem 13.4.3 | 625 | V13.52 |  |
+| Theorem 13.5 | Theorem 13.4.4 | 626 | V13.53 |  |
+| Definition 13.22 (1) | Definition 13.4.5 (1) | 628 | V13.54 |  |
+| Definition 13.22 (2) | Definition 13.4.5 (2) | 628 | V13.55 |  |
 | Definition 13.23 | Definition 13.5.1 | 629 | V13.44 |  |
+| Definition 13.23 | Definition 13.5.1 | 629 | V13.57 |  |
 | Remark 13.6 | Remark 13.5.2 | 630 | V13.45 |  |
 | Theorem 13.6 | Theorem 13.5.3 | 630 | V13.46 |  |
 | Theorem 13.7 | Theorem 13.5.4 | 632 | V13.47 |  |
 | Theorem 13.8 | Theorem 13.5.5 | 633 | V13.48 |  |
 | Theorem 13.9 | Theorem 13.5.6 | 634 | V13.49 |  |
-| Definition 15.2 | Definition 15.2.1 | 688 | V15.11 |  |
-| Theorem 15.2 | Theorem 15.2.2 | 688 | V15.12 | note L gave 15.3 |
-| Remark 15.2 | Remark 15.2.3 | 689 | V15.13 | note L gave 15.4 |
-| Definition 15.3 | Definition 15.2.4 | 689 | V15.14 | note L gave 15.5 |
-| Theorem 15.3 | Theorem 15.2.5 | 690 | V15.15 | note L gave 15.6 |
-| Remark 15.3 | Remark 15.2.6 | 690 | V15.16 | note L gave 15.7 |
-| Definition 15.4 | Definition 15.3.1 | 691 | V15.20 | note P gave 15.2 |
-| Remark 15.4 | Remark 15.3.2 | 692 | V15.21 |  |
-| Definition 15.5 | Definition 15.3.3 | 692 | V15.22, V15.23 | note P gave 15.3 |
-| Remark 15.5 | Remark 15.3.4 | 692 | G.160 |  |
-| Definition 15.6 | Definition 15.3.5 | 693 | V15.24 | note P gave 15.4 |
-| Remark 15.6 | Remark 15.3.6 | 693 | V15.25, V15.27, V15.28 | G.161 closed in wave 3 |
-| Theorem 15.4 | Theorem 15.3.7 | 694 | V15.29, V15.30; G.162 | waves 3–4 |
-| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32; G.177–G.179 | wave 4 |
-| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.18, V15.26, V15.33, V15.34; G.180, G.181, G.183 | note P gave "Corollary 15.10" |
-| Theorem 15.6 | Theorem 15.4.1 | 700 | G.159 |  |
-| Definition 15.7 | Definition 15.4.2 | 700 | G.159 |  |
-| Lemma 16.3 | Lemma 16.2.1 | 716 | V16.15 |  |
-| Lemma 16.4 | Lemma 16.2.2 | 718 | V16.17 |  |
-| Definition 16.14 | Definition 16.2.3 | 719 | V16.18 |  |
-| Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34; G.157 | wave 3 |
-| Definition 16.15 | Definition 16.2.5 | 720 | V16.20 |  |
-| Theorem 16.2 | Theorem 16.2.6 | 721 | V16.21 | pull-back in wave 3 |
-| Definition 16.29 | Definition 16.4.1 | 730 | V16.22 |  |
-| Definition 16.30 | Definition 16.4.2 | 730 | V16.23 |  |
-| Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 |  |
-| Definition 16.31 | Definition 16.4.4 | 730 | V16.25 |  |
-| Definition 16.34 | Definition 16.4.5 | 731 | V16.26 |  |
-| Theorem 16.5 | Theorem 16.4.6 | 732 | V16.28 |  |
+| Theorem 13.10 | Theorem 13.5.7 | 635 | V13.58 |  |
 
-### Part III, items formalized in waves 3–4 (Chapters 13–16; 2026-11-13)
-
-The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-3 or wave-4 note gave another 2017 number, it is said in the last column (the notes G, GP and TX; the note SM gave Theorem 15.6 for Theorem 15.2.5, which is Theorem 15.3, row V15.15 above); the Lean docstrings of those files carry the numbers of this table. Items new in 2021 (Remark 15.3.8, Lemma 16.3.2, Definition 16.6.3) and items without a number (the category PS, the raised polyfolds and the tangent projection, the remarks and constructions of §16.3 between numbered items, the opening of §16.5, (16.8), the claim before Definition 16.6.1, the locally finite commensurable sum after Definition 13.4.5, the text before Lemmas 14.2.1 and 14.3.3) are not listed; they are rows V13.56, V14.1, V14.10, V14.14, V15.31, V16.29, V16.35, V16.36, V16.38, V16.40, V16.41, V16.45, V16.59, V16.60, V16.63, V16.67, V16.72, V16.75. Theorem 12.2.13 (row V12.34) and the rows of waves 1–2 updated in waves 3–4 are in the tables above. A gap number in the Rows column marks an item that is not formalized.
+#### Chapter 14
 
 | arXiv 2017 | Springer 2021 | p. | Rows | Note |
 |---|---|---|---|---|
-| Proposition 13.5 | Proposition 13.3.19 | 620 | V13.50 |  |
-| Theorem 13.3 | Theorem 13.4.1 | 621 | V13.51 |  |
-| Proposition 13.6 | Proposition 13.4.2 | 623 | G.163 |  |
-| Theorem 13.4 | Theorem 13.4.3 | 625 | V13.52 |  |
-| Theorem 13.5 | Theorem 13.4.4 | 626 | V13.53 |  |
-| Definition 13.22 (1) | Definition 13.4.5 (1) | 628 | V13.54 |  |
-| Definition 13.22 (2) | Definition 13.4.5 (2) | 628 | V13.55 |  |
-| Definition 13.23 | Definition 13.5.1 | 629 | V13.57 |  |
-| Theorem 13.10 | Theorem 13.5.7 | 635 | V13.58 |  |
 | Definition 14.1 | Definition 14.1.2 | 641 | V14.2 |  |
+| after Definition 14.1 | remark after Definition 14.1.2 | 641 | V14.36 | G.165 closed |
 | Definition 14.2 | Definition 14.1.3 | 642 | V14.3 |  |
+| Definition 14.2 | Definition 14.1.3 | 642 | V14.3, G.186 | $I_x \ne \emptyset$ in the definition; G.186 closed |
 | Remark 14.2 | Proposition 14.1.4 | 642 | V14.4 |  |
 | Definition 14.3 | Definition 14.1.5 | 643 | V14.5 |  |
 | Theorem 14.1 | Theorem 14.1.6 | 643 | V14.6 |  |
 | Definition 14.4 | Definition 14.1.7 | 644 | V14.7 |  |
-| Proposition 14.1 | Proposition 14.1.8 | 645 | G.164 |  |
-| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8 |  |
+| Proposition 14.1 | Proposition 14.1.8 | 645 | G.164 | G.164 closed |
+| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44, G.164 | face condition named; G.164 closed |
+| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44 | stronger; G.164 closed |
+| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8 | as printed |
+| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, G.171 | from `AssemblyHyp`; G.171 closed |
+| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, V14.46, G.186 | `hB` from tameness; G.171, G.186 closed |
 | Remark 14.3 | Remark 14.1.10 | 646 | V14.9 |  |
 | Lemma 14.1 | Lemma 14.2.2 | 648 | V14.11 |  |
 | Proposition 14.2 | Proposition 14.2.3 | 649 | V14.12 |  |
@@ -1500,6 +1467,7 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Definition 14.7 | Definition 14.4.4 | 660 | V14.23 |  |
 | Lemma 14.6 | Lemma 14.4.5 | 660 | V14.24 |  |
 | Proposition 14.5 | Proposition 14.4.6 | 661 | V14.25 |  |
+| Proposition 14.5 | Proposition 14.4.6 | 661 | V14.25 | (2) proved; G.168 closed |
 | Lemma 14.7 | Lemma 14.4.7 | 661 | V14.26 |  |
 | Definition 14.8 | Definition 14.4.8 | 663 | V14.27 |  |
 | Lemma 14.8 | Lemma 14.4.9 | 663 | V14.28 |  |
@@ -1509,27 +1477,103 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Lemma 14.9 | Lemma 14.4.13 | 666 | V14.32 |  |
 | Proposition 14.7 | Proposition 14.4.14 | 667 | V14.33 |  |
 | Lemma 14.10 | Lemma 14.5.1 | 671 | V14.34 |  |
-| Lemma 14.11 | Lemma 14.5.2 | 672 | G.172 |  |
-| Remark 14.7 | Remark 14.5.3 | 672 | G.172 |  |
-| Proposition 14.8 | Proposition 14.5.4 | 673 | G.170 | statement formalized |
+| Lemma 14.10 | Lemma 14.5.1, (14.53) | 671 | V14.34, V14.45 | (14.53) for the $\hat V_a$ |
+| Lemma 14.11 | Lemma 14.5.2 | 672 | V14.48, G.172 | multisection form; G.172 closed |
+| Lemma 14.11 | Lemma 14.5.2 | 672 | V14.38, G.172 | sum identity for the sections |
+| Remark 14.7 | Remark 14.5.3 | 672 | V14.48, G.172 | G.172 closed |
+| Proposition 14.8 | Proposition 14.5.4 | 673 | G.170 | statement formalized; G.170 closed |
+| Proposition 14.8 | Proposition 14.5.4 | 673 | V14.37 | G.170 closed |
 | Theorem 14.3 | Theorem 14.5.5 | 678 | V14.35 |  |
+| §14.6 | §14.6 | 680 | V14.47, G.185 | good systems on a face; G.185 closed |
 | Definition 14.10 | Definition 14.6.1 | 681 | G.173 |  |
-| Definition 14.11 | Definition 14.6.2 | 681 | G.173 |  |
-| Theorem 14.4 | Theorem 14.6.3 | 682 | G.173 |  |
-| Remark 15.6 | Remark 15.3.6 | 693 | V15.27, V15.28 | note G gave "Remark 15.5" |
-| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.30 | notes G, GP gave 15.6 |
-| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32 | note TX gave 15.8 and p. 694 |
-| Corollary 15.1 (1) | Corollary 15.3.10 (1) | 699 | V15.33 | note TX gave "Corollary 15.10" |
-| Corollary 15.1 (3) | Corollary 15.3.10 (3) | 699 | V15.34 | note TX gave "Corollary 15.10" |
+| Definition 14.10 | Definition 14.6.1 | 681 | V14.41, G.184 | G.184 closed |
+| Definition 14.10 | Definition 14.6.1 | 681 | V14.41 | corner sc⁺; G.184 closed |
+| Definition 14.11 | Definition 14.6.2 | 681 | V14.42, G.173 | with the sections in the equivalence; G.173 closed |
+| Definition 14.11 | Definition 14.6.2 | 681 | V14.42 |  |
+| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | Definition 13.3.8 as printed: does not hold as we read it; G.173 closed |
+| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | section-compatible face data |
+| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | extension part |
+
+#### Chapter 15
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
+| Theorem 15.1 | Theorem 15.1.1 | 684 | V15.2, V15.9 |  |
+| Remark 15.1 | Remark 15.1.2 | 684 | V15.3 |  |
+| Proposition 15.1 | Proposition 15.1.3 | 684 | V15.4 |  |
+| Lemma 15.1 | Lemma 15.1.4 | 685 | V15.5 |  |
+| Lemma 15.2 | Lemma 15.1.5 | 685 | V15.6 |  |
+| — | Remark 15.1.6 | 686 | V15.7 | new in 2021 |
+| Definition 15.1 | Definition 15.1.7 | 687 | V15.8 |  |
+| Definition 15.2 | Definition 15.2.1 | 688 | V15.11 |  |
+| Theorem 15.2 | Theorem 15.2.2 | 688 | V15.12 |  |
+| Remark 15.2 | Remark 15.2.3 | 689 | V15.13 |  |
+| Remark 15.2 | Remark 15.2.3 | 689 | V15.13 | tame; the ep-groupoid $U(x)$ |
+| Definition 15.3 | Definition 15.2.4 | 689 | V15.14 |  |
+| Theorem 15.3 | Theorem 15.2.5 | 690 | V15.15 |  |
+| Theorem 15.3 | Theorem 15.2.5 | 690 | V15.15, V15.43 | tame |
+| Remark 15.3 | Remark 15.2.6 | 690 | V15.16 |  |
+| Definition 15.4 | Definition 15.3.1 | 691 | V15.20 |  |
+| Remark 15.4 | Remark 15.3.2 | 692 | V15.21 |  |
+| Definition 15.5 | Definition 15.3.3 | 692 | V15.22, V15.23 |  |
+| after Definition 15.5 | remark after Definition 15.3.3 | 692 | V15.53–V15.57, G.160 | products; G.160 closed |
+| Remark 15.5 | Remark 15.3.4 | 692 | V15.57, G.160 | G.160 closed |
+| Definition 15.6 | Definition 15.3.5 | 693 | V15.24, V15.58 | along equivalences (V15.58) |
+| Remark 15.6 | Remark 15.3.6 | 693 | V15.25, V15.27, V15.28 | G.161 closed |
+| Remark 15.6 | Remark 15.3.6 | 693 | V15.27, V15.28 |  |
+| Remark 15.6 | Remark 15.3.6 | 693 | V15.28 | tame |
+| Theorem 15.4 | Theorem 15.3.7 | 694 | V15.29, V15.30; G.162 | G.162 closed |
+| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.30 |  |
+| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.30, V15.39 | not 2017 Theorem 15.6 |
+| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.44 | text's hypotheses |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32; G.177–G.179 | G.177–G.179 closed |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32 |  |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.41 | step (a) |
+| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.45, G.178, G.179 | text's hypotheses; witness with boundary |
+| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.18, V15.26, V15.33, V15.34; G.180, G.181, G.183 | G.180, G.181, G.183 closed |
+| Corollary 15.1 (1) | Corollary 15.3.10 (1) | 699 | V15.33 | hypotheses of Theorem 15.3.7 |
+| Corollary 15.1 (3) | Corollary 15.3.10 (3) | 699 | V15.34 | from bump functions |
+| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.40, V15.42 |  |
+| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.46–V15.48, G.180, G.189, G.190, G.193 | (1), (3); G.180, G.181, G.189, G.190, G.193 closed |
 | Remark 15.7 | Remark 15.3.11 | 699 | V15.35 |  |
-| Theorem 15.7 | Theorem 15.4.3 | 702 | V15.36 | note TX gave 15.12 |
-| Corollary 15.2 | Corollary 15.4.4 | 703 | V15.37 | note TX gave "Corollary 15.13" |
+| before Theorem 15.6 | before Theorem 15.4.1 | 701 | V15.50 | at a chart point |
+| Theorem 15.6 | Theorem 15.4.1 | 700 | V15.51, G.159 | in $\widehat{Gr}(X)$; G.159 closed |
+| Theorem 15.6 | Theorem 15.4.1 | 702 | V15.51, G.159 | at a chart point |
+| Definition 15.7 | Definition 15.4.2 | 700 | V15.52, G.159 | G.159 closed |
+| Definition 15.7 | Definition 15.4.2 | 702 | V15.52, G.159 | pointwise |
+| Theorem 15.7 | Theorem 15.4.3 | 702 | V15.36 | canonical orientation |
+| Corollary 15.2 | Corollary 15.4.4 | 703 | V15.37, V15.49 | canonical orientations; `hinvC` (G.182) |
+| Corollary 15.2 | Corollary 15.4.4 | 703 | V15.37, V15.49, G.182, G.191 | cylinder argument; effective; G.191 closed |
 | Remark 15.8 | Remark 15.4.5 | 703 | V15.38 |  |
+
+#### Chapter 16
+
+| arXiv 2017 | Springer 2021 | p. | Rows | Note |
+|---|---|---|---|---|
+| Definition 16.1 | Definition 16.1.1 | 705 | V16.1 | 2021 adds (ZHOU) and paracompactness |
+| Proposition 16.1 | remark after Definition 16.1.1 | 706 | V16.14 | numbered in 2017, prose in 2021; G.146 closed |
+| Definition 16.2 | Definition 16.1.2 | 707 | V16.2, V16.3 | 2021 adds "as a consequence of (ZHOU)" |
+| Definition 16.3 | Definition 16.1.3 | 707 | V16.4 |  |
+| Proposition 16.2 | Proposition 16.1.4 | 708 | V16.5 |  |
+| Definition 16.4 | Definition 16.1.5 | 708 | V16.6 |  |
 | Definition 16.5 | Definition 16.1.6 | 710 | V16.30 |  |
+| Remark 16.1 | Remark 16.1.7 | 711 | V16.7 |  |
 | Definition 16.6, Remark 16.2 | Definition 16.1.8 and Remark 16.1.9 | 711 | V16.31 |  |
 | Definition 16.7 | Definition 16.1.10 | 711 | V16.32 |  |
 | Definition 16.8 | Definition 16.1.11 | 711 | V16.33 |  |
+| Lemma 16.1 | Lemma 16.1.13 | 712 | V16.8 |  |
+| Definition 16.9 | Definition 16.1.14 | 712 | V16.9 |  |
+| Definition 16.11 | Definition 16.1.17 | 713 | V16.10 |  |
+| Lemma 16.2 | Lemma 16.1.19 | 714 | V16.11 |  |
+| Definition 16.12 | Definition 16.1.20 | 714 | V16.12 |  |
+| Lemma 16.3 | Lemma 16.2.1 | 716 | V16.15 |  |
+| Lemma 16.4 | Lemma 16.2.2 | 718 | V16.17 |  |
+| Definition 16.14 | Definition 16.2.3 | 719 | V16.18 |  |
+| Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34; G.157 | G.157 closed |
 | Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34 |  |
+| Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34 | functor on effective polyfolds |
+| Definition 16.15 | Definition 16.2.5 | 720 | V16.20 |  |
+| Theorem 16.2 | Theorem 16.2.6 | 721 | V16.21 | pull-back |
 | Definition 16.16 | Definition 16.3.1 | 721 | V16.37 |  |
 | Definition 16.17 | Definition 16.3.3 | 722 | V16.39 |  |
 | Definition 16.18 | Definition 16.3.4 | 723 | V16.42 |  |
@@ -1541,15 +1585,28 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Proposition 16.4 | Proposition 16.3.10 | 726 | V16.49 |  |
 | Remark 16.4 | Remark 16.3.11 | 727 | V16.50 |  |
 | Definition 16.24 | Definition 16.3.12 | 727 | V16.51 |  |
+| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | parenthetical, pull direction |
+| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | both directions; G.166 closed |
 | Definition 16.25 | Definition 16.3.13 | 727 | V16.52 |  |
 | Definition 16.26 | Definition 16.3.14 | 727 | V16.53 |  |
+| Definition 16.26 | Definition 16.3.14 | 727 | V16.53 | independent of the model |
 | Theorem 16.3 | Theorem 16.3.15 | 727 | V16.54 |  |
 | Proposition 16.5 | Proposition 16.3.16 (1) | 727 | V16.55 |  |
 | Proposition 16.5 | Proposition 16.3.16 (2) | 728 | V16.56 |  |
+| Proposition 16.5 | Proposition 16.3.16 (2) | 728 | V16.56 | as stated |
 | Theorem 16.4 | Theorem 16.3.17 (1) | 728 | V16.57 |  |
 | Theorem 16.4 | Theorem 16.3.17 (2) | 728 | V16.58 |  |
 | Definition 16.27 | Definition 16.3.18 | 729 | V16.61 |  |
+| Definitions 16.27, 16.28 | Definitions 16.3.18, 16.3.19 | 729 | V16.81 | zero section; G.167 closed |
 | Definition 16.28 | Definition 16.3.19 | 729 | V16.62 |  |
+| Definition 16.29 | Definition 16.4.1 | 730 | V16.22 |  |
+| Definition 16.30 | Definition 16.4.2 | 730 | V16.23 |  |
+| Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 |  |
+| Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 | naturality |
+| Definition 16.31 | Definition 16.4.4 | 730 | V16.25 |  |
+| Definition 16.34 | Definition 16.4.5 | 731 | V16.26 |  |
+| Theorem 16.5 | Theorem 16.4.6 | 732 | V16.28, G.153 | as printed from Stokes on the ep-groupoid level (Remark 9.5.19, the text's open question) |
+| §16.4 (running text) | the integrals on p. 732 in dimension 0 | 732 | V16.83 | Definition 9.5.6 for $n = 0$ |
 | Definition 16.35 | Definition 16.5.1 | 733 | V16.64 |  |
 | Definition 16.36 | Definition 16.5.2 | 733 | V16.65 |  |
 | Remark 16.5 | Remark 16.5.3 | 733 | V16.66 |  |
@@ -1557,71 +1614,15 @@ The 2017 numbers below were checked in the 2017 text (2026-11-13). Where a wave-
 | Definition 16.38 | Definition 16.5.5 | 734 | V16.69 |  |
 | Definition 16.39 | Definition 16.5.6 | 734 | V16.70 |  |
 | Theorem 16.6 | Theorem 16.5.7 | 735 | V16.71 |  |
+| Theorem 16.6 | Theorem 16.5.7 | 735 | V16.71 | as printed |
 | Definition 16.40 | Definition 16.6.1 | 736 | V16.73 |  |
 | Definition 16.41 | Definition 16.6.2 | 736 | V16.74 |  |
 | Theorem 16.7 | Theorem 16.6.4 | 737 | V16.76 |  |
 | Definition 16.42 | Definition 16.6.5 | 739 | V16.77 |  |
+| Definition 16.42 | Definition 16.6.5 | 739 | V16.77, G.176 | independent of the representative; G.176 closed |
 | Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78 |  |
-
-### Part III, items formalized in wave 5 (Chapters 12–16; 2026-11-13)
-
-Wave 5 closed or narrowed gaps of waves 1–4; the rows below are the items whose rows were added or changed. The 2017 numbers were checked in the 2017 text (2026-11-13); in particular Theorem 15.3.7 is Theorem 15.4 of 2017 (Theorem 15.6 there is the canonical orientation theorem). Items without a number in either text ((16.8), the preamble of §14.6, the sum over $a$ in the proof of Theorem 14.1.9, the instance of the setting of §14.4, the last paragraph of the proof of Corollary 15.3.10, the tools) are rows V12.45, V12.46, V14.38–V14.40, V15.39, V15.40, V15.42, V16.67. A gap number in the Rows column marks a part that is not formalized.
-
-| arXiv 2017 | Springer 2021 | p. | Rows | Note |
-|---|---|---|---|---|
-| Theorem 12.11 | Theorem 12.5.3 | 594 | V12.24 | last sentence |
-| Proposition 12.4 | Proposition 12.5.6 | 595 | V12.26 | (⇐) with continuity |
-| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, G.158 | (2) with continuity |
-| Proposition 13.6 | Proposition 13.4.2 | 623 | V13.59 | was G.163 |
-| after Definition 14.1 | remark after Definition 14.1.2 | 641 | V14.36 | was G.165 |
-| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44, G.164 | face condition named |
-| Proposition 14.5 | Proposition 14.4.6 | 661 | V14.25 | (2) proved, was G.168 |
-| Lemma 14.11 | Lemma 14.5.2 | 672 | V14.38, G.172 | sum identity for the sections |
-| Proposition 14.8 | Proposition 14.5.4 | 673 | V14.37 | was G.170 |
-| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, G.171 | from `AssemblyHyp` |
-| Definition 14.10 | Definition 14.6.1 | 681 | V14.41, G.184 |  |
-| Definition 14.11 | Definition 14.6.2 | 681 | V14.42 |  |
-| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | agreeing representatives |
-| Remark 15.2 | Remark 15.2.3 | 689 | V15.13 | tame; the ep-groupoid $U(x)$ |
-| Theorem 15.3 | Theorem 15.2.5 | 690 | V15.15, V15.43 | tame |
-| Remark 15.6 | Remark 15.3.6 | 693 | V15.28 | tame |
-| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.30, V15.39 | checked again: Theorem 15.4 |
-| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.41 | step (a) |
-| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.40, V15.42 |  |
-| Theorem 16.1 | Theorem 16.2.4 | 719 | V16.34 | functor on effective polyfolds |
-| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | parenthetical, pull direction |
-| Proposition 16.6 | Proposition 16.4.3 | 730 | V16.24 | naturality |
-
-### Part III, items formalized in waves 6–7 (Chapters 12, 14–16; 2026-11-13)
-
-Waves 6 and 7 closed or narrowed gaps of waves 1–5; the rows below are the items whose rows were added or changed. The 2017 numbers are those of the existing rows (checked in the 2017 text in earlier waves). Items without a number in either text ((14.53) inside the proof of Lemma 14.5.1, the data of §§14.3–14.5, the face good systems of §14.6, the product remark after Definition 15.3.3, the parts of the proof of Corollary 15.3.10 (3), the text before Theorem 16.6.6, the tools) are rows V12.47, V12.48, V14.45–V14.47, V15.44, V15.46–V15.48, V15.53–V15.56, V16.80. A gap number in the Rows column marks a part that is not formalized.
-
-| arXiv 2017 | Springer 2021 | p. | Rows | Note |
-|---|---|---|---|---|
-| Definition 12.12 | Definition 12.5.4 | 594 | V12.48 | the two continuity readings agree |
-| Theorem 12.12 | Theorem 12.5.7 | 595 | V12.39, V12.47, G.192 | as printed; was G.158 |
-| Definition 14.2 | Definition 14.1.3 | 642 | V14.3, G.186 | reading $I_x \ne \emptyset$ |
-| Proposition 14.1 | Proposition 14.1.8 | 645 | V14.44 | stronger; was G.164 |
-| Theorem 14.2 | Theorem 14.1.9 | 646 | V14.8, V14.46, G.186 | `hB`, `ChargesBoundary`; was G.171 |
-| Lemma 14.10 | Lemma 14.5.1, (14.53) | 671 | V14.34, V14.45 | (14.53) for the $\hat V_a$ |
-| §14.6 | §14.6 | 680 | V14.47, G.185 | good systems on a face |
-| Definition 14.10 | Definition 14.6.1 | 681 | V14.41 | corner sc⁺; was G.184 |
-| Theorem 14.4 | Theorem 14.6.3 | 682 | V14.43, G.173 | extension part |
-| after Definition 15.5 | remark after Definition 15.3.3 | 692 | V15.53–V15.56, G.160 | product strong bundle |
-| Theorem 15.4 | Theorem 15.3.7 | 693 | V15.29, V15.44 | text's hypotheses |
-| Theorem 15.5 | Theorem 15.3.9 | 698 | V15.32, V15.45, G.178, G.179 | nonempty index sets |
-| Corollary 15.1 | Corollary 15.3.10 | 699 | V15.33, V15.34, V15.46–V15.48, G.180, G.189, G.190, G.193 | (1), (3); was G.181 |
-| before Theorem 15.6 | before Theorem 15.4.1 | 701 | V15.50 | at a chart point |
-| Theorem 15.6 | Theorem 15.4.1 | 702 | V15.51, G.159 | at a chart point |
-| Definition 15.7 | Definition 15.4.2 | 702 | V15.52, G.159 | pointwise |
-| Corollary 15.2 | Corollary 15.4.4 | 703 | V15.37, V15.49, G.182, G.191 | cylinder argument; effective |
-| Definition 16.24 | Definition 16.3.12 | 727 | V16.51, V16.79 | both directions; was G.166 |
-| Definition 16.26 | Definition 16.3.14 | 727 | V16.53 | independent of the model |
-| Proposition 16.5 | Proposition 16.3.16 (2) | 728 | V16.56 | as stated |
-| Definitions 16.27, 16.28 | Definitions 16.3.18, 16.3.19 | 729 | V16.81 | zero section; was G.167 |
-| Theorem 16.6 | Theorem 16.5.7 | 735 | V16.71 | readings of Theorem 14.1.9 |
-| Definition 16.42 | Definition 16.6.5 | 739 | V16.77, G.176 | transport along a diagram |
-| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78, V16.80, G.175, G.187, G.188 | integrals well defined |
+| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78, V16.80, G.175, G.187 | integrals well defined; general position in one model (G.187 closed) |
+| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.82, G.188 | Fredholm index 0 |
 
 ### Items of the 2021 text without a 2017 counterpart
 
@@ -1779,7 +1780,7 @@ Listed by section with a one-line paraphrase (the item's number and page in the 
 - §8.5, proof of Theorem 8.5.8
   - Lemma 8.5.10 (p. 395): $B$ is a strong bundle isomorphism over $\mathbf Y$ covering the identity of $\mathbf Y$ (in §8.5, proof of Theorem 8.5.8)
 
-**Chapter 5** has no 2021-only item; the two items that look new at first sight, Theorem 5.3.15 and Theorem 5.5.5, are 2017 Theorems 5.8 and 5.10 (the headings carry a title).
+**Chapter 5** has no 2021-only item; the two items that seem new, Theorem 5.3.15 and Theorem 5.5.5, are 2017 Theorems 5.8 and 5.10 (the headings carry a title).
 
 ### Summary
 
@@ -1811,7 +1812,7 @@ in the rest of the project):
 - **Definitions 3.4 and 3.13** (preprint 3.4 and 3.48, the filling): the retraction is no longer required to be tame (Definition 3.1.4), resp. need only be sc-smooth (Definition 3.6.1).
 - **Theorem 4.3** (preprint 4.22): the faces $F_1,\dots,F_d$ contain $x$ (Theorem 4.2.11).
 - **Theorem 4.4** (preprint 4.23, Sard for families): non-emptiness of the fibres is dropped, $\Sigma$ is a measurable set of full measure (Theorem 4.3.1).
-- **Proposition 4.5** (preprint 4.26): the levels of $d$ are $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ in 2021 (a possible misprint in 2017).
+- **Proposition 4.5** (preprint 4.26): the levels of $d$ are $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ in 2021 (the 2017 levels presumably meant so).
 - **Definition 5.5 and Theorem 5.1** (preprint 5.4, 5.5): two further compactness notions, proper$_{<\infty}$ and weakly proper$_{<\infty}$, and the equivalence of all five for sc-Fredholm sections (Definition 5.2.1, Theorem 5.2.2).
 - **Theorem 5.5** (preprint 5.13): the solution set is a *compact* sub-M-polyfold (Theorem 5.3.5).
 - **Definition 5.10** (preprint 5.20, generalized compact homotopy): the data are weaker (Definition 5.3.13).
@@ -1824,22 +1825,21 @@ in the rest of the project):
 ## Marks in the report sources
 
 The generated files (`Comparison.md`, `Comparison.json`, `Verification.md`, `ProofByProof.md`, the
-HTML and PDF outputs) are not edited; they inherit the marks of their sources and are rebuilt
-later. In the sources, `verification/*.md` (`ch06.md` included) and `pbp/*.md` contain no *(book?)*
-mark; `cmp/ch03.json` contained seven, which now carry the annotations below (checked 2026-11-07):
+HTML and PDF outputs) are not edited; they are built from their sources. The sources
+(`verification/*.md`, `pbp/*.md`, `cmp/*.json`) contain no *(book?)* mark; the seven places of
+`cmp/ch03.json` that concern the 2017 text carry the annotations below:
 
-| Source | Item | Text with the mark | Annotation it should get |
+| Source | Item | Text | Annotation |
 |---|---|---|---|
-| `cmp/ch03.json`, items[19].diff[1] | V3.20, Definition 3.21 | Typo p. 77: "finite dimensional sunspace" *(book?)*. | *(book 2017: corrected, p. 69)* |
-| `cmp/ch03.json`, items[25].diff[1] | V3.26, Theorem 3.29 | Typo p. 85: "δ₁ : V₁ → W₁ satisfying δ(0) = 0" for δ₁(0) = 0 *(book?)*. | *(book 2017: unchanged, p. 77)* |
-| `cmp/ch03.json`, items[30].diff[0] | V3.31, Corollary 3.34 | The citation "Proposition 3.40" should be Theorem 3.40, and it is not needed *(book?)* | *(book 2017: unchanged, renumbered: "Proposition 3.11" for Theorem 3.11, p. 79)* |
-| `cmp/ch03.json`, items[59].diff[0] | V3.60, Lemma 3.74 | typos "τ_n → τ'", "B(x⁰, r)" *(book?)* | *(book 2017: both unchanged, Lemma 3.24, p. 122)* |
-| `cmp/ch03.json`, items[61].diff[0] | V3.62, Lemma 3.77 | The text cites "Theorem 3.73" for Proposition 3.73 *(book?)*. | *(book 2017: unchanged, renumbered: Lemma 3.26, p. 124, cites "Theorem 3.7" for Proposition 3.7)* |
-| `cmp/ch03.json`, items[64].diff[0] | V3.65, Lemma 3.80 | The maximum in c(a) is over B((1 + ε)a) ∩ C, where DB is defined *(book?)* | *(book 2017: unchanged, Lemma 3.28, p. 126)* |
-| `cmp/ch03.json`, items[66].diff[0] | V3.67, Lemma 3.82 | Typos in (72) *(book?)* (item 26). | *(book 2017: unchanged, Lemma 3.30, p. 128)* |
+| `cmp/ch03.json`, items[19].diff[1] | V3.20, Definition 3.21 | p. 77: "finite dimensional sunspace", presumably "subspace". | *(book 2017: corrected, p. 69)* |
+| `cmp/ch03.json`, items[25].diff[1] | V3.26, Theorem 3.29 | p. 85: "δ₁ : V₁ → W₁ satisfying δ(0) = 0", presumably δ₁(0) = 0. | *(book 2017: unchanged, p. 77)* |
+| `cmp/ch03.json`, items[30].diff[0] | V3.31, Corollary 3.34 | The citation "Proposition 3.40" presumably means Theorem 3.40, and it is not needed | *(book 2017: unchanged, renumbered: "Proposition 3.11" for Theorem 3.11, p. 79)* |
+| `cmp/ch03.json`, items[59].diff[0] | V3.60, Lemma 3.74 | the notation "τ_n → τ'", "B(x⁰, r)" | *(book 2017: both unchanged, Lemma 3.24, p. 122)* |
+| `cmp/ch03.json`, items[61].diff[0] | V3.62, Lemma 3.77 | The text cites "Theorem 3.73" for Proposition 3.73. | *(book 2017: unchanged, renumbered: Lemma 3.26, p. 124, cites "Theorem 3.7" for Proposition 3.7)* |
+| `cmp/ch03.json`, items[64].diff[0] | V3.65, Lemma 3.80 | The maximum in c(a) is over B((1 + ε)a) ∩ C, where DB is defined | *(book 2017: unchanged, Lemma 3.28, p. 126)* |
+| `cmp/ch03.json`, items[66].diff[0] | V3.67, Lemma 3.82 | The notation in (72) (item 26). | *(book 2017: unchanged, Lemma 3.30, p. 128)* |
 
-Related wording in the report generators (not a mark): `build_comparison.py` (`DEK`, `FOOT`) and
-`build_verification.py` (`INTRO`) said that the preprint's numbers and pages are used "until the
-book's are checked"; they now keep the preprint's numbers and point to `BookConcordance.md` for the
-2017 ones, since the Springer edition is still unchecked (checked 2026-11-07). The
-`confirm('… for this book?')` string in `build_signoff.py` is unrelated.
+The report generators `build_comparison.py` (`DEK`, `FOOT`) and `build_verification.py` (`INTRO`)
+give the Springer numbers and pages first, with the preprint's or the 2017 text's in parentheses, and
+point to `BookConcordance.md` for the correspondence. The `confirm('… for this book?')` string in
+`build_signoff.py` is unrelated.

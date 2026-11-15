@@ -9,14 +9,16 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 
 ## What is formalized
 
-* `BoundaryMultisection.IsStructurableNe s`: Definition 16.5.6 with the index sets of the
-  structurable representative non-empty (`ChargesBoundary`; the text's `|I_x|⁻¹` in Definition
-  14.1.3 (3)).  PB's `IsStructurable` allows empty index sets, and then B1's
-  `theorem_14_1_9_statement`, which PB's `theorem_16_5_7_hyp` takes in every model, does not hold
-  as we read it for models with boundary (`not_theorem_14_1_9_statement_a6`).
-* **`theorem_16_5_7_a6`**: PB's Theorem 16.5.7 with `theorem_14_1_9_charged_a6` in place of the
+* `BoundaryMultisection.IsStructurableNe s`: Definition 16.5.6 with a structurable
+  representative that charges every boundary fibre (`ChargesBoundary`).  Since the index sets of
+  Definition 14.1.3 are non-empty, this is Definition 16.5.6 itself
+  (`BoundaryMultisection.isStructurableNe_iff`).
+* **`theorem_16_5_7_a6`**: Theorem 16.5.7 with `theorem_14_1_9_charged_a6` in place of the
   hypothesis `h1419`; the models carry tame strong bundle charts (`hB`, the standing assumption).
-  The proof is PB's.
+  
+* **`theorem_16_5_7`**: Theorem 16.5.7 for `s.IsStructurable` (Definition 16.5.6 as stated),
+  with no added hypothesis: `theorem_16_5_7_hyp` with `h1419` discharged in every model by
+  `theorem_14_1_9`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -48,6 +50,13 @@ theorem BoundaryMultisection.IsStructurableNe.isStructurable {s : BoundaryMultis
     (h : s.IsStructurableNe) : s.IsStructurable :=
   let ⟨a, ha, hs, _⟩ := h
   ⟨a, ha, hs⟩
+
+/-- **`IsStructurableNe` is Definition 16.5.6**: a structurable representative charges every
+boundary fibre (`IsBoundaryStructurable.chargesBoundary`). -/
+theorem BoundaryMultisection.isStructurableNe_iff {s : BoundaryMultisection c} :
+    s.IsStructurableNe ↔ s.IsStructurable :=
+  ⟨BoundaryMultisection.IsStructurableNe.isStructurable, fun ⟨a, ha, hs⟩ =>
+    ⟨a, ha, hs, hs.chargesBoundary⟩⟩
 
 /-- **2021 Theorem 16.5.7, p. 735 (2017: Theorem 16.6)**, with Theorem 14.1.9 proved
 (`theorem_14_1_9_charged_a6`): over a tame polyfold whose models admit sc-smooth partitions of
@@ -102,6 +111,23 @@ theorem theorem_16_5_7_a6 (hc : c.IsTame) (hPU : ∀ S : StrongPolyfoldBundleStr
     rw [BoundaryMultisection.toFun_mk_of_mem a hy, ScPlusMultisection.toFun_mk,
       show a'.lam (S.Γ (S.A.E.toEpGroupoid.π w)) = Λ' w from a'.comm w, a.comm w hw]
     exact h3 w hw
+
+/-- **2021 Theorem 16.5.7, p. 735 (2017: Theorem 16.6)**, proved: over a tame polyfold whose models
+admit sc-smooth partitions of unity, with an auxiliary norm `n`, a structurable sc⁺-multisection
+`λ` over `∂Z`, an open `Ũ ⊇ dom-supp(λ)` and a continuous `f ≥ 0` with `tsupport f ⊆ Ũ` and
+`n(λ) < f` on `dom-supp(λ)`, there is a structurable sc⁺-multisection `λ'` with (1) `n(λ') ≤ f`,
+(2) `dom-supp(λ') ⊆ Ũ`, (3) `λ' = λ` over `∂Z`.  `theorem_16_5_7_hyp` with Theorem 14.1.9
+in the models discharged (`theorem_14_1_9`). -/
+theorem theorem_16_5_7 (hc : c.IsTame)
+    (hPU : ∀ S : StrongPolyfoldBundleStructure p, ⟦S⟧ = c →
+      S.A.X.PObj.AdmitsScPartitionsOfUnity)
+    {n : Y → ℝ} (hn : c.IsAuxNorm n) (s : BoundaryMultisection c) (hs : s.IsStructurable)
+    {U : Set Z} (hU : IsOpen U) (hdom : s.domSupp ⊆ U) {f : Z → ℝ} (hf : Continuous f)
+    (hf0 : ∀ z, 0 ≤ f z) (hfU : tsupport f ⊆ U)
+    (hlt : ∀ z ∈ s.domSupp, c.normLam n s.toFun z < f z) :
+    ∃ t : ScPlusMultisection c, t.IsStructurable ∧ (∀ z, c.normLam n t.toFun z ≤ f z) ∧
+      t.domSupp ⊆ U ∧ ∀ y, p y ∈ c.polyfold.boundary → t.toFun y = s.toFun y :=
+  theorem_16_5_7_hyp (fun _ _ => theorem_14_1_9) hc hPU hn s hs hU hdom hf hf0 hfU hlt
 
 end StrongPolyfoldBundle
 

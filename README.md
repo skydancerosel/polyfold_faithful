@@ -32,9 +32,9 @@ A web browser is enough: no Lean and no GitHub account are needed.
 
 | | Chapters | State | Open gaps |
 |---|---|---|---|
-| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 1, in part: families on `[0, 1]ⁿ` beyond Proposition 6.6.3 and Lemmas 6.6.4–6.6.5 |
-| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses | 1, in part: the branched subgroupoid and integrals of the example in Remark 9.5.20 |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–14 and Theorem 15.3.7 proved, some in a narrower form; Theorems 15.3.9 and 16.6.6 and Corollary 15.4.4 proved up to steps still open | 22 |
+| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 1, in part: Remark 6.6.19 over `[0, 1] × X` (the ends of `S_F` as its oriented boundary, Stokes' theorem on `S_F`) |
+| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses | 0 |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 with one invariance hypothesis beyond the text; Theorem 16.6.6 proved in part; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 3, in part: Corollary 15.4.4, Theorem 16.6.6 and its index-0 case |
 
 Every numbered item of the book is compared with its formal version, with a verdict and every
 difference listed (`Exposition/Verification.md`). Where a formal statement is narrower than the book's,
@@ -68,7 +68,10 @@ The HTML pages open straight from the folder; they need no server.
    sc-smooth germs live on neighbourhoods that may shrink with the level; "tame strong bundle"
    (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the 2014 and 2017 versions
    define it; index sets of structured multisections are non-empty, as the factor `1/|I_x|` of
-   Definitions 13.2.5 and 14.1.3 presumes.
+   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5. One reading point concerns our
+   own definitions: the strong polyfold bundle structure (Definition 16.3.1) carries local regularity in the form for
+   strong bundle maps of `W` (`IsLR`), which is weaker than Definition 8.4.2 as printed (`IsLRLocal`); what is proved
+   under each form is in the Findings, Chapter 8.
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
 4. **The statements that do not hold as we read them.** Each has a counterexample checked in Lean;
@@ -90,6 +93,7 @@ The HTML pages open straight from the folder; they need no server.
 | Lemmas 9.3.4, 9.4.4, 9.5.2 | Need the sheets to have one dimension |
 | Theorems 10.3.19 and 10.5.7, pp. 493, 508 | Need an effective target |
 | Proposition 11.1.6, p. 524 | Two faces can meet in a set that is not a face; the union form is proved |
+| Theorem 14.6.3 with Definition 13.3.8, p. 682 | Compatible face data need not have equal sections (a quadrant example); proved when the equivalence compares the sections |
 | After Definition 16.1.2, Remark 16.1.7, Definition 16.1.10, Lemma 16.2.1, after Definition 16.3.3, pp. 707–723 | Need an effective target, as Theorem 10.3.19 does |
 
 ## Open questions
@@ -103,6 +107,8 @@ None of these is a hypothesis of a theorem here; each is stated precisely in the
 * Is the index locally constant along the zero set for germ data that are not tame?
 * Is there a single family `P^i` for all `i` in Corollary 5.2.5 (p. 213)?
 * The text's own Question 4.2.4 (p. 187).
+* The text's own open point in Remark 9.5.19: Stokes' theorem on ep-groupoids without partitions of
+  unity, on which Theorem 16.4.6 as printed rests (stated in Lean as `EP.StokesWithoutPartitions`).
 
 The text's question on p. 340, whether property (5) of Definition 7.1.3 follows from (1)–(4), has a
 negative answer: the Čech groupoid of a Prüfer-type surface with uncountably many charts
