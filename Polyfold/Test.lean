@@ -23973,6 +23973,63 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundleStructure.oneToY_of_oneOrbitMap
 
 
+/-! ### Axioms: Chapter 2, further files -/
+
+-- Polyfold.Chapter2.FaceFamilies
+#print axioms Polyfold.IsFaceCount
+#print axioms Polyfold.connectedComponentIn_eq_of_family
+#print axioms Polyfold.isFace_iff_of_family
+#print axioms Polyfold.isFaceCount_of_family
+#print axioms Polyfold.family_preimage
+#print axioms Polyfold.isFaceCount_of_homeomorph
+#print axioms Polyfold.isFace_iff_of_homeomorph
+#print axioms Polyfold.MPolyfold.isFaceStructured_iff_isFaceCount
+#print axioms Polyfold.endDeg
+#print axioms Polyfold.endPt
+#print axioms Polyfold.endHalf
+#print axioms Polyfold.isOpen_endHalf
+#print axioms Polyfold.endPt_mem_endHalf
+#print axioms Polyfold.mem_Ioo_iff_endDeg_eq_zero
+#print axioms Polyfold.endDeg_eq_one_iff
+#print axioms Polyfold.endDeg_le_one
+#print axioms Polyfold.endPt_mem_endHalf_iff
+#print axioms Polyfold.endPt_injective
+#print axioms Polyfold.encard_endPt
+#print axioms Polyfold.squareDeg
+#print axioms Polyfold.squareU
+#print axioms Polyfold.squareA
+#print axioms Polyfold.squareG
+#print axioms Polyfold.closure_Ioo_unitInterval
+#print axioms Polyfold.squareFamily
+#print axioms Polyfold.isFaceCount_square
+-- Polyfold.Chapter2.FaceLabels
+#print axioms Polyfold.TameBoundary.IsFaceLabel
+#print axioms Polyfold.TameBoundary.HasRealizedLabels
+#print axioms Polyfold.TameBoundary.IsFaceLabel.eq_of_mem_piece
+#print axioms Polyfold.TameBoundary.LocalPieces.injective_label
+#print axioms Polyfold.TameBoundary.encard_facesThrough_univ_of_label
+#print axioms Polyfold.TameBoundary.ccLabel
+#print axioms Polyfold.TameBoundary.isFaceLabel_ccLabel
+#print axioms Polyfold.TameBoundary.hasRealizedLabels_ccLabel
+#print axioms Polyfold.MPolyfold.isFaceStructured_iff_facesThrough
+#print axioms Polyfold.MPolyfold.isFaceStructured_of_label
+#print axioms Polyfold.MPolyfold.isFaceStructured_iff_label
+#print axioms Polyfold.MPolyfold.isFaceStructured_of_degIndex_le_one
+#print axioms Polyfold.MPolyfold.exists_degIndex_eq_zero_of_isTame
+#print axioms Polyfold.MPolyfold.isOpen_degIndex_le_of_eventually
+#print axioms Polyfold.MPolyfold.prodLabel
+#print axioms Polyfold.MPolyfold.isFaceLabel_prodLabel
+#print axioms Polyfold.MPolyfold.hasRealizedLabels_prodLabel
+#print axioms Polyfold.MPolyfold.isFaceStructured_prod
+
+
+/-! ### Axioms: Chapter 4, further files -/
+
+-- Polyfold.Chapter4.GeneralPositionFaceStructure
+#print axioms Polyfold.MPolyfold.theorem_4_2_11_exists_mem_coordHyper
+#print axioms Polyfold.MPolyfold.theorem_4_2_11_isFaceStructured
+
+
 /-! ### Axioms: Chapter 6, further files -/
 
 -- Polyfold.Chapter6.ChartSections
@@ -24360,6 +24417,94 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.orSwap_ne
 #print axioms Polyfold.IsOrientationFunctor
 #print axioms Polyfold.orFlipConj
+-- Polyfold.Chapter6.IntervalEndGeneralPosition
+#print axioms Polyfold.UnitCube.minimalSubspaceWith_cChart_vertex
+#print axioms Polyfold.isGeneralPositionGerm_of_isParamGP_elim0
+#print axioms Polyfold.isParamGP_elim0_of_cubeSlice
+#print axioms Polyfold.isParamGP_elim0_cubeSlice_of_vertex
+#print axioms Polyfold.isGeneralPositionGerm_of_cubeSlice
+#print axioms Polyfold.isGeneralPositionGerm_cubeSlice_of_vertex
+#print axioms Polyfold.isGeneralPositionGerm_cubeSlice_vertex_iff
+#print axioms Polyfold.isLinSurjAt_cubeSlice_of_vertex
+#print axioms Polyfold.UnitCube.isVertex_of_end
+#print axioms Polyfold.isZeroAt_slice_of_isZeroAt
+#print axioms Polyfold.isGeneralPositionGerm_cubeLift_add_of_slice
+#print axioms Polyfold.isGeneralPositionGerm_slice_of_end
+#print axioms Polyfold.isLinSurjAt_slice_of_end
+#print axioms Polyfold.pullOr_tangentOr_ivFirst_iff_slice_of_end
+-- Polyfold.Chapter6.IntervalEndManifolds
+#print axioms Polyfold.exists_timeFirst_coordinates_of_bases
+#print axioms Polyfold.exists_timeFirst_basis
+#print axioms Polyfold.solutionSet_slice_eq_preimage
+#print axioms Polyfold.isCompact_solutionSet_slice
+#print axioms Polyfold.isProper_slice
+#print axioms Polyfold.isZeroAt_of_isZeroAt_slice
+#print axioms Polyfold.slice_end_isProper_generalPosition_index
+#print axioms Polyfold.theorem_6_6_18_oriented_end
+#print axioms Polyfold.tangentOr_ivFirst_eq_ray_iff_slice
+#print axioms Polyfold.tangentOr_ivFirst_eq_ray_iff_of_end
+#print axioms Polyfold.orientation_end_iff_of_specs
+-- Polyfold.Chapter6.IntervalCobordismDegeneracy
+#print axioms Polyfold.UnitCube.cubePolyfold_one_degIndex
+#print axioms Polyfold.degIndex_interval_cobordism
+#print axioms Polyfold.mem_boundary_interval_cobordism_iff
+#print axioms Polyfold.degIndex_interval_cobordism_end
+-- Polyfold.Chapter6.IntervalCobordismStokes
+#print axioms Polyfold.MPolyfold.boundaryIntegral_formsInftyRestrict_of_closed
+#print axioms Polyfold.MPolyfold.boundaryIntegral_formsInftyRestrict_pullback_of_closed
+#print axioms Polyfold.ivPrScMap
+#print axioms Polyfold.stokes_interval_cobordism
+-- Polyfold.Chapter6.IntervalEndInclusion
+#print axioms Polyfold.MPolyfold.isScSmoothMap_const
+#print axioms Polyfold.MPolyfold.isScSmoothMap_into_subPolyfold
+#print axioms Polyfold.isScSmoothMap_cube_mk
+#print axioms Polyfold.sliceInclusion
+#print axioms Polyfold.sliceInclusion_val
+#print axioms Polyfold.sliceInclusion_injective
+#print axioms Polyfold.range_sliceInclusion
+#print axioms Polyfold.isEmbedding_sliceInclusion
+#print axioms Polyfold.isScSmoothMap_sliceInclusion
+#print axioms Polyfold.sliceIntoCube
+#print axioms Polyfold.formsInftyAlong_sliceIntoCube_pullback
+-- Polyfold.Chapter6.CornerSmoothMaps
+#print axioms Polyfold.MPolyfold.contMDiff_of_isScSmoothMap
+#print axioms Polyfold.MPolyfold.hasFDerivWithinAt_cornerCoord
+#print axioms Polyfold.MPolyfold.lin_mfderiv_of_isScSmoothMap
+#print axioms Polyfold.MPolyfold.tangentMap_fiberMap_eq_mfderiv
+#print axioms Polyfold.MPolyfold.cornerForm_formPullback_eq_restrictForm
+#print axioms Polyfold.MPolyfold.restrictForm_formsAlong
+#print axioms Polyfold.MPolyfold.restrictForm_formsInftyAlong
+#print axioms Polyfold.contMDiff_sliceInclusion
+#print axioms Polyfold.restrictForm_sliceInclusion_pullback
+-- Polyfold.Chapter6.InducedOrientationFrames
+#print axioms Polyfold.orientation_eq_signedOr_det
+#print axioms Polyfold.signedOr_inj
+#print axioms Polyfold.signMap_signedOr_eq
+#print axioms Polyfold.decide_signedOr_eq_std
+#print axioms Polyfold.decide_pos_mul
+#print axioms Polyfold.faceBool_eq_decide_pos
+#print axioms Polyfold.det_cons_neg_stdFrame_comp_faceEmbedding
+#print axioms Polyfold.det_cons_faceEmbedding
+#print axioms Polyfold.signMap_eq_signedOr_of_frame
+#print axioms Polyfold.derivIn_comp_mfderiv
+#print axioms Polyfold.FaceChartPair.chartChangeDeriv_mfderiv
+#print axioms Polyfold.FaceChartPair.exists_derivIn_eq_mul_coord
+#print axioms Polyfold.FaceChartPair.orientationIn_eq_of_frame
+#print axioms Polyfold.isInducedOrientation_of_outward_frames
+#print axioms Polyfold.isInducedOrientation_neg_of_inward_frames
+-- Polyfold.Chapter6.IntervalConstantCobordism
+#print axioms Polyfold.prodSlice_cubeLift
+#print axioms Polyfold.constant_cobordism
+#print axioms Polyfold.constant_cobordism_mem_ends
+#print axioms Polyfold.isIndexAt_ptSection
+#print axioms Polyfold.interval_cobordism_witness
+-- Polyfold.Chapter6.IntervalSliceSignedFrames
+#print axioms Polyfold.pullOr_neg
+#print axioms Polyfold.wedge_cons_neg
+#print axioms Polyfold.ray_cons_of_coordinates
+#print axioms Polyfold.exists_timeFirst_coordinates_signed
+#print axioms Polyfold.ChartPoint.exists_timeFirst_wedge_signed_of_slice
+#print axioms Polyfold.exists_timeFirst_wedge_signed_ivOrLift
 
 /-! ### Axioms: Chapter 9, further files -/
 
@@ -24596,6 +24741,67 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isolatedRep
 #print axioms Polyfold.EpGroupoid.isolatedStructure
 #print axioms Polyfold.MPolyfold.pointOrientation
+-- Polyfold.Chapter9.BoundaryEndFaces
+#print axioms Polyfold.MPolyfold.face_subset_range_of_degIndex_eq_one
+#print axioms Polyfold.MPolyfold.exists_isPreconnected_end
+#print axioms Polyfold.MPolyfold.mem_facesAt_of_mem_goodSet
+#print axioms Polyfold.MPolyfold.exists_mem_face_degIndex_eq_one
+#print axioms Polyfold.MPolyfold.exists_face_end
+#print axioms Polyfold.MPolyfold.face_eq_of_subset_range
+#print axioms Polyfold.MPolyfold.range_inter_goodSet_subset
+#print axioms Polyfold.MPolyfold.endPiece
+#print axioms Polyfold.MPolyfold.endPiece_val
+#print axioms Polyfold.MPolyfold.endPiece_trans_mem_maximalAtlas
+#print axioms Polyfold.MPolyfold.endFaceChartPair
+#print axioms Polyfold.MPolyfold.endFaceChartPair_e
+#print axioms Polyfold.MPolyfold.endFaceChartPair_i
+#print axioms Polyfold.MPolyfold.mem_endFaceChartPair_source
+#print axioms Polyfold.MPolyfold.LateralFace
+#print axioms Polyfold.MPolyfold.EndFam
+#print axioms Polyfold.MPolyfold.endFamMap
+#print axioms Polyfold.MPolyfold.endFamCompact
+#print axioms Polyfold.MPolyfold.continuous_endFamMap
+#print axioms Polyfold.MPolyfold.endFamCS
+#print axioms Polyfold.MPolyfold.endFamIsManifold
+#print axioms Polyfold.MPolyfold.endFaces
+#print axioms Polyfold.MPolyfold.mem_endFaces_inl
+#print axioms Polyfold.MPolyfold.mem_endFaces_inr
+#print axioms Polyfold.MPolyfold.endFamPair
+#print axioms Polyfold.MPolyfold.endGoodRegion
+#print axioms Polyfold.MPolyfold.exists_faceChartPair_end
+#print axioms Polyfold.MPolyfold.exists_isInducedOrientation_end
+#print axioms Polyfold.MPolyfold.boundaryIntegral_eq_sum_ends_add_lateral
+-- Polyfold.Chapter9.IntervalBoundaryDecomposition
+#print axioms Polyfold.ivEnd
+#print axioms Polyfold.ivEnd_zero_or_one
+#print axioms Polyfold.ivEnd_injective
+#print axioms Polyfold.degIndex_eq_one_ends
+#print axioms Polyfold.face_end_inverse
+#print axioms Polyfold.boundaryIntegral_interval_cobordism
+#print axioms Polyfold.exists_isInducedOrientation_interval_end
+#print axioms Polyfold.boundaryIntegral_interval_cobordism_sub
+-- Polyfold.Chapter9.IntervalEndSigns
+#print axioms Polyfold.differentiableWithinAt_of_coords
+#print axioms Polyfold.derivIn_prodMk_const
+#print axioms Polyfold.IsIntervalCobordismOrientation
+#print axioms Polyfold.IsIntervalEndOrientation
+#print axioms Polyfold.endHeight
+#print axioms Polyfold.endHeight_le
+#print axioms Polyfold.endChartIndex
+#print axioms Polyfold.ivEnd_mem_chart_source
+#print axioms Polyfold.orSign_mul_ivSign_mul_ivSign
+#print axioms Polyfold.exists_end_frame
+#print axioms Polyfold.ivEndLinSurj
+#print axioms Polyfold.isInducedOrientation_interval_end_one
+#print axioms Polyfold.isInducedOrientation_interval_end_zero
+#print axioms Polyfold.boundaryIntegral_interval_cobordism_ends
+-- Polyfold.Chapter9.IntervalCobordismFaceStructure
+#print axioms Polyfold.MPolyfold.theorem_4_2_11_isFaceStructured_of_tame
+#print axioms Polyfold.UnitCube.cubePolyfold_one_isFaceStructured
+#print axioms Polyfold.isFaceStructured_cubeProd
+#print axioms Polyfold.isFaceStructured_interval_cobordism
+#print axioms Polyfold.boundaryIntegral_interval_cobordism_faceStructured
+#print axioms Polyfold.theorem_6_6_18_boundaryIntegral_interval
 
 /-! ### Axioms: Chapter 10, further files -/
 
@@ -24645,6 +24851,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SEP.exists_isTameChart
 #print axioms Polyfold.StrongBundle.exists_isTameChart
 #print axioms Polyfold.StrongBundle.exists_isTameChart_pullback
+-- Polyfold.Chapter10.BundleLocalRegularityPrinted
+#print axioms Polyfold.EpStrongBundle.exists_mor_of_π_eq_of_isLocalIsoOn
+#print axioms Polyfold.EpStrongBundle.proposition_8_4_3_isLRLocal
 
 /-! ### Axioms: Chapter 11, further files -/
 
@@ -25255,6 +25464,31 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.UntamedCorner.isScFredholmSectionFunctor_sec
 #print axioms Polyfold.UntamedCorner.not_theorem_12_5_3_conclusion
 #print axioms Polyfold.UntamedCorner.theorem_12_5_3_untamed_not
+-- Polyfold.Chapter12.IntervalProductLocalIso
+#print axioms Polyfold.ChartPoint.ivOrFirst₀_conj
+#print axioms Polyfold.StrongBundle.LocalIso.IsIntervalProductAt
+#print axioms Polyfold.StrongBundle.LocalIso.baseDeriv_pullPt_ivPt
+#print axioms Polyfold.StrongBundle.LocalIso.fiberMap_pullPt_ivPt
+#print axioms Polyfold.StrongBundle.LocalIso.coe_morT_ivPt
+#print axioms Polyfold.StrongBundle.LocalIso.coe_morK_ivPt
+#print axioms Polyfold.StrongBundle.LocalIso.orVia_ivPt_ivOrFirst₀
+#print axioms Polyfold.StrongBundle.LocalIso.orVia_ivOrFirst₀
+#print axioms Polyfold.ivFirstFun_orTransfer
+#print axioms Polyfold.StrongBundle.LocalIso.orVia_ivFirstFun
+-- Polyfold.Chapter12.LocalOrientationComparisonOrbit
+#print axioms Polyfold.orSpaceLocEquiv
+#print axioms Polyfold.coinduced_orSpaceLocEquiv
+#print axioms Polyfold.induced_orSpaceLocEquiv
+#print axioms Polyfold.induced_coinduced_equiv
+#print axioms Polyfold.isOrientationTopology_iff_loc
+#print axioms Polyfold.isSectionOrientation_iff_loc
+#print axioms Polyfold.EpStrongBundle.theorem_12_5_3_iff_loc
+#print axioms Polyfold.EpStrongBundle.orientable_iff_loc
+#print axioms Polyfold.EpStrongBundle.orbitSection_iff_loc
+#print axioms Polyfold.EpStrongBundle.proposition_12_5_6_of_loc
+-- Polyfold.Chapter12.LocalOrientationDiagramComparison
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.orxLocEquiv_pushOr
+#print axioms Polyfold.SBLocalization.SDiagram.orbitOrMapLoc_orbitLocHomeomorph
 
 /-! ### Axioms: Chapter 14, further files -/
 
@@ -25488,6 +25722,61 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Polyfold.Chapter14.LocalOrientationFunctorHalfSpace
 #print axioms Polyfold.HalfSpaceBundle.isOrientableSectionLoc_iff_halfSpace
 #print axioms Polyfold.HalfSpaceBundle.theorem_6_6_13_loc_halfSpace
+-- Polyfold.Chapter14.CornerExtensionWitness
+#print axioms Polyfold.FaceCorner.continuous_normW_sec
+#print axioms Polyfold.FaceCorner.cornerBound
+#print axioms Polyfold.FaceCorner.continuous_cornerBound
+#print axioms Polyfold.FaceCorner.cornerBound_pos
+#print axioms Polyfold.FaceCorner.cornerΛ
+#print axioms Polyfold.FaceCorner.cornerΛ_eq
+#print axioms Polyfold.FaceCorner.pointwiseNorm_cornerΛ_lt
+#print axioms Polyfold.FaceCorner.theorem_14_6_3_extension_corner
+-- Polyfold.Chapter14.FaceIndexFamilies
+#print axioms Polyfold.SBLocalization.IndexCorr.map_swap
+#print axioms Polyfold.SBLocalization.IndexCorr.map_biact
+#print axioms Polyfold.SBLocalization.IndexCorr.map_ofPerm
+#print axioms Polyfold.SBLocalization.IndexCorr.smul_of_map_ofPerm
+#print axioms Polyfold.SBLocalization.IndexRelabel
+#print axioms Polyfold.SBLocalization.IndexRelabel.e
+#print axioms Polyfold.SBLocalization.IndexRelabel.e_apply
+#print axioms Polyfold.SBLocalization.IndexRelabel.f_e_symm
+#print axioms Polyfold.SBLocalization.IndexRelabel.e_symm_smul
+#print axioms Polyfold.SBLocalization.RelTuple.reindexτ
+#print axioms Polyfold.SBLocalization.RelTuple.reindexτ_of_mem
+#print axioms Polyfold.SBLocalization.RelTuple.reindex
+#print axioms Polyfold.SBLocalization.RelTuple.reindex_τ
+#print axioms Polyfold.SBLocalization.RelTuple.reindex_secEquiv
+#print axioms Polyfold.SBLocalization.RelTuple.SecEquiv.reindex
+#print axioms Polyfold.SBLocalization.RelTuple.SecEquiv.restrictTo
+#print axioms Polyfold.SBLocalization.RelTuple.reindex_restrictTo_secEquiv
+#print axioms Polyfold.SBLocalization.RelTuple.Equiv.cast_smul
+#print axioms Polyfold.SBLocalization.FaceStructuredTuple.reindex
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceData.toFamilies
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.exists_pick
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.commonFamily
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.commonFamily_eq
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.cast_smul_of_eq
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.commonFamily_cast_smul
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.relabelFun_of_mem
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.relabel
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.relabel_secEquiv
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.toData
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.toData_secEquiv
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.theorem_14_6_3
+#print axioms Polyfold.SBLocalization.SectionCompatibleFaceFamilies.theorem_14_6_3_extension
+#print axioms Polyfold.SBLocalization.FaceSecMultisection
+#print axioms Polyfold.SBLocalization.FaceSecMultisection.restrictFace
+#print axioms Polyfold.SBLocalization.IsSecCompatibleAssignment
+#print axioms Polyfold.SBLocalization.IsSecCompatibleAssignment.toFamilies
+#print axioms Polyfold.SBLocalization.IsSecCompatibleAssignment.theorem_14_6_3
+#print axioms Polyfold.FaceCorner.val_cast_subtype
+#print axioms Polyfold.FaceCorner.faceFamily_eq
+#print axioms Polyfold.FaceCorner.familiesWitness
+#print axioms Polyfold.FaceCorner.card_faceFamily_of_mem
+#print axioms Polyfold.FaceCorner.card_faceFamily_of_not_mem
+#print axioms Polyfold.FaceCorner.card_familiesWitness_ne
+#print axioms Polyfold.FaceCorner.theorem_14_6_3_families_witness
 
 /-! ### Axioms: Chapter 15, further files -/
 
@@ -26133,6 +26422,144 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.exists_germData_prod
 #print axioms Polyfold.StrongBundle.principal_prod
 #print axioms Polyfold.StrongBundle.regularizing_prodMap
+-- Polyfold.Chapter15.CanonicalOrientationEquivalence
+#print axioms Polyfold.SBLocalization.orTangent_mk_ext'
+#print axioms Polyfold.SBLocalization.linOrTangent_mconj
+#print axioms Polyfold.SBLocalization.chartVec_tangent_obj_transportChart
+#print axioms Polyfold.SBLocalization.fibreInv_tangent_obj_chartVec
+#print axioms Polyfold.SBLocalization.exists_fibreInv_tangent_obj_eq
+#print axioms Polyfold.SBLocalization.subOp_mpullPt
+#print axioms Polyfold.SBLocalization.mapDomain_linW_mpullPt
+#print axioms Polyfold.SBLocalization.orTransfer_mpullPt_orEqv
+#print axioms Polyfold.SBLocalization.chartPtOf_transportChart_eq_mpullPt
+#print axioms Polyfold.SBLocalization.mapDomain_linW_of_eq_mpullPt
+#print axioms Polyfold.SBLocalization.KernelBranching.canonSum_pullOr
+#print axioms Polyfold.SBLocalization.multisection_pullback_apply
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.eq_pullSection
+#print axioms Polyfold.SBLocalization.IsCanonicalPerturbation.eq_pullSection
+#print axioms Polyfold.SBLocalization.pullbackTheta_eq
+#print axioms Polyfold.SBLocalization.IsCanonicalPerturbation.eq_pullback
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.pullSection_eq_pullSection
+-- Polyfold.Chapter15.CylinderOrientationInvariance
+#print axioms Polyfold.EpGroupoid.cubeProd_tgtInv_eq_near
+#print axioms Polyfold.SBLocalization.isIntervalProductAt_morIso_cubeSEP
+#print axioms Polyfold.SBLocalization.isOrInvariant_cubeOrientation
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_oriented
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_oriented
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_of_definition_12_5_4
+-- Polyfold.Chapter15.CollarCobordismCorollary
+#print axioms Polyfold.SBLocalization.exists_collar_local_ends
+#print axioms Polyfold.SBLocalization.hasOrientedCobordism_collar
+#print axioms Polyfold.SBLocalization.hasOrientedCobordismEff_collar
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_collar
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_collar
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_collar_of_admits
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_collar_of_admits
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_oriented_collar
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_oriented_collar
+-- Polyfold.Chapter15.CanonicalOrientationLocal
+#print axioms Polyfold.SBLocalization.orOfLoc
+#print axioms Polyfold.SBLocalization.orxLocEquiv_orOfLoc
+#print axioms Polyfold.SBLocalization.orOfLoc_orxLocEquiv
+#print axioms Polyfold.SBLocalization.definition_12_5_4_orOfLoc
+#print axioms Polyfold.SBLocalization.isOrInvariant_orOfLoc
+#print axioms Polyfold.SBLocalization.isSectionOrientation_orOfLoc
+#print axioms Polyfold.SBLocalization.definition_12_5_4_loc_of_orientation
+#print axioms Polyfold.SBLocalization.canonicalOrientationLoc
+#print axioms Polyfold.SBLocalization.theorem_15_4_1_loc
+#print axioms Polyfold.SBLocalization.theorem_15_4_3_loc
+#print axioms Polyfold.SBLocalization.theorem_15_4_3_eff_loc
+#print axioms Polyfold.SBLocalization.isCanonicalPerturbation_canonical_loc
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_loc
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_eff_loc
+-- Polyfold.Chapter15.CanonicalOrientationOrientedSection
+#print axioms Polyfold.SBLocalization.definition_12_5_4_iff_isOrInvariant_isSectionOrientation
+#print axioms Polyfold.SBLocalization.theorem_15_4_1_of_definition_12_5_4
+#print axioms Polyfold.SBLocalization.theorem_15_4_3_of_definition_12_5_4
+#print axioms Polyfold.SBLocalization.theorem_15_4_3_eff_of_definition_12_5_4
+#print axioms Polyfold.SBLocalization.isIndexAt_of_scPath
+#print axioms Polyfold.SBLocalization.isIndexAt_supp_of_paths
+#print axioms Polyfold.SBLocalization.theorem_15_4_1_of_index_on_paths
+#print axioms Polyfold.SBLocalization.theorem_15_4_3_of_index_on_paths
+-- Polyfold.Chapter15.CanonicalOrientationPullback
+#print axioms Polyfold.SBLocalization.subDeriv_congr_sec
+#print axioms Polyfold.SBLocalization.coe_subOp_congr_sec
+#print axioms Polyfold.SBLocalization.eq_isoSec_iff_loc
+#print axioms Polyfold.SBLocalization.mem_M_iff_pull
+#print axioms Polyfold.SBLocalization.sep_eq_image_pull
+#print axioms Polyfold.SBLocalization.isLocalRepOn_pull
+#print axioms Polyfold.SBLocalization.chartVec_image_pull
+#print axioms Polyfold.SBLocalization.KernelBranching.pullEquiv
+#print axioms Polyfold.SBLocalization.isoSec_locIso_eq
+#print axioms Polyfold.SBLocalization.linOrTangent_pullOr_of_eq_mpullPt
+#print axioms Polyfold.SBLocalization.KernelBranching.orTangent_pullEquiv
+#print axioms Polyfold.SBLocalization.KernelBranching.frames_pullEquiv
+#print axioms Polyfold.SBLocalization.KernelBranching.framesContinuous_pullEquiv
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.pullSection
+#print axioms Polyfold.SBLocalization.IsCanonicalPerturbation.isCanonicalFor_pullSection
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.pullSection_eq_pullSection_of_canonical
+-- Polyfold.Chapter15.CylinderPointFrames
+#print axioms Polyfold.SBLocalization.exists_signed_frame_cubeOrientation
+#print axioms Polyfold.SBLocalization.exists_signed_generator_cubeOrientation
+-- Polyfold.Chapter15.CylinderPointEnds
+#print axioms Polyfold.MPolyfold.not_isInwardVec_of_cubeTimeComponent_neg
+#print axioms Polyfold.MPolyfold.isInwardVec_of_cubeTimeComponent_neg
+#print axioms Polyfold.MPolyfold.exists_isOpen_inter_subset_singleton_of_dim_zero
+#print axioms Polyfold.SBLocalization.frameSign_boundaryOrient_of_generator
+#print axioms Polyfold.SBLocalization.ArePointMatchedAt
+#print axioms Polyfold.SBLocalization.sheetSum_boundaryFamily_cubeFace_point
+#print axioms Polyfold.SBLocalization.pointMatched_local
+#print axioms Polyfold.SBLocalization.boundaryBranchedMeasureDim1_cylEnd_of_pointMatched
+#print axioms Polyfold.SBLocalization.boundaryBranchedMeasureEffDim1_cylEnd_of_pointMatched
+#print axioms Polyfold.SBLocalization.exists_arePointMatchedAt_of_kernelCanonical
+-- Polyfold.Chapter15.SingleSectionMultisection
+#print axioms Polyfold.SBLocalization.sectionMulti
+#print axioms Polyfold.SBLocalization.sectionMulti_pos_iff
+#print axioms Polyfold.SBLocalization.sectionMulti_apply_self
+#print axioms Polyfold.SBLocalization.fibAct_of_trivial
+#print axioms Polyfold.SBLocalization.isWFunctor_sectionMulti
+#print axioms Polyfold.SBLocalization.isLocalRepOn_sectionMulti
+#print axioms Polyfold.SBLocalization.isScPlusMultisection_sectionMulti
+#print axioms Polyfold.SBLocalization.sectionStructure
+#print axioms Polyfold.SBLocalization.sectionTau
+#print axioms Polyfold.SBLocalization.isStructurable_sectionMulti
+#print axioms Polyfold.SBLocalization.pointwiseNorm_sectionMulti
+#print axioms Polyfold.SBLocalization.mem_support_linearization_sectionMulti_iff
+#print axioms Polyfold.SBLocalization.isReducedOntoAtPt_sectionMulti_of_zero
+-- Polyfold.Chapter15.TransversalExtensionBoundaryDatum
+#print axioms Polyfold.HalfSpaceBundle.oneSet_bundle_eq
+#print axioms Polyfold.HalfSpaceBundle.snd_sub_fib
+#print axioms Polyfold.HalfSpaceBundle.snd_add_fib
+#print axioms Polyfold.HalfSpaceBundle.snd_smul_fib
+#print axioms Polyfold.HalfSpaceBundle.snd_zero_fib
+#print axioms Polyfold.HalfSpaceBundle.fibNormH
+#print axioms Polyfold.HalfSpaceBundle.isAuxNorm_fibNormH
+#print axioms Polyfold.HalfSpaceBundle.isAuxNorm_fibNormH_halfSEP
+#print axioms Polyfold.HalfSpaceBundle.fibNormH_oneMk
+#print axioms Polyfold.HalfSpaceBundle.controlsCompactness_halfDisc_univ
+#print axioms Polyfold.HalfSpaceBundle.isScPlusSection_constSec
+#print axioms Polyfold.HalfSpaceBundle.constMulti_eq_sectionMulti
+#print axioms Polyfold.HalfSpaceBundle.isScPlusMultisection_constMulti
+#print axioms Polyfold.HalfSpaceBundle.constDatum
+#print axioms Polyfold.HalfSpaceBundle.constDatum_ne_zero
+#print axioms Polyfold.HalfSpaceBundle.pointwiseNorm_constMulti_constDatum
+#print axioms Polyfold.HalfSpaceBundle.shiftedDiscMap
+#print axioms Polyfold.HalfSpaceBundle.shiftedDiscMap_eq
+#print axioms Polyfold.HalfSpaceBundle.contDiff_shiftedDiscMap
+#print axioms Polyfold.HalfSpaceBundle.shiftedDiscMap_onto_hyperplane
+#print axioms Polyfold.HalfSpaceBundle.isReducedOntoAtPt_halfDisc_constMulti
+#print axioms Polyfold.HalfSpaceBundle.isBoundaryFaceOnto_halfDisc_constMulti
+#print axioms Polyfold.HalfSpaceBundle.constDatumPoint
+#print axioms Polyfold.HalfSpaceBundle.constMulti_halfDisc_constDatumPoint
+#print axioms Polyfold.HalfSpaceBundle.theorem_15_3_9_hypotheses_constDatum
+#print axioms Polyfold.HalfSpaceBundle.theorem_15_3_9_constDatum
+-- Polyfold.Chapter15.TransversalityEquivalence
+#print axioms Polyfold.SBLocalization.surjective_toIntr_transportChart_iff_full
+#print axioms Polyfold.SBLocalization.isOntoAtLevel_localIso_iff
+#print axioms Polyfold.SBLocalization.isOntoAtLevel_of_mor
+#print axioms Polyfold.SBLocalization.isOntoAtLevel_pullback_iff
+#print axioms Polyfold.SBLocalization.isTransversal_pullback_iff
+#print axioms Polyfold.SBLocalization.SDiagram.isTransversal_iff_of_pullback_eq
 
 /-! ### Axioms: Chapter 16, further files -/
 
@@ -26435,6 +26862,307 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.PolyfoldClass.hasEpStokes_of_admitsScPartitionsOfUnity
 #print axioms Polyfold.PolyfoldClass.hasEpStokes_witness
 #print axioms Polyfold.PolyfoldClass.HasEpStokes
+-- Polyfold.Chapter16.IndexZeroCylinder
+#print axioms Polyfold.SBLocalization.PointPerturbation.IsCanonical
+#print axioms Polyfold.SBLocalization.theorem_15_4_1_cylinder_index_zero
+#print axioms Polyfold.SBLocalization.hasOrientedCobordism_of_isCanonical
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_index_zero_oriented
+#print axioms Polyfold.SBLocalization.PointPerturbation.canonical
+#print axioms Polyfold.SBLocalization.PointPerturbation.isCanonical_canonical
+#print axioms Polyfold.StrongPolyfoldBundle.IndexZeroInput
+#print axioms Polyfold.StrongPolyfoldBundle.hasOrientedCobordism_of_indexZeroInput
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_canonical
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical
+-- Polyfold.Chapter16.CanonicalIntegralInvariance
+#print axioms Polyfold.SBLocalization.cylinderOrientationStatement_of_isCanonical
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.isSectionOrientation
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.isSectionOrientation_of_boundary_eq_empty
+#print axioms Polyfold.StrongPolyfoldBundle.CanonicalInput
+#print axioms Polyfold.StrongPolyfoldBundle.cylinderInput_canonical
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_of_forall
+#print axioms Polyfold.StrongPolyfoldBundle.indexZeroInput_of_canonicalInput
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_canonical_input
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical_input
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_inherited
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_inherited
+-- Polyfold.Chapter16.CanonicalModelIndependence
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.orientedRep_rel_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.toCompact_eq_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.integral_eq_of_diagram
+-- Polyfold.Chapter16.CanonicalModelPullback
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.orientedRep_rel_of_diagram_pullSection
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.toCompact_eq_of_diagram_pullSection
+#print axioms Polyfold.StrongPolyfoldBundle.ModelPerturbation.integral_eq_of_diagram_pullSection
+-- Polyfold.Chapter16.CanonicalModelTransfer
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.smoothPart
+#print axioms Polyfold.StrongPolyfoldBundle.OrientedPerturbation.ext_compact_t
+#print axioms Polyfold.StrongPolyfoldBundle.mk_ofFunctor_pushMult
+#print axioms Polyfold.StrongPolyfoldBundle.isRegularPerturbation_pushMult
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.symm
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.MiddleCanonical
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_of_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.tame_bump_of_boundary_eq_empty
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_of_correspondence_of_boundary_eq_empty
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_iff_of_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.integral_eq_of_correspondence
+-- Polyfold.Chapter16.CircleSectionCobordism
+#print axioms Polyfold.TrivialBundle.centredChartPoint
+#print axioms Polyfold.TrivialBundle.T_centredChartPoint
+#print axioms Polyfold.TrivialBundle.K_centredChartPoint
+#print axioms Polyfold.TrivialBundle.finrank_T_centredChartPoint
+#print axioms Polyfold.TrivialBundle.finrank_K_centredChartPoint
+#print axioms Polyfold.TrivialBundle.isIndexAt_graphSection_epSEP
+#print axioms Polyfold.TrivialBundle.zeroMultisection_graphSection_epSEP_pos_iff
+#print axioms Polyfold.TrivialBundle.isTransversal_graphSection_epSEP
+#print axioms Polyfold.TrivialBundle.circleMap
+#print axioms Polyfold.TrivialBundle.contDiff_circleMap
+#print axioms Polyfold.TrivialBundle.circleMap_eq_zero_iff
+#print axioms Polyfold.TrivialBundle.isCompact_circleMap_zero
+#print axioms Polyfold.TrivialBundle.circleSection
+#print axioms Polyfold.TrivialBundle.isScFredholmSectionFunctor_circleSection
+#print axioms Polyfold.TrivialBundle.hasCompactSolutionSetEp_circleSection
+#print axioms Polyfold.TrivialBundle.isIndexAt_circleSection
+#print axioms Polyfold.TrivialBundle.exists_isSectionOrientation_circleSection
+#print axioms Polyfold.TrivialBundle.circleSectionOrientation
+#print axioms Polyfold.TrivialBundle.isSectionOrientation_circleSectionOrientation
+#print axioms Polyfold.TrivialBundle.isOrInvariant_circleSectionOrientation
+#print axioms Polyfold.TrivialBundle.hasScPlusSectionsThrough_cubeSEP_epSEP
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_hypotheses_circleSection
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_circleSection
+#print axioms Polyfold.TrivialBundle.surjective_fderiv_circleMap
+#print axioms Polyfold.TrivialBundle.isTransversal_circleSection
+#print axioms Polyfold.TrivialBundle.exists_isRegularPerturbation_circleSection
+#print axioms Polyfold.TrivialBundle.exists_isCanonicalPerturbation_circleSection
+-- Polyfold.Chapter16.IndexZeroCylinderWitness
+#print axioms Polyfold.TrivialBundle.twoPointMap
+#print axioms Polyfold.TrivialBundle.contDiff_twoPointMap
+#print axioms Polyfold.TrivialBundle.twoPointMap_eq_zero_iff
+#print axioms Polyfold.TrivialBundle.isCompact_twoPointMap_zero
+#print axioms Polyfold.TrivialBundle.twoPointSection
+#print axioms Polyfold.TrivialBundle.isScFredholmSectionFunctor_twoPointSection
+#print axioms Polyfold.TrivialBundle.hasCompactSolutionSetEp_twoPointSection
+#print axioms Polyfold.TrivialBundle.isIndexAt_twoPointSection
+#print axioms Polyfold.TrivialBundle.exists_isSectionOrientation_twoPointSection
+#print axioms Polyfold.TrivialBundle.isSectionOrientation_twoPointSectionOrientation
+#print axioms Polyfold.TrivialBundle.isOrInvariant_twoPointSectionOrientation
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_index_zero_hypotheses_twoPointSection
+#print axioms Polyfold.TrivialBundle.surjective_fderiv_twoPointMap
+#print axioms Polyfold.TrivialBundle.isTransversal_twoPointSection
+#print axioms Polyfold.TrivialBundle.exists_isRegularPerturbation_twoPointSection
+#print axioms Polyfold.TrivialBundle.exists_isCanonical_twoPointSection
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_index_zero_twoPointSection
+#print axioms Polyfold.TrivialBundle.hasOrientedCobordism_twoPointSection
+-- Polyfold.Chapter16.CylinderInvarianceNonEffective
+#print axioms Polyfold.StrongBundleLocalizationExamples.ne_unit_z3SEP
+#print axioms Polyfold.StrongBundleLocalizationExamples.ne_unit_cubeSEP_z3SEP
+#print axioms Polyfold.StrongBundleLocalizationExamples.isOrInvariant_cubeOrientation_z3
+-- Polyfold.Chapter16.IndexZeroIsotropyWitness
+#print axioms Polyfold.StrongBundleLocalizationExamples.zeroMultisection_graphSection_z3_pos_iff
+#print axioms Polyfold.StrongBundleLocalizationExamples.isTransversal_graphSection_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.hasCompactSolutionSetEp_twoPoint_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.isIndexAt_twoPoint_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.corollary_15_4_4_index_zero_hypotheses_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.exists_isRegularPerturbation_twoPoint_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.exists_isCanonical_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.corollary_15_4_4_index_zero_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.hasOrientedCobordism_z3
+#print axioms Polyfold.StrongBundleLocalizationExamples.indexZeroInput_z3OrientationRep
+-- Polyfold.Chapter16.CircleSectionPolyfold
+#print axioms Polyfold.TrivialBundle.circleBundleStructure
+#print axioms Polyfold.TrivialBundle.circlePolyfoldBundle
+#print axioms Polyfold.TrivialBundle.circleGraphRep
+#print axioms Polyfold.TrivialBundle.circleFredholmSection
+#print axioms Polyfold.TrivialBundle.isOrientationTopology_circleSection
+#print axioms Polyfold.TrivialBundle.definition_12_5_4_circleSectionOrientation
+#print axioms Polyfold.TrivialBundle.circleOrientationRep
+#print axioms Polyfold.TrivialBundle.circlePolyfoldBundle_boundary_eq_empty
+#print axioms Polyfold.TrivialBundle.circlePolyfoldBundle_admitsScPartitionsOfUnity
+#print axioms Polyfold.TrivialBundle.canonicalInput_circleOrientationRep
+#print axioms Polyfold.TrivialBundle.theorem_16_6_6_canonical_hypotheses_circle
+#print axioms Polyfold.StrongBundleLocalizationExamples.canonicalInput_z3OrientationRep
+#print axioms Polyfold.StrongBundleLocalizationExamples.theorem_16_6_6_index_zero_hypotheses_z3
+-- Polyfold.Chapter16.CanonicalModelTransferWitness
+#print axioms Polyfold.StrongBundleLocalizationExamples.isTransversal_iff_ofHom_z3InvHom
+#print axioms Polyfold.StrongBundleLocalizationExamples.isTransversal_ofHom_z3InvHom_twoPoint
+#print axioms Polyfold.TrivialBundle.isInheritedFrom_iff_circle
+-- Polyfold.Chapter16.CanonicalOrientationPullbackWitness
+#print axioms Polyfold.CanonicalOrientationPullbackExamples.isCanonicalFor_pullSection_negSection
+#print axioms Polyfold.CanonicalOrientationPullbackExamples.isCanonicalFor_pullSection_halfDisc
+#print axioms Polyfold.CanonicalOrientationPullbackExamples.toCompact_eq_of_diagram_pullSection_id
+#print axioms Polyfold.CanonicalOrientationPullbackExamples.toCompact_eq_of_diagram_pullSection_circle
+-- Polyfold.Chapter16.CanonicalPerturbationIntegral
+#print axioms Polyfold.SBLocalization.IsCanonicalPerturbation.integral_eq
+#print axioms Polyfold.SBLocalization.IsCanonicalPerturbation.integralEff_eq
+#print axioms Polyfold.SBLocalization.integral_canonical_eq
+#print axioms Polyfold.HalfSpaceBundle.exists_scPath_halfSpace
+#print axioms Polyfold.HalfSpaceBundle.theorem_15_4_1_of_definition_12_5_4_halfSEP
+#print axioms Polyfold.HalfSpaceBundle.theorem_15_4_1_of_index_on_paths_halfSEP
+#print axioms Polyfold.HalfSpaceBundle.integral_eq_of_isCanonicalPerturbation_halfSEP
+-- Polyfold.Chapter16.CircleSectionCollarCobordism
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_oriented_collar_circleSection
+#print axioms Polyfold.TrivialBundle.collar_cobordism_circleSection
+-- Polyfold.Chapter16.CorrespondenceMiddleCanonical
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.middleCanonical
+-- Polyfold.Chapter16.FibreNegationStructure
+#print axioms Polyfold.TrivialBundle.isScSmoothMap_zero_prodLinMap
+#print axioms Polyfold.TrivialBundle.mapsTo_oneSet_prodLinMap
+#print axioms Polyfold.TrivialBundle.isScSmoothMap_one_prodLinMap
+#print axioms Polyfold.TrivialBundle.isStrongBundleMap_prodLinMap
+#print axioms Polyfold.TrivialBundle.fibNeg_apply
+#print axioms Polyfold.TrivialBundle.fibNeg_fibNeg
+#print axioms Polyfold.TrivialBundle.isMap_fibNeg
+#print axioms Polyfold.StrongBundleEquivalenceExamples.fibNegHom_mem_equivalences
+#print axioms Polyfold.StrongBundleEquivalenceExamples.isGeneralizedIso_fibNegGen
+#print axioms Polyfold.StrongBundleEquivalenceExamples.orbitMap_fibNegGen_π
+#print axioms Polyfold.StrongBundleEquivalenceExamples.orbitMap_fibNegGen_involutive
+#print axioms Polyfold.TrivialBundle.equiv_negStructure_epStructure
+#print axioms Polyfold.TrivialBundle.mk_negStructure
+#print axioms Polyfold.TrivialBundle.epStructure_ne_negStructure
+#print axioms Polyfold.TrivialBundle.antidiagSection_eq_fibNeg_diagSection
+#print axioms Polyfold.StrongPolyfoldBundle.mk_graphRep_id_eq_mk_negGraphRep
+#print axioms Polyfold.StrongPolyfoldBundle.pointOrientedRep_graphRep_id_eq_negGraphRep
+#print axioms Polyfold.StrongPolyfoldBundle.count_eq_of_mk_eq_two_structures
+-- Polyfold.Chapter16.HalfDiscIntervalCobordism
+#print axioms Polyfold.HalfSpaceBundle.isGeneralPositionGerm_graphSection_of_presentation
+#print axioms Polyfold.HalfSpaceBundle.isGeneralPositionGerm_graphSection_boundary
+#print axioms Polyfold.HalfSpaceBundle.isGeneralPositionGerm_graphSection_interior
+#print axioms Polyfold.HalfSpaceBundle.isGeneralPositionGerm_halfDisc
+#print axioms Polyfold.HalfSpaceBundle.halfDiscOrientation
+#print axioms Polyfold.HalfSpaceBundle.isCompact_solutionSet_halfDisc
+#print axioms Polyfold.HalfSpaceBundle.interval_cobordism_halfDisc
+#print axioms Polyfold.HalfSpaceBundle.restrictForm_sliceInclusion_halfDisc
+-- Polyfold.Chapter16.HalfDiscCobordismFaces
+#print axioms Polyfold.HalfSpaceBundle.degIndex_basePoly_one
+#print axioms Polyfold.HalfSpaceBundle.halfCircle_abs_le
+#print axioms Polyfold.HalfSpaceBundle.halfCircle_mem_unitInterval
+#print axioms Polyfold.HalfSpaceBundle.halfCircle_eq_zero_iff
+#print axioms Polyfold.HalfSpaceBundle.halfCirclePt
+#print axioms Polyfold.HalfSpaceBundle.halfCirclePt_eq
+#print axioms Polyfold.HalfSpaceBundle.continuous_halfCirclePt
+#print axioms Polyfold.HalfSpaceBundle.halfCylinderHomeomorph
+#print axioms Polyfold.HalfSpaceBundle.mem_halfDisc_cobordism_iff
+#print axioms Polyfold.HalfSpaceBundle.degIndex_halfDisc_cobordism
+#print axioms Polyfold.HalfSpaceBundle.isFaceStructured_halfDisc_cobordism
+#print axioms Polyfold.HalfSpaceBundle.isFace_halfDisc_cobordism_iff
+-- Polyfold.Chapter16.HalfDiscBoundaryIntegral
+#print axioms Polyfold.HalfSpaceBundle.isScFredholmSectionTame_halfDisc
+#print axioms Polyfold.HalfSpaceBundle.halfDiscZeroLift
+#print axioms Polyfold.HalfSpaceBundle.halfDiscZeroLift_spec
+#print axioms Polyfold.HalfSpaceBundle.boundaryIntegral_interval_cobordism_halfDisc
+-- Polyfold.Chapter16.HalfDiscFaceStructureInstance
+#print axioms Polyfold.HalfSpaceBundle.isTame_basePoly_one
+#print axioms Polyfold.HalfSpaceBundle.admitsBumpFunctions_basePoly_one
+#print axioms Polyfold.HalfSpaceBundle.isFaceStructured_basePoly_one
+#print axioms Polyfold.HalfSpaceBundle.isFaceStructured_halfDisc_interval_cobordism
+#print axioms Polyfold.HalfSpaceBundle.topPoint_mem_ends_halfDisc
+#print axioms Polyfold.HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc
+-- Polyfold.Chapter16.TrivialIsotropyBundle
+#print axioms Polyfold.TrivialIsotropy.z3_smul_eq_trivial
+#print axioms Polyfold.TrivialIsotropy.z3Groupoid
+#print axioms Polyfold.TrivialIsotropy.z3Groupoid_tgt
+#print axioms Polyfold.TrivialIsotropy.z3Groupoid_src
+#print axioms Polyfold.TrivialIsotropy.z3EpBundleOf
+#print axioms Polyfold.TrivialIsotropy.z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.z3SEPOf_tgt
+#print axioms Polyfold.TrivialIsotropy.ne_unit_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.not_isEffective_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.hasParacompactOrbitSpace_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.trivialSubgroup_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.isZhou_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.isLRLocal_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.injective_π_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.isScFredholmSectionFunctor_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.orMor_z3SEPOf
+#print axioms Polyfold.TrivialIsotropy.isOrInvariant_z3SEPOf
+-- Polyfold.Chapter16.HalfSpaceIsotropyOrientedSection
+#print axioms Polyfold.HalfSpaceBundle.halfZ3SEP
+#print axioms Polyfold.HalfSpaceBundle.not_isEffective_halfZ3SEP
+#print axioms Polyfold.HalfSpaceBundle.zero_mem_boundary_halfZ3SEP
+#print axioms Polyfold.HalfSpaceBundle.nontrivial_fibre_halfZ3SEP
+#print axioms Polyfold.HalfSpaceBundle.isScFredholmSectionFunctor_graphSection_halfZ3
+#print axioms Polyfold.HalfSpaceBundle.definition_12_5_4_halfOrientation_z3
+#print axioms Polyfold.HalfSpaceBundle.halfZ3Structure
+#print axioms Polyfold.HalfSpaceBundle.halfZ3PolyfoldBundle
+#print axioms Polyfold.HalfSpaceBundle.halfZ3GraphRep
+#print axioms Polyfold.HalfSpaceBundle.halfZ3FredholmSection
+#print axioms Polyfold.HalfSpaceBundle.halfZ3OrientationRep
+#print axioms Polyfold.HalfSpaceBundle.exists_unique_transport_halfZ3
+-- Polyfold.Chapter16.HalfSpaceLocalOrientation
+#print axioms Polyfold.HalfSpaceBundle.isOrientableSectionLoc_halfSpace
+#print axioms Polyfold.HalfSpaceBundle.halfOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.isSectionOrientationLoc_halfOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.definition_12_5_4_loc_halfOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.halfOrientationLoc_witness
+-- Polyfold.Chapter16.IndexZeroShiftedPerturbation
+#print axioms Polyfold.TrivialBundle.shiftMap
+#print axioms Polyfold.TrivialBundle.shiftSection
+#print axioms Polyfold.TrivialBundle.isScPlusSection_shiftSection
+#print axioms Polyfold.TrivialBundle.tgt_eq_src_epSEP
+#print axioms Polyfold.TrivialBundle.μ_epSEP
+#print axioms Polyfold.TrivialBundle.shiftMulti
+#print axioms Polyfold.TrivialBundle.twoPointSection_eq_shiftSection_iff
+#print axioms Polyfold.TrivialBundle.shiftMulti_twoPointSection_pos_iff
+#print axioms Polyfold.TrivialBundle.isAuxNorm_fibNorm_epSEP
+#print axioms Polyfold.TrivialBundle.fibNorm_oneMk
+#print axioms Polyfold.TrivialBundle.controlsCompactness_twoPointSection_univ
+#print axioms Polyfold.TrivialBundle.pointwiseNorm_shiftMulti_lt
+#print axioms Polyfold.TrivialBundle.surjective_fderiv_twoPointMap_sub_shiftMap
+#print axioms Polyfold.TrivialBundle.isTransversal_shiftMulti
+#print axioms Polyfold.TrivialBundle.isRegularPerturbation_shiftMulti
+#print axioms Polyfold.TrivialBundle.exists_isCanonical_shiftMulti
+#print axioms Polyfold.TrivialBundle.corollary_15_4_4_index_zero_two_perturbations
+-- Polyfold.Chapter16.InheritedOrientationGeneralPosition
+#print axioms Polyfold.SBLocalization.SDiagram.pushforward_eq_of_pullback_eq
+#print axioms Polyfold.SBLocalization.SDiagram.isInGeneralPosition_pushMult_iff_of_pullback_eq
+#print axioms Polyfold.SBLocalization.SDiagram.isGoodPositionAt_pushMult_of_isInGeneralPosition
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.ofDiagram
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.isScFredholmSectionTame
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.isInGeneralPosition_pushMult_iff
+#print axioms Polyfold.StrongPolyfoldBundle.IsCanonicalInGeneralPosition
+#print axioms Polyfold.StrongPolyfoldBundle.IsInheritedFrom.of_generalPosition
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_of_correspondence_generalPosition
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.tame_bump_of_polyfold
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_generalPosition_iff_of_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_correspondence_generalPosition
+-- Polyfold.Chapter16.InheritedOrientationGeneralPositionWitness
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.Correspondence.ofDiagram_id
+#print axioms Polyfold.HalfSpaceBundle.isInheritedFrom_generalPosition_halfDisc
+-- Polyfold.Chapter16.IsotropyCircleCobordism
+#print axioms Polyfold.TrivialIsotropy.rnZ3SEP
+#print axioms Polyfold.TrivialIsotropy.planeZ3SEP
+#print axioms Polyfold.TrivialIsotropy.isScFredholmSectionFunctor_graphSection_rnZ3
+#print axioms Polyfold.TrivialIsotropy.zeroMultisection_graphSection_rnZ3_pos_iff
+#print axioms Polyfold.TrivialIsotropy.isTransversal_graphSection_rnZ3
+#print axioms Polyfold.TrivialIsotropy.isScFredholmSectionFunctor_circle_planeZ3
+#print axioms Polyfold.TrivialIsotropy.hasParacompactOrbitSpace_planeZ3
+#print axioms Polyfold.TrivialIsotropy.hasCompactSolutionSetEp_circle_planeZ3
+#print axioms Polyfold.TrivialIsotropy.hasScPlusSectionsThrough_cube_planeZ3
+#print axioms Polyfold.TrivialIsotropy.corollary_15_4_4_hypotheses_planeZ3
+#print axioms Polyfold.TrivialIsotropy.corollary_15_4_4_planeZ3
+#print axioms Polyfold.TrivialIsotropy.exists_isRegularPerturbation_planeZ3
+#print axioms Polyfold.TrivialIsotropy.exists_isCanonicalPerturbation_planeZ3
+-- Polyfold.Chapter16.OrientationRepLocal
+#print axioms Polyfold.orTopology_isOrientationTopology
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRepLoc
+#print axioms Polyfold.StrongPolyfoldBundle.FredholmSection.IsOrientableLoc
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRepLoc.toOrientationRep
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.toLoc
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.toOrientationRep_toLoc_o
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRepLoc.toLoc_toOrientationRep_o
+#print axioms Polyfold.StrongPolyfoldBundle.FredholmSection.isOrientable_iff_isOrientableLoc
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRepLoc.isSectionOrientation
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRepLoc.isOrInvariant
+#print axioms Polyfold.HalfSpaceBundle.halfOrientationRepLoc
+#print axioms Polyfold.HalfSpaceBundle.isOrientableLoc_halfFredholmSection
+#print axioms Polyfold.HalfSpaceBundle.halfDiscOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.definition_12_5_4_loc_halfDiscOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.orOfLoc_halfDiscOrientationLoc
+#print axioms Polyfold.HalfSpaceBundle.theorem_15_4_1_loc_halfSEP
+-- Polyfold.Chapter16.StrongPolyfoldBundle
+#print axioms Polyfold.StrongPolyfoldBundleStructure.isLRLocal
 
 /-! ### Axioms: Chapters 10, 14–16, non-empty index sets and the theorems as printed -/
 

@@ -29,8 +29,10 @@ is `((P : W → X, μ), Γ, γ)`: a strong bundle over an ep-groupoid `X` with (
   `orbitMap_inv_comp`, `orbitMap_comp_inv` (`|[E] ∘ [D]| = |[E]| ∘ |[D]|` for generalized strong
   bundle maps, the strong bundle form of Proposition 10.3.11, not yet in Chapter 10), and the
   same for the base maps (`GenSBMap.base_comp`, `baseOrbitMap_comp`).
-* `StrongPolyfoldBundleStructure p` (**Definition 16.3.1**); `continuous_p`, `surjective_p` (the
-  text's assumptions on `p` follow from the structure); **`lemma_16_3_2`**.
+* `StrongPolyfoldBundleStructure p` (**Definition 16.3.1**), with the local regularity property
+  of Definition 8.4.2 as printed (field `isLRLocal`, `EpStrongBundle.IsLRLocal`; `isLR` is the
+  weaker form for strong bundle maps of `W`); `continuous_p`, `surjective_p` (the text's
+  assumptions on `p` follow from the structure); **`lemma_16_3_2`**.
 * `StrongPolyfoldBundleStructure.Equiv` (**Definition 16.3.3**), an equivalence relation;
   `StrongPolyfoldBundle p` (**Definition 16.3.4**), the quotient.
 * `toPolyfoldStructure`, `toPolyfoldStructure_equiv`, `StrongPolyfoldBundle.polyfold` (the
@@ -180,8 +182,9 @@ structure StrongPolyfoldBundleStructure {Y Z : Type u} [TopologicalSpace Y] [Top
   isZhou : A.X.IsZhou
   /-- `|X|` is paracompact. -/
   paracompact : A.X.HasParacompactOrbitSpace
-  /-- The local regularity property of Definition 8.4.2. -/
-  isLR : A.E.IsLR
+  /-- The local regularity property of Definition 8.4.2, as printed: every strong bundle
+  isomorphism of `W|U(x)` with `|B(w)| = |w|` is `w ↦ g ∗ w` (`EpStrongBundle.IsLRLocal`). -/
+  isLRLocal : A.E.IsLRLocal
   /-- `Γ : |W| → Y`. -/
   Γ : A.E.toEpGroupoid.OrbitSpace ≃ₜ Y
   /-- `γ : |X| → Z`. -/
@@ -192,6 +195,11 @@ structure StrongPolyfoldBundleStructure {Y Z : Type u} [TopologicalSpace Y] [Top
 namespace StrongPolyfoldBundleStructure
 
 variable {Y Z : Type u} [TopologicalSpace Y] [TopologicalSpace Z] {p : Y → Z}
+
+/-- The local regularity property in the form for strong bundle maps defined on all of `W`
+(`EpStrongBundle.IsLR`), implied by Definition 8.4.2 (`IsLRLocal.isLR`). -/
+theorem isLR (S : StrongPolyfoldBundleStructure p) : S.A.E.IsLR :=
+  S.isLRLocal.isLR
 
 /-- `p = γ ∘ |P| ∘ Γ⁻¹`. -/
 theorem p_eq (S : StrongPolyfoldBundleStructure p) :

@@ -276,7 +276,7 @@ def halfStructure : StrongPolyfoldBundleStructure (halfSEP m k).E.projFunctor.or
   A := halfSEP m k
   isZhou := isZhou_trivial _
   paracompact := hasParacompactOrbitSpace_halfSEP m k
-  isLR := EpStrongBundle.isLR_trivial _
+  isLRLocal := EpStrongBundle.isLRLocal_trivial _
   Γ := Homeomorph.refl _
   γ := Homeomorph.refl _
   comm := rfl

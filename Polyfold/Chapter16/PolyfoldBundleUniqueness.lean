@@ -20,10 +20,11 @@ similarly `F` by Proposition 10.4.7.
 
 `W = ℝ × ℝᵏ → ℝ` over `X = ℤ/3 × ℝ ⇉ ℝ` with the trivial actions (`z3SEP k`, Chapter 10) has
 (ZHOU) (`isZhou_trivialZ3`), paracompact `|X|` (`hasParacompactOrbitSpace_trivialZ3`) and the
-local regularity property (`isLR_z3EpBundle`), so `((P, μ), id, id)` is a strong polyfold bundle
-structure for `|P| : |W| → |X|` (`z3Structure`).  The generalized strong bundle isomorphisms
-`[1_W]` and `[W ←1 W →Inv W]` of Remark 10.5.5 both satisfy the two conditions of Definition 16.3.3
-for the pair `(z3Structure, z3Structure)`, and they differ, already on the bases.  Hence:
+local regularity property of Definition 8.4.2 (`isLRLocal_z3EpBundle`), so `((P, μ), id, id)` is
+a strong polyfold bundle structure for `|P| : |W| → |X|` (`z3Structure`).  The generalized
+strong bundle isomorphisms `[1_W]` and `[W ←1 W →Inv W]` of Remark 10.5.5 both satisfy the two
+conditions of Definition 16.3.3 for the pair `(z3Structure, z3Structure)`, and they differ,
+already on the bases.  Hence:
 
 * **The uniqueness after Definition 16.3.3 does not hold as we read it**, neither for `f` nor for
   `F`: `not_uniqueness_16_3_3`, from `uniqueness_16_3_3_counterexample`.
@@ -93,7 +94,7 @@ def z3Structure :
   A := z3SEP k
   isZhou := isZhou_trivialZ3
   paracompact := hasParacompactOrbitSpace_trivialZ3
-  isLR := isLR_z3EpBundle k
+  isLRLocal := LocalizationLRBundleBaseExamples.isLRLocal_z3EpBundle k
   Γ := Homeomorph.refl _
   γ := Homeomorph.refl _
   comm := rfl

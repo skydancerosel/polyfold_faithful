@@ -24,7 +24,11 @@ covers `β` with `|β(y)| = |y|`, so `β = g ∗ ·` by (LR); `C(w) = g⁻¹ ∗
 * `EpStrongBundle.exists_mor_of_π_eq`: `|Φ(w)| = |w|` gives a morphism `(ψ, w) : w → Φ(w)`, with
   `ψ : P(w) → β(P(w))`.
 * **`EpStrongBundle.proposition_8_4_3`**: `X.IsEffective → X.IsLR → E.IsLR`, with the text's
-  hypotheses only.
+  hypotheses only, for strong bundle maps of `W` (the form `EpStrongBundle.IsLR`).
+
+Definition 8.4.2 as printed asks this of every strong bundle isomorphism of `W|U(x)`
+(`EpStrongBundle.IsLRLocal`); that form is `EpStrongBundle.proposition_8_4_3_isLRLocal` in
+`Chapter10/BundleLocalRegularityPrinted.lean`, by the same proof.
 
 ## The proof, and how it relates to the text's
 
@@ -90,8 +94,9 @@ theorem exists_mor_of_π_eq {β : Obj → Obj} {Φ : W → W} (hΦ : B.IsStrongB
 
 /-- **2021 Proposition 8.4.3**, p. 382 (new in the 2021 edition): if the ep-groupoid `X` is
 effective (Definition 7.2.1) and has the local regularity property (LR) (Definition 7.4.19),
-every strong bundle over `X` has the local regularity property of Definition 8.4.2.  The text's
-statement, with no further hypothesis. -/
+every strong bundle over `X` has the local regularity property of Definition 8.4.2, here in the
+form `EpStrongBundle.IsLR` for strong bundle maps of `W` (the printed form is
+`proposition_8_4_3_isLRLocal`).  The text's hypotheses, with no further hypothesis. -/
 theorem proposition_8_4_3 (hX : X.IsEffective) (hLR : X.IsLR) : E.IsLR := by
   intro x O hO hxO
   obtain ⟨R, hRO, hR⟩ := hLR x O hO hxO

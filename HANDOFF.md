@@ -77,6 +77,7 @@ cylinder in `CylinderSobolevSpaces`, `CylinderScBanach`, `CylinderSobolevComplet
 `TameBoundary`, `TameBoundaryStructure`, `TameBoundaryTopology`, `TameBoundaryExample`, `TameBoundaryNonCentred`;
 the 2021 statements in `Book2021`, `BookFormLocalCompleteness2021`, `BookFormTameBoundary2021`,
 `BookFormTameSub2021`.
+Face-structured M-polyfolds recognised by labels and face counts, with products: `FaceLabels`, `FaceFamilies`.
 
 **Chapter 3** (sc-Fredholm theory): germs and the contraction germ in `Germ`, `GermLevels`, `GermCalculus`,
 `GermCalculusParam`, `ContractionGerm`, `GermIFT`, `GermIFTSmooth`, `SolutionGermRegularity`,
@@ -107,6 +108,7 @@ Files with the suffix `G` hold the germ-reading forms of the statements of the f
 `BoundaryWedge`, `RelativeWedge`, `EuclideanForms2021`, `EuclideanStokes2021`, `ManifoldForms2021`,
 `ManifoldFaceForms2021`, `ManifoldBoundary2021`, `ManifoldIntegral2021`, `ManifoldStokes2021`, the `StokesFace*`
 files, `Poincare448`, `Poincare448Shift`, `Poincare2021`, `Poincare2021b`; `Book2021`.
+The faces of a submanifold in general position: `GeneralPositionFaceStructure`.
 
 **Chapter 5** (the Fredholm package): `Compactness`, `SolutionSetClosed`, `AuxNorm`, `AuxNormLiteral`,
 `AllowableSectionsMetric`, `BumpFunctions`, `BumpWeakPointwise`, `BumpPointsResearch`, `ShiftTameResearch`,
@@ -144,6 +146,10 @@ and `CobordismRelativeForms2021*` files, `InvariantSingle2021`, `InvariantCobord
 `ChartPropagation`, `ChartOrientationSpace`, `ChartOrientationFunctor`, `TransportOrientationSpace`,
 `TransportFunctor`, `TransportSpaceEquiv`; the literal 2021 germ data in `UntamedIndexJump`, `UntamedOrientation`,
 `UntamedOrientationFunctor`.
+The cobordism over `[0, 1] × X` (Remark 6.6.19, proof of Theorem 6.7.1): its ends in `IntervalEndGeneralPosition`,
+`IntervalEndManifolds`, `IntervalCobordismDegeneracy`, `IntervalEndInclusion`, `IntervalCobordismStokes`,
+`IntervalConstantCobordism`, `CornerSmoothMaps`, `InducedOrientationFrames`, `IntervalSliceSignedFrames`; its
+boundary integral, which uses the face-sum form of Stokes, in Chapter 9.
 
 **Chapter 7** (ep-groupoids): `Groupoid`, `EpGroupoid`, `Basic`, `Book2021Basic`, `Discrete`, `Effective`,
 `Reduced`, `ReducedCriterion`, `ReducedNaturalCharts`, `ReducedNotHausdorff`, `OrbitTopology`, `ProperMaps`,
@@ -183,6 +189,9 @@ decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `Dimension
 `PropertyTShrinking2021`, `SolutionFaces2021`, `SolutionFaceForms2021`. Remark 9.5.20 in `DimensionJumpSheet`,
 `DimensionJumpBranched`, `DimensionJumpIntegral`, `DimensionZeroIntegral` (the boundary integral in Chapter 11,
 `DimensionJumpBoundaryIntegral`).
+The boundary integral of the cobordism `S_F ⊆ [0, 1] × X` of Chapter 6 (ends, signs, lateral faces):
+`BoundaryEndFaces`, `IntervalBoundaryDecomposition`, `IntervalEndSigns`, `IntervalCobordismFaceStructure` (on
+`StokesFaceSum`).
 
 **Chapter 10** (equivalences and localization): `Equivalence`, `EquivalenceExamples`, `EquivalenceLR`,
 `EquivalenceLREffective`, `EquivalenceReduced`, `EquivalenceRefinement`, `EquivalenceZhou`, `ZhouExample`,
@@ -192,6 +201,7 @@ decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `Dimension
 strong bundles up to equivalence in the `StrongBundle*` files; `FredholmEquivalence`, `SectionFunctorLinear2021`.
 Local regularity in germ form in `LocalRegularityGerm`, `StrongBundleCutOff`; tame bundle charts in
 `TameBundleCharts`.
+Proposition 8.4.3 for Definition 8.4.2 as printed: `BundleLocalRegularityPrinted`.
 
 **Chapter 11** (geometry up to equivalences): `EpEquivalenceGeometry`, `EpEquivalenceGeometryFaces`,
 `FaceEpGroupoids`, `FaceGeneralizedIso`, `FaceIntersectionUnion`, `FaceIntersectionCounterexample`,
@@ -218,6 +228,9 @@ restrictions (tame germ data) in `RestrictionLocalIso`, `ChartTransportCommute`,
 `OrientationGermSquare` and the `LocalOrientation*` files; generalized isomorphisms in the
 `OrientationGeneralizedIso*` files, `OrientationEqualOrbitMaps`, `OrientationEqualOrbitMapsGerm`,
 `OrientationNonEffectiveExample`; the literal germ data in `UntamedOrientationEp`.
+The orientation objects with and without local sc⁺-sections compared under bump functions:
+`LocalOrientationComparisonOrbit`, `LocalOrientationDiagramComparison`; local isomorphisms of `[0, 1] × X`:
+`IntervalProductLocalIso`.
 
 **Chapter 13** (sc⁺-multisections): `Correspondence`, `PiCorrespondence`, `BiAction`, `GoodSystem`,
 `GoodSystemExistence`, `GoodSystemRelative`, `ScPlusSectionOn`, `StrongBundlePullMap`, `SymmetricOn`,
@@ -237,6 +250,7 @@ files, `CoherentExtension`, `NormControl`; the transport of §14.5 in `Transport
 `BoundaryCommensurableSum`, `HalfSpaceCommensurableSum`; Theorem 14.6.3 with section-compatible face data in
 `FaceSectionCompatible`, `FaceNaturalRep`, with the quadrant example in `QuadrantBundle`, `FaceAssemblyCorner`;
 half-space witnesses for §12.5 in `ChartOrientationHalfSpace` and the `LocalOrientation*HalfSpace` files.
+Index families per face: `FaceIndexFamilies`; the extension on the corner example: `CornerExtensionWitness`.
 
 **Chapter 15** (transversality and invariants): linearizations in `Linearization`, `LinearizationFunctor`,
 `LinearizationIntrinsic`, `LinearizationModel`, `OrientedLinearizations`, `CanonicalLift`; local families and general
@@ -259,6 +273,11 @@ canonical orientation (Theorem 15.4.1, Definition 15.4.2) in `KernelBranching`, 
 `CylinderCobordismReduced`, `CylinderCollarNorm`, `CylinderPullStructurable`, `CylinderExtensionBump`,
 `CylinderMatchedBranchingWitness`, `GeneralPositionBoundaryWeight`, `HalfSpaceBoundaryWeightWitness`; general position
 along equivalences in `GeneralPositionEquivalence`.
+Corollary 15.4.4 with the cylinder orientation: `CylinderOrientationInvariance`, `CollarCobordismCorollary`, and for
+index 0 `CylinderPointFrames`, `CylinderPointEnds`; the canonical orientation under strong bundle equivalences:
+`CanonicalOrientationEquivalence`, `CanonicalOrientationPullback`, `TransversalityEquivalence`; local orientations:
+`CanonicalOrientationLocal`, `CanonicalOrientationOrientedSection`; witnesses: `SingleSectionMultisection`,
+`TransversalExtensionBoundaryDatum`.
 
 **Chapter 16** (polyfolds): `PolyfoldStructure`, `PolyfoldExamples`, `PolyfoldMaps`, `RaisedPolyfold`,
 `TangentPolyfold`, `TangentFunctor`, `TangentLemma`, `TangentEffective`, `CompositionCounterexample`,
@@ -273,6 +292,16 @@ along equivalences in `GeneralPositionEquivalence`.
 `HalfSpaceOrientedSection`, `CanonicalOrientationWitness`, `CylinderOrientationWitness`; Theorem 16.6.6 in
 `GeneralPositionModels`, `ModelPerturbations`, and for index 0 in `IndexZeroInvariant`, `IndexZeroPolyfoldTheorem`,
 `IndexZeroTwoModels`, `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`.
+Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylinder`; its independence of the model:
+`CanonicalModelIndependence`, `CanonicalModelPullback`, `CanonicalModelTransfer`, `CorrespondenceMiddleCanonical`,
+`InheritedOrientationGeneralPosition`; `OrientationRepLocal`, `CanonicalPerturbationIntegral`,
+`FibreNegationStructure`; witnesses: `CircleSectionCobordism`, `CircleSectionCollarCobordism`,
+`CircleSectionPolyfold`, `CylinderInvarianceNonEffective`, `IsotropyCircleCobordism`, `TrivialIsotropyBundle`,
+`IndexZeroCylinderWitness`, `IndexZeroIsotropyWitness`, `IndexZeroShiftedPerturbation`,
+`HalfSpaceIsotropyOrientedSection`, `HalfSpaceLocalOrientation`, `CanonicalModelTransferWitness`,
+`CanonicalOrientationPullbackWitness`, `InheritedOrientationGeneralPositionWitness`, and Remark 6.6.19 on the
+half-disc in `HalfDiscIntervalCobordism`, `HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`,
+`HalfDiscFaceStructureInstance`.
 
 ## 3. The reports (`Exposition/`)
 

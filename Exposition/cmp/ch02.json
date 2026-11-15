@@ -1288,12 +1288,20 @@
     "statement": "A face of a tame M-polyfold is the closure of a connected component of $\\{d_X = 1\\}$; $X$ is face-structured if every $x$ lies in exactly $d_X(x)$ faces."
    },
    "lean": {
-    "statement": "$F$ is a face of $X$ if $F = \\overline{G}$ for the connected component $G$ in $\\{d_X = 1\\}$ of a point with $d_X = 1$; $X$ is face-structured if $\\#\\{F : F \\text{ a face}, x \\in F\\} = d_X(x)$ for every $x$ (cardinality in $\\mathbb N \\cup \\{\\infty\\}$). Faces are closed and lie in $\\partial X$.",
+    "statement": "$F$ is a face of $X$ if $F = \\overline{G}$ for the connected component $G$ in $\\{d_X = 1\\}$ of a point with $d_X = 1$; $X$ is face-structured if $\\#\\{F : F \\text{ a face}, x \\in F\\} = d_X(x)$ for every $x$ (cardinality in $\\mathbb N \\cup \\{\\infty\\}$). Faces are closed and lie in $\\partial X$. Criteria (`Chapter2/FaceLabels.lean`, `Chapter2/FaceFamilies.lean`): `MPolyfold.isFaceStructured_iff_label`, `MPolyfold.isFaceStructured_of_label` (for $d$ with the corner axioms: a label constant on the preconnected subsets of $\\{d = 1\\}$, with $d(x)$ distinct labels taken arbitrarily near every $x$, gives exactly $d(x)$ faces through $x$, by a pigeonhole count of the local pieces); `isFaceCount_of_family`, `MPolyfold.isFaceStructured_iff_isFaceCount` (the faces from a family of open sets covering $\\{d = 1\\}$ with disjoint preconnected traces), witness `isFaceCount_square` ($[0, 1]^2$, all four faces); `MPolyfold.isFaceStructured_of_degIndex_le_one` (tame with $d \\le 1$); `MPolyfold.isFaceStructured_prod` (the product of two tame face-structured M-polyfolds is face-structured); `MPolyfold.exists_degIndex_eq_zero_of_isTame` (in a tame M-polyfold the points with $d = 0$ are dense).",
     "decls": [
      "Chapter2/Tame · MPolyfold.IsFace",
      "Chapter2/Tame · MPolyfold.IsFaceStructured",
      "Chapter2/Tame · MPolyfold.IsFace.isClosed",
-     "Chapter2/Boundary · MPolyfold.IsFace.subset_boundary"
+     "Chapter2/Boundary · MPolyfold.IsFace.subset_boundary",
+     "Chapter2/FaceLabels · MPolyfold.isFaceStructured_iff_label",
+     "Chapter2/FaceLabels · MPolyfold.isFaceStructured_of_label",
+     "Chapter2/FaceLabels · MPolyfold.isFaceStructured_of_degIndex_le_one",
+     "Chapter2/FaceLabels · MPolyfold.isFaceStructured_prod",
+     "Chapter2/FaceLabels · MPolyfold.exists_degIndex_eq_zero_of_isTame",
+     "Chapter2/FaceFamilies · isFaceCount_of_family",
+     "Chapter2/FaceFamilies · MPolyfold.isFaceStructured_iff_isFaceCount",
+     "Chapter2/FaceFamilies · isFaceCount_square"
     ]
    },
    "verdict": "same",
@@ -1301,7 +1309,8 @@
     "defined for every M-polyfold"
    ],
    "diff": [
-    "Defined for every M-polyfold; the theorems about faces assume tameness, as the text does."
+    "Defined for every M-polyfold; the theorems about faces assume tameness, as the text does.",
+    "The criteria for face-structuredness (labels, families, products) are used for the cobordism $S_F \\subseteq [0, 1] \\times X$ of Theorem 6.7.1's proof (Chapter 6, gap G.65); they add nothing to the definition."
    ]
   },
   {

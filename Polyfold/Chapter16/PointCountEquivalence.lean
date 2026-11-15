@@ -808,7 +808,7 @@ theorem count_eq_pointIntegral (a : SectionRep c) (P : PointPerturbation a.S.A a
     P.count (ScForm.toStructure a.S.toPolyfoldStructure (toPolyfoldStructure_mem a.hS) τ) =
       (pointOrientedRep a P).pointIntegral P.isCompact (isPointTame_pointOrientedRep a P) τ := by
   unfold PointPerturbation.count OrientedRep.pointIntegral EP.pointBranchedIntegral
-    branchedIntegral
+    EP.branchedIntegralDimZero branchedIntegral
   rw [EpGroupoid.branchedMeasure_congr_orientation _ P.isBranched P.isCompact P.isOrientation
     P.isOrientation.smoothPart (fun y hy => (EpGroupoid.smoothPart_of_mem hy).symm) P.loc
     (isPointTame_pointOrientedRep a P)]
@@ -822,7 +822,7 @@ theorem countEff_eq_pointIntegralEff (a : SectionRep c) (P : PointPerturbation a
       (pointOrientedRep a P).pointIntegralEff P.isCompact (isPointTame_pointOrientedRep a P)
         τ := by
   unfold PointPerturbation.countEff OrientedRep.pointIntegralEff EP.pointBranchedIntegralEff
-    branchedIntegralEff
+    EP.branchedIntegralEffDimZero branchedIntegralEff
   rw [EpGroupoid.branchedMeasureEff_congr_orientation _ P.isBranched P.isCompact P.isOrientation
     P.isOrientation.smoothPart (fun y hy => (EpGroupoid.smoothPart_of_mem hy).symm)
     (P.loc.hasLUC (a.S.A.X.proposition_7_4_10_of_isZhou a.S.isZhou))

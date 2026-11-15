@@ -265,7 +265,7 @@ def epStructure : StrongPolyfoldBundleStructure (epSEP 1 1).E.projFunctor.orbitM
   A := epSEP 1 1
   isZhou := isZhou_trivial _
   paracompact := hasParacompactOrbitSpace_trivial _
-  isLR := EpStrongBundle.isLR_trivial _
+  isLRLocal := EpStrongBundle.isLRLocal_trivial _
   Γ := Homeomorph.refl _
   γ := Homeomorph.refl _
   comm := rfl

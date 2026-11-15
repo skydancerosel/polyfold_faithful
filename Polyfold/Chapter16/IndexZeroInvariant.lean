@@ -1,4 +1,5 @@
 import Polyfold.Chapter16.ModelPerturbations
+import Polyfold.Chapter9.DimensionZeroIntegral
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 16,
@@ -19,10 +20,12 @@ invariant is the weighted count of the perturbed solutions.
 
 Ep-groupoid level (namespaces `Polyfold.EpGroupoid`, `Polyfold.EP`):
 * `EpGroupoid.IsPointTame Θ T`: `Θ̂ = (Θ, T)` is tame of dimension `0`: at every point of
-  `supp Θ` an oriented tame structure of dimension `0` whose sheets are points describes `T`.
+  `supp Θ` an oriented tame structure of dimension `0` whose sheets are points describes `T`;
+  an abbreviation of Part II's `EpGroupoid.IsTameOfDimZero` (`Chapter9/DimensionZeroIntegral`).
 * **`EP.pointBranchedIntegral`**, **`EP.pointBranchedIntegralEff`**: Definition 9.5.6 for
   `n = 0`, the total mass of the measures of Theorems 9.5.4 and 9.5.5 for the integration of
-  `0`-forms over oriented points (`EP.zeroFormIntegration`); `pointBranchedMeasure_apply`,
+  `0`-forms over oriented points (`EP.zeroFormIntegration`); abbreviations of Part II's
+  `EP.branchedIntegralDimZero`, `EP.branchedIntegralEffDimZero`; `pointBranchedMeasure_apply`,
   `pointBranchedMeasureEff_apply` are the local formulas, `pointBranchedIntegral_zero` the value
   on the zero form.
 * **`EP.pointIntegral_eq_of_cobordism`**, **`pointIntegralEff_eq_of_cobordism`**: the cobordism
@@ -80,10 +83,9 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 variable (X : EpGroupoid Obj Mor) in
 /-- **`Θ̂ = (Θ, T)` is tame of dimension `0`** (Definition 9.3.6 for `n = 0`): at every point of
 `supp Θ` there is an oriented tame structure of dimension `0` whose sheets are points, describing
-`T`. -/
-def IsPointTame (Θ : Obj → ℚ) (T : Obj → X.PObj.OrTangent →₀ ℚ) : Prop :=
-  ∀ x ∈ supp Θ, ∃ C : X.OrientedTameStructure 0 Θ x,
-    (∀ i, C.M i ∈ pointSheets X) ∧ C.Represents T
+`T`.  This is Part II's `EpGroupoid.IsTameOfDimZero`. -/
+abbrev IsPointTame (Θ : Obj → ℚ) (T : Obj → X.PObj.OrTangent →₀ ℚ) : Prop :=
+  X.IsTameOfDimZero Θ T
 
 variable {X : EpGroupoid Obj Mor} {Θ : Obj → ℚ} {T : Obj → X.PObj.OrTangent →₀ ℚ}
 
@@ -92,8 +94,7 @@ have it (Definition 7.2.18). -/
 theorem IsPointTame.hasLUC (h : X.IsPointTame Θ T) (hLUC : X.IsLUC) :
     ∀ x ∈ supp Θ, ∃ C : X.OrientedTameStructure 0 Θ x,
       (∀ i, C.M i ∈ pointSheets X) ∧ C.Represents T ∧ C.rep.HasLUC :=
-  fun x hx => (h x hx).imp fun C hC =>
-    ⟨hC.1, hC.2, X.isLUC_iff_forall_naturalRep.1 hLUC x C.rep⟩
+  IsTameOfDimZero.hasLUC h hLUC
 
 end EpGroupoid
 
@@ -103,17 +104,19 @@ variable (A : EP.{u}) {Θ : A.Obj → ℚ} {T : A.Obj → A.X.PObj.OrTangent →
 
 /-- **Definition 9.5.6 (1) for `n = 0`: the weighted signed count `∫_Θ̂ ω = μ_ω(|supp Θ|)`** of a
 `0`-form `ω` over an oriented, tame, compact `0`-dimensional `Θ̂` (Theorem 9.5.4 with
-`∫_{{p}} ω|({p}, o) = ±ω(p)`). -/
-def pointBranchedIntegral (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
-    (hT : A.X.IsOrientation Θ T) (hloc : A.X.IsPointTame Θ T) (ω : A.epFormsInfty 0) : ℝ :=
-  branchedIntegral A.zeroFormIntegration hΘ hcpt hT hloc ω
-
-/-- **Definition 9.5.6 (2) for `n = 0`: the effective count `∮_Θ̂ ω = μ^eff_ω(|supp Θ|)`**
-(Theorem 9.5.5, weights `1/♯G_x^eff`), for `X` with the local unique continuation property. -/
-def pointBranchedIntegralEff (hLUC : A.X.IsLUC) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
+`∫_{{p}} ω|({p}, o) = ±ω(p)`).  This is Part II's `EP.branchedIntegralDimZero`. -/
+abbrev pointBranchedIntegral (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T) (hloc : A.X.IsPointTame Θ T)
     (ω : A.epFormsInfty 0) : ℝ :=
-  branchedIntegralEff A.zeroFormIntegration hΘ hcpt hT (hloc.hasLUC hLUC) ω
+  A.branchedIntegralDimZero hΘ hcpt hT hloc ω
+
+/-- **Definition 9.5.6 (2) for `n = 0`: the effective count `∮_Θ̂ ω = μ^eff_ω(|supp Θ|)`**
+(Theorem 9.5.5, weights `1/♯G_x^eff`), for `X` with the local unique continuation property.
+This is Part II's `EP.branchedIntegralEffDimZero`. -/
+abbrev pointBranchedIntegralEff (hLUC : A.X.IsLUC) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
+    (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T) (hloc : A.X.IsPointTame Θ T)
+    (ω : A.epFormsInfty 0) : ℝ :=
+  A.branchedIntegralEffDimZero hLUC hΘ hcpt hT hloc ω
 
 /-- **The local formula of the count** (Theorem 9.5.4 for `n = 0`): on `|U(x)|` the measure is
 `(1/♯G_x) ∑ σᵢ ∫_{Kᵢ} ω|(Mᵢ, oᵢ)` with `∫_{{p}} ω|({p}, o) = ±ω(p)`. -/
@@ -145,7 +148,7 @@ theorem pointBranchedMeasureEff_apply (hLUC : A.X.IsLUC) (hΘ : A.X.IsBranchedEp
 theorem pointBranchedIntegral_zero (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T) (hloc : A.X.IsPointTame Θ T) :
     A.pointBranchedIntegral hΘ hcpt hT hloc 0 = 0 := by
-  simp only [pointBranchedIntegral, branchedIntegral, map_zero]
+  simp only [pointBranchedIntegral, branchedIntegralDimZero, branchedIntegral, map_zero]
   rfl
 
 /-- The count is additive in the form. -/
@@ -154,7 +157,7 @@ theorem pointBranchedIntegral_add (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (ω η : A.epFormsInfty 0) :
     A.pointBranchedIntegral hΘ hcpt hT hloc (ω + η) =
       A.pointBranchedIntegral hΘ hcpt hT hloc ω + A.pointBranchedIntegral hΘ hcpt hT hloc η := by
-  simp only [pointBranchedIntegral, branchedIntegral, map_add]
+  simp only [pointBranchedIntegral, branchedIntegralDimZero, branchedIntegral, map_add]
   rfl
 
 variable {A}

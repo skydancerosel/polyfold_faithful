@@ -23,9 +23,9 @@ The second command prints the axioms of every theorem; each must list only `prop
 | Tier | Statements | New definition rows | Lean helper constants without a row |
 |---|---|---|---|
 | Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 28 | 91 | 80 |
-| Orientation (Chapter 6) | 5 | 65 | 235 |
-| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 35 | 90 | 206 |
-| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 127 | 213 |
+| Orientation (Chapter 6) | 6 | 67 | 287 |
+| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 36 | 90 | 207 |
+| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 125 | 219 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 4 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -207,14 +207,15 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 6.6.18 | `theorem_6_6_18` (Chapter6/OrientationMainClean.lean) | V6.61 |
 | Thm 6.7.1 | `theorem_6_7_1` (Chapter6/Theorem671Final2021.lean) | V6.76 |
 | Thm 6.7.1 | `theorem_6_7_1_interval` (Chapter6/IntervalHomotopyInvariance.lean) | V6.76 |
+| Rem 6.6.19 | `theorem_6_6_18_boundaryIntegral_interval` (Chapter9/IntervalCobordismFaceStructure.lean) | V6.62, V6.76 |
 
-### Definition rows (65), in dependency order
+### Definition rows (67), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
 | V2.9 | §2.3 (preprint §2.2), Proposition 2.3.1 (preprint 2.10), p. 33 (preprint p. 23) | `ScRetraction.restrict` |
 | V2.22 | §§2.3–§2.4 (preprint §2.2–§2.3), the tangent functor on M-polyfolds (used in Proposition 2.3.19(4) (preprint 2.21), Definition 2.5.8 (preprint 2.38)), preprint p. 21 | `MPolyfold.tangentMap` |
-| V2.49 | §2.5 (preprint §2.4), Proposition 2.5.15 (preprint 2.43), pp. 61–62 (preprint pp. 44–45) | `faceIncl`, `faceProj` |
+| V2.49 | §2.5 (preprint §2.4), Proposition 2.5.15 (preprint 2.43), pp. 61–62 (preprint pp. 44–45) | `MPolyfold.faceChart`, `faceIncl`, `faceProj` |
 | V2.79 | no counterpart in the text (§2.7.4, pp. 78–82, new in the 2021 edition) | `TameBoundary.IsCornerIndex`, `TameBoundary.IsFaceIn`, `TameBoundary.LocalPieces`, `TameBoundary.faceAt` and 2 more |
 | V2.81 | §2.7.4, Definition 2.7.6, p. 79, and Proposition 2.7.7, p. 80 (new in the 2021 edition) | `TameBoundary.IsFaceStructuredOpen`, `TameBoundary.faceStructuredNbhds`, `TameBoundary.faceStructuredNbhdsAt`, `TameBoundary.faceStructuredOpens` |
 | V2.82 | §2.7.4, Definition 2.7.8, p. 80, and Definition 2.7.9, p. 81 (new in the 2021 edition) | `TameBoundary.IsMor`, `TameBoundary.LObj` |
@@ -224,9 +225,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V2.87 | §2.7.4, Proposition 2.7.12, p. 83 (new in the 2021 edition) | `TameBoundary.phiHomeomorph` |
 | V2.95 | §2.3, Proposition 2.3.17, p. 42 (new in the 2021 edition) | `MPolyfold.TangentPre.lower`, `MPolyfold.someChart`, `MPolyfold.tangentLower`, `MPolyfold.tangentShiftEquiv` and 1 more |
 | V2.96 | §2.3, Proposition 2.3.17, p. 42 (new in the 2021 edition) | `BundledMPolyfold`, `BundledMPolyfold.lift`, `BundledMPolyfold.tangent`, `BundledMPolyfold.tangentLiftEquiv` and 5 more |
+| V2.98 | §2.4, Remark 2.4.2, pp. 44–45 (new in the 2021 edition) | `ScOperator.ofConst` |
 | V2.102 | §2.7.4, Theorem 2.7.13 (2)–(4), pp. 83–84 (new in the 2021 edition) | `MPolyfold.BChartData`, `MPolyfold.BChartData.chart`, `MPolyfold.bAtlas`, `MPolyfold.tameBoundaryPolyfold` |
 | V3.16 | §3.1, Definition 3.1.16 (preprint 3.14), p. 97 (preprint p. 70) | `StrongBundle.IsScFredholmSection` |
 | V4.3 | §1.1, after Definition 1.1.1 (preprint 1.1), p. 5 (preprint p. 6) (used in Definition 4.1.1 (preprint 4.1)) | `ScBanach.scIsoConst` |
+| V4.26 | §4.1, proof of Theorem 4.1.2 (preprint 4.2), preprint p. 157 | `MChart.compRetract` |
 | V4.75 | Appendix 4.5, p. 201 | `MPolyfold.chartRetraction` |
 | V4.77 | Appendix 4.5, Lemma 4.5.1, p. 201 | `MPolyfold.liftLevelOneMap` |
 | V4.80 | §4.4, p. 195, before Definition 4.4.1 | `ScBanach.fiberPow`, `ScBanach.whitney`, `ScRetraction.whitney`, `retractWhitney` |
@@ -235,10 +238,10 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V4.84 | §4.4, pp. 196–197 (preprint p. 167), the definition of $d\omega$ | `ambientD`, `retractD` |
 | V4.85 | §4.4, p. 197 (preprint p. 167) | `BundledMPolyfold.formsD`, `MPolyfold.chartD`, `MPolyfold.extD`, `MPolyfold.extDₗ` |
 | V4.87 | §4.4, pp. 197–198 (preprint p. 168) | `BundledMPolyfold.formsInftyD` |
-| V4.89 | §4.4, p. 198 (2017 p. 150; preprint p. 168) | `BundledMPolyfold.formsPullback`, `MPolyfold.formPullback`, `MPolyfold.tangentFiberMap` |
+| V4.89 | §4.4, p. 198 (2017 p. 150; preprint p. 168) | `BundledMPolyfold.formsInftyPullback`, `BundledMPolyfold.formsPullback`, `MPolyfold.formPullback`, `MPolyfold.tangentFiberMap` |
 | V4.90 | §4.4, pp. 198–199 (2017 p. 150; preprint p. 168) | `MPolyfold.IsAgreeingOver`, `MPolyfold.IsFaceCompatible`, `MPolyfold.bForms`, `MPolyfold.bFormsInfty` and 1 more |
 | V4.91 | §4.4, p. 199 (2017 p. 150; preprint p. 168) | `MPolyfold.RelForms`, `MPolyfold.relD`, `MPolyfold.relDRange`, `MPolyfold.relDeRham` and 1 more |
-| V4.92 | §4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168) | `MPolyfold.formsInftyRestrict` |
+| V4.92 | §4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168) | `MPolyfold.faceOrientation`, `MPolyfold.formsInftyRestrict`, `inducedOrientation`, `restrictForm` |
 | V5.7 | §5.2, Definition 5.2.1 (preprint 5.4), p. 209 (preprint p. 171) | `StrongBundle.AuxLe`, `StrongBundle.IsProper` |
 | V5.37 | §5.3, proof of Theorem 5.3.10 (preprint 5.18), pp. 220–222 (preprint pp. 178–179) | `StrongBundle.SolutionSetInGeneralPosition` |
 | V6.1 | §6.2 (preprint §6.1), Definition 6.2.1 (preprint 6.1), p. 239 (preprint p. 201) (with preprint pp. 200–201, 219) | `ChartPoint`, `ChartPoint.IsScPlusOp`, `ChartPoint.K`, `ChartPoint.T` and 1 more |
@@ -278,18 +281,20 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V6.60 | §6.6 (preprint §6.5), Definition 6.6.16 (preprint 6.40), p. 274 (preprint p. 229) | `IsSectionOrientation` |
 | V8.2 | §8.1, used without statement on pp. 358–364 (2017 pp. 258–263) | `MPolyfold.tangentMapOn` |
 
-<details><summary>235 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>287 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * Chapter1/ScBanach.lean: `ScIso.toScOperator`
+* Chapter2/MPolyfold.lean: `MChart.restrict`
 * Chapter2/SubMPolyfold.lean: `MPolyfold.IsSubMPolyfold.data`
 * Chapter2/TameBoundary.lean: `TameBoundary.BTriple.cls`
 * Chapter2/TameBoundaryStructure.lean: `MPolyfold.BChartData.O`, `MPolyfold.BChartData.invFun`
-* Chapter2/TameFaces.lean: `insertCoordL`, `insertCoordModel`, `removeCoordL`, `removeCoordModel`
+* Chapter2/TameFaces.lean: `MPolyfold.faceChartInv`, `insertCoordL`, `insertCoordModel`, `removeCoordL`, `removeCoordModel`
 * Chapter2/TangentLiftAll.lean: `BundledMPolyfold.liftMap`, `BundledMPolyfold.of`, `BundledMPolyfold.shift`, `MPolyfold.ScEquiv.refl`, `MPolyfold.ScEquiv.trans`, `MPolyfold.ScMap.shift`
 * Chapter2/TangentMap.lean: `MPolyfold.TangentPre.fdom`, `MPolyfold.TangentPre.fimage`, `MPolyfold.TangentPre.fimageWith`, `MPolyfold.TangentPre.ftransport`
 * Chapter2/TangentMapLinear.lean: `MPolyfold.tangentMapCLM`, `MPolyfold.tangentMapOnFiber`
 * Chapter2/TangentSpaceLinear.lean: `MPolyfold.fiberChart`, `MPolyfold.fiberMapCLM`, `MPolyfold.instAddCommGroupElemTangentSpaceTangentFiber`, `MPolyfold.instModuleRealElemTangentSpaceTangentFiber`, `MPolyfold.tangentFiberBaseEquiv`, `MPolyfold.tangentFiberEquiv`, `MPolyfold.tangentFiberModel`, `MPolyfold.transitionCLM`, `tangentSubmodule`
 * Chapter3/IndexAlongPathsDevice.lean: `pullbackSlice`
+* Chapter3/IndexLocallyConstantLocal.lean: `StrongBundle.HasScPlusSectionsThrough`
 * Chapter3/LinearizationCharts.lean: `StrongBundleChart.transitionFiberCLM`
 * Chapter3/ParamPerturbation.lean: `paramLift`, `pullbackLift`
 * Chapter4/BoundaryForms2021.lean: `BundledMPolyfold.addCommGroup_agreeDFormsInfty`, `BundledMPolyfold.addCommMonoidAgreeDFormsInfty`, `BundledMPolyfold.addCommMonoid_formsInfty`, `BundledMPolyfold.agreeDForms`, `BundledMPolyfold.agreeDFormsD`, `BundledMPolyfold.agreeDFormsInfty`, `BundledMPolyfold.agreeDFormsInftyD`, `BundledMPolyfold.agreeDFormsInftyOf`, `BundledMPolyfold.agreeDFormsMap`, `BundledMPolyfold.agreeForms`, `BundledMPolyfold.agreeInftyPullback`, `BundledMPolyfold.agreePullback`, `BundledMPolyfold.moduleAgreeDFormsInfty`, `BundledMPolyfold.module_agreeDFormsInfty`, `BundledMPolyfold.module_formsInfty`, `MPolyfold.addCommGroupRelForms`, `MPolyfold.addCommMonoidRelForms`, `MPolyfold.bFormsInftyD`, `MPolyfold.bdry`, `MPolyfold.bdryMap`, `MPolyfold.moduleRelForms`, `MPolyfold.moduleRelForms'`, `MPolyfold.relDSucc`, `MPolyfold.relDZero`
@@ -303,22 +308,31 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter4/ScFormsGlobal2021.lean: `MPolyfold.dAlt`, `MPolyfold.dChart`, `MPolyfold.dLevelChart`
 * Chapter4/ScFormsLower2021.lean: `BundledMPolyfold.addCommGroup_forms`, `BundledMPolyfold.addCommGroup_formsInfty`
 * Chapter4/ScFormsPullback2021.lean: `MPolyfold.formPullbackₗ`
+* Chapter4/StokesFaceCharts.lean: `MPolyfold.CornerCoords.linChart`, `MPolyfold.CornerCoords.linModel`, `MPolyfold.FaceData`, `MPolyfold.FaceData.V₁`, `MPolyfold.FaceData.W'`, `MPolyfold.FaceData.chart`, `MPolyfold.FaceData.coords`, `insertZeroL`, `removeL`
+* Chapter4/StokesFaceIntegral.lean: `GoodRegion`
+* Chapter4/StokesFaceOrientation.lean: `FaceChartPair`, `FaceChartPair.boundarySign`, `faceBool`
 * Chapter5/Compactness.lean: `MPolyfold.smoothVal`
 * Chapter6/AddSections.lean: `restrictCastAdd`, `restrictNatAdd`
 * Chapter6/ChartTransfer.lean: `ChartPoint.baseRet`, `ChartPoint.overlapW`, `conjDetFiber`, `conjMap`, `conjRay`
 * Chapter6/Continuation.lean: `emptyWedge`
 * Chapter6/CubeBoundarySlice.lean: `prodSlice`
 * Chapter6/CubeFredholm.lean: `cubeLift`
-* Chapter6/CubeSections.lean: `UnitCube.chart`, `UnitCube.fl`, `UnitCube.halfC`, `UnitCube.model`, `UnitCube.modelO`
+* Chapter6/CubeSections.lean: `UnitCube.chart`, `UnitCube.corner`, `UnitCube.fl`, `UnitCube.halfC`, `UnitCube.model`, `UnitCube.modelO`
 * Chapter6/DetBundle.lean: `LocalDetChart.baseSet`, `LocalDetChart.coordInv`, `instAddCommMonoidDetFiber`, `instModuleRealDetFiber`, `instTopologicalSpaceDetFiber`, `instTopologicalSpaceTotalSpaceFredholmOpRealDetFiber`, `localDetChartAt`
 * Chapter6/DetLine.lean: `appendLeftMap`, `maxPowDualEquiv`, `maxPowEquiv`
 * Chapter6/ExactSequence.lean: `FourTermExact.Choice.source`, `FourTermExact.Choice.wedgeB`
-* Chapter6/IntervalProductPoint.lean: `ivBundle`
+* Chapter6/IntervalCobordismStokes.lean: `ivPrScMap`
+* Chapter6/IntervalEndInclusion.lean: `sliceInclusion`
+* Chapter6/IntervalProductKernels.lean: `ChartPoint.ivOrFirst`, `ChartPoint.ivOrFirst₀`, `ivOrLift`, `ivOrOf`
+* Chapter6/IntervalProductPoint.lean: `ChartPoint.ivK`, `ChartPoint.ivLin`, `ChartPoint.ivPt`, `ivBundle`, `ivChart`, `ivData`, `ivRetr`, `ivSign`
+* Chapter6/IntervalProductSectionOrientation.lean: `ivFirstFun`
 * Chapter6/InvariantSingle2021.lean: `ManifoldForm.integralₗ`, `SolPartIsOrientedManifold`, `StrongBundle.solIndexNbhd`, `StrongBundle.solPart`, `relFormsFst`, `solBFormsIntegral`, `solBoundaryIntegral`, `solFormsIntegral`, `solIntegral`, `solPartChartedSpace`, `solPartOr`
 * Chapter6/LocalDetBundle.lean: `LocalDetChart.K`, `LocalDetChart.cokerFrame`, `LocalDetChart.kerEquiv`, `LocalDetChart.projComp`
 * Chapter6/ManifoldOrientation.lean: `TangentOrientation`, `chartChangeDeriv`, `modelOrToTangent`, `orientationIn`, `signMap`, `tangentOrToModel`
+* Chapter6/OrientationConvention2021.lean: `extConjDetFirst`, `extDetFirstFiber`, `kerSign`
 * Chapter6/PathCategory.lean: `ScPath.setoid`
-* Chapter6/PerturbedOrientation.lean: `SectionOrientation.sectionAdd`
+* Chapter6/PerturbedOrientation.lean: `ChartPoint.orCongr`, `SectionOrientation.sectionAdd`
+* Chapter6/ProductOrientation.lean: `extDetFiber`, `extKer`
 * Chapter6/ProjectionSequence.lean: `cokerCompEquiv`
 * Chapter6/ProperHomotopy2021.lean: `StrongBundle.IsProperOrientedHomotopy`, `homotopySection`, `slabZeros`
 * Chapter6/SolutionOrientation.lean: `kerEquivOfMap`, `surjRay`
@@ -326,10 +340,15 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter6/SolutionSetOpen2021.lean: `solKerEquivOpen`, `solOrOpen`, `solReadOrOpen`
 * Chapter6/SolutionSetOrientation.lean: `MPolyfold.CornerCoords.zOf`, `modelDeriv`, `ofLpCLM`, `overlapRet`, `pullBasis`, `pullOr`, `transDeriv`
 * Chapter6/SubspaceBundle.lean: `SubspaceFamily.Frame`, `SubspaceFamily.Frame.coord`, `SubspaceFamily.Frame.vec`, `SubspaceFamily.Frame.wedgeAt`, `SubspaceFamily.frameAt`, `SubspaceFamily.instAddCommMonoidDet`, `SubspaceFamily.instModuleRealDet`, `SubspaceFamily.instTopologicalSpaceDet`, `SubspaceFamily.instTopologicalSpaceTotalSpaceRealDet`, `SubspaceFamily.prebundle`
+* Chapter6/UnitIntervalSections.lean: `PullbackChartData.ofProdChart`
 * Chapter8/TangentLocal.lean: `MPolyfold.TangentPre.fdomOn`, `MPolyfold.TangentPre.fimageOn`, `MPolyfold.TangentPre.fimageOnWith`, `MPolyfold.TangentPre.ftransportOn`
+* Chapter9/BoundaryEndFaces.lean: `MPolyfold.LateralFace`
+* Chapter9/IntervalBoundaryDecomposition.lean: `ivEnd`
+* Chapter9/IntervalEndSigns.lean: `IsIntervalCobordismOrientation`, `IsIntervalEndOrientation`
 * Chapter9/MathlibFormsBridge2021.lean: `MPolyfold.CornerCoords.fiberMap`, `MPolyfold.CornerCoords.lin`, `MPolyfold.HasCornerStructureOfDim.coords`, `MPolyfold.HasCornerStructureOfDim.levelOne`, `MPolyfold.alongLift`, `MPolyfold.cornerForm`, `MPolyfold.formsAlong`, `MPolyfold.formsInftyAlong`, `MPolyfold.subInclScMap`, `altCont`
 * Chapter9/MathlibManifoldBridge.lean: `MPolyfold.CornerCoords`, `MPolyfold.CornerCoords.coord`, `MPolyfold.CornerCoords.coordInv`, `MPolyfold.CornerCoords.toQuadrantChart`
 * Chapter9/SolutionFaceForms2021.lean: `MPolyfold.FaceLiftData`, `MPolyfold.FaceLiftData.W₀`, `MPolyfold.IsLinLift`, `MPolyfold.bdryMapLift`, `MPolyfold.euclidQuadrantPres`, `MPolyfold.linLiftForm`, `MPolyfold.solFaceForm`, `MPolyfold.solFaceFormAt`, `MPolyfold.solFaceFormData`, `MPolyfold.solIncl`, `MPolyfold.solPt`, `MPolyfold.solVec`
+* Chapter9/StokesFaceSum.lean: `MPolyfold.FaceData.pair`, `MPolyfold.Faces`, `MPolyfold.V₁At`, `MPolyfold.faceChartedSpace`, `MPolyfold.faceDataAt`, `MPolyfold.facesAt`, `MPolyfold.goodRegion`, `MPolyfold.goodSet`, `MPolyfold.nbhdFaces`, `MPolyfold.signRegion`
 
 </details>
 
@@ -350,6 +369,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 8.1.11 | `EpFunctor.theorem_8_1_11` (Chapter8/TangentEp.lean) | V8.13 |
 | Thm 8.1.12 | `theorem_8_1_12` (Chapter8/TangentEp.lean) | V8.14 |
 | Thm 8.1.15 | `EpGroupoid.theorem_8_1_15` (Chapter8/TangentOrbit.lean) | V8.18 |
+| Prop 8.4.3 | `EpStrongBundle.proposition_8_4_3_isLRLocal` (Chapter10/BundleLocalRegularityPrinted.lean) | V8.48 |
 | Thm 8.5.3 | `EpFunctor.theorem_8_5_3` (Chapter8/ProperCoveringLocal.lean) | V8.30 |
 | Thm 8.5.8 | `EpFunctor.theorem_8_5_8` (Chapter8/GeometricLift.lean) | V8.36 |
 | Prop 9.1.11 | `EpGroupoid.proposition_9_1_11_unique` (Chapter9/GeneralCorollaries.lean) | V9.9 |
@@ -460,12 +480,12 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V9.66 | §9.5, Theorem 9.5.4, p. 438 (2017: Theorem 9.2, p. 323), Theorem 9.5.5, p. 438 (new in the 2021 edition), Definition 9.5.6, (9.21), Lemma 9.5.7, pp. 439–441 | `EpGroupoid.FormEval.msheetIntegration`, `EpGroupoid.OrientedTameStructure`, `EpGroupoid.OrientedTameStructure.localMeasure`, `EpGroupoid.OrientedTameStructure.localMeasureEff` and 6 more |
 | V9.54 | §9.5, Lemma 9.5.9, p. 442 (2017: Lemma 9.18, p. 326) | `EpGroupoid.FormEval.sheetIntegration` |
 | V10.1 | §10.1, Definition 10.1.1, p. 461 (2017: Definition 10.1, p. 333) | `EpFunctor.IsEquivalence` |
+| V10.22 | §10.4, Definition 10.4.1, p. 496 (2017: Definition 10.10, p. 357) | `EpStrongBundle.IsStrongBundleEquivalence`, `EpStrongBundle.IsStrongBundleEquivalence.fiberEquiv`, `EpStrongBundle.OneOrbitSpace`, `EpStrongBundle.oneOrbitMap` |
+| V10.31 | §10.4, Definition 10.4.11, p. 503 (2017: Definition 10.13, p. 364) | `SEP`, `SEP.Hom`, `SEP.equivalences` |
 | V10.15 | §10.1, Proposition 10.1.18, p. 476 (new in the 2021 edition) | `EpFunctor.liftOne` |
 | V10.17 | §10.2, Definition 10.2.1, p. 477 (2017: Definition 10.3, p. 342) | `WeakFibredProduct.Mor`, `WeakFibredProduct.Obj`, `WeakFibredProduct.comp`, `WeakFibredProduct.conj` and 9 more |
 | V10.18 | §10.2, Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343), first claim, proof pp. 478–481 | `WeakFibredProduct.Admissible`, `WeakFibredProduct.PA`, `WeakFibredProduct.PB`, `WeakFibredProduct.PMor` and 2 more |
-| V10.22 | §10.4, Definition 10.4.1, p. 496 (2017: Definition 10.10, p. 357) | `EpStrongBundle.IsStrongBundleEquivalence`, `EpStrongBundle.IsStrongBundleEquivalence.fiberEquiv`, `EpStrongBundle.OneOrbitSpace`, `EpStrongBundle.oneOrbitMap` |
 | V10.28 | §10.4, Definition 10.4.8, p. 502 (2017: Definition 10.11, p. 362) | `EpStrongBundle.StrongBundleNatEquiv`, `EpStrongBundle.StrongBundleNatTrans` |
-| V10.31 | §10.4, Definition 10.4.11, p. 503 (2017: Definition 10.13, p. 364) | `SEP`, `SEP.Hom`, `SEP.equivalences` |
 | V10.33 | §10.3, Definition 10.3.1, p. 484 (2017: Definition 10.4, p. 348) | `EPLocalization.Diagram`, `EPLocalization.Diagram.IsRefinement` |
 | V10.35 | §10.3, Definition 10.3.3, p. 485 (2017: Definition 10.5, p. 349) | `EPLocalization.Diagram.IsCommonRefinement` |
 | V10.37 | §10.3, Definition 10.3.5, p. 486 (2017: Definition 10.6, p. 350) | `EPLocalization.Diagram.Equiv`, `EPLocalization.Diagram.setoid` |
@@ -484,10 +504,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V11.37 | §11.6, Definition 11.6.5, p. 554 (2017: Definition 11.7, p. 405), and the diagram on p. 555 | `ProperCoveringHom.NatTrans`, `ProperCoveringHom.NaturallyEquivalent` |
 | V11.38 | §11.6, Theorem 11.6.6 (1), p. 555 (2017: Theorem 11.10, p. 405), and its proof, pp. 556–560 | `ProperCoveringHom.hFunctor`, `ProperCoveringHom.hMor`, `ProperCoveringHom.hObj` |
 
-<details><summary>206 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>207 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * Chapter1/ScOneNotNormContinuous.lean: `ScOneExample.X`, `ScOneExample.XScale`, `ScOneExample.c0`, `ScOneExample.diag`, `ScOneExample.inclOp`, `ScOneExample.mkC0`, `ScOneExample.w`
 * Chapter10/LocalizationCategory.lean: `EPLocalization.EPLoc.instCategory`
+* Chapter10/LocalizationLRBundleBase.lean: `StrongBundle.IsLocalIsoOn`
 * Chapter10/StrongBundleEquivalence.lean: `EpStrongBundle.oneOrbitSetoid`
 * Chapter10/StrongBundleEquivalenceNat.lean: `SEP.instLargeCategory`
 * Chapter10/WeakFibredProduct.lean: `WeakFibredProduct.Mor.h`, `WeakFibredProduct.Mor.k`, `WeakFibredProduct.Mor.mk`, `WeakFibredProduct.Mor.φ`, `WeakFibredProduct.Obj.mk`, `WeakFibredProduct.Obj.x`, `WeakFibredProduct.Obj.z`, `WeakFibredProduct.Obj.φ`, `WeakFibredProduct.compOf`
@@ -588,7 +609,9 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 16.6.4 | `StrongPolyfoldBundle.theorem_16_6_4` (Chapter16/PolyfoldFredholmSections.lean) | V16.76 |
 | Thm 12.5.3 | `EpStrongBundle.theorem_12_5_3_push` (Chapter12/OrientationMorphismContinuity.lean) | V12.24 |
 | Thm 12.5.3 | `EpStrongBundle.theorem_12_5_3_loc` (Chapter12/LocalOrientationBundleEp.lean) | V12.24 |
+| Thm 12.5.3 | `EpStrongBundle.theorem_12_5_3_iff_loc` (Chapter12/LocalOrientationComparisonOrbit.lean) | V12.24 |
 | Prop 12.5.6 | `EpStrongBundle.proposition_12_5_6_loc` (Chapter12/LocalOrientationOrbit.lean) | V12.26 |
+| Prop 12.5.6 | `EpStrongBundle.proposition_12_5_6_of_loc` (Chapter12/LocalOrientationComparisonOrbit.lean) | V12.26 |
 | Prop 13.4.2 | `SBLocalization.proposition_13_4_2` (Chapter13/StructuredExtension.lean) | V13.59 |
 | Prop 14.4.6 | `SBLocalization.ZConcrete.proposition_14_4_6_2` (Chapter14/ZLoopSetting.lean) | V14.25 |
 | Prop 14.5.4 | `SBLocalization.TransportInput.proposition_14_5_4` (Chapter14/TransportProof.lean) | V14.37 |
@@ -602,18 +625,22 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 14.1.9 | `SBLocalization.theorem_14_1_9` (Chapter14/BoundaryExtensionTheorem.lean) | V14.8 |
 | Thm 14.6.3 | `SBLocalization.SectionCompatibleFaceData.theorem_14_6_3` (Chapter14/FaceSectionCompatible.lean) | V14.43 |
 | Thm 14.6.3 | `SBLocalization.CompatibleFaceData.theorem_14_6_3_extension` (Chapter14/BoundaryExtensionTheorem.lean) | V14.43 |
+| Thm 14.6.3 | `SBLocalization.SectionCompatibleFaceFamilies.theorem_14_6_3` (Chapter14/FaceIndexFamilies.lean) | V14.43 |
 | Thm 15.3.7 | `SBLocalization.theorem_15_3_7` (Chapter15/GeneralPositionExistence.lean) | V15.29 |
 | Thm 15.3.9 | `SBLocalization.theorem_15_3_9` (Chapter15/RelativeLocalFamilies.lean) | V15.32 |
 | Cor 15.3.10 | `SBLocalization.corollary_15_3_10_1` (Chapter15/RelativeLocalFamilies.lean) | V15.33 |
 | Cor 15.3.10 | `SBLocalization.corollary_15_3_10_3_bump` (Chapter15/CylinderExtensionBump.lean) | V15.34 |
 | Thm 15.4.1 | `SBLocalization.theorem_15_4_1` (Chapter15/CanonicalOrientationStokes.lean) | V15.51 |
-| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_canonicalOrientation` (Chapter15/CylinderCanonicalOrientation.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_oriented_collar` (Chapter15/CollarCobordismCorollary.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_oriented` (Chapter16/IndexZeroCylinder.lean) | V15.37, V15.49 |
 | Prop 16.3.16 | `StrongPolyfoldBundle.proposition_16_3_16_two` (Chapter16/MixedTransfer.lean) | V16.56 |
 | Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7` (Chapter16/PolyfoldBoundaryExtension.lean) | V16.71 |
-| Def 16.6.5 | `StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR` (Chapter16/OrientationTransportRegularity.lean) | V8.48, V16.77 |
-| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_of_cylinder` (Chapter16/ModelPerturbations.lean) | V16.78 |
+| Def 16.6.5 | `StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal` (Chapter16/OrientationOrbitMapIndependence.lean) | V8.48, V16.77 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_canonical` (Chapter16/CanonicalIntegralInvariance.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_correspondence` (Chapter16/InheritedOrientationGeneralPosition.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical` (Chapter16/IndexZeroCylinder.lean) | V16.82 |
 
-### Definition rows (127), in dependency order
+### Definition rows (125), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
@@ -624,8 +651,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V5.90 | not in the book (used in §§5.1–5.2 and Part III, §12.2) | `WeakTendsto` |
 | V5.79 | §5.1, Definition 5.1.6, p. 207 (2017: Definition 5.3; not in the preprint) | `StrongBundle.MixedTendsto` |
 | V6.51 | §6.6 (preprint §6.5), the homotopy classes $[\varphi]$, pp. 272–274 (preprint pp. 227–228) | `leftHalf`, `rightHalf` |
-| V6.73 | §6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition) | `IsContOrOn`, `LocalTransport.topology`, `orSec` |
-| V6.62 | §6.6 (preprint §6.5), Remark 6.6.19 (preprint 6.42), p. 276 (preprint p. 230) | `ChartPoint.ivT`, `extCoker`, `extConjOp`, `extDet` and 4 more |
+| V6.73 | §6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition) | `IsContOrOn`, `LocalTransport.topology`, `orSec`, `orTopology` |
 | V7.7 | §7.1, Definition 7.1.5 (2017: 7.5), p. 290 (2017 p. 228) | `EpGroupoid.degIndexOrbit` |
 | V8.26 | §8.3, Definition 8.3.4 (2017: 8.7), pp. 379 ff. (2017 pp. 274–275) | `EpStrongBundle.IsFunctorialSection`, `EpStrongBundle.IsScFredholmSectionFunctor`, `EpStrongBundle.IsScPlusSectionFunctor`, `EpStrongBundle.IsScSmoothSectionFunctor` and 2 more |
 | V8.23 | §8.3, Definition 8.3.2 (2017: 8.5) and the paragraph after it, 2017 p. 273 | `EpStrongBundle.IsMap` |
@@ -647,11 +673,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V12.44 | §12.5, proof of Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12) | `StrongBundle.LocalIso.morVia`, `StrongBundle.LocalIso.mpullPt` |
 | V12.45 | §12.5, used in the proofs of Theorems 12.5.3 and 12.5.7, pp. 594–597 (2017: Theorems 12.11, 12.12) | `smoothTransPath_or` |
 | V12.22 | §12.5, Lemma 12.5.1, p. 592 (2017: Lemma 12.2) | `EpStrongBundle.morIso`, `EpStrongBundle.morIsoDom`, `EpStrongBundle.morTx`, `EpStrongBundle.orMor` and 5 more |
+| V12.23 | §12.5, Definition 12.5.2, p. 593 (2017: Definition 12.11) | `EpGroupoid.SmoothRel`, `EpStrongBundle.OrRel`, `EpStrongBundle.definition_12_5_2`, `EpStrongBundle.orbitProj` |
+| V12.25 | §12.5, Definition 12.5.4, p. 594 (2017: Definition 12.12) | `EpStrongBundle.definition_12_5_4`, `EpStrongBundle.definition_12_5_4_loc`, `orxLocEquiv` |
 | V12.10 | §12.3, Definition 12.3.1, p. 579 (2017: Definition 12.7) | `EpGroupoid.AdmitsBumpFunctions`, `EpGroupoid.AdmitsBumpFunctionsPointwise` |
 | V12.16 | §12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8) | `EpStrongBundle.IsBoundaryScPlusSection`, `EpStrongBundle.IsBoundaryScPlusSectionFunctor` |
 | V12.19 | §12.4, Definition 12.4.1, p. 587 (2017: Definition 12.9) | `EpStrongBundle.HasCompactSolutionSetEp`, `EpStrongBundle.IsProperFunctor`, `EpStrongBundle.IsProperLtInftyFunctor` |
-| V12.23 | §12.5, Definition 12.5.2, p. 593 (2017: Definition 12.11) | `EpGroupoid.SmoothRel`, `EpStrongBundle.OrRel`, `EpStrongBundle.definition_12_5_2` |
-| V12.25 | §12.5, Definition 12.5.4, p. 594 (2017: Definition 12.12) | `EpStrongBundle.definition_12_5_4`, `EpStrongBundle.definition_12_5_4_loc` |
 | V12.28 | §12.2, before Definition 12.2.8, p. 576 (2017: before Definition 12.5) | `EpStrongBundle.HasReflexiveFibers` |
 | V12.29 | §12.2, Definition 12.2.8, p. 576 (2017: Definition 12.5) | `EpStrongBundle.MixedTendsto` |
 | V12.31 | §12.2, Definition 12.2.10, p. 577 (2017: Definition 12.6) | `EpStrongBundle.IsReflexiveAuxNorm` |
@@ -687,19 +713,18 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V14.39 | §§14.3–14.4, (14.33)–(14.38), p. 657 (2017: §§14.3–14.4) | `SBLocalization.ZConcrete`, `SBLocalization.ZConcrete.toZData`, `SBLocalization.ZConcrete.toZSections`, `SBLocalization.bdryRetr_z5` and 1 more |
 | V14.40 | §14.6, p. 680 (2017: §14.6) | `SBLocalization.FaceGermIn`, `SBLocalization.IsFaceRelScPlusSectionOn` |
 | V14.41 | §14.6, Definition 14.6.1, p. 681 (2017: Definition 14.10) | `SBLocalization.FaceStructuredTuple`, `SBLocalization.FaceStructuredTuple.restrictFace`, `SBLocalization.IndexFamily`, `SBLocalization.RelTuple` and 2 more |
+| V14.42 | §14.6, Definition 14.6.2, p. 681 (2017: Definition 14.11) | `SBLocalization.IndexFamily.unit` |
 | V15.1 | §15.1, preamble, p. 683 (2017: §15.1) | `SBLocalization.GrF` |
 | V15.8 | §15.1, Definition 15.1.7, p. 687 (2017: Definition 15.1) | `SBLocalization.LocalLinData`, `SBLocalization.LocalLinData.sum`, `SBLocalization.linearization` |
 | V15.10 | not in the book (used by the proofs of Theorems 15.2.2 and 15.2.5, p. 689) | `SBLocalization.ChartOnto`, `SBLocalization.subDeriv`, `SBLocalization.subRestrict`, `SBLocalization.subSec` |
 | V15.11 | §15.2, Definition 15.2.1, p. 688 (2017: Definition 15.2) | `SBLocalization.IsOntoAt`, `SBLocalization.IsOntoAtLevel`, `SBLocalization.IsTransversal`, `SBLocalization.IsTransversalAt` |
 | V15.14 | §15.2, Definition 15.2.4, p. 689 (2017: Definition 15.3) | `SBLocalization.IsBranchGoodPosition`, `SBLocalization.IsGoodPositionAt` |
 | V15.17 | not in the book as a numbered item (used after Definition 15.3.3, in Remark 15.3.4, Corollaries 15.3.10, 15.4.4) | `EpGroupoid.prod`, `EpGroupoid.prodSnd`, `GroupoidStr.prod` |
-| V15.18 | §15.3, Corollary 15.3.10 (2) and its proof, p. 699 (2017: Corollary 15.1) | `EpGroupoid.cubeIncl`, `EpGroupoid.cubeOrbitMap`, `EpGroupoid.cubeProd`, `EpGroupoid.cubeProj` and 2 more |
+| V15.18 | §15.3, Corollary 15.3.10 (2) and its proof, p. 699 (2017: Corollary 15.1) | `EpGroupoid.cubeProd`, `EpGroupoid.cubeProj`, `SEP.cubeLiftEp`, `SEP.cubeSEP` |
 | V15.20 | §15.3, Definition 15.3.1, p. 691 (2017: Definition 15.4) | `SBLocalization.ControlsCompactness` |
 | V15.22 | §15.3, Definition 15.3.3, p. 692 (2017: Definition 15.5) | `SBLocalization.IsAdmissible` |
 | V15.24 | §15.3, Definition 15.3.5, p. 693 (2017: Definition 15.6) | `SBLocalization.IsInGeneralPosition` |
-| V15.26 | §15.3, Corollary 15.3.10 (2), p. 699, and the first step of its proof, pp. 699–700 (2017: Corollary 15.1 (2)) | `SEP.cubeAuxNorm`, `SEP.interpAuxNorm`, `SEP.interpSet` |
-| V15.48 | §15.3, proof of Corollary 15.3.10 (3), p. 700 (2017: Corollary 15.1) | `EpGroupoid.cylEnd`, `EpGroupoid.cylOrbitTime` |
-| V15.49 | §15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2) | `SBLocalization.CylinderOrientationEffStatement`, `SBLocalization.IsCylinderBoundaryEffOf`, `SBLocalization.OrientedRegularPerturbation.integralEff` |
+| V15.26 | §15.3, Corollary 15.3.10 (2), p. 699, and the first step of its proof, pp. 699–700 (2017: Corollary 15.1 (2)) | `SEP.cubeAuxNorm` |
 | V15.50 | §15.4, before Theorem 15.4.1, p. 701 (2017: before Theorem 15.6) | `ChartPoint.OrLin` |
 | V15.52 | §15.4, Definition 15.4.2, p. 702 (2017: Definition 15.7) | `ChartPoint.orKer`, `ChartPoint.orKerOrientation`, `SBLocalization.IsCanonicalFor`, `SBLocalization.IsCanonicalPerturbation` and 1 more |
 | V16.1 | §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1) | `PolyfoldStructure` |
@@ -721,7 +746,6 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.30 | §16.1, Definition 16.1.6, p. 710 (2017: Definition 16.5) | `PSHom.Equiv`, `PolyfoldClass.MapRep`, `PolyfoldClass.MapRep.setoid` |
 | V16.31 | §16.1, Definition 16.1.8 and Remark 16.1.9, p. 711 (2017: Definition 16.6, Remark 16.2) | `PolyfoldClass.ScMap`, `PolyfoldClass.ScMap.id`, `PolyfoldClass.ScMap.mk`, `PolyfoldClass.ScMap.toFun` |
 | V16.32 | §16.1, Definition 16.1.10, p. 711 (2017: Definition 16.7) | `PolyfoldClass.MapRep.comp`, `PolyfoldClass.ScMap.comp` |
-| V16.37 | §16.3, Definition 16.3.1, pp. 721–722 (2017: Definition 16.16) | `StrongPolyfoldBundleStructure` |
 | V16.39 | §16.3, Definition 16.3.3, pp. 722–723 (2017: Definition 16.17) | `StrongPolyfoldBundleStructure.Equiv`, `StrongPolyfoldBundleStructure.setoid` |
 | V16.42 | §16.3, Definition 16.3.4, p. 723 (2017: Definition 16.18) | `StrongPolyfoldBundle` |
 | V16.41 | §16.3, after Definition 16.3.3, p. 723 (2017: after Definition 16.17) | `StrongPolyfoldBundle.polyfold`, `StrongPolyfoldBundleStructure.toPolyfoldStructure` |
@@ -744,8 +768,9 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.74 | §16.6, Definition 16.6.2, p. 736 (2017: Definition 16.41) | `StrongPolyfoldBundle.ScSection.HasCompactSolutionSet`, `StrongPolyfoldBundle.ScSection.solutionSet` |
 | V16.75 | §16.6, Definition 16.6.3, pp. 736–737 (new in 2021) | `StrongPolyfoldBundle.ScSection.ControlsCompactness`, `StrongPolyfoldBundle.ScSection.IsProper`, `StrongPolyfoldBundle.ScSection.IsProperLtInfty`, `StrongPolyfoldBundle.ScSection.sublevel` |
 | V16.80 | §16.6, p. 739, before Theorem 16.6.6 (2017: before Theorem 16.8) | `StrongPolyfoldBundle.IsPerturbedSuborbifold`, `StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith`, `StrongPolyfoldBundle.perturbedFun`, `StrongPolyfoldBundle.perturbedRep` |
+| V16.83 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4); Definition 9.5.6 for $n = 0$ | `EP.pointBranchedIntegral`, `EP.pointBranchedIntegralEff`, `EpGroupoid.IsPointTame`, `PolyfoldClass.OrientedSuborbifold.pointIntegral` and 2 more |
 
-<details><summary>213 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>219 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * ?.lean: `EpGroupoid.isLocalScDiffeo_id`, `MPolyfold.isOpen_transport_source`
 * Chapter10/FredholmEquivalence.lean: `EpGroupoid.actPair`, `EpStrongBundle.sectionAct`, `StrongBundle.IsStrongBundleIsoOn.toLocalIso`
@@ -754,6 +779,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter11/EquivalenceFormsInfty.lean: `EP.epFormsPush`
 * Chapter11/MultisectionLocalStructure2021.lean: `SBLocalization.zeroMultisection`
 * Chapter12/ChartPullTwoBundles.lean: `StrongBundle.LocalIso.mcastK`, `StrongBundle.LocalIso.mcastT`, `StrongBundle.LocalIso.mmorT`, `StrongBundle.LocalIso.morPull`
+* Chapter12/LocalOrientationComparison.lean: `StrongBundle.Dom.toGlobal`
 * Chapter12/LocalOrientationDomains.lean: `StrongBundle.Dom.Or`, `StrongBundle.Dom.bundle`, `StrongBundle.Dom.iso`, `StrongBundle.Dom.ofChart`, `StrongBundle.Dom.sec`, `StrongBundle.Dom.toLoc`, `StrongBundle.Dom.transport`, `StrongBundle.domAt`
 * Chapter12/LocalOrientationEquivalence.lean: `EpStrongBundle.IsStrongBundleEquivalence.orSpaceMapLoc`, `EpStrongBundle.IsStrongBundleEquivalence.orbitOrMapLoc`
 * Chapter12/LocalOrientationGeneralizedIso.lean: `SBLocalization.SDiagram.orbitOrMapLoc`
@@ -768,6 +794,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter12/OrientationLocalCommute.lean: `StrongBundle.LocalIso.innerPt`
 * Chapter12/OrientationNaturality.lean: `EpStrongBundle.IsStrongBundleEquivalence.orSpaceMap`, `EpStrongBundle.IsStrongBundleEquivalence.smoothMap`, `EpStrongBundle.IsStrongBundleEquivalence.smoothOrbitMap`
 * Chapter12/RestrictionLocalIso.lean: `StrongBundle.LocalIso.ofEq`, `StrongBundle.LocalIso.trans`, `StrongBundle.restrictIso`, `StrongBundle.restrictIsoInter`, `StrongBundle.restrictIsoInv`, `StrongBundle.restrictIsoInvOne`, `StrongBundle.restrictIsoOne`
+* Chapter13/AtomicStructurable.lean: `SBLocalization.IndexCorr.full`, `SBLocalization.IndexDiagram.full`
 * Chapter13/Correspondence.lean: `SBLocalization.IndexDiagram.ofEquiv`
 * Chapter13/GoodSystem.lean: `EpGroupoid.GoodSystem.U`, `EpGroupoid.GoodSystem.comp`, `EpGroupoid.GoodSystem.mor`, `EpGroupoid.NatNbhd.ofRep`, `EpGroupoid.NatNbhd.restrict`
 * Chapter13/MultisectionConvolution.lean: `SBLocalization.toFib`
@@ -779,40 +806,36 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter14/CoverVHat.lean: `SBLocalization.CorrExtension.OhatObj`, `SBLocalization.P5Nbhds.P6Nbhds`, `SBLocalization.P5Nbhds.P6Nbhds.nbhdObj`, `SBLocalization.P5Nbhds.nbhdObj`
 * Chapter14/ExtendCorrespondences.lean: `SBLocalization.CorrExtension`, `SBLocalization.CorrExtension.Ohat`, `SBLocalization.CorrExtension.Ot`, `SBLocalization.CorrExtension.tauHat`, `SBLocalization.CorrPre`, `SBLocalization.P5Nbhds`, `SBLocalization.P5Nbhds.biact`, `SBLocalization.P5Nbhds.mor`, `SBLocalization.boundaryMor`
 * Chapter14/FaceGoodSystem.lean: `EpGroupoid.NatNbhd.shrink`, `SBLocalization.FaceStructuredTuple.shrink`, `SBLocalization.RelTuple.shrink`
+* Chapter14/FaceIndexFamilies.lean: `SBLocalization.FaceStructuredTuple.reindex`, `SBLocalization.IndexRelabel`, `SBLocalization.IndexRelabel.e`, `SBLocalization.RelTuple.reindex`, `SBLocalization.RelTuple.reindexτ`, `SBLocalization.SectionCompatibleFaceFamilies.commonFamily`, `SBLocalization.SectionCompatibleFaceFamilies.pick`, `SBLocalization.SectionCompatibleFaceFamilies.relabel`, `SBLocalization.SectionCompatibleFaceFamilies.relabelFun`, `SBLocalization.SectionCompatibleFaceFamilies.toData`
 * Chapter14/FaceSectionCompatible.lean: `SBLocalization.SectionCompatibleFaceData.O`, `SBLocalization.SectionCompatibleFaceData.core`
 * Chapter14/GoodBoundary.lean: `EpGroupoid.HasBoundaryFaces`, `EpGroupoid.IsGoodBoundaryNbhd`, `EpGroupoid.NatNbhd.bdry`
 * Chapter14/StructurabilityCriterion.lean: `SBLocalization.CriterionData`
 * Chapter14/TransportStatement.lean: `SBLocalization.TransportInput`, `SBLocalization.proposition_14_5_4_statement`
 * Chapter15/CanonicalOrientation.lean: `SBLocalization.KernelBranching.FramesContinuous`, `SBLocalization.KernelBranching.chart`, `SBLocalization.KernelBranching.frames`, `SBLocalization.KernelBranching.orTangent`, `SBLocalization.KernelBranching.orient`, `SBLocalization.KernelBranching.pt`, `SBLocalization.KernelBranching.toOrientedTame`, `SBLocalization.kerFrames`
-* Chapter15/CubeAuxNorm.lean: `SEP.cubeCoord`, `SEP.cubeTime`, `SEP.cubeWeight₀`, `SEP.cubeWeight₁`
+* Chapter15/CubeAuxNorm.lean: `SEP.cubeCoord`, `SEP.cubeTime`
 * Chapter15/CubeEp.lean: `SEP.cubeEP`, `SEP.cubeVal`
 * Chapter15/KernelBranching.lean: `SBLocalization.KernelBranching.s`
 * Chapter15/LinearizationIntrinsic.lean: `SBLocalization.chartOp`
 * Chapter15/LinearizationModel.lean: `Linearization15.linSumModelMap`
 * Chapter16/BranchedSuborbifold.lean: `PolyfoldClass.BranchedRep.setoid`, `PolyfoldClass.BranchedRep.toFun`, `PolyfoldClass.OrientedRep.setoid`, `PolyfoldClass.OrientedRep.toBranchedRep`
+* Chapter16/IndexZeroInvariant.lean: `SBLocalization.PointPerturbation.count`, `SBLocalization.PointPerturbation.countEff`
+* Chapter16/IndexZeroPolyfoldTheorem.lean: `PolyfoldClass.PointSuborbifold.count`, `PolyfoldClass.PointSuborbifold.countEff`, `StrongPolyfoldBundle.IsInheritedFromPoint`, `StrongPolyfoldBundle.PointOrientedPerturbation.IsAdmissible`, `StrongPolyfoldBundle.pointMultisection`, `StrongPolyfoldBundle.pointSuborbifold`, `StrongPolyfoldBundle.toPointOrientedPerturbation`
 * Chapter16/ModelPerturbations.lean: `EpGroupoid.smoothPart`, `StrongPolyfoldBundle.ModelPerturbation.multisection`, `StrongPolyfoldBundle.ModelPerturbation.ofRegular`, `StrongPolyfoldBundle.ModelPerturbation.orientedRep`, `StrongPolyfoldBundle.ModelPerturbation.toCompact`
+* Chapter16/PointCountEquivalence.lean: `PolyfoldClass.OrientedRep.pointIntegral`, `PolyfoldClass.OrientedRep.pointIntegralEff`, `PolyfoldClass.OrientedSuborbifold.IsPointTame`, `StrongPolyfoldBundle.pointOrientedRep`
+* Chapter16/PointTameShrinking.lean: `PolyfoldClass.OrientedSuborbifold.pointIntegralEffOfTame`
 * Chapter16/PolyfoldForms.lean: `PolyfoldClass.FormRep.setoid`, `PolyfoldClass.ScForm.instAddCommGroup`, `PolyfoldClass.ScForm.instModuleReal`, `PolyfoldClass.ScForm.repOn`, `PolyfoldClass.ScForm.toStructureₗ`
 * Chapter16/PolyfoldMaps.lean: `PolyfoldClass.transport`, `instCategoryEffPolyfold`
 * Chapter16/SuppNaturalityStatement.lean: `PolyfoldClass.BranchedSuborbifold.IsInducedSuppStructure`, `PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality_statement`, `PolyfoldClass.BranchedSuborbifold.suppTransition`
 * Chapter16/TangentLemma.lean: `EP.tangentAny`, `EPLocalization.Diagram.tangentAny`
-* Chapter2/MPolyfold.lean: `MChart.restrict`
 * Chapter2/ReducedTangentIntrinsic.lean: `MPolyfold.fiberCoord`
 * Chapter2/StrongBundleRestrict.lean: `StrongBundleChart.restrictBase`, `StrongBundleChart.restrictOpen`, `StrongBundleChart.restrictPE`
 * Chapter3/FredholmPullbackIso.lean: `StrongBundle.LocalIso.symm`, `fiberMapOf`
-* Chapter3/IndexLocallyConstantLocal.lean: `StrongBundle.HasScPlusSectionsThrough`
 * Chapter3/RestrictOpen.lean: `StrongBundleChart.restrictInter`
 * Chapter5/Compactness.lean: `MPolyfold.smoothMk`
 * Chapter5/CylinderPerturbation2021.lean: `StrongBundle.pullbackAuxNorm`, `StrongBundle.pullbackOneMap`
 * Chapter6/ChartOrientationFunctor.lean: `orLocalTransportOfChart`
-* Chapter6/CubeSections.lean: `UnitCube.corner`
-* Chapter6/IntervalProductKernels.lean: `ChartPoint.ivOrFirst`, `ChartPoint.ivOrFirst₀`, `ivOrLift`, `ivOrOf`
-* Chapter6/IntervalProductPoint.lean: `ChartPoint.ivK`, `ChartPoint.ivLin`, `ChartPoint.ivPt`, `ivChart`, `ivData`, `ivRetr`, `ivSign`
-* Chapter6/IntervalProductSectionOrientation.lean: `ivFirstFun`
-* Chapter6/OrientationConvention2021.lean: `extConjDetFirst`, `extDetFirstFiber`, `kerSign`
-* Chapter6/PerturbedOrientation.lean: `ChartPoint.orCongr`
-* Chapter6/ProductOrientation.lean: `extDetFiber`, `extKer`
 * Chapter6/TransportOrientationSpace.lean: `LocalTransport.HasTwoContSections`, `LocalTransport.IsContOn`, `LocalTransport.IsContSectionOver`, `LocalTransport.IsPropagationContinuous`, `LocalTransport.Pullback`, `LocalTransport.Total`, `LocalTransport.proj`, `LocalTransport.sec`
-* Chapter6/UnitIntervalSections.lean: `PullbackChartData.ofProdChart`
+* Chapter6/TransportSpaceEquiv.lean: `LocalTransport.Intertwines`, `LocalTransport.Intertwines.totalEquiv`, `LocalTransport.Intertwines.totalHomeomorph`
 * Chapter7/Groupoid.lean: `GroupoidStr.trivial`
 * Chapter8/EpStrongBundle.lean: `EpStrongBundle.sectionPair`
 * Chapter8/StrongBundleMap.lean: `StrongBundle.IsStrongBundleMap.fiberLinearMap`

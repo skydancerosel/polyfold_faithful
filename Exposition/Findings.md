@@ -8255,8 +8255,9 @@ Theorem 6.7.1, §6.7 and the paths on `[0, 1]`.
      Proposition 6.6.3 (3), (4) are proved for paths on `[0, 1]` and families on `[0, 1]ⁿ`, with sections over the
      M-polyfolds `[0, 1] × X`, `[0, 1]ⁿ × X`, and (1′) with homotopies on `[0, 1]²` (item 138); Lemmas 6.6.4–6.6.5 are
      proved on `[0, 1]ⁿ`, with (P) and `π` at the boundary points; the path category is built on `[0, 1]` (V6.32–V6.34,
-     V6.52). Read on `ℝ`: the bundle `L` over `[0, 1]ⁿ` for `n ≥ 2`, the stabilized kernels, and Remark 6.6.19 over
-     `ℝ¹ × X` (gap G.65 in part; item 138).
+     V6.52). The bundle `L` over `[0, 1]ⁿ`, the stabilized kernels and Remark 6.6.19 are formalized over `[0, 1]ⁿ` and
+     `[0, 1] × X` as well, and the boundary integral of the cobordism over `[0, 1] × X` for face-structured `X` (gap G.65
+     in part; items 138, 139).
 103. **The proof of Theorem 6.7.1 (preprint 6.43) extends `ω` as `ω̄ = p₁*ω ∧ p₂*dt`** *(book 2017: unchanged,
      proof of Theorem 6.4)* *(book 2021: unchanged, proof of Theorem 6.7.1, p. 278)*. To show that (97) does not depend on the admissible section, the
      proof (preprint p. 232) introduces `ω̄ = p₁*ω ∧ p₂*dt` on `X × [0, 1]` with `ω̄|∂X×[0,1] = dτ̄`,
@@ -8653,7 +8654,12 @@ read it.
      `IntervalProductPoint.lean`, `IntervalProductKernels.lean`, `IntervalProductTransfer.lean`,
      `IntervalProductSectionOrientation.lean`, `IntervalEndOrientation.lean`, `KernelPathOrientation.lean`,
      `IntervalSliceOrientation.lean`, `IntervalEndIdentity.lean`, `IntervalSliceFrames.lean`,
-     `IntervalCobordismExistence.lean`, `IntervalHomotopyInvariance.lean`. Mathlib has the model
+     `IntervalCobordismExistence.lean`, `IntervalHomotopyInvariance.lean`, `IntervalSliceSignedFrames.lean`,
+     `IntervalEndGeneralPosition.lean`, `IntervalEndManifolds.lean`, `IntervalCobordismDegeneracy.lean`,
+     `IntervalEndInclusion.lean`, `IntervalCobordismStokes.lean`, `IntervalConstantCobordism.lean`, `CornerSmoothMaps.lean`,
+     `InducedOrientationFrames.lean`; `Polyfold/Chapter9/BoundaryEndFaces.lean`, `IntervalBoundaryDecomposition.lean`,
+     `IntervalEndSigns.lean`, `IntervalCobordismFaceStructure.lean`; `Polyfold/Chapter2/FaceLabels.lean`,
+     `Polyfold/Chapter4/GeneralPositionFaceStructure.lean`; witnesses `Polyfold/Chapter16/HalfDisc*.lean`. Mathlib has the model
      `ModelWithCorners.pi`, but not the manifold instance for finite products; with it (`isManifold_modelPi`) the cube
      `[0, 1]ⁿ` is a `C^∞` manifold with corners (`cubeModel`, `instIsManifoldCube`), and the bundle `L` of Lemma 6.6.5
      is a smooth vector bundle over it for every `n` (`lemma_6_6_5_smoothBundle_cube`). The stabilized kernels form a
@@ -8668,13 +8674,42 @@ read it.
      tangent orientation is "increasing `t` first, then `o`" (`pullOr_tangentOr_ivFirst_iff_slice`, through the shear
      `T₁ = L̂ (1 + N)`, `N² = 0`, of `surjRay_comp_shear`), outward at `{1} × S_{F_1}` and inward at `{0} × S_{F_0}`.
      Theorem 6.7.1 (2) holds for homotopies over `[0, 1] × X` (`theorem_6_7_1_interval`), through the form over
-     `ℝ¹ × X` (item 130) by the reparametrization `sin²(πv/2)`, not by Stokes on `S_F ⊆ [0, 1] × X`. Not formalized:
-     the boundary of `S_F` as the oriented manifold `{1} × S_{F_1} ⊔ −{0} × S_{F_0}` (with the faces `{i} × X` as
-     charted spaces, the inclusions `S_{F_i} → S_F`, and the general position of `F_i` at the end zeros), and Stokes'
-     theorem on `S_F`. Weak witnesses: the hypotheses of `theorem_6_6_18_oriented_interval` hold for some `S` by
-     Theorem 5.3.10 (`exists_oriented_interval_cobordism_of_index`), but no concrete `S` with zeros on `{0, 1} × X` is
-     exhibited; those of `theorem_6_7_1_interval` are shown for `S = 0` only. Status: **open** in part (rows V6.34,
-     V6.42, V6.62, V6.76; gap G.65; items 102, 130, 138).
+     `ℝ¹ × X` (item 130) by the reparametrization `sin²(πv/2)`. The text's own route, Stokes on `S_F ⊆ [0, 1] × X`, is
+     formalized as follows. At the ends `t ∈ {0, 1}` general position of `F` gives that of `F_t`
+     (`isGeneralPositionGerm_slice_of_end`), so `S_{F_0}`, `S_{F_1}` are compact oriented manifolds
+     (`theorem_6_6_18_oriented_end`); `∂S_F` is `(S_F ∩ {0, 1} × X) ∪ (S_F ∩ [0, 1] × ∂X)` with
+     `d_{S_F}(i, x) = d_{S_{F_i}}(x) + 1` (`mem_boundary_interval_cobordism_iff`, `degIndex_interval_cobordism_end`); the
+     inclusions `j_i : S_{F_i} → S_F` are sc-smooth and smooth maps of manifolds with corners (`contMDiff_sliceInclusion`,
+     from `MPolyfold.contMDiff_of_isScSmoothMap`), with `j_i^*(pr₂^*ω|_{S_F}) = ω|_{S_{F_i}}`
+     (`restrictForm_sliceInclusion_pullback`); Stokes holds on `S_F` (`stokes_interval_cobordism`). Each end lies in one
+     face of `S_F` (`MPolyfold.endFaceChartPair`), and for face-structured `S_F` the boundary integral splits into the
+     two ends with their induced orientations and the lateral faces (`MPolyfold.boundaryIntegral_eq_sum_ends_add_lateral`,
+     `boundaryIntegral_interval_cobordism`). For every `X`, the orientations of Theorem 6.6.18 on the ends are the induced
+     ones at `t = 1` and their negatives at `t = 0` (`isInducedOrientation_interval_end_one`,
+     `isInducedOrientation_interval_end_zero`, from the frame criterion `isInducedOrientation_of_outward_frames`): the
+     oriented boundary is `{1} × S_{F_1} ⊔ −{0} × S_{F_0}` with the lateral part. For `X` tame and face-structured, `S_F`
+     is face-structured (`isFaceStructured_interval_cobordism`, from `MPolyfold.theorem_4_2_11_isFaceStructured` and the
+     label criterion `MPolyfold.isFaceStructured_of_label`), and `∫_{∂S_F} pr₂^*ω = ∫_{S_{F_1}} ω − ∫_{S_{F_0}} ω +
+     Σ_F ∫_F pr₂^*ω` holds with the corner structures and the orientations of Theorem 6.6.18 produced in the proof
+     (`theorem_6_6_18_boundaryIntegral_interval`). The four files of this step are in Chapter 9 because they use the
+     face-sum form of Theorem 4.4.7 (`Chapter9/StokesFaceSum.lean`). For index 0 the frames are signed: the vector of
+     increasing or decreasing `t` comes first according to the sign of the frame of `o`
+     (`ChartPoint.exists_timeFirst_wedge_signed_of_slice`).
+
+     *Reading.* We read the condition "`X` face-structured" as the natural one for the face-sum form: Theorem 6.7.1 and
+     the Stokes step of its proof (p. 278) are stated for a tame `X`, and Theorem 4.4.7 is formalized with "`∂N` a union
+     of smooth faces" read as face-structured (`theorem_4_4_7_hyp`). As we read it (not formalized), for a tame `X` that
+     is not face-structured (a face meeting itself at a corner) `S_F = [0, 1] × S_f` may contain such a corner, so that
+     `S_F` is not face-structured and the text's boundary term over `S_F ∩ ([0, 1] × ∂X)` is to be read as a sum over the
+     local faces of a cover of `∂S_F` (p. 198). Not formalized: that local-face form of the boundary integral (600–1,200
+     lines), or a Lean example over a teardrop-type `X` (300–500). Witnesses: the hypotheses of
+     `theorem_6_6_18_oriented_interval` hold for some `S` by Theorem 5.3.10 (`exists_oriented_interval_cobordism_of_index`);
+     on the half plane `[0, ∞) × ℝ` with fibres `ℝ` and `f(a, y) = a² + y² − 1` of index 1, the signed formula holds with
+     every hypothesis discharged, `S_F = [0, 1] × (half circle)` with four faces and both ends through the boundary point
+     `(0, 1)` (`HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc`, `isFace_halfDisc_cobordism_iff`);
+     weak: `d_X ≤ 1` there (no witness with `d_X = 2`), `S = 0` is constant in `t`, and the orientation of `f` is chosen
+     by the existence theorem; those of `theorem_6_7_1_interval` are shown for `S = 0` only. Status: **open** in part (the
+     case of a tame `X` that is not face-structured; rows V6.34, V6.42, V6.62, V6.76; gap G.65; items 102, 130, 138).
 
 140. **Theorems 6.6.11, 6.6.13, 6.6.17 and Definitions 6.6.14–6.6.16 without bump functions; the untamed germ data
      (Chapter 3, item 388)** *(book 2021: Theorems 6.6.11, 6.6.13, 6.6.17, Definitions 6.6.14–6.6.16, pp. 272–275)*.
@@ -9741,7 +9776,7 @@ Proposition 8.1.14 (2017: 8.1); `Chapter8/Basic.lean`, `TangentLocal.lean`, `Tan
 of the chapter, and those of Part I and Chapter 7 taken up here; 115–134: the additions of the 2021 edition and the
 remaining gaps. Part II has no 2014 preprint: statement numbers and pages are those of the Springer edition (2021,
 pp. 357–400), with the 2017 text's in parentheses (2017 pp. 257–289); Part I results are cited in the same
-way. The comparison items are `Exposition/verification/ch08.md` (V8.1–V8.43; the 2021 additions: V8.44–V8.52).
+way. The comparison items are `Exposition/verification/ch08.md` (V8.1–V8.43; the 2021 additions: V8.44–V8.52; §8.2: V8.53–V8.55).
 
 Found while formalizing §8.1 up to Proposition 8.1.14 (2017: 8.1).
 
@@ -10401,14 +10436,14 @@ for every `(TX)^i` (item 124, `Chapter8/TangentZhouLevels.lean`); comparison ite
 
 119. **Definition 8.4.2: "strong bundle isomorphism `B`"; Proposition 8.4.3** *(Definition 8.4.2 and
      Proposition 8.4.3, p. 382, new in the 2021 edition)*. `G_x` acts on `W|U(x)` by the natural lift `g * w = μ(Γ(g, P(w)), w)`
-     (`EpStrongBundle.natLift`). "Strong bundle isomorphism `B : W|U(x) → W|U(x)`" is read as a strong bundle map `W → W` that
-     is a strong bundle isomorphism over `U(x)` in Part I's sense (`StrongBundle.IsStrongBundleIsoOn`), as for Definition
-     8.5.9 (item 70), and `|B(w)| = |w|` as equality of orbits (`EpStrongBundle.IsLR`); the definition as printed, with `B`
-     defined on `W|U(x)` only, is `EpStrongBundle.IsLRLocal` (item 134). Every strong bundle over a trivial
+     (`EpStrongBundle.natLift`). The definition as printed, with `B` a strong bundle isomorphism defined on `W|U(x)` only and `|B(w)| = |w|` as
+     equality of orbits, is `EpStrongBundle.IsLRLocal` (item 134); the derived form `EpStrongBundle.IsLR` asks it of the strong
+     bundle maps `W → W` that are strong bundle isomorphisms over `U(x)` in Part I's sense (`StrongBundle.IsStrongBundleIsoOn`),
+     as for Definition 8.5.9 (item 70). Every strong bundle over a trivial
      ep-groupoid has the property (`EpStrongBundle.isLR_trivial`). Proposition 8.4.3, which gives the property to every strong
      bundle over an effective `X` with Chapter 7's (LR) (Definition 7.4.19), needs among other things the openness of
-     `P : W → X` (gap G.86); it is proved with the text's hypotheses (`EpStrongBundle.proposition_8_4_3`, item
-     128).
+     `P : W → X` (gap G.86); it is proved with the text's hypotheses, with the conclusion as printed
+     (`EpStrongBundle.proposition_8_4_3_isLRLocal`) and in the derived form (`EpStrongBundle.proposition_8_4_3`, item 128).
 
 120. **Example 8.5.6, as stated** *(the remark after Definition 8.5.5 and Example 8.5.6, p. 388, new in the 2021 edition)*.
      For a covering functor `f : D → C` the restriction `G_d → G_{f(d)}` is injective (`IsCoveringFunctor.injective_map_end`);
@@ -10492,11 +10527,14 @@ The remaining gaps of the chapter.
      (item 133). Status: **settled** (row V8.47; gap G.86 closed).
 
 128. **Proposition 8.4.3 (row V8.48)** *(Definition 8.4.2 and Proposition 8.4.3, p. 382, new in the 2021 edition; item
-     119)*. `Polyfold/Chapter8/BundleLocalRegularity2021.lean`. `EpStrongBundle.proposition_8_4_3`: an
-     effective `X` with (LR) gives (LR) for every strong bundle over `X`, with the text's hypotheses only. The proof
+     119)*. `Polyfold/Chapter8/BundleLocalRegularity2021.lean`, `Polyfold/Chapter10/BundleLocalRegularityPrinted.lean`.
+     `EpStrongBundle.proposition_8_4_3_isLRLocal`: an effective `X` with (LR) gives every strong bundle over `X` the property
+     of Definition 8.4.2 as printed (`IsLRLocal`), with the text's hypotheses only; `EpStrongBundle.proposition_8_4_3`: the
+     same with the conclusion in the derived form `IsLR`. The proof
      uses the `U(x)` of (LR) for `X`. At a regular object a morphism is determined by its source and target
      (`EpGroupoid.eq_of_isRegular_src`), so over a regular `P(w)` the morphism underlying `w → Φ(w)` is `Γ(g, P(w))`
-     and `Φ(w) = g * w` (`exists_mor_of_π_eq`). Regular points are dense (Proposition 7.2.4) and `P` is open
+     and `Φ(w) = g * w` (`exists_mor_of_π_eq`; for a strong bundle isomorphism of `W|U`, `exists_mor_of_π_eq_of_isLocalIsoOn`,
+     with the continuity of `B` on `W|U(x)` from its sc-diffeomorphism at level 0). Regular points are dense (Proposition 7.2.4) and `P` is open
      (`StrongBundle.isOpenMap_proj`), so the closed set where `Φ = g * ·` is all of `W|U(x)`. The text's auxiliary
      `g_w` and the uniqueness of `g` are not needed; effectiveness enters only through the density of regular points.
      Status: **settled** (row V8.48).
@@ -10592,16 +10630,18 @@ Found while closing the gaps of Chapter 8. Items 131–133: `Chapter8/TangentFib
      and corners allowed). The germ form suffices for Proposition 10.4.7 (`EpStrongBundle.proposition_10_4_7_of_isLRGerm`)
      and for the transport of orientations of Theorem 12.5.7
      (`SBLocalization.GenSBMap.theorem_12_5_7_two_corr_indep_of_isLRGerm`). The structure of a strong polyfold bundle
-     (`StrongPolyfoldBundleStructure`, Definition 16.3.1) carries `IsLR` in its field `isLR`; under it the transported
-     orientation exists and is unique (`StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR`), with no
-     hypothesis of effectiveness. Proposition 8.4.3 is formalized with the conclusion `IsLR` (item 128). Whether `IsLR`
-     implies `IsLRLocal` is not known to us: the cut-off gives agreement with a map of `W` only over a smaller set, and
+     (`StrongPolyfoldBundleStructure`, Definition 16.3.1) uses Definition 8.4.2 as printed: its field is `isLRLocal`, and
+     `StrongPolyfoldBundleStructure.isLR` is the derived form `IsLR`, a theorem; the transported orientation exists and is
+     unique under either form (`StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal`,
+     `exists_unique_transport_of_isLR`), with no hypothesis of effectiveness. Proposition 8.4.3 is formalized for both forms
+     (item 128). Remark: `IsLR` is the derived form, and whether `IsLR` implies `IsLRLocal` is not known to us; no statement
+     of the formalization rests on it: the cut-off gives agreement with a map of `W` only over a smaller set, and
      nothing carries `B = g ∗ ·` from `U₀(x)` to `U(x)` when an element of `G_x` acts trivially on `W` over one part of
      `U(x)` and not over another. Witnesses of `IsLR` with bump functions and `IsLRGerm`:
      `HalfSpaceBundle.isLRGerm_of_admitsBumpFunctions_halfSEP` (`[0, ∞) × ℝᵐ`, boundary, non-zero fibres) and
      `StrongBundleLocalizationExamples.isLRGerm_of_admitsBumpFunctions_z3SEP` (`ℤ/3 × ℝ ⇉ ℝ`, not effective); weak: in
-     both `IsLRLocal` holds as well, so they do not separate the two forms. Status: **open** (whether `IsLR` implies
-     `IsLRLocal`; Proposition 8.4.3 with the conclusion `IsLRLocal`); **settled** for what each form proves.
+     both `IsLRLocal` holds as well, so they do not separate the two forms. Status: **settled** for what each form proves;
+     whether `IsLR` implies `IsLRLocal` is a question about the derived form only, not about the text.
 
 ## Chapter 9 (Branched ep⁺-subgroupoids; Lean `Polyfold/Chapter9/`)
 
@@ -12981,7 +13021,9 @@ Found while formalizing §12.5 (files `Chapter12/OrientationEquivalenceComp`, `O
     of a strong bundle over a tame ep-groupoid (row V3.103); with the 2021 germ data read literally see Chapter 3,
     item 388 (`theorem_12_5_3_untamed_not`). Where bump functions exist the two readings agree: `orSpaceLocHomeomorph`
     (the orientation spaces, over $X_\infty$), `orbitLocHomeomorph`, `definition_12_5_4_iff_loc`,
-    `orbitOrMapLoc_orbitLocHomeomorph`. Part I's forms are kept, and Chapters 15–16 use them (`Orx`, `orMor`,
+    `orbitOrMapLoc_orbitLocHomeomorph`, and the statements themselves are equivalent in the two readings
+    (`theorem_12_5_3_iff_loc`, `isOrientationTopology_iff_loc`, `isSectionOrientation_iff_loc`, `orientable_iff_loc`,
+    `proposition_12_5_6_of_loc`, `orbitSection_iff_loc`, `IsStrongBundleEquivalence.orxLocEquiv_pushOr`). Part I's forms are kept, and Chapters 15–16 use them (`Orx`, `orMor`,
     `orEqv`). Witnesses: the half space $[0,\infty) \times \mathbb{R}^m$
     (`HalfSpaceBundle.theorem_12_5_3_loc_halfSpace`, `theorem_12_5_7_one_loc_halfSpace`; weak: trivial isotropy,
     identity equivalences) and a class over $\mathbb{R}^n$ with legs covering $-\mathrm{id}$ and an orientation
@@ -13380,8 +13422,11 @@ Found while formalizing §§14.1–14.5 (files `Chapter14/EmptyIndex`, `Assembly
     (`RelTuple.SecEquiv`), Theorem 14.6.3 holds with the text's hypotheses
     (`SectionCompatibleFaceData.theorem_14_6_3`, `theorem_14_6_3_extension`), the example is excluded
     (`not_exists_sectionCompatibleFaceData`), and a witness with a corner and non-zero sections exists
-    (`theorem_14_6_3_corner_witness`; weak: the extension part is not instantiated on it). Tuples on different faces
-    with different index families are not formalized (rows V14.42, V14.43). For the authors: is equality of the
+    (`theorem_14_6_3_corner_witness`), on which the extension part is instantiated as well
+    (`theorem_14_6_3_extension_corner`). Tuples on different faces may carry different index families
+    (`SectionCompatibleFaceFamilies.theorem_14_6_3`, `Chapter14/FaceIndexFamilies`; the identification of the index
+    sets of equivalent tuples is equivariant, `RelTuple.Equiv.cast_smul`), and the statement holds for a compatible
+    assignment of `SecEquiv` classes (`IsSecCompatibleAssignment.theorem_14_6_3`; rows V14.42, V14.43). For the authors: is equality of the
     sections meant to be part of Definition 13.3.8, or of Definition 14.6.2? Status: **does not hold as we read it
     with Definition 13.3.8 as printed; holds with the sections in the equivalence (gap G.173 closed)**.
 
@@ -13390,8 +13435,8 @@ Found while formalizing §§14.1–14.5 (files `Chapter14/EmptyIndex`, `Assembly
 *Numbering.* The items of this section are numbered consecutively.
 Statement numbers and pages are those of the Springer edition (2021, pp. 683–703), with the 2017 text's numbers in
 parentheses. The comparison items are `Exposition/verification/ch15.md` (V15.1–V15.58); the gaps are G.144, G.145,
-G.150–G.152, G.159–G.162, G.177–G.183, G.189–G.191, G.193 (all closed except G.182, the invariance of the cylinder
-orientation under morphisms that are not units).
+G.150–G.152, G.159–G.162, G.177–G.183, G.189–G.191, G.193 (all closed). Corollary 15.4.4 and Theorem 15.4.3 keep
+sc-smooth partitions of unity for Stokes (gap G.153, Chapter 9; the text's own open question, Remark 9.5.19).
 
 Found while formalizing §15.1 (files `Chapter15/Linearization`, `LinearizationIntrinsic`, `LinearizationModel`, `SeparationLemmas`).
 
@@ -13523,9 +13568,10 @@ Found while formalizing §15.1, §15.2, §15.3 and §15.4 (files `Chapter15/Line
     15.3.9 on the cylinder, (3) uses partitions of unity on $X$ (`corollary_15_3_10_3_regular`). Theorem 15.4.3 needs
     sc-smooth partitions of unity for Stokes (Theorem 9.5.17; their removal is the text's own open question, Remark
     9.5.19); its orientation is the canonical one (`theorem_15_4_3`, item 22). Corollary 15.4.4 is proved for the
-    canonical orientations, with partitions of unity for Stokes and one hypothesis beyond the text, `hinvC` (item 23);
-    "$d_X \equiv 0$ implies tame" is item 18 (gap G.183) (rows V15.33, V15.34, V15.36, V15.37). Status: **narrower for
-    Corollary 15.4.4 (gap G.182 open); settled otherwise (gaps G.159, G.180, G.181, G.183 closed)**.
+    canonical orientations with the text's hypotheses and partitions of unity for Stokes
+    (`corollary_15_4_4_oriented_collar`, item 23); "$d_X \equiv 0$ implies tame" is item 18 (gap G.183) (rows V15.33,
+    V15.34, V15.36, V15.37). Status: **narrower for Corollary 15.4.4 and Theorem 15.4.3 only for partitions of unity (gap
+    G.153); settled otherwise (gaps G.159, G.180–G.183 closed)**.
 
 15. **Every hypothesis taken in §§15.1–15.4 is satisfiable** *(§§15.1–15.4)*. Hypotheses with witnesses: `hft` (inherited, `theorem_15_2_2_hyp_witness`), tameness in Theorem 15.2.5
     (`theorem_15_2_5_generalPosition_hyp_witness`), `hpar` (`paracompactSpace_orbitSupp_trivial_rn`),
@@ -13534,8 +13580,8 @@ Found while formalizing §15.1, §15.2, §15.3 and §15.4 (files `Chapter15/Line
     of Theorem 15.3.7 together (`theorem_15_3_7_statement_epSEP_zero_of_hyp`), the hypotheses of Theorem 15.3.9
     with boundary (`HalfSpaceBundle.theorem_15_3_9_hypotheses_halfSEP`), Corollary 15.3.10 (1)
     (`TrivialBundle.corollary_15_3_10_1_hypotheses_epSEP`), the cobordism of the hypothesis form of Corollary 15.4.4
-    (`hasOrientedCobordism_refl`), and `hinvC` when all morphisms are units (`HalfSpaceBundle.cubeOrientation_halfSEP`;
-    weak: not an instance of the corollary). The hypotheses of Corollary 15.3.10 (3) have the witnesses of item 19. Status: **settled (with item 19)**.
+    (`hasOrientedCobordism_refl`); the invariance of the cylinder orientation is a theorem
+    (`isOrInvariant_cubeOrientation`, item 23), and its witnesses are those of item 23. The hypotheses of Corollary 15.3.10 (3) have the witnesses of item 19. Status: **settled (with item 19)**.
 
 Found while formalizing §§15.2–15.3 (files `Chapter15/LocalFamilies`, `ParamOntoTransport`, `LocalSeeds`, `BranchChart`, `GeneralPositionPointwise`, `LocalSlice`, `ParametricGeneralPosition`, `CutoffFunctor`, `Cylinder`, `CylinderGlue`, `RestrictedEp`, `TameBranched`, `TameWitness`, `Chapter5/DegeneracyZeroTame.lean`).
 
@@ -13619,9 +13665,11 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     of an sc⁺-multisection over $\partial X$ are nonempty, as Definition 14.1.3 says. The boundary hypothesis, asked for
     every sc⁺ extension of $\Lambda$, is equivalent to general position of any one extension at the smooth boundary
     points of the support (`isBoundaryFaceOnto_iff`): two extensions that agree over $\partial X$ have linearizations
-    whose operators agree on $T^R_xX$ (`exists_linearization_eqOn_reduced`). Witness with boundary: the half-disc on the
-    half-plane bundle (`HalfSpaceBundle.theorem_15_3_9_hypotheses_halfSEP`; weak: $\Lambda = 0$ over $\partial H$) (rows
-    V15.32, V15.41, V15.45). Status: **settled (gaps G.162 for Theorem 15.3.9, G.178, G.179 closed)**.
+    whose operators agree on $T^R_xX$ (`exists_linearization_eqOn_reduced`). Witnesses with boundary: the half-disc on the
+    half-plane bundle (`HalfSpaceBundle.theorem_15_3_9_hypotheses_halfSEP`; weak: $\Lambda = 0$ over $\partial H$), and
+    the same section with the non-zero boundary datum $\Lambda_v$, $v = -3/4$, whose boundary domain support is
+    $\partial H$ (`HalfSpaceBundle.theorem_15_3_9_hypotheses_constDatum`, `theorem_15_3_9_constDatum`; weak: trivial
+    ep-groupoid, a single-section datum) (rows V15.32, V15.41, V15.45). Status: **settled (gaps G.162 for Theorem 15.3.9, G.178, G.179 closed)**.
 
 22. **Theorem 15.4.1 and Definition 15.4.2: in $\widehat{Gr}(X)$ and at a chart point** *(§15.4, Theorem 15.4.1,
     Definition 15.4.2, pp. 701–702 (2017: Theorem 15.6, Definition 15.7); gap G.159, closed)*.
@@ -13656,12 +13704,22 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     the point in its boundary; good position alone would not suffice. Corollary 15.4.4 follows the text's order for the
     canonical orientations (`corollary_15_4_4_canonicalOrientation`), with the cobordism oriented by $\tilde o = e
     \wedge o$, the kernels on the ends oriented with the $t$-direction first (item 26), and LUC on the cylinder from LUC
-    on $X$ (`isLUC_cubeSEP`); $\Phi$ on $H^*_{dR}$ is read degree-wise in degree $m+1$. One hypothesis is not printed:
-    `hinvC`, the invariance of $\tilde o$ under the morphisms of $[0,1] \times X$, proved when all morphisms are units
-    (`isOrInvariant_cubeOrientation_of_forall_unit`); its derivation from the invariance of $o$ is gap G.182. Witnesses
-    of Corollary 15.4.4: weak, with no concrete instance with nonempty sheets of dimension $\ge 1$ (rows V15.34, V15.37,
-    V15.46–V15.49). Status: **narrower for Corollary 15.4.4 (gap G.182 open); Corollary 15.3.10 (3) settled (gaps G.180,
-    G.181, G.189–G.191, G.193 closed)**.
+    on $X$ (`isLUC_cubeSEP`); $\Phi$ on $H^*_{dR}$ is read degree-wise in degree $m+1$. The invariance of $\tilde o$
+    under the morphisms of $[0,1] \times X$ is proved from $\varphi_* o = o$ (`isOrInvariant_cubeOrientation`): near
+    $(t, t(\varphi))$ the local isomorphism of $(t, \varphi)$ is $\mathrm{id} \times$ that of $\varphi$
+    (`Chapter12/IntervalProductLocalIso`), and it carries $e \wedge o$ to $e \wedge \varphi_* o$. With it Corollary
+    15.4.4 holds for the canonical orientations with the text's hypotheses and partitions of unity for Stokes
+    (`corollary_15_4_4_oriented`, `corollary_15_4_4_eff_oriented`, `corollary_15_4_4_of_definition_12_5_4`); along the
+    collar norm no compact $|S_f|$ is needed (`corollary_15_4_4_oriented_collar`, `corollary_15_4_4_eff_oriented_collar`,
+    `hasOrientedCobordism_collar`); for index $0$ see item 26. Witnesses: the circle section
+    (`TrivialBundle.corollary_15_4_4_hypotheses_circleSection`, `corollary_15_4_4_oriented_collar_circleSection`; weak:
+    the morphisms are units, $P_0 = P_1$), the same section over $\mathbb Z/3$
+    (`TrivialIsotropy.corollary_15_4_4_hypotheses_planeZ3`; weak: the action is trivial on the base), the invariance of
+    $\tilde o$ with non-unit morphisms (`StrongBundleLocalizationExamples.isOrInvariant_cubeOrientation_z3`; weak: index
+    $\le 0$, not an instance of the corollary), and two perturbations $P_0 \ne P_1$ for index $0$
+    (`TrivialBundle.corollary_15_4_4_index_zero_two_perturbations`; weak: trivial ep-groupoid, $\partial X = \emptyset$)
+    (rows V15.34, V15.37, V15.46–V15.49). Status: **narrower for Corollary 15.4.4 only for partitions of unity (gap
+    G.153); gap G.182 closed; Corollary 15.3.10 (3) settled (gaps G.180, G.181, G.189–G.191, G.193 closed)**.
 
 24. **The product remark after Definition 15.3.3** *(remark after Definition 15.3.3, p. 692 (2017: after Definition
     15.5), Remark 15.3.4 (2017: Remark 15.5); gap G.160, closed)*. `Chapter15/ProductAuxNorm`, `ProductBundle`, `ProductBundleLevels`, `ProductBundleMap`, `ProductEpBundle`, `ProductStrongBundle`, `ProductMultisection`, `ProductGerms`, `ProductBasicGerm`, `ProductFredholm`. The text takes the product strong bundle for granted and does
@@ -13683,9 +13741,10 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     sum of operators of Theorem 15.1.1 (`canonIndependent`), as the text's formula $\sum_i \sigma_i \cdot ((f -
     s_i)'(y), o)$ indicates (rows V15.51, V15.52). Status: **settled (a reading point)**.
 
-26. **Corollary 15.4.4: the frame convention on the ends needs sheets of dimension at least 1** *(Corollary 15.4.4 and
-    its proof, p. 703 (2017: Corollary 15.2); Remark 6.6.19; gap G.182)*. `Chapter15/CylinderProductOrientation`,
-    `CylinderEndOrientationSign`, `BoundaryFrameCriterion`, `Chapter6/IntervalSliceFrames`. A reading note. The sign
+26. **Corollary 15.4.4: the frame convention on the ends needs sheets of dimension at least 1; a signed form for index
+    0** *(Corollary 15.4.4 and its proof, p. 703 (2017: Corollary 15.2); Remark 6.6.19; gap G.182, closed)*.
+    `Chapter15/CylinderProductOrientation`, `CylinderEndOrientationSign`, `BoundaryFrameCriterion`, `CylinderPointFrames`,
+    `CylinderPointEnds`, `Chapter6/IntervalSliceFrames`, `IntervalSliceSignedFrames`, `Chapter16/IndexZeroCylinder`. A reading note. The sign
     $\partial\tilde\Theta = \Theta_1 \sqcup -\Theta_0$ comes from orienting the kernels on the cylinder with the
     $t$-direction first: $\tilde o$ has at $(i, x)$ a positive frame $(\partial_t, \nu_1, \ldots, \nu_d)$ with $(\nu_1,
     \ldots, \nu_d)$ positive for $o$ (`exists_timeFirst_frame_cubeOrientation`), and then the boundary orientation of
@@ -13693,16 +13752,22 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     `boundaryOrient_tangent_ne_faceOrient_of_end_zero`). For a sheet of dimension $0$ whose point carries the negative
     orientation there is no positive frame $(\nu_1, \ldots, \nu_d)$, so the convention as printed needs sheets of
     dimension $\ge 1$; for index $0$ it is read in a signed form: $\nu$ is positive for $\tilde o$ if and only if
-    $dt(\nu)$ has the sign of the point. In Corollary 15.4.4 the sheets have dimension $m + 1 \ge 1$, so the printed
-    convention applies (rows V15.37, V15.49). Status: **settled (a reading point)**.
+    $dt(\nu)$ has the sign of the point. In the signed form the curve over a point $y$ is oriented by a generator $w$
+    with $dt(w) = +1$ at a positive point and $dt(w) = -1$ at a negative one (`exists_signed_generator_cubeOrientation`,
+    `exists_signed_frame_cubeOrientation`; Part I: `ChartPoint.exists_timeFirst_wedge_signed_of_slice`), the sign of a
+    point being read through `frameSign` as in Chapter 9's point integration (`Chapter9/PointIntegration`); the boundary
+    orientation of the end points then has the sign $(-1)^{i+1}$ times that of the point
+    (`frameSign_boundaryOrient_of_generator`). With it Corollary 15.4.4 holds for index $0$ with the same standing
+    hypotheses (`corollary_15_4_4_index_zero_oriented`). In Corollary 15.4.4 as printed the sheets have dimension $m + 1
+    \ge 1$, so the printed convention applies (rows V15.37, V15.49). Status: **settled (a reading point)**.
 
 ## Chapter 16 (Polyfolds; Lean `Polyfold/Chapter16/`)
 
 *Numbering.* The items of this section are numbered consecutively.
 Statement numbers and pages are those of the Springer edition (2021, pp. 705–740), with the 2017 text's numbers in
 parentheses. The comparison items are `Exposition/verification/ch16.md` (V16.1–V16.83); the gaps are G.146, G.153–G.157,
-G.166, G.167, G.174–G.176, G.187, G.188 (G.146, G.154–G.157, G.166, G.167, G.174, G.176 and G.187 closed; G.153 the
-text's own open question, nothing to formalize; G.175, G.188 open in part).
+G.166, G.167, G.174–G.176, G.187, G.188 (G.146, G.154–G.157, G.166, G.167, G.174–G.176 and G.187 closed; G.153 the
+text's own open question, nothing to formalize; G.188 open in part).
 
 Found while formalizing §16.1 (files `Chapter16/PolyfoldBump`, `PolyfoldExamples`, `PolyfoldPartitions`, `PolyfoldStructure`, `ZhouUniquenessCheck`).
 
@@ -13866,11 +13931,12 @@ Found while formalizing §§16.1–16.6 (files `Chapter16/PolyfoldBundleCategory
     trivial-action $\mathbb Z/3$ example), and the sc-Fredholm property in one representative gives it in all.
     Definition 16.5.4 is as stated: structurability is preserved by pull-back (`fnStructurablePullback`). Theorem 16.6.4
     is proved outright. Theorem 16.5.7 is reduced to Theorem 14.1.9 in every model and holds as printed (item 23); Theorem
-    16.6.6 is reduced to a model, its integrals being gap G.175 (items 22, 25). The continuity of $n(\lambda)$ (gap G.174) is item 19; the independence of orientations of the
+    16.6.6 is reduced to a model and proved there for the canonical orientation, with partitions of unity (gap G.175,
+items 22, 25). The continuity of $n(\lambda)$ (gap G.174) is item 19; the independence of orientations of the
     representative (gap G.176) is items 23, 24. Reading points: in Definition 16.5.2 $y \ne 0_z$; in Remark 16.5.3
     $\gamma$ for $\Gamma$; in Definition 16.5.4 $\lambda : Y \to \mathbb Q^+$; in Theorem 16.6.6 $n$ on $Y_{0,1}$
     (printed $Z_{0,1}$); "controlled by $(n, U)$" is $n(\lambda) \le 1$ and $\text{dom-supp} \subseteq U$ (rows
-    V16.63–V16.78). Status: **in part (gaps G.174, G.176 closed; G.175 open in part)**.
+    V16.63–V16.78). Status: **settled (gaps G.174–G.176 closed)**.
 
 17. **Every hypothesis taken in §§16.1–16.6 is satisfiable** *(§§16.1–16.6)*. With witnesses: the
     effectiveness of $d$ in Definition 16.1.10 (`EffPolyfold.point`), `hloc` in
@@ -13919,16 +13985,19 @@ Found while formalizing §§16.2–16.5 (files `Chapter16/NormLamContinuous`, `R
 
 Found while formalizing §§16.5–16.6 (files `Chapter16/PerturbedSuborbifold`, `PerturbedIntegralIndependence`, `OrientationTransport.lean`, `PolyfoldBoundaryExtension.lean`).
 
-22. **Theorem 16.6.6: the integrals are well defined; independence of $\lambda$ given the cobordism** *(text before
+22. **Theorem 16.6.6: the integrals are well defined and independent of $\lambda$** *(text before
     Theorem 16.6.6 and Theorem 16.6.6, p. 739 (2017: Theorem 16.8); item 16; gaps G.175, G.187, G.188)*.
     `Chapter16/PerturbedSuborbifold`, `PerturbedIntegralIndependence`. $\theta = \lambda \circ f$ is a branched suborbifold, determined by its function and
     independent of the model; the integrals $\int$, $\oint$ over it do not depend on the representative or the model and
     depend only on $[\tau]$. Readings: the degree $k$ is the dimension $m + 1 \ge 1$ of $\hat\theta$ (index 0 is item 25);
     "$(f, \lambda)$ in general position" is read in one model, which is no restriction (item 25); "independent of
     $\lambda$" is equality over any two admissible perturbations with the inherited orientation, which is a parameter
-    in `theorem_16_6_6_hyp` and is read in the model of the orientation in item 25. The cobordism hypothesis has only
-    the self-cobordism witness, so the statement is nonvacuous only weakly (rows V16.78, V16.80). Status: **in part
-    (gap G.175; G.187 closed and G.188 in part, item 25)**.
+    in `theorem_16_6_6_hyp` and is read in the model of the orientation in item 25. The cobordisms between two
+    admissible perturbations are those of the cylinder of Corollary 15.4.4, whose inputs are theorems
+    (`cylinderInput_canonical`), so `theorem_16_6_6_canonical` has the single hypothesis that $Z$ admits sc-smooth
+    partitions of unity (Stokes in the form proved; Remark 9.5.19, gap G.153) (rows V16.78, V16.80). Status:
+    **settled for degree $\ge 1$ with partitions of unity (gaps G.175, G.187 closed); index 0 in part (gap G.188,
+    item 25)**.
 
 23. **Definition 16.6.5: the orientation is carried along a diagram; Theorem 16.5.7 as printed**
     *(Definition 16.6.5, p. 739, Theorem 16.5.7, p. 735 (2017: Definition 16.42, Theorem 16.6); items 16, 21; gap
@@ -13948,7 +14017,7 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     16.42); Definition 16.3.3 and the sentence after it, p. 723 (2017: Definition 16.17); Proposition 10.4.7; items
     11, 23; gap G.176)*. `Chapter16/OrientationRepresentatives`, `OrientationClassIndependence`,
     `OrientationOrbitMapIndependence`, `OrientationTransportRegularity`, `HalfSpaceOrientedSection`,
-    `OrientationNonEffectiveWitness`. The sentence that an orientation of one representative determines orientations
+    `HalfSpaceIsotropyOrientedSection`, `OrientationNonEffectiveWitness`. The sentence that an orientation of one representative determines orientations
     of all others can be read as resting on the uniqueness of the generalized strong bundle isomorphism $\mathfrak A$
     claimed after Definition 16.3.3, which does not hold as we read it for a non-effective base (item 11). What the
     claim needs is Proposition 10.4.7: two strong bundle equivalences with the same $|\cdot|$ are related near each
@@ -13956,34 +14025,50 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     Definition 16.3.1. With it the transported orientation is the same over every diagram of every $\mathfrak A$ with
     $\Gamma' \circ |\mathfrak A| = \Gamma$, for effective and non-effective bases alike, with Part I's hypotheses of
     Theorem 12.5.7 (tame, bump functions, tame germ data) on the oriented representative only
-    (`OrientationRep.exists_unique_transport_of_isLR`; with Definition 8.4.2 as printed
-    `exists_unique_transport_of_isLRLocal`; for an effective base, where $\mathfrak A$ is unique,
+    (`OrientationRep.exists_unique_transport_of_isLRLocal`, with Definition 8.4.2 as printed; with the derived form
+    `IsLR` and sc-smooth bump functions `exists_unique_transport_of_isLR`; for an effective base, where $\mathfrak A$ is unique,
     `exists_unique_transport_of_isEffective`). On the trivial-action $\mathbb Z/3$ example of item 11, the two
     generalized isomorphisms $[\mathrm{Inv}] \ne [1_W]$ carry a concrete orientation to the same one
     (`exists_unique_transport_z3`); with boundary and non-zero fibres there is the concrete `halfOrientationRep`
     (`exists_unique_transport_halfSpace`). Reading point: the local regularity property enters in the germ form
-    `IsLRGerm`, which follows from Definition 8.4.2 as printed and, with sc-smooth bump functions, from the form `IsLR`
-    carried by the field `isLR` of the structure (Findings, Chapter 8; row V16.37). The condition is on $|\mathfrak A|$
+    `IsLRGerm`, which follows from Definition 8.4.2 as printed, the field `isLRLocal` of the structure, and, with
+    sc-smooth bump functions, from the derived form `IsLR`, a theorem (`StrongPolyfoldBundleStructure.isLR`;
+    Findings, Chapter 8; row V16.37). The condition is on $|\mathfrak A|$
     on the total spaces, as printed; with equality of the base maps only, a fibrewise $-1$ reverses the orientation of
-    the zero section (a remark, not formalized). Weak in one respect: no example is both non-effective and with
-    boundary, and `IsLRLocal` holds in both (rows V16.37, V16.40, V16.77). Status: **settled (gap G.176 closed);
+    the zero section (a remark, not formalized). Both non-effective and with boundary:
+    `HalfSpaceBundle.exists_unique_transport_halfZ3` (weak: the isotropy acts trivially on $H$ and on $W$); in every
+    example `IsLRLocal` holds (rows V16.37, V16.40, V16.77). Status: **settled (gap G.176 closed);
     Definition 16.6.5 with the hypotheses of Theorem 12.5.7 made explicit**.
 
 25. **Theorem 16.6.6: the orientation inherited in the model of $o$, general position in one model, index 0**
     *(Theorem 16.6.6 and the text before it, p. 739 (2017: Theorem 16.8); Definition 9.5.6 for $n = 0$; items 22, 24;
     gaps G.175, G.187, G.188)*. `Chapter16/ModelPerturbations`, `GeneralPositionModels`, `IndexZeroInvariant`,
     `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`, `IndexZeroPolyfoldTheorem`,
-    `IndexZeroTwoModels`; `Chapter15/LinearizationLocalIso`, `GeneralPositionEquivalence`. Three readings, as we read
+    `IndexZeroTwoModels`, `CanonicalIntegralInvariance`, `InheritedOrientationGeneralPosition`, `IndexZeroCylinder`,
+    `FibreNegationStructure`; `Chapter15/LinearizationLocalIso`, `GeneralPositionEquivalence`,
+    `CanonicalOrientationPullback`, `CylinderPointFrames`. Three readings, as we read
     the text. (i) "The orientation inherited from $(f, o)$" is read in the model that carries $o$: an oriented regular
     perturbation of that model whose orientation is the canonical one of Definition 15.4.2 (`IsInheritedFrom`,
     `IsCanonicalPerturbation`). Its class is an oriented perturbation on the polyfold with the same integrals
     (`toOrientedPerturbation`, `integral_toCompact`), and the cobordisms of Corollary 15.4.4's proof in the model give
-    cobordisms on the polyfold (`hasCobordism_ofRegular`); so Theorem 16.6.6 holds in the model
-    (`theorem_16_6_6_of_model`) and, along the text's argument, from the inputs of the cylinder construction
-    (`theorem_16_6_6_of_cylinder`). The perturbations compared are the structurable regular perturbations of the
+    cobordisms on the polyfold (`hasCobordism_ofRegular`); the inputs of the cylinder construction are theorems
+    (`cylinderInput_canonical`), so Theorem 16.6.6 holds for the canonical orientation with the single hypothesis that
+    $Z$ admits sc-smooth partitions of unity (`theorem_16_6_6_canonical`; the model data `CanonicalInput` are
+    partitions of unity on the object M-polyfold of $[0, 1] \times X$, the hypothesis of Stokes, gap G.153, tame germ
+    data and the index). The perturbations compared are the structurable regular perturbations of the
     model, as in Corollary 15.4.4; for the text's admissible $\lambda$ the difference is structurability and the strict
-    bound $N(\Lambda) < 1$ (`isRegularPerturbation_of_admissible`). Open: the independence of the model carrying $o$
-    (the pull-back of $\hat T$) and the hypothesis `hinvC` of the cylinder (gaps G.175, G.182). (ii) "$(f, \lambda)$ in
+    bound $N(\Lambda) < 1$ (`isRegularPerturbation_of_admissible`). For perturbations in general position, those of
+    the text, the inherited orientation does not depend on the model carrying $o$: the pull-back of a canonical
+    orientation along a strong bundle equivalence is canonical (`IsCanonicalFor.pullSection`), a regular perturbation
+    of one model is carried to one of the other (`isRegularPerturbation_pushMult`), and good position at the boundary
+    points of the second model is read as following from general position in the first, general position being
+    carried along the diagram and giving good position at each point (the last sentence of Theorem 15.2.5;
+    `SDiagram.isGoodPositionAt_pushMult_of_isInGeneralPosition`); hence
+    `isInheritedFrom_generalPosition_iff_of_correspondence` (any boundary) and, for $\partial Z = \emptyset$, equal
+    integrals across two models (`theorem_16_6_6_correspondence`). Remarks, beyond what the theorem states: for
+    canonical perturbations not in general position with $\partial Z \ne \emptyset$ good position at the boundary in
+    the second model is a hypothesis per perturbation (`isInheritedFrom_of_diagram`); the index $m + 1$ in the second
+    model is a hypothesis (`hidx'`). (ii) "$(f, \lambda)$ in
     general position" is read at the level-1 points of a model; general position in one model is general position in
     every model (`FredholmSection.isInGeneralPositionWith_iff_forall`), the only hypothesis being that $f$ is
     sc-Fredholm. (iii) For Fredholm index 0 the branched integral is Definition 9.5.6 for $n = 0$, a weighted count
@@ -13991,8 +14076,27 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     11.4.1 holds for $n = 0$ (`EPLoc.point_theorem_11_4_1_pull`, `_push`), so the counts are defined on the polyfold
     (`OrientedSuborbifold.pointIntegral`), and Theorem 16.6.6 for index 0 follows from the cobordisms in the model of
     $o$ (`theorem_16_6_6_index_zero_polyfold_of_model`); "depends only on $[\tau]$" is void in degree 0. The cylinder
-    for index 0 needs a signed form of the frame convention for 0-dimensional sheets (a reading point of Chapter 15).
-    No statement of the text was found not to hold. Witnesses weak: the cobordism hypotheses have only self-cobordisms
-    ($\tilde\Theta = 0$), `CylinderInput` has none, and the two-model witness `count_eq_of_mk_eq_two_models` has one
-    structure and two sections (rows V16.78, V16.80, V16.82, V16.83). Status: **in part (gap G.187 closed; G.175,
-    G.188 open in part)**.
+    for index 0 is read with a signed frame convention for 0-dimensional sheets: the curve over a point $y$ is oriented
+    by $w$ with $dt(w) = +1$ at a positive point and $dt(w) = -1$ at a negative one
+    (`exists_signed_generator_cubeOrientation`), the orientation of a point being read through `frameSign`, as in
+    Chapter 9's point integration (Chapter 15, item 26). With it the boundary of the 1-dimensional $\tilde\Theta$
+    consists of the points of $\Theta_1$ with sign $+$ and of $\Theta_0$ with sign $-$, two canonically oriented point
+    perturbations are cobordant (`hasOrientedCobordism_of_isCanonical`), and Theorem 16.6.6 for index 0 holds for the
+    canonical orientation in the model of $o$ with partitions of unity (gap G.153)
+    (`theorem_16_6_6_index_zero_polyfold_canonical`, `theorem_16_6_6_index_zero_polyfold_inherited`). Open (gap
+    G.188): the independence of the inherited orientation from the model carrying $o$ in dimension 0, the analogue of
+    `isInheritedFrom_generalPosition_iff_of_correspondence` for point perturbations (`IsInheritedFromPoint`). No
+    statement of the text is found not to hold. Witnesses: `TrivialBundle.theorem_16_6_6_canonical_hypotheses_circle`
+    (index 1, support the unit circle; weak: units only, the admissibility of $Q$ not shown);
+    `HalfSpaceBundle.isInheritedFrom_generalPosition_halfDisc` ($\partial Z \ne \emptyset$; weak: the correspondence is
+    the identity diagram, so the conclusion is tautological and the witness shows only that the hypotheses can hold
+    together; trivial isotropy, $\Lambda = 0$); `isCanonicalFor_pullSection_negSection` ($\varphi = -\mathrm{id}$;
+    weak: $\partial X = \emptyset$, trivial groupoid); no example combines a non-identity correspondence with
+    $\partial Z \ne \emptyset$. For index 0: `corollary_15_4_4_index_zero_hypotheses_z3` and
+    `indexZeroInput_z3OrientationRep` (a morphism that is not a unit; weak: $\partial X = \emptyset$, one canonical
+    perturbation, and `theorem_16_6_6_index_zero_canonical`, with its hypothesis for every orientation, has no
+    instance); `corollary_15_4_4_index_zero_two_perturbations` (two perturbations with different supports; weak:
+    trivial groupoid, $\partial X = \emptyset$); `count_eq_of_mk_eq_two_models` (one structure, two sections) and
+    `count_eq_of_mk_eq_two_structures` (weak: the structures differ only in $\Gamma$, so the hypothesis of
+    `count_eq_of_mk_eq` holds by a literal equality) (rows V16.78, V16.80, V16.82, V16.83). Status: **in part (gaps
+    G.175, G.187 closed; G.188 open in part)**.

@@ -32,9 +32,9 @@ A web browser is enough: no Lean and no GitHub account are needed.
 
 | | Chapters | State | Open gaps |
 |---|---|---|---|
-| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 1, in part: Remark 6.6.19 over `[0, 1] × X` (the ends of `S_F` as its oriented boundary, Stokes' theorem on `S_F`) |
+| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 1, in part: Remark 6.6.19 over `[0, 1] × X` (the signed Stokes formula on `S_F`, proved for face-structured `X`, open for `X` tame but not face-structured) |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses | 0 |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 with one invariance hypothesis beyond the text; Theorem 16.6.6 proved in part; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 3, in part: Corollary 15.4.4, Theorem 16.6.6 and its index-0 case |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 proved, with sc-smooth partitions of unity for Stokes' theorem; Theorem 16.6.6 for index 0 proved in part; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 1, in part: Theorem 16.6.6 for index 0 (the inherited orientation read in another model) |
 
 Every numbered item of the book is compared with its formal version, with a verdict and every
 difference listed (`Exposition/Verification.md`). Where a formal statement is narrower than the book's,
@@ -62,16 +62,17 @@ The HTML pages open straight from the folder; they need no server.
 
 1. **The definitions**: sc-structures, retracts and M-polyfolds, strong bundles, sc-Fredholm germs and
    sections, ep-groupoids, branched ep⁺-subgroupoids, sc⁺-multisections, polyfolds. Are they the
-   authors' notions? Two such mismatches in our own definitions were found and repaired, so this is
+   authors' notions? Three such mismatches in our own definitions were found and repaired, so this is
    where silent errors are most likely.
 2. **The readings we had to choose**, each recorded in the Findings with its reason. The main ones:
    sc-smooth germs live on neighbourhoods that may shrink with the level; "tame strong bundle"
    (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the 2014 and 2017 versions
    define it; index sets of structured multisections are non-empty, as the factor `1/|I_x|` of
-   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5. One reading point concerns our
-   own definitions: the strong polyfold bundle structure (Definition 16.3.1) carries local regularity in the form for
-   strong bundle maps of `W` (`IsLR`), which is weaker than Definition 8.4.2 as printed (`IsLRLocal`); what is proved
-   under each form is in the Findings, Chapter 8.
+   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5; the face-sum form of
+   Stokes' theorem on the cobordism over `[0, 1] × X` for face-structured `X` (Remark 6.6.19); a signed frame
+   convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4). The strong polyfold bundle structure (Definition 16.3.1) carries local regularity as
+   printed in Definition 8.4.2 (`IsLRLocal`); the form for strong bundle maps of `W` (`IsLR`) follows from it, and
+   whether the two agree is not known to us (Findings, Chapter 8).
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
 4. **The statements that do not hold as we read them.** Each has a counterexample checked in Lean;

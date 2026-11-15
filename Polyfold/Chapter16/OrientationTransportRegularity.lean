@@ -11,11 +11,13 @@ Numbers and pages are the 2021 text's.
 
 # The transported orientation with the regularity carried by a strong polyfold bundle structure
 
-`StrongPolyfoldBundleStructure.isLR` is the formal `EpStrongBundle.IsLR` (Definition 8.4.2 asked
-of the strong bundle maps defined on all of `W`).  `Chapter16/OrientationOrbitMapIndependence`
-proves that the transported orientation of Definition 16.6.5 does not depend on the generalized
-strong bundle isomorphism under `EpStrongBundle.IsLRLocal` (Definition 8.4.2 as printed, for
-strong bundle isomorphisms of `W|U(x)`).  Here the same is proved from the field `isLR`:
+The field `StrongPolyfoldBundleStructure.isLRLocal` is Definition 8.4.2 as printed
+(`EpStrongBundle.IsLRLocal`, strong bundle isomorphisms of `W|U(x)`);
+`StrongPolyfoldBundleStructure.isLR` is the weaker formal `EpStrongBundle.IsLR` derived from it
+(Definition 8.4.2 asked of the strong bundle maps defined on all of `W`).
+`Chapter16/OrientationOrbitMapIndependence` proves that the transported orientation of Definition
+16.6.5 does not depend on the generalized strong bundle isomorphism under `IsLRLocal`.  Here the
+same is proved from `IsLR` alone:
 
 * Part I's hypotheses of those theorems contain sc-smooth bump functions on the base; with them
   a strong bundle isomorphism of `W|U` agrees near a point with a strong bundle map of `W`
@@ -131,7 +133,7 @@ on `W_a`, and `b` another representative.  There is exactly one orientation `o'`
 (Definition 12.5.4, for every topology of Theorem 12.5.3) corresponding to `R.o` over the middle
 of every diagram representing **any** generalized strong bundle isomorphism `𝔄 : W_a → W_b`
 with `Γ_b ∘ |𝔄| = Γ_a` and `𝔄_* F_a = F_b`.  The base need not be effective, and the only
-regularity used is the field `StrongPolyfoldBundleStructure.isLR` of `b`. -/
+regularity used is `StrongPolyfoldBundleStructure.isLR` of `b` (the form `EpStrongBundle.IsLR`). -/
 theorem exists_unique_transport_of_isLR (R : OrientationRep s) (b : SectionRep c)
     (hb : ⟦b⟧ = s.1) (hX : R.a.S.A.X.PObj.IsTame) (hbump : R.a.S.A.X.PObj.AdmitsBumpFunctions)
     (hfT : R.a.S.A.B.IsScFredholmSectionTame R.a.F) :

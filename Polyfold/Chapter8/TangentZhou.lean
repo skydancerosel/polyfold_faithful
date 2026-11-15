@@ -45,7 +45,7 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 
 * **Proposition 8.1.16.**  The step "`T(g, h) = id` ⇒ `Tg = id`" differentiates (8.16) and uses
   that `Tτ_X : T_b(TX) → T_xX` is onto; here this step is the hypothesis `TangentZhouReflect`
-  (satisfiable: `tangentZhouReflect_trivial`).  Since 2026-11-09 it holds for every ep-groupoid
+  (satisfiable: `tangentZhouReflect_trivial`).  It holds for every ep-groupoid
   (`tangentZhouReflect`, `TangentZhouReflect2021.lean`, through the vertical vectors of `T(TX)`
   of `TangentVertical2021.lean`), and Proposition 8.1.16 holds with no further hypothesis
   (`proposition_8_1_16_2021`).  The rest is proved here: `x = p(b)` is smooth
@@ -58,13 +58,16 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
   `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
   `EP.proposition_8_1_17_two_all` in `Chapter8/TangentZhouLevels.lean`, through
   `(TX)ⁱ ≡ T(Xⁱ)` (`EP.tangentLiftEpEquiv`).
-* **Definition 8.4.2** reads "strong bundle isomorphism `B : W|U(x) → W|U(x)`" as the project's
-  `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map `W → W` restricting to an isomorphism of
-  `W|U(x)`, as for Definition 8.5.9 (2017: 8.10) in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of
-  orbits in the groupoid `(W, 𝐖)`.
+* **Definition 8.4.2** in the form `EpStrongBundle.IsLR` of this file reads "strong bundle
+  isomorphism `B : W|U(x) → W|U(x)`" as the project's `StrongBundle.IsStrongBundleIsoOn` (a strong
+  bundle map `W → W` restricting to an isomorphism of `W|U(x)`, as for Definition 8.5.9 (2017: 8.10)
+  in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of orbits in the groupoid `(W, 𝐖)`.
+  Definition 8.4.2 as printed, with `B` defined on `W|U(x)` only, is `EpStrongBundle.IsLRLocal`
+  (`Chapter10/LocalizationLRBundleBase.lean`), which implies `IsLR`.
 * **Proposition 8.4.3** is not proved in this file: it is `EpStrongBundle.proposition_8_4_3`
-  (`BundleLocalRegularity2021.lean`, 2026-11-09), with the openness of the bundle projection
-  `P : W → X` and the density of the regular points of `U(x)`.
+  (`BundleLocalRegularity2021.lean`), with the openness of the bundle projection
+  `P : W → X` and the density of the regular points of `U(x)`; for Definition 8.4.2 as printed it is
+  `EpStrongBundle.proposition_8_4_3_isLRLocal` (`Chapter10/BundleLocalRegularityPrinted.lean`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -237,12 +240,16 @@ def natLift (E : EpStrongBundle X B) {x : Obj} (R : X.NaturalRep x) (g : X.Isotr
     (hw : P w ∈ R.U) : W :=
   E.μ ⟨(R.Γ g (P w), w), (R.src_Γ g (P w) hw).symm⟩
 
-/-- **2021 Definition 8.4.2, p. 382 (new in the 2021 edition)**: the local regularity property of a
-strong bundle over an ep-groupoid.  Inside every open `O ∋ x` there is a natural
-representation `U(x)` such that every strong bundle isomorphism `Φ` of `W|U(x)` (covering some
-`β`) with `|Φ(w)| = |w|` is `w ↦ g ∗ w` for some `g ∈ G_x`.  Satisfiable:
-`EpStrongBundle.isLR_trivial`; by Proposition 8.4.3 it holds over every effective `X` with (LR)
-(`EpStrongBundle.proposition_8_4_3`, `BundleLocalRegularity2021.lean`). -/
+/-- **2021 Definition 8.4.2, p. 382 (new in the 2021 edition), for strong bundle maps of `W`**:
+inside every open `O ∋ x` there is a natural representation `U(x)` such that every strong bundle
+map `Φ` of `W` (covering some `β`) which is a strong bundle isomorphism of `W|U(x)` and has
+`|Φ(w)| = |w|` there is `w ↦ g ∗ w` on `W|U(x)` for some `g ∈ G_x`.  The text asks this of every
+strong bundle isomorphism `W|U(x) → W|U(x)`, defined over `U(x)` only; that is
+`EpStrongBundle.IsLRLocal` (`Chapter10/LocalizationLRBundleBase.lean`), which implies this form
+(`IsLRLocal.isLR`).  Satisfiable: `EpStrongBundle.isLR_trivial`; by Proposition 8.4.3 it holds
+over every effective `X` with (LR) (`EpStrongBundle.proposition_8_4_3`,
+`BundleLocalRegularity2021.lean`; `EpStrongBundle.proposition_8_4_3_isLRLocal`,
+`Chapter10/BundleLocalRegularityPrinted.lean`). -/
 def IsLR (E : EpStrongBundle X B) : Prop :=
   ∀ (x : Obj) (O : Set Obj), IsOpen O → x ∈ O → ∃ R : X.NaturalRep x, R.U ⊆ O ∧
     ∀ (β : Obj → Obj) (Φ : W → W) (hΦ : B.IsStrongBundleMap B β Φ),

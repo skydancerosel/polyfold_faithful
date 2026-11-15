@@ -154,6 +154,10 @@
     [
      "Thm 6.7.1",
      "Polyfold.theorem_6_7_1_interval"
+    ],
+    [
+     "Rem 6.6.19",
+     "Polyfold.theorem_6_6_18_boundaryIntegral_interval"
     ]
    ]
   },
@@ -204,6 +208,10 @@
     [
      "Thm 8.1.15",
      "Polyfold.EpGroupoid.theorem_8_1_15"
+    ],
+    [
+     "Prop 8.4.3",
+     "Polyfold.EpStrongBundle.proposition_8_4_3_isLRLocal"
     ],
     [
      "Thm 8.5.3",
@@ -396,8 +404,16 @@
      "Polyfold.EpStrongBundle.theorem_12_5_3_loc"
     ],
     [
+     "Thm 12.5.3",
+     "Polyfold.EpStrongBundle.theorem_12_5_3_iff_loc"
+    ],
+    [
      "Prop 12.5.6",
      "Polyfold.EpStrongBundle.proposition_12_5_6_loc"
+    ],
+    [
+     "Prop 12.5.6",
+     "Polyfold.EpStrongBundle.proposition_12_5_6_of_loc"
     ],
     [
      "Thm 12.5.7",
@@ -492,6 +508,10 @@
      "Polyfold.SBLocalization.CompatibleFaceData.theorem_14_6_3_extension"
     ],
     [
+     "Thm 14.6.3",
+     "Polyfold.SBLocalization.SectionCompatibleFaceFamilies.theorem_14_6_3"
+    ],
+    [
      "Thm 15.1.1",
      "Polyfold.SBLocalization.theorem_15_1_1_functor"
     ],
@@ -529,7 +549,11 @@
     ],
     [
      "Cor 15.4.4",
-     "Polyfold.SBLocalization.corollary_15_4_4_canonicalOrientation"
+     "Polyfold.SBLocalization.corollary_15_4_4_oriented_collar"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_index_zero_oriented"
     ],
     [
      "Prop 16.1.4",
@@ -589,7 +613,7 @@
     ],
     [
      "Def 16.6.5",
-     "Polyfold.StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLR"
+     "Polyfold.StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal"
     ],
     [
      "Thm 16.6.4",
@@ -597,7 +621,15 @@
     ],
     [
      "Thm 16.6.6",
-     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_of_cylinder"
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_correspondence"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical"
     ]
    ]
   },
