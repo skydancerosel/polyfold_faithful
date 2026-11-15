@@ -157,7 +157,7 @@
     ],
     [
      "Rem 6.6.19",
-     "Polyfold.theorem_6_6_18_boundaryIntegral_interval"
+     "Polyfold.theorem_6_6_18_boundaryIntegral_interval_lateral"
     ]
    ]
   },
@@ -630,6 +630,10 @@
     [
      "Thm 16.6.6",
      "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_correspondence"
     ]
    ]
   },

@@ -108,7 +108,8 @@ Files with the suffix `G` hold the germ-reading forms of the statements of the f
 `BoundaryWedge`, `RelativeWedge`, `EuclideanForms2021`, `EuclideanStokes2021`, `ManifoldForms2021`,
 `ManifoldFaceForms2021`, `ManifoldBoundary2021`, `ManifoldIntegral2021`, `ManifoldStokes2021`, the `StokesFace*`
 files, `Poincare448`, `Poincare448Shift`, `Poincare2021`, `Poincare2021b`; `Book2021`.
-The faces of a submanifold in general position: `GeneralPositionFaceStructure`.
+The faces of a submanifold in general position: `GeneralPositionFaceStructure`. The boundary integral of a manifold
+with ends, without faces (level sets and cut-offs): `BoundaryIntegralEnds`.
 
 **Chapter 5** (the Fredholm package): `Compactness`, `SolutionSetClosed`, `AuxNorm`, `AuxNormLiteral`,
 `AllowableSectionsMetric`, `BumpFunctions`, `BumpWeakPointwise`, `BumpPointsResearch`, `ShiftTameResearch`,
@@ -191,7 +192,8 @@ decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `Dimension
 `DimensionJumpBoundaryIntegral`).
 The boundary integral of the cobordism `S_F ⊆ [0, 1] × X` of Chapter 6 (ends, signs, lateral faces):
 `BoundaryEndFaces`, `IntervalBoundaryDecomposition`, `IntervalEndSigns`, `IntervalCobordismFaceStructure` (on
-`StokesFaceSum`).
+`StokesFaceSum`); without faces, the lateral term as a limit of cut-off integrals: `EndFaceChartPairs`,
+`IntervalLateralBoundary`.
 
 **Chapter 10** (equivalences and localization): `Equivalence`, `EquivalenceExamples`, `EquivalenceLR`,
 `EquivalenceLREffective`, `EquivalenceReduced`, `EquivalenceRefinement`, `EquivalenceZhou`, `ZhouExample`,
@@ -294,14 +296,14 @@ index 0 `CylinderPointFrames`, `CylinderPointEnds`; the canonical orientation un
 `IndexZeroTwoModels`, `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`.
 Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylinder`; its independence of the model:
 `CanonicalModelIndependence`, `CanonicalModelPullback`, `CanonicalModelTransfer`, `CorrespondenceMiddleCanonical`,
-`InheritedOrientationGeneralPosition`; `OrientationRepLocal`, `CanonicalPerturbationIntegral`,
+`InheritedOrientationGeneralPosition`, for index 0 `IndexZeroInheritedCorrespondence`; `OrientationRepLocal`, `CanonicalPerturbationIntegral`,
 `FibreNegationStructure`; witnesses: `CircleSectionCobordism`, `CircleSectionCollarCobordism`,
 `CircleSectionPolyfold`, `CylinderInvarianceNonEffective`, `IsotropyCircleCobordism`, `TrivialIsotropyBundle`,
 `IndexZeroCylinderWitness`, `IndexZeroIsotropyWitness`, `IndexZeroShiftedPerturbation`,
 `HalfSpaceIsotropyOrientedSection`, `HalfSpaceLocalOrientation`, `CanonicalModelTransferWitness`,
-`CanonicalOrientationPullbackWitness`, `InheritedOrientationGeneralPositionWitness`, and Remark 6.6.19 on the
-half-disc in `HalfDiscIntervalCobordism`, `HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`,
-`HalfDiscFaceStructureInstance`.
+`CanonicalOrientationPullbackWitness`, `InheritedOrientationGeneralPositionWitness`,
+`IndexZeroInheritedCorrespondenceWitness`, and Remark 6.6.19 on the half-disc in `HalfDiscIntervalCobordism`,
+`HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`, `HalfDiscFaceStructureInstance`, `HalfDiscLateralBoundary`.
 
 ## 3. The reports (`Exposition/`)
 

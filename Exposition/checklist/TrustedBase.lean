@@ -51,7 +51,7 @@ def mains : List (String × String) := [
   ("orientation|Thm 6.6.18", "theorem_6_6_18"),
   ("orientation|Thm 6.7.1", "theorem_6_7_1"),
   ("orientation|Thm 6.7.1", "theorem_6_7_1_interval"),
-  ("orientation|Rem 6.6.19", "theorem_6_6_18_boundaryIntegral_interval"),
+  ("orientation|Rem 6.6.19", "theorem_6_6_18_boundaryIntegral_interval_lateral"),
   ("partII|Thm 7.1.13", "EpGroupoid.theorem_7_1_13"),
   ("partII|Thm 7.2.14", "EpGroupoid.theorem_7_2_14"),
   ("partII|Thm 7.3.1", "EpGroupoid.theorem_7_3_1"),
@@ -167,6 +167,7 @@ def mains : List (String × String) := [
   ("partIII|Thm 16.6.6", "StrongPolyfoldBundle.theorem_16_6_6_canonical"),
   ("partIII|Thm 16.6.6", "StrongPolyfoldBundle.theorem_16_6_6_correspondence"),
   ("partIII|Thm 16.6.6", "StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_canonical"),
+  ("partIII|Thm 16.6.6", "StrongPolyfoldBundle.theorem_16_6_6_index_zero_correspondence"),
   ("tame|Thm 2.7.13", "MPolyfold.theorem_2_7_13_book"),
   ("tame|Thm 7.6.9", "EpGroupoid.theorem_7_6_9_book")]
 

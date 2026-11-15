@@ -24028,6 +24028,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Polyfold.Chapter4.GeneralPositionFaceStructure
 #print axioms Polyfold.MPolyfold.theorem_4_2_11_exists_mem_coordHyper
 #print axioms Polyfold.MPolyfold.theorem_4_2_11_isFaceStructured
+-- Polyfold.Chapter4.BoundaryIntegralEnds
+#print axioms Polyfold.tendsto_boundaryIntegral_smulFun
+#print axioms Polyfold.tendsto_boundaryIntegral_levels
+#print axioms Polyfold.exists_endCutoffs
+#print axioms Polyfold.EndRegion.sum_integral_eq
 
 
 /-! ### Axioms: Chapter 6, further files -/
@@ -24802,6 +24807,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isFaceStructured_interval_cobordism
 #print axioms Polyfold.boundaryIntegral_interval_cobordism_faceStructured
 #print axioms Polyfold.theorem_6_6_18_boundaryIntegral_interval
+-- Polyfold.Chapter9.EndFaceChartPairs
+#print axioms Polyfold.EndChartData.toFaceChartPair
+#print axioms Polyfold.EndChartData.toChart_mem_maximalAtlas
+#print axioms Polyfold.contMDiff_quadrantFaceIncl
+#print axioms Polyfold.MPolyfold.exists_endCoordinate
+#print axioms Polyfold.MPolyfold.contMDiffOn_of_isScSmoothOn
+#print axioms Polyfold.MPolyfold.isAdaptedEnd_of_localInverse
+-- Polyfold.Chapter9.IntervalLateralBoundary
+#print axioms Polyfold.exists_localInverse_sliceInclusion
+#print axioms Polyfold.boundaryIntegral_interval_cobordism_lateral
+#print axioms Polyfold.theorem_6_6_18_boundaryIntegral_interval_lateral
 
 /-! ### Axioms: Chapter 10, further files -/
 
@@ -27163,6 +27179,29 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.HalfSpaceBundle.theorem_15_4_1_loc_halfSEP
 -- Polyfold.Chapter16.StrongPolyfoldBundle
 #print axioms Polyfold.StrongPolyfoldBundleStructure.isLRLocal
+-- Polyfold.Chapter16.HalfDiscLateralBoundary
+#print axioms Polyfold.HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_lateral_halfDisc
+-- Polyfold.Chapter16.IndexZeroInheritedCorrespondence
+#print axioms Polyfold.StrongPolyfoldBundle.PointOrientedPerturbation.ext_suborbifold_t
+#print axioms Polyfold.StrongPolyfoldBundle.pointOrientedRep_rel_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.pointSuborbifold_eq_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.IsPointCanonicalInGeneralPosition
+#print axioms Polyfold.StrongPolyfoldBundle.IsInheritedFromPoint.of_generalPosition
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_of_diagram
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_of_correspondence_generalPosition
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_generalPosition_iff_of_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_of_correspondence_of_boundary_eq_empty
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_iff_of_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_correspondence
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_correspondence_generalPosition
+-- Polyfold.Chapter16.IndexZeroInheritedCorrespondenceWitness
+#print axioms Polyfold.StrongBundleLocalizationExamples.pullback_ofHom_z3InvHom
+#print axioms Polyfold.StrongBundleLocalizationExamples.pullOr_ofHom_z3InvHom
+#print axioms Polyfold.StrongBundleLocalizationExamples.z3InvCorrespondence
+#print axioms Polyfold.StrongBundleLocalizationExamples.z3InvCorrespondence_cls_ne
+#print axioms Polyfold.StrongBundleLocalizationExamples.z3Bundle_boundary_eq_empty
+#print axioms Polyfold.StrongBundleLocalizationExamples.z3Bundle_admitsScPartitionsOfUnity
+#print axioms Polyfold.StrongBundleLocalizationExamples.theorem_16_6_6_index_zero_correspondence_z3
 
 /-! ### Axioms: Chapters 10, 14–16, non-empty index sets and the theorems as printed -/
 

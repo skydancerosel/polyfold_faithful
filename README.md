@@ -32,9 +32,9 @@ A web browser is enough: no Lean and no GitHub account are needed.
 
 | | Chapters | State | Open gaps |
 |---|---|---|---|
-| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 1, in part: Remark 6.6.19 over `[0, 1] × X` (the signed Stokes formula on `S_F`, proved for face-structured `X`, open for `X` tame but not face-structured) |
+| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 0 |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses | 0 |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 proved, with sc-smooth partitions of unity for Stokes' theorem; Theorem 16.6.6 for index 0 proved in part; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 1, in part: Theorem 16.6.6 for index 0 (the inherited orientation read in another model) |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 proved, with sc-smooth partitions of unity for Stokes' theorem; Theorem 16.6.6 for index 0 proved, the inherited orientation independent of the model; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 0 |
 
 Every numbered item of the book is compared with its formal version, with a verdict and every
 difference listed (`Exposition/Verification.md`). Where a formal statement is narrower than the book's,
@@ -68,8 +68,9 @@ The HTML pages open straight from the folder; they need no server.
    sc-smooth germs live on neighbourhoods that may shrink with the level; "tame strong bundle"
    (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the 2014 and 2017 versions
    define it; index sets of structured multisections are non-empty, as the factor `1/|I_x|` of
-   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5; the face-sum form of
-   Stokes' theorem on the cobordism over `[0, 1] × X` for face-structured `X` (Remark 6.6.19); a signed frame
+   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5; the lateral term of
+   Stokes' theorem on the cobordism over `[0, 1] × X` (Remark 6.6.19) as the integral over the part of the boundary
+   with `0 < t < 1`, a limit of cut-off integrals, for a tame `X` with or without faces; a signed frame
    convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4). The strong polyfold bundle structure (Definition 16.3.1) carries local regularity as
    printed in Definition 8.4.2 (`IsLRLocal`); the form for strong bundle maps of `W` (`IsLR`) follows from it, and
    whether the two agree is not known to us (Findings, Chapter 8).

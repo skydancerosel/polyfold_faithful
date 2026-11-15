@@ -8256,8 +8256,8 @@ Theorem 6.7.1, §6.7 and the paths on `[0, 1]`.
      M-polyfolds `[0, 1] × X`, `[0, 1]ⁿ × X`, and (1′) with homotopies on `[0, 1]²` (item 138); Lemmas 6.6.4–6.6.5 are
      proved on `[0, 1]ⁿ`, with (P) and `π` at the boundary points; the path category is built on `[0, 1]` (V6.32–V6.34,
      V6.52). The bundle `L` over `[0, 1]ⁿ`, the stabilized kernels and Remark 6.6.19 are formalized over `[0, 1]ⁿ` and
-     `[0, 1] × X` as well, and the boundary integral of the cobordism over `[0, 1] × X` for face-structured `X` (gap G.65
-     in part; items 138, 139).
+     `[0, 1] × X` as well, and the boundary integral of the cobordism over `[0, 1] × X`, the two ends and the lateral
+     term, for every tame `X` with bump functions (gap G.65 closed; items 138, 139).
 103. **The proof of Theorem 6.7.1 (preprint 6.43) extends `ω` as `ω̄ = p₁*ω ∧ p₂*dt`** *(book 2017: unchanged,
      proof of Theorem 6.4)* *(book 2021: unchanged, proof of Theorem 6.7.1, p. 278)*. To show that (97) does not depend on the admissible section, the
      proof (preprint p. 232) introduces `ω̄ = p₁*ω ∧ p₂*dt` on `X × [0, 1]` with `ω̄|∂X×[0,1] = dτ̄`,
@@ -8393,7 +8393,7 @@ read it.
      two-element fibres (V6.82). Status: **settled** (gap G.91 closed).
 
 122. **Theorems 6.6.13 and 6.6.17 with the text's hypotheses; Remark 6.6.19 in the 2021 convention; paths on `[0, 1]`;
-     `Lin(f, x)` sc-Fredholm (gaps G.64 closed, G.65 in part)** *(Definition 6.2.1, p. 239; Theorem 6.6.11, Theorem
+     `Lin(f, x)` sc-Fredholm (gaps G.64, G.65 closed)** *(Definition 6.2.1, p. 239; Theorem 6.6.11, Theorem
      6.6.13, Theorem 6.6.17, Remark 6.6.19, pp. 272–276 (preprint 6.1, 6.35, 6.37, 6.42); items 40, 71, 72, 95, 102,
      119, 120)*. `Polyfold/Chapter6/OrientationMainClean.lean`, `OrientationConvention2021.lean`,
      `PathsInterval.lean`, `LinSetFredholm.lean`. (1) `theorem_6_6_13` and `theorem_6_6_17` take only the text's
@@ -8411,8 +8411,8 @@ read it.
      (`theorem_6_6_11_interval`), the transport of Theorem 6.6.13 with its homotopy invariance (`orTransportI`,
      `orTransportI_eq_of_homotopy`, `orTransportI_star`) and Theorem 6.6.17 with (3) for paths on `[0, 1]`
      (`theorem_6_6_17_interval`, `IsPropagationContinuousI.toReal`). (4) Every member of `Lin(f, x)` is sc-Fredholm on
-     every level with one index (`definition_6_2_1_linSet_isScFredholm`). Status: **settled**; gap G.64 closed, G.65 in
-     part (rows V6.1, V6.48, V6.57, V6.62, V6.71, V6.74, V6.75).
+     every level with one index (`definition_6_2_1_linSet_isScFredholm`). Status: **settled**; gaps G.64, G.65
+     closed (rows V6.1, V6.48, V6.57, V6.62, V6.71, V6.74, V6.75).
 
 123. **Theorem 6.6.18 in the book's shape; the paragraph after it; `S` as a Mathlib manifold (gaps G.68, G.69 closed;
      G.67 in item 127)** *(Definition 6.6.16, Theorem 6.6.18 and the paragraph after it, pp. 274–276 (preprint 6.40, 6.41);
@@ -8633,7 +8633,7 @@ read it.
      path-connected one (items 53, 54). No counterexample. Status: **settled** (row V6.32; gap G.61
      closed).
 
-138. **Paths on `[0, 1]`: (1′) with homotopies on `[0, 1]²`, and `L` over `[0, 1]` (gap G.65 in part)** *(book 2021:
+138. **Paths on `[0, 1]`: (1′) with homotopies on `[0, 1]²`, and `L` over `[0, 1]` (gap G.65)** *(book 2021:
      Proposition 6.6.3 and Lemma 6.6.5, pp. 263–265)*.
      `Polyfold/Chapter6/IntervalHomotopy.lean`, `KernelBundleInterval.lean`. Two sc-smooth paths
      `γ₀, γ₁ : [0, 1] → U` with the same end points are joined by the segment homotopy
@@ -8646,9 +8646,9 @@ read it.
      boundary `[0, 1]` itself, the pull-back along the `C^∞` inclusion (`lemma_6_6_5_smoothBundle_interval`,
      `SmoothSubspaceFamily.comp`). `L` over `[0, 1]ⁿ` for every `n`, the stabilized kernels for families with
      sections over `[0, 1]ⁿ × X`, and Remark 6.6.19 over `[0, 1] × X`: item 139. Status: **settled** for what it
-     states (rows V6.32, V6.34; gap G.65 in part; items 71, 102, 122, 124, 139).
+     states (rows V6.32, V6.34; gap G.65 closed; items 71, 102, 122, 124, 139).
 
-139. **Families on `[0, 1]ⁿ` and Remark 6.6.19 over the M-polyfold `[0, 1] × X` (gap G.65 in part)** *(book 2021:
+139. **Families on `[0, 1]ⁿ` and Remark 6.6.19 over the M-polyfold `[0, 1] × X` (gap G.65)** *(book 2021:
      Lemma 6.6.5, pp. 264–266; Remark 6.6.19, p. 276; Theorem 6.7.1, p. 277)*.
      `Polyfold/Chapter6/CubeManifold.lean`, `KernelBundleCube.lean`, `CubeReparam.lean`, `CubeStabKernels.lean`,
      `IntervalProductPoint.lean`, `IntervalProductKernels.lean`, `IntervalProductTransfer.lean`,
@@ -8658,8 +8658,9 @@ read it.
      `IntervalEndGeneralPosition.lean`, `IntervalEndManifolds.lean`, `IntervalCobordismDegeneracy.lean`,
      `IntervalEndInclusion.lean`, `IntervalCobordismStokes.lean`, `IntervalConstantCobordism.lean`, `CornerSmoothMaps.lean`,
      `InducedOrientationFrames.lean`; `Polyfold/Chapter9/BoundaryEndFaces.lean`, `IntervalBoundaryDecomposition.lean`,
-     `IntervalEndSigns.lean`, `IntervalCobordismFaceStructure.lean`; `Polyfold/Chapter2/FaceLabels.lean`,
-     `Polyfold/Chapter4/GeneralPositionFaceStructure.lean`; witnesses `Polyfold/Chapter16/HalfDisc*.lean`. Mathlib has the model
+     `IntervalEndSigns.lean`, `IntervalCobordismFaceStructure.lean`, `EndFaceChartPairs.lean`, `IntervalLateralBoundary.lean`;
+     `Polyfold/Chapter2/FaceLabels.lean`, `Polyfold/Chapter4/GeneralPositionFaceStructure.lean`, `BoundaryIntegralEnds.lean`;
+     witnesses `Polyfold/Chapter16/HalfDisc*.lean`. Mathlib has the model
      `ModelWithCorners.pi`, but not the manifold instance for finite products; with it (`isManifold_modelPi`) the cube
      `[0, 1]ⁿ` is a `C^∞` manifold with corners (`cubeModel`, `instIsManifoldCube`), and the bundle `L` of Lemma 6.6.5
      is a smooth vector bundle over it for every `n` (`lemma_6_6_5_smoothBundle_cube`). The stabilized kernels form a
@@ -8696,20 +8697,32 @@ read it.
      increasing or decreasing `t` comes first according to the sign of the frame of `o`
      (`ChartPoint.exists_timeFirst_wedge_signed_of_slice`).
 
-     *Reading.* We read the condition "`X` face-structured" as the natural one for the face-sum form: Theorem 6.7.1 and
-     the Stokes step of its proof (p. 278) are stated for a tame `X`, and Theorem 4.4.7 is formalized with "`∂N` a union
-     of smooth faces" read as face-structured (`theorem_4_4_7_hyp`). As we read it (not formalized), for a tame `X` that
-     is not face-structured (a face meeting itself at a corner) `S_F = [0, 1] × S_f` may contain such a corner, so that
-     `S_F` is not face-structured and the text's boundary term over `S_F ∩ ([0, 1] × ∂X)` is to be read as a sum over the
-     local faces of a cover of `∂S_F` (p. 198). Not formalized: that local-face form of the boundary integral (600–1,200
-     lines), or a Lean example over a teardrop-type `X` (300–500). Witnesses: the hypotheses of
+     *Reading.* The text's boundary term over `S_F ∩ ([0, 1] × ∂X)` (p. 278: `∂S_F = S_0 ∪ S_1 ∪ S̃` with
+     `S̃ ⊆ ∂X × (0, 1)`) is read as the boundary integral over the part of `∂S_F` with `0 < t < 1`, with no face
+     hypothesis on `X` or `S_F`: Theorem 6.7.1 and the Stokes step of its proof are stated for a tame `X`, and the
+     boundary integral of Chapter 4 (`ManifoldForm.boundaryIntegral`) is defined chart by chart, with no faces. Near a
+     point of an end, in a corner chart of `S_F`, the end is one coordinate face (`MPolyfold.exists_endCoordinate`,
+     `MPolyfold.isAdaptedEnd_of_localInverse`); the rest of `∂S_F` is integrated as it stands, with cut-offs `χ_m ∘ t`
+     and dominated convergence (`tendsto_boundaryIntegral_levels`, `exists_endCutoffs`). So for every tame `X` with
+     sc-smooth bump functions, face-structured or not, `∫_{∂S_F} (χ_m ∘ t) pr₂^*ω → ∫_{∂S_F} pr₂^*ω − (∫_{S_{F_1}} ω −
+     ∫_{S_{F_0}} ω)` for all cut-offs `χ_m` of `[0, 1]`, with the corner structures and the orientations of Theorem
+     6.6.18 produced in the proof (`theorem_6_6_18_boundaryIntegral_interval_lateral`): `∫_{∂S_F} pr₂^*ω =
+     ∫_{S_{F_1}} ω − ∫_{S_{F_0}} ω + L`, `L` the integral over `{0 < t < 1} ⊆ ∂S_F`, the limit of the cut-off
+     integrals, independent of the cut-offs. Without faces `S̃` is not a manifold of its own, so `L` is characterized as
+     this limit, not written as an integral over `S̃`. For face-structured `X` the face-sum form above, with Theorem
+     4.4.7's "`∂N` a union of smooth faces" read as face-structured (`theorem_4_4_7_hyp`), is the refinement. The
+     hypotheses are those of Theorem 6.7.1 (p. 276, `X` tame with sc-smooth bump functions), in whose proof the formula
+     is used. Witnesses: the hypotheses of
      `theorem_6_6_18_oriented_interval` hold for some `S` by Theorem 5.3.10 (`exists_oriented_interval_cobordism_of_index`);
      on the half plane `[0, ∞) × ℝ` with fibres `ℝ` and `f(a, y) = a² + y² − 1` of index 1, the signed formula holds with
      every hypothesis discharged, `S_F = [0, 1] × (half circle)` with four faces and both ends through the boundary point
-     `(0, 1)` (`HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc`, `isFace_halfDisc_cobordism_iff`);
-     weak: `d_X ≤ 1` there (no witness with `d_X = 2`), `S = 0` is constant in `t`, and the orientation of `f` is chosen
-     by the existence theorem; those of `theorem_6_7_1_interval` are shown for `S = 0` only. Status: **open** in part (the
-     case of a tame `X` that is not face-structured; rows V6.34, V6.42, V6.62, V6.76; gap G.65; items 102, 130, 138).
+     `(0, 1)`, in the face-sum form and in the form without faces
+     (`HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc`, `isFace_halfDisc_cobordism_iff`,
+     `HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_lateral_halfDisc`); weak: `X` is face-structured there
+     with `d_X ≤ 1` (no witness with `d_X = 2`, none on a tame `X` that is not face-structured), `S = 0` is constant in
+     `t`, no `α` with `L ≠ 0` is exhibited, and the orientation of `f` is chosen by the existence theorem; those of
+     `theorem_6_7_1_interval` are shown for `S = 0` only. Status: **settled** (rows V6.34, V6.42, V6.62, V6.76; gap
+     G.65 closed; items 102, 130, 138).
 
 140. **Theorems 6.6.11, 6.6.13, 6.6.17 and Definitions 6.6.14–6.6.16 without bump functions; the untamed germ data
      (Chapter 3, item 388)** *(book 2021: Theorems 6.6.11, 6.6.13, 6.6.17, Definitions 6.6.14–6.6.16, pp. 272–275)*.
@@ -13766,8 +13779,8 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
 *Numbering.* The items of this section are numbered consecutively.
 Statement numbers and pages are those of the Springer edition (2021, pp. 705–740), with the 2017 text's numbers in
 parentheses. The comparison items are `Exposition/verification/ch16.md` (V16.1–V16.83); the gaps are G.146, G.153–G.157,
-G.166, G.167, G.174–G.176, G.187, G.188 (G.146, G.154–G.157, G.166, G.167, G.174–G.176 and G.187 closed; G.153 the
-text's own open question, nothing to formalize; G.188 open in part).
+G.166, G.167, G.174–G.176, G.187, G.188 (G.146, G.154–G.157, G.166, G.167, G.174–G.176, G.187 and G.188 closed; G.153
+the text's own open question, nothing to formalize).
 
 Found while formalizing §16.1 (files `Chapter16/PolyfoldBump`, `PolyfoldExamples`, `PolyfoldPartitions`, `PolyfoldStructure`, `ZhouUniquenessCheck`).
 
@@ -13996,8 +14009,7 @@ Found while formalizing §§16.5–16.6 (files `Chapter16/PerturbedSuborbifold`,
     admissible perturbations are those of the cylinder of Corollary 15.4.4, whose inputs are theorems
     (`cylinderInput_canonical`), so `theorem_16_6_6_canonical` has the single hypothesis that $Z$ admits sc-smooth
     partitions of unity (Stokes in the form proved; Remark 9.5.19, gap G.153) (rows V16.78, V16.80). Status:
-    **settled for degree $\ge 1$ with partitions of unity (gaps G.175, G.187 closed); index 0 in part (gap G.188,
-    item 25)**.
+    **settled with partitions of unity (gaps G.175, G.187, G.188 closed; index 0 in item 25)**.
 
 23. **Definition 16.6.5: the orientation is carried along a diagram; Theorem 16.5.7 as printed**
     *(Definition 16.6.5, p. 739, Theorem 16.5.7, p. 735 (2017: Definition 16.42, Theorem 16.6); items 16, 21; gap
@@ -14045,7 +14057,7 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     gaps G.175, G.187, G.188)*. `Chapter16/ModelPerturbations`, `GeneralPositionModels`, `IndexZeroInvariant`,
     `PointCountEquivalence`, `PointTameShrinking`, `PointMeasureGeneralizedIso`, `IndexZeroPolyfoldTheorem`,
     `IndexZeroTwoModels`, `CanonicalIntegralInvariance`, `InheritedOrientationGeneralPosition`, `IndexZeroCylinder`,
-    `FibreNegationStructure`; `Chapter15/LinearizationLocalIso`, `GeneralPositionEquivalence`,
+    `FibreNegationStructure`, `IndexZeroInheritedCorrespondence`; `Chapter15/LinearizationLocalIso`, `GeneralPositionEquivalence`,
     `CanonicalOrientationPullback`, `CylinderPointFrames`. Three readings, as we read
     the text. (i) "The orientation inherited from $(f, o)$" is read in the model that carries $o$: an oriented regular
     perturbation of that model whose orientation is the canonical one of Definition 15.4.2 (`IsInheritedFrom`,
@@ -14083,10 +14095,16 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     consists of the points of $\Theta_1$ with sign $+$ and of $\Theta_0$ with sign $-$, two canonically oriented point
     perturbations are cobordant (`hasOrientedCobordism_of_isCanonical`), and Theorem 16.6.6 for index 0 holds for the
     canonical orientation in the model of $o$ with partitions of unity (gap G.153)
-    (`theorem_16_6_6_index_zero_polyfold_canonical`, `theorem_16_6_6_index_zero_polyfold_inherited`). Open (gap
-    G.188): the independence of the inherited orientation from the model carrying $o$ in dimension 0, the analogue of
-    `isInheritedFrom_generalPosition_iff_of_correspondence` for point perturbations (`IsInheritedFromPoint`). No
-    statement of the text is found not to hold. Witnesses: `TrivialBundle.theorem_16_6_6_canonical_hypotheses_circle`
+    (`theorem_16_6_6_index_zero_polyfold_canonical`, `theorem_16_6_6_index_zero_polyfold_inherited`). As for index
+    $m + 1$, the inherited orientation in dimension 0 does not depend on the model carrying $o$: two point perturbations
+    in models related by a diagram, with the pulled-back orientations equal and both canonically oriented in the signed
+    convention, give related oriented representatives (`pointOrientedRep_rel_of_diagram`), a canonically oriented
+    perturbation of one model is carried to one of the other (`isInheritedFromPoint_of_diagram`), hence
+    `isInheritedFromPoint_generalPosition_iff_of_correspondence` (any boundary) and, for $\partial Z = \emptyset$,
+    `isInheritedFromPoint_iff_of_correspondence` and equal counts across two models
+    (`theorem_16_6_6_index_zero_correspondence`), with the same two remarks: the index 0 in the second model is a
+    hypothesis, and for $\partial Z \ne \emptyset$ the iff is for perturbations in general position. No statement of
+    the text is found not to hold. Witnesses: `TrivialBundle.theorem_16_6_6_canonical_hypotheses_circle`
     (index 1, support the unit circle; weak: units only, the admissibility of $Q$ not shown);
     `HalfSpaceBundle.isInheritedFrom_generalPosition_halfDisc` ($\partial Z \ne \emptyset$; weak: the correspondence is
     the identity diagram, so the conclusion is tautological and the witness shows only that the hypotheses can hold
@@ -14098,5 +14116,9 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     instance); `corollary_15_4_4_index_zero_two_perturbations` (two perturbations with different supports; weak:
     trivial groupoid, $\partial X = \emptyset$); `count_eq_of_mk_eq_two_models` (one structure, two sections) and
     `count_eq_of_mk_eq_two_structures` (weak: the structures differ only in $\Gamma$, so the hypothesis of
-    `count_eq_of_mk_eq` holds by a literal equality) (rows V16.78, V16.80, V16.82, V16.83). Status: **in part (gaps
-    G.175, G.187 closed; G.188 open in part)**.
+    `count_eq_of_mk_eq` holds by a literal equality); `theorem_16_6_6_index_zero_correspondence_z3` (two models over
+    $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ related by $1$ and $\mathrm{Inv}$, $[\mathrm{Inv}] \ne [1]$; weak:
+    the correspondence relates `z3OrientationRep` to itself, $o = o'$, so the iff and the count equality are
+    tautological as conclusions and the witness shows only that the hypotheses can hold together; $\partial Z =
+    \emptyset$) (rows V16.78, V16.80, V16.82, V16.83). Status: **settled with partitions of unity (gaps G.175, G.187,
+    G.188 closed)**.

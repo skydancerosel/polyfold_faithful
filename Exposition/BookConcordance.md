@@ -1622,7 +1622,7 @@ Not listed are the items new in 2021 without a row of their own here (Remark 15.
 | Definition 16.42 | Definition 16.6.5 | 739 | V16.77, G.176 | independent of the representative; G.176 closed |
 | Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78 |  |
 | Theorem 16.8 | Theorem 16.6.6 | 739 | V16.78, V16.80, G.175, G.187 | integrals well defined; general position in one model (G.187 closed) |
-| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.82, G.188 | Fredholm index 0 |
+| Theorem 16.8 | Theorem 16.6.6 | 739 | V16.82, G.188 | Fredholm index 0 (G.188 closed) |
 
 ### Items of the 2021 text without a 2017 counterpart
 

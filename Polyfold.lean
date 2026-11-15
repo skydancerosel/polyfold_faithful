@@ -474,6 +474,7 @@ import Polyfold.Chapter4.StokesFaces
 import Polyfold.Chapter4.StokesFaceCharts
 import Polyfold.Chapter4.StokesFaceOrientation
 import Polyfold.Chapter4.StokesFaceIntegral
+import Polyfold.Chapter4.BoundaryIntegralEnds
 import Polyfold.Chapter4.StratifiedRegularValues
 import Polyfold.Chapter4.Poincare2021
 import Polyfold.Chapter4.Poincare448Shift
@@ -1104,9 +1105,11 @@ import Polyfold.Chapter6.InducedOrientationFrames
 import Polyfold.Chapter6.IntervalConstantCobordism
 import Polyfold.Chapter6.IntervalSliceSignedFrames
 import Polyfold.Chapter9.BoundaryEndFaces
+import Polyfold.Chapter9.EndFaceChartPairs
 import Polyfold.Chapter9.IntervalBoundaryDecomposition
 import Polyfold.Chapter9.IntervalEndSigns
 import Polyfold.Chapter9.IntervalCobordismFaceStructure
+import Polyfold.Chapter9.IntervalLateralBoundary
 import Polyfold.Chapter10.BundleLocalRegularityPrinted
 import Polyfold.Chapter12.IntervalProductLocalIso
 import Polyfold.Chapter12.LocalOrientationComparisonOrbit
@@ -1144,11 +1147,14 @@ import Polyfold.Chapter16.HalfDiscIntervalCobordism
 import Polyfold.Chapter16.HalfDiscCobordismFaces
 import Polyfold.Chapter16.HalfDiscBoundaryIntegral
 import Polyfold.Chapter16.HalfDiscFaceStructureInstance
+import Polyfold.Chapter16.HalfDiscLateralBoundary
 import Polyfold.Chapter16.TrivialIsotropyBundle
 import Polyfold.Chapter16.HalfSpaceIsotropyOrientedSection
 import Polyfold.Chapter16.HalfSpaceLocalOrientation
 import Polyfold.Chapter16.IndexZeroShiftedPerturbation
 import Polyfold.Chapter16.InheritedOrientationGeneralPosition
 import Polyfold.Chapter16.InheritedOrientationGeneralPositionWitness
+import Polyfold.Chapter16.IndexZeroInheritedCorrespondence
+import Polyfold.Chapter16.IndexZeroInheritedCorrespondenceWitness
 import Polyfold.Chapter16.IsotropyCircleCobordism
 import Polyfold.Chapter16.OrientationRepLocal
