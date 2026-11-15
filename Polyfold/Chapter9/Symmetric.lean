@@ -64,8 +64,9 @@ with `Θ(x) > 0` there are an open `U(x)` admitting the natural `G_x`-action, su
 * The sum is computed as in the text: `y ∈ Φ(g)(Mᵢ ∩ U)` iff `Φ(g⁻¹)(y) ∈ Mᵢ`
   (`NaturalRep.mem_image_Φ_iff`), and `Θ(Φ(g)(y)) = Θ(y)` because `Γ(g, y)` is a morphism
   `y → Φ(g)(y)` and `Θ` is a functor (`IsFunctorial.apply_Φ`).
-* Not formalized here: Remark 9.1.3 (b) (2017: Remark 9.2 (b)), two branching structures by graphs
-  in `ℝ²`, which needs graphs of smooth functions as submanifolds of the M-polyfold `ℝ²`.
+* Not in this file: Remark 9.1.3 (b) (2017: Remark 9.2 (b)), two branching structures by graphs
+  in `ℝ²`, which needs graphs of smooth functions as submanifolds of the M-polyfold `ℝ²`; it is
+  `remark_9_1_3_b` (`Propositions.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

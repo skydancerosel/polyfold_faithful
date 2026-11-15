@@ -55,8 +55,8 @@ good.
 * The text works at level `0` with "`B` is `C¹`"; the retraction is only sc-smooth, so all
   estimates are proved on level `1` for the lift `1₀¹ ∘ r` and brought down by `ι`; on `T` the
   two norms are equivalent since `T` is finite-dimensional (`lemma_4_1_7_ii`).
-* The project's earlier hypothesis `HasGraphChartAt` of `AppendixSlices.lean` (one cone `K` for
-  every submanifold through `x`) was stronger than the text needs: the slice arguments use the
+* The hypothesis `HasGraphChartAt` of `AppendixSlices.lean` (one cone `K` for
+  every submanifold through `x`) is stronger than the text needs: the slice arguments use the
   cone of one tangent space at a time, so here the cone is chosen per tangent space
   (`HasClassGraphChartAt`), and this form holds at every point.  `HasGraphChartAt` and
   `HasGraphBallAt` are proved at interior points.
@@ -1064,8 +1064,8 @@ variable (P) in
 at `x` and a choice `K(T)` of admissible directions for each tangent space `T` in which every
 smooth finite-dimensional submanifold through `x` has the graph representation
 (`IsGraphChartAt` with `K(T_xA)`).  It holds at every point (`hasClassGraphChartAt`).  The
-project's earlier hypothesis `HasGraphChartAt` (`AppendixSlices`), one `K` for all tangent
-spaces, was stronger than the text needs: the slice arguments use one tangent space at a
+hypothesis `HasGraphChartAt` (`AppendixSlices`), one `K` for all tangent
+spaces, is stronger than the text needs: the slice arguments use one tangent space at a
 time. -/
 def HasClassGraphChartAt (x : X) : Prop :=
   ∃ (φ : MChart X) (hφ : P.IsChart φ), x ∈ φ.source ∧

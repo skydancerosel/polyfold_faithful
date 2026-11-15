@@ -19,12 +19,12 @@ exists.  Well defined by the z-loops of §14.4 and Proposition 14.4.14 (2); sc�
 ## What is formalized (namespace `Polyfold.SBLocalization.TransportInput`)
 
 * `TransportInput.SuppInSat T`: Lemma 14.5.1 (1) for the cut-offs of `T`, `β_a ≠ 0` only on
-  `π⁻¹(π(V̂_a))` (GL's `TransportInput` records (14.53) but not this part of Lemma 14.5.1).
+  `π⁻¹(π(V̂_a))` (`TransportInput` records (14.53) but not this part of Lemma 14.5.1).
 * `tsec a b j`: the transported section `s̃ᵃ_{b,j}`, defined through the chains with arcs of
   Definitions 14.4.2–14.4.3 (`ZSetup.Arc`), which makes the equivariance and (4) immediate:
   `tsec a b j (t φ) = μ(φ, β_a·ŝᵃᵢ(s φ))` for every `Arc a b i j φ` (`tsec_of_arc`; the
   independence of the arc is `fibAct_bsec_eq`, the text's z-loop argument), `0` if there is none.
-* **`proposition_14_5_4`**: `proposition_14_5_4_statement T` (GL's statement) from `SuppInSat`.
+* **`proposition_14_5_4`**: `proposition_14_5_4_statement T` from `SuppInSat`.
 * `suppInSat_of_zero`: the hypothesis `SuppInSat` holds for `β ≡ 0` (witness).
 
 ## Reading
@@ -33,7 +33,7 @@ exists.  Well defined by the z-loops of §14.4 and Proposition 14.4.14 (2); sc�
   `φ` from `V̂_a` to `V̂_b` with `(i, j)` a pair of `τ̂_{a,b}(φ)` is a chain of length one.
 * sc⁺ near a point `y₀` that is the target of a morphism from `V̂_a`: a local inverse `τ` of `t`
   near such a morphism `φ₀`, `τ̂_{a,b}` constant near `φ₀`, so the section is
-  `z ↦ μ(τ(z), β_a·ŝᵃᵢ(s τ(z)))` (C's `transportSection`).  Near the other points the section
+  `z ↦ μ(τ(z), β_a·ŝᵃᵢ(s τ(z)))` (`transportSection`).  Near the other points the section
   vanishes, since `t(s⁻¹(K))`, `K = cl{β_a ≠ 0} ∩ …`, is closed (properness) and avoids them.
 -/
 
@@ -62,19 +62,19 @@ namespace IndexCorr
 variable {α β : Type u}
 
 /-- Every `j` has a partner: the right leg of a representative is surjective. -/
-theorem exists_pairs_left_t9 (τ : IndexCorr α β) (j : β) : ∃ i, τ.Pairs i j :=
+theorem exists_pairs_left (τ : IndexCorr α β) (j : β) : ∃ i, τ.Pairs i j :=
   ind (p := fun τ => ∃ i, τ.Pairs i j) (fun d => by
     obtain ⟨k, hk⟩ := d.surjective_b j
     exact ⟨d.a k, k, rfl, hk⟩) τ
 
 /-- A relation holding on all pairs holds for the correspondence. -/
-theorem sat_of_pairs_t9 {R : α → β → Prop} (τ : IndexCorr α β)
+theorem sat_of_pairs {R : α → β → Prop} (τ : IndexCorr α β)
     (h : ∀ i j, τ.Pairs i j → R i j) : τ.Sat R :=
   ind (p := fun τ => (∀ i j, τ.Pairs i j → R i j) → τ.Sat R)
     (fun _ h k => h _ _ ⟨k, rfl, rfl⟩) τ h
 
 /-- A relation satisfied by the correspondence holds on its pairs. -/
-theorem rel_of_sat_t9 {R : α → β → Prop} {τ : IndexCorr α β} (h : τ.Sat R) {i : α} {j : β}
+theorem rel_of_sat {R : α → β → Prop} {τ : IndexCorr α β} (h : τ.Sat R) {i : α} {j : β}
     (hp : τ.Pairs i j) : R i j :=
   ind (p := fun τ => τ.Sat R → τ.Pairs i j → R i j)
     (fun _ h ⟨k, h1, h2⟩ => h1 ▸ h2 ▸ h k) τ h hp
@@ -83,7 +83,7 @@ end IndexCorr
 
 /-! ### Pointwise facts on `β·s` -/
 
-theorem sectionSmul_congr_t9 {c : A.Obj → ℝ} {f f' : A.Obj → A.W} {y : A.Obj}
+theorem sectionSmul_congr {c : A.Obj → ℝ} {f f' : A.Obj → A.W} {y : A.Obj}
     (h : f y = f' y) :
     Polyfold.sectionSmul A.P c f y = Polyfold.sectionSmul A.P c f' y := by
   unfold Polyfold.sectionSmul
@@ -95,7 +95,7 @@ theorem sectionSmul_congr_t9 {c : A.Obj → ℝ} {f f' : A.Obj → A.W} {y : A.O
   · have hP' : ¬ A.P (f' y) = y := h ▸ hP
     rw [dif_neg hP, dif_neg hP', h]
 
-theorem sectionSmul_of_eq_zero_t9 {c : A.Obj → ℝ} {f : A.Obj → A.W} {y : A.Obj}
+theorem sectionSmul_of_eq_zero {c : A.Obj → ℝ} {f : A.Obj → A.W} {y : A.Obj}
     (hf : A.P (f y) = y) (hc : c y = 0) :
     Polyfold.sectionSmul A.P c f y = fiberZero A.P y := by
   unfold Polyfold.sectionSmul
@@ -103,7 +103,7 @@ theorem sectionSmul_of_eq_zero_t9 {c : A.Obj → ℝ} {f : A.Obj → A.W} {y : A
   rfl
 
 /-- `∂X` is saturated (the degree index is invariant along morphisms). -/
-theorem src_mem_boundary_t9 {φ : A.Mor} (h : A.X.tgt φ ∈ A.X.PObj.boundary) :
+theorem src_mem_boundary {φ : A.Mor} (h : A.X.tgt φ ∈ A.X.PObj.boundary) :
     A.X.src φ ∈ A.X.PObj.boundary := by
   change 1 ≤ A.X.PObj.degIndex (A.X.tgt φ) at h
   change 1 ≤ A.X.PObj.degIndex (A.X.src φ)
@@ -130,11 +130,11 @@ theorem isSection_bsec (a : A.Obj) (i : S.I a) : IsSection A.P (T.bsec a i) :=
 
 theorem bsec_eq {a : A.Obj} (ha : a ∈ S.A) (i : S.I a) {y : A.Obj} (hy : y ∈ S.V a) :
     T.bsec a i y = Polyfold.sectionSmul A.P (T.β a) (T.sh a i) y :=
-  sectionSmul_congr_t9 (extendZero_eqOn (T.isScPlusSectionOn_sh a ha i).1 hy).symm
+  sectionSmul_congr (extendZero_eqOn (T.isScPlusSectionOn_sh a ha i).1 hy).symm
 
 theorem bsec_of_eq_zero (a : A.Obj) (i : S.I a) {y : A.Obj} (h : T.β a y = 0) :
     T.bsec a i y = fiberZero A.P y :=
-  sectionSmul_of_eq_zero_t9 (isSection_extendZero _ _ y) h
+  sectionSmul_of_eq_zero (isSection_extendZero _ _ y) h
 
 theorem isScPlusSectionOn_bsec {a : A.Obj} (ha : a ∈ S.A) (i : S.I a) :
     IsScPlusSectionOn A (T.bsec a i) (S.V a) :=
@@ -249,7 +249,7 @@ theorem isScPlusSectionOn_tsec {a b : A.Obj} (ha : a ∈ S.A) (hb : b ∈ S.A) (
     have hV₂ : IsOpen V₂ := hτ.isScSmoothOn_inv.isOpen
     have hτc : ContinuousAt τ y₀ :=
       hτ.isScSmoothOn_inv.continuousOn.continuousAt (hV₂.mem_nhds hy₀V₂)
-    obtain ⟨i, hi⟩ := IndexCorr.exists_pairs_left_t9 (S.τ a b φ₀) j
+    obtain ⟨i, hi⟩ := IndexCorr.exists_pairs_left (S.τ a b φ₀) j
     have hsrc : ∀ᶠ z in 𝓝 y₀, A.X.src (τ z) ∈ S.V a := by
       have hc : ContinuousAt (A.X.src ∘ τ) y₀ := A.X.continuous_src.continuousAt.comp hτc
       refine hc.preimage_mem_nhds ((T.isOpen_V a ha).mem_nhds ?_)
@@ -351,7 +351,7 @@ theorem tsec_compat {a b b' : A.Obj} (hb : b ∈ S.A) (hb' : b' ∈ S.A) {φ : A
     (hφ : φ ∈ A.X.morBetween (S.V b) (S.V b')) :
     (S.τ b b' φ).Sat fun j j' =>
       T.tsec a b' j' (A.X.tgt φ) = fibAct φ (T.tsec a b j (A.X.src φ)) := by
-  refine IndexCorr.sat_of_pairs_t9 _ fun j j' hp => ?_
+  refine IndexCorr.sat_of_pairs _ fun j j' hp => ?_
   by_cases hR : ∃ p : S.I a × A.Mor, S.Arc a b p.1 j p.2 ∧ A.X.tgt p.2 = A.X.src φ
   · obtain ⟨⟨i, ψ⟩, h, e⟩ := hR
     have h' := Arc.snoc h hb' e.symm hφ.2 hp
@@ -384,27 +384,27 @@ theorem tsec_boundary (hβ : T.SuppInSat) {a b : A.Obj} (ha : a ∈ S.A) (hb : b
     exact (T.isScPlusSectionOn_sh b hb j).1 y hy.1
   by_cases hR : ∃ φ, A.X.src φ ∈ S.V a ∧ A.X.tgt φ = y
   · obtain ⟨φ, hs, rfl⟩ := hR
-    have hsb : A.X.src φ ∈ A.X.PObj.boundary := src_mem_boundary_t9 hy.2
-    obtain ⟨i, hi⟩ := IndexCorr.exists_pairs_left_t9 (S.τ a b φ) j
+    have hsb : A.X.src φ ∈ A.X.PObj.boundary := src_mem_boundary hy.2
+    obtain ⟨i, hi⟩ := IndexCorr.exists_pairs_left (S.τ a b φ) j
     rw [T.tsec_of_pairs ha hb hs hy.1 hi]
-    have hc := IndexCorr.rel_of_sat_t9 (T.s0_compat a ha b hb φ ⟨⟨hs, hsb⟩, hy⟩) hi
+    have hc := IndexCorr.rel_of_sat (T.s0_compat a ha b hb φ ⟨⟨hs, hsb⟩, hy⟩) hi
     have e₁ : T.s0 b j (A.X.tgt φ) = extendZero (S.V b) (T.sh b j) (A.X.tgt φ) := by
       rw [← extendZero_eqOn (T.isScPlusSectionOn_sh b hb j).1 hy.1, T.sh_boundary b hb j _ hy]
-    rw [sectionSmul_congr_t9 e₁]
+    rw [sectionSmul_congr e₁]
     refine fibAct_sectionSmul (isSection_extendZero _ _) (isSection_extendZero _ _) rfl rfl
       (T.β_tgt a φ) ?_
     rw [← e₁, ← extendZero_eqOn (T.isScPlusSectionOn_sh a ha i).1 hs,
       T.sh_boundary a ha i _ ⟨hs, hsb⟩]
     exact hc
   · rw [T.tsec_of_not_reach hR,
-      sectionSmul_of_eq_zero_t9 hPs0 (by by_contra h; exact hR (hβ a ha y h))]
+      sectionSmul_of_eq_zero hPs0 (by by_contra h; exact hR (hβ a ha y h))]
 
 /-! ### Proposition 14.5.4 -/
 
 /-- **2021 Proposition 14.5.4, p. 673 (2017: Proposition 14.8)**, proved: for the data of
 §§14.3–14.4 (`T : TransportInput A S`) whose cut-offs satisfy Lemma 14.5.1 (1), every `a ∈ A`
 has sections `s̃ᵃ_{b,j}`, sc⁺ and `G_b`-equivariant on every `V̂_b`, with (1)–(4)
-(GL's `proposition_14_5_4_statement`). -/
+(`proposition_14_5_4_statement`). -/
 theorem proposition_14_5_4 (hβ : T.SuppInSat) : proposition_14_5_4_statement T := by
   intro a ha
   refine ⟨T.tsec a, fun b hb j => T.isScPlusSectionOn_tsec ha hb j,

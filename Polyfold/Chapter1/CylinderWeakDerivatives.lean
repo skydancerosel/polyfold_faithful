@@ -31,7 +31,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-! ### The cylinder -/
 
@@ -405,4 +405,4 @@ lemma HasWeakDeriv.mul_s_t {g h : ℝ × ℝ → ℝ} (hh : HasWeakDeriv 0 1 g h
   simp_rw [e1, e2]
   exact hh _ (hφ.mul_s hχ)
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

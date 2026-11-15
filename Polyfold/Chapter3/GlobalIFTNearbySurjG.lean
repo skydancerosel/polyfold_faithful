@@ -7,7 +7,7 @@ import Polyfold.Chapter3.LinearizationChartsG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1) — the kernel of the linearization at the nearby zeros for a section, and "at every
 point `y ∈ S` the germ `(f, y)` is in good position" under the filler condition (3) at the
-nearby zeros — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+nearby zeros — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # Theorem 3.6.8 (preprint 3.54) (1) for sections, germ reading
 
@@ -17,7 +17,7 @@ nearby zeros — **in the text's germ reading of Definition 3.1.11 (preprint 3.1
   `z₀ ∈ O` of a filling germ (the germ form of `exists_range_scDeriv_eq_ρ_of_normal_injective`,
   with `Dg(z₀₁)` the value of the derivative family at a level-`1` point of the germ).
 * (`Polyfold.StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt`, zeros of a regularizing
-  section are smooth points, now lives in `TameGermsG.lean`, where Chapter 5 reaches it.)
+  section are smooth points, is in `TameGermsG.lean`, where Chapter 5 reaches it.)
 * `Polyfold.StrongBundle.isGoodPositionGermTame_of_chart_dense`: Definition 3.6.6 (preprint 3.53) in a tame chart
   centred at a zero `y`, germ reading, from the germ data of `IsScFredholmGermTame` and the
   kernel and range conditions of `Dg(z)` in any chart around `y`
@@ -36,7 +36,7 @@ nearby zeros — **in the text's germ reading of Definition 3.1.11 (preprint 3.1
 * The G″ design makes every nearby zero `z₀` a point whose level-`1` lift `z₀₁ = ψ'₁(x₁)` lies in
   the germ `G_g` of the filling; the derivative `Dg(z₀₁)` of the text's "`f'(y)`" is the value of
   the derivative family there.  The condition (3) of `IsGoodPositionGermFilled` is imposed on
-  these points `z₁ ∈ (G_g)₁` only (the old `IsGoodPositionGermFilledWholeChart` imposed it at every
+  these points `z₁ ∈ (G_g)₁` only (`IsGoodPositionGermFilledWholeChart` imposed it at every
   level-`1` point over `O ∩ N`; `IsGoodPositionGermFilledWholeChart.isGoodPositionGermFilled`).
 * The chart independence at `y` (`isGoodPositionAtGerm_of_chart_dense`, `LinearizationChartsG.lean`)
   needs the Fredholm property of `Dg'(0)` in the chart centred at `y`, which is Proposition 3.6.5 (preprint 3.52)
@@ -60,7 +60,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.1.5 (preprint 3.5) (1) at a zero `z₀ ∈ O` of a filling germ** (germ reading, phase 2; the germ
+/-- **Proposition 3.1.5 (preprint 3.5) (1) at a zero `z₀ ∈ O` of a filling germ** (germ reading; the germ
 form of `exists_range_scDeriv_eq_ρ_of_normal_injective`): for `g` an sc¹-germ on `G₁` with
 derivative family `Dg`, `z ∈ (G₁)₁` over a zero `z₀ ∈ O` of `f̂ = g` near `z₀`, if `Dg(z)` is
 surjective and `(1 − ρ(z₀))Dg(z)` is injective on `ker Dr(z)`, then for every `k ∈ F`,
@@ -111,7 +111,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero in a tame chart, from a filling germ in a non-centred chart,
-germ reading, dense form** (phase 2; the tame, section-level form of
+germ reading, dense form** (the tame, section-level form of
 `isGoodPositionAtGerm_of_chart_dense`): if `(f, y)` has tame germ data in the germ reading
 (`IsScFredholmGermTame`), `f(y) = 0`, and in some chart `c` around `y` a germ `g` with derivative
 family `Dg` agrees with `f̂` on `O` near `ϕ(y)`, with `Dg(z)(T_zO) ⊇ ρ(z)F_∞` and
@@ -147,7 +147,7 @@ theorem StrongBundle.isGoodPositionGermTame_of_chart_dense (hf : B.IsScSmoothSec
 
 set_option maxHeartbeats 1600000 in
 /-- **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in the chart at `x₀`, for a section, germ
-reading** (phase 2; the germ form of `theorem_3_6_8_nearby_kernel_wholeChart`).  In the setting of
+reading** (the germ form of `theorem_3_6_8_nearby_kernel_wholeChart`).  In the setting of
 `theorem_3_6_8_graph` (whose conclusion is restated), with the filling germ `g` of
 `f̂ = c.principal f` on the germ `G_g` (derivative family `Dg`) and its sc⁺-germ `t₀` exposed:
 there is an open neighbourhood `Vx₂ ⊆ Vx` of `x₀` such that for every zero `y ∈ Vx₂` of `f`, with
@@ -334,7 +334,7 @@ theorem theorem_3_6_8_nearby_kernel (hf : IsSection P f) {x₀ : X}
 
 variable (B) in
 /-- **Definition 3.6.6 (preprint 3.53) with a filling germ satisfying condition (3) of Definition 3.1.4 (preprint 3.4) at the nearby
-zeros, germ reading** (phase 2; the germ form of `IsGoodPositionGermFilledWholeChart`): the data of
+zeros, germ reading** (the germ form of `IsGoodPositionGermFilledWholeChart`): the data of
 `StrongBundle.IsGoodPositionGermTame` (a tame chart centred at `x₀`, a filling germ `g` of `f̂`,
 an sc⁺-germ `s` with `g − s` conjugated to a basic germ, a germ `G ⊆ U` with a derivative family
 `Dg` of `g`, the germ in good position at `Dg(0)`), together with: on a neighbourhood `N` of `0`,
@@ -367,7 +367,7 @@ theorem StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm {x₀ : X}
     (h : B.IsGoodPositionGermFilled f x₀) : B.IsGoodPositionGerm f x₀ :=
   h.isGoodPositionGermTame.isGoodPositionGerm
 
-/-- **Project ⇒ germ reading** for the strengthened good position (phase 2): with the germ
+/-- **Project ⇒ germ reading** for the strengthened good position: with the germ
 `ofSet U` and `Dg = scDeriv U g`. -/
 theorem StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermFilled {x₀ : X}
     (h : B.IsGoodPositionGermFilledWholeChart f x₀) : B.IsGoodPositionGermFilled f x₀ := by
@@ -381,7 +381,7 @@ theorem StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermFilled
 
 set_option maxHeartbeats 1600000 in
 /-- **Theorem 3.6.8 (preprint 3.54) (1), germ reading** ("at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is
-in good position"; phase 2, the germ form of `theorem_3_6_8_one_wholeChart`), under the **added hypothesis**
+in good position"; the germ form of `theorem_3_6_8_one_wholeChart`), under the **added hypothesis**
 that the filling germ at `x₀` satisfies condition (3) of Definition 3.1.4 (preprint 3.4) at the nearby zeros
 (`IsGoodPositionGermFilled`).  Let `f` be an sc-Fredholm section with tame germ data in the germ
 reading (`IsScFredholmSectionTame`), `f(x₀) = 0`, and `(f, x₀)` in good position in a tame chart

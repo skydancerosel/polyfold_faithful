@@ -108,7 +108,7 @@ sc-diffeomorphism of `U(x)` onto an open image with `β(x) = x` and `|β(y)| = |
   `{β = ĝ}`, two pieces whose closures meet have `T(ĝ) = T(ĝ')` at a common smooth point, so
   `ĝ = ĝ'` by (ZHOU) and (LUC) (`eqOn_Φ_of_tangent`); connectedness of `U(x)_∞` finishes.  The
   text's claim that the regular points are dense is not used.
-* Possible misprints as we read them: in the proof of Lemma 7.4.4, "`s : W(g) → W(y)`" for
+* Notation, as we read it: in the proof of Lemma 7.4.4, "`s : W(g) → W(y)`" for
   `W(h)`; in the proof of Proposition 7.4.8, "`z_k → Y`" for `z_k → y`.
 -/
 
@@ -829,7 +829,8 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
 /-- **2021 Corollary 7.4.11 for all `i`**, with (ZHOU) for every `Xⁱ` (the conclusion of
-Proposition 7.4.9, not formalized) as a hypothesis. -/
+Proposition 7.4.9, `EP.proposition_7_4_9_of_isZhou` in `SmoothRegularAssembly.lean`) as a
+hypothesis. -/
 theorem corollary_7_4_11_lift (A : EP.{u}) (hZ : ∀ i, (A.lift i).X.IsZhou)
     (hreg : ∀ i, (A.lift i).X.PObj.SmoothRegular) (i : ℕ) : (A.lift i).X.IsLUC :=
   (A.lift i).X.proposition_7_4_10 (hreg i) (hZ i)

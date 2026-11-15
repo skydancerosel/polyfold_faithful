@@ -6,9 +6,9 @@ import Polyfold.Chapter9.GeneralLevelZero
 HWZ, *Polyfold and Fredholm Theory* (Springer 2021), §9.2–§9.3, pp. 412–424 (2017: §9.1–§9.2).
 
 The good-point input of Lemma 9.3.4 (`HasOrientedGoodPointsAt`, `OrientationUniqueness.lean`)
-was derived in `OrientationRn.lean` from the ball form of the graph representation
+is derived in `OrientationRn.lean` from the ball form of the graph representation
 (`HasGraphBallAt`): every small `u` of the tangent space `T = T_xA` is the projection of a point
-of `A`.  The project's earlier hypothesis `HasGraphBallAt` was stronger than the text needs: the
+of `A`.  The hypothesis `HasGraphBallAt` is stronger than the text needs: the
 argument only uses the points of `A` over a small ball `S` around `t h₀` for one direction `h₀`
 of `T`.  Here `h₀` is chosen in the cone of admissible directions of the partial quadrant at
 `φ(x)` (`goodDirections`), and the points over `S` come from the uniform form of the ray graph

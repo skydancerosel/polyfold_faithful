@@ -28,14 +28,14 @@ sc-smooth partition of unity); then the `s̄⁰ᵢ` are averaged.
 * **Proposition 14.1.4** in two forms:
   * `proposition_14_1_4_of_closure`: for every `V' ≤ V(x)` (same action) with `cl V' ⊆ V(x)` the
     restricted structure extends equivariantly to `V'` (no hypothesis on the extensions; this
-    discharges the hypothesis of B1's `proposition_14_1_4_hyp` on `V'`);
+    discharges the hypothesis of `proposition_14_1_4_hyp` on `V'`);
   * `proposition_14_1_4`: for a good `V(x)` there is a good `V'(x) ≤ V(x)` with
     `cl V'(x) ⊆ V(x)` on which the structure extends.
 
 ## Reading
 
 * "`X` admits sc-smooth partitions of unity" is Definition 5.5.1 for the object M-polyfold
-  (`A.X.PObj.AdmitsScPartitionsOfUnity`), as in B1's `theorem_14_1_9_statement`.
+  (`A.X.PObj.AdmitsScPartitionsOfUnity`), as in `theorem_14_1_9_statement`.
 * "A strong bundle over a tame ep-groupoid" provides the tame strong bundle charts; as in the
   cores of Theorem 12.3.9 (`exists_extension_of_tameCharts`) it is the hypothesis that every
   object lies in a tame strong bundle chart.

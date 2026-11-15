@@ -23,7 +23,7 @@ noncomputable section
 
 namespace Polyfold.ZhouLine
 
-open Polyfold.GapP1Sobolev
+open Polyfold.CylinderSobolev
 
 /-! ### Test functions of the line -/
 

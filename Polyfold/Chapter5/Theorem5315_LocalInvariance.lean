@@ -20,7 +20,7 @@ point" does not depend on the chart.  Gap G.48.
   the clause of `MPolyfold.IsMorseOrRegularPoint` does not depend on the parametrization.
 * The regular alternative at boundary points and the whole clause in every parametrization are in
   `Theorem5315_LocalInvarianceClause.lean` (`MPolyfold.IsSmoothParam.fderivWithin_ne_zero_congr`,
-  `MPolyfold.IsMorseOrRegularPoint.morseClause`, 2026-11-12).
+  `MPolyfold.IsMorseOrRegularPoint.morseClause`).
 -/
 
 open Set Function Module Topology Filter

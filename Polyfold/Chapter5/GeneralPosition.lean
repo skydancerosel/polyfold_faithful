@@ -2079,8 +2079,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
--- `StrongBundle.IsGoodPositionGermTame.congr_nhds` (good position is a property of the germ) now
--- lives in `Chapter3/Chapter5BridgeG.lean`, in the germ reading of Definition 3.1.11 (preprint 3.11).
+-- `StrongBundle.IsGoodPositionGermTame.congr_nhds` (good position is a property of the germ)
+-- is in `Chapter3/Chapter5BridgeG.lean`, in the germ reading of Definition 3.1.11 (preprint 3.11).
 
 omit [TopologicalSpace X] [T2Space X] [ParacompactSpace X] [TopologicalSpace Y] [T2Space Y]
   [ParacompactSpace Y] [∀ x, Module ℝ (P ⁻¹' {x})] in

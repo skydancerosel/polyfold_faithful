@@ -9,24 +9,25 @@ the 2021 text's.
 
 # The class conditions `hcov`, `hcovS` from the text's hypotheses
 
-Theorems 9.5.15–9.5.18 were formalized (E7, E8) under a class condition: at the points of
+Theorems 9.5.15–9.5.18 are proved in `BoundaryMeasure.lean` and `StokesBoundaryMeasure.lean`
+under a class condition: at the points of
 `supp(∂Θ)` (resp. `supp Θ`) there are oriented tame structures describing `T̂Θ` whose nonempty
 boundary sheets `∂₁Mᵢ` lie in the class `msheets` (and whose sheets lie in one graph chart).
 Here the condition is derived from the text's hypotheses: `Θ` compact, branched, of dimension
 `m + 1`, oriented and tame in the reading `hloc` (an oriented tame structure describing `T̂Θ` at
-every point of `supp Θ`, E4).
+every point of `supp Θ`).
 
 * `OrientedTameStructure.exists_restrict_eq`: a structure restricted into an open `W ∋ x`, with
-  `Mᵢ' = Mᵢ ∩ U(x)'` (E8's `exists_restrict_subset` with the sheets made explicit).
+  `Mᵢ' = Mᵢ ∩ U(x)'` (`exists_restrict_subset` with the sheets made explicit).
 * `LocalBranchingStructure.isCompact_M_inter`: `Mᵢ ∩ L` is compact for compact `L ⊆ U(x)` (the
   inclusion `Mᵢ → U(x)` is proper).
 * **`EP.exists_restrict_boundary_mem_msheets`**: every structure `C₀` at `x` restricts to one with
   sheets in one graph chart and nonempty boundary sheets in `msheets`: shrink `U(x)` into the
   interior of a closed neighbourhood `t ⊆ U(x)`; then `∂₁Mᵢ' ⊆ Mᵢ ∩ t ∩ K` with `K` the compact
-  set containing `supp Θ ∩ U(x)` (E4's `exists_isCompact_supp_inter`), and
+  set containing `supp Θ ∩ U(x)` (`exists_isCompact_supp_inter`), and
   `EP.boundaryStratum_inter_mem_msheets` (`CornerFinite`) applies.
 * **`EP.hcovS_of_loc`**, `EP.hcovS_of_loc_isLUC`, `EP.hcov_of_loc`, `EP.hcov_of_loc_isLUC`: the
-  hypotheses `hcovS` (E8) and `hcov` (E7) from `hloc` (with `X.IsLUC` for the effective forms).
+  hypotheses `hcovS` (`StokesBoundaryMeasure.lean`) and `hcov` (`BoundaryMeasure.lean`) from `hloc` (with `X.IsLUC` for the effective forms).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -45,7 +46,7 @@ open MPolyfold
 
 /-- `∂₁(A ∩ V) = ∂₁A ∩ V` for an open `V` (the stratum is read in the tangent spaces, which are
 local). -/
-theorem MPolyfold.k1_boundaryStratum_inter_isOpen {Z : Type u} [TopologicalSpace Z] [T2Space Z]
+theorem MPolyfold.boundaryStratum_inter_isOpen {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace Z] {P : MPolyfold Z} {A V : Set Z} (hV : IsOpen V) :
     P.boundaryStratum (A ∩ V) = P.boundaryStratum A ∩ V := by
   ext y
@@ -87,7 +88,7 @@ theorem LocalBranchingStructure.isCompact_M_inter {x : Obj} (B : X.LocalBranchin
 
 namespace OrientedTameStructure
 
-/-- **A structure restricted into an open `W ∋ x`** (E8's `exists_restrict_subset`, with the
+/-- **A structure restricted into an open `W ∋ x`** (`exists_restrict_subset`, with the
 sheets `Mᵢ' = Mᵢ ∩ U(x)'` made explicit and no condition on the sheets). -/
 theorem exists_restrict_eq {n : ℕ} {x : Obj} (C₀ : X.OrientedTameStructure n Θ x)
     (hC₀ : C₀.Represents T) {W : Set Obj} (hWo : IsOpen W) (hxW : x ∈ W) :
@@ -173,7 +174,7 @@ theorem exists_restrict_boundary_mem_msheets (hm : 0 < m) (hΘ : A.X.IsBranchedE
   · obtain ⟨j, hj⟩ := hCM i
     have hb : C.boundarySheet i = A.X.PObj.boundaryStratum (C₁.M j) ∩ C.U := by
       change A.X.PObj.boundaryStratum (C.M i) = _
-      rw [hj, MPolyfold.k1_boundaryStratum_inter_isOpen C.isOpen_U]
+      rw [hj, MPolyfold.boundaryStratum_inter_isOpen C.isOpen_U]
     rw [hb] at hne ⊢
     refine A.boundaryStratum_inter_mem_msheets hm (C₁.isSubmanifoldOfDim j)
       (C₁.hasTameInducedStructure j) C.isOpen_U
@@ -184,7 +185,7 @@ theorem exists_restrict_boundary_mem_msheets (hm : 0 < m) (hΘ : A.X.IsBranchedE
     refine ⟨hyM, hUK ⟨C₁.toLocalBranchingStructure.M_subset_supp j hyM, C₁.subset_U j hyM⟩,
       interior_subset (hCW hyU)⟩
 
-/-- **E8's hypothesis `hcovS` from the text's hypotheses**: for `Θ` compact, branched, oriented
+/-- **The hypothesis `hcovS` (`StokesBoundaryMeasure.lean`) from the text's hypotheses**: for `Θ` compact, branched, oriented
 and tame in the reading `hloc` (an oriented tame structure of dimension `m + 1` describing `T̂Θ`
 at every point of `supp Θ`), every point of `supp Θ` has a structure describing `T̂Θ` with sheets
 in one graph chart and nonempty boundary sheets in `msheets`. -/
@@ -231,7 +232,7 @@ theorem hcovS_of_loc_isLUC (hm : 0 < m) (hLUC : A.X.IsLUC) (hΘ : A.X.IsBranched
     obtain ⟨C, hCT, hS, hb⟩ := A.hcovS_of_loc hm hΘ hcpt hloc x hx
     exact ⟨C, hCT, hS, hb, A.X.isLUC_iff_forall_naturalRep.1 hLUC x C.rep⟩
 
-/-- **E7's hypothesis `hcov` from the text's hypotheses** (Theorem 9.5.15): at every point of
+/-- **The hypothesis `hcov` (`BoundaryMeasure.lean`) from the text's hypotheses** (Theorem 9.5.15): at every point of
 `supp(∂Θ)` an oriented tame structure describing `T̂Θ` whose nonempty boundary sheets lie in
 `msheets`. -/
 theorem hcov_of_loc (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
@@ -242,7 +243,7 @@ theorem hcov_of_loc (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
         ∀ i, (C.boundarySheet i).Nonempty → C.boundarySheet i ∈ (A.epFormsInftyEval m).msheets :=
   A.hcovB_of_hcovS (A.hcovS_of_loc hm hΘ hcpt hloc)
 
-/-- E7's hypothesis `hcov` of Theorem 9.5.16 (with LUC on `U(x)`), for an ep-groupoid with the
+/-- The hypothesis `hcov` of Theorem 9.5.16 (with LUC on `U(x)`), for an ep-groupoid with the
 local unique continuation property. -/
 theorem hcov_of_loc_isLUC (hm : 0 < m) (hLUC : A.X.IsLUC) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ)

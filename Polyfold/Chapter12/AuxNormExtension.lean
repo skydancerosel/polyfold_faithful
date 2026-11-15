@@ -36,8 +36,8 @@ gives `Ñ`.
 
 ## The local step
 
-The coordinate construction `N'` of the local step is in `AuxNormLocalExtension.lean`
-(Part III wave 2): `EpStrongBundle.hasLocalExtensions_of_isTame` discharges the hypothesis of
+The coordinate construction `N'` of the local step is in `AuxNormLocalExtension.lean`:
+`EpStrongBundle.hasLocalExtensions_of_isTame` discharges the hypothesis of
 `theorem_12_2_7_hyp` for tame `X`, and `EpStrongBundle.theorem_12_2_7` is the printed theorem.
 The retraction `r ∘ q` is built in a tame chart of the base, and the formula for `N'` is
 evaluated in any strong bundle chart of the atlas, so no "tame strong bundle chart" is needed.

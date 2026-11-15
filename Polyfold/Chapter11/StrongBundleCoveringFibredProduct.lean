@@ -20,7 +20,8 @@ Theorem 11.6.6 (`SEP.pullbackCovering`).
 ## Main declarations
 
 * `SBPC.equivalences_iff`: `E_SBPC` is "both components are strong bundle equivalences"; the
-  condition on the base face in H2's definition is automatic (`isEquivalence_iff`).
+  condition on the base face in the definition of `E_SBPC` (`ProperStrongBundleCoverings.lean`)
+  is automatic (`isEquivalence_iff`).
 * `SBPC.NatTrans` (natural transformations of morphisms of `SBPC`: one of strong bundle functors
   on each level, Definition 10.4.8, with (11.20) for their bases), `NaturallyEquivalent`,
   `refl`, `symm`, `trans`, `whiskerLeft`, `whiskerRight`, `NatTrans.comm_total` (the top face

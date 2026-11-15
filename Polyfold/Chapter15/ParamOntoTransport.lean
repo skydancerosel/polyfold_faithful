@@ -20,7 +20,7 @@ equivariance without comment.
 * **`IsParamOntoVec f x v`**: (15.1) at `x` for given vectors `v_j ∈ W_x`: for every operator `L`
   of `T(f, Λ₀)(x)` and every chart presentation of `T^R_xX`,
   `(u, τ) ↦ L u + Σ_j τ_j v_j` maps `T^R_xX × ℝ^ℓ` onto `W_x`.  `isParamOntoAt_iff_vec`:
-  GP's `IsParamOntoAt` is `IsParamOntoVec` for every branch of a linear representation.
+  `IsParamOntoAt` is `IsParamOntoVec` for every branch of a linear representation.
 * **`IsParamOntoVec.of_mor`**: for a morphism `φ : x → y` and an sc-Fredholm section functor `f`,
   (15.1) at `x` with vectors `v_j` gives (15.1) at `y` with `μ(φ, v_j)`.  Ingredients: the
   functor property of `T(f, Λ₀)` (`theorem_15_1_1_functor`), `T^R_yX = Tφ(T^R_xX)` read in the
@@ -28,7 +28,7 @@ equivariance without comment.
   (`reducedTangentFiber_eq`), and the surjectivity of `μ(φ, ·)` (`muLin_surjective`).
 * `transSec_eq_muLin`, `paramSec_transSec_eqOn`: the carried branches of a linear family are
   again linear in `t` (`μ(φ, ·)` is linear on the fibres); `IsLocalRepOn.congr_eqOn`.
-* **`IsParamOntoAt.of_mor`**: GP's `IsParamOntoAt f Λ` is carried from `s(φ)` to `t(φ)` for a
+* **`IsParamOntoAt.of_mor`**: `IsParamOntoAt f Λ` is carried from `s(φ)` to `t(φ)` for a
   family of functors `Λ_t`; **`IsParamOntoAt.of_mor_inv`** in the other direction.
 * `exists_linearRep_of_mor`: a linear representation of `t ↦ Λ_t` around `s(φ)` is carried to
   one around `t(φ)` (only `IsWFunctor` of every `Λ_t` is used).
@@ -66,7 +66,7 @@ def IsParamOntoVec (f : A.Obj → A.W) (x : A.X.PObj.Level 1) {ℓ : ℕ}
       ∀ w : A.P ⁻¹' {A.X.PObj.levelVal 1 x}, ∃ u ∈ reducedTangentFiber hφ hx T,
         ∃ τ : Fin ℓ → ℝ, L u + ∑ j, τ j • v j = w
 
-/-- **GP's `IsParamOntoAt` is `IsParamOntoVec` for every branch** of a linear representation. -/
+/-- **`IsParamOntoAt` is `IsParamOntoVec` for every branch** of a linear representation. -/
 theorem isParamOntoAt_iff_vec {f : A.Obj → A.W} {ℓ : ℕ} {Λ : (Fin ℓ → ℝ) → A.W → ℚ≥0}
     {x : A.X.PObj.Level 1} :
     IsParamOntoAt f Λ x ↔
@@ -238,7 +238,7 @@ theorem IsLocalRepOn.congr_eqOn {Λ : A.W → ℚ≥0} {O : Set A.Obj} {k : ℕ}
   refine Finset.sum_congr rfl fun i _ => ?_
   rw [hss' i hw]
 
-/-! ### Linear representations and GP's `IsParamOntoAt` along a morphism -/
+/-! ### Linear representations and `IsParamOntoAt` along a morphism -/
 
 /-- **A linear representation is carried along a morphism**: if the sections
 `Σ_j t_j s_{ij}` with weights `σ_i` represent the functors `Λ_t` on an open `O ∋ s(φ)` for every
@@ -273,7 +273,7 @@ theorem exists_linearRep_of_mor {ℓ : ℕ} {Λ : (Fin ℓ → ℝ) → A.W → 
     rw [← extendZero_eqOn (fun z hz => P_transSec hsec hO₁s hz) hyO]
     exact transSec_of_eq_tgt rfl (hs i j _)
 
-/-- **GP's (15.1) is carried along morphisms**: for an sc-Fredholm section functor `f`, a family
+/-- **(15.1) is carried along morphisms**: for an sc-Fredholm section functor `f`, a family
 `t ↦ Λ_t` of functors and a morphism `φ : x → y` of level-`1` points, `IsParamOntoAt f Λ x`
 gives `IsParamOntoAt f Λ y` (with the linear representation carried along `φ`). -/
 theorem IsParamOntoAt.of_mor {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunctor f) {ℓ : ℕ}
@@ -297,7 +297,7 @@ theorem IsParamOntoAt.of_mor {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFu
   rw [hv]
   exact h
 
-/-- **GP's (15.1) along a morphism `φ : y → x`**, from the target to the source (through
+/-- **(15.1) along a morphism `φ : y → x`**, from the target to the source (through
 `φ⁻¹`). -/
 theorem IsParamOntoAt.of_mor_inv {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunctor f)
     {ℓ : ℕ} {Λ : (Fin ℓ → ℝ) → A.W → ℚ≥0} (hΛ : ∀ t, IsWFunctor A (Λ t)) (φ : A.Mor)

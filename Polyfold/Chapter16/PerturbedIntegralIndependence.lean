@@ -24,11 +24,11 @@ Polyfold level (namespace `Polyfold.PolyfoldClass`), for a polyfold `(Z, c)`:
   so `∫_θ̂ τ` depends only on `[τ]`; the same for `∮_θ̂` (`integralEff_d_eq_zero`).
 * `CompactOrientedSuborbifold c m` (tame compact oriented, dimension `m + 1`), `.integral`,
   `.integralEff`, `integral_mk_rep` (in every model it is the ep-groupoid integral of
-  Definition 9.5.6, so ep-level results such as TX's transfer); `HasCobordism P₀ P₁` (the
+  Definition 9.5.6, so ep-level results such as `integral_eq_of_cobordism` transfer); `HasCobordism P₀ P₁` (the
   cobordism of the proof of Corollary 15.4.4: a compact oriented tame `Θ̃` of dimension `m + 2`
   over an ep-groupoid `Y → X` of a model, with
   `∫_{∂Θ̃} F^*ω = ∫_{P₁} ω − ∫_{P₀} ω`); **`integral_eq_of_hasCobordism`** (closed forms have equal
-  integrals, TX's `integral_eq_of_cobordism`); `hasCobordism_refl` (satisfiability); the effective
+  integrals, `integral_eq_of_cobordism`); `hasCobordism_refl` (satisfiability); the effective
   forms `HasCobordismEff` (with (LUC) on `Y`), `integralEff_eq_of_hasCobordismEff` (Theorem 9.5.18
   on `Y`), `hasCobordismEff_refl`.
 
@@ -38,7 +38,7 @@ Polyfold bundle level (namespace `Polyfold.StrongPolyfoldBundle`):
   `IsAdmissible n U` (`λ` controlled by `(n, U)`, `(f, λ)` in general position).
 * **`theorem_16_6_6_statement`**: the text's statement, with the inherited orientation as a
   predicate `IsInherited o P` ("`θ̂` has the orientation inherited from `(f, o)`", Theorem
-  15.4.1, not formalized): over the admissible perturbations with the inherited orientation,
+  15.4.1, a parameter here): over the admissible perturbations with the inherited orientation,
   (i) `∫_θ̂ (τ + dη) = ∫_θ̂ τ` and `∮_θ̂ (τ + dη) = ∮_θ̂ τ`, (ii) closed `τ` have the same `∫` and
   the same `∮` over any two of them.  The well-definedness of each integral (independence of the
   representative and of the model) is `OrientedSuborbifold.integral_eq` (every representative
@@ -47,20 +47,23 @@ Polyfold bundle level (namespace `Polyfold.StrongPolyfoldBundle`):
   unity on `Z` (Theorem 16.4.6's added hypothesis, witness `theorem_16_4_6_hyp_witness`) and
   (b) the cobordisms `HasCobordism`, `HasCobordismEff` between any two admissible perturbations
   with the inherited orientation (the content of Corollary 15.4.4's proof: Corollary 15.3.10 (3) on
-  `[0, 1] × X` and `∂Θ̃ = Θ₁ ⊔ −Θ₀`; TX-6).  Nonvacuity of (b):
+  `[0, 1] × X` and `∂Θ̃ = Θ₁ ⊔ −Θ₀`).  Nonvacuity of (b):
   `theorem_16_6_6_hyp_hcob_witness` (`hasCobordism_refl`, `hasCobordismEff_refl`).
 
-## What still rests on other work
+## Where the parameters are discharged
 
-* The predicate `IsInherited` is Theorem 15.4.1 / Definition 15.4.2 (G.159, the canonical
-  orientation of `λ ∘ f` from `(f, o)`), with PB-4 (transport of `o` between models).
-* The cobordism hypothesis is Corollary 15.4.4's cobordism (TX-6): Corollary 15.3.10 (3) (TX-4,
-  TX-5, T15.3.9), Theorem 15.4.1 on `[0, 1] × X`, and the identification of the boundary
-  measure of `Θ̃` with `∫_{Θ₁} − ∫_{Θ₀}`.
+* `IsInherited` as the canonical orientation of `λ ∘ f` from `(f, o)` (Theorem 15.4.1,
+  Definition 15.4.2), read in the model of the orientation `o` (Definition 16.6.5):
+  `theorem_16_6_6_canonical`, `theorem_16_6_6_canonical_of_forall` (`CanonicalIntegralInvariance`);
+  across two models, `theorem_16_6_6_correspondence` (`InheritedOrientationGeneralPosition`).
+* The cobordism hypothesis: there it is the cylinder of Corollary 15.4.4 over `[0, 1] × X`
+  (Corollary 15.3.10 (3), Theorem 15.4.1 on the cylinder, and the splitting of the boundary
+  measure of `Θ̃` into `∫_{Θ₁} − ∫_{Θ₀}`; `theorem_16_6_6_of_cylinder`, `ModelPerturbations`).
 * The existence of `θ = λ ∘ f` as a compact branched suborbifold is
   `exists_isPerturbedSuborbifold_hyp` (inherited tame germ data, G.140).
-* No concrete strong polyfold bundle with a nonempty admissible oriented perturbation is built
-  here; the statement is nonvacuous only through the cobordism witnesses (weak).
+* In this file the statement is nonvacuous through the cobordism witnesses (weak); a concrete
+  bundle with a non-empty inherited perturbation is `theorem_16_6_6_canonical_hypotheses_circle`
+  (`CircleSectionPolyfold`).
 
 ## Reading
 
@@ -254,7 +257,7 @@ def HasCobordism (P₀ P₁ : CompactOrientedSuborbifold c m) : Prop :=
         P₁.integral (ScForm.mk q hq ω) - P₀.integral (ScForm.mk q hq ω)
 
 /-- **Cobordant perturbations have the same integrals of closed forms** (Corollary 15.4.4's
-argument, on the polyfold): Stokes on `Y` and `d F^* = F^* d` (TX's
+argument, on the polyfold): Stokes on `Y` and `d F^* = F^* d` (
 `integral_eq_of_cobordism`), read in the model of the cobordism. -/
 theorem integral_eq_of_hasCobordism {P₀ P₁ : CompactOrientedSuborbifold c m}
     (h : HasCobordism P₀ P₁) (τ : ScForm c (m + 1)) (hτ : ScForm.d τ = 0) :
@@ -405,7 +408,7 @@ def theorem_16_6_6_statement (s : FredholmSection c) (n : Y → ℝ) (U : Set Z)
 predicate `IsInherited`, the statement holds when `Z` admits sc-smooth partitions of unity
 (Theorem 16.4.6's added hypothesis) and any two admissible perturbations with the inherited
 orientation are joined by oriented compact cobordisms (`HasCobordism`, `HasCobordismEff`;
-Corollary 15.4.4's proof, TX-6).  The parts "depends only on `[τ]`" (for `∫` and `∮`) and the
+Corollary 15.4.4's proof).  The parts "depends only on `[τ]`" (for `∫` and `∮`) and the
 well-definedness (`OrientedSuborbifold.integral_eq`) use no cobordism. -/
 theorem theorem_16_6_6_hyp (hPU : c.polyfold.AdmitsScPartitionsOfUnity) (s : FredholmSection c)
     (n : Y → ℝ) (U : Set Z) (m : ℕ)

@@ -1,6 +1,6 @@
 import Polyfold.Chapter15.LinearizationModel
 import Polyfold.Chapter3.StrongBundleMaximalAtlas
-import Polyfold.Chapter11.MultisectionLocalStructure2021
+import Polyfold.Chapter11.MultisectionLocalStructure
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 15,
@@ -43,7 +43,8 @@ chart `c` of `P`: the operators are `(f̂ − ŝᵢ)'(z) : T_zO → F` at the le
 
 The passage to intrinsic operators `T_xX → W_x` and the independence of the chart are in
 `LinearizationIntrinsic.lean` (`theorem_15_1_1_intrinsic`, `linearization`).  The functor
-property `T(f,Λ)(t φ) = φ_* T(f,Λ)(s φ)` of the text's "section functor" is not formalized.
+property `T(f,Λ)(t φ) = φ_* T(f,Λ)(s φ)` of the text's "section functor" is
+`theorem_15_1_1_functor` (`LinearizationFunctor`).
 -/
 
 open Set Filter Topology Function

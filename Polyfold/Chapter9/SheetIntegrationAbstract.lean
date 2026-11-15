@@ -44,7 +44,7 @@ on which the sheets through a point have one tangent space and two classes of or
   (`MPolyfold.SheetGeometry`), they are the data of a structure, `SheetIntegration`; the forms are
   the elements of a real vector space `Ω`, seen through their integrals.  A witness is in
   `PointIntegration.lean` (dimension `0`: the sheets are points, the integral is the
-  signed value of an invariant function).  (2026-11-13) For the sc-forms of Definitions 8.2.1,
+  signed value of an invariant function).  For the sc-forms of Definitions 8.2.1,
   8.2.2 and `n ≥ 1` the integral is constructed as a `SheetIntegration` in
   `SheetIntegrationConcrete.lean` (sheets in one graph chart) and
   `MultiChartIntegration.lean` (sheets covered by countably many graph charts).

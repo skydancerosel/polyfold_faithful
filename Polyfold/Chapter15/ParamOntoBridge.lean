@@ -24,9 +24,9 @@ The text refers to Part I (Theorems 5.3.5, 5.3.10) for these steps.
   Part I's properties (i)–(ii) (`StrongBundleChart.IsParamGP`) hold for `f` and the `s_j` in `c`.
   (i)–(ii) ask for `F'(0, x)` onto with kernel transversal to `ℝ^ℓ ⊕ T^R_xX`, (15.1) asks for
   `F'(0, x)` onto already on `ℝ^ℓ × T^R_xX`; the two are equivalent.
-* **`hasPointwiseParamOnto`**: GA's `HasPointwiseParamOnto A f N`, from Part I's
+* **`hasPointwiseParamOnto`**: `HasPointwiseParamOnto A f N`, from Part I's
   `exists_sections_isParamGP` (bump functions, auxiliary norm `(2/ε)·N`) and the bridge.
-* **`hasParamOntoOpen`**: GA's `HasParamOntoOpen A f` for tame `X`, from the bridge, Part I's
+* **`hasParamOntoOpen`**: `HasParamOntoOpen A f` for tame `X`, from the bridge, Part I's
   `isGeneralPositionGerm_paramSection_of_isParamGP` (general position of the parametrized
   section `F(t, y) = f(y) + Σ_j t_j s_j(y)` at `(0, x)`), Part I's openness of general position
   along the solution set (`exists_isOpen_isGeneralPositionGerm`, on the tame `ℝ^ℓ × X`), and

@@ -31,13 +31,13 @@ the equality.
 
 * `localBranching_of_isGoodPositionAt`, **`theorem_15_4_3_isBranched_hyp`**: under (1)–(3)
   `Θ = Λ ∘ f` is a compact branched ep⁺-subgroupoid (Definitions 9.1.2, 9.1.6 (2)): local branching
-  from L's Theorem 15.2.2 (interior points) and Theorem 15.2.5 (boundary points), compactness from
-  G's `isCompact_orbitSupp_comp`.
+  from Theorem 15.2.2 (interior points) and Theorem 15.2.5 (boundary points), compactness from
+  `isCompact_orbitSupp_comp`.
 * **`theorem_15_4_3_hyp`**, `theorem_15_4_3_eff_hyp`, `theorem_15_4_3_dim1_hyp`: Stokes for `Θ`,
-  from K's Theorems 9.5.17, 9.5.18 (and the dimension-1 form), for an orientation `T̂` of `Θ`
-  with oriented tame structures of dimension `m + 1` (`hloc`) given as data.  Theorem 15.4.1
-  (the canonical orientation from `o`) is not formalized (F's gap), so the orientation is a
-  hypothesis.
+  from Theorems 9.5.17, 9.5.18 (and the dimension-1 form), for an orientation `T̂` of `Θ`
+  with oriented tame structures of dimension `m + 1` (`hloc`) given as data.  The orientation is a
+  hypothesis here; the canonical orientation from `o` (Theorem 15.4.1) is `theorem_15_4_1`, and
+  `CanonicalOrientationStokes` applies these results to it.
 * `OrientedRegularPerturbation A f m`: a regular perturbation (Corollary 15.3.10 (1)) with an
   orientation of `Θ` described in dimension `m + 1`; `.integral`.
 * **`corollary_15_4_4_statement A f m Can`**: Corollary 15.4.4 for a predicate `Can` that singles
@@ -55,9 +55,9 @@ the equality.
 
 ## Reading
 
-* `hPU` (sc-smooth partitions of unity on `X`) is the hypothesis of K's Theorem 9.5.17, inherited;
+* `hPU` (sc-smooth partitions of unity on `X`) is the hypothesis of Theorem 9.5.17, inherited;
   the text's Theorem 15.4.3 does not state it.
-* "Tame" and the dimension of `Θ` are carried by `hloc` (as in K's Theorem 9.5.17).
+* "Tame" and the dimension of `Θ` are carried by `hloc` (as in Theorem 9.5.17).
 * `Φ_{(f,o)}` on `H*_dR(X)` is read degree-wise on `Ω^{m+1}_{ep,∞}`: vanishing on exact forms and
   equality on closed forms are what "well defined" means for `[ω] ↦ ∫ ω`.  The exact-form part
   uses Theorem 9.5.17 (`dim Θ ≥ 2`) and its dimension-1 form `theorem_9_5_17_dim1`.
@@ -83,7 +83,7 @@ variable {A : SEP.{u}}
 /-! ### Theorem 15.4.3: `Θ = Λ ∘ f` is a compact branched ep⁺-subgroupoid -/
 
 /-- At a point of good position (Definition 15.2.4), `z ↦ Λ(f(z))` has a local branching
-structure (Definition 9.1.2 (2)–(4)), from L's Theorem 15.2.5 (as in G's
+structure (Definition 9.1.2 (2)–(4)), from Theorem 15.2.5 (as in
 `remark_15_3_6_localBranching_hyp`). -/
 theorem localBranching_of_isGoodPositionAt {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)
@@ -147,9 +147,9 @@ theorem theorem_15_4_3_isBranched_hyp {f : A.Obj → A.W} (hf : A.E.IsScFredholm
 /-- **Theorem 15.4.3 (2017: Theorem 15.7), p. 702**, with the inherited hypotheses: tame germ
 data of `f`, sc-smooth partitions of unity on `X` (Theorem 9.5.17's hypothesis), and the
 orientation `T̂` of `Θ = Λ ∘ f` with oriented tame structures of dimension `m + 1` given as data
-(the text: the canonical orientation of Theorem 15.4.1, not formalized).  Under (1)–(3), `Θ` is a
+(the text: the canonical orientation of Theorem 15.4.1, `theorem_15_4_1`).  Under (1)–(3), `Θ` is a
 compact branched ep⁺-subgroupoid, and `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S) = ∫_{∂Θ̂} ω` for every
-`ω ∈ Ωᵐ_{ep,∞}(X)` (`m ≥ 1`; K's `theorem_9_5_17`). -/
+`ω ∈ Ωᵐ_{ep,∞}(X)` (`m ≥ 1`; `theorem_9_5_17`). -/
 theorem theorem_15_4_3_hyp {m : ℕ} (hm : 0 < m) (hPU : A.X.HasScPartitionsOfUnity)
     {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunctor f)
     (hft : A.B.IsScFredholmSectionTame f) {N : A.B.One → ℝ} {U : Set A.Obj}
@@ -170,7 +170,7 @@ theorem theorem_15_4_3_hyp {m : ℕ} (hm : 0 < m) (hPU : A.X.HasScPartitionsOfUn
   exact ⟨hΘ, hcpt, fun hΘ hcpt ω => A.baseEP.theorem_9_5_17 hm hPU hΘ hcpt hT hloc ω⟩
 
 /-- **Theorem 15.4.3, effective version, p. 703**: with the local unique continuation property
-(Definition 7.2.18), `∮_Θ̂ dω = ∮_{∂Θ̂} ω` (K's `theorem_9_5_18`); hypotheses as in
+(Definition 7.2.18), `∮_Θ̂ dω = ∮_{∂Θ̂} ω` (`theorem_9_5_18`); hypotheses as in
 `theorem_15_4_3_hyp`. -/
 theorem theorem_15_4_3_eff_hyp {m : ℕ} (hm : 0 < m) (hPU : A.X.HasScPartitionsOfUnity)
     (hLUC : A.X.IsLUC) {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunctor f)
@@ -191,7 +191,7 @@ theorem theorem_15_4_3_eff_hyp {m : ℕ} (hm : 0 < m) (hPU : A.X.HasScPartitions
   obtain ⟨hΘ, hcpt⟩ := theorem_15_4_3_isBranched_hyp hf hft hcc hΛ hdom hN1 htr hgood
   exact ⟨hΘ, hcpt, fun hΘ hcpt ω => A.baseEP.theorem_9_5_18 hm hPU hLUC hΘ hcpt hT hloc ω⟩
 
-/-- **Theorem 15.4.3 for index `1`** (`Θ` of dimension `1`, `ω` a function): Stokes from K's
+/-- **Theorem 15.4.3 for index `1`** (`Θ` of dimension `1`, `ω` a function): Stokes from
 `theorem_9_5_17_dim1`, `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S)` (a signed count over the finitely many oriented
 boundary points); hypotheses as in `theorem_15_4_3_hyp`. -/
 theorem theorem_15_4_3_dim1_hyp (hPU : A.X.HasScPartitionsOfUnity)
@@ -261,8 +261,8 @@ theorem integral_d_eq_zero_of_degIndex_eq_zero {B : EP.{u}} {m : ℕ} (hm : 0 < 
   rw [hd x] at h1
   exact absurd h1 (by norm_num)
 
-/-- **The integral of an exact form vanishes when `d_X ≡ 0`, dimension `1`** (K's
-`theorem_9_5_17_dim1`). -/
+/-- **The integral of an exact form vanishes when `d_X ≡ 0`, dimension `1`**
+(`theorem_9_5_17_dim1`). -/
 theorem integral_d_eq_zero_of_degIndex_eq_zero_dim1 {B : EP.{u}}
     (hPU : B.X.HasScPartitionsOfUnity) (hd : ∀ x, B.X.PObj.degIndex x = 0) {Θ : B.Obj → ℚ}
     {T : B.Obj → B.X.PObj.OrTangent →₀ ℚ} (hΘ : B.X.IsBranchedEpSubgroupoid Θ)
@@ -376,7 +376,8 @@ end OrientedRegularPerturbation
 variable (A) in
 /-- **Corollary 15.4.4 (2017: Corollary 15.2), p. 703**, as a proposition, degree-wise in
 degree `m + 1` (the dimension of `Θ`).  `Can P` is the condition that the orientation of `P` is
-the canonical one from `(f, o)` (Theorem 15.4.1, not formalized, so `Can` is a parameter).
+the canonical one from `(f, o)` (a parameter; for the canonical orientation of Theorem 15.4.1 see
+`corollary_15_4_4_canonical`).
 `Φ_{(f,o)}([ω]) = ∫_{(Λ ∘ f, o)} ω` is well defined: (i) exact forms integrate to `0` over every
 `Can`-perturbation, (ii) a closed form has the same integral over any two `Can`-perturbations. -/
 def corollary_15_4_4_statement (f : A.Obj → A.W) (m : ℕ)

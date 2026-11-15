@@ -9,8 +9,6 @@ structurable "if one, and therefore all, representatives are". The step "therefo
 Prop `StructurablePullback` (`PolyfoldMultisections`). It follows from Theorems 13.4.1 and 13.4.3
 for generalized strong bundle isomorphisms (`GenSBMap.isStructurable_pullMult`,
 `MultisectionPushforward`).
-
-Part III wave 4 (agent FN; copied from FN's scratch check by the integrator, 2026-11-13).
 -/
 
 open Polyfold

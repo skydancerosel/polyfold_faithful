@@ -100,7 +100,8 @@ is that the decomposition built from local branching structures of `Θ` is well 
 decomposition is the second one.  An extra condition singling it out, for instance that every
 `Θ_k` be represented near each `x ∈ supp(Θ)` by a subfamily of a local branching structure of `Θ`
 (or that `supp(Θ_k)` be closed in `supp(Θ)`, which fails for `L ∖ {0}`), is a possible repair;
-it and the reduction of the uniqueness to Proposition 9.1.12 are not formalized.
+it is `IsLocalDimDecomposition`, and the uniqueness under it is
+`existsUnique_localDimDecomposition` (`DimDecompositionExists.lean`).
 
 ## What the text leaves implicit, and the choices made
 
@@ -109,8 +110,8 @@ it and the reduction of the uniqueness to Proposition 9.1.12 are not formalized.
   Remark 4.14 does.  It asks for *some* data and chart; `HasDimAt.finrank_eq` proves the value is
   the same for *every* data and chart, so no "for all charts" hypothesis is needed; it is
   satisfied by graphs and points (`rnPolyfold_isSubmanifoldOfDim_graph2`, `..._singleton`).
-* Local constancy (Remark 9.1.1) is not proved, so a submanifold may a priori have several
-  dimensions.  The splitting `I = I_0 ⊔ ⋯ ⊔ I_n` presupposes that each `Mᵢ` has one dimension;
+* Local constancy (Remark 9.1.1) is not used in this file (it is `hasLocallyConstantDimAt`,
+  `GeneralLevelZero.lean`).  The splitting `I = I_0 ⊔ ⋯ ⊔ I_n` presupposes that each `Mᵢ` has one dimension;
   we take labellings `dim : I → ℕ` with `IsSubmanifoldOfDim (Mᵢ) (dim i)` as hypotheses.  Since
   all `Mᵢ` pass through `x`, such a labelling is unique (`dim_unique`).
 * "`Θ` is `n`-dimensional": there is, at each `x ∈ supp(Θ)`, a local branching structure all of
@@ -132,24 +133,27 @@ it and the reduction of the uniqueness to Proposition 9.1.12 are not formalized.
   submanifold of the other on any neighbourhood of the origin (the last conjunct of
   `remark_9_1_3_b`).
 
-## Not formalized, and why
+## Not in this file
 
-* **The proof of Proposition 9.1.12** beyond the equidimensional case.  It needs (a) the
+* **The proof of Proposition 9.1.12** beyond the equidimensional case: it is
+  `proposition_9_1_12` (`GeneralCorollaries.lean`).  It needs (a) the
   "measure zero" and "moving `z` slightly" steps of Lemmas 9.6.1, 9.6.2, 9.6.4: a nonempty open
   piece of a `k`-dimensional submanifold is not covered by finitely many submanifolds of smaller
-  dimension, nor by finitely many closed `k`-dimensional ones not containing it near the point.
-  Part I has no measure or dimension theory for submanifolds of an M-polyfold, and the graph
-  representation of Proposition 4.9 needs good position; (b) Proposition 9.6.5, which rests on
+  dimension, nor by finitely many closed `k`-dimensional ones not containing it near the point;
+  (b) Proposition 9.6.5, which rests on
   the good-point analysis of §9.2 (Proposition 9.2.8) and on the classes of the `T_xMᵢ` as
   linear subspaces of `T_xX`; (c) the local constancy of the dimension (Remark 9.1.1).
 * **The global part of Proposition 9.1.11**: gluing the local `Θ_k` into functors on `X`
   (compatibility across morphisms between different objects, paracompactness of
   `|supp(Θ_k)|`, local finiteness).  It rests on Proposition 9.1.12 and, for uniqueness, on an
-  extra condition as above.
-* The footnote to Definition 9.1.2 (an `n`-dimensional `Θ ≠ 0` is not `m`-dimensional), the
-  notion "locally equidimensional", and Proposition 9.1.9.
+  extra condition as above.  It is `existsUnique_localDimDecomposition` (`DimDecompositionExists.lean`)
+  and `existsUnique_localDimDecomposition_general`, `proposition_9_1_11_local_of_le`
+  (`GeneralCorollaries.lean`).
+* The footnote to Definition 9.1.2 (an `n`-dimensional `Θ ≠ 0` is not `m`-dimensional) and the
+  notion "locally equidimensional" (`LocallyEquidimensional.lean`), and Proposition 9.1.9
+  (`SupportOrbifold.lean`, `SupportManifold.lean`).
 
-## Possible misprints (§9.6.1)
+## How we read some passages (§9.6.1)
 
 * Proposition 9.6.5 (1), p. 456: the `I^e` are subsets of `Ξ`, so "`I_k = I¹ ⊔ ⋯ ⊔ I^p`" reads
   as `Ξ = I¹ ⊔ ⋯ ⊔ I^p`; with that, the formula on p. 457 holds.

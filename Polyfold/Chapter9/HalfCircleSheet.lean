@@ -7,7 +7,7 @@ of a witness with boundary.  Numbers and pages are the 2021 text's.
 
 # The closed right half-circle as a tame `1`-dimensional submanifold of `[0, ∞) × ℝ`
 
-This is E8W's hemisphere one dimension lower.  `X = [0, ∞) × ℝ` is the M-polyfold
+This is the hemisphere of `HemisphereSheet` one dimension lower.  `X = [0, ∞) × ℝ` is the M-polyfold
 `quadrantPolyfold 1 ℝ` (`Pa`), with boundary `{t = 0}`.  The half-circle
 `arc = {p ∈ X | |p| = 1}` is compact, and:
 
@@ -19,8 +19,8 @@ This is E8W's hemisphere one dimension lower.  `X = [0, ∞) × ℝ` is the M-po
 * its boundary stratum `∂₁ arc = {d = 1}` is the pair of end points `{t = 0} = {(0, ±1)}`
   (`boundaryStratum_arc`).
 
-The frame `f(a) = e_x − x/(1+t) (a + e_t)` (`frameVec`) is E8W's, and equals `(−x, t)` on the
-circle.
+The frame `f(a) = e_x − x/(1+t) (a + e_t)` (`frameVec`) is the one of `HemisphereSheet`, and equals
+`(−x, t)` on the circle.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -34,7 +34,7 @@ namespace Polyfold
 
 open MPolyfold
 
-namespace K2Arc
+namespace HalfCircle
 
 /-! ### The plane `ℝ × ℝ` and the radial retraction -/
 
@@ -585,6 +585,6 @@ def pt1 : Q2 := ⟨mk2 0 1, fun i => by rw [Subsingleton.elim i 0]; exact le_rfl
 theorem pt1_mem_arcEnds : pt1 ∈ arcEnds :=
   ⟨by change nsq (mk2 0 1) = 1; rw [nsq_eq]; simp, rfl⟩
 
-end K2Arc
+end HalfCircle
 
 end Polyfold

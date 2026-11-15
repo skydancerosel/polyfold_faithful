@@ -16,7 +16,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 Stokes' theorem; read in `∂X` it is `φ(1) − φ(−1)`.
 
 ## What is formalized
-* `ABd`: the ep-groupoid `∂X` (`K3.εB`) as an object of `EP`; its two points `bm = (−1, 0)`,
+* `ABd`: the ep-groupoid `∂X` (`DimensionJump.εB`) as an object of `EP`; its two points `bm = (−1, 0)`,
   `b₀ = (1, 0)` are isolated and smooth for the induced structure; `isLUC_εB`: `∂X` has the local
   unique continuation property; `tangentMor_εB`: the tangent maps of its morphisms are the
   identity (`s = t` on the morphisms of `∂X`).
@@ -47,7 +47,7 @@ namespace Polyfold
 
 namespace DimensionJump
 
-open K3
+open DimensionJump
 open ScOneExample hiding E
 
 open RemarkFourThree MPolyfold EpGroupoid EpGroupoid.Examples

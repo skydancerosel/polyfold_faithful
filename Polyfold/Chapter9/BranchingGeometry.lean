@@ -80,9 +80,9 @@ matching orientation classes (1)–(5).
   intersects it with `M_U^*` and `M_U'^*`, not needed for (1)–(5)); Property (T) is not used, the
   pieces being cut out by the finitely many values of `y ↦ (I_y, I'_y, J₊(y), J'₊(y))`.
 * Lemma 9.4.3 is not in this file: it is `OrientedBranchingStructure.lemma_9_4_3`
-  (`Chapter9/PropertyTShrinking2021.lean`, 2026-11-09); Lemma 9.4.4 for M-polyfold sheets, in the
+  (`Chapter9/PropertyTShrinking.lean`); Lemma 9.4.4 for M-polyfold sheets, in the
   reading through M-polyfold charts, is `lemma_9_4_4_chart`
-  (`Chapter9/SheetEssentialChart2021.lean`).
+  (`Chapter9/SheetEssentialChart.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

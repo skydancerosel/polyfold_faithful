@@ -6,7 +6,7 @@ import Polyfold.Chapter3.TameGermsG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
 **Theorem 3.1.18 (preprint 3.15)** (stability of sc-Fredholm sections under sc⁺-perturbations) **in the text's germ
-reading** of Definition 3.1.11 (preprint 3.11) (phase 2 of the germ-versus-chart work; Findings, Chapter 3, items
+reading** of Definition 3.1.11 (preprint 3.11) (Findings, Chapter 3, items
 300–309).
 
 # Theorem 3.1.18 (preprint 3.15) for sc-Fredholm germs in the germ reading
@@ -31,7 +31,7 @@ neighbourhoods whose levels may shrink with the level).
   germ reading (`IsScFredholmGerm`) when `(f, x)` is.
 * `Polyfold.StrongBundle.regularizing_sectionAdd` and **`Polyfold.theorem_3_1_18_preprint`**:
   Theorem 3.1.18 (preprint 3.15) for sc-Fredholm sections in the germ reading (`IsScFredholmSection`).
-* `Polyfold.StrongBundle.IsScFredholmGermWholeChart.sectionAdd_germG`: the old whole-chart hypothesis feeds
+* `Polyfold.StrongBundle.IsScFredholmGermWholeChart.sectionAdd_germG`: the whole-chart hypothesis feeds
   the germ version.
 
 ## What the text leaves implicit, and the choices made
@@ -61,7 +61,7 @@ section Congr
 variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 /-- **A filling germ depends only on `f̂` on `O = r(U)` and on `g` on `U`** (Definition 3.1.6 (preprint 3.6) with
-Definition 3.1.4 (preprint 3.4), germ reading, phase 2): conditions (1), (2) are about points of `O` and `U`, and the
+Definition 3.1.4 (preprint 3.4), germ reading): conditions (1), (2) are about points of `O` and `U`, and the
 sc-smoothness of `g` and the derivative family of `[1 − ρ(r(·))]g` are about the germ `G` with
 `G₀ ⊆ U`. -/
 theorem IsFillingGerm.congr (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
@@ -97,7 +97,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 namespace StrongBundle
 
-/-- **Theorem 3.1.18 (preprint 3.15), the chart step, germ reading** (phase 2): let `c` be a chart of `P` with
+/-- **Theorem 3.1.18 (preprint 3.15), the chart step, germ reading**: let `c` be a chart of `P` with
 `0 ∈ U`, `g` a filling germ of `f̂` (`IsFillingGerm`), `t₀` an sc⁺-germ (`IsScPlusGerm`) with
 `t₀(0) = g(0)` and `g − t₀` conjugated to a basic germ, and `s` an sc⁺-section.  Then in the same
 chart `g + ŝ ∘ r` is a filling germ of the principal part of `f + s` (Lemma 3.1.20 (preprint 3.17) for germs,
@@ -150,7 +150,7 @@ theorem sectionAdd_chartData_germ (hfs : IsSection P f) (hs : B.IsScPlusSection 
     rw [hs.toBase_principalLift hc (c.r_mem_O hu)]
     abel
 
-/-- **Theorem 3.1.18 (preprint 3.15), the germ property, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.18 (preprint 3.15), the germ property, germ reading** (the germ form of
 `IsScFredholmGermWholeChart.sectionAdd`): if `(f, x)` is an sc-Fredholm germ in the text's germ reading
 (`IsScFredholmGerm`) and `s` is an sc⁺-section, then `(f + s, x)` is one, in the same chart, with
 the filling germ `g + ŝ ∘ r`, the sc⁺-germ `ŝ₁ ∘ r + t₀` and the conjugation of `g − t₀`
@@ -162,7 +162,7 @@ theorem IsScFredholmGerm.sectionAdd {x : X} (hfs : IsSection P f)
   obtain ⟨h1, h2, h3, h4⟩ := sectionAdd_chartData_germ hfs hs hc h0U hfill ht₀ ht₀0 hconj
   exact ⟨hxs, c, hc, hxV, h0, h0U, _, _, h1, h2, h3, h4⟩
 
-/-- **Theorem 3.1.18 (preprint 3.15), second clause, germ reading** (phase 2): `f + s` is regularizing when `f` is an
+/-- **Theorem 3.1.18 (preprint 3.15), second clause, germ reading**: `f + s` is regularizing when `f` is an
 sc-Fredholm section in the germ reading (the proof of `regularizing_sectionAdd_wholeChart`, which uses only
 that `f` is an sc-smooth regularizing section). -/
 theorem regularizing_sectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSection s) :
@@ -185,7 +185,7 @@ theorem regularizing_sectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusS
     obtain ⟨b, hb⟩ := hsx
     exact ⟨a - b, by rw [map_sub, ha, hb, heq]⟩
 
-/-- **The old hypothesis feeds the germ version** (phase 2): for an sc-Fredholm germ in the
+/-- **The whole-chart hypothesis feeds the germ version**: for an sc-Fredholm germ in the
 project's whole-chart sense (`IsScFredholmGermWholeChart`), `(f + s, x)` is an sc-Fredholm germ in the germ
 reading (`IsScFredholmGermWholeChart.isScFredholmGerm`, then `IsScFredholmGerm.sectionAdd`). -/
 theorem IsScFredholmGermWholeChart.sectionAdd_germG {x : X} (hfs : IsSection P f)
@@ -196,7 +196,7 @@ theorem IsScFredholmGermWholeChart.sectionAdd_germG {x : X} (hfs : IsSection P f
 end StrongBundle
 
 open StrongBundle in
-/-- **Theorem 3.1.18 (preprint 3.15) (stability under sc⁺-perturbations), germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.18 (preprint 3.15) (stability under sc⁺-perturbations), germ reading** (the germ form of
 `theorem_3_1_18_wholeChart`): if `f` is an sc-Fredholm section of the strong bundle `P : Y → X` in the text's
 germ reading of Definition 3.1.11 (preprint 3.11) (`IsScFredholmSection`) and `s` is an sc⁺-section, then `f + s`
 is an sc-Fredholm section in the germ reading.  (The text assumes the bundle tame; tameness is not

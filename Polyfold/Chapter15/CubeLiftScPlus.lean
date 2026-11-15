@@ -191,12 +191,12 @@ hypothesis (`X` is tame as `d_X ≡ 0`, and `CubeLiftFace A` holds). -/
 theorem isBoundaryStructurable_cubeGlue (hd : ∀ x, A.X.PObj.degIndex x = 0)
     (hpara : A.X.HasParacompactOrbitSpace) {Λ₀ Λ₁ : A.W → ℚ≥0} (h₀ : IsStructurable A Λ₀)
     (h₁ : IsStructurable A Λ₁) : IsBoundaryStructurable (A.cubeSEP 1) (cubeGlue Λ₀ Λ₁) :=
-  isBoundaryStructurable_cubeGlue_w5 (A.X.isTame_of_degIndex_eq_zero hd) hd hpara
+  isBoundaryStructurable_cubeGlue_of_cubeLiftFace (A.X.isTame_of_degIndex_eq_zero hd) hd hpara
     cubeLiftFace_holds h₀ h₁
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations**, from the
 relative step on `[0, 1] × X` (`hrelC`) and the face condition of the glued data (`hbonto`):
-`corollary_15_3_10_3_of_rel` with `CubeLiftFace A` proved.  The remaining added hypotheses are
+`corollary_15_3_10_3_of_rel` with `CubeLiftFace A` proved.  The added hypotheses are
 `hrelC`, `hbonto` and sc-smooth partitions of unity on `X` (`hPU`). -/
 theorem corollary_15_3_10_3_of_rel_onto
     (hrelC : theorem_15_3_7_relative_statement (A.cubeSEP 1))

@@ -60,7 +60,7 @@ Proposition 7.1.15 (2017: 7.5) is the natural representation of `𝐘` on neighb
 
 ## Reading
 
-* **A star construction instead of the induction** (PLAN II.6, 6).  Fix one base object `x`
+* **A star construction instead of the induction**.  Fix one base object `x`
   isomorphic to every `y ∈ Y` (`y₁`, say; `x ∈ Y` is not used), one natural representation
   `(U(x), Φ, Γ)` of `G_x` (Theorem 7.1.13 (2017: 7.1)) and for each `y ∈ Y` a morphism `γ_y : x → y` with a sheet
   `K y`; `U(x)` is taken inside every `s(K y)` and so small that the `U(y) := γ̂_y(U(x))` lie in
@@ -88,7 +88,7 @@ Proposition 7.1.15 (2017: 7.5) is the natural representation of `𝐘` on neighb
 * **Hypotheses.**  No hypothesis "for all …" is added.  `Star X Y V` is inhabited whenever `Y` is
   nonempty and mutually isomorphic and `V ⊇ Y` is open (`exists_star`); the hypotheses of
   `transportRep` are met by `exists_spoke`.
-* **Possible misprints** in the proof, as we read it (PLAN II.6, 6; all three stand):
+* **Three places in the proof that do not hold as we read it** (all three stand):
   - p. 234, "Fixing `g ∈ G_{y1}`, we consider the map `Φ_g : 𝐔(γ₁) → X`, `Φ_g(φ) = Γ(g, t(φ)) ∘
     φ`" (the formula on p. 235): `t(φ) ∈ U(y₂)` and `γ_g = g ∘ γ₁` with `g ∈ G_{y₂}`, so `G_{y2}`
     is meant;
@@ -96,7 +96,7 @@ Proposition 7.1.15 (2017: 7.5) is the natural representation of `𝐘` on neighb
   - p. 235, "Let `k ≥ 3` and assume that the statement holds for any set `Y'` of `k` distinct
     objects": the cases done are `#Y = 1, 2`, so the step `k → k + 1` must start at `k ≥ 2` to
     reach `#Y = 3`.
-  Further possible misprints on the same pages: "The images `𝐔(ψ_g)`" (p. 235) for `𝐔(γ_g)`;
+  Further points of notation on the same pages: "The images `𝐔(ψ_g)`" (p. 235) for `𝐔(γ_g)`;
   "`φ = Γ(g, s(φ)) ∘ ψ` … `ψ ∈ 𝐔(γ₁)`" (p. 235), where `Γ(g, ·)` lives on `U(y₂)` while
   `s(φ) ∈ U(y₁)`: `φ = Γ(g, t(ψ)) ∘ ψ` is meant; "for a unique `g ∈ G_x`" (p. 234) for `G_{y₁}`;
   two morphisms named `φ` ("`φ : u → z` and `φ : u' → z'`", p. 234); the garbled sentence "It is
@@ -524,7 +524,7 @@ theorem exists_spoke {x : Obj} (R : X.NaturalRep x) {φ : Mor} (hφ : X.src φ =
 /-! ### The star construction -/
 
 variable (X) in
-/-- **The data of the star construction** for Proposition 7.1.15 (2017: 7.5) (PLAN II.6, 6): a base object `x`,
+/-- **The data of the star construction** for Proposition 7.1.15 (2017: 7.5): a base object `x`,
 a natural representation `R` of `G_x`, and for every `y ∈ Y` a sheet `K y` of a morphism
 `γ_y : x → y` (`γ_y = (s|K y)⁻¹(x)`) with `U(x) ⊆ s(K y)`, the transported neighbourhoods
 `γ̂_y(U(x))` contained in `V` and pairwise disjoint. -/

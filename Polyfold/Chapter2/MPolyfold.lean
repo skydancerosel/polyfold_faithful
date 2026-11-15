@@ -66,14 +66,17 @@ an sc-smooth retraction `r : V → V` with `r(V) = A ∩ V`.
   no added hypothesis; Smirnov's theorem, which is not in Mathlib, is proved there
   (`Polyfold.metrizableSpace_of_locally`).  That `(V_m, φ, (O_m, C_m, E_m))` are charts making
   `X_m` an M-polyfold is proved for `m = 1` in `LevelPolyfold.lean` (`MPolyfold.shift`, through
-  Proposition 1.2.2 (preprint 1.17) for retracts, `IsScSmoothRetractMap.shift`); for `m ≥ 2` it is not formalized
-  (gap G.6 of the report).
+  Proposition 1.2.2 (preprint 1.17) for retracts, `IsScSmoothRetractMap.shift`); for every `m` the levels
+  of `X¹` are those of `X` shifted by one (`MPolyfold.shiftLevelHomeomorph`, `MPolyfold.shift_level_eq` in
+  `TangentLift.lean`; gap G.6).
 * The tangent bundle `TX` (Definitions 2.17–2.18, Proposition 2.3.15 (preprint 2.19) (1), continuity in (2), `TX`
   as an M-polyfold) is in `TangentBundle.lean`, Proposition 2.3.15 (preprint 2.19) (3) (`Polyfold.proposition_2_3_15_three`)
   in `Metrizable.lean`.  Proposition 2.3.19 (preprint 2.21) (the structure, (1), (2)) is in `SubMPolyfold.lean`;
   (3), (4) are proved in a chart (`Polyfold.proposition_2_3_19_three`, `Polyfold.proposition_2_3_19_four`) in
-  `Metrizable.lean`.  Not formalized: the linear and sc-structures of `T_xX`, hence 2.21 (3), (4)
-  in `T_aX` (G.7), and the openness of `p : TX → X_1` in Proposition 2.3.15 (preprint 2.19) (2) (G.8).
+  `Metrizable.lean`.  The linear and sc-structures of `T_xX` are in `TangentSpaceLinear.lean` and
+  `TangentSpaceChartIndependent.lean`, 2.21 (3), (4) in `T_aX` in `SubMPolyfoldTangent.lean` and
+  `SubMPolyfoldTangentSc.lean` (G.7), and the openness of `p : TX → X_1` in Proposition 2.3.15 (preprint
+  2.19) (2) is `Polyfold.proposition_2_3_15_two` in `TangentProjOpen.lean` (G.8).
 -/
 
 open Set Filter Topology Function

@@ -63,9 +63,9 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
 ## Reading
 
 * **Lemma 7.2.2 (2017: 7.2)** uses `Γ(1_x, a) = 1_a`, which needs `U(x)` connected (`NaturalRep.Γ_one`,
-  `NaturalAction.lean`; PLAN II.6, 3).  The lemma holds for *every* natural representation at a
+  `NaturalAction.lean`).  The lemma holds for *every* natural representation at a
   regular `x`: `NaturalRep.subset_regularSet`.  "Examples show that the regular set can be empty"
-  is not formalized here (`ℤ/3 × ℝ ⇉ ℝ` with the trivial action, PLAN II.5, a W5 witness).
+  is `regularSet_trivialZ3` (`NonVacuity.lean`: `ℤ/3 × ℝ ⇉ ℝ` with the trivial action).
 * **Lemma 7.2.3 (2017: 7.3).**  "`Φ : G_x → Diff_sc(U(x))` is injective" is stated as `Φ(g) = id` on `U` only
   for `g = 1`; `NaturalRep.injective_Φ_iff` shows that this is the injectivity of
   `g ↦ Φ(g)|_U`, and `NaturalRep.kerΦ_eq_bot_iff`, `kerΦ_eq_bot_iff_injective` that it is the
@@ -88,7 +88,7 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   `EpGroupoid.trivialSet`).  Since sc-smooth maps are not analytic, `Φ(g) = id` near `x` does not
   give `Φ(g) = id` on a connected `U(x)`; the kernel of `Φ` may depend on `U(x)`, which is why the
   text says "for small `U(x)`".  For example (not formalized: it needs a dimension-jumping
-  retract), in the splicing example of PLAN II.6, 2 at `x = (−1, 0)` the natural representation on
+  retract), in the splicing example of `ReducedNotHausdorff.lean` at `x = (−1, 0)` the natural representation on
   the whole connected `O` has trivial kernel while `T_x = ℤ/2`.  What holds is: for every `R`,
   `g ∈ T_x` iff `Φ(g) = id` near `x` (`NaturalRep.actsTrivially_iff`, through
   `eventually_Φ_eq_of_actsTrivially` and `exists_naturalRep_shrink`), and there is a neighbourhood
@@ -97,7 +97,7 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   for one `R₀`, a neighbourhood of `x` since `G_x` is finite, Proposition 7.1.12 (2017: 7.4)).  The text's
   "acting trivially on `U(x)`" is read so.  That `T_x` is a subgroup and normal is then the
   kernel argument of the text.  The text writes "`Φ : Gx → Diffsc (U(x)`" with a parenthesis
-  missing (possible misprint).
+  missing.
 * **`T_x` intrinsically** (not in the text): `g ∈ T_x` iff `s = t` on a neighbourhood of `g` in
   `𝐗` (`mem_trivialSet_iff_eventually`); so Definition 7.2.1 (2017: 7.11) says exactly `T_x = {1_x}`
   (`isEffective_iff_trivialSubgroup_eq_bot`).
@@ -109,7 +109,7 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   `t = s` near `y` through `φ g φ⁻¹`; by `mem_trivialSet_of_section` (uniqueness of sections of
   `s` on connected sets) `φ g φ⁻¹ ∈ T_y`.  Its continuity uses condition (4) of Definition 7.1.3 (2017: 7.3) in
   the sheet form (`isScSmoothCompSheet`), twice.
-* **Hypotheses** (PLAN II.5, 5): `IsEffective` (Proposition 7.2.4 (2017: 7.8), `IsEffective.eq_one`) holds for
+* **Hypotheses**: `IsEffective` (Proposition 7.2.4 (2017: 7.8), `IsEffective.eq_one`) holds for
   the trivial ep-groupoid (`isEffective_trivial`, vacuously: all `G_x` are trivial;
   `trivialSubgroup_trivial`).  A non-vacuous witness (`ℤ/2 ⋉ ℝ` by reflection) needs a finite
   group action as an ep-groupoid (`G × U` from `Discrete.lean`) and is not cheap here; it belongs
@@ -118,7 +118,7 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   exist (Theorem 7.1.13 (2017: 7.1)).  The hypotheses of `mem_trivialSet_of_section` are met by `k = Γ(g, ·)`
   (`NaturalRep.mem_trivialSet_of_val_eq_Γ`); "`X_reg` dense" by the trivial ep-groupoid
   (`regularSet_trivial`).  No hypothesis "for all charts" is added.
-* No other possible misprint was found on pp. 239–241.
+* No other point of notation was found on pp. 239–241.
 -/
 
 open Set Filter Topology Function

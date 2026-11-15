@@ -8,7 +8,7 @@ Part II, Chapter 9, §9.5, **Theorems 9.5.4 and 9.5.5** (p. 438; 2017: Theorems 
 
 # Theorems 9.5.4 and 9.5.5 for sheets covered by several graph charts
 
-E3's `theorem_9_5_4_tame` characterizes `ω ↦ μ_ω` by the local formula for the oriented tame
+`theorem_9_5_4_tame` characterizes `ω ↦ μ_ω` by the local formula for the oriented tame
 structures whose sheets lie in one graph chart.  With the integration over sheets covered by
 countably many graph charts (`F.msheetIntegration`, `MultiChartIntegration.lean`) the local
 formula holds for every oriented tame structure whose sheets carry finite integrals `∫_{Mᵢ} |ω|`

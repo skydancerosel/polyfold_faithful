@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.SheetChartChange
-import Polyfold.Chapter9.BoundaryOrientationContinuity2021
-import Polyfold.Chapter9.SheetEssentialChart2021
+import Polyfold.Chapter9.BoundaryOrientationContinuity
+import Polyfold.Chapter9.SheetEssentialChart
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, Chapter 9, §9.3

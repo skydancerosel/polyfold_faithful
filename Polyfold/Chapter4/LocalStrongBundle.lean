@@ -1,7 +1,7 @@
 import Polyfold.Chapter4.RemarkFourThreeFamily
 import Polyfold.Chapter4.Recentre
 import Polyfold.Chapter3.NonVacuityCorner
-import Polyfold.Chapter3.Book2021Germs
+import Polyfold.Chapter3.BookGerms
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.1, the local

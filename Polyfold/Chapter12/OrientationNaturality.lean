@@ -36,9 +36,11 @@ For a representative `W ← V → W'` (two strong bundle equivalences `h₁ : V 
 * `theorem_12_5_7_two_invariant`: **(2) without continuity**: an invariant section `o` of `σ`
   has a unique invariant push-forward `o'` with `o'` and `o` corresponding at every `a ∈ V`.
 
-Not formalized: the continuity statements (`|f̄|_*` a homeomorphism, `o'` continuous), which need
-the continuity of Part I's orientation transport under local strong bundle isomorphisms (the
-same missing step as the last sentence of Theorem 12.5.3); the independence of the
+Not formalized in this file: the continuity statements (`|f̄|_*` a homeomorphism, `o'`
+continuous) for these orientation sets, which need the continuity of Part I's orientation
+transport under local strong bundle isomorphisms (as the last sentence of Theorem 12.5.3).  With
+the local orientation sets `OrxLoc` and tame germ data they are `theorem_12_5_7_one_loc` and
+`theorem_12_5_7_two_loc` (`LocalOrientationEquivalenceHomeo.lean`).  Also not formalized: the independence of the
 representative and the functoriality of `|f̄|_*` (left to the reader in the text).
 -/
 

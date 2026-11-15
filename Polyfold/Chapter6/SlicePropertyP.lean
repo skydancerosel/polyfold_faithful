@@ -1,4 +1,4 @@
-import Polyfold.Chapter6.SolutionManifoldFamily2021
+import Polyfold.Chapter6.SolutionManifoldFamily
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.4**

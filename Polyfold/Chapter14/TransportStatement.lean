@@ -21,15 +21,16 @@ and Proposition 14.4.14 (2), and sc⁺ by the properness of `cl(Ũ(a))` and (14.
 
 ## What is formalized
 
-* `TransportInput A S`: the data the proof uses, over B2's `ZSetup` `S` (the sets `V̂_a`, the
+* `TransportInput A S`: the data the proof uses, over `ZSetup` `S` (the sets `V̂_a`, the
   index sets `I_a` with their actions, the extended correspondences `τ̂`): the open `V̂_a`, the
   properness of `cl(Ũ(a))`, `τ̂` locally constant, the cut-offs `β_a` (sc-smooth functors with
   (14.53)), the boundary data `s⁰ᵃ` (compatible with `τ̂` over `∂X`) and the local extensions `ŝᵃ`
-  (the output of LX's `proposition_14_4_14`: sc⁺ on `V̂_a`, `G_a`-equivariant, `= s⁰ᵃ` on `V_a`,
+  (the output of `proposition_14_4_14`: sc⁺ on `V̂_a`, `G_a`-equivariant, `= s⁰ᵃ` on `V_a`,
   equal on `∼_z`-related indices).
 * **`proposition_14_5_4_statement T`**: the conclusion (1)–(4), with "symmetric sc⁺-section
   structure on `V̂_b`" read as sc⁺ on `V̂_b` and `G_b`-equivariant (Definition 13.2.5 (1)).
-  Not proved here (gap text in the hand-over note).
+  Proved in `TransportProof` (`proposition_14_5_4`, from `SuppInSat`, which Lemma 14.5.1 gives
+  for the cut-offs, `AssemblyInputInstance`).
 * `proposition_14_5_4_statement_of_zero`: the statement holds when `ŝ = 0` and `s⁰ = 0` (with
   `s̃ = 0`): it is not contradictory.
 -/
@@ -99,7 +100,7 @@ def proposition_14_5_4_statement {S : A.X.ZSetup} (T : TransportInput A S) : Pro
     (∀ b ∈ S.A, ∀ b' ∈ S.A, ∀ φ ∈ A.X.morBetween (S.V b) (S.V b'),
       (S.τ b b' φ).Sat fun j j' => st b' j' (A.X.tgt φ) = fibAct φ (st b j (A.X.src φ)))
 
-theorem sectionSmul_fiberZero_gl (β : A.Obj → ℝ) :
+theorem sectionSmul_fiberZero (β : A.Obj → ℝ) :
     Polyfold.sectionSmul A.P β (fiberZero A.P) = fiberZero A.P := by
   funext y
   unfold Polyfold.sectionSmul
@@ -120,8 +121,8 @@ theorem proposition_14_5_4_statement_of_zero {S : A.X.ZSetup} (T : TransportInpu
       ((S.nbhd b).tgt_Γ g (S.V_subset b hb hy))).symm, fun i y _ => ?_,
     fun _ => ⟨∅, isClosed_empty, empty_subset _, fun _ _ _ => rfl⟩, fun b _ j y _ => ?_,
     fun _ _ _ _ _ _ => IndexCorr.sat_of_forall (fun _ _ => (fibAct_fiberZero rfl rfl).symm) _⟩
-  · rw [hsh, sectionSmul_fiberZero_gl]
-  · rw [hs0, sectionSmul_fiberZero_gl]
+  · rw [hsh, sectionSmul_fiberZero]
+  · rw [hs0, sectionSmul_fiberZero]
 
 end SBLocalization
 

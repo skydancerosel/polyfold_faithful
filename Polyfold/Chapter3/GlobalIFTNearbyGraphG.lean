@@ -6,7 +6,7 @@ import Polyfold.Chapter3.BasicGermShrinkIFT
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54, the graph description of the solution set in the chart at `x₀`, **in the text's germ
-reading of Definition 3.1.11 (preprint 3.11)** (phase 2): the filling `g` and the sc⁺-section `t₀` are sc-smooth
+reading of Definition 3.1.11 (preprint 3.11)**: the filling `g` and the sc⁺-section `t₀` are sc-smooth
 germs on germs of neighbourhoods `G_g`, `G_s` whose levels may shrink, and the basic germ lives
 on a germ `G` that the inverse base map `ψ'` sends into `G_g ∩ G_s` level by level (the germ
 `G″` of `BasicGermShrink.lean`).
@@ -71,7 +71,7 @@ lemma levelMap_pairMap_id_at {k : E 0 → F 0} {u₁ : E 1} (hk0 : k (E.toBase 1
   rw [hk0]
 
 /-- **The derivative family of `u ↦ (Ψ(u, k(u)))₂` at a level-`1` zero `u₁` of `k`** is
-`Γ(u₁) ∘ Dk(u₁)` (germ reading, phase 2; `fiberCompDeriv_zero_eq` at a general zero, from
+`Γ(u₁) ∘ Dk(u₁)` (germ reading; `fiberCompDeriv_zero_eq` at a general zero, from
 `IsStrongBundleMap.scDeriv_fiber_at`). -/
 theorem IsStrongBundleMap.fiberCompDeriv_at (hU : IsRelOpenInQuadrant E C U)
     (hΨ : IsStrongBundleMap U U' Ψ) {k : E 0 → F 0} (Dk : E 1 → E 0 →L[ℝ] F 0) {u₁ : E 1}
@@ -90,7 +90,7 @@ variable (hΨ : IsStrongBundleIso U U' Ψ Ψ')
 include hΨ
 
 /-- **The chain rule for the push-forward of a germ at a level-`1` zero `u₁` of `g`** (germ
-reading, phase 2; the germ form of `IsStrongBundleIso.scDeriv_pushforward_at`): for the explicit
+reading; the germ form of `IsStrongBundleIso.scDeriv_pushforward_at`): for the explicit
 derivative family `pushforwardDeriv` of `Ψ_*(g)`,
 `D(Ψ_*g)(ψ(u₁)) = Γ(u₁) ∘ Dg(u₁) ∘ Dψ'(ψ(u₁))`.  (An identity of the explicit family: it holds
 for every `Dg`; that `pushforwardDeriv` is a derivative family of `Ψ_*(g)` is
@@ -107,7 +107,7 @@ theorem pushforwardDeriv_at (hU : IsRelOpenInQuadrant E C U) {g : E 0 → F 0}
   rfl
 
 /-- **`ker Dg(u₁) = Dψ'(ψ u₁)(ker D(Ψ_*g)(ψ u₁))`** at a level-`1` zero `u₁` of `g`, for the
-derivative family `pushforwardDeriv` (germ reading, phase 2; the germ form of
+derivative family `pushforwardDeriv` (germ reading; the germ form of
 `ker_scDeriv_eq_map`). -/
 theorem ker_deriv_eq_map_germ (hU : IsRelOpenInQuadrant E C U)
     (hU' : IsRelOpenInQuadrant E' C' U') {g : E 0 → F 0} (Dg : E 1 → E 0 →L[ℝ] F 0) {u₁ : E 1}
@@ -141,7 +141,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.6.8 (preprint 3.54) (3) in the chart at `x₀`, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.6.8 (preprint 3.54) (3) in the chart at `x₀`, germ reading** (the germ form of
 `theorem_3_6_8_chart_graph_wholeChart`).  Let `g` be a filling germ of `f̂` at the zero `0`, sc-smooth on the
 germ `G_g ⊆ U` with a derivative family `Dg`, the germ in good position at `Dg(0)`
 (`IsGoodPositionAtGerm`), `t₀` an sc⁺-germ on `G_s ⊆ U` with `t₀(0) = g(0)`, `g − t₀` conjugated

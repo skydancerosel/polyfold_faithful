@@ -95,7 +95,7 @@ every `L_a` attached to `H` along its own copy of the real axis.
   two objects (it is the groupoid of an equivalence relation), so every object is regular;
   nothing in the question asks for more.  Regularity, effectiveness and tameness are not needed
   here and are not proved.
-* No possible misprint was found in the passages used here.
+* No point of notation needed a reading in the passages used here.
 -/
 
 open Set Function Topology Filter

@@ -64,11 +64,11 @@ On an M-polyfold:
   `lemma_4_5_1`), using 2021 Proposition 2.3.17 (`Polyfold/Chapter2/TangentLift.lean`).
 * Definitions 4.4.1–4.4.2 (sc-differential forms, the Whitney sum `⊕ₖ TX`, the direct limit
   `Ω∞*`), the exterior derivative and `d ∘ d = 0`, and Definition 4.4.6 are not in this file:
-  they are in `Polyfold/Chapter4/ScForms2021.lean` – `ScFormsLower2021.lean`.  Stokes' theorem
+  they are in `Polyfold/Chapter4/ScForms.lean` – `ScFormsLower.lean`.  Stokes' theorem
   for classical forms on Mathlib manifolds with corners is in
-  `Polyfold/Chapter4/ManifoldStokes2021.lean`.  Theorem 4.4.7 (Stokes) for sc-forms is
-  `Chapter9/MathlibFormsBridge2021.lean` and `Chapter9/StokesFaceSum.lean`
-  (`theorem_4_4_7_hyp`), Lemmas 4.4.8 and 4.5.2 (Poincaré) are `Poincare2021b.lean`
+  `Polyfold/Chapter4/ManifoldStokes.lean`.  Theorem 4.4.7 (Stokes) for sc-forms is
+  `Chapter9/MathlibFormsBridge.lean` and `Chapter9/StokesFaceSum.lean`
+  (`theorem_4_4_7_hyp`), Lemmas 4.4.8 and 4.5.2 (Poincaré) are `Poincare.lean`
   (`lemma_4_4_8`, `lemma_4_5_2`).
 
 ## What the text leaves implicit, and the choices made
@@ -89,7 +89,7 @@ On an M-polyfold:
   i.e. `x ∈ O_{m+2}` gives `[A, B](x) ∈ E_m`, which is what Proposition 4.4.5 states and what
   is formalized.
 * §4.5.2 ends with "The proof of Proposition 4.5.1 is complete"; there is no Proposition 4.5.1 and
-  the computation is the one of Lemma 4.5.1: possible misprint.
+  the computation is the one of Lemma 4.5.1, and we read it so.
 -/
 
 open Set Filter Topology Function

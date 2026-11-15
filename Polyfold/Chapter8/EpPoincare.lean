@@ -1,5 +1,5 @@
 import Polyfold.Chapter8.EpFormsObj
-import Polyfold.Chapter4.Poincare2021b
+import Polyfold.Chapter4.Poincare
 import Polyfold.Chapter4.OpenForms
 
 /-!
@@ -28,7 +28,7 @@ saturation of `V'(x)` by the morphisms.
 
 The averaging over `G_x` and the extension to the saturation, hence Proposition 8.2.3 itself,
 use the push-forward of forms along the equivalence `G_x ⋉ U(x) → X|π⁻¹(π(U(x)))` of §11.2:
-`EP.proposition_8_2_3` in `Chapter11/EpPoincareLemma.lean` (gap G.87 closed, 2026-11-12).
+`EP.proposition_8_2_3` in `Chapter11/EpPoincareLemma.lean` (gap G.87).
 -/
 
 set_option maxSynthPendingDepth 3

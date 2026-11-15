@@ -30,7 +30,7 @@ maps `A` and `C` (`φ ↦ (t|O(ψ_y))⁻¹(t φ)⁻¹ ∘ φ ∘ (t|O(ψ_x))⁻�
 * The unit chart `unitChart N` (`Q = id`, `ψ = 1`) of the identity strong bundle equivalence
   `𝟙 A`, `isPushNbhd_unit`, `liftMor_unit`, `pushSec_unit`.
 * `ExtChart L x`: a point `q_x ∈ V`, the chart `Q = t ∘ (s|U(ψ_x))⁻¹` of `𝟙 A` along
-  `ψ_x : q_x → x` (Chapter 10's `TransportChart`), and an adapted `U(x)` (FN's `IsPushNbhd`)
+  `ψ_x : q_x → x` (Chapter 10's `TransportChart`), and an adapted `U(x)` (`IsPushNbhd`)
   with the properness property; `unitExt` (for `x ∈ V`), `exists_extChart` (inside any open
   `O ∋ x`), `ExtSetup`, `extChart` (the choice, `extChart_of_mem`).
 -/

@@ -24,7 +24,7 @@ finite-dimensional and `X ⊆ C`.  This file supplies the coordinates on the sou
   `(C ∩ B) ⊕ X`, a partial quadrant of `B ⊕ X` (`isPartialQuadrant_split`).
 
 In the coordinates of `splitScIso`, the partial quadrant is therefore of the form `C̃ ⊕ X` of the
-proof; the remaining steps of the reduction (row V3.89) are listed in the hand-over note.
+proof, the setting of the reduction of row V3.89.
 -/
 
 open Set Function Topology

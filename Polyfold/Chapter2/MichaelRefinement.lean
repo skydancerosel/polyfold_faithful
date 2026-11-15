@@ -42,7 +42,7 @@ universe u
 
 namespace Polyfold
 
-namespace GapP1Michael
+namespace MichaelRefinement
 
 variable {X : Type u} [TopologicalSpace X]
 
@@ -204,6 +204,6 @@ theorem proposition_2_7_4 {Y : Type u} [TopologicalSpace Y] [T3Space Y] {ι : Ty
     rintro _ ⟨z, hz, rfl⟩
     exact ha hz
 
-end GapP1Michael
+end MichaelRefinement
 
 end Polyfold

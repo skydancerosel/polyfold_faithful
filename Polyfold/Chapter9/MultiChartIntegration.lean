@@ -14,8 +14,10 @@ For an evaluation of forms `F : X.FormEval n Ω` (`n ≥ 1`):
   cover (`msInteg_eq`, independent of the cover);
 * **`F.msheetIntegration hn : X.SheetIntegration F.msheetNull Ω`**: all fields of the structure of
   `SheetIntegrationAbstract.lean`, so that (9.20), Lemmas 9.5.7, 9.5.9–9.5.11 and Theorems
-  9.5.4, 9.5.5 of `GapP2_E1_*.lean` apply to sheets which do not lie in one chart;
-* `sheets_subset_msheets`, `msInteg_eq_integ`: the class contains E3's class `F.sheets`, and the
+  9.5.4, 9.5.5 of `LocalMeasure.lean`, `BranchedIntegral.lean` apply to sheets which do not lie
+  in one chart;
+* `sheets_subset_msheets`, `msInteg_eq_integ`: the class contains the class `F.sheets` of
+  `SheetIntegrationConcrete.lean`, and the
   integrals agree there.
 -/
 

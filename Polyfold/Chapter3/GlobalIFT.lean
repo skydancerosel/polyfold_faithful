@@ -65,9 +65,9 @@ sc-smooth germ; (3) `ψ ∘ ϕ({y ∈ V | f(y) = 0}) = ψ({u ∈ O | f̃(u) = 0}
   `theorem_3_6_8_linear_wholeChart`, for the base retraction of the chart of Definition 3.6.6 (preprint 3.53) at `x₀`: the
   germ is assumed in good position in a tame chart (`IsGoodPositionGermTameWholeChart`; Definition 3.6.3 (preprint 3.50):
   "where `K → O` is a tame strong local bundle", `TameGerms.lean`), and the chart `c` of the
-  conclusions is that tame chart (`IsTameChart`).  (An earlier version assumed the base retraction
-  of every compatible strong bundle chart tame, which no strong bundle over a nonempty base
-  satisfies; Findings, Chapter 3 items 190–199.)
+  conclusions is that tame chart (`IsTameChart`).  (Assuming the base retraction of every
+  compatible strong bundle chart tame would be vacuous: no strong bundle over a nonempty base
+  satisfies it; Findings, Chapter 3 items 190–199.)
 * **The neighbourhood `V` of `x₀`**: the identity `ψ ∘ ϕ(S ∩ V) = graph σ` needs `V` so small that
   (i) the identities of the filler and of the conjugation hold on `ϕ(V)`, (ii) `ψ ∘ ϕ(V)` lies
   in the neighbourhood `U''` of Theorem 3.5.11 (preprint 3.47) where every zero of `h + t` is on the graph, and

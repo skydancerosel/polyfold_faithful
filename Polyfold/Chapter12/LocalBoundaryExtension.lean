@@ -214,17 +214,17 @@ end LocalModel
 /-! ### Proposition 12.3.7 -/
 
 /-- Multiplication by a constant `c` as an sc-operator `F → F`. -/
-def ScBanach.p3bSmulOp (F : ScBanach) (c : ℝ) : ScOperator F F where
+def ScBanach.constSmulOp (F : ScBanach) (c : ℝ) : ScOperator F F where
   lvl m := c • ContinuousLinearMap.id ℝ (F m)
   incl_comm m x := by
     change F.incl m (c • x) = c • F.incl m x
     exact map_smul _ _ _
 
 /-- `x ↦ c • g(x)` is sc-smooth for sc-smooth `g` and a constant `c`. -/
-theorem IsScSmooth.p3bConstSmul {G : ScBanach} {U : Set (G 0)} (hU : IsScDomain G U)
+theorem IsScSmooth.const_smul {G : ScBanach} {U : Set (G 0)} (hU : IsScDomain G U)
     {g : G 0 → F 0} (hg : IsScSmooth U g) (c : ℝ) : IsScSmooth U fun x => c • g x := by
   have := IsScSmooth.comp hU (isScDomain_univ _)
-    ((F.p3bSmulOp c).isScSmooth (isScDomain_univ _)) hg (mapsTo_univ _ _)
+    ((F.constSmulOp c).isScSmooth (isScDomain_univ _)) hg (mapsTo_univ _ _)
   exact this.congr hU fun _ _ => rfl
 
 section Main
@@ -334,7 +334,7 @@ theorem proposition_12_3_7_of_faces_at (hT : C = T 0 ⁻¹' quadrant n W 0)
           ⟨r.relOpen.isPartialQuadrant, N I, hNo I, rfl⟩).isScDomain
       have hmaps : MapsTo ρ ρ.U (N I ∩ C) := fun y hy =>
         ⟨mem_iInter₂.1 (hρO y hy).2.1.2 I hI, r.retract_subset_C (hρO y hy).1⟩
-      exact (IsScSmooth.comp hD hNdom (hNsm I hI) ρ.isScSmooth hmaps).p3bConstSmul hD _
+      exact (IsScSmooth.comp hD hNdom (hNsm I hI) ρ.isScSmooth hmaps).const_smul hD _
     have hpair := ρ.isScSmooth.scPair hD hsum
     have hfull := IsScSmooth.comp hD (hU.prod_univ F.shift).isScDomain hRB.isScSmooth_one hpair
       fun y hy => ⟨r.retract_subset (hρO y hy).1, mem_univ _⟩
@@ -427,7 +427,7 @@ theorem isBoundaryScPlusSectionOn_zero (hT : C = T 0 ⁻¹' quadrant n W 0)
   exact ⟨V, hV, hxV, ⟨S, hQ⟩, isScPlusSection_zero_local hU hRB fun z hz => hz.1.1⟩
 
 /-- The identity is a strong bundle retraction on `U ◁ F`. -/
-theorem isStrongBundleRetraction_id_p3b (hU : IsRelOpenInQuadrant E C U) :
+theorem isStrongBundleRetraction_id_of_relOpen' (hU : IsRelOpenInQuadrant E C U) :
     IsStrongBundleRetraction (F := F) U _root_.id where
   mapsTo := mapsTo_id _
   fst_independent _ _ _ _ := rfl
@@ -458,7 +458,7 @@ theorem proposition_12_3_7_nonvacuous (W F : ScBanach) :
   have hT : quadrant 1 W 0 = (ScIso.refl E₁) 0 ⁻¹' quadrant 1 W 0 := by ext; rfl
   have hU : IsRelOpenInQuadrant E₁ (quadrant 1 W 0) (quadrant 1 W 0) :=
     ⟨⟨1, W, ScIso.refl E₁, hT⟩, univ, isOpen_univ, (univ_inter _).symm⟩
-  have hRB := isStrongBundleRetraction_id_p3b (F := F) hU
+  have hRB := isStrongBundleRetraction_id_of_relOpen' (F := F) hU
   have htame : (hRB.baseRetraction hU).IsTameWith (ScIso.refl E₁) :=
     ScRetraction.id_isTame hU 1 W _ hT
   have h0 : (0 : E₁ 0) ∈ (hRB.baseRetraction hU).retract :=
@@ -655,7 +655,7 @@ theorem corollary_12_3_8 {G : Type} [Group G] [Finite G] (hT : C = T 0 ⁻¹' qu
     have hD := ρ.isScDomain
     have hsum : IsScSmooth (F := F.shift) ρ.U fun y =>
         (Fintype.card G : ℝ)⁻¹ • ∑ g : G, (A.lift g⁻¹ (st (A.act g (ρ y)))).2 := by
-      refine IsScSmooth.p3bConstSmul hD (IsScSmooth.finsetSum hD _ fun g _ => ?_) _
+      refine IsScSmooth.const_smul hD (IsScSmooth.finsetSum hD _ fun g _ => ?_) _
       exact ((hterm g).comp_isScSmooth ρ hρ).snd hD
     exact (ρ.isScSmooth.scPair hD hsum).congr hD fun _ _ => rfl
   · -- equivariance

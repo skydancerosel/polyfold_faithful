@@ -394,7 +394,7 @@ theorem isLocalRepOn_zeroMultisection {O : Set A.Obj} (hO : IsOpen O) :
   exact ⟨fun _ => one_pos, fun _ => IsScPlusSectionOn.of_isScPlusSection
     StrongBundle.isScPlusSection_fiberZero hO, by simp, fun w _ => by simp [zeroMultisection]⟩
 
-/-- `Λ₀` is structurable once a good system exists (D's `Decoration.zeroTau`). -/
+/-- `Λ₀` is structurable once a good system exists (`Decoration.zeroTau`). -/
 theorem isStructurable_zeroMultisection_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem) :
     IsStructurable A (zeroMultisection A) :=
   ⟨isScPlusMultisection_zeroMultisection A, _, ⟨Decoration.zeroTau h𝒰.some⟩⟩

@@ -27,7 +27,7 @@ text's.
 * `EPLoc.isTameBranched_pullTheta`: for a generalized isomorphism `f`, `f^*Θ'` is tame if `Θ'`
   is (`f^* = F_* Φ^*`).
 * **`BranchedSuborbifold.definition_16_4_2_tame`**: `θ` is tame iff every representative is
-  (closing the "(5)" part of Definition 16.4.2 left open in `BranchedSuborbifold`).
+  (the "(5)" part of Definition 16.4.2).
 * `OrientedRep.Rel.isTameOriented(_iff)`, `OrientedSuborbifold.IsTameOriented`,
   `OrientedSuborbifold.isTameOriented_iff`: the same for oriented tameness (`IsTameOriented`, the
   tameness hypothesis of the integrals on p. 732), from the structures of Theorem 11.4.1.

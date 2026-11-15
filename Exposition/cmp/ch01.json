@@ -1191,8 +1191,8 @@
    "lean": {
     "statement": "For a linear equivalence $e : E_1 \\to E_2$ of real normed spaces (one vector space with two norms): (1) if $e$ and $e^{-1}$ are continuous, there is $c > 0$ with $\\|e x\\| \\le c\\|x\\|$ and $\\|x\\| \\le c\\|e x\\|$; (2) if both spaces are complete and $e$ is continuous, then $e^{-1}$ is continuous, and (1) applies.",
     "decls": [
-     "Chapter1/Book2021 · remark_1_1_2",
-     "Chapter1/Book2021 · remark_1_1_2_openMapping"
+     "Chapter1/Book · remark_1_1_2",
+     "Chapter1/Book · remark_1_1_2_openMapping"
     ]
    },
    "chips": [
@@ -1215,7 +1215,7 @@
    "lean": {
     "statement": "$T + S$ is sc-Fredholm, $\\operatorname{ind}(T + S) = \\operatorname{ind}(T)$, and for every $m$ the level map $(T + S)_m : E_m \\to F_m$ is Fredholm of index $\\operatorname{ind}(T)$.",
     "decls": [
-     "Chapter1/Book2021 · proposition_1_1_11",
+     "Chapter1/Book · proposition_1_1_11",
      "Chapter1/ScFredholm · proposition_1_1_11_preprint",
      "Chapter1/FredholmIndex · proposition_1_1_11_index",
      "Chapter1/FredholmIndex · proposition_1_1_11_index_lvl"
@@ -1241,28 +1241,28 @@
    "lean": {
     "statement": "`example_1_1_3 δ h0 hmono : ScBanach`, for every $\\delta : \\mathbb N \\to \\mathbb R$ with $\\delta_0 = 0$ and $\\delta$ strictly increasing, has the levels $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ (`example_1_1_3_lvl`, by definition), with $E_{m+1} \\to E_m$ the identity on the underlying $L^2$ function (`inclH`, `valCLM_inclH`). The ingredients of the text's proof: each $H^{m,\\delta}$ is a Banach space (`completeSpace_H`, an isometric embedding into a finite product of $L^2$ spaces with closed range); the inclusion is compact for $\\delta < \\delta'$ (`isCompactOperator_inclH`), by Rellich on bounded cylinders (`rellich`, with Fourier series on boxes, Parseval `hasSum_bc`) and the weight tail estimate (`tail_le`); test functions lie in every level and are dense in it (`IsTest.mem_Hsub`, `dense_test`, by cut-off `tendsto_cut` with the Leibniz rule `leibniz`, and Fourier truncation `approx_supp`); level $0$ is $L^2(\\mathbb R \\times S^1)$ (`level0_isometry`, `level0_surjective`).",
     "decls": [
-     "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3",
-     "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3_lvl",
-     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.inclH",
-     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.valCLM_inclH",
-     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.completeSpace_H",
-     "Chapter1/CylinderSobolevComplete · GapP1Sobolev.isClosed_range_ΦH",
-     "Chapter1/CylinderCompactInclusions · GapP1Sobolev.isCompactOperator_inclH",
-     "Chapter1/CylinderRellich · GapP1Sobolev.rellich",
-     "Chapter1/CylinderFourier · GapP1Sobolev.hasSum_bc",
-     "Chapter1/CylinderCompactInclusions · GapP1Sobolev.tail_le",
-     "Chapter1/CylinderTestDensity · GapP1Sobolev.dense_test",
-     "Chapter1/CylinderIntegrationByParts · GapP1Sobolev.IsTest.mem_Hsub",
-     "Chapter1/CylinderIntegrationByParts · GapP1Sobolev.SmPer.hasWeakDeriv",
-     "Chapter1/CylinderCutoff · GapP1Sobolev.tendsto_cut",
-     "Chapter1/CylinderLeibniz · GapP1Sobolev.leibniz",
-     "Chapter1/CylinderTestDensity · GapP1Sobolev.approx_supp",
-     "Chapter1/CylinderScBanach · GapP1Sobolev.level0_isometry",
-     "Chapter1/CylinderScBanach · GapP1Sobolev.level0_surjective",
-     "Chapter1/CylinderWeakDerivatives · GapP1Sobolev.HasWeakDeriv",
-     "Chapter1/CylinderWeakDerivatives · GapP1Sobolev.IsTest",
-     "Chapter1/CylinderSobolevSpaces · GapP1Sobolev.H",
-     "Chapter1/CylinderScBanach · GapP1Sobolev.nonneg_of_strictMono"
+     "Chapter1/CylinderScBanach · CylinderSobolev.example_1_1_3",
+     "Chapter1/CylinderScBanach · CylinderSobolev.example_1_1_3_lvl",
+     "Chapter1/CylinderSobolevComplete · CylinderSobolev.inclH",
+     "Chapter1/CylinderSobolevComplete · CylinderSobolev.valCLM_inclH",
+     "Chapter1/CylinderSobolevComplete · CylinderSobolev.completeSpace_H",
+     "Chapter1/CylinderSobolevComplete · CylinderSobolev.isClosed_range_ΦH",
+     "Chapter1/CylinderCompactInclusions · CylinderSobolev.isCompactOperator_inclH",
+     "Chapter1/CylinderRellich · CylinderSobolev.rellich",
+     "Chapter1/CylinderFourier · CylinderSobolev.hasSum_bc",
+     "Chapter1/CylinderCompactInclusions · CylinderSobolev.tail_le",
+     "Chapter1/CylinderTestDensity · CylinderSobolev.dense_test",
+     "Chapter1/CylinderIntegrationByParts · CylinderSobolev.IsTest.mem_Hsub",
+     "Chapter1/CylinderIntegrationByParts · CylinderSobolev.SmPer.hasWeakDeriv",
+     "Chapter1/CylinderCutoff · CylinderSobolev.tendsto_cut",
+     "Chapter1/CylinderLeibniz · CylinderSobolev.leibniz",
+     "Chapter1/CylinderTestDensity · CylinderSobolev.approx_supp",
+     "Chapter1/CylinderScBanach · CylinderSobolev.level0_isometry",
+     "Chapter1/CylinderScBanach · CylinderSobolev.level0_surjective",
+     "Chapter1/CylinderWeakDerivatives · CylinderSobolev.HasWeakDeriv",
+     "Chapter1/CylinderWeakDerivatives · CylinderSobolev.IsTest",
+     "Chapter1/CylinderSobolevSpaces · CylinderSobolev.H",
+     "Chapter1/CylinderScBanach · CylinderSobolev.nonneg_of_strictMono"
     ]
    },
    "chips": [
@@ -1318,12 +1318,12 @@
     "V1.42"
    ],
    "decls": [
-    "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3",
-    "Chapter1/CylinderScBanach · GapP1Sobolev.example_1_1_3_lvl",
-    "Chapter1/CylinderCompactInclusions · GapP1Sobolev.isCompactOperator_inclH",
-    "Chapter1/CylinderTestDensity · GapP1Sobolev.dense_test",
-    "Chapter1/CylinderScBanach · GapP1Sobolev.level0_isometry",
-    "Chapter1/CylinderScBanach · GapP1Sobolev.level0_surjective"
+    "Chapter1/CylinderScBanach · CylinderSobolev.example_1_1_3",
+    "Chapter1/CylinderScBanach · CylinderSobolev.example_1_1_3_lvl",
+    "Chapter1/CylinderCompactInclusions · CylinderSobolev.isCompactOperator_inclH",
+    "Chapter1/CylinderTestDensity · CylinderSobolev.dense_test",
+    "Chapter1/CylinderScBanach · CylinderSobolev.level0_isometry",
+    "Chapter1/CylinderScBanach · CylinderSobolev.level0_surjective"
    ]
   },
   {

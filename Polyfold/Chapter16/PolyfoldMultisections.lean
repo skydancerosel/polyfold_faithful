@@ -1,6 +1,6 @@
 import Polyfold.Chapter16.FibreZero
 import Polyfold.Chapter14.BoundaryStructured
-import Polyfold.Chapter11.MultisectionLocalStructure2021
+import Polyfold.Chapter11.MultisectionLocalStructure
 import Polyfold.Chapter12.CompactnessEp
 
 /-!
@@ -73,7 +73,7 @@ open EPLocalization SBLocalization
 
 /-- **Theorems 13.4.1 and 13.4.3 for generalized strong bundle isomorphisms**, as a statement:
 the pull-back `[D]^*Λ' = Φ_* Ψ^* Λ'` of a structurable sc⁺-multisection functor is structurable
-(Q's gaps Q-1, Q-3; the text before Definition 16.5.1 says this "follows immediately"). -/
+(the text before Definition 16.5.1 says this "follows immediately"). -/
 def StructurablePullback : Prop :=
   ∀ (A A' : SEP.{u}) (F : GenSBMap A A') (hF : F.IsGeneralizedIso) (Λ' : A'.W → ℚ≥0),
     IsStructurable A' Λ' → IsStructurable A (GenSBMap.pullMult hF Λ')

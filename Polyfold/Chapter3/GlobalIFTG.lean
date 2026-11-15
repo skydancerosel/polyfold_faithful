@@ -5,7 +5,7 @@ import Polyfold.Chapter3.TameGermsG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54, the graph description (3) of the solution set, **in the text's germ reading of Definition
-3.11** (phase 2): the hypothesis `IsGoodPositionGermTameWholeChart` of `GlobalIFT.lean` (filled version `g`
+3.11**: the hypothesis `IsGoodPositionGermTameWholeChart` of `GlobalIFT.lean` (filled version `g`
 and sc⁺-section `s` sc-smooth on the whole chart) is replaced by `IsGoodPositionGermTame`
 (filling germ `g` on `G_g`, sc⁺-germ `s` on `G_s`, good position at `Dg(0)`).
 
@@ -33,9 +33,9 @@ and sc⁺-section `s` sc-smooth on the whole chart) is replaced by `IsGoodPositi
   level-`0` neighbourhood `Vx` is chosen with `ψ ∘ ϕ(Vx) ⊆ G″₀`.  Every nearby zero that the
   implicit function theorem produces then lies in `𝒮.G = G″`, where `g` and `s` are sc¹ at the
   preimages (`GlobalIFTNearbyKernelG.lean`).
-* The old statements follow from the germ ones: `IsGoodPositionGermTameWholeChart.isGoodPositionGermTame`
+* The whole-chart statements follow from the germ ones: `IsGoodPositionGermTameWholeChart.isGoodPositionGermTame`
   (`TameGermsG.lean`), and the conclusions of `theorem_3_6_8_graph_proj` and
-  `theorem_3_6_8_graph` are literally those of the old theorems.
+  `theorem_3_6_8_graph` are literally those of the whole-chart theorems.
 -/
 
 open Set Filter Topology Function Module
@@ -77,7 +77,7 @@ theorem StrongBundle.IsTameChart.range_id_sub_scDeriv_le {c : StrongBundleChart 
 
 set_option maxHeartbeats 800000 in
 /-- **Theorem 3.6.8 (preprint 3.54), the graph description (3), with the conjugation exposed, germ reading**
-(phase 2; the germ form of `theorem_3_6_8_graph_proj_conj_wholeChart`): for a section `f` with `f(x₀) = 0` and
+(the germ form of `theorem_3_6_8_graph_proj_conj_wholeChart`): for a section `f` with `f(x₀) = 0` and
 `(f, x₀)` in good position in a tame chart in the germ reading (`IsGoodPositionGermTame`), the
 conclusions of `theorem_3_6_8_graph_proj_wholeChart` together with the data of Definition 3.6.6 (preprint 3.53) in the chart
 `c` in the germ reading — the filling germ `g` of `f̂`, the sc⁺-germ `s` with `s(0) = g(0)`, a
@@ -223,7 +223,7 @@ theorem theorem_3_6_8_graph_proj_conj (hf : IsSection P f) {x₀ : X}
       · show ψ (c.φ (c.φ.symm u)) = ψ u
         rw [c.φ.apply_symm_apply huO']
 
-/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3), with `ProjectsInto`, germ reading** (phase 2; the
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3), with `ProjectsInto`, germ reading** (the
 germ form of `theorem_3_6_8_graph_proj_wholeChart`, with the same conclusions): a corollary of
 `theorem_3_6_8_graph_proj_conj`. -/
 theorem theorem_3_6_8_graph_proj (hf : IsSection P f) {x₀ : X}
@@ -269,7 +269,7 @@ theorem theorem_3_6_8_graph_proj (hf : IsSection P f) {x₀ : X}
   exact ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hrest⟩
 
-/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3) of the solution set, germ reading** (phase 2; the
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3) of the solution set, germ reading** (the
 germ form of `theorem_3_6_8_graph_wholeChart`, with the same conclusions): for a section `f` with
 `f(x₀) = 0` and `(f, x₀)` an sc-Fredholm germ in good position in a tame chart in the text's germ
 reading (`IsGoodPositionGermTame`), the tame chart `c` centred at `x₀`, the conjugating

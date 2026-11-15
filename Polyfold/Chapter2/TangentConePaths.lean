@@ -40,7 +40,7 @@ noncomputable section
 
 namespace Polyfold
 
-namespace GapP1Lemma249
+namespace TangentConePaths
 
 variable {E : ScBanach}
 
@@ -377,6 +377,6 @@ theorem lemma_2_4_9_tangent (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
   · rintro ⟨_, ⟨⟨u, rfl⟩, -⟩, _, ⟨⟨u', rfl⟩, -⟩, rfl⟩
     exact ⟨u - u', map_sub _ _ _⟩
 
-end GapP1Lemma249
+end TangentConePaths
 
 end Polyfold

@@ -34,15 +34,15 @@ boundary with corners, and one takes the intersection of the set with every boun
   (`|0| ∈ ∂S`), `halfLine_isMeasureZeroBoundary_iff`, `halfLine_not_isMeasureZeroBoundary`
   (`∂S` is not null) and `halfLine_lebesgueSigmaBoundary` (`L(∂S) = B(∂S)`).
 
-## Not formalized
+## Not in this file
 
 For `n ≥ 2`, the face-by-face null sets as a `SheetNullSets` on the class of the boundaries `∂Mᵢ`
 of the sheets of a general M-polyfold: its field `isNull_transfer` (two boundaries induce the
 same null sets on their intersection) needs the smooth retractions between sheets, as for
-Lemma 9.5.2 (gap G.106), and sheets need not be face-structured globally.  (2026-11-12) With
+Lemma 9.5.2 (gap G.106), and sheets need not be face-structured globally.  With
 the intrinsic null sets `MPolyfold.IsHNull P (n - 1)` of `SheetNull.lean` and
-`MPolyfold.hNullSets` (`SheetMeasure.lean`) the transfer field is automatic; what remains
-is that a nonempty `∂M` of a tame `n`-dimensional sheet is not `(n - 1)`-null.  (2026-11-13) Proved
+`MPolyfold.hNullSets` (`SheetMeasure.lean`) the transfer field is automatic, and a nonempty `∂M`
+of a tame `n`-dimensional sheet is not `(n - 1)`-null
 (`not_isHNull_submanifoldBoundary`, `BoundaryNotNull.lean`); the boundary null-set system
 for every `n` is `boundaryNullSets` (`BoundaryNullSigmaAlgebra.lean`).
 -/

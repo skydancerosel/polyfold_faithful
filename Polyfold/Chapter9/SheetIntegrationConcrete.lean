@@ -21,14 +21,14 @@ Definition 8.2.1 give one, `FormEvalEp.lean`):
   this frame is positive for `o` (Definition 9.3.3).
 * **`F.sheetIntegration hn : X.SheetIntegration F.sheetNull Ω`**: all fields of the structure of
   `SheetIntegrationAbstract.lean` hold, so that (9.20), Lemmas 9.5.7, 9.5.9–9.5.11 and
-  Theorems 9.5.4, 9.5.5 of `GapP2_E1_*.lean` apply to it.
+  Theorems 9.5.4, 9.5.5 of `LocalMeasure.lean`, `BranchedIntegral.lean` apply to it.
 
 ## The choices made
 
 The sheets of the class lie in one chart; a sheet of a branching structure is cut into such
 pieces by restricting the structure to a smaller neighbourhood.  The integral over a sheet
-covered by several charts is not defined here.  (2026-11-13) It is defined in
-`MultiChart.lean`, `MultiChartIntegration.lean` (`FormEval.msheetIntegration`).
+covered by several charts is defined in `MultiChart.lean`, `MultiChartIntegration.lean`
+(`FormEval.msheetIntegration`).
 -/
 
 set_option maxSynthPendingDepth 3

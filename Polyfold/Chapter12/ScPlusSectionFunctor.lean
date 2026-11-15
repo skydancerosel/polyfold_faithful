@@ -1,6 +1,6 @@
 import Polyfold.Chapter12.BumpEp
 import Polyfold.Chapter10.StrongBundleEquivalence
-import Polyfold.Chapter8.Book2021
+import Polyfold.Chapter8.Book
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, §12.3,

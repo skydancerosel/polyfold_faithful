@@ -10,7 +10,7 @@ the 2021 text's.
 The text integrates `ω` over the boundary strata `∂₁Mᵢ = {d_{Mᵢ} = 1}` of the sheets of a tame
 structure (pp. 448–451) without comment on the finiteness of `∫ |ω|` near the corners of `Mᵢ`
 (the points with `d ≥ 2`, which are not in `∂₁Mᵢ`).  Here this finiteness is proved: if
-`∂₁M ∩ V` lies in a compact subset of `M`, then `∂₁M ∩ V` is in E4's class `F.msheets`
+`∂₁M ∩ V` lies in a compact subset of `M`, then `∂₁M ∩ V` is in the class `F.msheets` (`MultiChart.lean`)
 (countably many graph charts, `∑ ∫ |ω| < ∞`), for every evaluation `F` whose forms restrict to
 continuous Mathlib forms on `M` (Part I's restriction, `formsInftyRestrict`).
 
@@ -22,7 +22,7 @@ continuous Mathlib forms on `M` (Part I's restriction, `formsInftyRestrict`).
   pieces `faceSet κ_j l ⊆ ℝᵐ`), so it has a countable chart cover `D`
   (`exists_chartCover_of_isLindelof`).
 * For a piece `P_k` of `D` and a face `l` of `κ_j`, the change of variables between the graph chart
-  of `∂₁M ∩ V_k` and the face parameters (E8F's `face_change`, here with `|·|` and
+  of `∂₁M ∩ V_k` and the face parameters (`face_change`, here with `|·|` and
   `lintegral`) gives `∫_{P_k ∩ ...} |ω| = ∫_{A_{kjl}} |ιₗ^*(κ_j⁻¹)^*η|`, where `η` is the
   restriction of `ω` to `M` (`abs_ev_faceFrame`, `facePullback_eq_ev_faceFrame`).
 * The face integrand is continuous on the closed face (corners included: it is the chart form of
@@ -50,7 +50,7 @@ namespace Polyfold
 universe u
 
 /-- The closed quadrant is a closed subset of `ℝⁿ`. -/
-theorem k1_isClosedEmbedding_quadrant (n : ℕ) :
+theorem isClosedEmbedding_quadrant (n : ℕ) :
     Topology.IsClosedEmbedding (Subtype.val : EuclideanQuadrant n → EuclideanSpace ℝ (Fin n)) := by
   have h : IsClosed {x : EuclideanSpace ℝ (Fin n) | ∀ i, 0 ≤ x i} := by
     have e : {x : EuclideanSpace ℝ (Fin n) | ∀ i, 0 ≤ x i} = ⋂ i, {x | 0 ≤ x i} := by
@@ -59,8 +59,8 @@ theorem k1_isClosedEmbedding_quadrant (n : ℕ) :
     exact isClosed_iInter fun i => isClosed_le continuous_const (PiLp.continuous_apply 2 _ i)
   exact h.isClosedEmbedding_subtypeVal
 
-theorem k1_locallyCompactSpace_quadrant (n : ℕ) : LocallyCompactSpace (EuclideanQuadrant n) :=
-  (k1_isClosedEmbedding_quadrant n).locallyCompactSpace
+theorem locallyCompactSpace_quadrant (n : ℕ) : LocallyCompactSpace (EuclideanQuadrant n) :=
+  (isClosedEmbedding_quadrant n).locallyCompactSpace
 
 namespace EpGroupoid
 
@@ -71,7 +71,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 namespace FormEval
 
-/-- **A Lindelöf `n`-dimensional submanifold has a countable chart cover** (as E4's
+/-- **A Lindelöf `n`-dimensional submanifold has a countable chart cover** (as
 `exists_chartCover`, with the Lindelöf property given). -/
 theorem exists_chartCover_of_isLindelof {n : ℕ} {Ω : Type*} [AddCommGroup Ω] [Module ℝ Ω]
     {F : X.FormEval n Ω} {N : Set Obj} (hN : X.PObj.IsSubmanifoldOfDim N n) (hne : N.Nonempty)
@@ -140,7 +140,7 @@ include hch
 
 /-- **Part I's face integrand is `ω` on the face frame**: for a Mathlib `m`-form `η` on `M`
 which is the restriction of `ω`, `ιₗ^*(κ⁻¹)^*η (u)(e₁, …, e_m) = ω(Tι(ιₗ e₁), …, Tι(ιₗ e_m))` at
-a point `u` of the open face piece (the computation inside E8F's
+a point `u` of the open face piece (the computation inside
 `orSign_mul_faceSign_mul_facePullback_eq`, without the orientation). -/
 theorem FormEval.facePullback_eq_ev_faceFrame (F : X.FormEval m Ω) (ω : Ω)
     (η : ManifoldForm (𝓠 (m + 1)) M m)
@@ -225,7 +225,7 @@ theorem FormEval.boundaryStratum_inter_mem_msheets [IsManifold (𝓠 (m + 1)) �
   set N := X.PObj.boundaryStratum M ∩ V with hNdef
   have hNs : X.PObj.IsSubmanifoldOfDim N m :=
     (isSubmanifoldOfDim_boundaryStratum hM ht).inter_isOpen hV
-  have := k1_locallyCompactSpace_quadrant (m + 1)
+  have := locallyCompactSpace_quadrant (m + 1)
   have : LocallyCompactSpace M := ChartedSpace.locallyCompactSpace (EuclideanQuadrant (m + 1)) M
   -- finitely many corner charts with compact parts covering `K`
   let κ : K → CornerCoords (subPolyfold hY) (m + 1) := fun z => hcs.coords ⟨z.1, hKM z.2⟩

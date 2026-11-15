@@ -29,7 +29,7 @@ this structure does not depend on the representative.
   `supp(Φ^*Θ')`).
 * `BranchedSuborbifold.proposition_16_4_3_naturality_all`: for any induced `PZ`, `PZ'`, the
   transition is an sc-diffeomorphism `PZ → PZ'`.
-* **`BranchedSuborbifold.proposition_16_4_3_naturality`**: SM's statement
+* **`BranchedSuborbifold.proposition_16_4_3_naturality`**: the statement
   `proposition_16_4_3_naturality_statement c` holds for every polyfold `(Z, c)`.
 -/
 
@@ -157,7 +157,7 @@ theorem proposition_16_4_3_naturality_all (a a' : BranchedRep c)
   right_inv q _ := suppTransition_symm a' a h.symm q
 
 /-- **2021 Proposition 16.4.3, p. 730 (2017: Proposition 16.4), independence of the
-representative (manifold type)**: SM's statement holds.  The structures are those of
+representative (manifold type)**: `proposition_16_4_3_naturality_statement` holds.  The structures are those of
 Proposition 9.1.9 (1); by `proposition_16_4_3_naturality_all` any induced structures would do. -/
 theorem proposition_16_4_3_naturality (c : PolyfoldClass Z) :
     proposition_16_4_3_naturality_statement c := by

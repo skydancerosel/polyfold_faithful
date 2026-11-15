@@ -54,8 +54,8 @@ Definition 1.1.15 (preprint 1.14) that in finite dimensions sc¹ is `C¹`, for r
 
 * Lemma 3.F's last sentence (operator-norm continuity can fail): the counterexample is the shift
   map of the exposition's §6, which needs the weighted Sobolev spaces of Example 1.1.3 (preprint 1.2).
-  Those spaces are formalized since (`Polyfold.GapP1Sobolev.example_1_1_3`, `CylinderWeakDerivatives`–`13`);
-  the shift map on them is not.
+  Those spaces are `Polyfold.CylinderSobolev.example_1_1_3` (the `Cylinder*.lean` files of
+  Chapter 1); the shift map on them is not formalized.
 -/
 
 open Set Filter Topology Function Metric Module

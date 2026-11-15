@@ -13,7 +13,7 @@ pp. 698–699: the parameter families relative to a fixed multisection `Λ₀`.
 
 After the extension `Λ₀` of the boundary data (step (b)), the proof "argues as in Theorem 15.3.7":
 it takes parameter families `t ↦ Λ_t` whose domain support stays away from `∂X`, so that
-`Λ̃ = Λ_t ⊕ Λ₀` still equals `Λ₀` over `∂X`, and the parametrized surjectivity (15.1) is now asked
+`Λ̃ = Λ_t ⊕ Λ₀` still equals `Λ₀` over `∂X`, and the parametrized surjectivity (15.1) is asked
 for the operators of `T(f, Λ₀)(x)` at the points `x` of `supp(Λ₀ ∘ f)`.
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
@@ -21,12 +21,12 @@ for the operators of `T(f, Λ₀)(x)` at the points `x` of `supp(Λ₀ ∘ f)`.
 * `IsParamOntoAtRel f Λ₀ Λ x`: (15.1) relative to `Λ₀`: for every operator `L` of `T(f, Λ₀)(x)`
   and every branch `i` of a linear representation of the family around `x`,
   `(v, τ) ↦ L v + Σ_j τ_j s_{ij}(x)` maps `T^R_xX × ℝ^ℓ` onto `W_x`.  For `Λ₀` the trivial
-  multisection this is GP's `IsParamOntoAt` (`isParamOntoAtRel_zero_iff`).
+  multisection this is `IsParamOntoAt` (`isParamOntoAtRel_zero_iff`).
 * `IsParamOntoAtRel.of_reducedOnto`: where `(f, Λ₀)` is already in general position (for example
   at the points of `supp(Λ₀ ∘ f) ∩ ∂X`, by the boundary hypothesis), (15.1) holds for every linear
   family (`τ = 0`).
 * Sums: `IsParamOntoAtRel.famAdd_left`, `IsParamOntoAtRel.famAdd_right`.
-* `RelGPFamily A f Λ₀ N U g Q`: GP's `GPFamily` with (15.1) relative to `Λ₀` at the points of
+* `RelGPFamily A f Λ₀ N U g Q`: `GPFamily` with (15.1) relative to `Λ₀` at the points of
   `supp(Λ₀ ∘ f) ∩ Q` and the bound `N(Λ_t) ≤ |t|₁ · g` (`g = h − N(Λ₀)` in the application):
   `RelGPFamily.zero`, `RelGPFamily.add`, `RelGPFamily.mono`, `RelGPFamily.zeroOn` (the empty family
   on a set where `(f, Λ₀)` is in general position).
@@ -72,7 +72,7 @@ def IsParamOntoAtRel (f : A.Obj → A.W) (Λ₀ : A.W → ℚ≥0) {ℓ : ℕ}
             ∃ τ : Fin ℓ → ℝ, L v + ∑ j, τ j •
               (⟨s i j (A.X.PObj.levelVal 1 x), hs i j _⟩ : A.P ⁻¹' {A.X.PObj.levelVal 1 x}) = w
 
-/-- For the trivial multisection, (15.1) relative to `Λ₀` is GP's (15.1). -/
+/-- For the trivial multisection, (15.1) relative to `Λ₀` is (15.1) (`IsParamOntoAt`). -/
 theorem isParamOntoAtRel_zero_iff {f : A.Obj → A.W} {ℓ : ℕ} {Λ : (Fin ℓ → ℝ) → A.W → ℚ≥0}
     {x : A.X.PObj.Level 1} :
     IsParamOntoAtRel f (zeroMultisection A) Λ x ↔ IsParamOntoAt f Λ x :=
@@ -136,7 +136,7 @@ variable (A) in
 /-- **The parameter families of steps (c)–(d) of the proof of Theorem 15.3.9 on a set `Q`**
 (p. 699, "argue as in Theorem 15.3.7"): a linear family `t ↦ Λ_t` of structurable
 sc⁺-multisections with `N(Λ_t)(x) ≤ |t|₁ · g(x)`, `dom-supp(Λ_t) ⊆ U`, and (15.1) relative to
-`Λ₀` at every `x ∈ supp(Λ₀ ∘ f) ∩ Q`.  (GP's `GPFamily` is the case `Λ₀` trivial, `g = h`, with
+`Λ₀` at every `x ∈ supp(Λ₀ ∘ f) ∩ Q`.  (`GPFamily` is the case `Λ₀` trivial, `g = h`, with
 `S_f` in place of `supp(Λ₀ ∘ f)`.) -/
 structure RelGPFamily (f : A.Obj → A.W) (Λ₀ : A.W → ℚ≥0) (N : A.B.One → ℝ) (U : Set A.Obj)
     (g : A.Obj → ℝ) (Q : Set A.Obj) where

@@ -17,7 +17,7 @@ oriented sheet family (`SheetFamily.lean`).  Numbers and pages are the 2021 text
   `(|supp Θ'|, L)` for any σ-algebra `L` whose sets have measurable traces on the sheets.
 * **`existsUnique_familyMeasure`**: existence and uniqueness of the linear map `ω ↦ μ_ω` into the
   signed measures on `(|supp Θ'|, L)` characterized by the local formula for a class of families
-  covering `supp Θ'`.  E1's `existsUnique_branchedMeasure` is the instance `D = supp Θ`,
+  covering `supp Θ'`.  `existsUnique_branchedMeasure` is the instance `D = supp Θ`,
   `Θ' = Θ`; the boundary measures of Theorems 9.5.15, 9.5.16 are the instance of
   `BoundaryMeasure.lean`.
 -/
@@ -40,7 +40,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [AddCommGroup Ω] [Module ℝ Ω] (𝓘 : X.SheetIntegration G Ω) {D : Set Obj} {m : ℕ}
 
 /-- **Matching neighbourhoods of two points over one point of `|X|`**, for two natural
-representations (E1's `exists_slice_pair`, stated for the representations only). -/
+representations (`exists_slice_pair`, stated for the representations only). -/
 theorem NaturalRep.exists_slice_pair {x x' : Obj} (R : X.NaturalRep x) (R' : X.NaturalRep x')
     (a : R.U) (a' : R'.U) (hπ : X.π (a : Obj) = X.π (a' : Obj)) :
     ∃ (φ : Mor) (V : Set Obj), IsOpen V ∧ (a : Obj) ∈ V ∧ V ⊆ R.U ∧

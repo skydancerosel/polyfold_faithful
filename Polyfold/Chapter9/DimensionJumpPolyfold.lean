@@ -11,15 +11,15 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 can equip `X` with an M-polyfold structure"; (p. 452) `∂X = {(−1,0), (1,0)}`.
 
 ## What is formalized
-* `K3.Xs ⊆ ℝ × ℂ` and the space `K3.XR` (subspace topology).
+* `DimensionJump.Xs ⊆ ℝ × ℂ` and the space `DimensionJump.XR` (subspace topology).
 * The fibres of the retract `O` of `DimensionJumpRetract.lean`: `β τ = Σ b_k(τ) e_{n_k}` spans the range
   of `fam τ` for `τ > 0` and `fam τ y = coef τ y • β τ` (`fam_eq_coef_smul`, every `τ`).
-* **`K3.chart`**: the homeomorphism `X → O`,
+* **`DimensionJump.chart`**: the homeomorphism `X → O`,
   `(t, z) ↦ (2(cos θ, sin θ), Re w · β_τ, Im w · β_τ)`, `θ = π(1+t)/4`, `τ = 4 cos θ sin θ`,
-  `w = z/√(1−|z|²)`; its inverse uses `arg` and `coef`.  **`K3.P : MPolyfold XR`**, the M-polyfold
+  `w = z/√(1−|z|²)`; its inverse uses `arg` and `coef`.  **`DimensionJump.P : MPolyfold XR`**, the M-polyfold
   with this one chart.
-* **`K3.degIndex_eq`**: `d_X(t,z) = 1` at `(±1,0)` and `0` elsewhere, i.e. `∂X = {(−1,0),(1,0)}`
-  (`K3.boundary_eq`).  The upper bound is read in the chart; the lower bound is Theorem 2.4.12: at the
+* **`DimensionJump.degIndex_eq`**: `d_X(t,z) = 1` at `(±1,0)` and `0` elsewhere, i.e. `∂X = {(−1,0),(1,0)}`
+  (`DimensionJump.boundary_eq`).  The upper bound is read in the chart; the lower bound is Theorem 2.4.12: at the
   end point the tangent space of `O` contains the inward normal of the face.
 -/
 
@@ -32,7 +32,7 @@ noncomputable section
 
 namespace Polyfold
 
-namespace K3
+namespace DimensionJump
 
 open RemarkFourThree ScOneExample
 
@@ -799,6 +799,6 @@ theorem boundary_eq : P.boundary = {x | x.1 = (-1, 0) ∨ x.1 = (1, 0)} := by
     · intro h'; omega
     · rintro (h' | h') <;> rw [h'] at h <;> simp at h
 
-end K3
+end DimensionJump
 
 end Polyfold

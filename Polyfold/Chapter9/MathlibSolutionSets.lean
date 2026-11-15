@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.MathlibManifoldBridge
-import Polyfold.Chapter3.MainTheorems2021
+import Polyfold.Chapter3.MainTheorems
 import Polyfold.Chapter3.TangentGermProjecting
 import Polyfold.Chapter6.SolutionOrientation
 

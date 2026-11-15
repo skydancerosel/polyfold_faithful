@@ -5,7 +5,7 @@ import Polyfold.Chapter3.GermFillingChart
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
 **Definition 3.6.6 (preprint 3.53)** (good position of an sc-Fredholm germ) and the linear part of the proof of
-**Theorem 3.6.8 (preprint 3.54)**, **in the text's germ reading** of Definition 3.1.11 (preprint 3.11) (phase 2): the filling `g` is an
+**Theorem 3.6.8 (preprint 3.54)**, **in the text's germ reading** of Definition 3.1.11 (preprint 3.11): the filling `g` is an
 sc-smooth germ on a germ of neighbourhoods `G` of `0` whose levels may shrink, so `Dg(0)` is the
 value at `0` of a derivative family `Dg` of the sc¹-germ `g` (`IsSc1GermWith G g Dg`), not
 `scDeriv U g 0`.
@@ -75,7 +75,7 @@ section DerivZero
 
 variable {C : Set (E 0)}
 
-/-- **`Dg(0)` does not depend on the germ or on the derivative family** (germ reading, phase 2):
+/-- **`Dg(0)` does not depend on the germ or on the derivative family** (germ reading):
 two derivative families of `g` on two germs agree at `0` (uniqueness of the derivative at `0`
 within the level `1` of `G₁ ∩ G₂`, `C` quadrant-like). -/
 theorem IsSc1GermWith.deriv_zero_eq (hC : IsQuadrantLike E C) {G₁ G₂ : ScNbhdGerm E C}
@@ -86,7 +86,7 @@ theorem IsSc1GermWith.deriv_zero_eq (hC : IsQuadrantLike E C) {G₁ G₂ : ScNbh
     ((G₁.inter G₂).uniqueDiffWithinAt hC 1 ((G₁.inter G₂).zero_mem 1))
 
 /-- **For `g` sc¹ on the whole `U`, `Dg(0) = scDeriv U g 0`** for every derivative family `Dg` of
-`g` on a germ `G ⊆ U` (germ reading, phase 2): the bridge from the germ statements to the
+`g` on a germ `G ⊆ U` (germ reading): the bridge from the germ statements to the
 project's whole-chart ones. -/
 theorem IsSc1GermWith.deriv_zero_eq_scDeriv {U : Set (E 0)} (hU : IsRelOpenInQuadrant E C U)
     (h0 : (0 : E 0) ∈ U) {G₁ : ScNbhdGerm E C} (hG : G₁.U 0 ⊆ U) {g : E 0 → F 0}
@@ -111,7 +111,7 @@ variable {hU : IsRelOpenInQuadrant E C U} {hR : IsStrongBundleRetraction U R} {h
   {fb g : E 0 → F 0} (hfg : IsFillingGerm hU hR h0 fb g)
 
 include hfg in
-/-- **`ker Dg(0) ⊆ T₀O = Dr(0)E` for a filling germ** (germ reading, phase 2; the germ form of
+/-- **`ker Dg(0) ⊆ T₀O = Dr(0)E` for a filling germ** (germ reading; the germ form of
 `IsFillerOf.ker_deriv_le_range`, the text's `ker Tf̃(0) ⊕ {0} = ker Dg(0)` in the proof of Theorem
 3.54): by condition (3) of the filling germ, `(1 − ρ(0))Dg(0)` is injective on `ker Dr(0)`, and
 `(1 − ρ(0))Dg(0)Dr(0) = 0`; `Dg` is any derivative family of `g` on a germ `G₁ ⊆ U`. -/
@@ -137,7 +137,7 @@ theorem ker_deriv_le_range (hG : G₁.U 0 ⊆ U) {Dg : E 1 → E 0 →L[ℝ] F 0
 
 include hfg in
 /-- **The kernel of `Tf̃(0) = Dg(0)|_{T₀O}`, as a subspace of `E₀`, is `ker Dg(0)`**, for a filling
-germ (germ reading, phase 2; the germ form of `IsFillerOf.map_ker_fillerRestrict`). -/
+germ (germ reading; the germ form of `IsFillerOf.map_ker_fillerRestrict`). -/
 theorem map_ker_fillerRestrict (hG : G₁.U 0 ⊆ U) {Dg : E 1 → E 0 →L[ℝ] F 0}
     (hg : IsSc1GermWith G₁ g Dg) (hg0 : g 0 = 0) (h0O : (0 : E 0) ∈ r R '' U)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
@@ -168,7 +168,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {G₁ : ScNbhdGerm E 
 
 open StrongRetr
 
-/-- **Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.1.11 (preprint 3.11), germ reading** (phase 2): for the
+/-- **Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.1.11 (preprint 3.11), germ reading**: for the
 linearization `Dg₀ = Dg(0) : E₀ → F₀` of the filling germ `g` at the zero `0` (the value at `0` of a
 derivative family of `g`, `IsSc1GermWith`), the sc-Fredholm germ is **in good position** if (1)
 `Tf̃(0) = Dg₀|_{T₀O} : T₀O → K₀` is onto, and (2) `ker Tf̃(0) = ker Dg₀` is in good position to the
@@ -181,13 +181,13 @@ structure IsGoodPositionAtGerm (hU : IsRelOpenInQuadrant E C U)
     (LinearMap.ker (Dg₀ : E 0 →ₗ[ℝ] F 0))
 
 /-- **The project's Definition 3.6.6 (preprint 3.53) in the chart is the germ one at `Dg₀ = scDeriv U g 0`**
-(germ reading, phase 2). -/
+(germ reading). -/
 theorem isGoodPositionAt_iff_germ {hU : IsRelOpenInQuadrant E C U}
     {hR : IsStrongBundleRetraction U R} {h0 : (0 : E 0) ∈ U} {g : E 0 → F 0} :
     IsGoodPositionAt hU hR h0 g ↔ IsGoodPositionAtGerm hU hR h0 (scDeriv U g 0) :=
   ⟨fun h => ⟨h.surj, h.kernel⟩, fun h => ⟨h.surj, h.kernel⟩⟩
 
-/-- **Old ⇒ germ** (germ reading, phase 2): if the germ is in good position in the project's
+/-- **Whole chart ⇒ germ** (germ reading): if the germ is in good position in the project's
 sense (`IsGoodPositionAt`, `g` sc¹ on `U`), it is in good position at `Dg(0)` for every derivative
 family `Dg` of `g` on a germ `G ⊆ U` (`Dg(0) = scDeriv U g 0`). -/
 theorem IsGoodPositionAt.isGoodPositionAtGerm {hU : IsRelOpenInQuadrant E C U}
@@ -198,7 +198,7 @@ theorem IsGoodPositionAt.isGoodPositionAtGerm {hU : IsRelOpenInQuadrant E C U}
   rw [hDg.deriv_zero_eq_scDeriv hU h0 hG hg]
   exact isGoodPositionAt_iff_germ.1 hgp
 
-/-- Condition (1) of Definition 3.6.6 (preprint 3.53) (germ reading, phase 2) is the surjectivity of
+/-- Condition (1) of Definition 3.6.6 (preprint 3.53) (germ reading) is the surjectivity of
 `fillerRestrict` for `Dg₀`. -/
 theorem IsGoodPositionAtGerm.surjective_fillerRestrict {hU : IsRelOpenInQuadrant E C U}
     {hR : IsStrongBundleRetraction U R} {h0 : (0 : E 0) ∈ U} {Dg₀ : E 0 →L[ℝ] F 0}
@@ -215,7 +215,7 @@ theorem IsGoodPositionAtGerm.congr {hU : IsRelOpenInQuadrant E C U}
     (h : IsGoodPositionAtGerm hU hR h0 D) (hDD' : D = D') : IsGoodPositionAtGerm hU hR h0 D' :=
   hDD' ▸ h
 
-/-- **Definition 3.6.6 (preprint 3.53) does not depend on the derivative family** (germ reading, phase 2): if the
+/-- **Definition 3.6.6 (preprint 3.53) does not depend on the derivative family** (germ reading): if the
 germ is in good position at `Dg(0)` for one derivative family `Dg` of `g` on a germ `G`, it is at
 `Dg'(0)` for every derivative family `Dg'` of `g` on every germ `G'` (`Dg'(0) = Dg(0)`,
 `IsSc1GermWith.deriv_zero_eq`). -/
@@ -228,7 +228,7 @@ theorem IsGoodPositionAtGerm.of_isSc1GermWith {hU : IsRelOpenInQuadrant E C U}
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **Theorem 3.6.8 (preprint 3.54), the linear part, germ reading** (phase 2): let `g` be a filling germ of the
+/-- **Theorem 3.6.8 (preprint 3.54), the linear part, germ reading**: let `g` be a filling germ of the
 principal part `f̂` of a section at a zero (`f̂(0) = 0`), `Dg` a derivative family of `g` on a germ
 `G₁ ⊆ U`, the germ in good position at `Dg(0)` (Definition 3.6.6 (preprint 3.53)), and `(1 − Dr(0))E ⊆ E₀`
 (Proposition 2.5.3 (preprint 2.35) for the tame retraction `r`).  Then `Dg(0) : E → F` is surjective and `ker Dg(0)`
@@ -248,7 +248,7 @@ theorem theorem_3_6_8_linear (hU : IsRelOpenInQuadrant E C U)
   refine ⟨hsurj.1 (hgp.surjective_fillerRestrict h1), ?_⟩
   exact hgp.kernel.isInGoodPosition T hC (scDeriv U (r R) 0) (scDeriv_r_idem hU hR h0O) hK
 
-/-- **Theorem 3.6.8 (preprint 3.54), the linear part, for a tame retraction, germ reading** (phase 2):
+/-- **Theorem 3.6.8 (preprint 3.54), the linear part, for a tame retraction, germ reading**:
 `theorem_3_6_8_linear` with `(1 − Dr(0))E ⊆ E₀` from Proposition 2.5.3 (preprint 2.35) for a tame
 sc-retraction `Rr` with `Rr.U = U` and `Rr = r`. -/
 theorem theorem_3_6_8_linear_of_isTameWith (hU : IsRelOpenInQuadrant E C U)
@@ -333,7 +333,7 @@ theorem IsStrongBundleIso.exists_fiber_base_equiv (hU : IsRelOpenInQuadrant E C 
     ContinuousLinearEquiv.equivOfInverse (scDeriv U ψ 0) (scDeriv U' ψ' 0) hψψ'D hψ'ψD,
     rfl, rfl, fun x => scDeriv_mem_iff_of_inverse hU hU' hψsm hψ'sm hψU' hψ'U hψψ' h0 hψ0 x⟩
 
-/-- **The linearization of the push-forward of a germ** (germ reading, phase 2; the germ form of
+/-- **The linearization of the push-forward of a germ** (germ reading; the germ form of
 `IsStrongBundleIso.pushforward_linearization_wholeChart`): for `g` an sc-smooth germ on `G₁ ⊆ U` with a
 derivative family `Dg` and `g(0) = 0`, `Ψ_*(g)` is an sc-smooth germ on `ψ'⁻¹(G₁)` (`pullGerm`)
 with the derivative family `pushforwardDeriv`, `Ψ_*(g)(0) = 0`, and
@@ -359,7 +359,7 @@ theorem IsStrongBundleIso.pushforward_linearization (hU : IsRelOpenInQuadrant E 
     exact hΨ.toFun.snd_zero h0
   · rw [hΨ.pushforwardDeriv_zero h0 hψ0 hU hg0 Dg, hΓ, hS]
 
-/-- **`D(Ψ_*g)(0)` is surjective if `Dg(0)` is** (germ reading, phase 2; the text's "`D(h + t)(0)`
+/-- **`D(Ψ_*g)(0)` is surjective if `Dg(0)` is** (germ reading; the text's "`D(h + t)(0)`
 is surjective", the germ form of `IsStrongBundleIso.pushforward_surjective_wholeChart`). -/
 theorem IsStrongBundleIso.pushforward_surjective (hU : IsRelOpenInQuadrant E C U)
     (hU' : IsRelOpenInQuadrant E' C' U') (hΨ : IsStrongBundleIso U U' Ψ Ψ') (h0 : (0 : E 0) ∈ U)
@@ -371,7 +371,7 @@ theorem IsStrongBundleIso.pushforward_surjective (hU : IsRelOpenInQuadrant E C U
   simp only [ContinuousLinearMap.coe_comp, ContinuousLinearEquiv.coe_coe]
   exact Γ.surjective.comp (hsurj.comp S.symm.surjective)
 
-/-- **`N' = ker D(h + t)(0)` is in good position to `C'`** (germ reading, phase 2; the germ form
+/-- **`N' = ker D(h + t)(0)` is in good position to `C'`** (germ reading; the germ form
 of `IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart`): the kernel of `D(Ψ_*g)(0)` is
 `Dψ(0)(ker Dg(0))`, and good position is carried by `Dψ(0)` (Lemma 3.5.9 (preprint 3.45)). -/
 theorem IsStrongBundleIso.pushforward_ker_isInGoodPosition (hU : IsRelOpenInQuadrant E C U)
@@ -399,7 +399,7 @@ theorem IsStrongBundleIso.pushforward_ker_isInGoodPosition (hU : IsRelOpenInQuad
     rw [this]
     exact hx
 
-/-- **`D(Ψ_*g)(0)` is Fredholm if `Dg(0)` is** (germ reading, phase 2): it is
+/-- **`D(Ψ_*g)(0)` is Fredholm if `Dg(0)` is** (germ reading): it is
 `Γ(0) ∘ Dg(0) ∘ Dψ(0)⁻¹`. -/
 theorem IsStrongBundleIso.pushforward_isFredholm_germ (hU : IsRelOpenInQuadrant E C U)
     (hU' : IsRelOpenInQuadrant E' C' U') (hΨ : IsStrongBundleIso U U' Ψ Ψ') (h0 : (0 : E 0) ∈ U)
@@ -423,7 +423,7 @@ open StrongRetr
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47), germ reading** (phase 2; the germ form of
+/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47), germ reading** (the germ form of
 `theorem_3_6_8_pushforward_wholeChart`): let `g` be a filling germ of `f̂` at the zero `0`, sc-smooth on the
 germ `G₁ ⊆ U` with a derivative family `Dg`, the germ in good position at `Dg(0)`
 (`IsGoodPositionAtGerm`), `(1 − Dr(0))E ⊆ E₀` (Proposition 2.5.3 (preprint 2.35)), and `Dg(0)` Fredholm
@@ -476,7 +476,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **Definition 3.6.6 (preprint 3.53) for a section, the text's germ reading** (phase 2): `(f, x₀)` is an
+/-- **Definition 3.6.6 (preprint 3.53) for a section, the text's germ reading**: `(f, x₀)` is an
 **sc-Fredholm germ in good position**: the data of Definition 3.1.11 (preprint 3.11) in the germ reading
 (`IsScFredholmGerm`: a strong bundle chart centred at `x₀`, a filling germ `g` of `f̂`, an
 sc⁺-germ `s` with `s(0) = g(0)` and `g − s` conjugated to a basic germ), and a derivative family
@@ -497,13 +497,13 @@ def StrongBundle.IsGoodPositionGerm (f : X → Y) (x₀ : X) : Prop :=
       G.U 0 ⊆ c.U ∧ IsSc1GermWith G g Dg ∧
       IsGoodPositionAtGerm c.relOpen c.isRetraction h0 (Dg 0)
 
-/-- **A germ in good position is an sc-Fredholm germ** (germ reading, phase 2). -/
+/-- **A germ in good position is an sc-Fredholm germ** (germ reading). -/
 theorem StrongBundle.IsGoodPositionGerm.isScFredholmGerm {x₀ : X}
     (h : B.IsGoodPositionGerm f x₀) : B.IsScFredholmGerm f x₀ := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, -⟩ := h
   exact ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩
 
-/-- **Project ⇒ germ reading** for Definition 3.6.6 (preprint 3.53) (phase 2): a germ in good position in the
+/-- **Project ⇒ germ reading** for Definition 3.6.6 (preprint 3.53): a germ in good position in the
 project's sense (`IsGoodPositionGermWholeChart`) is one in the germ reading, with the germ `ofSet U` and
 `Dg = scDeriv U g`. -/
 theorem StrongBundle.IsGoodPositionGermWholeChart.isGoodPositionGerm {x₀ : X}
@@ -516,7 +516,7 @@ theorem StrongBundle.IsGoodPositionGermWholeChart.isGoodPositionGerm {x₀ : X}
     hfill.isScSmooth.isSc1.isSc1GermWith_ofSet c.relOpen.relOpen h0,
     isGoodPositionAt_iff_germ.1 hgp⟩
 
-/-- **The good position holds at `Dg(0)` for every derivative family** (germ reading, phase 2):
+/-- **The good position holds at `Dg(0)` for every derivative family** (germ reading):
 the `∀`-form of `IsGoodPositionGerm`.  If `(f, x₀)` is in good position, then in the data of
 Definition 3.1.11 (preprint 3.11) of the germ reading the germ is in good position at `Dg(0)` for **every**
 derivative family `Dg` of `g` on **every** germ `G` (`IsGoodPositionAtGerm.of_isSc1GermWith`). -/
@@ -534,7 +534,7 @@ theorem StrongBundle.IsGoodPositionGerm.forall_isGoodPositionAtGerm {x₀ : X}
   exact ⟨c, hc, hxV, hφ0, h0, g, s, hfill, hs, hs0, hconj, fun _ _ hDg =>
     hgp₀.of_isSc1GermWith c.isQuadrantLike hDg₀ hDg⟩
 
-/-- **The reduction for Definition 3.6.6 (preprint 3.53)** (germ reading, phase 2): `(f, x₀)` is in good position in
+/-- **The reduction for Definition 3.6.6 (preprint 3.53)** (germ reading): `(f, x₀)` is in good position in
 the project's sense iff it is in the germ reading **with `g` and `s` sc-smooth on the whole `U`**
 (the analogue of `isScFredholmGerm_iff_germG_wholeChart`). -/
 theorem StrongBundle.isGoodPositionGerm_iff_germG_wholeChart {x₀ : X} :
@@ -567,7 +567,7 @@ theorem StrongBundle.isGoodPositionGerm_iff_germG_wholeChart {x₀ : X} :
     rw [isGoodPositionAt_iff_germ, ← hDg.deriv_zero_eq_scDeriv c.relOpen h0 hG hg.isSc1]
     exact hgp
 
-/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47), for a section, germ reading** (phase 2; the germ
+/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47), for a section, germ reading** (the germ
 form of `theorem_3_6_8_pushforward_section_wholeChart`): let `f` be a section with `f(x₀) = 0` and `(f, x₀)` in
 good position in the germ reading.  Then in the chart of Definition 3.6.6 (preprint 3.53) (centred at `x₀`, with a
 filling germ `g` of `f̂`, sc-smooth on a germ `G ⊆ U` with a derivative family `Dg`), for every

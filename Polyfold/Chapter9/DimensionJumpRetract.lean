@@ -14,13 +14,13 @@ points (`∂X = {(±1,0)}`, p. 452).  This file builds one global model:
 
 * `E = ℝ² ⊕ (X_w ⊕ X_w)`, `X_w` the weighted sequence space of Remark 4.1.3's example
   (`ScOneExample.X`), with the partial quadrant `C = [0,∞)² ⊕ (X_w ⊕ X_w)` (`quadrant 2`).
-* `L(p) = fam(p₀p₁) ⊕ fam(p₀p₁)` (`K3.L`), Remark 4.1.3's moving rank-one projections
+* `L(p) = fam(p₀p₁) ⊕ fam(p₀p₁)` (`DimensionJump.L`), Remark 4.1.3's moving rank-one projections
   (`RemarkFourThree.fam`, `0` for `t ≤ 0`) composed with `G(p) = p₀p₁`, on both factors; a loss
   family (`IsLossFamily.comp_contDiff`, `IsLossFamily.diag`).
 * `ρ(p) = 2p/|p|`, the radial retraction of `[0,∞)² \ {0}` onto the quarter circle of radius `2`
   (it keeps the faces `{pᵢ = 0}`).
-* **`K3.Rt`**: the sc-smooth retraction `r(p, a, b) = (ρ p, L(ρ p)(a, b))` of
-  `U = C \ {p = 0}` (`ScRetraction E C`).  Its retract `O = r(U)` (`K3.mem_O_iff`) is the quarter
+* **`DimensionJump.Rt`**: the sc-smooth retraction `r(p, a, b) = (ρ p, L(ρ p)(a, b))` of
+  `U = C \ {p = 0}` (`ScRetraction E C`).  Its retract `O = r(U)` (`DimensionJump.mem_O_iff`) is the quarter
   circle with a plane `ℝβ ⊕ ℝβ` over each interior point and the point `0` over each end.
 
 The remark's set `X` and its chart onto `O` are in `DimensionJumpPolyfold.lean`.
@@ -77,7 +77,7 @@ theorem IsLossFamily.diag {L : V → ∀ m, Z m →L[ℝ] Z m} (h : IsLossFamily
 
 end LossFamilyOps
 
-namespace K3
+namespace DimensionJump
 
 open RemarkFourThree ScOneExample
 
@@ -228,6 +228,6 @@ theorem mem_O_iff (q : E 0) : q ∈ O ↔ q.1 ∈ arc ∧ L q.1 0 q.2 = q.2 := b
     refine ⟨q, ⟨ne_zero_of_mem_arc h1, h1.1⟩, ?_⟩
     rw [Rt_apply, ρ_of_mem_arc h1, h2]
 
-end K3
+end DimensionJump
 
 end Polyfold

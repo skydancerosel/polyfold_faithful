@@ -63,9 +63,10 @@ All results are proved for an abstract `d : X → ℕ` with the corner axioms
   argument.
 * `Φ_{(x,V,θ)}` is onto `θ` only for `V` centred at `x` (see the header of `TameBoundary.lean`);
   `isOpenEmbedding_phi` holds for all `V`.
-* Not formalized: Theorem 2.7.13 (2) (the tame M-polyfold structure on `bX`), (3) (sc-smoothness
-  of `B`), (4) beyond the fibre count (`d_{bX}` needs (2)), the sc-diffeomorphism part of
-  Proposition 2.7.12 and of the characterization, and the iterated boundaries `bᵏX`, `Bᵏ`.
+* Theorem 2.7.13 (2) (the tame M-polyfold structure on `bX`), (3) (sc-smoothness of `B`), (4)
+  beyond the fibre count, the sc-diffeomorphism part of Proposition 2.7.12 and of the
+  characterization, and the iterated boundaries `bᵏX`, `Bᵏ` are in `TameBoundaryStructure.lean`
+  (`theorem_2_7_13_structure`, `proposition_2_7_12_scDiffeo`) and `TameBoundaryNonCentred.lean`.
 -/
 
 open Set Filter Topology Function
@@ -533,7 +534,8 @@ theorem proposition_2_7_16 (hP : P.IsTame) :
 (1) `bX` carries the metrizable topology `T_{bX}`; every `U(x, V, θ)` is open and every
 `Φ_{(x,V,θ)}` is an open embedding into `θ` (onto `θ` for `V` centred at `x`); `T_{bX}` is the only
 topology with these properties; `B` is continuous with image `∂X`, and every `x` has exactly
-`d_X(x)` preimages.  Parts (2), (3) and the sc-statements are not formalized (see the header). -/
+`d_X(x)` preimages.  Parts (2), (3) and the sc-statements are `theorem_2_7_13_structure`
+(`TameBoundaryStructure.lean`). -/
 theorem theorem_2_7_13 (hP : P.IsTame) :
     MetrizableSpace (P.TameBoundarySpace hP) ∧
       (∀ t, IsOpen (uSet (P.isCornerIndex_degIndex hP) t)) ∧

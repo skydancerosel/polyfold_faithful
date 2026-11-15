@@ -21,7 +21,7 @@ off which every small `t` has `(f, Λ_t)` in general position.
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
 * **`HasLocalGPFamilies A f N U h`**: the output of the local constructions (steps (a), (f) of
-  G's gap G-1): every `x ∈ S_f` lies in a saturated open `Q` carrying a `GPFamily` on `Q`.
+  the proof): every `x ∈ S_f` lies in a saturated open `Q` carrying a `GPFamily` on `Q`.
 * **`HasParametricGeneralPosition A f N U`**: the output of "Achieving global transversality"
   (steps (e), (g), (h)): for every linear family of sc⁺-multisections with `N(Λ_t) ≤ |t|₁`,
   `dom-supp(Λ_t) ⊆ U` and (15.1) at every `x ∈ S_f`, there is `ε > 0` such that for almost every
@@ -33,7 +33,7 @@ off which every small `t` has `(f, Λ_t)` in general position.
   * `sum_abs_lt_one`: `|t|₁ < 1` for `‖t‖ < 1/(ℓ+1)`;
   * **`theorem_15_3_7_hyp`**: the conclusions (1)–(4) and "structurable" of Theorem 15.3.7, from
     a good system and the two properties above;
-  * **`theorem_15_3_7_of_hyp`**: `theorem_15_3_7_statement A` (G's Lean statement) from a good
+  * **`theorem_15_3_7_of_hyp`**: `theorem_15_3_7_statement A` from a good
     system and the two properties under the hypotheses of the theorem.
 * Satisfiability: `hasLocalGPFamilies_epSEP_zero`, `hasParametricGeneralPosition_epSEP_zero`,
   `nonempty_goodSystem_epSEP_zero`, and `theorem_15_3_7_statement_epSEP_zero_of_hyp` (the
@@ -41,7 +41,7 @@ off which every small `t` has `(f, Λ_t)` in general position.
 
 ## Reading
 
-* "Structurable" (Definition 13.3.6, D's `IsStructurable`) includes a good system; so the
+* "Structurable" (Definition 13.3.6, `IsStructurable`) includes a good system; so the
   conclusion of Theorem 15.3.7 implies that a good system exists, and `Nonempty A.X.GoodSystem` is
   a hypothesis here (it holds for paracompact `|X|`, Theorem 13.1.8; Remark 15.3.8 drops
   paracompactness).
@@ -74,7 +74,7 @@ variable {A : SEP.{u}}
 
 variable (A) in
 /-- **The local constructions of the proof of Theorem 15.3.7** (pp. 694–696, "Local constructions
-at `x ∈ S_f`", interior and boundary; steps (a) and (f) of gap G-1): every `x ∈ S_f` lies in a
+at `x ∈ S_f`", interior and boundary; steps (a) and (f) of the proof): every `x ∈ S_f` lies in a
 saturated open `Q` (the saturation of `Q(x)`) on which there is a parameter family with the
 properties of `GPFamily` (structurable, linear in `t`, `N(Λ_t) ≤ |t|₁ h`, domain support in `U`,
 (15.1) at the points of `S_f ∩ Q`). -/
@@ -85,7 +85,7 @@ def HasLocalGPFamilies (f : A.Obj → A.W) (N : A.B.One → ℝ) (U : Set A.Obj)
 
 variable (A) in
 /-- **"Achieving global transversality" in the proof of Theorem 15.3.7** (pp. 696–698; steps
-(e), (g), (h) of gap G-1: the compactness (15.2), the implicit function theorem near the
+(e), (g), (h) of the proof: the compactness (15.2), the implicit function theorem near the
 parametrized solution set, Sard's theorem for the projections to `ℝ^ℓ` on the intersections of
 faces): for every linear family `t ↦ Λ_t` of sc⁺-multisections with `N(Λ_t) ≤ |t|₁`,
 `dom-supp(Λ_t) ⊆ U` and (15.1) at every point of `S_f`, there is `ε > 0` such that for almost
@@ -204,7 +204,7 @@ theorem theorem_15_3_7_hyp (h𝒰 : Nonempty A.X.GoodSystem)
     isTransversal_of_isInGeneralPosition hf (F.isStructurable t).1 hgp, hgp⟩
   exact (F.norm_le t x).trans_lt (mul_lt_of_lt_one_left (hh x).1 hsum)
 
-/-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`, G's proposition)** from a good system
+/-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`)** from a good system
 and, under the hypotheses of the theorem, the two analytic steps of the proof
 (`HasLocalGPFamilies`, `HasParametricGeneralPosition`). -/
 theorem theorem_15_3_7_of_hyp (h𝒰 : Nonempty A.X.GoodSystem)
@@ -276,7 +276,7 @@ theorem hasLocalGPFamilies_epSEP_zero (n : ℕ)
     exact isLocalRepOn_zeroMultisection isOpen_univ
 
 /-- **The hypotheses of `theorem_15_3_7_of_hyp` hold together** on `ℝⁿ × ℝ⁰ → ℝⁿ`, which gives
-the statement there through the reduction (G's `theorem_15_3_7_statement_epSEP_zero` proves it
+the statement there through the reduction (`theorem_15_3_7_statement_epSEP_zero` proves it
 directly). -/
 theorem theorem_15_3_7_statement_epSEP_zero_of_hyp (n : ℕ) :
     theorem_15_3_7_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=

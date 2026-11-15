@@ -1,6 +1,6 @@
 import Polyfold.Chapter6.IntervalEndManifolds
 import Polyfold.Chapter6.IntervalCobordismExistence
-import Polyfold.Chapter6.Theorem671_2021
+import Polyfold.Chapter6.Theorem671
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6–6.7, pp. 275–278:

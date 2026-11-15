@@ -6,7 +6,7 @@ import Polyfold.Chapter3.FredholmGermIndexG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
 **Proposition 3.6.5 (preprint 3.52) in sc form**, the sc form of **Proposition 3.1.5 (preprint 3.5)**, and the clause
 "**`f'(x₀)` is sc-Fredholm**" of **Theorem 3.1.22 (preprint 3.19)**, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**
-(phase 2): the filling `g` and the sc⁺-section `s` are sc-smooth germs.
+: the filling `g` and the sc⁺-section `s` are sc-smooth germs.
 
 # The linearization of an sc-Fredholm germ is sc-Fredholm, germ reading
 
@@ -53,8 +53,7 @@ section Conjugate
 
 variable {C U : Set (E 0)} {Gk : ScNbhdGerm E C} {k : E 0 → F 0} {Dk : E 1 → E 0 →L[ℝ] F 0}
 
-/-- **The derivative at `0` of a germ conjugated to a basic germ is regularizing** (germ reading,
-phase 2; the germ version of `ConjugationData.scDeriv_isRegularizing_wholeChart`): `Dk(0)e ∈ F_m` implies
+/-- **The derivative at `0` of a germ conjugated to a basic germ is regularizing** (germ reading; the germ version of `ConjugationData.scDeriv_isRegularizing_wholeChart`): `Dk(0)e ∈ F_m` implies
 `e ∈ E_m`.  From `Γ(0)Dk(0) = Dh(0)Dψ(0)` (`IsStrongBundleIso.fiberCLM_comp_deriv_zero_eq_germ`),
 `Γ(0)` preserving the levels, `Dh(0)` regularizing and `Dψ(0)⁻¹ = Dψ'(0)` an sc-operator. -/
 theorem ConjugationData.scDeriv_isRegularizing (hU : IsRelOpenInQuadrant E C U)
@@ -104,7 +103,7 @@ theorem ConjugationData.scDeriv_isRegularizing (hU : IsRelOpenInQuadrant E C U)
   exact ⟨Tm z, by rw [hTm, hz, hψψ'D]⟩
 
 /-- **The derivative at `0` of a germ conjugated to a basic germ is sc-Fredholm**, of index
-`dim Pn − dim Q` (germ reading, phase 2; the germ version of
+`dim Pn − dim Q` (germ reading; the germ version of
 `ConjugationData.scDeriv_isScFredholm_wholeChart`): `Dk(0)` is an sc-operator (the derivative of an
 sc¹-germ at the smooth point `0`), Fredholm on level `0` of index `n − N`
 (`ConjugationData.scDeriv_isFredholm_index`) and regularizing; the criterion
@@ -136,7 +135,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {hU : IsRelOpenInQuad
   (hfg : IsFillingGerm hU hR h0 fb g)
 
 include hfg in
-/-- **Proposition 3.1.5 (preprint 3.5), sc form, germ reading** (phase 2; the germ version of
+/-- **Proposition 3.1.5 (preprint 3.5), sc form, germ reading** (the germ version of
 `IsFillerOf.proposition_3_1_5_sc`): let `g` be a filling germ of `f` with `g(0) = 0` (`f` a section
 of `K → O`, `0 ∈ O`), `Dg` a derivative family of `g` on a germ `G ⊆ U`, and let `Dg(0) : E → F`
 be an sc-Fredholm sc-operator.  Then `T₀O = Dr(0)E` and `K₀ = ρ(0)F` are sc-subspaces, `Dg(0)`
@@ -181,7 +180,7 @@ section Prop352
 
 variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), sc form, germ reading** (phase 2; the germ
+/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), sc form, germ reading** (the germ
 version of `proposition_3_6_5_local_sc_wholeChart`): let `g` be a filling germ of the principal part `f̂` of a
 section at a zero (`f̂(0) = 0`), `Dg` a derivative family of `g` on a germ `G ⊆ U`, `s` an sc¹-germ
 into `F¹` on `G_s` (derivative family `Ds`) with `s(0) = g(0)`, and `d` conjugation data of
@@ -239,7 +238,7 @@ theorem proposition_3_6_5_local_sc (hU : IsRelOpenInQuadrant E C U)
     rw [← hDgop.toScOperator_zero, ← scIndex_eq_fredholmIndex, hDgind]
   exact ⟨hDgFm, hDgindm.trans hDgind, hTFm, hTindm.trans h0ind⟩
 
-/-- **Theorem 3.1.22 (preprint 3.19), "`f'(x₀)` is sc-Fredholm", in the chart, germ reading** (phase 2): under the
+/-- **Theorem 3.1.22 (preprint 3.19), "`f'(x₀)` is sc-Fredholm", in the chart, germ reading**: under the
 hypotheses of `proposition_3_6_5_local_sc`, if moreover `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀` is
 onto on level `0` (condition (1) of Definition 3.6.6 (preprint 3.53): every `y ∈ K₀` is `Dg(0)x` for some
 `x ∈ T₀O`), then the sc-Fredholm `Tf(0)` is onto on every level (it is regularizing). -/
@@ -282,7 +281,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Proposition 3.6.5 (preprint 3.52), sc form, germ reading** (phase 2; the germ version of
+/-- **Proposition 3.6.5 (preprint 3.52), sc form, germ reading** (the germ version of
 `proposition_3_6_5_sc_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀`): let `f` be a section with `(f, x₀)`
 an sc-Fredholm germ and `f(x₀) = 0`.  In the strong bundle chart of Definition 3.1.11 (preprint 3.11) centred at
 `x₀`, with the filling germ `g` of `f̂` (on `G ⊆ U`, derivative family `Dg`) and the sc⁺-germ `s`
@@ -328,8 +327,7 @@ theorem proposition_3_6_5_sc (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredhol
   obtain ⟨-, h1, -, h2⟩ := hlvl m
   exact ⟨h1, h2⟩
 
-/-- **Theorem 3.1.22 (preprint 3.19), the first clause, sc form, germ reading: "`f'(x₀)` is sc-Fredholm"** (phase 2;
-the germ version of `theorem_3_1_22_linearization_sc_wholeChart`): for an sc-Fredholm section `f` and a zero
+/-- **Theorem 3.1.22 (preprint 3.19), the first clause, sc form, germ reading: "`f'(x₀)` is sc-Fredholm"** (the germ version of `theorem_3_1_22_linearization_sc_wholeChart`): for an sc-Fredholm section `f` and a zero
 `x₀` such that `(f, x₀)` has the germ data of Definition 3.1.11 (preprint 3.11) (germ reading) in a chart in which
 `Tf(x₀) = Dg(0)|_{T₀O} : T₀O → K₀` is onto (condition (1) of Definition 3.6.6 (preprint 3.53), germ reading: the
 `surj` field of `IsGoodPositionAtGerm`, so the hypothesis follows from

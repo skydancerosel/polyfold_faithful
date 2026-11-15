@@ -410,7 +410,7 @@ variable {Z : Type w} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {S :
 
 omit [T2Space X] [ParacompactSpace X] in
 /-- Sc-smoothness on an open set is local (as `IsScSmoothOn.of_locally` of `Chapter7/Discrete`). -/
-private theorem isScSmoothOn_of_locally_pb {f : Z → Y} {U : Set Z} (hU : IsOpen U)
+private theorem isScSmoothOn_of_locally {f : Z → Y} {U : Set Z} (hU : IsOpen U)
     (h : ∀ x ∈ U, ∃ U' : Set Z, IsOpen U' ∧ x ∈ U' ∧ U' ⊆ U ∧ S.IsScSmoothOn Q f U') :
     S.IsScSmoothOn Q f U := by
   have hcont : ContinuousOn f U := fun x hx => by
@@ -429,11 +429,11 @@ private theorem isScSmoothOn_of_locally_pb {f : Z → Y} {U : Set Z} (hU : IsOpe
 omit [T2Space X] [ParacompactSpace X] in
 /-- A map into a sub-M-polyfold is sc-smooth into it if it is sc-smooth into the ambient
 M-polyfold (Proposition 2.3.19 (2), as `isScSmoothOn_subPolyfold_of_val` of `Chapter9`). -/
-private theorem isScSmoothOn_subPolyfold_of_val_pb {A : Set Y} (hA : Q.IsSubMPolyfold A)
+private theorem isScSmoothOn_subPolyfold_of_val' {A : Set Y} (hA : Q.IsSubMPolyfold A)
     [ParacompactSpace A] {f : Z → A} {U : Set Z}
     (hf : S.IsScSmoothOn Q (fun x => (f x : Y)) U) :
     S.IsScSmoothOn (subPolyfold hA) f U := by
-  refine isScSmoothOn_of_locally_pb hf.isOpen fun x hx => ?_
+  refine isScSmoothOn_of_locally hf.isOpen fun x hx => ?_
   set d := hA.data (f x).2
   have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
     hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
@@ -451,7 +451,7 @@ theorem isScSmoothMap_tangentPullback_mk {g : Z → P.shift.Level 1} {s : Z → 
     (hgs : ∀ z, P.tangentProj (s z) = P.shift.levelVal 1 (g z)) :
     S.IsScSmoothMap P.tangentPullbackPolyfold
       (fun z => (⟨(g z, s z), hgs z⟩ : P.tangentPullback)) :=
-  isScSmoothOn_subPolyfold_of_val_pb isSubMPolyfold_tangentPullback (IsScSmoothOn.prodMk hg hs)
+  isScSmoothOn_subPolyfold_of_val' isSubMPolyfold_tangentPullback (IsScSmoothOn.prodMk hg hs)
 
 end IntoPullback
 

@@ -76,7 +76,7 @@ with `Φ̂(g)(𝐔(h)) = 𝐔(g h g⁻¹)`, `s ∘ Φ̂(g) = Φ(g) ∘ s` and `t
 
 ## Reading
 
-* **Connectedness of `U` makes `Γ` a functor** (PLAN II.6, 3).  `y ↦ Γ(g, Φ(h) y) ∘ Γ(h, y)` and
+* **Connectedness of `U` makes `Γ` a functor**.  `y ↦ Γ(g, Φ(h) y) ∘ Γ(h, y)` and
   `Γ(gh, ·)` are continuous sections of `s` over `U` (the first by condition (4) in the sheet form,
   for the sheet `𝐔(g)`) with the same value `g ∘ h` at `x`; on the connected `U` they agree
   (`eqOn_sections_of_isPreconnected`, `LocConnected.lean`).  Equivalently, the sheet index of
@@ -107,7 +107,7 @@ with `Φ̂(g)(𝐔(h)) = 𝐔(g h g⁻¹)`, `s ∘ Φ̂(g) = Φ(g) ∘ s` and `t
   `LocalUniformizer`.
 * No hypothesis "for all …" is added: everything is a consequence of one datum `R`, and such data
   exist (`EpGroupoid.trivialNaturalRep`; in general Theorem 7.1.13 (2017: 7.1)).
-* No possible misprint was found on pp. 231–233.
+* No point of notation needed a reading on pp. 231–233.
 -/
 
 open Set Filter Topology Function CategoryTheory
@@ -349,7 +349,7 @@ theorem index_eq_iff {φ : Mor} (hφ : φ ∈ X.morOn R.U) {g : X.Isotropy x} :
   rintro ⟨y, hy, rfl⟩
   exact R.index_Γ g hy
 
-/-- **The sheet index is locally constant on `𝐔(x)`** (PLAN II.6, 3): it is constant on the open
+/-- **The sheet index is locally constant on `𝐔(x)`**: it is constant on the open
 sheets. -/
 theorem eventually_index_eq {φ : Mor} (hφ : φ ∈ X.morOn R.U) :
     ∀ᶠ ψ in 𝓝 φ, R.index ψ = R.index φ := by

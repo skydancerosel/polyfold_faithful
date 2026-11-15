@@ -5,8 +5,7 @@ import Polyfold.Chapter3.LinearizationChartsG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6:
 **Theorem 3.1.18 (preprint 3.15) for tame germ data** (Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51)) and **the reading of good position
-(Definition 3.6.6 (preprint 3.53)) in a tame chart**, in the text's germ reading of Definition 3.1.11 (preprint 3.11) (phase 2;
-Findings, Chapter 3, items 300–309).
+(Definition 3.6.6 (preprint 3.53)) in a tame chart**, in the text's germ reading of Definition 3.1.11 (preprint 3.11) (Findings, Chapter 3, items 300–309).
 
 # Tame germ data under sc⁺-perturbation, and good position in a tame chart, germ reading
 
@@ -34,7 +33,7 @@ property of the linearization `f'(y)`, read in any chart.
 * In `IsGoodPositionGerm.toTame` the chart `c₁` of the good position is centred at `y`, so the
   point of the non-centred-chart assembly (`isGoodPositionAtGerm_of_chart`) is `z = 0`, which lies
   in every germ; the surjectivity onto `K_0 = ρ(0)F` is condition (1) of good position in `c₁`, so
-  no Fredholm input (Proposition 3.6.5 (preprint 3.52)) is needed — the old proof went through the dense form
+  no Fredholm input (Proposition 3.6.5 (preprint 3.52)) is needed — the whole-chart proof went through the dense form
   `isGoodPositionAt_of_chart_dense`, which needs the closed range in the target chart.
 * The good position in the tame chart is stated for the derivative family `scDerivGerm G g` of the
   filling germ `g` of the tame chart on its own germ `G`; by `IsGoodPositionAtGerm.of_isSc1GermWith`
@@ -58,7 +57,7 @@ open StrongRetr
 
 namespace StrongBundle
 
-/-- **Good position in the tame chart of the germ data, germ reading** (phase 2; the germ form of
+/-- **Good position in the tame chart of the germ data, germ reading** (the germ form of
 `IsGoodPositionGermWholeChart.toTame`, Definition 3.6.6 (preprint 3.53) with Definition 3.6.3 (preprint 3.50)): if `(f, y)`, `f(y) = 0`, is in
 good position in the germ reading (`IsGoodPositionGerm`, in some centred chart `c₁` with a filling
 germ `g₁` and a derivative family `Dg₁`) and has germ data in a tame chart
@@ -94,7 +93,7 @@ theorem IsGoodPositionGerm.toTame (hf : B.IsScSmoothSection f) {y : X}
     rw [hφ0₁, partialQuadrantAtWith_zero, ← hT, inf_eq_left.2 hgp₁.kernel.le]
     exact hgp₁.kernel
 
-/-- **Theorem 3.1.18 (preprint 3.15), the germ property, in a tame chart, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.18 (preprint 3.15), the germ property, in a tame chart, germ reading** (the germ form of
 `IsScFredholmGermTameWholeChart.sectionAdd`): if `(f, x)` has germ data in a tame chart in the germ reading
 and `s` is an sc⁺-section, then `(f + s, x)` has germ data in the same tame chart (filling germ
 `g + ŝ ∘ r`, sc⁺-germ `ŝ₁ ∘ r + t₀`, `sectionAdd_chartData_germ`). -/
@@ -107,7 +106,7 @@ theorem IsScFredholmGermTame.sectionAdd {x : X} (hfs : IsSection P f)
 
 end StrongBundle
 
-/-- **Theorem 3.1.18 (preprint 3.15) for a tame strong bundle, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.18 (preprint 3.15) for a tame strong bundle, germ reading** (the germ form of
 `theorem_3_1_18_tame_wholeChart`, Definition 3.6.4 (preprint 3.51)): if `f` is an sc-Fredholm section with tame germ data in the
 germ reading (`IsScFredholmSectionTame`) and `s` is an sc⁺-section, then `f + s` is one
 (`theorem_3_1_18_preprint`, and the germ data in the same tame chart,

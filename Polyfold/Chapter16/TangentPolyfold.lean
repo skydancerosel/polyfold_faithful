@@ -1,6 +1,6 @@
 import Polyfold.Chapter16.TangentLemma
 import Polyfold.Chapter16.PolyfoldForms
-import Polyfold.Chapter8.TangentZhouReflect2021
+import Polyfold.Chapter8.TangentZhouReflect
 import Polyfold.Chapter8.TangentOrbit
 
 /-!
@@ -34,8 +34,9 @@ base point.
 * **`tangentStructure q hq = (TX, Tα)`**, a polyfold structure on `T(Z, c)` (`|TX|` paracompact by
   Theorem 8.1.15, `TX` satisfies (ZHOU) by Proposition 8.1.16), **`PolyfoldClass.tangent c = Tc`**,
   **`definition_16_2_3`**: all `(TX, Tα)`, `(X, α) ∈ c`, are equivalent and lie in `Tc`.
-* Not formalized: the projection `τ_Z : T(Z, c) → Z¹` (it needs the raised polyfold `(Z, c)¹`) and
-  Theorem 16.2.4 (the tangent functor on sc-smooth maps of polyfolds).
+* The projection `τ_Z : T(Z, c) → Z¹` onto the raised polyfold `(Z, c)¹` is `tangentProj`
+  (`RaisedPolyfold`); Theorem 16.2.4 (the tangent functor on sc-smooth maps of polyfolds) is
+  `theorem_16_2_4` (`TangentFunctor`).
 -/
 
 set_option maxSynthPendingDepth 3

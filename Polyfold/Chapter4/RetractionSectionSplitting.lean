@@ -1,6 +1,6 @@
 import Polyfold.Chapter2.PartialCone
 import Polyfold.Chapter3.BasicClassComposition
-import Polyfold.Chapter3.Book2021Germs
+import Polyfold.Chapter3.BookGerms
 import Polyfold.Chapter3.TangentGerm
 
 /-!

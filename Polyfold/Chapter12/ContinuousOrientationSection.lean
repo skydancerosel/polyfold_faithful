@@ -11,8 +11,7 @@ Definition 12.5.4, pp. 274–276 and p. 594; Theorem 6.6.17 is new in 2021; 2017
 Part I's continuity of an orientation `o` over an open `U` is `IsContOrOn L U o`: `o` is carried
 along by the transport along every sc-smooth path in `U`.  The text's "continuous section"
 (Definition 12.5.4) is `Continuous (orSec o)` for the topology of `O_f`.  `continuousOn_orSec`
-(Part I) gives the first ⇒ the second.  Here: the converse (gap G.158, part (b), of the wave-5
-note of block OR).
+(Part I) gives the first ⇒ the second.  Here: the converse (gap G.158, part (b)).
 
 * **`isContOrOn_univ_of_continuous_orSec`**: for any `LocalTransport L` of `Or^f` with two
   orientations at every smooth point, on an M-polyfold with `HasConnectedSmoothNbhds`, a section

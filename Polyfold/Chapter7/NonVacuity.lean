@@ -4,8 +4,8 @@ import Polyfold.Chapter7.ProperSubsets
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 7: **witnesses and counterexamples** for the definitions and hypotheses of the chapter
-(PLAN II.5, II.6 item 1, wave W5): the translation groupoid `K ⋉ U` of a finite group (p. 232),
+Chapter 7: **witnesses and counterexamples** for the definitions and hypotheses of the chapter:
+the translation groupoid `K ⋉ U` of a finite group (p. 232),
 **Definition 7.1.3 (2017: 7.3)** (3) (pp. 226–227), the remark after **Definition 7.1.7 (2017: 7.7)** (pp. 228–229),
 **Definition 7.2.1 (2017: 7.11)** and "examples show that the regular set can be empty" (p. 239),
 **Definition 7.2.7 (2017: 7.12)** (`T_x`, p. 241), **Definitions 7.5.1 (2017: 7.15)** and **7.17** (pp. 249, 251).
@@ -49,12 +49,12 @@ be empty".  (Definition 7.2.7 (2017: 7.12)) `T_x ⊆ G_x`, the elements acting t
   `instMulActionZ3`): `trivialZ3EpGroupoid`, `trivialZ3IsotropyEquiv` (`G_x ≅ ℤ/3`),
   `trivialSubgroup_trivialZ3` (`T_x = G_x`), `trivialZ3TrivialSubgroupEquiv` (`T_x ≅ ℤ/3`),
   `not_isEffective_trivialZ3`, `regularSet_trivialZ3` (`X_reg = ∅`).
-* **The remark after Definition 7.1.7 (2017: 7.7)** (PLAN II.6, 1): `remarkFunctor` on `trivialZ3EpGroupoid`
+* **The remark after Definition 7.1.7 (2017: 7.7)**: `remarkFunctor` on `trivialZ3EpGroupoid`
   (the identity on objects, `(g, y) ↦ (g, y)` for `y ≤ 0`, `(g², y)` for `y > 0`), a
   `GroupoidFunctor`; `isScSmoothMap_remarkFunctor_obj`, `not_continuous_remarkFunctor_mor`,
   `not_isScSmoothMap_remarkFunctor_mor`, `not_exists_epFunctor_remarkFunctor`, and the summary
   `remark_definition_7_1_7_counterexample`.
-* **Definition 7.1.3 (2017: 7.3) (3), the universal reading** (PLAN II.5, 4): the pair groupoid of `ℤ`,
+* **Definition 7.1.3 (2017: 7.3) (3), the universal reading**: the pair groupoid of `ℤ`,
   `pairGroupoidStr`, `pairEpGroupoid` (`ℤ` and `ℤ × ℤ` discrete M-polyfolds, `V(x) = {x}`:
   `pair_isProperMap`); `pair_not_isProperMap_univ`, `pair_exists_not_isProperMap`,
   `pair_not_forall_isProperMap`.
@@ -101,19 +101,19 @@ the trivial ep-groupoid.
 * **The regular set can be empty** (p. 239): in `ℤ/3 × ℝ ⇉ ℝ` with the trivial action every
   object has `G_x = T_x ≅ ℤ/3`; the ep-groupoid is not effective, consistently with
   Proposition 7.2.4 (2017: 7.8).
-* **The remark after Definition 7.1.7 (2017: 7.7)** does not hold as we read it (PLAN II.6, 1): the functor
+* **The remark after Definition 7.1.7 (2017: 7.7)** does not hold as we read it: the functor
   `remarkFunctor` is a functor (composable morphisms have the same `y`, and `g ↦ g²` is an
   automorphism of `ℤ/3`), it is sc-smooth (the identity) on the object spaces, but it is not
   continuous on the morphism spaces (`y ↦ (f(g, y)).1` jumps from `g` to `g² ≠ g` at `0` while `ℝ`
   is connected), hence not sc-smooth there and not a morphism of `EP`.  The text's choice of
   `U(φ)` with `f(U(φ)) ⊂ U(ψ)` uses continuity on morphisms; with continuity added the remark
   holds (`EpGroupoid.isScSmoothMap_mor_of_continuous`, `EpFunctor.ofContinuous`, `Basic.lean`).
-* **Definition 7.1.3 (2017: 7.3) (3)** is existential in `V(x)` (PLAN P3): in the pair groupoid of `ℤ`, the
+* **Definition 7.1.3 (2017: 7.3) (3)** is existential in `V(x)`: in the pair groupoid of `ℤ`, the
   choice `V(x) = {x}` works (`t : ℤ × {x} → ℤ` is a bijection of discrete spaces), but for the
   neighbourhood `V = ℤ` of any `x`, `t : ℤ × ℤ → ℤ` has the infinite fibre `{0} × ℤ` over `0` and is
   not proper.  So the reading "for every neighbourhood `V` of `x`" would exclude this
   ep-groupoid; the existential reading of the text is the one formalized.
-* No possible misprint was found in the passages used here.
+* No point of notation needed a reading in the passages used here.
 -/
 
 open Set Filter Topology Function TopologicalSpace
@@ -497,7 +497,7 @@ end TrivialZ3
 
 section Remark
 
-/-- **The functor of PLAN II.6, 1** on `ℤ/3 × ℝ ⇉ ℝ`: the identity on objects, `(g, y) ↦ (g, y)`
+/-- **The functor of the remark after Definition 7.1.7** on `ℤ/3 × ℝ ⇉ ℝ`: the identity on objects, `(g, y) ↦ (g, y)`
 for `y ≤ 0` and `(g², y)` for `y > 0`. -/
 def remarkFunctor :
     GroupoidFunctor trivialZ3EpGroupoid.toGroupoidStr trivialZ3EpGroupoid.toGroupoidStr where

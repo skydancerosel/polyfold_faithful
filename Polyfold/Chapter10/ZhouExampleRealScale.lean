@@ -28,7 +28,7 @@ open scoped InnerProductSpace
 
 namespace Polyfold.EpGroupoid.Examples.ZhouTenSix
 
-open Polyfold.ZhouLine Polyfold.GapP1Sobolev Polyfold.EpGroupoid.Examples.ZhouRetract
+open Polyfold.ZhouLine Polyfold.CylinderSobolev Polyfold.EpGroupoid.Examples.ZhouRetract
 
 noncomputable section
 

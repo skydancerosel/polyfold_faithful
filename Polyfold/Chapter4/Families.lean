@@ -13,7 +13,7 @@ text)*.
 For a tame M-polyfold `X`, `Z = ℝᵐ ⊕ X` is a tame M-polyfold (product charts), `P(λ, x) = λ`.
 (Theorem 4.3.1 (preprint 4.23)) Let `A ⊆ Z` be a smooth submanifold whose induced M-polyfold structure is tame,
 with compact closure, `p = P|_A`, and `ε > 0` such that (1) for `|λ| ≤ ε` the set `p⁻¹(λ)` is
-compact and non-empty, (2) `A` is in general position (misprinted: "there exists a sc-complement
+compact and non-empty, (2) `A` is in general position (printed as "there exists a sc-complement
 `T_zA` in `T_zZ` which is contained in `T_z^R Z`").  Then there is a set `Σ ⊆ {|λ| < ε}` of full
 measure of regular values of `p` such that for `λ ∈ Σ`, `A_λ = {x | (λ, x) ∈ A}` is a smooth
 compact manifold with boundary with corners whose tangent space `T_xA_λ` has in `T_xX` an
@@ -54,10 +54,10 @@ measure sets `Σ_σ` of regular values of `p_σ : A ∩ F_σ° → ℝᵐ`, `Σ 
 ## What the text leaves implicit, and the choices made
 
 * **"Regular value" must be read in the stratified sense** of the proof (regular for every
-  `p_σ`); with `Dp(z) : T_zA → ℝᵐ` onto only, the theorem is false (Findings).  It is stated in a
+  `p_σ`); with `Dp(z) : T_zA → ℝᵐ` onto only, the theorem does not hold as we read it (Findings).  It is stated in a
   chart, for some chart (as Definitions 4.2.5, 4.2.10 (preprint 4.16, 4.21)); its chart
   independence is `isStratRegularPoint_iff_forall` (`StratifiedRegularValues.lean`).
-* **The covering step is repaired**: `{z ∈ A | |p(z)| ≤ ε}` need not be compact (Findings), so
+* **The covering step is argued differently**: `{z ∈ A | |p(z)| ≤ ε}` need not be compact (Findings), so
   no finite subcover is available; `A` is second countable (its closure is compact in the
   metrizable `ℝᵐ × X`, Theorem 2.3.10 (preprint 2.16)), and a countable subcover suffices for the measure statement.
 * "`A_λ` is a smooth submanifold" needs an **sc⁺-retraction onto `A_λ`** (Definition 4.2.1 (preprint 4.13)), which
@@ -928,7 +928,7 @@ theorem theorem_4_3_1_of_subset (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)
 4.13), whose induced M-polyfold structure is tame and whose closure is compact.  Let `ε > 0` with
 (1) for `|λ| ≤ ε` the fibre `p⁻¹(λ) = A ∩ P⁻¹(λ)` of `p = P|_A` is compact and non-empty, and
 (2) `A` is in general position at every point (Definition 4.2.10 (preprint 4.21); the text's hypothesis (2) is
-misprinted).  Then there is a set `Σ ⊆ {|λ| < ε}` of full Lebesgue measure in `{|λ| < ε}`
+read this way).  Then there is a set `Σ ⊆ {|λ| < ε}` of full Lebesgue measure in `{|λ| < ε}`
 (`|λ|² = Σ λ_i²`) consisting of **regular values** of `p` (stratified: `IsStratRegularValue`),
 such that for `λ ∈ Σ` the fibre `A_λ = {x | (λ, x) ∈ A}` is **compact**, a **smooth
 finite-dimensional submanifold** of `X`, in **general position** at each of its points, and with

@@ -12,9 +12,10 @@ Part II, Chapter 9, §9.5, proof of **Theorems 9.5.17 and 9.5.18** (pp. 449–45
 
 The proof on p. 451 evaluates `μ^∂_{ω_k}(∂S)` for the forms `ω_k = β_k ω` with `supp β_k ⊆ U_k^*`
 by the local formula of Theorem 9.5.15 on one structure.  This needs that the measure of a form
-vanishing on the boundary sheets above a set is zero there (the boundary analogue of E5's
-`measure_eq_zero_of_integ_eq_zero` and `measure_univ_eq_of_integ_eq_zero`), for E4's integral
-over countably many graph charts (`FormEval.msInteg`).
+vanishing on the boundary sheets above a set is zero there (the boundary analogue of
+`measure_eq_zero_of_integ_eq_zero` and `measure_univ_eq_of_integ_eq_zero`,
+`MeasureWholeSheets.lean`), for the integral over countably many graph charts
+(`FormEval.msInteg`, `MultiChartIntegration.lean`).
 
 * `FormEval.msInteg_eq_zero_of_ev_eq_zero`: `∫_B ω = 0` over a sheet of `msheets` when `ω`
   vanishes on the tangent frames at the points of `B`.
@@ -53,7 +54,7 @@ namespace FormEval
 variable {Ω : Type*} [AddCommGroup Ω] [Module ℝ Ω] {m : ℕ} (F : X.FormEval m Ω)
 
 /-- **`∫_B ω|(N, g) = 0` when `ω` vanishes on the tangent frames at the points of `B ∩ N`**
-(E4's integral over countably many graph charts). -/
+(the integral over countably many graph charts). -/
 theorem msInteg_eq_zero_of_ev_eq_zero (ω : Ω) (N : Set Obj) (g : Obj → X.PObj.OrTangent)
     {B : Set Obj} (h : ∀ y ∈ B ∩ N, ∀ (N' : Set Obj), X.PObj.IsSmoothSubmanifold N' → y ∈ N' →
       ∀ α : Fin m → X.PObj.TangentSpace, (∀ i, α i ∈ X.PObj.submanifoldTangent N' y) →
@@ -262,7 +263,7 @@ namespace OrientedTameStructure
 open scoped Classical in
 /-- **An oriented tame structure restricted into an open neighbourhood `W` of `x`**: sheets in
 `F.sheets` stay there, it describes the same `T̂Θ`, and the natural action is the restriction of
-the given one (E3's `exists_restrict_mem_sheets` with the neighbourhood prescribed). -/
+the given one (`exists_restrict_mem_sheets` with the neighbourhood prescribed). -/
 theorem exists_restrict_subset {n : ℕ} {Ω : Type*} [AddCommGroup Ω] [Module ℝ Ω]
     (F : X.FormEval n Ω) {x : Obj} (C₀ : X.OrientedTameStructure n Θ x) (hC₀ : C₀.Represents T)
     (hS₀ : ∀ i, C₀.M i ∈ F.sheets) {W : Set Obj} (hWo : IsOpen W) (hxW : x ∈ W) :

@@ -1,6 +1,6 @@
 import Polyfold.Chapter15.CubeEp
 import Polyfold.Chapter15.ControllingPairs
-import Polyfold.Chapter5.CylinderPerturbation2021
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Corollary 15.3.10 (2)

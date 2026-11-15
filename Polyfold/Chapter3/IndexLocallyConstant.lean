@@ -347,7 +347,7 @@ theorem index_locally_constant_of_admitsBumpFunctions_wholeChart (hbump : PX.Adm
   have hxs : x₀ ∈ PX.smoothSet := hfF.mem_smoothSet_of_isZeroAt hx₀
   obtain ⟨-, c, hc, hxV, hφ0, -⟩ := hf.germTame x₀ hxs
   obtain ⟨n, Wq, T, hT⟩ := c.φ.model.isPartialQuadrant
-  -- the Chapter 5 lemmas take the germ reading of Definition 3.6.4 (preprint 3.51) (phase 2); the whole-chart
+  -- the Chapter 5 lemmas take the germ reading of Definition 3.6.4 (preprint 3.51); the whole-chart
   -- reading implies it
   obtain ⟨k, s, hsp, -, -, hgp⟩ := exists_sections_isParamGP hbump hN hf.isScFredholmSectionTame
     hx₀ hc hxV hφ0 T hT isOpen_univ (mem_univ _)

@@ -42,7 +42,7 @@ of `(δa, δw) ↦ (0, δw)`, which is sc-Fredholm of index `n − N`; Propositi
   together: `Polyfold.proposition_3_1_10_full`; round-trip item V3.12).  It needs Lemma 3.1.9 (preprint 3.9) at
   points other than `(0, 0)`, on level `m` with an arbitrary `ε`
   (`IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`, `SolutionLinearization.lean`).  The
-  level-`0` case for points of `U₁` small on level `1` was proved earlier for the germs of
+  level-`0` case for points of `U₁` small on level `1` is also proved for the germs of
   Theorem 3.4.2 (preprint 3.38) (`StabilityData.exists_isFredholm_Dfs'`, used for Corollary 3.41).
 * **`Df(0) − T₀` is sc⁺.**  The text says "`Df(0)` is an sc⁺-perturbation of (32)".  The
   verification: the `ℝᴺ`-component of `Df(0)` is sc⁺ because `ℝᴺ` has all levels equal; `D₁B(0)`

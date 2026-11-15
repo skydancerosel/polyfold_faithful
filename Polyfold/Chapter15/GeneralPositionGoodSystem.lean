@@ -14,20 +14,20 @@ extends them to small sc⁺-sections `s_j`, and (15.1) with `s_j(y)` persists at
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
-* **`hasPointwiseParamOnto`**: GA's `HasPointwiseParamOnto A f N` (smooth `w_j ∈ W_x` with
+* **`hasPointwiseParamOnto`**: `HasPointwiseParamOnto A f N` (smooth `w_j ∈ W_x` with
   `N(w_j) < ε` and (15.1)), for `X` with sc-smooth bump functions, `f` an sc-Fredholm section
   functor with tame germ data and `N` an auxiliary norm.  *Proof*: Part I's
   `exists_sections_isParamGP` in a tame chart centred at `x`, for the auxiliary norm `(2/ε)·N`,
   and the bridge `isParamOntoVec_iff_isParamGP`; `w_j = s_j(x)` is smooth since `x` is.
-* **`hasParamOntoOpen`**: GA's `HasParamOntoOpen A f` for tame `X`.  *Proof*: the bridge at `x`
+* **`hasParamOntoOpen`**: `HasParamOntoOpen A f` for tame `X`.  *Proof*: the bridge at `x`
   gives (i)–(ii); Part I's `isGeneralPositionGerm_paramSection_of_isParamGP` gives general
   position of `F(t, y) = f(y) + Σ_j t_j s_j(y)` on `ℝ^ℓ × X` at `(0, x)`; general position is
   open along the zeros of `F` (`exists_isOpen_isGeneralPositionGerm`, `ℝ^ℓ × X` tame); at a zero
   `(0, y)` nearby, Part I's `isParamGP_of_isGeneralPositionGerm` gives (i)–(ii) in a tame chart
   centred at `y`, and the bridge gives (15.1) at `y`.
-* **`theorem_15_3_7_of_goodSystem`**: Theorem 15.3.7 (G's `theorem_15_3_7_statement`, with the
-  "structurable" addendum) from a good system alone: GA's `theorem_15_3_7_of_pointwise` with
-  both Props discharged here and GB's `hasParametricGeneralPosition`.
+* **`theorem_15_3_7_of_goodSystem`**: Theorem 15.3.7 (`theorem_15_3_7_statement`, with the
+  "structurable" addendum) from a good system alone: `theorem_15_3_7_of_pointwise` with
+  both Props discharged here and `hasParametricGeneralPosition`.
 * **`theorem_15_3_7_of_paracompact`**: the same for an ep-groupoid with paracompact orbit space
   (Theorem 13.1.8 gives the good system).
 * `theorem_15_3_7_statement_epSEP_zero_of_goodSystem`: the statement on `ℝⁿ × ℝ⁰ → ℝⁿ`
@@ -72,7 +72,7 @@ theorem exists_tameChart_centred {f : A.Obj → A.W} (hft : A.B.IsScFredholmSect
 
 /-! ### The pointwise choice -/
 
-/-- **The pointwise choice of the proof of Theorem 15.3.7 holds** (GA's `HasPointwiseParamOnto`):
+/-- **The pointwise choice of the proof of Theorem 15.3.7 holds** (`HasPointwiseParamOnto`):
 for `X` with sc-smooth bump functions, `f` an sc-Fredholm section functor with tame germ data
 and an auxiliary norm `N`, at every `x ∈ S_f` and for every `ε > 0` there are smooth
 `w_j ∈ W_x` with `N(w_j) < ε` and (15.1) at `x`. -/
@@ -104,7 +104,7 @@ theorem hasPointwiseParamOnto (hbump : A.X.AdmitsBumpFunctionsPointwise) {f : A.
 
 /-! ### The openness of (15.1) -/
 
-/-- **The openness of (15.1) along `S_f` holds** (GA's `HasParamOntoOpen`) for tame `X` and an
+/-- **The openness of (15.1) along `S_f` holds** (`HasParamOntoOpen`) for tame `X` and an
 sc-Fredholm section functor `f` with tame germ data: Part I's openness of general position along
 the solution set of the parametrized section, read through the bridge. -/
 theorem hasParamOntoOpen (hX : A.X.IsTame) {f : A.Obj → A.W}
@@ -144,8 +144,8 @@ theorem hasParamOntoOpen (hX : A.X.IsTame) {f : A.Obj → A.W}
 functor with tame germ data and compact `|S_f|`, `(N, U)` controlling compactness, `h` a
 continuous functor into `(0, 1]`; then a structurable `Λ` with (1)–(4)), from a good system
 alone.  The two analytic steps of the proof are proved: the local constructions
-(`hasPointwiseParamOnto`, `hasParamOntoOpen`, through GA's `theorem_15_3_7_of_pointwise`) and
-the parametric transversality (GB's `hasParametricGeneralPosition`).  The good system is the
+(`hasPointwiseParamOnto`, `hasParamOntoOpen`, through `theorem_15_3_7_of_pointwise`) and
+the parametric transversality (`hasParametricGeneralPosition`).  The good system is the
 content of the addendum "`Λ` can be taken structurable" (Definition 13.3.6). -/
 theorem theorem_15_3_7_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem) :
     theorem_15_3_7_statement A :=

@@ -3,23 +3,23 @@ import Polyfold.Chapter5.DegeneracyZeroTame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, p. 699:
-**Corollary 15.3.10 (1), (3)** with fewer added hypotheses (gaps TX-5, TX-7): the cylinder
+**Corollary 15.3.10 (1), (3)** with fewer added hypotheses: the cylinder
 `[0, 1] × X` has a paracompact orbit space, `d_X ≡ 0` makes `X` tame, and the boundary data of
-TX's `corollary_15_3_10_3_hyp` are satisfiable.
+`corollary_15_3_10_3_hyp` are satisfiable.
 
 # The cylinder `[0, 1] × X`
 
 ## What is formalized
 
-* `EpGroupoid.cubeOrbitHomeomorph`: `[0, 1]ⁿ × |X| ≃ₜ |[0, 1]ⁿ × X|` (P's `cubeOrbitMap` is a
+* `EpGroupoid.cubeOrbitHomeomorph`: `[0, 1]ⁿ × |X| ≃ₜ |[0, 1]ⁿ × X|` (`cubeOrbitMap` is a
   continuous open bijection), and **`EpGroupoid.hasParacompactOrbitSpace_cubeProd`**:
   `|[0, 1]ⁿ × X|` is paracompact if `|X|` is (compact × paracompact).
 * `SBLocalization.isReducedOntoAtPt_of_injective`, `isBoundaryFaceOnto_of_injective`: when
   `P : W → X` is injective (fibres `0`), every operator of `T(f, Λ)(x)` is onto.
   `injective_cubeSEP_P`, `injective_epSEP_zero_P`.
-* **`corollary_15_3_10_1_ty`**: Corollary 15.3.10 (1) from Theorem 15.3.7 without the
+* **`corollary_15_3_10_1_of_theorem_15_3_7`**: Corollary 15.3.10 (1) from Theorem 15.3.7 without the
   hypothesis "`X` tame" (it follows from `d_X ≡ 0`, `EpGroupoid.isTame_of_degIndex_eq_zero`).
-* **`corollary_15_3_10_3_ty`**: TX's Corollary 15.3.10 (3) without "`X` tame" and with the
+* **`corollary_15_3_10_3_of_theorem_15_3_9`**: Corollary 15.3.10 (3) without "`X` tame" and with the
   paracompactness of `|[0, 1] × X|` derived from that of `|X|` (a hypothesis of the corollary).
 * **`corollary_15_3_10_3_boundary_witness`**: on `ℝⁿ × ℝ⁰ → ℝⁿ` (`epSEP n 0`), for every section
   `f` and all auxiliary norms `N⁰, N¹` and open `U⁰, U¹`, the boundary data `Λ_∂ = Λ⁰ = Λ¹ = 0`
@@ -137,8 +137,8 @@ theorem injective_epSEP_zero_P (n : ℕ) :
 /-- **Corollary 15.3.10 (1), p. 699, from Theorem 15.3.7**, with the hypotheses of the corollary
 (`d_X ≡ 0`, paracompact `|X|`, `f` sc-Fredholm with compact `|S_f|`, `(N, U)` controlling
 compactness) and those Theorem 15.3.7 adds (sc-smooth bump functions, tame germ data of `f`);
-TX's hypothesis "`X` tame" is dropped: it follows from `d_X ≡ 0`. -/
-theorem corollary_15_3_10_1_ty (h157 : theorem_15_3_7_statement A)
+the hypothesis "`X` tame" of `corollary_15_3_10_1_hyp` is dropped: it follows from `d_X ≡ 0`. -/
+theorem corollary_15_3_10_1_of_theorem_15_3_7 (h157 : theorem_15_3_7_statement A)
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hbump : A.X.AdmitsBumpFunctionsPointwise) {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)
@@ -149,11 +149,11 @@ theorem corollary_15_3_10_1_ty (h157 : theorem_15_3_7_statement A)
       A.X.IsCompactBranched (fun z => (Λ (f z) : ℚ)) :=
   corollary_15_3_10_1_hyp h157 hd hpara (A.X.isTame_of_degIndex_eq_zero hd) hbump hf hft hS hcc
 
-/-- **Corollary 15.3.10 (3), p. 699, from Theorem 15.3.9 on `[0, 1] × X`**: TX's
+/-- **Corollary 15.3.10 (3), p. 699, from Theorem 15.3.9 on `[0, 1] × X`**:
 `corollary_15_3_10_3_hyp` with "`X` tame" derived from `d_X ≡ 0` and the paracompactness of
-`|[0, 1] × X|` derived from that of `|X|`.  The boundary data `Λ_∂` remain hypotheses (TX-4);
+`|[0, 1] × X|` derived from that of `|X|`.  The boundary data `Λ_∂` are hypotheses;
 they are satisfiable, `corollary_15_3_10_3_boundary_witness`. -/
-theorem corollary_15_3_10_3_ty (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
+theorem corollary_15_3_10_3_of_theorem_15_3_9 (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hPUC : (A.cubeSEP 1).X.PObj.AdmitsScPartitionsOfUnity) {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)
@@ -183,7 +183,7 @@ theorem corollary_15_3_10_3_ty (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
 
 /-! ### The boundary data are satisfiable -/
 
-/-- **Witness for the boundary hypotheses of Corollary 15.3.10 (3)** (TX-5): on `ℝⁿ × ℝ⁰ → ℝⁿ`
+/-- **Witness for the boundary hypotheses of Corollary 15.3.10 (3)**: on `ℝⁿ × ℝ⁰ → ℝⁿ`
 (`epSEP n 0`, tame, `d_X ≡ 0`, `|[0, 1] × X|` paracompact), for every section `f`, all
 auxiliary norms `N⁰, N¹` and all `U⁰, U¹`, the multisections `Λ_∂ = Λ⁰ = Λ¹ = 0` satisfy every
 hypothesis that `corollary_15_3_10_3_hyp` puts on `Λ_∂`. -/
@@ -228,7 +228,7 @@ theorem corollary_15_3_10_3_boundary_witness (n : ℕ)
 
 /-- **`[0, 1] × ℝⁿ` admits sc-smooth partitions of unity** (Theorem 5.5.10 with the product
 charts `chart b × id`, whose finite-dimensional models have the approximation property,
-Proposition 5.5.11): the hypothesis `hPUC` of `corollary_15_3_10_3_ty` holds on `epSEP n 0`. -/
+Proposition 5.5.11): the hypothesis `hPUC` of `corollary_15_3_10_3_of_theorem_15_3_9` holds on `epSEP n 0`. -/
 theorem admitsScPartitionsOfUnity_cube_rn (n : ℕ) :
     ((StrongBundleEquivalenceExamples.epSEP n 0).cubeSEP 1).X.PObj.AdmitsScPartitionsOfUnity := by
   change ((cubePolyfold 1).prod (rnPolyfold n)).AdmitsScPartitionsOfUnity

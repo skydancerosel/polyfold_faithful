@@ -25,7 +25,7 @@ functor `F : X → Y`, with `d_X ∘ F^* = F^* ∘ d_Y` (gap G.74; used by §11.
 
 Not treated here: the pull-back by generalized maps and the push-forward by generalized
 isomorphisms of Theorem 11.2.1 (2)–(4) (§11.2, gap G.129), which build on these maps; they are in
-`Chapter11/EquivalenceForms*.lean` and `GeneralizedForms.lean` (2026-11-12).
+`Chapter11/EquivalenceForms*.lean` and `GeneralizedForms.lean`.
 -/
 
 set_option maxSynthPendingDepth 3

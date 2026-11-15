@@ -76,8 +76,8 @@ is `ψ(a, w) = (a, (1 − P₁)w, P₁w)`, `Ψ(δa ⊕ δw) = δa ⊕ L⁻¹P₂
 * The sum `f + s` of the text is `fsum f = f + ι ∘ s` (`StabilityData.fsum`), sc-smooth by the
   pairing and operator rules of the germ calculus; its `W`-component at a level-`1` point is
   `(1 + A)w − B̄(a, w)` (`snd_levelMap_fsum`).
-* Corollary 3.4.3 (preprint 3.39) (the composition with a given conjugation to a basic germ) is not formalized
-  here; it is the composition of a strong bundle isomorphism with the linear change of this file.
+* Corollary 3.4.3 (preprint 3.39) (the composition with a given conjugation to a basic germ) is
+  `corollary_3_4_3` (`BasicClassComposition.lean`); it is the composition of a strong bundle isomorphism with the linear change of this file.
 -/
 
 open Set Filter Topology Function Asymptotics Metric

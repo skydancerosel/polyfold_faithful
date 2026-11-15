@@ -1,6 +1,6 @@
 import Polyfold.Chapter16.PolyfoldStructure
 import Polyfold.Chapter10.StrongBundleIsoConverse
-import Polyfold.Chapter8.BundleOrbitParacompact2021
+import Polyfold.Chapter8.BundleOrbitParacompact
 import Polyfold.Chapter8.TangentZhou
 
 /-!
@@ -27,7 +27,7 @@ is `((P : W → X, μ), Γ, γ)`: a strong bundle over an ep-groupoid `X` with (
 
 * `SDiagram.orbitMap_comp'`, `GenSBMap.orbitMap_comp`, `SEPLoc.orbitMap_comp`, `orbitMap_id`,
   `orbitMap_inv_comp`, `orbitMap_comp_inv` (`|[E] ∘ [D]| = |[E]| ∘ |[D]|` for generalized strong
-  bundle maps, the strong bundle form of Proposition 10.3.11, not yet in Chapter 10), and the
+  bundle maps, the strong bundle form of Proposition 10.3.11), and the
   same for the base maps (`GenSBMap.base_comp`, `baseOrbitMap_comp`).
 * `StrongPolyfoldBundleStructure p` (**Definition 16.3.1**), with the local regularity property
   of Definition 8.4.2 as printed (field `isLRLocal`, `EpStrongBundle.IsLRLocal`; `isLR` is the

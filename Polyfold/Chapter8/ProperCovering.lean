@@ -104,7 +104,7 @@ a one-to-one correspondence `Θ_j ↔ Θ'_j` of the classes of `F⁻¹(x)` and `
   uses is available in Part I's formalization for tame factors (`MPolyfold.isTame_prod`), and in
   general only as `≤` (`MPolyfold.degIndex_prod_le`); the equalities are stated for tame `X` and
   `Y` (then `𝐗` is tame, `s` being a local sc-diffeomorphism), the inequality in general.
-* **Possible misprints** (as we read the text):
+* **Notation** (as we read the text):
   - p. 287, after Lemma 8.6.2 (2017: 8.10): "Using the third claim of Lemma 8.10, we infer that
     `#Θ_j = #G_x / #G_{y₀}`": Lemma 8.6.2 (2017: 8.10) has no third claim; the third claim of Lemma 8.6.1 (2017: 8.9)
     (`#G_x = #G_{y₀} · #Θ_j`) is meant.

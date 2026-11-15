@@ -93,7 +93,7 @@ metrizable (Nagata–Smirnov), and so is `U = ⋃ U(zᵢ)`.
   satisfiable (`hasParacompactOrbitSpace_trivial`).
 * **Corollary 7.3.6 (2017: 7.1)** has `SecondCountableTopology X.OrbitSpace` as an instance hypothesis; `T₃` is
   Lemmas 7.3.4 and 7.3.5 (2017: 7.6 and 7.7).
-* **Corollary 7.3.8 (2017: 7.2)** (PLAN II.6, 5).  "We work in a connected component of `K`" is read as: in a
+* **Corollary 7.3.8 (2017: 7.2)**.  "We work in a connected component of `K`" is read as: in a
   connected component `C` of `|X|`, where `K ∩ C` is compact (Definition 7.3.7 (2017: 7.14)).  As we read it,
   this needs the components of `|X|` to be open, which the text does not state: `|X|` is the
   quotient of the locally path connected `X` (`LocConnected.lean`), hence locally connected
@@ -105,7 +105,7 @@ metrizable (Nagata–Smirnov), and so is `U = ⋃ U(zᵢ)`.
   `U(z)` whose closure is metrizable" uses Lemma 7.3.2 (2017: 7.4) and the regularity of `|X|` (Lemma 7.3.5 (2017: 7.7));
   "`⋃ cl U(zᵢ)` is paracompact" needs Michael's lemma (Lemma 2.7.3 (2017: 2.7) [2.56] through Proposition 2.7.4 (2017: 2.17)
   [2.57], `paracompactSpace_biUnion_of_finite`), which the text does not cite.  The text's `U`
-  names two sets, `⋃ cl U(zᵢ)` and `⋃ U(zᵢ)` (possible misprint); here `U` is the open `⋃ U(zᵢ)`
+  names two sets, `⋃ cl U(zᵢ)` and `⋃ U(zᵢ)`; here `U` is the open `⋃ U(zᵢ)`
   and `cl U = ⋃ cl U(zᵢ)`.  The metrizability of `cl U` is Smirnov's theorem in the subspace
   (`metrizableSpace_of_paracompactSpace_subtype`), which is the remark before Definition 7.3.7 (2017: 7.14)
   (subsets of `|X|` are locally metrizable, regular and Hausdorff).
@@ -116,7 +116,7 @@ metrizable (Nagata–Smirnov), and so is `U = ⋃ U(zᵢ)`.
   are satisfiable: the trivial ep-groupoid of an M-polyfold `Z` has paracompact orbit space
   (`hasParacompactOrbitSpace_trivial`), homeomorphic to `Z` (`trivialOrbitHomeomorph`; second
   countable for `Z = ℝⁿ`), and `K = ∅` is compact.
-* No possible misprint was found on pp. 244–247 other than Corollary 7.3.8 (2017: 7.2)'s `U`.
+* No other point of notation was found on pp. 244–247 than Corollary 7.3.8 (2017: 7.2)'s `U`.
 -/
 
 open Set Filter Topology Function TopologicalSpace

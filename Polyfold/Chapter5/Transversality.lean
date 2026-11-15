@@ -113,9 +113,9 @@ that `f + s₀ + s(λ₀, ·)` is transversal".
   implicit function theorems of §3.6 need the germ data in tame strong bundle charts (Definitions
   3.50, 3.51: `IsScFredholmSectionTame`, `IsGoodPositionGermTame`, `TameGerms.lean`), so Theorem
   5.13 takes `f` with tame germ data, and the parametrized sections `F` on `ℝᵏ × X` inherit it
-  (`theorem_3_1_21_tame`: the product chart of a tame chart is tame).  (An earlier version assumed
-  the base retraction of every compatible chart of `P` and of the pull-backs `π*P` tame, which no
-  strong bundle over a nonempty base satisfies; Findings, Chapter 3 items 190–199 and Chapter 5
+  (`theorem_3_1_21_tame`: the product chart of a tame chart is tame).  (Assuming the base retraction of every
+  compatible chart of `P` and of the pull-backs `π*P` tame would be vacuous: no strong bundle over a
+  nonempty base satisfies it; Findings, Chapter 3 items 190–199 and Chapter 5
   items 74–79.)  Definition 5.3.9 (preprint 5.17) is stated in a tame chart (`IsTameChart`), where `T^R_zO` and
   the count `dim T_zO/T^R_zO = d_C(z)` of Lemma 5.26 make sense.
 * **"`N(f(x)) ≤ 1`" is `N(s(x)) ≤ 1`**, "`(f, x)` in good position" is `(f + s, x)`, and

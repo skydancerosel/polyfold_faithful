@@ -11,8 +11,8 @@ edition), gap G.131.  Numbers and pages are the 2021 text's.
 
 For `n = 1` the boundary measures of Theorems 9.5.15/9.5.16 are those of
 `EP.boundaryBranchedMeasureDim1`, `EP.boundaryBranchedMeasureEffDim1` (`StokesDimOne`),
-built on the integral of `0`-forms over oriented points (`EP.zeroFormIntegration`).  H4's
-`measure_pull_core_bd` is stated for E4's integration of `m`-forms, `m ≥ 1`; here is its version
+built on the integral of `0`-forms over oriented points (`EP.zeroFormIntegration`).
+`measure_pull_core_bd` (`BoundaryMeasureEquivalence.lean`) is stated for the integration of `m`-forms, `m ≥ 1`; here is its version
 for `m = 0`.
 
 * `EP.zeroFormEval_epFormsInftyPullback`: `(Φ^*ω')(p) = ω'(Φ(p))` for a `0`-form.
@@ -234,8 +234,8 @@ open EpGroupoid OrientedTameStructure MPolyfold
 variable {A B : EP.{u}} {Φ : EpFunctor A.X B.X}
   {Θ' : B.Obj → ℚ} {T : A.Obj → A.X.PObj.OrTangent →₀ ℚ} {T' : B.Obj → B.X.PObj.OrTangent →₀ ℚ}
 
-/-- **The pulled-back structures for the boundary, `n = 1`**: H4's `IsBPulled` with boundary
-sheets of at most one point in place of E4's class `msheets`. -/
+/-- **The pulled-back structures for the boundary, `n = 1`**: `IsBPulled` with boundary
+sheets of at most one point in place of the class `msheets`. -/
 def IsBPulledDim1 (Φ : EpFunctor A.X B.X) (hΘ' : B.X.IsFunctorial Θ')
     (T' : B.Obj → B.X.PObj.OrTangent →₀ ℚ) {x : A.Obj}
     (C : A.X.OrientedTameStructure (0 + 1) (Φ.pullbackTheta Θ') x) : Prop :=
@@ -278,7 +278,7 @@ theorem IsBPulledDim1.represents (hΦ : Φ.IsEquivalence) {hΘ' : B.X.IsFunctori
   obtain ⟨y, Tc, D, -, -, hDT, -, R, R', h1, h2, h3, h4, rfl⟩ := hC
   exact represents_pullStructure Tc _ D R R' h1 h2 h3 h4 hΦ hT (hTT Tc) hDT
 
-/-- **The core of Theorems 11.4.4 and 11.4.5 for `n = 1`** (H4's `measure_pull_core_bd` for
+/-- **The core of Theorems 11.4.4 and 11.4.5 for `n = 1`** (`measure_pull_core_bd` for
 `m = 0`): for an equivalence `Φ`, `Θ = Φ^*Θ'`, `T̂'` the orientation `T̂` moved by the transport
 charts, two signed measures `µ₁` on `(∂S, L(∂S))` and `µ'` on `(∂S', L(∂S'))` given by the local
 formulas of Theorem 9.5.15 for `n = 1` (integrals over oriented points of `Φ^*ω'` and `ω'`) with
@@ -440,7 +440,7 @@ theorem hcov_subsingleton_of_loc {Y : EP.{u}} {Θ' : Y.Obj → ℚ}
   obtain ⟨D, hDT, hs, -⟩ := D₀.exists_boundarySheet_subsingleton hD₀
   exact ⟨D, hDT, hs⟩
 
-/-- `Φ^*Θ̂'` is oriented and tame when `Θ̂'` is (H4's `hcov_pull`, sheets dropped). -/
+/-- `Φ^*Θ̂'` is oriented and tame when `Θ̂'` is (`hcov_pull`, sheets dropped). -/
 theorem hloc_pull_dim1 (hΦ : Φ.IsEquivalence) (hΘ' : B.X.IsFunctorial Θ')
     (hT : A.X.IsGrHatSection T) (hTT : Φ.IsTransported T T')
     (hloc' : ∀ y ∈ supp Θ', ∃ D : B.X.OrientedTameStructure (0 + 1) Θ' y, D.Represents T') :
@@ -449,7 +449,7 @@ theorem hloc_pull_dim1 (hΦ : Φ.IsEquivalence) (hΘ' : B.X.IsFunctorial Θ')
   fun x hx => (hcov_pull hΦ (EP.epFormsInftyEval_isPullback hΦ (0 + 1)) hΘ' hT hTT
     ((B.epFormsInftyEval (0 + 1)).hcov_of_loc hloc') x hx).imp fun _ h => h.2
 
-/-- `Φ_*Θ̂` is oriented and tame when `Θ̂` is (H4's `hcov_push`, sheets dropped). -/
+/-- `Φ_*Θ̂` is oriented and tame when `Θ̂` is (`hcov_push`, sheets dropped). -/
 theorem hloc_push_dim1 (hΦ : Φ.IsEquivalence) {Θ : A.Obj → ℚ} (hΘ : A.X.IsFunctorial Θ)
     (hTT : Φ.IsTransported T T')
     (hloc : ∀ x ∈ supp Θ, ∃ C : A.X.OrientedTameStructure (0 + 1) Θ x, C.Represents T) :

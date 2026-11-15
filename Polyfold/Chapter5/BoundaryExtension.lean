@@ -67,7 +67,7 @@ section Helpers
 variable {E F : ScBanach}
 
 /-- Sc⁺-sections of a local strong bundle are stable under change on `O`-agreement. -/
-lemma isScPlusSection_congr_p3b {C Q : Set (E 0)} {K : Set (E 0 × F 0)}
+lemma isScPlusSection_congr {C Q : Set (E 0)} {K : Set (E 0 × F 0)}
     {f g : E 0 → E 0 × F 1} (hf : IsScPlusSection C Q K f) (h : EqOn f g Q) :
     IsScPlusSection C Q K g :=
   ⟨fun x hx => by rw [← h hx]; exact hf.fst_eq x hx, hf.isScSmooth.congr h⟩
@@ -124,7 +124,7 @@ theorem isBoundaryScPlusSection_fiberZero : B.IsBoundaryScPlusSection (fiberZero
   rw [hO] at h
   obtain ⟨V, hV, hxV, hret, hsec⟩ := h
   exact ⟨V, hV, hxV, hret,
-    isScPlusSection_congr_p3b hsec fun z hz => (localRepOne_fiberZero hz.1.1).symm⟩
+    isScPlusSection_congr hsec fun z hz => (localRepOne_fiberZero hz.1.1).symm⟩
 
 /-! ### The local step -/
 
@@ -217,7 +217,7 @@ lemma aux_fiberZero {N : B.One → ℝ} (hN : B.IsAuxNorm N) (y : X)
 
 /-- **Sc⁺ is local** (as `isScPlusSection_of_locally` of `ScPlusSectionFunctor.lean`): a
 section which near every point agrees with an sc-smooth map into `Y[1]` is an sc⁺-section. -/
-theorem isScPlusSection_of_locally_p3b {σ : X → Y} (hσ : IsSection P σ)
+theorem isScPlusSection_of_locally' {σ : X → Y} (hσ : IsSection P σ)
     (h : ∀ y₀, ∃ N : Set X, IsOpen N ∧ y₀ ∈ N ∧ ∃ G : X → B.One,
       PX.IsScSmoothOn B.toMPolyfold1 G N ∧ ∀ y ∈ N, B.oneVal (G y) = σ y) :
     B.IsScPlusSection σ := by
@@ -310,7 +310,7 @@ theorem exists_boundary_extension (hB : ∀ x : X, ∃ c : StrongBundleChart PX 
     exact (sectionSmul_apply (hsec i) y).symm
   -- (0) `s'` is an sc⁺-section
   have hs'plus : B.IsScPlusSection s' := by
-    refine isScPlusSection_of_locally_p3b hs'sec fun y₀ => ?_
+    refine isScPlusSection_of_locally' hs'sec fun y₀ => ?_
     obtain ⟨I, hI⟩ := ρ.exists_finset_nhds y₀
     obtain ⟨t, ht, hto, hy₀t⟩ := eventually_nhds_iff.1 hI
     have hsum : B.IsScPlusSection (sectionSum P I fun i => sectionSmul P (ρ i) (σ i)) :=

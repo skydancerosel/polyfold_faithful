@@ -8,16 +8,16 @@ generalized strong bundle isomorphism.
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
-* `IsBoundaryWFunctor.eq_of_π_eq_fm`, `mem_boundary_of_π_eq_fm`, `pushMult_eq_bdry_fm`,
-  `isBoundaryWFunctor_pushMult_fm`: `Φ_*Λ` is a functor over `∂X'` when `Λ` is one over `∂X`
+* `IsBoundaryWFunctor.eq_of_π_eq`, `mem_boundary_of_π_eq`, `pushMult_eq_bdry`,
+  `isBoundaryWFunctor_pushMult`: `Φ_*Λ` is a functor over `∂X'` when `Λ` is one over `∂X`
   (the boundary form of Lemma 11.5.2; only values over `∂X` enter).
-* `transportChart_mem_boundary_iff_fm`, `IsPushNbhd.Qinv_mem_bdry_fm`: FN's transport charts
+* `transportChart_mem_boundary_iff`, `IsPushNbhd.Qinv_mem_bdry`: the transport charts
   preserve the boundary (the degeneracy index is invariant under morphisms and `F`).
-* `exists_isPushNbhd_bdry_fm`, `bdryPushGood`: the pushed good system for `∂X'` (Definition
-  14.1.5), each `U'(y)` a good open neighbourhood (Proposition 14.1.1) inside FN's adapted one.
+* `exists_isPushNbhd_bdry`, `bdryPushGood`: the pushed good system for `∂X'` (Definition
+  14.1.5), each `U'(y)` a good open neighbourhood (Proposition 14.1.1) inside the adapted one.
 * `bdryPushStructure`, `bdryPushDecoration`, `bdryPushTau`: `I'_y = I_{x_y}`,
-  `s'ᵢ(z) = μ'(ψ_u, Φ(sᵢ(u)))`, `τ'_{y,y'}(φ') = τ_{x_y,x_{y'}}(liftMor φ')` (FN's construction,
-  with the boundary versions of its pointwise lemmas `pushSec_eq_fm`, `pushSec_compat_fm`).
+  `s'ᵢ(z) = μ'(ψ_u, Φ(sᵢ(u)))`, `τ'_{y,y'}(φ') = τ_{x_y,x_{y'}}(liftMor φ')` (the construction of `MultisectionPushforward`,
+  with the boundary versions of its pointwise lemmas `pushSec_eq_at`, `pushSec_compat_at`).
 * `isBoundaryStructurable_pushMult_hyp`, and the assembly `proposition_14_1_8_hyp` (`f̄_*Λ`) and
   `proposition_14_1_8_pullMult_hyp` (`f̄^*Λ'`) for a diagram with tame middle.
 
@@ -53,13 +53,13 @@ section Groupoid
 variable {A : SEP.{u}}
 
 /-- The degeneracy index is invariant under morphisms. -/
-theorem mem_boundary_src_iff_fm (φ : A.Mor) :
+theorem mem_boundary_src_iff (φ : A.Mor) :
     A.X.src φ ∈ A.X.PObj.boundary ↔ A.X.tgt φ ∈ A.X.PObj.boundary := by
   change 1 ≤ _ ↔ 1 ≤ _
   rw [← A.X.degIndex_src, A.X.degIndex_tgt]
 
 /-- Isomorphic points of `W` lie over `∂X` together. -/
-theorem mem_boundary_of_π_eq_fm {a b : A.W}
+theorem mem_boundary_of_π_eq {a b : A.W}
     (hab : A.E.toEpGroupoid.π a = A.E.toEpGroupoid.π b) (ha : A.P a ∈ A.X.PObj.boundary) :
     A.P b ∈ A.X.PObj.boundary := by
   obtain ⟨q, hs, ht⟩ := (GroupoidStr.π_eq_π_iff _).1 hab
@@ -67,11 +67,11 @@ theorem mem_boundary_of_π_eq_fm {a b : A.W}
   have ht' : A.E.μ q = b := ht
   have hq : A.P (q : A.Mor × A.W).2 = A.X.src (q : A.Mor × A.W).1 := q.2
   have e : A.E.μ q = fibAct (q : A.Mor × A.W).1 (q : A.Mor × A.W).2 := (fibAct_of hq).symm
-  rw [← ht', e, P_fibAct hq, ← mem_boundary_src_iff_fm, ← hq, hs']
+  rw [← ht', e, P_fibAct hq, ← mem_boundary_src_iff, ← hq, hs']
   exact ha
 
 /-- A functor over `∂X` takes equal values on isomorphic points over `∂X`. -/
-theorem IsBoundaryWFunctor.eq_of_π_eq_fm {Λ : A.W → ℚ≥0} (h : IsBoundaryWFunctor A Λ)
+theorem IsBoundaryWFunctor.eq_of_π_eq {Λ : A.W → ℚ≥0} (h : IsBoundaryWFunctor A Λ)
     {a b : A.W} (hab : A.E.toEpGroupoid.π a = A.E.toEpGroupoid.π b)
     (ha : A.P a ∈ A.X.PObj.boundary) : Λ a = Λ b := by
   obtain ⟨q, hs, ht⟩ := (GroupoidStr.π_eq_π_iff _).1 hab
@@ -87,7 +87,7 @@ variable {A C : SEP.{u}} {F : C ⟶ A} (hF : SEP.equivalences F)
 
 /-- **`Φ_*Λ(w') = Λ(w)` over the boundary**: for `Λ` a functor over `∂X`, `w` over `∂X` and
 `Φ(w) ≅ w'`. -/
-theorem pushMult_eq_bdry_fm {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryWFunctor C Λ) {w : C.W} {w' : A.W}
+theorem pushMult_eq_bdry {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryWFunctor C Λ) {w : C.W} {w' : A.W}
     (hw : C.P w ∈ C.X.PObj.boundary)
     (h : A.E.toEpGroupoid.π ((SEP.Hom.Φ F).obj w) = A.E.toEpGroupoid.π w') :
     pushMult F hF Λ w' = Λ w := by
@@ -95,10 +95,10 @@ theorem pushMult_eq_bdry_fm {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryWFunctor C �
       C.E.toEpGroupoid.π w := by
     refine (sbe hF).isEquivalence.isHomeomorph_orbitMap.injective ?_
     rw [GroupoidFunctor.orbitMap_π, GroupoidFunctor.orbitMap_π, π_obj_choose hF w', h]
-  exact (hΛ.eq_of_π_eq_fm e.symm hw).symm
+  exact (hΛ.eq_of_π_eq e.symm hw).symm
 
 /-- **`Φ_*Λ` is a functor over `∂X'`** (Lemma 11.5.2 over the boundary). -/
-theorem isBoundaryWFunctor_pushMult_fm {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryWFunctor C Λ) :
+theorem isBoundaryWFunctor_pushMult {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryWFunctor C Λ) :
     IsBoundaryWFunctor A (pushMult F hF Λ) := by
   intro q' hq'
   set w := ((sbe hF).isEquivalence.exists_iso (q' : A.Mor × A.W).2).choose with hwdef
@@ -106,28 +106,28 @@ theorem isBoundaryWFunctor_pushMult_fm {Λ : C.W → ℚ≥0} (hΛ : IsBoundaryW
   have hP : A.P (q' : A.Mor × A.W).2 ∈ A.X.PObj.boundary := by
     rw [show A.P (q' : A.Mor × A.W).2 = A.X.src (q' : A.Mor × A.W).1 from q'.2]; exact hq'
   have hPw : C.P w ∈ C.X.PObj.boundary := by
-    have h1 : A.P ((SEP.Hom.Φ F).obj w) ∈ A.X.PObj.boundary := mem_boundary_of_π_eq_fm hw.symm hP
+    have h1 : A.P ((SEP.Hom.Φ F).obj w) ∈ A.X.PObj.boundary := mem_boundary_of_π_eq hw.symm hP
     have hcov := (PullMap.ofEquivalence hF).covers w
     simp only [PullMap.ofEquivalence_Φ, PullMap.ofEquivalence_ϕ] at hcov
     rw [hcov] at h1
     exact ((PullMap.ofEquivalence hF).mem_boundary_iff _).1 h1
-  exact pushMult_eq_bdry_fm hF hΛ hPw (hw.trans (A.E.toEpGroupoid.π_src_eq_π_tgt q'))
+  exact pushMult_eq_bdry hF hΛ hPw (hw.trans (A.E.toEpGroupoid.π_src_eq_π_tgt q'))
 
 /-! ### Transport charts and the boundary -/
 
 include hF in
 /-- `y ∈ ∂X'` iff `x ∈ ∂X` for a transport chart `x ↦ y` (`ψ₀ : F(x) → y`). -/
-theorem transportChart_mem_boundary_iff_fm {x : C.Obj} {y : A.Obj}
+theorem transportChart_mem_boundary_iff {x : C.Obj} {y : A.Obj}
     (T : (SEP.Hom.ϕ F).TransportChart x y) :
     y ∈ A.X.PObj.boundary ↔ x ∈ C.X.PObj.boundary := by
-  rw [← T.tgt_ψ₀, ← mem_boundary_src_iff_fm, T.src_ψ₀]
+  rw [← T.tgt_ψ₀, ← mem_boundary_src_iff, T.src_ψ₀]
   exact (PullMap.ofEquivalence hF).mem_boundary_iff x
 
 include hF in
 /-- `Q(u) ∈ ∂X'` iff `u ∈ ∂X` on the chart domain. -/
-theorem Q_mem_boundary_iff_fm {x : C.Obj} {y : A.Obj} (T : (SEP.Hom.ϕ F).TransportChart x y)
+theorem Q_mem_boundary_iff {x : C.Obj} {y : A.Obj} (T : (SEP.Hom.ϕ F).TransportChart x y)
     {u : C.Obj} (hu : u ∈ T.W) : T.Q u ∈ A.X.PObj.boundary ↔ u ∈ C.X.PObj.boundary := by
-  rw [← T.tgt_ψ u hu, ← mem_boundary_src_iff_fm, T.src_ψ u hu]
+  rw [← T.tgt_ψ u hu, ← mem_boundary_src_iff, T.src_ψ u hu]
   exact (PullMap.ofEquivalence hF).mem_boundary_iff u
 
 /-- **The added hypothesis** (see the module docstring): (1) of Definition 14.1.3 is carried by
@@ -149,24 +149,24 @@ variable {x : C.Obj} {y : A.Obj} {T : (SEP.Hom.ϕ F).TransportChart x y}
   {N : C.X.NatNbhd x} {N' : A.X.NatNbhd y} (h : IsPushNbhd T N N')
 include hF h
 
-theorem Qinv_mem_bdry_fm {z : A.Obj} (hz : z ∈ N'.bdry) : T.Qinv z ∈ N.bdry := by
+theorem Qinv_mem_bdry {z : A.Obj} (hz : z ∈ N'.bdry) : T.Qinv z ∈ N.bdry := by
   refine ⟨h.Qinv_mem hz.1, ?_⟩
-  rw [← Q_mem_boundary_iff_fm hF T (h.Qinv_mem_W hz.1), h.Q_Qinv hz.1]
+  rw [← Q_mem_boundary_iff hF T (h.Qinv_mem_W hz.1), h.Q_Qinv hz.1]
   exact hz.2
 
-/-- FN's `P_obj` with the section property at the one point used. -/
-theorem P_obj_fm {s : C.Obj → C.W} {z : A.Obj} (hz : z ∈ N'.U)
+/-- `P_obj` with the section property at the one point used. -/
+theorem P_obj_at {s : C.Obj → C.W} {z : A.Obj} (hz : z ∈ N'.U)
     (hs : C.P (s (T.Qinv z)) = T.Qinv z) :
     A.P ((SEP.Hom.Φ F).obj (s (T.Qinv z))) = A.X.src (T.ψ (T.Qinv z)) := by
   have e := (PullMap.ofEquivalence hF).covers (s (T.Qinv z))
   simp only [PullMap.ofEquivalence_Φ, PullMap.ofEquivalence_ϕ] at e
   rw [e, hs, h.src_ψ_Qinv hz]
 
-/-- FN's `pushSec_eq` with the section property at the one point used. -/
-theorem pushSec_eq_fm {s : C.Obj → C.W} {z : A.Obj} (hz : z ∈ N'.U)
+/-- `pushSec_eq` with the section property at the one point used. -/
+theorem pushSec_eq_at {s : C.Obj → C.W} {z : A.Obj} (hz : z ∈ N'.U)
     (hs : C.P (s (T.Qinv z)) = T.Qinv z) :
     pushSec T s z = fibAct (T.ψ (T.Qinv z)) ((SEP.Hom.Φ F).obj (s (T.Qinv z))) := by
-  rw [pushSec, transportSection_of_mem (h.P_obj_fm hF hz hs), fibAct_of (h.P_obj_fm hF hz hs)]
+  rw [pushSec, transportSection_of_mem (h.P_obj_at hF hz hs), fibAct_of (h.P_obj_at hF hz hs)]
   rfl
 
 end IsPushNbhd
@@ -178,8 +178,8 @@ variable {x x' : C.Obj} {y y' : A.Obj}
   {N : C.X.NatNbhd x} {N' : A.X.NatNbhd y} {N₁ : C.X.NatNbhd x'} {N₁' : A.X.NatNbhd y'}
 
 include hF in
-/-- FN's `pushSec_compat` with the section properties at the points used. -/
-theorem pushSec_compat_fm (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁')
+/-- `pushSec_compat` with the section properties at the points used. -/
+theorem pushSec_compat_at (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁')
     {s s' : C.Obj → C.W} {ψ' : A.Mor} (hψ : ψ' ∈ A.X.morBetween N'.U N₁'.U)
     (hs : C.P (s (T.Qinv (A.X.src ψ'))) = T.Qinv (A.X.src ψ'))
     (hs' : C.P (s' (T'.Qinv (A.X.tgt ψ'))) = T'.Qinv (A.X.tgt ψ'))
@@ -193,7 +193,7 @@ theorem pushSec_compat_fm (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁'
     rw [hsL]; exact T.isScDiffeoOn_Q.mapsTo_inv hD.1
   have hu'W : C.X.tgt (liftMor T T' ψ') ∈ T'.W := by
     rw [htL]; exact T'.isScDiffeoOn_Q.mapsTo_inv hD.2
-  rw [h'.pushSec_eq_fm hF hψ.2 hs', h.pushSec_eq_fm hF hψ.1 hs, ← htL, ← hsL, hc]
+  rw [h'.pushSec_eq_at hF hψ.2 hs', h.pushSec_eq_at hF hψ.1 hs, ← htL, ← hsL, hc]
   have hP : C.P (s (C.X.src (liftMor T T' ψ'))) = C.X.src (liftMor T T' ψ') := by
     rw [hsL]; exact hs
   have e1 := (PullMap.ofEquivalence hF).obj_fibAct hP
@@ -210,17 +210,17 @@ theorem pushSec_compat_fm (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁'
 
 include hF in
 /-- The lift maps morphisms between the boundary neighbourhoods to such morphisms. -/
-theorem liftMor_mem_bdry_fm (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁') {φ' : A.Mor}
+theorem liftMor_mem_bdry (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁') {φ' : A.Mor}
     (hφ : φ' ∈ A.X.morBetween N'.bdry N₁'.bdry) :
     liftMor T T' φ' ∈ C.X.morBetween N.bdry N₁.bdry := by
   have hD := morBetween_subset_Dom h h' ⟨hφ.1.1, hφ.2.1⟩
-  exact ⟨by rw [src_liftMor hF hD]; exact h.Qinv_mem_bdry_fm hF hφ.1,
-    by rw [tgt_liftMor hF hD]; exact h'.Qinv_mem_bdry_fm hF hφ.2⟩
+  exact ⟨by rw [src_liftMor hF hD]; exact h.Qinv_mem_bdry hF hφ.1,
+    by rw [tgt_liftMor hF hD]; exact h'.Qinv_mem_bdry hF hφ.2⟩
 
 include hF in
-/-- FN's `isDiffeoComponent_push` for any neighbourhoods `N`, `N₁` whose morphism set has the
+/-- `isDiffeoComponent_push` for any neighbourhoods `N`, `N₁` whose morphism set has the
 property (condition (2) of Definition 14.1.5 is carried forward). -/
-theorem isDiffeoComponent_push_fm (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁')
+theorem isDiffeoComponent_push_nbhd (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁')
     (hd : ∀ φ ∈ C.X.morBetween N.U N₁.U,
       C.X.IsDiffeoComponent (connectedComponentIn (C.X.morBetween N.U N₁.U) φ))
     {φ' : A.Mor} (hφ : φ' ∈ A.X.morBetween N'.U N₁'.U) :
@@ -247,9 +247,9 @@ end PushChart
 
 /-! ### The pushed good system for `∂X'` -/
 
-/-- **Adapted good neighbourhoods in `∂X'`** (`X'` tame): FN's adapted neighbourhood, then a good
+/-- **Adapted good neighbourhoods in `∂X'`** (`X'` tame): the adapted neighbourhood, then a good
 open neighbourhood inside it with the same action (Proposition 14.1.1). -/
-theorem exists_isPushNbhd_bdry_fm (hA : A.X.IsTame) {x : C.Obj} {y : A.Obj}
+theorem exists_isPushNbhd_bdry (hA : A.X.IsTame) {x : C.Obj} {y : A.Obj}
     (T : (SEP.Hom.ϕ F).TransportChart x y) (N : C.X.NatNbhd x) (hy : y ∈ A.X.PObj.boundary) :
     ∃ N' : A.X.NatNbhd y, IsPushNbhd T N N' ∧ A.X.IsGoodBoundaryNbhd N' := by
   obtain ⟨N₀, h₀, hprop⟩ := exists_isPushNbhd T N
@@ -261,25 +261,25 @@ theorem exists_isPushNbhd_bdry_fm (hA : A.X.IsTame) {x : C.Obj} {y : A.Obj}
 
 /-- The point `x_y ∈ ∂X` of the chosen chart at `y ∈ ∂X'`. -/
 def bdryX (y : A.X.PObj.boundary) : C.X.PObj.boundary :=
-  ⟨(pushChart hF y).x, (transportChart_mem_boundary_iff_fm hF (pushChart hF y).T).1 y.2⟩
+  ⟨(pushChart hF y).x, (transportChart_mem_boundary_iff hF (pushChart hF y).T).1 y.2⟩
 
 /-- The neighbourhood `U'(y)`, `y ∈ ∂X'`. -/
 def bdryPushNbhd (hA : A.X.IsTame) (𝒰 : C.X.BoundaryGoodSystem) (y : A.X.PObj.boundary) :
     A.X.NatNbhd y :=
-  (exists_isPushNbhd_bdry_fm hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose
+  (exists_isPushNbhd_bdry hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose
 
 theorem isPush_bdryPushNbhd (hA : A.X.IsTame) (𝒰 : C.X.BoundaryGoodSystem)
     (y : A.X.PObj.boundary) :
     IsPushNbhd (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) (bdryPushNbhd hF hA 𝒰 y) :=
-  (exists_isPushNbhd_bdry_fm hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose_spec.1
+  (exists_isPushNbhd_bdry hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose_spec.1
 
 /-- **The pushed good system for `∂X'`.** -/
 def bdryPushGood (hA : A.X.IsTame) (𝒰 : C.X.BoundaryGoodSystem) : A.X.BoundaryGoodSystem where
   nbhd := bdryPushNbhd hF hA 𝒰
   isGood y :=
-    (exists_isPushNbhd_bdry_fm hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose_spec.2
+    (exists_isPushNbhd_bdry hA (pushChart hF y).T (𝒰.nbhd (bdryX hF y)) y.2).choose_spec.2
   isDiffeoComponent _ _ _ hφ :=
-    isDiffeoComponent_push_fm hF (isPush_bdryPushNbhd hF hA 𝒰 _) (isPush_bdryPushNbhd hF hA 𝒰 _)
+    isDiffeoComponent_push_nbhd hF (isPush_bdryPushNbhd hF hA 𝒰 _) (isPush_bdryPushNbhd hF hA 𝒰 _)
       (𝒰.isDiffeoComponent _ _) hφ
 
 /-! ### The pushed data over `∂X'` -/
@@ -303,15 +303,15 @@ def bdryPushStructure (hface : FacePush_hyp F) {x : C.Obj} {y : A.Obj}
     change pushSec T (S.s ((conjEquiv hF T).symm (conjEquiv hF T g) • i)) _ = _
     rw [hgi, conjEquiv_apply]
     have hgz := N'.mapsTo_Φ_bdry (T.conj g) hz
-    have hu := h.Qinv_mem_bdry_fm hF hz
-    have hgu := h.Qinv_mem_bdry_fm hF hgz
-    rw [h.pushSec_eq_fm hF hgz.1 (S.P_s (g • i) hgu), h.pushSec_eq_fm hF hz.1 (S.P_s i hu),
+    have hu := h.Qinv_mem_bdry hF hz
+    have hgu := h.Qinv_mem_bdry hF hgz
+    rw [h.pushSec_eq_at hF hgz.1 (S.P_s (g • i) hgu), h.pushSec_eq_at hF hz.1 (S.P_s i hu),
       h.Qinv_Φ g hz.1, S.equivariant g i _ hu]
     have hsrc : C.P (S.s i (T.Qinv z)) = C.X.src (N.rep.Γ g (T.Qinv z)) := by
       rw [S.P_s i hu, N.src_Γ g hu.1]
     have e1 := (PullMap.ofEquivalence hF).obj_fibAct hsrc
     simp only [PullMap.ofEquivalence_Φ, PullMap.ofEquivalence_ϕ] at e1
-    have hv := h.P_obj_fm hF hz.1 (S.P_s i hu)
+    have hv := h.P_obj_at hF hz.1 (S.P_s i hu)
     have hv1 : A.P ((SEP.Hom.Φ F).obj (S.s i (T.Qinv z))) =
         A.X.src ((SEP.Hom.ϕ F).mor (N.rep.Γ g (T.Qinv z))) := by
       rw [hv, h.src_ψ_Qinv hz.1, (SEP.Hom.ϕ F).src_mor, N.src_Γ g hu.1]
@@ -320,7 +320,7 @@ def bdryPushStructure (hface : FacePush_hyp F) {x : C.Obj} {y : A.Obj}
       PushChart.fibAct_comp hv (by rw [N'.src_Γ _ hz.1, h.tgt_ψ_Qinv hz.1])]
   rep w' hw' := by
     set z := A.P w' with hzdef
-    have hu := h.Qinv_mem_bdry_fm hF hw'
+    have hu := h.Qinv_mem_bdry hF hw'
     set u := T.Qinv z with hudef
     have hw'1 : A.P w' = A.X.src (A.X.inv (T.ψ u)) := by
       rw [A.X.src_inv]; exact (h.tgt_ψ_Qinv hw'.1).symm
@@ -335,14 +335,14 @@ def bdryPushStructure (hface : FacePush_hyp F) {x : C.Obj} {y : A.Obj}
     have hPv : C.P v = u := ((M.fiberEquiv u).symm ⟨m, hm⟩).2
     have hπ : A.E.toEpGroupoid.π ((SEP.Hom.Φ F).obj v) = A.E.toEpGroupoid.π w' := by
       rw [hΦv, hmdef, PushChart.π_fibAct hw'1]
-    rw [pushMult_eq_bdry_fm hF hΛ (by rw [hPv]; exact hu.2) hπ,
+    rw [pushMult_eq_bdry hF hΛ (by rw [hPv]; exact hu.2) hπ,
       S.rep v (by rw [hPv]; exact hu), hPv]
     have e : (Finset.univ.filter fun i => S.s i u = v) =
         Finset.univ.filter fun i => pushSec T (S.s i) z = w' := by
       refine Finset.filter_congr fun i _ => ?_
-      rw [h.pushSec_eq_fm hF hw'.1 (S.P_s i hu)]
+      rw [h.pushSec_eq_at hF hw'.1 (S.P_s i hu)]
       have hPs : A.P ((SEP.Hom.Φ F).obj (S.s i u)) = A.X.src (T.ψ u) :=
-        h.P_obj_fm hF hw'.1 (S.P_s i hu)
+        h.P_obj_at hF hw'.1 (S.P_s i hu)
       constructor
       · intro e
         rw [e, hΦv, hmdef, PushChart.fibAct_fibAct_inv (h.tgt_ψ_Qinv hw'.1).symm]
@@ -376,28 +376,28 @@ def bdryPushTau (hA : A.X.IsTame) (hface : FacePush_hyp F) {Λ : C.W → ℚ≥0
           (liftMor (pushChart hF y).T (pushChart hF y').T φ')) :=
       tendsto_nhdsWithin_of_tendsto_nhds_of_eventually_within _
         (hcont.tendsto.mono_left nhdsWithin_le_nhds)
-        (eventually_nhdsWithin_of_forall fun ψ hψ => liftMor_mem_bdry_fm hF h h' hψ)
-    exact ht.eventually (t.locallyConstant _ _ _ (liftMor_mem_bdry_fm hF h h' hφ'))
+        (eventually_nhdsWithin_of_forall fun ψ hψ => liftMor_mem_bdry hF h h' hψ)
+    exact ht.eventually (t.locallyConstant _ _ _ (liftMor_mem_bdry hF h h' hφ'))
   finite y y' := by
     have h := isPush_bdryPushNbhd hF hA D.𝒰 y
     have h' := isPush_bdryPushNbhd hF hA D.𝒰 y'
     refine (t.finite _ _).subset ?_
     rintro _ ⟨φ', hφ', rfl⟩
-    exact ⟨_, liftMor_mem_bdry_fm hF h h' hφ', rfl⟩
+    exact ⟨_, liftMor_mem_bdry hF h h' hφ', rfl⟩
   swap y y' φ' hφ' := by
     have h := isPush_bdryPushNbhd hF hA D.𝒰 y
     have h' := isPush_bdryPushNbhd hF hA D.𝒰 y'
     have hD := morBetween_subset_Dom h h' ⟨hφ'.1.1, hφ'.2.1⟩
     change t.τ _ _ (liftMor _ _ (A.X.inv φ')) = (t.τ _ _ (liftMor _ _ φ')).swap
     rw [liftMor_inv hF _ _ hD]
-    exact t.swap _ _ _ (liftMor_mem_bdry_fm hF h h' hφ')
+    exact t.swap _ _ _ (liftMor_mem_bdry hF h h' hφ')
   diag y g z hz := by
     have h := isPush_bdryPushNbhd hF hA D.𝒰 y
     obtain ⟨k, rfl⟩ := (conjEquiv hF (pushChart hF y).T).surjective g
     change t.τ _ _ (liftMor _ _ ((bdryPushNbhd hF hA D.𝒰 y).rep.Γ
       ((pushChart hF y).T.conj k) z)) = _
     rw [liftMor_Γ hF h k hz.1]
-    have hd := t.diag (bdryX hF y) k _ (h.Qinv_mem_bdry_fm hF hz)
+    have hd := t.diag (bdryX hF y) k _ (h.Qinv_mem_bdry hF hz)
     have e := PullMap.ofPerm_compHom (α := (D.S (bdryX hF y)).I)
       (H := C.X.Isotropy (bdryX hF y : C.Obj))
       (conjEquiv hF (pushChart hF y).T).symm.toMonoidHom (conjEquiv hF (pushChart hF y).T k)
@@ -414,7 +414,7 @@ def bdryPushTau (hA : A.X.IsTame) (hface : FacePush_hyp F) {Λ : C.W → ℚ≥0
       (bdryPushNbhd hF hA D.𝒰 y') ((pushChart hF y').T.conj k') φ'
       ((pushChart hF y).T.conj k))) = _
     rw [liftMor_biact hF h h' ⟨hφ'.1.1, hφ'.2.1⟩ k' k]
-    have hb := t.biact _ _ _ (liftMor_mem_bdry_fm hF h h' hφ') k' k
+    have hb := t.biact _ _ _ (liftMor_mem_bdry hF h h' hφ') k' k
     have e := PullMap.biact_compHom (H := C.X.Isotropy (bdryX hF y : C.Obj))
       (H' := C.X.Isotropy (bdryX hF y' : C.Obj)) (conjEquiv hF (pushChart hF y).T).symm.toMonoidHom
       (conjEquiv hF (pushChart hF y').T).symm.toMonoidHom
@@ -432,10 +432,10 @@ def bdryPushTau (hA : A.X.IsTame) (hface : FacePush_hyp F) {Λ : C.W → ℚ≥0
   compat y y' φ' hφ' := by
     have h := isPush_bdryPushNbhd hF hA D.𝒰 y
     have h' := isPush_bdryPushNbhd hF hA D.𝒰 y'
-    exact IndexCorr.sat_mono (fun i j H => pushSec_compat_fm hF h h' ⟨hφ'.1.1, hφ'.2.1⟩
-      ((D.S _).P_s i (h.Qinv_mem_bdry_fm hF hφ'.1))
-      ((D.S _).P_s j (h'.Qinv_mem_bdry_fm hF hφ'.2)) H)
-      (t.compat _ _ _ (liftMor_mem_bdry_fm hF h h' hφ'))
+    exact IndexCorr.sat_mono (fun i j H => pushSec_compat_at hF h h' ⟨hφ'.1.1, hφ'.2.1⟩
+      ((D.S _).P_s i (h.Qinv_mem_bdry hF hφ'.1))
+      ((D.S _).P_s j (h'.Qinv_mem_bdry hF hφ'.2)) H)
+      (t.compat _ _ _ (liftMor_mem_bdry hF h h' hφ'))
 
 /-- **Push-forwards of structurable sc⁺-multisections over `∂X` are structurable over `∂X'`**
 (the second step of the proof of Proposition 14.1.8), for tame `X'`, under `FacePush_hyp`. -/
@@ -443,8 +443,8 @@ theorem isBoundaryStructurable_pushMult_hyp (hA : A.X.IsTame) (hface : FacePush_
     {Λ : C.W → ℚ≥0} (h : IsBoundaryStructurable C Λ) :
     IsBoundaryStructurable A (pushMult F hF Λ) := by
   obtain ⟨hΛ, D, ⟨t⟩⟩ := h
-  exact ⟨(bdryPushDecoration hF hA hface hΛ.1 D).isBoundaryScPlusMultisection_fm
-    (isBoundaryWFunctor_pushMult_fm hF hΛ.1), bdryPushDecoration hF hA hface hΛ.1 D,
+  exact ⟨(bdryPushDecoration hF hA hface hΛ.1 D).isBoundaryScPlusMultisection
+    (isBoundaryWFunctor_pushMult hF hΛ.1), bdryPushDecoration hF hA hface hΛ.1 D,
     ⟨bdryPushTau hF hA hface hΛ.1 t⟩⟩
 
 /-! ### Proposition 14.1.8 -/

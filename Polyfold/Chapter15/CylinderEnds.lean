@@ -5,8 +5,7 @@ import Polyfold.Chapter15.CylinderGlue
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3–15.4,
 pp. 699–703: the cobordism `Θ̃ = Λ̃ ∘ f̃` over `[0, 1] × X` behind **Corollary 15.4.4**
 (2017: Corollary 15.2), from the proof of **Corollary 15.3.10 (3)**: its restriction to the two
-ends `{i} × X` and the splitting of the boundary measure of `Θ̃` over the two ends (gap TX-6,
-in part).
+ends `{i} × X` and the splitting of the boundary measure of `Θ̃` over the two ends.
 
 # The ends of the cylinder cobordism
 
@@ -20,7 +19,7 @@ Stokes: `∫_{∂Θ̃} pr^*ω = ∫_{Θ₁} ω − ∫_{Θ₀} ω`, where `∂([
 ## What is formalized
 
 Namespace `Polyfold.EpGroupoid` (for any ep-groupoid `X`):
-* `cylOrbitTime`: the time coordinate on `|[0, 1] × X|` (through TY's `cubeOrbitHomeomorph`),
+* `cylOrbitTime`: the time coordinate on `|[0, 1] × X|` (through `cubeOrbitHomeomorph`),
   continuous, `cylOrbitTime |(t, x)| = t`.
 * `cylEnd Θ i`: the part of `|supp(∂Θ)|` at time `i`, for `Θ` on `[0, 1] × X`; it is closed, so
   it lies in the σ-algebra `L(∂S)` of Definition 9.5.14 (`measurableSet_cylEnd`).

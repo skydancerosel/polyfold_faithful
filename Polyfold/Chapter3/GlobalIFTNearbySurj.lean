@@ -336,7 +336,7 @@ a basic germ, the germ in good position), together with: on a neighbourhood of `
 injective on `ker Dr(z₁)`. (Definition 3.1.4 (preprint 3.4) imposes (3) at `0` only; the fillers of the applications
 satisfy it at every point.) This is the project's original whole-chart reading, stricter than the
 text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
-`IsGoodPositionGermFilled` (`GlobalIFTNearbySurjG.lean`, phase 2, items 270–330). -/
+`IsGoodPositionGermFilled` (`GlobalIFTNearbySurjG.lean`, items 270–330). -/
 def StrongBundle.IsGoodPositionGermFilledWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
   ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)

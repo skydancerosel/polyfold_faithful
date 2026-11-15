@@ -19,8 +19,8 @@ For an oriented `(m+1)`-dimensional submanifold `(M, o)` with tame induced struc
   This is the rule "outward normal first" by which Part I orients the faces of a manifold with
   corners (`IsInducedOrientation`, `faceOrientation`), read in the ambient M-polyfold.
 
-Not formalized here: the statement with `faceOrientation` itself (Mathlib's
-`TangentOrientation` of the face manifold of a face-structured sheet).  (2026-11-13) It is in
+Not in this file: the statement with `faceOrientation` itself (Mathlib's
+`TangentOrientation` of the face manifold of a face-structured sheet).  It is in
 `FaceOrientation.lean` (`faceOrientation_eq_iff_mem_stratumOrientation`,
 `figure_9_1_existsUnique_faceOrientation`).
 -/

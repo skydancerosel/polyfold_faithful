@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.SheetEssential
-import Polyfold.Chapter9.LocallyEquidimensional2021
+import Polyfold.Chapter9.LocallyEquidimensional
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

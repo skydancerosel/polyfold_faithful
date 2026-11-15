@@ -47,8 +47,6 @@ file shows that the Hausdorff hypothesis cannot be dropped:
 
 ## What the text leaves implicit, and the choices made
 
-* The example is the one sketched in `PLAN.md`, II.6, item 2; it was first proved in the
-  round-trip audit (`RoundTrip/Items/V7_40.lean`, namespace `NotB`) and moved here unchanged.
 * Whether `𝐗^R` is always paracompact is not decided; without Hausdorffness it is not an
   M-polyfold either way.
 -/

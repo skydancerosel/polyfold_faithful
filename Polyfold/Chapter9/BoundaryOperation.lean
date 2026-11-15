@@ -75,15 +75,14 @@ positive for `o_y`, `e` outward pointing; the resulting `o_{∂M}` fits continuo
   (Lemma 9.3.7's proof); the intrinsic `boundaryOrientation` filters by the latter, which needs no
   quantifier over submanifolds.
 
-## Not formalized, and why
+## Not in this file
 
 * The stratum `∂₁M = {d_M = 1}` as a smooth submanifold (`T_y∂₁M` is read as `T^R_yM`); in this
   file the operation is defined and studied pointwise.  The continuity of `o_{∂M}` along the
-  stratum is in `Chapter9/BoundaryOrientationContinuity2021.lean` (2026-11-09).  The extension to
-  the closed faces (Figure 9.1) is not formalized; Remark 9.3.11 is a comment with nothing to
-  formalize.  (2026-11-12) For a tame sheet the stratum is open and dense in `∂M`
+  stratum is in `Chapter9/BoundaryOrientationContinuity.lean`.  Remark 9.3.11 is a comment with
+  nothing to formalize.  For a tame sheet the stratum is open and dense in `∂M`
   (`BoundaryStratumDense.lean`).
-  (2026-11-13) The stratum as an oriented submanifold: `StratumTangent.lean`,
+  The stratum as an oriented submanifold: `StratumTangent.lean`,
   `BoundaryOrientation.lean`; Figure 9.1 for face-structured sheets:
   `FaceOrientation.lean`.
 -/

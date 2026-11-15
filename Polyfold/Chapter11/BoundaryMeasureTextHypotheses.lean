@@ -9,7 +9,7 @@ gap G.131, row V11.29.  Numbers and pages are the 2021 text's.
 # Theorems 11.4.4 and 11.4.5 with the text's hypotheses
 
 H4 proved Theorems 11.4.4 and 11.4.5 for a generalized isomorphism `f : X → Y`
-(`EPLoc.theorem_11_4_4_pull`, …, `BoundaryMeasureGeneralizedIso.lean`) under E7's class condition `hcov`
+(`EPLoc.theorem_11_4_4_pull`, …, `BoundaryMeasureGeneralizedIso.lean`) under the class condition `hcov`
 (oriented tame structures at the points of `supp(∂Θ)` whose nonempty boundary sheets lie in
 `msheets`).  `BoundaryCover` derives that condition from the text's hypotheses
 (`EP.hcov_of_loc`).  Here the four identities are stated with the text's hypotheses only: `Θ̂`
@@ -19,7 +19,7 @@ this also gives the dimension), `m ≥ 1`, and for 11.4.5 `X`, `Y` with the loca
 continuation property.
 
 * `EP.boundaryMeasure_eq`, `EP.boundaryMeasureEff_eq`: the measures of `StokesTextHypotheses` are
-  H4's `boundaryMeasure`, `boundaryMeasureEff`;
+  `boundaryMeasure`, `boundaryMeasureEff`;
 * **`EPLoc.theorem_11_4_4_pull_loc`**, **`EPLoc.theorem_11_4_4_push_loc`**,
   **`EPLoc.theorem_11_4_5_pull_loc`**, **`EPLoc.theorem_11_4_5_push_loc`**.
 -/
@@ -41,7 +41,7 @@ namespace EP
 variable (A : EP.{u}) {m : ℕ} {Θ : A.Obj → ℚ} {T : A.Obj → A.X.PObj.OrTangent →₀ ℚ}
 
 /-- The boundary measure of Theorem 9.5.15 with the text's hypotheses (`EP.boundaryMeasure`) is
-H4's `boundaryMeasure` for E7's class condition derived from `hloc`. -/
+`boundaryMeasure` for the class condition derived from `hloc`. -/
 theorem boundaryMeasure_eq (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T)
     (hloc : ∀ x ∈ supp Θ, ∃ C : A.X.OrientedTameStructure (m + 1) Θ x, C.Represents T) :
@@ -51,7 +51,7 @@ theorem boundaryMeasure_eq (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
   rfl
 
 /-- The effective boundary measure of Theorem 9.5.16 with the text's hypotheses
-(`EP.boundaryMeasureEff`) is H4's `boundaryMeasureEff`. -/
+(`EP.boundaryMeasureEff`) is `boundaryMeasureEff`. -/
 theorem boundaryMeasureEff_eq (hm : 0 < m) (hLUC : A.X.IsLUC)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)

@@ -1,5 +1,5 @@
 import Polyfold.Chapter6.CubeBoundarySlice
-import Polyfold.Chapter6.ProperHomotopy2021
+import Polyfold.Chapter6.ProperHomotopy
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 263–266

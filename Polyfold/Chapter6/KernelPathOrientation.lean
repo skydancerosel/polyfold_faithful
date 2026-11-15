@@ -1,4 +1,4 @@
-import Polyfold.Chapter6.CobordismOrientationEnds2021b
+import Polyfold.Chapter6.EndTangentOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 273–276

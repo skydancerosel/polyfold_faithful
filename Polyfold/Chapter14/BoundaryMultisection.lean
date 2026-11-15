@@ -43,7 +43,7 @@ with `U(x) ⊆ O(x)`; proof: Theorem 13.1.8 on `X`, then Proposition 14.1.1.
   `s⁰ᵢ = sᵢ` on `U(x)` the average `s̄_j(y) = |G_x|⁻¹ ∑_g μ(Γ(g⁻¹, g ∗ y), s⁰_{g(j)}(g ∗ y))` is
   an equivariant extension (Definition 13.2.5 (1)).  The existence of the `s⁰ᵢ` on all of
   `V(x)` (the "partition of unity argument" of the text on the open set `V(x)`) is the added
-  hypothesis; see the hand-over note.
+  hypothesis, discharged in `proposition_14_1_4_full` (`OpenExtension`).
 * **Definition 14.1.5**: `BoundaryGoodSystem` (indexed by the points of `∂X`), with `U x`
   (`U(x)`), `mor x x'` (`𝒰(x, x')`, the morphisms between points of `U(x)` and `U(x')`), the
   inheritance of condition (2) by subsets, and refinements `exists_refinement`.
@@ -326,14 +326,14 @@ theorem isBoundaryScPlusMultisection_zero (hX : A.X.IsTame) :
 /-! ### Proposition 14.1.4 -/
 
 /-- `μ(ψ ∘ γ, v) = μ(ψ, μ(γ, v))`. -/
-theorem fibAct_comp_p3w3 {ψ γ : A.Mor} {v : A.W} (h₁ : A.P v = A.X.src γ)
+theorem fibAct_comp' {ψ γ : A.Mor} {v : A.W} (h₁ : A.P v = A.X.src γ)
     (h₂ : A.X.src ψ = A.X.tgt γ) : fibAct (A.X.comp ψ γ) v = fibAct ψ (fibAct γ v) := by
   have h₃ : A.P (A.E.μ ⟨(γ, v), h₁⟩) = A.X.src ψ := by rw [A.E.P_μ]; exact h₂.symm
   rw [fibAct_of (h₁.trans (A.X.src_comp ψ γ h₂).symm), fibAct_of h₁, fibAct_of h₃]
   exact A.E.μ_comp ψ γ v h₁ h₂
 
 /-- `μ(1_y, v) = v`. -/
-theorem fibAct_unit_p3w3 {v : A.W} {y : A.Obj} (h : A.P v = y) : fibAct (A.X.unit y) v = v := by
+theorem fibAct_unit' {v : A.W} {y : A.Obj} (h : A.P v = y) : fibAct (A.X.unit y) v = v := by
   subst h
   rw [fibAct_of (A.X.src_unit _).symm]
   exact A.E.μ_unit v
@@ -397,7 +397,7 @@ theorem avgTerm_equivariant (hσ : ∀ k, ∀ y ∈ V.U, A.P (σ k y) = y) (g h 
     rw [hσ _ _ hz, V.src_Γ _ hz]
   have h₂ : A.X.src (V.rep.Γ h y) = A.X.tgt (V.rep.Γ (g * h)⁻¹ z) := by
     rw [V.src_Γ h hy, V.tgt_Γ _ hz, hz_def, V.Φ_inv_Φ _ hy]
-  rw [← fibAct_comp_p3w3 h₁ h₂]
+  rw [← fibAct_comp' h₁ h₂]
   congr 1
   have hyz : V.rep.Φ (g * h)⁻¹ z = y := V.Φ_inv_Φ _ hy
   have e := V.Γ_mul h (g * h)⁻¹ hz
@@ -414,7 +414,7 @@ def avgSection (j : I) : A.Obj → A.W :=
   smulSection V.U (fun _ => ((Fintype.card (A.X.Isotropy x) : ℝ))⁻¹)
     (sumSection V.U fun g => avgTerm V σ g j)
 
-theorem isSection_sumSection_p3w3 {ι : Type*} [Fintype ι] (U : Set A.Obj)
+theorem isSection_sumSection {ι : Type*} [Fintype ι] (U : Set A.Obj)
     (s : ι → A.Obj → A.W) : IsSection A.P (sumSection U s) := fun y => by
   rw [sumSection, sectionSum_apply fun i => isSection_extendZero U (s i)]
   exact (_ : A.P ⁻¹' {y}).2
@@ -434,7 +434,7 @@ theorem avgSection_apply (hσ : ∀ k, IsScPlusSectionOn A (σ k) V.U) (j : I) {
     avgSection V σ j y = ((((Fintype.card (A.X.Isotropy x) : ℝ))⁻¹ •
       ∑ g, (⟨avgTerm V σ g j y, P_avgTerm hσ g j hy⟩ : A.P ⁻¹' {y}) : A.P ⁻¹' {y}) : A.W) := by
   have hsum : A.P ((sumSection V.U fun g => avgTerm V σ g j) y) = y :=
-    isSection_sumSection_p3w3 _ _ y
+    isSection_sumSection _ _ y
   rw [avgSection, smulSection_apply hy hsum]
   congr 2
   exact Subtype.ext (sumSection_apply hy fun g => P_avgTerm hσ g j hy)
@@ -466,8 +466,8 @@ theorem avgSection_equivariant (hσ : ∀ k, IsScPlusSectionOn A (σ k) V.U)
   unfold avgSection smulSection
   refine (fibAct_sectionSmul (isSection_extendZero _ _) (isSection_extendZero _ _) hsrc htgt rfl
     ?_).symm
-  rw [← extendZero_eqOn (fun z _ => isSection_sumSection_p3w3 V.U _ z) hhy,
-    ← extendZero_eqOn (fun z _ => isSection_sumSection_p3w3 V.U _ z) hy]
+  rw [← extendZero_eqOn (fun z _ => isSection_sumSection V.U _ z) hhy,
+    ← extendZero_eqOn (fun z _ => isSection_sumSection V.U _ z) hy]
   exact hS
 
 /-- **The average extends an equivariant family**: if `σ_{g(j)}(g ∗ y) = μ(Γ(g, y), σ_j(y))` on an
@@ -480,9 +480,9 @@ theorem avgSection_eq_of_equivariant (hσ : ∀ k, IsScPlusSectionOn A (σ k) V.
   have hP : A.P (σ j y) = y := (hσ j).1 y hyU
   have hterm : ∀ g, avgTerm V σ g j y = σ j y := fun g => by
     rw [avgTerm_apply (fun k => (hσ k).1) g j hyU, heq g j y hy,
-      ← fibAct_comp_p3w3 (by rw [hP, V.src_Γ g hyU]) (by rw [V.src_Γ _ (V.Φ_mem g hyU),
+      ← fibAct_comp' (by rw [hP, V.src_Γ g hyU]) (by rw [V.src_Γ _ (V.Φ_mem g hyU),
         V.tgt_Γ g hyU]), V.Γ_mul g⁻¹ g hyU, inv_mul_cancel, V.Γ_one hyU]
-    exact fibAct_unit_p3w3 hP
+    exact fibAct_unit' hP
   rw [avgSection_apply hσ j hyU]
   have hsum : (∑ g, (⟨avgTerm V σ g j y, P_avgTerm hσ g j hyU⟩ : A.P ⁻¹' {y})) =
       (Fintype.card (A.X.Isotropy x) : ℝ) • (⟨σ j y, hP⟩ : A.P ⁻¹' {y}) := by

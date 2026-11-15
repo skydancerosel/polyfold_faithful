@@ -26,13 +26,13 @@ depend on the chart (gap G.13, first part).  This file adds the second part.
 * `MPolyfold.definition_2_5_8_degIndex`: for every such sc-structure, `d_{C_xX}(0_x)` computed in
   `T_{φ(x)}O` equals `dim(T_xX / T^R_xX)`, and in a tame chart both equal `d_X(x)`.
 
-## Not formalized
+## Elsewhere
 
-The sc-structure of `T_xX` itself: here `T_xX` carries the sc-structure of `T_{φ(x)}O` transported
-by `Tφ(x)`, for a chosen chart.  That two charts give the same sc-structure would need the
-transition derivative `T_{φ(x)}O → T_{ψ(x)}O` to be an sc-isomorphism at a smooth point (only its
-level-0 part, `transitionCLM`, is in the library).  The degree `d_{C_xX}(0_x)` does not depend on
-the choice, by `degIndex_zero_eq_finrank_quotient` and `mem_reducedTangentFiber_iff_lineality`.
+Here `T_xX` carries the sc-structure of `T_{φ(x)}O` transported by `Tφ(x)`, for a chosen chart.
+That two charts give the same sc-structure and the same `C_xX` is `TangentSpaceChartIndependent.lean`
+(`MPolyfold.tangentFiberScIso`, `MPolyfold.definition_2_5_8_scStructure`).  The degree
+`d_{C_xX}(0_x)` does not depend on the choice, by `degIndex_zero_eq_finrank_quotient` and
+`mem_reducedTangentFiber_iff_lineality`.
 -/
 
 open Set Function Topology Module

@@ -26,9 +26,9 @@ Lemma 5.3.3), and then uses that the parametrized surjectivity (15.1) persists a
 * **`hasLocalParamSeeds_of`**: the two give `HasLocalParamSeeds` (bump functions, Part I's
   Lemma 5.3.3, smooth solutions).
 * **`theorem_15_3_7_of_pointwise`**: Theorem 15.3.7 (`theorem_15_3_7_statement`) from a good
-  system, `HasPointwiseParamOnto`, `HasParamOntoOpen` and GP's
+  system, `HasPointwiseParamOnto`, `HasParamOntoOpen` and
   `HasParametricGeneralPosition`, under the hypotheses of the theorem (tame germ data gives
-  `S_f ⊆ X_∞`, L's `mem_smoothSet_of_eq`).
+  `S_f ⊆ X_∞`, `mem_smoothSet_of_eq`).
 * Witnesses on `ℝⁿ × ℝ⁰ → ℝⁿ`: `isParamOntoVec_epSEP_zero`,
   `hasPointwiseParamOnto_epSEP_zero`, `hasParamOntoOpen_epSEP_zero`,
   `theorem_15_3_7_statement_epSEP_zero_of_pointwise`.
@@ -109,7 +109,7 @@ theorem hasLocalParamSeeds_of (hbump : A.X.AdmitsBumpFunctionsPointwise) (hN : A
 
 /-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`)** from a good system and, under the
 hypotheses of the theorem, the pointwise choice (`HasPointwiseParamOnto`), the openness of (15.1)
-(`HasParamOntoOpen`) and GP's parametric transversality step (`HasParametricGeneralPosition`). -/
+(`HasParamOntoOpen`) and the parametric transversality step (`HasParametricGeneralPosition`). -/
 theorem theorem_15_3_7_of_pointwise (h𝒰 : Nonempty A.X.GoodSystem)
     (H : A.X.IsTame → A.X.AdmitsBumpFunctionsPointwise →
       ∀ f : A.Obj → A.W, A.E.IsScFredholmSectionFunctor f → A.B.IsScFredholmSectionTame f →

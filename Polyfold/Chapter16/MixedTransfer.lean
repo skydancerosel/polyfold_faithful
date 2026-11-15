@@ -1,6 +1,6 @@
 import Polyfold.Chapter16.ReflexivePush
 import Polyfold.Chapter12.ReflexiveAuxNormEp
-import Polyfold.Chapter11.AuxiliaryNormTransport2021
+import Polyfold.Chapter11.AuxiliaryNormTransport
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Definitions 16.3.13 and

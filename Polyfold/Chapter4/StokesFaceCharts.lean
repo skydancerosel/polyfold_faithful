@@ -1,5 +1,5 @@
 import Polyfold.Chapter4.StokesFaces
-import Polyfold.Chapter9.SolutionFaces2021
+import Polyfold.Chapter9.SolutionFaces
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,

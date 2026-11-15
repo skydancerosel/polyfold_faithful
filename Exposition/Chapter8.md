@@ -1117,7 +1117,7 @@ before Proposition 8.6.4 (2017: 8.4) and the category $\mathrm{Ban}$ of §8.6.2 
 covering functors have one-point fibres. The machine-checked statements are listed in `Exposition/Verification.md`
 (V8.1–V8.43), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 8", items
-1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book2021.lean`, `TangentZhou.lean` and `TangentZhouLevels.lean`, verified as V8.44–V8.52, with
+1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book.lean`, `TangentZhou.lean` and `TangentZhouLevels.lean`, verified as V8.44–V8.52, with
 the gaps G.86–G.89 (Proposition 8.4.1 (1) ⇒ (2), (3) and Proposition 8.4.3; Proposition 8.2.3; Proposition 8.1.16 without
 `TangentZhouReflect`, Proposition 8.1.17 (2) for $i\ge1$ being closed; $F^*V$ as a strong bundle over $Y$ in Lemma 8.5.10), and their findings are
 items 115–124.

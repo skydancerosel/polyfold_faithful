@@ -36,8 +36,8 @@ weighted Sobolev ones; the text's `π_{|s|}` is `fam₂ s = fam s + fam (−s)`.
 This file does not use the appendix's weighted Sobolev sc-structure `H^{m, δ_m}(ℝ)`; the example
 is the same up to the choice of the moving projections (both retracts are `Σ`, with the same
 action and the same `η` up to the sign convention).  The appendix's own construction, on
-`H^{m, δ_m}(ℝ)` with its projections, is `ZhouTenSix.remark_10_1_8` (`ZhouExampleRealScale.lean`,
-since 2026-11-12); this file is kept as a variant.
+`H^{m, δ_m}(ℝ)` with its projections, is `ZhouTenSix.remark_10_1_8` (`ZhouExampleRealScale.lean`);
+this file is a variant.
 -/
 
 set_option maxSynthPendingDepth 3

@@ -12,7 +12,7 @@ gap G.131.  Numbers and pages are the 2021 text's.
 The text says that there are versions of Theorems 11.4.1 and 11.4.2 for the boundary case, which
 rely on Theorems 9.5.15 and 9.5.16.  The local step is the same as for Theorem 11.4.1: a
 structure is moved by an sc-diffeomorphism `f : W → W'` between open subsets of the object spaces
-of two ep-groupoids, now with its boundary sheets `∂₁Mᵢ` and boundary orientations `o_{∂Mᵢ}`
+of two ep-groupoids, here with its boundary sheets `∂₁Mᵢ` and boundary orientations `o_{∂Mᵢ}`
 (Definition 9.3.8):
 
 * `boundaryStratum_image_cross`: `∂₁(f(M)) = f(∂₁M)` (the reduced codimension is preserved,
@@ -23,7 +23,7 @@ of two ep-groupoids, now with its boundary sheets `∂₁Mᵢ` and boundary orie
 * `OrientedSheetFamily.sheetSum_nonemptyPart`: the sum over the nonempty sheets as a sum over all
   sheets;
 * **`OrientedTameStructure.boundarySheetSum_move`**: the sums `∑ σᵢ ∫_{Aᵢ} ω|(∂₁Mᵢ, o_∂)` of
-  Theorem 9.5.15 for a structure and its moved structure agree (E4's multi-chart integrals,
+  Theorem 9.5.15 for a structure and its moved structure agree (the multi-chart integrals of
   `MultiChartSheetsEquivalence.lean`).
 -/
 

@@ -8,8 +8,9 @@ subsection is new in the 2021 edition): **Lemma 9.6.1** (p. 453), the local top 
 (p. 454), **Lemma 9.6.2** (p. 454), **Definition 9.6.3** (p. 455), **Lemma 9.6.4** (p. 455), the
 agreement of `Θ_k` at top-good points (p. 456) and, from them, **Proposition 9.1.12** (p. 408),
 whose statement is `EpGroupoid.Proposition_9_1_12` in `Polyfold/Chapter9/Propositions.lean`.
-**Proposition 9.6.5** (p. 456) is not formalized: its role is taken by the explicit hypothesis
-`MPolyfold.TopMultiplicity`, which has witnesses in this file.
+**Proposition 9.6.5** (p. 456) is not used here: its role is taken by the explicit hypothesis
+`MPolyfold.TopMultiplicity`, which has witnesses in this file and holds for every M-polyfold
+(`topMultiplicity`, `GeneralCorollaries.lean`).
 
 # The dimensional decomposition does not depend on the local branching structure
 
@@ -105,18 +106,20 @@ with sequences of top-good points converging to `x` that lie on `Mᵢ` exactly f
   function on `O` off finitely many closed submanifolds of dimension `< k`, then their total
   weights agree.  We take it as an explicit hypothesis, proved for `k = 0` and in `ℝⁿ` for `k ≥ n`.
 
-## Not formalized, and why
+## Not in this file
 
 * **Proposition 9.6.5** and the formula on p. 457: they need the graph representation of
   Proposition 9.2.8 (the `T_xMᵢ` as linear subspaces of `T_xX`, sequences of top-good points);
-  `TangentSlices.lean` is not imported here.  Replaced by `TopMultiplicity`.
-* **`TopMultiplicity` in `ℝⁿ` for `0 < k < n`** and in general M-polyfolds.  In `ℝⁿ` we expect it
-  from the density of `k`-dimensional measure of `Mᵢ ∩ B_r(x)` per class of tangent planes
-  (essentially the classes of Proposition 9.6.5); not formalized, so Proposition 9.1.12 is proved
-  unconditionally only for `ℝ⁰` and `ℝ¹`.
-* The global part of Proposition 9.1.11 (gluing the `Θ_k`), as in `Propositions.lean`.
+  `TangentSlices.lean` is not imported here, and `TopMultiplicity` takes their place.  They are
+  `proposition_9_6_5` (`AppendixSlices.lean`) and `proposition_9_6_5_general`
+  (`GeneralCorollaries.lean`).
+* **`TopMultiplicity` in `ℝⁿ` for `0 < k < n`** and in general M-polyfolds: in this file
+  Proposition 9.1.12 is proved unconditionally only for `ℝ⁰` and `ℝ¹`.  For every M-polyfold it
+  is `topMultiplicity`, and Proposition 9.1.12 is `proposition_9_1_12` (`GeneralCorollaries.lean`).
+* The global part of Proposition 9.1.11 (gluing the `Θ_k`): `existsUnique_localDimDecomposition`
+  (`DimDecompositionExists.lean`).
 
-## Possible misprints
+## How we read some passages
 
 Those of §9.6.1 are listed in the module docstring of `Polyfold/Chapter9/Propositions.lean`
 (`Ξ = I¹ ⊔ ⋯ ⊔ I^p` in Proposition 9.6.5 (1); the points `x_e^k` on p. 457; "proof of

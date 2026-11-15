@@ -23,7 +23,7 @@ Morse-type critical points.
   `theorem_5_3_15_hyp` (`Theorem5315_Morse.lean`) with its hypothesis `hloc` (the local data
   (A1)–(A3) of the perturbed sections) discharged by `StrongBundle.hasMorseLocalData`
   (`Theorem5315_LocalData.lean`).
-* The hypotheses are satisfiable: `isSubmersiveGenCompactHomotopy_witness` (`Book2021.lean`)
+* The hypotheses are satisfiable: `isSubmersiveGenCompactHomotopy_witness` (`Book.lean`)
   with `theorem_5_3_15_generalPosition_witness` (`Theorem5315_Ends.lean`).
 
 ## What the text leaves implicit, and the choices made

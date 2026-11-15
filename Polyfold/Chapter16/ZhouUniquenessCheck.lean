@@ -17,7 +17,7 @@ isomorphism `(f, f)` of polyfold structures, the generalized isomorphism `f` is 
 the homeomorphism `f`.  (Remark 16.1.7) For a homeomorphism `h : Z → W` and polyfold structures
 `(X, α)`, `(Y, β)` there is at most one generalized isomorphism `f` with `h ∘ α = β ∘ |f|`.
 
-## The check (wave-1 task Z)
+## The check
 
 `X = ℤ/3 × ℝ ⇉ ℝ`, the trivial action (`trivialZ3EpGroupoid`), is the ep-groupoid on which
 Theorem 10.3.19 does not hold as we read it (`not_theorem_10_3_19`).  It satisfies (ZHOU)

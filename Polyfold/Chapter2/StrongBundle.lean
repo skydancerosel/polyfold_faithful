@@ -77,14 +77,14 @@ carries a natural strong bundle structure ("the easy proof is left to the reader
 * The double filtration `Y_{m,k}` is defined with all charts of the atlas around the point; its
   independence of the chart is `StrongBundle.mem_doubleLevel_iff` in `StrongBundleOne.lean`.
 
-## Elsewhere, and not formalized
+## Elsewhere
 
 * Proposition 2.6.8 (preprint 2.54) as a statement about strong bundles is `Polyfold.proposition_2_6_8` in
   `StrongBundlePullback.lean` (it needs the metrizability of Theorem 2.3.10 (preprint 2.16) for the paracompactness
   of `f*Y`); its local content is `isStrongBundleRetract_pullback` here.
 * `P[1] : Y[1] → X` sc-smooth is `StrongBundle.isScSmoothMap_proj1` in `StrongBundleOne.lean`;
-  strong bundle isomorphisms, the category `SBR` and the forgetful functors are not formalized
-  (gap G.14 of the report).
+  strong bundle isomorphisms, the category `SBR` and the forgetful functors are in
+  `Chapter3/StrongBundleIsoSBR.lean` (gap G.14).
 -/
 
 open Set Filter Topology Function

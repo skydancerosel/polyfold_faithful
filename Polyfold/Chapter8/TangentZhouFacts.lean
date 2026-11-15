@@ -26,11 +26,11 @@ which needs the projection `p : TX → X¹` to be open (Part I, 2021 Proposition
 
 Each one is the corresponding theorem of `TangentZhou.lean` or `TangentZhouLevels.lean`, with the
 hypothesis `IsOpenMap tangentProj` (gap G.8) discharged by `MPolyfold.isOpenMap_tangentProj`
-(`Chapter2/TangentProjOpen.lean`).  The remaining hypotheses are those of the text's proof:
+(`Chapter2/TangentProjOpen.lean`).  The other hypotheses are those of the text's proof:
 (LUC) for `X¹` or (SLUC) for `X`, and `HasConnectedDenseLevelOneReps` (the text's
 `V(x) = U(x) ∩ X₁` connected and dense; satisfiable: `hasConnectedDenseLevelOneReps_point`,
 `EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton`).  The suffix `_of_levelOneReps` names
-that remaining hypothesis.  Where `HasConnectedDenseLevelOneReps` is also available as a theorem
+that hypothesis.  Where `HasConnectedDenseLevelOneReps` is also available as a theorem
 (`Chapter7/SmoothConnectedReps.lean`), the forms without it are the `_of_isLUC` / `_of_isSLUC`
 theorems of `Chapter7/SmoothRegularAssembly.lean`.
 -/

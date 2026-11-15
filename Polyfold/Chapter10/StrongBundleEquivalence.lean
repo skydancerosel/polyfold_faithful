@@ -83,17 +83,16 @@ they preserve sc⁺-section functors and sc-Fredholm section functors.
   `μ' ∘ (τ, Φ ∘ f ∘ g₁ ∘ s' ∘ τ)` with `τ` a local inverse of `t'` and `g₁` one of `ϕ`
   (`exists_pushforward_local`).
 
-## Not formalized
+## Elsewhere
 
-* The `Fred` part of Theorem 10.4.5: it needs the invariance of `StrongBundle.IsScFredholmSection`
-  (Part I's germ reading) under local strong bundle isomorphisms between strong bundles over
-  M-polyfolds, which the repo does not have (Part I gives only chart-level germ statements such as
-  `IsStrongBundleIso.pushforward_isFredholm_germ`).
+* The `Fred` part of Theorem 10.4.5 is `theorem_10_4_5_fred` (`FredholmEquivalence.lean`), from
+  the invariance of sc-Fredholm sections under local strong bundle isomorphisms
+  (`Chapter3/FredholmPullbackIso.lean`).
 * Proposition 10.4.6 (p. 501, new in the 2021 edition: the local regularity property, Definition
-  8.4.2, under strong bundle equivalences) and Proposition 10.4.7 (p. 501, new in the 2021
-  edition): strong bundle versions of Propositions 10.1.9 and 10.1.10, which are not formalized
-  either (a natural representation transported along an equivalence is not provided by the
-  `NaturalRep` API; the text leaves the proof of 10.4.6 to the reader).
+  8.4.2, under strong bundle equivalences) is `proposition_10_4_6` (`StrongBundleLocalRegularity.lean`),
+  and Proposition 10.4.7 (p. 501, new in the 2021 edition) is `proposition_10_4_7`
+  (`StrongBundleLocalFamilies.lean`; `proposition_10_4_7_of_isLRGerm`, `LocalRegularityGerm.lean`):
+  the strong bundle versions of Propositions 10.1.9 and 10.1.10.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -990,7 +989,7 @@ covering `ϕ`,
 * if `Ψ` is another strong bundle equivalence (covering `ψ`) with `|Φ| = |Ψ|`, then `Φ_* = Ψ_*`
   and `Φ* = Ψ*` (Propositions 10.4.2 and 10.4.3);
 * `Φ_*` and `Φ*` preserve sc⁺-section functors.
-The preservation of `Fred` is not formalized (see the module docstring). -/
+The preservation of `Fred` is `theorem_10_4_5_fred` (`FredholmEquivalence.lean`). -/
 theorem theorem_10_4_5 {ϕ : EpFunctor X X'} {Φ : EpFunctor E.toEpGroupoid E'.toEpGroupoid}
     (h : E.IsStrongBundleEquivalence E' ϕ Φ) :
     (MapsTo h.pushforward E.sectionFunctors E'.sectionFunctors ∧

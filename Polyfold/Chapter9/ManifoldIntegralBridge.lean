@@ -18,7 +18,7 @@ The proof compares, chart by chart of an integration datum of Part I (a finite p
 in signed corner charts), the Lebesgue integral of `ρⱼ ·` density in the graph chart with the
 one in corner coordinates (change of variables), and sums.
 
-(2026-11-13) The corollaries below are for classes of `Ωⁿ_{ep,∞}(X)` represented on level `0`; for
+The corollaries below are for classes of `Ωⁿ_{ep,∞}(X)` represented on level `0`; for
 classes represented on any level see `EP.epFormsInftyEval_integ_eq_integral`
 (`LevelRestrict.lean`).
 -/

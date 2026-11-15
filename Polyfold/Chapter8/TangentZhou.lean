@@ -46,8 +46,8 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 * **Proposition 8.1.16.**  The step "`T(g, h) = id` ⇒ `Tg = id`" differentiates (8.16) and uses
   that `Tτ_X : T_b(TX) → T_xX` is onto; here this step is the hypothesis `TangentZhouReflect`
   (satisfiable: `tangentZhouReflect_trivial`).  It holds for every ep-groupoid
-  (`tangentZhouReflect`, `TangentZhouReflect2021.lean`, through the vertical vectors of `T(TX)`
-  of `TangentVertical2021.lean`), and Proposition 8.1.16 holds with no further hypothesis
+  (`tangentZhouReflect`, `TangentZhouReflect.lean`, through the vertical vectors of `T(TX)`
+  of `TangentVertical.lean`), and Proposition 8.1.16 holds with no further hypothesis
   (`proposition_8_1_16_2021`).  The rest is proved here: `x = p(b)` is smooth
   (`levelVal_tangentProj_mem_smoothSet`), the base `g` of `(g, h)` lies in `G_x`, (ZHOU) gives
   `g ∈ T_x`, and `s = t` near `g` gives `Ts = Tt` near `(g, h)`.  As in Chapter 7's
@@ -55,7 +55,8 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 * **Proposition 8.1.17 (1)** is proved through 2021 Proposition 7.2.21 for `TX`: `(T𝐗)^T` is
   `p⁻¹((𝐗¹)^T)`, closed by (LUC) for `X¹`.  It assumes, as Appendix 7.6.4 does,
   `HasConnectedDenseLevelOneReps` (`U(x) ∩ X₁` connected and dense; the text's `V(x)`), and that
-  `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
+  `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8; a theorem, `MPolyfold.isOpenMap_tangentProj`, used
+  in `TangentZhouFacts.lean`).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
   `EP.proposition_8_1_17_two_all` in `Chapter8/TangentZhouLevels.lean`, through
   `(TX)ⁱ ≡ T(Xⁱ)` (`EP.tangentLiftEpEquiv`).
 * **Definition 8.4.2** in the form `EpStrongBundle.IsLR` of this file reads "strong bundle
@@ -65,7 +66,7 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
   Definition 8.4.2 as printed, with `B` defined on `W|U(x)` only, is `EpStrongBundle.IsLRLocal`
   (`Chapter10/LocalizationLRBundleBase.lean`), which implies `IsLR`.
 * **Proposition 8.4.3** is not proved in this file: it is `EpStrongBundle.proposition_8_4_3`
-  (`BundleLocalRegularity2021.lean`), with the openness of the bundle projection
+  (`BundleLocalRegularity.lean`), with the openness of the bundle projection
   `P : W → X` and the density of the regular points of `U(x)`; for Definition 8.4.2 as printed it is
   `EpStrongBundle.proposition_8_4_3_isLRLocal` (`Chapter10/BundleLocalRegularityPrinted.lean`).
 -/
@@ -117,7 +118,7 @@ theorem mem_nonEffectivePart_tangent {v : X.PMor.TangentSpace}
 (8.16), with `Tτ_X` onto), as a hypothesis: for a smooth `b ∈ TX` and `(g, h) ∈ G_b`, if the
 tangent of `(g, h)` in the ep-groupoid `TX` is the identity on `T_b(TX)`, then the tangent of its
 base `g` is the identity on `T_{p(b)}X`.  Satisfiable: `tangentZhouReflect_trivial`; it holds for
-every ep-groupoid (`tangentZhouReflect`, `TangentZhouReflect2021.lean`). -/
+every ep-groupoid (`tangentZhouReflect`, `TangentZhouReflect.lean`). -/
 def TangentZhouReflect : Prop :=
   ∀ (y : X.tangentEpGroupoid.PObj.SmoothLevel)
     (k : X.tangentEpGroupoid.Isotropy (X.tangentEpGroupoid.PObj.smoothVal y)),
@@ -128,7 +129,7 @@ def TangentZhouReflect : Prop :=
 
 /-- **2021 Proposition 8.1.16, p. 369 (new in the 2021 edition)**: if `X` satisfies (ZHOU), so does
 the tangent ep-groupoid `TX`, given `TangentZhouReflect`.  Without that hypothesis (it always
-holds): `proposition_8_1_16_2021` (`TangentZhouReflect2021.lean`). -/
+holds): `proposition_8_1_16_2021` (`TangentZhouReflect.lean`). -/
 theorem proposition_8_1_16 (hZ : X.IsZhou) (hr : X.TangentZhouReflect) :
     X.tangentEpGroupoid.IsZhou := by
   intro y k hk
@@ -248,7 +249,7 @@ strong bundle isomorphism `W|U(x) → W|U(x)`, defined over `U(x)` only; that is
 `EpStrongBundle.IsLRLocal` (`Chapter10/LocalizationLRBundleBase.lean`), which implies this form
 (`IsLRLocal.isLR`).  Satisfiable: `EpStrongBundle.isLR_trivial`; by Proposition 8.4.3 it holds
 over every effective `X` with (LR) (`EpStrongBundle.proposition_8_4_3`,
-`BundleLocalRegularity2021.lean`; `EpStrongBundle.proposition_8_4_3_isLRLocal`,
+`BundleLocalRegularity.lean`; `EpStrongBundle.proposition_8_4_3_isLRLocal`,
 `Chapter10/BundleLocalRegularityPrinted.lean`). -/
 def IsLR (E : EpStrongBundle X B) : Prop :=
   ∀ (x : Obj) (O : Set Obj), IsOpen O → x ∈ O → ∃ R : X.NaturalRep x, R.U ⊆ O ∧

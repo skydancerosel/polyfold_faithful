@@ -62,20 +62,23 @@ embedded in `V(y)` and `σ > 0`.  (Lemma 9.2.5) For a morphism `φ` with `s(φ) 
 * `S^g_Θ` (Definition 9.2.6) is the set of `y ∈ supp(Θ)` that are good for some local branching
   structure whose domain contains `y`; by Lemma 9.2.3 they are good for every such structure
   (`remark_9_2_4_a`).  "In view of Remark 9.2.4 (c)" (p. 411): Remark 9.2.4 has only (a) and
-  (b); a possible misprint for Lemma 9.2.5, which is what the descent to `|X|` uses.
+  (b); we read it as Lemma 9.2.5, which is what the descent to `|X|` uses.
 * Remark 9.2.4 (b) is proved with `M = Mᵢ ∩ V(y)` for any `i ∈ I_y` and `σ = Θ(y)`.
 * Lemma 9.2.5: the text's "transport local branching structures by morphisms" is replaced by
   the intrinsic characterization and `Θ ∘ φ̂ = Θ` on the sheet of `φ` (Definition 7.1.6's `φ̂`).
 * In the proof of Lemma 9.2.3 the set `Q(z) = V(y) ∩ W(y)` is presumably `Q(y)`.
 
-## Not formalized, and why
+## Not in this file
 
-* **Lemma 9.2.7 (2)** and the density of `S^g_Θ` in Lemma 9.2.7 (1).  The proof picks points of
+* **Lemma 9.2.7 (2)** and the density of `S^g_Θ` in Lemma 9.2.7 (1): `lemma_9_2_7_2`,
+  `lemma_9_2_7_1_dense` (`TangentSlices.lean`) and `lemma_9_2_7_2_general`
+  (`GeneralCorollaries.lean`).  The proof picks points of
   `M_{i₀} ∩ D_k(x)` outside, or in the interior of, the sets `Σᵢ = Mᵢ ∩ M_{i₀} ∩ D_k(x)`, and
   concludes "clearly `x_k` is a good point".  That conclusion needs, for equidimensional
   submanifolds, that `M_{i₀} ⊆ Mᵢ` near a point forces `M_{i₀} = Mᵢ` near it (invariance of
   domain, or the local graph representation of Lemmas 9.2.10–9.2.11), and the compactness of
-  `Mᵢ ∩ D_k(x)` needs the compactness of sc⁺-retracts of bounded sets; neither is in Part I.
+  `Mᵢ ∩ D_k(x)` needs the compactness of sc⁺-retracts of bounded sets; neither is used in this
+  file.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -404,7 +407,7 @@ theorem preimage_π_image_badSet (hΘ : X.IsBranchedEpSubgroupoid Θ) :
 
 /-- **Lemma 9.2.7 (1), p. 412 (2017: Lemma 9.5 (1), p. 300), first half**: `S^g_Θ` is open and
 `S^b_Θ` is closed in `supp(Θ)` (with the topology induced from `X`).  The density of `S^g_Θ`
-rests on Lemma 9.2.7 (2), which is not formalized (see the module docstring). -/
+rests on Lemma 9.2.7 (2); it is `lemma_9_2_7_1_dense` (`TangentSlices.lean`). -/
 theorem lemma_9_2_7_1 (hΘ : X.IsBranchedEpSubgroupoid Θ) :
     IsOpen ((↑) ⁻¹' X.goodSet Θ : Set (supp Θ)) ∧
       IsClosed ((↑) ⁻¹' X.badSet Θ : Set (supp Θ)) := by

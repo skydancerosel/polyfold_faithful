@@ -9,7 +9,8 @@ p. 594: the proof of the last sentence of **Theorem 12.5.3** (2017: Theorem 12.1
 
 Let `L : Y|U → Y'|U'` be a local strong bundle isomorphism over `ϕ : U → U'` and `f = Ψ ∘ f' ∘ ϕ`
 on `U`.  At a smooth `a ∈ U` the map `L.orxVia : Or^{f'}_{ϕ(a)} ≃ Or^f_a` reads `L⁻¹` on
-orientations in the chosen charts (P3F's `morVia`, through a chart point at `ϕ(a)` inside `U'`).
+orientations in the chosen charts (`morVia` of `ChartPullTwoBundles.lean`, through a chart point
+at `ϕ(a)` inside `U'`).
 
 * `LocalIso.orxVia`, `orxVia_eq_morVia` (any intermediate chart point inside `U'` gives it).
 * `LocalIso.orxVia_comm_local`: every smooth `a₀ ∈ U` has an open neighbourhood `V` such that for
@@ -19,7 +20,7 @@ orientations in the chosen charts (P3F's `morVia`, through a chart point at `ϕ(
   (Theorem 6.6.11); a push-forward `e'` along `ϕ ∘ γ` in `c'`; its transfer to `c'|U' ∩ W`
   (`IsPush.transfer`), with `W = g⁻¹(N)` for an open `N ⊇ γ([0, 1])` on which a cut-off `β` is
   `1` (`exists_isScSmoothMap_eq_one_nhdsSet`); the carried push-forward of `f` in the transported
-  chart (`LocalIso.isPush_mpull`, P3W3O); its transfer to `c_B`; property (∗)
+  chart (`LocalIso.isPush_mpull`, `PushDataPull.lean`); its transfer to `c_B`; property (∗)
   (`orLocalTransport_transport_eq`) on both sides; and the cocycle identities of `orTransfer`.
 -/
 
@@ -73,7 +74,7 @@ theorem innerPt_sub (x : X') (hx : x ∈ U') (hs : x ∈ PX'.smoothSet) :
     (L.innerPt x hx hs).c.φ.source ⊆ U' := fun _ hy => hy.2
 
 /-- **`L⁻¹` on orientations in the chosen charts**: `Or^{f'}_{ϕ(a)} ≃ Or^f_a` for a smooth
-`a ∈ U` (P3F's `morVia` through `innerPt`). -/
+`a ∈ U` (`morVia` through `innerPt`). -/
 def orxVia (hf : B.IsScFredholmSection f) (hf' : B'.IsScFredholmSection f')
     (hfL : EqOn f (L.Ψ ∘ f' ∘ L.ϕ) U) (hsec : B.HasScPlusSectionsThrough)
     (hsec' : B'.HasScPlusSectionsThrough) {a : X} (ha : a ∈ U) (has : a ∈ PX.smoothSet) :

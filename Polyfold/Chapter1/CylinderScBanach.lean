@@ -21,7 +21,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 lemma nonneg_of_strictMono {δ : ℕ → ℝ} (h0 : δ 0 = 0) (hmono : StrictMono δ) (m : ℕ) :
     0 ≤ δ m := h0 ▸ hmono.monotone (Nat.zero_le m)
@@ -85,4 +85,4 @@ theorem level0_surjective {δ : ℝ} (hδ : 0 ≤ δ) (h : δ = 0) :
       obtain ⟨rfl, rfl⟩ : a = 0 ∧ b = 0 := by omega
       exact ⟨f, hasWeakDeriv_zero _, by simpa [wt, h] using Lp.memLp f⟩⟩ : Hsub 0 hδ), rfl⟩
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

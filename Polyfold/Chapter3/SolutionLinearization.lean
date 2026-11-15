@@ -35,8 +35,7 @@ compactness argument of the text (sequences, the boundedness of `Ds(x)h` in `W�
 
 ## Remark on Lemma 3.1.9 (preprint 3.9)
 
-Smallness of `x` on level `m + 1` is not needed for the level-`m` estimate (an earlier version of
-this file said that it was, for `m = 0`).  The difference quotients are taken along
+Smallness of `x` on level `m + 1` is not needed for the level-`m` estimate.  The difference quotients are taken along
 `t ↦ x + t(0, ζ')` with `ζ' ∈ W_{m+1}`; this curve stays in `U_{m+1}` for small `t ≥ 0` because
 `U_{m+1}` is relatively open in `C̃ ⊕ W_{m+1}`, however large `x` is on level `m + 1`.  The
 contraction estimate of Definition 3.3.1 (preprint 3.28) is applied on level `m`, at the points

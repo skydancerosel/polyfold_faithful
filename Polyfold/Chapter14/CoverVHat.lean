@@ -20,17 +20,17 @@ covering of `|∂X|` by sets open in `|X|`; (4) `V̂_{a,a'} ⊆ Ô_{a,a'}`, so `
 
 ## What is formalized
 
-* `EpGroupoid.proposition_14_3_8`: Proposition 14.3.8 in B2's abstract setting (a saturated `B`
+* `EpGroupoid.proposition_14_3_8`: Proposition 14.3.8 in an abstract setting (a saturated `B`
   for `∂X`, `NatNbhd`s `Ũ'(a)`, `Ũ(a)` with the same representation, any open `Ô_{a,b}`
   containing `U'(a, b)`), from `lemma_14_3_7`.
-* `EpGroupoid.isSaturated_boundary_p3w4`: `∂X` is saturated (so `|∂X|` is closed in `|X|`).
+* `EpGroupoid.isSaturated_boundary`: `∂X` is saturated (so `|∂X|` is closed in `|X|`).
 * `SBLocalization.P6Nbhds P` (the neighbourhoods of (P6), with the text's
   `cl_{|X|}`-condition), `P6Nbhds.closure_subset` (the "obvious ramification", from
   Lemma 13.1.1 and (P5)(i)) and the witness `P6Nbhds.exists_`.
 * `SBLocalization.CorrExtension.proposition_14_3_8`: the whole of §14.3 for a representative
   with (P4), (P5), (P6) and `|X|` paracompact: `A`, `Ṽ_a` (Lemma 14.3.6), `V̂_a` with (1)–(4) for
   the `Ô_{a,a'}` of Proposition 14.3.4.
-* For §14.4 (B2's `ZSetup`): `CorrExtension.tauHat_Γ_of_VHat` (the condition `diag`) and
+* For §14.4 (`ZSetup`): `CorrExtension.tauHat_Γ_of_VHat` (the condition `diag`) and
   `CorrExtension.tauHat_inv_of_VHat` (the condition `swap`) for `τ̂` on `V̂_{a,a'}`.
 -/
 
@@ -50,7 +50,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] {X : EpGroupoid Obj Mor}
 
 /-- `∂X` is saturated: isomorphic objects have the same degeneracy index. -/
-theorem isSaturated_boundary_p3w4 : X.IsSaturated X.PObj.boundary := by
+theorem isSaturated_boundary : X.IsSaturated X.PObj.boundary := by
   refine Subset.antisymm (fun y hy => ?_) (subset_preimage_image _ _)
   obtain ⟨b, hb, hby⟩ := hy
   obtain ⟨φ, hs, ht⟩ := X.π_eq_π_iff.1 hby
@@ -257,7 +257,7 @@ theorem proposition_14_3_8 (hpara : A.X.HasParacompactOrbitSpace) (Q : P5Nbhds.P
       ((∀ a ∈ Aset, IsOpen (A.X.π '' Vh a)) ∧ LocallyFinite (fun a : Aset => A.X.π '' Vh a) ∧
         A.X.π '' A.X.PObj.boundary ⊆ ⋃ a ∈ Aset, A.X.π '' Vh a) ∧
       (∀ a ∈ Aset, ∀ a' ∈ Aset, A.X.morBetween (Vh a) (Vh a') ⊆ E.OhatObj a a') := by
-  have hsat : A.X.IsSaturated A.X.PObj.boundary := isSaturated_boundary_p3w4
+  have hsat : A.X.IsSaturated A.X.PObj.boundary := isSaturated_boundary
   obtain ⟨Aset, Vt, hAB, hVt, hlf, hcov⟩ := A.X.lemma_14_3_6 hpara
     (A.X.isClosed_π_image_of_isSaturated hsat A.X.PObj.isClosed_boundary) Q.nbhdObj
   have hrep : ∀ a ∈ Aset, (Q.nbhdObj a).rep = (P.nbhdObj a).rep := fun a ha => by
@@ -288,7 +288,7 @@ theorem proposition_14_3_8 (hpara : A.X.HasParacompactOrbitSpace) (Q : P5Nbhds.P
   exact ⟨Aset, Vt, Vh, hAB, fun a ha => ⟨(hVt a ha).1, (hVt a ha).2.1, (hVt a ha).2.2.1,
     (hVt a ha).2.2.2.2.1, (hVt a ha).2.2.2.2.2⟩, hlf, h1, h2, h3, h4⟩
 
-/-! ### The conditions `diag` and `swap` of B2's `ZSetup` for `τ̂` on the `V̂_a` -/
+/-! ### The conditions `diag` and `swap` of `ZSetup` for `τ̂` on the `V̂_a` -/
 
 /-- **`diag` for `τ̂`**: if `V̂_a ⊆ Ũ'(a)` is invariant under the natural action and
 `V̂_{a,a} ⊆ Ô_{a,a}`, then `τ̂_{a,a}(Γ(g, w)) = [I_a ←Id I_a →g I_a]` for `w ∈ V̂_a`. -/

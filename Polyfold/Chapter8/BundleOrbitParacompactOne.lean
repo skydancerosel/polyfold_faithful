@@ -1,4 +1,4 @@
-import Polyfold.Chapter8.BundleOrbitParacompact2021
+import Polyfold.Chapter8.BundleOrbitParacompact
 import Polyfold.Chapter8.TangentLocal
 
 /-!
@@ -33,7 +33,7 @@ zero section is a closed embedding `|X| → |W[1]|`, and (1) ⇒ (3) is proved a
 
 ## The proof, and how it relates to the text's
 
-(1) ⇒ (3) as in `BundleOrbitParacompact2021.lean`: `|X|` is metrizable, and Smirnov's theorem
+(1) ⇒ (3) as in `BundleOrbitParacompact.lean`: `|X|` is metrizable, and Smirnov's theorem
 pulled back along `|P[1]| : |W[1]| → |X|` applies, since `|P[1]|⁻¹(|U(x)|) ≅ G_x\(W[1]|U(x))`
 is metrizable (`W[1]` is metrizable, `G_x` finite acting by homeomorphisms).  The continuity of
 the action at level one comes from the sc-smoothness of `μ : 𝐗 ₛ×_P W[1] → W[1]` (part of "strong

@@ -11,8 +11,8 @@ Part II, Chapter 9, §9.5: **Theorems 9.5.17 and 9.5.18 (Stokes), pp. 449–451*
 The statements of `StokesPartition.lean` (the interior side and the partition of unity of the
 proof on pp. 450–451) carry the hypothesis `0 < m`, i.e. `n ≥ 2`.  With the product rule
 `(β·ω)|_N = β·(ω|_N)` in degree `0` (`StokesSheetAllDegrees.lean`) the same proofs give the case
-`n = 1`, where `ω` is a function.  Each theorem below is E5's statement without the hypothesis
-`0 < m` (suffix `_all`); the cover and the partition of unity are E5's
+`n = 1`, where `ω` is a function.  Each theorem below is the statement of `StokesPartition.lean`
+without the hypothesis `0 < m` (suffix `_all`); the cover and the partition of unity are
 `EP.exists_stokes_partition`.
 
 * **`EP.stokes_of_partition_all`**: `Φ(dω)(S) = ∑_k c(x_k) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} β_k ω`.
@@ -20,9 +20,9 @@ proof on pp. 450–451) carry the hypothesis `0 < m`, i.e. `n ≥ 2`.  With the 
 * **`EP.theorem_9_5_17_boundary_sum_all`**, **`EP.theorem_9_5_18_boundary_sum_all`**,
   **`EP.theorem_9_5_17_of_boundary_all`**, **`EP.theorem_9_5_18_of_boundary_all`**.
 
-As in E5's file, the measure `μ^∂_ω` of Theorems 9.5.15, 9.5.16 (gap G.109) is not constructed;
-`Φ^∂` stands for `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  (2026-11-13) It
-is constructed for `n ≥ 2` under a class condition in `BoundaryMeasure.lean`; Stokes'
+As in `StokesPartition.lean`, the measure `μ^∂_ω` of Theorems 9.5.15, 9.5.16 (gap G.109) is not
+used here; `Φ^∂` stands for `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  It is
+constructed for `n ≥ 2` under a class condition in `BoundaryMeasure.lean`; Stokes'
 theorem with it: `StokesBoundaryMeasure.lean`.
 -/
 
@@ -53,7 +53,7 @@ with the local formula of Theorem 9.5.4 or 9.5.5 (weights `c`), structures `C_k`
 `x_k` and sc-smooth `β_0, β_k`, constant on the orbits, with `supp β_k ⊆ U(x_k)^*`, `supp β_0`
 disjoint from `supp Θ`, `β_0 + ∑ β_k = 1`, and `ω ∈ Ωᵐ_{ep,∞}(X)`, `m ≥ 0`:
 `Φ(dω)(S) = ∑_k c(x_k) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} β_k ω`.
-E5's `stokes_of_partition` without the hypothesis `0 < m`. -/
+`stokes_of_partition` without the hypothesis `0 < m`. -/
 theorem stokes_of_partition_all (hcpt : A.X.IsCompactBranched Θ)
     (hGS : ∀ x C, Good x C → ∀ i, C.M i ∈ (A.epFormsInftyEval (m + 1)).sheets)
     (hcov : ∀ x ∈ supp Θ, ∃ C, Good x C)
@@ -111,7 +111,7 @@ have the local formula of Theorem 9.5.4 or 9.5.5 (weights `c`) and `Φ^∂ : Ω�
 linear with `Φ^∂(βω) = c(x) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} βω` for the structures of the class and
 `supp β ⊆ U(x)^*` (the local formula of Theorem 9.5.15, 9.5.16 on the forms `βω`), and
 `Φ^∂(βω) = 0` when `supp β` does not meet `supp Θ`.  Then `Φ(dω)(S) = Φ^∂(ω)`.
-E5's `stokes_of_boundary_functional` without the hypothesis `0 < m`. -/
+`stokes_of_boundary_functional` without the hypothesis `0 < m`. -/
 theorem stokes_of_boundary_functional_all (hPU : A.X.HasScPartitionsOfUnity)
     (hcpt : A.X.IsCompactBranched Θ)
     (hGS : ∀ x C, Good x C → ∀ i, C.M i ∈ (A.epFormsInftyEval (m + 1)).sheets)
@@ -149,7 +149,7 @@ theorem stokes_of_boundary_functional_all (hPU : A.X.HasScPartitionsOfUnity)
 /-- **The hypotheses on `Φ^∂` in `stokes_of_boundary_functional_all` are satisfiable**: the linear
 map `ω ↦ Φ(dω)(S)` has the two properties (`stokes_one_structure_all`, `stokes_off_support_all`); by
 `stokes_of_boundary_functional_all` it is the only one when `X` has sc-smooth partitions of unity.
-E5's `exists_boundary_functional` without the hypothesis `0 < m`. -/
+`exists_boundary_functional` without the hypothesis `0 < m`. -/
 theorem exists_boundary_functional_all (hcpt : A.X.IsCompactBranched Θ)
     (hGS : ∀ x C, Good x C → ∀ i, C.M i ∈ (A.epFormsInftyEval (m + 1)).sheets)
     (hcov : ∀ x ∈ supp Θ, ∃ C, Good x C)
@@ -189,7 +189,7 @@ by `T̂Θ = T` (described near every point of the support by an oriented tame st
 `ω ∈ Ωᵐ_{ep,∞}(X)`.  There are finitely many oriented tame structures `C_k` at points `x_k`,
 describing `T̂Θ`, with sheets in the class, and sc-smooth `β_k` constant on the orbits with
 `supp β_k ⊆ U(x_k)^*`, such that `∫_Θ̂ dω = ∑_k (1/♯G_{x_k}) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} β_k ω`.
-E5's `theorem_9_5_17_boundary_sum` without the hypothesis `0 < m`. -/
+`theorem_9_5_17_boundary_sum` without the hypothesis `0 < m`. -/
 theorem theorem_9_5_17_boundary_sum_all (hPU : A.X.HasScPartitionsOfUnity)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)
@@ -229,7 +229,7 @@ theorem theorem_9_5_17_boundary_sum_all (hPU : A.X.HasScPartitionsOfUnity)
 /-- **Theorem 9.5.18 (effective Stokes), 2021 p. 450, with the boundary side as the sum of the
 display on p. 451**: the same for the effective branched integral `∮_Θ̂ dω`, with the weights
 `1/♯G^{eff}_{x_k}`, the structures having the property of Definition 7.2.18 on `U(x_k)`.
-E5's `theorem_9_5_18_boundary_sum` without the hypothesis `0 < m`. -/
+`theorem_9_5_18_boundary_sum` without the hypothesis `0 < m`. -/
 theorem theorem_9_5_18_boundary_sum_all (hPU : A.X.HasScPartitionsOfUnity)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)
@@ -271,7 +271,7 @@ theorem theorem_9_5_18_boundary_sum_all (hPU : A.X.HasScPartitionsOfUnity)
 for every linear `Φ^∂ : Ωᵐ_{ep,∞}(X) → ℝ` with the local formula of Theorem 9.5.15 on the forms
 `βω`, `supp β ⊆ U(x)^*` (for the oriented tame structures describing `T̂Θ` with sheets in the
 class), and `Φ^∂(βω) = 0` when `supp β` does not meet `supp Θ`.
-E5's `theorem_9_5_17_of_boundary` without the hypothesis `0 < m`. -/
+`theorem_9_5_17_of_boundary` without the hypothesis `0 < m`. -/
 theorem theorem_9_5_17_of_boundary_all (hPU : A.X.HasScPartitionsOfUnity)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)
@@ -307,7 +307,7 @@ theorem theorem_9_5_17_of_boundary_all (hPU : A.X.HasScPartitionsOfUnity)
 `∮_Θ̂ dω = Φ^∂(ω)` for every linear `Φ^∂` with the local formula of Theorem 9.5.16 (weights
 `1/♯G_x^{eff}`) on the forms `βω`, `supp β ⊆ U(x)^*`, and `Φ^∂(βω) = 0` when `supp β` does not
 meet `supp Θ`.
-E5's `theorem_9_5_18_of_boundary` without the hypothesis `0 < m`. -/
+`theorem_9_5_18_of_boundary` without the hypothesis `0 < m`. -/
 theorem theorem_9_5_18_of_boundary_all (hPU : A.X.HasScPartitionsOfUnity)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)

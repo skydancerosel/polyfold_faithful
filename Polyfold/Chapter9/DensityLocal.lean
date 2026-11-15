@@ -37,7 +37,7 @@ Mathlib has no integral of a function against a signed measure; `dμ_τ = f̄ d�
 (i) exactly, through the integrals over the sheets, and (ii) through the estimate above, which
 determines `μ_τ` from `μ_ω` and `f̄` (Riemann–Stieltjes sums over partitions of `K` into
 measurable pieces on which `f̄` varies by at most `ε`).  The form with the Jordan decomposition of
-`μ_ω` is not written.  (2026-11-13) The global form, with Mathlib's integral against a vector
+`μ_ω` is not written here.  The global form, with Mathlib's integral against a vector
 measure (`VectorMeasure.integral`) and its Jordan form, is in `SignedMeasureIntegrals.lean` and
 `DensitySignedMeasure.lean` (`branchedMeasure_eq_setIntegral_mul`).
 -/

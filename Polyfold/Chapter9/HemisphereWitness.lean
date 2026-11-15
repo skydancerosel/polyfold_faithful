@@ -18,17 +18,17 @@ packaged as the object `AH` of `EP`, and `Θ = 1_{hemi}` (`thetaH`) for the clos
 hemisphere `hemi`, oriented by the frames `(f₀(a), f₁(a))` of `SphereRadialRetraction`
 (`hemiOrientation`), with `T̂(y) = T_y(hemi, o)` on `hemi` (`TH`).  Then:
 
-* `e8w_hasScPartitionsOfUnity`: `X` has sc-smooth partitions of unity (Definition 7.5.5; the chart
+* `hasScPartitionsOfUnity`: `X` has sc-smooth partitions of unity (Definition 7.5.5; the chart
   `id` of `ℝ³` has the approximation property, Theorem 5.5.10, Proposition 5.5.11);
-* `e8w_isBranchedEpSubgroupoid`, `e8w_isCompactBranched`, `e8w_isOrientation`: Definitions 9.1.2,
+* `isBranchedEpSubgroupoid`, `isCompactBranched`, `isOrientation`: Definitions 9.1.2,
   9.1.6, 9.3.2;
-* `e8w_hcov`: every point of `supp Θ = hemi` has an oriented tame structure of dimension `2`
+* `hcov`: every point of `supp Θ = hemi` has an oriented tame structure of dimension `2`
   (Definitions 9.3.3, 9.3.6) describing `T`, with its sheet `hemi ∩ U` in the class `sheets` of the
   `2`-forms `epFormsInftyEval 2` and its boundary sheet `∂₁(hemi ∩ U) = equator ∩ U` in the class
   `msheets` of the `1`-forms `epFormsInftyEval 1`;
-* `e8w_boundary_nonempty`, `e8w_supp_nonempty`: `∂Θ(pt0) = 1` at the equator point
+* `boundary_nonempty`, `supp_nonempty`: `∂Θ(pt0) = 1` at the equator point
   `pt0 = (0, 1, 0)`, and `supp Θ ≠ ∅`;
-* `e8w_stokes_hypotheses`: the conjunction.
+* `stokes_hypotheses`: the conjunction.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -42,7 +42,7 @@ namespace Polyfold
 
 open MPolyfold EpGroupoid
 
-namespace E8W
+namespace Hemisphere
 
 /-! ### The orientation of the hemisphere -/
 
@@ -238,7 +238,7 @@ theorem boundaryStratum_inter_isOpen {A V : Set Q3} (hV : IsOpen V) :
   · rintro ⟨⟨hyA, h⟩, hyV⟩
     exact ⟨⟨hyA, hyV⟩, fun c => by rw [submanifoldTangent_inter_isOpen hV hyV]; exact h c⟩
 
-/-- The equator `∂₁ hemi` is a `1`-dimensional submanifold (E6). -/
+/-- The equator `∂₁ hemi` is a `1`-dimensional submanifold (`StratumTangent.lean`). -/
 theorem isSubmanifoldOfDim_equator : Ph.IsSubmanifoldOfDim equator 1 := by
   rw [← boundaryStratum_hemi]
   exact isSubmanifoldOfDim_boundaryStratum isSubmanifoldOfDim_hemi hasTameInducedStructure_hemi
@@ -271,7 +271,7 @@ theorem hemiTame_boundarySheet {x : Q3} (hx : x ∈ hemi) (R : (trivial Ph).Natu
 /-- **Hypothesis 3 of Theorems 9.5.17, 9.5.18**: every `x ∈ supp Θ` has an oriented tame
 structure of dimension `2` describing `T`, with sheets in the class `sheets` of the `2`-forms and
 boundary sheets in the class `msheets` of the `1`-forms. -/
-theorem e8w_hcov : ∀ x ∈ supp thetaH, ∃ C : AH.X.OrientedTameStructure 2 thetaH x,
+theorem hcov : ∀ x ∈ supp thetaH, ∃ C : AH.X.OrientedTameStructure 2 thetaH x,
     C.Represents TH ∧ (∀ i, C.M i ∈ (AH.epFormsInftyEval 2).sheets) ∧
       ∀ i, (C.boundarySheet i).Nonempty → C.boundarySheet i ∈ (AH.epFormsInftyEval 1).msheets := by
   intro x hx
@@ -307,10 +307,10 @@ theorem boundaryTheta_pt0 : (trivial Ph).boundaryTheta thetaH pt0 = 1 := by
   rw [Finset.filter_true_of_mem fun _ _ => h]
   simp
 
-theorem e8w_boundary_nonempty : (supp (AH.X.boundaryTheta thetaH)).Nonempty :=
+theorem boundary_nonempty : (supp (AH.X.boundaryTheta thetaH)).Nonempty :=
   ⟨pt0, by change (0 : ℚ) < (trivial Ph).boundaryTheta thetaH pt0; rw [boundaryTheta_pt0]; norm_num⟩
 
-theorem e8w_supp_nonempty : (supp thetaH).Nonempty := ⟨pt0, by rw [supp_thetaH]; exact pt0_mem_hemi⟩
+theorem supp_nonempty : (supp thetaH).Nonempty := ⟨pt0, by rw [supp_thetaH]; exact pt0_mem_hemi⟩
 
 /-! ### Hypothesis 1: partitions of unity -/
 
@@ -323,20 +323,20 @@ theorem Ph_admitsScPartitionsOfUnity : Ph.AdmitsScPartitionsOfUnity := by
   · rw [mem_singleton_iff.1 hφ]
     exact proposition_5_5_11 _ (admitsContDiffPartitionsOfUnity_of_finiteDimensional V3)
 
-theorem e8w_hasScPartitionsOfUnity : AH.X.HasScPartitionsOfUnity :=
+theorem hasScPartitionsOfUnity : AH.X.HasScPartitionsOfUnity :=
   hasScPartitionsOfUnity_trivial Ph Ph_admitsScPartitionsOfUnity
 
-theorem e8w_isBranchedEpSubgroupoid : AH.X.IsBranchedEpSubgroupoid thetaH :=
+theorem isBranchedEpSubgroupoid : AH.X.IsBranchedEpSubgroupoid thetaH :=
   isBranchedEpSubgroupoid_thetaH
 
-theorem e8w_isCompactBranched : AH.X.IsCompactBranched thetaH := isCompactBranched_thetaH
+theorem isCompactBranched : AH.X.IsCompactBranched thetaH := isCompactBranched_thetaH
 
-theorem e8w_isOrientation : AH.X.IsOrientation thetaH TH := isOrientation_thetaH
+theorem isOrientation : AH.X.IsOrientation thetaH TH := isOrientation_thetaH
 
 /-- **The hypotheses of Theorems 9.5.17 and 9.5.18 (Stokes), 2021 pp. 449–450, with `m = 1`,
 nonempty support and nonempty boundary**: for `X = [0, ∞) × ℝ²` (trivial ep-groupoid),
 `Θ = 1_{hemi}` and `T̂ = T(hemi, o)`. -/
-theorem e8w_stokes_hypotheses :
+theorem stokes_hypotheses :
     AH.X.HasScPartitionsOfUnity ∧ AH.X.IsBranchedEpSubgroupoid thetaH ∧
       AH.X.IsCompactBranched thetaH ∧ AH.X.IsOrientation thetaH TH ∧
       (∀ x ∈ supp thetaH, ∃ C : AH.X.OrientedTameStructure 2 thetaH x,
@@ -344,9 +344,9 @@ theorem e8w_stokes_hypotheses :
           ∀ i, (C.boundarySheet i).Nonempty →
             C.boundarySheet i ∈ (AH.epFormsInftyEval 1).msheets) ∧
       (supp (AH.X.boundaryTheta thetaH)).Nonempty ∧ (supp thetaH).Nonempty :=
-  ⟨e8w_hasScPartitionsOfUnity, e8w_isBranchedEpSubgroupoid, e8w_isCompactBranched,
-    e8w_isOrientation, e8w_hcov, e8w_boundary_nonempty, e8w_supp_nonempty⟩
+  ⟨hasScPartitionsOfUnity, isBranchedEpSubgroupoid, isCompactBranched,
+    isOrientation, hcov, boundary_nonempty, supp_nonempty⟩
 
-end E8W
+end Hemisphere
 
 end Polyfold

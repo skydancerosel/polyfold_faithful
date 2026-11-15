@@ -68,13 +68,14 @@ a chosen *labelled* local branching structure at `y` (one whose `Mᵢ` have cons
   `supp(Θ)` the construction gives it; at points of the closure of `supp(Θ)` outside `supp(Θ)` it
   is derived here from a bound on the dimensions.
 
-## What remains of gap G.96
+## Gap G.96
 
-For ep-groupoids whose object space is `ℝᵐ`: nothing (`proposition_9_1_11_local_rn`).  In
-general the gluing is done (`existsUnique_localDimDecomposition`) up to its inputs: Proposition
-9.1.12 beyond the graph representation, the local constancy of the dimension (Remark 9.1.1)
-beyond `ℝᵐ`, and, for local finiteness off `supp(Θ)` without a dimension bound, an argument not
-given here.
+For ep-groupoids whose object space is `ℝᵐ`: `proposition_9_1_11_local_rn`.  In
+general the gluing is `existsUnique_localDimDecomposition`, from its inputs: Proposition
+9.1.12 and the local constancy of the dimension (Remark 9.1.1), both proved for every
+ep-groupoid (`proposition_9_1_12`, `GeneralCorollaries.lean`; `hasLocallyConstantDimAt`,
+`GeneralLevelZero.lean`).  Local finiteness off `supp(Θ)` without a bound on the dimensions is
+not proved (`proposition_9_1_11_local_of_le` takes the bound).
 -/
 
 open Set Filter Topology

@@ -70,7 +70,7 @@ locally finite union of closed paracompact sets.
   maps preserve the levels); that `m(φ, ψ)` is on level `1` for composable `φ, ψ ∈ 𝐗₁` uses
   `ml(t(φ ∘ ψ)) = ml(t φ) = ml(φ)` (pp. 227–228; `comp_mem_levelSet`).  `liftComp` of a
   non-composable pair is a junk value, as in `GroupoidStr`.
-* **"(1), (2) and (4) trivially"** (PLAN II.6, 7).  (1) is the level-`1` lift of a local
+* **"(1), (2) and (4) trivially"**.  (1) is the level-`1` lift of a local
   sc-diffeomorphism (`IsLocalScDiffeo.levelOne`, `LocalDiffeo.lean`); (2) is Part I's
   `IsScSmoothMap.levelOne` (Proposition 1.2.2 (preprint 1.17) in charts).  For (4) the text's "trivially", as we read
   it, uses `(𝐗 ₛ×ₜ 𝐗)¹ = 𝐗¹ ₛ×ₜ 𝐗¹` as M-polyfolds (the fibred product of Proposition 2.5.20 (2017: 2.15) [2.46]
@@ -83,9 +83,9 @@ locally finite union of closed paracompact sets.
   of `ProperMaps.lean`; `X¹` and `𝐗¹` are metrizable, Theorem 2.3.10 (2017: 2.2) [2.16]); `cl_{X₁} W(x) ⊆
   cl_X V(x)` is the continuity of `X₁ → X`; (b) is not needed; "(t|U(φ))⁻¹ is sc⁰" is used as the
   continuity on level `1` of its level-`1` lift.  The displayed map (7.5) has an unbalanced
-  parenthesis, "`s⁻¹(cl_{X₁}(W(x)) → X₁`" (possible misprint).
+  parenthesis, "`s⁻¹(cl_{X₁}(W(x)) → X₁`".
 * **Tameness** ("trivial").  Definition 7.1.6 (2017: 7.6) asks the object M-polyfold `X¹` to be tame
-  (Definition 2.5.7 (2017: 2.19) [2.37]: an equivalent atlas of tame retracts exists; PLAN II.5, 1).  As we read
+  (Definition 2.5.7 (2017: 2.19) [2.37]: an equivalent atlas of tame retracts exists).  As we read
   it, this needs that the index lift of a tame retraction is tame, which Part I left open
   (`Findings.md`, Chapter 5, item 145; `LocalDiffeo.lean`).  It is proved here
   (`MPolyfold.IsTame.levelOne`): for a tame `r` with presentation `T : E ≅ ℝⁿ ⊕ W` of `C`, the
@@ -106,7 +106,7 @@ locally finite union of closed paracompact sets.
   surjective, Proposition 7.1.8 (2017: 7.1)), hence metrizable by Corollary 7.3.6 (2017: 7.1) ("we have already seen"), hence
   paracompact (Stone).  Remark 7.5.2 (2017: 7.1) itself (on the requirement of [38]) has no formal content.
   "It is presently not known whether (5) is a consequence of (1)–(4)" is not formalized.
-* **Proposition 7.5.3 (2017: 7.12), the route** (PLAN II.6, 7).  The text's route (Lemma 2.7.3 (2017: 2.7), a locally finite
+* **Proposition 7.5.3 (2017: 7.12), the route**.  The text's route (Lemma 2.7.3 (2017: 2.7), a locally finite
   closed refinement `(A_x)`, Michael's union of closed paracompact sets) is replaced by Smirnov's
   theorem pulled back along `|X¹| → |X|` (Part I's `metrizableSpace_of_pullback`): `|X|` is
   paracompact and Hausdorff, and every point has the open neighbourhood `|U(x)| = π(U(x))` whose

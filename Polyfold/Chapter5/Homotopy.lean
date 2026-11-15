@@ -74,7 +74,7 @@ multiple of `s` does the job.
   finite-dimensional `K`), where `Lin_f(z)(b v) = λ(v)·e`.  The linearization `s'(x)` is read in a
   chart (`linAt`), as everywhere in Chapter 5.  The text's case distinction ("if the operator is
   zero take `s = 0`") is not needed.
-* **Theorem 5.3.15 (preprint 5.22) (Morse-type structure)** is formalized since 2026-11-12 in the
+* **Theorem 5.3.15 (preprint 5.22) (Morse-type structure)** is formalized in the
   files `Theorem5315_*.lean` (`theorem_5_3_15`, `Theorem5315_Final.lean`), with no added hypothesis:
   the 2021 Definition 5.3.13 (3) supplies `dt(x) ≠ 0`, the parametric Sard step is done with Lagrange
   multipliers on level sets of the solution manifold of `f + Σ μ_j σ_j` (no trivialization `Φ_λ`),

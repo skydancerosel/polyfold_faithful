@@ -40,12 +40,13 @@ Namespace `Polyfold.PolyfoldClass`:
   `P`), and **`hasRepProperty_iff`**: for `P` stable under pull-backs by generalized isomorphisms,
   some representative has `P` iff all have (`definition_16_4_2_closed`, `_compact`, `_manifold`,
   `_orbifold`, `_nDim`, from Theorem 11.3.3).  (5), tameness, is `IsTame` (some representative is
-  tame, Definition 9.3.6); its invariance is not formalized (gap).
+  tame, Definition 9.3.6); every representative is then tame (`definition_16_4_2_tame`,
+  `BranchedTame`).
 * Proposition 16.4.3, topological part: **`proposition_16_4_3_supp`**, `supp θ = α(|supp Θ|)`, and
   `proposition_16_4_3_homeomorph : supp θ ≃ₜ |supp Θ|` for every representative; with
   Proposition 9.1.9 this gives the manifold (orbifold) structure of each representative
   (`proposition_16_4_3_manifold`, `proposition_16_4_3_orbifold`).  That the structures from two
-  representatives agree is not formalized (gap).
+  representatives agree is `proposition_16_4_3_naturality` (`SuppNaturality`).
 * `OrientedRep c` (with `T̂` zero off `X_∞`, where it is never read), `OrientedRep.Rel`
   (Definition 16.4.4, an equivalence relation), **`OrientedSuborbifold c`**.
 * Definition 16.4.5: **`definition_16_4_5_wellDefined`**: related representatives have related
@@ -333,7 +334,7 @@ def IsNDimensional (θ : BranchedSuborbifold c) (n : ℕ) : Prop :=
   HasRepProperty (fun X Θ => X.X.IsNDimensional Θ n) θ
 
 /-- **Definition 16.4.2 (5)**: `θ` is tame, i.e. a representative `Θ` is tame (Definition 9.3.6).
-That then every representative is tame (2021 p. 729) is not formalized. -/
+That then every representative is tame (2021 p. 729) is `definition_16_4_2_tame` (`BranchedTame`). -/
 def IsTame (θ : BranchedSuborbifold c) : Prop :=
   HasRepProperty (fun X Θ => X.X.IsTameBranched Θ) θ
 

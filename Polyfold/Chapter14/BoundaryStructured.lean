@@ -40,7 +40,8 @@ then there is a structurable `Λ' : W → ℚ⁺` with (1) `N(Λ') ≤ f`, (2) `
   `equiv_iff_goodSystem`.
 * `IsBoundaryStructurable A Λ`, with the witness `isBoundaryStructurable_zero` (the zero
   multisection, for tame `X` with paracompact `|X|`).
-* `boundaryDomSupp Λ` and **`theorem_14_1_9_statement A : Prop`** (not proved here), with
+* `boundaryDomSupp Λ` and **`theorem_14_1_9_statement A : Prop`** (proved: `theorem_14_1_9`,
+  `BoundaryExtensionTheorem`), with
   `theorem_14_1_9_statement_hyp_witness` (its hypotheses are jointly satisfiable).
 -/
 
@@ -244,7 +245,7 @@ theorem boundaryDomSupp_zero : boundaryDomSupp (zeroMultisection A) = ∅ := by
   exact lt_irrefl _ hpos
 
 /-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, as a statement
-(proved in §§14.3–14.5; not proved here).  Let `(P : W → X, μ)` be a strong bundle over a tame
+(proved in §§14.3–14.5; `theorem_14_1_9`, `BoundaryExtensionTheorem`).  Let `(P : W → X, μ)` be a strong bundle over a tame
 ep-groupoid with paracompact orbit space whose M-polyfold `X` admits sc-smooth partitions of
 unity, `Λ : W|∂X → ℚ⁺` structurable (Definition 14.1.7), `N` an auxiliary norm (Definition
 8.3.5), `Ũ` a saturated open neighbourhood of `dom-supp(Λ)` and `f : X → [0, ∞)` a continuous

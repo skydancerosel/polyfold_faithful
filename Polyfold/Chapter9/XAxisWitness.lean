@@ -20,8 +20,6 @@ from a point of the support), and `remark_9_1_10_manifold`, `remark_9_1_10_manif
   ep⁺-subgroupoid, manifold-type, `1`-dimensional, `d = 0`, nonempty support);
 * the `example`s at the end apply `remark_9_1_10_manifold`, `remark_9_1_10_manifold_proj`,
   `remark_9_1_10_orbifold_etale` and `proposition_9_1_9_two_text` to this `Θ`.
-
-(Moved into the library on 2026-11-13 from the check file of agent C2.)
 -/
 
 open Polyfold Polyfold.EpGroupoid

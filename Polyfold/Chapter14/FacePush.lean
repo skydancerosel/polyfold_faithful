@@ -5,23 +5,23 @@ import Polyfold.Chapter10.WeakFibredProductTheorem
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.1, **Proposition
 14.1.8**, p. 645 (2017: Proposition 14.1): the push-forward hypothesis `FacePush_hyp` of
 `BoundaryPush` holds for strong bundle equivalences, so Proposition 14.1.8 holds without
-the two added hypotheses of wave 5.
+the two added hypotheses of `proposition_14_1_8_hyp`.
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
-* `exists_localIso_act_p6`: Chapter 10's `exists_localIso_mor` (the action `μ(σ, ·)` of a
+* `exists_localIso_act`: Chapter 10's `exists_localIso_mor` (the action `μ(σ, ·)` of a
   morphism is a local strong bundle isomorphism) with the formula exposed: on an open
   neighbourhood `𝒯` of `σ`, `t(ψ) ∈ U`, `ϕ(t(ψ)) = s(ψ)` and `Ψ(w) = μ(ψ, w)` for `ψ ∈ 𝒯`.
-* `facePush_hyp_of_equivalence`: **FM's `FacePush_hyp F` holds for every strong bundle
+* `facePush_hyp_of_equivalence`: **`FacePush_hyp F` holds for every strong bundle
   equivalence `F`**.  Near `z₀ = Q(u₀)` the pushed section `z ↦ μ(ψ_u, Φ(s(u)))`, `u = Q⁻¹(z)`, is
-  `Ψ₂ ∘ s₁ ∘ ϕ₂` for the action of `σ = ψ_{u₀}` (`exists_localIso_act_p6`), where
+  `Ψ₂ ∘ s₁ ∘ ϕ₂` for the action of `σ = ψ_{u₀}` (`exists_localIso_act`), where
   `s₁ = Φ ∘ s ∘ F⁻¹` is `s` transported along the local strong bundle isomorphism of `Φ` at
   `u₀`; the key lemma `isFaceScPlusSectionOn_of_localIso` applies twice.
-* `proposition_14_1_8` (`f̄_*Λ`) and `proposition_14_1_8_pullMult` (`f̄^*Λ'`): FM's
+* `proposition_14_1_8` (`f̄_*Λ`) and `proposition_14_1_8_pullMult` (`f̄^*Λ'`):
   `proposition_14_1_8_hyp` / `_pullMult_hyp` with both hypotheses discharged; also
   `PullMap.isBoundaryStructurable_pull` (any `PullMap`, e.g. proper strong bundle coverings) and
   `isBoundaryStructurable_pushMult`.
-* `SDiagram.isTame_B_p6`, `proposition_14_1_8_tame`, `proposition_14_1_8_pullMult_tame`: the
+* `SDiagram.isTame_B_ep`, `proposition_14_1_8_tame`, `proposition_14_1_8_pullMult_tame`: the
   middle of a representative is tame when `X` is (Chapter 10's `isTame_of_isTame`), so the
   statement needs only `X` and `X'` tame, as printed; `GenSBMap.proposition_14_1_8` and
   `GenSBMap.proposition_14_1_8_pullMult`: the class-level statement for
@@ -48,7 +48,7 @@ open StrongBundle EpGroupoid
 (Chapter 10's `EpStrongBundle.exists_localIso_mor`, whose proof is followed): there are
 `L : W|U → W|U'` and an open `𝒯 ∋ σ` such that for every `ψ ∈ 𝒯`, `t(ψ) ∈ U`,
 `ϕ(t(ψ)) = s(ψ)` and `Ψ(w) = μ(ψ, w)` for `w` over `s(ψ)`. -/
-theorem exists_localIso_act_p6 (A : SEP.{u}) (σ : A.Mor) :
+theorem exists_localIso_act (A : SEP.{u}) (σ : A.Mor) :
     ∃ (U U' : Set A.Obj) (L : StrongBundle.LocalIso A.B A.B U U') (𝒯 : Set A.Mor),
       IsOpen 𝒯 ∧ σ ∈ 𝒯 ∧ ∀ ψ ∈ 𝒯, A.X.tgt ψ ∈ U ∧ L.ϕ (A.X.tgt ψ) = A.X.src ψ ∧
         ∀ w, A.P w = A.X.src ψ → L.Ψ w = fibAct ψ w := by
@@ -153,13 +153,13 @@ theorem exists_localIso_act_p6 (A : SEP.{u}) (σ : A.Mor) :
 
 variable {A C : SEP.{u}}
 
-/-- **FM's hypothesis `FacePush_hyp F` holds for every strong bundle equivalence `F`**: (1) of
+/-- **The hypothesis `FacePush_hyp F` holds for every strong bundle equivalence `F`**: (1) of
 Definition 14.1.3 passes from `s` on `U(x)` to the pushed section `z ↦ μ(ψ_u, Φ(s(u)))` on
 `U'(y)`, through the local strong bundle isomorphism of `Φ` and the action of `ψ_u`. -/
 theorem facePush_hyp_of_equivalence {F : C ⟶ A} (hF : SEP.equivalences F) : FacePush_hyp F := by
   intro x y T N N' s h hs
   refine isFaceScPlusSectionOn_iff_singleton.2 fun z₀ hz₀ => ?_
-  have hu₀ : T.Qinv z₀ ∈ N.bdry := h.Qinv_mem_bdry_fm hF hz₀
+  have hu₀ : T.Qinv z₀ ∈ N.bdry := h.Qinv_mem_bdry hF hz₀
   have hu₀W : T.Qinv z₀ ∈ T.W := h.Qinv_mem_W hz₀.1
   -- step 1: `s₁ = Φ ∘ s ∘ F⁻¹` near `F(u₀)`
   obtain ⟨U₁, U₁', hu₀U₁, hi⟩ := (PullMap.ofEquivalence hF).isLocalIso (T.Qinv z₀)
@@ -174,7 +174,7 @@ theorem facePush_hyp_of_equivalence {F : C ⟶ A} (hF : SEP.equivalences F) : Fa
     rw [L₁.base.left_inv _ hu₀U₁]
     exact hs.mono (singleton_subset_iff.2 hu₀)
   -- step 2: the action of `σ = ψ_{u₀}`
-  obtain ⟨U₂, U₂', L₂, 𝒯, h𝒯o, hσ𝒯, h𝒯⟩ := exists_localIso_act_p6 A (T.ψ (T.Qinv z₀))
+  obtain ⟨U₂, U₂', L₂, 𝒯, h𝒯o, hσ𝒯, h𝒯⟩ := exists_localIso_act A (T.ψ (T.Qinv z₀))
   have hQc : ContinuousOn T.Qinv N'.U :=
     T.isScDiffeoOn_Q.isScSmoothOn_inv.continuousOn.mono h.subset_W'
   have hψc : ContinuousOn (T.ψ ∘ T.Qinv) N'.U :=
@@ -188,7 +188,7 @@ theorem facePush_hyp_of_equivalence {F : C ⟶ A} (hF : SEP.equivalences F) : Fa
   refine isFaceScPlusSectionOn_of_localIso L₂ (s' := L₁.Φ ∘ s ∘ L₁.g) hGo
     ⟨⟨hz₀.1, hu₀U₁⟩, hσ𝒯⟩ hGU₂ hz₀.2 ?_ ?_
   · rintro z ⟨hz, hzb⟩
-    have hu : T.Qinv z ∈ N.bdry := h.Qinv_mem_bdry_fm hF ⟨hz.1.1, hzb⟩
+    have hu : T.Qinv z ∈ N.bdry := h.Qinv_mem_bdry hF ⟨hz.1.1, hzb⟩
     have hsu : C.P (s (T.Qinv z)) = T.Qinv z := (hs.1 _ hu).1
     obtain ⟨-, hϕ, hΨ⟩ := h𝒯 (T.ψ (T.Qinv z)) hz.2
     have ht : A.X.tgt (T.ψ (T.Qinv z)) = z := h.tgt_ψ_Qinv hz.1.1
@@ -201,7 +201,7 @@ theorem facePush_hyp_of_equivalence {F : C ⟶ A} (hF : SEP.equivalences F) : Fa
       change L₁.Φ (s (L₁.g (L₁.ϕ (T.Qinv z)))) = _
       rw [L₁.base.left_inv _ hz.1.2]
       rfl
-    rw [e1, h.pushSec_eq_fm hF hz.1.1 hsu, hΨ _ (h.P_obj_fm hF hz.1.1 hsu)]
+    rw [e1, h.pushSec_eq_at hF hz.1.1 hsu, hΨ _ (h.P_obj_at hF hz.1.1 hsu)]
   · have e := (h𝒯 _ hσ𝒯).2.1
     rw [h.tgt_ψ_Qinv hz₀.1, T.src_ψ _ hu₀W] at e
     rw [e]
@@ -210,7 +210,7 @@ theorem facePush_hyp_of_equivalence {F : C ⟶ A} (hF : SEP.equivalences F) : Fa
 /-! ### Proposition 14.1.8 -/
 
 /-- Pull-backs of structurable sc⁺-multisections over `∂X'` along any `PullMap` (strong bundle
-equivalences, proper strong bundle coverings) are structurable over `∂X` (tame `X`): FM's
+equivalences, proper strong bundle coverings) are structurable over `∂X` (tame `X`):
 `isBoundaryStructurable_pull_hyp` with `FacePull_hyp` proved. -/
 theorem PullMap.isBoundaryStructurable_pull (M : PullMap C A) (hX : C.X.IsTame)
     {Λ' : A.W → ℚ≥0} (h : IsBoundaryStructurable A Λ') :
@@ -218,7 +218,7 @@ theorem PullMap.isBoundaryStructurable_pull (M : PullMap C A) (hX : C.X.IsTame)
   M.isBoundaryStructurable_pull_hyp hX M.facePull_hyp h
 
 /-- Push-forwards of structurable sc⁺-multisections over `∂X` along a strong bundle equivalence
-are structurable over `∂X'` (tame `X'`): FM's `isBoundaryStructurable_pushMult_hyp` with
+are structurable over `∂X'` (tame `X'`): `isBoundaryStructurable_pushMult_hyp` with
 `FacePush_hyp` proved. -/
 theorem isBoundaryStructurable_pushMult {F : C ⟶ A} (hF : SEP.equivalences F)
     (hA : A.X.IsTame) {Λ : C.W → ℚ≥0} (h : IsBoundaryStructurable C Λ) :
@@ -248,7 +248,7 @@ theorem proposition_14_1_8_pullMult {A A' : SEP.{u}} (D : SDiagram A A')
 
 /-- The middle `V` of a representative `W ←Φ V →Ψ W'` is tame when `X` is: `Φ` covers an
 equivalence of ep-groupoids (Chapter 10's `EpFunctor.IsEquivalence.isTame_of_isTame`). -/
-theorem SDiagram.isTame_B_p6 {A A' : SEP.{u}} (D : SDiagram A A') (hA : A.X.IsTame) :
+theorem SDiagram.isTame_B_ep {A A' : SEP.{u}} (D : SDiagram A A') (hA : A.X.IsTame) :
     D.B.X.IsTame :=
   EpFunctor.IsEquivalence.isTame_of_isTame D.isEquivalence_Φ.isEquivalence_base hA
 
@@ -258,13 +258,13 @@ ep-groupoids, `f̄_*Λ` is structurable over `∂X'` for `Λ` structurable over 
 theorem proposition_14_1_8_tame {A A' : SEP.{u}} (D : SDiagram A A')
     (hΨ : SEP.equivalences D.Ψ) (hA : A.X.IsTame) (hA' : A'.X.IsTame) {Λ : A.W → ℚ≥0}
     (h : IsBoundaryStructurable A Λ) : IsBoundaryStructurable A' (D.pushMult hΨ Λ) :=
-  proposition_14_1_8 D hΨ (D.isTame_B_p6 hA) hA' h
+  proposition_14_1_8 D hΨ (D.isTame_B_ep hA) hA' h
 
 /-- **2021 Proposition 14.1.8, `f̄^*Λ'`, with the text's hypotheses** (tame `X`, `X'`). -/
 theorem proposition_14_1_8_pullMult_tame {A A' : SEP.{u}} (D : SDiagram A A')
     (hΨ : SEP.equivalences D.Ψ) (hA : A.X.IsTame) {Λ' : A'.W → ℚ≥0}
     (h : IsBoundaryStructurable A' Λ') : IsBoundaryStructurable A (D.pullMult hΨ Λ') :=
-  proposition_14_1_8_pullMult D hΨ (D.isTame_B_p6 hA) hA h
+  proposition_14_1_8_pullMult D hΨ (D.isTame_B_ep hA) hA h
 
 namespace GenSBMap
 

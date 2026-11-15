@@ -28,12 +28,12 @@ pointwise norm is continuous, there is a saturated open neighbourhood `G` of `�
   as a Lean `Prop`: for every structurable `Λ` over `∂X` and saturated open `Ũ ⊇ dom-supp(Λ)`
   there is a structurable `Λ''` on `X` with `dom-supp(Λ'') ⊆ Ũ` and `Λ''|∂X = Λ`.
 * **`theorem_14_1_9_hyp`**: `theorem_14_1_9_extension_statement A → theorem_14_1_9_statement A`
-  (B1's statement of Theorem 14.1.9), i.e. the size control is proved.
+  (the statement of Theorem 14.1.9), i.e. the size control is proved.
 * `theorem_14_1_9_extension_statement_of_boundary_eq_empty`: the hypothesis holds when
   `∂X = ∅` (with `Λ'' = 0`), a satisfiability witness.
 * Tools: `isOpen_pointwiseNorm_lt` (`{N(Λ) < f}` is open, from the local representations and
   the continuity of `N`), `pointwiseNorm_tgt` (`N(Λ)` is a functor), `pointwiseNorm_smulFun_le`
-  (`N(β ⊙ Λ) ≤ |β| N(Λ)`), `isSaturated_closure_gl`, `domSupp_zeroMultisection_gl`.
+  (`N(β ⊙ Λ) ≤ |β| N(Λ)`), `isSaturated_closure`, `domSupp_zeroMultisection'`.
 
 ## Reading
 
@@ -63,7 +63,7 @@ variable {A : SEP.{u}}
 /-! ### Saturation -/
 
 /-- `∂X` is saturated (isomorphic objects have the same degeneracy index). -/
-theorem isSaturated_boundary_gl : A.X.IsSaturated A.X.PObj.boundary := by
+theorem isSaturated_boundary : A.X.IsSaturated A.X.PObj.boundary := by
   refine Subset.antisymm (fun y hy => ?_) (subset_preimage_image _ _)
   obtain ⟨b, hb, hby⟩ := hy
   obtain ⟨φ, hs, ht⟩ := A.X.π_eq_π_iff.1 hby
@@ -73,7 +73,7 @@ theorem isSaturated_boundary_gl : A.X.IsSaturated A.X.PObj.boundary := by
 
 /-- The closure of a saturated set is saturated (saturations of open sets are open,
 Proposition 7.1.8). -/
-theorem isSaturated_closure_gl {S : Set A.Obj} (hS : A.X.IsSaturated S) :
+theorem isSaturated_closure {S : Set A.Obj} (hS : A.X.IsSaturated S) :
     A.X.IsSaturated (closure S) := by
   refine A.X.isSaturated_iff.2 fun φ hφ => ?_
   by_contra hn
@@ -91,7 +91,7 @@ theorem isSaturated_closure_gl {S : Set A.Obj} (hS : A.X.IsSaturated S) :
   rw [hVS] at this
   exact this
 
-theorem isSaturated_union_gl {S T : Set A.Obj} (hS : A.X.IsSaturated S)
+theorem isSaturated_union {S T : Set A.Obj} (hS : A.X.IsSaturated S)
     (hT : A.X.IsSaturated T) : A.X.IsSaturated (S ∪ T) :=
   A.X.isSaturated_iff.2 fun φ h => h.elim (fun h => Or.inl (A.X.isSaturated_iff.1 hS φ h))
     fun h => Or.inr (A.X.isSaturated_iff.1 hT φ h)
@@ -219,7 +219,7 @@ theorem multisectionSmulFun_of_eq_one {β : A.Obj → ℝ} {Λ : A.W → ℚ≥0
   rw [h, if_neg one_ne_zero, inv_one, one_smul]
   rfl
 
-theorem domSupp_zeroMultisection_gl : domSupp (zeroMultisection A) = ∅ := by
+theorem domSupp_zeroMultisection' : domSupp (zeroMultisection A) = ∅ := by
   classical
   rw [domSupp, closure_empty_iff, eq_empty_iff_forall_notMem]
   rintro x ⟨w, rfl, hw, hpos⟩
@@ -234,7 +234,8 @@ structurable `Λ : W|∂X → ℚ⁺` (Definition 14.1.7) and every saturated op
 there is a structurable sc⁺-multisection functor `Λ''` on `X` (Definition 13.3.6) with
 `dom-supp(Λ'') ⊆ Ũ` and `Λ''|(W|∂X) = Λ`.  In the text this is the commensurable sum
 `Σ_a Λ̃_a` of Proposition 14.5.4 (the transported local extensions of Proposition 14.4.14),
-structurable by Theorem 14.5.5; not proved here. -/
+structurable by Theorem 14.5.5; it holds for every `A`
+(`theorem_14_1_9_extension_statement_holds`, `BoundaryExtensionTheorem`). -/
 def theorem_14_1_9_extension_statement (A : SEP.{u}) : Prop :=
   A.X.IsTame → A.X.HasParacompactOrbitSpace → A.X.PObj.AdmitsScPartitionsOfUnity →
   ∀ Λ : A.W → ℚ≥0, IsBoundaryStructurable A Λ →
@@ -248,7 +249,7 @@ theorem theorem_14_1_9_extension_statement_of_boundary_eq_empty
     (hb : A.X.PObj.boundary = ∅) : theorem_14_1_9_extension_statement A := by
   intro _ hpara _ Λ _ Ũ _ _ _
   refine ⟨zeroMultisection A, isStructurable_zeroMultisection hpara, ?_, fun w hw => ?_⟩
-  · rw [domSupp_zeroMultisection_gl]; exact empty_subset _
+  · rw [domSupp_zeroMultisection']; exact empty_subset _
   · rw [hb] at hw; exact absurd hw (notMem_empty _)
 
 /-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, from the
@@ -285,12 +286,12 @@ theorem theorem_14_1_9_hyp (hext : theorem_14_1_9_extension_statement A) :
     (isOpen_pointwiseNorm_lt hN1 hΛ''.1 hf).union
       (by rw [hK, domSupp]; exact isClosed_closure.isOpen_compl)
   have hGsat : A.X.IsSaturated G := by
-    refine isSaturated_union_gl (A.X.isSaturated_iff.2 fun φ hφ => ?_) (A.X.isSaturated_compl ?_)
+    refine isSaturated_union (A.X.isSaturated_iff.2 fun φ hφ => ?_) (A.X.isSaturated_compl ?_)
     · show h _ < f _
       rw [hhinv, hfinv]
       exact hφ
     · rw [hKeq]
-      exact isSaturated_closure_gl (A.X.isSaturated_iff.2 fun φ hφ => by
+      exact isSaturated_closure (A.X.isSaturated_iff.2 fun φ hφ => by
         show 0 < h _
         rw [hhinv]
         exact hφ)
@@ -328,14 +329,14 @@ theorem theorem_14_1_9_hyp (hext : theorem_14_1_9_extension_statement A) :
       linarith
   -- the cut-off `σ`
   have hbcl : IsClosed (A.X.π '' A.X.PObj.boundary) :=
-    A.X.isClosed_π_image_of_isSaturated isSaturated_boundary_gl A.X.PObj.isClosed_boundary
+    A.X.isClosed_π_image_of_isSaturated isSaturated_boundary A.X.PObj.isClosed_boundary
   have hGcl : IsClosed (A.X.π '' Gᶜ) :=
     A.X.isClosed_π_image_of_isSaturated (A.X.isSaturated_compl hGsat) hGo.isClosed_compl
   have hdisj : Disjoint (A.X.π '' Gᶜ) (A.X.π '' A.X.PObj.boundary) := by
     rw [disjoint_iff_forall_ne]
     rintro _ ⟨a, ha, rfl⟩ _ ⟨b, hb, hab⟩ e
     have : a ∈ A.X.PObj.boundary := by
-      rw [← isSaturated_boundary_gl]
+      rw [← isSaturated_boundary]
       exact ⟨b, hb, hab.trans e.symm⟩
     exact ha (hbG this)
   obtain ⟨F, hFs, hF0, hF1, hFI⟩ := A.X.exists_isScSmoothMap_orbit_urysohn hpara hpu hGcl hbcl hdisj

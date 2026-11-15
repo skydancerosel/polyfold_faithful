@@ -39,7 +39,7 @@ each `Õ([z]) = ⋃_{z' ∈ [z]} Õ(z')`, sections constant on `≈_{z'}`-classe
   (`avgSection` of Proposition 14.1.4).  The average is `G_a`-equivariant, still extends the
   boundary data (they are equivariant), and is still compatible with `∼_y` because `∼` is
   equivariant (Lemma 14.4.5).
-* `LocalExtensionBase.ofZSetup`: the base data for `∼ = ZRel` of B2's `ZSetup`, with
+* `LocalExtensionBase.ofZSetup`: the base data for `∼ = ZRel` of `ZSetup`, with
   `sim_smul` discharged by Lemma 14.4.5 (`zRel_smul`).
 * Nonvacuity: `LocalExtensionBase.zero` and `CoherentNbhdSystem.zero` (zero sections, trivial
   relations, `Õ(z) = Ũ(a)` when `cl(V̂_a) ⊆ Ũ(a)`), and `exists_coherentNbhdSystem_zero` (for
@@ -274,11 +274,11 @@ theorem proposition_14_4_14
     congr 2
     exact Finset.sum_congr rfl fun g _ => Subtype.ext (hterm g)
 
-/-! ### The base data from B2's `ZSetup` -/
+/-! ### The base data from `ZSetup` -/
 
 namespace LocalExtensionBase
 
-/-- **The data of Proposition 14.4.14 from a `ZSetup`** (B2's setting of Definitions
+/-- **The data of Proposition 14.4.14 from a `ZSetup`** (the setting of Definitions
 14.4.2–14.4.4) at `a`: `∼_y` is `ZRel a y`, and Lemma 14.4.5 (`zRel_smul`) is `sim_smul`.  The
 boundary sections and `≈_z` are given. -/
 def ofZSetup (S : A.X.ZSetup) {a : A.Obj} (ha : a ∈ S.A) (hV : IsOpen (S.V a))

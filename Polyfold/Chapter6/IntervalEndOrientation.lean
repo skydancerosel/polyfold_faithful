@@ -1,5 +1,5 @@
 import Polyfold.Chapter6.IntervalProductSectionOrientation
-import Polyfold.Chapter6.CobordismOrientationEnds2021c
+import Polyfold.Chapter6.EndChartPointOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, p. 276:

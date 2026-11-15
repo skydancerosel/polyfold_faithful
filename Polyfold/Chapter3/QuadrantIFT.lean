@@ -32,7 +32,7 @@ has a unique fixed point `τ(k) ∈ X_k`.  (Lemma 3.8.25 (preprint 3.81)) `τ` i
 * `Polyfold.Radii.τ` (the fixed point), `Radii.eq_τ` (uniqueness), `Radii.norm_τ_le`,
   `Radii.norm_τ_sub_le_global` (**Lemma 3.8.25 (preprint 3.81)**, Lipschitz on all of `V₀` with the constant
   `ε/(1 + ε)`; `Radii.norm_τ_sub_le_eps`, the text's constant `ε`; `Radii.lipschitzOnWith_τ`),
-  `Radii.norm_τ_sub_le` (the earlier form, constant `1 + 2ε`), `Radii.hasFDerivWithinAt_τ`,
+  `Radii.norm_τ_sub_le` (a weaker form, constant `1 + 2ε`), `Radii.hasFDerivWithinAt_τ`,
   `Radii.fderivWithin_τ` (**Lemma 3.8.26 (preprint 3.82)**, the derivative formula), `Radii.contDiffOn_τ`
   (`τ ∈ C^j`).
 * `Polyfold.ContractionData.exists_solution` (**Theorem 3.8.22 (preprint 3.78) in normalized form**) and

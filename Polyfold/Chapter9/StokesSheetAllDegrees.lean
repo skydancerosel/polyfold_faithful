@@ -21,8 +21,8 @@ are restated without `0 < m` (suffix `_all`).
 * `EP.formsInftyRestrict_smul_eq_zero_all`, `EP.formsInftyRestrict_d_smul_eq_zero_all`:
   `(β·ω)|_N` and `(d(β·ω))|_N` vanish off `supp β`, every degree.
 * `EP.integ_d_smul_eq_zero_all`, `EP.integ_d_smul_eq_boundaryIntegral_all`,
-  **`EP.stokes_one_structure_all`**, `EP.stokes_off_support_all`: E5's statements without the
-  hypothesis `0 < m`.
+  **`EP.stokes_one_structure_all`**, `EP.stokes_off_support_all`: the statements of
+  `StokesPartition.lean` without the hypothesis `0 < m`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -87,7 +87,7 @@ variable {N : Set A.Obj} [ParacompactSpace N] {hY : A.X.PObj.IsSubMPolyfold N}
 
 /-- **`(β·a)|_N = β·(a|_N)` in every degree `k ≥ 0`** (2021 Theorem 9.5.18, proof, p. 451:
 `ω_k = β_k ω`), for an sc-smooth function `β` constant on the orbits and a sheet `N` with a
-corner structure: E5's `formsInftyRestrict_epFormsInftySmul` without the hypothesis `0 < k`
+corner structure: `formsInftyRestrict_epFormsInftySmul` without the hypothesis `0 < k`
 (and without the smoothness of `N`), from the definitions of the product and the restriction. -/
 theorem formsInftyRestrict_epFormsInftySmul_all
     (hβ : A.X.PObj.IsScSmoothMap realPolyfold β)
@@ -116,8 +116,8 @@ theorem formsInftyRestrict_epFormsInftySmul_all
   congr 1
   exact congrArg β (incl_alongLift hcs g i y)
 
-/-- **`(β·ω)|_N` vanishes off the support of `β`, in every degree** (E5's
-`formsInftyRestrict_smul_eq_zero` without the hypothesis `0 < k`). -/
+/-- **`(β·ω)|_N` vanishes off the support of `β`, in every degree** (as
+`formsInftyRestrict_smul_eq_zero`, without the hypothesis `0 < k`). -/
 theorem formsInftyRestrict_smul_eq_zero_all (hβ : A.X.PObj.IsScSmoothMap realPolyfold β)
     (hinv : ∀ φ : A.Mor, β (A.X.src φ) = β (A.X.tgt φ)) (ω : A.epFormsInfty k) (y : N)
     (hy : y.1 ∉ tsupport β) :
@@ -129,7 +129,7 @@ theorem formsInftyRestrict_smul_eq_zero_all (hβ : A.X.PObj.IsScSmoothMap realPo
   rfl
 
 /-- **`(d(β·ω))|_N` vanishes off the support of `β`, in every degree** (`d` is local on the
-manifold `N`; E5's `formsInftyRestrict_d_smul_eq_zero` without the hypothesis `0 < k`). -/
+manifold `N`; `formsInftyRestrict_d_smul_eq_zero` without the hypothesis `0 < k`). -/
 theorem formsInftyRestrict_d_smul_eq_zero_all
     (hch : inst = (subPolyfold hY).cornerChartedSpace hcs)
     (hβ : A.X.PObj.IsScSmoothMap realPolyfold β)
@@ -155,7 +155,7 @@ theorem formsInftyRestrict_d_smul_eq_zero_all
 variable {m : ℕ} {Θ : A.Obj → ℚ}
 
 /-- **The integrals of `d(β·ω)` over the subsets of a sheet disjoint from `supp β` vanish**
-(2021 p. 451), for sheets of every dimension `m + 1 ≥ 1`: E5's `integ_d_smul_eq_zero` without the
+(2021 p. 451), for sheets of every dimension `m + 1 ≥ 1`: `integ_d_smul_eq_zero` without the
 hypothesis `0 < m`. -/
 theorem integ_d_smul_eq_zero_all {x : A.Obj}
     (C : A.X.OrientedTameStructure (m + 1) Θ x) (i : C.ι)
@@ -175,7 +175,7 @@ theorem integ_d_smul_eq_zero_all {x : A.Obj}
 
 /-- **The standard Stokes theorem on one sheet, for the integral of §9.5** (the third equality of
 the display on p. 451, proof of Theorem 9.5.18), for sheets of every dimension `m + 1 ≥ 1`:
-`∫_{(Mᵢ,oᵢ)} d(βω) = ∫_{∂(Mᵢ,oᵢ)} βω` for `supp β ⊆ U(x)^*`, `Θ` compact.  E5's
+`∫_{(Mᵢ,oᵢ)} d(βω) = ∫_{∂(Mᵢ,oᵢ)} βω` for `supp β ⊆ U(x)^*`, `Θ` compact.
 `integ_d_smul_eq_boundaryIntegral` without the hypothesis `0 < m`. -/
 theorem integ_d_smul_eq_boundaryIntegral_all (hcpt : A.X.IsCompactBranched Θ)
     {x : A.Obj} (C : A.X.OrientedTameStructure (m + 1) Θ x)
@@ -225,7 +225,7 @@ variable (Φ : A.epFormsInfty (m + 1) →ₗ[ℝ] @SignedMeasure (A.X.orbitSupp 
 /-- **The second and third equalities of the display on p. 451** (proof of Theorem 9.5.18), in
 every dimension `m + 1 ≥ 1`: for `Φ` with the local formula of Theorem 9.5.4 or 9.5.5 (weights
 `c`), a structure `C` of the class at `x`, an sc-smooth `β` constant on the orbits with
-`supp β ⊆ U(x)^*` and `ω ∈ Ωᵐ_{ep,∞}(X)`: `Φ(d(βω))(S) = c(x) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} βω`.  E5's
+`supp β ⊆ U(x)^*` and `ω ∈ Ωᵐ_{ep,∞}(X)`: `Φ(d(βω))(S) = c(x) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} βω`.
 `stokes_one_structure` without the hypothesis `0 < m`. -/
 theorem stokes_one_structure_all (hcpt : A.X.IsCompactBranched Θ)
     (hGS : ∀ x C, Good x C → ∀ i, C.M i ∈ (A.epFormsInftyEval (m + 1)).sheets)
@@ -258,7 +258,7 @@ theorem stokes_one_structure_all (hcpt : A.X.IsCompactBranched Θ)
 
 /-- **The term `k = 0` of the proof of Theorem 9.5.18** (p. 451; `U_0^*` does not meet
 `supp Θ`), in every dimension `m + 1 ≥ 1`: if `supp β` does not meet `supp Θ`, then
-`Φ(d(βω))(S) = 0`.  E5's `stokes_off_support` without the hypothesis `0 < m`. -/
+`Φ(d(βω))(S) = 0`.  `stokes_off_support` without the hypothesis `0 < m`. -/
 theorem stokes_off_support_all (hcpt : A.X.IsCompactBranched Θ)
     (hcov : ∀ x ∈ EpGroupoid.supp Θ, ∃ C, Good x C)
     (hΦ : ∀ (η : A.epFormsInfty (m + 1)) (x : A.Obj)

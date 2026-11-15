@@ -79,7 +79,7 @@ theorem isCompactOperator_inclW_cube (hp : 1 < p) (k : ℕ) :
     fun a => (fun u => Dop a (Tm u)) '' B
   have hCa : ∀ a, TotallyBounded (Ca a) := by
     intro a
-    refine GapP1Sobolev.totallyBounded_of_isometry T.isometry ?_
+    refine CylinderSobolev.totallyBounded_of_isometry T.isometry ?_
     refine (totallyBounded_comp hp (a.1 0)).subset ?_
     rintro _ ⟨_, ⟨u, hu, rfl⟩, rfl⟩
     refine ⟨u, hu, ?_⟩
@@ -96,7 +96,7 @@ theorem isCompactOperator_inclW_cube (hp : 1 < p) (k : ℕ) :
     exact isCompact_iff_totallyBounded_isComplete.2
       ⟨(hCa a).closure, isClosed_closure.isComplete⟩
   have htb : TotallyBounded (Tm '' B) := by
-    refine GapP1Sobolev.totallyBounded_of_isometry isometry_subtype_coe ?_
+    refine CylinderSobolev.totallyBounded_of_isometry isometry_subtype_coe ?_
     refine hK'.totallyBounded.subset ?_
     rintro _ ⟨_, ⟨u, hu, rfl⟩, rfl⟩
     intro a _

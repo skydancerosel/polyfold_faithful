@@ -22,7 +22,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-! ### Totally bounded sets -/
 
@@ -501,4 +501,4 @@ theorem rellich {R : ℝ} (hR : 0 < R) (C : ℝ) : TotallyBounded (cutR R '' H1b
     rw [dist_eq_norm]
     exact (pow_lt_pow_iff_left₀ (norm_nonneg _) hε.le two_ne_zero).1 (hfin.trans_lt hlt)
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

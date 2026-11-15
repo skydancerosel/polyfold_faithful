@@ -2,15 +2,15 @@ import Polyfold.Chapter3.NonVacuity
 import Polyfold.Chapter3.TameVacuity
 
 /-!
-# The old hypothesis `htame` fails for the witness bundle of `NonVacuity.lean`
+# The whole-chart hypothesis `htame` fails for the witness bundle of `NonVacuity.lean`
 
 The chart-level form of Findings, Chapter 3 item 190, for a concrete strong bundle: for the trivial
 strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` of `NonVacuity.lean` (`TrivialBundle.bundle n k`), **not every
 compatible strong bundle chart has a tame base retraction**
 (`TrivialBundle.not_forall_isTame_of_isChart`).  So the hypothesis
-`htame : ∀ c, B.IsChart c → (base retraction of c).IsTame` with which the §3.6 theorems were first
-stated fails for this bundle, while the repaired hypotheses hold for it
-(`TrivialBundle.hypotheses_theorem_3_6_11_graphSection_wholeChart`): the repair was needed, and the bundle
+`htame : ∀ c, B.IsChart c → (base retraction of c).IsTame` (every compatible chart) fails for this
+bundle, while the hypotheses of the §3.6 theorems as formalized hold for it
+(`TrivialBundle.hypotheses_theorem_3_6_11_graphSection_wholeChart`): the bundle
 separates the two forms (`TrivialBundle.htame_fails_repaired_holds_wholeChart`).
 
 The chart is the construction of item 190: the model `(ℝ ⊕ ℝ⁰) ⊕ ℝⁿ` with the partial quadrant
@@ -248,9 +248,9 @@ theorem not_forall_isTame_of_isChart :
   exact ScRetraction.halfLineConst_prod_not_isTame zeroSc (ScRetraction.id (rn_relOpen_univ n))
     ⟨0, mem_univ _⟩ ((h _ isChart_oddBundleChart).congr rfl fun _ _ => rfl)
 
-/-- **The trivial bundle separates the old and the repaired hypotheses**: for a surjective linear
-`L : ℝⁿ → ℝᵏ`, the graph section of `L` meets the repaired hypotheses of Theorem 3.6.11 (preprint 3.57), while the
-old hypothesis `htame` (every compatible chart has a tame base retraction) fails for the bundle. -/
+/-- **The trivial bundle separates `htame` from the hypotheses of Theorem 3.6.11**: for a surjective linear
+`L : ℝⁿ → ℝᵏ`, the graph section of `L` meets the hypotheses of Theorem 3.6.11 (preprint 3.57), while the
+hypothesis `htame` (every compatible chart has a tame base retraction) fails for the bundle. -/
 theorem htame_fails_repaired_holds_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
     ((bundle n k).IsScFredholmSectionWholeChart (graphSection L) ∧
       ∀ x, IsZeroAt (proj n k) (graphSection L) x →

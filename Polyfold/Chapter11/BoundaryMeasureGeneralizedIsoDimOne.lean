@@ -7,7 +7,7 @@ Part II, Chapter 11, §11.4, **Theorems 11.4.4 and 11.4.5 for `n = 1` and a gene
 isomorphism** (p. 545, new in the 2021 edition), gap G.131.  Numbers and pages are the 2021
 text's.
 
-H4's `BoundaryMeasureGeneralizedIso` for `m = 0`: a generalized isomorphism `f : X → Y` is represented by a
+`BoundaryMeasureGeneralizedIso` for `m = 0`: a generalized isomorphism `f : X → Y` is represented by a
 diagram `X ←F A →Φ Y` of equivalences, and the two equivalence cores of
 `BoundaryMeasureEquivalenceDimOne` are composed (`measure_span_core_bd_dim1`).
 
@@ -36,8 +36,8 @@ namespace EpFunctor
 
 variable {A X Y : EP.{u}}
 
-/-- **The core of Theorems 11.4.4 and 11.4.5 for `X ←F A →G Y` and `n = 1`** (H4's
-`measure_span_core_bd` for `m = 0`): `µ_X(K) = µ_Y(|G|(|F|⁻¹(K)))` for measures with the local
+/-- **The core of Theorems 11.4.4 and 11.4.5 for `X ←F A →G Y` and `n = 1`** (`measure_span_core_bd`
+for `m = 0`): `µ_X(K) = µ_Y(|G|(|F|⁻¹(K)))` for measures with the local
 formulas of Theorem 9.5.15 (`n = 1`), `F^*ω = G^*ω'`. -/
 theorem measure_span_core_bd_dim1 {F : EpFunctor A.X X.X} {G : EpFunctor A.X Y.X}
     (hF : F.IsEquivalence) (hG : G.IsEquivalence)

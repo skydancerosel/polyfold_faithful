@@ -15,7 +15,7 @@ sc-Fredholm with compact `|S_f|`:
 (1) for every `(N, U)` controlling compactness there is a structurable `Λ` with dom-supp in `U`,
 `N(Λ) < 1`, and `T(f, Λ)` onto on `supp(Λ ∘ f)`; then `Θ = Λ ∘ f` is a tame branched
 ep⁺-subgroupoid with compact `|supp Θ|`; `(N, U, Λ)` is a *structurable regular perturbation*.
-(2) (P's `corollary_15_3_10_2`) the interpolated `(Ñ, Ũ)` on `W̃ → [0, 1] × X` controls the
+(2) (`corollary_15_3_10_2`) the interpolated `(Ñ, Ũ)` on `W̃ → [0, 1] × X` controls the
 compactness of `f̃(t, x) = (t, f(x))`.
 (3) there is a structurable regular perturbation `(Ñ, Ũ, Λ̃)` of `f̃` with `Λ̃ = Λⁱ` over
 `{i} × X`, `i = 0, 1` (proof: Theorem 15.3.9 on `[0, 1] × X`).
@@ -24,16 +24,16 @@ compactness of `f̃(t, x) = (t, f(x))`.
 
 * `IsRegularPerturbation A f N U Λ`: `(N, U)` controls compactness, `Λ` structurable, dom-supp in
   `U`, `N(Λ) < 1`, `(f, Λ)` transversal.
-* **`corollary_15_3_10_1_hyp`**: (1) from `theorem_15_3_7_statement A` (G's statement, not yet
-  proved), with the hypotheses Theorem 15.3.7 needs and the corollary does not state: `X` tame,
+* **`corollary_15_3_10_1_hyp`**: (1) from `theorem_15_3_7_statement A` (proved: `theorem_15_3_7`,
+  `GeneralPositionExistence`), with the hypotheses Theorem 15.3.7 needs and the corollary does not state: `X` tame,
   sc-smooth bump functions (Remark 15.3.2), tame germ data of `f` (inherited Part I hypothesis).
   The perturbation is moreover in general position, and `Θ` is a compact branched ep⁺-subgroupoid.
 * `isScFredholmSectionTame_cubeLiftEp`: `f̃` carries tame germ data if `f` does.
 * **`corollary_15_3_10_3_hyp`**: (3) from `theorem_15_3_9_statement` for `W̃ → [0, 1] × X`, for
   boundary data `Λ_∂` on `W̃|∂([0, 1] × X)` that restrict to `Λ⁰`, `Λ¹` over `{0} × X`, `{1} × X`
   and satisfy the hypotheses of Theorem 15.3.9 there (structurable over the boundary, dom-supp in
-  `Ũ`, `Ñ(Λ_∂) < 1`, the face condition); `∂([0, 1] × X) = {0, 1} × X` for `d_X ≡ 0` (P's
-  `degIndex_cubeProd_one_of_degIndex_eq_zero`).  The text derives these properties of `Λ_∂` from
+  `Ũ`, `Ñ(Λ_∂) < 1`, the face condition); `∂([0, 1] × X) = {0, 1} × X` for `d_X ≡ 0`
+  (`degIndex_cubeProd_one_of_degIndex_eq_zero`).  The text derives these properties of `Λ_∂` from
   `(Nⁱ, Uⁱ, Λⁱ)` being structurable regular perturbations; that derivation, and paracompactness
   and partitions of unity of `[0, 1] × X`, are hypotheses here.
 -/
@@ -88,7 +88,7 @@ theorem corollary_15_3_10_1_hyp (h157 : theorem_15_3_7_statement A)
   exact ⟨Λ, ⟨hcc, hΛ, hdom, hN, htr⟩, hgp, hbr, hcpt⟩
 
 /-- `f̃(q, x) = ((q, x), f(x))` carries tame germ data if `f` does (Part I's
-`IsScFredholmSectionTame.paramCube`, K4). -/
+`IsScFredholmSectionTame.paramCube`). -/
 theorem isScFredholmSectionTame_cubeLiftEp {n : ℕ} {f : A.Obj → A.W}
     (hft : A.B.IsScFredholmSectionTame f) :
     (A.cubeSEP n).B.IsScFredholmSectionTame (cubeLiftEp (n := n) f hft.isScSmooth.1) := by

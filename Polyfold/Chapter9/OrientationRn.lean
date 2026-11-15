@@ -56,14 +56,18 @@ and passes to the limit using the continuity of the orientations.
   coordinates along the sheet (`HasContinuousLevelOneOn`).
 * For `n = 0` the good point is `x` itself.
 
-## Not formalized, and why
+## Not in this file
 
 * `HasGraphBallAt` and `HasContinuousLevelOneOn` on general M-polyfolds: at boundary points only
   a cone of directions is admissible (a cone form of the ball would be needed), and the second is
-  the `sc⁺`-retraction argument for finite-dimensional submanifolds.
+  the `sc⁺`-retraction argument for finite-dimensional submanifolds.  `HasGraphBallAt` holds at
+  interior points, and Lemma 9.3.4 is proved without both hypotheses from the cone form
+  (`GeneralCorollaries.lean`, `GeneralBoundaryPoints.lean`).
 * The continuity of the boundary orientation `o_{∂M}` (Definitions 9.3.8, 9.3.10) and
   `T_y∂M = T^R_yM` with the outward direction from the cones `C_yM` in place of the data `K`, `e`:
-  on `ℝᵐ` the boundary is empty, so a witness needs an M-polyfold with boundary.
+  on `ℝᵐ` the boundary is empty, so a witness needs an M-polyfold with boundary.  They are in
+  `BoundaryOrientationContinuity.lean` and `StratumTangent.lean`
+  (`submanifoldTangent_stratumOne`).
 -/
 
 set_option maxSynthPendingDepth 3

@@ -4,7 +4,7 @@ import Polyfold.Chapter3.TameGermsG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6:
 **the Chapter 3 interface used by Chapter 5, in the text's germ reading of Definition 3.1.11 (preprint 3.11)**
-(phase 2).  Corollary 3.1.15 (preprint 3.13) for sc-Fredholm sections, and the germ invariance of Definition 3.6.6 (preprint 3.53) in
+.  Corollary 3.1.15 (preprint 3.13) for sc-Fredholm sections, and the germ invariance of Definition 3.6.6 (preprint 3.53) in
 a tame chart, for the germ notions (`IsScFredholmSection`, `IsGoodPositionGermTame`).
 
 # The Chapter 5 interface, germ reading
@@ -28,14 +28,13 @@ agrees with `f` near `x`).
 
 ## What the text leaves implicit, and the choices made
 
-* These are the two places where the Chapter 5 interface needs a germ statement that is not yet
-  in the Chapter 3 germ files (Findings, Chapter 3, items 320–329; the coverage table of the
-  phase 2 notes).  The second one is a Chapter 5 lemma: in the switch of Definition 3.1.11 (preprint 3.11) to the
-  germ reading (stage 2) the Chapter 5 copy is replaced by this one, whose proof only touches
-  the condition "the filling agrees with the principal part near `0`" (`IsFillingGerm.eq_on`).
+* These are the two places where the Chapter 5 interface needs a germ statement that the other
+  Chapter 3 germ files do not contain (Findings, Chapter 3, items 320–329).  The second one is a
+  Chapter 5 lemma in the germ reading, whose proof only touches the condition "the filling agrees
+  with the principal part near `0`" (`IsFillingGerm.eq_on`).
 * A zero of a regularizing section is a smooth point; the germ form of that lemma
-  (`IsScFredholmSection.mem_smoothSet_of_isZeroAt`) lives in `TameGermsG.lean` (moved there at
-  the switch of Definition 3.1.11 (preprint 3.11) to the germ reading, so that Chapter 5 reaches it).
+  (`IsScFredholmSection.mem_smoothSet_of_isZeroAt`) lives in `TameGermsG.lean`, so that Chapter 5
+  reaches it.
 -/
 
 open Set Filter Topology Function
@@ -53,7 +52,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Corollary 3.1.15 (preprint 3.13) for sc-Fredholm sections, germ reading** (phase 2; the germ form of
+/-- **Corollary 3.1.15 (preprint 3.13) for sc-Fredholm sections, germ reading** (the germ form of
 `corollary_3_1_15_section_wholeChart`, Definition 3.1.16 (preprint 3.14) with the germ reading `IsScFredholmSection` of
 Definition 3.1.11 (preprint 3.11)): if `f(x_k) = 0` and `x_k → x₀` in `X`, then `x₀` is a zero of `f`, a smooth
 point, and for every `m` there are lifts `y_k ∈ X_m` of the `x_k` (for `k` large) converging in
@@ -69,7 +68,7 @@ theorem corollary_3_1_15_section (hf : B.IsScFredholmSection f) {x : ℕ → X}
   exact ⟨hx₀, hxs, corollary_3_1_15_preprint hf.isScSmooth.1 (hf.germ x₀ hxs) hx₀ hx hlim m⟩
 
 /-- **Good position is a property of the germ, germ reading** (Definition 3.6.6 (preprint 3.53) in a tame chart;
-phase 2, the germ form of the Chapter 5 lemma `StrongBundle.IsGoodPositionGermTameWholeChart.congr_nhds`):
+the germ form of the Chapter 5 lemma `StrongBundle.IsGoodPositionGermTameWholeChart.congr_nhds`):
 if `f = f'` on an open `W ∋ x₀`, good position of `(f, x₀)` in a tame chart in the germ reading
 (`IsGoodPositionGermTame`) gives that of `(f', x₀)`, in the same chart with the same filling germ,
 sc⁺-germ and derivative family; only the condition "the filling agrees with the principal part on

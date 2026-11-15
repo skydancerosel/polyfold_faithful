@@ -2,7 +2,7 @@ import Polyfold.Chapter3.UntamedBundleFrame
 import Polyfold.Chapter3.UntamedBundleTame
 import Polyfold.Chapter3.GlobalIFTNearbyOntoG
 import Polyfold.Chapter3.TameGermsAddG
-import Polyfold.Chapter3.MainTheorems2021
+import Polyfold.Chapter3.MainTheorems
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §3.6:

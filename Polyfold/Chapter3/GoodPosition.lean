@@ -51,7 +51,7 @@ of indices vanishing at some nonzero point of `N ∩ C`.  (Proposition 3.8.12 (p
   (`Σ = ∅`) every nonzero point of `N ∩ C` has all coordinates positive and a line argument shows
   `dim N = 1` (`quadrantNormalForm_of_vanIdx_empty`).  The case `N ∩ C = N` (all `ℓ_i` vanish on
   `N`, e.g. `N ⊆ W`), which the text's case distinction does not single out, is treated first.
-  (2026-11-12) The extreme-ray lemmas themselves are now formalized, though still not used here:
+  The extreme-ray lemmas themselves are formalized, though not used here:
   Lemmas 3.8.1–3.8.3 in `Polyfold/Chapter3/ExtremeRays.lean` (`lemma_3_8_1` for `P ≠ {0}`,
   `lemma_3_8_1_zero_union`, `lemma_3_8_2`, `lemma_3_8_3`) and Lemmas 3.8.9–3.8.11 in
   `GoodComplementIntersection.lean`, `GoodComplementIntersectionSc.lean` (`lemma_3_8_9_sc`, `lemma_3_8_10`, `lemma_3_8_11`).

@@ -29,7 +29,7 @@ noncomputable section
 
 namespace Polyfold.ZhouLine
 
-open Polyfold.GapP1Sobolev Polyfold.ZhouFlat
+open Polyfold.CylinderSobolev Polyfold.ZhouFlat
 
 /-! ### Joint continuity from a uniform bound and a dense set -/
 

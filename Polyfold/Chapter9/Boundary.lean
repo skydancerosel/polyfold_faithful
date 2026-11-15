@@ -92,7 +92,7 @@ Definition 9.3.6 the boundaries are nice enough for integration and orientation.
   `cl(supp(Θ)) ∖ supp(Θ)` no local branching structure is given, so the vanishing off `supp(Θ)` is
   needed as a separate condition.
 
-## Possible misprints
+## How we read some passages
 
 * "In view of Proposition 9.2.13" before Definition 9.2.16 (2017: "Proposition 9.9"): `9.2.13` is
   Lemma 9.2.13 (2017: Lemma 9.9); the definition rests on Proposition 9.2.15, presumably meant.
@@ -100,11 +100,12 @@ Definition 9.3.6 the boundaries are nice enough for integration and orientation.
 * Remark 9.2.17 (also 2017): "In Section 9.5, Definition 9.3.6" (2017: "Definition 9.10"); the
   definition is in §9.3 "Orientations" (pp. 425–426), presumably Section 9.3.
 
-## Not formalized
+## Not in this file
 
 * Remark 9.2.17 has no formal content beyond `boundaryTheta_le` and `boundaryTheta_halfLineCorner`;
   its forward reference is Definition 9.3.6 (`BoundaryPosition.lean`).
-* Theorem 9.2.1's independence for every branched ep⁺-subgroupoid is not used (a hypothesis).
+* Theorem 9.2.1's independence for every branched ep⁺-subgroupoid is not used here (a
+  hypothesis); it is `hasIndependentTangentSums` (`GeneralCorollaries.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

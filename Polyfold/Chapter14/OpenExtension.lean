@@ -14,8 +14,8 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.
 
 ## What is formalized
 
-* `IsScPlusSectionOn.of_locally_p3w4`: sc⁺ on an open set is a local property.
-* `exists_scSmooth_cutoff_p3w4`: for a closed `K` inside an open `O` an sc-smooth `χ : X → [0, 1]`
+* `IsScPlusSectionOn.of_locally'`: sc⁺ on an open set is a local property.
+* `exists_scSmooth_cutoff`: for a closed `K` inside an open `O` an sc-smooth `χ : X → [0, 1]`
   with `χ = 1` on `K` and `supp χ ⊆ O` (a two-set partition of unity).
 * `exists_scPlusSectionOn_extension_of_face`: for `s` face-wise sc⁺ on `V ∩ ∂X` there is an
   sc⁺-section on `V` equal to `s` on `V ∩ ∂X`.  The object M-polyfold is metrizable
@@ -24,7 +24,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.
   weights `w_n = χ_n − χ_{n−1}`, locally finite on `V` with sum `1`; the extensions `σ_n` of
   `exists_scPlusSection_extension_of_face` agree with `s` on `G_{n+1} ∩ ∂X ⊇ supp w_n ∩ ∂X`; and
   `Σ_n w_n σ_n` is the extension.
-* **Proposition 14.1.4**: `proposition_14_1_4_full` (the hypothesis of B1's
+* **Proposition 14.1.4**: `proposition_14_1_4_full` (the hypothesis of
   `proposition_14_1_4_hyp` discharged on `V(x)` itself).
 * `proposition_14_1_4_hypotheses_rn`: the two standing hypotheses (tame strong bundle charts,
   partitions of unity of the object M-polyfold) hold for `ℝⁿ × ℝᵏ → ℝⁿ` over the trivial
@@ -48,7 +48,7 @@ open StrongBundle EpGroupoid
 variable {A : SEP.{u}}
 
 /-- **Sc⁺ on an open set is local.** -/
-theorem IsScPlusSectionOn.of_locally_p3w4 {s : A.Obj → A.W} {U : Set A.Obj} (hU : IsOpen U)
+theorem IsScPlusSectionOn.of_locally' {s : A.Obj → A.W} {U : Set A.Obj} (hU : IsOpen U)
     (h : ∀ y ∈ U, ∃ U' : Set A.Obj, IsOpen U' ∧ y ∈ U' ∧ U' ⊆ U ∧ IsScPlusSectionOn A s U') :
     IsScPlusSectionOn A s U := by
   classical
@@ -71,7 +71,7 @@ theorem IsScPlusSectionOn.of_locally_p3w4 {s : A.Obj → A.W} {U : Set A.Obj} (h
 /-- **Sc-smooth cut-offs**: for a closed `K` inside an open `O` there is an sc-smooth
 `χ : X → [0, 1]` with `χ = 1` on `K` and `supp χ ⊆ O` (from a partition of unity for the cover
 `{O, X ∖ K}`). -/
-theorem exists_scSmooth_cutoff_p3w4 (hpu : A.X.PObj.AdmitsScPartitionsOfUnity) {K O : Set A.Obj}
+theorem exists_scSmooth_cutoff (hpu : A.X.PObj.AdmitsScPartitionsOfUnity) {K O : Set A.Obj}
     (hK : IsClosed K) (hO : IsOpen O) (hKO : K ⊆ O) :
     ∃ χ : A.Obj → ℝ, A.X.PObj.IsScSmoothMap realPolyfold χ ∧ (∀ y, 0 ≤ χ y ∧ χ y ≤ 1) ∧
       (∀ y ∈ K, χ y = 1) ∧ tsupport χ ⊆ O := by
@@ -140,7 +140,7 @@ theorem exists_scPlusSectionOn_extension_of_face
     exact ⟨n, by rw [one_div] at hn; exact hn⟩
   -- the cut-offs and the weights `w n = c (n + 1) − c n`, `c 0 = 0`, `c (n + 1) = χ n`
   choose χ hχs hχ01 hχ1 hχsupp using fun n =>
-    exists_scSmooth_cutoff_p3w4 hpu isClosed_closure (hGo (n + 1)) (hGsucc n)
+    exists_scSmooth_cutoff hpu isClosed_closure (hGo (n + 1)) (hGsucc n)
   set c : ℕ → A.Obj → ℝ := fun n y => if n = 0 then 0 else χ (n - 1) y with hcdef
   have hc0 : ∀ y, c 0 y = 0 := fun y => by simp [hcdef]
   have hcs : ∀ n y, c (n + 1) y = χ n y := fun n y => by simp [hcdef]
@@ -185,7 +185,7 @@ theorem exists_scPlusSectionOn_extension_of_face
       by_contra hmn
       apply hn
       simp only [hw0 m n (by omega) y hy, zero_smul]
-  refine ⟨τ, IsScPlusSectionOn.of_locally_p3w4 hV fun y hy => ?_, fun y hy => ?_⟩
+  refine ⟨τ, IsScPlusSectionOn.of_locally' hV fun y hy => ?_, fun y hy => ?_⟩
   · obtain ⟨m, hm⟩ := hVG y hy
     have hsum : A.B.IsScPlusSection
         (sectionSum A.P (Finset.range (m + 1)) fun n => sectionSmul A.P (w n) (σ n)) :=

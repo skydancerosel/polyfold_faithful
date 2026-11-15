@@ -1,5 +1,5 @@
 import Polyfold.Chapter10.FredholmEquivalence
-import Polyfold.Chapter8.BundleOrbitParacompact2021
+import Polyfold.Chapter8.BundleOrbitParacompact
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 12,

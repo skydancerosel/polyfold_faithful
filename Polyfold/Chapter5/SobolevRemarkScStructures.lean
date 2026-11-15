@@ -61,7 +61,7 @@ theorem scPolyfold_admitsBumpFunctions (E : ScBanach) (h : HasContDiffBump (E 0)
 
 section Example113
 
-open GapP1Sobolev
+open CylinderSobolev
 
 /-- **The norm of every level `H^{m,δ}(ℝ × S¹)` of Example 1.1.3 is smooth**:
 `‖u‖² = ∑_{a+b ≤ m} ‖e^{δ|s|}∂^a_s∂^b_t u‖²_{L²}` is `C^∞` (the case `p = 2` of the remark). -/

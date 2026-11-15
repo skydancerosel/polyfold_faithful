@@ -562,7 +562,7 @@ variable (B) in
 conjugated to a basic germ) such that the germ is in good position in the chart (`IsGoodPositionAt`:
 `Tf̃(0) : T₀O → K₀` onto, `ker Tf̃(0)` in good position to `C₀O` in `T₀O`). This is the project's
 original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221, 260–266);
-the text's germ reading is `IsGoodPositionGerm` (`GoodPositionGermG.lean`, phase 2, items 270–330). -/
+the text's germ reading is `IsGoodPositionGerm` (`GoodPositionGermG.lean`, items 270–330). -/
 def StrongBundle.IsGoodPositionGermWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
   ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)

@@ -25,7 +25,7 @@ For `f` of class `C¹` on an open `U` with every `Df(x)`, `x ∈ U`, Fredholm:
 
 "Smooth" is weakened to `C¹`.  The smoothness of the bundle ("even smooth") is not formalized:
 `DET(E, F)` is built as a topological vector bundle (Proposition 6.5.8).  The remark at the end of
-§6.5 (p. 262) that `DET(E, F)` is not orientable is formalized, in a corrected form, in
+§6.5 (p. 262) that `DET(E, F)` is not orientable is formalized, in the form in which it holds as we read it, in
 `DetNonOrientable`, `DetNonOrientableHilbert` and `DetNonOrientableTransport`
 (`isEmpty_lineOrientation_det_of_complexStructure`, `isEmpty_lineOrientation_det_hilbert`; for
 finite-dimensional `E`, `F` there are two orientations,

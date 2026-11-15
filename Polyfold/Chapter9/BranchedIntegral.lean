@@ -45,7 +45,7 @@ every point of `supp Θ`:
 
 ## The choices made
 
-* The gluing of the local measures is agent E2's `existsUnique_linearMap_signedMeasure_of_openCover`
+* The gluing of the local measures is `existsUnique_linearMap_signedMeasure_of_openCover`
   (`MeasureGlue.lean`).
 * The characterizing property is asked for the oriented tame structures with sheets in `S`
   describing `T̂Θ` (in Theorem 9.5.5: whose `U(x)` has the property of Definition 7.2.18,
@@ -54,7 +54,7 @@ every point of `supp Θ`:
   9.5.5 it follows from the local unique continuation property only after shrinking the `U(x)`).
 * Proposition 9.5.13 (2) (the reduced ep-groupoid) is not in this file: it needs the natural
   representations of `X_R` built from those of `X`; the normalizing factors are in
-  `MeasureEffective.lean` (`card_effIsotropy_eq_reduced`).  (2026-11-13) It is in
+  `MeasureEffective.lean` (`card_effIsotropy_eq_reduced`).  It is in
   `ReducedRep.lean` and `ReducedIntegral.lean` (`proposition_9_5_13_2`).
 -/
 

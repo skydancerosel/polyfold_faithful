@@ -5,7 +5,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 (notes on partitions of unity and bump functions, the part not in `BumpFunctions.lean`):
 **Definitions 5.5.1, 5.5.4, 5.5.9, 5.5.12, 5.5.14 (preprint 5.28, 5.31, 5.36, 5.39, 5.41), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Corollary
 5.44**; Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) as statements (5.43 an explicit
-hypothesis of Corollary 5.5.17 (preprint 5.44) here); since 2026-11-12 Theorems 5.5.5, 5.5.13 and
+hypothesis of Corollary 5.5.17 (preprint 5.44) here); Theorems 5.5.5, 5.5.13 and
 5.5.16 are proved in `BonicFrampton.lean` (`BonicFrampton.theorem_5_5_5`),
 `Torunczyk.lean` (`theorem_5_5_13`) and `WCGPartitionsOfUnity.lean` (`theorem_5_5_16`), and Corollary
 5.5.17 holds with no hypothesis (`corollary_5_5_17_unconditional`, `SeparablePartitionsOfUnity.lean`)
@@ -130,7 +130,7 @@ functions, so Theorem 5.5.16 (preprint 5.43) and Theorem 5.5.10 (preprint 5.37) 
 * **Not in this file**: Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton) and the remarks on `Lᵖ` and Sobolev spaces
   (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`); Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) (stated only here);
   nothing on the main line uses partitions of unity (the transversality theorems use bump functions, whose Hilbert
-  case, Proposition 5.5.8 (preprint 5.35), is elementary).  Since 2026-11-12 they are proved in the files
+  case, Proposition 5.5.8 (preprint 5.35), is elementary).  They are proved in the files
   `BonicFrampton.lean`, `SobolevRemarkAbstract–3.lean`, `SobolevCubeVolterra–5.lean`, `Torunczyk.lean`
   and `WCGPartitionsOfUnity.lean`.
 -/
@@ -914,10 +914,10 @@ def IsCoordinatewiseContDiffEmbedding {Γ : Type*} (k : ℕ∞) (h : V → cZero
   Topology.IsEmbedding h ∧ ∀ γ, ContDiff ℝ k fun e => (h e : lp (fun _ : Γ => ℝ) ∞) γ
 
 variable (V) in
-/-- **Theorem 5.5.13 (preprint 5.40)** (Toruńczyk; [9], Theorem 30), **cited, not formalized**: the statement, for
+/-- **Theorem 5.5.13 (preprint 5.40)** (Toruńczyk; [9], Theorem 30), **cited**: the statement, for
 the Banach space `V` and `k`: `V` admits `C^k` partitions of unity if and only if there are a set
 `Γ` and a coordinate-wise `C^k` homeomorphic embedding of `V` into `c₀(Γ)`.  It is not used here;
-it is proved for every real Banach space as `theorem_5_5_13` (`Torunczyk.lean`, 2026-11-12). -/
+it is proved for every real Banach space as `theorem_5_5_13` (`Torunczyk.lean`). -/
 def TorunczykStatement (k : ℕ∞) : Prop :=
   AdmitsContDiffPartitionsOfUnity V k ↔
     ∃ (Γ : Type u) (h : V → cZero Γ), IsCoordinatewiseContDiffEmbedding k h
@@ -1075,14 +1075,14 @@ variable (V) in
 Theorem 31): the statement, for the Banach space `V` and `k`: if `V` is
 WCG and admits a `C^k`-bump function, then it admits `C^k` partitions of unity.  Used as an
 explicit hypothesis in Corollary 5.5.17 (preprint 5.44) here; proved for every real Banach space
-(`theorem_5_5_16`, `WCGPartitionsOfUnity.lean`, 2026-11-12). -/
+(`theorem_5_5_16`, `WCGPartitionsOfUnity.lean`). -/
 def GodefroyTroyanskiWhitfieldZizlerStatement (k : ℕ∞) : Prop :=
   IsWCG V → HasContDiffBump V k → AdmitsContDiffPartitionsOfUnity V k
 
 /-- **Corollary 5.5.17 (preprint 5.44)**: if `E₀` is a Hilbert space (its norm comes from a continuous bilinear form,
 `‖v‖² = b(v, v)`, as in Proposition 5.5.8 (preprint 5.35)), then the local model `(O, C, E)` has the sc-smooth
 approximation property — **under the explicit hypothesis that Theorem 5.5.16 (preprint 5.43) holds for `E₀` and
-`k = ∞`** (a deep result of Banach space geometry, cited from [12]; it is proved since 2026-11-12 as
+`k = ∞`** (a deep result of Banach space geometry, cited from [12]; it is proved as
 `theorem_5_5_16`, and the corollary without the hypothesis is `corollary_5_5_17_unconditional`).  The proof
 is the text's: `E₀` is reflexive (`isReflexive_of_hilbert`), hence WCG (Proposition 5.5.15 (preprint 5.42) (i)),
 and has a `C^∞` bump function (`hasContDiffBump_of_hilbert`); Theorem 5.5.16 (preprint 5.43) gives `C^∞`

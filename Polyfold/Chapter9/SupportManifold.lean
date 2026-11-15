@@ -44,7 +44,8 @@ pieces `M_x ∩ U(x)` of `supp(Θ)`; the structure is "natural" in that `p` is a
 sc-diffeomorphism (it is determined by this property).  The paracompactness of `Z` used to make it
 an M-polyfold is part of Definition 9.1.2 (1); the hypothesis that `|X|` is paracompact is not
 used.  Remark 9.1.10's classical structure (`d_{|X|} = 0` on `Z`) and the independence of choices
-are not formalized here.
+are not in this file: they are in `SupportClassicalStructures.lean` and
+`SupportGroupoidNaturality.lean`.
 -/
 
 open Set Function Topology TopologicalSpace

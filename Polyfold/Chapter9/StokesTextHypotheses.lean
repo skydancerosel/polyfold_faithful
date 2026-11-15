@@ -7,12 +7,13 @@ Numbers and pages are the 2021 text's.
 
 # Theorems 9.5.15–9.5.18 with the text's hypotheses
 
-E7 and E8 proved Theorems 9.5.15–9.5.18 under the class conditions `hcov`, `hcovS` (structures
+`BoundaryMeasure.lean` and `StokesBoundaryMeasure.lean` prove Theorems 9.5.15–9.5.18 under the
+class conditions `hcov`, `hcovS` (structures
 whose nonempty boundary sheets `∂₁Mᵢ` lie in `msheets`, and whose sheets lie in one graph chart).
 `BoundaryCover` derives them from the text's hypotheses.  Here the theorems are stated
 with those hypotheses only: `Θ` a compact branched ep⁺-subgroupoid, oriented by `T̂Θ = T`,
 tame in the reading `hloc` (an oriented tame structure of dimension `m + 1` describing `T̂Θ` at
-every point of `supp Θ`; this also gives the dimension, E4's `isNDimensional_of_loc`), `X` with
+every point of `supp Θ`; this also gives the dimension, `isNDimensional_of_loc`), `X` with
 sc-smooth partitions of unity for Stokes, and `X` with the local unique continuation property
 (Definition 7.2.18) for the effective versions 9.5.16, 9.5.18.  The case `m ≥ 1` (boundary
 dimension `m ≥ 1`); the case `m = 0` is treated separately.

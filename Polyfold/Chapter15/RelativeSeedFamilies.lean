@@ -264,7 +264,7 @@ def HasLocalParamSeedsRel (f : A.Obj → A.W) (Λ₀ : A.W → ℚ≥0) (N : A.B
 theorem isSaturated_inter_boundary_compl (hU : A.X.IsSaturated U) :
     A.X.IsSaturated (U ∩ A.X.PObj.boundaryᶜ) :=
   A.X.isSaturated_iff.2 fun φ h => ⟨A.X.isSaturated_iff.1 hU φ h.1, fun ht => h.2 (by
-    have := A.X.isSaturated_iff.1 isSaturated_boundary_gl (A.X.inv φ)
+    have := A.X.isSaturated_iff.1 isSaturated_boundary (A.X.inv φ)
       (by rw [A.X.src_inv]; exact ht)
     rwa [A.X.tgt_inv] at this)⟩
 

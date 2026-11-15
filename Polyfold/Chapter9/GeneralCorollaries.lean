@@ -50,16 +50,16 @@ tangent space; the slices come from the graph representation of Lemmas 9.2.9–9
 
 ## What the text leaves implicit, and the choices made
 
-* The project's earlier hypothesis `HasGraphChartAt` (one cone `K` for all submanifolds through
-  `x`) was stronger than the text needs: the slice arguments only ever use the cone of the class
+* The hypothesis `HasGraphChartAt` (one cone `K` for all submanifolds through
+  `x`) is stronger than the text needs: the slice arguments only ever use the cone of the class
   at hand, so they are restated with one cone per tangent space.  The proofs are those of
   `AppendixSlices.lean`, with this one change.
-* **Local finiteness of `(Θ_k)` off `supp(Θ)`** still takes a bound on the dimensions of the
+* **Local finiteness of `(Θ_k)` off `supp(Θ)`** takes a bound on the dimensions of the
   submanifolds (`proposition_9_1_11_local_of_le`): at a point outside `supp(Θ)` no local
   branching structure is given, and our proof uses the bound there; whether it can be dropped is
   not settled here.
-* **Lemma 9.3.4 at boundary points**: the project's earlier hypothesis, the ball form of the
-  graph representation (`HasGraphBallAt`) at the points of `supp(Θ)`, was stronger than the text
+* **Lemma 9.3.4 at boundary points**: the hypothesis of the ball form of the
+  graph representation (`HasGraphBallAt`) at the points of `supp(Θ)` is stronger than the text
   needs.  It is proved here at interior points (`hasGraphBallAt_of_mem_interior`); the
   good-point input of `OrientationUniqueness.lean` is derived from the one-sided (cone) form at
   every point in `GeneralBoundaryPoints.lean`.
@@ -392,12 +392,12 @@ theorem topMultiplicityAt (x : X) (k : ℕ) :
 
 /-- **`MPolyfold.TopMultiplicity` holds for every M-polyfold and every `k`**: the hypothesis of
 `proposition_9_1_12_of_topMultiplicity`, `lemma_9_6_4` and `dimPartsAgreeNear_of_topMultiplicity`
-is now unnecessary. -/
+holds. -/
 theorem topMultiplicity (k : ℕ) : P.TopMultiplicity k := fun x => topMultiplicityAt x k
 
 /-- **Tangent slices at every point of every M-polyfold** (2021 Proposition 9.2.8, p. 413, slice
 form; Lemmas 9.2.9–9.2.11): the hypothesis `HasTangentSlicesAt` of the fibre count of
-`Tangent.lean` is now unnecessary. -/
+`Tangent.lean` holds. -/
 theorem hasTangentSlicesAt (x : X) (n : ℕ) : P.HasTangentSlicesAt x n := by
   intro κ _ A hA hx k₀ W hW hxW
   obtain ⟨φ, hφ, hxφ, K, hGA⟩ := hasClassGraphChartAt (P := P) x

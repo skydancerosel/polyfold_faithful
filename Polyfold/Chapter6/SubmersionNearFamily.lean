@@ -15,7 +15,7 @@ projection `π : S → [0, 1]` is a submersion.
 
 ## What is formalized
 
-`lemma_6_6_5_submersion` (`SolutionManifoldFamily2021.lean`) proves that `dπ` maps the tangent
+`lemma_6_6_5_submersion` (`SolutionManifoldFamily.lean`) proves that `dπ` maps the tangent
 space `ker F'` onto `ℝⁿ` at the points `(0, (q, Φ(q)))` of the family.  Here:
 
 * `eventually_surjective_of_frame` (linear algebra): for a continuous frame `e_i(q)` and a

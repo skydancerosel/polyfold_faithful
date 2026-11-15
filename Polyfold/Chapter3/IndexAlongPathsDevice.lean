@@ -2,11 +2,11 @@ import Polyfold.Chapter3.IndexAlongPaths
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1,
-**Proposition 6.2.2 (preprint 6.2)** (stability of `ind(f, x)` along sc-smooth paths, pp. 201–203), closed: the
-two steps (E) and (S) left open in `IndexAlongPaths.lean` (round-trip item V3.98 (a); Findings,
+**Proposition 6.2.2 (preprint 6.2)** (stability of `ind(f, x)` along sc-smooth paths, pp. 201–203): the
+two steps (E) and (S) stated as hypotheses in `IndexAlongPaths.lean` (round-trip item V3.98 (a); Findings,
 Chapter 3, items 345–349).
 
-# Proposition 6.2.2 (preprint 6.2): the text's device, closed
+# Proposition 6.2.2 (preprint 6.2): the text's device
 
 ## The text, paraphrased
 

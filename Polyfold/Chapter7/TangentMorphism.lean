@@ -57,11 +57,14 @@ and `T_xX` inherits the Banach space structure of `T_{ϕ(x)}O ⊆ E`.
 * The text's `Tφ := Tφ̂(x)` depends on the choice of `𝐔(φ)`; Chapter 9's
   `tangentMor_eq_tangentMapOn_hat` shows that for the chosen sheet it agrees with
   `Tt ∘ (Ts|T_φ𝐗)⁻¹`, which involves no choice.
-* **Not formalized**: that `Tφ` is an sc-operator (an sc-isomorphism) for smooth `φ`, which needs
-  the sc-structure of `T_xX` at smooth `x` (gap G.7 again), and the restatement of the facts (3),
-  (4) on sub-M-polyfolds after Definition 7.1.21 (row V7.30), which concern the linear structure of
-  `T_aA ⊆ T_aX` and are proved in a chart in Part I (`Polyfold.proposition_2_3_19_three`,
-  `Polyfold.proposition_2_3_19_four`).
+* **Elsewhere, and not formalized**: the linearity of `Tφ` is `tangentMorCLE`
+  (`TangentMorphismLinear.lean`; gap G.7).  That `Tφ` is an sc-operator (an sc-isomorphism) for
+  smooth `φ`, for the sc-structure of `T_xX` at smooth `x` (`tangentFiberScIso`,
+  `Chapter2/TangentSpaceChartIndependent.lean`), is not formalized.  The facts (3), (4) on
+  sub-M-polyfolds after Definition 7.1.21 (row V7.30) concern the linear structure of
+  `T_aA ⊆ T_aX`; they are Part I's `Polyfold.proposition_2_3_19_three`,
+  `Polyfold.proposition_2_3_19_four` (in a chart) and `proposition_2_3_19_3_linear`,
+  `proposition_2_3_19_4` (`Chapter2/SubMPolyfoldTangent.lean`), and are not restated here.
 -/
 
 open Set Function Topology

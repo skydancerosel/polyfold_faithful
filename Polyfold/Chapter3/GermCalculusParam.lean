@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 §3.2, Definitions 3.1.4, 3.1.6, 3.1.11 (preprint 3.4, 3.6, 3.11) and Theorem 3.1.21 (preprint 3.18): **the germ calculus in the strong bundle
 charts** — the derivative identities at `0` in the form the linearization files use, the
 push-forward by a strong bundle isomorphism, and the product germ `ℝⁿ × G` of Theorem 3.1.21 (preprint 3.18)
-(phase 2; Findings, Chapter 3, items 272–274).
+(Findings, Chapter 3, items 272–274).
 
 # The germ calculus in strong bundle charts
 

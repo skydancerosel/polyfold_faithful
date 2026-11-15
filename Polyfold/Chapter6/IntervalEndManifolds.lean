@@ -1,6 +1,6 @@
 import Polyfold.Chapter6.IntervalEndGeneralPosition
 import Polyfold.Chapter6.IntervalSliceFrames
-import Polyfold.Chapter6.InvariantSingle2021
+import Polyfold.Chapter6.InvariantSingle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6–6.7, pp. 275–278:

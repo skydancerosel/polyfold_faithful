@@ -1959,8 +1959,8 @@
    "lean": {
     "statement": "`remark_definition_7_1_7`: for a functor `F` with `F.obj` sc-smooth and `F.mor` continuous, and every morphism $\\varphi$, there exist open $U(\\varphi) \\ni \\varphi$, $U(\\psi) \\ni F(\\varphi)$, $U(s(\\varphi))$, $U(s(\\psi))$ and local inverses $\\sigma_\\varphi$, $\\sigma_\\psi$ with $F(U(s(\\varphi))) \\subseteq U(s(\\psi))$, $F(U(\\varphi)) \\subseteq U(\\psi)$, $s$ an sc-diffeomorphism $U(\\varphi) \\to U(s(\\varphi))$ and $U(\\psi) \\to U(s(\\psi))$, $F(\\gamma) = \\sigma_\\psi(F(s(\\gamma)))$ on $U(\\varphi)$, and `F.mor` sc-smooth. `remark_definition_7_1_7_remarkFunctor`: the functor `Examples.remarkFunctor` of the 2017 counterexample (V7.10) is sc-smooth on objects and not continuous on morphisms.",
     "decls": [
-     "Chapter7/Book2021Basic · EpGroupoid.remark_definition_7_1_7",
-     "Chapter7/Book2021Basic · EpGroupoid.remark_definition_7_1_7_remarkFunctor"
+     "Chapter7/BookBasic · EpGroupoid.remark_definition_7_1_7",
+     "Chapter7/BookBasic · EpGroupoid.remark_definition_7_1_7_remarkFunctor"
     ]
    },
    "chips": [
@@ -1983,10 +1983,10 @@
    "lean": {
     "statement": "`IsotropySheetData x`: the data (7.3) (`W`, `srcSheet`, `tgtSheet`, `srcInv`, `tgtInv`, with $s$, $t$ sc-diffeomorphisms of the sheets onto `W`); `exists_isotropySheetData`: they exist at every object. `proposition_7_1_14`: for open $U \\ni x$, $\\Phi(g)$ sc-diffeomorphisms of $U$ with inverse $\\Phi(g^{-1})$ and $\\Phi(gh) = \\Phi(g) \\circ \\Phi(h)$ on $U$, $\\Gamma(g, \\cdot)$ sc-smooth on $U$ with $\\Gamma(g, x) = g$, $s(\\Gamma(g, y)) = y$, $t(\\Gamma(g, y)) = \\Phi(g)(y)$, property (3) (unused), and data `D`: there is an open $V \\ni x$, $V \\subseteq W \\cap U$, invariant under every $\\Phi(g)$, with $\\Gamma(g, v) = s_g^{-1}(v)$, $\\Phi(g)(v) = t(s_g^{-1}(v))$ and $\\Gamma(g, v) = t_g^{-1}(\\Phi(g)(v))$ on $V$. `proposition_7_1_14_of_naturalRep`: the same for every `NaturalRep`.",
     "decls": [
-     "Chapter7/Book2021Basic · EpGroupoid.IsotropySheetData",
-     "Chapter7/Book2021Basic · EpGroupoid.exists_isotropySheetData",
-     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_14",
-     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_14_of_naturalRep"
+     "Chapter7/BookBasic · EpGroupoid.IsotropySheetData",
+     "Chapter7/BookBasic · EpGroupoid.exists_isotropySheetData",
+     "Chapter7/BookBasic · EpGroupoid.proposition_7_1_14",
+     "Chapter7/BookBasic · EpGroupoid.proposition_7_1_14_of_naturalRep"
     ]
    },
    "chips": [
@@ -2010,9 +2010,9 @@
    "lean": {
     "statement": "`proposition_7_1_15`: for $Y$ finite with mutually isomorphic elements and $V \\in \\mathcal N(Y)$ there is `N : NaturalRepFinite Y V` such that for every morphism $\\psi$ between points of $Y$: $\\psi \\in \\mathbf U(\\psi)$ and $\\mathbf U(\\psi)$ is the connected component of $\\psi$ in the morphisms between points of $\\bigcup_y U(y)$; $s : \\mathbf U(\\psi) \\to U(s\\psi)$ and $t : \\mathbf U(\\psi) \\to U(t\\psi)$ are sc-diffeomorphisms; $f(\\psi)(z) = t((s|\\mathbf U(\\psi))^{-1}(z))$ on $U(s\\psi)$; $t(\\psi') = f(\\psi)(s(\\psi'))$ on $\\mathbf U(\\psi)$. `src_eq_tgt_of_printed_2017`: data with $y \\in U(y)$, disjoint $U(y)$, the decomposition, and $s, t$ mapping $\\mathbf U(\\psi)$ into one $U(y)$ force $s(\\psi) = t(\\psi)$. `not_printed_2017_reflection`: for `reflectionEpGroupoid` ($\\mathbb Z/2 \\ltimes \\mathbb R$) and $Y = \\{1, -1\\}$ the hypotheses hold, a `NaturalRepFinite` exists, and no such printed-2017 data exist.",
     "decls": [
-     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_15",
-     "Chapter7/Book2021Basic · EpGroupoid.src_eq_tgt_of_printed_2017",
-     "Chapter7/Book2021Basic · EpGroupoid.not_printed_2017_reflection"
+     "Chapter7/BookBasic · EpGroupoid.proposition_7_1_15",
+     "Chapter7/BookBasic · EpGroupoid.src_eq_tgt_of_printed_2017",
+     "Chapter7/BookBasic · EpGroupoid.not_printed_2017_reflection"
     ]
    },
    "chips": [
@@ -2035,8 +2035,8 @@
    "lean": {
     "statement": "`lemma_7_1_16`: for `N : NaturalRepFinite Y V`, $\\psi$ between points of $Y$, $\\psi_k \\in \\mathbf U(\\psi)$ with $\\psi_k \\to \\psi'$, and $s(\\psi_k)$ or $t(\\psi_k)$ converging to some $z \\in U(s\\psi) \\cup U(t\\psi)$: $\\psi' \\in \\mathbf U(\\psi)$, $s(\\psi_k) \\to s(\\psi') \\in U(s\\psi)$, $t(\\psi_k) \\to t(\\psi') \\in U(t\\psi)$. `NaturalRepFinite.mem_U_of_tendsto`: a limit in $U(b)$ of points of $U(a)$ lies in $U(a)$.",
     "decls": [
-     "Chapter7/Book2021Basic · EpGroupoid.NaturalRepFinite.mem_U_of_tendsto",
-     "Chapter7/Book2021Basic · EpGroupoid.lemma_7_1_16"
+     "Chapter7/BookBasic · EpGroupoid.NaturalRepFinite.mem_U_of_tendsto",
+     "Chapter7/BookBasic · EpGroupoid.lemma_7_1_16"
     ]
    },
    "chips": [
@@ -2058,10 +2058,10 @@
    "lean": {
     "statement": "`corollary_7_1_17_4`: for $x \\in Y$ a `NaturalRep` on $U(x)$ with $\\Gamma(g, z) = (s|\\mathbf U(g))^{-1}(z)$ and $f(g)(z) = t(\\Gamma(g, z)) = \\Phi(g)(z)$. `corollary_7_1_17_5`: $f(\\varphi)(f(g)(z)) = f(\\gamma_\\varphi(g))(f(\\varphi)(z))$ (`conjIsotropy`). `corollary_7_1_17_6`: the multiplication is an sc-diffeomorphism from $\\mathbf U(\\psi)\\,{}_s{\\times}_t\\,\\mathbf U(\\varphi)$, an open subset of the fibred-product sub-M-polyfold $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$, onto $\\mathbf U(\\psi \\circ \\varphi)$. `corollary_7_1_17_7`: a `NaturalRepFinite` whose $U(y)$ have the properness property.",
     "decls": [
-     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_4",
-     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_5",
-     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_6",
-     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_7"
+     "Chapter7/BookBasic · EpGroupoid.corollary_7_1_17_4",
+     "Chapter7/BookBasic · EpGroupoid.corollary_7_1_17_5",
+     "Chapter7/BookBasic · EpGroupoid.corollary_7_1_17_6",
+     "Chapter7/BookBasic · EpGroupoid.corollary_7_1_17_7"
     ]
    },
    "chips": [
@@ -2929,7 +2929,7 @@
    "lean": {
     "statement": "`theorem_7_6_9_book`, for a tame ep-groupoid: (1) $bX$, $b\\mathbf X$ are metrizable, and their topologies are the only ones for which every $U$ is open and every $\\Phi$ is open into $\\theta$; (2) `bPObj`, `bPMor` are tame, for every representative $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$ (`reachSet`, open), onto $\\theta$ for centred $V$, and the structures are unique up to equivalence; (3) both maps $B$ are sc-smooth; (4) the index formulas hold; (5) `boundaryEpGroupoid` is a tame ep-groupoid with its structure maps; and $B$ is an ep-functor. It is assembled from `theorem_7_6_9` and `theorem_7_6_9_allReps` (V7.99–V7.101). The topological half, `theorem_7_6_9` (for `X.IsTame`): $bX$, $b\\mathbf X$ metrizable (`metrizableSpace_bObj`, `metrizableSpace_bMor`); every `uSet` open and every `phi` an open embedding, and these determine the topologies; both `bMap` continuous; the fibre of `bMap` over a point of index $d$ has $d$ elements, on objects and morphisms; `bSrc`, `bTgt` local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `bUnit`, `bInv` continuous (`continuous_bSrc`, `continuous_bTgt`, `continuous_bInv`, `continuous_bUnit`), `bComp` continuous on the composable pairs (`continuousOn_bComp`), the properness property (`exists_isProperMap_bTgt`), and a functor with object and morphism maps the two `bMap`. Witnesses: `bSrc_trivial`, `trivial_quadrant_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, $bX$, $b\\mathbf X$ nonempty, $n$ classes over the corner).",
     "decls": [
-     "Chapter7/BookFormTameBoundaryEp2021 · EpGroupoid.theorem_7_6_9_book",
+     "Chapter7/BookFormTameBoundaryEp · EpGroupoid.theorem_7_6_9_book",
      "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bObj",
      "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bMor",
      "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bSrc",

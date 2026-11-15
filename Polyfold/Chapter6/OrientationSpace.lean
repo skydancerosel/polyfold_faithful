@@ -66,14 +66,15 @@ continuous section; `ℤ₂` acts on `O_f`, and `det_f = ℝ ⊗_{ℤ₂} O_f`.
   point (which give the two orientations over each point), and the paracompactness instances of
   the products with `ℝⁿ`.
 
-## Items not formalized
+## Items not formalized here
 
-* Property (2) is proved under `MPolyfold.HasConnectedSmoothNbhds`: every smooth point has
+* Property (2) is proved here under `MPolyfold.HasConnectedSmoothNbhds`: every smooth point has
   arbitrarily small open neighbourhoods `U` in `X` whose smooth part `U ∩ X_∞` is connected in
   `X_∞`.  Every continuous section over `U_∞` is locally one of the two continuous orientations,
   so (2) needs a neighbourhood `U` with connected `U_∞`; `exists_nhds_scPath` only joins smooth
   points of a small `V` by paths in a larger `U`.  We have not found this fact in the text; it
-  holds for `ℝⁿ` and is open in general (proposed gap).
+  holds for every M-polyfold (`MPolyfold.hasConnectedSmoothNbhds`, `OrientationMainClean.lean`;
+  gap G.90), and `theorem_6_6_17` there is the theorem without the hypothesis.
 * The remarks after the theorem (orientation bundle, orientability iff a global continuous
   section, the `ℤ₂`-action, `det_f`) are not formalized.
 -/

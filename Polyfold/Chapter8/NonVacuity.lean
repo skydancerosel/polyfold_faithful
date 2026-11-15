@@ -34,7 +34,7 @@ proper covering functor (Definition 8.5.1 (2017: 8.8)).
   `EpFunctor.isProperCovering_id`) and every chart of Theorem 8.5.3 (2017: 8.5) at `x = 0`, the sheet `𝐔(ψ₀)` of
   `ψ₀ = (−1, 0)` contains `ψ = (−1, y)` with `F(s(ψ)) = y ≠ −y = t(F(ψ))`; such charts exist
   (`theorem_8_5_3_five_as_printed_nonvacuous`).  So (5) with `t` does not hold as we read it; the
-  formalized (5) has `s` on both arrows (`ProperCoveringChart.comm_src`), a possible misprint.
+  formalized (5) has `s` on both arrows (`ProperCoveringChart.comm_src`).
 
 ## Elsewhere
 

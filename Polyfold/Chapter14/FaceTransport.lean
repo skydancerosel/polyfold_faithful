@@ -17,7 +17,7 @@ representative of a generalized strong bundle isomorphism "by an argument simila
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
-* `IsScPlusOnFaceNear.of_restrict_p6`: a face germ on a smaller retract `O₁ = O ∩ N` (`N` open)
+* `IsScPlusOnFaceNear.of_restrict`: a face germ on a smaller retract `O₁ = O ∩ N` (`N` open)
   of a smaller `K₁ ⊆ K`, with the same representative on `O₁ ∩ {tᵢ = 0}`, is one on `O`.
 * `isFaceScPlusSectionOn_iff_singleton`: (1) of Definition 14.1.3 is pointwise.
 * `isFaceScPlusSectionOn_of_localIso`: **the key lemma**.  For a local strong bundle isomorphism
@@ -27,8 +27,8 @@ representative of a generalized strong bundle isomorphism "by an argument simila
   `IsTameChart.restrictInter`) and transported along `L⁻¹` (`LocalIso.transportChart`, a tame
   chart of `W'` with the same model, `isTameChart_transportChart`); the local representative of
   `s'` there is that of `s` in `c` on the face points (which lie in `∂X`,
-  `symm_mem_boundary_fm`).
-* `PullMap.facePull_hyp`: **FM's hypothesis `FacePull_hyp` holds for every `PullMap`** (strong
+  `symm_mem_boundary`).
+* `PullMap.facePull_hyp`: **the hypothesis `FacePull_hyp` holds for every `PullMap`** (strong
   bundle equivalences, proper strong bundle coverings).
 -/
 
@@ -52,7 +52,7 @@ variable {E F W : ScBanach} {n : ℕ}
 
 /-- A face germ for `(O₁, K₁, s₁)` gives one for `(O, K, s)` when `O ∩ N ⊆ O₁ ⊆ O` for an open
 `N ∋ x`, `K₁ ⊆ K`, and `s₁ = s` on `O₁ ∩ {tᵢ = 0}`. -/
-theorem IsScPlusOnFaceNear.of_restrict_p6 {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
+theorem IsScPlusOnFaceNear.of_restrict {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
     {C O O₁ : Set (E 0)} {K K₁ : Set (E 0 × F 0)} {s s₁ : E 0 → E 0 × F 1} {x : E 0}
     {i : Fin n} (h : IsScPlusOnFaceNear T C O₁ K₁ s₁ x i) (hO₁ : O₁ ⊆ O) {N : Set (E 0)}
     (hN : IsOpen N) (hxN : x ∈ N) (hON : O ∩ N ⊆ O₁) (hK : K₁ ⊆ K)
@@ -142,7 +142,7 @@ theorem isFaceScPlusSectionOn_of_localIso {U : Set C.Obj} {U' : Set A.Obj}
   have hON : c.φ '' (c.φ.source ∩ G) =
       c.φ.model.O ∩ c.restrictOpen (s := c.φ.source ∩ G) inter_subset_left hso :=
     c.image_eq_restrictOpen _ _
-  refine hface.of_restrict_p6 (O := c.φ.model.O) (K := c.K) (s := localRepOne c s) ?_
+  refine hface.of_restrict (O := c.φ.model.O) (K := c.K) (s := localRepOne c s) ?_
     (c.isOpen_restrictOpen (s := c.φ.source ∩ G) inter_subset_left hso) ?_ ?_ ?_ ?_
   · rw [hO₁, hON]; exact inter_subset_left
   · have : c.φ x ∈ c.φ '' (c.φ.source ∩ G) := ⟨x, ⟨hcx, hxG⟩, rfl⟩
@@ -155,7 +155,7 @@ theorem isFaceScPlusSectionOn_of_localIso {U : Set C.Obj} {U' : Set A.Obj}
     have hzO : c.φ w ∈ c.φ.model.O := c.φ.mapsTo_model w hw.1
     have hsymm : c.φ.symm (c.φ w) = w := c.φ.symm_apply_apply hw.1
     have hbd : w ∈ C.X.PObj.boundary := by
-      have := symm_mem_boundary_fm c hc hT hzO (i := i) hzH
+      have := symm_mem_boundary c hc hT hzO (i := i) hzH
       rwa [hsymm] at this
     change localRepOne c (L.Ψ ∘ s' ∘ L.ϕ) (c.φ w) = localRepOne c s (c.φ w)
     unfold localRepOne
@@ -165,7 +165,7 @@ theorem isFaceScPlusSectionOn_of_localIso {U : Set C.Obj} {U' : Set A.Obj}
 
 namespace PullMap
 
-/-- **FM's hypothesis `FacePull_hyp` holds for every pull-back map** (strong bundle equivalences,
+/-- **The hypothesis `FacePull_hyp` holds for every pull-back map** (strong bundle equivalences,
 `PullMap.ofEquivalence`; proper strong bundle coverings, `PullMap.ofCovering`): near every `x` the
 pulled-back section is `Ψ ∘ s' ∘ F` for the local strong bundle isomorphism of `Φ` at `x`. -/
 theorem facePull_hyp (M : PullMap C A) : M.FacePull_hyp := by

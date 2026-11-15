@@ -33,7 +33,7 @@ does; then every structure in `c` does.
 * "`X` admits sc-smooth bump functions" is read for the object M-polyfold (Definition 5.3.1,
   `MPolyfold.AdmitsBumpFunctions`, the reading `f(x) ≠ 0`), which is what the proof uses ("an
   sc-smooth bump function in every open set").  The ep-groupoid notion of Definition 12.3.1 is
-  equivalent to it by Theorem 12.3.2 (1) (wave-1 block S).
+  equivalent to it by Theorem 12.3.2 (1) (`theorem_12_3_2_1`).
 -/
 
 set_option maxSynthPendingDepth 3

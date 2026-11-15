@@ -20,7 +20,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-! ### The weight -/
 
@@ -315,4 +315,4 @@ lemma valCLM_apply (u : H m hδ) : valCLM m hδ u = (H.toSub u : Lp ℝ 2 cyl) :
 
 lemma valCLM_injective : Function.Injective (valCLM m hδ) := fun _ _ h => Subtype.ext h
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

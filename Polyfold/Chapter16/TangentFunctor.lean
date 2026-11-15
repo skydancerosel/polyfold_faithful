@@ -26,8 +26,8 @@ and `f̂ = [(f, 𝔣)] ↦ T f̂ = [(Tf, T𝔣)] : T(Z, c) → T(W, d)`, `Tf` gi
   composite of representatives with a common middle structure is the composite of the tangents),
   and, for effective middle polyfolds, `ScMap.tangent_comp` (`T(ĝ ∘ f̂) = Tĝ ∘ Tf̂`, assuming
   `Td` effective too).  `theorem_16_2_4` collects these.
-* Not formalized: that `T` preserves effectiveness (so that `T` is a Mathlib functor of
-  `EffPolyfold`); by `not_definition_16_1_10` there is no category with all polyfolds as objects
+* That `T` preserves effectiveness (so that `T` is a Mathlib functor of `EffPolyfold`) is
+  `IsEffective.tangent` (`TangentEffective`); by `not_definition_16_1_10` there is no category with all polyfolds as objects
   and the sc-smooth maps of Definition 16.1.8 as morphisms.
 -/
 

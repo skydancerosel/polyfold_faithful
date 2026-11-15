@@ -88,7 +88,7 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
   `isScDiffeoOn_tgt_image` (`Polyfold/Chapter7/NaturalAction.lean`), restated in the fields.
 * **"`s : 𝐔(ψ₀) → U(y)` is an sc-diffeomorphism"** is `∃ σ, IsScDiffeoOn s σ (𝐔 ψ₀) (U y)`
   (Part I's sc-diffeomorphism between open subsets, with an inverse), and likewise for the others.
-* **(5), a possible misprint.**  As printed, the right vertical arrow is `t` and the lower right
+* **(5), as we read it.**  As printed, the right vertical arrow is `t` and the lower right
   corner is `U(t(F(ψ₀)))`.  With `t` the square says `F(s(ψ)) = t(F(ψ))` on `𝐔(ψ₀)`, which does not
   hold as we read it: a functor gives `F(s(ψ)) = s(F(ψ))`, while `F(ψ) = Γ(g, F(s ψ))` with
   `g = F(ψ₀)` has `t(F(ψ)) = Φ(g)(F(s ψ))`, different from `s(F(ψ))` wherever `Φ(g)` does not fix
@@ -98,7 +98,7 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
   sc-diffeomorphisms": the left arrows are (3), the top arrow (4), the bottom arrows (0) at
   `y = s ψ₀` and `y = t ψ₀`, and the right arrows `s, t : 𝐔(F(ψ₀)) → U(x)` the fields
   `isScDiffeoOn_src_sheetF`, `isScDiffeoOn_tgt_sheetF`.
-* **Possible misprints in the proof** (p. 278), as we read it: "there exists `g ∈ G_y` for which
+* **Notation in the proof** (p. 278), as we read it: "there exists `g ∈ G_y` for which
   `F(φ) = Γ(g, F(z))`" — `Γ` is the natural representation of `G_x` on `U'(x)`, so `g ∈ G_x` is
   meant; "`U(x)` is a `G_y`-invariant subset of `U'(x)`" — `G_x`-invariant is meant; "`F(z') =
   s(F(φ))`" — for `φ : z → z'`, `F(z') = t(F(φ))` is meant.
@@ -304,7 +304,7 @@ structure ProperCoveringChart (F : EpFunctor Y X) (x : ObjX) where
   isScDiffeoOn_mor : ∀ ψ₀ ∈ Y.morOn (F.obj ⁻¹' {x}), ∃ G : MorX → MorY,
     Y.PMor.IsScDiffeoOn X.PMor F.mor G (sheet ψ₀) (connectedComponentIn (X.morOn R.U) (F.mor ψ₀))
   /-- (5) The square `F ∘ s = s ∘ F` from `𝐔(ψ₀)` to `U(x)` commutes (the right arrow `t` as
-  printed is read as `s`, a possible misprint). -/
+  printed is read as `s`). -/
   comm_src : ∀ ψ₀ ∈ Y.morOn (F.obj ⁻¹' {x}), ∀ ψ ∈ sheet ψ₀, F.obj (Y.src ψ) = X.src (F.mor ψ)
   /-- (5) The right arrow `s : 𝐔(F(ψ₀)) → U(x)` of that square is an sc-diffeomorphism (its other
   arrows are those of (0), (3), (4)). -/

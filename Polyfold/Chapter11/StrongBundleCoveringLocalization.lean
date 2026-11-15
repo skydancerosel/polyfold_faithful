@@ -508,7 +508,7 @@ theorem inv_homMk {F F' : SBPC.{u}} (d : Diagram F F') (hε : equivalences d.ε)
   have := isIso_homMk d hε
   exact IsIso.inv_eq_of_hom_inv_id (homMk_comp_homMk_symm d hε)
 
-/-- **The comparison with the universal localization**: H2's `SBPC.Loc` (Mathlib's construction)
+/-- **The comparison with the universal localization**: `SBPC.Loc` (Mathlib's construction)
 maps to `SBPCLoc` by the universal property, compatibly with `Q` and `I`. -/
 def fromLoc : SBPC.Loc.{u} ⥤ SBPCLoc.{u} := SBPC.lift I isInvertedBy_I
 

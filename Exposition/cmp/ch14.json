@@ -69,7 +69,7 @@
     "statement": "A functor $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ is an sc⁺-multisection over $\\partial X$ if every $x\\in\\partial X$ has a good $U(x)$, a finite $I_x$ with a $G_x$-action, and sections $s^x_i$ over $U(x)$ such that: (1) $s^x_i|\\bar\\theta_j$ is sc⁺; (2) $s^x_{g(i)}(g*y)=\\mu(\\Gamma(g,y),s^x_i(y))$; (3) $\\Lambda(w)=|I_x|^{-1}\\#\\{i\\mid s^x_i(P(w))=w\\}$."
    },
    "lean": {
-    "statement": "`IsFaceScPlusSectionOn A s U` is (1): Part I's Definition 5.4.1 with $\\partial X$ replaced by $U$, that is, in every tame strong bundle chart and at every point of $U$, sc⁺ on every local face germ. `BoundarySymmetricStructure A Λ V` has fields `I`, `fintype`, `mulAction`, `s`, `isFaceScPlus` on `V.bdry`, `equivariant` on `V.bdry`, and `rep` for $P(w)\\in$ `V.bdry`. `IsBoundaryWFunctor` and `IsBoundaryScPlusMultisection A Λ` (functor on $W|\\partial X$, plus a good `V` with a structure at every boundary point). Witness: `isBoundaryScPlusMultisection_zero` (tame $X$).\n\nNon-empty index sets (`Chapter14/EmptyIndex.lean`): `BoundarySymmetricStructure` has the instance field `nonempty` (`Nonempty I`), as the factor $1/|I_x|$ of (3) presumes, and so do the face data of §14.6 (`IndexFamily`). Hence over every boundary point some $w$ has $\\Lambda(w) \\ne 0$ (`BoundarySymmetricStructure.exists_ne_zero`, `IsBoundaryScPlusMultisection.exists_ne_zero`): `ChargesBoundary Λ` holds for every sc⁺-multisection over $\\partial X$ (`chargesBoundary_of_isBoundaryScPlusMultisection`, `IsBoundaryStructurable.chargesBoundary`, `BoundaryStructuredTuple.chargesBoundary`; for a tuple it is the same as all $I_x \\ne \\emptyset$, `BoundaryStructuredTuple.nonempty_I_a6`, `chargesBoundary_of_nonempty_a6`), and $\\Lambda \\equiv 0$ is not one when $\\partial X \\ne \\emptyset$ (`not_isBoundaryScPlusMultisection_zeroFun`). A structurable $\\Lambda'$ on $X$ charges every fibre (`chargesBoundary_of_structurable_eq_a6`); the zero multisection charges the boundary (`chargesBoundary_zeroMultisection_a6`). (1) holds for every sc⁺-section on $X$ (`isFaceScPlusSectionOn_of_isScPlusSectionOn_w1`, any SEP, through `corner_retraction`).",
+    "statement": "`IsFaceScPlusSectionOn A s U` is (1): Part I's Definition 5.4.1 with $\\partial X$ replaced by $U$, that is, in every tame strong bundle chart and at every point of $U$, sc⁺ on every local face germ. `BoundarySymmetricStructure A Λ V` has fields `I`, `fintype`, `mulAction`, `s`, `isFaceScPlus` on `V.bdry`, `equivariant` on `V.bdry`, and `rep` for $P(w)\\in$ `V.bdry`. `IsBoundaryWFunctor` and `IsBoundaryScPlusMultisection A Λ` (functor on $W|\\partial X$, plus a good `V` with a structure at every boundary point). Witness: `isBoundaryScPlusMultisection_zero` (tame $X$).\n\nNon-empty index sets (`Chapter14/EmptyIndex.lean`): `BoundarySymmetricStructure` has the instance field `nonempty` (`Nonempty I`), as the factor $1/|I_x|$ of (3) presumes, and so do the face data of §14.6 (`IndexFamily`). Hence over every boundary point some $w$ has $\\Lambda(w) \\ne 0$ (`BoundarySymmetricStructure.exists_ne_zero`, `IsBoundaryScPlusMultisection.exists_ne_zero`): `ChargesBoundary Λ` holds for every sc⁺-multisection over $\\partial X$ (`chargesBoundary_of_isBoundaryScPlusMultisection`, `IsBoundaryStructurable.chargesBoundary`, `BoundaryStructuredTuple.chargesBoundary`; for a tuple it is the same as all $I_x \\ne \\emptyset$, `BoundaryStructuredTuple.nonempty_I`, `chargesBoundary_of_nonempty`), and $\\Lambda \\equiv 0$ is not one when $\\partial X \\ne \\emptyset$ (`not_isBoundaryScPlusMultisection_zeroFun`). A structurable $\\Lambda'$ on $X$ charges every fibre (`chargesBoundary_of_structurable_eq`); the zero multisection charges the boundary (`chargesBoundary_zeroMultisection`). (1) holds for every sc⁺-section on $X$ (`isFaceScPlusSectionOn_of_isScPlusSectionOn`, any SEP, through `corner_retraction`).",
     "decls": [
      "Chapter14/BoundaryMultisection · IsFaceScPlusSectionOn",
      "Chapter14/BoundaryMultisection · IsFaceScPlusSectionOn.mono",
@@ -90,12 +90,12 @@
      "Chapter14/EmptyIndex · SBLocalization.IsBoundaryStructurable.chargesBoundary",
      "Chapter14/EmptyIndex · SBLocalization.BoundaryStructuredTuple.chargesBoundary",
      "Chapter14/EmptyIndex · SBLocalization.not_isBoundaryScPlusMultisection_zeroFun",
-     "Chapter14/EmptyIndex · SBLocalization.BoundarySymmetricStructure.nonempty_I_a6",
-     "Chapter14/EmptyIndex · SBLocalization.BoundaryStructuredTuple.nonempty_I_a6",
-     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_nonempty_a6",
-     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_zeroMultisection_a6",
-     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_structurable_eq_a6",
-     "Chapter14/HalfSpaceConstSection · SBLocalization.isFaceScPlusSectionOn_of_isScPlusSectionOn_w1"
+     "Chapter14/EmptyIndex · SBLocalization.BoundarySymmetricStructure.nonempty_I",
+     "Chapter14/EmptyIndex · SBLocalization.BoundaryStructuredTuple.nonempty_I",
+     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_nonempty",
+     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_zeroMultisection",
+     "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_structurable_eq",
+     "Chapter14/HalfSpaceConstSection · SBLocalization.isFaceScPlusSectionOn_of_isScPlusSectionOn"
     ]
    },
    "chips": [
@@ -104,7 +104,7 @@
    ],
    "diff": [
     "\"$s|\\bar\\theta_j$ is sc⁺\" is read through the local faces: in a tame chart, the germs of the $\\bar\\theta_j$ at a point of $U(x)$ are the local faces there. \"A functor on $W|\\partial X$\" is invariance along morphisms with source in $\\partial X$. Only the values over $\\partial X$ enter. The text's standing hypothesis \"$|X|$ paracompact\" is not used.",
-    "The factor $1/|I_x|$ in (3) presumes $I_x \\ne \\emptyset$; the formal structure has it as a field (`nonempty` of `BoundarySymmetricStructure`; `IndexFamily` for the face data of §14.6). So every sc⁺-multisection over $\\partial X$ charges every boundary fibre (`IsBoundaryStructurable.chargesBoundary`), which Theorem 14.1.9 needs (`theorem_14_1_9_iff_a6`, V14.8)."
+    "The factor $1/|I_x|$ in (3) presumes $I_x \\ne \\emptyset$; the formal structure has it as a field (`nonempty` of `BoundarySymmetricStructure`; `IndexFamily` for the face data of §14.6). So every sc⁺-multisection over $\\partial X$ charges every boundary fibre (`IsBoundaryStructurable.chargesBoundary`), which Theorem 14.1.9 needs (`theorem_14_1_9_iff`, V14.8)."
    ]
   },
   {
@@ -123,20 +123,20 @@
      "Chapter14/LocalExtension · exists_scPlusSection_extension_of_face",
      "Chapter14/LocalExtension · proposition_14_1_4_of_closure",
      "Chapter14/LocalExtension · proposition_14_1_4",
-     "Chapter14/OpenExtension · IsScPlusSectionOn.of_locally_p3w4",
-     "Chapter14/OpenExtension · exists_scSmooth_cutoff_p3w4",
+     "Chapter14/OpenExtension · IsScPlusSectionOn.of_locally'",
+     "Chapter14/OpenExtension · exists_scSmooth_cutoff",
      "Chapter14/OpenExtension · exists_scPlusSectionOn_extension_of_face",
      "Chapter14/OpenExtension · proposition_14_1_4_full",
      "Chapter14/OpenExtension · proposition_14_1_4_hypotheses_rn",
-     "Chapter14/BoundaryMultisection · fibAct_comp_p3w3",
-     "Chapter14/BoundaryMultisection · fibAct_unit_p3w3",
+     "Chapter14/BoundaryMultisection · fibAct_comp'",
+     "Chapter14/BoundaryMultisection · fibAct_unit'",
      "Chapter14/BoundaryMultisection · avgTerm",
      "Chapter14/BoundaryMultisection · avgTerm_apply",
      "Chapter14/BoundaryMultisection · isScPlusSectionOn_avgTerm",
      "Chapter14/BoundaryMultisection · P_avgTerm",
      "Chapter14/BoundaryMultisection · avgTerm_equivariant",
      "Chapter14/BoundaryMultisection · avgSection",
-     "Chapter14/BoundaryMultisection · isSection_sumSection_p3w3",
+     "Chapter14/BoundaryMultisection · isSection_sumSection",
      "Chapter14/BoundaryMultisection · isScPlusSectionOn_avgSection",
      "Chapter14/BoundaryMultisection · avgSection_apply",
      "Chapter14/BoundaryMultisection · avgSection_equivariant",
@@ -254,7 +254,7 @@
     "statement": "Assume: $X$ is tame, with $|X|$ paracompact and sc-smooth partitions of unity; $\\Lambda$ on $W|\\partial X$ is structurable; $N$ is an auxiliary norm; $\\tilde U$ is a saturated open set containing dom-supp$(\\Lambda)$; $f\\ge0$ is a continuous functor supported in $\\tilde U$ with $N(\\Lambda)<f$ on dom-supp$(\\Lambda)$. Then there is a structurable $\\Lambda':W\\to\\mathbb Q^+$ with: (1) $N(\\Lambda')\\le f$; (2) dom-supp$(\\Lambda')\\subseteq\\tilde U$; (3) $\\Lambda'|W|\\partial X=\\Lambda$."
    },
    "lean": {
-    "statement": "**`theorem_14_1_9 : theorem_14_1_9_statement A`** (`Chapter14/BoundaryExtensionTheorem`), for every `A : SEP`. `theorem_14_1_9_statement (A : SEP) : Prop` has the hypotheses in the order: `A.X.IsTame`, `A.X.HasParacompactOrbitSpace`, `A.X.PObj.AdmitsScPartitionsOfUnity`, `IsBoundaryStructurable A Λ`, `A.E.IsAuxNorm N`, `IsOpen Ũ`, `A.X.IsSaturated Ũ`, `boundaryDomSupp Λ ⊆ Ũ`, `Continuous f`, `0 ≤ f`, `f ∘ tgt = f ∘ src`, `tsupport f ⊆ Ũ`, and `pointwiseNorm N Λ x < f x` on `boundaryDomSupp Λ`. The conclusion is `∃ Λ', IsStructurable A Λ' ∧ (∀ x, pointwiseNorm N Λ' x ≤ f x) ∧ domSupp Λ' ⊆ Ũ ∧ ∀ w, P w ∈ ∂X → Λ' w = Λ w`. `boundaryDomSupp Λ` is the closure of $\\{x\\in\\partial X\\mid\\exists w\\ne0_x,\\ P(w)=x,\\ \\Lambda(w)>0\\}$, with `boundaryDomSupp_zero`. `theorem_14_1_9_statement_hyp_witness`: the zero multisection, $\\tilde U=\\emptyset$, $f=0$ satisfy the hypotheses.\n\nThe proof (`Chapter14/EmptyIndex`, `AssemblyInputInstance`, `BoundaryExtensionTheorem`): `theorem_14_1_9_charged_a6 hX hpara hpu hB Λ hΛ hch N hN Ũ hUo hUs hsub f hf hf0 hfinv htsupp hlt` (`theorem_14_1_9_charged_statement A`) is the theorem with two further arguments, tame strong bundle charts at every object (`hB`) and `ChargesBoundary Λ`, proved with no further hypothesis; `theorem_14_1_9` supplies both: `hB` from the tameness of $X$ (`SEP.exists_isTameChart`, from `StrongBundle.exists_isTameChart`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point) and `ChargesBoundary Λ` from the non-empty index sets of Definition 14.1.3 (`IsBoundaryStructurable.chargesBoundary`, V14.3). The route: Proposition 14.2.3, the objects of §14.3 (`exists_zConcrete_of_hasP4`), Theorem 7.5.7, Lemma 14.5.1 with (14.53) (V14.45), the instance `exists_assemblyInput_a6` (V14.46), the assembly and the size control (`sizeControl_a6`). `theorem_14_1_9_iff_a6`: for structurable $\\Lambda$ over $\\partial X$ an extension with (1)–(3) exists if and only if `ChargesBoundary Λ`. Witness with boundary (`Chapter14/HalfSpaceConstSection`, `HalfSpaceBundle`): on `HalfSpaceBundle.halfSEP m k`, the trivial bundle $H \\times \\mathbb R^k \\to H$, $H = [0,\\infty) \\times \\mathbb R^m$ (tame, paracompact orbit space, partitions of unity, $\\partial H = \\{x_1 = 0\\}$), `theorem_14_1_9_charged_hypotheses_halfSEP` gives all hypotheses at once and **`theorem_14_1_9_constSec hv`** applies the theorem to the constant multisection $\\Lambda_v$, $v \\ne 0$ (structurable over $\\partial H$ with $I_x = \\{*\\}$, nonempty domain support), with $\\tilde U = X$ and $f(x) = N(x, v) + 1$.\n\nThe steps: `theorem_14_1_9_hyp (hext : theorem_14_1_9_extension_statement A) : theorem_14_1_9_statement A`. The hypothesis `theorem_14_1_9_extension_statement A` (a `Prop`) is the output of §§14.3–14.5: for every structurable $\\Lambda$ over $\\partial X$ and saturated open $\\tilde U\\supseteq\\text{dom-supp}\\Lambda$ there is a structurable $\\Lambda''$ on $X$ with $\\text{dom-supp}\\Lambda''\\subseteq\\tilde U$ and $\\Lambda''|\\partial X=\\Lambda$; it holds for every `A` (`theorem_14_1_9_extension_statement_holds`).\n\nThe assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_statement_of_assembly (h : AssemblyHyp A) : theorem_14_1_9_extension_statement A` and `theorem_14_1_9_of_assembly (h : AssemblyHyp A) : theorem_14_1_9_statement A`. `AssemblyHyp A`: every structurable boundary $\\Lambda$ has an `AssemblyInput A Λ`, the data of §§14.3–14.5 (the z-loop setting $S$, the transport input $T$ with Lemma 14.5.1 (1) `suppInSat`, local finiteness and $\\sum_a\\beta_a = 1$, the index sets, $\\hat\\tau$ finite and bi-equivariant, the representation on $U^0(r(a))$ and the functor); it holds for every `A` (`assemblyHyp_holds`; for $\\partial X = \\emptyset$ also `assemblyHyp_of_boundary_eq_empty` with `emptyAssemblyInput`). From these: $\\Lambda'$ is `mult σ`, computed in any chart (`mult_eq`) and a functor (`isWFunctor_mult`); the criterion data `crit` over the index type $A \\sqcup X$ ($\\hat V_a$ with the summed sections `ssec` for `inl a`; for `inr x` the invariant core of $X \\setminus C$ in a natural neighbourhood of $x$ with the zero section; the text's correspondences `toUnit`, its `swap`, `ofEquiv refl`); `CriterionData.hasLocalSectionStructure_t9` and Theorem 14.5.5 give `isStructurable_mult`; `mult_boundary` ($\\Lambda' = \\Lambda$ over $\\partial X$ where the cut-off is $1$), `domSupp_mult_subset`, `exists_cutoff` (Urysohn on $|X|$), `AssemblyInput.extension`.",
+    "statement": "**`theorem_14_1_9 : theorem_14_1_9_statement A`** (`Chapter14/BoundaryExtensionTheorem`), for every `A : SEP`. `theorem_14_1_9_statement (A : SEP) : Prop` has the hypotheses in the order: `A.X.IsTame`, `A.X.HasParacompactOrbitSpace`, `A.X.PObj.AdmitsScPartitionsOfUnity`, `IsBoundaryStructurable A Λ`, `A.E.IsAuxNorm N`, `IsOpen Ũ`, `A.X.IsSaturated Ũ`, `boundaryDomSupp Λ ⊆ Ũ`, `Continuous f`, `0 ≤ f`, `f ∘ tgt = f ∘ src`, `tsupport f ⊆ Ũ`, and `pointwiseNorm N Λ x < f x` on `boundaryDomSupp Λ`. The conclusion is `∃ Λ', IsStructurable A Λ' ∧ (∀ x, pointwiseNorm N Λ' x ≤ f x) ∧ domSupp Λ' ⊆ Ũ ∧ ∀ w, P w ∈ ∂X → Λ' w = Λ w`. `boundaryDomSupp Λ` is the closure of $\\{x\\in\\partial X\\mid\\exists w\\ne0_x,\\ P(w)=x,\\ \\Lambda(w)>0\\}$, with `boundaryDomSupp_zero`. `theorem_14_1_9_statement_hyp_witness`: the zero multisection, $\\tilde U=\\emptyset$, $f=0$ satisfy the hypotheses.\n\nThe proof (`Chapter14/EmptyIndex`, `AssemblyInputInstance`, `BoundaryExtensionTheorem`): `theorem_14_1_9_charged hX hpara hpu hB Λ hΛ hch N hN Ũ hUo hUs hsub f hf hf0 hfinv htsupp hlt` (`theorem_14_1_9_charged_statement A`) is the theorem with two further arguments, tame strong bundle charts at every object (`hB`) and `ChargesBoundary Λ`, proved with no further hypothesis; `theorem_14_1_9` supplies both: `hB` from the tameness of $X$ (`SEP.exists_isTameChart`, from `StrongBundle.exists_isTameChart`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point) and `ChargesBoundary Λ` from the non-empty index sets of Definition 14.1.3 (`IsBoundaryStructurable.chargesBoundary`, V14.3). The route: Proposition 14.2.3, the objects of §14.3 (`exists_zConcrete_of_hasP4`), Theorem 7.5.7, Lemma 14.5.1 with (14.53) (V14.45), the instance `exists_assemblyInput` (V14.46), the assembly and the size control (`sizeControl`). `theorem_14_1_9_iff`: for structurable $\\Lambda$ over $\\partial X$ an extension with (1)–(3) exists if and only if `ChargesBoundary Λ`. Witness with boundary (`Chapter14/HalfSpaceConstSection`, `HalfSpaceBundle`): on `HalfSpaceBundle.halfSEP m k`, the trivial bundle $H \\times \\mathbb R^k \\to H$, $H = [0,\\infty) \\times \\mathbb R^m$ (tame, paracompact orbit space, partitions of unity, $\\partial H = \\{x_1 = 0\\}$), `theorem_14_1_9_charged_hypotheses_halfSEP` gives all hypotheses at once and **`theorem_14_1_9_constSec hv`** applies the theorem to the constant multisection $\\Lambda_v$, $v \\ne 0$ (structurable over $\\partial H$ with $I_x = \\{*\\}$, nonempty domain support), with $\\tilde U = X$ and $f(x) = N(x, v) + 1$.\n\nThe steps: `theorem_14_1_9_hyp (hext : theorem_14_1_9_extension_statement A) : theorem_14_1_9_statement A`. The hypothesis `theorem_14_1_9_extension_statement A` (a `Prop`) is the output of §§14.3–14.5: for every structurable $\\Lambda$ over $\\partial X$ and saturated open $\\tilde U\\supseteq\\text{dom-supp}\\Lambda$ there is a structurable $\\Lambda''$ on $X$ with $\\text{dom-supp}\\Lambda''\\subseteq\\tilde U$ and $\\Lambda''|\\partial X=\\Lambda$; it holds for every `A` (`theorem_14_1_9_extension_statement_holds`).\n\nThe assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_statement_of_assembly (h : AssemblyHyp A) : theorem_14_1_9_extension_statement A` and `theorem_14_1_9_of_assembly (h : AssemblyHyp A) : theorem_14_1_9_statement A`. `AssemblyHyp A`: every structurable boundary $\\Lambda$ has an `AssemblyInput A Λ`, the data of §§14.3–14.5 (the z-loop setting $S$, the transport input $T$ with Lemma 14.5.1 (1) `suppInSat`, local finiteness and $\\sum_a\\beta_a = 1$, the index sets, $\\hat\\tau$ finite and bi-equivariant, the representation on $U^0(r(a))$ and the functor); it holds for every `A` (`assemblyHyp_holds`; for $\\partial X = \\emptyset$ also `assemblyHyp_of_boundary_eq_empty` with `emptyAssemblyInput`). From these: $\\Lambda'$ is `mult σ`, computed in any chart (`mult_eq`) and a functor (`isWFunctor_mult`); the criterion data `crit` over the index type $A \\sqcup X$ ($\\hat V_a$ with the summed sections `ssec` for `inl a`; for `inr x` the invariant core of $X \\setminus C$ in a natural neighbourhood of $x$ with the zero section; the text's correspondences `toUnit`, its `swap`, `ofEquiv refl`); `CriterionData.hasLocalSectionStructure` and Theorem 14.5.5 give `isStructurable_mult`; `mult_boundary` ($\\Lambda' = \\Lambda$ over $\\partial X$ where the cut-off is $1$), `domSupp_mult_subset`, `exists_cutoff` (Urysohn on $|X|$), `AssemblyInput.extension`.",
     "decls": [
      "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9",
      "Chapter14/BoundaryExtensionTheorem · SBLocalization.assemblyHyp_holds",
@@ -262,10 +262,10 @@
      "Chapter10/TameBundleCharts · SEP.exists_isTameChart",
      "Chapter10/TameBundleCharts · StrongBundle.exists_isTameChart",
      "Chapter14/EmptyIndex · SBLocalization.IsBoundaryStructurable.chargesBoundary",
-     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_charged_a6",
+     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_charged",
      "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_charged_statement",
-     "Chapter14/BoundaryExtensionTheorem · SBLocalization.sizeControl_a6",
-     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_iff_a6",
+     "Chapter14/BoundaryExtensionTheorem · SBLocalization.sizeControl",
+     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_iff",
      "Chapter14/HalfSpaceBundle · HalfSpaceBundle.halfSEP",
      "Chapter14/HalfSpaceBundle · HalfSpaceBundle.isTame_halfSEP",
      "Chapter14/HalfSpaceBundle · HalfSpaceBundle.hasParacompactOrbitSpace_halfSEP",
@@ -302,10 +302,10 @@
      "Chapter14/NormControl · normW_le_of_multisectionSmul_pos",
      "Chapter14/NormControl · pointwiseNorm_smulFun_le",
      "Chapter14/NormControl · multisectionSmulFun_of_eq_one",
-     "Chapter14/NormControl · domSupp_zeroMultisection_gl",
-     "Chapter14/NormControl · isSaturated_boundary_gl",
-     "Chapter14/NormControl · isSaturated_closure_gl",
-     "Chapter14/NormControl · isSaturated_union_gl",
+     "Chapter14/NormControl · domSupp_zeroMultisection'",
+     "Chapter14/NormControl · isSaturated_boundary",
+     "Chapter14/NormControl · isSaturated_closure",
+     "Chapter14/NormControl · isSaturated_union",
      "Chapter14/ExtensionAssembly · AssemblyHyp",
      "Chapter14/ExtensionAssembly · theorem_14_1_9_extension_statement_of_assembly",
      "Chapter14/ExtensionAssembly · theorem_14_1_9_of_assembly",
@@ -313,9 +313,9 @@
      "Chapter14/ExtensionAssembly · emptyZSetup",
      "Chapter14/ExtensionAssembly · emptyTransportInput",
      "Chapter14/ExtensionAssembly · emptyAssemblyInput",
-     "Chapter14/ExtensionAssembly · fibAct_eq_fiberZero_iff_t9",
-     "Chapter14/ExtensionAssembly · fibAct_comp_inv_t9",
-     "Chapter14/ExtensionAssembly · CriterionData.hasLocalSectionStructure_t9",
+     "Chapter14/ExtensionAssembly · fibAct_eq_fiberZero_iff",
+     "Chapter14/ExtensionAssembly · fibAct_comp_inv",
+     "Chapter14/ExtensionAssembly · CriterionData.hasLocalSectionStructure",
      "Chapter14/ExtensionAssembly · AssemblyInput.mult",
      "Chapter14/ExtensionAssembly · AssemblyInput.mult_eq",
      "Chapter14/ExtensionAssembly · AssemblyInput.isWFunctor_mult",
@@ -455,14 +455,14 @@
    "lean": {
     "statement": "`lemma_14_3_1 (hT : T.HasP4) (P : P5Nbhds T) : Nonempty (CorrExtension T P)`. A `CorrExtension` has fields: `O x x' d`, open, for all $x,x'\\in\\partial X$ and $[d]\\in J(x,x')$; `fiber_subset`: $\\tau^{0-1}(d)\\cap U^0(x,x')\\subseteq\\tilde O_d$; `subset_mor`, which is (1); `disjoint_closure`, which is (2); `biact_mem_iff`: $h*\\varphi*g\\in\\tilde O_{h*d*g}\\iff\\varphi\\in\\tilde O_d$ on $\\tilde U'(x,x')$, which is (3); `inv_mem_iff`: $\\varphi^{-1}\\in\\tilde O_{x',x,d^\\sharp}\\iff\\varphi\\in\\tilde O_{x,x',d}$. (4) is `iUnion_inter_boundaryMor`, and (14.20) is `inter_boundaryMor`. `image_biact` gives (3) as printed (set equality). `lemma_14_3_1_book` is the printed statement (1)–(4) with an existential $\\tilde O$.",
     "decls": [
-     "Chapter14/ExtendCorrespondences · P3W4S3.exists_open_disjoint_closure",
-     "Chapter14/ExtendCorrespondences · IndexCorr.swap_biact_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.inv_biact_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.biact_congr_rep_p3w4",
+     "Chapter14/ExtendCorrespondences · GeneralTopology.exists_open_disjoint_closure",
+     "Chapter14/ExtendCorrespondences · IndexCorr.swap_biact",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.inv_biact",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.biact_congr_rep",
      "Chapter14/ExtendCorrespondences · boundaryMor",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.biact_mem_mor_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.inv_mem_mor_p3w4",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.biact_mem_mor",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.inv_mem_mor",
      "Chapter14/ExtendCorrespondences · P5Nbhds",
      "Chapter14/ExtendCorrespondences · P5Nbhds.ofGood",
      "Chapter14/ExtendCorrespondences · P5Nbhds.mor",
@@ -493,7 +493,7 @@
     "also symmetric under inversion"
    ],
    "diff": [
-    "Besides (1)–(4) the sets are symmetric under inversion (`inv_mem_iff`). The text does not state this. It gives $\\hat\\tau_{x',x}(\\varphi^{-1})=\\hat\\tau_{x,x'}(\\varphi)^\\sharp$, Definition 14.1.7 (a) for $\\hat\\tau$, which `ZSetup.swap` (Lemma 14.4.5, §14.4) needs. The proof is the text's: separate the closures (P4) in the normal space $\\mathbf X$ (`P3W4S3.exists_open_disjoint_closure`), and intersect with $\\tilde U'(x,x')$; intersect over the bi-action (written $\\bigcap_{h,g}(h*\\cdot*g)^{-1}(\\tilde O'_{h*[d]*g})$, which is the text's $\\bigcap h*\\tilde O'_{[d']}*g$ over $h*[d']*g=[d]$); as an added step, intersect with the inverted sets of $(x',x)$. This keeps (1)–(4). Only finitely many $[d]$ have nonempty $\\tau^{0-1}([d])$ (`Tau.finite`). For the others $\\tilde O_{[d]}=\\emptyset$. Reading of (P5)(i): \"admits the natural $G_x$-action\" is read as the action of the good system $\\mathcal U^0$ (the same representation). The bi-action in (3) is then that of Definition 14.1.7 (c)."
+    "Besides (1)–(4) the sets are symmetric under inversion (`inv_mem_iff`). The text does not state this. It gives $\\hat\\tau_{x',x}(\\varphi^{-1})=\\hat\\tau_{x,x'}(\\varphi)^\\sharp$, Definition 14.1.7 (a) for $\\hat\\tau$, which `ZSetup.swap` (Lemma 14.4.5, §14.4) needs. The proof is the text's: separate the closures (P4) in the normal space $\\mathbf X$ (`GeneralTopology.exists_open_disjoint_closure`), and intersect with $\\tilde U'(x,x')$; intersect over the bi-action (written $\\bigcap_{h,g}(h*\\cdot*g)^{-1}(\\tilde O'_{h*[d]*g})$, which is the text's $\\bigcap h*\\tilde O'_{[d']}*g$ over $h*[d']*g=[d]$); as an added step, intersect with the inverted sets of $(x',x)$. This keeps (1)–(4). Only finitely many $[d]$ have nonempty $\\tau^{0-1}([d])$ (`Tau.finite`). For the others $\\tilde O_{[d]}=\\emptyset$. Reading of (P5)(i): \"admits the natural $G_x$-action\" is read as the action of the good system $\\mathcal U^0$ (the same representation). The bi-action in (3) is then that of Definition 14.1.7 (c)."
    ]
   },
   {
@@ -508,7 +508,7 @@
    "lean": {
     "statement": "`CorrExtension.Ot` is $\\tilde O_{x,x'}=\\bigcup_d\\tilde O_{x,x',d}$. `CorrExtension.Ohat` is $\\{\\varphi\\in\\tilde O\\mid\\exists\\psi\\in\\mathrm{cc}_{\\tilde O}(\\varphi)\\cap\\partial X\\}$. `CorrExtension.tauHat` is $\\hat\\tau(\\varphi)$, the $d$ with $\\varphi\\in\\tilde O_{x,x',d}$. It is unique (`tauHat_eq`). It equals $\\tau^0(\\psi)$ for every $\\psi\\in\\partial X$ in the component of $\\varphi$ (`tauHat_eq_tau_of_mem_component`, also in $\\tilde O$: `tauHat_eq_tau_of_mem_component_Ot`). `CorrExtension.OhatD` is $\\hat O_{x,x',[d]}$, and `OhatD_eq` gives $\\hat O_{[d]}=\\hat O\\cap\\tilde O_{[d]}$. (14.23): `isOpen_Ohat`; `mor_subset_Ohat`, `Ohat_subset_Ot`, `Ot_subset_mor`, `Ohat_subset_mor`; `Ohat_inter_boundaryMor`.",
     "decls": [
-     "Chapter14/ExtendCorrespondences · P3W4S3.connectedComponentIn_iUnion_subset",
+     "Chapter14/ExtendCorrespondences · GeneralTopology.connectedComponentIn_iUnion_subset",
      "Chapter14/ExtendCorrespondences · CorrExtension.Ot",
      "Chapter14/ExtendCorrespondences · CorrExtension.Ohat",
      "Chapter14/ExtendCorrespondences · CorrExtension.tauHat",
@@ -570,12 +570,12 @@
     "statement": "`proposition_14_3_4 (hT : T.HasP4) (P : P5Nbhds T)` gives $\\hat O$, $\\hat\\tau$ with: openness; (1); (2); local constancy ($\\forall\\varphi\\in\\hat O$, $\\forall^{f}\\psi\\in\\mathcal N(\\varphi)$, $\\hat\\tau\\psi=\\hat\\tau\\varphi$); $\\hat\\tau=\\tau^0$ on $U^0(x,x')$; uniqueness among $f$ locally constant on $\\hat O$ (in $\\mathcal N_{\\hat O}$) with $f=\\tau^0$ on $U^0(x,x')$; equivariance; the diagonal identity as printed; $\\{\\varphi\\in\\hat O\\mid\\hat\\tau\\varphi=d\\}\\cap\\partial X=\\tau^{0-1}(d)\\cap U^0(x,x')$. API on any `E : CorrExtension T P`: `biact_mem_Ohat`, `tauHat_locallyConstant`, `tauHat_eq_tau`; `tauHat_unique` (for any $e\\circ\\hat\\tau$); `tauHat_biact`, `tauHat_Γ` ($=[I_x\\leftarrow I_x\\xrightarrow{g}I_x]$), `OhatD_inter_boundaryMor`. Extras: `tauHat_image_subset` and `finite_tauHat`: the values on $\\hat O$ are among the finitely many values of $\\tau^0$; `inv_mem_Ohat`: $\\varphi\\in\\hat O_{x,x'}\\Rightarrow\\varphi^{-1}\\in\\hat O_{x',x}$; `tauHat_inv`: $\\hat\\tau_{x',x}(\\varphi^{-1})=\\hat\\tau_{x,x'}(\\varphi)^\\sharp$.",
     "decls": [
      "Chapter14/ExtendCorrespondences · proposition_14_3_4",
-     "Chapter14/ExtendCorrespondences · P3W4S3.eq_of_mem_connectedComponentIn",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.eventually_Γ_src_eq_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.Γ_sheetLabel_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel_eq_p3w4",
-     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel_locallyConstant_p3w4",
+     "Chapter14/ExtendCorrespondences · GeneralTopology.eq_of_mem_connectedComponentIn",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.eventually_Γ_src_eq",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.Γ_sheetLabel",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel_eq",
+     "Chapter14/ExtendCorrespondences · EpGroupoid.sheetLabel_locallyConstant",
      "Chapter14/ExtendCorrespondences · CorrExtension.tauHat_eq_tau",
      "Chapter14/ExtendCorrespondences · CorrExtension.tauHat_locallyConstant",
      "Chapter14/ExtendCorrespondences · CorrExtension.tauHat_unique",
@@ -594,7 +594,7 @@
     "diagonal property: proof supplied"
    ],
    "diff": [
-    "Diagonal property: the text gives no argument. Our proof: the component of $\\Gamma(g,y)$ in $\\tilde O_{x,x}$ stays in the sheet $\\Gamma(g,\\cdot)$, because the sheet label is locally constant (`EpGroupoid.sheetLabel_locallyConstant_p3w4`, from $s$ being a local homeomorphism); this component meets $\\partial X$ in some $\\Gamma(g,z')$, $z'\\in U^0(x)$; Definition 14.1.7 (b) gives the value there. Uniqueness uses that every component of $\\hat O$ meets $\\partial X$ (`P3W4S3.eq_of_mem_connectedComponentIn`). The bi-action is the natural one of $\\tilde U'$ (= that of $\\mathcal U^0$, (P5) reading)."
+    "Diagonal property: the text gives no argument. Our proof: the component of $\\Gamma(g,y)$ in $\\tilde O_{x,x}$ stays in the sheet $\\Gamma(g,\\cdot)$, because the sheet label is locally constant (`EpGroupoid.sheetLabel_locallyConstant`, from $s$ being a local homeomorphism); this component meets $\\partial X$ in some $\\Gamma(g,z')$, $z'\\in U^0(x)$; Definition 14.1.7 (b) gives the value there. Uniqueness uses that every component of $\\hat O$ meets $\\partial X$ (`GeneralTopology.eq_of_mem_connectedComponentIn`). The bi-action is the natural one of $\\tilde U'$ (= that of $\\mathcal U^0$, (P5) reading)."
    ]
   },
   {
@@ -676,9 +676,9 @@
     "statement": "The sets $\\hat V_a=(\\bigcup_{y\\in U'(a)}\\tilde O(y))\\cap\\tilde V_a$ (14.32) satisfy: (1) $\\hat V_a$ is open, $G_a$-invariant and $\\hat V_a\\subseteq\\tilde V_a\\subseteq\\tilde U(a)$; (2) $\\hat V_a\\cap\\partial X=\\tilde V_a\\cap\\partial X$; (3) $(|\\hat V_a|)_{a\\in A}$ is a locally finite covering of $|\\partial X|$ by sets open in $|X|$; (4) $\\hat V_{a,a'}\\subseteq\\hat O_{a,a'}$, so $\\hat\\tau_{a,a'}$ restricts to $\\hat V_{a,a'}$."
    },
    "lean": {
-    "statement": "`EpGroupoid.proposition_14_3_8` is the abstract form, in the setting of Lemma 14.3.7. Its hypotheses: $B$ saturated; `NatNbhd`s $\\tilde U(a)$, $\\tilde U'(a)$ with the same representation; $\\mathrm{cl}\\,\\tilde U(b)\\subseteq\\tilde U'(b)$, and $\\mathrm{cl}\\,\\tilde U(b)$ proper; $\\tilde V_a\\subseteq\\tilde U(a)$ open and invariant, with $(|\\tilde V_a|)$ locally finite and covering $|B|$; $\\hat O_{a,b}$ open with $U'(a,b)\\subseteq\\hat O_{a,b}$. It gives $\\hat V$ with (1)–(4), (3) including openness of $|\\hat V_a|$. $\\hat V_a$ is (14.32), built from `lemma_14_3_7`. `CorrExtension.proposition_14_3_8 E hpara Q` is the instantiated form. For $E$ (Lemma 14.3.1 on (P4), (P5)), (P6) `Q` and $|X|$ paracompact, it gives: $A\\subseteq\\partial X$; $\\tilde V$ with the properties of Lemma 14.3.6; $\\hat V$ with (1)–(4), where $\\hat O_{a,a'}$ is `E.OhatObj a a'` (= `E.Ohat ⟨a,_⟩ ⟨a',_⟩`). The neighbourhoods are `Q.nbhdObj a` and `P.nbhdObj a` (Obj-indexed through `dite`; `nbhdObj_of_mem`). `EpGroupoid.isSaturated_boundary_p3w4`: $\\partial X$ is saturated.",
+    "statement": "`EpGroupoid.proposition_14_3_8` is the abstract form, in the setting of Lemma 14.3.7. Its hypotheses: $B$ saturated; `NatNbhd`s $\\tilde U(a)$, $\\tilde U'(a)$ with the same representation; $\\mathrm{cl}\\,\\tilde U(b)\\subseteq\\tilde U'(b)$, and $\\mathrm{cl}\\,\\tilde U(b)$ proper; $\\tilde V_a\\subseteq\\tilde U(a)$ open and invariant, with $(|\\tilde V_a|)$ locally finite and covering $|B|$; $\\hat O_{a,b}$ open with $U'(a,b)\\subseteq\\hat O_{a,b}$. It gives $\\hat V$ with (1)–(4), (3) including openness of $|\\hat V_a|$. $\\hat V_a$ is (14.32), built from `lemma_14_3_7`. `CorrExtension.proposition_14_3_8 E hpara Q` is the instantiated form. For $E$ (Lemma 14.3.1 on (P4), (P5)), (P6) `Q` and $|X|$ paracompact, it gives: $A\\subseteq\\partial X$; $\\tilde V$ with the properties of Lemma 14.3.6; $\\hat V$ with (1)–(4), where $\\hat O_{a,a'}$ is `E.OhatObj a a'` (= `E.Ohat ⟨a,_⟩ ⟨a',_⟩`). The neighbourhoods are `Q.nbhdObj a` and `P.nbhdObj a` (Obj-indexed through `dite`; `nbhdObj_of_mem`). `EpGroupoid.isSaturated_boundary`: $\\partial X$ is saturated.",
     "decls": [
-     "Chapter14/CoverVHat · EpGroupoid.isSaturated_boundary_p3w4",
+     "Chapter14/CoverVHat · EpGroupoid.isSaturated_boundary",
      "Chapter14/CoverVHat · EpGroupoid.proposition_14_3_8",
      "Chapter14/CoverVHat · P5Nbhds.P6Nbhds",
      "Chapter14/CoverVHat · P5Nbhds.P6Nbhds.closure_subset",
@@ -830,13 +830,13 @@
      "Chapter14/ZLoopCoherent · SBLocalization.HasThetaLocalEq",
      "Chapter14/ZLoopCoherent · SBLocalization.HasThetaLocalEq.proposition_14_4_6_2",
      "Chapter14/ZLoopCoherent · SBLocalization.ZSections.zero",
-     "Chapter14/ZLoopLimits · EpGroupoid.eq_of_isPreconnected_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.unit_mem_morOn_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.unit_mem_sheet_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.srcInv_unit_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.eq_of_mem_U_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.eq_of_mem_sheet_z5",
-     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.exists_sheet_z5",
+     "Chapter14/ZLoopLimits · EpGroupoid.eq_of_isPreconnected",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.unit_mem_morOn",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.unit_mem_sheet",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.srcInv_unit",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.eq_of_mem_U",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.eq_of_mem_sheet",
+     "Chapter14/ZLoopLimits · EpGroupoid.NaturalRepFinite.exists_sheet_of_mem_morOn",
      "Chapter14/ZLoopLimits · SBLocalization.ZLimitSetting",
      "Chapter14/ZLoopLimits · SBLocalization.ZSections.CompatNbhd",
      "Chapter14/ZLoopLimits · SBLocalization.ZLimitRep",
@@ -965,11 +965,11 @@
     "statement": "`SBLocalization.proposition_14_4_10_hyp D (hP : HasThetaLocalEq D) ha : ∃ O, ∀ z ∈ closure (S.V a), IsOpen (O z) ∧ z ∈ O z ∧ (1) ∧ (2) ∧ (2') ∧ (3) ∧ (4)`. The equivariant, disjoint choice is the general lemma `EpGroupoid.NatNbhd.exists_equivariant_nbhds` (neighbourhoods with a property preserved by shrinking and by the action, chosen on orbit representatives, made stabiliser-invariant and separated from their translates).\n\nWithout the hypothesis: `proposition_14_4_10_of_limit D L hD ha` (abstract) and `ZConcrete.proposition_14_4_10 C ha` (the objects of §14.3, the sections of the good structured tuple at $a$), the conclusion of `proposition_14_4_10_hyp` without `HasThetaLocalEq`.",
     "decls": [
      "Chapter14/ZLoopCoherent · SBLocalization.proposition_14_4_10_hyp",
-     "Chapter14/ZLoopCoherent · SBLocalization.mapsTo_Φ_closure_z4",
-     "Chapter14/ZLoopCoherent · SBLocalization.mapsTo_Φ_Vb_z4",
-     "Chapter14/ZLoopCoherent · SBLocalization.Φ_mem_boundary_z4",
-     "Chapter14/ZLoopCoherent · SBLocalization.mem_boundary_of_Φ_z4",
-     "Chapter14/ZLoopCoherent · SBLocalization.tgt_mem_boundary_iff_z4",
+     "Chapter14/ZLoopCoherent · SBLocalization.mapsTo_Φ_closure",
+     "Chapter14/ZLoopCoherent · SBLocalization.mapsTo_Φ_Vb",
+     "Chapter14/ZLoopCoherent · SBLocalization.Φ_mem_boundary",
+     "Chapter14/ZLoopCoherent · SBLocalization.mem_boundary_of_Φ",
+     "Chapter14/ZLoopCoherent · SBLocalization.tgt_mem_boundary_iff",
      "Chapter14/ZRelationClosure · EpGroupoid.NatNbhd.exists_equivariant_nbhds",
      "Chapter14/ZRelationClosure · EpGroupoid.NatNbhd.image_Φ_eq",
      "Chapter14/ZRelationClosure · EpGroupoid.NatNbhd.isOpen_image_Φ",
@@ -1152,9 +1152,9 @@
      "Chapter14/StructurabilityCriterion · CriterionData.Transport.isStructurable",
      "Chapter14/StructurabilityCriterion · theorem_14_5_5_of_goodSystem",
      "Chapter14/StructurabilityCriterion · theorem_14_5_5",
-     "Chapter14/StructurabilityCriterion · IndexCorr.biact_compHom_gl",
+     "Chapter14/StructurabilityCriterion · IndexCorr.biact_compHom",
      "Chapter14/StructurabilityCriterion · IndexCorr.sat_forall",
-     "Chapter14/StructurabilityCriterion · IndexCorr.ofPerm_compHom_gl"
+     "Chapter14/StructurabilityCriterion · IndexCorr.ofPerm_compHom"
     ]
    },
    "chips": [
@@ -1211,12 +1211,12 @@
    "lean": {
     "statement": "`TransportInput.proposition_14_5_4 (hβ : T.SuppInSat) : proposition_14_5_4_statement T` (the statement of V14.8's setting, exactly). The section is `tsec a b j`, defined through z-arcs (`ZSetup.Arc a b i j φ`): `tsec a b j (t φ) = μ(φ, β_a·ŝᵃᵢ(s φ))` for every arc (`tsec_of_arc`), and $0$ if there is none (`tsec_of_not`). Independence of the arc is `fibAct_bsec_eq`, the text's z-loop argument: two arcs close into a z-loop at $a$ by $\\Gamma(g^{-1}, \\cdot)$, then Proposition 14.4.14 (2) (`sh_zRel`) and the equivariance of $\\hat s^a$. sc⁺ (`isScPlusSectionOn_tsec`): near a target of an arc, a local inverse of $t$ with $\\hat\\tau$ locally constant gives the `transportSection` form; elsewhere the section vanishes off $t(s^{-1}K)$, $K = \\mathrm{cl}\\{y \\in \\tilde U(a) \\mid \\beta_a(y) \\ne 0\\}$, closed by properness of $\\mathrm{cl}\\,\\tilde U(a)$ and (14.53). `tsec_equivariant`, `tsec_compat`, `tsec_boundary`; `tsec_of_pairs`: the chain form agrees with the text's one-step form. Witness of `SuppInSat`: `suppInSat_of_zero`.",
     "decls": [
-     "Chapter14/TransportProof · SBLocalization.IndexCorr.exists_pairs_left_t9",
-     "Chapter14/TransportProof · SBLocalization.IndexCorr.sat_of_pairs_t9",
-     "Chapter14/TransportProof · SBLocalization.IndexCorr.rel_of_sat_t9",
-     "Chapter14/TransportProof · SBLocalization.sectionSmul_congr_t9",
-     "Chapter14/TransportProof · SBLocalization.sectionSmul_of_eq_zero_t9",
-     "Chapter14/TransportProof · SBLocalization.src_mem_boundary_t9",
+     "Chapter14/TransportProof · SBLocalization.IndexCorr.exists_pairs_left",
+     "Chapter14/TransportProof · SBLocalization.IndexCorr.sat_of_pairs",
+     "Chapter14/TransportProof · SBLocalization.IndexCorr.rel_of_sat",
+     "Chapter14/TransportProof · SBLocalization.sectionSmul_congr",
+     "Chapter14/TransportProof · SBLocalization.sectionSmul_of_eq_zero",
+     "Chapter14/TransportProof · SBLocalization.src_mem_boundary",
      "Chapter14/TransportProof · SBLocalization.TransportInput.SuppInSat",
      "Chapter14/TransportProof · SBLocalization.TransportInput.bsec",
      "Chapter14/TransportProof · SBLocalization.TransportInput.isSection_bsec",
@@ -1307,16 +1307,16 @@
     "statement": "The sets $\\hat V_a$ of Proposition 14.3.8, the extended correspondences $\\hat\\tau$ of Proposition 14.3.4 and the boundary sections $s^{0a}_i$ form the data on which §14.4 works."
    },
    "lean": {
-    "statement": "`ZConcrete E Q` (for `E : CorrExtension T P`, `Q : P6Nbhds P`): $x_0 \\in \\partial X$, $A \\subseteq \\partial X$, $\\tilde V_a$, $\\hat V_a$ with the conclusions of Proposition 14.3.8. `ZConcrete.exists_ E hpara Q x₀`; `exists_zConcrete_of_hasP4 hT hpara x₀` (the chain (P5), Lemma 14.3.1, (P6), Proposition 14.3.8); `exists_zConcrete_of_tame hX hpara x₀` (tame $X$, $|X|$ paracompact, $\\partial X \\ne \\emptyset$: the zero tuple and Proposition 14.2.3 for (P4)). `C.toZData : A.X.ZData` ($\\tilde U(a)$ = `Q.nbhdObj a`, $\\hat V_a$, $I_a = I_{r(a)}$ of the boundary structure, the action of $G_a$ through `isoRetr_z5`, $\\hat\\tau_{a,a'}$ = `E.tauHat (r a) (r a')`; `diag` from `tauHat_Γ_of_VHat`, `swap` from `tauHat_inv_of_VHat`, local constancy from `tauHat_locallyConstant`, $\\mathrm{cl}_X\\hat V_a \\subseteq \\tilde U(a)$ from Lemmas 13.1.1, 14.3.6 (1)). `C.toLimit : ZLimitSetting C.toZData` ($M_{b,c} = \\hat O_{b,c}$; (P6) properness; Proposition 14.3.8 (3)). `C.toZSections` (the sections $s^x_i$ of the tuple; (14.45) from Definition 14.1.3 (2); Definition 14.1.7 (4) from `T.tau.compat` and `tauHat_eq_tau`), `C.compatNbhd`. Index transport: $r$ = `bdryRetr_z5 x₀` ($X \\to \\partial X$, the identity on $\\partial X$), no casts.",
+    "statement": "`ZConcrete E Q` (for `E : CorrExtension T P`, `Q : P6Nbhds P`): $x_0 \\in \\partial X$, $A \\subseteq \\partial X$, $\\tilde V_a$, $\\hat V_a$ with the conclusions of Proposition 14.3.8. `ZConcrete.exists_ E hpara Q x₀`; `exists_zConcrete_of_hasP4 hT hpara x₀` (the chain (P5), Lemma 14.3.1, (P6), Proposition 14.3.8); `exists_zConcrete_of_tame hX hpara x₀` (tame $X$, $|X|$ paracompact, $\\partial X \\ne \\emptyset$: the zero tuple and Proposition 14.2.3 for (P4)). `C.toZData : A.X.ZData` ($\\tilde U(a)$ = `Q.nbhdObj a`, $\\hat V_a$, $I_a = I_{r(a)}$ of the boundary structure, the action of $G_a$ through `isoRetr`, $\\hat\\tau_{a,a'}$ = `E.tauHat (r a) (r a')`; `diag` from `tauHat_Γ_of_VHat`, `swap` from `tauHat_inv_of_VHat`, local constancy from `tauHat_locallyConstant`, $\\mathrm{cl}_X\\hat V_a \\subseteq \\tilde U(a)$ from Lemmas 13.1.1, 14.3.6 (1)). `C.toLimit : ZLimitSetting C.toZData` ($M_{b,c} = \\hat O_{b,c}$; (P6) properness; Proposition 14.3.8 (3)). `C.toZSections` (the sections $s^x_i$ of the tuple; (14.45) from Definition 14.1.3 (2); Definition 14.1.7 (4) from `T.tau.compat` and `tauHat_eq_tau`), `C.compatNbhd`. Index transport: $r$ = `bdryRetr x₀` ($X \\to \\partial X$, the identity on $\\partial X$), no casts.",
     "decls": [
-     "Chapter14/ZLoopSetting · SBLocalization.IndexCorr.sat_pairs_z5",
-     "Chapter14/ZLoopSetting · SBLocalization.bdryRetr_z5",
-     "Chapter14/ZLoopSetting · SBLocalization.bdryRetr_z5_of_mem",
-     "Chapter14/ZLoopSetting · SBLocalization.coe_bdryRetr_z5_of_mem",
-     "Chapter14/ZLoopSetting · SBLocalization.isoRetr_z5",
-     "Chapter14/ZLoopSetting · SBLocalization.isoRetr_z5_val",
-     "Chapter14/ZLoopSetting · SBLocalization.rep_isoRetr_z5",
-     "Chapter14/ZLoopSetting · SBLocalization.ofPerm_isoRetr_z5",
+     "Chapter14/ZLoopSetting · SBLocalization.IndexCorr.sat_pairs",
+     "Chapter14/ZLoopSetting · SBLocalization.bdryRetr",
+     "Chapter14/ZLoopSetting · SBLocalization.bdryRetr_of_mem",
+     "Chapter14/ZLoopSetting · SBLocalization.coe_bdryRetr_of_mem",
+     "Chapter14/ZLoopSetting · SBLocalization.isoRetr",
+     "Chapter14/ZLoopSetting · SBLocalization.isoRetr_val",
+     "Chapter14/ZLoopSetting · SBLocalization.rep_isoRetr",
+     "Chapter14/ZLoopSetting · SBLocalization.ofPerm_isoRetr",
      "Chapter14/ZLoopSetting · SBLocalization.ZConcrete",
      "Chapter14/ZLoopSetting · SBLocalization.ZConcrete.exists_",
      "Chapter14/ZLoopSetting · SBLocalization.ZConcrete.isProper",
@@ -1338,7 +1338,7 @@
     "objects indexed through $\\partial X$ (named)"
    ],
    "diff": [
-    "The setting is the text's; the identification of objects with boundary points is named. The base point $x_0$ only fixes irrelevant values at objects outside $\\partial X$ (all of $A$ lies in $\\partial X$). The index types on $x \\in \\partial X$ are reached through `bdryRetr_z5` and `isoRetr_z5` (a group homomorphism $G_a \\to G_{r(a)}$, the identity of morphisms on $\\partial X$). Gap G.169 closed."
+    "The setting is the text's; the identification of objects with boundary points is named. The base point $x_0$ only fixes irrelevant values at objects outside $\\partial X$ (all of $A$ lies in $\\partial X$). The index types on $x \\in \\partial X$ are reached through `bdryRetr` and `isoRetr` (a group homomorphism $G_a \\to G_{r(a)}$, the identity of morphisms on $\\partial X$). Gap G.169 closed."
    ]
   },
   {
@@ -1468,7 +1468,7 @@
     "statement": "A compatible assignment over a tame face-structured $X$ defines a structured $\\tilde\\Lambda$ on $W|\\partial X$ with $\\Lambda|F = \\Lambda_F$. Hence (Theorem 14.1.9) $\\Lambda$ extends to a structurable $\\Lambda'$ on $W$ with $N(\\Lambda') \\le f$ and $\\mathrm{dom\\text{-}supp}(\\Lambda') \\subseteq \\tilde U$."
    },
    "lean": {
-    "statement": "Input `D : CompatibleFaceData A`: one index family `ι`, for each face a `FaceStructuredTuple A F ι`, and agreement of Λ on $W|(F \\cap F')$, of the sections on $U_F(x) \\cap U_{F'}(x) \\cap F \\cap F'$ and of the correspondences on morphisms between those sets. `D.isCompatibleAssignment`: such data is compatible (Definition 14.6.2). `exists_adapted hX hpara`: a boundary good system with faces through points of $V(x)$ containing $x$, $V(x) \\subseteq V_F(x)$ for $F \\ni x$, and agreeing natural actions (Theorem 14.1.6, `exists_le_of_finite`, `exists_refinement`). On it `S` ($s^x_i := s^x_{F,i}$ on $F$, sc⁺ by `isFaceScPlusSectionOn_of_local`) and `tau`; `glue hX hpara : BoundaryStructuredTuple A` with `glue_U_inter_subset`, `glue_s`, `glue_τ`. **`theorem_14_6_3_hyp (hX : A.X.IsEpFaceStructured) (hpara : A.X.HasParacompactOrbitSpace)`**: `IsBoundaryStructurable A D.Λg ∧ ∀ F hF w, P w ∈ F → D.Λg w = (D.T F hF).Λ w`. `theorem_14_6_3_extension_hyp (h1419 : theorem_14_1_9_statement A) …`, with the hypotheses of Theorem 14.1.9, gives $\\Lambda'$ structurable with $N(\\Lambda') \\le f$, $\\mathrm{dom\\text{-}supp}\\,\\Lambda' \\subseteq \\tilde U$ and $\\Lambda' = \\Lambda_F$ over every face. Nonvacuity: `CompatibleFaceData.zero`, `zero_Λg`.\n\nExtension part: **`CompatibleFaceData.theorem_14_6_3_extension D hX hpara hpart N hN Ũ …`**, with the hypotheses of Theorem 14.1.9 only, from `theorem_14_1_9` (V14.8); `theorem_14_6_3_extension_a6` (tame charts and `ChargesBoundary` as arguments) and `theorem_14_6_3_extension_hyp` (from `theorem_14_1_9_statement A`) are its steps.\n\nWith the sections in the equivalence (`Chapter14/FaceSectionCompatible`): `RelTuple.SecEquiv` (Definition 13.3.8 together with $s'^x_i = s^x_i$ near $x$; it implies `RelTuple.Equiv`), `SectionCompatibleFaceData A` (one index family, a `FaceStructuredTuple` per face, $\\tilde\\Lambda_F|F'$ `SecEquiv` $\\tilde\\Lambda_{F'}|F$ for all faces), `SectionCompatibleFaceData.toCompatible hX` (shrinks $U_F(x)$ into the comparison neighbourhoods of the finitely many faces through $x$), and **`SectionCompatibleFaceData.theorem_14_6_3`**, **`theorem_14_6_3_extension`**, with the text's hypotheses; `CompatibleFaceData.toSectionCompatible` is the converse. With Definition 13.3.8 as printed (`Chapter14/FaceAssemblyCorner`, on `QuadrantBundle.quadSEP 2 1 2`, $X = [0,\\infty)^2 \\times \\mathbb{R}$, fibre $\\mathbb{R}^2$): `isCompatibleAssignment_Λt`, `not_isBoundaryScPlusMultisection_of_eq_on_faces`, `not_theorem_14_6_3_class_statement`, `not_exists_compatibleFaceData`, `not_exists_sectionCompatibleFaceData` (G.173). Witness with a corner and non-zero sections: `cornerFaceData`, `cornerSectionCompatible`, `theorem_14_6_3_corner_witness`.\n\nDifferent index families on different faces (`Chapter14/FaceIndexFamilies`): `SectionCompatibleFaceFamilies A` (one index family per face, $I^F_x = I^{F'}_x$ only on $F \\cap F'$; the identification of the index sets of equivalent tuples is equivariant, `RelTuple.Equiv.cast_smul`, proved), relabelled to one family (`commonFamily`, `toData`), **`SectionCompatibleFaceFamilies.theorem_14_6_3`**, **`SectionCompatibleFaceFamilies.theorem_14_6_3_extension`** with the same hypotheses (converse `SectionCompatibleFaceData.toFamilies`); on `SecEquiv` classes (Definitions 14.6.1, 14.6.2 on classes), **`IsSecCompatibleAssignment.theorem_14_6_3`**. Witnesses: `FaceCorner.theorem_14_6_3_families_witness` (per-face families that differ, `card_familiesWitness_ne`: 1 against 2 elements; the glued $\\Lambda$ charges a non-zero fibre point over the corner) and **`FaceCorner.theorem_14_6_3_extension_corner`** (`Chapter14/CornerExtensionWitness`: every hypothesis of `SectionCompatibleFaceData.theorem_14_6_3_extension` on the corner example with an auxiliary norm, $\\tilde U = X$, and $\\Lambda'$ charging a non-zero point of the fibre over a corner point, $d = 2$).",
+    "statement": "Input `D : CompatibleFaceData A`: one index family `ι`, for each face a `FaceStructuredTuple A F ι`, and agreement of Λ on $W|(F \\cap F')$, of the sections on $U_F(x) \\cap U_{F'}(x) \\cap F \\cap F'$ and of the correspondences on morphisms between those sets. `D.isCompatibleAssignment`: such data is compatible (Definition 14.6.2). `exists_adapted hX hpara`: a boundary good system with faces through points of $V(x)$ containing $x$, $V(x) \\subseteq V_F(x)$ for $F \\ni x$, and agreeing natural actions (Theorem 14.1.6, `exists_le_of_finite`, `exists_refinement`). On it `S` ($s^x_i := s^x_{F,i}$ on $F$, sc⁺ by `isFaceScPlusSectionOn_of_local`) and `tau`; `glue hX hpara : BoundaryStructuredTuple A` with `glue_U_inter_subset`, `glue_s`, `glue_τ`. **`theorem_14_6_3_hyp (hX : A.X.IsEpFaceStructured) (hpara : A.X.HasParacompactOrbitSpace)`**: `IsBoundaryStructurable A D.Λg ∧ ∀ F hF w, P w ∈ F → D.Λg w = (D.T F hF).Λ w`. `theorem_14_6_3_extension_hyp (h1419 : theorem_14_1_9_statement A) …`, with the hypotheses of Theorem 14.1.9, gives $\\Lambda'$ structurable with $N(\\Lambda') \\le f$, $\\mathrm{dom\\text{-}supp}\\,\\Lambda' \\subseteq \\tilde U$ and $\\Lambda' = \\Lambda_F$ over every face. Nonvacuity: `CompatibleFaceData.zero`, `zero_Λg`.\n\nExtension part: **`CompatibleFaceData.theorem_14_6_3_extension D hX hpara hpart N hN Ũ …`**, with the hypotheses of Theorem 14.1.9 only, from `theorem_14_1_9` (V14.8); `theorem_14_6_3_extension_charged` (tame charts and `ChargesBoundary` as arguments) and `theorem_14_6_3_extension_hyp` (from `theorem_14_1_9_statement A`) are its steps.\n\nWith the sections in the equivalence (`Chapter14/FaceSectionCompatible`): `RelTuple.SecEquiv` (Definition 13.3.8 together with $s'^x_i = s^x_i$ near $x$; it implies `RelTuple.Equiv`), `SectionCompatibleFaceData A` (one index family, a `FaceStructuredTuple` per face, $\\tilde\\Lambda_F|F'$ `SecEquiv` $\\tilde\\Lambda_{F'}|F$ for all faces), `SectionCompatibleFaceData.toCompatible hX` (shrinks $U_F(x)$ into the comparison neighbourhoods of the finitely many faces through $x$), and **`SectionCompatibleFaceData.theorem_14_6_3`**, **`theorem_14_6_3_extension`**, with the text's hypotheses; `CompatibleFaceData.toSectionCompatible` is the converse. With Definition 13.3.8 as printed (`Chapter14/FaceAssemblyCorner`, on `QuadrantBundle.quadSEP 2 1 2`, $X = [0,\\infty)^2 \\times \\mathbb{R}$, fibre $\\mathbb{R}^2$): `isCompatibleAssignment_Λt`, `not_isBoundaryScPlusMultisection_of_eq_on_faces`, `not_theorem_14_6_3_class_statement`, `not_exists_compatibleFaceData`, `not_exists_sectionCompatibleFaceData` (G.173). Witness with a corner and non-zero sections: `cornerFaceData`, `cornerSectionCompatible`, `theorem_14_6_3_corner_witness`.\n\nDifferent index families on different faces (`Chapter14/FaceIndexFamilies`): `SectionCompatibleFaceFamilies A` (one index family per face, $I^F_x = I^{F'}_x$ only on $F \\cap F'$; the identification of the index sets of equivalent tuples is equivariant, `RelTuple.Equiv.cast_smul`, proved), relabelled to one family (`commonFamily`, `toData`), **`SectionCompatibleFaceFamilies.theorem_14_6_3`**, **`SectionCompatibleFaceFamilies.theorem_14_6_3_extension`** with the same hypotheses (converse `SectionCompatibleFaceData.toFamilies`); on `SecEquiv` classes (Definitions 14.6.1, 14.6.2 on classes), **`IsSecCompatibleAssignment.theorem_14_6_3`**. Witnesses: `FaceCorner.theorem_14_6_3_families_witness` (per-face families that differ, `card_familiesWitness_ne`: 1 against 2 elements; the glued $\\Lambda$ charges a non-zero fibre point over the corner) and **`FaceCorner.theorem_14_6_3_extension_corner`** (`Chapter14/CornerExtensionWitness`: every hypothesis of `SectionCompatibleFaceData.theorem_14_6_3_extension` on the corner example with an auxiliary norm, $\\tilde U = X$, and $\\Lambda'$ charging a non-zero point of the fibre over a corner point, $d = 2$).",
     "decls": [
      "Chapter14/FaceAssembly · SBLocalization.CompatibleFaceData",
      "Chapter14/FaceAssembly · SBLocalization.CompatibleFaceData.isCompatibleAssignment",
@@ -1497,7 +1497,7 @@
      "Chapter14/FaceAssembly · SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_hyp",
      "Chapter14/FaceAssembly · SBLocalization.CompatibleFaceData.zero",
      "Chapter14/FaceAssembly · SBLocalization.CompatibleFaceData.zero_Λg",
-     "Chapter14/BoundaryExtensionTheorem · SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_a6",
+     "Chapter14/BoundaryExtensionTheorem · SBLocalization.CompatibleFaceData.theorem_14_6_3_extension_charged",
      "Chapter14/FaceSectionCompatible · SBLocalization.RelTuple.SecEquiv",
      "Chapter14/FaceSectionCompatible · SBLocalization.SectionCompatibleFaceData",
      "Chapter14/FaceSectionCompatible · SBLocalization.SectionCompatibleFaceData.toCompatible",
@@ -1549,19 +1549,19 @@
     "statement": "For a generalized strong bundle isomorphism $\\mathfrak f : W \\to W'$ between strong bundles over tame ep-groupoids with paracompact orbit spaces, and $\\Lambda$, $\\Lambda'$ structurable over the boundary, $\\bar{\\mathfrak f}_*\\Lambda$ and $\\bar{\\mathfrak f}^*\\Lambda'$ are structurable over the boundary (proof: for a representative $W \\leftarrow V \\to W'$ with $V$ over a tame ep-groupoid, as in Theorems 13.4.1 and 13.4.3)."
    },
    "lean": {
-    "statement": "Class level (`Chapter14/FacePush`, `FaceTransport`): **`GenSBMap.proposition_14_1_8 (hf : f.IsGeneralizedIso) (hA : A.X.IsTame) (hA' : A'.X.IsTame) (h : IsBoundaryStructurable A Λ) : IsBoundaryStructurable A' (pushMult hf Λ)`** and **`GenSBMap.proposition_14_1_8_pullMult hf hA h`** (pull-back; only $X$ tame). For a representative `D : SDiagram A A'` with $\\Psi$ an equivalence: `proposition_14_1_8_tame`, `proposition_14_1_8_pullMult_tame` (tame $X$, $X'$) and `proposition_14_1_8`, `proposition_14_1_8_pullMult` (tame middle, as in the text's proof); the middle is tame when $X$ is (`SDiagram.isTame_B_p6`). The two steps without hypotheses: `PullMap.isBoundaryStructurable_pull` (any `PullMap`) and `isBoundaryStructurable_pushMult` (equivalences). The transport hypotheses of the form `proposition_14_1_8_hyp` are theorems: `PullMap.facePull_hyp (M : PullMap C A) : M.FacePull_hyp` and `facePush_hyp_of_equivalence`, from the key lemma `isFaceScPlusSectionOn_of_localIso` ((1) of Definition 14.1.3 is transported along any local strong bundle isomorphism: a tame chart at $x$ is restricted and transported along $L^{-1}$, using Part I's `StrongBundle.LocalIso.transportChart`, `isTameChart_transportChart`), with `exists_localIso_act_p6` (the action of a morphism as a local strong bundle isomorphism, with its formula), `IsScPlusOnFaceNear.of_restrict_p6`, `isFaceScPlusSectionOn_iff_singleton`.\n\nThe form with transport hypotheses: `proposition_14_1_8_hyp (D : SDiagram A A') (hΨ) (hB : D.B.X.IsTame) (hA' : A'.X.IsTame) (hpull : (PullMap.ofEquivalence D.isEquivalence_Φ).FacePull_hyp) (hpush : FacePush_hyp D.Ψ) (h : IsBoundaryStructurable A Λ) : IsBoundaryStructurable A' (D.pushMult hΨ Λ)`; `proposition_14_1_8_pullMult_hyp` (the same for $[D]^*\\Lambda' = \\Phi_*\\Psi^*\\Lambda'$). The two steps: `PullMap.isBoundaryStructurable_pull_hyp` (any `PullMap`, e.g. equivalences and proper coverings; `proposition_14_1_8_pull_hyp` for equivalences) and `isBoundaryStructurable_pushMult_hyp`. On the way: `PullMap.mem_boundary_iff` ($F^{-1}(\\partial X') = \\partial X$), `isBoundaryWFunctor_pushMult_fm` (Lemma 11.5.2 over the boundary), `pushMult_eq_bdry_fm`, `exists_bdryPullData`, `bdryPushGood` (good systems for the boundary carried along, each neighbourhood good by Proposition 14.1.1), `bdryPullTau`, `bdryPushTau`, `IsFaceScPlusSectionOn.congr_fm` ((1) of Definition 14.1.3 depends only on the values on $\\partial X$ near $U$), `symm_mem_boundary_fm`.",
+    "statement": "Class level (`Chapter14/FacePush`, `FaceTransport`): **`GenSBMap.proposition_14_1_8 (hf : f.IsGeneralizedIso) (hA : A.X.IsTame) (hA' : A'.X.IsTame) (h : IsBoundaryStructurable A Λ) : IsBoundaryStructurable A' (pushMult hf Λ)`** and **`GenSBMap.proposition_14_1_8_pullMult hf hA h`** (pull-back; only $X$ tame). For a representative `D : SDiagram A A'` with $\\Psi$ an equivalence: `proposition_14_1_8_tame`, `proposition_14_1_8_pullMult_tame` (tame $X$, $X'$) and `proposition_14_1_8`, `proposition_14_1_8_pullMult` (tame middle, as in the text's proof); the middle is tame when $X$ is (`SDiagram.isTame_B_ep`). The two steps without hypotheses: `PullMap.isBoundaryStructurable_pull` (any `PullMap`) and `isBoundaryStructurable_pushMult` (equivalences). The transport hypotheses of the form `proposition_14_1_8_hyp` are theorems: `PullMap.facePull_hyp (M : PullMap C A) : M.FacePull_hyp` and `facePush_hyp_of_equivalence`, from the key lemma `isFaceScPlusSectionOn_of_localIso` ((1) of Definition 14.1.3 is transported along any local strong bundle isomorphism: a tame chart at $x$ is restricted and transported along $L^{-1}$, using Part I's `StrongBundle.LocalIso.transportChart`, `isTameChart_transportChart`), with `exists_localIso_act` (the action of a morphism as a local strong bundle isomorphism, with its formula), `IsScPlusOnFaceNear.of_restrict`, `isFaceScPlusSectionOn_iff_singleton`.\n\nThe form with transport hypotheses: `proposition_14_1_8_hyp (D : SDiagram A A') (hΨ) (hB : D.B.X.IsTame) (hA' : A'.X.IsTame) (hpull : (PullMap.ofEquivalence D.isEquivalence_Φ).FacePull_hyp) (hpush : FacePush_hyp D.Ψ) (h : IsBoundaryStructurable A Λ) : IsBoundaryStructurable A' (D.pushMult hΨ Λ)`; `proposition_14_1_8_pullMult_hyp` (the same for $[D]^*\\Lambda' = \\Phi_*\\Psi^*\\Lambda'$). The two steps: `PullMap.isBoundaryStructurable_pull_hyp` (any `PullMap`, e.g. equivalences and proper coverings; `proposition_14_1_8_pull_hyp` for equivalences) and `isBoundaryStructurable_pushMult_hyp`. On the way: `PullMap.mem_boundary_iff` ($F^{-1}(\\partial X') = \\partial X$), `isBoundaryWFunctor_pushMult` (Lemma 11.5.2 over the boundary), `pushMult_eq_bdry`, `exists_bdryPullData`, `bdryPushGood` (good systems for the boundary carried along, each neighbourhood good by Proposition 14.1.1), `bdryPullTau`, `bdryPushTau`, `IsFaceScPlusSectionOn.congr_of_eqOn_boundary` ((1) of Definition 14.1.3 depends only on the values on $\\partial X$ near $U$), `symm_mem_boundary`.",
     "decls": [
-     "Chapter14/FaceTransport · IsScPlusOnFaceNear.of_restrict_p6",
+     "Chapter14/FaceTransport · IsScPlusOnFaceNear.of_restrict",
      "Chapter14/FaceTransport · SBLocalization.isFaceScPlusSectionOn_iff_singleton",
      "Chapter14/FaceTransport · SBLocalization.isFaceScPlusSectionOn_of_localIso",
      "Chapter14/FaceTransport · SBLocalization.PullMap.facePull_hyp",
-     "Chapter14/FacePush · SBLocalization.exists_localIso_act_p6",
+     "Chapter14/FacePush · SBLocalization.exists_localIso_act",
      "Chapter14/FacePush · SBLocalization.facePush_hyp_of_equivalence",
      "Chapter14/FacePush · SBLocalization.PullMap.isBoundaryStructurable_pull",
      "Chapter14/FacePush · SBLocalization.isBoundaryStructurable_pushMult",
      "Chapter14/FacePush · SBLocalization.proposition_14_1_8",
      "Chapter14/FacePush · SBLocalization.proposition_14_1_8_pullMult",
-     "Chapter14/FacePush · SBLocalization.SDiagram.isTame_B_p6",
+     "Chapter14/FacePush · SBLocalization.SDiagram.isTame_B_ep",
      "Chapter14/FacePush · SBLocalization.proposition_14_1_8_tame",
      "Chapter14/FacePush · SBLocalization.proposition_14_1_8_pullMult_tame",
      "Chapter14/FacePush · SBLocalization.GenSBMap.proposition_14_1_8",
@@ -1569,8 +1569,8 @@
      "Chapter14/BoundaryPull · SBLocalization.PullMap.FacePull_hyp",
      "Chapter14/BoundaryPull · SBLocalization.PullMap.facePull_hyp_id",
      "Chapter14/BoundaryPull · SBLocalization.PullMap.facePull_hyp_of_boundary_eq_empty",
-     "Chapter14/BoundaryPull · SBLocalization.IsFaceScPlusSectionOn.congr_fm",
-     "Chapter14/BoundaryPull · SBLocalization.symm_mem_boundary_fm",
+     "Chapter14/BoundaryPull · SBLocalization.IsFaceScPlusSectionOn.congr_of_eqOn_boundary",
+     "Chapter14/BoundaryPull · SBLocalization.symm_mem_boundary",
      "Chapter14/BoundaryPull · SBLocalization.PullMap.mem_boundary_iff",
      "Chapter14/BoundaryPull · SBLocalization.PullMap.BdryPullData",
      "Chapter14/BoundaryPull · SBLocalization.PullMap.exists_bdryPullData",
@@ -1581,8 +1581,8 @@
      "Chapter14/BoundaryPull · SBLocalization.proposition_14_1_8_pull_hyp",
      "Chapter14/BoundaryPush · SBLocalization.FacePush_hyp",
      "Chapter14/BoundaryPush · SBLocalization.facePush_hyp_of_boundary_eq_empty",
-     "Chapter14/BoundaryPush · SBLocalization.isBoundaryWFunctor_pushMult_fm",
-     "Chapter14/BoundaryPush · SBLocalization.pushMult_eq_bdry_fm",
+     "Chapter14/BoundaryPush · SBLocalization.isBoundaryWFunctor_pushMult",
+     "Chapter14/BoundaryPush · SBLocalization.pushMult_eq_bdry",
      "Chapter14/BoundaryPush · SBLocalization.bdryPushGood",
      "Chapter14/BoundaryPush · SBLocalization.bdryPushStructure",
      "Chapter14/BoundaryPush · SBLocalization.bdryPushTau",
@@ -1609,11 +1609,11 @@
     "statement": "The functors $\\beta_a$ of Lemma 14.5.1 for the $\\hat V_a$ of Proposition 14.3.8, with $\\mathrm{cl}_X\\{y \\in \\tilde U(a) \\mid \\beta_a(y) \\ne 0\\} \\subseteq \\hat V_a$ (14.53)."
    },
    "lean": {
-    "statement": "`tgt_mem_of_closure_a6`: for a natural neighbourhood $\\tilde U(x)$ and invariant $V \\subseteq \\tilde U(x)$, a morphism from $V$ to a point of $\\mathrm{cl}\\,\\tilde U(x)$ ends in $V$ (a limit of morphisms with both ends in $\\tilde U(x)$, which are $\\Gamma(g, \\cdot)$; $G_x$ is finite, so one $g$ works, and $\\Gamma(g, s(\\psi)) = \\psi$ is closed near the limit). `closure_support_subset_a6`: hence `tsupport β ⊆ π⁻¹π(V)` gives (14.53). `ZConcrete.exists_betaSpec`: Lemma 14.5.1 on the cover of the objects of §14.3, with $\\beta_a := 0$ off $A$ (`ZConcrete.BetaSpec`).",
+    "statement": "`tgt_mem_of_closure`: for a natural neighbourhood $\\tilde U(x)$ and invariant $V \\subseteq \\tilde U(x)$, a morphism from $V$ to a point of $\\mathrm{cl}\\,\\tilde U(x)$ ends in $V$ (a limit of morphisms with both ends in $\\tilde U(x)$, which are $\\Gamma(g, \\cdot)$; $G_x$ is finite, so one $g$ works, and $\\Gamma(g, s(\\psi)) = \\psi$ is closed near the limit). `closure_support_subset`: hence `tsupport β ⊆ π⁻¹π(V)` gives (14.53). `ZConcrete.exists_betaSpec`: Lemma 14.5.1 on the cover of the objects of §14.3, with $\\beta_a := 0$ off $A$ (`ZConcrete.BetaSpec`).",
     "decls": [
-     "Chapter14/AssemblyInputInstance · SBLocalization.tgt_mem_of_closure_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.closure_support_subset_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.exists_mor_of_ne_zero_a6",
+     "Chapter14/AssemblyInputInstance · SBLocalization.tgt_mem_of_closure",
+     "Chapter14/AssemblyInputInstance · SBLocalization.closure_support_subset",
+     "Chapter14/AssemblyInputInstance · SBLocalization.exists_mor_of_ne_zero",
      "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.BetaSpec",
      "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.exists_betaSpec"
     ]
@@ -1622,7 +1622,7 @@
     "no shrinking of the cover needed"
    ],
    "diff": [
-    "(14.53) holds for the $\\hat V_a$ themselves, by `tgt_mem_of_closure_a6`; a shrinking of the cover is not needed."
+    "(14.53) holds for the $\\hat V_a$ themselves, by `tgt_mem_of_closure`; a shrinking of the cover is not needed."
    ]
   },
   {
@@ -1635,17 +1635,17 @@
     "statement": "The objects of §14.3 (Proposition 14.3.8), Proposition 14.4.14 for them, and Lemma 14.5.1 with $B = \\partial X$ give the data from which $\\Lambda'$ is assembled."
    },
    "lean": {
-    "statement": "`ZConcrete.transportInput_a6 C hB hpu hβ : TransportInput A C.toZData.toZSetup` (the local extensions `ZConcrete.shA6` from `ZConcrete.proposition_14_4_14`, $s^0$ from `toZSections`, local constancy from `ZData.locallyConstant`, (14.53) from V14.45). `ZConcrete.assemblyInput_a6 C hB hpu hβ (hch : ChargesBoundary T.Λ) : AssemblyInput A T.Λ` (`finite_τ` from `finite_tauHat`, `biact_τ` through `ZConcrete.biact_eq_a6`, `rep` and `functor` from the tuple, `nonempty_I` from `ChargesBoundary`). **`exists_assemblyInput_a6 hX hpara hpu hB hΛ hch : Nonempty (AssemblyInput A Λ)`**: Proposition 14.2.3, `exists_zConcrete_of_hasP4`, Theorem 7.5.7, Lemma 14.5.1; for $\\partial X = \\emptyset$ `emptyAssemblyInput`. Both further arguments of `exists_assemblyInput_a6` are theorems: `hB` is `SEP.exists_isTameChart` and `hch` is `IsBoundaryStructurable.chargesBoundary` (for a tuple, `BoundaryStructuredTuple.chargesBoundary`); `assemblyHyp_holds` supplies them.",
+    "statement": "`ZConcrete.transportInput C hB hpu hβ : TransportInput A C.toZData.toZSetup` (the local extensions `ZConcrete.localExt` from `ZConcrete.proposition_14_4_14`, $s^0$ from `toZSections`, local constancy from `ZData.locallyConstant`, (14.53) from V14.45). `ZConcrete.assemblyInput C hB hpu hβ (hch : ChargesBoundary T.Λ) : AssemblyInput A T.Λ` (`finite_τ` from `finite_tauHat`, `biact_τ` through `ZConcrete.biact_eq`, `rep` and `functor` from the tuple, `nonempty_I` from `ChargesBoundary`). **`exists_assemblyInput hX hpara hpu hB hΛ hch : Nonempty (AssemblyInput A Λ)`**: Proposition 14.2.3, `exists_zConcrete_of_hasP4`, Theorem 7.5.7, Lemma 14.5.1; for $\\partial X = \\emptyset$ `emptyAssemblyInput`. Both further arguments of `exists_assemblyInput` are theorems: `hB` is `SEP.exists_isTameChart` and `hch` is `IsBoundaryStructurable.chargesBoundary` (for a tuple, `BoundaryStructuredTuple.chargesBoundary`); `assemblyHyp_holds` supplies them.",
     "decls": [
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.shA6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.shA6_spec",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.transportInput_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.Γ_eq_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.Φ_eq_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.biact_eq_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.biact_τ_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.assemblyInput_a6",
-     "Chapter14/AssemblyInputInstance · SBLocalization.exists_assemblyInput_a6",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.localExt",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.localExt_spec",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.transportInput",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.Γ_eq",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.Φ_eq",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.biact_eq",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.biact_τ",
+     "Chapter14/AssemblyInputInstance · SBLocalization.ZConcrete.assemblyInput",
+     "Chapter14/AssemblyInputInstance · SBLocalization.exists_assemblyInput",
      "Chapter14/BoundaryExtensionTheorem · SBLocalization.assemblyHyp_holds",
      "Chapter10/TameBundleCharts · SEP.exists_isTameChart",
      "Chapter10/TameBundleCharts · StrongBundle.exists_isTameChart",
@@ -1739,7 +1739,7 @@
    "label": "§14.1, Proposition 14.1.8, p. 645 (2017: Proposition 14.1)",
    "page": 645,
    "book": "For a generalized strong bundle isomorphism $\\mathfrak f$, $\\bar{\\mathfrak f}^*\\Lambda'$ and $\\bar{\\mathfrak f}_*\\Lambda$ are structurable over the boundary; the proof is \"similar to\" Theorems 13.4.1 and 13.4.3.",
-   "instead": "**Formalized** (V14.44; `Chapter14/FacePush`, `FaceTransport`): the transport of the face condition is proved (`PullMap.facePull_hyp` for every `PullMap`, `facePush_hyp_of_equivalence` for every strong bundle equivalence, from `isFaceScPlusSectionOn_of_localIso` and Part I's `StrongBundle.LocalIso.transportChart`), and the class-level form holds (`GenSBMap.proposition_14_1_8`, `GenSBMap.proposition_14_1_8_pullMult`; the middle is tame when $X$ is, `SDiagram.isTame_B_p6`). No hypothesis beyond the text's; paracompactness is not used.",
+   "instead": "**Formalized** (V14.44; `Chapter14/FacePush`, `FaceTransport`): the transport of the face condition is proved (`PullMap.facePull_hyp` for every `PullMap`, `facePush_hyp_of_equivalence` for every strong bundle equivalence, from `isFaceScPlusSectionOn_of_localIso` and Part I's `StrongBundle.LocalIso.transportChart`), and the class-level form holds (`GenSBMap.proposition_14_1_8`, `GenSBMap.proposition_14_1_8_pullMult`; the middle is tame when $X$ is, `SDiagram.isTame_B_ep`). No hypothesis beyond the text's; paracompactness is not used.",
    "decls": [
     "Chapter14/BoundaryStructured · IsBoundaryStructurable",
     "Chapter13/MultisectionPushforward · SBLocalization.GenSBMap.isStructurable_pullMult",
@@ -1799,7 +1799,7 @@
    "label": "§§14.3–14.4, (14.33)–(14.36), p. 657",
    "page": 657,
    "book": "The sets $\\hat V_a$ of Proposition 14.3.8, the extended correspondences $\\hat\\tau$ of Proposition 14.3.4 and the boundary sections $s^{0a}_i$ form the data on which §14.4 works.",
-   "instead": "**Formalized** (V14.39; `Chapter14/ZLoopSetting.lean`): `ZConcrete E Q` (the objects of Proposition 14.3.8), `ZConcrete.toZData`, `toLimit`, `toZSections`, `compatNbhd`, with `exists_zConcrete_of_hasP4` and `exists_zConcrete_of_tame` (tame $X$, $|X|$ paracompact, $\\partial X \\ne \\emptyset$). The index types on $x \\in \\partial X$ are reached through `bdryRetr_z5` and `isoRetr_z5`, with no casts.",
+   "instead": "**Formalized** (V14.39; `Chapter14/ZLoopSetting.lean`): `ZConcrete E Q` (the objects of Proposition 14.3.8), `ZConcrete.toZData`, `toLimit`, `toZSections`, `compatNbhd`, with `exists_zConcrete_of_hasP4` and `exists_zConcrete_of_tame` (tame $X$, $|X|$ paracompact, $\\partial X \\ne \\emptyset$). The index types on $x \\in \\partial X$ are reached through `bdryRetr` and `isoRetr`, with no casts.",
    "decls": [
     "Chapter14/ZLoopDeform · EpGroupoid.ZData",
     "Chapter14/ZLoopCoherent · SBLocalization.ZSections",
@@ -1838,15 +1838,15 @@
    "label": "§§14.3–14.5, proof of Theorem 14.1.9, pp. 656–677 (2017: §§14.3–14.5); Theorem 14.1.9, p. 646 (2017: Theorem 14.2)",
    "page": 656,
    "book": "The objects of §14.3 (Proposition 14.3.8), Proposition 14.4.14 for them, and Lemma 14.5.1 with $B = \\partial X$ give the data from which $\\Lambda'$ is assembled; with the assembly and the size control this proves Theorem 14.1.9.",
-   "instead": "**Formalized** (V14.8, V14.45, V14.46; `Chapter14/AssemblyInputInstance`, `BoundaryExtensionTheorem`): `exists_assemblyInput_a6` builds `AssemblyInput A Λ` for every structurable $\\Lambda$ over $\\partial X$ (Proposition 14.2.3, the objects of §14.3, Lemma 14.5.1 with (14.53) for the $\\hat V_a$ themselves, `nonempty_I` from the non-empty index sets of Definition 14.1.3), so `AssemblyHyp A` holds for every `A` (`assemblyHyp_holds`) and Theorem 14.1.9 holds as printed (`theorem_14_1_9`).",
+   "instead": "**Formalized** (V14.8, V14.45, V14.46; `Chapter14/AssemblyInputInstance`, `BoundaryExtensionTheorem`): `exists_assemblyInput` builds `AssemblyInput A Λ` for every structurable $\\Lambda$ over $\\partial X$ (Proposition 14.2.3, the objects of §14.3, Lemma 14.5.1 with (14.53) for the $\\hat V_a$ themselves, `nonempty_I` from the non-empty index sets of Definition 14.1.3), so `AssemblyHyp A` holds for every `A` (`assemblyHyp_holds`) and Theorem 14.1.9 holds as printed (`theorem_14_1_9`).",
    "decls": [
     "Chapter14/ExtensionAssembly · SBLocalization.AssemblyHyp",
     "Chapter14/ExtensionAssembly · SBLocalization.theorem_14_1_9_of_assembly",
     "Chapter14/ExtensionAssembly · SBLocalization.theorem_14_1_9_extension_statement_of_assembly",
     "Chapter14/ExtensionAssembly · SBLocalization.assemblyHyp_of_boundary_eq_empty",
     "Chapter14/TransportedSum · SBLocalization.AssemblyInput",
-    "Chapter14/AssemblyInputInstance · SBLocalization.exists_assemblyInput_a6",
-    "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_charged_a6",
+    "Chapter14/AssemblyInputInstance · SBLocalization.exists_assemblyInput",
+    "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9_charged",
     "Chapter14/BoundaryExtensionTheorem · SBLocalization.assemblyHyp_holds",
     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9"
    ],
@@ -1969,7 +1969,7 @@
     "Chapter14/FaceStructured · SBLocalization.IndexFamily",
     "Chapter14/EmptyIndex · SBLocalization.ChargesBoundary",
     "Chapter14/EmptyIndex · SBLocalization.IsBoundaryStructurable.chargesBoundary",
-    "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_nonempty_a6",
+    "Chapter14/EmptyIndex · SBLocalization.chargesBoundary_of_nonempty",
     "Chapter10/TameBundleCharts · SEP.exists_isTameChart",
     "Chapter10/TameBundleCharts · StrongBundle.exists_isTameChart",
     "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9",

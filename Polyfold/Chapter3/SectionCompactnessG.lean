@@ -6,7 +6,7 @@ import Polyfold.Chapter3.BasicGermShrink
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
 **Theorem 3.1.13 (preprint 3.12)** (local compactness for sc-Fredholm germs) and **Corollary 3.1.15 (preprint 3.13)** at the base
-point, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2): the filling `g` and the
+point, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**: the filling `g` and the
 sc⁺-section `t₀` are sc-smooth germs on germs of neighbourhoods `G_g`, `G_s` whose levels may
 shrink with the level.
 
@@ -21,7 +21,7 @@ shrink with the level.
 
 ## What the text leaves implicit, and the choices made
 
-* **What the old proof used of `g` and `t₀`, and how the germ reading supplies it.**  The proof of
+* **What the whole-chart proof used of `g` and `t₀`, and how the germ reading supplies it.**  The proof of
   `theorem_3_1_13_wholeChart` uses (i) the identities of the filler (conditions (1), (2)) and of the
   conjugation pointwise near `0` — unchanged; (ii) the push-forward `t = Ψ[1]_*(t₀)` only as an
   **sc⁰-germ** on the germ of the basic germ (the input of Theorem 3.5.1 (preprint 3.40)); it was built as a
@@ -29,7 +29,7 @@ shrink with the level.
   sc⁰-germ on `G″ = ψ'⁻¹(G_s) ⊆ G` (`ScNbhdGerm.preimage`; `IsSc0Germ.comp`, `IsSc0.comp_germ`),
   and the basic germ restricts to `G″` (`IsBasicGerm.mono`), so Theorem 3.5.1 (preprint 3.40) is applied on `G″`;
   (iii) the continuity of `g` at the `E₀`-limits `ψ'(u')` of zeros, `u' ∈ closure A` — these lie in
-  `U ∩ N₁`, and `N₁` is now also chosen inside the open set `O_g` with `(G_g)₀ = O_g ∩ C`, so
+  `U ∩ N₁`, and `N₁` is also chosen inside the open set `O_g` with `(G_g)₀ = O_g ∩ C`, so
   `ψ'(u') ∈ (G_g)₀`, where `g` is continuous (level `0` of the sc⁰-germ `g`).  Nothing of `g`
   away from a level-`0` neighbourhood of `0` is used, and no level `≥ 1` of `G_g` at all.
 * As in `theorem_3_1_13_wholeChart`, only `P ∘ f = id` is used of the section `f`.
@@ -50,7 +50,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Theorem 3.1.13 (preprint 3.12) (local compactness for sc-Fredholm germs), germ reading** (phase 2; the germ
+/-- **Theorem 3.1.13 (preprint 3.12) (local compactness for sc-Fredholm germs), germ reading** (the germ
 version of `theorem_3_1_13_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀` of Definition 3.1.11 (preprint 3.11) in the text's
 germ reading): let `f` be a section of the strong bundle `P : Y → X` and `x₀` a smooth point with
 `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  Then there are nested open neighbourhoods
@@ -312,7 +312,7 @@ theorem theorem_3_1_13_preprint (hf : IsSection P f) {x₀ : X} (hg : B.IsScFred
     simp only [hΘdef]
     rw [PX.levelVal_levelChartSymm c.isChart i x₀' (hlevO z hz), hlev z hz]
 
-/-- **Corollary 3.1.15 (preprint 3.13)** (at the base point of the germ), **germ reading** (phase 2; the germ version
+/-- **Corollary 3.1.15 (preprint 3.13)** (at the base point of the germ), **germ reading** (the germ version
 of `corollary_3_1_15_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀`): let `(f, x₀)` be an sc-Fredholm germ
 with `f(x₀) = 0`.  If `f(x_k) = 0` and `x_k → x₀` in `X`, then for every `m` there are lifts
 `y_k ∈ X_m` of the `x_k` (for `k` large) converging in `X_m` to the lift of `x₀`. -/

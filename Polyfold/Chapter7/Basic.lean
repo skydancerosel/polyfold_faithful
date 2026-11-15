@@ -59,16 +59,16 @@ identification, each depends on a choice of `φ : x → y` and is `g ↦ φ ∘ 
 ## Reading
 
 * **The remark after Definition 7.1.7 (2017: 7.7)** does not hold as we read it if only sc-smoothness on the
-  objects is asked (PLAN II.6, 1): the choice of `U(φ)` with `f(U(φ)) ⊂ U(ψ)` uses the continuity
+  objects is asked: the choice of `U(φ)` with `f(U(φ)) ⊂ U(ψ)` uses the continuity
   of `f` on morphisms, which a functor sc-smooth on objects need not have.  The counterexample
   (`ℤ/3 × ℝ ⇉ ℝ` with the trivial action, the identity on objects, `(g, y) ↦ (g², y)` for `y > 0`
-  and `(g, y)` for `y ≤ 0`) is not in this file (PLAN II.4, W5).  With continuity on morphisms
+  and `(g, y)` for `y ≤ 0`) is `remarkFunctor` (`NonVacuity.lean`).  With continuity on morphisms
   added the remark holds, by the text's formula: `isScSmoothMap_mor_of_continuous`.  The proof
   needs only the sheet `U(ψ)` of `s` at `ψ = f(φ)` and `U(φ) = f⁻¹(U(ψ))`; the sheet of `s` at
   `φ` and the neighbourhoods `U(s φ)`, `U(s ψ)` of the text are not used, and on the source side
   only the sc-smoothness of `s` enters.
-  Since every `EpFunctor` is continuous on morphisms (`EpFunctor.continuous_mor`), the corrected
-  remark is the equivalence `isScSmoothMap_mor_iff_continuous` for functors sc-smooth on objects.
+  Since every `EpFunctor` is continuous on morphisms (`EpFunctor.continuous_mor`), the remark with
+  continuity added is the equivalence `isScSmoothMap_mor_iff_continuous` for functors sc-smooth on objects.
 * **The quotient topology** (p. 229) is Mathlib's on `Quotient X.orbitSetoid`; `π = Quotient.mk`.
 * **Proposition 7.1.8 (2017: 7.1)** is proved through the saturation `π⁻¹(π(U)) = t(s⁻¹(U))`: `s` is
   continuous and `t` is an open map, being a local sc-diffeomorphism.  This is the text's argument
@@ -85,9 +85,9 @@ identification, each depends on a choice of `φ : x → y` and is `g ↦ φ ∘ 
   a convergent subsequence of `(φ_k)`, which uses the same properness.  The statement holds for
   every `A ⊆ cl U`, not only `A ⊆ U`.  "For every `z` and every representative `x` of `z`" is
   "for every `x`", with `z = π(x)`.
-* **Lemma 7.1.11 (2017: 7.1).**  The proof exchanges source and target of the statement (possible misprint): it
+* **Lemma 7.1.11 (2017: 7.1).**  The proof exchanges source and target of the statement: it
   takes `ψ_n : s(ψ_n) → x` with `s(ψ_n) ∈ U(x₀)`, i.e. `t(ψ_n) = x`, the inverses of the morphisms
-  of the statement; it also writes `V(y)` for `V(x)` (possible misprint).  Both forms hold:
+  of the statement; it also writes `V(y)` for `V(x)`.  Both forms hold:
   `lemma_7_1_11_swap` is the proof's form (a compact discrete fibre of `t : s⁻¹(cl U(x₀)) → X`, by
   `MPolyfold.finite_setOf_mem_of_isLocalScDiffeo`), and `lemma_7_1_11`, the statement, follows by
   `ι`, which exchanges `s` and `t`.  The hypotheses "`U(x₀)` open" and "`x₀ ∈ U(x₀)`" are kept in
@@ -240,8 +240,8 @@ theorem lemma_7_1_11 {x x₀ : Obj} {U : Set Obj} (_hU : IsOpen U) (_hx₀ : x�
     {ψ | X.src ψ = x ∧ X.tgt ψ ∈ U}.Finite :=
   (X.lemma_7_1_11_of_isProperMap hp x).subset fun _ hψ => ⟨hψ.1, subset_closure hψ.2⟩
 
-/-- **Lemma 7.1.11 (2017: 7.1) with source and target exchanged**, the form its proof treats (possible
-misprint): under the hypotheses of Lemma 7.1.11 (2017: 7.1), only finitely many `ψ` satisfy `t(ψ) = x` and
+/-- **Lemma 7.1.11 (2017: 7.1) with source and target exchanged**, the form its proof treats:
+under the hypotheses of Lemma 7.1.11 (2017: 7.1), only finitely many `ψ` satisfy `t(ψ) = x` and
 `s(ψ) ∈ U(x₀)`. -/
 theorem lemma_7_1_11_swap {x x₀ : Obj} {U : Set Obj} (_hU : IsOpen U) (_hx₀ : x₀ ∈ U)
     (hp : IsProperMap ((X.src ⁻¹' closure U).domRestrict X.tgt)) :
@@ -338,7 +338,7 @@ theorem isScSmoothMap_mor_of_continuous {F : GroupoidFunctor X.toGroupoidStr Y.t
   exact (hd.isScSmoothOn_inv.comp h₁ h₂).congr fun γ hγ =>
     (mor_eq_srcInv_obj_src F hd hγ).symm
 
-/-- **The remark after Definition 7.1.7 (2017: 7.7), corrected**: for a functor sc-smooth on objects,
+/-- **The remark after Definition 7.1.7 (2017: 7.7), with continuity on morphisms**: for a functor sc-smooth on objects,
 sc-smoothness on morphisms is equivalent to continuity on morphisms. -/
 theorem isScSmoothMap_mor_iff_continuous {F : GroupoidFunctor X.toGroupoidStr Y.toGroupoidStr}
     (hobj : X.PObj.IsScSmoothMap Y.PObj F.obj) :

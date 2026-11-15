@@ -18,7 +18,7 @@ For a strong bundle `(P : W → X, μ)` over an ep-groupoid `X` (Definition 8.3.
 sc-smooth functor `π : A → X`:
 
 * `EpStrongBundle.pullbackAlong`: the pull-back `(π*W, μ_π)` over `A`, with
-  `μ_π(γ, (a, w)) = (t(γ), μ(π(γ), w))` (the analogue of `pullbackμ` in `Book2021.lean` for a
+  `μ_π(γ, (a, w)) = (t(γ), μ(π(γ), w))` (the analogue of `pullbackμ` in `Book.lean` for a
   functor in place of a groupoid map);
   `pullbackProjFunctor`, the projection `π*W → W`, a strong bundle functor covering `π`;
   `pullbackLiftFunctor`, the lift `W_C → π*W` of a strong bundle functor covering `π ∘ κ`.

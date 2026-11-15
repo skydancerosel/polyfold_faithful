@@ -1,6 +1,6 @@
 import Polyfold.Chapter11.ProperCoveringLocalization
 import Polyfold.Chapter10.StrongBundleEquivalenceNat
-import Polyfold.Chapter8.Book2021
+import Polyfold.Chapter8.Book
 import Polyfold.Chapter10.StrongBundleLocalizationCategory
 import Mathlib.CategoryTheory.Localization.Predicate
 

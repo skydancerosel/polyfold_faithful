@@ -1,5 +1,5 @@
 import Polyfold.Chapter6.OrientationMainClean
-import Polyfold.Chapter6.SmoothPathComponents2021
+import Polyfold.Chapter6.SmoothPathComponents
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapter 6, §6.6 "Local

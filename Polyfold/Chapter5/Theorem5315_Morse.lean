@@ -50,7 +50,7 @@ gives a small `λ` with `t|S_λ` a Morse function.
   (2021 Theorem 3.6.8 for the families, with `T_{(0,y)}M = ker F'(0, y)` in the product chart,
   Lemma 5.3.16 for (A2), and the general position at `∂X` for (A3)); `theorem_5_3_15_hyp` keeps
   them as a hypothesis.  They are derived in `Theorem5315_LocalData.lean`
-  (`StrongBundle.hasMorseLocalData`, 2026-11-12), and `theorem_5_3_15` (`Theorem5315_Final.lean`)
+  (`StrongBundle.hasMorseLocalData`), and `theorem_5_3_15` (`Theorem5315_Final.lean`)
   is this theorem without the hypothesis.
 
 ## What the text leaves implicit, and the choices made

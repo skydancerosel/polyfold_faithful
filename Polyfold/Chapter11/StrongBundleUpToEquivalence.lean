@@ -1,5 +1,5 @@
 import Polyfold.Chapter10.StrongBundleLocalizationSections
-import Polyfold.Chapter8.Book2021
+import Polyfold.Chapter8.Book
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -53,12 +53,12 @@ Push-forward and pull-back of sc⁺-multisections are well defined, mutually inv
 * **`|D|` on `W[1]`.**  It is `|Ψ| ∘ |Φ|⁻¹` with `|Φ| : |W''[1]| → |W[1]|` the homeomorphism of
   Definition 10.4.1 (1); since `|W[1]| → |W|` is injective, it is determined by `|[D]|`, which
   gives the last assertion of Proposition 11.5.1.
-* **Formalized since (2026-11-09)**, in other files: conditions (1) (a complete norm on each
+* **Formalized in other files**: conditions (1) (a complete norm on each
   fibre) and (2) (`P(h_k) → x`, `N(h_k) → 0` ⇒ `h_k → 0_x`) of Definition 8.3.5 for `[D]^* N'`
   and `[D]_* N`, through the level-`1` fibre maps of `μ` and of a strong bundle equivalence as
-  linear isomorphisms, in `AuxiliaryNormTransport2021.lean` (`GenSBMap.proposition_11_5_1_book`);
+  linear isomorphisms, in `AuxiliaryNormTransport.lean` (`GenSBMap.proposition_11_5_1_book`);
   the local section structures of sc⁺-multisections (Definition 13.2.1, `IsScPlusMultisection`)
-  and their transport, in `MultisectionLocalStructure2021.lean`
+  and their transport, in `MultisectionLocalStructure.lean`
   (`GenSBMap.proposition_11_5_3_book`).
 -/
 
@@ -236,7 +236,7 @@ def pullMult (Λ' : A'.W → α) : A.W → α := (rep hf).pullMult (isEquivalenc
 * if `[D']` is another generalized strong bundle isomorphism with `|[D]| = |[D']|`, the
   push-forwards and the pull-backs agree.
 With the local section structures (Definition 13.2.1): `GenSBMap.proposition_11_5_3_book`
-(`MultisectionLocalStructure2021.lean`). -/
+(`MultisectionLocalStructure.lean`). -/
 theorem proposition_11_5_3 :
     (∀ (D : SDiagram A A') (hΨ : SEP.equivalences D.Ψ), D.cls = f →
       ∀ Λ : A.W → ℚ≥0, IsWFunctor A Λ → pushMult hf Λ = D.pushMult hΨ Λ) ∧

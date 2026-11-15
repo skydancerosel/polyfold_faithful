@@ -87,8 +87,8 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
 * **The sheet form of condition (4)** in place of `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`.  The
   identification of the tangent of the fibred product with the fibred product of tangents is not
   needed here; it is proved, with `m_{T𝐗} = Tm`, in `TangentFibred.lean`
-  (`isScDiffeoOn_tangentCompPairs`, `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; gap G.75 closed,
-  2026-11-12).  Lemma 8.1.2 (2017: 8.1) is stated in the form the text's proof uses: for a sheet `s : W → V` with
+  (`isScDiffeoOn_tangentCompPairs`, `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; gap G.75).
+  Lemma 8.1.2 (2017: 8.1) is stated in the form the text's proof uses: for a sheet `s : W → V` with
   inverse `σ = (s|U(ψ))⁻¹`, `g(φ') = m(σ(t φ'), φ')` (the text's `m(F(φ'), φ')`) is sc-smooth on
   `t⁻¹(V)` (Chapter 7's `isScSmoothCompSheet`) and `k ∘ h = Tg(h)`.  Lemma 8.1.7 (2017: 8.6)'s (4) is proved in
   Chapter 7's sheet form (`isScSmoothComp_iff_sheet`): near a point, `Ψ ↦ σ_T(t_T Ψ) ∘ Ψ` is `Tg`
@@ -103,14 +103,14 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   e.g. isotropy acting trivially, would make `G` non-injective); `G = remarkG` then is a bijection
   onto `{(φ, a) | φ ∈ 𝐗₁, a ∈ T_{s φ}X}`.  The M-polyfold structure on the pairs, for which `G` is
   an sc-diffeomorphism, and the triples `(a, φ, b)` are in `TangentPairs.lean`
-  (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`, 2026-11-12).  Linearity of `Tφ` is not
-  treated here: it is `tangentMorCLE` (`Chapter7/TangentMorphismLinear.lean`; gap G.7 closed).
+  (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`).  Linearity of `Tφ` is not
+  treated here: it is `tangentMorCLE` (`Chapter7/TangentMorphismLinear.lean`; gap G.7).
 * **Universes.**  Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so the tangent
   functor is `EP.{max u 1} ⥤ EP.{max u 1}` (Lean identifies `max (max u 1) 1` with `max u 1`).
   This is an artifact of the formalization.
 * **Tameness** ("if `X` is tame, then `TX` is tame", Theorem 8.1.1 (2017: 8.1), Theorem 8.1.12 (2017: 8.3), Lemma 8.1.9 (2017: 8.8)) is not
   formalized here; it is proved in `TangentTame.lean` (`lemma_8_1_9`, `theorem_8_1_12_tame`).
-* **Possible misprints**, as we read them: (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`; Lemma 8.1.2 (2017: 8.1)'s proof
+* **Notation, as we read it**: (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`; Lemma 8.1.2 (2017: 8.1)'s proof
   writes `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)`; Lemma 8.1.3 (2017: 8.2)'s proof has "`= =`", "`t : U(ψ ∘ φ) → U(y)` and
   `: U(ψ ∘ φ) → U(x)`" without `s`, and `T t)φ)(h)`; Lemma 8.1.8 (2017: 8.7)'s proof writes
   `t(φ_k, h_k) = Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`; Remark 8.1.10 (2017: 8.1) writes `T_yY` for `T_yX`.
@@ -786,7 +786,7 @@ def tangentFunctor : EP.{max u 1} ⥤ EP.{max u 1} where
 /-- **Theorem 8.1.12 (2017: 8.3) (functoriality of `T` on ep-groupoids)**: `T : EP → EP` (`tangentFunctor`) is
 a functor associating with an ep-groupoid `X` its tangent `TX` and with an sc-smooth functor `Φ`
 its tangent `TΦ`, which preserves the composition and the other structure maps (Theorem 8.1.11 (2017: 8.2)).
-(Tameness, Lemma 8.1.9 (2017: 8.8), is not formalized here.) -/
+(Tameness, Lemma 8.1.9 (2017: 8.8), is in `TangentTame.lean`.) -/
 theorem theorem_8_1_12 :
     (∀ A : EP.{max u 1}, (tangentFunctor.obj A).X = A.X.tangentEpGroupoid) ∧
       (∀ {A B : EP.{max u 1}} (Φ : A ⟶ B), (tangentFunctor.map Φ : EpFunctor _ _) =

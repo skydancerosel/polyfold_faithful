@@ -49,9 +49,9 @@ domain support avoids `∂X`, and takes `Λ̃ = Λ_t ⊕ Λ₀` for small `t`.
   implies onto on every larger intersection; so the condition is read as onto on `T^R_xX`, i.e.
   general position at `x` (D15.3.5).  The restriction of `(f − sᵢ)'(x)` to `T^R_xX` only involves
   the values of `sᵢ` on the faces, so it is the same for every sc⁺ extension of `Λ`; we ask the
-  condition for every sc⁺-multisection `Λ'` on `W` agreeing with `Λ` over `∂X` (the independence
-  of the extension is not proved here).
-* `Λ : W|∂X → ℚ⁺` is a function on `W` of which only the values over `∂X` enter (as in B1's
+  condition for every sc⁺-multisection `Λ'` on `W` agreeing with `Λ` over `∂X` (the condition does not
+  depend on the extension: `isBoundaryFaceOnto_iff`, `BoundaryExtensionIndependence`).
+* `Λ : W|∂X → ℚ⁺` is a function on `W` of which only the values over `∂X` enter (as in
   `IsBoundaryStructurable`); "(U, N)-admissible" over `∂X` is `boundaryDomSupp Λ ⊆ U` and
   `N(Λ) ≤ 1` on `∂X`.
 * `U` is open and saturated (`ControlsCompactness`); the text says "a saturated subset".
@@ -80,7 +80,7 @@ variable {A : SEP.{u}}
 
 /-- **Definition 15.3.5 at one point** (p. 693): every operator `L` of `T(f,Λ)(x)` is onto on
 `T^R_xX`, read in every chart of `X` at `x` and every presentation of its partial quadrant (as in
-P's `IsInGeneralPosition`). -/
+`IsInGeneralPosition`). -/
 def IsReducedOntoAtPt (f : A.Obj → A.W) (Λ : A.W → ℚ≥0) (x : A.X.PObj.Level 1) : Prop :=
   ∀ L ∈ (linearization f Λ x).support, ∀ (φ : MChart A.Obj) (hφ : A.X.PObj.IsChart φ)
     (hx : A.X.PObj.levelVal 1 x ∈ φ.source) (k : ℕ) (V : ScBanach)
@@ -110,7 +110,7 @@ def IsBoundaryFaceOnto (f : A.Obj → A.W) (Λ : A.W → ℚ≥0) : Prop :=
 variable (A) in
 /-- **Theorem 15.3.9 (Transversal Extension Theorem; 2017: Theorem 15.5), p. 698**, as a
 proposition.  `X` tame with paracompact `|X|` and sc-smooth partitions of unity (Definition 5.5.1
-for the M-polyfold of objects, as in B1's Theorem 14.1.9), `f` sc-Fredholm with tame germ data
+for the M-polyfold of objects, as in Theorem 14.1.9), `f` sc-Fredholm with tame germ data
 (inherited) and compact `|S_f|`, `(N, U)` controlling compactness, `Λ : W|∂X → ℚ⁺`
 structurable (Definition 14.1.7) and `(N, U)`-admissible over `∂X`, `h : X → (0, 1]` a
 continuous functor with `N(Λ) < h` on `∂X`, and the boundary hypothesis `IsBoundaryFaceOnto`.

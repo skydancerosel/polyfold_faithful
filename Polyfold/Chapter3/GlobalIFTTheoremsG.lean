@@ -5,7 +5,7 @@ import Polyfold.Chapter3.GlobalIFTNearbySurjG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.3 and §3.6,
 **the implicit function theorems (Theorems 3.1.22, 3.1.26, 3.6.8, 3.6.10, 3.6.11 (preprint 3.19, 3.23, 3.54, 3.56, 3.57), Corollary 3.1.27 (preprint 3.24)) for
-sc-Fredholm sections in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+sc-Fredholm sections in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # The main theorems, germ reading
 
@@ -29,7 +29,7 @@ reading (`IsScFredholmSection`, `IsScFredholmSectionTame`, `IsGoodPositionGerm`,
 ## What the text leaves implicit, and the choices made (the findings)
 
 The proofs are those of `GlobalIFTTheorems.lean` with `theorem_3_6_8_tangentGermChart_proj`
-and `theorem_3_6_8_one` in place of the old theorems: the assembly (re-centring,
+and `theorem_3_6_8_one` in place of the whole-chart theorems: the assembly (re-centring,
 `exists_isRegular_of_locally`, Theorem 3.2.3 (preprint 3.27)) takes place on the `E'`-side and in `X`, and never
 touches the filling or the sc⁺-section.  The added hypothesis `IsGoodPositionGermFilled` of
 Theorems 3.6.8 (preprint 3.54) (1), 3.23 and 3.19 is the germ form of `IsGoodPositionGermFilledWholeChart` (Findings
@@ -54,7 +54,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 /-- **The data of Definition 3.2.1 (preprint 3.25) (2) for the global solution set at a zero in good position,
-germ reading** (phase 2; the germ form of `theorem_3_6_8_tangentGermChart_solutionSet_wholeChart`). -/
+germ reading** (the germ form of `theorem_3_6_8_tangentGermChart_solutionSet_wholeChart`). -/
 theorem theorem_3_6_8_tangentGermChart_solutionSet (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ d : ℕ, ∃ D : PX.TangentGermChart (solutionSet P f) x₀ d,
@@ -77,7 +77,7 @@ theorem theorem_3_6_8_tangentGermChart_solutionSet (hf : IsSection P f) {x₀ : 
   exact hπ z (D.φ.image_subset_model hs hz)
 
 /-- **Theorem 3.6.8 (preprint 3.54) (2), under the hypothesis that every zero near `x₀` is in good position, germ
-reading** (phase 2; the germ form of `theorem_3_6_8_two_wholeChart`): regular data of Definition 3.2.1 (preprint 3.25) (2)
+reading** (the germ form of `theorem_3_6_8_two_wholeChart`): regular data of Definition 3.2.1 (preprint 3.25) (2)
 for `S = solutionSet P f` at `x₀`, of dimension `d`, on a chart with source in `Vx₀`, with the
 dimension locally constant along `S`. -/
 theorem theorem_3_6_8_two (hf : IsSection P f) {x₀ : X} (hg : B.IsGoodPositionGermTame f x₀)
@@ -96,7 +96,7 @@ theorem theorem_3_6_8_two (hf : IsSection P f) {x₀ : X} (hg : B.IsGoodPosition
   obtain ⟨D', hreg, hsub, hdim⟩ := D.exists_isRegular_of_locally hπ hVx₀ hx₀V hM
   exact ⟨d, D', hreg, hsub, hdim⟩
 
-/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2), germ reading** (phase 2; the germ form of `theorem_3_6_8_wholeChart`), under
+/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2), germ reading** (the germ form of `theorem_3_6_8_wholeChart`), under
 the **added hypothesis** `IsGoodPositionGermFilled`.  For an sc-Fredholm section `f` with tame
 germ data in the germ reading (`IsScFredholmSectionTame`), `f(x₀) = 0` and `(f, x₀)` in good
 position in a tame chart with a filling germ satisfying condition (3) at the nearby zeros, there
@@ -117,7 +117,7 @@ theorem theorem_3_6_8 (hf : B.IsScFredholmSectionTame f) {x₀ : X}
     theorem_3_6_8_two hf.isScSmooth.1 hg.isGoodPositionGermTame hx₀ hVxo hx₀Vx hall⟩
 
 /-- **Theorem 3.1.26 (preprint 3.23) (implicit function theorem, boundary case), under the hypothesis that every
-zero near `x` is in good position, germ reading** (phase 2; the germ form of
+zero near `x` is in good position, germ reading** (the germ form of
 `theorem_3_1_26_of_nearby_wholeChart`): an open `U ⊆ Vx₀` around the zero `x` such that the local solution set
 `S(f, U)` consists of smooth points, is a sub-M-polyfold of `X`, and the induced structure is
 tame and that of a `d`-dimensional manifold with boundary with corners. -/
@@ -157,7 +157,7 @@ theorem theorem_3_1_26_of_nearby (hf : B.IsScFredholmSection f) {x : X} (hx : Is
   exact ⟨U, D.φ.isOpen_source, D.mem_source, hsub, fun y _ hy => hf.mem_smoothSet_of_isZeroAt hy,
     d, hsubM, htameS, hman⟩
 
-/-- **Theorem 3.1.26 (preprint 3.23) (implicit function theorem, boundary case), germ reading** (phase 2; the germ
+/-- **Theorem 3.1.26 (preprint 3.23) (implicit function theorem, boundary case), germ reading** (the germ
 form of `theorem_3_1_26_wholeChart`), under the **added hypothesis** `IsGoodPositionGermFilled` (through
 Theorem 3.6.8 (preprint 3.54) (1), `theorem_3_6_8_one`): an open neighbourhood `U` of the zero `x` such that
 every zero in `U` is in good position (in a tame chart, germ reading), `S(f, U)` consists of
@@ -177,7 +177,7 @@ theorem theorem_3_1_26 (hf : B.IsScFredholmSectionTame f) {x : X} (hx : IsZeroAt
       hall
   exact ⟨U, hUo, hxU, fun y hy hy0 => hall y (hUV hy) hy0, hsm, d, hsub, h1, h2⟩
 
-/-- **Theorem 3.1.22 (preprint 3.19), the first clause, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.22 (preprint 3.19), the first clause, germ reading** (the germ form of
 `theorem_3_1_22_linearization_wholeChart`): for an sc-Fredholm section in the germ reading and a zero `x₀` in
 good position, the linearization `Tf(x₀) = Dg(0)|_{T₀O}` in the chart of Definition 3.1.11 (preprint 3.11) is a
 Fredholm operator of index `n − N`, and so is `Dg(0)` — Proposition 3.6.5 (preprint 3.52) for germs
@@ -199,7 +199,7 @@ theorem theorem_3_1_22_linearization (hf : B.IsScFredholmSection f) {x₀ : X}
         (StrongRetr.ρCLM c.isRetraction h0) (Dg 0) h1) = n - N :=
   proposition_3_6_5_preprint hf.isScSmooth.1 hg.isScFredholmGerm hx₀
 
-/-- **Theorem 3.1.22 (preprint 3.19) (implicit function theorem, interior case), germ reading** (phase 2; the germ
+/-- **Theorem 3.1.22 (preprint 3.19) (implicit function theorem, interior case), germ reading** (the germ
 form of `theorem_3_1_22_wholeChart`), under the **added hypothesis** `IsGoodPositionGermFilled` at `x₀`: for an
 M-polyfold `X` with `d_X ≡ 0`, an sc-Fredholm section `f` with tame germ data in the germ reading
 and a zero `x₀` with `(f, x₀)` in good position, there is an open neighbourhood `U` of `x₀` such
@@ -222,7 +222,7 @@ theorem theorem_3_1_22 (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTa
   exact Nat.le_zero.1 this
 
 /-- **Theorem 3.6.11 (preprint 3.57) (global implicit function theorem, boundary case) with the text's hypotheses,
-germ reading** (phase 2; the germ form of `theorem_3_6_11_wholeChart`).  Let `f` be an sc-Fredholm section in
+germ reading** (the germ form of `theorem_3_6_11_wholeChart`).  Let `f` be an sc-Fredholm section in
 the germ reading such that at every zero `x` the germ `(f, x)` is in good position in a tame chart
 (`IsGoodPositionGermTame`).  Then the solution set `S` (assumed nonempty) is a sub-M-polyfold of
 `X`, its induced M-polyfold structure is tame and equivalent to the structure of a manifold with
@@ -252,7 +252,7 @@ theorem theorem_3_6_11 (hf : B.IsScFredholmSection f)
   obtain ⟨hsub, h1, h2, -⟩ := theorem_3_2_3_loc_of_isRegular PX hne hS
   exact ⟨hsub, h1, h2, hloc⟩
 
-/-- **Corollary 3.1.27 (preprint 3.24) (= Theorem 3.57), germ reading** (phase 2; the germ form of
+/-- **Corollary 3.1.27 (preprint 3.24) (= Theorem 3.57), germ reading** (the germ form of
 `corollary_3_1_27_wholeChart`). -/
 theorem corollary_3_1_27 (hf : B.IsScFredholmSection f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTame f x)
@@ -265,7 +265,7 @@ theorem corollary_3_1_27 (hf : B.IsScFredholmSection f)
   exact ⟨hsub, h1, h2⟩
 
 /-- **Theorem 3.6.10 (preprint 3.56) (global implicit function theorem, `∂X = ∅`) with the text's hypotheses, germ
-reading** (phase 2; the germ form of `theorem_3_6_10_wholeChart`): for an M-polyfold without boundary and an
+reading** (the germ form of `theorem_3_6_10_wholeChart`): for an M-polyfold without boundary and an
 sc-Fredholm section `f` in the germ reading with `(f, x)` in good position at every zero, the
 solution set is a sub-M-polyfold of `X` whose induced structure is that of a manifold without
 boundary, of locally constant dimension. -/
@@ -283,7 +283,7 @@ theorem theorem_3_6_10 (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSection f
   rw [hX y.1] at this
   exact Nat.le_zero.1 this
 
-/-- **Theorem 3.6.11 (preprint 3.57) with the dimension, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.6.11 (preprint 3.57) with the dimension, germ reading** (the germ form of
 `theorem_3_6_11_dim_wholeChart`): under the hypotheses of `theorem_3_6_11`, the solution set `S` is the
 disjoint union of the parts `Sₙ` of dimension `n`, each open and closed in `S`, and each nonempty
 `Sₙ` is a sub-M-polyfold of `X` whose induced structure is tame and equivalent to that of an

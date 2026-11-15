@@ -67,11 +67,11 @@ a locally finite refinement by closed sets.
   Regularity enters only through (c) ⇒ (d) and (a) ⇒ (d), and in Proposition 2.7.4 (2017: 2.17) through the
   subspaces `Y_i`, which are regular because `Y` is.
 * "Refinement" is Mathlib's: each set lies in some set of the cover, and the sets cover `X`.
-* The plan (`PLAN.md`, II.6, 7) replaces the proof of Proposition 7.5.3 (2017: 7.12) by
+* Proposition 7.5.3 (2017: 7.12) is proved here through
   `Polyfold.metrizableSpace_of_pullback`, and `ProperSubsets.lean` proves Proposition 7.5.10 (2017: 7.14) (2) with
   Mathlib's `precise_refinement_set` and closures, without regularity of `|X|`; the results here
   give the text's routes as well (`exists_closed_precise_refinement_set` is the text's step of
-  7.14 (2), under regularity), but neither project proof uses them.  Corollary 7.3.8 (2017: 7.2) does.
+  7.14 (2), under regularity), but neither proof here uses them.  Corollary 7.3.8 (2017: 7.2) does.
 -/
 
 open Set Filter Topology Function

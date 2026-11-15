@@ -19,7 +19,8 @@ measures, for ep-groupoids with the local unique continuation property.
 
 ## What is formalized
 
-The measures are E7's (`theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`) for E4's integration
+The measures are those of `theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`
+(`Chapter9/BoundaryMeasure.lean`) for the integration
 over sheets covered by countably many graph charts, `n = m + 1`:
 
 * `EpGroupoid.boundaryMeasure`, `EpGroupoid.boundaryMeasureEff` (the unique maps of Theorems
@@ -28,7 +29,7 @@ over sheets covered by countably many graph charts, `n = m + 1`:
   (`isMeasureZeroBoundary_image`, `isMeasureZeroBoundary_preimage`), so
   `|Φ| : (∂S, L(∂S)) → (∂S', L(∂S'))` is measurable both ways (`measurable_bsuppMap`,
   `measurable_bsuppInv`);
-* the covering hypothesis `hcov` of Theorem 9.5.15 (E7's one added hypothesis: nonempty boundary
+* the covering hypothesis `hcov` of Theorem 9.5.15 (the one added hypothesis: nonempty boundary
   sheets in the class) passes to `Φ^*Θ̂'` and `Φ_*Θ̂` (`hcovB_pull`, `hcovB_push`);
 * **`measure_pull_core_bd`**: the gluing argument of Theorem 11.4.1 for any pair of measures with
   the local formulas of Theorem 9.5.15 and normalizations that agree along transport charts;
@@ -57,7 +58,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 variable (X) in
 /-- **The canonical boundary measures `ω ↦ µ^{∂Θ̂}_ω` of Theorem 9.5.15** (2021 p. 449; 2017:
-Theorem 9.4) on `(∂S, L(∂S))`, for E4's integration over sheets covered by countably many graph
+Theorem 9.4) on `(∂S, L(∂S))`, for the integration over sheets covered by countably many graph
 charts: the unique linear map of `theorem_9_5_15_msheets`. -/
 def boundaryMeasure (F : X.FormEval m Ω) (hm : 0 < m) (hΘ : X.IsBranchedEpSubgroupoid Θ)
     (hcpt : X.IsCompactBranched Θ) (hnd : X.IsNDimensional Θ (m + 1))
@@ -413,7 +414,7 @@ theorem IsBPulled.represents (hΦ : Φ.IsEquivalence) {hΘ' : Y.IsFunctorial Θ'
   obtain ⟨y, Tc, D, -, -, hDT, -, R, R', h1, h2, h3, h4, rfl⟩ := hC
   exact represents_pullStructure Tc _ D R R' h1 h2 h3 h4 hΦ hT (hTT Tc) hDT
 
-/-- **The covering hypothesis of Theorem 9.5.15 for `Φ^*Θ̂'`**: E7's `hcov` passes from `Θ̂'` to
+/-- **The covering hypothesis of Theorem 9.5.15 for `Φ^*Θ̂'`**: `hcov` passes from `Θ̂'` to
 `Φ^*Θ̂'`. -/
 theorem hcovB_pull (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ P)
     (hΘ' : Y.IsBranchedEpSubgroupoid Θ') (hT : X.IsGrHatSection T)
@@ -427,7 +428,7 @@ theorem hcovB_pull (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ P)
     obtain ⟨C, hC⟩ := exists_isBPulled hΦ hΘ' hcov' hx
     exact ⟨C, hC.represents hΦ hT hTT, hC.mem_msheets hP⟩
 
-/-- **The covering hypothesis of Theorem 9.5.15 for `Φ_*Θ̂`**: E7's `hcov` passes from `Θ̂` to
+/-- **The covering hypothesis of Theorem 9.5.15 for `Φ_*Θ̂`**: `hcov` passes from `Θ̂` to
 `Φ_*Θ̂`. -/
 theorem hcovB_push (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ P) {Θ : Obj → ℚ}
     (hΘ : X.IsBranchedEpSubgroupoid Θ) (hTT : Φ.IsTransported T T')
@@ -612,7 +613,7 @@ theorem measure_pull_core_bd (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ 
 /-! ### Theorems 11.4.4 and 11.4.5 for an equivalence -/
 
 /-- **Theorem 11.4.4, 2021 p. 545 (new in the 2021 edition), second identity, for an equivalence
-`Φ : X → Y`**: for `Θ̂'` on `Y` oriented, tame (nonempty boundary sheets in the class, E7's `hcov`),
+`Φ : X → Y`**: for `Θ̂'` on `Y` oriented, tame (nonempty boundary sheets in the class, `hcov`),
 compact, of dimension `m + 1`, a form `ω'` of degree `m`, and `K ∈ L(|supp ∂(Φ^*Θ')|)`:
 `|Φ|(K) ∈ L(|supp ∂Θ'|)` and `µ^{∂Φ^*Θ̂'}_{Φ^*ω'}(K) = µ^{∂Θ̂'}_{ω'}(|Φ|(K))`. -/
 theorem theorem_11_4_4_pull_equiv (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ P)
@@ -644,7 +645,7 @@ theorem theorem_11_4_4_pull_equiv (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback F
     (fun _ D hDT hy hS _ hK hKU => boundaryMeasure_apply _ _ _ _ _ _ _ _ D hDT hy hS hK hKU) hK
 
 /-- **Theorem 11.4.4, 2021 p. 545 (new in the 2021 edition), first identity, for an equivalence
-`Φ : X → Y`**: for `Θ̂` on `X` oriented, tame (E7's `hcov`), compact, of dimension `m + 1`,
+`Φ : X → Y`**: for `Θ̂` on `X` oriented, tame (`hcov`), compact, of dimension `m + 1`,
 `K ∈ L(|supp ∂Θ|)` and `Φ_*ω = ω'` (the form with `Φ^*ω' = ω`): `|Φ|(K) ∈ L(|supp ∂Φ_*Θ|)` and
 `µ^{∂Θ̂}_ω(K) = µ^{∂Φ_*Θ̂}_{Φ_*ω}(|Φ|(K))`. -/
 theorem theorem_11_4_4_push_equiv (hΦ : Φ.IsEquivalence) (hP : FX.IsPullback FY Φ P)

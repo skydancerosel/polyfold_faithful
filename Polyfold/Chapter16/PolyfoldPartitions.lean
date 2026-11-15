@@ -43,7 +43,7 @@ namespace Polyfold
 universe u v
 
 /-- The pull-back `σ ∘ e` of a partition of unity along a continuous map. -/
-def PartitionOfUnity.comapP3Z {α β : Type*} [TopologicalSpace α] [TopologicalSpace β] {ι : Type*}
+def PartitionOfUnity.comap {α β : Type*} [TopologicalSpace α] [TopologicalSpace β] {ι : Type*}
     (e : C(α, β)) (σ : PartitionOfUnity ι β) : PartitionOfUnity ι α where
   toFun i := (σ i).comp e
   locallyFinite' := σ.locallyFinite.preimage_continuous e.continuous
@@ -51,9 +51,9 @@ def PartitionOfUnity.comapP3Z {α β : Type*} [TopologicalSpace α] [Topological
   sum_eq_one' y _ := σ.sum_eq_one (mem_univ (e y))
   sum_le_one' y := σ.sum_le_one (e y)
 
-theorem PartitionOfUnity.comapP3Z_apply {α β : Type*} [TopologicalSpace α] [TopologicalSpace β]
+theorem PartitionOfUnity.comap_apply {α β : Type*} [TopologicalSpace α] [TopologicalSpace β]
     {ι : Type*} (e : C(α, β)) (σ : PartitionOfUnity ι β) (i : ι) (y : α) :
-    PartitionOfUnity.comapP3Z e σ i y = σ i (e y) := rfl
+    PartitionOfUnity.comap e σ i y = σ i (e y) := rfl
 
 namespace EpGroupoid
 
@@ -70,13 +70,13 @@ def HasOrbitScPartitionsOfUnity : Prop :=
 variable {X}
 
 /-- An invariant continuous function descends to a continuous function on `|X|`. -/
-def descendP3Z (f : C(Obj, ℝ)) (hf : ∀ φ, f (X.src φ) = f (X.tgt φ)) : C(X.OrbitSpace, ℝ) where
+def orbitDescend (f : C(Obj, ℝ)) (hf : ∀ φ, f (X.src φ) = f (X.tgt φ)) : C(X.OrbitSpace, ℝ) where
   toFun := Quotient.lift f fun _ _ ⟨φ, h1, h2⟩ => by rw [← h1, ← h2]; exact hf φ
   continuous_toFun := X.proposition_7_1_8_isOpenQuotientMap.isQuotientMap.continuous_iff.2
     f.continuous
 
-@[simp] theorem descendP3Z_π (f : C(Obj, ℝ)) (hf : ∀ φ, f (X.src φ) = f (X.tgt φ)) (x : Obj) :
-    descendP3Z f hf (X.π x) = f x := rfl
+@[simp] theorem orbitDescend_π (f : C(Obj, ℝ)) (hf : ∀ φ, f (X.src φ) = f (X.tgt φ)) (x : Obj) :
+    orbitDescend f hf (X.π x) = f x := rfl
 
 /-- `π⁻¹(cl S) = cl(π⁻¹ S)` (`π` is open and continuous). -/
 theorem preimage_closure_π (S : Set X.OrbitSpace) : X.π ⁻¹' closure S = closure (X.π ⁻¹' S) :=
@@ -94,7 +94,7 @@ theorem hasScPartitionsOfUnity_iff_orbit :
       (fun i => by
         change X.π ⁻¹' (X.π '' (X.π ⁻¹' O i)) = X.π ⁻¹' O i
         rw [image_preimage_eq _ X.surjective_π]) hcovU
-    let σf : ι → C(X.OrbitSpace, ℝ) := fun i => descendP3Z (β i) (hinv i)
+    let σf : ι → C(X.OrbitSpace, ℝ) := fun i => orbitDescend (β i) (hinv i)
     have hsupp : ∀ i, X.π ⁻¹' support (σf i) = support (β i) := fun i => rfl
     refine ⟨{ toFun := σf
               locallyFinite' := fun q => ?_
@@ -192,14 +192,14 @@ theorem hasScPartitionsOfUnity_iff {Obj Mor Obj' Mor' : Type u} [TopologicalSpac
     have hcov' : ⋃ i, e ⁻¹' O i = univ := by rw [← preimage_iUnion, hcov, preimage_univ]
     obtain ⟨σ', hσ', hsm'⟩ := h ι (fun i => e ⁻¹' O i) (fun i => (hO i).preimage e.continuous)
       hcov'
-    refine ⟨PartitionOfUnity.comapP3Z ⟨⇑e.symm, e.symm.continuous⟩ σ', fun i => ?_, fun i => ?_⟩
+    refine ⟨PartitionOfUnity.comap ⟨⇑e.symm, e.symm.continuous⟩ σ', fun i => ?_, fun i => ?_⟩
     · refine (tsupport_comp_subset_preimage (σ' i) e.symm.continuous).trans fun q hq => ?_
       have := hσ' i hq
       rwa [mem_preimage, Homeomorph.apply_symm_apply] at this
     · refine (hsm _).1 ?_
-      have e1 : (⇑(PartitionOfUnity.comapP3Z ⟨⇑e.symm, e.symm.continuous⟩ σ' i) ∘ ⇑e ∘ A.π) =
+      have e1 : (⇑(PartitionOfUnity.comap ⟨⇑e.symm, e.symm.continuous⟩ σ' i) ∘ ⇑e ∘ A.π) =
           σ' i ∘ A.π := funext fun a => by
-        simp only [Function.comp_apply, PartitionOfUnity.comapP3Z_apply,
+        simp only [Function.comp_apply, PartitionOfUnity.comap_apply,
           ContinuousMap.coe_mk, Homeomorph.symm_apply_apply]
       rw [e1]
       exact hsm' i
@@ -207,7 +207,7 @@ theorem hasScPartitionsOfUnity_iff {Obj Mor Obj' Mor' : Type u} [TopologicalSpac
     have hcov' : ⋃ i, e.symm ⁻¹' O i = univ := by rw [← preimage_iUnion, hcov, preimage_univ]
     obtain ⟨σ, hσ, hsmX⟩ := h ι (fun i => e.symm ⁻¹' O i)
       (fun i => (hO i).preimage e.symm.continuous) hcov'
-    refine ⟨PartitionOfUnity.comapP3Z ⟨⇑e, e.continuous⟩ σ, fun i => ?_, fun i => ?_⟩
+    refine ⟨PartitionOfUnity.comap ⟨⇑e, e.continuous⟩ σ, fun i => ?_, fun i => ?_⟩
     · refine (tsupport_comp_subset_preimage (σ i) e.continuous).trans fun q hq => ?_
       have := hσ i hq
       rwa [mem_preimage, Homeomorph.symm_apply_apply] at this

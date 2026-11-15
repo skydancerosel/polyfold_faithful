@@ -39,7 +39,7 @@ theorem).
 ## What the text leaves implicit, and the choices made
 
 * `X_m` is treated for `m = 1` only; `X_m` is `(X¹)_{m-1}` by iteration (the level sets of `X¹`
-  are those of `X` shifted by one, which is not formalized: gap G.6 of the report).
+  are those of `X` shifted by one: `MPolyfold.shiftLevelHomeomorph` in `TangentLift.lean`, gap G.6).
 * Paracompactness of `X¹` (part of Theorem 2.3.10 (preprint 2.16)) is an instance argument
   `[ParacompactSpace (P.Level 1)]` of `MPolyfold.shift`, because this file comes before the
   metrizability proof.  It is not an added hypothesis: it is proved, for every `X_m` and with no

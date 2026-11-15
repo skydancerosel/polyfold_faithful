@@ -10,12 +10,11 @@ presuppose (the fibrewise sum of sections, principal parts in a strong bundle ch
 representatives of sc-smooth and sc⁺-sections in *any* compatible chart), and
 **Theorem 3.1.18 (preprint 3.15)** (stability of sc-Fredholm sections under sc⁺-perturbations).
 
-Since the switch of Definition 3.1.11 (preprint 3.11) to the text's germ reading (phase 2, 2026-11-01; Findings,
-Chapter 3, items 330–339) the notions and the theorem of this file carry the suffix `WholeChart` /
-`_wholeChart`: they are the project's original whole-chart reading, stricter than the text
+The notions and the theorem of this file carry the suffix `WholeChart` / `_wholeChart` (Findings,
+Chapter 3, items 330–339): they are the project's whole-chart reading, stricter than the text
 (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is `IsScFredholmGerm`
 (`GermFillingChart.lean`), `IsScFredholmSection` (`TameGermsG.lean`) and `theorem_3_1_18_preprint`
-(`FredholmSectionsG.lean`) (phase 2, items 270–330).
+(`FredholmSectionsG.lean`) (items 270–330).
 
 # Sc-Fredholm sections of strong bundles
 
@@ -82,10 +81,10 @@ an sc-Fredholm germ at every smooth point.  (Theorem 3.1.18 (preprint 3.15)) `f 
   germs whose level sets shrink with the level (a
   map `C^k` on `(−1/k, 1/k)` for every `k` is an sc-smooth germ smooth on no neighbourhood,
   machine-checked in `Chapter3/GermVsChart.lean`, `exists_isScSmoothGerm_not_isScSmooth`): the
-  notions here are the project's original whole-chart reading, stricter than the text's
+  notions here are the project's whole-chart reading, stricter than the text's
   (Findings, Chapter 3 items 220–221 and 260–266; round-trip items V3.9, V3.43).  The text's germ
-  reading is `StrongBundle.IsScFredholmGerm` (`GermFillingChart.lean`; phase 2, items 270–330),
-  the canonical name since the switch, and `isScFredholmGerm_iff_germG_wholeChart` says that
+  reading is `StrongBundle.IsScFredholmGerm` (`GermFillingChart.lean`; items 270–330),
+  the canonical name, and `isScFredholmGerm_iff_germG_wholeChart` says that
   `IsScFredholmGermWholeChart` is exactly the germ reading with `g` and `s` sc-smooth on the whole
   `U`; whether the two agree for sections sc-smooth on `X` is open (item 264).  Conditions (1)–(3) of Definition 3.1.4 (preprint 3.4)
   keep their "near `0`" form (`IsFillerOf`).
@@ -697,7 +696,7 @@ and a smooth point `x₀` such that in some strong bundle chart of `P` with `φ(
 principal part `f̂` of `Φ ∘ f ∘ φ⁻¹ : O → K` has `f̂ ∘ r : O(C, 0) → F` sc-smooth in the sense of
 Definition 3.1.2 (preprint 3.2), on some sc-germ of neighbourhoods `G` of `0` with `G₀ ⊆ U` (the text's germ
 reading: the levels `G_m` may shrink with `m`, Definition 3.1.1 (preprint 3.1); Findings, Chapter 3, items 221 and
-260; until 2026-11-02 the germ was the chart's `U ∩ E_m`).  The text's "continuous section on an
+260).  The text's "continuous section on an
 open neighbourhood `V` of `x₀`" is the section on `V = dom φ`. -/
 structure IsScSmoothSectionGerm (f : X → Y) (x₀ : X) : Prop where
   isSection : IsSection P f
@@ -726,7 +725,7 @@ variable (B) in
 version `g : U → F` (Definition 3.1.6 (preprint 3.6)), and there is a local sc⁺-section `s : U → F¹` with
 `s(0) = g(0)` such that `g − s` is conjugated to a basic germ (Definition 3.1.7 (preprint 3.7)). This is the
 project's original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221,
-260–266); the text's germ reading is `IsScFredholmGerm` (`GermFillingChart.lean`, phase 2, items
+260–266); the text's germ reading is `IsScFredholmGerm` (`GermFillingChart.lean`, items
 270–330). -/
 def IsScFredholmGermWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
@@ -742,7 +741,7 @@ sc-smooth; (2) `f` is regularizing: `x ∈ X_m` and `f(x) ∈ Y_{m,m+1}` imply `
 `(f, x)` is an sc-Fredholm germ at every smooth point `x`. (The text states the definition for a
 tame strong bundle; tameness plays no role in it, nor in Theorem 3.1.18 (preprint 3.15).) This is the project's
 original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221, 260–266);
-the text's germ reading is `IsScFredholmSection` (`TameGermsG.lean`, phase 2, items 270–330). -/
+the text's germ reading is `IsScFredholmSection` (`TameGermsG.lean`, items 270–330). -/
 structure IsScFredholmSectionWholeChart (f : X → Y) : Prop where
   isScSmooth : B.IsScSmoothSection f
   regularizing : ∀ m, ∀ x ∈ PX.levelSet m, f x ∈ B.doubleLevel m (m + 1) → x ∈ PX.levelSet (m + 1)

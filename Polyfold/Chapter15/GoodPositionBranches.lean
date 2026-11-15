@@ -1,6 +1,6 @@
 import Polyfold.Chapter15.BoundaryPerturbation
 import Polyfold.Chapter15.ControllingPairs
-import Polyfold.Chapter5.CylinderPerturbation2021
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, p. 693:
@@ -33,7 +33,7 @@ position, even in general position.
 
 ## Reading
 
-* "Good position" is L's Definition 15.2.4 (`IsGoodPositionAt`), and "even in general position"
+* "Good position" is Definition 15.2.4 (`IsGoodPositionAt`), and "even in general position"
   is Part I's Definition 5.3.9 for each branch `(f − sᵢ)|O`, the M-polyfold notion of which
   Definition 15.3.5 is "a natural extension".
 * The statement holds at every point of the support, on the boundary or not.

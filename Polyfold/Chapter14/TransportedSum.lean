@@ -14,7 +14,7 @@ sections (Lemma 14.5.1 (3)) and is compatible with `τ̂` (Proposition 14.5.4 (4
 
 ## What is formalized (namespace `Polyfold.SBLocalization.AssemblyInput`)
 
-* `AssemblyInput A Λ`: the data of §§14.3–14.5 the assembly uses, over B2's `ZSetup`: GL's
+* `AssemblyInput A Λ`: the data of §§14.3–14.5 the assembly uses, over `ZSetup`:
   `TransportInput` with Lemma 14.5.1 (1)–(3) for the cut-offs (`suppInSat`, `locFin`, `sum_one`),
   the values of `τ̂` (finitely many, `G`-equivariant: Proposition 14.3.4), non-empty index sets,
   and the boundary multisection `Λ` represented by the `s⁰ᵇ` (Definition 14.1.3 (3)) and a functor
@@ -225,8 +225,8 @@ theorem usec_equivariant {b : A.Obj} (hb : b ∈ D.S.A) (g : A.X.Isotropy b) (j 
 theorem usec_compat {b b' : A.Obj} (hb : b ∈ D.S.A) (hb' : b' ∈ D.S.A) {φ : A.Mor}
     (hφ : φ ∈ A.X.morBetween (D.S.V b) (D.S.V b')) :
     (D.S.τ b b' φ).Sat fun j j' => D.usec b' j' (A.X.tgt φ) = fibAct φ (D.usec b j (A.X.src φ)) :=
-  IndexCorr.sat_of_pairs_t9 _ fun _ _ hp => D.usec_fibAct fun _ =>
-    IndexCorr.rel_of_sat_t9 (D.T.tsec_compat hb hb' hφ) hp
+  IndexCorr.sat_of_pairs _ fun _ _ hp => D.usec_fibAct fun _ =>
+    IndexCorr.rel_of_sat (D.T.tsec_compat hb hb' hφ) hp
 
 /-- **`s̃ᵇⱼ = s⁰ᵇⱼ` on `V̂_b ∩ ∂X`** (Proposition 14.5.4 (3) and `Σ_a β_a = 1` on `∂X`). -/
 theorem usec_boundary {b : A.Obj} (hb : b ∈ D.S.A) (j : D.S.I b) {y : A.Obj}
@@ -289,8 +289,8 @@ theorem ssec_compat {σ : A.Obj → ℝ} (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ)
     (hφ : φ ∈ A.X.morBetween (D.S.V b) (D.S.V b')) :
     (D.S.τ b b' φ).Sat fun j j' =>
       D.ssec σ b' j' (A.X.tgt φ) = fibAct φ (D.ssec σ b j (A.X.src φ)) :=
-  IndexCorr.sat_of_pairs_t9 _ fun _ _ hp =>
-    D.fibAct_ssec hσt (IndexCorr.rel_of_sat_t9 (D.usec_compat hb hb' hφ) hp)
+  IndexCorr.sat_of_pairs _ fun _ _ hp =>
+    D.fibAct_ssec hσt (IndexCorr.rel_of_sat (D.usec_compat hb hb' hφ) hp)
 
 theorem usec_eq_zero_of_not_mem_C {b : A.Obj} (j : D.S.I b) {y : A.Obj} (hy : y ∉ D.C) :
     D.usec b j y = fiberZero A.P y := by
@@ -304,7 +304,7 @@ theorem usec_eq_zero_of_not_mem_C {b : A.Obj} (j : D.S.I b) {y : A.Obj} (hy : y 
 theorem ssec_eq_zero_of_not_mem_C (σ : A.Obj → ℝ) {b : A.Obj} (j : D.S.I b) {y : A.Obj}
     (hy : y ∉ D.C) : D.ssec σ b j y = fiberZero A.P y := by
   unfold ssec
-  rw [sectionSmul_congr_t9 (D.usec_eq_zero_of_not_mem_C j hy)]
+  rw [sectionSmul_congr (D.usec_eq_zero_of_not_mem_C j hy)]
   unfold Polyfold.sectionSmul
   rw [dif_pos (proj_fiberZero A.P y)]
   have e : (⟨fiberZero A.P y, proj_fiberZero A.P y⟩ : A.P ⁻¹' {y}) = 0 := rfl
@@ -313,7 +313,7 @@ theorem ssec_eq_zero_of_not_mem_C (σ : A.Obj → ℝ) {b : A.Obj} (j : D.S.I b)
 
 theorem ssec_eq_zero_of_σ {σ : A.Obj → ℝ} {b : A.Obj} (j : D.S.I b) {y : A.Obj}
     (hσ : σ y = 0) : D.ssec σ b j y = fiberZero A.P y :=
-  sectionSmul_of_eq_zero_t9 (D.isSection_usec b j y) hσ
+  sectionSmul_of_eq_zero (D.isSection_usec b j y) hσ
 
 end AssemblyInput
 

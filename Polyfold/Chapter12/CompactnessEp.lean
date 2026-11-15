@@ -1,5 +1,5 @@
-import Polyfold.Chapter8.Book2021
-import Polyfold.Chapter5.Book2021
+import Polyfold.Chapter8.Book
+import Polyfold.Chapter5.Book
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III:

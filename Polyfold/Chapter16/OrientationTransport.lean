@@ -6,7 +6,7 @@ import Polyfold.Chapter16.PolyfoldFredholmSections
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §16.6, p. 739:
 **Definition 16.6.5** (2017: Definition 16.42), orientations of sc-Fredholm sections of strong
 polyfold bundles: the orientation chosen on one representative `(W, F)` carries over to every
-other representative, by Theorem 12.5.7 (gap PB-4 of the wave-4 note of block PB).
+other representative, by Theorem 12.5.7.
 
 # Transport of an orientation to another representative
 
@@ -17,7 +17,7 @@ other representative, by Theorem 12.5.7 (gap PB-4 of the wave-4 note of block PB
   12.5.4 (for any topology on `O_F` with the properties of Theorem 6.6.17) has exactly one
   invariant transport `o'` to `F'` compatible over `W''`, and `o'` is an orientation of `F'` in the
   sense of Definition 12.5.4 for **every** topology on `O_{F'}` with the properties of Theorem
-  6.6.17.  From OR's `theorem_12_5_7_two_cont` and `isContOrOn_univ_iff_continuous`
+  6.6.17.  From `theorem_12_5_7_two_cont` and `isContOrOn_univ_iff_continuous`
   (`Chapter12/ContinuousOrientationSection`, the two readings of "continuous" agree).
 * **`OrientationRep.transport_hyp`** (Definition 16.6.5): for an orientation `R` of the
   sc-Fredholm section `s` on the representative `R.a` and any other representative `b` of `s`, a
@@ -31,10 +31,11 @@ Tameness, sc-smooth bump functions and tame sc-Fredholm germs on `W`, `W'` and t
 `W''` of the diagram, as in Theorem 12.5.7 (`theorem_12_5_7_two_cont`).  `HasScPlusSectionsThrough`
 follows from the bump functions.  They are stated for the given bundles, not for all diagrams.
 
-## Not formalized
+## Independence of the diagram
 
 Independence of the transport from the diagram `D` (the generalized isomorphism `𝔉̄` of the text):
-see the hand-over note (gap PB-4, remainder).
+`exists_unique_transport` (`OrientationRepresentatives`, every diagram of `𝔉̄`), and for every
+`𝔉̄` with the same orbit map `exists_unique_transport_of_isLR` (`OrientationTransportRegularity`).
 -/
 
 set_option maxSynthPendingDepth 3

@@ -66,8 +66,7 @@ stated for `next s`, any `s`).
   `m + j` the diagonal germ lies in `germ s_j`.  With `s_k = 2^k − 1` the diagonal shift is
   `t_m = 2^{m+1} − m − 2`, so `V_m = N(2^{m+1} − 2) ∩ C̃` shrinks fast, but it is a germ of
   neighbourhoods and the text's germs are "up to shrinking" anyway.  So the text's statement holds
-  as written, and the `k`-dependent reading (Findings Chapter 3, item 2) was only a limitation of
-  the earlier formal statements.
+  as written, and the `k`-dependent reading (Findings Chapter 3, item 2) is not needed.
 * **`f` versus `B`.**  The text's hypothesis is on `f = w − B`; the project's working-form theorems
   take it on `B`.  They are equivalent (`isSckGerm_contractionMap_iff`: `f = pr₂ − B`, a difference
   with an sc-operator).

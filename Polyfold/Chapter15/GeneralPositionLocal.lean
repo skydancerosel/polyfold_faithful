@@ -25,7 +25,7 @@ requirement (2) is replaced by the general position requirement that the restric
   of the chart criterion `isGeneralPositionGerm_of_sup_eq`).
 * `isGeneralPositionGerm_branch_at`, `isGoodPositionAt_of_isInGeneralPositionAt`: general position
   at one point gives Part I's general position of every branch `(f − sᵢ)|O` through `f(x)`, and
-  good position (Definition 15.2.4) at `x` (the pointwise form of wave 3's Remark 15.3.6).
+  good position (Definition 15.2.4) at `x` (the pointwise form of Remark 15.3.6, `remark_15_3_6_goodPosition_hyp`).
 * `isReducedOntoAtLevel_of_isGeneralPositionGerm`: conversely, if every branch through `f(y)` of a
   local section structure is in general position at `y` in Part I's sense, then `(f, Λ)` is in
   general position at `y` (Definition 15.3.5): the reduced operators are onto in every chart.

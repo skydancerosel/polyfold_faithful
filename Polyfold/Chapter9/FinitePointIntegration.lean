@@ -8,16 +8,16 @@ and pages are the 2021 text's.
 
 # Integration of `0`-forms over finite sets of oriented points
 
-E1's `pointIntegration` integrates over sheets with at most one point.  The boundary sheet
+`pointIntegration` integrates over sheets with at most one point.  The boundary sheet
 `∂₁Mᵢ` of an arbitrary `1`-dimensional oriented tame structure is a finite set of points
 (`AllStructuresDimOne`), and the text's `∫_{Kᵢ} ω|(∂₁Mᵢ, o)` is then the signed sum
 `∑_{p ∈ Kᵢ} ±ω(p)`.  This file gives that integration as a `SheetIntegration`.
 
 * `finPointSheets X`: the finite sets of smooth points.
 * `finPointInteg f N g A = ∑_{p ∈ N ∩ A} frameSign (g p) * f p` (for finite `N`).
-* **`finPointIntegration X`**: all fields of `SheetIntegration` hold, with E2's null sets of
+* **`finPointIntegration X`**: all fields of `SheetIntegration` hold, with the null sets of
   dimension `0` (`SheetNullSets.point`).
-* `finPointInteg_eq_pointInteg`: on sheets with at most one point it is E1's `pointInteg`.
+* `finPointInteg_eq_pointInteg`: on sheets with at most one point it is `pointInteg`.
 * **`EP.finZeroFormIntegration`**: the integration of `Ω⁰_{ep,∞}(X)` over finite sets of oriented
   points; it agrees with `EP.zeroFormIntegration` on `pointSheets`
   (`finZeroFormIntegration_integ_eq`).
@@ -86,7 +86,7 @@ theorem finPointInteg_empty (f : Obj → ℝ) (N : Set Obj) (g : Obj → X.PObj.
   · simp
   · rfl
 
-/-- **On a sheet with at most one point, `finPointInteg` is E1's `pointInteg`.** -/
+/-- **On a sheet with at most one point, `finPointInteg` is `pointInteg`.** -/
 theorem finPointInteg_eq_pointInteg (f : Obj → ℝ) {N : Set Obj} (hN : N.Subsingleton)
     (g : Obj → X.PObj.OrTangent) (A : Set Obj) :
     finPointInteg f N g A = pointInteg f N g A := by

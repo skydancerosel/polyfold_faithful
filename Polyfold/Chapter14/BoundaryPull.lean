@@ -6,7 +6,7 @@ import Polyfold.Chapter13.StructuredExtensionData
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.1, Proposition 14.1.8,
 p. 645 (2017: Proposition 14.1): the **pull-back step** of its proof ("an argument similar to
 that used in the proof of Theorem 13.4.1"): structurable sc⁺-multisections over `∂X'` pull back
-along strong bundle equivalences (and, more generally, along FN's `PullMap`s) to structurable
+along strong bundle equivalences (and, more generally, along `PullMap`s) to structurable
 sc⁺-multisections over `∂X`.
 
 ## The text, paraphrased
@@ -21,7 +21,7 @@ over a tame ep-groupoid, `Φ^*Λ` is structurable over the boundary by the argum
   `F⁻¹(∂X') = ∂X` (`F` is a local sc-diffeomorphism, Proposition 2.4.4).
 * `BdryPullData`, `exists_bdryPullData`: a good system for `∂X` (Definition 14.1.5) adapted to a
   given good system for `∂X'`; each `V(x)` is a good open neighbourhood (Proposition 14.1.1,
-  B1's `exists_isGoodBoundaryNbhd_le`) inside FN's adapted neighbourhood, with the same action.
+  `exists_isGoodBoundaryNbhd_le`) inside the adapted neighbourhood, with the same action.
 * `bdryPullStructure`, `bdryPullDecoration`, `bdryPullTau`, `bdryPullTuple`: the pulled-back
   data `I_x = I'_{F(x)}`, `Φ(sˣᵢ(z)) = s'^{F(x)}ᵢ(F(z))`, `τ_{x,y}(φ) = τ'_{F(x),F(y)}(F(φ))`
   (Definitions 14.1.3, 14.1.7).
@@ -29,13 +29,13 @@ over a tame ep-groupoid, `Φ^*Λ` is structurable over the boundary by the argum
 
 ## The added hypothesis
 
-Condition (1) of Definition 14.1.3 is read in the charts (B1's `IsFaceScPlusSectionOn`: in every
+Condition (1) of Definition 14.1.3 is read in the charts (`IsFaceScPlusSectionOn`: in every
 tame strong bundle chart and every tame presentation of its corner).  That the pull-back of a
 section with this property along a local strong bundle isomorphism has it again is the
 hypothesis `FacePull_hyp` (it needs that a tame strong bundle chart composed with a local strong
 bundle isomorphism is again a tame strong bundle chart, which the project does not have).
 Witnesses: `facePull_hyp_id` (the identity of every `A`) and
-`facePull_hyp_of_boundary_eq_empty`.  The helper `IsFaceScPlusSectionOn.congr_fm` (only the
+`facePull_hyp_of_boundary_eq_empty`.  The helper `IsFaceScPlusSectionOn.congr_of_eqOn_boundary` (only the
 values on `∂X` near `U` enter) is proved on the way.
 -/
 
@@ -61,7 +61,7 @@ variable {E F W : ScBanach} {n : ℕ}
 
 /-- If `s = s'` on `O ∩ N ∩ {tᵢ = 0}` for an open `N ∋ x`, `IsScPlusOnFaceNear` passes from `s` to
 `s'` (shrink the neighbourhood, Proposition 2.3.1 (1)). -/
-theorem IsScPlusOnFaceNear.congr_open_fm {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
+theorem IsScPlusOnFaceNear.congr_open {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
     {C O : Set (E 0)} {K : Set (E 0 × F 0)} {s s' : E 0 → E 0 × F 1} {x : E 0} {i : Fin n}
     (h : IsScPlusOnFaceNear T C O K s x i) {N : Set (E 0)} (hN : IsOpen N) (hxN : x ∈ N)
     (hss' : EqOn s s' (O ∩ N ∩ coordHyper T i)) : IsScPlusOnFaceNear T C O K s' x i := by
@@ -90,7 +90,7 @@ variable {A : SEP.{u}}
 
 /-- **A point of a local face `{tᵢ = 0}` of a tame chart lies in `∂X`**: `d_X = d_C` on a tame
 chart (Proposition 2.5.6) and `d_C ≥ 1` on `{tᵢ = 0}`. -/
-theorem symm_mem_boundary_fm (c : StrongBundleChart A.X.PObj A.P) (hc : A.B.IsTameChart c)
+theorem symm_mem_boundary (c : StrongBundleChart A.X.PObj A.P) (hc : A.B.IsTameChart c)
     {n : ℕ} {W : ScBanach} {T : ScIso c.φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W)}
     (hT : c.φ.model.C = T 0 ⁻¹' quadrant n W 0) {z : c.φ.model.E 0} (hz : z ∈ c.φ.model.O)
     {i : Fin n} (hi : (T 0 z).1 i = 0) : c.φ.symm z ∈ A.X.PObj.boundary := by
@@ -109,7 +109,7 @@ theorem symm_mem_boundary_fm (c : StrongBundleChart A.X.PObj A.P) (hc : A.B.IsTa
 
 /-- **(1) of Definition 14.1.3 only depends on the values on `∂X` near `U`**: if `s = s'` on
 `O ∩ ∂X` for an open `O ⊇ U`, `U ⊆ ∂X`, then `s` and `s'` satisfy it on `U` together. -/
-theorem IsFaceScPlusSectionOn.congr_fm {s s' : A.Obj → A.W} {U O : Set A.Obj}
+theorem IsFaceScPlusSectionOn.congr_of_eqOn_boundary {s s' : A.Obj → A.W} {U O : Set A.Obj}
     (h : IsFaceScPlusSectionOn A s U) (hO : IsOpen O) (hUO : U ⊆ O)
     (hU : U ⊆ A.X.PObj.boundary) (hss' : EqOn s s' (O ∩ A.X.PObj.boundary)) :
     IsFaceScPlusSectionOn A s' U := by
@@ -122,11 +122,11 @@ theorem IsFaceScPlusSectionOn.congr_fm {s s' : A.Obj → A.W} {U O : Set A.Obj}
       ⟨by rw [mem_preimage, c.φ.symm_apply_apply hx.2]; exact hUO hx.1,
         c.φ.mapsTo_model x hx.2⟩
     rw [hN'eq] at this; exact this.1
-  refine hface.congr_open_fm hN' hxN' fun z hz => ?_
+  refine hface.congr_open hN' hxN' fun z hz => ?_
   have hz1 : c.φ.symm z ∈ O := by
     have : z ∈ N' ∩ c.φ.model.O := ⟨hz.1.2, hz.1.1⟩
     rw [← hN'eq] at this; exact this.1
-  have hz2 := symm_mem_boundary_fm c hc hT hz.1.1 hz.2
+  have hz2 := symm_mem_boundary c hc hT hz.1.1 hz.2
   simp only [localRepOne, hss' ⟨hz1, hz2⟩]
 
 end Congr
@@ -178,13 +178,13 @@ theorem facePull_hyp_of_boundary_eq_empty (h : C.X.PObj.boundary = ∅) : M.Face
   exact ⟨fun _ hx => hx.elim, fun _ _ _ _ _ _ _ hx => hx.1.elim⟩
 
 /-- **Witness**: the hypothesis holds for the identity of every `A` (through
-`IsFaceScPlusSectionOn.congr_fm`). -/
+`IsFaceScPlusSectionOn.congr_of_eqOn_boundary`). -/
 theorem facePull_hyp_id (A : SEP.{u}) :
     (PullMap.ofEquivalence (equivalences_id_sep A)).FacePull_hyp := by
   intro s' O O' hO hO' hOO' hs'
   have hmono : IsFaceScPlusSectionOn A s' (O ∩ A.X.PObj.boundary) :=
     hs'.mono fun z hz => ⟨hOO' hz.1, hz.2⟩
-  refine hmono.congr_fm hO' (fun z hz => hOO' hz.1) inter_subset_right fun z hz => ?_
+  refine hmono.congr_of_eqOn_boundary hO' (fun z hz => hOO' hz.1) inter_subset_right fun z hz => ?_
   have hP : A.P (s' z) = z := (hs'.1 z hz).1
   exact (((PullMap.ofEquivalence (equivalences_id_sep A)).pullSec_eq_iff hP hP).2 rfl).symm
 
@@ -199,10 +199,10 @@ theorem IsPullNbhd.mapsTo_bdry {x : C.Obj} {N : C.X.NatNbhd x} {N' : A.X.NatNbhd
 
 variable (M)
 
-/-- **Condition (2) of Definition 14.1.5 is carried back** (as in FN's
+/-- **Condition (2) of Definition 14.1.5 is carried back** (as in
 `isDiffeoComponent_of_isPull`, for any neighbourhoods `N'`, `N₁'` whose morphism set has the
 property). -/
-theorem isDiffeoComponent_of_isPull_fm {x x' : C.Obj} {N : C.X.NatNbhd x}
+theorem isDiffeoComponent_of_isPull_nbhd {x x' : C.Obj} {N : C.X.NatNbhd x}
     {N₁ : C.X.NatNbhd x'} {N' : A.X.NatNbhd (M.ϕ.obj x)} {N₁' : A.X.NatNbhd (M.ϕ.obj x')}
     (h : M.IsPullNbhd N N') (h₁ : M.IsPullNbhd N₁ N₁')
     (hd : ∀ φ' ∈ A.X.morBetween N'.U N₁'.U,
@@ -233,7 +233,7 @@ structure BdryPullData (𝒰' : A.X.BoundaryGoodSystem) where
   𝒰 : C.X.BoundaryGoodSystem
   isPull : ∀ x, M.IsPullNbhd (𝒰.nbhd x) (𝒰'.nbhd (M.bdryObj x))
 
-/-- **Adapted good systems for `∂X` exist** when `X` is tame: FN's adapted neighbourhood, then a
+/-- **Adapted good systems for `∂X` exist** when `X` is tame: the adapted neighbourhood, then a
 good open neighbourhood inside it with the same action (Proposition 14.1.1). -/
 theorem exists_bdryPullData (hX : C.X.IsTame) (𝒰' : A.X.BoundaryGoodSystem) :
     Nonempty (M.BdryPullData 𝒰') := by
@@ -249,7 +249,7 @@ theorem exists_bdryPullData (hX : C.X.IsTame) (𝒰' : A.X.BoundaryGoodSystem) :
     rw [hrep]; exact hN.Γ_eq g y (hsub hy).1
   choose N hN hgood using key
   exact ⟨⟨⟨N, hgood, fun x x' φ hφ =>
-    M.isDiffeoComponent_of_isPull_fm (hN x) (hN x') (𝒰'.isDiffeoComponent _ _) hφ⟩, hN⟩⟩
+    M.isDiffeoComponent_of_isPull_nbhd (hN x) (hN x') (𝒰'.isDiffeoComponent _ _) hφ⟩, hN⟩⟩
 
 namespace BdryPullData
 
@@ -348,7 +348,7 @@ end PullMap
 
 /-- A decoration over `∂X` gives the local structures of Definition 14.1.3 at every boundary
 point, so a functor over `∂X` with a decoration is an sc⁺-multisection over `∂X`. -/
-theorem BoundaryDecoration.isBoundaryScPlusMultisection_fm {Λ : C.W → ℚ≥0}
+theorem BoundaryDecoration.isBoundaryScPlusMultisection {Λ : C.W → ℚ≥0}
     (hΛ : IsBoundaryWFunctor C Λ) (D : BoundaryDecoration C Λ) :
     IsBoundaryScPlusMultisection C Λ :=
   ⟨hΛ, fun x hx => ⟨D.𝒰.nbhd ⟨x, hx⟩, D.𝒰.isGood _, ⟨D.S _⟩⟩⟩
@@ -362,7 +362,7 @@ def bdryPullTuple (hface : M.FacePull_hyp) (T' : BoundaryStructuredTuple A)
     (P : M.BdryPullData T'.dec.𝒰) : BoundaryStructuredTuple C where
   Λ := M.pull T'.Λ
   isBoundaryScPlusMultisection :=
-    (bdryPullDecoration hface T'.dec P).isBoundaryScPlusMultisection_fm
+    (bdryPullDecoration hface T'.dec P).isBoundaryScPlusMultisection
       (M.isBoundaryWFunctor_pull T'.isBoundaryScPlusMultisection.1)
   dec := bdryPullDecoration hface T'.dec P
   tau := bdryPullTau hface T'.tau P
@@ -376,7 +376,7 @@ theorem isBoundaryStructurable_pull_hyp (hX : C.X.IsTame) (hface : M.FacePull_hy
     IsBoundaryStructurable C (M.pull Λ') := by
   obtain ⟨hΛ', D', ⟨t'⟩⟩ := h
   obtain ⟨P⟩ := M.exists_bdryPullData hX D'.𝒰
-  exact ⟨(bdryPullDecoration hface D' P).isBoundaryScPlusMultisection_fm
+  exact ⟨(bdryPullDecoration hface D' P).isBoundaryScPlusMultisection
     (M.isBoundaryWFunctor_pull hΛ'.1), bdryPullDecoration hface D' P,
     ⟨bdryPullTau hface t' P⟩⟩
 

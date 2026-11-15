@@ -18,8 +18,8 @@ of (3) presumes.  Consequences:
   every sc⁺-multisection over `∂X` (`chargesBoundary_of_isBoundaryScPlusMultisection`), hence for
   every structurable `Λ` (`IsBoundaryStructurable.chargesBoundary`) and every tuple
   (`BoundaryStructuredTuple.chargesBoundary`).  For a tuple it is the same as all `I_x ≠ ∅`
-  (`BoundarySymmetricStructure.nonempty_I_a6`, `chargesBoundary_of_nonempty_a6`).
-* `chargesBoundary_of_structurable_eq_a6`: the condition is also necessary for the conclusion of
+  (`BoundarySymmetricStructure.nonempty_I`, `chargesBoundary_of_nonempty`).
+* `chargesBoundary_of_structurable_eq`: the condition is also necessary for the conclusion of
   Theorem 14.1.9 (a structurable `Λ'` on `X` charges every fibre).
 * `not_isBoundaryScPlusMultisection_zeroFun`: when `∂X ≠ ∅`, `Λ ≡ 0` is not an sc⁺-multisection
   over `∂X` (without `I_x ≠ ∅` it would be one, with empty index sets, and Theorem 14.1.9 would
@@ -48,7 +48,7 @@ def ChargesBoundary (Λ : A.W → ℚ≥0) : Prop :=
   ∀ x ∈ A.X.PObj.boundary, ∃ w, A.P w = x ∧ Λ w ≠ 0
 
 /-- A symmetric structure over `∂X` at a point that `Λ` charges has a non-empty index set. -/
-theorem BoundarySymmetricStructure.nonempty_I_a6 {Λ : A.W → ℚ≥0} {x : A.Obj}
+theorem BoundarySymmetricStructure.nonempty_I {Λ : A.W → ℚ≥0} {x : A.Obj}
     {V : A.X.NatNbhd x} (S : BoundarySymmetricStructure A Λ V) {y : A.Obj} (hy : y ∈ V.bdry)
     (h : ∃ w, A.P w = y ∧ Λ w ≠ 0) : Nonempty S.I := by
   obtain ⟨w, hw, hne⟩ := h
@@ -59,12 +59,12 @@ theorem BoundarySymmetricStructure.nonempty_I_a6 {Λ : A.W → ℚ≥0} {x : A.O
   exact hne this
 
 /-- For a tuple over `∂X`, `ChargesBoundary` gives non-empty index sets. -/
-theorem BoundaryStructuredTuple.nonempty_I_a6 (T : BoundaryStructuredTuple A)
+theorem BoundaryStructuredTuple.nonempty_I (T : BoundaryStructuredTuple A)
     (h : ChargesBoundary T.Λ) (x : A.X.PObj.boundary) : Nonempty (T.dec.S x).I :=
-  (T.dec.S x).nonempty_I_a6 ⟨(T.dec.𝒰.nbhd x).mem_U, x.2⟩ (h x x.2)
+  (T.dec.S x).nonempty_I ⟨(T.dec.𝒰.nbhd x).mem_U, x.2⟩ (h x x.2)
 
 /-- Conversely, a tuple with non-empty index sets charges every fibre over `∂X`. -/
-theorem chargesBoundary_of_nonempty_a6 (T : BoundaryStructuredTuple A)
+theorem chargesBoundary_of_nonempty (T : BoundaryStructuredTuple A)
     (h : ∀ x, Nonempty (T.dec.S x).I) : ChargesBoundary T.Λ := by
   classical
   intro x hx
@@ -80,7 +80,7 @@ theorem chargesBoundary_of_nonempty_a6 (T : BoundaryStructuredTuple A)
   simp
 
 /-- **Nonvacuity**: the zero multisection charges every fibre (`Λ(0_x) = 1`). -/
-theorem chargesBoundary_zeroMultisection_a6 : ChargesBoundary (zeroMultisection A) := by
+theorem chargesBoundary_zeroMultisection : ChargesBoundary (zeroMultisection A) := by
   classical
   intro x _
   have hP : A.P (fiberZero A.P x) = x := proj_fiberZero A.P x
@@ -91,7 +91,7 @@ theorem chargesBoundary_zeroMultisection_a6 : ChargesBoundary (zeroMultisection 
 /-- **`ChargesBoundary` is necessary for Theorem 14.1.9**: if a structurable `Λ'` on `X` agrees
 with `Λ` over `∂X`, then `Λ` charges every fibre over `∂X` (the local weights of `Λ'` sum to
 `1`, Definition 13.2.1). -/
-theorem chargesBoundary_of_structurable_eq_a6 {Λ Λ' : A.W → ℚ≥0} (hΛ' : IsStructurable A Λ')
+theorem chargesBoundary_of_structurable_eq {Λ Λ' : A.W → ℚ≥0} (hΛ' : IsStructurable A Λ')
     (h : ∀ w, A.P w ∈ A.X.PObj.boundary → Λ' w = Λ w) : ChargesBoundary Λ := by
   classical
   intro x hx
@@ -123,12 +123,12 @@ theorem IsBoundaryStructurable.chargesBoundary {Λ : A.W → ℚ≥0}
 /-- **A tuple over `∂X` charges every boundary fibre.** -/
 theorem BoundaryStructuredTuple.chargesBoundary (T : BoundaryStructuredTuple A) :
     ChargesBoundary T.Λ :=
-  chargesBoundary_of_nonempty_a6 T fun x => (T.dec.S x).nonempty
+  chargesBoundary_of_nonempty T fun x => (T.dec.S x).nonempty
 
 /-! ### The function `Λ ≡ 0` over `∂X` -/
 
 /-- **Two correspondences out of an empty index set are equal.** -/
-theorem IndexCorr.eq_of_isEmpty_a6 {α β : Type u} (hα : IsEmpty α) (τ τ' : IndexCorr α β) :
+theorem IndexCorr.eq_of_isEmpty {α β : Type u} (hα : IsEmpty α) (τ τ' : IndexCorr α β) :
     τ = τ' := by
   induction τ using IndexCorr.ind with
   | h d =>
@@ -138,7 +138,7 @@ theorem IndexCorr.eq_of_isEmpty_a6 {α β : Type u} (hα : IsEmpty α) (τ τ' :
       have : IsEmpty d'.I := ⟨fun k => hα.false (d'.a k)⟩
       exact IndexCorr.mk_eq_mk.2 ⟨_root_.Equiv.equivOfIsEmpty _ _, fun k => isEmptyElim k⟩
 
-theorem boundaryDomSupp_zeroFun_a6 : boundaryDomSupp (fun _ : A.W => (0 : ℚ≥0)) = ∅ := by
+theorem boundaryDomSupp_zeroFun : boundaryDomSupp (fun _ : A.W => (0 : ℚ≥0)) = ∅ := by
   rw [boundaryDomSupp, closure_empty_iff, eq_empty_iff_forall_notMem]
   rintro x ⟨-, w, -, -, hpos⟩
   exact lt_irrefl _ hpos

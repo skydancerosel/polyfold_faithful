@@ -12,7 +12,7 @@ As `MeasureGeneralizedIso.lean`, with the boundary measures of Theorems 9.5.15 a
 (`BoundaryMeasureEquivalence.lean`): for `X ←F A →Φ Y`, the equivalence case is used along `F` and along `Φ`.
 
 * `measure_span_core_bd`;
-* `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta` (E7's `hcov` for `d^*Θ̂'`, `d_*Θ̂`),
+* `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta` (`hcov` for `d^*Θ̂'`, `d_*Θ̂`),
   `Diagram.isNDimensional_dPullTheta`, `Diagram.isNDimensional_dPushTheta`;
 * `Diagram.theorem_11_4_4_pull`, `_push`, `Diagram.theorem_11_4_5_pull`, `_push`;
 * **`EPLoc.theorem_11_4_4_pull`**, **`EPLoc.theorem_11_4_4_push`**,
@@ -163,7 +163,7 @@ theorem isNDimensional_dPushTheta (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence)
   isNDimensional_pushforwardTheta hΦ (d.F.isFunctorial_pullbackTheta hΘ)
     (isNDimensional_pullbackTheta d.isEquivalence_F h)
 
-/-- **E7's `hcov` for `d^*Θ̂' = F_*Φ^*Θ̂'`.** -/
+/-- **`hcov` for `d^*Θ̂' = F_*Φ^*Θ̂'`.** -/
 theorem hcovB_pullTheta (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence) {ΩX ΩA ΩY : Type*}
     [AddCommGroup ΩX] [Module ℝ ΩX] [AddCommGroup ΩA] [Module ℝ ΩA] [AddCommGroup ΩY]
     [Module ℝ ΩY] {FX : X.X.FormEval m ΩX} {FA : d.A.X.FormEval m ΩA} {FY : Y.X.FormEval m ΩY}
@@ -183,7 +183,7 @@ theorem hcovB_pullTheta (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence) {ΩX ΩA Ω
       (hasIndependentTangentSums (X := Y.X) Θ') hT').isGrHatSection
       (isTransported_pull hΦ hT'.isGrHatSection) hcov')
 
-/-- **E7's `hcov` for `d_*Θ̂ = Φ_*F^*Θ̂`.** -/
+/-- **`hcov` for `d_*Θ̂ = Φ_*F^*Θ̂`.** -/
 theorem hcovB_pushTheta (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence) {ΩX ΩA ΩY : Type*}
     [AddCommGroup ΩX] [Module ℝ ΩX] [AddCommGroup ΩA] [Module ℝ ΩA] [AddCommGroup ΩY]
     [Module ℝ ΩY] {FX : X.X.FormEval m ΩX} {FA : d.A.X.FormEval m ΩA} {FY : Y.X.FormEval m ΩY}
@@ -436,7 +436,7 @@ variable {X Y : EP.{u}} {m : ℕ}
 
 /-- **Theorem 11.4.4, 2021 p. 545 (new in the 2021 edition), second identity**: for a
 generalized isomorphism `f : X → Y`, `Θ̂'` on `Y` oriented, compact, of dimension `n = m + 1 ≥ 2`,
-with E7's corner hypothesis `hcov'` (each point of `supp ∂Θ'` has an oriented tame structure
+with the corner hypothesis `hcov'` (each point of `supp ∂Θ'` has an oriented tame structure
 whose nonempty boundary sheets lie in the integration class of `Ωᵐ_{ep,∞}`), and
 `K ∈ L(|supp ∂f^*Θ'|)`: `|f|(K) ∈ L(|supp ∂Θ'|)` and
 `µ^{∂f^*Θ̂'}_{f^*ω'}(K) = µ^{∂Θ̂'}_{ω'}(|f|(K))`. -/
@@ -471,7 +471,7 @@ theorem theorem_11_4_4_pull {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 
 
 /-- **Theorem 11.4.4, 2021 p. 545 (new in the 2021 edition), first identity**: for a
 generalized isomorphism `f : X → Y`, `Θ̂` on `X` oriented, compact, of dimension `n = m + 1 ≥ 2`,
-with E7's corner hypothesis `hcov`, and `K ∈ L(|supp ∂Θ|)`: `|f|(K) ∈ L(|supp ∂f_*Θ|)` and
+with the corner hypothesis `hcov`, and `K ∈ L(|supp ∂Θ|)`: `|f|(K) ∈ L(|supp ∂f_*Θ|)` and
 `µ^{∂Θ̂}_ω(K) = µ^{∂f_*Θ̂}_{f_*ω}(|f|(K))` (`f_*` computed on the representative `rep f`). -/
 theorem theorem_11_4_4_push {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 0 < m)
     {Θ : X.Obj → ℚ} {T : X.Obj → X.X.PObj.OrTangent →₀ ℚ}
@@ -504,7 +504,7 @@ theorem theorem_11_4_4_push {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 
 
 /-- **Theorem 11.4.5, 2021 p. 545 (new in the 2021 edition), second identity**: as
 `theorem_11_4_4_pull` for the effective boundary measures of Theorem 9.5.16, `X` and `Y` having
-the local unique continuation property and E7's `hcov'` asking `HasLUC` of the structures. -/
+the local unique continuation property and `hcov'` asking `HasLUC` of the structures. -/
 theorem theorem_11_4_5_pull {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 0 < m)
     (hLX : X.X.IsLUC) (hLY : Y.X.IsLUC)
     {Θ' : Y.Obj → ℚ} {T' : Y.Obj → Y.X.PObj.OrTangent →₀ ℚ}
@@ -538,7 +538,7 @@ theorem theorem_11_4_5_pull {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 
 
 /-- **Theorem 11.4.5, 2021 p. 545 (new in the 2021 edition), first identity**: as
 `theorem_11_4_4_push` for the effective boundary measures of Theorem 9.5.16, `X` and `Y` having
-the local unique continuation property and E7's `hcov` asking `HasLUC` of the structures. -/
+the local unique continuation property and `hcov` asking `HasLUC` of the structures. -/
 theorem theorem_11_4_5_push {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) (hm : 0 < m)
     (hLX : X.X.IsLUC) (hLY : Y.X.IsLUC)
     {Θ : X.Obj → ℚ} {T : X.Obj → X.X.PObj.OrTangent →₀ ℚ}

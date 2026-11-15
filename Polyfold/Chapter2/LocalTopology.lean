@@ -145,16 +145,15 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
   not assumed Hausdorff, such as the orbit spaces of later chapters).  The wording of the
   convention in Appendix 2.7.2 (and 2017 Appendix 2.6.2, p. 51), a locally finite open
   *subcovering*, does not hold as we read it for `ℝ` (`not_isParacompactBySubcover_real`); we read
-  it as "refinement" (possible misprint), as in the footnote.
+  it as "refinement", as in the footnote.
 * **Lemma 2.3.5** holds in every Hausdorff paracompact space (Mathlib: such spaces are normal);
   "arbitrarily small" is `V(x) ⊆ N` for a given neighbourhood `N`.  **Lemma 2.7.2** only needs
   regularity.
 * **Proposition 2.3.6** is derived from the open-cover part of Proposition 2.1.8, with the cover by
   chart domains (`V ≅ O`, Corollary 2.1.7, Proposition 2.1.8 (2)) and condition (b) from
   Lemma 2.3.5; "(3) the topology on level `0`" is the topology of `X`.
-* Not formalized here: Lemma 2.7.3 and Proposition 2.7.4 of the appendix (2017 Lemma 2.7,
-  Proposition 2.17), which `Metrizable.lean` bypasses; they are formalized in `MichaelRefinement.lean`
-  (`lemma_2_7_3`, `proposition_2_7_4`).
+* Lemma 2.7.3 and Proposition 2.7.4 of the appendix (2017 Lemma 2.7, Proposition 2.17), which
+  `Metrizable.lean` bypasses, are in `MichaelRefinement.lean` (`lemma_2_7_3`, `proposition_2_7_4`).
 -/
 
 open Set Filter Topology TopologicalSpace Function
@@ -671,7 +670,7 @@ def IsParacompactBySubcover (X : Type v) [TopologicalSpace X] : Prop :=
   ∀ 𝒰 : Set (Set X), (∀ U ∈ 𝒰, IsOpen U) → ⋃₀ 𝒰 = univ →
     ∃ 𝒱 ⊆ 𝒰, ⋃₀ 𝒱 = univ ∧ IsLocallyFiniteSetFamily 𝒱
 
-/-- **The subcovering reading does not hold for `ℝ`** (possible misprint for "refinement", which
+/-- **The subcovering reading does not hold for `ℝ`** (we read "refinement", which
 is the footnote's wording): the covering of `ℝ` by the intervals `(−n−1, n+1)` has no locally
 finite subcovering, although `ℝ` is paracompact. -/
 theorem not_isParacompactBySubcover_real : ¬ IsParacompactBySubcover ℝ := by

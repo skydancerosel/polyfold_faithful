@@ -6,7 +6,7 @@ import Polyfold.Chapter3.FredholmGermLinearizationScG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6:
 **condition (3) of a filler on every level at a zero**, **the converse of Proposition 3.1.5 (preprint 3.5) in sc
 form**, and **the linearization of an sc-Fredholm section at a zero is sc-Fredholm in every strong
-bundle chart** — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+bundle chart** — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # sc-Fredholm linearizations in every chart, germ reading
 
@@ -71,7 +71,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {hU : IsRelOpenInQuad
   (hfg : IsFillingGerm hU hR h0 fb g)
 
 include hfg in
-/-- **Condition (3) of the filler on every level at a zero, germ reading** (phase 2; the germ form
+/-- **Condition (3) of the filler on every level at a zero, germ reading** (the germ form
 of `IsFillerOf.mem_range_toBase_of_scDeriv_r_eq_zero`; Definition 3.1.4 (preprint 3.4) (3)): let `g` be a filling
 germ of `f` with `g(0) = 0`, `Dg` a derivative family of `g` on a germ `G ⊆ U`, and `Dg(0)`
 sc-Fredholm.  If `v ∈ ker Dr(0)` and `(1 − ρ(0))Dg(0)v ∈ F_m`, then `v ∈ E_m`.  Proof as for
@@ -121,7 +121,7 @@ theorem mem_range_toBase_of_scDeriv_r_eq_zero (hg0 : g 0 = 0)
 
 include hfg in
 /-- **Condition (3) of the filler on every level at a zero, as an sc-isomorphism, germ reading**
-(phase 2; the germ form of `IsFillerOf.filler_condition_three_sc`): let `g` be a filling germ with
+(the germ form of `IsFillerOf.filler_condition_three_sc`): let `g` be a filling germ with
 `g(0) = 0`, `Dg` a derivative family on a germ `G ⊆ U`, and `Dg(0)` sc-Fredholm.  Then `ker Dr(0)`
 and `ker ρ(0)` are sc-subspaces, and `(1 − ρ(0))Dg(0)` restricts to an **sc-isomorphism**
 `ker Dr(0) → ker ρ(0)` between the induced sc-Banach spaces. -/
@@ -176,7 +176,7 @@ theorem filler_condition_three_sc (hg0 : g 0 = 0)
   exact ⟨hN, hM, ScIso.ofBijective Cop (hreg.bijective hbij0), hCapp⟩
 
 include hfg in
-/-- **The converse of Proposition 3.1.5 (preprint 3.5), sc form, germ reading** (phase 2; the germ form of
+/-- **The converse of Proposition 3.1.5 (preprint 3.5), sc form, germ reading** (the germ form of
 `IsFillerOf.proposition_3_1_5_sc_converse`): let `g` be a filling germ with `g(0) = 0`, `Dg` a
 derivative family on a germ `G ⊆ U`, `Dg(0)` an sc-operator, `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀`
 sc-Fredholm, and condition (3) of Definition 3.1.4 (preprint 3.4) on every level.  Then `Dg(0)` is sc-Fredholm, and
@@ -244,7 +244,7 @@ theorem proposition_3_1_5_sc_converse (hg0 : g 0 = 0)
   rw [(hlvl m).2, hDg.toScOperator_zero, ← hindeq, hind hS0F]
 
 include hfg in
-/-- **Proposition 3.1.5 (preprint 3.5), sc form, both directions, germ reading** (phase 2; the germ form of
+/-- **Proposition 3.1.5 (preprint 3.5), sc form, both directions, germ reading** (the germ form of
 `IsFillerOf.proposition_3_1_5_sc_iff`): for a filling germ `g` with `g(0) = 0`, a derivative family
 `Dg` on a germ `G ⊆ U` and `Dg(0)` an sc-operator, `Dg(0)` is sc-Fredholm **iff**
 `Tf(0) : T₀O → K₀` is sc-Fredholm **and** condition (3) of Definition 3.1.4 (preprint 3.4) holds on every level. -/
@@ -283,7 +283,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **`Lin(z)` from a germ datum at `y`, germ reading** (phase 2; the germ form of
+/-- **`Lin(z)` from a germ datum at `y`, germ reading** (the germ form of
 `StrongBundle.linAt_sc_of_germ_wholeChart`): let `f` be sc-smooth, `y` a zero, `c` a strong bundle chart of
 `P` around `y` with the smooth level-`1` point `z` over `φ(y)`, and `D(f̂ ∘ r)(z)` an sc-operator
 restricting to `Lin(z) : T_zO → K_z`.  Given a datum of Definition 3.1.11 (preprint 3.11) at `y` in the germ reading
@@ -389,7 +389,7 @@ theorem StrongBundle.linAt_sc_of_germ (hf : B.IsScSmoothSection f) {y : X}
     rwa [hinv1 x.1 x.2] at h9
 
 /-- **The linearization of an sc-Fredholm section at a zero is sc-Fredholm in every chart, germ
-reading** (phase 2; the germ form of `StrongBundle.linAt_isScFredholm_wholeChart`; Proposition 3.6.5 (preprint 3.52) and
+reading** (the germ form of `StrongBundle.linAt_isScFredholm_wholeChart`; Proposition 3.6.5 (preprint 3.52) and
 Theorem 3.1.22 (preprint 3.19), "`f'(x)` is sc-Fredholm", chart-intrinsically).  Let `f` be an sc-Fredholm section
 in the germ reading (`IsScFredholmSection`), `y` a zero, `c` **any** strong bundle chart of `P`
 around `y`, `z` the level-`1` point over `φ(y)`.  Then `D(f̂ ∘ r)(z)` is an sc-operator, `T_zO` and
@@ -454,7 +454,7 @@ theorem StrongBundle.linAt_isScFredholm (hf : B.IsScFredholmSection f) {y : X}
       hTK hc₂ hyV₂ hφ₂ h0₂ hfill₂ hs₂ hs0₂ d
     rw [(hlvl m).2, hind]
 
-/-- **At a zero where `f'(y)` is onto of index `d`, germ reading** (phase 2; the germ form of
+/-- **At a zero where `f'(y)` is onto of index `d`, germ reading** (the germ form of
 `StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart`): for an sc-Fredholm section in the germ
 reading and a zero with `IsSurjLinOfIndex f y d`, in every chart `Lin(z) : T_zO → K_z` is
 sc-Fredholm, **onto on every level** and of index `d` on every level. -/
@@ -493,7 +493,7 @@ theorem StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex
     (hlvl m).1, ?_⟩⟩
   rw [(hlvl m).2.1, hind0, hLind]
 
-/-- **The index is locally constant along the solution set, sc form, germ reading** (phase 2; the
+/-- **The index is locally constant along the solution set, sc form, germ reading** (the
 germ form of `theorem_3_6_8_index_locally_constant_sc_wholeChart`): for an sc-Fredholm section with tame germ
 data in the germ reading, `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart (germ
 reading), there are an open `Vx ∋ x₀` and `d` such that at every zero `y ∈ Vx`, in **every** strong

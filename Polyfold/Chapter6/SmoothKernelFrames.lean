@@ -1,6 +1,6 @@
 import Polyfold.Chapter6.SmoothFiniteDimRanges
 import Polyfold.Chapter6.SmoothSubspaceFamilies
-import Polyfold.Chapter6.SolutionManifoldFamily2021
+import Polyfold.Chapter6.SolutionManifoldFamily
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**

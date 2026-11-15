@@ -302,14 +302,14 @@
     "statement": "The definitions of §16.1 have instances."
    },
    "lean": {
-    "statement": "The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$: $\\pi$ is injective and a homeomorphism onto $\\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comapP3Z`, `EpGroupoid.descendP3Z`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`.",
+    "statement": "The trivial $\\mathbb Z/3$-ep-groupoid on $\\mathbb R$: $\\pi$ is injective and a homeomorphism onto $\\mathbb R$ (`injective_π_trivialZ3`, `isHomeomorph_π_trivialZ3`, `trivialZ3OrbitHomeomorph`), with paracompact orbit space (`hasParacompactOrbitSpace_trivialZ3`); tools `PartitionOfUnity.comap`, `EpGroupoid.orbitDescend`, `preimage_closure_π`, `MPolyfold.isScSmoothMap_real_of_locally`.",
     "decls": [
      "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.injective_π_trivialZ3",
      "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.isHomeomorph_π_trivialZ3",
      "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.trivialZ3OrbitHomeomorph",
      "Chapter16/ZhouUniquenessCheck · EpGroupoid.Examples.hasParacompactOrbitSpace_trivialZ3",
-     "Chapter16/PolyfoldPartitions · PartitionOfUnity.comapP3Z",
-     "Chapter16/PolyfoldPartitions · EpGroupoid.descendP3Z",
+     "Chapter16/PolyfoldPartitions · PartitionOfUnity.comap",
+     "Chapter16/PolyfoldPartitions · EpGroupoid.orbitDescend",
      "Chapter16/PolyfoldPartitions · EpGroupoid.preimage_closure_π",
      "Chapter16/PolyfoldBump · MPolyfold.isScSmoothMap_real_of_locally"
     ]

@@ -40,8 +40,9 @@ equivalence is read with the sections:
   have no representatives which are compatible in this sense, so the example is excluded by
   this reading.
 
-Not formalized: the same for tuples with different index families `I^F`, where
-`I^F_x = I^{F'}_x` is given for `x ∈ F ∩ F'` only and a common family has to be chosen.
+The same for tuples with different index families `I^F`, where `I^F_x = I^{F'}_x` is given for
+`x ∈ F ∩ F'` only and a common family has to be chosen, is `FaceIndexFamilies`
+(`SectionCompatibleFaceFamilies.theorem_14_6_3`).
 -/
 
 set_option maxSynthPendingDepth 3

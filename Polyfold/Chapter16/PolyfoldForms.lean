@@ -31,7 +31,7 @@ Namespace `Polyfold.PolyfoldClass`, for each degree `k`:
   (linear isomorphisms `Ωᵏ_sc(Z, c) ≃ Ωᵏ_{ep,∞}(X)`).
 * **`ScForm.d`** (`d_mk`: `d[(ω, p)] = [(dω, p)]`, linear), **`d_comp_d`**: `d ∘ d = 0`;
   `theorem_16_2_6_complex`.  The pull-back by sc-smooth maps of polyfolds (the second part of
-  Theorem 16.2.6) needs the morphisms of Definitions 16.1.8–16.1.11 and is not formalized here.
+  Theorem 16.2.6) is `theorem_16_2_6_pullback` (`FormsPullback`).
 -/
 
 set_option maxSynthPendingDepth 3

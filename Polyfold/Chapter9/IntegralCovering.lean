@@ -24,7 +24,7 @@ text's.
   The restriction of the sheets `Mᵢ ∩ V` must again have tame induced structures; this is the
   hypothesis `htame`.  It holds when `X` has no boundary (`hcov_of_degIndex_eq_zero`).
 * `theorem_9_5_4_concrete`, `theorem_9_5_5_concrete`, `concreteBranchedIntegral`,
-  `concreteBranchedIntegralEff`: E1's theorems and Definition 9.5.6 for
+  `concreteBranchedIntegralEff`: Theorems 9.5.4, 9.5.5 and Definition 9.5.6 for
   `F.sheetIntegration hn`.
 -/
 

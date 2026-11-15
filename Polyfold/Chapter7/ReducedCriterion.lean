@@ -91,7 +91,7 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   without the text's refinement argument: `π` is open, and for `q ∈ 𝐗^R` the compact set
   `K = {φ ∈ s⁻¹(cl V) | (s, t)(φ) = (s, t)(q)}` (`(s, t)` is proper on `s⁻¹(cl V)`) has the
   property that every open `N ⊇ K` contains `π⁻¹(O)` for an open `O ∋ q`.  So the instance
-  `ParacompactSpace X.ReducedMor` holds outright, and `reducedEpGroupoid` (`Reduced.lean`) now
+  `ParacompactSpace X.ReducedMor` holds outright, and `reducedEpGroupoid` (`Reduced.lean`)
   needs only `[T2Space X.ReducedMor]`; this settles the paracompactness half of gap G.71.
 * **Lemma 7.2.11 does not hold as we read it without a Hausdorff hypothesis.**  Its conclusion at
   every morphism is equivalent to `T_R` Hausdorff (`isReducedEvenlyCovered_iff_t2Space`), and it
@@ -109,13 +109,13 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
 * Proposition 7.2.13: an M-polyfold is Hausdorff and paracompact by definition; the statement is
   the equivalence of "some M-polyfold structure with the natural atlas exists" and `T_R`
   Hausdorff.  Remark 7.2.8's "finest topology" is the quotient topology.
-* In Definition 7.2.7 the text writes `s([φ]) = t_X(φ)` for the target map, a possible misprint
-  for `t([φ])`; `reducedTgt` (`Reduced.lean`) is the target map.
+* In Definition 7.2.7 the text writes `s([φ]) = t_X(φ)` for the target map, read as
+  `t([φ])`; `reducedTgt` (`Reduced.lean`) is the target map.
 * Appendix 7.6.3: `JumpingRetract.X` (`ReducedNotHausdorff.lean`) is not Zhou's retract but has the
   same features (a `ℤ/2`-action trivial over `t < 0` and moving points arbitrarily close to the
   origin over `t > 0`); we show `(−1, o₀) ∈ cl(𝐗^T) ∖ 𝐗^T` here; `𝐗^T` is computed exactly in
   `ZhouRetract.lean`, and Zhou's retract itself is `ZhouGroupoid.lean` and
-  `ZhouSigma.lean` (2026-11-12).
+  `ZhouSigma.lean`.
 * Appendix 7.6.4 is formalized for `i = 1` and as sets: the text uses that `U₁(x)` is connected
   in `X¹` and that `U(x) ∩ X_1` is dense in `U(x)` (the density of `X_1` in `X`, gap G.73;
   `Lift.lean` uses `U(x)₁` only with the restricted action); both are explicit hypotheses of
@@ -123,8 +123,8 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   hypotheses are satisfied by the trivial ep-groupoid of a point (`Examples.pointEpGroupoid`).
   Not in this file: the sc-diffeomorphism `(𝐗^1)^R ≅ (𝐗^R)^1`, the case `i ≥ 2`, and (ZHOU),
   which §7.4 defines: `corollary_7_6_8` takes "(ZHOU) implies LUC for `X¹`" as a hypothesis.
-  Since 2026-11-09 the hypotheses hold for every ep-groupoid (`SmoothConnectedReps.lean`), and
-  since 2026-11-12 the sc-diffeomorphism and every `i` are `theorem_7_6_7_one`, `EP.theorem_7_6_7`
+  The hypotheses hold for every ep-groupoid (`SmoothConnectedReps.lean`), and the
+  sc-diffeomorphism and every `i` are `theorem_7_6_7_one`, `EP.theorem_7_6_7`
   and `EP.corollary_7_6_8` (`RaisedEpGroupoid.lean`).
 -/
 
@@ -944,7 +944,7 @@ def reducedLevelOneMap
 sets**: under LUC for `X¹` (the part of (SLUC) used) and `HasConnectedDenseLevelOneReps`,
 `(𝐗^T)^1 = (𝐗^1)^T`, and `[φ]₁ ↦ [φ]` is a continuous injection `(𝐗¹)^R → 𝐗^R` onto
 `π(𝐗_1)`.  The sc-diffeomorphism statement and `i ≥ 2` are `theorem_7_6_7_one` and
-`EP.theorem_7_6_7` (`RaisedEpGroupoid.lean`, 2026-11-12). -/
+`EP.theorem_7_6_7` (`RaisedEpGroupoid.lean`). -/
 theorem theorem_7_6_7 (hLUC : X.liftOne.IsLUC)
     (hR : X.HasConnectedDenseLevelOneReps) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,

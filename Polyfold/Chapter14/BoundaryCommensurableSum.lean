@@ -166,11 +166,11 @@ theorem IsFaceScPlusSectionOn.sectionSmul (hO : IsOpen O) (hUO : U ⊆ O)
     ⟨V, hV, hxV, hret, hGsec⟩
   -- on the face points over `O`, `G` is the representative of `f·s`
   obtain ⟨N', hN', hxN', hN'O⟩ := exists_model_open c hO (hUO hx.1) hx.2
-  refine IsScPlusOnFaceNear.congr_open_fm hface hN' hxN' fun z hz => ?_
+  refine IsScPlusOnFaceNear.congr_open hface hN' hxN' fun z hz => ?_
   have hzO : z ∈ c.φ.model.O := hz.1.1
   have hzs : c.φ.symm z ∈ c.φ.source := c.φ.symm_mapsTo hzO
   have hzU : c.φ.symm z ∈ U :=
-    hOU ⟨hN'O z ⟨hzO, hz.1.2⟩, symm_mem_boundary_fm c hc hT hzO hz.2⟩
+    hOU ⟨hN'O z ⟨hzO, hz.1.2⟩, symm_mem_boundary c hc hT hzO hz.2⟩
   have hr := mem_range_of_mem_oneSet hs hc.isChart hzs (h.1 _ hzU).2
   refine Prod.ext ?_ (c.F.toBase_injective 1 ?_)
   · change (L z).1 = (c (Polyfold.sectionSmul A.P f s (c.φ.symm z))).1
@@ -231,11 +231,11 @@ theorem IsFaceScPlusSectionOn.sectionAdd (hO : IsOpen O) (hUO : U ⊆ O)
   have hface : IsScPlusOnFaceNear T c.φ.model.C c.φ.model.O c.K G (c.φ x) i :=
     ⟨V₁ ∩ V₂, hV₁.inter hV₂, ⟨hxV₁, hxV₂⟩, hret, hGsec⟩
   obtain ⟨N', hN', hxN', hN'O⟩ := exists_model_open c hO (hUO hx.1) hx.2
-  refine IsScPlusOnFaceNear.congr_open_fm hface hN' hxN' fun z hz => ?_
+  refine IsScPlusOnFaceNear.congr_open hface hN' hxN' fun z hz => ?_
   have hzO : z ∈ c.φ.model.O := hz.1.1
   have hzs : c.φ.symm z ∈ c.φ.source := c.φ.symm_mapsTo hzO
   have hzU : c.φ.symm z ∈ U :=
-    hOU ⟨hN'O z ⟨hzO, hz.1.2⟩, symm_mem_boundary_fm c hc hT hzO hz.2⟩
+    hOU ⟨hN'O z ⟨hzO, hz.1.2⟩, symm_mem_boundary c hc hT hzO hz.2⟩
   have hr₁ := mem_range_of_mem_oneSet hs₁ hc.isChart hzs (h₁.1 _ hzU).2
   have hr₂ := mem_range_of_mem_oneSet hs₂ hc.isChart hzs (h₂.1 _ hzU).2
   refine Prod.ext ?_ (c.F.toBase_injective 1 ?_)
@@ -284,7 +284,7 @@ theorem isFaceScPlusSectionOn_of_locally {s : A.Obj → A.W} (hUb : U ⊆ A.X.PO
     IsFaceScPlusSectionOn A s U := by
   have hy : ∀ y ∈ U, IsFaceScPlusSectionOn A s {y} := fun y hyU => by
     obtain ⟨σ, N, hN, hyN, hσ, heq⟩ := h y hyU
-    exact hσ.congr_fm hN (singleton_subset_iff.2 hyN) (singleton_subset_iff.2 (hUb hyU)) heq
+    exact hσ.congr_of_eqOn_boundary hN (singleton_subset_iff.2 hyN) (singleton_subset_iff.2 (hUb hyU)) heq
   exact ⟨fun x hx => (hy x hx).1 x rfl,
     fun c hc n W T hT x hx i hi => (hy x hx.1).2 c hc n W T hT x ⟨rfl, hx.2⟩ i hi⟩
 
@@ -294,7 +294,7 @@ theorem IsFaceScPlusSectionOn.extendZero (hO : IsOpen O) (hUO : U ⊆ O)
     (hOU : O ∩ A.X.PObj.boundary ⊆ U) (hUb : U ⊆ A.X.PObj.boundary) {s : A.Obj → A.W}
     (h : IsFaceScPlusSectionOn A s U) :
     IsFaceScPlusSectionOn A (SBLocalization.extendZero U s) U :=
-  h.congr_fm hO hUO hUb fun _ hy => extendZero_eqOn (fun z hz => (h.1 z hz).1) (hOU hy)
+  h.congr_of_eqOn_boundary hO hUO hUb fun _ hy => extendZero_eqOn (fun z hz => (h.1 z hz).1) (hOU hy)
 
 end FaceAlgebra
 

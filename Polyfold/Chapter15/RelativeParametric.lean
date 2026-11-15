@@ -5,7 +5,7 @@ import Polyfold.Chapter15.RelativeReduction
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
 **Theorem 15.3.9** (2017: Theorem 15.5), steps (c)–(d), pp. 698–699: "Achieving global
 transversality" relative to `Λ₀`, i.e. `HasParametricGeneralPositionRel`, proved under the
-hypotheses of the theorem (GB's `hasParametricGeneralPosition` with `Λ₀` for the trivial
+hypotheses of the theorem (`hasParametricGeneralPosition` with `Λ₀` for the trivial
 multisection).
 
 # Relative parametrized general position
@@ -519,9 +519,10 @@ theorem theorem_15_3_9_of_local_rel
         HasLocalGPFamiliesRel A f Λ₀ N (U ∩ A.X.PObj.boundaryᶜ)
           (fun x => h x - pointwiseNorm N Λ₀ x)) :
     theorem_15_3_9_statement A :=
-  theorem_15_3_9_of_extension_ty hB hext (theorem_15_3_7_relative_of_local H)
+  theorem_15_3_9_of_extension hB hext (theorem_15_3_7_relative_of_local H)
 
-/-- **The remaining hypothesis of `theorem_15_3_7_relative_of_local` is satisfiable** on
+/-- **The hypothesis of `theorem_15_3_7_relative_of_local` (for every `A`:
+`relative_local_families_holds`) is satisfiable** on
 `ℝⁿ × ℝ⁰ → ℝⁿ`. -/
 theorem theorem_15_3_7_relative_statement_epSEP_zero_of_local (n : ℕ) :
     theorem_15_3_7_relative_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=

@@ -25,7 +25,7 @@ two local branching structures at `x` agree near `x`):
 
 So the uniqueness of Proposition 9.1.11 holds once "uniquely" is read among local decompositions,
 which are what its proof produces.  The gluing of the local `Θ_k` into functors on all of `X`
-(gap G.96) is not formalized here.
+(gap G.96) is in `DimDecompositionExists.lean`.
 -/
 
 open Set Filter Topology

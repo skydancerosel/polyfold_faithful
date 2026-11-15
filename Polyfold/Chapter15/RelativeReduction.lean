@@ -133,7 +133,7 @@ theorem exists_relGPFamily_of_compact (h𝒰 : Nonempty A.X.GoodSystem) (hN : A.
   rw [hQs i.1 i.2] at hy'
   exact mem_iUnion₂.2 ⟨i, hi, hy'⟩
 
-/-- `|supp(Λ ∘ f)|` is compact for an admissible `Λ` (G's `isCompact_orbitSupp_comp`), as a
+/-- `|supp(Λ ∘ f)|` is compact for an admissible `Λ` (`isCompact_orbitSupp_comp`), as a
 statement about `π '' {x | Λ(f(x)) > 0}`. -/
 theorem isCompact_image_supp_comp (hf : A.E.IsScFredholmSectionFunctor f) (hfc : Continuous f)
     {Λ : A.W → ℚ≥0} (hΛ : IsScPlusMultisection A Λ) (hcc : ControlsCompactness A f N U)
@@ -239,7 +239,7 @@ theorem theorem_15_3_9_of_rel_hyp
             (fun x => h x - pointwiseNorm N Λ₀ x) ∧
           HasParametricGeneralPositionRel A f Λ₀ N U) :
     theorem_15_3_9_statement A :=
-  theorem_15_3_9_of_extension_ty hB hext (theorem_15_3_7_relative_of_hyp H)
+  theorem_15_3_9_of_extension hB hext (theorem_15_3_7_relative_of_hyp H)
 
 /-! ### The boundary part of the local families -/
 

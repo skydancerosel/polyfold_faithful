@@ -20,15 +20,15 @@ Theorem 14.5.5.  The size control multiplies by a cut-off functor.
 
 * `mult σ`: the functor `Λ'` (with the cut-off `σ` folded into the sections), computed in any
   chart `V̂_b` (`mult_eq`), a functor (`isWFunctor_mult`).
-* `crit`: the data of Theorem 14.5.5 (GL's `CriterionData`), indexed by `A ⊔ X`: the `V̂_b` with
+* `crit`: the data of Theorem 14.5.5 (`CriterionData`), indexed by `A ⊔ X`: the `V̂_b` with
   the `σ·s̃ᵇ`, and for every object `x` the invariant core of `X ∖ C` in a neighbourhood of `x`
   with the zero section and the correspondences of the text.
-* `CriterionData.hasLocalSectionStructure_t9`: the criterion's data and a functor give an
+* `CriterionData.hasLocalSectionStructure`: the criterion's data and a functor give an
   sc⁺-multisection (local structures transported by `t`); hence `isStructurable_mult`.
 * `mult_boundary`: `Λ'|∂X = Λ` when `σ = 1` on `dom-supp(Λ)`; `domSupp_mult_subset`.
 * `exists_cutoff`: the cut-off `σ` (Urysohn on the normal space `|X|`) with `σ = 1` on
   `dom-supp(Λ)` and `tsupport σ ⊆ Ũ`.
-* **`AssemblyInput.extension`**: the conclusion of GL's `theorem_14_1_9_extension_statement` for
+* **`AssemblyInput.extension`**: the conclusion of `theorem_14_1_9_extension_statement` for
   `Λ` with an `AssemblyInput`.
 * **`theorem_14_1_9_extension_statement_of_assembly`** and **`theorem_14_1_9_of_assembly`**:
   Theorem 14.1.9 from `AssemblyHyp A` (every structurable `Λ` over `∂X` has the data of
@@ -55,7 +55,7 @@ variable {A : SEP.{u}}
 
 /-! ### Fibre maps -/
 
-theorem fibAct_eq_fiberZero_iff_t9 {ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ) :
+theorem fibAct_eq_fiberZero_iff {ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ) :
     fibAct ψ w = fiberZero A.P (A.X.tgt ψ) ↔ w = fiberZero A.P (A.X.src ψ) := by
   constructor
   · intro h
@@ -65,7 +65,7 @@ theorem fibAct_eq_fiberZero_iff_t9 {ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src 
   · rintro rfl
     exact fibAct_fiberZero rfl rfl
 
-theorem fibAct_comp_inv_t9 {φ ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ)
+theorem fibAct_comp_inv {φ ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ)
     (h : A.X.src φ = A.X.src ψ) :
     fibAct (A.X.comp φ (A.X.inv ψ)) (fibAct ψ w) = fibAct φ w := by
   have hv : A.P (fibAct ψ w) = A.X.src (A.X.inv ψ) := by
@@ -77,7 +77,7 @@ theorem fibAct_comp_inv_t9 {φ ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ)
 
 /-- **The data of Theorem 14.5.5 and a functor give local section structures**: near `y`, the
 structure of a `V_a` transported by a local inverse of `t`. -/
-theorem CriterionData.hasLocalSectionStructure_t9 {Λ : A.W → ℚ≥0} (E : CriterionData A Λ)
+theorem CriterionData.hasLocalSectionStructure {Λ : A.W → ℚ≥0} (E : CriterionData A Λ)
     (hfun : IsWFunctor A Λ) (hne : ∀ a, Nonempty (E.I a)) (y : A.Obj) :
     HasLocalSectionStructure A Λ y := by
   obtain ⟨a, O, τ, hO, hyO, hτ, h⟩ := E.exists_transport y
@@ -173,7 +173,7 @@ theorem mult_eq (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ)) {b : 
       rw [← AtomicStructData.fibAct_inv_fibAct h1, e, AtomicStructData.fibAct_inv_fibAct h2]
   have := IndexCorr.count_eq_of_sat hinj (fun j => D.isSection_ssec σ b' j _) hsat
     (v := fibAct φ' w) (P_fibAct hw')
-  rw [fibAct_comp_inv_t9 hw' (hs.trans hs'.symm)] at this
+  rw [fibAct_comp_inv hw' (hs.trans hs'.symm)] at this
   exact this
 
 theorem P_ssec_ne {b : A.Obj} {j : D.S.I b} {y : A.Obj} : A.P (D.ssec σ b j y) = y :=
@@ -199,13 +199,13 @@ theorem mult_of_not_mem_C {w : A.W} (hw : A.P w ∉ D.C) :
     have htC : A.X.tgt h.choose.2 ∉ D.C := D.not_mem_C_of_src (by rw [hs]; exact hw)
     rw [Finset.filter_true_of_mem fun j _ => ?_, Finset.card_univ, inv_mul_cancel₀ hc]
     rw [D.ssec_eq_zero_of_not_mem_C σ j htC]
-    exact ((fibAct_eq_fiberZero_iff_t9 hs.symm).2 (by rw [hs]; exact h0)).symm
+    exact ((fibAct_eq_fiberZero_iff hs.symm).2 (by rw [hs]; exact h0)).symm
   · obtain ⟨hs, -⟩ := h.choose_spec
     have htC : A.X.tgt h.choose.2 ∉ D.C := D.not_mem_C_of_src (by rw [hs]; exact hw)
     rw [Finset.filter_false_of_mem fun j _ => ?_, Finset.card_empty, Nat.cast_zero, mul_zero]
     rw [D.ssec_eq_zero_of_not_mem_C σ j htC]
     intro e
-    exact h0 ((fibAct_eq_fiberZero_iff_t9 hs.symm).1 e.symm |>.trans (by rw [hs]))
+    exact h0 ((fibAct_eq_fiberZero_iff hs.symm).1 e.symm |>.trans (by rw [hs]))
   · rfl
   · rfl
 
@@ -222,7 +222,7 @@ theorem isWFunctor_mult (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ
     rw [D.mult_eq hσt b.2 hs ht,
       D.mult_eq hσt b.2 (φ := A.X.comp φ (A.X.inv ψ))
         (by rw [A.X.src_comp _ _ hc, A.X.src_inv, hPμ]) (by rw [A.X.tgt_comp _ _ hc]; exact ht),
-      A.X.tgt_comp _ _ hc, fibAct_comp_inv_t9 hq' (hs.trans hq')]
+      A.X.tgt_comp _ _ hc, fibAct_comp_inv hq' (hs.trans hq')]
   · have h' : ¬ ∃ p : D.S.A × A.Mor,
         A.X.src p.2 = A.P (fibAct ψ w) ∧ A.X.tgt p.2 ∈ D.S.V p.1 := by
       rintro ⟨⟨b, φ⟩, hs, ht⟩
@@ -230,7 +230,7 @@ theorem isWFunctor_mult (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ
       exact h ⟨(b, A.X.comp φ ψ), by rw [A.X.src_comp _ _ hc, hq'], by
         rw [A.X.tgt_comp _ _ hc]; exact ht⟩
     unfold mult
-    rw [dif_neg h, dif_neg h', hPμ, hq', fibAct_eq_fiberZero_iff_t9 hq']
+    rw [dif_neg h, dif_neg h', hPμ, hq', fibAct_eq_fiberZero_iff hq']
 
 /-! ### The data of Theorem 14.5.5 -/
 
@@ -292,35 +292,35 @@ section Unit
 
 variable {β : Type u} [Fintype β] [Nonempty β] {G G' : Type*} [Group G] [Group G']
 
-theorem biact_toUnit_swap_t9 {_ : MulAction G β} {_ : MulAction G' PUnit.{u + 1}} (g' : G')
+theorem biact_toUnit_swap {_ : MulAction G β} {_ : MulAction G' PUnit.{u + 1}} (g' : G')
     (g : G) : IndexCorr.biact g' (IndexCorr.toUnit β).swap g = (IndexCorr.toUnit β).swap :=
   (IndexCorr.mk_eq_mk
     (d := ((IndexDiagram.toUnit β).swap).map (MulAction.toPerm g⁻¹) (MulAction.toPerm g'))
     (d' := (IndexDiagram.toUnit β).swap)).2
     ⟨@MulAction.toPerm G β _ _ g⁻¹, fun _ => ⟨rfl, Subsingleton.elim _ _⟩⟩
 
-theorem biact_toUnit_t9 {_ : MulAction G PUnit.{u + 1}} {_ : MulAction G' β} (g' : G') (g : G) :
+theorem biact_toUnit {_ : MulAction G PUnit.{u + 1}} {_ : MulAction G' β} (g' : G') (g : G) :
     IndexCorr.biact g' (IndexCorr.toUnit β) g = IndexCorr.toUnit β :=
   IndexCorr.example_13_3_3 g' _ g
 
-theorem ofEquiv_refl_eq_ofPerm_t9 {_ : MulAction G PUnit.{u + 1}} (g : G) :
+theorem ofEquiv_refl_eq_ofPerm {_ : MulAction G PUnit.{u + 1}} (g : G) :
     IndexCorr.ofEquiv (Equiv.refl PUnit.{u + 1}) = IndexCorr.ofPerm g :=
   IndexCorr.mk_eq_mk.2 ⟨Equiv.refl _, fun _ => ⟨Subsingleton.elim _ _, Subsingleton.elim _ _⟩⟩
 
-theorem ofEquiv_refl_eq_biact_t9 {_ : MulAction G PUnit.{u + 1}}
+theorem ofEquiv_refl_eq_biact {_ : MulAction G PUnit.{u + 1}}
     {_ : MulAction G' PUnit.{u + 1}} (g' : G') (g : G) :
     IndexCorr.ofEquiv (Equiv.refl PUnit.{u + 1}) =
       IndexCorr.biact g' (IndexCorr.ofEquiv (Equiv.refl PUnit.{u + 1})) g :=
   IndexCorr.mk_eq_mk.2 ⟨Equiv.refl _, fun _ => ⟨Subsingleton.elim _ _, Subsingleton.elim _ _⟩⟩
 
-theorem ofEquiv_refl_eq_swap_t9 :
+theorem ofEquiv_refl_eq_swap :
     IndexCorr.ofEquiv (Equiv.refl PUnit.{u + 1}) =
       (IndexCorr.ofEquiv (Equiv.refl PUnit.{u + 1})).swap :=
   IndexCorr.mk_eq_mk.2 ⟨Equiv.refl _, fun _ => ⟨Subsingleton.elim _ _, Subsingleton.elim _ _⟩⟩
 
 end Unit
 
-theorem isOpen_morBetween_t9 {U V : Set A.Obj} (hU : IsOpen U) (hV : IsOpen V) :
+theorem isOpen_morBetween {U V : Set A.Obj} (hU : IsOpen U) (hV : IsOpen V) :
     IsOpen (A.X.morBetween U V) :=
   (hU.preimage A.X.continuous_src).inter (hV.preimage A.X.continuous_tgt)
 
@@ -381,7 +381,7 @@ def crit (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
   locallyConstant i i' φ hφ := by
     rcases i with b | x <;> rcases i' with b' | x'
     · have h := D.T.locallyConstant b.1 b.2 b'.1 b'.2 φ hφ
-      rwa [nhdsWithin_eq_nhds.2 ((isOpen_morBetween_t9 (D.T.isOpen_V b.1 b.2)
+      rwa [nhdsWithin_eq_nhds.2 ((isOpen_morBetween (D.T.isOpen_V b.1 b.2)
         (D.T.isOpen_V b'.1 b'.2)).mem_nhds hφ)] at h
     all_goals exact Eventually.of_forall fun _ => rfl
   finite i i' := by
@@ -392,10 +392,10 @@ def crit (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
     rcases i with b | x <;> rcases i' with b' | x'
     · exact D.biact_τ b.1 b.2 b'.1 b'.2 φ hφ g' g
     · have := D.nonempty_I b.1 b.2
-      exact (biact_toUnit_swap_t9 (β := D.S.I b.1) g' g).symm
+      exact (biact_toUnit_swap (β := D.S.I b.1) g' g).symm
     · have := D.nonempty_I b'.1 b'.2
-      exact (biact_toUnit_t9 (β := D.S.I b'.1) g' g).symm
-    · exact ofEquiv_refl_eq_biact_t9 g' g
+      exact (biact_toUnit (β := D.S.I b'.1) g' g).symm
+    · exact ofEquiv_refl_eq_biact g' g
   compat i i' φ hφ := by
     rcases i with b | x <;> rcases i' with b' | x'
     · exact D.ssec_compat hσt b.2 b'.2 hφ
@@ -412,13 +412,13 @@ def crit (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
   diag i g y hy := by
     rcases i with a | x
     · exact D.S.diag a.1 a.2 g y hy
-    · exact ofEquiv_refl_eq_ofPerm_t9 g
+    · exact ofEquiv_refl_eq_ofPerm g
   swap i i' φ hφ := by
     rcases i with b | x <;> rcases i' with b' | x'
     · exact D.S.swap b.1 b.2 b'.1 b'.2 φ hφ.1 hφ.2
     · exact (IndexCorr.swap_swap _).symm
     · rfl
-    · exact ofEquiv_refl_eq_swap_t9
+    · exact ofEquiv_refl_eq_swap
 
 theorem crit_nonempty (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
     (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ)) (i : (D.crit hσ hσt).ι) :
@@ -432,7 +432,7 @@ theorem isStructurable_mult (hpara : A.X.HasParacompactOrbitSpace)
     (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
     (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ)) : IsStructurable A (D.mult σ) :=
   theorem_14_5_5 hpara ⟨D.isWFunctor_mult hσt, fun y =>
-    (D.crit hσ hσt).hasLocalSectionStructure_t9 (D.isWFunctor_mult hσt)
+    (D.crit hσ hσt).hasLocalSectionStructure (D.isWFunctor_mult hσt)
       (D.crit_nonempty hσ hσt) y⟩ (D.crit hσ hσt)
 
 /-! ### `Λ'` over `∂X` and its domain support -/
@@ -456,7 +456,7 @@ theorem ssec_boundary (hσ1 : ∀ y ∈ boundaryDomSupp Λ, σ y = 1) {b : A.Obj
     (j : D.S.I b) {y : A.Obj} (hy : y ∈ D.S.V b ∩ A.X.PObj.boundary) :
     D.ssec σ b j y = D.T.s0 b j y := by
   unfold ssec
-  rw [sectionSmul_congr_t9 (D.usec_boundary hb j hy)]
+  rw [sectionSmul_congr (D.usec_boundary hb j hy)]
   have hPs0 : A.P (D.T.s0 b j y) = y := by
     rw [← D.T.sh_boundary b hb j y hy]
     exact (D.T.isScPlusSectionOn_sh b hb j).1 y hy.1
@@ -477,7 +477,7 @@ theorem mult_boundary (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.src φ))
   obtain ⟨a, ha, hβ⟩ := exists_ne_zero_of_finsum_mem_ne_zero
     (by rw [D.sum_one _ hw]; exact one_ne_zero : ∑ᶠ a ∈ D.S.A, D.T.β a (A.P w) ≠ 0)
   obtain ⟨φ, hs, ht⟩ := D.suppInSat a ha _ hβ
-  have hsb : A.X.src φ ∈ A.X.PObj.boundary := src_mem_boundary_t9 (ht ▸ hw)
+  have hsb : A.X.src φ ∈ A.X.PObj.boundary := src_mem_boundary (ht ▸ hw)
   have hwi : A.P w = A.X.src (A.X.inv φ) := by rw [A.X.src_inv, ht]
   rw [D.mult_eq hσt ha (φ := A.X.inv φ) (by rw [A.X.src_inv, ht])
     (by rw [A.X.tgt_inv]; exact hs)]
@@ -507,7 +507,7 @@ theorem domSupp_mult_subset (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.sr
     have hσφ : σ (A.X.tgt φ) = 0 := by rw [hσt, hs]; exact hσ0
     rw [D.ssec_eq_zero_of_σ j hσφ]
     intro e
-    exact hw0 ((fibAct_eq_fiberZero_iff_t9 hs.symm).1 e.symm |>.trans (by rw [hs]))
+    exact hw0 ((fibAct_eq_fiberZero_iff hs.symm).1 e.symm |>.trans (by rw [hs]))
   · unfold mult
     rw [dif_neg h, if_neg hw0]
 
@@ -516,12 +516,12 @@ theorem domSupp_mult_subset (hσt : ∀ φ : A.Mor, σ (A.X.tgt φ) = σ (A.X.sr
 include D in
 /-- `dom-supp(Λ)` over `∂X` is saturated. -/
 theorem isSaturated_boundaryDomSupp : A.X.IsSaturated (boundaryDomSupp Λ) := by
-  refine isSaturated_closure_gl (A.X.isSaturated_iff.2 fun φ hφ => ?_)
+  refine isSaturated_closure (A.X.isSaturated_iff.2 fun φ hφ => ?_)
   obtain ⟨hb, w, hw, hw0, hpos⟩ := hφ
   have hwφ : A.P w = A.X.src φ := hw
-  refine ⟨A.X.isSaturated_iff.1 isSaturated_boundary_gl φ hb, fibAct φ w, P_fibAct hwφ,
+  refine ⟨A.X.isSaturated_iff.1 isSaturated_boundary φ hb, fibAct φ w, P_fibAct hwφ,
     fun e => hw0 ?_, ?_⟩
-  · exact (fibAct_eq_fiberZero_iff_t9 hwφ).1 e
+  · exact (fibAct_eq_fiberZero_iff hwφ).1 e
   · rw [D.functor φ w hwφ hb]; exact hpos
 
 include D in
@@ -553,7 +553,7 @@ theorem exists_cutoff (hpara : A.X.HasParacompactOrbitSpace)
     exact this
 
 include D in
-/-- **The extension of Theorem 14.1.9** (GL's `theorem_14_1_9_extension_statement`, conclusion)
+/-- **The extension of Theorem 14.1.9** (`theorem_14_1_9_extension_statement`, conclusion)
 for a boundary multisection with the data of §§14.3–14.5. -/
 theorem extension (hpara : A.X.HasParacompactOrbitSpace)
     (hpu : A.X.PObj.AdmitsScPartitionsOfUnity) {Ũ : Set A.Obj} (hUo : IsOpen Ũ)
@@ -575,7 +575,7 @@ def AssemblyHyp (A : SEP.{u}) : Prop :=
   A.X.IsTame → A.X.HasParacompactOrbitSpace → A.X.PObj.AdmitsScPartitionsOfUnity →
     ∀ Λ : A.W → ℚ≥0, IsBoundaryStructurable A Λ → Nonempty (AssemblyInput A Λ)
 
-/-- **GL's extension statement from the data of §§14.3–14.5.** -/
+/-- **The extension statement (`theorem_14_1_9_extension_statement`) from the data of §§14.3–14.5.** -/
 theorem theorem_14_1_9_extension_statement_of_assembly (h : AssemblyHyp A) :
     theorem_14_1_9_extension_statement A := by
   intro hX hpara hpu Λ hΛ Ũ hUo hUs hsub
@@ -584,7 +584,7 @@ theorem theorem_14_1_9_extension_statement_of_assembly (h : AssemblyHyp A) :
 
 /-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, from the data
 of §§14.3–14.5 (`AssemblyHyp`): Proposition 14.5.4 (`proposition_14_5_4`), the sum over `a`,
-Theorem 14.5.5 and the size control (GL's `theorem_14_1_9_hyp`). -/
+Theorem 14.5.5 and the size control (`theorem_14_1_9_hyp`). -/
 theorem theorem_14_1_9_of_assembly (h : AssemblyHyp A) : theorem_14_1_9_statement A :=
   theorem_14_1_9_hyp (theorem_14_1_9_extension_statement_of_assembly h)
 

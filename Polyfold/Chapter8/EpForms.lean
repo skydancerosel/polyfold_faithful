@@ -1,6 +1,6 @@
-import Polyfold.Chapter4.ScFormsWedge2021
-import Polyfold.Chapter4.ScFormsSquare2021
-import Polyfold.Chapter4.ScFormsLower2021
+import Polyfold.Chapter4.ScFormsWedge
+import Polyfold.Chapter4.ScFormsSquare
+import Polyfold.Chapter4.ScFormsLower
 import Polyfold.Chapter7.TangentMorphismLinear
 import Polyfold.Chapter7.Zhou
 import Polyfold.Chapter8.TangentEp

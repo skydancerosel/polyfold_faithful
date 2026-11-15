@@ -3,8 +3,8 @@ import Polyfold.Chapter3.GoodPositionGermG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.1.16 (preprint 3.14),
-3.50, 3.51 and 3.53 in a tame chart, **in the text's germ reading** (phase 2 of the germ-versus-chart
-work; Findings, Chapter 3, items 260–299).
+3.50, 3.51 and 3.53 in a tame chart, **in the text's germ reading** (Findings, Chapter 3,
+items 260–299).
 
 # sc-Fredholm sections and tame germ data, germ reading
 
@@ -29,7 +29,7 @@ The germs of Definition 3.1.11 (preprint 3.11) are those of Definitions 3.1.1–
 
 As in `IsScFredholmGerm` (`Chapter3/GermFillingChart.lean`): the filling and the sc⁺-section are
 germs, the strong bundle isomorphism and the basic germ are as in `IsConjugateToBasicGerm`.
-These notions are the targets of the redefinition of Definition 3.1.11 (preprint 3.11) in phase 2.
+These notions are Definition 3.1.11 (preprint 3.11) and its consequences in the germ reading.
 -/
 
 open Set Filter Topology Function
@@ -61,7 +61,7 @@ theorem IsScFredholmSectionWholeChart.isScFredholmSection (h : B.IsScFredholmSec
     B.IsScFredholmSection f :=
   ⟨h.isScSmooth, h.regularizing, fun x hx => (h.germ x hx).isScFredholmGerm⟩
 
-/-- A zero of a regularizing section is a smooth point (germ reading, phase 2; the germ form of
+/-- A zero of a regularizing section is a smooth point (germ reading; the germ form of
 `IsScFredholmSectionWholeChart.mem_smoothSet_of_isZeroAt`, used by Chapter 5). -/
 theorem IsScFredholmSection.mem_smoothSet_of_isZeroAt
     (hf : B.IsScFredholmSection f) {x : X} (hx : IsZeroAt P f x) : x ∈ PX.smoothSet := by

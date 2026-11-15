@@ -39,7 +39,8 @@ with kernels in good position at the points of `M_{U(x)} = ⋃ Mᵢ`, (3)
   charts (`IsScFredholmSectionTame`), the reading under which Theorem 3.6.8 holds.
 * The `Mᵢ` are smooth finite-dimensional submanifolds in the sense of Definition 4.2.1
   (`IsSmoothSubmanifold`, which allows boundary and corners); that they are tame and that
-  `Λ ∘ f` is a tame branched ep⁺-subgroupoid (Definition 9.3.6) is not formalized.
+  `Λ ∘ f` is a tame branched ep⁺-subgroupoid (Definition 9.3.6) is in `TameBranched`
+  (`exists_tame_solutionSet_of_isBranchGoodPosition`, `theorem_15_2_5_isTameBranched_hyp`).
 * The point need not lie on the boundary: the statement holds at every point where `(f, Λ)` is
   in good position.
 -/

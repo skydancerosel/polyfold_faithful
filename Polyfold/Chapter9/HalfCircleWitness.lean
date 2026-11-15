@@ -12,17 +12,17 @@ G.110: a witness with nonempty boundary.  Numbers and pages are the 2021 text's.
 `X` is the trivial ep-groupoid of the half-plane `[0, ∞) × ℝ` (`Pa`, `HalfCircleSheet`), packaged as
 the object `AA` of `EP`, and `Θ = 1_{arc}` (`thetaA`) for the closed right half-circle `arc`,
 oriented by the frame `f(a)` (`arcOrientation`), with `T̂(y) = T_y(arc, o)` on `arc` (`TA`).
-This is E8W's hemisphere witness one dimension lower.  Then:
+This is the hemisphere witness of `HemisphereWitness` one dimension lower.  Then:
 
 * `arc_hasScPartitionsOfUnity`, `arc_isBranchedEpSubgroupoid`, `arc_isCompactBranched`,
   `arc_isOrientation`, `arc_isLUC`;
 * `arc_hloc`: every point of `supp Θ = arc` has an oriented tame structure of dimension `1`
   describing `T̂` (the text's "oriented, tame");
 * `arc_boundary_nonempty`: `∂Θ(pt1) = 1` at the end point `pt1 = (0, 1)`;
-* **`K2Arc.k2_arc_stokes`**: `supp(∂Θ) ≠ ∅` and `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S)` for every
+* **`HalfCircle.stokes`**: `supp(∂Θ) ≠ ∅` and `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S)` for every
   `ω ∈ Ω⁰_{ep,∞}(X)` (`EP.theorem_9_5_17_dim1`);
-* **`K2Arc.k2_arc_stokes_eff`**: the same for Theorem 9.5.18 (`EP.theorem_9_5_18_dim1_isLUC`);
-* `K2Arc.k2_arc_boundaryMeasure`: the measure has the local formula of Theorem 9.5.15 for every
+* **`HalfCircle.stokes_eff`**: the same for Theorem 9.5.18 (`EP.theorem_9_5_18_dim1_isLUC`);
+* `HalfCircle.k2_arc_boundaryMeasure`: the measure has the local formula of Theorem 9.5.15 for every
   oriented tame structure (`EP.boundaryBranchedMeasureDim1_apply_all`).
 -/
 
@@ -36,7 +36,7 @@ namespace Polyfold
 
 open MPolyfold EpGroupoid
 
-namespace K2Arc
+namespace HalfCircle
 
 /-! ### The orientation of the half-circle -/
 
@@ -294,14 +294,14 @@ theorem arc_isOrientation : AA.X.IsOrientation thetaA TA := isOrientation_thetaA
 /-- The trivial ep-groupoid of the half-plane has the local unique continuation property
 (Definition 7.2.18). -/
 theorem arc_isLUC : AA.X.IsLUC :=
-  AA.X.isLUC_iff_forall_naturalRep.2 fun _ R => E8W.hasLUC_trivial R
+  AA.X.isLUC_iff_forall_naturalRep.2 fun _ R => Hemisphere.hasLUC_trivial R
 
 /-! ### Stokes for the half-circle -/
 
 /-- **Theorem 9.5.17 for `n = 1`, for the closed half-circle**: `supp(∂Θ) ≠ ∅` (the end points)
 and `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S)` for every `ω ∈ Ω⁰_{ep,∞}(X)`, with the boundary measure of Theorem
 9.5.15 for `n = 1`. -/
-theorem k2_arc_stokes :
+theorem stokes :
     (supp (AA.X.boundaryTheta thetaA)).Nonempty ∧
     ∀ ω : AA.epFormsInfty 0,
       (AA.epFormsInftyEval (0 + 1)).tameBranchedIntegral (Nat.succ_pos 0)
@@ -314,7 +314,7 @@ theorem k2_arc_stokes :
 
 /-- **Theorem 9.5.18 for `n = 1`, for the closed half-circle**: `X` has LUC, `supp(∂Θ) ≠ ∅`, and
 `∮_Θ̂ dω = μ^{∂Θ̂,eff}_ω(∂S)` for every `ω ∈ Ω⁰_{ep,∞}(X)`. -/
-theorem k2_arc_stokes_eff :
+theorem stokes_eff :
     AA.X.IsLUC ∧ (supp (AA.X.boundaryTheta thetaA)).Nonempty ∧
     ∀ ω : AA.epFormsInfty 0,
       (AA.epFormsInftyEval (0 + 1)).tameBranchedIntegralEff (Nat.succ_pos 0)
@@ -327,7 +327,7 @@ theorem k2_arc_stokes_eff :
 
 /-- **The hypotheses of Theorems 9.5.15–9.5.18 for `n = 1` hold jointly with `supp Θ ≠ ∅` and
 `supp(∂Θ) ≠ ∅`.** -/
-theorem k2_arc_hypotheses :
+theorem stokes_hypotheses :
     AA.X.HasScPartitionsOfUnity ∧ AA.X.IsLUC ∧ AA.X.IsBranchedEpSubgroupoid thetaA ∧
       AA.X.IsCompactBranched thetaA ∧ AA.X.IsOrientation thetaA TA ∧
       (∀ x ∈ supp thetaA, ∃ C : AA.X.OrientedTameStructure (0 + 1) thetaA x,
@@ -336,6 +336,6 @@ theorem k2_arc_hypotheses :
   ⟨arc_hasScPartitionsOfUnity, arc_isLUC, arc_isBranchedEpSubgroupoid, arc_isCompactBranched,
     arc_isOrientation, arc_hloc, arc_boundary_nonempty, arc_supp_nonempty⟩
 
-end K2Arc
+end HalfCircle
 
 end Polyfold

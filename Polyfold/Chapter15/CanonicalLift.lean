@@ -45,11 +45,12 @@ point `levelLift c.φ 1 y`), the chart point at which `linSumChart` and `lineari
   orientation `o_{i,y}` of `ker (f − sᵢ)'(y)` for an onto summand, `branchOr_injective`
   (`o_y` is recovered from it).
 
-## Not formalized here
+## The passage to `Ĝr(X)`
 
 The passage from `Ĝr_F` to `Ĝr(X)` of Chapter 9 (the oriented tangent spaces
-`T_y(Mᵢ, oᵢ)`), continuity of `y ↦ o_{i,y}` along `Mᵢ` and the naturality under morphisms: see
-the hand-over note (gap text of G.159).
+`T_y(Mᵢ, oᵢ)`), continuity of `y ↦ o_{i,y}` along `Mᵢ` and the naturality under morphisms are in
+`CanonicalOrientation`, `CanonicalLiftContinuity` and `CanonicalLiftNaturality`; Theorem 15.4.1
+is `theorem_15_4_1` (`CanonicalOrientationStokes`).
 -/
 
 set_option maxSynthPendingDepth 3

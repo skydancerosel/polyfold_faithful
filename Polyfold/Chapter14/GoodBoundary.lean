@@ -25,7 +25,7 @@ neighbourhoods `V(x)` in the object space with (1) `V(x)` and `V(x) ∩ ∂X` co
   of `V ∩ {d_X = 1}`, closures in `V` through `x`, the counting formula).
   `HasBoundaryFaces.inter_boundary_eq` is (4)(c).
 * **Definition 14.1.2**: `IsGoodBoundaryNbhd V` for a neighbourhood `V : X.NatNbhd x` with the
-  natural `G_x`-action (agent G's reading of "admits the natural `G_x`-action");
+  natural `G_x`-action (our reading of "admits the natural `G_x`-action");
   `NatNbhd.bdry V = V.U ∩ ∂X` is the good open neighbourhood `U(x)` in `∂X`.  The remarks after the
   definition: `IsGoodBoundaryNbhd.mem_boundary` (only points of `∂X` have one),
   `NatNbhd.mapsTo_Φ_bdry` (`U(x)` is `G_x`-invariant), `IsGoodBoundaryNbhd.bdry_eq`

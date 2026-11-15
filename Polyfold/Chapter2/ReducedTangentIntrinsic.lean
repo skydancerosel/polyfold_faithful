@@ -44,8 +44,10 @@ tangent space `T^R_xX ⊆ T_xX` and the partial cone `C_xX ⊆ T_xX` are the pre
   retraction `R` drops out because `T_{φ(x)}O = Dr(φ(x))E` for every retraction.  The
   presentation `T` of `C` enters as in Definition 2.4.7 (`reducedTangentSpaceWith`), and the
   independence statement covers it.
-* Not formalized: `C_xX` as a partial quadrant in `T_xX` and `d_{C_xX}(0_x) = d_X(x)` (the chart
-  form is `proposition_2_5_6_partialCone`, `PartialCone.lean`).
+* `C_xX` as a partial quadrant in `T_xX` and `d_{C_xX}(0_x) = d_X(x)` are
+  `MPolyfold.definition_2_5_8_degIndex` (`TangentConeQuadrant.lean`) and
+  `MPolyfold.definition_2_5_8_scStructure` (`TangentSpaceChartIndependent.lean`); the chart form is
+  `proposition_2_5_6_partialCone` (`PartialCone.lean`).
 -/
 
 open Set Function Topology

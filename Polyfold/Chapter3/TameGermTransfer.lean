@@ -1,4 +1,4 @@
-import Polyfold.Chapter3.Book2021Germs
+import Polyfold.Chapter3.BookGerms
 import Polyfold.Chapter3.RestrictOpenGerms
 
 /-!
@@ -60,7 +60,7 @@ retract", Definition 2.6.2).  (Definition 2.5.2) `r : U → U` is tame if `d_C(r
 * **The residual case of G.79 is sharpened** (`IsScFredholmGermTame.exists_chart_chartDegIndex_eq`,
   from Proposition 2.5.6, `degIndex_eq_chartDegIndex_of_isTameRetract`): tame germ data live in a
   chart with `d_C(0) = d_X(x₀)`, while the untamed germ data of Definition 3.1.11 may live in a
-  chart with `d_C(0) > d_X(x₀)` (the corner example of `Book2021Germs.lean`: `d_C(0) = 1`,
+  chart with `d_C(0) > d_X(x₀)` (the corner example of `BookGerms.lean`: `d_C(0) = 1`,
   `d_X = 0`; `CornerFilling.zero_not_mem_interior`).  Germ data in a chart with `d_C(0) = 0`
   are tame germ data (this file).  Germ data in a chart with `d_C(0) ≥ 1` need not move to a tame
   chart (`UntamedCorner.isScFredholmGerm2021_not_tame`, `UntamedBundleTheorem.lean`), and
@@ -74,14 +74,14 @@ retract", Definition 2.6.2).  (Definition 2.5.2) `r : U → U` is tame if `d_C(r
   automatic after shrinking the chart, and all §3.6 theorems hold for the 2021 definitions.
   The hypothesis `d_C(φ(x₀)) = 0` is strictly stronger than `d_X(x₀) = 0`: `d_X` is the minimum
   over charts (Definition 2.4.1), and the corner example has `d_X = 0` with `d_C(0) = 1`.
-* **What was open** (G.79, Findings item 353 (iii); settled in the negative on 2026-11-12 by
+* **The boundary case** (G.79, Findings item 353 (iii); settled in the negative by
   `UntamedCorner.theorem_3_6_8_untamed_not`, item 388): germ data in a chart with `0 ∈ ∂C`, in
   particular at every `x₀ ∈ ∂X`.  In such a chart tameness cannot be restored by changing `U` and
   `R` alone when `O` touches `∂C` (condition (1) of Definition 2.5.2 fails for the interior points
   of `C` that `r` sends into `O ∩ ∂C`), and a chart with a different model is related to `c` only
-  through `K`, so the filling cannot be transported (item 353).  A proof would need an sc-smooth
+  through `K`, so the filling cannot be transported (item 353).  A positive answer would need an sc-smooth
   extension of `R` across `∂C` with the same image `K` (then this file applies to the extended
-  chart) or a level-`0` inverse function theorem (item 379).  The counterexample found instead has
+  chart) or a level-`0` inverse function theorem (item 379).  The counterexample has
   a fibre that jumps at `x₀`, through an sc-smooth family of projections that is not `C¹` on any
   level (`Jump.family`, `UntamedJump.lean`).
 -/
@@ -440,7 +440,7 @@ theorem IsScFredholmGermInterior.isScFredholmGerm2017 {x₀ : X}
   isScFredholmGerm2017_iff.2 h.isScFredholmGermTame
 
 /-- A point carrying interior germ data is an interior point of `X`: `d_X(x₀) ≤ d_C(φ(x₀)) = 0`
-(Definition 2.4.1).  The converse fails: the corner example of `Book2021Germs.lean` has `d_X = 0`
+(Definition 2.4.1).  The converse fails: the corner example of `BookGerms.lean` has `d_X = 0`
 and `d_C(0) = 1`. -/
 theorem IsScFredholmGermInterior.degIndex_eq_zero {x₀ : X}
     (h : B.IsScFredholmGermInterior f x₀) : PX.degIndex x₀ = 0 := by

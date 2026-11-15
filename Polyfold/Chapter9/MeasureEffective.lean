@@ -47,8 +47,8 @@ proof: `T_x = {1}`, so `G_x^eff = G_x` and the normalizing factors agree.
 ## What the text leaves implicit, and the choices made
 
 * The measure identities themselves need forms and integrals (gaps G.74, G.80) and are not
-  stated here; only the isotropy orders and the decompositions the proofs rest on are.  Since
-  2026-11-12 they are proved for an abstract integration of forms over oriented sheets
+  stated here; only the isotropy orders and the decompositions the proofs rest on are.  They
+  are proved for an abstract integration of forms over oriented sheets
   (`OrientedTameStructure.lemma_9_5_9`, `lemma_9_5_10`, `lemma_9_5_11`,
   `LocalMeasure.lean`; `proposition_9_5_13_1`, `BranchedIntegral.lean`).
 * The text's `R ⊆ G` of representatives of the cosets `r H` is `Quotient.out` on `G_x ⧸ H`, with

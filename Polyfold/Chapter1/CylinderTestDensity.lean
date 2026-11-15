@@ -15,7 +15,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 variable {m : ℕ} {δ : ℝ} {hδ : 0 ≤ δ}
 
@@ -294,4 +294,4 @@ theorem dense_test (m : ℕ) (hδ : 0 ≤ δ) :
     _ < ε / 2 + ε / 2 := add_lt_add hlt (by rw [← dist_eq_norm]; exact hn)
     _ = ε := by ring
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

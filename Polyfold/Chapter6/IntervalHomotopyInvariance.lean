@@ -1,4 +1,4 @@
-import Polyfold.Chapter6.Theorem671Final2021
+import Polyfold.Chapter6.Theorem671Final
 import Polyfold.Chapter6.IntervalCobordismExistence
 
 /-!

@@ -145,7 +145,7 @@ theorem corollary_15_3_10_1 (hd : ∀ x, A.X.PObj.degIndex x = 0)
     ∃ Λ : A.W → ℚ≥0, IsRegularPerturbation A f N U Λ ∧ IsInGeneralPosition A f Λ ∧
       A.X.IsBranchedEpSubgroupoid (fun z => (Λ (f z) : ℚ)) ∧
       A.X.IsCompactBranched (fun z => (Λ (f z) : ℚ)) :=
-  corollary_15_3_10_1_ty (theorem_15_3_7_of_paracompact hpara) hd hpara hbump hf hft hS hcc
+  corollary_15_3_10_1_of_theorem_15_3_7 (theorem_15_3_7_of_paracompact hpara) hd hpara hbump hf hft hS hcc
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations**, with
 Theorem 15.3.9 on `[0, 1] × X` proved (`theorem_15_3_7_relative`): the added hypotheses are

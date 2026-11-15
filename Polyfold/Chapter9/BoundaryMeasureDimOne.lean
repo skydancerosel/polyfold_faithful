@@ -14,8 +14,9 @@ For `n = 1` the boundary sheets `∂₁Mᵢ` are `0`-dimensional: near every poi
 `1`-dimensional tame sheet the boundary stratum has at most one point (a corner chart of the
 sheet takes values in `[0, ∞)`, and its face `{0}` is one point).  Restricting an oriented tame
 structure into such neighbourhoods, its boundary sheets become empty or single smooth points,
-which lie in the class `pointSheets` of E1's integration over oriented points.  So the class
-condition of E7's Theorems 9.5.15/9.5.16 holds for `n = 1` as soon as every point has an oriented
+which lie in the class `pointSheets` of the integration over oriented points
+(`PointIntegration.lean`).  So the class condition of Theorems 9.5.15/9.5.16
+(`BoundaryMeasure.lean`) holds for `n = 1` as soon as every point has an oriented
 tame structure describing `T̂Θ` (the reading of "oriented, tame" of gap G.107).
 
 * `MPolyfold.boundaryStratum_inter_subset`: `∂₁(A ∩ V) ⊆ ∂₁A ∩ V` for open `V`.
@@ -26,7 +27,7 @@ tame structure describing `T̂Θ` (the reading of "oriented, tame" of gap G.107)
 * **`OrientedTameStructure.exists_boundarySheet_subsingleton`**: a structure of dimension `1`
   restricts to one whose boundary sheets have at most one point;
   `boundarySheet_mem_pointSheets`.
-* **`hcov_dim1_of_loc`**, `hcovEff_dim1_of_loc`: E7's class hypothesis for `n = 1`, from the
+* **`hcov_dim1_of_loc`**, `hcovEff_dim1_of_loc`: the class hypothesis `hcov` for `n = 1`, from the
   existence of oriented tame structures describing `T̂Θ`.
 * **`theorem_9_5_15_dim1`, `theorem_9_5_16_dim1`**: Theorems 9.5.15 and 9.5.16 for `n = 1`, for
   the `0`-forms `Ω⁰_{ep,∞}(X)` integrated over the oriented boundary points
@@ -57,7 +58,7 @@ theorem boundaryStratum_inter_subset {A V : Set Z} (hV : IsOpen V) :
 
 /-- **Near each point of a `1`-dimensional tame submanifold `M` there is at most one point of the
 boundary stratum `∂₁M`**: in corner coordinates `κ` of `M` (values in `[0, ∞)`), every point of
-`∂₁M` in `dom κ` is `κ⁻¹(0)` (E8F's `exists_facePt_of_mem_boundaryStratum`, with the face
+`∂₁M` in `dom κ` is `κ⁻¹(0)` (`exists_facePt_of_mem_boundaryStratum`, with the face
 parameters in `ℝ⁰`). -/
 theorem exists_isOpen_boundaryStratum_subsingleton {M : Set Z} (hM : P.IsSubmanifoldOfDim M (0 + 1))
     (ht : P.HasTameInducedStructure M) {x : Z} (hx : x ∈ M) :
@@ -97,8 +98,8 @@ namespace OrientedTameStructure
 
 open scoped Classical in
 /-- **An oriented tame structure restricted into an open neighbourhood `W` of `x`**: it describes
-the same `T̂Θ`, and the natural action is the restriction of the given one (E8's
-`exists_restrict_subset` without a class of sheets). -/
+the same `T̂Θ`, and the natural action is the restriction of the given one
+(`exists_restrict_subset` of `BoundaryLocal.lean` without a class of sheets). -/
 theorem exists_restrict_open {n : ℕ} {x : Obj} (C₀ : X.OrientedTameStructure n Θ x)
     (hC₀ : C₀.Represents T) {W : Set Obj} (hWo : IsOpen W) (hxW : x ∈ W) :
     ∃ C : X.OrientedTameStructure n Θ x, C.Represents T ∧ C.U ⊆ W ∧ C.rep.U ⊆ C₀.rep.U ∧
@@ -152,7 +153,7 @@ theorem exists_boundarySheet_subsingleton {x : Obj} (C₀ : X.OrientedTameStruct
   exact (hsub j).anti h1
 
 /-- **A nonempty boundary sheet with at most one point is an oriented point** of the class of
-E1's `pointIntegration` (the point is smooth: `supp Θ ⊆ X_∞`). -/
+`pointIntegration` (the point is smooth: `supp Θ ⊆ X_∞`). -/
 theorem boundarySheet_mem_pointSheets {m : ℕ} {x : Obj} (hΘ : X.IsBranchedEpSubgroupoid Θ)
     (C : X.OrientedTameStructure (m + 1) Θ x) (i : C.ι) (hs : (C.boundarySheet i).Subsingleton)
     (hne : (C.boundarySheet i).Nonempty) : C.boundarySheet i ∈ pointSheets X := by
@@ -166,7 +167,7 @@ end OrientedTameStructure
 
 /-! ### The class hypothesis for `n = 1` -/
 
-/-- **E7's class hypothesis for `n = 1`, from the existence of oriented tame structures**: at
+/-- **The class hypothesis `hcov` for `n = 1`, from the existence of oriented tame structures**: at
 every point of `supp(∂Θ)` there is an oriented tame structure describing `T̂Θ` whose nonempty
 boundary sheets are oriented points (`pointSheets`). -/
 theorem hcov_dim1_of_loc (hΘ : X.IsBranchedEpSubgroupoid Θ)

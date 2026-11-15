@@ -13,7 +13,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
   representative that charges every boundary fibre (`ChargesBoundary`).  Since the index sets of
   Definition 14.1.3 are non-empty, this is Definition 16.5.6 itself
   (`BoundaryMultisection.isStructurableNe_iff`).
-* **`theorem_16_5_7_a6`**: Theorem 16.5.7 with `theorem_14_1_9_charged_a6` in place of the
+* **`theorem_16_5_7_of_isStructurableNe`**: Theorem 16.5.7 with `theorem_14_1_9_charged` in place of the
   hypothesis `h1419`; the models carry tame strong bundle charts (`hB`, the standing assumption).
   
 * **`theorem_16_5_7`**: Theorem 16.5.7 for `s.IsStructurable` (Definition 16.5.6 as stated),
@@ -59,12 +59,12 @@ theorem BoundaryMultisection.isStructurableNe_iff {s : BoundaryMultisection c} :
     ⟨a, ha, hs, hs.chargesBoundary⟩⟩
 
 /-- **2021 Theorem 16.5.7, p. 735 (2017: Theorem 16.6)**, with Theorem 14.1.9 proved
-(`theorem_14_1_9_charged_a6`): over a tame polyfold whose models admit sc-smooth partitions of
+(`theorem_14_1_9_charged`): over a tame polyfold whose models admit sc-smooth partitions of
 unity and tame strong bundle charts, with an auxiliary norm `n`, a structurable sc⁺-multisection
 `λ` over `∂Z` (non-empty index sets), an open `Ũ ⊇ dom-supp(λ)` and a continuous `f ≥ 0` with
 `tsupport f ⊆ Ũ` and `n(λ) < f` on `dom-supp(λ)`, there is a structurable sc⁺-multisection `λ'`
 with (1) `n(λ') ≤ f`, (2) `dom-supp(λ') ⊆ Ũ`, (3) `λ' = λ` over `∂Z`. -/
-theorem theorem_16_5_7_a6 (hc : c.IsTame) (hPU : ∀ S : StrongPolyfoldBundleStructure p, ⟦S⟧ = c →
+theorem theorem_16_5_7_of_isStructurableNe (hc : c.IsTame) (hPU : ∀ S : StrongPolyfoldBundleStructure p, ⟦S⟧ = c →
       S.A.X.PObj.AdmitsScPartitionsOfUnity)
     (hB : ∀ S : StrongPolyfoldBundleStructure p, ⟦S⟧ = c → ∀ x : S.A.Obj,
       ∃ e : StrongBundleChart S.A.X.PObj S.A.P, S.A.B.IsTameChart e ∧ x ∈ e.φ.source)
@@ -89,7 +89,7 @@ theorem theorem_16_5_7_a6 (hc : c.IsTame) (hPU : ∀ S : StrongPolyfoldBundleStr
       rw [BoundaryMultisection.toFun_mk_of_mem a hb, a.comm w (hw ▸ hxb)]
     rw [← e]
     exact hlt _ (hbsub hx)
-  obtain ⟨Λ', hstr', h1, h2, h3⟩ := theorem_14_1_9_charged_a6 ((c.isTame_iff.1 hc) S a.hS)
+  obtain ⟨Λ', hstr', h1, h2, h3⟩ := theorem_14_1_9_charged ((c.isTame_iff.1 hc) S a.hS)
     S.paracompact (hPU S a.hS) (hB S a.hS) a.Λ hstr hch (S.normOf n) (hn S a.hS) (g ⁻¹' U)
     (hU.preimage hgc) (S.isSaturated_preimage_γπ U) (hbsub.trans (preimage_mono hdom)) (f ∘ g)
     (hf.comp hgc) (fun x => hf0 _)

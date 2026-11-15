@@ -4,7 +4,7 @@ import Polyfold.Chapter3.GlobalIFTG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1) in the chart at `x₀` (Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the points of the solution
-graph), **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+graph), **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`, germ reading
 
@@ -33,7 +33,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`, germ reading** (the germ form of
 `theorem_3_6_8_nearby_wholeChart`, with the same conclusions): in the data of `theorem_3_6_8_graph`
 there are a presentation `T` of `C' = C̃ ⊕ W` and an open neighbourhood `Vx₁ ⊆ Vx` of `x₀` such
 that for every zero `y ∈ Vx₁` of `f`, with `z = ψ ∘ ϕ(y) = v + σ(v)`, `v ∈ V'`: (i) `z` lies on

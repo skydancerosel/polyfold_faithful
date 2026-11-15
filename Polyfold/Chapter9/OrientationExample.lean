@@ -37,9 +37,9 @@ the second structure cannot necessarily be oriented to coincide with the first.
   (`orientedLift1_injective`) and `T̂²` is none of them (`exampleT2_ne_orientedLift1`); with
   fractional weights there are infinitely many (as in Remark 9.3.3).
 
-## Not formalized, and why
+## Not in this file
 
-* A classification of all orientations of `Θ` is not in this file; since 2026-11-12 it is
+* A classification of all orientations of `Θ` is not in this file; it is
   `example_9_3_5_classification` (`OrientationExampleClasses.lean`: a three-parameter rational
   family, infinitely many, the six sign orientations being the integral ones).  The last claim
   is proved for the orientations `± (1, β')` of the second structure.

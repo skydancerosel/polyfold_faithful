@@ -12,7 +12,7 @@ are the 2021 text's.
 ## The text, paraphrased
 
 (p. 719) `T` is a functor on the polyfold category: `(Z, c) ↦ T(Z, c)`, `f̂ ↦ T f̂`.  The category
-of Definition 16.1.11 is formalized on effective polyfolds (`EffPolyfold`, wave 3), since the
+of Definition 16.1.11 is formalized on effective polyfolds (`EffPolyfold`), since the
 composition of Definition 16.1.10 is well defined there (`PSHom.Equiv.comp_of_isEffective`) and,
 as we read it, not in general (`not_definition_16_1_10`).  For `T` to be a functor of
 `EffPolyfold` one needs that `T(Z, c)` is effective when `(Z, c)` is.
@@ -24,7 +24,7 @@ as we read it, not in general (`not_definition_16_1_10`).  For `T` to be a funct
 * `PolyfoldClass.IsEffective.tangent`: the tangent `T(Z, c)` of an effective polyfold is
   effective (polyfold structures satisfy (ZHOU), Definition 16.1.1 (2)).
 * `PolyfoldClass.ScMap.tangent_comp_of_isEffective`: `T(ĝ ∘ f̂) = Tĝ ∘ T f̂` for an effective
-  middle polyfold, without the hypothesis `d.tangent.IsEffective` of wave 3's `tangent_comp`.
+  middle polyfold, without the hypothesis `d.tangent.IsEffective` of `tangent_comp`.
 * `EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1}`: Theorem 16.2.4 as a
   Mathlib functor on the polyfold category of effective polyfolds, and `theorem_16_2_4_eff`.
 
@@ -208,7 +208,7 @@ namespace ScMap
 variable {c : PolyfoldClass Z} {d : PolyfoldClass W} {e : PolyfoldClass V}
 
 /-- **`T(ĝ ∘ f̂) = Tĝ ∘ T f̂`** for an effective middle polyfold `(W, d)` (2021 Theorem 16.2.4,
-p. 719), with `T(W, d)` effective by `IsEffective.tangent`: wave 3's `tangent_comp` without its
+p. 719), with `T(W, d)` effective by `IsEffective.tangent`: `tangent_comp` without its
 hypothesis `d.tangent.IsEffective`. -/
 theorem tangent_comp_of_isEffective (hd : d.IsEffective) (F : ScMap c d) (G : ScMap d e) :
     tangent (comp hd F G) = comp hd.tangent (tangent F) (tangent G) :=
@@ -233,7 +233,7 @@ def EffPolyfold.tangentFunctor : EffPolyfold.{u} ⥤ EffPolyfold.{max u 1} where
 
 /-- **2021 Theorem 16.2.4, p. 719 (2017: Theorem 16.1)**, the functor statement on effective
 polyfolds: `T` sends effective polyfolds to effective polyfolds, `T 1 = 1`, and
-`T(ĝ ∘ f̂) = Tĝ ∘ T f̂`; with wave 3's `theorem_16_2_4` (the formula `Tf ∘ Tα = Tβ ∘ |T𝔣|`). -/
+`T(ĝ ∘ f̂) = Tĝ ∘ T f̂`; with `theorem_16_2_4` (the formula `Tf ∘ Tα = Tβ ∘ |T𝔣|`). -/
 theorem theorem_16_2_4_eff :
     (∀ (A : EffPolyfold.{u}), (EffPolyfold.tangentFunctor.obj A).c = A.c.tangent) ∧
     (∀ (A : EffPolyfold.{u}),

@@ -19,7 +19,7 @@ solution set is the unit circle.
   regular value is transversal to the zero section over `ℤ/3 × ℝⁿ ⇉ ℝⁿ` (Definition 15.2.1).
 * **`corollary_15_4_4_hypotheses_planeZ3`**: all hypotheses of `corollary_15_4_4_oriented` hold
   with `m = 0`, together with non-zero fibres, a morphism that is not a unit, a base which is not
-  effective, and `S_f ≠ ∅`; the orientation is FD's `circleSectionOrientation`, invariant under
+  effective, and `S_f ≠ ∅`; the orientation is `circleSectionOrientation`, invariant under
   the morphisms by `isOrInvariant_z3SEPOf`.
 * **`corollary_15_4_4_planeZ3`**: the conclusion of Corollary 15.4.4 there (weights `1/3`).
 * **`exists_isCanonicalPerturbation_planeZ3`**: a canonically oriented regular perturbation of

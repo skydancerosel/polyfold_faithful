@@ -70,7 +70,7 @@ sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions o
   `U = (V ∩ V₀) ∩ r⁻¹(V ∩ V₀)` (as Part I's `SubData.shrink`), `V = s(𝐔(φ))`.  The extracted text
   reads "`s(𝐫(ψ)) = r(s(ψ)) ∈ A` and `t(𝐫(ψ)) ∈ U(a)`"; as we read it, the second claim does not
   hold in general (`t(𝐫(ψ))` lies near `t(φ)`, not near `a = s(φ)`) and is not needed:
-  `s(𝐫(ψ)) ∈ A` and saturation give `t(𝐫(ψ)) ∈ A` (possible misprint for `s(𝐫(ψ)) ∈ U(a)`).
+  `s(𝐫(ψ)) ∈ A` and saturation give `t(𝐫(ψ)) ∈ A` (we read `s(𝐫(ψ)) ∈ U(a)`).
 * **Unstated in (1), (2), (4)**: a map into a sub-M-polyfold which is sc-smooth into the ambient
   M-polyfold is sc-smooth into the sub-M-polyfold (near a point it is `(i⁻¹ ∘ r) ∘ i ∘ f`, by fact
   (2)); this is the private `isScSmoothOn_subPolyfold_of_val`.  For `m` (literal condition (4), not

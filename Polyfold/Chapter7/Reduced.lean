@@ -64,7 +64,7 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   (p. 244): `reducedIsotropyHom`, `surjective_reducedIsotropyHom`, `ker_reducedIsotropyHom`
   (`[1_x] = T_x`), `quotientTrivialSubgroupEquiv` (`G_x/T_x ≅ G̃_x`); **Definition 7.2.15 (2017: 7.13)**:
   `effIsotropyEquivReduced` (`EffIsotropy x ≅ G̃_x`).
-* **Satisfiability** (PLAN II.5, 7): for effective `X`, `reducedRel_iff_eq_of_isEffective`,
+* **Satisfiability**: for effective `X`, `reducedRel_iff_eq_of_isEffective`,
   `reducedHomeomorph` (`𝐗 ≃ₜ 𝐗^R`), `t2Space_reducedMor_of_isEffective`,
   `paracompactSpace_reducedMor_of_isEffective`, `t3Space_reducedMor_of_isEffective`,
   `reductionInv` and `reductionIso` (`X ≅ X_R` in `EP`); for the trivial ep-groupoid of every
@@ -97,10 +97,10 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   `ψ₂ ∘ σ₂ ∘ s ∘ ψ₁⁻¹` (`reducedChart_compatible`), sc-smooth since `σ₂ ∘ s` is; what needs the
   argument of the text is that the overlap `ψ₁(dom ψ₁ ∩ π⁻¹π(dom ψ₂))` is open, i.e. that `π` is
   open.
-* **Hausdorff and paracompact** (PLAN P7, II.6, 2).  An M-polyfold is a Hausdorff paracompact
+* **Hausdorff and paracompact**.  An M-polyfold is a Hausdorff paracompact
   space (Definition 2.3.4 (2017: 2.8) [2.13]).  The proof of Proposition 7.2.10 (2017: 7.9) gives the charts and the sc-smooth
-  transitions but, as we read it, neither property, and `𝐗^R` need not be Hausdorff (the splicing
-  example of PLAN II.6, 2, on a dimension-jumping retract: `Examples.exists_not_t2Space_reducedMor`,
+  transitions but, as we read it, neither property, and `𝐗^R` need not be Hausdorff (a splicing
+  example on a dimension-jumping retract: `Examples.exists_not_t2Space_reducedMor`,
   `ReducedNotHausdorff.lean`; the 2021 text assumes `T_R` Hausdorff, and paracompactness is the
   instance `paracompactSpace_reducedMor` of `ReducedCriterion.lean`).  So
   `reducedPolyfold`, and with it `reducedEpGroupoid`, take `[T2Space X.ReducedMor]` and
@@ -120,14 +120,14 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   continuous), so `g ∈ T_x` and `[g] = [1_x]`.  "`[1_x] = T_x`" is `ker_reducedIsotropyHom`.
 * **The isotropy `G_x/T_x`** (p. 244) is `quotientTrivialSubgroupEquiv`; with `effIsotropyEquiv`
   (`Effective.lean`) Definition 7.2.15 (2017: 7.13)'s `G_x^eff` is the isotropy group of `X_R`.
-* **Possible misprints.**  Definition 7.2.7 (2017: 7.12) calls `𝐗^R` "the subset of reduced morphisms"; it is a
+* **Notation, as we read it.**  Definition 7.2.7 (2017: 7.12) calls `𝐗^R` "the subset of reduced morphisms"; it is a
   quotient of `𝐗` (the next sentence calls it "the collection of all equivalence classes").  In
   the extracted text of pp. 242–243: "`ψ' = (s|U(ψ))⁻¹(s(ψ))`" for `(s|U(ψ))⁻¹(s(ψ'))`;
   "`U(φ) ⊂ Ψ_{φ₀}(U([φ₀]) ∩ U([ψ₀]))`" for `Ψ_{φ₀}⁻¹(…)`; "such that `T_x` agrees with the
   kernel of the `G_{s(φ)}`-action" for `T_{s(φ)}`; "which show that the source and target maps
   are smoothness of the natural maps can be reduced …" (a garbled sentence); "For and object"
   (Definition 7.2.15 (2017: 7.13)).
-* **Hypotheses** (PLAN II.5, 7).  `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` are
+* **Hypotheses**.  `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` are
   satisfiable: for effective `X`, `π` is a homeomorphism (`reducedHomeomorph`), so both hold
   (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`), and
   `X_R ≅ X` (`reductionIso`); this covers the trivial ep-groupoid of every M-polyfold
@@ -694,7 +694,7 @@ section ReducedPolyfold
 variable [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]
 
 /-- **Proposition 7.2.10 (2017: 7.9)**: the M-polyfold `𝐗^R` (Definition 2.3.4 (2017: 2.8) [2.13]), given by the atlas of the
-charts `Ψ_φ`; that `𝐗^R` is Hausdorff and paracompact is a hypothesis (PLAN P7). -/
+charts `Ψ_φ`; that `𝐗^R` is Hausdorff and paracompact is a hypothesis. -/
 def reducedPolyfold : MPolyfold X.ReducedMor := ⟨X.reducedAtlas⟩
 
 variable {X}
@@ -1007,7 +1007,7 @@ section Statements
 variable [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]
 
 /-- **Proposition 7.2.10 (2017: 7.9)** (p. 313 (2017 p. 242)): `𝐗^R` has a natural M-polyfold structure (`reducedPolyfold`;
-Hausdorff and paracompact are hypotheses, PLAN P7).  Its atlas is the set of the charts `Ψ_φ`
+Hausdorff and paracompact are hypotheses).  Its atlas is the set of the charts `Ψ_φ`
 from sheets of `s` (pairwise sc-smoothly compatible, `reducedChart_compatible`), all of them
 charts of the structure; on every sheet `s : W → V` (inverse `σ`), `π(W)` is open and
 `π : W → π(W)` is an sc-diffeomorphism with inverse `σ ∘ s`; `π : 𝐗 → 𝐗^R` is a local
@@ -1038,7 +1038,7 @@ theorem proposition_7_10_2017 :
 
 end Statements
 
-/-! ### Satisfiability: effective ep-groupoids (PLAN II.5, 7) -/
+/-! ### Satisfiability: effective ep-groupoids -/
 
 section Effective
 
@@ -1132,13 +1132,13 @@ def reductionIso (hX : X.IsEffective) :
 
 end Effective
 
-/-- **Satisfiability** (PLAN II.5, 7): the trivial ep-groupoid of every M-polyfold is effective
+/-- **Satisfiability**: the trivial ep-groupoid of every M-polyfold is effective
 (`isEffective_trivial`), so its `𝐗^R` is Hausdorff. -/
 theorem t2Space_reducedMor_trivial {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace Z] (P : MPolyfold Z) : T2Space (trivial P).ReducedMor :=
   t2Space_reducedMor_of_isEffective (isEffective_trivial P)
 
-/-- **Satisfiability** (PLAN II.5, 7): the `𝐗^R` of the trivial ep-groupoid is paracompact. -/
+/-- **Satisfiability**: the `𝐗^R` of the trivial ep-groupoid is paracompact. -/
 theorem paracompactSpace_reducedMor_trivial {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace Z] (P : MPolyfold Z) : ParacompactSpace (trivial P).ReducedMor :=
   paracompactSpace_reducedMor_of_isEffective (isEffective_trivial P)

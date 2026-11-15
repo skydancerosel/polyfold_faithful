@@ -1,4 +1,4 @@
-import Polyfold.Chapter9.SheetEssentialChart2021
+import Polyfold.Chapter9.SheetEssentialChart
 import Polyfold.Chapter9.Measure
 import Polyfold.Chapter9.GeneralBoundaryPoints
 

@@ -64,26 +64,27 @@ the smallest σ-algebra containing `B(∂S)` and the subsets of `∂S` of measur
 * The remark after Definition 9.5.3 is read as the completion `K ∆ B` null; the literal "`B ∪ N`"
   would need Borel null hulls.
 * `(n-1)`-dimensional measure zero in `∂Mᵢ` is a second `SheetNullSets` on the boundaries
-  (`submanifoldBoundary`); the face-by-face description is not formalized in this file.  No `∂S`
-  witness with a nonempty boundary is given here (the plane examples have no boundary).  Since
-  2026-11-12: face by face `IsFaceNull`, the case `n = 1` and the half-line witness with `∂S ≠ ∅`
-  are in `BoundaryFaceNullSets.lean`; the null sets of the sheets of a general M-polyfold are
+  (`submanifoldBoundary`); the face-by-face description is not in this file, and no `∂S`
+  witness with a nonempty boundary is given here (the plane examples have no boundary).  Face
+  by face `IsFaceNull`, the case `n = 1` and the half-line witness with `∂S ≠ ∅` are in
+  `BoundaryFaceNullSets.lean`; the null sets of the sheets of a general M-polyfold are
   concrete (`MPolyfold.IsHNull`, `MPolyfold.sheetNullSets`, `SheetNull.lean`), and Lemma
   9.5.2 holds for every local branching structure of an `n`-dimensional `Θ`
   (`lemma_9_5_2_of_isNDimensional`, `SheetMeasure.lean`).
 
-## Not formalized
+## Not in this file
 
-Since 2026-11-12 the items below are proved for an abstract integration of forms over oriented
-sheets (`SheetIntegration`, `GapP2_E1_*.lean`: Theorems 9.5.4, 9.5.5, Definition 9.5.6, (9.21),
-Lemmas 9.5.7, 9.5.9–9.5.11, Proposition 9.5.13 (1)), Theorems 9.5.15–9.5.16 from their local
-expressions (`theorem_9_5_15_of_overlap`) and Theorems 9.5.17–9.5.18 from the localization of
-the proof (`theorem_9_5_17_of_localization`, `GapP2_E2*.lean`); the concrete integral over the
-sheets is not built.  (2026-11-13) It is built for sc-forms (`GapP2_E3_*`, `GapP2_E4_*`: Theorems
-9.5.4, 9.5.5 as printed, (9.22), Proposition 9.5.13 (2)); the `(n-1)`-dimensional boundary null
-sets for every `n` are in `BoundaryNullSigmaAlgebra.lean`, and Theorems 9.5.15–9.5.18 with the
-boundary measures, under a class condition on the boundary sheets, in the `GapP2_E7_*` and
-`GapP2_E8_*` files.  In this file:
+The items below are proved for an abstract integration of forms over oriented sheets
+(`SheetIntegration`, `SheetIntegrationAbstract.lean`, `LocalMeasure.lean`,
+`BranchedIntegral.lean`: Theorems 9.5.4, 9.5.5, Definition 9.5.6, (9.21), Lemmas 9.5.7,
+9.5.9–9.5.11, Proposition 9.5.13 (1)), Theorems 9.5.15–9.5.16 from their local expressions
+(`theorem_9_5_15_of_overlap`) and Theorems 9.5.17–9.5.18 from the localization of the proof
+(`theorem_9_5_17_of_localization`, `StokesLocalFormulas.lean`); the concrete integral is built
+for sc-forms (`SheetIntegrationConcrete.lean`, `MultiChartIntegration.lean`: Theorems 9.5.4,
+9.5.5 as printed, (9.22), Proposition 9.5.13 (2)); the `(n-1)`-dimensional boundary null sets
+for every `n` are in `BoundaryNullSigmaAlgebra.lean`, and Theorems 9.5.15–9.5.18 with the
+boundary measures, under a class condition on the boundary sheets, in `BoundaryMeasure.lean`
+and `StokesBoundaryMeasure.lean`.  In this file:
 forms, integrals and the measures `μ_ω` (gaps G.74, G.80): Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18,
 Definition 9.5.6, (9.21), (9.22), Lemma 9.5.7 (its combinatorics is `proposition_9_4_10`),
 Remarks 9.5.8, 9.5.12, 9.5.19, 9.5.20.

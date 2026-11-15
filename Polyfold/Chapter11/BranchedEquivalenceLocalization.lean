@@ -52,19 +52,14 @@ refinement `H : A″ → A` with `F ∘ H ≃ F″`, `G ∘ H ≃ G″`,
   (`Φ` an equivalence), resp. `(π_A)_* (π_B)^* = Φ^* G_*` (`G` an equivalence).
 * Nothing here uses Theorem 10.3.19 (which does not hold as we read it, `not_theorem_10_3_19`).
 
-## Not formalized (G-items)
+## Elsewhere
 
-* Lemma 11.3.4, Theorem 11.3.5 and Definition 11.3.6 (orientations): the push-forward of section
-  functors of `Gr̂(X) → X_∞` needs the tangent map of an equivalence acting on oriented tangent sets
-  (`OrTangent`, which Chapter 9 moves only by maps `TX → TX` of one M-polyfold), and Theorem 11.3.5
-  the transport of oriented local branching structures (`IsOrientedAt` across M-polyfolds).
-* Theorem 11.3.7 (`(Tf)^* TΘ' = T(f^*Θ')`; proof left to the reader): needs the tangent functor
-  `Tf = [Td]` on generalized maps, `submanifoldTangent` under sc-diffeomorphisms between different
-  M-polyfolds, and the transport of Chapter 9's hypothesis `HasIndependentTangentSums`.
-* Theorems 11.3.8, 11.3.9 (`f_*∂Θ = ∂(f_*Θ)`, oriented boundaries; proofs left to the reader): need
-  the invariance of `submanifoldBoundary` (degeneracy index of the induced structure) under
-  sc-diffeomorphisms between different M-polyfolds, the same independence hypothesis, and for 11.3.9
-  the orientation transport above.
+* Lemma 11.3.4 is `lemma_11_3_4` (`BranchedEquivalenceTangentSection.lean`); Theorem 11.3.5,
+  Definition 11.3.6 and Theorem 11.3.9 are `theorem_11_3_5_push`/`_pull`,
+  `EPLocalization.OrientedBranched` and `theorem_11_3_9_push`/`_pull`
+  (`BranchedEquivalenceTangentOrientation.lean`; boundary orientations in
+  `BoundaryOrientationEquiv.lean`); Theorems 11.3.7 and 11.3.8 are `theorem_11_3_7_push`/`_pull`
+  and `theorem_11_3_8_push`/`_pull` (`BranchedEquivalenceTangent.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

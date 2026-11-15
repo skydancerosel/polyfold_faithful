@@ -6,7 +6,7 @@ import Polyfold.Chapter3.GlobalIFTTheoremsG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1) with the text's hypotheses — the surjectivity of the linearization at the nearby zeros
 by the perturbation argument — and the main theorems 3.54, 3.23, 3.19 without the added
-hypothesis, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+hypothesis, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading
 
@@ -29,7 +29,7 @@ hypothesis, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** 
   only, `g ∘ u` is differentiable at `μ = 0` because `u(μ) ∈ (G_g)₁`: `ι glue(u'(μ)) ∈ 𝒮.G₁`
   (`ScNbhdGerm.inclK_mem`) and `ψ'₁` maps `𝒮.G₁ ⊆ G″₁` into `(G_g)₁` (the G″ property).  The
   derivative of `g` at `z₀₁` is the value `Dg(z₀₁)` of the family, and the chain rule along the
-  curve is `HasFDerivWithinAt.comp_hasDerivWithinAt` within `(G_g)₁`.  Nothing else of the old
+  curve is `HasFDerivWithinAt.comp_hasDerivWithinAt` within `(G_g)₁`.  Nothing else of the whole-chart
   proof changes: the normal form, its contraction regions, the inward direction and the perturbed
   curve are constructed on the `E'`-side (`GlobalIFTNearbyOnto*.lean`, unchanged), and the
   filler condition (2) on `U ∩ N₂` is level `0`.
@@ -51,7 +51,7 @@ open StrongRetr
 
 set_option maxHeartbeats 3200000 in
 /-- **Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of the linearization at the nearby zeros, in the chart at
-`x₀`, germ reading** (phase 2; the germ form of `theorem_3_6_8_chart_onto_wholeChart`).  In the data of
+`x₀`, germ reading** (the germ form of `theorem_3_6_8_chart_onto_wholeChart`).  In the data of
 `theorem_3_6_8_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
 (derivative family `Dg`), together with condition (2) of Definition 3.1.4 (preprint 3.4) on `N₂` and
 `ker D(h + t)(0) ≠ 0`, there is an open neighbourhood `N₄ ⊆ N₂` of `0` such that for every zero
@@ -495,7 +495,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 set_option maxHeartbeats 3200000 in
-/-- **Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading** (the germ form of
 `theorem_3_6_8_one'_wholeChart`): let `f` be an sc-Fredholm section with tame germ data in the germ reading
 (`IsScFredholmSectionTame`), `f(x₀) = 0`, and `(f, x₀)` in good position in a tame chart
 (`IsGoodPositionGermTame`).  Then there is an open neighbourhood `Vx` of `x₀` such that `(f, y)`
@@ -606,7 +606,7 @@ theorem theorem_3_6_8_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
     · exact honto (c.φ y) ⟨hyO, hyN.2⟩ hgy z₀₁ hz₀₁ k hk
     · rwa [inf_eq_left.2 hcle]
 
-/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2) with the text's hypotheses, germ reading** (phase 2; the germ form
+/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2) with the text's hypotheses, germ reading** (the germ form
 of `theorem_3_6_8'_wholeChart`): for an sc-Fredholm section with tame germ data in the germ reading,
 `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart, (1) every zero `y ∈ Vx` is in good
 position in a tame chart (`theorem_3_6_8_one'`); (2) the solution set has the regular tangent
@@ -623,7 +623,7 @@ theorem theorem_3_6_8' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
   exact ⟨Vx, hVxo, hx₀Vx, hall, theorem_3_6_8_two hf.isScSmooth.1 hg hx₀ hVxo hx₀Vx hall⟩
 
 /-- **Theorem 3.1.26 (preprint 3.23) (implicit function theorem, boundary case) with the text's hypotheses, germ
-reading** (phase 2; the germ form of `theorem_3_1_26'_wholeChart`): an sc-Fredholm section with tame germ data
+reading** (the germ form of `theorem_3_1_26'_wholeChart`): an sc-Fredholm section with tame germ data
 in the germ reading, `f(x) = 0`, `(f, x)` in good position in a tame chart; then there is an open
 `U ∋ x` such that every zero in `U` is in good position in a tame chart, `S(f, U)` consists of
 smooth points, is a sub-M-polyfold, and its induced structure is tame and that of a
@@ -642,7 +642,7 @@ theorem theorem_3_1_26' (hf : B.IsScFredholmSectionTame f) {x : X} (hx : IsZeroA
   exact ⟨U, hUo, hxU, fun y hy hy0 => hall y (hUV hy) hy0, hsm, d, hsub, h1, h2⟩
 
 /-- **Theorem 3.1.22 (preprint 3.19) (implicit function theorem, interior case) with the text's hypotheses, germ
-reading** (phase 2; the germ form of `theorem_3_1_22'_wholeChart`): for an M-polyfold without boundary, an
+reading** (the germ form of `theorem_3_1_22'_wholeChart`): for an M-polyfold without boundary, an
 sc-Fredholm section with tame germ data in the germ reading, `f(x₀) = 0` and `(f, x₀)` in good
 position in a tame chart; then there is an open `U ∋ x₀` such that every zero in `U` is in good
 position in a tame chart, `S(f, U)` consists of smooth points and is a sub-M-polyfold whose

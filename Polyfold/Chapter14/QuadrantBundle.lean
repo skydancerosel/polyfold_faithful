@@ -255,7 +255,7 @@ theorem isScPlusSectionOn_graphSec {φ : (ESc n m) 0 → (Fin k → ℝ)} (hφ :
 /-- The graph section of a `C^∞` map satisfies (1) of Definition 14.1.3 on every set. -/
 theorem isFaceScPlusSectionOn_graphSec {φ : (ESc n m) 0 → (Fin k → ℝ)} (hφ : ContDiff ℝ ∞ φ)
     (U : Set (quadSEP n m k).Obj) : IsFaceScPlusSectionOn (quadSEP n m k) (graphSec φ) U :=
-  isFaceScPlusSectionOn_of_isScPlusSectionOn_w1 (isScPlusSectionOn_graphSec hφ) U
+  isFaceScPlusSectionOn_of_isScPlusSectionOn (isScPlusSectionOn_graphSec hφ) U
 
 /-! ### Continuity along the coordinate faces -/
 

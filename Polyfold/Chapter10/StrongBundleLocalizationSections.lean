@@ -59,25 +59,27 @@ regularity property, `|[D]| = |[D']|` implies `[D] = [D']` (from Proposition 10.
   last assertion of Theorem 10.5.4 and of Remark 10.5.5 immediate.  The text's own step for a
   refinement is `pushforward_eq_of_isRefinement`.
 * "Isomorphism" of the vector spaces `Γ` is read here as mutually inverse bijections, since
-  `Γ(P, μ)` is a set of maps `X → W` (Chapter 8 proves closure under the operations).  Since
-  2026-11-09 the linear isomorphism is `GenSBMap.pushforwardEquiv`, with `Γ(P, μ)` realised as a
-  submodule of `Π_x W_x` (`EpStrongBundle.sectionSpace`, `SectionFunctorLinear2021.lean`).
+  `Γ(P, μ)` is a set of maps `X → W` (Chapter 8 proves closure under the operations).  The
+  linear isomorphism is `GenSBMap.pushforwardEquiv`, with `Γ(P, μ)` realised as a submodule of
+  `Π_x W_x` (`EpStrongBundle.sectionSpace`, `SectionFunctorLinear.lean`).
 * `[D]_*` is defined with a representative chosen once (`GenSBMap.rep`), and
   `theorem_10_5_4` shows it equals `Ψ_* Φ* f` for every representative.
 
-## Not formalized
+## In other files
 
 * The `Fred` part of Theorem 10.5.4 is not in this file: it is `theorem_10_5_4_fred`
   (`FredholmEquivalence.lean`, with `theorem_10_4_5_fred` for Theorem 10.4.5).
 * **Proposition 10.5.6**: `iff_of_isGeneralizedIso` reduces it to Proposition 10.4.6 (the local
-  regularity property under strong bundle equivalences), as the text does; both are formalized
-  since 2026-11-12, with Definition 8.4.2 read as `IsLRLocal`: `SBLocalization.proposition_10_5_6`
-  and `EpStrongBundle.proposition_10_4_6` (`StrongBundleLocalRegularity.lean`).
-* **Theorem 10.5.7**: it rests on Proposition 10.4.7 (formalized since 2026-11-12,
-  `EpStrongBundle.proposition_10_4_7`, `StrongBundleLocalFamilies.lean`), and turning the
-  local morphisms `α_z` into a common refinement of two diagrams needs the weak fibred product of
-  strong bundles over ep-groupoids, which the repository does not have.  The ep-groupoid
-  analogue, Theorem 10.3.19, is not formalized either.
+  regularity property under strong bundle equivalences), as the text does; with Definition 8.4.2
+  read as `IsLRLocal` both are `SBLocalization.proposition_10_5_6` and
+  `EpStrongBundle.proposition_10_4_6` (`StrongBundleLocalRegularity.lean`).
+* **Theorem 10.5.7** rests on Proposition 10.4.7 (`EpStrongBundle.proposition_10_4_7`,
+  `StrongBundleLocalFamilies.lean`).  For an effective target base it is
+  `theorem_10_5_7_of_isEffective` (`LocalizationLREffectiveBundle.lean`) and
+  `theorem_10_5_7_of_isEffective_of_isLRLocal` (`LocalizationLRBundleBase.lean`); the ep-groupoid
+  analogue, Theorem 10.3.19, is `EPLoc.theorem_10_3_19_of_isEffective`, and
+  `theorem_10_3_19_counterexample` (`LocalizationLRCounterexample.lean`) shows that it does not
+  hold as we read it without effectiveness.
 * The negative half of Remark 10.5.5 is in `StrongBundleLocalizationExamples.lean`.
 -/
 
@@ -395,7 +397,7 @@ bundle isomorphism `[D] : (P, μ) → (P', μ')`,
 * if `[D']` is another generalized strong bundle isomorphism with `|[D]| = |[D']|`, then
   `[D]_* = [D']_*` and `[D]* = [D']*`.
 The part on `Fred` is `theorem_10_5_4_fred` (`FredholmEquivalence.lean`); the linear isomorphism
-is `GenSBMap.pushforwardEquiv` (`SectionFunctorLinear2021.lean`). -/
+is `GenSBMap.pushforwardEquiv` (`SectionFunctorLinear.lean`). -/
 theorem theorem_10_5_4 {f : GenSBMap A A'} (hf : f.IsGeneralizedIso) :
     (∀ (D : SDiagram A A') (hΨ : SEP.equivalences D.Ψ), D.cls = f →
       EqOn (pushforward hf) (D.pushforward hΨ) A.E.sectionFunctors ∧

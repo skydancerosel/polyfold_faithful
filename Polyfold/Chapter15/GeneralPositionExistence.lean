@@ -16,13 +16,13 @@ an auxiliary norm exists).
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
 "Structurable" (Definition 13.3.6) asks for a good system, which the text obtains for paracompact
-`|X|` (Theorem 13.1.8).  GP's assembly (`GPFamily`) keeps structurability along; here the same
+`|X|` (Theorem 13.1.8).  The assembly with `GPFamily` keeps structurability along; here the same
 assembly is carried out for sc⁺-multisections only, so that no good system is needed:
 
-* `ScPlusGPFamily`: GP's `GPFamily` with "sc⁺-multisection" in place of "structurable";
+* `ScPlusGPFamily`: `GPFamily` with "sc⁺-multisection" in place of "structurable";
   `GPFamily.toScPlus`, `.mono`, `.zero`, `.add` (Definition 13.2.9: sums of sc⁺-multisections),
   `.saturate`; `exists_scPlusGPFamily_of_compact` (the finite cover of `|S_f|`).
-* `SeedData.scPlusGPFamily`: GA's local family without the good system.
+* `SeedData.scPlusGPFamily`: the local family of the seeds without the good system.
 * **`theorem_15_3_7_existence`**: Theorem 15.3.7, (1)–(4), under exactly the hypotheses of the
   text (with the inherited tame germ data of §15.2, as in `theorem_15_3_7_statement`): `X` tame
   with sc-smooth bump functions, `f` an sc-Fredholm section functor with compact `|S_f|`,
@@ -51,7 +51,7 @@ open StrongBundle MPolyfold
 variable {A : SEP.{u}}
 
 variable (A) in
-/-- **The local families of the proof of Theorem 15.3.7, without structurability**: GP's
+/-- **The local families of the proof of Theorem 15.3.7, without structurability**:
 `GPFamily` with "sc⁺-multisection" in place of "structurable". -/
 structure ScPlusGPFamily (f : A.Obj → A.W) (N : A.B.One → ℝ) (U : Set A.Obj) (h : A.Obj → ℝ)
     (Q : Set A.Obj) where
@@ -176,7 +176,7 @@ theorem exists_scPlusGPFamily_of_compact (hf : A.E.IsScFredholmSectionFunctor f)
   rw [hQs i.1 i.2] at hy'
   exact mem_iUnion₂.2 ⟨i, hi, hy'⟩
 
-/-- **GA's local family without the good system** (the family `Λ^x_t` of the seeds on `Q₀`). -/
+/-- **The local family of the seeds without the good system** (the family `Λ^x_t` of the seeds on `Q₀`). -/
 def SeedData.scPlusGPFamily (S : SeedData A) (hf : A.E.IsScFredholmSectionFunctor f)
     (hN : A.E.IsAuxNorm N) {c : ℝ} (hc : 0 ≤ c) (hsN : ∀ j y, normW N (S.s j y) ≤ c)
     (hch : ∀ y ∈ A.X.saturation S.R.U, c ≤ h y) (hh0 : ∀ y, 0 ≤ h y)
@@ -194,7 +194,7 @@ def SeedData.scPlusGPFamily (S : SeedData A) (hf : A.E.IsScFredholmSectionFuncto
   paramOnto := S.isParamOntoAt hf hW
 
 /-- **The local constructions of the proof, without the good system**: every `x ∈ S_f` has an
-open neighbourhood carrying a family of sc⁺-multisections, from GA's seeds. -/
+open neighbourhood carrying a family of sc⁺-multisections, from the seeds (`SeedData`). -/
 theorem exists_scPlusGPFamily_nhds (hf : A.E.IsScFredholmSectionFunctor f)
     (hcc : ControlsCompactness A f N U) (hhc : Continuous h)
     (hhφ : ∀ φ, h (A.X.src φ) = h (A.X.tgt φ)) (hh : ∀ x, 0 < h x)
@@ -221,7 +221,7 @@ theorem exists_scPlusGPFamily_nhds (hf : A.E.IsScFredholmSectionFunctor f)
     ⟨S.scPlusGPFamily hf hcc.1 hc.le hsN hch (fun y => (hh y).le) hUsat hW⟩⟩
 
 variable (A) in
-/-- **Theorem 15.3.7, (1)–(4)**, as a proposition: G's `theorem_15_3_7_statement` with
+/-- **Theorem 15.3.7, (1)–(4)**, as a proposition: `theorem_15_3_7_statement` with
 "sc⁺-multisection functor" in place of "structurable sc⁺-multisection functor". -/
 def theorem_15_3_7_existence_statement : Prop :=
   A.X.IsTame → A.X.AdmitsBumpFunctionsPointwise →

@@ -24,7 +24,7 @@ a connected open neighbourhood `U(x)` with the natural `G_x`-action and an sc-sm
 * `SEP.exists_family_of_isLRLocal` (`LocalizationLRBundleBase.lean`) is the base part; this file
   adds the identity `ν(α_z, Φ(v)) = Ψ(v)` on the bundles (written with `lrAct`, which is `ν` on
   composable pairs, `lrAct_eq`).
-* Witness: `GapP2_GBundleFamilyExamples.proposition_10_4_7_hypotheses` (`Φ = Ψ = 1` on
+* Witness: `StrongBundleLocalFamiliesExamples.proposition_10_4_7_hypotheses` (`Φ = Ψ = 1` on
   `ℝⁿ × ℝᵏ → ℝⁿ`).
 
 ## The proof
@@ -190,7 +190,7 @@ end Family
 
 /-! ### Witness -/
 
-namespace GapP2_GBundleFamilyExamples
+namespace StrongBundleLocalFamiliesExamples
 
 open StrongBundleEquivalenceExamples StrongBundleLocalizationExamples
 
@@ -205,6 +205,6 @@ theorem proposition_10_4_7_hypotheses (n k : ℕ) :
         (EpFunctor.id (epSEP n k).E.toEpGroupoid).orbitMap :=
   ⟨EpStrongBundle.isLRLocal_trivial _, EpStrongBundle.isStrongBundleEquivalence_id _, rfl⟩
 
-end GapP2_GBundleFamilyExamples
+end StrongBundleLocalFamiliesExamples
 
 end Polyfold

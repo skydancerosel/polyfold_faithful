@@ -29,7 +29,7 @@ In the namespace `Polyfold.DimensionJump`.
 * **`remark_9_5_20_boundary`**: the effective boundary measure of Theorem 9.5.16 (weights of
   `X`) gives `∮_{∂Θ̂} a = (1/3)(a(1, 0) − a(−1, 0))`; **`remark_9_5_20_stokes`**: the two agree.
 * **`remark_9_5_20_boundary_weights`**: the boundary sum with the weights of `X` is
-  `(1/3)(a(1, 0) − a(−1, 0))`, with those of the ep-groupoid `∂X` (`K3.εB`) it is
+  `(1/3)(a(1, 0) − a(−1, 0))`, with those of the ep-groupoid `∂X` (`DimensionJump.εB`) it is
   `a(1, 0) − a(−1, 0)`.
 * `fForm`, **`remark_9_5_20_df`**: the `0`-forms `f(t, z) = φ(t)`, `φ(t) = ψ(u(t))` for
   smooth `ψ`, and `∮_Θ̂ df = (1/3)(φ(1) − φ(−1))`; **`remark_9_5_20_nondegenerate`**: for
@@ -51,7 +51,7 @@ namespace Polyfold
 
 namespace DimensionJump
 
-open K3
+open DimensionJump
 open ScOneExample hiding E
 
 open RemarkFourThree MPolyfold EpGroupoid EpGroupoid.Examples
@@ -392,7 +392,7 @@ lemma mem_boundaryStratum_of {y : XR} (hy : y ∈ Mset) (hb : y ∈ P.boundary)
     ((mem_submanifoldBoundary_iff isSmoothSubmanifold_M).2 ⟨hy, hb, hn⟩)
   have h2 : P.subDegIndex isSmoothSubmanifold_M.isSubMPolyfold ⟨y, hy⟩ ≤ P.degIndex y :=
     subDegIndex_le isSmoothSubmanifold_M.isSubMPolyfold ⟨y, hy⟩
-  have h3 : P.degIndex y ≤ 1 := by rw [K3.degIndex_eq]; split_ifs <;> omega
+  have h3 : P.degIndex y ≤ 1 := by rw [DimensionJump.degIndex_eq]; split_ifs <;> omega
   omega
 
 /-- **`∂₁M = {(−1, 0), (1, 0)}`.** -/
@@ -414,7 +414,7 @@ theorem boundaryStratum_M : P.boundaryStratum Mset = {xm, x₀} := by
     · exact mem_boundaryStratum_of x₀_mem_M x₀_mem_boundary not_isTangentReducedAt_x₀
 
 lemma boundaryStratum_M_U1 : P.boundaryStratum (Mset ∩ U1) = {xm} := by
-  rw [MPolyfold.k1_boundaryStratum_inter_isOpen isOpen_U1, boundaryStratum_M]
+  rw [MPolyfold.boundaryStratum_inter_isOpen isOpen_U1, boundaryStratum_M]
   ext y
   simp only [mem_inter_iff, mem_insert_iff, mem_singleton_iff]
   constructor
@@ -424,7 +424,7 @@ lemma boundaryStratum_M_U1 : P.boundaryStratum (Mset ∩ U1) = {xm} := by
   · rintro rfl; exact ⟨Or.inl rfl, xm_mem_U1⟩
 
 lemma boundaryStratum_M_U2 : P.boundaryStratum (Mset ∩ U2) = {x₀} := by
-  rw [MPolyfold.k1_boundaryStratum_inter_isOpen isOpen_U2, boundaryStratum_M]
+  rw [MPolyfold.boundaryStratum_inter_isOpen isOpen_U2, boundaryStratum_M]
   ext y
   simp only [mem_inter_iff, mem_insert_iff, mem_singleton_iff]
   constructor

@@ -52,9 +52,12 @@ From `Chapter2/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
   `nonEffectivePart_tangent_eq_of_isOpenMap`, `proposition_8_1_17_one_of_isOpenMap`,
   `EP.proposition_8_1_17_two_of_isOpenMap`, `EP.isLUC_tangent_lift_of_isOpenMap`,
   `EP.proposition_8_1_17_two_all_of_isOpenMap` (Proposition 8.1.17; rows V8.45, V8.52),
-  where only the openness of `p` (gap G.8) remains.
+  under the openness of `p` (gap G.8), which is `MPolyfold.isOpenMap_tangentProj`
+  (`Chapter2/TangentProjOpen.lean`); the forms without it are in `SmoothRegularAssembly.lean`.
 * **`EpGroupoid.Examples.JumpingRetract.not_isZhou_of_tangent`**: the example of Appendix 7.6.3
-  fails (ZHOU) under the two remaining Part I facts (row V7.95).
+  fails (ZHOU) under two Part I facts (row V7.95); both are theorems
+  (`MPolyfold.isOpenMap_tangentProj`, `MPolyfold.tangentDeterminedSmooth`), and the statement
+  with no hypothesis is `not_isZhou_unconditional` (`SmoothRegularAssembly.lean`).
 
 The results of §7.4 that take `SmoothRegular` (Propositions 7.4.8, 7.4.10, 7.4.22, Corollary
 7.4.11, Theorems 7.4.13, 7.4.24; rows V7.90, V7.91, V7.94, V7.102) lose two of its four fields
@@ -95,7 +98,7 @@ theorem smoothRegular_iff_tangent :
   ⟨fun h => ⟨h.isOpenMap_tangentProj, h.tangentDeterminedSmooth⟩,
     fun h => ⟨P.denseSmooth, P.smoothConnected, h.1, h.2⟩⟩
 
-/-- `SmoothRegular` from its two remaining fields. -/
+/-- `SmoothRegular` from its two tangent fields. -/
 theorem smoothRegular_of_tangent (hp : IsOpenMap P.tangentProj) (ht : P.TangentDeterminedSmooth) :
     P.SmoothRegular :=
   ⟨P.denseSmooth, P.smoothConnected, hp, ht⟩
@@ -259,9 +262,9 @@ end EP
 
 namespace EpGroupoid.Examples.JumpingRetract
 
-/-- **2021 p. 331**: the ep-groupoid of Appendix 7.6.3 does not satisfy (ZHOU), under the two
-remaining Part I facts for its object M-polyfold (`p` open, gap G.8, and
-`TangentDeterminedSmooth`); the density and connectedness facts are theorems (row V7.95). -/
+/-- **2021 p. 331**: the ep-groupoid of Appendix 7.6.3 does not satisfy (ZHOU), under two
+Part I facts for its object M-polyfold (`p` open, gap G.8, and
+`TangentDeterminedSmooth`; both are theorems, see `not_isZhou_unconditional`); the density and connectedness facts are theorems (row V7.95). -/
 theorem not_isZhou_of_tangent (hp : IsOpenMap X.PObj.tangentProj)
     (ht : X.PObj.TangentDeterminedSmooth) : ¬ X.IsZhou :=
   not_isZhou (X.PObj.smoothRegular_of_tangent hp ht)

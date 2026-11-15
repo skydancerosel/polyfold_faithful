@@ -190,7 +190,7 @@ def cubePullTau : (cubePullDec D 𝒲 h𝒲 hc).Tau where
           (fun _ hy => h𝒲 z hy) (fun _ hy => h𝒲 z' hy) hφ.1 hφ.2 g' g]
         refine ((t.isCorrespondence z.2 z'.2).biact φ.2 (mor_snd_of_cubeGoodSystem h𝒲 hφ)
           (cubeIso _ g') (cubeIso _ g)).trans ?_
-        exact (IndexCorr.biact_compHom_gl (cubeIso _) (cubeIso _) _ g' g).symm
+        exact (IndexCorr.biact_compHom (cubeIso _) (cubeIso _) _ g' g).symm
       compat := fun φ hφ => by
         refine IndexCorr.sat_mono (fun i j H ψ hψ => ?_)
           ((t.isCorrespondence z.2 z'.2).compat φ.2 (mor_snd_of_cubeGoodSystem h𝒲 hφ))

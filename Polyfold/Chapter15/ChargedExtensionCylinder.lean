@@ -44,7 +44,7 @@ variable {A : SEP.{u}}
 /-! ### The zero function -/
 
 /-- The pointwise norm of the function `Λ ≡ 0` is `0` (`supp(Λ)(x) = ∅`). -/
-theorem pointwiseNorm_zeroFun_w2 (N : A.B.One → ℝ) (x : A.Obj) :
+theorem pointwiseNorm_zeroFun (N : A.B.One → ℝ) (x : A.Obj) :
     pointwiseNorm N (fun _ : A.W => (0 : ℚ≥0)) x = 0 := by
   have : suppAt (fun _ : A.W => (0 : ℚ≥0)) x = ∅ :=
     eq_empty_iff_forall_notMem.2 fun w hw => lt_irrefl _ hw.2
@@ -94,7 +94,7 @@ theorem chargesBoundary_cubeGlue {Λ₀ Λ₁ : A.W → ℚ≥0} (hΛ₀ : IsScP
 charged Theorem 15.3.9 on `[0, 1] × X`**: `corollary_15_3_10_3_glue_hyp` with
 `theorem_15_3_9_statement (A.cubeSEP 1)` replaced by the charged form and tame strong bundle
 charts on the cylinder (`hBC`); the charge of the glued data is `chargesBoundary_cubeGlue`.
-Left open: structurability and the face condition of the glued data and partitions
+Kept as hypotheses: structurability and the face condition of the glued data and partitions
 of unity of the cylinder. -/
 theorem corollary_15_3_10_3_charged
     (h159 : theorem_15_3_9_charged_statement (A.cubeSEP 1))

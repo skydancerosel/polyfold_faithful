@@ -37,7 +37,7 @@ noncomputable section
 
 namespace Polyfold
 
-namespace GapP1ExtendedFaces
+namespace ExtendedFaces
 
 variable {E : ScBanach} {n : ℕ} {W : ScBanach}
 
@@ -322,6 +322,6 @@ theorem iInter_facesAt (e : E 0) :
     rw [add_coordFace hT]
     exact h i hi
 
-end GapP1ExtendedFaces
+end ExtendedFaces
 
 end Polyfold

@@ -67,7 +67,8 @@ sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.2.5 (preprint 5.8)) `f^i
   partial quadrant `C¹ ⊆ E¹`, which are not all index raises of presentations of `C`; showing that
   the base retraction `r¹` is tame needs the presentation independence of the degeneracy index and
   of the minimal subspace `E_x` for `C¹`, and that `A ∩ E₁` is an sc-complement of `T_xO¹` when `A`
-  is one of `T_xO`.  Not done (no counterexample either).
+  is one of `T_xO`.  This is not done here; it is `StrongBundle.IsTameChart.shift`
+  (`ShiftTameResearch.lean`).
 * **`i ≥ 2`.**  The construction applies to `P¹` itself (`B.shift.shift`), so every fixed `i` is an
   iterate; a uniform family `P^i` indexed by `i` would need a dependent type of strong bundles and
   the identification `(X¹)¹ = X²` as topological spaces (the sets agree by

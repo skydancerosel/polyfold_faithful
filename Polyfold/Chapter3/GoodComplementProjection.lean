@@ -38,7 +38,7 @@ projecting a good complement `Y'` of `K'`, and `Z ⊕ W` is a good complement of
   (`theorem_3_5_11_proj`, `LocalSolvabilityClosed.lean`), the graph description of Theorem 3.6.8 (preprint 3.54)
   (`theorem_3_6_8_graph_proj_wholeChart`, `GlobalIFT.lean`) and the tangent germ chart at the centre
   (`theorem_3_6_8_tangentGermChart_proj_wholeChart`, condition (b) of `TangentGermChart.IsRegular`,
-  `GlobalIFTCenter.lean`) are proved where the old statements are (those are now corollaries).
+  `GlobalIFTCenter.lean`) are proved where the whole-chart statements are (those are corollaries).
 
 ## What the text leaves implicit, and the choices made (the findings)
 

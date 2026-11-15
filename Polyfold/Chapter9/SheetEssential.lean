@@ -9,7 +9,7 @@ general M-polyfold.
 # Lemma 9.4.6 for submanifolds of an M-polyfold, and the sheet geometry of §9.4
 
 Definition 9.4.1 is read in M-polyfold charts (`chartEssentialSet`,
-`Chapter9/SheetEssentialChart2021.lean`, which has Lemma 9.4.4 in this reading), and Definition
+`Chapter9/SheetEssentialChart.lean`, which has Lemma 9.4.4 in this reading), and Definition
 9.4.5 as `n`-dimensional measure zero in M-polyfold charts (`IsHNull`,
 `Chapter9/SheetNull.lean`).  Both readings are independent of the chart
 (`Chapter9/SheetChartChange.lean`).

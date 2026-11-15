@@ -65,9 +65,9 @@ germ `(f, y)` is in good position.
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The sc-structure of the good complement is available as a conclusion** (Findings, Chapter 3,
-  items 210–214; item 19 said that it never matters).  As a hypothesis it is still not needed (the
+  items 210–214; item 19 said that it never matters).  As a hypothesis it is not needed (the
   proofs use the algebraic splitting only); as a conclusion — "every nearby zero is in good
-  position", Theorem 3.6.8 (preprint 3.54) (1) — the project's theorems gave the weaker algebraic form, and this
+  position", Theorem 3.6.8 (preprint 3.54) (1) — the project's other theorems give the weaker algebraic form, and this
   file supplies the text's.
 * **How the sc-complement is found.**  A good complement of a smooth finite-dimensional `N` need
   not be closed (round-trip item V3.20: a non-closed algebraic good complement exists in any
@@ -433,7 +433,7 @@ strong bundle chart centred at `x₀`, a filled version `g` of `f̂`, a local sc
 `s(0) = g(0)`, `g − s` conjugated to a basic germ) with `Tf̃(0)` onto `K₀` and `ker Dg(0)` in good
 position to `C₀O` inside `T₀O` with an **sc-complement** (`IsGoodPositionAtSc`). This is the
 project's original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221,
-260–266); the text's germ reading is `IsGoodPositionGermSc` (`GoodPositionScG.lean`, phase 2, items
+260–266); the text's germ reading is `IsGoodPositionGermSc` (`GoodPositionScG.lean`, items
 270–330). -/
 def IsGoodPositionGermScWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧

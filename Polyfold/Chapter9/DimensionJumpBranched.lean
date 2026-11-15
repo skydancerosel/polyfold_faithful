@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.DimensionJumpSheet
-import Polyfold.Chapter4.A3BoundaryForms2021b
+import Polyfold.Chapter4.BoundaryFormsAgreement
 import Polyfold.Chapter9.HalfCircleWitness
 
 /-!
@@ -38,7 +38,7 @@ namespace Polyfold
 
 namespace DimensionJump
 
-open K3
+open DimensionJump
 open ScOneExample hiding E
 
 open RemarkFourThree MPolyfold EpGroupoid EpGroupoid.Examples

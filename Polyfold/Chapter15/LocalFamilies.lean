@@ -4,7 +4,7 @@ import Polyfold.Chapter13.AtomicStructurable
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
 **Theorem 15.3.7** (General Position; 2017: Theorem 15.4), pp. 694–696, "Local constructions at
-`x ∈ S_f`": the atomic parameter families `t ↦ Λ^x_t` and GP's `HasLocalGPFamilies`.
+`x ∈ S_f`": the atomic parameter families `t ↦ Λ^x_t` and `HasLocalGPFamilies`.
 
 # The local families of the proof of Theorem 15.3.7
 
@@ -21,13 +21,13 @@ atomic, hence structurable, sc⁺-multisection `Λ^x_t` for every `t ∈ ℝ^ℓ
 * `mem_solutionSet_tgt`: `S_f` is saturated for a section functor `f`.
 * `GPFamily.saturate`, **`hasLocalGPFamilies_of_nhds`**: a family on an open `V ∋ x` (not
   necessarily saturated) is a family on the saturation of `V` (the step "by equivariance", with
-  `IsParamOntoAt.of_mor`).  So GP's `HasLocalGPFamilies` only needs families on neighbourhoods.
+  `IsParamOntoAt.of_mor`).  So `HasLocalGPFamilies` only needs families on neighbourhoods.
 * `paramSec_eq_paramSlice`, `isScPlusSection_paramSec`, `sectionSupport_paramSec_subset`,
   `natTerm_paramSec` (the natural translates `s^g` of a seed are linear in the seed).
 * `SeedData A`: `x`, `U(x)` (a natural representation with the properness property), `V(x)`,
   and seeds `s_j` supported in `V(x)`; `SeedData.atom t` the atomic data of the seed
-  `Σ_j t_j s_j` (A's `SymmetricFamily.ofSeed`, `AtomicData.ofFamily`), `SeedData.Λ t` its atomic
-  multisection.  Proved: structurable for every `t` (C's Theorem 13.5.3), **linear in `t`**
+  `Σ_j t_j s_j` (`SymmetricFamily.ofSeed`, `AtomicData.ofFamily`), `SeedData.Λ t` its atomic
+  multisection.  Proved: structurable for every `t` (Theorem 13.5.3), **linear in `t`**
   (`SeedData.isLinearFamily`: on `U(x)` the branches `Σ_j t_j s^g_j`, carried along morphisms
   elsewhere, the zero section off the saturation of `cl V(x)`), `N(Λ_t) ≤ |t|₁ h`
   (`SeedData.norm_le`), `dom-supp(Λ_t) ⊆ U`, and (15.1) at every point `y ∈ S_f` of
@@ -38,10 +38,10 @@ atomic, hence structurable, sc⁺-multisection `Λ^x_t` for every `t ∈ ℝ^ℓ
   without the groupoid: at every `x ∈ S_f`, inside every open `O ∋ x` and below every `ε > 0`,
   finitely many sc⁺-sections `s_j` of `W → X` supported in `O` with `N(s_j) ≤ ε`, and an open
   `W ∋ x` such that (15.1) holds with the vectors `s_j(y)` at every `y ∈ S_f ∩ W`.
-* **`hasLocalGPFamilies_of_seeds`**: `HasLocalParamSeeds` gives GP's `HasLocalGPFamilies` (good
+* **`hasLocalGPFamilies_of_seeds`**: `HasLocalParamSeeds` gives `HasLocalGPFamilies` (good
   system, `(N, U)` controlling compactness, `h` continuous, positive, functorial).
 * **`theorem_15_3_7_of_seeds`**: Theorem 15.3.7 (`theorem_15_3_7_statement`) from a good system,
-  `HasLocalParamSeeds` and GP's `HasParametricGeneralPosition`.
+  `HasLocalParamSeeds` and `HasParametricGeneralPosition`.
 * Witness: `hasLocalParamSeeds_epSEP_zero`, `theorem_15_3_7_statement_epSEP_zero_of_seeds`.
 -/
 
@@ -107,7 +107,7 @@ def GPFamily.saturate (hf : A.E.IsScFredholmSectionFunctor f) {V : Set A.Obj}
     exact H.of_mor hf (fun t => (F.isStructurable t).1.1) φ (A.X.PObj.levelVal_levelMk _ _ _)
       hφt.symm
 
-/-- **GP's `HasLocalGPFamilies` from families on neighbourhoods**: it suffices that every
+/-- **`HasLocalGPFamilies` from families on neighbourhoods**: it suffices that every
 `x ∈ S_f` has an open neighbourhood `V` (not necessarily saturated) carrying a family. -/
 theorem hasLocalGPFamilies_of_nhds (hf : A.E.IsScFredholmSectionFunctor f)
     (H : ∀ x ∈ solutionSet A.P f, ∃ V : Set A.Obj, IsOpen V ∧ x ∈ V ∧
@@ -208,7 +208,7 @@ namespace SeedData
 
 variable (S : SeedData A)
 
-/-- **The atomic data of the seed `Σ_j t_j s_j`** (A's `SymmetricFamily.ofSeed`,
+/-- **The atomic data of the seed `Σ_j t_j s_j`** (`SymmetricFamily.ofSeed`,
 `AtomicData.ofFamily`; the family `s^g_t` of the proof). -/
 def atom (t : Fin S.ℓ → ℝ) : AtomicData A :=
   AtomicData.ofFamily S.R S.hprop
@@ -259,7 +259,7 @@ theorem isLocalRepOn_zero (t : Fin S.ℓ → ℝ) :
   rw [Λ, (S.atom t).mult_eq_zeroMultisection hw]
   simp [zeroMultisection]
 
-/-- **`t ↦ Λ^x_t` is a linear family** (GP's `IsLinearFamily`). -/
+/-- **`t ↦ Λ^x_t` is a linear family** (`IsLinearFamily`). -/
 theorem isLinearFamily : IsLinearFamily S.Λ := by
   intro x₀
   by_cases hr : (S.atom 0).Reach x₀
@@ -276,7 +276,7 @@ theorem isLinearFamily : IsLinearFamily S.Λ := by
     exact ((S.atom 0).reach_iff_mem_saturation x₀).2
       ((S.atom 0).saturation_closure_V_subset hx)
 
-/-- **Structurable** (C's Theorem 13.5.3: atomic ⇒ structurable, given a good system). -/
+/-- **Structurable** (Theorem 13.5.3: atomic ⇒ structurable, given a good system). -/
 theorem isStructurable_Λ (h𝒰 : Nonempty A.X.GoodSystem) (t : Fin S.ℓ → ℝ) :
     IsStructurable A (S.Λ t) :=
   theorem_13_5_3_of_goodSystem h𝒰 (S.isAtomic_Λ t)
@@ -314,7 +314,7 @@ theorem norm_le (hN : A.E.IsAuxNorm N) {c : ℝ} (hc : 0 ≤ c)
     exact mul_nonneg ht0 (hh0 z)
 
 /-- **(15.1) on `Q₀ = ⋂_g (U(x) ∩ Φ_g⁻¹ W)`**: if (15.1) holds with the vectors `s_j(y)` at the
-points `y ∈ S_f ∩ W`, then GP's `IsParamOntoAt f Λ^x y` holds at the points `y ∈ S_f ∩ Q₀` (the
+points `y ∈ S_f ∩ W`, then `IsParamOntoAt f Λ^x y` holds at the points `y ∈ S_f ∩ Q₀` (the
 branch `g` at `y` is `μ(Γ(g, g⁻¹ ∗ y), s_j(g⁻¹ ∗ y))`; `IsParamOntoVec.of_mor`). -/
 theorem isParamOntoAt (hf : A.E.IsScFredholmSectionFunctor f) {W : Set A.Obj}
     (hW : ∀ y : A.X.PObj.Level 1, A.X.PObj.levelVal 1 y ∈ W →
@@ -352,7 +352,7 @@ theorem isParamOntoAt (hf : A.E.IsScFredholmSectionFunctor f) {W : Set A.Obj}
   rw [hv]
   exact H'
 
-/-- **The family of the proof on `Q₀`** (GP's `GPFamily`). -/
+/-- **The family of the proof on `Q₀`** (`GPFamily`). -/
 def gpFamily (h𝒰 : Nonempty A.X.GoodSystem) (hf : A.E.IsScFredholmSectionFunctor f)
     (hN : A.E.IsAuxNorm N) {c : ℝ} (hc : 0 ≤ c) (hsN : ∀ j y, normW N (S.s j y) ≤ c)
     (hch : ∀ y ∈ A.X.saturation S.R.U, c ≤ h y) (hh0 : ∀ y, 0 ≤ h y)
@@ -387,7 +387,7 @@ def HasLocalParamSeeds (f : A.Obj → A.W) (N : A.B.One → ℝ) : Prop :=
         A.X.PObj.levelVal 1 y ∈ W → A.X.PObj.levelVal 1 y ∈ solutionSet A.P f →
           IsParamOntoVec f y (fun j => ⟨s j (A.X.PObj.levelVal 1 y), (hs j).1 _⟩)
 
-/-- **GP's `HasLocalGPFamilies` from the analytic input** (the local constructions of the proof of
+/-- **`HasLocalGPFamilies` from the analytic input** (the local constructions of the proof of
 Theorem 15.3.7): for a good system, an sc-Fredholm section functor `f`, `(N, U)` controlling
 compactness and `h` continuous, positive and constant along morphisms. -/
 theorem hasLocalGPFamilies_of_seeds (h𝒰 : Nonempty A.X.GoodSystem)
@@ -417,7 +417,7 @@ theorem hasLocalGPFamilies_of_seeds (h𝒰 : Nonempty A.X.GoodSystem)
 
 /-- **Theorem 15.3.7 (General Position; 2017: Theorem 15.4), pp. 693–698, existence part**, from
 a good system, the analytic input of the local constructions (`HasLocalParamSeeds`, on the object
-M-polyfold) and GP's parametric transversality step (`HasParametricGeneralPosition`): there is a
+M-polyfold) and the parametric transversality step (`HasParametricGeneralPosition`): there is a
 structurable sc⁺-multisection functor `Λ` with (1) `N(Λ) < h`, (2) `dom-supp(Λ) ⊆ U`, (3)
 `(f, Λ)` transversal, (4) in general position. -/
 theorem theorem_15_3_7_hyp_seeds (h𝒰 : Nonempty A.X.GoodSystem)
@@ -431,7 +431,7 @@ theorem theorem_15_3_7_hyp_seeds (h𝒰 : Nonempty A.X.GoodSystem)
     (hasLocalGPFamilies_of_seeds h𝒰 hf hcc hhc hhφ (fun x => (hh x).1) hseed) hsard
 
 /-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`)** from a good system and, under the
-hypotheses of the theorem, `HasLocalParamSeeds` and `HasParametricGeneralPosition` (GP's
+hypotheses of the theorem, `HasLocalParamSeeds` and `HasParametricGeneralPosition` (
 `HasLocalGPFamilies` is discharged by `hasLocalGPFamilies_of_seeds`). -/
 theorem theorem_15_3_7_of_seeds (h𝒰 : Nonempty A.X.GoodSystem)
     (H : A.X.IsTame → A.X.AdmitsBumpFunctionsPointwise →

@@ -52,11 +52,13 @@ hypothesis of `theorem_12_5_7_two_orbitMap_unique` on `H × ℝᵏ → H` over t
 of the half-space `H = [0, ∞) × ℝᵐ`, `𝔄 = [1]`, `F` the graph section of a `C^∞` map, with
 `∂H ≠ ∅` and non-zero fibres; the orientation itself is the datum of the theorem.
 
-## What is not covered
+## Non-effective bases
 
 For a non-effective base two generalized isomorphisms with the same `|𝔄|` can differ (the
-counterexample `StrongPolyfoldBundleStructure.not_uniqueness_16_3_3`); that their push-forward
-orientations still agree is not proved here.
+counterexample `StrongPolyfoldBundleStructure.not_uniqueness_16_3_3`); their push-forward
+orientations agree by the local regularity property: `exists_unique_transport_of_isLRLocal`
+(`OrientationOrbitMapIndependence`), `exists_unique_transport_of_isLR`
+(`OrientationTransportRegularity`).
 -/
 
 set_option maxSynthPendingDepth 3

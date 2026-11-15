@@ -3,7 +3,7 @@ import Polyfold.Chapter15.CylinderGlue
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
-**Corollary 15.3.10 (3)**, p. 699: sc-smooth partitions of unity on `[0, 1] × X` (gap TY-3).
+**Corollary 15.3.10 (3)**, p. 699: sc-smooth partitions of unity on `[0, 1] × X`.
 
 # Partitions of unity on the cylinder
 
@@ -16,8 +16,8 @@ partitions of unity; the text does not say why `[0, 1] × X` has them.
 
 * `admitsScPartitionsOfUnity_cubeSEP`: the M-polyfold of objects of `[0, 1]ⁿ × X` admits sc-smooth
   partitions of unity if that of `X` does (`admitsScPartitionsOfUnity_cubeProd`).
-* **`corollary_15_3_10_3_pu_w5`** and **`corollary_15_3_10_3_glue_w5`**: TY's
-  `corollary_15_3_10_3_ty` and `corollary_15_3_10_3_glue_hyp` with the hypothesis `hPUC` on
+* **`corollary_15_3_10_3_pu`** and **`corollary_15_3_10_3_glue`**:
+  `corollary_15_3_10_3_of_theorem_15_3_9` and `corollary_15_3_10_3_glue_hyp` with the hypothesis `hPUC` on
   `[0, 1] × X` replaced by sc-smooth partitions of unity on `X`.
 -/
 
@@ -47,9 +47,9 @@ theorem admitsScPartitionsOfUnity_cubeSEP (n : ℕ) (hPU : A.X.PObj.AdmitsScPart
   exact admitsScPartitionsOfUnity_cubeProd hPU
 
 /-- **Corollary 15.3.10 (3), p. 699, reduced to Theorem 15.3.9 on `[0, 1] × X`**, with sc-smooth
-partitions of unity on `X` in place of TY's `hPUC` on `[0, 1] × X`; the other hypotheses as in
-`corollary_15_3_10_3_ty`. -/
-theorem corollary_15_3_10_3_pu_w5 (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
+partitions of unity on `X` in place of `hPUC` on `[0, 1] × X`; the other hypotheses as in
+`corollary_15_3_10_3_of_theorem_15_3_9`. -/
+theorem corollary_15_3_10_3_pu (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hPU : A.X.PObj.AdmitsScPartitionsOfUnity) {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)
@@ -71,14 +71,14 @@ theorem corollary_15_3_10_3_pu_w5 (h159 : theorem_15_3_9_statement (A.cubeSEP 1)
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) ∧
       (A.cubeSEP 1).X.IsCompactBranched
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) :=
-  corollary_15_3_10_3_ty h159 hd hpara (admitsScPartitionsOfUnity_cubeSEP 1 hPU) hf hft hS h₀ h₁
+  corollary_15_3_10_3_of_theorem_15_3_9 h159 hd hpara (admitsScPartitionsOfUnity_cubeSEP 1 hPU) hf hft hS h₀ h₁
     Λb hb₀ hb₁ hbs hbdom hbN hbonto
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations**, with sc-smooth
-partitions of unity on `X` in place of TY's `hPUC` on `[0, 1] × X`: TY's
-`corollary_15_3_10_3_glue_hyp`, whose remaining added hypotheses are the structurability `hbs`
+partitions of unity on `X` in place of `hPUC` on `[0, 1] × X`:
+`corollary_15_3_10_3_glue_hyp`, whose other added hypotheses are the structurability `hbs`
 and the face condition `hbonto` of the glued data. -/
-theorem corollary_15_3_10_3_glue_w5 (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
+theorem corollary_15_3_10_3_glue (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hPU : A.X.PObj.AdmitsScPartitionsOfUnity) {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)

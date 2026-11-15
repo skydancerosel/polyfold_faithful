@@ -56,7 +56,7 @@ is the target of a morphism `u → v`, which by Lemma 7.6.2 (2017: 7.8) is `s_{g
 
 ## Reading
 
-* **Connectedness** (PLAN II.6, 3).  "`Φ` is a homomorphism" is proved by comparing the two
+* **Connectedness**.  "`Φ` is a homomorphism" is proved by comparing the two
   continuous sections `y ↦ s_{gh}⁻¹(y)` and `y ↦ s_g⁻¹(Φ(h) y) ∘ s_h⁻¹(y)` of `s` over `U`; they
   agree at `x₀`, and the set where they agree is open and closed, i.e. the sheet index is only
   locally constant.  As we read it, the argument needs `U` connected, which the text does not
@@ -83,8 +83,7 @@ is the target of a morphism `u → v`, which by Lemma 7.6.2 (2017: 7.8) is `s_{g
   at `x₀`: it applies to the `h_k` with `s(h_k) ∈ cl V(x₀)`, i.e. to all large `k`.  "Necessarily
   `h ∈ G_{x₀}`": `t(h) = x₀` comes with properness, `s(h) = x₀` from the continuity of `s` and
   the uniqueness of limits.  The lemma holds for any open `N_g ∋ g`; the sheet property is not
-  used.  The text's "the properness assumption of ep-polyfolds" is read as that of ep-groupoids
-  (possible misprint).
+  used.  The text's "the properness assumption of ep-polyfolds" is read as that of ep-groupoids.
 * **Lemma 7.6.3 (2017: 7.9).**  "`U₂` so small that `U` and `t_g s_g⁻¹(U)` are contained in `U₁`" is possible
   because each `t_g s_g⁻¹` is continuous at its fixed point `x₀` and `G_{x₀}` is finite; we ask
   `t_h s_h⁻¹(U₂) ⊆ U₁` and `t_g s_g⁻¹ t_h s_h⁻¹(U₂) ⊆ U₁`.  The morphism `u → v` is

@@ -10,7 +10,7 @@ Part II, Chapter 9, §9.3, Definition 9.3.10 (p. 427) and §9.5, **Theorems 9.5.
 # The boundary sheets of an oriented tame structure as an oriented sheet family
 
 The local expression of Theorem 9.5.15 integrates over the boundary sheets
-`∂₁Mᵢ = {d_{Mᵢ} = 1}` with the orientations `o_{∂Mᵢ}` (E6, `BoundarySheets.lean`).  To
+`∂₁Mᵢ = {d_{Mᵢ} = 1}` with the orientations `o_{∂Mᵢ}` (`BoundarySheets.lean`).  To
 apply the machinery of `SheetFamily.lean` they must form an `OrientedSheetFamily`, i.e.
 their union must be `D ∩ U(x)` for one saturated set `D` that does not depend on the structure,
 and `T̂_{∂Θ}` must be natural.

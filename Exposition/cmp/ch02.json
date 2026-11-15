@@ -1006,8 +1006,8 @@
      "Chapter2/DegeneracyIndex · eventually_add_smul_mem_lvlSet",
      "Chapter2/Boundary · eventually_add_smul_mem_lvlSet_of_cone",
      "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace",
-     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
-     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone"
+     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone"
     ]
    },
    "verdict": "extra",
@@ -1973,7 +1973,7 @@
    "lean": {
     "statement": "For retractions $r$, $s$ onto the same $O$, a retraction $\\rho$ onto $O'$ and $f(O) \\subseteq O'$: (1) $f \\circ r$ sc-smooth iff $f \\circ s$ sc-smooth; (2) if $f \\circ r$ is sc-smooth, $T(f \\circ r) = T(f \\circ s)$ on $Tr(TU)$; (3) if $f \\circ r$ is sc-smooth, $T(f \\circ r)$ maps $Tr(TU)$ into $T\\rho(TU')$.",
     "decls": [
-     "Chapter2/Book2021 · proposition_2_1_13",
+     "Chapter2/Book · proposition_2_1_13",
      "Chapter2/Retracts · proposition_2_1_13_one",
      "Chapter2/Retracts · proposition_2_1_13_two",
      "Chapter2/Retracts · proposition_2_1_13_three"
@@ -2060,7 +2060,7 @@
    "lean": {
     "statement": "`remark_2_1_6_book`: if $\\mathrm{cl}_X(V) \\subseteq W$ then $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$. Local completeness implies the modified notion ($V \\subseteq W$, $\\mathrm{cl}_W(V)$ complete). Some Hausdorff space ($\\mathbb R$ with the K-topology, V2.91) satisfies the modified notion without being locally complete, so the modified notion is strictly weaker.",
     "decls": [
-     "Chapter2/BookFormLocalCompleteness2021 · remark_2_1_6_book",
+     "Chapter2/BookFormLocalCompleteness · remark_2_1_6_book",
      "Chapter2/LocalTopology · remark_2_1_6",
      "Chapter2/LocalTopology · IsLocallyCompleteRel",
      "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel",
@@ -2072,7 +2072,7 @@
     "G.76 closed"
    ],
    "diff": [
-    "The text does not say whether \"weaker\" is meant strictly; both the implication and the strictness are proved, in one statement (`Chapter2/BookFormLocalCompleteness2021.lean`); the example is V2.91 (gap G.76, closed) (Findings, Chapter 2, items 61, 75, 89)."
+    "The text does not say whether \"weaker\" is meant strictly; both the implication and the strictness are proved, in one statement (`Chapter2/BookFormLocalCompleteness.lean`); the example is V2.91 (gap G.76, closed) (Findings, Chapter 2, items 61, 75, 89)."
    ]
   },
   {
@@ -2318,15 +2318,15 @@
    "lean": {
     "statement": "`definition_2_5_19_book`: for a sub-M-polyfold $Y$, condition (3) is stated in $T_yX$. $T_yY$ is the image of $Ti : T_yY \\to T_yX$ (`subTangentRange`), $T^R_yX$ is the reduced tangent space of Definition 2.5.8, and $T_yX = Ti(T_yY) \\oplus A$ is an algebraic splitting with $A \\subseteq T^R_yX$, $A$ an sc-subspace with a levelwise splitting in a chart (`HasReducedScComplement`, `TameSubData2021`, `IsTameSubMPolyfold2021`). It is equivalent to the chart form `IsTameSubMPolyfold` (`isTameSubMPolyfold2021_iff`, `hasReducedScComplement_iff`), through `coe_map_range_subInclusionCLM`: $T\\varphi(y)$ maps $Ti(T_yY)$ onto the tangent space of $\\varphi(W \\cap Y)$, and through `fiberCoord_subInclusionCLM`, $T\\varphi(y) \\circ Ti = T\\sigma(y)$ for the sub-chart $\\sigma$. It implies the tame induced structure of Definition 2.5.18, and $Y = X$ satisfies it. The chart form: (3) in some chart around $y$, the tangent space of the chart image of $Y$ having an sc-complement in $T_zO$ inside $T_zO \\cap E_z$; a tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.",
     "decls": [
-     "Chapter2/BookFormTameSub2021 · MPolyfold.definition_2_5_19_book",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.isTameSubMPolyfold2021_iff",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.IsTameSubMPolyfold2021",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.TameSubData2021",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.HasReducedScComplement",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.hasReducedScComplement_iff",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.subTangentRange",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.coe_map_range_subInclusionCLM",
-     "Chapter2/BookFormTameSub2021 · MPolyfold.fiberCoord_subInclusionCLM",
+     "Chapter2/BookFormTameSub · MPolyfold.definition_2_5_19_book",
+     "Chapter2/BookFormTameSub · MPolyfold.isTameSubMPolyfold2021_iff",
+     "Chapter2/BookFormTameSub · MPolyfold.IsTameSubMPolyfold2021",
+     "Chapter2/BookFormTameSub · MPolyfold.TameSubData2021",
+     "Chapter2/BookFormTameSub · MPolyfold.HasReducedScComplement",
+     "Chapter2/BookFormTameSub · MPolyfold.hasReducedScComplement_iff",
+     "Chapter2/BookFormTameSub · MPolyfold.subTangentRange",
+     "Chapter2/BookFormTameSub · MPolyfold.coe_map_range_subInclusionCLM",
+     "Chapter2/BookFormTameSub · MPolyfold.fiberCoord_subInclusionCLM",
      "Chapter2/TameBoundary · MPolyfold.HasTameInducedStructure",
      "Chapter2/TameBoundary · MPolyfold.HasReducedComplementAt",
      "Chapter2/TameBoundary · MPolyfold.hasReducedComplementAt_self",
@@ -2610,7 +2610,7 @@
    "lean": {
     "statement": "`proposition_2_7_12_book`: for every pair of representatives $(x, V, \\theta)$, $(x', V', \\theta')$, centred or not, the images $\\Phi(U \\cap U')$, $\\Phi'(U \\cap U')$ are open in $\\theta$, $\\theta'$, and the transition map $\\Phi' \\circ \\Phi^{-1}$ between them is an sc-diffeomorphism of the faces, with their sub-M-polyfold structures (`facePolyfold`), and the identity on points of $X$. The topological steps remain this row's lemmas: the $U(x, V, \\theta)$ form a basis, $B$ is continuous, every $\\Phi$ is an open embedding into $\\theta$, a homeomorphism onto $\\theta$ for $V$ centred at $x$.",
     "decls": [
-     "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
+     "Chapter2/BookFormTameBoundary · MPolyfold.proposition_2_7_12_book",
      "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred",
      "Chapter2/TameBoundaryTopology · TameBoundary.isOpen_uSet",
      "Chapter2/TameBoundaryTopology · TameBoundary.isTopologicalBasis_uSet",
@@ -2669,7 +2669,7 @@
    "lean": {
     "statement": "`theorem_2_7_13_book`, for a tame $X$: (1) $bX$ is metrizable; (2) `tameBoundaryPolyfold` is tame; (3) $B$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$. For every representative, $U(x, V, \\theta)$ is open and $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$, a bijection onto $\\theta$ for centred $V$. $T_{bX}$ and the structure are the only ones with these properties, the structure up to equivalence of atlases, and $B$ has image $\\partial X$ (Definition 2.7.14). The topological statements: (1); every $U(x, V, \\theta)$ open and every $\\Phi$ an open embedding; $T_{bX}$ the only topology with these properties; $B$ continuous with image $\\partial X$ and fibres of $d_X(x)$ points; the tame boundary as a continuous map.",
     "decls": [
-     "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book",
+     "Chapter2/BookFormTameBoundary · MPolyfold.theorem_2_7_13_book",
      "Chapter2/TameBoundaryTopology · TameBoundary.eq_of_isOpen_uSet",
      "Chapter2/TameBoundaryTopology · TameBoundary.theorem_2_7_13_topology",
      "Chapter2/TameBoundaryTopology · MPolyfold.theorem_2_7_13",
@@ -3126,8 +3126,8 @@
    "lean": {
     "statement": "`theorem_2_7_13_book`, the characterization: for every representative, $U(x, V, \\theta)$ is open and $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$; for $V$ centred at $x$, $\\Phi$ is a bijection onto $\\theta = \\theta \\cap V^x$. Every structure with this property is equivalent to `tameBoundaryPolyfold`. `proposition_2_7_12_book`: the transition maps are sc-diffeomorphisms. The centred forms remain as steps: every class has a centred representative; a face $\\theta$ of a face-structured open $V$ is a sub-M-polyfold; for $V$ centred at $x$, $\\Phi$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto $\\theta$ (`phi_isScDiffeoOn`); every structure with this property is equivalent to that of V2.102 (`tameBoundaryPolyfold_unique`); for two centred triples the transition map is an sc-diffeomorphism between open subsets, the identity on points.",
     "decls": [
-     "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book",
-     "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
+     "Chapter2/BookFormTameBoundary · MPolyfold.theorem_2_7_13_book",
+     "Chapter2/BookFormTameBoundary · MPolyfold.proposition_2_7_12_book",
      "Chapter2/TameBoundaryStructure · TameBoundary.BSpace.exists_centred_rep",
      "Chapter2/TameBoundaryStructure · MPolyfold.isSubMPolyfold_of_isFaceIn",
      "Chapter2/TameBoundaryStructure · MPolyfold.facePolyfold",
@@ -3269,11 +3269,11 @@
    "lean": {
     "statement": "`proposition_2_1_2`: for a real Banach space $E$, $U \\subseteq E$ open, $r$ $C^\\infty$ on $U$ with $r(U) \\subseteq U$ and $r \\circ r = r$ on $U$, and $x \\in r(U)$, there are open $V \\ni x$ with $V \\subseteq U$, open $W \\ni 0$, closed complementary subspaces $R = \\operatorname{range} Dr(x)$ and $N = \\ker Dr(x)$, and a $C^\\infty$ diffeomorphism $\\psi : V \\to W$ ($\\psi$ and $\\psi^{-1}$ $C^\\infty$) with $\\psi(x) = 0$ and $\\psi(r(U) \\cap V) = R \\cap W$.",
     "decls": [
-     "Chapter2/SmoothRetractImage · GapP1Prop212.proposition_2_1_2",
-     "Chapter2/SmoothRetractImage · GapP1Prop212.isIdempotentElem_fderiv",
-     "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart",
-     "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart_comp",
-     "Chapter2/SmoothRetractImage · GapP1Prop212.hasFDerivAt_retractChart"
+     "Chapter2/SmoothRetractImage · SmoothRetractImage.proposition_2_1_2",
+     "Chapter2/SmoothRetractImage · SmoothRetractImage.isIdempotentElem_fderiv",
+     "Chapter2/SmoothRetractImage · SmoothRetractImage.retractChart",
+     "Chapter2/SmoothRetractImage · SmoothRetractImage.retractChart_comp",
+     "Chapter2/SmoothRetractImage · SmoothRetractImage.hasFDerivAt_retractChart"
     ]
    },
    "chips": [
@@ -3297,20 +3297,20 @@
    "lean": {
     "statement": "For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\\alpha : \\mathbb R \\to E_0$, sc-smooth on $(-\\varepsilon, \\varepsilon)$ or on $[0, \\varepsilon)$ for the constant sc-structure on $\\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\\alpha(0) = x$; $\\dot\\alpha(0)$ is `pathDeriv`, $D\\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the set of $\\dot\\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\\dot\\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \\in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\\dot\\alpha(0) = \\dot\\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).",
     "decls": [
-     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
-     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone",
-     "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_tangent",
-     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv",
-     "Chapter2/TangentConePaths · GapP1Lemma249.twoSidedPathDerivs",
-     "Chapter2/TangentConePaths · GapP1Lemma249.oneSidedPathDerivs",
-     "Chapter2/TangentConePaths · GapP1Lemma249.hasDerivWithinAt_pathDeriv",
-     "Chapter2/TangentConePaths · GapP1Lemma249.scDeriv_pathDeriv",
-     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv_mem_minimalSubspaceWith",
-     "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv_mem_partialQuadrantAtWith",
-     "Chapter2/TangentConePaths · GapP1Lemma249.path_retract_segment",
-     "Chapter2/TangentConePaths · GapP1Lemma249.partialConeWith_subset_closure",
-     "Chapter2/TangentConePaths · GapP1Lemma249.isScDomain_Ioo",
-     "Chapter2/TangentConePaths · GapP1Lemma249.isScDomain_Ico"
+     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
+     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
+     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv",
+     "Chapter2/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
+     "Chapter2/TangentConePaths · TangentConePaths.oneSidedPathDerivs",
+     "Chapter2/TangentConePaths · TangentConePaths.hasDerivWithinAt_pathDeriv",
+     "Chapter2/TangentConePaths · TangentConePaths.scDeriv_pathDeriv",
+     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv_mem_minimalSubspaceWith",
+     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv_mem_partialQuadrantAtWith",
+     "Chapter2/TangentConePaths · TangentConePaths.path_retract_segment",
+     "Chapter2/TangentConePaths · TangentConePaths.partialConeWith_subset_closure",
+     "Chapter2/TangentConePaths · TangentConePaths.isScDomain_Ioo",
+     "Chapter2/TangentConePaths · TangentConePaths.isScDomain_Ico"
     ]
    },
    "chips": [
@@ -3331,21 +3331,21 @@
    "lean": {
     "statement": "The definitions use only $C$ and $d_C$: `stratumOne` $= \\{e \\in C \\mid d_C(e) = 1\\}$, `faceComponents` its connected components, `extendedFaces` the spans of the components (the smallest linear subspaces containing them), `facesAt e` $= \\mathcal F(e) = \\{f \\mid e \\in f\\}$. For any presentation $T$ (used only in the proofs): the components are $A_i = \\{(Te)_i = 0,\\ (Te)_j > 0\\ (j \\ne i)\\}$ (`faceComponents_eq`) and there are exactly $k$ of them (`ncard_faceComponents`); $\\operatorname{span} A_i = f_i = \\{(Te)_i = 0\\}$ (`span_faceOpen`, `extendedFaces_eq`), so there are exactly $k$ extended faces (`ncard_extendedFaces`); $C + f_i = \\{(Te)_i \\ge 0\\}$, closed and containing $C$ (`add_coordFace`, `isClosed_add_coordFace`, `subset_add_coordFace`); $d_C(e) = \\#\\mathcal F(e)$ (`ncard_facesAt`); and $\\bigcap_{f \\in \\mathcal F(e)} (C + f) = C_e$ (`iInter_facesAt`, Definition 2.5.1).",
     "decls": [
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.stratumOne",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.facesAt",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents_eq",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.span_faceOpen",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces_eq",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.isClosed_add_coordFace",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.subset_add_coordFace",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt",
-     "Chapter2/ExtendedFaces · GapP1ExtendedFaces.connectedComponentIn_eq"
+     "Chapter2/ExtendedFaces · ExtendedFaces.stratumOne",
+     "Chapter2/ExtendedFaces · ExtendedFaces.faceComponents",
+     "Chapter2/ExtendedFaces · ExtendedFaces.extendedFaces",
+     "Chapter2/ExtendedFaces · ExtendedFaces.facesAt",
+     "Chapter2/ExtendedFaces · ExtendedFaces.faceComponents_eq",
+     "Chapter2/ExtendedFaces · ExtendedFaces.ncard_faceComponents",
+     "Chapter2/ExtendedFaces · ExtendedFaces.span_faceOpen",
+     "Chapter2/ExtendedFaces · ExtendedFaces.extendedFaces_eq",
+     "Chapter2/ExtendedFaces · ExtendedFaces.ncard_extendedFaces",
+     "Chapter2/ExtendedFaces · ExtendedFaces.add_coordFace",
+     "Chapter2/ExtendedFaces · ExtendedFaces.isClosed_add_coordFace",
+     "Chapter2/ExtendedFaces · ExtendedFaces.subset_add_coordFace",
+     "Chapter2/ExtendedFaces · ExtendedFaces.ncard_facesAt",
+     "Chapter2/ExtendedFaces · ExtendedFaces.iInter_facesAt",
+     "Chapter2/ExtendedFaces · ExtendedFaces.connectedComponentIn_eq"
     ]
    },
    "chips": [
@@ -3416,10 +3416,10 @@
    "lean": {
     "statement": "`lemma_2_7_3 [T3Space X]`: $X$ is paracompact (`ParacompactSpace`) iff every open cover has a closed locally finite refinement; the converse direction holds for every topological space (`paracompactSpace_of_closed_refinement`), the direct one for regular paracompact spaces (`exists_closed_refinement`). `proposition_2_7_4 [T3Space Y]`: a locally finite cover of $Y$ by closed sets, each paracompact as a subspace, makes $Y$ paracompact.",
     "decls": [
-     "Chapter2/MichaelRefinement · GapP1Michael.lemma_2_7_3",
-     "Chapter2/MichaelRefinement · GapP1Michael.proposition_2_7_4",
-     "Chapter2/MichaelRefinement · GapP1Michael.paracompactSpace_of_closed_refinement",
-     "Chapter2/MichaelRefinement · GapP1Michael.exists_closed_refinement"
+     "Chapter2/MichaelRefinement · MichaelRefinement.lemma_2_7_3",
+     "Chapter2/MichaelRefinement · MichaelRefinement.proposition_2_7_4",
+     "Chapter2/MichaelRefinement · MichaelRefinement.paracompactSpace_of_closed_refinement",
+     "Chapter2/MichaelRefinement · MichaelRefinement.exists_closed_refinement"
     ]
    },
    "chips": [
@@ -3440,11 +3440,11 @@
     "V2.108"
    ],
    "decls": [
-    "Chapter2/SmoothRetractImage · GapP1Prop212.proposition_2_1_2",
-    "Chapter2/SmoothRetractImage · GapP1Prop212.isIdempotentElem_fderiv",
-    "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart",
-    "Chapter2/SmoothRetractImage · GapP1Prop212.retractChart_comp",
-    "Chapter2/SmoothRetractImage · GapP1Prop212.hasFDerivAt_retractChart"
+    "Chapter2/SmoothRetractImage · SmoothRetractImage.proposition_2_1_2",
+    "Chapter2/SmoothRetractImage · SmoothRetractImage.isIdempotentElem_fderiv",
+    "Chapter2/SmoothRetractImage · SmoothRetractImage.retractChart",
+    "Chapter2/SmoothRetractImage · SmoothRetractImage.retractChart_comp",
+    "Chapter2/SmoothRetractImage · SmoothRetractImage.hasFDerivAt_retractChart"
    ]
   },
   {
@@ -3542,12 +3542,12 @@
     "V2.109"
    ],
    "decls": [
-    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_reduced",
-    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_cone",
-    "Chapter2/TangentConePaths · GapP1Lemma249.lemma_2_4_9_tangent",
-    "Chapter2/TangentConePaths · GapP1Lemma249.pathDeriv",
-    "Chapter2/TangentConePaths · GapP1Lemma249.twoSidedPathDerivs",
-    "Chapter2/TangentConePaths · GapP1Lemma249.oneSidedPathDerivs"
+    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
+    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
+    "Chapter2/TangentConePaths · TangentConePaths.pathDeriv",
+    "Chapter2/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
+    "Chapter2/TangentConePaths · TangentConePaths.oneSidedPathDerivs"
    ]
   },
   {
@@ -3574,13 +3574,13 @@
     "V2.110"
    ],
    "decls": [
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.faceComponents",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.extendedFaces",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_faceComponents",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_extendedFaces",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.add_coordFace",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.ncard_facesAt",
-    "Chapter2/ExtendedFaces · GapP1ExtendedFaces.iInter_facesAt"
+    "Chapter2/ExtendedFaces · ExtendedFaces.faceComponents",
+    "Chapter2/ExtendedFaces · ExtendedFaces.extendedFaces",
+    "Chapter2/ExtendedFaces · ExtendedFaces.ncard_faceComponents",
+    "Chapter2/ExtendedFaces · ExtendedFaces.ncard_extendedFaces",
+    "Chapter2/ExtendedFaces · ExtendedFaces.add_coordFace",
+    "Chapter2/ExtendedFaces · ExtendedFaces.ncard_facesAt",
+    "Chapter2/ExtendedFaces · ExtendedFaces.iInter_facesAt"
    ]
   },
   {
@@ -3630,10 +3630,10 @@
     "V2.112"
    ],
    "decls": [
-    "Chapter2/MichaelRefinement · GapP1Michael.lemma_2_7_3",
-    "Chapter2/MichaelRefinement · GapP1Michael.proposition_2_7_4",
-    "Chapter2/MichaelRefinement · GapP1Michael.paracompactSpace_of_closed_refinement",
-    "Chapter2/MichaelRefinement · GapP1Michael.exists_closed_refinement"
+    "Chapter2/MichaelRefinement · MichaelRefinement.lemma_2_7_3",
+    "Chapter2/MichaelRefinement · MichaelRefinement.proposition_2_7_4",
+    "Chapter2/MichaelRefinement · MichaelRefinement.paracompactSpace_of_closed_refinement",
+    "Chapter2/MichaelRefinement · MichaelRefinement.exists_closed_refinement"
    ]
   },
   {
@@ -3648,7 +3648,7 @@
     "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel",
     "Chapter2/LocalTopologyExample · remark_2_1_6_strict",
     "Chapter2/LocalTopologyExample · RealKTop.not_isLocallyComplete",
-    "Chapter2/BookFormLocalCompleteness2021 · remark_2_1_6_book"
+    "Chapter2/BookFormLocalCompleteness · remark_2_1_6_book"
    ],
    "formalized": [
     "V2.91",
@@ -3668,7 +3668,7 @@
     "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
     "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure",
     "Chapter2/TameSub · TameSubExample.examples_A_B",
-    "Chapter2/BookFormTameSub2021 · MPolyfold.definition_2_5_19_book"
+    "Chapter2/BookFormTameSub · MPolyfold.definition_2_5_19_book"
    ],
    "formalized": [
     "V2.99",
@@ -3690,8 +3690,8 @@
     "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred",
     "Chapter2/TameBoundaryNonCentred · MPolyfold.tameBoundaryPolyfold_unique_allReps",
     "Chapter2/TameBoundaryNonCentred · MPolyfold.not_surjOn_phiTot",
-    "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
-    "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book"
+    "Chapter2/BookFormTameBoundary · MPolyfold.proposition_2_7_12_book",
+    "Chapter2/BookFormTameBoundary · MPolyfold.theorem_2_7_13_book"
    ],
    "formalized": [
     "V2.104",

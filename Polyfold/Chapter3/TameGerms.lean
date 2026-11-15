@@ -140,7 +140,7 @@ a strong bundle chart centred at `x₀`, a filled version `g` of `f̂`, a local 
 `s(0) = g(0)` and `g − s` conjugated to a basic germ) in a strong bundle chart whose local strong
 bundle `K → O` is tame (`IsTameChart`). This is the project's original whole-chart reading, stricter
 than the text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
-`IsScFredholmGermTame` (`TameGermsG.lean`, phase 2, items 270–330). -/
+`IsScFredholmGermTame` (`TameGermsG.lean`, items 270–330). -/
 def IsScFredholmGermTameWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
   ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
@@ -154,7 +154,7 @@ variable (B) in
 data of Definition 3.6.6 (preprint 3.53) (`IsGoodPositionGermWholeChart`) in a tame strong bundle chart
 (`IsTameChart`, Definition 3.6.3 (preprint 3.50)). This is the project's original whole-chart reading, stricter than
 the text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
-`IsGoodPositionGermTame` (`TameGermsG.lean`, phase 2, items 270–330). -/
+`IsGoodPositionGermTame` (`TameGermsG.lean`, items 270–330). -/
 def IsGoodPositionGermTameWholeChart (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
   ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
@@ -170,7 +170,7 @@ variable (B) in
 point) whose germ data at every smooth point can be taken in a tame chart
 (`IsScFredholmGermTameWholeChart`). This is the project's original whole-chart reading, stricter
 than the text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
-`IsScFredholmSectionTame` (`TameGermsG.lean`, phase 2, items 270–330). -/
+`IsScFredholmSectionTame` (`TameGermsG.lean`, items 270–330). -/
 structure IsScFredholmSectionTameWholeChart (f : X → Y) : Prop extends B.IsScFredholmSectionWholeChart f where
   germTame : ∀ x ∈ PX.smoothSet, B.IsScFredholmGermTameWholeChart f x
 

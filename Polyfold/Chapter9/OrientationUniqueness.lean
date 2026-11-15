@@ -38,10 +38,11 @@ two parts are equal.
 * Equidimensionality: for `Θ = 1_{ℝ × 0} + 1_{(0,0)}` in `ℝ²`, the orientations
   `(ℝ × 0, +) + ({0}, ±)` agree off the bad point `(0, 0)` and differ there.
 
-## Not formalized, and why
+## Not in this file
 
 * Proposition 9.2.8 for oriented families (the hypothesis above), and Theorem 9.2.1's
-  independence for the witnesses (hypothesis `hind`).
+  independence for the witnesses (hypothesis `hind`).  They are `hasOrientedGoodPointsAt`
+  (`GeneralBoundaryPoints.lean`) and `hasIndependentTangentSums` (`GeneralCorollaries.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

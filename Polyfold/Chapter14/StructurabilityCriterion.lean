@@ -67,7 +67,7 @@ variable {α β : Type u} {G G' H H' : Type*} [Group G] [Group G'] [Group H] [Gr
   [MulAction G α] [MulAction G' β]
 
 /-- The bi-action for actions pulled back along homomorphisms `γ : H → G`, `γ' : H' → G'`. -/
-theorem biact_compHom_gl (γ : H →* G) (γ' : H' →* G') (τ : IndexCorr α β) (h' : H') (h : H) :
+theorem biact_compHom (γ : H →* G) (γ' : H' →* G') (τ : IndexCorr α β) (h' : H') (h : H) :
     @biact α β H H' _ _ (MulAction.compHom α γ) (MulAction.compHom β γ') h' τ h =
       biact (γ' h') τ (γ h) := by
   refine ind (fun d => mk_eq_mk.2 ⟨_root_.Equiv.refl _, fun k => ⟨?_, rfl⟩⟩) τ
@@ -80,7 +80,7 @@ theorem sat_forall {γ : Type*} {S : Set γ} {R : γ → α → β → Prop} {τ
   revert h
   exact ind (fun d h k c hc => h c hc k) τ
 
-theorem ofPerm_compHom_gl [Fintype α] (γ : H →* G) (h : H) :
+theorem ofPerm_compHom [Fintype α] (γ : H →* G) (h : H) :
     @ofPerm α H _ _ (MulAction.compHom α γ) h = ofPerm (γ h) := rfl
 
 end IndexCorr
@@ -574,7 +574,7 @@ theorem isCorrespondence (y y' : A.Obj) : P.dec.IsCorrespondence y y' (P.corr y 
   biact φ hφ g' g := by
     show D.τ _ _ (P.conj y y' (P.𝒰.biact y y' g' φ g)) = _
     rw [conj_biact hφ, D.biact _ _ _ (conj_mem (mor_subset_Dom y y' hφ))]
-    exact (IndexCorr.biact_compHom_gl (P.γ y) (P.γ y') _ g' g).symm
+    exact (IndexCorr.biact_compHom (P.γ y) (P.γ y') _ g' g).symm
   compat φ hφ := by
     refine IndexCorr.sat_forall fun ψ hψ => ?_
     have hψm : ψ ∈ P.𝒰.mor y y' := connectedComponentIn_subset _ _ hψ
@@ -594,7 +594,7 @@ def tau : P.dec.Tau where
   diag y g z hz := by
     show D.τ _ _ (P.conj y y ((P.𝒰.nbhd y).rep.Γ g z)) = _
     rw [conj_Γ hz g, D.diag _ _ _ (σ_mem (U_subset_O y hz))]
-    exact (IndexCorr.ofPerm_compHom_gl (P.γ y) g).symm
+    exact (IndexCorr.ofPerm_compHom (P.γ y) g).symm
   swap y y' φ hφ := by
     show D.τ _ _ (P.conj y' y φ) = (D.τ _ _ (P.conj y y' (A.X.inv φ))).swap
     have hd : A.X.inv φ ∈ P.Dom y y' := inv_mem_Dom (mor_subset_Dom y' y hφ)

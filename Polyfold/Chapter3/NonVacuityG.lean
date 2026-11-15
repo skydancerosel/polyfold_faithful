@@ -5,8 +5,8 @@ import Polyfold.Chapter3.TameGermsG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.1.11 (preprint 3.11),
-3.14, 3.50, 3.51 and 3.53: **the non-vacuity witnesses in the text's germ reading** (phase 2 of the
-germ-versus-chart work; Findings, Chapter 3, items 300–309).
+3.14, 3.50, 3.51 and 3.53: **the non-vacuity witnesses in the text's germ reading** (Findings, Chapter 3,
+items 300–309).
 
 # The non-vacuity witnesses satisfy the germ-reading notions
 
@@ -30,8 +30,8 @@ germ-reading notions as well:
 ## What the text leaves implicit, and the choices made
 
 These are one-line corollaries through `IsScFredholmSectionWholeChart.isScFredholmSection` and its tame and
-good-position analogues; they show that the germ-reading hypotheses (the targets of the phase-2
-redefinition of Definition 3.1.11 (preprint 3.11)) are satisfiable, with boundary points included.
+good-position analogues; they show that the germ-reading hypotheses (Definition 3.1.11 (preprint 3.11) in
+the text's germ reading) are satisfiable, with boundary points included.
 -/
 
 open Set Filter Topology Function
@@ -45,32 +45,31 @@ namespace TrivialBundle
 
 variable {n k : ℕ} {φ : (Fin n → ℝ) → (Fin k → ℝ)}
 
-/-- **Tame germ data of the graph section at every point, germ reading** (Definition 3.6.3 (preprint 3.50), phase
-2): from the whole-chart data (`isScFredholmGermTame_graphSection_wholeChart`). -/
+/-- **Tame germ data of the graph section at every point, germ reading** (Definition 3.6.3 (preprint 3.50)): from the whole-chart data (`isScFredholmGermTame_graphSection_wholeChart`). -/
 theorem isScFredholmGermTame_graphSection (hφ : ContDiff ℝ ∞ φ) (x₀ : Fin n → ℝ) :
     (bundle n k).IsScFredholmGermTame (graphSection φ) x₀ :=
   (isScFredholmGermTame_graphSection_wholeChart hφ x₀).isScFredholmGermTame
 
 /-- **Good position of the graph section in a tame chart at a point where `Dφ` is onto, germ
-reading** (Definition 3.6.6 (preprint 3.53), phase 2). -/
+reading** (Definition 3.6.6 (preprint 3.53)). -/
 theorem isGoodPositionGermTame_graphSection (hφ : ContDiff ℝ ∞ φ) {x₀ : Fin n → ℝ}
     (hsurj : Surjective (fderiv ℝ φ x₀)) :
     (bundle n k).IsGoodPositionGermTame (graphSection φ) x₀ :=
   (isGoodPositionGermTame_graphSection_wholeChart hφ hsurj).isGoodPositionGermTame
 
 /-- **The graph section of a `C^∞` map is an sc-Fredholm section in the germ reading**
-(Definition 3.1.16 (preprint 3.14), phase 2). -/
+(Definition 3.1.16 (preprint 3.14)). -/
 theorem isScFredholmSection_graphSection (hφ : ContDiff ℝ ∞ φ) :
     (bundle n k).IsScFredholmSection (graphSection φ) :=
   (isScFredholmSection_graphSection_wholeChart hφ).isScFredholmSection
 
-/-- The graph section has tame germ data at every point, germ reading (Definition 3.6.4 (preprint 3.51), phase 2). -/
+/-- The graph section has tame germ data at every point, germ reading (Definition 3.6.4 (preprint 3.51)). -/
 theorem isScFredholmSectionTame_graphSection (hφ : ContDiff ℝ ∞ φ) :
     (bundle n k).IsScFredholmSectionTame (graphSection φ) :=
   (isScFredholmSectionTame_graphSection_wholeChart hφ).isScFredholmSectionTame
 
 /-- **The germ-reading hypotheses of Theorem 3.6.11 (preprint 3.57) hold** for the graph section of a `C^∞` map with
-`0` a regular value (phase 2): sc-Fredholm in the germ reading, and in good position in a tame
+`0` a regular value: sc-Fredholm in the germ reading, and in good position in a tame
 chart at every zero. -/
 theorem hypotheses_theorem_3_6_11_graphSection (hφ : ContDiff ℝ ∞ φ)
     (hreg : ∀ x, φ x = 0 → Surjective (fderiv ℝ φ x)) :
@@ -80,7 +79,7 @@ theorem hypotheses_theorem_3_6_11_graphSection (hφ : ContDiff ℝ ∞ φ)
   ⟨isScFredholmSection_graphSection hφ, fun x hx =>
     isGoodPositionGermTame_graphSection hφ (hreg x (isZeroAt_graphSection_iff.1 hx))⟩
 
-/-- The germ-reading hypotheses hold for every surjective linear map `L : ℝⁿ → ℝᵏ` (phase 2). -/
+/-- The germ-reading hypotheses hold for every surjective linear map `L : ℝⁿ → ℝᵏ`. -/
 theorem hypotheses_theorem_3_6_11_linear (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ))
     (hL : Surjective L) :
     (bundle n k).IsScFredholmSection (graphSection L) ∧
@@ -88,8 +87,8 @@ theorem hypotheses_theorem_3_6_11_linear (L : (Fin n → ℝ) →L[ℝ] (Fin k �
         (bundle n k).IsGoodPositionGermTame (graphSection L) x :=
   hypotheses_theorem_3_6_11_graphSection L.contDiff fun x _ => by rw [L.fderiv]; exact hL
 
-/-- **The trivial bundle separates the old hypothesis `htame` from the repaired hypotheses, germ
-reading** (phase 2; the germ form of `htame_fails_repaired_holds_wholeChart`). -/
+/-- **The trivial bundle separates the whole-chart hypothesis `htame` from the hypotheses of Theorem
+3.6.11, germ reading** (the germ form of `htame_fails_repaired_holds_wholeChart`). -/
 theorem htame_fails_repaired_holds (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
     ((bundle n k).IsScFredholmSection (graphSection L) ∧
       ∀ x, IsZeroAt (proj n k) (graphSection L) x →
@@ -104,14 +103,12 @@ namespace HalfSpaceBundle
 
 variable {m k : ℕ} {φ : Pm m → (Fin k → ℝ)}
 
-/-- **Tame germ data of the graph section at every point of `H`, germ reading** (Definition 3.6.3 (preprint 3.50),
-phase 2). -/
+/-- **Tame germ data of the graph section at every point of `H`, germ reading** (Definition 3.6.3 (preprint 3.50)). -/
 theorem isScFredholmGermTame_graphSection (hφ : ContDiff ℝ ∞ φ) (x₀ : H m) :
     (bundle m k).IsScFredholmGermTame (graphSection φ) x₀ :=
   (isScFredholmGermTame_graphSection_wholeChart hφ x₀).isScFredholmGermTame
 
-/-- **Good position at a regular zero, the boundary included, germ reading** (Definition 3.6.6 (preprint 3.53),
-phase 2). -/
+/-- **Good position at a regular zero, the boundary included, germ reading** (Definition 3.6.6 (preprint 3.53)). -/
 theorem isGoodPositionGermTame_graphSection (hφ : ContDiff ℝ ∞ φ) {x₀ : H m}
     (hsurj : Surjective (fderiv ℝ φ (x₀ : Pm m)))
     (hbd : (x₀ : Pm m).1 0 = 0 → ∃ v, fderiv ℝ φ (x₀ : Pm m) v = 0 ∧ v.1 0 ≠ 0) :
@@ -119,18 +116,18 @@ theorem isGoodPositionGermTame_graphSection (hφ : ContDiff ℝ ∞ φ) {x₀ : 
   (isGoodPositionGermTame_graphSection_wholeChart hφ hsurj hbd).isGoodPositionGermTame
 
 /-- **The graph section over the half-space is an sc-Fredholm section in the germ reading**
-(Definition 3.1.16 (preprint 3.14), phase 2). -/
+(Definition 3.1.16 (preprint 3.14)). -/
 theorem isScFredholmSection_graphSection (hφ : ContDiff ℝ ∞ φ) :
     (bundle m k).IsScFredholmSection (graphSection φ) :=
   (isScFredholmSection_graphSection_wholeChart hφ).isScFredholmSection
 
-/-- Tame germ data at every point of `H`, germ reading (Definition 3.6.4 (preprint 3.51), phase 2). -/
+/-- Tame germ data at every point of `H`, germ reading (Definition 3.6.4 (preprint 3.51)). -/
 theorem isScFredholmSectionTame_graphSection (hφ : ContDiff ℝ ∞ φ) :
     (bundle m k).IsScFredholmSectionTame (graphSection φ) :=
   (isScFredholmSectionTame_graphSection_wholeChart hφ).isScFredholmSectionTame
 
 /-- **The germ-reading hypotheses of Theorem 3.6.11 (preprint 3.57) hold over the half-space**, boundary zeros
-included (phase 2). -/
+included. -/
 theorem hypotheses_theorem_3_6_11_halfSpace (hφ : ContDiff ℝ ∞ φ)
     (hreg : IsRegularOnHalfSpace φ) :
     (bundle m k).IsScFredholmSection (graphSection φ) ∧

@@ -22,7 +22,7 @@ inspection".
   * `weakTendsto_chartFibMap`: **if `u_k → u` in `O` and `h_k ⇀ h` in a reflexive `F₁`, then
     `A(u_k)h_k ⇀ A(u)h`** (bounded, and convergent in `F₀` through the level-`0` continuity of `R`
     and the compact inclusion `F₁ → F₀`);
-  * `mixedLscAt_retractNorm`: **wave 2's local norm `N' = retractNorm` is lower semicontinuous
+  * `mixedLscAt_retractNorm`: **the local norm `N' = retractNorm` is lower semicontinuous
     along mixed convergent sequences** at every point over `V`, if `N` is so along mixed
     convergent sequences over `A` and the chart has reflexive `F₁`: the points
     `Φ[1]⁻¹(u_k, A(u_k)h_k)` over `A` are mixed convergent (first term), and
@@ -32,7 +32,7 @@ inspection".
 * Ep-groupoids (`Polyfold.EpStrongBundle`):
   * **`hasReflexiveLocalExtensions_of_isTame`**: for tame `X` and reflexive `1`-fibres, a
     reflexive auxiliary norm over `∂X` has reflexive local extensions, i.e. the hypothesis `hloc`
-    of wave 2's `theorem_12_2_13_hyp` holds;
+    of `theorem_12_2_13_hyp` holds;
   * **`theorem_12_2_13`**: Theorem 12.2.13 with the hypotheses of the text plus the
     paracompactness of `|X|` (which the proof uses through the partition of unity of
     Theorem 12.2.11);
@@ -228,7 +228,7 @@ form): for a strong bundle with reflexive `(0, 1)`-fibres over a tame M-polyfold
 auxiliary norm over `∂X` which is lower semicontinuous along mixed convergent sequences over `∂X`,
 every boundary point has an open neighbourhood `V` and a local auxiliary norm on `V`, lower
 semicontinuous along mixed convergent sequences at every point over `V`, equal to `N` over
-`V ∩ ∂X`.  (Wave 2's construction `retractNorm`, in a strong bundle chart with reflexive `F₁`.) -/
+`V ∩ ∂X`.  (The construction `retractNorm`, in a strong bundle chart with reflexive `F₁`.) -/
 theorem exists_reflexiveLocalExtension_of_isTame (hP : PX.IsTame) (hB : B.HasReflexiveFibers)
     {N : B.One → ℝ} (hNc : ContinuousOn N {w | P (B.oneVal w) ∈ PX.boundary})
     (hNs : ∀ y ∈ PX.boundary, B.IsFiberSeminorm N y)

@@ -5,7 +5,7 @@ import Polyfold.Chapter2.SubMPolyfold
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.6, Definition 14.6.1,
 p. 681 (2017: Definition 14.10): **the restriction `Λ̃_F|F'` is a structured sc⁺-multisection on
-`W|(F ∩ F')`**, i.e. its sections are sc⁺ on the corner `F ∩ F'` (gap F6-2 of wave 5).  Numbers
+`W|(F ∩ F')`**, i.e. its sections are sc⁺ on the corner `F ∩ F'`.  Numbers
 and pages are the 2021 text's.
 
 ## What is formalized
@@ -147,7 +147,7 @@ namespace FaceStructuredTuple
 variable {F : Set A.Obj} {ι : IndexFamily A}
 
 /-- **Definition 14.6.1, regularity**: the sections of `Λ̃_F|F'` are sc⁺-sections of
-`W|(F ∩ F')` on the neighbourhoods `U(x) ∩ F ∩ F'` of the restriction (gap F6-2). -/
+`W|(F ∩ F')` on the neighbourhoods `U(x) ∩ F ∩ F'` of the restriction. -/
 theorem restrictFace_isCornerRelScPlus (T : FaceStructuredTuple A F ι) (F' : Set A.Obj)
     (x : ↥(F ∩ F')) (i : ι.I x) :
     IsCornerRelScPlusSectionOn A F F' ((T.restrictFace F').s x i) ((T.restrictFace F').U x) :=

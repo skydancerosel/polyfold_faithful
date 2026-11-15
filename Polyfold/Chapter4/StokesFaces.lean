@@ -20,7 +20,8 @@ The text sums over the faces of `∂N` without comment.  The sum is finite:
 
 This is one of the steps towards the text's statement of Theorem 4.4.7 with the faces as manifolds
 in their own right (gap G.40); the integral over a face and the identity with the boundary
-integral of `ManifoldStokes2021` are not formalized.
+integral of `ManifoldStokes` are `StokesFaceIntegral.lean`
+(`sum_integral_restrictForm_eq_boundaryIntegral`).
 -/
 
 open Set Function

@@ -10,8 +10,8 @@ oriented points.  Numbers and pages are the 2021 text's.
 # The values of `0`-forms at points
 
 For `n = 1` the boundary sheets `∂₁Mᵢ` of an oriented tame structure are `0`-dimensional, and
-`∫_{{p}} ω|({p}, o) = ±ω(p)` (2021 p. 422: an orientation of a point is a sign).  E3's
-evaluation `epFormsInftyEval` of a class on `n` tangent vectors does not see the base point when
+`∫_{{p}} ω|({p}, o) = ±ω(p)` (2021 p. 422: an orientation of a point is a sign).  The
+evaluation `epFormsInftyEval` (`FormEvalInfty.lean`) of a class on `n` tangent vectors does not see the base point when
 `n = 0`; the value `ω(p)` is built here directly.
 
 * `BundledMPolyfold.zeroVal τ z`: the value of a `0`-form `τ` at a point of level `1`.
@@ -24,8 +24,8 @@ evaluation `epFormsInftyEval` of a class on `n` tangent vectors does not see the
   structure (Part I) takes the value `zeroFormEval a y` at a smooth point `y ∈ N`.
 * `EP.zeroFormEval_epFormsInftySmul`: `(βa)(p) = β(p) a(p)`.
 * `SheetIntegration.comap`: a sheet integration pulled back along a linear map of the forms.
-* **`EP.zeroFormIntegration`**: the integration of `Ω⁰_{ep,∞}(X)` over oriented points, E1's
-  `pointIntegration` along `zeroFormEval`.
+* **`EP.zeroFormIntegration`**: the integration of `Ω⁰_{ep,∞}(X)` over oriented points,
+  `pointIntegration` (`PointIntegration.lean`) along `zeroFormEval`.
 -/
 
 set_option maxSynthPendingDepth 3

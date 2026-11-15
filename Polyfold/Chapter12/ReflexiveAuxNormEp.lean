@@ -49,7 +49,7 @@ transported to the saturation, glued with a partition of unity.
 ## Readings
 
 * The local norm on `U'(x)` is a Part I reflexive auxiliary norm (Proposition 5.1.8) in place of
-  the chart norm `‖pr₂ ∘ Ψ(g ∗ h)‖_{F₁}`, as in the wave-1 proof of Theorem 12.2.2.
+  the chart norm `‖pr₂ ∘ Ψ(g ∗ h)‖_{F₁}`, as in the proof of Theorem 12.2.2 (`theorem_12_2_2`).
 * The `liminf` of Definition 12.2.10 (3) is printed `k → 0`; presumably `k → ∞` (as in Part I).
 * Remark 12.2.12 (3): the lower semicontinuity holds without the support condition
   `supp f ⊆ U` and without the functoriality of `f` (they are used for continuity and functoriality

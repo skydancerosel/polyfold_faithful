@@ -16,7 +16,7 @@ without the hypothesis `HasThetaLocalEq`.
   neighbourhood `W` of `z₀`).
 * **Proposition 14.4.6 (2)**: `sections_eq_of_theta_closure` (for every `z₀ ∈ cl_X(V̂_a) ∩ ∂X`),
   `hasThetaLocalEq_of_limit`, `proposition_14_4_6_2_of_limit` (as printed).
-* Unconditional forms of Z4's and LX's results: `lemma_14_4_9_3_of_limit`,
+* Unconditional forms of the results of §14.4: `lemma_14_4_9_3_of_limit`,
   `proposition_14_4_10_of_limit`, `exists_zCoherentNbhdSystem_of_limit`,
   `coherentNbhdSystem_of_limit`, `proposition_14_4_14_of_limit`.
 -/
@@ -51,7 +51,7 @@ theorem exists_nbhd_near {y b c : A.Obj} (hb : b ∈ S.A) (hc : c ∈ S.A)
   obtain ⟨W, hWo, hyW, hW⟩ := EpGroupoid.exists_nhds_of_isProperSubset (X := A.X)
     (L.isProper c hc) (L.isOpen_M b hb c hc) (y := y) fun φ hφs hφt =>
       L.boundary_mem_M b hb c hc φ ⟨by rw [hφs]; exact hyU, by rw [hφs]; exact hyb⟩
-        ⟨hφt, (tgt_mem_boundary_iff_z4 φ).2 (by rw [hφs]; exact hyb)⟩
+        ⟨hφt, (tgt_mem_boundary_iff φ).2 (by rw [hφs]; exact hyb)⟩
   exact ⟨W ∩ (S.nbhd b).U, hWo.inter (S.nbhd b).isOpen_U, ⟨hyW, hyU⟩, inter_subset_right,
     fun φ hφ hφt => hW φ hφ.1 hφt⟩
 
@@ -108,7 +108,7 @@ theorem exists_limitRep {z₀ : A.Obj} (hz₀b : z₀ ∈ A.X.PObj.boundary) {a 
   have hYb : ∀ y ∈ Y, y ∈ A.X.PObj.boundary := by
     intro y hy
     obtain ⟨ψ, ⟨hψs, -⟩, rfl⟩ := (hmemY y).1 hy
-    exact (tgt_mem_boundary_iff_z4 ψ).2 (by rw [hψs]; exact hz₀b)
+    exact (tgt_mem_boundary_iff ψ).2 (by rw [hψs]; exact hz₀b)
   have hYiso : ∀ y ∈ Y, ∀ y' ∈ Y, A.X.Isomorphic y y' := by
     intro y hy y' hy'
     obtain ⟨ψ, ⟨hψs, -⟩, rfl⟩ := (hmemY y).1 hy
@@ -213,7 +213,7 @@ theorem exists_zCoherentNbhdSystem_of_limit (L : ZLimitSetting S) (hD : D.Compat
     Nonempty (ZCoherentNbhdSystem D a) :=
   exists_zCoherentNbhdSystem_hyp D (hasThetaLocalEq_of_limit D L hD) ha
 
-/-- **A coherent neighbourhood system in LX's form** (for Proposition 14.4.14). -/
+/-- **A coherent neighbourhood system in the form `CoherentNbhdSystem`** (for Proposition 14.4.14). -/
 theorem coherentNbhdSystem_of_limit (L : ZLimitSetting S) (hD : D.CompatNbhd) {a : A.Obj}
     (ha : a ∈ S.A)
     (hface : ∀ i, IsFaceScPlusSectionOn A (D.s a i) (S.nbhd a).bdry) :

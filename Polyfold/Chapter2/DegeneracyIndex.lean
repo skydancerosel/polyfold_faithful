@@ -68,8 +68,9 @@ relatively open subsets of partial quadrants, `d_C(x) = d_{C'}(f(x))`.
   `Boundary.lean` (with `theorem_2_4_12_retract`, the text's form), from the one-germ inequality
   between retracts `ScRetraction.IsDiffeoGerm.quotDim_le`, the same argument with `U₀` replaced
   by a retract.  Its second statement (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
-  quadrant in `T_xO`) is not formalized in general (gap G.11 of the report); for tame retracts
-  the conclusion is proved directly (`proposition_2_5_6_partialCone` in `PartialCone.lean`).
+  quadrant in `T_xO`) holds at every smooth point of every retract, without its hypothesis
+  (`remark_2_4_8_isPartialQuadrant` in `PartialConeQuadrant.lean`, gap G.11); for tame retracts
+  the conclusion is also proved directly (`proposition_2_5_6_partialCone` in `PartialCone.lean`).
 * Theorem 1.3.5 (preprint 1.25) is quoted in Chapter 1 from [20, Theorem 1.19] without proof; its hypotheses "germ
   of a local sc-diffeomorphism" are read as: `f : U → U'` and `g : U' → U` sc¹ (sc¹ suffices;
   the text has sc-smooth), inverse to each other on `U` and `U'`.

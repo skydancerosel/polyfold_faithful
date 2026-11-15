@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.IntegralCovering
-import Polyfold.Chapter9.SolutionFaceForms2021
+import Polyfold.Chapter9.SolutionFaceForms
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter9.OrientationExample
 import Polyfold.Chapter9.BoundaryPosition
@@ -18,10 +18,11 @@ Part II, Chapter 9, Definition 9.3.6 (pp. 425–426) and §9.5, Theorems 9.5.4, 
   of `N`, and tame charts are carried along (`IsScDiffeoOn.exists_tame_chart`).
 * `FormEval.hcov_of_loc`, `hcovEff_of_loc`, `theorem_9_5_4_tame`, `theorem_9_5_5_tame`,
   `tameBranchedIntegral`, `tameBranchedIntegralEff`: the statements of
-  `IntegralCovering.lean` without the hypothesis on open pieces.  What remains is the text's
-  standing assumption in the form of E1's files: near every point of the support there is an
-  oriented tame branching structure of dimension `n` describing the orientation.
-  (2026-11-13) Without boundary it is derived (`hloc_of_degIndex_eq_zero`, `CoveringFromText.lean`).
+  `IntegralCovering.lean` without the hypothesis on open pieces.  The hypothesis left is the
+  text's standing assumption in the form of `SheetIntegrationAbstract.lean`: near every point of
+  the support there is an oriented tame branching structure of dimension `n` describing the
+  orientation.  Without boundary it is derived (`hloc_of_degIndex_eq_zero`,
+  `CoveringFromText.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

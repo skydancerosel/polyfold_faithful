@@ -53,7 +53,7 @@ injective on objects as well as morphisms.
 * **`G_x\U(x)`** is Mathlib's `MulAction.orbitRel.Quotient (X.Isotropy x) R.U` with the quotient
   topology, for the action `g • y = Φ(g)(y)` of `EpGroupoid.lean`; `|U(x)| = π(U(x))` is the
   subspace `X.π '' R.U` of `|X|`.  "`U(x)` equipped with the natural `G_x`-action" is a
-  `NaturalRep` datum (PLAN II.5, 6).
+  `NaturalRep` datum.
 * **The proof** follows the text: injectivity by Theorem 7.1.13 (2017: 7.1) (3) (`existsUnique_Γ`), openness
   through Proposition 7.1.8 (2017: 7.1) (`proposition_7_1_8`).  The openness of `σ` is not needed: the image of an
   open `Q ⊆ G_x\U(x)` is `π(σ⁻¹(Q))`, and `σ⁻¹(Q)` is open in the open `U(x)`, so `τ` (into `|X|`)
@@ -64,7 +64,7 @@ injective on objects as well as morphisms.
   bridge `GroupoidStr.Ob`), from the instances `NaturalRep.full`, `NaturalRep.faithful` of
   `NaturalAction.lean` (Theorem 7.1.13 (2017: 7.1) (3)).
 * **Definition 7.1.20 (2017: 7.9)** (`EpGroupoid.lean`): the text's "`Ψx ◦ Gx ⋉ U(x) → X`" is read as
-  `Ψ_x : G_x ⋉ U(x) → X` (possible misprint).  "Embedding" is not a separate field of
+  `Ψ_x : G_x ⋉ U(x) → X`.  "Embedding" is not a separate field of
   `LocalUniformizer`: the injectivity on objects and morphisms that the text notes afterwards
   follows from `Ψ_x` being the inclusion on objects and faithful (`injective_obj`,
   `injective_mor`).  Read topologically, it holds for the local uniformizers built from natural
@@ -72,7 +72,7 @@ injective on objects as well as morphisms.
   (`isOpenEmbedding_functor_obj`, `isOpenEmbedding_functor_mor`).
 * **"There exists a local uniformizer around every object"** is proved in the stronger form
   inside every open `V ∋ x` (`exists_localUniformizer`), from Theorem 7.1.13 (2017: 7.1) (`theorem_7_1_13`).
-* No hypothesis "for all …" is added.  No possible misprint other than Definition 7.1.20 (2017: 7.9)'s was found
+* No hypothesis "for all …" is added.  No other point of notation than Definition 7.1.20 (2017: 7.9)'s was found
   on pp. 236–237, apart from the doubled article in "a a local uniformizer" (p. 237).
 -/
 

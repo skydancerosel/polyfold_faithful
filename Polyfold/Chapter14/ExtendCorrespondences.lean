@@ -58,7 +58,7 @@ universe u
 
 /-! ### General topology -/
 
-namespace P3W4S3
+namespace GeneralTopology
 
 /-- In a normal space, finitely many pairwise disjoint closed sets have open neighbourhoods with
 pairwise disjoint closures (the sets outside the finite index set `F` are empty). -/
@@ -132,16 +132,16 @@ theorem connectedComponentIn_iUnion_subset {α ι : Type*} [TopologicalSpace α]
   · exact Or.inl (hji ▸ hj)
   · exact Or.inr (mem_iUnion₂.2 ⟨j, hji, hj⟩)
 
-end P3W4S3
+end GeneralTopology
 
-open P3W4S3
+open GeneralTopology
 
 /-! ### Two identities for the bi-actions -/
 
 namespace SBLocalization.IndexCorr
 
 /-- `(g' ∗ [d] ∗ g)♯ = g⁻¹ ∗ [d]♯ ∗ g'⁻¹`. -/
-theorem swap_biact_p3w4 {α β : Type u} {G G' : Type*} [Group G] [Group G'] [MulAction G α]
+theorem swap_biact {α β : Type u} {G G' : Type*} [Group G] [Group G'] [MulAction G α]
     [MulAction G' β] (g' : G') (τ : IndexCorr α β) (g : G) :
     (biact g' τ g).swap = biact g⁻¹ τ.swap g'⁻¹ := by
   refine ind (fun d => mk_eq_mk.2 ⟨_root_.Equiv.refl _, fun k => ⟨?_, ?_⟩⟩) τ
@@ -157,7 +157,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] {X : EpGroupoid Obj Mor}
 
 /-- `(g' ∗ φ ∗ g)⁻¹ = g⁻¹ ∗ φ⁻¹ ∗ g'⁻¹` (Definition 13.1.5). -/
-theorem inv_biact_p3w4 {x x' : Obj} {N : X.NatNbhd x} {N' : X.NatNbhd x'} {φ : Mor}
+theorem inv_biact {x x' : Obj} {N : X.NatNbhd x} {N' : X.NatNbhd x'} {φ : Mor}
     (hφ : φ ∈ X.morBetween N.U N'.U) (h : X.Isotropy x') (g : X.Isotropy x) :
     X.inv (biact N N' h φ g) = biact N' N g⁻¹ (X.inv φ) h⁻¹ := by
   have hy : N.rep.Φ g⁻¹ (X.src φ) ∈ N.U := N.Φ_mem g⁻¹ hφ.1
@@ -182,7 +182,7 @@ theorem inv_biact_p3w4 {x x' : Obj} {N : X.NatNbhd x} {N' : X.NatNbhd x'} {φ : 
   rw [hL, X.comp_assoc _ _ _ hd1 hd2, biact, X.tgt_inv, X.src_inv, inv_inv]
 
 /-- On `𝒰(x, x')` the natural bi-action depends only on the representations. -/
-theorem biact_congr_rep_p3w4 {x x' : Obj} {N₁ N₂ : X.NatNbhd x} {N₁' N₂' : X.NatNbhd x'}
+theorem biact_congr_rep {x x' : Obj} {N₁ N₂ : X.NatNbhd x} {N₁' N₂' : X.NatNbhd x'}
     (h : N₁.rep = N₂.rep) (h' : N₁'.rep = N₂'.rep) (g' : X.Isotropy x') (φ : Mor)
     (g : X.Isotropy x) : biact N₁ N₁' g' φ g = biact N₂ N₂' g' φ g := by
   simp only [biact, h, h']
@@ -191,7 +191,7 @@ theorem biact_congr_rep_p3w4 {x x' : Obj} {N₁ N₂ : X.NatNbhd x} {N₁' N₂'
 
 /-- **The sheet `Γ(g, ·)` is open**: if `φ₀ = Γ(g, s(φ₀))`, then `φ = Γ(g, s(φ))` for all `φ`
 near `φ₀` (`s` is a local homeomorphism). -/
-theorem eventually_Γ_src_eq_p3w4 {x : Obj} (R : X.NaturalRep x) (g : X.Isotropy x) {φ₀ : Mor}
+theorem eventually_Γ_src_eq {x : Obj} (R : X.NaturalRep x) (g : X.Isotropy x) {φ₀ : Mor}
     (hs : X.src φ₀ ∈ R.U) (h0 : R.Γ g (X.src φ₀) = φ₀) : ∀ᶠ φ in 𝓝 φ₀, R.Γ g (X.src φ) = φ := by
   obtain ⟨W, hWo, hφW, hinj⟩ := X.isLocalScDiffeo_src.isLocallyInjective φ₀
   have hk : ContinuousAt (fun φ => R.Γ g (X.src φ)) φ₀ :=
@@ -206,27 +206,27 @@ theorem eventually_Γ_src_eq_p3w4 {x : Obj} (R : X.NaturalRep x) (g : X.Isotropy
 
 open scoped Classical in
 /-- The label `g` of the sheet `Γ(g, ·)` through a morphism between points of `R.U`. -/
-def sheetLabel_p3w4 {x : Obj} (R : X.NaturalRep x) (φ : Mor) : X.Isotropy x :=
+def sheetLabel {x : Obj} (R : X.NaturalRep x) (φ : Mor) : X.Isotropy x :=
   if h : ∃ g, R.Γ g (X.src φ) = φ then h.choose else 1
 
-theorem Γ_sheetLabel_p3w4 {x : Obj} (R : X.NaturalRep x) {φ : Mor}
-    (hφ : φ ∈ X.morBetween R.U R.U) : R.Γ (sheetLabel_p3w4 R φ) (X.src φ) = φ := by
+theorem Γ_sheetLabel {x : Obj} (R : X.NaturalRep x) {φ : Mor}
+    (hφ : φ ∈ X.morBetween R.U R.U) : R.Γ (sheetLabel R φ) (X.src φ) = φ := by
   have h : ∃ g, R.Γ g (X.src φ) = φ := (R.existsUnique_Γ φ hφ.1 hφ.2).exists
-  rw [sheetLabel_p3w4, dif_pos h]
+  rw [sheetLabel, dif_pos h]
   exact h.choose_spec
 
-theorem sheetLabel_eq_p3w4 {x : Obj} (R : X.NaturalRep x) {φ : Mor}
+theorem sheetLabel_eq {x : Obj} (R : X.NaturalRep x) {φ : Mor}
     (hφ : φ ∈ X.morBetween R.U R.U) {g : X.Isotropy x} (hg : R.Γ g (X.src φ) = φ) :
-    sheetLabel_p3w4 R φ = g :=
-  (R.Γ_inj hφ.1).1 ((Γ_sheetLabel_p3w4 R hφ).trans hg.symm)
+    sheetLabel R φ = g :=
+  (R.Γ_inj hφ.1).1 ((Γ_sheetLabel R hφ).trans hg.symm)
 
 /-- The sheet label is locally constant on the morphisms between points of `R.U`. -/
-theorem sheetLabel_locallyConstant_p3w4 {x : Obj} (R : X.NaturalRep x) {φ : Mor}
+theorem sheetLabel_locallyConstant {x : Obj} (R : X.NaturalRep x) {φ : Mor}
     (hφ : φ ∈ X.morBetween R.U R.U) :
-    ∀ᶠ ψ in 𝓝 φ, sheetLabel_p3w4 R ψ = sheetLabel_p3w4 R φ := by
-  filter_upwards [eventually_Γ_src_eq_p3w4 R _ hφ.1 (Γ_sheetLabel_p3w4 R hφ),
+    ∀ᶠ ψ in 𝓝 φ, sheetLabel R ψ = sheetLabel R φ := by
+  filter_upwards [eventually_Γ_src_eq R _ hφ.1 (Γ_sheetLabel R hφ),
     (isOpen_morBetween R.isOpen_U R.isOpen_U).mem_nhds hφ] with ψ hψ hψM
-  exact sheetLabel_eq_p3w4 R hψM hψ
+  exact sheetLabel_eq R hψM hψ
 
 end EpGroupoid
 
@@ -242,7 +242,7 @@ variable {A : SEP.{u}}
 def boundaryMor (A : SEP.{u}) : Set A.Mor :=
   A.X.morBetween A.X.PObj.boundary A.X.PObj.boundary
 
-theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor_p3w4
+theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor
     (𝒰 : A.X.BoundaryGoodSystem)
     (x x' : A.X.PObj.boundary) : 𝒰.mor x x' ⊆ boundaryMor A := fun _ hφ =>
   ⟨𝒰.U_subset_boundary x hφ.1, 𝒰.U_subset_boundary x' hφ.2⟩
@@ -281,7 +281,7 @@ def biact (x x' : A.X.PObj.boundary) (h : A.X.Isotropy x') (φ : A.Mor) (g : A.X
 theorem biact_eq (x x' : A.X.PObj.boundary) (h : A.X.Isotropy x') (φ : A.Mor)
     (g : A.X.Isotropy x) :
     P.biact x x' h φ g = EpGroupoid.biact (T.dec.𝒰.nbhd x) (T.dec.𝒰.nbhd x') h φ g :=
-  biact_congr_rep_p3w4 (P.rep_eq x) (P.rep_eq x') h φ g
+  biact_congr_rep (P.rep_eq x) (P.rep_eq x') h φ g
 
 theorem biact_mem {x x' : A.X.PObj.boundary} {φ : A.Mor} (hφ : φ ∈ P.mor x x')
     (h : A.X.Isotropy x') (g : A.X.Isotropy x) : P.biact x x' h φ g ∈ P.mor x x' :=
@@ -303,7 +303,7 @@ theorem mor_subset (x x' : A.X.PObj.boundary) : T.dec.𝒰.mor x x' ⊆ P.mor x 
 end P5Nbhds
 
 /-- The bi-action of `𝒰⁰` preserves `U⁰(x, x')`. -/
-theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.biact_mem_mor_p3w4
+theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.biact_mem_mor
     (𝒰 : A.X.BoundaryGoodSystem)
     {x x' : A.X.PObj.boundary} {φ : A.Mor} (hφ : φ ∈ 𝒰.mor x x') (h : A.X.Isotropy x')
     (g : A.X.Isotropy x) : EpGroupoid.biact (𝒰.nbhd x) (𝒰.nbhd x') h φ g ∈ 𝒰.mor x x' := by
@@ -315,7 +315,7 @@ theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.biact_mem_mor_p3w4
     exact NatNbhd.mapsTo_Φ_bdry _ h hφ.2
 
 /-- Inversion maps `U⁰(x, x')` to `U⁰(x', x)`. -/
-theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.inv_mem_mor_p3w4
+theorem _root_.Polyfold.EpGroupoid.BoundaryGoodSystem.inv_mem_mor
     (𝒰 : A.X.BoundaryGoodSystem)
     {x x' : A.X.PObj.boundary} {φ : A.Mor} (hφ : φ ∈ 𝒰.mor x x') : A.X.inv φ ∈ 𝒰.mor x' x :=
   ⟨by rw [A.X.src_inv]; exact hφ.2, by rw [A.X.tgt_inv]; exact hφ.1⟩
@@ -388,7 +388,7 @@ def biInv : CorrPre T P where
     refine mem_iInter₂.2 fun h g => ⟨P.mor_subset x x' hφ.2, ?_⟩
     change P.biact x x' h φ g ∈ E.O x x' (IndexCorr.biact h d g)
     rw [P.biact_eq]
-    refine E.fiber_subset x x' _ ⟨?_, T.dec.𝒰.biact_mem_mor_p3w4 hφ.2 h g⟩
+    refine E.fiber_subset x x' _ ⟨?_, T.dec.𝒰.biact_mem_mor hφ.2 h g⟩
     rw [mem_preimage, T.tau.biact x x' φ hφ.2 h g, mem_singleton_iff.1 hφ.1]
     rfl
   subset_mor x x' d φ hφ := (mem_iInter₂.1 hφ 1 1).1
@@ -421,7 +421,7 @@ def symm : CorrPre T P where
   O x x' d := E.O x x' d ∩ A.X.inv ⁻¹' E.O x' x d.swap
   isOpen x x' d := (E.isOpen x x' d).inter ((E.isOpen x' x _).preimage A.X.continuous_inv)
   fiber_subset x x' d φ hφ := by
-    refine ⟨E.fiber_subset x x' d hφ, E.fiber_subset x' x _ ⟨?_, T.dec.𝒰.inv_mem_mor_p3w4 hφ.2⟩⟩
+    refine ⟨E.fiber_subset x x' d hφ, E.fiber_subset x' x _ ⟨?_, T.dec.𝒰.inv_mem_mor hφ.2⟩⟩
     rw [mem_preimage, T.tau.swap x x' φ hφ.2, mem_singleton_iff.1 hφ.1]
     rfl
   subset_mor x x' d := inter_subset_left.trans (E.subset_mor x x' d)
@@ -444,7 +444,7 @@ theorem symm_biact_mem_iff
   have hφi : A.X.inv φ ∈ P.mor x' x :=
     ⟨by rw [A.X.src_inv]; exact hφ.2, by rw [A.X.tgt_inv]; exact hφ.1⟩
   simp only [symm, mem_inter_iff, mem_preimage]
-  rw [hE x x' d h g φ hφ, P5Nbhds.biact, inv_biact_p3w4 hφ, IndexCorr.swap_biact_p3w4]
+  rw [hE x x' d h g φ hφ, P5Nbhds.biact, inv_biact hφ, IndexCorr.swap_biact]
   exact and_congr_right fun _ => hE x' x d.swap g⁻¹ h⁻¹ _ hφi
 
 end CorrPre
@@ -481,7 +481,7 @@ theorem eq_of_mem {x x' : A.X.PObj.boundary} {d d' : IndexCorr (T.dec.S x).I (T.
 theorem inter_boundaryMor (x x' : A.X.PObj.boundary) (d) :
     E.O x x' d ∩ boundaryMor A = T.tau.τ x x' ⁻¹' {d} ∩ T.dec.𝒰.mor x x' := by
   refine Subset.antisymm (fun φ hφ => ?_) fun φ hφ =>
-    ⟨E.fiber_subset x x' d hφ, T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hφ.2⟩
+    ⟨E.fiber_subset x x' d hφ, T.dec.𝒰.mor_subset_boundaryMor x x' hφ.2⟩
   have hφU : φ ∈ T.dec.𝒰.mor x x' := by
     rw [← P.mor_inter_boundaryMor]
     exact ⟨E.subset_mor x x' d hφ.1, hφ.2⟩
@@ -552,7 +552,7 @@ theorem mor_subset_Ot (x x' : A.X.PObj.boundary) : T.dec.𝒰.mor x x' ⊆ E.Ot 
 theorem iUnion_inter_boundaryMor (x x' : A.X.PObj.boundary) :
     E.Ot x x' ∩ boundaryMor A = T.dec.𝒰.mor x x' := by
   refine Subset.antisymm ?_ fun φ hφ =>
-    ⟨E.mor_subset_Ot x x' hφ, T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hφ⟩
+    ⟨E.mor_subset_Ot x x' hφ, T.dec.𝒰.mor_subset_boundaryMor x x' hφ⟩
   rw [← P.mor_inter_boundaryMor]
   exact inter_subset_inter_left _ (E.Ot_subset_mor x x')
 
@@ -581,7 +581,7 @@ theorem Ohat_subset_Ot (x x' : A.X.PObj.boundary) : E.Ohat x x' ⊆ E.Ot x x' :=
 /-- **(14.23)** `U⁰(x, x') ⊆ Ô_{x,x'}`. -/
 theorem mor_subset_Ohat (x x' : A.X.PObj.boundary) : T.dec.𝒰.mor x x' ⊆ E.Ohat x x' :=
   fun φ hφ => ⟨E.mor_subset_Ot x x' hφ, φ, mem_connectedComponentIn (E.mor_subset_Ot x x' hφ),
-    T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hφ⟩
+    T.dec.𝒰.mor_subset_boundaryMor x x' hφ⟩
 
 /-- **(14.23)** `Ô_{x,x'} ⊆ Õ_{x,x'} ⊆ Ũ'(x, x')`. -/
 theorem Ohat_subset_mor (x x' : A.X.PObj.boundary) : E.Ohat x x' ⊆ P.mor x x' :=
@@ -591,7 +591,7 @@ theorem Ohat_subset_mor (x x' : A.X.PObj.boundary) : E.Ohat x x' ⊆ P.mor x x' 
 theorem Ohat_inter_boundaryMor (x x' : A.X.PObj.boundary) :
     E.Ohat x x' ∩ boundaryMor A = T.dec.𝒰.mor x x' := by
   refine Subset.antisymm ?_ fun φ hφ =>
-    ⟨E.mor_subset_Ohat x x' hφ, T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hφ⟩
+    ⟨E.mor_subset_Ohat x x' hφ, T.dec.𝒰.mor_subset_boundaryMor x x' hφ⟩
   rw [← E.iUnion_inter_boundaryMor]
   exact inter_subset_inter_left _ (E.Ohat_subset_Ot x x')
 
@@ -683,7 +683,7 @@ theorem tauHat_image_subset (x x' : A.X.PObj.boundary) :
   rintro _ ⟨φ, hφ, rfl⟩
   obtain ⟨ψ, hψ, hψU⟩ := E.exists_boundary_mem_component hφ
   exact ⟨ψ, hψU, (E.tauHat_eq_tau_of_mem_component_Ot hφ.1 hψ
-    (T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hψU)).symm⟩
+    (T.dec.𝒰.mor_subset_boundaryMor x x' hψU)).symm⟩
 
 theorem finite_tauHat (x x' : A.X.PObj.boundary) : (E.tauHat x x' '' E.Ohat x x').Finite :=
   (T.tau.finite x x').subset (E.tauHat_image_subset x x')
@@ -720,7 +720,7 @@ theorem biact_mem_Ohat {x x' : A.X.PObj.boundary} {φ : A.Mor} (hφ : φ ∈ E.O
   refine ⟨hmaps hφO, _, himg ⟨ψ, hψ, rfl⟩, ?_⟩
   change P.biact x x' h ψ g ∈ boundaryMor A
   rw [P.biact_eq]
-  exact T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' (T.dec.𝒰.biact_mem_mor_p3w4 hψU h g)
+  exact T.dec.𝒰.mor_subset_boundaryMor x x' (T.dec.𝒰.biact_mem_mor hψU h g)
 
 /-- **The diagonal property of `τ̂` (Proposition 14.3.4 (3), second display)**: for
 `y ∈ Ũ'(x)` with `Γ(g, y) ∈ Ô_{x,x}`, `τ̂_{x,x}(Γ(g, y)) = [I_x ←Id I_x →g I_x]`
@@ -734,14 +734,14 @@ theorem tauHat_Γ {x : A.X.PObj.boundary} (g : A.X.Isotropy x) {y : A.Obj}
   have hMR : ∀ χ ∈ E.Ot x x, χ ∈ A.X.morBetween R.U R.U := fun χ hχ =>
     morBetween_mono (P.nbhd x).U_subset (P.nbhd x).U_subset (E.Ot_subset_mor x x hχ)
   have hlab := eq_of_mem_connectedComponentIn
-    (fun χ hχ => sheetLabel_locallyConstant_p3w4 R (hMR χ hχ)) hψ
-  have hΓlab : sheetLabel_p3w4 R (R.Γ g y) = g :=
-    sheetLabel_eq_p3w4 R (hMR _ hΓ.1) (by rw [(P.nbhd x).src_Γ g hy])
+    (fun χ hχ => sheetLabel_locallyConstant R (hMR χ hχ)) hψ
+  have hΓlab : sheetLabel R (R.Γ g y) = g :=
+    sheetLabel_eq R (hMR _ hΓ.1) (by rw [(P.nbhd x).src_Γ g hy])
   have hψΓ : R.Γ g (A.X.src ψ) = ψ := by
     rw [← hΓlab, ← hlab]
-    exact Γ_sheetLabel_p3w4 R (hMR ψ (connectedComponentIn_subset _ _ hψ))
+    exact Γ_sheetLabel R (hMR ψ (connectedComponentIn_subset _ _ hψ))
   rw [E.tauHat_eq_tau_of_mem_component_Ot hΓ.1 hψ
-    (T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x hψU), ← hψΓ]
+    (T.dec.𝒰.mor_subset_boundaryMor x x hψU), ← hψΓ]
   have hd := T.tau.diag x g (A.X.src ψ) hψU.1
   rwa [← P.rep_eq x] at hd
 
@@ -777,7 +777,7 @@ theorem OhatD_inter_boundaryMor (x x' : A.X.PObj.boundary) (d) :
   rw [OhatD_eq]
   refine Subset.antisymm (fun φ hφ => ?_) fun φ hφ =>
     ⟨⟨E.mor_subset_Ohat x x' hφ.2, E.fiber_subset x x' d hφ⟩,
-      T.dec.𝒰.mor_subset_boundaryMor_p3w4 x x' hφ.2⟩
+      T.dec.𝒰.mor_subset_boundaryMor x x' hφ.2⟩
   rw [← E.inter_boundaryMor]
   exact ⟨hφ.1.2, hφ.2⟩
 

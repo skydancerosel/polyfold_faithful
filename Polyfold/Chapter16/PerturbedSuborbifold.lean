@@ -30,14 +30,15 @@ and pages are the 2021 text's.
 * **`exists_isPerturbedSuborbifold_hyp`**: for `∂Z = ∅`, `f` sc-Fredholm with compact solution
   set, `(n, U)` controlling compactness and `λ` controlled by `(n, U)` with `(f, λ)` in general
   position in a model whose `F` has tame germ data (inherited, G.140), `λ ∘ f` is a compact branched
-  suborbifold of `Z` (TX's `theorem_15_4_3_isBranched_hyp`; good position at the boundary is void
+  suborbifold of `Z` (`theorem_15_4_3_isBranched_hyp`; good position at the boundary is void
   since `∂X = ∅`).
 
 ## Reading
 
 * "(f, λ) in general position" for a polyfold section is read in one model (the ep-groupoid notion,
   Definition 15.3.4, for the representatives `F`, `Λ` in that model).  That the notion is the same
-  in every model (invariance under generalized strong bundle isomorphisms) is not formalized.
+  in every model (invariance along the diagrams of generalized strong bundle isomorphisms) is
+  `SDiagram.isInGeneralPosition_pushMult_iff_of_pullback_eq` (`InheritedOrientationGeneralPosition`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -122,7 +123,7 @@ def perturbedRep {S : StrongPolyfoldBundleStructure p} (hS : ⟦S⟧ = c) (F : S
   ⟨S.toPolyfoldStructure, toPolyfoldStructure_mem hS, fun x => (Λ (F x) : ℚ), hbr⟩
 
 /-- **Every model carries a functor representing `λ`**: for `S ∈ c̄` an sc⁺-multisection functor
-`Λ` on `S` with `λ(Γ|w|) = Λ(w)` (PB's `exists_rep_of_mem`, Proposition 11.5.3). -/
+`Λ` on `S` with `λ(Γ|w|) = Λ(w)` (`exists_rep_of_mem`, Proposition 11.5.3). -/
 theorem exists_functor_rep (t : ScPlusMultisection c) {S : StrongPolyfoldBundleStructure p}
     (hS : ⟦S⟧ = c) :
     ∃ Λ : S.A.W → ℚ≥0, SBLocalization.IsScPlusMultisection S.A Λ ∧

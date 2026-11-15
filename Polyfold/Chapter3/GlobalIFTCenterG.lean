@@ -4,7 +4,7 @@ import Polyfold.Chapter3.GlobalIFTG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (2) at the centre `x₀` — the data of Definition 3.2.1 (preprint 3.25) (2) for the solution set in the chart
-`ψ ∘ ϕ` — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+`ψ ∘ ϕ` — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # Theorem 3.6.8 (preprint 3.54) (2) at the centre, germ reading
 
@@ -15,7 +15,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
   `π(O') ⊆ C'` at `x₀` for `S = {y ∈ Vx | f(y) = 0}`, with the data of Definition 3.6.6 (preprint 3.53) in the
   chart `c` in the germ reading and `d = dim dc.Pn − dim dc.Q`.
 * `Polyfold.theorem_3_6_8_tangentGermChart_proj`, `Polyfold.theorem_3_6_8_tangentGermChart`:
-  the corollaries, with the same conclusions as the old theorems.
+  the corollaries, with the same conclusions as the whole-chart theorems.
 
 The proofs are those of `GlobalIFTCenter.lean` from `theorem_3_6_8_graph_proj_conj`: the
 chart `ψ ∘ ϕ` (`MChart.compDiffeo`), the tame retract `ψ(O)`, and the data `N`, `Y`, `V'`, `σ`
@@ -38,8 +38,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀`, with the conjugation exposed, germ reading** (phase 2;
-the germ form of `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`): the data of Definition 3.2.1 (preprint 3.25) (2) for
+/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀`, with the conjugation exposed, germ reading** (the germ form of `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`): the data of Definition 3.2.1 (preprint 3.25) (2) for
 `S = {y ∈ Vx | f(y) = 0}` at `x₀` with `π(O') ⊆ C'`, built from the chart `ψ ∘ ϕ` of
 `theorem_3_6_8_graph_proj_conj`, together with the data of Definition 3.6.6 (preprint 3.53) in the chart `c`
 in the germ reading (filling germ `g`, sc⁺-germ `s`, derivative family `Dg` on a germ `G`, good
@@ -121,7 +120,7 @@ theorem theorem_3_6_8_tangentGermChart_proj_conj (hf : IsSection P f) {x₀ : X}
   exact MPolyfold.TangentGermChart.π_mem_of_projectsInto _ hYcp
 
 /-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀` with condition (b) of `IsRegular`, germ reading**
-(phase 2; the germ form of `theorem_3_6_8_tangentGermChart_proj_wholeChart`, with the same conclusion). -/
+(the germ form of `theorem_3_6_8_tangentGermChart_proj_wholeChart`, with the same conclusion). -/
 theorem theorem_3_6_8_tangentGermChart_proj (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
@@ -131,7 +130,7 @@ theorem theorem_3_6_8_tangentGermChart_proj (hf : IsSection P f) {x₀ : X}
   exact ⟨Vx, d, h1, h2, hD⟩
 
 /-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀`: the data of Definition 3.2.1 (preprint 3.25) (2) for the solution set,
-germ reading** (phase 2; the germ form of `theorem_3_6_8_tangentGermChart_wholeChart`, with the same
+germ reading** (the germ form of `theorem_3_6_8_tangentGermChart_wholeChart`, with the same
 conclusion). -/
 theorem theorem_3_6_8_tangentGermChart (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :

@@ -5,7 +5,7 @@ import Polyfold.Chapter3.GoodPositionGermG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I: the chart
 independence of the linearization at a zero (the local form of Definition 2.5.8 (preprint 2.38)) and the assembly
 of Definition 3.6.6 (preprint 3.53) at a zero from a chart which is not centred at it, **in the text's germ
-reading** of Definition 3.1.11 (preprint 3.11) (phase 2): the fillings are sc-smooth germs (`IsFillingGerm`) on germs
+reading** of Definition 3.1.11 (preprint 3.11): the fillings are sc-smooth germs (`IsFillingGerm`) on germs
 of neighbourhoods whose levels may shrink, so their linearizations are the values of derivative
 families (`IsSc1GermWith G g Dg`), and good position is `IsGoodPositionAtGerm` at `Dg(0)`.
 
@@ -77,7 +77,7 @@ open StrongRetr
 variable (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
 include hU hR
 
-/-- **The bridge to filling germs** (germ reading, phase 2; the germ form of
+/-- **The bridge to filling germs** (germ reading; the germ form of
 `scDeriv_comp_r_eq_of_eventuallyEq`, the text's "`Tg(0) = Tf(0)` on `T₀O`" before Definition 3.1.4 (preprint 3.4),
 at a level-`1` point `z` of the germ): if `g` is an sc¹-germ on `G₁` with derivative family `Dg`,
 `r(0) = 0`, `z ∈ G₁` with `ι z ∈ O`, and `g` agrees with `f̂` on `O` near `ι z`, then
@@ -126,7 +126,7 @@ theorem scDeriv_comp_r_eq_germ (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '
     simpa using this).symm
 
 /-- **On `T_zO`, `Lin(z) = Dg(z)`** for a germ `g` with derivative family `Dg`, `z ∈ G₁`, agreeing
-with `f̂` on `O` near `ι z` (germ reading, phase 2; the germ form of `linAt_eq_scDeriv`). -/
+with `f̂` on `O` near `ι z` (germ reading; the germ form of `linAt_eq_scDeriv`). -/
 theorem linAt_eq_germDeriv (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U) {fb g : E 0 → F 0}
     (hfr : IsSc1 U (fb ∘ r R)) {Dg : E 1 → E 0 →L[ℝ] F 0} (hg : IsSc1GermWith G₁ g Dg)
     {z : E 1} (hzO : E.toBase 1 z ∈ r R '' U) (hzG : z ∈ G₁.U 1)
@@ -138,7 +138,7 @@ theorem linAt_eq_germDeriv (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
   rw [scDeriv_r_idem_at hU hR hzO]
 
 omit hR in
-/-- **At a central zero, `Lin(0)` is the `Tf̃(0)` of a filling germ** (germ reading, phase 2; the
+/-- **At a central zero, `Lin(0)` is the `Tf̃(0)` of a filling germ** (germ reading; the
 germ form of `IsFilledVersion.fillerRestrict_eq_linAt`): for a filling germ `g` of `f̂` with a
 derivative family `Dg` on a germ `G₁`, `Tf̃(0)x = Dg(0)x = Lin(0)x` on `T₀O`. -/
 theorem IsFillingGerm.fillerRestrict_eq_linAt (hR : IsStrongBundleRetraction U R)
@@ -173,7 +173,7 @@ lemma StrongBundle.IsScSmoothSection.principal_comp_r_isSc1 (hf : B.IsScSmoothSe
   exact ((h1.snd d.relOpen.isScDomain).congr d.relOpen.isScDomain fun _ _ => rfl).isSc1
 
 /-- **The kernel condition of Definition 3.6.6 (preprint 3.53), germ reading, from a non-centred chart**
-(phase 2): with the chart change `A`, `Γ` of `linAt_chart_change` between a chart `c` around the
+: with the chart change `A`, `Γ` of `linAt_chart_change` between a chart `c` around the
 zero `y` (at the level-`1` point `z` over `φ(y)`) and the chart `c'` centred at `y`, carrying a
 filling germ `g'` with a derivative family `Dg'` on `G' ⊆ U'`: if the kernel of `Lin(z)` is in good
 position to `C_{φ(y)}` inside `T_zO`, then `ker Dg'(0)` is in good position to `C'` inside `T₀O'`
@@ -261,7 +261,7 @@ theorem StrongBundle.isInGoodPositionIn_ker_germ_of_linAt (hf : B.IsScSmoothSect
     rw [← hxw]; exact h1.symm
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart onto `K_z`, germ
-reading** (phase 2; the chart-level germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if
+reading** (the chart-level germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if
 `Lin(z) : T_zO → K_z` (`linAt`) in a chart `c` around the zero `y` is onto `K_z` and its kernel is
 in good position to `C_{φ(y)}` inside `T_zO`, then in every chart `c'` centred at `y` carrying a
 filling germ `g'` with a derivative family `Dg'` on `G' ⊆ U'` the germ is in good position at
@@ -322,7 +322,7 @@ theorem StrongBundle.isGoodPositionAtGerm_of_linAt_surj (hf : B.IsScSmoothSectio
   exact ⟨A x, (A x).2, h1.symm⟩
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart, germ reading**
-(phase 2; the chart-level germ form of `isGoodPositionGerm_of_linAt`, with the dense range
+(the chart-level germ form of `isGoodPositionGerm_of_linAt`, with the dense range
 `ρ(z)F_∞` of `Lin(z)`): as `isGoodPositionAtGerm_of_linAt_surj`, with the range of `Lin(z)`
 containing `ρ(z)k̂` for every smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.6.5 (preprint 3.52) in the
 chart `c'`, germ reading — a hypothesis here, `proposition_3_6_5_local` of Stage 1 B): the
@@ -428,7 +428,7 @@ theorem StrongBundle.isGoodPositionAtGerm_of_linAt_dense (hf : B.IsScSmoothSecti
 
 /-- The data in the non-centred chart `c` given by a germ `g` (on `G`, `z ∈ G₁`, `0 ∈ O`) agreeing
 with `f̂` near `φ(y)`, translated to `Lin(z)`: `Lin(z) = Dg(z)` on `T_zO`, so the kernel of
-`Lin(z)`, as a subspace of `E₀`, is `ker Dg(z) ∩ T_zO` (germ reading, phase 2). -/
+`Lin(z)`, as a subspace of `E₀`, is `ker Dg(z) ∩ T_zO` (germ reading). -/
 theorem StrongBundle.linAt_eq_germDeriv_chart (hf : B.IsScSmoothSection f) {y : X}
     {c : StrongBundleChart PX P} (hc : B.IsChart c) (hyV : y ∈ c.φ.source)
     {z : c.φ.model.E 1} (hz : c.φ.model.E.toBase 1 z = c.φ y)
@@ -459,7 +459,7 @@ theorem StrongBundle.linAt_eq_germDeriv_chart (hf : B.IsScSmoothSection f) {y : 
     exact ⟨⟨w, hwT⟩, by rw [hbr]; exact hw, rfl⟩
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, germ reading**
-(phase 2; the germ form of `isGoodPositionAt_of_chart_dense` with the surjectivity of `Dg(z)` onto
+(the germ form of `isGoodPositionAt_of_chart_dense` with the surjectivity of `Dg(z)` onto
 `K_z`): let `c` be a chart around the zero `y` with `0 ∈ O`, `g` an sc¹-germ on `G ⊆ U` with a
 derivative family `Dg` (e.g. a filling germ at the centre of `c`), agreeing with `f̂` on `O` near
 `φ(y)`, and `z ∈ G₁` over `φ(y)` (**the point must lie in the germ**).  If `Dg(z)` maps `T_zO`
@@ -494,7 +494,7 @@ theorem StrongBundle.isGoodPositionAtGerm_of_chart (hf : B.IsScSmoothSection f) 
   exact ⟨⟨x, hxT⟩, by rw [hbr]; exact hx⟩
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, germ reading, dense
-form** (phase 2; the germ form of `isGoodPositionAt_of_chart_dense`): as
+form** (the germ form of `isGoodPositionAt_of_chart_dense`): as
 `isGoodPositionAtGerm_of_chart`, with the range of `Dg(z)|_{T_zO}` containing `ρ(z)k̂` for every
 smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.6.5 (preprint 3.52) in `c'`, germ reading: a hypothesis
 here). -/
@@ -527,7 +527,7 @@ theorem StrongBundle.isGoodPositionAtGerm_of_chart_dense (hf : B.IsScSmoothSecti
   exact ⟨⟨x, hxT⟩, by rw [hbr]; exact hx⟩
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart, for a section,
-germ reading** (phase 2; the germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if `(f, y)` is an
+germ reading** (the germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if `(f, y)` is an
 sc-Fredholm germ in the germ reading (`IsScFredholmGerm`), `f(y) = 0`, and in some chart `c`
 around `y` the linearization `Lin(z) : T_zO → K_z` is onto with kernel in good position to
 `C_{φ(y)}` inside `T_zO`, then `(f, y)` is in good position in the germ reading
@@ -553,7 +553,7 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt_surj (hf : B.IsScSmoothSection 
       hyV' hφ0 h0U' hfill' hG'U hg'⟩
 
 /-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, for a section, germ
-reading** (phase 2; the germ form of `isGoodPositionGerm_of_chart_wholeChart`): as
+reading** (the germ form of `isGoodPositionGerm_of_chart_wholeChart`): as
 `isGoodPositionGerm_of_linAt_surj`, with the data in `c` given by a germ `g` on `G` (derivative
 family `Dg`, `z ∈ G₁`, `0 ∈ O`) agreeing with `f̂` near `φ(y)`, `Dg(z)(T_zO) ⊇ K_z` and
 `ker Dg(z) ∩ T_zO` in good position to `C_{φ(y)}` inside `T_zO`. -/

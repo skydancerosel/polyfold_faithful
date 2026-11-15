@@ -21,7 +21,7 @@ has, by (15.1) relative to `Λ₀`, a surjective linearization on `ℝ^ℓ × T^
 * **`paramSlice_branch_eq_rel`**: the slice at `t` of `F(t, y) = (f − s⁰)|O + Σ_j t_j (−s_j)|O`
   is `(f − (s⁰ + Σ_j t_j s_j))|O`.
 * **`isParamGP_restrictTo_of_onto_rel`**: (15.1) for the operator `(f − s⁰)'(x)` gives Part I's
-  properties (i)–(ii) for `F` (GB's `isParamGP_restrictTo_of_onto` with `s⁰` for `0`).
+  properties (i)–(ii) for `F` (`isParamGP_restrictTo_of_onto` with `s⁰` for `0`).
 * **`isGeneralPositionGerm_branchParam_rel`**: (15.1) relative to `Λ₀` makes `F` in general
   position at `(0, x)` (Definition 5.3.9 on `ℝ^ℓ × O`) for every branch `s⁰_a` of `Λ₀` through
   `f(x)`.

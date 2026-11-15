@@ -44,12 +44,13 @@ open.
   of the oriented tangent space, which is what Proposition 9.3.9's appeal to "the discussion
   preceding it" provides.  The condition `y ∈ ∂Mᵢ` is implied by `d_{Mᵢ}(y) = 1`.
 
-## Not formalized, and why
+## Not in this file
 
 * That `T_y∂M = T_y^R M` and the outward half-space are determined by `T_yM` for tame `M` with
   `d_M(y) = 1` (via the cones `C_yM` of the proof of Lemma 9.3.7), i.e. that Definition 9.3.8
   gives such a function `bd`: the partial cones of submanifolds are not formalized.
-* The continuity of `o_{∂M}` along `∂M` and its extension to the closed faces (Figure 9.1).
+* The continuity of `o_{∂M}` along `∂M` (`BoundaryOrientationContinuity.lean`) and its extension
+  to the closed faces (Figure 9.1; for face-structured sheets, `FaceOrientation.lean`).
 * Remark 9.3.11: no formal content.
 -/
 

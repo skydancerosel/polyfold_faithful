@@ -21,7 +21,7 @@ partial quadrant of the finite-dimensional kernel `N`.
   on `Ω = V ∩ OE`, `OE` open in `N`, `0 ∈ Ω`, with left inverse `q = β · (π ∘ D.φ)` (`β` a bump
   function, `π` the projection onto `N`).
 
-## Done elsewhere (2026-11-12)
+## Done elsewhere
 
 * The identification of the tangent vectors of a parametrization with the kernel of the
   linearization is `StrongBundle.exists_fderivWithin_eq_scDeriv_of_mem_linKer`

@@ -5,7 +5,7 @@ import Mathlib.Geometry.Manifold.PartitionOfUnity
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): Definition 5.5.1 for the
 product `[0, 1]ⁿ × X`.  Used in the proof of Corollary 15.3.10 (3) (p. 699), which applies
-Theorem 15.3.9 on `[0, 1] × X` (gap TY-3).
+Theorem 15.3.9 on `[0, 1] × X`.
 
 # Sc-smooth partitions of unity on `[0, 1]ⁿ × X`
 
@@ -21,7 +21,7 @@ sc-smooth partitions of unity on the M-polyfold of objects.  The text does not s
   separated by an sc-smooth function with values in `[0, 1]` admits sc-smooth partitions of unity
   (the second half of the proof of Theorem 5.5.10, Mathlib's
   `BumpCovering.exists_isSubordinate_of_prop`).
-* `exists_cubeProd_urysohn_w5`: if `X` admits sc-smooth partitions of unity, two disjoint closed
+* `exists_cubeProd_urysohn`: if `X` admits sc-smooth partitions of unity, two disjoint closed
   sets of `[0, 1]ⁿ × X` are separated by an sc-smooth function.  The construction: for each
   `x ∈ X` a smooth `gₓ : ℝⁿ → [0, 1]` that is `0` near the compact slice of `s` over `x` and `1`
   near that of `t`; by the tube lemma it separates `s` and `t` over an open `Vₓ ∋ x`; with an
@@ -140,7 +140,7 @@ variable [ParacompactSpace ((Fin n → unitInterval) × X)]
 /-- **Sc-smooth Urysohn functions on `[0, 1]ⁿ × X`**: if `X` admits sc-smooth partitions of
 unity, any two disjoint closed subsets of `[0, 1]ⁿ × X` are separated by an sc-smooth function
 with values in `[0, 1]`, namely `F(q, y) = Σₓ ρₓ(y) gₓ(q)`. -/
-theorem exists_cubeProd_urysohn_w5 (hPU : PX.AdmitsScPartitionsOfUnity)
+theorem exists_cubeProd_urysohn (hPU : PX.AdmitsScPartitionsOfUnity)
     {s t : Set ((Fin n → unitInterval) × X)} (hs : IsClosed s) (ht : IsClosed t)
     (hst : Disjoint s t) :
     ∃ F : (Fin n → unitInterval) × X → ℝ,
@@ -173,7 +173,7 @@ the product M-polyfold of Part I's cube `[0, 1]ⁿ` with `X`). -/
 theorem admitsScPartitionsOfUnity_cubeProd (hPU : PX.AdmitsScPartitionsOfUnity) :
     ((cubePolyfold n).prod PX).AdmitsScPartitionsOfUnity :=
   admitsScPartitionsOfUnity_of_urysohn fun _ _ hs ht hst =>
-    exists_cubeProd_urysohn_w5 hPU hs ht hst
+    exists_cubeProd_urysohn hPU hs ht hst
 
 end Cube
 

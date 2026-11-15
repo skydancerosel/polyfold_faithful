@@ -5,7 +5,7 @@ import Polyfold.Chapter10.TameBundleCharts
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, **Theorem 15.3.9
 (Transversal Extension Theorem)**, p. 694 (2017: Theorem 15.5), built on Theorem 14.1.9 in the
-form `theorem_14_1_9_charged_a6` (tame strong bundle charts, `ChargesBoundary Λ`).
+form `theorem_14_1_9_charged` (tame strong bundle charts, `ChargesBoundary Λ`).
 
 # Theorem 15.3.9 from Theorem 14.1.9
 
@@ -17,7 +17,7 @@ ep-groupoid has tame strong bundle charts (`SEP.exists_isTameChart`), and the in
 Definition 14.1.3 are non-empty, so a structurable `Λ` over `∂X` charges every boundary fibre
 (`IsBoundaryStructurable.chargesBoundary`).
 It is also forced by the conclusion: a structurable `Λ'` with `Λ' = Λ` over `∂X` charges every
-fibre (`chargesBoundary_of_theorem_15_3_9_r6`).
+fibre (`chargesBoundary_of_theorem_15_3_9`).
 
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
@@ -26,16 +26,16 @@ fibre (`chargesBoundary_of_theorem_15_3_9_r6`).
 * `theorem_15_3_9_statement_of_charged`, `theorem_15_3_9_charged_iff`: the charged form and the
   uncharged statement are equivalent (tame strong bundle charts: `SEP.exists_isTameChart`).
 * `lemma_15_3_9_cutoff`: step (a), the cut-off, with no added hypothesis.
-* `chargesBoundary_of_theorem_15_3_9_r6`: the conclusion forces `ChargesBoundary Λ`.
+* `chargesBoundary_of_theorem_15_3_9`: the conclusion forces `ChargesBoundary Λ`.
 * `theorem_15_3_9_charged_hyp`: steps (a)–(e) of the proof from the relative statement, with
-  step (b) unconditional `theorem_14_1_9_charged_a6` and step (a)
+  step (b) unconditional `theorem_14_1_9_charged` and step (a)
   `lemma_15_3_9_cutoff_hyp`.
 * **`theorem_15_3_9_of_rel`**: `theorem_15_3_9_statement A` from the relative statement
   (steps (c)–(d)) alone; `theorem_15_3_9_hyp` with its hypotheses on Theorem 14.1.9
   (`theorem_14_1_9`) and the cut-off discharged.
-* `relative_local_families_statement A`: the one remaining step, the relative local families
+* `relative_local_families_statement A`: the relative local families
   (`HasLocalGPFamiliesRel` with domain support in `U ∖ ∂X`) under the hypotheses of the relative
-  statement.
+  statement; it holds for every `A` (`relative_local_families_holds`, `RelativeLocalFamilies`).
 * **`theorem_15_3_9_charged_of_local_rel`**, **`theorem_15_3_9_of_local_families`**: Theorem
   15.3.9 (charged form, and the uncharged statement) from
   `relative_local_families_statement A` alone; the relative parametric step is
@@ -81,12 +81,12 @@ def theorem_15_3_9_charged_statement : Prop :=
     A.X.IsCompactBranched (fun z => (Λ' (f z) : ℚ))
 
 /-- **The added hypothesis is necessary**: the conclusion of Theorem 15.3.9 (a structurable `Λ'`
-with `Λ' = Λ` over `∂X`) forces `ChargesBoundary Λ` (`chargesBoundary_of_structurable_eq_a6`).
+with `Λ' = Λ` over `∂X`) forces `ChargesBoundary Λ` (`chargesBoundary_of_structurable_eq`).
 So `theorem_15_3_9_statement` asserts `ChargesBoundary Λ` for every boundary-structurable
 `Λ` meeting its other hypotheses. -/
-theorem chargesBoundary_of_theorem_15_3_9_r6 {Λ Λ' : A.W → ℚ≥0} (hΛ' : IsStructurable A Λ')
+theorem chargesBoundary_of_theorem_15_3_9 {Λ Λ' : A.W → ℚ≥0} (hΛ' : IsStructurable A Λ')
     (h : ∀ w, A.P w ∈ A.X.PObj.boundary → Λ' w = Λ w) : ChargesBoundary Λ :=
-  chargesBoundary_of_structurable_eq_a6 hΛ' h
+  chargesBoundary_of_structurable_eq hΛ' h
 
 /-- the uncharged statement gives the charged form (the charged form has more hypotheses). -/
 theorem theorem_15_3_9_charged_of_statement (H : theorem_15_3_9_statement A) :
@@ -114,7 +114,7 @@ theorem lemma_15_3_9_cutoff : lemma_15_3_9_cutoff_statement A :=
   fun hX => lemma_15_3_9_cutoff_hyp (A.exists_isTameChart hX) hX
 
 /-- **Proof of Theorem 15.3.9, steps (a)–(e), on the charged Theorem 14.1.9** (`theorem_15_3_9_hyp`
-with step (b) unconditional `theorem_14_1_9_charged_a6` and step (a)
+with step (b) unconditional `theorem_14_1_9_charged` and step (a)
 `lemma_15_3_9_cutoff_hyp`): only the relative statement (steps (c)–(d)) is assumed. -/
 theorem theorem_15_3_9_charged_hyp (hrel : theorem_15_3_7_relative_statement A) :
     theorem_15_3_9_charged_statement A := by
@@ -123,7 +123,7 @@ theorem theorem_15_3_9_charged_hyp (hrel : theorem_15_3_7_relative_statement A) 
     lemma_15_3_9_cutoff_hyp hB hX hpara hPU Λ hΛ.1 N hcc.1 U hcc.2.1 hcc.2.2.1 hdomU h hc hfun
       (fun x => (hh x).1) hNh
   obtain ⟨Λ₀, hΛ₀, hΛ₀N, hΛ₀dom, hΛ₀bd⟩ :=
-    theorem_14_1_9_charged_a6 hX hpara hPU hB Λ hΛ hch N hcc.1 U hcc.2.1 hcc.2.2.1 hdomU h₀ h0c
+    theorem_14_1_9_charged hX hpara hPU hB Λ hΛ hch N hcc.1 U hcc.2.1 hcc.2.2.1 hdomU h₀ h0c
       h0nn h0fun h0supp h0gt
   have hsec : IsSection A.P f := hf.1.1.1
   have hgp0 : ∀ x : A.X.PObj.Level 1, A.X.PObj.levelVal 1 x ∈ A.X.PObj.boundary →
@@ -149,7 +149,7 @@ theorem theorem_15_3_9_of_rel (hrel : theorem_15_3_7_relative_statement A) :
   theorem_15_3_9_hyp theorem_14_1_9 lemma_15_3_9_cutoff hrel
 
 variable (A) in
-/-- **The remaining step**: the relative local families of the proof of Theorem 15.3.9 (steps
+/-- **The relative local families** of the proof of Theorem 15.3.9 (steps
 (c)–(d), "argue as in Theorem 15.3.7"; `HasLocalGPFamiliesRel` with domain support in
 `U ∖ ∂X` and size `h − N(Λ₀)`), under the hypotheses of the relative statement. -/
 def relative_local_families_statement : Prop :=
@@ -166,16 +166,16 @@ def relative_local_families_statement : Prop :=
     HasLocalGPFamiliesRel A f Λ₀ N (U ∩ A.X.PObj.boundaryᶜ)
       (fun x => h x - pointwiseNorm N Λ₀ x)
 
-/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694, charged form**, from one
-remaining step (`relative_local_families_statement`): Theorem 14.1.9 is unconditional
-`theorem_14_1_9_charged_a6`, the cutoff is `lemma_15_3_9_cutoff`, the relative parametric step is
+/-- **Theorem 15.3.9 (Transversal Extension Theorem), p. 694, charged form**, from the
+relative local families (`relative_local_families_statement`): Theorem 14.1.9 is unconditional
+`theorem_14_1_9_charged`, the cutoff is `lemma_15_3_9_cutoff`, the relative parametric step is
 `hasParametricGeneralPositionRel`. -/
 theorem theorem_15_3_9_charged_of_local_rel (H : relative_local_families_statement A) :
     theorem_15_3_9_charged_statement A :=
   theorem_15_3_9_charged_hyp (theorem_15_3_7_relative_of_local H)
 
-/-- **Theorem 15.3.9, the uncharged statement**, from the one remaining step
-(`relative_local_families_statement`). -/
+/-- **Theorem 15.3.9, the uncharged statement**, from the relative local families
+(`relative_local_families_statement`, which holds by `relative_local_families_holds`). -/
 theorem theorem_15_3_9_of_local_families (H : relative_local_families_statement A) :
     theorem_15_3_9_statement A :=
   theorem_15_3_9_statement_of_charged (theorem_15_3_9_charged_of_local_rel H)
@@ -185,7 +185,7 @@ theorem theorem_15_3_9_charged_statement_epSEP_zero (n : ℕ) :
     theorem_15_3_9_charged_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=
   theorem_15_3_9_charged_of_statement (theorem_15_3_9_statement_epSEP_zero n)
 
-/-- **The remaining step holds on `ℝⁿ × ℝ⁰ → ℝⁿ`** (fibres `0`; a weak witness, no boundary). -/
+/-- **The relative local families on `ℝⁿ × ℝ⁰ → ℝⁿ`** (fibres `0`; a weak witness, no boundary). -/
 theorem relative_local_families_statement_epSEP_zero (n : ℕ) :
     relative_local_families_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=
   fun _ _ _ f _ _ _ _ _ hcc _ _ _ _ Λ₀ _ _ _ _ =>

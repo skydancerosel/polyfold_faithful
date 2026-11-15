@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.ProductEpBundle
-import Polyfold.Chapter8.Book2021
+import Polyfold.Chapter8.Book
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, products remark after

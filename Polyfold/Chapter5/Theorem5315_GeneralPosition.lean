@@ -1,4 +1,4 @@
-import Polyfold.Chapter5.CylinderPerturbation2021
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
@@ -25,7 +25,7 @@ general position at every zero and (2) `t` on `S_{f+s₀}` has only Morse-type c
 * `theorem_5_3_15_generalPosition_hyp_of_boundary_empty`: the hypothesis holds when `∂X = ∅`
   (satisfiability; this is then Theorem 5.3.10 with one small section).
 
-## Done elsewhere (2026-11-12)
+## Done elsewhere
 
 * The step from the printed hypotheses (`∂X = X₀ ⊔ X₁`, `(fᵢ, x)` in general position on the
   boundaryless `Xᵢ`) to the general position of `(f, x)` in `X` at the zeros on `∂X` is

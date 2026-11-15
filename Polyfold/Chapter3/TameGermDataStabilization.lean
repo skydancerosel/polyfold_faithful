@@ -63,8 +63,9 @@ and asked whether this invariant could obstruct moving germ data into a tame cha
   lie in `O × 0` — asks for the injectivity of `(1 − ρ(u))|_{ker ρ(0)}` and of `π|_{(1 − r)(U)}`
   at points `u` close to `0` on level `0` only, where `u ↦ ρ(u)` and `r` are not norm-continuous:
   this is the level-`0` inverse function theorem that the sc-calculus does not provide, the same
-  gap as in Findings item 263 for whole-chart fillings.  Whether every sc-Fredholm germ has tame
-  germ data when the atlas is tame remains open (item 353 (iii)).
+  gap as in Findings item 263 for whole-chart fillings.  That every sc-Fredholm germ has tame
+  germ data when the atlas is tame (item 353 (iii)) does not hold:
+  `UntamedCorner.isScFredholmGerm2021_not_tame` (`UntamedBundleTheorem.lean`).
 -/
 
 open Set Filter Topology Function ContinuousLinearMap

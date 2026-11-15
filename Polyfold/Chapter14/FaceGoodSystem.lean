@@ -4,7 +4,7 @@ import Polyfold.Chapter13.GoodSystemRelative
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.6, p. 680 (2017:
 §14.6): **the neighbourhoods `U_F(x)` of a structured sc⁺-multisection on `W|F` form a good
-system for the ep-groupoid `F`** (gap F6-3 of wave 5).  Numbers and pages are the 2021 text's.
+system for the ep-groupoid `F`**.  Numbers and pages are the 2021 text's.
 
 ## The text, paraphrased
 
@@ -253,7 +253,7 @@ def shrink (T : FaceStructuredTuple A F ι) (W : A.Obj → Set A.Obj) (hW : ∀ 
     (inter_subset_inter_left _ fun _ hy => (T.toRelTuple.shrink_nbhd_U_subset W hW hxW x hy).1)
 
 /-- **The neighbourhoods `U_F(x)` form a good system for the ep-groupoid `F`, up to
-equivalence** (§14.6, p. 680; gap F6-3): for a face `F = X_θ` of a tame face-structured `X`
+equivalence** (§14.6, p. 680): for a face `F = X_θ` of a tame face-structured `X`
 with paracompact `|X|`, every face tuple is equivalent to one whose `U_F(x) = U(x) ∩ F` satisfy,
 in the ep-groupoid `F` (`faceEpGroupoid`): (1) `t : s⁻¹(cl_F U_F(x)) → F` is proper, (3) every
 component of `𝒰_F(x, x')` has `s` and `t` sc-diffeomorphisms onto open sets, and the natural
@@ -289,7 +289,7 @@ theorem exists_equiv_faceGood (hX : A.X.IsEpFaceStructured)
 
 end FaceStructuredTuple
 
-/-- **On classes** (§14.6, p. 680; gap F6-3): every structured sc⁺-multisection on `W|F`,
+/-- **On classes** (§14.6, p. 680): every structured sc⁺-multisection on `W|F`,
 `F = X_θ`, has a representative whose neighbourhoods `U_F(x)` satisfy, inside the ep-groupoid
 `F`, conditions (1) and (3) of a good system, with the natural action of `X` preserving them. -/
 theorem FaceStructuredMultisection.exists_rep_faceGood (hX : A.X.IsEpFaceStructured)

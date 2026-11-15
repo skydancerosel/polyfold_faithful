@@ -2,9 +2,7 @@ import Polyfold.Chapter16.PolyfoldMultisections
 import Polyfold.Chapter16.PolyfoldBundleUniqueness
 
 /-!
-# Chapter 16, §16.5: the representative-independence checks on V's ℤ/3 example
-
-Agent PB of Part III, wave 4.
+# Chapter 16, §16.5: the representative-independence checks on the ℤ/3 example
 
 Definition 16.5.1 (2021 p. 733; 2017: Definition 16.35) relates two representatives
 `(Λ, W)`, `(Λ', W')` when `Λ = f̄*Λ'` for a generalized isomorphism `f̄` with `Γ' ∘ |f̄| = Γ`.

@@ -106,10 +106,10 @@ theorem stokesWithoutPartitions_of_hasScPartitionsOfUnity (A : EP.{u})
 (trivial ep-groupoid) satisfies it, and its compact oriented half-circle `Θ` has
 `supp(∂Θ) ≠ ∅`. -/
 theorem stokesWithoutPartitions_witness :
-    K2Arc.AA.StokesWithoutPartitions ∧
-      (supp (K2Arc.AA.X.boundaryTheta K2Arc.thetaA)).Nonempty :=
-  ⟨K2Arc.AA.stokesWithoutPartitions_of_hasScPartitionsOfUnity K2Arc.arc_hasScPartitionsOfUnity,
-    K2Arc.arc_boundary_nonempty⟩
+    HalfCircle.AA.StokesWithoutPartitions ∧
+      (supp (HalfCircle.AA.X.boundaryTheta HalfCircle.thetaA)).Nonempty :=
+  ⟨HalfCircle.AA.stokesWithoutPartitions_of_hasScPartitionsOfUnity HalfCircle.arc_hasScPartitionsOfUnity,
+    HalfCircle.arc_boundary_nonempty⟩
 
 end EP
 

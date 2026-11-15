@@ -15,7 +15,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 variable {m : ℕ} {δ : ℝ} {hδ : 0 ≤ δ}
 
@@ -165,4 +165,4 @@ lemma inclH_injective {m m' : ℕ} {δ δ' : ℝ} (hδ : 0 ≤ δ) (hδ' : 0 ≤
   apply valCLM_injective (m := m') (hδ := hδ')
   rw [← valCLM_inclH hδ hδ' hm hδδ, h, valCLM_inclH]
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

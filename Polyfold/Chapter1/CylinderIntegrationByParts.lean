@@ -14,7 +14,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-- `F` is smooth and `1`-periodic in `t`. -/
 structure SmPer (F : ℝ × ℝ → ℝ) : Prop where
@@ -42,9 +42,9 @@ lemma SmPer.iterate_dt {F : ℝ × ℝ → ℝ} (h : SmPer F) : ∀ b, SmPer (Dt
   | b + 1 => by rw [Function.iterate_succ_apply']; exact (h.iterate_dt b).dt
 
 lemma SmPer.pDer {F : ℝ × ℝ → ℝ} (h : SmPer F) : ∀ a b, SmPer (pD a b F)
-  | 0, b => by simpa [GapP1Sobolev.pD] using h.iterate_dt b
+  | 0, b => by simpa [CylinderSobolev.pD] using h.iterate_dt b
   | a + 1, b => by
-    simp only [GapP1Sobolev.pD] at *
+    simp only [CylinderSobolev.pD] at *
     rw [Function.iterate_succ_apply']; exact (h.pDer a b).ds
 
 /-- The product of a test function with a smooth `t`-periodic function is a test function. -/
@@ -134,12 +134,12 @@ lemma SmPer.integral_mul_dt {F φ : ℝ × ℝ → ℝ} (hF : SmPer F) (hφ : Is
 
 lemma SmPer.hasWeakDeriv_s {F : ℝ × ℝ → ℝ} (hF : SmPer F) : HasWeakDeriv 1 0 F (Ds F) :=
   fun φ hφ => by
-    simp only [GapP1Sobolev.pD, Function.iterate_one, Function.iterate_zero, id]
+    simp only [CylinderSobolev.pD, Function.iterate_one, Function.iterate_zero, id]
     rw [hF.integral_mul_ds hφ]; ring
 
 lemma SmPer.hasWeakDeriv_t {F : ℝ × ℝ → ℝ} (hF : SmPer F) : HasWeakDeriv 0 1 F (Dt F) :=
   fun φ hφ => by
-    simp only [GapP1Sobolev.pD, Function.iterate_one, Function.iterate_zero, id]
+    simp only [CylinderSobolev.pD, Function.iterate_one, Function.iterate_zero, id]
     rw [hF.integral_mul_dt hφ]; ring
 
 /-- The classical derivatives of a smooth `t`-periodic function are its weak derivatives. -/
@@ -176,7 +176,7 @@ lemma IsTest.memLp_wt {φ : ℝ × ℝ → ℝ} (h : IsTest φ) (δ : ℝ) :
 /-- Every test function lies in `H^{m,δ}(ℝ × S¹)`. -/
 theorem IsTest.mem_Hsub {φ : ℝ × ℝ → ℝ} (h : IsTest φ) (m : ℕ) {δ : ℝ} (hδ : 0 ≤ δ) :
     (h.memLp 2).toLp φ ∈ Hsub m hδ := fun a b _ =>
-  ⟨GapP1Sobolev.pD a b φ, (h.smPer.hasWeakDeriv a b).congr_ae (h.memLp 2).coeFn_toLp.symm (ae_eq_refl _),
+  ⟨CylinderSobolev.pD a b φ, (h.smPer.hasWeakDeriv a b).congr_ae (h.memLp 2).coeFn_toLp.symm (ae_eq_refl _),
     (h.pD a b).memLp_wt δ⟩
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

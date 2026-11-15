@@ -8,14 +8,14 @@ extension of Proposition 14.4.14.
 
 # From `ZData`/`ZSections` to the data of Proposition 14.4.14
 
-The local extension (agent LX, `CoherentExtension`) takes the data of a fixed `a ∈ A` as
+The local extension (`CoherentExtension`) takes the data of a fixed `a ∈ A` as
 a `LocalExtensionBase` and a coherent neighbourhood system as its `CoherentNbhdSystem`
 (Definition 14.4.11 (1), (3), (4), with (2) as `IsEquivariant`).  Here they are built from the
-setting of this block:
+setting `ZData` of §14.4:
 
 * `ZSections.toLocalExtensionBase`: `∼_y` is `ZRel a y`, `≈_z` is `ZData.Approx a z`; the faces
   condition of Definition 14.1.3 (1) on `U(a)` is the extra input `hface`.
-* `coherentNbhdSystem_hyp`: Proposition 14.4.10 (`proposition_14_4_10_hyp`) gives LX's
+* `coherentNbhdSystem_hyp`: Proposition 14.4.10 (`proposition_14_4_10_hyp`) gives a
   `CoherentNbhdSystem`, and it satisfies (2) (`isEquivariant_coherentNbhdSystem_hyp`).
 * `proposition_14_4_14_of_hyp`: hence Proposition 14.4.14 for these data, under
   Proposition 14.4.6 (2) in the form `HasThetaLocalEq`.
@@ -43,7 +43,7 @@ def ZSections.toLocalExtensionBase (D : ZSections A S) {a : A.Obj} (ha : a ∈ S
   LocalExtensionBase.ofZSetup S.toZSetup ha (S.isOpen_V a ha) (D.s a) hface
     (fun g i y hy => D.equivariant a ha g i y hy) (S.Approx a)
 
-/-- **Proposition 14.4.10 gives a coherent neighbourhood system in LX's form**, from
+/-- **Proposition 14.4.10 gives a coherent neighbourhood system in the form `CoherentNbhdSystem`**, from
 Proposition 14.4.6 (2) in the form `HasThetaLocalEq`. -/
 theorem coherentNbhdSystem_hyp (D : ZSections A S) (hP : HasThetaLocalEq D) {a : A.Obj}
     (ha : a ∈ S.A) (hface : ∀ i, IsFaceScPlusSectionOn A (D.s a i) (S.nbhd a).bdry) :
@@ -55,7 +55,7 @@ theorem coherentNbhdSystem_hyp (D : ZSections A S) (hP : HasThetaLocalEq D) {a :
   · exact (hO z hz).2.2.2.2.2.1 i' y hy h
   · exact (hO z (closure_mono inter_subset_left hz)).2.2.2.2.2.2 hz i i' h y hy
 
-/-- **Proposition 14.4.14 for the data of this block** (through LX's `proposition_14_4_14`),
+/-- **Proposition 14.4.14 for the data `ZData`** (through `proposition_14_4_14`),
 under Proposition 14.4.6 (2) in the form `HasThetaLocalEq`: sc⁺-sections `ŝᵃᵢ` on `V̂_a`,
 symmetric, equal to `s⁰ᵃᵢ` on `V_a`, and equal for `i ∼_z i'`. -/
 theorem proposition_14_4_14_of_hyp

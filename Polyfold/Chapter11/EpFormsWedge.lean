@@ -1,5 +1,5 @@
 import Polyfold.Chapter8.EpFormsObj
-import Polyfold.Chapter4.ScFormsWedge2021b
+import Polyfold.Chapter4.ScFormsWedgeAssociativity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2, p. 372

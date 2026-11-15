@@ -16,7 +16,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-- `Re(c e^{iθ})`, `θ = 2π(js/T + kt)`. -/
 def term (T : ℝ) (c : ℂ) (q : ℤ × ℤ) (x : ℝ × ℝ) : ℝ :=
@@ -267,4 +267,4 @@ theorem tendsto_box_sq {a T : ℝ} (hT : 0 < T) {f : ℝ × ℝ → ℝ} (hf : M
   rw [e, hn, ← sq_abs]
   exact pow_le_pow_left₀ (abs_nonneg _) (Complex.abs_re_le_norm _) 2
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

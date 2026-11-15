@@ -1036,7 +1036,7 @@
      "Chapter9/BoundaryMeasure · EpGroupoid.hcov_msheets_of_isCompact",
      "Chapter9/BoundaryMeasure · EpGroupoid.hcov_zero",
      "Chapter9/StokesBoundaryMeasure · EP.hcovB_of_hcovS",
-     "Chapter9/HemisphereWitness · E8W.e8w_hcov",
+     "Chapter9/HemisphereWitness · Hemisphere.hcov",
      "Chapter11/BoundaryMeasureTextHypotheses · EPLocalization.EPLoc.theorem_11_4_4_pull_loc",
      "Chapter11/BoundaryMeasureTextHypotheses · EPLocalization.EPLoc.theorem_11_4_4_push_loc",
      "Chapter11/BoundaryMeasureTextHypotheses · EPLocalization.EPLoc.theorem_11_4_5_pull_loc",
@@ -1078,18 +1078,18 @@
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms, defined through choices of $e''$ with $\\Phi(e'') \\to e$; they are mutually inverse and depend only on $|[D]|$."
    },
    "lean": {
-    "statement": "`GenSBMap.proposition_11_5_1_book`: $[D]^*N'$ and $[D]_*N$ are auxiliary norms (continuity and conditions (1)–(3) of Definition 8.3.5). They are mutually inverse, computed by every representative with both legs strong bundle equivalences ($[D]^*N'(e) = N'(\\Psi(e''))$ for $\\Phi(e'') \\cong e$), and equal for $|[D]| = |[D']|$. Conditions (1) and (2) are `SDiagram.isCompleteFiberNorm_pullNorm` and `SDiagram.tendsto_zeroOne_pullNorm` (`Chapter11/AuxiliaryNormTransport2021.lean`): they go through the level-1 fibre maps of $\\mu$ and of a strong bundle equivalence, as linear isomorphisms (`oneFiberMor`, `oneFiberObj`), and through the level-1 local inverse at the zero section (`tendsto_zeroOne_of_tendsto_obj`). The form `proposition_11_5_1` is kept: `pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.",
+    "statement": "`GenSBMap.proposition_11_5_1_book`: $[D]^*N'$ and $[D]_*N$ are auxiliary norms (continuity and conditions (1)–(3) of Definition 8.3.5). They are mutually inverse, computed by every representative with both legs strong bundle equivalences ($[D]^*N'(e) = N'(\\Psi(e''))$ for $\\Phi(e'') \\cong e$), and equal for $|[D]| = |[D']|$. Conditions (1) and (2) are `SDiagram.isCompleteFiberNorm_pullNorm` and `SDiagram.tendsto_zeroOne_pullNorm` (`Chapter11/AuxiliaryNormTransport.lean`): they go through the level-1 fibre maps of $\\mu$ and of a strong bundle equivalence, as linear isomorphisms (`oneFiberMor`, `oneFiberObj`), and through the level-1 local inverse at the zero section (`tendsto_zeroOne_of_tendsto_obj`). The form `proposition_11_5_1` is kept: `pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.",
     "decls": [
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.GenSBMap.proposition_11_5_1_book",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isAuxNorm_pullNorm",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isAuxNorm_pushNorm",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.oneFiberMor",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.oneFiberObj",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.tendsto_zeroOne_of_tendsto_obj",
-     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.tendsto_zeroOne_μ_obj",
-     "Chapter11/AuxiliaryNormTransport2021 · StrongBundle.IsCompleteFiberNorm.of_linearEquiv",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.GenSBMap.proposition_11_5_1_book",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.isAuxNorm_pullNorm",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.isAuxNorm_pushNorm",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.oneFiberMor",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.oneFiberObj",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.tendsto_zeroOne_of_tendsto_obj",
+     "Chapter11/AuxiliaryNormTransport · SBLocalization.tendsto_zeroOne_μ_obj",
+     "Chapter11/AuxiliaryNormTransport · StrongBundle.IsCompleteFiberNorm.of_linearEquiv",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullNorm",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushNorm",
@@ -1138,7 +1138,7 @@
     "statement": "For a strong bundle equivalence $\\Phi$ and an sc⁺-multisection $\\Lambda$, $\\Phi_*\\Lambda(w') = \\Lambda(w)$ for $\\Phi(w) \\cong w'$ is a well-defined sc⁺-multisection."
    },
    "lean": {
-    "statement": "`IsWFunctor`: maps on $W$ constant along morphisms; `pullMult`, `pushMult`; $\\Phi_*\\Lambda$ does not depend on the choice and is a functor (`lemma_11_5_2`); $\\Phi^*\\Phi_* = 1$ and $\\Phi_*\\Phi^* = 1$. With Definition 13.2.1 (`IsScPlusMultisection`, `Chapter11/MultisectionLocalStructure2021.lean`), `lemma_11_5_2_book`: $\\Phi_*\\Lambda$ of an sc⁺-multisection is an sc⁺-multisection. Its local sections are the text's $\\mu'(\\sigma', \\Phi(s_i(x)))$, extended by a local inverse of $t'$ (`exists_isLocalRepOn_pushMult`). The same holds for $\\Phi^*$ (`isScPlusMultisection_pullMult`).",
+    "statement": "`IsWFunctor`: maps on $W$ constant along morphisms; `pullMult`, `pushMult`; $\\Phi_*\\Lambda$ does not depend on the choice and is a functor (`lemma_11_5_2`); $\\Phi^*\\Phi_* = 1$ and $\\Phi_*\\Phi^* = 1$. With Definition 13.2.1 (`IsScPlusMultisection`, `Chapter11/MultisectionLocalStructure.lean`), `lemma_11_5_2_book`: $\\Phi_*\\Lambda$ of an sc⁺-multisection is an sc⁺-multisection. Its local sections are the text's $\\mu'(\\sigma', \\Phi(s_i(x)))$, extended by a local inverse of $t'$ (`exists_isLocalRepOn_pushMult`). The same holds for $\\Phi^*$ (`isScPlusMultisection_pullMult`).",
     "decls": [
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsWFunctor",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.isWFunctor_const",
@@ -1151,15 +1151,15 @@
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.lemma_11_5_2",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pullMult_pushMult",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_pullMult",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.lemma_11_5_2_book",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.exists_isLocalRepOn_pushMult",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.exists_isLocalRepOn_pullMult",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.isScPlusMultisection_pullMult",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusMultisection",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.HasLocalSectionStructure",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsLocalRepOn",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusSectionOn",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.isScPlusMultisection_zeroMultisection"
+     "Chapter11/MultisectionLocalStructure · SBLocalization.lemma_11_5_2_book",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.exists_isLocalRepOn_pushMult",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.exists_isLocalRepOn_pullMult",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.isScPlusMultisection_pullMult",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.IsScPlusMultisection",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.HasLocalSectionStructure",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.IsLocalRepOn",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.IsScPlusSectionOn",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.isScPlusMultisection_zeroMultisection"
     ]
    },
    "chips": [
@@ -1182,9 +1182,9 @@
    "lean": {
     "statement": "`GenSBMap.proposition_11_5_3_book`: for a generalized strong bundle isomorphism $[D]$, $[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ map sc⁺-multisections (Definition 13.2.1) to sc⁺-multisections. They are independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map. On the underlying functors this is `GenSBMap.proposition_11_5_3`: $[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ on functors $W \\to \\mathbb Q_{\\ge 0}$, independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map.",
     "decls": [
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.GenSBMap.proposition_11_5_3_book",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.SDiagram.isScPlusMultisection_pushMult",
-     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.SDiagram.isScPlusMultisection_pullMult",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.GenSBMap.proposition_11_5_3_book",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.SDiagram.isScPlusMultisection_pushMult",
+     "Chapter11/MultisectionLocalStructure · SBLocalization.SDiagram.isScPlusMultisection_pullMult",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushMult",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullMult",
@@ -1515,7 +1515,7 @@
    "lean": {
     "statement": "The category SBPC (`SBPC`, `instCategorySBPC`: objects strong bundle functors $A$ over $F$ satisfying Definition 8.5.9, Chapter 8's `IsProperStrongBundleCovering2021`; morphisms commutative cubes of `SEP` morphisms), the class $E_{SBPC}$ (`SBPC.equivalences`) and $SBPC[E^{-1}]$ with its universal property (`SBPC.Loc`, `isLocalization_Q`), with the induced functors to $\\mathcal{PC}(E^{-1})$ and $SEP(F^{-1})$. Theorem 11.6.6 for SBPC (`SBPC.theorem_11_6_6`), with natural transformations of SBPC morphisms. The description of $SBPC[E^{-1}]$ by diagrams `SBPCLoc` (Definition 11.6.7 and Proposition 11.6.8 for SBPC, composition by weak fibred products), $I$ inverting $E_{SBPC}$, every morphism $I(\\Gamma)^{-1} \\circ I(\\varepsilon)$, and the comparison functor from the universal localization (`SBPCLoc.fromLoc`). Witness: the identity of the bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ (`SBPC.Examples.theorem_11_6_6_ep`).",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021",
      "Chapter11/ProperStrongBundleCoverings · SBPC",
      "Chapter11/ProperStrongBundleCoverings · SBPC.Hom",
      "Chapter11/ProperStrongBundleCoverings · SBPC.forget",
@@ -1708,7 +1708,7 @@
     "Chapter11/BoundaryMeasureEquivalence · EpFunctor.hcovB_pull",
     "Chapter11/BoundaryMeasureEquivalence · EpFunctor.hcovB_push",
     "Chapter9/StokesBoundaryMeasure · EP.hcovB_of_hcovS",
-    "Chapter9/HemisphereWitness · E8W.e8w_hcov",
+    "Chapter9/HemisphereWitness · Hemisphere.hcov",
     "Chapter11/MeasureGeneralizedIso · EPLocalization.EPLoc.integral_pull",
     "Chapter11/MeasureGeneralizedIso · EPLocalization.EPLoc.integral_push",
     "Chapter11/MeasureGeneralizedIso · EPLocalization.Diagram.theorem_11_4_1_pull",
@@ -1811,12 +1811,12 @@
    "label": "§11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399)",
    "page": 547,
    "book": "$[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms.",
-   "instead": "**Formalized** in `Chapter11/AuxiliaryNormTransport2021.lean`. Condition (1) transfers the complete fibre norm along the linear isomorphism $\\Psi_x \\circ \\Phi_x^{-1} \\circ \\mu(\\sigma^{-1}, \\cdot)$ of $W_{0,1}$-fibres. Condition (2) lifts $h_k$ through a local inverse of $t$ and of $\\varphi$, applies (2) for $N'$, and returns through the level-1 local inverse of $\\Phi$ and the continuity of $\\mu[1]$. The push-forward is the pull-back along the reversed diagram. `GenSBMap.proposition_11_5_1_book` states Proposition 11.5.1 in full, with no added hypothesis (V11.30) (Findings, Chapter 11, items 60, 81).",
+   "instead": "**Formalized** in `Chapter11/AuxiliaryNormTransport.lean`. Condition (1) transfers the complete fibre norm along the linear isomorphism $\\Psi_x \\circ \\Phi_x^{-1} \\circ \\mu(\\sigma^{-1}, \\cdot)$ of $W_{0,1}$-fibres. Condition (2) lifts $h_k$ through a local inverse of $t$ and of $\\varphi$, applies (2) for $N'$, and returns through the level-1 local inverse of $\\Phi$ and the continuity of $\\mu[1]$. The push-forward is the pull-back along the reversed diagram. `GenSBMap.proposition_11_5_1_book` states Proposition 11.5.1 in full, with no added hypothesis (V11.30) (Findings, Chapter 11, items 60, 81).",
    "decls": [
     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1",
-    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.GenSBMap.proposition_11_5_1_book",
-    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
-    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm"
+    "Chapter11/AuxiliaryNormTransport · SBLocalization.GenSBMap.proposition_11_5_1_book",
+    "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
+    "Chapter11/AuxiliaryNormTransport · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm"
    ],
    "formalized": [
     "V11.30"
@@ -1828,12 +1828,12 @@
    "label": "§11.5, Lemma 11.5.2 and Proposition 11.5.3, pp. 547–549 (2017: Lemma 11.7, Proposition 11.7, pp. 400–401)",
    "page": 548,
    "book": "Push-forwards and pull-backs of sc⁺-multisections are sc⁺-multisections: their local section structures are carried along.",
-   "instead": "**Formalized** in `Chapter11/MultisectionLocalStructure2021.lean`. That file adds Definition 13.2.1 (`IsScPlusMultisection`, satisfiable by the multisection of the zero section). The local section structures go along a strong bundle equivalence both ways, by the text's construction with a local inverse of the target map. `lemma_11_5_2_book` and `GenSBMap.proposition_11_5_3_book` state Lemma 11.5.2 and Proposition 11.5.3 for sc⁺-multisections, with no added hypothesis (V11.31, V11.32). No strong bundle transport of natural representations is needed: Theorem 7.1.13 gives a natural representation inside the transported neighbourhood (Findings, Chapter 11, items 61, 82).",
+   "instead": "**Formalized** in `Chapter11/MultisectionLocalStructure.lean`. That file adds Definition 13.2.1 (`IsScPlusMultisection`, satisfiable by the multisection of the zero section). The local section structures go along a strong bundle equivalence both ways, by the text's construction with a local inverse of the target map. `lemma_11_5_2_book` and `GenSBMap.proposition_11_5_3_book` state Lemma 11.5.2 and Proposition 11.5.3 for sc⁺-multisections, with no added hypothesis (V11.31, V11.32). No strong bundle transport of natural representations is needed: Theorem 7.1.13 gives a natural representation inside the transported neighbourhood (Findings, Chapter 11, items 61, 82).",
    "decls": [
     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3",
-    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.lemma_11_5_2_book",
-    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.GenSBMap.proposition_11_5_3_book",
-    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusMultisection"
+    "Chapter11/MultisectionLocalStructure · SBLocalization.lemma_11_5_2_book",
+    "Chapter11/MultisectionLocalStructure · SBLocalization.GenSBMap.proposition_11_5_3_book",
+    "Chapter11/MultisectionLocalStructure · SBLocalization.IsScPlusMultisection"
    ],
    "formalized": [
     "V11.31",
@@ -1875,7 +1875,7 @@
    "book": "Proper strong bundle coverings, their functors and equivalences, the analogue of Theorem 11.6.6 and the localization, the details left to the reader.",
    "instead": "**Formalized** (`Chapter11/ProperStrongBundleCoverings.lean`, `StrongBundleCoveringPullback.lean`, `StrongBundleCoveringFibredProduct.lean`, `StrongBundleCoveringLocalization.lean`; V11.42). The category SBPC (objects: strong bundle functors $A$ over $F$ satisfying Definition 8.5.9; morphisms: commutative cubes), the class $E_{SBPC}$ (read: both components strong bundle equivalences; the text does not define it), and $SBPC[E^{-1}]$ with its universal property. Theorem 11.6.6 for SBPC: the weak fibred product of strong bundles over that of the bases is a proper strong bundle covering, $\\pi_{(A'',F'')}$ is an equivalence and the square commutes up to natural equivalence (`SBPC.theorem_11_6_6`). $SBPC[E^{-1}]$ is described by diagrams under common refinement, as for $\\mathcal{PC}(E^{-1})$ (`SBPCLoc`), with the comparison functor from the universal localization (Findings, Chapter 11, items 76–78).",
    "decls": [
-    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
+    "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021",
     "Chapter11/ProperStrongBundleCoverings · SBPC",
     "Chapter11/ProperStrongBundleCoverings · SBPC.equivalences",
     "Chapter11/ProperStrongBundleCoverings · SBPC.isLocalization_Q",

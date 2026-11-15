@@ -4,7 +4,7 @@ import Polyfold.Chapter3.FredholmGermLinearizationG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
 **Proposition 3.6.5 (preprint 3.52) with its index clause, in the text's germ reading of Definition 3.1.11 (preprint 3.11)**
-(phase 2): the filling `g` and the sc⁺-section `s` are sc-smooth germs; the index of the
+: the filling `g` and the sc⁺-section `s` are sc-smooth germs; the index of the
 linearization is `n − N` for the dimensions `n = dim Pn`, `N = dim Q` of every conjugation of
 `g − s` to a basic germ.
 
@@ -45,7 +45,7 @@ section Conjugate
 variable {C U : Set (E 0)} {Gk : ScNbhdGerm E C} {k : E 0 → F 0} {Dk : E 1 → E 0 →L[ℝ] F 0}
 
 /-- **The derivative at `0` of a germ conjugated to a basic germ is Fredholm of index
-`dim d.Pn − dim d.Q`** (Propositions 3.1.10 and 3.6.5 (preprint 3.10 and 3.52), germ reading, phase 2; the germ version of
+`dim d.Pn − dim d.Q`** (Propositions 3.1.10 and 3.6.5 (preprint 3.10 and 3.52), germ reading; the germ version of
 `ConjugationData.scDeriv_isFredholm_index_wholeChart`): `k` an sc¹-germ on `G_k ⊆ U` with derivative family
 `Dk`, `k(0) = 0`, `d` conjugation data of `k`. -/
 theorem ConjugationData.scDeriv_isFredholm_index (hU : IsRelOpenInQuadrant E C U)
@@ -55,7 +55,7 @@ theorem ConjugationData.scDeriv_isFredholm_index (hU : IsRelOpenInQuadrant E C U
   d.iso.deriv_zero_isFredholm_germ hU h0 hGk hk hk0 d.quadrant d.relOpen d.base_zero d.basic
     d.conj
 
-/-- **The index `n − N` does not depend on the conjugation** (germ reading, phase 2; the germ
+/-- **The index `n − N` does not depend on the conjugation** (germ reading; the germ
 version of `ConjugationData.index_eq_wholeChart`): for two conjugations `d`, `d'` of the same sc¹-germ `k`
 with `k(0) = 0`, `dim d.Pn − dim d.Q = dim d'.Pn − dim d'.Q`. -/
 theorem ConjugationData.index_eq (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
@@ -75,8 +75,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), with the index, germ reading** (phase 2;
-the germ version of `proposition_3_6_5_local_index_wholeChart`): let `g` be a filling germ of the principal
+/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), with the index, germ reading** (the germ version of `proposition_3_6_5_local_index_wholeChart`): let `g` be a filling germ of the principal
 part `f̂` of a section at a zero, with a derivative family `Dg` on a germ `G ⊆ U`, `s` an sc¹-germ
 into `F¹` on `G_s` with `s(0) = g(0)` and `d` conjugation data of `g − s` to a basic germ
 `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`, `n = dim d.Pn`, `N = dim d.Q`.  Then `Dg(0)` and
@@ -126,7 +125,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **Proposition 3.6.5 (preprint 3.52), with the index, germ reading** (phase 2; the germ version of
+/-- **Proposition 3.6.5 (preprint 3.52), with the index, germ reading** (the germ version of
 `proposition_3_6_5_index_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀`): let `f` be a section with
 `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  In the strong bundle chart of Definition 3.1.11 (preprint 3.11)
 centred at `x₀`, with the filling germ `g` of `f̂` (on `G ⊆ U`, derivative family `Dg`) and the

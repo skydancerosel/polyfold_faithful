@@ -55,20 +55,20 @@ the standard Stokes theorem `∫_{(Mᵢ,oᵢ)} dω_k = ∫_{∂(Mᵢ,oᵢ)} ω_k
 * Mathlib's partitions of unity on the sheet need it σ-compact (`OrientedSheet.sigmaCompact`); it
   is when `X` is second countable.
 * The orientation of a sheet is here a continuous Mathlib tangent orientation of the sheet with
-  its corner charts; the passage from the orientations of Definition 9.3.3 is not formalized.
-  (2026-11-13) It is `OrientedTameStructure.orientedSheet` (`StokesSheet.lean`).
+  its corner charts; the passage from the orientations of Definition 9.3.3 is
+  `OrientedTameStructure.orientedSheet` (`StokesSheet.lean`).
 
-## Not formalized
+## Not in this file
 
 The measures `μ_ω`, `μ^∂_ω` (gaps G.107, G.109) and with them the second and fourth equalities
 (hypotheses here); the forms `β_k ω` (the product of an sc-form with an sc-smooth function, and
-that it vanishes on the sheets off `supp β_k`); Remark 9.5.20 (its M-polyfold `X ⊆ ℝ × ℂ` has a
-jump of dimension and is not constructed).  (2026-11-13) Formalized since: the measures `μ_ω` for
-sc-forms (`GapP2_E3_*`, `GapP2_E4_*`), the forms `β ω` (`EP.epFormsInftySmul`,
-`FunctionTimesForm.lean`), the comparison with Part I's integral for classes represented on any
-level (`EP.epFormsInftyEval_integ_eq_integral`, `LevelRestrict.lean`), `μ^∂_ω` under a
-class condition (`BoundaryMeasure.lean`) and Stokes' theorem with it
-(`StokesBoundaryMeasure.lean`).  Remark 9.5.20 is still not formalized.
+that it vanishes on the sheets off `supp β_k`); Remark 9.5.20.  They are elsewhere: the measures
+`μ_ω` for sc-forms (`SheetIntegrationConcrete.lean`, `MultiChartIntegration.lean`), the forms
+`β ω` (`EP.epFormsInftySmul`, `FunctionTimesForm.lean`), the comparison with Part I's integral
+for classes represented on any level (`EP.epFormsInftyEval_integ_eq_integral`,
+`LevelRestrict.lean`), `μ^∂_ω` under a class condition (`BoundaryMeasure.lean`), Stokes' theorem
+with it (`StokesBoundaryMeasure.lean`), and Remark 9.5.20's M-polyfold `X ⊆ ℝ × ℂ`, whose
+dimension jumps (`DimensionJumpRetract.lean`, `DimensionJumpPolyfold.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

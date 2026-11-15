@@ -24,32 +24,33 @@ compact tame branched ep⁺-subgroupoid, and `Λ` can be taken structurable.
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
 * `remark_15_3_6_localBranching_hyp`: at every point of `supp(Λ ∘ f)` a local branching
-  structure (Definition 9.1.2 (2)–(4)) of `z ↦ Λ(f(z))`, from L's Theorem 15.2.5 and
+  structure (Definition 9.1.2 (2)–(4)) of `z ↦ Λ(f(z))`, from Theorem 15.2.5 and
   `remark_15_3_6_goodPosition_hyp`; **`remark_15_3_6_isBranchedEpSubgroupoid_hyp`**: with
   `|supp(Λ ∘ f)|` paracompact (Definition 9.1.2 (1), new in 2021), `Λ ∘ f` is a branched
-  ep⁺-subgroupoid (Definition 9.1.2).  Unlike L's interior form, no `d_X = 0` is needed.
+  ep⁺-subgroupoid (Definition 9.1.2).  Unlike the interior form of Remark 15.2.3, no `d_X = 0` is needed.
 * Compactness of `|supp(Λ ∘ f)|`: `isClosed_supp_comp` (`supp(Λ ∘ f)` is closed in `X`),
   `isClosed_orbitSupp_comp` (its orbit space is closed in `|X|`),
   `supp_comp_subset_controlled` (with `N(Λ) ≤ 1` and `dom-supp(Λ) ⊆ U` it lies in
   `{x ∈ U | N(f(x)) ≤ 1}`), **`isCompact_orbitSupp_comp`** (so `|supp(Λ ∘ f)|` is compact when
   `(N, U)` controls compactness).
-* **`theorem_15_3_7_statement`**: Theorem 15.3.7 as a Lean proposition (not proved here), with
+* **`theorem_15_3_7_statement`**: Theorem 15.3.7 as a Lean proposition (proved: `theorem_15_3_7`,
+  `GeneralPositionExistence`), with
   (3) as `IsTransversal f Λ` (Definition 15.2.1) and (4) as `IsInGeneralPosition A f Λ`
   (Definition 15.3.5; the proof's first sentence: (4) is the surjectivity of the reduced
-  linearization), and `Λ` structurable (Definition 13.3.6, D's `IsStructurable`).
+  linearization), and `Λ` structurable (Definition 13.3.6, `IsStructurable`).
 * **`theorem_15_3_7_in_particular_hyp`**: the "in particular" sentence: every `Λ` with the
   conclusions (1)–(4) makes `Λ ∘ f` a compact branched ep⁺-subgroupoid
   (`IsBranchedEpSubgroupoid` and `IsCompactBranched`, Definitions 9.1.2, 9.1.6 (2)).
 * `theorem_15_3_7_of_isInGeneralPosition_zero`: the case where `(f, Λ₀)` is already in general
   position (`Λ₀` the trivial multisection): then `Λ₀` has all the conclusions (paracompact
-  `|X|` for "structurable", D's `isStructurable_zeroMultisection`).
+  `|X|` for "structurable", `isStructurable_zeroMultisection`).
 
 ## Reading
 
 * As in §15.2, `f` carries germ data in tame charts (`IsScFredholmSectionTame`), the inherited
   Part I hypothesis of Theorem 3.6.8 (the proof of the theorem goes through Theorem 15.2.5).
-* "Tame" in "tame branched ep⁺-subgroupoid" (Definition 9.3.6) is not formalized in §15.2
-  either; the branched structure is Definition 9.1.2 with Definition 4.2.1 submanifolds.
+* "Tame" in "tame branched ep⁺-subgroupoid" (Definition 9.3.6) is `IsTameBranched`
+  (`TameBranched`); here the branched structure is Definition 9.1.2 with Definition 4.2.1 submanifolds.
 * `U` is taken open and saturated (D15.3.1 as formalized, `ControlsCompactness`); the text says
   "a saturated subset".
 * `h` is a continuous functor: continuous on objects and constant along morphisms.
@@ -223,7 +224,7 @@ theorem isCompact_orbitSupp_comp {f : A.Obj → A.W} (hf : A.E.IsScFredholmSecti
 
 variable (A) in
 /-- **Theorem 15.3.7 (General Position; 2017: Theorem 15.4), pp. 693–694**, as a proposition (the
-statement, for wave 4 to prove).  `X` tame with sc-smooth bump functions, `f` an sc-Fredholm section
+statement; it is `theorem_15_3_7`, `GeneralPositionExistence`).  `X` tame with sc-smooth bump functions, `f` an sc-Fredholm section
 functor with germ data in tame charts (the inherited Part I hypothesis, as in §15.2) and compact
 `|S_f|`, `(N, U)` controlling compactness, `h : X → (0, 1]` a continuous functor.  Then there is a
 structurable sc⁺-multisection functor `Λ` (Definition 13.3.6) with (1) `N(Λ)(x) < h(x)`,

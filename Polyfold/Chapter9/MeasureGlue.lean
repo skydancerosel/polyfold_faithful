@@ -41,11 +41,11 @@ The step from the compatible local expressions to the measure, and the uniquenes
   With `V = Ωⁿ⁻¹_∞(X)` and the weights `1/♯G_x` or `1/♯G_x^{eff}` these are the statements of
   Theorems 9.5.15 and 9.5.16, given the local expressions and their agreement on overlaps.
 
-## Not formalized
+## Not in this file
 
 The local expressions themselves (the integrals of `ω` over measurable subsets of `∂Mᵢ` with the
 boundary orientation) and their agreement on overlaps, the boundary versions of Lemmas 9.5.7 and
-9.5.9–9.5.11.  (2026-11-13) These are in `SheetFamily.lean`, `FamilyMeasure.lean`,
+9.5.9–9.5.11.  These are in `SheetFamily.lean`, `FamilyMeasure.lean`,
 `BoundaryFamily.lean` and `BoundaryMeasure.lean` (`theorem_9_5_15_msheets`,
 under a class condition on the boundary sheets).
 -/

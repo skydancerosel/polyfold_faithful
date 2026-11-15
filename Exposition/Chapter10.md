@@ -501,7 +501,7 @@ machine (V10.27):* `Polyfold.EpStrongBundle.theorem_10_4_5`,
 
 **Proposition 10.4.6 (new in the 2021 edition) ((LR) for strong bundles).** (LR) of strong bundles is invariant under strong
 bundle equivalences (proof left to the reader), and Proposition 10.4.7 (new in the 2021 edition) is the strong bundle version
-of Proposition 10.1.10. Both checked (since 2026-11-12), with Definition 8.4.2 read as `IsLRLocal` (gap G.122, closed;
+of Proposition 10.1.10. Both checked, with Definition 8.4.2 read as `IsLRLocal` (gap G.122, closed;
 Findings, items 45, 72). *Checked by machine (V10.72, V10.73):* `Polyfold.EpStrongBundle.proposition_10_4_6`,
 `Polyfold.EpStrongBundle.proposition_10_4_7`.
 
@@ -545,7 +545,7 @@ arrow is printed $|X| \to |X|$ (possible misprint for $|X'|$, in both editions; 
 morphisms $a : \phi(x'') \to x$, $b : \psi(x'') \to x'$ give $\gamma : G_x \to G'_{x'}$, $\gamma(g) = b \circ \psi(k) \circ
 b^{-1}$ where $\phi(k) = a^{-1} \circ g \circ a$ (2017: $a \circ g \circ a^{-1}$), an isomorphism if $\psi$ is an
 equivalence; the square (10.24) with generalized vertical maps and the germs $q$, $Q$ of (10.25) are checked for each
-choice of data (since 2026-11-12; gap G.124, closed; Findings, item 52). *Checked by machine (V10.52–V10.54):*
+choice of data (gap G.124, closed; Findings, item 52). *Checked by machine (V10.52–V10.54):*
 `Polyfold.SBLocalization.GenSBMap.orbitMap_square`, `Polyfold.EPLocalization.Diagram.isotropyHom`,
 `Polyfold.SBLocalization.GenSBMap.square_10_24`, `Polyfold.EPLocalization.Diagram.exists_germ_q`,
 `Polyfold.SBLocalization.SDiagram.exists_lift_Q`.
@@ -585,7 +585,7 @@ closed; Findings, item 56). *Checked by machine (V10.60):* `Polyfold.StrongBundl
 
 **Proposition 10.5.6 (new in the 2021 edition) (local regularity).** If one strong bundle has the local regularity property,
 so has the other. Checked for every property invariant under strong bundle equivalences; for local regularity that is
-Proposition 10.4.6, checked since 2026-11-12 (gaps G.122, G.126, closed); the text's "see Proposition 10.4.7" is read as
+Proposition 10.4.6, checked (gaps G.122, G.126, closed); the text's "see Proposition 10.4.7" is read as
 10.4.6 (a reading point; Findings, item 57). *Checked by machine (V10.61):*
 `Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso`, `Polyfold.SBLocalization.proposition_10_5_6`.
 

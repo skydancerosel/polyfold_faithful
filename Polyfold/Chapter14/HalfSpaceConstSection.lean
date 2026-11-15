@@ -10,7 +10,7 @@ non-empty `dom-supp(Λ)`** on the half-space bundle `H × ℝᵏ → H`, `H = [0
 
 ## What is formalized
 
-* `SBLocalization.isFaceScPlusSectionOn_of_isScPlusSectionOn_w1` (general): an sc⁺-section on all
+* `SBLocalization.isFaceScPlusSectionOn_of_isScPlusSectionOn` (general): an sc⁺-section on all
   of `X` satisfies (1) of Definition 14.1.3 on every `U` (in every tame strong bundle chart and
   tame presentation, the local face germ is a sub-retract, `corner_retraction`, and the chart
   representative restricts to it, `IsScSmoothRetractMap.mono_source`).
@@ -21,7 +21,7 @@ non-empty `dom-supp(Λ)`** on the half-space bundle `H × ℝᵏ → H`, `H = [0
   `I_x = {∗}`, `s_∗ = constSec v`, `τ ≡ [{∗} ← {∗} → {∗}]`); `chargesBoundary_constMulti`;
   `boundaryDomSupp_constMulti_nonempty` (for `v ≠ 0`, `dom-supp(Λ_v) ∋ 0`);
   `pointwiseNorm_constMulti` (`N(Λ_v)(x) = N(x, v)`) and its continuity in `x`.
-* **`theorem_14_1_9_constSec`**: for `v ≠ 0`, Theorem 14.1.9 (`theorem_14_1_9_charged_a6`) applies
+* **`theorem_14_1_9_constSec`**: for `v ≠ 0`, Theorem 14.1.9 (`theorem_14_1_9_charged`) applies
   to `Λ_v` with `Ũ = X` and `f(x) = N(x, v) + 1`, all hypotheses discharged: there is a
   structurable `Λ'` on `H × ℝᵏ` with `N(Λ') ≤ f` and `Λ' = Λ_v` over `∂H`.
 -/
@@ -45,7 +45,7 @@ variable {A : SEP.{u}}
 /-- **An sc⁺-section on `X` is sc⁺ on every local face** ((1) of Definition 14.1.3 on every `U`):
 in a tame strong bundle chart, the local face germ `O ∩ V ∩ {tᵢ = 0}` at `φ(x)` is a sub-retract
 (`corner_retraction`), and the chart representative of `s`, sc-smooth on `O`, restricts to it. -/
-theorem isFaceScPlusSectionOn_of_isScPlusSectionOn_w1 {s : A.Obj → A.W}
+theorem isFaceScPlusSectionOn_of_isScPlusSectionOn {s : A.Obj → A.W}
     (hs : IsScPlusSectionOn A s univ) (U : Set A.Obj) : IsFaceScPlusSectionOn A s U := by
   refine ⟨fun x _ => ⟨hs.1 x (mem_univ x), hs.mem_oneSet (mem_univ x)⟩, ?_⟩
   intro c hc n W T hT x hx i hi
@@ -117,7 +117,7 @@ def constStructure (v : Fin k → ℝ) {x : (halfSEP m k).Obj} (V : (halfSEP m k
     BoundarySymmetricStructure (halfSEP m k) (constMulti v) V where
   I := PUnit.{1}
   s _ := constSec v
-  isFaceScPlus _ := isFaceScPlusSectionOn_of_isScPlusSectionOn_w1 (isScPlusSectionOn_constSec v) _
+  isFaceScPlus _ := isFaceScPlusSectionOn_of_isScPlusSectionOn (isScPlusSectionOn_constSec v) _
   equivariant g _ y hy := by
     rw [fibAct_halfSEP]
     have h : V.rep.Φ g y = y := (V.tgt_Γ g hy.1).symm.trans (V.src_Γ g hy.1)
@@ -209,7 +209,7 @@ theorem continuous_normW_constSec {N : (halfSEP m k).B.One → ℝ}
 /-- **Theorem 14.1.9 with non-empty `dom-supp(Λ)` and `∂X ≠ ∅`**: on the half-space bundle
 `H × ℝᵏ → H`, for `v ≠ 0` and any auxiliary norm `N` (one exists, Theorem 12.2.2), the
 multisection `Λ_v` of the constant section over `∂H` has a structurable extension `Λ'` with
-`N(Λ')(x) ≤ N(x, v) + 1` (`theorem_14_1_9_charged_a6` with `Ũ = X`, `f(x) = N(x, v) + 1`, all
+`N(Λ')(x) ≤ N(x, v) + 1` (`theorem_14_1_9_charged` with `Ũ = X`, `f(x) = N(x, v) + 1`, all
 hypotheses discharged). -/
 theorem theorem_14_1_9_constSec {v : Fin k → ℝ} (hv : v ≠ 0) :
     (boundaryDomSupp (constMulti (m := m) v)).Nonempty ∧
@@ -221,7 +221,7 @@ theorem theorem_14_1_9_constSec {v : Fin k → ℝ} (hv : v ≠ 0) :
   have hpara := hasParacompactOrbitSpace_halfSEP m k
   obtain ⟨N, hN⟩ := EpStrongBundle.theorem_12_2_2 (halfSEP m k).E hpara
   have hN1 : (halfSEP m k).B.IsAuxNorm N := hN.isAuxNorm
-  obtain ⟨Λ', h1, h2, -, h4⟩ := theorem_14_1_9_charged_a6 hX hpara
+  obtain ⟨Λ', h1, h2, -, h4⟩ := theorem_14_1_9_charged hX hpara
     (admitsScPartitionsOfUnity_halfSEP m k) (hB_halfSEP m k) (constMulti v)
     (isBoundaryStructurable_constMulti v) (chargesBoundary_constMulti v) N hN univ isOpen_univ
     (GroupoidStr.isSaturated_univ _) (subset_univ _) (fun x => normW N (constSec v x) + 1)

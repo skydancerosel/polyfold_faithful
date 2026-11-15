@@ -92,19 +92,22 @@ structures give the same sum) and a branched ep⁺-subgroupoid, the local branch
   branched ep⁺-subgroupoid needs Part I facts about the `TMᵢ` (smooth finite-dimensional
   submanifolds of `TX` of smooth points, closed in `TU(x)`) and the paracompactness of
   `|supp(TΘ)|`, which the text does not discuss; these form `TangentBranchingHyp`.
-* Possible misprints: "This completes the proof of Theorem 9.2.8" (p. 418) is presumably Theorem
+* How we read some passages: "This completes the proof of Theorem 9.2.8" (p. 418) is presumably Theorem
   9.2.1; "it suffices to prove the proposition" (p. 410) refers to Theorem 9.2.1; in
   `∑_{i ∈ I | y ∈ M_j} σᵢ · T_yMᵢ` (p. 418) the index is presumably `i`; the introduction (p. 408)
   calls `TΘ : TX → ℚ⁺` a "branched ep-subgroupoid", Definition 9.2.12 an ep⁺-subgroupoid.
 
-## Not formalized, and why
+## Not in this file
 
 * **Proposition 9.2.8 and Lemmas 9.2.9–9.2.11** (the graph representation of the `Mᵢ` over a cone
   in `T_xMᵢ ∩ C`, the inversion of `a ↦ a + PA(a)a`, the sequences of good points): they need
   sc-complements, the mean value formula for sc⁺-retractions and an inverse function argument
-  inside a partial quadrant, none of which is available for Part I's tangent spaces.  Their
-  content enters as `HasTangentSlicesAt`, proved only for `ℝ⁰`.
-* The Part I facts in `TangentBranchingHyp`, proved only for `Θ = 0`.
+  inside a partial quadrant.  Their content enters here as the hypothesis `HasTangentSlicesAt`;
+  they are in `TangentSlicesBasic.lean`, `TangentSlices.lean` and `AppendixSlices.lean`, and
+  `HasTangentSlicesAt` holds at every point of every M-polyfold (`hasTangentSlicesAt`,
+  `GeneralCorollaries.lean`).
+* The Part I facts in `TangentBranchingHyp`: they hold when `|X|` is paracompact
+  (`tangentBranchingHyp`, `TangentSubmanifoldSmooth.lean`).
 * The chart description of `submanifoldTangent` (its image under a tangent chart map is the
   tangent space `T_z(φ(W ∩ A))` of the sub-retract, Remark 4.14, `remark_4_2_2`): not needed for
   the results here, which use only the data independence and the calculus of

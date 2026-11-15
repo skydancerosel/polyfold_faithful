@@ -1,5 +1,5 @@
-import Polyfold.Chapter4.BoundaryForms2021
-import Polyfold.Chapter4.ScFormsWedge2021b
+import Polyfold.Chapter4.BoundaryForms
+import Polyfold.Chapter4.ScFormsWedgeAssociativity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4, pp. 198–199
@@ -8,10 +8,10 @@ differential algebra `Ω*_∞(X, ∂X)`" of p. 199.
 
 # The wedge product of forms on `∂X`
 
-Forms on `∂X` are read, as in `BoundaryForms2021.lean`, as the sc-forms on the tame boundary `bX`
+Forms on `∂X` are read, as in `BoundaryForms.lean`, as the sc-forms on the tame boundary `bX`
 that agree over `B : bX → X` (with their `d`); more generally, for an sc-smooth `f : X → Y`, the
 forms agreeing over `f` (`agreeDForms f`, direct limit `agreeDFormsInfty f`).  This file puts the
-wedge product of `ScFormsWedge2021.lean` on these forms.
+wedge product of `ScFormsWedge.lean` on these forms.
 
 ## What is proved
 

@@ -44,7 +44,7 @@ large `k` the `s(φ_k)` lie in finitely many `P_i`, each of them proper.
   locally finite family is proper: the step "`Q` is proper" of Proposition 7.5.10 (2017: 7.14) (2)),
   `isProperSubset_of_isCompact` (compact sets are proper), `HasPropernessProperty.isProperSubset`,
   `HasPropernessProperty.mono` (**if `V(x)` has the properness property, so does every open
-  `V' ⊂ V(x)`**; PLAN II.5, 4), `exists_hasPropernessProperty_subset` and
+  `V' ⊂ V(x)`**), `exists_hasPropernessProperty_subset` and
   `exists_hasPropernessProperty_isConnected_subset` (inside every neighbourhood of `x` there is
   an open, resp. open and connected, neighbourhood of `x` with the properness property).
 * **Proposition 7.5.10 (2017: 7.14) (2)**: `proposition_7_5_10_two` (`[ParacompactSpace X.OrbitSpace]`: `A` is
@@ -52,7 +52,7 @@ large `k` the `s(φ_k)` lie in finitely many `P_i`, each of them proper.
 
 ## Reading
 
-* Properness is Mathlib's `IsProperMap` of `(s ⁻¹' Q).domRestrict t` (PLAN P3).  Both `X` and
+* Properness is Mathlib's `IsProperMap` of `(s ⁻¹' Q).domRestrict t`.  Both `X` and
   `𝐗` are metrizable (Theorem 2.3.10 (2017: 2.2) [2.16]), so this is "preimages of compact sets are compact"
   (`ProperMaps.lean`), which for the subtype `s⁻¹(Q)` is the compactness of `s⁻¹(Q) ∩ t⁻¹(K)`.
 * Proposition 7.5.10 (2017: 7.14) (1) is proved through the closed-map property of proper maps rather than the
@@ -60,13 +60,13 @@ large `k` the `s(φ_k)` lie in finitely many `P_i`, each of them proper.
   7.13) under the proper `t : s⁻¹(Q) → X`, and `|X|` carries the quotient topology.
 * **Proposition 7.5.10 (2017: 7.14) (2) needs no regularity of `|X|`.**  The text's proof takes a locally finite
   *closed* refinement from Lemma 2.7.3 (2017: 2.7) [2.56], which assumes a regular Hausdorff space (true for
-  `|X|` by Theorem 7.3.1 (2017: 7.2), p. 324 (2017 p. 244), which a later wave of this project formalizes).  We take instead
+  `|X|` by Theorem 7.3.1 (2017: 7.2), p. 324 (2017 p. 244): `lemma_7_3_5`, `theorem_7_3_1`, `OrbitTopology.lean`).  We take instead
   an *open* locally finite precise refinement `(v_z)` of the cover `(π(V(x_z)))_z` of the closed
   `A` (Mathlib's `precise_refinement_set`, paracompactness alone) and use the closures:
   `P_z = cl_X(V(x_z)) ∩ π⁻¹(cl(v_z) ∩ A)` is a closed subset of the proper `cl_X(V(x_z))`,
   `π(P_z) ⊂ cl(v_z)`, and the closures of a locally finite family are locally finite.  So (2) is
   proved as stated, with `[ParacompactSpace X.OrbitSpace]` only (Definition 7.5.1 (2017: 7.15): paracompact
-  without Hausdorff), and no version "`_of_regularSpace`" is needed.  PLAN II.6, 7's shrinking in
+  without Hausdorff), and no version "`_of_regularSpace`" is needed.  A shrinking in
   the normal `|X|` is not needed either.
 * In (2) the text's "neighborhood `U(x_z)` for which we have the natural `G_{x_z}`-action" is used
   only through the properness of `cl_X(U(x_z))`; any neighbourhood with the properness property
@@ -75,7 +75,7 @@ large `k` the `s(φ_k)` lie in finitely many `P_i`, each of them proper.
   `cl(v_z)`.
 * The representatives `x_z` are `Quotient.out`.  The text's "`Q_z` is proper and therefore
   `π(Q_z)` is closed" and "`A` is paracompact" are not needed by this route.
-* Possible misprints (notation only): the proof of (2) writes `cl_X(U_{x_{z_i}})` for
+* Notation: the proof of (2) writes `cl_X(U_{x_{z_i}})` for
   `cl_X(U(x_{z_i}))`; the proof of (1) concludes "`x = s(φ) ∈ Q`" with `x` a new name for the
   point `s(φ)` (the `x_k` are the earlier points of `Q`).
 * "For all" hypotheses: none is added.  `[ParacompactSpace X.OrbitSpace]` is the text's
@@ -255,7 +255,7 @@ theorem HasPropernessProperty.isProperSubset {U : Set Obj} (hU : X.HasProperness
     X.IsProperSubset (closure U) :=
   hU.2
 
-/-- **If `V(x)` has the properness property, so does every open `V' ⊆ V(x)`** (PLAN II.5, 4): the
+/-- **If `V(x)` has the properness property, so does every open `V' ⊆ V(x)`**: the
 closure of `V'` is a closed subset of the proper `cl_X(V(x))`. -/
 theorem HasPropernessProperty.mono {V V' : Set Obj} (hV : X.HasPropernessProperty V)
     (hV' : IsOpen V') (hV'V : V' ⊆ V) : X.HasPropernessProperty V' :=

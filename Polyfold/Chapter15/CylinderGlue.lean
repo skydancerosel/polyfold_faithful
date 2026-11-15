@@ -4,7 +4,7 @@ import Polyfold.Chapter14.NormControl
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, pp. 699–700:
 the boundary data of **Corollary 15.3.10 (3)** glued from the two regular perturbations
-`(Nⁱ, Uⁱ, Λⁱ)` (gap TX-4, in part).
+`(Nⁱ, Uⁱ, Λⁱ)`.
 
 # The glued boundary multisection on `{0, 1} × X`
 
@@ -21,9 +21,9 @@ The proof of (3) applies Theorem 15.3.9 on `[0, 1] × X` to the multisection ove
 * `boundaryDomSupp_cubeGlue_subset`: `dom-supp(Λ_∂) ⊆ Ũ` from `dom-supp(Λⁱ) ⊆ Uⁱ`.
 * `pointwiseNorm_cubeGlue_le_zero/one`: `Ñ(Λ_∂)(i, x) ≤ Nⁱ(Λⁱ)(x)`.
 * **`corollary_15_3_10_3_glue_hyp`**: Corollary 15.3.10 (3) for two structurable regular
-  perturbations `(Nⁱ, Uⁱ, Λⁱ)`, from Theorem 15.3.9 on `[0, 1] × X`, with the two remaining
+  perturbations `(Nⁱ, Uⁱ, Λⁱ)`, from Theorem 15.3.9 on `[0, 1] × X`, with two
   hypotheses on the glued data: `Λ_∂` structurable over `{0, 1} × X` and the face condition.
-* `corollary_15_3_10_3_glue_witness`: both remaining hypotheses hold on `ℝⁿ × ℝ⁰ → ℝⁿ` for
+* `corollary_15_3_10_3_glue_witness`: both hypotheses hold on `ℝⁿ × ℝ⁰ → ℝⁿ` for
   `Λ⁰ = Λ¹ = 0` and every section `f`.
 * The last paragraph of the proof (p. 700): `controlsCompactness_max` (`(max{N, N'}, U ∩ U')`
   controls compactness) and `IsRegularPerturbation.of_max_left/right` (a regular perturbation
@@ -164,8 +164,8 @@ theorem pointwiseNorm_cubeGlue_le_one {N₀ N₁ : A.B.One → ℝ} (hN₀ : A.B
 Theorem 15.3.9 on `[0, 1] × X`: let `d_X ≡ 0`, `|X|` paracompact, `[0, 1] × X` admit sc-smooth
 partitions of unity, `f` sc-Fredholm with tame germ data and compact `|S_f|`, and `(Nⁱ, Uⁱ, Λⁱ)`
 structurable regular perturbations (`i = 0, 1`).  If the glued boundary data `Λ_∂ = cubeGlue Λ⁰ Λ¹`
-are structurable over `{0, 1} × X` and satisfy the face condition (the two hypotheses left of
-TX's six on `Λ_∂`), there is a structurable regular perturbation `(Ñ, Ũ, Λ̃)` of `f̃` with
+are structurable over `{0, 1} × X` and satisfy the face condition (two of the six hypotheses of
+`corollary_15_3_10_3_hyp` on `Λ_∂`), there is a structurable regular perturbation `(Ñ, Ũ, Λ̃)` of `f̃` with
 `Λ̃ = Λⁱ` over `{i} × X`, and `Λ̃ ∘ f̃` is a compact branched ep⁺-subgroupoid. -/
 theorem corollary_15_3_10_3_glue_hyp (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
@@ -190,14 +190,14 @@ theorem corollary_15_3_10_3_glue_hyp (h159 : theorem_15_3_9_statement (A.cubeSEP
     fun z hz => (mem_boundary_cubeSEP_iff hX hd z).1 hz
   have hN₀ := hr₀.1.1.isAuxNorm
   have hN₁ := hr₁.1.1.isAuxNorm
-  refine corollary_15_3_10_3_ty h159 hd hpara hPUC hf hft hS hr₀.1 hr₁.1 (cubeGlue Λ₀ Λ₁)
+  refine corollary_15_3_10_3_of_theorem_15_3_9 h159 hd hpara hPUC hf hft hS hr₀.1 hr₁.1 (cubeGlue Λ₀ Λ₁)
     (fun w h => cubeGlue_of_zero h) (fun w h => cubeGlue_of_one h) hbs
     (boundaryDomSupp_cubeGlue_subset hr₀.2.2.1 hr₁.2.2.1 hbd) (fun z hz => ?_) hbonto
   rcases hbd z hz with h | h
   · exact (pointwiseNorm_cubeGlue_le_zero hN₀ hN₁ hr₀.2.1.1 h).trans_lt (hr₀.2.2.2.1 z.2)
   · exact (pointwiseNorm_cubeGlue_le_one hN₀ hN₁ hr₁.2.1.1 h).trans_lt (hr₁.2.2.2.1 z.2)
 
-/-- **The two remaining hypotheses of `corollary_15_3_10_3_glue_hyp` are satisfiable**: on
+/-- **The two glued-data hypotheses of `corollary_15_3_10_3_glue_hyp` are satisfiable**: on
 `ℝⁿ × ℝ⁰ → ℝⁿ` (`epSEP n 0`), for `Λ⁰ = Λ¹ = 0` and every section `f`, the glued data are the
 zero multisection of `W̃`, structurable over `∂([0, 1] × X)`, and the face condition holds (the
 fibres are `0`). -/
@@ -230,7 +230,7 @@ theorem corollary_15_3_10_3_glue_witness (n : ℕ)
 /-! ### The last paragraph of the proof: `(N'', U'') = (max{N, N'}, U ∩ U')` -/
 
 /-- `max{N, N'}` of two auxiliary norms of `(W, μ)` is one (Definition 8.3.5). -/
-theorem isAuxNorm_max_ty {N N' : A.B.One → ℝ} (h : A.E.IsAuxNorm N) (h' : A.E.IsAuxNorm N') :
+theorem isAuxNorm_max {N N' : A.B.One → ℝ} (h : A.E.IsAuxNorm N) (h' : A.E.IsAuxNorm N') :
     A.E.IsAuxNorm fun w => max (N w) (N' w) :=
   ⟨h.isAuxNorm.max h'.isAuxNorm, fun a b φ hk hab => by
     simp only [h.map_μ a b φ hk hab, h'.map_μ a b φ hk hab]⟩
@@ -240,7 +240,7 @@ theorem isAuxNorm_max_ty {N N' : A.B.One → ℝ} (h : A.E.IsAuxNorm N) (h' : A.
 theorem controlsCompactness_max {f : A.Obj → A.W} {N N' : A.B.One → ℝ} {U U' : Set A.Obj}
     (h : ControlsCompactness A f N U) (h' : ControlsCompactness A f N' U') :
     ControlsCompactness A f (fun w => max (N w) (N' w)) (U ∩ U') := by
-  refine ⟨isAuxNorm_max_ty h.1 h'.1, h.2.1.inter h'.2.1, A.X.isSaturated_iff.2 fun φ hφ =>
+  refine ⟨isAuxNorm_max h.1 h'.1, h.2.1.inter h'.2.1, A.X.isSaturated_iff.2 fun φ hφ =>
     ⟨A.X.isSaturated_iff.1 h.2.2.1 φ hφ.1, A.X.isSaturated_iff.1 h'.2.2.1 φ hφ.2⟩,
     subset_inter h.2.2.2.1 h'.2.2.2.1, ?_⟩
   refine h.2.2.2.2.of_isClosed_subset isClosed_closure (closure_mono (image_mono ?_))

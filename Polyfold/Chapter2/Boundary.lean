@@ -70,9 +70,9 @@ is a partial quadrant in `T_xO`.
   (restricted to open subsets, Proposition 2.3.1 (preprint 2.10) (1)), and the restriction of a retraction to an
   open subset has the same derivative (`ScRetraction.scDeriv_restrict`).
 * The second statement of Theorem 2.4.12 (preprint 2.31) (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
-  quadrant in `T_xO`) is not formalized: it needs the sc-Banach structure of `T_xO` (the range of
-  the sc-projection `Dr(x)`) and smooth lifts of a basis of `T_xO/T_x^R O` (gap G.11 of the
-  report).  For tame retracts the conclusion is proved directly, with explicit smooth lifts:
+  quadrant in `T_xO`) holds without its hypothesis: `C_xO` is a partial quadrant at every smooth
+  point of every retract (`remark_2_4_8_isPartialQuadrant` in `PartialConeQuadrant.lean`, gap
+  G.11).  For tame retracts the conclusion is also proved directly, with explicit smooth lifts:
   `proposition_2_5_6_partialCone` in `PartialCone.lean`.
 -/
 

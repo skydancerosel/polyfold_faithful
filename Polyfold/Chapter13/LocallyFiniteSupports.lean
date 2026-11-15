@@ -4,7 +4,7 @@ import Polyfold.Chapter13.LocallyFiniteStructurable
 # Locally finite domain supports (2021 Proposition 13.3.19, p. 620)
 
 2021 Proposition 13.3.19 (p. 620) asks for a family of structurable sc⁺-multisections whose
-domain supports are locally finite. Wave 3 (C) proved it with M's `IsLocallyFiniteFamily`
+domain supports are locally finite. It is proved with `IsLocallyFiniteFamily`
 (Definition 13.2.12: open saturated neighbourhoods over which only finitely many members are
 non-trivial). This file gives the bridge from Mathlib's `LocallyFinite (fun l => domSupp (Λ l))`
 to `IsLocallyFiniteFamily Λ` for families of functors on `W`, and the proposition in the

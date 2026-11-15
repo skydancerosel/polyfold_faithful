@@ -61,7 +61,7 @@ the refinement `πX`, as `Φ ∘ πX ≃ πY`.  (Theorem 10.3.15, p. 492) `|·| 
   large category like `EP`; `f ≫ g` is the text's `g ∘ f` (`homMk_comp`).
 * **Relation with Mathlib's localization.**  This file proves `MorphismProperty.IsInvertedBy`
   (`isInvertedBy_localizationFunctor`).  The universal property mentioned on p. 483 is proved
-  since 2026-11-12 in `LocalizationUniversal.lean` (`EPLoc.isLocalization`, Mathlib's
+  in `LocalizationUniversal.lean` (`EPLoc.isLocalization`, Mathlib's
   `Functor.IsLocalization`, and `EPLoc.universal_property`): a functor inverting the equivalences
   identifies naturally equivalent sc-smooth functors, with the weak fibred product `X ×_Y Y` as
   the cylinder (`map_eq_of_naturallyEquivalent`).

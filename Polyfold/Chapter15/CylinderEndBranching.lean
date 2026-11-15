@@ -38,7 +38,8 @@ weights `σⱼ` are a local branching structure of `Θᵢ` near `x`.
   every submanifold locally and is closed under intersections with open sets.
 * `SliceKernelStatement`: the sheets of `B` are the solution sets `{f = sⱼ}` of the sc⁺-sections
   `sⱼ = s̃ⱼ(i, ·)` of `W → X`, with `T_yMⱼ = ker (f − sⱼ)'(y)` (a structure of `Θᵢ` described by
-  kernels).  It is not proved here: the sheets of `B` are given as slices of the sheets of `K̃`.
+  kernels).  For the slice structures of `exists_slice_branching` it is `sliceKernelStatement`
+  (`CylinderSliceKernels`).
 -/
 
 set_option maxSynthPendingDepth 3

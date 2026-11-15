@@ -16,7 +16,7 @@ See `StructuredExtensionData`.  The structure at `x ∉ V` is `I_x = I_{q_x}`,
 ## What is formalized (namespace `Polyfold.SBLocalization`)
 
 The three cases (i)–(iii) of the text at once: every `x ∈ X` has a chart `ExtChart L x` (the unit
-chart for `x ∈ V`), and `τ_{x,x'}(φ) = τ_{q_x,q_{x'}}(liftMor φ)`, where FN's `liftMor` for the
+chart for `x ∈ V`), and `τ_{x,x'}(φ) = τ_{q_x,q_{x'}}(liftMor φ)`, where `liftMor` for the
 identity is the text's `C` (`A` when `x ∈ V`, its inverse when `x' ∈ V`).  The push machinery of
 `SymmetricStructurePush`/`_Pushforward` is used with `F = 𝟙 A`.
 * `ExtChart.sym` (the structure at `x`, `I_x = I_{q_x}`), `ExtChart.tau`,

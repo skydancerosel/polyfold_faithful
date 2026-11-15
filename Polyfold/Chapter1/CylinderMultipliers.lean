@@ -13,7 +13,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 variable {m : ℕ} {δ : ℝ} {hδ : 0 ≤ δ}
 
@@ -133,4 +133,4 @@ lemma dv_mulH {χ : ℝ → ℝ} (h : Mult m χ) (u : H m hδ) (p : idx m) :
   dv_unique _ p (mulχ_hwd h (H.toSub u) (mem_idx.1 p.2))
     (memLp_of_weighted hδ (h.memLp_wt_leib (Gu_wt _) (by have := mem_idx.1 p.2; omega)))
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

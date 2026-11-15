@@ -65,7 +65,7 @@ open StrongBundle EpGroupoid
 variable {A : SEP.{u}}
 
 /-- `∂X` is saturated: `t(φ) ∈ ∂X` iff `s(φ) ∈ ∂X` (the degeneracy index is invariant). -/
-theorem tgt_mem_boundary_iff_z4 (φ : A.Mor) :
+theorem tgt_mem_boundary_iff (φ : A.Mor) :
     A.X.tgt φ ∈ A.X.PObj.boundary ↔ A.X.src φ ∈ A.X.PObj.boundary := by
   change 1 ≤ A.X.PObj.degIndex (A.X.tgt φ) ↔ 1 ≤ A.X.PObj.degIndex (A.X.src φ)
   rw [← A.X.degIndex_tgt, A.X.degIndex_src]
@@ -101,16 +101,16 @@ theorem arc_transport {a b : A.Obj} {i : S.I a} {j : S.I b} {φ : A.Mor}
   | @nil ha z hz i =>
     rw [A.X.src_unit] at hφ ⊢
     rw [A.X.tgt_unit]
-    exact (fibAct_unit_p3w3 (D.P_s a ha i z ⟨S.V_subset a ha hz, hφ⟩)).symm
+    exact (fibAct_unit' (D.P_s a ha i z ⟨S.V_subset a ha hz, hφ⟩)).symm
   | @snoc b c i j k φ ψ h hc hs ht hp ih =>
     have hsφ : A.X.src φ ∈ A.X.PObj.boundary := by rwa [A.X.src_comp _ _ hs] at hφ
     have hpr := h.props
-    have htφ : A.X.tgt φ ∈ A.X.PObj.boundary := (tgt_mem_boundary_iff_z4 φ).2 hsφ
+    have htφ : A.X.tgt φ ∈ A.X.PObj.boundary := (tgt_mem_boundary_iff φ).2 hsφ
     have e₁ := ih hsφ
     have e₂ := D.compat b hpr.2.1 c hc ψ ⟨by rw [hs]; exact hpr.2.2.2, by rw [hs]; exact htφ⟩
       ht j k hp
     rw [A.X.tgt_comp _ _ hs, A.X.src_comp _ _ hs, e₂, hs, e₁,
-      fibAct_comp_p3w3 (D.P_s a hpr.1 i _ ⟨S.V_subset a hpr.1 hpr.2.2.1, hsφ⟩) hs]
+      fibAct_comp' (D.P_s a hpr.1 i _ ⟨S.V_subset a hpr.1 hpr.2.2.1, hsφ⟩) hs]
 
 /-- `i ∼_z i'` with `z ∈ V_a = V̂_a ∩ ∂X` gives `s^{0a}_i(z) = s^{0a}_{i'}(z)`. -/
 theorem zRel_sections_eq {a z : A.Obj} {i i' : S.I a} (h : S.ZRel a z i i')
@@ -118,7 +118,7 @@ theorem zRel_sections_eq {a z : A.Obj} {i i' : S.I a} (h : S.ZRel a z i i')
   have e := D.arc_transport h (by rw [A.X.src_unit]; exact hz)
   rw [A.X.tgt_unit, A.X.src_unit] at e
   have ha := (ZSetup.Arc.props h).1
-  rw [e, fibAct_unit_p3w3 (D.P_s a ha i z ⟨S.V_subset a ha h.mem_V, hz⟩)]
+  rw [e, fibAct_unit' (D.P_s a ha i z ⟨S.V_subset a ha h.mem_V, hz⟩)]
 
 /-- **Proposition 14.4.6 (2) at points of `V_a`, p. 661**: if `z₀ ∈ V_a = V̂_a ∩ ∂X` and
 `i ∼_{z₀} i'`, then `s^{0a}_i = s^{0a}_{i'}` on a neighbourhood of `z₀` in `∂X` (by
@@ -172,28 +172,28 @@ section Coherent
 
 variable {S : A.X.ZData} (D : ZSections A S)
 
-theorem Φ_mem_boundary_z4 {a : A.Obj} (g : A.X.Isotropy a) {y : A.Obj}
+theorem Φ_mem_boundary {a : A.Obj} (g : A.X.Isotropy a) {y : A.Obj}
     (hy : y ∈ (S.nbhd a).U) (hyb : y ∈ A.X.PObj.boundary) :
     (S.nbhd a).rep.Φ g y ∈ A.X.PObj.boundary := by
-  rw [← (S.nbhd a).tgt_Γ g hy, tgt_mem_boundary_iff_z4, (S.nbhd a).src_Γ g hy]
+  rw [← (S.nbhd a).tgt_Γ g hy, tgt_mem_boundary_iff, (S.nbhd a).src_Γ g hy]
   exact hyb
 
-theorem mem_boundary_of_Φ_z4 {a : A.Obj} (g : A.X.Isotropy a) {y : A.Obj}
+theorem mem_boundary_of_Φ {a : A.Obj} (g : A.X.Isotropy a) {y : A.Obj}
     (hy : y ∈ (S.nbhd a).U) (hyb : (S.nbhd a).rep.Φ g y ∈ A.X.PObj.boundary) :
     y ∈ A.X.PObj.boundary := by
-  have := Φ_mem_boundary_z4 (S := S) g⁻¹ ((S.nbhd a).mapsTo_Φ g hy) hyb
+  have := Φ_mem_boundary (S := S) g⁻¹ ((S.nbhd a).mapsTo_Φ g hy) hyb
   rwa [(S.nbhd a).Φ_inv_Φ g hy] at this
 
 /-- The natural action maps `cl_X(V̂_a)` and `cl_X(V_a)` into themselves. -/
-theorem mapsTo_Φ_closure_z4 {a : A.Obj} (ha : a ∈ S.A) (g : A.X.Isotropy a) {E : Set A.Obj}
+theorem mapsTo_Φ_closure {a : A.Obj} (ha : a ∈ S.A) (g : A.X.Isotropy a) {E : Set A.Obj}
     (hE : E ⊆ S.V a) (hEg : MapsTo ((S.nbhd a).rep.Φ g) E E) :
     MapsTo ((S.nbhd a).rep.Φ g) (closure E) (closure E) := fun _ hz =>
   closure_mono hEg.image_subset (mem_closure_image ((S.nbhd a).continuousAt_Φ g
     (S.closure_V_subset a ha (closure_mono hE hz))) hz)
 
-theorem mapsTo_Φ_Vb_z4 {a : A.Obj} (ha : a ∈ S.A) (g : A.X.Isotropy a) :
+theorem mapsTo_Φ_Vb {a : A.Obj} (ha : a ∈ S.A) (g : A.X.Isotropy a) :
     MapsTo ((S.nbhd a).rep.Φ g) (S.V a ∩ A.X.PObj.boundary) (S.V a ∩ A.X.PObj.boundary) :=
-  fun _ hy => ⟨S.mapsTo_V a ha g hy.1, Φ_mem_boundary_z4 g (S.V_subset a ha hy.1) hy.2⟩
+  fun _ hy => ⟨S.mapsTo_V a ha g hy.1, Φ_mem_boundary g (S.V_subset a ha hy.1) hy.2⟩
 
 /-- **Proposition 14.4.10, p. 664 (2017: Proposition 14.6)**, from Proposition 14.4.6 (2) in the
 form `HasThetaLocalEq`: for `a ∈ A` there are open `Õ(z) ∋ z`, `z ∈ cl_X(V̂_a)`, with
@@ -233,9 +233,9 @@ theorem proposition_14_4_10_hyp (hP : HasThetaLocalEq D) {a : A.Obj} (ha : a ∈
       rwa [smul_inv_smul, smul_inv_smul] at h₂
     · rintro hgz i i' happ _ ⟨⟨y, hyO, rfl⟩, -, hyb'⟩
       have hyU := hOU hyO
-      have hyb := mem_boundary_of_Φ_z4 (S := S) g hyU hyb'
+      have hyb := mem_boundary_of_Φ (S := S) g hyU hyb'
       have hz : z ∈ closure (S.V a ∩ A.X.PObj.boundary) := by
-        have := mapsTo_Φ_closure_z4 ha g⁻¹ inter_subset_left (mapsTo_Φ_Vb_z4 ha g⁻¹) hgz
+        have := mapsTo_Φ_closure ha g⁻¹ inter_subset_left (mapsTo_Φ_Vb ha g⁻¹) hgz
         rwa [N.Φ_inv_Φ g hzU] at this
       have happ' : S.Approx a z (g⁻¹ • i) (g⁻¹ • i') := by
         have := ZData.lemma_14_4_9_2 happ g⁻¹
@@ -265,7 +265,7 @@ theorem proposition_14_4_10_hyp (hP : HasThetaLocalEq D) {a : A.Obj} (ha : a ∈
     exact ⟨Q ∩ Q', hQo.inter hQ'o, ⟨hzQ, hzQ'⟩, fun i y hy => hQ y ⟨hy.2, hy.1.1⟩ i,
       fun hz i i' happ y hy => hQ'sub hy.1.2 hz i i' happ hy.2⟩
   obtain ⟨O, hO⟩ := N.exists_equivariant_nbhds (S.closure_V_subset a ha)
-    (fun g => mapsTo_Φ_closure_z4 ha g subset_rfl (S.mapsTo_V a ha g)) P hmono hequiv hex
+    (fun g => mapsTo_Φ_closure ha g subset_rfl (S.mapsTo_V a ha g)) P hmono hequiv hex
   refine ⟨O, fun z hz => ?_⟩
   obtain ⟨h₁, h₂, h₃, ⟨h₄, h₅⟩, h₆, h₇⟩ := hO z hz
   exact ⟨h₁, h₂, h₃, h₆, h₇, h₄, h₅⟩
@@ -355,7 +355,7 @@ theorem lemma_14_4_13_2 (C : ZCoherentNbhdSystem D a) (ha : a ∈ S.A)
     rw [hgi] at this
     exact this
   have e := C.sections_eq z' hz' _ _ hgi' _ ⟨hgy, (S.nbhd a).mapsTo_Φ g hyU,
-    Φ_mem_boundary_z4 g hyU hyb⟩
+    Φ_mem_boundary g hyU hyb⟩
   rw [← e]
   exact D.equivariant a ha g i y ⟨hyU, hyb⟩
 
@@ -389,7 +389,7 @@ theorem lemma_14_4_13_4 (C : ZCoherentNbhdSystem D a) (ha : a ∈ S.A)
   rw [C.equivariant z' hz' g] at hy''
   obtain ⟨y, hyO, rfl⟩ := hy''
   have hyU := C.subset z' hz' hyO
-  have hyb := mem_boundary_of_Φ_z4 (S := S) g hyU hb''
+  have hyb := mem_boundary_of_Φ (S := S) g hyU hb''
   exact ⟨y, ⟨hyO, hyb⟩, rfl, fun i => lemma_14_4_13_3 C ha hz' g i y ⟨hyO, hyb⟩⟩
 
 /-- **`Õ([z])` is a disjoint union** (Lemma 14.4.13, display): `Õ(z₁) ∩ Õ(z₂) = ∅` for distinct

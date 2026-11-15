@@ -58,7 +58,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 /-- A map locally constant at every point of a set `M` is constant on every preconnected
 subset of `M`. -/
-theorem eq_of_isPreconnected_z5 {α β : Type*} [TopologicalSpace α] {f : α → β} {M C : Set α}
+theorem eq_of_isPreconnected {α β : Type*} [TopologicalSpace α] {f : α → β} {M C : Set α}
     (hC : IsPreconnected C) (hCM : C ⊆ M) (hf : ∀ φ ∈ M, ∀ᶠ ψ in 𝓝 φ, f ψ = f φ) {x y : α}
     (hx : x ∈ C) (hy : y ∈ C) : f x = f y := by
   let _ : TopologicalSpace β := ⊥
@@ -73,13 +73,13 @@ namespace NaturalRepFinite
 
 variable {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
 
-theorem unit_mem_morOn_z5 {y : Obj} (hy : y ∈ Y) : X.unit y ∈ X.morOn (Y : Set Obj) :=
+theorem unit_mem_morOn {y : Obj} (hy : y ∈ Y) : X.unit y ∈ X.morOn (Y : Set Obj) :=
   ⟨by rw [X.src_unit]; exact hy, by rw [X.tgt_unit]; exact hy⟩
 
 /-- The units over `O(y₀)` lie in the sheet of `1_{y₀}`. -/
-theorem unit_mem_sheet_z5 {y₀ : Obj} (hy₀ : y₀ ∈ Y) {y : Obj} (hy : y ∈ N.U y₀) :
+theorem unit_mem_sheet {y₀ : Obj} (hy₀ : y₀ ∈ Y) {y : Obj} (hy : y ∈ N.U y₀) :
     X.unit y ∈ N.sheet (X.unit y₀) := by
-  have hu := unit_mem_morOn_z5 (X := X) hy₀
+  have hu := unit_mem_morOn (X := X) hy₀
   have hconn : IsConnected (X.unit '' N.U y₀) :=
     (N.isConnected_U y₀ hy₀).image X.unit X.continuous_unit.continuousOn
   have hsub : X.unit '' N.U y₀ ⊆ X.morOn (⋃ y ∈ Y, N.U y) := by
@@ -90,24 +90,24 @@ theorem unit_mem_sheet_z5 {y₀ : Obj} (hy₀ : y₀ ∈ Y) {y : Obj} (hy : y �
   rw [NatRepFinite.connectedComponentIn_morOn N hu (N.mem_sheet _ hu)] at this
   exact this ⟨y, hy, rfl⟩
 
-theorem srcInv_unit_z5 {y₀ : Obj} (hy₀ : y₀ ∈ Y) {y : Obj} (hy : y ∈ N.U y₀) :
+theorem srcInv_unit {y₀ : Obj} (hy₀ : y₀ ∈ Y) {y : Obj} (hy : y ∈ N.U y₀) :
     N.srcInv (X.unit y₀) y = X.unit y := by
-  have := N.srcInv_src (unit_mem_morOn_z5 (X := X) hy₀) (N.unit_mem_sheet_z5 hy₀ hy)
+  have := N.srcInv_src (unit_mem_morOn (X := X) hy₀) (N.unit_mem_sheet hy₀ hy)
   rwa [X.src_unit] at this
 
-theorem eq_of_mem_U_z5 {y y' : Obj} (hy : y ∈ Y) (hy' : y' ∈ Y) {x : Obj} (hx : x ∈ N.U y)
+theorem eq_of_mem_U {y y' : Obj} (hy : y ∈ Y) (hy' : y' ∈ Y) {x : Obj} (hx : x ∈ N.U y)
     (hx' : x ∈ N.U y') : y = y' := by
   by_contra h
   exact Set.disjoint_left.1 (N.pairwiseDisjoint_U (Finset.mem_coe.2 hy) (Finset.mem_coe.2 hy') h)
     hx hx'
 
-theorem eq_of_mem_sheet_z5 {ψ ψ' : Mor} (hψ : ψ ∈ X.morOn (Y : Set Obj))
+theorem eq_of_mem_sheet {ψ ψ' : Mor} (hψ : ψ ∈ X.morOn (Y : Set Obj))
     (hψ' : ψ' ∈ X.morOn (Y : Set Obj)) {φ : Mor} (h : φ ∈ N.sheet ψ) (h' : φ ∈ N.sheet ψ') :
     ψ = ψ' := by
   by_contra hne
   exact Set.disjoint_left.1 (N.pairwiseDisjoint_sheet hψ hψ' hne) h h'
 
-theorem exists_sheet_z5 {φ : Mor} (h : φ ∈ X.morOn (⋃ y ∈ Y, N.U y)) :
+theorem exists_sheet_of_mem_morOn {φ : Mor} (h : φ ∈ X.morOn (⋃ y ∈ Y, N.U y)) :
     ∃ ψ ∈ X.morOn (Y : Set Obj), φ ∈ N.sheet ψ := by
   rw [N.morOn_eq] at h
   obtain ⟨ψ, hψ, hφ⟩ := mem_iUnion₂.1 h
@@ -194,7 +194,7 @@ theorem tau_eq {ω : A.Mor} (hω : ω ∈ A.X.morOn (R.Y : Set A.Obj)) {b c : A.
     (hb : b ∈ R.o) (hc : c ∈ R.o) (hωb : A.X.src ω ∈ closure (S.V b))
     (hωc : A.X.tgt ω ∈ closure (S.V c)) {θ θ' : A.Mor} (hθ : θ ∈ R.N.sheet ω)
     (hθ' : θ' ∈ R.N.sheet ω) : S.τ b c θ = S.τ b c θ' :=
-  eq_of_isPreconnected_z5 (R.N.isConnected_sheet ω hω).isPreconnected
+  eq_of_isPreconnected (R.N.isConnected_sheet ω hω).isPreconnected
     (R.sheet_subset_M hω hb hc hωb hωc) (L.locallyConstant_M b (R.o_subset hb) c (R.o_subset hc))
     hθ hθ'
 
@@ -215,12 +215,12 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
     intro hzW hz₀
     rw [A.X.src_unit] at hzW
     have hao : a ∈ R.o := R.mem_o_of_mem_W hzW ha hz
-    have hu := NaturalRepFinite.unit_mem_morOn_z5 (X := A.X) R.mem_Y
+    have hu := NaturalRepFinite.unit_mem_morOn (X := A.X) R.mem_Y
     refine ⟨A.X.unit z₀, hu, A.X.src_unit z₀, by rw [A.X.tgt_unit]; exact hz₀,
-      R.N.unit_mem_sheet_z5 R.mem_Y (R.W_subset hzW), fun y hy => ?_⟩
+      R.N.unit_mem_sheet R.mem_Y (R.W_subset hzW), fun y hy => ?_⟩
     have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
-    rw [R.N.srcInv_unit_z5 R.mem_Y hy.1, A.X.tgt_unit,
-      fibAct_unit_p3w3 (D.P_s a ha i y ⟨hyU, hy.2⟩)]
+    rw [R.N.srcInv_unit R.mem_Y hy.1, A.X.tgt_unit,
+      fibAct_unit' (D.P_s a ha i y ⟨hyU, hy.2⟩)]
   | @snoc b c i j k φ ψ' h hc hs ht hp ih =>
     intro hW hz₀
     rw [A.X.src_comp _ _ hs] at hW
@@ -234,8 +234,8 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
       have := hcomp.2
       rwa [A.X.tgt_comp _ _ hs] at this
     have hsψ' : A.X.src ψ' ∈ R.N.U (A.X.tgt ψ) := by rw [hs]; exact R.N.tgt_mem hψ hφψ
-    obtain ⟨ω, hω, hψ'ω⟩ := R.N.exists_sheet_z5 ⟨mem_biUnion hψ.2 hsψ', htψ'⟩
-    have hωs : A.X.src ω = A.X.tgt ψ := R.N.eq_of_mem_U_z5 hω.1 hψ.2 (R.N.src_mem hω hψ'ω) hsψ'
+    obtain ⟨ω, hω, hψ'ω⟩ := R.N.exists_sheet_of_mem_morOn ⟨mem_biUnion hψ.2 hsψ', htψ'⟩
+    have hωs : A.X.src ω = A.X.tgt ψ := R.N.eq_of_mem_U hω.1 hψ.2 (R.N.src_mem hω hψ'ω) hsψ'
     have hωt : A.X.tgt ω ∈ closure (S.V c) := by
       by_contra hn
       exact Set.disjoint_left.1 (R.U_far _ hω.2 c hco hn) (R.N.tgt_mem hω hψ'ω)
@@ -263,7 +263,7 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
       rw [hsφy] at e
       rw [← e, A.X.tgt_comp _ _ hsθ]
       have htφyb : A.X.tgt (R.N.srcInv ψ y) ∈ A.X.PObj.boundary :=
-        (tgt_mem_boundary_iff_z4 _).2 (by rw [hsφy]; exact hy.2)
+        (tgt_mem_boundary_iff _).2 (by rw [hsφy]; exact hy.2)
       have hτ := R.tau_eq hω hb hco hωb hωt hθ hψ'ω
       have hθU : A.X.src (R.N.srcInv ω (A.X.tgt (R.N.srcInv ψ y))) ∈ (S.nbhd b).U :=
         (R.U_near _ hω.1 b hb hωb).1 (R.N.src_mem hω hθ)
@@ -274,7 +274,7 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
       rw [e₂, hsθ, htr y hy]
       have hao : a ∈ R.o := R.mem_o_of_mem_W hW hpr.1 hpr.2.2.1
       have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
-      rw [fibAct_comp_p3w3 (by rw [D.P_s a hpr.1 i y ⟨hyU, hy.2⟩, hsφy]) hsθ]
+      rw [fibAct_comp' (by rw [D.P_s a hpr.1 i y ⟨hyU, hy.2⟩, hsφy]) hsθ]
 
 /-- **The conclusion of the proof of Proposition 14.4.6 (2)**: if `(i, i') ∈ Θ_{z₀}` (a limit of
 `z_k`-loops, `z_k ∈ V̂_a`) and `z₀ ∈ cl_X(V̂_a)`, then `s^{0a}_i = s^{0a}_{i'}` on `O(z₀) ∩ ∂X`. -/
@@ -285,16 +285,16 @@ theorem sections_eq (hD : D.CompatNbhd) {a : A.Obj} (ha : a ∈ S.A)
   obtain ⟨ψ, hψ, -, -, hzψ, htr⟩ :=
     R.arc_transport D hD (show S.Arc a a i i' (A.X.unit z) from hz)
       (by rw [A.X.src_unit]; exact hzW) hz₀
-  have hu := NaturalRepFinite.unit_mem_morOn_z5 (X := A.X) R.mem_Y
+  have hu := NaturalRepFinite.unit_mem_morOn (X := A.X) R.mem_Y
   have hψ1 : ψ = A.X.unit z₀ :=
-    R.N.eq_of_mem_sheet_z5 hψ hu hzψ (R.N.unit_mem_sheet_z5 R.mem_Y (R.W_subset hzW))
+    R.N.eq_of_mem_sheet hψ hu hzψ (R.N.unit_mem_sheet R.mem_Y (R.W_subset hzW))
   subst hψ1
   intro y hy
   have e := htr y hy
-  rw [R.N.srcInv_unit_z5 R.mem_Y hy.1, A.X.tgt_unit] at e
+  rw [R.N.srcInv_unit R.mem_Y hy.1, A.X.tgt_unit] at e
   have hao : a ∈ R.o := R.mem_o_of_mem_W hzW ha (ZSetup.ZRel.mem_V hz)
   have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
-  rw [e, fibAct_unit_p3w3 (D.P_s a ha i y ⟨hyU, hy.2⟩)]
+  rw [e, fibAct_unit' (D.P_s a ha i y ⟨hyU, hy.2⟩)]
 
 end ZLimitRep
 

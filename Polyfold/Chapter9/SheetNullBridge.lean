@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.SheetEssential
-import Polyfold.Chapter9.MathlibFormsBridge2021
+import Polyfold.Chapter9.MathlibFormsBridge
 import Polyfold.Chapter4.SubmanifoldNearInterior
 
 /-!

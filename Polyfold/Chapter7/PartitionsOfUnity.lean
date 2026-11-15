@@ -57,7 +57,7 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   `exists_isScSmoothMap_orbit_urysohn`.
 * **Theorem 7.5.7 (2017: 7.4)**: `theorem_7_5_7`; **Theorem 7.6.4 (2017: 7.6)**: `theorem_7_6_4` (= `theorem_7_5_7`).
 * **Corollary 7.6.6 (2017: 7.3)**: `corollary_7_6_6`.
-* **Satisfiability** (PLAN II.5, 3): `theorem_7_5_7_hypotheses_rn`,
+* **Satisfiability**: `theorem_7_5_7_hypotheses_rn`,
   `hasScPartitionsOfUnity_trivial_rn_of_theorem_7_5_7`, `corollary_7_6_6_hypotheses_rn`.
 
 ## Reading
@@ -72,7 +72,7 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   isomorphic objects" is `β_λ(s φ) = β_λ(t φ)`.  "The support of `β_λ` lies in `π⁻¹(O_λ) = U_λ`"
   is `tsupport (σ_λ ∘ π) ⊆ π⁻¹(tsupport σ_λ) ⊆ π⁻¹(π(U_λ)) = U_λ`.
 * **Lemma 7.6.5 (2017: 7.10).**  "`V(x)` admits the natural `G_x`-action" is a natural representation `R` with
-  `V(x) = R.U` (PLAN II.5, 6); "`U(x)` invariant" is `MapsTo (R.Φ g) U U` for all `g`; `β` is a
+  `V(x) = R.U`; "`U(x)` invariant" is `MapsTo (R.Φ g) U U` for all `g`; `β` is a
   continuous `Obj → ℝ` with values in `[0, 1]`, "support in `U(x)`" is `tsupport β ⊆ U`, the
   invariance is `β(Φ(g)(y)) = β(y)` on `R.U`; `f ≥ 0`.  The conclusion adds `tsupport f ⊆ cl U(x)`,
   which the proof gives ("`γ` … with support in `cl_X(U(x))`", kept by averaging over the invariant
@@ -80,7 +80,7 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   not used by the proof and is omitted (a stronger statement): the proof of Theorem 7.5.7 (2017: 7.4) applies the
   lemma to `U''_i`, which need not contain `x_i`.  The paracompactness of `|X|` and the continuity
   of `β` are kept as in the text (`_hpara`, `_hβ`) but not used: the two-set cover below needs
-  neither.  **The partition of unity "of `V(x)`" is taken for a cover of `X`** (PLAN II.6, 4): the
+  neither.  **The partition of unity "of `V(x)`" is taken for a cover of `X`**: the
   hypothesis is that `X`, not the open subset `V(x)`, admits sc-smooth partitions of unity, so the
   text's cover `(W(z))_{z ∈ V(x)}` of `V(x)` is completed by `X ∖ cl U(x)` (where `β = 0`, `a = 0`).
   We coarsen this cover of `X` to two sets: `U(x)` with `a = 1` (as `β ≤ 1`; the text's `cl W(z) ⊆
@@ -96,11 +96,11 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   morphisms between points of `W(x)` are the `Γ(g, ·)` (Theorem 7.1.13 (2017: 7.1) (3)), so a point of `W(x)`
   isomorphic to a point of the invariant `V(x)` lies in `V(x)` (`mem_of_π_mem_image_of_invariant`,
   `saturation_diff_inter_eq_empty`).
-* **The four points of PLAN II.6, 4, checked; all four stand.**
+* **Four points of the proof, checked; all four stand.**
   (a) Lemma 7.6.5 (2017: 7.10) is applied with `W(x_i)` in the role of `V(x)` and `U''_i` in the role of
   `U(x)`: its hypothesis `cl U ⊆ V`, with the natural action on `V`, holds for `W(x_i)` by (1).
   The text's "approximate `(β_i ∘ π)|V(x_i)` using Lemma 7.10" reads as `V(x_i)` in the role of
-  `V(x)` (possible misprint).
+  `V(x)`.
   (b) The continuity of the cut-off `(β_i ∘ π)|V(x_i)`, extended by `0`, uses (4): a point of
   `cl V(x_i) ∩ π⁻¹(supp β_i)` lies in `W(x_i)` and is isomorphic to a point of `V(x_i)` (as
   `supp β_i ⊆ V'_i ⊆ |V(x_i)|`), hence lies in `V(x_i)` by (4); so the cut-off is supported in
@@ -132,9 +132,9 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
 * **Corollary 7.6.6 (2017: 7.3).**  "An atlas consisting of charts whose local models have Hilbert spaces `E₀`"
   is existential, one chart per point, as Part I's `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`;
   "Hilbert" is read as there (`‖v‖² = b(v, v)` for a continuous bilinear `b`).  "Every compatible
-  chart has a Hilbert `E₀`" would be unsatisfiable (PLAN II.5, 2).  Theorem 5.5.16 (2017: 5.14) [5.43]
+  chart has a Hilbert `E₀`" would be unsatisfiable.  Theorem 5.5.16 (2017: 5.14) [5.43]
   (Godefroy–Troyanski–Whitfield–Zizler) is an explicit hypothesis here,
-  `GodefroyTroyanskiWhitfieldZizlerStatement`; since 2026-11-12 it is proved (`theorem_5_5_16`), and
+  `GodefroyTroyanskiWhitfieldZizlerStatement`; it is proved (`theorem_5_5_16`), and
   `corollary_7_6_6_unconditional` (`HilbertPartitionsOfUnityEp.lean`) has no such hypothesis.
   The text's references Proposition
   5.6 [5.35], Theorem 5.5.10 (2017: 5.12) [5.37] and Corollary 5.5.17 (2017: 5.2) [5.44] are the ingredients of that theorem.
@@ -144,7 +144,7 @@ Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
   partitions of unity (`rnPolyfold_admitsScPartitionsOfUnity`); the Hilbert atlas and Theorem 5.5.16 (2017: 5.14)
   [5.43] hold for `ℝ¹` (`rnPolyfold_one_hilbert_hypothesis`).  Lemma 7.6.5 (2017: 7.10)'s invariance hypotheses
   ("for every `g`") hold for every `G_x`-invariant `β`, e.g. `β = 0`.
-* No possible misprint was found on pp. 250–256 other than (a).
+* No other point of notation was found on pp. 250–256 than (a).
 -/
 
 open Set Function Filter Topology
@@ -690,7 +690,7 @@ theorem theorem_7_6_4 (hpara : X.HasParacompactOrbitSpace)
 around every point) whose local models have Hilbert spaces `E₀` (`‖v‖² = b(v, v)`), then every
 cover of `X` by saturated open sets has a subordinate sc-smooth partition of unity of the
 ep-groupoid — **under the explicit hypothesis that Theorem 5.5.16 (2017: 5.14) [5.43] holds** for these `E₀`
-(`GodefroyTroyanskiWhitfieldZizlerStatement`).  This form is kept; since 2026-11-12 Theorem
+(`GodefroyTroyanskiWhitfieldZizlerStatement`).  Theorem
 5.5.16 is proved (`theorem_5_5_16`), and Corollary 7.6.6 as printed, with no such hypothesis, is
 `corollary_7_6_6_unconditional` (`Chapter7/HilbertPartitionsOfUnityEp.lean`). -/
 theorem corollary_7_6_6 (hpara : X.HasParacompactOrbitSpace)
@@ -702,7 +702,7 @@ theorem corollary_7_6_6 (hpara : X.HasParacompactOrbitSpace)
 
 end Theorem74
 
-/-! ### Satisfiability of the hypotheses (PLAN II.5, 3) -/
+/-! ### Satisfiability of the hypotheses -/
 
 section Satisfiability
 

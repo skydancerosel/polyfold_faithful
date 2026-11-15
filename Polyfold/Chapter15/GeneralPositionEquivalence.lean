@@ -1,7 +1,7 @@
 import Polyfold.Chapter15.LinearizationLocalIso
 import Polyfold.Chapter15.GeneralPositionBranched
 import Polyfold.Chapter12.OrientationEquivalenceStep
-import Polyfold.Chapter11.MultisectionLocalStructure2021
+import Polyfold.Chapter11.MultisectionLocalStructure
 import Polyfold.Chapter10.FredholmEquivalence
 
 /-!

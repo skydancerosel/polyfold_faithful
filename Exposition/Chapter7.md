@@ -1149,7 +1149,7 @@ splicing example, checked by machine); the set $|X_\infty|$ (G.72); the density 
 computations of §10, done by hand. The machine-checked statements are listed in `Exposition/Verification.md`
 (V7.1–V7.68), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 7", items 1–115 (numbered in blocks; the gaps in the numbering are
-unused numbers). The additions of the 2021 edition (§12) are formalized in `Book2021Basic.lean`, `ReducedCriterion.lean`, `Zhou.lean` and
+unused numbers). The additions of the 2021 edition (§12) are formalized in `BookBasic.lean`, `ReducedCriterion.lean`, `Zhou.lean` and
 `TameBoundaryEp.lean`, with the sc-smooth parts of Theorem 7.6.9 in `TameBoundaryEpStructure.lean`, on top of 2021 Theorem
 2.7.13 (2), and §7.4 on every lift $X^i$ in `ZhouLevels.lean`, verified as V7.69–V7.104, with the gaps G.82, G.83, G.85
 (Theorem 7.6.7 beyond $i = 1$ as sets; Zhou's own retract; the Part I facts used in §7.4) and G.84 (the lifts $X^i$, $i\ge2$,

@@ -50,7 +50,7 @@ the filtration `E_m/A_m` is an sc-Banach space.
 ## What the text leaves implicit, and the choices made
 
 * The text's `E_m` are subsets of `E₀`; here they are separate types with injective compact
-  inclusions (PLAN.md).  `x ∈ E_m` for `x ∈ E₀` becomes `x ∈ Set.range (toBase m)`, and the
+  inclusions.  `x ∈ E_m` for `x ∈ E₀` becomes `x ∈ Set.range (toBase m)`, and the
   intersection `E_∞` is `smooth`.  Nothing in Chapter 1 needs the identification of `E_{m}`
   with a subset of `E_{m-1}` beyond injectivity.
 * The text does not say the inclusions are injective (it is implicit in "`E_{m+1} ⊂ E_m`");

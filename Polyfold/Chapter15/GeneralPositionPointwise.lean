@@ -15,7 +15,7 @@ and, under the hypotheses of the theorem, `HasPointwiseParamOnto`, `HasParamOnto
 * **`theorem_15_3_7_of_paramOnto`**: Theorem 15.3.7 (`theorem_15_3_7_statement`) from a good system
   and, under the hypotheses of the theorem, the two Props `HasPointwiseParamOnto` ((15.1) at one
   point with small vectors) and `HasParamOntoOpen` (openness of (15.1) along `S_f`).
-* **`theorem_15_3_7_statement_epSEP_zero_of_paramOnto`**: the remaining hypotheses hold together on
+* **`theorem_15_3_7_statement_epSEP_zero_of_paramOnto`**: the two Props hold together on
   `ℝⁿ × ℝ⁰ → ℝⁿ`.
 -/
 

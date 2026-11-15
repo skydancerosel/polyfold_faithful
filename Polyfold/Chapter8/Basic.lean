@@ -57,7 +57,7 @@ with `D → C ₛ×_f D`, `ψ ↦ (f(ψ), s(ψ))`, a bijection.  A geometric lif
 * `T𝐗`'s composition is total in Lean (the junk value `h` off composable pairs, as Chapter 7's
   `GroupoidStr.comp`); on composable pairs it is the unique `v ∈ T_{p k ∘ p h}𝐗` with
   `Ts(v) = Ts(h)` (uniqueness: `Ts` is injective on the fibres, `s` being a local
-  sc-diffeomorphism).  The text's (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗` (possible misprint).
+  sc-diffeomorphism).  The text's (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`.
 * `TX` and `T𝐗` are Part I's `TangentSpace`, in `Type (max u 1)` for `X : Type u`.
 * In Definition 8.5.1 (2017: 8.8) (2) the neighbourhood `U(x)` is open and the `U(y)` are indexed by the points
   of `F⁻¹(x)` with local inverses `σ y : U(x) → U(y)`.

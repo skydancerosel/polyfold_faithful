@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.BoundaryNotNull
-import Polyfold.Chapter9.SolutionFaces2021
-import Polyfold.Chapter9.BoundaryOrientationContinuity2021
+import Polyfold.Chapter9.SolutionFaces
+import Polyfold.Chapter9.BoundaryOrientationContinuity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -199,7 +199,7 @@ theorem mem_stratumOne_iff (hM : P.IsSmoothSubmanifold M) {y : X} (hy : y ∈ M)
   ⟨fun ⟨_, _, h⟩ => h, fun h => ⟨hM, hy, h⟩⟩
 
 /-- For `M` with tame induced structure the stratum is the stratum of reduced codimension `1`
-of `BoundaryOrientationContinuity2021`. -/
+of `BoundaryOrientationContinuity`. -/
 theorem stratumOne_eq_boundaryStratum (hM : P.IsSmoothSubmanifold M)
     (ht : P.HasTameInducedStructure M) : P.stratumOne M = P.boundaryStratum M := by
   rw [boundaryStratum_eq_of_tame hM ht]

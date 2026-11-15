@@ -35,7 +35,7 @@ namespace Polyfold
 
 open MPolyfold
 
-namespace E8W
+namespace Hemisphere
 
 /-! ### The half-space M-polyfold -/
 
@@ -420,6 +420,6 @@ theorem pt0_mem_equator : pt0 ∈ equator :=
 
 theorem equator_nonempty : equator.Nonempty := ⟨pt0, pt0_mem_equator⟩
 
-end E8W
+end Hemisphere
 
 end Polyfold

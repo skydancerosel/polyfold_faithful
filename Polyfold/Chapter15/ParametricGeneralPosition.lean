@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.
 **Theorem 15.3.7** (General Position; 2017: Theorem 15.4), pp. 696–698, "Achieving global
 transversality".
 
-# Parametrized general position (GP's `HasParametricGeneralPosition`)
+# Parametrized general position (`HasParametricGeneralPosition`)
 
 ## The text, paraphrased
 
@@ -29,12 +29,12 @@ null set of parameters off which `(f, Λ_t)` is in general position.
   `V ∩ supp(Λ_t ∘ f)` for `‖t‖ < δ`, `t ∉ CV`.
 * `exists_pos_auxLe_subset`: the compactness (15.2): every saturated open `V ⊇ S_f` contains
   `{x ∈ U | N(f(x)) ≤ ε}` for some `ε > 0`.
-* **`hasParametricGeneralPosition`**: GP's `HasParametricGeneralPosition A f N U` under the
+* **`hasParametricGeneralPosition`**: `HasParametricGeneralPosition A f N U` under the
   hypotheses of Theorem 15.3.7 (tame `X`, `f` an sc-Fredholm section functor with tame germ data,
   `|S_f|` compact, `(N, U)` controlling compactness).
 * `theorem_15_3_7_hyp_local`, `theorem_15_3_7_of_local`: Theorem 15.3.7 from a good system and
-  `HasLocalGPFamilies` only; `theorem_15_3_7_statement_epSEP_zero_of_local`: the remaining
-  hypothesis is satisfiable.
+  `HasLocalGPFamilies` only; `theorem_15_3_7_statement_epSEP_zero_of_local`: the hypothesis
+  `HasLocalGPFamilies` is satisfiable.
 
 ## Reading
 
@@ -157,7 +157,7 @@ end Branch
 /-! ### General position at a point is carried along morphisms -/
 
 /-- `μ(φ, ·) : W_x → W_y` is onto (inverse `μ(φ⁻¹, ·)`). -/
-private theorem muLin_surjective_GB (φ : A.Mor) {x y : A.Obj} (hx : A.X.src φ = x)
+private theorem muLin_surjective' (φ : A.Mor) {x y : A.Obj} (hx : A.X.src φ = x)
     (hy : A.X.tgt φ = y) : Surjective (muLin φ hx hy) := by
   intro w
   have hw : A.P w = y := w.2
@@ -169,7 +169,7 @@ private theorem muLin_surjective_GB (φ : A.Mor) {x y : A.Obj} (hx : A.X.src φ 
   exact A.E.μ_μ_inv φ w h1 _
 
 /-- `Tφ(T^R_xX) ⊆ T^R_yX`, read in a chart `c` at `x` and its transport along `φ` at `y`. -/
-private theorem tangentMorCLE_mem_reduced_GB {φ : A.Mor}
+private theorem tangentMorCLE_mem_reduced {φ : A.Mor}
     (hφ : φ ∈ A.X.PMor.levelSet 1) {x y : A.X.PObj.Level 1}
     (hx : A.X.PObj.levelVal 1 x = A.X.src φ) (hy : A.X.PObj.levelVal 1 y = A.X.tgt φ)
     {c : StrongBundleChart A.X.PObj A.P} (hsub : c.φ.source ⊆ (A.X.sheetAt φ).srcSet)
@@ -217,12 +217,12 @@ theorem isReducedOntoAtLevel_of_mor {f : A.Obj → A.W} (hf : A.E.IsScFredholmSe
   obtain ⟨m₀, V₀, T₀, hT₀⟩ := R₀.relOpen.isPartialQuadrant
   have hsurj := H L hL c.φ c.isChart hx' m₀ V₀ T₀ hT₀
   intro w
-  obtain ⟨w₀, rfl⟩ := muLin_surjective_GB φ hx.symm hy.symm w
+  obtain ⟨w₀, rfl⟩ := muLin_surjective' φ hx.symm hy.symm w
   obtain ⟨⟨u, hu⟩, hτ⟩ := hsurj w₀
   have e := reducedTangentFiber_eq hψ hyψ T' (Lφ.transportChart c hsub).isChart hy' T₀ hT' hT₀
   refine ⟨⟨A.X.tangentMorCLE hφ hx hy u, ?_⟩, ?_⟩
   · rw [e]
-    exact tangentMorCLE_mem_reduced_GB hφ hx hy hsub hx' hy' T₀ hu
+    exact tangentMorCLE_mem_reduced hφ hx hy hsub hx' hy' T₀ hu
   · rw [LinearMap.domRestrict_apply, conjOp_apply, ContinuousLinearEquiv.symm_apply_apply]
     rw [← hτ]
     rfl
@@ -458,7 +458,7 @@ variable {f : A.Obj → A.W} {N : A.B.One → ℝ} {U : Set A.Obj}
 
 set_option maxHeartbeats 1600000 in
 -- the assembly over a finite cover of `|S_f|`
-/-- **"Achieving global transversality" in the proof of Theorem 15.3.7** (pp. 696–698): GP's
+/-- **"Achieving global transversality" in the proof of Theorem 15.3.7** (pp. 696–698):
 `HasParametricGeneralPosition` holds under the hypotheses of the theorem (tame `X`, an
 sc-Fredholm section functor `f` with tame germ data, compact `|S_f|`, `(N, U)` controlling
 compactness).  *Proof*: the local step (`exists_local_paramGP`) at every `z ∈ S_f`; finitely many
@@ -537,7 +537,7 @@ theorem hasParametricGeneralPosition (hX : A.X.IsTame) (hf : A.E.IsScFredholmSec
 /-! ### Theorem 15.3.7 with one analytic step left -/
 
 /-- **Theorem 15.3.7 (2017: Theorem 15.4), pp. 693–698, with `HasParametricGeneralPosition`
-proved**: from a good system, the hypotheses of the theorem and GP's first analytic step
+proved**: from a good system, the hypotheses of the theorem and the first analytic step
 (`HasLocalGPFamilies`, the local constructions) there is a structurable `Λ` with the conclusions
 (1)–(4). -/
 theorem theorem_15_3_7_hyp_local (h𝒰 : Nonempty A.X.GoodSystem) (hX : A.X.IsTame)
@@ -548,7 +548,7 @@ theorem theorem_15_3_7_hyp_local (h𝒰 : Nonempty A.X.GoodSystem) (hX : A.X.IsT
       domSupp Λ ⊆ U ∧ IsTransversal f Λ ∧ IsInGeneralPosition A f Λ :=
   theorem_15_3_7_hyp h𝒰 hf hS hcc hh hloc (hasParametricGeneralPosition hX hf hft hS hcc)
 
-/-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`)** from a good system and GP's first
+/-- **Theorem 15.3.7 as stated (`theorem_15_3_7_statement`)** from a good system and the first
 analytic step `HasLocalGPFamilies` alone (the second, `HasParametricGeneralPosition`, is
 `hasParametricGeneralPosition`). -/
 theorem theorem_15_3_7_of_local (h𝒰 : Nonempty A.X.GoodSystem)
@@ -563,8 +563,8 @@ theorem theorem_15_3_7_of_local (h𝒰 : Nonempty A.X.GoodSystem)
     ⟨H htame hbump f hf hft hS N U hcc h hhc hhφ hh,
       hasParametricGeneralPosition htame hf hft hS hcc⟩
 
-/-- **The remaining hypothesis of `theorem_15_3_7_of_local` is satisfiable**: on `ℝⁿ × ℝ⁰ → ℝⁿ`
-it holds (GP's `hasLocalGPFamilies_epSEP_zero`), which gives the statement there through the
+/-- **The hypothesis `HasLocalGPFamilies` of `theorem_15_3_7_of_local` is satisfiable**: on `ℝⁿ × ℝ⁰ → ℝⁿ`
+it holds (`hasLocalGPFamilies_epSEP_zero`), which gives the statement there through the
 reduction. -/
 theorem theorem_15_3_7_statement_epSEP_zero_of_local (n : ℕ) :
     theorem_15_3_7_statement (StrongBundleEquivalenceExamples.epSEP n 0) :=

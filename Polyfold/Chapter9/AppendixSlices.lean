@@ -84,15 +84,16 @@ not to depend on the structure.
   `L_l` would need the approximation of `L_l` read in the chart of the top dimension, a chart
   change at level `0` that is not formalized.
 
-## Not formalized, and why
+## Not in this file
 
 * Top-goodness of the points `x^e`, and the sequences (see above).
 * That `Ts` is an sc⁺-retraction of `TX` (`Ts(TV) ⊆ (TX)_1`, `1 ∘ Ts` sc-smooth into `(TX)¹`), so
-  `TMᵢ` is a smooth finite-dimensional submanifold of `TX`: the remaining field
-  `TangentBranchingHyp.isSmoothSubmanifold`.  It needs that the tangent map of an sc⁺-map
-  raises levels in the tangent M-polyfold, which Part I does not formalize.
+  `TMᵢ` is a smooth finite-dimensional submanifold of `TX`: the field
+  `TangentBranchingHyp.isSmoothSubmanifold`.  It holds when `|X|` is paracompact
+  (`TangentSubmanifoldSmooth.lean`).
 * The graph representation in general M-polyfolds (sc-calculus at level `0`, as in
-  `TangentSlicesBasic.lean`).
+  `TangentSlicesBasic.lean`): `GeneralLevelZero.lean`, `GeneralCorollaries.lean`
+  (`exists_slice_of_classGraphChart`).
 -/
 
 set_option maxSynthPendingDepth 3

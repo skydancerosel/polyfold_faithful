@@ -796,7 +796,7 @@
     "statement": "$\\Phi_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a bijection with inverse $\\Phi^*$, depending only on $|\\Phi|$, and restricting to $\\Gamma^+$ and to the sc-Fredholm section functors."
    },
    "lean": {
-    "statement": "`theorem_10_4_5`: mutually inverse bijections $\\Phi_*$, $\\Phi^*$ of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$. `theorem_10_4_5_fred`: $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections $\\mathrm{Fred}(P, \\mu) \\leftrightarrow \\mathrm{Fred}(P', \\mu')$; the same for tame germ data (`isScFredholmSectionTame_pullback`, `_pushforward`). The proof: Definition 3.1.18 is local and invariant under local strong bundle isomorphisms (`StrongBundle.LocalIso`, `LocalIso.isScFredholmGerm`, through the transported chart `transportChart`; `isScFredholmSection_of_forall`), and near every point the pull-back is such an isomorphism (`exists_localIso_mor`). $\\Phi_*$ and $\\Phi^*$ preserve fibrewise sums and scalar multiples, for all sections (`IsStrongBundleEquivalence.pushforward_sectionAdd`, `…_sectionSmul`, `pullback_sectionAdd`, `…_sectionSmul`, `Chapter10/SectionFunctorLinear2021.lean`).",
+    "statement": "`theorem_10_4_5`: mutually inverse bijections $\\Phi_*$, $\\Phi^*$ of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$. `theorem_10_4_5_fred`: $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections $\\mathrm{Fred}(P, \\mu) \\leftrightarrow \\mathrm{Fred}(P', \\mu')$; the same for tame germ data (`isScFredholmSectionTame_pullback`, `_pushforward`). The proof: Definition 3.1.18 is local and invariant under local strong bundle isomorphisms (`StrongBundle.LocalIso`, `LocalIso.isScFredholmGerm`, through the transported chart `transportChart`; `isScFredholmSection_of_forall`), and near every point the pull-back is such an isomorphism (`exists_localIso_mor`). $\\Phi_*$ and $\\Phi^*$ preserve fibrewise sums and scalar multiples, for all sections (`IsStrongBundleEquivalence.pushforward_sectionAdd`, `…_sectionSmul`, `pullback_sectionAdd`, `…_sectionSmul`, `Chapter10/SectionFunctorLinear.lean`).",
     "decls": [
      "Chapter10/FredholmEquivalence · EpStrongBundle.theorem_10_4_5_fred",
      "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback",
@@ -823,10 +823,10 @@
      "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.comp",
      "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.exists_comp",
      "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.bijOn_pushforward_example",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionSmul",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionSmul"
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionSmul",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionSmul"
     ]
    },
    "chips": [
@@ -1763,7 +1763,7 @@
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a well-defined isomorphism whose inverse, given by the inverse diagram, is $[D]^*$; the same for $\\Gamma^+$ and $\\mathrm{Fred}$; $|[D]| = |[D']|$ implies $[D]_* = [D']_*$ and $[D]^* = [D']^*$."
    },
    "lean": {
-    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$. `theorem_10_5_4_fred`: $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$, $[D]^*$ maps $\\mathrm{Fred}(P', \\mu')$ into $\\mathrm{Fred}(P, \\mu)$, and on $\\mathrm{Fred}$ the push-forward along the inverse diagram is $[D]^*$. `GenSBMap.pushforwardEquiv`: $[D]_*$ is a linear isomorphism $\\Gamma(P, \\mu) \\cong \\Gamma(P', \\mu')$ with inverse $[D]^*$, and the same for $\\Gamma^+$ (`plusPushforwardEquiv`). $\\Gamma$ is realised as a submodule of $\\Pi_x W_x$ (`EpStrongBundle.sectionSpace`). The linearity holds pointwise for all sections (`GenSBMap.pushforward_sectionAdd`, `…_sectionSmul`, and the same for $\\Phi_*$ and $\\Phi^*$, `Chapter10/SectionFunctorLinear2021.lean`).",
+    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$. `theorem_10_5_4_fred`: $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$, $[D]^*$ maps $\\mathrm{Fred}(P', \\mu')$ into $\\mathrm{Fred}(P, \\mu)$, and on $\\mathrm{Fred}$ the push-forward along the inverse diagram is $[D]^*$. `GenSBMap.pushforwardEquiv`: $[D]_*$ is a linear isomorphism $\\Gamma(P, \\mu) \\cong \\Gamma(P', \\mu')$ with inverse $[D]^*$, and the same for $\\Gamma^+$ (`plusPushforwardEquiv`). $\\Gamma$ is realised as a submodule of $\\Pi_x W_x$ (`EpStrongBundle.sectionSpace`). The linearity holds pointwise for all sections (`GenSBMap.pushforward_sectionAdd`, `…_sectionSmul`, and the same for $\\Phi_*$ and $\\Phi^*$, `Chapter10/SectionFunctorLinear.lean`).",
     "decls": [
      "Chapter10/FredholmEquivalence · SBLocalization.GenSBMap.theorem_10_5_4_fred",
      "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.bijOn_pushforward_fred",
@@ -1780,18 +1780,18 @@
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.SDiagram.bijOn_pushforward_plus",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.bijOn_pushforward_negDiagram",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.pushforward_foldDiagram",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.plusPushforwardEquiv",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv_apply",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv_symm_apply",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforward_sectionAdd",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforward_sectionSmul",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pullback_sectionAdd",
-     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pullback_sectionSmul",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.sectionSpace",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.plusSectionSpace",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
-     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd"
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pushforwardEquiv",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.plusPushforwardEquiv",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pushforwardEquiv_apply",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pushforwardEquiv_symm_apply",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pushforward_sectionSmul",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pullback_sectionAdd",
+     "Chapter10/SectionFunctorLinear · SBLocalization.GenSBMap.pullback_sectionSmul",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.sectionSpace",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.plusSectionSpace",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd"
     ]
    },
    "chips": [
@@ -2248,7 +2248,7 @@
     "decls": [
      "Chapter10/StrongBundleLocalFamilies · EpStrongBundle.proposition_10_4_7",
      "Chapter10/StrongBundleLocalFamilies · EpStrongBundle.proposition_10_4_7'",
-     "Chapter10/StrongBundleLocalFamilies · GapP2_GBundleFamilyExamples.proposition_10_4_7_hypotheses",
+     "Chapter10/StrongBundleLocalFamilies · StrongBundleLocalFamiliesExamples.proposition_10_4_7_hypotheses",
      "Chapter10/LocalizationLRBundleBase · SEP.exists_family_of_isLRLocal",
      "Chapter10/LocalRegularityGerm · EpStrongBundle.proposition_10_4_7_of_isLRGerm",
      "Chapter10/LocalRegularityGerm · EpStrongBundle.IsLRGerm",

@@ -41,7 +41,8 @@ ep⁺-subgroupoid.
 
 * As in §15.2, `f` carries germ data in tame charts (`IsScFredholmSectionTame`), the inherited
   Part I hypothesis of Theorem 3.6.8; the global forms carry the paracompactness of
-  `|supp(Λ ∘ f)|` (Definition 9.1.2 (1), new in 2021), as the earlier forms do.
+  `|supp(Λ ∘ f)|` (Definition 9.1.2 (1), new in 2021), as the forms without tameness in
+  `GeneralPositionBranched` do.
 * The `Mᵢ` are indexed by the branches through `f(x)` (the text's `I`, as in
   `remark_15_2_3_hyp`), so that each passes through `x`.
 -/

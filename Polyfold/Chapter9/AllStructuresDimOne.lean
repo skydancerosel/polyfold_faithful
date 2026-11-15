@@ -15,11 +15,11 @@ the text states it.  The boundary sheet `∂₁Mᵢ` of an arbitrary structure i
 points, and `∫_{Kᵢ} ω|(∂₁Mᵢ, o)` is the signed sum over the points of `Kᵢ`
 (`EP.finZeroFormIntegration`).
 
-Finiteness (K1's covering argument of `AllStructures`, for `n = 1`): `∂₁Mᵢ` lies in a
+Finiteness (the covering argument of `AllStructures`, for `n = 1`): `∂₁Mᵢ` lies in a
 compact subset `K` of `supp Θ`.  Cover `K` by finitely many structures whose boundary sheets have
 at most one point (`exists_boundarySheet_subsingleton`).  At `z ∈ ∂₁Mᵢ` some sheet `M'_k ∋ z` of
-such a structure has `T_zM'_k = T_zMᵢ` (`MPolyfold.k1_exists_tangent_eq`), so
-`z ∈ ∂₁M'_k` (`MPolyfold.k1_mem_boundaryStratum_of_tangent_eq`).  So `∂₁Mᵢ` lies in finitely many
+such a structure has `T_zM'_k = T_zMᵢ` (`MPolyfold.exists_tangent_eq`), so
+`z ∈ ∂₁M'_k` (`MPolyfold.mem_boundaryStratum_of_tangent_eq`).  So `∂₁Mᵢ` lies in finitely many
 sets with at most one point.
 
 * **`EP.boundarySheet_finite_of_loc`**, `EP.boundarySheet_mem_finPointSheets_of_loc`;
@@ -70,16 +70,16 @@ theorem boundarySheet_finite_of_loc (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
   have hzK : z ∈ K := hUK ⟨C.toTameBranchingStructure.toLocalBranchingStructure.M_subset_supp i
     hzM, C.subset_U i hzM⟩
   obtain ⟨p, hpt, hzp⟩ := mem_iUnion₂.1 (ht hzK)
-  obtain ⟨k, hzk, hT⟩ := MPolyfold.k1_exists_tangent_eq (C.isSubmanifoldOfDim i)
+  obtain ⟨k, hzk, hT⟩ := MPolyfold.exists_tangent_eq (C.isSubmanifoldOfDim i)
     (G p).isSubmanifoldOfDim (G p).isOpen_U
     (fun q hq => mem_iUnion.2
       (((G p).toTameBranchingStructure.toLocalBranchingStructure.mem_supp_iff hq.2).1
         (C.toTameBranchingStructure.toLocalBranchingStructure.M_subset_supp i hq.1)))
     (fun k w hw hwk =>
-      (G p).toTameBranchingStructure.toLocalBranchingStructure.k1_exists_isOpen_disjoint k hw hwk)
+      (G p).toTameBranchingStructure.toLocalBranchingStructure.exists_isOpen_disjoint k hw hwk)
     hzM hzp
   have hzb : z ∈ (G p).boundarySheet k :=
-    MPolyfold.k1_mem_boundaryStratum_of_tangent_eq hz hzk hT
+    MPolyfold.mem_boundaryStratum_of_tangent_eq hz hzk hT
   exact mem_iUnion₂.2 ⟨p, Finset.mem_coe.2 hpt, mem_iUnion.2 ⟨k, hzb⟩⟩
 
 /-- **Every boundary sheet of every `1`-dimensional oriented tame structure is a finite set of

@@ -1,5 +1,5 @@
 import Polyfold.Chapter6.CubeFredholm
-import Polyfold.Chapter6.SolutionManifoldFamily2021
+import Polyfold.Chapter6.SolutionManifoldFamily
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.4**
@@ -37,7 +37,7 @@ read the families on `ℝⁿ` (decision D2).  Here the parameter space is `[0, 1
 * **`lemma_6_6_5_isManifold_cube`**, `lemma_6_6_5_isSubmanifoldOfDim_cube`: for such `sᵢ`, near
   every `(0, (q, Φ(q)))` the solution set `S = F⁻¹(0)` is a smooth manifold with boundary and
   corners (Mathlib's `IsManifold (modelWithCornersEuclideanQuadrant d) ∞`), resp. a
-  `d`-dimensional submanifold of `ℝᵏ × ([0, 1]ⁿ × X)`; its corners now include those coming
+  `d`-dimensional submanifold of `ℝᵏ × ([0, 1]ⁿ × X)`; its corners include those coming
   from `[0, 1]ⁿ`, as in the text.
 
 ## Continued in later files

@@ -51,8 +51,8 @@ solution set of `f + s = 0` is still compact.
   `y ↦ Φ(f(y))₂ + Φ(s'(y))₂` is continuous at `x` (`s'` is sc⁺, so continuous) and is small at the
   zeros of `f + s`, so `|Φ(f(x))₂ + Φ(s(x))₂|₀ ≤ 2‖ι‖Aε` for every `ε`, i.e. `f(x) + s(x) = 0`.
   Only the continuity of `f` is used (no sc-Fredholm property, no compactness).
-* This file moves the round-trip auditor's proof (round-trip item V5.22,
-  `RoundTrip/Items/V5_22.lean`, `isClosed_solSet`) into the project.
+* The proof is that of round-trip item V5.22 (`RoundTrip/Items/V5_22.lean`,
+  `isClosed_solSet`).
 -/
 
 open Set Filter Topology Function

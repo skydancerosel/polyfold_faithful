@@ -5,7 +5,7 @@ import Polyfold.Chapter3.TameGermsAddG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
 **Theorem 3.1.21 (preprint 3.18)** (parametrized perturbations; book 2017: Theorem 3.3) **in the text's germ
-reading** of Definition 3.1.11 (preprint 3.11) (phase 2 of the germ-versus-chart work; Findings, Chapter 3, items
+reading** of Definition 3.1.11 (preprint 3.11) (Findings, Chapter 3, items
 300–309), with its tame form (Definition 3.6.4 (preprint 3.51)) and the linearization of the parametrized section
 used after Theorem 3.1.22 (preprint 3.19).
 
@@ -44,7 +44,7 @@ level).
 ## What the text leaves implicit, and the choices made
 
 * The product germ `ℝⁿ × G` is unbounded in the `ℝⁿ`-direction on every level, which Definition
-  3.1 allows (as for the old whole-chart data `ℝⁿ × U`); the `ℝⁿ`-factor needs no shrinking.
+  3.1 allows (as for the whole-chart data `ℝⁿ × U`); the `ℝⁿ`-factor needs no shrinking.
 * `scDeriv_paramSection_wholeChart` and its `linAt` forms took an sc-Fredholm section only to know that `f` is
   sc-smooth (the derivative is that of the whole-chart map `F̂ ∘ (1 × r)`, no germ data enter);
   the germ-reading forms are instances of the version for sc-smooth sections.
@@ -72,7 +72,7 @@ namespace StrongBundle
 
 variable {B : StrongBundle PX P} {f : X → Y}
 
-/-- **The germ property of `f̃ = f ∘ π` at `(r₀, x)`, germ reading** (phase 2; the germ form of
+/-- **The germ property of `f̃ = f ∘ π` at `(r₀, x)`, germ reading** (the germ form of
 `IsScFredholmGermWholeChart.param`, Theorem 3.1.21 (preprint 3.18)'s "readily verified"): if `(f, x)` is an sc-Fredholm germ in
 the germ reading (`IsScFredholmGerm`, filling germ `g` on `G_g`, sc⁺-germ `t₀` on `G_{t₀}`), then
 so is `(f̃, (r₀, x))`, in the product chart `(r ↦ r − r₀) × φ`: the filling germ `(a, u) ↦ g(u)`
@@ -98,7 +98,7 @@ theorem IsScFredholmGerm.param (hfs : IsSection P f) {x : X} (hg : B.IsScFredhol
   · exact PullbackChartData.ofProd_isFillingGerm c r₀ q₀ h0U h0O hfill
   · exact IsConjugateToBasicGerm.paramExtend (Fin n → ℝ) c.relOpen hconj
 
-/-- `f̃` is regularizing when `f` is an sc-Fredholm section in the germ reading (phase 2; the proof
+/-- `f̃` is regularizing when `f` is an sc-Fredholm section in the germ reading (the proof
 of `regularizing_paramLift_wholeChart`, which uses only that `f` is an sc-smooth regularizing section). -/
 theorem regularizing_paramLift (hf : B.IsScFredholmSection f) :
     ∀ m, ∀ z ∈ ((rnPolyfold n).prod PX).levelSet m,
@@ -119,8 +119,7 @@ theorem regularizing_paramLift (hf : B.IsScFredholmSection f) :
   rw [d.c.fst_apply (by rw [hfsec]; exact hxV), hfsec]
   exact (PX.mem_levelSet_iff d.c.isChart hxV).1 hz
 
-/-- **`f̃(r, x) = ((r, x), f(x))` is an sc-Fredholm section of `π*P` in the germ reading** (phase 2;
-the germ form of `IsScFredholmSectionWholeChart.param`). -/
+/-- **`f̃(r, x) = ((r, x), f(x))` is an sc-Fredholm section of `π*P` in the germ reading** (the germ form of `IsScFredholmSectionWholeChart.param`). -/
 theorem IsScFredholmSection.param (hf : B.IsScFredholmSection f) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSection
       (paramLift (n := n) f hf.isScSmooth.1) where
@@ -131,7 +130,7 @@ theorem IsScFredholmSection.param (hf : B.IsScFredholmSection f) :
 
 end StrongBundle
 
-/-- **Theorem 3.1.21 (preprint 3.18) (parametrized perturbations), germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.21 (preprint 3.18) (parametrized perturbations), germ reading** (the germ form of
 `theorem_3_1_21_wholeChart`): if `f` is an sc-Fredholm section of `P : Y → X` in the text's germ reading of
 Definition 3.1.11 (preprint 3.11) (`IsScFredholmSection`) and `s₁, …, sₙ` are sc⁺-sections of `P`, then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is an sc-Fredholm section of `π*P : π*Y → ℝⁿ × X` in the germ
@@ -147,7 +146,7 @@ theorem theorem_3_1_21_preprint {B : StrongBundle PX P} {f : X → Y} (hf : B.Is
 
 omit [ParacompactSpace ((Fin n → ℝ) × X)]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- **Theorem 3.1.21 (preprint 3.18), germ reading, with no instance argument** (phase 2; the germ form of
+/-- **Theorem 3.1.21 (preprint 3.18), germ reading, with no instance argument** (the germ form of
 `theorem_3_1_21'_wholeChart`): the paracompactness of `ℝⁿ × X` and of `π*Y` is supplied by Theorem 2.3.10 (preprint 2.16). -/
 theorem theorem_3_1_21' {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
@@ -167,7 +166,7 @@ namespace StrongBundle
 
 variable {B : StrongBundle PX P} {f : X → Y}
 
-/-- **The germ property of `f̃` at `(r₀, x)` in a tame chart, germ reading** (phase 2; the germ form
+/-- **The germ property of `f̃` at `(r₀, x)` in a tame chart, germ reading** (the germ form
 of `IsScFredholmGermTameWholeChart.param`): the data of `IsScFredholmGerm.param` in the product chart of a
 tame chart, which is tame (`PullbackChartData.ofProd_isTame`). -/
 theorem IsScFredholmGermTame.param (hfs : IsSection P f) {x : X}
@@ -190,7 +189,7 @@ theorem IsScFredholmGermTame.param (hfs : IsSection P f) {x : X}
   · exact PullbackChartData.ofProd_isFillingGerm c r₀ q₀ h0U h0O hfill
   · exact IsConjugateToBasicGerm.paramExtend (Fin n → ℝ) c.relOpen hconj
 
-/-- **`f̃` is an sc-Fredholm section of `π*P` with tame germ data, germ reading** (phase 2; the germ
+/-- **`f̃` is an sc-Fredholm section of `π*P` with tame germ data, germ reading** (the germ
 form of `IsScFredholmSectionTameWholeChart.param`). -/
 theorem IsScFredholmSectionTame.param (hf : B.IsScFredholmSectionTame f) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionTame
@@ -201,7 +200,7 @@ theorem IsScFredholmSectionTame.param (hf : B.IsScFredholmSectionTame f) :
 
 end StrongBundle
 
-/-- **Theorem 3.1.21 (preprint 3.18) for a tame strong bundle, germ reading** (phase 2; the germ form of
+/-- **Theorem 3.1.21 (preprint 3.18) for a tame strong bundle, germ reading** (the germ form of
 `theorem_3_1_21_tame_wholeChart`, Definition 3.6.4 (preprint 3.51)): if `f` is an sc-Fredholm section with tame germ data in the
 germ reading (`IsScFredholmSectionTame`) and `s₁, …, sₙ` are sc⁺-sections, then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is one of `π*P` (`IsScFredholmSectionTame.param` and
@@ -216,7 +215,7 @@ theorem theorem_3_1_21_tame {B : StrongBundle PX P} {f : X → Y}
 /-! ### The linearization of `F` in the product chart, for sc-smooth `f` -/
 
 /-- **The linearization of `F` at the centre of the product chart, for an sc-smooth section `f`**
-(phase 2; `scDeriv_paramSection_wholeChart` with the hypothesis it uses: `f` is an sc-smooth section, no germ
+(`scDeriv_paramSection_wholeChart` with the hypothesis it uses: `f` is an sc-smooth section, no germ
 data of `f` enter): in the product chart `(r ↦ r − r₀) × Φ` pulled back from a strong bundle chart
 `c` with `0 ∈ O`, `D(F̂ ∘ (1 × r))(0)(δa, δu) = D(Ĝ ∘ r)(0) δu + Σ δaᵢ ŝᵢ(0)`,
 `Ĝ = f̂ + Σ r₀ᵢ ŝᵢ`. -/
@@ -351,7 +350,7 @@ theorem scDeriv_paramSection_of_isScSmoothSection {B : StrongBundle PX P} {f : X
     FunLike.coe_sum, Finset.sum_apply, ContinuousLinearMap.smulRight_apply,
     ContinuousLinearMap.coe_snd', ContinuousLinearMap.coe_fst', ContinuousLinearMap.proj_apply]
 
-/-- **The linearization of `F` at the centre of the product chart, germ reading** (phase 2; the
+/-- **The linearization of `F` at the centre of the product chart, germ reading** (the
 germ form of `scDeriv_paramSection_wholeChart`, used for transversality after Theorem 3.1.22 (preprint 3.19)):
 `D(F̂ ∘ (1 × r))(0)(δa, δu) = D(Ĝ ∘ r)(0) δu + Σ δaᵢ ŝᵢ(0)`, `Ĝ = f̂ + Σ r₀ᵢ ŝᵢ`, for `f` an
 sc-Fredholm section in the germ reading (only its sc-smoothness is used). -/
@@ -369,7 +368,7 @@ theorem scDeriv_paramSection {B : StrongBundle PX P} {f : X → Y}
   scDeriv_paramSection_of_isScSmoothSection hf.isScSmooth hs hc h0O r₀ q₀ v
 
 /-- **The linearization of `F` at the centre `(r₀, x)` of the product chart, in the chart form
-`linAt`, germ reading** (phase 2; the germ form of `linAt_paramSection_wholeChart`): on `T₀(ℝⁿ × O)`,
+`linAt`, germ reading** (the germ form of `linAt_paramSection_wholeChart`): on `T₀(ℝⁿ × O)`,
 `Lin_F(0)(δa, δu) = Lin_G(0) δu + Σ δaᵢ ŝᵢ(0)` with `G = f + Σ r₀ᵢ sᵢ`. -/
 theorem linAt_paramSection {B : StrongBundle PX P} {f : X → Y}
     (hf : B.IsScFredholmSection f)
@@ -389,7 +388,7 @@ theorem linAt_paramSection {B : StrongBundle PX P} {f : X → Y}
         ∑ i, w.1 i • c.principal (s i) 0 :=
   scDeriv_paramSection hf hs hc h0O r₀ q₀ w
 
-/-- **The text's form, germ reading** (phase 2; the germ form of `linAt_paramSection_zero_wholeChart`, after
+/-- **The text's form, germ reading** (the germ form of `linAt_paramSection_zero_wholeChart`, after
 Theorem 3.1.22 (preprint 3.19)): at `r₀ = 0` the linearization of `F` at `(0, x)` is
 `(δr, ξ) ↦ f'(x)ξ + Σ δrᵢ sᵢ(x)`, in the chart form
 `Lin_F(0)(δa, δu) = Lin_f(0) δu + Σ δaᵢ ŝᵢ(0)`. -/

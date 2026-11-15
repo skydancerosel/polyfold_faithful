@@ -172,10 +172,11 @@ linear isomorphisms, `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ 
   enters (`IsStrongBundleFunctor.μ_comm`); (1) makes the `A_y` topological linear isomorphisms
   (`IsProperStrongBundleCovering.fiberEquiv`, through `IsStrongBundleIsoOn.fiberEquiv`).
 
-## Not formalized
+## Elsewhere
 
-* No example of a proper strong bundle covering functor (Definition 8.5.9 (2017: 8.10)) is constructed in this
-  file.
+* Examples of proper strong bundle covering functors (Definition 8.5.9 (2017: 8.10)) are in
+  `NonVacuityBundle.lean` (`isProperStrongBundleCovering_id`) and `Book.lean`
+  (`EpStrongBundle.isProperStrongBundleCovering2021_id`).
 -/
 
 open Set Function

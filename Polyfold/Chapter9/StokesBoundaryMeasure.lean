@@ -11,14 +11,14 @@ Part II, Chapter 9, §9.5: **Theorems 9.5.17 and 9.5.18 (Stokes), pp. 449–451*
 # Stokes' theorem with the boundary measures of Theorems 9.5.15, 9.5.16
 
 `∫_Θ̂ dω = ∫_{∂S} ω dμ^{∂Θ̂}` (`= μ^{∂Θ̂}_ω(∂S)`), and `∮_Θ̂ dω = ∮_{∂S} ω dμ^{∂Θ̂}` for the
-effective integrals, for `ω ∈ Ωᵐ_{ep,∞}(X)`, `m ≥ 1`, with E7's boundary measures for E4's integral
-over countably many graph charts (`theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`).
+effective integrals, for `ω ∈ Ωᵐ_{ep,∞}(X)`, `m ≥ 1`, with the boundary measures of `BoundaryMeasure.lean`
+for the integral over countably many graph charts (`theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`).
 
-The proof is the one on pp. 450–451: E5/E6's `stokes_of_boundary_functional_all` with
+The proof is the one on pp. 450–451: `stokes_of_boundary_functional_all` with
 `Φ^∂(ω) = μ^∂_ω(∂S)`; the two properties it needs are
 (a) `μ^∂_{βω}(∂S) = c(x) ∑ᵢ σᵢ ∫_{∂(Mᵢ,oᵢ)} βω` for `supp β ⊆ U(x)^*`: the locality of `μ^∂`
 (`boundaryMeasure_univ_eq`) and Part I's boundary integral of a sheet equal to the integral over
-its boundary stratum `∂₁Mᵢ` with `o_{∂Mᵢ}` (E8F's `boundaryIntegral_eq_msInteg`); for structures
+its boundary stratum `∂₁Mᵢ` with `o_{∂Mᵢ}` (`boundaryIntegral_eq_msInteg`); for structures
 at points off `supp(∂Θ)` the structure is first restricted so that `U(x)^*` avoids `supp(∂Θ)`
 (`exists_restrict_subset`), and both sides vanish;
 (b) `μ^∂_{βω} = 0` when `supp β ∩ supp Θ = ∅` (`boundaryMeasure_eq_zero_of_integ_eq_zero`).
@@ -30,7 +30,7 @@ at points off `supp(∂Θ)` the structure is first restricted so that `U(x)^*` a
   `EP.boundaryBranchedMeasureEff`, **`EP.theorem_9_5_18_msheets`**: with the measures of
   Theorems 9.5.15, 9.5.16 themselves, `∫_Θ̂ dω = μ^∂_ω(∂S)`.
 
-Added hypothesis `hcovS` (E7's class condition, together with the one-chart condition of the
+Added hypothesis `hcovS` (the class condition of `BoundaryMeasure.lean`, together with the one-chart condition of the
 interior integral): at every point of `supp Θ` an oriented tame structure describing `T̂Θ` whose
 sheets lie in one graph chart (`sheets`) and whose nonempty boundary sheets lie in `msheets`.
 -/
@@ -184,7 +184,7 @@ of unity, `Θ` compact, oriented by `T̂Θ = T`, `ω ∈ Ωᵐ_{ep,∞}(X)`, `m 
 `ω ↦ μ^∂_ω` with the characterizing local formula of Theorem 9.5.15 (weights `1/♯G_x`),
 `∫_Θ̂ dω = μ^∂_ω(∂S) = ∫_{∂S} ω dμ^{∂Θ̂}`.  Hypothesis `hcovS`: at every point of `supp Θ` an
 oriented tame structure describing `T̂Θ` with sheets in one graph chart and nonempty boundary
-sheets in `msheets` (E7's class condition). -/
+sheets in `msheets` (the class condition of `BoundaryMeasure.lean`). -/
 theorem theorem_9_5_17_hyp (hm : 0 < m) (hPU : A.X.HasScPartitionsOfUnity)
     (hΘ : A.X.IsBranchedEpSubgroupoid Θ) (hcpt : A.X.IsCompactBranched Θ)
     (hT : A.X.IsOrientation Θ T)
@@ -247,8 +247,8 @@ theorem hcovB_of_hcovS
         ∀ i, (C.boundarySheet i).Nonempty → C.boundarySheet i ∈ (A.epFormsInftyEval m).msheets :=
   fun x hx => (hcovS x (A.X.supp_boundaryTheta_subset Θ hx).2).imp fun _ h => ⟨h.1, h.2.2⟩
 
-/-- **The boundary measure `ω ↦ μ^{∂Θ̂}_ω` of Theorem 9.5.15** (E7's `theorem_9_5_15_msheets`,
-for E4's integral over countably many graph charts). -/
+/-- **The boundary measure `ω ↦ μ^{∂Θ̂}_ω` of Theorem 9.5.15** (`theorem_9_5_15_msheets`,
+for the integral over countably many graph charts). -/
 def boundaryBranchedMeasure (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T)
     (hcovS : ∀ x ∈ supp Θ, ∃ C : A.X.OrientedTameStructure (m + 1) Θ x, C.Represents T ∧
@@ -277,7 +277,7 @@ theorem theorem_9_5_17_msheets (hm : 0 < m) (hPU : A.X.HasScPartitionsOfUnity)
         (FormEval.isNDimensional_of_loc hcovS) hT (A.hcovB_of_hcovS hcovS)).exists.choose_spec
         ω x C hCT hx hS K hK hKU) ω
 
-/-- **The effective boundary measure of Theorem 9.5.16** (E7's `theorem_9_5_16_msheets`). -/
+/-- **The effective boundary measure of Theorem 9.5.16** (`theorem_9_5_16_msheets`). -/
 def boundaryBranchedMeasureEff (hm : 0 < m) (hΘ : A.X.IsBranchedEpSubgroupoid Θ)
     (hcpt : A.X.IsCompactBranched Θ) (hT : A.X.IsOrientation Θ T)
     (hcovS : ∀ x ∈ supp Θ, ∃ C : A.X.OrientedTameStructure (m + 1) Θ x, C.Represents T ∧

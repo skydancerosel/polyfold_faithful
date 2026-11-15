@@ -8,8 +8,8 @@ import Polyfold.Chapter5.SeparablePartitionsOfUnity
 whose object M-polyfold has an atlas of charts with Hilbert `E₀` admits sc-smooth partitions of
 unity subordinate to every cover by saturated open sets.
 
-The project's `EpGroupoid.corollary_7_6_6` took Theorem 5.5.16 (Godefroy–Troyanski–Whitfield–Zizler)
-for these `E₀` as an explicit hypothesis.  Part I now has Corollary 5.5.17 with no hypothesis
+`EpGroupoid.corollary_7_6_6` takes Theorem 5.5.16 (Godefroy–Troyanski–Whitfield–Zizler)
+for these `E₀` as an explicit hypothesis.  Part I has Corollary 5.5.17 with no hypothesis
 (`corollary_5_5_17_unconditional`, `SeparablePartitionsOfUnity.lean`: the `0`-level of an sc-Banach space is
 separable, and Theorem 5.5.16 holds for separable spaces) and Theorem 5.5.16 itself
 (`theorem_5_5_16`, `WCGPartitionsOfUnity.lean`).  So the corollary holds as printed.

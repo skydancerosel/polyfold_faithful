@@ -2,7 +2,7 @@ import Polyfold.Chapter15.KernelFramesPerturbed
 import Polyfold.Chapter15.CanonicalLiftNaturality
 import Polyfold.Chapter15.KernelBranchingIndex
 import Polyfold.Chapter6.TangentOrientationFamily
-import Polyfold.Chapter6.SolutionSetOpen2021
+import Polyfold.Chapter6.SolutionSetOpen
 import Polyfold.Chapter9.ManifoldBridge
 
 /-!

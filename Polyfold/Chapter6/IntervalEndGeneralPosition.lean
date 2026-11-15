@@ -1,6 +1,6 @@
 import Polyfold.Chapter6.IntervalEndIdentity
 import Polyfold.Chapter6.CubePropertyP
-import Polyfold.Chapter5.CylinderPerturbation2021
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, p. 220

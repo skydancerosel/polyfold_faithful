@@ -24,11 +24,11 @@ signs.  There are four sign choices for each structure.
   possibilities to orient" holds for each structure separately, and does not hold as we read it
   for `Θ`.
 
-## Not formalized here
+## Not in this file
 
 The classification of all orientations of `Θ` (Definition 9.3.2, with rational weights) is proved
-in `OrientationExampleClasses.lean` (`example_9_3_5_classification`, 2026-11-12).  What this file
-expected, and the classification confirms: on each of the four open arcs of `supp(Θ) ∖ {0}` an
+in `OrientationExampleClasses.lean` (`example_9_3_5_classification`).  The classification
+gives: on each of the four open arcs of `supp(Θ) ∖ {0}` an
 orientation is `a [→] + (1 − a) [←]` with a rational `a ∈ [0, 1]` constant along the arc, and the structures at
 the origin force `a(G⁺⁺, s > 0) + a(G⁻⁻, s > 0) = a(G⁺⁺, s < 0) + a(G⁻⁻, s < 0)`; the six
 orientations here are the members of this family with all `a ∈ {0, 1}`.  The proof uses the

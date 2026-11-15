@@ -7,7 +7,7 @@ import Polyfold.Chapter1.LevelsWeak
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
 Definitions 3.1.1–3.1.2, 3.1.4, 3.1.6, 3.1.11 (preprint 3.1–3.2, 3.4, 3.6, 3.11) and Lemma 3.1.20 (preprint 3.17): **the calculus of sc-smooth germs** that the
-germ reading of Definition 3.1.11 (preprint 3.11) needs (phase 2; Findings, Chapter 3, items 270–274).
+germ reading of Definition 3.1.11 (preprint 3.11) needs (Findings, Chapter 3, items 270–274).
 
 # The germ calculus for Definition 3.1.11 (preprint 3.11)
 

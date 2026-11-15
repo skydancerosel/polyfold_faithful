@@ -26,8 +26,8 @@ characterized by `μ_ω^∂(K) = (1/♯G_x) ∑ σᵢ ∫_{Kᵢ} ω|(∂₁Mᵢ,
   the `m`-dimensional null sets, with `hcov`: at every point of `supp(∂Θ)` an oriented tame
   structure describing `T̂Θ` whose nonempty boundary sheets lie in the class `S` of the
   integration.
-* `theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`: the instance `S = F.msheets` (E4's
-  integration over countably many graph charts).
+* `theorem_9_5_15_msheets`, `theorem_9_5_16_msheets`: the instance `S = F.msheets` (the
+  integration over countably many graph charts, `MultiChart.lean`).
 * `hcov_msheets_of_isCompact` (compact boundary sheets satisfy the class condition) and
   `hcov_zero` (the hypothesis for `Θ = 0`).
 -/
@@ -266,7 +266,7 @@ sets are those of `m`-dimensional measure zero: let `Θ̂` be oriented, tame, co
 `U(x)`, `x ∈ supp(∂Θ)`, describing `T̂Θ` (nonempty boundary sheets in `S`), and every measurable
 `K ⊆ ∂S` contained in `|U(x)|`, `μ_ω^∂(K) = (1/♯G_x) ∑ σᵢ ∫_{Kᵢ} ω|(∂₁Mᵢ, o_{∂Mᵢ})` (the sum
 over the nonempty `∂₁Mᵢ`).  Added hypothesis `hcov`: such structures exist at every point of
-`supp(∂Θ)` (the analogue of E1's `theorem_9_5_4` hypothesis). -/
+`supp(∂Θ)` (the analogue of `theorem_9_5_4` hypothesis). -/
 theorem theorem_9_5_15_hyp (hΘ : X.IsBranchedEpSubgroupoid Θ) (hcpt : X.IsCompactBranched Θ)
     (hnd : X.IsNDimensional Θ (m + 1)) (hT : X.IsOrientation Θ T)
     (hG : ∀ N A, G.IsNull N A ↔ X.PObj.IsHNull m (A ∩ N))
@@ -320,7 +320,7 @@ section MSheets
 
 variable {Ω : Type*} [AddCommGroup Ω] [Module ℝ Ω] {m : ℕ} (F : X.FormEval m Ω)
 
-/-- **Theorem 9.5.15** for E4's integration over countably many graph charts (`F.msheets`). -/
+/-- **Theorem 9.5.15** for the integration over countably many graph charts (`F.msheets`). -/
 theorem theorem_9_5_15_msheets (hm : 0 < m) (hΘ : X.IsBranchedEpSubgroupoid Θ)
     (hcpt : X.IsCompactBranched Θ) (hnd : X.IsNDimensional Θ (m + 1)) (hT : X.IsOrientation Θ T)
     (hcov : ∀ x ∈ supp (X.boundaryTheta Θ), ∃ C : X.OrientedTameStructure (m + 1) Θ x,
@@ -338,7 +338,7 @@ theorem theorem_9_5_15_msheets (hm : 0 < m) (hΘ : X.IsBranchedEpSubgroupoid Θ)
               (X.π ⁻¹' (Subtype.val '' K)) :=
   theorem_9_5_15_hyp (F.msheetIntegration hm) hΘ hcpt hnd hT (fun _ _ => Iff.rfl) hcov
 
-/-- **Theorem 9.5.16** for E4's integration over countably many graph charts (`F.msheets`). -/
+/-- **Theorem 9.5.16** for the integration over countably many graph charts (`F.msheets`). -/
 theorem theorem_9_5_16_msheets (hm : 0 < m) (hΘ : X.IsBranchedEpSubgroupoid Θ)
     (hcpt : X.IsCompactBranched Θ) (hnd : X.IsNDimensional Θ (m + 1)) (hT : X.IsOrientation Θ T)
     (hcov : ∀ x ∈ supp (X.boundaryTheta Θ), ∃ C : X.OrientedTameStructure (m + 1) Θ x,
@@ -360,7 +360,8 @@ theorem theorem_9_5_16_msheets (hm : 0 < m) (hΘ : X.IsBranchedEpSubgroupoid Θ)
 /-! ### The hypothesis `hcov` -/
 
 /-- **Compact boundary sheets satisfy the class condition**: a nonempty compact `∂₁Mᵢ` lies in
-`F.msheets` (E4's `msheets_of_isCompact`; `∂₁Mᵢ` is an `m`-dimensional submanifold, E6). -/
+`F.msheets` (`msheets_of_isCompact`; `∂₁Mᵢ` is an `m`-dimensional submanifold,
+`StratumTangent.lean`). -/
 theorem OrientedTameStructure.boundarySheet_mem_msheets_of_isCompact {x : Obj}
     (C : X.OrientedTameStructure (m + 1) Θ x) (i : C.ι) (hc : IsCompact (C.boundarySheet i))
     (hne : (C.boundarySheet i).Nonempty) : C.boundarySheet i ∈ F.msheets :=

@@ -1,7 +1,7 @@
 import Polyfold.Chapter3.LinearizationIntrinsic
-import Polyfold.Chapter3.BookFormIFT2021
+import Polyfold.Chapter3.BookFormIFT
 import Polyfold.Chapter5.GeneralPosition
-import Polyfold.Chapter2.BookFormTameSub2021
+import Polyfold.Chapter2.BookFormTameSub
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), **Theorem 3.1.22**

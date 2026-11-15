@@ -15,7 +15,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 
 ## What is formalized
 
-The negative claim of Remark 2.4.8 (preprint 2.28) is **refuted**: `C_xO` is a partial quadrant in `T_xO` for every
+The negative claim of Remark 2.4.8 (preprint 2.28) **does not hold as we read it**: `C_xO` is a partial quadrant in `T_xO` for every
 sc-smooth retract and every smooth `x ∈ O` (with the sc-structure of `T_xO` induced from `E`),
 without tameness.  No hypothesis of the remark is dropped, and the definitions are the project's
 (`partialConeWith`, `reducedTangentSpaceWith`, `IsPartialQuadrant`, round-trip item V2.33).
@@ -639,7 +639,7 @@ theorem ScRetraction.isScSubspace_reducedTangentSpaceWith (R : ScRetraction E C)
   rw [← hφw]
   exact map_mem_closure hφc ((W.dense_smooth m).closure_eq ▸ mem_univ _) hφS
 
-/-- **Remark 2.4.8 (preprint 2.28), refuted**: at every smooth point `x` of every sc-smooth retract `(O, C, E)`
+/-- **Remark 2.4.8 (preprint 2.28) does not hold as we read it**: at every smooth point `x` of every sc-smooth retract `(O, C, E)`
 (no tameness), `T_xO = Dr(x)E` is an sc-subspace, `T_x^R O` is an sc-subspace, and the partial
 cone `C_xO = {v ∈ T_xO | v ∈ C_x}` **is** a partial quadrant in the sc-Banach space `T_xO` (with
 the sc-structure induced from `E`), of dimension `r = rank M ≤ d_C(x)`.  This contradicts the
@@ -753,10 +753,10 @@ theorem remark_2_4_8_isPartialQuadrant (hT : C = T 0 ⁻¹' quadrant n W 0) {x :
       rw [hK]; exact ⟨b, hb0, by rw [hΛw, hΦapp]⟩
     exact hmem.2
 
-/-- **Remark 2.4.8 (preprint 2.28), refuted, in the audit's shape** (`B2` of `RoundTrip/Items/V2_33.lean`): for
+/-- **Remark 2.4.8 (preprint 2.28) does not hold as we read it, in the shape of `B2`** (`RoundTrip/Items/V2_33.lean`): for
 every sc-smooth retraction `r` in `C = T⁻¹([0,∞)ⁿ ⊕ W)`, every smooth `x ∈ O₁`, and every proof
 `h` that `T_xO` is an sc-subspace, the preimage of `C_xO` in `T_xO` is a partial quadrant in the
-sc-Banach space `T_xO`.  So the text's "in general this is not the case" is false. -/
+sc-Banach space `T_xO`.  So the text's "in general this is not the case" does not hold as we read it. -/
 theorem remark_2_4_8_partialConeWith (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1)
     (h : E.IsScSubspace (LinearMap.range (scDeriv R.U R x : E 0 →ₗ[ℝ] E 0))) :

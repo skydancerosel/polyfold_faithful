@@ -1,4 +1,4 @@
-import Polyfold.Chapter5.Book2021
+import Polyfold.Chapter5.Book
 import Polyfold.Chapter8.StrongBundleMap
 
 /-!

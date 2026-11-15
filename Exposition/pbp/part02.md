@@ -298,7 +298,7 @@ $$(w, h) \mapsto \big(\psi_2\psi_1^{-1}(w),\ \mathrm{pr}_F(\Phi_2\Phi_1^{-1})(g_
 
 The Springer edition (2021) adds to §2.1 a theory of *local completeness*: Proposition 2.1.4, Definition 2.1.5, Remark 2.1.6, Corollary 2.1.7, Proposition 2.1.8, Lemma 2.1.9 and Proposition 2.1.10, pp. 22–25. It also changes one statement, Proposition 2.1.13.
 
-**Proposition 2.1.13 (preprint 2.6), the 2021 statement.** For sc-smooth retractions $r$, $s$ onto the same retract $O$, a retraction $\rho$ onto $O'$, and $f$ with $f(O) \subseteq O'$, three things hold ⟦Chapter2/Book2021 · proposition_2_1_13⟧:
+**Proposition 2.1.13 (preprint 2.6), the 2021 statement.** For sc-smooth retractions $r$, $s$ onto the same retract $O$, a retraction $\rho$ onto $O'$, and $f$ with $f(O) \subseteq O'$, three things hold ⟦Chapter2/Book · proposition_2_1_13⟧:
 - (1) $f \circ r$ is sc-smooth iff $f \circ s$ is;
 - (2) if $f \circ r$ is sc-smooth, $T(f \circ r) = T(f \circ s)$ on $TO$;
 - (3) if $f \circ r$ is sc-smooth, $T(f \circ r)$ maps $TO$ into $TO'$.

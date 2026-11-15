@@ -76,8 +76,8 @@ orbifold-type if it takes only the values `0`, `1`.
   `Mᵢ → U(x)` is proper" is `IsProperMap (Set.inclusion _)`.  The index set is a `Fintype` in
   the universe of the objects; `x ∈ Mᵢ` for every `i`, as in (2).
 * "`n`-dimensional" and "locally equidimensional" (and the local dimension of Remark 9.1.1) are
-  not formalized: Part I has no dimension of a submanifold as the rank of its tangent spaces (the
-  tangent fibres are sets in `TangentSpace`, without a vector space structure).
+  not in this file: they are `IsSubmanifoldOfDim`, `IsNDimensional` (`Propositions.lean`) and
+  `IsLocallyEquidimensional` (`LocallyEquidimensional.lean`).
 * Definitions 9.1.6 and 9.1.8 are conditions on any `Θ : X → ℚ`, to be applied to branched
   ep⁺-subgroupoids.  "At most one morphism between `x, y ∈ supp(Θ)`" is: two morphisms with the
   same source and target in `supp(Θ)` are equal.
@@ -87,11 +87,12 @@ orbifold-type if it takes only the values `0`, `1`.
   (Proposition 7.1), so `π⁻¹` of the coborder of `|supp(Θ)|` is the coborder of `supp(Θ)`.  It
   does not use the paracompactness of `|supp(Θ)|`.
 * In Definition 9.1.2 (4) the 2021 text reads "the data in (2) and (3)" (2017: "(ii) and (iii)",
-  a possible misprint there); "see the next 9.1" on p. 291 of the 2017 text refers to Remark 9.1.
-* Not formalized here: Remark 9.1.3 (b) (graphs as submanifolds).  Remark 9.1.4 is in
+  which we read as (2) and (3)); "see the next 9.1" on p. 291 of the 2017 text refers to Remark 9.1.
+* Not in this file: Remark 9.1.3 (b) (graphs as submanifolds), which is `remark_9_1_3_b`
+  (`Propositions.lean`).  Remark 9.1.4 is in
   `Polyfold/Chapter9/OrbitSubsetMetrizable.lean`; Proposition 9.1.9 and Remark 9.1.10 are in
   `SupportOrbifold.lean`, `SupportManifold.lean`, `SupportGroupoidNaturality.lean`,
-  `SupportClassicalStructures.lean` and `SupportGroupoidEtale.lean` (2026-11-12).  The restriction
+  `SupportClassicalStructures.lean` and `SupportGroupoidEtale.lean`.  The restriction
   remark and Lemma 9.1.7 are in `Polyfold/Chapter9/Symmetric.lean`.
 -/
 

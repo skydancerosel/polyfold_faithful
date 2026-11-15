@@ -14,7 +14,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 variable {m : ℕ} {δ : ℝ} {hδ : 0 ≤ δ}
 
@@ -247,4 +247,4 @@ theorem tendsto_cut (u : H m hδ) :
   refine (norm_H_le_sum _).trans (Finset.sum_le_sum fun p _ => ?_)
   exact norm_wdv_cut_sub_le u n hK0 (hK n) p
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

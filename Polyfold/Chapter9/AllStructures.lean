@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.StokesTextHypotheses
 import Polyfold.Chapter9.SheetEssential
-import Polyfold.Chapter9.PropertyTShrinking2021
+import Polyfold.Chapter9.PropertyTShrinking
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -23,8 +23,8 @@ zero (Lemma 9.4.6's proof), while an open piece of `Mᵢ` is not.  The boundary 
 only on the tangent space, so `z ∈ ∂₁M'_k`.  Hence `∂₁Mᵢ` lies in finitely many sheets of
 `msheets`, and a submanifold dominated by finitely many sheets of `msheets` is in `msheets`.
 
-* `MPolyfold.k1_exists_tangent_eq`, `MPolyfold.k1_mem_boundaryStratum_of_tangent_eq`;
-* `EpGroupoid.FormEval.k1_msheets_of_subset_list`;
+* `MPolyfold.exists_tangent_eq`, `MPolyfold.mem_boundaryStratum_of_tangent_eq`;
+* `EpGroupoid.FormEval.msheets_of_subset_list`;
 * **`EP.boundarySheet_mem_msheets_of_loc`**: every nonempty boundary sheet of every oriented tame
   structure lies in `msheets`;
 * **`EP.theorem_9_5_15`**, **`EP.theorem_9_5_16`**: the theorems with the local formula for every
@@ -48,7 +48,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 /-- **A sheet with a common tangent space**: let `M` and `M'_k` (finitely many) be
 `n`-dimensional submanifolds with `M ∩ W ⊆ ⋃ M'_k` (`W` open), each `M'_k` closed in `W`.  Then at
 every `z ∈ M ∩ W` some `M'_k ∋ z` has `T_zM'_k = T_zM`. -/
-theorem k1_exists_tangent_eq {n : ℕ} {ι : Type*} [Finite ι] {M : Set X} {M' : ι → Set X}
+theorem exists_tangent_eq {n : ℕ} {ι : Type*} [Finite ι] {M : Set X} {M' : ι → Set X}
     (hM : P.IsSubmanifoldOfDim M n) (hM' : ∀ k, P.IsSubmanifoldOfDim (M' k) n) {W : Set X}
     (hW : IsOpen W) (hcov : M ∩ W ⊆ ⋃ k, M' k)
     (hcl : ∀ k, ∀ z ∈ W, z ∉ M' k → ∃ O : Set X, IsOpen O ∧ z ∈ O ∧ Disjoint O (M' k))
@@ -77,7 +77,7 @@ theorem k1_exists_tangent_eq {n : ℕ} {ι : Type*} [Finite ι] {M : Set X} {M' 
 
 /-- The boundary stratum `{d = 1}` depends only on the tangent space: a point of `∂₁A` lying in
 `B` with `T_zB = T_zA` lies in `∂₁B`. -/
-theorem k1_mem_boundaryStratum_of_tangent_eq {A B : Set X} {z : X}
+theorem mem_boundaryStratum_of_tangent_eq {A B : Set X} {z : X}
     (h : z ∈ P.boundaryStratum A) (hzB : z ∈ B)
     (hT : P.submanifoldTangent A z = P.submanifoldTangent B z) : z ∈ P.boundaryStratum B :=
   ⟨hzB, fun c => hT ▸ h.2 c⟩
@@ -95,7 +95,7 @@ variable {n : ℕ} {Ω : Type*} [AddCommGroup Ω] [Module ℝ Ω] {F : X.FormEva
 
 /-- **A submanifold covered by finitely many sheets of `F.msheets` is in `F.msheets`**: the
 pieces `N_l ∩ V_{l,k}` of their chart covers, enumerated by `m = k q + l`, dominate it. -/
-theorem k1_msheets_of_subset_list {N : Set Obj} (hN : X.PObj.IsSubmanifoldOfDim N n)
+theorem msheets_of_subset_list {N : Set Obj} (hN : X.PObj.IsSubmanifoldOfDim N n)
     (hne : N.Nonempty) {L : List (Set Obj)} (hL : ∀ s ∈ L, s ∈ F.msheets)
     (hcov : N ⊆ ⋃ s ∈ L, s) : N ∈ F.msheets := by
   classical
@@ -160,7 +160,7 @@ end FormEval
 
 /-- A point of `U(x)` outside `Mᵢ` has an open neighbourhood disjoint from `Mᵢ` (`Mᵢ` is closed
 in `U(x)`). -/
-theorem LocalBranchingStructure.k1_exists_isOpen_disjoint {Θ : Obj → ℚ} {x : Obj}
+theorem LocalBranchingStructure.exists_isOpen_disjoint {Θ : Obj → ℚ} {x : Obj}
     (B : X.LocalBranchingStructure Θ x) (i : B.ι) {z : Obj} (hzU : z ∈ B.U) (hzM : z ∉ B.M i) :
     ∃ O : Set Obj, IsOpen O ∧ z ∈ O ∧ Disjoint O (B.M i) := by
   have hcl : IsClosed (range (Set.inclusion (B.subset_U i))) :=
@@ -206,7 +206,7 @@ theorem boundarySheet_mem_msheets_of_loc (hm : 0 < m) (hΘ : A.X.IsBranchedEpSub
   have hmemL : ∀ p ∈ t, ∀ k, ((G p).boundarySheet k).Nonempty → (G p).boundarySheet k ∈ L :=
     fun p hp k hk => List.mem_flatMap.2 ⟨p, Finset.mem_toList.2 hp,
       List.mem_map.2 ⟨k, Finset.mem_toList.2 (Finset.mem_filter.2 ⟨Finset.mem_univ _, hk⟩), rfl⟩⟩
-  refine FormEval.k1_msheets_of_subset_list (C.isSubmanifoldOfDim_boundarySheet i) hne
+  refine FormEval.msheets_of_subset_list (C.isSubmanifoldOfDim_boundarySheet i) hne
     (L := L) (fun s hs => ?_) fun z hz => ?_
   · obtain ⟨p, -, hs⟩ := List.mem_flatMap.1 hs
     obtain ⟨k, hk, rfl⟩ := List.mem_map.1 hs
@@ -215,16 +215,16 @@ theorem boundarySheet_mem_msheets_of_loc (hm : 0 < m) (hΘ : A.X.IsBranchedEpSub
     have hzK : z ∈ K := hUK ⟨C.toTameBranchingStructure.toLocalBranchingStructure.M_subset_supp i
       hzM, C.subset_U i hzM⟩
     obtain ⟨p, hpt, hzp⟩ := mem_iUnion₂.1 (ht hzK)
-    obtain ⟨k, hzk, hT⟩ := MPolyfold.k1_exists_tangent_eq (C.isSubmanifoldOfDim i)
+    obtain ⟨k, hzk, hT⟩ := MPolyfold.exists_tangent_eq (C.isSubmanifoldOfDim i)
       (G p).isSubmanifoldOfDim (G p).isOpen_U
       (fun q hq => mem_iUnion.2
         (((G p).toTameBranchingStructure.toLocalBranchingStructure.mem_supp_iff hq.2).1
           (C.toTameBranchingStructure.toLocalBranchingStructure.M_subset_supp i hq.1)))
       (fun k w hw hwk =>
-        (G p).toTameBranchingStructure.toLocalBranchingStructure.k1_exists_isOpen_disjoint k hw hwk)
+        (G p).toTameBranchingStructure.toLocalBranchingStructure.exists_isOpen_disjoint k hw hwk)
       hzM hzp
     have hzb : z ∈ (G p).boundarySheet k :=
-      MPolyfold.k1_mem_boundaryStratum_of_tangent_eq hz hzk hT
+      MPolyfold.mem_boundaryStratum_of_tangent_eq hz hzk hT
     exact mem_iUnion₂.2 ⟨_, hmemL p hpt k ⟨z, hzb⟩, hzb⟩
 
 /-- **Theorem 9.5.15, 2021 p. 449 (2017: Theorem 9.4)**, as stated in the text: `Θ` compact,

@@ -9,7 +9,7 @@ and pages are the 2021 text's.
 
 # Oriented sheet families and their local measures
 
-E1's `LocalMeasure.lean` proves (9.20), (9.21) and Lemmas 9.5.7–9.5.11 for the sheets
+`LocalMeasure.lean` proves (9.20), (9.21) and Lemmas 9.5.7–9.5.11 for the sheets
 `Mᵢ` of an oriented tame structure.  The boundary measures integrate instead over the boundary
 sheets `∂Mᵢ` with the orientations `o_{∂Mᵢ}`, which are not the sheets of a branching structure.
 Here the same statements are proved for an abstract family:
@@ -27,7 +27,8 @@ Here the same statements are proved for an abstract family:
   **`lemma_9_5_11`** for families.
 * `OrientedTameStructure.toFamily`: every oriented tame structure is a family for `D = supp Θ`,
   with the same sums (`sheetSum_toFamily`, `represents_toFamily`), and an orientation of `Θ` is
-  natural (`isNaturalOn_of_isOrientation`): E1's statements are the instance `D = supp Θ`.
+  natural (`isNaturalOn_of_isOrientation`): the statements of `LocalMeasure.lean` are the
+instance `D = supp Θ`.
 -/
 
 set_option maxSynthPendingDepth 3

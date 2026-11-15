@@ -50,13 +50,13 @@ localization is indicated, the details again left to the reader.
 * "Naturally equivalent" is Definition 11.6.5 (`ProperCoveringHom.NaturallyEquivalent`), which is
   compatible with composition on both sides; composition is associative on the nose.
 * All proper coverings in `PC` live in one universe, so that weak fibred products stay in `PC`.
-* Continued in later files (2026-11-12): the localization `PC(E⁻¹)` and the functor
+* Continued in other files: the localization `PC(E⁻¹)` and the functor
   `I : PC → PC(E⁻¹)` (sketched, the well-definedness of the composition left to the reader) are
   `PCLoc`, `PCLoc.I` in `ProperCoveringLocalization.lean`; the category `SBPC` of Remark 11.6.9, its
   Theorem 11.6.6 and its localization (details left to the reader) are in `ProperStrongBundleCoverings.lean`,
   `StrongBundleCoveringPullback.lean`, `StrongBundleCoveringFibredProduct.lean` and `StrongBundleCoveringLocalization.lean`.  The rest
   of Remark 11.6.9 recalls 2021 Definition 8.5.9, which is
-  `EpStrongBundle.IsProperStrongBundleCovering2021` (`Chapter8/Book2021.lean`).
+  `EpStrongBundle.IsProperStrongBundleCovering2021` (`Chapter8/Book.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

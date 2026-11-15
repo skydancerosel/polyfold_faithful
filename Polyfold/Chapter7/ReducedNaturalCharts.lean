@@ -12,8 +12,8 @@ charts, and the transition maps are sc-smooth.  No Hausdorff or paracompactness 
 isotropy statement before Definition 7.2.15, p. 319: if `T_R` is Hausdorff, `X_R = (X, 𝐗^R)` is in
 a natural way an ep-groupoid, it is effective, and its isotropy group at `x` is `G_x/T_x`.
 
-The project's `proposition_7_2_10` and `proposition_7_10_2017` (`Reduced.lean`) take
-`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`.  Paracompactness is now an instance
+`proposition_7_2_10` and `proposition_7_10_2017` (`Reduced.lean`) take
+`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`.  Paracompactness is an instance
 (`paracompactSpace_reducedMor`, 2021 Proposition 7.2.12), so the forms below need only what the
 2021 text assumes: nothing for Proposition 7.2.10, `T_R` Hausdorff for Theorem 7.2.14.
 

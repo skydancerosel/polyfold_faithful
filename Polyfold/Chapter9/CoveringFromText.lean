@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.MultiChartTheorem
-import Polyfold.Chapter9.PropertyTShrinking2021
+import Polyfold.Chapter9.PropertyTShrinking
 import Polyfold.Chapter9.OrientationAnyDim
 
 /-!

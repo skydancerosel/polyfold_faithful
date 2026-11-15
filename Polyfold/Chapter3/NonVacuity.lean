@@ -11,10 +11,10 @@ and "`(f, x)` is in good position in a tame chart at every zero" (`IsGoodPositio
 as `Dφ(x)` is onto at every zero of `φ`.  The conclusion of Theorem 3.6.11 (preprint 3.57) is then the classical
 regular value theorem for `φ⁻¹(0)` (`theorem_3_6_11_trivialBundle`).
 
-This is not in the text.  It was added after the §3.6 theorems were found to have been vacuously
-true under an earlier formalization (the hypothesis `htame` quantified over all compatible charts,
-`TameVacuity.lean`; Findings, Chapter 3 items 190–199): the witness checks that the repaired
-hypotheses can hold (Findings, Chapter 3 item 200).  It has no boundary (`C = ℝⁿ`) and
+This is not in the text.  Under the hypothesis `htame` quantified over all compatible charts the
+§3.6 theorems are vacuously true (`TameVacuity.lean`; Findings, Chapter 3 items 190–199): the
+witness checks that the hypotheses of the §3.6 theorems as formalized can hold (Findings, Chapter 3
+item 200).  It has no boundary (`C = ℝⁿ`) and
 finite-dimensional fibres; the boundary case of good position is `NonVacuityCorner.lean`
 (item 201), and the infinite-dimensional contraction part of a basic germ is not exercised.
 

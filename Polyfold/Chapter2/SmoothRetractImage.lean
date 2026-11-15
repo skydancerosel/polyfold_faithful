@@ -31,7 +31,7 @@ open scoped ContDiff
 
 namespace Polyfold
 
-namespace GapP1Prop212
+namespace SmoothRetractImage
 
 variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
@@ -184,6 +184,6 @@ theorem proposition_2_1_2 [CompleteSpace E] {U : Set E} (hU : IsOpen U) {r : E �
       have hryy : r y = y := h.injOn hyV.2.2 hyV.1.1 hφry
       exact ⟨y, ⟨⟨y, hVU hyV, hryy⟩, hyV⟩, hψy⟩
 
-end GapP1Prop212
+end SmoothRetractImage
 
 end Polyfold

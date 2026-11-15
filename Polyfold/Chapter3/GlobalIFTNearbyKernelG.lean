@@ -4,7 +4,7 @@ import Polyfold.Chapter3.GlobalIFTNearbyGraphG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1), the kernel of the linearization at the nearby zeros, in the chart at `x₀`, **in the
-text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
+text's germ reading of Definition 3.1.11 (preprint 3.11)**.
 
 # Theorem 3.6.8 (preprint 3.54) (1), the kernel at the nearby zeros, germ reading
 
@@ -28,7 +28,7 @@ with `ψ(z₀) = v + σ(v)`, the level-`1` point `z₀₁ ∈ U₁` over `z₀` 
   `hGψ'`, satisfied by the data of `theorem_3_6_8_chart_graph` built on `G″`
   (`BasicGermShrink.lean`, `BasicGermShrinkIFT.lean`); the derivative `Dg(z₀₁)` is the value of
   the derivative family `Dg` of the germ.
-* The two uses of the whole-chart `g` in the old proof — `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and the
+* The two uses of the whole-chart `g` in the whole-chart proof — `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and the
   chain rule `D(Ψ_*g)(x₁) = Γ(z₀₁) Dg(z₀₁) Dψ'(x₁)` — become the uniqueness of the derivative
   within `𝒮.G₁` (`pushforward_isSc1GermWith` restricted to `𝒮.G ⊆ ψ'⁻¹(G_g)`) and the identity
   `IsStrongBundleIso.pushforwardDeriv_at` of the explicit family.  Nothing else of `g` is used.
@@ -50,7 +50,7 @@ open StrongRetr
 
 set_option maxHeartbeats 1600000 in
 /-- **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in the chart at `x₀`, germ reading**
-(phase 2; the germ form of `theorem_3_6_8_chart_kernel_wholeChart`).  In the data of
+(the germ form of `theorem_3_6_8_chart_kernel_wholeChart`).  In the data of
 `theorem_3_6_8_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
 (derivative family `Dg`), there is an open neighbourhood `N₃ ⊆ N₂` of `0` such that for every
 zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'` with `ψ(z₀) = v + σ(v)`, the level-`1` point

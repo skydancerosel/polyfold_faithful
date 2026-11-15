@@ -58,7 +58,7 @@
    "lean": {
     "statement": "The existing `EpStrongBundle.IsAuxNorm` (Definition 8.3.5): `B.IsAuxNorm N` (Definition 5.1.1: continuity, (1), (2)) and invariance under $\\mu$ (3).",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.IsAuxNorm"
+     "Chapter8/Book · EpStrongBundle.IsAuxNorm"
     ]
    },
    "chips": [
@@ -400,7 +400,7 @@
     "statement": "Over a tame ep-groupoid, $s : \\partial X \\to W$ with $P \\circ s = \\mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \\in \\partial X$ and every local face $F \\ni x$, $s|F$ is an sc⁺-section of $W|F \\to F$."
    },
    "lean": {
-    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff_p3x`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
+    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff'`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
     "decls": [
      "Chapter12/LocalBoundaryExtension · retractBoundary",
      "Chapter12/LocalBoundaryExtension · IsScPlusOnFaceNear",
@@ -411,7 +411,7 @@
      "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
      "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
      "Chapter12/ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero",
-     "Chapter12/ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff_p3x"
+     "Chapter12/ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff'"
     ]
    },
    "chips": [
@@ -1009,17 +1009,17 @@
      "Chapter12/ScPlusExtension · EpStrongBundle.exists_extension_of_tameCharts",
      "Chapter12/ScPlusExtension · EpStrongBundle.exists_extension_bounded_of_tameCharts",
      "Chapter12/ScPlusExtension · EpStrongBundle.exists_local_functor_extension",
-     "Chapter12/ScPlusExtension · EpStrongBundle.exists_equivariant_average_p3x",
+     "Chapter12/ScPlusExtension · EpStrongBundle.exists_equivariant_average_eq",
      "Chapter12/ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_glueSection",
      "Chapter12/ScPlusExtension · EpStrongBundle.isFunctorialSection_glueSection",
-     "Chapter12/ScPlusExtension · EpStrongBundle.isFunctorialSection_sectionSmul_p3x",
-     "Chapter12/ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_fiberZero_p3x",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isFunctorialSection_sectionSmul",
+     "Chapter12/ScPlusExtension · EpStrongBundle.isScPlusSectionFunctor_fiberZero",
      "Chapter12/ScPlusExtension · glueSection",
      "Chapter12/ScPlusExtension · glueSection_eq_of",
      "Chapter12/ScPlusExtension · sectionSupport_glueSection_subset",
      "Chapter12/ScPlusExtension · isScPlusSection_glueSection",
      "Chapter12/ScPlusExtension · EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity",
-     "Chapter12/ScPlusExtension · EpGroupoid.isSaturated_compl_boundary_p3x"
+     "Chapter12/ScPlusExtension · EpGroupoid.isSaturated_compl_boundary"
     ]
    },
    "chips": [

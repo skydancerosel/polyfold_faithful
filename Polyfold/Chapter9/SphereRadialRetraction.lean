@@ -29,7 +29,7 @@ noncomputable section
 
 namespace Polyfold
 
-namespace E8W
+namespace Hemisphere
 
 /-- The model space `ℝ × ℝ²`. -/
 abbrev V3 : Type := (Fin 1 → ℝ) × (Fin 2 → ℝ)
@@ -257,6 +257,6 @@ theorem continuousOn_frameVec (i : Fin 2) :
     ContinuousOn.div (by fun_prop) (by fun_prop) fun a ha => (show 0 < 1 + a.1 0 from ha).ne'
   exact continuousOn_const.sub (hd.smul (continuous_id.add continuous_const).continuousOn)
 
-end E8W
+end Hemisphere
 
 end Polyfold

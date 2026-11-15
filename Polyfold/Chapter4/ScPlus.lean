@@ -63,7 +63,8 @@ finite-dimensional, because `Dr(o)` is an sc⁺-operator, hence compact, and a p
   junk value off `X₁`, which plays no role on `X₁`.  For retracts it is the lift `E.liftOne`, as a
   map between the retracts `(O, C, E)` and `(O¹, C¹, E¹)`.
 * Remark 4.1.3 (preprint 4.3)'s "it is possible that `X¹ ≠ X` as M-polyfolds although the underlying sets agree" is
-  given without an example and is **not formalized**.  "`X = X¹` for a finite-dimensional space with
+  given without an example; an example is `remark_4_1_3_example` (`RemarkFourThreeFamily.lean`).
+  "`X = X¹` for a finite-dimensional space with
   the constant structure" is `remark_4_1_3_const`: `(ℝⁿ)¹ = ℝⁿ` holds definitionally and every
   retract in `ℝⁿ` is an sc⁺-retract.
 -/

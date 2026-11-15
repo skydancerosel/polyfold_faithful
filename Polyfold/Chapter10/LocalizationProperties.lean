@@ -39,9 +39,8 @@ ep-groupoids with (LR).  (Theorem 10.3.21, p. 495) If one of `X`, `Y` has one of
   (`Rel.refl`, `Rel.symm`, `Rel.trans`, `OrbitChart.setoid`, by Proposition 10.3.11); witness
   `rel_pairEP_pointEP` (`(ℤ-pair, |pairToPoint|)` and `(point, 1)` are equivalent).
 
-## Formalized in later files
+## Formalized in other files
 
-When this file was written, the following were not formalized; they are now.
 * **Proposition 10.3.16** and the (LR), (SLR) parts of **Theorem 10.3.21**: `proposition_10_3_16`
   and `theorem_10_3_21_all` in `LocalizationLR.lean`, from Proposition 10.1.9
   (`EquivalenceLR.lean`), through `iff_of_isGeneralizedIso` as the text does.
@@ -102,8 +101,8 @@ theorem proposition_10_3_17 {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) :
   iff_of_isGeneralizedIso (fun A => A.X.IsLUC) (fun _ hF => EpFunctor.proposition_10_1_16 hF) hf
 
 /-- **2021 Theorem 10.3.21, p. 495 (new in the 2021 edition)**, for the properties (LUC),
-(SLUC) and (ZHOU) (Propositions 10.1.16, 10.1.18, 10.1.17); the parts (LR) and (SLR) rest on
-Proposition 10.1.9, which is not formalized. -/
+(SLUC) and (ZHOU) (Propositions 10.1.16, 10.1.18, 10.1.17); the parts (LR) and (SLR), which rest
+on Proposition 10.1.9, are `theorem_10_3_21_all` (`LocalizationLR.lean`). -/
 theorem theorem_10_3_21 {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) :
     (X.X.IsLUC ↔ Y.X.IsLUC) ∧ (X.IsSLUC ↔ Y.IsSLUC) ∧ (X.X.IsZhou ↔ Y.X.IsZhou) :=
   ⟨proposition_10_3_17 hf,

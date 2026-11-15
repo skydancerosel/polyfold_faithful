@@ -7,7 +7,7 @@ import Polyfold.Chapter3.GermPushforward
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
 **Proposition 3.6.5 (preprint 3.52)** (the linearization of an sc-Fredholm section at a zero is Fredholm, of the
 index `n − N` of the conjugating basic germ) **in the text's germ reading of Definition 3.1.11 (preprint 3.11)**
-(phase 2): the filling `g` and the sc⁺-section `s` are sc-smooth germs on germs of neighbourhoods
+: the filling `g` and the sc⁺-section `s` are sc-smooth germs on germs of neighbourhoods
 `G`, `G_s` whose levels may shrink with the level.
 
 # The linearization of an sc-Fredholm germ, germ reading
@@ -23,7 +23,7 @@ sc-Fredholm by Proposition 3.1.10 (preprint 3.10), `Dg(0)` by Proposition 1.1.11
 
 * `Polyfold.IsStrongBundleIso.fiberCLM_comp_deriv_zero_eq_germ`: for an sc¹-germ `k` (derivative
   family `Dk` on a germ `G_k ⊆ U`) with `k(0) = 0` and `(Ψ(u, k(u)))₂ = h(ψ(u))` near `0`,
-  `Γ(0) ∘ Dk(0) = Dh(0) ∘ Dψ(0)`.  The old proof's step "`u ↦ (Ψ(u, k(u)))₂` is sc-smooth on `U`"
+  `Γ(0) ∘ Dk(0) = Dh(0) ∘ Dψ(0)`.  The whole-chart proof's step "`u ↦ (Ψ(u, k(u)))₂` is sc-smooth on `U`"
   is replaced by the germ chain rule (`IsStrongBundleMap.fiber_comp_isSc1GermWith`,
   `fiberCompDeriv_zero_eq`), and the two derivative families are compared on the germ
   `G_k ∩ ψ⁻¹(G_h)`.
@@ -39,8 +39,8 @@ sc-Fredholm by Proposition 3.1.10 (preprint 3.10), `Dg(0)` by Proposition 1.1.11
   `Dg` of the filling germ `g` on a germ `G ⊆ U`, `Dg(0)` and `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀`
   are Fredholm with `ind Tf(0) = ind Dg(0) = n − N`.  `proposition_3_6_5_preprint` exposes the filling
   germ (`IsFillingGerm`), the germ `G`, the family `Dg` with `IsSc1GermWith G g Dg` and the
-  statements about `Dg(0)` in place of the old `IsFilledVersion` and `scDeriv c.U g 0`.
-  `Polyfold.proposition_3_6_5_local_of_germ`: the old whole-chart statement re-derived from the
+  statements about `Dg(0)` in place of `IsFilledVersion` and `scDeriv c.U g 0`.
+  `Polyfold.proposition_3_6_5_local_of_germ`: the whole-chart statement re-derived from the
   germ one (`G = G_s = ofSet U`).  `Polyfold.StrongBundleChart.zero_data`: `0 ∈ O`, `f̂(0) = 0` and
   `f̂` a section of `K → O` in a chart centred at a zero (the three lines repeated in every
   section-level proof).
@@ -80,7 +80,7 @@ variable {C U : Set (E 0)} {Gk : ScNbhdGerm E C} {k : E 0 → F 0} {Dk : E 1 →
   {Bc : Pn × W 0 → W 0}
 
 /-- **`Γ(0) ∘ Dk(0) = Dh(0) ∘ Dψ(0)` for a germ `k`** (the identity behind Proposition 3.6.5 (preprint 3.52), germ
-reading, phase 2): if `k` is an sc¹-germ on `G_k` (`(G_k)₀ ⊆ U`) with derivative family `Dk`,
+reading): if `k` is an sc¹-germ on `G_k` (`(G_k)₀ ⊆ U`) with derivative family `Dk`,
 `k(0) = 0`, and `(Ψ(u, k(u)))₂ = h(ψ(u))` for `u ∈ U` near `0`, with `Ψ` a strong bundle
 isomorphism covering `ψ`, `ψ(0) = 0`, and `h` a basic germ on `G`, then
 `Γ(0) ∘ Dk(0) = Dh(0) ∘ Dψ(0)`.  The left side is the derivative at `0` of the germ
@@ -142,7 +142,7 @@ theorem IsStrongBundleIso.fiberCLM_comp_deriv_zero_eq_germ (hU : IsRelOpenInQuad
   exact heq
 
 /-- **The derivative at `0` of a germ conjugated to a basic germ is Fredholm of index
-`dim Pn − dim Q`** (Propositions 3.1.10 and 3.6.5 (preprint 3.10 and 3.52), germ reading, phase 2): `k` an sc¹-germ on
+`dim Pn − dim Q`** (Propositions 3.1.10 and 3.6.5 (preprint 3.10 and 3.52), germ reading): `k` an sc¹-germ on
 `G_k ⊆ U` with derivative family `Dk`, `k(0) = 0`, conjugated by `Ψ` to the basic germ `h` on `G`
 (`h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ Pn`, `ℝᴺ = Q`).  Then `Dk(0) = Γ(0)⁻¹ Dh(0) Dψ(0)` is Fredholm
 of index `ind Dh(0) = dim Pn − dim Q`.  The germ version of
@@ -225,8 +225,8 @@ section ConjugateExists
 variable {C U : Set (E 0)} {Gk : ScNbhdGerm E C} {k : E 0 → F 0} {Dk : E 1 → E 0 →L[ℝ] F 0}
 
 /-- **The germ version of `IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart`** (Proposition 3.6.5 (preprint 3.52), germ
-reading, phase 2): for `k` an sc¹-germ on a germ `G_k ⊆ U` with derivative family `Dk`, `k(0) = 0`
-and `k` conjugated to a basic germ, `Dk(0)` is Fredholm (level `0`) of index `n − N`.  The old
+reading): for `k` an sc¹-germ on a germ `G_k ⊆ U` with derivative family `Dk`, `k(0) = 0`
+and `k` conjugated to a basic germ, `Dk(0)` is Fredholm (level `0`) of index `n − N`.  The whole-chart
 proof's step "`k` sc-smooth on `U`" is replaced by the germ chain rule
 (`IsStrongBundleIso.fiberCLM_comp_deriv_zero_eq_germ`). -/
 theorem IsConjugateToBasicGerm.scDeriv_isFredholm (hU : IsRelOpenInQuadrant E C U)
@@ -249,7 +249,7 @@ variable {C : Set (E 0)} {G Gs : ScNbhdGerm E C} {g : E 0 → F 0} {s : E 0 → 
 
 /-- **`g − ιs` is an sc¹-germ on `G ∩ G_s`** with the derivative family `Dg − ι ∘ Ds`, for `g` an
 sc¹-germ on `G` and `s` an sc¹-germ into `F¹` on `G_s` (the sum rule and the sc-operator
-`ι : F¹ → F`; germ reading of Definition 3.1.11 (preprint 3.11), phase 2). -/
+`ι : F¹ → F`; germ reading of Definition 3.1.11 (preprint 3.11)). -/
 theorem IsSc1GermWith.sub_toBase_shift (hg : IsSc1GermWith G g Dg)
     (hs : IsSc1GermWith (F := F.shift) Gs s Ds) :
     IsSc1GermWith (G.inter Gs) (fun u => g u - F.toBase 1 (s u))
@@ -258,7 +258,7 @@ theorem IsSc1GermWith.sub_toBase_shift (hg : IsSc1GermWith G g Dg)
 
 /-- **`Dg(0) = D(g − ιs)(0) + ιDs(0)`** with `ιDs(0)` the sc-operator underlying the
 sc⁺-operator `Ds(0)` (`IsSc1GermWith.isScOperator_deriv_zero`): the decomposition behind
-Proposition 1.1.11 (preprint 1.10) in the proof of Proposition 3.6.5 (preprint 3.52) (germ reading, phase 2). -/
+Proposition 1.1.11 (preprint 1.10) in the proof of Proposition 3.6.5 (preprint 3.52) (germ reading). -/
 theorem IsSc1GermWith.deriv_zero_eq_add_scPlus (hs : IsSc1GermWith (F := F.shift) Gs s Ds) :
     Dg 0 = (Dg 0 - (F.toBase 1).comp (Ds 0)) +
       ScPlus.toScOperator hs.isScOperator_deriv_zero.toScOperator 0 := by
@@ -279,7 +279,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), germ reading** (phase 2; the germ version
+/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), germ reading** (the germ version
 of `proposition_3_6_5_local_wholeChart`): let `g` be a filling germ of the principal part `f̂` of a section at
 a zero (`f̂(0) = 0`), with a derivative family `Dg` on a germ `G ⊆ U`, `s` an sc¹-germ into `F¹`
 on a germ `G_s` (derivative family `Ds`) with `s(0) = g(0)`, and `g − s` conjugated to a basic
@@ -319,8 +319,8 @@ theorem proposition_3_6_5_local (hU : IsRelOpenInQuadrant E C U)
   exact ⟨h1, n, N, hDgF, hDgind, hFiff.2 hDgF, by rw [hindeq, hDgind]⟩
 
 /-- **The whole-chart statement `proposition_3_6_5_local_wholeChart` is the special case** `G = G_s = ofSet U`,
-`Dg = scDeriv U g`, `Ds = scDeriv U s` of `proposition_3_6_5_local` (germ reading, phase 2):
-the old statement re-derived from the germ one (`IsFilledVersion.isFillingGerm`,
+`Dg = scDeriv U g`, `Ds = scDeriv U s` of `proposition_3_6_5_local` (germ reading):
+the whole-chart statement re-derived from the germ one (`IsFilledVersion.isFillingGerm`,
 `IsSc1.isSc1GermWith_ofSet`). -/
 theorem proposition_3_6_5_local_of_germ (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
@@ -372,7 +372,7 @@ theorem StrongBundleChart.zero_data (hf : IsSection P f) {c : StrongBundleChart 
     rw [← c.image_source]
     exact ⟨_, c.mem_source_of_proj (by rw [hf]; exact c.φ.symm_mapsTo hx), rfl⟩
 
-/-- **Proposition 3.6.5 (preprint 3.52), germ reading** (phase 2; the germ version of `proposition_3_6_5_wholeChart`, with the
+/-- **Proposition 3.6.5 (preprint 3.52), germ reading** (the germ version of `proposition_3_6_5_wholeChart`, with the
 hypothesis `B.IsScFredholmGerm f x₀` of Definition 3.1.11 (preprint 3.11) in the text's germ reading): let `f` be a
 section of the strong bundle `P : Y → X` with `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  Then
 in the strong bundle chart of Definition 3.1.11 (preprint 3.11) centred at `x₀`, with the filling germ `g` of the

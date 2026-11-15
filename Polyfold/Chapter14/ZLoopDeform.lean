@@ -16,12 +16,12 @@ constant the same indices are related.
 
 ## What is formalized
 
-* `ZData X`: B2's setting `ZSetup X` (Definitions 14.4.2–14.4.4) together with the three facts of
+* `ZData X`: the setting `ZSetup X` (Definitions 14.4.2–14.4.4) together with the three facts of
   §14.3 that §14.4 uses: the `V̂_a` are open, `cl_X(V̂_a) ⊆ Ũ(a)` ((14.33)), and every
   `τ̂_{a,a'}` is locally constant at the morphisms of `V̂_{a,a'}` (Proposition 14.3.4 with
   Proposition 14.3.8 (4): `V̂_{a,a'} ⊆ Ô_{a,a'}` and `τ̂_{a,a'}` is locally constant on the open
   set `Ô_{a,a'}`).  `ZData.trivial` shows the setting is satisfiable on every ep-groupoid.
-* `ZData.Arc.eventually_srcInv`: a chain with an arc (B2's `ZSetup.Arc`) through `φ` deforms
+* `ZData.Arc.eventually_srcInv`: a chain with an arc (`ZSetup.Arc`) through `φ` deforms
   along any sheet `𝐔 ∋ φ`: for `z` near `s(φ)`, the morphism `(s|𝐔)⁻¹(z)` carries a chain with
   the same arc.  The proof moves one morphism at a time with the local inverses of `s` (sheets,
   Definition 7.1.4) and continuity of the multiplication; it does not need the finite
@@ -101,7 +101,7 @@ end Sheet
 
 /-! ### The setting -/
 
-/-- **The setting of §14.4** (pp. 657–664): B2's `ZSetup` (the index set `A ⊆ ∂X`, `Ũ(a)` with
+/-- **The setting of §14.4** (pp. 657–664): `ZSetup` (the index set `A ⊆ ∂X`, `Ũ(a)` with
 the natural `G_a`-action, the `G_a`-invariant `V̂_a ⊆ Ũ(a)`, the index sets `I_a` and the
 extended correspondences `τ̂_{a,a'}` with Definition 13.3.6 (1), (2)), together with the facts of
 §14.3 that §14.4 uses:
@@ -223,7 +223,7 @@ theorem exists_closure_subset_natNbhd (a : Obj) : ∃ N N' : X.NatNbhd a,
 variable (X) in
 /-- **The setting is satisfiable** on every ep-groupoid, with `A = X`: `Ũ(a)` an open
 neighbourhood with the natural `G_a`-action, `V̂_a` a smaller one with the same action and
-`cl_X(V̂_a) ⊆ Ũ(a)`, one-point index sets and constant `τ̂` (B2's `trivialSetup` with smaller
+`cl_X(V̂_a) ⊆ Ũ(a)`, one-point index sets and constant `τ̂` (`trivialSetup` with smaller
 `V̂_a`). -/
 def trivial : X.ZData where
   A := univ

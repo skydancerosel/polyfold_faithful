@@ -15,7 +15,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-- `g φ` is integrable for every test function `φ`. -/
 def LocL (g : ℝ × ℝ → ℝ) : Prop := ∀ φ, IsTest φ → Integrable (fun x => g x * φ x) cyl
@@ -164,4 +164,4 @@ theorem leibniz {χ : ℝ → ℝ} (hχ : ContDiff ℝ ∞ χ) {G : ℕ → ℕ 
       exact (((hL _ _ (by omega)).mul_s (contDiff_iteratedDeriv hχ (i + 1))).add
         ((hL _ _ (by omega)).mul_s (contDiff_iteratedDeriv hχ i))).const_mul _
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

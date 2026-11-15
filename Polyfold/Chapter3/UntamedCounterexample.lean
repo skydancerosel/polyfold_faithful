@@ -1,5 +1,5 @@
 import Polyfold.Chapter3.UntamedJump
-import Polyfold.Chapter3.Book2021Germs
+import Polyfold.Chapter3.BookGerms
 import Polyfold.Chapter3.TameGermTransfer
 
 /-!
@@ -60,7 +60,7 @@ space), `C = [0, ∞) × ℝ × X`, `U = C ∩ {t < 1}`, `F = ℝ ⊕ X`, the st
   proof on p. 137) the theorem is `theorem_3_6_8'` (`GlobalIFTNearbyOntoG.lean`).  So the reading
   "germ data in a tame chart" of V3.85/V3.103 is needed, also when `d_X(x) = 0` (Remark 3.6.7).
 * In `E` the kernel of `Dg(0)` (the `t`-axis) is not in good position to `C`, as in the corner
-  example of `Book2021Germs.lean` (`theorem_3_6_8_tame_step`); here the zero set of `g` continued
+  example of `BookGerms.lean` (`theorem_3_6_8_tame_step`); here the zero set of `g` continued
   to `a < 0` is the curve `a = −ν(π_t v)²`, `w = −π_t v`, which leaves `C` for `t > 0`.
 * The strong bundle `K → O` as a `StrongBundle` over `polyO`, and the germ data at the other
   points, are formalized in `UntamedBundle*.lean` (`UntamedCorner.bundle`,

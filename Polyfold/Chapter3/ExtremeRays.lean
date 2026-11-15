@@ -1,4 +1,4 @@
-import Polyfold.Chapter3.Book2021Items
+import Polyfold.Chapter3.BookItems
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §3.8.1.2–3.8.1.3:
@@ -22,7 +22,7 @@ imply `y ∈ R`.  A quadrant is a closed convex cone carried onto `[0, ∞)ⁿ` 
 
 * `Polyfold.rayOf` (`ℝ₊ · x`), `Polyfold.IsExtremeRay` (an extreme ray as a set),
   `Polyfold.extremeRays`, `Polyfold.IsQuadrantIn`: the text's definitions, next to the project's
-  `Polyfold.IsClosedConvexCone` and `Polyfold.IsExtremeRayGen` (`Chapter3/Book2021Items`);
+  `Polyfold.IsClosedConvexCone` and `Polyfold.IsExtremeRayGen` (`Chapter3/BookItems`);
   `IsClosedConvexCone.isExtremeRay_rayOf_iff` identifies the two readings of "generator of an
   extreme ray".
 * `Polyfold.IsClosedConvexCone.exists_pos_functional`: a closed convex cone has a functional with

@@ -1062,7 +1062,7 @@
      "Chapter8/GeometricLift · proposition_8_5_7",
      "Chapter7/NonVacuity · EpGroupoid.Examples.actionEpGroupoid",
      "Chapter8/NonVacuity · CoveringExamples.isProperCovering_reflectionLift",
-     "Chapter8/GeometricLiftEmpty2021 · CoveringExamples.not_proposition_8_5_7_empty"
+     "Chapter8/GeometricLiftEmpty · CoveringExamples.not_proposition_8_5_7_empty"
     ]
    },
    "chips": [
@@ -1330,14 +1330,14 @@
    "lean": {
     "statement": "`proposition_8_1_16_2021`: `X.IsZhou` gives `IsZhou` for the tangent ep-groupoid, with no further hypothesis. The step $T(g, h) = \\mathrm{id} \\Rightarrow Tg = \\mathrm{id}$ is `tangentZhouReflect`: Chapter 8's `TangentZhouReflect` holds for every ep-groupoid. It is proved with the vertical vectors `MPolyfold.vert` of $T(TX)$, built in a chart of $TX$ (`vertChart`), their naturality $T(Tf)(\\mathrm{vert}_\\alpha w) = \\mathrm{vert}_{Tf(\\alpha)}(Tf(w))$ (`tangentMap_tangentMap_vert`) and `vert_injective`. Kept: `proposition_8_1_16` (the form with the hypothesis), `levelVal_tangentProj_mem_smoothSet` (a smooth point of $TX$ lies over a smooth point of $X$), `mem_nonEffectivePart_tangent` (if $p(v) \\in \\mathbf X^T$ then $v \\in (T\\mathbf X)^T$), and the witnesses `tangentMor_trivial`, `tangentZhouReflect_trivial`, `Examples.proposition_8_1_16_point`.",
     "decls": [
-     "Chapter8/TangentZhouReflect2021 · EpGroupoid.proposition_8_1_16_2021",
-     "Chapter8/TangentZhouReflect2021 · EpGroupoid.tangentZhouReflect",
-     "Chapter8/TangentVertical2021 · MPolyfold.vert",
-     "Chapter8/TangentVertical2021 · MPolyfold.vertChart",
-     "Chapter8/TangentVertical2021 · MPolyfold.vert_injective",
-     "Chapter8/TangentVertical2021 · MPolyfold.tangentChartMap_vert",
-     "Chapter8/TangentVertical2021 · MPolyfold.tangentMap_tangentMap_vert",
-     "Chapter8/TangentVertical2021 · IsSc1.scDeriv_tangentMap_vert",
+     "Chapter8/TangentZhouReflect · EpGroupoid.proposition_8_1_16_2021",
+     "Chapter8/TangentZhouReflect · EpGroupoid.tangentZhouReflect",
+     "Chapter8/TangentVertical · MPolyfold.vert",
+     "Chapter8/TangentVertical · MPolyfold.vertChart",
+     "Chapter8/TangentVertical · MPolyfold.vert_injective",
+     "Chapter8/TangentVertical · MPolyfold.tangentChartMap_vert",
+     "Chapter8/TangentVertical · MPolyfold.tangentMap_tangentMap_vert",
+     "Chapter8/TangentVertical · IsSc1.scDeriv_tangentMap_vert",
      "Chapter8/TangentZhou · MPolyfold.levelVal_tangentProj_mem_smoothSet",
      "Chapter8/TangentZhou · EpGroupoid.mem_nonEffectivePart_tangent",
      "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
@@ -1402,10 +1402,10 @@
    "lean": {
     "statement": "`EpStrongBundle.IsAuxNorm`: Part I's auxiliary norm (continuity, (1), (2)) on the underlying strong bundle, together with (3) $N(h) = N(k)$ for $h \\in W_{0,1}$, $s(\\varphi) = P(k)$, $h = \\mu(\\varphi, k)$. `EpStrongBundle.exists_oneVal_eq_μ`: $\\mu(\\varphi, k) \\in W_{0,1}$ for $k \\in W_{0,1}$, so (3) is not vacuous. Witnesses: `EpStrongBundle.exists_isAuxNorm_trivial` (over the trivial ep-groupoid every auxiliary norm of Part I is one), `TrivialBundle.exists_isAuxNorm_epBundle` ($\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$).",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.IsAuxNorm",
-     "Chapter8/Book2021 · EpStrongBundle.exists_oneVal_eq_μ",
-     "Chapter8/Book2021 · EpStrongBundle.exists_isAuxNorm_trivial",
-     "Chapter8/Book2021 · TrivialBundle.exists_isAuxNorm_epBundle"
+     "Chapter8/Book · EpStrongBundle.IsAuxNorm",
+     "Chapter8/Book · EpStrongBundle.exists_oneVal_eq_μ",
+     "Chapter8/Book · EpStrongBundle.exists_isAuxNorm_trivial",
+     "Chapter8/Book · TrivialBundle.exists_isAuxNorm_epBundle"
     ]
    },
    "chips": [
@@ -1429,20 +1429,20 @@
    "lean": {
     "statement": "`proposition_8_4_1`: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together (`List.TFAE`). $|W[1]|$ is `OrbitSpaceOne`, the quotient of the M-polyfold $W[1]$ by the morphisms $(\\varphi, w) \\in \\mathbf X\\,{}_s{\\times}_P\\,W[1]$, $w \\sim \\mu(\\varphi, w)$ (`πOne_eq_πOne_iff`). (1) ⇔ (2) is `proposition_8_4_1_one_iff_two`: (2) ⇒ (1) by `proposition_8_4_1_two_imp_one` (`EpStrongBundle.μ_fiberZero`, $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$; the map $|0| : |X| \\to |W[0]|$, `zeroOrbitMap`, a topological embedding with left inverse $|P|$, `isEmbedding_zeroOrbitMap`; and metrizability), (1) ⇒ (2) by `proposition_8_4_1_one_imp_two` (the lift $g * w = \\mu(\\Gamma(g, P w), w)$ of the natural action to $W|U(x)$, `bundleMulAction`; the open embedding $G_x\\backslash W|U(x) \\to |W|$ onto $|P|^{-1}(|U(x)|)$, `isOpenEmbedding_bundleOrbitQuotientMap`; `metrizableSpace_orbitSpace`). (1) ⇒ (3) is `proposition_8_4_1_one_imp_three`: $G_x$ acts on $W[1]|U(x)$ by homeomorphisms (`continuous_bundleOneSmul`, from the sc-smoothness of $\\mu$ at level one), $W[1] \\to |W[1]|$ is open (`isOpenMap_πOne`), $G_x\\backslash W[1]|U(x) \\to |W[1]|$ is an open embedding onto $|P[1]|^{-1}(|U(x)|)$ (`isOpenEmbedding_bundleOneOrbitQuotientMap`), and Smirnov's theorem pulled back along $|P[1]|$ gives metrizability (`metrizableSpace_orbitSpaceOne`). (3) ⇒ (1) is the text's: $|0| : |X| \\to |W[1]|$ is a closed embedding (`isClosedEmbedding_zeroOrbitMapOne`, `proposition_8_4_1_three_imp_one`).",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.μ_fiberZero",
-     "Chapter8/Book2021 · EpStrongBundle.zeroOrbitMap",
-     "Chapter8/Book2021 · EpStrongBundle.continuous_zeroOrbitMap",
-     "Chapter8/Book2021 · EpStrongBundle.leftInverse_zeroOrbitMap",
-     "Chapter8/Book2021 · EpStrongBundle.isEmbedding_zeroOrbitMap",
-     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.proposition_8_4_1_one_iff_two",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.proposition_8_4_1_one_imp_two",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.bundleMulAction",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.π_eq_π_iff_exists_smul",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.isOpenEmbedding_bundleOrbitQuotientMap",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.range_bundleOrbitQuotientMap",
-     "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.metrizableSpace_orbitSpace",
-     "Chapter8/BundleOrbitParacompact2021 · metrizableSpace_orbitRel_quotient_finite",
+     "Chapter8/Book · EpStrongBundle.μ_fiberZero",
+     "Chapter8/Book · EpStrongBundle.zeroOrbitMap",
+     "Chapter8/Book · EpStrongBundle.continuous_zeroOrbitMap",
+     "Chapter8/Book · EpStrongBundle.leftInverse_zeroOrbitMap",
+     "Chapter8/Book · EpStrongBundle.isEmbedding_zeroOrbitMap",
+     "Chapter8/Book · EpStrongBundle.proposition_8_4_1_two_imp_one",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.proposition_8_4_1_one_iff_two",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.proposition_8_4_1_one_imp_two",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.bundleMulAction",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.π_eq_π_iff_exists_smul",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.isOpenEmbedding_bundleOrbitQuotientMap",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.range_bundleOrbitQuotientMap",
+     "Chapter8/BundleOrbitParacompact · EpStrongBundle.metrizableSpace_orbitSpace",
+     "Chapter8/BundleOrbitParacompact · metrizableSpace_orbitRel_quotient_finite",
      "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1",
      "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_iff_three",
      "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_imp_three",
@@ -1480,9 +1480,9 @@
      "Chapter8/TangentZhou · EpStrongBundle.natLift",
      "Chapter8/TangentZhou · EpStrongBundle.IsLR",
      "Chapter8/TangentZhou · EpStrongBundle.isLR_trivial",
-     "Chapter8/BundleLocalRegularity2021 · EpStrongBundle.proposition_8_4_3",
-     "Chapter8/BundleLocalRegularity2021 · EpGroupoid.eq_of_isRegular_src",
-     "Chapter8/BundleLocalRegularity2021 · EpStrongBundle.exists_mor_of_π_eq",
+     "Chapter8/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
+     "Chapter8/BundleLocalRegularity · EpGroupoid.eq_of_isRegular_src",
+     "Chapter8/BundleLocalRegularity · EpStrongBundle.exists_mor_of_π_eq",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal.isLR",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.isLRLocal_trivial",
@@ -1526,10 +1526,10 @@
    "lean": {
     "statement": "`IsCoveringFunctor.injective_map_end`: $f : G_d \\to G_{f(d)}$ is injective. `Example856D` (two objects, one morphism between any two), `example856Functor` (to $\\mathbb Z^\\times$ as a one-object category, $\\varepsilon = -1$), `example_8_5_6`: it is a covering functor, $G_a$ and $G_b$ are trivial, $G_x \\cong \\mathbb Z/2$ is not, and $f : G_a \\to G_x$ is injective and not surjective.",
     "decls": [
-     "Chapter8/Book2021 · IsCoveringFunctor.injective_map_end",
-     "Chapter8/Book2021 · Example856D",
-     "Chapter8/Book2021 · example856Functor",
-     "Chapter8/Book2021 · example_8_5_6"
+     "Chapter8/Book · IsCoveringFunctor.injective_map_end",
+     "Chapter8/Book · Example856D",
+     "Chapter8/Book · example856Functor",
+     "Chapter8/Book · example_8_5_6"
     ]
    },
    "chips": [
@@ -1551,11 +1551,11 @@
    "lean": {
     "statement": "`EpStrongBundle.IsProperStrongBundleCovering2021`: for the object map $A$, strong bundle map, $Q \\circ A = F \\circ P$, (0), and (1)–(3) as in V8.37. `EpStrongBundle.isProperStrongBundleCovering2021_iff`: it holds iff $A$ is the object map of a unique strong bundle functor that is a proper strong bundle covering functor in the sense of V8.37 (`IsProperStrongBundleCovering.isProperStrongBundleCovering2021`). Witnesses: `EpStrongBundle.isProperStrongBundleCovering2021_id`, `TrivialBundle.epBundle_isProperStrongBundleCovering2021`.",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering.isProperStrongBundleCovering2021",
-     "Chapter8/Book2021 · EpStrongBundle.isProperStrongBundleCovering2021_iff",
-     "Chapter8/Book2021 · EpStrongBundle.isProperStrongBundleCovering2021_id",
-     "Chapter8/Book2021 · TrivialBundle.epBundle_isProperStrongBundleCovering2021"
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering.isProperStrongBundleCovering2021",
+     "Chapter8/Book · EpStrongBundle.isProperStrongBundleCovering2021_iff",
+     "Chapter8/Book · EpStrongBundle.isProperStrongBundleCovering2021_id",
+     "Chapter8/Book · TrivialBundle.epBundle_isProperStrongBundleCovering2021"
     ]
    },
    "chips": [
@@ -1578,24 +1578,24 @@
    "lean": {
     "statement": "`EpStrongBundle.pullbackμ`: $\\mu_{F^*V}$. For `A : IsProperStrongBundleCovering2021`: `bundleB` with `bundleB_val`, (8.23) `bundleB_μ`; `bijective_bundleB` (via `eq_of_isStrongBundleIsoOn`); the inverse `bundleBInv` (`bundleBInv_eq_of`: near every point the inverse of a local strong bundle isomorphism of Definition 8.5.9 (1)); `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`, `isStrongBundleMap_bundleBInv`. `lemma_8_5_10`: $B$ is a strong bundle isomorphism $W \\to F^*V$ covering the identity of $Y$, with (8.23) and $A = \\bar A \\circ B$. `pullbackBundle2021`: $(F^*Q, \\mu_{F^*V})$ is a strong bundle over the ep-groupoid $Y$ (Definition 8.3.1); it is Chapter 10's `EpStrongBundle.pullbackAlong`, with structure map `pullbackμ` (`pullbackBundle2021_μ`). `isMap_bundleB` and `isMap_bundleBInv`: $B$ and $B^{-1}$ are strong bundle maps over ep-groupoids (Definition 8.3.2) covering the identity functor of $Y$. `lemma_8_5_10_full` collects both, the inverse laws and $A = \\bar A \\circ B$.",
     "decls": [
-     "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.eq_of_isStrongBundleIsoOn",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv_eq_of",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.pullbackBundle2021",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.pullbackBundle2021_μ",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.pullbackBundle2021_isStrongBundle",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv",
-     "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
+     "Chapter8/Book · EpStrongBundle.pullbackμ",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.eq_of_isStrongBundleIsoOn",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv_eq_of",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv",
+     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_μ",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_isStrongBundle",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv",
+     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
     ]
    },
    "chips": [
@@ -1808,9 +1808,9 @@
    "book": "Proposition 8.4.1: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together.",
    "instead": "**Formalized**: (3), with $|W[1]|$ the orbit space of the groupoid $(W[1], \\mathbf X\\,{}_s{\\times}_P\\,W[1])$ with the quotient topology of the M-polyfold $W[1]$ (`OrbitSpaceOne`); `proposition_8_4_1` states (1) ⇔ (2) ⇔ (3) (V8.47). $W[1]$ is not built as an ep-groupoid; the proof uses only the sc-smoothness of $\\mu$ at level one. Also formalized: (1) ⇔ (2) (`proposition_8_4_1_one_iff_two`) and Proposition 8.4.3 (`proposition_8_4_3`, V8.48), with Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119, 127, 128, 133).",
    "decls": [
-    "Chapter8/BundleOrbitParacompact2021 · EpStrongBundle.proposition_8_4_1_one_iff_two",
-    "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one",
-    "Chapter8/BundleLocalRegularity2021 · EpStrongBundle.proposition_8_4_3",
+    "Chapter8/BundleOrbitParacompact · EpStrongBundle.proposition_8_4_1_one_iff_two",
+    "Chapter8/Book · EpStrongBundle.proposition_8_4_1_two_imp_one",
+    "Chapter8/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
     "Chapter8/TangentZhou · EpStrongBundle.IsLR",
     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1",
     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_iff_three",
@@ -1843,15 +1843,15 @@
    "label": "§8.1, Proposition 8.1.16, p. 369 (new in the 2021 edition)",
    "page": 369,
    "book": "Proposition 8.1.16: (ZHOU) for $X$ gives (ZHOU) for $TX$, by differentiating (8.16) and using that $T\\tau$ is onto.",
-   "instead": "**Formalized**: Proposition 8.1.16 without the added hypothesis. `TangentZhouReflect` is proved for every ep-groupoid (`tangentZhouReflect`, `Chapter8/TangentZhouReflect2021.lean`), via the vertical vectors of $T(TX)$ (`Chapter8/TangentVertical2021.lean`), and `proposition_8_1_16_2021` takes (ZHOU) for $X$ only (V8.44). The entry's second part, Proposition 8.1.17 (2) for every $(TX)^i$ (p. 371), needs $(TX)^i = T(X^i)$; it is proved for $(TX)^0$ (V8.45) and for every $i$ (V8.52): Part I's Proposition 2.3.17 gives $T(X^i) \\cong (TX)^i$ as ep-groupoids (sc-diffeomorphisms of objects and morphisms commuting with source and target), which transports LUC by Proposition 7.2.21 (Findings, Chapter 8, items 115, 116, 124, 126).",
+   "instead": "**Formalized**: Proposition 8.1.16 without the added hypothesis. `TangentZhouReflect` is proved for every ep-groupoid (`tangentZhouReflect`, `Chapter8/TangentZhouReflect.lean`), via the vertical vectors of $T(TX)$ (`Chapter8/TangentVertical.lean`), and `proposition_8_1_16_2021` takes (ZHOU) for $X$ only (V8.44). The entry's second part, Proposition 8.1.17 (2) for every $(TX)^i$ (p. 371), needs $(TX)^i = T(X^i)$; it is proved for $(TX)^0$ (V8.45) and for every $i$ (V8.52): Part I's Proposition 2.3.17 gives $T(X^i) \\cong (TX)^i$ as ep-groupoids (sc-diffeomorphisms of objects and morphisms commuting with source and target), which transports LUC by Proposition 7.2.21 (Findings, Chapter 8, items 115, 116, 124, 126).",
    "decls": [
     "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16",
     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_two",
     "Chapter8/TangentZhouLevels · EP.tangentLiftEpEquiv",
     "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all",
-    "Chapter8/TangentZhouReflect2021 · EpGroupoid.tangentZhouReflect",
-    "Chapter8/TangentZhouReflect2021 · EpGroupoid.proposition_8_1_16_2021"
+    "Chapter8/TangentZhouReflect · EpGroupoid.tangentZhouReflect",
+    "Chapter8/TangentZhouReflect · EpGroupoid.proposition_8_1_16_2021"
    ],
    "formalized": [
     "V8.44",
@@ -1864,12 +1864,12 @@
    "label": "§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)",
    "page": 395,
    "book": "The pull-back $F^*V$, with $\\mu_{F^*V}(\\varphi, (y, v)) = (t(\\varphi), \\mu_X(F(\\varphi), v))$, is a strong bundle over the ep-groupoid $Y$, and $B : W \\to F^*V$ is a strong bundle isomorphism over $Y$.",
-   "instead": "**Formalized**: $\\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter8/PullbackStrongBundle2021.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).",
+   "instead": "**Formalized**: $\\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter8/PullbackStrongBundle.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).",
    "decls": [
-    "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
-    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
-    "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.pullbackBundle2021",
-    "Chapter8/PullbackStrongBundle2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
+    "Chapter8/Book · EpStrongBundle.pullbackμ",
+    "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
+    "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
+    "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
    ],
    "formalized": [
     "V8.51"

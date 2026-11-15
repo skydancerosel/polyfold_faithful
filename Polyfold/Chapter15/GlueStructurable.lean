@@ -30,8 +30,8 @@ the structure over the boundary.
   (a), (b), (c), (4) of Definition 14.1.7 from those of Definition 13.3.6 (`cube_Γ_snd`).
 * **`isBoundaryStructurable_of_sides`**: a multisection `Λ̃` over `∂([0, 1] × X)` with
   `Λ̃(w) = Λ^{side}(w₂)` is structurable over the boundary if `Λ^false`, `Λ^true` are structurable.
-* **`isBoundaryStructurable_cubeGlue_w5`**: `cubeGlue Λ⁰ Λ¹` is structurable over the
-  boundary; **`corollary_15_3_10_3_struct_w5`**: Corollary 15.3.10 (3) with added
+* **`isBoundaryStructurable_cubeGlue_of_cubeLiftFace`**: `cubeGlue Λ⁰ Λ¹` is structurable over the
+  boundary; **`corollary_15_3_10_3_struct`**: Corollary 15.3.10 (3) with added
   hypothesis `hbs` replaced by `CubeLiftFace A`.
 * **`corollary_15_3_10_3_struct_charged`**, **`corollary_15_3_10_3_of_rel`**: the same with
   Theorem 15.3.9 on `[0, 1] × X` taken in its charged form, or derived from the relative step
@@ -360,7 +360,7 @@ def glueTau : (glueDec h𝒰 hΛc hF hne).Tau where
       (isPreconnected_glue 𝒰 z') _ _ (mem_glue_snd 𝒰 h𝒰 z) (mem_glue_snd 𝒰 h𝒰 z') hφ.1.1
       hφ.2.1 g' g]
     refine (glueτ'_biact hb hφ2 (cubeIso _ g') (cubeIso _ g)).trans ?_
-    exact (IndexCorr.biact_compHom_gl (cubeIso _) (cubeIso _) _ g' g).symm
+    exact (IndexCorr.biact_compHom (cubeIso _) (cubeIso _) _ g' g).symm
   compat z z' φ hφ := by
     obtain ⟨hb, hφ2⟩ := mor_glue 𝒰 h𝒰 hφ
     refine IndexCorr.sat_mono (fun i j h => ?_) (glueτ'_compat hb hφ2)
@@ -398,7 +398,7 @@ theorem isBoundaryStructurable_of_sides (hX : A.X.IsTame) (hd : ∀ x, A.X.PObj.
 /-- **The glued multisection of Corollary 15.3.10 (3) is structurable over the boundary**:
 `cubeGlue Λ₀ Λ₁` (`Λ¹` over `t = 1`, `Λ⁰` elsewhere) for structurable `Λ₀`, `Λ₁`, tame `X`
 with `d_X ≡ 0` and paracompact `|X|`, given `CubeLiftFace A`. -/
-theorem isBoundaryStructurable_cubeGlue_w5 (hX : A.X.IsTame)
+theorem isBoundaryStructurable_cubeGlue_of_cubeLiftFace (hX : A.X.IsTame)
     (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hF : CubeLiftFace A) {Λ₀ Λ₁ : A.W → ℚ≥0} (h₀ : IsStructurable A Λ₀)
     (h₁ : IsStructurable A Λ₁) : IsBoundaryStructurable (A.cubeSEP 1) (cubeGlue Λ₀ Λ₁) :=
@@ -406,10 +406,10 @@ theorem isBoundaryStructurable_cubeGlue_w5 (hX : A.X.IsTame)
     (fun b => by cases b; exacts [h₀, h₁]) fun _ hw => cubeGlue_eq_side hX hd Λ₀ Λ₁ hw
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations**, with
-structurability of the glued data proved: `corollary_15_3_10_3_glue_w5` with its added hypothesis
+structurability of the glued data proved: `corollary_15_3_10_3_glue` with its added hypothesis
 `hbs` replaced by `CubeLiftFace A` (`X` is tame as `d_X ≡ 0`); the face condition `hbonto` and
 Theorem 15.3.9 on `[0, 1] × X` (`h159`) remain added hypotheses. -/
-theorem corollary_15_3_10_3_struct_w5 (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
+theorem corollary_15_3_10_3_struct (h159 : theorem_15_3_9_statement (A.cubeSEP 1))
     (hF : CubeLiftFace A) (hd : ∀ x, A.X.PObj.degIndex x = 0) (hpara : A.X.HasParacompactOrbitSpace)
     (hPU : A.X.PObj.AdmitsScPartitionsOfUnity) {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f)
@@ -426,12 +426,12 @@ theorem corollary_15_3_10_3_struct_w5 (h159 : theorem_15_3_9_statement (A.cubeSE
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) ∧
       (A.cubeSEP 1).X.IsCompactBranched
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) :=
-  corollary_15_3_10_3_glue_w5 h159 hd hpara hPU hf hft hS hr₀ hr₁
-    (isBoundaryStructurable_cubeGlue_w5 (A.X.isTame_of_degIndex_eq_zero hd) hd hpara hF hr₀.2.1
+  corollary_15_3_10_3_glue h159 hd hpara hPU hf hft hS hr₀ hr₁
+    (isBoundaryStructurable_cubeGlue_of_cubeLiftFace (A.X.isTame_of_degIndex_eq_zero hd) hd hpara hF hr₀.2.1
       hr₁.2.1) hbonto
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations, from the
-charged Theorem 15.3.9 on `[0, 1] × X`**: `corollary_15_3_10_3_struct_w5` with
+charged Theorem 15.3.9 on `[0, 1] × X`**: `corollary_15_3_10_3_struct` with
 `theorem_15_3_9_statement (A.cubeSEP 1)` obtained from the charged form
 (`theorem_15_3_9_statement_of_charged`; the cylinder has tame strong bundle charts,
 `SEP.exists_isTameChart`). -/
@@ -453,13 +453,13 @@ theorem corollary_15_3_10_3_struct_charged
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) ∧
       (A.cubeSEP 1).X.IsCompactBranched
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) :=
-  corollary_15_3_10_3_struct_w5 (theorem_15_3_9_statement_of_charged h159) hF hd hpara hPU hf hft
+  corollary_15_3_10_3_struct (theorem_15_3_9_statement_of_charged h159) hF hd hpara hPU hf hft
     hS hr₀ hr₁ hbonto
 
 /-- **Corollary 15.3.10 (3), p. 699, for two structurable regular perturbations, from the
 relative step on `[0, 1] × X`**: Theorem 15.3.9 on the cylinder is `theorem_15_3_9_of_rel`
 (Theorem 14.1.9 and the cut-off proved), from the relative statement there (`hrelC`, steps
-(c)–(d)).  The remaining added hypotheses are `hrelC`, `CubeLiftFace A` (`hF`), the face
+(c)–(d)).  The added hypotheses are `hrelC`, `CubeLiftFace A` (`hF`), the face
 condition `hbonto` and partitions of unity on `X` (`hPU`). -/
 theorem corollary_15_3_10_3_of_rel
     (hrelC : theorem_15_3_7_relative_statement (A.cubeSEP 1))
@@ -479,7 +479,7 @@ theorem corollary_15_3_10_3_of_rel
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) ∧
       (A.cubeSEP 1).X.IsCompactBranched
         (fun z => (Λ' (cubeLiftEp (n := 1) f hf.1.1.1 z) : ℚ)) :=
-  corollary_15_3_10_3_struct_w5 (theorem_15_3_9_of_rel hrelC) hF hd hpara hPU hf hft hS hr₀ hr₁
+  corollary_15_3_10_3_struct (theorem_15_3_9_of_rel hrelC) hF hd hpara hPU hf hft hS hr₀ hr₁
     hbonto
 
 end SBLocalization

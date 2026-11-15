@@ -110,9 +110,9 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   (`geometricLiftFunctor_surjective_iff`).  The text does not say so; `proposition_8_5_7` assumes
   `[Nonempty D]`, used for the surjectivity only.  It holds in Theorem 8.5.8 (2017: 8.6), where `D = F⁻¹(x)`.
   For `D = ∅` and `U(x) = ℝ` the proposition does not hold as we read it
-  (`CoveringExamples.not_proposition_8_5_7_empty`, `GeometricLiftEmpty2021.lean`).
+  (`CoveringExamples.not_proposition_8_5_7_empty`, `GeometricLiftEmpty.lean`).
 * **`F : Y → X`.**  The proof's "the map `F : X → Y` is a surjective local sc-diffeomorphism
-  between the object sets" is read as `F : Y → X` (possible misprint).  Definition 8.5.1 (2017: 8.8) (2) holds
+  between the object sets" is read as `F : Y → X`.  Definition 8.5.1 (2017: 8.8) (2) holds
   with `U(x)` the whole object space of `X` and, for `w ∈ U(x)`, the summands `U(y)` around the
   points `(y, τ(y)⁻¹(w))` of `F⁻¹(w)`, one in each summand.
 * **Finiteness** of Definition 8.5.5 (2017: 8.9) ("finitely many objects and morphisms") enters as the
@@ -145,8 +145,7 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   is `h ↦ f.map h`.
 * **Theorem 8.5.8 (2017: 8.6): universes.**  Definition 8.5.5 (2017: 8.9) (`Basic.lean`) takes `D`, `G` and `Diff_sc` in one
   universe `u`, so Theorem 8.5.8 (2017: 8.6) holds for ep-groupoids `X`, `Y` whose object and morphism types
-  lie in any one universe `u` (2021 Theorem 8.5.8; until 2026-11-09 it was stated for `Type`
-  only).  `X` and `Y` share the universe because `L_D` and `L_C` take values in one category
+  lie in any one universe `u` (2021 Theorem 8.5.8).  `X` and `Y` share the universe because `L_D` and `L_C` take values in one category
   `Diff_sc`; different universes would need lifted carriers (`ULift`), which is not done.
   Witness in every universe: `CoveringExamples.theorem_8_5_8_id` (`NonVacuity.lean`).
 * **`C` and `D`.**  `C`, the full subcategory on `x`, is `SingleObj G_x` (as in Definition 8.5.5 (2017: 8.9)).
@@ -172,7 +171,7 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   `range Φ.obj = U(x)` and `range Φ.mor = {φ | s(φ), t(φ) ∈ U(x)}`; likewise for `Ψ` and
   `F⁻¹(U(x))`.  `L = G_x ⋉ U(x)` is `geometricLiftTarget`, `G_x` discrete (Chapter 7's scoped
   instance) and lifted by `ULift`.
-* **Possible misprints in Theorem 8.5.8 (2017: 8.6)**, as we read it: "there exists exists" (a repeated word);
+* **Notation in Theorem 8.5.8 (2017: 8.6)**, as we read it: "there exists exists" (a repeated word);
   "`τ(t) : L_D(y) → L_C ∘ f(y)`" for `τ(y)`; "`A(ψ, z) = (f(z), F(z))`" for `(f(ψ), F(z))`, as in
   Proposition 8.5.7 (2017: 8.3)'s `F(ψ, z) = (f(ψ), τ(y)(z))`.
 -/

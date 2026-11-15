@@ -40,7 +40,7 @@ Stokes' theorem (Theorem 4.4.7) is stated for manifolds whose boundary is a unio
 
 "`X` face-structured" is the hypothesis under which the faces of `S_F` are faces in the sense of
 Definition 2.5.10; the text's Theorem 6.7.1 is stated for tame `X` and its boundary term is
-read on the local faces of `X` (Chapter 9's `SolutionFaces2021`).
+read on the local faces of `X` (Chapter 9's `SolutionFaces`).
 -/
 
 set_option maxSynthPendingDepth 3

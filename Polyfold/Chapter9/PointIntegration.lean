@@ -18,7 +18,7 @@ orientation is the one with a positive frame, the empty frame), and
   `frameSign` (the sign of an oriented tangent set of dimension `0`), `pointInteg`.
 * **`pointIntegration X : X.SheetIntegration (SheetNullSets.point (pointSheets X))
   (invariantFunctions X)`**: all fields of `SheetIntegration` hold, with the null sets of
-  dimension `0` (`SheetNullSets.point`, agent E2: only the sets not meeting the sheet), so that the
+  dimension `0` (`SheetNullSets.point`: only the sets not meeting the sheet), so that the
   hypotheses of the theorems of `LocalMeasure.lean` and `BranchedIntegral.lean`
   on the integration are satisfiable, with integrals that do not vanish
   (`pointIntegration_integ_singleton`).

@@ -513,9 +513,10 @@ and `f` be an sc-Fredholm section with tame germ data; let `f̃ = f ∘ π` be i
 all `t` near `t₀`: `f̃ + s̃` is an sc-Fredholm section of `π*P` with tame germ data
 (`IsScFredholmSectionTame.param`, `theorem_3_1_18_tame`), `ℝ × X` admits bump functions
 (`admitsBumpFunctions_prod_rn`), and the index is locally constant along its zero set
-(`index_locally_constant_of_admitsBumpFunctions`), which contains the graph near `t₀`.  What is
-not formalized (module docstring): the construction of `s̃` and the slice relation
-`ind (f̃ + s̃)'(t, φ(t)) = ind (f + s̃(t, ·))'(φ(t)) + 1`. -/
+(`index_locally_constant_of_admitsBumpFunctions`), which contains the graph near `t₀`.  The construction
+of `s̃` and the slice relation `ind (f̃ + s̃)'(t, φ(t)) = ind (f + s̃(t, ·))'(φ(t)) + 1` are
+`exists_isScPlusSection_pullback_of_path` and `StrongBundle.isIndexAt_of_pullback_isLinOfIndex`
+(`IndexAlongPathsDevice.lean`). -/
 theorem isLinOfIndex_paramLift_sectionAdd_eventually_const
     [ParacompactSpace ((Fin 1 → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))]
@@ -534,7 +535,7 @@ theorem isLinOfIndex_paramLift_sectionAdd_eventually_const
     with t ht htV
   exact hall _ htV ht
 
-/-- **Proposition 6.2.2 (preprint 6.2) from the two open steps (E) and (S)** (the precise reduction; module
+/-- **Proposition 6.2.2 (preprint 6.2) from the two steps (E) and (S)** (the precise reduction; module
 docstring): let `X` admit bump functions, `f` have tame germ data, `φ : ℝ → X` be continuous, and
 suppose (E) every `t₀` has an sc⁺-section `S` of `π*P` with `f̃ + S` vanishing along the graph of
 `φ` near `t₀`, and (S) at a zero `(t, φ(t))` of `f̃ + S` the index `i` of `(f̃ + S)'(t, φ(t))` gives

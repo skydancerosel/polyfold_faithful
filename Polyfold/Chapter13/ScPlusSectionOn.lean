@@ -1,4 +1,4 @@
-import Polyfold.Chapter11.MultisectionLocalStructure2021
+import Polyfold.Chapter11.MultisectionLocalStructure
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 13,

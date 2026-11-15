@@ -10,9 +10,9 @@ Theorems 9.6, 9.7), gap G.110.  Numbers and pages are the 2021 text's.
 # Stokes' theorem for a `1`-dimensional `Θ̂`
 
 For `n = 1` the boundary `∂S` is a finite set of oriented points and the boundary measure of
-Theorem 9.5.15 is built on E1's integral over oriented points (`EP.zeroFormIntegration`,
+Theorem 9.5.15 is built on the integral over oriented points (`EP.zeroFormIntegration`,
 `theorem_9_5_15_dim1`).  Stokes' theorem `∫_Θ̂ dω = μ^∂_ω(∂S)` for `ω ∈ Ω⁰_{ep,∞}(X)` follows as
-in E8 (`EP.stokes_of_boundaryMeasure`) from E6's `stokes_of_boundary_functional_all`, with
+in `StokesBoundaryMeasure.lean` (`EP.stokes_of_boundaryMeasure`) from `stokes_of_boundary_functional_all`, with
 Part I's boundary integral of a `0`-form over a `1`-dimensional sheet computed in
 `FaceIntegralDimOne` (`boundaryIntegral_eq_zeroFormIntegration`).  The hypotheses are those of the
 text: `X` with sc-smooth partitions of unity, `Θ` compact, oriented, and an oriented tame
@@ -21,14 +21,14 @@ or the boundary sheets.
 
 ## The generic locality lemmas
 
-`IsBoundaryLocalI`, `boundaryMeasure_eq_zero_of_integ_eq_zeroI`, `boundaryMeasure_univ_eqI`: E8's
-`IsBoundaryLocal`, `boundaryMeasure_eq_zero_of_integ_eq_zero`, `boundaryMeasure_univ_eq` for an
-arbitrary integration over the sheets of a class `S` (E8 states them for `FormEval.msheets`,
+`IsBoundaryLocalI`, `boundaryMeasure_eq_zero_of_integ_eq_zeroI`, `boundaryMeasure_univ_eqI`: the
+`IsBoundaryLocal`, `boundaryMeasure_eq_zero_of_integ_eq_zero`, `boundaryMeasure_univ_eq` of `BoundaryLocal.lean` for an
+arbitrary integration over the sheets of a class `S` (there stated for `FormEval.msheets`,
 which needs `0 < m`).
 
 ## Main results
 
-* `EP.stokes_of_boundaryMeasure_dim1`: the generic form (E8's `stokes_of_boundaryMeasure` for
+* `EP.stokes_of_boundaryMeasure_dim1`: the generic form (`stokes_of_boundaryMeasure` for
   `n = 1`).
 * **`EP.theorem_9_5_17_dim1`**: `∫_Θ̂ dω = μ^{∂Θ̂}_ω(∂S)` with the boundary measure of Theorem
   9.5.15 (`boundaryBranchedMeasureDim1`).
@@ -66,7 +66,7 @@ variable {S : Set (Set Obj)} {G : SheetNullSets S} {Ω : Type*} [AddCommGroup Ω
 
 /-- The local formula of Theorems 9.5.15, 9.5.16 for `Φ`, for the structures at the points of
 `supp(∂Θ)` describing `T̂Θ` with boundary sheets in the class `S` of the integration `𝓘` and the
-condition `P` (E8's `IsBoundaryLocal` for any `𝓘`). -/
+condition `P` (`IsBoundaryLocal` for any `𝓘`). -/
 def IsBoundaryLocalI : Prop :=
   ∀ (ω : Ω) (x : Obj) (C : X.OrientedTameStructure (m + 1) Θ x) (hCT : C.Represents T),
     x ∈ supp (X.boundaryTheta Θ) →
@@ -78,7 +78,7 @@ def IsBoundaryLocalI : Prop :=
         (X.π ⁻¹' (Subtype.val '' K))
 
 /-- **The boundary measure of a form whose integrals over the parts of the boundary sheets above
-`D` vanish** is `0` on `D` (E8's `boundaryMeasure_eq_zero_of_integ_eq_zero` for any `𝓘`). -/
+`D` vanish** is `0` on `D` (`boundaryMeasure_eq_zero_of_integ_eq_zero` for any `𝓘`). -/
 theorem boundaryMeasure_eq_zero_of_integ_eq_zeroI (hcpt : X.IsCompactBranched Θ)
     (hΦ : IsBoundaryLocalI 𝓘 hΘ Φ c P (T := T))
     (hcov : ∀ x ∈ supp (X.boundaryTheta Θ), ∃ C : X.OrientedTameStructure (m + 1) Θ x,
@@ -116,7 +116,7 @@ theorem boundaryMeasure_eq_zero_of_integ_eq_zeroI (hcpt : X.IsCompactBranched Θ
   simpa using h
 
 /-- **The second equality of the display on p. 451, boundary side**, for any `𝓘` whose null sets
-are those of dimension `m` and which vanishes over sets missing the sheet (E8's
+are those of dimension `m` and which vanishes over sets missing the sheet (as
 `boundaryMeasure_univ_eq`): `Φ(ω)(∂S) = c(x) ∑ᵢ σᵢ ∫_{∂₁Mᵢ} ω|(∂₁Mᵢ, o_{∂Mᵢ})`. -/
 theorem boundaryMeasure_univ_eqI (hG : ∀ N A, G.IsNull N A ↔ X.PObj.IsHNull m (A ∩ N))
     (hempty : ∀ ω N g B, B ∩ N = ∅ → 𝓘.integ ω N g B = 0)
@@ -275,8 +275,8 @@ variable (Φ : A.epFormsInfty (0 + 1) →ₗ[ℝ] @SignedMeasure (A.X.orbitSupp 
     (A.X.lebesgueSigmaBoundaryH (0 + 1) Θ))
   (c : A.Obj → ℝ) (P : ∀ x, A.X.OrientedTameStructure (0 + 1) Θ x → Prop)
 
-/-- **Stokes' theorem with the boundary measure for `n = 1`, generic form** (E8's
-`stokes_of_boundaryMeasure` for `n = 1`): let `Φ` have the local formula of Theorem 9.5.4 or 9.5.5
+/-- **Stokes' theorem with the boundary measure for `n = 1`, generic form** (as
+`stokes_of_boundaryMeasure`, for `n = 1`): let `Φ` have the local formula of Theorem 9.5.4 or 9.5.5
 and `Φb` the one of Theorem 9.5.15 or 9.5.16 over the oriented boundary points (weights `c`, a
 condition `P` on the structures, inherited by restrictions with the same action), and let every
 point of `supp Θ` have a structure describing `T̂Θ` with `P`.  Then `Φ(dω)(S) = Φb(ω)(∂S)`. -/

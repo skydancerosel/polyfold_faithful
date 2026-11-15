@@ -7,7 +7,7 @@ import Polyfold.Chapter1.CylinderScBanach
 `0 = δ₀ < δ₁ < ⋯`, the Hilbert space `E = L²(ℝ)` carries the sc-structure `E_m = H^{m,δ_m}(ℝ)`,
 the maps with weak derivatives up to order `m` which, weighted by `e^{δ_m |s|}`, are in `L²(ℝ)`.
 
-We build it from Example 1.1.3 (`GapP1_Sobolev*`, the cylinder `ℝ × S¹`), through the isometry
+We build it from Example 1.1.3 (`Chapter1/Cylinder*.lean`, the cylinder `ℝ × S¹`), through the isometry
 `f ↦ f ∘ pr₁ : L²(ℝ) → L²(ℝ × S¹)` (`liftC`):
 
 * `Hsub1 m hδ` is the space of `f ∈ L²(ℝ)` whose lift lies in `H^{m,δ}(ℝ × S¹)`, normed by the
@@ -28,7 +28,7 @@ noncomputable section
 
 namespace Polyfold.ZhouLine
 
-open Polyfold.GapP1Sobolev
+open Polyfold.CylinderSobolev
 
 /-! ### The lift `L²(ℝ) → L²(ℝ × S¹)` -/
 

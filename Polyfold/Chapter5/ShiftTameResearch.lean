@@ -54,7 +54,7 @@ to the base retraction of a strong bundle chart:
   tame strong bundle chart of `P¹`**;
 * **`isScFredholmGermTame_sectionShift`**: tame germ data `(Φ, g, s)` of `f` at a smooth point
   give tame germ data `(Φ¹, g¹, s¹)` of `f¹` (the datum of `isScFredholmGerm_sectionShift`,
-  `Corollary58.lean`, in the chart `Φ¹`, now known to be tame);
+  `Corollary58.lean`, in the chart `Φ¹`, which is tame);
 * **`corollary_5_2_5_tame`**: **Corollary 5.2.5 with tame germ data**: if `f` is an sc-Fredholm
   section of `P` with tame germ data (preprint Definition 3.51) and compact solution set, then
   `f¹` is an sc-Fredholm section of `P¹` with tame germ data and compact solution set;
@@ -72,8 +72,8 @@ to the base retraction of a strong bundle chart:
 
 ## What is left
 
-Nothing of item 145: the chart half and the section half are both proved.  The remark of
-`StrongBundleShift.lean` ("Tameness is not shifted … Not done") is superseded by this file.
+Nothing of item 145: the chart half and the section half are both proved.  The tameness of the
+shifted chart, not treated in `StrongBundleShift.lean`, is proved here.
 -/
 
 open Set Filter Topology Function

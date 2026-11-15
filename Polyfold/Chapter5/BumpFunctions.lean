@@ -70,7 +70,7 @@ an atlas whose local models have the bump property.  (Proposition 5.5.8 (preprin
   `f(x) ≠ 0`; it implies the reading of Definition 5.5.2 (preprint 5.29) (`AdmitsBumpFunctions.weak`), and it is the
   hypothesis of Proposition 5.5.3 (preprint 5.30), Theorem 5.5.7 (preprint 5.34) and Lemma 5.3.3 (preprint 5.11).  Definition 5.5.6 (preprint 5.33)'s "`f ≠ 0`" is read
   the same way, so that Theorem 5.5.7 (preprint 5.34) is an equivalence between the same notions.
-* **Proposition 5.5.3 (preprint 5.30).**  The text's `σ` ("`0` for `s ≤ 1` and `1` for `s ≥ 1`") is misprinted, and
+* **Proposition 5.5.3 (preprint 5.30).**  The text's `σ` ("`0` for `s ≤ 1` and `1` for `s ≥ 1`") does not hold as we read it, and
   `f = σ ∘ g` needs `g(x) = 1`, not given.  Here `f = τ(3g/g(x) − 1)`, `τ` Mathlib's
   `Real.smoothTransition` (`0` on `(−∞, 0]`, `1` on `[1, ∞)`): `f(x) = τ(2) = 1`, `f ≡ 1` where
   `g/g(x) > 2/3`, and `f ≠ 0` only where `g/g(x) > 1/3`, so `supp(f) ⊆ supp(g)`.
@@ -266,7 +266,7 @@ theorem MPolyfold.AdmitsBumpFunctions.weak (h : PX.AdmitsBumpFunctions) :
 /-- **Proposition 5.5.3 (preprint 5.30)** (= Proposition 5.10): if `X` admits sc-smooth bump functions, then for
 every `x` and every open neighbourhood `U` of `x` there is an sc-smooth `f : X → [0, 1]` with
 `f(x) = 1` and `supp(f) ⊆ U`, and `f ≡ 1` near `x`.  (The text's `σ`, "`0` for `s ≤ 1` and `1`
-for `s ≥ 1`", is misprinted; here `f = σ ∘ g` with `σ(s) = τ(3s/g(x) − 1)`, `τ` the smooth
+for `s ≥ 1`", does not hold as we read it; here `f = σ ∘ g` with `σ(s) = τ(3s/g(x) − 1)`, `τ` the smooth
 transition from `0` on `(−∞, 0]` to `1` on `[1, ∞)`.) -/
 theorem proposition_5_5_3 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : IsOpen U)
     (hx : x ∈ U) :

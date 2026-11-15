@@ -18,18 +18,18 @@ sub-ep-groupoid `∂X`.
 `G^eff_{x∈∂X} = {1}` for `x ∈ ∂X`".
 
 ## What is formalized
-* `K3.rotC k = ω^k`, `ω = −1/2 + i√3/2`; the action `k • (t, z) = (t, ω^k z)` of
-  `K3.Z3 = Multiplicative (ZMod 3)` on `XR`.
-* `K3.isScSmoothMap_smul`: it is sc-smooth (in the chart it is the sc-operator `rotOp` rotating
+* `DimensionJump.rotC k = ω^k`, `ω = −1/2 + i√3/2`; the action `k • (t, z) = (t, ω^k z)` of
+  `DimensionJump.Z3 = Multiplicative (ZMod 3)` on `XR`.
+* `DimensionJump.isScSmoothMap_smul`: it is sc-smooth (in the chart it is the sc-operator `rotOp` rotating
   `(a, b)`).
-* **`K3.ε := actionEpGroupoid isScSmoothMap_smul`**, `ℤ/3 ⋉ X`; **`K3.isLUC_ε`** (via
-  Proposition 7.2.21: `𝐗^T = {1} × X` is closed, `K3.nonEffectivePart_ε`).
-* **`K3.card_effIsotropy_of_snd_eq_zero`**: `#G^eff_x = 3` for `x = (t, 0)`, in particular at the two
-  points of `∂X` (`K3.card_effIsotropy_end`); `K3.card_effIsotropy_of_snd_ne_zero`: `= 1` off `M`.
-* **`K3.isEpSubgroupoid_ends`**: `∂X = {(−1,0),(1,0)}` is an ep-subgroupoid (Definition 7.1.21:
-  a sub-M-polyfold, saturated); **`K3.εB := subEpGroupoid isEpSubgroupoid_ends`**.
-* **`K3.card_isotropy_εB`**: `#G_x = 3` in `∂X`, but **`K3.card_effIsotropy_εB`**: `#G^eff_x = 1` in
-  `∂X` (every element acts trivially there).  **`K3.remark_9_5_20_effIsotropy`** collects the
+* **`DimensionJump.ε := actionEpGroupoid isScSmoothMap_smul`**, `ℤ/3 ⋉ X`; **`DimensionJump.isLUC_ε`** (via
+  Proposition 7.2.21: `𝐗^T = {1} × X` is closed, `DimensionJump.nonEffectivePart_ε`).
+* **`DimensionJump.card_effIsotropy_of_snd_eq_zero`**: `#G^eff_x = 3` for `x = (t, 0)`, in particular at the two
+  points of `∂X` (`DimensionJump.card_effIsotropy_end`); `DimensionJump.card_effIsotropy_of_snd_ne_zero`: `= 1` off `M`.
+* **`DimensionJump.isEpSubgroupoid_ends`**: `∂X = {(−1,0),(1,0)}` is an ep-subgroupoid (Definition 7.1.21:
+  a sub-M-polyfold, saturated); **`DimensionJump.εB := subEpGroupoid isEpSubgroupoid_ends`**.
+* **`DimensionJump.card_isotropy_εB`**: `#G_x = 3` in `∂X`, but **`DimensionJump.card_effIsotropy_εB`**: `#G^eff_x = 1` in
+  `∂X` (every element acts trivially there).  **`DimensionJump.remark_9_5_20_effIsotropy`** collects the
   comparison.
 -/
 
@@ -42,7 +42,7 @@ noncomputable section
 
 namespace Polyfold
 
-namespace K3
+namespace DimensionJump
 
 open RemarkFourThree ScOneExample EpGroupoid EpGroupoid.Examples
 
@@ -427,6 +427,6 @@ theorem remark_9_5_20_effIsotropy :
   exact (Nat.card_congr (isotropyEquivStabilizer isScSmoothMap_smul a.val).toEquiv).trans
     ((card_effIsotropy_ε a.val).symm.trans (card_effIsotropy_end a.2))
 
-end K3
+end DimensionJump
 
 end Polyfold

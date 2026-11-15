@@ -59,7 +59,7 @@ isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isom
 
 ## Reading
 
-* **A structure of maps** (PLAN II.3, P1).  The composition is a total map `comp : Mor → Mor →
+* **A structure of maps**.  The composition is a total map `comp : Mor → Mor →
   Mor` in the text's order, `comp φ ψ = φ ∘ ψ`, and the laws are asked on composable pairs
   `src φ = tgt ψ`, which is the fibred product `𝐗 ₛ×ₜ 𝐗` (`MPolyfold.fibredProduct src tgt`).
   Its values off `𝐗 ₛ×ₜ 𝐗` are not used.  "Small category": `Obj` and `Mor` are types of one

@@ -276,7 +276,7 @@ theorem isCompactOperator_V (hp : 1 < p) : IsCompactOperator (V (p := p)) := by
   have hθ : 0 < 1 - 1 / p := by
     rw [sub_pos, div_lt_one p_pos]; exact hp
   have htb : TotallyBounded (V '' Metric.ball (0 : L p) 1) := by
-    refine GapP1Sobolev.totallyBounded_image_of_coords _ fun ε hε => ?_
+    refine CylinderSobolev.totallyBounded_image_of_coords _ fun ε hε => ?_
     have hlim : Tendsto (fun N : ℕ => ((N : ℝ)) ^ (-(1 - 1 / p))) atTop (𝓝 0) :=
       (tendsto_rpow_neg_atTop hθ).comp tendsto_natCast_atTop_atTop
     obtain ⟨N, hNε, hN⟩ :=

@@ -12,8 +12,8 @@ the homeomorphism `|supp Θ| ≃ₜ supp θ` and the structure of Proposition 9.
   `θ` (`suppTransition`), its characterization `α' ∘ t = α` and the cocycle identities;
 * the predicate `IsInducedSuppStructure` (the conclusion of Proposition 9.1.9 (1));
 * the independence claim as a Lean `Prop` (`proposition_16_4_3_naturality_statement`): the
-  transition is an sc-diffeomorphism for suitable induced structures. It is not proved here
-  (gap text in `narrow/p3w4-SM.md`).
+  transition is an sc-diffeomorphism for suitable induced structures. It is proved in
+  `SuppNaturality` (`proposition_16_4_3_naturality`).
 -/
 
 set_option maxSynthPendingDepth 3

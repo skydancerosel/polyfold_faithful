@@ -12,8 +12,8 @@ the 2021 text's.
 For `n = 1` the last equality of the display on p. 451 reads: Part I's boundary integral
 `∫_{∂(M, o)} f` of a function (a `0`-form) over a tame `1`-dimensional sheet `M` is `±f(p)` when
 the boundary stratum `∂₁M` is one point `p`, the sign `+` iff the boundary orientation
-`o_{∂M}` of Definition 9.3.8 at `p` is positive, and `0` when `∂₁M = ∅`.  This is E1's integral
-over oriented points (`EpGroupoid.pointInteg`).  E8F's `FormEval.boundaryIntegral_eq_msInteg`
+`o_{∂M}` of Definition 9.3.8 at `p` is positive, and `0` when `∂₁M = ∅`.  This is the integral
+over oriented points of `PointIntegration.lean` (`EpGroupoid.pointInteg`).  `FormEval.boundaryIntegral_eq_msInteg`
 needs `0 < m`: an `m`-form evaluation `FormEval` reads a `0`-form on the empty frame, which
 carries no base point.  Here the `0`-form is a function `f` on the objects.
 
@@ -24,8 +24,8 @@ carries no base point.  Here the `0`-form is a function `f` on the objects.
   Mathlib `0`-form `η` on `M` with compact support and values `f`, when `∂₁M` has at most one
   point.
 * **`EP.boundaryIntegral_eq_zeroFormIntegration`**: the same for the sheets `Mᵢ` of an oriented
-  tame structure of dimension `1` and `a ∈ Ω⁰_{ep,∞}(X)`, with E1's integral over oriented points
-  (`EP.zeroFormIntegration`).
+  tame structure of dimension `1` and `a ∈ Ω⁰_{ep,∞}(X)`, with the integral over oriented points
+  (`EP.zeroFormIntegration`, `ZeroFormValues.lean`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -110,7 +110,7 @@ theorem orSign_mul_faceSign_mul_facePullback_eq_dim1 (hM : X.PObj.IsSubmanifoldO
   · rw [if_neg h, if_neg (fun h' => h (hiff.1 (hfr.2 h')))]
 
 /-- **One term of Part I's boundary integral of a `0`-form** (one chart, one face; `n = 1`): as
-E8F's `FormEval.face_term_eq`, with the face density `±f`. -/
+`FormEval.face_term_eq`, with the face density `±f`. -/
 theorem face_term_eq_dim1 (hM : X.PObj.IsSubmanifoldOfDim M (0 + 1))
     (ht : X.PObj.HasTameInducedStructure M) (o : X.PObj.SubmanifoldOrientation M (0 + 1))
     (f : Obj → ℝ) (η : ManifoldForm (𝓠 (0 + 1)) M 0)

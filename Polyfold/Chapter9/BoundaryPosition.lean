@@ -99,7 +99,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
   (`isReducedTangentAt_iff_subset_partialQuadrant`).  The proof here goes through Theorem 2.31
   for the induced structure instead of a diffeomorphism `(ℝⁿ, 0) → (W, 0)`.
 
-## Not formalized, and why
+## Not in this file
 
 * **Lemma 9.2.13 (2) ⇒ (1)** (for `x ∈ M ∩ ∂X`: `T_xM ⊆ T_x^R X ⇒ d_M(x) = 0`) and the direction
   `x ∈ ∂M ⇒ T_xM ⊄ T_x^R X` of Remark 9.2.14 are in `Chapter9/BoundaryPositionConverse.lean`
@@ -108,7 +108,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
   out, by the local injectivity of `P` on `M` (`ScRetraction.IsScPlus.exists_injOn_proj`).
 * The sentence of Definition 9.3.6 "in particular, every `Mᵢ` has an equivalent structure of a
   smooth manifold with boundary with corners" (a tame finite-dimensional M-polyfold is a manifold
-  with corners).
+  with corners): `MathlibManifoldBridge.cornerChartedSpace` (`MathlibManifoldBridge.lean`).
 -/
 
 set_option maxSynthPendingDepth 3

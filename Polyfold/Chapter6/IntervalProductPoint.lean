@@ -1,4 +1,4 @@
-import Polyfold.Chapter6.ProductSectionOrientation2021f
+import Polyfold.Chapter6.SectionOrientationProdFirst
 import Polyfold.Chapter6.CubeStabKernels
 
 /-!

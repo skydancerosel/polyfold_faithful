@@ -17,7 +17,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-- An isometry reflects total boundedness. -/
 lemma totallyBounded_of_isometry {X Y : Type*} [PseudoMetricSpace X] [PseudoMetricSpace Y]
@@ -177,4 +177,4 @@ theorem isCompactOperator_inclH (hδ : 0 ≤ δ) (hδ' : 0 ≤ δ') (hlt : δ < 
     one_pos).2 ⟨closure (Tm '' B), ?_, subset_closure⟩
   exact isCompact_iff_totallyBounded_isComplete.2 ⟨htb.closure, isClosed_closure.isComplete⟩
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

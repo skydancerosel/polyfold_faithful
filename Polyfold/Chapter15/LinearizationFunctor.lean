@@ -25,7 +25,7 @@ the functoriality of `f` and `Λ` and the local diffeomorphism `t ∘ s⁻¹` ne
   `Tφ = EpGroupoid.tangentMorCLE` (Chapter 7, the linear isomorphism `T_xX ≃ T_yX`), and
   `grfPush φ hφ hx hy = φ_* : GrF(x) → GrF(y)` (`Finsupp.mapDomain` of `conjOp`).
 * `transSec φ s = Ψ̂ ∘ s ∘ φ̂⁻¹`: a local section near `x = s(φ)` carried to a local section near
-  `y = t(φ)` by the local strong bundle isomorphism of `φ` (wave 1's `EpStrongBundle.morIso`);
+  `y = t(φ)` by the local strong bundle isomorphism of `φ` (`EpStrongBundle.morIso`);
   `isScPlusSectionOn_transSec`, `isLocalRepOn_transSec` (a local section structure of a functor
   `Λ` is carried to one of `Λ`).
 * `chartVec_transport`: in the chart `c ∘ φ̂⁻¹` at `y` (the transported chart
@@ -45,8 +45,8 @@ the functoriality of `f` and `Λ` and the local diffeomorphism `t ∘ s⁻¹` ne
 
 The text states the functor property at smooth points.  It is proved here at every level-`1`
 point (`x ∈ X₁` forces `φ ∈ 𝐗₁`, `mem_levelSet_one_of_src`), where `Tφ` is Chapter 7's bounded
-linear isomorphism.  The summands are not required to be sc-Fredholm in `GrF` (as in wave 1's
-`GrF`, see `linearization_summand_isScFredholm` for that property).
+linear isomorphism.  The summands are not required to be sc-Fredholm in `GrF` (see
+`linearization_summand_isScFredholm` for that property).
 -/
 
 set_option maxSynthPendingDepth 3

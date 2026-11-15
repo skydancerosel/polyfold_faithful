@@ -63,7 +63,7 @@ property if `cl_X(U)` is proper.
   `EffIsotropy`.  **Definition 7.3.7 (2017: 7.14)**: `IsComponentCompact`.  **Definition 7.5.1 (2017: 7.15)**:
   `HasParacompactOrbitSpace`.  **Definition 7.5.5 (2017: 7.16)**: `HasScPartitionsOfUnity`.
   **Definition 7.5.8 (2017: 7.17)**: `IsProperSubset`, `HasPropernessProperty`, `exists_hasPropernessProperty`.
-* Witnesses (PLAN II.5): `EpGroupoid.trivial P` (`𝐗 = X`, `s = t = id`) for every M-polyfold;
+* Witnesses: `EpGroupoid.trivial P` (`𝐗 = X`, `s = t = id`) for every M-polyfold;
   `isTame_trivial`, `isTame_trivial_rn` (on `ℝⁿ`), `isEffective_trivial`, `regularSet_trivial`,
   `isProperSubset_trivial`, `hasPropernessProperty_trivial`, `trivialOrbitHomeomorph`,
   `hasParacompactOrbitSpace_trivial`, `hasScPartitionsOfUnity_trivial`, `trivialNaturalRep`,
@@ -73,9 +73,9 @@ property if `cl_X(U)` is proper.
 
 * **(1), (2)** are Part I's `IsLocalScDiffeo` and `IsScSmoothMap`.  The text's "in particular all
   structure maps are sc-smooth" is `isScSmoothMap_src`, `isScSmoothMap_tgt`.
-* **(3)** (PLAN P3) is `IsProperMap ((s ⁻¹' cl V).domRestrict t)` for *some* open `V ∋ x`,
+* **(3)** is `IsProperMap ((s ⁻¹' cl V).domRestrict t)` for *some* open `V ∋ x`,
   existential per point as in the text (a universal reading, "for every neighbourhood", fails for
-  the pair groupoid of `ℤ`; PLAN II.5, 4).  Definition 7.5.8 (2017: 7.17) uses the same form.
+  the pair groupoid of `ℤ`).  Definition 7.5.8 (2017: 7.17) uses the same form.
 * **(4)** (P5) is stated literally on the sub-M-polyfold `𝐗 ₛ×ₜ 𝐗 = fibredProduct src tgt` of
   `𝐗 × 𝐗` (Proposition 2.5.20 (2017: 2.15) [2.46] of the text; Definition 7.1.3 (2017: 7.3) cites "[38], Lemma 2.8", an outside
   reference, read as the same fact), the paracompactness instances of `𝐗 × 𝐗` and of the subtype supplied inside the
@@ -92,20 +92,20 @@ property if `cl_X(U)` is proper.
 * pp. 227–228: the invariance of levels and of `d` along `s` and `t` is proved here (Proposition
   2.7 [2.24] along a sheet), since Definition 7.1.5 (2017: 7.5) needs it for `Quotient.lift`.
 * **Definition 7.1.6 (2017: 7.6)** is `PObj.IsTame` (an equivalent tame atlas exists, Definition 2.5.7 (2017: 2.19) [2.37]):
-  existential, never "every chart is tame" (PLAN II.5, 1).  The text's "then `𝐗` is tame" is
+  existential, never "every chart is tame".  The text's "then `𝐗` is tame" is
   `LocalDiffeo.lean`.
 * **Definition 7.1.7 (2017: 7.7)**: an `EpFunctor` is a `GroupoidFunctor` sc-smooth on objects and on morphisms.
   The remark after it ("sc-smooth on objects suffices") is not formalized here: as we read it, it
-  does not hold without continuity on morphisms (PLAN II.6, 1).  `EP` is a `LargeCategory` on
+  does not hold without continuity on morphisms.  `EP` is a `LargeCategory` on
   bundled ep-groupoids (P2).
 * **Theorem 7.1.13 (2017: 7.1)'s data** (P6) is `NaturalRep`: `U` open and **connected** (as we read it, the
-  homomorphism property and the uniqueness of `(Φ, Γ)` need it; PLAN II.6, 3), `Φ g` an
+  homomorphism property and the uniqueness of `(Φ, Γ)` need it), `Φ g` an
   sc-diffeomorphism of `U` with inverse `Φ g⁻¹`, `Φ(gh) = Φ(g) ∘ Φ(h)` on `U`.  "`Γ` is sc-smooth
   on `G_x × U`" is read on each sheet `{g} × U` (`isScSmoothOn_Γ`); `G_x × U` as an M-polyfold is
   `Discrete.lean`.  `Γ` and `Φ` are total maps whose values off `U` are not used.  That `Γ` is a
   functor `G_x ⋉ U → X` (p. 232) is not a field: it follows from connectedness (`NaturalRep.lean`).
   "`U(x)` equipped with the natural `G_x`-action" (Lemmas 7.2.3, 7.3.2, 7.6.5 (2017: 7.3, 7.4, 7.10), Proposition 7.1.19 (2017: 7.6),
-  Definitions 7.1.20, 7.2.7 (2017: 7.9, 7.12)) is always a `NaturalRep` datum (PLAN II.5, 6).
+  Definitions 7.1.20, 7.2.7 (2017: 7.9, 7.12)) is always a `NaturalRep` datum.
 * **Definition 7.1.18 (2017: 7.8)**: `NaturalRepFinite X Y V` records Proposition 7.1.15 (2017: 7.5)'s functor `f` (`F ψ` for
   morphisms `ψ` between points of `Y`), the neighbourhoods `U(y)` and the components `𝐔(ψ)` with
   the inverses `srcInv ψ` of `s|𝐔(ψ)`; "decomposes into the connected components `𝐔(ψ)`" is read
@@ -114,7 +114,7 @@ property if `cl_X(U)` is proper.
 * **Definition 7.1.20 (2017: 7.9)**: `Ψ_x` is the inclusion on objects (so its image is `U(x)` and `|U(x)| =
   π(U(x))`), full and faithful (Mathlib's `Functor.Full`, `Functor.Faithful` of the bridge);
   "induces a homeomorphism onto `π(U(x))`" is an embedding with range `π(U(x))`.  The text's
-  "`Ψ_x ◦ G_x ⋉ U(x) → X`" is read as `Ψ_x : G_x ⋉ U(x) → X` (possible misprint).
+  "`Ψ_x ◦ G_x ⋉ U(x) → X`" is read as `Ψ_x : G_x ⋉ U(x) → X`.
 * **Definition 7.2.7 (2017: 7.12)**: `T_x` is the *set* `{g | ∃ natural representation with Φ(g) = id on U}`.
   That it is a normal subgroup, the kernel of `Φ` for small `U(x)` (p. 241), needs Theorem 7.1.13 (2017: 7.1) and
   the uniqueness of `(Φ, Γ)`; it is proved in `Effective.lean` (`trivialSubgroup`,
@@ -718,7 +718,7 @@ private theorem isLocalScDiffeo_id : P.IsLocalScDiffeo P id := fun x =>
   ⟨univ, univ, id, mem_univ x, isScDiffeoOn_id P⟩
 
 /-- **The trivial ep-groupoid** of an M-polyfold `Z`: `𝐗 = X = Z`, all structure maps the
-identity (PLAN II.5). -/
+identity. -/
 def trivial : EpGroupoid Z Z where
   toGroupoidStr := GroupoidStr.trivial Z
   PObj := P

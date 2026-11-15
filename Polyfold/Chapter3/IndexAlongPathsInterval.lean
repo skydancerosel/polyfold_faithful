@@ -5,8 +5,8 @@ import Polyfold.Chapter3.IndexAlongPathsDevice
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, **Proposition 6.2.2**
 (p. 240; preprint: Proposition 6.2, p. 201), **for sc-smooth paths `φ : [0, 1] → X`**, as
-printed.  Closes the remaining narrowing of row V3.98 and the Proposition 6.2.2 part of gap G.65
-(decision D2: paths read on `ℝ`).
+printed: row V3.98 and the Proposition 6.2.2 part of gap G.65 without the narrowing of decision D2
+(paths read on `ℝ`).
 
 # Proposition 6.2.2 on `[0, 1]`
 
@@ -31,7 +31,7 @@ locally constant.
   From `proposition_6_2_2_local`.
 * `Polyfold.proposition_6_2_2_interval_bump`: the same with global sc⁺-sections (`IsIndexAt`)
   when `X` admits sc-smooth bump functions; from `proposition_6_2_2'`.
-* `Polyfold.proposition_6_2_2_interval_of_rn`: the earlier reading (decision D2) is the special
+* `Polyfold.proposition_6_2_2_interval_of_rn`: the reading of decision D2 is the special
   case of the restriction to `[0, 1]` of an sc-smooth path on `ℝ`
   (`IsScSmoothMap.restrictUnitInterval`); this is also the witness that the path hypothesis is
   satisfiable (e.g. the inclusion `[0, 1] → ℝ`, `isScSmoothMap_unitInterval_val`).

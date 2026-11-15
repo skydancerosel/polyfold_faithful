@@ -42,17 +42,16 @@ oriented structures cover `S`; with `U_0^*` saturated open such that the `U_k^*`
   restricted form over the faces of the manifold with corners `Mᵢ`
   (`OrientedSheet.boundaryIntegral`, `StokesLocalFormulas.lean`), for the tangent orientation
   `bridgeOrientation oᵢ` of the orientation `oᵢ` of Definition 9.3.3.  The measure `μ^∂_ω` on
-  `(∂S, L(∂S))` of Theorems 9.5.15, 9.5.16 (gap G.109) is not constructed; `Φ^∂` stands for
-  `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  (2026-11-13) The measure is
-  constructed for `n ≥ 2` under a class condition on the boundary sheets in
-  `BoundaryMeasure.lean`, and Stokes' theorem with it is `StokesBoundaryMeasure.lean`
-  (`theorem_9_5_17_msheets`).
+  `(∂S, L(∂S))` of Theorems 9.5.15, 9.5.16 (gap G.109) is not used here; `Φ^∂` stands for
+  `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  The measure is constructed for
+  `n ≥ 2` under a class condition on the boundary sheets in `BoundaryMeasure.lean`, and Stokes'
+  theorem with it is `StokesBoundaryMeasure.lean` (`theorem_9_5_17_msheets`).
 * `n ≥ 2`: for `n = 1` the forms `ω` are functions, and the restriction of `β·ω` to a sheet is
   not read through the evaluation on frames (`EP.epFormsInftyEval` is `0` in degree `0`).
-  (2026-11-13) The case `n = 1` is in `StokesSheetAllDegrees.lean`, `StokesPartitionAllDegrees.lean`
+  The case `n = 1` is in `StokesSheetAllDegrees.lean`, `StokesPartitionAllDegrees.lean`
   (`theorem_9_5_17_boundary_sum_all`, `theorem_9_5_18_boundary_sum_all`).
 * The orientation is described near every point of `supp Θ` by an oriented tame structure
-  (`hloc`, agent E3's reading of "oriented, tame").
+  (`hloc`, our reading of "oriented, tame").
 -/
 
 set_option maxSynthPendingDepth 3

@@ -1,4 +1,4 @@
-import Polyfold.Chapter4.ScFormsPullback2021
+import Polyfold.Chapter4.ScFormsPullback
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), proof of the Poincaré

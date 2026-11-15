@@ -1,4 +1,4 @@
-import Polyfold.Chapter5.CylinderPerturbation2021
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 # Remark 5.3.8 for a general sc-Fredholm arc
@@ -10,7 +10,7 @@ compact solution set.  A small perturbation `s`, supported near the solution set
 `s(t, ·) = 0` for `t` close to `0` and `1`, makes the arc transversal.  Its solution set is then a
 compact cobordism between `S_{f₀}` and `S_{f₁}`.
 
-`Chapter5/CylinderPerturbation2021.lean` (`exists_cobordism`) and `Chapter6/ProperHomotopy2021.lean`
+`Chapter5/CylinderPerturbation.lean` (`exists_cobordism`) and `Chapter6/ProperHomotopy.lean`
 (`exists_homotopy_cobordism`) treat the arcs of the form `f₀ + S(t, ·)` with `S` an sc⁺-section.
 This file treats a general sc-Fredholm arc.
 

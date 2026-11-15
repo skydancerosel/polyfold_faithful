@@ -22,7 +22,7 @@ open scoped ContDiff ENNReal
 
 noncomputable section
 
-namespace Polyfold.GapP1Sobolev
+namespace Polyfold.CylinderSobolev
 
 /-! ### Boxes -/
 
@@ -584,4 +584,4 @@ theorem HasWeakDeriv.ae_eq {a b : ℕ} {u g g' : ℝ × ℝ → ℝ} (h : HasWea
   filter_upwards [hz] with x hx
   simpa [sub_eq_zero] using hx
 
-end Polyfold.GapP1Sobolev
+end Polyfold.CylinderSobolev

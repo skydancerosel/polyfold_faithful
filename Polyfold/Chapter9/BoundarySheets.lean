@@ -24,9 +24,10 @@ integrates over the `∂Mᵢ` with the orientations `o_{∂Mᵢ}`.
   sheet lies in the class of sheets of the concrete integration of `m`-forms
   (`FormEval.sheets`), so `∫_K ω|(∂Mᵢ, o_{∂Mᵢ})` is defined for measurable `K` in such a piece.
 
-Not formalized: the local expressions as signed measures on `(∂S, L(∂S))` and their agreement on
-overlaps (Theorems 9.5.15, 9.5.16).  (2026-11-13) They are in the `GapP2_E7_*` files
-(`existsUnique_familyMeasure`, `theorem_9_5_15_msheets`).
+Not in this file: the local expressions as signed measures on `(∂S, L(∂S))` and their agreement on
+overlaps (Theorems 9.5.15, 9.5.16).  They are in `BoundaryFamily.lean`, `SheetFamily.lean`,
+`FamilyMeasure.lean` and `BoundaryMeasure.lean` (`existsUnique_familyMeasure`,
+`theorem_9_5_15_msheets`).
 -/
 
 set_option maxSynthPendingDepth 3

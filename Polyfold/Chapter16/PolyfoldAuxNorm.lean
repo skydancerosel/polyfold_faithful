@@ -1,5 +1,5 @@
 import Polyfold.Chapter16.StrongPolyfoldBundle
-import Polyfold.Chapter11.AuxiliaryNormTransport2021
+import Polyfold.Chapter11.AuxiliaryNormTransport
 import Polyfold.Chapter12.AuxNormLocalExtension
 import Polyfold.Chapter12.ReflexiveAuxNormExtension
 import Polyfold.Chapter12.ReflexiveCompactnessEp
@@ -46,16 +46,18 @@ auxiliary norm of `Y_{0,1}`, reflexive if the given one is.
   (with the reflexive local step of Theorem 12.2.13 as hypothesis, no tameness needed),
   `theorem_16_3_17_two_hyp_witness`.
 
-## Readings and what is not formalized
+## Readings
 
 * `n` is a function `Y → ℝ`; only its values on `Y_{0,1}` matter.  Its continuity on `Y_{0,1}`,
   which carries the topology of `|W[1]|` through `Γ` (not the topology of `Y`), follows from that
   of `N` (`continuous_normOrbit`).
 * "`y_k → 0_z` in `Y_{0,1}`" in Proposition 16.3.16 (1) is read in `|W[1]|`.
-* The parenthetical claim of Definition 16.3.12 (equivalent structures also have reflexive
-  `1`-fibres) and the comparison of mixed convergence and of reflexive auxiliary norms between two
-  equivalent structures are not formalized: Proposition 16.3.16 (2) is proved for mixed convergence
-  in a structure in which `n` is reflexive (`proposition_16_3_16_two_of_mem`).
+* Here Proposition 16.3.16 (2) is proved for mixed convergence in a structure in which `n` is
+  reflexive (`proposition_16_3_16_two_of_mem`).  The parenthetical claim of Definition 16.3.12
+  (equivalent structures also have reflexive `1`-fibres) is `hasReflexiveFibers_iff_forall`
+  (`ReflexivePush`); the comparison of mixed convergence and of reflexive auxiliary norms between
+  two equivalent structures, and Proposition 16.3.16 (2) as printed (`proposition_16_3_16_two`),
+  are in `MixedTransfer`.
 -/
 
 set_option maxSynthPendingDepth 3

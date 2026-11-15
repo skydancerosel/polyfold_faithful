@@ -16,7 +16,7 @@ Part II, Chapter 9, §9.5 "Integration and Stokes": **(9.22)**, p. 441 (gap G.10
 
 For the concrete integration `F.sheetIntegration` of `SheetIntegrationConcrete.lean`, the
 measures `μ_ω = branchedMeasure …` of Theorem 9.5.4 and `branchedMeasureEff …` of Theorem 9.5.5
-(E1), `τ = f · ω` read as `F.IsMul τ ω f` (E3), and `f̄ : S → ℝ` bounded and `L(S)`-measurable with
+(`BranchedIntegral.lean`), `τ = f · ω` read as `F.IsMul τ ω f` (`FunctionTimesForm.lean`), and `f̄ : S → ℝ` bounded and `L(S)`-measurable with
 `f = f̄ ∘ π` (e.g. `f̄` continuous on the compact `S`):
 
 * **`branchedMeasure_eq_setIntegral_mul`** (**(9.22)**): `μ_τ(K) = ∫_K f̄ dμ_ω` for every
@@ -27,7 +27,7 @@ measures `μ_ω = branchedMeasure …` of Theorem 9.5.4 and `branchedMeasureEff 
 * `…_of_continuous`: the same for continuous `f̄` (bounded and measurable automatically).
 
 The proof (`eq_setIntegral_of_sheetSum`): near each point of `S` a structure with sheets in the
-class gives E3's estimate `|μ_τ(A) − a μ_ω(A)| ≤ ε · c ∑ σᵢ ∫_{Aᵢ} |ω|` for `A ⊆ |U(x)|` on which
+class gives the estimate `|μ_τ(A) − a μ_ω(A)| ≤ ε · c ∑ σᵢ ∫_{Aᵢ} |ω|` for `A ⊆ |U(x)|` on which
 `|f̄ − a| ≤ ε`; the right side is additive in `A` (`absSheetSum_union`), so
 `SignedDensity.eq_setIntegral_of_local_estimate` (finite subcover of the compact `S`,
 Riemann–Stieltjes sums, `ε → 0`) applies.

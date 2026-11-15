@@ -39,7 +39,7 @@ namespace Polyfold
 
 namespace DimensionJump
 
-open K3
+open DimensionJump
 open ScOneExample hiding E
 
 open RemarkFourThree MPolyfold
