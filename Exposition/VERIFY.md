@@ -40,8 +40,8 @@ formal proof departs from Milnor's (e.g. the Morse lemma by one inverse-function
 
 ### What is not verified in this chapter
 
-A short list, each item with the reason (missing Mathlib infrastructure, out of scope, not yet
-done).
+A short list, each item with the reason (missing Mathlib infrastructure, out of scope, or
+nothing to formalize).
 
 ### Sign-off items
 

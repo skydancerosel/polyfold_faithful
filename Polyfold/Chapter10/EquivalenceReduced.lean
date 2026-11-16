@@ -45,8 +45,8 @@ homeomorphism; for (2), by the criterion "`T_R` Hausdorff iff `𝐗^T` closed", 
 * "`T_R` Hausdorff iff `𝐗^T` closed" and "(LUC) iff `𝐗^T` closed" are the existing
   `proposition_7_2_17` and `proposition_7_2_21`; the proofs of 10.1.13 and 10.1.16
   cite them through Theorem 7.2.22 (p. 323), which collects them.  The proof of Proposition 10.1.18 cites Proposition 10.1.9 for the step (LUC) along
-  `Fⁱ`, which is Proposition 10.1.16 (possible misprint).  Remark 10.1.12 ends with `G_x → Y_y`
-  for `G_x → G_y` (possible misprint).
+  `Fⁱ`, which is Proposition 10.1.16 (as we read it).  Remark 10.1.12 ends with `G_x → Y_y`
+  for `G_x → G_y` (as we read it).
 * `𝐗^T` closed ⇒ `𝐘^T` closed is proved with closures and the conjugation
   `χ ↦ b(t χ)⁻¹ ∘ χ ∘ b(s χ)` (`b` a local inverse of `t` at `σ : F(x) → y`), in place of the
   text's sequences and properness.

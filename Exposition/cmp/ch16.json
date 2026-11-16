@@ -1238,7 +1238,7 @@
     "weakly face-structured: some representative"
    ],
    "diff": [
-    "Definition 16.1.21 (face-structured polyfolds) is not yet in the project; (2), (3) use the representative forms of the Lean column. Invariance is proved for (3); for (2) \"some representative\" is the reading (no invariance lemma for weak face structure under generalized isomorphisms exists yet). (1) is the text's."
+    "Definition 16.1.21 (face-structured polyfolds) is read through representatives: (2), (3) use the representative forms of the Lean column. Invariance is proved for (3); for (2) \"some representative\" is the reading. (1) is the text's."
    ]
   },
   {

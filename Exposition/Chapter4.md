@@ -3,8 +3,8 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part I, Chapter 4 (2014 preprint, arXiv
 1407.3185, pp. 147–168), rewritten for a first-year graduate student who wants to know when an
 M-polyfold is an ordinary manifold with corners, and why a family of such manifolds has good fibres for
-almost every parameter. Every proof is complete; where the Lean formalization found a gap or a shorter
-route, the text below follows the Lean. Statement numbers and pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`); the slips below were not checked against the book's arXiv version (arXiv
+almost every parameter. Every proof is complete; where the text leaves a gap or the Lean proof takes a shorter
+route, the exposition follows the Lean. Statement numbers and pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`); the readings below were not checked against the book's arXiv version (arXiv
 1707.08941). The conventions of Chapters 1–3 are kept. Since $\lambda$ is the
 parameter of a family, the coordinates of a partial quadrant are written $\ell_i$:
 $C = \{\ell_1\ge0,\dots,\ell_n\ge0\}$ for a presentation $T:E\cong\mathbb R^n\oplus W$, $I(e) = \{i:\ell_i(e) = 0\}$, $d_C(e) = \#I(e)$,
@@ -42,11 +42,11 @@ right notion of regular value asks $p$ to be a submersion on each stratum of $A$
 each wall, and its part in the corner — a point, critical for every map to $\mathbb R$. Theorem 4.3.1 (preprint 4.23) is Sard's
 theorem in this stratified form.
 
-The formalization changed the text in five places: charts centred at a point are constructed (§3);
+The formalization departs from the text in five places: charts centred at a point are constructed (§3);
 Proposition 4.1.9 (preprint 4.9) claims more than the implicit function theorem of Chapter 3 gives and is proved directly
-(§4); one step of Lemma 4.2.8 (preprint 4.19) is false and is repaired (§6); Theorem 4.2.11 (4) (preprint 4.22), without proof in the text, is
-proved (§7); Theorem 4.3.1 (preprint 4.23) is false with ordinary regular values and its finite cover need not exist, and
-both are repaired (§8). §9 states the text's §4.4 (not formalized); §10 works out the sound front.
+(§4); one step of Lemma 4.2.8 (preprint 4.19) does not hold as we read it, and a corrected step is proved (§6); Theorem 4.2.11 (4) (preprint 4.22), without proof in the text, is
+proved (§7); Theorem 4.3.1 (preprint 4.23) does not hold as we read it with ordinary regular values and its finite cover need not exist;
+a corrected form of both is proved (§8). §9 states the text's §4.4 (formalized, gap G.80, §13); §10 works out the sound front.
 
 ---
 
@@ -84,7 +84,7 @@ infinite-dimensional tangent space (Lemma 4.1.7 (preprint 4.7)), if such a retra
 structure $(\mathbb R^n)^1 = \mathbb R^n$, and every retract in $\mathbb R^n$ is an sc$^+$-retract.
 
 *Checked by machine:* `Polyfold.MPolyfold.remark_4_1_3_levelVal`, `Polyfold.MPolyfold.remark_4_1_3_isScDiffeo`,
-`Polyfold.remark_4_1_3_const`; "$X^1\ne X$ is possible" is not formalized.
+`Polyfold.remark_4_1_3_const`; "$X^1\ne X$ is possible" is formalized by an example (V4.6): `Polyfold.remark_4_1_3_example`.
 
 ## 2. sc$^+$-retractions and sc$^+$-retracts (pp. 176–178 (preprint pp. 148–149))
 
@@ -254,10 +254,10 @@ $p\,t(x_1,x_2,0) = (x_1+x_2^4,x_2)$ misses the points $(0,y_2)$, $y_2>0$.
 **Lemma 4.1.11 (preprint 4.10).** In the setting of Proposition 4.1.9 (preprint 4.9), the section $u\mapsto(u,\mathbf f(u))$, $\mathbf f(u) = q(u-t(u))$, of the
 trivial strong bundle $U\triangleleft Y$ is sc-Fredholm.
 
-*Proof* (the text's, corrected). $Y$ is an sc-subspace: closed, $Y_m = qE_m$, and $q(E_\infty)$ dense in $Y_m$.
+*Proof* (the text's, as we read it). $Y$ is an sc-subspace: closed, $Y_m = qE_m$, and $q(E_\infty)$ dense in $Y_m$.
 *Regularizing:* if $u = a+y\in U_m$ ($a\in N$, $y\in Y$) and $\mathbf f(u) = y-q\,t(u)\in E_{m+1}$, then $y\in E_{m+1}$ because
 $t(u)\in E_{m+1}$, and $u\in U_{m+1}$. *Linearization:* $D\mathbf f(u) = q(1-Dt(u))$ — the text's
-"$h-(p(h)-(1-p)Dt(u)h)$" has a sign slip, and the sc$^+$-operator is $Dt(u)$, not $D\mathbf f(u)$. It is sc-Fredholm as the
+"$h-(p(h)-(1-p)Dt(u)h)$" has the sign opposite to ours, and the sc$^+$-operator is $Dt(u)$, not $D\mathbf f(u)$. It is sc-Fredholm as the
 composite of $1-Dt(u)$ (index $0$, Proposition 1.1.11 (preprint 1.10)) with the sc-surjection $q:E\to Y$ of finite-dimensional kernel $N$ —
 not as "a perturbation of the identity", since it maps into $Y$. *Splitting:* present $C = [0,\infty)^n\oplus F$, put
 $W := Y\cap F$ (codimension $\le n$ in $Y$) and choose a complement $B$ of $W$ in $Y$ *inside $Y_\infty$* (possible as $Y_\infty$ is
@@ -269,9 +269,8 @@ $s(v) := \mathbf f(u)+q[t(u)-t(u+v)]$. Then $(g-s)(v) = qv$, i.e. $(g-s)(a+b+w) 
 $(u+v,b+w)\mapsto(v,b+w)$ and $Y\cong\mathbb R^{\dim B}\oplus W$, a basic germ over the finite-dimensional partial quadrant
 $C_u\cap(N\oplus B)$ with contraction part $0$. $\square$
 
-*Not checked by machine:* Lemma 4.1.11 (preprint 4.10) is not formalized, and Proposition 4.1.9 (preprint 4.9), its only use, does not need it. It would
-need $U\triangleleft Y$ as a strong bundle, $Y$, $W$ as sc-subspaces, and the re-centred strong bundle chart, filler and
-conjugation above.
+*Checked by machine (V4.94):* `Polyfold.lemma_4_1_11`, `Polyfold.isConjugateToBasicGerm_qOp`; Proposition 4.1.9 (preprint 4.9), its only
+use, does not need it.
 
 ## 5. Proof of Theorem 4.1.2 (preprint 4.2) (pp. 183–186 (preprint pp. 156–157))
 
@@ -315,11 +314,11 @@ $t\circ t = \varphi ss\varphi^{-1}r = t$, with image $\varphi(W\cap A)$; $t$ is 
 $(V_1,\varphi,(O_1,C_1,E^1))$ of $X^1$, the sc-smoothness of $1_0^1\circ s$ says that $t^1$ is sc-smooth. $\square$
 
 **Remark 4.2.2 (preprint 4.14).** The text: $T_aA = Ts(a)T_aX$ is the image of the sc$^+$-operator $Ts(a)$, so finite-dimensional; near
-$\{d_X = 0\}$, and where $T_aA$ is in good position, $A$ is a classical manifold. As $T_aX$ carries no linear structure in the
-formalization (gap G.7), this is read in a chart: the tangent space of $\varphi(W\cap A)$ at $z$ is $Dt(z)E$ — the sc$^+$-operator
+$\{d_X = 0\}$, and where $T_aA$ is in good position, $A$ is a classical manifold. This is read in a chart: the tangent space of $\varphi(W\cap A)$ at $z$ is $Dt(z)E$ — the sc$^+$-operator
 is $Dt(z)$ — finite-dimensional by Lemma 4.1.7 (preprint 4.7). The rest refers forward to Theorem 4.2.7 (preprint 4.18); where $d_X = 0$, good position is
 automatic ($C_0 = E$ in the re-centred chart), and if $d_X = 0$ on all of $A$, $A$ has a corner structure even for
-non-tame $X$. The local form, on the open piece $A\cap\{d_X = 0\}$, is not formalized.
+non-tame $X$. The local form, on the open piece $A\cap\{d_X = 0\}$, is formalized too (V4.32):
+`Polyfold.MPolyfold.remark_4_2_2_dA_zero`, `Polyfold.MPolyfold.remark_4_2_2_dA_zero_near`.
 
 **Proposition 4.2.3 (preprint 4.15).** (1) $A\subset X_\infty$ and $A = A_\infty$ for the induced structure. (2) $A$ is locally closed: each $a$ has an open
 $V$ with $V\cap\overline A\subset A$. (3) $\partial A = \{d_A\ge1\}\subset\partial X$. (4) $1_0^1:A\to A^1$ is sc-smooth.
@@ -329,7 +328,7 @@ every neighbourhood of $b$ meets $A\cap V$, where $s$ is the identity; by contin
 $d_A\le d_X$ (Lemma 2.4.6 (preprint 2.26)). (4) The models of the induced charts are sc$^+$-retracts (Lemma 6.A); apply the chart form of
 Proposition 4.1.8 (preprint 4.8). $\square$
 
-The text's definition of "locally closed" is garbled (it uses $U$ twice); its proof of (2) uses sequences, needing
+The text's definition of "locally closed" is read as $V\cap\overline A\subset A$ (it uses $U$ twice); its proof of (2) uses sequences, needing
 metrizability; for (4) it says only that the retraction "is the identity on the retract $A$".
 
 *Checked by machine:* `Polyfold.MPolyfold.IsSmoothSubmanifold`, `Polyfold.MPolyfold.SubmanifoldData.exists_chartRetraction`,
@@ -341,7 +340,8 @@ metrizability; for (4) it says only that the retraction "is the identity on the 
 **Open question (preprint p. 159).** Is a sub-M-polyfold with $A = A_\infty$ and $\dim T_aA$ finite and locally constant a smooth
 finite-dimensional submanifold? HWZ expect not, and ask whether the "T" $\{(x,0):|x|<1\}\cup\{(0,y):0\le y<1\}$ is
 homeomorphic to a retract $O = O_\infty$. For sc$^+$-retracts it is not: an sc$^+$-retract with $C = E$ is a manifold
-(Remark 4.2.2 (preprint 4.14)), and the "T" is not. *Not formalized.*
+(Remark 4.2.2 (preprint 4.14)), and the "T" is not. The question itself is not formalized, being a question (gap G.34); the
+answer for sc$^+$-retracts is checked by machine: `Polyfold.Question424.question_4_2_4_scPlus`.
 
 **Definition 4.2.5 (preprint 4.16).** For tame $X$, $A$ is *in good position at $a$* if $T_aA$ is in good position to the partial quadrant
 $C_aX$ in $T_aX$.
@@ -378,7 +378,7 @@ position to $C$ with good complement $Y\oplus Z$.
 $\varepsilon' := \varepsilon/(\Vert\pi\Vert+1)$. If $|y+z|_0\le\varepsilon'|n|_0$, then $|y|_0 = |\pi(y+z)|_0\le\varepsilon|n|_0$ and
 $n\in C\iff n+y\in C\iff n+y+z\in C$. And $E = T_0O\oplus Z = N\oplus Y\oplus Z$. $\square$
 
-> **The text's proof makes a false step.** It concludes $n+y\in C$ from $n+y+z\in C$ "since $z\in Z\subset C$", which needs
+> **A step of the text's proof does not hold as we read it.** It concludes $n+y\in C$ from $n+y+z\in C$ "since $z\in Z\subset C$", which needs
 > $-z\in C$: in $C = [0,\infty)$, $z = 1$ and $n+y = -\frac12$ give $n+y+z\in C$, $n+y\notin C$. What holds is $Z\subset E_0\subset C\cap(-C)$,
 > by Proposition 2.5.3 (preprint 2.35) at the corner of the centred chart. The text's norm $|y|_0+|z|_0$ on $Y\oplus Z$ is not that of $E$;
 > $\varepsilon'$ compares them.
@@ -470,7 +470,8 @@ has codimension $\#\sigma$, $\ell|_N$ being onto.
 `Polyfold.sup_minimalSubspaceWith_eq_top_graph`, `Polyfold.MPolyfold.theorem_4_2_11_four_of_chart`,
 `Polyfold.exists_scPlus_retraction_corner`, `Polyfold.MPolyfold.isScPlusRetractionOn_of_chart`,
 `Polyfold.exists_scComplement_le` (7.A), `Polyfold.IsGeneralPositionRetractAt.isGoodPositionRetractAt` (7.B),
-`Polyfold.finrank_stratSub`. Not formalized: the identification of local faces of the chart with germs of global faces.
+`Polyfold.finrank_stratSub`; the identification of local faces of the chart with germs of global faces (V4.50):
+`Polyfold.MPolyfold.theorem_4_2_11_faces`, `Polyfold.MPolyfold.exists_faces_chart`.
 
 ## 8. Families and Sard's theorem (pp. 191–194 (preprint pp. 164–166))
 
@@ -486,7 +487,7 @@ Then there is $\Sigma\subset\{|\lambda|<\varepsilon\}$ of full measure, consisti
 compact, a smooth finite-dimensional submanifold of $X$ in general position at each point, and a tame manifold with boundary
 with corners (Definition 4.1.1 (preprint 4.1)).
 
-The text says "regular values of $p$", and misprints (2) as "a sc-complement $T_zA$ in $T_zZ$ ... contained in $T^R_zZ$".
+The text says "regular values of $p$", and prints (2) as "a sc-complement $T_zA$ in $T_zZ$ ... contained in $T^R_zZ$", read as above.
 
 > **Ordinary regular values do not suffice.** In $\mathbb R\times[0,\infty)$ let $A = \{(x,x):0\le x<1\}\cup(-1,1)\times\{5\}$, $\varepsilon = \frac12$.
 > The hypotheses hold (at $(0,0)$, $T_zA = \mathbb R(1,1)$ has the complement $\mathbb R\times0 = T^R_zZ$), and $Dp$ is onto everywhere. But
@@ -551,7 +552,8 @@ Not used: the tameness of $A$, the non-emptiness in (1), $\varepsilon>0$; any pa
 `Polyfold.IsStratRegularPoint`, `Polyfold.IsStratRegularValue`, `Polyfold.exists_local_family`, `Polyfold.stratCritSet`,
 `Polyfold.measure_image_stratCritSet`, `Polyfold.exists_goodComplement_stratSub`, `Polyfold.theorem_3_8_22_smooth`,
 `Polyfold.exists_fibre_retraction`, `Polyfold.exists_slice_retraction`, `Polyfold.isGeneralPositionRetractAt_slice`.
-Not formalized: the chart independence of stratified regularity (true by the argument of Lemma 6.B).
+The chart independence of stratified regularity, by the argument of Lemma 6.B (V4.93): `Polyfold.isStratRegularPoint_iff_forall`,
+`Polyfold.isStratRegularValue_iff_forall`.
 
 ### An interactive look at the fibres of a family near a corner
 
@@ -571,11 +573,11 @@ edition.)*
 
 ![](fig4-wavefront.png)
 
-## 9. sc-differential forms and de Rham cohomology (pp. 195–199 (preprint pp. 167–168); not formalized)
+## 9. sc-differential forms and de Rham cohomology (pp. 195–199 (preprint pp. 167–168))
 
-**None of this section is formalized**, except Proposition 4.4.5 (preprint 4.26) in its 2021 form (§13). It needs the Whitney sum $\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7), the
-M-polyfolds $X^i$ for $i\ge2$ with $(TX)^i\cong T(X^i)$ (gap G.6, now closed, §13), and integration on manifolds with corners of varying dimension, which Mathlib lacks;
-and Theorem 4.4.7 (preprint 4.28) has no proof in the text.
+**This section is formalized** in its 2021 form (§13; gap G.80), with the Whitney sum $\oplus^kTX$ read in its charts, the linear $T_xX$ (gap G.7), the
+M-polyfolds $X^i$ with $(TX)^i\cong T(X^i)$ (gap G.6), and Stokes for classical forms on Mathlib manifolds with corners;
+Theorem 4.4.7 (preprint 4.28) has no proof in the text.
 
 **Definition 4.4.1 (preprint 4.25).** An *sc-differential $k$-form* is an sc-smooth $\omega:\oplus^kTX\to\mathbb R$, linear in each argument and
 skew-symmetric; they form $\Omega^k(X)$. Pull-back along $X^{i+1}\to X^i$ gives a directed system $\Omega^k(X)\to\Omega^k(X^1)\to\cdots$ with
@@ -595,7 +597,8 @@ asserted, and $(\Omega^*_\infty(X),d)$ is the *de Rham complex*.
 *The relative complex.* For tame $X$ the inclusions of local faces are sc-smooth and the faces and their intersections are tame
 (Proposition 2.5.16 (preprint 2.44)), so forms on $\partial X$ are meant face by face — which the text does not define further. With $j:\partial X\to X$,
 $\Omega^*_\infty(X,\partial X) := \Omega^*_\infty(X)\oplus\Omega^{*-1}_\infty(\partial X)$ and $d(\omega,\tau) := (d\omega,j^*\omega-d\tau)$. "One easily verifies
-$d\circ d = 0$": $d(d\omega,j^*\omega-d\tau) = (d^2\omega,\ j^*d\omega-dj^*\omega+d^2\tau) = 0$, by $d^2 = 0$ and $dj^* = j^*d$, both unproved. The
+$d\circ d = 0$": $d(d\omega,j^*\omega-d\tau) = (d^2\omega,\ j^*d\omega-dj^*\omega+d^2\tau) = 0$, by $d^2 = 0$ and $dj^* = j^*d$, both unproved in the
+text and proved in V4.86, V4.90. The
 cohomology is written $H^*_{dR}(X,\partial X)$. A form restricts to a classical smooth form on a smooth finite-dimensional
 submanifold, sc-smooth being $C^\infty$ in the charts of Theorem 4.2.7 (preprint 4.18).
 
@@ -651,7 +654,7 @@ sides, so $A_5$ is an arc plus the isolated point $(0,0)$ with $d_X = 2>\dim A_5
 for $\lambda>5$. The stratified critical values are exactly the instants, $2.92$, $5.83$ and $6.52$ ms at $c = 343$ m/s (air at
 $20\,^\circ$C), at which the direct sound front changes topology in the corner.
 
-## 11. Summary of what was silently assumed, now made explicit
+## 11. Summary of what the text assumes silently, made explicit
 
 | Where (preprint) | HWZ say | What is actually needed |
 |---|---|---|
@@ -668,7 +671,7 @@ $20\,^\circ$C), at which the direct sound front changes topology in the corner.
 | pp. 179–181 (preprint pp. 151–153), Lemma 4.1.11 (preprint 4.10) | $Df(u)$; "$L(T_0O) = B'\oplus W'$"; any $B$ | sign; $L(Y)$; $B\subset Y_\infty$; interior of $(N\oplus B)\cap C$ |
 | p. 184 (preprint p. 157), Thm. 4.1.2 (preprint 4.2) | "a smoothly compatible atlas" | compatibility through $p$, $\Gamma$ sc-smooth between retracts |
 | p. 184 (preprint p. 157), Rem. 4.2.2 (preprint 4.14) | "$Ts(a)$ is a sc$^+$-operator" | $Dt(z)$ for the chart retraction (Lemma 6.A) |
-| p. 186 (preprint p. 158), Prop. 4.2.3 (preprint 4.15) | "locally closed" (garbled); (4) "identity on $A$" | $V\cap\overline A\subset A$; Lemma 6.A and Prop. 4.1.8 (preprint 4.8) in charts |
+| p. 186 (preprint p. 158), Prop. 4.2.3 (preprint 4.15) | "locally closed" (as printed, $U$ twice); (4) "identity on $A$" | $V\cap\overline A\subset A$; Lemma 6.A and Prop. 4.1.8 (preprint 4.8) in charts |
 | p. 188 (preprint p. 159), Defs. 4.2.5, 4.2.10 (preprint 4.16, 4.21) | in $T_aX$ | chart form and chart independence (Lemma 6.B) |
 | p. 188 (preprint p. 160), Lemma 4.2.8 (preprint 4.19) | "$z\in Z\subset C$" | $Z\subset E_0\subset C\cap(-C)$ (Prop. 2.5.3 (preprint 2.35)) |
 | preprint p. 160, Thm. 4.2.7 (preprint 4.18) | "Proposition 4.2"; $p = Dt(0)$; "$\varphi^{-1}(V_0)\cap A$" | Thm. 4.1.2 (preprint 4.2); closed complement; $(p\circ\varphi)^{-1}(V_0)\cap A$ |
@@ -680,7 +683,7 @@ $20\,^\circ$C), at which the direct sound front changes topology in the corner.
 | p. 194 (preprint p. 166), proof | "By Theorem 4.23 ... dimension $\dim A-\#\sigma$" | Thm. 4.2.11 (preprint 4.22); the count is not in 4.22 |
 | p. 194 (preprint p. 166), proof | "$A_\lambda$ is a smooth compact manifold" | sc$^+$-retraction onto $A_\lambda$; IFT at corners (Lemma 5.26's (preprint; not in the 2021 edition) argument); Thm. 3.8.22 (preprint 3.78) in $C^\infty$ form |
 | preprint p. 167, §4.4 | forms on $\oplus^kTX$, $X^i$, $\partial X$ | these as M-polyfolds (G.6 closed: $X^i$ is; G.7); forms on $\partial X$ defined |
-| preprint p. 167, $d$ | "$d:\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$"; $d^2 = 0$ | presumably $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$; unproved |
+| preprint p. 167, $d$ | "$d:\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$"; $d^2 = 0$ | presumably $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$; unproved in the text |
 | p. 199 (preprint p. 168), Thm. 4.4.7 (preprint 4.28) | "$\int_Md\omega$", no proof | $\int_N$; integration on manifolds with corners |
 
 ## 12. Appendix: routine proofs
@@ -715,12 +718,12 @@ and copied unchanged except for the namespace: `Polyfold.MilnorSard.sard`.
 ## 13. The Springer 2021 edition (pp. 176, 190–208)
 
 The 2021 edition changes Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23), rewrites §4.4 around sc-smooth vector fields, and
-proves Proposition 4.4.5 (preprint 4.26) in a new Appendix 4.5. Remark 4.1.3 (preprint 4.3) now has an example.
+proves Proposition 4.4.5 (preprint 4.26) in a new Appendix 4.5. Remark 4.1.3 (preprint 4.3) gets an example.
 
 **Theorem 4.2.11 (preprint 4.22), 2021 form.** In (1) the $d = d_X(x)$ local faces in $U$ also *contain $x$*. In the reading of §7
 (faces of the chart model) this is already so: (1) counts the faces through $\psi(x)$, and (4) with $\sigma = \{i\}$ gives for each
 coordinate face $F_i$ a germ $\psi^{-1}(G\cap F_i)$ that contains $x$ and lies in $U$. The identification with faces of $U$ itself
-remains open, as in §7.
+is formalized, as in §7 (V4.50).
 
 *Checked by machine:* `Polyfold.MPolyfold.theorem_4_2_11`.
 
@@ -779,7 +782,7 @@ $Dg(x)B(x) = B'(f(x))$ on $O_1$: differentiating the first relation at $x\in O_2
 $$D^2g(x)(A(x),B(x))+Dg(x)D\tilde A(x)B(x) = D\tilde A'(f(x))\,Dg(x)B(x) = D\tilde A'(f(x))B'(f(x)),$$
 the second relation used on level $1$; the same with $A$, $B$ exchanged, subtracted, with the symmetry of $D^2g$, gives
 $Dg(x)[A,B](x) = [A',B'](f(x))$. This is the computation of §4.5.2 (which ends with "The proof of Proposition 4.5.1 is complete", a
-possible misprint for Lemma 4.5.1); the text states the lemma with the relations at points of $X_2$, but the computation
+read as Lemma 4.5.1); the text states the lemma with the relations at points of $X_2$, but the computation
 differentiates them, so they are needed on an open set of level $1$. The same holds for $f$ defined only on an open part $O\cap W$,
 the shape of a transition map of charts. Hence the *principal parts* $A_\varphi$ of a vector field in charts, given by
 $T\varphi(A(y)) = (\varphi(y),A_\varphi(\varphi(y)))$, are vector fields on the models, related by the transition maps, and so are the
@@ -789,13 +792,13 @@ brackets $[A_\varphi,B_\varphi]$: the definition of $[A,B]$ does not depend on t
 $[A_\varphi,B_\varphi](\varphi(x))$ in a chart $\varphi$ around $x$; in every chart $\psi$ it reads $(\psi(x),[A_\psi,B_\psi](\psi(x)))$. In the
 charts $(\psi^1)^1$ of $X^2$ and $T\psi$ of $TX$ the map $[A,B]$ is the local section $z\mapsto(z,[A_\psi,B_\psi](z))$, so $[A,B]$ is an
 sc-smooth map $X^2\to TX$ over the inclusion $X^2\to X^1$ — our reading of "an sc-smooth section of $TX|X^2\to X^2$"; the pull-back
-bundle itself is not built. The earlier statement, a vector field on $X^1$, would put $[A,B](x)$ in $E_1$ for $x\in X_2$, which the
+bundle is a sub-M-polyfold of $X^2\times TX$ and $[A,B]$ a section of it (V4.76). The earlier statement, a vector field on $X^1$, would put $[A,B](x)$ in $E_1$ for $x\in X_2$, which the
 example above excludes; the 2021 statement is the one that holds as we read it.
 
 **Lemma 4.5.1 on M-polyfolds, and Lemma 4.4.4.** For an sc-smooth $f:X\to Y$ with level maps $f_1$, $f_2$ and
 $Tf\circ A = A'\circ f_1$, $Tf\circ B = B'\circ f_1$ on $X^1$, also $Tf\circ[A,B] = [A',B']\circ f_2$ on $X^2$: in charts this is the local
 form for $\psi\circ f\circ\varphi^{-1}$. It is more general in the map than the text's local sc-diffeomorphism $X\to X$; one between
-open subsets of $X$ is covered only through such an $f$, since open subsets are not built as M-polyfolds. Finally, with
+open subsets of $X$, as open sub-M-polyfolds, is covered too (V4.77). Finally, with
 $\Phi:T(X^1)\to(TX)^1$ the sc-diffeomorphism of Proposition 2.3.17, $A^{(1)} = \Phi^{-1}\circ A_1$ is an sc-smooth vector field on $X^1$ with
 $\Phi(A^{(1)}(x)) = A(x)$: Lemma 4.4.4 for $i = 1$. Iterating, $A^{(i+1)} = (A^{(i)})^{(1)}$ is an sc-smooth vector field on $X^i$
 for every $i$, its value at $x$ is $A(x)$ under the inclusion $T(X^i)\to TX$, and through the identifications
@@ -807,17 +810,20 @@ model); `Polyfold.MPolyfold.principalPart`, `Polyfold.MPolyfold.IsScVectorField.
 4.4.5); `Polyfold.lemma_4_5_1` (Lemma 4.5.1); `Polyfold.MPolyfold.raiseIndex`, `Polyfold.lemma_4_4_4` (Lemma 4.4.4,
 $i = 1$); `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.lemma_4_4_4_all` (Lemma 4.4.4, every $i$). The findings are `Exposition/Findings.md`, "Chapter 4", items 160–164.
 
-*Not formalized.* The pull-back bundle $TX|X^2\to X^2$ as a bundle, Lemma 4.5.1 for a local sc-diffeomorphism between open
-subsets of $X$ (gap G.92).
-Definitions 4.4.1–4.4.2, the exterior derivative $d:\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ — now running in the direction §9
-proposes — and $d^2 = 0$, Definition 4.4.6, Theorem 4.4.7 (now with $\int_N$) and the Poincaré Lemmas 4.4.8 and 4.5.2 (gap G.80). In
-the formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\ell+j}$ and $j$.
+*Checked by machine (gap G.92):* `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback`, `Polyfold.proposition_4_4_5_section` (the
+pull-back bundle $TX|X^2\to X^2$), `Polyfold.lemma_4_5_1_open` (Lemma 4.5.1 between open subsets of $X$).
+*Checked by machine (gap G.80; V4.80–V4.92, V4.95, V4.96):* Definitions 4.4.1–4.4.2, the exterior derivative
+$d:\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ — in the 2021 text running in the direction §9 proposes — and $d^2 = 0$, Definition 4.4.6,
+Theorem 4.4.7 (in the 2021 text with $\int_N$) and the Poincaré Lemmas 4.4.8 and 4.5.2: `Polyfold.MPolyfold.extD`,
+`Polyfold.MPolyfold.extD_extD`, `Polyfold.BundledMPolyfold.scDeRham`, `Polyfold.MPolyfold.stokes_formsInftyRestrict`,
+`Polyfold.lemma_4_4_8`, `Polyfold.lemma_4_5_2`. In
+the formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation index $i$ are read as $(-1)^{\ell+j}$ and $j$.
 
 *Remark 4.1.3 (preprint 4.3), the 2021 example.* The text recalls the space $X = \{(s,0)\}\cup\{(s,t):s>0\}\subset\mathbb R^2$ of its
 Subsection 1.4.4, made an M-polyfold with $X_\infty = X$; if $1_0^1$ were sc-smooth, Theorem 4.1.2 (preprint 4.2) would make the connected
 $X$ a manifold of constant local dimension, which it is not. The argument holds as we read it (here $C = E$, and an
 sc$^+$-retract has finite-dimensional tangent spaces); it is not formalized. The project proves "$X^1\ne X$ is possible" with a
-different example, added after §1 was written: `Polyfold.remark_4_1_3_example`, a retract $O = O_\infty$ whose retraction loses a level in
+different example (V4.6): `Polyfold.remark_4_1_3_example`, a retract $O = O_\infty$ whose retraction loses a level in
 its first derivative (Findings, Chapter 4, items 140–146).
 
 *Checked by machine:* `Polyfold.IsRetractVectorField`, `Polyfold.isRetractVectorField_zero`,
@@ -832,7 +838,7 @@ The findings are `Exposition/Findings.md`, "Chapter 4", items 150–159.
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib (`Polyfold/Chapter4/`, from `ScPlus.lean` to
 `Families.lean`, with Sard's theorem in `Polyfold/Vendor/MilnorSard/`); the paragraphs "*Checked by machine*" name the
-declarations. Formalized: Definition 4.1.1 (preprint 4.1), Theorem 4.1.2 (preprint 4.2) (also for non-tame $X$), Remark 4.1.3 (preprint 4.3) except "$X^1\ne X$ is possible",
+declarations. Formalized: Definition 4.1.1 (preprint 4.1), Theorem 4.1.2 (preprint 4.2) (also for non-tame $X$), Remark 4.1.3 (preprint 4.3) with "$X^1\ne X$ is possible",
 Definitions 4.1.4, 4.1.6 (preprint 4.4, 4.6), Lemmas 4.1.5, 4.1.7 (preprint 4.5, 4.7), Proposition 4.1.8 (preprint 4.8) with its chart form, the re-centred charts, Proposition 4.1.9 (preprint 4.9) with Lemmas 4.1.12
 and 4.1.13 (preprint 4.11
 and 4.12), Definition 4.2.1 (preprint 4.13), Remark 4.2.2 (preprint 4.14) in a chart, Proposition 4.2.3 (preprint 4.15), Definitions 4.2.5, 4.2.6, 4.2.10 (preprint 4.16, 4.17, 4.21) with chart independence, Theorem
@@ -840,9 +846,10 @@ and 4.12), Definition 4.2.1 (preprint 4.13), Remark 4.2.2 (preprint 4.14) in a c
 **Theorems 4.1.2, 4.2.7, 4.2.11 and 4.3.1 (preprint 4.2, 4.18, 4.22 and 4.23) are proved with the text's hypotheses.** Proposition 4.1.9 (preprint 4.9) is proved with two hypotheses the
 text leaves implicit ($Y$ closed, $p$ the projection along $Y$) by a direct argument, the text's route giving only a germ (§4);
 where it is used the closed complement is chosen, so nothing is added there. In Theorem 4.3.1 (preprint 4.23) "regular value" is the stratified
-notion, without which the theorem is false, and the finite cover is countable. Proved although the text gives no proof:
+notion, without which the theorem does not hold as we read it, and the finite cover is countable. Proved although the text gives no proof:
 Theorem 4.2.11 (4) (preprint 4.22), the sc$^+$-retraction onto $A_\lambda$ and its general position, Theorem 3.8.22 (preprint 3.78) in $C^\infty$ form. One step of the text
-is false (Lemma 4.2.8 (preprint 4.19)) and is repaired. Not formalized: Lemma 4.1.11 (preprint 4.10) (no longer used), the open question, the local form of Remark
-4.2.2 (preprint 4.14), local constancy of dimension, chart independence of stratified regularity, the identification of local and global faces,
-all of §4.4 (§9) except, in its 2021 form, Definition 4.4.3, Lemmas 4.4.4 and 4.5.1 and Proposition 4.4.5 (§13), and the application (§10), whose numbers were checked by a script. The findings behind this chapter are
+(Lemma 4.2.8 (preprint 4.19)) does not hold as we read it; a corrected step is proved. Also formalized: Lemma 4.1.11 (preprint 4.10) (not used), the local form of Remark
+4.2.2 (preprint 4.14), chart independence of stratified regularity, the identification of local and global faces,
+and §4.4 (§9) with Appendix 4.5 in the 2021 form (§13). Not formalized: the open question (a question; its answer for sc$^+$-retracts is
+formalized), local constancy of dimension (neither said nor needed), and the application (§10), whose numbers were checked by a script. The findings behind this chapter are
 `Exposition/Findings.md`, "Chapter 4", items 1–108.

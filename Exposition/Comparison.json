@@ -5933,7 +5933,7 @@
     "no Theorem 3.8.15 / Lemma 3.8.13 needed"
    ],
    "diff": [
-    "(1) in the level-wise sense of V3.38 (Findings, Chapter 3, item 70); `theorem_3_5_11` is the statement without (1), the form Theorem 3.6.8 (preprint 3.54) uses so far.",
+    "(1) in the level-wise sense of V3.38 (Findings, Chapter 3, item 70); `theorem_3_5_11` is the statement without (1), the form Theorem 3.6.8 (preprint 3.54) uses.",
     "Because $\\psi$ is linear, the transport back is linear algebra ($K = \\psi^{-1}(K')$, $Y = \\psi^{-1}(Y')$, $\\sigma = \\psi^{-1}\\tau\\psi$); the text's degeneracy-index argument with Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72) is not needed (item 69).",
     "With the good complement closed and its projection onto $K$ mapping $\\widetilde C \\oplus W$ into itself: V3.77."
    ]
@@ -6969,7 +6969,7 @@
     "transition smooth on $[0]$ only"
    ],
    "diff": [
-    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (gap G.13 of Chapter 2). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Gap G.13 is closed in part: $T^R_xX$ and $C_xX$ are defined in $T_xX$, independent of the chart (`reducedTangentFiber_eq`, `partialConeFiber_eq`); this statement is not restated with them.",
+    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (gap G.13 of Chapter 2). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Gap G.13 is closed: $T^R_xX$ and $C_xX$ are defined in $T_xX$, independent of the chart (`reducedTangentFiber_eq`, `partialConeFiber_eq`); this statement is not restated with them.",
     "For filling germs (the germ reading of Definition 3.1.11 (preprint 3.11)) $Dg(z)$ is meaningful only for $z$ in the germ; the consumers use it at the centre and at the level-$1$ lifts of nearby zeros, which lie in the germ (Findings, Chapter 3, items 278, 284)."
    ]
   },
@@ -8599,7 +8599,7 @@
     "holds with tame germ data (V3.94)"
    ],
    "diff": [
-    "Every printed hypothesis holds in the example (p1-U-untamed2, §0): the bundle is a strong bundle with a strong bundle atlas over a tame M-polyfold, and it is a “tame strong bundle” in both readings of that undefined phrase (the base is tame, and every point lies in a tame strong bundle chart of the structure, `IsTameBundle`); the germ data at $x_0$ are in a chart of the atlas, as Definition 3.6.3 asks; the filling, the sc⁺-section $s = 0$ and the basic germ are those of Definitions 3.1.4, 3.1.7, 3.1.11; good position holds at $x_0$ in every reading ($d_X \\equiv 0$, $f'(x_0)$ onto the zero fibre).",
+    "Every printed hypothesis holds in the example: the bundle is a strong bundle with a strong bundle atlas over a tame M-polyfold, and it is a “tame strong bundle” in both readings of that undefined phrase (the base is tame, and every point lies in a tame strong bundle chart of the structure, `IsTameBundle`); the germ data at $x_0$ are in a chart of the atlas, as Definition 3.6.3 asks; the filling, the sc⁺-section $s = 0$ and the basic germ are those of Definitions 3.1.4, 3.1.7, 3.1.11; good position holds at $x_0$ in every reading ($d_X \\equiv 0$, $f'(x_0)$ onto the zero fibre).",
     "Only the proof (p. 137) takes the chart of the germ data tame; the preprint and the 2017 text put the tame retraction into the filling. With that reading the theorem is verified (V3.85, V3.94, V3.103). Mechanism: the fibre jumps from $0$ to a line at $x_0$ through the sc-smooth family of projections of V3.129, which is not $C^1$ on any level (Findings, Chapter 3, item 388; gap G.79)."
    ]
   },
@@ -10883,7 +10883,7 @@
    "chips": [
     "2021 direction $X^i \\to X^{i+1}$",
     "the local formula in charts",
-    "gap G.39 in part"
+    "gap G.39 closed"
    ],
    "diff": [
     "$d$ is the local formula in charts (V4.84), not the vector-field formula, which is proved on normed spaces only (V4.83). Domain and target are those of the 2021 text, the direction item 120 proposed for the preprint. On a family that is not an sc-form, `extD` is $0$ by convention (Findings, Chapter 4, item 169)."
@@ -12626,7 +12626,7 @@
     ]
    },
    "chips": [
-    "support repaired"
+    "support inside the chart domain"
    ],
    "diff": [
     "The extension by $0$ of a local bump need not be continuous ($\\varphi(u) = u/(1 - |u|_0^2)$ on the unit ball); the bump is taken in a small ball with closure inside the chart domain (Findings, Chapter 5, item 43)."
@@ -13729,7 +13729,7 @@
     "sc-Fredholm on every level"
    ],
    "diff": [
-    "$T_xX$ and $Y_x$ are read in charts (gap G.13, closed in part), so $\\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7, closed); this statement is not restated with it.",
+    "$T_xX$ and $Y_x$ are read in charts (gap G.13, closed), so $\\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7, closed); this statement is not restated with it.",
     "The text constructs a local section through $f(x)$ in a chart; the project uses global ones, which exist under the standing bump functions (the text assumes sc-smooth partitions of unity from §6.3 (preprint §6.2) on, and these give bump functions, V5.49) (Findings, Chapter 6, items 40, 43).",
     "Every member of $\\mathrm{Lin}(f, x)$ is level $0$ of an sc-Fredholm operator $T_zO \\to K_z$, every level of index the same $i$ (`definition_6_2_1_linSet_isScFredholm`, `Chapter6/LinSetFredholm.lean`; gap G.64 closed); the determinant lines use level $0$.",
     "The paragraph before the definition compares $(f - s)'(x)$ with itself where $(f - t)'(x)$ is meant (as we read it) (Findings, Chapter 6, item 41)."
@@ -15294,7 +15294,7 @@
     "chart-free objects compared in charts"
    ],
    "diff": [
-    "The text treats $T_xX$, $Y_x$, $\\mathrm{Lin}(f, x)$ and $\\mathrm{Or}^f_x$ as chart-free; here they are read in charts (gap G.13, closed in part), and the identification between charts is made explicit (Findings, Chapter 6, item 70). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7, closed); this statement is not restated with it."
+    "The text treats $T_xX$, $Y_x$, $\\mathrm{Lin}(f, x)$ and $\\mathrm{Or}^f_x$ as chart-free; here they are read in charts (gap G.13, closed), and the identification between charts is made explicit (Findings, Chapter 6, item 70). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7, closed); this statement is not restated with it."
    ]
   },
   {
@@ -16015,7 +16015,7 @@
    ],
    "diff": [
     "\"The local propagation of $o_{t_0}$\" is read as the push-forward along the segment of $\\varphi$ from $t_0$ to $t$ in an open set with the local propagation property in some chart, independent of that set (`orPush_compat`); paths are sc-smooth maps $\\mathbb R \\to X$ restricted to $[0, 1]$ (decision D2); $\\mathrm{Or}^f_x$ is read in the chosen chart (V6.55). The set $O_f$ appears in the preprint (p. 219) and the 2017 text (p. 205) without a topology (Findings, Chapter 6, item 118).",
-    "(3) for paths $\\varphi : [0, 1] \\to X$ is `IsPropagationContinuousI`, which implies the form on $\\mathbb R$ (`IsPropagationContinuousI.toReal`); Theorem 6.6.17 with it is `theorem_6_6_17_interval` (V6.75; gap G.65 in part)."
+    "(3) for paths $\\varphi : [0, 1] \\to X$ is `IsPropagationContinuousI`, which implies the form on $\\mathbb R$ (`IsPropagationContinuousI.toReal`); Theorem 6.6.17 with it is `theorem_6_6_17_interval` (V6.75; gap G.65, closed)."
    ]
   },
   {
@@ -16224,7 +16224,7 @@
    "diff": [
     "No hypothesis beyond the text's: the orientation of the cobordism $S_F$, of product form $e \\wedge o_{S_i}$ on its two ends, is proved (`cobordismOrientationHyp`), and the relative form $p_1^*\\omega - d\\beta$ on $S_F$ is built on the inner ends $(0, 1/16) \\times S_0$ and $(15/16, 1) \\times S_1$ (`cobordismRelativeFormsInner`), since the cobordism data give the product structure only for $t \\le 1/8$ and $t \\ge 7/8$. The form with the orientation as a hypothesis is `theorem_6_7_1_of_orientation` (Findings, Chapter 6, items 134, 136).",
     "The proper oriented homotopy of (2), which the text does not define, is read as in R-d: $f_1 = f_0 + S(1, \\cdot)$ for an sc⁺-section $S$ over $\\mathbb R^1 \\times X$ with $S(0, \\cdot) = 0$, compact zeros over $t \\in [0, 1]$ and the properness clause on that slab, and $o_1 = o_0$ transported (`IsProperOrientedHomotopyBetween`; Findings, Chapter 6, item 130).",
-    "The neighbourhood $U$ of (1) carries the margin of reading R-b, and (1) holds for every auxiliary norm and every such $U$; the text defines $\\Psi$ from one $N$ (item 128). \"Zero if the dimensions do not agree\" pairs degree $k$ with the index-$k$ part $S_k$ (R-c, item 129). The text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2); for homotopies over $[0, 1] \\times X$: `theorem_6_7_1_interval` (weak witness: its hypotheses hold for $S = 0$, then $f_1 = f_0$; a section with $S(0, \\cdot) = 0$ and $F$ in general position is not constructed, and the statement does not need one). In the proof the decomposition $\\partial S_F = S_0 \\cup S_1 \\cup \\tilde S$ is replaced by a cut-off in time on the product ends (items 131–133); `theorem_6_7_1` does not use the decomposition. Over $[0, 1] \\times X$ the decomposition itself is formalized for face-structured $X$, with every hypothesis discharged on the half plane (`HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc`; weak: $d_X \\le 1$, $S = 0$), and open for a tame $X$ that is not face-structured (gap G.65; item 139)."
+    "The neighbourhood $U$ of (1) carries the margin of reading R-b, and (1) holds for every auxiliary norm and every such $U$; the text defines $\\Psi$ from one $N$ (item 128). \"Zero if the dimensions do not agree\" pairs degree $k$ with the index-$k$ part $S_k$ (R-c, item 129). The text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2); for homotopies over $[0, 1] \\times X$: `theorem_6_7_1_interval` (weak witness: its hypotheses hold for $S = 0$, then $f_1 = f_0$; a section with $S(0, \\cdot) = 0$ and $F$ in general position is not constructed, and the statement does not need one). In the proof the decomposition $\\partial S_F = S_0 \\cup S_1 \\cup \\tilde S$ is replaced by a cut-off in time on the product ends (items 131–133); `theorem_6_7_1` does not use the decomposition. Over $[0, 1] \\times X$ the decomposition itself is formalized for face-structured $X$, with every hypothesis discharged on the half plane (`HalfSpaceBundle.theorem_6_6_18_boundaryIntegral_interval_halfDisc`; weak: $d_X \\le 1$, $S = 0$), and for a tame $X$ without faces the lateral term is a limit of cut-off integrals over $0 < t < 1$ (`theorem_6_6_18_boundaryIntegral_interval_lateral`; gap G.65, closed; item 139)."
    ]
   },
   {
@@ -21826,7 +21826,7 @@
     "good points: no hypothesis"
    ],
    "diff": [
-    "The graph representation and the local constancy of the dimension, hidden hypotheses of the forms on a general M-polyfold, are theorems (gap G.97 closed, gap G.93 closed in part), so the independence holds for every $\\Theta$ (`hasIndependentTangentSums`); the forms with the hypotheses are kept (`hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`, `hasIndependentTangentSums_rn`) (Findings, Chapter 9, item 107).",
+    "The graph representation and the local constancy of the dimension, hidden hypotheses of the forms on a general M-polyfold, are theorems (gap G.97 closed, gap G.93 closed), so the independence holds for every $\\Theta$ (`hasIndependentTangentSums`); the forms with the hypotheses are kept (`hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`, `hasIndependentTangentSums_rn`) (Findings, Chapter 9, item 107).",
     "The text reduces to the equidimensional case by Proposition 9.1.11; the formalization does the same through Proposition 9.1.12 (V9.10) with dimension labellings (Findings, Chapter 9, items 21, 25, 100)."
    ]
   },
@@ -25419,7 +25419,7 @@
    "chips": [
     "as stated",
     "transitivity: V10.69",
-    "G.123 closed since"
+    "G.123 closed"
    ],
    "diff": [
     "None: the generated relation is having a common refinement, by the transitivity of V10.69, formalized since (Findings, Chapter 10, items 18, 50)."
@@ -25552,7 +25552,7 @@
    "chips": [
     "a category",
     "localization functor",
-    "G.123 closed since"
+    "G.123 closed"
    ],
    "diff": [
     "The composition, which the text does not spell out, is that of V10.70; before it, $\\mathcal{SEP}(F^{-1})$ was formalized as a quiver (Findings, Chapter 10, items 18, 53)."
@@ -25608,7 +25608,7 @@
     "converse: base half only (G.123)"
    ],
    "diff": [
-    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse half of the similar result is proved for the base functor only (Findings, Chapter 10, items 19, 53)."
+    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse, that every isomorphism of $\\mathcal{SEP}(F^{-1})$ is a generalized strong bundle isomorphism, is proved in V10.71 (`SEPLoc.isIso_iff_isGeneralizedIso`; Findings, Chapter 10, items 19, 53)."
    ]
   },
   {
@@ -33117,7 +33117,7 @@
    },
    "chips": [
     "value at every level-1 point",
-    "not yet a section functor (G.144)"
+    "functor property: G.144, closed"
    ],
    "diff": []
   },
@@ -36275,7 +36275,7 @@
     "weakly face-structured: some representative"
    ],
    "diff": [
-    "Definition 16.1.21 (face-structured polyfolds) is not yet in the project; (2), (3) use the representative forms of the Lean column. Invariance is proved for (3); for (2) \"some representative\" is the reading (no invariance lemma for weak face structure under generalized isomorphisms exists yet). (1) is the text's."
+    "Definition 16.1.21 (face-structured polyfolds) is read through representatives: (2), (3) use the representative forms of the Lean column. Invariance is proved for (3); for (2) \"some representative\" is the reading. (1) is the text's."
    ]
   },
   {
@@ -37815,7 +37815,7 @@
    "label": "§2.5, condition (3) of Definition 2.5.19 and the text after it, p. 63 (new in the 2021 edition)",
    "page": 63,
    "book": "Condition (3) of Definition 2.5.19 is stated on $T_yX$; the text remarks that a tame sub-M-polyfold is tame and gives examples in $[0, \\infty)^2 \\times \\mathbb R$: $\\{(x, y, 0)\\}$ is a tame sub-M-polyfold, the diagonal ray $\\{(x, x, 0)\\}$ is not, although its induced structure is tame.",
-   "instead": "**Formalized** (V2.99, V2.100, V2.101). Condition (3) is stated in a chart (V2.78); it holds in every chart, presentation and for every sub-M-polyfold retraction once it holds in one (`TameSubData.hasReducedComplementAt_of_isChart`); a tame sub-M-polyfold of a tame M-polyfold has a tame induced structure (`IsTameSubMPolyfold.hasTameInducedStructure`); and both examples hold as stated, for any $W$ in place of $\\mathbb R$ (`TameSubExample.examples_A_B`) (Findings, Chapter 2, items 72, 81, 82). The linear structure of $T_yX$ and $T^R_yX$ in it are formalized (gap G.7 closed, G.13 closed in part), and (3) is also stated in $T_yX$, equivalent to the chart form (`definition_2_5_19_book`, V2.78; Findings, Chapter 2, item 88).",
+   "instead": "**Formalized** (V2.99, V2.100, V2.101). Condition (3) is stated in a chart (V2.78); it holds in every chart, presentation and for every sub-M-polyfold retraction once it holds in one (`TameSubData.hasReducedComplementAt_of_isChart`); a tame sub-M-polyfold of a tame M-polyfold has a tame induced structure (`IsTameSubMPolyfold.hasTameInducedStructure`); and both examples hold as stated, for any $W$ in place of $\\mathbb R$ (`TameSubExample.examples_A_B`) (Findings, Chapter 2, items 72, 81, 82). The linear structure of $T_yX$ and $T^R_yX$ in it are formalized (gap G.7 closed, G.13 closed), and (3) is also stated in $T_yX$, equivalent to the chart form (`definition_2_5_19_book`, V2.78; Findings, Chapter 2, item 88).",
    "decls": [
     "Chapter2/TameBoundary · MPolyfold.TameSubData",
     "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold",
@@ -38683,7 +38683,7 @@
    "label": "§6.7 (preprint §6.6), Theorem 6.7.1 (preprint 6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233))",
    "page": 231,
    "book": "Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\\Psi_{(f,o)} : H^*_{dR}(X, \\partial X) \\to \\mathbb R$ with (1) $\\Psi_{(f,o)}([\\omega, \\tau]) = \\int_{S_{f+s}}\\omega - \\int_{\\partial S_{f+s}}\\tau$ for every $s$ admissible for $(N, U)$, and (2) $\\Psi_{(f_0,o_0)} = \\Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\\partial X = \\emptyset$, $\\Psi_{(f,o)}([\\omega]) = \\int_{S_{f+s}}\\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 279 (preprint p. 233)).",
-   "instead": "**Formalized** without hypotheses on the cobordism (V6.76, V6.77): `theorem_6_7_1`, `theorem_6_7_1_noBoundary` (`Chapter6/Theorem671Final.lean`), for $X$ tame with sc-smooth bump functions. Forms with hypotheses: under the orientation of the cobordism, `theorem_6_7_1_of_orientation`, `theorem_6_7_1_noBoundary_of_orientation` (`Chapter6/CobordismRelativeForms.lean`), and under two hypotheses, `theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`. What is formalized: the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90, V4.91); the restriction $\\omega \\mapsto \\omega|_S$ of $\\Omega^k_\\infty(X)$ to the oriented solution sets as smooth Mathlib forms, with $d(\\omega|_S) = (d\\omega)|_S$ and Stokes' theorem for it (V4.92); the restriction $\\tau \\mapsto \\tau|_{\\partial S}$ of $\\Omega^k_\\infty(\\partial X)$ to the faces of $S$ (`solFaceForm`): the faces of $S_{f+s}$ lie in faces of $X$ (`CornerCoords.zero_coord_face_solutionSet`, from $d_S = d_X$), and the value at a face point is $\\tau$ at a lift of the face vectors to $bX$, independent of the lift by the agreement over $B$, with $\\int_{\\partial S} (j^*\\omega)|_{\\partial S} = \\int_{\\partial S} \\omega|_S$ (`solFaceForm_jStar_integral`) and $(d\\tau)|_{\\partial S} = d(\\tau|_{\\partial S})$ (`solFaceForm_d`); the admissible sections (gap G.55 closed) and the index parts $S_k$ of $S_{f+s}$ as compact oriented Mathlib manifolds of dimension $k$ (`solPartIsOrientedManifold`); for one admissible $s$, the right-hand side of (6.35) as a linear map on $H^k_{dR}(X, \\partial X)$ (`psiAt`, well defined by Stokes on $S_k$ and its faces, `psiForms_relD`; in degree 0 a signed count, `psiAt_mk_zero_eq_sum`; it depends on $s$ only, `psiAt_congr_admissible`); the cobordisms of (1) and (2) (gap G.44 in part, `IsCobordismData`), the proper oriented homotopy of (2) in reading R-d (`IsProperOrientedHomotopyBetween`) and the properness of its ends; the ends of $S_F$ as product ends $(a, b) \\times S_i$ for the corner charted spaces, with the index of $F$ one more than that of $f + \\sigma_i$ (`productEndOfSub`, `isLinOfIndex_end_iff`), $p_1^*\\omega|_{S_F}$ reading as the pull-back of $\\omega|_{S_i}$ there (`isEndPullback_formsInftyRestrict_snd`), and the Fubini identity on a product end (`ProductEnd.integral_end_fubini`); the cobordism identity $\\Psi_{s_0}(f_0, o_0) = \\Psi_{s_1}(f_1, o_1)$ for cobordism data with an oriented $S_F$ and a relative form on it (`psiAt_eq_of_cobordism`, by a cut-off in time, `integral_eq_of_cutCobordism`); the assembly from the two steps (A) and (B) of the proof (`theorem_6_7_1_of_indep`, different norms compared through `exists_admissible_two`), and (A), (B) from the cobordism identity (`psiAt_eq_of_admissible_hyp`, `psiAt_eq_of_homotopy_hyp`). On the point $\\mathbb R^0$ with $f = 0$, $\\Psi([1]) = \\pm1$ (`theorem_6_7_1_witness`). The relative form on the cobordism: the pull-back of $\\tau \\in \\Omega^k_\\infty(\\partial X)$ to the faces of $S_F$ along $p_1$ (`faceAlongData`; $p_1$ maps the faces of $S_F$ into faces of $X$, `CornerCoords.zero_coord_face_along`, from $d_{S_F}(t, x) = d_X(x)$), the pull-back of the Mathlib forms $\\gamma_i$ on $S_i$ along the end projection (`ProductEnd.pullAt`, `MPolyfold.pullOver`) with face restriction $-(p_1^*\\tau)|_{\\partial S_F}$ (`faceRestriction_pullOver`), and the closed form $A = p_1^*\\omega|_{S_F} + d\\gamma_F$ with vanishing face restriction reading as $\\omega|_{S_i} + d\\gamma_i$ on the inner ends $(0, 1/16) \\times S_0$, $(15/16, 1) \\times S_1$ (`cobordismRelativeFormsInner`); the cobordism identity from the orientation alone (`psiAt_eq_of_cobordism_of_orientation`). The orientation of the cobordism exists and is continuous (`cobOr`, `isContinuous_cobOr`, from `SectionOrientation.prodFirst`, gap G.66 closed); `CobordismOrientationHyp` is reduced to its product form on the two ends (`cobordismOrientation_of_ends`). The orientation of the cobordism $S_F$: `cobOr` (given by `SectionOrientation.prodFirst` $o_0$) is continuous and is $e \\wedge o_{S_i}$ on the ends $(0, 1/8) \\times S_0$, $(7/8, 1) \\times S_1$ (`cobordismOrientationHyp`, `isEndProductOrientation_cobOr`): the linearization of $F$ on an end is $(\\sigma, v) \\mapsto (f_i + s_i)'(x) v$ (`ChartPoint.linZero_congr_of_eventuallyEq`, `ChartPoint.linZero_prodPt_paramLift`), the tangent map of $S_F \\hookrightarrow \\mathbb R^1 \\times X$ in the coordinates `prodRn` is $(s, w) \\mapsto (s, T\\iota(w))$ (`modelDeriv_prodRn`), and $e \\wedge o$ read in $\\ker F' = \\mathbb R \\times \\ker (f_i + s_i)'$ is $\\hat e \\wedge o$ (`pullOr_surjRay_extConjDetFirst_iff`). In part (2) the right end carries `(o₀.sectionAdd S(1, ·)).sectionAdd s₁`, which has the values of $o_0$ (`IsInducedSectionOrientation.sectionAdd`). Nothing of the proof is assumed. (`CobordismRelativeFormsHyp` is not used: the relative form is built on inner ends, `cobordismRelativeFormsInner`.) (Findings, Chapter 6, items 100, 128–134, 136.)",
+   "instead": "**Formalized** without hypotheses on the cobordism (V6.76, V6.77): `theorem_6_7_1`, `theorem_6_7_1_noBoundary` (`Chapter6/Theorem671Final.lean`), for $X$ tame with sc-smooth bump functions. Forms with hypotheses: under the orientation of the cobordism, `theorem_6_7_1_of_orientation`, `theorem_6_7_1_noBoundary_of_orientation` (`Chapter6/CobordismRelativeForms.lean`), and under two hypotheses, `theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`. What is formalized: the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90, V4.91); the restriction $\\omega \\mapsto \\omega|_S$ of $\\Omega^k_\\infty(X)$ to the oriented solution sets as smooth Mathlib forms, with $d(\\omega|_S) = (d\\omega)|_S$ and Stokes' theorem for it (V4.92); the restriction $\\tau \\mapsto \\tau|_{\\partial S}$ of $\\Omega^k_\\infty(\\partial X)$ to the faces of $S$ (`solFaceForm`): the faces of $S_{f+s}$ lie in faces of $X$ (`CornerCoords.zero_coord_face_solutionSet`, from $d_S = d_X$), and the value at a face point is $\\tau$ at a lift of the face vectors to $bX$, independent of the lift by the agreement over $B$, with $\\int_{\\partial S} (j^*\\omega)|_{\\partial S} = \\int_{\\partial S} \\omega|_S$ (`solFaceForm_jStar_integral`) and $(d\\tau)|_{\\partial S} = d(\\tau|_{\\partial S})$ (`solFaceForm_d`); the admissible sections (gap G.55 closed) and the index parts $S_k$ of $S_{f+s}$ as compact oriented Mathlib manifolds of dimension $k$ (`solPartIsOrientedManifold`); for one admissible $s$, the right-hand side of (6.35) as a linear map on $H^k_{dR}(X, \\partial X)$ (`psiAt`, well defined by Stokes on $S_k$ and its faces, `psiForms_relD`; in degree 0 a signed count, `psiAt_mk_zero_eq_sum`; it depends on $s$ only, `psiAt_congr_admissible`); the cobordisms of (1) and (2) (gap G.44, closed; `IsCobordismData`), the proper oriented homotopy of (2) in reading R-d (`IsProperOrientedHomotopyBetween`) and the properness of its ends; the ends of $S_F$ as product ends $(a, b) \\times S_i$ for the corner charted spaces, with the index of $F$ one more than that of $f + \\sigma_i$ (`productEndOfSub`, `isLinOfIndex_end_iff`), $p_1^*\\omega|_{S_F}$ reading as the pull-back of $\\omega|_{S_i}$ there (`isEndPullback_formsInftyRestrict_snd`), and the Fubini identity on a product end (`ProductEnd.integral_end_fubini`); the cobordism identity $\\Psi_{s_0}(f_0, o_0) = \\Psi_{s_1}(f_1, o_1)$ for cobordism data with an oriented $S_F$ and a relative form on it (`psiAt_eq_of_cobordism`, by a cut-off in time, `integral_eq_of_cutCobordism`); the assembly from the two steps (A) and (B) of the proof (`theorem_6_7_1_of_indep`, different norms compared through `exists_admissible_two`), and (A), (B) from the cobordism identity (`psiAt_eq_of_admissible_hyp`, `psiAt_eq_of_homotopy_hyp`). On the point $\\mathbb R^0$ with $f = 0$, $\\Psi([1]) = \\pm1$ (`theorem_6_7_1_witness`). The relative form on the cobordism: the pull-back of $\\tau \\in \\Omega^k_\\infty(\\partial X)$ to the faces of $S_F$ along $p_1$ (`faceAlongData`; $p_1$ maps the faces of $S_F$ into faces of $X$, `CornerCoords.zero_coord_face_along`, from $d_{S_F}(t, x) = d_X(x)$), the pull-back of the Mathlib forms $\\gamma_i$ on $S_i$ along the end projection (`ProductEnd.pullAt`, `MPolyfold.pullOver`) with face restriction $-(p_1^*\\tau)|_{\\partial S_F}$ (`faceRestriction_pullOver`), and the closed form $A = p_1^*\\omega|_{S_F} + d\\gamma_F$ with vanishing face restriction reading as $\\omega|_{S_i} + d\\gamma_i$ on the inner ends $(0, 1/16) \\times S_0$, $(15/16, 1) \\times S_1$ (`cobordismRelativeFormsInner`); the cobordism identity from the orientation alone (`psiAt_eq_of_cobordism_of_orientation`). The orientation of the cobordism exists and is continuous (`cobOr`, `isContinuous_cobOr`, from `SectionOrientation.prodFirst`, gap G.66 closed); `CobordismOrientationHyp` is reduced to its product form on the two ends (`cobordismOrientation_of_ends`). The orientation of the cobordism $S_F$: `cobOr` (given by `SectionOrientation.prodFirst` $o_0$) is continuous and is $e \\wedge o_{S_i}$ on the ends $(0, 1/8) \\times S_0$, $(7/8, 1) \\times S_1$ (`cobordismOrientationHyp`, `isEndProductOrientation_cobOr`): the linearization of $F$ on an end is $(\\sigma, v) \\mapsto (f_i + s_i)'(x) v$ (`ChartPoint.linZero_congr_of_eventuallyEq`, `ChartPoint.linZero_prodPt_paramLift`), the tangent map of $S_F \\hookrightarrow \\mathbb R^1 \\times X$ in the coordinates `prodRn` is $(s, w) \\mapsto (s, T\\iota(w))$ (`modelDeriv_prodRn`), and $e \\wedge o$ read in $\\ker F' = \\mathbb R \\times \\ker (f_i + s_i)'$ is $\\hat e \\wedge o$ (`pullOr_surjRay_extConjDetFirst_iff`). In part (2) the right end carries `(o₀.sectionAdd S(1, ·)).sectionAdd s₁`, which has the values of $o_0$ (`IsInducedSectionOrientation.sectionAdd`). Nothing of the proof is assumed. (`CobordismRelativeFormsHyp` is not used: the relative form is built on inner ends, `cobordismRelativeFormsInner`.) (Findings, Chapter 6, items 100, 128–134, 136.)",
    "decls": [
     "Chapter6/Theorem671Final · theorem_6_7_1",
     "Chapter6/Theorem671Final · theorem_6_7_1_noBoundary",
@@ -39596,11 +39596,11 @@
   },
   {
    "g": 96,
-   "title": "Proposition 9.1.11: the global decomposition and a repaired uniqueness",
+   "title": "Proposition 9.1.11: the global decomposition and uniqueness among local decompositions",
    "label": "§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)",
    "page": 407,
    "book": "The local $\\Theta_k$ glue to branched ep⁺-subgroupoids with $\\Theta = \\sum_k \\Theta_k$, locally finite, and the family is unique.",
-   "instead": "**Formalized** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms with Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1) as hypotheses, both theorems (V9.10, gap G.93 in part), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).",
+   "instead": "**Formalized** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms with Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1) as hypotheses, both theorems (V9.10, gap G.93 closed), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).",
    "decls": [
     "Chapter9/Propositions · EpGroupoid.Proposition_9_1_11",
     "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn",

@@ -25,8 +25,8 @@ prove the two statements equivalent in Lean.
 
 Differences from the Morse audit: the text is the HWZ preprint (statements quoted in the
 comparison's `book` field); the provers are told to look for hypotheses of A that cannot hold
-(Findings, Chapter 3 item 190: a hypothesis quantified over all compatible charts made the §3.6
-theorems vacuous until it was repaired); there is no embedded special case.
+(Findings, Chapter 3 item 190: a hypothesis quantified over all compatible charts would make the
+§3.6 theorems vacuous); there is no embedded special case.
 
 ## Running it
 
@@ -39,30 +39,26 @@ lake build RoundTrip.Check
 ```
 
 Substitute `<P>` (this folder), `<RT>` (`$RT_DIR`), `<SHIM>` (the shim's folder) and `<IDS>` in
-the prompts before handing them to an agent. Four Lean agents at a time worked on the 128 GB Mac
-(each compiles single files only); one blind agent per ~9 items, one prover agent per ~5–6 items.
+the prompts before handing them to a model. Four Lean sessions at a time fit on a 128 GB machine
+(each compiles single files only); one blind session per ~9 items, one prover session per ~5–6 items.
 `harness/summarize.py --rows` writes the report's tables. Recompile everything at the end
 (`lake env lean RoundTrip/Items/<ID>.lean` for every item: no error, no `rt_check FAIL`).
 
 ## Status
 
-2026-11-01: complete — all 269 non-extra items audited; see `REPORT.md`. 2026-11-07: the 60 non-extra Chapter 6 items audited against commit 439bc62 (`REPORT.md`, "Chapter 6, audited on 2026-11-07"); all 329 items now. 2026-11-07: the 64 non-extra, non-gap Chapter 7 items (Part II, quoted from the 2017 book) audited against commit 919831f (`REPORT.md`, "Chapter 7, audited on 2026-11-07"); all 393 items now. 2026-11-08: the 211 non-extra, non-gap items of Chapters 8–11 (Part II; Chapters 9–11 and the 2021-only items of Chapter 8 quoted from the Springer 2021 book) audited against commit caf6bfc (`REPORT.md`, "Chapters 8–11, audited on 2026-11-08"); all 604 items now. 2026-11-02: refreshed against
-HEAD (below), second blind statements for seven items, Proposition 6.2 without bump functions in V3.98.
-
-The items compile against HEAD (commit 12924a4; refreshed 2026-11-02). After the audit, phase 2 of the
-germ-versus-chart work (Findings Ch. 3 items 270–334) switched Definitions 3.3 and 3.11 and the
-notions built on them in place to the text's germ reading (`IsScFredholmGerm`, `IsScFredholmSection`,
-their tame and good-position variants now state the text's hypotheses; the whole-chart forms are
-`…WholeChart` / `…_wholeChart`), and the comparison rows gained declarations (Corollary 5.8,
-Proposition 6.2, Remark 4.3's example, the metric `ρ`, the audit's glue moved into the project). The
-82 affected items were redone (A restated from the current row, both directions retried, records
-updated with a `refresh` field), the 269 blind statements recompiled unchanged, and all 269 item
-files recompiled with no error, no `rt_check FAIL` and no `sorry`; see `REPORT.md`, "Refreshed on
-2026-11-02". Seven first blind statements no longer meant the text under the current definitions
-(V3.82, V3.85, V3.94, V3.100, V5.13, V5.14) or did not cover the extended row (V3.98); second blind
-statements were written the same day by `harness/BLIND_PROMPT.md` as `Blind/<ID>_r2.lean`
-(`RoundTrip.<ID>_r2.B`), the first ones kept; the item's JSON names the statement in use
-(`blind_current`) and keeps the result against the first (`blind_r1`).
+All 604 non-extra, non-gap items of Chapters 1–11 are audited; see `REPORT.md`. Chapters 1–5 (269
+items) were audited against commit 12924a4, Chapter 6 (60 items) against commit 439bc62, Chapter 7
+(64 items, quoted from the 2017 book) against commit 919831f, and Chapters 8–11 (211 items;
+Chapters 9–11 and the 2021-only items of Chapter 8 quoted from the Springer 2021 book) against
+commit caf6bfc. The Chapters 1–5 items follow the germ reading of Definitions 3.3 and 3.11
+(`IsScFredholmGerm`, `IsScFredholmSection` and their tame and good-position variants state the
+text's hypotheses; the whole-chart forms are `…WholeChart` / `…_wholeChart`; Findings Ch. 3 items
+270–334): for the 82 items concerned, A is the conjunction of the current row and the item's JSON
+record carries a `refresh` field. For seven items (V3.82, V3.85, V3.94, V3.98, V3.100, V5.13,
+V5.14) a second blind statement `Blind/<ID>_r2.lean` (`RoundTrip.<ID>_r2.B`) written by
+`harness/BLIND_PROMPT.md` is the one in use, because the first one does not mean the text under the
+germ reading (or does not cover the full row, V3.98); the first ones are kept, the item's JSON names
+the statement in use (`blind_current`) and keeps the result against the first (`blind_r1`).
 
 To recompile without `lake build` (which would rebuild the `Polyfold` olean if its sources moved):
 refresh a blind module with `lake env lean RoundTrip/Blind/<ID>.lean -o

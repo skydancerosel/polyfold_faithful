@@ -2,16 +2,82 @@
 
 A formalization in Lean 4 and Mathlib of Hofer, Wysocki and Zehnder, *Polyfold and Fredholm Theory*
 (Springer, Ergebnisse der Mathematik 72, 2021): Part I (Chapters 1–6), Part II (Chapters 7–11) and
-most of Part III (Chapters 12–16). The Springer edition is the authority; the reports cite its
+Part III (Chapters 12–16). The Springer edition is the authority; the reports cite its
 numbers and pages first, with the numbers of the 2014 preprint (Part I) and the 2017 arXiv version
 (Parts II–III) in parentheses. It follows the same method as our formalizations of Milnor
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)).
 
-The Lean code and the reports were written by AI agents (Claude models) under the direction of the
-project lead. Lean checks every proof. Whether the definitions and statements say what the authors
+The Lean code and the reports were written by Claude models under the direction of the project
+lead. Lean checks every proof. Whether the definitions and statements say what the authors
 meant is for human readers to confirm; that review has not started.
 
-## How to check it and sign off
+## Status
+
+Every numbered item of the book is compared with its formal version, with a verdict and every
+difference listed. All 193 gaps of the comparison (G.1–G.193) are settled: 189 are formalized, and 4
+have nothing to formalize (a question, a comment on a reference, a preprint theorem absent from the
+2021 text, and the text's own open point in Remark 9.5.19). Where a formal statement is narrower than the book's, the
+comparison names the added hypothesis and shows that it can be satisfied.
+
+| | Chapters | State |
+|---|---|---|
+| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
+| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 with sc-smooth partitions of unity for Stokes' theorem, for index 0 too, the inherited orientation independent of the model; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) |
+
+The trusted base, the declarations whose statements a reader has to check, is
+`Exposition/checklist/TrustedBase.lean`; every declaration depends only on the standard axioms
+(`propext`, `Classical.choice`, `Quot.sound`), checked in `Polyfold/Test.lean`.
+
+## How to build and check it
+
+Toolchain: Lean and Mathlib `v4.33.1`.
+
+```bash
+lake exe cache get                                         # Mathlib, once
+lake build Polyfold                                        # the whole library
+lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean  # #print axioms for every theorem
+```
+
+The last command must print, for every theorem, only `propext`, `Classical.choice` and `Quot.sound`
+(or a subset): no `sorryAx`, no project axioms. The reports are checked against the Lean sources by
+the scripts in `Exposition/`, run from the project folder:
+
+```bash
+python3 Exposition/check_names.py Exposition/Verification.md Exposition/Comparison.md   # every cited name exists
+python3 Exposition/check_trace.py Exposition/ProofByProof.md                           # every trace tag resolves
+python3 Exposition/build_comparison.py      # Comparison.json, Comparison.md, polyfold-beside-lean.html
+python3 Exposition/build_verification.py    # Verification.md, Verification.pdf
+python3 Exposition/build_signoff.py         # polyfold-signoff.html
+```
+
+Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `lake` call or
+`Exposition/` script.
+
+## The reviewer's path
+
+| Document | What it is |
+|---|---|
+| `Exposition/ReviewerChecklist.md` | **Start here.** The statements and definitions a person has to check (Lean checks the rest), in tiers. |
+| `Exposition/polyfold-beside-lean.html`, `Exposition/Comparison.md` | The comparison: every statement of the book beside its formal version, with the verdict (same, hypotheses explicit, stronger, narrower, restated, …) and every difference. |
+| `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
+| `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
+| `Exposition/Findings.md` | Gaps, hidden hypotheses, counterexamples to our readings and the readings chosen, with what was done about each. |
+| `Exposition/polyfold-signoff.html` | The sign-off list (below). |
+| `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
+| `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
+
+The HTML pages open straight from the folder; they need no server.
+
+**Where the files are.** A file's chapter folder is its position in the dependency order: a file in
+`Polyfold/ChapterN/` imports only files of chapters ≤ N (Part I is Chapters 1–6, Part II 7–11,
+Part III 12–16). A result whose proof needs machinery of a later chapter therefore lives in that
+later folder: Chapter 3's theorems on the index along paths and its local constancy are in
+`Polyfold/Chapter5/` (they use the bump functions of Chapter 5), and the results of §7.4 on tangent
+maps of ep-groupoids are in `Polyfold/Chapter8/ZhouTangent.lean`. Each comparison row names the file
+of every declaration it cites, so the book number leads to the file.
+
+## Signing off
 
 A web browser is enough: no Lean and no GitHub account are needed.
 
@@ -19,78 +85,59 @@ A web browser is enough: no Lean and no GitHub account are needed.
    and unzip it.
 2. **Open** `Exposition/polyfold-signoff.html` in your browser (stay online: the formulas are typeset
    from the internet).
-3. **Check each item.** Each has a one-sentence summary and a label comparing the formal statement
-   with the book's (same, hypotheses explicit, stronger, narrower, restated, …). **The full statement,
-   HWZ beside Lean** shows the book's statement with its page beside what Lean proves. Tick **says what
-   HWZ mean**, or leave it unticked and write your question in the notes box.
+3. **Check each item.** Each has a one-sentence summary and the verdict comparing the formal statement
+   with the book's. **The full statement, HWZ beside Lean** shows the book's statement with its page
+   beside what Lean proves. Tick **says what HWZ mean**, or leave it unticked and write your question
+   in the notes box.
 4. **Stop whenever you like.** Ticks and notes are kept in your browser; **unsigned only** hides what
    you have ticked.
 5. **Send it back** with **Export SIGNOFF.md** and email the file to whoever invited you.
    **Import…** reloads it, for example on another computer.
 
-## Status
-
-| | Chapters | State | Open gaps |
-|---|---|---|---|
-| Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included | 0 |
-| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses | 0 |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | The main theorems of Chapters 12–15 proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 proved, with sc-smooth partitions of unity for Stokes' theorem; Theorem 16.6.6 for index 0 proved, the inherited orientation independent of the model; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) | 0 |
-
-Every numbered item of the book is compared with its formal version, with a verdict and every
-difference listed (`Exposition/Verification.md`). Where a formal statement is narrower than the book's,
-the comparison names the added hypothesis, shows it can be satisfied, and records what removing it
-would take as a numbered gap (`Exposition/cmp/`). The trusted base, the declarations whose statements a
-reader has to check, is `Exposition/checklist/TrustedBase.lean`; every declaration depends only on the
-standard axioms (`propext`, `Classical.choice`, `Quot.sound`), checked in `Polyfold/Test.lean`.
-
-## Where to start reading
-
-| Document | What it is |
-|---|---|
-| `Exposition/ReviewerChecklist.md` | **Start here.** The statements and definitions a person has to check (Lean checks the rest), in tiers. |
-| `Exposition/polyfold-signoff.html` | The sign-off list (above). |
-| `Exposition/polyfold-beside-lean.html` | Every statement of the book beside its formal version, with the verdict. |
-| `Exposition/Verification.pdf` | The same items as a document, each ending in the sentence to confirm. |
-| `Exposition/Findings.md` | Gaps, hidden hypotheses, counterexamples, readings chosen and possible misprints, with what was done about each. |
-| `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
-| `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition with complete proofs, for a first-year graduate student. |
-| `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
-
-The HTML pages open straight from the folder; they need no server.
-
 ## What a reviewer is most needed for
 
 1. **The definitions**: sc-structures, retracts and M-polyfolds, strong bundles, sc-Fredholm germs and
    sections, ep-groupoids, branched ep⁺-subgroupoids, sc⁺-multisections, polyfolds. Are they the
-   authors' notions? Three such mismatches in our own definitions were found and repaired, so this is
-   where silent errors are most likely.
-2. **The readings we had to choose**, each recorded in the Findings with its reason. The main ones:
-   sc-smooth germs live on neighbourhoods that may shrink with the level; "tame strong bundle"
-   (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the 2014 and 2017 versions
-   define it; index sets of structured multisections are non-empty, as the factor `1/|I_x|` of
-   Definitions 13.2.5 and 14.1.3 presumes; tame germ data in §§6.2, 6.6 and 12.5; the lateral term of
-   Stokes' theorem on the cobordism over `[0, 1] × X` (Remark 6.6.19) as the integral over the part of the boundary
-   with `0 < t < 1`, a limit of cut-off integrals, for a tame `X` with or without faces; a signed frame
-   convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4). The strong polyfold bundle structure (Definition 16.3.1) carries local regularity as
-   printed in Definition 8.4.2 (`IsLRLocal`); the form for strong bundle maps of `W` (`IsLR`) follows from it, and
-   whether the two agree is not known to us (Findings, Chapter 8).
+   authors' notions? Lean cannot tell a definition that differs from the authors' in a detail, so
+   this is where a mismatch is hardest to see.
+2. **The readings we had to choose**, each recorded in the Findings with its reason:
+   * sc-smooth germs live on neighbourhoods whose levels may shrink with the level (Definitions 3.1.4,
+     3.1.6, 3.1.11);
+   * "tame strong bundle" (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the
+     2014 and 2017 versions define it, and the germ data of §§3.6, 6.2, 6.6 and 12.5 are taken in a
+     tame chart;
+   * bump functions are read pointwise, `f(x) ≠ 0` (Definitions 5.3.1, 12.3.1);
+   * index sets of structured multisections are non-empty, as the factor `1/|I_x|` of Definitions
+     13.2.5 and 14.1.3 presumes;
+   * the equivalence of Definition 13.3.8, as Definition 14.6.2 and Theorem 14.6.3 use it, also
+     compares the sections, as the step on p. 682 states;
+   * the strong polyfold bundle structure (Definition 16.3.1) carries local regularity as printed in
+     Definition 8.4.2 (`IsLRLocal`); the form for strong bundle maps of `W` (`IsLR`) follows from it,
+     and whether the two agree is not known to us (Findings, Chapter 8);
+   * the lateral term of Stokes' theorem on the cobordism over `[0, 1] × X` (Remark 6.6.19) is the
+     integral over the part of the boundary with `0 < t < 1`, a limit of cut-off integrals, for a
+     tame `X` with or without faces;
+   * the frame convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4) is read in a
+     signed form.
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
-4. **The statements that do not hold as we read them.** Each has a counterexample checked in Lean;
-   each is a counterexample to our reading, and a misreading on our side would remove it.
+4. **The statements that do not hold as we read them.** Each has a counterexample checked in Lean,
+   and the form that holds is proved; each is a counterexample to our reading, and a misreading on
+   our side would remove it.
 
 | Where | As we read it |
 |---|---|
 | Definition 1.1.9, p. 8; §5.3, p. 217 (“not complete”) | Details in the Findings, Chapters 1 and 5 |
 | Remark 2.4.8, p. 47 | The claim has no example; the 2021 example is not an sc-smooth retract |
-| (2.44) and Proposition 2.7.12, pp. 82–84 | The stated mapping property of `Φ_(x,V,θ)` (Findings, Chapter 2) |
+| (2.44) and Proposition 2.7.12, pp. 82–84 | The stated mapping property of `Φ_(x,V,θ)` holds for `V` centred at `x` (Findings, Chapter 2) |
 | Proof of Theorem 3.2.3, p. 107 | A step of the proof; the theorem itself holds, by another route |
 | Theorem 3.6.8 (2), p. 136 | With the 2021 germ data as printed: a tame strong bundle over `ℝ` whose solution set is a half-line |
 | Lemma 3.8.1, p. 145 | At `P = {0}` |
 | Proof of Theorem 4.3.1, p. 193; the bracket sentence, p. 201; the formula for `dω`, p. 197 | Details in the Findings, Chapter 4 |
-| Theorems 5.5.7 (“Clearly”) and 5.5.10, pp. 231–232 | Details in the Findings, Chapter 5 |
+| Theorems 5.5.7 (“Clearly”) and 5.5.10, pp. 231–232 | Steps of the proofs; details in the Findings, Chapter 5 |
+| The remark before Remark 6.4.6, p. 248 | Two projections always have a common lower bound |
 | The remark that `DET(E, F)` is not orientable, p. 262 | For finite-dimensional `E`, `F` |
-| The remark after Definition 7.1.7, p. 291; Proposition 7.2.10, p. 313; Lemma 7.2.11 (3), p. 315 | Details in the Findings, Chapter 7 |
+| Lemma 7.2.11 (3), p. 315 | Needs `T_R` Hausdorff, the setting of Theorem 7.2.14 |
 | Proposition 9.1.11, pp. 407–408 | Uniqueness of the dimensional decomposition |
 | Lemmas 9.3.4, 9.4.4, 9.5.2 | Need the sheets to have one dimension |
 | Theorems 10.3.19 and 10.5.7, pp. 493, 508 | Need an effective target |
@@ -128,10 +175,7 @@ publisher; the source texts are not distributed.
 
 ## For maintainers
 
-`HANDOFF.md` has the conventions and the checks that must pass after every change. Lean names use the
-2021 numbers (`theorem_3_6_8` is Theorem 3.6.8); suffixes mark other forms: `_preprint`, `_2017` (an
-earlier version's statement), `_hyp` (with auxiliary hypotheses). Toolchain: Lean and Mathlib
-`v4.33.1`. Build: `lake exe cache get` once, then `lake build`; one file:
-`lake env lean -DmaxSynthPendingDepth=3 Polyfold/Chapter1/X.lean`. Where `lake` cannot run `git`,
-put a working `git` first on `PATH` before any `lake` call or `Exposition/` script, or `lake` deletes its
-Mathlib checkout.
+`HANDOFF.md` has the conventions, the layout and the checks that must pass after every change. Lean
+names use the 2021 numbers (`theorem_3_6_8` is Theorem 3.6.8); suffixes mark other forms:
+`_preprint`, `_2017` (an earlier version's statement), `_hyp` (with auxiliary hypotheses). One file:
+`lake env lean -DmaxSynthPendingDepth=3 Polyfold/Chapter1/ScBanach.lean`.

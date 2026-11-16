@@ -13,7 +13,7 @@ lake build Polyfold
 ```
 
 ```bash
-lake env lean Polyfold/Test.lean
+lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean
 ```
 
 The second command prints the axioms of every theorem; each must list only `propext`, `Classical.choice` and `Quot.sound` (or a subset). No `sorryAx`, no project axioms.

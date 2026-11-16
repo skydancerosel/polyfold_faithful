@@ -2254,7 +2254,7 @@
    "chips": [
     "2021 direction $X^i \\to X^{i+1}$",
     "the local formula in charts",
-    "gap G.39 in part"
+    "gap G.39 closed"
    ],
    "diff": [
     "$d$ is the local formula in charts (V4.84), not the vector-field formula, which is proved on normed spaces only (V4.83). Domain and target are those of the 2021 text, the direction item 120 proposed for the preprint. On a family that is not an sc-form, `extD` is $0$ by convention (Findings, Chapter 4, item 169)."

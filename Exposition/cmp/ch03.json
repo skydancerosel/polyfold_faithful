@@ -1199,7 +1199,7 @@
     "no Theorem 3.8.15 / Lemma 3.8.13 needed"
    ],
    "diff": [
-    "(1) in the level-wise sense of V3.38 (Findings, Chapter 3, item 70); `theorem_3_5_11` is the statement without (1), the form Theorem 3.6.8 (preprint 3.54) uses so far.",
+    "(1) in the level-wise sense of V3.38 (Findings, Chapter 3, item 70); `theorem_3_5_11` is the statement without (1), the form Theorem 3.6.8 (preprint 3.54) uses.",
     "Because $\\psi$ is linear, the transport back is linear algebra ($K = \\psi^{-1}(K')$, $Y = \\psi^{-1}(Y')$, $\\sigma = \\psi^{-1}\\tau\\psi$); the text's degeneracy-index argument with Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72) is not needed (item 69).",
     "With the good complement closed and its projection onto $K$ mapping $\\widetilde C \\oplus W$ into itself: V3.77."
    ]
@@ -2235,7 +2235,7 @@
     "transition smooth on $[0]$ only"
    ],
    "diff": [
-    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (gap G.13 of Chapter 2). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Gap G.13 is closed in part: $T^R_xX$ and $C_xX$ are defined in $T_xX$, independent of the chart (`reducedTangentFiber_eq`, `partialConeFiber_eq`); this statement is not restated with them.",
+    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (gap G.13 of Chapter 2). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Gap G.13 is closed: $T^R_xX$ and $C_xX$ are defined in $T_xX$, independent of the chart (`reducedTangentFiber_eq`, `partialConeFiber_eq`); this statement is not restated with them.",
     "For filling germs (the germ reading of Definition 3.1.11 (preprint 3.11)) $Dg(z)$ is meaningful only for $z$ in the germ; the consumers use it at the centre and at the level-$1$ lifts of nearby zeros, which lie in the germ (Findings, Chapter 3, items 278, 284)."
    ]
   },
@@ -3865,7 +3865,7 @@
     "holds with tame germ data (V3.94)"
    ],
    "diff": [
-    "Every printed hypothesis holds in the example (p1-U-untamed2, §0): the bundle is a strong bundle with a strong bundle atlas over a tame M-polyfold, and it is a “tame strong bundle” in both readings of that undefined phrase (the base is tame, and every point lies in a tame strong bundle chart of the structure, `IsTameBundle`); the germ data at $x_0$ are in a chart of the atlas, as Definition 3.6.3 asks; the filling, the sc⁺-section $s = 0$ and the basic germ are those of Definitions 3.1.4, 3.1.7, 3.1.11; good position holds at $x_0$ in every reading ($d_X \\equiv 0$, $f'(x_0)$ onto the zero fibre).",
+    "Every printed hypothesis holds in the example: the bundle is a strong bundle with a strong bundle atlas over a tame M-polyfold, and it is a “tame strong bundle” in both readings of that undefined phrase (the base is tame, and every point lies in a tame strong bundle chart of the structure, `IsTameBundle`); the germ data at $x_0$ are in a chart of the atlas, as Definition 3.6.3 asks; the filling, the sc⁺-section $s = 0$ and the basic germ are those of Definitions 3.1.4, 3.1.7, 3.1.11; good position holds at $x_0$ in every reading ($d_X \\equiv 0$, $f'(x_0)$ onto the zero fibre).",
     "Only the proof (p. 137) takes the chart of the germ data tame; the preprint and the 2017 text put the tame retraction into the filling. With that reading the theorem is verified (V3.85, V3.94, V3.103). Mechanism: the fibre jumps from $0$ to a line at $x_0$ through the sc-smooth family of projections of V3.129, which is not $C^1$ on any level (Findings, Chapter 3, item 388; gap G.79)."
    ]
   },

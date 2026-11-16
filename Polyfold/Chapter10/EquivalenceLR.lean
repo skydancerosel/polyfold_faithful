@@ -67,7 +67,7 @@ and an sc-smooth `z ↦ α_z : F(z) → G(z)` on it; (2) `|TF| = |TG|`.  *Proof*
 * `|TF| = |TG|` is the equality of the orbit maps of the tangent functors `F.tangent`,
   `G.tangent` (Chapter 8), and `Tα` is `MPolyfold.tangentMapOn`.
 * On p. 469 the isomorphism `σ ↦ ψ ∘ σ ∘ ψ⁻¹` is written with target `U(y)`; we read `G_y`
-  (possible misprint).
+  (as we read it).
 -/
 
 set_option maxSynthPendingDepth 3

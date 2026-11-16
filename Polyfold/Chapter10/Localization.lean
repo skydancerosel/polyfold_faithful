@@ -69,14 +69,14 @@ for refinements `H`, `K` with `τ_A' : Φ' → Φ ∘ H`, `τ_B' : G' → G ∘ 
   on the nose, `πA`, `πA'` and `H` are equivalences.  The text instead checks directly that `L` is
   a local sc-diffeomorphism, full and faithful; its sc-smoothness, asserted in the text, is proved
   entrywise.  In the text's statement of the naturality of `τ_B'` the letter `τ_A` appears for
-  `τ_B'`, and "`(Φ ∘ πB) ∘ L ≃ Ψ' ∘ πB'`" is read as `(Ψ ∘ πB) ∘ L ≃ Ψ' ∘ πB'` (possible
-  misprints).
+  `τ_B'`, and "`(Φ ∘ πB) ∘ L ≃ Ψ' ∘ πB'`" is read as `(Ψ ∘ πB) ∘ L ≃ Ψ' ∘ πB'` (as we read
+  them).
 * **Associativity.**  The text identifies `(A ×_Y A') ×_Z A''` and `A ×_Y (A' ×_Z A'')` ("the same
   space"); in Lean they are different types, and the identification is the reassociation functor
   `assocFunctor`, an equivalence by two out of three.  The refinement then holds with the
   identity natural transformations.
 * **Units.**  The proof of the unit law writes `[1_X] ∘ [d] = [d]` for `[d] ∘ [1_X] = [d]`
-  (possible misprint); `τ(a, ϕ, a)` is read as `τ(x, ϕ, a)` and `ψ = φ` as `ψ = ϕ`.
+  (as we read it); `τ(a, ϕ, a)` is read as `τ(x, ϕ, a)` and `ψ = φ` as `ψ = ϕ`.
 * **Lemma 10.3.6** uses that naturally equivalent functors induce the same map of orbit spaces
   and `|F ∘ H| = |F| ∘ |H|` (`EpFunctor.orbitMap_comp`); the inverse `|F|⁻¹` is that of the
   homeomorphism of Definition 10.1.1 (2).

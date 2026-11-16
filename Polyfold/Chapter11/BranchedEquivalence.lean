@@ -80,7 +80,7 @@ for an equivalence, a local branching structure `(M'ᵢ)` of `Θ'` at `F(x)` is 
   structure is kept); generalized isomorphisms live in `EP.{u}` anyway.
 * The manifold-type argument is done for two morphisms `y → y'` directly (conjugated by
   `ψ : F(x) → y`, `ψ' : F(x') → y'`), not through a non-trivial `y → y`.
-* Possible misprints: Definition 11.3.1 (2) types the push-forward `X' → ℚ⁺` (also 2017); read
+* Readings: Definition 11.3.1 (2) types the push-forward `X' → ℚ⁺` (also 2017); read
   `Y → ℚ⁺`.  In the manifold-type step (p. 538) `ψ ∘ φ' ∘ ψ⁻¹ : F(x) → F(x)` for `ψ : F(x) → y`,
   `φ' : y → y`; read `ψ⁻¹ ∘ φ' ∘ ψ`.
 -/

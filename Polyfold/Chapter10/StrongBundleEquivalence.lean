@@ -71,14 +71,14 @@ they preserve sc⁺-section functors and sc-Fredholm section functors.
   pull-back bundles over `𝐗`, `𝐗'`.  "Linear" is part of `IsStrongBundleFunctor`.
 * `Φ*` and `Φ_*` are defined on all maps (the zero of the fibre off sections); the morphism
   `σ : ϕ(x) → x'` in `Φ_*` is chosen once for all (`preObj`, `preMor`).
-* Proposition 10.4.2 is printed with `f' : W' → X'` for the section functor `X' → W'` (possible
-  misprint).  The proof here takes for the text's `τ'` the morphism `Φ(Ψ*f'(x)) → Ψ(Ψ*f'(x))`
+* Proposition 10.4.2 is printed with `f' : W' → X'` for the section functor `X' → W'` (as we read
+  it).  The proof here takes for the text's `τ'` the morphism `Φ(Ψ*f'(x)) → Ψ(Ψ*f'(x))`
   given by `|Φ| = |Ψ|`; Proposition 10.4.3 follows the text.  Neither uses sc-smoothness.
 * Proposition 10.4.4: `Ψ ∘ Φ` is a strong bundle equivalence (`IsStrongBundleEquivalence.comp`);
   the push-forward identity is stated for section functors, for which `Φ_*` does not depend on
   the choices.
 * Theorem 10.4.5: "mutually inverse bijections" is `MapsTo` both ways with `InvOn` and `BijOn`.
-  The second display writes `Φ* : Γ(P', μ') → Γ(P, μ)` where `Γ⁺` is meant (possible misprint);
+  The second display writes `Φ* : Γ(P', μ') → Γ(P, μ)` where `Γ⁺` is meant (as we read it);
   both directions are proved for `Γ⁺`.  The sc-smoothness of `Φ_* f`: near `x₀'`, it is
   `μ' ∘ (τ, Φ ∘ f ∘ g₁ ∘ s' ∘ τ)` with `τ` a local inverse of `t'` and `g₁` one of `ϕ`
   (`exists_pushforward_local`).

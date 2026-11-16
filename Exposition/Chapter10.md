@@ -3,12 +3,12 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part II, Chapter 10 (arXiv 1707.08941, pp. 333–374), rewritten for a
 first-year graduate student who has read Chapters 7 and 8 and wants to know why two different ep-groupoids can describe the
 same polyfold, and how to make that precise. Every formalized statement is proved; what is not formalized is marked. Where
-the Lean formalization found a gap or a shorter route, the text follows the Lean. Statement numbers and printed pages are
+the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and printed pages are
 those of the book (Springer 2021), with the 2017 text's in parentheses (see `BookConcordance.md`); results new in the 2021
 edition are marked as such. Conventions: ep-groupoids, sc-smooth functors, orbit spaces $|X|$, the non-effective part
 $\mathbf X^T$, the reduced ep-groupoid and the properties (LUC), (ZHOU), (LR), (SLUC), (SLR) are those of Chapter 7; natural
 transformations, the tangent functor and strong bundles over ep-groupoids those of Chapter 8. Compositions are written as in
-the text, $g \circ f$; the Lean writes $f ≫ g$. This version covers §§10.1–10.5 and the proofs of Appendix §§10.6.1–10.6.2.
+the text, $g \circ f$; the Lean writes $f ≫ g$. It covers §§10.1–10.5 and Appendix §10.6.
 The findings cited are those of `Findings.md`, "Chapter 10".*
 
 ---
@@ -66,7 +66,7 @@ objects of $X$. The pairs $(i, x)$ with $x \in U_i$ and the triples $(i, \varphi
 *How this is read.* The text indexes the covering by its members and writes $(U, x)$; an index type is used, objects and
 morphisms are open subsets of $\iota \times X$ and $(\iota \times \iota) \times \mathbf X$ with $\iota$ discrete, and the
 object set of $X$ is assumed nonempty, as the open-subset M-polyfold structure of Part I needs. In the formula for the
-functor the text prints $(U, \varphi, v)$; we read $(U, \varphi, V)$ (possible misprint) (Findings, item 2).
+functor the text prints $(U, \varphi, v)$; we read $(U, \varphi, V)$ (Findings, item 2).
 
 *Proof.* Source and target are those of $X$ on each sheet, hence local sc-diffeomorphisms, as are unit, inverse and
 multiplication. For properness at $(i, x)$ choose a neighbourhood $V_0$ of $x$ with the properness property of $X$ and an
@@ -105,7 +105,7 @@ not be $F(x)$. It receives a morphism $\sigma : F(x) \to y$, and the local sc-di
 along morphisms: near $\sigma$ a local inverse $\tau$ of $s$ gives $\Phi \circ t \circ \tau = t \circ \Phi \circ \tau$ near
 $F(x)$, and $t$, $\Phi$ on morphisms and $\tau$ are local sc-diffeomorphisms. Lemma 10.1.2 applies. $\square$
 
-The proof writes $|\Phi| : |X| \to |Y|$ for $|\Phi| : |Y| \to |Z|$ (possible misprint) (Findings, item 5). *Checked by
+The proof writes $|\Phi| : |X| \to |Y|$ for $|\Phi| : |Y| \to |Z|$ (as we read it) (Findings, item 5). *Checked by
 machine (V10.6):* `Polyfold.EpFunctor.proposition_10_1_6`, `Polyfold.EpFunctor.isLocalScDiffeoAt_obj_tgt`,
 `Polyfold.MPolyfold.IsLocalScDiffeoAt.of_comp_right`.
 
@@ -126,13 +126,17 @@ An equivalence identifies orbit spaces; the question of this section is which fi
 
 **Remark 10.1.8 (new in the 2021 edition) (orbit-preserving maps need not come from the group).** On a translation groupoid
 an sc-smooth map $\beta$ with $|\beta(y)| = |y|$ need not be locally of the form $y \mapsto g * y$; Zhou's example is built
-in Appendix §10.6.3 on a weighted Sobolev sc-retract. Not formalized (gap G.112; Findings, item 7).
+in Appendix §10.6.3 on a weighted Sobolev sc-retract. Formalized as printed: $\mathbb Z/2$ acts on the retract by
+$(s,f)\mapsto(s,-f)$, and an sc-diffeomorphism $\eta$ fixing $0$ with $|\eta(y)| = |y|$ is on no neighbourhood of $0$ of the form
+$y \mapsto g * y$, so the translation groupoid does not have (LR) (gap G.112; Findings, item 7). *Checked by machine (V10.75):*
+`Polyfold.EpGroupoid.Examples.ZhouTenSix.remark_10_1_8`, `Polyfold.EpGroupoid.Examples.ZhouTenSix.not_isLR`.
 
 **Proposition 10.1.9 (new in the 2021 edition) ((LR) under equivalences).** If $F : X \to Y$ is an equivalence, $X$ has the
 local regularity property (Definition 7.4.19) if and only if $Y$ has. The proof carries $U(x)$ along $Q = \hat\psi \circ F$
 for $\psi : F(x) \to y$; that $Q(U(x))$ has a natural representation, taken for granted, holds by restricting one at $y$. On
-p. 469, $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is printed with target $U(y)$; we read $G_y$ (possible misprint;
-Findings, item 16). $\mathcal{EP}_{lreg}$ (p. 461) is not built (gap G.111). *Checked by machine (V10.62):*
+p. 469, $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is printed with target $U(y)$; we read $G_y$
+(Findings, item 16). $\mathcal{EP}_{lreg}$ (p. 461) is the full subcategory `Polyfold.EP.Lreg`, closed under
+isomorphisms by this proposition (gap G.111, V10.74). *Checked by machine (V10.62):*
 `Polyfold.EpFunctor.proposition_10_1_9`, `Polyfold.EpFunctor.TransportChart.exists_naturalRep_push`.
 
 **Proposition 10.1.10 (2017: 10.4) (natural families).** For equivalences $F, G : X \to Y$ with $|F| = |G|$ and $X$ with
@@ -154,7 +158,7 @@ says "not sc-smooth"; continuity already fails, and the example has the family o
 
 Bijectivity is fullness and faithfulness at $(x, x)$; $g$ acts trivially near $x$ iff $F(g)$ does near $F(x)$, $F$ being a
 local sc-diffeomorphism on objects and morphisms; conjugation by $\psi$ carries $T_{F(x)}$ to $T_y$. The text prints $G_x \to
-Y_y$; we read $G_x \to G_y$ (possible misprint) (Findings, item 9). *Checked by machine (V10.9):*
+Y_y$; we read $G_x \to G_y$ (Findings, item 9). *Checked by machine (V10.9):*
 `Polyfold.EpFunctor.IsEquivalence.remark_10_1_12`, `Polyfold.EpFunctor.IsEquivalence.bijective_isotropyHom`,
 `Polyfold.EpFunctor.isotropyHom_mem_trivialSet_iff`.
 
@@ -207,7 +211,7 @@ G'_{F(x)}$ with $Tk' = \mathrm{id}$, write $k' = F(g)$; $TF$ is injective on $T_
 $k \in T_y$. $\square$
 
 The text argues with natural representations instead, and in (b) writes $U(F(y))$ and "$x \in U(x)$" for $U(F(x))$ and $a \in
-U(x)$ (possible misprints) (Findings, item 13). *Checked by machine (V10.14):* `Polyfold.EpFunctor.proposition_10_1_17`,
+U(x)$ (as we read them) (Findings, item 13). *Checked by machine (V10.14):* `Polyfold.EpFunctor.proposition_10_1_17`,
 `Polyfold.EpFunctor.tangentMor_mor`.
 
 **Proposition 10.1.18 (new in the 2021 edition) ((SLUC) under equivalences).** If $F$ is an equivalence, $X$ satisfies (SLUC)
@@ -215,7 +219,7 @@ if and only if $Y$ does.
 
 *Proof.* The restriction $F^1 : X^1 \to Y^1$ to level 1 is an equivalence, so by induction every $F^i : X^i \to Y^i$ is, and
 Proposition 10.1.16 applies at each level. $\square$ The proof cites Proposition 10.1.9 at the last step; we read Proposition
-10.1.16 (possible misprint) (Findings, item 14). *Checked by machine (V10.15):* `Polyfold.EP.proposition_10_1_18`,
+10.1.16 (as we read it) (Findings, item 14). *Checked by machine (V10.15):* `Polyfold.EP.proposition_10_1_18`,
 `Polyfold.EP.exists_isEquivalence_lift`.
 
 **Proposition 10.1.19 (new in the 2021 edition) ((SLR) under equivalences).** If $F$ is an equivalence, $X$ satisfies (SLR)
@@ -235,7 +239,7 @@ objects $(x, \phi, z)$ with $\phi : F(x) \to G(z)$ and morphisms $(h, \phi, k)$ 
 inverses $(h^{-1}, G(k) \circ \phi \circ F(h)^{-1}, k^{-1})$ and $(h, \phi', k) \circ (h', \phi, k') = (h \circ h', \phi, k
 \circ k')$.
 
-The text writes the inverse as $\iota(h, \psi, k)$ with $\phi$ on the right; we read $\psi = \phi$ (possible misprint). The
+The text writes the inverse as $\iota(h, \psi, k)$ with $\phi$ on the right; we read $\psi = \phi$. The
 groupoid laws come from the conjugation rule $G(k) \circ (G(k') \circ \phi \circ F(h')^{-1}) \circ F(h)^{-1} = G(k \circ k')
 \circ \phi \circ F(h \circ h')^{-1}$ (Findings, item 20). *Checked by machine (V10.17):*
 `Polyfold.WeakFibredProduct.groupoid`, `Polyfold.WeakFibredProduct.conj`, `Polyfold.WeakFibredProduct.conj_comp`.
@@ -248,9 +252,9 @@ Symmetrically if $G$ is an equivalence, with $d = d_X(x)$; if both are, $d_X(x) 
 *How this is read.* The text gives the objects and morphisms the structures of sub-M-polyfolds of $X \times \mathbf Y \times
 Z$ and $\mathbf X \times \mathbf Y \times \mathbf Z$. The formal structure is built in two steps from Part I's fibred
 products, $X \,{}_F\!\times_s (\mathbf Y \,{}_t\!\times_G Z)$ and its analogue on morphisms, each a fibred product of an
-sc-smooth map with a local sc-diffeomorphism (Proposition 2.5.20). That these structures agree with ones induced directly
-from the triple products is not formalized and not needed (gap G.116). The construction uses of $F$ only that it is a local
-sc-diffeomorphism on objects; $G$ would do as well (Findings, item 21).
+sc-smooth map with a local sc-diffeomorphism (Proposition 2.5.20). That these structures agree with the ones induced directly
+from the triple products is proved as well (gap G.116; `Polyfold.WeakFibredProduct.theorem_10_2_2_triple`). The
+construction uses of $F$ only that it is a local sc-diffeomorphism on objects; $G$ would do as well (Findings, item 21).
 
 *Proof.* With $F$ a local sc-diffeomorphism on objects, the projections $(x, \phi, z) \mapsto z$ and $(h, \phi, k) \mapsto k$
 are local sc-diffeomorphisms ((10.9), (10.10)), and $\pi_Z \circ s = s_Z \circ \pi_{\mathbf Z}$, $\pi_Z \circ t = t_Z \circ
@@ -265,7 +269,7 @@ The natural transformation is $\sigma(x, \phi, z) = \phi$. For $F$ an equivalenc
 over $k$ is determined by $F(h)$; full because for $k : z \to z'$ between $(x, \phi, z)$ and $(x', \phi', z')$ the morphism
 $\phi'^{-1} \circ G(k) \circ \phi : F(x) \to F(x')$ is $F(h_0)$ and $(h_0, \phi, k)$ lies over $k$; and essentially
 surjective because $G(z)$ receives a morphism from some $F(x)$. The text prints the composite as $\phi' \circ G(k) \circ
-\phi^{-1}$, which does not compose; we read $\phi'^{-1} \circ G(k) \circ \phi$ (possible misprint). An equivalence preserves
+\phi^{-1}$, which does not compose; we read $\phi'^{-1} \circ G(k) \circ \phi$. An equivalence preserves
 the degeneracy index and pulls back tameness and the paracompactness of the orbit space. $\square$
 
 For $G$ an equivalence the text states only that $\pi_X$ is an equivalence and the degeneracy index; the natural equivalence
@@ -378,8 +382,10 @@ The text says that $d_{\Psi \circ \Phi}$ refines (10.13); with Definition 10.3.1
 goes out of the refinement, the refinement is the other way round, and the equality of classes is the same. Every generalized
 map is $i(\Phi) \circ i(F)^{-1}$, and $i$ inverts $E$ in the sense of Mathlib. The pair groupoid of $\mathbb Z$ over the
 point is not an isomorphism of $\mathcal{EP}$, but becomes one in $\mathcal{EP}(E^{-1})$. The universal property of the
-localization, mentioned on p. 483, is not formalized: it would need that every functor inverting $E$ identifies naturally
-equivalent functors, through a cylinder ep-groupoid the project does not have (gap G.117; Findings, item 36). *Checked by
+localization, mentioned on p. 483, is formalized: the cylinder is the weak fibred product $X \times_Y Y$ of $F$ and $1_Y$,
+through which every functor inverting $E$ identifies naturally equivalent functors, and $i$ is a localization in Mathlib's
+sense (gap G.117; `Polyfold.EPLocalization.EPLoc.universal_property`, `Polyfold.EPLocalization.EPLoc.isLocalization`;
+Findings, item 36). *Checked by
 machine (V10.45):* `Polyfold.EPLocalization.EPLoc.theorem_10_3_14`,
 `Polyfold.EPLocalization.EPLoc.isInvertedBy_localizationFunctor`, `Polyfold.EPLocalization.EPLoc.homMk_eq`,
 `Polyfold.EPLocalization.Examples.isGeneralizedIso_pairToPoint`.
@@ -405,7 +411,7 @@ equivalence relation, by Proposition 10.3.11.
 
 The metrizability of $Z$ assumed in the text plays no role in the relation. The pair groupoid of $\mathbb Z$ with $|P|$ and
 the point with the identity are equivalent pairs. The text adds that $f$ is in general not unique, as the example of Remark
-10.5.5 shows (§6; gap G.119, closed; Findings, items 39, 56). *Checked by machine (V10.48):*
+10.5.5 shows (§6; gap G.119; Findings, items 39, 56). *Checked by machine (V10.48):*
 `Polyfold.EPLocalization.OrbitChart.Rel`, `Polyfold.EPLocalization.OrbitChart.setoid`,
 `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP`.
 
@@ -414,7 +420,7 @@ the point with the identity are equivalent pairs. The text adds that $f$ is in g
 \mathbb R$ with the trivial action has (LR), its orbits being points, and $[X \xleftarrow{1} X \xrightarrow{\mathrm{Inv}}
 X]$, $[1_X]$ differ with the same orbit map (§6). The step on p. 494 takes the families $\alpha_a$ of Proposition 10.1.10 (1)
 as a natural transformation; here $z \mapsto 1_z$ is one such family, and no natural $1 \to \mathrm{Inv}$ exists. The 2017
-Theorem 10.7 lacks (LR) (gap G.120, settled; Findings, items 39, 58). *Checked by machine (V10.65):*
+Theorem 10.7 lacks (LR) (gap G.120; Findings, items 39, 58). *Checked by machine (V10.65):*
 `Polyfold.LocalizationLRCounterexample.not_theorem_10_3_19`,
 `Polyfold.LocalizationLRCounterexample.not_naturallyEquivalent_id_inv`.
 
@@ -470,7 +476,7 @@ $|\Phi| = |\Psi|$, then $\Phi^*f' = \Psi^*f'$ for every section functor $f'$.
 *Proof.* $|\Phi| = |\Psi|$ means that each $\Psi(w)$ is $\mu'(\sigma, \Phi(w))$ for some $\sigma$ (10.15). With $w =
 \Psi^*f'(x)$, functoriality of $f'$ gives $\mu'(\sigma, \Phi(w)) = f'(\psi(x)) = \mu'(\sigma, \Phi(\Phi^*f'(x)))$, and
 $\mu'(\sigma, \cdot)$ and $\Phi_x$ are injective. $\square$ No sc-smoothness is used. The text writes "$f' : W' \to X'$" for
-$f' : X' \to W'$ (possible misprint) (Findings, item 42). *Checked by machine (V10.24):*
+$f' : X' \to W'$ (as we read it) (Findings, item 42). *Checked by machine (V10.24):*
 `Polyfold.EpStrongBundle.proposition_10_4_2`.
 
 **Proposition 10.4.3 (2017: 10.8) (push-forwards depend on $|\Phi|$).** Under the same hypotheses $\Phi_*f = \Psi_*f$ for
@@ -492,16 +498,16 @@ $\phi$ at $y_0$, (10.22) gives $\Phi_*f = \mu' \circ (\tau, \Phi \circ f \circ g
 sc-smooth maps; at level $[1]$ the pair maps sc-smoothly into the level $[1]$ of the pull-back bundle, by its universal
 property on an open set. $\square$
 
-The sc-Fredholm part is not formalized: it needs the invariance of sc-Fredholm sections under local strong bundle
-isomorphisms, of which Part I has only chart-level statements (gap G.121). The text's second display, for $\Gamma^+$, has
-$\Phi^* : \Gamma(P', \mu') \to \Gamma(P, \mu)$; we read $\Gamma^+$ (possible misprint) (Findings, item 44). *Checked by
+The sc-Fredholm part is proved through the invariance of sc-Fredholm sections under local strong bundle isomorphisms,
+which makes Part I's Definition 3.1.18 local (gap G.121; `Polyfold.EpStrongBundle.theorem_10_4_5_fred`). The text's
+second display, for $\Gamma^+$, has $\Phi^* : \Gamma(P', \mu') \to \Gamma(P, \mu)$; we read $\Gamma^+$ (Findings, item 44). *Checked by
 machine (V10.27):* `Polyfold.EpStrongBundle.theorem_10_4_5`,
 `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pushforward`,
 `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScPlusSection_pushforward`.
 
 **Proposition 10.4.6 (new in the 2021 edition) ((LR) for strong bundles).** (LR) of strong bundles is invariant under strong
 bundle equivalences (proof left to the reader), and Proposition 10.4.7 (new in the 2021 edition) is the strong bundle version
-of Proposition 10.1.10. Both checked, with Definition 8.4.2 read as `IsLRLocal` (gap G.122, closed;
+of Proposition 10.1.10. Both checked, with Definition 8.4.2 read as `IsLRLocal` (gap G.122;
 Findings, items 45, 72). *Checked by machine (V10.72, V10.73):* `Polyfold.EpStrongBundle.proposition_10_4_6`,
 `Polyfold.EpStrongBundle.proposition_10_4_7`.
 
@@ -535,24 +541,24 @@ For strong bundles $P : W \to X$, $P' : W' \to X'$, §4 is repeated with diagram
 equivalences $H$ with $\Phi \circ H \simeq \Phi'$, $\Psi \circ H \simeq \Psi'$, and classes $[D] : W \to W'$, the
 *generalized strong bundle maps*. Transitivity (the strong bundle Lemma 10.3.4) needs a weak fibred product of strong
 bundles, left to the reader: the pull-back $\pi_Z^*W''$ over $X \times_{X'} X''$, with $\Pi_Z$ an equivalence and $\Phi \circ
-\Pi_X \simeq \Psi \circ \Pi_Z$ (the strong bundle Theorem 10.2.2; gap G.123, closed; Findings, items 18, 50). *Checked by
+\Pi_X \simeq \Psi \circ \Pi_Z$ (the strong bundle Theorem 10.2.2; gap G.123; Findings, items 18, 50). *Checked by
 machine (V10.51, V10.68, V10.69):* `Polyfold.SBWeakFibredProduct.theorem_10_2_2`,
 `Polyfold.SBLocalization.SDiagram.lemma_10_3_4`.
 
 $[D]$ covers a generalized map $[d]$ of the bases, and $|[D]| = |\Psi| \circ |\Phi|^{-1}$ does not depend on the
 representative. On orbit spaces the symbolic diagram (10.24) is the square $|P'| \circ |[D]| = |[d]| \circ |P|$, whose bottom
-arrow is printed $|X| \to |X|$ (possible misprint for $|X'|$, in both editions; Findings, item 51). For $|[d]|(|x|) = |x'|$,
+arrow is printed $|X| \to |X|$, in both editions, read as $|X'|$ (Findings, item 51). For $|[d]|(|x|) = |x'|$,
 morphisms $a : \phi(x'') \to x$, $b : \psi(x'') \to x'$ give $\gamma : G_x \to G'_{x'}$, $\gamma(g) = b \circ \psi(k) \circ
 b^{-1}$ where $\phi(k) = a^{-1} \circ g \circ a$ (2017: $a \circ g \circ a^{-1}$), an isomorphism if $\psi$ is an
 equivalence; the square (10.24) with generalized vertical maps and the germs $q$, $Q$ of (10.25) are checked for each
-choice of data (gap G.124, closed; Findings, item 52). *Checked by machine (V10.52–V10.54):*
+choice of data (gap G.124; Findings, item 52). *Checked by machine (V10.52–V10.54):*
 `Polyfold.SBLocalization.GenSBMap.orbitMap_square`, `Polyfold.EPLocalization.Diagram.isotropyHom`,
 `Polyfold.SBLocalization.GenSBMap.square_10_24`, `Polyfold.EPLocalization.Diagram.exists_germ_q`,
 `Polyfold.SBLocalization.SDiagram.exists_lift_Q`.
 
 **Definition 10.5.1 (2017: 10.14) ($\mathcal{SEP}(F^{-1})$).** Strong bundles and generalized strong bundle maps; composites
 live on pull-backs over weak fibred products and, as in Theorem 10.3.8, are well defined, associative and unital (squares
-commute strictly by fibrewise injectivity): a category, with a functor from $\mathcal{SEP}$ (gap G.123, closed; Findings,
+commute strictly by fibrewise injectivity): a category, with a functor from $\mathcal{SEP}$ (gap G.123; Findings,
 items 18, 53). *Checked by machine (V10.55, V10.70):* `Polyfold.SBLocalization.SEPLoc.category`.
 
 **Definition 10.5.2 (2017: 10.15) (generalized strong bundle isomorphism).** A class represented with both legs strong bundle
@@ -560,9 +566,11 @@ equivalences, such as $[1, P']$ for $P' : (-\mathrm{id})^*W' \to W'$ of §5. *Ch
 `Polyfold.SBLocalization.GenSBMap.IsGeneralizedIso`, `Polyfold.StrongBundleLocalizationExamples.isGeneralizedIso_negDiagram`.
 
 **Remark 10.5.3 (new in the 2021 edition) (Theorem 10.3.10 again).** Its claim is read as: generalized strong bundle
-isomorphisms are isomorphisms of $\mathcal{SEP}(F^{-1})$, inverted by the reversed diagram; proved. Of the converse only the
-base half ($\psi$ an equivalence) is proved; $\Psi$ would need (C1), (C2) of §7 for strong bundles (gap G.123, open for this
-half; Findings, items 19, 53). *Checked by machine (V10.57, V10.71):* `Polyfold.SBLocalization.SEPLoc.theorem_10_3_10`.
+isomorphisms are isomorphisms of $\mathcal{SEP}(F^{-1})$, inverted by the reversed diagram; proved. The converse is proved as well: the
+base half ($\psi$ an equivalence) as in §7, and that $\Psi$ is a strong bundle equivalence by a saturation argument in
+place of strong bundle versions of (C1), (C2) (gap G.123; Findings, items 19, 53). *Checked by machine (V10.57, V10.71):*
+`Polyfold.SBLocalization.SEPLoc.theorem_10_3_10`, `Polyfold.SBLocalization.SEPLoc.equivalences_Ψ_of_isIso`,
+`Polyfold.SBLocalization.SEPLoc.isIso_iff_isGeneralizedIso`.
 
 **Theorem 10.5.4 (2017: 10.9) (push-forward of sections).** With $[D]_*f = \Psi_*\Phi^*f$ and $[D]^*g = \Phi_*\Psi^*g$ for a
 representative of two strong bundle equivalences, $[D]_* : \Gamma(P, \mu) \to \Gamma(P', \mu')$ is a well-defined bijection
@@ -571,7 +579,8 @@ with inverse $[D]^*$, also on $\Gamma^+$ and $\mathrm{Fred}$; $|[D]| = |[D']|$ g
 The text proves independence along a refinement $H$ by Propositions 10.4.2–10.4.4, $\Psi_*\Phi^*f = \Psi_*H_*H^*\Phi^*f =
 \Psi'_*\Phi'^*f$; checked as printed. The Lean goes through orbits: a section functor is determined by the orbits of its
 values (an isotropy element $\sigma \in G_x$ fixes $f(x)$, $f$ being a functor), and $|(D_*f)(x')| = |[D]|(|f(x)|)$, so $D_*$
-depends only on $|D|$. The Fred part rests on that of Theorem 10.4.5 (gap G.125); "isomorphism" is read as a bijection
+depends only on $|D|$. The Fred part rests on that of Theorem 10.4.5 (gap G.125;
+`Polyfold.SBLocalization.GenSBMap.theorem_10_5_4_fred`); "isomorphism" is read as a bijection
 (Findings, items 54, 55). *Checked by machine (V10.58, V10.59):*
 `Polyfold.SBLocalization.SDiagram.pushforward_eq_of_orbitMap_eq`, `Polyfold.SBLocalization.GenSBMap.theorem_10_5_4`.
 
@@ -580,19 +589,21 @@ $[D] = [D']$; the text gives no example. On $W = \mathbb R \times \mathbb R^k$ o
 \rightrightarrows \mathbb R$ (trivial action), $\mathrm{Inv}$ over $(g, x) \mapsto (g^{-1}, x)$ is the identity on objects,
 so $|[\mathrm{Inv}]| = |[1_W]|$. Relating $g$ and $g'$ when $g = a \circ \phi(k) \circ a^{-1}$, $g' = b \circ \psi(k) \circ
 b^{-1}$ gives an invariant of the classes; for $[1_W]$ the generator of $G_0 = \mathbb Z/3$ is related to itself, for
-$[\mathrm{Inv}]$ only to its inverse. So already the base classes differ: the non-uniqueness of Remark 10.3.18 (gap G.119,
-closed; Findings, item 56). *Checked by machine (V10.60):* `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5`.
+$[\mathrm{Inv}]$ only to its inverse. So already the base classes differ: the non-uniqueness of Remark 10.3.18 (gap G.119;
+Findings, item 56). *Checked by machine (V10.60):* `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5`.
 
 **Proposition 10.5.6 (new in the 2021 edition) (local regularity).** If one strong bundle has the local regularity property,
 so has the other. Checked for every property invariant under strong bundle equivalences; for local regularity that is
-Proposition 10.4.6, checked (gaps G.122, G.126, closed); the text's "see Proposition 10.4.7" is read as
+Proposition 10.4.6, checked (gaps G.122, G.126); the text's "see Proposition 10.4.7" is read as
 10.4.6 (a reading point; Findings, item 57). *Checked by machine (V10.61):*
 `Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso`, `Polyfold.SBLocalization.proposition_10_5_6`.
 
 **Theorem 10.5.7 (2017: 10.10) (uniqueness).** With local regularity on both sides, $|[D]| = |[D']|$ implies $[D] = [D']$. As
 we read it, this does not hold: the strong bundle of Remark 10.5.5 has the local regularity property, its orbits being
-points, and $[\mathrm{Inv}] \neq [1_W]$ with the same orbit map; nor does the 2017 Theorem 10.10 (gap G.127, settled;
-Findings, item 58). *Checked by machine (V10.67):* `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7`.
+points, and $[\mathrm{Inv}] \neq [1_W]$ with the same orbit map; nor does the 2017 Theorem 10.10 (gap G.127; Findings,
+item 58). For an effective target it holds, with Definition 8.4.2 read as `IsLRLocal` for the target bundle only. *Checked
+by machine (V10.67):* `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7`,
+`Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal`.
 
 ## 7. Appendix: the proofs of Theorems 10.3.8 and 10.3.10 (pp. 509–519 (2017 §§10.6.1–10.6.2))
 
@@ -613,7 +624,7 @@ equivalence by two out of three, and a refinement with identity natural transfor
 X \times_X A \xrightarrow{\Phi \circ \pi_A} Y$ refines $d$ by $\pi_A$, with $F \circ \pi_A \simeq \pi_X$ by $\tau(x, \phi, a)
 = \phi$, and similarly on the other side. $\square$
 
-Four places of the appendix are read with a correction (possible misprints): in the naturality of $\tau_{B'}$ the letter
+Four places of the appendix are read with a correction: in the naturality of $\tau_{B'}$ the letter
 $\tau_A$ appears for $\tau_{B'}$; "$(\Phi \circ \pi_B) \circ L \simeq \Psi' \circ \pi_{B'}$" is read with $\Psi \circ \pi_B$;
 the unit law is announced as $[1_X] \circ [d] = [d]$, which in the text's order of composition is $[d] \circ [1_X] = [d]$;
 and $\tau(a, \phi, a)$ is read $\tau(x, \phi, a)$ (Findings, item 60). *Checked by machine (V10.40):*
@@ -631,9 +642,9 @@ Conversely, let $[Y \xleftarrow{G} B \xrightarrow{\Psi} X]$ be an inverse. A dia
 equivalent to $1_X$ has $\Theta$ an equivalence, by Propositions 10.1.5 and 10.1.6 on a common refinement; so $\Psi \circ
 \pi_B$ and $\Phi \circ \pi_{A'}$ are equivalences. (C1) Then $\Phi$ is full, faithful and essentially surjective, as in the
 text, which in its injectivity argument writes $A \times_X B$ and $\mathrm{mor}_Y(\Psi(a), \Psi(a'))$ for $A \times_Y B$ and
-$\mathrm{mor}_X(\Psi(b), \Psi(b'))$, and in the essential surjectivity "$x$" for "$y$" (possible misprints). (C2) $\Phi$ is a
+$\mathrm{mor}_X(\Psi(b), \Psi(b'))$, and in the essential surjectivity "$x$" for "$y$" (as we read them). (C2) $\Phi$ is a
 local sc-diffeomorphism. The text defines $\Gamma(b') = (b', (s|U)^{-1}(b'), \ldots)$, read with $(s|U)^{-1}(\Psi(b'))$
-(possible misprint), and then uses that $\Gamma'(b') = (F|W)^{-1} \circ t \circ (s|U)^{-1}(\Psi(b'))$ is a local
+(as we read it), and then uses that $\Gamma'(b') = (F|W)^{-1} \circ t \circ (s|U)^{-1}(\Psi(b'))$ is a local
 sc-diffeomorphism. As we read it this needs $\Psi$ to be a local sc-diffeomorphism, which is the other half of (C2), so the
 step does not hold as we read it. The formal argument goes around it. A local inverse $\kappa$ of the equivalence $\Phi \circ
 \pi_{A'}$ at $(b, \phi, a)$ gives a local sc-smooth right inverse $\pi_{A'} \circ \kappa$ of $\Phi$ through $a$. $\Phi$ is
@@ -645,7 +656,7 @@ map that is injective near $a$ and has a local sc-smooth right inverse through $
 `Polyfold.EPLocalization.isEquivalence_toFunctor_of_comp`, `Polyfold.EPLocalization.isLocalScDiffeo_obj_of_comp`,
 `Polyfold.MPolyfold.isLocalScDiffeoAt_of_injOn`.
 
-Appendix §10.6.3 (p. 519), the example behind Remark 10.1.8, is not formalized (gap G.112).
+Appendix §10.6.3 (p. 519), the example behind Remark 10.1.8, is formalized with it (§2; gap G.112).
 
 ## 8. Witnesses: the hypotheses can hold
 
@@ -661,7 +672,7 @@ $\mathcal{SEP}$ (`Polyfold.StrongBundleEquivalenceExamples.negSEPHom_mem_equival
 the same projection for the diagrams of strong bundles, their composites, inverses and push-forwards
 (`Polyfold.StrongBundleLocalizationExamples.pushforward_foldDiagram`). §10.5 takes no hypothesis.
 
-## 9. Summary of what was silently assumed, now made explicit
+## 9. Summary of what the text assumes silently, made explicit
 
 | Where | HWZ say | What is actually needed |
 |---|---|---|
@@ -688,19 +699,16 @@ the same projection for the diagrams of strong bundles, their composites, invers
 | p. 514, proof of Thm. 10.3.8 | "the same space" | a reassociation functor, an equivalence |
 | pp. 518–519, (C2) in the proof of Thm. 10.3.10 | $\Gamma'$ a local sc-diffeomorphism | a local right inverse of $\Phi$ and local injectivity |
 
-**Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in the 23 files of `Polyfold/Chapter10/` imported
-by the root module, from `Equivalence.lean` to `StrongBundleLocalizationCategory.lean` (not the `WIP_*` files). Formalized:
-all definitions; Lemma 10.1.2, Propositions 10.1.3, 10.1.5, 10.1.6, 10.1.9, 10.1.10, 10.1.13, 10.1.14, 10.1.16–10.1.19,
-Theorem 10.1.7, Remarks 10.1.11, 10.1.12, Example 10.1.15, Theorem 10.2.2 and Remark 10.2.3; (E1)–(E3), Lemmas 10.3.2,
-10.3.4, 10.3.6, Theorems 10.3.8, 10.3.10, 10.3.14, 10.3.15, Propositions 10.3.11, 10.3.16, 10.3.17, Remark 10.3.18, Theorem
-10.3.21, and Theorem 10.3.19 for an effective target, with the proofs of Appendix §§10.6.1–10.6.2; Propositions
-10.4.2–10.4.4, Theorem 10.4.5 without its Fred part, and Remark 10.4.9; Remark 10.5.3 in one direction, Theorem 10.5.4
-without its Fred part and Remark 10.5.5; several in stronger forms. Proposition 10.5.6 is reduced to Proposition 10.4.6. A
-step of (C2) in the proof of Theorem 10.3.10 does not hold as we read it and is replaced; by the example of Remark 10.5.5,
-Theorems 10.3.19 and 10.5.7, and the 2017 Theorems 10.7 and 10.10, do not hold as we read them. Not formalized:
-$\mathcal{EP}_{lreg}$, Remark 10.1.8 and Appendix §10.6.3, the comparison with the triple-product structures in Theorem
-10.2.2, the universal property of the localization, the Fred part of Theorem 10.4.5, Propositions 10.4.6 and 10.4.7, the
-converse half of the strong bundle Theorem 10.3.10, $q$ and $Q$, the Fred part of Theorem 10.5.4 and Proposition 10.5.6 (gaps
-G.111–G.127; eight are closed or settled since, G.123 but for one half). The statements are V10.1–V10.71 of
+**Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in the 53 files of `Polyfold/Chapter10/`
+imported by the root module. Formalized: all definitions; Lemma 10.1.2, Propositions 10.1.3, 10.1.5, 10.1.6, 10.1.9,
+10.1.10, 10.1.13, 10.1.14, 10.1.16–10.1.19, Theorem 10.1.7, Remarks 10.1.8, 10.1.11, 10.1.12, Example 10.1.15, Theorem
+10.2.2 with the triple-product structures and Remark 10.2.3; (E1)–(E3), Lemmas 10.3.2, 10.3.4, 10.3.6, Theorems 10.3.8,
+10.3.10, 10.3.14 with the universal property of the localization, 10.3.15, Propositions 10.3.11, 10.3.16, 10.3.17, Remark
+10.3.18, Theorem 10.3.21, and Theorem 10.3.19 for an effective target, with the proofs of Appendix §§10.6.1–10.6.2 and the
+example of §10.6.3; $\mathcal{EP}_{lreg}$; Propositions 10.4.2–10.4.4, Theorem 10.4.5, Propositions 10.4.6 and 10.4.7, and
+Remark 10.4.9; Remark 10.5.3 in both directions, $q$ and $Q$ of (10.25), Theorem 10.5.4, Remark 10.5.5, Proposition 10.5.6
+and Theorem 10.5.7 for an effective target; several in stronger forms (gaps G.111–G.127). A step of (C2) in the proof of
+Theorem 10.3.10 does not hold as we read it and is replaced; by the example of Remark 10.5.5, Theorems 10.3.19 and 10.5.7,
+and the 2017 Theorems 10.7 and 10.10, do not hold as we read them. The statements are V10.1–V10.75 of
 `Exposition/Verification.md`, compared in `Exposition/polyfold-beside-lean.html`, retold in `Exposition/ProofByProof.md`;
-findings: `Exposition/Findings.md`, "Chapter 10", items 1–25, 30–39, 40–47, 50–59, 60–61, 70.
+findings: `Exposition/Findings.md`, "Chapter 10", items 1–25, 30–39, 40–47, 50–61 and 70–74.

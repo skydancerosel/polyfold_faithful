@@ -61,7 +61,7 @@ equivalences, and `τ(a, ϕ, b) = ϕ` is a natural equivalence `F ∘ πA ≃ H 
   structures": for two equivalences the structures of the two cases are the same.
 * **Fullness.**  The text writes the morphism `F(x) → F(x')` as `ϕ' ∘ G(k) ∘ ϕ⁻¹`; with
   `ϕ : F(x) → G(z)` and `ϕ' : F(x') → G(z')` the composite which has these ends is
-  `ϕ'⁻¹ ∘ G(k) ∘ ϕ` (possible misprint), and this is what we use.  For `G` an equivalence the
+  `ϕ'⁻¹ ∘ G(k) ∘ ϕ` (as we read it), and this is what we use.  For `G` an equivalence the
   morphism `G(z) → G(z')` is `ϕ' ∘ F(h) ∘ ϕ⁻¹`.
 * **Essential surjectivity** of `πZ`: the text uses that `|F|` is a bijection; we use the essential
   surjectivity of `F` (`IsEquivalence.exists_iso`), which is that bijectivity.

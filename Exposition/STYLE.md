@@ -72,7 +72,7 @@ dependency of this project, so the same results are available to the Lean files.
    stability of a soap film, the energy landscape of a pendulum or a double pendulum, K-theory and
    vector bundles over spheres for the Bott chapters...). Be honest: no invented data; if
    quoting a physical fact, it must be standard.
-6. `## k+1. Summary of what was silently assumed, now made explicit`: a table
+6. `## k+1. Summary of what the text assumes silently, made explicit`: a table
    `| Where | Milnor says | What is actually needed |` with page numbers.
 7. Last paragraph: `**Checked by machine.** Not yet: this chapter has not been formalized.` (to be
    updated once Lean files exist).

@@ -1,4 +1,4 @@
-# Lean names of Chapters 1-8 renamed to the 2021 numbers on 2026-11-09: old name, new name, reason
+# Lean names of Chapters 1-8 renamed to the 2021 numbers: old name, new name, reason
 Polyfold.BundledMPolyfold.lemma_4_4_4_all_2021_zero	Polyfold.BundledMPolyfold.lemma_4_4_4_all_zero	lemma_4_4_4: 2021 Lemma 4.4.4 (already 2021); drop _2021
 Polyfold.ConjugationData.corollary_3_41_of_subset_shrinkGerm	Polyfold.ConjugationData.corollary_3_5_3_of_subset_shrinkGerm	corollary_3_41: preprint Corollary 3.41 -> 2021 Corollary 3.5.3
 Polyfold.ConjugationData.corollary_3_41_shrink	Polyfold.ConjugationData.corollary_3_5_3_shrink	corollary_3_41: preprint Corollary 3.41 -> 2021 Corollary 3.5.3

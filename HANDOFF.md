@@ -37,8 +37,8 @@ python3 Exposition/check_trace.py Exposition/ProofByProof.md   # 0 unresolved
 ```
 
 Rules: no `sorry`; `#print axioms` in `Polyfold/Test.lean` for every theorem; temporary files only as gitignored
-`WIP_*.lean`; never renumber V-items, G-items or Findings items (no sign-off is recorded in the repository yet,
-so V-items may still be edited in place). Every hypothesis that quantifies over all charts is checked for
+`WIP_*.lean`; never renumber V-items, G-items or Findings items (as long as no sign-off is recorded in the repository,
+V-items may be edited in place). Every hypothesis that quantifies over all charts is checked for
 satisfiability (Findings, Chapter 3, item 190), and every added hypothesis has a witness in the non-degenerate
 case (a witness only for $\partial X = \emptyset$ or zero fibres does not count). Lean names carry the 2021 numbers
 (`theorem_14_1_9`, `lemma_14_1_4`) with descriptive suffixes only (`_hyp` for a form with a hypothesis not in the
@@ -47,7 +47,7 @@ UpperCamelCase.
 
 Wording about the text: in everything the authors may read (the reports, the README, `RoundTrip/REPORT.md`), a
 counterexample refutes *our reading* of a statement, not the statement. Say "does not hold as we read it",
-"presumably …", "we read … as …"; never call the text wrong or speak of its errors, mistakes or misprints.
+"presumably …", "we read … as …"; never call the text wrong or attribute a defect to it.
 The public documents describe the final state only.
 
 ## 2. Layout
@@ -55,12 +55,15 @@ The public documents describe the final state only.
 Top level: `Polyfold.lean` (imports every module), `Polyfold/Test.lean` (`#print axioms` per theorem, one block
 per chapter), `Polyfold/Basic.lean`, `Polyfold/Vendor/MilnorSard/` (Sard's theorem, from the Milnor project),
 `Polyfold/Chapter1/` … `Polyfold/Chapter16/` (one folder per chapter of the book, files named by topic),
-`RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`), `PLAN.md`,
-`Exposition/` (§3). A statement of one chapter that needs the machinery of a later chapter lives in the later
-chapter's folder.
+`RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`),
+`Exposition/` (§3). A file's folder is its place in the dependency order: a file in `Polyfold/ChapterN/` imports
+only chapters ≤ N, so a statement of one chapter that needs the machinery of a later chapter lives in the later
+chapter's folder, and a file that needs nothing beyond an earlier chapter sits in that earlier folder. "From other
+chapters" below names the files that serve statements of another chapter of the book; "pieces" are parts split off
+larger files for import order.
 
 **Chapter 1** (sc-calculus): `ScBanach`, `ScFredholm`, `ScFredholmCriterion`, `FredholmIndex`,
-`FredholmPerturbation`, `ScSmooth`, `Levels`, `LevelsWeak`, `Properties`, `ChainRule`, `Degeneracy`, `PartialCones`,
+`FredholmPerturbation`, `ScSmooth`, `Levels`, `Properties`, `ChainRule`, `Degeneracy`, `PartialCones`,
 `ScOneNotNormContinuous`, `ExpositionLemmas`, `Book`; the weighted Sobolev spaces of Example 1.1.3 on the
 cylinder in `CylinderSobolevSpaces`, `CylinderScBanach`, `CylinderSobolevComplete`, `CylinderWeakDerivatives`,
 `CylinderLeibniz`, `CylinderIntegrationByParts`, `CylinderMultipliers`, `CylinderCutoff`, `CylinderTestDensity`,
@@ -68,16 +71,17 @@ cylinder in `CylinderSobolevSpaces`, `CylinderScBanach`, `CylinderSobolevComplet
 
 **Chapter 2** (retracts and M-polyfolds): `Retracts`, `TameRetracts`, `MPolyfold`, `LocalTopology`,
 `LocalTopologyExample`, `Metrizable`, `MichaelRefinement`, `DegeneracyIndex`, `Boundary`, `PartialCone`,
-`PartialConeQuadrant`, `CornerGerms`, `Tame`, `TameFaces`, `TameInvariance`, `TameSub`, `ExtendedFaces`,
-`SubMPolyfold`, `SubMPolyfoldTangent`, `SubMPolyfoldTangentSc`, `FibredProduct`, `LevelPolyfold`, `SmoothPaths`,
+`PartialConeQuadrant`, `CornerGerms`, `Tame`, `TameFaces`, `TameInvariance`, `ExtendedFaces`,
+`SubMPolyfold`, `SubMPolyfoldTangent`, `SubMPolyfoldTangentSc`, `FibredProduct`, `LevelPolyfold`,
 `SmoothRetractImage`; the tangent bundle and tangent spaces in `TangentBundle`, `TangentMap`, `TangentMapLinear`,
 `TangentLift`, `TangentLiftAll`, `TangentSpaceLinear` (Definition 2.3.14), `TangentSpaceChartIndependent`,
-`TangentProjOpen`, `TangentConePaths`, `TangentConeQuadrant`, `ReducedTangentIntrinsic`; strong bundles in
+`TangentProjOpen`, `TangentConeQuadrant`, `ReducedTangentIntrinsic`; strong bundles in
 `StrongBundle`, `StrongBundleOne`, `StrongBundlePullback`, `StrongBundleRestrict`; the tame boundary of §2.7 in
 `TameBoundary`, `TameBoundaryStructure`, `TameBoundaryTopology`, `TameBoundaryExample`, `TameBoundaryNonCentred`;
-the 2021 statements in `Book`, `BookFormLocalCompleteness`, `BookFormTameBoundary`,
-`BookFormTameSub`.
+the 2021 statements in `Book`, `BookFormLocalCompleteness`, `BookFormTameBoundary`.
 Face-structured M-polyfolds recognised by labels and face counts, with products: `FaceLabels`, `FaceFamilies`.
+From other chapters: `LevelsWeak` (Chapter 1), `VectorFields`, `VectorFieldsGlobal` (Chapter 4), `LocConnected`
+(Chapter 7); pieces: `ScOperatorProdMap`, `StrongBundleLevelOne`, `StrongBundleSectionOps`, `TangentMapLocal`.
 
 **Chapter 3** (sc-Fredholm theory): germs and the contraction germ in `Germ`, `GermLevels`, `GermCalculus`,
 `GermCalculusParam`, `ContractionGerm`, `GermIFT`, `GermIFTSmooth`, `SolutionGermRegularity`,
@@ -87,41 +91,49 @@ files; sc-Fredholm sections and their tame germ data in `TameGerms`, `TameGermsG
 `TameGermDataStabilization`, `TameGermTransfer`, `FredholmSectionsG` and the `FredholmGerm*` files; the implicit
 function theorem in the `GlobalIFT*` files (`GlobalIFTTheorems`, `GlobalIFTTheoremsG`, `GlobalIFTFull`; the
 surjectivity at nearby zeros in the `GlobalIFTNearby*` files); good position in the `GoodPosition*` and
-`GoodComplement*` files; linearizations in the `Linearization*` files; the index in the `IndexLocallyConstant*`
-and `IndexAlongPaths*` files; local solvability, compactness and quadrants in `LocalSolvability`,
+`GoodComplement*` files; linearizations in the `Linearization*` files; local solvability, compactness and quadrants in `LocalSolvability`,
 `LocalSolvabilityClosed`, `SectionCompactness`, `SectionCompactnessG`, `LocalCompactness`, `QuadrantIFT`,
 `QuadrantInverse`, `QuadrantInverseSmooth`, `QuadrantClassCk`; the all-charts tameness hypothesis that no strong
 bundle satisfies, and the non-vacuity witnesses, in `TameVacuity`, `TameVacuityChart`, `NonVacuity`,
-`NonVacuityCorner`, `NonVacuityG`; untamed bundles in the `Untamed*` files; the interval $[0,1]$ as an M-polyfold
+`NonVacuityCorner`; untamed bundles in the `Untamed*` files; the interval $[0,1]$ as an M-polyfold
 in `UnitIntervalPolyfold`; the 2021 statements and counterexamples to our readings in `BookGerms`,
-`BookItems`, `BookFormIFT`, `MainTheorems`, `Counterexamples`, `RecentreCounterexample`.
-Files with the suffix `G` hold the germ-reading forms of the statements of the file of the same stem.
+`BookItems`, `Counterexamples`, `RecentreCounterexample`.
+Files with the suffix `G` hold the germ-reading forms of the statements of the file of the same stem. The index
+along paths and its local constancy, the printed forms of the main theorems and the restriction to open subsets
+need the bump functions of Chapter 5 and are there.
 
 **Chapter 4** (manifolds with boundary with corners, sc⁺, forms): `LocalStructure`, `LocalFaces`,
-`Characterization`, `Recentre`, `Submanifolds`, `SubmanifoldNearBoundary`, `SubmanifoldNearInterior`, `ScPlus`,
-`ScPlusGraph`, `ScPlusRetractQuestion`, `Families`, `FamiliesLocal`, `GeneralPositionLocalFaces`,
+`Characterization`, `Recentre`, `Submanifolds`, `SubmanifoldNearInterior`, `ScPlus`,
+`ScPlusGraph`, `Families`, `FamiliesLocal`, `GeneralPositionLocalFaces`,
 `StratifiedRegularValues`, `LocalStrongBundle`, `RetractionSectionFredholm`, `RetractionSectionSplitting`,
-`RemarkLocalForm`, `RemarkFourThreeExample`, `RemarkFourThreeFamily`; vector fields and the Lie bracket in
-`VectorFields`, `VectorFieldsGlobal`, `BracketLevel`, `LieBracketBundle`, `LieBracketOpenSubsets`,
-`BookFormLieBracket`; sc-differential forms and Stokes in the `ScForms*2021` files, `ScExteriorDerivative`,
-`OpenForms`, `BoundaryForms`, `BoundaryFormsPullback`, `BoundaryFormsAgreementGeneral`, `BoundaryFormsAgreement`,
+`RemarkLocalForm`, `RemarkFourThreeExample`, `RemarkFourThreeFamily`; the Lie bracket in
+`BracketLevel`, `LieBracketBundle`, `BookFormLieBracket` (vector fields in Chapter 2); sc-differential forms and Stokes in the `ScForms*` files, `ScExteriorDerivative`,
+`BoundaryForms`, `BoundaryFormsAgreementGeneral`, `BoundaryFormsAgreement`,
 `BoundaryWedge`, `RelativeWedge`, `EuclideanForms`, `EuclideanStokes`, `ManifoldForms`,
 `ManifoldFaceForms`, `ManifoldBoundary`, `ManifoldIntegral`, `ManifoldStokes`, the `StokesFace*`
-files, `Poincare448`, `Poincare448Shift`, `ParametricIntegrals`, `Poincare`; `Book`.
+files, `Poincare448Shift`, `ParametricIntegrals`; `Book`.
 The faces of a submanifold in general position: `GeneralPositionFaceStructure`. The boundary integral of a manifold
 with ends, without faces (level sets and cut-offs): `BoundaryIntegralEnds`.
+From other chapters: `TameSub`, `BookFormTameSub` (Chapter 2), `NonVacuityG`, `UntamedBundleFrame`,
+`UntamedBundleTheorem` (Chapter 3), `ManifoldOrientation` (Chapter 6); pieces: `NonVacuityHalfSpace`,
+`SmoothSubmanifoldBasics`.
 
 **Chapter 5** (the Fredholm package): `Compactness`, `SolutionSetClosed`, `AuxNorm`, `AuxNormLiteral`,
 `AllowableSectionsMetric`, `BumpFunctions`, `BumpWeakPointwise`, `BumpPointsResearch`, `ShiftTameResearch`,
 `PartitionsOfUnity`, `HilbertPartitionsOfUnity`, `SeparablePartitionsOfUnity`, `WCGPartitionsOfUnity`,
 `AmirLindenstrauss`, `BonicFrampton`, `Torunczyk`, `ProjectionalResolution`, `LocallyFiniteBases`,
 `ReflexiveCompactness`, `ReflexiveFibres`, `WeakSequentialCompactness`, `StrongBundleShift`,
-`SmoothLevelContinuity`, `DegeneracyZeroTame`, `CubePartitions`; transversality and general position in
-`Transversality`, `GeneralPosition`, `DenseGoodPosition`, `Corollary58`, `BoundaryExtension`,
+`SmoothLevelContinuity`; transversality and general position in
+`Transversality`, `GeneralPosition`, `DenseGoodPosition`, `Corollary58`,
 `FredholmArcPerturbation`, `CylinderPerturbation`; homotopy in `Homotopy`, `CompactHomotopyIso`; Theorem 5.3.15
 in the `Theorem5315_*` files; the Sobolev spaces on cubes in the `SobolevCube*`, `SobolevRemark*` and
 `LpWeightedProduct` files; the printed forms in `MainTheoremsBookForm`, `MainTheoremsBookFormTextDefs`, `Book`,
 `ApproxPropertyEveryChart`.
+From other chapters: `SmoothPaths`, `TangentConePaths` (Chapter 2); the index along paths and its local constancy
+in the `IndexAlongPaths*` and `IndexLocallyConstant*` files, `BookFormIFT`, `MainTheorems`, `RestrictOpen`,
+`SolutionTangentKernel`, `FredholmPullbackIso`, `GermReadingAliases` (Chapter 3); `OpenForms`, `Poincare448`,
+`Poincare` (Chapter 4); `ScPaths`, `OrientableNbhd`, `Lemma629` (Chapter 6); `StrongBundleMap` (Chapter 8); pieces:
+`RestrictOpenGermData`, `ChartSegmentPaths`, `SmoothSetMaps`, `DenseSmoothPoints`, `DenseSmooth`, `SubtypeValSmooth`.
 
 **Chapter 6** (determinants, orientations, invariants): determinant lines and bundles in `DetLine`, `DetBundle`,
 `DetConventions`, `DirectSumDet`, `ExactSequence`, `FredholmDet`, `LocalDetBundle`, `ClassicalDetBundle`,
@@ -131,12 +143,12 @@ in the `Theorem5315_*` files; the Sobolev spaces on cubes in the `SobolevCube*`,
 `GoodProjections`, `ProjectionSequence`, `SectionOrientation`, `SolutionOrientation`, `SolutionOrientationCharts`,
 `SolutionSetOrientation`, `SolutionSetOpen`, `SolutionManifoldFamily`, `ProductOrientation`, the
 `ProductSectionOrientation*` files, `OrientationConvention`, `OrientationFunctor`, `OrientationMainClean`,
-`ManifoldOrientation`, `ContinuousOrientation`, `PerturbedOrientation`, `OrientableNbhd`; paths, homotopies and
-transport in `ScPaths`, `PathsInterval`, `PathCategory`, `PathCategoryInterval`, `PathTransport`, `Propagation`,
+`ContinuousOrientation`, `PerturbedOrientation`; paths, homotopies and
+transport in `PathsInterval`, `PathCategory`, `PathCategoryInterval`, `PathTransport`, `Propagation`,
 `PropagationWellDefined`, `Continuation`, `ScHomotopy`, `IntervalHomotopy`, `ScContractible`,
 `SmoothPathComponents`, `PushData`, `PushTransfer`, `ChartTransfer`, `AddSections`, `FamilySections`,
 `KernelFamily`, `KernelBundleInterval`, `ParamKernel`, `UnitIntervalSections`, `SmoothFiniteDimRanges`,
-`SubmersionNearFamily`, `Lemma629`; the invariants and cobordisms of §§6.6–6.7 in the `Cube*` files (the cube
+`SubmersionNearFamily`; the invariants and cobordisms of §§6.6–6.7 in the `Cube*` files (the cube
 $[0,1]^n$ and its boundary slices), `SlicePropertyP`, `CobordismOrientation`, the `EndProductOrientation*`
 and `EndPullbackForms*` files, `InvariantSingle`, `InvariantCobordism`, `InvariantProductEnds`,
 `InvariantProductEndCharts`, `ProperHomotopy`, `Theorem671`, `Theorem671Assembly`, `Theorem671Final`
@@ -151,49 +163,58 @@ The cobordism over `[0, 1] × X` (Remark 6.6.19, proof of Theorem 6.7.1): its en
 `IntervalEndManifolds`, `IntervalCobordismDegeneracy`, `IntervalEndInclusion`, `IntervalCobordismStokes`,
 `IntervalConstantCobordism`, `CornerSmoothMaps`, `InducedOrientationFrames`, `IntervalSliceSignedFrames`; its
 boundary integral, which uses the face-sum form of Stokes, in Chapter 9.
+From other chapters: `BoundaryFormsPullback`, `StokesFaceCharts` (Chapter 4), `CubePartitions` (Chapter 5), `Discrete`
+(Chapter 7), `MathlibFormsBridge`, `MathlibSolutionSets`, `SolutionFaces`, `SolutionFaceForms` (Chapter 9); pieces:
+`CylinderInterpolation`, `TangentMapCongr`, `TangentSpaceSingleton`, `DegIndexLevelZero`, `CornerCoordinates`,
+`SubmanifoldDimension`, `RetractTangentShift`.
 
-**Chapter 7** (ep-groupoids): `Groupoid`, `EpGroupoid`, `Basic`, `BookBasic`, `Discrete`, `Effective`,
+**Chapter 7** (ep-groupoids): `Groupoid`, `EpGroupoid`, `Basic`, `BookBasic`, `Effective`,
 `Reduced`, `ReducedCriterion`, `ReducedNaturalCharts`, `ReducedNotHausdorff`, `OrbitTopology`, `ProperMaps`,
-`ProperSubsets`, `LocalDiffeo`, `LocConnected`, `NaturalAction`, `NaturalRep`, `NaturalRepFinite`, `Uniformizer`,
-`SubGroupoid`, `SubGroupoidTangent`, `SubGroupoidTangentSc`, `TangentMorphism`, `TangentMorphismLinear`, `Lift`,
-`RaisedEpGroupoid`, `SmoothPointsDense`, `SmoothConnectedReps`, `SmoothRegularAssembly`, `FlatGluing`, `Michael`,
+`ProperSubsets`, `LocalDiffeo`, `NaturalAction`, `NaturalRep`, `NaturalRepFinite`, `Uniformizer`,
+`SubGroupoid`, `SubGroupoidTangent`, `SubGroupoidTangentSc`, `Lift`,
+`SmoothPointsDense`, `FlatGluing`, `Michael`,
 `PartitionsOfUnity`, `HilbertPartitionsOfUnityEp`, `PropertyFiveResearch`, `NonVacuity`; Zhou's retract and
 (ZHOU) in the `Zhou*` files, `LineSobolevScale`, `LineTranslates`; the tame boundary in `TameBoundaryEp`,
-`TameBoundaryEpStructure`, `TameBoundaryFull`, `BookFormTameBoundaryEp`.
+`TameBoundaryEpStructure`, `TameBoundaryFull`, `BookFormTameBoundaryEp`. From Chapter 5: `DegeneracyZeroTame`.
 
-**Chapter 8** (bundles and covering functors): `Basic`, `EpStrongBundle`, `StrongBundleMap`, `NatTrans`,
-`GeometricLift`, `GeometricLiftEmpty`, `PullbackStrongBundle`, `BundleLocalRegularity`,
+**Chapter 8** (bundles and covering functors): `Basic`, `EpStrongBundle`, `NatTrans`,
+`GeometricLift`, `GeometricLiftEmpty`,
 `BundleOrbitParacompact`, `BundleOrbitParacompactOne`, `ProperCovering`, `ProperCoveringLocal`,
 `SigmaPolyfold`, `NonVacuity`, `NonVacuityBundle`; the tangent ep-groupoid in `TangentEp`, `TangentEpNotInjective`,
 `TangentFibred`, `TangentLocal`, `TangentOrbit`, `TangentPairs`, `TangentTame`, `TangentVertical` and the
-`TangentZhou*` files; forms on ep-groupoids in `EpForms`, `EpFormsFunctor`, `EpFormsObj`, `EpPoincare`; `Book`.
+`TangentZhou*` files; `Book`.
+From other chapters: `LieBracketOpenSubsets` (Chapter 4); `SmoothConnectedReps`, `SmoothRegularAssembly`, `ZhouFacts`,
+`ZhouGroupoid`, `ZhouLevels`, `ZhouSigma` and, for the tangent maps of §7.4, `ZhouTangent` (Chapter 7).
 
 **Chapter 9** (branched ep⁺-subgroupoids, integration, Stokes): the definitions in `Basic`, `Symmetric`,
 `Propositions`, `Appendix`, `AppendixSlices`, `Tangent`, the `TangentSlices*` files, `TangentSubmanifoldSmooth`,
 `OrientationBasic`, `Orientation`, `OrientationAnyDim`, `OrientationBoundary`, `OrientationRn`, `OrientationTangent`,
 `OrientationUniqueness` and the `OrientationExample*` files; sheets, measures and the branched integral in the
 `Sheet*` files, `Measure`, `MeasureEffective`, `MeasureGlue`, `MeasureWholeSheets`, `LocalMeasure`, `FamilyMeasure`,
-`PointIntegration`, `FinitePointIntegration`, `BranchedIntegral`, `ReducedIntegral`, `ReducedRep`, `ReducedCircle`,
+`PointIntegration`, `FinitePointIntegration`, `BranchedIntegral`,
 `SignedMeasureIntegrals`, `DensityLocal`, `DensitySignedMeasure`, `FunctionTimesForm`, `ZeroFormValues`; the integral
 through graph charts in `GraphChart`, `GraphChartExists`, `GraphChartTransition`, `GraphCoord`, `GraphDiffeo`,
 `ChartIntegral`, `ChartAbsIntegral`, `ChartVectors`, `IntegralCovering`, `FormEvalEp`, `FormEvalInfty`, `FrameSign`,
-`ManifoldBridge`, `ManifoldIntegralBridge`, `MathlibFormsBridge`, `MathlibManifoldBridge`, `MathlibSolutionSets`,
+`ManifoldBridge`, `ManifoldIntegralBridge`, `MathlibManifoldBridge`,
 `TameOpen`, `MultiChart`, `MultiChartCompact`, `MultiChartIntegration`, `MultiChartTheorem`; the boundary, its faces
 and their measure in the `Boundary*` files, `CornerFinite`, `FaceChange`, `FaceFrame`, `FaceIntegrand`,
 `FaceOrientation`, `FaceIntegralDimOne`, `GeneralBoundaryPoints`, `StratumRetraction`, `StratumTangent`; dimension
 decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `DimensionJumpPolyfold`, `DimensionJumpRetract`,
 `LocallyEquidimensional`; Stokes in the `Stokes*` files, `FiniteTheorem`, `FiniteTheoremText`, `FiniteDominated`,
 `GeneralCorollaries`, `GeneralLevelZero`, `AllStructures`, `AllStructuresDimOne`, `EffectiveDimOneLUC`; witnesses in
-`CircleOneSheet`, `CircleWitness`, `HalfCircleSheet`, `HalfCircleWitness`, the `Hemisphere*` files, `XAxisWitness`,
+`CircleOneSheet`, `CircleWitness`, `HalfCircleSheet`, `HalfCircleWitness`, the `Hemisphere*` files,
 `SphereRadialRetraction`, `CyclicGroupoidIsotropy`; the support of a branched subgroupoid in the `Support*` files;
 `CoveringFromText`, `DescentPolyfold`, `GoodPoints`, `LevelRestrict`, `OrbitSubsetMetrizable`,
-`PropertyTShrinking`, `SolutionFaces`, `SolutionFaceForms`. Remark 9.5.20 in `DimensionJumpSheet`,
+`PropertyTShrinking`. Remark 9.5.20 in `DimensionJumpSheet`,
 `DimensionJumpBranched`, `DimensionJumpIntegral`, `DimensionZeroIntegral` (the boundary integral in Chapter 11,
 `DimensionJumpBoundaryIntegral`).
 The boundary integral of the cobordism `S_F ⊆ [0, 1] × X` of Chapter 6 (ends, signs, lateral faces):
 `BoundaryEndFaces`, `IntervalBoundaryDecomposition`, `IntervalEndSigns`, `IntervalCobordismFaceStructure` (on
 `StokesFaceSum`); without faces, the lateral term as a limit of cut-off integrals: `EndFaceChartPairs`,
 `IntervalLateralBoundary`.
+From other chapters: `SubmanifoldNearBoundary`, `ScPlusRetractQuestion` (Chapter 4), `TangentMorphism`,
+`TangentMorphismLinear` (Chapter 7), forms on ep-groupoids in `EpForms`, `EpFormsObj`, `EpPoincare` (Chapter 8); pieces:
+`TangentMapBoundaryOps`, `SubmanifoldTangentImage`.
 
 **Chapter 10** (equivalences and localization): `Equivalence`, `EquivalenceExamples`, `EquivalenceLR`,
 `EquivalenceLREffective`, `EquivalenceReduced`, `EquivalenceRefinement`, `EquivalenceZhou`, `ZhouExample`,
@@ -204,6 +225,9 @@ strong bundles up to equivalence in the `StrongBundle*` files; `FredholmEquivale
 Local regularity in germ form in `LocalRegularityGerm`, `StrongBundleCutOff`; tame bundle charts in
 `TameBundleCharts`.
 Proposition 8.4.3 for Definition 8.4.2 as printed: `BundleLocalRegularityPrinted`.
+From other chapters: `RaisedEpGroupoid` (Chapter 7), `PullbackStrongBundle`, `BundleLocalRegularity`, `EpFormsFunctor`
+(Chapter 8), `ReducedIntegral`, `ReducedRep`, `ReducedCircle`, `XAxisWitness`, `SupportClassicalStructures`,
+`SupportGroupoidEtale`, `SupportGroupoidNaturality` (Chapter 9).
 
 **Chapter 11** (geometry up to equivalences): `EpEquivalenceGeometry`, `EpEquivalenceGeometryFaces`,
 `FaceEpGroupoids`, `FaceGeneralizedIso`, `FaceIntersectionUnion`, `FaceIntersectionCounterexample`,
@@ -232,7 +256,7 @@ restrictions (tame germ data) in `RestrictionLocalIso`, `ChartTransportCommute`,
 `OrientationNonEffectiveExample`; the literal germ data in `UntamedOrientationEp`.
 The orientation objects with and without local sc⁺-sections compared under bump functions:
 `LocalOrientationComparisonOrbit`, `LocalOrientationDiagramComparison`; local isomorphisms of `[0, 1] × X`:
-`IntervalProductLocalIso`.
+`IntervalProductLocalIso`. From Chapter 5: `BoundaryExtension`.
 
 **Chapter 13** (sc⁺-multisections): `Correspondence`, `PiCorrespondence`, `BiAction`, `GoodSystem`,
 `GoodSystemExistence`, `GoodSystemRelative`, `ScPlusSectionOn`, `StrongBundlePullMap`, `SymmetricOn`,
@@ -253,13 +277,14 @@ files, `CoherentExtension`, `NormControl`; the transport of §14.5 in `Transport
 `FaceSectionCompatible`, `FaceNaturalRep`, with the quadrant example in `QuadrantBundle`, `FaceAssemblyCorner`;
 half-space witnesses for §12.5 in `ChartOrientationHalfSpace` and the `LocalOrientation*HalfSpace` files.
 Index families per face: `FaceIndexFamilies`; the extension on the corner example: `CornerExtensionWitness`.
+From Chapter 15: `Linearization`, `LinearizationModel`, `LocalScPlus`, `SeparationLemmas`.
 
-**Chapter 15** (transversality and invariants): linearizations in `Linearization`, `LinearizationFunctor`,
-`LinearizationIntrinsic`, `LinearizationModel`, `OrientedLinearizations`, `CanonicalLift`; local families and general
-position in `LocalFamilies`, `LocalSeeds`, `LocalSlice`, `LocalIFT`, `LocalScPlus`, `ParamFamily`, `ParamOntoBridge`,
+**Chapter 15** (transversality and invariants): linearizations in `LinearizationFunctor`,
+`LinearizationIntrinsic`, `OrientedLinearizations`, `CanonicalLift`; local families and general
+position in `LocalFamilies`, `LocalSeeds`, `LocalSlice`, `LocalIFT`, `ParamFamily`, `ParamOntoBridge`,
 `ParamOntoTransport`, `ParametricGeneralPosition`, the `GeneralPosition*` files, `GoodPositionBranches`,
 `GoodPositionWitness`, `Transversality`, `TransversalExtension`, `RegularPerturbations`,
-`InteriorPerturbationWitness`, `BoundaryPerturbation`, `ControllingPairs`, `SeparationLemmas`, `FredholmSummands`; the
+`InteriorPerturbationWitness`, `BoundaryPerturbation`, `ControllingPairs`, `FredholmSummands`; the
 relative case (Theorem 15.3.9) in `RelativeFamilies`, `RelativeParametric`, `RelativeReduction`, `RelativeBranch`,
 `ChargedExtensionFibres`, `ChargedExtensionCylinder`; branched objects in `BranchChart`, `TameBranched`,
 `TameWitness`, `RestrictedEp`; the cylinder $[0,1] \times X$ in `Cylinder`, `CylinderEnds`, `CylinderGlue`,
@@ -309,8 +334,8 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 
 - `Chapter1.md` – `Chapter11.md`: the exposition of Parts I–II.
 - `cmp/chNN.json` → `build_comparison.py` → `Comparison.json`, `Comparison.md`, `polyfold-beside-lean.html`: every
-  numbered statement of the book beside the Lean statement, with a verdict (V-rows), and the entries not
-  formalized or formalized only in part (G-numbers).
+  numbered statement of the book beside the Lean statement, with a verdict (V-rows), and the gaps (G-numbers):
+  entries of the text that no row covers, each formalized or marked "nothing to formalize".
 - `verification/chNN.md` → `build_verification.py` → `Verification.md` (and `.pdf`): the verified edition, V-items
   and the numbered sign-off items; `build_signoff.py` → `polyfold-signoff.html`, the sign-off page.
 - `pbp/partNN.md` → `assemble_pbp.py`, `build_proofbyproof.py` → `ProofByProof.md`, `.pdf`,
@@ -320,13 +345,16 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 - `checklist/` (`TrustedBase.lean`, `graph.tsv`, `mains.json`, `mains.tsv`, `build_checklist.py`) →
   `ReviewerChecklist.md`: the definitions and main statements a reviewer must read, in tiers.
 - `STYLE.md`, `REVIEW.md`, `VERIFY.md`, `PBP.md`: conventions of the reports, from the Milnor project.
+- `RoundTrip/` (outside `Exposition/`): the round-trip audit of the statements of Chapters 1–11; method and how to
+  rerun it in `RoundTrip/README.md`, results in `RoundTrip/REPORT.md`.
 
 Run the scripts from the project folder with the git shim of §1 on the PATH (`check_names.py` calls lake, and
 `check_trace.py` reads Mathlib's sources in `.lake/packages/mathlib`).
 
-## 4. What is open
+## 4. Status
 
-The open items are the G-entries of `Exposition/Comparison.md` that are not marked formalized, and the rows with
-the verdict "narrower"; `Exposition/Findings.md` gives the reasons, and `Exposition/Verification.md` lists per
-chapter what is not verified. Added hypotheses (`_hyp` forms) are listed with their witnesses in the rows that
-cite them.
+All 193 gaps are settled: 189 are formalized, and 4 have nothing to formalize (G.34, the question after
+Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; G.153, the text's own question in Remark 9.5.19). The 60
+rows with the verdict "narrower" prove less than the text states; `Exposition/Findings.md` gives the reason for each,
+and `README.md` lists the points that need the authors' reading. Added hypotheses (`_hyp` forms) are listed with
+their witnesses in the rows that cite them.

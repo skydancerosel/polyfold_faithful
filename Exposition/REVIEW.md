@@ -13,7 +13,7 @@ the scanned book pages (`pages/p-NN.png`, two book pages per image, book page `b
    left unjustified. Check every computation, by hand or with a short `python3` script (numpy and
    sympy are available). Fix errors in place.
 3. **Faithfulness.** Every claim about what Milnor wrote — page numbers, quotations, "Milnor's
-   text skips …", "a hidden hypothesis", corrections of misprints — must match the scan. Remove or
+   text skips …", "a hidden hypothesis", readings of the printed text — must match the scan. Remove or
    correct any that do not. Quotations of the book are at most a short phrase each; replace longer
    verbatim passages by paraphrase (the book is under copyright).
 4. **Applications and numbers.** Every physical or numerical claim in the opening question and in

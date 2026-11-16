@@ -1349,7 +1349,7 @@
     ]
    },
    "chips": [
-    "support repaired"
+    "support inside the chart domain"
    ],
    "diff": [
     "The extension by $0$ of a local bump need not be continuous ($\\varphi(u) = u/(1 - |u|_0^2)$ on the unit ball); the bump is taken in a small ball with closure inside the chart domain (Findings, Chapter 5, item 43)."

@@ -1529,7 +1529,7 @@
    "chips": [
     "as stated",
     "transitivity: V10.69",
-    "G.123 closed since"
+    "G.123 closed"
    ],
    "diff": [
     "None: the generated relation is having a common refinement, by the transitivity of V10.69, formalized since (Findings, Chapter 10, items 18, 50)."
@@ -1662,7 +1662,7 @@
    "chips": [
     "a category",
     "localization functor",
-    "G.123 closed since"
+    "G.123 closed"
    ],
    "diff": [
     "The composition, which the text does not spell out, is that of V10.70; before it, $\\mathcal{SEP}(F^{-1})$ was formalized as a quiver (Findings, Chapter 10, items 18, 53)."
@@ -1718,7 +1718,7 @@
     "converse: base half only (G.123)"
    ],
    "diff": [
-    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse half of the similar result is proved for the base functor only (Findings, Chapter 10, items 19, 53)."
+    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse, that every isomorphism of $\\mathcal{SEP}(F^{-1})$ is a generalized strong bundle isomorphism, is proved in V10.71 (`SEPLoc.isIso_iff_isGeneralizedIso`; Findings, Chapter 10, items 19, 53)."
    ]
   },
   {

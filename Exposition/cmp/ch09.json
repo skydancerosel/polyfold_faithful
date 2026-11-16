@@ -485,7 +485,7 @@
     "good points: no hypothesis"
    ],
    "diff": [
-    "The graph representation and the local constancy of the dimension, hidden hypotheses of the forms on a general M-polyfold, are theorems (gap G.97 closed, gap G.93 closed in part), so the independence holds for every $\\Theta$ (`hasIndependentTangentSums`); the forms with the hypotheses are kept (`hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`, `hasIndependentTangentSums_rn`) (Findings, Chapter 9, item 107).",
+    "The graph representation and the local constancy of the dimension, hidden hypotheses of the forms on a general M-polyfold, are theorems (gap G.97 closed, gap G.93 closed), so the independence holds for every $\\Theta$ (`hasIndependentTangentSums`); the forms with the hypotheses are kept (`hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`, `hasIndependentTangentSums_rn`) (Findings, Chapter 9, item 107).",
     "The text reduces to the equidimensional case by Proposition 9.1.11; the formalization does the same through Proposition 9.1.12 (V9.10) with dimension labellings (Findings, Chapter 9, items 21, 25, 100)."
    ]
   },
@@ -2617,11 +2617,11 @@
   },
   {
    "g": 96,
-   "title": "Proposition 9.1.11: the global decomposition and a repaired uniqueness",
+   "title": "Proposition 9.1.11: the global decomposition and uniqueness among local decompositions",
    "label": "§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)",
    "page": 407,
    "book": "The local $\\Theta_k$ glue to branched ep⁺-subgroupoids with $\\Theta = \\sum_k \\Theta_k$, locally finite, and the family is unique.",
-   "instead": "**Formalized** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms with Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1) as hypotheses, both theorems (V9.10, gap G.93 in part), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).",
+   "instead": "**Formalized** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms with Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1) as hypotheses, both theorems (V9.10, gap G.93 closed), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).",
    "decls": [
     "Chapter9/Propositions · EpGroupoid.Proposition_9_1_11",
     "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn",

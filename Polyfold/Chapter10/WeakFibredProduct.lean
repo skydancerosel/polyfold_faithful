@@ -92,7 +92,7 @@ and `s`, `t` are local sc-diffeomorphisms by commutative diagrams with `πZ` and
   `(h, G(k)⁻¹ ∘ ψ' ∘ F(h), k)`, using `ψ_n = G(k_n)⁻¹ ∘ (G(k_n) ∘ ψ_n ∘ F(h_n)⁻¹) ∘ F(h_n)`
   (`conj_recover`) and the continuity of `m` on composable pairs.
 * In Definition 10.2.1 the inverse is printed `ι(h, ψ, k) := (h⁻¹, G(k) ∘ ϕ ∘ F(h)⁻¹, k⁻¹)`; we
-  read `ψ` as `ϕ` (possible misprint).
+  read `ψ` as `ϕ` (as we read it).
 -/
 
 set_option maxSynthPendingDepth 3

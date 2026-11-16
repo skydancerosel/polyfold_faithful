@@ -70,9 +70,9 @@ the refinement `πX`, as `Φ ∘ πX ≃ πY`.  (Theorem 10.3.15, p. 492) `|·| 
 * **(C1).**  Faithfulness is checked with `k = k' = 1_b` in the text's morphisms `(h, ϕ, k)`; in
   the text's injectivity argument `A ×_X B` is read as `A ×_Y B` and `mor_Y(Ψ(a), Ψ(a'))` as
   `mor_X(Ψ(b), Ψ(b'))`, and in the essential surjectivity "between `Φ(a)` and `x`" as "and `y`"
-  (possible misprints).  Fullness and essential surjectivity follow the text.
+  (as we read them).  Fullness and essential surjectivity follow the text.
 * **(C2).**  The text's map `Γ(b') = (b', (s|U)⁻¹(b'), …)` is read with `(s|U)⁻¹(Ψ(b'))`
-  (possible misprint), and the text then uses that `Γ' : U' → A` is a local sc-diffeomorphism;
+  (as we read it), and the text then uses that `Γ' : U' → A` is a local sc-diffeomorphism;
   as we read it, this needs `Ψ` to be a local sc-diffeomorphism, the other half of (C2).  We argue
   differently: a local inverse `κ` of the equivalence `Φ ∘ πA'` at `(b, ϕ, a)` gives the local
   sc-smooth right inverse `πA' ∘ κ` of `Φ` with value `a` at `Φ(a)`; and `Φ` is injective near

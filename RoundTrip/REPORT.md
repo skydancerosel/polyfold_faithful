@@ -1,26 +1,17 @@
 # Round-trip audit of Part I and Part II, Chapters 7–11 — report
 
-Status 2026-11-01 (the audit; Chapter 6 added 2026-11-07, see "Chapter 6, audited on 2026-11-07" below; Part II, Chapter 7 added 2026-11-07, see "Chapter 7, audited on 2026-11-07"; Chapters 8–11 added 2026-11-08, see "Chapters 8–11, audited on 2026-11-08"); the lists of what the project lacks updated 2026-11-02; refreshed against
-HEAD (commit 12924a4) on 2026-11-02, see "Refreshed on 2026-11-02" below. Method and how to run:
-`README.md`. Layer 1 (statements).
+Layer 1 (statements). Method and how to run: `README.md`.
 
 ## Coverage
 
 **All 604 items** of the comparison that are not labelled *extra* or *gap* (Chapter 1: 31, Chapter 2: 58,
 Chapter 3: 95, Chapter 4: 43, Chapter 5: 42, Chapter 6: 60, Chapter 7: 64, Chapter 8: 49, Chapter 9: 60,
-Chapter 10: 71, Chapter 11: 31; Chapter 6 against commit 439bc62, Chapter 7 against commit 919831f, Chapters
-8–11 against commit caf6bfc; V7.57, V11.9–V11.13, V11.27–V11.29 and V11.42 are gaps and have no item). Every item has a blind statement
-(`Blind/<ID>.lean`) and a prover record (`Items/<ID>.lean`, `Items/<ID>.json`); all files compile
-against HEAD (commit 12924a4, recompiled 2026-11-02), no `sorry`, and every proved direction passes
-`#rt_check` (or `#rt_check_soft`, or a documented `A'`-factoring, noted in the item's JSON; see
-"Harness" below). 134 Opus agents (blind batches of
-about 9 items, prover batches of 5–8), four at a time; the refresh of 82 items: nine more prover
-agents, then three blind and three prover agents for seven second blind statements, three Lean
-processes at a time. Chapter 6: 21 more Opus agents (seven blind batches of 6–9 items, fourteen
-prover batches of 3–5), up to twelve at a time on the 137 GB machine. Chapter 7: 18 more Opus agents (seven blind
-batches of 9–10 items, eleven prover batches of 5–6), up to seven at a time. Chapters 8–11: 54 more Opus agents
-(18 blind batches of 9–13 items, 36 prover batches of 4–7), up to seventeen at a time; the 211 item files of
-Chapters 8–11 were recompiled at caf6bfc (with this commit's docstring edits) on 2026-11-08.
+Chapter 10: 71, Chapter 11: 31; V7.57, V11.9–V11.13, V11.27–V11.29 and V11.42 are gaps and have no item).
+Chapters 1–5 (269 items) are audited against commit 12924a4, Chapter 6 (60 items) against 439bc62,
+Chapter 7 (64 items) against 919831f, Chapters 8–11 (211 items) against caf6bfc. Every item has a blind
+statement (`Blind/<ID>.lean`) and a prover record (`Items/<ID>.lean`, `Items/<ID>.json`); every item
+file compiles at its commit with no `sorry`, and every proved direction passes `#rt_check` (or
+`#rt_check_soft`, or a documented `A'`-factoring, noted in the item's JSON; see "Harness" below).
 
 ## Results
 
@@ -65,23 +56,23 @@ Against the verdict: {'match': 320, 'mismatch': 235, 'partial': 49}
 (Chapters 8–11 alone: {'match': 127, 'mismatch': 64, 'partial': 20}; Chapter 7 alone: {'match': 44, 'mismatch': 17, 'partial': 3}; Chapters 1–6 alone: {'match': 149,
 'mismatch': 154, 'partial': 26}; Chapters 1–5 alone: {'match': 125, 'mismatch': 127, 'partial': 17}.)
 
-(At the audit, with the verdicts of that time: {'match': 117, 'mismatch': 128, 'partial': 24}. The
-refresh changed the result or the score of 29 items, listed in "Refreshed on 2026-11-02" below.)
+(Chapters 1–5 against the snapshot before commit b4d1d8c, with the verdicts of that snapshot:
+{'match': 117, 'mismatch': 128, 'partial': 24}. The result or the score of 29 items differs, listed in
+"The Chapters 1–5 items under the germ reading" below.)
 
 Reading the tables. A ⇒ B means the project's formal statements imply the independent restatement
 of the text's claim; B ⇒ A the converse. Directions proved without using their hypothesis (definition
 items, where B is proved outright) are not counted; for those the result is in the JSON ("the
-project's definition is the text's"). "B false" means `¬B` is proved or B was shown false (a literal
-misprint, or a statement that does not hold in the formal reading, below). "A ⇒ B only" is the expected outcome whenever the formal
+project's definition is the text's"). "B false" means `¬B` is proved or B was shown not to hold (a
+statement read as printed, or a statement that does not hold in the formal reading, below). "A ⇒ B only" is the expected outcome whenever the formal
 result is more general than the text (dropped tameness, wider domains, weaker hypotheses) or when
 the comparison's declaration list bundles proof lemmas into A that the text never states — the
 second is the main reason why items labelled *same/explicit/restated* come out "A ⇒ B only".
-At the audit Chapter 3's many "neither" were mostly the germ/whole-chart difference and the missing
-sc-level theory described below; since the refresh both are gone from A, and Chapter 3's remaining
-"neither" are tameness (the blind statements assume tame bundles or tame germ data where the
-project's theorems take germ data in any compatible chart, or the converse), data "for every datum"
-against the project's existential data, and blind statements whose own definitions are whole-chart
-(see "Refreshed on 2026-11-02").
+Chapter 3's "neither" are tameness (the blind statements assume tame bundles or tame germ data where
+the project's theorems take germ data in any compatible chart, or the converse), data "for every
+datum" against the project's existential data, and blind statements whose own definitions are
+whole-chart (see "The Chapters 1–5 items under the germ reading"); the germ/whole-chart difference
+and the sc-level theory described below are not among them, since A has both.
 
 ## What the audit found
 
@@ -89,8 +80,8 @@ against the project's existential data, and blind statements whose own definitio
 
 For the global implicit function theorems — Theorem 3.56 (V3.86, V3.50), Theorem 3.57 (V3.87,
 V3.51), Corollary 3.24 (V3.70), Theorems 3.19/3.23 at a zero (V3.95, V3.69), Theorem 3.54 (1) at
-the nearby zeros with the text's sc-complement and Theorem 3.54 (2) (V3.82, V3.85, V3.94; at HEAD
-against second blind statements, see "Refreshed on 2026-11-02") — `A → B` is proved, non-vacuously:
+the nearby zeros with the text's sc-complement and Theorem 3.54 (2) (V3.82, V3.85, V3.94; against
+second blind statements, see "The Chapters 1–5 items under the germ reading") — `A → B` is proved, non-vacuously:
 the project's theorems imply an independent formalization of the text's claim by a model that never
 saw them. The blind formalizers read "tame strong bundle" as "some equivalent atlas of tame charts"
 (not "every compatible chart is tame", the vacuous hypothesis of Findings Chapter 3 item 190). The
@@ -103,18 +94,18 @@ polyfolds, faces, strong bundles, corner structures, sc⁺-retractions).
 
 ### Statements of the text that do not hold in the formal reading (`¬B` proved)
 
-Each `¬B` refutes a blind formalizer's reading of the text, not the text itself: if that reading
+Each `¬B` concerns a blind formalizer's reading of the text, not the text itself: if that reading
 misses what the authors meant, the counterexample says nothing against the text. Which it is, is
 for a human reviewer to judge.
 
 * **Theorem 3.27, the step "δ is an sc^∞-germ near every v₀ ∈ V"** (V3.73, V3.74): does not hold
   for an arbitrary set with the tangent germ property; counter-model `M = {(t³, t)} ⊆ ℝ²` with an
-  explicit datum whose `δ` is not differentiable at a point of `V` (Findings Ch. 3 item 82 stated
-  this in prose; it is now proved).
+  explicit datum whose `δ` is not differentiable at a point of `V` (Findings Ch. 3 item 82 states
+  this in prose; here it is proved).
 * **Remark 2.28, "C_xO is in general not a partial quadrant in T_xO"** (V2.33): does not hold as
   read — `C_xO` is a partial quadrant in `T_xO` at every smooth point of every sc-smooth retract,
   tame or not (`Polyfold.remark_2_4_8_isPartialQuadrant`, `Chapter2/PartialConeQuadrant.lean`,
-  proved after the audit with Flor's theorem in the needed case; Findings Ch. 2 item 50). The text
+  proved with Flor's theorem in the needed case; Findings Ch. 2 item 50). The text
   proves the positive statement only for tame retracts (Proposition 2.36).
 * **Proof of Theorem 4.23, "a finite subcover"** (V4.64): we could not see why `K` is compact;
   counter-model `X = ℝ`, `A = (−2,2)×{0} ∪ (0,2)×{1}`. The project uses a countable cover instead.
@@ -125,43 +116,41 @@ for a human reviewer to judge.
   `diag(2⁻ᵏ)`).
 * **Lemma 5.23 without the hypothesis we believe it leaves implicit** (V5.42): a counterexample on
   the trivial bundle.
-* Possible misprints that the blind formalizers also noticed and read as intended (agreeing with
+* Places the blind formalizers also read as intended (agreeing with
   the Findings): Theorem 5.13 "N(f(x)) ≤ 1", "(f, x)" for "(f + s, x)" (V5.29, V5.40),
   Proposition 1.7's quotient set (V1.6), Corollary 3.13's limit point (V3.15), Lemma 5.20's vacuous
   bound (V5.20).
 
 ### Where the project's definitions differ from the text's
 
-* **Germs versus the whole chart** (V3.5, V3.9, V3.13, V3.16, V3.19, V3.43, V3.45, V3.103) —
-  **removed in phase 2** (commits b74e15e–452a9b3, 2026-11-01). The audit found that the project
-  required the text's §3.1 germ notions (filling, sc⁺-germ) on the chart's whole `U` (levels
-  `U ∩ E_m`), which is stricter for germs whose levels shrink with the level: a function `C^k` on
+* **Germs versus the whole chart** (V3.5, V3.9, V3.13, V3.16, V3.19, V3.43, V3.45, V3.103). Reading
+  the text's §3.1 germ notions (filling, sc⁺-germ) on the chart's whole `U` (levels `U ∩ E_m`) is
+  stricter for germs whose levels shrink with the level: a function `C^k` on
   `(−1/k, 1/k)` for every `k` is a smooth germ in the text's sense and smooth on no neighbourhood
-  (`¬B` proved for the literal identification in V3.43; the example is now machine-checked,
-  `exists_isScSmoothGerm_not_isScSmooth`). Since phase 2 the canonical notions are the text's germ
+  (`¬B` proved for the literal identification in V3.43; the example is machine-checked,
+  `exists_isScSmoothGerm_not_isScSmooth`). The project's canonical notions are the text's germ
   reading — `StrongBundle.IsScFredholmGerm` (filling `IsFillingGerm`, sc⁺-section `IsScPlusGerm`),
   `IsScFredholmSection`, their tame and good-position variants — and the theorems built on them
   (`theorem_3_1_13_preprint`, `theorem_3_1_18_preprint`, `theorem_3_1_21_preprint`, `proposition_3_6_5_preprint`, `theorem_3_1_22`,
   `theorem_3_1_26`, `theorem_3_6_8`, `theorem_3_6_10`, `theorem_3_6_11`, Chapter 5) carry the text's
   hypotheses with no added hypothesis. The whole-chart notions and theorems are kept as
   `…WholeChart` / `…_wholeChart`; they imply the germ ones. Whether the two readings agree for
-  sections sc-smooth on `X` is still open (Findings Ch. 3 item 264), but no theorem depends on it.
-  Definition 3.3 (`IsScSmoothSectionGerm`, V3.5), the hypothesis of no theorem, followed on
-  2026-11-02 (commit 08c08c6). The item files (`RoundTrip/Items/`) were refreshed against HEAD on
-  2026-11-02, where the canonical names denote the germ reading: the filling, Definition 3.3 and the
-  sc⁺-germ now agree with the text (V3.5, V3.7, V3.9, V3.43), and what is left of Definition 3.11 is
-  the tame chart (V3.13, V3.16; see "Refreshed on 2026-11-02") (Findings Ch. 3 items 220–221,
-  260–266, 330–334).
+  sections sc-smooth on `X` is open (Findings Ch. 3 item 264), but no theorem depends on it.
+  Definition 3.3 (`IsScSmoothSectionGerm`, V3.5), the hypothesis of no theorem, is in the germ
+  reading too (commit 08c08c6). In the item files (`RoundTrip/Items/`) the canonical names denote
+  the germ reading: the filling, Definition 3.3 and the sc⁺-germ agree with the text (V3.5, V3.7,
+  V3.9, V3.43), and what is left of Definition 3.11 is the tame chart (V3.13, V3.16; see "The
+  Chapters 1–5 items under the germ reading") (Findings Ch. 3 items 220–221, 260–266, 330–334).
 * **Good complement** (V3.20): the project's `IsGoodComplement` accepts a non-closed algebraic
   complement (`¬B` with `ℓ²` and the kernel of a discontinuous functional); "text's good complement
   = project's + closed" is proved. Findings Ch. 3 item 19 records the choice. Where good position is
   a *conclusion*, the upgrade from the project's algebraic complement to the text's sc-complement
-  turned out to be glue, not new mathematics (V3.82, V3.85, V4.38, V4.42: a closed complement of a
+  is glue, not new mathematics (V3.82, V3.85, V4.38, V4.42: a closed complement of a
   smooth finite-dimensional kernel inside an sc-subspace gives an sc-complement).
 * **Bump functions** (V5.16, V5.17, V5.20, V5.44, V5.51; Findings Ch. 5 item 41): the text's
   Definitions 5.9/5.29/5.33 say "f ≠ 0" (not identically zero); the project reads `f(x) ≠ 0`, which
   Proposition 5.30's proof needs. This one word is the only obstacle to A ⇒ B in Theorems 5.13,
-  5.18, 5.19, 5.25, 5.34 once the misprints are corrected. Since 2026-11-02: on an sc-Banach space
+  5.18, 5.19, 5.25, 5.34 in the reading we take. On an sc-Banach space
   weak bumps give pointwise ones at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`),
   on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak
   reading follows from the density of the points with a pointwise bump (`admitsBumpFunctionsWeak_of_dense`);
@@ -170,59 +159,59 @@ for a human reviewer to judge.
   (Theorems 3.12, 3.15, 3.27, 4.2, 5.5, 5.7; Definition 5.20's homotopies need only `X` tame,
   V5.41); the blind statements keep them, so `B → A` fails for a reason that favours the project.
 
-### Missing in the project (A ⇏ B), each believed true unless marked
+### Statements that need results beyond the core theorems (A ⇏ B without them), each believed true unless marked
 
 * **sc-Fredholm theory on all levels**: Proposition 3.10, 3.52, Theorem 3.19 "f'(x₀) sc-Fredholm",
-  the index on the solution set (V3.12, V3.46, V3.68, V3.96–V3.100) — the project proves the level-0
-  (classical) statements (added later: `proposition_3_1_10_level`, `proposition_3_6_5_sc`,
+  the index on the solution set (V3.12, V3.46, V3.68, V3.96–V3.100) — the core theorems are the level-0
+  (classical) statements; the sc-level forms are `proposition_3_1_10_level`, `proposition_3_6_5_sc`,
   `theorem_3_1_22_linearization_sc`, `StrongBundle.linAt_isScFredholm` in every chart,
-  `theorem_3_6_8_index_locally_constant_general` under tame germ data and bump functions; see
-  "sc-Fredholm theory on all levels, added afterwards" below). Corollary 5.8 "f^i is sc-Fredholm on
-  P^i" (V5.13, V5.14) and Proposition 6.2 along paths (V3.98 (a)) were added on 2026-11-02, see
-  "Added on 2026-11-02" below; what is still open is listed there. Since the refresh `A ⇒ B` is
-  proved for V3.12, V3.46, V3.96 from the added results.
+  `theorem_3_6_8_index_locally_constant_general` under tame germ data and bump functions (see
+  "sc-Fredholm theory on all levels" below). Corollary 5.8 "f^i is sc-Fredholm on
+  P^i" (V5.13, V5.14) and Proposition 6.2 along paths (V3.98 (a)) are in "Further rows (commit
+  08c08c6)" below, with what is open. With these results `A ⇒ B` is
+  proved for V3.12, V3.46, V3.96.
 * **Theorem 3.27** needs the regularity of the tangent germ data (V3.24, V3.72; the text's proof
   fails without it, see above); **Theorem 3.54 graph form** for every datum (V3.48, V3.80, V3.84).
 * **Proposition 2.21 (3)–(4)** on `T_aX` (V2.25, gap G.7); level charts for `m ≥ 2` (V2.16, G.6;
-  the levels of `X¹` are those of `X` shifted, as sets, since 2026-11-02,
+  the levels of `X¹` are those of `X` shifted, as sets,
   `MPolyfold.mem_shift_levelSet_iff`); `p : TX → X₁` open (V2.20, G.8); Proposition 2.54's "natural" (`f*Y → Y` a strong bundle map;
   V2.61); transitivity of strong-bundle-atlas equivalence (V2.58); **restriction of strong bundle
-  charts** (built in V5.4, ~200 lines) (both added later: `StrongBundleAtlas.Equiv.trans`,
+  charts** (built in V5.4, ~200 lines) (both in the project: `StrongBundleAtlas.Equiv.trans`,
   `StrongBundleChart.restrict`, commit f063505); Theorem 4.22's local faces of a neighbourhood (V4.50);
   Remark 4.14's good-position claim without tameness (V4.32).
-* Examples the text asserts: an sc¹ map with `Df` not norm-continuous (V1.13, V1.34) (added later:
+* Examples the text asserts: an sc¹ map with `Df` not norm-continuous (V1.13, V1.34) (in the project:
   `exists_isSc1_not_continuousOn_deriv`, `Chapter1/ScOneNotNormContinuous.lean`); an M-polyfold
   with `X₀ = X_∞` where `1₀¹` is not an sc-diffeomorphism (V4.6); `Γ^{+,1}_U` not complete (V5.21)
-  (both added on 2026-11-02: `remark_4_1_3_example`; `TrivialBundle.not_completeSpace_allowableSections`,
-  with the correction that "not complete" needs a hypothesis; see below; since the refresh `A ⇒ B`
+  (both in the project, commit 08c08c6: `remark_4_1_3_example`; `TrivialBundle.not_completeSpace_allowableSections`,
+  with the qualification that "not complete" needs a hypothesis; see below; with these `A ⇒ B`
   is proved for V1.13, V1.34, V4.6, V5.21).
-* Proved in the audit and missing in the project (all added later: Remark 5.12, Lemma 3.9 and
+* Proved in the audit's item files and in the project (Remark 5.12, Lemma 3.9 and
   Lemma 3.81 in commit f063505 — `remark_5_3_4_of_isScFredholmSection`,
   `IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`, `Radii.norm_τ_sub_le_global`; the rest as
   marked): the closedness of the solution set in Remark 5.12
-  (V5.22, flagged in the project's docstring); Lemma 3.9 with level-`m` smallness (V3.11; the
-  docstring says level-1 smallness is needed — it is not); the Lipschitz estimate of Lemma 3.81 on
-  all of `V₀` (V3.66; the docstring says only near `k₀`); Corollary 3.34's single germ for all `k`
-  (V3.31, V3.32) (added later: `corollary_3_3_7_isScSmoothGerm`, `theorem_3_35_isScSmoothGerm_preprint`,
+  (V5.22, flagged in the project's docstring); Lemma 3.9 with level-`m` smallness (V3.11; level-1
+  smallness is not needed); the Lipschitz estimate of Lemma 3.81 on
+  all of `V₀` (V3.66; not only near `k₀`); Corollary 3.34's single germ for all `k`
+  (V3.31, V3.32) (in the project: `corollary_3_3_7_isScSmoothGerm`, `theorem_3_35_isScSmoothGerm_preprint`,
   `theorem_3_35_of_isSc0ContractionGerm_preprint`, `isSckGerm_of_levels`, `Chapter3/GermIFTSmooth.lean`);
-  "f⁽¹⁾ is a Definition 3.28 contraction germ" (V3.28) (added later:
+  "f⁽¹⁾ is a Definition 3.28 contraction germ" (V3.28) (in the project:
   `ContractionGerm.isSc0ContractionGerm_next`).
 
-### Moved into the project after the audit (commit f063505)
+### Glue of the audit in the project (commit f063505)
 
 * `Chapter3/GoodPositionSc.lean`: Definitions 3.21 and 3.53 with the text's sc-complement, the
   upgrade from the project's algebraic good complement at a zero, and Theorems 3.54 (1), 3.23,
   3.56, 3.57, Corollary 3.24 in the text's form (Findings Ch. 3 items 210–214).
 * `Chapter2/StrongBundleRestrict.lean`, `Chapter3/StrongBundleMaximalAtlas.lean`: restriction of
   strong bundle charts, locality of compatibility, equivalence of strong bundle atlases (and of
-  M-polyfold atlases: `MAtlas.Equiv.trans` was missing too) as equivalence relations; `IsChart`
+  M-polyfold atlases, `MAtlas.Equiv.trans`) as equivalence relations; `IsChart`
   characterised by the class (Findings Ch. 2 items 40–43). `Chapter5/AuxNormLiteral.lean`: Lemma 5.2
   in the text's literal form (item 44).
 * `Chapter5/SolutionSetClosed.lean`: Remark 5.12 as stated (Findings Ch. 5 items 130–131); Lemma 3.9
-  with smallness on level `m` and Lemma 3.81's estimate on all of `V₀`, with the docstrings that said
-  otherwise corrected (Findings Ch. 3 items 215–217).
+  with smallness on level `m` and Lemma 3.81's estimate on all of `V₀`, with docstrings that state
+  these forms (Findings Ch. 3 items 215–217).
 
-### sc-Fredholm theory on all levels, added afterwards (same day)
+### sc-Fredholm theory on all levels
 
 * `Chapter3/BasicGermLinearizationLevel.lean`: Proposition 3.10's second statement on every level
   `m` (`proposition_3_1_10_level`; V3.12's clause (ii), checked against the blind statement in a
@@ -239,13 +228,13 @@ for a human reviewer to judge.
 * `Chapter5/IndexLocallyConstant.lean`: the index locally constant along the zero set without good
   position, for tame germ data and bump functions (V3.98 (b) under these hypotheses; the general
   case is open, Findings Ch. 3 items 240–244).
-* Since phase 2 (above) these files hold the whole-chart forms (`proposition_3_6_5_sc_wholeChart`,
+* These files hold the whole-chart forms (`proposition_3_6_5_sc_wholeChart`,
   `StrongBundle.linAt_isScFredholm_wholeChart`, …); the names cited here that take sc-Fredholm
   germ data denote the germ-reading forms in the `…G.lean` files beside them (`FredholmGermLinearizationScG.lean`,
   `LinearizationChartsScG.lean`, `IndexLocallyConstantG.lean`; Findings Ch. 3 items 289–290,
   314–315, 331).
 
-### Added on 2026-11-02 (commit 08c08c6; the fourth addendum of the comparison)
+### Further rows (commit 08c08c6)
 
 * **Corollary 5.8** (V5.13, V5.14; gap G.41; Findings Ch. 5 items 140–146): the shifted strong
   bundle `P¹ : Y¹ → X¹` (`StrongBundle.shift`: total space `Y_{1,1}`, the index raises of the strong
@@ -280,10 +269,10 @@ for a human reviewer to judge.
   "Bump functions" above (`Chapter5/BumpWeakPointwise.lean`). **Definition 3.3** in the germ reading
   (V3.5).
 
-**Still open after 2026-11-02** (each believed true unless marked; none is the hypothesis of a
+**Open** (each believed true unless marked; none is the hypothesis of a
 theorem of the project):
 
-* whether the text's germ reading and the project's earlier whole-chart reading of Definition 3.11
+* whether the text's germ reading and the project's whole-chart reading of Definition 3.11
   agree for sections sc-smooth on `X` (Findings Ch. 3 item 264); no theorem depends on it;
 * the remaining implication of item 199: germ data in some compatible chart ⟹ germ data in some
   compatible tame chart, when the atlas consists of tame charts (Definition 3.11 ⟹ Definition 3.50;
@@ -297,47 +286,48 @@ theorem of the project):
   germ data, where it is equivalent to `ind C(z) = 0` for the normal block of the filling at the
   nearby zeros (Findings Ch. 3 items 243, 343; open, not believed either way).
 
-### Refreshed on 2026-11-02 (against HEAD, commits d0b6817 and 12924a4)
+### The Chapters 1–5 items under the germ reading (commits d0b6817 and 12924a4)
 
-The audit was run against the project before commit b4d1d8c. Since then (452a9b3 … d0b6817)
-Definitions 3.3 and 3.11 and the notions built on them were switched in place to the text's germ
-reading (142 theorems swapped names: old `X` → `X_wholeChart`, germ `X_germ` → `X`; the phase-2
-names survive as aliases, `Chapter5/GermReadingAliases.lean`), and the comparison rows gained
-declarations (the audit's glue moved into the project, sc-level theory, Remark 2.28, Corollary 5.8,
-Proposition 6.2, Remark 4.3's example, the metric `ρ`). The inputs were regenerated
-(`make_inputs.py`), all 269 blind statements recompiled unchanged against HEAD (none edited; none
-needed a repair), and the affected items were redone by nine prover agents following
-`PROVER_PROMPT.md` (A restated from the current row, both directions retried, `#rt_check` with the
-current list banned). Each refreshed JSON has a `refresh` field with the record before and a note.
+The Chapters 1–5 items are compared against commit 12924a4. There
+Definitions 3.3 and 3.11 and the notions built on them are the text's germ reading in place
+(commits 452a9b3 … d0b6817; 142 theorems: the whole-chart forms are `X_wholeChart`, the germ forms `X`, and
+the names `X_germ` are aliases, `Chapter5/GermReadingAliases.lean`), and the comparison rows include
+declarations beyond those of the snapshot before commit b4d1d8c (the audit's glue in the project, sc-level theory, Remark 2.28, Corollary 5.8,
+Proposition 6.2, Remark 4.3's example, the metric `ρ`). The inputs are generated by
+`make_inputs.py`, all 269 blind statements compile unchanged at 12924a4 (none edited), and the
+affected items are proved following
+`PROVER_PROMPT.md` (A restated from the row, both directions tried, `#rt_check` with the
+row's list banned). Each such JSON has a `refresh` field with the record against the earlier snapshot and a note.
 
 **Affected items (82)**, by reason (an item can have several):
 
-* A's declaration list changed since the audit (50): V1.2, V1.8, V1.9, V1.13, V1.34, V2.11, V2.16,
+* A's declaration list differs from the earlier snapshot's (50): V1.2, V1.8, V1.9, V1.13, V1.34, V2.11, V2.16,
   V2.33, V2.37, V2.57, V2.58, V3.5, V3.7, V3.8, V3.9, V3.11, V3.12, V3.13, V3.16, V3.19, V3.20,
   V3.28, V3.31, V3.32, V3.43, V3.45, V3.46, V3.47, V3.66, V3.68, V3.70, V3.81, V3.82, V3.86, V3.87,
   V3.94, V3.95, V3.96, V3.97, V3.98, V3.99, V3.103, V4.6, V5.4, V5.13, V5.14, V5.16, V5.21, V5.22,
   V5.30.
-* A theorem of A states the germ reading in place, under its old name (49; found by the statement
+* A theorem of A states the germ reading under the name its whole-chart form has at the earlier
+  snapshot (49; found by the statement
   closure of each declaration): V3.5, V3.13–V3.18, V3.46–V3.48, V3.68–V3.70, V3.77, V3.80–V3.82,
   V3.84–V3.87, V3.91, V3.92, V3.94–V3.101, V3.103, V3.105, V3.106, V5.10–V5.14, V5.22, V5.29, V5.30,
   V5.36, V5.38–V5.41, V5.45, V5.46.
-* B uses a project notion that switched (`IsScFredholmGerm`, `IsScFredholmSection(Tame)`,
+* B uses a project notion that is the germ reading at 12924a4 (`IsScFredholmGerm`, `IsScFredholmSection(Tame)`,
   `IsGoodPositionGermTame`, `IsScSmoothSectionGerm`; 52 items, mostly the same as above, plus V3.45,
   V3.50, V3.51, V3.74, V5.42, V5.44). The blind formalizers took these for the text's notions, which
-  they now are; where B's *own* definitions are built from whole-chart pieces next to them, see
-  "needs a new blind statement" below.
-* The verdict changed (11): V2.33 same → stronger; V3.11, V3.12, V3.66, V3.96, V4.6 narrower →
+  they are; where B's *own* definitions are built from whole-chart pieces next to them, see
+  "Second blind statements" below.
+* The verdict differs from the earlier snapshot's (11): V2.33 same → stronger; V3.11, V3.12, V3.66, V3.96, V4.6 narrower →
   stronger; V3.19 restated → stronger; V3.46 narrower → restated; V5.4 restated → same; V5.13, V5.14
-  narrower → same. The text quoted by the row changed for V3.98 and V5.14.
-* The item file no longer compiled at HEAD (16, repaired): V3.5, V3.13, V3.45, V3.51, V3.69, V3.70,
-  V3.82, V3.84, V3.85, V3.87, V3.94–V3.97, V3.100, V3.103 (renamed theorems; the germ form of
-  `isGoodPositionGerm_of_chart` needs a germ through the centre of the chart, so the glue now goes
-  through `isGoodPositionGerm_of_linAt_surj`).
+  narrower → same. The text quoted by the row differs for V3.98 and V5.14.
+* The item file uses the renamed theorems of 12924a4 (16): V3.5, V3.13, V3.45, V3.51, V3.69, V3.70,
+  V3.82, V3.84, V3.85, V3.87, V3.94–V3.97, V3.100, V3.103 (the germ form of
+  `isGoodPositionGerm_of_chart` needs a germ through the centre of the chart, so the glue
+  goes through `isGoodPositionGerm_of_linAt_surj`).
 
-**Changes of the result** (29 of the 82, counting the second blind statements below; the other 53
-keep their relation and score, with names, A and the diagnosis brought up to date). `proved` counts
-non-vacuous directions; the score is against the current verdict (before: the audit's record against
-the verdict at the audit):
+**Results that differ from the earlier record** (29 of the 82, counting the second blind statements below; the other 53
+keep their relation and score, with names, A and the diagnosis matching 12924a4). `proved` counts
+non-vacuous directions; the score is against the row's verdict (before the arrow: the earlier record against
+the verdict of that snapshot):
 
 | item | verdict | proved | content | against the verdict |
 |---|---|---|---|---|
@@ -371,50 +361,50 @@ the verdict at the audit):
 | V5.16 | restated | neither | equivalent → **A_stronger** | match → **mismatch** |
 | V5.21 | restated | neither → **A ⇒ B only** | A_narrower → **A_stronger** | mismatch |
 
-* **A ⇒ B newly proved** (non-vacuously): V1.13, V1.34 (`exists_isSc1_not_continuousOn_deriv`),
-  V2.58 (`StrongBundleAtlas.equivalence`), V3.8 (Proposition 3.5 for fillings), V3.11 and V3.19 (until
-  now proved only by proving B outright), V3.12 (`proposition_3_1_10_full`), V3.15 (the text's germ
+* **A ⇒ B proved here and not in the earlier record** (non-vacuously): V1.13, V1.34 (`exists_isSc1_not_continuousOn_deriv`),
+  V2.58 (`StrongBundleAtlas.equivalence`), V3.8 (Proposition 3.5 for fillings), V3.11 and V3.19 (in
+  the earlier record proved only by proving B outright), V3.12 (`proposition_3_1_10_full`), V3.15 (the text's germ
   notion implies the project's: shrinking the chart into `U₀`, `Ψ` and the basic germ restricted),
   V3.46 and V3.96 (`StrongBundle.linAt_isScFredholm` in every chart), V3.92 (non-centred charts by
   `StrongBundleChart.recentre`), V4.6 (`remark_4_1_3_retract_example`), V5.21
   (`TrivialBundle.not_completeSpace_allowableSections`, with `ρ = allowableDist`).
-* **Definition items now agree**: Definition 3.3 (V3.5), the filling (V3.7, V3.9, V3.43:
+* **Definition items that agree**: Definition 3.3 (V3.5), the filling (V3.7, V3.9, V3.43:
   `IsFillingGerm` is the text's filling field for field). In V3.13, V3.16 the filling and the
-  sc⁺-germ now agree both ways; what is left is the text's tame chart against the project's any
+  sc⁺-germ agree both ways; what is left is the text's tame chart against the project's any
   compatible chart (Findings Ch. 3 item 353, open) and two pieces of glue not attempted there (`Ψ`
   on `U₀ ⊆ U`, done in V3.15's item file; `ℝⁿ` against an abstract `Pn` in the conjugation), so the
-  project's Definition 3.11 is the broader one (A_narrower). V3.45 turned from A_stronger to
-  A_narrower: its blind statement reads "local sc⁺-section" as sc-smooth on a relatively open `U₀`,
+  project's Definition 3.11 is the broader one (A_narrower). V3.45 is A_narrower (A_stronger in the
+  earlier record): its blind statement reads "local sc⁺-section" as sc-smooth on a relatively open `U₀`,
   stricter than the project's germ (and than V3.13's blind statement).
-* **B ⇒ A lost because A grew** by results B does not state (auxiliary or more general): V1.9 (the
-  criterion `isScFredholm_of_isRegularizing`), V2.33 (Flor's theorem; A now refutes B,
+* **B ⇒ A fails because A contains** results B does not state (auxiliary or more general): V1.9 (the
+  criterion `isScFredholm_of_isRegularizing`), V2.33 (Flor's theorem; A proves ¬B,
   `A_to_not_B`), V4.6, V5.16, V5.21 (the specific example and the point case).
-* **Against the first blind statements** V3.82 and V3.85 had lost `A ⇒ B` and V3.94 stayed failed:
+* **Against the first blind statements** V3.82, V3.85 and V3.94 have no `A ⇒ B`:
   their own good position at the nearby zeros (`IsGoodPositionGermSc`, `IsGoodPosData`, defined in
-  the blind files) was built from `IsFilledVersion`, `IsScSmooth c.U s`, `ConjugationData c.U` — the
-  whole-chart reading — while their hypothesis `IsScFredholmSectionTame` is now the germ reading.
-  With that conclusion read on germs `A ⇒ B` was proved (`A_to_Bgerm_r1`). The second blind
+  the blind files) is built from `IsFilledVersion`, `IsScSmooth c.U s`, `ConjugationData c.U` — the
+  whole-chart reading — while their hypothesis `IsScFredholmSectionTame` is the germ reading.
+  With that conclusion read on germs `A ⇒ B` is proved (`A_to_Bgerm_r1`). The second blind
   statements (below) settle these items.
-* **Unchanged**: the global implicit function theorems and the theorems at a zero (V3.50, V3.51,
+* **Same result as in the earlier record**: the global implicit function theorems and the theorems at a zero (V3.50, V3.51,
   V3.69, V3.70, V3.86, V3.87, V3.95), Theorems 3.12, 3.15, 3.18 and their tame forms (V3.14,
-  V3.17, V3.18, V3.91, V3.105, V3.106), Theorems 5.5–5.7, 5.13–5.25 (V5.10–V5.46): `A ⇒ B` where it
-  was proved is still proved and uses its hypothesis, now with the germ reading on both sides; the
+  V3.17, V3.18, V3.91, V3.105, V3.106), Theorems 5.5–5.7, 5.13–5.25 (V5.10–V5.46): `A ⇒ B` is proved
+  where it was and uses its hypothesis, with the germ reading on both sides; the
   remaining failures are tameness (the blind statements assume tame bundles or tame germ data,
   every project IFT needs tame germ data where V3.68, V3.97, V3.99, V3.101 assume only Definition
-  3.14), weak against pointwise bump functions, the text's misprints, and data "for every datum"
-  against the project's existential ones (V3.48, V3.77, V3.80). V3.81 is now effort only (the smooth
+  3.14), weak against pointwise bump functions, the text's places we read, and data "for every datum"
+  against the project's existential ones (V3.48, V3.77, V3.80). V3.81 is effort only (the smooth
   kernel at nearby zeros follows from `linAt_isScFredholm`, `linAt_chart_independence`,
   `linAt_eq_germDeriv`; a few hundred lines of glue not written).
 
-**Second blind statements (same day).** Seven first blind statements no longer meant the text
-under the current definitions or did not cover the row: V3.82, V3.85, V3.94, V3.100 (their own good
-position was whole-chart, see above), V5.13, V5.14 (they predated `StrongBundle.shift` and built the
+**Second blind statements.** Seven first blind statements do not mean the text
+under the definitions of 12924a4 or do not cover the row: V3.82, V3.85, V3.94, V3.100 (their own good
+position is whole-chart, see above), V5.13, V5.14 (written without `StrongBundle.shift`, they build the
 level-`i` germ data of `f^i` from whole-chart pieces next to a germ-reading hypothesis, so at `i = 0`
-they claimed "germ data ⇒ whole-chart data"), V3.98 (the row now quotes Definition 6.1 at every
-smooth point and Proposition 6.2 over a tame M-polyfold; the first B covered only zeros of `f`). New
-blind statements were written by `harness/BLIND_PROMPT.md` (three blind agents, the text's statement
-and a regenerated `vocab.md` only, the superseded files of their own IDs closed to them) as
-`Blind/<ID>_r2.lean` (`RoundTrip.<ID>_r2.B`); the first ones are kept. The provers redid the items
+they claim "germ data ⇒ whole-chart data"), V3.98 (the row quotes Definition 6.1 at every
+smooth point and Proposition 6.2 over a tame M-polyfold; the first B covers only zeros of `f`). The second
+blind statements are written by `harness/BLIND_PROMPT.md` (independent models with the text's statement
+and `vocab.md` only, the first files of their own IDs closed to them) as
+`Blind/<ID>_r2.lean` (`RoundTrip.<ID>_r2.B`); the first ones are kept. The items are proved
 against them (`PROVER_PROMPT.md`, `#rt_check`); each JSON names the current blind statement
 (`blind_current`) and keeps the record against the first one (`blind_r1`):
 
@@ -428,7 +418,7 @@ against them (`PROVER_PROMPT.md`, `#rt_check`); each JSON names the current blin
 | V5.14 | proved | failed | A_stronger | neither, incomparable |
 | V3.98 | failed | failed | incomparable | neither, incomparable |
 
-* V3.82, V3.85, V3.94: the blind statements now use the project's germ-reading
+* V3.82, V3.85, V3.94: the blind statements use the project's germ-reading
   `IsGoodPositionGermSc` and an equivalent tame atlas; Theorem 3.54 (1) gives good position at the
   nearby zeros (through `isGoodPositionGermFilled_of_isGoodPositionGerm` and the sc-complement upgrade
   `IsGoodPositionGermTame.isGoodPositionGermSc`), (2) the sub-M-polyfold with corner structure
@@ -436,21 +426,21 @@ against them (`PROVER_PROMPT.md`, `#rt_check`); each JSON names the current blin
   `∂X = ∅`) good position ⟺ `f'(x)` onto, by `isGoodPositionGermSc_iff` and A. B ⇒ A fails in all four:
   A needs no tame bundle and contains chart-level lemmas.
 * V5.13, V5.14: the blind statements build `P^i` by iterating the project's `StrongBundle.shift` and
-  `sectionShift` (so a wrong shift construction would not be caught here); A ⇒ B for every `i` by
+  `sectionShift` (so a faulty shift construction would not be caught here); A ⇒ B for every `i` by
   induction over `corollary_5_2_5` / `corollary_5_2_5_isScFredholmSection` on `P^i` (V5.14 with
   `#rt_check_soft`: `StrongBundleChart.Compatible.shift` is reached only through the proof fields of
   `StrongBundle.shiftAtlas`). B ⇒ A fails: A holds without tameness and has side lemmas.
-* V3.98 (its row now also cites `proposition_6_2_2_local`, `IsIndexAtLocal`,
+* V3.98 (its row also cites `proposition_6_2_2_local`, `IsIndexAtLocal`,
   `isIndexAtLocal_iff_isIndexAt`, `index_locally_constant_tame`): A gives B's Definition 6.1 (the
   index exists and is independent of the section and the chart, level 0) and the local constancy
   along the zero set (`B0_of_A`, `Ba_of_A`); B's Proposition 6.2 fails only because B assumes
   sections of Definition 3.14 over a tame M-polyfold (no tame germ data; the project has no lemma
   producing them) and a path sc-smooth near `[0, 1]` (the project's path is sc-smooth on `ℝ`); with
   these two hypotheses A gives it (`Bb_of_tame_global`). Recorded in `B_issue` as the blind author's
-  own doubt. V3.68's row now also cites `StrongBundle.linAt_isScFredholm`: B's first clause follows
-  from A; the tameness gap of the second clause is unchanged (incomparable).
+  own doubt. V3.68's row also cites `StrongBundle.linAt_isScFredholm`: B's first clause follows
+  from A; the tameness gap of the second clause remains (incomparable).
 * Clause-level `B_issue`s remain, harmless for the result: V3.9 (b) and V3.43 equate the text's
-  filling with `IsFilledVersion` (now the whole-chart special case; the row's `IsFillingGerm` is proved
+  filling with `IsFilledVersion` (the whole-chart special case; the row's `IsFillingGerm` is proved
   to be the text's); V3.74 claim (2) (weaker than the text; `¬B` unaffected); V3.46, V3.48, V3.97 (B
   covers fewer germs than the text).
 
@@ -463,27 +453,27 @@ theorems, the checked statement is `A_to_not_B`. **For the project**: the restri
 bundle chart *into* a given `U₀` (built in `Items/V3_15.lean` with `restrictIn`) is what the
 docstrings of `GermFillingChart.lean`/`GermVsChart.lean` attribute to `StrongBundleChart.restrict`,
 which gives `U ∩ r⁻¹(φ(s))`, not necessarily inside `U₀`; `StrongBundle.linAt_isScFredholm` settles
-the sc-level claims of V3.68 and V3.98 but is not cited in their rows.
+the sc-level claims of V3.68 and V3.98, and both rows cite it.
 
-**Full recompile** (2026-11-02, after commit 12924a4 and the second blind statements: all 269 item
-files, `lake env lean`, at most three at a time; log `rt3/logs/final/` in the session scratchpad):
+**Compilation** (at commit 12924a4 with the second blind statements: all 269 item
+files, `lake env lean`):
 all 269 compile with no error, no `rt_check FAIL`, no `sorry` (486 `rt_check`/`rt_check_soft` OK
 lines; 11 items prove no direction and have no check, as in their records; only linter and
 deprecation warnings, in 9 files). The seven `Blind/<ID>_r2.lean` compile, and so do the 269 first
 blind statements (unchanged).
 
-### Chapter 6, audited on 2026-11-07 (commit 439bc62)
+### Chapter 6 (commit 439bc62)
 
 The 60 items of `Exposition/cmp/ch06.json` not labelled *extra* (V6.29, V6.36, V6.53, V6.54 are
-extra). Every blind statement and item file compiles at 439bc62 (all 60 item files recompiled at the
-end: no error, no `rt_check FAIL`, no `sorry`). Chapter 6: 19 equivalent, 9 A ⇒ B only, 4 B ⇒ A
-only, 22 neither, 6 B false.
+extra). Every blind statement and item file compiles at 439bc62 (all 60 item files: no error, no
+`rt_check FAIL`, no `sorry`). Chapter 6: 19 equivalent, 9 A ⇒ B only, 4 B ⇒ A
+only, 22 neither, 6 ¬B proved.
 
 **Statements of the text that do not hold in the formal reading.** Each agrees with a reading the
-project already records (`Exposition/Findings.md`, Chapter 6).
+project records (`Exposition/Findings.md`, Chapter 6).
 * V6.11 (Lemma 6.10): the lemma holds (A ⇒ B); the construction of its proof, formalized separately
-  as `B_proof`, is refuted (`not_B_proof`, on ℝ² with `T = id`), and the project's
-  `lemma_6_10_text_reading_preprint` implies the refutation (Findings, item 4).
+  as `B_proof`, does not hold (`not_B_proof`, on ℝ² with `T = id`), and the project's
+  `lemma_6_10_text_reading_preprint` implies `¬B_proof` (Findings, item 4).
 * V6.40 (the stabilization principle without the sign `(−1)^{dim coker}` of formula (94)): `not_B`,
   from the project's `StabCounterexample` moved to `[0, 1]` (Findings, item 50).
 * V6.41: `push_eq_iff` — the text's unsigned push-forward equals the project's exactly when
@@ -532,23 +522,22 @@ where the chart linearization is the junk value `0` (`kerProd_eq_TProd_of_not_is
 global sc⁺-sections.
 
 **Harness.** Banned theorems inside definitions (`directSumVec`, `ScPathClass.comp`, `Orx`, `extDet`,
-`SubspaceFamily.contEquiv`, `ChartPoint.detLin`) were handled as before by `#rt_check_soft`, an `A′`
+`SubspaceFamily.contEquiv`, `ChartPoint.detLin`) are handled by `#rt_check_soft`, an `A′`
 factoring or a local `#rt_check_except_defs`, with the plain check's failure kept by `#guard_msgs`;
-the JSON of each item says which. Cost: about 5.4M agent tokens (Opus 5.5), roughly 7% of a week's
-budget.
+the JSON of each item says which.
 
-### Chapter 7, audited on 2026-11-07 (commit 919831f)
+### Chapter 7 (commit 919831f)
 
 The 64 items of `Exposition/cmp/ch07.json` not labelled *extra* or *gap* (V7.4, V7.18, V7.24 are
 extra; V7.57, Remark 7.2, is a gap). Part II has no preprint: its blind inputs quote the 2017 book
 (arXiv 1707.08941; `harness/make_inputs.py`). Every blind statement and item file compiles at
-919831f (all 64 item files recompiled at the end: no error, no `rt_check FAIL`, no `sorry`).
-Chapter 7: 39 equivalent, 6 A ⇒ B only, 8 B ⇒ A only, 6 neither, 5 B false. Three of the
+919831f (all 64 item files: no error, no `rt_check FAIL`, no `sorry`).
+Chapter 7: 39 equivalent, 6 A ⇒ B only, 8 B ⇒ A only, 6 neither, 5 ¬B proved. Three of the
 *neither* are definition items (V7.26, V7.49, V7.56): A = True, both directions are vacuous, and
 `B_holds` proves that the project's definition is the text's.
 
 **Statements of the text that do not hold in the formal reading (`¬B` proved).** Each agrees with
-a reading the project already records (`Exposition/Findings.md`, Chapter 7).
+a reading the project records (`Exposition/Findings.md`, Chapter 7).
 * V7.10 (the remark after Definition 7.7, "sc-smooth on objects suffices"): `not_B` by the project's
   `remarkFunctor` on `ℤ/3 × ℝ ⇉ ℝ`; with `Continuous f₁` added (`BRepaired`) B ⇔ A (Findings,
   items 9, 104). The blind formalizer found a counterexample of the same kind (`ℤ/2 ⋉ ℝ`) on its own.
@@ -559,9 +548,9 @@ a reading the project already records (`Exposition/Findings.md`, Chapter 7).
   `(±1, (−1/(n+1), 0))` converge to both `[(−1, 0)] ≠ [(1, 0)]` (`NotB.not_t2 : ¬ T2Space
   Xg.ReducedMor`; axioms propext, Classical.choice, Quot.sound). With `𝐗^R` Hausdorff and
   paracompact, A ⇒ B (`A_to_B_of_hyp`): the hypotheses the project adds are exactly what is missing.
-  This settles the Hausdorff half of gap G.71 negatively; the example was on paper in `PLAN.md`
-  (II.6, item 2), and the blind formalizer of V7.39 found it independently. V7.39 (*B ⇒ A only*)
-  was not refuted separately; V7.40's example applies to it. Moved the same day into
+  This settles the Hausdorff half of gap G.71 negatively; the blind formalizer of V7.39 found the
+  same example independently. V7.39 (*B ⇒ A only*)
+  has no separate ¬B proof; V7.40's example applies to it. It is in the project as
   `Polyfold/Chapter7/ReducedNotHausdorff.lean` (`EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor`;
   `Exposition/Findings.md`, Chapter 7, item 107).
 * V7.22 and V7.27 (pp. 231–237: `Γ` a functor; Proposition 7.6): with "natural representation"
@@ -570,8 +559,8 @@ a reading the project already records (`Exposition/Findings.md`, Chapter 7).
   is why the project's `NaturalRep` asks `U` connected (Findings, items 20, 22; p. 231 speaks of
   "the connected open neighborhood `U(x)`").
 * V7.28 (Definition 7.9): B's clause (D) identified its own reading of a local uniformizer with
-  `LocalUniformizer`; refuted twice (`U` connected; `Ψ` the inclusion on objects), both readings
-  its author had flagged (`B_issue`). This is not a statement of the text.
+  `LocalUniformizer`; ¬B proved for two readings (`U` connected; `Ψ` the inclusion on objects), both
+  of which its author had flagged (`B_issue`). This is not a statement of the text.
 
 **Where the readings differ.**
 * *Connectedness of `U(x)`* (V7.21, V7.23, V7.64, V7.66, V7.67). The blind statements' natural
@@ -597,9 +586,8 @@ a reading the project already records (`Exposition/Findings.md`, Chapter 7).
   locality of tangent maps, `T_xU ≅ T_xX` for open `U`, linearity in charts.
 * V7.6 (p. 227): "`X_∞` is dense in every `X_k`". The text states it without proof, Part I does not
   state it for M-polyfolds, and the project has it only for sc-Banach spaces
-  (`ScBanach.denseRange_incl`); `A_to_B_of_density` shows it is the only difference. The sentence
-  "the density of `X_∞` is Part I's" in `verification/ch07.md` (V7.6) and Findings item 112 is to be
-  corrected.
+  (`ScBanach.denseRange_incl`); `A_to_B_of_density` shows it is the only difference. So the density
+  of `X_∞` in an M-polyfold is not a result of Part I.
 * V7.30, V7.31 (Proposition 7.7, p. 238): the tangent facts (3)–(4) of sub-M-polyfolds (gap G.7, as
   in V2.25).
 * V7.68 (Corollary 7.3): the project assumes the Godefroy–Troyanski–Whitfield–Zizler statement for
@@ -607,21 +595,19 @@ a reading the project already records (`Exposition/Findings.md`, Chapter 7).
 * V7.23: (i)–(v) without connectedness would mean re-proving the item.
 
 **Blind statements doubted in their own reading** (`B_issue`): V7.28 above. V7.25 and V7.26 read the
-target of `t` as `U(y′)` where the text has `U(y)` (possible misprint; the project reads it the same
+target of `t` as `U(y′)` where the text has `U(y)` (as we read it; the project reads it the same
 way).
 
 **Harness.** Banned theorems inside definitions (`liftOne`, `reducedEpGroupoid`, `sheetAt :=
 (exists_sheet φ).choose`, `subMorPolyfold`, `subEpGroupoid`, `discretePolyfold`, `IsScSmoothComp`,
 `NaturalRep.functor`, `NaturalRep.orbitQuotientMap`, `trivialSubgroup`, `reducedSetoid`,
-`reducedChart`) were handled by `#rt_check_soft`, a definitionally equal restatement `Ar` (V7.52),
+`reducedChart`) are handled by `#rt_check_soft`, a definitionally equal restatement `Ar` (V7.52),
 checked cores, or a local `#rt_check_except_defs` / `#rt_check_opaque` (V7.5, V7.31, V7.32, V7.40),
 with the plain check's failure kept by `#guard_msgs`; the JSON of each item says which. In V7.54
 `metrizableSpace_of_pullback` is left off the banned list: the instance
-`MPolyfold.paracompactSpace_level`, needed to state `X¹`, reaches it, and so does B. Cost: 18 Opus
-5.5 agents (seven blind batches of 9–10 items, eleven prover batches of 5–6), up to seven at a time;
-about 4.5M agent tokens, roughly 5% of a week's budget.
+`MPolyfold.paracompactSpace_level`, needed to state `X¹`, reaches it, and so does B.
 
-### Chapters 8–11, audited on 2026-11-08 (commit caf6bfc)
+### Chapters 8–11 (commit caf6bfc)
 
 The 211 items of `Exposition/cmp/ch08.json`–`ch11.json` not labelled *extra* or *gap*:
 - Chapter 8: 49 (V8.2, V8.19, V8.34 extra).
@@ -633,7 +619,7 @@ Sources of the blind inputs:
 - Chapters 7–8 quote the 2017 book. Exception: Chapter 8 items labelled "2021 edition" quote the Springer 2021 book.
 - Chapters 9–11 quote the Springer 2021 book (`harness/make_inputs.py`).
 
-Every blind statement and item file compiles against caf6bfc plus this commit's docstring-only edits to two Chapter 10 files. All 211 item modules, and the blind modules they import, were recompiled at the end in one `lake build`, with no error, no `rt_check FAIL` and no `sorry`.
+Every blind statement and item file compiles against caf6bfc (with docstring-only edits to two Chapter 10 files). All 211 item modules, and the blind modules they import, compile in one `lake build`, with no error, no `rt_check FAIL` and no `sorry`.
 
 | | equivalent | A ⇒ B only | B ⇒ A only | neither | B false | n |
 |---|---|---|---|---|---|---|
@@ -653,7 +639,7 @@ Against the verdict, for Chapters 8–11: 127 match, 64 mismatch, 20 partial. By
 
 Most mismatches are *same* or *restated* items that the provers judge A_stronger or incomparable. In those, A states the project's lemmas more generally than the text (arbitrary or full functors in place of equivalences, any functor Θ in place of a branched one, any W, any sign). B ⇒ A could not produce that generality, so it was re-proved outright and flagged in the JSON.
 
-**Statements of the text that do not hold in the formal reading (`¬B` proved).** Each agrees with a reading that `Exposition/Findings.md` already records.
+**Statements of the text that do not hold in the formal reading (`¬B` proved).** Each agrees with a reading that `Exposition/Findings.md` records.
 * **V8.12 (Remark 8.1.10):** with trivial isotropy, (φ, h) ↦ (Tφ, Ts h) is not injective. This is Findings Ch8 item 10.
 * **V8.30 (Theorem 8.5.3 (5)):** the square as printed fails, by the identity functor of ℤ/2 ⋉ ℝ. This is `theorem_8_5_3_five_as_printed`, Findings Ch8 item 54.
 * **V8.35 (Proposition 8.5.7):** D = ∅ is allowed. This is `geometricLiftFunctor_surjective_iff`, Findings Ch8 item 59.
@@ -662,10 +648,10 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
 * **V9.24 (Lemma 9.2.13):** the (2) ⇒ (1) direction at interior points, by {0} ⊂ ℝ. This is Ch9 item 41.
 * **V9.27 (Definition 9.2.16):** (1) and (2) as printed do not determine ∂Θ. This is `not_unique_isBoundaryCharacterized_halfLine`, Ch9 item 44.
 * **V9.62 (Proposition 9.6.5 (1)):** with the printed `I_k = I¹ ⊔ ⋯ ⊔ I^p` the formula would read `Θ_k(x) = ♯(classes)·Θ_k(x)`. It fails for `1_{y=0} + 1_{y=x}` on ℝ².
-  - Ch9 item 92 recorded this partition as a possible misprint.
-  - The audit's counterexample is new: Ch9 item 104.
+  - Ch9 item 92 records how we read this partition.
+  - The counterexample is the audit's: Ch9 item 104.
 * **V10.65 and V10.67 (Theorems 10.3.19, 10.5.7):** the ℤ/3 × ℝ ⇉ ℝ example. This is `not_theorem_10_3_19` and `remark_10_5_5`, Ch10 item 58.
-  - Not independent: the blind inputs' titles already say "does not hold as we read it".
+  - Not independent: the blind inputs' titles say "does not hold as we read it".
   - The blind formalizer also read the vocabulary docstrings that say so.
 
 **What the project assumes or leaves out (A ⇏ B), each believed true.**
@@ -697,17 +683,17 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
   - Boundary operations natural under sc-diffeomorphisms (V11.25).
 
 **Blind statements and inputs.**
-* **V9.31 (Remark 9.3.3) and V9.28 (Remark 9.2.17):** the comparison rows paraphrased the remarks inaccurately. This commit corrects both rows in `cmp/ch09.json`.
-  - V9.31's clause (a), "the oriented representation (9.9) is not unique", came from the old paraphrase. It has no counterpart in the text.
+* **V9.31 (Remark 9.3.3) and V9.28 (Remark 9.2.17):** the blind inputs paraphrase the remarks in a way that differs from the text; the rows of `cmp/ch09.json` follow the text.
+  - V9.31's clause (a), "the oriented representation (9.9) is not unique", comes from that paraphrase. It has no counterpart in the text.
   - V9.28's "not the restriction of Θ to ∂X" is in the text, before Lemma 9.2.13.
 * **V8.40 (A_stronger):** the blind statement's matching of the Θ_j is not total, which makes it weaker than the text.
 * **V11.8:** `proposition_11_1_8` holds by the definition of `faceMap`. The content, f_* = Ψ_*∘Φ^* on faces, is `faceMap_homMk` (V11.5).
 * **V10.48:** A and B each hold outright.
   - The non-uniqueness of f in Remark 10.3.18 is proved in Remark 10.5.5's example.
-  - `LocalizationProperties.lean` still listed it as not formalized. This commit corrects that header, and the stale notes on Propositions 10.1.9 and 10.3.16 and Theorem 10.3.19 in `EquivalenceZhou.lean` and `LocalizationProperties.lean`.
+  - The headers of `LocalizationProperties.lean` and `EquivalenceZhou.lean`, and their notes on Propositions 10.1.9 and 10.3.16 and Theorem 10.3.19, agree with this.
 * **Disclosures, names only:** some blind formalizers saw theorem names inside definition bodies or docstrings, for example `EpGroupoid.lemma_8_1_8` and `pushforwardTheta_eq`. The V9.9 formalizer saw the vocabulary docstring of `Proposition_9_1_11`.
 
-**Harness.** Banned theorems inside definitions or statements were handled with patterns already in use. In each case the plain check's failure is kept by `#guard_msgs`, and the JSON says which pattern was used.
+**Harness.** Banned theorems inside definitions or statements are handled with the patterns of the other chapters. In each case the plain check's failure is kept by `#guard_msgs`, and the JSON says which pattern was used.
 * **`#rt_check_soft`:** V8.32, V8.33, V8.47, V8.51, V9.4, V9.11, V9.13, V10.10, V10.37, V10.55, V10.70, V11.1, V11.17, V11.21, V11.34, V11.35.
 * **An `A'` equal to `A` by `rfl`:** V8.4, V8.9, V10.42, V10.45, V11.38. In V11.38 the copy is made by a small elaborator, `replace_hFunctor%`.
 * **Local `#rt_check_except_defs`:** V8.22, V8.25, V8.37, V10.3, V10.17, V10.18, V10.26, V10.29, V10.40, V10.52, V10.71.
@@ -718,9 +704,6 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
 * **Limits:**
   - The except-defs traversals cannot see a projection of a field of a skipped definition. V8.22 checks the conjuncts it re-proves with plain `#rt_check` instead.
   - V10.18's relation, `A_stronger`, is the prover's judgement: neither direction is proved.
-* **Cost:** 54 Opus 5.5 agents, up to seventeen at a time on the 128 GB machine, about 13.5M agent tokens.
-  - 18 blind batches of 9–13 items.
-  - 36 prover batches of 4–7 items.
 
 ### Harness
 
@@ -732,8 +715,6 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
 * **Proof lemmas in A.** The comparison's declaration lists often include lemmas of the proof besides
   the main theorem; `B → A` cannot produce them, so they were re-proved from the definitions and the
   directions flagged in the JSON.
-* Cost: about 260k agent tokens per blind batch and 280k per prover batch (Opus 5.5); the whole audit
-  used roughly 19% of a week's budget, four agents at a time on the 128 GB machine.
 
 ## Per-item table
 
@@ -962,7 +943,7 @@ diagnosis is in each item's JSON.
 | V4_49 | restated | A ⇒ B only | A_stronger | A = sup_minimalSubspaceWith_eq_top ∧ sup_minimalSubspaceWith_eq_top_graph ∧ theorem_4_2_11_chart: statements about an arbitrary sc-space with a tame retraction R (presentation T) and an sc⁺-retraction t onto Q ∋ 0 with T₀Q in general position: N + E_0 = E, a CLOSED GOOD complement Y = ker p ⊆ E_0, the |
 | V4_50 | restated | neither | incomparable | Statements (2) d_X = d_A on A ∩ U and (3) general position on A ∩ U agree and are derived from A (A_to_B23, rt_check OK; paracompactness of A from metrizability). (1) and (4) differ in content: A counts the faces of the chart's MODEL RETRACT O through ψ(x) = 0 (Corollary 2.41 in a tame chart centred |
 | V4_53 | restated | equivalent | equivalent | A = type of prod_rn_isTame (universe 0; fibreSet, rnPres, IsStratRegularPoint, IsStratRegularValue are vocabulary). B = (i) ℝᵐ × X with the product structure is tame for tame X ∧ (ii) the project's IsStratRegularPoint is the text's 'regular point of p_σ' in a product chart. (i) is literally A up to  |
-| V4_54 | stronger | A ⇒ B only | A_stronger | Hypotheses agree (both read the misprinted (2) as general position of A at every point, Definition 4.21; /λ/ = √Σλᵢ² vs Σλᵢ² ≤ ε²; B's ∃-paracompact IsTameSubmanifold gives A's IsSmoothSubmanifold, instance and tameness). Conclusions differ in one point: A's Σ consists of stratified regular values ( |
+| V4_54 | stronger | A ⇒ B only | A_stronger | Hypotheses agree (both read (2), as printed, as general position of A at every point, Definition 4.21; /λ/ = √Σλᵢ² vs Σλᵢ² ≤ ε²; B's ∃-paracompact IsTameSubmanifold gives A's IsSmoothSubmanifold, instance and tameness). Conclusions differ in one point: A's Σ consists of stratified regular values ( |
 | V4_55 | explicit | A ⇒ B only | A_stronger | A = quotDim_le_finrank_of_eq_sup ∧ remark_4_3_2_chart ∧ remark_4_3_2_codim ∧ remark_4_3_2 ∧ remark_4_3_2_not_mem_boundary (universe 0). A ⇒ B is proved entirely from A plus chart-change glue: B quantifies over EVERY tame chart and presentation for (a) and over EVERY chart (tame or not) for (b), (c), whi |
 | V4_57 | restated | neither | incomparable | A = finrank_stratSub ∧ measure_image_stratCritSet (no universe parameters) is the finite-dimensional MODEL of the step: in a finite-dimensional V with onto coordinates ℓ, dim stratSub ℓ σ + #σ = dim V, and for f ∈ C^∞(O ∩ {ℓ ≥ 0}) the stratified critical values f(stratCritSet) are null for every Haa |
 | V4_58 | stronger | A ⇒ B only | A_stronger | A = exists_solution_smooth ∧ theorem_3_8_22_smooth ∧ exists_radii ∧ Radii.contDiffOn_τ ∧ theorem_3_8_22 (no universe parameters). A ⇒ B: B is Theorem 3.78 for every j ∈ ℕ ∪ {∞}, j ≥ 1, in the blind coordinates; the case j = ∞ is an instance of theorem_3_8_22_smooth, finite j of theorem_3_8_22 (glue of V3_63 |

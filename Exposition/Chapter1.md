@@ -597,8 +597,8 @@ $K\subset Y$ and $\varepsilon>0$, $|A(x')w-A(x)w|<\varepsilon$ for all $w\in K$ 
 near $x$ (`Polyfold.continuousOn_apply_iff_uniformOnCompact`), by the two arguments above. For an
 $\mathrm{sc}^1$ map: `Polyfold.IsSc1With.deriv_uniformOnCompact`, with level $0$ of condition (3)
 in the form `Polyfold.IsSc1With.continuousOn_deriv`. The last sentence of the lemma (operator-norm
-continuity can fail) is not formalized: its counterexample is the shift map of §6, which needs the
-weighted Sobolev spaces of Example 1.1.3 (preprint 1.2).
+continuity can fail) is `Polyfold.exists_isSc1_not_continuousOn_deriv` (V1.34, V1.13), by a
+sequence-space example in place of the shift map of §6.
 
 In finite dimensions, where $E_m = E$ and $|\cdot|_1 = |\cdot|_0$ (Lemma 1.A(2)), conditions (2)
 and (3) say that $f$ is differentiable with $(x,h)\mapsto Df(x)h$ continuous, which (the unit sphere
@@ -908,7 +908,7 @@ $U_{m+l+1}\times E_{m+l}\to F_m$, is only $C^l$, one order short, $df(x)$ being 
 the $C^{l+1}$ map $f:U_{m+l}\to F_m$); the elementary maps remember $f$, whose regularity on the
 coarser levels supplies the missing order.
 
-*Remark.* An earlier formal version assumes more and needs no ($\mathrm S_k$): if $f:U_m\to F_m$
+*Remark.* A formal version that assumes more needs no ($\mathrm S_k$): if $f:U_m\to F_m$
 is $C^{k+1}$ for every $m$, the level maps of $Tf$ are $C^k$ and the induction is immediate
 (`Polyfold.proposition_1_2_4`); for $k = 0$ the two hypotheses agree
 (`Polyfold.proposition_1_2_4_zero`: $C^1$ on every $U_m\to F_m$ gives $\mathrm{sc}^1$, with
@@ -933,8 +933,8 @@ then $f$ is $\mathrm{sc}^{k+1}$ (`Polyfold.corollary_1_2_5_text`, by the proof a
 continuous $f:U_0\to V$ composed with the inclusion); the middle claim, $C^{l+1}$ on $U_l$ for
 every $l$ implies sc-smooth (`Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`);
 and the last claim, $C^\infty$ on $U_0$ implies sc-smooth
-(`Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`). The earlier versions under the stronger
-hypothesis remain: $C^{k+1}$ on *every* $U_m$ gives $\mathrm{sc}^{k+1}$
+(`Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`). Versions under the stronger
+hypothesis are proved as well: $C^{k+1}$ on *every* $U_m$ gives $\mathrm{sc}^{k+1}$
 (`Polyfold.corollary_1_2_5`), in particular $C^{k+1}$ on $U_0$ does
 (`Polyfold.corollary_1_2_5_base`), and for $k = 0$, where the hypotheses agree,
 `Polyfold.corollary_1_2_5_zero`.
@@ -1331,7 +1331,7 @@ since by Proposition 1.2.3 (preprint 1.18) an sc-smooth $\beta:E\to\mathbb R$ is
 
 ---
 
-## 7. Summary of what was silently assumed, now made explicit
+## 7. Summary of what the text assumes silently, made explicit
 
 | Where (preprint) | HWZ say | What is actually needed |
 |---|---|---|
@@ -1366,15 +1366,15 @@ since by Proposition 1.2.3 (preprint 1.18) an sc-smooth $\beta:E\to\mathbb R$ is
 sc-Banach spaces as indexed families of Banach spaces with injective compact inclusions and the
 density axiom, as in the blockquote of §1; the paragraphs "*Checked by machine*" after the
 statements above name the declarations. Every numbered statement of the preprint's Chapter 1 is
-proved except Example 1.1.3 (preprint 1.2), and every lemma that this exposition adds is proved except Proposition
-1.C (with Example 1.1.3 (preprint 1.2): Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem),
-the sharpness remark at the end of Lemma 3.F and the application of §6 (they need the shift map on
-those spaces), and Remark 1.1.17 (preprint 1.15) (partial cones, not pursued here either). One statement is proved
+proved, Example 1.1.3 (preprint 1.2) with Proposition 1.C included (`Polyfold.CylinderSobolev.example_1_1_3`,
+V1.42) and Remark 1.1.17 (preprint 1.15) (`Polyfold.IsPartialCone.isScDomain`, V1.43); every lemma that this
+exposition adds is proved except the sharpness remark at the end of Lemma 3.F and the application of §6 (the
+shift map is not formalized). One statement is proved
 in a form that differs from the one above: Theorem 1.3.5 (preprint 1.25), for $\mathrm{sc}^1$ germs, which is
 stronger than the sc-smooth germs of the text. (Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20) are proved under
-the text's hypothesis, by the induction ($\mathrm S_k$); the earlier versions under the stronger
-hypothesis "$C^{k+1}$ on every level" are kept.) The machine-checked statements are listed in
-`Exposition/Verification.md` (V1.1–V1.39), compared with the text in
+the text's hypothesis, by the induction ($\mathrm S_k$); versions under the stronger
+hypothesis "$C^{k+1}$ on every level" are proved as well.) The machine-checked statements are listed in
+`Exposition/Verification.md` (V1.1–V1.43), compared with the text in
 `Exposition/polyfold-beside-lean.html`, and their proofs retold in `Exposition/ProofByProof.md`
 (Part I).
 

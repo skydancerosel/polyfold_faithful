@@ -924,9 +924,9 @@ block 50–59.
     `V` all of whose faces in `V` contain `x` (`bMap_image_uSet`). In `X = [0, ∞)³ ⊕ W`, `x = (0, 0, 1)` and the slab
     `V = {p₀ < 1/2, 1/2 < p₁ + p₂ < 3/2}`, the face `θ` through the segment from `x` to `(0, 1, 0)` contains `(0, 1, 0)`, which
     also lies on a face of `V` missing `x`, so `Φ` is not onto `θ` (`TameBoundaryExample.phi_not_surjective`,
-    `not_forall_bijective_phi`). Repair: for `V` centred at `x` (every face of `V` contains `x`) `Φ` is a bijection onto
+    `not_forall_bijective_phi`). What holds: for `V` centred at `x` (every face of `V` contains `x`) `Φ` is a bijection onto
     `θ` (`phi_bijective_of_isCenteredAt`), and centred neighbourhoods are cofinal (`reach_mem_faceStructuredNbhdsAt`), which
-    is what "take `V` sufficiently small" (p. 85) provides. Status: does not hold as we read it; **repaired** with centred
+    is what "take `V` sufficiently small" (p. 85) provides. Status: does not hold as we read it; **proved** for centred
     `V`.
 69. **§2.7.4.3, the first description of `T_bX`: a reading** *(book 2021: p. 85)*. A set `𝒰` is open if every class `p ∈ 𝒰` has
     a representative and a set `O ⊆ 𝒰 ∩ U(x, V, θ)` with `B(O)` open in `θ`. We read `O` as containing `p`: otherwise `O = ∅`
@@ -1046,7 +1046,7 @@ it (item 84).
     Proposition 2.7.12 holds as printed for every pair of representatives
     (`proposition_2_7_12_scDiffeo_nonCentred`). The proof replaces the text's open sc-embeddings of faces by centred
     refinements (`TameBoundary.BTriple.exists_centred_subset`) and the sub-M-polyfold calculus (`phiInv_isScSmoothOn`). Status:
-    does not hold as we read it for every representative; **repaired** with the image `θ ∩ V^x`.
+    does not hold as we read it for every representative; **proved** with the image `θ ∩ V^x`.
     The book forms `proposition_2_7_12_book` and `theorem_2_7_13_book` carry this reading (item 89).
 85. **Witnesses for the 2021 additions of items 75–84.** The tame boundary structure: `quadrantPolyfold_bChartData_nonempty`
     (chart data of `bX` exist for `[0, ∞)ⁿ ⊕ W`, `n ≥ 1`) and `quadrantPolyfold_degIndex_tameBoundary` (`d_{bX} = n − 1` over
@@ -1901,8 +1901,8 @@ property) in `TangentGerm.lean`.
     (`TangentGermChart.π` is `Submodule.projectionOntoL` for the topological complement obtained
     from `Y` closed and `N` finite-dimensional). Cf. the same added hypothesis in Lemma 3.6.9 (preprint 3.55)
     (item 49).
-82. **The step "δ is an sc^∞-germ near every `v₀ ∈ V`" of the proof of Theorem 3.2.3 (preprint 3.27) fails as
-    stated** *(book 2017: unchanged, proof of Theorem 3.6, p. 74)* *(book 2021: unchanged, proof of Theorem 3.2.3, p. 107)*. The text linearizes `w ↦ π ∘ ϕ ∘ ψ⁻¹(w + τ(w))` at `w = 0` and asserts that
+82. **The step "δ is an sc^∞-germ near every `v₀ ∈ V`" of the proof of Theorem 3.2.3 (preprint 3.27) does not hold
+    as we read it** *(book 2017: unchanged, proof of Theorem 3.6, p. 74)* *(book 2021: unchanged, proof of Theorem 3.2.3, p. 107)*. The text linearizes `w ↦ π ∘ ϕ ∘ ψ⁻¹(w + τ(w))` at `w = 0` and asserts that
     `h ↦ π ∘ T(ϕ ∘ ψ⁻¹)(0)h` is a linear isomorphism `N' → N`. Injectivity needs the tangent space
     of the graph of `δ` at `v₀ + δ(v₀)` to be the graph of `Dδ(v₀)`, i.e. `δ` differentiable at
     `v₀`, which is known only near `0`; without it the claim does not hold as we read it. Example: `X = ℝ²`
@@ -2435,12 +2435,12 @@ partial quadrant into itself (`GoodComplementProjection.lean`; the `_proj` theor
      `N` along `Y` maps the retract `O` into `C` (then `Σ ∩ O = O ∩ π⁻¹(V)`,
      `TangentGermChart.Sig_eq`), and it need not be for an arbitrary good complement (item 83:
      `C = [0,∞)³`, `N = ℝ(1,1,1)`, `Y = {x + y − z = 0}`). Definition 3.2.1 (preprint 3.25) lets `Y` be any good
-     complement, so for an arbitrary subset `M` with the tangent germ property the repair needs a
+     complement, so for an arbitrary subset `M` with the tangent germ property the argument needs a
      re-graphing of `ϕ(M ∩ U)` over `N` along a better complement (item 83, not done; `π(O) ⊆ C`
      stays a hypothesis of `theorem_3_2_3_of_isRegular`). For the solution set `S` at `x₀` the complement is
      not given but produced by the proof of Theorem 3.6.8 (preprint 3.54) (Theorem 3.5.11 (preprint Corollary 3.47), Theorem 3.5.6 (preprint 3.43),
      Lemma 3.5.10 (preprint 3.46), Theorem 3.8.22 (preprint 3.78)), and every step of that chain works with a complement that has
-     the projection property (items 131–133). So the claim "`Σ` is relatively open" is repaired
+     the projection property (items 131–133). So the claim "`Σ` is relatively open" is proved
      by choosing `Y` in Theorem 3.5.6 (preprint 3.43), not by changing the proof of Theorem 3.2.3 (preprint 3.27):
      `theorem_3_6_8_tangentGermChart_proj` gives the `TangentGermChart` of
      `theorem_3_6_8_tangentGermChart` (chart `ψ ∘ ϕ` onto `ψ(O) ⊆ C'`) with `π(ψ(O)) ⊆ C'`.
@@ -2530,7 +2530,7 @@ Found while proving condition (a) of `IsRegular` for the solution set by re-cent
 assembling Theorem 3.1.22, Theorem 3.1.26, Corollary 3.1.27, Theorem 3.6.8, Theorem 3.6.10, Theorem 3.6.11 (preprint Theorems 3.19, 3.23, 3.24, 3.54, 3.56, 3.57) (`SolutionGermRecentre.lean`,
 `GlobalIFTTheorems.lean`).
 
-150. **The re-centring argument, and what it repairs in the proof of Theorem 3.2.3 (preprint 3.27) for solution
+150. **The re-centring argument, and the step it supplies in the proof of Theorem 3.2.3 (preprint 3.27) for solution
      sets** (`Polyfold.recentre_contDiffOn_levels`). The text's step "δ is an sc^∞-germ near every
      `v₀ ∈ V`" (preprint p. 84) fails for an arbitrary set with the tangent germ property (item 82: `δ` need
      not be differentiable at `v₀`). For two graph descriptions of the same set `S` — in the chart
@@ -2692,9 +2692,9 @@ assembling Theorem 3.1.22, Theorem 3.1.26, Corollary 3.1.27, Theorem 3.6.8, Theo
        boundary with corners (of locally constant dimension; of dimension `n` on each part `Sₙ`,
        `theorem_3_6_11_dim`). Two steps of the text's proof are replaced: the regularity of
        the solution germ away from the centre (the proof of Theorem 3.2.3 (preprint 3.27) for general sets does not hold
-       as we read it there, item 82; for solution sets it is repaired by re-centring with the `C¹`-property of
+       as we read it there, item 82; for solution sets it is supplied by re-centring with the `C¹`-property of
        `σ` on `V'` and the lifts at the nearby zero, item 150), and the relative openness of `Σ`
-       (which does not hold for an arbitrary good complement, item 83; repaired by the choice of the complement,
+       (which does not hold for an arbitrary good complement, item 83; supplied by the choice of the complement,
        items 130–133).
      * **The local Theorem 3.6.8 (2) (preprint 3.54), and Theorems 3.1.22, 3.1.26 (preprint 3.19, 3.23), rest on Theorem 3.6.8 (1) (preprint 3.54)**:
        that the zeros near `x₀` are in good position. Under condition (3) of Definition 3.1.4 (preprint 3.4) (the filler is "normal"
@@ -2724,7 +2724,7 @@ assembling Theorem 3.1.22, Theorem 3.1.26, Corollary 3.1.27, Theorem 3.6.8, Theo
        `Tf̃(z₀) ξ = −ρ(z₀) λ`, which gives `ρ(z₀) F_∞ ⊆ range Tf̃(z₀)` and, with the closed range of
        Proposition 3.6.5 (preprint 3.52) at `y`, the surjectivity. **The text's argument leaves a gap, and its
        statement holds.** In particular the Fredholm index is locally constant along the
-       solution set (item 188), which repairs the same step of the proof of Proposition 6.2.2 (preprint 6.2).
+       solution set (item 188), which supplies the same step of the proof of Proposition 6.2.2 (preprint 6.2).
 158. **Proposition 3.8.17 (preprint 3.73) / Lemma 3.8.21 (preprint 3.77) with the hypotheses their proofs use** (`Polyfold.InvDataW`,
      `InvDataW.contDiffOn_inv`). The proofs of Lemma 3.8.18 (preprint 3.74) (the bi-Lipschitz estimate), Lemma 3.8.21 (preprint 3.77)
      (`Dg = [Df ∘ g]⁻¹`) and the bootstrapping of Proposition 3.8.17 (preprint 3.73) use of the partial quadrant only:
@@ -2970,7 +2970,7 @@ on the gap of item 100.
      the nearby zero of items 181–186. No hypothesis is added anywhere in `GlobalIFTNearbyOnto*.lean`
      (`theorem_3_6_8_one'` has exactly the hypotheses of `theorem_3_6_8_nearby_kernel`:
      `IsScFredholmSection`, `IsGoodPositionGerm f x₀`, `IsZeroAt`, tame base retractions). The
-     proof of Proposition 6.2.2 (preprint 6.2) in the text uses the same step; with Theorem 3.6.8 (1) (preprint 3.54) it is repaired
+     proof of Proposition 6.2.2 (preprint 6.2) in the text uses the same step; with Theorem 3.6.8 (1) (preprint 3.54) it is supplied
      along solution sets (item 188), and in general under the proviso of item 157 (good position of
      the extended germ, the tilting of items 105 (a), 107).
 
@@ -6058,12 +6058,12 @@ Found while formalizing §4.3 (Sard's theorem and Theorem 4.3.1 (preprint 4.23))
      transition maps of product charts are `id × τ` up to translation
      (`isStratRegularPoint_iff_forall`, `isStratRegularValue_iff_forall`, `StratifiedRegularValues.lean`; row V4.93, gap G.36
      closed).
-103. **The covering step of the proof does not hold as we read it; repaired by a countable subcover** *(book 2017:
+103. **The covering step of the proof does not hold as we read it; a countable subcover works** *(book 2017:
      unchanged, proof of Theorem 4.4, p. 147)* *(book 2021: unchanged, proof of Theorem 4.3.1, p. 193)*.  "We cover the
      set `{z ∈ A | |p(z)| ≤ ε}` with the finitely many such neighborhoods `U(z₁), …, U(z_k)`" (line
      6773): this set need not be compact, so no finite subcover need exist.  Example: in `ℝ × ℝ`, `A = (−2ε, 2ε) × {2} ∪ {(ε(1 − x), x) | 0 < x < 1}` has compact closure and
      compact non-empty fibres over `|λ| ≤ ε`, but `{z ∈ A | |p(z)| ≤ ε}` contains the open segment,
-     which accumulates at `(ε, 0) ∉ A`.  The repair (`theorem_4_3_1_of_subset`): `A` is second
+     which accumulates at `(ε, 0) ∉ A`.  The countable form (`theorem_4_3_1_of_subset`): `A` is second
      countable (`cl(A)` is compact in the metrizable `ℝᵐ × X`, Theorem 2.3.10 (preprint 2.16), hence separable), so
      countably many of the neighbourhoods `U(z)` of the local step (`exists_local_family`) cover
      `A`, and `Σ = S ∖ ⋃_i CV(z_i)` is of full measure.  Some countability is necessary: an
@@ -6800,7 +6800,7 @@ Found while formalizing the start of §5.3 and §5.5 (preprint Appendix 5.4.2) i
     `cl_E(U(x)) ⊆ O` gives `f = f₀ ∘ φ` on `V`, extended by `0`; but `cl_X({f ≠ 0})` may leave `V`:
     for `X = E` with `E₀` a Hilbert space, `V` the open unit ball and the chart
     `φ(u) = u/(1 − |u|₀²)` onto `O = E`, `U(x) = O` satisfies `cl_E(U(x)) ⊆ O` and `f₀ ≡ 1` is
-    admissible, while `f` is `1` on `V` and `0` outside. The repair (`Polyfold.theorem_5_5_7`):
+    admissible, while `f` is `1` on `V` and `0` outside. The proof formalized (`Polyfold.theorem_5_5_7`):
     choose `U₁ ∋ x` with `cl_X(U₁) ⊆ U ∩ V` (`X` is regular) and the local bump in a small ball
     `B(φ(x), r/2)` with `B(φ(x), r) ∩ O ⊆ φ(U₁)`; then `supp(f) ⊆ cl_X(U₁) ⊆ U`, and `f` is
     sc-smooth (it vanishes on the open set `X ∖ supp(f)`). The small ball is admissible in
@@ -7250,7 +7250,7 @@ Found while formalizing the rest of §5.5 (preprint Appendix 5.4.2) in `Chapter5
      `φ(u) = u/(1 − |u|₀²)` onto `O = E` (inverse `v ↦ 2v/(1 + (1 + 4|v|₀²)^{1/2})`; both are a
      `C^∞` function of `|·|₀²` times the identity, hence sc-smooth), `V = O`, `f ≡ 1`: then
      `cl_C(V) ⊆ O`, `W = U`, `cl_X(W) ⊄ U`, the extension `g` of `f ∘ φ` by `0` is the indicator
-     of the open ball (not continuous) and `U₀ = {g < ε/2}` is not open. Repair
+     of the open ball (not continuous) and `U₀ = {g < ε/2}` is not open. The formal proof
      (`Polyfold.hasApproxProperty_restrict`, `Polyfold.theorem_5_5_10`): since (ii) asks only for
      *an* atlas, take the charts restricted to open `s` with `cl_X(s) ⊆ dom φ`; then for closed
      `A ⊆ φ(s)` the set `φ⁻¹(A)` is closed in `X` (`MChart.isClosed_inter_preimage`), so `g`
@@ -7438,7 +7438,7 @@ Follow-ups of the round-trip audit (`RoundTrip/`, item V5.22): Remark 5.3.4 (pre
      `Y_{1,1}` (and in general not into `Y_{1,2}`), so `f¹ = f|_{X₁}` is a section of `Y_{1,1} → X₁`.
      The fibre `P¹⁻¹(x)` carries the topology of `F₁` (from `Y¹`), not the subspace topology of
      `P⁻¹(x)`.
-142. **Raising the index of sc-smooth maps, and the levels of `X¹` (part of gap G.6; G.6 is closed since, Chapter 2, item 77).**
+142. **Raising the index of sc-smooth maps, and the levels of `X¹` (part of gap G.6; G.6 is closed, Chapter 2, item 77).**
      `MPolyfold.IsScSmoothMap.levelOne`: an sc-smooth map `f : X → Z` between M-polyfolds induces an
      sc-smooth `f₁ : X¹ → Z¹` (continuity and the chart condition from the level-`1` maps of the
      local representatives, Proposition 1.2.2 (preprint 1.17) for retracts). `MPolyfold.mem_shift_levelSet_iff`,
@@ -10767,8 +10767,8 @@ Found while formalizing §9.1.
    `Θ₁ = 1_{L∖0}`) and `decompB` (`Θ₀ = 0`, `Θ₁ = 1_L`) both satisfy (1) and (2) (`decompA_isDimDecomposition`,
    `decompB_isDimDecomposition`), since `L ∖ 0` is a `1`-dimensional submanifold properly embedded in the open
    set `ℝ² ∖ 0`, which is all Definition 9.1.2 asks at its points. The proof of the text constructs `decompB`. A
-   possible repair: each `Θ_k` is represented near every point by a subfamily of a local branching structure of
-   `Θ`. The repaired uniqueness (uniqueness among local decompositions) and the global gluing of the local `Θ_k`
+   reading under which it holds: each `Θ_k` is represented near every point by a subfamily of a local branching structure of
+   `Θ`. The uniqueness among local decompositions and the global gluing of the local `Θ_k`
    across morphisms, with the paracompactness of `|supp(Θ_k)|` and the local finiteness, are items 105–107 for
    every ep-groupoid; local finiteness at points of `closure(supp Θ) ∖ supp Θ` is proved under a bound on the
    dimensions. Status: **settled** in that reading (gap G.96); the counterexample is settled.
@@ -13923,7 +13923,7 @@ Found while formalizing §§16.1–16.6 (files `Chapter16/PolyfoldBundleCategory
     representative at the boundary uses sc-smooth partitions of unity (item 8, gap G.153). The structure on
     $\mathrm{supp}\,\theta$ is proved per representative with transition homeomorphisms; its naturality (gap G.155)
     is item 19 (rows V16.23, V16.24, V16.27). Status: **in part (gap G.154 closed; G.155 closed with item 19; gap
-    G.153 open)**.
+    G.153 the text's own open question)**.
 
 15. **§16.3: strong polyfold bundles, three reading points, the model independence and the zero section**
     *(Definitions 16.3.1–16.3.19, Proposition

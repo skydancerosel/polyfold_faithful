@@ -46,7 +46,7 @@ sc-diffeomorphism, so Lemma 10.1.2 applies.
   M-polyfold structure, `epGroupoid` and Proposition 10.1.3 assume `[Nonempty Obj]` (for an empty
   `X` there is nothing to prove).
 * The properness is proved with ultrafilters instead of sequences.  The text writes `(U, φ, v)`
-  for `(U, φ, V)` in the formula for `F` (possible misprint).
+  for `(U, φ, V)` in the formula for `F` (as we read it).
 -/
 
 set_option maxSynthPendingDepth 3

@@ -72,7 +72,7 @@ surjectivity, fullness and faithfulness via `Tt ∘ (Ts)⁻¹`.
   Chapter 7; (2) is `IsHomeomorph F.orbitMap`.
 * Proposition 10.1.6: the text's sentence on objects only covers the points `F(x)`; we add the
   transport along a morphism `F(x) → y` (`isLocalScDiffeoAt_obj_tgt`).  The proof writes
-  `|Φ| : |X| → |Y|` for the map `|Y| → |Z|` (possible misprint).
+  `|Φ| : |X| → |Y|` for the map `|Y| → |Z|` (as we read it).
 * Not in this file, formalized in later files: the subcategory `EP_lreg` (not a numbered item;
   `EP.lreg`, `EP.Lreg`, `LocalRegularitySubcategory.lean`); Remark 10.1.8 (p. 467, new in the 2021 edition:
   Zhou's example on the weighted-Sobolev sc-retract of Appendix 10.6.3,

@@ -3,8 +3,8 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part I, Chapter 5 (2014 preprint, arXiv
 1407.3185, pp. 169–199), rewritten for a first-year graduate student who wants to know why a small
 generic perturbation turns a Fredholm problem into one whose solutions form a compact manifold. Every
-formalized statement is proved completely; Theorem 5.3.15 (preprint 5.22) and Theorem 5.27 (preprint; not in the 2021 edition) and the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43) are stated and
-marked. Where the Lean formalization found a gap or a shorter route, the text follows the Lean. Statement numbers and
+formalized statement is proved completely, the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43) included; Theorem 5.27 (preprint;
+not in the 2021 edition) is stated and marked. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and
 pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`). Conventions of Chapters
 1–4: $P:Y\to X$ a strong bundle, $Y_{0,1}$ its points of biregularity $(0,1)$, $S_f = f^{-1}(0)$, $\operatorname{Lin}(z)$ the linearization of a
 section in a strong bundle chart at $z$, $T_zO = Dr(z)E$, $T^R_zO = T_zO\cap E_z$; the coordinates of a partial quadrant are $\ell_i$,
@@ -28,16 +28,17 @@ Theorem 5.2.2 (preprint 5.5) (§2). *Supply*: perturbations are sc$^+$-sections,
 Sard's theorem is applied to a finite family $f+\sum\lambda_it_i$, whose solution set is finite-dimensional by Chapter 3's
 implicit function theorem (§4, §5).
 
-At a boundary more can go wrong. In the half-plane $X_+ = \{x_1\ge0\}$ the node is a boundary point, and a perturbation
+At a boundary more can happen. In the half-plane $X_+ = \{x_1\ge0\}$ the node is a boundary point, and a perturbation
 vanishing near the wall cannot remove it, since there $f+s = f$; so Theorem 5.3.12 (preprint 5.19), which perturbs away from the boundary,
 must assume good position at the boundary zeros. The level shift $\lambda$, not vanishing at the wall, cures it: for $\lambda<0$ the
 solution set in $X_+$ is an arc crossing the wall transversally. Subtler: where $f$ is in good position at a boundary
 zero, the family $f+\sum\lambda_it_i$ with $t_i$ vanishing there need not be, and the text's proof of Theorem 5.3.12 (preprint 5.19) uses it there (§5).
 
-The formalization changed the text: Definition 5.3.1 (preprint 5.9) is read with $f(x)\ne0$ (§3); a first, vacuous tameness hypothesis was
-repaired (§4); "dense" in Theorems 5.3.5, 5.3.10 (preprint 5.13, 5.18) is made precise as "outside a null set" (§4, §5); Theorem 5.3.10 (preprint 5.18) needs $X$ tame
+The formalization departs from the text: Definition 5.3.1 (preprint 5.9) is read with $f(x)\ne0$ (§3); the tame strong bundle is read as
+tame germ data (§4); "dense" in Theorems 5.3.5, 5.3.10 (preprint 5.13, 5.18) is made precise as "outside a null set" (§4, §5); Theorem 5.3.10 (preprint 5.18) needs $X$ tame
 and a proof that the parametrized solution set is a submanifold (§5); the proofs of Theorems 5.3.12, 5.5.7, 5.5.10 (preprint 5.19, 5.34, 5.37) are
-repaired (§5, §7); Theorem 5.3.15 (preprint 5.22) has a hidden hypothesis (§6); Corollary 5.2.5 (preprint 5.8) is formalized in a chart only (§2). §8 treats
+given in corrected form (§5, §7); Theorem 5.3.15 (preprint 5.22) has a hidden hypothesis, which the 2021 Definition 5.3.13 (3) supplies (§6, §11);
+Corollary 5.2.5 (preprint 5.8) is formalized for each fixed $i$ (§2). §8 treats
 the two wires as an sc-Fredholm problem.
 
 ---
@@ -63,7 +64,7 @@ $|p-\varphi(x)|_0<\varepsilon/2$ and $h\ne0$, $w' = \frac{\varepsilon}{2|h|_1}w$
 $N(w_k)\to0$, $P(w_k)\in\varphi^{-1}(B(\varphi(x),1/(k+1)))$, so $P(w_k)\to x$ ($\varphi^{-1}$ is continuous on $O$; no metrizability needed); by (2) $w_k\to0_x$
 and $|h_k|_1\to0$, a contradiction. (ii) ⇒ (i), "obvious" in the text: if $P(w_k)\to x$, $N(w_k)\to0$, then $|h_k|_1\le CN(w_k)\to0$, so
 $\Phi[1](w_k)\to(\varphi(x),0)$, and $w_k\to0_x$ because $\Phi[1]$ is a homeomorphism onto $K[1]$ — also for a chart merely compatible with
-the atlas, for which Chapter 2 had not built $\Phi[1]$. $\square$
+the atlas. $\square$
 
 The text asks for the bounds on all of $P^{-1}(\operatorname{dom}\Phi)$; its proof gives them only near $x$.
 *Checked by machine:* `Polyfold.StrongBundle.oneFiber`, `Polyfold.StrongBundle.complete_liftOneFiber`,
@@ -114,7 +115,7 @@ retract $O = r(U)$. Shrinking $V$, the compact set may be cut down to a closed b
 $\varphi\{x\in V:N(f(x))\le1\}$ lies in it and in $O = \{r(u) = u\}$, which is closed in $U$. The intersection is compact, and $\varphi^{-1}$ is
 continuous on $O$. $\square$
 
-> **Slips in §5.2 (preprint Appendix 5.4.1).** "$z' = h(a,w)$" for $(h+t)(a,w)$; "$\mathbb R^n\oplus Y_1$" for $\mathbb R^N\oplus W_1$; "(2) and (3)" for (84), (86);
+> **Readings in §5.2 (preprint Appendix 5.4.1).** "$z' = h(a,w)$" for $(h+t)(a,w)$; "$\mathbb R^n\oplus Y_1$" for $\mathbb R^N\oplus W_1$; "(2) and (3)" for (84), (86);
 > "$a\in\mathbb R^n$" in $\Sigma$ for $a\in\tilde C$; the ball "in $Y_0$" for $W_0$; in (89) mixed components ($z = Pz'-Pt(a,w)$).
 
 *Checked by machine:* `Polyfold.StrongBundle.IsProper.isWeaklyProper`, `Polyfold.IsStrongBundleMap.exists_fiber_bound_one`,
@@ -142,18 +143,19 @@ converging to $x$ in $X_0$ converge on every level, $(f,x)$ being a germ at the 
 compact solution set.
 
 *What is proved:* compactness on every level (Theorem 5.2.4 (preprint 5.7)) and, for $i = 1$, the chart-level content: the shift $h^1$ of a basic
-germ is a basic germ, $(g-s)^1$ is conjugated to $h^1$ by the index raise $\Psi^1$, and $s^1$ is sc$^+$. *Not formalized:* the bundle
-$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$; the natural $Y^1 = Y_{1,1}$ over $X_1$ is not built) and $i\ge2$ (gap G.6;
-the levels of the iterated base are those of $X$ since, Chapter 2, §9.8, gap G.6 closed).
+germ is a basic germ, $(g-s)^1$ is conjugated to $h^1$ by the index raise $\Psi^1$, and $s^1$ is sc$^+$. The bundle
+$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$) is built with total space $Y_{1,1}$, and $P^i$ for each fixed $i$ by iteration (gap G.41;
+V5.13, V5.14; the levels of the iterated base are those of $X$, Chapter 2, §9.8, gap G.6); one statement for the family of all $P^i$ is not formalized.
 
 > **"It is a priori clear that $f^i$ is sc-Fredholm" is not clear.** The filler of $f^1$ needs Definition 3.1.4 (3) (preprint 3.4) on level $1$:
 > $L = (1-\rho(0))Dg(0)$ must map $\ker Dr(0)\cap E_1$ onto $\ker\rho(0)\cap F_1$. Level $0$ does not give it: on $E_m = \{\sum_ke^{2mk}x_k^2<\infty\}$ the shift
 > $T$ has $|T|_m = e^m$, $1-T/2$ is invertible on $E_0$, but $(1-T/2)^{-1}e_0 = \sum_n2^{-n}e_n\notin E_1$ since $e^2/4>1$. For an sc-Fredholm germ
 > it holds by an argument the text lacks: subtract $y\mapsto R(y,\hat f(0))$ (Lemma 3.1.20 (preprint 3.17)) to get $g(0) = 0$; then $Dg(0)$ is regularizing
 > ($Dg(0)-Ds(0)$ is conjugated to $Dh(0)$, $Dh(0)(a,w)_W = w-D_aB(0)a$, $D_aB(0)a\in W_\infty$); for $k\in\ker\rho(0)\cap F_1$, $\kappa = L^{-1}k$, the
-> Fredholm property gives $t\in T_0O$ with $Dg(0)(t+\kappa)\in F_1$, so $t+\kappa\in E_1$ and $\kappa = (1-Dr(0))(t+\kappa)\in E_1$. Not formalized.
+> Fredholm property gives $t\in T_0O$ with $Dg(0)(t+\kappa)\in F_1$, so $t+\kappa\in E_1$ and $\kappa = (1-Dr(0))(t+\kappa)\in E_1$. Checked by machine (V5.13): `Polyfold.IsFillingGerm.germ_shift`.
 
-*Checked by machine:* `Polyfold.IsBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift`, `Polyfold.corollary_5_2_5_chart`.
+*Checked by machine:* `Polyfold.IsBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift`, `Polyfold.corollary_5_2_5_chart`,
+`Polyfold.StrongBundle.shift`, `Polyfold.corollary_5_2_5`, `Polyfold.corollary_5_2_5_two`.
 
 ## 3. Bump functions and sc$^+$-sections (pp. 213–218 (preprint pp. 173–174))
 
@@ -172,7 +174,7 @@ $\operatorname{supp}f\subset U$, $f\equiv1$ near $x$.
 
 *Proof.* Take a bump $g$, $g(x)\ne0$, $\operatorname{supp}g\subset U$, and the smooth transition $\tau$ ($0$ on $(-\infty,0]$, $1$ on $[1,\infty)$). Then
 $f = \tau(3g/g(x)-1)$ is sc-smooth, $f(x) = \tau(2) = 1$, $f\equiv1$ on $\{g/g(x)>2/3\}$, and $f\ne0$ only where $g/g(x)>1/3$. $\square$ (The text's $\sigma$,
-"$0$ for $s\le1$ and $1$ for $s\ge1$", is misprinted.)
+"$0$ for $s\le1$ and $1$ for $s\ge1$", is read as $\tau$.)
 
 The text uses without statement that the sc$^+$-sections $\Gamma^+(P)$ contain $0$ and are closed under sums and multiplication
 by sc-smooth functions (the product rule in a chart).
@@ -191,8 +193,8 @@ sc$^+$ on the chart domain and on $X\setminus\operatorname{supp}\beta$, and $N(s
 `Polyfold.proposition_5_3_2`, `Polyfold.StrongBundle.IsScPlusSection.smul_left`,
 `Polyfold.StrongBundle.isScPlusSection_cutoffSection`, `Polyfold.lemma_5_3_3`.
 
-**Allowable sections.** $\Gamma^{+,1}_U(P)$: the $s\in\Gamma^+(P)$ with $\operatorname{supp}s\subset U$ and $N(s)\le1$. The text's metric $\rho(s,s') = \sup N(s-s')$ is not
-formalized; "dense" is read pointwise.
+**Allowable sections.** $\Gamma^{+,1}_U(P)$: the $s\in\Gamma^+(P)$ with $\operatorname{supp}s\subset U$ and $N(s)\le1$. The text's metric $\rho(s,s') = \sup N(s-s')$ is
+formalized (V5.21): `Polyfold.StrongBundle.allowableMetric`; "dense" is read pointwise, as $\rho(s,s')\le\varepsilon$.
 
 **Remark 5.3.4 (preprint 5.12).** For $U$ as in Theorem 5.2.2 (preprint 5.5) and $s$ in the completion of $\Gamma^{+,1}_U(P)$, $S_{f+s}$ is compact.
 
@@ -218,12 +220,12 @@ and $S_f$ compact, $N$ an auxiliary norm. There is an open $U\supset S_f$ with:
 
 The text writes "$N(f(x))\le1$" for $N(s(x))\le1$ and "$(f,x)$" for $(f+s,x)$.
 
-> **A vacuous first version.** The theorem assumes no tameness, but §5.3 starts from a tame strong bundle, and the proof
-> uses Theorems 3.1.21, 3.1.22, 3.6.8 (preprint 3.18, 3.19, 3.54), proved in Chapter 3 for tame charts. A first formalization assumed that *every*
-> compatible chart of $P$ and of the pull-backs $\pi^*P\to\mathbb R^k\times X$ has a tame retraction. That never holds: a chart can be
+> **Tameness.** The theorem assumes no tameness, but §5.3 starts from a tame strong bundle, and the proof
+> uses Theorems 3.1.21, 3.1.22, 3.6.8 (preprint 3.18, 3.19, 3.54), proved in Chapter 3 for tame charts. Asking that *every*
+> compatible chart of $P$ and of the pull-backs $\pi^*P\to\mathbb R^k\times X$ have a tame retraction would be vacuous: a chart can be
 > re-equipped with another retraction onto the same image, e.g. $r'(a,u) = (1,r(u))$ on $[0,\infty)\times U$, which does not preserve
-> $d_C$ (not machine-checked). As restated, $f$ has tame germ data — the text's tame bundle — and the parametrized sections
-> inherit it, product charts of tame charts being tame. No hypothesis beyond the text's remains.
+> $d_C$ (not machine-checked). So $f$ has tame germ data — the text's tame bundle — and the parametrized sections
+> inherit it, product charts of tame charts being tame. No hypothesis beyond the text's is added.
 
 *Proof.* (1) is Theorem 5.2.2 (preprint 5.5) with Remark 5.3.4 (preprint 5.12). *(3) from (2):* $s_0 = (1-\varepsilon/2)s'$ has $N(s_0)\le1-\varepsilon/2$, $N(s'-s_0)\le\varepsilon/2$; apply (2)
 and take $\lambda\notin CV$ with $|\lambda|<\min(\delta,\varepsilon/2m)$. *(2):* $g = f+s_0$ is sc-Fredholm with tame germ data (Theorem 3.1.18 (preprint 3.15)), $S_g$ compact.
@@ -250,7 +252,8 @@ $\ker\operatorname{Lin}_F(\lambda,y)$ projects onto $\mathbb R^m$, so by Lemma 1
 
 *Step F.* For $|\lambda|<\delta/2$, $\lambda\notin CV$, $f+s_\lambda$ is transversal, $S_{f+s_\lambda}$ compact, and Theorem 3.6.10 (preprint 3.56) gives the manifold. $\square$
 
-Sard is used in its stratified form (Chapter 4, §8), which spares showing that the chart models are open. Remarks 5.3.6 (preprint 5.14; on [21]) and 5.3.8 (preprint 5.16; a cobordism sketch) are not formalized.
+Sard is used in its stratified form (Chapter 4, §8), which spares showing that the chart models are open. Remark 5.3.6 (preprint 5.14; on [21]) has nothing to formalize (gap G.43); Remark 5.3.8 (preprint 5.16; a cobordism sketch) is formalized
+for an arbitrary sc-Fredholm arc (V5.73): `Polyfold.remark_5_3_8_arc`.
 *Checked by machine:* `Polyfold.StrongBundle.IsTransversal`, `Polyfold.exists_spanning_sections`,
 `Polyfold.exists_isOpen_isLinSurjAt_zero_near`, `Polyfold.exists_isOpen_goodPosition_of_isLinSurjAt`,
 `Polyfold.exists_null_isLinSurjAt_paramSlice_near`, `Polyfold.StrongBundle.SolutionSetIsManifold`,
@@ -347,7 +350,8 @@ and a null set $CV$ such that for $|\lambda|<\delta$, $\lambda\notin CV$: $s_\la
 good position at every zero, and $S_{f+s_\lambda}$ is compact, a manifold with boundary with corners. (The text's tameness of $X$ is
 not used; its "$(f,x)$" means $(f+s,x)$.)
 
-> **"As before" fails at the boundary** (not verified in Lean). At a zero $(0,x)$, $x\in\partial X$, where the $t_i$ vanish,
+> **"As before" does not hold at the boundary as we read it** (checked by machine, V5.40:
+> `Polyfold.Counterexamples2021.not_isInGoodPosition_prod_diag`, `Polyfold.Counterexamples2021.theorem_5_3_12_goodPosition_not_stable`). At a zero $(0,x)$, $x\in\partial X$, where the $t_i$ vanish,
 > $\ker F'(0,x) = \mathbb R^m\times K$, $K = \ker f'(x)$. If $Y$ were a good complement for $\mathbb R^m\times C_x$ with constant $\varepsilon$, then for $a\ne0$ and $y\in Y$,
 > $|y|\le\varepsilon|a|$, $(a,0)+y\in\mathbb R^m\times C_x$; scaling $a$, every $y_2\in C_x\cap-C_x = E_x$, so $K+E_x\supset T_xX$, a general position condition. Good
 > position does not imply it: in $[0,\infty)^2$, $K = \mathbb R(1,1)$ is in good position but $K+E_0 = K$. So Theorem 3.6.8 (preprint 3.54) cannot be applied to $F$
@@ -358,13 +362,14 @@ At the zeros outside $V_{bd}$ — interior, away from $\operatorname{cl}V_1$ —
 along $\{0\}\times S_f$. The zeros of $f$ outside $V_1$ are interior ($d = 0$), so Steps B–E of Theorem 5.3.5 (preprint 5.13) apply there and make $f+s_\lambda$
 transversal, hence in good position, at its zeros outside $V_1$. On $V_1$, $f+s_\lambda = f$, and good position depends only on the
 germ of the section. Theorem 3.6.11 (preprint 3.57) gives the manifold structure. $\square$
-*Checked by machine:* `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, `Polyfold.theorem_5_3_12_param` (generic form; no
-dense form).
+*Checked by machine:* `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, `Polyfold.theorem_5_3_12_param` (generic form),
+`Polyfold.theorem_5_3_12_dense` (dense form).
 
 **Theorem 5.27 (preprint; not in the 2021 edition) (cobordism between good position perturbations).** For a proper homotopy $f_t$ over a tame $X$ with bump
 functions, $N$ on $Y\to X\times[0,1]$, $U$ adapted to it, and $s_i$ supported in $U_i$, $N_i(s_i)<1$, $f_i+s_i$ in good position ($i = 0,1$), there is an
 sc$^+$-section $s(x,t)$, $N(s)<1$, supported in $U$, $s(\cdot,i) = s_i$, with $f+s$ in good position at all smooth points; its solution
-set is a compact manifold with corners bounded by $S_0$, $S_1$. **Not formalized:** the proof is "left to the reader".
+set is a compact manifold with corners bounded by $S_0$, $S_1$. **Not formalized:** the theorem is not in the 2021 edition and its proof is
+"left to the reader" (gap G.49); its general-position analogue is `Polyfold.remark_5_3_8_arc` (V5.73).
 
 ## 6. Homotopies and Morse functions (pp. 222–228 (preprint pp. 180–186))
 
@@ -373,21 +378,22 @@ tame, an sc-Fredholm $f$ with tame germ data and $S_f$ compact, and an sc-smooth
 sub-M-polyfold with tame induced structure on which $a\mapsto(a,f(a))$, a section of the pull-back along the inclusion (Proposition
 2.6.8 (preprint 2.54)), is sc-Fredholm with tame germ data. The end problems are the restrictions to $X_0$, $X_1$; their compactness follows,
 $S_f\cap X_\tau$ being closed in $S_f$. The text does not say what $Y|X_t$ is, and its "$(f|X_i,P|Y_i) = (f_i,P_i)$" needs an isomorphism, as
-**Remark 5.3.14 (preprint 5.21)** says (not formalized). *Checked by machine:* `Polyfold.restrictSection`,
+**Remark 5.3.14 (preprint 5.21)** says (formalized, V5.74: `Polyfold.StrongBundle.IsGenCompactHomotopyBetween`). *Checked by machine:* `Polyfold.restrictSection`,
 `Polyfold.StrongBundle.IsGenCompactHomotopy`, `Polyfold.StrongBundle.IsGenCompactHomotopy.isCompact_solutionSet_restrict`.
 
 **Theorem 5.3.15 (preprint 5.22) (Morse-type structure).** Let all M-polyfolds admit bump functions, $f$ be a generalized compact homotopy with
 $\partial X_i = \emptyset$, $(f_i,x)$ in general position at all zeros, $\partial X = X_0\sqcup X_1$, $N$ an auxiliary norm. Then there is $U$ with $S_{f+s}$ compact for
 $s\in\Gamma^{+,1}_U(P)$, and an arbitrarily small $s_0\in\Gamma^{+,1}_U(P)$ vanishing near $\partial X$ with (1) $(f+s_0,x)$ in general position at every zero and
-(2) $t|S_{f+s_0}$ Morse. **Not formalized.** The proof also needs **$dt(x)\ne0$** at the critical points $x$ of $t|_S$.
+(2) $t|S_{f+s_0}$ Morse. **Formalized** in its 2021 form (gap G.48; V5.71, V5.72): `Polyfold.theorem_5_3_15`. The proof also needs
+**$dt(x)\ne0$** at the critical points $x$ of $t|_S$, which the 2021 Definition 5.3.13 (3) supplies (§11).
 
 > **A hidden hypothesis.** The proof takes a one-dimensional smooth $Z$ with $T_xX = Z\oplus\ker dt(x)$. It exists iff $dt(x)\ne0$; if
 > $dt(x) = 0$, $\ker dt(x) = T_xX$ and Lemma 5.3.16 (preprint 5.23) yields $b_\tau$ only for $\tau = 0$ (Lemma 10.D). Nothing makes $t$ a submersion there.
 
 Besides, the proof needs Morse theory on manifolds with boundary, the section $(\lambda,y)\mapsto d(t|S_\lambda)(y)$ of the cotangent bundle, a
 parametric Sard theorem, and embeddings $\Phi_\lambda:S\to\tilde S$ onto $\{\lambda\}\times S_\lambda$ — an Ehresmann-type trivialization, not "the classical
-standard implicit function theorem". None is in Mathlib or the project. Slips: "$\partial X = X_0X_1$"; "$T_yS_\lambda$" in (79) and "$T^*_yM_\lambda$"
-for $T^*_yS_\lambda$; "good position" for "general position" in the proof.
+standard implicit function theorem". The formal proof (V5.72) uses Lagrange multipliers on level sets instead of $\Phi_\lambda$. Read as
+intended: "$\partial X = X_0X_1$"; "$T_yS_\lambda$" in (79) and "$T^*_yM_\lambda$" for $T^*_yS_\lambda$; "good position" for "general position" in the proof.
 
 **Lemma 5.3.16 (preprint 5.23).** If $T = Z\oplus\ker\ell$ with $\ell$ linear, $\dim Z = 1$, and $S\subset T$, then each linear $\tau:S\to\mathbb R$ has a unique linear $b_\tau:S\to Z$ with
 $\ell\circ b_\tau = \tau$, and $\ell\circ(b_\tau+a) = \tau$ for $a:S\to\ker\ell$. Such $Z$ exists iff $\ell\ne0$, and can be spanned by a vector of any spanning set.
@@ -409,9 +415,10 @@ The text's graph of $S$, its $j:L\to\mathbb R$ and its case distinction are not 
 **Definition 5.5.1 (preprint 5.28).** $X$ *admits sc-smooth partitions of unity* if every open cover has a subordinate partition of unity
 (locally finite, $\operatorname{supp}\rho_i\subset U_i$) by sc-smooth functions. **Definition 5.5.2 (preprint 5.29)** is Definition 5.3.1 (preprint 5.9) with "not identically zero";
 **Proposition 5.5.3 (preprint 5.30)** is Proposition 5.3.2 (preprint 5.10). **Definition 5.5.4 (preprint 5.31).** A Banach space has a $C^k$-*bump* if some $C^k$ $f\ne0$ has bounded
-support. **Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton; cited, not formalized):** the $p$-th power of the $L^p$-norm is $C^\infty$ for even $p$, $C^{p-1}$
+support. **Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton; cited; formalized, V5.75):** the $p$-th power of the $L^p$-norm is $C^\infty$ for even $p$, $C^{p-1}$
 for odd $p$, $C^{[p]}$ otherwise. The ensuing remarks (Sobolev norms; sc-smooth bumps on $W^{1,4}(\Omega)$ with $E_m = W^{1+m,4}(\Omega)$; only
-sc$^1$ for $W^{1,3/2}$) are **not formalized**: they need Sobolev sc-structures (gap G.1).
+sc$^1$ for $W^{1,3/2}$) are formalized with the sc-structure on one bounded domain, $(0,1)$ (gap G.51; V5.76):
+`Polyfold.SobolevRemark.remark_5_5_5_W14`, `Polyfold.SobolevRemark.remark_5_5_5_W1_3_2`.
 
 **Definition 5.5.6 (preprint 5.33).** $(O,C,E)$ has the *bump property* if for $x\in O$ and open $U(x)\subset O$ with $\operatorname{cl}_E(U(x))\subset O$ there is an sc-smooth
 $f:O\to\mathbb R$, $f(x)\ne0$, $\operatorname{supp}f\subset U(x)$.
@@ -440,13 +447,13 @@ supported in $V$, and $\varepsilon>0$, some sc-smooth $g:O\to[0,1]$ supported in
 property.
 
 *Proof of ⇒.* The text calls $f\circ\varphi$ "sc-smooth" (it is continuous) and asserts $\operatorname{cl}_X(\varphi^{-1}V)\subset U$; the chart of Theorem 5.5.7 (preprint 5.34) with
-$V = O$, $f\equiv1$ refutes this. As (ii) asks for *an* atlas, restrict charts to open $s$ with $\operatorname{cl}_Xs\subset\operatorname{dom}\varphi$; then $\varphi^{-1}(A)$ is closed for
+$V = O$, $f\equiv1$ shows that this does not hold as we read it. As (ii) asks for *an* atlas, restrict charts to open $s$ with $\operatorname{cl}_Xs\subset\operatorname{dom}\varphi$; then $\varphi^{-1}(A)$ is closed for
 closed $A\subset\varphi(s)$, and $g = f\circ\varphi$ extended by $0$ is continuous. Cover $X$ by $U_0 = \{g<\varepsilon/2\}$ and open $U_x\subset\varphi^{-1}(V)$ on which $|g-g(x)|<\varepsilon/2$;
 with a subordinate sc-smooth partition of unity $(\beta_0,\beta_x)$, $\hat g = \sum\beta_xg(x)$ is sc-smooth, $g-\hat g = \beta_0g+\sum\beta_x(g-g(x))$ has modulus
-$\le\varepsilon/2$, and $\operatorname{supp}\hat g\subset\varphi^{-1}(V)$. Whether *every* chart has the property is not settled.
+$\le\varepsilon/2$, and $\operatorname{supp}\hat g\subset\varphi^{-1}(V)$. In fact *every* chart has the property (V5.55): `Polyfold.theorem_5_5_10_every_chart`.
 
 *Proof of ⇐.* The text's refinement "with the same index set" and $\operatorname{cl}_XW_\lambda\subset U_{\tau(\lambda)}$ need not exist (the cover $\{X\}$); it applies (ii)
-without $\operatorname{cl}_C\varphi(W_\lambda)\subset O$; its extension by $0$ needs $\operatorname{cl}_XW_\lambda\subset\operatorname{dom}\varphi$. Repaired route: *sc-smooth Urysohn functions*. For disjoint
+without $\operatorname{cl}_C\varphi(W_\lambda)\subset O$; its extension by $0$ needs $\operatorname{cl}_XW_\lambda\subset\operatorname{dom}\varphi$. Our route: *sc-smooth Urysohn functions*. For disjoint
 closed $A,B$, cover $A$ by small $N_x\subset X\setminus B$ with $\operatorname{cl}_XN_x\subset\operatorname{dom}\varphi$; refine locally finitely, take continuous $f_x$ equal to $1$ on a shrinking
 $Q_x$, supported in $N_x$, and by (ii) sc-smooth $\hat g_x$ supported in $N_x$, $|\hat g_x-f_x|\le1/2$. Then $G = \sum\hat g_x$ is $\ge1/2$ on $A$ and $0$ on $B$,
 and $\tau(4G-1)$ separates $A$ and $B$. Urysohn functions give, for any open cover, a subordinate bump covering $(f_i)$ by
@@ -465,7 +472,7 @@ $A = \{f\ge\varepsilon/2\}$ is closed in $E_0$ as $\operatorname{cl}V\subset O$;
 $g = \sum\beta_xf(x)$ is $C^\infty$, hence sc-smooth, supported in $V$, with $|f-g|\le\varepsilon/2$. $\square$
 
 **Definition 5.5.12 (preprint 5.39).** $c_0(\Gamma)$: the $f:\Gamma\to\mathbb R$ with $\{|f|>\varepsilon\}$ finite for all $\varepsilon>0$, sup norm; an embedding into it is *coordinatewise
-$C^k$* if each coordinate is. **Theorem 5.5.13 (preprint 5.40) (Toruńczyk; cited, not formalized):** $E$ admits $C^k$ partitions of unity iff it
+$C^k$* if each coordinate is. **Theorem 5.5.13 (preprint 5.40) (Toruńczyk; cited; formalized, V5.59):** $E$ admits $C^k$ partitions of unity iff it
 has a coordinatewise $C^k$ homeomorphic embedding into some $c_0(\Gamma)$. **Definition 5.5.14 (preprint 5.41).** $E$ is *WCG* if $E = \operatorname{cl}\operatorname{span}K$ for a
 weakly compact $K$.
 
@@ -474,10 +481,10 @@ weakly compact $K$.
 *Proof.* (i) The unit ball of a reflexive space is weakly compact (Banach–Alaoglu in $E''$) and spans. (ii) For a dense $(y_n)$,
 $\{0\}\cup\{y_n/((n+1)(|y_n|+1))\}$ is norm compact, hence weakly compact, and spans a dense subspace. $\square$
 
-**Theorem 5.5.16 (preprint 5.43) (Godefroy–Troyanski–Whitfield–Zizler; cited, not formalized).** A WCG space with a $C^k$-bump admits $C^k$
+**Theorem 5.5.16 (preprint 5.43) (Godefroy–Troyanski–Whitfield–Zizler; cited; formalized, V5.62).** A WCG space with a $C^k$-bump admits $C^k$
 partitions of unity.
 
-**Corollary 5.5.17 (preprint 5.44).** If $|v|^2 = b(v,v)$ on $E_0$ and Theorem 5.5.16 (preprint 5.43) holds for $E_0$, $k = \infty$ (an explicit hypothesis), every local model
+**Corollary 5.5.17 (preprint 5.44).** If $|v|^2 = b(v,v)$ on $E_0$, every local model
 on $E$ has the approximation property.
 
 *Proof.* The parallelogram law gives an inner product, so $E_0$ is reflexive (Riesz), hence WCG; $\tau(1-|v|^2)$ is a $C^\infty$-bump;
@@ -485,7 +492,8 @@ Theorem 5.5.16 (preprint 5.43) and Proposition 5.5.11 (preprint 5.38) — not Th
 sc-Hilbert spaces then admit sc-smooth partitions of unity. Conversely partitions of unity give bump functions (take one
 subordinate to $\{U,X\setminus\{x\}\}$); whether bump functions give partitions of unity is open in the text.
 
-*Checked by machine:* `Polyfold.proposition_5_5_11`, `Polyfold.cZero`, `Polyfold.TorunczykStatement` (not used),
+*Checked by machine:* `Polyfold.proposition_5_5_11`, `Polyfold.cZero`, `Polyfold.TorunczykStatement`, `Polyfold.theorem_5_5_13`,
+`Polyfold.theorem_5_5_16`, `Polyfold.corollary_5_5_17_unconditional`,
 `Polyfold.IsWCG`, `Polyfold.proposition_5_5_15_reflexive`, `Polyfold.proposition_5_5_15_separable`,
 `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement`, `Polyfold.isReflexive_of_hilbert`, `Polyfold.corollary_5_5_17`,
 `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions`.
@@ -525,7 +533,7 @@ vanishing near the wall helps. Each regular $S_{f+s_\lambda}$ is a compact $1$-m
 language of §0: the equipotentials $r_1r_2 = (1-\lambda)^{1/4}$ near the one through the field-free midpoint are smooth curves meeting
 the symmetry plane transversally.
 
-## 9. Summary of what was silently assumed, now made explicit
+## 9. Summary of what the text assumes silently, made explicit
 
 | Where (preprint) | HWZ say | What is actually needed |
 |---|---|---|
@@ -548,7 +556,7 @@ the symmetry plane transversally.
 | preprint p. 188, Thm. 5.25 (preprint; not in the 2021 edition) | "in view of Theorem 3.54" | Corollary 5.B |
 | p. 231 (preprint p. 194), Thm. 5.5.7 (preprint 5.34) | "clearly" | supports inside the chart domain |
 | pp. 232–234 (preprint pp. 195–197), Thm. 5.5.10 (preprint 5.37) | $f\circ\varphi$ "sc-smooth"; same index set | restricted charts; sc-smooth Urysohn functions |
-| preprint pp. 197, 199, Prop. 5.5.11 (preprint 5.38), Cor. 5.5.17 (preprint 5.44) | "immediate"; "Theorem 5.37" | the argument in $E_0$; Proposition 5.5.11 (preprint 5.38), Theorem 5.5.16 (preprint 5.43) assumed |
+| preprint pp. 197, 199, Prop. 5.5.11 (preprint 5.38), Cor. 5.5.17 (preprint 5.44) | "immediate"; "Theorem 5.37" | the argument in $E_0$; Proposition 5.5.11 (preprint 5.38), Theorem 5.5.16 (preprint 5.43) |
 
 ## 10. Appendix: routine proofs
 
@@ -578,7 +586,7 @@ The 2021 edition adds two compactness properties to Definition 5.2.1 (preprint 5
 concludes in Theorem 5.3.5 (preprint 5.13) that the perturbed solution sets are compact sub-M-polyfolds, and rewrites Definition
 5.3.13 (preprint 5.20). Chapter 5 has no item that is new in the 2021 edition.
 
-**Definition 5.2.1 (preprint 5.4), 2021 form.** (2) now bounds $N(s(y))\le1$ only for $y\in U$; since $s$ vanishes off $U$ and $N(0_x) = 0$,
+**Definition 5.2.1 (preprint 5.4), 2021 form.** (2) bounds $N(s(y))\le1$ only for $y\in U$; since $s$ vanishes off $U$ and $N(0_x) = 0$,
 this is the notion of §2. New: (4) *weakly proper$_{<\infty}$*, as (2) for every sc$^+$-section $s$ supported in $U$ with $\sup_UN(s)<\infty$;
 (5) *proper$_{<\infty}$*, as (3) with $\operatorname{cl}_{X_0}\{x\in U:N(f(x))\le C\}$ compact for every constant $0<C<\infty$. The text lists the
 a priori dependencies: proper$_{<\infty}\Rightarrow$ proper and weakly proper$_{<\infty}$, weakly proper$_{<\infty}\Rightarrow$ weakly proper.
@@ -594,20 +602,20 @@ not formalized.
 **Theorem 5.2.2 (preprint 5.5), 2021 form.** An sc-Fredholm section with compact solution set is proper$_{<\infty}$; so for sc-Fredholm
 sections the five properties are equivalent. The proof of §2 gives this: near a zero the chart norm is at most $A\cdot N$, so the
 closure of $\{N(f)\le C\}$ lies in the compact set of the local step for the level-$1$ bound $A\cdot C$, on a neighbourhood that does not
-depend on $C$. (In the text's first display, "$N(f(x))\le d$" for the points $z$ of the set is a possible misprint for $N(f(z))\le d$.)
+depend on $C$. (In the text's first display, "$N(f(x))\le d$" for the points $z$ of the set is read as $N(f(z))\le d$.)
 
 *Checked by machine:* `Polyfold.theorem_5_2_2`, `Polyfold.theorem_5_2_2_tfae`.
 
 **Theorem 5.3.5 (preprint 5.13), 2021 form.** For $s$ in the dense set, $S_{f+s}$ is a *compact sub-M-polyfold* with the structure of a
 compact manifold without boundary. In §4 it is compact and, if non-empty, a manifold; the empty set is a sub-M-polyfold. The
-bound printed as "$N(f(x))\le1$" is read, as in §4, as $N(s(x))\le1$ (possible misprint).
+bound printed as "$N(f(x))\le1$" is read, as in §4, as $N(s(x))\le1$ (as we read it).
 
 *Checked by machine:* `Polyfold.theorem_5_3_5`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`.
 
-**Definition 5.3.13 (preprint 5.20), 2021 form.** A generalized compact homotopy is now: a tame strong bundle, an sc-Fredholm $f$ with
+**Definition 5.3.13 (preprint 5.20), 2021 form.** A generalized compact homotopy is, in the 2021 text: a tame strong bundle, an sc-Fredholm $f$ with
 compact solution set and an sc-smooth $t:X\to[0,1]$ with (1) $t^{-1}(i) = X_i$, (2) $(f|X_i,P|Y_i) = (f_i,P_i)$ for $i = 0,1$, and (3) $dt(x):T_xX\to\mathbb R$
 onto at every smooth $x$. Gone are the surjectivity of $t$ and the conditions on the fibres $X_\tau$, $0<\tau<1$. Read as in §6: the ends are
-the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ (Remark 5.3.14 (preprint 5.21) not formalized), and (3) is read in a chart $\varphi$ with a retraction
+the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ (Remark 5.3.14 (preprint 5.21); V5.74), and (3) is read in a chart $\varphi$ with a retraction
 $R$ onto its model and the level-$1$ point $z$ over $\varphi(x)$: $D(t\circ\varphi^{-1}\circ R)(z)$ is onto $\mathbb R$ on $T_zO = DR(z)(E_0)$. The data of §6
 together with (3) give the new data, and every fibre still has a compact solution set. The converse fails: on $\mathbb R\times\mathbb R\to\mathbb R$ the
 graph section of the identity and
@@ -623,13 +631,13 @@ one, since $t$ is not onto $[0,1]$.
 `Polyfold.GenCompactHomotopyWitness.not_isGenCompactHomotopy_witness`.
 
 **Lemma 5.3.16 (preprint 5.23), 2021 reading.** Condition (3) answers the hidden hypothesis of §6: if $dt(x)$ is onto, then $dt(x)\ne0$, so
-a one-dimensional complement $Z$ of $\ker dt(x)$ exists and Lemma 5.3.16 applies. Theorem 5.3.15 (preprint 5.22) itself, and the choice
-of a smooth $Z$, remain unformalized (gap G.48).
+a one-dimensional complement $Z$ of $\ker dt(x)$ exists and Lemma 5.3.16 applies. Theorem 5.3.15 (preprint 5.22) itself is
+formalized in this form (gap G.48; V5.71, V5.72).
 
-*Checked by machine:* `Polyfold.lemma_5_3_16`.
+*Checked by machine:* `Polyfold.lemma_5_3_16`, `Polyfold.theorem_5_3_15`.
 
 *Theorem 5.5.5 (preprint 5.32).* The 2017 and 2021 statements print the exponent $p$ in (1) and (2), which the preprint omits; it is
-still cited and not stated (gap G.50).
+formalized as printed (gap G.50; V5.75): `Polyfold.BonicFrampton.theorem_5_5_5`.
 
 The findings are `Exposition/Findings.md`, "Chapter 5", items 170–179.
 
@@ -640,15 +648,13 @@ The findings are `Exposition/Findings.md`, "Chapter 5", items 170–179.
 `PartitionsOfUnity.lean`); the paragraphs "*Checked by machine*" name the declarations. Formalized: Definitions 5.1.1, 5.2.1,
 5.3.1, 5.3.7, 5.3.9, 5.3.13, 5.5.1, 5.5.2, 5.5.4, 5.5.6, 5.5.9, 5.5.12, 5.5.14 (preprint 5.1, 5.4,
 5.9, 5.15, 5.17, 5.20, 5.28, 5.29, 5.31, 5.33, 5.36, 5.39, 5.41); Lemma 5.1.2 (preprint 5.2), Proposition 5.1.3 (preprint 5.3), Theorems 5.2.2–5.2.4 (preprint 5.5–5.7); Corollary 5.2.5 (preprint 5.8)
-for the solution set on every level and in a chart for $i = 1$; Proposition 5.3.2 (preprint 5.10), Lemma 5.3.3 (preprint 5.11), Remark 5.3.4 (preprint 5.12); Theorems 5.3.5 and
-5.3.10 (preprint 5.13 and
-5.18) in generic and dense forms, Theorem 5.3.12 (preprint 5.19) in generic form, Theorem 5.25 (preprint; not in the 2021 edition); Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) and Lemma 5.26 (preprint; not in the 2021 edition); Proposition 5.5.3 (preprint 5.30),
-Theorem 5.5.7 (preprint 5.34), Proposition 5.5.8 (preprint 5.35), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Corollary 5.5.17 (preprint 5.44) (Theorem 5.5.16 (preprint 5.43) an explicit hypothesis);
+for the solution set on every level and for each fixed $i$; Proposition 5.3.2 (preprint 5.10), Lemma 5.3.3 (preprint 5.11), Remark 5.3.4 (preprint 5.12), the metric $\rho$; Theorems 5.3.5,
+5.3.10 and 5.3.12 (preprint 5.13,
+5.18 and 5.19) in generic and dense forms, Theorem 5.25 (preprint; not in the 2021 edition); Remarks 5.3.8, 5.3.14 (preprint 5.16, 5.21); Theorem 5.3.15 (preprint 5.22) in its 2021 form; Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) and Lemma 5.26 (preprint; not in the 2021 edition); Proposition 5.5.3 (preprint 5.30),
+Theorem 5.5.5 (preprint 5.32) and the $L^p$ and Sobolev remarks (one bounded domain), Theorem 5.5.7 (preprint 5.34), Proposition 5.5.8 (preprint 5.35), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Theorems 5.5.13, 5.5.16 (preprint 5.40, 5.43), Corollary 5.5.17 (preprint 5.44);
 Lemma 5.A, Corollary 5.B, Lemmas 10.A–10.D. **Theorems 5.2.2–5.2.4, 5.3.5, 5.3.12 (preprint 5.5–5.7, 5.13, 5.19) and Theorem 5.25 (preprint; not in the 2021 edition) are proved with the text's hypotheses**,
-the tame strong bundle read as tame germ data; the first, vacuous formalization of Theorem 5.3.5 (preprint 5.13) was replaced. Added: $X$
-tame in Theorem 5.3.10 (preprint 5.18); Definition 5.3.1 (preprint 5.9) read with $f(x)\ne0$. Repaired: the proofs of Theorems 5.3.12, 5.5.7, 5.5.10 (preprint 5.19, 5.34, 5.37). Not formalized:
-the bundle $P^i$ and the level-$1$ filler condition of Corollary 5.2.5 (preprint 5.8); the metric $\rho$ (density is pointwise); Remarks 5.3.6, 5.3.8,
-5.3.14 (preprint 5.14, 5.16,
-5.21); Theorems 5.3.15 (preprint 5.22; hidden hypothesis $dt(x)\ne0$) and 5.27 (preprint; not in the 2021 edition); the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43); the $L^p$ and Sobolev remarks;
-the counterexample to "as before" in Theorem 5.3.12 (preprint 5.19); the unsatisfiability of the first tameness hypothesis; Lemma 10.E; and §8,
+the tame strong bundle read as tame germ data. Added: $X$
+tame in Theorem 5.3.10 (preprint 5.18); Definition 5.3.1 (preprint 5.9) read with $f(x)\ne0$. Given in corrected form: the proofs of Theorems 5.3.12, 5.5.7, 5.5.10 (preprint 5.19, 5.34, 5.37),
+with the counterexample to "as before" in Theorem 5.3.12 (preprint 5.19). Not formalized: one statement for the family of all $P^i$; Remark 5.3.6
+(preprint 5.14; nothing to formalize); Theorem 5.27 (preprint; not in the 2021 edition); the vacuity of the every-chart tameness reading; Lemma 10.E; and §8,
 checked by a script. The findings are `Exposition/Findings.md`, "Chapter 5", items 1–120.

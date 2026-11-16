@@ -108,7 +108,7 @@ w('Lean checks every proof. What it cannot check is whether the definitions and 
   'the tame reading of "tame strong bundle", …) are part of these definitions; the README lists them under '
   '*What a reviewer is most needed for*, and `Findings.md` gives the reason for each.\n\n')
 w('## Before reading: the machine checks\n\n')
-w('```bash\nlake build Polyfold\n```\n\n```bash\nlake env lean Polyfold/Test.lean\n```\n\n'
+w('```bash\nlake build Polyfold\n```\n\n```bash\nlake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean\n```\n\n'
   'The second command prints the axioms of every theorem; each must list only `propext`, `Classical.choice` and '
   '`Quot.sound` (or a subset). No `sorryAx`, no project axioms.\n\n')
 w('## Tiers\n\n| Tier | Statements | New definition rows | Lean helper constants without a row |\n|---|---|---|---|\n')

@@ -3,15 +3,14 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part II, Chapter 11 (arXiv 1707.08941, pp. 375–416), rewritten for a
 first-year graduate student who has read Chapters 7–10 and wants to know which of the structures built on one ep-groupoid can
 be carried to an equivalent one, and why the result does not depend on the choices made. Every formalized statement is
-proved; what is not formalized is marked. Where the Lean formalization found a gap or a shorter route, the text follows the
+proved; what is not formalized is marked. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the
 Lean. Statement numbers and printed pages are those of the book (Springer 2021), with the 2017 text's in parentheses (see
 `BookConcordance.md`); results new in the 2021 edition are marked as such. Conventions: ep-groupoids, orbit spaces $|X|$, the
 degeneracy index and tameness are those of Chapter 7; the tangent functor, strong bundles over ep-groupoids, auxiliary norms
 and proper covering functors those of Chapter 8; branched ep⁺-subgroupoids those of Chapter 9; equivalences, the weak fibred
 product $X \times_Y Z$, the category $\mathcal{EP}(E^{-1})$ with its generalized maps and generalized isomorphisms, and
 generalized strong bundle isomorphisms those of Chapter 10. Compositions are written as in the text, $g \circ f$; the Lean
-writes $f ≫ g$. This version covers §§11.1, 11.3, 11.5 and 11.6; §§11.2 and 11.4 are described but not formalized. The
-findings cited are those of `Findings.md`, "Chapter 11".*
+writes $f ≫ g$. It covers §§11.1–11.6. The findings cited are those of `Findings.md`, "Chapter 11".*
 
 ---
 
@@ -32,8 +31,8 @@ $\Theta_0$.
 Chapter 11 turns this example into a theory. A polyfold is a class of ep-groupoids up to the generalized isomorphisms of
 Chapter 10, so a geometric notion on ep-groupoids is a notion on polyfolds only if generalized isomorphisms carry it to the
 same kind of object, and in a way that does not depend on the representative. The chapter checks this for the tangent functor
-and the degeneracy index (§1), faces (§2), sc-differential forms (§3, not formalized), branched ep⁺-subgroupoids (§4),
-integration (§5, not formalized), auxiliary norms and sc⁺-multisections (§6), and proper covering functors (§7). Every
+and the degeneracy index (§1), faces (§2), sc-differential forms (§3), branched ep⁺-subgroupoids (§4),
+integration (§5), auxiliary norms and sc⁺-multisections (§6), and proper covering functors (§7). Every
 construction has the same shape: along an equivalence $F : X \to Y$, push an object on $X$ to $Y$ by choosing, for each $y$,
 some $x$ and a morphism $F(x) \to y$; show the choice does not matter; then define the push-forward along a generalized
 isomorphism $[X \xleftarrow{F} A \xrightarrow{\Phi} Y]$ as "pull back along $F$, push forward along $\Phi$", and show that
@@ -77,7 +76,7 @@ so $d_Y(F(x)) = d_X(x)$; and $d_X$ is constant on orbits. A generalized isomorph
 equivalences (Theorem 10.3.10), and $|f| = |\Phi| \circ |F|^{-1}$. $\square$
 
 The proof in the text refers to "Proposition 10.3.10" for the representative; the statement meant is Theorem 10.3.10
-(possible misprint) (Findings, item 2). *Checked by machine (V11.2):* `Polyfold.EPLocalization.EPLoc.proposition_11_1_2`,
+(as we read it) (Findings, item 2). *Checked by machine (V11.2):* `Polyfold.EPLocalization.EPLoc.proposition_11_1_2`,
 `Polyfold.EpFunctor.IsEquivalence.degIndexOrbit_orbitMap`, `Polyfold.EPLocalization.Diagram.degIndexOrbit_orbitMap`.
 
 ## 2. Faces (pp. 523–526 (2017 pp. 377–380))
@@ -96,7 +95,8 @@ morphisms whose source lies in it (their targets lie in it too). The faces of $|
 the index $d_{|X|}$ on the open set $|X|$, and face-structuredness is Chapter 2's condition for $|X|$; this lets every later
 statement about faces be a statement about a homeomorphism of orbit spaces preserving an index. The number of faces through
 $z$ is counted in $\mathbb N \cup \{\infty\}$, so that "exactly $d_{|X|}(z)$ faces" excludes infinitely many. The ep-groupoid
-structure of $X_\theta$ belongs to Proposition 11.1.6 and is not formalized (Findings, item 3). *Checked by machine (V11.3):*
+structure of $X_\theta$ belongs to Proposition 11.1.6 and is formalized there (`Polyfold.EpGroupoid.faceEpGroupoid`,
+V11.6; Findings, item 3). *Checked by machine (V11.3):*
 `Polyfold.EpGroupoid.IsOrbitFace`, `Polyfold.EpGroupoid.faceObj`, `Polyfold.EpGroupoid.IsEpFaceStructured`,
 `Polyfold.EpGroupoid.IsWeaklyFaceStructured`, `Polyfold.EpGroupoid.isOrbitFace_iff_isFaceIn`,
 `Polyfold.EpGroupoid.isEpFaceStructured_iff`.
@@ -144,10 +144,14 @@ $|X|$ onto those of $|Y|$ with inverse $[d]^*$, $[d]_*(X_\theta) = Y_{|[d]|(\the
 homeomorphism of each face $\theta$ onto $[d]_*\theta$. These are the maps of orbit spaces of the generalized isomorphisms
 $[d]_F$.
 
-*What is not.* The structures on a face, which need the restriction of an ep-groupoid to a closed saturated sub-M-polyfold
-and the identification of $X_\theta$ with a union of faces of the object M-polyfold; the intersection clause; and the
-generalized isomorphisms $[d]_F$ themselves (gap G.128). Whether the intersection clause holds in the generality stated was
-left open by the formalization; nothing is claimed either way (Findings, item 6). *Checked by machine (V11.6):*
+The structures on a face are formalized too: each $X_\theta$ agrees near each of its points with one face of the object
+M-polyfold, so it is a closed saturated sub-M-polyfold and a tame ep-groupoid with $d_X = d_{X_\theta} + 1$
+(`Polyfold.EpGroupoid.proposition_11_1_6_faces`, `Polyfold.EpGroupoid.faceEpGroupoid`), and the restricted diagram gives the
+generalized isomorphisms $[d]_F$, independent of the representative (`Polyfold.EPLocalization.EPLoc.faceIso`,
+`Polyfold.EPLocalization.EPLoc.proposition_11_1_6_faceIso`) (gap G.128). The intersection clause does not hold as we read
+it: in $([0,\infty)^3 \oplus W) \setminus K$ two faces meet in two pieces of an edge, which is not one face of either
+(`Polyfold.FaceMeetExample.not_facesMeetInFaces`); the intersection is a union of faces of each
+(`Polyfold.EpGroupoid.IsEpFaceStructured.facesMeetInUnions`) (Findings, items 6, 9). *Checked by machine (V11.6):*
 `Polyfold.EPLocalization.EPLoc.proposition_11_1_6`, `Polyfold.EPLocalization.EPLoc.isOrbitFace_faceMap`,
 `Polyfold.EPLocalization.EPLoc.faceComap_faceMap`.
 
@@ -170,11 +174,12 @@ structured ep-groupoids with $|f| = |g|$, then $f$ and $g$ induce the same bijec
 
 *Proof.* The bijection is $\theta \mapsto |f|(\theta)$ and the map on a face is the restriction of $|f|$. $\square$
 
-*How this is read.* The text's maps $|F| \to |f_*F|$ are those of the generalized isomorphisms of (11.1), which are not
-constructed (G.128); they are read as the restrictions of $|f|$, which is what they are on orbit spaces (Findings, item 8).
-*Checked by machine (V11.8):* `Polyfold.EPLocalization.EPLoc.proposition_11_1_8`.
+*How this is read.* The text's maps $|F| \to |f_*F|$ are those of the generalized isomorphisms of (11.1)
+(`Polyfold.EPLocalization.EPLoc.faceIso`, G.128); on orbit spaces they are the restrictions of $|f|$ (Findings, item 8).
+*Checked by machine (V11.8):* `Polyfold.EPLocalization.EPLoc.proposition_11_1_8`,
+`Polyfold.EPLocalization.EPLoc.proposition_11_1_8_faceIso`.
 
-## 3. Differential forms (pp. 526–535 (2017 pp. 380–389)), not formalized
+## 3. Differential forms (pp. 526–535 (2017 pp. 380–389))
 
 §11.2 carries the sc-differential forms $\Omega^*_{ep,\infty}(X)$ of an ep-groupoid along equivalences and generalized maps.
 Theorem 11.2.1 (2017: 11.2) states that $d \circ d = 0$; that a generalized map $f : X \to Y$ has a pull-back $f^*$ commuting
@@ -187,8 +192,12 @@ equivalence and the invariance under refinement; Definition 11.2.7 (2017: 11.3) 
 G_* \circ F^*$; Propositions 11.2.8 and 11.2.9 (2017: 11.4, 11.5) show that, under the local regularity property, only the
 orbit map matters, by the local families of Proposition 10.1.10.
 
-None of this is formalized: sc-differential forms on ep-groupoids are not in the project (gaps G.74, G.80), and §11.2 is gap
-G.129 (V11.9–V11.13; Findings, item 20). The same pattern for functors $\Theta$, in place of forms, is §4.
+All of this is formalized, with no added hypothesis (gap G.129; V11.9–V11.13; Findings, items 20–22): the pull-back along
+an equivalence is a bijection (`Polyfold.EpFunctor.IsEquivalence.bijective_formPullback`) with inverse the push-forward
+(`Polyfold.EpFunctor.IsEquivalence.formPush`, `Polyfold.EP.epFormsInftyPush`), the text's formula is
+`Polyfold.EpFunctor.IsEquivalence.definition_11_2_3`, and Definition 11.2.7 and Theorem 11.2.1 are
+`Polyfold.EPLocalization.EPLoc.formsPullback`, `Polyfold.EPLocalization.EPLoc.formsPush` and
+`Polyfold.EPLocalization.EPLoc.theorem_11_2_1_four`. The same pattern for functors $\Theta$, in place of forms, is §4.
 
 ## 4. Branched ep⁺-subgroupoids (pp. 535–542 (2017 pp. 389–395))
 
@@ -199,7 +208,7 @@ $(F_*\Theta)(y) = \Theta(x)$ for any $x$ with a morphism $F(x) \to y$.
 *How this is read.* A functor $X \to \mathbb Q^+$ is a map on objects constant along morphisms. Both operations are defined
 for every sc-smooth functor and every map on objects: $F_*\Theta(y)$ uses one chosen $x$ and morphism, and is $0$ if there is
 none. For an equivalence there always is one, and the next lemma shows that the value does not depend on the choice. The text
-writes the push-forward as a map $X' \to \mathbb Q^+$, in both editions; we read $Y \to \mathbb Q^+$ (possible misprint)
+writes the push-forward as a map $X' \to \mathbb Q^+$, in both editions; we read $Y \to \mathbb Q^+$
 (Findings, item 30). *Checked by machine (V11.14):* `Polyfold.EpFunctor.pullbackTheta`,
 `Polyfold.EpFunctor.pushforwardTheta`, `Polyfold.EpFunctor.pushforwardTheta_of_not_exists`.
 
@@ -260,9 +269,8 @@ same with $F$ near $x$ and a structure of $\Theta'$ at $F(x)$. This proves (1) a
 
 *Step 3, type and dimension.* Orbifold type is a property of the local branching structures. For manifold type, two morphisms
 $y \to y'$ are compared through the faithfulness of $F$. In that step the text writes $\psi \circ \varphi' \circ \psi^{-1} :
-F(x) \to F(x)$ for $\psi : F(x) \to y$ and $\varphi' : y \to y$; we read $\psi^{-1} \circ \varphi' \circ \psi$ (possible
-misprint). $n$-dimensionality is preserved by Step 2, and so are dimensional decompositions, since $F_*$ and $F^*$ are
-additive. $\square$
+F(x) \to F(x)$ for $\psi : F(x) \to y$ and $\varphi' : y \to y$; we read $\psi^{-1} \circ \varphi' \circ \psi$.
+$n$-dimensionality is preserved by Step 2, and so are dimensional decompositions, since $F_*$ and $F^*$ are additive. $\square$
 
 *How (6) is read.* The text speaks of "the dimensional decomposition", by the uniqueness part of Proposition 9.1.11. That
 uniqueness does not hold as we read it (Chapter 9); so (6) is read as "every dimensional decomposition is mapped to one",
@@ -285,8 +293,9 @@ smooth object $x$ a finite formal sum, with rational weights, of oriented tangen
 represented near each point by the oriented sheets of a local branching structure (Definition 9.3.2). Chapter 9 also takes a
 hypothesis that the results below need: the sums $\sum_i \sigma_i T_xM_i$ of Theorem 9.2.1 do not depend on the local
 branching structure (`Polyfold.EpGroupoid.HasIndependentTangentSums`). It holds on $\mathbb R^n$ for every $\Theta$
-(`Polyfold.EpGroupoid.hasIndependentTangentSums_rn`); here it is assumed for the ep⁺-subgroupoid being moved and proved for
-its images.
+(`Polyfold.EpGroupoid.hasIndependentTangentSums_rn`), and on every ep-groupoid for every $\Theta$
+(`Polyfold.EpGroupoid.hasIndependentTangentSums`, V9.14); the statements below keep it as a hypothesis on the ep⁺-subgroupoid
+being moved and prove it for its images.
 
 **Lemma 11.3.4 (2017: 11.6) (section functors along generalized isomorphisms).** Let $\Gamma(\hat\pi_X)$ be the set of
 section functors of $\hat\pi_X$, with no continuity required. For an equivalence $F : X \to Y$ set $(F_*h)(y) = T\psi \circ
@@ -385,18 +394,19 @@ f_*(\partial\hat\Theta)$ and $\partial(f^*\hat\Theta') = f^*(\partial\hat\Theta'
 
 *What is proved.* The text leaves the proof to the reader. Chapter 9's orientation $\hat T_{\partial\Theta}$ of the boundary
 is the boundary lift of $\hat T_\Theta$: the terms at which the sheet has $d_M = 1$ are kept, and each is replaced by its
-image under a boundary operation $bd$ on oriented tangent sets. Chapter 9 takes $bd$ as data, since the partial cones of
-submanifolds that determine it are not formalized; so the theorem needs the boundary operations on the two sides to
-correspond. A linear map $L : T_xX \to T_yY$ *transfers* $bd$ to $bd'$ if it preserves $d_M = 1$ and $bd'(L_*o) = L_*(bd\,
-o)$ there; the identity transfers every boundary operation to itself. For a representative $X \xleftarrow{F} A
-\xrightarrow{\Phi} Y$ with $\Phi$ an equivalence and boundary operations on $X$, $A$, $Y$ transferred by $TF(a)^{-1}$ and by
-$T\psi \circ T\Phi(a)$, both formulae hold, with Theorem 11.3.8 for the underlying $\partial\Theta$. Not formalized: that the
-boundary operations of Definition 9.3.8 satisfy this along equivalences, which needs sc-diffeomorphisms between different
-M-polyfolds to preserve the tame induced structures, $d_M$ and outward vectors; hence a form of the theorem independent of
-the representative (gap G.130; Findings, item 45). *Checked by machine (V11.25):* `Polyfold.MPolyfold.IsBoundaryTransfer`,
-`Polyfold.MPolyfold.isBoundaryTransfer_id`, `Polyfold.EpFunctor.pushSection_boundaryLift`,
-`Polyfold.EpFunctor.pullSection_boundaryLift`, `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push`,
-`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull`.
+image under a boundary operation $bd$ on oriented tangent sets. In its general form the theorem takes $bd$ as data, so it
+needs the boundary operations on the two sides to correspond. A linear map $L : T_xX \to T_yY$ *transfers* $bd$ to $bd'$ if
+it preserves $d_M = 1$ and $bd'(L_*o) = L_*(bd\,o)$ there; the identity transfers every boundary operation to itself. For a
+representative $X \xleftarrow{F} A \xrightarrow{\Phi} Y$ with $\Phi$ an equivalence and boundary operations on $X$, $A$, $Y$
+transferred by $TF(a)^{-1}$ and by $T\psi \circ T\Phi(a)$, both formulae hold, with Theorem 11.3.8 for the underlying
+$\partial\Theta$. The boundary operation of Definition 9.3.8 is preserved by sc-diffeomorphisms
+(`Polyfold.MPolyfold.boundaryOp_map_tangentMapOn`), so for the intrinsic boundary orientation the theorem holds for the
+generalized isomorphism itself with no transfer hypothesis
+(`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation`,
+`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation`; gap G.130; Findings, item 45). *Checked by machine
+(V11.25):* `Polyfold.MPolyfold.IsBoundaryTransfer`, `Polyfold.MPolyfold.isBoundaryTransfer_id`,
+`Polyfold.EpFunctor.pushSection_boundaryLift`, `Polyfold.EpFunctor.pullSection_boundaryLift`,
+`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push`, `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull`.
 
 The hypotheses can hold: the orientation $\hat T^1$ of Example 9.3.5 on $\mathbb R^2$ is a section functor, $(\Theta, \hat
 T^1)$ is an oriented branched ep⁺-subgroupoid in the sense of Definition 11.3.6 and is pushed forward along the identity
@@ -404,7 +414,7 @@ generalized isomorphism, and the identity transfers the identity boundary operat
 (V11.26):* `Polyfold.EpGroupoid.Examples.exampleT1_mem_grHatSections`, `Polyfold.EpGroupoid.Examples.example935Oriented`,
 `Polyfold.EpGroupoid.Examples.example935Oriented_push`, `Polyfold.EpGroupoid.Examples.isBoundaryTransfer_id_rn2`.
 
-## 5. Integration (pp. 542–546 (2017 pp. 396–399)), not formalized
+## 5. Integration (pp. 542–546 (2017 pp. 396–399))
 
 §11.4 shows that integration over branched ep⁺-subgroupoids is a notion on polyfolds. Theorem 11.4.1 (2017: 11.8): for a
 generalized isomorphism $f : X \to Y$, an oriented, tame, compact, $n$-dimensional branched ep⁺-subgroupoid $\hat\Theta$ of
@@ -414,8 +424,11 @@ effective measures under the local unique continuation property. Remark 11.4.3 (
 related by a generalized isomorphism compatible with $\beta$ give the same integrals. Theorems 11.4.4 (2017: 11.9) and 11.4.5
 (new in the 2021 edition) do the same for the boundary measures.
 
-None of this is formalized. It needs forms (G.74, G.80), branched integration and the boundary measures (G.107–G.109), and
-the orientations of §4; §11.4 is gap G.131 (V11.27–V11.29; Findings, item 50).
+All of this is formalized, with no added hypothesis, for the canonical, effective and boundary measures of Chapter 9 (gap
+G.131; V11.27–V11.29; Findings, item 50): `Polyfold.EPLocalization.EPLoc.theorem_11_4_1_pull`, `_push`,
+`Polyfold.EPLocalization.EPLoc.theorem_11_4_2_pull`, `_push`, `Polyfold.EPLocalization.EPLoc.remark_11_4_3`, and
+`Polyfold.EPLocalization.EPLoc.theorem_11_4_4_pull_loc`, `Polyfold.EPLocalization.EPLoc.theorem_11_4_5_pull_loc` with their
+push-forward and $n = 1$ forms (`Polyfold.EPLocalization.EPLoc.theorem_11_4_4_pull_dim1`).
 
 ## 6. Auxiliary norms and multisections (pp. 546–549 (2017 pp. 399–401))
 
@@ -435,8 +448,9 @@ likewise $[D]_*N$. The two are mutually inverse, and $[D]^*N' = [D']^*N'$, $[D]_
 *What is proved.* Define $[D]^*N'(e) = N'(e')$ for any $e'$ representing $|D|(|e|) \in |W'[1]|$. For invariant $N'$ this does
 not depend on $e'$ and equals the text's $N'(\Psi(e''))$ for every admissible $e''$. It is invariant, continuous (the map
 induced by $N'$ on $|W'[1]|$, composed with $|D|$ and the quotient map), satisfies (3), is inverse to $[D]_*$, and depends
-only on $|[D]|$. Conditions (1) and (2) are not shown: they need the level-$1$ fibre maps of $\mu$ and of a strong bundle
-equivalence as linear bijections, and the local homeomorphism property on level $1$ near the zero section (gap G.132).
+only on $|[D]|$. Conditions (1) and (2) hold as well, through the level-$1$ fibre maps of $\mu$ and of a strong bundle
+equivalence and the level-$1$ local inverses, so the proposition holds in full
+(`Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book`; gap G.132).
 
 Before the proposition the text derives $[D] = [D']$ from $|[D]| = |[D']|$ under the local regularity property; that is
 Theorem 10.5.7, which does not hold as we read it (Chapter 10). Nothing in §11.5 uses it: the last clause needs only $|[D]| =
@@ -455,8 +469,8 @@ does not depend on the choices and is an sc⁺-multisection.
 
 *What is proved.* For the functor $\Lambda$: the value does not depend on $w$, $\Phi_*\Lambda$ is a functor, and
 $\Phi^*\Phi_*\Lambda = \Lambda$, $\Phi_*\Phi^*\Lambda' = \Lambda'$; the proof is that of Lemma 11.3.2. The local section
-structures, and their transport along $\Phi$, are not formalized: 2021 Definition 13.2.1 is not in the project, and the
-transport needs a strong bundle form of the transport of Proposition 10.1.9 (gap G.133). *Checked by machine (V11.31):*
+structures go along $\Phi$ both ways, with 2021 Definition 13.2.1 as `Polyfold.SBLocalization.IsScPlusMultisection`, so the
+lemma holds for sc⁺-multisections (`Polyfold.SBLocalization.lemma_11_5_2_book`; gap G.133). *Checked by machine (V11.31):*
 `Polyfold.SBLocalization.lemma_11_5_2`, `Polyfold.SBLocalization.pushMult_eq`, `Polyfold.SBLocalization.pullMult_pushMult`.
 
 **Proposition 11.5.3 (2017: 11.7) (multisections under generalized isomorphisms).** $[D]_*\Lambda = \Psi_*\Phi^*\Lambda$ and
@@ -467,9 +481,9 @@ bundle maps $[D]$, $[D']$ with $|[D]| = |[D']|$, agree.
 $|D|$, and every claim follows. $\square$
 
 The last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined; the local section
-structures are G.133 (Findings, item 61). *Checked by machine (V11.32):*
-`Polyfold.SBLocalization.GenSBMap.proposition_11_5_3`, `Polyfold.SBLocalization.SDiagram.pushMult_eq`,
-`Polyfold.SBLocalization.SDiagram.pushMult_eq_of_orbitMap_eq`.
+structures are carried as in Lemma 11.5.2 (`Polyfold.SBLocalization.GenSBMap.proposition_11_5_3_book`; G.133; Findings, items
+61, 82). *Checked by machine (V11.32):* `Polyfold.SBLocalization.GenSBMap.proposition_11_5_3`,
+`Polyfold.SBLocalization.SDiagram.pushMult_eq`, `Polyfold.SBLocalization.SDiagram.pushMult_eq_of_orbitMap_eq`.
 
 ## 7. Proper coverings up to equivalence (pp. 549–566 (2017 pp. 401–416))
 
@@ -499,7 +513,7 @@ identified with the translation groupoid $G_x \ltimes Y_x$.
 $\alpha$ on morphisms; it is bijective on objects, full and faithful, an isomorphism of categories. The topology of $Y(x)$
 plays no part. *Proof.* The action law: $\alpha^{-1}(g_2g_1, y)$ and $\alpha^{-1}(g_2, g_1 * y) \circ \alpha^{-1}(g_1, y)$
 have the same image under $\alpha$. In the text's computation of $\alpha(\psi_2 \circ \psi_1)$ the second factor is printed
-$(F(\psi_2), s(\psi_1))$; we read $(F(\psi_1), s(\psi_1))$ (possible misprint). Faithfulness and fullness are the injectivity
+$(F(\psi_2), s(\psi_1))$; we read $(F(\psi_1), s(\psi_1))$. Faithfulness and fullness are the injectivity
 and surjectivity of $\alpha$ over $Y_x$. $\square$
 
 *Checked by machine (V11.34):* `Polyfold.EpFunctor.IsProperCovering.lemma_11_6_2`,
@@ -555,7 +569,7 @@ equivalence; (3) $(\Psi \circ \pi_Y, \Phi \circ \pi_X)$ and $(\zeta \circ \pi_{Y
 equivalent. If $X''$ is tame, so are $P$ and $Q$; if $(\zeta, \xi)$ is an equivalence, so is $(\pi_Y, \pi_X) : H \to F$.
 
 *Proof.* (A) *Objects.* The text's heading says that $F \times F' \times F''$ maps $X \times_{X'} X''$ onto $Y \times_{Y'}
-Y''$; we read $Y \times_{Y'} Y''$ onto $X \times_{X'} X''$ (possible misprint). Given $(x, \varphi', x'')$, lift $x''$ to
+Y''$; we read $Y \times_{Y'} Y''$ onto $X \times_{X'} X''$. Given $(x, \varphi', x'')$, lift $x''$ to
 $y''$ and $\varphi'$ along $F'$ to a $\psi'$ ending at $\zeta(y'')$; the source of $\psi'$ lies over $\Phi(x)$, so it is
 $\Psi(y)$ for some $y \in Y_x$, by the fibre condition. $H$ is a local sc-diffeomorphism on objects by two out of three: the
 projections $P \to Y''$ and $Q \to X''$ are local sc-diffeomorphisms because $\Psi$ and $\Phi$ are, $F''$ is one, and
@@ -605,20 +619,24 @@ equivalence relation (Findings, item 75). *Checked by machine (V11.41):* `Polyfo
 
 *The localization (pp. 561–563 (2017 pp. 410–412)).* The text then forms the category $\mathcal{PC}(E^{-1})$ whose morphisms
 are the classes of diagrams, composed through weak fibred products, with a functor $I : \mathcal{PC} \to
-\mathcal{PC}(E^{-1})$ that inverts equivalences; the well-definedness of the composition is left to the reader. Not
-formalized (gap G.134; Findings, item 76).
+\mathcal{PC}(E^{-1})$ that inverts equivalences; the well-definedness of the composition is left to the reader. It is
+formalized: the category is `Polyfold.PCLoc`, the composition is well defined by
+`Polyfold.PC.Diagram.hasCommonRefinement_comp`, and $I$ is `Polyfold.PCLoc.I`, which inverts equivalences
+(`Polyfold.PCLoc.isIso_I_map`) (V11.43; gap G.134; Findings, items 76, 78).
 
 *Remark 11.6.9 (2017: 11.4), pp. 563–566.* The remark views a strong bundle over an ep-groupoid and a strong bundle map as
 functors, recalls Definition 8.5.9 of proper strong bundle coverings, and sketches the category of such coverings with its
 equivalences and localization, leaving the details to the reader. Definition 8.5.9 is formalized in Chapter 8
-(`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021`); the category and its localization are not (V11.42; gap G.135;
-Findings, item 76).
+(`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021`); the category is `Polyfold.SBPC`, with Theorem 11.6.6
+(`Polyfold.SBPC.theorem_11_6_6`) and its localization by diagrams (`Polyfold.SBPCLoc`) (V11.42; gap G.135; Findings, items
+76, 77).
 
 ## 8. Witnesses: the hypotheses can hold
 
 Two hypotheses are taken, both in the rest of §11.3: Chapter 9's independence of the tangent sums of Theorem 9.2.1, assumed
-for the branched ep⁺-subgroupoid being moved and proved for its images, which holds on $\mathbb R^n$; and the
-boundary-transfer hypothesis of Theorem 11.3.9, which holds along the identity (§4). The statements of §4 and the category
+for the branched ep⁺-subgroupoid being moved and proved for its images, which holds for every $\Theta$ (V9.14); and the
+boundary-transfer hypothesis of the general form of Theorem 11.3.9, which holds along the identity and is not needed for
+the intrinsic boundary orientation (§4). The statements of §4 and the category
 $\mathcal{PC}$ take their ep-groupoids in one universe (Findings, item 80). Every definition has a witness. The quadrant with
 the swap is weakly face structured and not face structured (§2). $\Theta_0 = 1_{\{0\}}$ on $\mathbb Z/2 \ltimes \mathbb R$ is
 a branched ep⁺-subgroupoid that is pulled back along an equivalence not injective on objects and pushed forward along a
@@ -630,7 +648,7 @@ of the point satisfy the hypotheses of Theorem 11.6.6 with a nonempty weak fibre
 \leftarrow \mathrm{pair} \to \mathrm{point}$ and $\mathrm{pair} \leftarrow \mathrm{pair} \times_{\mathrm{point}}
 \mathrm{pair} \to \mathrm{point}$ have a common refinement (§7).
 
-## 9. Summary of what was silently assumed, now made explicit
+## 9. Summary of what the text assumes silently, made explicit
 
 | Where | HWZ say | What is actually needed |
 |---|---|---|
@@ -648,7 +666,7 @@ of the point satisfy the hypotheses of Theorem 11.6.6 with a nonempty weak fibre
 | pp. 539–540, Thm. 11.3.5 (2017: 11.4) | oriented structures moved by $\hat\psi \circ F$ | Chapter 9's orientations between two M-polyfolds; the independence of the tangent sums assumed for $\Theta$, proved for $f_*\Theta$, $f^*\Theta'$ |
 | p. 541, Thm. 11.3.7 (2017: 11.5) | details left to the reader | $T_{f(a)}f(A) = Tf(T_aA)$ between two M-polyfolds; $Tf = [Td]$ |
 | p. 542, Thm. 11.3.8 (2017: 11.6) | $d_M(x)$ preserved | $\partial M$ invariant under sc-diffeomorphisms between two M-polyfolds |
-| p. 542, Thm. 11.3.9 (2017: 11.7) | proof left to the reader | boundary operations carried into each other by the tangent maps (assumed; G.130) |
+| p. 542, Thm. 11.3.9 (2017: 11.7) | proof left to the reader | boundary operations carried into each other by the tangent maps (G.130) |
 | p. 547, Prop. 11.5.1 (2017: 11.6) | choices of $e''$ and $\Phi(e'') \to e$ | a representative of $\lvert D \rvert(\lvert e \rvert)$ in $\lvert W'[1] \rvert$ |
 | p. 549, Prop. 11.5.3 (2017: 11.7) | generalized strong bundle maps with $\lvert [D] \rvert = \lvert [D'] \rvert$ | generalized strong bundle isomorphisms |
 | p. 550, (11.15) | $(F(\psi_2), s(\psi_1))$ | $(F(\psi_1), s(\psi_1))$ |
@@ -658,21 +676,14 @@ of the point satisfy the hypotheses of Theorem 11.6.6 with a nonempty weak fibre
 | p. 559, Thm. 11.6.6, (C) | sequences | $H$ a proper map; proper local sc-diffeomorphisms are evenly covered |
 | p. 562, Prop. 11.6.8 (2017: 11.8) | the chain for the $\varepsilon$'s | one more step, from $\varepsilon' \circ K \simeq \varepsilon'' \circ K'$ |
 
-**Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in the files `EpEquivalenceGeometry.lean`,
-`EpEquivalenceGeometryFaces.lean`, `BranchedEquivalence.lean`, `BranchedEquivalenceLocalization.lean`,
-`BranchedEquivalenceTangentSection.lean`, `BranchedEquivalenceTangent.lean`, `BranchedEquivalenceTangentOrientation.lean`,
-`StrongBundleUpToEquivalence.lean`, `CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean` and
-`CoveringEquivalenceDiagram.lean` of `Polyfold/Chapter11/` imported by the root module (not the `WIP_*` files). Formalized:
-Theorem 11.1.1, Proposition 11.1.2, Definition 11.1.3, Example 11.1.4, Remarks 11.1.5 and 11.1.7; Proposition 11.1.6 for the
-bijection of faces and the homeomorphisms it induces, and Proposition 11.1.8 for those maps; Definition 11.3.1, Lemma 11.3.2,
-the push-forward and pull-back along generalized maps and Theorem 11.3.3; Lemma 11.3.4 with (11.8) and (11.9), Theorem
-11.3.5, Definition 11.3.6 with (11.10), Theorems 11.3.7 and 11.3.8 under Chapter 9's independence of the tangent sums, and
-Theorem 11.3.9 for a representative under the boundary-transfer hypothesis; Proposition 11.5.1 without conditions (1) and (2)
-of Definition 8.3.5, Lemma 11.5.2 and Proposition 11.5.3 for the functors underlying sc⁺-multisections; Lemmas 11.6.1–11.6.3,
-Definitions 11.6.4, 11.6.5, 11.6.7, Theorem 11.6.6 and Proposition 11.6.8; several in stronger forms. Not formalized: the
-ep-groupoid structure of faces, the intersection clause and $[d]_F$ in Proposition 11.1.6, §11.2, §11.4, conditions (1) and
-(2) of auxiliary norms in Proposition 11.5.1, the local section structures of sc⁺-multisections, Theorem 11.3.9 independent
-of the representative, the localization $\mathcal{PC}(E^{-1})$ and the category of Remark 11.6.9 (gaps G.128–G.135). The
-statements are V11.1–V11.42 of `Exposition/Verification.md`, compared in `Exposition/polyfold-beside-lean.html`, retold in
-`Exposition/ProofByProof.md`; findings: `Exposition/Findings.md`, "Chapter 11", items 1–8, 20, 30–35, 40–46, 50, 60–61,
-70–76, 80.
+**Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in the 51 files of `Polyfold/Chapter11/` imported
+by the root module (not the `WIP_*` files), among them `EpEquivalenceGeometry.lean`, `EpEquivalenceGeometryFaces.lean`,
+`FaceEpGroupoids.lean`, `FaceGeneralizedIso.lean`, `EquivalenceForms.lean`, `GeneralizedForms.lean`,
+`BranchedEquivalence.lean`, `BranchedEquivalenceTangentOrientation.lean`, `BoundaryOrientationEquiv.lean`,
+`MeasureGeneralizedIso.lean`, `BoundaryMeasureTextHypotheses.lean`, `StrongBundleUpToEquivalence.lean`,
+`AuxiliaryNormTransport.lean`, `MultisectionLocalStructure.lean`, `CoveringEquivalenceTheorem.lean`,
+`ProperCoveringLocalization.lean` and `StrongBundleCoveringLocalization.lean`. Every statement of §§11.1–11.6 is formalized,
+Theorem 11.3.9 componentwise, several in stronger forms; the intersection clause of Proposition 11.1.6 does not hold as we
+read it, and its form with unions is proved (gaps G.128–G.135). The statements are V11.1–V11.43 of
+`Exposition/Verification.md`, compared in `Exposition/polyfold-beside-lean.html`, retold in `Exposition/ProofByProof.md`;
+findings: `Exposition/Findings.md`, "Chapter 11", items 1–9, 20–22, 30–35, 40–46, 50, 60–61, 70–78, 80–82.
