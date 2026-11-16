@@ -23,7 +23,7 @@ comparison names the added hypothesis and shows that it can be satisfied.
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 with sc-smooth partitions of unity for Stokes' theorem, for index 0 too, the inherited orientation independent of the model; in Theorem 16.6.6 the independence of λ proved over the perturbations with the inherited orientation, not over all admissible λ; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorems 16.4.6 and 16.6.6 with sc-smooth partitions of unity for Stokes' theorem (Remark 9.5.19) |
 
 The trusted base, the declarations whose statements a reader has to check, is
 `Exposition/checklist/TrustedBase.lean`; every declaration depends only on the standard axioms
@@ -62,7 +62,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/polyfold-beside-lean.html`, `Exposition/Comparison.md` | The comparison: every statement of the book beside its formal version, with the verdict (same, hypotheses explicit, stronger, narrower, restated, …) and every difference. |
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
-| `Exposition/Findings.md` | Gaps, hidden hypotheses, counterexamples to our readings and the readings chosen, with what was done about each. |
+| `Exposition/Findings.md` | Gaps, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
@@ -121,29 +121,28 @@ A web browser is enough: no Lean and no GitHub account are needed.
      signed form.
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
-4. **The statements that do not hold as we read them.** Each has a counterexample checked in Lean,
-   and the form that holds is proved; each is a counterexample to our reading, and a misreading on
-   our side would remove it.
+4. **Where our reading needed a condition the text does not print.** In each case the statement with
+   the condition is proved, and a small example in Lean shows why we used it. A different reading on
+   our side may well make the condition unnecessary; the Findings give the details.
 
-| Where | As we read it |
+| Where | What our reading uses |
 |---|---|
-| Definition 1.1.9, p. 8; §5.3, p. 217 (“not complete”) | Details in the Findings, Chapters 1 and 5 |
-| Remark 2.4.8, p. 47 | The claim has no example; the 2021 example is not an sc-smooth retract |
-| (2.44) and Proposition 2.7.12, pp. 82–84 | The stated mapping property of `Φ_(x,V,θ)` holds for `V` centred at `x` (Findings, Chapter 2) |
-| Proof of Theorem 3.2.3, p. 107 | A step of the proof; the theorem itself holds, by another route |
-| Theorem 3.6.8 (2), p. 136 | With the 2021 germ data as printed: a tame strong bundle over `ℝ` whose solution set is a half-line |
-| Lemma 3.8.1, p. 145 | At `P = {0}` |
-| Proof of Theorem 4.3.1, p. 193; the bracket sentence, p. 201; the formula for `dω`, p. 197 | Details in the Findings, Chapter 4 |
-| Theorems 5.5.7 (“Clearly”) and 5.5.10, pp. 231–232 | Steps of the proofs; details in the Findings, Chapter 5 |
-| The remark before Remark 6.4.6, p. 248 | Two projections always have a common lower bound |
-| The remark that `DET(E, F)` is not orientable, p. 262 | For finite-dimensional `E`, `F` |
-| Lemma 7.2.11 (3), p. 315 | Needs `T_R` Hausdorff, the setting of Theorem 7.2.14 |
-| Proposition 9.1.11, pp. 407–408 | Uniqueness of the dimensional decomposition |
-| Lemmas 9.3.4, 9.4.4, 9.5.2 | Need the sheets to have one dimension |
-| Theorems 10.3.19 and 10.5.7, pp. 493, 508 | Need an effective target |
-| Proposition 11.1.6, p. 524 | Two faces can meet in a set that is not a face; the union form is proved |
-| Theorem 14.6.3 with Definition 13.3.8, p. 682 | Compatible face data need not have equal sections (a quadrant example); proved when the equivalence compares the sections |
-| After Definition 16.1.2, Remark 16.1.7, Definition 16.1.10, Lemma 16.2.1, after Definition 16.3.3, pp. 707–723 | Need an effective target, as Theorem 10.3.19 does |
+| Definition 1.1.9, p. 8; §5.3, p. 217 | Details in the Findings, Chapters 1 and 5 |
+| Remark 2.4.8, p. 47 | We have not found an example for the remark |
+| (2.44) and Proposition 2.7.12, pp. 82–84 | `V` centred at `x` |
+| Proof of Theorem 3.2.3, p. 107 | Another route for one step |
+| Theorem 3.6.8 (2), p. 136 | "Tame strong bundle" as in the 2014 and 2017 versions |
+| Lemma 3.8.1, p. 145 | Details in the Findings, Chapter 3 |
+| Theorem 4.3.1 and the formula for `dω`, pp. 193–201 | Sign and bracket conventions (Findings, Chapter 4) |
+| Theorems 5.5.7 and 5.5.10, pp. 231–232 | Details of the proofs (Findings, Chapter 5) |
+| Before Remark 6.4.6, p. 248; `DET(E, F)`, p. 262 | Details in the Findings, Chapter 6 |
+| Lemma 7.2.11 (3), p. 315 | `T_R` Hausdorff, the setting of Theorem 7.2.14 |
+| Proposition 9.1.11, pp. 407–408 | Uniqueness among the decompositions the proof builds |
+| Lemmas 9.3.4, 9.4.4, 9.5.2 | Sheets of one dimension |
+| Theorems 10.3.19 and 10.5.7, pp. 493, 508 | An effective target |
+| Proposition 11.1.6, p. 524 | The intersection of two faces as a union of faces |
+| Theorem 14.6.3 with Definition 13.3.8, p. 682 | The equivalence also compares the sections, as p. 682 uses it |
+| §§16.1–16.3, pp. 707–723 | An effective target, as for Theorem 10.3.19 |
 
 ## Open questions
 
@@ -159,8 +158,9 @@ None of these is a hypothesis of a theorem here; each is stated precisely in the
 * The text's own open point in Remark 9.5.19: Stokes' theorem on ep-groupoids without partitions of
   unity, on which Theorem 16.4.6 as printed rests (stated in Lean as `EP.StokesWithoutPartitions`).
 
-The text's question on p. 340, whether property (5) of Definition 7.1.3 follows from (1)–(4), has a
-negative answer: the Čech groupoid of a Prüfer-type surface with uncountably many charts
+On the text's question on p. 340, whether property (5) of Definition 7.1.3 follows from (1)–(4): as
+we read the definition, the Čech groupoid of a Prüfer-type surface with uncountably many charts
+satisfies (1)–(4) but not (5)
 (`exists_epGroupoid_not_hasParacompactOrbitSpace`).
 
 **Not formalized, by decision:** the infinite-dimensional examples of the applications (splicings);
