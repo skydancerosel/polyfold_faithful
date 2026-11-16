@@ -27210,4 +27210,26 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongPolyfoldBundle.BoundaryMultisection.isStructurableNe_iff
 #print axioms Polyfold.StrongPolyfoldBundle.theorem_16_5_7
 
+#print axioms Polyfold.MPolyfold.TangentGermChart.IsRegular.toTangentGermChart2021
+#print axioms Polyfold.theorem_3_2_3_2021def_isChart
+#print axioms Polyfold.EpGroupoid.theorem_9_2_1_general
+#print axioms Polyfold.SBLocalization.GenSBMap.isScFredholmSectionTame_of_eq_pushforward
+#print axioms Polyfold.SBLocalization.isGoodPositionAt_of_isInGeneralPosition
+#print axioms Polyfold.SBLocalization.exists_isRegularPerturbation_isInGeneralPosition
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_exists
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_wellDefined
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_index_zero_exists
+#print axioms Polyfold.SBLocalization.corollary_15_4_4_index_zero_wellDefined
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_3_17_two
+#print axioms Polyfold.StrongPolyfoldBundle.isControlledBy_of_isRegularPerturbation
+#print axioms Polyfold.StrongPolyfoldBundle.OrientationRep.exists_isRegularPerturbation
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_exists
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_wellDefined
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_exists
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined
+#print axioms Polyfold.StrongPolyfoldBundle.IsInheritedFrom.isCanonicalSolutionSet
+#print axioms Polyfold.StrongPolyfoldBundle.isInheritedFrom_of_isRegularPerturbation
+#print axioms Polyfold.StrongPolyfoldBundle.exists_modelSolutionSet_canonical
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_solutionSet
+#print axioms Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_solutionSet_of_isStructurable
 end Polyfold

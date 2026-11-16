@@ -78,7 +78,7 @@ theorem theorem_12_5_7_one_loc_cls_witness (hφ : ContDiff ℝ ∞ φ) :
   GenSBMap.theorem_12_5_7_one_loc_cls (isGeneralizedIso_negDiagram n k)
     (isScFredholmSectionFunctor_negSection hφ) (isScFredholmSectionFunctor_graphSection hφ)
     (graphSection_eq_pushforward hφ) (isTame_negSEP n k) (isTame_epSEP n k)
-    (isScFredholmSectionTame_negSection hφ) (isScFredholmSectionTame_graphSection_epSEP hφ)
+    (isScFredholmSectionTame_negSection hφ)
 
 /-- **Theorem 12.5.7 (2) for the local orientation sets holds with all its hypotheses in the
 example**: an orientation `o` of `f = (P')^* f'` (Definition 12.5.4) has exactly one orientation
@@ -111,7 +111,7 @@ theorem theorem_12_5_7_two_loc_cls_witness (hφ : ContDiff ℝ ∞ φ)
   GenSBMap.theorem_12_5_7_two_loc_cls_unique (isGeneralizedIso_negDiagram n k)
     (isScFredholmSectionFunctor_negSection hφ) (isScFredholmSectionFunctor_graphSection hφ)
     (graphSection_eq_pushforward hφ) (isTame_negSEP n k) (isTame_epSEP n k)
-    (isScFredholmSectionTame_negSection hφ) (isScFredholmSectionTame_graphSection_epSEP hφ) ho
+    (isScFredholmSectionTame_negSection hφ) ho
 
 /-- **`f = (P')^* f'` has an orientation** in the sense of Definition 12.5.4, for the local
 orientation sets: a family which is carried along by the propagation along all sc-smooth paths

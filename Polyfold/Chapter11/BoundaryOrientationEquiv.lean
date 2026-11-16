@@ -1,6 +1,7 @@
 import Polyfold.Chapter11.BranchedEquivalenceTangentOrientation
 import Polyfold.Chapter9.BoundaryOperation
 import Polyfold.Chapter9.TangentMapBoundaryOps
+import Polyfold.Chapter9.GeneralCorollaries
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -37,7 +38,9 @@ to the reader.
 * **Theorem 11.3.9 for the generalized isomorphism itself, without transfer hypotheses**, for
   the intrinsic `T̂_{∂Θ} = boundaryOrientation T̂_Θ` of Definition 9.3.10:
   `EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`
-  (`f_*(∂Θ) = ∂(f_*Θ)` and `f_* T̂_{∂Θ} = T̂_{∂(f_*Θ)}`, and the same for `f^*`), also for a
+  (`f_*(∂Θ) = ∂(f_*Θ)` and `f_* T̂_{∂Θ} = T̂_{∂(f_*Θ)}`, and the same for `f^*`; the
+  independence of the tangent sums is Theorem 9.2.1 (1), `EpGroupoid.hasIndependentTangentSums`),
+  also for a
   representative diagram (`Diagram.pushSection_boundaryOrientation`,
   `Diagram.pullSection_boundaryOrientation`).
 * **The same for Chapter 9's `boundaryLift boundaryOp`** on oriented tame `Θ̂` whose transform is
@@ -339,25 +342,28 @@ variable {X Y : EP.{u}}
 /-- **Theorem 11.3.9, push-forward** (2021 p. 542; 2017: Theorem 11.7), for the generalized
 isomorphism itself and the boundary operation of Definition 9.3.8: `f_*(∂Θ) = ∂(f_*Θ)` and
 `f_* T̂_{∂Θ} = T̂_{∂(f_*Θ)}`, with `T̂_{∂Θ} = boundaryOrientation T̂_Θ` (Definition 9.3.10).  No
-boundary-transfer hypothesis; `T̂_Θ` need only be a section of `Gr̂`. -/
+boundary-transfer hypothesis; `T̂_Θ` need only be a section of `Gr̂`.  The independence of the
+tangent sums used by Theorem 11.3.8 is Theorem 9.2.1 (1) (`EpGroupoid.hasIndependentTangentSums`).
+-/
 theorem theorem_11_3_9_push_boundaryOrientation {f : of X ⟶ of Y} (hf : IsGeneralizedIso f)
     {Θ : X.Obj → ℚ}
     {T : X.Obj → X.X.PObj.OrTangent →₀ ℚ} (hΘ : X.X.IsBranchedEpSubgroupoid Θ)
-    (hind : X.X.HasIndependentTangentSums Θ) (hT : X.X.IsGrHatSection T) :
+    (hT : X.X.IsGrHatSection T) :
     pushTheta f (X.X.boundaryTheta Θ) = Y.X.boundaryTheta (pushTheta f Θ) ∧
       pushSection f (X.X.boundaryOrientation T) = Y.X.boundaryOrientation (pushSection f T) :=
-  ⟨theorem_11_3_8_push hf hΘ hind,
+  ⟨theorem_11_3_8_push hf hΘ (X.X.hasIndependentTangentSums Θ),
     (rep f).pushSection_boundaryOrientation (isEquivalence_rep_Φ hf) hT⟩
 
 /-- **Theorem 11.3.9, pull-back** (2021 p. 542), for the generalized isomorphism itself:
-`f^*(∂Θ') = ∂(f^*Θ')` and `f^* T̂_{∂Θ'} = T̂_{∂(f^*Θ')}`.  No boundary-transfer hypothesis. -/
+`f^*(∂Θ') = ∂(f^*Θ')` and `f^* T̂_{∂Θ'} = T̂_{∂(f^*Θ')}`.  No boundary-transfer hypothesis; the
+independence of the tangent sums is Theorem 9.2.1 (1). -/
 theorem theorem_11_3_9_pull_boundaryOrientation {f : of X ⟶ of Y} (hf : IsGeneralizedIso f)
     {Θ' : Y.Obj → ℚ}
     {T' : Y.Obj → Y.X.PObj.OrTangent →₀ ℚ} (hΘ' : Y.X.IsBranchedEpSubgroupoid Θ')
-    (hind' : Y.X.HasIndependentTangentSums Θ') (hT' : Y.X.IsGrHatSection T') :
+    (hT' : Y.X.IsGrHatSection T') :
     pullTheta f (Y.X.boundaryTheta Θ') = X.X.boundaryTheta (pullTheta f Θ') ∧
       pullSection f (Y.X.boundaryOrientation T') = X.X.boundaryOrientation (pullSection f T') :=
-  ⟨theorem_11_3_8_pull hf hΘ' hind',
+  ⟨theorem_11_3_8_pull hf hΘ' (Y.X.hasIndependentTangentSums Θ'),
     (rep f).pullSection_boundaryOrientation (isEquivalence_rep_Φ hf) hT'⟩
 
 /-- `f_*` only sees `X_∞`. -/
@@ -395,7 +401,7 @@ theorem theorem_11_3_9_push_boundaryOp {f : of X ⟶ of Y} (hf : IsGeneralizedIs
     pushSection f (X.X.boundaryLift X.X.PObj.boundaryOp T) =
       Y.X.boundaryLift Y.X.PObj.boundaryOp (pushSection f T) := by
   rw [pushSection_congr fun x hx => boundaryLift_boundaryOp_eq_boundaryOrientation hT htame hx,
-    (theorem_11_3_9_push_boundaryOrientation hf hΘ hind hT.isGrHatSection).2,
+    (theorem_11_3_9_push_boundaryOrientation hf hΘ hT.isGrHatSection).2,
     boundaryLift_boundaryOp_eq (theorem_11_3_5_push hf hΘ hind hT) htame'
       fun y hy => EpFunctor.pushSection_of_not_mem hy]
 
@@ -409,7 +415,7 @@ theorem theorem_11_3_9_pull_boundaryOp {f : of X ⟶ of Y} (hf : IsGeneralizedIs
     pullSection f (Y.X.boundaryLift Y.X.PObj.boundaryOp T') =
       X.X.boundaryLift X.X.PObj.boundaryOp (pullSection f T') := by
   rw [pullSection_congr hf fun y hy => boundaryLift_boundaryOp_eq_boundaryOrientation hT' htame' hy,
-    (theorem_11_3_9_pull_boundaryOrientation hf hΘ' hind' hT'.isGrHatSection).2,
+    (theorem_11_3_9_pull_boundaryOrientation hf hΘ' hT'.isGrHatSection).2,
     boundaryLift_boundaryOp_eq (theorem_11_3_5_pull hf hΘ' hind' hT') htame
       fun x hx => EpFunctor.pushSection_of_not_mem hx]
 

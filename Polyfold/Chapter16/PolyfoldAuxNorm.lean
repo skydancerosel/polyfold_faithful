@@ -3,6 +3,7 @@ import Polyfold.Chapter11.AuxiliaryNormTransport
 import Polyfold.Chapter12.AuxNormLocalExtension
 import Polyfold.Chapter12.ReflexiveAuxNormExtension
 import Polyfold.Chapter12.ReflexiveCompactnessEp
+import Polyfold.Chapter12.ReflexiveLocalExtension
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 16,
@@ -44,7 +45,8 @@ auxiliary norm of `Y_{0,1}`, reflexive if the given one is.
   **`proposition_16_3_16_two_of_mem`** (mixed convergence read in the model of the reflexive norm).
 * `IsAuxNormBoundary`, **`theorem_16_3_17_one`** (as printed); **`theorem_16_3_17_two_hyp`**
   (with the reflexive local step of Theorem 12.2.13 as hypothesis, no tameness needed),
-  `theorem_16_3_17_two_hyp_witness`.
+  `theorem_16_3_17_two_hyp_witness`; **`theorem_16_3_17_two`** (tame `c`: the local step is
+  `EpStrongBundle.hasReflexiveLocalExtensions_of_isTame`).
 
 ## Readings
 
@@ -409,6 +411,18 @@ theorem theorem_16_3_17_two_hyp {n : Y → ℝ} (hn : c.IsAuxNormBoundary n)
     obtain ⟨e, rfl⟩ := hy
     rw [S.descend_oneToY hÑ.toIsAuxNorm.isOneInvariant]
     exact hÑn e ((mem_boundary_iff hS e).1 hb)
+
+/-- **2021 Theorem 16.3.17 (2), p. 728 (2017: Theorem 16.4)**: over a tame polyfold, an auxiliary
+norm `n` of `Y_{0,1}|∂Z` represented in a structure `S ∈ c̄` with reflexive `1`-fibres by a
+reflexive auxiliary norm over `∂X` extends to a reflexive auxiliary norm of `(p, c̄)`.  The
+reflexive local step of Theorem 12.2.13 holds in the tame model `S`
+(`EpStrongBundle.hasReflexiveLocalExtensions_of_isTame`). -/
+theorem theorem_16_3_17_two (hc : c.IsTame) {n : Y → ℝ} (hn : c.IsAuxNormBoundary n)
+    {S : StrongPolyfoldBundleStructure p} (hS : ⟦S⟧ = c) (hB : S.A.E.HasReflexiveFibers)
+    (hr : S.A.E.IsReflexiveAuxNormOn S.A.X.PObj.boundary (S.normOf n)) :
+    ∃ ñ : Y → ℝ, c.IsReflexiveAuxNorm ñ ∧ ∀ y ∈ c.Y01, p y ∈ c.polyfold.boundary → ñ y = n y :=
+  theorem_16_3_17_two_hyp hn hS hB hr
+    (EpStrongBundle.hasReflexiveLocalExtensions_of_isTame ((c.isTame_iff.1 hc) S hS) hB hr)
 
 /-- **Satisfiability of the hypotheses of `theorem_16_3_17_two_hyp`**: with reflexive `1`-fibres
 there are `n` and `S ∈ c̄` meeting all of them (`n` a reflexive auxiliary norm of Theorem

@@ -1403,7 +1403,8 @@
    ],
    "diff": [
     "Hidden hypotheses: bump functions in the pointwise reading `AdmitsBumpFunctionsPointwise` (as V12.13); witness `EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`.",
-    "Otherwise as printed. $\\pi^{-1}(U(x))$ is the saturation. \"Contains $s$ with positive weight\" is read as a local representation (Definition 13.2.1) on an open $O \\ni x$, one of whose sections equals $s$ on $O$. $|X|$ paracompact is kept and unused, since the text uses it only for the existence of $N$, a hypothesis here; $N$ and $w \\ne 0$ are unused in (1). $P(w)$ smooth is derived from $w$ smooth."
+    "Otherwise as printed. $\\pi^{-1}(U(x))$ is the saturation. \"Contains $s$ with positive weight\" is read as a local representation (Definition 13.2.1) on an open $O \\ni x$, one of whose sections equals $s$ on $O$. $|X|$ paracompact is kept and unused, since the text uses it only for the existence of $N$, a hypothesis here; $N$ and $w \\ne 0$ are unused in (1). $P(w)$ smooth is derived from $w$ smooth.",
+    "Bump functions are read pointwise: `EpGroupoid.AdmitsBumpFunctionsPointwise` asks for $f(x) \\ne 0$, which is stronger than Definition 12.3.1 as printed (\"not identically zero\", `EpGroupoid.AdmitsBumpFunctions`). By Theorem 12.3.2 (1) each reading is that of the object M-polyfold (`EpGroupoid.theorem_12_3_2_1`, `EpGroupoid.theorem_12_3_2_1_weak`), where the two agree on sc-Banach spaces and on sc-Hilbert models; whether they agree in general is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
   },
   {

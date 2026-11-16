@@ -34,6 +34,10 @@
      "Polyfold.theorem_2_4_12"
     ],
     [
+     "Thm 2.4.12",
+     "Polyfold.remark_2_4_8_isPartialQuadrant"
+    ],
+    [
      "Thm 2.5.17",
      "Polyfold.MPolyfold.theorem_2_5_17_interior"
     ],
@@ -62,6 +66,14 @@
      "Polyfold.theorem_3_1_22_2021def"
     ],
     [
+     "Thm 3.1.22",
+     "Polyfold.theorem_3_1_22_book"
+    ],
+    [
+     "Thm 3.1.22",
+     "Polyfold.theorem_3_1_22_book_ker"
+    ],
+    [
      "Thm 3.1.26",
      "Polyfold.theorem_3_1_26_2021def"
     ],
@@ -72,6 +84,10 @@
     [
      "Thm 3.2.3",
      "Polyfold.theorem_3_2_3_2021def"
+    ],
+    [
+     "Thm 3.2.3",
+     "Polyfold.theorem_3_2_3_2021def_isChart"
     ],
     [
      "Thm 3.6.8",
@@ -136,12 +152,24 @@
      "Polyfold.theorem_6_6_11"
     ],
     [
+     "Thm 6.6.11",
+     "Polyfold.theorem_6_6_11_loc"
+    ],
+    [
      "Thm 6.6.13",
      "Polyfold.theorem_6_6_13"
     ],
     [
+     "Thm 6.6.13",
+     "Polyfold.theorem_6_6_13_loc"
+    ],
+    [
      "Thm 6.6.17",
      "Polyfold.theorem_6_6_17"
+    ],
+    [
+     "Thm 6.6.17",
+     "Polyfold.theorem_6_6_17_loc"
     ],
     [
      "Thm 6.6.18",
@@ -198,12 +226,20 @@
      "Polyfold.EpGroupoid.theorem_8_1_1"
     ],
     [
+     "Thm 8.1.1",
+     "Polyfold.EpGroupoid.theorem_8_1_1_tame"
+    ],
+    [
      "Thm 8.1.11",
      "Polyfold.EpFunctor.theorem_8_1_11"
     ],
     [
      "Thm 8.1.12",
      "Polyfold.theorem_8_1_12"
+    ],
+    [
+     "Thm 8.1.12",
+     "Polyfold.theorem_8_1_12_tame"
     ],
     [
      "Thm 8.1.15",
@@ -300,6 +336,10 @@
     [
      "Thm 10.5.7",
      "Polyfold.SBLocalization.theorem_10_5_7_of_isEffective"
+    ],
+    [
+     "Thm 10.5.7",
+     "Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal"
     ],
     [
      "Thm 11.1.1",
@@ -436,6 +476,10 @@
      "Polyfold.SBLocalization.proposition_13_3_19"
     ],
     [
+     "Prop 13.3.19",
+     "Polyfold.SBLocalization.proposition_13_3_19_of_paracompact"
+    ],
+    [
      "Thm 13.4.1",
      "Polyfold.SBLocalization.theorem_13_4_1"
     ],
@@ -488,6 +532,10 @@
      "Polyfold.SBLocalization.proposition_14_4_14"
     ],
     [
+     "Prop 14.4.14",
+     "Polyfold.SBLocalization.ZConcrete.proposition_14_4_14"
+    ],
+    [
      "Lemma 14.5.2",
      "Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2"
     ],
@@ -516,6 +564,18 @@
      "Polyfold.SBLocalization.theorem_15_1_1_functor"
     ],
     [
+     "Thm 15.1.1",
+     "Polyfold.SBLocalization.linearization_eq"
+    ],
+    [
+     "Thm 15.1.1",
+     "Polyfold.SBLocalization.linearization_eq_zero"
+    ],
+    [
+     "Thm 15.1.1",
+     "Polyfold.SBLocalization.theorem_15_1_1_intrinsic"
+    ],
+    [
      "Thm 15.2.2",
      "Polyfold.SBLocalization.theorem_15_2_2_hyp"
     ],
@@ -524,8 +584,16 @@
      "Polyfold.SBLocalization.theorem_15_2_5_hyp"
     ],
     [
+     "Thm 15.2.5",
+     "Polyfold.SBLocalization.theorem_15_2_5_isTameBranched_hyp"
+    ],
+    [
      "Thm 15.3.7",
      "Polyfold.SBLocalization.theorem_15_3_7"
+    ],
+    [
+     "Thm 15.3.7",
+     "Polyfold.SBLocalization.theorem_15_3_7_in_particular_hyp"
     ],
     [
      "Thm 15.3.9",
@@ -554,6 +622,14 @@
     [
      "Cor 15.4.4",
      "Polyfold.SBLocalization.corollary_15_4_4_index_zero_oriented"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_wellDefined"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_index_zero_wellDefined"
     ],
     [
      "Prop 16.1.4",
@@ -600,6 +676,10 @@
      "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_one"
     ],
     [
+     "Thm 16.3.17",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_two"
+    ],
+    [
      "Prop 16.4.3",
      "Polyfold.PolyfoldClass.BranchedSuborbifold.proposition_16_4_3_naturality"
     ],
@@ -634,6 +714,18 @@
     [
      "Thm 16.6.6",
      "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_correspondence"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_wellDefined"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_solutionSet"
     ]
    ]
   },

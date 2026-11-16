@@ -23,7 +23,7 @@ comparison names the added hypothesis and shows that it can be satisfied.
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 with sc-smooth partitions of unity for Stokes' theorem, for index 0 too, the inherited orientation independent of the model; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) |
+| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorem 16.6.6 with sc-smooth partitions of unity for Stokes' theorem, for index 0 too, the inherited orientation independent of the model; in Theorem 16.6.6 the independence of λ proved over the perturbations with the inherited orientation, not over all admissible λ; Theorem 16.4.6 from Stokes' theorem without partitions of unity, the text's own open point (Remark 9.5.19) |
 
 The trusted base, the declarations whose statements a reader has to check, is
 `Exposition/checklist/TrustedBase.lean`; every declaration depends only on the standard axioms

@@ -7836,7 +7836,7 @@ left-projections and stabilization (Definitions 6.3.1, 6.4.1–6.4.3, 6.4.16 (pr
 Definition 6.6.2 (preprint 6.27) to Definition 6.6.12 (preprint 6.36), the local propagation (`LinSet` to `ContinuousOrientation`);
 70–89: Theorem 6.6.13 (preprint 6.37) and Definitions 6.6.14–6.6.16 (preprint 6.38–6.40) (`ChartTransfer` to `OrientationFunctor`); 90–99:
 Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42) (`SolutionOrientation`, `ProductOrientation`); 100–109:
-Theorem 6.7.1 (preprint 6.43), §6.7 (preprint §6.6) and the paths on `[0, 1]`; 110–140: the additions of the 2021 edition
+Theorem 6.7.1 (preprint 6.43), §6.7 (preprint §6.6) and the paths on `[0, 1]`; 110–141: the additions of the 2021 edition
 and the remaining gaps of the chapter. Proposition 6.2.2 (preprint 6.2) is Chapter 3's (comparison item V3.98; Chapter 3,
 items 340–369). Statement numbers and pages are the preprint's *(book 2017: see
 `BookConcordance.md`)*.
@@ -8746,6 +8746,27 @@ read it.
      read them (Chapter 3, item 388: `theorem_6_6_11_untamed_not`, `theorem_6_6_13_untamed_not`,
      `theorem_6_6_17_untamed_not`); under the adopted reading tame germ data are the printed hypothesis. Status:
      **settled** (rows V6.48, V6.57–V6.60, V6.71, V6.73–V6.75).
+
+141. **Bump functions in §6.6; Theorem 6.6.18 without them** *(book 2021: §6.3, p. 241; Theorems 6.6.11, 6.6.13,
+     6.6.17, 6.6.18, Definitions 6.6.12, 6.6.16, pp. 272–276; Theorem 6.7.1)*.
+     `Polyfold/Chapter6/OrientationMainClean.lean`, `SectionOrientation.lean`, `SolutionSetOrientation.lean`;
+     `Polyfold/Chapter12/LocalOrientationSpace.lean`, `LocalOrientationFunctor.lean`. A reading note. Bump functions
+     are not among the hypotheses printed in §6.6: the word does not occur there, and §6.7 and Theorem 6.7.1 print
+     them. From §6.3 on the text assumes sc-smooth partitions of unity, which give bump functions, to simplify the
+     presentation, and says the proofs could be modified to avoid them. So `theorem_6_6_11`, `theorem_6_6_13`,
+     `theorem_6_6_17` and `theorem_6_6_18_oriented`, which take bump functions, use a hypothesis beyond the printed
+     theorems; the forms with the printed hypotheses only are `theorem_6_6_11_loc`, `theorem_6_6_13_loc` and
+     `theorem_6_6_17_loc` (item 140). Theorem 6.6.18 has no such form. `theorem_6_6_18` takes no bump functions, but
+     without them its orientation and continuity clauses can hold vacuously: `IsSectionOrientation` (Definition
+     6.6.16) and the continuity clause of `IsNaturalSolutionOrientation` quantify over orientable neighbourhoods
+     (`IsOrientableNbhd`, Definition 6.6.12), which need `HasLocalPropagation`, whose push-forward data ask for
+     sc⁺-sections over all of $\mathbb R \times X$; orientable neighbourhoods are obtained from bump functions
+     (`exists_isOrientableNbhd`). Near a point that has none, the hypothesis that $o$ is an orientation and the
+     continuity clause are empty conditions; the chart clause (`tangentOrAt_toChartOr`) is pointwise and keeps its
+     content. No M-polyfold without such sections is known to us, so this is a possibility, not an example. A form on
+     the local orientation sets `OrxLoc` would need the continuity clause stated with them and the proof redone there.
+     Bump functions are read pointwise (Chapter 5, items 41, 160–164, 180) (rows V6.48, V6.57, V6.61, V6.74, V6.75).
+     Status: **settled as a reading note; a form of Theorem 6.6.18 without bump functions is not stated**.
 
 ## Chapter 7 (Ep-groupoids; Lean `Polyfold/Chapter7/`)
 
@@ -13694,7 +13715,7 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     with oriented tame structures given by the kernels of the $(f - s_i)'$ (`theorem_15_4_1`), independent of the chart
     and of the local sc⁺-section structure, natural under morphisms for invariant $o$, continuous along the sheets, and
     unique (`IsCanonicalFor.unique`); with it Theorem 15.4.3 holds (`theorem_15_4_3`). Hypotheses not printed: the
-    standing ones and the index on the support; "oriented" is read as Definition 6.6.16 together with the invariance of
+    standing ones and the index on the support (not fixed by Assumption 15.4, item 27); "oriented" is read as Definition 6.6.16 together with the invariance of
     Definition 12.5.4. The local structures are those of local sc⁺-section structures (item 25). Witness with boundary
     (`HalfSpaceBundle.theorem_15_4_1_hypotheses_halfSEP`; weak: naturality is tested on units only) (rows V15.36,
     V15.50–V15.52). Status: **settled (gap G.159 closed)**.
@@ -13773,6 +13794,22 @@ Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExisten
     (`frameSign_boundaryOrient_of_generator`). With it Corollary 15.4.4 holds for index $0$ with the same standing
     hypotheses (`corollary_15_4_4_index_zero_oriented`). In Corollary 15.4.4 as printed the sheets have dimension $m + 1
     \ge 1$, so the printed convention applies (rows V15.37, V15.49). Status: **settled (a reading point)**.
+
+27. **Theorem 15.4.1: a constant index on the support; Corollary 15.4.4: a canonical perturbation exists**
+    *(Assumption 15.4, Theorem 15.4.1, Corollary 15.4.4, pp. 700–703 (2017: Theorem 15.6, Corollary 15.2); Definition
+    9.1.2)*. `Chapter15/CanonicalOrientationStokes`, `CanonicalPerturbationExists`,
+    `Chapter16/InheritedPerturbationExists`. (a) `theorem_15_4_1` asks the index of $f$ to be one $n$ on
+    $\mathrm{supp}(\Lambda \circ f)$ (`hidx`), so that the sheets have dimension $n$. Assumption 15.4 does not fix the
+    index and Definition 9.1.2 allows sheets of different dimensions, so this hypothesis is beyond the text; the form
+    at a chart point (`theorem_15_4_1_lift`) needs none. The other hypotheses: tame germ data (the adopted reading),
+    bump functions (standing from §15.3, p. 692) and `hsec`, which follows from them. (b) Corollary 15.4.4 compares
+    two canonically oriented regular perturbations; that one exists is proved: with bump functions and a compact
+    solution set, the hypothesis of Corollary 15.3.10 (1), there is a regular perturbation in general position with
+    the canonical orientation (`corollary_15_4_4_exists`, from Theorem 12.2.2, `exists_controlsCompactness` and
+    `corollary_15_3_10_1`), and under the hypotheses of the collar form and a compact solution set existence and (i),
+    (ii) hold together (`corollary_15_4_4_wellDefined`; index 0: `corollary_15_4_4_index_zero_wellDefined`, with no
+    hypothesis beyond those of `corollary_15_4_4_index_zero_oriented`) (rows V15.37, V15.49, V15.51). Status: **(a)
+    narrower than the text (the index); (b) settled**.
 
 ## Chapter 16 (Polyfolds; Lean `Polyfold/Chapter16/`)
 
@@ -14008,7 +14045,7 @@ Found while formalizing §§16.5–16.6 (files `Chapter16/PerturbedSuborbifold`,
     in `theorem_16_6_6_hyp` and is read in the model of the orientation in item 25. The cobordisms between two
     admissible perturbations are those of the cylinder of Corollary 15.4.4, whose inputs are theorems
     (`cylinderInput_canonical`), so `theorem_16_6_6_canonical` has the single hypothesis that $Z$ admits sc-smooth
-    partitions of unity (Stokes in the form proved; Remark 9.5.19, gap G.153) (rows V16.78, V16.80). Status:
+    partitions of unity (Stokes in the form proved; Remark 9.5.19, gap G.153) (rows V16.78, V16.80). Independence over all admissible $\lambda$, not only those with the inherited orientation, is not proved (item 26). Status:
     **settled with partitions of unity (gaps G.175, G.187, G.188 closed; index 0 in item 25)**.
 
 23. **Definition 16.6.5: the orientation is carried along a diagram; Theorem 16.5.7 as printed**
@@ -14122,3 +14159,24 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     tautological as conclusions and the witness shows only that the hypotheses can hold together; $\partial Z =
     \emptyset$) (rows V16.78, V16.80, V16.82, V16.83). Status: **settled with partitions of unity (gaps G.175, G.187,
     G.188 closed)**.
+
+26. **Theorem 16.6.6: existence, the solution set of every admissible $\lambda$, and what is not proved; Theorem
+    16.3.17 (2) for tame bundles** *(Theorem 16.3.17, p. 728; Theorem 16.6.6, p. 739 (2017: Theorems 16.4, 16.8);
+    items 22, 25)*. `Chapter16/InheritedPerturbationExists`, `PolyfoldAuxNorm`. (a) An admissible perturbation with
+    the inherited orientation exists (`theorem_16_6_6_canonical_exists`; together with (ii):
+    `theorem_16_6_6_canonical_wellDefined`; index 0: `theorem_16_6_6_index_zero_exists`,
+    `theorem_16_6_6_index_zero_wellDefined`), with no hypothesis beyond those of `theorem_16_6_6_canonical`. (b) Every
+    admissible $\lambda$, controlled by $(n, U)$ with $(f, \lambda)$ in general position, gives a compact tame
+    oriented $\hat\theta = \lambda \circ f$ of dimension $m + 1$ with the canonical orientation of $(f, o)$
+    (`theorem_16_6_6_canonical_solutionSet`; neither regularity of $\lambda$ nor a compact solution set is asked); for
+    structurable $\lambda$ with $N(\lambda) < 1$ that orientation is the inherited one
+    (`theorem_16_6_6_canonical_solutionSet_of_isStructurable`). (c) Not proved: that the integrals agree over all
+    admissible $\lambda$. The independence of item 22 is over the structurable perturbations with $N(\lambda) < 1$ and
+    the inherited orientation. Missing: the cobordism between two admissible perturbations whose ends are not
+    structurable or have $N(\lambda) = 1$, that is, a relative transversal extension on $[0, 1] \times X$ with such
+    ends (an analogue of Corollary 15.3.10 (3)), and the transfer of structurability between models. The form of (b)
+    for index 0 is not stated. (d) Theorem 16.3.17 (2) is stated for the tame polyfold of the text
+    (`theorem_16_3_17_two`): the reflexive local step of Theorem 12.2.13 is a theorem for tame models
+    (`hasReflexiveLocalExtensions_of_isTame`), so no hypothesis remains beyond "$n$ reflexive", read as reflexive
+    fibres and a reflexive auxiliary norm on the boundary in one model (rows V16.58, V16.78, V16.82). Status: **(a),
+    (b), (d) settled; (c) independence over all admissible $\lambda$ not proved**.

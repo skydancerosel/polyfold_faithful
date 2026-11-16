@@ -432,8 +432,9 @@
     "statement": "Associated with a branched ep⁺-subgroupoid $\\Theta$ there is a natural section functor $T_\\Theta : X^\\infty \\to \\mathrm{Gr}(X)$, $\\pi \\circ T_\\Theta = \\mathrm{Id}$, characterized by (1) $T_\\Theta(x) = \\sum_i \\sigma_i T_xM_i$ for any local branching structure at $x \\in \\mathrm{supp}(\\Theta)$, the zero sum otherwise, and (2) $T_\\Theta(\\varphi) = (T_\\Theta(s(\\varphi)), \\varphi)$."
    },
    "lean": {
-    "statement": "If the sums $\\sum_i \\sigma_i\\, T_xM_i$ of any two local branching structures of $\\Theta$ at $x$ agree (`HasIndependentTangentSums`), there is a functor $T_\\Theta : X^\\infty \\to \\mathrm{Gr}(X)$ with $\\pi \\circ T_\\Theta = \\mathrm{Id}$, $T_\\Theta(x) = \\sum_i \\sigma_i\\, T_xM_i$ for every local branching structure at $x \\in \\mathrm{supp}(\\Theta)$, $T_\\Theta(x) = 0$ off the support, and $T_\\Theta(\\varphi) = (T_\\Theta(s(\\varphi)), \\varphi)$.",
+    "statement": "`EpGroupoid.theorem_9_2_1_general` (`Chapter9/TangentSectionGeneral.lean`; $\\Theta$ a branched ep⁺-subgroupoid, no other hypothesis): there is a functor $T_\\Theta : X^\\infty \\to \\mathrm{Gr}(X)$ with $\\pi \\circ T_\\Theta = \\mathrm{Id}$, $T_\\Theta(x) = \\sum_i \\sigma_i\\, T_xM_i$ for every local branching structure at $x \\in \\mathrm{supp}(\\Theta)$, $T_\\Theta(x) = 0$ off the support, and $T_\\Theta(\\varphi) = (T_\\Theta(s(\\varphi)), \\varphi)$. The sums $\\sum_i \\sigma_i\\, T_xM_i$ of any two local branching structures of $\\Theta$ at $x$ agree (`HasIndependentTangentSums`) by Proposition 9.2.8 (`hasIndependentTangentSums`, V9.14); `EpGroupoid.theorem_9_2_1` (`Chapter9/Tangent.lean`) is the form with this as a hypothesis, which `theorem_9_2_1_general` discharges.",
     "decls": [
+     "Chapter9/TangentSectionGeneral · EpGroupoid.theorem_9_2_1_general",
      "Chapter9/Tangent · EpGroupoid.LocalBranchingStructure.tangentSum",
      "Chapter9/Tangent · EpGroupoid.LocalBranchingStructure.transport",
      "Chapter9/Tangent · EpGroupoid.LocalBranchingStructure.tangentSum_transport",
@@ -442,15 +443,16 @@
      "Chapter9/Tangent · EpGroupoid.tangentValue_eq",
      "Chapter9/Tangent · EpGroupoid.grPush_tangentValue",
      "Chapter9/Tangent · EpGroupoid.tangentSection",
-     "Chapter9/Tangent · EpGroupoid.theorem_9_2_1"
+     "Chapter9/Tangent · EpGroupoid.theorem_9_2_1",
+     "Chapter9/GeneralCorollaries · EpGroupoid.hasIndependentTangentSums"
     ]
    },
    "chips": [
-    "independence a hypothesis here",
+    "independence proved: `theorem_9_2_1_general`",
     "functoriality by transport"
    ],
    "diff": [
-    "Hidden hypotheses: the independence, which the text proves through Proposition 9.2.8 (V9.14).",
+    "The independence of the tangent sums, which the text proves through Proposition 9.2.8, is a hypothesis of `theorem_9_2_1`; `theorem_9_2_1_general` discharges it with `hasIndependentTangentSums` (V9.14), so no hypothesis beyond the text's remains.",
     "The functoriality on morphisms uses the transport of structures along $\\hat\\varphi$ and $\\Theta \\circ \\hat\\varphi = \\Theta$ (Findings, Chapter 9, items 21, 22)."
    ]
   },

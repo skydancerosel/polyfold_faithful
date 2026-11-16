@@ -998,14 +998,16 @@
     "$X$ tame",
     "tame germ data",
     "dense in $\\rho$, read pointwise",
-    "Mathlib manifold"
+    "Mathlib manifold",
+    "bump functions read pointwise"
    ],
    "diff": [
     "The theorem is stated with the book's quantifiers, a dense $O$ and no $t_i$, $\\delta$ or null set (`theorem_5_3_10`); the generic form of the proof is kept (`theorem_5_3_10_param`). Density is read in the pointwise distance $N(s(x) - s'(x)) \\le \\varepsilon$, which is $\\rho(s, s') \\le \\varepsilon$ in the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ of V5.21 (Findings, Chapter 5, items 89, 182).",
     "$X$ tame: the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23); §5.3 opens with a tame strong bundle (Findings, Chapter 5, item 80).",
     "\"Replacing $f + s_0$ by $f$ and $N$ by $cN$\" is not needed; the proof keeps $s_0$ (Findings, Chapter 5, item 85).",
     "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_10_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: for the perturbations of the generic form, $S_{f+s_\\lambda}$, if $f + s_\\lambda$ has index $d$, is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_5_3_10_isManifold`, from `SolutionSetInGeneralPosition.isManifold`, `Chapter6/MathlibSolutionSets.lean`).",
-    "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_10_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_10` through `isScFredholmSectionTame2021_iff`."
+    "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_10_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_10` through `isScFredholmSectionTame2021_iff`.",
+    "Bump functions are read pointwise: `MPolyfold.AdmitsBumpFunctions` asks for $f(x) \\ne 0$, which is stronger than Definition 5.5.2 as printed (\"not identically zero\", `MPolyfold.AdmitsBumpFunctionsWeak`). The two readings agree on sc-Banach spaces and on M-polyfolds built on sc-Hilbert spaces; whether they agree on every M-polyfold is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
   },
   {
@@ -1056,7 +1058,8 @@
    "chips": [
     "no tameness of $X$",
     "$\\varepsilon$-small, as in the text",
-    "IFT for $F$ off $\\partial X$"
+    "IFT for $F$ off $\\partial X$",
+    "bump functions read pointwise"
    ],
    "diff": [
     "The theorem is stated with the book's quantifiers, \\\"arbitrarily small\\\" read as $N(s(x)) \\le \\varepsilon$ for all $x$ (`theorem_5_3_12`); the generic form of the proof is kept (`theorem_5_3_12_param`) (Findings, Chapter 5, item 182).",
@@ -1064,7 +1067,8 @@
     "\\\"As before\\\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\\mathbb R \\times \\cdot$, as $\\mathbb R(1, 1)$ in $[0, \\infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).",
     "The dense form is proved too: within $N$-distance $\\varepsilon$ of any $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).",
     "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter5/MainTheorems.lean`).",
-    "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`."
+    "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`.",
+    "Bump functions are read pointwise: `MPolyfold.AdmitsBumpFunctions` asks for $f(x) \\ne 0$, which is stronger than Definition 5.5.2 as printed (\"not identically zero\", `MPolyfold.AdmitsBumpFunctionsWeak`). The two readings agree on sc-Banach spaces and on M-polyfolds built on sc-Hilbert spaces; whether they agree on every M-polyfold is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
   },
   {
@@ -1740,11 +1744,13 @@
    },
    "chips": [
     "$N(f(x)) \\le 1$ read as $N(s(x)) \\le 1$",
-    "density pointwise"
+    "density pointwise",
+    "bump functions read pointwise"
    ],
    "diff": [
     "The printed bound on $f$ is read as a bound on $s$ (presumably meant so; the proof bounds $s$); density is pointwise, as in V5.30 (Findings, Chapter 5, items 173, 174).",
-    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter5/MainTheorems.lean`)."
+    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter5/MainTheorems.lean`).",
+    "Bump functions are read pointwise: `MPolyfold.AdmitsBumpFunctions` asks for $f(x) \\ne 0$, which is stronger than Definition 5.5.2 as printed (\"not identically zero\", `MPolyfold.AdmitsBumpFunctionsWeak`). The two readings agree on sc-Banach spaces and on M-polyfolds built on sc-Hilbert spaces; whether they agree on every M-polyfold is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
   },
   {

@@ -502,7 +502,7 @@ theorem definition_16_4_5_wellDefined {a b : OrientedRep c} (h : OrientedRep.Rel
       pullSection f (b.p.X.X.boundaryOrientation b.A.T) = a.p.X.X.boundaryOrientation a.A.T := by
   obtain ⟨f, hf, hβ, hA⟩ := h
   obtain ⟨h1, h2⟩ := theorem_11_3_9_pull_boundaryOrientation hf b.A.isBranchedEpSubgroupoid
-    b.A.hasIndependentTangentSums b.A.isOrientation.isGrHatSection
+    b.A.isOrientation.isGrHatSection
   refine ⟨f, hf, hβ, ?_, ?_⟩
   · rw [h1, ← hA]
     rfl

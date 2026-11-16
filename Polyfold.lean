@@ -348,6 +348,7 @@ import Polyfold.Chapter5.MainTheorems
 import Polyfold.Chapter5.IndexAlongPathsIntervalTextDefs
 import Polyfold.Chapter3.GoodComplementClosed
 import Polyfold.Chapter3.TangentGermProjecting
+import Polyfold.Chapter3.TangentGermRegular2021
 import Polyfold.Chapter3.Counterexamples
 import Polyfold.Chapter3.RecentreCounterexample
 import Polyfold.Chapter5.FredholmPullbackIso
@@ -373,6 +374,7 @@ import Polyfold.Chapter8.TangentZhouFacts
 import Polyfold.Chapter9.GeneralLevelZero
 import Polyfold.Chapter6.DegIndexLevelZero
 import Polyfold.Chapter9.GeneralCorollaries
+import Polyfold.Chapter9.TangentSectionGeneral
 import Polyfold.Chapter9.GeneralBoundaryPoints
 import Polyfold.Chapter9.TangentSubmanifoldSmooth
 import Polyfold.Chapter6.RetractTangentShift
@@ -1149,6 +1151,7 @@ import Polyfold.Chapter15.CylinderPointEnds
 import Polyfold.Chapter15.SingleSectionMultisection
 import Polyfold.Chapter15.TransversalExtensionBoundaryDatum
 import Polyfold.Chapter15.TransversalityEquivalence
+import Polyfold.Chapter15.CanonicalPerturbationExists
 import Polyfold.Chapter16.IndexZeroCylinder
 import Polyfold.Chapter16.CanonicalIntegralInvariance
 import Polyfold.Chapter16.CanonicalModelIndependence
@@ -1180,3 +1183,4 @@ import Polyfold.Chapter16.IndexZeroInheritedCorrespondence
 import Polyfold.Chapter16.IndexZeroInheritedCorrespondenceWitness
 import Polyfold.Chapter16.IsotropyCircleCobordism
 import Polyfold.Chapter16.OrientationRepLocal
+import Polyfold.Chapter16.InheritedPerturbationExists

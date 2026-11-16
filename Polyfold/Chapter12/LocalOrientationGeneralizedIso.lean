@@ -22,9 +22,10 @@ orientation `o` of `f` has a unique push-forward orientation `o'` of `f'`.  A re
 ## What is formalized
 
 The orientation sets are the local ones (`OrxLoc`) and the hypotheses are those of the text:
-the object M-polyfolds of `W`, `W'` are tame and `f`, `f'` have tame germ data (the middle of a
-diagram inherits both).  No sc-smooth bump functions and no sc⁺-sections over the whole object
-space are assumed.
+the object M-polyfolds of `W`, `W'` are tame and `f` has tame germ data (the middle of a
+diagram inherits both; `f' = f̄_* f` inherits the tame germ data,
+`GenSBMap.isScFredholmSectionTame_of_eq_pushforward`).  No sc-smooth bump functions and no
+sc⁺-sections over the whole object space are assumed.
 
 * `SDiagram.orbitOrMapLoc` (`|Ψ|_* ∘ |Φ|_*⁻¹`), bijective, fibre preserving
   (`orbitProjLoc_orbitOrMapLoc`), `orbitOrMapLoc_mk`.
@@ -33,6 +34,8 @@ space are assumed.
 * On classes: `GenSBMap.orbitOrMapLoc` for `f' = f̄_* f`, equal to the map of every
   representative (`orbitOrMapLoc_eq`), `GenSBMap.theorem_12_5_7_cls_loc`,
   `GenSBMap.theorem_12_5_7_functorial_loc`, `GenSBMap.theorem_12_5_7_id_loc`.
+* `GenSBMap.isScFredholmSectionTame_of_eq_pushforward`: tame germ data of `f` give those of
+  `f' = f̄_* f` (Theorem 10.4.5 for both legs of a representative).
 * `GenSBMap.theorem_12_5_7_one_loc_cls`: **(1)** for the class: homeomorphisms
   `|O_f| ≃ₜ |O_{f'}|`, `|X_∞| ≃ₜ |X'_∞|` commuting with `|σ|`, `|σ'|`, whose underlying maps
   are `GenSBMap.orbitOrMapLoc` and `GenSBMap.smoothOrbitMap`.
@@ -392,6 +395,19 @@ end Corr
 
 /-! #### Theorem 12.5.7 with the topology, for classes -/
 
+section TameGerm
+
+include hF hf' hfT in
+/-- **Tame germ data pass to `f' = f̄_* f`** (Definition 3.6.4): `f̄_* f = Ψ_* Φ^* f` for the
+chosen representative, and `Φ^*`, `Ψ_*` keep tame germ data (Theorem 10.4.5). -/
+theorem isScFredholmSectionTame_of_eq_pushforward : A'.B.IsScFredholmSectionTame f' := by
+  have hF'' : (rep hFi).B.E.IsScFredholmSectionFunctor ((rep hFi).hΦ.pullback f) :=
+    (EpStrongBundle.theorem_10_4_5_fred (rep hFi).hΦ).2.1 hF
+  exact hf' ▸ (sbe (isEquivalence_rep_Ψ hFi)).isScFredholmSectionTame_pushforward hF''.1
+    ((rep hFi).hΦ.isScFredholmSectionTame_pullback hfT)
+
+end TameGerm
+
 section Topology
 
 variable {F : GenSBMap A A'} (hFi : F.IsGeneralizedIso) {f : A.Obj → A.W} {f' : A'.Obj → A'.W}
@@ -403,14 +419,24 @@ variable {F : GenSBMap A A'} (hFi : F.IsGeneralizedIso) {f : A.Obj → A.W} {f' 
 topology, for the local orientation sets: for tame object M-polyfolds of `W`, `W'` and tame
 germ data of `f`, `f' = f̄_* f`, there are homeomorphisms `|O_f| ≃ₜ |O_{f'}|` and
 `|X_∞| ≃ₜ |X'_∞|` with `|σ'| ∘ F = G ∘ |σ|`, and they are `|f̄|_*` and `|f|`
-(`GenSBMap.orbitOrMapLoc`, `GenSBMap.smoothOrbitMap`, the maps of every representative). -/
+(`GenSBMap.orbitOrMapLoc`, `GenSBMap.smoothOrbitMap`, the maps of every representative).  The
+tame germ data of `f'` are those inherited from `f`
+(`isScFredholmSectionTame_of_eq_pushforward`). -/
 theorem theorem_12_5_7_one_loc_cls :
     letI : TopologicalSpace (OrSpaceLoc hX hfT) := orTopologyLoc hX hfT
-    letI : TopologicalSpace (OrSpaceLoc hX' hfT') := orTopologyLoc hX' hfT'
-    ∃ (Fh : Quot (A.E.OrRelLoc hX hF hfT) ≃ₜ Quot (A'.E.OrRelLoc hX' hF' hfT'))
+    letI : TopologicalSpace (OrSpaceLoc hX'
+        (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT)) :=
+      orTopologyLoc hX' (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT)
+    ∃ (Fh : Quot (A.E.OrRelLoc hX hF hfT) ≃ₜ Quot (A'.E.OrRelLoc hX' hF'
+        (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT)))
       (G : Quot A.X.SmoothRel ≃ₜ Quot A'.X.SmoothRel),
-      (∀ c, A'.E.orbitProjLoc hX' hF' hfT' (Fh c) = G (A.E.orbitProjLoc hX hF hfT c)) ∧
-      ⇑Fh = orbitOrMapLoc hFi hF hF' hf' hX hX' hfT hfT' ∧ ⇑G = smoothOrbitMap hFi := by
+      (∀ c, A'.E.orbitProjLoc hX' hF'
+          (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT) (Fh c) =
+        G (A.E.orbitProjLoc hX hF hfT c)) ∧
+      ⇑Fh = orbitOrMapLoc hFi hF hF' hf' hX hX' hfT
+        (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT) ∧
+      ⇑G = smoothOrbitMap hFi := by
+  have hfT' := isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT
   have hΨ := isEquivalence_rep_Ψ hFi
   have hff' := pullback_eq_of_cls' hFi (cls_rep hFi) hF.1 hf'
   obtain ⟨Fh, G, h1, h2, h3⟩ := theorem_12_5_7_one_loc (rep hFi).hΦ (sbe hΨ) hF hF'
@@ -450,18 +476,23 @@ theorem theorem_12_5_7_two_loc_cls {D : SDiagram A A'} (hD : D.cls = F)
 /-- **Theorem 12.5.7 (2) for the class**, p. 595, for the local orientation sets: for tame
 object M-polyfolds of `W`, `W'` and tame germ data of `f`, `f' = f̄_* f`, an orientation `o` of
 `f` (Definition 12.5.4) has exactly one orientation `o'` of `f'` which corresponds to `o` over
-the middle of every diagram representing `f̄`. -/
+the middle of every diagram representing `f̄`.  The tame germ data of `f'` are those inherited
+from `f` (`isScFredholmSectionTame_of_eq_pushforward`). -/
 theorem theorem_12_5_7_two_loc_cls_unique
     {o : ∀ a (hs : a ∈ A.X.PObj.smoothSet), OrxLoc hfT a hs}
     (ho : A.E.definition_12_5_4_loc hX hF hfT o) :
-    ∃! o' : ∀ x (hs : x ∈ A'.X.PObj.smoothSet), OrxLoc hfT' x hs,
-      A'.E.definition_12_5_4_loc hX' hF' hfT' o' ∧
+    ∃! o' : ∀ x (hs : x ∈ A'.X.PObj.smoothSet),
+        OrxLoc (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT) x hs,
+      A'.E.definition_12_5_4_loc hX' hF'
+          (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT) o' ∧
         ∀ (D : SDiagram A A') (hD : D.cls = F) v (hv : v ∈ D.B.X.PObj.smoothSet),
           (sbe (equivalences_Ψ_of_cls hFi hD)).orEqvLoc (pullback_eq_of_cls' hFi hD hF.1 hf')
-              (D.isScFredholmSectionTame_pullback hfT) hfT' v hv
+              (D.isScFredholmSectionTame_pullback hfT)
+              (isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT) v hv
               (o' (D.Ψ.ϕ.obj v) ((sbe (equivalences_Ψ_of_cls hFi hD)).smooth_obj hv)) =
             D.hΦ.orEqvLoc rfl (D.isScFredholmSectionTame_pullback hfT) hfT v hv
               (o (D.Φ.ϕ.obj v) (D.hΦ.smooth_obj hv)) := by
+  have hfT' := isScFredholmSectionTame_of_eq_pushforward hFi hF hf' hfT
   obtain ⟨o', ⟨ho', hc⟩, huniq⟩ := theorem_12_5_7_two_loc_cls hFi hF hF' hf' hX hX' hfT hfT'
     (cls_rep hFi) ho
   refine ⟨o', ⟨ho', fun D hD v hv => ?_⟩, fun o'' ⟨ho'', hc''⟩ =>
