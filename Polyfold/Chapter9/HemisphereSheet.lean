@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.SphereRadialRetraction
 import Polyfold.Chapter9.BoundaryMeasure
-import Polyfold.Chapter2.TameSub
+import Polyfold.Chapter4.TameSub
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

@@ -18,7 +18,8 @@ At the start of the proof of the Transversal Extension Theorem one picks a conti
 * For `Λ : W|∂X → ℚ⁺` an sc⁺-multisection over `∂X` (Definition 14.1.3):
   `BoundarySymmetricStructure.mem_suppAt_iff` (`supp(Λ)(y) = {sᵢ(y)}` over `U(x)`),
   `IsBoundaryScPlusMultisection.suppAt_subset_oneSet`, `pointwiseNorm_tgt_of_boundary`
-  (`N(Λ)` is a functor on `∂X`), `isSaturated_boundaryDomSupp'`, and
+  (`N(Λ)` is a functor on `∂X`),
+  `isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection`, and
   **`exists_nhds_pointwiseNorm_lt`**: `N(Λ)` is upper semicontinuous along `∂X` (the face-wise
   sc⁺ sections `sᵢ` extend to sc⁺-sections near `x`,
   `exists_scPlusSectionOn_extension_of_face`, on which `N ∘ s̄ᵢ` is continuous).
@@ -120,7 +121,8 @@ theorem pointwiseNorm_tgt_of_boundary {N : A.B.One → ℝ} (hN : A.E.IsAuxNorm 
   rwa [A.X.src_inv, A.X.tgt_inv] at this
 
 /-- `dom-supp(Λ)` of an sc⁺-multisection over `∂X` is saturated. -/
-theorem isSaturated_boundaryDomSupp' {N : A.B.One → ℝ} (hN : A.E.IsAuxNorm N)
+theorem isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection {N : A.B.One → ℝ}
+    (hN : A.E.IsAuxNorm N)
     {Λ : A.W → ℚ≥0} (hΛ : IsBoundaryScPlusMultisection A Λ) :
     A.X.IsSaturated (boundaryDomSupp Λ) := by
   refine isSaturated_closure (A.X.isSaturated_iff.2 fun φ hφ => ?_)
@@ -199,7 +201,8 @@ theorem lemma_15_3_9_cutoff_hyp
   have : ParacompactSpace A.X.OrbitSpace := hpara
   have hN1 : A.B.IsAuxNorm N := hN.isAuxNorm
   set C := boundaryDomSupp Λ with hCdef
-  have hCsat : A.X.IsSaturated C := isSaturated_boundaryDomSupp' hN hΛ
+  have hCsat : A.X.IsSaturated C :=
+    isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection hN hΛ
   have hCcl : IsClosed C := isClosed_closure
   have hCb : C ⊆ A.X.PObj.boundary := boundaryDomSupp_subset_boundary Λ
   have hiso : ∀ x y, A.X.π x = A.X.π y → h x = h y := by

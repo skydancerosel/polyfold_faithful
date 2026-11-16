@@ -1,7 +1,7 @@
 import Polyfold.Chapter7.EpGroupoid
 import Polyfold.Chapter7.ProperMaps
-import Polyfold.Chapter7.LocConnected
-import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter2.LocConnected
+import Polyfold.Chapter6.Discrete
 import Polyfold.Chapter7.LocalDiffeo
 
 /-!

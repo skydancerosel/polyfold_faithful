@@ -373,8 +373,8 @@ theorem pushSec_compat (h : IsPushNbhd T N N') (h' : IsPushNbhd T' M M')
   have hv2 : A.P ((SEP.Hom.Φ F).obj (s (C.X.src (liftMor T T' ψ')))) =
       A.X.src (T.ψ (C.X.src (liftMor T T' ψ'))) := by
     rw [hcov, hP, T.src_ψ _ huW]
-  rw [e1, ← PushChart.fibAct_comp hv (by rw [T'.src_ψ _ hu'W, (SEP.Hom.ϕ F).tgt_mor]),
-    comp_liftMor hF hD, PushChart.fibAct_comp hv2 (by rw [hsL]; exact src_comp_ψ hD)]
+  rw [e1, ← SBLocalization.fibAct_comp hv (by rw [T'.src_ψ _ hu'W, (SEP.Hom.ϕ F).tgt_mor]),
+    comp_liftMor hF hD, SBLocalization.fibAct_comp hv2 (by rw [hsL]; exact src_comp_ψ hD)]
 
 /-- **Condition (3) of good systems is carried forward**: a component `Σ'` of
 `𝒰'(y, y')` is sent by the lift into a component `Σ` of `𝒰(x_y, x_{y'})`, where `s` and `t`

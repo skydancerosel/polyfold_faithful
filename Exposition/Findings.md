@@ -118,7 +118,7 @@ a defect of the extraction unless the surrounding text is unambiguous; such item
   the required inequalities" is done in the exposition. The derivatives $d^jf(x)$ at different
   levels are tacitly identified (compatibility by uniqueness). **Proved in Lean under the text's
   hypothesis**: `Polyfold.proposition_1_2_4_text` and `Polyfold.corollary_1_2_5_text`
-  in `Chapter1/LevelsWeak.lean`; the elementary maps of $(\mathrm S_k)$ are `Polyfold.ElemData`,
+  in `Chapter2/LevelsWeak.lean`; the elementary maps of $(\mathrm S_k)$ are `Polyfold.ElemData`,
   the compatibility of the $d^jf(x)$ is the field `IsDerivTower.toBase`. The upper bound
   $n_i\le k$ of $(\mathrm S_k)$ is not needed: only $j+l-1\le n_i$, $j+l\le p$ (the level of the
   base point) and $j\le k$ enter.
@@ -260,7 +260,7 @@ a defect of the extraction unless the surrounding text is unambiguous; such item
   Corollary 1.2.5 (preprint 1.20) as stated (`C^{l+1}` on `U_l` for `l ≤ k`, `Polyfold.corollary_1_2_5_text`) and the
   exposition's "`C^{l+1}` on `U_l` for every `l` implies sc-smooth"
   (`Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`), all in
-  `Chapter1/LevelsWeak.lean`, by the `(S_k)` induction of the 2010 paper.
+  `Chapter2/LevelsWeak.lean`, by the `(S_k)` induction of the 2010 paper.
 
 ## Chapter 1: consistency of exposition, Lean and reports
 
@@ -331,7 +331,7 @@ and the reports have the items V1.28–V1.36.
   derivative (3.5) of the exposition exists one level down because `d^{i+1}f` and `d^i f` exist
   one level down; it uses the derivative of the evaluation `(A, h) ↦ A h` of multilinear maps
   (`Polyfold.hasFDerivAt_cmm_eval`, not in Mathlib in this form).
-- Organization: `Chapter1/LevelsWeak.lean` imports `Chapter2/StrongBundle.lean` for the pairing
+- Organization: `Chapter2/LevelsWeak.lean` imports `Chapter2/StrongBundle.lean` for the pairing
   of sc^k maps (`IsSck.scPair`) and the sc-smoothness of sc-operators (`ScOperator.isScSmooth`),
   Chapter-1 facts that live in Chapter 2 files.
 
@@ -915,7 +915,7 @@ block 50–59.
     instead of the text's polygon through smooth points. Status: **settled** in this reading.
 66. **Theorem 2.2.4 and Proposition 2.3.7 (new in 2021) are proved with Chapter 7** *(book 2021: pp. 32, 36)*. Retracts and
     M-polyfolds are locally path-connected: `IsScRetract.locallyPathConnectedSpace`, `MPolyfold.locallyPathConnectedSpace`
-    (`Chapter7/LocConnected.lean`, for 2017 p. 183). The 2021-named statements `theorem_2_2_4`,
+    (`Chapter2/LocConnected.lean`, for 2017 p. 183). The 2021-named statements `theorem_2_2_4`,
     `proposition_2_3_7` restate them. Status: **settled**.
 67. **Remark 2.1.17 (new in 2021) is notation** *(book 2021: p. 30)*. It fixes the words "tangent" and "tangent bundle" of a
     retract and has no further content; nothing to formalize.
@@ -1093,7 +1093,7 @@ it (item 84).
 
 88. **Definition 2.5.19 with (3) in `T_yX` (gap G.77 closed; row V2.78)** *(Definitions 2.5.18, 2.5.19, pp. 62–63;
     Definition 2.3.14, p. 38; Definition 2.5.8, p. 57; items 72, 81, 82, 87)*.
-    `Polyfold/Chapter2/BookFormTameSub.lean`. With the linear structure of `T_yX` (item 87), condition (3) is
+    `Polyfold/Chapter4/BookFormTameSub.lean`. With the linear structure of `T_yX` (item 87), condition (3) is
     stated in `T_yX`: `T_yY` is the image `Ti(T_yY)` of the tangent of the inclusion (`subTangentRange`), and `T_yX =
     Ti(T_yY) ⊕ A` with `A ⊆ T^R_yX` an sc-subspace, the splitting levelwise in a chart (`HasReducedScComplement`,
     `TameSubData2021`, `IsTameSubMPolyfold2021`). The step is the identification of `Ti(T_yY)` in a chart: for a chart
@@ -3279,7 +3279,7 @@ not in the text).
      derivative where the latter exists (`scDeriv_eq_of_hasFDerivAt`).
 202. **The hypothesis `htame` fails for the witness bundle, machine-checked**
      (`TameVacuityChart.lean`: `Polyfold.TrivialBundle.not_forall_isTame_of_isChart`,
-     `htame_fails_repaired_holds`). For the trivial bundle `ℝⁿ × ℝᵏ → ℝⁿ` of item 200, the chart
+     `htame_fails_hypotheses_theorem_3_6_11_hold`). For the trivial bundle `ℝⁿ × ℝᵏ → ℝⁿ` of item 200, the chart
      of item 190 is a strong bundle chart compatible with the atlas: the model `(ℝ ⊕ ℝ⁰) ⊕ ℝⁿ`
      with the partial quadrant `[0, ∞) × ℝⁿ`, the retraction `r(a, u) = (1, u)` onto `{1} × ℝⁿ`,
      the chart `x ↦ (1, x)` and `R((a, u), h) = ((1, u), h)` (`oddBundleChart`,
@@ -3653,7 +3653,7 @@ Round-trip audit findings (`RoundTrip/REPORT.md`), with the items where the proj
      sections with tame germ data on an M-polyfold admitting bump functions (round-trip item
      V3.98 (b); see the last sentence of item 239).**
      `Polyfold.index_locally_constant_of_admitsBumpFunctions` and
-     `Polyfold.theorem_3_6_8_index_locally_constant_general` (`Chapter3/IndexLocallyConstant.lean`):
+     `Polyfold.theorem_3_6_8_index_locally_constant_general` (`Chapter5/IndexLocallyConstant.lean`):
      let `X` admit sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)) and `f` be an sc-Fredholm section with
      tame germ data (Definition 3.6.4 (preprint 3.51)), `f(x₀) = 0`. Then there are an open `V ∋ x₀` and `i ∈ ℤ` such
      that at every zero `y ∈ V` (in particular at `x₀`), in **every** strong bundle chart around
@@ -3937,7 +3937,7 @@ unsuffixed names there mean the `…WholeChart` / `…_wholeChart` declarations.
      direction, `eq_of_uniqueDiffWithinAt` in the other). The sc^k and sc-smooth versions need
      `C` quadrant-like, as `IsSckGerm.congr` does; the sc¹ versions with families need nothing.
      Two small sc-operators serve for this (`ScOperator.negOp`, `ScOperator.smulOp`); the
-     sum operator is `ScOperator.addOp` of `Chapter1/LevelsWeak.lean`.
+     sum operator is `ScOperator.addOp` of `Chapter2/LevelsWeak.lean`.
 271. **Composition with a whole-chart map needs the chain rule with the outer map on a set, and that
      chain rule holds with no base-point condition** (`IsSc1With.comp_germ`, `IsSck.comp_germ`,
      `IsScSmooth.comp_germ`, `IsSc1With.hasFDerivWithinAt_comp_germ`; the inner version
@@ -4410,10 +4410,10 @@ Theorems 3.1.18 and 3.1.21 (preprint 3.15 and 3.18) for sections that are sc-Fre
      sc-smooth section `f`; the germ-reading forms (hypothesis `IsScFredholmSectionG`) are
      instances. The identification of `Lin_f(0)` with `Dg(0)` for a filling germ `g` is the bridge of
      item 284, at the centre `z = 0`.
-304. **The non-vacuity witnesses satisfy the germ-reading notions** (`Chapter3/NonVacuityG.lean`:
+304. **The non-vacuity witnesses satisfy the germ-reading notions** (`Chapter4/NonVacuityG.lean`:
      `TrivialBundle.isScFredholmSectionG_graphSection`, `isScFredholmSectionTameG_graphSection`,
      `isGoodPositionGermTameG_graphSection`, `hypotheses_theorem_3_6_11_graphSection_germ`,
-     `hypotheses_theorem_3_6_11_linear_germ`, `htame_fails_repaired_holds_germ`, and the
+     `hypotheses_theorem_3_6_11_linear_germ`, `htame_fails_hypotheses_theorem_3_6_11_hold_germ`, and the
      `HalfSpaceBundle` forms with `hypotheses_theorem_3_6_11_halfSpace_germ`). The witnesses of
      `NonVacuity.lean`, `NonVacuityCorner.lean` and `TameVacuityChart.lean` build whole-chart germ
      data, and whole-chart data are germ data (`TameGermsG.lean`). So the germ-reading hypotheses of
@@ -4643,7 +4643,7 @@ table `stage2_renames.tsv` from which `GermReadingAliases.lean` is generated.
      calculus lemmas whose `_germ` suffix means "for germs" with no Definition 3.1.11 (preprint 3.11) twin
      (`IsSc1With.comp_germ`, `IsFillingGerm.add_section_germ`, `proposition_3_6_5_local_of_germ`,
      `theorem_3_1_22_linearization_sc_local_germ`, …).
-332. **Every `…G` and `_germ` name resolves** (`Chapter3/GermReadingAliases.lean`): the eight `…G`
+332. **Every `…G` and `_germ` name resolves** (`Chapter5/GermReadingAliases.lean`): the eight `…G`
      notions as `abbrev`s and 145 `alias`es (`theorem_3_6_8_germ := theorem_3_6_8`,
      `StrongBundle.IsGoodPositionGermG.isLinSurjAt := …`, generated from the table of names), each
      with a docstring naming its canonical target. Unsuffixed names that denote the germ
@@ -4687,7 +4687,7 @@ table `stage2_renames.tsv` from which `GermReadingAliases.lean` is generated.
 
 Definition 6.2.1 (preprint 6.1) (the index of the sc-Fredholm germ `(f, x)` at a smooth point which need not be a
 zero) and Proposition 6.2.2 (preprint 6.2) (its stability along sc-smooth paths, pp. 239–242 (preprint p. 201–203)), in
-`Chapter3/IndexAlongPaths.lean`; and the status of item 243 (the local constancy of the index
+`Chapter5/IndexAlongPaths.lean`; and the status of item 243 (the local constancy of the index
 along the zero set with the text's hypotheses alone).
 
 340. **Definition 6.2.1 (preprint 6.1) is formalized and well defined, without compact operators**
@@ -4800,15 +4800,15 @@ along the zero set with the text's hypotheses alone).
      constant along the zero set by the text's device, formalized without bump functions
      (item 363); no candidate counterexample remains. Beyond the text (no tame germ data) the question is open, with the gap
      `ind C(z) = 0`.
-344. **Files.** `Chapter3/IndexAlongPaths.lean` (imports `IndexLocallyConstantG`)
-     and `Chapter3/IndexAlongPathsDevice.lean` (imports `IndexAlongPaths`), in this
+344. **Files.** `Chapter5/IndexAlongPaths.lean` (imports `IndexLocallyConstantG`)
+     and `Chapter5/IndexAlongPathsDevice.lean` (imports `IndexAlongPaths`), in this
      order in `Polyfold.lean`, with `Test.lean` sections; every `#print axioms` is standard.
      Comparison: see item 348 (V3.98 (a) is proved); Definition 6.2.1 (preprint 6.1) (§6.2 (preprint §6.1), pp. 237–240 (preprint p. 200–201)) has no row
      of its own and is treated in row V3.98 (the independence of `s` without Proposition 1.1.11 (preprint 1.10), and the
      existence of `ind(f, x)` at every smooth point).
 345. **(E) is closed: the text's sc⁺-section along the path**
      (`exists_isScPlusSection_pullback_of_path`, `isScSmoothMap_rn_of_contDiff`,
-     `exists_contDiff_eq_id_near_mapsTo`, `Chapter3/IndexAlongPathsDevice.lean`). For an
+     `exists_contDiff_eq_id_near_mapsTo`, `Chapter5/IndexAlongPathsDevice.lean`). For an
      sc-smooth section `f` (sc-Fredholm is not needed), an sc-smooth path `φ : ℝⁿ → X` and `t₀`,
      there is an sc⁺-section `S` of `π*P` on `ℝⁿ × X` with `f̃ + S = 0` along the graph
      `t ↦ (t, φ(t))` near `t₀`. The lemma asked for in item 342, "an sc-smooth curve of smooth
@@ -4985,7 +4985,7 @@ comparison items V3.13, V3.45, V3.103; settles the strategy and sharpens the que
      filling in one chart gives none in another unless the normal spaces match (items 350–352)".
      V3.45 is not affected.
 
-**360–369: Proposition 6.2.2 (preprint 6.2) without bump functions.** (`Chapter3/RestrictOpen.lean`,
+**360–369: Proposition 6.2.2 (preprint 6.2) without bump functions.** (`Chapter5/RestrictOpen.lean`,
 `RestrictOpenGerms.lean`, `IndexLocallyConstantLocal.lean`, `IndexAlongPathsLocal.lean`; round-trip
 item V3.98; removes the bump functions of items 240, 315, 341–343 and 347, by the localization
 described in item 343 (i).)
@@ -5090,11 +5090,11 @@ described in item 343 (i).)
      on `[0, 1]` are item 381); no bump functions. Both `proposition_6_2_2` (global sections, bump
      functions) and `proposition_6_2_2_local` are in the project.
 366. **Files and comparison.** In this order after
-     `Chapter3/IndexAlongPathsDevice` and `Chapter5/Homotopy` in `Polyfold.lean`:
-     `Chapter3/RestrictOpen.lean` (imports `IndexAlongPathsDevice`, `StrongBundleMaximalAtlas`,
+     `Chapter5/IndexAlongPathsDevice` and `Chapter5/Homotopy` in `Polyfold.lean`:
+     `Chapter5/RestrictOpen.lean` (imports `IndexAlongPathsDevice`, `StrongBundleMaximalAtlas`,
      `Chapter5/Homotopy`), `Chapter3/RestrictOpenGerms.lean` (imports `RestrictOpen`,
-     `SectionCompactness`), `Chapter3/IndexLocallyConstantLocal.lean`,
-     `Chapter3/IndexAlongPathsLocal.lean`, `Chapter3/IndexAlongPathsLocalBump.lean`; every
+     `SectionCompactness`), `Chapter5/IndexLocallyConstantLocal.lean`,
+     `Chapter5/IndexAlongPathsLocal.lean`, `Chapter5/IndexAlongPathsLocalBump.lean`; every
      `#print axioms` is standard. Row V3.98 ("restated", chips "Definition 6.2.1 local section",
      "paths on `[0, 1]` (via sin²)", item 381): Proposition 6.2.2 (preprint 6.2) is proved with
      the text's hypotheses (tame germ data, no bump functions) for Definition 6.2.1 (preprint 6.1) read with a
@@ -5108,7 +5108,7 @@ described in item 343 (i).)
      (`StrongBundle.cutoffSection_mem_oneSet_of_isChart`,
      `StrongBundle.isScPlusSection_cutoffSection_of_isChart`,
      `StrongBundle.IsIndexAtLocal.isIndexAt`, `StrongBundle.isIndexAtLocal_iff_isIndexAt`;
-     `Chapter3/IndexAlongPathsLocalBump.lean`). For `X` admitting sc-smooth bump functions and an
+     `Chapter5/IndexAlongPathsLocalBump.lean`). For `X` admitting sc-smooth bump functions and an
      sc-Fredholm section `f`, `IsIndexAtLocal f x i ↔ IsIndexAt f x i`: the local section `s` on
      `V` is restricted to `W = dom φ ∩ V` (`φ` a chart around `x`), read in the chart as
      `τ : O → F¹`, and cut off by a bump `β` supported in `W` and equal to `1` near `x` (the
@@ -5210,7 +5210,7 @@ Follow-ups.
      complement; the 2021 definitions; Mathlib forms** *(Definition 3.2.1, p. 104 (preprint 3.25); Theorem 3.2.3, pp.
      106–109 (preprint 3.27); Lemma 3.6.9, p. 139 (preprint 3.55); Theorems 3.1.22, 3.1.26, 3.6.8, 3.6.10, 3.6.11,
      Corollary 3.1.27; items 82, 83, 151, 152)*. `Polyfold/Chapter3/TangentGermProjecting.lean`,
-     `GoodComplementClosed.lean`, `MainTheorems.lean`; `Polyfold/Chapter9/MathlibSolutionSets.lean`. (1)
+     `GoodComplementClosed.lean`, `MainTheorems.lean`; `Polyfold/Chapter6/MathlibSolutionSets.lean`. (1)
      `theorem_3_2_3`: a nonempty `M` with the `n`-dimensional tangent germ property is a sub-M-polyfold with tame
      induced structure and an equivalent atlas of `n`-dimensional corner charts. The two conditions of the regular
      form (`IsRegular`: `δ` sc-smooth on `V`, `π(O) ⊆ C`) are theorems: a datum is re-graphed over a good complement
@@ -5265,7 +5265,7 @@ Follow-ups.
 383. **Theorem 3.6.8 in the book's form, and the tangent germ property of its proof (rows V3.48, V3.80, V3.84)**
      *(Theorem 3.6.8 (preprint 3.54), p. 136 (preprint p. 111), proof pp. 136–140 (preprint pp. 111–115); Lemma 3.6.9
      (preprint 3.55), p. 139; Definition 3.2.1, Theorem 3.2.3; items 50, 85, 86, 91, 92, 94–96, 190–192, 382)*
-     `Polyfold/Chapter3/BookFormIFT.lean`. With "tame strong bundle" read as germ data in tame charts
+     `Polyfold/Chapter5/BookFormIFT.lean`. With "tame strong bundle" read as germ data in tame charts
      (item 382), `theorem_3_6_8_book` states (1) and (2) as the text does: for a zero `x₀` in good position there are
      an open `V ∋ x₀` and `d` such that every zero `y ∈ V` is in good position, with `f'(y)` onto of index `d = dim ker
      f'(y)` in every strong bundle chart (`IsSurjLinOfIndex`), and `S = {y ∈ V | f(y) = 0}` is a tame sub-M-polyfold
@@ -5279,7 +5279,7 @@ Follow-ups.
 
 384. **Theorem 3.1.22 with the text's hypotheses; "`ker f'(y) = T_yS`" in a chart and in `T_yX` (row V3.68)** *(Theorem 3.1.22
      (preprint 3.19), p. 100 (preprint p. 74); items 154, 174, 180, 235, 236, 382; Chapter 2, item 88)*.
-     `Polyfold/Chapter3/BookFormIFT.lean`. `theorem_3_1_22_book`, for `d_X ≡ 0`, germ data in tame charts and
+     `Polyfold/Chapter5/BookFormIFT.lean`. `theorem_3_1_22_book`, for `d_X ≡ 0`, germ data in tame charts and
      `f(x₀) = 0`: `f'(x₀)` is sc-Fredholm in every strong bundle chart around `x₀`; if `f'(x₀)` is surjective
      (`IsLinSurjAt`, the text's hypothesis), there are an open `U ∋ x₀` and `d` such that at every zero `y ∈ U` the
      linearization is surjective and Fredholm of index `d = dim ker f'(y)`, and `S(f, U)` is a sub-M-polyfold with the
@@ -6248,7 +6248,7 @@ Round-trip audit findings (`RoundTrip/REPORT.md`).
      argument of item 141 (why a retraction with `C¹` level maps cannot give an example) is not
      formalized; it is not needed for the example.
 
-**150–159: the Springer 2021 additions.** (`Chapter4/Book.lean`, `Chapter4/VectorFields.lean`,
+**150–159: the Springer 2021 additions.** (`Chapter4/Book.lean`, `Chapter2/VectorFields.lean`,
 `Chapter4/BracketLevel.lean`; comparison items V4.65–V4.73; gaps G.31, G.38, G.80.)
 
 150. **Theorem 4.2.11 (preprint 4.22), 2021 form of (1): a reading** *(book 2021: Theorem 4.2.11, p. 190)*. The 2021 text
@@ -6323,7 +6323,7 @@ Round-trip audit findings (`RoundTrip/REPORT.md`).
      different one, and shows moreover that `X` and `X¹` can carry different topologies. Status: G.31 is **formalized**;
      the 2021 text gives an example.
 
-**160–164: the Springer 2021 additions on M-polyfolds.** (`Chapter4/VectorFieldsGlobal.lean`, on
+**160–164: the Springer 2021 additions on M-polyfolds.** (`Chapter2/VectorFieldsGlobal.lean`, on
 `Chapter2/TangentLift.lean`; item 164: `Chapter2/TangentLiftAll.lean`; comparison items V4.74–V4.79; gaps G.38, G.92.)
 
 160. **Lemma 4.4.4 on an M-polyfold, `i = 1`** *(book 2021: p. 196; new in the 2021 edition)*. `lemma_4_4_4`: for an
@@ -6466,7 +6466,7 @@ comparison items V4.80–V4.88; gaps G.37, G.39, G.40, G.80.)
      (`theorem_6_6_18_oriented`). `∫_M` is built from signed charts and a smooth partition of unity, and does not depend
      on these choices (`IntegrationData.integral_eq`). Reading: the charts carry a sign because with the quadrant model
      every chart of `[0, 1]` at `1` reverses the orientation, so `[0, 1]` has no oriented atlas (as
-     `Chapter6/ManifoldOrientation.lean` notes); `∫_{−o} = −∫_o` (`integral_neg_orientation`). `∫_{∂M}` is the sum,
+     `Chapter4/ManifoldOrientation.lean` notes); `∫_{−o} = −∫_o` (`integral_neg_orientation`). `∫_{∂M}` is the sum,
      over the charts of a partition of unity, of the face integrals in each chart, and the corners are a null set
      (`chartBoundaryIntegral_eq_sum_openQuadrant`). The forms need only be `C¹`. The restriction of an
      sc-form to `N` ("clearly" a classical form, p. 199), which needs the derivative of `N → X` in charts and that
@@ -6476,7 +6476,7 @@ comparison items V4.80–V4.88; gaps G.37, G.39, G.40, G.80.)
 
 **173–174: forms on `∂X`, the pull-back, the relative complex and Stokes for sc-forms.**
 (`Chapter4/ScFormsPullback.lean`, `BoundaryForms.lean`, `ManifoldFaceForms.lean`;
-`Chapter9/MathlibFormsBridge.lean`; comparison items V4.89–V4.92; gaps G.39, G.40, G.80.)
+`Chapter6/MathlibFormsBridge.lean`; comparison items V4.89–V4.92; gaps G.39, G.40, G.80.)
 
 173. **Forms on `∂X` are read through the tame boundary `bX`, with agreement over `B` (reading R-a; gap G.39
      closed)** *(book 2021: pp. 198–199; preprint p. 168; items 121, 122)*. The text notes that local faces and
@@ -7715,7 +7715,7 @@ Follow-ups.
      `theorem_5_3_12_book_2021def` (`Polyfold/Chapter5/MainTheoremsBookFormTextDefs.lean`, with
      `IsScFredholmSectionTame2021`, `IsGoodPositionGermTame2021`; Chapter 3, item 382). In Mathlib's language the
      perturbed solution sets of Theorem 5.3.10 are compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` of
-     dimension the index (`theorem_5_3_10_isManifold`, `Polyfold/Chapter9/MathlibSolutionSets.lean`).
+     dimension the index (`theorem_5_3_10_isManifold`, `Polyfold/Chapter6/MathlibSolutionSets.lean`).
 
 183. **Theorem 5.3.15: remarks on the proof, settled in Lean** *(Theorem 5.3.15, p. 223 (preprint 5.22, p. 181); proof
      pp. 223–228; items 101, 102, 178; rows V5.71, V5.72)*. `Polyfold/Chapter5/Theorem5315_*.lean`;
@@ -7814,7 +7814,7 @@ Found while formalizing the reflexive auxiliary norms of §§5.1–5.2 and the �
 
 192. **Definition 5.4.1 and Theorem 5.4.2: local faces read chart-wise; the proof sketch carried out** *(Definition
      5.4.1, Theorem 5.4.2, p. 228 (2017: Definition 5.11, Theorem 5.9))*.
-     `Chapter5/BoundaryExtension.lean`, `Chapter12/LocalBoundaryExtension.lean`. "Its restrictions to the
+     `Chapter12/BoundaryExtension.lean`, `Chapter12/LocalBoundaryExtension.lean`. "Its restrictions to the
      local faces at x are sc⁺" is read in every tame strong bundle chart and every tame presentation: for `i ∈ I(φ(x))`
      the local representative is sc⁺ on `O ∩ V ∩ {t_i = 0}` for some open `V ∋ φ(x)`
      (`StrongBundle.IsBoundaryScPlusSection`, `IsScPlusOnFaceNear`); the zero section satisfies the all-charts condition
@@ -8380,7 +8380,7 @@ read it.
      theorem with (1)–(3) under this hypothesis. The hypothesis holds for every M-polyfold (`MPolyfold.hasConnectedSmoothNbhds`,
      `Polyfold/Chapter6/OrientationMainClean.lean`): inside an open `W ∋ x` the connected component of `x` is open
      (Proposition 2.3.7), and its smooth part is path connected in `X_∞` (`isPathConnected_smoothVal_preimage`,
-     `Polyfold/Chapter2/SmoothPaths.lean`). So `theorem_6_6_17_hyp PX.hasConnectedSmoothNbhds` gives (1)–(3) under the
+     `Polyfold/Chapter5/SmoothPaths.lean`). So `theorem_6_6_17_hyp PX.hasConnectedSmoothNbhds` gives (1)–(3) under the
      hypotheses under which `Γ_f` is built, and `theorem_6_6_17` does not take `HasConnectedSmoothNbhds`, which is proved
      in the same file (item 122). Status: **settled**; gap G.90 closed (Chapter 7, item 153).
 121. **The remarks after Theorem 6.6.17 (gap G.91 closed)** *(book 2021: p. 275)*. That `π_f`, with this topology, is
@@ -8417,7 +8417,7 @@ read it.
 123. **Theorem 6.6.18 in the book's shape; the paragraph after it; `S` as a Mathlib manifold (gaps G.68, G.69 closed;
      G.67 in item 127)** *(Definition 6.6.16, Theorem 6.6.18 and the paragraph after it, pp. 274–276 (preprint 6.40, 6.41);
      items 92, 93)*. `Polyfold/Chapter6/OrientationMainClean.lean`, `SolutionOrientationCharts.lean`,
-     `PerturbedOrientation.lean`; `Polyfold/Chapter9/MathlibSolutionSets.lean`. `theorem_6_6_18`: for `X` tame, `f` with
+     `PerturbedOrientation.lean`; `Polyfold/Chapter6/MathlibSolutionSets.lean`. `theorem_6_6_18`: for `X` tame, `f` with
      tame germ data, proper and in general position at every zero, and an orientation `o` of `f` in the sense of
      Definition 6.6.16 (`SectionOrientation`), `S` is a compact manifold with boundary with corners in general position
      with the natural orientation given by `o` (`IsNaturalSolutionOrientation`): at every zero `o_x` orients `T_xS = ker
@@ -8467,7 +8467,7 @@ read it.
      Status: **settled** (item 48; rows V6.34, V6.42; gap G.62 closed).
 
 127. **Theorem 6.6.18: the orientation of `S` as a manifold (gap G.67 closed)** *(Theorem 6.6.18 (preprint 6.41),
-     p. 274; items 92, 123)*. `Polyfold/Chapter6/ManifoldOrientation.lean`,
+     p. 274; items 92, 123)*. `Polyfold/Chapter4/ManifoldOrientation.lean`,
      `Polyfold/Chapter6/SolutionSetOrientation.lean`. Mathlib has no orientations of manifolds; the first file gives
      them for a Mathlib manifold with corners: a tangent orientation (an orientation of every `TangentSpace I x`), its
      continuity read in the charts of the maximal atlas (`TangentOrientation.IsContinuous`), oriented atlases (charts
@@ -8488,7 +8488,7 @@ read it.
 **128–134: Theorem 6.7.1 and the case `∂X = ∅`.** (`Chapter5/CylinderPerturbation.lean`;
 `Chapter6/SolutionSetOpen.lean`, `ProductSectionOrientation.lean`, `ProductOrientationTwoCharts.lean`,
 `ProperHomotopy.lean`, `InvariantProductEnds.lean`, `InvariantProductEndCharts.lean`, `InvariantSingle.lean`,
-`InvariantCobordism.lean`, `Theorem671.lean`, `Theorem671Assembly.lean`; `Chapter9/SolutionFaces.lean`,
+`InvariantCobordism.lean`, `Theorem671.lean`, `Theorem671Assembly.lean`; `Chapter6/SolutionFaces.lean`,
 `SolutionFaceForms.lean`; comparison items V6.76, V6.77; gaps G.54, G.55, G.66 closed; gap G.44, Chapter 5.)
 
 128. **The neighbourhood `U` of (1): read with a margin, for every auxiliary norm (reading R-b; refines item 101)**
@@ -8602,7 +8602,7 @@ read it.
      of the kind in the applications. Status: **settled** (rows V6.80, V6.81; gap G.60 closed).
 
 136. **Theorem 6.7.1: the relative form on `S_F`, two readings (refines items 131, 134)** *(book 2021: proof of
-     Theorem 6.7.1, p. 278)*. `Polyfold/Chapter4/BoundaryFormsPullback.lean`,
+     Theorem 6.7.1, p. 278)*. `Polyfold/Chapter6/BoundaryFormsPullback.lean`,
      `Polyfold/Chapter6/EndPullbackForms.lean`, `CobordismRelativeForms.lean`. (1) The text integrates
      `p₁^*τ` over `∂S_F` without saying why `p₁` maps the faces of `S_F` to faces of `X`. It follows from
      `d_{S_F} = d_{ℝ¹ × X}` (Theorem 4.2.11) and `d_{ℝ¹ × X}(t, x) = d_X(x)` (`CornerCoords.zero_coord_face_along`,
@@ -9343,7 +9343,7 @@ The gaps of the chapter, and those of Part I taken up here.
 110. **`Tφ` as an sc-isomorphism** *(p. 289 (2017 p. 227), Definition 7.1.4 (2017: 7.4))*. `tangentMor` is defined, and its
      properties (`= Tφ̂(s(φ))`, bijective, a bounded linear isomorphism on level `0` for `φ ∈ 𝐗₁`, an sc-operator for
      smooth `φ`) are formalized; they are not used in Chapter 7, and Chapter 8 uses them (gap G.70).
-     `Polyfold/Chapter7/TangentMorphism.lean`: for `φ ∈ 𝐗₁`, `Tφ = Tφ̂(s(φ))`
+     `Polyfold/Chapter9/TangentMorphism.lean`: for `φ ∈ 𝐗₁`, `Tφ = Tφ̂(s(φ))`
      (`tangentMor_eq_tangentMapOn_hat`), `Tφ` is a bijection with inverse `T(φ⁻¹)` (`bijOn_tangentMor`,
      `invOn_tangentMor`), and in charts around `s(φ)` and `t(φ)` it is a bounded linear isomorphism of the tangent
      spaces of the retracts on level `0` (`tangentMor_chart`, `tangentMor_chart_iso`); `definition_7_1_4` bundles
@@ -9502,7 +9502,7 @@ V7.69–V7.104.
      (`nonEffectivePart_liftOne_eq`, `theorem_7_6_7`), and Theorem 7.6.7 for `i = 1` needs only LUC for `X¹`
      (`theorem_7_6_7_of_isLUC`). Corollary 7.6.8's step "(ZHOU) implies LUC for `X¹`" is Corollary 7.4.11 for `X¹`
      (`corollary_7_6_8_of_isZhou`), and Corollary 7.6.8 needs only (ZHOU) (`corollary_7_6_8_of_isZhou'`). The
-     sc-diffeomorphism, which needs the M-polyfold `(𝐗^R)¹`, and `i ≥ 2` are proved (`Chapter7/RaisedEpGroupoid.lean`): `theorem_7_6_7_one`
+     sc-diffeomorphism, which needs the M-polyfold `(𝐗^R)¹`, and `i ≥ 2` are proved (`Chapter10/RaisedEpGroupoid.lean`): `theorem_7_6_7_one`
      (for `T_R` Hausdorff for `X` and `X¹`, the identification `(X¹)_R → (X_R)¹`, the identity on objects and
      `[φ]₁ ↦ [φ]` on morphisms (`reducedRaise`), is an sc-diffeomorphism and an isomorphism of ep-groupoids),
      `EP.theorem_7_6_7` (under (SLUC), `(Xⁱ)_R ≅ (X_R)ⁱ` in `𝓔𝓟` for every `i`) and `EP.corollary_7_6_8` (under
@@ -9708,7 +9708,7 @@ The remaining gaps of the chapter.
 153. **The Part I facts of §7.4 are theorems; §7.4, Appendix 7.6.4 and Proposition 8.1.17 without them (gaps G.73, G.85,
      G.90, G.8 closed)** *(§7.4, pp. 329–340, Appendix 7.6.4, Proposition 8.1.17, p. 371, all new in the 2021 edition;
      items 116, 131, 133, 134, 136–139, 148–150; Chapter 2, item 86; Chapter 6, item 120; Chapter 8, items 116, 124)*. `Polyfold/Chapter7/SmoothPointsDense.lean`, `SmoothConnectedReps.lean`, `ZhouFacts.lean`,
-     `SmoothRegularAssembly.lean`; `Polyfold/Chapter2/SmoothPaths.lean`, `TangentProjOpen.lean`. The facts that §7.4
+     `SmoothRegularAssembly.lean`; `Polyfold/Chapter5/SmoothPaths.lean`, `TangentProjOpen.lean`. The facts that §7.4
      takes from Part I without statement, explicit hypotheses satisfiable on a point in item 134, hold for every
      M-polyfold: `X_∞` is dense in every `X_m` (`MPolyfold.denseSmooth`, item 116); nearby smooth points are joined by
      paths in `X_∞` inside a given open set (`exists_nhds_joinedIn_smooth`), so `U ∩ X_∞` is path connected for every
@@ -9734,7 +9734,7 @@ The remaining gaps of the chapter.
 
 154. **`Tφ` as an sc-isomorphism; the facts (3), (4) of a sub-M-polyfold in `T_aX` (gap G.70 closed)** *(Definition
      7.1.4 and the paragraph before it, p. 289 (2017: 7.4, p. 227); after Definition 7.1.21, pp. 305–307 (2017: 7.10,
-     pp. 237–238); items 5, 40, 110; Chapter 8, item 112)*. `Polyfold/Chapter7/TangentMorphismLinear.lean`,
+     pp. 237–238); items 5, 40, 110; Chapter 8, item 112)*. `Polyfold/Chapter9/TangentMorphismLinear.lean`,
      `SubGroupoidTangent.lean`, `SubGroupoidTangentSc.lean`. With the linear structure of `T_xX` (Chapter 2, item 87):
      for `φ ∈ 𝐗₁`, `Tφ : T_{s(φ)}X → T_{t(φ)}X` is additive, homogeneous, continuous and bijective with inverse `T(φ⁻¹)`
      (`EpGroupoid.definition_7_1_4_linear`, `tangentMorCLE`); for smooth `φ`, in charts `χ`, `ψ` around `s(φ)`,
@@ -10540,7 +10540,7 @@ The remaining gaps of the chapter.
      (item 133). Status: **settled** (row V8.47; gap G.86 closed).
 
 128. **Proposition 8.4.3 (row V8.48)** *(Definition 8.4.2 and Proposition 8.4.3, p. 382, new in the 2021 edition; item
-     119)*. `Polyfold/Chapter8/BundleLocalRegularity.lean`, `Polyfold/Chapter10/BundleLocalRegularityPrinted.lean`.
+     119)*. `Polyfold/Chapter10/BundleLocalRegularity.lean`, `Polyfold/Chapter10/BundleLocalRegularityPrinted.lean`.
      `EpStrongBundle.proposition_8_4_3_isLRLocal`: an effective `X` with (LR) gives every strong bundle over `X` the property
      of Definition 8.4.2 as printed (`IsLRLocal`), with the text's hypotheses only; `EpStrongBundle.proposition_8_4_3`: the
      same with the conclusion in the derived form `IsLR`. The proof
@@ -10553,7 +10553,7 @@ The remaining gaps of the chapter.
      Status: **settled** (row V8.48).
 
 129. **Lemma 8.5.10: `F*V` is a strong bundle over `Y` (gap G.89 closed)** *(Lemma 8.5.10, p. 395, new in the 2021
-     edition; items 121, 122)*. `Polyfold/Chapter8/PullbackStrongBundle.lean`.
+     edition; items 121, 122)*. `Polyfold/Chapter10/PullbackStrongBundle.lean`.
      `EpStrongBundle.pullbackBundle2021`: `(F*Q, μ_{F*V})` satisfies Definition 8.3.1 for every sc-smooth `F`; it is
      Chapter 10's `EpStrongBundle.pullbackAlong`, with structure map `pullbackμ` (`pullbackBundle2021_μ`). `B` and
      `B⁻¹` are strong bundle maps over ep-groupoids in the sense of Definition 8.3.2, covering the identity functor of
@@ -11508,7 +11508,7 @@ Follow-up for the notes to the authors.
      not stated as Mathlib-smooth. No counterexample; nothing is found not to hold as we read it. Status: **settled**
      (rows V9.63 same, V9.64 restated, V9.65 narrower). All hypotheses together, including `supp(Θ) ≠ ∅`, hold for the x-axis of `ℝ²`
      (`remark_9_1_10_hypotheses_axis`, `axis_isManifoldType`, `axis_degIndexOrbit_eq_zero`, `nonempty_supp_axis`,
-     `Polyfold/Chapter9/XAxisWitness.lean`).
+     `Polyfold/Chapter10/XAxisWitness.lean`).
 
 115. **Example 9.3.5: all orientations classified (gap G.101 closed)** *(Example 9.3.5, p. 425 (2017: Example 9.1, p.
      313); item 54)*. `Polyfold/Chapter9/OrientationExampleSigns.lean`, `OrientationExampleSheets.lean`,
@@ -12047,7 +12047,7 @@ Found while formalizing §10.4.
     Part I states only chart-level germ forms (gap G.121). The Fred part is proved (`EpStrongBundle.theorem_10_4_5_fred`,
     `Polyfold/Chapter10/FredholmEquivalence.lean`): a local strong bundle isomorphism carries sc-Fredholm germs to
     sc-Fredholm germs in the transported chart (`StrongBundle.LocalIso.isScFredholmGerm`, `transportChart`), so
-    Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Polyfold/Chapter3/FredholmPullbackIso.lean`), and the
+    Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Polyfold/Chapter5/FredholmPullbackIso.lean`), and the
     action of a morphism is such an isomorphism (`exists_localIso_mor`). Status: **settled** (a reading; gap G.121
     closed; row V10.27).
 
@@ -13451,10 +13451,10 @@ parentheses. The comparison items are `Exposition/verification/ch15.md` (V15.1�
 G.150–G.152, G.159–G.162, G.177–G.183, G.189–G.191, G.193 (all closed). Corollary 15.4.4 and Theorem 15.4.3 keep
 sc-smooth partitions of unity for Stokes (gap G.153, Chapter 9; the text's own open question, Remark 9.5.19).
 
-Found while formalizing §15.1 (files `Chapter15/Linearization`, `LinearizationIntrinsic`, `LinearizationModel`, `SeparationLemmas`).
+Found while formalizing §15.1 (files `Chapter14/Linearization`, `LinearizationIntrinsic`, `LinearizationModel`, `SeparationLemmas`).
 
 1. **Theorem 15.1.1, reading (a): the topology of the separation argument** *(Theorem 15.1.1, proof, pp. 684–687 (2017:
-   Theorem 15.1))*. `Chapter15/LinearizationModel.lean`, `SeparationLemmas.lean`. The separation
+   Theorem 15.1))*. `Chapter14/LinearizationModel.lean`, `SeparationLemmas.lean`. The separation
    argument (Proposition 15.1.3, Lemmas 15.1.4, 15.1.5) is run in the level-1 topology, and the "weak topology" in which
    the derivatives converge is read as pointwise convergence on `E₀`: the derivatives `D(g ∘ r)` of an sc¹ map are
    continuous only from level 1 (`continuousOn_scDeriv_coe`; row V15.2). A reading point. Status: **settled**.
@@ -13596,7 +13596,7 @@ Found while formalizing §15.1, §15.2, §15.3 and §15.4 (files `Chapter15/Line
     (`hasOrientedCobordism_refl`); the invariance of the cylinder orientation is a theorem
     (`isOrInvariant_cubeOrientation`, item 23), and its witnesses are those of item 23. The hypotheses of Corollary 15.3.10 (3) have the witnesses of item 19. Status: **settled (with item 19)**.
 
-Found while formalizing §§15.2–15.3 (files `Chapter15/LocalFamilies`, `ParamOntoTransport`, `LocalSeeds`, `BranchChart`, `GeneralPositionPointwise`, `LocalSlice`, `ParametricGeneralPosition`, `CutoffFunctor`, `Cylinder`, `CylinderGlue`, `RestrictedEp`, `TameBranched`, `TameWitness`, `Chapter5/DegeneracyZeroTame.lean`).
+Found while formalizing §§15.2–15.3 (files `Chapter15/LocalFamilies`, `ParamOntoTransport`, `LocalSeeds`, `BranchChart`, `GeneralPositionPointwise`, `LocalSlice`, `ParametricGeneralPosition`, `CutoffFunctor`, `Cylinder`, `CylinderGlue`, `RestrictedEp`, `TameBranched`, `TameWitness`, `Chapter7/DegeneracyZeroTame.lean`).
 
 16. **Theorem 15.3.7: the parametric step and the groupoid part of the local constructions are proved** *(Theorem
     15.3.7, pp. 693–698 (2017: Theorem 15.4); item 12; gap G.162)*. `Chapter15/LocalFamilies`, `ParamOntoTransport`, `LocalSeeds`,
@@ -13622,7 +13622,7 @@ Found while formalizing §§15.2–15.3 (files `Chapter15/LocalFamilies`, `Param
 18. **Theorem 15.3.9 step (a) and Corollary 15.3.10: tame bundle charts, $d_X \equiv 0$, the cylinder** *(Theorem
     15.3.9, p. 698, Corollary 15.3.10, pp. 699–700 (2017: Theorem 15.5, Corollary 15.1); items 13, 14; gaps G.177,
     G.179–G.181, G.183, G.189, closed)*. `Chapter15/CutoffFunctor`, `Cylinder`, `CylinderGlue`,
-    `Chapter5/DegeneracyZeroTame.lean`, `Chapter10/TameBundleCharts`. Step (a) of the proof of Theorem 15.3.9 is proved:
+    `Chapter7/DegeneracyZeroTame.lean`, `Chapter10/TameBundleCharts`. Step (a) of the proof of Theorem 15.3.9 is proved:
     every strong bundle over a tame ep-groupoid has tame strong bundle charts at every object
     (`SEP.exists_isTameChart`), the cylinder included. Without tame bundle charts Definition 14.1.3 (1) would say
     nothing about the sections and $N(\Lambda)$ need not be upper semicontinuous along $\partial X$, which the text uses
@@ -13651,7 +13651,7 @@ Found while formalizing §§15.2–15.3 (files `Chapter15/LocalFamilies`, `Param
     (`remark_15_2_3_isTameBranched_hyp_witness`, `remark_15_2_3_restricted_hyp_witness`). These include the witnesses
     for Corollary 15.3.10 named in item 15. Status: **settled**.
 
-Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExistence`, `GeneralPositionGoodSystem`, `ParamOntoBridge`, `ChargedExtensionFibres`, `RelativeBranch`, `RelativeFamilies`, `RelativeParametric`, `RelativeReduction`, `CanonicalLift`, `OrientedLinearizations`, `ChargedExtensionCylinder`, `CylinderCobordism`, `CylinderEnds`, `ProductAuxNorm`, `ProductBundle`, `ProductBundleLevels`, `ProductBundleMap`, `ProductEpBundle`, `ProductStrongBundle`, `CubeLift`, `CylinderPartitions`, `GlueStructurable`, `Chapter5/CubePartitions.lean`).
+Found while formalizing §§15.3–15.4 (files `Chapter15/GeneralPositionExistence`, `GeneralPositionGoodSystem`, `ParamOntoBridge`, `ChargedExtensionFibres`, `RelativeBranch`, `RelativeFamilies`, `RelativeParametric`, `RelativeReduction`, `CanonicalLift`, `OrientedLinearizations`, `ChargedExtensionCylinder`, `CylinderCobordism`, `CylinderEnds`, `ProductAuxNorm`, `ProductBundle`, `ProductBundleLevels`, `ProductBundleMap`, `ProductEpBundle`, `ProductStrongBundle`, `CubeLift`, `CylinderPartitions`, `GlueStructurable`, `Chapter6/CubePartitions.lean`).
 
 20. **Theorem 15.3.7 is proved under the text's hypotheses** *(Theorem 15.3.7, Remark 15.3.8, pp. 693–698 (2017: Theorem
     15.4; Remark 15.3.8 new in 2021); items 13, 16; gap G.162, Theorem 15.3.7 part closed)*.

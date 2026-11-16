@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.CanonicalLift
-import Polyfold.Chapter9.MathlibSolutionSets
+import Polyfold.Chapter6.MathlibSolutionSets
 import Polyfold.Chapter9.OrientationBasic
 import Polyfold.Chapter11.BranchedEquivalence
 

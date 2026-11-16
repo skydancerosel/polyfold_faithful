@@ -1,6 +1,6 @@
 import Polyfold.Chapter6.StabKernelsExist
 import Polyfold.Chapter6.FamilySections
-import Polyfold.Chapter6.ScPaths
+import Polyfold.Chapter5.ScPaths
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,

@@ -400,18 +400,18 @@
     "statement": "Over a tame ep-groupoid, $s : \\partial X \\to W$ with $P \\circ s = \\mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \\in \\partial X$ and every local face $F \\ni x$, $s|F$ is an sc⁺-section of $W|F \\to F$."
    },
    "lean": {
-    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff'`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
+    "statement": "In a tame local strong bundle model $K = R(U \\triangleleft F) \\to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \\in D$ and $i \\in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\\varphi) = \\mu(\\varphi, s(s\\varphi))$ for $s(\\varphi) \\in \\partial X$; then $t(\\varphi) \\in \\partial X$, `EpGroupoid.tgt_mem_boundary_iff`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).",
     "decls": [
      "Chapter12/LocalBoundaryExtension · retractBoundary",
      "Chapter12/LocalBoundaryExtension · IsScPlusOnFaceNear",
      "Chapter12/LocalBoundaryExtension · IsBoundaryScPlusSectionOn",
      "Chapter12/LocalBoundaryExtension · mem_retractBoundary_iff",
      "Chapter12/LocalBoundaryExtension · isBoundaryScPlusSectionOn_zero",
-     "Chapter5/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
      "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSection",
      "Chapter12/ScPlusExtension · EpStrongBundle.IsBoundaryScPlusSectionFunctor",
      "Chapter12/ScPlusExtension · EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero",
-     "Chapter12/ScPlusExtension · EpGroupoid.tgt_mem_boundary_iff'"
+     "Chapter12/AuxNormExtension · EpGroupoid.tgt_mem_boundary_iff"
     ]
    },
    "chips": [

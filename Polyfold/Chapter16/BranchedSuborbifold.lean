@@ -8,7 +8,7 @@ import Polyfold.Chapter9.StokesDimOne
 import Polyfold.Chapter9.EffectiveDimOneLUC
 import Polyfold.Chapter9.SupportOrbifold
 import Polyfold.Chapter9.SupportManifold
-import Polyfold.Chapter7.SmoothRegularAssembly
+import Polyfold.Chapter8.SmoothRegularAssembly
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 16,

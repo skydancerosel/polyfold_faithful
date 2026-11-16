@@ -1,5 +1,6 @@
 import Polyfold.Chapter2.CornerGerms
 import Polyfold.Chapter3.ParamPerturbation
+import Polyfold.Chapter3.GermFillingChart
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §12.3, pp. 584–586:
@@ -426,19 +427,6 @@ theorem isBoundaryScPlusSectionOn_zero (hT : C = T 0 ⁻¹' quadrant n W 0)
     rw [hSret]; ext z; simp [coordHyper]
   exact ⟨V, hV, hxV, ⟨S, hQ⟩, isScPlusSection_zero_local hU hRB fun z hz => hz.1.1⟩
 
-/-- The identity is a strong bundle retraction on `U ◁ F`. -/
-theorem isStrongBundleRetraction_id_of_relOpen' (hU : IsRelOpenInQuadrant E C U) :
-    IsStrongBundleRetraction (F := F) U _root_.id where
-  mapsTo := mapsTo_id _
-  fst_independent _ _ _ _ := rfl
-  fiber_linear _ _ := ⟨fun _ _ => rfl, fun _ _ => rfl⟩
-  preserves_filtration _ _ _ _ _ hu _ hh := ⟨hu, hh⟩
-  isScSmooth_zero := isScSmooth_id (hU.prod_univ F).isScDomain
-  isScSmooth_one := (isScSmooth_id (hU.prod_univ F.shift).isScDomain).congr
-    (hU.prod_univ F.shift).isScDomain fun p _ => show p = shiftFiber _root_.id p from
-      Prod.ext rfl (Function.leftInverse_invFun (F.toBase_injective 1) p.2).symm
-  idem _ _ := rfl
-
 /-- **The hypotheses of Proposition 12.3.7 are satisfiable**: on `C = [0,∞) ⊕ W` with the identity
 strong bundle retraction (a tame local strong bundle model), `0 ∈ ∂O`, and the zero section is an
 `sc⁺`-section over the whole boundary. -/
@@ -458,7 +446,7 @@ theorem proposition_12_3_7_nonvacuous (W F : ScBanach) :
   have hT : quadrant 1 W 0 = (ScIso.refl E₁) 0 ⁻¹' quadrant 1 W 0 := by ext; rfl
   have hU : IsRelOpenInQuadrant E₁ (quadrant 1 W 0) (quadrant 1 W 0) :=
     ⟨⟨1, W, ScIso.refl E₁, hT⟩, univ, isOpen_univ, (univ_inter _).symm⟩
-  have hRB := isStrongBundleRetraction_id_of_relOpen' (F := F) hU
+  have hRB := isStrongBundleRetraction_id_of_relOpen (F := F) hU
   have htame : (hRB.baseRetraction hU).IsTameWith (ScIso.refl E₁) :=
     ScRetraction.id_isTame hU 1 W _ hT
   have h0 : (0 : E₁ 0) ∈ (hRB.baseRetraction hU).retract :=

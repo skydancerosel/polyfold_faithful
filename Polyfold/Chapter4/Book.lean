@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapt
 statements of §4.2–§4.3 that the 2021 edition changes: **Theorem 4.2.11** (p. 190; 2017:
 Theorem 4.3; preprint: Theorem 4.22) and **Theorem 4.3.1** (p. 193; 2017: Theorem 4.4; preprint:
 Theorem 4.23).  The third changed statement, Proposition 4.4.5 (2017: Proposition 4.5; preprint:
-Proposition 4.26), and the 2021-only items of §4.4–§4.5 are in `Chapter4/VectorFields.lean`.
+Proposition 4.26), and the 2021-only items of §4.4–§4.5 are in `Chapter2/VectorFields.lean`.
 
 # Theorems 4.2.11 and 4.3.1 in the 2021 edition
 

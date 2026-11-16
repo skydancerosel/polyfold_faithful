@@ -700,10 +700,10 @@
     "statement": "For equivalences (`isOrientation_pushSection`, `isOrientation_pullSection`) and for generalized isomorphisms (`theorem_11_3_5_push`, `theorem_11_3_5_pull`), assuming Chapter 9's independence of the tangent sums for $\\Theta$; orientations of submanifolds and oriented branching structures moved by sc-diffeomorphisms between two M-polyfolds; $T\\psi \\circ TF = T(\\hat\\psi \\circ F)$.",
     "decls": [
      "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.TransportChart.tangentMor_ψ_tangent_obj",
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.OrTangent.map",
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.IsOrientedAt.map_tangentMapOn",
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.SubmanifoldOrientation.mapDiffeo",
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.SubmanifoldOrientation.mapDiffeo_tangent",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.OrTangent.map",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.IsOrientedAt.map_tangentMapOn",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.SubmanifoldOrientation.mapDiffeo",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.SubmanifoldOrientation.mapDiffeo_tangent",
      "Chapter11/BranchedEquivalenceTangent · EpGroupoid.OrientedBranchingStructure.mapDiffeo",
      "Chapter11/BranchedEquivalenceTangent · EpGroupoid.OrientedBranchingStructure.orientedSum_mapDiffeo",
      "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.isOrientation_pushSection",
@@ -762,8 +762,8 @@
    "lean": {
     "statement": "For equivalences (`tangentTheta_pushforwardTheta`, `tangentTheta_pullbackTheta`) and generalized isomorphisms (`theorem_11_3_7_push`, `theorem_11_3_7_pull`, with $Tf$ of Theorem 11.1.1); the independence of the tangent sums carried along; tangent spaces of submanifolds under sc-diffeomorphisms between two M-polyfolds.",
     "decls": [
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.submanifoldTangent_image_of_isScDiffeoOn",
-     "Chapter11/BranchedEquivalenceTangent · MPolyfold.chartVec_tangentMapOn_of_isScDiffeoOn",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.submanifoldTangent_image_of_isScDiffeoOn",
+     "Chapter9/SubmanifoldTangentImage · MPolyfold.chartVec_tangentMapOn_of_isScDiffeoOn",
      "Chapter11/BranchedEquivalenceTangent · EpGroupoid.LocalBranchingStructure.tangentSum_mapDiffeo",
      "Chapter11/BranchedEquivalenceTangent · EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isScDiffeoOn",
      "Chapter11/BranchedEquivalenceTangent · EpGroupoid.tangentTheta_tangentMapOn",
@@ -836,7 +836,7 @@
      "Chapter11/BoundaryOrientationEquiv · EPLocalization.Diagram.pullSection_boundaryOrientation",
      "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOp",
      "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOp",
-     "Chapter11/BoundaryOrientationEquiv · MPolyfold.boundaryOp_map_tangentMapOn",
+     "Chapter9/TangentMapBoundaryOps · MPolyfold.boundaryOp_map_tangentMapOn",
      "Chapter11/BoundaryOrientationEquiv · EpFunctor.isReducedBoundaryTransfer_tangentMor",
      "Chapter11/BoundaryOrientationEquiv · MPolyfold.IsReducedBoundaryTransfer.isBoundaryTransfer",
      "Chapter11/BoundaryOrientationEquiv · MPolyfold.CarriesTameTangents",
@@ -1678,7 +1678,7 @@
    "decls": [
     "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push",
-    "Chapter11/BoundaryOrientationEquiv · MPolyfold.boundaryOp_map_tangentMapOn",
+    "Chapter9/TangentMapBoundaryOps · MPolyfold.boundaryOp_map_tangentMapOn",
     "Chapter11/BoundaryOrientationEquiv · EpFunctor.isReducedBoundaryTransfer_tangentMor",
     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation",
     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation",

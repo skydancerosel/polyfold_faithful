@@ -1,6 +1,6 @@
 import Polyfold.Chapter15.LinearizationIntrinsic
 import Polyfold.Chapter12.MorphismIso
-import Polyfold.Chapter7.TangentMorphismLinear
+import Polyfold.Chapter9.TangentMorphismLinear
 import Polyfold.Chapter9.OrientationTangent
 
 /-!

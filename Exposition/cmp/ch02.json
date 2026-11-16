@@ -456,7 +456,7 @@
      "Chapter2/LevelPolyfold · MPolyfold.levelAtlas",
      "Chapter2/LevelPolyfold · MPolyfold.shift",
      "Chapter2/LevelPolyfold · MPolyfold.shift_isChart",
-     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff"
+     "Chapter2/StrongBundleLevelOne · MPolyfold.mem_shift_levelSet_iff"
     ]
    },
    "verdict": "restated",
@@ -1006,8 +1006,8 @@
      "Chapter2/DegeneracyIndex · eventually_add_smul_mem_lvlSet",
      "Chapter2/Boundary · eventually_add_smul_mem_lvlSet_of_cone",
      "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace",
-     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
-     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone"
+     "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+     "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_cone"
     ]
    },
    "verdict": "extra",
@@ -2197,7 +2197,7 @@
      "Chapter2/LocalTopology · lemma_2_2_2",
      "Chapter2/LocalTopology · definition_2_2_3",
      "Chapter2/LocalTopology · theorem_2_2_4",
-     "Chapter7/LocConnected · IsScRetract.locallyPathConnectedSpace"
+     "Chapter2/LocConnected · IsScRetract.locallyPathConnectedSpace"
     ]
    },
    "chips": [
@@ -2296,7 +2296,7 @@
      "Chapter2/LocalTopology · MPolyfold.isLocallyComplete",
      "Chapter2/LocalTopology · proposition_2_3_6",
      "Chapter2/LocalTopology · proposition_2_3_7",
-     "Chapter7/LocConnected · MPolyfold.locallyPathConnectedSpace"
+     "Chapter2/LocConnected · MPolyfold.locallyPathConnectedSpace"
     ]
    },
    "chips": [
@@ -2318,15 +2318,15 @@
    "lean": {
     "statement": "`definition_2_5_19_book`: for a sub-M-polyfold $Y$, condition (3) is stated in $T_yX$. $T_yY$ is the image of $Ti : T_yY \\to T_yX$ (`subTangentRange`), $T^R_yX$ is the reduced tangent space of Definition 2.5.8, and $T_yX = Ti(T_yY) \\oplus A$ is an algebraic splitting with $A \\subseteq T^R_yX$, $A$ an sc-subspace with a levelwise splitting in a chart (`HasReducedScComplement`, `TameSubData2021`, `IsTameSubMPolyfold2021`). It is equivalent to the chart form `IsTameSubMPolyfold` (`isTameSubMPolyfold2021_iff`, `hasReducedScComplement_iff`), through `coe_map_range_subInclusionCLM`: $T\\varphi(y)$ maps $Ti(T_yY)$ onto the tangent space of $\\varphi(W \\cap Y)$, and through `fiberCoord_subInclusionCLM`, $T\\varphi(y) \\circ Ti = T\\sigma(y)$ for the sub-chart $\\sigma$. It implies the tame induced structure of Definition 2.5.18, and $Y = X$ satisfies it. The chart form: (3) in some chart around $y$, the tangent space of the chart image of $Y$ having an sc-complement in $T_zO$ inside $T_zO \\cap E_z$; a tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.",
     "decls": [
-     "Chapter2/BookFormTameSub · MPolyfold.definition_2_5_19_book",
-     "Chapter2/BookFormTameSub · MPolyfold.isTameSubMPolyfold2021_iff",
-     "Chapter2/BookFormTameSub · MPolyfold.IsTameSubMPolyfold2021",
-     "Chapter2/BookFormTameSub · MPolyfold.TameSubData2021",
-     "Chapter2/BookFormTameSub · MPolyfold.HasReducedScComplement",
-     "Chapter2/BookFormTameSub · MPolyfold.hasReducedScComplement_iff",
-     "Chapter2/BookFormTameSub · MPolyfold.subTangentRange",
-     "Chapter2/BookFormTameSub · MPolyfold.coe_map_range_subInclusionCLM",
-     "Chapter2/BookFormTameSub · MPolyfold.fiberCoord_subInclusionCLM",
+     "Chapter4/BookFormTameSub · MPolyfold.definition_2_5_19_book",
+     "Chapter4/BookFormTameSub · MPolyfold.isTameSubMPolyfold2021_iff",
+     "Chapter4/BookFormTameSub · MPolyfold.IsTameSubMPolyfold2021",
+     "Chapter4/BookFormTameSub · MPolyfold.TameSubData2021",
+     "Chapter4/BookFormTameSub · MPolyfold.HasReducedScComplement",
+     "Chapter4/BookFormTameSub · MPolyfold.hasReducedScComplement_iff",
+     "Chapter4/BookFormTameSub · MPolyfold.subTangentRange",
+     "Chapter4/BookFormTameSub · MPolyfold.coe_map_range_subInclusionCLM",
+     "Chapter4/BookFormTameSub · MPolyfold.fiberCoord_subInclusionCLM",
      "Chapter2/TameBoundary · MPolyfold.HasTameInducedStructure",
      "Chapter2/TameBoundary · MPolyfold.HasReducedComplementAt",
      "Chapter2/TameBoundary · MPolyfold.hasReducedComplementAt_self",
@@ -3003,9 +3003,9 @@
    "lean": {
     "statement": "A point is smooth iff its chart image is a smooth point of the model. If (3) holds in one chart around each smooth point, it holds in every chart, for every presentation of the partial quadrant, every level-$1$ representative and the chart image of any sub-M-polyfold retraction onto $Y$ near $y$.",
     "decls": [
-     "Chapter2/TameSub · MPolyfold.mem_smoothSet_iff_of_isChart",
-     "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
-     "Chapter2/TameSub · MPolyfold.TameSubData.complement_forall_charts"
+     "Chapter4/TameSub · MPolyfold.mem_smoothSet_iff_of_isChart",
+     "Chapter4/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
+     "Chapter4/TameSub · MPolyfold.TameSubData.complement_forall_charts"
     ]
    },
    "chips": [
@@ -3030,10 +3030,10 @@
    "lean": {
     "statement": "Sc-splittings compose: $E = M \\oplus B$ and $M_m = N_m \\oplus A_m$ give $E = N \\oplus (A \\oplus B)$. For tame sub-M-polyfold data and a tame chart, the chart image of $Y$ is a tame retract (of $(\\varphi r \\varphi^{-1}) \\circ t$); so a tame sub-M-polyfold of a tame $X$ has a tame induced structure.",
     "decls": [
-     "Chapter2/TameSub · ScBanach.levelSub_sup_of_le_of_isScSplitting",
-     "Chapter2/TameSub · ScBanach.isScSplitting_sup_of_complementIn",
-     "Chapter2/TameSub · MPolyfold.TameSubData.isTameRetract_image",
-     "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure"
+     "Chapter4/TameSub · ScBanach.levelSub_sup_of_le_of_isScSplitting",
+     "Chapter4/TameSub · ScBanach.isScSplitting_sup_of_complementIn",
+     "Chapter4/TameSub · MPolyfold.TameSubData.isTameRetract_image",
+     "Chapter4/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure"
     ]
    },
    "chips": [
@@ -3055,19 +3055,19 @@
    "lean": {
     "statement": "In $[0, \\infty)^n \\oplus W$ the fixed set of an idempotent sc-operator preserving the quadrant is a sub-M-polyfold, tame if the $\\mathbb R^n$-component is kept. For $n = 2$: $A$ is a tame sub-M-polyfold with tame induced structure; $B$ is a sub-M-polyfold, no retraction onto $B$ with (1) and (2) exists near the corner, so it is not a tame sub-M-polyfold; $t \\mapsto (t, t, 0)$ is an sc-diffeomorphism from $[0, \\infty)$ onto $B$, whose induced structure is tame.",
     "decls": [
-     "Chapter2/TameSub · TameSubExample.fixSet",
-     "Chapter2/TameSub · TameSubExample.isSubMPolyfold_fixSet",
-     "Chapter2/TameSub · TameSubExample.isTameSubMPolyfold_fixSet",
-     "Chapter2/TameSub · TameSubExample.setA",
-     "Chapter2/TameSub · TameSubExample.setB",
-     "Chapter2/TameSub · TameSubExample.isTameSubMPolyfold_setA",
-     "Chapter2/TameSub · TameSubExample.hasTameInducedStructure_setA",
-     "Chapter2/TameSub · TameSubExample.isSubMPolyfold_setB",
-     "Chapter2/TameSub · TameSubExample.not_mem_tameSubData_setB",
-     "Chapter2/TameSub · TameSubExample.not_isTameSubMPolyfold_setB",
-     "Chapter2/TameSub · TameSubExample.halfLineToB_isScDiffeoOn",
-     "Chapter2/TameSub · TameSubExample.hasTameInducedStructure_setB",
-     "Chapter2/TameSub · TameSubExample.examples_A_B"
+     "Chapter4/TameSub · TameSubExample.fixSet",
+     "Chapter4/TameSub · TameSubExample.isSubMPolyfold_fixSet",
+     "Chapter4/TameSub · TameSubExample.isTameSubMPolyfold_fixSet",
+     "Chapter4/TameSub · TameSubExample.setA",
+     "Chapter4/TameSub · TameSubExample.setB",
+     "Chapter4/TameSub · TameSubExample.isTameSubMPolyfold_setA",
+     "Chapter4/TameSub · TameSubExample.hasTameInducedStructure_setA",
+     "Chapter4/TameSub · TameSubExample.isSubMPolyfold_setB",
+     "Chapter4/TameSub · TameSubExample.not_mem_tameSubData_setB",
+     "Chapter4/TameSub · TameSubExample.not_isTameSubMPolyfold_setB",
+     "Chapter4/TameSub · TameSubExample.halfLineToB_isScDiffeoOn",
+     "Chapter4/TameSub · TameSubExample.hasTameInducedStructure_setB",
+     "Chapter4/TameSub · TameSubExample.examples_A_B"
     ]
    },
    "chips": [
@@ -3297,20 +3297,20 @@
    "lean": {
     "statement": "For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\\alpha : \\mathbb R \\to E_0$, sc-smooth on $(-\\varepsilon, \\varepsilon)$ or on $[0, \\varepsilon)$ for the constant sc-structure on $\\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\\alpha(0) = x$; $\\dot\\alpha(0)$ is `pathDeriv`, $D\\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the set of $\\dot\\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\\dot\\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \\in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\\dot\\alpha(0) = \\dot\\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).",
     "decls": [
-     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
-     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
-     "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
-     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv",
-     "Chapter2/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
-     "Chapter2/TangentConePaths · TangentConePaths.oneSidedPathDerivs",
-     "Chapter2/TangentConePaths · TangentConePaths.hasDerivWithinAt_pathDeriv",
-     "Chapter2/TangentConePaths · TangentConePaths.scDeriv_pathDeriv",
-     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv_mem_minimalSubspaceWith",
-     "Chapter2/TangentConePaths · TangentConePaths.pathDeriv_mem_partialQuadrantAtWith",
-     "Chapter2/TangentConePaths · TangentConePaths.path_retract_segment",
-     "Chapter2/TangentConePaths · TangentConePaths.partialConeWith_subset_closure",
-     "Chapter2/TangentConePaths · TangentConePaths.isScDomain_Ioo",
-     "Chapter2/TangentConePaths · TangentConePaths.isScDomain_Ico"
+     "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+     "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
+     "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
+     "Chapter5/TangentConePaths · TangentConePaths.pathDeriv",
+     "Chapter5/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
+     "Chapter5/TangentConePaths · TangentConePaths.oneSidedPathDerivs",
+     "Chapter5/TangentConePaths · TangentConePaths.hasDerivWithinAt_pathDeriv",
+     "Chapter5/TangentConePaths · TangentConePaths.scDeriv_pathDeriv",
+     "Chapter5/TangentConePaths · TangentConePaths.pathDeriv_mem_minimalSubspaceWith",
+     "Chapter5/TangentConePaths · TangentConePaths.pathDeriv_mem_partialQuadrantAtWith",
+     "Chapter5/TangentConePaths · TangentConePaths.path_retract_segment",
+     "Chapter5/TangentConePaths · TangentConePaths.partialConeWith_subset_closure",
+     "Chapter5/TangentConePaths · TangentConePaths.isScDomain_Ioo",
+     "Chapter5/TangentConePaths · TangentConePaths.isScDomain_Ico"
     ]
    },
    "chips": [
@@ -3471,9 +3471,9 @@
    "book": "For every $m$, the charts $(V_m, \\varphi, (O_m, C_m, E_m))$ form an atlas on $X_m$.",
    "instead": "**Formalized** (V2.93). For $m \\ge 2$ the structure is the iterate $(X^1)^1 \\cdots$. For every $m$ the identity of points is a homeomorphism $(X^1)_m \\cong X_{m+1}$, and the level-$m$ lift of the level chart $\\varphi^1$ is the level-$(m+1)$ lift of $\\varphi$ (`MPolyfold.shiftLevelHomeomorph`, `MPolyfold.shift_level_eq`), so each iterate is $X_m$ with its topology and the charts $(V_m, \\varphi, (O_m, C_m, E_m))$. In particular the points agree, $(X^1)_m = X_{m+1}$ as sets (Findings, Chapter 5, items 142, 146). Theorem 2.3.10 (preprint 2.16) is proved for every $X_m$ directly (V2.17); Proposition 2.3.17, $T(X^i) \\equiv (TX)^i$, for every $i$ is V2.97 (Findings, Chapter 2, item 77).",
    "decls": [
-    "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff",
+    "Chapter2/StrongBundleLevelOne · MPolyfold.mem_shift_levelSet_iff",
     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_smoothSet_iff",
-    "Chapter5/StrongBundleShift · MPolyfold.IsScSmoothMap.levelOne",
+    "Chapter2/StrongBundleLevelOne · MPolyfold.IsScSmoothMap.levelOne",
     "Chapter2/TangentLift · MPolyfold.shiftLevelHomeomorph",
     "Chapter2/TangentLift · MPolyfold.shift_level_eq"
    ],
@@ -3542,12 +3542,12 @@
     "V2.109"
    ],
    "decls": [
-    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
-    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
-    "Chapter2/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
-    "Chapter2/TangentConePaths · TangentConePaths.pathDeriv",
-    "Chapter2/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
-    "Chapter2/TangentConePaths · TangentConePaths.oneSidedPathDerivs"
+    "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_reduced",
+    "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_cone",
+    "Chapter5/TangentConePaths · TangentConePaths.lemma_2_4_9_tangent",
+    "Chapter5/TangentConePaths · TangentConePaths.pathDeriv",
+    "Chapter5/TangentConePaths · TangentConePaths.twoSidedPathDerivs",
+    "Chapter5/TangentConePaths · TangentConePaths.oneSidedPathDerivs"
    ]
   },
   {
@@ -3665,10 +3665,10 @@
    "decls": [
     "Chapter2/TameBoundary · MPolyfold.TameSubData",
     "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold",
-    "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
-    "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure",
-    "Chapter2/TameSub · TameSubExample.examples_A_B",
-    "Chapter2/BookFormTameSub · MPolyfold.definition_2_5_19_book"
+    "Chapter4/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
+    "Chapter4/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure",
+    "Chapter4/TameSub · TameSubExample.examples_A_B",
+    "Chapter4/BookFormTameSub · MPolyfold.definition_2_5_19_book"
    ],
    "formalized": [
     "V2.99",

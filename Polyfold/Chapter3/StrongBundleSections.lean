@@ -1,6 +1,7 @@
 import Polyfold.Chapter2.StrongBundlePullback
 import Polyfold.Chapter3.Filler
 import Polyfold.Chapter3.LocalCompactness
+import Polyfold.Chapter2.StrongBundleSectionOps
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
@@ -108,6 +109,9 @@ an sc-Fredholm germ at every smooth point.  (Theorem 3.1.18 (preprint 3.15)) `f 
   the text.
 * An sc⁺-section is required to be continuous on `X` only through its charts; its continuity on
   each chart domain is `IsScPlusSection.continuousOn_source`.
+
+Sums and differences of sc-smooth maps (`IsScSmooth.add`, `IsScSmooth.neg`, `IsScSmooth.snd`,
+`IsScSmooth.sub`, …): `Chapter2/StrongBundleSectionOps.lean`.
 -/
 
 open Set Filter Topology Function
@@ -120,22 +124,8 @@ variable {E F : ScBanach}
 
 /-! ### The sum rule of the sc-calculus on sets -/
 
-/-- The addition `F ⊕ F → F` as an sc-operator. -/
-def ScBanach.addOp (F : ScBanach) : ScOperator (F.prod F) F where
-  lvl m := ContinuousLinearMap.fst ℝ (F m) (F m) + ContinuousLinearMap.snd ℝ (F m) (F m)
-  incl_comm m x := by
-    change F.incl m (x.1 + x.2) = F.incl m x.1 + F.incl m x.2
-    exact map_add _ _ _
-
 @[simp] lemma ScBanach.addOp_apply (F : ScBanach) (p : (F.prod F) 0) :
     F.addOp 0 p = p.1 + p.2 := rfl
-
-/-- The negation `F → F` as an sc-operator. -/
-def ScBanach.negOp (F : ScBanach) : ScOperator F F where
-  lvl m := -ContinuousLinearMap.id ℝ (F m)
-  incl_comm m x := by
-    change F.incl m (-x) = -(F.incl m x)
-    exact map_neg _ _
 
 @[simp] lemma ScBanach.negOp_apply (F : ScBanach) (x : F 0) : F.negOp 0 x = -x := rfl
 
@@ -143,36 +133,11 @@ section SumRule
 
 variable {U : Set (E 0)} {f g : E 0 → F 0}
 
-/-- **The sum rule**: the sum of sc-smooth maps is sc-smooth (pairing followed by the
-sc-operator `F ⊕ F → F`). -/
-theorem IsScSmooth.add (hU : IsScDomain E U) (hf : IsScSmooth U f) (hg : IsScSmooth U g) :
-    IsScSmooth U fun x => f x + g x := by
-  have := IsScSmooth.comp hU (isScDomain_univ _) (F.addOp.isScSmooth (isScDomain_univ _))
-    (hf.scPair hU hg) (mapsTo_univ _ _)
-  exact this.congr hU fun x _ => rfl
-
-theorem IsScSmooth.neg (hU : IsScDomain E U) (hf : IsScSmooth U f) :
-    IsScSmooth U fun x => -f x := by
-  have := IsScSmooth.comp hU (isScDomain_univ _) (F.negOp.isScSmooth (isScDomain_univ _)) hf
-    (mapsTo_univ _ _)
-  exact this.congr hU fun x _ => rfl
-
-theorem IsScSmooth.sub (hU : IsScDomain E U) (hf : IsScSmooth U f) (hg : IsScSmooth U g) :
-    IsScSmooth U fun x => f x - g x :=
-  (hf.add hU (hg.neg hU)).congr hU fun _ _ => (sub_eq_add_neg _ _).symm
-
 /-- A map sc-smooth into `F¹` is sc-smooth into `F` (composition with the inclusion `F¹ → F`). -/
 theorem IsScSmooth.toBase_shift {s : E 0 → F 1} (hU : IsScDomain E U)
     (hs : IsScSmooth (F := F.shift) U s) : IsScSmooth U fun x => F.toBase 1 (s x) := by
   have := IsScSmooth.comp hU (isScDomain_univ _) (F.shiftIncl.isScSmooth (isScDomain_univ _)) hs
     (mapsTo_univ _ _)
-  exact this.congr hU fun x _ => rfl
-
-/-- The second component of a map sc-smooth into `E' ⊕ F'`. -/
-theorem IsScSmooth.snd {E' F' : ScBanach} {h : E 0 → (E'.prod F') 0} (hU : IsScDomain E U)
-    (hh : IsScSmooth U h) : IsScSmooth (F := F') U fun x => (h x).2 := by
-  have := IsScSmooth.comp hU (isScDomain_univ _) ((E'.prodSndOp F').isScSmooth (isScDomain_univ _))
-    hh (mapsTo_univ _ _)
   exact this.congr hU fun x _ => rfl
 
 /-- The first component of a map sc-smooth into `E' ⊕ F'`. -/
@@ -494,7 +459,6 @@ theorem IsScPlusSection.continuousOn_source (hs : B.IsScPlusSection s) {c : Stro
 end StrongBundle
 
 end Bundle
-
 
 /-! ### Definition 3.1.6 (preprint 3.6) (filled versions), strong bundle isomorphisms, conjugation to a basic germ -/
 

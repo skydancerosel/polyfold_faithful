@@ -1,7 +1,7 @@
 import Polyfold.Chapter6.InvariantSingle
 import Polyfold.Chapter6.ProperHomotopy
 import Polyfold.Chapter3.NonVacuity
-import Polyfold.Chapter9.Boundary
+import Polyfold.Chapter6.TangentSpaceSingleton
 
 /-!
 # 2021 Theorem 6.7.1 (p. 277; preprint Theorem 6.43) and the case `∂X = ∅` (p. 279)

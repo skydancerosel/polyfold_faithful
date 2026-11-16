@@ -2,7 +2,7 @@ import Polyfold.Chapter15.CubeLift
 import Polyfold.Chapter14.StructurabilityCriterion
 import Polyfold.Chapter13.AtomicStructurable
 import Polyfold.Chapter15.CylinderPartitions
-import Polyfold.Chapter5.DegeneracyZeroTame
+import Polyfold.Chapter7.DegeneracyZeroTame
 import Polyfold.Chapter15.ChargedExtensionFibres
 
 /-!

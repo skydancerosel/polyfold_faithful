@@ -379,11 +379,6 @@ theorem countAt_fibAct {x x' : A.X.PObj.boundary} {φ : A.Mor} (hφ : φ ∈ c.�
   rw [fibAct_of ha, fibAct_of hb] at e
   exact EpStrongBundle.μ_injective_snd A.E ha hb e
 
-theorem fibAct_unit {y : A.Obj} {v : A.W} (hv : A.P v = y) : fibAct (A.X.unit y) v = v := by
-  subst hv
-  rw [fibAct_of (A.X.src_unit _).symm]
-  exact (A.E.μ_congr rfl).trans (A.E.μ_unit v)
-
 /-- **The count does not depend on `x`**: `countAt x w = sumMult w` for `P(w) ∈ U(x)`. -/
 theorem countAt_eq {x : A.X.PObj.boundary} {w : A.W} (hw : A.P w ∈ c.𝒰.U x) :
     c.countAt S.s x w = c.sumMult S.s w := by

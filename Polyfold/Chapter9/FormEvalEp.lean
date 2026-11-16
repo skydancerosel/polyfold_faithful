@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.GraphChart
-import Polyfold.Chapter8.EpFormsObj
+import Polyfold.Chapter9.EpFormsObj
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

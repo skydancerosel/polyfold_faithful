@@ -1,5 +1,6 @@
 import Polyfold.Chapter5.CylinderPerturbation
 import Polyfold.Chapter6.PerturbedOrientation
+import Polyfold.Chapter6.CylinderInterpolation
 
 /-!
 # Proper oriented homotopies and their cobordisms (2021 Theorem 6.7.1 (2))

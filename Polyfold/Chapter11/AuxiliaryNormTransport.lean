@@ -1,3 +1,4 @@
+import Polyfold.Chapter5.CompactHomotopyIso
 import Polyfold.Chapter11.StrongBundleUpToEquivalence
 
 /-!
@@ -62,11 +63,6 @@ variable {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX :
 namespace StrongBundle
 
 variable {B : StrongBundle PX P} {B' : StrongBundle PX' P'} {f : X → X'} {Φ : Y → Y'}
-
-/-- A strong bundle map sends the zero of `Y_x` to the zero of `Y'_{f(x)}`. -/
-theorem IsStrongBundleMap.map_fiberZero (h : B.IsStrongBundleMap B' f Φ) (x : X) :
-    Φ (fiberZero P x) = fiberZero P' (f x) :=
-  congrArg Subtype.val ((h.fiberMap x).map_zero)
 
 /-- At level `[1]`: `Φ[1](0_x) = 0_{f(x)}`. -/
 theorem IsStrongBundleMap.oneRestrict_zeroOne (h : B.IsStrongBundleMap B' f Φ) (x : X) :

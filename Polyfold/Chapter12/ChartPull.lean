@@ -1,5 +1,5 @@
 import Polyfold.Chapter6.SectionOrientation
-import Polyfold.Chapter3.FredholmPullbackIso
+import Polyfold.Chapter5.FredholmPullbackIso
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapter 12, §12.5,

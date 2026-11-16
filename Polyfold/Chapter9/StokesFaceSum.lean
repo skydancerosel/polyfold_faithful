@@ -1,6 +1,6 @@
-import Polyfold.Chapter4.StokesFaceCharts
+import Polyfold.Chapter6.StokesFaceCharts
 import Polyfold.Chapter4.StokesFaceIntegral
-import Polyfold.Chapter9.MathlibFormsBridge
+import Polyfold.Chapter6.MathlibFormsBridge
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,

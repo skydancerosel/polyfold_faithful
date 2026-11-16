@@ -1,5 +1,5 @@
 import Polyfold.Chapter8.EpStrongBundle
-import Polyfold.Chapter3.NonVacuityG
+import Polyfold.Chapter4.NonVacuityG
 
 set_option maxSynthPendingDepth 3
 
@@ -96,24 +96,6 @@ section Helpers
 
 variable {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type*} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
-
-/-- **A map into a sub-M-polyfold** `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
-`Y` (the private lemma of the same name in `ProperCovering.lean` and `SubGroupoid.lean`): near
-`x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A` near `f(x)` (Proposition 2.3.19 (preprint 2.21) (2)). -/
-private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : X → A} {U : Set X}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    P.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
 
 end Helpers
 
@@ -303,7 +285,7 @@ theorem isScDiffeoOn_fibredMap_id [ParacompactSpace (Mor × Obj)]
     X.PMor.IsScDiffeoOn (MPolyfold.subPolyfold (MPolyfold.isSubMPolyfold_fibredProduct
       X.isLocalScDiffeo_src (EpFunctor.id X).isScSmoothMap_obj)) (EpFunctor.id X).fibredMap
       (fun p => (p : Mor × Obj).1) univ univ where
-  isScSmoothOn := isScSmoothOn_subPolyfold_of_val _
+  isScSmoothOn := MPolyfold.isScSmoothOn_subPolyfold_of_val _
     (MPolyfold.IsScSmoothOn.prodMk MPolyfold.isScSmoothMap_id X.isScSmoothMap_src)
   isScSmoothOn_inv :=
     (MPolyfold.isScSmoothMap_fst X.PMor X.PObj).comp (MPolyfold.subPolyfold_inclusion_isScSmooth _)

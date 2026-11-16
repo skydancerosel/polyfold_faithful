@@ -68,25 +68,6 @@ namespace Polyfold
 
 universe u v w
 
-/-- A map into a sub-M-polyfold which is sc-smooth into the ambient M-polyfold is sc-smooth
-into it (a copy of the private lemma of `Chapter8/ProperCovering.lean`). -/
-private theorem isScSmoothOn_subPolyfold_of_val' {M : Type*} [TopologicalSpace M] [T2Space M]
-    [ParacompactSpace M] {PM : MPolyfold M} {N : Type*} [TopologicalSpace N] [T2Space N]
-    [ParacompactSpace N] {PN : MPolyfold N} {A : Set N} (hA : PN.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : M → A} {U : Set M}
-    (hf : PM.IsScSmoothOn PN (fun x => (f x : N)) U) :
-    PM.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : N)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 /-! ### Proper local sc-diffeomorphisms are evenly covered -/
 
 section EvenlyCovered
@@ -423,13 +404,13 @@ theorem isScDiffeo_fibredMap_hFunctor (hP : Admissible Γ.Ψ Λ.Ψ) (hQ : Admiss
   have h2 : (MPolyfold.subPolyfold hB).IsScSmoothMap P.PObj fun a => a.1.2 :=
     (MPolyfold.isScSmoothMap_snd Q.PMor P.PObj).comp hval
   have hasF : (MPolyfold.subPolyfold hB).IsScSmoothMap (MPolyfold.subPolyfold hAF) aF :=
-    isScSmoothOn_subPolyfold_of_val' hAF (f := aF) (MPolyfold.IsScSmoothOn.prodMk
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hAF (f := aF) (MPolyfold.IsScSmoothOn.prodMk
       ((isScSmoothMap_h hQ).comp h1) ((isScSmoothMap_x hP).comp h2))
   have hasF'' : (MPolyfold.subPolyfold hB).IsScSmoothMap (MPolyfold.subPolyfold hAF'') aF'' :=
-    isScSmoothOn_subPolyfold_of_val' hAF'' (f := aF'') (MPolyfold.IsScSmoothOn.prodMk
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hAF'' (f := aF'') (MPolyfold.IsScSmoothOn.prodMk
       ((isScSmoothMap_k hQ).comp h1) ((isScSmoothMap_z hP).comp h2))
   refine ⟨inv, ?_, ?_, mapsTo_univ _ _, mapsTo_univ _ _, fun m _ => ?_, fun a _ => ?_⟩
-  · exact isScSmoothOn_subPolyfold_of_val' hB
+  · exact MPolyfold.isScSmoothOn_subPolyfold_of_val hB
       (MPolyfold.IsScSmoothOn.prodMk H.isScSmoothMap_mor P.isScSmoothMap_src)
   · have e₁' := MPolyfold.IsScSmoothOn.comp hgF.isScSmoothOn_inv hasF (mapsTo_univ _ _)
     have e₃' := MPolyfold.IsScSmoothOn.comp hgF''.isScSmoothOn_inv hasF'' (mapsTo_univ _ _)

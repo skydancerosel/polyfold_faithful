@@ -87,7 +87,7 @@ they preserve sc⁺-section functors and sc-Fredholm section functors.
 
 * The `Fred` part of Theorem 10.4.5 is `theorem_10_4_5_fred` (`FredholmEquivalence.lean`), from
   the invariance of sc-Fredholm sections under local strong bundle isomorphisms
-  (`Chapter3/FredholmPullbackIso.lean`).
+  (`Chapter5/FredholmPullbackIso.lean`).
 * Proposition 10.4.6 (p. 501, new in the 2021 edition: the local regularity property, Definition
   8.4.2, under strong bundle equivalences) is `proposition_10_4_6` (`StrongBundleLocalRegularity.lean`),
   and Proposition 10.4.7 (p. 501, new in the 2021 edition) is `proposition_10_4_7`

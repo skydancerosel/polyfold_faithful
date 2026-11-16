@@ -1,4 +1,5 @@
 import Polyfold.Chapter4.ScExteriorDerivative
+import Polyfold.Chapter3.LinearizationCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4, p. 197

@@ -1,4 +1,4 @@
-import Polyfold.Chapter3.FredholmPullbackIso
+import Polyfold.Chapter5.FredholmPullbackIso
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter8.TangentLocal
 import Polyfold.Chapter10.StrongBundleEquivalence
@@ -28,7 +28,7 @@ the chart, and two such restrictions are compared on the intersection of their b
   `Y|U → Y'|U'` and `Y'|V → Y''|V'`, on `U ∩ ϕ⁻¹(V)`; `LocalIso.ofEq`: change of the domains
   along equalities.
 * `StrongBundle.restrictIso hV`: **the inclusion `Y|V → Y`** as a local strong bundle isomorphism
-  `(P|V)|univ → P|V` (`StrongBundle.restrictOpen` of `Chapter3/RestrictOpen.lean`); in the charts
+  `(P|V)|univ → P|V` (`StrongBundle.restrictOpen` of `Chapter5/RestrictOpen.lean`); in the charts
   `c|V` of `P|V` and `c` of `P` all its maps are the identity of the model.
 * `StrongBundle.restrictSection_eqOn_restrictIso`: the restriction `f|V` of a section is the
   pull-back of `f` along the inclusion.

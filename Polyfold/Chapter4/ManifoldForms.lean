@@ -1,5 +1,5 @@
 import Polyfold.Chapter4.EuclideanForms
-import Polyfold.Chapter6.ManifoldOrientation
+import Polyfold.Chapter4.ManifoldOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): differential forms on a
@@ -21,7 +21,7 @@ layer under **Theorem 4.4.7** (p. 199; preprint Theorem 4.28, Stokes' theorem, g
 * `ManifoldForm.chartForm I e ω`: the expression of `ω` in a chart `e`, the form on `E`
   `y ↦ ω(x)(D(c ∘ e⁻¹)(y) ·, …)`, `x = e⁻¹(y)`, `c = chartAt H x`: the pull-back of `ω` by the
   inverse of the chart, its derivative read in the chart `c` in which `T_xM` is expressed
-  (`chartChangeDeriv`, `Chapter6/ManifoldOrientation.lean`).  The change of charts is the
+  (`chartChangeDeriv`, `Chapter4/ManifoldOrientation.lean`).  The change of charts is the
   pull-back by the chart change (`chartForm_eventuallyEq_formPullback`).
 * `ManifoldForm.ContMDiffForm I r ω`: `ω` is `C^r`, i.e. its expressions in the charts `chartAt`
   of the atlas are `C^r` on the chart targets.  The support `ManifoldForm.support` and the closed

@@ -1,5 +1,5 @@
 import Polyfold.Chapter2.TangentLift
-import Polyfold.Chapter4.VectorFieldsGlobal
+import Polyfold.Chapter2.VectorFieldsGlobal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §2.3
@@ -7,7 +7,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 every `i`, with the discussion before it (pp. 40–42); and, from §4.4 "Sc-Differential Forms",
 **Lemma 4.4.4** (p. 196, new in the 2021 edition) for every `i`.  Numbers and pages are the 2021
 text's.  The cases `i = 1` (and `i = 2` of Proposition 2.3.17) are in
-`Polyfold/Chapter2/TangentLift.lean` and `Polyfold/Chapter4/VectorFieldsGlobal.lean`.
+`Polyfold/Chapter2/TangentLift.lean` and `Polyfold/Chapter2/VectorFieldsGlobal.lean`.
 
 # The tangent of the lifts: `T(Xⁱ) ≡ (TX)ⁱ` for every `i`
 

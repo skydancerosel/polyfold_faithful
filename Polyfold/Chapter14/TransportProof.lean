@@ -186,7 +186,7 @@ theorem fibAct_bsec_eq {a b : A.Obj} {i i' : S.I a} {j : S.I b} {φ φ' : A.Mor}
       exact heq
   have hP : A.P (T.bsec a i' (A.X.src φ')) = A.X.src (A.X.comp (A.X.inv φ) φ') := by
     rw [T.isSection_bsec, hsψ]
-  rw [← hbs, ← AtomicStructData.fibAct_comp hP htψ.symm, AtomicStructData.comp_inv_comp e]
+  rw [← hbs, ← SBLocalization.fibAct_comp hP htψ.symm, AtomicStructData.comp_inv_comp e]
 
 /-! ### The transported sections -/
 
@@ -326,7 +326,7 @@ theorem tsec_equivariant {a b : A.Obj} (hb : b ∈ S.A) (g : A.X.Isotropy b) (j 
     rw [A.X.tgt_comp _ _ ((S.nbhd b).src_Γ g hyU), (S.nbhd b).tgt_Γ g hyU,
       A.X.src_comp _ _ ((S.nbhd b).src_Γ g hyU)] at e1
     rw [e1, T.tsec_of_arc h,
-      AtomicStructData.fibAct_comp (T.isSection_bsec a i _) ((S.nbhd b).src_Γ g hyU)]
+      SBLocalization.fibAct_comp (T.isSection_bsec a i _) ((S.nbhd b).src_Γ g hyU)]
   · have hw : (S.nbhd b).rep.Φ g y ∈ S.V b := S.mapsTo_V b hb g hy
     have hwU := S.V_subset b hb hw
     have hR' : ¬ ∃ p : S.I a × A.Mor,
@@ -357,7 +357,7 @@ theorem tsec_compat {a b b' : A.Obj} (hb : b ∈ S.A) (hb' : b' ∈ S.A) {φ : A
     have h' := Arc.snoc h hb' e.symm hφ.2 hp
     have e1 := T.tsec_of_arc h'
     rw [A.X.tgt_comp _ _ e.symm, A.X.src_comp _ _ e.symm] at e1
-    rw [e1, ← e, T.tsec_of_arc h, AtomicStructData.fibAct_comp (T.isSection_bsec a i _) e.symm]
+    rw [e1, ← e, T.tsec_of_arc h, SBLocalization.fibAct_comp (T.isSection_bsec a i _) e.symm]
   · have hR' : ¬ ∃ p : S.I a × A.Mor, S.Arc a b' p.1 j' p.2 ∧ A.X.tgt p.2 = A.X.tgt φ := by
       rintro ⟨⟨i, ψ⟩, h, e⟩
       apply hR
@@ -412,12 +412,12 @@ theorem proposition_14_5_4 (hβ : T.SuppInSat) : proposition_14_5_4_statement T 
     fun b hb j y hy => T.tsec_boundary hβ ha hb j hy,
     fun b hb b' hb' φ hφ => T.tsec_compat hb hb' hφ⟩
   · have e := T.tsec_of_arc (Arc.nil ha hy i)
-    rw [A.X.tgt_unit, A.X.src_unit, AtomicStructData.fibAct_unit (T.isSection_bsec a i y)] at e
+    rw [A.X.tgt_unit, A.X.src_unit, SBLocalization.fibAct_unit (T.isSection_bsec a i y)] at e
     rw [e, T.bsec_eq ha i hy]
   · refine ⟨closure {y ∈ (S.nbhd a).U | T.β a y ≠ 0}, isClosed_closure,
       T.closure_support_β a ha, fun y hy hyK => ?_⟩
     have e := T.tsec_of_arc (Arc.nil ha hy i)
-    rw [A.X.tgt_unit, A.X.src_unit, AtomicStructData.fibAct_unit (T.isSection_bsec a i y)] at e
+    rw [A.X.tgt_unit, A.X.src_unit, SBLocalization.fibAct_unit (T.isSection_bsec a i y)] at e
     have hβ0 : T.β a y = 0 := by
       by_contra hne
       exact hyK (subset_closure ⟨S.V_subset a ha hy, hne⟩)

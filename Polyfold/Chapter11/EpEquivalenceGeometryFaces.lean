@@ -2,7 +2,7 @@ import Polyfold.Chapter11.EpEquivalenceGeometry
 import Polyfold.Chapter7.TameBoundaryEp
 import Polyfold.Chapter7.NonVacuity
 import Polyfold.Chapter2.TameBoundaryExample
-import Polyfold.Chapter2.TameSub
+import Polyfold.Chapter4.TameSub
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

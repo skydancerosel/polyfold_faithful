@@ -17,7 +17,7 @@ The text integrates classical forms over oriented finite-dimensional manifolds w
 corners and uses Stokes' theorem; it gives no construction (Mathlib has `extDeriv` but no
 integration of forms).  This file supplies the chart-level notions on
 `ℝⁿ = EuclideanSpace ℝ (Fin n)` (the model space of Mathlib's `modelWithCornersEuclideanQuadrant`,
-which the project's solution sets use, `Chapter9/MathlibSolutionSets.lean`).  A `k`-form on a
+which the project's solution sets use, `Chapter6/MathlibSolutionSets.lean`).  A `k`-form on a
 normed space `E` is Mathlib's `E → E [⋀^Fin k]→L[ℝ] ℝ`.
 
 ## What is formalized

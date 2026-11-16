@@ -110,7 +110,7 @@ theorem faceBool_eq_decide_pos (i : Fin (n + 1)) : faceBool i = decide (0 < face
     rw [h', decide_eq_false (by norm_num), decide_eq_false (by norm_num)]
 
 /-- `det(−eᵢ, ιᵢ v₁, …, ιᵢ vₙ) = faceSign i · det v` (standard bases). -/
-theorem det_cons_neg_stdFrame_comp_faceEmbedding (i : Fin (n + 1))
+theorem det_cons_neg_stdFrame_faceEmbedding (i : Fin (n + 1))
     (v : Fin n → EuclideanSpace ℝ (Fin n)) :
     (EuclideanSpace.basisFun (Fin (n + 1)) ℝ).toBasis.det
         (Fin.cons (-stdFrame (n + 1) i) (faceEmbedding i ∘ v)) =
@@ -149,7 +149,7 @@ theorem det_cons_faceEmbedding (i : Fin (n + 1)) (w : EuclideanSpace ℝ (Fin (n
     simp at this
   have hneg' : b₁.det (Fin.cons (stdFrame (n + 1) i) (faceEmbedding i ∘ v)) =
       -(faceSign i * (EuclideanSpace.basisFun (Fin n) ℝ).toBasis.det v) := by
-    rw [← det_cons_neg_stdFrame_comp_faceEmbedding i v, hc, hc, map_neg,
+    rw [← det_cons_neg_stdFrame_faceEmbedding i v, hc, hc, map_neg,
       AlternatingMap.neg_apply, neg_neg]
   conv_lhs => rw [hw]
   rw [hc, map_add, map_smul, AlternatingMap.add_apply, AlternatingMap.smul_apply, h0, add_zero,

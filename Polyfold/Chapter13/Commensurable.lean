@@ -286,11 +286,6 @@ theorem countAt_fibAct {x x' : A.Obj} {φ : A.Mor} (hφ : φ ∈ c.𝒰.mor x x'
   rw [fibAct_of ha, fibAct_of hb] at e
   exact EpStrongBundle.μ_injective_snd A.E ha hb e
 
-theorem fibAct_unit {y : A.Obj} {v : A.W} (hv : A.P v = y) : fibAct (A.X.unit y) v = v := by
-  subst hv
-  rw [fibAct_of (A.X.src_unit _).symm]
-  exact (A.E.μ_congr rfl).trans (A.E.μ_unit v)
-
 theorem unit_mem_mor {x y : A.Obj} (hy : y ∈ c.𝒰.U x) : A.X.unit y ∈ c.𝒰.mor x y :=
   ⟨by rw [A.X.src_unit]; exact hy, by rw [A.X.tgt_unit]; exact c.𝒰.mem_U y⟩
 

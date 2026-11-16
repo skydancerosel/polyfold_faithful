@@ -1,6 +1,6 @@
 import Polyfold.Chapter5.Homotopy
-import Polyfold.Chapter3.NonVacuityG
-import Polyfold.Chapter3.IndexAlongPaths
+import Polyfold.Chapter4.NonVacuityG
+import Polyfold.Chapter5.IndexAlongPaths
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapter 5, "The Fredholm

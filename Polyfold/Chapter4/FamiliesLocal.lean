@@ -1,6 +1,7 @@
 import Polyfold.Chapter4.LocalStructure
 import Polyfold.Chapter3.QuadrantIFT
 import Polyfold.Vendor.MilnorSard.Sard
+import Polyfold.Vendor.MilnorSard.Basic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.3,

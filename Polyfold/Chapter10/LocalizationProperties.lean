@@ -1,5 +1,6 @@
 import Polyfold.Chapter10.LocalizationCategory
 import Polyfold.Chapter10.EquivalenceZhou
+import Polyfold.Chapter8.ZhouTangent
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

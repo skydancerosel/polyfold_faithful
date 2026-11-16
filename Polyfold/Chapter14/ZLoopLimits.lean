@@ -220,7 +220,7 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
       R.N.unit_mem_sheet R.mem_Y (R.W_subset hzW), fun y hy => ?_⟩
     have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
     rw [R.N.srcInv_unit R.mem_Y hy.1, A.X.tgt_unit,
-      fibAct_unit' (D.P_s a ha i y ⟨hyU, hy.2⟩)]
+      fibAct_unit (D.P_s a ha i y ⟨hyU, hy.2⟩)]
   | @snoc b c i j k φ ψ' h hc hs ht hp ih =>
     intro hW hz₀
     rw [A.X.src_comp _ _ hs] at hW
@@ -274,7 +274,7 @@ theorem arc_transport (hD : D.CompatNbhd) {a b : A.Obj} {i : S.I a} {j : S.I b} 
       rw [e₂, hsθ, htr y hy]
       have hao : a ∈ R.o := R.mem_o_of_mem_W hW hpr.1 hpr.2.2.1
       have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
-      rw [fibAct_comp' (by rw [D.P_s a hpr.1 i y ⟨hyU, hy.2⟩, hsφy]) hsθ]
+      rw [fibAct_comp (by rw [D.P_s a hpr.1 i y ⟨hyU, hy.2⟩, hsφy]) hsθ]
 
 /-- **The conclusion of the proof of Proposition 14.4.6 (2)**: if `(i, i') ∈ Θ_{z₀}` (a limit of
 `z_k`-loops, `z_k ∈ V̂_a`) and `z₀ ∈ cl_X(V̂_a)`, then `s^{0a}_i = s^{0a}_{i'}` on `O(z₀) ∩ ∂X`. -/
@@ -294,7 +294,7 @@ theorem sections_eq (hD : D.CompatNbhd) {a : A.Obj} (ha : a ∈ S.A)
   rw [R.N.srcInv_unit R.mem_Y hy.1, A.X.tgt_unit] at e
   have hao : a ∈ R.o := R.mem_o_of_mem_W hzW ha (ZSetup.ZRel.mem_V hz)
   have hyU : y ∈ (S.nbhd a).U := (R.U_near z₀ R.mem_Y a hao hz₀).1 hy.1
-  rw [e, fibAct_unit' (D.P_s a ha i y ⟨hyU, hy.2⟩)]
+  rw [e, fibAct_unit (D.P_s a ha i y ⟨hyU, hy.2⟩)]
 
 end ZLimitRep
 

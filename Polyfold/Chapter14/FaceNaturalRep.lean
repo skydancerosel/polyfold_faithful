@@ -1,5 +1,5 @@
 import Polyfold.Chapter14.FaceGoodSystem
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.6, p. 680, with

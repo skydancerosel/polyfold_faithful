@@ -1,4 +1,5 @@
 import Polyfold.Chapter9.OrientationRn
+import Polyfold.Chapter6.DegIndexLevelZero
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -63,6 +64,10 @@ good.
 * Definition 9.2.12 (`TMᵢ` smooth submanifolds of `TX`, gap G.99) needs the tangent map of an
   sc⁺-retraction on `TX`; it is treated in `TangentSubmanifoldSmooth.lean`, and Lemma 9.3.4 at
   boundary points in `GeneralBoundaryPoints.lean`.
+
+The degeneracy index on Euclidean space (`degIndex_univ`, `MPolyfold.degIndex_rn`,
+`MPolyfold.exists_plusRetraction`, `mem_interior_of_degIndex_eq_zero`):
+`Chapter6/DegIndexLevelZero.lean`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -952,17 +957,6 @@ section Chart
 variable {φ : MChart X} (hφ : P.IsChart φ)
 include hφ
 
-/-- The chart sc⁺-retraction `t` of the proof of Theorem 4.18 (`exists_chartRetraction`), with
-`t(U) = φ(W ∩ A)`. -/
-theorem exists_plusRetraction {A : Set X} (d : P.SubmanifoldData A) {x : X} (hxA : x ∈ A)
-    (hxV : x ∈ d.V) :
-    ∃ t : ScRetraction φ.model.E φ.model.C,
-      t.retract = φ '' (d.toSubData.shrink φ ∩ A) ∧ t.IsScPlus := by
-  obtain ⟨R, hR⟩ := φ.model.isScRetract
-  obtain ⟨t, ht, htp, -⟩ :=
-    d.exists_chartRetraction hφ (P.levelMk 1 x (d.mem_levelSet_one hxA hxV)) R hR
-  exact ⟨t, ht, htp⟩
-
 /-- At a point `y ∈ W ∩ A`, `φ(y)` lies in the retract of `t`, the level-`1` lift of `φ(y)` is
 `levelLift φ 1 y`, and `T_yA` is `range Dt(levelLift φ 1 y)` in the chart (Remark 4.14). -/
 theorem chartTangent_eq_range {A : Set X} (d : P.SubmanifoldData A)
@@ -1079,7 +1073,6 @@ theorem hasClassGraphChartAt (x : X) : P.HasClassGraphChartAt x := by
   exact ⟨φ, hφ, hxφ, goodDirections φ x, fun A hA hxA =>
     isGraphChartAt_goodDirections hφ hA hxA hxφ⟩
 
-
 /-- **The ball form of the graph representation at interior points** (2021 Lemmas 9.2.10,
 9.2.11, pp. 414–417, where every direction is admissible): if `φ(x)` is an interior point of the
 partial quadrant `C`, every smooth finite-dimensional submanifold through `x` has the graph
@@ -1126,24 +1119,6 @@ theorem exists_chart_mem_interior_rn {m : ℕ} (x : Fin m → ℝ) :
   ⟨rnChart m 0, isChart_rnChart 0, mem_univ x, by
     change _ ∈ interior (univ : Set (Fin m → ℝ)); rw [interior_univ]; exact mem_univ _⟩
 
-/-- A point of a partial quadrant with degeneracy index `0` (Definition 1.23) is an interior
-point. -/
-theorem _root_.Polyfold.mem_interior_of_degIndex_eq_zero {E : ScBanach} {C : Set (E 0)}
-    (hC : IsPartialQuadrant E C) {x : E 0} (hx : x ∈ C) (h0 : Polyfold.degIndex E C x = 0) :
-    x ∈ interior C := by
-  obtain ⟨n, W, T, hT⟩ := hC
-  rw [Polyfold.degIndex_eq T hT hx, degIndexWith, quadrantDeg, Finset.card_eq_zero,
-    Finset.filter_eq_empty_iff] at h0
-  have hxq : ∀ i, 0 ≤ (T 0 x).1 i := by rw [hT] at hx; exact hx
-  rw [mem_interior]
-  refine ⟨{y | ∀ i, 0 < (T 0 y).1 i}, fun y hy => ?_, ?_,
-    fun i => lt_of_le_of_ne (hxq i) (Ne.symm (h0 (Finset.mem_univ i)))⟩
-  · rw [hT]; exact fun i => (hy i).le
-  · have : {y : E 0 | ∀ i, 0 < (T 0 y).1 i} = ⋂ i, {y | 0 < (T 0 y).1 i} := by ext; simp
-    rw [this]
-    exact isOpen_iInter_of_finite fun i => isOpen_lt continuous_const
-      ((continuous_apply i).comp (continuous_fst.comp (T 0).continuous))
-
 /-- **Points of the interior `X ∖ ∂X` are interior in a chart**: if `d_X(x) = 0`
 (Definition 2.22), some chart `φ` at `x` has `φ(x) ∈ int C`. -/
 theorem exists_chart_mem_interior_of_degIndex_eq_zero {x : X} (h : P.degIndex x = 0) :
@@ -1159,21 +1134,6 @@ theorem exists_chart_mem_interior_of_degIndex_eq_zero {x : X} (h : P.degIndex x 
     R.relOpen.isPartialQuadrant hxC ?_⟩
   change chartDegIndex φ x = 0
   rw [← hd, h]
-
-/-- The degeneracy index of every point of `E` in the partial quadrant `E` is `0`. -/
-theorem _root_.Polyfold.degIndex_univ (E : ScBanach) (y : E 0) :
-    Polyfold.degIndex E univ y = 0 := by
-  let T : ScIso E ((ScBanach.const (Fin 0 → ℝ)).prod E) :=
-    { lvl := fun m => (ContinuousLinearEquiv.uniqueProd ℝ (E m) (Fin 0 → ℝ)).symm
-      incl_comm := fun m x => Prod.ext (funext fun i => i.elim0) rfl }
-  have hT : (univ : Set (E 0)) = T 0 ⁻¹' quadrant 0 E 0 := by ext; simp [quadrant]
-  rw [Polyfold.degIndex_eq T hT (mem_univ y), degIndexWith, quadrantDeg]
-  simp
-
-/-- **The condition `d_X = 0` can be met**: every point of `ℝᵐ` has degeneracy index `0`. -/
-theorem degIndex_rn {m : ℕ} (x : Fin m → ℝ) : (rnPolyfold m).degIndex x = 0 :=
-  Nat.le_zero.1 (((rnPolyfold m).degIndex_le (isChart_rnChart 0) (mem_univ x)).trans
-    (le_of_eq (Polyfold.degIndex_univ _ _)))
 
 /-- **2021 Remark 9.1.1 (p. 402) for a general M-polyfold: the dimension of a smooth
 finite-dimensional submanifold is locally constant** (gap G.93).  In a chart, `dim_y A` is the

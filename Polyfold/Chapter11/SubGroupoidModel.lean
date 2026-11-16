@@ -1,6 +1,6 @@
 import Polyfold.Chapter11.TranslationAverage
 import Polyfold.Chapter7.SubGroupoid
-import Polyfold.Chapter9.SolutionFaceForms
+import Polyfold.Chapter6.SolutionFaceForms
 import Polyfold.Chapter10.Equivalence
 
 /-!

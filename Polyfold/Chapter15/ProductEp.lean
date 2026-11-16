@@ -1,5 +1,5 @@
 import Polyfold.Chapter7.EpGroupoid
-import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter6.Discrete
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III: the product of

@@ -123,6 +123,19 @@ theorem P_fibAct {ψ : A.Mor} {v : A.W} (h : A.P v = A.X.src ψ) :
     A.P (fibAct ψ v) = A.X.tgt ψ := by
   rw [fibAct_of h, A.E.P_μ]
 
+/-- `μ(ψ ∘ χ, v) = μ(ψ, μ(χ, v))`. -/
+theorem fibAct_comp {ψ χ : A.Mor} {v : A.W} (hv : A.P v = A.X.src χ)
+    (h : A.X.src ψ = A.X.tgt χ) : fibAct (A.X.comp ψ χ) v = fibAct ψ (fibAct χ v) := by
+  rw [fibAct_of (hv.trans (A.X.src_comp ψ χ h).symm), fibAct_of hv,
+    fibAct_of ((A.E.P_μ _).trans h.symm)]
+  exact A.E.μ_comp ψ χ v hv h
+
+/-- `μ(1_y, v) = v`. -/
+theorem fibAct_unit {y : A.Obj} {v : A.W} (hv : A.P v = y) : fibAct (A.X.unit y) v = v := by
+  subst hv
+  rw [fibAct_of (A.X.src_unit _).symm]
+  exact A.E.μ_unit v
+
 /-- `μ(ψ, 0) = 0`. -/
 theorem fibAct_fiberZero {ψ : A.Mor} {y y' : A.Obj} (hy : A.X.src ψ = y) (hy' : A.X.tgt ψ = y') :
     fibAct ψ (fiberZero A.P y) = fiberZero A.P y' := by

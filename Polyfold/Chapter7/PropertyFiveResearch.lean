@@ -1,7 +1,7 @@
 import Polyfold.Chapter7.NonVacuity
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter7.OrbitTopology
-import Polyfold.Chapter6.OrientableNbhd
+import Polyfold.Chapter5.OrientableNbhd
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

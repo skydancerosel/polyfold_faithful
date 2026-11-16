@@ -1,7 +1,7 @@
 import Polyfold.Chapter15.Transversality
 import Polyfold.Chapter10.StrongBundleEquivalenceExamples
 import Polyfold.Chapter8.NonVacuityBundle
-import Polyfold.Chapter3.NonVacuityG
+import Polyfold.Chapter4.NonVacuityG
 import Polyfold.Chapter3.ParamPerturbation
 import Polyfold.Chapter5.Transversality
 import Polyfold.Chapter9.Propositions

@@ -1,7 +1,7 @@
 import Polyfold.Chapter7.EpGroupoid
 import Polyfold.Chapter7.ProperMaps
 import Polyfold.Chapter7.LocalDiffeo
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.4,

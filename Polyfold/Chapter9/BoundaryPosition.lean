@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.Propositions
-import Polyfold.Chapter2.TameSub
+import Polyfold.Chapter4.TameSub
 import Polyfold.Chapter4.Characterization
 import Polyfold.Chapter5.Transversality
 

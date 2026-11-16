@@ -48,23 +48,6 @@ section Generic
 variable {M : Type*} [TopologicalSpace M] [T2Space M] [ParacompactSpace M] {P : MPolyfold M}
   {N : Type*} [TopologicalSpace N] [T2Space N] [ParacompactSpace N] {Q : MPolyfold N}
 
-/-- A map into a sub-M-polyfold which is sc-smooth into the ambient M-polyfold is sc-smooth into
-the sub-M-polyfold (a copy of the private lemma of `Chapter10/WeakFibredProduct.lean`). -/
-private theorem isScSmoothOn_subPolyfold_of_val' {A : Set N} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : M → A} {U : Set M}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : N)) U) :
-    P.IsScSmoothOn (subPolyfold hA) f U := by
-  refine IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : N)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (IsScSmoothOn.comp (subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 /-- **`X × A` is a sub-M-polyfold of `X × N`** for a sub-M-polyfold `A ⊂ N`, with the
 retraction `id × r`. -/
 theorem isSubMPolyfold_univ_prod [ParacompactSpace (M × N)] {A : Set N}
@@ -104,12 +87,12 @@ theorem isScDiffeoOn_prodSubtype {A : Set N} (hA : Q.IsSubMPolyfold A) [Paracomp
     (P.prod (subPolyfold hA)).IsScDiffeoOn (subPolyfold (isSubMPolyfold_univ_prod (P := P) hA))
       prodSubtypeMk prodSubtypeInv univ univ := by
   refine ⟨?_, ?_, mapsTo_univ _ _, mapsTo_univ _ _, fun _ _ => rfl, fun _ _ => rfl⟩
-  · refine isScSmoothOn_subPolyfold_of_val' _ ?_
+  · refine MPolyfold.isScSmoothOn_subPolyfold_of_val _ ?_
     exact IsScSmoothOn.prodMk (isScSmoothMap_fst _ _)
       ((subPolyfold_inclusion_isScSmooth hA).comp (isScSmoothMap_snd _ _))
   · have hinc := subPolyfold_inclusion_isScSmooth (isSubMPolyfold_univ_prod (P := P) hA)
     refine IsScSmoothOn.prodMk ((isScSmoothMap_fst _ _).comp hinc) ?_
-    refine isScSmoothOn_subPolyfold_of_val' hA ?_
+    refine MPolyfold.isScSmoothOn_subPolyfold_of_val hA ?_
     exact (isScSmoothMap_snd _ _).comp hinc
 
 /-- **Transitivity of sub-M-polyfolds**: if `j : M₁ → S` is an sc-diffeomorphism onto a
@@ -296,7 +279,7 @@ theorem theorem_10_2_2_triple (h : Admissible F G) :
   have hL' := isSubMPolyfold_morSetTriple F G h
   refine ⟨hL, hL', ⟨?_, ?_, mapsTo_univ _ _, mapsTo_univ _ _, fun _ _ => rfl, fun _ _ => rfl⟩,
     ⟨?_, ?_, mapsTo_univ _ _, mapsTo_univ _ _, fun _ _ => rfl, fun _ _ => rfl⟩⟩
-  · refine MPolyfold.isScSmoothOn_subPolyfold_of_val' hL ?_
+  · refine MPolyfold.isScSmoothOn_subPolyfold_of_val hL ?_
     exact MPolyfold.IsScSmoothOn.prodMk (isScSmoothMap_x h)
       (MPolyfold.IsScSmoothOn.prodMk (isScSmoothMap_φ h) (isScSmoothMap_z h))
   · have hinc := MPolyfold.subPolyfold_inclusion_isScSmooth hL
@@ -309,7 +292,7 @@ theorem theorem_10_2_2_triple (h : Admissible F G) :
     have hz : (MPolyfold.subPolyfold hL).IsScSmoothMap Z.PObj
         fun q : objSetTriple F G => q.1.2.2 := (MPolyfold.isScSmoothMap_snd _ _).comp h₂
     exact isScSmoothOn_obj_of (f := Obj.ofTriple) h hx hφ hz
-  · refine MPolyfold.isScSmoothOn_subPolyfold_of_val' hL' ?_
+  · refine MPolyfold.isScSmoothOn_subPolyfold_of_val hL' ?_
     exact MPolyfold.IsScSmoothOn.prodMk (isScSmoothMap_h h)
       (MPolyfold.IsScSmoothOn.prodMk (isScSmoothMap_mφ h) (isScSmoothMap_k h))
   · have hinc := MPolyfold.subPolyfold_inclusion_isScSmooth hL'

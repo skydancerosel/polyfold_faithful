@@ -63,7 +63,7 @@ not change the propagation of orientation; (Lemma 6.6.9, p. 269, new) adding scâ
   `Chapter6/OrientationSpace.lean` (`theorem_6_6_17_hyp`, `existsUnique_orientationTopology`),
   built from the glued local propagations `orPush`/`orLocalTransport`.
 * Proposition 6.2.2 (2017: Proposition 6.1; preprint: Proposition 6.2) is unchanged in 2021 and is
-  the existing `proposition_6_2_2` (`Chapter3/IndexAlongPathsDevice.lean`).
+  the existing `proposition_6_2_2` (`Chapter5/IndexAlongPathsDevice.lean`).
 
 ## What the text leaves implicit, and the choices made
 

@@ -1,7 +1,7 @@
 import Polyfold.Chapter6.InvariantProductEnds
 import Polyfold.Chapter6.SolutionSetOpen
-import Polyfold.Chapter9.MathlibFormsBridge
-import Polyfold.Chapter9.SolutionFaceForms
+import Polyfold.Chapter6.MathlibFormsBridge
+import Polyfold.Chapter6.SolutionFaceForms
 
 /-!
 # The product ends of `S_F` as charted spaces (2021 Theorem 6.7.1, independence)

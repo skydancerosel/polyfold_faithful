@@ -1,5 +1,6 @@
 import Polyfold.Chapter3.GlobalIFT
 import Polyfold.Chapter3.FredholmGermIndex
+import Polyfold.Chapter2.ScOperatorProdMap
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.4,
@@ -77,6 +78,8 @@ with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.4.2 (preprint 3.38) gives `
   *isomorphism* (`linIso_isStrongBundleIso`), so the composite is one, which is what
   `IsConjugateToBasicGerm` needs.  The text's `τ : Z → C` is not applied (Finding 60): the new
   target is `(ℝᴺ ⊕ Z) ⊕ X¹`, the new parameter space `ℝⁿ ⊕ C`.
+
+Product of sc-operators (`ScOperator.prodMap`): `Chapter2/ScOperatorProdMap.lean`.
 -/
 
 open Set Filter Topology Function
@@ -88,12 +91,6 @@ namespace Polyfold
 variable {E F E' F' E'' F'' : ScBanach}
 
 /-! ### Strong bundle isomorphisms from sc-operators -/
-
-/-- The direct sum `S ⊕ T : E ⊕ F → E' ⊕ F'` of two sc-operators. -/
-def ScOperator.prodMap (S : ScOperator E E') (T : ScOperator F F') :
-    ScOperator (E.prod F) (E'.prod F') where
-  lvl m := (S m).prodMap (T m)
-  incl_comm m x := Prod.ext (S.incl_comm m x.1) (T.incl_comm m x.2)
 
 @[simp] lemma ScOperator.prodMap_apply (S : ScOperator E E') (T : ScOperator F F') (m : ℕ)
     (p : (E.prod F) m) : S.prodMap T m p = (S m p.1, T m p.2) := rfl

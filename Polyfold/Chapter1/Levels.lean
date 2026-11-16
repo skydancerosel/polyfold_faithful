@@ -62,7 +62,7 @@ sc^{k+1}.
   a map that is `C^∞` on every level is sc-smooth, and
   `Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`: a `C^∞` map into a finite-dimensional
   space is sc-smooth.  **Under the text's hypothesis** (`f : U_{m+l} → F_m` of class `C^{l+1}` for
-  all `m` and `l ≤ k`) both are proved in `Polyfold/Chapter1/LevelsWeak.lean`
+  all `m` and `l ≤ k`) both are proved in `Polyfold/Chapter2/LevelsWeak.lean`
   (`Polyfold.proposition_1_2_4_text`, `Polyfold.corollary_1_2_5_text`, and the sc-smooth versions
   `IsScSmooth.of_contDiffOn_levels_text`, `IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`),
   by the induction `(S_k)` of [25, Proposition 2.4] on the elementary maps

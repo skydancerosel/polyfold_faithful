@@ -321,7 +321,7 @@
      "Chapter5/StrongBundleShift · StrongBundle.solutionSet_sectionShift",
      "Chapter5/Compactness · isCompact_solutionSet_level",
      "Chapter5/ShiftTameResearch · corollary_5_2_5_tame",
-     "Chapter3/MainTheorems · corollary_5_2_5_2021def",
+     "Chapter5/MainTheorems · corollary_5_2_5_2021def",
      "Chapter5/ShiftTameResearch · corollary_5_2_5_tame_two"
     ]
    },
@@ -333,7 +333,7 @@
    "diff": [
     "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_2_5_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
     "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; gap G.41).",
-    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter3/MainTheorems.lean`)."
+    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter5/MainTheorems.lean`)."
    ]
   },
   {
@@ -987,9 +987,9 @@
     "decls": [
      "Chapter5/MainTheoremsBookFormTextDefs · theorem_5_3_10_book_2021def",
      "Chapter5/MainTheoremsBookForm · theorem_5_3_10",
-     "Chapter3/MainTheorems · theorem_5_3_10_2021def",
-     "Chapter9/MathlibSolutionSets · theorem_5_3_10_isManifold",
-     "Chapter9/MathlibSolutionSets · StrongBundle.SolutionSetInGeneralPosition.isManifold",
+     "Chapter5/MainTheorems · theorem_5_3_10_2021def",
+     "Chapter6/MathlibSolutionSets · theorem_5_3_10_isManifold",
+     "Chapter6/MathlibSolutionSets · StrongBundle.SolutionSetInGeneralPosition.isManifold",
      "Chapter5/GeneralPosition · theorem_5_3_10_dense",
      "Chapter5/GeneralPosition · theorem_5_3_10_param"
     ]
@@ -1004,7 +1004,7 @@
     "The theorem is stated with the book's quantifiers, a dense $O$ and no $t_i$, $\\delta$ or null set (`theorem_5_3_10`); the generic form of the proof is kept (`theorem_5_3_10_param`). Density is read in the pointwise distance $N(s(x) - s'(x)) \\le \\varepsilon$, which is $\\rho(s, s') \\le \\varepsilon$ in the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ of V5.21 (Findings, Chapter 5, items 89, 182).",
     "$X$ tame: the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23); §5.3 opens with a tame strong bundle (Findings, Chapter 5, item 80).",
     "\"Replacing $f + s_0$ by $f$ and $N$ by $cN$\" is not needed; the proof keeps $s_0$ (Findings, Chapter 5, item 85).",
-    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_10_2021def` (`Chapter3/MainTheorems.lean`). In Mathlib's language: for the perturbations of the generic form, $S_{f+s_\\lambda}$, if $f + s_\\lambda$ has index $d$, is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_5_3_10_isManifold`, from `SolutionSetInGeneralPosition.isManifold`, `Chapter9/MathlibSolutionSets.lean`).",
+    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_10_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: for the perturbations of the generic form, $S_{f+s_\\lambda}$, if $f + s_\\lambda$ has index $d$, is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_5_3_10_isManifold`, from `SolutionSetInGeneralPosition.isManifold`, `Chapter6/MathlibSolutionSets.lean`).",
     "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_10_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_10` through `isScFredholmSectionTame2021_iff`."
    ]
   },
@@ -1045,7 +1045,7 @@
     "decls": [
      "Chapter5/MainTheoremsBookFormTextDefs · theorem_5_3_12_book_2021def",
      "Chapter5/MainTheoremsBookForm · theorem_5_3_12",
-     "Chapter3/MainTheorems · theorem_5_3_12_2021def",
+     "Chapter5/MainTheorems · theorem_5_3_12_2021def",
      "Chapter5/GeneralPosition · theorem_5_3_12_param",
      "Chapter3/Chapter5BridgeG · StrongBundle.IsGoodPositionGermTame.congr_nhds",
      "Chapter3/Counterexamples · Counterexamples2021.theorem_5_3_12_goodPosition_not_stable",
@@ -1063,7 +1063,7 @@
     "\"$(f, x)$ in good position\" is $(f + s, x)$ (Findings, Chapter 5, item 87).",
     "\\\"As before\\\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\\mathbb R \\times \\cdot$, as $\\mathbb R(1, 1)$ in $[0, \\infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).",
     "The dense form is proved too: within $N$-distance $\\varepsilon$ of any $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).",
-    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter3/MainTheorems.lean`).",
+    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter5/MainTheorems.lean`).",
     "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`."
    ]
   },
@@ -1733,7 +1733,7 @@
     "statement": "`theorem_5_3_5`: the conclusions of `theorem_5_3_5_preprint`, with $S_{f+s}$ a sub-M-polyfold and compact (a manifold when non-empty); `isSubMPolyfold_solutionSet_of_manifold`: the empty set is a sub-M-polyfold.",
     "decls": [
      "Chapter5/Book · theorem_5_3_5",
-     "Chapter3/MainTheorems · theorem_5_3_5_2021def",
+     "Chapter5/MainTheorems · theorem_5_3_5_2021def",
      "Chapter5/Book · isSubMPolyfold_solutionSet_of_manifold",
      "Chapter5/Transversality · theorem_5_3_5_preprint"
     ]
@@ -1744,7 +1744,7 @@
    ],
    "diff": [
     "The printed bound on $f$ is read as a bound on $s$ (presumably meant so; the proof bounds $s$); density is pointwise, as in V5.30 (Findings, Chapter 5, items 173, 174).",
-    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter3/MainTheorems.lean`)."
+    "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter5/MainTheorems.lean`)."
    ]
   },
   {
@@ -1935,7 +1935,7 @@
      "Chapter5/FredholmArcPerturbation · remark_5_3_8_arc",
      "Chapter5/FredholmArcPerturbation · remark_5_3_8_relative",
      "Chapter5/FredholmArcPerturbation · exists_margin_of_isCompact",
-     "Chapter5/CylinderPerturbation · exists_cobordism",
+     "Chapter6/CylinderInterpolation · exists_cobordism",
      "Chapter5/CylinderPerturbation · theorem_5_3_10_relative_hyp",
      "Chapter6/ProperHomotopy · exists_homotopy_cobordism"
     ]
@@ -2325,9 +2325,9 @@
    "lean": {
     "statement": "`StrongBundle.IsBoundaryScPlusSection B s`: for $x \\in \\partial X$, $P(s(x)) = x$ and $s(x) \\in W_{0,1}$; and for every tame strong bundle chart (`B.IsTameChart c`), every tame presentation $T$, every $x \\in \\partial X$ in the chart and every $i \\in I(\\varphi(x))$, the local representative restricted to $O \\cap V \\cap \\{t_i = 0\\}$ is an sc⁺-section for some open $V \\ni \\varphi(x)$, and that face germ is an sc-retract (`IsScPlusOnFaceNear`). The zero section satisfies it for every strong bundle (`isBoundaryScPlusSection_fiberZero`).",
     "decls": [
-     "Chapter5/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
-     "Chapter5/BoundaryExtension · StrongBundle.isBoundaryScPlusSection_fiberZero",
-     "Chapter5/BoundaryExtension · StrongBundle.boundarySupport",
+     "Chapter12/BoundaryExtension · StrongBundle.IsBoundaryScPlusSection",
+     "Chapter12/BoundaryExtension · StrongBundle.isBoundaryScPlusSection_fiberZero",
+     "Chapter12/BoundaryExtension · StrongBundle.boundarySupport",
      "Chapter12/LocalBoundaryExtension · IsScPlusOnFaceNear"
     ]
    },
@@ -2351,12 +2351,12 @@
    "lean": {
     "statement": "`theorem_5_4_2`, with the hypotheses `B.IsTameBundle`, `PX.AdmitsScPartitionsOfUnity`, `B.IsBoundaryScPlusSection s`, `B.IsAuxNorm N`, $\\tilde U$ open containing `boundarySupport PX P s`, $f$ continuous, $f \\ge 0$, `tsupport f ⊆ Ũ` and $N(s(x)) < f(x)$ on the support: there is an sc⁺-section $\\tilde s$ with $N(\\tilde s(x)) \\le f(x)$, `sectionSupport P s̃ ⊆ Ũ` and $\\tilde s = s$ on $\\partial X$. The proof is complete: the local step `exists_local_extension` (Proposition 12.3.7 in a tame chart, then a bump function), the local bound `exists_local_bounded`, the gluing `exists_boundary_extension`.",
     "decls": [
-     "Chapter5/BoundaryExtension · theorem_5_4_2",
-     "Chapter5/BoundaryExtension · StrongBundle.exists_boundary_extension",
-     "Chapter5/BoundaryExtension · StrongBundle.exists_local_bounded",
-     "Chapter5/BoundaryExtension · StrongBundle.exists_local_extension",
-     "Chapter5/BoundaryExtension · StrongBundle.degIndex_ne_zero_of_mem_boundary",
-     "Chapter5/BoundaryExtension · StrongBundle.isScPlusSection_of_locally'"
+     "Chapter12/BoundaryExtension · theorem_5_4_2",
+     "Chapter12/BoundaryExtension · StrongBundle.exists_boundary_extension",
+     "Chapter12/BoundaryExtension · StrongBundle.exists_local_bounded",
+     "Chapter12/BoundaryExtension · StrongBundle.exists_local_extension",
+     "Chapter12/BoundaryExtension · StrongBundle.degIndex_ne_zero_of_mem_boundary",
+     "Chapter12/ScPlusSectionFunctor · StrongBundle.isScPlusSection_of_locally"
     ]
    },
    "chips": [
@@ -2466,7 +2466,7 @@
    "book": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\".",
    "instead": "**Formalized** (V5.73). For an arbitrary sc-Fredholm arc on $\\mathbb R^1 \\times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \\cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2). The orientation of the cobordism is gap G.66.",
    "decls": [
-    "Chapter5/CylinderPerturbation · exists_cobordism",
+    "Chapter6/CylinderInterpolation · exists_cobordism",
     "Chapter5/CylinderPerturbation · theorem_5_3_10_relative_hyp",
     "Chapter6/ProperHomotopy · exists_homotopy_cobordism",
     "Chapter6/ProperHomotopy · exists_homotopy_cobordism_data",
@@ -2558,7 +2558,7 @@
    "book": "For a proper homotopy $f_t$ and perturbations $s_0$, $s_1$ putting $f + s_i$ in good position, there is $s(x, t)$ with $s(\\cdot, i) = s_i$ such that $f + s$ is in good position at all smooth points; its solution set is a compact manifold with corners meeting $\\{i\\} \\times X$ in $S_0$, $S_1$.",
    "instead": "**Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, gap G.44). For good position at the corner points $\\{i\\} \\times \\partial X$ the step of G.46 would be needed: $\\mathbb R \\times \\ker$ need not be in good position to $[0,\\infty) \\times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).",
    "decls": [
-    "Chapter5/CylinderPerturbation · exists_cobordism",
+    "Chapter6/CylinderInterpolation · exists_cobordism",
     "Chapter6/ProperHomotopy · exists_homotopy_cobordism",
     "Chapter5/FredholmArcPerturbation · remark_5_3_8_arc",
     "Chapter3/Counterexamples · Counterexamples2021.not_isInGoodPosition_prod_diag"

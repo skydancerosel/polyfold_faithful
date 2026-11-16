@@ -1,4 +1,4 @@
-import Polyfold.Chapter4.VectorFieldsGlobal
+import Polyfold.Chapter2.VectorFieldsGlobal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4:

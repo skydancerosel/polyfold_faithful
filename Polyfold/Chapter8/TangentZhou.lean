@@ -1,5 +1,6 @@
 import Polyfold.Chapter7.Zhou
 import Polyfold.Chapter8.NonVacuityBundle
+import Polyfold.Chapter8.TangentEp
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

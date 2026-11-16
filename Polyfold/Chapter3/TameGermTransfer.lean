@@ -1,5 +1,6 @@
 import Polyfold.Chapter3.BookGerms
 import Polyfold.Chapter3.RestrictOpenGerms
+import Polyfold.Chapter2.StrongBundleRestrict
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Definition 3.1.11 (p. 96)

@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.FamilyMeasure
 import Polyfold.Chapter9.BoundarySheets
-import Polyfold.Chapter11.BoundaryOrientationEquiv
+import Polyfold.Chapter9.TangentMapBoundaryOps
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

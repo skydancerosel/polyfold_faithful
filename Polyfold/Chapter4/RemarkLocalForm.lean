@@ -1,5 +1,5 @@
 import Polyfold.Chapter4.Submanifolds
-import Polyfold.Chapter9.Symmetric
+import Polyfold.Chapter4.SmoothSubmanifoldBasics
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.2, **Remark 4.2.2**

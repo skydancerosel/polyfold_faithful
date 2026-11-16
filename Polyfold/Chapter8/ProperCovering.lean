@@ -176,24 +176,6 @@ private theorem isScDiffeoOn_restrictTarget {f : X → Y} {g : Y → X} {U : Set
     P.IsScDiffeoOn Q f g (U ∩ f ⁻¹' W) W :=
   (h.symm.restrict hW hWV).symm
 
-/-- **A map into a sub-M-polyfold** `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
-`Y` (as `SubGroupoid.lean`'s private lemma of the same name): near `x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f`
-for a retraction `r` onto `A` near `f(x)` (Proposition 2.3.19 (preprint 2.21) (2)). -/
-private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : X → A} {U : Set X}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    P.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 end Helpers
 
 section Fibres
@@ -797,15 +779,15 @@ theorem isScDiffeo_fibredMap_comp (hF : F.IsProperCovering) (hH : H.IsProperCove
   have hvalH := MPolyfold.subPolyfold_inclusion_isScSmooth hAH
   have hvalB := MPolyfold.subPolyfold_inclusion_isScSmooth hB
   have hK : (MPolyfold.subPolyfold hAH).IsScSmoothMap (MPolyfold.subPolyfold hB) K :=
-    isScSmoothOn_subPolyfold_of_val hB (f := K) (MPolyfold.IsScSmoothOn.prodMk
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hB (f := K) (MPolyfold.IsScSmoothOn.prodMk
       (F.isScSmoothMap_mor.comp ((MPolyfold.isScSmoothMap_fst Y.PMor Z.PObj).comp hvalH))
       ((MPolyfold.isScSmoothMap_snd Y.PMor Z.PObj).comp hvalH))
   have hasm : (MPolyfold.subPolyfold hB).IsScSmoothMap (MPolyfold.subPolyfold hAF) a :=
-    isScSmoothOn_subPolyfold_of_val hAF (f := a) (MPolyfold.IsScSmoothOn.prodMk
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hAF (f := a) (MPolyfold.IsScSmoothOn.prodMk
       ((MPolyfold.isScSmoothMap_fst X.PMor Z.PObj).comp hvalB)
       (H.isScSmoothMap_obj.comp ((MPolyfold.isScSmoothMap_snd X.PMor Z.PObj).comp hvalB)))
   have hL : (MPolyfold.subPolyfold hB).IsScSmoothMap (MPolyfold.subPolyfold hAH) L :=
-    isScSmoothOn_subPolyfold_of_val hAH (f := L) (MPolyfold.IsScSmoothOn.prodMk
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hAH (f := L) (MPolyfold.IsScSmoothOn.prodMk
       (MPolyfold.IsScSmoothOn.comp hgF.isScSmoothOn_inv hasm (mapsTo_univ _ _))
       ((MPolyfold.isScSmoothMap_snd X.PMor Z.PObj).comp hvalB))
   have hKL : (MPolyfold.subPolyfold hAH).IsScDiffeoOn (MPolyfold.subPolyfold hB) K L univ univ :=

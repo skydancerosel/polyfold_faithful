@@ -1,5 +1,6 @@
 import Polyfold.Chapter15.BranchChart
 import Polyfold.Chapter15.LinearizationFunctor
+import Polyfold.Chapter15.ParamOntoTransport
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of
@@ -156,18 +157,6 @@ end Branch
 
 /-! ### General position at a point is carried along morphisms -/
 
-/-- `μ(φ, ·) : W_x → W_y` is onto (inverse `μ(φ⁻¹, ·)`). -/
-private theorem muLin_surjective' (φ : A.Mor) {x y : A.Obj} (hx : A.X.src φ = x)
-    (hy : A.X.tgt φ = y) : Surjective (muLin φ hx hy) := by
-  intro w
-  have hw : A.P w = y := w.2
-  have h1 : A.P (w : A.W) = A.X.src (A.X.inv φ) := by rw [hw, A.X.src_inv, hy]
-  have h2 : A.P (A.E.μ ⟨(A.X.inv φ, (w : A.W)), h1⟩) = x := by
-    rw [A.E.P_μ, A.X.tgt_inv, hx]
-  refine ⟨⟨A.E.μ ⟨(A.X.inv φ, (w : A.W)), h1⟩, h2⟩, Subtype.ext ?_⟩
-  rw [muLin_apply]
-  exact A.E.μ_μ_inv φ w h1 _
-
 /-- `Tφ(T^R_xX) ⊆ T^R_yX`, read in a chart `c` at `x` and its transport along `φ` at `y`. -/
 private theorem tangentMorCLE_mem_reduced {φ : A.Mor}
     (hφ : φ ∈ A.X.PMor.levelSet 1) {x y : A.X.PObj.Level 1}
@@ -217,7 +206,7 @@ theorem isReducedOntoAtLevel_of_mor {f : A.Obj → A.W} (hf : A.E.IsScFredholmSe
   obtain ⟨m₀, V₀, T₀, hT₀⟩ := R₀.relOpen.isPartialQuadrant
   have hsurj := H L hL c.φ c.isChart hx' m₀ V₀ T₀ hT₀
   intro w
-  obtain ⟨w₀, rfl⟩ := muLin_surjective' φ hx.symm hy.symm w
+  obtain ⟨w₀, rfl⟩ := muLin_surjective φ hx.symm hy.symm w
   obtain ⟨⟨u, hu⟩, hτ⟩ := hsurj w₀
   have e := reducedTangentFiber_eq hψ hyψ T' (Lφ.transportChart c hsub).isChart hy' T₀ hT' hT₀
   refine ⟨⟨A.X.tangentMorCLE hφ hx hy u, ?_⟩, ?_⟩

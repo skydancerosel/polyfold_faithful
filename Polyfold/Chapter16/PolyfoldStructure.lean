@@ -1,6 +1,6 @@
 import Polyfold.Chapter10.LocalizationLRCounterexample
 import Polyfold.Chapter11.EpEquivalenceGeometryFaces
-import Polyfold.Chapter7.SmoothRegularAssembly
+import Polyfold.Chapter8.SmoothRegularAssembly
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 16,

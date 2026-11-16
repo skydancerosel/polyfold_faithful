@@ -1,5 +1,5 @@
 import Polyfold.Chapter10.StrongBundleLocalizationSections
-import Polyfold.Chapter3.FredholmPullbackIso
+import Polyfold.Chapter5.FredholmPullbackIso
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -8,7 +8,7 @@ Theorem 10.8, p. 362) and of Theorem 10.5.4, p. 508 (2017: Theorem 10.9, p. 367)
 `Φ^*`, `[D]_*` and `[D]^*` map sc-Fredholm section functors to sc-Fredholm section functors.
 This closes gaps G.121 and G.125 and completes rows V10.27 and V10.59; the Part I half (the
 invariance of sc-Fredholm germs under local strong bundle isomorphisms) is
-`Chapter3/FredholmPullbackIso.lean`.  Numbers and pages are the 2021 text's, the 2017 ones in
+`Chapter5/FredholmPullbackIso.lean`.  Numbers and pages are the 2021 text's, the 2017 ones in
 parentheses.
 
 # sc-Fredholm section functors under strong bundle equivalences

@@ -1,6 +1,7 @@
 import Polyfold.Chapter15.GoodPositionBranches
 import Polyfold.Chapter13.StructurableMultisection
 import Polyfold.Chapter13.AtomicConstruction
+import Polyfold.Chapter14.NormControl
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, pp. 693–694:
@@ -274,18 +275,6 @@ theorem pointwiseNorm_zeroMultisection {N : A.B.One → ℝ} (hN : A.B.IsAuxNorm
     · rintro rfl
       exact ⟨proj_fiberZero A.P x, by rw [proj_fiberZero A.P x, if_pos rfl]; exact one_pos⟩
   rw [pointwiseNorm, hs, image_singleton, csSup_singleton, normW_fiberZero hN]
-
-/-- `dom-supp(Λ₀) = ∅` for the trivial multisection. -/
-theorem domSupp_zeroMultisection : domSupp (zeroMultisection A) = ∅ := by
-  classical
-  rw [domSupp]
-  convert closure_empty
-  ext x
-  simp only [mem_ofPred_eq, mem_empty_iff_false, iff_false, not_exists, not_and]
-  intro w hw hne hpos
-  unfold zeroMultisection at hpos
-  rw [if_neg (by rw [hw]; exact hne)] at hpos
-  exact lt_irrefl _ hpos
 
 /-- **Theorem 15.3.7 when `f` is already in general position**: if `(f, Λ₀)` is in general
 position for the trivial multisection `Λ₀` (and `|X|` is paracompact, for "structurable"), then

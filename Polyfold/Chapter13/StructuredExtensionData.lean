@@ -246,7 +246,7 @@ theorem pushSec_unit {x : A.Obj} (N : A.X.NatNbhd x) {s : A.Obj → A.W}
     (hs : ∀ u ∈ N.U, A.P (s u) = u) {z : A.Obj} (hz : z ∈ N.U) :
     pushSec (unitChart N) s z = s z := by
   rw [(isPushNbhd_unit N).pushSec_eq (equivalences_id_sep A) hs hz]
-  exact PushChart.fibAct_unit (hs z hz)
+  exact SBLocalization.fibAct_unit (hs z hz)
 
 /-- The lift along two unit charts is the identity. -/
 theorem liftMor_unit {x x' : A.Obj} (N : A.X.NatNbhd x) (N' : A.X.NatNbhd x') {φ : A.Mor}

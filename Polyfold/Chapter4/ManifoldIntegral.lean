@@ -11,8 +11,8 @@ top-degree form over an oriented finite-dimensional manifold with boundary with 
 
 `M` is a `C^∞` manifold modelled on Mathlib's `modelWithCornersEuclideanQuadrant n`
 (`𝓠 n`, the quadrant `[0,∞)ⁿ` in `ℝⁿ = EuclideanSpace ℝ (Fin n)`, the model of the project's
-solution sets, `Chapter9/MathlibSolutionSets.lean`), with a continuous tangent orientation `o`
-(`TangentOrientation.IsContinuous`, `Chapter6/ManifoldOrientation.lean`; an oriented atlas gives
+solution sets, `Chapter6/MathlibSolutionSets.lean`), with a continuous tangent orientation `o`
+(`TangentOrientation.IsContinuous`, `Chapter4/ManifoldOrientation.lean`; an oriented atlas gives
 one, `IsOrientedAtlas.isContinuous_tangentOrientation`).  `ℝⁿ` carries its standard orientation
 `stdOrientation n`.
 

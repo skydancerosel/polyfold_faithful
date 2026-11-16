@@ -1,7 +1,8 @@
 import Polyfold.Chapter2.Metrizable
 import Polyfold.Chapter2.TameBoundary
-import Polyfold.Chapter4.VectorFields
-import Polyfold.Chapter5.StrongBundleShift
+import Polyfold.Chapter2.VectorFields
+import Polyfold.Chapter2.ScOperatorProdMap
+import Polyfold.Chapter2.StrongBundleLevelOne
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §2.3

@@ -1,4 +1,5 @@
 import Polyfold.Chapter6.ScHomotopy
+import Polyfold.Chapter5.SmoothSetMaps
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 228:

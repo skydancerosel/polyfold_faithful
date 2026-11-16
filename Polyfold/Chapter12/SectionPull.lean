@@ -1,7 +1,7 @@
 import Polyfold.Chapter12.ChartPullTwoBundles
 import Polyfold.Chapter6.PushTransfer
-import Polyfold.Chapter6.OrientableNbhd
-import Polyfold.Chapter3.IndexAlongPathsLocalBump
+import Polyfold.Chapter5.OrientableNbhd
+import Polyfold.Chapter5.IndexAlongPathsLocalBump
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapter 12, §12.5,

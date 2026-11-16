@@ -1,4 +1,4 @@
-import Polyfold.Chapter4.BoundaryFormsPullback
+import Polyfold.Chapter6.BoundaryFormsPullback
 import Polyfold.Chapter6.EndPullbackForms
 import Polyfold.Chapter6.Theorem671Assembly
 

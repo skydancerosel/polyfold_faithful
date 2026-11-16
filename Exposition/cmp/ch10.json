@@ -804,12 +804,12 @@
      "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pullback",
      "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pushforward",
      "Chapter10/FredholmEquivalence · EpStrongBundle.exists_localIso_mor",
-     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso",
-     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.transportChart",
-     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isChart_transportChart",
-     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
-     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGermTame",
-     "Chapter3/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall",
+     "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso",
+     "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso.transportChart",
+     "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso.isChart_transportChart",
+     "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
+     "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGermTame",
+     "Chapter5/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.eqOn_pullback",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pullback",
@@ -835,7 +835,7 @@
     "$\\Gamma$ for $\\Gamma^+$: reading point"
    ],
    "diff": [
-    "**The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter3/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).",
+    "**The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter5/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).",
     "The second display is read with $\\Gamma^+$ (Findings, Chapter 10, item 44)."
    ]
   },
@@ -2324,7 +2324,7 @@
      "Chapter7/LineSobolevScale · ZhouLine.lineSc",
      "Chapter7/ZhouRetraction · ZhouLine.zhouFam",
      "Chapter7/ZhouRetraction · ZhouLine.isLossFamily_zhouFam",
-     "Chapter7/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
+     "Chapter8/ZhouGroupoid · EpGroupoid.Examples.ZhouRetract.Data",
      "Chapter10/ZhouExample · IsLossFamily.add",
      "Chapter10/ZhouExample · IsLossFamily.sub",
      "Chapter10/ZhouExample · IsLossFamily.comp_neg",
@@ -2522,16 +2522,16 @@
    "label": "§10.4, Theorem 10.4.5, p. 501 (2017: Theorem 10.8, p. 362), the sc-Fredholm section functors",
    "page": 501,
    "book": "$\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors.",
-   "instead": "**Formalized** (V10.27). $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections of $\\mathrm{Fred}$ (`theorem_10_4_5_fred`). The invariance it needed is proved: a local strong bundle isomorphism (`StrongBundle.LocalIso`) carries sc-Fredholm germs to sc-Fredholm germs, read in the transported chart (`LocalIso.isScFredholmGerm`, `transportChart`, `isChart_transportChart`), so Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Chapter3/FredholmPullbackIso.lean`), and the action of a morphism is such an isomorphism (`exists_localIso_mor`, `Chapter10/FredholmEquivalence.lean`) (Findings, Chapter 10, item 44).",
+   "instead": "**Formalized** (V10.27). $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections of $\\mathrm{Fred}$ (`theorem_10_4_5_fred`). The invariance it needed is proved: a local strong bundle isomorphism (`StrongBundle.LocalIso`) carries sc-Fredholm germs to sc-Fredholm germs, read in the transported chart (`LocalIso.isScFredholmGerm`, `transportChart`, `isChart_transportChart`), so Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Chapter5/FredholmPullbackIso.lean`), and the action of a morphism is such an isomorphism (`exists_localIso_mor`, `Chapter10/FredholmEquivalence.lean`) (Findings, Chapter 10, item 44).",
    "decls": [
     "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5",
     "Chapter10/FredholmEquivalence · EpStrongBundle.theorem_10_4_5_fred",
     "Chapter10/FredholmEquivalence · EpStrongBundle.exists_localIso_mor",
     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback",
     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pushforward",
-    "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso",
-    "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
-    "Chapter3/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall"
+    "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso",
+    "Chapter5/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
+    "Chapter5/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall"
    ],
    "formalized": [
     "V10.27"

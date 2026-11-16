@@ -1,4 +1,5 @@
 import Polyfold.Chapter4.ManifoldFaceForms
+import Polyfold.Chapter4.StokesFaceIntegral
 import Polyfold.Chapter6.ProperHomotopy
 
 /-!
@@ -33,7 +34,7 @@ Everything is stated for an abstract `(k+1)`-manifold with corners `M` with a pr
   a condition on `X` such as the index): `S_F ∩ {t ≤ 1/8} = {t ≤ 1/8} × S_{f+σ₀}` as sets.
 * General tools: `ManifoldForm.ContMDiffForm.contDiffOn_chartForm` (a `C^r` form is `C^r` in every
   chart of the maximal atlas), `ManifoldForm.integral_eq_chartIntegral_of_mem_maximalAtlas`
-  (localization in such a chart), `setIntegral_consE_mul` (Fubini in `ℝ × ℝ^k`).
+  (localization in such a chart, from `Chapter4/StokesFaceIntegral.lean`), `setIntegral_consE_mul` (Fubini in `ℝ × ℝ^k`).
 
 Not built here: the corner coordinates of `S_F` from those of `S_i` (`CornerCoords.prodRn`), which
 would give a `ProductEnd` for the index parts of `S_F` with their corner charted spaces, and the
@@ -411,43 +412,6 @@ theorem ContMDiffForm.contDiffOn_chartForm {r : WithTop ℕ∞} (hr : r ≤ ∞)
     (hev.self_of_nhdsWithin hyI)).mono e.extend_target_subset_range
 
 end GeneralCharts
-
-section Localization
-
-variable {n : ℕ} {M : Type*} [TopologicalSpace M] [ChartedSpace (EuclideanQuadrant n) M]
-  [IsManifold (𝓠 n) ∞ M] [T2Space M] [SigmaCompactSpace M] {o : TangentOrientation (𝓠 n) M n}
-
-/-- **A form supported in a signed chart of the maximal atlas**: if `ω` (continuous) vanishes
-outside a compact set `K` lying in a region `V` of a chart `e` of the maximal atlas on which `o`
-reads as `signedOr b (stdOrientation n)`, then `∫_M ω = orSign b · ∫_e ω`
-(`integral_eq_chartIntegral` for an arbitrary chart instead of `chartAt H x₀`). -/
-theorem integral_eq_chartIntegral_of_mem_maximalAtlas (ho : o.IsContinuous (𝓠 n) ∞)
-    {ω : ManifoldForm (𝓠 n) M n} (hω : ContMDiffForm (𝓠 n) 0 ω)
-    {e : OpenPartialHomeomorph M (EuclideanQuadrant n)}
-    (he : e ∈ IsManifold.maximalAtlas (𝓠 n) ∞ M) {V : Set M} (hV : V ⊆ e.source) {b : Bool}
-    (hb : ∀ x ∈ V, orientationIn e x (o x) = signedOr b (stdOrientation n))
-    {K : Set M} (hK : IsCompact K) (hKV : K ⊆ V) (hω0 : ∀ x ∉ K, ω x = 0) :
-    integral o ω = orSign b * chartIntegral e ω := by
-  have hsK : tsupport ω ⊆ K := closure_minimal (fun x hx => by_contra fun h => hx (hω0 x h))
-    hK.isClosed
-  obtain ⟨T, ⟨D⟩⟩ := exists_integrationData ho hK
-  rw [integral_eq_integrationData ho hω (hK.of_isClosed_subset isClosed_closure hsK) D hsK]
-  have step : ∀ j, orSign (D.sign j) * chartIntegral (D.chart j) (smulFun (D.ρ j) ω) =
-      orSign b * chartIntegral e (smulFun (D.ρ j) ω) :=
-    fun j => orSign_mul_chartIntegral_eq he
-      (IsManifold.chart_mem_maximalAtlas (D.center j)) (K := _root_.tsupport (D.ρ j) ∩ K)
-      (fun x hx => ⟨hV (hKV hx.2), D.region_subset j (D.tsupport_subset j hx.1)⟩)
-      (fun x hx => smulFun_eq_zero_of_notMem hω0 hx) (fun x hx => hb x (hKV hx.2))
-      (fun x hx => D.orientationIn_eq j x (D.tsupport_subset j hx.1))
-  rw [IntegrationData.integral, Finset.sum_congr rfl fun j _ => step j, ← Finset.mul_sum,
-    ← chartIntegral_finsetSum Finset.univ (fun j _ =>
-      ((D.contMDiffForm_smulFun (by simp) j hω).contDiffOn_chartForm (by simp) he).continuousOn)
-      (fun j _ => hK.inter_left (isClosed_tsupport (D.ρ j)))
-      (fun j _ => fun x hx => hV (hKV hx.2))
-      (fun j _ => fun x hx => smulFun_eq_zero_of_notMem hω0 hx),
-    finsetSum_smulFun_eq_self Finset.univ D.sum_eq_one subset_rfl hω0]
-
-end Localization
 
 end ManifoldForm
 

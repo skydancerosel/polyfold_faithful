@@ -31,8 +31,8 @@ hypothesis `IsOpenMap tangentProj` (gap G.8) discharged by `MPolyfold.isOpenMap_
 `V(x) = U(x) ∩ X₁` connected and dense; satisfiable: `hasConnectedDenseLevelOneReps_point`,
 `EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton`).  The suffix `_of_levelOneReps` names
 that hypothesis.  Where `HasConnectedDenseLevelOneReps` is also available as a theorem
-(`Chapter7/SmoothConnectedReps.lean`), the forms without it are the `_of_isLUC` / `_of_isSLUC`
-theorems of `Chapter7/SmoothRegularAssembly.lean`.
+(`Chapter8/SmoothConnectedReps.lean`), the forms without it are the `_of_isLUC` / `_of_isSLUC`
+theorems of `Chapter8/SmoothRegularAssembly.lean`.
 -/
 
 set_option maxSynthPendingDepth 3

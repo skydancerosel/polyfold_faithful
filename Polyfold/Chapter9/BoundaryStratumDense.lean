@@ -1,6 +1,7 @@
 import Polyfold.Chapter9.StokesFaceSum
 import Polyfold.Chapter9.BoundaryOrientationContinuity
-import Polyfold.Chapter4.SubmanifoldNearBoundary
+import Polyfold.Chapter9.SubmanifoldNearBoundary
+import Polyfold.Chapter9.MathlibManifoldBridge
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -28,7 +29,7 @@ The text: for a tame `Mᵢ`, a smooth manifold with boundary with corners, "the 
 ## Relation to the text
 
 "Has the structure of a smooth manifold": the open piece `{d_A ≤ 1}` of `A` is a smooth manifold
-with boundary (`remark_4_2_2_dA_one`, `Chapter4/SubmanifoldNearBoundary.lean`), with boundary the
+with boundary (`remark_4_2_2_dA_one`, `Chapter9/SubmanifoldNearBoundary.lean`), with boundary the
 stratum; the tangent space of the stratum is read as `T^R_yA` (`boundaryCarrier`).  The stratum is
 not built here as a submanifold of its own.
 It is built as one, of dimension `n - 1` with tangent spaces `T^R_yA`, in

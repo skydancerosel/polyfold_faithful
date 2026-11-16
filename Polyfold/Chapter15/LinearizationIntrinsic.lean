@@ -1,4 +1,4 @@
-import Polyfold.Chapter15.Linearization
+import Polyfold.Chapter14.Linearization
 import Polyfold.Chapter3.LinearizationIntrinsic
 
 /-!

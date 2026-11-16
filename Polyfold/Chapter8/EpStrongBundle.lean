@@ -1,5 +1,5 @@
 import Polyfold.Chapter8.Basic
-import Polyfold.Chapter8.StrongBundleMap
+import Polyfold.Chapter5.StrongBundleMap
 import Polyfold.Chapter3.TameGermsG
 
 set_option maxSynthPendingDepth 3

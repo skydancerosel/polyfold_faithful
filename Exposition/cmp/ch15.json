@@ -13,7 +13,7 @@
     "statement": "`SBLocalization.GrF x := (T_xX →ₗ[ℝ] W_x) →₀ ℚ≥0` for $x \\in X_1$, with $W_x = P^{-1}(x)$ and $T_xX$ the project's tangent fibre; the chart version `Linearization15.GrFModel`.",
     "decls": [
      "Chapter15/LinearizationIntrinsic · SBLocalization.GrF",
-     "Chapter15/LinearizationModel · Linearization15.GrFModel"
+     "Chapter14/LinearizationModel · Linearization15.GrFModel"
     ]
    },
    "chips": [
@@ -44,13 +44,13 @@
      "Chapter15/LinearizationIntrinsic · SBLocalization.sectionSubOn",
      "Chapter15/LinearizationIntrinsic · SBLocalization.linearization_eq",
      "Chapter15/LinearizationIntrinsic · SBLocalization.nonempty_localLinData",
-     "Chapter15/Linearization · SBLocalization.theorem_15_1_1",
-     "Chapter15/Linearization · SBLocalization.linSumChart",
-     "Chapter15/Linearization · SBLocalization.IsLocalRepOn.count_eq",
-     "Chapter15/LinearizationModel · Linearization15.theorem_15_1_1_model",
-     "Chapter15/LinearizationModel · Linearization15.wsum_model_eq",
-     "Chapter15/LinearizationModel · Linearization15.continuousOn_scDeriv_coe",
-     "Chapter15/SeparationLemmas · Linearization15.wsum_pair_eq_of_isLocal",
+     "Chapter14/Linearization · SBLocalization.theorem_15_1_1",
+     "Chapter14/Linearization · SBLocalization.linSumChart",
+     "Chapter14/Linearization · SBLocalization.IsLocalRepOn.count_eq",
+     "Chapter14/LinearizationModel · Linearization15.theorem_15_1_1_model",
+     "Chapter14/LinearizationModel · Linearization15.wsum_model_eq",
+     "Chapter14/LinearizationModel · Linearization15.continuousOn_scDeriv_coe",
+     "Chapter14/SeparationLemmas · Linearization15.wsum_pair_eq_of_isLocal",
      "Chapter15/FredholmSummands · SBLocalization.subDeriv_isScFredholm",
      "Chapter15/FredholmSummands · SBLocalization.linearization_summand_isScFredholm",
      "Chapter15/LinearizationFunctor · SBLocalization.theorem_15_1_1_functor",
@@ -99,9 +99,9 @@
     "statement": "`SBLocalization.linearization_eq_zero`: if $\\Lambda(f(x)) = 0$ then `linearization f Λ x = 0`; chart forms `remark_15_1_2`, `remark_15_1_2_model`; with positive weights an operator lies in the support iff some $i$ with $s_i(y) = f(y)$ produces it (`mem_support_linSumModel_iff`).",
     "decls": [
      "Chapter15/LinearizationIntrinsic · SBLocalization.linearization_eq_zero",
-     "Chapter15/Linearization · SBLocalization.remark_15_1_2",
-     "Chapter15/LinearizationModel · Linearization15.remark_15_1_2_model",
-     "Chapter15/LinearizationModel · Linearization15.mem_support_linSumModel_iff"
+     "Chapter14/Linearization · SBLocalization.remark_15_1_2",
+     "Chapter14/LinearizationModel · Linearization15.remark_15_1_2_model",
+     "Chapter14/LinearizationModel · Linearization15.mem_support_linSumModel_iff"
     ]
    },
    "chips": [
@@ -123,14 +123,14 @@
    "lean": {
     "statement": "`Linearization15.proposition_15_1_3_hyp`: in a first countable $T_1$ space $Z$, for finitely many maps continuous on an open $V \\ni x_0$ with values in a Hausdorff space, and **$x_0$ not isolated** (`(𝓝[≠] x₀).NeBot`): $x_k \\in V$, $x_k \\ne x_0$, $x_k \\to x_0$, and one partition $e : I \\to \\mathrm{Fin}\\,p$ with `IsSeparatedAt s e (x k)` for all $k$. At an isolated point no such sequence exists: `not_proposition_15_1_3_of_isolated`, `not_proposition_15_1_3_point` (a one-point model). Witness: `proposition_15_1_3_hyp_witness` ($\\mathbb R$ at 0).",
     "decls": [
-     "Chapter15/SeparationLemmas · Linearization15.proposition_15_1_3_hyp",
-     "Chapter15/SeparationLemmas · Linearization15.proposition_15_1_3_hyp_witness",
-     "Chapter15/SeparationLemmas · Linearization15.not_proposition_15_1_3_of_isolated",
-     "Chapter15/SeparationLemmas · Linearization15.not_proposition_15_1_3_point",
-     "Chapter15/SeparationLemmas · Linearization15.IsSeparatedAt",
-     "Chapter15/SeparationLemmas · Linearization15.IsLocDich",
-     "Chapter15/SeparationLemmas · Linearization15.exists_isLocDich_mem",
-     "Chapter15/SeparationLemmas · Linearization15.exists_isSeparatedAt_subseq"
+     "Chapter14/SeparationLemmas · Linearization15.proposition_15_1_3_hyp",
+     "Chapter14/SeparationLemmas · Linearization15.proposition_15_1_3_hyp_witness",
+     "Chapter14/SeparationLemmas · Linearization15.not_proposition_15_1_3_of_isolated",
+     "Chapter14/SeparationLemmas · Linearization15.not_proposition_15_1_3_point",
+     "Chapter14/SeparationLemmas · Linearization15.IsSeparatedAt",
+     "Chapter14/SeparationLemmas · Linearization15.IsLocDich",
+     "Chapter14/SeparationLemmas · Linearization15.exists_isLocDich_mem",
+     "Chapter14/SeparationLemmas · Linearization15.exists_isSeparatedAt_subseq"
     ]
    },
    "chips": [
@@ -155,9 +155,9 @@
    "lean": {
     "statement": "`Linearization15.lemma_15_1_4`, in any pseudo-metric space: for finitely many relatively closed $A_i$ with $\\bigcup A_i = B_\\varepsilon(y)$, some $A_i$ has nonempty interior; topological core `exists_nonempty_interior_of_finite_closed_cover`.",
     "decls": [
-     "Chapter15/SeparationLemmas · Linearization15.lemma_15_1_4",
-     "Chapter15/SeparationLemmas · Linearization15.exists_nonempty_interior_of_finite_closed_cover",
-     "Chapter15/SeparationLemmas · Linearization15.interior_biUnion_eq_empty"
+     "Chapter14/SeparationLemmas · Linearization15.lemma_15_1_4",
+     "Chapter14/SeparationLemmas · Linearization15.exists_nonempty_interior_of_finite_closed_cover",
+     "Chapter14/SeparationLemmas · Linearization15.interior_biUnion_eq_empty"
     ]
    },
    "chips": [
@@ -179,9 +179,9 @@
    "lean": {
     "statement": "`Linearization15.lemma_15_1_5`: in a pseudo-metric space, for finitely many maps continuous on $B_\\varepsilon(y)$ into a Hausdorff space, exactly these conclusions, the partition a surjection $e : I \\to \\mathrm{Fin}\\,p$; topological form `exists_isOpen_dichotomy`.",
     "decls": [
-     "Chapter15/SeparationLemmas · Linearization15.lemma_15_1_5",
-     "Chapter15/SeparationLemmas · Linearization15.exists_isOpen_dichotomy",
-     "Chapter15/SeparationLemmas · Linearization15.exists_fin_partition"
+     "Chapter14/SeparationLemmas · Linearization15.lemma_15_1_5",
+     "Chapter14/SeparationLemmas · Linearization15.exists_isOpen_dichotomy",
+     "Chapter14/SeparationLemmas · Linearization15.exists_fin_partition"
     ]
    },
    "chips": [
@@ -203,8 +203,8 @@
    "lean": {
     "statement": "`Linearization15.remark_15_1_6` (metric space): from $x'_k \\to x_0$ in $V$, points $x''_k \\in V$ with $d(x'_k, x''_k) < 1/(k+1)$, $x''_k \\to x_0$, a subsequence and a partition with `IsSeparatedAt` along it. `IsSeparatedAt.eventually`: separation at $z$ persists near $z$.",
     "decls": [
-     "Chapter15/SeparationLemmas · Linearization15.remark_15_1_6",
-     "Chapter15/SeparationLemmas · Linearization15.IsSeparatedAt.eventually"
+     "Chapter14/SeparationLemmas · Linearization15.remark_15_1_6",
+     "Chapter14/SeparationLemmas · Linearization15.IsSeparatedAt.eventually"
     ]
    },
    "chips": [
@@ -231,8 +231,8 @@
      "Chapter15/LinearizationIntrinsic · SBLocalization.LocalLinData.sum",
      "Chapter15/LinearizationIntrinsic · SBLocalization.linearization_eq",
      "Chapter15/LinearizationIntrinsic · SBLocalization.nonempty_localLinData",
-     "Chapter15/Linearization · SBLocalization.linearizationIn",
-     "Chapter15/Linearization · SBLocalization.linearizationIn_eq"
+     "Chapter14/Linearization · SBLocalization.linearizationIn",
+     "Chapter14/Linearization · SBLocalization.linearizationIn_eq"
     ]
    },
    "chips": [
@@ -279,11 +279,11 @@
    "lean": {
     "statement": "`IsScPlusSectionOn.restrictOpen` (a local sc⁺-section on open $O$ is a global sc⁺-section of $W|_O$); `subSec f s O` ($f + (-1) s$, $s$ extended by $0$), `subRestrict` (its restriction to $W|_O$), `isScFredholmSectionTame_subRestrict` (by Part I's `theorem_3_1_18_tame`); `subDeriv c f s z` $= D((\\hat f - \\hat s) \\circ r)(z)$, `ChartOnto`, `surjective_toIntr_subDeriv_iff`, `isLinSurjAt_subRestrict`, `chartOnto_of_isLinSurjAt_subRestrict`; `exists_solutionSet_of_isGoodPosition`, `exists_solutionSet_interior` (an open $V \\ni x$ with $\\{f = s\\} \\cap V$ a smooth submanifold, from `theorem_3_6_8'`).",
     "decls": [
-     "Chapter15/LocalScPlus · SBLocalization.IsScPlusSectionOn.restrictOpen",
-     "Chapter15/LocalScPlus · SBLocalization.subSec",
-     "Chapter15/LocalScPlus · SBLocalization.isSection_subSec",
-     "Chapter15/LocalScPlus · SBLocalization.subRestrict",
-     "Chapter15/LocalScPlus · SBLocalization.isScFredholmSectionTame_subRestrict",
+     "Chapter14/LocalScPlus · SBLocalization.IsScPlusSectionOn.restrictOpen",
+     "Chapter14/LocalScPlus · SBLocalization.subSec",
+     "Chapter14/LocalScPlus · SBLocalization.isSection_subSec",
+     "Chapter14/LocalScPlus · SBLocalization.subRestrict",
+     "Chapter14/LocalScPlus · SBLocalization.isScFredholmSectionTame_subRestrict",
      "Chapter15/LocalIFT · SBLocalization.subDeriv",
      "Chapter15/LocalIFT · SBLocalization.ChartOnto",
      "Chapter15/LocalIFT · SBLocalization.surjective_toIntr_subDeriv_iff",
@@ -954,7 +954,7 @@
      "Chapter15/GeneralPositionBranched · SBLocalization.theorem_15_3_7_statement_epSEP_zero",
      "Chapter15/GeneralPositionBranched · SBLocalization.theorem_15_3_7_of_isInGeneralPosition_zero",
      "Chapter15/GeneralPositionBranched · SBLocalization.pointwiseNorm_zeroMultisection",
-     "Chapter15/GeneralPositionBranched · SBLocalization.domSupp_zeroMultisection",
+     "Chapter14/NormControl · SBLocalization.domSupp_zeroMultisection",
      "Chapter15/GeneralPositionBranched · SBLocalization.isInGeneralPosition_epSEP_zero"
     ]
    },
@@ -1445,12 +1445,12 @@
    "lean": {
     "statement": "`isTameRetract_inter_of_degIndex_eq_zero`: for an sc-smooth retraction $r$ of $C$ and open $W$ with $d_C = 0$ on $r(U) \\cap W$, $r(U) \\cap W$ is a tame retract (restrict $r$ to $U \\cap r^{-1}(W) \\cap \\{d_C = 0\\}$; (2) of Definition 2.5.2 from `ScRetraction.isScSplitting_range_scDeriv`). **`MPolyfold.isTame_of_degIndex_eq_zero`**: $(\\forall x,\\ d_X(x) = 0) \\Rightarrow$ `P.IsTame`; **`EpGroupoid.isTame_of_degIndex_eq_zero`**.",
     "decls": [
-     "Chapter5/DegeneracyZeroTame · degIndexWith_eq_zero_iff",
-     "Chapter5/DegeneracyZeroTame · isOpen_setOf_pos_coord",
-     "Chapter5/DegeneracyZeroTame · degIndex_eq_zero_iff_pos",
-     "Chapter5/DegeneracyZeroTame · isTameRetract_inter_of_degIndex_eq_zero",
-     "Chapter5/DegeneracyZeroTame · MPolyfold.isTame_of_degIndex_eq_zero",
-     "Chapter5/DegeneracyZeroTame · EpGroupoid.isTame_of_degIndex_eq_zero"
+     "Chapter7/DegeneracyZeroTame · degIndexWith_eq_zero_iff",
+     "Chapter7/DegeneracyZeroTame · isOpen_setOf_pos_coord",
+     "Chapter7/DegeneracyZeroTame · degIndex_eq_zero_iff_pos",
+     "Chapter7/DegeneracyZeroTame · isTameRetract_inter_of_degIndex_eq_zero",
+     "Chapter7/DegeneracyZeroTame · MPolyfold.isTame_of_degIndex_eq_zero",
+     "Chapter7/DegeneracyZeroTame · EpGroupoid.isTame_of_degIndex_eq_zero"
     ]
    },
    "chips": [],
@@ -1468,7 +1468,7 @@
     "statement": "Choose a continuous functor $h_0$ with $N(\\Lambda) < h_0 < h$ on the domain support of $\\Lambda$ in $\\partial X$, supported in $U$."
    },
    "lean": {
-    "statement": "**`lemma_15_3_9_cutoff : lemma_15_3_9_cutoff_statement A`** for every `A` (`Chapter15/ChargedExtensionFibres`), from **`lemma_15_3_9_cutoff_hyp (hB)`** with `hB : ∀ x, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source` supplied by **`SEP.exists_isTameChart`** (`Chapter10/TameBundleCharts`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point, `StrongBundle.exists_isTameChart`). Ingredients: `BoundarySymmetricStructure.mem_suppAt_iff` ($\\mathrm{supp}\\,\\Lambda(y) = \\{s_i(y)\\}$ over $U(x) \\cap \\partial X$), `pointwiseNorm_tgt_of_boundary` ($N(\\Lambda)$ a functor on $\\partial X$), `isSaturated_boundaryDomSupp'`, **`exists_nhds_pointwiseNorm_lt`** ($N(\\Lambda)$ upper semicontinuous along $\\partial X$, through `exists_scPlusSectionOn_extension_of_face`). Construction on $|X|$ (paracompact Hausdorff): $g$ continuous with $0 \\le g < h$ and $g > N(\\Lambda)$ on $|\\mathrm{dom\\text{-}supp}\\,\\Lambda|$ (`exists_continuous_forall_mem_convex_of_local_const`); an Urysohn $\\psi$, $1$ on $|\\mathrm{dom\\text{-}supp}\\,\\Lambda|$ and $0$ off $V$ with $\\bar V \\subseteq |U|$; $h_0 = (\\psi g) \\circ \\pi$.",
+    "statement": "**`lemma_15_3_9_cutoff : lemma_15_3_9_cutoff_statement A`** for every `A` (`Chapter15/ChargedExtensionFibres`), from **`lemma_15_3_9_cutoff_hyp (hB)`** with `hB : ∀ x, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source` supplied by **`SEP.exists_isTameChart`** (`Chapter10/TameBundleCharts`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point, `StrongBundle.exists_isTameChart`). Ingredients: `BoundarySymmetricStructure.mem_suppAt_iff` ($\\mathrm{supp}\\,\\Lambda(y) = \\{s_i(y)\\}$ over $U(x) \\cap \\partial X$), `pointwiseNorm_tgt_of_boundary` ($N(\\Lambda)$ a functor on $\\partial X$), `isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection`, **`exists_nhds_pointwiseNorm_lt`** ($N(\\Lambda)$ upper semicontinuous along $\\partial X$, through `exists_scPlusSectionOn_extension_of_face`). Construction on $|X|$ (paracompact Hausdorff): $g$ continuous with $0 \\le g < h$ and $g > N(\\Lambda)$ on $|\\mathrm{dom\\text{-}supp}\\,\\Lambda|$ (`exists_continuous_forall_mem_convex_of_local_const`); an Urysohn $\\psi$, $1$ on $|\\mathrm{dom\\text{-}supp}\\,\\Lambda|$ and $0$ off $V$ with $\\bar V \\subseteq |U|$; $h_0 = (\\psi g) \\circ \\pi$.",
     "decls": [
      "Chapter15/ChargedExtensionFibres · SBLocalization.lemma_15_3_9_cutoff",
      "Chapter10/TameBundleCharts · SEP.exists_isTameChart",
@@ -1477,7 +1477,7 @@
      "Chapter15/CutoffFunctor · SBLocalization.IsBoundaryScPlusMultisection.suppAt_subset_oneSet",
      "Chapter15/CutoffFunctor · SBLocalization.normW_image_suppAt_subset",
      "Chapter15/CutoffFunctor · SBLocalization.pointwiseNorm_tgt_of_boundary",
-     "Chapter15/CutoffFunctor · SBLocalization.isSaturated_boundaryDomSupp'",
+     "Chapter15/CutoffFunctor · SBLocalization.isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection",
      "Chapter15/CutoffFunctor · SBLocalization.boundaryDomSupp_subset_boundary",
      "Chapter15/CutoffFunctor · SBLocalization.exists_nhds_pointwiseNorm_lt",
      "Chapter15/CutoffFunctor · SBLocalization.lemma_15_3_9_cutoff_hyp",
@@ -1645,9 +1645,9 @@
    "lean": {
     "statement": "`admitsScPartitionsOfUnity_of_urysohn`: sc-smooth Urysohn functions give sc-smooth partitions of unity (the second half of Theorem 5.5.10). `exists_cubeProd_urysohn`: on $[0,1]^n \\times X$, with $X$ admitting partitions of unity, $F(q,y) = \\sum_x\\rho_x(y)\\,g_x(q)$ separates two disjoint closed sets (smooth bumps $g_x$ from the tube lemma, $\\rho$ subordinate to the tubes). **`admitsScPartitionsOfUnity_cubeProd`**, **`admitsScPartitionsOfUnity_cubeSEP n hPU`**: the objects of `A.cubeSEP n` admit sc-smooth partitions of unity when $X$ does. `corollary_15_3_10_3_pu`, `corollary_15_3_10_3_glue`: the forms with `hPU` on $X$ in place of `hPUC` (they take Theorem 15.3.9 on the cylinder as a hypothesis; it holds, `theorem_15_3_9`, V15.32).",
     "decls": [
-     "Chapter5/CubePartitions · admitsScPartitionsOfUnity_of_urysohn",
-     "Chapter5/CubePartitions · exists_cubeProd_urysohn",
-     "Chapter5/CubePartitions · admitsScPartitionsOfUnity_cubeProd",
+     "Chapter6/CubePartitions · admitsScPartitionsOfUnity_of_urysohn",
+     "Chapter6/CubePartitions · exists_cubeProd_urysohn",
+     "Chapter6/CubePartitions · admitsScPartitionsOfUnity_cubeProd",
      "Chapter15/CylinderPartitions · SBLocalization.admitsScPartitionsOfUnity_cubeSEP",
      "Chapter15/CylinderPartitions · SBLocalization.corollary_15_3_10_3_pu",
      "Chapter15/CylinderPartitions · SBLocalization.corollary_15_3_10_3_glue"
@@ -2444,13 +2444,13 @@
    "label": "§15.3, proof of Corollary 15.3.10 (3), p. 699 (2017: Corollary 15.1)",
    "page": 699,
    "book": "$[0,1] \\times X$ is a tame ep-groupoid to which Theorem 15.3.9 applies.",
-   "instead": "**Formalized** (V15.46; `Chapter5/CubePartitions.lean`, `Chapter15/CylinderPartitions.lean`): `admitsScPartitionsOfUnity_cubeProd` and `admitsScPartitionsOfUnity_cubeSEP`: $[0,1]^n \\times X$ admits sc-smooth partitions of unity when $X$ does (sc-smooth Urysohn functions $\\sum_x\\rho_x(y)g_x(q)$, `admitsScPartitionsOfUnity_of_urysohn`).",
+   "instead": "**Formalized** (V15.46; `Chapter6/CubePartitions.lean`, `Chapter15/CylinderPartitions.lean`): `admitsScPartitionsOfUnity_cubeProd` and `admitsScPartitionsOfUnity_cubeSEP`: $[0,1]^n \\times X$ admits sc-smooth partitions of unity when $X$ does (sc-smooth Urysohn functions $\\sum_x\\rho_x(y)g_x(q)$, `admitsScPartitionsOfUnity_of_urysohn`).",
    "decls": [
     "Chapter15/Cylinder · SBLocalization.corollary_15_3_10_3_of_theorem_15_3_9",
     "Chapter15/Cylinder · SBLocalization.admitsScPartitionsOfUnity_cube_rn",
     "Chapter15/Cylinder · EpGroupoid.hasParacompactOrbitSpace_cubeProd",
     "Chapter15/CylinderPartitions · SBLocalization.admitsScPartitionsOfUnity_cubeSEP",
-    "Chapter5/CubePartitions · admitsScPartitionsOfUnity_cubeProd"
+    "Chapter6/CubePartitions · admitsScPartitionsOfUnity_cubeProd"
    ],
    "formalized": [
     "V15.46"
@@ -2504,11 +2504,11 @@
    "label": "§15.3, Corollary 15.3.10 (1), p. 699 (2017: Corollary 15.1)",
    "page": 699,
    "book": "Corollary 15.3.10 assumes $d_X \\equiv 0$ and applies Theorem 15.3.7, which assumes $X$ tame.",
-   "instead": "**Formalized** (V15.40; `Chapter5/DegeneracyZeroTame.lean`): `MPolyfold.isTame_of_degIndex_eq_zero`, `EpGroupoid.isTame_of_degIndex_eq_zero` (restrict a retraction to $\\{d_C = 0\\}$; (2) of Definition 2.5.2 from the splitting of the range of the tangent retraction). `corollary_15_3_10_1_of_theorem_15_3_7` and `corollary_15_3_10_3_of_theorem_15_3_9` use it.",
+   "instead": "**Formalized** (V15.40; `Chapter7/DegeneracyZeroTame.lean`): `MPolyfold.isTame_of_degIndex_eq_zero`, `EpGroupoid.isTame_of_degIndex_eq_zero` (restrict a retraction to $\\{d_C = 0\\}$; (2) of Definition 2.5.2 from the splitting of the range of the tangent retraction). `corollary_15_3_10_1_of_theorem_15_3_7` and `corollary_15_3_10_3_of_theorem_15_3_9` use it.",
    "decls": [
     "Chapter15/RegularPerturbations · SBLocalization.corollary_15_3_10_1_hyp",
-    "Chapter5/DegeneracyZeroTame · MPolyfold.isTame_of_degIndex_eq_zero",
-    "Chapter5/DegeneracyZeroTame · EpGroupoid.isTame_of_degIndex_eq_zero"
+    "Chapter7/DegeneracyZeroTame · MPolyfold.isTame_of_degIndex_eq_zero",
+    "Chapter7/DegeneracyZeroTame · EpGroupoid.isTame_of_degIndex_eq_zero"
    ],
    "formalized": [
     "V15.40"

@@ -18,11 +18,11 @@
      "Chapter4/Characterization · MPolyfold.HasCornerStructure.isTame",
      "Chapter4/Characterization · MChart.IsCornerChart.isTameRetract",
      "Chapter4/Characterization · MChart.IsCornerChart.isScPlusRetract",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.HasCornerStructureOfDim",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.interiorChartedSpace",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_interiorChartedSpace"
+     "Chapter6/CornerCoordinates · MPolyfold.HasCornerStructureOfDim",
+     "Chapter6/CornerCoordinates · MPolyfold.cornerChartedSpace",
+     "Chapter6/CornerCoordinates · MPolyfold.isManifold_cornerChartedSpace",
+     "Chapter6/CornerCoordinates · MPolyfold.interiorChartedSpace",
+     "Chapter6/CornerCoordinates · MPolyfold.isManifold_interiorChartedSpace"
     ]
    },
    "chips": [
@@ -153,7 +153,7 @@
      "Chapter4/RemarkFourThreeFamily · remark_4_1_3_retract_example",
      "Chapter4/RemarkFourThreeExample · IsLossFamily.isScSmooth",
      "Chapter4/RemarkFourThreeExample · exists_retract_smooth_not_scPlus_of_data",
-     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff"
+     "Chapter2/StrongBundleLevelOne · MPolyfold.mem_shift_levelSet_iff"
     ]
    },
    "chips": [
@@ -818,12 +818,12 @@
      "Chapter4/Submanifolds · MPolyfold.isGoodPositionAt_of_degIndex_eq_zero",
      "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
      "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero",
+     "Chapter6/CornerCoordinates · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero",
      "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero",
      "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero_near",
-     "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
-     "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
-     "Chapter4/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one"
+     "Chapter9/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
+     "Chapter9/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
+     "Chapter9/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one"
     ]
    },
    "chips": [
@@ -1027,7 +1027,7 @@
      "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_centred_isInGoodPosition",
      "Chapter4/Submanifolds · MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame",
      "Chapter9/MathlibManifoldBridge · MPolyfold.theorem_4_2_7_isManifold",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame"
+     "Chapter6/CornerCoordinates · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame"
     ]
    },
    "chips": [
@@ -1673,11 +1673,11 @@
    "lean": {
     "statement": "`IsRetractVectorField E C O A`: $x \\mapsto (x, A(x))$ is sc-smooth from $(O^1, C^1, E^1)$ to $(TO, TC, TE)$. Then $(x, A(x)) \\in TO$ on $O_1$, $A \\circ r^1$ is sc-smooth, $Dr(x)A(x) = A(x)$ on $O_1$; $0$ is a vector field on every retract.",
     "decls": [
-     "Chapter4/VectorFields · IsRetractVectorField",
-     "Chapter4/VectorFields · isRetractVectorField_zero",
-     "Chapter4/VectorFields · IsRetractVectorField.mem_retractTangent",
-     "Chapter4/VectorFields · IsRetractVectorField.isScSmooth_comp",
-     "Chapter4/VectorFields · IsRetractVectorField.scDeriv_apply"
+     "Chapter2/VectorFields · IsRetractVectorField",
+     "Chapter2/VectorFields · isRetractVectorField_zero",
+     "Chapter2/VectorFields · IsRetractVectorField.mem_retractTangent",
+     "Chapter2/VectorFields · IsRetractVectorField.isScSmooth_comp",
+     "Chapter2/VectorFields · IsRetractVectorField.scDeriv_apply"
     ]
    },
    "chips": [
@@ -1700,11 +1700,11 @@
    "lean": {
     "statement": "`MPolyfold.IsScVectorField`: $A : X^1 \\to TX$ sc-smooth for the M-polyfold structures of $X^1$ and $TX$, with $p(A(x)) = x$. The zero section (reading $(\\psi(x), 0)$ in every chart) is continuous and a vector field.",
     "decls": [
-     "Chapter4/VectorFields · MPolyfold.IsScVectorField",
-     "Chapter4/VectorFields · MPolyfold.zeroVectorField",
-     "Chapter4/VectorFields · MPolyfold.tangentChartMap_zeroVectorField",
-     "Chapter4/VectorFields · MPolyfold.continuous_zeroVectorField",
-     "Chapter4/VectorFields · MPolyfold.isScVectorField_zero"
+     "Chapter2/VectorFields · MPolyfold.IsScVectorField",
+     "Chapter2/VectorFields · MPolyfold.zeroVectorField",
+     "Chapter2/VectorFields · MPolyfold.tangentChartMap_zeroVectorField",
+     "Chapter2/VectorFields · MPolyfold.continuous_zeroVectorField",
+     "Chapter2/VectorFields · MPolyfold.isScVectorField_zero"
     ]
    },
    "chips": [
@@ -1737,8 +1737,8 @@
      "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
      "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
      "Chapter2/TangentLiftAll · proposition_2_3_17_all",
-     "Chapter4/VectorFields · retractTangent_shift",
-     "Chapter4/VectorFields · IsRetractVectorField.shift"
+     "Chapter2/VectorFields · retractTangent_shift",
+     "Chapter2/VectorFields · IsRetractVectorField.shift"
     ]
    },
    "chips": [
@@ -1762,11 +1762,11 @@
    "lean": {
     "statement": "`scSecondDeriv U f z a b` ($z \\in U_2$, $a, b \\in E_1$): the second component of $D(Tf)(z, a)(b, 0)$. `scSecondDeriv_symm`: for $f$ sc² on $U$ relatively open in a partial quadrant, $D^2f(z)(a, b) = D^2f(z)(b, a)$.",
     "decls": [
-     "Chapter4/VectorFields · scSecondDeriv",
-     "Chapter4/VectorFields · scSecondDeriv_symm",
-     "Chapter4/VectorFields · fderivWithin_fderivWithin_eq",
-     "Chapter4/VectorFields · IsRelOpenInQuadrant.mem_closure_interior_lvlSet",
-     "Chapter4/VectorFields · scDeriv_tangentMap_inr"
+     "Chapter2/VectorFields · scSecondDeriv",
+     "Chapter2/VectorFields · scSecondDeriv_symm",
+     "Chapter2/VectorFields · fderivWithin_fderivWithin_eq",
+     "Chapter2/VectorFields · IsRelOpenInQuadrant.mem_closure_interior_lvlSet",
+     "Chapter2/VectorFields · scDeriv_tangentMap_inr"
     ]
    },
    "chips": [
@@ -1789,10 +1789,10 @@
    "lean": {
     "statement": "`retractLieBracket R A B x` $= D\\tilde A(x)B_1(x) - D\\tilde B(x)A_1(x)$, $\\tilde A = A \\circ r^1$; antisymmetric. `IsRetractVectorField.diff_identity`: $D^2r(x)(A(x), b) + Dr(x)D\\tilde A(x)b = D\\tilde A(x)b$ for $b \\in T_x(O^1)$. `retractLieBracket_mem_tangent`: $Dr(x)[A, B](x) = [A, B](x)$ on $O_2$.",
     "decls": [
-     "Chapter4/VectorFields · retractLieBracket",
-     "Chapter4/VectorFields · retractLieBracket_antisymm",
-     "Chapter4/VectorFields · IsRetractVectorField.diff_identity",
-     "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+     "Chapter2/VectorFields · retractLieBracket",
+     "Chapter2/VectorFields · retractLieBracket_antisymm",
+     "Chapter2/VectorFields · IsRetractVectorField.diff_identity",
+     "Chapter2/VectorFields · retractLieBracket_mem_tangent"
     ]
    },
    "chips": [
@@ -1815,10 +1815,10 @@
     "statement": "`proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \\to TX$ (`lieBracket`) is given in every chart $\\psi$ by $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \\to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.",
     "decls": [
      "Chapter4/BookFormLieBracket · MPolyfold.proposition_4_4_5_book",
-     "Chapter4/VectorFields · proposition_4_4_5_local",
-     "Chapter4/VectorFields · isScSmooth_scDeriv_apply",
-     "Chapter4/VectorFields · levelMap_shift_shift_eq",
-     "Chapter4/VectorFields · levelMap_comp_shift_eq"
+     "Chapter2/VectorFields · proposition_4_4_5_local",
+     "Chapter2/VectorFields · isScSmooth_scDeriv_apply",
+     "Chapter2/VectorFields · levelMap_shift_shift_eq",
+     "Chapter2/VectorFields · levelMap_comp_shift_eq"
     ]
    },
    "chips": [
@@ -1873,13 +1873,13 @@
    "lean": {
     "statement": "`retractLieBracket_natural`: for $f$ sc-smooth between the retracts $O$, $O'$ and vector fields with $Df(x)A(x) = A'(f(x))$, $Df(x)B(x) = B'(f(x))$ on $O_1$ ($Df = D(f \\circ r)$), $Df(x)[A, B](x) = [A', B'](f(x))$ on $O_2$; the steps `IsRetractVectorField.diff_related` (the relation differentiated) and `IsRetractVectorField.related_shift` (the relation on level $1$). `retractLieBracket_restrict`: the bracket on $(O \\cap W)_2$ for the restricted retraction is the same. `retractLieBracket_natural_inter`: the same naturality for $f$ defined on an open part $O \\cap W$, in the form $Tf(x, [A, B](x)) = (f(x), [A', B'](f(x)))$.",
     "decls": [
-     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.diff_related",
-     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.related_shift",
-     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
-     "Chapter4/VectorFieldsGlobal · levelMap_levelMap_comp_eq",
-     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.restrict",
-     "Chapter4/VectorFieldsGlobal · retractLieBracket_restrict",
-     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural_inter"
+     "Chapter2/VectorFieldsGlobal · IsRetractVectorField.diff_related",
+     "Chapter2/VectorFieldsGlobal · IsRetractVectorField.related_shift",
+     "Chapter2/VectorFieldsGlobal · retractLieBracket_natural",
+     "Chapter2/VectorFieldsGlobal · levelMap_levelMap_comp_eq",
+     "Chapter2/VectorFieldsGlobal · IsRetractVectorField.restrict",
+     "Chapter2/VectorFieldsGlobal · retractLieBracket_restrict",
+     "Chapter2/VectorFieldsGlobal · retractLieBracket_natural_inter"
     ]
    },
    "chips": [
@@ -1902,16 +1902,16 @@
    "lean": {
     "statement": "`tangentChartMap_change`: $T\\psi = T(\\psi \\circ \\varphi^{-1}) \\circ T\\varphi$. `principalPart`: $T\\varphi(A(y)) = (\\varphi(y), A_\\varphi(\\varphi(y)))$ (`tangentChartMap_eq_principalPart`); `IsScVectorField.isRetractVectorField_principalPart`: $A_\\varphi$ is a vector field on the model, with the retraction `chartRetraction`; `principalPart_related`: the principal parts in two charts are related by the transition map on level $1$. `chartLieBracket_spec`: Proposition 4.4.5 for $[A_\\varphi, B_\\varphi]$; `chartLieBracket_change`: the brackets in two charts are related by $T(\\psi\\varphi^{-1})$ on level $2$ of the overlap.",
     "decls": [
-     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_change",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction_retract",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.principalPart",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_eq_principalPart",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.isRetractVectorField_principalPart",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.principalPart_related",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.chartLieBracket",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_spec",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_change"
+     "Chapter2/VectorFieldsGlobal · MPolyfold.tangentChartMap_change",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.chartRetraction",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.chartRetraction_retract",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.principalPart",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.tangentChartMap_eq_principalPart",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.IsScVectorField.isRetractVectorField_principalPart",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.IsScVectorField.principalPart_related",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.chartLieBracket",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_spec",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_change"
     ]
    },
    "chips": [
@@ -1933,14 +1933,14 @@
    "lean": {
     "statement": "`MPolyfold.lieBracket hA hB : X^2 \\to TX`, the class of $[A_\\varphi, B_\\varphi](\\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\\psi$ around $x$, $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$. `proposition_4_4_5`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$. In the text's form: the pull-back bundle $TX|X^2 = \\{(x, \\alpha) \\in X^2 \\times TX \\mid p(\\alpha) = x\\}$ is a sub-M-polyfold of $X^2 \\times TX$ (`isSubMPolyfold_tangentPullback`; in product charts its retraction is $(z, (y, v)) \\mapsto (z, Tr(\\iota z, v))$), with sc-smooth projection to $X^2$ and fibres $T_xX$ (`tangentPullbackPolyfold`, `isScSmoothMap_tangentPullbackProj`, `tangentPullbackFiberEquiv`), and `proposition_4_4_5_section`: $x \\mapsto (x, [A, B](x))$ is an sc-smooth section of it.",
     "decls": [
-     "Chapter4/VectorFieldsGlobal · MPolyfold.levelLift_levelChart_spec",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracketPre",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracket",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentProj_lieBracket",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket_eq",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
-     "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.levelLift_levelChart_spec",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.lieBracketPre",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.lieBracket",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.tangentProj_lieBracket",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket_eq",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
+     "Chapter2/VectorFieldsGlobal · proposition_4_4_5",
      "Chapter4/BookFormLieBracket · MPolyfold.proposition_4_4_5_book",
      "Chapter4/LieBracketBundle · MPolyfold.isSubMPolyfold_tangentPullback",
      "Chapter4/LieBracketBundle · MPolyfold.tangentPullbackPolyfold",
@@ -1972,14 +1972,14 @@
    "lean": {
     "statement": "`lemma_4_5_1`: for an sc-smooth $f : X \\to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \\in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \\in X^2$ (`levelTwoMap`). Between open subsets: for open $U, U' \\subseteq X$ (Part I's open sub-M-polyfolds, `restrictOpen`), the vector fields restricted to them (`restrictVectorField`, `IsScVectorField.restrictOpen`), and an sc-smooth $\\varphi : U \\to U'$, in particular a local sc-diffeomorphism between open subsets, relating the restrictions on $U^1$: $T\\varphi \\circ [A|U, B|U] = [A|U', B|U'] \\circ \\varphi_2$ on $U^2$ (`lemma_4_5_1_open`; read in $TX$, `lemma_4_5_1_open_ambient`); the bracket of the restrictions is the restriction of the bracket (`lieBracket_restrictOpen`). On sections of $TX|X^2 \\to X^2$: $(f_2, Tf) \\circ [A, B] = [A', B'] \\circ f_2$ with the sc-smooth bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`).",
     "decls": [
-     "Chapter4/VectorFieldsGlobal · MPolyfold.liftLevelOneMap",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.levelTwoMap",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.levelMap_coord_levelLift",
-     "Chapter4/VectorFieldsGlobal · lemma_4_5_1",
-     "Chapter4/LieBracketOpenSubsets · MPolyfold.restrictVectorField",
-     "Chapter4/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
-     "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open",
-     "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.liftLevelOneMap",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.levelTwoMap",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.levelMap_coord_levelLift",
+     "Chapter2/VectorFieldsGlobal · lemma_4_5_1",
+     "Chapter8/LieBracketOpenSubsets · MPolyfold.restrictVectorField",
+     "Chapter8/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
+     "Chapter8/LieBracketOpenSubsets · lemma_4_5_1_open",
+     "Chapter8/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
      "Chapter4/LieBracketBundle · lemma_4_5_1_section"
     ]
    },
@@ -2015,9 +2015,9 @@
      "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
      "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
      "Chapter2/TangentLiftAll · proposition_2_3_17_all",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.vectorFieldLevelOne",
-     "Chapter4/VectorFieldsGlobal · MPolyfold.raiseIndex",
-     "Chapter4/VectorFieldsGlobal · lemma_4_4_4",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.vectorFieldLevelOne",
+     "Chapter2/VectorFieldsGlobal · MPolyfold.raiseIndex",
+     "Chapter2/VectorFieldsGlobal · lemma_4_4_4",
      "Chapter2/TangentLift · MPolyfold.tangentShiftEquiv",
      "Chapter2/TangentLift · proposition_2_3_17"
     ]
@@ -2485,20 +2485,20 @@
    "lean": {
     "statement": "`MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \\subseteq X$ with a corner structure of dimension $n + 1$ (then $S \\subseteq X_\\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\\omega \\in \\Omega^n_\\infty(X)$, $\\int_S (d\\omega)|_S = \\int_{\\partial S} \\omega|_S$. The restriction $\\omega \\mapsto \\omega|_S$ (`scFormRestrict` on $\\Omega^k(X^i)$, `formsInftyRestrict` on $\\Omega^k_\\infty(X)$) is the pull-back along $S \\to X^i$ (V4.89) read on the corner frames of $T_xS = \\mathbb R^n$; in a chart of $X$ it is $\\omega_\\varphi \\circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\\int_{\\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`). With the faces: `MPolyfold.theorem_4_4_7_hyp`: for a compact sub-M-polyfold $S \\subseteq X$ with a corner structure of dimension $n + 1$, face-structured (Definition 2.5.10), a continuous tangent orientation $o$ of the Mathlib manifold $S$ and $\\omega \\in \\Omega^n_\\infty(X)$, $\\int_S (d\\omega)|_S = \\sum_F \\int_F \\omega|_F$, the sum over the finitely many faces $F$ of $S$ (`finite_setOf_isFace`). Each face is a Mathlib manifold modelled on $[0, \\infty)^n$ through a corner structure of dimension $n$ (`hasCornerStructureOfDim_face`), oriented by the induced orientation, outward vector first (`faceOrientation`, `IsInducedOrientation`, unique and continuous); $\\omega|_F$ is the pull-back of $\\omega|_S$ along $F \\hookrightarrow S$ (`restrictForm`). The face sum equals the boundary integral of $S$ (`sum_integral_restrictForm_eq_boundaryIntegral`), and `stokes_formsInftyRestrict` gives the rest.",
     "decls": [
-     "Chapter9/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
-     "Chapter9/MathlibFormsBridge · MPolyfold.scFormRestrict",
-     "Chapter9/MathlibFormsBridge · MPolyfold.scFormRestrict_apply_modelDeriv",
-     "Chapter9/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
-     "Chapter9/MathlibFormsBridge · MPolyfold.contMDiffForm_formsInftyRestrict",
-     "Chapter9/MathlibFormsBridge · MPolyfold.extDeriv_formsInftyRestrict",
-     "Chapter9/MathlibFormsBridge · MPolyfold.scFormRestrict_formLower",
-     "Chapter9/MathlibFormsBridge · MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim",
-     "Chapter9/MathlibFormsBridge · exists_hasCornerStructureOfDim_of_tame",
-     "Chapter9/MathlibFormsBridge · exists_hasCornerStructureOfDim_solutionSet",
+     "Chapter6/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
+     "Chapter6/MathlibFormsBridge · MPolyfold.scFormRestrict",
+     "Chapter6/MathlibFormsBridge · MPolyfold.scFormRestrict_apply_modelDeriv",
+     "Chapter6/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
+     "Chapter6/MathlibFormsBridge · MPolyfold.contMDiffForm_formsInftyRestrict",
+     "Chapter6/MathlibFormsBridge · MPolyfold.extDeriv_formsInftyRestrict",
+     "Chapter6/MathlibFormsBridge · MPolyfold.scFormRestrict_formLower",
+     "Chapter6/MathlibFormsBridge · MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim",
+     "Chapter6/MathlibFormsBridge · exists_hasCornerStructureOfDim_of_tame",
+     "Chapter6/MathlibFormsBridge · exists_hasCornerStructureOfDim_solutionSet",
      "Chapter9/StokesFaceSum · MPolyfold.theorem_4_4_7_hyp",
      "Chapter9/StokesFaceSum · MPolyfold.faceOrientation",
      "Chapter9/StokesFaceSum · MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero",
-     "Chapter4/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
+     "Chapter6/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
      "Chapter4/StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
      "Chapter4/StokesFaceIntegral · restrictForm",
      "Chapter4/StokesFaceOrientation · IsInducedOrientation",
@@ -2589,21 +2589,21 @@
    "lean": {
     "statement": "`lemma_4_4_8 A x`: there are open $V \\subseteq U \\ni x$ such that for every $k$ every $a \\in \\Omega^{k+1}_\\infty(U)$ with $da = 0$ has $b \\in \\Omega^k_\\infty(V)$ with $db = a|_V$. $U$, $V$ are Part I's open sub-M-polyfolds (`restrictOpen`, bundled as `BundledMPolyfold.openSub`); forms restrict to open subsets, commuting with $d$ (`formRestrict`, `extD_formRestrict`, `formsInftyResOpen`, `formsInftyResOpenOpen`), and \"$[\\omega] = [\\tau]$ on $V$\" of (4.7) is `FormsInftyEqOn` (`formsInftyEqOn_of_iff`). The proof is the text's: a chart $\\varphi$ and retraction $r$ with $r(B_\\delta \\cap C) \\subseteq B_\\varepsilon$ (`exists_poincareChart`), $V(x) = \\varphi^{-1}(B_\\delta(\\varphi x))$, the M-polyfold $O^m$ as the $m$-th lift (`LocalModel.liftEquiv`), Lemma 4.5.2 on $B_\\delta(\\varphi x) \\cap C$ about a smooth centre on every level (`LocalPoincare`, `hasPoincare_lift`, `localPoincare`), and $d(j^*\\tau) = (r \\circ j)^*\\omega$ on the direct limits (`exists_primitive_of_factor`, `lemma_4_4_8_of_local`).",
     "decls": [
-     "Chapter4/Poincare · lemma_4_4_8",
-     "Chapter4/Poincare448 · lemma_4_4_8_of_local",
-     "Chapter4/Poincare448 · LocalPoincare",
-     "Chapter4/Poincare · localPoincare",
-     "Chapter4/Poincare448 · hasPoincare_lift",
-     "Chapter4/Poincare448 · exists_primitive_of_factor",
+     "Chapter5/Poincare · lemma_4_4_8",
+     "Chapter5/Poincare448 · lemma_4_4_8_of_local",
+     "Chapter5/Poincare448 · LocalPoincare",
+     "Chapter5/Poincare · localPoincare",
+     "Chapter5/Poincare448 · hasPoincare_lift",
+     "Chapter5/Poincare448 · exists_primitive_of_factor",
      "Chapter4/Poincare448Shift · MPolyfold.HasPoincare",
      "Chapter4/Poincare448Shift · LocalModel.liftEquiv",
-     "Chapter4/OpenForms · MPolyfold.formRestrict",
-     "Chapter4/OpenForms · MPolyfold.extD_formRestrict",
-     "Chapter4/OpenForms · BundledMPolyfold.openSub",
-     "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpen",
-     "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpenOpen",
-     "Chapter4/OpenForms · BundledMPolyfold.FormsInftyEqOn",
-     "Chapter4/OpenForms · BundledMPolyfold.formsInftyEqOn_of_iff"
+     "Chapter5/OpenForms · MPolyfold.formRestrict",
+     "Chapter5/OpenForms · MPolyfold.extD_formRestrict",
+     "Chapter5/OpenForms · BundledMPolyfold.openSub",
+     "Chapter5/OpenForms · BundledMPolyfold.formsInftyResOpen",
+     "Chapter5/OpenForms · BundledMPolyfold.formsInftyResOpenOpen",
+     "Chapter5/OpenForms · BundledMPolyfold.FormsInftyEqOn",
+     "Chapter5/OpenForms · BundledMPolyfold.formsInftyEqOn_of_iff"
     ]
    },
    "chips": [
@@ -2627,13 +2627,13 @@
    "lean": {
     "statement": "`hasPoincare_relOpen_of_zero_mem`: for a local model $M$ with $M.O$ relatively open in the partial quadrant and convex, $0 \\in M.O$, and every $k$, every $\\sigma \\in \\Omega^{k+1}(O)$ with $d\\sigma = 0$ has $\\tau \\in \\Omega^k(O)$ with $d\\tau = \\iota^*\\sigma$ on $O^1$ (`MPolyfold.HasPoincare`); `hasPoincare_relOpen` is the same about any smooth centre $c \\in M.O$. The primitive is the homotopy form $\\tau(y)(v) = \\int_0^1 t^k\\,\\omega(c + t(y - c))(y - c, v)\\,dt$ (`homotopyForm`, `relOpenForm`), sc-smooth by the sc-smoothness of parametric integrals over $[0, 1]$ (`isScSmooth_intervalIntegral`, `isSck_intervalIntegral`, `scDeriv_intervalIntegral`, by sc-induction through the tangent map) (`isScSmooth_homotopyForm`); `ambientD_homotopyForm` and `lemma_4_5_2` give $d\\tau = \\omega$ in the chart, with the local $d$ the `deltaFun` of the derivative and the identity $d_r = $ the ambient $d$ on a relatively open set (`retractD_eq_ambientD`).",
     "decls": [
-     "Chapter4/Poincare · hasPoincare_relOpen_of_zero_mem",
-     "Chapter4/Poincare · hasPoincare_relOpen",
-     "Chapter4/Poincare · lemma_4_5_2",
-     "Chapter4/Poincare · homotopyForm",
-     "Chapter4/Poincare · isScSmooth_homotopyForm",
-     "Chapter4/Poincare · ambientD_homotopyForm",
-     "Chapter4/Poincare · retractD_eq_ambientD",
+     "Chapter5/Poincare · hasPoincare_relOpen_of_zero_mem",
+     "Chapter5/Poincare · hasPoincare_relOpen",
+     "Chapter5/Poincare · lemma_4_5_2",
+     "Chapter5/Poincare · homotopyForm",
+     "Chapter5/Poincare · isScSmooth_homotopyForm",
+     "Chapter5/Poincare · ambientD_homotopyForm",
+     "Chapter5/Poincare · retractD_eq_ambientD",
      "Chapter4/ParametricIntegrals · isScSmooth_intervalIntegral",
      "Chapter4/ParametricIntegrals · isSck_intervalIntegral",
      "Chapter4/ParametricIntegrals · scDeriv_intervalIntegral"
@@ -2695,11 +2695,11 @@
     "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_interior",
     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_near",
-    "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
-    "Chapter4/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
-    "Chapter4/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one",
-    "Chapter4/SubmanifoldNearBoundary · MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one",
-    "Chapter4/SubmanifoldNearBoundary · isInGoodPosition_halfSpace",
+    "Chapter9/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one",
+    "Chapter9/SubmanifoldNearBoundary · MPolyfold.remark_4_2_2_dA_one_near",
+    "Chapter9/SubmanifoldNearBoundary · MPolyfold.hasCornerStructure_of_degIndex_le_one",
+    "Chapter9/SubmanifoldNearBoundary · MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one",
+    "Chapter9/SubmanifoldNearBoundary · isInGoodPosition_halfSpace",
     "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero",
     "Chapter4/SubmanifoldNearInterior · MPolyfold.remark_4_2_2_dA_zero_near",
     "Chapter9/BoundaryPositionConverse · MPolyfold.degIndex_eq_zero_of_isReducedTangentAt"
@@ -2715,9 +2715,9 @@
    "book": "Is a sub-M-polyfold with $A = A_\\infty$ and $\\dim T_aA$ finite and locally constant a smooth finite-dimensional submanifold? Is the \"T\" $\\{(x, 0) : |x| < 1\\} \\cup \\{(0, y) : 0 \\le y < 1\\}$ homeomorphic to a retract $O = O_\\infty$? Impossible for sc⁺-retracts.",
    "instead": "**Nothing to formalize** (a question, not a statement). The settled sentence is formalized: `question_4_2_4_scPlus` shows that an sc⁺-retract $(O, E, E)$ is never homeomorphic to the \"T\", because no neighbourhood of $(0, 0)$ in the \"T\" is homeomorphic to an open subset of a finite-dimensional space (`not_homeomorph_open`: case $k = 0$; case $k = 1$, three arms on two sides; case $k \\ge 2$, a punctured ball is connected), while near each point an sc⁺-retract with $C = E$ is the graph of a map on its finite-dimensional tangent space (`IsScPlus.exists_flat`, the argument of Lemma 9.2.13). The question for sc-retracts that are not sc⁺ is open in the text and not addressed (Findings, item 65). The same holds on the piece $\\{d_O = 0\\}$ of any sc⁺-retract (`remark_4_2_2_dA_zero`, V4.32).",
    "decls": [
-    "Chapter4/ScPlusRetractQuestion · Question424.question_4_2_4_scPlus",
-    "Chapter4/ScPlusRetractQuestion · Question424.not_homeomorph_open",
-    "Chapter4/ScPlusRetractQuestion · Question424.tSet",
+    "Chapter9/ScPlusRetractQuestion · Question424.question_4_2_4_scPlus",
+    "Chapter9/ScPlusRetractQuestion · Question424.not_homeomorph_open",
+    "Chapter9/ScPlusRetractQuestion · Question424.tSet",
     "Chapter9/BoundaryPositionConverse · ScRetraction.IsScPlus.exists_flat"
    ],
    "nothing": true
@@ -2785,12 +2785,12 @@
    "book": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, proved in Appendix 4.5 (§§4.5.1–4.5.2, pp. 200–202). The preprint and 2017 texts state an sc-smooth vector field on $X^1$, a section of $T(X^1) \\to X^2$, quoted from another paper.",
    "instead": "**Formalized** (Springer 2021 additions; V4.74–V4.77), on an M-polyfold: $[A, B] : X^2 \\to TX$, the bracket of the principal parts in any chart, is sc-smooth and covers the inclusion $X^2 \\to X^1$ (`proposition_4_4_5`, V4.76), independently of the chart (V4.75), by Lemma 4.5.1, whose proof the text leaves to the reader and which is proved by the computation of §4.5.2 in a local model (V4.74) and on M-polyfolds for every sc-smooth map (V4.77); the local model is V4.67–V4.72 (gap G.38, closed). \"Section of $TX|X^2 \\to X^2$\" is proved as a map $X^2 \\to TX$ over the inclusion and as an sc-smooth section of the pull-back bundle, built as a sub-M-polyfold of $X^2 \\times TX$; Lemma 4.5.1 also holds for local sc-diffeomorphisms between open subsets (V4.76, V4.77; gap G.92, closed). The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157, 161, 162).",
    "decls": [
-    "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
-    "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
-    "Chapter4/VectorFieldsGlobal · lemma_4_5_1",
-    "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
-    "Chapter4/VectorFields · proposition_4_4_5_local",
-    "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+    "Chapter2/VectorFieldsGlobal · proposition_4_4_5",
+    "Chapter2/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+    "Chapter2/VectorFieldsGlobal · lemma_4_5_1",
+    "Chapter2/VectorFieldsGlobal · retractLieBracket_natural",
+    "Chapter2/VectorFields · proposition_4_4_5_local",
+    "Chapter2/VectorFields · retractLieBracket_mem_tangent"
    ],
    "formalized": [
     "V4.74",
@@ -2860,9 +2860,9 @@
     "Chapter4/ManifoldFaceForms · exists_extension",
     "Chapter4/ManifoldFaceForms · ChartFaceForm.integral_d_eq_zero",
     "Chapter4/ManifoldFaceForms · ManifoldForm.extDeriv_extDeriv",
-    "Chapter9/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
+    "Chapter6/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
     "Chapter9/StokesFaceSum · MPolyfold.theorem_4_4_7_hyp",
-    "Chapter4/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
+    "Chapter6/StokesFaceCharts · MPolyfold.hasCornerStructureOfDim_face",
     "Chapter4/StokesFaceOrientation · inducedOrientation",
     "Chapter4/StokesFaceOrientation · FaceChartPair.chartChangeDeriv_face",
     "Chapter4/StokesFaceIntegral · sum_integral_restrictForm_eq_boundaryIntegral",
@@ -2893,11 +2893,11 @@
     "Chapter4/ManifoldStokes · ManifoldForm.stokes_of_compactSpace",
     "Chapter4/ScFormsPullback · BundledMPolyfold.formsInftyPullback",
     "Chapter4/BoundaryForms · MPolyfold.relDeRham",
-    "Chapter9/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
-    "Chapter9/MathlibFormsBridge · MPolyfold.extDeriv_formsInftyRestrict",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm_jStar_integral",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm_d",
+    "Chapter6/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
+    "Chapter6/MathlibFormsBridge · MPolyfold.extDeriv_formsInftyRestrict",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm_jStar_integral",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm_d",
     "Chapter6/InvariantProductEndCharts · MPolyfold.isEndPullback_formsInftyRestrict_snd",
     "Chapter4/ScFormsWedge · MPolyfold.formWedge",
     "Chapter4/ScFormsWedge · MPolyfold.extD_formWedge",
@@ -2906,16 +2906,16 @@
     "Chapter4/ScFormsWedgeAssociativity · BundledMPolyfold.formsInftyGAlgebra",
     "Chapter4/ScFormsWedgeAssociativity · BundledMPolyfold.formsInftyGradedD_of_mul_of",
     "Chapter4/ScFormsWedgeAssociativity · BundledMPolyfold.formsInftyGraded_of_mul_of_comm",
-    "Chapter4/OpenForms · BundledMPolyfold.formsInftyResOpen",
-    "Chapter4/OpenForms · BundledMPolyfold.FormsInftyEqOn",
-    "Chapter4/Poincare · lemma_4_4_8",
-    "Chapter4/Poincare · lemma_4_5_2",
-    "Chapter4/Poincare · hasPoincare_relOpen_of_zero_mem",
+    "Chapter5/OpenForms · BundledMPolyfold.formsInftyResOpen",
+    "Chapter5/OpenForms · BundledMPolyfold.FormsInftyEqOn",
+    "Chapter5/Poincare · lemma_4_4_8",
+    "Chapter5/Poincare · lemma_4_5_2",
+    "Chapter5/Poincare · hasPoincare_relOpen_of_zero_mem",
     "Chapter4/ParametricIntegrals · isScSmooth_intervalIntegral",
-    "Chapter4/Poincare448 · lemma_4_4_8_of_local",
-    "Chapter4/BoundaryFormsPullback · MPolyfold.faceAlongData",
-    "Chapter4/BoundaryFormsPullback · MPolyfold.faceAlongData_formsD",
-    "Chapter4/BoundaryFormsPullback · MPolyfold.isExtendedBy_faceAlongData_formsPullback",
+    "Chapter5/Poincare448 · lemma_4_4_8_of_local",
+    "Chapter6/BoundaryFormsPullback · MPolyfold.faceAlongData",
+    "Chapter6/BoundaryFormsPullback · MPolyfold.faceAlongData_formsD",
+    "Chapter6/BoundaryFormsPullback · MPolyfold.isExtendedBy_faceAlongData_formsPullback",
     "Chapter4/BoundaryFormsAgreement · MPolyfold.isFaceCompatible_extD",
     "Chapter4/RelativeWedge · MPolyfold.relWedge",
     "Chapter4/RelativeWedge · MPolyfold.relD_relWedge",
@@ -2951,11 +2951,11 @@
    "book": "(New in the 2021 edition.) Lemma 4.5.1: a local sc-diffeomorphism $\\varphi : X \\to X$ that relates two vector fields relates their brackets. Proposition 4.4.5: the bracket is an sc-smooth section of the pull-back $TX|X^2 \\to X^2$ of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$.",
    "instead": "**Formalized** (V4.76, V4.77). Lemma 4.5.1 holds for every sc-smooth map $f : X \\to Y$ (V4.77) and for maps between open subsets ($U, U'$ Part I's open sub-M-polyfolds, `lemma_4_5_1_open`, `lemma_4_5_1_open_ambient`; the bracket is local, `lieBracket_restrictOpen`), in particular for a local sc-diffeomorphism between open subsets of $X$. The pull-back bundle $TX|X^2 = \\{(x, \\alpha) \\in X^2 \\times TX \\mid p(\\alpha) = x\\}$ is a sub-M-polyfold of $X^2 \\times TX$ (`isSubMPolyfold_tangentPullback`), with sc-smooth projection to $X^2$ and fibres $T_xX$; $[A, B]$ is an sc-smooth section of it (`proposition_4_4_5_section`), and Lemma 4.5.1 holds for the sections with the bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`). The text gives $TX|X^2$ no structure; the sub-M-polyfold structure is used (Findings, Chapter 4, item 163).",
    "decls": [
-    "Chapter4/VectorFieldsGlobal · lemma_4_5_1",
-    "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
-    "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open",
-    "Chapter4/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
-    "Chapter4/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
+    "Chapter2/VectorFieldsGlobal · lemma_4_5_1",
+    "Chapter2/VectorFieldsGlobal · proposition_4_4_5",
+    "Chapter8/LieBracketOpenSubsets · lemma_4_5_1_open",
+    "Chapter8/LieBracketOpenSubsets · lemma_4_5_1_open_ambient",
+    "Chapter8/LieBracketOpenSubsets · MPolyfold.lieBracket_restrictOpen",
     "Chapter4/LieBracketBundle · MPolyfold.isSubMPolyfold_tangentPullback",
     "Chapter4/LieBracketBundle · proposition_4_4_5_section",
     "Chapter4/LieBracketBundle · lemma_4_5_1_section"

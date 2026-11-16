@@ -1,6 +1,6 @@
 import Polyfold.Chapter15.RegularPerturbations
 import Polyfold.Chapter9.StokesTextHypotheses
-import Polyfold.Chapter8.EpFormsFunctor
+import Polyfold.Chapter10.EpFormsFunctor
 import Polyfold.Chapter9.StokesDimOne
 
 /-!

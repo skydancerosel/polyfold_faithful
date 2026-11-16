@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.CanonicalOrientationStokes
-import Polyfold.Chapter3.IndexAlongPathsLocalBump
+import Polyfold.Chapter5.IndexAlongPathsLocalBump
 import Polyfold.Chapter6.OrientationBundle
 
 /-!

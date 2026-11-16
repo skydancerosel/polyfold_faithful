@@ -1,5 +1,5 @@
 import Polyfold.Chapter7.LocalDiffeo
-import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter6.Discrete
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,

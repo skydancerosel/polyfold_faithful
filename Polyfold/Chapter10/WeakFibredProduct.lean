@@ -112,23 +112,6 @@ section Helpers
 variable {M : Type*} [TopologicalSpace M] [T2Space M] [ParacompactSpace M] {PM : MPolyfold M}
   {N : Type*} [TopologicalSpace N] [T2Space N] [ParacompactSpace N] {PN : MPolyfold N}
 
-/-- A map into a sub-M-polyfold `A ⊆ N` which is sc-smooth into `N` is sc-smooth into `A` (near
-`x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f`; a copy of a private lemma of `Chapter7/SubGroupoid.lean`). -/
-private theorem isScSmoothOn_subPolyfold_of_val {A : Set N} (hA : PN.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : M → A} {U : Set M}
-    (hf : PM.IsScSmoothOn PN (fun x => (f x : N)) U) :
-    PM.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : N)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 /-- **A continuous lift of local sc-diffeomorphisms is one**: if `p₂ ∘ f = g ∘ p₁` with `p₁`,
 `p₂`, `g` local sc-diffeomorphisms and `f` continuous, then `f` is a local sc-diffeomorphism
 (near `x`, `f = (p₂|)⁻¹ ∘ g ∘ p₁`; the commutative diagrams of the proof of Theorem 10.2.2). -/
@@ -781,12 +764,12 @@ theorem isScSmoothMap_PB_snd : (PB G).IsScSmoothMap Z.PMor fun b : morRight G =>
 theorem isScSmoothOn_PA_of {f : M → objRight G} (h₁ : PM.IsScSmoothOn Y.PMor (fun p => (f p).1.1) U)
     (h₂ : PM.IsScSmoothOn Z.PObj (fun p => (f p).1.2) U) : PM.IsScSmoothOn (PA G) f U := by
   let _ := MPolyfold.paracompactSpace_prod Y.PMor Z.PObj
-  exact isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk h₁ h₂)
+  exact MPolyfold.isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk h₁ h₂)
 
 theorem isScSmoothOn_PB_of {f : M → morRight G} (h₁ : PM.IsScSmoothOn Y.PMor (fun p => (f p).1.1) U)
     (h₂ : PM.IsScSmoothOn Z.PMor (fun p => (f p).1.2) U) : PM.IsScSmoothOn (PB G) f U := by
   let _ := MPolyfold.paracompactSpace_prod Y.PMor Z.PMor
-  exact isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk h₁ h₂)
+  exact MPolyfold.isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk h₁ h₂)
 
 /-- `(ϕ, z) ↦ z` is a local sc-diffeomorphism `𝐘 ₜ×_G Z → Z` (`t` is one). -/
 theorem isLocalScDiffeo_PA_snd : (PA G).IsLocalScDiffeo Z.PObj fun a : objRight G => a.1.2 := by
@@ -898,7 +881,7 @@ theorem isScSmoothOn_obj_of {f : M → Obj F G} (hx : PM.IsScSmoothOn X.PObj (fu
     (hφ : PM.IsScSmoothOn Y.PMor (fun p => (f p).φ) U)
     (hz : PM.IsScSmoothOn Z.PObj (fun p => (f p).z) U) : PM.IsScSmoothOn (PObj F G h) f U := by
   let _ := MPolyfold.paracompactSpace_prod X.PObj (PA G)
-  exact isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk hx
+  exact MPolyfold.isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk hx
     (isScSmoothOn_PA_of (f := fun p => (f p).1.2) hφ hz))
 
 /-- A map into the morphisms is sc-smooth if its three entries are. -/
@@ -906,7 +889,7 @@ theorem isScSmoothOn_mor_of {f : M → Mor F G} (hh : PM.IsScSmoothOn X.PMor (fu
     (hφ : PM.IsScSmoothOn Y.PMor (fun p => (f p).φ) U)
     (hk : PM.IsScSmoothOn Z.PMor (fun p => (f p).k) U) : PM.IsScSmoothOn (PMor F G h) f U := by
   let _ := MPolyfold.paracompactSpace_prod X.PMor (PB G)
-  exact isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk hh
+  exact MPolyfold.isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk hh
     (isScSmoothOn_PB_of (f := fun p => (f p).1.2) hφ hk))
 
 /-- `(h, ϕ, k) ↦ G(k) ∘ ϕ ∘ F(h)⁻¹` is sc-smooth. -/

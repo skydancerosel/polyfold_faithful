@@ -1,4 +1,4 @@
-import Polyfold.Chapter4.VectorFieldsGlobal
+import Polyfold.Chapter2.VectorFieldsGlobal
 import Polyfold.Chapter2.FibredProduct
 import Polyfold.Chapter2.StrongBundlePullback
 
@@ -408,42 +408,6 @@ universe v w
 variable {Z : Type w} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {S : MPolyfold Z}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-omit [T2Space X] [ParacompactSpace X] in
-/-- Sc-smoothness on an open set is local (as `IsScSmoothOn.of_locally` of `Chapter7/Discrete`). -/
-private theorem isScSmoothOn_of_locally {f : Z → Y} {U : Set Z} (hU : IsOpen U)
-    (h : ∀ x ∈ U, ∃ U' : Set Z, IsOpen U' ∧ x ∈ U' ∧ U' ⊆ U ∧ S.IsScSmoothOn Q f U') :
-    S.IsScSmoothOn Q f U := by
-  have hcont : ContinuousOn f U := fun x hx => by
-    obtain ⟨U', hU', hxU', -, hf⟩ := h x hx
-    exact (hf.continuousOn.continuousAt (hU'.mem_nhds hxU')).continuousWithinAt
-  refine IsScSmoothOn.of_exists_charts hU hcont fun x hx => ?_
-  obtain ⟨U', hU', hxU', hU'U, hf⟩ := h x hx
-  obtain ⟨φ, hφ, hxφ⟩ := S.exists_isChart_mem_source x
-  obtain ⟨ψ, hψ, hfx⟩ := Q.exists_isChart_mem_source (f x)
-  have hVo : IsOpen ((U' ∩ φ.source) ∩ f ⁻¹' ψ.source) :=
-    (hf.continuousOn.mono inter_subset_left).isOpen_inter_preimage
-      (hU'.inter φ.isOpen_source) ψ.isOpen_source
-  exact ⟨φ, ψ, _, hφ, hψ, hVo, ⟨⟨hxU', hxφ⟩, hfx⟩, fun y hy => ⟨hU'U hy.1.1, hy.1.2⟩,
-    fun y hy => hy.2, hf.smooth φ ψ hφ hψ _ hVo (fun y hy => hy.1) fun y hy => hy.2⟩
-
-omit [T2Space X] [ParacompactSpace X] in
-/-- A map into a sub-M-polyfold is sc-smooth into it if it is sc-smooth into the ambient
-M-polyfold (Proposition 2.3.19 (2), as `isScSmoothOn_subPolyfold_of_val` of `Chapter9`). -/
-private theorem isScSmoothOn_subPolyfold_of_val' {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : Z → A} {U : Set Z}
-    (hf : S.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    S.IsScSmoothOn (subPolyfold hA) f U := by
-  refine isScSmoothOn_of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (IsScSmoothOn.comp (subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 /-- **Maps into `TX|X²`**: `z ↦ (g(z), s(z))` with `g : Z → X²`, `s : Z → TX` sc-smooth and
 `p ∘ s = g` is sc-smooth into `TX|X²`. -/
 theorem isScSmoothMap_tangentPullback_mk {g : Z → P.shift.Level 1} {s : Z → P.TangentSpace}
@@ -451,7 +415,7 @@ theorem isScSmoothMap_tangentPullback_mk {g : Z → P.shift.Level 1} {s : Z → 
     (hgs : ∀ z, P.tangentProj (s z) = P.shift.levelVal 1 (g z)) :
     S.IsScSmoothMap P.tangentPullbackPolyfold
       (fun z => (⟨(g z, s z), hgs z⟩ : P.tangentPullback)) :=
-  isScSmoothOn_subPolyfold_of_val' isSubMPolyfold_tangentPullback (IsScSmoothOn.prodMk hg hs)
+  MPolyfold.isScSmoothOn_subPolyfold_of_val isSubMPolyfold_tangentPullback (IsScSmoothOn.prodMk hg hs)
 
 end IntoPullback
 

@@ -191,23 +191,6 @@ section SubPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type u} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-/-- A map into a sub-M-polyfold `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
-`Y` (Proposition 2.3.19 (preprint 2.21) (2): near `f(x)`, `f = (i⁻¹ ∘ r) ∘ i ∘ f`). -/
-private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : X → A} {U : Set X}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    P.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 end SubPolyfold
 
 /-! ### Covering functors: unique lifts -/
@@ -820,7 +803,7 @@ theorem geometricLiftFunctor_isScDiffeo_fibredMap (hf : IsCoveringFunctor f) :
   let _ := ((geometricLiftTarget L).PMor.prod (geometricLiftSource L).PObj).paracompactSpace_subtype
     (MPolyfold.fibredProduct (geometricLiftTarget L).src (geometricLiftFunctor L).obj)
   refine ⟨fun p => L.fibredInv hf p.1, ?_, ?_, mapsTo_univ _ _, mapsTo_univ _ _, ?_, ?_⟩
-  · exact isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk
+  · exact MPolyfold.isScSmoothOn_subPolyfold_of_val _ (MPolyfold.IsScSmoothOn.prodMk
       (geometricLiftFunctor L).isScSmoothMap_mor (geometricLiftSource L).isScSmoothMap_src)
   · exact (L.isScSmoothMap_fibredInv hf).comp (MPolyfold.subPolyfold_inclusion_isScSmooth _)
   · rintro ⟨⟨a, b, ψ⟩, z⟩ -

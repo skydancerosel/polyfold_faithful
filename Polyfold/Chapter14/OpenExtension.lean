@@ -1,5 +1,6 @@
 import Polyfold.Chapter14.LocalExtension
 import Polyfold.Chapter10.StrongBundleEquivalenceExamples
+import Polyfold.Chapter13.Commensurable
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.1, p. 642:
@@ -14,7 +15,8 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.
 
 ## What is formalized
 
-* `IsScPlusSectionOn.of_locally'`: sc⁺ on an open set is a local property.
+* `IsScPlusSectionOn.of_locally` (`Chapter13/Commensurable.lean`): sc⁺ on an open set is a local
+  property.
 * `exists_scSmooth_cutoff`: for a closed `K` inside an open `O` an sc-smooth `χ : X → [0, 1]`
   with `χ = 1` on `K` and `supp χ ⊆ O` (a two-set partition of unity).
 * `exists_scPlusSectionOn_extension_of_face`: for `s` face-wise sc⁺ on `V ∩ ∂X` there is an
@@ -46,27 +48,6 @@ namespace SBLocalization
 open StrongBundle EpGroupoid
 
 variable {A : SEP.{u}}
-
-/-- **Sc⁺ on an open set is local.** -/
-theorem IsScPlusSectionOn.of_locally' {s : A.Obj → A.W} {U : Set A.Obj} (hU : IsOpen U)
-    (h : ∀ y ∈ U, ∃ U' : Set A.Obj, IsOpen U' ∧ y ∈ U' ∧ U' ⊆ U ∧ IsScPlusSectionOn A s U') :
-    IsScPlusSectionOn A s U := by
-  classical
-  choose U' hU' hyU' hU'U hs using h
-  have hmem : ∀ y (hy : y ∈ U), s y ∈ A.B.oneSet := fun y hy =>
-    (hs y hy).mem_oneSet (hyU' y hy)
-  have h0 : ∀ y, fiberZero A.P y ∈ A.B.oneSet := fun y =>
-    (StrongBundle.isScPlusSection_fiberZero (B := A.B)).mem_oneSet y
-  set G : A.Obj → A.B.One := fun y =>
-    if hy : s y ∈ A.B.oneSet then A.B.oneMk (s y) hy else A.B.oneMk _ (h0 y) with hGdef
-  have hG : ∀ y (hy : y ∈ U), A.B.oneVal (G y) = s y := fun y hy => by
-    simp only [hGdef, dif_pos (hmem y hy), oneVal_oneMk]
-  refine ⟨fun y hy => (hs y hy).1 y (hyU' y hy), G, hG, ?_⟩
-  refine MPolyfold.IsScSmoothOn.of_locally hU fun y hy => ?_
-  obtain ⟨-, G', hG', hG's⟩ := hs y hy
-  refine ⟨U' y hy, hU' y hy, hyU' y hy, hU'U y hy, hG's.congr fun z hz => ?_⟩
-  apply A.B.oneVal_injective
-  rw [hG' z hz, hG z (hU'U y hy hz)]
 
 /-- **Sc-smooth cut-offs**: for a closed `K` inside an open `O` there is an sc-smooth
 `χ : X → [0, 1]` with `χ = 1` on `K` and `supp χ ⊆ O` (from a partition of unity for the cover
@@ -185,7 +166,7 @@ theorem exists_scPlusSectionOn_extension_of_face
       by_contra hmn
       apply hn
       simp only [hw0 m n (by omega) y hy, zero_smul]
-  refine ⟨τ, IsScPlusSectionOn.of_locally' hV fun y hy => ?_, fun y hy => ?_⟩
+  refine ⟨τ, IsScPlusSectionOn.of_locally hV fun y hy => ?_, fun y hy => ?_⟩
   · obtain ⟨m, hm⟩ := hVG y hy
     have hsum : A.B.IsScPlusSection
         (sectionSum A.P (Finset.range (m + 1)) fun n => sectionSmul A.P (w n) (σ n)) :=

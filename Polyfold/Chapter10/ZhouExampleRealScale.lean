@@ -1,4 +1,4 @@
-import Polyfold.Chapter7.ZhouSigma
+import Polyfold.Chapter8.ZhouSigma
 import Polyfold.Chapter10.ZhouExample
 
 set_option maxSynthPendingDepth 3

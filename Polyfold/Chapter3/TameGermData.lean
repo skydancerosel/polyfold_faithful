@@ -1,6 +1,6 @@
 import Polyfold.Chapter3.TameVacuityChart
 import Polyfold.Chapter3.NonVacuityCorner
-import Polyfold.Chapter3.NonVacuityG
+import Polyfold.Chapter3.TameGermsG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.1.4 (preprint 3.4),

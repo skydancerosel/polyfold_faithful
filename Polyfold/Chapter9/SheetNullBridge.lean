@@ -1,6 +1,7 @@
 import Polyfold.Chapter9.SheetEssential
-import Polyfold.Chapter9.MathlibFormsBridge
+import Polyfold.Chapter6.MathlibFormsBridge
 import Polyfold.Chapter4.SubmanifoldNearInterior
+import Polyfold.Chapter9.MathlibManifoldBridge
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

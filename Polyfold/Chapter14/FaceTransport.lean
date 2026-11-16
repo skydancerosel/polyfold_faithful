@@ -1,5 +1,5 @@
 import Polyfold.Chapter14.BoundaryPush
-import Polyfold.Chapter3.FredholmPullbackIso
+import Polyfold.Chapter5.FredholmPullbackIso
 import Polyfold.Chapter3.RestrictOpenGerms
 import Polyfold.Chapter10.FredholmEquivalence
 

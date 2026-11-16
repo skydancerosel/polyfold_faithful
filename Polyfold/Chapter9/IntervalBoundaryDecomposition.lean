@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.BoundaryEndFaces
-import Polyfold.Chapter4.SubmanifoldNearBoundary
+import Polyfold.Chapter9.SubmanifoldNearBoundary
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6–6.7, pp. 275–278:

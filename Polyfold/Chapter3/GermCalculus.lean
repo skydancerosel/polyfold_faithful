@@ -2,7 +2,7 @@ import Polyfold.Chapter3.GermFilling
 import Polyfold.Chapter3.GermLevels
 import Polyfold.Chapter2.StrongBundle
 import Polyfold.Chapter2.TangentBundle
-import Polyfold.Chapter1.LevelsWeak
+import Polyfold.Chapter2.LevelsWeak
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,

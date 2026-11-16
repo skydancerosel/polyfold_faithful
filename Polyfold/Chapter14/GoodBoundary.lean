@@ -1,6 +1,6 @@
 import Polyfold.Chapter13.SymmetricOn
 import Polyfold.Chapter7.TameBoundaryEp
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.1, pp. 638–642:

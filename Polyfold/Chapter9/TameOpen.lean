@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.IntegralCovering
-import Polyfold.Chapter9.SolutionFaceForms
+import Polyfold.Chapter6.SolutionFaceForms
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter9.OrientationExample
 import Polyfold.Chapter9.BoundaryPosition

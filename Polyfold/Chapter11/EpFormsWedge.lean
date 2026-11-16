@@ -1,4 +1,4 @@
-import Polyfold.Chapter8.EpFormsObj
+import Polyfold.Chapter9.EpFormsObj
 import Polyfold.Chapter4.ScFormsWedgeAssociativity
 
 /-!

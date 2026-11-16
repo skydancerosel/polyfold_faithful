@@ -70,7 +70,7 @@ theorem fibAct_comp_inv {φ ψ : A.Mor} {w : A.W} (hw : A.P w = A.X.src ψ)
     fibAct (A.X.comp φ (A.X.inv ψ)) (fibAct ψ w) = fibAct φ w := by
   have hv : A.P (fibAct ψ w) = A.X.src (A.X.inv ψ) := by
     rw [P_fibAct hw, A.X.src_inv]
-  rw [AtomicStructData.fibAct_comp hv (by rw [A.X.tgt_inv, h]),
+  rw [SBLocalization.fibAct_comp hv (by rw [A.X.tgt_inv, h]),
     AtomicStructData.fibAct_inv_fibAct hw]
 
 /-! ### Local structures from the criterion's data -/
@@ -367,7 +367,7 @@ def crit (hσ : A.X.PObj.IsScSmoothMap realPolyfold σ)
     rcases i with a | x
     · have e := D.mult_eq hσt a.2 (φ := A.X.unit (A.P w)) (A.X.src_unit _)
         (by rw [A.X.tgt_unit]; exact hw)
-      rw [A.X.tgt_unit, AtomicStructData.fibAct_unit rfl] at e
+      rw [A.X.tgt_unit, SBLocalization.fibAct_unit rfl] at e
       exact e
     · rw [D.mult_of_not_mem_C (D.critV_inr_not_mem hw)]
       change _ = (Fintype.card PUnit.{u + 1} : ℚ≥0)⁻¹ *

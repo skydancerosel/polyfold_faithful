@@ -1,5 +1,5 @@
 import Polyfold.Chapter5.Book
-import Polyfold.Chapter8.StrongBundleMap
+import Polyfold.Chapter5.StrongBundleMap
 
 /-!
 # Remark 5.3.14: generalized compact homotopies up to isomorphism
@@ -12,7 +12,7 @@ part of the data.  This file formalizes that reading.
 ## What is formalized
 
 * `StrongBundle.IsProblemIso`: an isomorphism of sc-Fredholm problems `(f, P) ≅ (f', P')`, a strong
-  bundle isomorphism (`IsStrongBundleIso`, `Chapter8/StrongBundleMap.lean`) `Φ` covering `h` with
+  bundle isomorphism (`IsStrongBundleIso`, `Chapter5/StrongBundleMap.lean`) `Φ` covering `h` with
   `Φ ∘ f = f' ∘ h`.  It is reflexive, symmetric and transitive (`IsProblemIso.refl`, `symm`,
   `trans`), and it carries solution sets to solution sets (`IsProblemIso.image_solutionSet`), so it
   preserves their compactness (`IsProblemIso.isCompact_solutionSet_iff`).

@@ -1,6 +1,6 @@
 import Polyfold.Chapter9.ZeroFormValues
 import Polyfold.Chapter9.MathlibManifoldBridge
-import Polyfold.Chapter4.StokesFaceCharts
+import Polyfold.Chapter6.StokesFaceCharts
 import Polyfold.Chapter9.Boundary
 
 /-!

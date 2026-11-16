@@ -1,5 +1,5 @@
 import Polyfold.Chapter8.TangentEp
-import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter6.Discrete
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.1, p. 359

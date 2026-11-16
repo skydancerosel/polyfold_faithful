@@ -52,17 +52,6 @@ variable {A C : SEP.{u}}
 
 namespace PushChart
 
-theorem fibAct_comp {ψ χ : A.Mor} {v : A.W} (hv : A.P v = A.X.src χ)
-    (h : A.X.src ψ = A.X.tgt χ) : fibAct (A.X.comp ψ χ) v = fibAct ψ (fibAct χ v) := by
-  rw [fibAct_of (hv.trans (A.X.src_comp ψ χ h).symm), fibAct_of hv,
-    fibAct_of ((A.E.P_μ _).trans h.symm)]
-  exact A.E.μ_comp ψ χ v hv h
-
-theorem fibAct_unit {y : A.Obj} {v : A.W} (hv : A.P v = y) : fibAct (A.X.unit y) v = v := by
-  subst hv
-  rw [fibAct_of (A.X.src_unit _).symm]
-  exact A.E.μ_unit v
-
 theorem fibAct_inv_fibAct {ψ : A.Mor} {v : A.W} (hv : A.P v = A.X.src ψ) :
     fibAct (A.X.inv ψ) (fibAct ψ v) = v := by
   rw [← fibAct_comp hv (A.X.src_inv ψ), A.X.inv_comp, fibAct_unit hv]
@@ -317,9 +306,9 @@ def pushStructure {x : C.Obj} {y : A.Obj} {T : (SEP.Hom.ϕ F).TransportChart x y
     have hv1 : A.P ((SEP.Hom.Φ F).obj (S.s i (T.Qinv z))) =
         A.X.src ((SEP.Hom.ϕ F).mor (N.rep.Γ g (T.Qinv z))) := by
       rw [hv, h.src_ψ_Qinv hz, (SEP.Hom.ϕ F).src_mor, N.src_Γ g hu]
-    rw [e1, ← PushChart.fibAct_comp hv1
+    rw [e1, ← SBLocalization.fibAct_comp hv1
         (TransportChartLemmas.src_ψ_eq_tgt T N hu (h.Φ_mem_W z hz g)), ← h.Γ_comp_ψ g hz,
-      PushChart.fibAct_comp hv (by rw [N'.src_Γ _ hz, h.tgt_ψ_Qinv hz])]
+      SBLocalization.fibAct_comp hv (by rw [N'.src_Γ _ hz, h.tgt_ψ_Qinv hz])]
   rep w' hw' := by
     set z := A.P w' with hzdef
     have hu := h.Qinv_mem hw'

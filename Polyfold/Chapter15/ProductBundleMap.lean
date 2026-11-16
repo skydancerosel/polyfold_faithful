@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.ProductBundleLevels
-import Polyfold.Chapter8.StrongBundleMap
+import Polyfold.Chapter5.StrongBundleMap
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, products remark after

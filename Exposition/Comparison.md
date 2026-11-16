@@ -372,8 +372,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $U$ be an sc-domain in $E$ and $f$ $\mathrm{sc}^0$ on $U$. If for every $m \ge 0$ and $0 \le l \le k$ the map $f_m \circ \iota : U_{m+l} \to F_m$ is $C^{l+1}$ within $U_{m+l}$, then $f$ is $\mathrm{sc}^{k+1}$ on $U$; if this holds for every $l$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis that every level map $f_m : U_m \to F_m$ is $C^{k+1}$: $f$ is $\mathrm{sc}^{k+1}$; for $k = 0$, where the two hypotheses agree, with $Df(x)$ the derivative of $f : U_0 \to F_0$ at $x$; and if every $f_m$ is $C^\infty$, $f$ is sc-smooth.
 
-- `Polyfold.proposition_1_2_4_text` — Polyfold/Chapter1/LevelsWeak.lean, line 949
-- `Polyfold.IsScSmooth.of_contDiffOn_levels_text` — Polyfold/Chapter1/LevelsWeak.lean, line 973
+- `Polyfold.proposition_1_2_4_text` — Polyfold/Chapter2/LevelsWeak.lean, line 949
+- `Polyfold.IsScSmooth.of_contDiffOn_levels_text` — Polyfold/Chapter2/LevelsWeak.lean, line 973
 - `Polyfold.proposition_1_2_4_zero` — Polyfold/Chapter1/Properties.lean, line 165
 - `Polyfold.proposition_1_2_4` — Polyfold/Chapter1/Levels.lean, line 884
 - `Polyfold.IsScSmooth.of_contDiffOn_levels` — Polyfold/Chapter1/Levels.lean, line 943
@@ -391,8 +391,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $U$ be an sc-domain in $E$, $V$ a finite-dimensional normed space with its constant sc-structure and $f : E_0 \to V$. If for some $k$ and all $0 \le l \le k$ the map $f \circ \iota_l : U_l \to V$ is $C^{l+1}$ within $U_l$, then $f$ is $\mathrm{sc}^{k+1}$ on $U$. If $f \circ \iota_l$ is $C^{l+1}$ within $U_l$ for every $l$, then $f$ is sc-smooth; if $f$ is $C^\infty$ within $U$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis: if $f \circ \iota_m$ is $C^{k+1}$ within $U_m$ for every $m$, in particular if $f$ is $C^{k+1}$ within $U$, then $f$ is $\mathrm{sc}^{k+1}$; for $k = 0$ this is the text's hypothesis.
 
-- `Polyfold.corollary_1_2_5_text` — Polyfold/Chapter1/LevelsWeak.lean, line 984
-- `Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text` — Polyfold/Chapter1/LevelsWeak.lean, line 1005
+- `Polyfold.corollary_1_2_5_text` — Polyfold/Chapter2/LevelsWeak.lean, line 984
+- `Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text` — Polyfold/Chapter2/LevelsWeak.lean, line 1005
 - `Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional` — Polyfold/Chapter1/Levels.lean, line 954
 - `Polyfold.corollary_1_2_5_zero` — Polyfold/Chapter1/Properties.lean, line 233
 - `Polyfold.corollary_1_2_5` — Polyfold/Chapter1/Levels.lean, line 919
@@ -714,14 +714,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** A *derivative tower* of order $k + 1$ for $f : E_0 \to F_0$ on $U$ consists of base-level maps $\Phi_i(x)(h_1, \dots, h_i)$ with $\Phi_0 = f$ and, for $x \in U_{m+l}$, continuous $i$-linear maps $\Psi_{i,m,l}(x)$ on $E_{m+l}$ with values in $F_m$ ($i \le l + 1$, $i \le k + 1$) such that: $\Psi_{i,m,l}(x)(h)$ seen in $F_0$ is $\Phi_i$ at the images of $x$ and $h$ in $E_0$; $\Psi_{i,m,l}$ is continuous on $U_{m+l}$; and for $i \le l$, $i \le k$ it is differentiable within $U_{m+l}$ with derivative $\xi \mapsto \Psi_{i+1,m,l}(x)(\xi, \cdot)$. If $U$ is an sc-domain, $f$ is $\mathrm{sc}^0$ and $f : U_{m+l} \to F_m$ is $C^{l+1}$ within $U_{m+l}$ for all $m$ and $l \le k$, then the iterated derivatives within the level sets form a derivative tower of order $k + 1$. Two values of a tower with the same images in $E_0$ agree.
 
-- `Polyfold.IsDerivTower` — Polyfold/Chapter1/LevelsWeak.lean, line 322
-- `Polyfold.levelDerivTower` — Polyfold/Chapter1/LevelsWeak.lean, line 336
-- `Polyfold.baseDerivTower` — Polyfold/Chapter1/LevelsWeak.lean, line 342
-- `Polyfold.contDiffOn_levels_min` — Polyfold/Chapter1/LevelsWeak.lean, line 348
-- `Polyfold.levelDerivTower_toBase` — Polyfold/Chapter1/LevelsWeak.lean, line 368
-- `Polyfold.baseDerivTower_toBase` — Polyfold/Chapter1/LevelsWeak.lean, line 405
-- `Polyfold.isDerivTower_of_contDiffOn_levels` — Polyfold/Chapter1/LevelsWeak.lean, line 419
-- `Polyfold.IsDerivTower.eq_of_toBase` — Polyfold/Chapter1/LevelsWeak.lean, line 450
+- `Polyfold.IsDerivTower` — Polyfold/Chapter2/LevelsWeak.lean, line 322
+- `Polyfold.levelDerivTower` — Polyfold/Chapter2/LevelsWeak.lean, line 336
+- `Polyfold.baseDerivTower` — Polyfold/Chapter2/LevelsWeak.lean, line 342
+- `Polyfold.contDiffOn_levels_min` — Polyfold/Chapter2/LevelsWeak.lean, line 348
+- `Polyfold.levelDerivTower_toBase` — Polyfold/Chapter2/LevelsWeak.lean, line 368
+- `Polyfold.baseDerivTower_toBase` — Polyfold/Chapter2/LevelsWeak.lean, line 405
+- `Polyfold.isDerivTower_of_contDiffOn_levels` — Polyfold/Chapter2/LevelsWeak.lean, line 419
+- `Polyfold.IsDerivTower.eq_of_toBase` — Polyfold/Chapter2/LevelsWeak.lean, line 450
 
 *What differs.*
 - No counterpart as a statement. The tower records exactly what $(\mathrm S_k)$ uses of the hypothesis of Proposition 1.2.4 (preprint 1.19): $d^if(x)$ exists and is continuous on $E_{m+l}$ into $F_m$ for $i \le l + 1$, and is differentiable with derivative $d^{i+1}f(x)$ for $i \le l$.
@@ -735,34 +735,34 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** *Elementary data* on an sc-Banach space $X$: an sc-operator $\pi_0 : X \to E^p$ (the base point), sc-operators $\pi_a : X \to E^{n_a}$, $a = 1, \dots, i$ (the vectors), and a target shift $m$; the *elementary map* is $z \mapsto d^if(\pi_0 z)(\pi_1 z, \dots, \pi_i z) : X \to F^m$ on $\pi_0^{-1}(U_p)$, with $d^if$ from a derivative tower of order $k + 1$ (V1.37). Under the conditions $m + i \le p$, $m + i \le n_a + 1$ and $i \le k$: the elementary map is $\mathrm{sc}^0$; it is $\mathrm{sc}^1$, by the level criterion of Proposition 1.2.1 (preprint 1.16) (V1.15), with derivative $(\delta z) \mapsto d^{i+1}f(\pi_0 z)(\pi_0\delta z, \pi z) + \sum_a d^if(\pi_0 z)(\pi z \text{ with } \pi_a z := \pi_a\delta z)$; on $TX$ its tangent map is the pair of an elementary map of type $(p + 1, m + 1; n_a + 1)$ and the sum of an elementary map with $i + 1$ vectors and $i$ elementary maps with $i$ vectors, all satisfying the conditions (the one with $i + 1$ vectors provided $i + 1 \le k$). Hence, if the domain $\pi_0^{-1}(U_p)$ is an sc-domain and $i + s \le k + 1$, the elementary map is $\mathrm{sc}^s$. The shifts $E^p$ have $(E^p)_l = E_{p+l}$, with $E \cong E^0$ and $(E^p)^1 \cong E^{p+1}$.
 
-- `Polyfold.ElemData` — Polyfold/Chapter1/LevelsWeak.lean, line 467
-- `Polyfold.ElemData.Good` — Polyfold/Chapter1/LevelsWeak.lean, line 483
-- `Polyfold.ElemData.dom` — Polyfold/Chapter1/LevelsWeak.lean, line 489
-- `Polyfold.ElemData.map` — Polyfold/Chapter1/LevelsWeak.lean, line 492
-- `Polyfold.ElemData.map_toBase` — Polyfold/Chapter1/LevelsWeak.lean, line 532
-- `Polyfold.ElemData.levelMap_eq` — Polyfold/Chapter1/LevelsWeak.lean, line 552
-- `Polyfold.ElemData.isSc0` — Polyfold/Chapter1/LevelsWeak.lean, line 584
-- `Polyfold.ElemData.deriv` — Polyfold/Chapter1/LevelsWeak.lean, line 629
-- `Polyfold.ElemData.deriv_apply` — Polyfold/Chapter1/LevelsWeak.lean, line 641
-- `Polyfold.ElemData.hasFDerivWithinAt_level` — Polyfold/Chapter1/LevelsWeak.lean, line 679
-- `Polyfold.ElemData.continuousOn_deriv` — Polyfold/Chapter1/LevelsWeak.lean, line 719
-- `Polyfold.ElemData.isSc1Levels` — Polyfold/Chapter1/LevelsWeak.lean, line 740
-- `Polyfold.ElemData.isSc1With` — Polyfold/Chapter1/LevelsWeak.lean, line 746
-- `Polyfold.ElemData.shiftData` — Polyfold/Chapter1/LevelsWeak.lean, line 809
-- `Polyfold.ElemData.derivData` — Polyfold/Chapter1/LevelsWeak.lean, line 813
-- `Polyfold.ElemData.slotData` — Polyfold/Chapter1/LevelsWeak.lean, line 818
-- `Polyfold.ElemData.Good.shiftData` — Polyfold/Chapter1/LevelsWeak.lean, line 823
-- `Polyfold.ElemData.Good.derivData` — Polyfold/Chapter1/LevelsWeak.lean, line 828
-- `Polyfold.ElemData.Good.slotData` — Polyfold/Chapter1/LevelsWeak.lean, line 836
-- `Polyfold.ElemData.tangentSet_dom` — Polyfold/Chapter1/LevelsWeak.lean, line 845
-- `Polyfold.ElemData.tangentMap_eqOn` — Polyfold/Chapter1/LevelsWeak.lean, line 854
-- `Polyfold.ElemData.isSck` — Polyfold/Chapter1/LevelsWeak.lean, line 900
-- `Polyfold.ElemData.base` — Polyfold/Chapter1/LevelsWeak.lean, line 935
-- `Polyfold.ScBanach.shiftAdd` — Polyfold/Chapter1/LevelsWeak.lean, line 174
-- `Polyfold.ScBanach.shiftAddZeroIso` — Polyfold/Chapter1/LevelsWeak.lean, line 185
-- `Polyfold.ScBanach.shiftAddShiftIso` — Polyfold/Chapter1/LevelsWeak.lean, line 197
-- `Polyfold.ScOperator.tangentX` — Polyfold/Chapter1/LevelsWeak.lean, line 774
-- `Polyfold.ScOperator.tangentH` — Polyfold/Chapter1/LevelsWeak.lean, line 779
+- `Polyfold.ElemData` — Polyfold/Chapter2/LevelsWeak.lean, line 467
+- `Polyfold.ElemData.Good` — Polyfold/Chapter2/LevelsWeak.lean, line 483
+- `Polyfold.ElemData.dom` — Polyfold/Chapter2/LevelsWeak.lean, line 489
+- `Polyfold.ElemData.map` — Polyfold/Chapter2/LevelsWeak.lean, line 492
+- `Polyfold.ElemData.map_toBase` — Polyfold/Chapter2/LevelsWeak.lean, line 532
+- `Polyfold.ElemData.levelMap_eq` — Polyfold/Chapter2/LevelsWeak.lean, line 552
+- `Polyfold.ElemData.isSc0` — Polyfold/Chapter2/LevelsWeak.lean, line 584
+- `Polyfold.ElemData.deriv` — Polyfold/Chapter2/LevelsWeak.lean, line 629
+- `Polyfold.ElemData.deriv_apply` — Polyfold/Chapter2/LevelsWeak.lean, line 641
+- `Polyfold.ElemData.hasFDerivWithinAt_level` — Polyfold/Chapter2/LevelsWeak.lean, line 679
+- `Polyfold.ElemData.continuousOn_deriv` — Polyfold/Chapter2/LevelsWeak.lean, line 719
+- `Polyfold.ElemData.isSc1Levels` — Polyfold/Chapter2/LevelsWeak.lean, line 740
+- `Polyfold.ElemData.isSc1With` — Polyfold/Chapter2/LevelsWeak.lean, line 746
+- `Polyfold.ElemData.shiftData` — Polyfold/Chapter2/LevelsWeak.lean, line 809
+- `Polyfold.ElemData.derivData` — Polyfold/Chapter2/LevelsWeak.lean, line 813
+- `Polyfold.ElemData.slotData` — Polyfold/Chapter2/LevelsWeak.lean, line 818
+- `Polyfold.ElemData.Good.shiftData` — Polyfold/Chapter2/LevelsWeak.lean, line 823
+- `Polyfold.ElemData.Good.derivData` — Polyfold/Chapter2/LevelsWeak.lean, line 828
+- `Polyfold.ElemData.Good.slotData` — Polyfold/Chapter2/LevelsWeak.lean, line 836
+- `Polyfold.ElemData.tangentSet_dom` — Polyfold/Chapter2/LevelsWeak.lean, line 845
+- `Polyfold.ElemData.tangentMap_eqOn` — Polyfold/Chapter2/LevelsWeak.lean, line 854
+- `Polyfold.ElemData.isSck` — Polyfold/Chapter2/LevelsWeak.lean, line 900
+- `Polyfold.ElemData.base` — Polyfold/Chapter2/LevelsWeak.lean, line 935
+- `Polyfold.ScBanach.shiftAdd` — Polyfold/Chapter2/LevelsWeak.lean, line 174
+- `Polyfold.ScBanach.shiftAddZeroIso` — Polyfold/Chapter2/LevelsWeak.lean, line 185
+- `Polyfold.ScBanach.shiftAddShiftIso` — Polyfold/Chapter2/LevelsWeak.lean, line 197
+- `Polyfold.ScOperator.tangentX` — Polyfold/Chapter2/LevelsWeak.lean, line 774
+- `Polyfold.ScOperator.tangentH` — Polyfold/Chapter2/LevelsWeak.lean, line 779
 
 *What differs.*
 - The 2010 paper's $(\mathrm S_k)$ describes the components of $T^{k+1}f$; the formal induction runs instead on $s$, over all elementary maps on all sc-Banach spaces $X$ at once: an elementary map is $\mathrm{sc}^{s+1}$ because it is $\mathrm{sc}^1$ and its tangent map is the pair of an elementary map and a sum of elementary maps, all $\mathrm{sc}^s$ by the induction hypothesis. Proposition 1.2.4 (preprint 1.19) (V1.18) is the case $i = 0$, $p = m = 0$, $X = E$. The text's $\Gamma$ is the case $X = E^{k+1} \oplus E^{n_1} \oplus \cdots \oplus E^{n_j}$ with the projections as $\pi_0, \pi_1, \dots, \pi_j$.
@@ -778,10 +778,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** On an sc-domain, the constant map $0$ is $\mathrm{sc}^k$, the sum of two $\mathrm{sc}^k$ maps is $\mathrm{sc}^k$ and so is any finite sum. The evaluation $(A, h) \mapsto A(h_1, \dots, h_n)$ of continuous multilinear maps is differentiable at every $(A, h)$ with derivative $(B, \eta) \mapsto B(h) + \sum_a A(h \text{ with } h_a := \eta_a)$.
 
 - `Polyfold.IsSck.scPair` — Polyfold/Chapter2/StrongBundle.lean, line 156
-- `Polyfold.IsSck.zero` — Polyfold/Chapter1/LevelsWeak.lean, line 244
-- `Polyfold.IsSck.add` — Polyfold/Chapter1/LevelsWeak.lean, line 248
-- `Polyfold.IsSck.sum` — Polyfold/Chapter1/LevelsWeak.lean, line 254
-- `Polyfold.hasFDerivAt_cmm_eval` — Polyfold/Chapter1/LevelsWeak.lean, line 279
+- `Polyfold.IsSck.zero` — Polyfold/Chapter2/LevelsWeak.lean, line 244
+- `Polyfold.IsSck.add` — Polyfold/Chapter2/LevelsWeak.lean, line 248
+- `Polyfold.IsSck.sum` — Polyfold/Chapter2/LevelsWeak.lean, line 254
+- `Polyfold.hasFDerivAt_cmm_eval` — Polyfold/Chapter2/LevelsWeak.lean, line 279
 
 *What differs.*
 - The sum $g_1 + g_2$ is the composite of the pairing $(g_1, g_2)$, which is $\mathrm{sc}^k$ (one direction of the exposition's Lemma 3.G(3), proved in the Chapter 2 files), with the sc-operator $(y_1, y_2) \mapsto y_1 + y_2$, which is sc-smooth, so the chain rule (V1.20) applies. Scalar multiples, the rest of "linear combinations", are not needed.
@@ -1147,8 +1147,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.levelSet_succ_subset` — Polyfold/Chapter2/MPolyfold.lean, line 469
 - `Polyfold.MPolyfold.smoothSet` — Polyfold/Chapter2/MPolyfold.lean, line 477
 - `Polyfold.MPolyfold.levelTopology` — Polyfold/Chapter2/MPolyfold.lean, line 502
-- `Polyfold.MPolyfold.Level` — Polyfold/Chapter2/LevelPolyfold.lean, line 265
-- `Polyfold.MPolyfold.continuous_levelVal` — Polyfold/Chapter2/LevelPolyfold.lean, line 294
+- `Polyfold.MPolyfold.Level` — Polyfold/Chapter2/LevelPolyfold.lean, line 283
+- `Polyfold.MPolyfold.continuous_levelVal` — Polyfold/Chapter2/LevelPolyfold.lean, line 312
 - `Polyfold.MPolyfold.isEmbedding_levelLift` — Polyfold/Chapter2/Metrizable.lean, line 449
 
 *What differs.*
@@ -1177,25 +1177,25 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For every $m$, the identity of points is a homeomorphism $(X^1)_m \cong X_{m+1}$, and the level-$m$ lift of the level chart $\varphi^1$ is the level-$(m+1)$ lift of $\varphi$, so each iterate $(X^1)^1 \cdots$ is $X_m$ with its topology and charts (V2.93). For $m = 1$: a retraction $r$ on $U$ restricts to an sc-smooth retraction of $U^1 \subseteq C^1 \subseteq E^1$ with retract $O^1$, and an sc-smooth map between retracts induces an sc-smooth map $O^1 \to O'^1$. For every chart $\varphi$ of $X$, $(V_1, \varphi, (O^1, C^1, E^1))$ is a chart of $X_1$; any two are compatible; they form an atlas, and with it $X_1$ is an M-polyfold $X^1$ (its paracompactness is Theorem 2.3.10 (preprint 2.16), V2.17).
 
-- `Polyfold.MPolyfold.levelLift_transition` — Polyfold/Chapter2/TangentLift.lean, line 799
-- `Polyfold.MPolyfold.levelLift_levelChart` — Polyfold/Chapter2/TangentLift.lean, line 808
-- `Polyfold.MPolyfold.shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 822
-- `Polyfold.MPolyfold.shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 828
-- `Polyfold.MPolyfold.continuous_shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 834
-- `Polyfold.MPolyfold.continuous_shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 854
-- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 926
-- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 938
+- `Polyfold.MPolyfold.levelLift_transition` — Polyfold/Chapter2/TangentLift.lean, line 800
+- `Polyfold.MPolyfold.levelLift_levelChart` — Polyfold/Chapter2/TangentLift.lean, line 809
+- `Polyfold.MPolyfold.shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 823
+- `Polyfold.MPolyfold.shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 829
+- `Polyfold.MPolyfold.continuous_shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 835
+- `Polyfold.MPolyfold.continuous_shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 855
+- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 927
+- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 939
 - `Polyfold.ScRetraction.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 93
 - `Polyfold.ScRetraction.shift_retract` — Polyfold/Chapter2/LevelPolyfold.lean, line 112
 - `Polyfold.IsScRetract.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 125
 - `Polyfold.LocalModel.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 131
 - `Polyfold.IsScSmoothRetractMap.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 162
-- `Polyfold.MPolyfold.levelChart` — Polyfold/Chapter2/LevelPolyfold.lean, line 347
-- `Polyfold.MPolyfold.levelChart_compatible` — Polyfold/Chapter2/LevelPolyfold.lean, line 469
-- `Polyfold.MPolyfold.levelAtlas` — Polyfold/Chapter2/LevelPolyfold.lean, line 490
-- `Polyfold.MPolyfold.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 503
-- `Polyfold.MPolyfold.shift_isChart` — Polyfold/Chapter2/LevelPolyfold.lean, line 506
-- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 305
+- `Polyfold.MPolyfold.levelChart` — Polyfold/Chapter2/LevelPolyfold.lean, line 365
+- `Polyfold.MPolyfold.levelChart_compatible` — Polyfold/Chapter2/LevelPolyfold.lean, line 487
+- `Polyfold.MPolyfold.levelAtlas` — Polyfold/Chapter2/LevelPolyfold.lean, line 508
+- `Polyfold.MPolyfold.shift` — Polyfold/Chapter2/LevelPolyfold.lean, line 521
+- `Polyfold.MPolyfold.shift_isChart` — Polyfold/Chapter2/LevelPolyfold.lean, line 524
+- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter2/StrongBundleLevelOne.lean, line 29
 
 *What differs.*
 - Proved in full in V2.93; the narrower form is also proved here (`MPolyfold.shift`, $m = 1$).
@@ -1574,8 +1574,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.eventually_add_smul_mem_lvlSet` — Polyfold/Chapter2/DegeneracyIndex.lean, line 227
 - `Polyfold.eventually_add_smul_mem_lvlSet_of_cone` — Polyfold/Chapter2/Boundary.lean, line 197
 - `Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace` — Polyfold/Chapter2/TameRetracts.lean, line 127
-- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter2/TangentConePaths.lean, line 269
-- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter2/TangentConePaths.lean, line 311
+- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter5/TangentConePaths.lean, line 269
+- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter5/TangentConePaths.lean, line 311
 
 *What differs.*
 - Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized from these sign arguments (V2.109; G.10, closed: `lemma_2_4_9_reduced`, `lemma_2_4_9_cone`). Its derivative-level content, which is all Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, is formalized directly, for sc¹ maps and level-$1$ points.
@@ -2389,7 +2389,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.lemma_2_2_2` — Polyfold/Chapter2/LocalTopology.lean, line 967
 - `Polyfold.definition_2_2_3` — Polyfold/Chapter2/LocalTopology.lean, line 1001
 - `Polyfold.theorem_2_2_4` — Polyfold/Chapter2/LocalTopology.lean, line 1021
-- `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 107
+- `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter2/LocConnected.lean, line 107
 
 *What differs.*
 - Theorem 2.2.4 is proved for Chapter 7 by joining nearby points along $\tau \mapsto r(o + \tau(p - o))$, not through Lemma 2.2.2 and components.
@@ -2449,7 +2449,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.isLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 742
 - `Polyfold.proposition_2_3_6` — Polyfold/Chapter2/LocalTopology.lean, line 756
 - `Polyfold.proposition_2_3_7` — Polyfold/Chapter2/LocalTopology.lean, line 764
-- `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 168
+- `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter2/LocConnected.lean, line 168
 
 *What differs.*
 - Proposition 2.3.6 is derived from Proposition 2.1.8 for the cover by chart domains; Proposition 2.3.7 is proved for Chapter 7.
@@ -2462,15 +2462,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `definition_2_5_19_book`: for a sub-M-polyfold $Y$, condition (3) is stated in $T_yX$. $T_yY$ is the image of $Ti : T_yY \to T_yX$ (`subTangentRange`), $T^R_yX$ is the reduced tangent space of Definition 2.5.8, and $T_yX = Ti(T_yY) \oplus A$ is an algebraic splitting with $A \subseteq T^R_yX$, $A$ an sc-subspace with a levelwise splitting in a chart (`HasReducedScComplement`, `TameSubData2021`, `IsTameSubMPolyfold2021`). It is equivalent to the chart form `IsTameSubMPolyfold` (`isTameSubMPolyfold2021_iff`, `hasReducedScComplement_iff`), through `coe_map_range_subInclusionCLM`: $T\varphi(y)$ maps $Ti(T_yY)$ onto the tangent space of $\varphi(W \cap Y)$, and through `fiberCoord_subInclusionCLM`, $T\varphi(y) \circ Ti = T\sigma(y)$ for the sub-chart $\sigma$. It implies the tame induced structure of Definition 2.5.18, and $Y = X$ satisfies it. The chart form: (3) in some chart around $y$, the tangent space of the chart image of $Y$ having an sc-complement in $T_zO$ inside $T_zO \cap E_z$; a tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.
 
-- `Polyfold.MPolyfold.definition_2_5_19_book` — Polyfold/Chapter2/BookFormTameSub.lean, line 327
-- `Polyfold.MPolyfold.isTameSubMPolyfold2021_iff` — Polyfold/Chapter2/BookFormTameSub.lean, line 307
-- `Polyfold.MPolyfold.IsTameSubMPolyfold2021` — Polyfold/Chapter2/BookFormTameSub.lean, line 301
-- `Polyfold.MPolyfold.TameSubData2021` — Polyfold/Chapter2/BookFormTameSub.lean, line 272
-- `Polyfold.MPolyfold.HasReducedScComplement` — Polyfold/Chapter2/BookFormTameSub.lean, line 196
-- `Polyfold.MPolyfold.hasReducedScComplement_iff` — Polyfold/Chapter2/BookFormTameSub.lean, line 212
-- `Polyfold.MPolyfold.subTangentRange` — Polyfold/Chapter2/BookFormTameSub.lean, line 71
-- `Polyfold.MPolyfold.coe_map_range_subInclusionCLM` — Polyfold/Chapter2/BookFormTameSub.lean, line 123
-- `Polyfold.MPolyfold.fiberCoord_subInclusionCLM` — Polyfold/Chapter2/BookFormTameSub.lean, line 102
+- `Polyfold.MPolyfold.definition_2_5_19_book` — Polyfold/Chapter4/BookFormTameSub.lean, line 327
+- `Polyfold.MPolyfold.isTameSubMPolyfold2021_iff` — Polyfold/Chapter4/BookFormTameSub.lean, line 307
+- `Polyfold.MPolyfold.IsTameSubMPolyfold2021` — Polyfold/Chapter4/BookFormTameSub.lean, line 301
+- `Polyfold.MPolyfold.TameSubData2021` — Polyfold/Chapter4/BookFormTameSub.lean, line 272
+- `Polyfold.MPolyfold.HasReducedScComplement` — Polyfold/Chapter4/BookFormTameSub.lean, line 196
+- `Polyfold.MPolyfold.hasReducedScComplement_iff` — Polyfold/Chapter4/BookFormTameSub.lean, line 212
+- `Polyfold.MPolyfold.subTangentRange` — Polyfold/Chapter4/BookFormTameSub.lean, line 71
+- `Polyfold.MPolyfold.coe_map_range_subInclusionCLM` — Polyfold/Chapter4/BookFormTameSub.lean, line 123
+- `Polyfold.MPolyfold.fiberCoord_subInclusionCLM` — Polyfold/Chapter4/BookFormTameSub.lean, line 102
 - `Polyfold.MPolyfold.HasTameInducedStructure` — Polyfold/Chapter2/TameBoundary.lean, line 1300
 - `Polyfold.MPolyfold.HasReducedComplementAt` — Polyfold/Chapter2/TameBoundary.lean, line 1327
 - `Polyfold.MPolyfold.hasReducedComplementAt_self` — Polyfold/Chapter2/TameBoundary.lean, line 1336
@@ -2663,7 +2663,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `proposition_2_7_12_book`: for every pair of representatives $(x, V, \theta)$, $(x', V', \theta')$, centred or not, the images $\Phi(U \cap U')$, $\Phi'(U \cap U')$ are open in $\theta$, $\theta'$, and the transition map $\Phi' \circ \Phi^{-1}$ between them is an sc-diffeomorphism of the faces, with their sub-M-polyfold structures (`facePolyfold`), and the identity on points of $X$. The topological steps remain this row's lemmas: the $U(x, V, \theta)$ form a basis, $B$ is continuous, every $\Phi$ is an open embedding into $\theta$, a homeomorphism onto $\theta$ for $V$ centred at $x$.
 
 - `Polyfold.MPolyfold.proposition_2_7_12_book` — Polyfold/Chapter2/BookFormTameBoundary.lean, line 66
-- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 328
+- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 292
 - `Polyfold.TameBoundary.isOpen_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 195
 - `Polyfold.TameBoundary.isTopologicalBasis_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 201
 - `Polyfold.TameBoundary.continuous_bMap` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 209
@@ -2755,11 +2755,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** $R$ is a bundle retraction over $r$ if its domain is $U \oplus F$ and $R(u, v) = (r(u), \rho(u)v)$ there with $\rho(u)$ continuous linear; $\Phi$ is a bundle map on $B$ covering $a$ if $\Phi(u, v) = (a(u), \phi(u)v)$ on $B$, so $p' \circ \Phi = a \circ p$. $Tr$ is a bundle retraction covering $r^1$; $Tf$ is a bundle map on $TO$ covering $f^1$.
 
-- `Polyfold.ScRetraction.IsBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 195
-- `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 201
-- `Polyfold.IsBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 210
-- `Polyfold.IsBundleMapOn.fst_eq` — Polyfold/Chapter2/TangentLift.lean, line 215
-- `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 225
+- `Polyfold.ScRetraction.IsBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 196
+- `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 202
+- `Polyfold.IsBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 211
+- `Polyfold.IsBundleMapOn.fst_eq` — Polyfold/Chapter2/TangentLift.lean, line 216
+- `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 226
 
 *What differs.*
 - The definition fixes the shape; sc-smoothness and $R \circ R = R$ come from the retraction and map structures (V2.1, V2.6). \"$p' \circ \Phi = p$\" is read as $p' \circ \Phi = a \circ p$, presumably what is meant.
@@ -2773,14 +2773,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For every $m$, the identity of points is a homeomorphism $(X^1)_m \cong X_{m+1}$; the level-$m$ lift of the level chart $\varphi^1$ is the level-$(m+1)$ lift of $\varphi$, and level lifts in two charts differ by the level map of the transition map. So each iterate $(X^1)^1 \cdots$ is $X_m$ with its topology and charts.
 
-- `Polyfold.MPolyfold.levelLift_transition` — Polyfold/Chapter2/TangentLift.lean, line 799
-- `Polyfold.MPolyfold.levelLift_levelChart` — Polyfold/Chapter2/TangentLift.lean, line 808
-- `Polyfold.MPolyfold.shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 822
-- `Polyfold.MPolyfold.shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 828
-- `Polyfold.MPolyfold.continuous_shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 834
-- `Polyfold.MPolyfold.continuous_shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 854
-- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 926
-- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 938
+- `Polyfold.MPolyfold.levelLift_transition` — Polyfold/Chapter2/TangentLift.lean, line 800
+- `Polyfold.MPolyfold.levelLift_levelChart` — Polyfold/Chapter2/TangentLift.lean, line 809
+- `Polyfold.MPolyfold.shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 823
+- `Polyfold.MPolyfold.shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 829
+- `Polyfold.MPolyfold.continuous_shiftLevelMap` — Polyfold/Chapter2/TangentLift.lean, line 835
+- `Polyfold.MPolyfold.continuous_shiftLevelInv` — Polyfold/Chapter2/TangentLift.lean, line 855
+- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 927
+- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 939
 
 *What differs.*
 - $X^m$ is the iterate, identified with $X_m$ for each fixed $m$ by composing these homeomorphisms; this closes gap G.6 (V2.16).
@@ -2793,11 +2793,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** In a local model $T(f^1)$ is the level-$1$ map of $Tf$ and $T(O^1) = (TO)^1$. For an M-polyfold: the tangent charts $T\varphi$ are charts of $TX$; $p$ is sc-smooth and in a tangent chart the first projection onto $\varphi^1$; each model $TO$ is a bundle retract with $Tr$ covering $r^1$; transition maps of tangent charts are bundle maps covering the level-$1$ transition maps of $X$.
 
-- `Polyfold.theorem_2_3_16` — Polyfold/Chapter2/TangentLift.lean, line 771
-- `Polyfold.tangentMap_levelMap_one` — Polyfold/Chapter2/TangentLift.lean, line 123
-- `Polyfold.toBase_tangentMap_levelMap_one` — Polyfold/Chapter2/TangentLift.lean, line 138
-- `Polyfold.retractTangent_shift_of_isScRetract` — Polyfold/Chapter2/TangentLift.lean, line 150
-- `Polyfold.toBase_retractTangentMap_shift` — Polyfold/Chapter2/TangentLift.lean, line 160
+- `Polyfold.theorem_2_3_16` — Polyfold/Chapter2/TangentLift.lean, line 772
+- `Polyfold.tangentMap_levelMap_one` — Polyfold/Chapter2/TangentLift.lean, line 124
+- `Polyfold.toBase_tangentMap_levelMap_one` — Polyfold/Chapter2/TangentLift.lean, line 139
+- `Polyfold.retractTangent_shift_of_isScRetract` — Polyfold/Chapter2/TangentLift.lean, line 151
+- `Polyfold.toBase_retractTangentMap_shift` — Polyfold/Chapter2/TangentLift.lean, line 161
 - `Polyfold.MPolyfold.theorem_2_3_16_linear` — Polyfold/Chapter2/TangentMapLinear.lean, line 131
 - `Polyfold.MPolyfold.tangentMapOnCLM` — Polyfold/Chapter2/TangentMapLinear.lean, line 112
 
@@ -2813,18 +2813,18 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $i = 1$: the chart-independent inclusion $T(X^1) \to TX$ gives a bijection $\Phi : T(X^1) \to (TX)^1$ that is an sc-diffeomorphism and a homeomorphism, with $p^1 \circ \Phi = p_{X^1}$ and $p^1$ sc-smooth; in every chart $T\psi(\Phi(\alpha))$ is the inclusion of $T(\psi^1)(\alpha)$, and in the charts $T(\varphi^1)$, $(T\varphi)^1$ $\Phi$ is the identity of $T(O^1) = (TO)^1$.
 
-- `Polyfold.MPolyfold.someChart` — Polyfold/Chapter2/TangentLift.lean, line 253
-- `Polyfold.MPolyfold.TangentPre.lower` — Polyfold/Chapter2/TangentLift.lean, line 296
-- `Polyfold.MPolyfold.TangentPre.transport_lower` — Polyfold/Chapter2/TangentLift.lean, line 319
-- `Polyfold.MPolyfold.tangentLower` — Polyfold/Chapter2/TangentLift.lean, line 350
-- `Polyfold.MPolyfold.tangentShiftMap` — Polyfold/Chapter2/TangentLift.lean, line 400
-- `Polyfold.MPolyfold.tangentShiftEquiv` — Polyfold/Chapter2/TangentLift.lean, line 452
-- `Polyfold.MPolyfold.tangentShiftHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 582
-- `Polyfold.MPolyfold.tangentProjShift` — Polyfold/Chapter2/TangentLift.lean, line 645
-- `Polyfold.MPolyfold.tangentShiftEquiv_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 660
-- `Polyfold.MPolyfold.tangentChartMap_tangentLower` — Polyfold/Chapter2/TangentLift.lean, line 375
-- `Polyfold.MPolyfold.levelChart_tangentShiftMap` — Polyfold/Chapter2/TangentLift.lean, line 494
-- `Polyfold.proposition_2_3_17` — Polyfold/Chapter2/TangentLift.lean, line 677
+- `Polyfold.MPolyfold.someChart` — Polyfold/Chapter2/TangentLift.lean, line 254
+- `Polyfold.MPolyfold.TangentPre.lower` — Polyfold/Chapter2/TangentLift.lean, line 297
+- `Polyfold.MPolyfold.TangentPre.transport_lower` — Polyfold/Chapter2/TangentLift.lean, line 320
+- `Polyfold.MPolyfold.tangentLower` — Polyfold/Chapter2/TangentLift.lean, line 351
+- `Polyfold.MPolyfold.tangentShiftMap` — Polyfold/Chapter2/TangentLift.lean, line 401
+- `Polyfold.MPolyfold.tangentShiftEquiv` — Polyfold/Chapter2/TangentLift.lean, line 453
+- `Polyfold.MPolyfold.tangentShiftHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 583
+- `Polyfold.MPolyfold.tangentProjShift` — Polyfold/Chapter2/TangentLift.lean, line 646
+- `Polyfold.MPolyfold.tangentShiftEquiv_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 661
+- `Polyfold.MPolyfold.tangentChartMap_tangentLower` — Polyfold/Chapter2/TangentLift.lean, line 376
+- `Polyfold.MPolyfold.levelChart_tangentShiftMap` — Polyfold/Chapter2/TangentLift.lean, line 495
+- `Polyfold.proposition_2_3_17` — Polyfold/Chapter2/TangentLift.lean, line 678
 
 *What differs.*
 - \"Naturally identified, also as bundles\" is read as: an sc-diffeomorphism commuting with the projections, independent of the chart and the identity (so linear on fibres) in charts.
@@ -2857,11 +2857,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.BundledMPolyfold.tangentLiftEquiv_unique` — Polyfold/Chapter2/TangentLiftAll.lean, line 383
 - `Polyfold.BundledMPolyfold.tangentLiftEquiv_natural` — Polyfold/Chapter2/TangentLiftAll.lean, line 437
 - `Polyfold.proposition_2_3_17_all` — Polyfold/Chapter2/TangentLiftAll.lean, line 397
-- `Polyfold.MPolyfold.levelOneEquiv` — Polyfold/Chapter2/TangentLift.lean, line 705
-- `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 721
-- `Polyfold.MPolyfold.tangentShiftEquivTwo` — Polyfold/Chapter2/TangentLift.lean, line 732
-- `Polyfold.MPolyfold.tangentProjShiftTwo` — Polyfold/Chapter2/TangentLift.lean, line 737
-- `Polyfold.proposition_2_3_17_two` — Polyfold/Chapter2/TangentLift.lean, line 744
+- `Polyfold.MPolyfold.levelOneEquiv` — Polyfold/Chapter2/TangentLift.lean, line 706
+- `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 722
+- `Polyfold.MPolyfold.tangentShiftEquivTwo` — Polyfold/Chapter2/TangentLift.lean, line 733
+- `Polyfold.MPolyfold.tangentProjShiftTwo` — Polyfold/Chapter2/TangentLift.lean, line 738
+- `Polyfold.proposition_2_3_17_two` — Polyfold/Chapter2/TangentLift.lean, line 745
 
 *What differs.*
 - Proved in full in V2.97; the narrower form is also proved here (`proposition_2_3_17_two`, $i = 2$).
@@ -2906,20 +2906,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** In $[0, \infty)^3 \oplus W$, averaging the coordinates is an sc-smooth retraction onto $\Delta \oplus W$. $(s, w) \mapsto ((s, s, s), w)$ is an sc-diffeomorphism from $[0, \infty) \oplus W$; $d_C$ is $3$ at the corner and $0$ elsewhere, $d_\Delta$ is $1$ and $0$; the identity chart realizes $d_C$, and one chart on all of $\Delta \oplus W$ with model $[0, \infty) \oplus W$ realizes $d_\Delta$.
 
-- `Polyfold.ScOperator.ofConst` — Polyfold/Chapter2/TangentLift.lean, line 956
-- `Polyfold.diagonalAverage` — Polyfold/Chapter2/TangentLift.lean, line 963
-- `Polyfold.diagonalRetraction` — Polyfold/Chapter2/TangentLift.lean, line 991
-- `Polyfold.mem_diagonalRetraction_retract_iff` — Polyfold/Chapter2/TangentLift.lean, line 1007
-- `Polyfold.diagonalModel` — Polyfold/Chapter2/TangentLift.lean, line 1031
-- `Polyfold.diagonalPolyfold` — Polyfold/Chapter2/TangentLift.lean, line 1040
-- `Polyfold.diagonalEmbed` — Polyfold/Chapter2/TangentLift.lean, line 1044
-- `Polyfold.diagonalProject` — Polyfold/Chapter2/TangentLift.lean, line 1049
-- `Polyfold.diagonalEmbed_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 1065
-- `Polyfold.degIndex_diagonal_quadrant` — Polyfold/Chapter2/TangentLift.lean, line 1116
-- `Polyfold.diagonalPolyfold_degIndex` — Polyfold/Chapter2/TangentLift.lean, line 1139
-- `Polyfold.diagonalHalfLineChart` — Polyfold/Chapter2/TangentLift.lean, line 1148
-- `Polyfold.diagonalHalfLineChart_spec` — Polyfold/Chapter2/TangentLift.lean, line 1153
-- `Polyfold.remark_2_4_2` — Polyfold/Chapter2/TangentLift.lean, line 1181
+- `Polyfold.ScOperator.ofConst` — Polyfold/Chapter2/TangentLift.lean, line 957
+- `Polyfold.diagonalAverage` — Polyfold/Chapter2/TangentLift.lean, line 964
+- `Polyfold.diagonalRetraction` — Polyfold/Chapter2/TangentLift.lean, line 992
+- `Polyfold.mem_diagonalRetraction_retract_iff` — Polyfold/Chapter2/TangentLift.lean, line 1008
+- `Polyfold.diagonalModel` — Polyfold/Chapter2/TangentLift.lean, line 1032
+- `Polyfold.diagonalPolyfold` — Polyfold/Chapter2/TangentLift.lean, line 1041
+- `Polyfold.diagonalEmbed` — Polyfold/Chapter2/TangentLift.lean, line 1045
+- `Polyfold.diagonalProject` — Polyfold/Chapter2/TangentLift.lean, line 1050
+- `Polyfold.diagonalEmbed_isScDiffeoOn` — Polyfold/Chapter2/TangentLift.lean, line 1066
+- `Polyfold.degIndex_diagonal_quadrant` — Polyfold/Chapter2/TangentLift.lean, line 1117
+- `Polyfold.diagonalPolyfold_degIndex` — Polyfold/Chapter2/TangentLift.lean, line 1140
+- `Polyfold.diagonalHalfLineChart` — Polyfold/Chapter2/TangentLift.lean, line 1149
+- `Polyfold.diagonalHalfLineChart_spec` — Polyfold/Chapter2/TangentLift.lean, line 1154
+- `Polyfold.remark_2_4_2` — Polyfold/Chapter2/TangentLift.lean, line 1182
 
 *What differs.*
 - Any sc-Banach space $W$; $W = 0$ is the text's case, \"classically smooth\" being read as sc-smooth for the constant sc-structure.
@@ -2933,9 +2933,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** A point is smooth iff its chart image is a smooth point of the model. If (3) holds in one chart around each smooth point, it holds in every chart, for every presentation of the partial quadrant, every level-$1$ representative and the chart image of any sub-M-polyfold retraction onto $Y$ near $y$.
 
-- `Polyfold.MPolyfold.mem_smoothSet_iff_of_isChart` — Polyfold/Chapter2/TameSub.lean, line 184
-- `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart` — Polyfold/Chapter2/TameSub.lean, line 201
-- `Polyfold.MPolyfold.TameSubData.complement_forall_charts` — Polyfold/Chapter2/TameSub.lean, line 220
+- `Polyfold.MPolyfold.mem_smoothSet_iff_of_isChart` — Polyfold/Chapter4/TameSub.lean, line 184
+- `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart` — Polyfold/Chapter4/TameSub.lean, line 201
+- `Polyfold.MPolyfold.TameSubData.complement_forall_charts` — Polyfold/Chapter4/TameSub.lean, line 220
 
 *What differs.*
 - (3) is a statement in charts here; the chart, the presentation and the retraction do not matter (gap G.77, closed). With the linear structure of $T_xX$ of Definition 2.3.14, Banach through every chart and sc at smooth points (gap G.7 closed, V2.19), it is restated in V2.78 (`definition_2_5_19_book`).
@@ -2949,10 +2949,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Sc-splittings compose: $E = M \oplus B$ and $M_m = N_m \oplus A_m$ give $E = N \oplus (A \oplus B)$. For tame sub-M-polyfold data and a tame chart, the chart image of $Y$ is a tame retract (of $(\varphi r \varphi^{-1}) \circ t$); so a tame sub-M-polyfold of a tame $X$ has a tame induced structure.
 
-- `Polyfold.ScBanach.levelSub_sup_of_le_of_isScSplitting` — Polyfold/Chapter2/TameSub.lean, line 77
-- `Polyfold.ScBanach.isScSplitting_sup_of_complementIn` — Polyfold/Chapter2/TameSub.lean, line 106
-- `Polyfold.MPolyfold.TameSubData.isTameRetract_image` — Polyfold/Chapter2/TameSub.lean, line 232
-- `Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure` — Polyfold/Chapter2/TameSub.lean, line 297
+- `Polyfold.ScBanach.levelSub_sup_of_le_of_isScSplitting` — Polyfold/Chapter4/TameSub.lean, line 77
+- `Polyfold.ScBanach.isScSplitting_sup_of_complementIn` — Polyfold/Chapter4/TameSub.lean, line 106
+- `Polyfold.MPolyfold.TameSubData.isTameRetract_image` — Polyfold/Chapter4/TameSub.lean, line 232
+- `Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure` — Polyfold/Chapter4/TameSub.lean, line 297
 
 *What differs.*
 - The text gives no proof. The complement of the tangent space of the chart image is $A \oplus B$, $A$ from (3) in that chart (V2.99), $B$ from the tameness of the model.
@@ -2965,19 +2965,19 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** In $[0, \infty)^n \oplus W$ the fixed set of an idempotent sc-operator preserving the quadrant is a sub-M-polyfold, tame if the $\mathbb R^n$-component is kept. For $n = 2$: $A$ is a tame sub-M-polyfold with tame induced structure; $B$ is a sub-M-polyfold, no retraction onto $B$ with (1) and (2) exists near the corner, so it is not a tame sub-M-polyfold; $t \mapsto (t, t, 0)$ is an sc-diffeomorphism from $[0, \infty)$ onto $B$, whose induced structure is tame.
 
-- `Polyfold.TameSubExample.fixSet` — Polyfold/Chapter2/TameSub.lean, line 422
-- `Polyfold.TameSubExample.isSubMPolyfold_fixSet` — Polyfold/Chapter2/TameSub.lean, line 442
-- `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet` — Polyfold/Chapter2/TameSub.lean, line 497
-- `Polyfold.TameSubExample.setA` — Polyfold/Chapter2/TameSub.lean, line 539
-- `Polyfold.TameSubExample.setB` — Polyfold/Chapter2/TameSub.lean, line 596
-- `Polyfold.TameSubExample.isTameSubMPolyfold_setA` — Polyfold/Chapter2/TameSub.lean, line 553
-- `Polyfold.TameSubExample.hasTameInducedStructure_setA` — Polyfold/Chapter2/TameSub.lean, line 560
-- `Polyfold.TameSubExample.isSubMPolyfold_setB` — Polyfold/Chapter2/TameSub.lean, line 624
-- `Polyfold.TameSubExample.not_mem_tameSubData_setB` — Polyfold/Chapter2/TameSub.lean, line 633
-- `Polyfold.TameSubExample.not_isTameSubMPolyfold_setB` — Polyfold/Chapter2/TameSub.lean, line 678
-- `Polyfold.TameSubExample.halfLineToB_isScDiffeoOn` — Polyfold/Chapter2/TameSub.lean, line 735
-- `Polyfold.TameSubExample.hasTameInducedStructure_setB` — Polyfold/Chapter2/TameSub.lean, line 757
-- `Polyfold.TameSubExample.examples_A_B` — Polyfold/Chapter2/TameSub.lean, line 784
+- `Polyfold.TameSubExample.fixSet` — Polyfold/Chapter4/TameSub.lean, line 387
+- `Polyfold.TameSubExample.isSubMPolyfold_fixSet` — Polyfold/Chapter4/TameSub.lean, line 407
+- `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet` — Polyfold/Chapter4/TameSub.lean, line 462
+- `Polyfold.TameSubExample.setA` — Polyfold/Chapter4/TameSub.lean, line 504
+- `Polyfold.TameSubExample.setB` — Polyfold/Chapter4/TameSub.lean, line 561
+- `Polyfold.TameSubExample.isTameSubMPolyfold_setA` — Polyfold/Chapter4/TameSub.lean, line 518
+- `Polyfold.TameSubExample.hasTameInducedStructure_setA` — Polyfold/Chapter4/TameSub.lean, line 525
+- `Polyfold.TameSubExample.isSubMPolyfold_setB` — Polyfold/Chapter4/TameSub.lean, line 589
+- `Polyfold.TameSubExample.not_mem_tameSubData_setB` — Polyfold/Chapter4/TameSub.lean, line 598
+- `Polyfold.TameSubExample.not_isTameSubMPolyfold_setB` — Polyfold/Chapter4/TameSub.lean, line 643
+- `Polyfold.TameSubExample.halfLineToB_isScDiffeoOn` — Polyfold/Chapter4/TameSub.lean, line 700
+- `Polyfold.TameSubExample.hasTameInducedStructure_setB` — Polyfold/Chapter4/TameSub.lean, line 722
+- `Polyfold.TameSubExample.examples_A_B` — Polyfold/Chapter4/TameSub.lean, line 749
 
 *What differs.*
 - Any sc-Banach space $W$ in place of $\mathbb R$; $W = \mathbb R$ is `TameSubExample.examples_A_B`.
@@ -3043,15 +3043,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.TameBoundary.BTriple.exists_centred_subset` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 78
 - `Polyfold.TameBoundary.phiInv` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 93
 - `Polyfold.TameBoundary.phiInv_spec` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 104
-- `Polyfold.MPolyfold.reachSet` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 176
-- `Polyfold.MPolyfold.isOpen_reachSet` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 179
-- `Polyfold.MPolyfold.reachSet_eq_univ_of_isCenteredAt` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 184
-- `Polyfold.MPolyfold.phiTot_isScSmoothOn` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 194
-- `Polyfold.MPolyfold.phiInv_isScSmoothOn` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 210
-- `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 266
-- `Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 294
-- `Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 316
-- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 328
+- `Polyfold.MPolyfold.reachSet` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 140
+- `Polyfold.MPolyfold.isOpen_reachSet` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 143
+- `Polyfold.MPolyfold.reachSet_eq_univ_of_isCenteredAt` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 148
+- `Polyfold.MPolyfold.phiTot_isScSmoothOn` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 158
+- `Polyfold.MPolyfold.phiInv_isScSmoothOn` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 174
+- `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 230
+- `Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 258
+- `Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 280
+- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 292
 
 *What differs.*
 - Proposition 2.7.12 holds as printed for every representative. In the characterization the image of $\Phi$ is $\theta \cap V^x$; \"onto $\theta$\" does not hold as we read it for every representative (V2.105) (gap G.78, closed).
@@ -3066,7 +3066,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For the slab triple of V2.85 in $[0, \infty)^3 \oplus W$, $\Phi_{(x, V, \theta)}$ does not map $U(x, V, \theta)$ onto $\theta$.
 
-- `Polyfold.MPolyfold.not_surjOn_phiTot` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 415
+- `Polyfold.MPolyfold.not_surjOn_phiTot` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 379
 
 *What differs.*
 - Read for every representative, the characterization does not hold as we read it; the strongest version that holds, onto $\theta \cap V^x$, is V2.104, which for centred $V$ is the printed statement (V2.103).
@@ -3128,20 +3128,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For a retraction $r$ with retract $O$ and a presentation of $C$, paths are maps $\alpha : \mathbb R \to E_0$, sc-smooth on $(-\varepsilon, \varepsilon)$ or on $[0, \varepsilon)$ for the constant sc-structure on $\mathbb R$ (both sc-domains: `isScDomain_Ioo`, `isScDomain_Ico`), with values in $O$ and $\alpha(0) = x$; $\dot\alpha(0)$ is `pathDeriv`, $D\alpha(0)1$, the classical two-sided or one-sided derivative (`hasDerivWithinAt_pathDeriv`). At a smooth $x \in O$: (1) $T^R_xO$ is the closure of the set of $\dot\alpha(0)$ for two-sided paths (`lemma_2_4_9_reduced`); (2) $C_xO$ is the closure of the set of $\dot\alpha(0)$ for one-sided paths (`lemma_2_4_9_cone`); (3) $T_xO = C_xO - C_xO$, for every $x \in O_1$ (`lemma_2_4_9_tangent`). The proof is the text's: $Dr(x)\dot\alpha(0) = \dot\alpha(0)$ (`scDeriv_pathDeriv`), the sign arguments (`pathDeriv_mem_minimalSubspaceWith`, `pathDeriv_mem_partialQuadrantAtWith`), the paths $r(x + tv)$ (`path_retract_segment`) and the density of smooth points (`partialConeWith_subset_closure`).
 
-- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter2/TangentConePaths.lean, line 269
-- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter2/TangentConePaths.lean, line 311
-- `Polyfold.TangentConePaths.lemma_2_4_9_tangent` — Polyfold/Chapter2/TangentConePaths.lean, line 351
-- `Polyfold.TangentConePaths.pathDeriv` — Polyfold/Chapter2/TangentConePaths.lean, line 69
-- `Polyfold.TangentConePaths.twoSidedPathDerivs` — Polyfold/Chapter2/TangentConePaths.lean, line 212
-- `Polyfold.TangentConePaths.oneSidedPathDerivs` — Polyfold/Chapter2/TangentConePaths.lean, line 217
-- `Polyfold.TangentConePaths.hasDerivWithinAt_pathDeriv` — Polyfold/Chapter2/TangentConePaths.lean, line 73
-- `Polyfold.TangentConePaths.scDeriv_pathDeriv` — Polyfold/Chapter2/TangentConePaths.lean, line 94
-- `Polyfold.TangentConePaths.pathDeriv_mem_minimalSubspaceWith` — Polyfold/Chapter2/TangentConePaths.lean, line 120
-- `Polyfold.TangentConePaths.pathDeriv_mem_partialQuadrantAtWith` — Polyfold/Chapter2/TangentConePaths.lean, line 138
-- `Polyfold.TangentConePaths.path_retract_segment` — Polyfold/Chapter2/TangentConePaths.lean, line 163
-- `Polyfold.TangentConePaths.partialConeWith_subset_closure` — Polyfold/Chapter2/TangentConePaths.lean, line 233
-- `Polyfold.TangentConePaths.isScDomain_Ioo` — Polyfold/Chapter2/TangentConePaths.lean, line 61
-- `Polyfold.TangentConePaths.isScDomain_Ico` — Polyfold/Chapter2/TangentConePaths.lean, line 64
+- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter5/TangentConePaths.lean, line 269
+- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter5/TangentConePaths.lean, line 311
+- `Polyfold.TangentConePaths.lemma_2_4_9_tangent` — Polyfold/Chapter5/TangentConePaths.lean, line 351
+- `Polyfold.TangentConePaths.pathDeriv` — Polyfold/Chapter5/TangentConePaths.lean, line 69
+- `Polyfold.TangentConePaths.twoSidedPathDerivs` — Polyfold/Chapter5/TangentConePaths.lean, line 212
+- `Polyfold.TangentConePaths.oneSidedPathDerivs` — Polyfold/Chapter5/TangentConePaths.lean, line 217
+- `Polyfold.TangentConePaths.hasDerivWithinAt_pathDeriv` — Polyfold/Chapter5/TangentConePaths.lean, line 73
+- `Polyfold.TangentConePaths.scDeriv_pathDeriv` — Polyfold/Chapter5/TangentConePaths.lean, line 94
+- `Polyfold.TangentConePaths.pathDeriv_mem_minimalSubspaceWith` — Polyfold/Chapter5/TangentConePaths.lean, line 120
+- `Polyfold.TangentConePaths.pathDeriv_mem_partialQuadrantAtWith` — Polyfold/Chapter5/TangentConePaths.lean, line 138
+- `Polyfold.TangentConePaths.path_retract_segment` — Polyfold/Chapter5/TangentConePaths.lean, line 163
+- `Polyfold.TangentConePaths.partialConeWith_subset_closure` — Polyfold/Chapter5/TangentConePaths.lean, line 233
+- `Polyfold.TangentConePaths.isScDomain_Ioo` — Polyfold/Chapter5/TangentConePaths.lean, line 61
+- `Polyfold.TangentConePaths.isScDomain_Ico` — Polyfold/Chapter5/TangentConePaths.lean, line 64
 
 ### V2.110. The extended faces of a partial quadrant, intrinsically (preprint p. 39)
 
@@ -3310,10 +3310,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `StrongBundle.IsScSmoothSectionGerm f x₀`: $x_0$ smooth, and for some strong bundle chart compatible with the atlas (`StrongBundle.IsChart`) with $\varphi(x_0) = 0$, $\mathbf f \circ r$ is an sc-smooth germ on some sc-germ of neighbourhoods $G$ with $G_0 \subseteq U$, whose levels may shrink with $m$ (the text’s germ reading). An sc-smooth section is an sc-smooth section germ at every smooth point with a centred chart (with the germ $U \cap E_m$).
 
-- `Polyfold.StrongBundle.IsScSmoothSectionGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 701
-- `Polyfold.StrongBundle.IsChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 344
-- `Polyfold.StrongBundle.IsScSmoothSection.isScSmoothSectionGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 711
-- `Polyfold.StrongBundleChart.principal` — Polyfold/Chapter3/StrongBundleSections.lean, line 245
+- `Polyfold.StrongBundle.IsScSmoothSectionGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 665
+- `Polyfold.StrongBundle.IsChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 309
+- `Polyfold.StrongBundle.IsScSmoothSection.isScSmoothSectionGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 675
+- `Polyfold.StrongBundleChart.principal` — Polyfold/Chapter3/StrongBundleSections.lean, line 210
 - `Polyfold.StrongBundle.isChart_congr` — Polyfold/Chapter3/StrongBundleMaximalAtlas.lean, line 94
 - `Polyfold.exists_isScSmoothGerm_not_isScSmooth` — Polyfold/Chapter3/GermVsChart.lean, line 531
 
@@ -3330,15 +3330,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** The fibrewise sum $f + s$ is a section with principal part $\mathbf f + \mathbf s$ in every chart; $f(x) = 0$ iff $\mathbf f(\varphi(x)) = 0$; the fibres of $K$ are linear. Sums, differences and negatives of sc-smooth maps on relatively open subsets of partial quadrants are sc-smooth. In every strong bundle chart compatible with the atlas, $z \mapsto (z, \mathbf f(z))$ is sc-smooth $O \to K$ for an sc-smooth section and $z \mapsto (z, \mathbf s_1(z))$ is sc-smooth $O \to K[1]$ for an sc$^+$-section.
 
-- `Polyfold.IsScSmooth.add` — Polyfold/Chapter3/StrongBundleSections.lean, line 148
-- `Polyfold.IsScSmooth.sub` — Polyfold/Chapter3/StrongBundleSections.lean, line 160
-- `Polyfold.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 212
-- `Polyfold.IsSection.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 228
-- `Polyfold.StrongBundleChart.principal_sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 286
-- `Polyfold.StrongBundleChart.isZeroAt_iff` — Polyfold/Chapter3/StrongBundleSections.lean, line 294
-- `Polyfold.StrongBundleChart.add_mem_K` — Polyfold/Chapter3/StrongBundleSections.lean, line 317
-- `Polyfold.StrongBundle.IsScSmoothSection.isScSmoothRetractMap` — Polyfold/Chapter3/StrongBundleSections.lean, line 359
-- `Polyfold.StrongBundle.IsScPlusSection.isScSmoothRetractMap_one` — Polyfold/Chapter3/StrongBundleSections.lean, line 394
+- `Polyfold.IsScSmooth.add` — Polyfold/Chapter2/StrongBundleSectionOps.lean, line 35
+- `Polyfold.IsScSmooth.sub` — Polyfold/Chapter2/StrongBundleSectionOps.lean, line 47
+- `Polyfold.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 177
+- `Polyfold.IsSection.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 193
+- `Polyfold.StrongBundleChart.principal_sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 251
+- `Polyfold.StrongBundleChart.isZeroAt_iff` — Polyfold/Chapter3/StrongBundleSections.lean, line 259
+- `Polyfold.StrongBundleChart.add_mem_K` — Polyfold/Chapter3/StrongBundleSections.lean, line 282
+- `Polyfold.StrongBundle.IsScSmoothSection.isScSmoothRetractMap` — Polyfold/Chapter3/StrongBundleSections.lean, line 324
+- `Polyfold.StrongBundle.IsScPlusSection.isScSmoothRetractMap_one` — Polyfold/Chapter3/StrongBundleSections.lean, line 359
 
 *What differs.*
 - For an sc$^+$-section in a chart outside the atlas the sc-smoothness of the representative is the change of chart $(\Phi \circ \Phi'^{-1})[1]$, i.e. the compatibility on $[1]$ of Definition 2.6.4 (preprint 2.50); this is its first use (Findings, Chapter 3, item 41).
@@ -3412,7 +3412,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `IsFillingGerm fb g` (V3.7): $g$ is an sc-smooth germ on an sc-germ of neighbourhoods $G$, $G_0 \subseteq U$, whose levels may shrink with $m$, and fills the principal part $\mathbf f$ near $0$; the centred chart is that of Definition 3.1.11 (preprint 3.11) (V3.13). The whole-chart form `IsFilledVersion` ($g$ sc-smooth on all of $U$, filling in the sense of `IsFillerOf`) is a filling (`IsFilledVersion.isFillingGerm`), and a filling sc-smooth on all of $U$ is a filled version (`IsFillingGerm.isFilledVersion`).
 
 - `Polyfold.IsFillingGerm` — Polyfold/Chapter3/GermFilling.lean, line 143
-- `Polyfold.IsFilledVersion` — Polyfold/Chapter3/StrongBundleSections.lean, line 513
+- `Polyfold.IsFilledVersion` — Polyfold/Chapter3/StrongBundleSections.lean, line 477
 - `Polyfold.IsFilledVersion.isFillingGerm` — Polyfold/Chapter3/GermFillingChart.lean, line 41
 - `Polyfold.IsFillingGerm.isFilledVersion` — Polyfold/Chapter3/GermFillingChart.lean, line 65
 
@@ -3487,9 +3487,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.IsScFredholmGerm` — Polyfold/Chapter3/GermFillingChart.lean, line 192
 - `Polyfold.IsFillingGerm` — Polyfold/Chapter3/GermFilling.lean, line 143
 - `Polyfold.IsScPlusGerm` — Polyfold/Chapter3/GermFilling.lean, line 159
-- `Polyfold.IsConjugateToBasicGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 536
-- `Polyfold.IsStrongBundleIso` — Polyfold/Chapter3/StrongBundleSections.lean, line 522
-- `Polyfold.StrongBundle.IsScFredholmGermWholeChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 730
+- `Polyfold.IsConjugateToBasicGerm` — Polyfold/Chapter3/StrongBundleSections.lean, line 500
+- `Polyfold.IsStrongBundleIso` — Polyfold/Chapter3/StrongBundleSections.lean, line 486
+- `Polyfold.StrongBundle.IsScFredholmGermWholeChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 694
 - `Polyfold.StrongBundle.IsScFredholmGermWholeChart.isScFredholmGerm` — Polyfold/Chapter3/GermFillingChart.lean, line 204
 - `Polyfold.StrongBundle.isScFredholmGerm_iff_germG_wholeChart` — Polyfold/Chapter3/GermFillingChart.lean, line 215
 - `Polyfold.IsFillingGerm.nonempty_kerEquiv` — Polyfold/Chapter3/TameGermData.lean, line 91
@@ -3547,7 +3547,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.StrongBundle.IsScFredholmSection` — Polyfold/Chapter3/TameGermsG.lean, line 54
 - `Polyfold.StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt` — Polyfold/Chapter3/TameGermsG.lean, line 66
-- `Polyfold.StrongBundle.IsScFredholmSectionWholeChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 745
+- `Polyfold.StrongBundle.IsScFredholmSectionWholeChart` — Polyfold/Chapter3/StrongBundleSections.lean, line 709
 - `Polyfold.StrongBundle.IsScFredholmSectionWholeChart.isScFredholmSection` — Polyfold/Chapter3/TameGermsG.lean, line 60
 
 *What differs.*
@@ -3563,7 +3563,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** For any strong bundle: if $f$ is an sc-Fredholm section and $s$ an sc$^+$-section, the fibrewise sum $f + s$ is an sc-Fredholm section: sc-smooth (sum rule in the charts), regularizing ($Y_{m,m+1}$ is closed under fibrewise subtraction and $s$ takes values in $Y_{m,m+1}$ over $X_m$), and an sc-Fredholm germ at every smooth point (filling germ $g + \tilde t$ on the germ of $g$, sc$^+$-germ $\tilde t + t_0$ on the germ of $t_0$, the same conjugation).
 
 - `Polyfold.theorem_3_1_18_preprint` — Polyfold/Chapter3/FredholmSectionsG.lean, line 204
-- `Polyfold.StrongBundle.IsScSmoothSection.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 677
+- `Polyfold.StrongBundle.IsScSmoothSection.sectionAdd` — Polyfold/Chapter3/StrongBundleSections.lean, line 641
 - `Polyfold.StrongBundle.regularizing_sectionAdd` — Polyfold/Chapter3/FredholmSectionsG.lean, line 168
 - `Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd` — Polyfold/Chapter3/FredholmSectionsG.lean, line 158
 
@@ -3597,7 +3597,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.IsFillingGerm.add_section_germ` — Polyfold/Chapter3/GermCalculus.lean, line 706
 - `Polyfold.IsFillingGerm.add_section` — Polyfold/Chapter3/GermCalculus.lean, line 677
 - `Polyfold.lemma_3_1_20` — Polyfold/Chapter3/Filler.lean, line 189
-- `Polyfold.IsFillerOf.congr_left` — Polyfold/Chapter3/StrongBundleSections.lean, line 560
+- `Polyfold.IsFillerOf.congr_left` — Polyfold/Chapter3/StrongBundleSections.lean, line 524
 
 *What differs.*
 - The regularity of $g + \tilde s$ (“follow immediately”) is part of the conclusion: $s \circ r$ is a germ by the chain rule with the whole-chart $r$, and a sum of germs is a germ on the intersection (Findings, Chapter 3, items 270, 271, 273). Of $s$ only the sc-smoothness is used, not that it is sc$^+$.
@@ -3693,8 +3693,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_3_2_3` — Polyfold/Chapter3/TangentGermProjecting.lean, line 676
 - `Polyfold.theorem_3_2_3_2021def` — Polyfold/Chapter3/TangentGermProjecting.lean, line 689
-- `Polyfold.theorem_3_2_3_isManifold_2021` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 342
-- `Polyfold.theorem_3_2_3_isManifold_2021def` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 353
+- `Polyfold.theorem_3_2_3_isManifold_2021` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 342
+- `Polyfold.theorem_3_2_3_isManifold_2021def` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 353
 - `Polyfold.MPolyfold.HasTangentGermProperty.exists_isRegular` — Polyfold/Chapter3/TangentGermProjecting.lean, line 652
 - `Polyfold.MPolyfold.TangentGermChart.exists_projecting` — Polyfold/Chapter3/TangentGermProjecting.lean, line 579
 - `Polyfold.theorem_3_2_3_of_isRegular` — Polyfold/Chapter3/TangentGerm.lean, line 730
@@ -3714,7 +3714,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.Counterexamples2021.isScGoodComplement_cube` — Polyfold/Chapter3/Counterexamples.lean, line 317
 
 *What differs.*
-- **No hypothesis is added** (`theorem_3_2_3`, `Chapter3/TangentGermProjecting.lean`): every datum can be replaced at its point by regular data, (b) by re-graphing over a projecting good complement and (a) then by shrinking (V3.74). (2) is stated for regular data, which exist at every point; for an arbitrary datum the proof's step that $\delta$ is an sc$^\infty$-germ near every $v_0 \in V$ does not hold as we read it (next entry). The form with `IsRegular` as a hypothesis is also proved (`theorem_3_2_3_of_isRegular`). The Mathlib form is in `Chapter9/MathlibSolutionSets.lean` (Findings, Chapter 3, item 380).
+- **No hypothesis is added** (`theorem_3_2_3`, `Chapter3/TangentGermProjecting.lean`): every datum can be replaced at its point by regular data, (b) by re-graphing over a projecting good complement and (a) then by shrinking (V3.74). (2) is stated for regular data, which exist at every point; for an arbitrary datum the proof's step that $\delta$ is an sc$^\infty$-germ near every $v_0 \in V$ does not hold as we read it (next entry). The form with `IsRegular` as a hypothesis is also proved (`theorem_3_2_3_of_isRegular`). The Mathlib form is in `Chapter6/MathlibSolutionSets.lean` (Findings, Chapter 3, item 380).
 - **Two steps of the text's proof, each with a Lean counterexample** (they are why `theorem_3_2_3_of_isRegular` assumes `IsRegular`). (a) \"$\delta$ is an sc$^\infty$-germ near every $v_0 \in V$\" needs $\delta$ differentiable at $v_0$; as we read it, the step does not hold: the curve $\{(t^3, t)\}$ in $\mathbb R^2$ has the $1$-dimensional tangent germ property, and a datum at $(1, 1)$ with $Y$ tangent to the curve at $(0, 0)$ has $\delta$ smooth near $0$ but not differentiable at a point of $V$ (`not_theorem_3_2_3_germNearEveryPoint`; on paper, a curve with a vertical tangent at $(2, 4)$, Findings, Chapter 3, item 82). (b) \"$\Sigma = \{v + y \in C\}$ is relatively open in $C$\" does not hold as we read it for $C = [0, \infty)^3$, $N = \mathbb R(1, 1, 1)$, $Y = \{x + y - z = 0\}$, a good sc-complement (`theorem_3_2_3_sigma_not_relOpen`, `isScGoodComplement_cube`) (item 83).
 - Tameness of $X$ is not used (only that the chart models are tame retracts). \"Manifold with boundary with corners\" (Chapter 4) is `IsManifoldWithCorners`: an equivalent atlas of charts on relatively open subsets of $n$-dimensional partial quadrants. The relation $d_{N \cap C}(v) = d_X(y)$ via Lemma 3.8.13 (preprint 3.70) is proved in the model $\mathbb R^n \oplus W$ only (item 84).
 - Both conditions are theorems for every set with the tangent germ property (V3.74); for the solution set of an sc-Fredholm section they are also obtained by re-centring (V3.73) and by the choice of the good complement (V3.75, V3.77). With a dimension that may vary from point to point: V3.72.
@@ -4137,7 +4137,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_book`, for an sc-Fredholm section with germ data in tame charts (`IsScFredholmSectionTame2021`, V3.103) and a zero $x_0$ in good position (`IsGoodPositionGermTame2021`): there are an open $V \ni x_0$ and $d$ such that (1) every zero $y \in V$ is in good position, with $f'(y)$ onto of index $d = \dim\ker f'(y)$ in every strong bundle chart (`IsSurjLinOfIndex`); and (2) $S = \{y \in V \mid f(y) = 0\}$ is a sub-M-polyfold whose induced structure is that of a $d$-dimensional manifold with boundary with corners, and is tame. The proof's graph description (3) is `theorem_3_6_8_graph`, in the chart at $x_0$: a tame chart $\varphi$ centred at $x_0$, the conjugating sc-diffeomorphism $\psi$ with its inverse, a basic germ $h' = h + (t_{\mathbb R^N}, 0)$ with the data of Theorem 3.4.2 (preprint 3.38) and $D(h + t)(0)$ surjective with kernel $K$ in good position, $K$ a smooth subspace; a **closed** good complement $Y$; $V'$ relatively open in $K \cap C'$, $\sigma : V' \to Y$ $C^1$ with values on level $1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, every $v + \sigma(v)$ a zero of $h + t$, and $C^k$-lifts $\sigma_k : V_k \to E'_k$ near $0$ for every $k$ (Theorem 3.5.11 (1) (preprint Corollary 3.47)); and an open $V_x \ni x_0$ on which $\psi\varphi$ is injective, $f(y) = 0 \iff (h + t)(\psi\varphi(y)) = 0$, and $\psi\varphi(\{y \in V_x \mid f(y) = 0\}) = \{v + \sigma(v) \mid v \in V'\}$.
 
-- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT.lean, line 80
+- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter5/BookFormIFT.lean, line 80
 - `Polyfold.theorem_3_6_8_graph` — Polyfold/Chapter3/GlobalIFTG.lean, line 281
 - `Polyfold.theorem_3_6_8_linear` — Polyfold/Chapter3/GoodPositionGermG.lean, line 236
 - `Polyfold.theorem_3_6_8_linear_of_isTameWith` — Polyfold/Chapter3/GoodPositionGermG.lean, line 254
@@ -4474,10 +4474,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_1_22_book`, for $d_X \equiv 0$, an sc-Fredholm section with germ data in tame charts (V3.103) and $f(x_0) = 0$: $f'(x_0)$ is sc-Fredholm in every strong bundle chart around $x_0$ ($\mathrm{Lin}(z)$ the restriction of an sc-operator to sc-subspaces); if $f'(x_0)$ is surjective (`IsLinSurjAt`, the text's hypothesis), there are an open $U \ni x_0$ and $d$ such that at every zero $y \in U$, $f'(y)$ is surjective and Fredholm of index $d = \dim\ker f'(y)$, and $S(f, U)$ is a sub-M-polyfold with the structure of a $d$-dimensional manifold without boundary. `theorem_3_1_22_book_ker` adds the last clause: at every $y \in S(f, U)$ on level 1 and through every strong bundle chart around $y$, the kernel of the intrinsic linearization $f'(y) = \Phi_y^{-1} \circ \mathrm{Lin}(\varphi(y)) \circ T\varphi(y) : T_yX \to Y_y$ (`StrongBundle.linIntr`, the same map for any two strong bundle charts, `linIntr_chart_independent`) is $Ti(T_yS(f, U))$ (`ker_linIntr_eq_subTangentRange`). The chart form is also proved (`theorem_3_6_8_ker_eq_tangent`, V3.99), and so are the narrower forms: `theorem_3_1_22`, with good position for "surjective" and the filler condition at the nearby zeros, and the first clause on every level, in the chart at $x_0$ and in every strong bundle chart (`theorem_3_1_22_linearization_sc`, `StrongBundle.linAt_isScFredholm`, V3.46, V3.96).
 
-- `Polyfold.theorem_3_1_22_book` — Polyfold/Chapter3/BookFormIFT.lean, line 151
-- `Polyfold.theorem_3_1_22_book_ker` — Polyfold/Chapter3/SolutionTangentKernel.lean, line 166
-- `Polyfold.StrongBundle.ker_linIntr_eq_subTangentRange` — Polyfold/Chapter3/SolutionTangentKernel.lean, line 93
-- `Polyfold.StrongBundle.coe_map_ker_linIntr` — Polyfold/Chapter3/SolutionTangentKernel.lean, line 60
+- `Polyfold.theorem_3_1_22_book` — Polyfold/Chapter5/BookFormIFT.lean, line 151
+- `Polyfold.theorem_3_1_22_book_ker` — Polyfold/Chapter5/SolutionTangentKernel.lean, line 166
+- `Polyfold.StrongBundle.ker_linIntr_eq_subTangentRange` — Polyfold/Chapter5/SolutionTangentKernel.lean, line 93
+- `Polyfold.StrongBundle.coe_map_ker_linIntr` — Polyfold/Chapter5/SolutionTangentKernel.lean, line 60
 - `Polyfold.StrongBundle.linIntr` — Polyfold/Chapter3/LinearizationIntrinsic.lean, line 150
 - `Polyfold.StrongBundle.linIntr_chart_independent` — Polyfold/Chapter3/LinearizationIntrinsic.lean, line 168
 - `Polyfold.StrongBundle.fiberLin_linIntr` — Polyfold/Chapter3/LinearizationIntrinsic.lean, line 156
@@ -4485,7 +4485,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundleChart.linChart` — Polyfold/Chapter3/LinearizationIntrinsic.lean, line 96
 - `Polyfold.linAt_chart_change_key` — Polyfold/Chapter3/LinearizationChartChange.lean, line 41
 - `Polyfold.theorem_3_6_8_ker_eq_tangent` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 705
-- `Polyfold.MPolyfold.coe_map_range_subInclusionCLM` — Polyfold/Chapter2/BookFormTameSub.lean, line 123
+- `Polyfold.MPolyfold.coe_map_range_subInclusionCLM` — Polyfold/Chapter4/BookFormTameSub.lean, line 123
 - `Polyfold.theorem_3_1_22` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 209
 - `Polyfold.theorem_3_1_22_linearization` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 186
 - `Polyfold.theorem_3_1_26` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 166
@@ -4533,7 +4533,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** Let $f$ be an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$, and $S = \{f = 0\} \ne \emptyset$. Then $S$ is a sub-M-polyfold of $X$ whose induced structure is tame and equivalent to a manifold with boundary with corners of locally constant dimension (`IsManifoldWithCornersLoc`, V3.72). The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`corollary_3_1_27_sc`).
 
 - `Polyfold.corollary_3_1_27` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 257
-- `Polyfold.corollary_3_1_27_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 295
+- `Polyfold.corollary_3_1_27_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 295
 - `Polyfold.theorem_3_6_11` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 232
 - `Polyfold.MPolyfold.IsManifoldWithCornersLoc` — Polyfold/Chapter3/GlobalIFTTheorems.lean, line 125
 - `Polyfold.corollary_3_1_27_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 339
@@ -4543,7 +4543,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - **No hypothesis is added** (Findings, Chapter 3, items 156, 157): the global hypothesis, good position at every zero, supplies at every point the nearby good position that the local theorems need. “Tame strong bundle” is read as good position in a tame chart (V3.103), as Definitions 3.6.3, 3.6.6 of the preprint (3.50, 3.53) and the 2017 text read it, the 2021 text not defining the phrase (gap G.79); $S \ne \emptyset$ is needed by the formal charts (for $S = \emptyset$ the statement is empty). The text names no dimension; the formal one is locally constant (V3.87).
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - Corollary 3.1.27 (preprint 3.24) with the text's notion of good position is `corollary_3_1_27_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_3_1_27_2021def` (`Chapter3/MainTheorems.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_3_1_27_2021def` (`Chapter5/MainTheorems.lean`).
 
 ### V3.71. Tameness is carried by sc-diffeomorphisms and by open subsets
 
@@ -4656,14 +4656,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** Let $g : U \to F$ be sc-smooth and conjugated to a basic germ $h$ (conjugation data $\Phi$, V3.13, V3.46), and $s : U \to F_1$ sc-smooth into $F^1$ with $s(0) = 0$. With $t = \Phi[1]_*s$ and $h' = h + (t_{\mathbb R^N}, 0)$ there are data of Theorem 3.4.2 (preprint 3.38) for $t_W$ such that $\Phi_*(g + s) = h + t$ near $0$, $\Gamma = \Lambda \circ \Phi^1$ is a strong bundle isomorphism of the shifted structures $E^1 \triangleleft F^1$ with $\Gamma_* = \Lambda_* \circ \Phi^1_*$, and $(\Gamma(u, (g + s)^1(u)))_2 = (\Lambda_*(h + t))^1(\gamma(u))$ near $0$, a basic germ; so $(g + s)^1$ is conjugated to a basic germ. Also $\Gamma = (\Lambda_0 \circ \Phi)^1$.
 
-- `Polyfold.corollary_3_4_3` — Polyfold/Chapter3/BasicClassComposition.lean, line 590
-- `Polyfold.corollary_3_4_3_isConjugate` — Polyfold/Chapter3/BasicClassComposition.lean, line 779
-- `Polyfold.ConjugationData.compIso_eq_strongShift` — Polyfold/Chapter3/BasicClassComposition.lean, line 558
-- `Polyfold.IsStrongBundleIso.shift` — Polyfold/Chapter3/BasicClassComposition.lean, line 265
-- `Polyfold.IsStrongBundleIso.comp` — Polyfold/Chapter3/BasicClassComposition.lean, line 356
-- `Polyfold.IsStrongBundleIso.pushforward_comp` — Polyfold/Chapter3/BasicClassComposition.lean, line 369
-- `Polyfold.StabilityData.linIso_isStrongBundleIso` — Polyfold/Chapter3/BasicClassComposition.lean, line 448
-- `Polyfold.ScOperator.isStrongBundleIso_prodMap` — Polyfold/Chapter3/BasicClassComposition.lean, line 132
+- `Polyfold.corollary_3_4_3` — Polyfold/Chapter3/BasicClassComposition.lean, line 587
+- `Polyfold.corollary_3_4_3_isConjugate` — Polyfold/Chapter3/BasicClassComposition.lean, line 776
+- `Polyfold.ConjugationData.compIso_eq_strongShift` — Polyfold/Chapter3/BasicClassComposition.lean, line 555
+- `Polyfold.IsStrongBundleIso.shift` — Polyfold/Chapter3/BasicClassComposition.lean, line 262
+- `Polyfold.IsStrongBundleIso.comp` — Polyfold/Chapter3/BasicClassComposition.lean, line 353
+- `Polyfold.IsStrongBundleIso.pushforward_comp` — Polyfold/Chapter3/BasicClassComposition.lean, line 366
+- `Polyfold.StabilityData.linIso_isStrongBundleIso` — Polyfold/Chapter3/BasicClassComposition.lean, line 445
+- `Polyfold.ScOperator.isStrongBundleIso_prodMap` — Polyfold/Chapter3/BasicClassComposition.lean, line 129
 
 *What differs.*
 - “Sc-germ” is read as sc-smooth on $U$ and the sc$^+$-germ $s$ as an sc-smooth map into $F^1$ on $U$ with $s(0) = 0$; the conclusion is a conjugation of the level-$1$ map $(g + s)^1$ on the shifted structures. The text's “strong bundle map $\Psi$” is an isomorphism (the linear change of Theorem 3.4.2 (preprint 3.38)); the index raise of a strong bundle isomorphism is one (used silently by the text); $\Phi_*(g + s) = h + t$ holds near $0$ only, with the $\mathbb R^N$-component of $t$ absorbed into $h$; the text's $\tau : Z \to C$ is not applied (Findings, Chapter 3, items 121–123).
@@ -4736,7 +4736,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_book`: at every zero $y \in V$, $(f, y)$ is in good position (Definition 3.6.6: $f'(y)$ onto with kernel in good position, in a tame chart, `IsGoodPositionGermTame2021`), and $f'(y)$ is onto, of index $d$, in every strong bundle chart (`IsSurjLinOfIndex`). In the chart at $x_0$, `theorem_3_6_8_nearby`: in the data of V3.48 there are a presentation $T$ of $C'$ and an open $V_{x,1} \ni x_0$ such that for every zero $y \in V_{x,1}$ with $\psi\varphi(y) = v + \sigma(v)$: $v + \sigma(v)$ lies on level $1$ and $D(h + t)$ there is surjective Fredholm of index $n - N$; $v + \sigma(v) \in C'$; and $Y$ is a good complement of $N_v = \{k + D\sigma(v)k\}$ with respect to $C'_{v + \sigma(v)}$, with $N_v$ in good position. Lemma 3.6.9 (preprint 3.55) for $\sigma$ on a relatively open $V \subseteq N \cap C$, any presentation of $C$, closed $Y$; with the book's good complement, an sc-complement, which is closed: `lemma_3_6_9`.
 
-- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter3/BookFormIFT.lean, line 80
+- `Polyfold.theorem_3_6_8_book` — Polyfold/Chapter5/BookFormIFT.lean, line 80
 - `Polyfold.theorem_3_6_8_nearby` — Polyfold/Chapter3/GlobalIFTFullG.lean, line 43
 - `Polyfold.lemma_3_6_9_relOpen` — Polyfold/Chapter3/GlobalIFTFull.lean, line 118
 - `Polyfold.lemma_3_6_9` — Polyfold/Chapter3/GoodComplementClosed.lean, line 269
@@ -4831,7 +4831,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_3_6_8_tangentGermProperty`: there are an open $U \ni x_0$ and $d = \mathrm{ind}\, f'(x_0) = \dim\ker f'(x_0)$ (`IsSurjLinOfIndex`) such that $S(f, U)$ has the $d$-dimensional tangent germ property of 2021 Definition 3.2.1 as written (`HasTangentGermProperty2021`) at every point of $S(f, U)$; by Theorem 3.2.3, $S(f, U)$ is a tame sub-M-polyfold with the structure of a $d$-dimensional manifold with boundary with corners. The data at $x_0$ in the chart (`theorem_3_6_8_tangentGermChart_proj`): the chart $\psi \circ \varphi$ onto the tame retract $\psi(O)$, $N = \ker D(h + t)(0)$ (smooth), the closed projecting good complement and $\sigma$ of V3.77, with $\pi(O) \subseteq C$; $\sigma$ is an sc$^\infty$-germ because of its lifts.
 
-- `Polyfold.theorem_3_6_8_tangentGermProperty` — Polyfold/Chapter3/BookFormIFT.lean, line 100
+- `Polyfold.theorem_3_6_8_tangentGermProperty` — Polyfold/Chapter5/BookFormIFT.lean, line 100
 - `Polyfold.theorem_3_6_8_tangentGermChart_proj` — Polyfold/Chapter3/GlobalIFTCenterG.lean, line 124
 - `Polyfold.theorem_3_6_8_tangentGermChart` — Polyfold/Chapter3/GlobalIFTCenterG.lean, line 135
 - `Polyfold.MChart.compDiffeo` — Polyfold/Chapter3/GlobalIFTCenter.lean, line 89
@@ -4863,7 +4863,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_6_8` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 108
 - `Polyfold.theorem_3_6_8_tangentGermChart_solutionSet` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 58
 - `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally` — Polyfold/Chapter3/SolutionGermRecentre.lean, line 1152
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 138
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 137
 
 *What differs.*
 - Proved in full in V3.94; the narrower form is also proved here (`theorem_3_6_8_two`, `theorem_3_6_8`).
@@ -4880,8 +4880,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** Let $d_X \equiv 0$, $f$ an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$, and $S \ne \emptyset$. Then $S$ is a sub-M-polyfold whose induced structure is equivalent to a manifold with boundary with corners of locally constant dimension and has degeneracy index $0$ everywhere. The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`theorem_3_6_10_sc`).
 
 - `Polyfold.theorem_3_6_10` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 272
-- `Polyfold.theorem_3_6_10_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 309
-- `Polyfold.theorem_3_6_10_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 304
+- `Polyfold.theorem_3_6_10_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 309
+- `Polyfold.theorem_3_6_10_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 304
 - `Polyfold.theorem_3_6_11` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 232
 - `Polyfold.lemma_2_4_6` — Polyfold/Chapter2/SubMPolyfold.lean, line 394
 - `Polyfold.theorem_3_6_10_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 351
@@ -4890,7 +4890,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - The hypothesis “$f'(x)$ surjective” is read as good position, which by the text's Definition 3.6.6 (preprint 3.53) is surjectivity at points with $d_X(x) = 0$; in the chart form the kernel condition is stated for the chart's partial quadrant, and that it is void at $d_X = 0$ is V3.100; the form with “$f'(x)$ surjective” and the tameness of the induced structure is V3.101 (Findings, Chapter 3, items 154 (a), 156, 173). No other hypothesis is added. The statement keeps the manifold structure and $d_S \equiv 0$; the tameness of the induced structure is in V3.87.
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - Theorem 3.6.10 (preprint 3.56) with the text's notion of good position is `theorem_3_6_10_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_10_2021def` (`Chapter3/MainTheorems.lean`). In Mathlib's language: if $f'(y)$ is onto of index $d$ at every zero, $S$ with the charted space of its induced structure is `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_10_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: if $f'(y)$ is onto of index $d$ at every zero, $S$ with the charted space of its induced structure is `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`).
 
 ### V3.87. Theorem 3.6.11 (preprint 3.57): the global implicit function theorem, boundary case
 
@@ -4901,7 +4901,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** Let $f$ be an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$. If $S \ne \emptyset$, $S$ is a sub-M-polyfold, its induced structure is tame and equivalent to a manifold with boundary with corners of locally constant dimension, and at every $x \in S$ there are regular data of Definition 3.2.1 (preprint 3.25) of a dimension $d(x)$ shared by every datum at the points of $S$ in their chart domain. Moreover $S$ is the disjoint union of the parts $S_n$ of dimension $n$, each open and closed in $S$, and each nonempty $S_n$ is a sub-M-polyfold with tame induced structure equivalent to an $n$-dimensional manifold with boundary with corners. The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`theorem_3_6_11_sc`).
 
 - `Polyfold.theorem_3_6_11` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 232
-- `Polyfold.theorem_3_6_11_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 278
+- `Polyfold.theorem_3_6_11_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 278
 - `Polyfold.theorem_3_6_11_dim` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 291
 - `Polyfold.solutionSetDim` — Polyfold/Chapter3/GlobalIFTTheorems.lean, line 491
 - `Polyfold.theorem_3_2_3_loc_of_isRegular` — Polyfold/Chapter3/GlobalIFTTheorems.lean, line 217
@@ -4911,7 +4911,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - **No hypothesis is added**: good position at every zero supplies the nearby good position at every point, so the gap of Theorem 3.6.8 (1) (preprint 3.54) does not enter. Two steps of the text's proof are replaced: the regularity of the solution germ away from the centre (re-centring, V3.73, V3.74) and the relative openness of $\Sigma$ (choice of the complement, V3.75, V3.77). “Tame strong bundle” is read as good position in tame charts (V3.103); $S \ne \emptyset$ for the formal charts. The text names no dimension; the formal statement adds its local constancy and the parts $S_n$ (Findings, Chapter 3, items 152, 156, 157). The dimension is the Fredholm index at the zeros near each point (V3.97).
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - Theorem 3.6.11 (preprint 3.57) with the text's notion of good position is `theorem_3_6_11_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_11_2021def` (`Chapter3/MainTheorems.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_11_2021def` (`Chapter5/MainTheorems.lean`).
 
 ### V3.88. Theorem 3.7.1 (preprint 3.58), given the family of sc-isomorphisms
 
@@ -5063,22 +5063,22 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_3_6_8_one'` — Polyfold/Chapter3/GlobalIFTNearbyOntoG.lean, line 508
 - `Polyfold.theorem_3_6_8'` — Polyfold/Chapter3/GlobalIFTNearbyOntoG.lean, line 615
-- `Polyfold.theorem_3_6_8_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 201
-- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 153
-- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 322
+- `Polyfold.theorem_3_6_8_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 201
+- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 153
+- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 322
 - `Polyfold.StrongBundle.isGoodPositionGermTame_of_chart_dense` — Polyfold/Chapter3/GlobalIFTNearbySurjG.lean, line 122
 - `Polyfold.theorem_3_6_8_two` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 83
 - `Polyfold.StrongBundle.IsGoodPositionGerm.toTame` — Polyfold/Chapter3/TameGermsAddG.lean, line 68
 - `Polyfold.theorem_3_6_8_one_sc_of_tame` — Polyfold/Chapter3/GoodPositionScG.lean, line 262
 - `Polyfold.theorem_3_6_8_one_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 274
 - `Polyfold.theorem_3_6_8_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 284
-- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 159
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 158
 
 *What differs.*
 - **No hypothesis is added.** (2) is stated as regular tangent germ data with locally constant dimension, from which Theorem 3.2.3 (preprint 3.27) gives the manifold structure of the local solution set (V3.95). The surjectivity in (1) is V3.93, carried to the chart centred at $y$ through V3.79 and read in the tame chart of the germ data at $y$ (V3.107); the kernel half is V3.81; for $\dim K = 0$ the only zero near $x_0$ is $x_0$. The text's statement is true, its proof incomplete; the same holds for the book's arXiv version (Findings, Chapter 3, items 157, 180, 189).
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - The project's good position asks only for an algebraic good complement (V3.20), which as a conclusion is less than the text's; the sc form of (1) follows at each zero by the upgrade of V3.47, with no hypothesis added (Findings, Chapter 3, items 210, 213). The case distinction $d_X(x) \ge 1$ of Definition 3.6.6 (2) (preprint 3.53) is not made, which makes hypothesis and conclusion stronger (item 214).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_8_2021def` (`Chapter3/MainTheorems.lean`). In Mathlib's language: near $x_0$ the solution set is a submanifold of dimension the index (`theorem_3_6_8_isSubmanifoldOfDim`, V3.97), and with the charted space of its induced corner structure a smooth manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`, `Chapter9/MathlibSolutionSets.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_8_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: near $x_0$ the solution set is a submanifold of dimension the index (`theorem_3_6_8_isSubmanifoldOfDim`, V3.97), and with the charted space of its induced corner structure a smooth manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`, `Chapter6/MathlibSolutionSets.lean`).
 - With the 2021 definitions as printed (germ data in any strong bundle chart) the conclusion does not hold as we read it, also over an M-polyfold without boundary (`theorem_3_6_8_untamed_not`, `theorem_3_1_22_untamed_not`; V3.130, gap G.79 settled).
 
 ### V3.95. Theorems 3.1.26 and 3.1.22 (preprint 3.23 and 3.19) with the text's hypotheses
@@ -5091,11 +5091,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_3_1_26'` — Polyfold/Chapter3/GlobalIFTNearbyOntoG.lean, line 631
 - `Polyfold.theorem_3_1_22'` — Polyfold/Chapter3/GlobalIFTNearbyOntoG.lean, line 650
-- `Polyfold.theorem_3_1_26_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 218
-- `Polyfold.theorem_3_1_22_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 258
-- `Polyfold.theorem_3_1_22_linearization_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 235
-- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 322
-- `Polyfold.theorem_3_6_10_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 304
+- `Polyfold.theorem_3_1_26_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 218
+- `Polyfold.theorem_3_1_22_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 258
+- `Polyfold.theorem_3_1_22_linearization_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 235
+- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 322
+- `Polyfold.theorem_3_6_10_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 304
 - `Polyfold.theorem_3_1_26_of_nearby` — Polyfold/Chapter3/GlobalIFTTheoremsG.lean, line 124
 - `Polyfold.lemma_2_4_6` — Polyfold/Chapter2/SubMPolyfold.lean, line 394
 - `Polyfold.theorem_3_1_26_sc` — Polyfold/Chapter3/GoodPositionScG.lean, line 298
@@ -5104,7 +5104,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - No hypothesis is added; “tame strong bundle” is read as germ data and good position in tame charts (V3.103), as Definitions 3.6.3, 3.6.4, 3.6.6 of the preprint (3.50, 3.51, 3.53) and the 2017 text read it; the 2021 text does not define the phrase (gap G.79). For Theorem 3.1.22 (preprint 3.19) “$f'(x_0)$ surjective” is read as good position, the same at $d_X = 0$ (V3.100, V3.101). The dimension as the Fredholm index is V3.97, $\ker f'(y) = T_yS$ in the chart V3.99; “uniquely determined” is the equivalence of atlases.
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - The form of Theorem 3.1.26 (preprint 3.23) with the text's good complement in hypothesis and conclusion is `theorem_3_1_26_sc` (Findings, Chapter 3, item 213).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_1_26_2021def`, `theorem_3_1_22_2021def`, `theorem_3_1_22_linearization_2021def` (`Chapter3/MainTheorems.lean`). In Mathlib's language: $S(f, U)$ is `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`), and without boundary `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_1_26_2021def`, `theorem_3_1_22_2021def`, `theorem_3_1_22_linearization_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: $S(f, U)$ is `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`), and without boundary `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`).
 
 ### V3.96. The index of the linearization at a zero, in every chart
 
@@ -5140,9 +5140,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_3_6_8_tangentGermChart_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 432
 - `Polyfold.theorem_3_6_8_tangentGermChart_solutionSet_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 446
 - `Polyfold.theorem_3_6_8_two_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 470
-- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 153
-- `Polyfold.StrongBundle.hasDimAt_solutionSet_inter` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 126
-- `Polyfold.StrongBundle.isSubmanifoldOfDim_solutionSet` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 179
+- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 153
+- `Polyfold.StrongBundle.hasDimAt_solutionSet_inter` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 126
+- `Polyfold.StrongBundle.isSubmanifoldOfDim_solutionSet` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 179
 - `Polyfold.theorem_3_1_26_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 544
 - `Polyfold.theorem_3_1_22_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 592
 - `Polyfold.theorem_3_6_11_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 630
@@ -5154,7 +5154,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - $d = \dim\ker D(h + t)(0) = n - N$ for the conjugation from which the chart of the tangent germ data is built, and $n - N$ is the index of $f'(x_0)$ for the same conjugation (Proposition 3.6.5 (preprint 3.52)); the proofs of Theorem 3.6.8 (preprint 3.54) expose that conjugation (`_conj` forms). The index is stated at every zero near the point and in every chart; the text states no dimension in Theorems 3.1.26 and 3.6.11 (preprint 3.23 and 3.57) (Findings, Chapter 3, item 170).
 - The tameness hypotheses are those of V3.103. The alternative “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`) is satisfied by no strong bundle over a nonempty base (V3.104), so a form assuming it would be vacuous (Findings, Chapter 3, items 190–192).
 - That $d$ is the index on every level of $f'(y)$ as an sc-Fredholm operator, in every chart, is V3.96 (Findings, Chapter 3, item 239).
-- The dimension as a submanifold (Definition 4.2.1, Remark 9.1.1): near a zero in good position the solution set is a smooth submanifold with $\dim T_y(S \cap V) = d$ at a zero where $f'(y)$ is onto of index $d$ (`hasDimAt_solutionSet_inter`), an $n$-dimensional submanifold with $n$ the index near $x_0$ (`theorem_3_6_8_isSubmanifoldOfDim`), and globally when every zero is in good position with index $d$ (`isSubmanifoldOfDim_solutionSet`) (`Chapter9/MathlibSolutionSets.lean`).
+- The dimension as a submanifold (Definition 4.2.1, Remark 9.1.1): near a zero in good position the solution set is a smooth submanifold with $\dim T_y(S \cap V) = d$ at a zero where $f'(y)$ is onto of index $d$ (`hasDimAt_solutionSet_inter`), an $n$-dimensional submanifold with $n$ the index near $x_0$ (`theorem_3_6_8_isSubmanifoldOfDim`), and globally when every zero is in good position with index $d$ (`isSubmanifoldOfDim_solutionSet`) (`Chapter6/MathlibSolutionSets.lean`).
 
 ### V3.98. The Fredholm index along the solution set and along paths (Definition 6.2.1 (preprint 6.1), Proposition 6.2.2 (preprint 6.2))
 
@@ -5164,41 +5164,41 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \ni x_0$ and $d$ with `IsSurjLinOfIndex f y d` at every zero $y \in V_x$, so $\mathrm{ind}\,f'(y) = \dim\ker f'(y) = \mathrm{ind}\,f'(x_0)$. With Theorem 3.6.8 (preprint 3.54): every zero in $V_x$ in good position in a tame chart, and regular data of dimension $d$ at $x_0$ with chart domain $V_x$. In sc form: at every zero $y \in V_x$, in **every** strong bundle chart around $y$, $\mathrm{Lin}(z) : T_zO \to K_z$ is sc-Fredholm, onto on every level and of index $d$ on every level; at any zero of an sc-Fredholm section, in every chart, $\mathrm{Lin}(z)$ is sc-Fredholm with the same index on every level (`StrongBundle.linAt_isScFredholm`). **Without good position, with the text’s hypotheses**: if $f$ is an sc-Fredholm section with tame germ data and $f(x_0) = 0$, there are an open $V \ni x_0$ and $i \in \mathbb Z$ such that at every zero $y \in V$, in every strong bundle chart around $y$, $f'(y)$ is Fredholm of index $i$ (`IsLinOfIndex`; `index_locally_constant_tame`), and in sc form $\mathrm{Lin}(z)$ is sc-Fredholm of index $i$ on every level (`theorem_3_6_8_index_locally_constant_general_tame`); neither good position, nor surjectivity at $x_0$, nor bump functions are assumed (the forms for $X$ admitting sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)): `index_locally_constant_of_admitsBumpFunctions`, `theorem_3_6_8_index_locally_constant_general`). **Definition 6.2.1 (preprint 6.1)** (`StrongBundle.IsIndexAtLocal f x i`, with the text’s locally defined section): there are an open $V \ni x$ and an sc$^+$-section $s$ of the restriction $P|V$ (`StrongBundle.restrictOpen`) with $(f|_V + s)(x) = 0$ and $(f|_V + s)'(x)$ Fredholm of index $i$ in every strong bundle chart of $P|V$; for an sc-Fredholm section the index is unique (`IsIndexAtLocal.unique`), at a zero it is the index of $f'(x)$, and it exists at every smooth point (`exists_isIndexAtLocal`). The reading with an sc$^+$-section on all of $X$ (`StrongBundle.IsIndexAt`; unique, `IsIndexAt.unique`; existing at every smooth point if $X$ admits bump functions, `exists_isIndexAt`) implies it, and is the same notion when $X$ admits sc-smooth bump functions (`isIndexAtLocal_iff_isIndexAt`). **Proposition 6.2.2 (preprint 6.2)** (`proposition_6_2_2_local`): if $f$ is an sc-Fredholm section with tame germ data, then for every sc-smooth path $\varphi : \mathbb R \to X$ there is $i$ with $\mathrm{ind}(f, \varphi(t)) = i$ for all $t$, and any two values of the index at $\varphi(0)$ and $\varphi(1)$ agree (`proposition_6_2_2_local'`); if $X$ admits sc-smooth bump functions, the same holds for the global reading (`proposition_6_2_2`). **On $[0, 1]$** (`proposition_6_2_2_interval`): $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`, two charts onto $[0, 1) \subseteq [0, \infty)$, degeneracy index $1$ at $0$ and $1$), and for an sc-Fredholm section with tame germ data and an sc-smooth path $\varphi : [0, 1] \to X$, $\mathrm{ind}(f, \varphi(t))$ (local sections, Definition 6.2.1 (preprint 6.1)) is one integer for all $t$; in the text's form, $\mathrm{ind}(f, \varphi(0)) = \mathrm{ind}(f, \varphi(1))$ (`proposition_6_2_2_interval'`); with the 2021 definitions, `proposition_6_2_2_interval_2021def`. The proof reparametrizes: $\varphi \circ \sin^2 : \mathbb R \to X$ is sc-smooth (`exists_rn_reparam`), and the statement on $\mathbb R$ applies; paths on $\mathbb R$ are the special case `proposition_6_2_2_interval_of_rn`.
 
-- `Polyfold.proposition_6_2_2_interval` — Polyfold/Chapter3/IndexAlongPathsInterval.lean, line 89
-- `Polyfold.proposition_6_2_2_interval'` — Polyfold/Chapter3/IndexAlongPathsInterval.lean, line 97
-- `Polyfold.proposition_6_2_2_interval_2021def` — Polyfold/Chapter3/IndexAlongPathsIntervalTextDefs.lean, line 48
+- `Polyfold.proposition_6_2_2_interval` — Polyfold/Chapter5/IndexAlongPathsInterval.lean, line 89
+- `Polyfold.proposition_6_2_2_interval'` — Polyfold/Chapter5/IndexAlongPathsInterval.lean, line 97
+- `Polyfold.proposition_6_2_2_interval_2021def` — Polyfold/Chapter5/IndexAlongPathsIntervalTextDefs.lean, line 48
 - `Polyfold.unitIntervalPolyfold` — Polyfold/Chapter3/UnitIntervalPolyfold.lean, line 242
 - `Polyfold.unitIntervalPolyfold_isTame` — Polyfold/Chapter3/UnitIntervalPolyfold.lean, line 289
 - `Polyfold.MPolyfold.IsScSmoothMap.exists_rn_reparam` — Polyfold/Chapter3/UnitIntervalPolyfold.lean, line 400
-- `Polyfold.proposition_6_2_2_interval_of_rn` — Polyfold/Chapter3/IndexAlongPathsInterval.lean, line 116
-- `Polyfold.proposition_6_2_2_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 418
+- `Polyfold.proposition_6_2_2_interval_of_rn` — Polyfold/Chapter5/IndexAlongPathsInterval.lean, line 116
+- `Polyfold.proposition_6_2_2_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 418
 - `Polyfold.theorem_3_6_8_index_locally_constant` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 506
 - `Polyfold.theorem_3_6_8_index` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 523
 - `Polyfold.isSurjLinOfIndex_of_forall_dim` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 490
 - `Polyfold.theorem_3_6_8_index_locally_constant_sc` — Polyfold/Chapter3/LinearizationChartsScG.lean, line 504
 - `Polyfold.StrongBundle.linAt_isScFredholm` — Polyfold/Chapter3/LinearizationChartsScG.lean, line 400
-- `Polyfold.index_locally_constant_of_admitsBumpFunctions` — Polyfold/Chapter3/IndexLocallyConstantG.lean, line 857
-- `Polyfold.theorem_3_6_8_index_locally_constant_general` — Polyfold/Chapter3/IndexLocallyConstantG.lean, line 892
-- `Polyfold.index_locally_constant_tame` — Polyfold/Chapter3/IndexLocallyConstantLocal.lean, line 505
-- `Polyfold.theorem_3_6_8_index_locally_constant_general_tame` — Polyfold/Chapter3/IndexLocallyConstantLocal.lean, line 533
-- `Polyfold.StrongBundle.IsLinOfIndex` — Polyfold/Chapter3/IndexLocallyConstant.lean, line 151
-- `Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex` — Polyfold/Chapter3/IndexLocallyConstantG.lean, line 106
-- `Polyfold.StrongBundle.IsIndexAt` — Polyfold/Chapter3/IndexAlongPaths.lean, line 236
-- `Polyfold.StrongBundle.IsIndexAt.unique` — Polyfold/Chapter3/IndexAlongPaths.lean, line 305
-- `Polyfold.StrongBundle.exists_isIndexAt` — Polyfold/Chapter3/IndexAlongPaths.lean, line 343
-- `Polyfold.exists_isScPlusSection_pullback_of_path` — Polyfold/Chapter3/IndexAlongPathsDevice.lean, line 507
-- `Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex` — Polyfold/Chapter3/IndexAlongPathsDevice.lean, line 421
-- `Polyfold.proposition_6_2_2` — Polyfold/Chapter3/IndexAlongPathsDevice.lean, line 685
-- `Polyfold.StrongBundle.restrictOpen` — Polyfold/Chapter3/RestrictOpen.lean, line 451
-- `Polyfold.StrongBundle.IsIndexAtLocal` — Polyfold/Chapter3/IndexAlongPathsLocal.lean, line 340
-- `Polyfold.StrongBundle.IsIndexAtLocal.unique` — Polyfold/Chapter3/IndexAlongPathsLocal.lean, line 361
-- `Polyfold.StrongBundle.exists_isIndexAtLocal` — Polyfold/Chapter3/IndexAlongPathsLocal.lean, line 392
-- `Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt` — Polyfold/Chapter3/IndexAlongPathsLocalBump.lean, line 283
-- `Polyfold.proposition_6_2_2_local` — Polyfold/Chapter3/IndexAlongPathsLocal.lean, line 762
-- `Polyfold.proposition_6_2_2_local'` — Polyfold/Chapter3/IndexAlongPathsLocal.lean, line 770
+- `Polyfold.index_locally_constant_of_admitsBumpFunctions` — Polyfold/Chapter5/IndexLocallyConstantG.lean, line 857
+- `Polyfold.theorem_3_6_8_index_locally_constant_general` — Polyfold/Chapter5/IndexLocallyConstantG.lean, line 892
+- `Polyfold.index_locally_constant_tame` — Polyfold/Chapter5/IndexLocallyConstantLocal.lean, line 506
+- `Polyfold.theorem_3_6_8_index_locally_constant_general_tame` — Polyfold/Chapter5/IndexLocallyConstantLocal.lean, line 534
+- `Polyfold.StrongBundle.IsLinOfIndex` — Polyfold/Chapter5/IndexLocallyConstant.lean, line 151
+- `Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex` — Polyfold/Chapter5/IndexLocallyConstantG.lean, line 106
+- `Polyfold.StrongBundle.IsIndexAt` — Polyfold/Chapter5/IndexAlongPaths.lean, line 236
+- `Polyfold.StrongBundle.IsIndexAt.unique` — Polyfold/Chapter5/IndexAlongPaths.lean, line 305
+- `Polyfold.StrongBundle.exists_isIndexAt` — Polyfold/Chapter5/IndexAlongPaths.lean, line 343
+- `Polyfold.exists_isScPlusSection_pullback_of_path` — Polyfold/Chapter5/IndexAlongPathsDevice.lean, line 507
+- `Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex` — Polyfold/Chapter5/IndexAlongPathsDevice.lean, line 421
+- `Polyfold.proposition_6_2_2` — Polyfold/Chapter5/IndexAlongPathsDevice.lean, line 685
+- `Polyfold.StrongBundle.restrictOpen` — Polyfold/Chapter5/RestrictOpen.lean, line 451
+- `Polyfold.StrongBundle.IsIndexAtLocal` — Polyfold/Chapter5/IndexAlongPathsLocal.lean, line 340
+- `Polyfold.StrongBundle.IsIndexAtLocal.unique` — Polyfold/Chapter5/IndexAlongPathsLocal.lean, line 361
+- `Polyfold.StrongBundle.exists_isIndexAtLocal` — Polyfold/Chapter5/IndexAlongPathsLocal.lean, line 392
+- `Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt` — Polyfold/Chapter5/IndexAlongPathsLocalBump.lean, line 283
+- `Polyfold.proposition_6_2_2_local` — Polyfold/Chapter5/IndexAlongPathsLocal.lean, line 762
+- `Polyfold.proposition_6_2_2_local'` — Polyfold/Chapter5/IndexAlongPathsLocal.lean, line 770
 
 *What differs.*
-- **Paths on $[0, 1]$**: the project has the M-polyfold $[0, 1]$ (`Chapter3/UnitIntervalPolyfold.lean`), and Proposition 6.2.2 (preprint 6.2) holds for sc-smooth paths $\varphi : [0, 1] \to X$ (`proposition_6_2_2_interval`, `Chapter3/IndexAlongPathsInterval.lean`), by the reparametrization $\varphi \circ \sin^2$ on $\mathbb R$. The form on $\mathbb R$ is also proved (`proposition_6_2_2`, `proposition_6_2_2_local`). Tameness of $X$ is not used. The hypotheses on $f$ are the text's in the project's reading of tameness (V3.103); the part of gap G.65 concerning Proposition 6.2.2 is closed (Findings, Chapter 3, item 381).
+- **Paths on $[0, 1]$**: the project has the M-polyfold $[0, 1]$ (`Chapter3/UnitIntervalPolyfold.lean`), and Proposition 6.2.2 (preprint 6.2) holds for sc-smooth paths $\varphi : [0, 1] \to X$ (`proposition_6_2_2_interval`, `Chapter5/IndexAlongPathsInterval.lean`), by the reparametrization $\varphi \circ \sin^2$ on $\mathbb R$. The form on $\mathbb R$ is also proved (`proposition_6_2_2`, `proposition_6_2_2_local`). Tameness of $X$ is not used. The hypotheses on $f$ are the text's in the project's reading of tameness (V3.103); the part of gap G.65 concerning Proposition 6.2.2 is closed (Findings, Chapter 3, item 381).
 - **Proposition 6.2.2 (preprint 6.2) is proved with the text’s hypotheses**, by the text’s device run on the restriction $P|V$ of $P$ to the domain $V$ of a strong bundle chart around $\varphi(t_0)$ (`StrongBundle.restrictOpen`), for each $t_0$: an sc$^+$-section $S$ of the pull-back to $\mathbb R \times V$ with $\tilde f + S = 0$ along the graph of the path near $t_0$ (the text’s $s(t, x) = R(x, f(\varphi(t)))$ in the chart, with no cut-off, since the chart covers $V$), the local constancy of the index of $\tilde f + S$ along its zero set (stabilizing sections $R(\cdot, e_i)$ in the product chart, again without cut-off, and the implicit function theorem), the index count $\mathrm{ind}(\tilde f + S)'(t, x) = \mathrm{ind}(f, x) + 1$ through the slice $S(t, \cdot)$ (`isIndexAt_of_pullback_isLinOfIndex`), and the connectedness of $\mathbb R$ (`proposition_6_2_2_local`). No bump functions are assumed (“we do not need a sc-smooth partition of unity”, preprint p. 202); tame germ data are the project’s reading of the text’s tameness (V3.103), as in V3.94, where they are no narrowing. With bump functions the proposition holds for the global reading of Definition 6.2.1 (preprint 6.1) as well (`proposition_6_2_2`, whose section along the path is cut off by a bump; `exists_isScPlusSection_pullback_of_path`) (Findings, Chapter 3, items 340–349, 360–367).
 - **The path.** The proof works with paths $\varphi : \mathbb R \to X$, since $\mathbb R \times X$ is the product of Theorem 3.1.21 (preprint 3.18); every path sc-smooth on $[0, 1]$ in the sense of M-polyfolds with boundary is covered through its reparametrization on $\mathbb R$. The text's tame M-polyfold $[0, 1] \times X$ is not used, the reparametrized path on $\mathbb R$ replacing it.
 - Definition 6.2.1 (preprint 6.1) has no row of its own. It is `IsIndexAtLocal`: the text’s locally defined sc$^+$-section is a section of the restriction $P|V$ to an open $V \ni x$ — the restriction of a strong bundle to an open set, which the text uses without comment, is constructed (`StrongBundle.restrictOpen`, whose atlas consists of the charts of $P$ inside $V$) — and the text’s $f - s$, $s(x) = f(x)$, is written $f + s$, $(f + s)(x) = 0$. It is well defined, two local sections being compared on the intersection of their domains (`IsIndexAtLocal.unique`), and it exists at every smooth point without bump functions, through the section $-R(\cdot, f(x))$ on a chart domain (`exists_isIndexAtLocal`). The global reading `IsIndexAt` implies it, and when $X$ admits bump functions the two agree, the local section being cut off (`isIndexAtLocal_iff_isIndexAt`). The independence of $s$ is proved from the germ data and Theorem 3.1.18 (preprint 3.15), without the text’s appeal to Proposition 1.1.11 (preprint 1.10), for which the project has no lemma that the linearization of an sc$^+$-section is compact (Findings, Chapter 3, items 340, 364, 367).
@@ -5295,13 +5295,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ScRetraction.IsTame.congr` — Polyfold/Chapter3/TameGerms.lean, line 85
 - `Polyfold.IsFillingGerm.nonempty_kerEquiv` — Polyfold/Chapter3/TameGermData.lean, line 91
 - `Polyfold.TrivialBundle.tame_atlas_no_germData_in_atlas_chart` — Polyfold/Chapter3/TameGermData.lean, line 502
-- `Polyfold.StrongBundle.IsScFredholmGermTame2021` — Polyfold/Chapter3/MainTheorems.lean, line 105
-- `Polyfold.StrongBundle.isScFredholmGermTame2021_iff` — Polyfold/Chapter3/MainTheorems.lean, line 115
-- `Polyfold.StrongBundle.isScFredholmGermTame2021_iff_2017` — Polyfold/Chapter3/MainTheorems.lean, line 126
-- `Polyfold.StrongBundle.IsScFredholmSectionTame2021` — Polyfold/Chapter3/MainTheorems.lean, line 139
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
-- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 159
+- `Polyfold.StrongBundle.IsScFredholmGermTame2021` — Polyfold/Chapter5/MainTheorems.lean, line 105
+- `Polyfold.StrongBundle.isScFredholmGermTame2021_iff` — Polyfold/Chapter5/MainTheorems.lean, line 115
+- `Polyfold.StrongBundle.isScFredholmGermTame2021_iff_2017` — Polyfold/Chapter5/MainTheorems.lean, line 126
+- `Polyfold.StrongBundle.IsScFredholmSectionTame2021` — Polyfold/Chapter5/MainTheorems.lean, line 139
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 355
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 456
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 158
 
 *What differs.*
 - **Which text the tame reading follows.** The reading in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text, “where $K \to O$ is a tame strong local bundle”. The 2021 Definition 3.6.3 (p. 135) says “strong local bundle”, without “tame”, while Theorem 3.6.8 and the later theorems say “tame strong bundle”, a phrase the 2021 text does not define (it defines a tame strong bundle retraction, p. 65); for the 2021 text the tame-chart reading is our reading of that phrase. With the 2021 filling it is `IsScFredholmGermTame2021`, the 2017 germ (`isScFredholmGermTame2021_iff_2017`). Germ data in a chart centred at a point of the interior of $C$ are tame germ data after shrinking the chart (`isScFredholmGermTame_of_chart_interior`), so there the theorems hold for the plain 2021 notion; in charts with $d_C(\varphi(x_0)) \ge 1$ untamed germ data occur, and the conclusion can fail (V3.130, V3.131; gap G.79; Findings, Chapter 3, item 382).
@@ -5430,11 +5430,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.isScFredholmSection2021_iff` — Polyfold/Chapter3/BookGerms.lean, line 548
 - `Polyfold.isScFredholmSection2021_graphSection` — Polyfold/Chapter3/BookGerms.lean, line 619
 - `Polyfold.isScFredholmGerm2017_graphSection` — Polyfold/Chapter3/BookGerms.lean, line 626
-- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 407
-- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame` — Polyfold/Chapter3/TameGermTransfer.lean, line 431
-- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017` — Polyfold/Chapter3/TameGermTransfer.lean, line 438
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
-- `Polyfold.TrivialBundle.isScFredholmGermInterior_graphSection` — Polyfold/Chapter3/TameGermTransfer.lean, line 486
+- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 408
+- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame` — Polyfold/Chapter3/TameGermTransfer.lean, line 432
+- `Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017` — Polyfold/Chapter3/TameGermTransfer.lean, line 439
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 456
+- `Polyfold.TrivialBundle.isScFredholmGermInterior_graphSection` — Polyfold/Chapter3/TameGermTransfer.lean, line 487
 
 *What differs.*
 - Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353). In part: 2021 germ data in a chart centred at a point of the interior of $C$, i.e. with $d_C(\varphi(x_0)) = 0$, give tame germ data and the 2017 germ (`IsScFredholmGermInterior.isScFredholmGermTame`, `IsScFredholmGermInterior.isScFredholmGerm2017`), and a 2021 sc-Fredholm section with such data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`); the case $d_C(\varphi(x_0)) \ge 1$ is open. The tame reading is the preprint and 2017 wording of Definition 3.6.3 (V3.103).
@@ -5494,9 +5494,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.CornerFilling.not_isInGoodPosition_gc` — Polyfold/Chapter3/BookGerms.lean, line 380
 - `Polyfold.CornerFilling.not_range_le_minimalSubspace` — Polyfold/Chapter3/BookGerms.lean, line 410
 - `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/BookGerms.lean, line 443
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 107
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 138
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 355
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 106
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 137
 
 *What differs.*
 - With the untamed 2021 definitions neither the step nor the conclusion holds as we read it: the strong bundle `bundle` over $O \cong \mathbb R$ with the section `sec` (`UntamedBundle*.lean`) is a tame strong bundle with an sc-Fredholm section in the 2021 sense and a zero in good position whose solution set is a closed half-line (`theorem_3_6_8_untamed_example`, `theorem_3_6_8_untamed_not`; V3.130). In the corner example of V3.109 the solution set is still a manifold. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103). Germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110).
@@ -5758,12 +5758,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** With the 2021 definitions as printed the statement does not hold as we read it. `bundle : K → O` is a strong bundle over the tame M-polyfold without boundary $O \cong \mathbb R$, with an atlas of tame strong bundle charts (`isTameBundle_bundle`, `chartTame`, `exists_isTameChart`); the fibre is $0$ for $t \le 0$ and a line for $0 < t < 1$. The section `sec` is sc-Fredholm in the sense of 2021 Definitions 3.1.16 = 3.6.4 (`isScFredholmSection2021_sec`): at $x_0$ ($t = 0$) its germ data lie in the atlas chart `chart0`, whose base retraction is not tame (`isScFredholmGerm2021_sec_zero`), at the other points in tame charts (`isScFredholmGermTame_sec_of_ne`, from the frames `frame0`, `frame1`). $x_0$ is a zero in good position (`isGoodPositionGerm_sec_zero`; $d_X(x_0) = 0$, fibre $0$, `subsingleton_fiber_zero`). The solution set is the closed half-line $\{t \le 0\}$ (`solutionSet_sec`): it has no tangent germ data at $x_0$ (`isEmpty_tangentGermChart`) and is not a sub-M-polyfold near $x_0$ (`not_isSubMPolyfold_zeroSet`). Collected in `theorem_3_6_8_untamed_example`; the universal statements are `theorem_3_6_8_untamed_not` (Theorem 3.6.8, conclusion (1) weakened to good position, so only (2) fails) and `theorem_3_1_22_untamed_not` (Theorems 3.1.22, 3.1.26). With tame germ data the theorem holds (V3.85, V3.94, V3.103).
 
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 138
-- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 159
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 107
-- `Polyfold.UntamedCorner.not_theorem_3_6_8_conclusion` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 121
-- `Polyfold.StrongBundle.IsTameBundle` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 84
-- `Polyfold.UntamedCorner.isTameBundle_bundle` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 93
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 137
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 158
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_example` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 106
+- `Polyfold.UntamedCorner.not_theorem_3_6_8_conclusion` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 120
+- `Polyfold.StrongBundle.IsTameBundle` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 83
+- `Polyfold.UntamedCorner.isTameBundle_bundle` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 92
 - `Polyfold.UntamedCorner.bundle` — Polyfold/Chapter3/UntamedBundle.lean, line 195
 - `Polyfold.UntamedCorner.chart0` — Polyfold/Chapter3/UntamedBundle.lean, line 167
 - `Polyfold.UntamedCorner.sec` — Polyfold/Chapter3/UntamedBundle.lean, line 234
@@ -5774,14 +5774,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.UntamedCorner.subsingleton_fiber_zero` — Polyfold/Chapter3/UntamedBundle.lean, line 326
 - `Polyfold.UntamedCorner.not_isSubMPolyfold_zeroSet` — Polyfold/Chapter3/UntamedBundle.lean, line 372
 - `Polyfold.UntamedCorner.isEmpty_tangentGermChart` — Polyfold/Chapter3/UntamedBundle.lean, line 432
-- `Polyfold.UntamedCorner.Frame` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 70
-- `Polyfold.UntamedCorner.Frame.chart` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 201
-- `Polyfold.UntamedCorner.Frame.compatible_chart0` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 428
-- `Polyfold.UntamedCorner.Frame.isScFredholmGermInterior_sec` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 499
-- `Polyfold.UntamedCorner.frame0` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 573
-- `Polyfold.UntamedCorner.frame1` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 682
-- `Polyfold.UntamedCorner.isScFredholmGermTame_sec_of_ne` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 735
-- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 743
+- `Polyfold.UntamedCorner.Frame` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 70
+- `Polyfold.UntamedCorner.Frame.chart` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 201
+- `Polyfold.UntamedCorner.Frame.compatible_chart0` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 428
+- `Polyfold.UntamedCorner.Frame.isScFredholmGermInterior_sec` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 499
+- `Polyfold.UntamedCorner.frame0` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 573
+- `Polyfold.UntamedCorner.frame1` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 682
+- `Polyfold.UntamedCorner.isScFredholmGermTame_sec_of_ne` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 735
+- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 743
 - `Polyfold.UntamedCorner.chartTame` — Polyfold/Chapter3/UntamedBundleTame.lean, line 187
 - `Polyfold.UntamedCorner.isStrongBundleRetraction_RT` — Polyfold/Chapter3/UntamedBundleTame.lean, line 89
 - `Polyfold.UntamedCorner.compatible_chart0_chartTame` — Polyfold/Chapter3/UntamedBundleTame.lean, line 316
@@ -5802,9 +5802,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** There are a tame strong bundle and an sc-Fredholm section in the sense of 2021 Definitions 3.1.16 = 3.6.4 with a point at which the germ has germ data (Definition 3.6.3) in a strong bundle chart of the structure but none in a tame one: `not_isScFredholmGermTame_sec_zero` (with tame data at $x_0$, Theorem 3.6.8 in its tame form would give tangent germ data, which do not exist), `isScFredholmGerm2021_not_tame` (the universal form), `isScFredholmGerm2021_not_2017` (a 2021 germ that is not a 2017 germ).
 
-- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 175
-- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_tame` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 190
-- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 202
+- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 174
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_tame` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 189
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 201
 - `Polyfold.UntamedCorner.isScFredholmGerm2021_sec_zero` — Polyfold/Chapter3/UntamedBundle.lean, line 309
 
 *What differs.*
@@ -5828,11 +5828,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.HasCornerStructure.isTame` — Polyfold/Chapter4/Characterization.lean, line 314
 - `Polyfold.MChart.IsCornerChart.isTameRetract` — Polyfold/Chapter4/Characterization.lean, line 262
 - `Polyfold.MChart.IsCornerChart.isScPlusRetract` — Polyfold/Chapter4/Characterization.lean, line 267
-- `Polyfold.MPolyfold.HasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 486
-- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 543
-- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 553
-- `Polyfold.MPolyfold.interiorChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 564
-- `Polyfold.MPolyfold.isManifold_interiorChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 575
+- `Polyfold.MPolyfold.HasCornerStructureOfDim` — Polyfold/Chapter6/CornerCoordinates.lean, line 400
+- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 457
+- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 467
+- `Polyfold.MPolyfold.interiorChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 478
+- `Polyfold.MPolyfold.isManifold_interiorChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 489
 
 *What differs.*
 - "Sc-smoothly compatible" and "$\varphi$ an sc-diffeomorphism" are read as compatibility with the atlas of $X$, as for tameness (Findings, Chapter 4, item 50).
@@ -5917,7 +5917,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.remark_4_1_3_retract_example` — Polyfold/Chapter4/RemarkFourThreeFamily.lean, line 856
 - `Polyfold.IsLossFamily.isScSmooth` — Polyfold/Chapter4/RemarkFourThreeExample.lean, line 312
 - `Polyfold.exists_retract_smooth_not_scPlus_of_data` — Polyfold/Chapter4/RemarkFourThreeExample.lean, line 386
-- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 305
+- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter2/StrongBundleLevelOne.lean, line 29
 
 *What differs.*
 - “It is possible that $X^1 \ne X$ as M-polyfolds although the sets agree” is proved by an example the preprint and 2017 texts do not give (gap G.31, closed); the 2021 edition (p. 176) gives a different one, the space of its Subsection 1.4.4, which is not formalized (Findings, Chapter 4, item 159). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).
@@ -6346,13 +6346,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 541
 - `Polyfold.MPolyfold.isGoodPositionAt_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1501
 - `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1532
-- `Polyfold.MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 685
-- `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 650
+- `Polyfold.MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 128
+- `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero` — Polyfold/Chapter6/CornerCoordinates.lean, line 561
 - `Polyfold.MPolyfold.remark_4_2_2_dA_zero` — Polyfold/Chapter4/SubmanifoldNearInterior.lean, line 153
 - `Polyfold.MPolyfold.remark_4_2_2_dA_zero_near` — Polyfold/Chapter4/SubmanifoldNearInterior.lean, line 172
-- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 201
-- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 220
-- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 101
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 201
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 220
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 101
 
 *What differs.*
 - The 2021 wording is proved, near $d_A(a) = 0$ (manifold without boundary) and near $d_A(a) = 1$ (manifold with boundary), with no tameness (`Chapter4/SubmanifoldNearInterior.lean`, `SubmanifoldNearBoundary.lean`; gap G.33, closed). In a chart realizing $d_A(a) = 1$, re-centred at $a$, with boundary coordinate $\lambda$, $T_aA$ is in good position when $\lambda|_{T_aA} \ne 0$; the case $\lambda|_{T_aA} = 0$ is excluded by the graph argument of Lemma 9.2.13 (`degIndex_eq_zero_of_isReducedTangentAt`), which would give $d_A(a) = 0$. The preprint's $d_X$ wording is the special case, since $d_A \le d_X$; the switch to $d_A$ covers more points, e.g. the parabola $\{(y^2, y)\}$ in $[0, \infty) \times \mathbb R$, where $d_A \equiv 0$ and $d_X(0, 0) = 1$ (Findings, Chapter 4, items 165, 176). The sentence on $d_A \ge 2$ is qualitative.
@@ -6478,8 +6478,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.theorem_4_2_7` — Polyfold/Chapter4/Submanifolds.lean, line 1487
 - `Polyfold.MPolyfold.hasCornerStructure_of_centred_isInGoodPosition` — Polyfold/Chapter4/Submanifolds.lean, line 1402
 - `Polyfold.MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame` — Polyfold/Chapter4/Submanifolds.lean, line 1443
-- `Polyfold.MPolyfold.theorem_4_2_7_isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 676
-- `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 637
+- `Polyfold.MPolyfold.theorem_4_2_7_isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 119
+- `Polyfold.MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame` — Polyfold/Chapter6/CornerCoordinates.lean, line 548
 
 *What differs.*
 - The proof cites "Proposition 4.2", takes $p = Dt(0)$, assumes "$V = \varphi^{-1}(O)$" and writes $\varphi^{-1}(V_0) \cap A$ for $(p \circ \varphi)^{-1}(V_0) \cap A$; the formal proof supplies the centred chart, the chart retraction, the closed complement and the compatibility (Findings, item 68).
@@ -6736,12 +6736,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** In a finite-dimensional $V$ with onto coordinates $\ell$: the stratum subspace of $\sigma$ has dimension $\dim V - \#\sigma$; for $f$ $C^\infty$ on $O \cap \{\ell \ge 0\}$ the image of the stratified critical points ($Df$ not onto on the stratum through the point) is null for every Haar measure.
 
-- `Polyfold.quadC` — Polyfold/Chapter4/FamiliesLocal.lean, line 73
-- `Polyfold.stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 77
-- `Polyfold.zeroSetOf` — Polyfold/Chapter4/FamiliesLocal.lean, line 88
-- `Polyfold.finrank_stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 98
-- `Polyfold.stratCritSet` — Polyfold/Chapter4/FamiliesLocal.lean, line 129
-- `Polyfold.measure_image_stratCritSet` — Polyfold/Chapter4/FamiliesLocal.lean, line 140
+- `Polyfold.quadC` — Polyfold/Chapter4/FamiliesLocal.lean, line 74
+- `Polyfold.stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 78
+- `Polyfold.zeroSetOf` — Polyfold/Chapter4/FamiliesLocal.lean, line 89
+- `Polyfold.finrank_stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 99
+- `Polyfold.stratCritSet` — Polyfold/Chapter4/FamiliesLocal.lean, line 130
+- `Polyfold.measure_image_stratCritSet` — Polyfold/Chapter4/FamiliesLocal.lean, line 141
 
 *What differs.*
 - The text cites "Theorem 4.23" for Theorem 4.2.11 (preprint 4.22), which does not state the dimension count (Findings, items 90, 104).
@@ -6754,8 +6754,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $f$ of class $C^\infty$, one solution $\tau$ is $C^\infty$, with all the other conclusions of V3.63.
 
-- `Polyfold.ContractionData.exists_solution_smooth` — Polyfold/Chapter4/FamiliesLocal.lean, line 209
-- `Polyfold.theorem_3_8_22_smooth` — Polyfold/Chapter4/FamiliesLocal.lean, line 252
+- `Polyfold.ContractionData.exists_solution_smooth` — Polyfold/Chapter4/FamiliesLocal.lean, line 210
+- `Polyfold.theorem_3_8_22_smooth` — Polyfold/Chapter4/FamiliesLocal.lean, line 253
 - `Polyfold.ContractionData.exists_radii` — Polyfold/Chapter3/QuadrantIFT.lean, line 154
 - `Polyfold.Radii.contDiffOn_τ` — Polyfold/Chapter3/QuadrantIFT.lean, line 578
 - `Polyfold.theorem_3_8_22` — Polyfold/Chapter3/QuadrantIFT.lean, line 648
@@ -6771,9 +6771,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** If $K + \{\ell_i = 0, i \in \sigma\} = V$ ($\ell$ onto), $K$ is in good position to the partial quadrant $\{\ell_i \ge 0, i \in \sigma\}$ with a closed good complement inside the stratum subspace.
 
-- `Polyfold.quadAt` — Polyfold/Chapter4/FamiliesLocal.lean, line 404
-- `Polyfold.isPartialQuadrant_quadAt` — Polyfold/Chapter4/FamiliesLocal.lean, line 441
-- `Polyfold.exists_goodComplement_stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 481
+- `Polyfold.quadAt` — Polyfold/Chapter4/FamiliesLocal.lean, line 405
+- `Polyfold.isPartialQuadrant_quadAt` — Polyfold/Chapter4/FamiliesLocal.lean, line 442
+- `Polyfold.exists_goodComplement_stratSub` — Polyfold/Chapter4/FamiliesLocal.lean, line 482
 
 *What differs.*
 - Findings, item 105 (b).
@@ -6786,7 +6786,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For $f$ $C^\infty$ on $O \cap \{\ell \ge 0\}$ and $v_0$ not stratified-critical: a $C^\infty$ retraction $\rho$ of $O' \cap \{\ell \ge 0\}$ onto its intersection with $f^{-1}(f(v_0))$, with $D\rho(v_0)$ of range $\ker Df(v_0)$, the identity there.
 
-- `Polyfold.exists_fibre_retraction` — Polyfold/Chapter4/FamiliesLocal.lean, line 531
+- `Polyfold.exists_fibre_retraction` — Polyfold/Chapter4/FamiliesLocal.lean, line 532
 
 *What differs.*
 - From V4.58 and V4.59 for $w \mapsto f(v_0 + w) - f(v_0)$ on $C_{v_0}$ near $0$ (Findings, item 105).
@@ -6882,11 +6882,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `IsRetractVectorField E C O A`: $x \mapsto (x, A(x))$ is sc-smooth from $(O^1, C^1, E^1)$ to $(TO, TC, TE)$. Then $(x, A(x)) \in TO$ on $O_1$, $A \circ r^1$ is sc-smooth, $Dr(x)A(x) = A(x)$ on $O_1$; $0$ is a vector field on every retract.
 
-- `Polyfold.IsRetractVectorField` — Polyfold/Chapter4/VectorFields.lean, line 113
-- `Polyfold.isRetractVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 118
-- `Polyfold.IsRetractVectorField.mem_retractTangent` — Polyfold/Chapter4/VectorFields.lean, line 127
-- `Polyfold.IsRetractVectorField.isScSmooth_comp` — Polyfold/Chapter4/VectorFields.lean, line 132
-- `Polyfold.IsRetractVectorField.scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 139
+- `Polyfold.IsRetractVectorField` — Polyfold/Chapter2/VectorFields.lean, line 113
+- `Polyfold.isRetractVectorField_zero` — Polyfold/Chapter2/VectorFields.lean, line 118
+- `Polyfold.IsRetractVectorField.mem_retractTangent` — Polyfold/Chapter2/VectorFields.lean, line 127
+- `Polyfold.IsRetractVectorField.isScSmooth_comp` — Polyfold/Chapter2/VectorFields.lean, line 132
+- `Polyfold.IsRetractVectorField.scDeriv_apply` — Polyfold/Chapter2/VectorFields.lean, line 139
 
 *What differs.*
 - The definition read in the model of a chart, where Appendix 4.5 works; the principal part $A : E_1 \to E_0$ is the second component of the section (Findings, Chapter 4, item 152).
@@ -6899,11 +6899,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `MPolyfold.IsScVectorField`: $A : X^1 \to TX$ sc-smooth for the M-polyfold structures of $X^1$ and $TX$, with $p(A(x)) = x$. The zero section (reading $(\psi(x), 0)$ in every chart) is continuous and a vector field.
 
-- `Polyfold.MPolyfold.IsScVectorField` — Polyfold/Chapter4/VectorFields.lean, line 543
-- `Polyfold.MPolyfold.zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 563
-- `Polyfold.MPolyfold.tangentChartMap_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 579
-- `Polyfold.MPolyfold.continuous_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 586
-- `Polyfold.MPolyfold.isScVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 601
+- `Polyfold.MPolyfold.IsScVectorField` — Polyfold/Chapter2/VectorFields.lean, line 543
+- `Polyfold.MPolyfold.zeroVectorField` — Polyfold/Chapter2/VectorFields.lean, line 563
+- `Polyfold.MPolyfold.tangentChartMap_zeroVectorField` — Polyfold/Chapter2/VectorFields.lean, line 579
+- `Polyfold.MPolyfold.continuous_zeroVectorField` — Polyfold/Chapter2/VectorFields.lean, line 586
+- `Polyfold.MPolyfold.isScVectorField_zero` — Polyfold/Chapter2/VectorFields.lean, line 601
 
 *What differs.*
 - Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are V4.78 and V4.76, with Lemma 4.5.1 in V4.74, V4.75 and V4.77.
@@ -6927,8 +6927,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.BundledMPolyfold.tangentLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 310
 - `Polyfold.BundledMPolyfold.shiftLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 316
 - `Polyfold.proposition_2_3_17_all` — Polyfold/Chapter2/TangentLiftAll.lean, line 397
-- `Polyfold.retractTangent_shift` — Polyfold/Chapter4/VectorFields.lean, line 148
-- `Polyfold.IsRetractVectorField.shift` — Polyfold/Chapter4/VectorFields.lean, line 185
+- `Polyfold.retractTangent_shift` — Polyfold/Chapter2/VectorFields.lean, line 148
+- `Polyfold.IsRetractVectorField.shift` — Polyfold/Chapter2/VectorFields.lean, line 185
 
 *What differs.*
 - Proved in full in V4.79; the narrower form is kept (`IsRetractVectorField.shift`, local model, $i = 1$).
@@ -6942,11 +6942,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `scSecondDeriv U f z a b` ($z \in U_2$, $a, b \in E_1$): the second component of $D(Tf)(z, a)(b, 0)$. `scSecondDeriv_symm`: for $f$ sc² on $U$ relatively open in a partial quadrant, $D^2f(z)(a, b) = D^2f(z)(b, a)$.
 
-- `Polyfold.scSecondDeriv` — Polyfold/Chapter4/VectorFields.lean, line 217
-- `Polyfold.scSecondDeriv_symm` — Polyfold/Chapter4/VectorFields.lean, line 294
-- `Polyfold.fderivWithin_fderivWithin_eq` — Polyfold/Chapter4/VectorFields.lean, line 251
-- `Polyfold.IsRelOpenInQuadrant.mem_closure_interior_lvlSet` — Polyfold/Chapter4/VectorFields.lean, line 278
-- `Polyfold.scDeriv_tangentMap_inr` — Polyfold/Chapter4/VectorFields.lean, line 320
+- `Polyfold.scSecondDeriv` — Polyfold/Chapter2/VectorFields.lean, line 217
+- `Polyfold.scSecondDeriv_symm` — Polyfold/Chapter2/VectorFields.lean, line 294
+- `Polyfold.fderivWithin_fderivWithin_eq` — Polyfold/Chapter2/VectorFields.lean, line 251
+- `Polyfold.IsRelOpenInQuadrant.mem_closure_interior_lvlSet` — Polyfold/Chapter2/VectorFields.lean, line 278
+- `Polyfold.scDeriv_tangentMap_inr` — Polyfold/Chapter2/VectorFields.lean, line 320
 
 *What differs.*
 - $r$ is twice differentiable only on level $2$, while $A(x)$, $B(x)$ lie in $E_1$; $D^2r(x)(a, b)$ is defined through the sc²-structure. Symmetry for $a, b \in E_2$ is Mathlib's `ContDiffWithinAt.isSymmSndFDerivWithinAt` (points of a partial quadrant lie in the closure of its interior), and extends to $E_1$ by density and continuity of $D(Tf)$ (Findings, Chapter 4, item 154).
@@ -6959,10 +6959,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `retractLieBracket R A B x` $= D\tilde A(x)B_1(x) - D\tilde B(x)A_1(x)$, $\tilde A = A \circ r^1$; antisymmetric. `IsRetractVectorField.diff_identity`: $D^2r(x)(A(x), b) + Dr(x)D\tilde A(x)b = D\tilde A(x)b$ for $b \in T_x(O^1)$. `retractLieBracket_mem_tangent`: $Dr(x)[A, B](x) = [A, B](x)$ on $O_2$.
 
-- `Polyfold.retractLieBracket` — Polyfold/Chapter4/VectorFields.lean, line 367
-- `Polyfold.retractLieBracket_antisymm` — Polyfold/Chapter4/VectorFields.lean, line 374
-- `Polyfold.IsRetractVectorField.diff_identity` — Polyfold/Chapter4/VectorFields.lean, line 394
-- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 447
+- `Polyfold.retractLieBracket` — Polyfold/Chapter2/VectorFields.lean, line 367
+- `Polyfold.retractLieBracket_antisymm` — Polyfold/Chapter2/VectorFields.lean, line 374
+- `Polyfold.IsRetractVectorField.diff_identity` — Polyfold/Chapter2/VectorFields.lean, line 394
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter2/VectorFields.lean, line 447
 
 *What differs.*
 - The principal part is defined only on $O^1$, so $DA(x)$ is read as the derivative of $\tilde A = A \circ r^1$; the computation is the text's, with the symmetry of V4.70 (Findings, Chapter 4, item 154).
@@ -6976,10 +6976,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \to TX$ (`lieBracket`) is given in every chart $\psi$ by $T\psi([A, B](x)) = (\psi(x), [A_\psi, B_\psi](\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \in TO$ for $x \in O_2$, and $x \mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.
 
 - `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket.lean, line 52
-- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 497
-- `Polyfold.isScSmooth_scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 474
-- `Polyfold.levelMap_shift_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 464
-- `Polyfold.levelMap_comp_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 379
+- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter2/VectorFields.lean, line 497
+- `Polyfold.isScSmooth_scDeriv_apply` — Polyfold/Chapter2/VectorFields.lean, line 474
+- `Polyfold.levelMap_shift_shift_eq` — Polyfold/Chapter2/VectorFields.lean, line 464
+- `Polyfold.levelMap_comp_shift_eq` — Polyfold/Chapter2/VectorFields.lean, line 379
 
 *What differs.*
 - "An sc-smooth section of $TX|X^2 \to X^2$" is read as an sc-smooth map $X^2 \to TX$ covering the inclusion, as in V4.76, with which this row is merged; the pull-back bundle is not built (gap G.92). Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, is V4.74, V4.75 and V4.77 (gap G.38, closed). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, items 155, 166).
@@ -7013,13 +7013,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `retractLieBracket_natural`: for $f$ sc-smooth between the retracts $O$, $O'$ and vector fields with $Df(x)A(x) = A'(f(x))$, $Df(x)B(x) = B'(f(x))$ on $O_1$ ($Df = D(f \circ r)$), $Df(x)[A, B](x) = [A', B'](f(x))$ on $O_2$; the steps `IsRetractVectorField.diff_related` (the relation differentiated) and `IsRetractVectorField.related_shift` (the relation on level $1$). `retractLieBracket_restrict`: the bracket on $(O \cap W)_2$ for the restricted retraction is the same. `retractLieBracket_natural_inter`: the same naturality for $f$ defined on an open part $O \cap W$, in the form $Tf(x, [A, B](x)) = (f(x), [A', B'](f(x)))$.
 
-- `Polyfold.IsRetractVectorField.diff_related` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 96
-- `Polyfold.IsRetractVectorField.related_shift` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 192
-- `Polyfold.retractLieBracket_natural` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 232
-- `Polyfold.levelMap_levelMap_comp_eq` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 257
-- `Polyfold.IsRetractVectorField.restrict` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 277
-- `Polyfold.retractLieBracket_restrict` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 296
-- `Polyfold.retractLieBracket_natural_inter` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 322
+- `Polyfold.IsRetractVectorField.diff_related` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 96
+- `Polyfold.IsRetractVectorField.related_shift` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 192
+- `Polyfold.retractLieBracket_natural` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 232
+- `Polyfold.levelMap_levelMap_comp_eq` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 257
+- `Polyfold.IsRetractVectorField.restrict` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 277
+- `Polyfold.retractLieBracket_restrict` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 296
+- `Polyfold.retractLieBracket_natural_inter` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 322
 
 *What differs.*
 - The computation of §4.5.2, for an sc-smooth map between two local models with a pair of vector fields on each, $D^2g$ read as in V4.70; the relations are assumed on $O_1$, since they are differentiated at points of $O_2$. The form on an open part $O \cap W$ is the shape of a transition map (V4.75). §4.5.2 ends by calling the result "Proposition 4.5.1", presumably meant as Lemma 4.5.1 (Findings, Chapter 4, items 157, 162).
@@ -7032,16 +7032,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `tangentChartMap_change`: $T\psi = T(\psi \circ \varphi^{-1}) \circ T\varphi$. `principalPart`: $T\varphi(A(y)) = (\varphi(y), A_\varphi(\varphi(y)))$ (`tangentChartMap_eq_principalPart`); `IsScVectorField.isRetractVectorField_principalPart`: $A_\varphi$ is a vector field on the model, with the retraction `chartRetraction`; `principalPart_related`: the principal parts in two charts are related by the transition map on level $1$. `chartLieBracket_spec`: Proposition 4.4.5 for $[A_\varphi, B_\varphi]$; `chartLieBracket_change`: the brackets in two charts are related by $T(\psi\varphi^{-1})$ on level $2$ of the overlap.
 
-- `Polyfold.MPolyfold.tangentChartMap_change` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 376
-- `Polyfold.MPolyfold.chartRetraction` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 385
-- `Polyfold.MPolyfold.chartRetraction_retract` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 389
-- `Polyfold.MPolyfold.principalPart` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 398
-- `Polyfold.MPolyfold.tangentChartMap_eq_principalPart` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 402
-- `Polyfold.MPolyfold.IsScVectorField.isRetractVectorField_principalPart` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 421
-- `Polyfold.MPolyfold.IsScVectorField.principalPart_related` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 444
-- `Polyfold.MPolyfold.chartLieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 476
-- `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_spec` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 480
-- `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_change` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 499
+- `Polyfold.MPolyfold.tangentChartMap_change` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 376
+- `Polyfold.MPolyfold.chartRetraction` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 385
+- `Polyfold.MPolyfold.chartRetraction_retract` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 389
+- `Polyfold.MPolyfold.principalPart` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 398
+- `Polyfold.MPolyfold.tangentChartMap_eq_principalPart` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 402
+- `Polyfold.MPolyfold.IsScVectorField.isRetractVectorField_principalPart` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 421
+- `Polyfold.MPolyfold.IsScVectorField.principalPart_related` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 444
+- `Polyfold.MPolyfold.chartLieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 476
+- `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_spec` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 480
+- `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_change` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 499
 
 *What differs.*
 - The overlap of two charts is an open part $O \cap W$ of the model; V4.74 there gives the independence of the chart (Findings, Chapter 4, item 161).
@@ -7054,21 +7054,21 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `MPolyfold.lieBracket hA hB : X^2 \to TX`, the class of $[A_\varphi, B_\varphi](\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\psi$ around $x$, $T\psi([A, B](x)) = (\psi(x), [A_\psi, B_\psi](\psi(x)))$. `proposition_4_4_5`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$. In the text's form: the pull-back bundle $TX|X^2 = \{(x, \alpha) \in X^2 \times TX \mid p(\alpha) = x\}$ is a sub-M-polyfold of $X^2 \times TX$ (`isSubMPolyfold_tangentPullback`; in product charts its retraction is $(z, (y, v)) \mapsto (z, Tr(\iota z, v))$), with sc-smooth projection to $X^2$ and fibres $T_xX$ (`tangentPullbackPolyfold`, `isScSmoothMap_tangentPullbackProj`, `tangentPullbackFiberEquiv`), and `proposition_4_4_5_section`: $x \mapsto (x, [A, B](x))$ is an sc-smooth section of it.
 
-- `Polyfold.MPolyfold.levelLift_levelChart_spec` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 547
-- `Polyfold.MPolyfold.lieBracketPre` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 561
-- `Polyfold.MPolyfold.lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 581
-- `Polyfold.MPolyfold.tangentProj_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 586
-- `Polyfold.MPolyfold.tangentChartMap_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 592
-- `Polyfold.MPolyfold.tangentChartMap_lieBracket_eq` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 637
-- `Polyfold.MPolyfold.continuous_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 648
-- `Polyfold.proposition_4_4_5` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 678
+- `Polyfold.MPolyfold.levelLift_levelChart_spec` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 547
+- `Polyfold.MPolyfold.lieBracketPre` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 561
+- `Polyfold.MPolyfold.lieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 581
+- `Polyfold.MPolyfold.tangentProj_lieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 586
+- `Polyfold.MPolyfold.tangentChartMap_lieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 592
+- `Polyfold.MPolyfold.tangentChartMap_lieBracket_eq` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 637
+- `Polyfold.MPolyfold.continuous_lieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 648
+- `Polyfold.proposition_4_4_5` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 678
 - `Polyfold.MPolyfold.proposition_4_4_5_book` — Polyfold/Chapter4/BookFormLieBracket.lean, line 52
 - `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback` — Polyfold/Chapter4/LieBracketBundle.lean, line 343
 - `Polyfold.MPolyfold.tangentPullbackPolyfold` — Polyfold/Chapter4/LieBracketBundle.lean, line 365
 - `Polyfold.MPolyfold.isScSmoothMap_tangentPullbackProj` — Polyfold/Chapter4/LieBracketBundle.lean, line 378
 - `Polyfold.MPolyfold.tangentPullbackFiberEquiv` — Polyfold/Chapter4/LieBracketBundle.lean, line 390
-- `Polyfold.MPolyfold.lieBracketSection` — Polyfold/Chapter4/LieBracketBundle.lean, line 465
-- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 471
+- `Polyfold.MPolyfold.lieBracketSection` — Polyfold/Chapter4/LieBracketBundle.lean, line 429
+- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 435
 
 *What differs.*
 - "An sc-smooth section of $TX|X^2 \to X^2$" is proved in two forms: as an sc-smooth map $X^2 \to TX$ covering the inclusion $X^2 \to X^1$ (`proposition_4_4_5`), and as an sc-smooth section of the pull-back bundle, which the text gives no structure and which is built as a sub-M-polyfold of $X^2 \times TX$ (`proposition_4_4_5_section`; gap G.92, closed). In the chart $(\psi^1)^1$ of $X^2$ and the tangent chart $T\psi$ the bracket reads $z \mapsto (z, [A_\psi, B_\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161). The book form, with the formula in every chart, is V4.72 (`proposition_4_4_5_book`; Findings, Chapter 4, item 166).
@@ -7082,15 +7082,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `lemma_4_5_1`: for an sc-smooth $f : X \to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \in X^2$ (`levelTwoMap`). Between open subsets: for open $U, U' \subseteq X$ (Part I's open sub-M-polyfolds, `restrictOpen`), the vector fields restricted to them (`restrictVectorField`, `IsScVectorField.restrictOpen`), and an sc-smooth $\varphi : U \to U'$, in particular a local sc-diffeomorphism between open subsets, relating the restrictions on $U^1$: $T\varphi \circ [A|U, B|U] = [A|U', B|U'] \circ \varphi_2$ on $U^2$ (`lemma_4_5_1_open`; read in $TX$, `lemma_4_5_1_open_ambient`); the bracket of the restrictions is the restriction of the bracket (`lieBracket_restrictOpen`). On sections of $TX|X^2 \to X^2$: $(f_2, Tf) \circ [A, B] = [A', B'] \circ f_2$ with the sc-smooth bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`).
 
-- `Polyfold.MPolyfold.liftLevelOneMap` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 713
-- `Polyfold.MPolyfold.levelTwoMap` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 717
-- `Polyfold.MPolyfold.levelMap_coord_levelLift` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 723
-- `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
-- `Polyfold.MPolyfold.restrictVectorField` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 57
-- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 115
-- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 135
-- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 150
-- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 521
+- `Polyfold.MPolyfold.liftLevelOneMap` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 713
+- `Polyfold.MPolyfold.levelTwoMap` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 717
+- `Polyfold.MPolyfold.levelMap_coord_levelLift` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 723
+- `Polyfold.lemma_4_5_1` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 736
+- `Polyfold.MPolyfold.restrictVectorField` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 57
+- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 115
+- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 135
+- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 150
+- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 485
 
 *What differs.*
 - More general in the map: any sc-smooth $f$ between two M-polyfolds, with a pair of vector fields on each side. The relations are assumed on all of $X^1$, not only at the points of $X_2$, since the computation of §4.5.2 differentiates them. A local sc-diffeomorphism between open subsets $U, U'$ of $X$ is covered by `lemma_4_5_1_open`, with $U, U'$ Part I's open sub-M-polyfolds and the vector fields restricted to them; the bracket of the restrictions is the restriction of the bracket (`lieBracket_restrictOpen`; gap G.92, closed) (Findings, Chapter 4, items 162, 163).
@@ -7114,11 +7114,11 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.BundledMPolyfold.tangentLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 310
 - `Polyfold.BundledMPolyfold.shiftLiftEquiv` — Polyfold/Chapter2/TangentLiftAll.lean, line 316
 - `Polyfold.proposition_2_3_17_all` — Polyfold/Chapter2/TangentLiftAll.lean, line 397
-- `Polyfold.MPolyfold.vectorFieldLevelOne` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 844
-- `Polyfold.MPolyfold.raiseIndex` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 851
-- `Polyfold.lemma_4_4_4` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 858
-- `Polyfold.MPolyfold.tangentShiftEquiv` — Polyfold/Chapter2/TangentLift.lean, line 452
-- `Polyfold.proposition_2_3_17` — Polyfold/Chapter2/TangentLift.lean, line 677
+- `Polyfold.MPolyfold.vectorFieldLevelOne` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 844
+- `Polyfold.MPolyfold.raiseIndex` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 851
+- `Polyfold.lemma_4_4_4` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 858
+- `Polyfold.MPolyfold.tangentShiftEquiv` — Polyfold/Chapter2/TangentLift.lean, line 453
+- `Polyfold.proposition_2_3_17` — Polyfold/Chapter2/TangentLift.lean, line 678
 
 *What differs.*
 - Proved in full in V4.79; the narrower form is kept (`lemma_4_4_4`, $i = 1$).
@@ -7249,10 +7249,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.IsAmbientScForm.ambientD` — Polyfold/Chapter4/ScExteriorDerivative.lean, line 475
 - `Polyfold.retractD` — Polyfold/Chapter4/ScExteriorDerivative.lean, line 485
 - `Polyfold.IsRetractScForm.retractD` — Polyfold/Chapter4/ScExteriorDerivative.lean, line 507
-- `Polyfold.ambientD_comp_whitneyMap` — Polyfold/Chapter4/ScFormsNatural.lean, line 411
-- `Polyfold.retractD_comp_retractWhitneyMap` — Polyfold/Chapter4/ScFormsNatural.lean, line 568
-- `Polyfold.retractD_eq_of_subset` — Polyfold/Chapter4/ScFormsNatural.lean, line 618
-- `Polyfold.sum_update_symm_eq_zero` — Polyfold/Chapter4/ScFormsNatural.lean, line 222
+- `Polyfold.ambientD_comp_whitneyMap` — Polyfold/Chapter4/ScFormsNatural.lean, line 412
+- `Polyfold.retractD_comp_retractWhitneyMap` — Polyfold/Chapter4/ScFormsNatural.lean, line 569
+- `Polyfold.retractD_eq_of_subset` — Polyfold/Chapter4/ScFormsNatural.lean, line 619
+- `Polyfold.sum_update_symm_eq_zero` — Polyfold/Chapter4/ScFormsNatural.lean, line 223
 
 *What differs.*
 - The text defines $d$ through vector fields. Its formula in a chart is used here: on normed spaces it agrees with the invariant formula with the sign $(-1)^{\ell+j+1}$ (V4.83), and it makes $d$ on an M-polyfold well defined (V4.85). Naturality, and with it the independence of the retraction, uses the symmetry of the second derivative (`scSecondDeriv_symm`), as the bracket does in §4.5.2 (Findings, Chapter 4, item 169).
@@ -7436,20 +7436,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$ (then $S \subseteq X_\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$. The restriction $\omega \mapsto \omega|_S$ (`scFormRestrict` on $\Omega^k(X^i)$, `formsInftyRestrict` on $\Omega^k_\infty(X)$) is the pull-back along $S \to X^i$ (V4.89) read on the corner frames of $T_xS = \mathbb R^n$; in a chart of $X$ it is $\omega_\varphi \circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\int_{\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`). With the faces: `MPolyfold.theorem_4_4_7_hyp`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$, face-structured (Definition 2.5.10), a continuous tangent orientation $o$ of the Mathlib manifold $S$ and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \sum_F \int_F \omega|_F$, the sum over the finitely many faces $F$ of $S$ (`finite_setOf_isFace`). Each face is a Mathlib manifold modelled on $[0, \infty)^n$ through a corner structure of dimension $n$ (`hasCornerStructureOfDim_face`), oriented by the induced orientation, outward vector first (`faceOrientation`, `IsInducedOrientation`, unique and continuous); $\omega|_F$ is the pull-back of $\omega|_S$ along $F \hookrightarrow S$ (`restrictForm`). The face sum equals the boundary integral of $S$ (`sum_integral_restrictForm_eq_boundaryIntegral`), and `stokes_formsInftyRestrict` gives the rest.
 
-- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1057
-- `Polyfold.MPolyfold.scFormRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 968
-- `Polyfold.MPolyfold.scFormRestrict_apply_modelDeriv` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 982
-- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1006
-- `Polyfold.MPolyfold.contMDiffForm_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1029
-- `Polyfold.MPolyfold.extDeriv_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1034
-- `Polyfold.MPolyfold.scFormRestrict_formLower` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 998
-- `Polyfold.MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 918
-- `Polyfold.exists_hasCornerStructureOfDim_of_tame` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1089
-- `Polyfold.exists_hasCornerStructureOfDim_solutionSet` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1103
+- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1058
+- `Polyfold.MPolyfold.scFormRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 969
+- `Polyfold.MPolyfold.scFormRestrict_apply_modelDeriv` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 983
+- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1007
+- `Polyfold.MPolyfold.contMDiffForm_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1030
+- `Polyfold.MPolyfold.extDeriv_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1035
+- `Polyfold.MPolyfold.scFormRestrict_formLower` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 999
+- `Polyfold.MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 919
+- `Polyfold.exists_hasCornerStructureOfDim_of_tame` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1090
+- `Polyfold.exists_hasCornerStructureOfDim_solutionSet` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1104
 - `Polyfold.MPolyfold.theorem_4_4_7_hyp` — Polyfold/Chapter9/StokesFaceSum.lean, line 397
 - `Polyfold.MPolyfold.faceOrientation` — Polyfold/Chapter9/StokesFaceSum.lean, line 333
 - `Polyfold.MPolyfold.isFaceStructured_of_forall_degIndex_eq_zero` — Polyfold/Chapter9/StokesFaceSum.lean, line 366
-- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter4/StokesFaceCharts.lean, line 353
+- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter6/StokesFaceCharts.lean, line 353
 - `Polyfold.sum_integral_restrictForm_eq_boundaryIntegral` — Polyfold/Chapter4/StokesFaceIntegral.lean, line 531
 - `Polyfold.restrictForm` — Polyfold/Chapter4/StokesFaceIntegral.lean, line 103
 - `Polyfold.IsInducedOrientation` — Polyfold/Chapter4/StokesFaceOrientation.lean, line 277
@@ -7508,21 +7508,21 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `lemma_4_4_8 A x`: there are open $V \subseteq U \ni x$ such that for every $k$ every $a \in \Omega^{k+1}_\infty(U)$ with $da = 0$ has $b \in \Omega^k_\infty(V)$ with $db = a|_V$. $U$, $V$ are Part I's open sub-M-polyfolds (`restrictOpen`, bundled as `BundledMPolyfold.openSub`); forms restrict to open subsets, commuting with $d$ (`formRestrict`, `extD_formRestrict`, `formsInftyResOpen`, `formsInftyResOpenOpen`), and "$[\omega] = [\tau]$ on $V$" of (4.7) is `FormsInftyEqOn` (`formsInftyEqOn_of_iff`). The proof is the text's: a chart $\varphi$ and retraction $r$ with $r(B_\delta \cap C) \subseteq B_\varepsilon$ (`exists_poincareChart`), $V(x) = \varphi^{-1}(B_\delta(\varphi x))$, the M-polyfold $O^m$ as the $m$-th lift (`LocalModel.liftEquiv`), Lemma 4.5.2 on $B_\delta(\varphi x) \cap C$ about a smooth centre on every level (`LocalPoincare`, `hasPoincare_lift`, `localPoincare`), and $d(j^*\tau) = (r \circ j)^*\omega$ on the direct limits (`exists_primitive_of_factor`, `lemma_4_4_8_of_local`).
 
-- `Polyfold.lemma_4_4_8` — Polyfold/Chapter4/Poincare.lean, line 860
-- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter4/Poincare448.lean, line 311
-- `Polyfold.LocalPoincare` — Polyfold/Chapter4/Poincare448.lean, line 94
-- `Polyfold.localPoincare` — Polyfold/Chapter4/Poincare.lean, line 853
-- `Polyfold.hasPoincare_lift` — Polyfold/Chapter4/Poincare448.lean, line 99
-- `Polyfold.exists_primitive_of_factor` — Polyfold/Chapter4/Poincare448.lean, line 240
+- `Polyfold.lemma_4_4_8` — Polyfold/Chapter5/Poincare.lean, line 860
+- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter5/Poincare448.lean, line 311
+- `Polyfold.LocalPoincare` — Polyfold/Chapter5/Poincare448.lean, line 94
+- `Polyfold.localPoincare` — Polyfold/Chapter5/Poincare.lean, line 853
+- `Polyfold.hasPoincare_lift` — Polyfold/Chapter5/Poincare448.lean, line 99
+- `Polyfold.exists_primitive_of_factor` — Polyfold/Chapter5/Poincare448.lean, line 240
 - `Polyfold.MPolyfold.HasPoincare` — Polyfold/Chapter4/Poincare448Shift.lean, line 44
 - `Polyfold.LocalModel.liftEquiv` — Polyfold/Chapter4/Poincare448Shift.lean, line 200
-- `Polyfold.MPolyfold.formRestrict` — Polyfold/Chapter4/OpenForms.lean, line 54
-- `Polyfold.MPolyfold.extD_formRestrict` — Polyfold/Chapter4/OpenForms.lean, line 72
-- `Polyfold.BundledMPolyfold.openSub` — Polyfold/Chapter4/OpenForms.lean, line 88
-- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter4/OpenForms.lean, line 120
-- `Polyfold.BundledMPolyfold.formsInftyResOpenOpen` — Polyfold/Chapter4/OpenForms.lean, line 125
-- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter4/OpenForms.lean, line 153
-- `Polyfold.BundledMPolyfold.formsInftyEqOn_of_iff` — Polyfold/Chapter4/OpenForms.lean, line 158
+- `Polyfold.MPolyfold.formRestrict` — Polyfold/Chapter5/OpenForms.lean, line 54
+- `Polyfold.MPolyfold.extD_formRestrict` — Polyfold/Chapter5/OpenForms.lean, line 72
+- `Polyfold.BundledMPolyfold.openSub` — Polyfold/Chapter5/OpenForms.lean, line 88
+- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter5/OpenForms.lean, line 120
+- `Polyfold.BundledMPolyfold.formsInftyResOpenOpen` — Polyfold/Chapter5/OpenForms.lean, line 125
+- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter5/OpenForms.lean, line 153
+- `Polyfold.BundledMPolyfold.formsInftyEqOn_of_iff` — Polyfold/Chapter5/OpenForms.lean, line 158
 
 *What differs.*
 - $U(x)$, $V(x)$ are Part I's open sub-M-polyfolds (nonempty, as they contain $x$); "$d[\tau] = [\omega]$ on $V(x)$" is $db = a|_V$; the text's degrees $k \ge 1$, $k - 1$ are $k + 1$, $k$. In the proof Lemma 4.5.2 is applied to the convex set $B_\delta(\varphi(x)) \cap C$, which need not contain $0$, and the remark after Lemma 4.5.2 (a centre $(0, w_0)$) does not cover it; Lemma 4.5.2 is therefore used with the homotopy about any smooth centre, which the same proof gives (V4.96; Findings, Chapter 4, item 177).
@@ -7535,13 +7535,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `hasPoincare_relOpen_of_zero_mem`: for a local model $M$ with $M.O$ relatively open in the partial quadrant and convex, $0 \in M.O$, and every $k$, every $\sigma \in \Omega^{k+1}(O)$ with $d\sigma = 0$ has $\tau \in \Omega^k(O)$ with $d\tau = \iota^*\sigma$ on $O^1$ (`MPolyfold.HasPoincare`); `hasPoincare_relOpen` is the same about any smooth centre $c \in M.O$. The primitive is the homotopy form $\tau(y)(v) = \int_0^1 t^k\,\omega(c + t(y - c))(y - c, v)\,dt$ (`homotopyForm`, `relOpenForm`), sc-smooth by the sc-smoothness of parametric integrals over $[0, 1]$ (`isScSmooth_intervalIntegral`, `isSck_intervalIntegral`, `scDeriv_intervalIntegral`, by sc-induction through the tangent map) (`isScSmooth_homotopyForm`); `ambientD_homotopyForm` and `lemma_4_5_2` give $d\tau = \omega$ in the chart, with the local $d$ the `deltaFun` of the derivative and the identity $d_r = $ the ambient $d$ on a relatively open set (`retractD_eq_ambientD`).
 
-- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter4/Poincare.lean, line 844
-- `Polyfold.hasPoincare_relOpen` — Polyfold/Chapter4/Poincare.lean, line 796
-- `Polyfold.lemma_4_5_2` — Polyfold/Chapter4/Poincare.lean, line 666
-- `Polyfold.homotopyForm` — Polyfold/Chapter4/Poincare.lean, line 175
-- `Polyfold.isScSmooth_homotopyForm` — Polyfold/Chapter4/Poincare.lean, line 210
-- `Polyfold.ambientD_homotopyForm` — Polyfold/Chapter4/Poincare.lean, line 580
-- `Polyfold.retractD_eq_ambientD` — Polyfold/Chapter4/Poincare.lean, line 723
+- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter5/Poincare.lean, line 844
+- `Polyfold.hasPoincare_relOpen` — Polyfold/Chapter5/Poincare.lean, line 796
+- `Polyfold.lemma_4_5_2` — Polyfold/Chapter5/Poincare.lean, line 666
+- `Polyfold.homotopyForm` — Polyfold/Chapter5/Poincare.lean, line 175
+- `Polyfold.isScSmooth_homotopyForm` — Polyfold/Chapter5/Poincare.lean, line 210
+- `Polyfold.ambientD_homotopyForm` — Polyfold/Chapter5/Poincare.lean, line 580
+- `Polyfold.retractD_eq_ambientD` — Polyfold/Chapter5/Poincare.lean, line 723
 - `Polyfold.isScSmooth_intervalIntegral` — Polyfold/Chapter4/ParametricIntegrals.lean, line 412
 - `Polyfold.isSck_intervalIntegral` — Polyfold/Chapter4/ParametricIntegrals.lean, line 398
 - `Polyfold.scDeriv_intervalIntegral` — Polyfold/Chapter4/ParametricIntegrals.lean, line 328
@@ -7753,16 +7753,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.corollary_5_2_5` — Polyfold/Chapter5/Corollary58.lean, line 546
 - `Polyfold.corollary_5_2_5_two` — Polyfold/Chapter5/Corollary58.lean, line 557
-- `Polyfold.StrongBundle.solutionSet_sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 995
+- `Polyfold.StrongBundle.solutionSet_sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 867
 - `Polyfold.isCompact_solutionSet_level` — Polyfold/Chapter5/Compactness.lean, line 242
 - `Polyfold.corollary_5_2_5_tame` — Polyfold/Chapter5/ShiftTameResearch.lean, line 336
-- `Polyfold.corollary_5_2_5_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 325
+- `Polyfold.corollary_5_2_5_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 325
 - `Polyfold.corollary_5_2_5_tame_two` — Polyfold/Chapter5/ShiftTameResearch.lean, line 345
 
 *What differs.*
 - $P^i : Y^i \to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_2_5_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.
 - Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; gap G.41).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter3/MainTheorems.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter5/MainTheorems.lean`).
 
 ### V5.14. Corollary 5.2.5 (preprint 5.8): the shifted strong bundle $P^1$, and $f^1$ sc-Fredholm on it
 
@@ -7772,12 +7772,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_2_5_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \in \ker Dr(0)$ and $Dk(0)v \in F_m$ give $v \in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_2_5_chart` is kept. The index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`), so the germ data of $f^1$ lie in a tame chart (`isScFredholmGermTame_sectionShift`).
 
-- `Polyfold.StrongBundle.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 878
-- `Polyfold.StrongBundleChart.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 631
-- `Polyfold.StrongBundleChart.Compatible.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 816
-- `Polyfold.StrongBundle.mem_shift_doubleLevel_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 919
-- `Polyfold.StrongBundle.sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 941
-- `Polyfold.StrongBundle.regularizing_sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 1003
+- `Polyfold.StrongBundle.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 750
+- `Polyfold.StrongBundleChart.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 503
+- `Polyfold.StrongBundleChart.Compatible.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 688
+- `Polyfold.StrongBundle.mem_shift_doubleLevel_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 791
+- `Polyfold.StrongBundle.sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 813
+- `Polyfold.StrongBundle.regularizing_sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 875
 - `Polyfold.ScNbhdGerm.shiftParam` — Polyfold/Chapter5/Compactness.lean, line 266
 - `Polyfold.IsSc0ContractionGerm.shift` — Polyfold/Chapter5/Compactness.lean, line 284
 - `Polyfold.IsBasicGerm.shift` — Polyfold/Chapter5/Compactness.lean, line 306
@@ -8182,9 +8182,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_5_3_10_book_2021def` — Polyfold/Chapter5/MainTheoremsBookFormTextDefs.lean, line 46
 - `Polyfold.theorem_5_3_10` — Polyfold/Chapter5/MainTheoremsBookForm.lean, line 81
-- `Polyfold.theorem_5_3_10_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 352
-- `Polyfold.theorem_5_3_10_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 265
-- `Polyfold.StrongBundle.SolutionSetInGeneralPosition.isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 231
+- `Polyfold.theorem_5_3_10_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 352
+- `Polyfold.theorem_5_3_10_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 265
+- `Polyfold.StrongBundle.SolutionSetInGeneralPosition.isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 231
 - `Polyfold.theorem_5_3_10_dense` — Polyfold/Chapter5/GeneralPosition.lean, line 1968
 - `Polyfold.theorem_5_3_10_param` — Polyfold/Chapter5/GeneralPosition.lean, line 1779
 
@@ -8192,7 +8192,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - The theorem is stated with the book's quantifiers, a dense $O$ and no $t_i$, $\delta$ or null set (`theorem_5_3_10`); the generic form of the proof is kept (`theorem_5_3_10_param`). Density is read in the pointwise distance $N(s(x) - s'(x)) \le \varepsilon$, which is $\rho(s, s') \le \varepsilon$ in the metric space $(\Gamma^{+,1}_U(P), \rho)$ of V5.21 (Findings, Chapter 5, items 89, 182).
 - $X$ tame: the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23); §5.3 opens with a tame strong bundle (Findings, Chapter 5, item 80).
 - "Replacing $f + s_0$ by $f$ and $N$ by $cN$" is not needed; the proof keeps $s_0$ (Findings, Chapter 5, item 85).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_10_2021def` (`Chapter3/MainTheorems.lean`). In Mathlib's language: for the perturbations of the generic form, $S_{f+s_\lambda}$, if $f + s_\lambda$ has index $d$, is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_5_3_10_isManifold`, from `SolutionSetInGeneralPosition.isManifold`, `Chapter9/MathlibSolutionSets.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_10_2021def` (`Chapter5/MainTheorems.lean`). In Mathlib's language: for the perturbations of the generic form, $S_{f+s_\lambda}$, if $f + s_\lambda$ has index $d$, is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_5_3_10_isManifold`, from `SolutionSetInGeneralPosition.isManifold`, `Chapter6/MathlibSolutionSets.lean`).
 - The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_10_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_10` through `isScFredholmSectionTame2021_iff`.
 
 ### V5.39. Theorem 5.3.10 (preprint 5.18), the text's dense form
@@ -8218,7 +8218,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_5_3_12_book_2021def` — Polyfold/Chapter5/MainTheoremsBookFormTextDefs.lean, line 72
 - `Polyfold.theorem_5_3_12` — Polyfold/Chapter5/MainTheoremsBookForm.lean, line 115
-- `Polyfold.theorem_5_3_12_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 372
+- `Polyfold.theorem_5_3_12_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 372
 - `Polyfold.theorem_5_3_12_param` — Polyfold/Chapter5/GeneralPosition.lean, line 2119
 - `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds` — Polyfold/Chapter3/Chapter5BridgeG.lean, line 76
 - `Polyfold.Counterexamples2021.theorem_5_3_12_goodPosition_not_stable` — Polyfold/Chapter3/Counterexamples.lean, line 262
@@ -8230,7 +8230,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - "$(f, x)$ in good position" is $(f + s, x)$ (Findings, Chapter 5, item 87).
 - \"As before\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\mathbb R \times \cdot$, as $\mathbb R(1, 1)$ in $[0, \infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).
 - The dense form is proved too: within $N$-distance $\varepsilon$ of any $s' \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter3/MainTheorems.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter5/MainTheorems.lean`).
 - The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`.
 
 ### V5.41. Definition 5.3.13 (preprint 5.20): generalized compact homotopy
@@ -8650,13 +8650,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 **Proved in Lean.** `theorem_5_3_5`: the conclusions of `theorem_5_3_5_preprint`, with $S_{f+s}$ a sub-M-polyfold and compact (a manifold when non-empty); `isSubMPolyfold_solutionSet_of_manifold`: the empty set is a sub-M-polyfold.
 
 - `Polyfold.theorem_5_3_5` — Polyfold/Chapter5/Book.lean, line 289
-- `Polyfold.theorem_5_3_5_2021def` — Polyfold/Chapter3/MainTheorems.lean, line 335
+- `Polyfold.theorem_5_3_5_2021def` — Polyfold/Chapter5/MainTheorems.lean, line 335
 - `Polyfold.isSubMPolyfold_solutionSet_of_manifold` — Polyfold/Chapter5/Book.lean, line 277
 - `Polyfold.theorem_5_3_5_preprint` — Polyfold/Chapter5/Transversality.lean, line 1806
 
 *What differs.*
 - The printed bound on $f$ is read as a bound on $s$ (presumably meant so; the proof bounds $s$); density is pointwise, as in V5.30 (Findings, Chapter 5, items 173, 174).
-- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter3/MainTheorems.lean`).
+- With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_5_2021def` (`Chapter5/MainTheorems.lean`).
 
 ### V5.68. Definition 5.3.13 (preprint 5.20), 2021 form: generalized compact homotopy with $dt$ onto
 
@@ -8727,9 +8727,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.isRegularPointOn_of_extremum` — Polyfold/Chapter5/Theorem5315_LocalData.lean, line 141
 - `Polyfold.scDeriv_eq_zero_of_extremum` — Polyfold/Chapter5/Theorem5315_LocalTangent.lean, line 284
 - `Polyfold.StrongBundle.exists_fderivWithin_eq_scDeriv_of_mem_linKer` — Polyfold/Chapter5/Theorem5315_LocalTangent.lean, line 227
-- `Polyfold.MPolyfold.IsSmoothParam` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 73
-- `Polyfold.MPolyfold.IsMorseOrRegularPoint` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 130
-- `Polyfold.MPolyfold.HasOnlyMorseCriticalPoints` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 138
+- `Polyfold.MPolyfold.IsSmoothParam` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 74
+- `Polyfold.MPolyfold.IsMorseOrRegularPoint` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 131
+- `Polyfold.MPolyfold.HasOnlyMorseCriticalPoints` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 139
 - `Polyfold.MPolyfold.IsMorseOrRegularPoint.morseClause` — Polyfold/Chapter5/Theorem5315_LocalInvarianceClause.lean, line 182
 - `Polyfold.MPolyfold.IsSmoothParam.fderivWithin_ne_zero_congr` — Polyfold/Chapter5/Theorem5315_LocalInvarianceClause.lean, line 97
 - `Polyfold.MPolyfold.IsSmoothParam.hessian_injective_congr` — Polyfold/Chapter5/Theorem5315_LocalInvariance.lean, line 58
@@ -8759,8 +8759,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.exists_levelSet_param` — Polyfold/Chapter5/Theorem5315_MorseLagrange.lean, line 347
 - `Polyfold.surjective_fderiv_famGradient` — Polyfold/Chapter5/Theorem5315_MorseFamily.lean, line 324
 - `Polyfold.ae_isLagrangeNondegenerate_family` — Polyfold/Chapter5/Theorem5315_MorseFamily.lean, line 377
-- `Polyfold.ae_isMorseOrRegularPoint_famSlice` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 318
-- `Polyfold.famShift` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 273
+- `Polyfold.ae_isMorseOrRegularPoint_famSlice` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 319
+- `Polyfold.famShift` — Polyfold/Chapter5/Theorem5315_MorseParam.lean, line 274
 - `Polyfold.exists_spanning_of_group` — Polyfold/Chapter5/Theorem5315_MorseTransfer.lean, line 260
 - `Polyfold.MPolyfold.IsSmoothParam.fderivWithin_eq_zero_of_multiplier` — Polyfold/Chapter5/Theorem5315_MorseTransfer.lean, line 164
 - `Polyfold.famZero` — Polyfold/Chapter5/Theorem5315_Morse.lean, line 108
@@ -8788,9 +8788,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 172
 - `Polyfold.remark_5_3_8_relative` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 106
 - `Polyfold.exists_margin_of_isCompact` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 65
-- `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation.lean, line 1599
-- `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation.lean, line 946
-- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 789
+- `Polyfold.exists_cobordism` — Polyfold/Chapter6/CylinderInterpolation.lean, line 300
+- `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation.lean, line 836
+- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 790
 
 *What differs.*
 - Reading D2: the text's $[0, 1] \times X$ is $\mathbb R^1 \times X$; "transversal near $t = 0, 1$" is general position at the zeros with $t \notin (a, b)$, and "$s$ vanishing near $t = 0, 1$" is $s(t, \cdot) = 0$ for $t \notin (c', d')$. The compact solution set of the arc is asked over $[0, 1]$. The orientation of the cobordism is gap G.66.
@@ -9032,10 +9032,10 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `StrongBundle.IsBoundaryScPlusSection B s`: for $x \in \partial X$, $P(s(x)) = x$ and $s(x) \in W_{0,1}$; and for every tame strong bundle chart (`B.IsTameChart c`), every tame presentation $T$, every $x \in \partial X$ in the chart and every $i \in I(\varphi(x))$, the local representative restricted to $O \cap V \cap \{t_i = 0\}$ is an sc⁺-section for some open $V \ni \varphi(x)$, and that face germ is an sc-retract (`IsScPlusOnFaceNear`). The zero section satisfies it for every strong bundle (`isBoundaryScPlusSection_fiberZero`).
 
-- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter5/BoundaryExtension.lean, line 92
-- `Polyfold.StrongBundle.isBoundaryScPlusSection_fiberZero` — Polyfold/Chapter5/BoundaryExtension.lean, line 115
-- `Polyfold.StrongBundle.boundarySupport` — Polyfold/Chapter5/BoundaryExtension.lean, line 102
-- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 147
+- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/BoundaryExtension.lean, line 93
+- `Polyfold.StrongBundle.isBoundaryScPlusSection_fiberZero` — Polyfold/Chapter12/BoundaryExtension.lean, line 116
+- `Polyfold.StrongBundle.boundarySupport` — Polyfold/Chapter12/BoundaryExtension.lean, line 103
+- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 148
 
 *What differs.*
 - The local faces at $x$ are the germs $O \cap \{t_i = 0\}$, $i \in I(\varphi(x))$, in tame coordinates; "the restriction is sc⁺" is read chart-wise, in every tame chart and presentation (the all-charts quantifier is satisfiable: the zero section). $s(x) \in W_{0,1}$ is stated outright, so that $N(s(x))$ in Theorem 5.4.2 is defined at every boundary point.
@@ -9048,12 +9048,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `theorem_5_4_2`, with the hypotheses `B.IsTameBundle`, `PX.AdmitsScPartitionsOfUnity`, `B.IsBoundaryScPlusSection s`, `B.IsAuxNorm N`, $\tilde U$ open containing `boundarySupport PX P s`, $f$ continuous, $f \ge 0$, `tsupport f ⊆ Ũ` and $N(s(x)) < f(x)$ on the support: there is an sc⁺-section $\tilde s$ with $N(\tilde s(x)) \le f(x)$, `sectionSupport P s̃ ⊆ Ũ` and $\tilde s = s$ on $\partial X$. The proof is complete: the local step `exists_local_extension` (Proposition 12.3.7 in a tame chart, then a bump function), the local bound `exists_local_bounded`, the gluing `exists_boundary_extension`.
 
-- `Polyfold.theorem_5_4_2` — Polyfold/Chapter5/BoundaryExtension.lean, line 382
-- `Polyfold.StrongBundle.exists_boundary_extension` — Polyfold/Chapter5/BoundaryExtension.lean, line 278
-- `Polyfold.StrongBundle.exists_local_bounded` — Polyfold/Chapter5/BoundaryExtension.lean, line 236
-- `Polyfold.StrongBundle.exists_local_extension` — Polyfold/Chapter5/BoundaryExtension.lean, line 145
-- `Polyfold.StrongBundle.degIndex_ne_zero_of_mem_boundary` — Polyfold/Chapter5/BoundaryExtension.lean, line 132
-- `Polyfold.StrongBundle.isScPlusSection_of_locally'` — Polyfold/Chapter5/BoundaryExtension.lean, line 220
+- `Polyfold.theorem_5_4_2` — Polyfold/Chapter12/BoundaryExtension.lean, line 368
+- `Polyfold.StrongBundle.exists_boundary_extension` — Polyfold/Chapter12/BoundaryExtension.lean, line 264
+- `Polyfold.StrongBundle.exists_local_bounded` — Polyfold/Chapter12/BoundaryExtension.lean, line 222
+- `Polyfold.StrongBundle.exists_local_extension` — Polyfold/Chapter12/BoundaryExtension.lean, line 146
+- `Polyfold.StrongBundle.degIndex_ne_zero_of_mem_boundary` — Polyfold/Chapter12/BoundaryExtension.lean, line 133
+- `Polyfold.StrongBundle.isScPlusSection_of_locally` — Polyfold/Chapter12/ScPlusSectionFunctor.lean, line 82
 
 *What differs.*
 - "Strong bundle over a tame M-polyfold" is the project's `IsTameBundle` (the base is tame and every point lies in a tame strong bundle chart); this forces `X Y : Type`, and the universe-polymorphic core `exists_boundary_extension` takes only the chart hypothesis. $\mathrm{supp}(s)$ is the closure of $\{x \in \partial X : s(x) \ne 0_x\}$. The proof does not use that $\tilde U$ is open or contains $\mathrm{supp}(s)$; both are kept as in the text.
@@ -9112,7 +9112,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ChartPoint.exists_index_linSet` — Polyfold/Chapter6/LinSet.lean, line 388
 - `Polyfold.ChartPoint.fredholmIndex_of_mem_linSet` — Polyfold/Chapter6/LinSet.lean, line 397
 - `Polyfold.ChartPoint.convex_linSet` — Polyfold/Chapter6/LinSet.lean, line 404
-- `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` — Polyfold/Chapter3/IndexLocallyConstantLocal.lean, line 82
+- `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` — Polyfold/Chapter5/IndexLocallyConstantLocal.lean, line 83
 - `Polyfold.ChartPoint.exists_isScFredholm_of_mem_linSet` — Polyfold/Chapter6/LinSetFredholm.lean, line 65
 - `Polyfold.ChartPoint.definition_6_2_1_linSet_isScFredholm` — Polyfold/Chapter6/LinSetFredholm.lean, line 98
 
@@ -9635,16 +9635,16 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `proposition_6_6_3` (bump functions): open $U \subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\{y \in \operatorname{cl}(U) \mid f(y) = 0\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n) \subseteq W$ an sc⁺-section $S$ of $\pi^*P \to \mathbb R^n \times X$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \in [0, 1]^n$ only through $\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\mathbb R^n \times X$ and $\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`). `proposition_6_6_3_three_interval`, `proposition_6_6_3_four_interval`: (3) and (4) for paths $[0, 1] \to X$ with sc⁺-sections over the M-polyfold $[0, 1] \times X$, with $(f + S)(t, \varphi(t)) = 0$ for every $t \in [0, 1]$. `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`: (3), (4) for families $[0,1]^n \to X$ over the M-polyfold with corners $[0,1]^n \times X$ (`cubePolyfold`). `proposition_6_6_3_one`: in addition an open $U' \ni x$ in $U$ and an sc-smooth contraction $H : [0, 1] \times X \to X$ of $U'$ in $U$ to $x$ (`IsScContraction`: sc-smooth on $[0, 1] \times U'$, $H(0, \cdot) = x$, $H(1, \cdot) = \mathrm{id}$, $H(t, x) = x$), (1) as printed in 2021. `exists_isScHomotopyI`, `proposition_6_6_3_interval`: (1′) for paths $[0, 1] \to U$ with sc-smooth homotopies $[0, 1]^2 \to W$ with the end points fixed (`unitSquarePolyfold`).
 
-- `Polyfold.IsScHomotopyRel` — Polyfold/Chapter6/OrientableNbhd.lean, line 276
-- `Polyfold.pt1` — Polyfold/Chapter6/OrientableNbhd.lean, line 267
-- `Polyfold.pt2` — Polyfold/Chapter6/OrientableNbhd.lean, line 270
-- `Polyfold.exists_contDiff_eq_id_near_Icc_mapsTo` — Polyfold/Chapter6/OrientableNbhd.lean, line 140
-- `Polyfold.exists_isScSmoothMap_eq_one_nhdsSet` — Polyfold/Chapter6/OrientableNbhd.lean, line 179
-- `Polyfold.exists_nhds_isCompact_zeros` — Polyfold/Chapter6/OrientableNbhd.lean, line 249
-- `Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump` — Polyfold/Chapter6/OrientableNbhd.lean, line 297
-- `Polyfold.exists_isScPlusSection_pullback_of_family` — Polyfold/Chapter6/OrientableNbhd.lean, line 479
-- `Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump` — Polyfold/Chapter6/OrientableNbhd.lean, line 511
-- `Polyfold.proposition_6_6_3` — Polyfold/Chapter6/OrientableNbhd.lean, line 529
+- `Polyfold.IsScHomotopyRel` — Polyfold/Chapter5/OrientableNbhd.lean, line 276
+- `Polyfold.pt1` — Polyfold/Chapter5/OrientableNbhd.lean, line 267
+- `Polyfold.pt2` — Polyfold/Chapter5/OrientableNbhd.lean, line 270
+- `Polyfold.exists_contDiff_eq_id_near_Icc_mapsTo` — Polyfold/Chapter5/OrientableNbhd.lean, line 140
+- `Polyfold.exists_isScSmoothMap_eq_one_nhdsSet` — Polyfold/Chapter5/OrientableNbhd.lean, line 179
+- `Polyfold.exists_nhds_isCompact_zeros` — Polyfold/Chapter5/OrientableNbhd.lean, line 249
+- `Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump` — Polyfold/Chapter5/OrientableNbhd.lean, line 297
+- `Polyfold.exists_isScPlusSection_pullback_of_family` — Polyfold/Chapter5/OrientableNbhd.lean, line 479
+- `Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump` — Polyfold/Chapter5/OrientableNbhd.lean, line 511
+- `Polyfold.proposition_6_6_3` — Polyfold/Chapter5/OrientableNbhd.lean, line 529
 - `Polyfold.MPolyfold.paracompactSpace_prod` — Polyfold/Chapter2/FibredProduct.lean, line 455
 - `Polyfold.paracompactSpace_pullbackSpace` — Polyfold/Chapter2/StrongBundlePullback.lean, line 555
 - `Polyfold.proposition_6_6_3_three_interval` — Polyfold/Chapter6/UnitIntervalSections.lean, line 362
@@ -9670,9 +9670,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `lemma_6_6_4` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\Phi : \mathbb R^n \to X$ and an sc⁺-section $S$ of $\pi^*P$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \dots, s_k$ of $\pi^*P$ such that $F(\lambda, (q, y)) = f(y) + S(q, y) + \sum\lambda_is_i(q, y)$ is in general position at $(0, (q, \Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`). `lemma_6_6_4_propertyP`: the same sections also give (P), the general position of every slice $F_q$ at $(0, \Phi(q))$ (`isGeneralPositionGerm_slice`). On $[0,1]^n$ itself: `lemma_6_6_4_propertyP_cube`. There are sc⁺-sections over $[0,1]^n \times X$ such that, for **every** $q \in [0,1]^n$, the slice $F_q$ is in general position at $(0,\Phi(q))$ (P) and $F$ is in general position at $(0,(q,\Phi(q)))$. The two are equivalent at every $q$ (`isGeneralPositionGerm_cubeSlice_iff`). `lemma_6_6_4_cube`: general position of $F$ on $[0,1]^n$ for an sc-smooth $\Phi : [0,1]^n \to X$, with $S$ from Proposition 6.6.3 (3) in `lemma_6_6_4_cube_family`.
 
-- `Polyfold.isZeroAt_paramSection_zero` — Polyfold/Chapter6/Lemma629.lean, line 81
-- `Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact` — Polyfold/Chapter6/Lemma629.lean, line 102
-- `Polyfold.lemma_6_6_4` — Polyfold/Chapter6/Lemma629.lean, line 203
+- `Polyfold.isZeroAt_paramSection_zero` — Polyfold/Chapter5/Lemma629.lean, line 81
+- `Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact` — Polyfold/Chapter5/Lemma629.lean, line 102
+- `Polyfold.lemma_6_6_4` — Polyfold/Chapter5/Lemma629.lean, line 203
 - `Polyfold.lemma_6_6_4_propertyP` — Polyfold/Chapter6/SlicePropertyP.lean, line 391
 - `Polyfold.isGeneralPositionGerm_slice` — Polyfold/Chapter6/SlicePropertyP.lean, line 330
 - `Polyfold.isParamGP_slice_of_isParamGP` — Polyfold/Chapter6/SlicePropertyP.lean, line 197
@@ -10040,19 +10040,19 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \in U$ there is an open $V \ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\gamma_1(\kappa(3s))$ for $s \le 1/2$ and $\gamma_2(\kappa(3s - 2))$ for $s > 1/2$, $\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`). Beyond a chart: `scJoinedIn_of_isConnected` joins any two smooth points of a connected open $U$ by an sc-smooth path in $U$. `paths_before_proposition_6_2_2` gives the facts recalled before Proposition 6.2.2 (2021 p. 240; preprint p. 201): local path connectedness, and sc⁺-smooth paths $\varphi : [0, 1] \to X$ between smooth points of a component (`IsScSmoothMap.exists_scPlus_lift`).
 
-- `Polyfold.MPolyfold.isScSmoothMap_of_eventuallyEq` — Polyfold/Chapter6/ScPaths.lean, line 54
-- `Polyfold.pt1_apply` — Polyfold/Chapter6/ScPaths.lean, line 72
-- `Polyfold.contDiff_pt1_comp` — Polyfold/Chapter6/ScPaths.lean, line 75
-- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter6/ScPaths.lean, line 84
-- `Polyfold.concatPath` — Polyfold/Chapter6/ScPaths.lean, line 177
-- `Polyfold.concatPath_of_le` — Polyfold/Chapter6/ScPaths.lean, line 186
-- `Polyfold.concatPath_of_gt` — Polyfold/Chapter6/ScPaths.lean, line 191
-- `Polyfold.isScSmoothMap_concatPath` — Polyfold/Chapter6/ScPaths.lean, line 196
-- `Polyfold.concatPath_zero` — Polyfold/Chapter6/ScPaths.lean, line 236
-- `Polyfold.concatPath_one` — Polyfold/Chapter6/ScPaths.lean, line 240
-- `Polyfold.concatPath_half₁` — Polyfold/Chapter6/ScPaths.lean, line 256
-- `Polyfold.concatPath_half₂` — Polyfold/Chapter6/ScPaths.lean, line 262
-- `Polyfold.isScSmoothMap_reparam` — Polyfold/Chapter6/ScPaths.lean, line 275
+- `Polyfold.MPolyfold.isScSmoothMap_of_eventuallyEq` — Polyfold/Chapter5/ScPaths.lean, line 54
+- `Polyfold.pt1_apply` — Polyfold/Chapter5/ScPaths.lean, line 72
+- `Polyfold.contDiff_pt1_comp` — Polyfold/Chapter5/ScPaths.lean, line 75
+- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter5/ScPaths.lean, line 84
+- `Polyfold.concatPath` — Polyfold/Chapter5/ScPaths.lean, line 177
+- `Polyfold.concatPath_of_le` — Polyfold/Chapter5/ScPaths.lean, line 186
+- `Polyfold.concatPath_of_gt` — Polyfold/Chapter5/ScPaths.lean, line 191
+- `Polyfold.isScSmoothMap_concatPath` — Polyfold/Chapter5/ScPaths.lean, line 196
+- `Polyfold.concatPath_zero` — Polyfold/Chapter5/ScPaths.lean, line 236
+- `Polyfold.concatPath_one` — Polyfold/Chapter5/ScPaths.lean, line 240
+- `Polyfold.concatPath_half₁` — Polyfold/Chapter5/ScPaths.lean, line 256
+- `Polyfold.concatPath_half₂` — Polyfold/Chapter5/ScPaths.lean, line 262
+- `Polyfold.isScSmoothMap_reparam` — Polyfold/Chapter5/ScPaths.lean, line 275
 - `Polyfold.HasLocalPropagation.eq_trans` — Polyfold/Chapter6/ContinuousOrientation.lean, line 59
 - `Polyfold.MPolyfold.paths_before_proposition_6_2_2` — Polyfold/Chapter6/SmoothPathComponents.lean, line 289
 - `Polyfold.MPolyfold.scJoinedIn_of_isConnected` — Polyfold/Chapter6/SmoothPathComponents.lean, line 214
@@ -10087,14 +10087,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `isScHomotopyRel_reparam`: for a $C^\infty$ $\theta$ with $\theta(0) = 0$ and $\theta(1) = 1$, $\gamma \circ \theta$ is sc-smoothly homotopic to $\gamma$ with the end points fixed, inside every set containing $\gamma([0, 1])$ when $\theta([0, 1]) \subseteq [0, 1]$ (`reparam_mem`); the concatenation of the two halves of $\gamma$ is such a reparametrization (`leftHalf`, `rightHalf`, `halvesReparam`, `concatPath_halves`).
 
-- `Polyfold.mem_smoothSet_of_isScSmoothMap` — Polyfold/Chapter6/ScHomotopy.lean, line 47
-- `Polyfold.contDiff_pt2_comp` — Polyfold/Chapter6/ScHomotopy.lean, line 52
-- `Polyfold.isScHomotopyRel_reparam` — Polyfold/Chapter6/ScHomotopy.lean, line 62
-- `Polyfold.reparam_mem` — Polyfold/Chapter6/ScHomotopy.lean, line 83
-- `Polyfold.leftHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 98
-- `Polyfold.rightHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 101
-- `Polyfold.halvesReparam` — Polyfold/Chapter6/ScHomotopy.lean, line 137
-- `Polyfold.concatPath_halves` — Polyfold/Chapter6/ScHomotopy.lean, line 165
+- `Polyfold.mem_smoothSet_of_isScSmoothMap` — Polyfold/Chapter5/SmoothSetMaps.lean, line 18
+- `Polyfold.contDiff_pt2_comp` — Polyfold/Chapter6/ScHomotopy.lean, line 50
+- `Polyfold.isScHomotopyRel_reparam` — Polyfold/Chapter6/ScHomotopy.lean, line 60
+- `Polyfold.reparam_mem` — Polyfold/Chapter6/ScHomotopy.lean, line 81
+- `Polyfold.leftHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 96
+- `Polyfold.rightHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 99
+- `Polyfold.halvesReparam` — Polyfold/Chapter6/ScHomotopy.lean, line 135
+- `Polyfold.concatPath_halves` — Polyfold/Chapter6/ScHomotopy.lean, line 163
 
 *What differs.*
 - As the text uses them; these are the tools of V6.52 and V6.56.
@@ -10107,41 +10107,41 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `ScHomotopic`: sc-smooth homotopy with the end points fixed, an equivalence relation on the sc-smooth paths `ScPath` between two points (`ScHomotopic.refl`, `ScHomotopic.symm`, `ScHomotopic.trans`). `ScPath.concat` is well defined on classes (`ScPath.concat_congr`), associative (`ScPath.concat_assoc`, via `assocReparam`, `isScHomotopyRel_triHomotopy`), with the classes of the constant paths as units (`ScPath.const_concat`, `ScPath.concat_const`) and the reversed paths as inverses (`ScPath.concat_reverse`, `ScPath.reverse_concat`). `PathCat`: the smooth points with the classes `ScPathClass` form a category (`PathCat.category`), indeed a groupoid (`PathCat.groupoid`). `PathCatI`: the text's category on $[0, 1]$ itself: paths $[0, 1] \to X$, homotopies sc-smooth on the M-polyfold $[0, 1]^2$ with end points fixed (`ScHomotopicI`), concatenation with the text's $\beta(s) = \kappa(3s) + \kappa(3s - 2)$ (`betaConcat`, `ScPathI.concat_toFun_of_le`, `ScPathI.concat_toFun_of_ge`); a groupoid (`PathCatI.groupoid`), equivalent to `PathCat` (`PathCatI.toPathCat_isEquivalence`).
 
-- `Polyfold.smoothTransition_half` — Polyfold/Chapter6/PathCategory.lean, line 80
-- `Polyfold.isScSmoothMap_const_of_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 87
-- `Polyfold.isScSmoothMap_ite` — Polyfold/Chapter6/PathCategory.lean, line 99
-- `Polyfold.isScSmoothMap_ite₃` — Polyfold/Chapter6/PathCategory.lean, line 118
-- `Polyfold.concatPath_of_le_two_thirds` — Polyfold/Chapter6/PathCategory.lean, line 155
-- `Polyfold.concatPath_of_one_third_le` — Polyfold/Chapter6/PathCategory.lean, line 165
-- `Polyfold.ScHomotopic` — Polyfold/Chapter6/PathCategory.lean, line 180
-- `Polyfold.ScHomotopic.refl` — Polyfold/Chapter6/PathCategory.lean, line 284
-- `Polyfold.ScHomotopic.symm` — Polyfold/Chapter6/PathCategory.lean, line 288
-- `Polyfold.ScHomotopic.trans` — Polyfold/Chapter6/PathCategory.lean, line 296
-- `Polyfold.isScHomotopyRel_triHomotopy` — Polyfold/Chapter6/PathCategory.lean, line 410
-- `Polyfold.assocReparam` — Polyfold/Chapter6/PathCategory.lean, line 455
-- `Polyfold.ScPath` — Polyfold/Chapter6/PathCategory.lean, line 688
-- `Polyfold.ScPath.source_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 703
-- `Polyfold.ScPath.target_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 707
-- `Polyfold.ScPath.const` — Polyfold/Chapter6/PathCategory.lean, line 725
-- `Polyfold.ScPath.concat` — Polyfold/Chapter6/PathCategory.lean, line 733
-- `Polyfold.ScPath.reverse` — Polyfold/Chapter6/PathCategory.lean, line 742
-- `Polyfold.ScPath.concat_congr` — Polyfold/Chapter6/PathCategory.lean, line 750
-- `Polyfold.ScPath.const_concat` — Polyfold/Chapter6/PathCategory.lean, line 758
-- `Polyfold.ScPath.concat_const` — Polyfold/Chapter6/PathCategory.lean, line 773
-- `Polyfold.ScPath.concat_assoc` — Polyfold/Chapter6/PathCategory.lean, line 787
-- `Polyfold.ScPath.concat_reverse` — Polyfold/Chapter6/PathCategory.lean, line 803
-- `Polyfold.ScPath.reverse_concat` — Polyfold/Chapter6/PathCategory.lean, line 808
-- `Polyfold.ScPathClass` — Polyfold/Chapter6/PathCategory.lean, line 817
-- `Polyfold.ScPathClass.comp` — Polyfold/Chapter6/PathCategory.lean, line 824
-- `Polyfold.PathCat` — Polyfold/Chapter6/PathCategory.lean, line 845
-- `Polyfold.PathCat.category` — Polyfold/Chapter6/PathCategory.lean, line 857
-- `Polyfold.PathCat.groupoid` — Polyfold/Chapter6/PathCategory.lean, line 889
-- `Polyfold.PathCat.homMk` — Polyfold/Chapter6/PathCategory.lean, line 868
-- `Polyfold.PathCat.comp_mk` — Polyfold/Chapter6/PathCategory.lean, line 871
-- `Polyfold.PathCat.id_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 875
-- `Polyfold.PathCat.mk_eq_mk_iff` — Polyfold/Chapter6/PathCategory.lean, line 878
-- `Polyfold.PathCat.exists_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 883
-- `Polyfold.PathCat.inv_mk` — Polyfold/Chapter6/PathCategory.lean, line 898
+- `Polyfold.smoothTransition_half` — Polyfold/Chapter6/PathCategory.lean, line 81
+- `Polyfold.isScSmoothMap_const_of_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 88
+- `Polyfold.isScSmoothMap_ite` — Polyfold/Chapter6/PathCategory.lean, line 100
+- `Polyfold.isScSmoothMap_ite₃` — Polyfold/Chapter6/PathCategory.lean, line 119
+- `Polyfold.concatPath_of_le_two_thirds` — Polyfold/Chapter6/PathCategory.lean, line 156
+- `Polyfold.concatPath_of_one_third_le` — Polyfold/Chapter6/PathCategory.lean, line 166
+- `Polyfold.ScHomotopic` — Polyfold/Chapter6/PathCategory.lean, line 181
+- `Polyfold.ScHomotopic.refl` — Polyfold/Chapter6/PathCategory.lean, line 285
+- `Polyfold.ScHomotopic.symm` — Polyfold/Chapter6/PathCategory.lean, line 289
+- `Polyfold.ScHomotopic.trans` — Polyfold/Chapter6/PathCategory.lean, line 297
+- `Polyfold.isScHomotopyRel_triHomotopy` — Polyfold/Chapter6/PathCategory.lean, line 411
+- `Polyfold.assocReparam` — Polyfold/Chapter6/PathCategory.lean, line 456
+- `Polyfold.ScPath` — Polyfold/Chapter6/PathCategory.lean, line 689
+- `Polyfold.ScPath.source_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 704
+- `Polyfold.ScPath.target_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 708
+- `Polyfold.ScPath.const` — Polyfold/Chapter6/PathCategory.lean, line 726
+- `Polyfold.ScPath.concat` — Polyfold/Chapter6/PathCategory.lean, line 734
+- `Polyfold.ScPath.reverse` — Polyfold/Chapter6/PathCategory.lean, line 743
+- `Polyfold.ScPath.concat_congr` — Polyfold/Chapter6/PathCategory.lean, line 751
+- `Polyfold.ScPath.const_concat` — Polyfold/Chapter6/PathCategory.lean, line 759
+- `Polyfold.ScPath.concat_const` — Polyfold/Chapter6/PathCategory.lean, line 774
+- `Polyfold.ScPath.concat_assoc` — Polyfold/Chapter6/PathCategory.lean, line 788
+- `Polyfold.ScPath.concat_reverse` — Polyfold/Chapter6/PathCategory.lean, line 804
+- `Polyfold.ScPath.reverse_concat` — Polyfold/Chapter6/PathCategory.lean, line 809
+- `Polyfold.ScPathClass` — Polyfold/Chapter6/PathCategory.lean, line 818
+- `Polyfold.ScPathClass.comp` — Polyfold/Chapter6/PathCategory.lean, line 825
+- `Polyfold.PathCat` — Polyfold/Chapter6/PathCategory.lean, line 846
+- `Polyfold.PathCat.category` — Polyfold/Chapter6/PathCategory.lean, line 858
+- `Polyfold.PathCat.groupoid` — Polyfold/Chapter6/PathCategory.lean, line 890
+- `Polyfold.PathCat.homMk` — Polyfold/Chapter6/PathCategory.lean, line 869
+- `Polyfold.PathCat.comp_mk` — Polyfold/Chapter6/PathCategory.lean, line 872
+- `Polyfold.PathCat.id_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 876
+- `Polyfold.PathCat.mk_eq_mk_iff` — Polyfold/Chapter6/PathCategory.lean, line 879
+- `Polyfold.PathCat.exists_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 884
+- `Polyfold.PathCat.inv_mk` — Polyfold/Chapter6/PathCategory.lean, line 899
 - `Polyfold.PathCatI` — Polyfold/Chapter6/PathCategoryInterval.lean, line 720
 - `Polyfold.PathCatI.category` — Polyfold/Chapter6/PathCategoryInterval.lean, line 732
 - `Polyfold.PathCatI.groupoid` — Polyfold/Chapter6/PathCategoryInterval.lean, line 759
@@ -10263,32 +10263,32 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `LocalTransport`: local data (good open sets covering $X_\infty$ and push-forwards along paths in a good set, compatible with concatenation and independent of the good set; `LocalTransport.push_eq_refl`, `LocalTransport.push_eq_push`, `LocalTransport.push_congr`). `LocalTransport.transportN`: the composite of the push-forwards along the $2^N$ dyadic pieces of a path (`vSeg`, `hSeg`, `dSeg`), the same for every $N$ at which every piece lies in a good set (`LocalTransport.IsFine`, `LocalTransport.transportN_eq_of_isFine`); such $N$ exist by the Lebesgue number lemma (`LocalTransport.exists_isLebesgueNumber`). `LocalTransport.transport` is the push-forward on a path in a good set (`LocalTransport.transport_eq_push`), homotopy invariant (`LocalTransport.transport_eq_of_isScHomotopyRel`, on dyadic squares: `LocalTransport.transportN_square`, `equiv_paste_squares`), compatible with concatenation and reparametrization, the identity on constant paths, and the only family with these properties (`LocalTransport.transport_unique`).
 
-- `Polyfold.LocalTransport` — Polyfold/Chapter6/PathTransport.lean, line 93
-- `Polyfold.LocalTransport.push_eq_refl` — Polyfold/Chapter6/PathTransport.lean, line 133
-- `Polyfold.LocalTransport.push_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 145
-- `Polyfold.LocalTransport.push_congr` — Polyfold/Chapter6/PathTransport.lean, line 159
-- `Polyfold.LocalTransport.transportN` — Polyfold/Chapter6/PathTransport.lean, line 176
-- `Polyfold.LocalTransport.transportN_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 224
-- `Polyfold.LocalTransport.IsFine` — Polyfold/Chapter6/PathTransport.lean, line 344
-- `Polyfold.LocalTransport.transportN_eq_of_isFine` — Polyfold/Chapter6/PathTransport.lean, line 350
-- `Polyfold.LocalTransport.IsLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 292
-- `Polyfold.LocalTransport.exists_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 326
-- `Polyfold.LocalTransport.isFine_of_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 368
-- `Polyfold.LocalTransport.transport` — Polyfold/Chapter6/PathTransport.lean, line 400
-- `Polyfold.LocalTransport.transport_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 428
-- `Polyfold.LocalTransport.transport_congr` — Polyfold/Chapter6/PathTransport.lean, line 442
-- `Polyfold.LocalTransport.transport_const` — Polyfold/Chapter6/PathTransport.lean, line 436
-- `Polyfold.LocalTransport.transport_halves` — Polyfold/Chapter6/PathTransport.lean, line 452
-- `Polyfold.LocalTransport.transportN_square` — Polyfold/Chapter6/PathTransport.lean, line 662
-- `Polyfold.LocalTransport.exists_isSqLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 612
-- `Polyfold.LocalTransport.transport_eq_of_isScHomotopyRel` — Polyfold/Chapter6/PathTransport.lean, line 732
-- `Polyfold.LocalTransport.transport_reparam` — Polyfold/Chapter6/PathTransport.lean, line 783
-- `Polyfold.LocalTransport.transport_concatPath` — Polyfold/Chapter6/PathTransport.lean, line 795
-- `Polyfold.LocalTransport.transport_unique` — Polyfold/Chapter6/PathTransport.lean, line 835
-- `Polyfold.equiv_paste_squares` — Polyfold/Chapter6/PathTransport.lean, line 575
-- `Polyfold.vSeg` — Polyfold/Chapter6/PathTransport.lean, line 476
-- `Polyfold.hSeg` — Polyfold/Chapter6/PathTransport.lean, line 480
-- `Polyfold.dSeg` — Polyfold/Chapter6/PathTransport.lean, line 484
+- `Polyfold.LocalTransport` — Polyfold/Chapter6/PathTransport.lean, line 94
+- `Polyfold.LocalTransport.push_eq_refl` — Polyfold/Chapter6/PathTransport.lean, line 134
+- `Polyfold.LocalTransport.push_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 146
+- `Polyfold.LocalTransport.push_congr` — Polyfold/Chapter6/PathTransport.lean, line 160
+- `Polyfold.LocalTransport.transportN` — Polyfold/Chapter6/PathTransport.lean, line 177
+- `Polyfold.LocalTransport.transportN_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 225
+- `Polyfold.LocalTransport.IsFine` — Polyfold/Chapter6/PathTransport.lean, line 345
+- `Polyfold.LocalTransport.transportN_eq_of_isFine` — Polyfold/Chapter6/PathTransport.lean, line 351
+- `Polyfold.LocalTransport.IsLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 293
+- `Polyfold.LocalTransport.exists_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 327
+- `Polyfold.LocalTransport.isFine_of_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 369
+- `Polyfold.LocalTransport.transport` — Polyfold/Chapter6/PathTransport.lean, line 401
+- `Polyfold.LocalTransport.transport_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 429
+- `Polyfold.LocalTransport.transport_congr` — Polyfold/Chapter6/PathTransport.lean, line 443
+- `Polyfold.LocalTransport.transport_const` — Polyfold/Chapter6/PathTransport.lean, line 437
+- `Polyfold.LocalTransport.transport_halves` — Polyfold/Chapter6/PathTransport.lean, line 453
+- `Polyfold.LocalTransport.transportN_square` — Polyfold/Chapter6/PathTransport.lean, line 663
+- `Polyfold.LocalTransport.exists_isSqLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 613
+- `Polyfold.LocalTransport.transport_eq_of_isScHomotopyRel` — Polyfold/Chapter6/PathTransport.lean, line 733
+- `Polyfold.LocalTransport.transport_reparam` — Polyfold/Chapter6/PathTransport.lean, line 784
+- `Polyfold.LocalTransport.transport_concatPath` — Polyfold/Chapter6/PathTransport.lean, line 796
+- `Polyfold.LocalTransport.transport_unique` — Polyfold/Chapter6/PathTransport.lean, line 836
+- `Polyfold.equiv_paste_squares` — Polyfold/Chapter6/PathTransport.lean, line 576
+- `Polyfold.vSeg` — Polyfold/Chapter6/PathTransport.lean, line 477
+- `Polyfold.hSeg` — Polyfold/Chapter6/PathTransport.lean, line 481
+- `Polyfold.dSeg` — Polyfold/Chapter6/PathTransport.lean, line 485
 
 *What differs.*
 - Dyadic subdivisions of $[0, 1]$ and of $[0, 1]^2$ in place of arbitrary finite coverings (Findings, Chapter 6, item 72).
@@ -10304,7 +10304,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_6_6_13` — Polyfold/Chapter6/OrientationMainClean.lean, line 131
 - `Polyfold.paracompactSpace_rn_prod` — Polyfold/Chapter6/OrientationMainClean.lean, line 75
 - `Polyfold.paracompactSpace_rn_pullback` — Polyfold/Chapter6/OrientationMainClean.lean, line 79
-- `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` — Polyfold/Chapter3/IndexLocallyConstantLocal.lean, line 82
+- `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` — Polyfold/Chapter5/IndexLocallyConstantLocal.lean, line 83
 - `Polyfold.IsPropagationNbhd` — Polyfold/Chapter6/OrientationFunctor.lean, line 281
 - `Polyfold.orPush` — Polyfold/Chapter6/OrientationFunctor.lean, line 287
 - `Polyfold.orPush_eq` — Polyfold/Chapter6/OrientationFunctor.lean, line 306
@@ -10411,7 +10411,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **HWZ (§6.6 (preprint §6.5), Theorem 6.6.18 (preprint 6.41) and its proof, preprint p. 229; the paragraph after it, pp. 274–276 (preprint pp. 229–230)).** Over a tame $X$, for a proper sc-Fredholm section $f$ with $(f, x)$ in general position to $\partial X$ at every zero and an orientation $o^f$ of $f$, the solution set $S = f^{-1}(0)$ is a smooth compact manifold with boundary with corners with a natural orientation. Proof: $T_xS = \ker f'(x)$ is oriented by $o^f_x$ since $f'(x)$ is onto, and the local prolongation of this orientation on $S$ is the Fredholm one. For $f$ not generic, a small perturbation $s$ supported near the zero set orients $S_{f+s}$.
 
-**Proved in Lean.** `theorem_6_6_18` ($X$ tame, $f$ with tame germ data, proper, in general position at every zero, $o$ an orientation of $f$ in the sense of Definition 6.6.16 (preprint 6.40), `SectionOrientation`): $S$ is a compact manifold with boundary with corners in general position (`SolutionSetInGeneralPosition`) with the natural orientation given by $o$ (`IsNaturalSolutionOrientation`): at every zero $o_x$ orients $T_xS = \ker f'(x)$, the orientations read in two charts correspond under the tangent map of the transition (`tangentOrAt_toChartOr`), and along every sc-smooth path of zeros in an orientable neighbourhood they form an orientation of the kernel line bundle. In Mathlib's language $S$ is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`). As a Mathlib manifold $S$ carries the natural orientation (`theorem_6_6_18_oriented`, `Chapter6/SolutionSetOrientation.lean`): a tangent orientation of the Mathlib manifold $S$ of `theorem_6_6_18_isManifold`, continuous in every chart of the maximal atlas (`TangentOrientation.IsContinuous`, `Chapter6/ManifoldOrientation.lean`), such that at every zero $x$ and in every chart of $X$ at $x$ the tangent map of $S \hookrightarrow X$ (`derivIn`) is an isomorphism $T_xS \cong \ker f'(x)$ under which a basis is positive iff its image is positive for $o_x$. It is built in corner charts (`solOr`, chart independent by `solReadOr_chartChange`) and is continuous through the kernel line bundle (`isLineOrientation_solKer`, `isContinuous_solOr`); the bump functions are the standing hypothesis of §6.6, as in `theorem_6_6_13` (V6.57). The perturbation paragraph: an orientation of $f$ is one of $f + s$ (`isSectionOrientation_sectionAdd`, with $\mathrm{Lin}(f + s, x) = \mathrm{Lin}(f, x)$), so $S_{f+s}$ is oriented by it (`theorem_6_6_18_sectionAdd`), for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18) (`theorem_6_6_18_perturbation`). Further forms: `theorem_6_6_18_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \in \mathrm{Or}^f_x$ gives a ray of $\det f'(x) \cong \lambda(\ker f'(x)) = \lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_6_18_hyp`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\gamma$ of zeros in an orientable neighbourhood $V \subseteq U$, the kernels $\ker f'(\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).
+**Proved in Lean.** `theorem_6_6_18` ($X$ tame, $f$ with tame germ data, proper, in general position at every zero, $o$ an orientation of $f$ in the sense of Definition 6.6.16 (preprint 6.40), `SectionOrientation`): $S$ is a compact manifold with boundary with corners in general position (`SolutionSetInGeneralPosition`) with the natural orientation given by $o$ (`IsNaturalSolutionOrientation`): at every zero $o_x$ orients $T_xS = \ker f'(x)$, the orientations read in two charts correspond under the tangent map of the transition (`tangentOrAt_toChartOr`), and along every sc-smooth path of zeros in an orientable neighbourhood they form an orientation of the kernel line bundle. In Mathlib's language $S$ is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`). As a Mathlib manifold $S$ carries the natural orientation (`theorem_6_6_18_oriented`, `Chapter6/SolutionSetOrientation.lean`): a tangent orientation of the Mathlib manifold $S$ of `theorem_6_6_18_isManifold`, continuous in every chart of the maximal atlas (`TangentOrientation.IsContinuous`, `Chapter4/ManifoldOrientation.lean`), such that at every zero $x$ and in every chart of $X$ at $x$ the tangent map of $S \hookrightarrow X$ (`derivIn`) is an isomorphism $T_xS \cong \ker f'(x)$ under which a basis is positive iff its image is positive for $o_x$. It is built in corner charts (`solOr`, chart independent by `solReadOr_chartChange`) and is continuous through the kernel line bundle (`isLineOrientation_solKer`, `isContinuous_solOr`); the bump functions are the standing hypothesis of §6.6, as in `theorem_6_6_13` (V6.57). The perturbation paragraph: an orientation of $f$ is one of $f + s$ (`isSectionOrientation_sectionAdd`, with $\mathrm{Lin}(f + s, x) = \mathrm{Lin}(f, x)$), so $S_{f+s}$ is oriented by it (`theorem_6_6_18_sectionAdd`), for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18) (`theorem_6_6_18_perturbation`). Further forms: `theorem_6_6_18_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \in \mathrm{Or}^f_x$ gives a ray of $\det f'(x) \cong \lambda(\ker f'(x)) = \lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_6_18_hyp`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\gamma$ of zeros in an orientable neighbourhood $V \subseteq U$, the kernels $\ker f'(\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).
 
 - `Polyfold.theorem_6_6_18_oriented` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 1244
 - `Polyfold.theorem_6_6_18` — Polyfold/Chapter6/OrientationMainClean.lean, line 223
@@ -10419,7 +10419,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.SectionOrientation` — Polyfold/Chapter6/OrientationMainClean.lean, line 171
 - `Polyfold.isNaturalSolutionOrientation` — Polyfold/Chapter6/PerturbedOrientation.lean, line 453
 - `Polyfold.tangentOrAt_toChartOr` — Polyfold/Chapter6/SolutionOrientationCharts.lean, line 394
-- `Polyfold.theorem_6_6_18_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 246
+- `Polyfold.theorem_6_6_18_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 246
 - `Polyfold.theorem_6_6_18_perturbation` — Polyfold/Chapter6/PerturbedOrientation.lean, line 486
 - `Polyfold.theorem_6_6_18_sectionAdd` — Polyfold/Chapter6/PerturbedOrientation.lean, line 470
 - `Polyfold.isSectionOrientation_sectionAdd` — Polyfold/Chapter6/PerturbedOrientation.lean, line 413
@@ -10451,9 +10451,9 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.solKerEquiv` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 906
 - `Polyfold.solReadOr_chartChange` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 969
 - `Polyfold.isLineOrientation_solKer` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 1084
-- `Polyfold.TangentOrientation.IsContinuous` — Polyfold/Chapter6/ManifoldOrientation.lean, line 359
-- `Polyfold.IsOrientedAtlas` — Polyfold/Chapter6/ManifoldOrientation.lean, line 367
-- `Polyfold.derivIn` — Polyfold/Chapter6/ManifoldOrientation.lean, line 200
+- `Polyfold.TangentOrientation.IsContinuous` — Polyfold/Chapter4/ManifoldOrientation.lean, line 359
+- `Polyfold.IsOrientedAtlas` — Polyfold/Chapter4/ManifoldOrientation.lean, line 367
+- `Polyfold.derivIn` — Polyfold/Chapter4/ManifoldOrientation.lean, line 200
 
 *What differs.*
 - The theorem in the book's shape (`theorem_6_6_18`, `Chapter6/OrientationMainClean.lean`), with the chart independence of the tangent orientations in the statement (gap G.68 closed), the perturbation paragraph (`Chapter6/PerturbedOrientation.lean`; gap G.69 closed) and $S$ as a Mathlib manifold with corners (`theorem_6_6_18_isManifold`). The orientation of $S$ as a manifold is formalized: a continuous tangent orientation of the Mathlib manifold $S$ which at every zero is $o_x$ transported along the tangent map of $S \hookrightarrow X$ (`theorem_6_6_18_oriented`; gap G.67 closed). It uses the sc-smooth bump functions that §6.6 assumes (2021 p. 274), as `theorem_6_6_13` does; they exist on Hilbert models (`MPolyfold.admitsBumpFunctions_of_hilbert`). Further forms: `theorem_6_6_18_solutionSet`, `theorem_6_6_18_hyp` (Findings, Chapter 6, items 92, 93, 123).
@@ -10726,15 +10726,15 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `OrSpace` (a sigma type over $X_\infty$, the topology of Theorem 2.3.10), `orProj`, `OrPullback` (the subspace $\{(t, p) : \varphi(t) = \pi_f(p)\}$ of $[0, 1] \times O_f$), `IsContSectionOver` (continuous $\sigma : U_\infty \to O_f$, $\pi_f \circ \sigma = \mathrm{id}$), `HasTwoContSections` (2), `IsPropagationContinuous` (3: for $t$ near $t_0$ the push-forward `orPush` along the segment `segPath` of $\varphi$ in a set with the local propagation property maps $o_{t_0}$ to $o_t$), `IsOrientationTopology` (Hausdorff, (1), (2), (3)). For the orientation sets of the restrictions to chart domains: `OrSpaceLoc`, `orTopologyLoc` (`Chapter12/LocalOrientationSpace.lean`); the properties (1)–(3) for any local transport data: `LocalTransport.IsOrientationTopology` (`Chapter6/TransportOrientationSpace.lean`).
 
-- `Polyfold.OrSpace` — Polyfold/Chapter6/OrientationSpace.lean, line 303
-- `Polyfold.orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 308
-- `Polyfold.segPath` — Polyfold/Chapter6/OrientationSpace.lean, line 311
-- `Polyfold.isScSmoothMap_segPath` — Polyfold/Chapter6/OrientationSpace.lean, line 315
-- `Polyfold.OrPullback` — Polyfold/Chapter6/OrientationSpace.lean, line 333
-- `Polyfold.IsContSectionOver` — Polyfold/Chapter6/OrientationSpace.lean, line 339
-- `Polyfold.IsPropagationContinuous` — Polyfold/Chapter6/OrientationSpace.lean, line 353
-- `Polyfold.HasTwoContSections` — Polyfold/Chapter6/OrientationSpace.lean, line 368
-- `Polyfold.IsOrientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 378
+- `Polyfold.OrSpace` — Polyfold/Chapter6/OrientationSpace.lean, line 226
+- `Polyfold.orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 231
+- `Polyfold.segPath` — Polyfold/Chapter6/OrientationSpace.lean, line 234
+- `Polyfold.isScSmoothMap_segPath` — Polyfold/Chapter6/OrientationSpace.lean, line 238
+- `Polyfold.OrPullback` — Polyfold/Chapter6/OrientationSpace.lean, line 256
+- `Polyfold.IsContSectionOver` — Polyfold/Chapter6/OrientationSpace.lean, line 262
+- `Polyfold.IsPropagationContinuous` — Polyfold/Chapter6/OrientationSpace.lean, line 276
+- `Polyfold.HasTwoContSections` — Polyfold/Chapter6/OrientationSpace.lean, line 291
+- `Polyfold.IsOrientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 301
 - `Polyfold.Orx` — Polyfold/Chapter6/SectionOrientation.lean, line 73
 - `Polyfold.orPush` — Polyfold/Chapter6/OrientationFunctor.lean, line 287
 - `Polyfold.orPush_compat` — Polyfold/Chapter6/OrientationFunctor.lean, line 332
@@ -10757,13 +10757,13 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** `continuous_smoothMk_comp`: an sc-smooth $\Gamma : \mathbb R^n \to X$ is continuous into $X_\infty$. `eventually_exists_scPath_smoothLevel`: for a neighbourhood $N$ of $x$ in $X_\infty$, every $y \in X_\infty$ near $x$ is joined to $x$ by an sc-smooth path with all its points in $N$ (`chartSegPath`, the retracted segment in a chart). `exists_nhds_scPath_of_isOpen`: for an open $W \ni x$, the smooth points of a smaller open $V \ni x$ are joined by sc-smooth paths in $W$.
 
-- `Polyfold.rnChart_toBase` — Polyfold/Chapter6/OrientationSpace.lean, line 101
-- `Polyfold.continuousOn_levelLift_comp` — Polyfold/Chapter6/OrientationSpace.lean, line 106
-- `Polyfold.continuous_smoothMk_comp` — Polyfold/Chapter6/OrientationSpace.lean, line 139
-- `Polyfold.chartSegPath` — Polyfold/Chapter6/OrientationSpace.lean, line 153
-- `Polyfold.isScSmoothMap_chartSegPath` — Polyfold/Chapter6/OrientationSpace.lean, line 159
-- `Polyfold.eventually_exists_scPath_smoothLevel` — Polyfold/Chapter6/OrientationSpace.lean, line 184
-- `Polyfold.exists_nhds_scPath_of_isOpen` — Polyfold/Chapter6/OrientationSpace.lean, line 437
+- `Polyfold.rnChart_toBase` — Polyfold/Chapter5/ChartSegmentPaths.lean, line 23
+- `Polyfold.continuousOn_levelLift_comp` — Polyfold/Chapter5/ChartSegmentPaths.lean, line 28
+- `Polyfold.continuous_smoothMk_comp` — Polyfold/Chapter5/ChartSegmentPaths.lean, line 61
+- `Polyfold.chartSegPath` — Polyfold/Chapter5/ChartSegmentPaths.lean, line 75
+- `Polyfold.isScSmoothMap_chartSegPath` — Polyfold/Chapter5/ChartSegmentPaths.lean, line 81
+- `Polyfold.eventually_exists_scPath_smoothLevel` — Polyfold/Chapter6/OrientationSpace.lean, line 107
+- `Polyfold.exists_nhds_scPath_of_isOpen` — Polyfold/Chapter6/OrientationSpace.lean, line 360
 
 ### V6.73. Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff
 
@@ -10773,20 +10773,20 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **Proved in Lean.** For local transport data $L$ (V6.56): `IsContOrOn` (a family $y \mapsto o_y$ over an open $U$ carried along by the transport along every sc-smooth path in $U$); `orTopology L`: $W$ open iff $\{y \in U_\infty : (y, o_y) \in W\}$ is open in $X_\infty$ for every continuous orientation over an open $U$. For every $L$: the sets $\{(y, o_y)\}$ are open (`isOpen_orBasic`), $\pi_f$ is a local homeomorphism (`orChartHomeo`, `isLocalHomeomorph_orProj`), and the topology is Hausdorff (`t2Space_orTopology`). The same construction for any family of sets with local transport data, with no bundle: `LocalTransport.topology` (`Chapter6/TransportOrientationSpace.lean`).
 
-- `Polyfold.IsContOrOn` — Polyfold/Chapter6/OrientationSpace.lean, line 395
-- `Polyfold.orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 402
-- `Polyfold.orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 407
-- `Polyfold.orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 412
-- `Polyfold.IsContOrOn.eventually_iff` — Polyfold/Chapter6/OrientationSpace.lean, line 450
-- `Polyfold.isOpen_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 467
-- `Polyfold.continuousOn_orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 475
-- `Polyfold.continuous_orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 483
-- `Polyfold.eq_orSec_of_mem_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 488
-- `Polyfold.orSec_mem_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 493
-- `Polyfold.exists_isContOrOn` — Polyfold/Chapter6/OrientationSpace.lean, line 500
-- `Polyfold.orChartHomeo` — Polyfold/Chapter6/OrientationSpace.lean, line 530
-- `Polyfold.isLocalHomeomorph_orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 549
-- `Polyfold.t2Space_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 556
+- `Polyfold.IsContOrOn` — Polyfold/Chapter6/OrientationSpace.lean, line 318
+- `Polyfold.orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 325
+- `Polyfold.orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 330
+- `Polyfold.orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 335
+- `Polyfold.IsContOrOn.eventually_iff` — Polyfold/Chapter6/OrientationSpace.lean, line 373
+- `Polyfold.isOpen_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 390
+- `Polyfold.continuousOn_orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 398
+- `Polyfold.continuous_orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 406
+- `Polyfold.eq_orSec_of_mem_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 411
+- `Polyfold.orSec_mem_orBasic` — Polyfold/Chapter6/OrientationSpace.lean, line 416
+- `Polyfold.exists_isContOrOn` — Polyfold/Chapter6/OrientationSpace.lean, line 423
+- `Polyfold.orChartHomeo` — Polyfold/Chapter6/OrientationSpace.lean, line 453
+- `Polyfold.isLocalHomeomorph_orProj` — Polyfold/Chapter6/OrientationSpace.lean, line 472
+- `Polyfold.t2Space_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 479
 - `Polyfold.LocalTransport.topology` — Polyfold/Chapter6/TransportOrientationSpace.lean, line 148
 
 *What differs.*
@@ -10802,12 +10802,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.theorem_6_6_17` — Polyfold/Chapter6/OrientationMainClean.lean, line 152
 - `Polyfold.MPolyfold.hasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationMainClean.lean, line 115
-- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter2/SmoothPaths.lean, line 170
-- `Polyfold.MPolyfold.HasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 599
-- `Polyfold.MPolyfold.hasConnectedSmoothNbhds_of_subsingleton` — Polyfold/Chapter6/OrientationSpace.lean, line 604
-- `Polyfold.rnPolyfold_hasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 611
-- `Polyfold.eq_orSec_or_eq_orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 580
-- `Polyfold.hasTwoContSections_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 633
+- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter5/SmoothPaths.lean, line 171
+- `Polyfold.MPolyfold.HasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 522
+- `Polyfold.MPolyfold.hasConnectedSmoothNbhds_of_subsingleton` — Polyfold/Chapter6/OrientationSpace.lean, line 527
+- `Polyfold.rnPolyfold_hasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 534
+- `Polyfold.eq_orSec_or_eq_orSec` — Polyfold/Chapter6/OrientationSpace.lean, line 503
+- `Polyfold.hasTwoContSections_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 556
 - `Polyfold.theorem_6_6_17_loc` — Polyfold/Chapter12/LocalOrientationSpace.lean, line 96
 
 *What differs.*
@@ -10826,12 +10826,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.theorem_6_6_17_interval` — Polyfold/Chapter6/PathsInterval.lean, line 603
 - `Polyfold.existsUnique_orientationTopology_interval` — Polyfold/Chapter6/PathsInterval.lean, line 617
 - `Polyfold.IsPropagationContinuousI.toReal` — Polyfold/Chapter6/PathsInterval.lean, line 520
-- `Polyfold.theorem_6_6_17_hyp` — Polyfold/Chapter6/OrientationSpace.lean, line 900
+- `Polyfold.theorem_6_6_17_hyp` — Polyfold/Chapter6/OrientationSpace.lean, line 823
 - `Polyfold.MPolyfold.hasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationMainClean.lean, line 115
-- `Polyfold.isPropagationContinuous_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 744
-- `Polyfold.eventually_eq_orSec_of_continuousOn` — Polyfold/Chapter6/OrientationSpace.lean, line 778
-- `Polyfold.eq_orTopology_of` — Polyfold/Chapter6/OrientationSpace.lean, line 838
-- `Polyfold.existsUnique_orientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 888
+- `Polyfold.isPropagationContinuous_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 667
+- `Polyfold.eventually_eq_orSec_of_continuousOn` — Polyfold/Chapter6/OrientationSpace.lean, line 701
+- `Polyfold.eq_orTopology_of` — Polyfold/Chapter6/OrientationSpace.lean, line 761
+- `Polyfold.existsUnique_orientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 811
 - `Polyfold.orLocalTransport` — Polyfold/Chapter6/OrientationFunctor.lean, line 418
 - `Polyfold.theorem_6_6_13_hyp` — Polyfold/Chapter6/OrientationFunctor.lean, line 611
 - `Polyfold.theorem_6_6_17_loc` — Polyfold/Chapter12/LocalOrientationSpace.lean, line 96
@@ -10871,8 +10871,8 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.ProductEnd.pullAt` — Polyfold/Chapter6/EndPullbackForms.lean, line 113
 - `Polyfold.exists_glued_extension` — Polyfold/Chapter6/EndPullbackForms.lean, line 347
 - `Polyfold.ProductEnd.IsEndProductOrientation.of_subEnd` — Polyfold/Chapter6/EndPullbackForms.lean, line 281
-- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 289
-- `Polyfold.MPolyfold.isChartFaceForm_faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 495
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 289
+- `Polyfold.MPolyfold.isChartFaceForm_faceAlongData` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 495
 - `Polyfold.cobOr` — Polyfold/Chapter6/CobordismOrientation.lean, line 60
 - `Polyfold.isContinuous_cobOr` — Polyfold/Chapter6/CobordismOrientation.lean, line 76
 - `Polyfold.cobordismOrientation_of_ends` — Polyfold/Chapter6/CobordismOrientation.lean, line 94
@@ -10888,7 +10888,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.psiForms_relD` — Polyfold/Chapter6/InvariantSingle.lean, line 822
 - `Polyfold.StrongBundle.IsAdmissible` — Polyfold/Chapter6/InvariantSingle.lean, line 262
 - `Polyfold.solPartIsOrientedManifold` — Polyfold/Chapter6/InvariantSingle.lean, line 600
-- `Polyfold.IsProperOrientedHomotopyBetween` — Polyfold/Chapter6/ProperHomotopy.lean, line 440
+- `Polyfold.IsProperOrientedHomotopyBetween` — Polyfold/Chapter6/ProperHomotopy.lean, line 441
 - `Polyfold.theorem_6_7_1_interval` — Polyfold/Chapter6/IntervalHomotopyInvariance.lean, line 190
 - `Polyfold.isProperOrientedHomotopy_cubeReparam` — Polyfold/Chapter6/IntervalHomotopyInvariance.lean, line 109
 - `Polyfold.stokes_interval_cobordism` — Polyfold/Chapter6/IntervalCobordismStokes.lean, line 119
@@ -11139,15 +11139,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `definition_7_1_4_linear`: for $\varphi \in \mathbf X_1$, $T\varphi : T_{s(\varphi)}X \to T_{t(\varphi)}X$ is additive, homogeneous, continuous and bijective for the linear structure of Definition 2.3.14 (V2.19), with inverse $T(\varphi^{-1})$; `tangentMorCLE` is the continuous linear equivalence. `definition_7_1_4_sc`: for smooth $\varphi$ and charts $\chi$ around $s(\varphi)$, $\psi$ around $t(\varphi)$, $T\varphi$ and $T(\varphi^{-1})$ are represented by sc-operators that restrict to mutually inverse maps between the sc-subspaces $T_{\chi(s(\varphi))}O$ and $T_{\psi(t(\varphi))}O'$, which are $T_{s(\varphi)}X$ and $T_{t(\varphi)}X$ as sc-Banach spaces (Definition 2.3.14); `tangentMor_chart_sc`: the representative is linear for $\varphi \in \mathbf X_1$ and an sc-operator for smooth $\varphi$. `Sheet`: an open set `carrier` $= \mathbf U(\varphi)$ of morphisms with sc-diffeomorphisms $s : \mathbf U \to U(x)$ (`srcSet`) and $t : \mathbf U \to U(y)$ (`tgtSet`) and their inverses; every morphism lies in one (`exists_sheet`, `sheetAt`, `mem_sheetAt`). `Sheet.hat` $= t \circ (s|\mathbf U)^{-1}$ is an sc-diffeomorphism $U(x) \to U(y)$ with inverse $s \circ (t|\mathbf U)^{-1}$ (`Sheet.isScDiffeoOn_hat`); for a morphism, `hat φ` is that of `sheetAt φ`, an sc-diffeomorphism (`isScDiffeoOn_hat`) with $\hat\varphi(s(\varphi)) = t(\varphi)$ (`hat_src`). `tangentMor φ` is $T\varphi$, defined through a tangent vector of $\mathbf X$ at $\varphi$; for $\varphi \in \mathbf X_1$ it equals $T\hat\varphi(s(\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), is a bijection $T_{s(\varphi)}X \to T_{t(\varphi)}X$ with inverse $T(\varphi^{-1})$ (`bijOn_tangentMor`, `invOn_tangentMor`), and in charts around $s(\varphi)$ and $t(\varphi)$ is a continuous linear map of the model spaces carrying the tangent space of the retract at $s(\varphi)$ bijectively onto that at $t(\varphi)$, with a continuous linear inverse (`tangentMor_chart`, `tangentMor_chart_iso`); `definition_7_1_4` bundles these.
 
-- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 233
-- `Polyfold.EpGroupoid.definition_7_1_4_sc` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 261
-- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 206
-- `Polyfold.EpGroupoid.tangentMor_chart_sc` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 92
-- `Polyfold.EpGroupoid.definition_7_1_4` — Polyfold/Chapter7/TangentMorphism.lean, line 279
-- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter7/TangentMorphism.lean, line 201
-- `Polyfold.EpGroupoid.invOn_tangentMor` — Polyfold/Chapter7/TangentMorphism.lean, line 181
-- `Polyfold.EpGroupoid.tangentMor_chart` — Polyfold/Chapter7/TangentMorphism.lean, line 211
-- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter7/TangentMorphism.lean, line 242
+- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 233
+- `Polyfold.EpGroupoid.definition_7_1_4_sc` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 261
+- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 206
+- `Polyfold.EpGroupoid.tangentMor_chart_sc` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 92
+- `Polyfold.EpGroupoid.definition_7_1_4` — Polyfold/Chapter9/TangentMorphism.lean, line 279
+- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter9/TangentMorphism.lean, line 201
+- `Polyfold.EpGroupoid.invOn_tangentMor` — Polyfold/Chapter9/TangentMorphism.lean, line 181
+- `Polyfold.EpGroupoid.tangentMor_chart` — Polyfold/Chapter9/TangentMorphism.lean, line 211
+- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter9/TangentMorphism.lean, line 242
 - `Polyfold.EpGroupoid.tangentMor_eq_tangentMapOn_hat` — Polyfold/Chapter9/Tangent.lean, line 459
 - `Polyfold.EpGroupoid.Sheet` — Polyfold/Chapter7/EpGroupoid.lean, line 321
 - `Polyfold.EpGroupoid.Sheet.hat` — Polyfold/Chapter7/EpGroupoid.lean, line 337
@@ -11161,8 +11161,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.tangentMor` — Polyfold/Chapter7/EpGroupoid.lean, line 382
 
 *What differs.*
-- With the linear structure of $T_xX$ (Definition 2.3.14; gap G.7 closed, V2.19), $T\varphi$ is a bounded linear isomorphism of $T_{s(\varphi)}X$ onto $T_{t(\varphi)}X$ for $\varphi \in \mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`), and for smooth $\varphi$ an sc-isomorphism, the sc-structure of $T_xX$ being the one Definition 2.3.14 gives it through a chart (`definition_7_1_4_sc`, `Chapter7/TangentMorphismLinear.lean`; gap G.70 closed). The forms in charts are kept (`tangentMor_chart_iso`, `definition_7_1_4`) (Findings, Chapter 7, items 5, 110, 154).
-- In charts: $T\varphi = T\hat\varphi(s(\varphi))$, its bijectivity and the bounded linear isomorphism in charts for $\varphi \in \mathbf X_1$ (`Chapter7/TangentMorphism.lean`); `tangentMor` defines $T\varphi$ (Findings, Chapter 7, items 5, 110).
+- With the linear structure of $T_xX$ (Definition 2.3.14; gap G.7 closed, V2.19), $T\varphi$ is a bounded linear isomorphism of $T_{s(\varphi)}X$ onto $T_{t(\varphi)}X$ for $\varphi \in \mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`), and for smooth $\varphi$ an sc-isomorphism, the sc-structure of $T_xX$ being the one Definition 2.3.14 gives it through a chart (`definition_7_1_4_sc`, `Chapter9/TangentMorphismLinear.lean`; gap G.70 closed). The forms in charts are kept (`tangentMor_chart_iso`, `definition_7_1_4`) (Findings, Chapter 7, items 5, 110, 154).
+- In charts: $T\varphi = T\hat\varphi(s(\varphi))$, its bijectivity and the bounded linear isomorphism in charts for $\varphi \in \mathbf X_1$ (`Chapter9/TangentMorphism.lean`); `tangentMor` defines $T\varphi$ (Findings, Chapter 7, items 5, 110).
 - The extracted display reads "$\hat\varphi = t \circ (s|\mathbf U(\varphi))^{-1} \circ U(x) \to U(y)$", $\circ$ for $:$ (as we read it), and "$T\varphi : T_{s(\varphi)}X \to T_{t(\varphi)}$" lacks the $X$ (as we read it; possibly an extraction artefact); the statement on the left reads $:$ and $T_{t(\varphi)}X$.
 
 ### V7.6. The levels of an ep-groupoid and the filtration of $|X|$
@@ -11173,15 +11173,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `MPolyfold.denseSmooth`: for every M-polyfold and every $m$, $X_\infty$ is dense in $X_m$ (in the topology of $X_m$), through partial quadrants, their relatively open subsets and retracts (`IsScRetract.lvlSet_subset_closure_smooth`); for the object and the morphism M-polyfold of an ep-groupoid, `p289_dense`. `mem_levelSet_src_iff`, `mem_levelSet_tgt_iff`: $s(\varphi) \in X_m \iff \varphi \in \mathbf X_m \iff t(\varphi) \in X_m$. `MPolyfold.maxLevel` is $ml$, preserved by local sc-diffeomorphisms (`MPolyfold.IsLocalScDiffeo.maxLevel_eq`), as is the degeneracy index (`MPolyfold.IsLocalScDiffeo.degIndex_eq`), so $d_{\mathbf X}(\varphi) = d_X(s(\varphi)) = d_X(t(\varphi))$ (`degIndex_src`, `degIndex_tgt`). `orbitLevel k` $= \pi(X_k) = |X_k|$, with $\pi^{-1}(|X_k|) = X_k$ (`preimage_orbitLevel`) and $|X_0| = |X| \supseteq |X_1| \supseteq \cdots$ (`orbitLevel_antitone`); `orbitSmooth` $= \pi(X_\infty) = |X_\infty|$, and $|X_\infty| = \bigcap_k |X_k|$ (`orbitSmooth_eq_iInter`); `p290_orbit_filtration` bundles the filtration. Also: $|X_\infty|$ is dense in $|X|$ (`dense_orbitSmooth`).
 
-- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 143
-- `Polyfold.EpGroupoid.p289_dense` — Polyfold/Chapter7/SmoothPointsDense.lean, line 206
-- `Polyfold.IsScRetract.lvlSet_subset_closure_smooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 123
-- `Polyfold.EpGroupoid.orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 235
-- `Polyfold.EpGroupoid.orbitSmooth_eq_iInter` — Polyfold/Chapter7/SmoothPointsDense.lean, line 247
-- `Polyfold.EpGroupoid.preimage_orbitLevel` — Polyfold/Chapter7/SmoothPointsDense.lean, line 223
-- `Polyfold.EpGroupoid.orbitLevel_antitone` — Polyfold/Chapter7/SmoothPointsDense.lean, line 231
-- `Polyfold.EpGroupoid.p290_orbit_filtration` — Polyfold/Chapter7/SmoothPointsDense.lean, line 256
-- `Polyfold.EpGroupoid.dense_orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 264
+- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 88
+- `Polyfold.EpGroupoid.p289_dense` — Polyfold/Chapter7/SmoothPointsDense.lean, line 103
+- `Polyfold.IsScRetract.lvlSet_subset_closure_smooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 71
+- `Polyfold.EpGroupoid.orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 132
+- `Polyfold.EpGroupoid.orbitSmooth_eq_iInter` — Polyfold/Chapter7/SmoothPointsDense.lean, line 144
+- `Polyfold.EpGroupoid.preimage_orbitLevel` — Polyfold/Chapter7/SmoothPointsDense.lean, line 120
+- `Polyfold.EpGroupoid.orbitLevel_antitone` — Polyfold/Chapter7/SmoothPointsDense.lean, line 128
+- `Polyfold.EpGroupoid.p290_orbit_filtration` — Polyfold/Chapter7/SmoothPointsDense.lean, line 153
+- `Polyfold.EpGroupoid.dense_orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 161
 - `Polyfold.EpGroupoid.mem_levelSet_src_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 391
 - `Polyfold.EpGroupoid.mem_levelSet_tgt_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 399
 - `Polyfold.MPolyfold.maxLevel` — Polyfold/Chapter7/LocalDiffeo.lean, line 259
@@ -11325,8 +11325,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.lemma_7_1_11_swap` — Polyfold/Chapter7/Basic.lean, line 246
 - `Polyfold.EpGroupoid.lemma_7_1_11_of_isProperMap` — Polyfold/Chapter7/Basic.lean, line 225
 - `Polyfold.EpGroupoid.lemma_7_1_11_swap_of_isProperMap` — Polyfold/Chapter7/Basic.lean, line 216
-- `Polyfold.finite_setOf_mem_of_isProperMap_domRestrict` — Polyfold/Chapter7/Discrete.lean, line 126
-- `Polyfold.IsProperMap.finite_preimage_singleton_of_isLocallyInjective` — Polyfold/Chapter7/Discrete.lean, line 119
+- `Polyfold.finite_setOf_mem_of_isProperMap_domRestrict` — Polyfold/Chapter6/Discrete.lean, line 127
+- `Polyfold.IsProperMap.finite_preimage_singleton_of_isLocallyInjective` — Polyfold/Chapter6/Discrete.lean, line 120
 
 *What differs.*
 - The proof counts the $\psi_n : s(\psi_n) \to x$ with $s(\psi_n) \in U(x_0)$, the inverses of the morphisms of the statement; both forms are proved, and they are equivalent by $\iota$. Finiteness is proved from a compact discrete fibre, without sequences (Findings, Chapter 7, item 12).
@@ -11341,7 +11341,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `proposition_7_1_12` (an instance): `Isotropy x` is finite. `MPolyfold.finite_isotropy_of_isLocalScDiffeo`: the abstract form, for $t$ a local sc-diffeomorphism and a neighbourhood of $x$ with the properness property.
 
 - `Polyfold.EpGroupoid.proposition_7_1_12` — Polyfold/Chapter7/Basic.lean, line 255
-- `Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo` — Polyfold/Chapter7/Discrete.lean, line 231
+- `Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo` — Polyfold/Chapter6/Discrete.lean, line 232
 
 *What differs.*
 - From Lemma 7.1.11 (2017: 7.1) with $x_0 = x$, as in the text (Findings, Chapter 7, item 13).
@@ -11393,16 +11393,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `ScRetraction.exists_ball_joinedIn`, `IsScRetract.locallyPathConnectedSpace`: an sc-retract is locally path connected, a point $p$ near $o$ being joined to $o$ inside $O \cap W$ by $\tau \mapsto r(o + \tau(p - o))$; hence so is every M-polyfold (`MChart.pathComponentIn_mem_nhds`, `MPolyfold.locallyPathConnectedSpace`, `MPolyfold.locallyConnectedSpace`), which has a basis of connected open neighbourhoods (`MPolyfold.hasBasis_isOpen_isConnected`), open connected components (`MPolyfold.isOpen_connectedComponent`), open connected sets path connected (`MPolyfold.isConnected_iff_isPathConnected`), and every quotient of which is locally path connected (`MPolyfold.locallyPathConnectedSpace_quotient`). `eqOn_sections_of_isPreconnected`: two continuous sections of a locally injective map that agree at one point of a preconnected set agree on it.
 
-- `Polyfold.ScRetraction.exists_ball_joinedIn` — Polyfold/Chapter7/LocConnected.lean, line 75
-- `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 107
-- `Polyfold.MChart.pathComponentIn_mem_nhds` — Polyfold/Chapter7/LocConnected.lean, line 129
-- `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 168
-- `Polyfold.MPolyfold.locallyConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 174
-- `Polyfold.MPolyfold.hasBasis_isOpen_isConnected` — Polyfold/Chapter7/LocConnected.lean, line 180
-- `Polyfold.MPolyfold.isOpen_connectedComponent` — Polyfold/Chapter7/LocConnected.lean, line 199
-- `Polyfold.MPolyfold.isConnected_iff_isPathConnected` — Polyfold/Chapter7/LocConnected.lean, line 216
-- `Polyfold.MPolyfold.locallyPathConnectedSpace_quotient` — Polyfold/Chapter7/LocConnected.lean, line 223
-- `Polyfold.eqOn_sections_of_isPreconnected` — Polyfold/Chapter7/LocConnected.lean, line 263
+- `Polyfold.ScRetraction.exists_ball_joinedIn` — Polyfold/Chapter2/LocConnected.lean, line 75
+- `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter2/LocConnected.lean, line 107
+- `Polyfold.MChart.pathComponentIn_mem_nhds` — Polyfold/Chapter2/LocConnected.lean, line 129
+- `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter2/LocConnected.lean, line 168
+- `Polyfold.MPolyfold.locallyConnectedSpace` — Polyfold/Chapter2/LocConnected.lean, line 174
+- `Polyfold.MPolyfold.hasBasis_isOpen_isConnected` — Polyfold/Chapter2/LocConnected.lean, line 180
+- `Polyfold.MPolyfold.isOpen_connectedComponent` — Polyfold/Chapter2/LocConnected.lean, line 199
+- `Polyfold.MPolyfold.isConnected_iff_isPathConnected` — Polyfold/Chapter2/LocConnected.lean, line 216
+- `Polyfold.MPolyfold.locallyPathConnectedSpace_quotient` — Polyfold/Chapter2/LocConnected.lean, line 223
+- `Polyfold.eqOn_sections_of_isPreconnected` — Polyfold/Chapter2/LocConnected.lean, line 263
 
 *What differs.*
 - The first fact of gap G.56 of Part I (an M-polyfold is locally path connected) is formalized here; the second (smooth points in one path component are joined by an sc-smooth path, which lifts to $X^1$) is `paths_before_proposition_6_2_2` (V6.49), and gap G.56 is closed (Findings, Chapter 7, items 21, 114).
@@ -11439,12 +11439,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `discretePolyfold G`: a discrete space as an M-polyfold, with the mutually compatible charts `discreteChart` (`discreteChart_compatible`); maps into it are sc-smooth iff continuous (`isScSmoothMap_discrete_iff`); a map on $G \times X$ is sc-smooth (on $G \times U$, $U$ open) iff it is on each slice (`isScSmoothOn_univ_prod_discrete_iff`, `isScSmoothMap_prod_discrete_iff`). For a natural representation, `objPolyfold` is $U$ as an open sub-M-polyfold, `morPolyfold` is $G_x \times U$, and $y \mapsto g \ast y$ is sc-smooth on $U$ (`isScSmoothMap_smul`).
 
-- `Polyfold.discretePolyfold` — Polyfold/Chapter7/Discrete.lean, line 323
-- `Polyfold.discreteChart` — Polyfold/Chapter7/Discrete.lean, line 285
-- `Polyfold.discreteChart_compatible` — Polyfold/Chapter7/Discrete.lean, line 307
-- `Polyfold.isScSmoothMap_discrete_iff` — Polyfold/Chapter7/Discrete.lean, line 362
-- `Polyfold.isScSmoothOn_univ_prod_discrete_iff` — Polyfold/Chapter7/Discrete.lean, line 438
-- `Polyfold.isScSmoothMap_prod_discrete_iff` — Polyfold/Chapter7/Discrete.lean, line 448
+- `Polyfold.discretePolyfold` — Polyfold/Chapter6/Discrete.lean, line 306
+- `Polyfold.discreteChart` — Polyfold/Chapter6/Discrete.lean, line 268
+- `Polyfold.discreteChart_compatible` — Polyfold/Chapter6/Discrete.lean, line 290
+- `Polyfold.isScSmoothMap_discrete_iff` — Polyfold/Chapter6/Discrete.lean, line 345
+- `Polyfold.isScSmoothOn_univ_prod_discrete_iff` — Polyfold/Chapter6/Discrete.lean, line 421
+- `Polyfold.isScSmoothMap_prod_discrete_iff` — Polyfold/Chapter6/Discrete.lean, line 431
 - `Polyfold.EpGroupoid.NaturalRep.objPolyfold` — Polyfold/Chapter7/NaturalAction.lean, line 675
 - `Polyfold.EpGroupoid.NaturalRep.morPolyfold` — Polyfold/Chapter7/NaturalAction.lean, line 681
 - `Polyfold.EpGroupoid.NaturalRep.isScSmoothMap_smul` — Polyfold/Chapter7/NaturalAction.lean, line 684
@@ -11621,9 +11621,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.EpGroupoid.IsEpSubgroupoid` — Polyfold/Chapter7/EpGroupoid.lean, line 567
 - `Polyfold.EpGroupoid.isEpSubgroupoid_univ` — Polyfold/Chapter7/EpGroupoid.lean, line 571
-- `Polyfold.EpGroupoid.isEpSubgroupoid_of_isOpen` — Polyfold/Chapter7/SubGroupoid.lean, line 497
-- `Polyfold.EpGroupoid.isEpSubgroupoid_saturation` — Polyfold/Chapter7/SubGroupoid.lean, line 503
-- `Polyfold.EpGroupoid.isEpSubgroupoid_trivial` — Polyfold/Chapter7/SubGroupoid.lean, line 509
+- `Polyfold.EpGroupoid.isEpSubgroupoid_of_isOpen` — Polyfold/Chapter7/SubGroupoid.lean, line 479
+- `Polyfold.EpGroupoid.isEpSubgroupoid_saturation` — Polyfold/Chapter7/SubGroupoid.lean, line 485
+- `Polyfold.EpGroupoid.isEpSubgroupoid_trivial` — Polyfold/Chapter7/SubGroupoid.lean, line 491
 
 *What differs.*
 - As in the text; satisfiable (Findings, Chapter 7, items 40, 105).
@@ -11641,9 +11641,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.fact_4_subObj` — Polyfold/Chapter7/SubGroupoidTangent.lean, line 83
 - `Polyfold.EpGroupoid.subObjInclusionCLM` — Polyfold/Chapter7/SubGroupoidTangent.lean, line 55
 - `Polyfold.EpGroupoid.subObjRetractionCLM` — Polyfold/Chapter7/SubGroupoidTangent.lean, line 61
-- `Polyfold.EpGroupoid.subObjPolyfold` — Polyfold/Chapter7/SubGroupoid.lean, line 310
-- `Polyfold.EpGroupoid.isScSmoothMap_val_subObj` — Polyfold/Chapter7/SubGroupoid.lean, line 314
-- `Polyfold.EpGroupoid.isScSmoothOn_retractInto_subObj` — Polyfold/Chapter7/SubGroupoid.lean, line 320
+- `Polyfold.EpGroupoid.subObjPolyfold` — Polyfold/Chapter7/SubGroupoid.lean, line 292
+- `Polyfold.EpGroupoid.isScSmoothMap_val_subObj` — Polyfold/Chapter7/SubGroupoid.lean, line 296
+- `Polyfold.EpGroupoid.isScSmoothOn_retractInto_subObj` — Polyfold/Chapter7/SubGroupoid.lean, line 302
 - `Polyfold.MPolyfold.subPolyfold` — Polyfold/Chapter2/SubMPolyfold.lean, line 329
 
 *What differs.*
@@ -11658,15 +11658,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For saturated $A$: $t(\varphi) \in A \Rightarrow s(\varphi) \in A$ (`src_mem_of_tgt_mem_of_isSaturated`), so $\mathbf A = s^{-1}(A) = t^{-1}(A)$ (`morOn_eq_preimage_src`, `morOn_eq_preimage_tgt`). The preimage of a sub-M-polyfold under $s$ or $t$ is a sub-M-polyfold (`isSubMPolyfold_preimage_src`, `isSubMPolyfold_preimage_tgt`), hence $\mathbf A$ is one for an ep-subgroupoid $A$ (`isSubMPolyfold_morOn`); `subMorPolyfold` is $\mathbf A$ with that structure, with (1) and (2) as for $A$ (`isScSmoothMap_val_subMor`, `isScSmoothOn_retractInto_subMor`).
 
-- `Polyfold.EpGroupoid.src_mem_of_tgt_mem_of_isSaturated` — Polyfold/Chapter7/SubGroupoid.lean, line 235
-- `Polyfold.EpGroupoid.morOn_eq_preimage_src` — Polyfold/Chapter7/SubGroupoid.lean, line 241
-- `Polyfold.EpGroupoid.morOn_eq_preimage_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 246
-- `Polyfold.EpGroupoid.isSubMPolyfold_preimage_src` — Polyfold/Chapter7/SubGroupoid.lean, line 252
-- `Polyfold.EpGroupoid.isSubMPolyfold_preimage_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 257
-- `Polyfold.EpGroupoid.isSubMPolyfold_morOn` — Polyfold/Chapter7/SubGroupoid.lean, line 262
-- `Polyfold.EpGroupoid.subMorPolyfold` — Polyfold/Chapter7/SubGroupoid.lean, line 284
-- `Polyfold.EpGroupoid.isScSmoothMap_val_subMor` — Polyfold/Chapter7/SubGroupoid.lean, line 290
-- `Polyfold.EpGroupoid.isScSmoothOn_retractInto_subMor` — Polyfold/Chapter7/SubGroupoid.lean, line 297
+- `Polyfold.EpGroupoid.src_mem_of_tgt_mem_of_isSaturated` — Polyfold/Chapter7/SubGroupoid.lean, line 217
+- `Polyfold.EpGroupoid.morOn_eq_preimage_src` — Polyfold/Chapter7/SubGroupoid.lean, line 223
+- `Polyfold.EpGroupoid.morOn_eq_preimage_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 228
+- `Polyfold.EpGroupoid.isSubMPolyfold_preimage_src` — Polyfold/Chapter7/SubGroupoid.lean, line 234
+- `Polyfold.EpGroupoid.isSubMPolyfold_preimage_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 239
+- `Polyfold.EpGroupoid.isSubMPolyfold_morOn` — Polyfold/Chapter7/SubGroupoid.lean, line 244
+- `Polyfold.EpGroupoid.subMorPolyfold` — Polyfold/Chapter7/SubGroupoid.lean, line 266
+- `Polyfold.EpGroupoid.isScSmoothMap_val_subMor` — Polyfold/Chapter7/SubGroupoid.lean, line 272
+- `Polyfold.EpGroupoid.isScSmoothOn_retractInto_subMor` — Polyfold/Chapter7/SubGroupoid.lean, line 279
 
 *What differs.*
 - The text's retraction $\mathbf r$ is the construction behind the preimage of a sub-M-polyfold under a local sc-diffeomorphism (Findings, Chapter 7, item 41).
@@ -11680,19 +11680,19 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For an ep-subgroupoid $A$ (V7.29): $s$ and $t$ of the full subcategory `fullSub A` are local sc-diffeomorphisms between the sub-M-polyfolds (`isLocalScDiffeo_fullSub_src`, `isLocalScDiffeo_fullSub_tgt`), $u$ and $\iota$ are sc-smooth (`isScSmoothMap_fullSub_unit`, `isScSmoothMap_fullSub_inv`), every $a \in A$ has an open neighbourhood in $A$ with the properness property (`exists_isProperMap_fullSub`), and (4) holds (`isScSmoothComp_fullSub`); `subEpGroupoid` is the ep-groupoid, with the restricted structure maps (`subEpGroupoid_src_val`, `subEpGroupoid_comp_val`). `proposition_7_1_22`: $A$ and $\mathbf A$ are sub-M-polyfolds, and `subEpGroupoid` has the groupoid `fullSub A`, the induced M-polyfold structures, and the restrictions of $s, t, u, \iota, m$ as structure maps. `subEpFunctor`: the inclusion, a full (`subEpFunctor_full`) and faithful (`subEpFunctor_faithful`) ep-functor. The paracompactness of $\mathbf A$, which the project's M-polyfolds need, is the scoped instance `instParacompactSpaceMorOn`.
 
-- `Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_src` — Polyfold/Chapter7/SubGroupoid.lean, line 327
-- `Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 333
-- `Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit` — Polyfold/Chapter7/SubGroupoid.lean, line 340
-- `Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv` — Polyfold/Chapter7/SubGroupoid.lean, line 302
-- `Polyfold.EpGroupoid.exists_isProperMap_fullSub` — Polyfold/Chapter7/SubGroupoid.lean, line 348
-- `Polyfold.EpGroupoid.isScSmoothComp_fullSub` — Polyfold/Chapter7/SubGroupoid.lean, line 368
-- `Polyfold.EpGroupoid.subEpGroupoid` — Polyfold/Chapter7/SubGroupoid.lean, line 401
-- `Polyfold.EpGroupoid.subEpGroupoid_src_val` — Polyfold/Chapter7/SubGroupoid.lean, line 413
-- `Polyfold.EpGroupoid.subEpGroupoid_comp_val` — Polyfold/Chapter7/SubGroupoid.lean, line 428
-- `Polyfold.EpGroupoid.proposition_7_1_22` — Polyfold/Chapter7/SubGroupoid.lean, line 437
-- `Polyfold.EpGroupoid.subEpFunctor` — Polyfold/Chapter7/SubGroupoid.lean, line 453
-- `Polyfold.EpGroupoid.subEpFunctor_full` — Polyfold/Chapter7/SubGroupoid.lean, line 471
-- `Polyfold.EpGroupoid.subEpFunctor_faithful` — Polyfold/Chapter7/SubGroupoid.lean, line 481
+- `Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_src` — Polyfold/Chapter7/SubGroupoid.lean, line 309
+- `Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt` — Polyfold/Chapter7/SubGroupoid.lean, line 315
+- `Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit` — Polyfold/Chapter7/SubGroupoid.lean, line 322
+- `Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv` — Polyfold/Chapter7/SubGroupoid.lean, line 284
+- `Polyfold.EpGroupoid.exists_isProperMap_fullSub` — Polyfold/Chapter7/SubGroupoid.lean, line 330
+- `Polyfold.EpGroupoid.isScSmoothComp_fullSub` — Polyfold/Chapter7/SubGroupoid.lean, line 350
+- `Polyfold.EpGroupoid.subEpGroupoid` — Polyfold/Chapter7/SubGroupoid.lean, line 383
+- `Polyfold.EpGroupoid.subEpGroupoid_src_val` — Polyfold/Chapter7/SubGroupoid.lean, line 395
+- `Polyfold.EpGroupoid.subEpGroupoid_comp_val` — Polyfold/Chapter7/SubGroupoid.lean, line 410
+- `Polyfold.EpGroupoid.proposition_7_1_22` — Polyfold/Chapter7/SubGroupoid.lean, line 419
+- `Polyfold.EpGroupoid.subEpFunctor` — Polyfold/Chapter7/SubGroupoid.lean, line 435
+- `Polyfold.EpGroupoid.subEpFunctor_full` — Polyfold/Chapter7/SubGroupoid.lean, line 453
+- `Polyfold.EpGroupoid.subEpFunctor_faithful` — Polyfold/Chapter7/SubGroupoid.lean, line 463
 
 *What differs.*
 - Steps the text leaves out are proved: a map that is sc-smooth into $X$ and takes values in the sub-M-polyfold $A$ is sc-smooth into $A$ (what "restrictions of sc-smooth maps" needs), the fibred product of $\mathbf A$ includes sc-smoothly into that of $\mathbf X$, and $A$ and $\mathbf A$ are paracompact, as the project's M-polyfolds must be (Findings, Chapter 7, item 42).
@@ -12064,7 +12064,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.comp_mem_levelSet` — Polyfold/Chapter7/Lift.lean, line 471
 - `Polyfold.EpGroupoid.liftGroupoidStr` — Polyfold/Chapter7/Lift.lean, line 507
 - `Polyfold.MPolyfold.IsLocalScDiffeo.levelOne` — Polyfold/Chapter7/LocalDiffeo.lean, line 483
-- `Polyfold.MPolyfold.IsScSmoothMap.levelOne` — Polyfold/Chapter5/StrongBundleShift.lean, line 368
+- `Polyfold.MPolyfold.IsScSmoothMap.levelOne` — Polyfold/Chapter2/StrongBundleLevelOne.lean, line 78
 - `Polyfold.EpGroupoid.isLocalScDiffeo_liftSrc` — Polyfold/Chapter7/Lift.lean, line 548
 - `Polyfold.EpGroupoid.isLocalScDiffeo_liftTgt` — Polyfold/Chapter7/Lift.lean, line 552
 - `Polyfold.EpGroupoid.isScSmoothMap_liftUnit` — Polyfold/Chapter7/Lift.lean, line 556
@@ -12608,15 +12608,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart` — Polyfold/Chapter7/ReducedCriterion.lean, line 1067
 - `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 1072
 - `Polyfold.EpGroupoid.Examples.remark_7_2_19` — Polyfold/Chapter7/ReducedCriterion.lean, line 1081
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3` — Polyfold/Chapter7/ZhouGroupoid.lean, line 363
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq` — Polyfold/Chapter7/ZhouGroupoid.lean, line 258
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff` — Polyfold/Chapter7/ZhouGroupoid.lean, line 293
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_t2Space_reducedMor` — Polyfold/Chapter7/ZhouGroupoid.lean, line 335
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isLUC` — Polyfold/Chapter7/ZhouGroupoid.lean, line 351
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.mem_O_iff'` — Polyfold/Chapter7/ZhouGroupoid.lean, line 102
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.Data` — Polyfold/Chapter7/ZhouGroupoid.lean, line 37
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma` — Polyfold/Chapter7/ZhouSigma.lean, line 203
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.sigmaHomeo` — Polyfold/Chapter7/ZhouSigma.lean, line 142
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3` — Polyfold/Chapter8/ZhouGroupoid.lean, line 363
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq` — Polyfold/Chapter8/ZhouGroupoid.lean, line 258
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff` — Polyfold/Chapter8/ZhouGroupoid.lean, line 293
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_t2Space_reducedMor` — Polyfold/Chapter8/ZhouGroupoid.lean, line 335
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isLUC` — Polyfold/Chapter8/ZhouGroupoid.lean, line 351
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.mem_O_iff'` — Polyfold/Chapter8/ZhouGroupoid.lean, line 102
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.Data` — Polyfold/Chapter8/ZhouGroupoid.lean, line 37
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma` — Polyfold/Chapter8/ZhouSigma.lean, line 203
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.sigmaHomeo` — Polyfold/Chapter8/ZhouSigma.lean, line 142
 - `Polyfold.ZhouLine.zhouRetraction` — Polyfold/Chapter7/ZhouRetraction.lean, line 282
 - `Polyfold.ZhouLine.isLossFamily_zhouFam` — Polyfold/Chapter7/ZhouRetraction.lean, line 247
 - `Polyfold.ZhouLine.lineSc` — Polyfold/Chapter7/LineSobolevScale.lean, line 604
@@ -12634,13 +12634,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `mem_nonEffectivePart_liftOne_of_levelVal`: (7.24). `nonEffectivePart_liftOne_eq_of_isClosed`: $(\mathbf X^1)^T = (\mathbf X^T)^1$ under LUC for $X^1$ (connectedness and density of $U(x)\cap X_1$ hold always, `hasConnectedDenseLevelOneReps`). `theorem_7_6_7_one`: if $T_R$ is Hausdorff for $X$ and $X^1$ (LUC for both), the identification $(X^1)_R \to (X_R)^1$, the identity on objects and $[\varphi]_1 \mapsto [\varphi]$ on morphisms (`reducedRaise`), is an sc-diffeomorphism on morphisms (`isScDiffeoOn_reducedRaise`) and an isomorphism of ep-groupoids (`raiseReducedFunctor`, `raiseReducedFunctorInv`). `EP.theorem_7_6_7`: under (SLUC), $(X^i)_R \cong (X_R)^i$ in $\mathcal{EP}$ for every $i$ (sc-smooth functors inverse to each other), by the text's induction (`EP.raiseReducedIso`, `EP.liftOneIso`, `EP.reducedOfLUC`). `EP.corollary_7_6_8`: the same under (ZHOU). Witness: `Examples.theorem_7_6_7_pointEP`. The set forms are kept (`theorem_7_6_7_of_isLUC`, `corollary_7_6_8_of_isZhou'`, `corollary_7_6_8_of_imp`, and the forms with `HasConnectedDenseLevelOneReps`: `theorem_7_6_7`, `corollary_7_6_8`).
 
-- `Polyfold.EpGroupoid.theorem_7_6_7_of_isLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 174
-- `Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou'` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 105
-- `Polyfold.EpGroupoid.corollary_7_6_8_of_imp` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 183
-- `Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq_of_isClosed` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 168
-- `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 145
-- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 124
-- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 128
+- `Polyfold.EpGroupoid.theorem_7_6_7_of_isLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 174
+- `Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou'` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 105
+- `Polyfold.EpGroupoid.corollary_7_6_8_of_imp` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 183
+- `Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq_of_isClosed` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 168
+- `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 145
+- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 124
+- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 128
 - `Polyfold.EpGroupoid.mem_nonEffectivePart_liftOne_of_levelVal` — Polyfold/Chapter7/ReducedCriterion.lean, line 792
 - `Polyfold.EpGroupoid.NaturalRep.levelOneΓ` — Polyfold/Chapter7/ReducedCriterion.lean, line 806
 - `Polyfold.EpGroupoid.NaturalRep.continuousOn_levelOneΓ` — Polyfold/Chapter7/ReducedCriterion.lean, line 820
@@ -12653,23 +12653,23 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.reducedLevelOneMap` — Polyfold/Chapter7/ReducedCriterion.lean, line 937
 - `Polyfold.EpGroupoid.theorem_7_6_7` — Polyfold/Chapter7/ReducedCriterion.lean, line 948
 - `Polyfold.EpGroupoid.corollary_7_6_8` — Polyfold/Chapter7/ReducedCriterion.lean, line 969
-- `Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 923
+- `Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 231
 - `Polyfold.EpGroupoid.Examples.pointEpGroupoid` — Polyfold/Chapter7/ReducedCriterion.lean, line 980
 - `Polyfold.EpGroupoid.Examples.isLUC_liftOne_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 983
 - `Polyfold.EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 989
 - `Polyfold.EpGroupoid.Examples.theorem_7_6_7_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 1001
-- `Polyfold.EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point` — Polyfold/Chapter7/Zhou.lean, line 1344
-- `Polyfold.EpGroupoid.reducedRaise` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 90
-- `Polyfold.EpGroupoid.isScDiffeoOn_reducedRaise` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 167
-- `Polyfold.EpGroupoid.raiseReducedFunctor` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 209
-- `Polyfold.EpGroupoid.raiseReducedFunctorInv` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 220
-- `Polyfold.EpGroupoid.theorem_7_6_7_one` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 247
-- `Polyfold.EP.reducedOfLUC` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 269
-- `Polyfold.EP.liftOneIso` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 284
-- `Polyfold.EP.raiseReducedIso` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 274
-- `Polyfold.EP.theorem_7_6_7` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 314
-- `Polyfold.EP.corollary_7_6_8` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 321
-- `Polyfold.EpGroupoid.Examples.theorem_7_6_7_pointEP` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 332
+- `Polyfold.EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point` — Polyfold/Chapter8/ZhouTangent.lean, line 434
+- `Polyfold.EpGroupoid.reducedRaise` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 90
+- `Polyfold.EpGroupoid.isScDiffeoOn_reducedRaise` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 167
+- `Polyfold.EpGroupoid.raiseReducedFunctor` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 209
+- `Polyfold.EpGroupoid.raiseReducedFunctorInv` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 220
+- `Polyfold.EpGroupoid.theorem_7_6_7_one` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 247
+- `Polyfold.EP.reducedOfLUC` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 269
+- `Polyfold.EP.liftOneIso` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 284
+- `Polyfold.EP.raiseReducedIso` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 274
+- `Polyfold.EP.theorem_7_6_7` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 314
+- `Polyfold.EP.corollary_7_6_8` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 321
+- `Polyfold.EpGroupoid.Examples.theorem_7_6_7_pointEP` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 332
 
 *What differs.*
 - The proof follows the text's diagram: $\pi_1 : \mathbf X^1 \to (\mathbf X^1)^R$ and the level-$1$ lift of $\pi : \mathbf X \to \mathbf X^R$ are local sc-diffeomorphisms and the identification composed with $\pi_1$ is that lift. For $i \ge 2$ the isomorphism is the composite $(X^i)_R = ((X^{i-1})^1)_R \cong ((X^{i-1})_R)^1 \cong \dots \cong (X_R)^i$; 'the identity on objects' is stated for $i = 1$ (for variable $i$ the object types are not definitionally equal). Of (SLUC) the case $i$ uses LUC for $X^{i-1}$ and $X^i$ (gap G.82, closed) (Findings, Chapter 7, item 131).
@@ -12683,13 +12683,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EP.liftOne`, `EP.lift` ($X^0 = X$, $X^{i+1} = (X^i)^1$; `EP.lift_zero`, `EP.lift_succ`, `EP.lift_succ'`: $X^{i+1} = (X^1)^i$). `proposition_7_4_2`: under `X.IsLUC`, for natural representations $R$, $W$ at $x$ with $R.U \subseteq W.U$ and $R$ LUC (both unused), $W$ is LUC. `remark_7_4_3`: under LUC, every natural representation is LUC, and there is one inside every open $O \ni x$.
 
-- `Polyfold.EP.liftOne` — Polyfold/Chapter7/Zhou.lean, line 130
-- `Polyfold.EP.lift` — Polyfold/Chapter7/Zhou.lean, line 136
-- `Polyfold.EP.lift_zero` — Polyfold/Chapter7/Zhou.lean, line 140
-- `Polyfold.EP.lift_succ` — Polyfold/Chapter7/Zhou.lean, line 142
-- `Polyfold.EP.lift_succ'` — Polyfold/Chapter7/Zhou.lean, line 145
-- `Polyfold.EpGroupoid.proposition_7_4_2` — Polyfold/Chapter7/Zhou.lean, line 162
-- `Polyfold.EpGroupoid.remark_7_4_3` — Polyfold/Chapter7/Zhou.lean, line 168
+- `Polyfold.EP.liftOne` — Polyfold/Chapter7/Zhou.lean, line 137
+- `Polyfold.EP.lift` — Polyfold/Chapter7/Zhou.lean, line 143
+- `Polyfold.EP.lift_zero` — Polyfold/Chapter7/Zhou.lean, line 147
+- `Polyfold.EP.lift_succ` — Polyfold/Chapter7/Zhou.lean, line 149
+- `Polyfold.EP.lift_succ'` — Polyfold/Chapter7/Zhou.lean, line 152
+- `Polyfold.EpGroupoid.proposition_7_4_2` — Polyfold/Chapter7/Zhou.lean, line 169
+- `Polyfold.EpGroupoid.remark_7_4_3` — Polyfold/Chapter7/Zhou.lean, line 175
 
 *What differs.*
 - The hypotheses on $U(x)$ are not needed: under LUC every natural representation has the property (V7.80) (Findings, Chapter 7, item 132).
@@ -12702,15 +12702,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `HasLevelOneConnectedDenseReps`: every object has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$. `NaturalRep.eqOn_of_isClosed_liftOne`, `isLUC_of_isLUC_liftOne` ($i = 1$). `lemma_7_4_4`: for `A : EP` and $i$, if `HasLevelOneConnectedDenseReps` holds for every $X^k$, $k < i$, and $X^i$ is LUC, then $X$ and every $X^k$, $k \le i$, are LUC. Witnesses: `hasLevelOneConnectedDenseReps_of_subsingleton`, `Examples.hasLevelOneConnectedDenseReps_lift_pointEP`, `Examples.lemma_7_4_4_pointEP`. Every natural representation has $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ (`NaturalRep.isPreconnected_liftU`, `NaturalRep.subset_closure_inter_levelSet`), so the hypothesis holds for every ep-groupoid.
 
-- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 179
-- `Polyfold.EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne` — Polyfold/Chapter7/Zhou.lean, line 188
-- `Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne` — Polyfold/Chapter7/Zhou.lean, line 216
-- `Polyfold.EpGroupoid.lemma_7_4_4` — Polyfold/Chapter7/Zhou.lean, line 231
-- `Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 1315
-- `Polyfold.EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1328
-- `Polyfold.EpGroupoid.Examples.lemma_7_4_4_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1334
-- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 124
-- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 128
+- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 186
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne` — Polyfold/Chapter7/Zhou.lean, line 195
+- `Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne` — Polyfold/Chapter7/Zhou.lean, line 223
+- `Polyfold.EpGroupoid.lemma_7_4_4` — Polyfold/Chapter7/Zhou.lean, line 238
+- `Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 921
+- `Polyfold.EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 934
+- `Polyfold.EpGroupoid.Examples.lemma_7_4_4_pointEP` — Polyfold/Chapter7/Zhou.lean, line 940
+- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 124
+- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 128
 
 *What differs.*
 - The hypothesis holds for every ep-groupoid, since every natural representation has $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ (`NaturalRep.isPreconnected_liftU`, `NaturalRep.subset_closure_inter_levelSet`; gap G.85 closed). Lemma 7.4.4 is not restated without it, so the verdict is kept (Findings, Chapter 7, items 133, 153).
@@ -12724,27 +12724,27 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** Every fact is a theorem for every M-polyfold: `MPolyfold.denseSmooth` ($X_\infty$ dense in every $X_m$), `MPolyfold.smoothConnected` ($U \cap X_\infty$ connected for a connected open $U$, as $U \cap X_\infty$ is path connected, `isPathConnected_smoothVal_preimage`), `MPolyfold.isOpenMap_tangentProj` ($p : TX \to X^1$ open, which gives the approximation of tangent vectors, `eqOn_tangentFiber_of_mem_closure`), `MPolyfold.tangentDeterminedSmooth` (sc-smooth maps agreeing near a smooth point in $X_\infty$ have the same tangent there, from `IsSc1.scDeriv_eq_of_eqOn_level`) and `MPolyfold.denseSmoothTangent` ($(T_xX)_\infty$ dense in $T_xX$); `MPolyfold.smoothRegular` bundles the first four. The hypotheses of the forms of §7.4 that take them are kept: `MPolyfold.DenseSmooth`, `SmoothConnected`, `DenseSmoothTangent`, `TangentDeterminedSmooth` (with `TangentDeterminedSmooth.eq_self`), the bundle `SmoothRegular`, their consequences `DenseSmooth.dense`, `DenseSmooth.subset_closure_inter`, `DenseSmooth.exists_smooth`, and the witnesses `smoothRegular_of_subsingleton`, `smoothRegular_discrete_unit`, `denseSmoothTangent_discrete_unit`.
 
-- `Polyfold.MPolyfold.smoothRegular` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 64
-- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 143
-- `Polyfold.MPolyfold.smoothConnected` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 89
+- `Polyfold.MPolyfold.smoothRegular` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 64
+- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 88
+- `Polyfold.MPolyfold.smoothConnected` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 89
 - `Polyfold.MPolyfold.isOpenMap_tangentProj` — Polyfold/Chapter2/TangentProjOpen.lean, line 86
-- `Polyfold.MPolyfold.tangentDeterminedSmooth` — Polyfold/Chapter7/ZhouFacts.lean, line 238
-- `Polyfold.MPolyfold.denseSmoothTangent` — Polyfold/Chapter7/ZhouFacts.lean, line 167
-- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter2/SmoothPaths.lean, line 170
-- `Polyfold.IsSc1.scDeriv_eq_of_eqOn_level` — Polyfold/Chapter7/ZhouFacts.lean, line 127
-- `Polyfold.MPolyfold.DenseSmooth` — Polyfold/Chapter7/Zhou.lean, line 261
-- `Polyfold.MPolyfold.SmoothConnected` — Polyfold/Chapter7/Zhou.lean, line 265
-- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 270
-- `Polyfold.MPolyfold.TangentDeterminedSmooth` — Polyfold/Chapter7/Zhou.lean, line 277
-- `Polyfold.MPolyfold.TangentDeterminedSmooth.eq_self` — Polyfold/Chapter7/Zhou.lean, line 284
-- `Polyfold.MPolyfold.DenseSmooth.dense` — Polyfold/Chapter7/Zhou.lean, line 297
-- `Polyfold.MPolyfold.DenseSmooth.subset_closure_inter` — Polyfold/Chapter7/Zhou.lean, line 305
-- `Polyfold.MPolyfold.DenseSmooth.exists_smooth` — Polyfold/Chapter7/Zhou.lean, line 310
-- `Polyfold.MPolyfold.eqOn_tangentFiber_of_mem_closure` — Polyfold/Chapter7/Zhou.lean, line 321
-- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 639
-- `Polyfold.MPolyfold.smoothRegular_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 649
-- `Polyfold.MPolyfold.smoothRegular_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 973
-- `Polyfold.MPolyfold.denseSmoothTangent_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 961
+- `Polyfold.MPolyfold.tangentDeterminedSmooth` — Polyfold/Chapter8/ZhouFacts.lean, line 238
+- `Polyfold.MPolyfold.denseSmoothTangent` — Polyfold/Chapter8/ZhouFacts.lean, line 167
+- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter5/SmoothPaths.lean, line 171
+- `Polyfold.IsSc1.scDeriv_eq_of_eqOn_level` — Polyfold/Chapter8/ZhouFacts.lean, line 127
+- `Polyfold.MPolyfold.DenseSmooth` — Polyfold/Chapter5/DenseSmooth.lean, line 19
+- `Polyfold.MPolyfold.SmoothConnected` — Polyfold/Chapter7/Zhou.lean, line 269
+- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 274
+- `Polyfold.MPolyfold.TangentDeterminedSmooth` — Polyfold/Chapter7/Zhou.lean, line 281
+- `Polyfold.MPolyfold.TangentDeterminedSmooth.eq_self` — Polyfold/Chapter7/Zhou.lean, line 288
+- `Polyfold.MPolyfold.DenseSmooth.dense` — Polyfold/Chapter5/DenseSmooth.lean, line 24
+- `Polyfold.MPolyfold.DenseSmooth.subset_closure_inter` — Polyfold/Chapter7/Zhou.lean, line 301
+- `Polyfold.MPolyfold.DenseSmooth.exists_smooth` — Polyfold/Chapter7/Zhou.lean, line 306
+- `Polyfold.MPolyfold.eqOn_tangentFiber_of_mem_closure` — Polyfold/Chapter7/Zhou.lean, line 317
+- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 539
+- `Polyfold.MPolyfold.smoothRegular_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 549
+- `Polyfold.MPolyfold.smoothRegular_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 756
+- `Polyfold.MPolyfold.denseSmoothTangent_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 744
 
 *What differs.*
 - The facts are theorems for every M-polyfold (`Chapter7/SmoothPointsDense.lean`, `SmoothConnectedReps.lean`, `ZhouFacts.lean`, `SmoothRegularAssembly.lean`, `Chapter2/TangentProjOpen.lean`, `SmoothPaths.lean`); gaps G.85, G.73 and G.8 are closed. The results of §7.4 are restated without them (V7.89–V7.95, V7.102–V7.104), and the hypothesis-taking forms are kept. $(T_xX)_\infty$ is read as $T_xX \cap (TX)_\infty$ (Findings, Chapter 7, items 134, 153).
@@ -12757,14 +12757,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `NaturalRep.tangentMor_Γ`: Chapter 7's `tangentMor` (Definition 7.1.4, $Tt \circ (Ts|T_\varphi\mathbf X)^{-1}$, without charts) of $\Gamma(g, y)$ is $T\Phi(g)$ on $T_yX$; `NaturalRep.tangentMor_eq_tΦ`: $Tg = T\Phi(g)$ on $T_xX$; `NaturalRep.tΦ_eq_tΦ`: the same for all natural representations; `NaturalRep.tangentMor_isoΓ` at fixed points. `NaturalRep.isoΓ` ($\Gamma(g, z) \in G_z$ for a fixed point $z$, `isoΓ_val`), `NaturalRep.isoΓ_mem_trivialSubgroup_iff` (it lies in $T_z$ iff $\Phi(g) = \mathrm{id}$ near $z$), `NaturalRep.eventually_Φ_eq_Γ` (it acts near $z$ as $g$).
 
-- `Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_Γ` — Polyfold/Chapter7/Zhou.lean, line 354
-- `Polyfold.EpGroupoid.NaturalRep.isoΓ` — Polyfold/Chapter7/Zhou.lean, line 370
-- `Polyfold.EpGroupoid.NaturalRep.isoΓ_val` — Polyfold/Chapter7/Zhou.lean, line 373
-- `Polyfold.EpGroupoid.NaturalRep.isoΓ_mem_trivialSubgroup_iff` — Polyfold/Chapter7/Zhou.lean, line 377
-- `Polyfold.EpGroupoid.NaturalRep.tangentMor_Γ` — Polyfold/Chapter7/Zhou.lean, line 389
-- `Polyfold.EpGroupoid.NaturalRep.tangentMor_eq_tΦ` — Polyfold/Chapter7/Zhou.lean, line 395
-- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_tΦ` — Polyfold/Chapter7/Zhou.lean, line 408
-- `Polyfold.EpGroupoid.NaturalRep.tangentMor_isoΓ` — Polyfold/Chapter7/Zhou.lean, line 539
+- `Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_Γ` — Polyfold/Chapter7/Zhou.lean, line 350
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ` — Polyfold/Chapter7/Zhou.lean, line 366
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ_val` — Polyfold/Chapter7/Zhou.lean, line 369
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ_mem_trivialSubgroup_iff` — Polyfold/Chapter7/Zhou.lean, line 373
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_Γ` — Polyfold/Chapter8/ZhouTangent.lean, line 27
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_eq_tΦ` — Polyfold/Chapter8/ZhouTangent.lean, line 33
+- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_tΦ` — Polyfold/Chapter8/ZhouTangent.lean, line 46
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_isoΓ` — Polyfold/Chapter8/ZhouTangent.lean, line 52
 
 *What differs.*
 - $Tg$ is a set map on the fibre $T_xX$; (ZHOU) only asks that it be the identity, so the linear structure of $T_xX$ (V2.19; gap G.7, closed) is not needed (Findings, Chapter 7, item 135).
@@ -12777,21 +12777,21 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsZhou`: for every smooth $y$ and $g \in G_y$, `tangentMor g` $= \mathrm{id}$ on `tangentFiber` implies $g \in$ `trivialSubgroup`. `trivialSetInf`, `trivialSubgroupInf` ($T_x^\infty$; `mem_trivialSetInf_iff`, `mem_trivialSubgroupInf_iff`: testable in any natural representation), `trivialSubgroup_le_trivialSubgroupInf`. `IsZhou'`: the same with the smooth tangent vectors and $T_x^\infty$. Witnesses: `isZhou_of_trivialSubgroup_eq_top`, `isZhou'_of_trivialSubgroup_eq_top`, `isZhou_of_subsingleton`, `isZhou'_of_subsingleton`, `isZhou_trivial`, `isZhou'_trivial`, `Examples.isZhou_trivialZ3`, `Examples.isZhou'_trivialZ3`.
 
-- `Polyfold.EpGroupoid.IsZhou` — Polyfold/Chapter7/Zhou.lean, line 421
-- `Polyfold.EpGroupoid.trivialSetInf` — Polyfold/Chapter7/Zhou.lean, line 429
-- `Polyfold.EpGroupoid.mem_trivialSetInf_iff` — Polyfold/Chapter7/Zhou.lean, line 434
-- `Polyfold.EpGroupoid.trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 445
-- `Polyfold.EpGroupoid.mem_trivialSubgroupInf_iff` — Polyfold/Chapter7/Zhou.lean, line 467
-- `Polyfold.EpGroupoid.trivialSubgroup_le_trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 474
-- `Polyfold.EpGroupoid.IsZhou'` — Polyfold/Chapter7/Zhou.lean, line 485
-- `Polyfold.EpGroupoid.isZhou_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 493
-- `Polyfold.EpGroupoid.isZhou'_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 496
-- `Polyfold.EpGroupoid.isZhou_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 500
-- `Polyfold.EpGroupoid.isZhou'_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 503
-- `Polyfold.EpGroupoid.isZhou_trivial` — Polyfold/Chapter7/Zhou.lean, line 507
-- `Polyfold.EpGroupoid.isZhou'_trivial` — Polyfold/Chapter7/Zhou.lean, line 512
-- `Polyfold.EpGroupoid.Examples.isZhou_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 517
-- `Polyfold.EpGroupoid.Examples.isZhou'_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 520
+- `Polyfold.EpGroupoid.IsZhou` — Polyfold/Chapter7/Zhou.lean, line 390
+- `Polyfold.EpGroupoid.trivialSetInf` — Polyfold/Chapter7/Zhou.lean, line 398
+- `Polyfold.EpGroupoid.mem_trivialSetInf_iff` — Polyfold/Chapter7/Zhou.lean, line 403
+- `Polyfold.EpGroupoid.trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 414
+- `Polyfold.EpGroupoid.mem_trivialSubgroupInf_iff` — Polyfold/Chapter7/Zhou.lean, line 436
+- `Polyfold.EpGroupoid.trivialSubgroup_le_trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 443
+- `Polyfold.EpGroupoid.IsZhou'` — Polyfold/Chapter7/Zhou.lean, line 454
+- `Polyfold.EpGroupoid.isZhou_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 462
+- `Polyfold.EpGroupoid.isZhou'_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 465
+- `Polyfold.EpGroupoid.isZhou_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 469
+- `Polyfold.EpGroupoid.isZhou'_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 472
+- `Polyfold.EpGroupoid.isZhou_trivial` — Polyfold/Chapter7/Zhou.lean, line 476
+- `Polyfold.EpGroupoid.isZhou'_trivial` — Polyfold/Chapter7/Zhou.lean, line 481
+- `Polyfold.EpGroupoid.Examples.isZhou_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 486
+- `Polyfold.EpGroupoid.Examples.isZhou'_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 489
 
 *What differs.*
 - $Tg$ is `tangentMor g` on the fibre (V7.87). Both conditions hold when every $T_x = G_x$, e.g. for the trivial $\mathbb Z/3$-action (Findings, Chapter 7, items 135, 144).
@@ -12804,18 +12804,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_7_4_6_of_isZhou`: `IsZhou` gives `IsZhou'`. `proposition_7_4_8_unconditional`: `IsZhou ↔ IsZhou'`, for every ep-groupoid. The forms with the Part I facts of V7.86 as hypotheses are kept: `lemma_7_4_6` (`IsZhou` and `DenseSmoothTangent` give `IsZhou'`), `isZhou_of_isZhou'` (`SmoothRegular` and `IsZhou'` give `IsZhou`), `proposition_7_4_8` (with `SmoothRegular` and `DenseSmoothTangent`). Steps: `NaturalRep.mem_tangentU_of_fiber`, `NaturalRep.tΦ_eq_self_of_eqOn`, `NaturalRep.fix_and_tangent_of_mem_closure` (the closure step), `NaturalRep.eq_self_of_smooth_clopen` and `NaturalRep.eq_self_of_smooth_tangent` (unique continuation through the connected $U(x)_\infty$), `eq_of_mem_closure_of_continuousAt`. Witness: `Examples.proposition_7_4_8_point`.
 
-- `Polyfold.EpGroupoid.lemma_7_4_6_of_isZhou` — Polyfold/Chapter7/ZhouFacts.lean, line 392
-- `Polyfold.EpGroupoid.proposition_7_4_8_unconditional` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 78
-- `Polyfold.EpGroupoid.lemma_7_4_6` — Polyfold/Chapter7/Zhou.lean, line 680
-- `Polyfold.EpGroupoid.isZhou_of_isZhou'` — Polyfold/Chapter7/Zhou.lean, line 695
-- `Polyfold.EpGroupoid.proposition_7_4_8` — Polyfold/Chapter7/Zhou.lean, line 719
-- `Polyfold.EpGroupoid.NaturalRep.mem_tangentU_of_fiber` — Polyfold/Chapter7/Zhou.lean, line 553
-- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_self_of_eqOn` — Polyfold/Chapter7/Zhou.lean, line 560
-- `Polyfold.EpGroupoid.NaturalRep.fix_and_tangent_of_mem_closure` — Polyfold/Chapter7/Zhou.lean, line 573
-- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_clopen` — Polyfold/Chapter7/Zhou.lean, line 592
-- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_tangent` — Polyfold/Chapter7/Zhou.lean, line 610
-- `Polyfold.eq_of_mem_closure_of_continuousAt` — Polyfold/Chapter7/Zhou.lean, line 526
-- `Polyfold.EpGroupoid.Examples.proposition_7_4_8_point` — Polyfold/Chapter7/Zhou.lean, line 1339
+- `Polyfold.EpGroupoid.lemma_7_4_6_of_isZhou` — Polyfold/Chapter8/ZhouFacts.lean, line 392
+- `Polyfold.EpGroupoid.proposition_7_4_8_unconditional` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 78
+- `Polyfold.EpGroupoid.lemma_7_4_6` — Polyfold/Chapter8/ZhouTangent.lean, line 124
+- `Polyfold.EpGroupoid.isZhou_of_isZhou'` — Polyfold/Chapter8/ZhouTangent.lean, line 139
+- `Polyfold.EpGroupoid.proposition_7_4_8` — Polyfold/Chapter8/ZhouTangent.lean, line 163
+- `Polyfold.EpGroupoid.NaturalRep.mem_tangentU_of_fiber` — Polyfold/Chapter8/ZhouTangent.lean, line 66
+- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_self_of_eqOn` — Polyfold/Chapter8/ZhouTangent.lean, line 73
+- `Polyfold.EpGroupoid.NaturalRep.fix_and_tangent_of_mem_closure` — Polyfold/Chapter8/ZhouTangent.lean, line 86
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_clopen` — Polyfold/Chapter7/Zhou.lean, line 509
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_tangent` — Polyfold/Chapter8/ZhouTangent.lean, line 105
+- `Polyfold.eq_of_mem_closure_of_continuousAt` — Polyfold/Chapter7/Zhou.lean, line 495
+- `Polyfold.EpGroupoid.Examples.proposition_7_4_8_point` — Polyfold/Chapter8/ZhouTangent.lean, line 429
 
 *What differs.*
 - The Part I facts of V7.86 are theorems (gap G.85 closed), so Lemma 7.4.6 and Proposition 7.4.8 hold with no hypothesis (`lemma_7_4_6_of_isZhou`, `proposition_7_4_8_unconditional`); the forms with them are kept (`lemma_7_4_6`, `proposition_7_4_8`).
@@ -12829,17 +12829,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `proposition_7_4_10_of_isZhou`: `IsZhou` gives `IsLUC`; `isSmoothUC_of_isZhou'`: it gives unique continuation through $X_\infty$ (`IsSmoothUC`). `corollary_7_4_11_of_isZhou`: LUC for $X$ and $X^1$; `EP.corollary_7_4_11_all_of_isZhou`: under (ZHOU) for $X$ every $X^i$ is LUC. No hypothesis beyond (ZHOU). The forms with hypotheses are kept: `proposition_7_4_10` (with `SmoothRegular`), `IsSmoothUC`, `isSmoothUC_of_isZhou`, `isLUC_of_isSmoothUC`, `isLUC_liftOne_of_isSmoothUC`, `corollary_7_4_11`, and `corollary_7_4_11_lift` (with `IsZhou` and `SmoothRegular` for every $X^i$).
 
-- `Polyfold.EpGroupoid.proposition_7_4_10_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 83
-- `Polyfold.EpGroupoid.isSmoothUC_of_isZhou'` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 87
-- `Polyfold.EpGroupoid.corollary_7_4_11_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 96
-- `Polyfold.EP.corollary_7_4_11_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 140
-- `Polyfold.EpGroupoid.proposition_7_4_10` — Polyfold/Chapter7/Zhou.lean, line 726
-- `Polyfold.EpGroupoid.IsSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 749
-- `Polyfold.EpGroupoid.isSmoothUC_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 757
-- `Polyfold.EpGroupoid.isLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 775
-- `Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 784
-- `Polyfold.EpGroupoid.corollary_7_4_11` — Polyfold/Chapter7/Zhou.lean, line 815
-- `Polyfold.EpGroupoid.corollary_7_4_11_lift` — Polyfold/Chapter7/Zhou.lean, line 834
+- `Polyfold.EpGroupoid.proposition_7_4_10_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 83
+- `Polyfold.EpGroupoid.isSmoothUC_of_isZhou'` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 87
+- `Polyfold.EpGroupoid.corollary_7_4_11_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 96
+- `Polyfold.EP.corollary_7_4_11_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 140
+- `Polyfold.EpGroupoid.proposition_7_4_10` — Polyfold/Chapter8/ZhouTangent.lean, line 168
+- `Polyfold.EpGroupoid.IsSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 585
+- `Polyfold.EpGroupoid.isSmoothUC_of_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 188
+- `Polyfold.EpGroupoid.isLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 592
+- `Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 601
+- `Polyfold.EpGroupoid.corollary_7_4_11` — Polyfold/Chapter8/ZhouTangent.lean, line 207
+- `Polyfold.EpGroupoid.corollary_7_4_11_lift` — Polyfold/Chapter8/ZhouTangent.lean, line 215
 
 *What differs.*
 - The Part I facts are theorems (gap G.85 closed), so Proposition 7.4.10 and Corollary 7.4.11 for every $X^i$ take (ZHOU) for $X$ as the only hypothesis (`proposition_7_4_10_of_isZhou`, `EP.corollary_7_4_11_all_of_isZhou`); the forms with `SmoothRegular`, and with (ZHOU) on every level, are kept (`proposition_7_4_10`, `corollary_7_4_11_lift`) (Findings, Chapter 7, item 153).
@@ -12853,15 +12853,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EP.IsSLUC`: `(A.lift i).X.IsLUC` for all $i$. `EP.theorem_7_4_13_all_of_isZhou`: if $X$ satisfies `IsZhou`, then `A.IsSLUC`, with no other hypothesis. The form with hypotheses is kept: `theorem_7_4_13`, with `IsZhou` and `SmoothRegular` for every $X^i$. Witnesses: `Examples.pointEP`, `Examples.lift_pointEP`, `Examples.smoothRegular_lift_pointEP`, `Examples.isZhou_lift_pointEP`, `Examples.isSLUC_pointEP`, `Examples.theorem_7_4_13_pointEP`.
 
-- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 147
-- `Polyfold.EP.IsSLUC` — Polyfold/Chapter7/Zhou.lean, line 824
-- `Polyfold.EpGroupoid.theorem_7_4_13` — Polyfold/Chapter7/Zhou.lean, line 840
-- `Polyfold.EpGroupoid.Examples.pointEP` — Polyfold/Chapter7/Zhou.lean, line 981
-- `Polyfold.EpGroupoid.Examples.lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 987
-- `Polyfold.EpGroupoid.Examples.smoothRegular_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1000
-- `Polyfold.EpGroupoid.Examples.isZhou_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1005
-- `Polyfold.EpGroupoid.Examples.isSLUC_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1011
-- `Polyfold.EpGroupoid.Examples.theorem_7_4_13_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1016
+- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 147
+- `Polyfold.EP.IsSLUC` — Polyfold/Chapter7/Zhou.lean, line 634
+- `Polyfold.EpGroupoid.theorem_7_4_13` — Polyfold/Chapter8/ZhouTangent.lean, line 221
+- `Polyfold.EpGroupoid.Examples.pointEP` — Polyfold/Chapter7/Zhou.lean, line 764
+- `Polyfold.EpGroupoid.Examples.lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 770
+- `Polyfold.EpGroupoid.Examples.smoothRegular_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 783
+- `Polyfold.EpGroupoid.Examples.isZhou_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 788
+- `Polyfold.EpGroupoid.Examples.isSLUC_pointEP` — Polyfold/Chapter7/Zhou.lean, line 794
+- `Polyfold.EpGroupoid.Examples.theorem_7_4_13_pointEP` — Polyfold/Chapter8/ZhouTangent.lean, line 244
 
 *What differs.*
 - Theorem 7.4.13 with (ZHOU) for $X$ as the only hypothesis is `EP.theorem_7_4_13_all_of_isZhou` (the Part I facts are theorems, gap G.85 closed); the form with (ZHOU) and `SmoothRegular` on every level is kept (`theorem_7_4_13`) (Findings, Chapter 7, item 153).
@@ -12875,25 +12875,25 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsVSLUC`. `isSmoothUC_of_isVSLUC'`, `isVSLUC_of_isSmoothUC`. `lemma_7_4_15_of_isVSLUC`: `IsVSLUC` gives `IsLUC`. `proposition_7_4_16_of_isVSLUC`: LUC for $X$ and $X^1$; `EP.proposition_7_4_16_all_of_isVSLUC`: (VSLUC) for $X$ gives (VSLUC) and LUC for every $X^i$. `EP.proposition_7_4_17_all_of_isVSLUC`: (VSLUC) gives `A.IsSLUC`. `EP.proposition_7_4_18_unconditional`: `IsVSLUC ↔ IsSLUC`. No hypothesis beyond (VSLUC), resp. (SLUC). The forms with `DenseSmooth` and `SmoothConnected` (for every $X^i$) are kept: `isSmoothUC_of_isVSLUC`, `lemma_7_4_15`, `proposition_7_4_16`, `proposition_7_4_17`. `isVSLUC_of_isZhou`. Witnesses: `isSmoothUC_of_subsingleton`, `isVSLUC_of_subsingleton`, `isLUC_of_subsingleton_mor`, `isVSLUC_trivial`, `isSmoothUC_trivial`.
 
-- `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC'` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 153
-- `Polyfold.EpGroupoid.lemma_7_4_15_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 157
-- `Polyfold.EpGroupoid.proposition_7_4_16_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 162
-- `Polyfold.EP.proposition_7_4_16_all_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 213
-- `Polyfold.EP.proposition_7_4_17_all_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 220
-- `Polyfold.EP.proposition_7_4_17_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 225
-- `Polyfold.EP.proposition_7_4_18_unconditional` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 238
-- `Polyfold.EpGroupoid.IsVSLUC` — Polyfold/Chapter7/Zhou.lean, line 850
-- `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC` — Polyfold/Chapter7/Zhou.lean, line 860
-- `Polyfold.EpGroupoid.isVSLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 889
-- `Polyfold.EpGroupoid.lemma_7_4_15` — Polyfold/Chapter7/Zhou.lean, line 899
-- `Polyfold.EpGroupoid.proposition_7_4_16` — Polyfold/Chapter7/Zhou.lean, line 905
-- `Polyfold.EpGroupoid.proposition_7_4_17` — Polyfold/Chapter7/Zhou.lean, line 911
-- `Polyfold.EpGroupoid.isVSLUC_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 916
-- `Polyfold.EpGroupoid.isSmoothUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 934
-- `Polyfold.EpGroupoid.isVSLUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 938
-- `Polyfold.EpGroupoid.isLUC_of_subsingleton_mor` — Polyfold/Chapter7/Zhou.lean, line 942
-- `Polyfold.EpGroupoid.isVSLUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 946
-- `Polyfold.EpGroupoid.isSmoothUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 951
+- `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC'` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 153
+- `Polyfold.EpGroupoid.lemma_7_4_15_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 157
+- `Polyfold.EpGroupoid.proposition_7_4_16_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 162
+- `Polyfold.EP.proposition_7_4_16_all_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 213
+- `Polyfold.EP.proposition_7_4_17_all_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 220
+- `Polyfold.EP.proposition_7_4_17_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 225
+- `Polyfold.EP.proposition_7_4_18_unconditional` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 238
+- `Polyfold.EpGroupoid.IsVSLUC` — Polyfold/Chapter7/Zhou.lean, line 647
+- `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC` — Polyfold/Chapter7/Zhou.lean, line 657
+- `Polyfold.EpGroupoid.isVSLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 686
+- `Polyfold.EpGroupoid.lemma_7_4_15` — Polyfold/Chapter7/Zhou.lean, line 696
+- `Polyfold.EpGroupoid.proposition_7_4_16` — Polyfold/Chapter7/Zhou.lean, line 702
+- `Polyfold.EpGroupoid.proposition_7_4_17` — Polyfold/Chapter7/Zhou.lean, line 708
+- `Polyfold.EpGroupoid.isVSLUC_of_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 226
+- `Polyfold.EpGroupoid.isSmoothUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 717
+- `Polyfold.EpGroupoid.isVSLUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 721
+- `Polyfold.EpGroupoid.isLUC_of_subsingleton_mor` — Polyfold/Chapter7/Zhou.lean, line 725
+- `Polyfold.EpGroupoid.isVSLUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 729
+- `Polyfold.EpGroupoid.isSmoothUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 734
 
 *What differs.*
 - The density and connectedness facts are theorems (gaps G.73, G.85 closed), so Lemma 7.4.15 and Propositions 7.4.16–7.4.18 hold with no hypothesis beyond (VSLUC), resp. (SLUC), and for every $X^i$ (`lemma_7_4_15_of_isVSLUC`, `EP.proposition_7_4_16_all_of_isVSLUC`, `EP.proposition_7_4_17_all_of_isVSLUC`, `EP.proposition_7_4_18_unconditional`); the forms with the hypotheses are kept (Findings, Chapter 7, item 153).
@@ -12907,12 +12907,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsLR`: for every open $O \ni x$ a natural representation $U(x) \subseteq O$ such that every sc-diffeomorphism $\beta$ of $U(x)$ onto $U(x)$ with $\pi(\beta(y)) = \pi(y)$ equals some $\Phi(g)$ on $U(x)$. `IsLR'`: the same for $\beta$ onto $\beta(U(x))$ with $\beta(x) = x$. `NaturalRep.exists_Φ_eq_of_π_eq`, `NaturalRep.eq_self_of_π_eq`. `lemma_7_4_20`: $\beta(U(x)) = U(x)$ and $\beta$ is an sc-diffeomorphism of $U(x)$. `isLR_iff_isLR'`.
 
-- `Polyfold.EpGroupoid.IsLR` — Polyfold/Chapter7/Zhou.lean, line 1042
-- `Polyfold.EpGroupoid.IsLR'` — Polyfold/Chapter7/Zhou.lean, line 1049
-- `Polyfold.EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 1059
-- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 1067
-- `Polyfold.EpGroupoid.lemma_7_4_20` — Polyfold/Chapter7/Zhou.lean, line 1074
-- `Polyfold.EpGroupoid.isLR_iff_isLR'` — Polyfold/Chapter7/Zhou.lean, line 1124
+- `Polyfold.EpGroupoid.IsLR` — Polyfold/Chapter7/Zhou.lean, line 811
+- `Polyfold.EpGroupoid.IsLR'` — Polyfold/Chapter7/Zhou.lean, line 818
+- `Polyfold.EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 828
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 836
+- `Polyfold.EpGroupoid.lemma_7_4_20` — Polyfold/Chapter7/Zhou.lean, line 843
+- `Polyfold.EpGroupoid.isLR_iff_isLR'` — Polyfold/Chapter7/Zhou.lean, line 893
 
 *What differs.*
 - Lemma 7.4.20 is proved by the finite closed cover $U(x) = \bigcup_g \{\beta = \hat g\}$ and connectedness instead of paths (Findings, Chapter 7, item 138).
@@ -12925,14 +12925,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `NaturalRep.eqOn_Φ_of_tangent`: under `IsZhou` and LUC for the representation, $\Phi(g)$ and $\Phi(g')$ agreeing with their tangents at a smooth point agree on $U(x)$. `NaturalRep.exists_eq_Φ_of_isZhou`. `proposition_7_4_22_of_isZhou`: `IsZhou` gives `IsLR`. `EP.IsSLR`; `EP.theorem_7_4_24_all_of_isZhou`: `IsZhou` for $X$ gives `A.IsSLR`. No hypothesis beyond (ZHOU). The forms with hypotheses are kept: `proposition_7_4_22` (with `SmoothRegular`) and `theorem_7_4_24` (with `IsZhou` and `SmoothRegular` for every $X^i$). Witness: `Examples.isSLR_pointEP`.
 
-- `Polyfold.EpGroupoid.proposition_7_4_22_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 101
-- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 152
-- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ_of_tangent` — Polyfold/Chapter7/Zhou.lean, line 1143
-- `Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1164
-- `Polyfold.EpGroupoid.proposition_7_4_22` — Polyfold/Chapter7/Zhou.lean, line 1281
-- `Polyfold.EP.IsSLR` — Polyfold/Chapter7/Zhou.lean, line 1290
-- `Polyfold.EpGroupoid.theorem_7_4_24` — Polyfold/Chapter7/Zhou.lean, line 1296
-- `Polyfold.EpGroupoid.Examples.isSLR_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1301
+- `Polyfold.EpGroupoid.proposition_7_4_22_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 101
+- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 152
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ_of_tangent` — Polyfold/Chapter8/ZhouTangent.lean, line 267
+- `Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 288
+- `Polyfold.EpGroupoid.proposition_7_4_22` — Polyfold/Chapter8/ZhouTangent.lean, line 405
+- `Polyfold.EP.IsSLR` — Polyfold/Chapter7/Zhou.lean, line 910
+- `Polyfold.EpGroupoid.theorem_7_4_24` — Polyfold/Chapter8/ZhouTangent.lean, line 416
+- `Polyfold.EpGroupoid.Examples.isSLR_pointEP` — Polyfold/Chapter8/ZhouTangent.lean, line 421
 
 *What differs.*
 - With the Part I facts proved (gap G.85 closed), Proposition 7.4.22 and Theorem 7.4.24 take (ZHOU) for $X$ as the only hypothesis (`proposition_7_4_22_of_isZhou`, `EP.theorem_7_4_24_all_of_isZhou`); the forms with `SmoothRegular`, and with (ZHOU) on every level, are kept (Findings, Chapter 7, item 153).
@@ -12946,9 +12946,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `ZhouRetract.not_isZhou`: Zhou's example `ZhouRetract.X D` does not satisfy (ZHOU). It is not LUC (V7.82), and (ZHOU) implies LUC for an M-polyfold, which is always `SmoothRegular` (V7.90, G.85 closed). No hypothesis is needed. For the analogue: `JumpingRetract.not_isZhou_unconditional`, and the conditional form `JumpingRetract.not_isZhou`.
 
-- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 181
-- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1026
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isZhou` — Polyfold/Chapter7/ZhouGroupoid.lean, line 356
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 181
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 254
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isZhou` — Polyfold/Chapter8/ZhouGroupoid.lean, line 356
 
 *What differs.*
 - None beyond V7.82. The analogue's `not_isZhou_unconditional` is kept (Findings, Chapter 7, item 139).
@@ -13122,24 +13122,24 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `MPolyfold.continuous_levelDown`, `shiftSmoothHomeomorph`: $(X^1)_\infty \cong X_\infty$. `EpGroupoid.isotropyLevelVal`, `levelVal_Φ_liftOne`, `tangentLower_tangentMor_liftOne`: a natural representation of $X^1$ inside $U(x) \cap X_1$ acts as that of $X$, with the tangent action of $\mathbf X$. `isZhou'_liftOne`, `EP.isZhou'_lift`: (ZHOU') for $X$ gives (ZHOU') for every $X^i$. `EP.proposition_7_4_9_of_isZhou`: `IsZhou` for $X$ gives `IsZhou` for every $X^i$; `EP.corollary_7_4_11_all_of_isZhou`, `EP.theorem_7_4_13_all_of_isZhou`, `EP.theorem_7_4_24_all_of_isZhou` likewise, with no other hypothesis. The forms with `DenseSmoothTangent` for $X$ and `SmoothRegular` for every $X^i$ are kept: `EP.proposition_7_4_9`, `EP.corollary_7_4_11_all`, `EP.theorem_7_4_13_all`, `EP.theorem_7_4_24_all`. Witnesses for the point ep-groupoid.
 
-- `Polyfold.EP.proposition_7_4_9_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 133
-- `Polyfold.EP.corollary_7_4_11_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 140
-- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 147
-- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 152
-- `Polyfold.MPolyfold.continuous_levelDown` — Polyfold/Chapter7/ZhouLevels.lean, line 87
-- `Polyfold.MPolyfold.shiftSmoothHomeomorph` — Polyfold/Chapter7/ZhouLevels.lean, line 133
-- `Polyfold.EpGroupoid.isotropyLevelVal` — Polyfold/Chapter7/ZhouLevels.lean, line 161
-- `Polyfold.EpGroupoid.levelVal_Φ_liftOne` — Polyfold/Chapter7/ZhouLevels.lean, line 173
-- `Polyfold.EpGroupoid.tangentLower_tangentMor_liftOne` — Polyfold/Chapter7/ZhouLevels.lean, line 197
-- `Polyfold.EpGroupoid.isZhou'_liftOne` — Polyfold/Chapter7/ZhouLevels.lean, line 217
-- `Polyfold.EP.isZhou'_lift` — Polyfold/Chapter7/ZhouLevels.lean, line 290
-- `Polyfold.EP.proposition_7_4_9` — Polyfold/Chapter7/ZhouLevels.lean, line 297
-- `Polyfold.EP.corollary_7_4_11_all` — Polyfold/Chapter7/ZhouLevels.lean, line 314
-- `Polyfold.EP.theorem_7_4_13_all` — Polyfold/Chapter7/ZhouLevels.lean, line 321
-- `Polyfold.EP.theorem_7_4_24_all` — Polyfold/Chapter7/ZhouLevels.lean, line 342
-- `Polyfold.EpGroupoid.Examples.proposition_7_4_9_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 598
-- `Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 603
-- `Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 608
+- `Polyfold.EP.proposition_7_4_9_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 133
+- `Polyfold.EP.corollary_7_4_11_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 140
+- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 147
+- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 152
+- `Polyfold.MPolyfold.continuous_levelDown` — Polyfold/Chapter8/ZhouLevels.lean, line 88
+- `Polyfold.MPolyfold.shiftSmoothHomeomorph` — Polyfold/Chapter8/ZhouLevels.lean, line 134
+- `Polyfold.EpGroupoid.isotropyLevelVal` — Polyfold/Chapter8/ZhouLevels.lean, line 162
+- `Polyfold.EpGroupoid.levelVal_Φ_liftOne` — Polyfold/Chapter8/ZhouLevels.lean, line 174
+- `Polyfold.EpGroupoid.tangentLower_tangentMor_liftOne` — Polyfold/Chapter8/ZhouLevels.lean, line 198
+- `Polyfold.EpGroupoid.isZhou'_liftOne` — Polyfold/Chapter8/ZhouLevels.lean, line 218
+- `Polyfold.EP.isZhou'_lift` — Polyfold/Chapter8/ZhouLevels.lean, line 291
+- `Polyfold.EP.proposition_7_4_9` — Polyfold/Chapter8/ZhouLevels.lean, line 298
+- `Polyfold.EP.corollary_7_4_11_all` — Polyfold/Chapter8/ZhouLevels.lean, line 315
+- `Polyfold.EP.theorem_7_4_13_all` — Polyfold/Chapter8/ZhouLevels.lean, line 322
+- `Polyfold.EP.theorem_7_4_24_all` — Polyfold/Chapter8/ZhouLevels.lean, line 343
+- `Polyfold.EpGroupoid.Examples.proposition_7_4_9_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 599
+- `Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 604
+- `Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 609
 
 *What differs.*
 - The Part I facts are theorems on every level (gap G.85 closed), so (ZHOU) for $X$ is the only hypothesis (`EP.proposition_7_4_9_of_isZhou` and the three `_of_isZhou` forms); the forms with the hypotheses are kept (Findings, Chapter 7, item 153).
@@ -13153,16 +13153,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `MPolyfold.DenseSmooth.shift`, `EP.denseSmooth_lift`: the density of $X_\infty$ passes to every $X^i$. `EpGroupoid.isVSLUC_liftOne`, `EP.isVSLUC_lift`: (VSLUC) for $X$ gives (VSLUC) for every $X^i$. `EP.proposition_7_4_16_all_of_isVSLUC`: every $X^i$ has (VSLUC) and LUC; `EP.proposition_7_4_17_all_of_isVSLUC`: then `A.IsSLUC`; no hypothesis beyond (VSLUC) for $X$. The forms with `DenseSmooth` for $X$ and `SmoothConnected` for every $X^i$ are kept (`EP.proposition_7_4_16_all`, `EP.proposition_7_4_17_all`). Witnesses: `Examples.isVSLUC_pointEP`, `Examples.proposition_7_4_17_all_pointEP`.
 
-- `Polyfold.EP.proposition_7_4_16_all_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 213
-- `Polyfold.EP.proposition_7_4_17_all_of_isVSLUC` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 220
-- `Polyfold.MPolyfold.DenseSmooth.shift` — Polyfold/Chapter7/ZhouLevels.lean, line 146
-- `Polyfold.EP.denseSmooth_lift` — Polyfold/Chapter7/ZhouLevels.lean, line 302
-- `Polyfold.EpGroupoid.isVSLUC_liftOne` — Polyfold/Chapter7/ZhouLevels.lean, line 259
-- `Polyfold.EP.isVSLUC_lift` — Polyfold/Chapter7/ZhouLevels.lean, line 308
-- `Polyfold.EP.proposition_7_4_16_all` — Polyfold/Chapter7/ZhouLevels.lean, line 328
-- `Polyfold.EP.proposition_7_4_17_all` — Polyfold/Chapter7/ZhouLevels.lean, line 336
-- `Polyfold.EpGroupoid.Examples.isVSLUC_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 592
-- `Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 613
+- `Polyfold.EP.proposition_7_4_16_all_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 213
+- `Polyfold.EP.proposition_7_4_17_all_of_isVSLUC` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 220
+- `Polyfold.MPolyfold.DenseSmooth.shift` — Polyfold/Chapter8/ZhouLevels.lean, line 147
+- `Polyfold.EP.denseSmooth_lift` — Polyfold/Chapter8/ZhouLevels.lean, line 303
+- `Polyfold.EpGroupoid.isVSLUC_liftOne` — Polyfold/Chapter8/ZhouLevels.lean, line 260
+- `Polyfold.EP.isVSLUC_lift` — Polyfold/Chapter8/ZhouLevels.lean, line 309
+- `Polyfold.EP.proposition_7_4_16_all` — Polyfold/Chapter8/ZhouLevels.lean, line 329
+- `Polyfold.EP.proposition_7_4_17_all` — Polyfold/Chapter8/ZhouLevels.lean, line 337
+- `Polyfold.EpGroupoid.Examples.isVSLUC_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 593
+- `Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 614
 
 *What differs.*
 - With the density of $X_\infty$ (gap G.73) and `SmoothConnected` (gap G.85) proved for every M-polyfold, (VSLUC) for $X$ is the only hypothesis (`EP.proposition_7_4_16_all_of_isVSLUC`, `EP.proposition_7_4_17_all_of_isVSLUC`); the forms with the hypotheses are kept (Findings, Chapter 7, item 153).
@@ -13176,23 +13176,23 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `MPolyfold.levelDownTo`, `exists_level_nhds_smooth`: the sets $O \cap X_\infty$, $O$ open in some $X_{N+1}$, form a neighbourhood basis of $X_\infty$. `EpGroupoid.isotropyLevelMk`, `NaturalRep.liftOneΦ`, `NaturalRep.liftOneRep`: a natural representation with $U(x) \cap X_1$ connected restricts to one of $X^1$. `NaturalRep.LevelConnected`: every $U(x) \cap X_m$ connected in $X_m$; it holds for every natural representation (`NaturalRep.levelConnected`); `levelConnected_liftOneRep`. `EP.isVSLUC_of_isSLUC'`: (SLUC) gives (VSLUC); `EP.proposition_7_4_18_unconditional`: `IsVSLUC` ⇔ `IsSLUC`, with no hypothesis. The forms with `DenseSmooth`, `SmoothConnected` for every $X^i$ and level-connected representations as hypotheses are kept (`EP.eqOn_of_level_smooth`, `EP.isVSLUC_of_isSLUC`, `EP.proposition_7_4_18`). Witnesses for the point ep-groupoid.
 
-- `Polyfold.EP.proposition_7_4_18_unconditional` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 238
-- `Polyfold.EP.isVSLUC_of_isSLUC'` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 232
-- `Polyfold.EpGroupoid.NaturalRep.levelConnected` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 120
-- `Polyfold.EpGroupoid.exists_naturalRep_levelConnected` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 136
-- `Polyfold.MPolyfold.levelDownTo` — Polyfold/Chapter7/ZhouLevels.lean, line 356
-- `Polyfold.MPolyfold.exists_level_nhds_smooth` — Polyfold/Chapter7/ZhouLevels.lean, line 372
-- `Polyfold.EpGroupoid.isotropyLevelMk` — Polyfold/Chapter7/ZhouLevels.lean, line 391
-- `Polyfold.EpGroupoid.NaturalRep.liftOneΦ` — Polyfold/Chapter7/ZhouLevels.lean, line 418
-- `Polyfold.EpGroupoid.NaturalRep.liftOneRep` — Polyfold/Chapter7/ZhouLevels.lean, line 452
-- `Polyfold.EpGroupoid.NaturalRep.eqOn_of_liftOneRep` — Polyfold/Chapter7/ZhouLevels.lean, line 483
-- `Polyfold.EpGroupoid.NaturalRep.LevelConnected` — Polyfold/Chapter7/ZhouLevels.lean, line 501
-- `Polyfold.EpGroupoid.NaturalRep.levelConnected_liftOneRep` — Polyfold/Chapter7/ZhouLevels.lean, line 505
-- `Polyfold.EP.eqOn_of_level_smooth` — Polyfold/Chapter7/ZhouLevels.lean, line 524
-- `Polyfold.EP.isVSLUC_of_isSLUC` — Polyfold/Chapter7/ZhouLevels.lean, line 563
-- `Polyfold.EP.proposition_7_4_18` — Polyfold/Chapter7/ZhouLevels.lean, line 581
-- `Polyfold.EpGroupoid.Examples.levelConnected_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 619
-- `Polyfold.EpGroupoid.Examples.proposition_7_4_18_pointEP` — Polyfold/Chapter7/ZhouLevels.lean, line 629
+- `Polyfold.EP.proposition_7_4_18_unconditional` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 238
+- `Polyfold.EP.isVSLUC_of_isSLUC'` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 232
+- `Polyfold.EpGroupoid.NaturalRep.levelConnected` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 120
+- `Polyfold.EpGroupoid.exists_naturalRep_levelConnected` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 136
+- `Polyfold.MPolyfold.levelDownTo` — Polyfold/Chapter8/ZhouLevels.lean, line 357
+- `Polyfold.MPolyfold.exists_level_nhds_smooth` — Polyfold/Chapter8/ZhouLevels.lean, line 373
+- `Polyfold.EpGroupoid.isotropyLevelMk` — Polyfold/Chapter8/ZhouLevels.lean, line 392
+- `Polyfold.EpGroupoid.NaturalRep.liftOneΦ` — Polyfold/Chapter8/ZhouLevels.lean, line 419
+- `Polyfold.EpGroupoid.NaturalRep.liftOneRep` — Polyfold/Chapter8/ZhouLevels.lean, line 453
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_of_liftOneRep` — Polyfold/Chapter8/ZhouLevels.lean, line 484
+- `Polyfold.EpGroupoid.NaturalRep.LevelConnected` — Polyfold/Chapter8/ZhouLevels.lean, line 502
+- `Polyfold.EpGroupoid.NaturalRep.levelConnected_liftOneRep` — Polyfold/Chapter8/ZhouLevels.lean, line 506
+- `Polyfold.EP.eqOn_of_level_smooth` — Polyfold/Chapter8/ZhouLevels.lean, line 525
+- `Polyfold.EP.isVSLUC_of_isSLUC` — Polyfold/Chapter8/ZhouLevels.lean, line 564
+- `Polyfold.EP.proposition_7_4_18` — Polyfold/Chapter8/ZhouLevels.lean, line 582
+- `Polyfold.EpGroupoid.Examples.levelConnected_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 620
+- `Polyfold.EpGroupoid.Examples.proposition_7_4_18_pointEP` — Polyfold/Chapter8/ZhouLevels.lean, line 630
 
 *What differs.*
 - The representations the proof takes \"by construction\" exist at every point, since every natural representation has every $U(x) \cap X_m$ connected (`NaturalRep.levelConnected`); with the density of $X_\infty$ (gap G.73) and `SmoothConnected` (gap G.85) proved, Proposition 7.4.18 holds with no hypothesis (`EP.proposition_7_4_18_unconditional`); the forms with the hypotheses are kept (Findings, Chapter 7, items 150, 153).
@@ -13216,14 +13216,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.tInv` — Polyfold/Chapter8/Basic.lean, line 99
 - `Polyfold.EpGroupoid.tBase` — Polyfold/Chapter8/Basic.lean, line 102
 - `Polyfold.EpGroupoid.tComp` — Polyfold/Chapter8/Basic.lean, line 108
-- `Polyfold.EpGroupoid.tangent_ext` — Polyfold/Chapter8/TangentEp.lean, line 240
-- `Polyfold.EpGroupoid.exists_tSrc_eq` — Polyfold/Chapter8/TangentEp.lean, line 253
-- `Polyfold.EpGroupoid.src_tBase_eq` — Polyfold/Chapter8/TangentEp.lean, line 270
-- `Polyfold.EpGroupoid.tComp_spec` — Polyfold/Chapter8/TangentEp.lean, line 275
-- `Polyfold.EpGroupoid.tBase_tComp` — Polyfold/Chapter8/TangentEp.lean, line 285
-- `Polyfold.EpGroupoid.tSrc_tComp` — Polyfold/Chapter8/TangentEp.lean, line 288
-- `Polyfold.EpGroupoid.tComp_eq` — Polyfold/Chapter8/TangentEp.lean, line 292
-- `Polyfold.EpGroupoid.tUnit_eq` — Polyfold/Chapter8/TangentEp.lean, line 410
+- `Polyfold.EpGroupoid.tangent_ext` — Polyfold/Chapter8/TangentEp.lean, line 237
+- `Polyfold.EpGroupoid.exists_tSrc_eq` — Polyfold/Chapter8/TangentEp.lean, line 250
+- `Polyfold.EpGroupoid.src_tBase_eq` — Polyfold/Chapter8/TangentEp.lean, line 267
+- `Polyfold.EpGroupoid.tComp_spec` — Polyfold/Chapter8/TangentEp.lean, line 272
+- `Polyfold.EpGroupoid.tBase_tComp` — Polyfold/Chapter8/TangentEp.lean, line 282
+- `Polyfold.EpGroupoid.tSrc_tComp` — Polyfold/Chapter8/TangentEp.lean, line 285
+- `Polyfold.EpGroupoid.tComp_eq` — Polyfold/Chapter8/TangentEp.lean, line 289
+- `Polyfold.EpGroupoid.tUnit_eq` — Polyfold/Chapter8/TangentEp.lean, line 407
 - `Polyfold.MPolyfold.tangentMap` — Polyfold/Chapter2/TangentMap.lean, line 328
 - `Polyfold.MPolyfold.tangentProj` — Polyfold/Chapter2/TangentBundle.lean, line 560
 
@@ -13240,23 +13240,23 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `tangentPreimage U` $= p^{-1}(U)$ is open in $TX$ (`isOpen_tangentPreimage`) and is the tangent of the open sub-M-polyfold $U$ (`isScDiffeoOn_tangentMap_subtypeVal`, `isOpenEmbedding_tangentMap_subtypeVal`). For $f$ sc-smooth on an open $U$, `tangentMapOn` is its tangent on $p^{-1}(U)$: sc-smooth (`tangentMapOn_isScSmoothOn`), over $f$ (`levelVal_tangentProj_tangentMapOn`), with the chain rule (`tangentMapOn_comp`, `tangentMap_tangentMapOn`), and equal to Part I's tangent for a globally sc-smooth $f$ (`tangentMapOn_eq_tangentMap`). The tangent of an sc-diffeomorphism $U \to V$ is an sc-diffeomorphism $p^{-1}(U) \to p^{-1}(V)$, bijective on the fibres (`IsScDiffeoOn.tangent`, `IsScDiffeoOn.tangentMap`, `IsScDiffeoOn.bijOn_tangentFiber`); the tangent of a local sc-diffeomorphism is one, bijective on every fibre, and surjective if the map is (`IsLocalScDiffeo.tangentMap`, `IsLocalScDiffeo.bijOn_tangentFiber`, `IsLocalScDiffeo.surjective_tangentMap`). `nonempty_tangentSpace`: the tangent of a nonempty M-polyfold is nonempty.
 
-- `Polyfold.MPolyfold.tangentPreimage` — Polyfold/Chapter8/TangentLocal.lean, line 107
+- `Polyfold.MPolyfold.tangentPreimage` — Polyfold/Chapter2/TangentMapLocal.lean, line 23
 - `Polyfold.MPolyfold.isOpen_tangentPreimage` — Polyfold/Chapter8/TangentLocal.lean, line 116
-- `Polyfold.MPolyfold.tangentMapOn` — Polyfold/Chapter8/TangentLocal.lean, line 426
-- `Polyfold.MPolyfold.levelVal_tangentProj_tangentMapOn` — Polyfold/Chapter8/TangentLocal.lean, line 447
-- `Polyfold.MPolyfold.tangentMapOn_eq_tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 508
-- `Polyfold.MPolyfold.tangentMapOn_comp` — Polyfold/Chapter8/TangentLocal.lean, line 551
-- `Polyfold.MPolyfold.tangentMap_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 167
-- `Polyfold.MPolyfold.tangentMapOn_isScSmoothOn` — Polyfold/Chapter8/TangentLocal.lean, line 678
-- `Polyfold.MPolyfold.IsScDiffeoOn.tangent` — Polyfold/Chapter8/TangentLocal.lean, line 742
-- `Polyfold.MPolyfold.IsScDiffeoOn.tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 762
-- `Polyfold.MPolyfold.IsScDiffeoOn.bijOn_tangentFiber` — Polyfold/Chapter8/TangentLocal.lean, line 784
-- `Polyfold.MPolyfold.IsLocalScDiffeo.tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 803
-- `Polyfold.MPolyfold.IsLocalScDiffeo.surjective_tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 821
-- `Polyfold.MPolyfold.IsLocalScDiffeo.bijOn_tangentFiber` — Polyfold/Chapter8/TangentLocal.lean, line 836
-- `Polyfold.MPolyfold.isScDiffeoOn_tangentMap_subtypeVal` — Polyfold/Chapter8/TangentLocal.lean, line 938
-- `Polyfold.MPolyfold.isOpenEmbedding_tangentMap_subtypeVal` — Polyfold/Chapter8/TangentLocal.lean, line 957
-- `Polyfold.MPolyfold.nonempty_tangentSpace` — Polyfold/Chapter8/TangentLocal.lean, line 168
+- `Polyfold.MPolyfold.tangentMapOn` — Polyfold/Chapter2/TangentMapLocal.lean, line 313
+- `Polyfold.MPolyfold.levelVal_tangentProj_tangentMapOn` — Polyfold/Chapter2/TangentMapLocal.lean, line 334
+- `Polyfold.MPolyfold.tangentMapOn_eq_tangentMap` — Polyfold/Chapter2/TangentMapLocal.lean, line 389
+- `Polyfold.MPolyfold.tangentMapOn_comp` — Polyfold/Chapter2/TangentMapLocal.lean, line 423
+- `Polyfold.MPolyfold.tangentMap_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 164
+- `Polyfold.MPolyfold.tangentMapOn_isScSmoothOn` — Polyfold/Chapter8/TangentLocal.lean, line 249
+- `Polyfold.MPolyfold.IsScDiffeoOn.tangent` — Polyfold/Chapter8/TangentLocal.lean, line 313
+- `Polyfold.MPolyfold.IsScDiffeoOn.tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 333
+- `Polyfold.MPolyfold.IsScDiffeoOn.bijOn_tangentFiber` — Polyfold/Chapter8/TangentLocal.lean, line 355
+- `Polyfold.MPolyfold.IsLocalScDiffeo.tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 374
+- `Polyfold.MPolyfold.IsLocalScDiffeo.surjective_tangentMap` — Polyfold/Chapter8/TangentLocal.lean, line 392
+- `Polyfold.MPolyfold.IsLocalScDiffeo.bijOn_tangentFiber` — Polyfold/Chapter8/TangentLocal.lean, line 407
+- `Polyfold.MPolyfold.isScDiffeoOn_tangentMap_subtypeVal` — Polyfold/Chapter8/TangentLocal.lean, line 490
+- `Polyfold.MPolyfold.isOpenEmbedding_tangentMap_subtypeVal` — Polyfold/Chapter8/TangentLocal.lean, line 509
+- `Polyfold.MPolyfold.nonempty_tangentSpace` — Polyfold/Chapter2/TangentMapLocal.lean, line 65
 
 *What differs.*
 - Part I defines the tangent only of sc-smooth maps defined on the whole M-polyfold; the tangent of a map defined on an open set, such as $(s|\mathbf U(\psi))^{-1}$, is built here from the charts (Findings, Chapter 8, item 3).
@@ -13269,10 +13269,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `tangentGroupoidStr` is the groupoid of (8.3)–(8.9), and `tangentEpGroupoid` the ep-groupoid on Part I's M-polyfolds $TX$, $T\mathbf X$. `theorem_8_1_1`: its object and morphism M-polyfolds are $TX$ and $T\mathbf X$, its source, target, unit and inverse are $Ts$, $Tt$, $Tu$, $T\iota$, its composition is `tComp`, a composite $k \circ h$ lies over $\mathbf p(k) \circ \mathbf p(h)$ with source $Ts(h)$, and `tangentProjFunctor`, the ep-functor $(p, \mathbf p) : T(X, \mathbf X) \to (X, \mathbf X)^1$ into Chapter 7's `liftOne`, has the maps $p$ and $\mathbf p$. `theorem_8_1_1_tame`: if $X$ is tame, so is $TX$.
 
-- `Polyfold.EpGroupoid.tangentGroupoidStr` — Polyfold/Chapter8/TangentEp.lean, line 464
-- `Polyfold.EpGroupoid.tangentEpGroupoid` — Polyfold/Chapter8/TangentEp.lean, line 594
-- `Polyfold.EpGroupoid.tangentProjFunctor` — Polyfold/Chapter8/TangentEp.lean, line 607
-- `Polyfold.EpGroupoid.theorem_8_1_1` — Polyfold/Chapter8/TangentEp.lean, line 627
+- `Polyfold.EpGroupoid.tangentGroupoidStr` — Polyfold/Chapter8/TangentEp.lean, line 461
+- `Polyfold.EpGroupoid.tangentEpGroupoid` — Polyfold/Chapter8/TangentEp.lean, line 591
+- `Polyfold.EpGroupoid.tangentProjFunctor` — Polyfold/Chapter8/TangentEp.lean, line 604
+- `Polyfold.EpGroupoid.theorem_8_1_1` — Polyfold/Chapter8/TangentEp.lean, line 624
 - `Polyfold.EpGroupoid.theorem_8_1_1_tame` — Polyfold/Chapter8/TangentTame.lean, line 436
 - `Polyfold.EpGroupoid.liftOne` — Polyfold/Chapter7/Lift.lean, line 667
 
@@ -13288,10 +13288,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** As printed: $\mathbf X\,{}_s{\times}_t\,\mathbf X$ is the M-polyfold `compPolyfold` (the sub-M-polyfold of Definition 7.1.3 (4)). The identification $v \mapsto (T\pi_1 v, T\pi_2 v)$ (`tangentCompPairs`) is injective with range $\{(k, h) \mid Ts(k) = Tt(h)\}$ (`range_tangentCompPairs`) and is an sc-diffeomorphism from $T(\mathbf X\,{}_s{\times}_t\,\mathbf X)$ onto the sub-M-polyfold $T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ of $T\mathbf X \times T\mathbf X$, the fibred product of the tangent ep-groupoid (`isScDiffeoOn_tangentCompPairs`). Lemma 8.1.2: $Tm(v) = T\pi_1(v) \circ T\pi_2(v)$ (`lemma_8_1_2_tangentMul`); for $Ts(k) = Tt(h)$ there is exactly one $v$ over $(k, h)$ and $k \circ h = Tm(v)$, over $\mathbf p(k) \circ \mathbf p(h)$ with $Ts(k \circ h) = Ts(h)$ (`lemma_8_1_2_book`); $m_{T\mathbf X} = Tm$ on $T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ (`lemma_8_1_2_compMul`). The sheet form is kept: `lemma_8_1_2`: for a sheet $s : W \to V$ of the source map with inverse $\sigma$ and $k$, $h$ with $Ts(k) = Tt(h)$ and $\mathbf p(k) \in W$: $k = T\sigma(Tt(h))$ and $k \circ h = Tg(h)$ for $g(\varphi') = m(\sigma(t(\varphi')), \varphi')$, which is sc-smooth on $t^{-1}(V)$ by Chapter 7's sheet form of Definition 7.1.3 (4) (2017: 7.3) (`EpGroupoid.isScSmoothCompSheet`). The steps: `tComp_eq_tangentMapOn`, `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt`.
 
-- `Polyfold.EpGroupoid.lemma_8_1_2` — Polyfold/Chapter8/TangentEp.lean, line 367
-- `Polyfold.EpGroupoid.tComp_eq_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 320
-- `Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 304
-- `Polyfold.EpGroupoid.mem_tangentPreimage_tgt` — Polyfold/Chapter8/TangentEp.lean, line 310
+- `Polyfold.EpGroupoid.lemma_8_1_2` — Polyfold/Chapter8/TangentEp.lean, line 364
+- `Polyfold.EpGroupoid.tComp_eq_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 317
+- `Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 301
+- `Polyfold.EpGroupoid.mem_tangentPreimage_tgt` — Polyfold/Chapter8/TangentEp.lean, line 307
 - `Polyfold.EpGroupoid.isScSmoothCompSheet` — Polyfold/Chapter7/EpGroupoid.lean, line 311
 - `Polyfold.EpGroupoid.compPolyfold` — Polyfold/Chapter8/TangentFibred.lean, line 142
 - `Polyfold.EpGroupoid.tangentCompPairs` — Polyfold/Chapter8/TangentFibred.lean, line 240
@@ -13314,8 +13314,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_3`: if $Ts(k) = Tt(h)$, then $Ts(k \circ h) = Ts(h)$ and $Tt(k \circ h) = Tt(k)$. `tTgt_tangentMapOn`: the target computed as in the text, through the tangent of $t \circ \sigma \circ t$ on $t^{-1}(V)$.
 
-- `Polyfold.EpGroupoid.lemma_8_1_3` — Polyfold/Chapter8/TangentEp.lean, line 381
-- `Polyfold.EpGroupoid.tTgt_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 336
+- `Polyfold.EpGroupoid.lemma_8_1_3` — Polyfold/Chapter8/TangentEp.lean, line 378
+- `Polyfold.EpGroupoid.tTgt_tangentMapOn` — Polyfold/Chapter8/TangentEp.lean, line 333
 
 *What differs.*
 - As in the text; the target is computed with the tangent of $t \circ \sigma \circ t$ on $t^{-1}(V)$, the source by the injectivity of $Ts$ on the fibres (Findings, Chapter 8, items 4, 6).
@@ -13329,7 +13329,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_4`: if $Ts(l) = Tt(k)$ and $Ts(k) = Tt(h)$, then $(l \circ k) \circ h = l \circ (k \circ h)$.
 
-- `Polyfold.EpGroupoid.lemma_8_1_4` — Polyfold/Chapter8/TangentEp.lean, line 388
+- `Polyfold.EpGroupoid.lemma_8_1_4` — Polyfold/Chapter8/TangentEp.lean, line 385
 
 *What differs.*
 - As in the text, through the injectivity of $Ts$ on the fibres of $T\mathbf X$ (Findings, Chapter 8, item 4).
@@ -13342,11 +13342,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_5`, with $1_q$ = `tUnit q` $= Tu(q)$: $1_q$ lies over $1_x$, $Ts(1_q) = q = Tt(1_q)$ (`tSrc_tUnit`, `tTgt_tUnit`), $k \circ 1_q = k$ if $Ts(k) = q$ (`tComp_tUnit`) and $1_q \circ k = k$ if $Tt(k) = q$ (`tUnit_tComp`).
 
-- `Polyfold.EpGroupoid.tSrc_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 400
-- `Polyfold.EpGroupoid.tTgt_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 405
-- `Polyfold.EpGroupoid.tComp_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 425
-- `Polyfold.EpGroupoid.tUnit_tComp` — Polyfold/Chapter8/TangentEp.lean, line 429
-- `Polyfold.EpGroupoid.lemma_8_1_5` — Polyfold/Chapter8/TangentEp.lean, line 444
+- `Polyfold.EpGroupoid.tSrc_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 397
+- `Polyfold.EpGroupoid.tTgt_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 402
+- `Polyfold.EpGroupoid.tComp_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 422
+- `Polyfold.EpGroupoid.tUnit_tComp` — Polyfold/Chapter8/TangentEp.lean, line 426
+- `Polyfold.EpGroupoid.lemma_8_1_5` — Polyfold/Chapter8/TangentEp.lean, line 441
 
 *What differs.*
 - As in the text; $Tt(1_q) = q$ by the chain rule for $t \circ u = \mathrm{id}$ instead of $t \circ (s|\mathbf U(1_x))^{-1} = \mathrm{id}$ near $x$ (Findings, Chapter 8, items 4, 6).
@@ -13359,11 +13359,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_6`: $T\iota(v)$ lies over $\mathbf p(v)^{-1}$, $Ts(T\iota(v)) = Tt(v)$ and $Tt(T\iota(v)) = Ts(v)$ (`tSrc_tInv`, `tTgt_tInv`), $T\iota(v) \circ v = 1_{Ts(v)}$ (`tInv_tComp`) and $v \circ T\iota(v) = 1_{Tt(v)}$ (`tComp_tInv`).
 
-- `Polyfold.EpGroupoid.tSrc_tInv` — Polyfold/Chapter8/TangentEp.lean, line 416
-- `Polyfold.EpGroupoid.tTgt_tInv` — Polyfold/Chapter8/TangentEp.lean, line 421
-- `Polyfold.EpGroupoid.tComp_tInv` — Polyfold/Chapter8/TangentEp.lean, line 432
-- `Polyfold.EpGroupoid.tInv_tComp` — Polyfold/Chapter8/TangentEp.lean, line 437
-- `Polyfold.EpGroupoid.lemma_8_1_6` — Polyfold/Chapter8/TangentEp.lean, line 457
+- `Polyfold.EpGroupoid.tSrc_tInv` — Polyfold/Chapter8/TangentEp.lean, line 413
+- `Polyfold.EpGroupoid.tTgt_tInv` — Polyfold/Chapter8/TangentEp.lean, line 418
+- `Polyfold.EpGroupoid.tComp_tInv` — Polyfold/Chapter8/TangentEp.lean, line 429
+- `Polyfold.EpGroupoid.tInv_tComp` — Polyfold/Chapter8/TangentEp.lean, line 434
+- `Polyfold.EpGroupoid.lemma_8_1_6` — Polyfold/Chapter8/TangentEp.lean, line 454
 
 *What differs.*
 - As in the text, both compositions proved (Findings, Chapter 8, item 4).
@@ -13376,15 +13376,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_7`: $Ts$ and $Tt$ are surjective local sc-diffeomorphisms (`isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`, `surjective_tTgt`), $Tu$ and $T\iota$ are sc-smooth (`isScSmoothMap_tUnit`, `isScSmoothMap_tInv`), and the multiplication is sc-smooth in Chapter 7's sheet form (`isScSmoothCompSheet_tangent`) and hence on the fibred product $T\mathbf X\,{}_{s_T}{\times}_{t_T}\,T\mathbf X$ (`isScSmoothComp_tangent`, by `isScSmoothComp_iff_sheet`).
 
-- `Polyfold.EpGroupoid.isLocalScDiffeo_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 484
-- `Polyfold.EpGroupoid.isLocalScDiffeo_tTgt` — Polyfold/Chapter8/TangentEp.lean, line 488
-- `Polyfold.EpGroupoid.surjective_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 492
-- `Polyfold.EpGroupoid.surjective_tTgt` — Polyfold/Chapter8/TangentEp.lean, line 495
-- `Polyfold.EpGroupoid.isScSmoothMap_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 498
-- `Polyfold.EpGroupoid.isScSmoothMap_tInv` — Polyfold/Chapter8/TangentEp.lean, line 502
-- `Polyfold.EpGroupoid.isScSmoothCompSheet_tangent` — Polyfold/Chapter8/TangentEp.lean, line 509
-- `Polyfold.EpGroupoid.isScSmoothComp_tangent` — Polyfold/Chapter8/TangentEp.lean, line 528
-- `Polyfold.EpGroupoid.lemma_8_1_7` — Polyfold/Chapter8/TangentEp.lean, line 536
+- `Polyfold.EpGroupoid.isLocalScDiffeo_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 481
+- `Polyfold.EpGroupoid.isLocalScDiffeo_tTgt` — Polyfold/Chapter8/TangentEp.lean, line 485
+- `Polyfold.EpGroupoid.surjective_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 489
+- `Polyfold.EpGroupoid.surjective_tTgt` — Polyfold/Chapter8/TangentEp.lean, line 492
+- `Polyfold.EpGroupoid.isScSmoothMap_tUnit` — Polyfold/Chapter8/TangentEp.lean, line 495
+- `Polyfold.EpGroupoid.isScSmoothMap_tInv` — Polyfold/Chapter8/TangentEp.lean, line 499
+- `Polyfold.EpGroupoid.isScSmoothCompSheet_tangent` — Polyfold/Chapter8/TangentEp.lean, line 506
+- `Polyfold.EpGroupoid.isScSmoothComp_tangent` — Polyfold/Chapter8/TangentEp.lean, line 525
+- `Polyfold.EpGroupoid.lemma_8_1_7` — Polyfold/Chapter8/TangentEp.lean, line 533
 - `Polyfold.isScSmoothComp_iff_sheet` — Polyfold/Chapter7/EpGroupoid.lean, line 229
 
 *What differs.*
@@ -13398,7 +13398,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `lemma_8_1_8`: every $a \in TX$ has an open neighbourhood $V'$ such that $Tt : (Ts)^{-1}(\mathrm{cl}\,V') \to TX$ is a proper map (Mathlib's `IsProperMap` of the restriction). In the proof $V' = p^{-1}(V)$, $V$ as in Definition 7.1.3 (3) (2017: 7.3) for $X$ at the base point of $a$.
 
-- `Polyfold.EpGroupoid.lemma_8_1_8` — Polyfold/Chapter8/TangentEp.lean, line 555
+- `Polyfold.EpGroupoid.lemma_8_1_8` — Polyfold/Chapter8/TangentEp.lean, line 552
 
 *What differs.*
 - As in the text, with $V' = p^{-1}(V)$; the step "$\varphi_k \to \varphi$ in $\mathbf X^1$" is not needed (Findings, Chapter 8, item 7).
@@ -13438,17 +13438,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** $T\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\mathbf p(v), Ts(v))$. `remark_8_1_10`: $T\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\varphi$, i.e. $t_T \circ (s_T|T_\varphi\mathbf X)^{-1} = T\varphi$ (`tangentMor_tSrc`); $T(\psi \circ \varphi) = T\psi \circ T\varphi$ on $T_{s(\varphi)}X$ for $\varphi \in \mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\varphi, a)$ with $\varphi \in \mathbf X_1$ and $a \in T_{s(\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\mathbf p(h)(Ts(h))$; and $G(k \circ h) = (\mathbf p(k) \circ \mathbf p(h), Ts(h))$ with $T(\mathbf p(k) \circ \mathbf p(h)) = T\mathbf p(k) \circ T\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\varphi \in \mathbf X_1$, $T\varphi = T\hat\varphi(s(\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\varphi)}X \to T_{t(\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective`: on $\mathbb Z/3 \ltimes \mathbb R$ with the trivial action, where $T\varphi = \mathrm{id}$ for every $\varphi$ (`tangentMor_trivialZ3`), the map $v \mapsto (T\mathbf p(v), Ts(v))$ with the bare $T\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\varphi$ is a bounded linear isomorphism $T_xX \to T_yX$ for $\varphi \in \mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`, V7.5). `remark_8_1_10_scDiffeo`: the set of pairs is the M-polyfold $\mathbf X^1\,{}_s{\times}_p\,TX$ (`tangentPairsPolyfold`, a sub-M-polyfold of $\mathbf X^1 \times TX$ by Proposition 2.5.20) and $G$ (`remarkGInto`) is an sc-diffeomorphism $T\mathbf X \to \mathbf X^1\,{}_s{\times}_p\,TX$. `remark_8_1_10_triples`: $(\varphi, h) \mapsto (Ts(h), \varphi, Tt(h))$ (`remarkTriple`) is injective with range the triples $(a, \varphi, b)$, $\varphi \in \mathbf X_1$, $a \in T_{s(\varphi)}X$, $b = T\varphi(a)$, and is compatible with the compositions.
 
 - `Polyfold.EpGroupoid.tangentMor` — Polyfold/Chapter7/EpGroupoid.lean, line 382
-- `Polyfold.EpGroupoid.tangentMor_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 647
-- `Polyfold.EpGroupoid.tangentMor_comp` — Polyfold/Chapter8/TangentEp.lean, line 656
-- `Polyfold.EpGroupoid.remarkG` — Polyfold/Chapter8/TangentEp.lean, line 670
-- `Polyfold.EpGroupoid.remark_8_1_10` — Polyfold/Chapter8/TangentEp.lean, line 677
+- `Polyfold.EpGroupoid.tangentMor_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 644
+- `Polyfold.EpGroupoid.tangentMor_comp` — Polyfold/Chapter8/TangentEp.lean, line 653
+- `Polyfold.EpGroupoid.remarkG` — Polyfold/Chapter8/TangentEp.lean, line 667
+- `Polyfold.EpGroupoid.remark_8_1_10` — Polyfold/Chapter8/TangentEp.lean, line 674
 - `Polyfold.EpGroupoid.Examples.tangentMor_trivialZ3` — Polyfold/Chapter8/TangentEpNotInjective.lean, line 47
 - `Polyfold.EpGroupoid.Examples.remark_8_1_10_not_injective` — Polyfold/Chapter8/TangentEpNotInjective.lean, line 59
 - `Polyfold.EpGroupoid.tangentMor_eq_tangentMapOn_hat` — Polyfold/Chapter9/Tangent.lean, line 459
-- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter7/TangentMorphism.lean, line 201
-- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter7/TangentMorphism.lean, line 242
-- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 206
-- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 233
+- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter9/TangentMorphism.lean, line 201
+- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter9/TangentMorphism.lean, line 242
+- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 206
+- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 233
 - `Polyfold.EpGroupoid.tangentPairsPolyfold` — Polyfold/Chapter8/TangentPairs.lean, line 101
 - `Polyfold.EpGroupoid.remarkGInto` — Polyfold/Chapter8/TangentPairs.lean, line 118
 - `Polyfold.EpGroupoid.remark_8_1_10_scDiffeo` — Polyfold/Chapter8/TangentPairs.lean, line 147
@@ -13468,8 +13468,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpFunctor.tangent` is $(T\Phi, T\boldsymbol\Phi)$, an ep-functor $T(X, \mathbf X) \to T(Y, \mathbf Y)$. `theorem_8_1_11`: its maps are Part I's tangent maps of $\Phi$ and $\boldsymbol\Phi$, sc-smooth, compatible with the sources and targets, with the composition of composable pairs, and with the units.
 
-- `Polyfold.EpFunctor.tangent` — Polyfold/Chapter8/TangentEp.lean, line 720
-- `Polyfold.EpFunctor.theorem_8_1_11` — Polyfold/Chapter8/TangentEp.lean, line 753
+- `Polyfold.EpFunctor.tangent` — Polyfold/Chapter8/TangentEp.lean, line 717
+- `Polyfold.EpFunctor.theorem_8_1_11` — Polyfold/Chapter8/TangentEp.lean, line 750
 
 *What differs.*
 - As in the text; the compatibility with the composition comes from the injectivity of $Ts$ on the fibres rather than from differentiating the identity, and the units, left to the reader, are proved (Findings, Chapter 8, items 4, 11).
@@ -13482,9 +13482,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EP.tangent`, `tangentFunctor`: a functor `EP.{max u 1} ⥤ EP.{max u 1}` on Chapter 7's category $\mathcal{EP}$ (V7.9). `theorem_8_1_12`: it maps $A$ to its `tangentEpGroupoid` and $\Phi$ to `EpFunctor.tangent` $\Phi$, and preserves identities and composites. `theorem_8_1_12_tame`: $TA$ is tame if $A$ is.
 
-- `Polyfold.EP.tangent` — Polyfold/Chapter8/TangentEp.lean, line 772
-- `Polyfold.tangentFunctor` — Polyfold/Chapter8/TangentEp.lean, line 778
-- `Polyfold.theorem_8_1_12` — Polyfold/Chapter8/TangentEp.lean, line 790
+- `Polyfold.EP.tangent` — Polyfold/Chapter8/TangentEp.lean, line 769
+- `Polyfold.tangentFunctor` — Polyfold/Chapter8/TangentEp.lean, line 775
+- `Polyfold.theorem_8_1_12` — Polyfold/Chapter8/TangentEp.lean, line 787
 - `Polyfold.theorem_8_1_12_tame` — Polyfold/Chapter8/TangentTame.lean, line 449
 
 *What differs.*
@@ -13536,8 +13536,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpNatTrans.tangent`: Part I's tangent $T\tau$ of $\tau$ is a natural transformation $T\Phi \to T\Psi$. `proposition_8_1_14`: there is a natural transformation $T\Phi \to T\Psi$ whose map is $T\tau$, and $\Phi \simeq \Psi$ implies $T\Phi \simeq T\Psi$.
 
-- `Polyfold.EpNatTrans.tangent` — Polyfold/Chapter8/TangentEp.lean, line 812
-- `Polyfold.proposition_8_1_14` — Polyfold/Chapter8/TangentEp.lean, line 855
+- `Polyfold.EpNatTrans.tangent` — Polyfold/Chapter8/TangentEp.lean, line 809
+- `Polyfold.proposition_8_1_14` — Polyfold/Chapter8/TangentEp.lean, line 852
 
 *What differs.*
 - As in the text; the naturality comes from the injectivity of $Ts$ on the fibres instead of differentiating the naturality square (Findings, Chapter 8, items 4, 13).
@@ -13585,25 +13585,25 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.StrongBundle.pullback` — Polyfold/Chapter3/ParamPerturbation.lean, line 599
 - `Polyfold.pullbackSpace` — Polyfold/Chapter2/StrongBundle.lean, line 804
-- `Polyfold.StrongBundle.paracompactSpace_pullback` — Polyfold/Chapter8/StrongBundleMap.lean, line 242
-- `Polyfold.StrongBundle.pullback_atlas` — Polyfold/Chapter8/StrongBundleMap.lean, line 248
-- `Polyfold.PullbackChartData.exists_mem_atlas` — Polyfold/Chapter8/StrongBundleMap.lean, line 182
-- `Polyfold.StrongBundle.isScSmoothMap_pullbackProj` — Polyfold/Chapter8/StrongBundleMap.lean, line 255
-- `Polyfold.StrongBundle.isScSmoothMap_pullbackProj'` — Polyfold/Chapter8/StrongBundleMap.lean, line 261
-- `Polyfold.StrongBundle.isScSmoothOn_to_pullback_iff` — Polyfold/Chapter8/StrongBundleMap.lean, line 329
-- `Polyfold.StrongBundle.isScSmoothMap_pullbackPair` — Polyfold/Chapter8/StrongBundleMap.lean, line 348
-- `Polyfold.pullbackPair` — Polyfold/Chapter8/StrongBundleMap.lean, line 113
-- `Polyfold.StrongBundle.isScDiffeoOn_pullbackProj'` — Polyfold/Chapter8/StrongBundleMap.lean, line 359
-- `Polyfold.StrongBundle.isLocalScDiffeo_pullbackProj'` — Polyfold/Chapter8/StrongBundleMap.lean, line 393
-- `Polyfold.StrongBundle.IsStrongBundleMap` — Polyfold/Chapter8/StrongBundleMap.lean, line 442
-- `Polyfold.fiberRestrict` — Polyfold/Chapter8/StrongBundleMap.lean, line 417
-- `Polyfold.StrongBundle.IsStrongBundleMap.fiberMap` — Polyfold/Chapter8/StrongBundleMap.lean, line 468
-- `Polyfold.StrongBundle.IsStrongBundleMap.isScSmoothMap_base` — Polyfold/Chapter8/StrongBundleMap.lean, line 476
-- `Polyfold.StrongBundle.IsStrongBundleMap.comp` — Polyfold/Chapter8/StrongBundleMap.lean, line 488
-- `Polyfold.StrongBundle.IsStrongBundleMap.mapsTo_doubleLevel` — Polyfold/Chapter8/StrongBundleMap.lean, line 570
-- `Polyfold.StrongBundle.IsStrongBundleIso` — Polyfold/Chapter8/StrongBundleMap.lean, line 608
-- `Polyfold.StrongBundle.isStrongBundleMap_pullbackProj'` — Polyfold/Chapter8/StrongBundleMap.lean, line 695
-- `Polyfold.MPolyfold.isScSmoothMap_of_forall_charts` — Polyfold/Chapter8/StrongBundleMap.lean, line 144
+- `Polyfold.StrongBundle.paracompactSpace_pullback` — Polyfold/Chapter5/StrongBundleMap.lean, line 242
+- `Polyfold.StrongBundle.pullback_atlas` — Polyfold/Chapter5/StrongBundleMap.lean, line 248
+- `Polyfold.PullbackChartData.exists_mem_atlas` — Polyfold/Chapter5/StrongBundleMap.lean, line 182
+- `Polyfold.StrongBundle.isScSmoothMap_pullbackProj` — Polyfold/Chapter5/StrongBundleMap.lean, line 255
+- `Polyfold.StrongBundle.isScSmoothMap_pullbackProj'` — Polyfold/Chapter5/StrongBundleMap.lean, line 261
+- `Polyfold.StrongBundle.isScSmoothOn_to_pullback_iff` — Polyfold/Chapter5/StrongBundleMap.lean, line 329
+- `Polyfold.StrongBundle.isScSmoothMap_pullbackPair` — Polyfold/Chapter5/StrongBundleMap.lean, line 348
+- `Polyfold.pullbackPair` — Polyfold/Chapter5/StrongBundleMap.lean, line 113
+- `Polyfold.StrongBundle.isScDiffeoOn_pullbackProj'` — Polyfold/Chapter5/StrongBundleMap.lean, line 359
+- `Polyfold.StrongBundle.isLocalScDiffeo_pullbackProj'` — Polyfold/Chapter5/StrongBundleMap.lean, line 393
+- `Polyfold.StrongBundle.IsStrongBundleMap` — Polyfold/Chapter5/StrongBundleMap.lean, line 442
+- `Polyfold.fiberRestrict` — Polyfold/Chapter5/StrongBundleMap.lean, line 417
+- `Polyfold.StrongBundle.IsStrongBundleMap.fiberMap` — Polyfold/Chapter5/StrongBundleMap.lean, line 468
+- `Polyfold.StrongBundle.IsStrongBundleMap.isScSmoothMap_base` — Polyfold/Chapter5/StrongBundleMap.lean, line 476
+- `Polyfold.StrongBundle.IsStrongBundleMap.comp` — Polyfold/Chapter5/StrongBundleMap.lean, line 488
+- `Polyfold.StrongBundle.IsStrongBundleMap.mapsTo_doubleLevel` — Polyfold/Chapter5/StrongBundleMap.lean, line 570
+- `Polyfold.StrongBundle.IsStrongBundleIso` — Polyfold/Chapter5/StrongBundleMap.lean, line 608
+- `Polyfold.StrongBundle.isStrongBundleMap_pullbackProj'` — Polyfold/Chapter5/StrongBundleMap.lean, line 695
+- `Polyfold.MPolyfold.isScSmoothMap_of_forall_charts` — Polyfold/Chapter5/StrongBundleMap.lean, line 144
 
 *What differs.*
 - Part I defines strong bundle maps only between local models; the global notion used throughout §§8.3, 8.5 (2017 §§8.3–8.4) is a reading (Findings, Chapter 8, item 30).
@@ -13621,7 +13621,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.P_μ` — Polyfold/Chapter8/EpStrongBundle.lean, line 228
 - `Polyfold.EpGroupoid.unitPair` — Polyfold/Chapter8/EpStrongBundle.lean, line 198
 - `Polyfold.EpStrongBundle.continuous_μ` — Polyfold/Chapter8/EpStrongBundle.lean, line 368
-- `Polyfold.EpStrongBundle.trivial` — Polyfold/Chapter8/NonVacuityBundle.lean, line 225
+- `Polyfold.EpStrongBundle.trivial` — Polyfold/Chapter8/NonVacuityBundle.lean, line 207
 
 *What differs.*
 - On Part I's pull-back strong bundle, with the strong bundle maps of V8.19. The surjectivity in (1) is kept as a field, although it follows from (2) (Findings, Chapter 8, items 32, 102).
@@ -13681,7 +13681,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `EpStrongBundle.IsMap E E' ϕ Φ`: $\Phi$ is a strong bundle map (V8.19) covering the object map of the ep-functor $\phi$ (`isStrongBundleMap`), and $\Phi(\mu(\gamma, w)) = \mu'(\phi(\gamma), \Phi(w))$ whenever $P(w) = s(\gamma)$ (`map_μ`) (fields of the structure). `isMap_id`: the identity is one.
 
 - `Polyfold.EpStrongBundle.IsMap` — Polyfold/Chapter8/EpStrongBundle.lean, line 281
-- `Polyfold.EpStrongBundle.isMap_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 280
+- `Polyfold.EpStrongBundle.isMap_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 262
 
 *What differs.*
 - As in the text (Findings, Chapter 8, item 34).
@@ -13697,7 +13697,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.IsStrongBundleFunctor` — Polyfold/Chapter8/EpStrongBundle.lean, line 787
 - `Polyfold.EpStrongBundle.IsStrongBundleFunctor.projFunctor_comp` — Polyfold/Chapter8/EpStrongBundle.lean, line 794
 - `Polyfold.EpStrongBundle.IsStrongBundleFunctor.mor_val` — Polyfold/Chapter8/EpStrongBundle.lean, line 800
-- `Polyfold.EpStrongBundle.isStrongBundleFunctor_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 353
+- `Polyfold.EpStrongBundle.isStrongBundleFunctor_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 335
 
 *What differs.*
 - "Linear on the fibres", "covers $\phi$" and "induces strong bundle maps" are read together as the two conditions `IsStrongBundleMap`, on objects and on morphisms, which contain the linearity and the covering (Findings, Chapter 8, item 34).
@@ -13765,7 +13765,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpFunctor.IsProperCovering` — Polyfold/Chapter8/Basic.lean, line 162
 - `Polyfold.EpFunctor.fibredMap` — Polyfold/Chapter8/Basic.lean, line 152
 - `Polyfold.MPolyfold.isSubMPolyfold_fibredProduct` — Polyfold/Chapter2/FibredProduct.lean, line 672
-- `Polyfold.EpFunctor.isProperCovering_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 317
+- `Polyfold.EpFunctor.isProperCovering_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 299
 
 *What differs.*
 - In (2) $U(x)$ is open and the $U(y)$ carry the local inverses $\sigma(y)$; (3) is on Part I's fibred-product sub-M-polyfold of $\mathbf X \times Y$ (Part I's Proposition 2.5.20 (2017: 2.15), the preprint's Proposition 2.46), as in Definition 7.1.3 (4) (2017: 7.3) (Findings, Chapter 8, item 50).
@@ -13779,10 +13779,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.degIndex_fibredMap`: $d_{\mathbf Y}(\varphi) = d_{\mathbf X\,{}_s{\times}_F\,Y}(F(\varphi), s(\varphi))$, by Part I's invariance of the degeneracy index under sc-diffeomorphisms (`proposition_2_4_4`); `IsProperCovering.degIndex_mor`: $d_{\mathbf X}(F(\varphi)) = d_{\mathbf Y}(\varphi)$. In general, `IsProperCovering.degIndex_prod_fibredMap_le`: $d_{\mathbf X \times Y}(F(\varphi), s(\varphi)) \le 2\,d_{\mathbf Y}(\varphi)$, from Part I's `MPolyfold.degIndex_prod_le`. **For tame $X$ and $Y$**, `IsProperCovering.degIndex_prod_fibredMap`: $d_{\mathbf X \times Y}(F(\varphi), s(\varphi)) = 2\,d_{\mathbf Y}(\varphi)$ and $2\,d_{\mathbf X\,{}_s{\times}_F\,Y}(F(\varphi), s(\varphi)) = d_{\mathbf X \times Y}(F(\varphi), s(\varphi))$, from Part I's product formula for tame M-polyfolds (`MPolyfold.isTame_prod`).
 
-- `Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 620
-- `Polyfold.EpFunctor.IsProperCovering.degIndex_mor` — Polyfold/Chapter8/ProperCovering.lean, line 632
-- `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le` — Polyfold/Chapter8/ProperCovering.lean, line 637
-- `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 649
+- `Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 602
+- `Polyfold.EpFunctor.IsProperCovering.degIndex_mor` — Polyfold/Chapter8/ProperCovering.lean, line 614
+- `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le` — Polyfold/Chapter8/ProperCovering.lean, line 619
+- `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 631
 - `Polyfold.MPolyfold.degIndex_prod_le` — Polyfold/Chapter2/FibredProduct.lean, line 489
 - `Polyfold.MPolyfold.isTame_prod` — Polyfold/Chapter2/FibredProduct.lean, line 498
 - `Polyfold.proposition_2_4_4` — Polyfold/Chapter2/DegeneracyIndex.lean, line 841
@@ -13799,9 +13799,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.proposition_8_5_2`: `(F.comp H).IsProperCovering`. (2) by shrinking $U(x)$ (`IsProperCovering.evenlyCovered_comp`); (3) through $\tilde K$ and $\tilde L$ (`IsProperCovering.isScDiffeo_fibredMap_comp`).
 
-- `Polyfold.EpFunctor.IsProperCovering.evenlyCovered_comp` — Polyfold/Chapter8/ProperCovering.lean, line 686
-- `Polyfold.EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp` — Polyfold/Chapter8/ProperCovering.lean, line 763
-- `Polyfold.EpFunctor.IsProperCovering.proposition_8_5_2` — Polyfold/Chapter8/ProperCovering.lean, line 828
+- `Polyfold.EpFunctor.IsProperCovering.evenlyCovered_comp` — Polyfold/Chapter8/ProperCovering.lean, line 668
+- `Polyfold.EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp` — Polyfold/Chapter8/ProperCovering.lean, line 745
+- `Polyfold.EpFunctor.IsProperCovering.proposition_8_5_2` — Polyfold/Chapter8/ProperCovering.lean, line 810
 
 *What differs.*
 - As in the text; (2), "follows easily", is proved by shrinking $U(x)$, and (3) goes through $\tilde K$, $\tilde L$ as in the text (Findings, Chapter 8, item 52).
@@ -13863,9 +13863,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.coveringMap` — Polyfold/Chapter8/Basic.lean, line 240
 - `Polyfold.IsCoveringFunctor` — Polyfold/Chapter8/Basic.lean, line 246
 - `Polyfold.GeometricLift` — Polyfold/Chapter8/Basic.lean, line 250
-- `Polyfold.IsCoveringFunctor.existsUnique_lift` — Polyfold/Chapter8/GeometricLift.lean, line 221
-- `Polyfold.IsCoveringFunctor.lift` — Polyfold/Chapter8/GeometricLift.lean, line 233
-- `Polyfold.isCoveringFunctor_of_isEmpty` — Polyfold/Chapter8/GeometricLift.lean, line 248
+- `Polyfold.IsCoveringFunctor.existsUnique_lift` — Polyfold/Chapter8/GeometricLift.lean, line 204
+- `Polyfold.IsCoveringFunctor.lift` — Polyfold/Chapter8/GeometricLift.lean, line 216
+- `Polyfold.isCoveringFunctor_of_isEmpty` — Polyfold/Chapter8/GeometricLift.lean, line 231
 - `Polyfold.CoveringExamples.isCoveringFunctor_id` — Polyfold/Chapter8/NonVacuity.lean, line 64
 
 *What differs.*
@@ -13880,19 +13880,19 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `GeometricLift.Ux` $= U(x)$; `τy y` $= \tau(y)$, an sc-diffeomorphism (`isScDiffeoOn_τy`); `φ ψ` $= \varphi_{yy'}(\psi)$, an sc-diffeomorphism (`isScDiffeoOn_φ`), functorial (`φ_comp`, `φ_id`, `φ_inv_φ`); the actions (`smul_def`, `smul_def'`), sc-smooth (`isScSmoothMap_smul`); `τy_φ`: $\tau(y')(\varphi_{yy'}(\psi)(z)) = f(\psi) \ast \tau(y)(z)$; `τ_equivariant`: $\tau(y)(h \ast z) = f(h) \ast \tau(y)(z)$ for $h \in G_y$.
 
-- `Polyfold.GeometricLift.Ux` — Polyfold/Chapter8/GeometricLift.lean, line 260
-- `Polyfold.GeometricLift.τy` — Polyfold/Chapter8/GeometricLift.lean, line 263
-- `Polyfold.GeometricLift.isScDiffeoOn_τy` — Polyfold/Chapter8/GeometricLift.lean, line 269
-- `Polyfold.GeometricLift.φ` — Polyfold/Chapter8/GeometricLift.lean, line 280
-- `Polyfold.GeometricLift.isScDiffeoOn_φ` — Polyfold/Chapter8/GeometricLift.lean, line 288
-- `Polyfold.GeometricLift.φ_comp` — Polyfold/Chapter8/GeometricLift.lean, line 307
-- `Polyfold.GeometricLift.φ_id` — Polyfold/Chapter8/GeometricLift.lean, line 313
-- `Polyfold.GeometricLift.φ_inv_φ` — Polyfold/Chapter8/GeometricLift.lean, line 318
-- `Polyfold.GeometricLift.smul_def` — Polyfold/Chapter8/GeometricLift.lean, line 337
-- `Polyfold.GeometricLift.smul_def'` — Polyfold/Chapter8/GeometricLift.lean, line 353
-- `Polyfold.GeometricLift.isScSmoothMap_smul` — Polyfold/Chapter8/GeometricLift.lean, line 341
-- `Polyfold.GeometricLift.τy_φ` — Polyfold/Chapter8/GeometricLift.lean, line 356
-- `Polyfold.GeometricLift.τ_equivariant` — Polyfold/Chapter8/GeometricLift.lean, line 362
+- `Polyfold.GeometricLift.Ux` — Polyfold/Chapter8/GeometricLift.lean, line 243
+- `Polyfold.GeometricLift.τy` — Polyfold/Chapter8/GeometricLift.lean, line 246
+- `Polyfold.GeometricLift.isScDiffeoOn_τy` — Polyfold/Chapter8/GeometricLift.lean, line 252
+- `Polyfold.GeometricLift.φ` — Polyfold/Chapter8/GeometricLift.lean, line 263
+- `Polyfold.GeometricLift.isScDiffeoOn_φ` — Polyfold/Chapter8/GeometricLift.lean, line 271
+- `Polyfold.GeometricLift.φ_comp` — Polyfold/Chapter8/GeometricLift.lean, line 290
+- `Polyfold.GeometricLift.φ_id` — Polyfold/Chapter8/GeometricLift.lean, line 296
+- `Polyfold.GeometricLift.φ_inv_φ` — Polyfold/Chapter8/GeometricLift.lean, line 301
+- `Polyfold.GeometricLift.smul_def` — Polyfold/Chapter8/GeometricLift.lean, line 320
+- `Polyfold.GeometricLift.smul_def'` — Polyfold/Chapter8/GeometricLift.lean, line 336
+- `Polyfold.GeometricLift.isScSmoothMap_smul` — Polyfold/Chapter8/GeometricLift.lean, line 324
+- `Polyfold.GeometricLift.τy_φ` — Polyfold/Chapter8/GeometricLift.lean, line 339
+- `Polyfold.GeometricLift.τ_equivariant` — Polyfold/Chapter8/GeometricLift.lean, line 345
 
 *What differs.*
 - As in the text; the action of $G_x$ is a left action through the composition of `SingleObj G` (Findings, Chapter 8, item 57).
@@ -13930,27 +13930,27 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `proposition_8_5_7` (for `[Nonempty D]`): `geometricLiftFunctor L` is a proper covering functor from `geometricLiftSource L` to `geometricLiftTarget L`. The source is the ep-groupoid on `GeometricLift.YObj` and `GeometricLift.YMor` (`GeometricLift.sourceStr`, `yObjPolyfold`, `yMorPolyfold`), with $s$, $t$ local sc-diffeomorphisms (`isLocalScDiffeo_ySrc`, `isLocalScDiffeo_yTgt`), properness with $V = Y$ (`isProperMap_yTgt`) and (4) in sheet form (`isScSmoothCompSheet_y`); the target is Chapter 7's action ep-groupoid of $G$ on $U(x)$ (`EpGroupoid.Examples.actionEpGroupoid`). The conditions: `geometricLiftFunctor_surjective`, `geometricLiftFunctor_isLocalScDiffeo`, `geometricLiftFunctor_finite_fiber`, `geometricLiftFunctor_evenlyCovered`, and (8.16) with its sc-smooth inverse (`GeometricLift.fibredInv`, `isScSmoothMap_fibredInv`, `geometricLiftFunctor_isScDiffeo_fibredMap`). `geometricLiftFunctor_surjective_iff`: $F$ is surjective on objects iff $D$ is nonempty or $U(x)$ is empty. `CoveringExamples.isProperCovering_reflectionLift`: an example.
 
-- `Polyfold.GeometricLift.YObj` — Polyfold/Chapter8/GeometricLift.lean, line 369
-- `Polyfold.GeometricLift.YMor` — Polyfold/Chapter8/GeometricLift.lean, line 372
-- `Polyfold.GeometricLift.sourceStr` — Polyfold/Chapter8/GeometricLift.lean, line 427
-- `Polyfold.GeometricLift.yObjPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 479
-- `Polyfold.GeometricLift.yMorPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 482
-- `Polyfold.GeometricLift.isLocalScDiffeo_ySrc` — Polyfold/Chapter8/GeometricLift.lean, line 486
-- `Polyfold.GeometricLift.isLocalScDiffeo_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 492
-- `Polyfold.GeometricLift.isProperMap_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 512
-- `Polyfold.GeometricLift.isScSmoothCompSheet_y` — Polyfold/Chapter8/GeometricLift.lean, line 538
-- `Polyfold.geometricLiftSource` — Polyfold/Chapter8/GeometricLift.lean, line 578
-- `Polyfold.geometricLiftTarget` — Polyfold/Chapter8/GeometricLift.lean, line 635
-- `Polyfold.geometricLiftFunctor` — Polyfold/Chapter8/GeometricLift.lean, line 672
-- `Polyfold.geometricLiftFunctor_surjective` — Polyfold/Chapter8/GeometricLift.lean, line 714
-- `Polyfold.geometricLiftFunctor_surjective_iff` — Polyfold/Chapter8/GeometricLift.lean, line 720
-- `Polyfold.geometricLiftFunctor_isLocalScDiffeo` — Polyfold/Chapter8/GeometricLift.lean, line 732
-- `Polyfold.geometricLiftFunctor_finite_fiber` — Polyfold/Chapter8/GeometricLift.lean, line 739
-- `Polyfold.geometricLiftFunctor_evenlyCovered` — Polyfold/Chapter8/GeometricLift.lean, line 746
-- `Polyfold.GeometricLift.fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 773
-- `Polyfold.GeometricLift.isScSmoothMap_fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 779
-- `Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap` — Polyfold/Chapter8/GeometricLift.lean, line 806
-- `Polyfold.proposition_8_5_7` — Polyfold/Chapter8/GeometricLift.lean, line 837
+- `Polyfold.GeometricLift.YObj` — Polyfold/Chapter8/GeometricLift.lean, line 352
+- `Polyfold.GeometricLift.YMor` — Polyfold/Chapter8/GeometricLift.lean, line 355
+- `Polyfold.GeometricLift.sourceStr` — Polyfold/Chapter8/GeometricLift.lean, line 410
+- `Polyfold.GeometricLift.yObjPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 462
+- `Polyfold.GeometricLift.yMorPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 465
+- `Polyfold.GeometricLift.isLocalScDiffeo_ySrc` — Polyfold/Chapter8/GeometricLift.lean, line 469
+- `Polyfold.GeometricLift.isLocalScDiffeo_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 475
+- `Polyfold.GeometricLift.isProperMap_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 495
+- `Polyfold.GeometricLift.isScSmoothCompSheet_y` — Polyfold/Chapter8/GeometricLift.lean, line 521
+- `Polyfold.geometricLiftSource` — Polyfold/Chapter8/GeometricLift.lean, line 561
+- `Polyfold.geometricLiftTarget` — Polyfold/Chapter8/GeometricLift.lean, line 618
+- `Polyfold.geometricLiftFunctor` — Polyfold/Chapter8/GeometricLift.lean, line 655
+- `Polyfold.geometricLiftFunctor_surjective` — Polyfold/Chapter8/GeometricLift.lean, line 697
+- `Polyfold.geometricLiftFunctor_surjective_iff` — Polyfold/Chapter8/GeometricLift.lean, line 703
+- `Polyfold.geometricLiftFunctor_isLocalScDiffeo` — Polyfold/Chapter8/GeometricLift.lean, line 715
+- `Polyfold.geometricLiftFunctor_finite_fiber` — Polyfold/Chapter8/GeometricLift.lean, line 722
+- `Polyfold.geometricLiftFunctor_evenlyCovered` — Polyfold/Chapter8/GeometricLift.lean, line 729
+- `Polyfold.GeometricLift.fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 756
+- `Polyfold.GeometricLift.isScSmoothMap_fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 762
+- `Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap` — Polyfold/Chapter8/GeometricLift.lean, line 789
+- `Polyfold.proposition_8_5_7` — Polyfold/Chapter8/GeometricLift.lean, line 820
 - `Polyfold.EpGroupoid.Examples.actionEpGroupoid` — Polyfold/Chapter7/NonVacuity.lean, line 224
 - `Polyfold.CoveringExamples.isProperCovering_reflectionLift` — Polyfold/Chapter8/NonVacuity.lean, line 121
 - `Polyfold.CoveringExamples.not_proposition_8_5_7_empty` — Polyfold/Chapter8/GeometricLiftEmpty.lean, line 61
@@ -13968,27 +13968,27 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `theorem_8_5_8`, for ep-groupoids whose objects and morphisms are in `Type`: `restrictFiber x` $= F|D : D \to C$ (`FiberCat`, `GroupoidStr.FullOb`, `fiberIsotropy`) is a covering functor (`covering_restrict`; $D$ finite and nonempty, `fintypeFiberCat`, `nonempty_fiberCat`); charts of Theorem 8.5.3 (2017: 8.5) exist inside every open $V \ni x$; and for every chart there are a geometric lift (`ProperCoveringChart.geometricLift`, with `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`), whose functor $A$ is a proper covering functor (Proposition 8.5.7 (2017: 8.3)), and ep-functors $\Phi$ = `ProperCoveringChart.Φ`, $\Psi$ = `ProperCoveringChart.Ψ` that are fully faithful open embeddings (`IsFullyFaithfulOpenEmbedding`; `isFullyFaithfulOpenEmbedding_Φ`, `isFullyFaithfulOpenEmbedding_Ψ`), with images $U(x)$, the morphisms over $U(x)$, $F^{-1}(U(x))$ and the morphisms over $F^{-1}(U(x))$ (`range_Φ_obj`, `range_Φ_mor`, `range_Ψ_obj`, `range_Ψ_mor`), and $F \circ \Psi = \Phi \circ A$ (`comp_Ψ`).
 
-- `Polyfold.GroupoidStr.FullOb` — Polyfold/Chapter8/GeometricLift.lean, line 855
-- `Polyfold.EpFunctor.FiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 995
-- `Polyfold.EpFunctor.fiberIsotropy` — Polyfold/Chapter8/GeometricLift.lean, line 998
-- `Polyfold.EpFunctor.restrictFiber` — Polyfold/Chapter8/GeometricLift.lean, line 1025
-- `Polyfold.EpFunctor.covering_restrict` — Polyfold/Chapter8/GeometricLift.lean, line 1040
-- `Polyfold.EpFunctor.fintypeFiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1076
-- `Polyfold.EpFunctor.nonempty_fiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1093
-- `Polyfold.MPolyfoldCat.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 892
-- `Polyfold.ScDiffeo.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 906
-- `Polyfold.EpFunctor.IsFullyFaithfulOpenEmbedding` — Polyfold/Chapter8/GeometricLift.lean, line 938
-- `Polyfold.EpFunctor.ProperCoveringChart.geometricLift` — Polyfold/Chapter8/GeometricLift.lean, line 1232
-- `Polyfold.EpFunctor.ProperCoveringChart.Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1252
-- `Polyfold.EpFunctor.ProperCoveringChart.Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1362
-- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1312
-- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1445
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1321
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1325
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1455
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1467
-- `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1491
-- `Polyfold.EpFunctor.theorem_8_5_8` — Polyfold/Chapter8/GeometricLift.lean, line 1509
+- `Polyfold.GroupoidStr.FullOb` — Polyfold/Chapter8/GeometricLift.lean, line 838
+- `Polyfold.EpFunctor.FiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 978
+- `Polyfold.EpFunctor.fiberIsotropy` — Polyfold/Chapter8/GeometricLift.lean, line 981
+- `Polyfold.EpFunctor.restrictFiber` — Polyfold/Chapter8/GeometricLift.lean, line 1008
+- `Polyfold.EpFunctor.covering_restrict` — Polyfold/Chapter8/GeometricLift.lean, line 1023
+- `Polyfold.EpFunctor.fintypeFiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1059
+- `Polyfold.EpFunctor.nonempty_fiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1076
+- `Polyfold.MPolyfoldCat.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 875
+- `Polyfold.ScDiffeo.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 889
+- `Polyfold.EpFunctor.IsFullyFaithfulOpenEmbedding` — Polyfold/Chapter8/GeometricLift.lean, line 921
+- `Polyfold.EpFunctor.ProperCoveringChart.geometricLift` — Polyfold/Chapter8/GeometricLift.lean, line 1215
+- `Polyfold.EpFunctor.ProperCoveringChart.Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1235
+- `Polyfold.EpFunctor.ProperCoveringChart.Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1345
+- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1295
+- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1428
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1304
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1308
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1438
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1450
+- `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1474
+- `Polyfold.EpFunctor.theorem_8_5_8` — Polyfold/Chapter8/GeometricLift.lean, line 1492
 - `Polyfold.CoveringExamples.theorem_8_5_8_id` — Polyfold/Chapter8/NonVacuity.lean, line 189
 
 *What differs.*
@@ -14013,8 +14013,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.pullbackProj_fibredBundleEquiv` — Polyfold/Chapter8/EpStrongBundle.lean, line 1230
 - `Polyfold.EpStrongBundle.fibredBundleEquiv_symm_fibredLift` — Polyfold/Chapter8/EpStrongBundle.lean, line 1241
 - `Polyfold.EpStrongBundle.IsProperStrongBundleCovering` — Polyfold/Chapter8/EpStrongBundle.lean, line 1277
-- `Polyfold.EpStrongBundle.isProperStrongBundleCovering_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 384
-- `Polyfold.TrivialBundle.epBundle_isProperStrongBundleCovering` — Polyfold/Chapter8/NonVacuityBundle.lean, line 440
+- `Polyfold.EpStrongBundle.isProperStrongBundleCovering_id` — Polyfold/Chapter8/NonVacuityBundle.lean, line 366
+- `Polyfold.TrivialBundle.epBundle_isProperStrongBundleCovering` — Polyfold/Chapter8/NonVacuityBundle.lean, line 422
 
 *What differs.*
 - $A$ is a strong bundle functor (Definition 8.3.3 (2017: 8.6), V8.24); the finiteness in (2) is that of Definition 8.5.1 (2) (2017: 8.8) (Findings, Chapter 8, item 70).
@@ -14029,17 +14029,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.bijective_fibredMap`, `IsProperCovering.existsUnique_lift`: $\varphi \mapsto (F(\varphi), s(\varphi))$ is a bijection; `IsProperCovering.morOnFiberEquiv`: $\mathrm{mor}(F^{-1}(x)) \simeq G_x \times F^{-1}(x)$; `IsProperCovering.ncard_morOn_fiber`: $\#\mathrm{mor}(F^{-1}(x)) = \#G_x \cdot \#F^{-1}(x)$, a finite set (`IsProperCovering.finite_morOn_fiber`). `fiberClass x c` $= \Theta_c = F^{-1}(x) \cap \pi^{-1}(c)$ for $c \in |Y|$, `fiberIndex x` the $c$ that occur, `fiberClasses x` the classes; they cover $F^{-1}(x)$ and are disjoint (`iUnion_fiberClass`, `pairwiseDisjoint_fiberClass`), and the isotropy groups in one class have the same order (`nat_card_isotropy_eq_of_mem_fiberClass`).
 
-- `Polyfold.EpFunctor.fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 221
-- `Polyfold.EpFunctor.fiberIndex` — Polyfold/Chapter8/ProperCovering.lean, line 225
-- `Polyfold.EpFunctor.fiberClasses` — Polyfold/Chapter8/ProperCovering.lean, line 228
-- `Polyfold.EpFunctor.iUnion_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 260
-- `Polyfold.EpFunctor.pairwiseDisjoint_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 266
-- `Polyfold.EpFunctor.nat_card_isotropy_eq_of_mem_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 291
-- `Polyfold.EpFunctor.IsProperCovering.bijective_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 336
-- `Polyfold.EpFunctor.IsProperCovering.existsUnique_lift` — Polyfold/Chapter8/ProperCovering.lean, line 345
-- `Polyfold.EpFunctor.IsProperCovering.morOnFiberEquiv` — Polyfold/Chapter8/ProperCovering.lean, line 377
-- `Polyfold.EpFunctor.IsProperCovering.ncard_morOn_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 384
-- `Polyfold.EpFunctor.IsProperCovering.finite_morOn_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 390
+- `Polyfold.EpFunctor.fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 203
+- `Polyfold.EpFunctor.fiberIndex` — Polyfold/Chapter8/ProperCovering.lean, line 207
+- `Polyfold.EpFunctor.fiberClasses` — Polyfold/Chapter8/ProperCovering.lean, line 210
+- `Polyfold.EpFunctor.iUnion_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 242
+- `Polyfold.EpFunctor.pairwiseDisjoint_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 248
+- `Polyfold.EpFunctor.nat_card_isotropy_eq_of_mem_fiberClass` — Polyfold/Chapter8/ProperCovering.lean, line 273
+- `Polyfold.EpFunctor.IsProperCovering.bijective_fibredMap` — Polyfold/Chapter8/ProperCovering.lean, line 318
+- `Polyfold.EpFunctor.IsProperCovering.existsUnique_lift` — Polyfold/Chapter8/ProperCovering.lean, line 327
+- `Polyfold.EpFunctor.IsProperCovering.morOnFiberEquiv` — Polyfold/Chapter8/ProperCovering.lean, line 359
+- `Polyfold.EpFunctor.IsProperCovering.ncard_morOn_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 366
+- `Polyfold.EpFunctor.IsProperCovering.finite_morOn_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 372
 
 *What differs.*
 - The classes are indexed by their images in $|Y|$, $\Theta_c = F^{-1}(x) \cap \pi^{-1}(c)$, rather than by $1, \dots, q$; $\#$ is the cardinality of finite sets (Findings, Chapter 8, item 71).
@@ -14052,9 +14052,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.lemma_8_6_1 x c`: $\#G_x \cdot \#\Theta_c = \#\mathrm{mor}(\Theta_c)$, and for $y_0 \in \Theta_c$, $\#\mathrm{mor}(\Theta_c) = \#G_{y_0} \cdot (\#\Theta_c)^2$ and $\#G_x = \#G_{y_0} \cdot \#\Theta_c$. `morOn_fiberClass_eq`: the set $\{\psi \in \mathrm{mor}(F^{-1}(x)) \mid s(\psi), t(\psi) \in \Theta_c\}$ is $\mathrm{mor}(\Theta_c)$; `IsProperCovering.morOnClassEquiv`: the bijection (8.17).
 
-- `Polyfold.EpFunctor.morOn_fiberClass_eq` — Polyfold/Chapter8/ProperCovering.lean, line 284
-- `Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv` — Polyfold/Chapter8/ProperCovering.lean, line 404
-- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1` — Polyfold/Chapter8/ProperCovering.lean, line 416
+- `Polyfold.EpFunctor.morOn_fiberClass_eq` — Polyfold/Chapter8/ProperCovering.lean, line 266
+- `Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv` — Polyfold/Chapter8/ProperCovering.lean, line 386
+- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1` — Polyfold/Chapter8/ProperCovering.lean, line 398
 
 *What differs.*
 - As in the text (Findings, Chapter 8, items 71, 72).
@@ -14068,10 +14068,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.exists_isomorphic_of_isomorphic`: every $y \in F^{-1}(x)$ is isomorphic to some $y' \in F^{-1}(x')$. `IsProperCovering.fiberIndex_eq` and `IsProperCovering.lemma_8_6_2`: $F^{-1}(x)$ and $F^{-1}(x')$ have the same index set in $|Y|$, and isomorphic $y \in F^{-1}(x)$, $y' \in F^{-1}(x')$ lie in $\Theta_c$ and $\Theta'_c$ for exactly one $c$. `IsProperCovering.lemma_8_6_2_equiv`: a bijection between the sets of classes, matching isomorphic elements.
 
-- `Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic` — Polyfold/Chapter8/ProperCovering.lean, line 443
-- `Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq` — Polyfold/Chapter8/ProperCovering.lean, line 451
-- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2` — Polyfold/Chapter8/ProperCovering.lean, line 462
-- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv` — Polyfold/Chapter8/ProperCovering.lean, line 472
+- `Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic` — Polyfold/Chapter8/ProperCovering.lean, line 425
+- `Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq` — Polyfold/Chapter8/ProperCovering.lean, line 433
+- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2` — Polyfold/Chapter8/ProperCovering.lean, line 444
+- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv` — Polyfold/Chapter8/ProperCovering.lean, line 454
 
 *What differs.*
 - The correspondence is "the same index $c \in |Y|$"; as a bijection of the sets of classes it is `lemma_8_6_2_equiv` (Findings, Chapter 8, items 71, 73).
@@ -14084,9 +14084,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.lemma_8_6_3`: $\#\Theta_c = \#\Theta'_c$ for every $c \in |Y|$, and $\#F^{-1}(x) = \#F^{-1}(x')$. `IsProperCovering.ncard_fiber_eq_sum`: $\#F^{-1}(x) = \sum_c \#\Theta_c$; `IsProperCovering.ncard_fiber_eq_of_isomorphic`.
 
-- `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum` — Polyfold/Chapter8/ProperCovering.lean, line 489
-- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3` — Polyfold/Chapter8/ProperCovering.lean, line 507
-- `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic` — Polyfold/Chapter8/ProperCovering.lean, line 534
+- `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum` — Polyfold/Chapter8/ProperCovering.lean, line 471
+- `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3` — Polyfold/Chapter8/ProperCovering.lean, line 489
+- `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic` — Polyfold/Chapter8/ProperCovering.lean, line 516
 
 *What differs.*
 - As in the text (Findings, Chapter 8, item 73).
@@ -14100,15 +14100,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `IsProperCovering.proposition_8_6_4`: for every connected component $c$ of $|X|$ there is $k$ with $\#F^{-1}(x) = k$ for all $x$ with $\pi(x) \in c$. The proof: $\#F^{-1}(x) \ge 1$ (`IsProperCovering.one_le_ncard_fiber`), locally constant on $X$ (`IsProperCovering.eventually_ncard_fiber_eq`, `IsProperCovering.isLocallyConstant_ncard_fiber`) and constant on isomorphism classes (Lemma 8.6.3 (2017: 8.11)), hence a locally constant function on $|X|$ (`IsProperCovering.fiberCardOrbit`, `IsProperCovering.isLocallyConstant_fiberCardOrbit`). `IsProperCovering.fiberCardFunctor`: $x \mapsto \#F^{-1}(x)$ is an ep-functor into the trivial ep-groupoid (`EpGroupoid.trivial`) of the discrete M-polyfold $\mathbb N$ (`discretePolyfold`).
 
-- `Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 541
-- `Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq` — Polyfold/Chapter8/ProperCovering.lean, line 546
-- `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 569
-- `Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit` — Polyfold/Chapter8/ProperCovering.lean, line 573
-- `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit` — Polyfold/Chapter8/ProperCovering.lean, line 579
-- `Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4` — Polyfold/Chapter8/ProperCovering.lean, line 584
-- `Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor` — Polyfold/Chapter8/ProperCovering.lean, line 595
+- `Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 523
+- `Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq` — Polyfold/Chapter8/ProperCovering.lean, line 528
+- `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber` — Polyfold/Chapter8/ProperCovering.lean, line 551
+- `Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit` — Polyfold/Chapter8/ProperCovering.lean, line 555
+- `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit` — Polyfold/Chapter8/ProperCovering.lean, line 561
+- `Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4` — Polyfold/Chapter8/ProperCovering.lean, line 566
+- `Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor` — Polyfold/Chapter8/ProperCovering.lean, line 577
 - `Polyfold.EpGroupoid.trivial` — Polyfold/Chapter7/EpGroupoid.lean, line 722
-- `Polyfold.discretePolyfold` — Polyfold/Chapter7/Discrete.lean, line 323
+- `Polyfold.discretePolyfold` — Polyfold/Chapter6/Discrete.lean, line 306
 
 *What differs.*
 - $\mathbb N$ is Lean's, with $0$, as the trivial ep-groupoid of the discrete M-polyfold; the values are $\ge 1$. Only the local constancy of $\#F^{-1}(x)$ is used, not "the structure of isomorphism classes stays the same" (Findings, Chapter 8, item 74).
@@ -14145,13 +14145,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.tangentChartMap_vert` — Polyfold/Chapter8/TangentVertical.lean, line 339
 - `Polyfold.MPolyfold.tangentMap_tangentMap_vert` — Polyfold/Chapter8/TangentVertical.lean, line 439
 - `Polyfold.IsSc1.scDeriv_tangentMap_vert` — Polyfold/Chapter8/TangentVertical.lean, line 59
-- `Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet` — Polyfold/Chapter8/TangentZhou.lean, line 90
-- `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent` — Polyfold/Chapter8/TangentZhou.lean, line 105
-- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 122
-- `Polyfold.EpGroupoid.proposition_8_1_16` — Polyfold/Chapter8/TangentZhou.lean, line 133
-- `Polyfold.EpGroupoid.tangentMor_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 193
-- `Polyfold.EpGroupoid.tangentZhouReflect_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 199
-- `Polyfold.EpGroupoid.Examples.proposition_8_1_16_point` — Polyfold/Chapter8/TangentZhou.lean, line 216
+- `Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet` — Polyfold/Chapter8/TangentZhou.lean, line 91
+- `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent` — Polyfold/Chapter8/TangentZhou.lean, line 106
+- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 123
+- `Polyfold.EpGroupoid.proposition_8_1_16` — Polyfold/Chapter8/TangentZhou.lean, line 134
+- `Polyfold.EpGroupoid.tangentMor_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 194
+- `Polyfold.EpGroupoid.tangentZhouReflect_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 200
+- `Polyfold.EpGroupoid.Examples.proposition_8_1_16_point` — Polyfold/Chapter8/TangentZhou.lean, line 217
 
 *What differs.*
 - As stated. The proof takes a different route. For $v \in T_xX$, take $u$ with $Ts(u) = v$ and $V = \mathrm{vert}_k u$. Then $T(Ts)V = \mathrm{vert}_b v$ and $T(Tt)V = \mathrm{vert}_b(Tt\,u)$, and $T(g, h) = \mathrm{id}$ gives $Tt(u) = v$, i.e. $Tg(v) = v$. This uses only the vertical directions of $T_b(TX)$, on which $T(g, h)$ acts as $Tg$, and needs no surjectivity of $T\tau$ (gap G.88 closed). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, items 115, 126).
@@ -14164,16 +14164,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `nonEffectivePart_tangent_eq_of_isLUC` and `proposition_8_1_17_one_of_isLUC`: if $X^1$ is LUC, $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_two_of_isSLUC`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$, and `EP.proposition_8_1_17_two_all_of_isSLUC` (V8.52) gives (SLUC) for $TX$; no added hypothesis. The forms under the hypotheses that every $x \in X_1$ has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ and that $p : T\mathbf X \to \mathbf X^1$ is open are kept: `nonEffectivePart_tangent_eq`, `proposition_8_1_17_one`, `proposition_8_1_17_two`; with the openness of $p$ only, `proposition_8_1_17_one_of_isOpenMap`. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_one_point`.
 
-- `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 115
-- `Polyfold.EpGroupoid.proposition_8_1_17_one_of_isLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 121
-- `Polyfold.EP.proposition_8_1_17_two_of_isSLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 157
-- `Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 169
-- `Polyfold.EpGroupoid.proposition_8_1_17_one_of_isOpenMap` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 201
-- `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq` — Polyfold/Chapter8/TangentZhou.lean, line 155
-- `Polyfold.EpGroupoid.proposition_8_1_17_one` — Polyfold/Chapter8/TangentZhou.lean, line 177
-- `Polyfold.EpGroupoid.proposition_8_1_17_two` — Polyfold/Chapter8/TangentZhou.lean, line 184
-- `Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton` — Polyfold/Chapter8/TangentZhou.lean, line 204
-- `Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point` — Polyfold/Chapter8/TangentZhou.lean, line 220
+- `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 115
+- `Polyfold.EpGroupoid.proposition_8_1_17_one_of_isLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 121
+- `Polyfold.EP.proposition_8_1_17_two_of_isSLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 157
+- `Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 169
+- `Polyfold.EpGroupoid.proposition_8_1_17_one_of_isOpenMap` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 201
+- `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq` — Polyfold/Chapter8/TangentZhou.lean, line 156
+- `Polyfold.EpGroupoid.proposition_8_1_17_one` — Polyfold/Chapter8/TangentZhou.lean, line 178
+- `Polyfold.EpGroupoid.proposition_8_1_17_two` — Polyfold/Chapter8/TangentZhou.lean, line 185
+- `Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton` — Polyfold/Chapter8/TangentZhou.lean, line 205
+- `Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point` — Polyfold/Chapter8/TangentZhou.lean, line 221
 
 *What differs.*
 - Both hypotheses are theorems, the connectedness and density of $U(x) \cap X_1$ (gaps G.85, G.73 closed) and the openness of $p$ (gap G.8 closed), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_one_of_isLUC`, `EP.proposition_8_1_17_two_all_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_one`, `proposition_8_1_17_two`) (Findings, Chapter 8, item 116).
@@ -14240,12 +14240,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpStrongBundle.IsLRLocal` (`Chapter10/LocalizationLRBundleBase.lean`), Definition 8.4.2 as printed: inside every open $O \ni x$ a natural representation $U(x)$ such that every strong bundle isomorphism $B : W|U(x) \to W|U(x)$ (`StrongBundle.IsLocalIsoOn`, no condition off $W|U(x)$) with $|B(w)| = |w|$ is $w \mapsto g * w$ for some $g \in G_x$; witness `EpStrongBundle.isLRLocal_trivial`. `EpStrongBundle.natLift`: $g * w = \mu(\Gamma(g, P(w)), w)$. `EpStrongBundle.IsLR`, the form for strong bundle maps of $W$, implied by `IsLRLocal` (`IsLRLocal.isLR`): inside every open $O \ni x$ a natural representation $U(x)$ such that every strong bundle map $\Phi : W \to W$ covering some $\beta$, a strong bundle isomorphism on $W|U(x)$ (`IsStrongBundleIsoOn`), with $|\Phi(w)| = |w|$ for $P(w) \in U(x)$, equals $w \mapsto g * w$ on $W|U(x)$ for some $g \in G_x$. Witness: `EpStrongBundle.isLR_trivial` (every strong bundle over a trivial ep-groupoid). Proposition 8.4.3 in both forms, with the text's hypotheses only: `EpStrongBundle.proposition_8_4_3_isLRLocal` (`Chapter10/BundleLocalRegularityPrinted.lean`): an effective $X$ with (LR) gives `IsLRLocal` for every strong bundle over $X$, through `EpStrongBundle.exists_mor_of_π_eq_of_isLocalIsoOn` (for a strong bundle isomorphism of $W|U$, $P(w) \in U$ and $|\Phi(w)| = |w|$ there is $\psi : P(w) \to \beta(P(w))$ with $\Phi(w) = \mu(\psi, w)$); `EpStrongBundle.proposition_8_4_3`: the same with the conclusion `IsLR`. The structure of a strong polyfold bundle (Definition 16.3.1) has the field `isLRLocal` (`StrongPolyfoldBundleStructure`); `StrongPolyfoldBundleStructure.isLR` is the derived form. `EpStrongBundle.IsLRGerm` (`Chapter10/LocalRegularityGerm.lean`), the germ form: the same with $B = g * \cdot$ over a smaller natural representation $U_0(x) \subseteq U(x)$, the same for all $B$; it follows from `IsLRLocal` (`IsLRLocal.isLRGerm`) and, with sc-smooth bump functions, from `IsLR` (`EpStrongBundle.IsLR.isLRGerm_of_admitsBumpFunctions`): a strong bundle isomorphism of $W|U$ agrees near $x$ with a strong bundle map of $W$, its composite with a contraction of $W$ into $W|U$ (`StrongBundle.isStrongBundleMap_cutOff`, `MPolyfold.AdmitsBumpFunctions.hasLocalIsoExtension`).
 
-- `Polyfold.EpStrongBundle.natLift` — Polyfold/Chapter8/TangentZhou.lean, line 240
-- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 254
-- `Polyfold.EpStrongBundle.isLR_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 273
-- `Polyfold.EpStrongBundle.proposition_8_4_3` — Polyfold/Chapter8/BundleLocalRegularity.lean, line 100
-- `Polyfold.EpGroupoid.eq_of_isRegular_src` — Polyfold/Chapter8/BundleLocalRegularity.lean, line 60
-- `Polyfold.EpStrongBundle.exists_mor_of_π_eq` — Polyfold/Chapter8/BundleLocalRegularity.lean, line 86
+- `Polyfold.EpStrongBundle.natLift` — Polyfold/Chapter8/TangentZhou.lean, line 241
+- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 255
+- `Polyfold.EpStrongBundle.isLR_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 274
+- `Polyfold.EpStrongBundle.proposition_8_4_3` — Polyfold/Chapter10/BundleLocalRegularity.lean, line 100
+- `Polyfold.EpGroupoid.eq_of_isRegular_src` — Polyfold/Chapter10/BundleLocalRegularity.lean, line 60
+- `Polyfold.EpStrongBundle.exists_mor_of_π_eq` — Polyfold/Chapter10/BundleLocalRegularity.lean, line 86
 - `Polyfold.EpStrongBundle.IsLRLocal` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 157
 - `Polyfold.EpStrongBundle.IsLRLocal.isLR` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 165
 - `Polyfold.EpStrongBundle.isLRLocal_trivial` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 181
@@ -14322,12 +14322,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv` — Polyfold/Chapter8/Book.lean, line 556
 - `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv` — Polyfold/Chapter8/Book.lean, line 572
 - `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10` — Polyfold/Chapter8/Book.lean, line 626
-- `Polyfold.EpStrongBundle.pullbackBundle2021` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 69
-- `Polyfold.EpStrongBundle.pullbackBundle2021_μ` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 73
-- `Polyfold.EpStrongBundle.pullbackBundle2021_isStrongBundle` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 80
-- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 112
-- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 118
-- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 136
+- `Polyfold.EpStrongBundle.pullbackBundle2021` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 69
+- `Polyfold.EpStrongBundle.pullbackBundle2021_μ` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 73
+- `Polyfold.EpStrongBundle.pullbackBundle2021_isStrongBundle` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 80
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 112
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 118
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 136
 
 *What differs.*
 - "Strong bundle isomorphism over the ep-groupoid $Y$" is read as follows: $B$ and $B^{-1}$ are inverse strong bundle maps of strong bundles over ep-groupoids (Definition 8.3.2), covering the identity functor of $Y$, and $F^*V$ carries the structure `pullbackBundle2021`. The text's sentence that $\mu_{F^*V}$ "defines the strong bundle" over $Y$ is proved for every sc-smooth $F$ (gap G.89 closed) (Findings, Chapter 8, items 122, 129).
@@ -14340,8 +14340,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift_of_isSLUC`: under (SLUC) every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_of_isSLUC`: `A.tangentEP.IsSLUC`; no other hypothesis. The forms with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$ are kept: `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all`. Witness: `Examples.proposition_8_1_17_two_all_pointEP`.
 
-- `Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 169
-- `Polyfold.EP.isLUC_tangent_lift_of_isSLUC` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 162
+- `Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 169
+- `Polyfold.EP.isLUC_tangent_lift_of_isSLUC` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 162
 - `Polyfold.MPolyfold.ScEquiv.toHomeomorph` — Polyfold/Chapter8/TangentZhouLevels.lean, line 65
 - `Polyfold.EP.tangentEP` — Polyfold/Chapter8/TangentZhouLevels.lean, line 74
 - `Polyfold.EpGroupoid.EpEquiv` — Polyfold/Chapter8/TangentZhouLevels.lean, line 95
@@ -14369,23 +14369,23 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpGroupoid.epForms X k` is the vector space $\Omega^k_{ep}(X)$: the families $\omega$ with $\omega \in \Omega^k(X)$ (`MPolyfold.scForms`, Definition 4.4.1 for the object M-polyfold) and $(T\varphi)^*\omega_y = \omega_x$ for every $\varphi \in \mathbf X_1$ (`IsMorCompatible`, with $T\varphi$ the bounded linear isomorphism `tangentMorCLE`, V7.5). `isMorCompatible_iff_formPullback`: the condition is $s^*\omega = t^*\omega$ on the morphism M-polyfold. `formLower_mem_epForms`: a form on $X$ is a form on $X^1$; `EP.epForms A k i` is $\Omega^k_{ep}(X^i)$ for Chapter 7's index lifts, `EP.epFormsMap` the directed system, `EP.epFormsInfty A k` $= \Omega^k_{ep,\infty}(X)$ its direct limit (`Module.DirectLimit`), with `exists_epFormsInftyOf_eq` and `epFormsInftyOf_eq_iff` (two forms represent the same class iff their pull-backs to some $X^l$ agree). `extD_mem_epForms`: $d\omega$ is compatible with morphisms; `EP.epFormsInftyD`, $d[\omega] = [d\omega]$ (`epFormsInftyD_of`), $d \circ d = 0$ (`epFormsInftyD_comp_epFormsInftyD`). Also `formWedge_mem_epForms`, `formPullback_mem_epForms` (pull-back by sc-smooth functors) and `formPullback_eq_of_natTrans`. Witness: `constForm_mem_epForms`.
 
-- `Polyfold.EpGroupoid.IsMorCompatible` — Polyfold/Chapter8/EpForms.lean, line 103
-- `Polyfold.EpGroupoid.epForms` — Polyfold/Chapter8/EpForms.lean, line 164
-- `Polyfold.EpGroupoid.isMorCompatible_iff_formPullback` — Polyfold/Chapter8/EpForms.lean, line 119
-- `Polyfold.EpGroupoid.formLower_mem_epForms` — Polyfold/Chapter8/EpForms.lean, line 196
-- `Polyfold.EpGroupoid.extD_mem_epForms` — Polyfold/Chapter8/EpForms.lean, line 207
-- `Polyfold.EpGroupoid.formWedge_mem_epForms` — Polyfold/Chapter8/EpForms.lean, line 220
-- `Polyfold.EpGroupoid.formPullback_mem_epForms` — Polyfold/Chapter8/EpForms.lean, line 237
-- `Polyfold.EpGroupoid.formPullback_eq_of_natTrans` — Polyfold/Chapter8/EpForms.lean, line 257
-- `Polyfold.EpGroupoid.constForm_mem_epForms` — Polyfold/Chapter8/EpForms.lean, line 189
-- `Polyfold.EP.epForms` — Polyfold/Chapter8/EpForms.lean, line 280
-- `Polyfold.EP.epFormsMap` — Polyfold/Chapter8/EpForms.lean, line 297
-- `Polyfold.EP.epFormsInfty` — Polyfold/Chapter8/EpForms.lean, line 323
-- `Polyfold.EP.exists_epFormsInftyOf_eq` — Polyfold/Chapter8/EpForms.lean, line 340
-- `Polyfold.EP.epFormsInftyOf_eq_iff` — Polyfold/Chapter8/EpForms.lean, line 346
-- `Polyfold.EP.epFormsInftyD` — Polyfold/Chapter8/EpForms.lean, line 390
-- `Polyfold.EP.epFormsInftyD_of` — Polyfold/Chapter8/EpForms.lean, line 397
-- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyD` — Polyfold/Chapter8/EpForms.lean, line 403
+- `Polyfold.EpGroupoid.IsMorCompatible` — Polyfold/Chapter9/EpForms.lean, line 103
+- `Polyfold.EpGroupoid.epForms` — Polyfold/Chapter9/EpForms.lean, line 164
+- `Polyfold.EpGroupoid.isMorCompatible_iff_formPullback` — Polyfold/Chapter9/EpForms.lean, line 119
+- `Polyfold.EpGroupoid.formLower_mem_epForms` — Polyfold/Chapter9/EpForms.lean, line 196
+- `Polyfold.EpGroupoid.extD_mem_epForms` — Polyfold/Chapter9/EpForms.lean, line 207
+- `Polyfold.EpGroupoid.formWedge_mem_epForms` — Polyfold/Chapter9/EpForms.lean, line 220
+- `Polyfold.EpGroupoid.formPullback_mem_epForms` — Polyfold/Chapter9/EpForms.lean, line 237
+- `Polyfold.EpGroupoid.formPullback_eq_of_natTrans` — Polyfold/Chapter9/EpForms.lean, line 257
+- `Polyfold.EpGroupoid.constForm_mem_epForms` — Polyfold/Chapter9/EpForms.lean, line 189
+- `Polyfold.EP.epForms` — Polyfold/Chapter9/EpForms.lean, line 280
+- `Polyfold.EP.epFormsMap` — Polyfold/Chapter9/EpForms.lean, line 297
+- `Polyfold.EP.epFormsInfty` — Polyfold/Chapter9/EpForms.lean, line 323
+- `Polyfold.EP.exists_epFormsInftyOf_eq` — Polyfold/Chapter9/EpForms.lean, line 340
+- `Polyfold.EP.epFormsInftyOf_eq_iff` — Polyfold/Chapter9/EpForms.lean, line 346
+- `Polyfold.EP.epFormsInftyD` — Polyfold/Chapter9/EpForms.lean, line 390
+- `Polyfold.EP.epFormsInftyD_of` — Polyfold/Chapter9/EpForms.lean, line 397
+- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyD` — Polyfold/Chapter9/EpForms.lean, line 403
 
 *What differs.*
 - The text proves the compatibility of $d\omega$ with morphisms through $f = t \circ (s|\mathbf U(\varphi_0))^{-1}$ and $f^* d = d f^*$; here the same naturality of $d$ (`extD_formPullback`) is applied to the global maps $s, t : \mathbf X \to X$. The direct limit is Mathlib's `Module.DirectLimit`, the text's $\bigoplus_i \Omega^*_{ep}(X^i)/D$. Definition 8.2.1 writes $T_yY$ for $T_yX$ (reading point, Findings, Chapter 8, item 110) (Findings, Chapter 8, item 132).
@@ -14398,17 +14398,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EP.epFormsInftyGraded A` $= \bigoplus_k \Omega^k_{ep,\infty}(X)$ with `epFormsInftyGradedD`, `epFormsInftyGradedD_comp_self` ($d \circ d = 0$); as a cochain complex of real vector spaces `EP.epDeRhamComplex A`; its cohomology `EP.epDeRham A k` ($\ker d / \operatorname{im} d$). It is a subcomplex of Part I's $(\Omega^*_\infty(X), d)$ for the object M-polyfold (`epFormsInftyToObj`, injective, a chain map: `epFormsInftyToObj_injective`, `formsInftyD_comp_epFormsInftyToObj`). Beyond the text of §8.2: the pull-back $F^*$ by sc-smooth functors with $d F^* = F^* d$ (`EP.epFormsInftyPullback`, `epFormsInftyD_comp_epFormsInftyPullback`), invariant under natural equivalence (`epFormsInftyPullback_eq_of_natTrans`), the functor case of Theorem 11.2.1 (2).
 
-- `Polyfold.EP.epFormsInftyGraded` — Polyfold/Chapter8/EpForms.lean, line 418
-- `Polyfold.EP.epFormsInftyGradedD` — Polyfold/Chapter8/EpForms.lean, line 421
-- `Polyfold.EP.epFormsInftyGradedD_comp_self` — Polyfold/Chapter8/EpForms.lean, line 432
-- `Polyfold.EP.epDeRham` — Polyfold/Chapter8/EpForms.lean, line 453
-- `Polyfold.EP.epDeRhamComplex` — Polyfold/Chapter8/EpFormsObj.lean, line 152
-- `Polyfold.EP.epFormsInftyToObj` — Polyfold/Chapter8/EpFormsObj.lean, line 113
-- `Polyfold.EP.epFormsInftyToObj_injective` — Polyfold/Chapter8/EpFormsObj.lean, line 135
-- `Polyfold.EP.formsInftyD_comp_epFormsInftyToObj` — Polyfold/Chapter8/EpFormsObj.lean, line 126
-- `Polyfold.EP.epFormsInftyPullback` — Polyfold/Chapter8/EpFormsFunctor.lean, line 150
-- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyPullback` — Polyfold/Chapter8/EpFormsFunctor.lean, line 163
-- `Polyfold.EP.epFormsInftyPullback_eq_of_natTrans` — Polyfold/Chapter8/EpFormsFunctor.lean, line 208
+- `Polyfold.EP.epFormsInftyGraded` — Polyfold/Chapter9/EpForms.lean, line 418
+- `Polyfold.EP.epFormsInftyGradedD` — Polyfold/Chapter9/EpForms.lean, line 421
+- `Polyfold.EP.epFormsInftyGradedD_comp_self` — Polyfold/Chapter9/EpForms.lean, line 432
+- `Polyfold.EP.epDeRham` — Polyfold/Chapter9/EpForms.lean, line 453
+- `Polyfold.EP.epDeRhamComplex` — Polyfold/Chapter9/EpFormsObj.lean, line 152
+- `Polyfold.EP.epFormsInftyToObj` — Polyfold/Chapter9/EpFormsObj.lean, line 113
+- `Polyfold.EP.epFormsInftyToObj_injective` — Polyfold/Chapter9/EpFormsObj.lean, line 135
+- `Polyfold.EP.formsInftyD_comp_epFormsInftyToObj` — Polyfold/Chapter9/EpFormsObj.lean, line 126
+- `Polyfold.EP.epFormsInftyPullback` — Polyfold/Chapter10/EpFormsFunctor.lean, line 150
+- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyPullback` — Polyfold/Chapter10/EpFormsFunctor.lean, line 163
+- `Polyfold.EP.epFormsInftyPullback_eq_of_natTrans` — Polyfold/Chapter10/EpFormsFunctor.lean, line 208
 
 *What differs.*
 - None beyond Definition 8.2.1 (V8.53). The complex is also given as a `CochainComplex` of `ModuleCat ℝ` (Findings, Chapter 8, item 132).
@@ -14432,7 +14432,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.NaturalRep.exists_primitive_translation` — Polyfold/Chapter11/TranslationAverage.lean, line 96
 - `Polyfold.EP.exists_primitive_of_average` — Polyfold/Chapter11/FormAveraging.lean, line 221
 - `Polyfold.EP.exists_primitive_of_equivalence` — Polyfold/Chapter11/FormAveraging.lean, line 268
-- `Polyfold.EP.proposition_8_2_3_object` — Polyfold/Chapter8/EpPoincare.lean, line 55
+- `Polyfold.EP.proposition_8_2_3_object` — Polyfold/Chapter9/EpPoincare.lean, line 55
 
 *What differs.*
 - The proof is the text's, with the averaging and the extension made explicit: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on the translation groupoid $G_x \ltimes U(x)$ of a natural representation (`NaturalRep.exists_primitive_translation`, from `EP.exists_primitive_of_average`), and the push-forward along the equivalence $G_x \ltimes U(x) \to X|\pi^{-1}(\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`, Definition 11.2.3), which is the text's $\sigma(y) = \psi^*\tau'(x')$. The text's index $k \ge 1$ is $k + 1$ here. The file is in Chapter 11 because it uses the push-forward of §11.2 (Findings, Chapter 8, items 123, 132).
@@ -14471,22 +14471,22 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** A submanifold has dimension $k$ at $a$ if the tangent space of its sub-retract at the chart image of $a$ has dimension $k$; the value does not depend on the data and the chart, is unique, exists at every point, and is invariant under restriction to open sets and under sc-diffeomorphisms. It is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`): in a chart it is the rank of $Dt$ for the chart sc⁺-retraction $t$ of the submanifold (`hasDimAt_finrank`), locally constant along the retract (`ScRetraction.eventually_finrank_eq`); so a labelled local branching structure exists at every point of $\mathrm{supp}(\Theta)$ (`hasLabelledBranchingAt_general`). $\Theta$ is $n$-dimensional if at every point of its support some local branching structure has only $n$-dimensional $M_i$; the zero functor is $n$-dimensional for every $n$. The dimensions of the $M_i$ of one structure through $x$ are determined, and at a point of $\mathrm{supp}(\Theta)$ the sheets of any two structures have the same tangent spaces and dimensions (`exists_submanifoldTangent_eq`, `isOfDim_unique`); hence the footnote: an $n$-dimensional $\Theta$ with nonempty support is not $m$-dimensional for $m \ne n$ (`definition_9_1_2_footnote`, `_of_ne_zero`; for $\Theta = 0$ it does not hold as we read it, `definition_9_1_2_footnote_zero`). $\Theta$ is locally equidimensional if at every point of its support some local branching structure has sheets of one dimension; for branched $\Theta$ equivalently every local branching structure, restricted near the point, has sheets of that dimension (`IsLocallyEquidimensional`, `isLocallyEquidimensional_iff`), and the dimension is locally constant on the support (`exists_isOpen_isNDimensionalAt`). The hypothesis `HasLocallyConstantDimAt` and its proof on $\mathbb R^m$ are kept.
 
-- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1183
-- `Polyfold.MPolyfold.hasDimAt_finrank` — Polyfold/Chapter9/GeneralLevelZero.lean, line 991
-- `Polyfold.ScRetraction.eventually_finrank_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 914
+- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1143
+- `Polyfold.MPolyfold.hasDimAt_finrank` — Polyfold/Chapter9/GeneralLevelZero.lean, line 985
+- `Polyfold.ScRetraction.eventually_finrank_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 919
 - `Polyfold.EpGroupoid.hasLabelledBranchingAt_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 585
-- `Polyfold.MPolyfold.HasDimAt` — Polyfold/Chapter9/Propositions.lean, line 256
-- `Polyfold.MPolyfold.finrank_tangentSpace_chart_change` — Polyfold/Chapter9/Propositions.lean, line 268
-- `Polyfold.MPolyfold.HasDimAt.finrank_eq` — Polyfold/Chapter9/Propositions.lean, line 309
-- `Polyfold.MPolyfold.HasDimAt.unique` — Polyfold/Chapter9/Propositions.lean, line 333
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.exists_hasDimAt` — Polyfold/Chapter9/Propositions.lean, line 340
-- `Polyfold.MPolyfold.hasDimAt_inter_isOpen_iff` — Polyfold/Chapter9/Propositions.lean, line 349
-- `Polyfold.MPolyfold.hasDimAt_image_iff` — Polyfold/Chapter9/Propositions.lean, line 378
-- `Polyfold.MPolyfold.IsSubmanifoldOfDim` — Polyfold/Chapter9/Propositions.lean, line 433
-- `Polyfold.EpGroupoid.LocalBranchingStructure.IsOfDim` — Polyfold/Chapter9/Propositions.lean, line 639
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dim_unique` — Polyfold/Chapter9/Propositions.lean, line 643
-- `Polyfold.EpGroupoid.IsNDimensional` — Polyfold/Chapter9/Propositions.lean, line 761
-- `Polyfold.EpGroupoid.isNDimensional_zero` — Polyfold/Chapter9/Propositions.lean, line 766
+- `Polyfold.MPolyfold.HasDimAt` — Polyfold/Chapter6/SubmanifoldDimension.lean, line 89
+- `Polyfold.MPolyfold.finrank_tangentSpace_chart_change` — Polyfold/Chapter6/SubmanifoldDimension.lean, line 101
+- `Polyfold.MPolyfold.HasDimAt.finrank_eq` — Polyfold/Chapter6/SubmanifoldDimension.lean, line 142
+- `Polyfold.MPolyfold.HasDimAt.unique` — Polyfold/Chapter9/Propositions.lean, line 192
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.exists_hasDimAt` — Polyfold/Chapter9/Propositions.lean, line 199
+- `Polyfold.MPolyfold.hasDimAt_inter_isOpen_iff` — Polyfold/Chapter6/SubmanifoldDimension.lean, line 167
+- `Polyfold.MPolyfold.hasDimAt_image_iff` — Polyfold/Chapter9/Propositions.lean, line 210
+- `Polyfold.MPolyfold.IsSubmanifoldOfDim` — Polyfold/Chapter6/SubmanifoldDimension.lean, line 195
+- `Polyfold.EpGroupoid.LocalBranchingStructure.IsOfDim` — Polyfold/Chapter9/Propositions.lean, line 465
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dim_unique` — Polyfold/Chapter9/Propositions.lean, line 469
+- `Polyfold.EpGroupoid.IsNDimensional` — Polyfold/Chapter9/Propositions.lean, line 587
+- `Polyfold.EpGroupoid.isNDimensional_zero` — Polyfold/Chapter9/Propositions.lean, line 592
 - `Polyfold.MPolyfold.HasLocallyConstantDimAt` — Polyfold/Chapter9/AppendixSlices.lean, line 767
 - `Polyfold.MPolyfold.hasLocallyConstantDimAt_rn` — Polyfold/Chapter9/AppendixSlices.lean, line 775
 - `Polyfold.EpGroupoid.LocalBranchingStructure.exists_submanifoldTangent_eq` — Polyfold/Chapter9/LocallyEquidimensional.lean, line 68
@@ -14509,17 +14509,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** On the trivial ep-groupoid of $\mathbb R^n$, finite weighted sums of indicators of closed submanifolds through which the sum is taken, and indicators of locally closed submanifolds, are branched ep⁺-subgroupoids, $n$-dimensional when all submanifolds are. The image of a smooth idempotent $s$ of $\mathbb R^n$ is a closed smooth submanifold of dimension $\mathrm{rank}\,Ds(a)$; graphs of smooth $\beta : \mathbb R \to \mathbb R$ in $\mathbb R^2$ are closed $1$-dimensional submanifolds; points are $0$-dimensional.
 
-- `Polyfold.EpGroupoid.paracompactSpace_orbitSupp_trivial_rn` — Polyfold/Chapter9/Propositions.lean, line 856
-- `Polyfold.EpGroupoid.localBranchingStructure_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 874
-- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 922
-- `Polyfold.EpGroupoid.isNDimensional_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 937
-- `Polyfold.EpGroupoid.localBranchingStructure_indicator_rn` — Polyfold/Chapter9/Propositions.lean, line 948
-- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_indicator_rn` — Polyfold/Chapter9/Propositions.lean, line 976
-- `Polyfold.rnPolyfold_isSmoothSubmanifold_range` — Polyfold/Chapter9/Propositions.lean, line 485
-- `Polyfold.rnPolyfold_hasDimAt_range` — Polyfold/Chapter9/Propositions.lean, line 501
-- `Polyfold.graph2` — Polyfold/Chapter9/Propositions.lean, line 542
-- `Polyfold.rnPolyfold_isSubmanifoldOfDim_graph2` — Polyfold/Chapter9/Propositions.lean, line 601
-- `Polyfold.EpGroupoid.rnPolyfold_isSubmanifoldOfDim_singleton` — Polyfold/Chapter9/Propositions.lean, line 1228
+- `Polyfold.EpGroupoid.paracompactSpace_orbitSupp_trivial_rn` — Polyfold/Chapter9/Propositions.lean, line 682
+- `Polyfold.EpGroupoid.localBranchingStructure_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 700
+- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 748
+- `Polyfold.EpGroupoid.isNDimensional_sum_rn` — Polyfold/Chapter9/Propositions.lean, line 763
+- `Polyfold.EpGroupoid.localBranchingStructure_indicator_rn` — Polyfold/Chapter9/Propositions.lean, line 774
+- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_indicator_rn` — Polyfold/Chapter9/Propositions.lean, line 802
+- `Polyfold.rnPolyfold_isSmoothSubmanifold_range` — Polyfold/Chapter9/Propositions.lean, line 311
+- `Polyfold.rnPolyfold_hasDimAt_range` — Polyfold/Chapter9/Propositions.lean, line 327
+- `Polyfold.graph2` — Polyfold/Chapter9/Propositions.lean, line 368
+- `Polyfold.rnPolyfold_isSubmanifoldOfDim_graph2` — Polyfold/Chapter9/Propositions.lean, line 427
+- `Polyfold.EpGroupoid.rnPolyfold_isSubmanifoldOfDim_singleton` — Polyfold/Chapter9/Propositions.lean, line 1054
 
 *What differs.*
 - Witnesses for the hypotheses of the chapter (Findings, Chapter 9, item 100).
@@ -14532,15 +14532,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For smooth $\beta_1, \beta_2 : \mathbb R \to \mathbb R$ with the sign conditions of the text (satisfiable, from `expNegInvGlue`), $\Theta(p) = \#\{i \mid p \in \mathrm{graph}\,\beta_i\}$ is a $1$-dimensional branched ep⁺-subgroupoid of the trivial ep-groupoid of $\mathbb R^2$, equal to the one given by the graphs of $0$ and $\beta_1 + \beta_2$, and no submanifold of the one structure agrees with a submanifold of the other on any neighbourhood of the origin.
 
-- `Polyfold.EpGroupoid.Remark913Hyp` — Polyfold/Chapter9/Propositions.lean, line 1070
-- `Polyfold.EpGroupoid.remark913Hyp_expNegInvGlue` — Polyfold/Chapter9/Propositions.lean, line 1080
-- `Polyfold.EpGroupoid.thetaGraphs` — Polyfold/Chapter9/Propositions.lean, line 1043
-- `Polyfold.EpGroupoid.thetaGraphs_eq` — Polyfold/Chapter9/Propositions.lean, line 1059
-- `Polyfold.EpGroupoid.Remark913Hyp.structureβ` — Polyfold/Chapter9/Propositions.lean, line 1117
-- `Polyfold.EpGroupoid.Remark913Hyp.structureγ` — Polyfold/Chapter9/Propositions.lean, line 1125
-- `Polyfold.EpGroupoid.Remark913Hyp.γ₂_pos` — Polyfold/Chapter9/Propositions.lean, line 1111
-- `Polyfold.EpGroupoid.Remark913Hyp.eq_add_of_thetaGraphs_eq` — Polyfold/Chapter9/Propositions.lean, line 1136
-- `Polyfold.EpGroupoid.remark_9_1_3_b` — Polyfold/Chapter9/Propositions.lean, line 1161
+- `Polyfold.EpGroupoid.Remark913Hyp` — Polyfold/Chapter9/Propositions.lean, line 896
+- `Polyfold.EpGroupoid.remark913Hyp_expNegInvGlue` — Polyfold/Chapter9/Propositions.lean, line 906
+- `Polyfold.EpGroupoid.thetaGraphs` — Polyfold/Chapter9/Propositions.lean, line 869
+- `Polyfold.EpGroupoid.thetaGraphs_eq` — Polyfold/Chapter9/Propositions.lean, line 885
+- `Polyfold.EpGroupoid.Remark913Hyp.structureβ` — Polyfold/Chapter9/Propositions.lean, line 943
+- `Polyfold.EpGroupoid.Remark913Hyp.structureγ` — Polyfold/Chapter9/Propositions.lean, line 951
+- `Polyfold.EpGroupoid.Remark913Hyp.γ₂_pos` — Polyfold/Chapter9/Propositions.lean, line 937
+- `Polyfold.EpGroupoid.Remark913Hyp.eq_add_of_thetaGraphs_eq` — Polyfold/Chapter9/Propositions.lean, line 962
+- `Polyfold.EpGroupoid.remark_9_1_3_b` — Polyfold/Chapter9/Propositions.lean, line 987
 
 *What differs.*
 - The text gives $\gamma_2$ only by $\gamma_2(s) > 0$ for $s \ne 0$; describing the same $\Theta$ forces $\gamma_2 = \beta_1 + \beta_2$; "not unique, even close to $x$" is read as the last conjunct (Findings, Chapter 9, item 4).
@@ -14582,14 +14582,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** A local branching structure at $x$ restricts to every open $V \subseteq U(x)$ containing $x$. For a branched ep⁺-subgroupoid and $x \in \mathrm{supp}(\Theta)$ there is, inside every open $V \ni x$, a symmetric local branching structure: the domain of a natural representation $(\Phi, \Gamma)$ of $G_x$, a $G_x$-action on the index set with $\Phi(g)(M_i) = M_{g \cdot i}$ and $\sigma_{g\cdot i} = \sigma_i$, and $\Theta(y) = \sum_{y \in M_i} \sigma_i$ there; it is obtained with $J = I \times G_x$, $M_{(i,g)} = \Phi(g)(M_i \cap U)$ and $\sigma_{(i,g)} = \sigma_i / |G_x|$.
 
-- `Polyfold.EpGroupoid.LocalBranchingStructure.restrict` — Polyfold/Chapter9/Symmetric.lean, line 227
-- `Polyfold.EpGroupoid.LocalBranchingStructure.isClosed_M` — Polyfold/Chapter9/Symmetric.lean, line 221
-- `Polyfold.isProperMap_inclusion_iff` — Polyfold/Chapter9/Symmetric.lean, line 203
-- `Polyfold.EpGroupoid.SymmetricBranchingStructure` — Polyfold/Chapter9/Symmetric.lean, line 264
-- `Polyfold.EpGroupoid.IsFunctorial.apply_Φ` — Polyfold/Chapter9/Symmetric.lean, line 278
-- `Polyfold.EpGroupoid.LocalBranchingStructure.symmetrize` — Polyfold/Chapter9/Symmetric.lean, line 313
-- `Polyfold.EpGroupoid.lemma_9_1_7` — Polyfold/Chapter9/Symmetric.lean, line 368
-- `Polyfold.EpGroupoid.lemma_9_1_7'` — Polyfold/Chapter9/Symmetric.lean, line 379
+- `Polyfold.EpGroupoid.LocalBranchingStructure.restrict` — Polyfold/Chapter9/Symmetric.lean, line 181
+- `Polyfold.EpGroupoid.LocalBranchingStructure.isClosed_M` — Polyfold/Chapter9/Symmetric.lean, line 175
+- `Polyfold.isProperMap_inclusion_iff` — Polyfold/Chapter9/Symmetric.lean, line 157
+- `Polyfold.EpGroupoid.SymmetricBranchingStructure` — Polyfold/Chapter9/Symmetric.lean, line 218
+- `Polyfold.EpGroupoid.IsFunctorial.apply_Φ` — Polyfold/Chapter9/Symmetric.lean, line 232
+- `Polyfold.EpGroupoid.LocalBranchingStructure.symmetrize` — Polyfold/Chapter9/Symmetric.lean, line 267
+- `Polyfold.EpGroupoid.lemma_9_1_7` — Polyfold/Chapter9/Symmetric.lean, line 322
+- `Polyfold.EpGroupoid.lemma_9_1_7'` — Polyfold/Chapter9/Symmetric.lean, line 333
 
 *What differs.*
 - The symmetric structure lies inside any given $V$. The restriction remark is formalized at $x$ itself, not at a point $x_0$ of $V(x_0) \subseteq U(x)$, where the $N_i$ may miss $x_0$ (reading). That $\Phi(g)(M_i \cap U)$ is a submanifold properly embedded in $U$ through $x$, used without statement in the text, is proved (Findings, Chapter 9, items 5, 6).
@@ -14606,7 +14606,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.IsManifoldType` — Polyfold/Chapter9/Basic.lean, line 180
 - `Polyfold.EpGroupoid.isManifoldType_indicator` — Polyfold/Chapter9/Basic.lean, line 355
 - `Polyfold.EpGroupoid.proposition_9_1_9_one` — Polyfold/Chapter9/SupportManifold.lean, line 132
-- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 236
+- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 236
 
 *What differs.*
 - Proposition 9.1.9 is formalized with the text's groupoid and the independence of choices (`proposition_9_1_9_one`, `proposition_9_1_9_two_text`, `proposition_9_1_9_two_independent`, `proposition_9_1_9_one_unique`, V9.64); Remark 9.1.10's classical structures for $n$-dimensional $\Theta$ (`remark_9_1_10_manifold`, `remark_9_1_10_orbifold_etale`, V9.65), without the composition of $M$ in Mathlib's language (gap G.95, closed) (Findings, Chapter 9, items 7, 114).
@@ -14625,23 +14625,23 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.dimComponent_locallyFinite_of_mem_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 620
 - `Polyfold.EpGroupoid.proposition_9_1_11_local_of_le` — Polyfold/Chapter9/GeneralCorollaries.lean, line 629
 - `Polyfold.EpGroupoid.hasLabelledBranchingAt_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 585
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart` — Polyfold/Chapter9/Propositions.lean, line 651
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure` — Polyfold/Chapter9/Propositions.lean, line 656
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 676
-- `Polyfold.EpGroupoid.LocalBranchingStructure.eq_sum_dimPart` — Polyfold/Chapter9/Propositions.lean, line 687
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_eq_zero` — Polyfold/Chapter9/Propositions.lean, line 700
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_eq_of_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 708
-- `Polyfold.EpGroupoid.SymmetricBranchingStructure.dim_smul` — Polyfold/Chapter9/Propositions.lean, line 726
-- `Polyfold.EpGroupoid.SymmetricBranchingStructure.dimPart_Φ` — Polyfold/Chapter9/Propositions.lean, line 737
-- `Polyfold.EpGroupoid.IsDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 775
-- `Polyfold.EpGroupoid.IsLocallyFiniteFamily` — Polyfold/Chapter9/Propositions.lean, line 783
-- `Polyfold.EpGroupoid.Proposition_9_1_11` — Polyfold/Chapter9/Propositions.lean, line 791
-- `Polyfold.EpGroupoid.axis2` — Polyfold/Chapter9/Propositions.lean, line 1217
-- `Polyfold.EpGroupoid.decompA` — Polyfold/Chapter9/Propositions.lean, line 1240
-- `Polyfold.EpGroupoid.decompB` — Polyfold/Chapter9/Propositions.lean, line 1245
-- `Polyfold.EpGroupoid.decompA_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1271
-- `Polyfold.EpGroupoid.decompB_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1308
-- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1336
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart` — Polyfold/Chapter9/Propositions.lean, line 477
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure` — Polyfold/Chapter9/Propositions.lean, line 482
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 502
+- `Polyfold.EpGroupoid.LocalBranchingStructure.eq_sum_dimPart` — Polyfold/Chapter9/Propositions.lean, line 513
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_eq_zero` — Polyfold/Chapter9/Propositions.lean, line 526
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_eq_of_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 534
+- `Polyfold.EpGroupoid.SymmetricBranchingStructure.dim_smul` — Polyfold/Chapter9/Propositions.lean, line 552
+- `Polyfold.EpGroupoid.SymmetricBranchingStructure.dimPart_Φ` — Polyfold/Chapter9/Propositions.lean, line 563
+- `Polyfold.EpGroupoid.IsDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 601
+- `Polyfold.EpGroupoid.IsLocallyFiniteFamily` — Polyfold/Chapter9/Propositions.lean, line 609
+- `Polyfold.EpGroupoid.Proposition_9_1_11` — Polyfold/Chapter9/Propositions.lean, line 617
+- `Polyfold.EpGroupoid.axis2` — Polyfold/Chapter9/Propositions.lean, line 1043
+- `Polyfold.EpGroupoid.decompA` — Polyfold/Chapter9/Propositions.lean, line 1066
+- `Polyfold.EpGroupoid.decompB` — Polyfold/Chapter9/Propositions.lean, line 1071
+- `Polyfold.EpGroupoid.decompA_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1097
+- `Polyfold.EpGroupoid.decompB_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1134
+- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1162
 - `Polyfold.EpGroupoid.IsLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 50
 - `Polyfold.EpGroupoid.isDimDecomposition_unique` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 72
 - `Polyfold.EpGroupoid.proposition_9_1_11_unique_rn` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 103
@@ -14674,10 +14674,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear` — Polyfold/Chapter9/GeneralCorollaries.lean, line 434
 - `Polyfold.MPolyfold.topMultiplicity` — Polyfold/Chapter9/GeneralCorollaries.lean, line 396
 - `Polyfold.MPolyfold.topMultiplicityAt` — Polyfold/Chapter9/GeneralCorollaries.lean, line 379
-- `Polyfold.EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear` — Polyfold/Chapter9/Propositions.lean, line 804
-- `Polyfold.EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear.exists_naturalRep` — Polyfold/Chapter9/Propositions.lean, line 811
-- `Polyfold.EpGroupoid.Proposition_9_1_12` — Polyfold/Chapter9/Propositions.lean, line 842
-- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear_of_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 822
+- `Polyfold.EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear` — Polyfold/Chapter9/Propositions.lean, line 630
+- `Polyfold.EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear.exists_naturalRep` — Polyfold/Chapter9/Propositions.lean, line 637
+- `Polyfold.EpGroupoid.Proposition_9_1_12` — Polyfold/Chapter9/Propositions.lean, line 668
+- `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear_of_isOfDim` — Polyfold/Chapter9/Propositions.lean, line 648
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear_of_topMultiplicity` — Polyfold/Chapter9/Appendix.lean, line 890
 - `Polyfold.EpGroupoid.proposition_9_1_12_of_topMultiplicity` — Polyfold/Chapter9/Appendix.lean, line 903
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear_of_hasGraphChartAt` — Polyfold/Chapter9/AppendixSlices.lean, line 661
@@ -14771,7 +14771,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.EpGroupoid.hasIndependentTangentSums` — Polyfold/Chapter9/GeneralCorollaries.lean, line 569
 - `Polyfold.MPolyfold.hasTangentSlicesAt` — Polyfold/Chapter9/GeneralCorollaries.lean, line 401
-- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1183
+- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1143
 - `Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isGoodPoint` — Polyfold/Chapter9/Tangent.lean, line 687
 - `Polyfold.EpGroupoid.hasIndependentTangentSums_of_subset_goodSet` — Polyfold/Chapter9/Tangent.lean, line 862
 - `Polyfold.EpGroupoid.hasIndependentTangentSums_of_isOfDim` — Polyfold/Chapter9/Tangent.lean, line 851
@@ -14887,8 +14887,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `lemma_9_2_7_2_general`: for every ep-groupoid, an $n$-dimensional local branching structure at $x$ and every $i$, there is a sequence of good points in $M_i$ converging to $x$. The invariance of domain for $n$-dimensional submanifolds it uses holds on every M-polyfold (`MPolyfold.hasDomainInvarianceAt`: two chart sc⁺-retractions with the same tangent space at a point have the same retract near it, `ScRetraction.eq_of_range_eq`). The forms with hypotheses are kept: `lemma_9_2_7_2` under `HasDomainInvarianceAt`, and `lemma_9_2_7_2_rn` on $\mathbb R^m$. In Remark 9.1.3 (b) the origin is bad and is approached by good points of the graph of $\beta_1$.
 
 - `Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_2_7_2_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 555
-- `Polyfold.MPolyfold.hasDomainInvarianceAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1220
-- `Polyfold.ScRetraction.eq_of_range_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 747
+- `Polyfold.MPolyfold.hasDomainInvarianceAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1180
+- `Polyfold.ScRetraction.eq_of_range_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 752
 - `Polyfold.MPolyfold.HasDomainInvarianceAt` — Polyfold/Chapter9/TangentSlices.lean, line 72
 - `Polyfold.MPolyfold.hasDomainInvarianceAt_rn` — Polyfold/Chapter9/TangentSlices.lean, line 101
 - `Polyfold.EpGroupoid.lemma_9_2_7_2` — Polyfold/Chapter9/TangentSlices.lean, line 294
@@ -14908,18 +14908,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** Lemma 9.2.9: for an sc⁺-retraction $r$ and a point $x_0$ of its retract with tangent space $T$, a cone $x_0 + s\bar B_T(h_1, \rho)$ lies in $C$ (`ScRetraction.exists_cone`). Lemmas 9.2.10, 9.2.11: near $x_0$ the retract is a graph over a cone in $T$ (`exists_graph_unif`, `exists_graph`), and over a ball of $T$ at interior points (`exists_graph_ball`), the inversion by the inverse function theorem on $T$; all estimates on level $1$ for $1_0^1 \circ r$, brought down to level $0$. In an M-polyfold every finite-dimensional submanifold through $x$ is, in one chart, a graph over the admissible cone of its tangent space (`isGraphChartAt_goodDirections`; `HasClassGraphChartAt`, one cone per tangent space, holds at every point, `hasClassGraphChartAt`). Proposition 9.2.8 in slice form: for every class $\Xi$ of sheets with one tangent space $L$ at $x$ and every neighbourhood $W$ of $x$ there is a finite slice of points in $W$ meeting each $M_i$, $i \in \Xi$, once and missing the other $M_i$, so that $\sum_{i \in \Xi} \sigma_i = \sum_{y \in F} \Theta(y)$, and the slice can be chosen generic (`exists_slice_of_classGraphChart`, `exists_generic_slice_general`; `HasTangentSlicesAt` at every point, `hasTangentSlicesAt`). The forms with the graph representation as a hypothesis (`IsGraphChartAt`, `HasGraphChartAt` for all dimensions at once, `HasGraphChartsAt`, `HasGraphBallAt`), proved on $\mathbb R^m$ by the inverse function theorem, are kept; `HasGraphChartAt` and `HasGraphBallAt` hold at interior points (`hasGraphChartAt_of_mem_interior`, `hasGraphBallAt_of_mem_interior`).
 
-- `Polyfold.ScRetraction.exists_cone` — Polyfold/Chapter9/GeneralLevelZero.lean, line 655
-- `Polyfold.ScRetraction.exists_graph_unif` — Polyfold/Chapter9/GeneralLevelZero.lean, line 334
-- `Polyfold.ScRetraction.exists_graph` — Polyfold/Chapter9/GeneralLevelZero.lean, line 502
-- `Polyfold.ScRetraction.exists_graph_ball` — Polyfold/Chapter9/GeneralLevelZero.lean, line 544
-- `Polyfold.MPolyfold.isGraphChartAt_goodDirections` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1019
-- `Polyfold.MPolyfold.HasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1070
-- `Polyfold.MPolyfold.hasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1077
+- `Polyfold.ScRetraction.exists_cone` — Polyfold/Chapter9/GeneralLevelZero.lean, line 660
+- `Polyfold.ScRetraction.exists_graph_unif` — Polyfold/Chapter9/GeneralLevelZero.lean, line 339
+- `Polyfold.ScRetraction.exists_graph` — Polyfold/Chapter9/GeneralLevelZero.lean, line 507
+- `Polyfold.ScRetraction.exists_graph_ball` — Polyfold/Chapter9/GeneralLevelZero.lean, line 549
+- `Polyfold.MPolyfold.isGraphChartAt_goodDirections` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1013
+- `Polyfold.MPolyfold.HasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1064
+- `Polyfold.MPolyfold.hasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1071
 - `Polyfold.MPolyfold.exists_slice_of_classGraphChart` — Polyfold/Chapter9/GeneralCorollaries.lean, line 88
 - `Polyfold.MPolyfold.exists_generic_slice_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 251
 - `Polyfold.MPolyfold.hasTangentSlicesAt` — Polyfold/Chapter9/GeneralCorollaries.lean, line 401
-- `Polyfold.MPolyfold.hasGraphChartAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1116
-- `Polyfold.MPolyfold.hasGraphBallAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1109
+- `Polyfold.MPolyfold.hasGraphChartAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1109
+- `Polyfold.MPolyfold.hasGraphBallAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1102
 - `Polyfold.MPolyfold.HasTangentSlicesAt` — Polyfold/Chapter9/Tangent.lean, line 405
 - `Polyfold.MPolyfold.IsGraphChartAt` — Polyfold/Chapter9/TangentSlicesBasic.lean, line 443
 - `Polyfold.MPolyfold.HasGraphChartsAt` — Polyfold/Chapter9/TangentSlicesBasic.lean, line 459
@@ -14949,10 +14949,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `isBranchedEpSubgroupoid_tangentTheta_general`: for a branched ep⁺-subgroupoid $\Theta$ of an ep-groupoid with paracompact orbit space $|X|$, $T\Theta$ is a branched ep⁺-subgroupoid of $TX$. For a smooth finite-dimensional submanifold $A$, $TA$ is a smooth finite-dimensional submanifold of $TX$, near each point the image of the sc⁺-retraction $Ts$ (`IsSmoothSubmanifold.isSmoothSubmanifold_tangent`), so the $TM_i$ of every local branching structure are smooth in $TX$ (`LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold`) and the hypothesis `TangentBranchingHyp` holds whenever $|X|$ is paracompact (`tangentBranchingHyp`). Under the independence of V9.13, $T\Theta(h) = \sum_{h \in TM_i} \sigma_i$ for $h$ over $U(x)$, and $0$ over the complement of the support, is well defined, nonnegative and a functor on the tangent ep-groupoid; it is a branched ep⁺-subgroupoid of $TX$ if the $TM_i$ are smooth submanifolds of $TX$ (closedness and the paracompactness of $|\mathrm{supp}(T\Theta)|$ for paracompact $|X|$ are proved), and on $\mathbb R^m$ the $TM_i$ are sub-M-polyfolds of $TX$, retracts of $Ts$.
 
-- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 219
-- `Polyfold.EpGroupoid.tangentBranchingHyp` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 209
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 181
-- `Polyfold.EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 201
+- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 154
+- `Polyfold.EpGroupoid.tangentBranchingHyp` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 144
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 116
+- `Polyfold.EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 136
 - `Polyfold.EpGroupoid.tangentSubmanifold` — Polyfold/Chapter9/Tangent.lean, line 1198
 - `Polyfold.EpGroupoid.tangentTheta` — Polyfold/Chapter9/Tangent.lean, line 1090
 - `Polyfold.EpGroupoid.tangentTheta_eq` — Polyfold/Chapter9/Tangent.lean, line 1105
@@ -15029,16 +15029,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** (1) Under the independence of V9.13, $\sum_{y \in \partial M_i} \sigma_i$ is the same for any two local branching structures whose domains contain $y$. (2) At $y$ with $d_X(y) = 0$ this sum and the corresponding formal sum of tangent spaces vanish, for every structure. (3) $\partial\Theta$, the part of $T_\Theta(y)$ on tangent spaces not contained in $T^R_yX$, is a functor, nonnegative, supported in $\partial X$, and equal to $\sum_{y \in \partial M_i} \sigma_i$ on every structure.
 
-- `Polyfold.MPolyfold.submanifoldBoundary` — Polyfold/Chapter9/Boundary.lean, line 363
-- `Polyfold.MPolyfold.mem_submanifoldBoundary_iff` — Polyfold/Chapter9/Boundary.lean, line 380
-- `Polyfold.EpGroupoid.boundaryPart` — Polyfold/Chapter9/Boundary.lean, line 437
-- `Polyfold.EpGroupoid.boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 468
-- `Polyfold.EpGroupoid.boundaryTheta_eq` — Polyfold/Chapter9/Boundary.lean, line 501
-- `Polyfold.EpGroupoid.proposition_9_2_15_1` — Polyfold/Chapter9/Boundary.lean, line 533
-- `Polyfold.EpGroupoid.proposition_9_2_15_2` — Polyfold/Chapter9/Boundary.lean, line 543
-- `Polyfold.EpGroupoid.isFunctorial_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 559
-- `Polyfold.EpGroupoid.proposition_9_2_15_3` — Polyfold/Chapter9/Boundary.lean, line 585
-- `Polyfold.EpGroupoid.filter_tangentValue_eq` — Polyfold/Chapter9/Boundary.lean, line 600
+- `Polyfold.MPolyfold.submanifoldBoundary` — Polyfold/Chapter9/Boundary.lean, line 367
+- `Polyfold.MPolyfold.mem_submanifoldBoundary_iff` — Polyfold/Chapter9/Boundary.lean, line 384
+- `Polyfold.EpGroupoid.boundaryPart` — Polyfold/Chapter9/Boundary.lean, line 441
+- `Polyfold.EpGroupoid.boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 472
+- `Polyfold.EpGroupoid.boundaryTheta_eq` — Polyfold/Chapter9/Boundary.lean, line 505
+- `Polyfold.EpGroupoid.proposition_9_2_15_1` — Polyfold/Chapter9/Boundary.lean, line 537
+- `Polyfold.EpGroupoid.proposition_9_2_15_2` — Polyfold/Chapter9/Boundary.lean, line 547
+- `Polyfold.EpGroupoid.isFunctorial_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 563
+- `Polyfold.EpGroupoid.proposition_9_2_15_3` — Polyfold/Chapter9/Boundary.lean, line 589
+- `Polyfold.EpGroupoid.filter_tangentValue_eq` — Polyfold/Chapter9/Boundary.lean, line 604
 
 *What differs.*
 - Hidden hypotheses: the independence of Theorem 9.2.1 for (1) and (3).
@@ -15052,11 +15052,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** $\partial\Theta$ satisfies the text's (1) $\mathrm{supp}(\partial\Theta) \subseteq \partial X$ and (2) the local formula at points of $\mathrm{supp}(\partial\Theta)$. A function $F$ with (1) and (2) equals $\partial\Theta$ on $U(x)$ for every $x \in \mathrm{supp}(F)$ (`IsBoundaryCharacterized.eq_boundaryTheta_on`), and among the functions $F \ge 0$ vanishing off $\mathrm{supp}(\Theta)$ with (1) and (2), $\partial\Theta$ is the unique one with the largest support (`definition_9_2_16_existsUnique`; $F = \partial\Theta$ iff $\mathrm{supp}(\partial\Theta) \subseteq \mathrm{supp}(F)$, `eq_boundaryTheta_iff`); a functor that vanishes off $\mathrm{supp}(\Theta)$ and satisfies (2) at the points of $\mathrm{supp}(\Theta)$ equals $\partial\Theta$ (`eq_boundaryTheta`). As stated, (1) and (2) do not characterize $\partial\Theta$ uniquely as we read them: the zero functor satisfies them for every $\Theta$, and for $\Theta = 1$ on $[0, \infty)$ both $0$ and $\partial\Theta \ne 0$ do.
 
-- `Polyfold.EpGroupoid.IsBoundaryCharacterized` — Polyfold/Chapter9/Boundary.lean, line 643
-- `Polyfold.EpGroupoid.isBoundaryCharacterized_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 648
-- `Polyfold.EpGroupoid.isBoundaryCharacterized_zero` — Polyfold/Chapter9/Boundary.lean, line 657
-- `Polyfold.EpGroupoid.eq_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 671
-- `Polyfold.not_unique_isBoundaryCharacterized_halfLine` — Polyfold/Chapter9/Boundary.lean, line 1100
+- `Polyfold.EpGroupoid.IsBoundaryCharacterized` — Polyfold/Chapter9/Boundary.lean, line 647
+- `Polyfold.EpGroupoid.isBoundaryCharacterized_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 652
+- `Polyfold.EpGroupoid.isBoundaryCharacterized_zero` — Polyfold/Chapter9/Boundary.lean, line 661
+- `Polyfold.EpGroupoid.eq_boundaryTheta` — Polyfold/Chapter9/Boundary.lean, line 675
+- `Polyfold.not_unique_isBoundaryCharacterized_halfLine` — Polyfold/Chapter9/Boundary.lean, line 1073
 - `Polyfold.EpGroupoid.IsBoundaryCharacterized.eq_boundaryTheta_on` — Polyfold/Chapter9/BoundaryCharacterization.lean, line 43
 - `Polyfold.EpGroupoid.IsBoundaryCharacterized.supp_subset` — Polyfold/Chapter9/BoundaryCharacterization.lean, line 51
 - `Polyfold.EpGroupoid.IsBoundaryCharacterized.eq_boundaryTheta_iff` — Polyfold/Chapter9/BoundaryCharacterization.lean, line 66
@@ -15074,12 +15074,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** $\partial\Theta \le \Theta$; $\partial\Theta$ is in general not the restriction of $\Theta$ to $\partial X$: for the indicator of the corner $0$ of $[0, \infty)$, $\Theta(0) = 1$ and $\partial\Theta(0) = 0$, while for $\Theta = 1$ on $[0, \infty)$, $\partial\Theta(0) = 1$.
 
-- `Polyfold.EpGroupoid.boundaryTheta_le` — Polyfold/Chapter9/Boundary.lean, line 683
-- `Polyfold.boundaryTheta_halfLineCorner` — Polyfold/Chapter9/Boundary.lean, line 918
-- `Polyfold.boundaryTheta_halfLine_one` — Polyfold/Chapter9/Boundary.lean, line 1087
-- `Polyfold.EpGroupoid.boundaryTheta_indicator_of_mem` — Polyfold/Chapter9/Boundary.lean, line 882
-- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_one` — Polyfold/Chapter9/Boundary.lean, line 994
-- `Polyfold.EpGroupoid.boundaryTheta_one` — Polyfold/Chapter9/Boundary.lean, line 1015
+- `Polyfold.EpGroupoid.boundaryTheta_le` — Polyfold/Chapter9/Boundary.lean, line 687
+- `Polyfold.boundaryTheta_halfLineCorner` — Polyfold/Chapter9/Boundary.lean, line 891
+- `Polyfold.boundaryTheta_halfLine_one` — Polyfold/Chapter9/Boundary.lean, line 1060
+- `Polyfold.EpGroupoid.boundaryTheta_indicator_of_mem` — Polyfold/Chapter9/Boundary.lean, line 855
+- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_one` — Polyfold/Chapter9/Boundary.lean, line 967
+- `Polyfold.EpGroupoid.boundaryTheta_one` — Polyfold/Chapter9/Boundary.lean, line 988
 
 *What differs.*
 - Hidden hypotheses: the independence of Theorem 9.2.1, which the witnesses satisfy.
@@ -15169,8 +15169,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.exists_small_cone` — Polyfold/Chapter9/GeneralBoundaryPoints.lean, line 77
 - `Polyfold.EpGroupoid.lemma_9_3_4_of_degIndex_eq_zero` — Polyfold/Chapter9/GeneralCorollaries.lean, line 654
 - `Polyfold.EpGroupoid.lemma_9_3_4_of_hasGraphBallAt'` — Polyfold/Chapter9/GeneralCorollaries.lean, line 642
-- `Polyfold.MPolyfold.hasContinuousLevelOneOn` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1303
-- `Polyfold.MPolyfold.hasGraphBallAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1109
+- `Polyfold.MPolyfold.hasContinuousLevelOneOn` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1263
+- `Polyfold.MPolyfold.hasGraphBallAt_of_mem_interior` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1102
 - `Polyfold.EpGroupoid.IsOrientationOfDim` — Polyfold/Chapter9/OrientationUniqueness.lean, line 106
 - `Polyfold.MPolyfold.HasOrientedGoodPointsAt` — Polyfold/Chapter9/OrientationUniqueness.lean, line 70
 - `Polyfold.EpGroupoid.lemma_9_3_4` — Polyfold/Chapter9/OrientationUniqueness.lean, line 133
@@ -15257,10 +15257,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.isTameBranched_zero` — Polyfold/Chapter9/BoundaryPosition.lean, line 707
 - `Polyfold.EpGroupoid.isTameBranched_indicator` — Polyfold/Chapter9/BoundaryPosition.lean, line 715
 - `Polyfold.MPolyfold.hasTameInducedStructure_of_degIndex_eq_zero` — Polyfold/Chapter9/BoundaryPosition.lean, line 603
-- `Polyfold.EpGroupoid.TameBranchingStructure.isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 993
-- `Polyfold.EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 982
-- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 543
-- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 553
+- `Polyfold.EpGroupoid.TameBranchingStructure.isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 291
+- `Polyfold.EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 280
+- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 457
+- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 467
 
 *What differs.*
 - “An equivalent tame structure” is Part I's tame induced structure (Definition 2.5.18). The consequence “in particular every $M_i$ is a manifold with boundary with corners” is formalized for sheets of one dimension $n$ in Mathlib's language (`TameBranchingStructure.isManifold`, `Chapter9/MathlibManifoldBridge.lean`; gap G.102 closed) (Findings, Chapter 9, items 55, 109).
@@ -15314,11 +15314,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOrientation` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 578
 - `Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOrientation_tame` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 608
 - `Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOp_tangent_eq_boundaryOrientation` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 590
-- `Polyfold.MPolyfold.setOf_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 60
-- `Polyfold.MPolyfold.isOpen_degIndex_le_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 56
-- `Polyfold.MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 68
-- `Polyfold.MPolyfold.exists_isOpen_boundaryStratum_eq` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 90
-- `Polyfold.MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 114
+- `Polyfold.MPolyfold.setOf_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 61
+- `Polyfold.MPolyfold.isOpen_degIndex_le_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 57
+- `Polyfold.MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 69
+- `Polyfold.MPolyfold.exists_isOpen_boundaryStratum_eq` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 91
+- `Polyfold.MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 115
 - `Polyfold.MPolyfold.stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 192
 - `Polyfold.MPolyfold.isSmoothSubmanifold_stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 306
 - `Polyfold.MPolyfold.exists_isScPlusRetractionOn_stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 240
@@ -15329,7 +15329,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.SubmanifoldOrientation.stratumOrientation_tangent` — Polyfold/Chapter9/BoundaryOrientation.lean, line 337
 - `Polyfold.MPolyfold.isInwardVec_incFrame_iff` — Polyfold/Chapter9/BoundaryOrientation.lean, line 217
 - `Polyfold.MPolyfold.incFrame_mem_boundaryFramesAt_iff` — Polyfold/Chapter9/BoundaryOrientation.lean, line 284
-- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 229
+- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 211
 
 *What differs.*
 - $T_y\partial M$ and the outward direction are determined by $M$, not data $K$, $e$: $T_y\partial M = T^R_yM$, and "outward" is read as "in $T_yM$, not in $C_yM$", both read in a presented chart and chart independent (`Chapter9/BoundaryOperation.lean`). The continuity of $o_{\partial M}$ is proved, without tameness, along the reduced-codimension-$1$ stratum (`Chapter9/BoundaryOrientationContinuity.lean`). For a tame sheet the stratum $\{d_M = 1\}$ is open and dense in $\partial M$ (`exists_isOpen_boundaryStratum_eq`, `submanifoldBoundary_subset_closure_boundaryStratum`, `Chapter9/BoundaryStratumDense.lean`); it is a submanifold of dimension $n-1$ with tangent spaces $T^R_yM$, oriented by $o_{\partial M}$, and $o_{\partial M}$ is Part I's face orientation there (gap G.103, closed); the outward direction is read as \"in $T_yM$, not in $C_yM$\" in a presented chart, which is why the verdict is explicit rather than same (Findings, Chapter 9, items 57, 108, 110, 119). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7 closed); this statement is not restated with it.
@@ -15372,8 +15372,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.isTameOrientation_of_degIndex_eq_zero` — Polyfold/Chapter9/BoundaryOperation.lean, line 912
 - `Polyfold.EpGroupoid.boundaryLift` — Polyfold/Chapter9/OrientationBoundary.lean, line 454
 - `Polyfold.EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 637
-- `Polyfold.MPolyfold.figure_9_1_existsUnique_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 401
-- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 229
+- `Polyfold.MPolyfold.figure_9_1_existsUnique_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 383
+- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 211
 
 *What differs.*
 - (9.12) is formed with the boundary operation built from the submanifolds, and the intrinsic $\hat T_{\partial\Theta}$ needs no choice of structure (`boundaryOrientation`) (Findings, Chapter 9, item 108).
@@ -15462,7 +15462,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.LocalBranchingStructure.isOfDim_of_isNDimensional` — Polyfold/Chapter9/SheetMeasure.lean, line 123
 - `Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_4_4_of_isNDimensional` — Polyfold/Chapter9/SheetMeasure.lean, line 136
 - `Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_4_6_of_isNDimensional` — Polyfold/Chapter9/SheetMeasure.lean, line 145
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 197
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 198
 
 *What differs.*
 - Hidden hypotheses: sheets of one dimension.
@@ -15484,8 +15484,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.IsHNull` — Polyfold/Chapter9/SheetNull.lean, line 200
 - `Polyfold.MPolyfold.not_isHNull_of_hasDimAt` — Polyfold/Chapter9/SheetNull.lean, line 361
 - `Polyfold.MPolyfold.isHNull_of_forall_exists_chart` — Polyfold/Chapter9/SheetChartChange.lean, line 348
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 197
-- `Polyfold.hNull_iff_volume_euclidean` — Polyfold/Chapter9/SheetNullBridge.lean, line 54
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 198
+- `Polyfold.hNull_iff_volume_euclidean` — Polyfold/Chapter9/SheetNullBridge.lean, line 55
 
 *What differs.*
 - For Mathlib manifolds with corners (Findings, Chapter 9, item 70).
@@ -15504,9 +15504,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.addHaar_setOf_span_tangentConeAt_ne_top` — Polyfold/Chapter9/BranchingGeometryMeasure.lean, line 230
 - `Polyfold.isMeasureZero_setOf_relTangent_ne_top` — Polyfold/Chapter9/BranchingGeometryManifold.lean, line 381
 - `Polyfold.lemma_9_4_6` — Polyfold/Chapter9/BranchingGeometryManifold.lean, line 394
-- `Polyfold.EpGroupoid.TameBranchingStructure.lemma_9_4_6` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 1004
-- `Polyfold.MPolyfold.lemma_9_4_6_sheet` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 726
-- `Polyfold.MPolyfold.lemma_9_4_6_cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 715
+- `Polyfold.EpGroupoid.TameBranchingStructure.lemma_9_4_6` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 302
+- `Polyfold.MPolyfold.lemma_9_4_6_sheet` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 158
+- `Polyfold.MPolyfold.lemma_9_4_6_cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 147
 - `Polyfold.MPolyfold.lemma_9_4_6_chart` — Polyfold/Chapter9/SheetEssential.lean, line 243
 - `Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_4_6_of_isNDimensional` — Polyfold/Chapter9/SheetMeasure.lean, line 145
 
@@ -15643,7 +15643,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.not_isMeasureZeroH_orbitSupp` — Polyfold/Chapter9/SheetMeasure.lean, line 234
 - `Polyfold.hNull_lineH` — Polyfold/Chapter9/SheetMeasure.lean, line 80
 - `Polyfold.isHNull_mixed_dim` — Polyfold/Chapter9/SheetMeasure.lean, line 93
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 197
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 198
 
 *What differs.*
 - Hidden hypotheses: none beyond the standing assumption of §9.5 (p. 437) that $\Theta$ has dimension $n$: then every local branching structure has $n$-dimensional sheets (`isOfDim_of_isNDimensional`).
@@ -15759,9 +15759,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.NaturalRep.MU_inter_preimage_eq_iUnion` — Polyfold/Chapter9/MeasureEffective.lean, line 175
 - `Polyfold.EpGroupoid.NaturalRep.MU_inter_preimage_eq_iUnion_quotient` — Polyfold/Chapter9/MeasureEffective.lean, line 195
 - `Polyfold.EpGroupoid.NaturalRep.pairwise_disjoint_image_Φ_out` — Polyfold/Chapter9/MeasureEffective.lean, line 226
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_9` — Polyfold/Chapter9/LocalMeasure.lean, line 502
-- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_card_mul_slice` — Polyfold/Chapter9/LocalMeasure.lean, line 420
-- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_image` — Polyfold/Chapter9/LocalMeasure.lean, line 296
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_9` — Polyfold/Chapter9/LocalMeasure.lean, line 503
+- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_card_mul_slice` — Polyfold/Chapter9/LocalMeasure.lean, line 421
+- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_image` — Polyfold/Chapter9/LocalMeasure.lean, line 297
 - `Polyfold.EpGroupoid.SheetIntegration` — Polyfold/Chapter9/SheetIntegrationAbstract.lean, line 179
 - `Polyfold.EpGroupoid.pointIntegration` — Polyfold/Chapter9/PointIntegration.lean, line 153
 - `Polyfold.EpGroupoid.FormEval.msheetIntegration` — Polyfold/Chapter9/MultiChartIntegration.lean, line 304
@@ -15785,7 +15785,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.NaturalRep.stabilizerEquivIsotropy_mem_trivialSubgroup_iff` — Polyfold/Chapter9/MeasureEffective.lean, line 266
 - `Polyfold.EpGroupoid.NaturalRep.card_trivialSubgroup_eq` — Polyfold/Chapter9/MeasureEffective.lean, line 288
 - `Polyfold.EpGroupoid.NaturalRep.card_quotient_stabilizer_mul_card_effIsotropy` — Polyfold/Chapter9/MeasureEffective.lean, line 309
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_10` — Polyfold/Chapter9/LocalMeasure.lean, line 523
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_10` — Polyfold/Chapter9/LocalMeasure.lean, line 524
 - `Polyfold.EpGroupoid.FormEval.msheetIntegration` — Polyfold/Chapter9/MultiChartIntegration.lean, line 304
 - `Polyfold.EpGroupoid.FormEval.msheets_of_orientedTameStructure` — Polyfold/Chapter9/FiniteTheorem.lean, line 155
 - `Polyfold.EpGroupoid.FormEval.sheetIntegration` — Polyfold/Chapter9/SheetIntegrationConcrete.lean, line 285
@@ -15806,8 +15806,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.IsFunctorial.eq_of_π_eq` — Polyfold/Chapter9/MeasureEffective.lean, line 338
 - `Polyfold.EpGroupoid.image_π_MU_eq` — Polyfold/Chapter9/MeasureEffective.lean, line 347
 - `Polyfold.EpGroupoid.NaturalRep.Φ_hyps` — Polyfold/Chapter9/MeasureEffective.lean, line 367
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_11` — Polyfold/Chapter9/LocalMeasure.lean, line 598
-- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_of_morDiffeo` — Polyfold/Chapter9/LocalMeasure.lean, line 554
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_11` — Polyfold/Chapter9/LocalMeasure.lean, line 599
+- `Polyfold.EpGroupoid.OrientedTameStructure.sheetSum_preimage_eq_of_morDiffeo` — Polyfold/Chapter9/LocalMeasure.lean, line 555
 - `Polyfold.EpGroupoid.isMorTangentOn_hat` — Polyfold/Chapter9/BranchedIntegral.lean, line 82
 - `Polyfold.EpGroupoid.FormEval.msheetIntegration` — Polyfold/Chapter9/MultiChartIntegration.lean, line 304
 - `Polyfold.EpGroupoid.FormEval.msheets_of_orientedTameStructure` — Polyfold/Chapter9/FiniteTheorem.lean, line 155
@@ -15829,15 +15829,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.LocalBranchingStructure.toReduced` — Polyfold/Chapter9/MeasureEffective.lean, line 396
 - `Polyfold.EpGroupoid.card_effIsotropy_eq_reduced` — Polyfold/Chapter9/MeasureEffective.lean, line 415
 - `Polyfold.EpGroupoid.proposition_9_5_13_1` — Polyfold/Chapter9/BranchedIntegral.lean, line 650
-- `Polyfold.EpGroupoid.proposition_9_5_13_2` — Polyfold/Chapter9/ReducedIntegral.lean, line 282
-- `Polyfold.EpGroupoid.proposition_9_5_13_2_measure` — Polyfold/Chapter9/ReducedIntegral.lean, line 215
-- `Polyfold.EpGroupoid.orbitSuppHomeomorphReduced` — Polyfold/Chapter9/ReducedIntegral.lean, line 119
-- `Polyfold.EpGroupoid.NaturalRep.toReduced` — Polyfold/Chapter9/ReducedRep.lean, line 159
-- `Polyfold.EpGroupoid.OrientedTameStructure.toReduced` — Polyfold/Chapter9/ReducedRep.lean, line 277
-- `Polyfold.EpGroupoid.SheetIntegration.toReduced` — Polyfold/Chapter9/ReducedRep.lean, line 336
-- `Polyfold.EpGroupoid.IsOrientation.toReduced` — Polyfold/Chapter9/ReducedRep.lean, line 391
-- `Polyfold.EpGroupoid.tangentMor_reducedπ` — Polyfold/Chapter9/ReducedRep.lean, line 308
-- `Polyfold.EpGroupoid.circle_proposition_9_5_13_2` — Polyfold/Chapter9/ReducedCircle.lean, line 42
+- `Polyfold.EpGroupoid.proposition_9_5_13_2` — Polyfold/Chapter10/ReducedIntegral.lean, line 282
+- `Polyfold.EpGroupoid.proposition_9_5_13_2_measure` — Polyfold/Chapter10/ReducedIntegral.lean, line 215
+- `Polyfold.EpGroupoid.orbitSuppHomeomorphReduced` — Polyfold/Chapter10/ReducedIntegral.lean, line 119
+- `Polyfold.EpGroupoid.NaturalRep.toReduced` — Polyfold/Chapter10/ReducedRep.lean, line 159
+- `Polyfold.EpGroupoid.OrientedTameStructure.toReduced` — Polyfold/Chapter10/ReducedRep.lean, line 277
+- `Polyfold.EpGroupoid.SheetIntegration.toReduced` — Polyfold/Chapter10/ReducedRep.lean, line 336
+- `Polyfold.EpGroupoid.IsOrientation.toReduced` — Polyfold/Chapter10/ReducedRep.lean, line 391
+- `Polyfold.EpGroupoid.tangentMor_reducedπ` — Polyfold/Chapter10/ReducedRep.lean, line 308
+- `Polyfold.EpGroupoid.circle_proposition_9_5_13_2` — Polyfold/Chapter10/ReducedCircle.lean, line 42
 
 *What differs.*
 - Hidden hypotheses: none beyond the text's LUC; the morphism space of $X_R$ is Hausdorff under LUC (`t2Space_reducedMor_of_isLUC`, inside the statement of `proposition_9_5_13_2`) and paracompact (instances).
@@ -15965,14 +15965,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** (1) `proposition_9_1_9_one`: for $\Theta$ of manifold type, $\mathrm{supp}(\Theta)$ is a smooth finite-dimensional submanifold with trivial isotropy (`subsingleton_isotropy_of_isManifoldType`), and $Z = |\mathrm{supp}(\Theta)|$, a subspace of $|X|$, carries an M-polyfold structure for which $a \mapsto |a|$ is a local sc-diffeomorphism, descended with the text's charts $\Psi_x$ (`MPolyfold.descend`, `isLocalScDiffeo_descend`); any two M-polyfold structures on $Z$ with this property agree (`proposition_9_1_9_one_unique`), which is the reading of "natural". (2) `proposition_9_1_9_two_text`: for $\Theta$ of orbifold type, $\mathrm{supp}(\Theta) \ne \emptyset$ and every choice $c$ of local branching structures (`SheetChoice`, `nonempty_sheetChoice`), $\mathrm{supp}(\Theta)$ is a smooth submanifold and $\mathrm{supp}(\Theta) \cap U(x) = M_x$ (`supp_inter_eq_of_isOrbifoldType`); the text's groupoid $M$ with objects $\bigsqcup M_x$ and morphisms $\bigsqcup M(x, x')$ is an ep-groupoid, the refinement of Proposition 10.1.3 (`textGroupoid`); the functor $M \to \mathrm{supp}(\Theta)$ to the full ep-subgroupoid is an equivalence (Definition 10.1.1), and $|\beta| : |M| \cong Z$, $|(x, y)| \mapsto |y|$ (`textOrbitHomeomorph`). Two choices $c$, $c'$ give $M_c \leftarrow M_{c,c'} \to M_{c'}$, both legs equivalences, a generalized isomorphism of $\mathrm{EP}(\mathcal E^{-1})$ commuting with the maps to $Z$ (`proposition_9_1_9_two_independent`, through `OpenCover.isEquivalence_refineFunctor`). Also `proposition_9_1_9_two`: the full ep-subgroupoid on $\mathrm{supp}(\Theta)$ has orbit space homeomorphic to $Z$ (`orbitSuppHomeomorph`).
 
 - `Polyfold.EpGroupoid.proposition_9_1_9_one` — Polyfold/Chapter9/SupportManifold.lean, line 132
-- `Polyfold.EpGroupoid.proposition_9_1_9_one_unique` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 318
+- `Polyfold.EpGroupoid.proposition_9_1_9_one_unique` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 318
 - `Polyfold.EpGroupoid.proposition_9_1_9_two` — Polyfold/Chapter9/SupportOrbifold.lean, line 196
-- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 236
-- `Polyfold.EpGroupoid.proposition_9_1_9_two_independent` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 290
-- `Polyfold.EpGroupoid.textGroupoid` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 209
-- `Polyfold.EpGroupoid.textOrbitHomeomorph` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 214
-- `Polyfold.EpGroupoid.OpenCover.isEquivalence_refineFunctor` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 136
-- `Polyfold.EpGroupoid.nonempty_sheetChoice` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 178
+- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 236
+- `Polyfold.EpGroupoid.proposition_9_1_9_two_independent` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 290
+- `Polyfold.EpGroupoid.textGroupoid` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 209
+- `Polyfold.EpGroupoid.textOrbitHomeomorph` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 214
+- `Polyfold.EpGroupoid.OpenCover.isEquivalence_refineFunctor` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 136
+- `Polyfold.EpGroupoid.nonempty_sheetChoice` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 178
 - `Polyfold.EpGroupoid.supp_inter_eq_of_isOrbifoldType` — Polyfold/Chapter9/SupportOrbifold.lean, line 66
 - `Polyfold.EpGroupoid.isSmoothSubmanifold_supp_of_isOrbifoldType` — Polyfold/Chapter9/SupportOrbifold.lean, line 104
 - `Polyfold.EpGroupoid.isEpSubgroupoid_supp_of_isOrbifoldType` — Polyfold/Chapter9/SupportOrbifold.lean, line 119
@@ -15982,7 +15982,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.IsDescentMap` — Polyfold/Chapter9/DescentPolyfold.lean, line 47
 - `Polyfold.MPolyfold.descend` — Polyfold/Chapter9/DescentPolyfold.lean, line 238
 - `Polyfold.MPolyfold.isLocalScDiffeo_descend` — Polyfold/Chapter9/DescentPolyfold.lean, line 247
-- `Polyfold.EpGroupoid.remark_9_1_10_hypotheses_axis` — Polyfold/Chapter9/XAxisWitness.lean, line 52
+- `Polyfold.EpGroupoid.remark_9_1_10_hypotheses_axis` — Polyfold/Chapter10/XAxisWitness.lean, line 54
 
 *What differs.*
 - The paracompactness of $|X|$ is not used: Definition 9.1.2 (1) already makes $|\mathrm{supp}(\Theta)|$ paracompact, hence metrizable (Remark 9.1.4, V9.63). "Natural" in (1) is read as the uniqueness of the M-polyfold structure on $Z$ for which $\mathrm{supp}(\Theta) \to Z$ is a local sc-diffeomorphism; "equivalent orbifold structure" in (2) as a generalized isomorphism of Chapter 10 over $Z$ through the common refinement of two choices. The form with the text's groupoid takes $\mathrm{supp}(\Theta) \ne \emptyset$, which the M-polyfold structure on an open subset needs (for $\Theta = 0$, $Z = \emptyset$); it is witnessed by the x-axis of $\mathbb R^2$ (`remark_9_1_10_hypotheses_axis`) (gap G.95, closed) (Findings, Chapter 9, items 7, 114).
@@ -15995,15 +15995,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For $\Theta$ $n$-dimensional (`IsNDimensional Θ n`) with $d_{|X|} = 0$ on $Z = |\mathrm{supp}(\Theta)|$: `remark_9_1_10_manifold`: in case (1) the M-polyfold structure of V9.64 has a corner structure of dimension $n$ with degeneracy index $0$, and $Z$ with its interior charted space is a Mathlib manifold, `IsManifold (𝓡 n) ∞`; $\mathrm{supp}(\Theta) \to Z$ is a Mathlib local diffeomorphism (`remark_9_1_10_manifold_proj`). `remark_9_1_10_orbifold`: in case (2), for every choice of structures, the object space $\bigsqcup M_x$ and the morphism space of the text's groupoid $M$ are Mathlib $n$-manifolds and $|M| \cong Z$; `remark_9_1_10_orbifold_etale`: source, target, unit, inverse and the equivalence $M \to \mathrm{supp}(\Theta)$ on objects are Mathlib local diffeomorphisms (`MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo`). The x-axis of $\mathbb R^2$ satisfies all the hypotheses together, including $\mathrm{supp}(\Theta) \ne \emptyset$ ($n = 1$, `remark_9_1_10_hypotheses_axis`). The second paragraph is Remark 9.1.4 (V9.63) and V9.64 (paracompactness of $|X|$ not used).
 
-- `Polyfold.EpGroupoid.remark_9_1_10_manifold` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 176
-- `Polyfold.EpGroupoid.remark_9_1_10_orbifold` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 206
-- `Polyfold.MPolyfold.HasCornerStructureOfDim.of_isLocalScDiffeo_surjective` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 121
-- `Polyfold.EpGroupoid.isSubmanifoldOfDim_supp` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 144
-- `Polyfold.EpGroupoid.hasCornerStructureOfDim_subObj` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 160
-- `Polyfold.EpGroupoid.remark_9_1_10_orbifold_etale` — Polyfold/Chapter9/SupportGroupoidEtale.lean, line 212
-- `Polyfold.EpGroupoid.remark_9_1_10_manifold_proj` — Polyfold/Chapter9/SupportGroupoidEtale.lean, line 251
-- `Polyfold.MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo` — Polyfold/Chapter9/SupportGroupoidEtale.lean, line 106
-- `Polyfold.EpGroupoid.remark_9_1_10_hypotheses_axis` — Polyfold/Chapter9/XAxisWitness.lean, line 52
+- `Polyfold.EpGroupoid.remark_9_1_10_manifold` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 176
+- `Polyfold.EpGroupoid.remark_9_1_10_orbifold` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 206
+- `Polyfold.MPolyfold.HasCornerStructureOfDim.of_isLocalScDiffeo_surjective` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 121
+- `Polyfold.EpGroupoid.isSubmanifoldOfDim_supp` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 144
+- `Polyfold.EpGroupoid.hasCornerStructureOfDim_subObj` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 160
+- `Polyfold.EpGroupoid.remark_9_1_10_orbifold_etale` — Polyfold/Chapter10/SupportGroupoidEtale.lean, line 212
+- `Polyfold.EpGroupoid.remark_9_1_10_manifold_proj` — Polyfold/Chapter10/SupportGroupoidEtale.lean, line 251
+- `Polyfold.MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo` — Polyfold/Chapter10/SupportGroupoidEtale.lean, line 106
+- `Polyfold.EpGroupoid.remark_9_1_10_hypotheses_axis` — Polyfold/Chapter10/XAxisWitness.lean, line 54
 
 *What differs.*
 - Hidden hypotheses: $\Theta$ is $n$-dimensional: a Mathlib manifold has one model space, while the text's $Z$ may have components of different dimensions (cf. Proposition 9.1.11).
@@ -16019,10 +16019,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.EpGroupoid.SheetIntegration` — Polyfold/Chapter9/SheetIntegrationAbstract.lean, line 179
 - `Polyfold.EpGroupoid.SheetIntegration.sum_integ_eq_sum_integ` — Polyfold/Chapter9/SheetIntegrationAbstract.lean, line 584
-- `Polyfold.EpGroupoid.OrientedTameStructure` — Polyfold/Chapter9/LocalMeasure.lean, line 76
-- `Polyfold.EpGroupoid.OrientedTameStructure.localMeasure` — Polyfold/Chapter9/LocalMeasure.lean, line 120
-- `Polyfold.EpGroupoid.OrientedTameStructure.localMeasureEff` — Polyfold/Chapter9/LocalMeasure.lean, line 125
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_7` — Polyfold/Chapter9/LocalMeasure.lean, line 232
+- `Polyfold.EpGroupoid.OrientedTameStructure` — Polyfold/Chapter9/LocalMeasure.lean, line 77
+- `Polyfold.EpGroupoid.OrientedTameStructure.localMeasure` — Polyfold/Chapter9/LocalMeasure.lean, line 121
+- `Polyfold.EpGroupoid.OrientedTameStructure.localMeasureEff` — Polyfold/Chapter9/LocalMeasure.lean, line 126
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_7` — Polyfold/Chapter9/LocalMeasure.lean, line 233
 - `Polyfold.EpGroupoid.existsUnique_branchedMeasure` — Polyfold/Chapter9/BranchedIntegral.lean, line 472
 - `Polyfold.EpGroupoid.theorem_9_5_4` — Polyfold/Chapter9/BranchedIntegral.lean, line 535
 - `Polyfold.EpGroupoid.theorem_9_5_5` — Polyfold/Chapter9/BranchedIntegral.lean, line 564
@@ -16417,7 +16417,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** If $F$ is an equivalence, Chapter 8's tangent functor $TF$ is an equivalence.
 
 - `Polyfold.EpFunctor.theorem_10_1_7` — Polyfold/Chapter10/Equivalence.lean, line 492
-- `Polyfold.EpFunctor.tangent` — Polyfold/Chapter8/TangentEp.lean, line 720
+- `Polyfold.EpFunctor.tangent` — Polyfold/Chapter8/TangentEp.lean, line 717
 
 *What differs.*
 - Fullness and faithfulness, left to the reader, are proved (Findings, Chapter 10, item 6).
@@ -16572,7 +16572,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EP.proposition_10_1_19`: `IsSLR` of $X$ iff of $Y$, from the reduction (every equivalence $X^i \to Y^i$ carries (LR) both ways) and Proposition 10.1.9 for the lifts.
 
-- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
+- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 543
 - `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 171
 - `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 183
 
@@ -16587,22 +16587,22 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** Objects and morphisms are elements of iterated fibred products; $t(h, \phi, k) = (t(h), G(k) \circ \phi \circ F(h)^{-1}, t(k))$; units, inverses and composition as in the text; a groupoid.
 
-- `Polyfold.WeakFibredProduct.objRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 239
-- `Polyfold.WeakFibredProduct.objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 243
-- `Polyfold.WeakFibredProduct.Obj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 246
-- `Polyfold.WeakFibredProduct.morRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 249
-- `Polyfold.WeakFibredProduct.morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 252
-- `Polyfold.WeakFibredProduct.Mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 256
-- `Polyfold.WeakFibredProduct.conj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 336
-- `Polyfold.WeakFibredProduct.conj_comp_mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 359
-- `Polyfold.WeakFibredProduct.conj_recover` — Polyfold/Chapter10/WeakFibredProduct.lean, line 366
-- `Polyfold.WeakFibredProduct.src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 426
-- `Polyfold.WeakFibredProduct.tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 429
-- `Polyfold.WeakFibredProduct.unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 434
-- `Polyfold.WeakFibredProduct.inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 439
-- `Polyfold.WeakFibredProduct.comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 473
-- `Polyfold.WeakFibredProduct.src_eq_tgt_iff` — Polyfold/Chapter10/WeakFibredProduct.lean, line 459
-- `Polyfold.WeakFibredProduct.groupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 559
+- `Polyfold.WeakFibredProduct.objRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 222
+- `Polyfold.WeakFibredProduct.objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 226
+- `Polyfold.WeakFibredProduct.Obj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 229
+- `Polyfold.WeakFibredProduct.morRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 232
+- `Polyfold.WeakFibredProduct.morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 235
+- `Polyfold.WeakFibredProduct.Mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 239
+- `Polyfold.WeakFibredProduct.conj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 319
+- `Polyfold.WeakFibredProduct.conj_comp_mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 342
+- `Polyfold.WeakFibredProduct.conj_recover` — Polyfold/Chapter10/WeakFibredProduct.lean, line 349
+- `Polyfold.WeakFibredProduct.src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 409
+- `Polyfold.WeakFibredProduct.tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 412
+- `Polyfold.WeakFibredProduct.unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 417
+- `Polyfold.WeakFibredProduct.inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 422
+- `Polyfold.WeakFibredProduct.comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 456
+- `Polyfold.WeakFibredProduct.src_eq_tgt_iff` — Polyfold/Chapter10/WeakFibredProduct.lean, line 442
+- `Polyfold.WeakFibredProduct.groupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 542
 
 *What differs.*
 - The multiplication is total, its value off composable pairs unused; the printed $\psi$ in $\iota(h, \psi, k)$ is read $\phi$ (Findings, Chapter 10, item 20).
@@ -16615,35 +16615,35 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** If $F$ or $G$ is a local sc-diffeomorphism on objects (`Admissible`), the iterated sub-M-polyfold structures make $X \times_Y Z$ an ep-groupoid; the projections to $Z$ (or $X$) are local sc-diffeomorphisms; properness holds for any $F$, $G$. `theorem_10_2_2_triple`: under `Admissible F G` the sets $L$ and $\mathbf L$ are sub-M-polyfolds of $X \times \mathbf Y \times Z$ and $\mathbf X \times \mathbf Y \times \mathbf Z$, and the identifications with the iterated structures are sc-diffeomorphisms, through the transitivity of sub-M-polyfolds (`MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn`).
 
-- `Polyfold.WeakFibredProduct.Admissible` — Polyfold/Chapter10/WeakFibredProduct.lean, line 727
+- `Polyfold.WeakFibredProduct.Admissible` — Polyfold/Chapter10/WeakFibredProduct.lean, line 710
 - `Polyfold.WeakFibredProduct.Admissible.of_isEquivalence_left` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 131
 - `Polyfold.WeakFibredProduct.Admissible.of_isEquivalence_right` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 135
-- `Polyfold.WeakFibredProduct.PA` — Polyfold/Chapter10/WeakFibredProduct.lean, line 738
-- `Polyfold.WeakFibredProduct.PB` — Polyfold/Chapter10/WeakFibredProduct.lean, line 750
-- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 843
-- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 850
-- `Polyfold.WeakFibredProduct.isSubMPolyfold_objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 820
-- `Polyfold.WeakFibredProduct.isSubMPolyfold_morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 830
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_z` — Polyfold/Chapter10/WeakFibredProduct.lean, line 941
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_k` — Polyfold/Chapter10/WeakFibredProduct.lean, line 948
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_x` — Polyfold/Chapter10/WeakFibredProduct.lean, line 956
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_h` — Polyfold/Chapter10/WeakFibredProduct.lean, line 963
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 972
-- `Polyfold.WeakFibredProduct.isLocalScDiffeo_tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 980
-- `Polyfold.WeakFibredProduct.isScSmoothMap_unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 931
-- `Polyfold.WeakFibredProduct.isScSmoothMap_inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 935
-- `Polyfold.WeakFibredProduct.isScSmoothComp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 989
-- `Polyfold.WeakFibredProduct.exists_isProperMap` — Polyfold/Chapter10/WeakFibredProduct.lean, line 638
-- `Polyfold.WeakFibredProduct.epGroupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 1019
-- `Polyfold.MPolyfold.IsLocalScDiffeo.of_comm` — Polyfold/Chapter10/WeakFibredProduct.lean, line 135
-- `Polyfold.MPolyfold.isLocalScDiffeo_snd_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 159
-- `Polyfold.MPolyfold.isLocalScDiffeo_fst_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 172
-- `Polyfold.EpGroupoid.isScSmoothOn_comp_of` — Polyfold/Chapter10/WeakFibredProduct.lean, line 194
-- `Polyfold.EpGroupoid.tendsto_comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 213
-- `Polyfold.WeakFibredProduct.theorem_10_2_2_triple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 277
-- `Polyfold.WeakFibredProduct.isSubMPolyfold_objSetTriple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 243
-- `Polyfold.WeakFibredProduct.isSubMPolyfold_morSetTriple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 258
-- `Polyfold.MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 118
+- `Polyfold.WeakFibredProduct.PA` — Polyfold/Chapter10/WeakFibredProduct.lean, line 721
+- `Polyfold.WeakFibredProduct.PB` — Polyfold/Chapter10/WeakFibredProduct.lean, line 733
+- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 826
+- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 833
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 803
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 813
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_z` — Polyfold/Chapter10/WeakFibredProduct.lean, line 924
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_k` — Polyfold/Chapter10/WeakFibredProduct.lean, line 931
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_x` — Polyfold/Chapter10/WeakFibredProduct.lean, line 939
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_h` — Polyfold/Chapter10/WeakFibredProduct.lean, line 946
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 955
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 963
+- `Polyfold.WeakFibredProduct.isScSmoothMap_unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 914
+- `Polyfold.WeakFibredProduct.isScSmoothMap_inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 918
+- `Polyfold.WeakFibredProduct.isScSmoothComp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 972
+- `Polyfold.WeakFibredProduct.exists_isProperMap` — Polyfold/Chapter10/WeakFibredProduct.lean, line 621
+- `Polyfold.WeakFibredProduct.epGroupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 1002
+- `Polyfold.MPolyfold.IsLocalScDiffeo.of_comm` — Polyfold/Chapter10/WeakFibredProduct.lean, line 118
+- `Polyfold.MPolyfold.isLocalScDiffeo_snd_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 142
+- `Polyfold.MPolyfold.isLocalScDiffeo_fst_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 155
+- `Polyfold.EpGroupoid.isScSmoothOn_comp_of` — Polyfold/Chapter10/WeakFibredProduct.lean, line 177
+- `Polyfold.EpGroupoid.tendsto_comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 196
+- `Polyfold.WeakFibredProduct.theorem_10_2_2_triple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 260
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_objSetTriple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 226
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_morSetTriple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 241
+- `Polyfold.MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 101
 
 *What differs.*
 - The structures are Part I's iterated fibred products; they agree with the triple-product structures (`theorem_10_2_2_triple`, G.116 closed); properness is read with $\mathrm{cl}(U)$ (Findings, Chapter 10, items 21, 22).
@@ -16810,12 +16810,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pullback` — Polyfold/Chapter10/FredholmEquivalence.lean, line 387
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pushforward` — Polyfold/Chapter10/FredholmEquivalence.lean, line 448
 - `Polyfold.EpStrongBundle.exists_localIso_mor` — Polyfold/Chapter10/FredholmEquivalence.lean, line 236
-- `Polyfold.StrongBundle.LocalIso` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 120
-- `Polyfold.StrongBundle.LocalIso.transportChart` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 266
-- `Polyfold.StrongBundle.LocalIso.isChart_transportChart` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 419
-- `Polyfold.StrongBundle.LocalIso.isScFredholmGerm` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 619
-- `Polyfold.StrongBundle.LocalIso.isScFredholmGermTame` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 638
-- `Polyfold.StrongBundle.isScFredholmSection_of_forall` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 684
+- `Polyfold.StrongBundle.LocalIso` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 121
+- `Polyfold.StrongBundle.LocalIso.transportChart` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 267
+- `Polyfold.StrongBundle.LocalIso.isChart_transportChart` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 420
+- `Polyfold.StrongBundle.LocalIso.isScFredholmGerm` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 620
+- `Polyfold.StrongBundle.LocalIso.isScFredholmGermTame` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 639
+- `Polyfold.StrongBundle.isScFredholmSection_of_forall` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 685
 - `Polyfold.EpStrongBundle.theorem_10_4_5` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 993
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eqOn_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 791
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 802
@@ -16835,7 +16835,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionSmul` — Polyfold/Chapter10/SectionFunctorLinear.lean, line 176
 
 *What differs.*
-- **The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter3/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).
+- **The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter5/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).
 - The second display is read with $\Gamma^+$ (Findings, Chapter 10, item 44).
 
 ### V10.28. Definition 10.4.8 (2017: 10.11), natural equivalence of strong bundle functors
@@ -17196,9 +17196,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** An equivalence of the two (LUC) properties, through a representative with both legs equivalences.
 
-- `Polyfold.EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 83
-- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 90
-- `Polyfold.EPLocalization.EPLoc.proposition_10_3_17` — Polyfold/Chapter10/LocalizationProperties.lean, line 99
+- `Polyfold.EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 91
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_17` — Polyfold/Chapter10/LocalizationProperties.lean, line 100
 
 *What differs.*
 - None (Findings, Chapter 10, item 38).
@@ -17225,13 +17225,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.StrongBundleLocalizationExamples.isotropyRel_id` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 428
 - `Polyfold.StrongBundleLocalizationExamples.not_isotropyRel_inv` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 440
 - `Polyfold.SBLocalization.GenSBMap.remark_10_5_3` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 546
-- `Polyfold.EPLocalization.OrbitChart` — Polyfold/Chapter10/LocalizationProperties.lean, line 139
-- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 151
-- `Polyfold.EPLocalization.OrbitChart.Rel.refl` — Polyfold/Chapter10/LocalizationProperties.lean, line 154
-- `Polyfold.EPLocalization.OrbitChart.Rel.symm` — Polyfold/Chapter10/LocalizationProperties.lean, line 157
-- `Polyfold.EPLocalization.OrbitChart.Rel.trans` — Polyfold/Chapter10/LocalizationProperties.lean, line 163
-- `Polyfold.EPLocalization.OrbitChart.setoid` — Polyfold/Chapter10/LocalizationProperties.lean, line 172
-- `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP` — Polyfold/Chapter10/LocalizationProperties.lean, line 178
+- `Polyfold.EPLocalization.OrbitChart` — Polyfold/Chapter10/LocalizationProperties.lean, line 140
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 152
+- `Polyfold.EPLocalization.OrbitChart.Rel.refl` — Polyfold/Chapter10/LocalizationProperties.lean, line 155
+- `Polyfold.EPLocalization.OrbitChart.Rel.symm` — Polyfold/Chapter10/LocalizationProperties.lean, line 158
+- `Polyfold.EPLocalization.OrbitChart.Rel.trans` — Polyfold/Chapter10/LocalizationProperties.lean, line 164
+- `Polyfold.EPLocalization.OrbitChart.setoid` — Polyfold/Chapter10/LocalizationProperties.lean, line 173
+- `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP` — Polyfold/Chapter10/LocalizationProperties.lean, line 179
 
 *What differs.*
 - Proved in full in V10.60; the narrower form is kept (`OrbitChart.Rel`, the equivalence relation).
@@ -17245,10 +17245,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EPreg`, `EPLocReg` as Mathlib full subcategories; the point is an object of both.
 
-- `Polyfold.EPLocalization.EPreg` — Polyfold/Chapter10/LocalizationProperties.lean, line 119
-- `Polyfold.EPLocalization.EPLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 123
-- `Polyfold.EPLocalization.Examples.pointReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 128
-- `Polyfold.EPLocalization.Examples.pointLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 132
+- `Polyfold.EPLocalization.EPreg` — Polyfold/Chapter10/LocalizationProperties.lean, line 120
+- `Polyfold.EPLocalization.EPLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 124
+- `Polyfold.EPLocalization.Examples.pointReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 129
+- `Polyfold.EPLocalization.Examples.pointLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 133
 
 *What differs.*
 - None (Findings, Chapter 10, item 39).
@@ -17261,7 +17261,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** All five, as equivalences: (LUC), (SLUC), (ZHOU) in `theorem_10_3_21`, all with (LR) and (SLR) in `theorem_10_3_21_all`.
 
-- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 106
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 107
 - `Polyfold.EPLocalization.EPLoc.theorem_10_3_21_all` — Polyfold/Chapter10/LocalizationLR.lean, line 63
 
 *What differs.*
@@ -17535,20 +17535,20 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EpFunctor.proposition_10_1_9`: $X$ has `IsLR` iff $Y$ has. `TransportChart` holds $Q$ and the morphisms $\psi_u : F(u) \to Q(u)$; `conj` is the isomorphism $G_x \to G_y$, `Q_Φ` the equivariance; natural representations are carried along $Q$ both ways (`exists_naturalRep_push`, `exists_naturalRep_pull`). A transport chart on the point ep-groupoid.
 
-- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 407
-- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 192
-- `Polyfold.EpFunctor.exists_transportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 218
-- `Polyfold.EpFunctor.TransportChart.conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 268
-- `Polyfold.EpFunctor.TransportChart.bijective_conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 276
-- `Polyfold.EpFunctor.TransportChart.Q_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 331
-- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_push` — Polyfold/Chapter10/EquivalenceLR.lean, line 351
-- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_pull` — Polyfold/Chapter10/EquivalenceLR.lean, line 370
-- `Polyfold.EpGroupoid.NaturalRep.HasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 106
-- `Polyfold.EpGroupoid.isLR_iff_hasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 130
-- `Polyfold.EpGroupoid.NaturalRep.hasLR_iff_of_equivariant` — Polyfold/Chapter10/EquivalenceLR.lean, line 148
-- `Polyfold.EpGroupoid.NaturalRep.eqOn_Γ` — Polyfold/Chapter10/EquivalenceLR.lean, line 113
-- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 122
-- `Polyfold.EquivalenceLRExamples.nonempty_transportChart_pointEP` — Polyfold/Chapter10/EquivalenceLR.lean, line 553
+- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 408
+- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 193
+- `Polyfold.EpFunctor.exists_transportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 219
+- `Polyfold.EpFunctor.TransportChart.conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 269
+- `Polyfold.EpFunctor.TransportChart.bijective_conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 277
+- `Polyfold.EpFunctor.TransportChart.Q_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 332
+- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_push` — Polyfold/Chapter10/EquivalenceLR.lean, line 352
+- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_pull` — Polyfold/Chapter10/EquivalenceLR.lean, line 371
+- `Polyfold.EpGroupoid.NaturalRep.HasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 107
+- `Polyfold.EpGroupoid.isLR_iff_hasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 131
+- `Polyfold.EpGroupoid.NaturalRep.hasLR_iff_of_equivariant` — Polyfold/Chapter10/EquivalenceLR.lean, line 149
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Γ` — Polyfold/Chapter10/EquivalenceLR.lean, line 114
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 123
+- `Polyfold.EquivalenceLRExamples.nonempty_transportChart_pointEP` — Polyfold/Chapter10/EquivalenceLR.lean, line 554
 
 *What differs.*
 - The text takes $U(y) = Q(U(x))$ with the natural action; that it carries a natural representation is proved by restricting one at $y$. On p. 469 the isomorphism $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is printed with target $U(y)$; we read $G_y$ (Findings, Chapter 10, item 16).
@@ -17561,10 +17561,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** (1) with (LR) for $X$ (`proposition_10_1_10_one`) or for $Y$ (`proposition_10_1_10_one_of_isLR_right`), inside any open $O \ni x$; (2) `proposition_10_1_10_two`, the orbit maps of the tangent functors agree. The hypotheses hold on the point ep-groupoid.
 
-- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 451
-- `Polyfold.EpFunctor.proposition_10_1_10_one_of_isLR_right` — Polyfold/Chapter10/EquivalenceLR.lean, line 518
-- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 500
-- `Polyfold.EquivalenceLRExamples.proposition_10_1_10_hypotheses` — Polyfold/Chapter10/EquivalenceLR.lean, line 565
+- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 452
+- `Polyfold.EpFunctor.proposition_10_1_10_one_of_isLR_right` — Polyfold/Chapter10/EquivalenceLR.lean, line 519
+- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 501
+- `Polyfold.EquivalenceLRExamples.proposition_10_1_10_hypotheses` — Polyfold/Chapter10/EquivalenceLR.lean, line 566
 
 *What differs.*
 - The proof uses (LR) for $X$ only; with (LR) for $Y$, Proposition 10.1.9 gives it for $X$. The families are in general not natural transformations (V10.65) (Findings, Chapter 10, item 16).
@@ -17578,7 +17578,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `EPLoc.proposition_10_3_16`: $X$ has `IsLR` iff $Y$ has, by Proposition 10.1.9 for the legs of a representing diagram (`iff_of_isGeneralizedIso`).
 
 - `Polyfold.EPLocalization.EPLoc.proposition_10_3_16` — Polyfold/Chapter10/LocalizationLR.lean, line 56
-- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 90
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 91
 
 *What differs.*
 - The text's proof (Findings, Chapter 10, items 16, 38).
@@ -17836,7 +17836,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.ZhouLine.lineSc` — Polyfold/Chapter7/LineSobolevScale.lean, line 604
 - `Polyfold.ZhouLine.zhouFam` — Polyfold/Chapter7/ZhouRetraction.lean, line 140
 - `Polyfold.ZhouLine.isLossFamily_zhouFam` — Polyfold/Chapter7/ZhouRetraction.lean, line 247
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.Data` — Polyfold/Chapter7/ZhouGroupoid.lean, line 37
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.Data` — Polyfold/Chapter8/ZhouGroupoid.lean, line 37
 - `Polyfold.IsLossFamily.add` — Polyfold/Chapter10/ZhouExample.lean, line 60
 - `Polyfold.IsLossFamily.sub` — Polyfold/Chapter10/ZhouExample.lean, line 71
 - `Polyfold.IsLossFamily.comp_neg` — Polyfold/Chapter10/ZhouExample.lean, line 82
@@ -18068,10 +18068,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpFunctor.IsEquivalence.exists_lift_tangent` — Polyfold/Chapter11/EquivalenceForms.lean, line 309
 - `Polyfold.EpFunctor.IsEquivalence.lemma_11_2_2` — Polyfold/Chapter11/EquivalenceForms.lean, line 339
 - `Polyfold.EpFunctor.exists_epForms_formPullback_eq_of_surjective` — Polyfold/Chapter11/EquivalenceForms.lean, line 176
-- `Polyfold.MPolyfold.isScForm_of_formPullback` — Polyfold/Chapter11/FormDescent.lean, line 109
-- `Polyfold.MPolyfold.formDescend` — Polyfold/Chapter11/FormDescent.lean, line 171
-- `Polyfold.MPolyfold.formPullback_formDescend` — Polyfold/Chapter11/FormDescent.lean, line 179
-- `Polyfold.MPolyfold.formPullback_injective_of_isLocalScDiffeo` — Polyfold/Chapter11/FormDescent.lean, line 71
+- `Polyfold.MPolyfold.isScForm_of_formPullback` — Polyfold/Chapter11/FormDescent.lean, line 110
+- `Polyfold.MPolyfold.formDescend` — Polyfold/Chapter11/FormDescent.lean, line 172
+- `Polyfold.MPolyfold.formPullback_formDescend` — Polyfold/Chapter11/FormDescent.lean, line 180
+- `Polyfold.MPolyfold.formPullback_injective_of_isLocalScDiffeo` — Polyfold/Chapter11/FormDescent.lean, line 72
 - `Polyfold.EP.epFormsInftyPush` — Polyfold/Chapter11/EquivalenceFormsInfty.lean, line 103
 - `Polyfold.EP.epFormsInftyD_comp_epFormsInftyPush` — Polyfold/Chapter11/EquivalenceFormsInfty.lean, line 158
 
@@ -18246,7 +18246,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.MPolyfold.HasDimAt.of_image` — Polyfold/Chapter11/BranchedEquivalence.lean, line 106
 - `Polyfold.MPolyfold.hasDimAt_image_iff_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalence.lean, line 147
 - `Polyfold.MPolyfold.IsSubmanifoldOfDim.image_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalence.lean, line 162
-- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 192
+- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 193
 
 *What differs.*
 - The paracompactness required by 2021 Definition 9.1.2 (1) is proved, though the proof does not mention it; in the manifold-type step $\psi \circ \varphi' \circ \psi^{-1}$ is read $\psi^{-1} \circ \varphi' \circ \psi$ (Findings, Chapter 11, item 33).
@@ -18268,7 +18268,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EPLocalization.EPLoc.isNDimensional_pushTheta` — Polyfold/Chapter11/BranchedEquivalenceLocalization.lean, line 400
 - `Polyfold.EPLocalization.EPLoc.isNDimensional_pullTheta` — Polyfold/Chapter11/BranchedEquivalenceLocalization.lean, line 407
 - `Polyfold.EPLocalization.EPLoc.orbitSupp_pushTheta` — Polyfold/Chapter11/BranchedEquivalenceLocalization.lean, line 313
-- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1336
+- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1162
 
 *What differs.*
 - “The dimensional decomposition” refers to the uniqueness part of Proposition 9.1.11, which does not hold as we read it (Chapter 9, `not_proposition_9_1_11_rn`); (6) is read for every decomposition (Findings, Chapter 11, item 34).
@@ -18346,12 +18346,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** For equivalences (`isOrientation_pushSection`, `isOrientation_pullSection`) and for generalized isomorphisms (`theorem_11_3_5_push`, `theorem_11_3_5_pull`), assuming Chapter 9's independence of the tangent sums for $\Theta$; orientations of submanifolds and oriented branching structures moved by sc-diffeomorphisms between two M-polyfolds; $T\psi \circ TF = T(\hat\psi \circ F)$.
 
 - `Polyfold.EpFunctor.TransportChart.tangentMor_ψ_tangent_obj` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 140
-- `Polyfold.MPolyfold.OrTangent.map` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 202
-- `Polyfold.MPolyfold.IsOrientedAt.map_tangentMapOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 232
-- `Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 273
-- `Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo_tangent` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 330
-- `Polyfold.EpGroupoid.OrientedBranchingStructure.mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 569
-- `Polyfold.EpGroupoid.OrientedBranchingStructure.orientedSum_mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 580
+- `Polyfold.MPolyfold.OrTangent.map` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 134
+- `Polyfold.MPolyfold.IsOrientedAt.map_tangentMapOn` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 145
+- `Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 186
+- `Polyfold.MPolyfold.SubmanifoldOrientation.mapDiffeo_tangent` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 243
+- `Polyfold.EpGroupoid.OrientedBranchingStructure.mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 330
+- `Polyfold.EpGroupoid.OrientedBranchingStructure.orientedSum_mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 341
 - `Polyfold.EpFunctor.isOrientation_pushSection` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 163
 - `Polyfold.EpFunctor.isOrientation_pullSection` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 211
 - `Polyfold.EPLocalization.EPLoc.theorem_11_3_5_push` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 293
@@ -18388,22 +18388,22 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For equivalences (`tangentTheta_pushforwardTheta`, `tangentTheta_pullbackTheta`) and generalized isomorphisms (`theorem_11_3_7_push`, `theorem_11_3_7_pull`, with $Tf$ of Theorem 11.1.1); the independence of the tangent sums carried along; tangent spaces of submanifolds under sc-diffeomorphisms between two M-polyfolds.
 
-- `Polyfold.MPolyfold.submanifoldTangent_image_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 144
-- `Polyfold.MPolyfold.chartVec_tangentMapOn_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 168
-- `Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 457
-- `Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 470
-- `Polyfold.EpGroupoid.tangentTheta_tangentMapOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 492
-- `Polyfold.EpFunctor.hasIndependentTangentSums_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 630
-- `Polyfold.EpFunctor.hasIndependentTangentSums_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 641
-- `Polyfold.EpFunctor.tangentValue_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 687
-- `Polyfold.EpFunctor.tangentValue_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 699
-- `Polyfold.EpFunctor.tangentTheta_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 719
-- `Polyfold.EpFunctor.tangentTheta_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 735
-- `Polyfold.EPLocalization.EPLoc.hasIndependentTangentSums_pushTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 791
-- `Polyfold.EPLocalization.EPLoc.hasIndependentTangentSums_pullTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 799
-- `Polyfold.EPLocalization.EPLoc.tangentFunctor_map_eq` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 835
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_7_push` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 844
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_7_pull` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 860
+- `Polyfold.MPolyfold.submanifoldTangent_image_of_isScDiffeoOn` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 78
+- `Polyfold.MPolyfold.chartVec_tangentMapOn_of_isScDiffeoOn` — Polyfold/Chapter9/SubmanifoldTangentImage.lean, line 100
+- `Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_mapDiffeo` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 218
+- `Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 231
+- `Polyfold.EpGroupoid.tangentTheta_tangentMapOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 253
+- `Polyfold.EpFunctor.hasIndependentTangentSums_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 391
+- `Polyfold.EpFunctor.hasIndependentTangentSums_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 402
+- `Polyfold.EpFunctor.tangentValue_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 448
+- `Polyfold.EpFunctor.tangentValue_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 460
+- `Polyfold.EpFunctor.tangentTheta_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 480
+- `Polyfold.EpFunctor.tangentTheta_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 496
+- `Polyfold.EPLocalization.EPLoc.hasIndependentTangentSums_pushTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 552
+- `Polyfold.EPLocalization.EPLoc.hasIndependentTangentSums_pullTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 560
+- `Polyfold.EPLocalization.EPLoc.tangentFunctor_map_eq` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 596
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_7_push` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 605
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_7_pull` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 621
 
 *What differs.*
 - $(Tf)_*$ is read as the push-forward of Definition 11.3.1 along the tangent generalized isomorphism (Findings, Chapter 11, item 43).
@@ -18416,14 +18416,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For equivalences (`boundaryTheta_pushforwardTheta`, `boundaryTheta_pullbackTheta`) and generalized isomorphisms (`theorem_11_3_8_push`, `theorem_11_3_8_pull`); $f(a) \in \partial f(A)$ iff $a \in \partial A$ for sc-diffeomorphisms between two M-polyfolds.
 
-- `Polyfold.MPolyfold.IsTangentReducedAt.image_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 356
-- `Polyfold.MPolyfold.isTangentReducedAt_image_iff_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 397
-- `Polyfold.MPolyfold.mem_submanifoldBoundary_image_iff_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 412
-- `Polyfold.EpGroupoid.boundaryTheta_apply_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 531
-- `Polyfold.EpFunctor.boundaryTheta_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 752
-- `Polyfold.EpFunctor.boundaryTheta_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 764
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_8_push` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 809
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_8_pull` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 819
+- `Polyfold.MPolyfold.IsTangentReducedAt.image_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 117
+- `Polyfold.MPolyfold.isTangentReducedAt_image_iff_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 158
+- `Polyfold.MPolyfold.mem_submanifoldBoundary_image_iff_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 173
+- `Polyfold.EpGroupoid.boundaryTheta_apply_of_isScDiffeoOn` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 292
+- `Polyfold.EpFunctor.boundaryTheta_pushforwardTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 513
+- `Polyfold.EpFunctor.boundaryTheta_pullbackTheta` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 525
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_8_push` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 570
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_8_pull` — Polyfold/Chapter11/BranchedEquivalenceTangent.lean, line 580
 
 *What differs.*
 - The preservation of $d_M(x)$ is read as the invariance of $\partial M$ of Definition 9.2.16 (Findings, Chapter 11, item 44).
@@ -18436,18 +18436,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For a generalized isomorphism $f$ itself: $f_*(\partial\Theta) = \partial(f_*\Theta)$ and $f_*\hat T_{\partial\Theta} = \hat T_{\partial(f_*\Theta)}$, and likewise for $f^*$, with $\hat T_{\partial\Theta}$ the intrinsic `boundaryOrientation` of Definition 9.3.10 (V9.38), for every section $\hat T_\Theta$ of $\widehat{\mathrm{Gr}}$ and no boundary-transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`; the independence of tangent sums they take holds for every $\Theta$, `hasIndependentTangentSums`, V9.14); also for a representative diagram (`Diagram.pushSection_boundaryOrientation`, `Diagram.pullSection_boundaryOrientation`). sc-diffeomorphisms and equivalences move the boundary operation (`boundaryOp_map_tangentMapOn`, `EpFunctor.isReducedBoundaryTransfer_tangentMor`). With Chapter 9's `boundaryLift boundaryOp`: for oriented tame $\hat\Theta$ with $f_*\hat\Theta$ tame (`EPLoc.theorem_11_3_9_push_boundaryOp`, `EPLoc.theorem_11_3_9_pull_boundaryOp`; witness on Example 9.3.5). The form for a representative with boundary operations that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity), is kept (`theorem_11_3_9_push`, `theorem_11_3_9_pull`); `IsReducedBoundaryTransfer.isBoundaryTransfer` gives that hypothesis for `boundaryOp` when $f$ carries tangent sets of tame submanifolds to such (`CarriesTameTangents`, witness `carriesTameTangents_id`).
 
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 492
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 503
-- `Polyfold.EPLocalization.Diagram.pushSection_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 462
-- `Polyfold.EPLocalization.Diagram.pullSection_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 473
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOp` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 539
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOp` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 553
-- `Polyfold.MPolyfold.boundaryOp_map_tangentMapOn` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 241
-- `Polyfold.EpFunctor.isReducedBoundaryTransfer_tangentMor` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 369
-- `Polyfold.MPolyfold.IsReducedBoundaryTransfer.isBoundaryTransfer` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 299
-- `Polyfold.MPolyfold.CarriesTameTangents` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 289
-- `Polyfold.MPolyfold.carriesTameTangents_id` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 293
-- `Polyfold.EpGroupoid.Examples.theorem_11_3_9_push_boundaryOp_example935` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 588
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 343
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 354
+- `Polyfold.EPLocalization.Diagram.pushSection_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 313
+- `Polyfold.EPLocalization.Diagram.pullSection_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 324
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOp` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 390
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOp` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 404
+- `Polyfold.MPolyfold.boundaryOp_map_tangentMapOn` — Polyfold/Chapter9/TangentMapBoundaryOps.lean, line 162
+- `Polyfold.EpFunctor.isReducedBoundaryTransfer_tangentMor` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 220
+- `Polyfold.MPolyfold.IsReducedBoundaryTransfer.isBoundaryTransfer` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 150
+- `Polyfold.MPolyfold.CarriesTameTangents` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 140
+- `Polyfold.MPolyfold.carriesTameTangents_id` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 144
+- `Polyfold.EpGroupoid.Examples.theorem_11_3_9_push_boundaryOp_example935` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 439
 - `Polyfold.MPolyfold.IsBoundaryTransfer` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 77
 - `Polyfold.MPolyfold.isBoundaryTransfer_id` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 84
 - `Polyfold.EpFunctor.pushSection_boundaryLift` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 241
@@ -18632,16 +18632,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `GenSBMap.proposition_11_5_1_book`: $[D]^*N'$ and $[D]_*N$ are auxiliary norms (continuity and conditions (1)–(3) of Definition 8.3.5). They are mutually inverse, computed by every representative with both legs strong bundle equivalences ($[D]^*N'(e) = N'(\Psi(e''))$ for $\Phi(e'') \cong e$), and equal for $|[D]| = |[D']|$. Conditions (1) and (2) are `SDiagram.isCompleteFiberNorm_pullNorm` and `SDiagram.tendsto_zeroOne_pullNorm` (`Chapter11/AuxiliaryNormTransport.lean`): they go through the level-1 fibre maps of $\mu$ and of a strong bundle equivalence, as linear isomorphisms (`oneFiberMor`, `oneFiberObj`), and through the level-1 local inverse at the zero section (`tendsto_zeroOne_of_tendsto_obj`). The form `proposition_11_5_1` is kept: `pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.
 
-- `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 474
-- `Polyfold.SBLocalization.SDiagram.isAuxNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 440
-- `Polyfold.SBLocalization.SDiagram.isAuxNorm_pushNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 448
-- `Polyfold.SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 325
-- `Polyfold.SBLocalization.SDiagram.tendsto_zeroOne_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 350
-- `Polyfold.SBLocalization.oneFiberMor` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 140
-- `Polyfold.SBLocalization.oneFiberObj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 182
-- `Polyfold.SBLocalization.tendsto_zeroOne_of_tendsto_obj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 209
-- `Polyfold.SBLocalization.tendsto_zeroOne_μ_obj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 239
-- `Polyfold.StrongBundle.IsCompleteFiberNorm.of_linearEquiv` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 79
+- `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 470
+- `Polyfold.SBLocalization.SDiagram.isAuxNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 436
+- `Polyfold.SBLocalization.SDiagram.isAuxNorm_pushNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 444
+- `Polyfold.SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 321
+- `Polyfold.SBLocalization.SDiagram.tendsto_zeroOne_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 346
+- `Polyfold.SBLocalization.oneFiberMor` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 136
+- `Polyfold.SBLocalization.oneFiberObj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 178
+- `Polyfold.SBLocalization.tendsto_zeroOne_of_tendsto_obj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 205
+- `Polyfold.SBLocalization.tendsto_zeroOne_μ_obj` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 235
+- `Polyfold.StrongBundle.IsCompleteFiberNorm.of_linearEquiv` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 75
 - `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1` — Polyfold/Chapter11/StrongBundleUpToEquivalence.lean, line 464
 - `Polyfold.SBLocalization.GenSBMap.pullNorm` — Polyfold/Chapter11/StrongBundleUpToEquivalence.lean, line 451
 - `Polyfold.SBLocalization.GenSBMap.pushNorm` — Polyfold/Chapter11/StrongBundleUpToEquivalence.lean, line 454
@@ -18856,21 +18856,21 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `hFunctor` and, when $\Psi$, $\Phi$ are local sc-diffeomorphisms on objects and $\Psi$ maps fibres onto fibres, its surjectivity and local sc-diffeomorphism property on objects (A), the sc-diffeomorphism $\alpha$ (B), finite fibres and properness (C).
 
-- `Polyfold.ProperCoveringHom.hFunctor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 260
-- `Polyfold.ProperCoveringHom.hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 220
-- `Polyfold.ProperCoveringHom.hMor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 225
-- `Polyfold.ProperCoveringHom.mor_conj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 240
-- `Polyfold.ProperCoveringHom.hMor_src` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 250
-- `Polyfold.ProperCoveringHom.hMor_tgt` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 253
-- `Polyfold.ProperCoveringHom.surjective_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 293
-- `Polyfold.ProperCoveringHom.isLocalScDiffeo_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 305
-- `Polyfold.ProperCoveringHom.isScDiffeo_fibredMap_hFunctor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 377
-- `Polyfold.ProperCoveringHom.finite_fiber_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 313
-- `Polyfold.ProperCoveringHom.isProperMap_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 331
-- `Polyfold.ProperCoveringHom.isProperCovering_hFunctor_of` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 454
-- `Polyfold.MPolyfold.IsScDiffeoOn.restrictTarget` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 98
-- `Polyfold.MPolyfold.IsLocalScDiffeo.evenlyCovered_of_isProperMap` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 106
-- `Polyfold.EpFunctor.IsProperCovering.isProperMap` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 171
+- `Polyfold.ProperCoveringHom.hFunctor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 241
+- `Polyfold.ProperCoveringHom.hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 201
+- `Polyfold.ProperCoveringHom.hMor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 206
+- `Polyfold.ProperCoveringHom.mor_conj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 221
+- `Polyfold.ProperCoveringHom.hMor_src` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 231
+- `Polyfold.ProperCoveringHom.hMor_tgt` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 234
+- `Polyfold.ProperCoveringHom.surjective_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 274
+- `Polyfold.ProperCoveringHom.isLocalScDiffeo_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 286
+- `Polyfold.ProperCoveringHom.isScDiffeo_fibredMap_hFunctor` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 358
+- `Polyfold.ProperCoveringHom.finite_fiber_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 294
+- `Polyfold.ProperCoveringHom.isProperMap_hObj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 312
+- `Polyfold.ProperCoveringHom.isProperCovering_hFunctor_of` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 435
+- `Polyfold.MPolyfold.IsScDiffeoOn.restrictTarget` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 79
+- `Polyfold.MPolyfold.IsLocalScDiffeo.evenlyCovered_of_isProperMap` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 87
+- `Polyfold.EpFunctor.IsProperCovering.isProperMap` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 152
 
 *What differs.*
 - The heading of step (A) has the two weak fibred products in the reverse order; we read $Y \times_{Y'} Y''$ onto $X \times_{X'} X''$ (Findings, Chapter 11, item 74).
@@ -18883,11 +18883,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** All claims, with `projLeftHom`, `projRightHom`, `natTransProj`; witness with nonempty fibred product.
 
-- `Polyfold.ProperCoveringHom.theorem_11_6_6` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 527
-- `Polyfold.ProperCoveringHom.projLeftHom` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 503
-- `Polyfold.ProperCoveringHom.projRightHom` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 507
-- `Polyfold.ProperCoveringHom.natTransProj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 513
-- `Polyfold.CoveringEquivalence.Examples.theorem_11_6_6_pairToPoint` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 567
+- `Polyfold.ProperCoveringHom.theorem_11_6_6` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 508
+- `Polyfold.ProperCoveringHom.projLeftHom` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 484
+- `Polyfold.ProperCoveringHom.projRightHom` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 488
+- `Polyfold.ProperCoveringHom.natTransProj` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 494
+- `Polyfold.CoveringEquivalence.Examples.theorem_11_6_6_pairToPoint` — Polyfold/Chapter11/CoveringEquivalenceTheorem.lean, line 548
 - `Polyfold.CoveringEquivalence.Examples.nonempty_fiber_id` — Polyfold/Chapter11/CoveringEquivalence.lean, line 677
 - `Polyfold.WeakFibredProduct.isEquivalence_projRight` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 203
 - `Polyfold.MPolyfold.IsLocalScDiffeo.isTame` — Polyfold/Chapter7/LocalDiffeo.lean, line 352
@@ -19275,18 +19275,18 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8)).** Over a tame ep-groupoid, $s : \partial X \to W$ with $P \circ s = \mathrm{Id}$ is an sc⁺-section over the boundary if for every $x \in \partial X$ and every local face $F \ni x$, $s|F$ is an sc⁺-section of $W|F \to F$.
 
-**Proved in Lean.** In a tame local strong bundle model $K = R(U \triangleleft F) \to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \in D$ and $i \in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\varphi) = \mu(\varphi, s(s\varphi))$ for $s(\varphi) \in \partial X$; then $t(\varphi) \in \partial X$, `EpGroupoid.tgt_mem_boundary_iff'`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).
+**Proved in Lean.** In a tame local strong bundle model $K = R(U \triangleleft F) \to O$ with presentation $T$: `IsBoundaryScPlusSectionOn T C O K s D` (for $x \in D$ and $i \in I(x)$, `IsScPlusOnFaceNear T C O K s x i`); `retractBoundary E C O` is $\partial O$, with `mem_retractBoundary_iff`. The ep-groupoid form is `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold; it does not involve $\mu$), and the functor version used by Theorem 12.3.9 is `IsBoundaryScPlusSectionFunctor` (also $s(t\varphi) = \mu(\varphi, s(s\varphi))$ for $s(\varphi) \in \partial X$; then $t(\varphi) \in \partial X$, `EpGroupoid.tgt_mem_boundary_iff`). Witnesses: the zero section (`isBoundaryScPlusSectionOn_zero`, `isBoundaryScPlusSectionFunctor_fiberZero`).
 
-- `Polyfold.retractBoundary` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 142
-- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 147
-- `Polyfold.IsBoundaryScPlusSectionOn` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 156
-- `Polyfold.mem_retractBoundary_iff` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 162
-- `Polyfold.isBoundaryScPlusSectionOn_zero` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 415
-- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter5/BoundaryExtension.lean, line 92
-- `Polyfold.EpStrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 272
-- `Polyfold.EpStrongBundle.IsBoundaryScPlusSectionFunctor` — Polyfold/Chapter12/ScPlusExtension.lean, line 278
-- `Polyfold.EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 286
-- `Polyfold.EpGroupoid.tgt_mem_boundary_iff'` — Polyfold/Chapter12/ScPlusExtension.lean, line 81
+- `Polyfold.retractBoundary` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 143
+- `Polyfold.IsScPlusOnFaceNear` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 148
+- `Polyfold.IsBoundaryScPlusSectionOn` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 157
+- `Polyfold.mem_retractBoundary_iff` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 163
+- `Polyfold.isBoundaryScPlusSectionOn_zero` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 416
+- `Polyfold.StrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/BoundaryExtension.lean, line 93
+- `Polyfold.EpStrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 256
+- `Polyfold.EpStrongBundle.IsBoundaryScPlusSectionFunctor` — Polyfold/Chapter12/ScPlusExtension.lean, line 262
+- `Polyfold.EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 270
+- `Polyfold.EpGroupoid.tgt_mem_boundary_iff` — Polyfold/Chapter12/AuxNormExtension.lean, line 79
 
 *What differs.*
 - The chart-level form is the content used by Proposition 12.3.7 and Corollary 12.3.8. The ep-groupoid form is the M-polyfold form on objects; the local faces are read chart-wise, as in Definition 5.4.1 (V5.88). The functor condition "on $W|\partial X$" is read on morphisms between boundary points.
@@ -19299,16 +19299,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `proposition_12_3_7` (book form): for $V_0$ open, $x_0 \in \partial O \cap V_0$ and the face condition on $\partial O \cap V_0$, an open $V \ni x_0$ with $O \cap V$ a retract and $\tilde s$ sc⁺ on $O \cap V$ equal to $s$ on $\partial O \cap V$. Stronger: `proposition_12_3_7_of_faces_at` needs the face condition only at $x_0$, with the explicit extension `boundaryExtension`, which agrees with the text's formula (`boundaryExtension_toBase_snd`). Witness with $\partial O \ne \emptyset$: `proposition_12_3_7_nonvacuous`.
 
-- `Polyfold.proposition_12_3_7` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 372
-- `Polyfold.proposition_12_3_7_of_faces_at` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 277
-- `Polyfold.proposition_12_3_7_nonvacuous` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 445
-- `Polyfold.boundaryExtension` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 178
-- `Polyfold.boundaryExtension_toBase_snd` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 186
-- `Polyfold.boundaryExtension_fst` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 197
-- `Polyfold.boundaryExtension_mem` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 205
-- `Polyfold.exists_isScSmooth_faceTerm` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 238
-- `Polyfold.sum_powerset_erase_empty_alternating` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 110
-- `Polyfold.cornerKill_insert_of_coord_eq_zero` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 90
+- `Polyfold.proposition_12_3_7` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 373
+- `Polyfold.proposition_12_3_7_of_faces_at` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 278
+- `Polyfold.proposition_12_3_7_nonvacuous` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 433
+- `Polyfold.boundaryExtension` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 179
+- `Polyfold.boundaryExtension_toBase_snd` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 187
+- `Polyfold.boundaryExtension_fst` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 198
+- `Polyfold.boundaryExtension_mem` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 206
+- `Polyfold.exists_isScSmooth_faceTerm` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 239
+- `Polyfold.sum_powerset_erase_empty_alternating` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 111
+- `Polyfold.cornerKill_insert_of_coord_eq_zero` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 91
 
 *What differs.*
 - Only the face germs at $x_0$ itself are used; $E = \mathbb R^n \oplus H$ is replaced by an arbitrary tame presentation $T$; $(t,h)_I = r(t_I, h)$ is `base RB (cornerKill T I 0 z)`; the cancellation is `sum_powerset_erase_empty_alternating`.
@@ -19321,11 +19321,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `corollary_12_3_8` for a finite group $G$ with `A : LocalBundleAction G C O K` (an action by sc-smooth maps of $O$ with an sc-smooth, fibre-linear lift to $K[1]$ covering it, unit and composition laws), with `hfix` ($G$ fixes $x_0$), $\partial O \cap V_0$ invariant, the face condition and equivariance of $s$ there: an open invariant $V \ni x_0$ and $\hat s$ (`LocalBundleAction.average` of the extension of Proposition 12.3.7), sc⁺ on $O \cap V$, equivariant, equal to $s$ on $\partial O \cap V$. Witness: `LocalBundleAction.trivial`.
 
-- `Polyfold.corollary_12_3_8` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 545
-- `Polyfold.LocalBundleAction` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 502
-- `Polyfold.LocalBundleAction.trivial` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 518
-- `Polyfold.LocalBundleAction.average` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 532
-- `Polyfold.mem_strongShiftOne_sum_smul` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 481
+- `Polyfold.corollary_12_3_8` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 533
+- `Polyfold.LocalBundleAction` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 490
+- `Polyfold.LocalBundleAction.trivial` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 506
+- `Polyfold.LocalBundleAction.average` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 520
+- `Polyfold.mem_strongShiftOne_sum_smul` — Polyfold/Chapter12/LocalBoundaryExtension.lean, line 469
 
 *What differs.*
 - "$G_{x_0}$ acts with a lift to $K$" is the structure `LocalBundleAction`; that the isotropy group fixes $x_0$ is the explicit `hfix`; "invariant" is read as equivariant, $\hat s(gx) = g * \hat s(x)$.
@@ -19717,22 +19717,22 @@ The global part is `theorem_12_2_13_hyp` (with `hloc : HasReflexiveLocalExtensio
 
 **Proved in Lean.** `EpStrongBundle.theorem_12_3_9 E (hB : B.IsTameBundle) (_hpara : X.HasParacompactOrbitSpace) (hpu : X.HasScPartitionsOfUnity) (hs : E.IsBoundaryScPlusSectionFunctor s) (hU : IsOpen U) (hUsat : X.IsSaturated U) (hbU : ∂X ⊆ U)`: (1) there is $\tilde s$ with `E.IsScPlusSectionFunctor s̃`, `sectionSupport P s̃ ⊆ U` and $\tilde s = s$ on $\partial X$; (2) for every `E.IsAuxNorm N`, $\delta > 0$ and $N(s(x)) < \delta$ on $\partial X$, the same with $N(\tilde s(x)) \le \delta$ for all $x$. The cores `exists_extension_of_tameCharts`, `exists_extension_bounded_of_tameCharts` assume only that every object lies in a tame strong bundle chart. Witness of all hypotheses: `theorem_12_3_9_hypotheses_rn`.
 
-- `Polyfold.EpStrongBundle.theorem_12_3_9` — Polyfold/Chapter12/ScPlusExtension.lean, line 622
-- `Polyfold.EpStrongBundle.theorem_12_3_9_hypotheses_rn` — Polyfold/Chapter12/ScPlusExtension.lean, line 640
-- `Polyfold.EpStrongBundle.exists_extension_of_tameCharts` — Polyfold/Chapter12/ScPlusExtension.lean, line 491
-- `Polyfold.EpStrongBundle.exists_extension_bounded_of_tameCharts` — Polyfold/Chapter12/ScPlusExtension.lean, line 525
-- `Polyfold.EpStrongBundle.exists_local_functor_extension` — Polyfold/Chapter12/ScPlusExtension.lean, line 418
-- `Polyfold.EpStrongBundle.exists_equivariant_average_eq` — Polyfold/Chapter12/ScPlusExtension.lean, line 369
-- `Polyfold.EpStrongBundle.isScPlusSectionFunctor_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 335
-- `Polyfold.EpStrongBundle.isFunctorialSection_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 311
-- `Polyfold.EpStrongBundle.isFunctorialSection_sectionSmul` — Polyfold/Chapter12/ScPlusExtension.lean, line 299
-- `Polyfold.EpStrongBundle.isScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 292
-- `Polyfold.glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 176
-- `Polyfold.glueSection_eq_of` — Polyfold/Chapter12/ScPlusExtension.lean, line 205
-- `Polyfold.sectionSupport_glueSection_subset` — Polyfold/Chapter12/ScPlusExtension.lean, line 221
-- `Polyfold.isScPlusSection_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 241
-- `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity` — Polyfold/Chapter12/ScPlusExtension.lean, line 114
-- `Polyfold.EpGroupoid.isSaturated_compl_boundary` — Polyfold/Chapter12/ScPlusExtension.lean, line 87
+- `Polyfold.EpStrongBundle.theorem_12_3_9` — Polyfold/Chapter12/ScPlusExtension.lean, line 606
+- `Polyfold.EpStrongBundle.theorem_12_3_9_hypotheses_rn` — Polyfold/Chapter12/ScPlusExtension.lean, line 624
+- `Polyfold.EpStrongBundle.exists_extension_of_tameCharts` — Polyfold/Chapter12/ScPlusExtension.lean, line 475
+- `Polyfold.EpStrongBundle.exists_extension_bounded_of_tameCharts` — Polyfold/Chapter12/ScPlusExtension.lean, line 509
+- `Polyfold.EpStrongBundle.exists_local_functor_extension` — Polyfold/Chapter12/ScPlusExtension.lean, line 402
+- `Polyfold.EpStrongBundle.exists_equivariant_average_eq` — Polyfold/Chapter12/ScPlusExtension.lean, line 353
+- `Polyfold.EpStrongBundle.isScPlusSectionFunctor_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 319
+- `Polyfold.EpStrongBundle.isFunctorialSection_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 295
+- `Polyfold.EpStrongBundle.isFunctorialSection_sectionSmul` — Polyfold/Chapter12/ScPlusExtension.lean, line 283
+- `Polyfold.EpStrongBundle.isScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 276
+- `Polyfold.glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 160
+- `Polyfold.glueSection_eq_of` — Polyfold/Chapter12/ScPlusExtension.lean, line 189
+- `Polyfold.sectionSupport_glueSection_subset` — Polyfold/Chapter12/ScPlusExtension.lean, line 205
+- `Polyfold.isScPlusSection_glueSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 225
+- `Polyfold.EpGroupoid.admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity` — Polyfold/Chapter12/ScPlusExtension.lean, line 111
+- `Polyfold.EpGroupoid.isSaturated_compl_boundary` — Polyfold/Chapter12/ScPlusExtension.lean, line 83
 
 *What differs.*
 - Readings: "strong bundle over the tame ep-groupoid" is `B.IsTameBundle` for the object strong bundle, as in Theorem 5.4.2; the partitions of unity are Definition 7.5.5; "supported in $U$" is $\mathrm{cl}\{\tilde s \ne 0\} \subseteq U$. Paracompactness of $|X|$ is kept and unused, since the partitions of unity are assumed.
@@ -20368,9 +20368,9 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 - `Polyfold.EpGroupoid.NatNbhd.Le` — Polyfold/Chapter13/SymmetricOn.lean, line 67
 - `Polyfold.EpGroupoid.NatNbhd.exists_le_of_finite` — Polyfold/Chapter13/SymmetricOn.lean, line 88
 - `Polyfold.SBLocalization.fibAct` — Polyfold/Chapter13/SymmetricOn.lean, line 116
-- `Polyfold.SBLocalization.fibAct_sectionAdd` — Polyfold/Chapter13/SymmetricOn.lean, line 134
-- `Polyfold.SBLocalization.SymmetricStructureOn.restrict` — Polyfold/Chapter13/SymmetricOn.lean, line 278
-- `Polyfold.SBLocalization.SymmetricStructureOn.add` — Polyfold/Chapter13/SymmetricOn.lean, line 347
+- `Polyfold.SBLocalization.fibAct_sectionAdd` — Polyfold/Chapter13/SymmetricOn.lean, line 147
+- `Polyfold.SBLocalization.SymmetricStructureOn.restrict` — Polyfold/Chapter13/SymmetricOn.lean, line 291
+- `Polyfold.SBLocalization.SymmetricStructureOn.add` — Polyfold/Chapter13/SymmetricOn.lean, line 360
 - `Polyfold.SBLocalization.Decoration.exists_common` — Polyfold/Chapter13/DecoratedMultisection.lean, line 215
 - `Polyfold.SBLocalization.Decoration.add` — Polyfold/Chapter13/DecoratedMultisection.lean, line 224
 - `Polyfold.SBLocalization.Decoration.add_I` — Polyfold/Chapter13/DecoratedMultisection.lean, line 236
@@ -20403,10 +20403,10 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 - `Polyfold.SBLocalization.multisectionSmul_eq_sum_of_isLocalRepOn` — Polyfold/Chapter13/MultisectionAlgebra.lean, line 241
 - `Polyfold.SBLocalization.definition_13_2_10` — Polyfold/Chapter13/MultisectionAlgebra.lean, line 277
 - `Polyfold.SBLocalization.IsScPlusSectionOn.sectionSmul` — Polyfold/Chapter13/ScPlusSectionOn.lean, line 212
-- `Polyfold.SBLocalization.SymmetricStructureOn.smulSection` — Polyfold/Chapter13/SymmetricOn.lean, line 382
-- `Polyfold.SBLocalization.SymmetricStructureOn.smulSection_apply` — Polyfold/Chapter13/SymmetricOn.lean, line 385
-- `Polyfold.SBLocalization.fibAct_sectionSmul` — Polyfold/Chapter13/SymmetricOn.lean, line 148
-- `Polyfold.SBLocalization.SymmetricStructureOn.smul` — Polyfold/Chapter13/SymmetricOn.lean, line 423
+- `Polyfold.SBLocalization.SymmetricStructureOn.smulSection` — Polyfold/Chapter13/SymmetricOn.lean, line 395
+- `Polyfold.SBLocalization.SymmetricStructureOn.smulSection_apply` — Polyfold/Chapter13/SymmetricOn.lean, line 398
+- `Polyfold.SBLocalization.fibAct_sectionSmul` — Polyfold/Chapter13/SymmetricOn.lean, line 161
+- `Polyfold.SBLocalization.SymmetricStructureOn.smul` — Polyfold/Chapter13/SymmetricOn.lean, line 436
 - `Polyfold.SBLocalization.Decoration.smul` — Polyfold/Chapter13/DecoratedMultisection.lean, line 359
 - `Polyfold.SBLocalization.definition_13_2_10_decorated` — Polyfold/Chapter13/DecoratedMultisection.lean, line 384
 - `Polyfold.SBLocalization.DecoratedMultisection.smul` — Polyfold/Chapter13/DecoratedMultisection.lean, line 397
@@ -20424,7 +20424,7 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 
 - `Polyfold.SBLocalization.multisectionSmulFun` — Polyfold/Chapter13/MultisectionAlgebra.lean, line 291
 - `Polyfold.SBLocalization.lemma_13_2_11` — Polyfold/Chapter13/MultisectionAlgebra.lean, line 297
-- `Polyfold.SBLocalization.SymmetricStructureOn.smulFun` — Polyfold/Chapter13/SymmetricOn.lean, line 395
+- `Polyfold.SBLocalization.SymmetricStructureOn.smulFun` — Polyfold/Chapter13/SymmetricOn.lean, line 408
 - `Polyfold.SBLocalization.Decoration.smulFun` — Polyfold/Chapter13/DecoratedMultisection.lean, line 353
 - `Polyfold.SBLocalization.Decoration.smulFun_rel` — Polyfold/Chapter13/DecoratedMultisection.lean, line 363
 - `Polyfold.SBLocalization.lemma_13_2_11_decorated` — Polyfold/Chapter13/DecoratedMultisection.lean, line 390
@@ -20458,10 +20458,10 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 - `Polyfold.SBLocalization.lfSum_eq_conv_of_mem` — Polyfold/Chapter13/MultisectionLocallyFinite.lean, line 193
 - `Polyfold.SBLocalization.trivial_of_not_mem_nontrivIdx` — Polyfold/Chapter13/MultisectionLocallyFinite.lean, line 182
 - `Polyfold.SBLocalization.lemma_13_2_13` — Polyfold/Chapter13/MultisectionLocallyFinite.lean, line 224
-- `Polyfold.SBLocalization.SymmetricStructureOn.sumSection` — Polyfold/Chapter13/SymmetricOn.lean, line 431
-- `Polyfold.SBLocalization.SymmetricStructureOn.sumSection_apply` — Polyfold/Chapter13/SymmetricOn.lean, line 435
-- `Polyfold.SBLocalization.fibAct_sectionSum` — Polyfold/Chapter13/SymmetricOn.lean, line 160
-- `Polyfold.SBLocalization.SymmetricStructureOn.pi` — Polyfold/Chapter13/SymmetricOn.lean, line 445
+- `Polyfold.SBLocalization.SymmetricStructureOn.sumSection` — Polyfold/Chapter13/SymmetricOn.lean, line 444
+- `Polyfold.SBLocalization.SymmetricStructureOn.sumSection_apply` — Polyfold/Chapter13/SymmetricOn.lean, line 448
+- `Polyfold.SBLocalization.fibAct_sectionSum` — Polyfold/Chapter13/SymmetricOn.lean, line 173
+- `Polyfold.SBLocalization.SymmetricStructureOn.pi` — Polyfold/Chapter13/SymmetricOn.lean, line 458
 - `Polyfold.SBLocalization.SymmetricStructureOn.congr` — Polyfold/Chapter13/DecoratedMultisection.lean, line 415
 - `Polyfold.SBLocalization.exists_lfData` — Polyfold/Chapter13/DecoratedMultisection.lean, line 426
 - `Polyfold.SBLocalization.lfSumStructure` — Polyfold/Chapter13/DecoratedMultisection.lean, line 434
@@ -20509,14 +20509,14 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 
 **Proved in Lean.** `structure Decoration A Λ` with `𝒰 : A.X.GoodSystem` and `S : ∀ x, SymmetricStructureOn A Λ (𝒰.nbhd x)`; `structure DecoratedTuple A` with `Λ`, `isScPlusMultisection`, `dec : Decoration A Λ`. `SymmetricStructureOn A Λ N` is Definition 13.2.5 on the neighbourhood $N$ of $x$ with its natural $G_x$-action: a finite $I$ with a $G_x$-action, sc⁺-sections $s_i$ on $N.U$ with $s_{g(i)}(g * y) = \mu(\Gamma(g,y), s_i(y))$ and $\Lambda(w) = |I|^{-1}\#\{i \mid s_i(P(w)) = w\}$ over $N.U$. Witnesses: `exists_decoration` (for paracompact $|X|$, from Lemma 13.2.6 and Theorem 13.1.8), `exists_symmetricStructureOn`.
 
-- `Polyfold.SBLocalization.SymmetricStructureOn` — Polyfold/Chapter13/SymmetricOn.lean, line 198
-- `Polyfold.SBLocalization.SymmetricStructureOn.P_s` — Polyfold/Chapter13/SymmetricOn.lean, line 220
-- `Polyfold.SBLocalization.SymmetricStructureOn.apply_fib` — Polyfold/Chapter13/SymmetricOn.lean, line 224
-- `Polyfold.SBLocalization.SymmetricStructureOn.rep_of_apply_fib` — Polyfold/Chapter13/SymmetricOn.lean, line 233
-- `Polyfold.SBLocalization.SymmetricStructureOn.card_pos` — Polyfold/Chapter13/SymmetricOn.lean, line 246
-- `Polyfold.SBLocalization.SymmetricStructureOn.s_eq_fiberZero` — Polyfold/Chapter13/SymmetricOn.lean, line 261
-- `Polyfold.SBLocalization.SymmetricStructure.toOn` — Polyfold/Chapter13/SymmetricOn.lean, line 307
-- `Polyfold.SBLocalization.exists_symmetricStructureOn` — Polyfold/Chapter13/SymmetricOn.lean, line 317
+- `Polyfold.SBLocalization.SymmetricStructureOn` — Polyfold/Chapter13/SymmetricOn.lean, line 211
+- `Polyfold.SBLocalization.SymmetricStructureOn.P_s` — Polyfold/Chapter13/SymmetricOn.lean, line 233
+- `Polyfold.SBLocalization.SymmetricStructureOn.apply_fib` — Polyfold/Chapter13/SymmetricOn.lean, line 237
+- `Polyfold.SBLocalization.SymmetricStructureOn.rep_of_apply_fib` — Polyfold/Chapter13/SymmetricOn.lean, line 246
+- `Polyfold.SBLocalization.SymmetricStructureOn.card_pos` — Polyfold/Chapter13/SymmetricOn.lean, line 259
+- `Polyfold.SBLocalization.SymmetricStructureOn.s_eq_fiberZero` — Polyfold/Chapter13/SymmetricOn.lean, line 274
+- `Polyfold.SBLocalization.SymmetricStructure.toOn` — Polyfold/Chapter13/SymmetricOn.lean, line 320
+- `Polyfold.SBLocalization.exists_symmetricStructureOn` — Polyfold/Chapter13/SymmetricOn.lean, line 330
 - `Polyfold.SBLocalization.Decoration` — Polyfold/Chapter13/DecoratedMultisection.lean, line 110
 - `Polyfold.SBLocalization.DecoratedTuple` — Polyfold/Chapter13/DecoratedMultisection.lean, line 118
 - `Polyfold.SBLocalization.exists_decoration` — Polyfold/Chapter13/DecoratedMultisection.lean, line 198
@@ -20951,45 +20951,45 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 - `Polyfold.SBLocalization.IndexCorr.sat_ofEquiv` — Polyfold/Chapter13/AtomicStructurable.lean, line 123
 - `Polyfold.SBLocalization.eventually_eq_of_existsUnique` — Polyfold/Chapter13/AtomicStructurable.lean, line 131
 - `Polyfold.SBLocalization.eq_of_mem_connectedComponentIn` — Polyfold/Chapter13/AtomicStructurable.lean, line 151
-- `Polyfold.SBLocalization.AtomicStructData.fibAct_comp` — Polyfold/Chapter13/AtomicStructurable.lean, line 176
-- `Polyfold.SBLocalization.AtomicStructData.fibAct_unit` — Polyfold/Chapter13/AtomicStructurable.lean, line 182
-- `Polyfold.SBLocalization.AtomicStructData.fibAct_inv_fibAct` — Polyfold/Chapter13/AtomicStructurable.lean, line 187
-- `Polyfold.SBLocalization.AtomicStructData.fibAct_fibAct_inv` — Polyfold/Chapter13/AtomicStructurable.lean, line 191
-- `Polyfold.SBLocalization.AtomicStructData.transportSection_eq_fibAct` — Polyfold/Chapter13/AtomicStructurable.lean, line 196
-- `Polyfold.SBLocalization.AtomicStructData.comp_inv_comp` — Polyfold/Chapter13/AtomicStructurable.lean, line 201
-- `Polyfold.SBLocalization.AtomicStructData` — Polyfold/Chapter13/AtomicStructurable.lean, line 215
-- `Polyfold.SBLocalization.exists_atomicStructData` — Polyfold/Chapter13/AtomicStructurable.lean, line 238
-- `Polyfold.SBLocalization.AtomicStructData.Z` — Polyfold/Chapter13/AtomicStructurable.lean, line 264
-- `Polyfold.SBLocalization.AtomicStructData.isClosed_Z` — Polyfold/Chapter13/AtomicStructurable.lean, line 266
-- `Polyfold.SBLocalization.AtomicStructData.mem_Z_iff_of_mor` — Polyfold/Chapter13/AtomicStructurable.lean, line 268
-- `Polyfold.SBLocalization.AtomicStructData.σ` — Polyfold/Chapter13/AtomicStructurable.lean, line 273
-- `Polyfold.SBLocalization.AtomicStructData.Dom` — Polyfold/Chapter13/AtomicStructurable.lean, line 276
-- `Polyfold.SBLocalization.AtomicStructData.conj` — Polyfold/Chapter13/AtomicStructurable.lean, line 279
-- `Polyfold.SBLocalization.AtomicStructData.existsUnique_rel` — Polyfold/Chapter13/AtomicStructurable.lean, line 314
-- `Polyfold.SBLocalization.AtomicStructData.H` — Polyfold/Chapter13/AtomicStructurable.lean, line 325
-- `Polyfold.SBLocalization.AtomicStructData.H_spec` — Polyfold/Chapter13/AtomicStructurable.lean, line 337
-- `Polyfold.SBLocalization.AtomicStructData.H_unique` — Polyfold/Chapter13/AtomicStructurable.lean, line 363
-- `Polyfold.SBLocalization.AtomicStructData.H_comp` — Polyfold/Chapter13/AtomicStructurable.lean, line 375
-- `Polyfold.SBLocalization.AtomicStructData.H_unit` — Polyfold/Chapter13/AtomicStructurable.lean, line 405
-- `Polyfold.SBLocalization.AtomicStructData.H_inv` — Polyfold/Chapter13/AtomicStructurable.lean, line 413
-- `Polyfold.SBLocalization.AtomicStructData.H_eventually` — Polyfold/Chapter13/AtomicStructurable.lean, line 442
-- `Polyfold.SBLocalization.AtomicStructData.γ` — Polyfold/Chapter13/AtomicStructurable.lean, line 466
-- `Polyfold.SBLocalization.AtomicStructData.W` — Polyfold/Chapter13/AtomicStructurable.lean, line 515
-- `Polyfold.SBLocalization.AtomicStructData.𝒰` — Polyfold/Chapter13/AtomicStructurable.lean, line 539
-- `Polyfold.SBLocalization.AtomicStructData.W_cond` — Polyfold/Chapter13/AtomicStructurable.lean, line 559
-- `Polyfold.SBLocalization.AtomicStructData.sec` — Polyfold/Chapter13/AtomicStructurable.lean, line 571
-- `Polyfold.SBLocalization.AtomicStructData.sec_compat` — Polyfold/Chapter13/AtomicStructurable.lean, line 591
-- `Polyfold.SBLocalization.AtomicStructData.sec_eq_zero` — Polyfold/Chapter13/AtomicStructurable.lean, line 605
-- `Polyfold.SBLocalization.AtomicStructData.S` — Polyfold/Chapter13/AtomicStructurable.lean, line 619
-- `Polyfold.SBLocalization.AtomicStructData.dec` — Polyfold/Chapter13/AtomicStructurable.lean, line 671
-- `Polyfold.SBLocalization.AtomicStructData.corr` — Polyfold/Chapter13/AtomicStructurable.lean, line 678
-- `Polyfold.SBLocalization.AtomicStructData.H_biact` — Polyfold/Chapter13/AtomicStructurable.lean, line 695
-- `Polyfold.SBLocalization.AtomicStructData.isCorrespondence` — Polyfold/Chapter13/AtomicStructurable.lean, line 723
-- `Polyfold.SBLocalization.AtomicStructData.tau` — Polyfold/Chapter13/AtomicStructurable.lean, line 771
-- `Polyfold.SBLocalization.AtomicStructData.isStructurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 798
-- `Polyfold.SBLocalization.theorem_13_5_3_of_goodSystem` — Polyfold/Chapter13/AtomicStructurable.lean, line 804
-- `Polyfold.SBLocalization.theorem_13_5_3` — Polyfold/Chapter13/AtomicStructurable.lean, line 813
-- `Polyfold.SBLocalization.theorem_13_5_3_of_paracompact` — Polyfold/Chapter13/AtomicStructurable.lean, line 818
+- `Polyfold.SBLocalization.fibAct_comp` — Polyfold/Chapter13/SymmetricOn.lean, line 127
+- `Polyfold.SBLocalization.fibAct_unit` — Polyfold/Chapter13/SymmetricOn.lean, line 134
+- `Polyfold.SBLocalization.AtomicStructData.fibAct_inv_fibAct` — Polyfold/Chapter13/AtomicStructurable.lean, line 176
+- `Polyfold.SBLocalization.AtomicStructData.fibAct_fibAct_inv` — Polyfold/Chapter13/AtomicStructurable.lean, line 180
+- `Polyfold.SBLocalization.AtomicStructData.transportSection_eq_fibAct` — Polyfold/Chapter13/AtomicStructurable.lean, line 185
+- `Polyfold.SBLocalization.AtomicStructData.comp_inv_comp` — Polyfold/Chapter13/AtomicStructurable.lean, line 190
+- `Polyfold.SBLocalization.AtomicStructData` — Polyfold/Chapter13/AtomicStructurable.lean, line 204
+- `Polyfold.SBLocalization.exists_atomicStructData` — Polyfold/Chapter13/AtomicStructurable.lean, line 227
+- `Polyfold.SBLocalization.AtomicStructData.Z` — Polyfold/Chapter13/AtomicStructurable.lean, line 253
+- `Polyfold.SBLocalization.AtomicStructData.isClosed_Z` — Polyfold/Chapter13/AtomicStructurable.lean, line 255
+- `Polyfold.SBLocalization.AtomicStructData.mem_Z_iff_of_mor` — Polyfold/Chapter13/AtomicStructurable.lean, line 257
+- `Polyfold.SBLocalization.AtomicStructData.σ` — Polyfold/Chapter13/AtomicStructurable.lean, line 262
+- `Polyfold.SBLocalization.AtomicStructData.Dom` — Polyfold/Chapter13/AtomicStructurable.lean, line 265
+- `Polyfold.SBLocalization.AtomicStructData.conj` — Polyfold/Chapter13/AtomicStructurable.lean, line 268
+- `Polyfold.SBLocalization.AtomicStructData.existsUnique_rel` — Polyfold/Chapter13/AtomicStructurable.lean, line 303
+- `Polyfold.SBLocalization.AtomicStructData.H` — Polyfold/Chapter13/AtomicStructurable.lean, line 314
+- `Polyfold.SBLocalization.AtomicStructData.H_spec` — Polyfold/Chapter13/AtomicStructurable.lean, line 326
+- `Polyfold.SBLocalization.AtomicStructData.H_unique` — Polyfold/Chapter13/AtomicStructurable.lean, line 352
+- `Polyfold.SBLocalization.AtomicStructData.H_comp` — Polyfold/Chapter13/AtomicStructurable.lean, line 364
+- `Polyfold.SBLocalization.AtomicStructData.H_unit` — Polyfold/Chapter13/AtomicStructurable.lean, line 394
+- `Polyfold.SBLocalization.AtomicStructData.H_inv` — Polyfold/Chapter13/AtomicStructurable.lean, line 402
+- `Polyfold.SBLocalization.AtomicStructData.H_eventually` — Polyfold/Chapter13/AtomicStructurable.lean, line 431
+- `Polyfold.SBLocalization.AtomicStructData.γ` — Polyfold/Chapter13/AtomicStructurable.lean, line 455
+- `Polyfold.SBLocalization.AtomicStructData.W` — Polyfold/Chapter13/AtomicStructurable.lean, line 504
+- `Polyfold.SBLocalization.AtomicStructData.𝒰` — Polyfold/Chapter13/AtomicStructurable.lean, line 528
+- `Polyfold.SBLocalization.AtomicStructData.W_cond` — Polyfold/Chapter13/AtomicStructurable.lean, line 548
+- `Polyfold.SBLocalization.AtomicStructData.sec` — Polyfold/Chapter13/AtomicStructurable.lean, line 560
+- `Polyfold.SBLocalization.AtomicStructData.sec_compat` — Polyfold/Chapter13/AtomicStructurable.lean, line 580
+- `Polyfold.SBLocalization.AtomicStructData.sec_eq_zero` — Polyfold/Chapter13/AtomicStructurable.lean, line 594
+- `Polyfold.SBLocalization.AtomicStructData.S` — Polyfold/Chapter13/AtomicStructurable.lean, line 608
+- `Polyfold.SBLocalization.AtomicStructData.dec` — Polyfold/Chapter13/AtomicStructurable.lean, line 660
+- `Polyfold.SBLocalization.AtomicStructData.corr` — Polyfold/Chapter13/AtomicStructurable.lean, line 667
+- `Polyfold.SBLocalization.AtomicStructData.H_biact` — Polyfold/Chapter13/AtomicStructurable.lean, line 684
+- `Polyfold.SBLocalization.AtomicStructData.isCorrespondence` — Polyfold/Chapter13/AtomicStructurable.lean, line 712
+- `Polyfold.SBLocalization.AtomicStructData.tau` — Polyfold/Chapter13/AtomicStructurable.lean, line 760
+- `Polyfold.SBLocalization.AtomicStructData.isStructurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 787
+- `Polyfold.SBLocalization.theorem_13_5_3_of_goodSystem` — Polyfold/Chapter13/AtomicStructurable.lean, line 793
+- `Polyfold.SBLocalization.theorem_13_5_3` — Polyfold/Chapter13/AtomicStructurable.lean, line 802
+- `Polyfold.SBLocalization.theorem_13_5_3_of_paracompact` — Polyfold/Chapter13/AtomicStructurable.lean, line 807
 - `Polyfold.SBLocalization.AtomicData.IsLocallyTransported` — Polyfold/Chapter13/AtomicStructurableLocal.lean, line 68
 - `Polyfold.SBLocalization.theorem_13_5_3_local` — Polyfold/Chapter13/AtomicStructurableLocal.lean, line 83
 - `Polyfold.SBLocalization.theorem_13_5_3_hyp` — Polyfold/Chapter13/AtomicStructurableLocal.lean, line 99
@@ -21040,7 +21040,7 @@ Part I's version for Chapter 10's objects: `GenSBMap.orbitOrMap` with `GenSBMap.
 - `Polyfold.SBLocalization.AtomicData.isScPlusMultisection_mult` — Polyfold/Chapter13/AtomicMultisection.lean, line 407
 - `Polyfold.SBLocalization.AtomicData.isAtomic_mult` — Polyfold/Chapter13/AtomicMultisection.lean, line 415
 - `Polyfold.SBLocalization.theorem_13_5_5_structurable_hyp` — Polyfold/Chapter13/AtomicStructurableLocal.lean, line 116
-- `Polyfold.SBLocalization.theorem_13_5_5_structurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 826
+- `Polyfold.SBLocalization.theorem_13_5_5_structurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 815
 
 *What differs.*
 - Hidden hypotheses: $I \ne \emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \emptyset$ the printed formula gives $\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause assumes that a good system exists, as Theorem 13.5.3 does (V13.46; paracompact $|X|$ via Theorem 13.1.8); gap G.149 is closed.
@@ -21188,23 +21188,23 @@ With the hypothesis as printed (the domain supports form a locally finite family
 
 **Proved in Lean.** `theorem_13_4_3 hF (h : IsStructurable C Λ) : IsStructurable A (pushMult F hF Λ)`; `theorem_13_4_3_structured hF T`: `pushTuple hF T` has $\Lambda=\Phi_*\Lambda$, $I'_y=I_{x_y}$, $\tau'_{y,y'}(\varphi')=\tau_{x_y,x_{y'}}(\mathrm{liftMor}\,\varphi')$. Charts: `PushChart F y` / `pushChart hF y` (a point $x_y$, $\sigma_y:F(x_y)\to y$ and Chapter 10's `TransportChart` $Q=t\circ(s|U(\sigma_y))^{-1}\circ F$ with $\psi_u:F(u)\to Q(u)$); `conjEquiv` ($G_{x_y}\cong G'_y$). `IsPushNbhd T N N'` ($U'(y)\subset Q(U(x_y))$, $\Gamma'(\psi F(g)\psi^{-1},z)=\psi_{g*u}\circ F(\Gamma(g,u))\circ\psi_u^{-1}$), `exists_isPushNbhd` (with properness), `IsPushNbhd.Γ_comp_ψ`, `Qinv_Φ`. `pushSec T s` ($z\mapsto\mu'(\psi_u,\Phi(s(u)))$), `IsPushNbhd.isScPlusSectionOn_pushSec`, `pushStructure`. `PushChart.liftMor T T' φ'` (the $\varphi$ with $\psi'_{u'}\circ F(\varphi)=\varphi'\circ\psi_u$): `comp_liftMor`, `liftMor_eq_of_comp`, `continuousOn_liftMor` (via `continuousAt_of_mor`: $F$ faithful and a local sc-diffeomorphism), `injOn_liftMor`, `liftMor_comp`, `liftMor_inv`, `liftMor_Γ`, `liftMor_biact`, `pushSec_compat`, `isDiffeoComponent_push`. `pushGood`, `pushDecoration`, `pushTau`, `pushTuple`.
 
-- `Polyfold.SBLocalization.PushChart.fibAct_comp` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 55
-- `Polyfold.SBLocalization.PushChart.fibAct_unit` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 61
-- `Polyfold.SBLocalization.PushChart.fibAct_inv_fibAct` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 66
-- `Polyfold.SBLocalization.PushChart.fibAct_fibAct_inv` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 70
-- `Polyfold.SBLocalization.PushChart.π_fibAct` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 75
-- `Polyfold.SBLocalization.PushChart` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 87
-- `Polyfold.SBLocalization.pushChart` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 94
-- `Polyfold.SBLocalization.conjEquiv` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 100
-- `Polyfold.SBLocalization.IsPushNbhd` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 112
-- `Polyfold.SBLocalization.IsPushNbhd.Φ_eq` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 159
-- `Polyfold.SBLocalization.IsPushNbhd.Qinv_Φ` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 168
-- `Polyfold.SBLocalization.IsPushNbhd.Γ_comp_ψ` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 173
-- `Polyfold.SBLocalization.exists_isPushNbhd` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 189
-- `Polyfold.SBLocalization.pushSec` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 249
-- `Polyfold.SBLocalization.IsPushNbhd.pushSec_eq` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 265
-- `Polyfold.SBLocalization.IsPushNbhd.isScPlusSectionOn_pushSec` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 271
-- `Polyfold.SBLocalization.pushStructure` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 293
+- `Polyfold.SBLocalization.fibAct_comp` — Polyfold/Chapter13/SymmetricOn.lean, line 127
+- `Polyfold.SBLocalization.fibAct_unit` — Polyfold/Chapter13/SymmetricOn.lean, line 134
+- `Polyfold.SBLocalization.PushChart.fibAct_inv_fibAct` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 55
+- `Polyfold.SBLocalization.PushChart.fibAct_fibAct_inv` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 59
+- `Polyfold.SBLocalization.PushChart.π_fibAct` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 64
+- `Polyfold.SBLocalization.PushChart` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 76
+- `Polyfold.SBLocalization.pushChart` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 83
+- `Polyfold.SBLocalization.conjEquiv` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 89
+- `Polyfold.SBLocalization.IsPushNbhd` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 101
+- `Polyfold.SBLocalization.IsPushNbhd.Φ_eq` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 148
+- `Polyfold.SBLocalization.IsPushNbhd.Qinv_Φ` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 157
+- `Polyfold.SBLocalization.IsPushNbhd.Γ_comp_ψ` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 162
+- `Polyfold.SBLocalization.exists_isPushNbhd` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 178
+- `Polyfold.SBLocalization.pushSec` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 238
+- `Polyfold.SBLocalization.IsPushNbhd.pushSec_eq` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 254
+- `Polyfold.SBLocalization.IsPushNbhd.isScPlusSectionOn_pushSec` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 260
+- `Polyfold.SBLocalization.pushStructure` — Polyfold/Chapter13/SymmetricStructurePush.lean, line 282
 - `Polyfold.SBLocalization.PushChart.continuousAt_of_mor` — Polyfold/Chapter13/MultisectionPushforward.lean, line 57
 - `Polyfold.SBLocalization.PushChart.mapsTo_connectedComponentIn` — Polyfold/Chapter13/MultisectionPushforward.lean, line 89
 - `Polyfold.SBLocalization.PushChart.liftMor` — Polyfold/Chapter13/MultisectionPushforward.lean, line 133
@@ -21258,14 +21258,14 @@ With the hypothesis as printed (the domain supports form a locally finite family
 - `Polyfold.SBLocalization.CommData.Compat` — Polyfold/Chapter13/Commensurable.lean, line 234
 - `Polyfold.SBLocalization.CommData.Sections` — Polyfold/Chapter13/Commensurable.lean, line 241
 - `Polyfold.SBLocalization.CommData.Over` — Polyfold/Chapter13/Commensurable.lean, line 260
-- `Polyfold.SBLocalization.CommData.Over.toTuple` — Polyfold/Chapter13/Commensurable.lean, line 379
-- `Polyfold.SBLocalization.CommData.Over.toStructured` — Polyfold/Chapter13/Commensurable.lean, line 384
-- `Polyfold.SBLocalization.CommData.ofTuple` — Polyfold/Chapter13/Commensurable.lean, line 395
-- `Polyfold.SBLocalization.CommData.Over.ofTuple` — Polyfold/Chapter13/Commensurable.lean, line 407
-- `Polyfold.SBLocalization.CommData.Over.ofTuple_toTuple` — Polyfold/Chapter13/Commensurable.lean, line 414
-- `Polyfold.SBLocalization.Commensurable` — Polyfold/Chapter13/Commensurable.lean, line 424
-- `Polyfold.SBLocalization.Commensurable.refl` — Polyfold/Chapter13/Commensurable.lean, line 429
-- `Polyfold.SBLocalization.Commensurable.symm` — Polyfold/Chapter13/Commensurable.lean, line 433
+- `Polyfold.SBLocalization.CommData.Over.toTuple` — Polyfold/Chapter13/Commensurable.lean, line 374
+- `Polyfold.SBLocalization.CommData.Over.toStructured` — Polyfold/Chapter13/Commensurable.lean, line 379
+- `Polyfold.SBLocalization.CommData.ofTuple` — Polyfold/Chapter13/Commensurable.lean, line 390
+- `Polyfold.SBLocalization.CommData.Over.ofTuple` — Polyfold/Chapter13/Commensurable.lean, line 402
+- `Polyfold.SBLocalization.CommData.Over.ofTuple_toTuple` — Polyfold/Chapter13/Commensurable.lean, line 409
+- `Polyfold.SBLocalization.Commensurable` — Polyfold/Chapter13/Commensurable.lean, line 419
+- `Polyfold.SBLocalization.Commensurable.refl` — Polyfold/Chapter13/Commensurable.lean, line 424
+- `Polyfold.SBLocalization.Commensurable.symm` — Polyfold/Chapter13/Commensurable.lean, line 428
 
 *What differs.*
 - $c$ carries the $G_x$-actions explicitly (determined by $\tau$, `CommData.smul_eq_of_diag`) and `nonempty` ($I_x\neq\emptyset$; it holds for the data of every structured sc⁺-multisection, `SymmetricStructureOn.card_pos`, and is needed for the empty family in the lf sum). "We can take representatives" is an existential over representatives of both classes, as printed. The paracompactness of $|X|$ is not needed for the definition and is not assumed.
@@ -21287,27 +21287,27 @@ With the hypothesis as printed (the domain supports form a locally finite family
 - `Polyfold.SBLocalization.CommData.Sections.P_s` — Polyfold/Chapter13/Commensurable.lean, line 269
 - `Polyfold.SBLocalization.CommData.Sections.compat_self` — Polyfold/Chapter13/Commensurable.lean, line 273
 - `Polyfold.SBLocalization.CommData.Sections.countAt_fibAct` — Polyfold/Chapter13/Commensurable.lean, line 279
-- `Polyfold.SBLocalization.CommData.Sections.fibAct_unit` — Polyfold/Chapter13/Commensurable.lean, line 289
-- `Polyfold.SBLocalization.CommData.Sections.unit_mem_mor` — Polyfold/Chapter13/Commensurable.lean, line 294
-- `Polyfold.SBLocalization.CommData.Sections.countAt_eq` — Polyfold/Chapter13/Commensurable.lean, line 298
-- `Polyfold.SBLocalization.CommData.Sections.isWFunctor_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 304
-- `Polyfold.SBLocalization.CommData.Sections.countAt_eq_sum` — Polyfold/Chapter13/Commensurable.lean, line 314
-- `Polyfold.SBLocalization.CommData.Sections.card_ne_zero` — Polyfold/Chapter13/Commensurable.lean, line 324
-- `Polyfold.SBLocalization.CommData.Sections.isScPlusMultisection_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 330
-- `Polyfold.SBLocalization.CommData.Sections.toOver` — Polyfold/Chapter13/Commensurable.lean, line 340
-- `Polyfold.SBLocalization.CommData.Over.eq_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 350
-- `Polyfold.SBLocalization.CommData.Over.isScPlusMultisection` — Polyfold/Chapter13/Commensurable.lean, line 353
-- `Polyfold.SBLocalization.CommData.Over.sym` — Polyfold/Chapter13/Commensurable.lean, line 357
-- `Polyfold.SBLocalization.CommData.Over.toDecoration` — Polyfold/Chapter13/Commensurable.lean, line 365
-- `Polyfold.SBLocalization.CommData.Over.tau` — Polyfold/Chapter13/Commensurable.lean, line 368
-- `Polyfold.SBLocalization.CommData.Over.s_eq_fiberZero` — Polyfold/Chapter13/Commensurable.lean, line 386
-- `Polyfold.SBLocalization.fibAct_finsum` — Polyfold/Chapter13/Commensurable.lean, line 441
-- `Polyfold.SBLocalization.CommData.isLocallyFiniteFamily_of_finite` — Polyfold/Chapter13/Commensurable.lean, line 569
-- `Polyfold.SBLocalization.CommData.pairFam` — Polyfold/Chapter13/Commensurable.lean, line 574
-- `Polyfold.SBLocalization.CommData.pairOver` — Polyfold/Chapter13/Commensurable.lean, line 577
-- `Polyfold.SBLocalization.CommData.commSum₂` — Polyfold/Chapter13/Commensurable.lean, line 583
-- `Polyfold.SBLocalization.CommData.Over.commSum₂` — Polyfold/Chapter13/Commensurable.lean, line 587
-- `Polyfold.SBLocalization.CommData.definition_13_4_5` — Polyfold/Chapter13/Commensurable.lean, line 595
+- `Polyfold.SBLocalization.fibAct_unit` — Polyfold/Chapter13/SymmetricOn.lean, line 134
+- `Polyfold.SBLocalization.CommData.Sections.unit_mem_mor` — Polyfold/Chapter13/Commensurable.lean, line 289
+- `Polyfold.SBLocalization.CommData.Sections.countAt_eq` — Polyfold/Chapter13/Commensurable.lean, line 293
+- `Polyfold.SBLocalization.CommData.Sections.isWFunctor_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 299
+- `Polyfold.SBLocalization.CommData.Sections.countAt_eq_sum` — Polyfold/Chapter13/Commensurable.lean, line 309
+- `Polyfold.SBLocalization.CommData.Sections.card_ne_zero` — Polyfold/Chapter13/Commensurable.lean, line 319
+- `Polyfold.SBLocalization.CommData.Sections.isScPlusMultisection_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 325
+- `Polyfold.SBLocalization.CommData.Sections.toOver` — Polyfold/Chapter13/Commensurable.lean, line 335
+- `Polyfold.SBLocalization.CommData.Over.eq_sumMult` — Polyfold/Chapter13/Commensurable.lean, line 345
+- `Polyfold.SBLocalization.CommData.Over.isScPlusMultisection` — Polyfold/Chapter13/Commensurable.lean, line 348
+- `Polyfold.SBLocalization.CommData.Over.sym` — Polyfold/Chapter13/Commensurable.lean, line 352
+- `Polyfold.SBLocalization.CommData.Over.toDecoration` — Polyfold/Chapter13/Commensurable.lean, line 360
+- `Polyfold.SBLocalization.CommData.Over.tau` — Polyfold/Chapter13/Commensurable.lean, line 363
+- `Polyfold.SBLocalization.CommData.Over.s_eq_fiberZero` — Polyfold/Chapter13/Commensurable.lean, line 381
+- `Polyfold.SBLocalization.fibAct_finsum` — Polyfold/Chapter13/Commensurable.lean, line 436
+- `Polyfold.SBLocalization.CommData.isLocallyFiniteFamily_of_finite` — Polyfold/Chapter13/Commensurable.lean, line 564
+- `Polyfold.SBLocalization.CommData.pairFam` — Polyfold/Chapter13/Commensurable.lean, line 569
+- `Polyfold.SBLocalization.CommData.pairOver` — Polyfold/Chapter13/Commensurable.lean, line 572
+- `Polyfold.SBLocalization.CommData.commSum₂` — Polyfold/Chapter13/Commensurable.lean, line 578
+- `Polyfold.SBLocalization.CommData.Over.commSum₂` — Polyfold/Chapter13/Commensurable.lean, line 582
+- `Polyfold.SBLocalization.CommData.definition_13_4_5` — Polyfold/Chapter13/Commensurable.lean, line 590
 
 *What differs.*
 - The sum is defined through the general locally finite sum (V13.56) over `Bool`; the stated section formula recovers the binary $s^1+s^2$.
@@ -21321,16 +21321,16 @@ With the hypothesis as printed (the domain supports form a locally finite family
 
 **Proved in Lean.** `CommData.lfSum o hlf` (the functor), `CommData.Over.lfSum o hlf : c.Over (lfSum o hlf)` (data with $s^x_i=\sum^f_j s^{j,x}_i$, `CommData.lfSections`), and `CommData.definition_13_4_5_lf o hlf`: `IsScPlusMultisection A (lfSum o hlf)` ∧ (on $U(x)$ the sections are the fibrewise `finsum` of the $s^{j,x}_i$) ∧ (the counting formula). Hypotheses: `o : ∀ j, c.Over (Λ j)`, `hlf : IsLocallyFiniteFamily Λ` (D13.2.12). Helpers `sumFib`, `sumSec`, `P_sumSec`, `exists_finite_support`, `support_subset`, `sumSec_eq_sectionSum` (locally the sum is the finite `sectionSum` of `extendZero`s, hence sc⁺).
 
-- `Polyfold.SBLocalization.CommData.sumFib` — Polyfold/Chapter13/Commensurable.lean, line 459
-- `Polyfold.SBLocalization.CommData.sumSec` — Polyfold/Chapter13/Commensurable.lean, line 463
-- `Polyfold.SBLocalization.CommData.P_sumSec` — Polyfold/Chapter13/Commensurable.lean, line 466
-- `Polyfold.SBLocalization.CommData.exists_finite_support` — Polyfold/Chapter13/Commensurable.lean, line 471
-- `Polyfold.SBLocalization.CommData.support_subset` — Polyfold/Chapter13/Commensurable.lean, line 487
-- `Polyfold.SBLocalization.CommData.sumSec_eq_sectionSum` — Polyfold/Chapter13/Commensurable.lean, line 497
-- `Polyfold.SBLocalization.CommData.lfSections` — Polyfold/Chapter13/Commensurable.lean, line 507
-- `Polyfold.SBLocalization.CommData.lfSum` — Polyfold/Chapter13/Commensurable.lean, line 539
-- `Polyfold.SBLocalization.CommData.Over.lfSum` — Polyfold/Chapter13/Commensurable.lean, line 543
-- `Polyfold.SBLocalization.CommData.definition_13_4_5_lf` — Polyfold/Chapter13/Commensurable.lean, line 551
+- `Polyfold.SBLocalization.CommData.sumFib` — Polyfold/Chapter13/Commensurable.lean, line 454
+- `Polyfold.SBLocalization.CommData.sumSec` — Polyfold/Chapter13/Commensurable.lean, line 458
+- `Polyfold.SBLocalization.CommData.P_sumSec` — Polyfold/Chapter13/Commensurable.lean, line 461
+- `Polyfold.SBLocalization.CommData.exists_finite_support` — Polyfold/Chapter13/Commensurable.lean, line 466
+- `Polyfold.SBLocalization.CommData.support_subset` — Polyfold/Chapter13/Commensurable.lean, line 482
+- `Polyfold.SBLocalization.CommData.sumSec_eq_sectionSum` — Polyfold/Chapter13/Commensurable.lean, line 492
+- `Polyfold.SBLocalization.CommData.lfSections` — Polyfold/Chapter13/Commensurable.lean, line 502
+- `Polyfold.SBLocalization.CommData.lfSum` — Polyfold/Chapter13/Commensurable.lean, line 534
+- `Polyfold.SBLocalization.CommData.Over.lfSum` — Polyfold/Chapter13/Commensurable.lean, line 538
+- `Polyfold.SBLocalization.CommData.definition_13_4_5_lf` — Polyfold/Chapter13/Commensurable.lean, line 546
 
 *What differs.*
 - "Locally finite" is `IsLocallyFiniteFamily` (open saturated $O$ on which only finitely many $\Lambda_j$ are non-trivial); "pairwise commensurable" is read as "over one common $c$", which is what the text's $[\Lambda_j,\mathcal U,S_j,\tau]$ writes.
@@ -21497,26 +21497,26 @@ Non-empty index sets (`Chapter14/EmptyIndex.lean`): `BoundarySymmetricStructure`
 - `Polyfold.SBLocalization.exists_scPlusSection_extension_of_face` — Polyfold/Chapter14/LocalExtension.lean, line 165
 - `Polyfold.SBLocalization.proposition_14_1_4_of_closure` — Polyfold/Chapter14/LocalExtension.lean, line 204
 - `Polyfold.SBLocalization.proposition_14_1_4` — Polyfold/Chapter14/LocalExtension.lean, line 224
-- `Polyfold.SBLocalization.IsScPlusSectionOn.of_locally'` — Polyfold/Chapter14/OpenExtension.lean, line 51
-- `Polyfold.SBLocalization.exists_scSmooth_cutoff` — Polyfold/Chapter14/OpenExtension.lean, line 74
-- `Polyfold.SBLocalization.exists_scPlusSectionOn_extension_of_face` — Polyfold/Chapter14/OpenExtension.lean, line 105
-- `Polyfold.SBLocalization.proposition_14_1_4_full` — Polyfold/Chapter14/OpenExtension.lean, line 222
-- `Polyfold.SBLocalization.proposition_14_1_4_hypotheses_rn` — Polyfold/Chapter14/OpenExtension.lean, line 238
-- `Polyfold.SBLocalization.fibAct_comp'` — Polyfold/Chapter14/BoundaryMultisection.lean, line 329
-- `Polyfold.SBLocalization.fibAct_unit'` — Polyfold/Chapter14/BoundaryMultisection.lean, line 336
-- `Polyfold.SBLocalization.avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 346
-- `Polyfold.SBLocalization.avgTerm_apply` — Polyfold/Chapter14/BoundaryMultisection.lean, line 358
-- `Polyfold.SBLocalization.isScPlusSectionOn_avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 367
-- `Polyfold.SBLocalization.P_avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 383
-- `Polyfold.SBLocalization.avgTerm_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 388
-- `Polyfold.SBLocalization.avgSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 413
-- `Polyfold.SBLocalization.isSection_sumSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 417
-- `Polyfold.SBLocalization.isScPlusSectionOn_avgSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 422
-- `Polyfold.SBLocalization.avgSection_apply` — Polyfold/Chapter14/BoundaryMultisection.lean, line 432
-- `Polyfold.SBLocalization.avgSection_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 443
-- `Polyfold.SBLocalization.avgSection_eq_of_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 475
-- `Polyfold.SBLocalization.proposition_14_1_4_hyp` — Polyfold/Chapter14/BoundaryMultisection.lean, line 502
-- `Polyfold.SBLocalization.proposition_14_1_4_hyp_witness` — Polyfold/Chapter14/BoundaryMultisection.lean, line 519
+- `Polyfold.SBLocalization.IsScPlusSectionOn.of_locally` — Polyfold/Chapter13/Commensurable.lean, line 171
+- `Polyfold.SBLocalization.exists_scSmooth_cutoff` — Polyfold/Chapter14/OpenExtension.lean, line 55
+- `Polyfold.SBLocalization.exists_scPlusSectionOn_extension_of_face` — Polyfold/Chapter14/OpenExtension.lean, line 86
+- `Polyfold.SBLocalization.proposition_14_1_4_full` — Polyfold/Chapter14/OpenExtension.lean, line 203
+- `Polyfold.SBLocalization.proposition_14_1_4_hypotheses_rn` — Polyfold/Chapter14/OpenExtension.lean, line 219
+- `Polyfold.SBLocalization.fibAct_comp` — Polyfold/Chapter13/SymmetricOn.lean, line 127
+- `Polyfold.SBLocalization.fibAct_unit` — Polyfold/Chapter13/SymmetricOn.lean, line 134
+- `Polyfold.SBLocalization.avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 333
+- `Polyfold.SBLocalization.avgTerm_apply` — Polyfold/Chapter14/BoundaryMultisection.lean, line 345
+- `Polyfold.SBLocalization.isScPlusSectionOn_avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 354
+- `Polyfold.SBLocalization.P_avgTerm` — Polyfold/Chapter14/BoundaryMultisection.lean, line 370
+- `Polyfold.SBLocalization.avgTerm_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 375
+- `Polyfold.SBLocalization.avgSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 400
+- `Polyfold.SBLocalization.isSection_sumSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 404
+- `Polyfold.SBLocalization.isScPlusSectionOn_avgSection` — Polyfold/Chapter14/BoundaryMultisection.lean, line 409
+- `Polyfold.SBLocalization.avgSection_apply` — Polyfold/Chapter14/BoundaryMultisection.lean, line 419
+- `Polyfold.SBLocalization.avgSection_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 430
+- `Polyfold.SBLocalization.avgSection_eq_of_equivariant` — Polyfold/Chapter14/BoundaryMultisection.lean, line 462
+- `Polyfold.SBLocalization.proposition_14_1_4_hyp` — Polyfold/Chapter14/BoundaryMultisection.lean, line 489
+- `Polyfold.SBLocalization.proposition_14_1_4_hyp_witness` — Polyfold/Chapter14/BoundaryMultisection.lean, line 506
 - `Polyfold.SEP.exists_isTameChart` — Polyfold/Chapter10/TameBundleCharts.lean, line 114
 - `Polyfold.StrongBundle.exists_isTameChart` — Polyfold/Chapter10/TameBundleCharts.lean, line 94
 
@@ -21645,7 +21645,7 @@ The assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_sta
 - `Polyfold.SBLocalization.normW_le_of_multisectionSmul_pos` — Polyfold/Chapter14/NormControl.lean, line 174
 - `Polyfold.SBLocalization.pointwiseNorm_smulFun_le` — Polyfold/Chapter14/NormControl.lean, line 206
 - `Polyfold.SBLocalization.multisectionSmulFun_of_eq_one` — Polyfold/Chapter14/NormControl.lean, line 216
-- `Polyfold.SBLocalization.domSupp_zeroMultisection'` — Polyfold/Chapter14/NormControl.lean, line 222
+- `Polyfold.SBLocalization.domSupp_zeroMultisection` — Polyfold/Chapter14/NormControl.lean, line 222
 - `Polyfold.SBLocalization.isSaturated_boundary` — Polyfold/Chapter14/NormControl.lean, line 66
 - `Polyfold.SBLocalization.isSaturated_closure` — Polyfold/Chapter14/NormControl.lean, line 76
 - `Polyfold.SBLocalization.isSaturated_union` — Polyfold/Chapter14/NormControl.lean, line 94
@@ -21693,7 +21693,7 @@ The assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_sta
 
 **Proved in Lean.** Nothing to formalize: a comment on the proof. The section-functor case it mentions is Proposition 14.1.4 on $V(x)$ (`proposition_14_1_4_full`, V14.4).
 
-- `Polyfold.SBLocalization.proposition_14_1_4_full` — Polyfold/Chapter14/OpenExtension.lean, line 222
+- `Polyfold.SBLocalization.proposition_14_1_4_full` — Polyfold/Chapter14/OpenExtension.lean, line 203
 
 *What differs.*
 - None.
@@ -21890,8 +21890,8 @@ The assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_sta
 
 **Proved in Lean.** `EpGroupoid.lemma_14_3_6 (hpara : X.HasParacompactOrbitSpace) (hB : IsClosed (X.π '' B)) (N : ∀ x, X.NatNbhd x)`. Conclusion: $\exists A\,V$ with $A\subseteq B$, and for $a\in A$: $V_a$ nonempty, open, $V_a\subseteq\tilde U(a)$, $\pi(V_a)$ open, $\overline{\pi(V_a)}\subseteq\pi(\tilde U(a))$, and $\Phi_g(V_a)\subseteq V_a$. Also: `LocallyFinite (fun a : A => π '' V a)` and $\pi(B)\subseteq\bigcup_{a\in A}\pi(V_a)$. `isClosed_π_image_of_isSaturated`: a closed saturated $B$ (as $\partial X$) has $|B|$ closed.
 
-- `Polyfold.EpGroupoid.lemma_14_3_6` — Polyfold/Chapter14/BoundaryCover.lean, line 110
-- `Polyfold.EpGroupoid.isClosed_π_image_of_isSaturated` — Polyfold/Chapter14/BoundaryCover.lean, line 65
+- `Polyfold.EpGroupoid.lemma_14_3_6` — Polyfold/Chapter14/BoundaryCover.lean, line 105
+- `Polyfold.EpGroupoid.isClosed_π_image_of_isSaturated` — Polyfold/Chapter14/BoundaryCover.lean, line 66
 
 *What differs.*
 - The text's proof adds $|X\setminus\partial X|$ to the cover, which uses that $|\partial X|$ is closed in $|X|$. This is the hypothesis `hB`. It holds for $\partial X$ (closed, and saturated since $d$ is invariant under morphisms) through `isClosed_π_image_of_isSaturated`. The proof is the text's: a locally finite refinement (`precise_refinement`), a shrinking with closures inside (normality of $|X|$, Hausdorff by Lemma 7.3.4), and $V_a=\tilde U(a)\cap\pi^{-1}(W_a)$. $A$ is the set of $a$ with $W_a\neq\emptyset$.
@@ -21904,9 +21904,9 @@ The assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_sta
 
 **Proved in Lean.** `EpGroupoid.lemma_14_3_7 (hB : X.IsSaturated B) (N' : X.NatNbhd a)`. Here $B$ stands for $\partial X$ and $N'.U$ for $\tilde U'(a)$. The other hypotheses: `hcl : ∀ b ∈ A, closure (Ut b) ⊆ Ut' b`; `hprop : ∀ b ∈ A, X.IsProperSubset (closure (Ut b))`; `hOo`: $\hat O_{a,b}$ is open; `hO`: $U'(a,b)=\{\varphi\mid s\varphi\in\tilde U'(a)\cap B,\ t\varphi\in\tilde U'(b)\cap B\}\subseteq\hat O_{a,b}$; `hlf`: $(|\tilde V_b|)_{b\in A}$ is locally finite. The conclusion gives $o, \tilde O$ with, for $y\in\tilde U'(a)\cap B$: $\tilde O(y)$ open, $y\in\tilde O(y)\subseteq\tilde U'(a)$, $o(y)$ finite, $o(y)\subseteq A$, and (1), (2) for all $g\in G_a$, and (3) for every $\varphi$ with $s(\varphi)\in\tilde O(y)$ and $t(\varphi)\in\tilde U(b)$. `lemma_14_3_7_stab`: $\tilde O(y)$ is invariant under the $g\in G_a$ with $g*y=y$.
 
-- `Polyfold.EpGroupoid.lemma_14_3_7` — Polyfold/Chapter14/BoundaryCover.lean, line 220
-- `Polyfold.EpGroupoid.lemma_14_3_7_stab` — Polyfold/Chapter14/BoundaryCover.lean, line 311
-- `Polyfold.EpGroupoid.exists_nhds_of_isProperSubset` — Polyfold/Chapter14/BoundaryCover.lean, line 183
+- `Polyfold.EpGroupoid.lemma_14_3_7` — Polyfold/Chapter14/BoundaryCover.lean, line 215
+- `Polyfold.EpGroupoid.lemma_14_3_7_stab` — Polyfold/Chapter14/BoundaryCover.lean, line 306
+- `Polyfold.EpGroupoid.exists_nhds_of_isProperSubset` — Polyfold/Chapter14/BoundaryCover.lean, line 178
 
 *What differs.*
 - (3) is proved without "$\cap\,\tilde U(a)$". The properness argument (`exists_nhds_of_isProperSubset`, through $\varphi\mapsto\varphi^{-1}$ and the closed map $t$ on $s^{-1}(\mathrm{cl}\,\tilde U(b))$) does not use it. The hypotheses (P5)/(P6)/(14.27)/(14.28) used by the proof are named: $\mathrm{cl}\,\tilde U(b)\subseteq\tilde U'(b)$, properness, $U'(a,b)\subseteq\hat O_{a,b}$ open, and $B$ saturated. "$G_y$-invariant" is read as invariance under the stabiliser of $y$ in $G_a$, acting by $\Phi$. Every morphism between points of $\tilde U'(a)$ is a $\Gamma(g,\cdot)$, so this is the $G_y$-action near $y$. Construction: $o(y)$ is the finite set of $b$ whose $|\tilde V_b|$ meets a neighbourhood $W(|y|)$. It depends on $|y|$ only, which gives $o(g*y)=o(y)$. $\tilde O(y)=\bigcap_{g\in G_a}\tilde U'(a)\cap\Phi_g^{-1}(O_0(g*y))$, which gives $g*\tilde O(y)=\tilde O(g*y)$.
@@ -22189,7 +22189,7 @@ Existence without hypothesis: `exists_zCoherentNbhdSystem_of_limit D L hD ha : N
 
 **Proved in Lean.** Nothing to formalize: a comment. The cover comes from Lemma 14.3.6 with $|X|$ paracompact (`lemma_14_3_6`, V14.18).
 
-- `Polyfold.EpGroupoid.lemma_14_3_6` — Polyfold/Chapter14/BoundaryCover.lean, line 110
+- `Polyfold.EpGroupoid.lemma_14_3_6` — Polyfold/Chapter14/BoundaryCover.lean, line 105
 
 *What differs.*
 - None.
@@ -22244,11 +22244,11 @@ For the data of §§14.3–14.4: `proposition_14_4_14_of_hyp hB hpu D hP ha hfac
 
 **Proved in Lean.** `EpGroupoid.lemma_14_5_1 (hpu : X.HasScPartitionsOfUnity) (hB : IsClosed B) (hBs : X.IsSaturated B) (hAB : A ⊆ B) (hV : ∀ a ∈ A, IsOpen (V a)) (hcov : B ⊆ ⋃ a ∈ A, X.saturation (V a))`. It gives $\beta:\mathrm{Obj}\to\mathrm{Obj}\to\mathbb R$ with: sc-smooth for $a\in A$, values in $[0,1]$, $\beta_a(s\varphi)=\beta_a(t\varphi)$; (1) `tsupport (β a) ⊆ X.saturation (V a)`; (2) as in the text; (3) `∑ᶠ a ∈ A, β a y = 1` for $y\in B$.
 
-- `Polyfold.EpGroupoid.lemma_14_5_1` — Polyfold/Chapter14/BoundaryCover.lean, line 329
-- `Polyfold.EpGroupoid.isSaturated_compl` — Polyfold/Chapter14/BoundaryCover.lean, line 81
-- `Polyfold.EpGroupoid.isSaturated_preimage_π` — Polyfold/Chapter14/BoundaryCover.lean, line 92
-- `Polyfold.EpGroupoid.isOpen_saturation` — Polyfold/Chapter14/BoundaryCover.lean, line 97
-- `Polyfold.EpGroupoid.IsSaturated.tgt_mem` — Polyfold/Chapter14/BoundaryCover.lean, line 87
+- `Polyfold.EpGroupoid.lemma_14_5_1` — Polyfold/Chapter14/BoundaryCover.lean, line 324
+- `Polyfold.EpGroupoid.isSaturated_compl` — Polyfold/Chapter12/ScPlusExtension.lean, line 88
+- `Polyfold.EpGroupoid.isSaturated_preimage_π` — Polyfold/Chapter14/BoundaryCover.lean, line 87
+- `Polyfold.EpGroupoid.isOpen_saturation` — Polyfold/Chapter14/BoundaryCover.lean, line 92
+- `Polyfold.EpGroupoid.IsSaturated.tgt_mem` — Polyfold/Chapter14/BoundaryCover.lean, line 82
 
 *What differs.*
 - The proof is the text's. The partition of unity is indexed by objects: $U_x=\pi^{-1}\pi(\hat V_x)$ for $x\in A$, $U_x=X\setminus B$ otherwise. Tameness is not used. The covering property of the $\hat V_a$ (P14.3.8 (3), (14.34)) is the hypothesis `hcov`, and $\partial X$ closed and saturated are named. (14.53) is not part of the lemma; it holds for the $\hat V_a$ themselves (V14.45).
@@ -22714,15 +22714,15 @@ The ep-groupoid $F$ itself (`Chapter14/FaceNaturalRep`): the natural representat
 
 - `Polyfold.SBLocalization.BoundaryCommData` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 306
 - `Polyfold.SBLocalization.BoundaryCommData.Over` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 357
-- `Polyfold.SBLocalization.BoundaryCommData.Over.ofTuple` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 515
-- `Polyfold.SBLocalization.BoundaryCommData.IsLocallyFiniteBoundaryFamily` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 530
-- `Polyfold.SBLocalization.BoundaryCommData.lfSum` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 617
-- `Polyfold.SBLocalization.BoundaryCommData.definition_13_4_5_boundary` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 629
+- `Polyfold.SBLocalization.BoundaryCommData.Over.ofTuple` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 510
+- `Polyfold.SBLocalization.BoundaryCommData.IsLocallyFiniteBoundaryFamily` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 525
+- `Polyfold.SBLocalization.BoundaryCommData.lfSum` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 612
+- `Polyfold.SBLocalization.BoundaryCommData.definition_13_4_5_boundary` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 624
 - `Polyfold.SBLocalization.isFaceScPlusSectionOn_sectionSum` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 255
-- `Polyfold.SBLocalization.BoundaryCommData.smulOver` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 649
-- `Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 727
-- `Polyfold.SBLocalization.BoundaryCommData.remark_14_5_3` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 813
-- `Polyfold.SBLocalization.BoundaryCommData.Over.s_eq_of_eqOn` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 785
+- `Polyfold.SBLocalization.BoundaryCommData.smulOver` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 644
+- `Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 722
+- `Polyfold.SBLocalization.BoundaryCommData.remark_14_5_3` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 808
+- `Polyfold.SBLocalization.BoundaryCommData.Over.s_eq_of_eqOn` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 780
 - `Polyfold.SBLocalization.BoundaryStructuredTuple.Equiv` — Polyfold/Chapter14/BoundaryStructured.lean, line 131
 - `Polyfold.HalfSpaceBundle.lemma_14_5_2_witness` — Polyfold/Chapter14/HalfSpaceCommensurableSum.lean, line 36
 
@@ -22742,7 +22742,7 @@ The ep-groupoid $F$ itself (`Chapter14/FaceNaturalRep`): the natural representat
 **Proved in Lean.** `SBLocalization.GrF x := (T_xX →ₗ[ℝ] W_x) →₀ ℚ≥0` for $x \in X_1$, with $W_x = P^{-1}(x)$ and $T_xX$ the project's tangent fibre; the chart version `Linearization15.GrFModel`.
 
 - `Polyfold.SBLocalization.GrF` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 62
-- `Polyfold.Linearization15.GrFModel` — Polyfold/Chapter15/LinearizationModel.lean, line 104
+- `Polyfold.Linearization15.GrFModel` — Polyfold/Chapter14/LinearizationModel.lean, line 104
 
 *What differs.*
 - Formal sums are finitely supported functions, defined at all level-1 points. That the summands are sc-Fredholm is not part of the type; it is proved for the summands that occur (V15.9, gap G.145 closed); $\varphi_*$ and $\mathrm{GrF}(X)$ as a category are not built (gap G.144).
@@ -22765,13 +22765,13 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 - `Polyfold.SBLocalization.sectionSubOn` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 134
 - `Polyfold.SBLocalization.linearization_eq` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 440
 - `Polyfold.SBLocalization.nonempty_localLinData` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 424
-- `Polyfold.SBLocalization.theorem_15_1_1` — Polyfold/Chapter15/Linearization.lean, line 171
-- `Polyfold.SBLocalization.linSumChart` — Polyfold/Chapter15/Linearization.lean, line 142
-- `Polyfold.SBLocalization.IsLocalRepOn.count_eq` — Polyfold/Chapter15/Linearization.lean, line 107
-- `Polyfold.Linearization15.theorem_15_1_1_model` — Polyfold/Chapter15/LinearizationModel.lean, line 193
-- `Polyfold.Linearization15.wsum_model_eq` — Polyfold/Chapter15/LinearizationModel.lean, line 136
-- `Polyfold.Linearization15.continuousOn_scDeriv_coe` — Polyfold/Chapter15/LinearizationModel.lean, line 93
-- `Polyfold.Linearization15.wsum_pair_eq_of_isLocal` — Polyfold/Chapter15/SeparationLemmas.lean, line 520
+- `Polyfold.SBLocalization.theorem_15_1_1` — Polyfold/Chapter14/Linearization.lean, line 171
+- `Polyfold.SBLocalization.linSumChart` — Polyfold/Chapter14/Linearization.lean, line 142
+- `Polyfold.SBLocalization.IsLocalRepOn.count_eq` — Polyfold/Chapter14/Linearization.lean, line 107
+- `Polyfold.Linearization15.theorem_15_1_1_model` — Polyfold/Chapter14/LinearizationModel.lean, line 193
+- `Polyfold.Linearization15.wsum_model_eq` — Polyfold/Chapter14/LinearizationModel.lean, line 136
+- `Polyfold.Linearization15.continuousOn_scDeriv_coe` — Polyfold/Chapter14/LinearizationModel.lean, line 93
+- `Polyfold.Linearization15.wsum_pair_eq_of_isLocal` — Polyfold/Chapter14/SeparationLemmas.lean, line 520
 - `Polyfold.SBLocalization.subDeriv_isScFredholm` — Polyfold/Chapter15/FredholmSummands.lean, line 58
 - `Polyfold.SBLocalization.linearization_summand_isScFredholm` — Polyfold/Chapter15/FredholmSummands.lean, line 100
 - `Polyfold.SBLocalization.theorem_15_1_1_functor` — Polyfold/Chapter15/LinearizationFunctor.lean, line 404
@@ -22809,9 +22809,9 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 **Proved in Lean.** `SBLocalization.linearization_eq_zero`: if $\Lambda(f(x)) = 0$ then `linearization f Λ x = 0`; chart forms `remark_15_1_2`, `remark_15_1_2_model`; with positive weights an operator lies in the support iff some $i$ with $s_i(y) = f(y)$ produces it (`mem_support_linSumModel_iff`).
 
 - `Polyfold.SBLocalization.linearization_eq_zero` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 448
-- `Polyfold.SBLocalization.remark_15_1_2` — Polyfold/Chapter15/Linearization.lean, line 228
-- `Polyfold.Linearization15.remark_15_1_2_model` — Polyfold/Chapter15/LinearizationModel.lean, line 290
-- `Polyfold.Linearization15.mem_support_linSumModel_iff` — Polyfold/Chapter15/LinearizationModel.lean, line 305
+- `Polyfold.SBLocalization.remark_15_1_2` — Polyfold/Chapter14/Linearization.lean, line 228
+- `Polyfold.Linearization15.remark_15_1_2_model` — Polyfold/Chapter14/LinearizationModel.lean, line 290
+- `Polyfold.Linearization15.mem_support_linSumModel_iff` — Polyfold/Chapter14/LinearizationModel.lean, line 305
 
 *What differs.*
 - In Lean $(f - s_i)'$ is defined for every $i$ and the sum is filtered by $s_i(y) = f(y)$; (1) is derived from positivity of the weights and the count formula.
@@ -22824,14 +22824,14 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 
 **Proved in Lean.** `Linearization15.proposition_15_1_3_hyp`: in a first countable $T_1$ space $Z$, for finitely many maps continuous on an open $V \ni x_0$ with values in a Hausdorff space, and **$x_0$ not isolated** (`(𝓝[≠] x₀).NeBot`): $x_k \in V$, $x_k \ne x_0$, $x_k \to x_0$, and one partition $e : I \to \mathrm{Fin}\,p$ with `IsSeparatedAt s e (x k)` for all $k$. At an isolated point no such sequence exists: `not_proposition_15_1_3_of_isolated`, `not_proposition_15_1_3_point` (a one-point model). Witness: `proposition_15_1_3_hyp_witness` ($\mathbb R$ at 0).
 
-- `Polyfold.Linearization15.proposition_15_1_3_hyp` — Polyfold/Chapter15/SeparationLemmas.lean, line 411
-- `Polyfold.Linearization15.proposition_15_1_3_hyp_witness` — Polyfold/Chapter15/SeparationLemmas.lean, line 442
-- `Polyfold.Linearization15.not_proposition_15_1_3_of_isolated` — Polyfold/Chapter15/SeparationLemmas.lean, line 434
-- `Polyfold.Linearization15.not_proposition_15_1_3_point` — Polyfold/Chapter15/SeparationLemmas.lean, line 450
-- `Polyfold.Linearization15.IsSeparatedAt` — Polyfold/Chapter15/SeparationLemmas.lean, line 343
-- `Polyfold.Linearization15.IsLocDich` — Polyfold/Chapter15/SeparationLemmas.lean, line 337
-- `Polyfold.Linearization15.exists_isLocDich_mem` — Polyfold/Chapter15/SeparationLemmas.lean, line 348
-- `Polyfold.Linearization15.exists_isSeparatedAt_subseq` — Polyfold/Chapter15/SeparationLemmas.lean, line 381
+- `Polyfold.Linearization15.proposition_15_1_3_hyp` — Polyfold/Chapter14/SeparationLemmas.lean, line 411
+- `Polyfold.Linearization15.proposition_15_1_3_hyp_witness` — Polyfold/Chapter14/SeparationLemmas.lean, line 442
+- `Polyfold.Linearization15.not_proposition_15_1_3_of_isolated` — Polyfold/Chapter14/SeparationLemmas.lean, line 434
+- `Polyfold.Linearization15.not_proposition_15_1_3_point` — Polyfold/Chapter14/SeparationLemmas.lean, line 450
+- `Polyfold.Linearization15.IsSeparatedAt` — Polyfold/Chapter14/SeparationLemmas.lean, line 343
+- `Polyfold.Linearization15.IsLocDich` — Polyfold/Chapter14/SeparationLemmas.lean, line 337
+- `Polyfold.Linearization15.exists_isLocDich_mem` — Polyfold/Chapter14/SeparationLemmas.lean, line 348
+- `Polyfold.Linearization15.exists_isSeparatedAt_subseq` — Polyfold/Chapter14/SeparationLemmas.lean, line 381
 
 *What differs.*
 - Hidden hypotheses: $x_0$ is not isolated; witness `proposition_15_1_3_hyp_witness`.
@@ -22845,9 +22845,9 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 
 **Proved in Lean.** `Linearization15.lemma_15_1_4`, in any pseudo-metric space: for finitely many relatively closed $A_i$ with $\bigcup A_i = B_\varepsilon(y)$, some $A_i$ has nonempty interior; topological core `exists_nonempty_interior_of_finite_closed_cover`.
 
-- `Polyfold.Linearization15.lemma_15_1_4` — Polyfold/Chapter15/SeparationLemmas.lean, line 218
-- `Polyfold.Linearization15.exists_nonempty_interior_of_finite_closed_cover` — Polyfold/Chapter15/SeparationLemmas.lean, line 200
-- `Polyfold.Linearization15.interior_biUnion_eq_empty` — Polyfold/Chapter15/SeparationLemmas.lean, line 186
+- `Polyfold.Linearization15.lemma_15_1_4` — Polyfold/Chapter14/SeparationLemmas.lean, line 218
+- `Polyfold.Linearization15.exists_nonempty_interior_of_finite_closed_cover` — Polyfold/Chapter14/SeparationLemmas.lean, line 200
+- `Polyfold.Linearization15.interior_biUnion_eq_empty` — Polyfold/Chapter14/SeparationLemmas.lean, line 186
 
 *What differs.*
 - The proof is by induction on the index set instead of moving $z$ step by step; it is applied on the level-1 topology (reading (a) of V15.2).
@@ -22860,9 +22860,9 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 
 **Proved in Lean.** `Linearization15.lemma_15_1_5`: in a pseudo-metric space, for finitely many maps continuous on $B_\varepsilon(y)$ into a Hausdorff space, exactly these conclusions, the partition a surjection $e : I \to \mathrm{Fin}\,p$; topological form `exists_isOpen_dichotomy`.
 
-- `Polyfold.Linearization15.lemma_15_1_5` — Polyfold/Chapter15/SeparationLemmas.lean, line 307
-- `Polyfold.Linearization15.exists_isOpen_dichotomy` — Polyfold/Chapter15/SeparationLemmas.lean, line 250
-- `Polyfold.Linearization15.exists_fin_partition` — Polyfold/Chapter15/SeparationLemmas.lean, line 288
+- `Polyfold.Linearization15.lemma_15_1_5` — Polyfold/Chapter14/SeparationLemmas.lean, line 307
+- `Polyfold.Linearization15.exists_isOpen_dichotomy` — Polyfold/Chapter14/SeparationLemmas.lean, line 250
+- `Polyfold.Linearization15.exists_fin_partition` — Polyfold/Chapter14/SeparationLemmas.lean, line 288
 
 *What differs.*
 - The maps need only be continuous with values in a Hausdorff space; the sections need not be sc⁺.
@@ -22875,8 +22875,8 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 
 **Proved in Lean.** `Linearization15.remark_15_1_6` (metric space): from $x'_k \to x_0$ in $V$, points $x''_k \in V$ with $d(x'_k, x''_k) < 1/(k+1)$, $x''_k \to x_0$, a subsequence and a partition with `IsSeparatedAt` along it. `IsSeparatedAt.eventually`: separation at $z$ persists near $z$.
 
-- `Polyfold.Linearization15.remark_15_1_6` — Polyfold/Chapter15/SeparationLemmas.lean, line 458
-- `Polyfold.Linearization15.IsSeparatedAt.eventually` — Polyfold/Chapter15/SeparationLemmas.lean, line 359
+- `Polyfold.Linearization15.remark_15_1_6` — Polyfold/Chapter14/SeparationLemmas.lean, line 458
+- `Polyfold.Linearization15.IsSeparatedAt.eventually` — Polyfold/Chapter14/SeparationLemmas.lean, line 359
 
 *What differs.*
 - "Slightly" is $d < 1/(k+1)$ in the first part and "eventually near $z$" in the second.
@@ -22894,8 +22894,8 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 - `Polyfold.SBLocalization.LocalLinData.sum` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 413
 - `Polyfold.SBLocalization.linearization_eq` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 440
 - `Polyfold.SBLocalization.nonempty_localLinData` — Polyfold/Chapter15/LinearizationIntrinsic.lean, line 424
-- `Polyfold.SBLocalization.linearizationIn` — Polyfold/Chapter15/Linearization.lean, line 203
-- `Polyfold.SBLocalization.linearizationIn_eq` — Polyfold/Chapter15/Linearization.lean, line 213
+- `Polyfold.SBLocalization.linearizationIn` — Polyfold/Chapter14/Linearization.lean, line 203
+- `Polyfold.SBLocalization.linearizationIn_eq` — Polyfold/Chapter14/Linearization.lean, line 213
 
 ### V15.9. Theorem 15.1.1 (2) (2017: 15.1): the summands of $T(f,\Lambda)(x)$ are sc-Fredholm
 
@@ -22920,18 +22920,18 @@ Functor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, 
 
 **Proved in Lean.** `IsScPlusSectionOn.restrictOpen` (a local sc⁺-section on open $O$ is a global sc⁺-section of $W|_O$); `subSec f s O` ($f + (-1) s$, $s$ extended by $0$), `subRestrict` (its restriction to $W|_O$), `isScFredholmSectionTame_subRestrict` (by Part I's `theorem_3_1_18_tame`); `subDeriv c f s z` $= D((\hat f - \hat s) \circ r)(z)$, `ChartOnto`, `surjective_toIntr_subDeriv_iff`, `isLinSurjAt_subRestrict`, `chartOnto_of_isLinSurjAt_subRestrict`; `exists_solutionSet_of_isGoodPosition`, `exists_solutionSet_interior` (an open $V \ni x$ with $\{f = s\} \cap V$ a smooth submanifold, from `theorem_3_6_8'`).
 
-- `Polyfold.SBLocalization.IsScPlusSectionOn.restrictOpen` — Polyfold/Chapter15/LocalScPlus.lean, line 183
-- `Polyfold.SBLocalization.subSec` — Polyfold/Chapter15/LocalScPlus.lean, line 201
-- `Polyfold.SBLocalization.isSection_subSec` — Polyfold/Chapter15/LocalScPlus.lean, line 204
-- `Polyfold.SBLocalization.subRestrict` — Polyfold/Chapter15/LocalScPlus.lean, line 253
-- `Polyfold.SBLocalization.isScFredholmSectionTame_subRestrict` — Polyfold/Chapter15/LocalScPlus.lean, line 261
-- `Polyfold.SBLocalization.subDeriv` — Polyfold/Chapter15/LocalIFT.lean, line 67
-- `Polyfold.SBLocalization.ChartOnto` — Polyfold/Chapter15/LocalIFT.lean, line 73
-- `Polyfold.SBLocalization.surjective_toIntr_subDeriv_iff` — Polyfold/Chapter15/LocalIFT.lean, line 91
-- `Polyfold.SBLocalization.isLinSurjAt_subRestrict` — Polyfold/Chapter15/LocalIFT.lean, line 175
-- `Polyfold.SBLocalization.chartOnto_of_isLinSurjAt_subRestrict` — Polyfold/Chapter15/LocalIFT.lean, line 198
-- `Polyfold.SBLocalization.exists_solutionSet_of_isGoodPosition` — Polyfold/Chapter15/LocalIFT.lean, line 234
-- `Polyfold.SBLocalization.exists_solutionSet_interior` — Polyfold/Chapter15/LocalIFT.lean, line 283
+- `Polyfold.SBLocalization.IsScPlusSectionOn.restrictOpen` — Polyfold/Chapter14/LocalScPlus.lean, line 183
+- `Polyfold.SBLocalization.subSec` — Polyfold/Chapter14/LocalScPlus.lean, line 201
+- `Polyfold.SBLocalization.isSection_subSec` — Polyfold/Chapter14/LocalScPlus.lean, line 204
+- `Polyfold.SBLocalization.subRestrict` — Polyfold/Chapter14/LocalScPlus.lean, line 253
+- `Polyfold.SBLocalization.isScFredholmSectionTame_subRestrict` — Polyfold/Chapter14/LocalScPlus.lean, line 261
+- `Polyfold.SBLocalization.subDeriv` — Polyfold/Chapter15/LocalIFT.lean, line 68
+- `Polyfold.SBLocalization.ChartOnto` — Polyfold/Chapter15/LocalIFT.lean, line 74
+- `Polyfold.SBLocalization.surjective_toIntr_subDeriv_iff` — Polyfold/Chapter15/LocalIFT.lean, line 92
+- `Polyfold.SBLocalization.isLinSurjAt_subRestrict` — Polyfold/Chapter15/LocalIFT.lean, line 176
+- `Polyfold.SBLocalization.chartOnto_of_isLinSurjAt_subRestrict` — Polyfold/Chapter15/LocalIFT.lean, line 199
+- `Polyfold.SBLocalization.exists_solutionSet_of_isGoodPosition` — Polyfold/Chapter15/LocalIFT.lean, line 235
+- `Polyfold.SBLocalization.exists_solutionSet_interior` — Polyfold/Chapter15/LocalIFT.lean, line 284
 
 *What differs.*
 - Needs `IsScFredholmSectionTame f`, as Part I's Theorem 3.6.8 (V15.12).
@@ -23275,9 +23275,9 @@ Tame: **`theorem_15_2_5_tame_hyp hf hft (hgp : IsGoodPositionAt f Λ x)`** : `No
 
 Tame: `remark_15_3_6_isTameBranched_hyp hf hft hΛ (hgp : IsInGeneralPosition A f Λ) (hpar) : A.X.IsBranchedEpSubgroupoid (Λ ∘ f) ∧ A.X.IsTameBranched (Λ ∘ f)` (good position at every support point by `remark_15_3_6_goodPosition_hyp`, then `theorem_15_2_5_isTameBranched_hyp`).
 
-- `Polyfold.SBLocalization.remark_15_3_6_localBranching_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 83
-- `Polyfold.SBLocalization.isFunctorial_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 118
-- `Polyfold.SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 132
+- `Polyfold.SBLocalization.remark_15_3_6_localBranching_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 84
+- `Polyfold.SBLocalization.isFunctorial_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 119
+- `Polyfold.SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 133
 - `Polyfold.SBLocalization.remark_15_3_6_isTameBranched_hyp` — Polyfold/Chapter15/TameBranched.lean, line 312
 
 *What differs.*
@@ -23382,15 +23382,15 @@ The pointwise reduction (`Chapter15/LocalFamilies`, `ParamOntoTransport`, `Local
 - `Polyfold.SBLocalization.principal_eq_fiberLin` — Polyfold/Chapter15/BranchChart.lean, line 186
 - `Polyfold.SBLocalization.principal_restrictTo_negRestrict` — Polyfold/Chapter15/BranchChart.lean, line 200
 - `Polyfold.SBLocalization.isParamGP_restrictTo_of_onto` — Polyfold/Chapter15/BranchChart.lean, line 222
-- `Polyfold.SBLocalization.isScPlusSectionOn_of_paramSec` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 71
-- `Polyfold.SBLocalization.isGeneralPositionGerm_branchParam` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 101
-- `Polyfold.SBLocalization.exists_local_paramGP` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 257
-- `Polyfold.SBLocalization.auxLe_of_pos` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 360
-- `Polyfold.SBLocalization.exists_pos_auxLe_subset` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 381
-- `Polyfold.SBLocalization.hasParametricGeneralPosition` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 468
-- `Polyfold.SBLocalization.theorem_15_3_7_hyp_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 543
-- `Polyfold.SBLocalization.theorem_15_3_7_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 554
-- `Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 569
+- `Polyfold.SBLocalization.isScPlusSectionOn_of_paramSec` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 72
+- `Polyfold.SBLocalization.isGeneralPositionGerm_branchParam` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 102
+- `Polyfold.SBLocalization.exists_local_paramGP` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 246
+- `Polyfold.SBLocalization.auxLe_of_pos` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 349
+- `Polyfold.SBLocalization.exists_pos_auxLe_subset` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 370
+- `Polyfold.SBLocalization.hasParametricGeneralPosition` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 457
+- `Polyfold.SBLocalization.theorem_15_3_7_hyp_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 532
+- `Polyfold.SBLocalization.theorem_15_3_7_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 543
+- `Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 558
 - `Polyfold.SBLocalization.theorem_15_3_7_of_paramOnto` — Polyfold/Chapter15/GeneralPositionPointwise.lean, line 37
 - `Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_paramOnto` — Polyfold/Chapter15/GeneralPositionPointwise.lean, line 49
 - `Polyfold.SBLocalization.HasLocalGPFamilies` — Polyfold/Chapter15/GeneralPositionAssembly.lean, line 81
@@ -23436,12 +23436,12 @@ The pointwise reduction (`Chapter15/LocalFamilies`, `ParamOntoTransport`, `Local
 - `Polyfold.SBLocalization.isStructurable_zeroMultisection_of_goodSystem` — Polyfold/Chapter15/ParamFamily.lean, line 398
 - `Polyfold.SBLocalization.GPFamily.zero` — Polyfold/Chapter15/ParamFamily.lean, line 403
 - `Polyfold.SBLocalization.GPFamily.add` — Polyfold/Chapter15/ParamFamily.lean, line 419
-- `Polyfold.SBLocalization.theorem_15_3_7_statement` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 234
-- `Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 323
-- `Polyfold.SBLocalization.theorem_15_3_7_of_isInGeneralPosition_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 293
-- `Polyfold.SBLocalization.pointwiseNorm_zeroMultisection` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 263
-- `Polyfold.SBLocalization.domSupp_zeroMultisection` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 279
-- `Polyfold.SBLocalization.isInGeneralPosition_epSEP_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 309
+- `Polyfold.SBLocalization.theorem_15_3_7_statement` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 235
+- `Polyfold.SBLocalization.theorem_15_3_7_statement_epSEP_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 312
+- `Polyfold.SBLocalization.theorem_15_3_7_of_isInGeneralPosition_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 282
+- `Polyfold.SBLocalization.pointwiseNorm_zeroMultisection` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 264
+- `Polyfold.SBLocalization.domSupp_zeroMultisection` — Polyfold/Chapter14/NormControl.lean, line 222
+- `Polyfold.SBLocalization.isInGeneralPosition_epSEP_zero` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 298
 
 *What differs.*
 - `theorem_15_3_7_existence` has the text's hypotheses. The only hypothesis not printed in the theorem is the tame germ data `hft`, inherited from §15.2 (the Part I hypothesis that the rows of §15.2 carry; gap G.140), through which the proof uses Theorem 15.2.5. Neither a good system nor paracompactness of $|X|$ is used, as Remark 15.3.8 says (V15.31).
@@ -23460,12 +23460,12 @@ The pointwise reduction (`Chapter15/LocalFamilies`, `ParamOntoTransport`, `Local
 
 Tame: `theorem_15_3_7_in_particular_tame_hyp hf hft hcc hΛ hN1 hdom hgp : IsBranchedEpSubgroupoid ∧ IsCompactBranched ∧ IsTameBranched` for $\Lambda \circ f$ (`theorem_15_3_7_in_particular_hyp` with `theorem_15_2_5_isTameBranched_hyp`; paracompactness from compactness).
 
-- `Polyfold.SBLocalization.pos_iff_exists_eq` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 147
-- `Polyfold.SBLocalization.isClosed_supp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 166
-- `Polyfold.SBLocalization.isClosed_orbitSupp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 181
-- `Polyfold.SBLocalization.supp_comp_subset_controlled` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 198
-- `Polyfold.SBLocalization.isCompact_orbitSupp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 214
-- `Polyfold.SBLocalization.theorem_15_3_7_in_particular_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 250
+- `Polyfold.SBLocalization.pos_iff_exists_eq` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 148
+- `Polyfold.SBLocalization.isClosed_supp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 167
+- `Polyfold.SBLocalization.isClosed_orbitSupp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 182
+- `Polyfold.SBLocalization.supp_comp_subset_controlled` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 199
+- `Polyfold.SBLocalization.isCompact_orbitSupp_comp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 215
+- `Polyfold.SBLocalization.theorem_15_3_7_in_particular_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 251
 - `Polyfold.SBLocalization.theorem_15_3_7_in_particular_tame_hyp` — Polyfold/Chapter15/TameBranched.lean, line 325
 
 *What differs.*
@@ -23479,7 +23479,7 @@ Tame: `theorem_15_3_7_in_particular_tame_hyp hf hft hcc hΛ hN1 hdom hgp : IsBra
 
 **Proved in Lean.** Nothing to formalize: a comment. `theorem_15_3_7_statement` assumes no paracompactness (V15.29); `theorem_15_3_7_hyp` assumes that a good system exists, which "structurable" (Definition 13.3.6) contains and paracompactness supplies (Theorem 13.1.8).
 
-- `Polyfold.SBLocalization.theorem_15_3_7_statement` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 234
+- `Polyfold.SBLocalization.theorem_15_3_7_statement` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 235
 - `Polyfold.SBLocalization.theorem_15_3_7_hyp` — Polyfold/Chapter15/GeneralPositionAssembly.lean, line 188
 
 *What differs.*
@@ -23525,8 +23525,8 @@ Witness with a non-zero boundary datum (`Chapter15/TransversalExtensionBoundaryD
 - `Polyfold.SBLocalization.theorem_15_3_7_relative_statement` — Polyfold/Chapter15/TransversalExtension.lean, line 162
 - `Polyfold.SBLocalization.IsInGeneralPosition.isTransversal` — Polyfold/Chapter15/TransversalExtension.lean, line 180
 - `Polyfold.SBLocalization.theorem_15_3_9_hyp` — Polyfold/Chapter15/TransversalExtension.lean, line 195
-- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 306
-- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 195
+- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 309
+- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 197
 - `Polyfold.HalfSpaceBundle.theorem_15_3_9_hypotheses_halfSEP` — Polyfold/Chapter15/TransversalExtensionWitness.lean, line 214
 - `Polyfold.HalfSpaceBundle.theorem_15_3_9_halfSEP` — Polyfold/Chapter15/TransversalExtensionWitness.lean, line 257
 - `Polyfold.HalfSpaceBundle.isBoundaryFaceOnto_halfDisc` — Polyfold/Chapter15/TransversalExtensionWitness.lean, line 200
@@ -23829,8 +23829,8 @@ The forms with steps as hypotheses: `OrientedRegularPerturbation A f m` (regular
 
 - `Polyfold.MPolyfold.IsGeneralPositionAt.exists_inter` — Polyfold/Chapter15/LocalSlice.lean, line 56
 - `Polyfold.StrongBundle.exists_null_isGeneralPositionGerm_paramSlice_near` — Polyfold/Chapter15/LocalSlice.lean, line 90
-- `Polyfold.SBLocalization.isReducedOntoAtLevel_of_mor` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 195
-- `Polyfold.SBLocalization.isInGeneralPositionAt_of_mor` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 232
+- `Polyfold.SBLocalization.isReducedOntoAtLevel_of_mor` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 184
+- `Polyfold.SBLocalization.isInGeneralPositionAt_of_mor` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 221
 
 *What differs.*
 - Part I's `theorem_5_3_10_of_family` is global, under compactness; the local form is what the proof of Theorem 15.3.7 uses near each point of $S_f$.
@@ -23843,12 +23843,12 @@ The forms with steps as hypotheses: `OrientedRegularPerturbation A f m` (regular
 
 **Proved in Lean.** `isTameRetract_inter_of_degIndex_eq_zero`: for an sc-smooth retraction $r$ of $C$ and open $W$ with $d_C = 0$ on $r(U) \cap W$, $r(U) \cap W$ is a tame retract (restrict $r$ to $U \cap r^{-1}(W) \cap \{d_C = 0\}$; (2) of Definition 2.5.2 from `ScRetraction.isScSplitting_range_scDeriv`). **`MPolyfold.isTame_of_degIndex_eq_zero`**: $(\forall x,\ d_X(x) = 0) \Rightarrow$ `P.IsTame`; **`EpGroupoid.isTame_of_degIndex_eq_zero`**.
 
-- `Polyfold.degIndexWith_eq_zero_iff` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 39
-- `Polyfold.isOpen_setOf_pos_coord` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 45
-- `Polyfold.degIndex_eq_zero_iff_pos` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 55
-- `Polyfold.isTameRetract_inter_of_degIndex_eq_zero` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 67
-- `Polyfold.MPolyfold.isTame_of_degIndex_eq_zero` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 117
-- `Polyfold.EpGroupoid.isTame_of_degIndex_eq_zero` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 146
+- `Polyfold.degIndexWith_eq_zero_iff` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 39
+- `Polyfold.isOpen_setOf_pos_coord` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 45
+- `Polyfold.degIndex_eq_zero_iff_pos` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 55
+- `Polyfold.isTameRetract_inter_of_degIndex_eq_zero` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 67
+- `Polyfold.MPolyfold.isTame_of_degIndex_eq_zero` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 117
+- `Polyfold.EpGroupoid.isTame_of_degIndex_eq_zero` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 146
 
 *What differs.*
 - None. Gap G.183 closed.
@@ -23859,20 +23859,20 @@ The forms with steps as hypotheses: `OrientedRegularPerturbation A f m` (regular
 
 **HWZ (§15.3, proof of Theorem 15.3.9, p. 698 (2017: Theorem 15.5)).** Choose a continuous functor $h_0$ with $N(\Lambda) < h_0 < h$ on the domain support of $\Lambda$ in $\partial X$, supported in $U$.
 
-**Proved in Lean.** **`lemma_15_3_9_cutoff : lemma_15_3_9_cutoff_statement A`** for every `A` (`Chapter15/ChargedExtensionFibres`), from **`lemma_15_3_9_cutoff_hyp (hB)`** with `hB : ∀ x, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source` supplied by **`SEP.exists_isTameChart`** (`Chapter10/TameBundleCharts`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point, `StrongBundle.exists_isTameChart`). Ingredients: `BoundarySymmetricStructure.mem_suppAt_iff` ($\mathrm{supp}\,\Lambda(y) = \{s_i(y)\}$ over $U(x) \cap \partial X$), `pointwiseNorm_tgt_of_boundary` ($N(\Lambda)$ a functor on $\partial X$), `isSaturated_boundaryDomSupp'`, **`exists_nhds_pointwiseNorm_lt`** ($N(\Lambda)$ upper semicontinuous along $\partial X$, through `exists_scPlusSectionOn_extension_of_face`). Construction on $|X|$ (paracompact Hausdorff): $g$ continuous with $0 \le g < h$ and $g > N(\Lambda)$ on $|\mathrm{dom\text{-}supp}\,\Lambda|$ (`exists_continuous_forall_mem_convex_of_local_const`); an Urysohn $\psi$, $1$ on $|\mathrm{dom\text{-}supp}\,\Lambda|$ and $0$ off $V$ with $\bar V \subseteq |U|$; $h_0 = (\psi g) \circ \pi$.
+**Proved in Lean.** **`lemma_15_3_9_cutoff : lemma_15_3_9_cutoff_statement A`** for every `A` (`Chapter15/ChargedExtensionFibres`), from **`lemma_15_3_9_cutoff_hyp (hB)`** with `hB : ∀ x, ∃ c : StrongBundleChart A.X.PObj A.P, A.B.IsTameChart c ∧ x ∈ c.φ.source` supplied by **`SEP.exists_isTameChart`** (`Chapter10/TameBundleCharts`: every strong bundle over a tame M-polyfold has tame strong bundle charts at every point, `StrongBundle.exists_isTameChart`). Ingredients: `BoundarySymmetricStructure.mem_suppAt_iff` ($\mathrm{supp}\,\Lambda(y) = \{s_i(y)\}$ over $U(x) \cap \partial X$), `pointwiseNorm_tgt_of_boundary` ($N(\Lambda)$ a functor on $\partial X$), `isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection`, **`exists_nhds_pointwiseNorm_lt`** ($N(\Lambda)$ upper semicontinuous along $\partial X$, through `exists_scPlusSectionOn_extension_of_face`). Construction on $|X|$ (paracompact Hausdorff): $g$ continuous with $0 \le g < h$ and $g > N(\Lambda)$ on $|\mathrm{dom\text{-}supp}\,\Lambda|$ (`exists_continuous_forall_mem_convex_of_local_const`); an Urysohn $\psi$, $1$ on $|\mathrm{dom\text{-}supp}\,\Lambda|$ and $0$ off $V$ with $\bar V \subseteq |U|$; $h_0 = (\psi g) \circ \pi$.
 
 - `Polyfold.SBLocalization.lemma_15_3_9_cutoff` — Polyfold/Chapter15/ChargedExtensionFibres.lean, line 113
 - `Polyfold.SEP.exists_isTameChart` — Polyfold/Chapter10/TameBundleCharts.lean, line 114
 - `Polyfold.StrongBundle.exists_isTameChart` — Polyfold/Chapter10/TameBundleCharts.lean, line 94
-- `Polyfold.SBLocalization.BoundarySymmetricStructure.mem_suppAt_iff` — Polyfold/Chapter15/CutoffFunctor.lean, line 62
-- `Polyfold.SBLocalization.IsBoundaryScPlusMultisection.suppAt_subset_oneSet` — Polyfold/Chapter15/CutoffFunctor.lean, line 89
-- `Polyfold.SBLocalization.normW_image_suppAt_subset` — Polyfold/Chapter15/CutoffFunctor.lean, line 98
-- `Polyfold.SBLocalization.pointwiseNorm_tgt_of_boundary` — Polyfold/Chapter15/CutoffFunctor.lean, line 109
-- `Polyfold.SBLocalization.isSaturated_boundaryDomSupp'` — Polyfold/Chapter15/CutoffFunctor.lean, line 123
-- `Polyfold.SBLocalization.boundaryDomSupp_subset_boundary` — Polyfold/Chapter15/CutoffFunctor.lean, line 136
-- `Polyfold.SBLocalization.exists_nhds_pointwiseNorm_lt` — Polyfold/Chapter15/CutoffFunctor.lean, line 146
-- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 195
-- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 306
+- `Polyfold.SBLocalization.BoundarySymmetricStructure.mem_suppAt_iff` — Polyfold/Chapter15/CutoffFunctor.lean, line 63
+- `Polyfold.SBLocalization.IsBoundaryScPlusMultisection.suppAt_subset_oneSet` — Polyfold/Chapter15/CutoffFunctor.lean, line 90
+- `Polyfold.SBLocalization.normW_image_suppAt_subset` — Polyfold/Chapter15/CutoffFunctor.lean, line 99
+- `Polyfold.SBLocalization.pointwiseNorm_tgt_of_boundary` — Polyfold/Chapter15/CutoffFunctor.lean, line 110
+- `Polyfold.SBLocalization.isSaturated_boundaryDomSupp_of_isBoundaryScPlusMultisection` — Polyfold/Chapter15/CutoffFunctor.lean, line 124
+- `Polyfold.SBLocalization.boundaryDomSupp_subset_boundary` — Polyfold/Chapter15/CutoffFunctor.lean, line 138
+- `Polyfold.SBLocalization.exists_nhds_pointwiseNorm_lt` — Polyfold/Chapter15/CutoffFunctor.lean, line 148
+- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 197
+- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 309
 
 *What differs.*
 - Step (a) holds with no hypothesis beyond the theorem's: tame strong bundle charts exist at every object of a strong bundle over a tame ep-groupoid (`SEP.exists_isTameChart`), which gives `hB`. Without tame bundle charts Definition 14.1.3 (1) would say nothing about the $s_i$, and $N(\Lambda)$ need not be upper semicontinuous along $\partial X$; the text uses the semicontinuity without comment. Gap G.177 closed.
@@ -23996,9 +23996,9 @@ Witnesses on the half-plane bundle `halfSEP 1 1` (half-disc section, $\Lambda_0$
 
 **Proved in Lean.** `admitsScPartitionsOfUnity_of_urysohn`: sc-smooth Urysohn functions give sc-smooth partitions of unity (the second half of Theorem 5.5.10). `exists_cubeProd_urysohn`: on $[0,1]^n \times X$, with $X$ admitting partitions of unity, $F(q,y) = \sum_x\rho_x(y)\,g_x(q)$ separates two disjoint closed sets (smooth bumps $g_x$ from the tube lemma, $\rho$ subordinate to the tubes). **`admitsScPartitionsOfUnity_cubeProd`**, **`admitsScPartitionsOfUnity_cubeSEP n hPU`**: the objects of `A.cubeSEP n` admit sc-smooth partitions of unity when $X$ does. `corollary_15_3_10_3_pu`, `corollary_15_3_10_3_glue`: the forms with `hPU` on $X$ in place of `hPUC` (they take Theorem 15.3.9 on the cylinder as a hypothesis; it holds, `theorem_15_3_9`, V15.32).
 
-- `Polyfold.admitsScPartitionsOfUnity_of_urysohn` — Polyfold/Chapter5/CubePartitions.lean, line 54
-- `Polyfold.exists_cubeProd_urysohn` — Polyfold/Chapter5/CubePartitions.lean, line 143
-- `Polyfold.admitsScPartitionsOfUnity_cubeProd` — Polyfold/Chapter5/CubePartitions.lean, line 173
+- `Polyfold.admitsScPartitionsOfUnity_of_urysohn` — Polyfold/Chapter6/CubePartitions.lean, line 54
+- `Polyfold.exists_cubeProd_urysohn` — Polyfold/Chapter6/CubePartitions.lean, line 143
+- `Polyfold.admitsScPartitionsOfUnity_cubeProd` — Polyfold/Chapter6/CubePartitions.lean, line 173
 - `Polyfold.SBLocalization.admitsScPartitionsOfUnity_cubeSEP` — Polyfold/Chapter15/CylinderPartitions.lean, line 43
 - `Polyfold.SBLocalization.corollary_15_3_10_3_pu` — Polyfold/Chapter15/CylinderPartitions.lean, line 52
 - `Polyfold.SBLocalization.corollary_15_3_10_3_glue` — Polyfold/Chapter15/CylinderPartitions.lean, line 81
@@ -26282,10 +26282,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized, apart from the categories** (V2.92). Bundle retractions and bundle maps are defined by their shape, $R(u, v) = (r(u), \rho(u)v)$ on $U \oplus F$ and $\Phi(u, v) = (a(u), \phi(u)v)$ with $\rho(u)$, $\phi(u)$ continuous linear, so $p' \circ \Phi = a \circ p$; $Tr$ is a bundle retraction covering $r^1$ and $Tf$ a bundle map covering $f^1$, and the transition maps of $TX$ are bundle maps (V2.94). The tangent retraction $Tr$ (V2.8) and the strong bundle retractions of §2.6 (preprint §2.5) (V2.54) are the instances the theory uses. The categories $\mathcal R$, $\mathcal{BR}$ and their functors are not formalized (Findings, Chapter 2, item 76); for $\mathcal{SBR}$ see V2.54, V2.56.
 
-- `Polyfold.ScRetraction.IsBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 195
-- `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 201
-- `Polyfold.IsBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 210
-- `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 225
+- `Polyfold.ScRetraction.IsBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 196
+- `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver` — Polyfold/Chapter2/TangentLift.lean, line 202
+- `Polyfold.IsBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 211
+- `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn` — Polyfold/Chapter2/TangentLift.lean, line 226
 
 ### G.6. $X_m$ as an M-polyfold for $m \ge 2$
 
@@ -26295,11 +26295,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V2.93). For $m \ge 2$ the structure is the iterate $(X^1)^1 \cdots$. For every $m$ the identity of points is a homeomorphism $(X^1)_m \cong X_{m+1}$, and the level-$m$ lift of the level chart $\varphi^1$ is the level-$(m+1)$ lift of $\varphi$ (`MPolyfold.shiftLevelHomeomorph`, `MPolyfold.shift_level_eq`), so each iterate is $X_m$ with its topology and the charts $(V_m, \varphi, (O_m, C_m, E_m))$. In particular the points agree, $(X^1)_m = X_{m+1}$ as sets (Findings, Chapter 5, items 142, 146). Theorem 2.3.10 (preprint 2.16) is proved for every $X_m$ directly (V2.17); Proposition 2.3.17, $T(X^i) \equiv (TX)^i$, for every $i$ is V2.97 (Findings, Chapter 2, item 77).
 
-- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 305
-- `Polyfold.MPolyfold.mem_shift_smoothSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 314
-- `Polyfold.MPolyfold.IsScSmoothMap.levelOne` — Polyfold/Chapter5/StrongBundleShift.lean, line 368
-- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 926
-- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 938
+- `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter2/StrongBundleLevelOne.lean, line 29
+- `Polyfold.MPolyfold.mem_shift_smoothSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 300
+- `Polyfold.MPolyfold.IsScSmoothMap.levelOne` — Polyfold/Chapter2/StrongBundleLevelOne.lean, line 78
+- `Polyfold.MPolyfold.shiftLevelHomeomorph` — Polyfold/Chapter2/TangentLift.lean, line 927
+- `Polyfold.MPolyfold.shift_level_eq` — Polyfold/Chapter2/TangentLift.lean, line 939
 
 ### G.7. Definition 2.3.14 (preprint 2.18): the linear structure of $T_xX$; Proposition 2.3.19 (3) (preprint 2.21) in $T_aX$
 
@@ -26349,12 +26349,12 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V2.109). At a smooth $x \in O$, $T^R_xO$ and $C_xO$ are the closures of the derivatives at $0$ of sc-smooth two-sided and one-sided paths in $O$ through $x$ (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`), and $T_xO = C_xO - C_xO$ (`lemma_2_4_9_tangent`), with the text's proof.
 
-- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter2/TangentConePaths.lean, line 269
-- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter2/TangentConePaths.lean, line 311
-- `Polyfold.TangentConePaths.lemma_2_4_9_tangent` — Polyfold/Chapter2/TangentConePaths.lean, line 351
-- `Polyfold.TangentConePaths.pathDeriv` — Polyfold/Chapter2/TangentConePaths.lean, line 69
-- `Polyfold.TangentConePaths.twoSidedPathDerivs` — Polyfold/Chapter2/TangentConePaths.lean, line 212
-- `Polyfold.TangentConePaths.oneSidedPathDerivs` — Polyfold/Chapter2/TangentConePaths.lean, line 217
+- `Polyfold.TangentConePaths.lemma_2_4_9_reduced` — Polyfold/Chapter5/TangentConePaths.lean, line 269
+- `Polyfold.TangentConePaths.lemma_2_4_9_cone` — Polyfold/Chapter5/TangentConePaths.lean, line 311
+- `Polyfold.TangentConePaths.lemma_2_4_9_tangent` — Polyfold/Chapter5/TangentConePaths.lean, line 351
+- `Polyfold.TangentConePaths.pathDeriv` — Polyfold/Chapter5/TangentConePaths.lean, line 69
+- `Polyfold.TangentConePaths.twoSidedPathDerivs` — Polyfold/Chapter5/TangentConePaths.lean, line 212
+- `Polyfold.TangentConePaths.oneSidedPathDerivs` — Polyfold/Chapter5/TangentConePaths.lean, line 217
 
 ### G.11. Theorem 2.4.12 (preprint 2.31), second statement: equality makes $C_xO$ a partial quadrant
 
@@ -26449,10 +26449,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.MPolyfold.TameSubData` — Polyfold/Chapter2/TameBoundary.lean, line 1352
 - `Polyfold.MPolyfold.IsTameSubMPolyfold` — Polyfold/Chapter2/TameBoundary.lean, line 1364
-- `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart` — Polyfold/Chapter2/TameSub.lean, line 201
-- `Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure` — Polyfold/Chapter2/TameSub.lean, line 297
-- `Polyfold.TameSubExample.examples_A_B` — Polyfold/Chapter2/TameSub.lean, line 784
-- `Polyfold.MPolyfold.definition_2_5_19_book` — Polyfold/Chapter2/BookFormTameSub.lean, line 327
+- `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart` — Polyfold/Chapter4/TameSub.lean, line 201
+- `Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure` — Polyfold/Chapter4/TameSub.lean, line 297
+- `Polyfold.TameSubExample.examples_A_B` — Polyfold/Chapter4/TameSub.lean, line 749
+- `Polyfold.MPolyfold.definition_2_5_19_book` — Polyfold/Chapter4/BookFormTameSub.lean, line 327
 
 ### G.78. Proposition 2.7.12 and the characterization after Theorem 2.7.13 for non-centred representatives
 
@@ -26463,10 +26463,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 **Proved in Lean.** **Formalized** (V2.104, V2.105). For every representative $\Phi_{(x, V, \theta)}$ is an sc-diffeomorphism of $U(x, V, \theta)$ onto the open subset $\theta \cap V^x$ of $\theta$, which is $\theta$ for $V$ centred at $x$ (`phi_isScDiffeoOn_nonCentred`); Proposition 2.7.12 holds as printed for every pair of representatives (`proposition_2_7_12_scDiffeo_nonCentred`); and the structure of $bX$ is characterized with this image (`tameBoundaryPolyfold_unique_allReps`). "Onto $\theta$" does not hold as we read it for every representative: for the slab triple of V2.85 $\Phi$ is not onto $\theta$ (`not_surjOn_phiTot`) (Findings, Chapter 2, items 73, 83, 84). In the book's form: `proposition_2_7_12_book`, `theorem_2_7_13_book` (V2.87, V2.89, V2.103; Findings, Chapter 2, item 89).
 
 - `Polyfold.TameBoundary.isOpenEmbedding_phi` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 284
-- `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 266
-- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 328
-- `Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 294
-- `Polyfold.MPolyfold.not_surjOn_phiTot` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 415
+- `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 230
+- `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 292
+- `Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 258
+- `Polyfold.MPolyfold.not_surjOn_phiTot` — Polyfold/Chapter2/TameBoundaryNonCentred.lean, line 379
 - `Polyfold.MPolyfold.proposition_2_7_12_book` — Polyfold/Chapter2/BookFormTameBoundary.lean, line 66
 - `Polyfold.MPolyfold.theorem_2_7_13_book` — Polyfold/Chapter2/BookFormTameBoundary.lean, line 94
 
@@ -26532,8 +26532,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V3.76): for $g$ sc-smooth and conjugated to a basic germ and $s$ sc-smooth into $F^1$ with $s(0) = 0$, $(g + s)^1$ is conjugated to a basic germ on the shifted structures, by the composite of the index raise of the given conjugation and the linear coordinate change of Theorem 3.4.2 (preprint 3.38).
 
-- `Polyfold.corollary_3_4_3` — Polyfold/Chapter3/BasicClassComposition.lean, line 590
-- `Polyfold.corollary_3_4_3_isConjugate` — Polyfold/Chapter3/BasicClassComposition.lean, line 779
+- `Polyfold.corollary_3_4_3` — Polyfold/Chapter3/BasicClassComposition.lean, line 587
+- `Polyfold.corollary_3_4_3_isConjugate` — Polyfold/Chapter3/BasicClassComposition.lean, line 776
 
 ### G.21. Proposition 3.1.10 (preprint 3.10), second statement, on levels $m \ge 1$
 
@@ -26671,10 +26671,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.theorem_3_6_8_tame_step` — Polyfold/Chapter3/BookGerms.lean, line 443
 - `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/BookGerms.lean, line 484
-- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 354
-- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 407
-- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 455
-- `Polyfold.CornerFilling.zero_not_mem_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 508
+- `Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 355
+- `Polyfold.StrongBundle.IsScFredholmGermInterior` — Polyfold/Chapter3/TameGermTransfer.lean, line 408
+- `Polyfold.StrongBundle.isScFredholmSectionTame_of_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 456
+- `Polyfold.CornerFilling.zero_not_mem_interior` — Polyfold/Chapter3/TameGermTransfer.lean, line 509
 - `Polyfold.Jump.family` — Polyfold/Chapter3/UntamedJump.lean, line 997
 - `Polyfold.Jump.Family.isScSmooth_map` — Polyfold/Chapter3/UntamedJump.lean, line 263
 - `Polyfold.UntamedCorner.isFilling2021_g` — Polyfold/Chapter3/UntamedCounterexample.lean, line 592
@@ -26682,13 +26682,13 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.UntamedCorner.isGoodPositionAtGerm_g` — Polyfold/Chapter3/UntamedCounterexample.lean, line 666
 - `Polyfold.UntamedCorner.solutionSet_eq` — Polyfold/Chapter3/UntamedCounterexample.lean, line 403
 - `Polyfold.UntamedCorner.theorem_3_6_8_untamed_local` — Polyfold/Chapter3/UntamedCounterexample.lean, line 1037
-- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 138
-- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 159
-- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 175
-- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter3/UntamedBundleTheorem.lean, line 202
+- `Polyfold.UntamedCorner.theorem_3_6_8_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 137
+- `Polyfold.UntamedCorner.theorem_3_1_22_untamed_not` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 158
+- `Polyfold.UntamedCorner.not_isScFredholmGermTame_sec_zero` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 174
+- `Polyfold.UntamedCorner.isScFredholmGerm2021_not_2017` — Polyfold/Chapter4/UntamedBundleTheorem.lean, line 201
 - `Polyfold.UntamedCorner.bundle` — Polyfold/Chapter3/UntamedBundle.lean, line 195
 - `Polyfold.UntamedCorner.sec` — Polyfold/Chapter3/UntamedBundle.lean, line 234
-- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter3/UntamedBundleFrame.lean, line 743
+- `Polyfold.UntamedCorner.isScFredholmSection2021_sec` — Polyfold/Chapter4/UntamedBundleFrame.lean, line 743
 
 ### G.31. Remark 4.1.3 (preprint 4.3): “$X^1 \ne X$ is possible”
 
@@ -26730,11 +26730,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero` — Polyfold/Chapter4/Submanifolds.lean, line 1532
 - `Polyfold.MPolyfold.remark_4_2_2_interior` — Polyfold/Chapter4/RemarkLocalForm.lean, line 57
 - `Polyfold.MPolyfold.remark_4_2_2_near` — Polyfold/Chapter4/RemarkLocalForm.lean, line 69
-- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 201
-- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 220
-- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 101
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 174
-- `Polyfold.isInGoodPosition_halfSpace` — Polyfold/Chapter4/SubmanifoldNearBoundary.lean, line 54
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 201
+- `Polyfold.MPolyfold.remark_4_2_2_dA_one_near` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 220
+- `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 101
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.hasCornerStructure_of_degIndex_le_one` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 174
+- `Polyfold.isInGoodPosition_halfSpace` — Polyfold/Chapter9/SubmanifoldNearBoundary.lean, line 54
 - `Polyfold.MPolyfold.remark_4_2_2_dA_zero` — Polyfold/Chapter4/SubmanifoldNearInterior.lean, line 153
 - `Polyfold.MPolyfold.remark_4_2_2_dA_zero_near` — Polyfold/Chapter4/SubmanifoldNearInterior.lean, line 172
 - `Polyfold.MPolyfold.degIndex_eq_zero_of_isReducedTangentAt` — Polyfold/Chapter9/BoundaryPositionConverse.lean, line 453
@@ -26747,9 +26747,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Nothing to formalize** (a question, not a statement). The settled sentence is formalized: `question_4_2_4_scPlus` shows that an sc⁺-retract $(O, E, E)$ is never homeomorphic to the "T", because no neighbourhood of $(0, 0)$ in the "T" is homeomorphic to an open subset of a finite-dimensional space (`not_homeomorph_open`: case $k = 0$; case $k = 1$, three arms on two sides; case $k \ge 2$, a punctured ball is connected), while near each point an sc⁺-retract with $C = E$ is the graph of a map on its finite-dimensional tangent space (`IsScPlus.exists_flat`, the argument of Lemma 9.2.13). The question for sc-retracts that are not sc⁺ is open in the text and not addressed (Findings, item 65). The same holds on the piece $\{d_O = 0\}$ of any sc⁺-retract (`remark_4_2_2_dA_zero`, V4.32).
 
-- `Polyfold.Question424.question_4_2_4_scPlus` — Polyfold/Chapter4/ScPlusRetractQuestion.lean, line 315
-- `Polyfold.Question424.not_homeomorph_open` — Polyfold/Chapter4/ScPlusRetractQuestion.lean, line 110
-- `Polyfold.Question424.tSet` — Polyfold/Chapter4/ScPlusRetractQuestion.lean, line 45
+- `Polyfold.Question424.question_4_2_4_scPlus` — Polyfold/Chapter9/ScPlusRetractQuestion.lean, line 315
+- `Polyfold.Question424.not_homeomorph_open` — Polyfold/Chapter9/ScPlusRetractQuestion.lean, line 110
+- `Polyfold.Question424.tSet` — Polyfold/Chapter9/ScPlusRetractQuestion.lean, line 45
 - `Polyfold.ScRetraction.IsScPlus.exists_flat` — Polyfold/Chapter9/BoundaryPositionConverse.lean, line 307
 
 ### G.35. Theorem 4.2.11 (1) (preprint 4.22): local faces of the chart as global local faces
@@ -26805,12 +26805,12 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (Springer 2021 additions; V4.74–V4.77), on an M-polyfold: $[A, B] : X^2 \to TX$, the bracket of the principal parts in any chart, is sc-smooth and covers the inclusion $X^2 \to X^1$ (`proposition_4_4_5`, V4.76), independently of the chart (V4.75), by Lemma 4.5.1, whose proof the text leaves to the reader and which is proved by the computation of §4.5.2 in a local model (V4.74) and on M-polyfolds for every sc-smooth map (V4.77); the local model is V4.67–V4.72 (gap G.38, closed). "Section of $TX|X^2 \to X^2$" is proved as a map $X^2 \to TX$ over the inclusion and as an sc-smooth section of the pull-back bundle, built as a sub-M-polyfold of $X^2 \times TX$; Lemma 4.5.1 also holds for local sc-diffeomorphisms between open subsets (V4.76, V4.77; gap G.92, closed). The sentence of p. 201 that the bracket at $x \in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157, 161, 162).
 
-- `Polyfold.proposition_4_4_5` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 678
-- `Polyfold.MPolyfold.tangentChartMap_lieBracket` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 592
-- `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
-- `Polyfold.retractLieBracket_natural` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 232
-- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter4/VectorFields.lean, line 497
-- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 447
+- `Polyfold.proposition_4_4_5` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 678
+- `Polyfold.MPolyfold.tangentChartMap_lieBracket` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 592
+- `Polyfold.lemma_4_5_1` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 736
+- `Polyfold.retractLieBracket_natural` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 232
+- `Polyfold.proposition_4_4_5_local` — Polyfold/Chapter2/VectorFields.lean, line 497
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter2/VectorFields.lean, line 447
 
 ### G.39. The exterior derivative, Definition 4.4.6 (preprint 4.27) and the relative complex
 
@@ -26865,9 +26865,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.exists_extension` — Polyfold/Chapter4/ManifoldFaceForms.lean, line 1102
 - `Polyfold.ChartFaceForm.integral_d_eq_zero` — Polyfold/Chapter4/ManifoldFaceForms.lean, line 1656
 - `Polyfold.ManifoldForm.extDeriv_extDeriv` — Polyfold/Chapter4/ManifoldFaceForms.lean, line 190
-- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1057
+- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1058
 - `Polyfold.MPolyfold.theorem_4_4_7_hyp` — Polyfold/Chapter9/StokesFaceSum.lean, line 397
-- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter4/StokesFaceCharts.lean, line 353
+- `Polyfold.MPolyfold.hasCornerStructureOfDim_face` — Polyfold/Chapter6/StokesFaceCharts.lean, line 353
 - `Polyfold.inducedOrientation` — Polyfold/Chapter4/StokesFaceOrientation.lean, line 301
 - `Polyfold.FaceChartPair.chartChangeDeriv_face` — Polyfold/Chapter4/StokesFaceOrientation.lean, line 193
 - `Polyfold.sum_integral_restrictForm_eq_boundaryIntegral` — Polyfold/Chapter4/StokesFaceIntegral.lean, line 531
@@ -26894,11 +26894,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.ManifoldForm.stokes_of_compactSpace` — Polyfold/Chapter4/ManifoldStokes.lean, line 383
 - `Polyfold.BundledMPolyfold.formsInftyPullback` — Polyfold/Chapter4/ScFormsPullback.lean, line 444
 - `Polyfold.MPolyfold.relDeRham` — Polyfold/Chapter4/BoundaryForms.lean, line 644
-- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1006
-- `Polyfold.MPolyfold.extDeriv_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1034
-- `Polyfold.MPolyfold.solFaceForm` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1036
-- `Polyfold.MPolyfold.solFaceForm_jStar_integral` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1083
-- `Polyfold.MPolyfold.solFaceForm_d` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1067
+- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1007
+- `Polyfold.MPolyfold.extDeriv_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1035
+- `Polyfold.MPolyfold.solFaceForm` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1019
+- `Polyfold.MPolyfold.solFaceForm_jStar_integral` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1066
+- `Polyfold.MPolyfold.solFaceForm_d` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1050
 - `Polyfold.MPolyfold.isEndPullback_formsInftyRestrict_snd` — Polyfold/Chapter6/InvariantProductEndCharts.lean, line 1338
 - `Polyfold.MPolyfold.formWedge` — Polyfold/Chapter4/ScFormsWedge.lean, line 687
 - `Polyfold.MPolyfold.extD_formWedge` — Polyfold/Chapter4/ScFormsWedge.lean, line 776
@@ -26907,16 +26907,16 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.BundledMPolyfold.formsInftyGAlgebra` — Polyfold/Chapter4/ScFormsWedgeAssociativity.lean, line 570
 - `Polyfold.BundledMPolyfold.formsInftyGradedD_of_mul_of` — Polyfold/Chapter4/ScFormsWedgeAssociativity.lean, line 610
 - `Polyfold.BundledMPolyfold.formsInftyGraded_of_mul_of_comm` — Polyfold/Chapter4/ScFormsWedgeAssociativity.lean, line 599
-- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter4/OpenForms.lean, line 120
-- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter4/OpenForms.lean, line 153
-- `Polyfold.lemma_4_4_8` — Polyfold/Chapter4/Poincare.lean, line 860
-- `Polyfold.lemma_4_5_2` — Polyfold/Chapter4/Poincare.lean, line 666
-- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter4/Poincare.lean, line 844
+- `Polyfold.BundledMPolyfold.formsInftyResOpen` — Polyfold/Chapter5/OpenForms.lean, line 120
+- `Polyfold.BundledMPolyfold.FormsInftyEqOn` — Polyfold/Chapter5/OpenForms.lean, line 153
+- `Polyfold.lemma_4_4_8` — Polyfold/Chapter5/Poincare.lean, line 860
+- `Polyfold.lemma_4_5_2` — Polyfold/Chapter5/Poincare.lean, line 666
+- `Polyfold.hasPoincare_relOpen_of_zero_mem` — Polyfold/Chapter5/Poincare.lean, line 844
 - `Polyfold.isScSmooth_intervalIntegral` — Polyfold/Chapter4/ParametricIntegrals.lean, line 412
-- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter4/Poincare448.lean, line 311
-- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 289
-- `Polyfold.MPolyfold.faceAlongData_formsD` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 462
-- `Polyfold.MPolyfold.isExtendedBy_faceAlongData_formsPullback` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 448
+- `Polyfold.lemma_4_4_8_of_local` — Polyfold/Chapter5/Poincare448.lean, line 311
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 289
+- `Polyfold.MPolyfold.faceAlongData_formsD` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 462
+- `Polyfold.MPolyfold.isExtendedBy_faceAlongData_formsPullback` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 448
 - `Polyfold.MPolyfold.isFaceCompatible_extD` — Polyfold/Chapter4/BoundaryFormsAgreement.lean, line 749
 - `Polyfold.MPolyfold.relWedge` — Polyfold/Chapter4/RelativeWedge.lean, line 170
 - `Polyfold.MPolyfold.relD_relWedge` — Polyfold/Chapter4/RelativeWedge.lean, line 286
@@ -26935,14 +26935,14 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V4.76, V4.77). Lemma 4.5.1 holds for every sc-smooth map $f : X \to Y$ (V4.77) and for maps between open subsets ($U, U'$ Part I's open sub-M-polyfolds, `lemma_4_5_1_open`, `lemma_4_5_1_open_ambient`; the bracket is local, `lieBracket_restrictOpen`), in particular for a local sc-diffeomorphism between open subsets of $X$. The pull-back bundle $TX|X^2 = \{(x, \alpha) \in X^2 \times TX \mid p(\alpha) = x\}$ is a sub-M-polyfold of $X^2 \times TX$ (`isSubMPolyfold_tangentPullback`), with sc-smooth projection to $X^2$ and fibres $T_xX$; $[A, B]$ is an sc-smooth section of it (`proposition_4_4_5_section`), and Lemma 4.5.1 holds for the sections with the bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`). The text gives $TX|X^2$ no structure; the sub-M-polyfold structure is used (Findings, Chapter 4, item 163).
 
-- `Polyfold.lemma_4_5_1` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 736
-- `Polyfold.proposition_4_4_5` — Polyfold/Chapter4/VectorFieldsGlobal.lean, line 678
-- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 135
-- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 150
-- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter4/LieBracketOpenSubsets.lean, line 115
+- `Polyfold.lemma_4_5_1` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 736
+- `Polyfold.proposition_4_4_5` — Polyfold/Chapter2/VectorFieldsGlobal.lean, line 678
+- `Polyfold.lemma_4_5_1_open` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 135
+- `Polyfold.lemma_4_5_1_open_ambient` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 150
+- `Polyfold.MPolyfold.lieBracket_restrictOpen` — Polyfold/Chapter8/LieBracketOpenSubsets.lean, line 115
 - `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback` — Polyfold/Chapter4/LieBracketBundle.lean, line 343
-- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 471
-- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 521
+- `Polyfold.proposition_4_4_5_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 435
+- `Polyfold.lemma_4_5_1_section` — Polyfold/Chapter4/LieBracketBundle.lean, line 485
 
 ### G.41. Corollary 5.2.5 (preprint 5.8) beyond the chart level
 
@@ -26952,7 +26952,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized, for each fixed $i$** (V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. The tame form of the conclusion is proved as well: the index raise of a tame strong bundle chart is tame (V5.13, V5.14). Not formalized: one statement for a family $P^i$ indexed by $i$ (Findings, Chapter 5, items 140–146). The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (gap G.6, closed).
 
-- `Polyfold.StrongBundle.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 878
+- `Polyfold.StrongBundle.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 750
 - `Polyfold.IsFillingGerm.germ_shift` — Polyfold/Chapter5/Corollary58.lean, line 245
 - `Polyfold.corollary_5_2_5` — Polyfold/Chapter5/Corollary58.lean, line 546
 - `Polyfold.corollary_5_2_5_two` — Polyfold/Chapter5/Corollary58.lean, line 557
@@ -26987,12 +26987,12 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V5.73). For an arbitrary sc-Fredholm arc on $\mathbb R^1 \times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \times X$ is read as $\mathbb R^1 \times X$ (decision D2). The orientation of the cobordism is gap G.66.
 
-- `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation.lean, line 1599
-- `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation.lean, line 946
-- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 789
-- `Polyfold.exists_homotopy_cobordism_data` — Polyfold/Chapter6/ProperHomotopy.lean, line 1002
-- `Polyfold.StrongBundle.IsCobordismData` — Polyfold/Chapter6/ProperHomotopy.lean, line 474
-- `Polyfold.exists_isCobordismData` — Polyfold/Chapter6/ProperHomotopy.lean, line 566
+- `Polyfold.exists_cobordism` — Polyfold/Chapter6/CylinderInterpolation.lean, line 300
+- `Polyfold.theorem_5_3_10_relative_hyp` — Polyfold/Chapter5/CylinderPerturbation.lean, line 836
+- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 790
+- `Polyfold.exists_homotopy_cobordism_data` — Polyfold/Chapter6/ProperHomotopy.lean, line 1003
+- `Polyfold.StrongBundle.IsCobordismData` — Polyfold/Chapter6/ProperHomotopy.lean, line 475
+- `Polyfold.exists_isCobordismData` — Polyfold/Chapter6/ProperHomotopy.lean, line 567
 - `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 172
 - `Polyfold.remark_5_3_8_relative` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 106
 - `Polyfold.exists_margin_of_isCompact` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 65
@@ -27063,8 +27063,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, gap G.44). For good position at the corner points $\{i\} \times \partial X$ the step of G.46 would be needed: $\mathbb R \times \ker$ need not be in good position to $[0,\infty) \times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).
 
-- `Polyfold.exists_cobordism` — Polyfold/Chapter5/CylinderPerturbation.lean, line 1599
-- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 789
+- `Polyfold.exists_cobordism` — Polyfold/Chapter6/CylinderInterpolation.lean, line 300
+- `Polyfold.exists_homotopy_cobordism` — Polyfold/Chapter6/ProperHomotopy.lean, line 790
 - `Polyfold.remark_5_3_8_arc` — Polyfold/Chapter5/FredholmArcPerturbation.lean, line 172
 - `Polyfold.Counterexamples2021.not_isInGoodPosition_prod_diag` — Polyfold/Chapter3/Counterexamples.lean, line 215
 
@@ -27151,15 +27151,15 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.psiAt_mk` — Polyfold/Chapter6/InvariantSingle.lean, line 850
 - `Polyfold.psiForms_relD` — Polyfold/Chapter6/InvariantSingle.lean, line 822
 - `Polyfold.psiAt_mk_zero_eq_sum` — Polyfold/Chapter6/InvariantSingle.lean, line 938
-- `Polyfold.MPolyfold.solFaceForm` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1036
-- `Polyfold.MPolyfold.solFaceForm_jStar_integral` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1083
-- `Polyfold.MPolyfold.solFaceForm_d` — Polyfold/Chapter9/SolutionFaceForms.lean, line 1067
+- `Polyfold.MPolyfold.solFaceForm` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1019
+- `Polyfold.MPolyfold.solFaceForm_jStar_integral` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1066
+- `Polyfold.MPolyfold.solFaceForm_d` — Polyfold/Chapter6/SolutionFaceForms.lean, line 1050
 - `Polyfold.MPolyfold.CornerCoords.prodRn` — Polyfold/Chapter6/InvariantProductEndCharts.lean, line 399
 - `Polyfold.productEndOfSub` — Polyfold/Chapter6/InvariantProductEndCharts.lean, line 501
 - `Polyfold.isLinOfIndex_end_iff` — Polyfold/Chapter6/InvariantProductEndCharts.lean, line 637
 - `Polyfold.MPolyfold.isEndPullback_formsInftyRestrict_snd` — Polyfold/Chapter6/InvariantProductEndCharts.lean, line 1338
-- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1006
-- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter9/MathlibFormsBridge.lean, line 1057
+- `Polyfold.MPolyfold.formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1007
+- `Polyfold.MPolyfold.stokes_formsInftyRestrict` — Polyfold/Chapter6/MathlibFormsBridge.lean, line 1058
 - `Polyfold.theorem_5_3_10_param` — Polyfold/Chapter5/GeneralPosition.lean, line 1779
 - `Polyfold.theorem_6_6_18_hyp` — Polyfold/Chapter6/SolutionOrientation.lean, line 892
 - `Polyfold.ManifoldForm.stokes_of_compactSpace` — Polyfold/Chapter4/ManifoldStokes.lean, line 383
@@ -27170,8 +27170,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.theorem_6_7_1_noBoundary_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms.lean, line 1054
 - `Polyfold.cobordismRelativeFormsInner` — Polyfold/Chapter6/CobordismRelativeForms.lean, line 853
 - `Polyfold.psiAt_eq_of_cobordism_of_orientation` — Polyfold/Chapter6/CobordismRelativeForms.lean, line 913
-- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 289
-- `Polyfold.MPolyfold.CornerCoords.zero_coord_face_along` — Polyfold/Chapter4/BoundaryFormsPullback.lean, line 97
+- `Polyfold.MPolyfold.faceAlongData` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 289
+- `Polyfold.MPolyfold.CornerCoords.zero_coord_face_along` — Polyfold/Chapter6/BoundaryFormsPullback.lean, line 97
 - `Polyfold.ProductEnd.pullAt` — Polyfold/Chapter6/EndPullbackForms.lean, line 113
 - `Polyfold.MPolyfold.pullOver` — Polyfold/Chapter6/CobordismRelativeForms.lean, line 102
 - `Polyfold.MPolyfold.faceRestriction_pullOver` — Polyfold/Chapter6/CobordismRelativeForms.lean, line 183
@@ -27192,7 +27192,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.StrongBundle.exists_isAdmissible` — Polyfold/Chapter6/InvariantSingle.lean, line 274
 - `Polyfold.StrongBundle.exists_isAdmissible_nbhd` — Polyfold/Chapter6/InvariantSingle.lean, line 285
 - `Polyfold.solPartIsOrientedManifold` — Polyfold/Chapter6/InvariantSingle.lean, line 600
-- `Polyfold.exists_admissible_two` — Polyfold/Chapter5/CylinderPerturbation.lean, line 1266
+- `Polyfold.exists_admissible_two` — Polyfold/Chapter5/CylinderPerturbation.lean, line 1155
 - `Polyfold.StrongBundle.nonempty_admissibleData` — Polyfold/Chapter6/Theorem671.lean, line 151
 
 ### G.56. The facts on paths recalled on preprint p. 201
@@ -27203,7 +27203,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (`Chapter6/SmoothPathComponents.lean`). `paths_before_proposition_6_2_2`: an M-polyfold is locally path connected (`MPolyfold.locallyPathConnectedSpace`), and any two smooth points in the same connected component are joined by an sc-smooth path $\varphi : [0, 1] \to X$ in that component, which lifts to an sc-smooth path $[0, 1] \to X^1$ (`IsScSmoothMap.exists_scPlus_lift`; $[0, 1]$ is modelled on sc⁺-retracts). For smooth points, "same connected component", "same path component" and "joined by an sc-smooth path" are equivalent (`mem_connectedComponent_iff_exists_scPath`, `mem_pathComponent_iff_exists_scPath`). This justifies the reading of Definitions 6.6.2 and 6.6.14 (V6.58) (Findings, Chapter 6, items 42, 124).
 
-- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter6/ScPaths.lean, line 84
+- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter5/ScPaths.lean, line 84
 - `Polyfold.MPolyfold.paths_before_proposition_6_2_2` — Polyfold/Chapter6/SmoothPathComponents.lean, line 289
 - `Polyfold.MPolyfold.IsScSmoothMap.exists_scPlus_lift` — Polyfold/Chapter6/SmoothPathComponents.lean, line 252
 - `Polyfold.MPolyfold.scJoinedIn_of_isConnected` — Polyfold/Chapter6/SmoothPathComponents.lean, line 214
@@ -27282,7 +27282,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V6.32; `Chapter6/ScContractible.lean`, `IntervalHomotopy.lean`). The 2021 text prints (1) as "$U' \subset U$ is sc-smoothly contractible in $U$ to the point $x$", for a second neighbourhood $U'$; (1) for $U$ itself is the preprint's form. The 2021 form is proved: for every smooth $x$ and every open $U \ni x$ there are an open $U' \ni x$ in $U$ and an sc-smooth $H$ on the product M-polyfold $[0, 1] \times X$ (`IsScContraction`, `exists_isScContraction`) with values in $U$ on $[0, 1]\times U'$, $H(0, \cdot) = x$, $H(1, \cdot) = \mathrm{id}$ on $U'$ and $H(t, x) = x$. In a chart, $H(t, y) = \varphi^{-1} r(\varphi(x) + t(\varphi(y) - \varphi(x)))$ and $U' = \varphi^{-1}(B_\varepsilon(\varphi(x)))$; the text's $\hat r(t, y) = r(ty)$ is this map for $x = 0$; the smoothness of $x$ is used ($\varphi(x)$ must be a smooth point). The parameter-$\mathbb R$ form is `exists_isScContractionRn`. `proposition_6_6_3_one` is Proposition 6.6.3 as printed in 2021: $U' \subseteq U \subseteq W$ in one chart, with (1), (1′), (2), (3), (4); `proposition_6_6_3_interval` also has (1′) for paths on $[0, 1]$. The preprint's "$U$ contractible" (which needs $r(V') \subseteq V'$) is not formalized, and nothing here shows that it fails; it is a reading point on the preprint, not an item that does not hold. What the proofs of Theorem 6.6.11 and Definition 6.6.12 use is (1′) (V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72, 137).
 
-- `Polyfold.proposition_6_6_3` — Polyfold/Chapter6/OrientableNbhd.lean, line 529
+- `Polyfold.proposition_6_6_3` — Polyfold/Chapter5/OrientableNbhd.lean, line 529
 - `Polyfold.theorem_6_6_11` — Polyfold/Chapter6/PropagationWellDefined.lean, line 740
 - `Polyfold.IsScContraction` — Polyfold/Chapter6/ScContractible.lean, line 78
 - `Polyfold.exists_isScContraction` — Polyfold/Chapter6/ScContractible.lean, line 223
@@ -27299,8 +27299,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.exists_subspaceFamily_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 166
 - `Polyfold.exists_isStabKernels` — Polyfold/Chapter6/StabKernelsExist.lean, line 88
-- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 322
-- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 153
+- `Polyfold.theorem_3_1_26_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 322
+- `Polyfold.theorem_3_6_8_isSubmanifoldOfDim` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 153
 - `Polyfold.lemma_6_6_5_isManifold` — Polyfold/Chapter6/SolutionManifoldFamily.lean, line 167
 - `Polyfold.lemma_6_6_5_isSubmanifoldOfDim` — Polyfold/Chapter6/SolutionManifoldFamily.lean, line 209
 - `Polyfold.lemma_6_6_5_submersion` — Polyfold/Chapter6/SolutionManifoldFamily.lean, line 254
@@ -27358,7 +27358,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.theorem_6_6_11_interval` — Polyfold/Chapter6/PathsInterval.lean, line 314
 - `Polyfold.orTransportI_eq_of_homotopy` — Polyfold/Chapter6/PathsInterval.lean, line 387
 - `Polyfold.theorem_6_6_17_interval` — Polyfold/Chapter6/PathsInterval.lean, line 603
-- `Polyfold.proposition_6_2_2_interval` — Polyfold/Chapter3/IndexAlongPathsInterval.lean, line 89
+- `Polyfold.proposition_6_2_2_interval` — Polyfold/Chapter5/IndexAlongPathsInterval.lean, line 89
 - `Polyfold.proposition_6_6_3_three_interval` — Polyfold/Chapter6/UnitIntervalSections.lean, line 362
 - `Polyfold.proposition_6_6_3_four_interval` — Polyfold/Chapter6/UnitIntervalSections.lean, line 509
 - `Polyfold.exists_isScPlusSection_prodChart` — Polyfold/Chapter6/UnitIntervalSections.lean, line 146
@@ -27482,8 +27482,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.ChartPoint.baseDeriv_prodPt` — Polyfold/Chapter6/ProductOrientationTwoCharts.lean, line 151
 - `Polyfold.ChartPoint.fiberMap_prodPt` — Polyfold/Chapter6/ProductOrientationTwoCharts.lean, line 208
 - `Polyfold.detEquiv_stabIota_extDetFirst` — Polyfold/Chapter6/ProductSectionOrientation.lean, line 351
-- `Polyfold.ProductEnd.IsEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds.lean, line 581
-- `Polyfold.modelEnd_isEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds.lean, line 766
+- `Polyfold.ProductEnd.IsEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds.lean, line 545
+- `Polyfold.modelEnd_isEndProductOrientation` — Polyfold/Chapter6/InvariantProductEnds.lean, line 730
 - `Polyfold.SectionOrientation.prodFirst` — Polyfold/Chapter6/SectionOrientationProdFirst.lean, line 311
 - `Polyfold.SectionOrientation.prodFirst₀` — Polyfold/Chapter6/SectionOrientationProdFirst.lean, line 293
 - `Polyfold.isSectionOrientation_prodFirstFun` — Polyfold/Chapter6/SectionOrientationProdFirst.lean, line 196
@@ -27520,12 +27520,12 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **HWZ (§6.6 (preprint §6.5), Theorem 6.6.18 (preprint 6.41), p. 275 (preprint p. 229)).** The solution set $S$ is a smooth compact manifold with boundary with corners possessing a natural orientation.
 
-**Proved in Lean.** **Formalized.** $S$ is a compact Mathlib manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`), and carries a continuous tangent orientation (`TangentOrientation.IsContinuous`, `Chapter6/ManifoldOrientation.lean`) which at every zero $x$ is $o_x$, transported along the tangent map of $S \hookrightarrow X$, an isomorphism onto $\ker f'(x)$ (`theorem_6_6_18_oriented`, `solOr_spec`, `Chapter6/SolutionSetOrientation.lean`). The orientation is read in the tangent spaces, not as an oriented atlas, since for the quadrant model the two notions differ in dimensions 0 and 1 (V6.61) (Findings, Chapter 6, items 92, 123, 127).
+**Proved in Lean.** **Formalized.** $S$ is a compact Mathlib manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`), and carries a continuous tangent orientation (`TangentOrientation.IsContinuous`, `Chapter4/ManifoldOrientation.lean`) which at every zero $x$ is $o_x$, transported along the tangent map of $S \hookrightarrow X$, an isomorphism onto $\ker f'(x)$ (`theorem_6_6_18_oriented`, `solOr_spec`, `Chapter6/SolutionSetOrientation.lean`). The orientation is read in the tangent spaces, not as an oriented atlas, since for the quadrant model the two notions differ in dimensions 0 and 1 (V6.61) (Findings, Chapter 6, items 92, 123, 127).
 
 - `Polyfold.theorem_6_6_18_oriented` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 1244
 - `Polyfold.solOr_spec` — Polyfold/Chapter6/SolutionSetOrientation.lean, line 1047
-- `Polyfold.TangentOrientation.IsContinuous` — Polyfold/Chapter6/ManifoldOrientation.lean, line 359
-- `Polyfold.theorem_6_6_18_isManifold` — Polyfold/Chapter9/MathlibSolutionSets.lean, line 246
+- `Polyfold.TangentOrientation.IsContinuous` — Polyfold/Chapter4/ManifoldOrientation.lean, line 359
+- `Polyfold.theorem_6_6_18_isManifold` — Polyfold/Chapter6/MathlibSolutionSets.lean, line 246
 
 ### G.68. Theorem 6.6.18 (preprint 6.41): tangent orientations read in two charts
 
@@ -27576,13 +27576,13 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V6.74, V6.75). Every M-polyfold has connected smooth neighbourhoods (`MPolyfold.hasConnectedSmoothNbhds`): inside an open $W \ni x$ the connected component $U$ of $x$ is open (Proposition 2.3.7), and $U \cap X_\infty$ is path connected in $X_\infty$ (`isPathConnected_smoothVal_preimage`), since nearby smooth points are joined by paths in $X_\infty$ (`exists_nhds_joinedIn_smooth`). So (2) holds for the topology of $O_f$ without `HasConnectedSmoothNbhds` (`theorem_6_6_17_hyp PX.hasConnectedSmoothNbhds`), under the hypotheses under which $\Gamma_f$ is built (V6.57) (Findings, Chapter 6, item 120).
 
-- `Polyfold.MPolyfold.HasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 599
-- `Polyfold.hasTwoContSections_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 633
-- `Polyfold.theorem_6_6_17_hyp` — Polyfold/Chapter6/OrientationSpace.lean, line 900
-- `Polyfold.existsUnique_orientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 888
+- `Polyfold.MPolyfold.HasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationSpace.lean, line 522
+- `Polyfold.hasTwoContSections_orTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 556
+- `Polyfold.theorem_6_6_17_hyp` — Polyfold/Chapter6/OrientationSpace.lean, line 823
+- `Polyfold.existsUnique_orientationTopology` — Polyfold/Chapter6/OrientationSpace.lean, line 811
 - `Polyfold.MPolyfold.hasConnectedSmoothNbhds` — Polyfold/Chapter6/OrientationMainClean.lean, line 115
-- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter2/SmoothPaths.lean, line 170
-- `Polyfold.MPolyfold.exists_nhds_joinedIn_smooth` — Polyfold/Chapter2/SmoothPaths.lean, line 78
+- `Polyfold.MPolyfold.isPathConnected_smoothVal_preimage` — Polyfold/Chapter5/SmoothPaths.lean, line 171
+- `Polyfold.MPolyfold.exists_nhds_joinedIn_smooth` — Polyfold/Chapter5/SmoothPaths.lean, line 79
 
 ### G.91. The remarks after Theorem 6.6.17: the orientation bundle, orientability, $\mathbb Z_2$ and $\det_f$
 
@@ -27605,21 +27605,21 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **HWZ (§7.1, Definition 7.1.4 (2017: 7.4) and the paragraph before it, 2017 p. 227).** For a smooth morphism $\varphi$, i.e. $\varphi \in \mathbf X_\infty$, there is an associated sc-isomorphism $T\varphi : T_{s(\varphi)}X \to T_{t(\varphi)}X$ defined by $T\varphi := T\hat\varphi(x)$; $T\varphi$ can be defined for $\varphi$ on level at least $1$ and gives a bounded linear isomorphism on level $0$, and only for smooth $\varphi$ is $T\varphi$ an sc-operator. Definition 7.1.4 (2017: 7.4) associates with a smooth morphism $\varphi$ the local sc-diffeomorphism $\hat\varphi$ and its tangent $T\varphi$.
 
-**Proved in Lean.** **Formalized** (V7.5, V8.12). With the linear structure of $T_xX$ (Definition 2.3.14; gap G.7 closed, V2.19), $T\varphi$ is a bounded linear isomorphism $T_{s(\varphi)}X \to T_{t(\varphi)}X$ with inverse $T(\varphi^{-1})$ for $\varphi \in \mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`), and for smooth $\varphi$ an sc-isomorphism: in charts $T\varphi$ and $T(\varphi^{-1})$ are sc-operators restricting to mutually inverse maps of the sc-subspaces that are $T_{s(\varphi)}X$ and $T_{t(\varphi)}X$ as sc-Banach spaces (`definition_7_1_4_sc`, `tangentMor_chart_sc`, `Chapter7/TangentMorphismLinear.lean`). Further: `tangentMor` defines $T\varphi$; it is well defined (Chapter 8), $T\varphi(Ts(h)) = Tt(h)$ for every $h \in T_\varphi\mathbf X$ (`tangentMor_tSrc`), and functorial, $T(\psi \circ \varphi) = T\psi \circ T\varphi$ for $\varphi \in \mathbf X_1$ (`tangentMor_comp`), with the description of $T\mathbf X$ by the pairs $(T\varphi, a)$ of Remark 8.1.10 (2017: 8.1) (`remark_8_1_10`); for $\varphi \in \mathbf X_1$, $T\varphi = T\hat\varphi(s(\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), $T\varphi$ is a bijection $T_{s(\varphi)}X \to T_{t(\varphi)}X$ with inverse $T(\varphi^{-1})$ (`bijOn_tangentMor`), and in charts it is a bounded linear isomorphism of the tangent spaces of the retracts (`tangentMor_chart_iso`, `definition_7_1_4`). (Findings, Chapter 7, items 5, 110, 154; Chapter 8, item 112).
+**Proved in Lean.** **Formalized** (V7.5, V8.12). With the linear structure of $T_xX$ (Definition 2.3.14; gap G.7 closed, V2.19), $T\varphi$ is a bounded linear isomorphism $T_{s(\varphi)}X \to T_{t(\varphi)}X$ with inverse $T(\varphi^{-1})$ for $\varphi \in \mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`), and for smooth $\varphi$ an sc-isomorphism: in charts $T\varphi$ and $T(\varphi^{-1})$ are sc-operators restricting to mutually inverse maps of the sc-subspaces that are $T_{s(\varphi)}X$ and $T_{t(\varphi)}X$ as sc-Banach spaces (`definition_7_1_4_sc`, `tangentMor_chart_sc`, `Chapter9/TangentMorphismLinear.lean`). Further: `tangentMor` defines $T\varphi$; it is well defined (Chapter 8), $T\varphi(Ts(h)) = Tt(h)$ for every $h \in T_\varphi\mathbf X$ (`tangentMor_tSrc`), and functorial, $T(\psi \circ \varphi) = T\psi \circ T\varphi$ for $\varphi \in \mathbf X_1$ (`tangentMor_comp`), with the description of $T\mathbf X$ by the pairs $(T\varphi, a)$ of Remark 8.1.10 (2017: 8.1) (`remark_8_1_10`); for $\varphi \in \mathbf X_1$, $T\varphi = T\hat\varphi(s(\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), $T\varphi$ is a bijection $T_{s(\varphi)}X \to T_{t(\varphi)}X$ with inverse $T(\varphi^{-1})$ (`bijOn_tangentMor`), and in charts it is a bounded linear isomorphism of the tangent spaces of the retracts (`tangentMor_chart_iso`, `definition_7_1_4`). (Findings, Chapter 7, items 5, 110, 154; Chapter 8, item 112).
 
 - `Polyfold.EpGroupoid.tangentMor` — Polyfold/Chapter7/EpGroupoid.lean, line 382
 - `Polyfold.EpGroupoid.hat` — Polyfold/Chapter7/EpGroupoid.lean, line 366
-- `Polyfold.EpGroupoid.tangentMor_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 647
-- `Polyfold.EpGroupoid.tangentMor_comp` — Polyfold/Chapter8/TangentEp.lean, line 656
-- `Polyfold.EpGroupoid.remark_8_1_10` — Polyfold/Chapter8/TangentEp.lean, line 677
+- `Polyfold.EpGroupoid.tangentMor_tSrc` — Polyfold/Chapter8/TangentEp.lean, line 644
+- `Polyfold.EpGroupoid.tangentMor_comp` — Polyfold/Chapter8/TangentEp.lean, line 653
+- `Polyfold.EpGroupoid.remark_8_1_10` — Polyfold/Chapter8/TangentEp.lean, line 674
 - `Polyfold.EpGroupoid.tangentMor_eq_tangentMapOn_hat` — Polyfold/Chapter9/Tangent.lean, line 459
-- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter7/TangentMorphism.lean, line 201
-- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter7/TangentMorphism.lean, line 242
-- `Polyfold.EpGroupoid.definition_7_1_4` — Polyfold/Chapter7/TangentMorphism.lean, line 279
-- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 206
-- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 233
-- `Polyfold.EpGroupoid.definition_7_1_4_sc` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 261
-- `Polyfold.EpGroupoid.tangentMor_chart_sc` — Polyfold/Chapter7/TangentMorphismLinear.lean, line 92
+- `Polyfold.EpGroupoid.bijOn_tangentMor` — Polyfold/Chapter9/TangentMorphism.lean, line 201
+- `Polyfold.EpGroupoid.tangentMor_chart_iso` — Polyfold/Chapter9/TangentMorphism.lean, line 242
+- `Polyfold.EpGroupoid.definition_7_1_4` — Polyfold/Chapter9/TangentMorphism.lean, line 279
+- `Polyfold.EpGroupoid.tangentMorCLE` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 206
+- `Polyfold.EpGroupoid.definition_7_1_4_linear` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 233
+- `Polyfold.EpGroupoid.definition_7_1_4_sc` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 261
+- `Polyfold.EpGroupoid.tangentMor_chart_sc` — Polyfold/Chapter9/TangentMorphismLinear.lean, line 92
 
 ### G.71. Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14): $\mathbf X^R$ Hausdorff and paracompact
 
@@ -27649,10 +27649,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EpGroupoid.orbitLevel` — Polyfold/Chapter7/EpGroupoid.lean, line 417
 - `Polyfold.EpGroupoid.mem_levelSet_src_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 391
 - `Polyfold.EpGroupoid.mem_levelSet_tgt_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 399
-- `Polyfold.EpGroupoid.preimage_orbitLevel` — Polyfold/Chapter7/SmoothPointsDense.lean, line 223
-- `Polyfold.EpGroupoid.orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 235
-- `Polyfold.EpGroupoid.orbitSmooth_eq_iInter` — Polyfold/Chapter7/SmoothPointsDense.lean, line 247
-- `Polyfold.EpGroupoid.p290_orbit_filtration` — Polyfold/Chapter7/SmoothPointsDense.lean, line 256
+- `Polyfold.EpGroupoid.preimage_orbitLevel` — Polyfold/Chapter7/SmoothPointsDense.lean, line 120
+- `Polyfold.EpGroupoid.orbitSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 132
+- `Polyfold.EpGroupoid.orbitSmooth_eq_iInter` — Polyfold/Chapter7/SmoothPointsDense.lean, line 144
+- `Polyfold.EpGroupoid.p290_orbit_filtration` — Polyfold/Chapter7/SmoothPointsDense.lean, line 153
 
 ### G.73. The density of $X_\infty$ in $X_k$
 
@@ -27664,11 +27664,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.ScBanach.denseRange_incl` — Polyfold/Chapter1/ScBanach.lean, line 184
 - `Polyfold.ScBanach.denseRange_inclK` — Polyfold/Chapter1/ScBanach.lean, line 181
-- `Polyfold.IsPartialQuadrant.lvlSet_subset_closure_smooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 70
-- `Polyfold.IsRelOpenInQuadrant.lvlSet_subset_closure_smooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 85
-- `Polyfold.IsScRetract.lvlSet_subset_closure_smooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 123
-- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter7/SmoothPointsDense.lean, line 143
-- `Polyfold.EpGroupoid.p289_dense` — Polyfold/Chapter7/SmoothPointsDense.lean, line 206
+- `Polyfold.IsPartialQuadrant.lvlSet_subset_closure_smooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 18
+- `Polyfold.IsRelOpenInQuadrant.lvlSet_subset_closure_smooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 33
+- `Polyfold.IsScRetract.lvlSet_subset_closure_smooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 71
+- `Polyfold.MPolyfold.denseSmooth` — Polyfold/Chapter5/DenseSmoothPoints.lean, line 88
+- `Polyfold.EpGroupoid.p289_dense` — Polyfold/Chapter7/SmoothPointsDense.lean, line 103
 
 ### G.82. Theorem 7.6.7: the sc-diffeomorphism $(X^i)_R \cong (X_R)^i$, and $i \ge 2$
 
@@ -27681,9 +27681,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EpGroupoid.theorem_7_6_7` — Polyfold/Chapter7/ReducedCriterion.lean, line 948
 - `Polyfold.EpGroupoid.corollary_7_6_8` — Polyfold/Chapter7/ReducedCriterion.lean, line 969
 - `Polyfold.EpGroupoid.HasConnectedDenseLevelOneReps` — Polyfold/Chapter7/ReducedCriterion.lean, line 899
-- `Polyfold.EpGroupoid.theorem_7_6_7_one` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 247
-- `Polyfold.EP.theorem_7_6_7` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 314
-- `Polyfold.EP.corollary_7_6_8` — Polyfold/Chapter7/RaisedEpGroupoid.lean, line 321
+- `Polyfold.EpGroupoid.theorem_7_6_7_one` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 247
+- `Polyfold.EP.theorem_7_6_7` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 314
+- `Polyfold.EP.corollary_7_6_8` — Polyfold/Chapter10/RaisedEpGroupoid.lean, line 321
 
 ### G.83. Appendix 7.6.3: Zhou's retract and its exact non-effective part
 
@@ -27695,14 +27695,14 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart` — Polyfold/Chapter7/ReducedCriterion.lean, line 1067
 - `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 1072
-- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1026
-- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 181
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3` — Polyfold/Chapter7/ZhouGroupoid.lean, line 363
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq` — Polyfold/Chapter7/ZhouGroupoid.lean, line 258
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff` — Polyfold/Chapter7/ZhouGroupoid.lean, line 293
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isZhou` — Polyfold/Chapter7/ZhouGroupoid.lean, line 356
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma` — Polyfold/Chapter7/ZhouSigma.lean, line 203
-- `Polyfold.EpGroupoid.Examples.ZhouRetract.sigmaHomeo` — Polyfold/Chapter7/ZhouSigma.lean, line 142
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter8/ZhouTangent.lean, line 254
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 181
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3` — Polyfold/Chapter8/ZhouGroupoid.lean, line 363
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.nonEffectivePart_eq` — Polyfold/Chapter8/ZhouGroupoid.lean, line 258
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.closure_nonEffectivePart_diff` — Polyfold/Chapter8/ZhouGroupoid.lean, line 293
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.not_isZhou` — Polyfold/Chapter8/ZhouGroupoid.lean, line 356
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.appendix_7_6_3_sigma` — Polyfold/Chapter8/ZhouSigma.lean, line 203
+- `Polyfold.EpGroupoid.Examples.ZhouRetract.sigmaHomeo` — Polyfold/Chapter8/ZhouSigma.lean, line 142
 - `Polyfold.ZhouLine.zhouRetraction` — Polyfold/Chapter7/ZhouRetraction.lean, line 282
 - `Polyfold.ZhouLine.isLossFamily_zhouFam` — Polyfold/Chapter7/ZhouRetraction.lean, line 247
 - `Polyfold.ZhouLine.lineSc` — Polyfold/Chapter7/LineSobolevScale.lean, line 604
@@ -27716,14 +27716,14 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (Springer 2021 additions; V7.102–V7.104). The inclusions $X_{m+1} \to X_m$ are continuous and $(X^1)_\infty \to X_\infty$ is a homeomorphism; with Part I's Proposition 2.3.17 for $i = 1$ and the comparison of the natural representations of $X$ and $X^1$, (ZHOU') passes from $X$ to $X^1$, hence to every $X^i$, and Proposition 7.4.9 follows, with Corollary 7.4.11, Theorems 7.4.13 and 7.4.24 for (ZHOU) on $X$ only (V7.102). (VSLUC) and the density of $X_\infty$ pass from $X$ to every $X^i$, giving Propositions 7.4.16 and 7.4.17 (V7.103). Proposition 7.4.18 is proved in both directions, (SLUC) ⇒ (VSLUC) under natural representations with every $U(x) \cap X_m$ connected, which the text takes by construction (V7.104). Not formalized: (ZHOU') from $X^i$ back to $X$, which the proof does not use. The Part I facts are theorems on every level (gap G.85, closed; V7.86) (Findings, Chapter 7, items 137, 148–150).
 
-- `Polyfold.EP.isZhou'_lift` — Polyfold/Chapter7/ZhouLevels.lean, line 290
-- `Polyfold.EP.proposition_7_4_9` — Polyfold/Chapter7/ZhouLevels.lean, line 297
-- `Polyfold.EP.corollary_7_4_11_all` — Polyfold/Chapter7/ZhouLevels.lean, line 314
-- `Polyfold.EP.theorem_7_4_13_all` — Polyfold/Chapter7/ZhouLevels.lean, line 321
-- `Polyfold.EP.proposition_7_4_16_all` — Polyfold/Chapter7/ZhouLevels.lean, line 328
-- `Polyfold.EP.proposition_7_4_17_all` — Polyfold/Chapter7/ZhouLevels.lean, line 336
-- `Polyfold.EP.proposition_7_4_18` — Polyfold/Chapter7/ZhouLevels.lean, line 581
-- `Polyfold.EP.theorem_7_4_24_all` — Polyfold/Chapter7/ZhouLevels.lean, line 342
+- `Polyfold.EP.isZhou'_lift` — Polyfold/Chapter8/ZhouLevels.lean, line 291
+- `Polyfold.EP.proposition_7_4_9` — Polyfold/Chapter8/ZhouLevels.lean, line 298
+- `Polyfold.EP.corollary_7_4_11_all` — Polyfold/Chapter8/ZhouLevels.lean, line 315
+- `Polyfold.EP.theorem_7_4_13_all` — Polyfold/Chapter8/ZhouLevels.lean, line 322
+- `Polyfold.EP.proposition_7_4_16_all` — Polyfold/Chapter8/ZhouLevels.lean, line 329
+- `Polyfold.EP.proposition_7_4_17_all` — Polyfold/Chapter8/ZhouLevels.lean, line 337
+- `Polyfold.EP.proposition_7_4_18` — Polyfold/Chapter8/ZhouLevels.lean, line 582
+- `Polyfold.EP.theorem_7_4_24_all` — Polyfold/Chapter8/ZhouLevels.lean, line 343
 
 ### G.85. The Part I facts used in §7.4, and the connectedness of $U(x) \cap X_1$
 
@@ -27733,17 +27733,17 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V7.86, V7.83). Every fact is a theorem for every M-polyfold: `MPolyfold.smoothRegular` (from `denseSmooth`, gap G.73; `smoothConnected`, through smooth paths, `isPathConnected_smoothVal_preimage`; `isOpenMap_tangentProj`, gap G.8; `tangentDeterminedSmooth`) and `MPolyfold.denseSmoothTangent`. Every natural representation has $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ (`NaturalRep.isPreconnected_liftU`, `NaturalRep.subset_closure_inter_levelSet`), so `HasConnectedDenseLevelOneReps` holds for every ep-groupoid (`hasConnectedDenseLevelOneReps`), and so does `HasLevelOneConnectedDenseReps` of Lemma 7.4.4, which is not restated without it (V7.85); every natural representation has every $U(x) \cap X_m$ connected (`NaturalRep.levelConnected`), the text's \"by construction\" in Proposition 7.4.18. The §7.4, §7.6 and §8.1 results are restated without these hypotheses (V7.83, V7.89–V7.95, V7.102–V7.104, V8.45, V8.52) (Findings, Chapter 7, items 133, 134, 153).
 
-- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 639
-- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 270
-- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 179
-- `Polyfold.EpGroupoid.NaturalRep.LevelConnected` — Polyfold/Chapter7/ZhouLevels.lean, line 501
-- `Polyfold.EP.denseSmooth_lift` — Polyfold/Chapter7/ZhouLevels.lean, line 302
-- `Polyfold.MPolyfold.smoothRegular` — Polyfold/Chapter7/SmoothRegularAssembly.lean, line 64
-- `Polyfold.MPolyfold.denseSmoothTangent` — Polyfold/Chapter7/ZhouFacts.lean, line 167
-- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 124
-- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 128
-- `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 145
-- `Polyfold.EpGroupoid.NaturalRep.levelConnected` — Polyfold/Chapter7/SmoothConnectedReps.lean, line 120
+- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 539
+- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 274
+- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 186
+- `Polyfold.EpGroupoid.NaturalRep.LevelConnected` — Polyfold/Chapter8/ZhouLevels.lean, line 502
+- `Polyfold.EP.denseSmooth_lift` — Polyfold/Chapter8/ZhouLevels.lean, line 303
+- `Polyfold.MPolyfold.smoothRegular` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 64
+- `Polyfold.MPolyfold.denseSmoothTangent` — Polyfold/Chapter8/ZhouFacts.lean, line 167
+- `Polyfold.EpGroupoid.NaturalRep.isPreconnected_liftU` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 124
+- `Polyfold.EpGroupoid.NaturalRep.subset_closure_inter_levelSet` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 128
+- `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 145
+- `Polyfold.EpGroupoid.NaturalRep.levelConnected` — Polyfold/Chapter8/SmoothConnectedReps.lean, line 120
 
 ### G.74. Definitions 8.2.1, 8.2.2 (2017: 8.2, 8.3): sc-differential forms on ep-groupoids and the sc-de Rham complex
 
@@ -27753,14 +27753,14 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized**. $\Omega^k_{ep}(X)$ is `EpGroupoid.epForms`: the sc-differential forms of the object M-polyfold (Definition 4.4.1) with $(T\varphi)^*\omega_y = \omega_x$ for every $\varphi \in \mathbf X_1$, equivalently $s^*\omega = t^*\omega$ (`isMorCompatible_iff_formPullback`); $\Omega^k_{ep,\infty}(X)$ is the direct limit over the index lifts $X^i$ (`EP.epFormsInfty`), $d[\omega] = [d\omega]$ with $d \circ d = 0$ (`EP.epFormsInftyD`, `epFormsInftyD_comp_epFormsInftyD`), and the sc-de Rham complex is `EP.epDeRhamComplex`, a subcomplex of Part I's complex of the object M-polyfold (`epFormsInftyToObj`) (V8.53, V8.54). The Whitney sums $\oplus^k TX$ are replaced, as in Part I's §4.4, by families of alternating maps on the tangent spaces. Definition 8.2.1 writes $T_yY$ for $T_yX$ (reading point) (Findings, Chapter 8, items 110, 132).
 
-- `Polyfold.EpGroupoid.epForms` — Polyfold/Chapter8/EpForms.lean, line 164
-- `Polyfold.EpGroupoid.IsMorCompatible` — Polyfold/Chapter8/EpForms.lean, line 103
-- `Polyfold.EpGroupoid.isMorCompatible_iff_formPullback` — Polyfold/Chapter8/EpForms.lean, line 119
-- `Polyfold.EP.epFormsInfty` — Polyfold/Chapter8/EpForms.lean, line 323
-- `Polyfold.EP.epFormsInftyD` — Polyfold/Chapter8/EpForms.lean, line 390
-- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyD` — Polyfold/Chapter8/EpForms.lean, line 403
-- `Polyfold.EP.epDeRhamComplex` — Polyfold/Chapter8/EpFormsObj.lean, line 152
-- `Polyfold.EP.epFormsInftyToObj` — Polyfold/Chapter8/EpFormsObj.lean, line 113
+- `Polyfold.EpGroupoid.epForms` — Polyfold/Chapter9/EpForms.lean, line 164
+- `Polyfold.EpGroupoid.IsMorCompatible` — Polyfold/Chapter9/EpForms.lean, line 103
+- `Polyfold.EpGroupoid.isMorCompatible_iff_formPullback` — Polyfold/Chapter9/EpForms.lean, line 119
+- `Polyfold.EP.epFormsInfty` — Polyfold/Chapter9/EpForms.lean, line 323
+- `Polyfold.EP.epFormsInftyD` — Polyfold/Chapter9/EpForms.lean, line 390
+- `Polyfold.EP.epFormsInftyD_comp_epFormsInftyD` — Polyfold/Chapter9/EpForms.lean, line 403
+- `Polyfold.EP.epDeRhamComplex` — Polyfold/Chapter9/EpFormsObj.lean, line 152
+- `Polyfold.EP.epFormsInftyToObj` — Polyfold/Chapter9/EpFormsObj.lean, line 113
 
 ### G.75. Lemma 8.1.2 (2017: 8.1): $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ and $m_{T\mathbf X} = Tm$
 
@@ -27770,8 +27770,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized**. $\mathbf X\,{}_s{\times}_t\,\mathbf X$ is the M-polyfold `compPolyfold`. The identification $v \mapsto (T\pi_1 v, T\pi_2 v)$ (`tangentCompPairs`) is injective with range $\{(k, h) \mid Ts(k) = Tt(h)\}$ (`range_tangentCompPairs`) and is an sc-diffeomorphism from $T(\mathbf X\,{}_s{\times}_t\,\mathbf X)$ onto the sub-M-polyfold $T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ of $T\mathbf X \times T\mathbf X$ (`isScDiffeoOn_tangentCompPairs`). Lemma 8.1.2 as printed: $Tm(v) = T\pi_1(v) \circ T\pi_2(v)$ (`lemma_8_1_2_tangentMul`), $k \circ h = Tm(v)$ for the one $v$ over $(k, h)$ (`lemma_8_1_2_book`), and $m_{T\mathbf X} = Tm$ (`lemma_8_1_2_compMul`) (V8.4). The sheet form `lemma_8_1_2` is kept (Findings, Chapter 8, items 5, 111, 131).
 
-- `Polyfold.EpGroupoid.lemma_8_1_2` — Polyfold/Chapter8/TangentEp.lean, line 367
-- `Polyfold.EpGroupoid.isScSmoothComp_tangent` — Polyfold/Chapter8/TangentEp.lean, line 528
+- `Polyfold.EpGroupoid.lemma_8_1_2` — Polyfold/Chapter8/TangentEp.lean, line 364
+- `Polyfold.EpGroupoid.isScSmoothComp_tangent` — Polyfold/Chapter8/TangentEp.lean, line 525
 - `Polyfold.EpGroupoid.compPolyfold` — Polyfold/Chapter8/TangentFibred.lean, line 142
 - `Polyfold.EpGroupoid.tangentCompPairs` — Polyfold/Chapter8/TangentFibred.lean, line 240
 - `Polyfold.EpGroupoid.range_tangentCompPairs` — Polyfold/Chapter8/TangentFibred.lean, line 278
@@ -27791,8 +27791,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.EpStrongBundle.proposition_8_4_1_one_iff_two` — Polyfold/Chapter8/BundleOrbitParacompact.lean, line 422
 - `Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one` — Polyfold/Chapter8/Book.lean, line 406
-- `Polyfold.EpStrongBundle.proposition_8_4_3` — Polyfold/Chapter8/BundleLocalRegularity.lean, line 100
-- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 254
+- `Polyfold.EpStrongBundle.proposition_8_4_3` — Polyfold/Chapter10/BundleLocalRegularity.lean, line 100
+- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 255
 - `Polyfold.EpStrongBundle.proposition_8_4_1` — Polyfold/Chapter8/BundleOrbitParacompactOne.lean, line 416
 - `Polyfold.EpStrongBundle.proposition_8_4_1_one_iff_three` — Polyfold/Chapter8/BundleOrbitParacompactOne.lean, line 409
 - `Polyfold.EpStrongBundle.OrbitSpaceOne` — Polyfold/Chapter8/BundleOrbitParacompactOne.lean, line 112
@@ -27808,7 +27808,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EP.proposition_8_2_3` — Polyfold/Chapter11/EpPoincareLemma.lean, line 261
 - `Polyfold.EP.proposition_8_2_3_of_isOpen` — Polyfold/Chapter11/EpPoincareLemma.lean, line 229
 - `Polyfold.EP.isEquivalence_modelFunctor` — Polyfold/Chapter11/SubGroupoidModel.lean, line 217
-- `Polyfold.EP.proposition_8_2_3_object` — Polyfold/Chapter8/EpPoincare.lean, line 55
+- `Polyfold.EP.proposition_8_2_3_object` — Polyfold/Chapter9/EpPoincare.lean, line 55
 
 ### G.88. Proposition 8.1.16 without `TangentZhouReflect`
 
@@ -27818,9 +27818,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized**: Proposition 8.1.16 without the added hypothesis. `TangentZhouReflect` is proved for every ep-groupoid (`tangentZhouReflect`, `Chapter8/TangentZhouReflect.lean`), via the vertical vectors of $T(TX)$ (`Chapter8/TangentVertical.lean`), and `proposition_8_1_16_2021` takes (ZHOU) for $X$ only (V8.44). The entry's second part, Proposition 8.1.17 (2) for every $(TX)^i$ (p. 371), needs $(TX)^i = T(X^i)$; it is proved for $(TX)^0$ (V8.45) and for every $i$ (V8.52): Part I's Proposition 2.3.17 gives $T(X^i) \cong (TX)^i$ as ep-groupoids (sc-diffeomorphisms of objects and morphisms commuting with source and target), which transports LUC by Proposition 7.2.21 (Findings, Chapter 8, items 115, 116, 124, 126).
 
-- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 122
-- `Polyfold.EpGroupoid.proposition_8_1_16` — Polyfold/Chapter8/TangentZhou.lean, line 133
-- `Polyfold.EpGroupoid.proposition_8_1_17_two` — Polyfold/Chapter8/TangentZhou.lean, line 184
+- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 123
+- `Polyfold.EpGroupoid.proposition_8_1_16` — Polyfold/Chapter8/TangentZhou.lean, line 134
+- `Polyfold.EpGroupoid.proposition_8_1_17_two` — Polyfold/Chapter8/TangentZhou.lean, line 185
 - `Polyfold.EP.tangentLiftEpEquiv` — Polyfold/Chapter8/TangentZhouLevels.lean, line 188
 - `Polyfold.EP.proposition_8_1_17_two_all` — Polyfold/Chapter8/TangentZhouLevels.lean, line 203
 - `Polyfold.EpGroupoid.tangentZhouReflect` — Polyfold/Chapter8/TangentZhouReflect.lean, line 53
@@ -27832,12 +27832,12 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **HWZ (§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)).** The pull-back $F^*V$, with $\mu_{F^*V}(\varphi, (y, v)) = (t(\varphi), \mu_X(F(\varphi), v))$, is a strong bundle over the ep-groupoid $Y$, and $B : W \to F^*V$ is a strong bundle isomorphism over $Y$.
 
-**Proved in Lean.** **Formalized**: $\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter8/PullbackStrongBundle.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).
+**Proved in Lean.** **Formalized**: $\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter10/PullbackStrongBundle.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).
 
 - `Polyfold.EpStrongBundle.pullbackμ` — Polyfold/Chapter8/Book.lean, line 436
 - `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10` — Polyfold/Chapter8/Book.lean, line 626
-- `Polyfold.EpStrongBundle.pullbackBundle2021` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 69
-- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full` — Polyfold/Chapter8/PullbackStrongBundle.lean, line 136
+- `Polyfold.EpStrongBundle.pullbackBundle2021` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 69
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full` — Polyfold/Chapter10/PullbackStrongBundle.lean, line 136
 
 ### G.93. Remark 9.1.1 on a general M-polyfold: the local constancy of the dimension; the footnote to Definition 9.1.2 and "locally equidimensional"
 
@@ -27849,7 +27849,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.MPolyfold.HasLocallyConstantDimAt` — Polyfold/Chapter9/AppendixSlices.lean, line 767
 - `Polyfold.MPolyfold.hasLocallyConstantDimAt_rn` — Polyfold/Chapter9/AppendixSlices.lean, line 775
-- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1183
+- `Polyfold.MPolyfold.hasLocallyConstantDimAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1143
 - `Polyfold.EpGroupoid.hasLabelledBranchingAt_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 585
 - `Polyfold.EpGroupoid.definition_9_1_2_footnote` — Polyfold/Chapter9/LocallyEquidimensional.lean, line 140
 - `Polyfold.EpGroupoid.definition_9_1_2_footnote_zero` — Polyfold/Chapter9/LocallyEquidimensional.lean, line 156
@@ -27880,15 +27880,15 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 **Proved in Lean.** **Formalized** (V9.64, V9.65; `Chapter9/SupportOrbifold.lean`, `DescentPolyfold.lean`, `SupportManifold.lean`, `SupportGroupoidNaturality.lean`, `SupportClassicalStructures.lean`, `SupportGroupoidEtale.lean`). (2) as printed, with the text's groupoid: for every choice of local branching structures, the groupoid $M$ with objects $\bigsqcup M_x$ and morphisms $\bigsqcup M(x,x')$ is an ep-groupoid (the refinement of Proposition 10.1.3), $|\beta| : |M| \cong Z$, and $M \to \mathrm{supp}(\Theta)$ is an equivalence (`proposition_9_1_9_two_text`); two choices give $M_c \leftarrow M_{c,c'} \to M_{c'}$, a generalized isomorphism of $\mathrm{EP}(\mathcal E^{-1})$ over $Z$ (`proposition_9_1_9_two_independent`). (1) `proposition_9_1_9_one`: $Z$ carries an M-polyfold structure, descended along $a \mapsto |a|$ (`MPolyfold.descend`), and it is unique: any two M-polyfold structures making $\mathrm{supp}(\Theta) \to Z$ a local sc-diffeomorphism agree (`proposition_9_1_9_one_unique`). Remark 9.1.10, for $\Theta$ $n$-dimensional with $d_{|X|} = 0$ on $Z$: $Z$ is a Mathlib manifold, `IsManifold (𝓡 n) ∞` (`remark_9_1_10_manifold`), and $\mathrm{supp}(\Theta) \to Z$ a local diffeomorphism; in case (2) the object and morphism spaces of $M$ are Mathlib $n$-manifolds with $s$, $t$, unit and inverse local diffeomorphisms (`remark_9_1_10_orbifold`, `remark_9_1_10_orbifold_etale`). The composition of $M$ is sc-smooth, as for every ep-groupoid, and is not stated as Mathlib-smooth: Mathlib has no notion of a classical orbifold. The dimension $n$ is fixed (one model space; V9.65 narrower). The paracompactness of $|X|$ is not used (Findings, Chapter 9, items 7, 114).
 
 - `Polyfold.EpGroupoid.proposition_9_1_9_one` — Polyfold/Chapter9/SupportManifold.lean, line 132
-- `Polyfold.EpGroupoid.proposition_9_1_9_one_unique` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 318
-- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 236
-- `Polyfold.EpGroupoid.proposition_9_1_9_two_independent` — Polyfold/Chapter9/SupportGroupoidNaturality.lean, line 290
+- `Polyfold.EpGroupoid.proposition_9_1_9_one_unique` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 318
+- `Polyfold.EpGroupoid.proposition_9_1_9_two_text` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 236
+- `Polyfold.EpGroupoid.proposition_9_1_9_two_independent` — Polyfold/Chapter10/SupportGroupoidNaturality.lean, line 290
 - `Polyfold.EpGroupoid.proposition_9_1_9_two` — Polyfold/Chapter9/SupportOrbifold.lean, line 196
 - `Polyfold.MPolyfold.descend` — Polyfold/Chapter9/DescentPolyfold.lean, line 238
-- `Polyfold.EpGroupoid.remark_9_1_10_manifold` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 176
-- `Polyfold.EpGroupoid.remark_9_1_10_orbifold` — Polyfold/Chapter9/SupportClassicalStructures.lean, line 206
-- `Polyfold.EpGroupoid.remark_9_1_10_orbifold_etale` — Polyfold/Chapter9/SupportGroupoidEtale.lean, line 212
-- `Polyfold.EpGroupoid.remark_9_1_10_manifold_proj` — Polyfold/Chapter9/SupportGroupoidEtale.lean, line 251
+- `Polyfold.EpGroupoid.remark_9_1_10_manifold` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 176
+- `Polyfold.EpGroupoid.remark_9_1_10_orbifold` — Polyfold/Chapter10/SupportClassicalStructures.lean, line 206
+- `Polyfold.EpGroupoid.remark_9_1_10_orbifold_etale` — Polyfold/Chapter10/SupportGroupoidEtale.lean, line 212
+- `Polyfold.EpGroupoid.remark_9_1_10_manifold_proj` — Polyfold/Chapter10/SupportGroupoidEtale.lean, line 251
 
 ### G.96. Proposition 9.1.11: the global decomposition and a repaired uniqueness
 
@@ -27898,8 +27898,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V9.9). The local $\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\mathrm{supp}(\Theta_k)|$ paracompact). Read with \"uniquely\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\mathrm{supp}(\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms with Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1) as hypotheses, both theorems (V9.10, gap G.93 in part), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).
 
-- `Polyfold.EpGroupoid.Proposition_9_1_11` — Polyfold/Chapter9/Propositions.lean, line 791
-- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1336
+- `Polyfold.EpGroupoid.Proposition_9_1_11` — Polyfold/Chapter9/Propositions.lean, line 617
+- `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1162
 - `Polyfold.EpGroupoid.dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 167
 - `Polyfold.EpGroupoid.proposition_9_1_11_local_rn` — Polyfold/Chapter9/DimDecompositionExists.lean, line 475
 - `Polyfold.EpGroupoid.proposition_9_1_11_local_of` — Polyfold/Chapter9/DimDecompositionExists.lean, line 435
@@ -27919,10 +27919,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.MPolyfold.hasGraphChartAt_rn` — Polyfold/Chapter9/AppendixSlices.lean, line 130
 - `Polyfold.MPolyfold.HasGraphChartsAt` — Polyfold/Chapter9/TangentSlicesBasic.lean, line 459
 - `Polyfold.MPolyfold.HasGraphBallAt` — Polyfold/Chapter9/OrientationRn.lean, line 554
-- `Polyfold.ScRetraction.exists_cone` — Polyfold/Chapter9/GeneralLevelZero.lean, line 655
-- `Polyfold.ScRetraction.exists_graph_unif` — Polyfold/Chapter9/GeneralLevelZero.lean, line 334
-- `Polyfold.MPolyfold.isGraphChartAt_goodDirections` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1019
-- `Polyfold.MPolyfold.hasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1077
+- `Polyfold.ScRetraction.exists_cone` — Polyfold/Chapter9/GeneralLevelZero.lean, line 660
+- `Polyfold.ScRetraction.exists_graph_unif` — Polyfold/Chapter9/GeneralLevelZero.lean, line 339
+- `Polyfold.MPolyfold.isGraphChartAt_goodDirections` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1013
+- `Polyfold.MPolyfold.hasClassGraphChartAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1071
 - `Polyfold.MPolyfold.hasTangentSlicesAt` — Polyfold/Chapter9/GeneralCorollaries.lean, line 401
 
 ### G.98. Lemma 9.2.7 (2) on a general M-polyfold: invariance of domain
@@ -27935,8 +27935,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.MPolyfold.HasDomainInvarianceAt` — Polyfold/Chapter9/TangentSlices.lean, line 72
 - `Polyfold.MPolyfold.hasDomainInvarianceAt_rn` — Polyfold/Chapter9/TangentSlices.lean, line 101
-- `Polyfold.ScRetraction.eq_of_range_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 747
-- `Polyfold.MPolyfold.hasDomainInvarianceAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1220
+- `Polyfold.ScRetraction.eq_of_range_eq` — Polyfold/Chapter9/GeneralLevelZero.lean, line 752
+- `Polyfold.MPolyfold.hasDomainInvarianceAt` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1180
 - `Polyfold.EpGroupoid.LocalBranchingStructure.lemma_9_2_7_2_general` — Polyfold/Chapter9/GeneralCorollaries.lean, line 555
 
 ### G.99. Definition 9.2.12: the $TM_i$ as smooth submanifolds of $TX$
@@ -27949,11 +27949,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.EpGroupoid.TangentBranchingHyp` — Polyfold/Chapter9/Tangent.lean, line 1208
 - `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_rn` — Polyfold/Chapter9/AppendixSlices.lean, line 1273
-- `Polyfold.MPolyfold.SubmanifoldData.isScPlusRetractionOn_tmap` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 159
-- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 181
-- `Polyfold.EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 201
-- `Polyfold.EpGroupoid.tangentBranchingHyp` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 209
-- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 219
+- `Polyfold.MPolyfold.SubmanifoldData.isScPlusRetractionOn_tmap` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 94
+- `Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 116
+- `Polyfold.EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 136
+- `Polyfold.EpGroupoid.tangentBranchingHyp` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 144
+- `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general` — Polyfold/Chapter9/TangentSubmanifoldSmooth.lean, line 154
 
 ### G.100. Lemma 9.3.4 on a general M-polyfold: the level-1 continuity of frame fields
 
@@ -27965,8 +27965,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.MPolyfold.HasContinuousLevelOneOn` — Polyfold/Chapter9/OrientationRn.lean, line 386
 - `Polyfold.hasContinuousLevelOneOn_rn` — Polyfold/Chapter9/OrientationRn.lean, line 499
-- `Polyfold.MPolyfold.levelLift_eq_plusLift` — Polyfold/Chapter9/GeneralLevelZero.lean, line 982
-- `Polyfold.MPolyfold.hasContinuousLevelOneOn` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1303
+- `Polyfold.MPolyfold.levelLift_eq_plusLift` — Polyfold/Chapter9/GeneralLevelZero.lean, line 976
+- `Polyfold.MPolyfold.hasContinuousLevelOneOn` — Polyfold/Chapter9/GeneralLevelZero.lean, line 1263
 - `Polyfold.EpGroupoid.lemma_9_3_4_of_hasGraphBallAt'` — Polyfold/Chapter9/GeneralCorollaries.lean, line 642
 - `Polyfold.MPolyfold.hasOrientedGoodPointsAt` — Polyfold/Chapter9/GeneralBoundaryPoints.lean, line 114
 - `Polyfold.EpGroupoid.lemma_9_3_4_general` — Polyfold/Chapter9/GeneralBoundaryPoints.lean, line 472
@@ -27995,11 +27995,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V9.34). For a tame local branching structure whose sheets have dimension $n$, each sheet $M_i$, with the subspace topology and the charted space of its induced corner structure, satisfies `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`TameBranchingStructure.isManifold`). The partial quadrants of the corner charts are moved into the full quadrant $[0, \infty)^n$, since a Mathlib manifold has one model (`HasCornerStructureOfDim`, `cornerChartedSpace`, `isManifold_cornerChartedSpace`, `Chapter9/MathlibManifoldBridge.lean`). The same bridge gives Theorem 4.2.7 (V4.41) and the solution sets of Chapters 3, 5 and 6 as Mathlib manifolds (V3.24, V3.94, V5.38, V6.61) (Findings, Chapter 9, items 55, 109).
 
-- `Polyfold.MPolyfold.HasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 486
-- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 543
-- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 553
-- `Polyfold.EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 982
-- `Polyfold.EpGroupoid.TameBranchingStructure.isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 993
+- `Polyfold.MPolyfold.HasCornerStructureOfDim` — Polyfold/Chapter6/CornerCoordinates.lean, line 400
+- `Polyfold.MPolyfold.cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 457
+- `Polyfold.MPolyfold.isManifold_cornerChartedSpace` — Polyfold/Chapter6/CornerCoordinates.lean, line 467
+- `Polyfold.EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 280
+- `Polyfold.EpGroupoid.TameBranchingStructure.isManifold` — Polyfold/Chapter9/MathlibManifoldBridge.lean, line 291
 
 ### G.103. Definitions 9.3.8 and 9.3.10: $T_y\partial M = T^R_yM$, the outward direction, the continuity of $o_{\partial M}$ and Figure 9.1
 
@@ -28020,11 +28020,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.MPolyfold.SubmanifoldOrientation.exists_continuous_boundaryFrames` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 330
 - `Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOrientation` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 578
 - `Polyfold.EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation` — Polyfold/Chapter9/BoundaryOrientationContinuity.lean, line 637
-- `Polyfold.MPolyfold.exists_isOpen_boundaryStratum_eq` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 90
-- `Polyfold.MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 114
-- `Polyfold.MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 68
-- `Polyfold.MPolyfold.setOf_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 60
-- `Polyfold.MPolyfold.isOpen_degIndex_le_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 56
+- `Polyfold.MPolyfold.exists_isOpen_boundaryStratum_eq` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 91
+- `Polyfold.MPolyfold.submanifoldBoundary_subset_closure_boundaryStratum` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 115
+- `Polyfold.MPolyfold.HasCornerStructureOfDim.boundary_subset_closure_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 69
+- `Polyfold.MPolyfold.setOf_degIndex_eq_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 61
+- `Polyfold.MPolyfold.isOpen_degIndex_le_one` — Polyfold/Chapter9/BoundaryStratumDense.lean, line 57
 - `Polyfold.MPolyfold.stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 192
 - `Polyfold.MPolyfold.isSmoothSubmanifold_stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 306
 - `Polyfold.MPolyfold.exists_isScPlusRetractionOn_stratumOne` — Polyfold/Chapter9/StratumRetraction.lean, line 240
@@ -28037,17 +28037,17 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.MPolyfold.incFrame_mem_boundaryFramesAt_iff` — Polyfold/Chapter9/BoundaryOrientation.lean, line 284
 - `Polyfold.MPolyfold.faceChartedSpace` — Polyfold/Chapter9/StokesFaceSum.lean, line 129
 - `Polyfold.MPolyfold.faceOrientation` — Polyfold/Chapter9/StokesFaceSum.lean, line 333
-- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 229
-- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation_pair` — Polyfold/Chapter9/FaceOrientation.lean, line 278
-- `Polyfold.MPolyfold.figure_9_1_existsUnique_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 401
-- `Polyfold.MPolyfold.IsBoundaryOrientedAt` — Polyfold/Chapter9/FaceOrientation.lean, line 364
-- `Polyfold.MPolyfold.isBoundaryOrientedAt_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 380
-- `Polyfold.MPolyfold.dense_faceStratum` — Polyfold/Chapter9/FaceOrientation.lean, line 299
-- `Polyfold.MPolyfold.hasTameInducedStructure_of_hasCornerStructureOfDim` — Polyfold/Chapter9/FaceOrientation.lean, line 215
-- `Polyfold.TangentOrientation.eq_of_eqOn_dense` — Polyfold/Chapter9/FaceOrientation.lean, line 320
-- `Polyfold.det_cons_neg_stdFrame_faceEmbedding` — Polyfold/Chapter9/FaceOrientation.lean, line 65
-- `Polyfold.orientation_consFaceBasis_eq_iff` — Polyfold/Chapter9/FaceOrientation.lean, line 163
-- `Polyfold.consFaceBasis` — Polyfold/Chapter9/FaceOrientation.lean, line 95
+- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 211
+- `Polyfold.MPolyfold.faceOrientation_eq_iff_mem_stratumOrientation_pair` — Polyfold/Chapter9/FaceOrientation.lean, line 260
+- `Polyfold.MPolyfold.figure_9_1_existsUnique_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 383
+- `Polyfold.MPolyfold.IsBoundaryOrientedAt` — Polyfold/Chapter9/FaceOrientation.lean, line 346
+- `Polyfold.MPolyfold.isBoundaryOrientedAt_faceOrientation` — Polyfold/Chapter9/FaceOrientation.lean, line 362
+- `Polyfold.MPolyfold.dense_faceStratum` — Polyfold/Chapter9/FaceOrientation.lean, line 281
+- `Polyfold.MPolyfold.hasTameInducedStructure_of_hasCornerStructureOfDim` — Polyfold/Chapter9/FaceOrientation.lean, line 197
+- `Polyfold.TangentOrientation.eq_of_eqOn_dense` — Polyfold/Chapter9/FaceOrientation.lean, line 302
+- `Polyfold.det_cons_neg_stdFrame_faceEmbedding` — Polyfold/Chapter6/InducedOrientationFrames.lean, line 113
+- `Polyfold.orientation_consFaceBasis_eq_iff` — Polyfold/Chapter9/FaceOrientation.lean, line 145
+- `Polyfold.consFaceBasis` — Polyfold/Chapter9/FaceOrientation.lean, line 77
 - `Polyfold.EP.boundaryIntegral_eq_msInteg` — Polyfold/Chapter9/BoundaryIntegralStratum.lean, line 220
 
 ### G.104. Lemma 9.4.3: Property (T) after shrinking $U(x)$
@@ -28093,10 +28093,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EpGroupoid.lemma_9_4_8_of_isNDimensional` — Polyfold/Chapter9/SheetGeometryFree.lean, line 40
 - `Polyfold.EpGroupoid.proposition_9_4_9_of_isNDimensional` — Polyfold/Chapter9/SheetGeometryFree.lean, line 51
 - `Polyfold.EpGroupoid.proposition_9_4_10_of_isNDimensional` — Polyfold/Chapter9/SheetGeometryFree.lean, line 76
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_cornerChartedSpace` — Polyfold/Chapter9/SheetNullBridge.lean, line 102
-- `Polyfold.MPolyfold.isHNull_iff_subPolyfold` — Polyfold/Chapter9/SheetNullBridge.lean, line 134
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 197
-- `Polyfold.hNull_iff_volume_euclidean` — Polyfold/Chapter9/SheetNullBridge.lean, line 54
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_cornerChartedSpace` — Polyfold/Chapter9/SheetNullBridge.lean, line 103
+- `Polyfold.MPolyfold.isHNull_iff_subPolyfold` — Polyfold/Chapter9/SheetNullBridge.lean, line 135
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 198
+- `Polyfold.hNull_iff_volume_euclidean` — Polyfold/Chapter9/SheetNullBridge.lean, line 55
 - `Polyfold.MPolyfold.lemma_9_4_4_chart` — Polyfold/Chapter9/SheetEssentialChart.lean, line 312
 - `Polyfold.lemma_9_4_4_mixed_dim` — Polyfold/Chapter9/BranchingGeometry.lean, line 693
 
@@ -28125,7 +28125,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EpGroupoid.lebesgueSigmaH_eq` — Polyfold/Chapter9/SheetMeasure.lean, line 268
 - `Polyfold.hNull_lineH` — Polyfold/Chapter9/SheetMeasure.lean, line 80
 - `Polyfold.isHNull_mixed_dim` — Polyfold/Chapter9/SheetMeasure.lean, line 93
-- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 197
+- `Polyfold.MPolyfold.isHNull_iff_isMeasureZero_sheet` — Polyfold/Chapter9/SheetNullBridge.lean, line 198
 
 ### G.107. Branched integration: Theorems 9.5.4 and 9.5.5, Definition 9.5.6, (9.21)–(9.22), and the measure identities of Lemmas 9.5.7, 9.5.9–9.5.11, Remark 9.5.8 and Proposition 9.5.13
 
@@ -28137,10 +28137,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.EpGroupoid.SheetIntegration` — Polyfold/Chapter9/SheetIntegrationAbstract.lean, line 179
 - `Polyfold.EpGroupoid.SheetIntegration.sum_integ_eq_sum_integ` — Polyfold/Chapter9/SheetIntegrationAbstract.lean, line 584
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_7` — Polyfold/Chapter9/LocalMeasure.lean, line 232
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_9` — Polyfold/Chapter9/LocalMeasure.lean, line 502
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_10` — Polyfold/Chapter9/LocalMeasure.lean, line 523
-- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_11` — Polyfold/Chapter9/LocalMeasure.lean, line 598
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_7` — Polyfold/Chapter9/LocalMeasure.lean, line 233
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_9` — Polyfold/Chapter9/LocalMeasure.lean, line 503
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_10` — Polyfold/Chapter9/LocalMeasure.lean, line 524
+- `Polyfold.EpGroupoid.OrientedTameStructure.lemma_9_5_11` — Polyfold/Chapter9/LocalMeasure.lean, line 599
 - `Polyfold.EpGroupoid.theorem_9_5_4` — Polyfold/Chapter9/BranchedIntegral.lean, line 535
 - `Polyfold.EpGroupoid.theorem_9_5_5` — Polyfold/Chapter9/BranchedIntegral.lean, line 564
 - `Polyfold.EpGroupoid.branchedIntegral` — Polyfold/Chapter9/BranchedIntegral.lean, line 621
@@ -28211,9 +28211,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.EpGroupoid.branchedMeasureEff_eq_setIntegral_mul` — Polyfold/Chapter9/DensitySignedMeasure.lean, line 183
 - `Polyfold.EpGroupoid.branchedMeasure_eq_jordan` — Polyfold/Chapter9/DensitySignedMeasure.lean, line 204
 - `Polyfold.SignedDensity.setIntegral_eq_jordan` — Polyfold/Chapter9/SignedMeasureIntegrals.lean, line 83
-- `Polyfold.EpGroupoid.proposition_9_5_13_2` — Polyfold/Chapter9/ReducedIntegral.lean, line 282
-- `Polyfold.EpGroupoid.proposition_9_5_13_2_measure` — Polyfold/Chapter9/ReducedIntegral.lean, line 215
-- `Polyfold.EpGroupoid.circle_proposition_9_5_13_2` — Polyfold/Chapter9/ReducedCircle.lean, line 42
+- `Polyfold.EpGroupoid.proposition_9_5_13_2` — Polyfold/Chapter10/ReducedIntegral.lean, line 282
+- `Polyfold.EpGroupoid.proposition_9_5_13_2_measure` — Polyfold/Chapter10/ReducedIntegral.lean, line 215
+- `Polyfold.EpGroupoid.circle_proposition_9_5_13_2` — Polyfold/Chapter10/ReducedCircle.lean, line 42
 - `Polyfold.EP.epFormsInftyEval_integ_eq_integral` — Polyfold/Chapter9/LevelRestrict.lean, line 190
 
 ### G.108. $(n-1)$-dimensional measure zero in the boundary faces, and a witness for $L(\partial S)$
@@ -28519,8 +28519,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V10.62): $Q = \hat\psi \circ F$, the isomorphism $g \mapsto \psi \circ F(g) \circ \psi^{-1}$ and natural representations carried along $Q$ both ways; the printed target $U(y)$ of $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is read $G_y$ (Findings, Chapter 10, items 7, 16).
 
-- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 407
-- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 192
+- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 408
+- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 193
 
 ### G.114. Proposition 10.1.10, natural families $\alpha_z : F(z) \to G(z)$
 
@@ -28530,8 +28530,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V10.63), with (LR) for one of $X$, $Y$ only; the families are in general not natural (V10.65) (Findings, Chapter 10, items 7, 16).
 
-- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 451
-- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 500
+- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 452
+- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 501
 
 ### G.115. Proposition 10.1.19 beyond the reduction to Proposition 10.1.9
 
@@ -28541,7 +28541,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V10.16): the reduction with Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).
 
-- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
+- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 543
 - `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 171
 
 ### G.116. Theorem 10.2.2: the structures induced from the triple products
@@ -28552,10 +28552,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V10.18; `Chapter10/WeakFibredProductTriple.lean`): $L$ and $\mathbf L$ are sub-M-polyfolds of $X \times \mathbf Y \times Z$ and $\mathbf X \times \mathbf Y \times \mathbf Z$, and the identifications with the iterated structures `PObj`, `PMor` are sc-diffeomorphisms (`theorem_10_2_2_triple`). The proof transports the iterated sub-M-polyfold along the sc-diffeomorphism $X \times (\mathbf Y\,{}_t{\times}_G Z) \cong X \times \mathbf Y \times Z \supset X \times (\mathbf Y\,{}_t{\times}_G Z)$ and uses the transitivity of sub-M-polyfolds (`MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn`) (Findings, Chapter 10, item 21).
 
-- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 843
-- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 850
-- `Polyfold.WeakFibredProduct.theorem_10_2_2_triple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 277
-- `Polyfold.MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 118
+- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 826
+- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 833
+- `Polyfold.WeakFibredProduct.theorem_10_2_2_triple` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 260
+- `Polyfold.MPolyfold.isSubMPolyfold_image_of_isScDiffeoOn` — Polyfold/Chapter10/WeakFibredProductTriple.lean, line 101
 
 ### G.117. the universal property of the localization
 
@@ -28594,7 +28594,7 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V10.60), by the example of Remark 10.5.5: the base classes of $[1_W]$ and $[W \xleftarrow{1} W \xrightarrow{\mathrm{Inv}} W]$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ are two distinct generalized isomorphisms with the same orbit map, so with $\beta' = \beta \circ |f|^{-1}$ both satisfy $\beta' \circ |f| = \beta$; the relation itself is V10.48 (Findings, Chapter 10, items 39, 56).
 
-- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 151
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 152
 - `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
 - `Polyfold.StrongBundleLocalizationExamples.base_orbitMap_ofHom_z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 417
 
@@ -28615,16 +28615,16 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **HWZ (§10.4, Theorem 10.4.5, p. 501 (2017: Theorem 10.8, p. 362), the sc-Fredholm section functors).** $\Phi_*$ and $\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors.
 
-**Proved in Lean.** **Formalized** (V10.27). $\Phi_*$ and $\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections of $\mathrm{Fred}$ (`theorem_10_4_5_fred`). The invariance it needed is proved: a local strong bundle isomorphism (`StrongBundle.LocalIso`) carries sc-Fredholm germs to sc-Fredholm germs, read in the transported chart (`LocalIso.isScFredholmGerm`, `transportChart`, `isChart_transportChart`), so Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Chapter3/FredholmPullbackIso.lean`), and the action of a morphism is such an isomorphism (`exists_localIso_mor`, `Chapter10/FredholmEquivalence.lean`) (Findings, Chapter 10, item 44).
+**Proved in Lean.** **Formalized** (V10.27). $\Phi_*$ and $\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections of $\mathrm{Fred}$ (`theorem_10_4_5_fred`). The invariance it needed is proved: a local strong bundle isomorphism (`StrongBundle.LocalIso`) carries sc-Fredholm germs to sc-Fredholm germs, read in the transported chart (`LocalIso.isScFredholmGerm`, `transportChart`, `isChart_transportChart`), so Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Chapter5/FredholmPullbackIso.lean`), and the action of a morphism is such an isomorphism (`exists_localIso_mor`, `Chapter10/FredholmEquivalence.lean`) (Findings, Chapter 10, item 44).
 
 - `Polyfold.EpStrongBundle.theorem_10_4_5` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 993
 - `Polyfold.EpStrongBundle.theorem_10_4_5_fred` — Polyfold/Chapter10/FredholmEquivalence.lean, line 474
 - `Polyfold.EpStrongBundle.exists_localIso_mor` — Polyfold/Chapter10/FredholmEquivalence.lean, line 236
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback` — Polyfold/Chapter10/FredholmEquivalence.lean, line 379
 - `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pushforward` — Polyfold/Chapter10/FredholmEquivalence.lean, line 418
-- `Polyfold.StrongBundle.LocalIso` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 120
-- `Polyfold.StrongBundle.LocalIso.isScFredholmGerm` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 619
-- `Polyfold.StrongBundle.isScFredholmSection_of_forall` — Polyfold/Chapter3/FredholmPullbackIso.lean, line 684
+- `Polyfold.StrongBundle.LocalIso` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 121
+- `Polyfold.StrongBundle.LocalIso.isScFredholmGerm` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 620
+- `Polyfold.StrongBundle.isScFredholmSection_of_forall` — Polyfold/Chapter5/FredholmPullbackIso.lean, line 685
 
 ### G.122. Propositions 10.4.6 and 10.4.7, (LR) and natural families for strong bundles
 
@@ -28767,11 +28767,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 - `Polyfold.MPolyfold.IsBoundaryTransfer` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 77
 - `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push` — Polyfold/Chapter11/BranchedEquivalenceTangentOrientation.lean, line 392
-- `Polyfold.MPolyfold.boundaryOp_map_tangentMapOn` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 241
-- `Polyfold.EpFunctor.isReducedBoundaryTransfer_tangentMor` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 369
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 492
-- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 503
-- `Polyfold.MPolyfold.CarriesTameTangents` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 289
+- `Polyfold.MPolyfold.boundaryOp_map_tangentMapOn` — Polyfold/Chapter9/TangentMapBoundaryOps.lean, line 162
+- `Polyfold.EpFunctor.isReducedBoundaryTransfer_tangentMor` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 220
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 343
+- `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 354
+- `Polyfold.MPolyfold.CarriesTameTangents` — Polyfold/Chapter11/BoundaryOrientationEquiv.lean, line 140
 
 ### G.131. §11.4, integration up to equivalence
 
@@ -28893,9 +28893,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 **Proved in Lean.** **Formalized** in `Chapter11/AuxiliaryNormTransport.lean`. Condition (1) transfers the complete fibre norm along the linear isomorphism $\Psi_x \circ \Phi_x^{-1} \circ \mu(\sigma^{-1}, \cdot)$ of $W_{0,1}$-fibres. Condition (2) lifts $h_k$ through a local inverse of $t$ and of $\varphi$, applies (2) for $N'$, and returns through the level-1 local inverse of $\Phi$ and the continuity of $\mu[1]$. The push-forward is the pull-back along the reversed diagram. `GenSBMap.proposition_11_5_1_book` states Proposition 11.5.1 in full, with no added hypothesis (V11.30) (Findings, Chapter 11, items 60, 81).
 
 - `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1` — Polyfold/Chapter11/StrongBundleUpToEquivalence.lean, line 464
-- `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 474
-- `Polyfold.SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 325
-- `Polyfold.SBLocalization.SDiagram.tendsto_zeroOne_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 350
+- `Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 470
+- `Polyfold.SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 321
+- `Polyfold.SBLocalization.SDiagram.tendsto_zeroOne_pullNorm` — Polyfold/Chapter11/AuxiliaryNormTransport.lean, line 346
 
 ### G.133. Lemma 11.5.2 and Proposition 11.5.3, the local section structures of sc⁺-multisections
 
@@ -28977,9 +28977,9 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V12.16; `Chapter12/ScPlusExtension.lean`): `EpStrongBundle.IsBoundaryScPlusSection` (Definition 5.4.1 on the object M-polyfold) and `IsBoundaryScPlusSectionFunctor`, the form used by Theorem 12.3.9 (V12.35); witness `isBoundaryScPlusSectionFunctor_fiberZero`.
 
-- `Polyfold.EpStrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 272
-- `Polyfold.EpStrongBundle.IsBoundaryScPlusSectionFunctor` — Polyfold/Chapter12/ScPlusExtension.lean, line 278
-- `Polyfold.EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 286
+- `Polyfold.EpStrongBundle.IsBoundaryScPlusSection` — Polyfold/Chapter12/ScPlusExtension.lean, line 256
+- `Polyfold.EpStrongBundle.IsBoundaryScPlusSectionFunctor` — Polyfold/Chapter12/ScPlusExtension.lean, line 262
+- `Polyfold.EpStrongBundle.isBoundaryScPlusSectionFunctor_fiberZero` — Polyfold/Chapter12/ScPlusExtension.lean, line 270
 
 ### G.138. Theorem 12.5.3, last sentence: morphisms keep local orientation sections continuous
 
@@ -29166,10 +29166,10 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 
 **Proved in Lean.** **Formalized** (V13.46, V13.48; `Chapter13/AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\tau_y$, the locally constant, functorial $H$ with $\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the hypothesis form `theorem_13_5_3_hyp` is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.
 
-- `Polyfold.SBLocalization.theorem_13_5_3` — Polyfold/Chapter13/AtomicStructurable.lean, line 813
-- `Polyfold.SBLocalization.theorem_13_5_3_of_goodSystem` — Polyfold/Chapter13/AtomicStructurable.lean, line 804
-- `Polyfold.SBLocalization.theorem_13_5_3_of_paracompact` — Polyfold/Chapter13/AtomicStructurable.lean, line 818
-- `Polyfold.SBLocalization.theorem_13_5_5_structurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 826
+- `Polyfold.SBLocalization.theorem_13_5_3` — Polyfold/Chapter13/AtomicStructurable.lean, line 802
+- `Polyfold.SBLocalization.theorem_13_5_3_of_goodSystem` — Polyfold/Chapter13/AtomicStructurable.lean, line 793
+- `Polyfold.SBLocalization.theorem_13_5_3_of_paracompact` — Polyfold/Chapter13/AtomicStructurable.lean, line 807
+- `Polyfold.SBLocalization.theorem_13_5_5_structurable` — Polyfold/Chapter13/AtomicStructurable.lean, line 815
 
 ### G.163. Proposition 13.4.2: extension of a structured multisection from $V$ with $|V| = |X|$
 
@@ -29291,11 +29291,11 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 - `Polyfold.SBLocalization.CommData` — Polyfold/Chapter13/Commensurable.lean, line 198
 - `Polyfold.SBLocalization.AssemblyInput.usec_boundary` — Polyfold/Chapter14/TransportedSum.lean, line 232
 - `Polyfold.SBLocalization.BoundaryCommData` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 306
-- `Polyfold.SBLocalization.BoundaryCommData.definition_13_4_5_boundary` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 629
-- `Polyfold.SBLocalization.BoundaryCommData.smulOver` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 649
-- `Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 727
-- `Polyfold.SBLocalization.BoundaryCommData.remark_14_5_3` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 813
-- `Polyfold.SBLocalization.BoundaryCommData.Over.s_eq_of_eqOn` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 785
+- `Polyfold.SBLocalization.BoundaryCommData.definition_13_4_5_boundary` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 624
+- `Polyfold.SBLocalization.BoundaryCommData.smulOver` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 644
+- `Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 722
+- `Polyfold.SBLocalization.BoundaryCommData.remark_14_5_3` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 808
+- `Polyfold.SBLocalization.BoundaryCommData.Over.s_eq_of_eqOn` — Polyfold/Chapter14/BoundaryCommensurableSum.lean, line 780
 - `Polyfold.HalfSpaceBundle.lemma_14_5_2_witness` — Polyfold/Chapter14/HalfSpaceCommensurableSum.lean, line 36
 
 ### G.173. Theorem 14.6.3 from a class-level compatible assignment
@@ -29488,8 +29488,8 @@ The cylinder for index 0 (`Chapter16/IndexZeroCylinder`, on `Chapter15/CylinderP
 **Proved in Lean.** **Formalized** (V15.27, V15.28; `Chapter15/GoodPositionBranches.lean`): `remark_15_3_6_goodPosition_hyp` (general position gives good position, and general position of each branch $(f - s_i)|_O$ in Part I's sense, at every support point) and `remark_15_3_6_localBranching_hyp`, `remark_15_3_6_isBranchedEpSubgroupoid_hyp` ($\Lambda \circ f$ is a branched ep⁺-subgroupoid), with Part I's tame germ data `hft`. "Tame" (Definition 9.3.6) is `remark_15_3_6_isTameBranched_hyp` (gap G.150 closed).
 
 - `Polyfold.SBLocalization.remark_15_3_6_goodPosition_hyp` — Polyfold/Chapter15/GoodPositionBranches.lean, line 232
-- `Polyfold.SBLocalization.remark_15_3_6_localBranching_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 83
-- `Polyfold.SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 132
+- `Polyfold.SBLocalization.remark_15_3_6_localBranching_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 84
+- `Polyfold.SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp` — Polyfold/Chapter15/GeneralPositionBranched.lean, line 133
 
 ### G.162. Theorems 15.3.7, 15.3.9 and Corollary 15.3.10 (1), (3)
 
@@ -29514,9 +29514,9 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 - `Polyfold.SBLocalization.theorem_15_3_7_of_pointwise` — Polyfold/Chapter15/LocalSeeds.lean, line 113
 - `Polyfold.SBLocalization.hasLocalGPFamilies_of_seeds` — Polyfold/Chapter15/LocalFamilies.lean, line 393
 - `Polyfold.SBLocalization.theorem_15_3_7_of_seeds` — Polyfold/Chapter15/LocalFamilies.lean, line 436
-- `Polyfold.SBLocalization.hasParametricGeneralPosition` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 468
-- `Polyfold.SBLocalization.theorem_15_3_7_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 554
-- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 306
+- `Polyfold.SBLocalization.hasParametricGeneralPosition` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 457
+- `Polyfold.SBLocalization.theorem_15_3_7_of_local` — Polyfold/Chapter15/ParametricGeneralPosition.lean, line 543
+- `Polyfold.SBLocalization.theorem_15_3_9_of_extension` — Polyfold/Chapter15/CutoffFunctor.lean, line 309
 - `Polyfold.SBLocalization.corollary_15_3_10_1_of_theorem_15_3_7` — Polyfold/Chapter15/Cylinder.lean, line 141
 - `Polyfold.SBLocalization.corollary_15_3_10_3_glue_hyp` — Polyfold/Chapter15/CylinderGlue.lean, line 170
 - `Polyfold.SBLocalization.theorem_15_3_7` — Polyfold/Chapter15/GeneralPositionExistence.lean, line 267
@@ -29539,8 +29539,8 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 **Proved in Lean.** **Formalized** (V15.41; `Chapter15/CutoffFunctor.lean`): `lemma_15_3_9_cutoff_hyp hB`, with `hB` (every object in a tame strong bundle chart, the reading of "a strong bundle over a tame ep-groupoid" of V14.4; witness `(proposition_14_1_4_hypotheses_rn n k).1`): upper semicontinuity of $N(\Lambda)$ along $\partial X$ (`exists_nhds_pointwiseNorm_lt`), a continuous $g$ between $N(\Lambda)$ and $h$ on $|X|$, and an Urysohn cut-off into $|U|$, all functorial. `theorem_15_3_9_of_extension` uses it.
 
 - `Polyfold.SBLocalization.lemma_15_3_9_cutoff_statement` — Polyfold/Chapter15/TransversalExtension.lean, line 143
-- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 195
-- `Polyfold.SBLocalization.exists_nhds_pointwiseNorm_lt` — Polyfold/Chapter15/CutoffFunctor.lean, line 146
+- `Polyfold.SBLocalization.lemma_15_3_9_cutoff_hyp` — Polyfold/Chapter15/CutoffFunctor.lean, line 197
+- `Polyfold.SBLocalization.exists_nhds_pointwiseNorm_lt` — Polyfold/Chapter15/CutoffFunctor.lean, line 148
 
 ### G.178. Theorem 15.3.9, steps (c)–(d): the relative local families
 
@@ -29597,13 +29597,13 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 
 **HWZ (§15.3, proof of Corollary 15.3.10 (3), p. 699 (2017: Corollary 15.1)).** $[0,1] \times X$ is a tame ep-groupoid to which Theorem 15.3.9 applies.
 
-**Proved in Lean.** **Formalized** (V15.46; `Chapter5/CubePartitions.lean`, `Chapter15/CylinderPartitions.lean`): `admitsScPartitionsOfUnity_cubeProd` and `admitsScPartitionsOfUnity_cubeSEP`: $[0,1]^n \times X$ admits sc-smooth partitions of unity when $X$ does (sc-smooth Urysohn functions $\sum_x\rho_x(y)g_x(q)$, `admitsScPartitionsOfUnity_of_urysohn`).
+**Proved in Lean.** **Formalized** (V15.46; `Chapter6/CubePartitions.lean`, `Chapter15/CylinderPartitions.lean`): `admitsScPartitionsOfUnity_cubeProd` and `admitsScPartitionsOfUnity_cubeSEP`: $[0,1]^n \times X$ admits sc-smooth partitions of unity when $X$ does (sc-smooth Urysohn functions $\sum_x\rho_x(y)g_x(q)$, `admitsScPartitionsOfUnity_of_urysohn`).
 
 - `Polyfold.SBLocalization.corollary_15_3_10_3_of_theorem_15_3_9` — Polyfold/Chapter15/Cylinder.lean, line 156
 - `Polyfold.SBLocalization.admitsScPartitionsOfUnity_cube_rn` — Polyfold/Chapter15/Cylinder.lean, line 232
 - `Polyfold.EpGroupoid.hasParacompactOrbitSpace_cubeProd` — Polyfold/Chapter15/Cylinder.lean, line 87
 - `Polyfold.SBLocalization.admitsScPartitionsOfUnity_cubeSEP` — Polyfold/Chapter15/CylinderPartitions.lean, line 43
-- `Polyfold.admitsScPartitionsOfUnity_cubeProd` — Polyfold/Chapter5/CubePartitions.lean, line 173
+- `Polyfold.admitsScPartitionsOfUnity_cubeProd` — Polyfold/Chapter6/CubePartitions.lean, line 173
 
 ### G.182. Corollary 15.4.4: the orientation $\tilde o$ of $\tilde f$ is invariant under the morphisms of $[0, 1] \times X$
 
@@ -29648,11 +29648,11 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 
 **HWZ (§15.3, Corollary 15.3.10 (1), p. 699 (2017: Corollary 15.1)).** Corollary 15.3.10 assumes $d_X \equiv 0$ and applies Theorem 15.3.7, which assumes $X$ tame.
 
-**Proved in Lean.** **Formalized** (V15.40; `Chapter5/DegeneracyZeroTame.lean`): `MPolyfold.isTame_of_degIndex_eq_zero`, `EpGroupoid.isTame_of_degIndex_eq_zero` (restrict a retraction to $\{d_C = 0\}$; (2) of Definition 2.5.2 from the splitting of the range of the tangent retraction). `corollary_15_3_10_1_of_theorem_15_3_7` and `corollary_15_3_10_3_of_theorem_15_3_9` use it.
+**Proved in Lean.** **Formalized** (V15.40; `Chapter7/DegeneracyZeroTame.lean`): `MPolyfold.isTame_of_degIndex_eq_zero`, `EpGroupoid.isTame_of_degIndex_eq_zero` (restrict a retraction to $\{d_C = 0\}$; (2) of Definition 2.5.2 from the splitting of the range of the tangent retraction). `corollary_15_3_10_1_of_theorem_15_3_7` and `corollary_15_3_10_3_of_theorem_15_3_9` use it.
 
 - `Polyfold.SBLocalization.corollary_15_3_10_1_hyp` — Polyfold/Chapter15/RegularPerturbations.lean, line 75
-- `Polyfold.MPolyfold.isTame_of_degIndex_eq_zero` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 117
-- `Polyfold.EpGroupoid.isTame_of_degIndex_eq_zero` — Polyfold/Chapter5/DegeneracyZeroTame.lean, line 146
+- `Polyfold.MPolyfold.isTame_of_degIndex_eq_zero` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 117
+- `Polyfold.EpGroupoid.isTame_of_degIndex_eq_zero` — Polyfold/Chapter7/DegeneracyZeroTame.lean, line 146
 
 ### G.189. Tame strong bundle charts on $[0,1] \times X$
 

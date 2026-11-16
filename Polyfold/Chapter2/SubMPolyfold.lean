@@ -398,6 +398,24 @@ theorem _root_.Polyfold.lemma_2_4_6 [ParacompactSpace A] (a : A) :
   exact (subPolyfold hA).degIndex_le (subPolyfold_isChart hA (hA.data a.2) hφ a)
     ((hA.data a.2).mem_shrink φ a.2 (hA.mem_data_V a.2) haφ)
 
+/-- **A map into a sub-M-polyfold** `A ⊆ X` is sc-smooth into `A` as soon as it is sc-smooth
+into `X` (Proposition 2.3.19 (2): near `z`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto
+`A`). -/
+theorem isScSmoothOn_subPolyfold_of_val {Z : Type*} [TopologicalSpace Z] [T2Space Z]
+    [ParacompactSpace Z] {S : MPolyfold Z} [ParacompactSpace A] {f : Z → A} {U : Set Z}
+    (hf : S.IsScSmoothOn P (fun z => (f z : X)) U) :
+    S.IsScSmoothOn (subPolyfold hA) f U := by
+  refine IsScSmoothOn.of_locally hf.isOpen fun z hz => ?_
+  set d := hA.data (f z).2
+  have hU' : IsOpen (U ∩ (fun z => (f z : X)) ⁻¹' d.V) :=
+    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
+  refine ⟨_, hU', ⟨hz, hA.mem_data_V (f z).2⟩, Set.inter_subset_left, ?_⟩
+  refine (IsScSmoothOn.comp (subPolyfold_retraction_isScSmooth hA d (f z))
+    (hf.mono hU' Set.inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
+  simp only [Function.comp_apply]
+  rw [d.retractInto_val (f z) hy.2]
+  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
+
 end SubPolyfold
 
 end MPolyfold

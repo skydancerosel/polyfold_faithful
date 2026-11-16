@@ -1,4 +1,4 @@
-import Polyfold.Chapter6.OrientableNbhd
+import Polyfold.Chapter5.OrientableNbhd
 import Polyfold.Chapter6.UnitIntervalSections
 
 /-!

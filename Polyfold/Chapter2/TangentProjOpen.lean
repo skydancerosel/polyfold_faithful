@@ -31,7 +31,7 @@ factor; that `π` is open is stated without proof.
 This makes the field `isOpenMap_tangentProj` of Chapter 7's `MPolyfold.SmoothRegular`
 unnecessary and closes gap G.8 (row V2.20, "openness of `p` missing").  The hypotheses
 `IsOpenMap tangentProj` of the §7.4 and §8.1 results can be discharged with
-`MPolyfold.isOpenMap_tangentProj` (`Chapter7/ZhouFacts.lean`, `Chapter8/TangentZhouFacts.lean`).
+`MPolyfold.isOpenMap_tangentProj` (`Chapter8/ZhouFacts.lean`, `Chapter8/TangentZhouFacts.lean`).
 -/
 
 open Set Filter Topology Function

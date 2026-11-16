@@ -1,5 +1,6 @@
 import Polyfold.Chapter5.Theorem5315_MorseFamily
 import Polyfold.Chapter5.CylinderPerturbation
+import Polyfold.Chapter5.PartitionsOfUnity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,

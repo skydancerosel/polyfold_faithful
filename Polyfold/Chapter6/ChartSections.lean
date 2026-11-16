@@ -1,6 +1,6 @@
-import Polyfold.Chapter6.Lemma629
-import Polyfold.Chapter6.OrientableNbhd
-import Polyfold.Chapter3.IndexAlongPathsLocal
+import Polyfold.Chapter5.Lemma629
+import Polyfold.Chapter5.OrientableNbhd
+import Polyfold.Chapter5.IndexAlongPathsLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §6.6,

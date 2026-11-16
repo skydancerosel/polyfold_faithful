@@ -1,4 +1,4 @@
-import Polyfold.Chapter3.IndexAlongPathsLocal
+import Polyfold.Chapter5.IndexAlongPathsLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1, p. 201:

@@ -1,6 +1,7 @@
 import Polyfold.Chapter13.GoodSystem
 import Polyfold.Chapter7.OrbitTopology
 import Polyfold.Chapter7.ProperSubsets
+import Polyfold.Chapter12.ScPlusExtension
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 14:
@@ -76,12 +77,6 @@ theorem isClosed_π_image_of_isSaturated {B : Set Obj} (hsat : X.IsSaturated B)
       rwa [hsat] at hmem
   rw [← isOpen_compl_iff, hc]
   exact X.proposition_7_1_8 _ hB.isOpen_compl
-
-/-- The complement of a saturated set is saturated. -/
-theorem isSaturated_compl {B : Set Obj} (hsat : X.IsSaturated B) : X.IsSaturated Bᶜ := by
-  refine (X.isSaturated_iff).2 fun φ hφ ht => hφ ?_
-  have h := (X.isSaturated_iff).1 hsat (X.inv φ) (by rw [X.src_inv]; exact ht)
-  rwa [X.tgt_inv] at h
 
 /-- A saturated set contains the target of every morphism with source in it. -/
 theorem IsSaturated.tgt_mem {B : Set Obj} (hsat : X.IsSaturated B) {φ : Mor}

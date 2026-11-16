@@ -205,8 +205,8 @@ theorem pushSec_compat_at (h : IsPushNbhd T N N') (h' : IsPushNbhd T' N₁ N₁'
   have hv2 : A.P ((SEP.Hom.Φ F).obj (s (C.X.src (liftMor T T' ψ')))) =
       A.X.src (T.ψ (C.X.src (liftMor T T' ψ'))) := by
     rw [hcov, hP, T.src_ψ _ huW]
-  rw [e1, ← PushChart.fibAct_comp hv (by rw [T'.src_ψ _ hu'W, (SEP.Hom.ϕ F).tgt_mor]),
-    comp_liftMor hF hD, PushChart.fibAct_comp hv2 (by rw [hsL]; exact src_comp_ψ hD)]
+  rw [e1, ← SBLocalization.fibAct_comp hv (by rw [T'.src_ψ _ hu'W, (SEP.Hom.ϕ F).tgt_mor]),
+    comp_liftMor hF hD, SBLocalization.fibAct_comp hv2 (by rw [hsL]; exact src_comp_ψ hD)]
 
 include hF in
 /-- The lift maps morphisms between the boundary neighbourhoods to such morphisms. -/
@@ -315,9 +315,9 @@ def bdryPushStructure (hface : FacePush_hyp F) {x : C.Obj} {y : A.Obj}
     have hv1 : A.P ((SEP.Hom.Φ F).obj (S.s i (T.Qinv z))) =
         A.X.src ((SEP.Hom.ϕ F).mor (N.rep.Γ g (T.Qinv z))) := by
       rw [hv, h.src_ψ_Qinv hz.1, (SEP.Hom.ϕ F).src_mor, N.src_Γ g hu.1]
-    rw [e1, ← PushChart.fibAct_comp hv1
+    rw [e1, ← SBLocalization.fibAct_comp hv1
         (TransportChartLemmas.src_ψ_eq_tgt T N hu.1 (h.Φ_mem_W z hz.1 g)), ← h.Γ_comp_ψ g hz.1,
-      PushChart.fibAct_comp hv (by rw [N'.src_Γ _ hz.1, h.tgt_ψ_Qinv hz.1])]
+      SBLocalization.fibAct_comp hv (by rw [N'.src_Γ _ hz.1, h.tgt_ψ_Qinv hz.1])]
   rep w' hw' := by
     set z := A.P w' with hzdef
     have hu := h.Qinv_mem_bdry hF hw'

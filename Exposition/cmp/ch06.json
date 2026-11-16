@@ -25,7 +25,7 @@
      "Chapter6/LinSet · ChartPoint.exists_index_linSet",
      "Chapter6/LinSet · ChartPoint.fredholmIndex_of_mem_linSet",
      "Chapter6/LinSet · ChartPoint.convex_linSet",
-     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
+     "Chapter5/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
      "Chapter6/LinSetFredholm · ChartPoint.exists_isScFredholm_of_mem_linSet",
      "Chapter6/LinSetFredholm · ChartPoint.definition_6_2_1_linSet_isScFredholm"
     ]
@@ -820,16 +820,16 @@
    "lean": {
     "statement": "`proposition_6_6_3` (bump functions): open $U \\subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\\{y \\in \\operatorname{cl}(U) \\mid f(y) = 0\\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\\Phi : \\mathbb R^n \\to X$ with $\\Phi([0, 1]^n) \\subseteq W$ an sc⁺-section $S$ of $\\pi^*P \\to \\mathbb R^n \\times X$ with $(f + S)(q, \\Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \\in [0, 1]^n$ only through $\\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\\mathbb R^n \\times X$ and $\\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`). `proposition_6_6_3_three_interval`, `proposition_6_6_3_four_interval`: (3) and (4) for paths $[0, 1] \\to X$ with sc⁺-sections over the M-polyfold $[0, 1] \\times X$, with $(f + S)(t, \\varphi(t)) = 0$ for every $t \\in [0, 1]$. `proposition_6_6_3_three_cube`, `proposition_6_6_3_four_cube`: (3), (4) for families $[0,1]^n \\to X$ over the M-polyfold with corners $[0,1]^n \\times X$ (`cubePolyfold`). `proposition_6_6_3_one`: in addition an open $U' \\ni x$ in $U$ and an sc-smooth contraction $H : [0, 1] \\times X \\to X$ of $U'$ in $U$ to $x$ (`IsScContraction`: sc-smooth on $[0, 1] \\times U'$, $H(0, \\cdot) = x$, $H(1, \\cdot) = \\mathrm{id}$, $H(t, x) = x$), (1) as printed in 2021. `exists_isScHomotopyI`, `proposition_6_6_3_interval`: (1′) for paths $[0, 1] \\to U$ with sc-smooth homotopies $[0, 1]^2 \\to W$ with the end points fixed (`unitSquarePolyfold`).",
     "decls": [
-     "Chapter6/OrientableNbhd · IsScHomotopyRel",
-     "Chapter6/OrientableNbhd · pt1",
-     "Chapter6/OrientableNbhd · pt2",
-     "Chapter6/OrientableNbhd · exists_contDiff_eq_id_near_Icc_mapsTo",
-     "Chapter6/OrientableNbhd · exists_isScSmoothMap_eq_one_nhdsSet",
-     "Chapter6/OrientableNbhd · exists_nhds_isCompact_zeros",
-     "Chapter6/OrientableNbhd · exists_isScPlusSection_pullback_of_mapsTo_of_bump",
-     "Chapter6/OrientableNbhd · exists_isScPlusSection_pullback_of_family",
-     "Chapter6/OrientableNbhd · hasScPlusSectionsThrough_pullback_rn_of_bump",
-     "Chapter6/OrientableNbhd · proposition_6_6_3",
+     "Chapter5/OrientableNbhd · IsScHomotopyRel",
+     "Chapter5/OrientableNbhd · pt1",
+     "Chapter5/OrientableNbhd · pt2",
+     "Chapter5/OrientableNbhd · exists_contDiff_eq_id_near_Icc_mapsTo",
+     "Chapter5/OrientableNbhd · exists_isScSmoothMap_eq_one_nhdsSet",
+     "Chapter5/OrientableNbhd · exists_nhds_isCompact_zeros",
+     "Chapter5/OrientableNbhd · exists_isScPlusSection_pullback_of_mapsTo_of_bump",
+     "Chapter5/OrientableNbhd · exists_isScPlusSection_pullback_of_family",
+     "Chapter5/OrientableNbhd · hasScPlusSectionsThrough_pullback_rn_of_bump",
+     "Chapter5/OrientableNbhd · proposition_6_6_3",
      "Chapter2/FibredProduct · MPolyfold.paracompactSpace_prod",
      "Chapter2/StrongBundlePullback · paracompactSpace_pullbackSpace",
      "Chapter6/UnitIntervalSections · proposition_6_6_3_three_interval",
@@ -868,9 +868,9 @@
    "lean": {
     "statement": "`lemma_6_6_4` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\\Phi : \\mathbb R^n \\to X$ and an sc⁺-section $S$ of $\\pi^*P$ with $(f + S)(q, \\Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \\dots, s_k$ of $\\pi^*P$ such that $F(\\lambda, (q, y)) = f(y) + S(q, y) + \\sum\\lambda_is_i(q, y)$ is in general position at $(0, (q, \\Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \\Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`). `lemma_6_6_4_propertyP`: the same sections also give (P), the general position of every slice $F_q$ at $(0, \\Phi(q))$ (`isGeneralPositionGerm_slice`). On $[0,1]^n$ itself: `lemma_6_6_4_propertyP_cube`. There are sc⁺-sections over $[0,1]^n \\times X$ such that, for **every** $q \\in [0,1]^n$, the slice $F_q$ is in general position at $(0,\\Phi(q))$ (P) and $F$ is in general position at $(0,(q,\\Phi(q)))$. The two are equivalent at every $q$ (`isGeneralPositionGerm_cubeSlice_iff`). `lemma_6_6_4_cube`: general position of $F$ on $[0,1]^n$ for an sc-smooth $\\Phi : [0,1]^n \\to X$, with $S$ from Proposition 6.6.3 (3) in `lemma_6_6_4_cube_family`.",
     "decls": [
-     "Chapter6/Lemma629 · isZeroAt_paramSection_zero",
-     "Chapter6/Lemma629 · exists_sections_isGeneralPositionGerm_of_isCompact",
-     "Chapter6/Lemma629 · lemma_6_6_4",
+     "Chapter5/Lemma629 · isZeroAt_paramSection_zero",
+     "Chapter5/Lemma629 · exists_sections_isGeneralPositionGerm_of_isCompact",
+     "Chapter5/Lemma629 · lemma_6_6_4",
      "Chapter6/SlicePropertyP · lemma_6_6_4_propertyP",
      "Chapter6/SlicePropertyP · isGeneralPositionGerm_slice",
      "Chapter6/SlicePropertyP · isParamGP_slice_of_isParamGP",
@@ -1394,19 +1394,19 @@
    "lean": {
     "statement": "`exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \\in U$ there is an open $V \\ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\\gamma_1(\\kappa(3s))$ for $s \\le 1/2$ and $\\gamma_2(\\kappa(3s - 2))$ for $s > 1/2$, $\\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`). Beyond a chart: `scJoinedIn_of_isConnected` joins any two smooth points of a connected open $U$ by an sc-smooth path in $U$. `paths_before_proposition_6_2_2` gives the facts recalled before Proposition 6.2.2 (2021 p. 240; preprint p. 201): local path connectedness, and sc⁺-smooth paths $\\varphi : [0, 1] \\to X$ between smooth points of a component (`IsScSmoothMap.exists_scPlus_lift`).",
     "decls": [
-     "Chapter6/ScPaths · MPolyfold.isScSmoothMap_of_eventuallyEq",
-     "Chapter6/ScPaths · pt1_apply",
-     "Chapter6/ScPaths · contDiff_pt1_comp",
-     "Chapter6/ScPaths · exists_nhds_scPath",
-     "Chapter6/ScPaths · concatPath",
-     "Chapter6/ScPaths · concatPath_of_le",
-     "Chapter6/ScPaths · concatPath_of_gt",
-     "Chapter6/ScPaths · isScSmoothMap_concatPath",
-     "Chapter6/ScPaths · concatPath_zero",
-     "Chapter6/ScPaths · concatPath_one",
-     "Chapter6/ScPaths · concatPath_half₁",
-     "Chapter6/ScPaths · concatPath_half₂",
-     "Chapter6/ScPaths · isScSmoothMap_reparam",
+     "Chapter5/ScPaths · MPolyfold.isScSmoothMap_of_eventuallyEq",
+     "Chapter5/ScPaths · pt1_apply",
+     "Chapter5/ScPaths · contDiff_pt1_comp",
+     "Chapter5/ScPaths · exists_nhds_scPath",
+     "Chapter5/ScPaths · concatPath",
+     "Chapter5/ScPaths · concatPath_of_le",
+     "Chapter5/ScPaths · concatPath_of_gt",
+     "Chapter5/ScPaths · isScSmoothMap_concatPath",
+     "Chapter5/ScPaths · concatPath_zero",
+     "Chapter5/ScPaths · concatPath_one",
+     "Chapter5/ScPaths · concatPath_half₁",
+     "Chapter5/ScPaths · concatPath_half₂",
+     "Chapter5/ScPaths · isScSmoothMap_reparam",
      "Chapter6/ContinuousOrientation · HasLocalPropagation.eq_trans",
      "Chapter6/SmoothPathComponents · MPolyfold.paths_before_proposition_6_2_2",
      "Chapter6/SmoothPathComponents · MPolyfold.scJoinedIn_of_isConnected",
@@ -1460,7 +1460,7 @@
    "lean": {
     "statement": "`isScHomotopyRel_reparam`: for a $C^\\infty$ $\\theta$ with $\\theta(0) = 0$ and $\\theta(1) = 1$, $\\gamma \\circ \\theta$ is sc-smoothly homotopic to $\\gamma$ with the end points fixed, inside every set containing $\\gamma([0, 1])$ when $\\theta([0, 1]) \\subseteq [0, 1]$ (`reparam_mem`); the concatenation of the two halves of $\\gamma$ is such a reparametrization (`leftHalf`, `rightHalf`, `halvesReparam`, `concatPath_halves`).",
     "decls": [
-     "Chapter6/ScHomotopy · mem_smoothSet_of_isScSmoothMap",
+     "Chapter5/SmoothSetMaps · mem_smoothSet_of_isScSmoothMap",
      "Chapter6/ScHomotopy · contDiff_pt2_comp",
      "Chapter6/ScHomotopy · isScHomotopyRel_reparam",
      "Chapter6/ScHomotopy · reparam_mem",
@@ -1732,7 +1732,7 @@
      "Chapter6/OrientationMainClean · theorem_6_6_13",
      "Chapter6/OrientationMainClean · paracompactSpace_rn_prod",
      "Chapter6/OrientationMainClean · paracompactSpace_rn_pullback",
-     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
+     "Chapter5/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
      "Chapter6/OrientationFunctor · IsPropagationNbhd",
      "Chapter6/OrientationFunctor · orPush",
      "Chapter6/OrientationFunctor · orPush_eq",
@@ -1879,7 +1879,7 @@
     "statement": "Over a tame $X$, for a proper sc-Fredholm section $f$ with $(f, x)$ in general position to $\\partial X$ at every zero and an orientation $o^f$ of $f$, the solution set $S = f^{-1}(0)$ is a smooth compact manifold with boundary with corners with a natural orientation. Proof: $T_xS = \\ker f'(x)$ is oriented by $o^f_x$ since $f'(x)$ is onto, and the local prolongation of this orientation on $S$ is the Fredholm one. For $f$ not generic, a small perturbation $s$ supported near the zero set orients $S_{f+s}$."
    },
    "lean": {
-    "statement": "`theorem_6_6_18` ($X$ tame, $f$ with tame germ data, proper, in general position at every zero, $o$ an orientation of $f$ in the sense of Definition 6.6.16 (preprint 6.40), `SectionOrientation`): $S$ is a compact manifold with boundary with corners in general position (`SolutionSetInGeneralPosition`) with the natural orientation given by $o$ (`IsNaturalSolutionOrientation`): at every zero $o_x$ orients $T_xS = \\ker f'(x)$, the orientations read in two charts correspond under the tangent map of the transition (`tangentOrAt_toChartOr`), and along every sc-smooth path of zeros in an orientable neighbourhood they form an orientation of the kernel line bundle. In Mathlib's language $S$ is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`). As a Mathlib manifold $S$ carries the natural orientation (`theorem_6_6_18_oriented`, `Chapter6/SolutionSetOrientation.lean`): a tangent orientation of the Mathlib manifold $S$ of `theorem_6_6_18_isManifold`, continuous in every chart of the maximal atlas (`TangentOrientation.IsContinuous`, `Chapter6/ManifoldOrientation.lean`), such that at every zero $x$ and in every chart of $X$ at $x$ the tangent map of $S \\hookrightarrow X$ (`derivIn`) is an isomorphism $T_xS \\cong \\ker f'(x)$ under which a basis is positive iff its image is positive for $o_x$. It is built in corner charts (`solOr`, chart independent by `solReadOr_chartChange`) and is continuous through the kernel line bundle (`isLineOrientation_solKer`, `isContinuous_solOr`); the bump functions are the standing hypothesis of §6.6, as in `theorem_6_6_13` (V6.57). The perturbation paragraph: an orientation of $f$ is one of $f + s$ (`isSectionOrientation_sectionAdd`, with $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$), so $S_{f+s}$ is oriented by it (`theorem_6_6_18_sectionAdd`), for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18) (`theorem_6_6_18_perturbation`). Further forms: `theorem_6_6_18_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \\ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \\in \\mathrm{Or}^f_x$ gives a ray of $\\det f'(x) \\cong \\lambda(\\ker f'(x)) = \\lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_6_18_hyp`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\\gamma$ of zeros in an orientable neighbourhood $V \\subseteq U$, the kernels $\\ker f'(\\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).",
+    "statement": "`theorem_6_6_18` ($X$ tame, $f$ with tame germ data, proper, in general position at every zero, $o$ an orientation of $f$ in the sense of Definition 6.6.16 (preprint 6.40), `SectionOrientation`): $S$ is a compact manifold with boundary with corners in general position (`SolutionSetInGeneralPosition`) with the natural orientation given by $o$ (`IsNaturalSolutionOrientation`): at every zero $o_x$ orients $T_xS = \\ker f'(x)$, the orientations read in two charts correspond under the tangent map of the transition (`tangentOrAt_toChartOr`), and along every sc-smooth path of zeros in an orientable neighbourhood they form an orientation of the kernel line bundle. In Mathlib's language $S$ is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`). As a Mathlib manifold $S$ carries the natural orientation (`theorem_6_6_18_oriented`, `Chapter6/SolutionSetOrientation.lean`): a tangent orientation of the Mathlib manifold $S$ of `theorem_6_6_18_isManifold`, continuous in every chart of the maximal atlas (`TangentOrientation.IsContinuous`, `Chapter4/ManifoldOrientation.lean`), such that at every zero $x$ and in every chart of $X$ at $x$ the tangent map of $S \\hookrightarrow X$ (`derivIn`) is an isomorphism $T_xS \\cong \\ker f'(x)$ under which a basis is positive iff its image is positive for $o_x$. It is built in corner charts (`solOr`, chart independent by `solReadOr_chartChange`) and is continuous through the kernel line bundle (`isLineOrientation_solKer`, `isContinuous_solOr`); the bump functions are the standing hypothesis of §6.6, as in `theorem_6_6_13` (V6.57). The perturbation paragraph: an orientation of $f$ is one of $f + s$ (`isSectionOrientation_sectionAdd`, with $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$), so $S_{f+s}$ is oriented by it (`theorem_6_6_18_sectionAdd`), for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18) (`theorem_6_6_18_perturbation`). Further forms: `theorem_6_6_18_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \\ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \\in \\mathrm{Or}^f_x$ gives a ray of $\\det f'(x) \\cong \\lambda(\\ker f'(x)) = \\lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_6_18_hyp`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\\gamma$ of zeros in an orientable neighbourhood $V \\subseteq U$, the kernels $\\ker f'(\\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).",
     "decls": [
      "Chapter6/SolutionSetOrientation · theorem_6_6_18_oriented",
      "Chapter6/OrientationMainClean · theorem_6_6_18",
@@ -1887,7 +1887,7 @@
      "Chapter6/OrientationMainClean · SectionOrientation",
      "Chapter6/PerturbedOrientation · isNaturalSolutionOrientation",
      "Chapter6/SolutionOrientationCharts · tangentOrAt_toChartOr",
-     "Chapter9/MathlibSolutionSets · theorem_6_6_18_isManifold",
+     "Chapter6/MathlibSolutionSets · theorem_6_6_18_isManifold",
      "Chapter6/PerturbedOrientation · theorem_6_6_18_perturbation",
      "Chapter6/PerturbedOrientation · theorem_6_6_18_sectionAdd",
      "Chapter6/PerturbedOrientation · isSectionOrientation_sectionAdd",
@@ -1919,9 +1919,9 @@
      "Chapter6/SolutionSetOrientation · solKerEquiv",
      "Chapter6/SolutionSetOrientation · solReadOr_chartChange",
      "Chapter6/SolutionSetOrientation · isLineOrientation_solKer",
-     "Chapter6/ManifoldOrientation · TangentOrientation.IsContinuous",
-     "Chapter6/ManifoldOrientation · IsOrientedAtlas",
-     "Chapter6/ManifoldOrientation · derivIn"
+     "Chapter4/ManifoldOrientation · TangentOrientation.IsContinuous",
+     "Chapter4/ManifoldOrientation · IsOrientedAtlas",
+     "Chapter4/ManifoldOrientation · derivIn"
     ]
    },
    "chips": [
@@ -2337,11 +2337,11 @@
    "lean": {
     "statement": "`continuous_smoothMk_comp`: an sc-smooth $\\Gamma : \\mathbb R^n \\to X$ is continuous into $X_\\infty$. `eventually_exists_scPath_smoothLevel`: for a neighbourhood $N$ of $x$ in $X_\\infty$, every $y \\in X_\\infty$ near $x$ is joined to $x$ by an sc-smooth path with all its points in $N$ (`chartSegPath`, the retracted segment in a chart). `exists_nhds_scPath_of_isOpen`: for an open $W \\ni x$, the smooth points of a smaller open $V \\ni x$ are joined by sc-smooth paths in $W$.",
     "decls": [
-     "Chapter6/OrientationSpace · rnChart_toBase",
-     "Chapter6/OrientationSpace · continuousOn_levelLift_comp",
-     "Chapter6/OrientationSpace · continuous_smoothMk_comp",
-     "Chapter6/OrientationSpace · chartSegPath",
-     "Chapter6/OrientationSpace · isScSmoothMap_chartSegPath",
+     "Chapter5/ChartSegmentPaths · rnChart_toBase",
+     "Chapter5/ChartSegmentPaths · continuousOn_levelLift_comp",
+     "Chapter5/ChartSegmentPaths · continuous_smoothMk_comp",
+     "Chapter5/ChartSegmentPaths · chartSegPath",
+     "Chapter5/ChartSegmentPaths · isScSmoothMap_chartSegPath",
      "Chapter6/OrientationSpace · eventually_exists_scPath_smoothLevel",
      "Chapter6/OrientationSpace · exists_nhds_scPath_of_isOpen"
     ]
@@ -2402,7 +2402,7 @@
     "decls": [
      "Chapter6/OrientationMainClean · theorem_6_6_17",
      "Chapter6/OrientationMainClean · MPolyfold.hasConnectedSmoothNbhds",
-     "Chapter2/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
+     "Chapter5/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
      "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
      "Chapter6/OrientationSpace · MPolyfold.hasConnectedSmoothNbhds_of_subsingleton",
      "Chapter6/OrientationSpace · rnPolyfold_hasConnectedSmoothNbhds",
@@ -2494,8 +2494,8 @@
      "Chapter6/EndPullbackForms · ProductEnd.pullAt",
      "Chapter6/EndPullbackForms · exists_glued_extension",
      "Chapter6/EndPullbackForms · ProductEnd.IsEndProductOrientation.of_subEnd",
-     "Chapter4/BoundaryFormsPullback · MPolyfold.faceAlongData",
-     "Chapter4/BoundaryFormsPullback · MPolyfold.isChartFaceForm_faceAlongData",
+     "Chapter6/BoundaryFormsPullback · MPolyfold.faceAlongData",
+     "Chapter6/BoundaryFormsPullback · MPolyfold.isChartFaceForm_faceAlongData",
      "Chapter6/CobordismOrientation · cobOr",
      "Chapter6/CobordismOrientation · isContinuous_cobOr",
      "Chapter6/CobordismOrientation · cobordismOrientation_of_ends",
@@ -2758,15 +2758,15 @@
     "Chapter6/InvariantSingle · psiAt_mk",
     "Chapter6/InvariantSingle · psiForms_relD",
     "Chapter6/InvariantSingle · psiAt_mk_zero_eq_sum",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm_jStar_integral",
-    "Chapter9/SolutionFaceForms · MPolyfold.solFaceForm_d",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm_jStar_integral",
+    "Chapter6/SolutionFaceForms · MPolyfold.solFaceForm_d",
     "Chapter6/InvariantProductEndCharts · MPolyfold.CornerCoords.prodRn",
     "Chapter6/InvariantProductEndCharts · productEndOfSub",
     "Chapter6/InvariantProductEndCharts · isLinOfIndex_end_iff",
     "Chapter6/InvariantProductEndCharts · MPolyfold.isEndPullback_formsInftyRestrict_snd",
-    "Chapter9/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
-    "Chapter9/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
+    "Chapter6/MathlibFormsBridge · MPolyfold.formsInftyRestrict",
+    "Chapter6/MathlibFormsBridge · MPolyfold.stokes_formsInftyRestrict",
     "Chapter5/GeneralPosition · theorem_5_3_10_param",
     "Chapter6/SolutionOrientation · theorem_6_6_18_hyp",
     "Chapter4/ManifoldStokes · ManifoldForm.stokes_of_compactSpace",
@@ -2777,8 +2777,8 @@
     "Chapter6/CobordismRelativeForms · theorem_6_7_1_noBoundary_of_orientation",
     "Chapter6/CobordismRelativeForms · cobordismRelativeFormsInner",
     "Chapter6/CobordismRelativeForms · psiAt_eq_of_cobordism_of_orientation",
-    "Chapter4/BoundaryFormsPullback · MPolyfold.faceAlongData",
-    "Chapter4/BoundaryFormsPullback · MPolyfold.CornerCoords.zero_coord_face_along",
+    "Chapter6/BoundaryFormsPullback · MPolyfold.faceAlongData",
+    "Chapter6/BoundaryFormsPullback · MPolyfold.CornerCoords.zero_coord_face_along",
     "Chapter6/EndPullbackForms · ProductEnd.pullAt",
     "Chapter6/CobordismRelativeForms · MPolyfold.pullOver",
     "Chapter6/CobordismRelativeForms · MPolyfold.faceRestriction_pullOver",
@@ -2817,7 +2817,7 @@
    "book": "An M-polyfold is locally path connected, and any two smooth points in the same path component can be joined by an sc⁺-smooth path $\\varphi : [0, 1] \\to X$.",
    "instead": "**Formalized** (`Chapter6/SmoothPathComponents.lean`). `paths_before_proposition_6_2_2`: an M-polyfold is locally path connected (`MPolyfold.locallyPathConnectedSpace`), and any two smooth points in the same connected component are joined by an sc-smooth path $\\varphi : [0, 1] \\to X$ in that component, which lifts to an sc-smooth path $[0, 1] \\to X^1$ (`IsScSmoothMap.exists_scPlus_lift`; $[0, 1]$ is modelled on sc⁺-retracts). For smooth points, \"same connected component\", \"same path component\" and \"joined by an sc-smooth path\" are equivalent (`mem_connectedComponent_iff_exists_scPath`, `mem_pathComponent_iff_exists_scPath`). This justifies the reading of Definitions 6.6.2 and 6.6.14 (V6.58) (Findings, Chapter 6, items 42, 124).",
    "decls": [
-    "Chapter6/ScPaths · exists_nhds_scPath",
+    "Chapter5/ScPaths · exists_nhds_scPath",
     "Chapter6/SmoothPathComponents · MPolyfold.paths_before_proposition_6_2_2",
     "Chapter6/SmoothPathComponents · MPolyfold.IsScSmoothMap.exists_scPlus_lift",
     "Chapter6/SmoothPathComponents · MPolyfold.scJoinedIn_of_isConnected",
@@ -2913,7 +2913,7 @@
    "book": "Proposition 6.6.3 (1), 2021 p. 263 (as in 2017, Proposition 6.12): two open neighbourhoods $U' \\subseteq U$ of $x$ with \"(1) $U' \\subset U$ is sc-smoothly contractible in $U$ to the point $x$\". The preprint (6.28) has one neighbourhood and \"(1) $U$ is sc-smoothly contractible\" (by $r(ty)$ on $U = r(V')$, $V'$ convex), and its Theorem 6.6.11 (preprint 6.35), Definition 6.6.12 (preprint 6.36) and property (∗) of Theorem 6.6.13 (preprint 6.37) ask for sc-smoothly contractible neighbourhoods.",
    "instead": "**Formalized** (V6.32; `Chapter6/ScContractible.lean`, `IntervalHomotopy.lean`). The 2021 text prints (1) as \"$U' \\subset U$ is sc-smoothly contractible in $U$ to the point $x$\", for a second neighbourhood $U'$; (1) for $U$ itself is the preprint's form. The 2021 form is proved: for every smooth $x$ and every open $U \\ni x$ there are an open $U' \\ni x$ in $U$ and an sc-smooth $H$ on the product M-polyfold $[0, 1] \\times X$ (`IsScContraction`, `exists_isScContraction`) with values in $U$ on $[0, 1]\\times U'$, $H(0, \\cdot) = x$, $H(1, \\cdot) = \\mathrm{id}$ on $U'$ and $H(t, x) = x$. In a chart, $H(t, y) = \\varphi^{-1} r(\\varphi(x) + t(\\varphi(y) - \\varphi(x)))$ and $U' = \\varphi^{-1}(B_\\varepsilon(\\varphi(x)))$; the text's $\\hat r(t, y) = r(ty)$ is this map for $x = 0$; the smoothness of $x$ is used ($\\varphi(x)$ must be a smooth point). The parameter-$\\mathbb R$ form is `exists_isScContractionRn`. `proposition_6_6_3_one` is Proposition 6.6.3 as printed in 2021: $U' \\subseteq U \\subseteq W$ in one chart, with (1), (1′), (2), (3), (4); `proposition_6_6_3_interval` also has (1′) for paths on $[0, 1]$. The preprint's \"$U$ contractible\" (which needs $r(V') \\subseteq V'$) is not formalized, and nothing here shows that it fails; it is a reading point on the preprint, not an item that does not hold. What the proofs of Theorem 6.6.11 and Definition 6.6.12 use is (1′) (V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72, 137).",
    "decls": [
-    "Chapter6/OrientableNbhd · proposition_6_6_3",
+    "Chapter5/OrientableNbhd · proposition_6_6_3",
     "Chapter6/PropagationWellDefined · theorem_6_6_11",
     "Chapter6/ScContractible · IsScContraction",
     "Chapter6/ScContractible · exists_isScContraction",
@@ -2933,8 +2933,8 @@
    "decls": [
     "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
     "Chapter6/StabKernelsExist · exists_isStabKernels",
-    "Chapter9/MathlibSolutionSets · theorem_3_1_26_isManifold",
-    "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim",
+    "Chapter6/MathlibSolutionSets · theorem_3_1_26_isManifold",
+    "Chapter6/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim",
     "Chapter6/SolutionManifoldFamily · lemma_6_6_5_isManifold",
     "Chapter6/SolutionManifoldFamily · lemma_6_6_5_isSubmanifoldOfDim",
     "Chapter6/SolutionManifoldFamily · lemma_6_6_5_submersion",
@@ -3002,7 +3002,7 @@
     "Chapter6/PathsInterval · theorem_6_6_11_interval",
     "Chapter6/PathsInterval · orTransportI_eq_of_homotopy",
     "Chapter6/PathsInterval · theorem_6_6_17_interval",
-    "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval",
+    "Chapter5/IndexAlongPathsInterval · proposition_6_2_2_interval",
     "Chapter6/UnitIntervalSections · proposition_6_6_3_three_interval",
     "Chapter6/UnitIntervalSections · proposition_6_6_3_four_interval",
     "Chapter6/UnitIntervalSections · exists_isScPlusSection_prodChart",
@@ -3179,12 +3179,12 @@
    "label": "§6.6 (preprint §6.5), Theorem 6.6.18 (preprint 6.41), p. 275 (preprint p. 229)",
    "page": 229,
    "book": "The solution set $S$ is a smooth compact manifold with boundary with corners possessing a natural orientation.",
-   "instead": "**Formalized.** $S$ is a compact Mathlib manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`), and carries a continuous tangent orientation (`TangentOrientation.IsContinuous`, `Chapter6/ManifoldOrientation.lean`) which at every zero $x$ is $o_x$, transported along the tangent map of $S \\hookrightarrow X$, an isomorphism onto $\\ker f'(x)$ (`theorem_6_6_18_oriented`, `solOr_spec`, `Chapter6/SolutionSetOrientation.lean`). The orientation is read in the tangent spaces, not as an oriented atlas, since for the quadrant model the two notions differ in dimensions 0 and 1 (V6.61) (Findings, Chapter 6, items 92, 123, 127).",
+   "instead": "**Formalized.** $S$ is a compact Mathlib manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`), and carries a continuous tangent orientation (`TangentOrientation.IsContinuous`, `Chapter4/ManifoldOrientation.lean`) which at every zero $x$ is $o_x$, transported along the tangent map of $S \\hookrightarrow X$, an isomorphism onto $\\ker f'(x)$ (`theorem_6_6_18_oriented`, `solOr_spec`, `Chapter6/SolutionSetOrientation.lean`). The orientation is read in the tangent spaces, not as an oriented atlas, since for the quadrant model the two notions differ in dimensions 0 and 1 (V6.61) (Findings, Chapter 6, items 92, 123, 127).",
    "decls": [
     "Chapter6/SolutionSetOrientation · theorem_6_6_18_oriented",
     "Chapter6/SolutionSetOrientation · solOr_spec",
-    "Chapter6/ManifoldOrientation · TangentOrientation.IsContinuous",
-    "Chapter9/MathlibSolutionSets · theorem_6_6_18_isManifold"
+    "Chapter4/ManifoldOrientation · TangentOrientation.IsContinuous",
+    "Chapter6/MathlibSolutionSets · theorem_6_6_18_isManifold"
    ],
    "formalized": [
     "V6.61"
@@ -3255,8 +3255,8 @@
     "Chapter6/OrientationSpace · theorem_6_6_17_hyp",
     "Chapter6/OrientationSpace · existsUnique_orientationTopology",
     "Chapter6/OrientationMainClean · MPolyfold.hasConnectedSmoothNbhds",
-    "Chapter2/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
-    "Chapter2/SmoothPaths · MPolyfold.exists_nhds_joinedIn_smooth"
+    "Chapter5/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
+    "Chapter5/SmoothPaths · MPolyfold.exists_nhds_joinedIn_smooth"
    ],
    "formalized": [
     "V6.74",

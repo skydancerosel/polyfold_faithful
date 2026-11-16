@@ -1,5 +1,6 @@
 import Polyfold.Chapter8.Basic
 import Polyfold.Chapter8.TangentLocal
+import Polyfold.Chapter6.TangentMapCongr
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
@@ -104,7 +105,7 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   onto `{(φ, a) | φ ∈ 𝐗₁, a ∈ T_{s φ}X}`.  The M-polyfold structure on the pairs, for which `G` is
   an sc-diffeomorphism, and the triples `(a, φ, b)` are in `TangentPairs.lean`
   (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`).  Linearity of `Tφ` is not
-  treated here: it is `tangentMorCLE` (`Chapter7/TangentMorphismLinear.lean`; gap G.7).
+  treated here: it is `tangentMorCLE` (`Chapter9/TangentMorphismLinear.lean`; gap G.7).
 * **Universes.**  Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so the tangent
   functor is `EP.{max u 1} ⥤ EP.{max u 1}` (Lean identifies `max (max u 1) 1` with `max u 1`).
   This is an artifact of the formalization.
@@ -114,6 +115,8 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   writes `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)`; Lemma 8.1.3 (2017: 8.2)'s proof has "`= =`", "`t : U(ψ ∘ φ) → U(y)` and
   `: U(ψ ∘ φ) → U(x)`" without `s`, and `T t)φ)(h)`; Lemma 8.1.8 (2017: 8.7)'s proof writes
   `t(φ_k, h_k) = Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`; Remark 8.1.10 (2017: 8.1) writes `T_yY` for `T_yX`.
+
+Congruence of tangent maps (`MPolyfold.tangentMap_congr_fun`): `Chapter6/TangentMapCongr.lean`.
 -/
 
 open Set Function Topology Filter CategoryTheory
@@ -131,12 +134,6 @@ namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
   {Z : Type w} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {S : MPolyfold Z}
-
-/-- Part I's `Tf` depends only on the map `f`. -/
-theorem tangentMap_congr_fun {f g : X → Y} (hf : P.IsScSmoothMap Q f) (hg : P.IsScSmoothMap Q g)
-    (h : f = g) : tangentMap hf = tangentMap hg := by
-  subst h
-  rfl
 
 /-- The chain rule in the form `Tg(Tf α) = Th α` for `g ∘ f = h`. -/
 theorem tangentMap_tangentMap_of_eq {f : X → Y} {g : Y → Z} {h : X → Z}

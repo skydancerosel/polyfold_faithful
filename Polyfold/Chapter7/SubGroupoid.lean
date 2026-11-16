@@ -73,8 +73,8 @@ sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions o
   `s(𝐫(ψ)) ∈ A` and saturation give `t(𝐫(ψ)) ∈ A` (we read `s(𝐫(ψ)) ∈ U(a)`).
 * **Unstated in (1), (2), (4)**: a map into a sub-M-polyfold which is sc-smooth into the ambient
   M-polyfold is sc-smooth into the sub-M-polyfold (near a point it is `(i⁻¹ ∘ r) ∘ i ∘ f`, by fact
-  (2)); this is the private `isScSmoothOn_subPolyfold_of_val`.  For `m` (literal condition (4), not
-  the sheet form) it is applied twice: the inclusion `𝐀 ₛ×ₜ 𝐀 → 𝐗 ₛ×ₜ 𝐗` is sc-smooth between the
+  (2)); this is `MPolyfold.isScSmoothOn_subPolyfold_of_val` (`Chapter2/SubMPolyfold.lean`).  For
+  `m` (literal condition (4), not the sheet form) it is applied twice: the inclusion `𝐀 ₛ×ₜ 𝐀 → 𝐗 ₛ×ₜ 𝐗` is sc-smooth between the
   fibred-product M-polyfolds of Proposition 2.5.20 (2017: 2.15) [2.46], and `m` of `A` is `m` of `X` composed with
   it.  `fullSub`'s composition of a non-composable pair is a junk value; (4) only concerns
   `𝐀 ₛ×ₜ 𝐀`.
@@ -108,24 +108,6 @@ section Helpers
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
-
-/-- **A map into a sub-M-polyfold** `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
-`Y`: near `x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A` near `f(x)`, and `i⁻¹ ∘ r` is
-sc-smooth (fact (2), Proposition 2.6 (2) [2.21 (2)]). -/
-private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : X → A} {U : Set X}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    P.IsScSmoothOn (MPolyfold.subPolyfold hA) f U := by
-  refine MPolyfold.IsScSmoothOn.of_locally hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (MPolyfold.IsScSmoothOn.comp (MPolyfold.subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
 
 /-- An sc-smooth map restricted to a sub-M-polyfold `B` of its domain (composed with the
 inclusion, fact (1)). -/
@@ -205,9 +187,9 @@ private theorem isLocalScDiffeo_subPolyfold {f : X → Y} (hf : P.IsLocalScDiffe
     rw [hf']; exact hd.mapsTo hc
   refine ⟨Subtype.val ⁻¹' W, Subtype.val ⁻¹' V, g', hbW, ?_⟩
   exact
-    { isScSmoothOn := isScSmoothOn_subPolyfold_of_val hA
+    { isScSmoothOn := MPolyfold.isScSmoothOn_subPolyfold_of_val hA
         ((isScSmoothOn_comp_val hB hd.isScSmoothOn).congr fun c _ => (hf' c).symm)
-      isScSmoothOn_inv := isScSmoothOn_subPolyfold_of_val hB
+      isScSmoothOn_inv := MPolyfold.isScSmoothOn_subPolyfold_of_val hB
         ((isScSmoothOn_comp_val hA hd.isScSmoothOn_inv).congr fun a ha => (hg' a ha).symm)
       mapsTo := fun c hc => hf'V c hc
       mapsTo_inv := fun a ha => by
@@ -301,7 +283,7 @@ theorem isScSmoothOn_retractInto_subMor (d : X.PMor.SubData (X.morOn A)) (a₀ :
 /-- **(2)**: the inversion of the full subcategory on `A` is sc-smooth. -/
 theorem isScSmoothMap_fullSub_inv :
     (subMorPolyfold hA).IsScSmoothMap (subMorPolyfold hA) (X.fullSub A).inv :=
-  isScSmoothOn_subPolyfold_of_val _
+  MPolyfold.isScSmoothOn_subPolyfold_of_val _
     (X.isScSmoothMap_inv.comp (MPolyfold.subPolyfold_inclusion_isScSmooth _))
 
 variable [ParacompactSpace A]
@@ -339,7 +321,7 @@ theorem isLocalScDiffeo_fullSub_tgt :
 /-- **(2)**: the unit map of `A` is sc-smooth. -/
 theorem isScSmoothMap_fullSub_unit :
     (subObjPolyfold hA).IsScSmoothMap (subMorPolyfold hA) (X.fullSub A).unit :=
-  isScSmoothOn_subPolyfold_of_val _
+  MPolyfold.isScSmoothOn_subPolyfold_of_val _
     (X.isScSmoothMap_unit.comp (MPolyfold.subPolyfold_inclusion_isScSmooth _))
 
 include hA in
@@ -390,9 +372,9 @@ theorem isScSmoothComp_fullSub :
   have h2 : (MPolyfold.subPolyfold hF').IsScSmoothMap X.PMor fun p => (p.1.2 : Mor) :=
     hiM.comp ((MPolyfold.isScSmoothMap_snd PM PM).comp hi)
   have hj : (MPolyfold.subPolyfold hF').IsScSmoothMap (MPolyfold.subPolyfold hF) j :=
-    isScSmoothOn_subPolyfold_of_val hF (MPolyfold.IsScSmoothOn.prodMk h1 h2)
+    MPolyfold.isScSmoothOn_subPolyfold_of_val hF (MPolyfold.IsScSmoothOn.prodMk h1 h2)
   change (MPolyfold.subPolyfold hF').IsScSmoothMap PM _
-  refine isScSmoothOn_subPolyfold_of_val _ ((hm.comp hj).congr fun p _ => ?_)
+  refine MPolyfold.isScSmoothOn_subPolyfold_of_val _ ((hm.comp hj).congr fun p _ => ?_)
   exact (X.fullSub_comp_val p.1.1 p.1.2 (congrArg Subtype.val p.2)).symm
 
 /-- **Proposition 7.1.22 (2017: 7.7), the structure**: the full subcategory on an ep-subgroupoid `A` is an

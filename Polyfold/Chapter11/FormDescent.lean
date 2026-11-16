@@ -1,6 +1,7 @@
-import Polyfold.Chapter4.OpenForms
+import Polyfold.Chapter5.OpenForms
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter2.TangentMapLinear
+import Polyfold.Chapter8.TangentLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,

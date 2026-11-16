@@ -540,8 +540,8 @@
    "lean": {
     "statement": "Let $U$ be an sc-domain in $E$ and $f$ $\\mathrm{sc}^0$ on $U$. If for every $m \\ge 0$ and $0 \\le l \\le k$ the map $f_m \\circ \\iota : U_{m+l} \\to F_m$ is $C^{l+1}$ within $U_{m+l}$, then $f$ is $\\mathrm{sc}^{k+1}$ on $U$; if this holds for every $l$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis that every level map $f_m : U_m \\to F_m$ is $C^{k+1}$: $f$ is $\\mathrm{sc}^{k+1}$; for $k = 0$, where the two hypotheses agree, with $Df(x)$ the derivative of $f : U_0 \\to F_0$ at $x$; and if every $f_m$ is $C^\\infty$, $f$ is sc-smooth.",
     "decls": [
-     "Chapter1/LevelsWeak · proposition_1_2_4_text",
-     "Chapter1/LevelsWeak · IsScSmooth.of_contDiffOn_levels_text",
+     "Chapter2/LevelsWeak · proposition_1_2_4_text",
+     "Chapter2/LevelsWeak · IsScSmooth.of_contDiffOn_levels_text",
      "Chapter1/Properties · proposition_1_2_4_zero",
      "Chapter1/Levels · proposition_1_2_4",
      "Chapter1/Levels · IsScSmooth.of_contDiffOn_levels"
@@ -570,8 +570,8 @@
    "lean": {
     "statement": "Let $U$ be an sc-domain in $E$, $V$ a finite-dimensional normed space with its constant sc-structure and $f : E_0 \\to V$. If for some $k$ and all $0 \\le l \\le k$ the map $f \\circ \\iota_l : U_l \\to V$ is $C^{l+1}$ within $U_l$, then $f$ is $\\mathrm{sc}^{k+1}$ on $U$. If $f \\circ \\iota_l$ is $C^{l+1}$ within $U_l$ for every $l$, then $f$ is sc-smooth; if $f$ is $C^\\infty$ within $U$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis: if $f \\circ \\iota_m$ is $C^{k+1}$ within $U_m$ for every $m$, in particular if $f$ is $C^{k+1}$ within $U$, then $f$ is $\\mathrm{sc}^{k+1}$; for $k = 0$ this is the text's hypothesis.",
     "decls": [
-     "Chapter1/LevelsWeak · corollary_1_2_5_text",
-     "Chapter1/LevelsWeak · IsScSmooth.of_contDiffOn_levels_finiteDimensional_text",
+     "Chapter2/LevelsWeak · corollary_1_2_5_text",
+     "Chapter2/LevelsWeak · IsScSmooth.of_contDiffOn_levels_finiteDimensional_text",
      "Chapter1/Levels · IsScSmooth.of_contDiffOn_finiteDimensional",
      "Chapter1/Properties · corollary_1_2_5_zero",
      "Chapter1/Levels · corollary_1_2_5",
@@ -1078,14 +1078,14 @@
    "lean": {
     "statement": "A *derivative tower* of order $k + 1$ for $f : E_0 \\to F_0$ on $U$ consists of base-level maps $\\Phi_i(x)(h_1, \\dots, h_i)$ with $\\Phi_0 = f$ and, for $x \\in U_{m+l}$, continuous $i$-linear maps $\\Psi_{i,m,l}(x)$ on $E_{m+l}$ with values in $F_m$ ($i \\le l + 1$, $i \\le k + 1$) such that: $\\Psi_{i,m,l}(x)(h)$ seen in $F_0$ is $\\Phi_i$ at the images of $x$ and $h$ in $E_0$; $\\Psi_{i,m,l}$ is continuous on $U_{m+l}$; and for $i \\le l$, $i \\le k$ it is differentiable within $U_{m+l}$ with derivative $\\xi \\mapsto \\Psi_{i+1,m,l}(x)(\\xi, \\cdot)$. If $U$ is an sc-domain, $f$ is $\\mathrm{sc}^0$ and $f : U_{m+l} \\to F_m$ is $C^{l+1}$ within $U_{m+l}$ for all $m$ and $l \\le k$, then the iterated derivatives within the level sets form a derivative tower of order $k + 1$. Two values of a tower with the same images in $E_0$ agree.",
     "decls": [
-     "Chapter1/LevelsWeak · IsDerivTower",
-     "Chapter1/LevelsWeak · levelDerivTower",
-     "Chapter1/LevelsWeak · baseDerivTower",
-     "Chapter1/LevelsWeak · contDiffOn_levels_min",
-     "Chapter1/LevelsWeak · levelDerivTower_toBase",
-     "Chapter1/LevelsWeak · baseDerivTower_toBase",
-     "Chapter1/LevelsWeak · isDerivTower_of_contDiffOn_levels",
-     "Chapter1/LevelsWeak · IsDerivTower.eq_of_toBase"
+     "Chapter2/LevelsWeak · IsDerivTower",
+     "Chapter2/LevelsWeak · levelDerivTower",
+     "Chapter2/LevelsWeak · baseDerivTower",
+     "Chapter2/LevelsWeak · contDiffOn_levels_min",
+     "Chapter2/LevelsWeak · levelDerivTower_toBase",
+     "Chapter2/LevelsWeak · baseDerivTower_toBase",
+     "Chapter2/LevelsWeak · isDerivTower_of_contDiffOn_levels",
+     "Chapter2/LevelsWeak · IsDerivTower.eq_of_toBase"
     ]
    },
    "verdict": "extra",
@@ -1109,34 +1109,34 @@
    "lean": {
     "statement": "*Elementary data* on an sc-Banach space $X$: an sc-operator $\\pi_0 : X \\to E^p$ (the base point), sc-operators $\\pi_a : X \\to E^{n_a}$, $a = 1, \\dots, i$ (the vectors), and a target shift $m$; the *elementary map* is $z \\mapsto d^if(\\pi_0 z)(\\pi_1 z, \\dots, \\pi_i z) : X \\to F^m$ on $\\pi_0^{-1}(U_p)$, with $d^if$ from a derivative tower of order $k + 1$ (V1.37). Under the conditions $m + i \\le p$, $m + i \\le n_a + 1$ and $i \\le k$: the elementary map is $\\mathrm{sc}^0$; it is $\\mathrm{sc}^1$, by the level criterion of Proposition 1.2.1 (preprint 1.16) (V1.15), with derivative $(\\delta z) \\mapsto d^{i+1}f(\\pi_0 z)(\\pi_0\\delta z, \\pi z) + \\sum_a d^if(\\pi_0 z)(\\pi z \\text{ with } \\pi_a z := \\pi_a\\delta z)$; on $TX$ its tangent map is the pair of an elementary map of type $(p + 1, m + 1; n_a + 1)$ and the sum of an elementary map with $i + 1$ vectors and $i$ elementary maps with $i$ vectors, all satisfying the conditions (the one with $i + 1$ vectors provided $i + 1 \\le k$). Hence, if the domain $\\pi_0^{-1}(U_p)$ is an sc-domain and $i + s \\le k + 1$, the elementary map is $\\mathrm{sc}^s$. The shifts $E^p$ have $(E^p)_l = E_{p+l}$, with $E \\cong E^0$ and $(E^p)^1 \\cong E^{p+1}$.",
     "decls": [
-     "Chapter1/LevelsWeak · ElemData",
-     "Chapter1/LevelsWeak · ElemData.Good",
-     "Chapter1/LevelsWeak · ElemData.dom",
-     "Chapter1/LevelsWeak · ElemData.map",
-     "Chapter1/LevelsWeak · ElemData.map_toBase",
-     "Chapter1/LevelsWeak · ElemData.levelMap_eq",
-     "Chapter1/LevelsWeak · ElemData.isSc0",
-     "Chapter1/LevelsWeak · ElemData.deriv",
-     "Chapter1/LevelsWeak · ElemData.deriv_apply",
-     "Chapter1/LevelsWeak · ElemData.hasFDerivWithinAt_level",
-     "Chapter1/LevelsWeak · ElemData.continuousOn_deriv",
-     "Chapter1/LevelsWeak · ElemData.isSc1Levels",
-     "Chapter1/LevelsWeak · ElemData.isSc1With",
-     "Chapter1/LevelsWeak · ElemData.shiftData",
-     "Chapter1/LevelsWeak · ElemData.derivData",
-     "Chapter1/LevelsWeak · ElemData.slotData",
-     "Chapter1/LevelsWeak · ElemData.Good.shiftData",
-     "Chapter1/LevelsWeak · ElemData.Good.derivData",
-     "Chapter1/LevelsWeak · ElemData.Good.slotData",
-     "Chapter1/LevelsWeak · ElemData.tangentSet_dom",
-     "Chapter1/LevelsWeak · ElemData.tangentMap_eqOn",
-     "Chapter1/LevelsWeak · ElemData.isSck",
-     "Chapter1/LevelsWeak · ElemData.base",
-     "Chapter1/LevelsWeak · ScBanach.shiftAdd",
-     "Chapter1/LevelsWeak · ScBanach.shiftAddZeroIso",
-     "Chapter1/LevelsWeak · ScBanach.shiftAddShiftIso",
-     "Chapter1/LevelsWeak · ScOperator.tangentX",
-     "Chapter1/LevelsWeak · ScOperator.tangentH"
+     "Chapter2/LevelsWeak · ElemData",
+     "Chapter2/LevelsWeak · ElemData.Good",
+     "Chapter2/LevelsWeak · ElemData.dom",
+     "Chapter2/LevelsWeak · ElemData.map",
+     "Chapter2/LevelsWeak · ElemData.map_toBase",
+     "Chapter2/LevelsWeak · ElemData.levelMap_eq",
+     "Chapter2/LevelsWeak · ElemData.isSc0",
+     "Chapter2/LevelsWeak · ElemData.deriv",
+     "Chapter2/LevelsWeak · ElemData.deriv_apply",
+     "Chapter2/LevelsWeak · ElemData.hasFDerivWithinAt_level",
+     "Chapter2/LevelsWeak · ElemData.continuousOn_deriv",
+     "Chapter2/LevelsWeak · ElemData.isSc1Levels",
+     "Chapter2/LevelsWeak · ElemData.isSc1With",
+     "Chapter2/LevelsWeak · ElemData.shiftData",
+     "Chapter2/LevelsWeak · ElemData.derivData",
+     "Chapter2/LevelsWeak · ElemData.slotData",
+     "Chapter2/LevelsWeak · ElemData.Good.shiftData",
+     "Chapter2/LevelsWeak · ElemData.Good.derivData",
+     "Chapter2/LevelsWeak · ElemData.Good.slotData",
+     "Chapter2/LevelsWeak · ElemData.tangentSet_dom",
+     "Chapter2/LevelsWeak · ElemData.tangentMap_eqOn",
+     "Chapter2/LevelsWeak · ElemData.isSck",
+     "Chapter2/LevelsWeak · ElemData.base",
+     "Chapter2/LevelsWeak · ScBanach.shiftAdd",
+     "Chapter2/LevelsWeak · ScBanach.shiftAddZeroIso",
+     "Chapter2/LevelsWeak · ScBanach.shiftAddShiftIso",
+     "Chapter2/LevelsWeak · ScOperator.tangentX",
+     "Chapter2/LevelsWeak · ScOperator.tangentH"
     ]
    },
    "verdict": "extra",
@@ -1163,10 +1163,10 @@
     "statement": "On an sc-domain, the constant map $0$ is $\\mathrm{sc}^k$, the sum of two $\\mathrm{sc}^k$ maps is $\\mathrm{sc}^k$ and so is any finite sum. The evaluation $(A, h) \\mapsto A(h_1, \\dots, h_n)$ of continuous multilinear maps is differentiable at every $(A, h)$ with derivative $(B, \\eta) \\mapsto B(h) + \\sum_a A(h \\text{ with } h_a := \\eta_a)$.",
     "decls": [
      "Chapter2/StrongBundle · IsSck.scPair",
-     "Chapter1/LevelsWeak · IsSck.zero",
-     "Chapter1/LevelsWeak · IsSck.add",
-     "Chapter1/LevelsWeak · IsSck.sum",
-     "Chapter1/LevelsWeak · hasFDerivAt_cmm_eval"
+     "Chapter2/LevelsWeak · IsSck.zero",
+     "Chapter2/LevelsWeak · IsSck.add",
+     "Chapter2/LevelsWeak · IsSck.sum",
+     "Chapter2/LevelsWeak · hasFDerivAt_cmm_eval"
     ]
    },
    "verdict": "extra",

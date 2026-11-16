@@ -482,8 +482,8 @@ theorem sec_rel {y y' : A.Obj} {ψ : A.Mor} (hψ : ψ ∈ P.Dom y y') (i : D.I (
     rw [hsi, src_conj hψ]
   have c : A.X.src (P.τ y' (A.X.tgt ψ)) = A.X.tgt (P.conj y y' ψ) := by
     rw [tgt_conj hψ]; rfl
-  rw [sec_apply hψ.2, sec_apply hψ.1, h, ← AtomicStructData.fibAct_comp hsi' c, conj_spec hψ,
-    AtomicStructData.fibAct_comp hsi (tgt_τ_src hψ.1)]
+  rw [sec_apply hψ.2, sec_apply hψ.1, h, ← SBLocalization.fibAct_comp hsi' c, conj_spec hψ,
+    SBLocalization.fibAct_comp hsi (tgt_τ_src hψ.1)]
 
 variable (P) in
 /-- **The symmetric structure at `y`**: index set `I_{a_y}`, `G_y` acting through `γ_y`. -/

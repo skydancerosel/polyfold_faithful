@@ -6,7 +6,7 @@ import Polyfold.Chapter6.CubeCharts
 import Polyfold.Chapter10.TameBundleCharts
 import Polyfold.Chapter3.TameGermTransfer
 import Polyfold.Chapter3.FillerLinearization
-import Polyfold.Chapter3.SolutionTangentKernel
+import Polyfold.Chapter5.SolutionTangentKernel
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), **Corollary 15.3.10 (3)**

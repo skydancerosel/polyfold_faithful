@@ -1,6 +1,6 @@
-import Polyfold.Chapter6.Lemma629
+import Polyfold.Chapter5.Lemma629
 import Polyfold.Chapter6.ParamKernel
-import Polyfold.Chapter9.MathlibSolutionSets
+import Polyfold.Chapter6.MathlibSolutionSets
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**

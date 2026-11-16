@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.RegularPerturbations
-import Polyfold.Chapter5.DegeneracyZeroTame
+import Polyfold.Chapter7.DegeneracyZeroTame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, p. 699:

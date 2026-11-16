@@ -1,6 +1,6 @@
 import Polyfold.Chapter12.OrientationGeneralizedIsoTopology
 import Polyfold.Chapter10.StrongBundleLocalizationExamples
-import Polyfold.Chapter3.NonVacuityG
+import Polyfold.Chapter4.NonVacuityG
 import Polyfold.Chapter7.LocalDiffeo
 
 /-!

@@ -1,6 +1,8 @@
 import Polyfold.Chapter12.ScPlusSectionFunctor
-import Polyfold.Chapter5.BoundaryExtension
+import Polyfold.Chapter12.BoundaryExtension
 import Polyfold.Chapter8.NonVacuityBundle
+import Polyfold.Chapter12.AuxNormExtension
+import Polyfold.Chapter5.CylinderPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, §12.3,
@@ -28,7 +30,7 @@ extended to the saturation; an sc-smooth partition of unity for the cover by the
   M-polyfold form of Definition 5.4.1 (`StrongBundle.IsBoundaryScPlusSection`) on the object
   M-polyfold; it does not involve `μ`.  The "sc⁺-section functor of `W|∂X`" of Theorem 12.3.9 is
   `IsBoundaryScPlusSectionFunctor`: in addition `s(t φ) = μ(φ, s(s φ))` for every morphism `φ`
-  with `s(φ) ∈ ∂X` (then `t(φ) ∈ ∂X` too, `tgt_mem_boundary_iff'`).  **Nonvacuity**:
+  with `s(φ) ∈ ∂X` (then `t(φ) ∈ ∂X` too, `tgt_mem_boundary_iff`).  **Nonvacuity**:
   `isBoundaryScPlusSectionFunctor_fiberZero`.
 * The ep-level bump functions from partitions of unity:
   `admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity` (Definition 7.5.5 ⇒ Definition 12.3.1).
@@ -77,18 +79,13 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 namespace EpGroupoid
 
-/-- `t(φ) ∈ ∂X ⟺ s(φ) ∈ ∂X` (`d_X(t φ) = d_𝐗(φ) = d_X(s φ)`). -/
-theorem tgt_mem_boundary_iff' (φ : Mor) :
-    X.tgt φ ∈ X.PObj.boundary ↔ X.src φ ∈ X.PObj.boundary := by
-  change 1 ≤ X.PObj.degIndex (X.tgt φ) ↔ 1 ≤ X.PObj.degIndex (X.src φ)
-  rw [← X.degIndex_tgt φ, X.degIndex_src φ]
-
 /-- `X ∖ ∂X` is saturated. -/
 theorem isSaturated_compl_boundary : X.IsSaturated X.PObj.boundaryᶜ :=
-  X.isSaturated_iff.2 fun φ h ht => h ((tgt_mem_boundary_iff' φ).1 ht)
+  X.isSaturated_iff.2 fun φ h ht => h ((EpGroupoid.tgt_mem_boundary_iff _ φ).1 ht)
 
+variable (X) in
 /-- The complement of a saturated set is saturated. -/
-theorem isSaturated_compl' {A : Set Obj} (hA : X.IsSaturated A) : X.IsSaturated Aᶜ := by
+theorem isSaturated_compl {A : Set Obj} (hA : X.IsSaturated A) : X.IsSaturated Aᶜ := by
   refine X.isSaturated_iff.2 fun φ h ht => h ?_
   have := (X.isSaturated_iff.1 hA) (X.inv φ) (by rwa [X.src_inv])
   rwa [X.tgt_inv] at this
@@ -125,7 +122,7 @@ theorem admitsBumpFunctionsPointwise_of_hasScPartitionsOfUnity (hpu : X.HasScPar
     (fun i => by rcases i with ⟨_ | _⟩; exacts [hKc.isOpen_compl, hU])
     (fun i => by
       rcases i with ⟨_ | _⟩
-      exacts [isSaturated_compl' (isSaturated_saturation X _), hsat])
+      exacts [X.isSaturated_compl (isSaturated_saturation X _), hsat])
     (iUnion_eq_univ_iff.2 fun y => if hy : y ∈ U then ⟨⟨true⟩, hy⟩ else
       ⟨⟨false⟩, fun hK => hy (hKU hK)⟩)
   refine ⟨ρ ⟨true⟩, hρsm _, ?_, hρsub ⟨true⟩, hρinv _⟩
@@ -152,21 +149,8 @@ theorem sectionSupport_sectionSmul_subset_tsupport {f : Obj → ℝ} {σ : Obj �
     (hσ : IsSection P σ) : sectionSupport P (sectionSmul P f σ) ⊆ tsupport f :=
   closure_mono fun y hy h0 => hy (by rw [sectionSmul_apply hσ, h0, zero_smul]; rfl)
 
-omit [T2Space Obj] [ParacompactSpace Obj] [TopologicalSpace W] [T2Space W] [ParacompactSpace W] in
-/-- `supp(f · σ) ⊆ supp σ`. -/
-theorem sectionSupport_sectionSmul_subset' {f : Obj → ℝ} {σ : Obj → W}
-    (hσ : IsSection P σ) : sectionSupport P (sectionSmul P f σ) ⊆ sectionSupport P σ := by
-  refine closure_mono fun y hy h0 => hy ?_
-  have h1 : (⟨σ y, hσ y⟩ : P ⁻¹' {y}) = 0 := Subtype.ext h0
-  rw [sectionSmul_apply hσ, h1, smul_zero]
-  rfl
-
 omit [T2Space Obj] [ParacompactSpace Obj] [TopologicalSpace W] [T2Space W] [ParacompactSpace W]
   [∀ x, Module ℝ (P ⁻¹' {x})] in
-/-- The zero section has empty support. -/
-theorem sectionSupport_fiberZero' : sectionSupport P (fiberZero P) = ∅ := by
-  simp [sectionSupport]
-
 variable {ι : Type*}
 
 open scoped Classical in
@@ -274,7 +258,7 @@ def IsBoundaryScPlusSection (_E : EpStrongBundle X B) (s : Obj → W) : Prop :=
 
 /-- An **sc⁺-section functor of `W|∂X`** (Theorem 12.3.9): an sc⁺-section over the boundary
 (Definition 12.3.6) with `s(t φ) = μ(φ, s(s φ))` for every morphism `φ` between boundary points
-(`s(φ) ∈ ∂X` forces `t(φ) ∈ ∂X`, `tgt_mem_boundary_iff'`). -/
+(`s(φ) ∈ ∂X` forces `t(φ) ∈ ∂X`, `tgt_mem_boundary_iff`). -/
 def IsBoundaryScPlusSectionFunctor (s : Obj → W) : Prop :=
   E.IsBoundaryScPlusSection s ∧ ∀ φ : Mor, X.src φ ∈ X.PObj.boundary →
     ∀ h : P (s (X.src φ)) = X.src φ, s (X.tgt φ) = E.μ ⟨(φ, s (X.src φ)), h⟩
@@ -462,7 +446,7 @@ theorem exists_local_functor_extension
     have hψs : X.src (R.Γ k (R.Φ k⁻¹ y)) = R.Φ k⁻¹ y := R.src_Γ k _ hz
     have hψt : X.tgt (R.Γ k (R.Φ k⁻¹ y)) = y := tgt_Γ_Φ_inv R k hyU
     have hψb : X.src (R.Γ k (R.Φ k⁻¹ y)) ∈ X.PObj.boundary :=
-      (EpGroupoid.tgt_mem_boundary_iff' _).1 (by rw [hψt]; exact hyb)
+      (EpGroupoid.tgt_mem_boundary_iff _ _).1 (by rw [hψt]; exact hyb)
     have hzW : X.src (R.Γ k (R.Φ k⁻¹ y)) ∈ W₁ := by
       rw [hψs]
       exact (mem_iInter.1 hyW k⁻¹).2
@@ -480,7 +464,7 @@ theorem exists_local_functor_extension
   · rintro y ⟨⟨z, hz, hzy⟩, hyb⟩
     obtain ⟨φ, hφs, hφt⟩ := X.π_eq_π_iff.1 hzy
     subst hφs hφt
-    have hzb : X.src φ ∈ X.PObj.boundary := (EpGroupoid.tgt_mem_boundary_iff' φ).1 hyb
+    have hzb : X.src φ ∈ X.PObj.boundary := (EpGroupoid.tgt_mem_boundary_iff _ φ).1 hyb
     rw [natExtension_eq R hσ₂.1 hequiv (hW₂U hz)]
     have h2 : σ₂ (X.src φ) = s (X.src φ) := hσ₂s _ ⟨hz, hzb⟩
     exact (E.μ_pair_congr rfl h2 _ ((hs.1.1 _ hzb).1)).trans (hs.2 φ hzb _).symm
@@ -506,7 +490,7 @@ theorem exists_extension_of_tameCharts
     · refine ⟨X.PObj.boundaryᶜ, X.PObj.isClosed_boundary.isOpen_compl,
         EpGroupoid.isSaturated_compl_boundary, hxb, fiberZero P,
         isScPlusSectionFunctor_fiberZero, ?_, fun y hy => absurd hy.2 hy.1⟩
-      rw [sectionSupport_fiberZero']
+      rw [sectionSupport_fiberZero]
       exact empty_subset _
   choose U' hU'o hU'sat hxU' σ hσ hσU hσs using hloc
   obtain ⟨ρ, hρsub, hρsm, -, hρinv⟩ :=
@@ -577,7 +561,7 @@ theorem exists_extension_bounded_of_tameCharts
   have hplus' : B.IsScPlusSection (sectionSmul P β s₁) := hplus.smul_left (hρsm _)
   refine ⟨sectionSmul P β s₁, ⟨⟨StrongBundle.IsScPlusSection.isScSmoothSection' hplus',
     isFunctorialSection_sectionSmul (hρinv _) hsec hfun⟩, hplus'⟩,
-    (sectionSupport_sectionSmul_subset' hsec).trans hs₁U, fun y hy => ?_, fun y h => ?_⟩
+    (sectionSupport_sectionSmul_subset hsec _).trans hs₁U, fun y hy => ?_, fun y h => ?_⟩
   · rw [sectionSmul_apply hsec, hβ1 y hy, one_smul]
     exact hs₁s y hy
   · have hmem : s₁ y ∈ B.oneSet := hplus.mem_oneSet y

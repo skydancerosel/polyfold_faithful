@@ -1,4 +1,4 @@
-import Polyfold.Chapter8.BundleLocalRegularity
+import Polyfold.Chapter10.BundleLocalRegularity
 import Polyfold.Chapter10.LocalizationLRBundleBase
 
 /-!
@@ -12,7 +12,7 @@ Definition 8.4.2 as printed asks that every strong bundle isomorphism `B : W|U(x
 with `|B(w)| = |w|` be `w ↦ g ∗ w`; this is `EpStrongBundle.IsLRLocal`
 (`Chapter10/LocalizationLRBundleBase.lean`, which uses `StrongBundle.IsLocalIsoOn`).  The form
 `EpStrongBundle.IsLR` of Chapter 8 asks it only of strong bundle maps of `W`, and
-`EpStrongBundle.proposition_8_4_3` (`Chapter8/BundleLocalRegularity.lean`) proves that form.
+`EpStrongBundle.proposition_8_4_3` (`Chapter10/BundleLocalRegularity.lean`) proves that form.
 This file proves the printed form, by the text's proof.
 
 ## What is formalized

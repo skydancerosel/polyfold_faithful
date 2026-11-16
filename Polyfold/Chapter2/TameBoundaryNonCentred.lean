@@ -132,42 +132,6 @@ section Helpers
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-/-- Sc-smoothness on an open set is local (as `IsScSmoothOn.of_locally` of
-`Polyfold/Chapter7/Discrete.lean`, restated to keep the imports of Chapter 2). -/
-private theorem isScSmoothOn_of_locally_nc {f : X → Y} {U : Set X} (hU : IsOpen U)
-    (h : ∀ x ∈ U, ∃ U' : Set X, IsOpen U' ∧ x ∈ U' ∧ U' ⊆ U ∧ P.IsScSmoothOn Q f U') :
-    P.IsScSmoothOn Q f U := by
-  have hcont : ContinuousOn f U := fun x hx => by
-    obtain ⟨U', hU', hxU', -, hf⟩ := h x hx
-    exact (hf.continuousOn.continuousAt (hU'.mem_nhds hxU')).continuousWithinAt
-  refine IsScSmoothOn.of_exists_charts hU hcont fun x hx => ?_
-  obtain ⟨U', hU', hxU', hU'U, hf⟩ := h x hx
-  obtain ⟨φ, hφ, hxφ⟩ := P.exists_isChart_mem_source x
-  obtain ⟨ψ, hψ, hfx⟩ := Q.exists_isChart_mem_source (f x)
-  set V := (U' ∩ φ.source) ∩ f ⁻¹' ψ.source with hV
-  have hVo : IsOpen V := (hf.continuousOn.mono inter_subset_left).isOpen_inter_preimage
-    (hU'.inter φ.isOpen_source) ψ.isOpen_source
-  exact ⟨φ, ψ, V, hφ, hψ, hVo, ⟨⟨hxU', hxφ⟩, hfx⟩, fun y hy => ⟨hU'U hy.1.1, hy.1.2⟩,
-    fun y hy => hy.2, hf.smooth φ ψ hφ hψ V hVo (fun y hy => hy.1) fun y hy => hy.2⟩
-
-/-- A map into a sub-M-polyfold `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into `Y`
-(near `x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A`, Proposition 2.3.19 (preprint 2.21) (2); as the
-private `isScSmoothOn_subPolyfold_of_val` of `Polyfold/Chapter7/SubGroupoid.lean`). -/
-private theorem isScSmoothOn_subPolyfold_of_val_nc {A : Set Y} (hA : Q.IsSubMPolyfold A)
-    [ParacompactSpace A] {f : X → A} {U : Set X}
-    (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
-    P.IsScSmoothOn (subPolyfold hA) f U := by
-  refine isScSmoothOn_of_locally_nc hf.isOpen fun x hx => ?_
-  set d := hA.data (f x).2
-  have hU' : IsOpen (U ∩ (fun x => (f x : Y)) ⁻¹' d.V) :=
-    hf.continuousOn.isOpen_inter_preimage hf.isOpen d.isOpen
-  refine ⟨_, hU', ⟨hx, hA.mem_data_V (f x).2⟩, inter_subset_left, ?_⟩
-  refine (IsScSmoothOn.comp (subPolyfold_retraction_isScSmooth hA d (f x))
-    (hf.mono hU' inter_subset_left) fun y hy => hy.2).congr fun y hy => Subtype.ext ?_
-  simp only [Function.comp_apply]
-  rw [d.retractInto_val (f x) hy.2]
-  exact d.apply_eq_self ⟨(f y).2, hy.2⟩
-
 end Helpers
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
@@ -196,7 +160,7 @@ theorem phiTot_isScSmoothOn (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degInd
     (P.tameBoundaryPolyfold hP).IsScSmoothOn (P.facePolyfold hP t.mem.1.1 t.mem_faces.1)
       (P.phiTot hP t) (uSet _ t) := by
   let _ := P.paracompactSpace_subtype t.θ
-  refine isScSmoothOn_subPolyfold_of_val_nc
+  refine MPolyfold.isScSmoothOn_subPolyfold_of_val
     (P.isSubMPolyfold_of_isFaceIn hP t.mem.1.1 t.mem_faces.1) ?_
   refine ((P.tameBoundaryMap_isScSmooth hP).mono (isOpen_uSet _ t) (subset_univ _)).congr
     fun p hp => ?_
@@ -213,7 +177,7 @@ theorem phiInv_isScSmoothOn (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degInd
       (phiInv _ t) (P.reachSet hP t) := by
   classical
   let _ := P.paracompactSpace_subtype t.θ
-  refine isScSmoothOn_of_locally_nc (P.isOpen_reachSet hP t) fun y₀ hy₀ => ?_
+  refine MPolyfold.IsScSmoothOn.of_locally (P.isOpen_reachSet hP t) fun y₀ hy₀ => ?_
   obtain ⟨hp₀, hp₀y⟩ := phiInv_spec _ t hy₀
   obtain ⟨s, hs, hsU⟩ := (isOpen_iff_forall_uSet _).1 (isOpen_uSet _ t) _ hp₀
   obtain ⟨s', hs', hs'c, hs's⟩ := BTriple.exists_centred_subset _ s
@@ -245,7 +209,7 @@ theorem phiInv_isScSmoothOn (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degInd
     simp only [j, dif_pos (hOθ y hy)]
   have hjs : (P.facePolyfold hP t.mem.1.1 t.mem_faces.1).IsScSmoothOn
       (P.facePolyfold hP s'.mem.1.1 s'.mem_faces.1) j O := by
-    refine isScSmoothOn_subPolyfold_of_val_nc
+    refine MPolyfold.isScSmoothOn_subPolyfold_of_val
       (P.isSubMPolyfold_of_isFaceIn hP s'.mem.1.1 s'.mem_faces.1) ?_
     exact ((subPolyfold_inclusion_isScSmooth
       (P.isSubMPolyfold_of_isFaceIn hP t.mem.1.1 t.mem_faces.1)).mono hOo

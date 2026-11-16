@@ -1,5 +1,5 @@
 import Polyfold.Chapter2.TangentSpaceLinear
-import Polyfold.Chapter8.TangentLocal
+import Polyfold.Chapter2.TangentMapLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §2.3, Definition 2.3.14

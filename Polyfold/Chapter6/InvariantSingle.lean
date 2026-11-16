@@ -1,4 +1,4 @@
-import Polyfold.Chapter9.SolutionFaceForms
+import Polyfold.Chapter6.SolutionFaceForms
 import Polyfold.Chapter6.SolutionSetOpen
 import Polyfold.Chapter5.CylinderPerturbation
 import Polyfold.Chapter6.PerturbedOrientation

@@ -25,6 +25,9 @@ homotopy class with end points fixed" (p. 228).
 ## Reading
 
 Paths are on `ℝ` and only `[0, 1]` matters (decision D2).
+
+Sc-smooth maps preserve smooth points (`mem_smoothSet_of_isScSmoothMap`):
+`Chapter5/SmoothSetMaps.lean`.
 -/
 
 open Set Filter Topology Function
@@ -42,11 +45,6 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 lemma contDiff_pt1_comp₂ {σ : (Fin 2 → ℝ) → ℝ} (hσ : ContDiff ℝ ∞ σ) :
     ContDiff ℝ ∞ fun q => pt1 (σ q) :=
   contDiff_pi.2 fun _ => hσ
-
-/-- **The values of an sc-smooth map `ℝⁿ → X` are smooth points.** -/
-theorem mem_smoothSet_of_isScSmoothMap {n : ℕ} {γ : (Fin n → ℝ) → X}
-    (hγ : (rnPolyfold n).IsScSmoothMap PX γ) (p : Fin n → ℝ) : γ p ∈ PX.smoothSet :=
-  mem_iInter.2 fun m => hγ.mapsTo_levelSet m (by rw [rnPolyfold_levelSet]; exact mem_univ p)
 
 /-- `s ↦ pt2 (σ₁ s) (σ₂ s)` is `C^∞` for `C^∞` maps `σ₁, σ₂ : ℝᵏ → ℝ`. -/
 theorem contDiff_pt2_comp {k : ℕ} {σ₁ σ₂ : (Fin k → ℝ) → ℝ} (h₁ : ContDiff ℝ ∞ σ₁)

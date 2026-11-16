@@ -1,8 +1,8 @@
 import Polyfold.Chapter16.TangentPolyfold
 import Polyfold.Chapter10.EquivalenceReduced
-import Polyfold.Chapter8.EpFormsFunctor
-import Polyfold.Chapter7.SmoothRegularAssembly
-import Polyfold.Chapter7.ZhouLevels
+import Polyfold.Chapter10.EpFormsFunctor
+import Polyfold.Chapter8.SmoothRegularAssembly
+import Polyfold.Chapter8.ZhouLevels
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §16.2, pp. 715 and 717:

@@ -27,7 +27,7 @@ The wedge product (so `Ω*_∞(X)` as a graded differential algebra: `ScFormsWed
 `ScFormsWedgeAssociativity.lean`), the pull-back `f^*` along sc-smooth maps between M-polyfolds and
 `f^* ∘ d = d ∘ f^*` (p. 198: `ScFormsPullback.lean`), forms on `∂X` and the relative complex
 `Ω*_∞(X, ∂X)` (`BoundaryForms.lean`, `BoundaryFormsAgreement.lean`), and the restriction of
-sc-forms to finite-dimensional sub-M-polyfolds (`Chapter9/MathlibFormsBridge.lean`).
+sc-forms to finite-dimensional sub-M-polyfolds (`Chapter6/MathlibFormsBridge.lean`).
 -/
 
 open Set Function

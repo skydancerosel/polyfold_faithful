@@ -101,7 +101,7 @@ theorem arc_transport {a b : A.Obj} {i : S.I a} {j : S.I b} {φ : A.Mor}
   | @nil ha z hz i =>
     rw [A.X.src_unit] at hφ ⊢
     rw [A.X.tgt_unit]
-    exact (fibAct_unit' (D.P_s a ha i z ⟨S.V_subset a ha hz, hφ⟩)).symm
+    exact (fibAct_unit (D.P_s a ha i z ⟨S.V_subset a ha hz, hφ⟩)).symm
   | @snoc b c i j k φ ψ h hc hs ht hp ih =>
     have hsφ : A.X.src φ ∈ A.X.PObj.boundary := by rwa [A.X.src_comp _ _ hs] at hφ
     have hpr := h.props
@@ -110,7 +110,7 @@ theorem arc_transport {a b : A.Obj} {i : S.I a} {j : S.I b} {φ : A.Mor}
     have e₂ := D.compat b hpr.2.1 c hc ψ ⟨by rw [hs]; exact hpr.2.2.2, by rw [hs]; exact htφ⟩
       ht j k hp
     rw [A.X.tgt_comp _ _ hs, A.X.src_comp _ _ hs, e₂, hs, e₁,
-      fibAct_comp' (D.P_s a hpr.1 i _ ⟨S.V_subset a hpr.1 hpr.2.2.1, hsφ⟩) hs]
+      fibAct_comp (D.P_s a hpr.1 i _ ⟨S.V_subset a hpr.1 hpr.2.2.1, hsφ⟩) hs]
 
 /-- `i ∼_z i'` with `z ∈ V_a = V̂_a ∩ ∂X` gives `s^{0a}_i(z) = s^{0a}_{i'}(z)`. -/
 theorem zRel_sections_eq {a z : A.Obj} {i i' : S.I a} (h : S.ZRel a z i i')
@@ -118,7 +118,7 @@ theorem zRel_sections_eq {a z : A.Obj} {i i' : S.I a} (h : S.ZRel a z i i')
   have e := D.arc_transport h (by rw [A.X.src_unit]; exact hz)
   rw [A.X.tgt_unit, A.X.src_unit] at e
   have ha := (ZSetup.Arc.props h).1
-  rw [e, fibAct_unit' (D.P_s a ha i z ⟨S.V_subset a ha h.mem_V, hz⟩)]
+  rw [e, fibAct_unit (D.P_s a ha i z ⟨S.V_subset a ha h.mem_V, hz⟩)]
 
 /-- **Proposition 14.4.6 (2) at points of `V_a`, p. 661**: if `z₀ ∈ V_a = V̂_a ∩ ∂X` and
 `i ∼_{z₀} i'`, then `s^{0a}_i = s^{0a}_{i'}` on a neighbourhood of `z₀` in `∂X` (by

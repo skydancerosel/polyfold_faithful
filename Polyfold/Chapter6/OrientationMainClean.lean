@@ -1,7 +1,7 @@
 import Polyfold.Chapter6.OrientationSpace
 import Polyfold.Chapter6.SolutionOrientationCharts
-import Polyfold.Chapter2.SmoothPaths
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter5.SmoothPaths
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 273–276:

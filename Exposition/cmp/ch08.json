@@ -53,12 +53,12 @@
    "lean": {
     "statement": "`tangentPreimage U` $= p^{-1}(U)$ is open in $TX$ (`isOpen_tangentPreimage`) and is the tangent of the open sub-M-polyfold $U$ (`isScDiffeoOn_tangentMap_subtypeVal`, `isOpenEmbedding_tangentMap_subtypeVal`). For $f$ sc-smooth on an open $U$, `tangentMapOn` is its tangent on $p^{-1}(U)$: sc-smooth (`tangentMapOn_isScSmoothOn`), over $f$ (`levelVal_tangentProj_tangentMapOn`), with the chain rule (`tangentMapOn_comp`, `tangentMap_tangentMapOn`), and equal to Part I's tangent for a globally sc-smooth $f$ (`tangentMapOn_eq_tangentMap`). The tangent of an sc-diffeomorphism $U \\to V$ is an sc-diffeomorphism $p^{-1}(U) \\to p^{-1}(V)$, bijective on the fibres (`IsScDiffeoOn.tangent`, `IsScDiffeoOn.tangentMap`, `IsScDiffeoOn.bijOn_tangentFiber`); the tangent of a local sc-diffeomorphism is one, bijective on every fibre, and surjective if the map is (`IsLocalScDiffeo.tangentMap`, `IsLocalScDiffeo.bijOn_tangentFiber`, `IsLocalScDiffeo.surjective_tangentMap`). `nonempty_tangentSpace`: the tangent of a nonempty M-polyfold is nonempty.",
     "decls": [
-     "Chapter8/TangentLocal · MPolyfold.tangentPreimage",
+     "Chapter2/TangentMapLocal · MPolyfold.tangentPreimage",
      "Chapter8/TangentLocal · MPolyfold.isOpen_tangentPreimage",
-     "Chapter8/TangentLocal · MPolyfold.tangentMapOn",
-     "Chapter8/TangentLocal · MPolyfold.levelVal_tangentProj_tangentMapOn",
-     "Chapter8/TangentLocal · MPolyfold.tangentMapOn_eq_tangentMap",
-     "Chapter8/TangentLocal · MPolyfold.tangentMapOn_comp",
+     "Chapter2/TangentMapLocal · MPolyfold.tangentMapOn",
+     "Chapter2/TangentMapLocal · MPolyfold.levelVal_tangentProj_tangentMapOn",
+     "Chapter2/TangentMapLocal · MPolyfold.tangentMapOn_eq_tangentMap",
+     "Chapter2/TangentMapLocal · MPolyfold.tangentMapOn_comp",
      "Chapter8/TangentEp · MPolyfold.tangentMap_tangentMapOn",
      "Chapter8/TangentLocal · MPolyfold.tangentMapOn_isScSmoothOn",
      "Chapter8/TangentLocal · MPolyfold.IsScDiffeoOn.tangent",
@@ -69,7 +69,7 @@
      "Chapter8/TangentLocal · MPolyfold.IsLocalScDiffeo.bijOn_tangentFiber",
      "Chapter8/TangentLocal · MPolyfold.isScDiffeoOn_tangentMap_subtypeVal",
      "Chapter8/TangentLocal · MPolyfold.isOpenEmbedding_tangentMap_subtypeVal",
-     "Chapter8/TangentLocal · MPolyfold.nonempty_tangentSpace"
+     "Chapter2/TangentMapLocal · MPolyfold.nonempty_tangentSpace"
     ]
    },
    "chips": [
@@ -342,10 +342,10 @@
      "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.tangentMor_trivialZ3",
      "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.remark_8_1_10_not_injective",
      "Chapter9/Tangent · EpGroupoid.tangentMor_eq_tangentMapOn_hat",
-     "Chapter7/TangentMorphism · EpGroupoid.bijOn_tangentMor",
-     "Chapter7/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
-     "Chapter7/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
-     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear",
+     "Chapter9/TangentMorphism · EpGroupoid.bijOn_tangentMor",
+     "Chapter9/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
+     "Chapter9/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
+     "Chapter9/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear",
      "Chapter8/TangentPairs · EpGroupoid.tangentPairsPolyfold",
      "Chapter8/TangentPairs · EpGroupoid.remarkGInto",
      "Chapter8/TangentPairs · EpGroupoid.remark_8_1_10_scDiffeo",
@@ -546,25 +546,25 @@
     "decls": [
      "Chapter3/ParamPerturbation · StrongBundle.pullback",
      "Chapter2/StrongBundle · pullbackSpace",
-     "Chapter8/StrongBundleMap · StrongBundle.paracompactSpace_pullback",
-     "Chapter8/StrongBundleMap · StrongBundle.pullback_atlas",
-     "Chapter8/StrongBundleMap · PullbackChartData.exists_mem_atlas",
-     "Chapter8/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackProj",
-     "Chapter8/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackProj'",
-     "Chapter8/StrongBundleMap · StrongBundle.isScSmoothOn_to_pullback_iff",
-     "Chapter8/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackPair",
-     "Chapter8/StrongBundleMap · pullbackPair",
-     "Chapter8/StrongBundleMap · StrongBundle.isScDiffeoOn_pullbackProj'",
-     "Chapter8/StrongBundleMap · StrongBundle.isLocalScDiffeo_pullbackProj'",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleMap",
-     "Chapter8/StrongBundleMap · fiberRestrict",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleMap.fiberMap",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleMap.isScSmoothMap_base",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleMap.comp",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleMap.mapsTo_doubleLevel",
-     "Chapter8/StrongBundleMap · StrongBundle.IsStrongBundleIso",
-     "Chapter8/StrongBundleMap · StrongBundle.isStrongBundleMap_pullbackProj'",
-     "Chapter8/StrongBundleMap · MPolyfold.isScSmoothMap_of_forall_charts"
+     "Chapter5/StrongBundleMap · StrongBundle.paracompactSpace_pullback",
+     "Chapter5/StrongBundleMap · StrongBundle.pullback_atlas",
+     "Chapter5/StrongBundleMap · PullbackChartData.exists_mem_atlas",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackProj",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothOn_to_pullback_iff",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackPair",
+     "Chapter5/StrongBundleMap · pullbackPair",
+     "Chapter5/StrongBundleMap · StrongBundle.isScDiffeoOn_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.isLocalScDiffeo_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleMap",
+     "Chapter5/StrongBundleMap · fiberRestrict",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleMap.fiberMap",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleMap.isScSmoothMap_base",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleMap.comp",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleMap.mapsTo_doubleLevel",
+     "Chapter5/StrongBundleMap · StrongBundle.IsStrongBundleIso",
+     "Chapter5/StrongBundleMap · StrongBundle.isStrongBundleMap_pullbackProj'",
+     "Chapter5/StrongBundleMap · MPolyfold.isScSmoothMap_of_forall_charts"
     ]
    },
    "chips": [
@@ -1282,7 +1282,7 @@
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.proposition_8_6_4",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.fiberCardFunctor",
      "Chapter7/EpGroupoid · EpGroupoid.trivial",
-     "Chapter7/Discrete · discretePolyfold"
+     "Chapter6/Discrete · discretePolyfold"
     ]
    },
    "chips": [
@@ -1368,11 +1368,11 @@
    "lean": {
     "statement": "`nonEffectivePart_tangent_eq_of_isLUC` and `proposition_8_1_17_one_of_isLUC`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_two_of_isSLUC`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$, and `EP.proposition_8_1_17_two_all_of_isSLUC` (V8.52) gives (SLUC) for $TX$; no added hypothesis. The forms under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ and that $p : T\\mathbf X \\to \\mathbf X^1$ is open are kept: `nonEffectivePart_tangent_eq`, `proposition_8_1_17_one`, `proposition_8_1_17_two`; with the openness of $p$ only, `proposition_8_1_17_one_of_isOpenMap`. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_one_point`.",
     "decls": [
-     "Chapter7/SmoothRegularAssembly · EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC",
-     "Chapter7/SmoothRegularAssembly · EpGroupoid.proposition_8_1_17_one_of_isLUC",
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_of_isSLUC",
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
-     "Chapter7/SmoothConnectedReps · EpGroupoid.proposition_8_1_17_one_of_isOpenMap",
+     "Chapter8/SmoothRegularAssembly · EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC",
+     "Chapter8/SmoothRegularAssembly · EpGroupoid.proposition_8_1_17_one_of_isLUC",
+     "Chapter8/SmoothRegularAssembly · EP.proposition_8_1_17_two_of_isSLUC",
+     "Chapter8/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
+     "Chapter8/SmoothConnectedReps · EpGroupoid.proposition_8_1_17_one_of_isOpenMap",
      "Chapter8/TangentZhou · EpGroupoid.nonEffectivePart_tangent_eq",
      "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_one",
      "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_two",
@@ -1480,9 +1480,9 @@
      "Chapter8/TangentZhou · EpStrongBundle.natLift",
      "Chapter8/TangentZhou · EpStrongBundle.IsLR",
      "Chapter8/TangentZhou · EpStrongBundle.isLR_trivial",
-     "Chapter8/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
-     "Chapter8/BundleLocalRegularity · EpGroupoid.eq_of_isRegular_src",
-     "Chapter8/BundleLocalRegularity · EpStrongBundle.exists_mor_of_π_eq",
+     "Chapter10/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
+     "Chapter10/BundleLocalRegularity · EpGroupoid.eq_of_isRegular_src",
+     "Chapter10/BundleLocalRegularity · EpStrongBundle.exists_mor_of_π_eq",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal.isLR",
      "Chapter10/LocalizationLRBundleBase · EpStrongBundle.isLRLocal_trivial",
@@ -1590,12 +1590,12 @@
      "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv",
      "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv",
      "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_μ",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_isStrongBundle",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv",
-     "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_μ",
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021_isStrongBundle",
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB",
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv",
+     "Chapter10/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
     ]
    },
    "chips": [
@@ -1619,8 +1619,8 @@
    "lean": {
     "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift_of_isSLUC`: under (SLUC) every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_of_isSLUC`: `A.tangentEP.IsSLUC`; no other hypothesis. The forms with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$ are kept: `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all`. Witness: `Examples.proposition_8_1_17_two_all_pointEP`.",
     "decls": [
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
-     "Chapter7/SmoothRegularAssembly · EP.isLUC_tangent_lift_of_isSLUC",
+     "Chapter8/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
+     "Chapter8/SmoothRegularAssembly · EP.isLUC_tangent_lift_of_isSLUC",
      "Chapter8/TangentZhouLevels · MPolyfold.ScEquiv.toHomeomorph",
      "Chapter8/TangentZhouLevels · EP.tangentEP",
      "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv",
@@ -1660,23 +1660,23 @@
    "lean": {
     "statement": "`EpGroupoid.epForms X k` is the vector space $\\Omega^k_{ep}(X)$: the families $\\omega$ with $\\omega \\in \\Omega^k(X)$ (`MPolyfold.scForms`, Definition 4.4.1 for the object M-polyfold) and $(T\\varphi)^*\\omega_y = \\omega_x$ for every $\\varphi \\in \\mathbf X_1$ (`IsMorCompatible`, with $T\\varphi$ the bounded linear isomorphism `tangentMorCLE`, V7.5). `isMorCompatible_iff_formPullback`: the condition is $s^*\\omega = t^*\\omega$ on the morphism M-polyfold. `formLower_mem_epForms`: a form on $X$ is a form on $X^1$; `EP.epForms A k i` is $\\Omega^k_{ep}(X^i)$ for Chapter 7's index lifts, `EP.epFormsMap` the directed system, `EP.epFormsInfty A k` $= \\Omega^k_{ep,\\infty}(X)$ its direct limit (`Module.DirectLimit`), with `exists_epFormsInftyOf_eq` and `epFormsInftyOf_eq_iff` (two forms represent the same class iff their pull-backs to some $X^l$ agree). `extD_mem_epForms`: $d\\omega$ is compatible with morphisms; `EP.epFormsInftyD`, $d[\\omega] = [d\\omega]$ (`epFormsInftyD_of`), $d \\circ d = 0$ (`epFormsInftyD_comp_epFormsInftyD`). Also `formWedge_mem_epForms`, `formPullback_mem_epForms` (pull-back by sc-smooth functors) and `formPullback_eq_of_natTrans`. Witness: `constForm_mem_epForms`.",
     "decls": [
-     "Chapter8/EpForms · EpGroupoid.IsMorCompatible",
-     "Chapter8/EpForms · EpGroupoid.epForms",
-     "Chapter8/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
-     "Chapter8/EpForms · EpGroupoid.formLower_mem_epForms",
-     "Chapter8/EpForms · EpGroupoid.extD_mem_epForms",
-     "Chapter8/EpForms · EpGroupoid.formWedge_mem_epForms",
-     "Chapter8/EpForms · EpGroupoid.formPullback_mem_epForms",
-     "Chapter8/EpForms · EpGroupoid.formPullback_eq_of_natTrans",
-     "Chapter8/EpForms · EpGroupoid.constForm_mem_epForms",
-     "Chapter8/EpForms · EP.epForms",
-     "Chapter8/EpForms · EP.epFormsMap",
-     "Chapter8/EpForms · EP.epFormsInfty",
-     "Chapter8/EpForms · EP.exists_epFormsInftyOf_eq",
-     "Chapter8/EpForms · EP.epFormsInftyOf_eq_iff",
-     "Chapter8/EpForms · EP.epFormsInftyD",
-     "Chapter8/EpForms · EP.epFormsInftyD_of",
-     "Chapter8/EpForms · EP.epFormsInftyD_comp_epFormsInftyD"
+     "Chapter9/EpForms · EpGroupoid.IsMorCompatible",
+     "Chapter9/EpForms · EpGroupoid.epForms",
+     "Chapter9/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+     "Chapter9/EpForms · EpGroupoid.formLower_mem_epForms",
+     "Chapter9/EpForms · EpGroupoid.extD_mem_epForms",
+     "Chapter9/EpForms · EpGroupoid.formWedge_mem_epForms",
+     "Chapter9/EpForms · EpGroupoid.formPullback_mem_epForms",
+     "Chapter9/EpForms · EpGroupoid.formPullback_eq_of_natTrans",
+     "Chapter9/EpForms · EpGroupoid.constForm_mem_epForms",
+     "Chapter9/EpForms · EP.epForms",
+     "Chapter9/EpForms · EP.epFormsMap",
+     "Chapter9/EpForms · EP.epFormsInfty",
+     "Chapter9/EpForms · EP.exists_epFormsInftyOf_eq",
+     "Chapter9/EpForms · EP.epFormsInftyOf_eq_iff",
+     "Chapter9/EpForms · EP.epFormsInftyD",
+     "Chapter9/EpForms · EP.epFormsInftyD_of",
+     "Chapter9/EpForms · EP.epFormsInftyD_comp_epFormsInftyD"
     ]
    },
    "chips": [
@@ -1699,17 +1699,17 @@
    "lean": {
     "statement": "`EP.epFormsInftyGraded A` $= \\bigoplus_k \\Omega^k_{ep,\\infty}(X)$ with `epFormsInftyGradedD`, `epFormsInftyGradedD_comp_self` ($d \\circ d = 0$); as a cochain complex of real vector spaces `EP.epDeRhamComplex A`; its cohomology `EP.epDeRham A k` ($\\ker d / \\operatorname{im} d$). It is a subcomplex of Part I's $(\\Omega^*_\\infty(X), d)$ for the object M-polyfold (`epFormsInftyToObj`, injective, a chain map: `epFormsInftyToObj_injective`, `formsInftyD_comp_epFormsInftyToObj`). Beyond the text of §8.2: the pull-back $F^*$ by sc-smooth functors with $d F^* = F^* d$ (`EP.epFormsInftyPullback`, `epFormsInftyD_comp_epFormsInftyPullback`), invariant under natural equivalence (`epFormsInftyPullback_eq_of_natTrans`), the functor case of Theorem 11.2.1 (2).",
     "decls": [
-     "Chapter8/EpForms · EP.epFormsInftyGraded",
-     "Chapter8/EpForms · EP.epFormsInftyGradedD",
-     "Chapter8/EpForms · EP.epFormsInftyGradedD_comp_self",
-     "Chapter8/EpForms · EP.epDeRham",
-     "Chapter8/EpFormsObj · EP.epDeRhamComplex",
-     "Chapter8/EpFormsObj · EP.epFormsInftyToObj",
-     "Chapter8/EpFormsObj · EP.epFormsInftyToObj_injective",
-     "Chapter8/EpFormsObj · EP.formsInftyD_comp_epFormsInftyToObj",
-     "Chapter8/EpFormsFunctor · EP.epFormsInftyPullback",
-     "Chapter8/EpFormsFunctor · EP.epFormsInftyD_comp_epFormsInftyPullback",
-     "Chapter8/EpFormsFunctor · EP.epFormsInftyPullback_eq_of_natTrans"
+     "Chapter9/EpForms · EP.epFormsInftyGraded",
+     "Chapter9/EpForms · EP.epFormsInftyGradedD",
+     "Chapter9/EpForms · EP.epFormsInftyGradedD_comp_self",
+     "Chapter9/EpForms · EP.epDeRham",
+     "Chapter9/EpFormsObj · EP.epDeRhamComplex",
+     "Chapter9/EpFormsObj · EP.epFormsInftyToObj",
+     "Chapter9/EpFormsObj · EP.epFormsInftyToObj_injective",
+     "Chapter9/EpFormsObj · EP.formsInftyD_comp_epFormsInftyToObj",
+     "Chapter10/EpFormsFunctor · EP.epFormsInftyPullback",
+     "Chapter10/EpFormsFunctor · EP.epFormsInftyD_comp_epFormsInftyPullback",
+     "Chapter10/EpFormsFunctor · EP.epFormsInftyPullback_eq_of_natTrans"
     ]
    },
    "chips": [
@@ -1743,7 +1743,7 @@
      "Chapter11/TranslationAverage · EpGroupoid.NaturalRep.exists_primitive_translation",
      "Chapter11/FormAveraging · EP.exists_primitive_of_average",
      "Chapter11/FormAveraging · EP.exists_primitive_of_equivalence",
-     "Chapter8/EpPoincare · EP.proposition_8_2_3_object"
+     "Chapter9/EpPoincare · EP.proposition_8_2_3_object"
     ]
    },
    "chips": [
@@ -1768,14 +1768,14 @@
     "V8.54"
    ],
    "decls": [
-    "Chapter8/EpForms · EpGroupoid.epForms",
-    "Chapter8/EpForms · EpGroupoid.IsMorCompatible",
-    "Chapter8/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
-    "Chapter8/EpForms · EP.epFormsInfty",
-    "Chapter8/EpForms · EP.epFormsInftyD",
-    "Chapter8/EpForms · EP.epFormsInftyD_comp_epFormsInftyD",
-    "Chapter8/EpFormsObj · EP.epDeRhamComplex",
-    "Chapter8/EpFormsObj · EP.epFormsInftyToObj"
+    "Chapter9/EpForms · EpGroupoid.epForms",
+    "Chapter9/EpForms · EpGroupoid.IsMorCompatible",
+    "Chapter9/EpForms · EpGroupoid.isMorCompatible_iff_formPullback",
+    "Chapter9/EpForms · EP.epFormsInfty",
+    "Chapter9/EpForms · EP.epFormsInftyD",
+    "Chapter9/EpForms · EP.epFormsInftyD_comp_epFormsInftyD",
+    "Chapter9/EpFormsObj · EP.epDeRhamComplex",
+    "Chapter9/EpFormsObj · EP.epFormsInftyToObj"
    ]
   },
   {
@@ -1810,7 +1810,7 @@
    "decls": [
     "Chapter8/BundleOrbitParacompact · EpStrongBundle.proposition_8_4_1_one_iff_two",
     "Chapter8/Book · EpStrongBundle.proposition_8_4_1_two_imp_one",
-    "Chapter8/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
+    "Chapter10/BundleLocalRegularity · EpStrongBundle.proposition_8_4_3",
     "Chapter8/TangentZhou · EpStrongBundle.IsLR",
     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1",
     "Chapter8/BundleOrbitParacompactOne · EpStrongBundle.proposition_8_4_1_one_iff_three",
@@ -1834,7 +1834,7 @@
     "Chapter11/EpPoincareLemma · EP.proposition_8_2_3",
     "Chapter11/EpPoincareLemma · EP.proposition_8_2_3_of_isOpen",
     "Chapter11/SubGroupoidModel · EP.isEquivalence_modelFunctor",
-    "Chapter8/EpPoincare · EP.proposition_8_2_3_object"
+    "Chapter9/EpPoincare · EP.proposition_8_2_3_object"
    ]
   },
   {
@@ -1864,12 +1864,12 @@
    "label": "§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)",
    "page": 395,
    "book": "The pull-back $F^*V$, with $\\mu_{F^*V}(\\varphi, (y, v)) = (t(\\varphi), \\mu_X(F(\\varphi), v))$, is a strong bundle over the ep-groupoid $Y$, and $B : W \\to F^*V$ is a strong bundle isomorphism over $Y$.",
-   "instead": "**Formalized**: $\\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter8/PullbackStrongBundle.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).",
+   "instead": "**Formalized**: $\\mu_{F^*V}$ satisfies Definition 8.3.1 (`pullbackBundle2021`, Chapter 10's `pullbackAlong`, `Chapter10/PullbackStrongBundle.lean`), and $B$, $B^{-1}$ are maps over the ep-groupoid $Y$ in the sense of Definition 8.3.2 (`lemma_8_5_10_full`, V8.51) (Findings, Chapter 8, items 122, 129).",
    "decls": [
     "Chapter8/Book · EpStrongBundle.pullbackμ",
     "Chapter8/Book · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10",
-    "Chapter8/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
-    "Chapter8/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
+    "Chapter10/PullbackStrongBundle · EpStrongBundle.pullbackBundle2021",
+    "Chapter10/PullbackStrongBundle · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full"
    ],
    "formalized": [
     "V8.51"

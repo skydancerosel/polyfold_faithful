@@ -1,5 +1,5 @@
 import Polyfold.Chapter11.FormDescent
-import Polyfold.Chapter8.EpForms
+import Polyfold.Chapter9.EpForms
 import Polyfold.Chapter10.WeakFibredProductTheorem
 
 /-!

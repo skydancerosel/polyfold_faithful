@@ -39,9 +39,9 @@ points `ψ'(x)`.
   `G″`, which is where the shrinking enters (through the contraction radii and the lifts of
   Theorem 3.5.1 (preprint 3.40) inside `G″₁`).
 * The push-forward `t` of the sc⁺-section is an sc-smooth germ on `G″` when `s` is one on `G_s`
-  (germ composition with the whole-chart `Ψ[1]` and `ψ'`); that composition is not proved here
-  (germ calculus, `GermCalculus.lean`), so `exists_stabilityData_shrinkGerm` takes it as a
-  hypothesis.
+  (germ composition with the whole-chart `Ψ[1]` and `ψ'`; the composition lemmas are
+  `IsScSmooth.comp_germ` and `IsScSmoothGerm.comp_preimage` in `GermCalculus.lean`);
+  `exists_stabilityData_shrinkGerm` takes this germ property of `t` as the hypothesis `ht`.
 -/
 
 open Set Filter Topology Function ContinuousLinearMap

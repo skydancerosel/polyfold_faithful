@@ -41,7 +41,7 @@ is `C^l` for `0 ≤ l ≤ k`.  (Proposition 1.2.4 (preprint 1.19)) If `f : U_{m+
   `k` under the hypothesis "`f : U_m → F_m` is `C^{k+1}` for every `m`" — are in
   `Polyfold/Chapter1/Levels.lean`, built on the base cases of this file.  The text's weaker
   hypothesis of Proposition 1.2.4 (preprint 1.19) for `k ≥ 1` (`f : U_{m+l} → F_m` of class `C^{l+1}`, `l ≤ k`) is
-  treated in `Polyfold/Chapter1/LevelsWeak.lean`.
+  treated in `Polyfold/Chapter2/LevelsWeak.lean`.
 
 ## What the text leaves implicit
 

@@ -1,5 +1,5 @@
 import Polyfold.Chapter11.SubGroupoidModel
-import Polyfold.Chapter8.EpPoincare
+import Polyfold.Chapter9.EpPoincare
 import Polyfold.Chapter7.NaturalRep
 
 /-!

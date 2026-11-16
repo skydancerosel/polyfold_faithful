@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.Measure
-import Polyfold.Chapter11.BranchedEquivalenceTangent
+import Polyfold.Chapter9.SubmanifoldTangentImage
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

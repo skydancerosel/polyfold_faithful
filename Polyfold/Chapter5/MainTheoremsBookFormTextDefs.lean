@@ -1,5 +1,5 @@
 import Polyfold.Chapter5.MainTheoremsBookForm
-import Polyfold.Chapter3.MainTheorems
+import Polyfold.Chapter5.MainTheorems
 
 /-!
 # Theorems 5.3.10 and 5.3.12 in the book's form, with the 2021 definitions

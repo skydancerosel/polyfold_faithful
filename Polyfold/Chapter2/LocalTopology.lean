@@ -1,5 +1,5 @@
 import Polyfold.Chapter2.Metrizable
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -132,7 +132,7 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
 * **Lemma 2.2.2**: the open neighbourhood `V(x)` of `x` in `U` is `V' ∩ U` with `V'` open in `E₀`.
 * **Theorem 2.2.4 and Proposition 2.3.7** were already formalized (Chapter 7 needed them, 2017
   p. 183 recalls them without proof): `IsScRetract.locallyPathConnectedSpace` and
-  `MPolyfold.locallyPathConnectedSpace` in `Chapter7/LocConnected.lean`, whose proof joins nearby
+  `MPolyfold.locallyPathConnectedSpace` in `Chapter2/LocConnected.lean`, whose proof joins nearby
   points by `τ ↦ r(o + τ(p − o))` rather than through Lemma 2.2.2 and components.  Definition
   2.2.3 is Mathlib's `LocallyPathConnectedSpace` (`definition_2_2_3`).
 * **Definition 2.2.5**: `[0, 1]` is `unitInterval`; `Φ` is a continuous map `I × W(z) → Z` with
@@ -760,7 +760,7 @@ theorem proposition_2_3_6 {x : X} {N : Set X} (hN : N ∈ 𝓝 x) :
   exact ⟨W, V, hW, hV, hxV, subset_closure.trans hVW, hWN, hVW, hm⟩
 
 /-- **Proposition 2.3.7 (2021)**: every M-polyfold is locally path-connected.  This is
-`MPolyfold.locallyPathConnectedSpace` (`Chapter7/LocConnected.lean`). -/
+`MPolyfold.locallyPathConnectedSpace` (`Chapter2/LocConnected.lean`). -/
 theorem proposition_2_3_7 : LocallyPathConnectedSpace X :=
   P.locallyPathConnectedSpace
 
@@ -1017,7 +1017,7 @@ theorem definition_2_2_3 {Z : Type*} [TopologicalSpace Z] :
       exact mem_of_superset (hWo.mem_nhds hzW) hWt
 
 /-- **Theorem 2.2.4 (2021)**: an sc-smooth retract `(O, C, E)` is locally path-connected.  This is
-`IsScRetract.locallyPathConnectedSpace` (`Chapter7/LocConnected.lean`). -/
+`IsScRetract.locallyPathConnectedSpace` (`Chapter2/LocConnected.lean`). -/
 theorem theorem_2_2_4 {O : Set (E 0)} (h : IsScRetract E C O) :
     LocallyPathConnectedSpace O :=
   h.locallyPathConnectedSpace

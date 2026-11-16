@@ -1,6 +1,6 @@
 import Polyfold.Chapter5.PartitionsOfUnity
 import Polyfold.Chapter5.StrongBundleShift
-import Polyfold.Chapter3.IndexAlongPathsDevice
+import Polyfold.Chapter5.IndexAlongPathsDevice
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017 book), Part II, Chapter 7, §7.1,

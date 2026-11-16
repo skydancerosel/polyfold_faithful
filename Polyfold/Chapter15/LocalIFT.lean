@@ -1,11 +1,12 @@
-import Polyfold.Chapter15.LocalScPlus
+import Polyfold.Chapter14.LocalScPlus
 import Polyfold.Chapter5.GeneralPosition
 import Polyfold.Chapter3.GlobalIFTNearbyOntoG
 import Polyfold.Chapter3.GlobalIFTIndexG
-import Polyfold.Chapter3.SolutionTangentKernel
+import Polyfold.Chapter5.SolutionTangentKernel
 import Polyfold.Chapter8.TangentLocal
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter11.FaceIntersectionCounterexample
+import Polyfold.Chapter15.LinearizationIntrinsic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 15,

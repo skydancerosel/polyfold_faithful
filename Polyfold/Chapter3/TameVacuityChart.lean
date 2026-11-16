@@ -11,7 +11,7 @@ compatible strong bundle chart has a tame base retraction**
 `htame : ∀ c, B.IsChart c → (base retraction of c).IsTame` (every compatible chart) fails for this
 bundle, while the hypotheses of the §3.6 theorems as formalized hold for it
 (`TrivialBundle.hypotheses_theorem_3_6_11_graphSection_wholeChart`): the bundle
-separates the two forms (`TrivialBundle.htame_fails_repaired_holds_wholeChart`).
+separates the two forms (`TrivialBundle.htame_fails_hypotheses_theorem_3_6_11_hold_wholeChart`).
 
 The chart is the construction of item 190: the model `(ℝ ⊕ ℝ⁰) ⊕ ℝⁿ` with the partial quadrant
 `[0, ∞) × ℝⁿ`, the retraction `r(a, u) = (1, u)` (the product of the constant retraction
@@ -251,7 +251,7 @@ theorem not_forall_isTame_of_isChart :
 /-- **The trivial bundle separates `htame` from the hypotheses of Theorem 3.6.11**: for a surjective linear
 `L : ℝⁿ → ℝᵏ`, the graph section of `L` meets the hypotheses of Theorem 3.6.11 (preprint 3.57), while the
 hypothesis `htame` (every compatible chart has a tame base retraction) fails for the bundle. -/
-theorem htame_fails_repaired_holds_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
+theorem htame_fails_hypotheses_theorem_3_6_11_hold_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
     ((bundle n k).IsScFredholmSectionWholeChart (graphSection L) ∧
       ∀ x, IsZeroAt (proj n k) (graphSection L) x →
         (bundle n k).IsGoodPositionGermTameWholeChart (graphSection L) x) ∧

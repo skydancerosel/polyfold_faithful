@@ -1,12 +1,12 @@
-import Polyfold.Chapter2.SmoothPaths
-import Polyfold.Chapter3.IndexAlongPathsIntervalTextDefs
+import Polyfold.Chapter5.SmoothPaths
+import Polyfold.Chapter5.IndexAlongPathsIntervalTextDefs
 import Polyfold.Chapter2.Metrizable
 import Polyfold.Chapter4.Characterization
 import Polyfold.Chapter5.StrongBundleShift
 import Polyfold.Chapter6.PathCategory
-import Polyfold.Chapter6.ScPaths
+import Polyfold.Chapter5.ScPaths
 import Polyfold.Chapter6.PathsInterval
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, p. 240, the

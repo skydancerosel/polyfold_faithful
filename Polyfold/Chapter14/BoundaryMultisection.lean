@@ -1,7 +1,7 @@
 import Polyfold.Chapter14.GoodBoundary
 import Polyfold.Chapter13.GoodSystemExistence
 import Polyfold.Chapter13.MultisectionSymmetric
-import Polyfold.Chapter5.BoundaryExtension
+import Polyfold.Chapter12.BoundaryExtension
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §14.1, pp. 642–643:
@@ -325,19 +325,6 @@ theorem isBoundaryScPlusMultisection_zero (hX : A.X.IsTame) :
 
 /-! ### Proposition 14.1.4 -/
 
-/-- `μ(ψ ∘ γ, v) = μ(ψ, μ(γ, v))`. -/
-theorem fibAct_comp' {ψ γ : A.Mor} {v : A.W} (h₁ : A.P v = A.X.src γ)
-    (h₂ : A.X.src ψ = A.X.tgt γ) : fibAct (A.X.comp ψ γ) v = fibAct ψ (fibAct γ v) := by
-  have h₃ : A.P (A.E.μ ⟨(γ, v), h₁⟩) = A.X.src ψ := by rw [A.E.P_μ]; exact h₂.symm
-  rw [fibAct_of (h₁.trans (A.X.src_comp ψ γ h₂).symm), fibAct_of h₁, fibAct_of h₃]
-  exact A.E.μ_comp ψ γ v h₁ h₂
-
-/-- `μ(1_y, v) = v`. -/
-theorem fibAct_unit' {v : A.W} {y : A.Obj} (h : A.P v = y) : fibAct (A.X.unit y) v = v := by
-  subst h
-  rw [fibAct_of (A.X.src_unit _).symm]
-  exact A.E.μ_unit v
-
 section Average
 
 variable {x : A.Obj} (V : A.X.NatNbhd x) {I : Type u} [MulAction (A.X.Isotropy x) I]
@@ -397,7 +384,7 @@ theorem avgTerm_equivariant (hσ : ∀ k, ∀ y ∈ V.U, A.P (σ k y) = y) (g h 
     rw [hσ _ _ hz, V.src_Γ _ hz]
   have h₂ : A.X.src (V.rep.Γ h y) = A.X.tgt (V.rep.Γ (g * h)⁻¹ z) := by
     rw [V.src_Γ h hy, V.tgt_Γ _ hz, hz_def, V.Φ_inv_Φ _ hy]
-  rw [← fibAct_comp' h₁ h₂]
+  rw [← fibAct_comp h₁ h₂]
   congr 1
   have hyz : V.rep.Φ (g * h)⁻¹ z = y := V.Φ_inv_Φ _ hy
   have e := V.Γ_mul h (g * h)⁻¹ hz
@@ -480,9 +467,9 @@ theorem avgSection_eq_of_equivariant (hσ : ∀ k, IsScPlusSectionOn A (σ k) V.
   have hP : A.P (σ j y) = y := (hσ j).1 y hyU
   have hterm : ∀ g, avgTerm V σ g j y = σ j y := fun g => by
     rw [avgTerm_apply (fun k => (hσ k).1) g j hyU, heq g j y hy,
-      ← fibAct_comp' (by rw [hP, V.src_Γ g hyU]) (by rw [V.src_Γ _ (V.Φ_mem g hyU),
+      ← fibAct_comp (by rw [hP, V.src_Γ g hyU]) (by rw [V.src_Γ _ (V.Φ_mem g hyU),
         V.tgt_Γ g hyU]), V.Γ_mul g⁻¹ g hyU, inv_mul_cancel, V.Γ_one hyU]
-    exact fibAct_unit' hP
+    exact fibAct_unit hP
   rw [avgSection_apply hσ j hyU]
   have hsum : (∑ g, (⟨avgTerm V σ g j y, P_avgTerm hσ g j hyU⟩ : A.P ⁻¹' {y})) =
       (Fintype.card (A.X.Isotropy x) : ℝ) • (⟨σ j y, hP⟩ : A.P ⁻¹' {y}) := by

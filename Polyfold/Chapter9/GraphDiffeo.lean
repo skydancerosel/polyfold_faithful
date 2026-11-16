@@ -1,5 +1,4 @@
 import Polyfold.Chapter9.GraphCoord
-import Polyfold.Chapter11.BranchedEquivalenceTangent
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

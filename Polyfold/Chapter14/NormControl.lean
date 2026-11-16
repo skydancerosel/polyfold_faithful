@@ -33,7 +33,7 @@ pointwise norm is continuous, there is a saturated open neighbourhood `G` of `�
   `∂X = ∅` (with `Λ'' = 0`), a satisfiability witness.
 * Tools: `isOpen_pointwiseNorm_lt` (`{N(Λ) < f}` is open, from the local representations and
   the continuity of `N`), `pointwiseNorm_tgt` (`N(Λ)` is a functor), `pointwiseNorm_smulFun_le`
-  (`N(β ⊙ Λ) ≤ |β| N(Λ)`), `isSaturated_closure`, `domSupp_zeroMultisection'`.
+  (`N(β ⊙ Λ) ≤ |β| N(Λ)`), `isSaturated_closure`, `domSupp_zeroMultisection`.
 
 ## Reading
 
@@ -219,7 +219,7 @@ theorem multisectionSmulFun_of_eq_one {β : A.Obj → ℝ} {Λ : A.W → ℚ≥0
   rw [h, if_neg one_ne_zero, inv_one, one_smul]
   rfl
 
-theorem domSupp_zeroMultisection' : domSupp (zeroMultisection A) = ∅ := by
+theorem domSupp_zeroMultisection : domSupp (zeroMultisection A) = ∅ := by
   classical
   rw [domSupp, closure_empty_iff, eq_empty_iff_forall_notMem]
   rintro x ⟨w, rfl, hw, hpos⟩
@@ -249,7 +249,7 @@ theorem theorem_14_1_9_extension_statement_of_boundary_eq_empty
     (hb : A.X.PObj.boundary = ∅) : theorem_14_1_9_extension_statement A := by
   intro _ hpara _ Λ _ Ũ _ _ _
   refine ⟨zeroMultisection A, isStructurable_zeroMultisection hpara, ?_, fun w hw => ?_⟩
-  · rw [domSupp_zeroMultisection']; exact empty_subset _
+  · rw [domSupp_zeroMultisection]; exact empty_subset _
   · rw [hb] at hw; exact absurd hw (notMem_empty _)
 
 /-- **2021 Theorem 14.1.9 (∂-Extension Theorem), p. 646 (2017: Theorem 14.2)**, from the

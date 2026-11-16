@@ -236,7 +236,7 @@ for a human reviewer to judge.
   chart (`StrongBundle.linAt_isScFredholm`; V3.46, V3.96), filler condition (3) on every level at a
   zero, the converse of Proposition 3.5 in sc form, the index locally constant in sc form (V3.98
   under good position). Findings Ch. 3 items 237–239.
-* `Chapter3/IndexLocallyConstant.lean`: the index locally constant along the zero set without good
+* `Chapter5/IndexLocallyConstant.lean`: the index locally constant along the zero set without good
   position, for tame germ data and bump functions (V3.98 (b) under these hypotheses; the general
   case is open, Findings Ch. 3 items 240–244).
 * Since phase 2 (above) these files hold the whole-chart forms (`proposition_3_6_5_sc_wholeChart`,
@@ -257,14 +257,14 @@ for a human reviewer to judge.
 * **Definition 6.1 and Proposition 6.2** (V3.98 (a); Findings Ch. 3 items 340–348):
   `StrongBundle.IsIndexAt` (well defined without Proposition 1.10), `proposition_6_2_2` by the text's
   device, for tame germ data on M-polyfolds admitting bump functions and sc-smooth paths `ℝ → X`
-  (`Chapter3/IndexAlongPaths.lean`, `Chapter3/IndexAlongPathsDevice.lean`). Item 243 sharpened: the
+  (`Chapter5/IndexAlongPaths.lean`, `Chapter5/IndexAlongPathsDevice.lean`). Item 243 sharpened: the
   candidate counterexample of items 188, 243 is excluded under tame germ data (item 343).
 * **Proposition 6.2 without bump functions** (V3.98; commit 12924a4; Findings Ch. 3 items 349,
   360–367): restriction of M-polyfolds and strong bundles to open sets (`StrongBundle.restrictOpen`),
   Definition 6.1 with the text's locally defined sections (`StrongBundle.IsIndexAtLocal`, agreeing
   with `IsIndexAt` under bump functions, `isIndexAtLocal_iff_isIndexAt`), the index locally constant
   along the zero set for tame germ data (`index_locally_constant_tame`) and Proposition 6.2 with the
-  text's hypotheses (`proposition_6_2_2_local`; `Chapter3/IndexAlongPathsLocal.lean`).
+  text's hypotheses (`proposition_6_2_2_local`; `Chapter5/IndexAlongPathsLocal.lean`).
 * **Remark 4.3's example** (V4.6; gap G.31; Findings Ch. 4 items 140–146): `remark_4_1_3_example`, an
   M-polyfold with `X₀ = X_∞` and `1₀¹` not sc-smooth (even the topologies of `X` and `X¹` differ),
   from a retraction that loses a level, sc-smooth by a new criterion (`IsLossFamily.isScSmooth`,
@@ -302,7 +302,7 @@ theorem of the project):
 The audit was run against the project before commit b4d1d8c. Since then (452a9b3 … d0b6817)
 Definitions 3.3 and 3.11 and the notions built on them were switched in place to the text's germ
 reading (142 theorems swapped names: old `X` → `X_wholeChart`, germ `X_germ` → `X`; the phase-2
-names survive as aliases, `Chapter3/GermReadingAliases.lean`), and the comparison rows gained
+names survive as aliases, `Chapter5/GermReadingAliases.lean`), and the comparison rows gained
 declarations (the audit's glue moved into the project, sc-level theory, Remark 2.28, Corollary 5.8,
 Proposition 6.2, Remark 4.3's example, the metric `ρ`). The inputs were regenerated
 (`make_inputs.py`), all 269 blind statements recompiled unchanged against HEAD (none edited; none

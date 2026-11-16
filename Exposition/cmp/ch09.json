@@ -49,14 +49,14 @@
      "Chapter9/GeneralLevelZero · MPolyfold.hasDimAt_finrank",
      "Chapter9/GeneralLevelZero · ScRetraction.eventually_finrank_eq",
      "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general",
-     "Chapter9/Propositions · MPolyfold.HasDimAt",
-     "Chapter9/Propositions · MPolyfold.finrank_tangentSpace_chart_change",
-     "Chapter9/Propositions · MPolyfold.HasDimAt.finrank_eq",
+     "Chapter6/SubmanifoldDimension · MPolyfold.HasDimAt",
+     "Chapter6/SubmanifoldDimension · MPolyfold.finrank_tangentSpace_chart_change",
+     "Chapter6/SubmanifoldDimension · MPolyfold.HasDimAt.finrank_eq",
      "Chapter9/Propositions · MPolyfold.HasDimAt.unique",
      "Chapter9/Propositions · MPolyfold.IsSmoothSubmanifold.exists_hasDimAt",
-     "Chapter9/Propositions · MPolyfold.hasDimAt_inter_isOpen_iff",
+     "Chapter6/SubmanifoldDimension · MPolyfold.hasDimAt_inter_isOpen_iff",
      "Chapter9/Propositions · MPolyfold.hasDimAt_image_iff",
-     "Chapter9/Propositions · MPolyfold.IsSubmanifoldOfDim",
+     "Chapter6/SubmanifoldDimension · MPolyfold.IsSubmanifoldOfDim",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.IsOfDim",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dim_unique",
      "Chapter9/Propositions · EpGroupoid.IsNDimensional",
@@ -242,7 +242,7 @@
      "Chapter9/Basic · EpGroupoid.IsManifoldType",
      "Chapter9/Basic · EpGroupoid.isManifoldType_indicator",
      "Chapter9/SupportManifold · EpGroupoid.proposition_9_1_9_one",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text"
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text"
     ]
    },
    "chips": [
@@ -1157,8 +1157,8 @@
      "Chapter9/BoundaryPosition · MPolyfold.hasTameInducedStructure_of_degIndex_eq_zero",
      "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.isManifold",
      "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
-     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace"
+     "Chapter6/CornerCoordinates · MPolyfold.cornerChartedSpace",
+     "Chapter6/CornerCoordinates · MPolyfold.isManifold_cornerChartedSpace"
     ]
    },
    "chips": [
@@ -1961,15 +1961,15 @@
      "Chapter9/MeasureEffective · EpGroupoid.LocalBranchingStructure.toReduced",
      "Chapter9/MeasureEffective · EpGroupoid.card_effIsotropy_eq_reduced",
      "Chapter9/BranchedIntegral · EpGroupoid.proposition_9_5_13_1",
-     "Chapter9/ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
-     "Chapter9/ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
-     "Chapter9/ReducedIntegral · EpGroupoid.orbitSuppHomeomorphReduced",
-     "Chapter9/ReducedRep · EpGroupoid.NaturalRep.toReduced",
-     "Chapter9/ReducedRep · EpGroupoid.OrientedTameStructure.toReduced",
-     "Chapter9/ReducedRep · EpGroupoid.SheetIntegration.toReduced",
-     "Chapter9/ReducedRep · EpGroupoid.IsOrientation.toReduced",
-     "Chapter9/ReducedRep · EpGroupoid.tangentMor_reducedπ",
-     "Chapter9/ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2"
+     "Chapter10/ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
+     "Chapter10/ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
+     "Chapter10/ReducedIntegral · EpGroupoid.orbitSuppHomeomorphReduced",
+     "Chapter10/ReducedRep · EpGroupoid.NaturalRep.toReduced",
+     "Chapter10/ReducedRep · EpGroupoid.OrientedTameStructure.toReduced",
+     "Chapter10/ReducedRep · EpGroupoid.SheetIntegration.toReduced",
+     "Chapter10/ReducedRep · EpGroupoid.IsOrientation.toReduced",
+     "Chapter10/ReducedRep · EpGroupoid.tangentMor_reducedπ",
+     "Chapter10/ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2"
     ]
    },
    "chips": [
@@ -2168,14 +2168,14 @@
     "statement": "(1) `proposition_9_1_9_one`: for $\\Theta$ of manifold type, $\\mathrm{supp}(\\Theta)$ is a smooth finite-dimensional submanifold with trivial isotropy (`subsingleton_isotropy_of_isManifoldType`), and $Z = |\\mathrm{supp}(\\Theta)|$, a subspace of $|X|$, carries an M-polyfold structure for which $a \\mapsto |a|$ is a local sc-diffeomorphism, descended with the text's charts $\\Psi_x$ (`MPolyfold.descend`, `isLocalScDiffeo_descend`); any two M-polyfold structures on $Z$ with this property agree (`proposition_9_1_9_one_unique`), which is the reading of \"natural\". (2) `proposition_9_1_9_two_text`: for $\\Theta$ of orbifold type, $\\mathrm{supp}(\\Theta) \\ne \\emptyset$ and every choice $c$ of local branching structures (`SheetChoice`, `nonempty_sheetChoice`), $\\mathrm{supp}(\\Theta)$ is a smooth submanifold and $\\mathrm{supp}(\\Theta) \\cap U(x) = M_x$ (`supp_inter_eq_of_isOrbifoldType`); the text's groupoid $M$ with objects $\\bigsqcup M_x$ and morphisms $\\bigsqcup M(x, x')$ is an ep-groupoid, the refinement of Proposition 10.1.3 (`textGroupoid`); the functor $M \\to \\mathrm{supp}(\\Theta)$ to the full ep-subgroupoid is an equivalence (Definition 10.1.1), and $|\\beta| : |M| \\cong Z$, $|(x, y)| \\mapsto |y|$ (`textOrbitHomeomorph`). Two choices $c$, $c'$ give $M_c \\leftarrow M_{c,c'} \\to M_{c'}$, both legs equivalences, a generalized isomorphism of $\\mathrm{EP}(\\mathcal E^{-1})$ commuting with the maps to $Z$ (`proposition_9_1_9_two_independent`, through `OpenCover.isEquivalence_refineFunctor`). Also `proposition_9_1_9_two`: the full ep-subgroupoid on $\\mathrm{supp}(\\Theta)$ has orbit space homeomorphic to $Z$ (`orbitSuppHomeomorph`).",
     "decls": [
      "Chapter9/SupportManifold · EpGroupoid.proposition_9_1_9_one",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_one_unique",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_one_unique",
      "Chapter9/SupportOrbifold · EpGroupoid.proposition_9_1_9_two",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_independent",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.textGroupoid",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.textOrbitHomeomorph",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.OpenCover.isEquivalence_refineFunctor",
-     "Chapter9/SupportGroupoidNaturality · EpGroupoid.nonempty_sheetChoice",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_independent",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.textGroupoid",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.textOrbitHomeomorph",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.OpenCover.isEquivalence_refineFunctor",
+     "Chapter10/SupportGroupoidNaturality · EpGroupoid.nonempty_sheetChoice",
      "Chapter9/SupportOrbifold · EpGroupoid.supp_inter_eq_of_isOrbifoldType",
      "Chapter9/SupportOrbifold · EpGroupoid.isSmoothSubmanifold_supp_of_isOrbifoldType",
      "Chapter9/SupportOrbifold · EpGroupoid.isEpSubgroupoid_supp_of_isOrbifoldType",
@@ -2185,7 +2185,7 @@
      "Chapter9/DescentPolyfold · MPolyfold.IsDescentMap",
      "Chapter9/DescentPolyfold · MPolyfold.descend",
      "Chapter9/DescentPolyfold · MPolyfold.isLocalScDiffeo_descend",
-     "Chapter9/XAxisWitness · EpGroupoid.remark_9_1_10_hypotheses_axis"
+     "Chapter10/XAxisWitness · EpGroupoid.remark_9_1_10_hypotheses_axis"
     ]
    },
    "chips": [
@@ -2209,15 +2209,15 @@
    "lean": {
     "statement": "For $\\Theta$ $n$-dimensional (`IsNDimensional Θ n`) with $d_{|X|} = 0$ on $Z = |\\mathrm{supp}(\\Theta)|$: `remark_9_1_10_manifold`: in case (1) the M-polyfold structure of V9.64 has a corner structure of dimension $n$ with degeneracy index $0$, and $Z$ with its interior charted space is a Mathlib manifold, `IsManifold (𝓡 n) ∞`; $\\mathrm{supp}(\\Theta) \\to Z$ is a Mathlib local diffeomorphism (`remark_9_1_10_manifold_proj`). `remark_9_1_10_orbifold`: in case (2), for every choice of structures, the object space $\\bigsqcup M_x$ and the morphism space of the text's groupoid $M$ are Mathlib $n$-manifolds and $|M| \\cong Z$; `remark_9_1_10_orbifold_etale`: source, target, unit, inverse and the equivalence $M \\to \\mathrm{supp}(\\Theta)$ on objects are Mathlib local diffeomorphisms (`MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo`). The x-axis of $\\mathbb R^2$ satisfies all the hypotheses together, including $\\mathrm{supp}(\\Theta) \\ne \\emptyset$ ($n = 1$, `remark_9_1_10_hypotheses_axis`). The second paragraph is Remark 9.1.4 (V9.63) and V9.64 (paracompactness of $|X|$ not used).",
     "decls": [
-     "Chapter9/SupportClassicalStructures · EpGroupoid.remark_9_1_10_manifold",
-     "Chapter9/SupportClassicalStructures · EpGroupoid.remark_9_1_10_orbifold",
-     "Chapter9/SupportClassicalStructures · MPolyfold.HasCornerStructureOfDim.of_isLocalScDiffeo_surjective",
-     "Chapter9/SupportClassicalStructures · EpGroupoid.isSubmanifoldOfDim_supp",
-     "Chapter9/SupportClassicalStructures · EpGroupoid.hasCornerStructureOfDim_subObj",
-     "Chapter9/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_orbifold_etale",
-     "Chapter9/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_manifold_proj",
-     "Chapter9/SupportGroupoidEtale · MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo",
-     "Chapter9/XAxisWitness · EpGroupoid.remark_9_1_10_hypotheses_axis"
+     "Chapter10/SupportClassicalStructures · EpGroupoid.remark_9_1_10_manifold",
+     "Chapter10/SupportClassicalStructures · EpGroupoid.remark_9_1_10_orbifold",
+     "Chapter10/SupportClassicalStructures · MPolyfold.HasCornerStructureOfDim.of_isLocalScDiffeo_surjective",
+     "Chapter10/SupportClassicalStructures · EpGroupoid.isSubmanifoldOfDim_supp",
+     "Chapter10/SupportClassicalStructures · EpGroupoid.hasCornerStructureOfDim_subObj",
+     "Chapter10/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_orbifold_etale",
+     "Chapter10/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_manifold_proj",
+     "Chapter10/SupportGroupoidEtale · MPolyfold.isLocalDiffeomorph_of_isLocalScDiffeo",
+     "Chapter10/XAxisWitness · EpGroupoid.remark_9_1_10_hypotheses_axis"
     ]
    },
    "chips": [
@@ -2604,15 +2604,15 @@
    ],
    "decls": [
     "Chapter9/SupportManifold · EpGroupoid.proposition_9_1_9_one",
-    "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_one_unique",
-    "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text",
-    "Chapter9/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_independent",
+    "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_one_unique",
+    "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_text",
+    "Chapter10/SupportGroupoidNaturality · EpGroupoid.proposition_9_1_9_two_independent",
     "Chapter9/SupportOrbifold · EpGroupoid.proposition_9_1_9_two",
     "Chapter9/DescentPolyfold · MPolyfold.descend",
-    "Chapter9/SupportClassicalStructures · EpGroupoid.remark_9_1_10_manifold",
-    "Chapter9/SupportClassicalStructures · EpGroupoid.remark_9_1_10_orbifold",
-    "Chapter9/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_orbifold_etale",
-    "Chapter9/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_manifold_proj"
+    "Chapter10/SupportClassicalStructures · EpGroupoid.remark_9_1_10_manifold",
+    "Chapter10/SupportClassicalStructures · EpGroupoid.remark_9_1_10_orbifold",
+    "Chapter10/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_orbifold_etale",
+    "Chapter10/SupportGroupoidEtale · EpGroupoid.remark_9_1_10_manifold_proj"
    ]
   },
   {
@@ -2748,9 +2748,9 @@
    "book": "In particular every $M_i$ of a tame $\\Theta$ has an equivalent structure of a smooth manifold with boundary with corners.",
    "instead": "**Formalized** (V9.34). For a tame local branching structure whose sheets have dimension $n$, each sheet $M_i$, with the subspace topology and the charted space of its induced corner structure, satisfies `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`TameBranchingStructure.isManifold`). The partial quadrants of the corner charts are moved into the full quadrant $[0, \\infty)^n$, since a Mathlib manifold has one model (`HasCornerStructureOfDim`, `cornerChartedSpace`, `isManifold_cornerChartedSpace`, `Chapter9/MathlibManifoldBridge.lean`). The same bridge gives Theorem 4.2.7 (V4.41) and the solution sets of Chapters 3, 5 and 6 as Mathlib manifolds (V3.24, V3.94, V5.38, V6.61) (Findings, Chapter 9, items 55, 109).",
    "decls": [
-    "Chapter9/MathlibManifoldBridge · MPolyfold.HasCornerStructureOfDim",
-    "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
-    "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace",
+    "Chapter6/CornerCoordinates · MPolyfold.HasCornerStructureOfDim",
+    "Chapter6/CornerCoordinates · MPolyfold.cornerChartedSpace",
+    "Chapter6/CornerCoordinates · MPolyfold.isManifold_cornerChartedSpace",
     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim",
     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.isManifold"
    ],
@@ -2802,7 +2802,7 @@
     "Chapter9/FaceOrientation · MPolyfold.dense_faceStratum",
     "Chapter9/FaceOrientation · MPolyfold.hasTameInducedStructure_of_hasCornerStructureOfDim",
     "Chapter9/FaceOrientation · TangentOrientation.eq_of_eqOn_dense",
-    "Chapter9/FaceOrientation · det_cons_neg_stdFrame_faceEmbedding",
+    "Chapter6/InducedOrientationFrames · det_cons_neg_stdFrame_faceEmbedding",
     "Chapter9/FaceOrientation · orientation_consFaceBasis_eq_iff",
     "Chapter9/FaceOrientation · consFaceBasis",
     "Chapter9/BoundaryIntegralStratum · EP.boundaryIntegral_eq_msInteg"
@@ -2988,9 +2988,9 @@
     "Chapter9/DensitySignedMeasure · EpGroupoid.branchedMeasureEff_eq_setIntegral_mul",
     "Chapter9/DensitySignedMeasure · EpGroupoid.branchedMeasure_eq_jordan",
     "Chapter9/SignedMeasureIntegrals · SignedDensity.setIntegral_eq_jordan",
-    "Chapter9/ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
-    "Chapter9/ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
-    "Chapter9/ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2",
+    "Chapter10/ReducedIntegral · EpGroupoid.proposition_9_5_13_2",
+    "Chapter10/ReducedIntegral · EpGroupoid.proposition_9_5_13_2_measure",
+    "Chapter10/ReducedCircle · EpGroupoid.circle_proposition_9_5_13_2",
     "Chapter9/LevelRestrict · EP.epFormsInftyEval_integ_eq_integral"
    ],
    "formalized": [

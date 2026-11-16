@@ -1,3 +1,4 @@
+import Polyfold.Chapter6.InducedOrientationFrames
 import Polyfold.Chapter9.BoundaryOrientation
 import Polyfold.Chapter9.StokesFaceSum
 
@@ -35,9 +36,9 @@ inputs: those points are dense in `F` (`dense_faceStratum`), and two continuous 
 orientations agreeing on a dense set are equal (`TangentOrientation.eq_of_eqOn_dense`).
 
 The linear algebra: `det(−eᵢ, ιᵢ v₁, …, ιᵢ v_m) = faceSign i · det v`
-(`det_cons_neg_stdFrame_faceEmbedding`), and the basis `(−eᵢ, ιᵢ b)` of `ℝᵐ⁺¹`
-(`consFaceBasis`) has orientation `ρ` iff `b` has the orientation Part I's rule assigns to `ρ`
-(`orientation_consFaceBasis_eq_iff`).
+(`det_cons_neg_stdFrame_faceEmbedding`, in `Chapter6/InducedOrientationFrames.lean`), and the
+basis `(−eᵢ, ιᵢ b)` of `ℝᵐ⁺¹` (`consFaceBasis`) has orientation `ρ` iff `b` has the orientation
+Part I's rule assigns to `ρ` (`orientation_consFaceBasis_eq_iff`).
 -/
 
 set_option maxSynthPendingDepth 3
@@ -59,25 +60,6 @@ universe u
 section LinAlg
 
 variable {m : ℕ}
-
-/-- **`det(−eᵢ, ιᵢ v₁, …, ιᵢ v_m) = faceSign i · det v`**, the determinants with respect to the
-standard bases (`ιᵢ = faceEmbedding i`). -/
-theorem det_cons_neg_stdFrame_faceEmbedding (i : Fin (m + 1))
-    (v : Fin m → EuclideanSpace ℝ (Fin m)) :
-    (EuclideanSpace.basisFun (Fin (m + 1)) ℝ).toBasis.det
-        (Fin.cons (-stdFrame (m + 1) i) (faceEmbedding i ∘ v)) =
-      faceSign i * (EuclideanSpace.basisFun (Fin m) ℝ).toBasis.det v := by
-  set b₁ := (EuclideanSpace.basisFun (Fin (m + 1)) ℝ).toBasis
-  set b₀ := (EuclideanSpace.basisFun (Fin m) ℝ).toBasis
-  set f : EuclideanSpace ℝ (Fin m) [⋀^Fin m]→ₗ[ℝ] ℝ :=
-    (b₁.det.curryLeft (-stdFrame (m + 1) i)).compLinearMap
-      (faceEmbedding i : EuclideanSpace ℝ (Fin m) →ₗ[ℝ] EuclideanSpace ℝ (Fin (m + 1)))
-  have hf : ∀ w, f w = b₁.det (Fin.cons (-stdFrame (m + 1) i) (faceEmbedding i ∘ w)) :=
-    fun w => rfl
-  have h := congrArg (fun g : EuclideanSpace ℝ (Fin m) [⋀^Fin m]→ₗ[ℝ] ℝ => g v)
-    (f.eq_smul_basis_det b₀)
-  simp only [AlternatingMap.smul_apply, smul_eq_mul] at h
-  rw [← hf, h, hf, coe_basisFun_toBasis, det_cons_neg_stdFrame_faceFrame]
 
 theorem faceSign_ne_zero (i : Fin (m + 1)) : faceSign i ≠ 0 :=
   pow_ne_zero _ (by norm_num)

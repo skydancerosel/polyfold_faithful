@@ -1,5 +1,5 @@
 import Polyfold.Chapter3.UnitIntervalPolyfold
-import Polyfold.Chapter6.OrientableNbhd
+import Polyfold.Chapter5.OrientableNbhd
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6,

@@ -1,5 +1,5 @@
 import Polyfold.Chapter9.BoundaryNotNull
-import Polyfold.Chapter9.SolutionFaces
+import Polyfold.Chapter6.SolutionFaces
 import Polyfold.Chapter9.BoundaryOrientationContinuity
 
 /-!

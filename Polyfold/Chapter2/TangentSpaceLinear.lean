@@ -75,7 +75,7 @@ space structure of `T_{φ(x)}O ⊆ E₀`; if `x ∈ X_∞`, `T_xX` is an sc-Bana
   instance on `T_xX` would conflict with the subspace topology of `TX`.
 * `MPolyfold.fiberMapCLM`: a map `T_xX → T_yY` which in charts is a continuous linear map
   `E → E'` is a continuous linear map; this is how tangent maps and `Tφ` of a morphism are made
-  linear (`TangentMapLinear.lean`, `Chapter7/TangentMorphismLinear.lean`).
+  linear (`TangentMapLinear.lean`, `Chapter9/TangentMorphismLinear.lean`).
 * The sc-Banach space structure of `T_xX` at a smooth `x` is formalized as the sc-subspace
   property of the model `T_{φ(x)}O ⊆ E` for every chart (`ScBanach.ofSubspace` then gives the
   sc-Banach space) together with the level-preservation of the transition maps; an `ScIso`

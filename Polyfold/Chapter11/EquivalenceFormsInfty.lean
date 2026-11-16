@@ -1,5 +1,5 @@
 import Polyfold.Chapter11.EquivalenceForms
-import Polyfold.Chapter8.EpFormsFunctor
+import Polyfold.Chapter10.EpFormsFunctor
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,

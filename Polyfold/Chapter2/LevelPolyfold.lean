@@ -257,6 +257,24 @@ theorem IsScSmoothOn.of_exists_charts {f : X → Y} {U : Set X} (hU : IsOpen U)
     simp only [Function.comp_apply, φ'.transition_apply φ (hV₀φ' hy), φ'.symm_apply_apply (hV₀φ' hy),
       φ.symm_apply_apply (hV₀φ hy), ψ.transition_apply ψ' (hfV hy.1)]
 
+/-- **Sc-smoothness on an open set is local**: if every `x ∈ U` has an open neighbourhood
+`U' ⊆ U` on which `f` is sc-smooth, then `f` is sc-smooth on `U`. -/
+theorem IsScSmoothOn.of_locally {f : X → Y} {U : Set X} (hU : IsOpen U)
+    (h : ∀ x ∈ U, ∃ U' : Set X, IsOpen U' ∧ x ∈ U' ∧ U' ⊆ U ∧ P.IsScSmoothOn Q f U') :
+    P.IsScSmoothOn Q f U := by
+  have hcont : ContinuousOn f U := fun x hx => by
+    obtain ⟨U', hU', hxU', -, hf⟩ := h x hx
+    exact (hf.continuousOn.continuousAt (hU'.mem_nhds hxU')).continuousWithinAt
+  refine IsScSmoothOn.of_exists_charts hU hcont fun x hx => ?_
+  obtain ⟨U', hU', hxU', hU'U, hf⟩ := h x hx
+  obtain ⟨φ, hφ, hxφ⟩ := P.exists_isChart_mem_source x
+  obtain ⟨ψ, hψ, hfx⟩ := Q.exists_isChart_mem_source (f x)
+  set V := (U' ∩ φ.source) ∩ f ⁻¹' ψ.source with hV
+  have hVo : IsOpen V := (hf.continuousOn.mono inter_subset_left).isOpen_inter_preimage
+    (hU'.inter φ.isOpen_source) ψ.isOpen_source
+  exact ⟨φ, ψ, V, hφ, hψ, hVo, ⟨⟨hxU', hxφ⟩, hfx⟩, fun y hy => ⟨hU'U hy.1.1, hy.1.2⟩,
+    fun y hy => hy.2, hf.smooth φ ψ hφ hψ V hVo (fun y hy => hy.1) fun y hy => hy.2⟩
+
 /-! ### The topological space `X_m` -/
 
 variable (P) in

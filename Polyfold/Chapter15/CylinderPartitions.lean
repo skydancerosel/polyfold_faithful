@@ -1,4 +1,4 @@
-import Polyfold.Chapter5.CubePartitions
+import Polyfold.Chapter6.CubePartitions
 import Polyfold.Chapter15.CylinderGlue
 
 /-!

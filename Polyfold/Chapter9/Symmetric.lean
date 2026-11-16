@@ -1,5 +1,6 @@
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter7.NaturalRep
+import Polyfold.Chapter4.SmoothSubmanifoldBasics
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
@@ -67,6 +68,10 @@ with `Θ(x) > 0` there are an open `U(x)` admitting the natural `G_x`-action, su
 * Not in this file: Remark 9.1.3 (b) (2017: Remark 9.2 (b)), two branching structures by graphs
   in `ℝ²`, which needs graphs of smooth functions as submanifolds of the M-polyfold `ℝ²`; it is
   `remark_9_1_3_b` (`Propositions.lean`).
+
+Basic facts on smooth submanifolds (`MPolyfold.IsScPlusRetractionOn.mono`,
+`MPolyfold.IsSmoothSubmanifold.inter_isOpen`, `MPolyfold.IsSmoothSubmanifold.exists_subset`):
+`Chapter4/SmoothSubmanifoldBasics.lean`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -83,48 +88,6 @@ universe u v
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
-
-/-- An sc⁺-retraction on `V` restricts to an sc⁺-retraction on every open `W ⊆ V` that it maps
-into itself. -/
-theorem IsScPlusRetractionOn.mono {s : X → X} {V W : Set X} (h : P.IsScPlusRetractionOn s V)
-    (hW : IsOpen W) (hWV : W ⊆ V) (hmaps : MapsTo s W W) : P.IsScPlusRetractionOn s W where
-  isScSmoothOn := h.isScSmoothOn.mono hW hWV
-  mapsTo := hmaps
-  idem x hx := h.idem x (hWV hx)
-  mem_levelSet x hx := h.mem_levelSet x (hWV hx)
-  isScSmoothOn_one x₀ := (h.isScSmoothOn_one x₀).mono hW hWV
-
-/-- The local data of Definition 4.13 for `A`, inside a given open `V`: every `a ∈ A ∩ V` has an
-open neighbourhood `W ⊆ V` with an sc⁺-retraction `s : W → W`, `s(W) = A ∩ W`
-(`W = V' ∩ V ∩ s⁻¹(V)` for the data `(V', s)` of `A` at `a`). -/
-theorem IsSmoothSubmanifold.exists_subset {A V : Set X} (hA : P.IsSmoothSubmanifold A)
-    (hV : IsOpen V) {a : X} (ha : a ∈ A) (haV : a ∈ V) :
-    ∃ W : Set X, IsOpen W ∧ a ∈ W ∧ W ⊆ V ∧
-      ∃ s : X → X, P.IsScPlusRetractionOn s W ∧ s '' W = A ∩ W := by
-  obtain ⟨V', hV', haV', s, hs, himg⟩ := hA a ha
-  have hsa : s a = a := by
-    obtain ⟨b, hb, hba⟩ := (himg.symm ▸ ⟨ha, haV'⟩ : a ∈ s '' V')
-    rw [← hba, hs.idem b hb]
-  have hWo : IsOpen (V' ∩ V ∩ s ⁻¹' V) :=
-    (hs.isScSmoothOn.continuousOn.mono inter_subset_left).isOpen_inter_preimage
-      (hV'.inter hV) hV
-  have hmaps : MapsTo s (V' ∩ V ∩ s ⁻¹' V) (V' ∩ V ∩ s ⁻¹' V) := fun y hy => by
-    refine ⟨⟨hs.mapsTo hy.1.1, hy.2⟩, ?_⟩
-    change s (s y) ∈ V
-    rw [hs.idem y hy.1.1]
-    exact hy.2
-  refine ⟨V' ∩ V ∩ s ⁻¹' V, hWo, ⟨⟨haV', haV⟩, by rw [mem_preimage, hsa]; exact haV⟩,
-    fun y hy => hy.1.2, s, hs.mono hWo (fun y hy => hy.1.1) hmaps, ?_⟩
-  ext z
-  constructor
-  · rintro ⟨y, hy, rfl⟩
-    have hz : s y ∈ s '' V' := ⟨y, hy.1.1, rfl⟩
-    rw [himg] at hz
-    exact ⟨hz.1, hmaps hy⟩
-  · rintro ⟨hzA, hz⟩
-    obtain ⟨b, hb, hbz⟩ := (himg.symm ▸ ⟨hzA, hz.1.1⟩ : z ∈ s '' V')
-    refine ⟨z, hz, ?_⟩
-    rw [← hbz, hs.idem b hb]
 
 /-- **The image of a submanifold under an sc-diffeomorphism**: if `f : U → U'` is an
 sc-diffeomorphism between open subsets (inverse `g`) and `A ⊆ U` is a smooth finite-dimensional
@@ -187,15 +150,6 @@ theorem IsSmoothSubmanifold.image_of_isScDiffeoOn {f : X → Y} {g : Y → X} {U
       refine ⟨f a', hz, ?_⟩
       simp only [Function.comp_apply]
       rw [hga', ← hwa, hs.idem w hw]
-
-/-- **An open piece of a submanifold is a submanifold**: if `A` is a smooth finite-dimensional
-submanifold (Definition 4.13) and `V` is open, then `A ∩ V` is one. -/
-theorem IsSmoothSubmanifold.inter_isOpen {A V : Set X} (hA : P.IsSmoothSubmanifold A)
-    (hV : IsOpen V) : P.IsSmoothSubmanifold (A ∩ V) := by
-  rintro a ⟨ha, haV⟩
-  obtain ⟨W, hW, haW, hWV, s, hs, himg⟩ := hA.exists_subset hV ha haV
-  refine ⟨W, hW, haW, s, hs, ?_⟩
-  rw [himg, inter_assoc, inter_eq_right.2 hWV]
 
 end MPolyfold
 

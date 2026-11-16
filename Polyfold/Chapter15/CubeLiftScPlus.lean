@@ -1,5 +1,5 @@
 import Polyfold.Chapter15.GlueStructurable
-import Polyfold.Chapter15.LocalScPlus
+import Polyfold.Chapter14.LocalScPlus
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3, proof of

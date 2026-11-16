@@ -1,7 +1,7 @@
 import Polyfold.Chapter7.Uniformizer
 import Polyfold.Chapter7.ProperSubsets
 import Polyfold.Chapter7.Michael
-import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter2.LocConnected
 import Mathlib.Topology.Metrizable.Urysohn
 
 /-!

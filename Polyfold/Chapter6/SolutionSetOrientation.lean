@@ -1,6 +1,6 @@
-import Polyfold.Chapter9.MathlibSolutionSets
+import Polyfold.Chapter6.MathlibSolutionSets
 import Polyfold.Chapter6.OrientationMainClean
-import Polyfold.Chapter6.ManifoldOrientation
+import Polyfold.Chapter4.ManifoldOrientation
 
 /-!
 # The natural orientation of the solution set as a Mathlib manifold
@@ -12,7 +12,7 @@ of the kernels `ker f'(x)` (`IsNaturalSolutionOrientation`), and `theorem_6_6_18
 makes `S` a Mathlib manifold with boundary and corners (`IsManifold (𝓠 d) ∞ S`).  Here the two
 are joined:
 `theorem_6_6_18_oriented` gives a continuous tangent orientation of that Mathlib manifold
-(`TangentOrientation.IsContinuous`, `Polyfold/Chapter6/ManifoldOrientation.lean`) which at every
+(`TangentOrientation.IsContinuous`, `Polyfold/Chapter4/ManifoldOrientation.lean`) which at every
 zero `x` is `o_x`, transported along the tangent map of `S ↪ X`.
 
 ## The construction

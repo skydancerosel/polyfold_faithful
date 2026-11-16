@@ -1,4 +1,4 @@
-import Polyfold.Chapter4.VectorFields
+import Polyfold.Chapter2.VectorFields
 import Polyfold.Chapter1.ScOneNotNormContinuous
 import Polyfold.Chapter2.TameFaces
 

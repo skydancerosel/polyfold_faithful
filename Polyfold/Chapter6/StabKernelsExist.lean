@@ -1,7 +1,7 @@
 import Polyfold.Chapter6.Propagation
 import Polyfold.Chapter6.ParamKernel
 import Polyfold.Chapter6.StabilizationContinuity
-import Polyfold.Chapter6.Lemma629
+import Polyfold.Chapter5.Lemma629
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,

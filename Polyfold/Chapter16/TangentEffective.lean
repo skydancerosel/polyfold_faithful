@@ -1,5 +1,5 @@
 import Polyfold.Chapter16.TangentFunctor
-import Polyfold.Chapter7.TangentMorphismLinear
+import Polyfold.Chapter9.TangentMorphismLinear
 import Polyfold.Chapter5.StrongBundleShift
 
 /-!

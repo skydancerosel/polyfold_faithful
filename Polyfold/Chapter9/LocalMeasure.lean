@@ -1,6 +1,7 @@
 import Polyfold.Chapter9.SheetIntegrationAbstract
 import Polyfold.Chapter9.MeasureEffective
 import Polyfold.Chapter7.Zhou
+import Polyfold.Chapter8.ZhouTangent
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),

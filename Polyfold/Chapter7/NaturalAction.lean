@@ -1,8 +1,8 @@
 import Polyfold.Chapter7.EpGroupoid
-import Polyfold.Chapter7.LocConnected
-import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter2.LocConnected
+import Polyfold.Chapter6.Discrete
 import Polyfold.Chapter7.LocalDiffeo
-import Polyfold.Chapter3.RestrictOpen
+import Polyfold.Chapter5.RestrictOpen
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.1,
