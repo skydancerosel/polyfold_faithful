@@ -8761,7 +8761,9 @@ read it.
      6.6.16) and the continuity clause of `IsNaturalSolutionOrientation` quantify over orientable neighbourhoods
      (`IsOrientableNbhd`, Definition 6.6.12), which need `HasLocalPropagation`, whose push-forward data ask for
      sc⁺-sections over all of $\mathbb R \times X$; orientable neighbourhoods are obtained from bump functions
-     (`exists_isOrientableNbhd`). Near a point that has none, the hypothesis that $o$ is an orientation and the
+     (`exists_isOrientableNbhd`), so with bump functions, as in the text's setting from §6.3 on and on every
+     M-polyfold built on sc-Hilbert spaces, every smooth point has one and every clause has content. Near a point
+     that has none, the hypothesis that $o$ is an orientation and the
      continuity clause are empty conditions; the chart clause (`tangentOrAt_toChartOr`) is pointwise and keeps its
      content. No M-polyfold without such sections is known to us, so this is a possibility, not an example. A form on
      the local orientation sets `OrxLoc` would need the continuity clause stated with them and the proof redone there.
