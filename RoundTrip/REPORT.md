@@ -4,9 +4,9 @@ Layer 1 (statements). Method and how to run: `README.md`.
 
 ## Coverage
 
-**All 604 items** of the comparison that are not labelled *extra* or *gap* (Chapter 1: 31, Chapter 2: 58,
+**All 604 items** of the comparison that are not labelled *extra* or *not formalized* (Chapter 1: 31, Chapter 2: 58,
 Chapter 3: 95, Chapter 4: 43, Chapter 5: 42, Chapter 6: 60, Chapter 7: 64, Chapter 8: 49, Chapter 9: 60,
-Chapter 10: 71, Chapter 11: 31; V7.57, V11.9–V11.13, V11.27–V11.29 and V11.42 are gaps and have no item).
+Chapter 10: 71, Chapter 11: 31; V7.57, V11.9–V11.13, V11.27–V11.29 and V11.42 have no audit item).
 Chapters 1–5 (269 items) are audited against commit 12924a4, Chapter 6 (60 items) against 439bc62,
 Chapter 7 (64 items) against 919831f, Chapters 8–11 (211 items) against caf6bfc. Every item has a blind
 statement (`Blind/<ID>.lean`) and a prover record (`Items/<ID>.lean`, `Items/<ID>.json`); every item
@@ -172,7 +172,7 @@ for a human reviewer to judge.
   proved for V3.12, V3.46, V3.96.
 * **Theorem 3.27** needs the regularity of the tangent germ data (V3.24, V3.72; the text's proof
   fails without it, see above); **Theorem 3.54 graph form** for every datum (V3.48, V3.80, V3.84).
-* **Proposition 2.21 (3)–(4)** on `T_aX` (V2.25, gap G.7); level charts for `m ≥ 2` (V2.16, G.6;
+* **Proposition 2.21 (3)–(4)** on `T_aX` (V2.25, point G.7); level charts for `m ≥ 2` (V2.16, G.6;
   the levels of `X¹` are those of `X` shifted, as sets,
   `MPolyfold.mem_shift_levelSet_iff`); `p : TX → X₁` open (V2.20, G.8); Proposition 2.54's "natural" (`f*Y → Y` a strong bundle map;
   V2.61); transitivity of strong-bundle-atlas equivalence (V2.58); **restriction of strong bundle
@@ -236,7 +236,7 @@ for a human reviewer to judge.
 
 ### Further rows (commit 08c08c6)
 
-* **Corollary 5.8** (V5.13, V5.14; gap G.41; Findings Ch. 5 items 140–146): the shifted strong
+* **Corollary 5.8** (V5.13, V5.14; point G.41; Findings Ch. 5 items 140–146): the shifted strong
   bundle `P¹ : Y¹ → X¹` (`StrongBundle.shift`: total space `Y_{1,1}`, the index raises of the strong
   bundle charts as atlas; `Chapter5/StrongBundleShift.lean`); `f¹` is an sc-Fredholm section of it
   with compact solution set (`corollary_5_2_5`), `f²` of `P² = (P¹)¹` (`corollary_5_2_5_two`), every
@@ -254,11 +254,11 @@ for a human reviewer to judge.
   with `IsIndexAt` under bump functions, `isIndexAtLocal_iff_isIndexAt`), the index locally constant
   along the zero set for tame germ data (`index_locally_constant_tame`) and Proposition 6.2 with the
   text's hypotheses (`proposition_6_2_2_local`; `Chapter5/IndexAlongPathsLocal.lean`).
-* **Remark 4.3's example** (V4.6; gap G.31; Findings Ch. 4 items 140–146): `remark_4_1_3_example`, an
+* **Remark 4.3's example** (V4.6; point G.31; Findings Ch. 4 items 140–146): `remark_4_1_3_example`, an
   M-polyfold with `X₀ = X_∞` and `1₀¹` not sc-smooth (even the topologies of `X` and `X¹` differ),
   from a retraction that loses a level, sc-smooth by a new criterion (`IsLossFamily.isScSmooth`,
   `Chapter4/RemarkFourThreeExample.lean`, `Chapter4/RemarkFourThreeFamily.lean`).
-* **The allowable sections** (V5.21; gap G.42; Findings Ch. 5 items 150–153): `ρ` is a metric
+* **The allowable sections** (V5.21; point G.42; Findings Ch. 5 items 150–153): `ρ` is a metric
   (`StrongBundle.allowableMetric`); `(Γ^{+,1}_U(P), ρ)` is not complete for the trivial bundle
   `ℝ × ℝ → ℝ`, and is complete for `U = ∅` and over a point, so the text's "not complete" needs a
   hypothesis (`Chapter5/AllowableSectionsMetric.lean`).
@@ -281,7 +281,7 @@ theorem of the project):
   open both ways);
 * the tameness of the index raises of tame charts (the tame form of Corollary 5.8: germ data of `f¹`
   in tame charts of `P¹`; no counterexample known), and a uniform family `P^i` indexed by `i`, with
-  `(X¹)¹` identified with `X₂` as a topological space (gap G.6) (Findings Ch. 5 items 145, 146);
+  `(X¹)¹` identified with `X₂` as a topological space (point G.6) (Findings Ch. 5 items 145, 146);
 * item 243 for non-tame germ data: the local constancy of the index along the zero set without tame
   germ data, where it is equivalent to `ind C(z) = 0` for the normal block of the filling at the
   nearby zeros (Findings Ch. 3 items 243, 343; open, not believed either way).
@@ -438,7 +438,7 @@ against them (`PROVER_PROMPT.md`, `#rt_check`); each JSON names the current blin
   producing them) and a path sc-smooth near `[0, 1]` (the project's path is sc-smooth on `ℝ`); with
   these two hypotheses A gives it (`Bb_of_tame_global`). Recorded in `B_issue` as the blind author's
   own doubt. V3.68's row also cites `StrongBundle.linAt_isScFredholm`: B's first clause follows
-  from A; the tameness gap of the second clause remains (incomparable).
+  from A; the tameness difference of the second clause remains (incomparable).
 * Clause-level `B_issue`s remain, harmless for the result: V3.9 (b) and V3.43 equate the text's
   filling with `IsFilledVersion` (the whole-chart special case; the row's `IsFillingGerm` is proved
   to be the text's); V3.74 claim (2) (weaker than the text; `¬B` unaffected); V3.46, V3.48, V3.97 (B
@@ -489,7 +489,7 @@ project records (`Exposition/Findings.md`, Chapter 6).
   `(−1)^{dim coker L}` (Findings, items 95–97).
 
 **Where the readings differ** (most of the *neither*).
-* *Contractible neighbourhoods* (gap G.61; V6.48, V6.50, V6.55–V6.61). The blind statements use
+* *Contractible neighbourhoods* (point G.61; V6.48, V6.50, V6.55–V6.61). The blind statements use
   sc-smoothly contractible open sets, the project pairs `V ⊆ U` and property (∗) on every open
   propagation neighbourhood. Contractible ⇒ pair is glue (`exists_path_of_contractible`, V6.59). The
   converse needs a basis of sc-smoothly contractible open sets at the smooth points, which neither
@@ -498,8 +498,8 @@ project records (`Exposition/Findings.md`, Chapter 6).
   contractible sets alone does not exclude a functor twisted by `ℤ/2` (V6.57).
 * *Property (P)*: general position of the slices `F_t` in the text against that of the parametrized
   section near `[0, 1]` in the project (V6.33, V6.39, V6.42, V6.43); bridging it is Lemma 6.30 work.
-* Lemma 6.19 (gap G.59) blocks V6.22 A ⇒ B and V6.23 (effort only); the manifold statements of
-  Lemma 6.30 (gap G.62) V6.34; tame germ data (`IsScFredholmSectionTame` in Chapter 6 against
+* Lemma 6.19 (point G.59) blocks V6.22 A ⇒ B and V6.23 (effort only); the manifold statements of
+  Lemma 6.30 (point G.62) V6.34; tame germ data (`IsScFredholmSectionTame` in Chapter 6 against
   `IsScFredholmSection` with `PX.IsTame` in the blind statements, no bridge) V6.46, V6.61.
 * Extra hypotheses of A, all satisfiable: bump functions, `HasScPlusSectionsThrough`, tame germ data,
   paracompactness instances (V6.30–V6.33, V6.48, V6.55, V6.57, V6.58). The project's `Lin(f, x)` is
@@ -528,8 +528,8 @@ the JSON of each item says which.
 
 ### Chapter 7 (commit 919831f)
 
-The 64 items of `Exposition/cmp/ch07.json` not labelled *extra* or *gap* (V7.4, V7.18, V7.24 are
-extra; V7.57, Remark 7.2, is a gap). Part II has no preprint: its blind inputs quote the 2017 book
+The 64 items of `Exposition/cmp/ch07.json` not labelled *extra* or *not formalized* (V7.4, V7.18, V7.24 are
+extra; V7.57, Remark 7.2, is a point). Part II has no preprint: its blind inputs quote the 2017 book
 (arXiv 1707.08941; `harness/make_inputs.py`). Every blind statement and item file compiles at
 919831f (all 64 item files: no error, no `rt_check FAIL`, no `sorry`).
 Chapter 7: 39 equivalent, 6 A ⇒ B only, 8 B ⇒ A only, 6 neither, 5 ¬B proved. Three of the
@@ -548,7 +548,7 @@ a reading the project records (`Exposition/Findings.md`, Chapter 7).
   `(±1, (−1/(n+1), 0))` converge to both `[(−1, 0)] ≠ [(1, 0)]` (`NotB.not_t2 : ¬ T2Space
   Xg.ReducedMor`; axioms propext, Classical.choice, Quot.sound). With `𝐗^R` Hausdorff and
   paracompact, A ⇒ B (`A_to_B_of_hyp`): the hypotheses the project adds are exactly what is missing.
-  This settles the Hausdorff half of gap G.71 negatively; the blind formalizer of V7.39 found the
+  This settles the Hausdorff half of point G.71 negatively; the blind formalizer of V7.39 found the
   same example independently. V7.39 (*B ⇒ A only*)
   has no separate ¬B proof; V7.40's example applies to it. It is in the project as
   `Polyfold/Chapter7/ReducedNotHausdorff.lean` (`EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor`;
@@ -582,13 +582,13 @@ a reading the project records (`Exposition/Findings.md`, Chapter 7).
   lemmas, so "equivalent" there means that the main claim matches.
 
 **Missing in the project, believed true (effort only).**
-* V7.5 (Definition 7.4): the tangent claims on `Tφ` (gap G.70): `Ts` injective on the fibre, the
+* V7.5 (Definition 7.4): the tangent claims on `Tφ` (point G.70): `Ts` injective on the fibre, the
   locality of tangent maps, `T_xU ≅ T_xX` for open `U`, linearity in charts.
 * V7.6 (p. 227): "`X_∞` is dense in every `X_k`". The text states it without proof, Part I does not
   state it for M-polyfolds, and the project has it only for sc-Banach spaces
   (`ScBanach.denseRange_incl`); `A_to_B_of_density` shows it is the only difference. So the density
   of `X_∞` in an M-polyfold is not a result of Part I.
-* V7.30, V7.31 (Proposition 7.7, p. 238): the tangent facts (3)–(4) of sub-M-polyfolds (gap G.7, as
+* V7.30, V7.31 (Proposition 7.7, p. 238): the tangent facts (3)–(4) of sub-M-polyfolds (point G.7, as
   in V2.25).
 * V7.68 (Corollary 7.3): the project assumes the Godefroy–Troyanski–Whitfield–Zizler statement for
   each chart's `E₀` (not formalized; Findings, item 95).
@@ -609,11 +609,11 @@ with the plain check's failure kept by `#guard_msgs`; the JSON of each item says
 
 ### Chapters 8–11 (commit caf6bfc)
 
-The 211 items of `Exposition/cmp/ch08.json`–`ch11.json` not labelled *extra* or *gap*:
+The 211 items of `Exposition/cmp/ch08.json`–`ch11.json` not labelled *extra* or *not formalized*:
 - Chapter 8: 49 (V8.2, V8.19, V8.34 extra).
 - Chapter 9: 60 (V9.3, V9.53 extra).
 - Chapter 10: 71.
-- Chapter 11: 31 (V11.19, V11.26 extra; V11.9–V11.13, V11.27–V11.29, V11.42 gaps, among them §§11.2 and 11.4).
+- Chapter 11: 31 (V11.19, V11.26 extra; V11.9–V11.13, V11.27–V11.29, V11.42 points, among them §§11.2 and 11.4).
 
 Sources of the blind inputs:
 - Chapters 7–8 quote the 2017 book. Exception: Chapter 8 items labelled "2021 edition" quote the Springer 2021 book.
@@ -644,7 +644,7 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
 * **V8.30 (Theorem 8.5.3 (5)):** the square as printed fails, by the identity functor of ℤ/2 ⋉ ℝ. This is `theorem_8_5_3_five_as_printed`, Findings Ch8 item 54.
 * **V8.35 (Proposition 8.5.7):** D = ∅ is allowed. This is `geometricLiftFunctor_surjective_iff`, Findings Ch8 item 59.
 * **V9.9 (Proposition 9.1.11):** the dimensional decomposition is not unique. This is `not_proposition_9_1_11_rn`, Findings Ch9 item 8.
-* **V9.11 (Gr(x)):** the blind statement also allows negative weights, which is its own `B_issue`. The project's generators are recorded in Ch9 item 20 and gap G.7.
+* **V9.11 (Gr(x)):** the blind statement also allows negative weights, which is its own `B_issue`. The project's generators are recorded in Ch9 item 20 and point G.7.
 * **V9.24 (Lemma 9.2.13):** the (2) ⇒ (1) direction at interior points, by {0} ⊂ ℝ. This is Ch9 item 41.
 * **V9.27 (Definition 9.2.16):** (1) and (2) as printed do not determine ∂Θ. This is `not_unique_isBoundaryCharacterized_halfLine`, Ch9 item 44.
 * **V9.62 (Proposition 9.6.5 (1)):** with the printed `I_k = I¹ ⊔ ⋯ ⊔ I^p` the formula would read `Θ_k(x) = ♯(classes)·Θ_k(x)`. It fails for `1_{y=0} + 1_{y=x}` on ℝ².
@@ -666,7 +666,7 @@ Most mismatches are *same* or *restated* items that the provers judge A_stronger
   - The fields are not tied to the geometry of the sheets: degenerate data on `discretePolyfold` satisfy them (`Items/V9_46.lean`, `tG`).
   - So the comparisons with concrete null sets and embedded manifolds come out incomparable (V9.42, V9.45, V9.47, V9.48, V9.50–V9.52).
   - The concrete notions would need second countability of the sheets and positive measure of the n-dimensional sheets.
-  - Recorded as Findings Ch9 item 103 (gap G.105).
+  - Recorded as Findings Ch9 item 103 (point G.105).
 * **The weak fibred product (V10.18–V10.21).** The project builds X ×_Y Z on nested subtypes with the iterated sub-M-polyfold structure. The blind statements use the triple product.
   - B ⇒ A goes through an isomorphism functor (V10.19–V10.21).
   - A ⇒ B needs the triple-product sets to be sub-M-polyfolds, and the ep-groupoid structure transported along an sc-diffeomorphism.
@@ -883,7 +883,7 @@ diagnosis is in each item's JSON.
 | V3_73 | narrower | B false | A_narrower | B is false (not_B, rt_check OK), as its author predicted: it claims, for every Definition 3.25 datum at x ∈ M, every v₀ ∈ V and every datum at x₀ = φ⁻¹(v₀ + δ(v₀)), that k(w) = πφψ⁻¹(w + τ(w)) has an invertible linearization, is a local diffeomorphism, and that δ is an sc^∞-germ near v₀; Definition  |
 | V3_74 | narrower | B false | A_narrower | B is false (not_B, rt_check OK): its claim (1) says that for every Definition 3.25 datum at every point of a tangent-germ set M of a tame M-polyfold, δ is an sc^∞-germ near every v₀ ∈ V, but Definition 3.25 controls δ only near 0. Counter-model in the file: X = ℝ² (rnPolyfold 2, tame), M = {(t³, t)} |
 | V3_76 | restated | neither | incomparable | A = corollary_3_4_3 ∧ corollary_3_4_3_isConjugate ∧ compIso_eq_strongShift ∧ four general strong-bundle-isomorphism lemmas (no universe parameters). A ⇒ B fails at the hypotheses: A's corollary assumes g and s sc-smooth on the relatively open U (set sense), B only that s is an sc-smooth germ (IsScSmoo |
-| V3_77 | stronger | neither | incomparable | A = theorem_3_5_6_closed/proj, theorem_3_5_11_proj/closed, theorem_3_6_8_graph_proj (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) and three lemmas. The new IsClosed Y closes the complement gap of V3_38/V3_42: a closed complement of the smooth kernel is an sc-complement, and B's  |
+| V3_77 | stronger | neither | incomparable | A = theorem_3_5_6_closed/proj, theorem_3_5_11_proj/closed, theorem_3_6_8_graph_proj (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) and three lemmas. The new IsClosed Y closes the complement difference of V3_38/V3_42: a closed complement of the smooth kernel is an sc-complement, and B's  |
 | V3_80 | narrower | neither | incomparable | A = theorem_3_6_8_nearby (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) ∧ lemma_3_6_9_relOpen ∧ exists_surjective_Dfs'_graph. A ⇒ B fails on the conclusion: B is claimed for every good-position datum (chart c, filler g, sc⁺ s, conjugation D) handed to it, while theorem_3_54_nea |
 | V3_81 | narrower | neither | A_stronger | A = theorem_3_6_8_nearby_kernel.{0,0} ∧ theorem_3_6_8_chart_kernel ∧ graphSpace_eq_ker_Dfs' ∧ scDeriv_pushforward_at ∧ ker_scDeriv_eq_map ∧ scDeriv_mem_partialQuadrantAtWith_iff ∧ isInGoodPositionIn_of_le ∧ ker_deriv_eq_map_germ (germ reading at HEAD). A's kernel claim at the nearby zeros is made in O |
 | V3_82 | narrower | A ⇒ B only | A_stronger | A = theorem_3_6_8_one ∧ IsGoodPositionGermFilled.isGoodPositionGerm (universes 0,0) ∧ exists_range_deriv_eq_ρ_of_normal_injective_germ, germ reading; the r2 blind B uses the project's StrongBundle.IsGoodPositionGermSc (germ reading, sc-complement) in hypothesis and conclusion. A ⇒ B (from hA.1): B's  |
@@ -1164,7 +1164,7 @@ diagnosis is in each item's JSON.
 | V8_49 | same | equivalent | equivalent | Same content, with one difference in generality. B states injectivity of f : G_d → G_{f d} for covering functors into an arbitrary groupoid C (its own IsCoveringB). A's injective_map_end covers only one-object C = SingleObj G, which is the text's setting: Definition 8.5.5 has C = {x}. For C = Single |
 | V8_50 | restated | equivalent | equivalent | Both directions are proved. The project's IsProperStrongBundleCovering2021 (2021 Definition 8.5.9 for the object map A) and B's right-hand side state the same condition. B's right-hand side lists: a strong bundle map with Q ∘ A = F ∘ P, condition (0), and a functor Â with Â.obj = A and Â(ψ, w) = (F  |
 | V8_51 | narrower | equivalent | equivalent | B's (a)–(c) match the project's lemma_8_5_10 together with bundleB_val. (a) says w ↦ (P w, A w) is a strong bundle isomorphism W → F*V over id_Y; (b) is (8.23); (c) is A = Ā ∘ B. B's (d) asks that F*V carry an EpStrongBundle structure over Y with structure map μ_{F*V}. A does not contain (d), a |
-| V8_52 | explicit | B ⇒ A only | A_narrower | The project's proposition_8_1_17_two_all assumes two hypotheses that B lacks, for every i. hR: HasConnectedDenseLevelOneReps (Xⁱ), natural representations with U(x) ∩ X₁ connected and dense (the text's V(x)). hp: the tangent projection p : T𝐗ⁱ → (𝐗ⁱ)¹ is open (Part I gap G.8). B is the text's c |
+| V8_52 | explicit | B ⇒ A only | A_narrower | The project's proposition_8_1_17_two_all assumes two hypotheses that B lacks, for every i. hR: HasConnectedDenseLevelOneReps (Xⁱ), natural representations with U(x) ∩ X₁ connected and dense (the text's V(x)). hp: the tangent projection p : T𝐗ⁱ → (𝐗ⁱ)¹ is open (Part I point G.8). B is the text's c |
 | V9_1 | restated | B ⇒ A only | equivalent | The definitions agree, so B (project IsBranchedEpSubgroupoid ⇔ blind IsBranchedB) is proved outright (B_holds), in both directions, for every ep-groupoid and every Θ. Every field matches one to one: nonneg, functor, supp ⊆ X_∞, paracompact /supp/, a Fintype index in Type, x ∈ Mᵢ ⊆ U, σᵢ > 0 and the  |
 | V9_2 | narrower | neither | incomparable | B = (a) local constancy of dim T_mM on every submanifold of every M-polyfold, (b) the project's IsNDimensional ⇔ the blind IsNDimB, (c) the footnote (nonempty support, n- and m-dimensional ⇒ m = n). A ⇒ B fails on (a) and (c), which A does not contain. A has local constancy only in ℝᵐ (hasLocallyCon |
 | V9_4 | restated | equivalent | equivalent | Both formalize the example with the same hypotheses (HypB is Remark913Hyp field by field) and the same Θ (countB ![graphB β₁, graphB β₂] = thetaGraphs β₁ β₂). A ⇒ B: (a) comes from remark_9_1_3_b. B's structures at each x of the support (the graphs through x, cut to U) are the project's localBranchi |

@@ -6,7 +6,7 @@ import Polyfold.Chapter9.BranchedIntegral
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5 "Integration and Stokes": **Theorems 9.5.4 and 9.5.5** (p. 438; 2017:
 Theorems 9.2, 9.3) and **Definition 9.5.6** (p. 439) for the integrals of forms over oriented
-sheets built in `SheetIntegrationConcrete.lean` (gap G.107).  Numbers and pages are the 2021
+sheets built in `SheetIntegrationConcrete.lean` (point G.107).  Numbers and pages are the 2021
 text's.
 
 # The covering hypothesis for the concrete integration, and Theorems 9.5.4, 9.5.5

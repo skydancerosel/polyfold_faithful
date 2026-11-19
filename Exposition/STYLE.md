@@ -56,7 +56,7 @@ dependency of this project, so the same results are available to the Lean files.
    is short.
    Statements in bold: `**Lemma 2.2 (Morse lemma).**`, keeping Milnor's numbering where he has one.
    Proofs start with `*Proof.*` and end with `$\square$`.
-   Remarks on gaps in Milnor's text go in blockquotes starting `> **Milnor's text skips…**` or
+   Remarks on steps Milnor's text leaves out go in blockquotes starting `> **Milnor's text skips…**` or
    `> **A hidden hypothesis.**`.
 4. Exactly one figure: a subsection `### An interactive look at …` describing what the reader sees
    and what to drag, followed by `<div id="<name>-figure"></div>` and the line

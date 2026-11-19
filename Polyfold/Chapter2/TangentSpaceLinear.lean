@@ -17,7 +17,7 @@ tangent space `T_xX`.
 space structure of `T_{φ(x)}O ⊆ E₀`; if `x ∈ X_∞`, `T_xX` is an sc-Banach space, since
 `T_{φ(x)}O` is one.  (Remark 2.3.13) `T_xO = {x} × Dr(x)E`.
 
-## What is formalized (gap G.7 of `Exposition/cmp/ch02.json`; rows V2.19, V2.21)
+## What is formalized (point G.7 of `Exposition/cmp/ch02.json`; rows V2.19, V2.21)
 
 * `Polyfold.tangentSubmodule hO ha`: `T_aO ⊆ E₀` as a **submodule** (its carrier is the set
   `tangentSpace E C O a` of `Retracts.lean`), `isClosed_tangentSubmodule` (it is the range of the

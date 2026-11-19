@@ -3,7 +3,7 @@ import Polyfold.Chapter3.LinearizationChartsScG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 15,
-§15.1, Theorem 15.1.1 (2) (p. 684): the summands of `T(f,Λ)(x)` are sc-Fredholm (gap G.145).
+§15.1, Theorem 15.1.1 (2) (p. 684): the summands of `T(f,Λ)(x)` are sc-Fredholm (point G.145).
 
 # The operators `(f − sᵢ)'(x)` are sc-Fredholm
 

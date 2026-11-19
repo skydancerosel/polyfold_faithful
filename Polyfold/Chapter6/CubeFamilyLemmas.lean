@@ -5,7 +5,7 @@ import Polyfold.Chapter6.SolutionManifoldFamily
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.4**
 (general position of `F` along the family) and **Lemma 6.6.5** (the solution set is a manifold
 with boundary and corners), pp. 264–265 (preprint Lemmas 6.29–6.30), **for families on the
-M-polyfold `[0, 1]ⁿ` itself** (gap G.65 (a), step 5; rows V6.33, V6.34).
+M-polyfold `[0, 1]ⁿ` itself** (point G.65 (a), step 5; rows V6.33, V6.34).
 
 # Lemmas 6.6.4–6.6.5 on `[0, 1]ⁿ × X`
 

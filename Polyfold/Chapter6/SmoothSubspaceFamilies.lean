@@ -5,7 +5,7 @@ import Mathlib.Geometry.Manifold.Algebra.Monoid
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, the bundle `L` of
-Lemma 6.6.5 (p. 265; preprint Lemma 6.30, p. 222), gap G.62: smooth families of subspaces and the
+Lemma 6.6.5 (p. 265; preprint Lemma 6.30, p. 222), point G.62: smooth families of subspaces and the
 smooth vector bundles they define.
 
 # Smooth families of finite-dimensional subspaces

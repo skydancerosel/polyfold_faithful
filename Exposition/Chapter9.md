@@ -3,12 +3,12 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part II, Chapter 9 (arXiv 1707.08941, pp. 291–332), rewritten for a
 first-year graduate student who has read Chapters 7 and 8 and wants to know what kind of object the solution set of a
 perturbed equation with local symmetries is. Every formalized statement is proved; what is not formalized is marked. Where
-the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and printed pages are
+the text leaves a step to the reader or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and printed pages are
 those of the book (Springer 2021), with the 2017 text's in parentheses (see `BookConcordance.md`); results new in the 2021
 edition are marked as such. Conventions: ep-groupoids, natural representations of the isotropy groups $G_x$, the orbit map
 $\pi : X \to |X|$ and the reduced ep-groupoid are those of Chapter 7, the tangent ep-groupoid that of Chapter 8. A
 submanifold is a smooth finite-dimensional submanifold of Part I, near each of its points the image of an sc⁺-retraction.
-The tangent fibres $T_xX$ carry the linear structure of Part I's Definition 2.3.14 (gap G.7, V2.19); the statements of this
+The tangent fibres $T_xX$ carry the linear structure of Part I's Definition 2.3.14 (point G.7, V2.19); the statements of this
 chapter are not restated with it: the tangent space $T_yM$ of a submanifold is a set of tangent vectors, and every piece of
 linear algebra is done in a chart. The findings cited are those of
 `Findings.md`, "Chapter 9".*
@@ -40,7 +40,7 @@ non-uniqueness of the drawings (§§2, 4, 5).
 $M$.
 
 *How this is read.* The dimension is that of the chart image of $T_aM$, a linear subspace, and does not depend on the chart.
-Local constancy holds on every M-polyfold (gap G.93; `Polyfold.MPolyfold.hasLocallyConstantDimAt`); the hypothesis form
+Local constancy holds on every M-polyfold (point G.93; `Polyfold.MPolyfold.hasLocallyConstantDimAt`); the hypothesis form
 `HasLocallyConstantDimAt` is also proved directly on $\mathbb R^m$, where $T_yM$ is the range of the idempotent $Ds(y)$ of a
 retraction, whose rank is its continuous trace (Findings, items 2, 107). *Checked by machine (V9.2):*
 `Polyfold.MPolyfold.HasDimAt`, `Polyfold.MPolyfold.HasDimAt.unique`,
@@ -78,7 +78,7 @@ one structure agrees with a sheet of the other on a neighbourhood of the origin.
 
 **Remark 9.1.4 (2017: 9.3) (paracompactness).** A paracompact subset of $|X|$ is metrizable, and compactness of
 $|\mathrm{supp}(\Theta)|$ gives paracompactness. Formalized, the step from a paracompact neighbourhood to the compact set going
-through metrizability (gap G.94; Findings, items 7, 114). *Checked by machine (V9.63):*
+through metrizability (point G.94; Findings, items 7, 114). *Checked by machine (V9.63):*
 `Polyfold.EpGroupoid.remark_9_1_4_metrizable`, `Polyfold.EpGroupoid.remark_9_1_4`.
 
 **Lemma 9.1.5 (2017: 9.1) (the orbit support is locally closed).** For a branched ep⁺-subgroupoid $\Theta$,
@@ -119,7 +119,7 @@ and $1$, of manifold type if moreover there is at most one morphism between two 
 **Proposition 9.1.9 (2017: 9.1) (manifold and orbifold structures).** For $\Theta$ of manifold or orbifold type,
 $|\mathrm{supp}(\Theta)|$ carries a natural manifold or orbifold structure (with Remark 9.1.10). Formalized: (1) as an M-polyfold
 structure, unique among those for which $\mathrm{supp}(\Theta)\to|\mathrm{supp}(\Theta)|$ is a local sc-diffeomorphism, (2) with the
-text's groupoid, and Remark 9.1.10 for $n$-dimensional $\Theta$ as Mathlib manifolds, the composition left sc-smooth (gap G.95;
+text's groupoid, and Remark 9.1.10 for $n$-dimensional $\Theta$ as Mathlib manifolds, the composition left sc-smooth (point G.95;
 Findings, items 7, 114). *Checked by machine (V9.64, V9.65):* `Polyfold.EpGroupoid.proposition_9_1_9_one`,
 `Polyfold.EpGroupoid.proposition_9_1_9_one_unique`, `Polyfold.EpGroupoid.proposition_9_1_9_two_text`,
 `Polyfold.EpGroupoid.remark_9_1_10_manifold`, `Polyfold.EpGroupoid.remark_9_1_10_orbifold_etale`.
@@ -141,7 +141,7 @@ $\Theta = 1_L$. Family A: $\Theta_0 = 1_{\{0\}}$, $\Theta_1 = 1_{L \setminus \{0
 \setminus \{0\}$, all Definition 9.1.2 asks at its points; both families have (1) and (2), and the text's proof constructs B.
 Read with "uniquely" among local decompositions, each $\Theta_k$ represented near each point by a subfamily of a local
 branching structure of $\Theta$, the proposition holds for every ep-groupoid: the local decomposition exists, is unique and
-glues into functors on $X$, locally finite at the points of the support, and everywhere under a bound on the dimensions (gap
+glues into functors on $X$, locally finite at the points of the support, and everywhere under a bound on the dimensions (point
 G.96; `Polyfold.EpGroupoid.existsUnique_localDimDecomposition_general`, `Polyfold.EpGroupoid.dimComponent`; Findings, items
 8, 105, 106). *Checked by machine (V9.9):* `Polyfold.EpGroupoid.Proposition_9_1_11`,
 `Polyfold.EpGroupoid.LocalBranchingStructure.eq_sum_dimPart`, `Polyfold.EpGroupoid.SymmetricBranchingStructure.dimPart_Φ`,
@@ -152,7 +152,7 @@ of $\Theta$ at $x$ there is an open $G_x$-invariant $V(x)$ on which their dimens
 
 For structures of one dimension this is immediate, $\Theta_n = \Theta$ for both. The general case is proved in Appendix
 §9.6.1 (§8 below), by descending induction on the dimension; its key step needs the graph representation of §3, which holds
-on every M-polyfold with one admissible cone per tangent space (gap G.97). So the proposition holds for every ep-groupoid
+on every M-polyfold with one admissible cone per tangent space (point G.97). So the proposition holds for every ep-groupoid
 (`Polyfold.EpGroupoid.proposition_9_1_12`); the forms with the graph representation as a hypothesis are kept (Findings, items
 9, 91, 107). *Checked by machine (V9.10):*
 `Polyfold.EpGroupoid.Proposition_9_1_12`, `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear_of_isOfDim`,
@@ -221,7 +221,7 @@ point of $W \cap \mathrm{supp}(\Theta)$ is good. $\square$
 *Proof of (2).* Apply the same shrinking inside a sheet $M_{i_0}$ near $x$. The point found lies on a family of sheets that
 contain $M_{i_0}$ near it; it is good once each of them equals $M_{i_0}$ near it, which is invariance of domain for
 submanifolds of equal dimension. It holds on every M-polyfold: two chart sc⁺-retractions with the same tangent space at the
-point have the same retract near it (gap G.98; `Polyfold.MPolyfold.hasDomainInvarianceAt`); on $\mathbb R^m$ the hypothesis
+point have the same retract near it (point G.98; `Polyfold.MPolyfold.hasDomainInvarianceAt`); on $\mathbb R^m$ the hypothesis
 form `HasDomainInvarianceAt` also follows from the inverse function theorem. $\square$
 
 The density in (1) needs neither (2) nor equidimensionality, and (2) holds at every $x$, not only at bad points (Findings,
@@ -240,7 +240,7 @@ slice*: a finite set $F$ near $x$ meeting each sheet of the class exactly once a
 projection $Q$ onto $L$; for small $t > 0$ the slice is $\{y \mid Q(\varphi y - \varphi x) = t h_0,\ \|\varphi y - \varphi x
 - t h_0\| < \varepsilon t\}$. It meets each sheet of the class once because the sheet is a graph over $L$ along the ray $t
 h_0$, and misses the other sheets because their tangent spaces do not contain $h_0$. The graph property along rays holds on
-every M-polyfold, with one admissible cone per tangent space (Lemmas 9.2.9–9.2.11; gap G.97;
+every M-polyfold, with one admissible cone per tangent space (Lemmas 9.2.9–9.2.11; point G.97;
 `Polyfold.MPolyfold.isGraphChartAt_goodDirections`, `Polyfold.MPolyfold.hasTangentSlicesAt`); the hypothesis forms
 `IsGraphChartAt`, `HasGraphChartAt` (one chart for sheets of several dimensions) and `HasGraphBallAt` (a ball of foot points,
 for orientations) are kept, proved on $\mathbb R^m$ by the inverse function theorem (Findings, items 25, 107). *Checked by
@@ -273,7 +273,7 @@ the support and $T\Theta(h) = \sum_{h \in T_{p(h)}M_i} \sigma_i$ over $U(x)$.
 Defined through $T_\Theta(p(h))$, $T\Theta$ needs no choice, agrees with the local formula by the independence of Theorem
 9.2.1, and is a nonnegative functor on the tangent ep-groupoid. To be a branched ep⁺-subgroupoid it needs the $TM_i$ to be
 smooth submanifolds of $TX$: the tangent of the sc⁺-retraction presenting $M_i$ is an sc⁺-retraction of $TX$ near $TM_i$, so
-they are, and $T\Theta$ is a branched ep⁺-subgroupoid whenever $|X|$ is paracompact (gap G.99;
+they are, and $T\Theta$ is a branched ep⁺-subgroupoid whenever $|X|$ is paracompact (point G.99;
 `Polyfold.MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent`,
 `Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general`; Findings, items 26, 109). *Checked by machine (V9.23):*
 `Polyfold.EpGroupoid.tangentTheta`, `Polyfold.EpGroupoid.tangentTheta_eq`, `Polyfold.EpGroupoid.isFunctorial_tangentTheta`,
@@ -371,7 +371,7 @@ the relative orientations at $x$ are those at nearby good points, where the two 
 $x$ agree class by class. $\square$
 
 That good points of the first structure serve the second is the step supplied here. Both properties hold on $\mathbb R^m$; on
-every M-polyfold the level-1 continuity is a theorem (gap G.100; `Polyfold.MPolyfold.hasContinuousLevelOneOn`), and the
+every M-polyfold the level-1 continuity is a theorem (point G.100; `Polyfold.MPolyfold.hasContinuousLevelOneOn`), and the
 good-point input the ball provides holds at every point, boundary points included, so the lemma holds for every
 $n$-dimensional $\Theta$ with no hypothesis (`Polyfold.EpGroupoid.lemma_9_3_4_general`) (Findings, items 53, 107, 109).
 *Checked by machine (V9.32):* `Polyfold.EpGroupoid.lemma_9_3_4`,
@@ -388,14 +388,14 @@ reproduce $\hat T^1$ near $0$. Two claims do not hold as we read them: the orien
 $G^{+-} = G^{++}$ and $G^{-+} = G^{--}$ carry the same orientations; and the four sign choices on the first pair give four
 different orientations, none of them $\hat T^2$, so there are at least five with weights $1$, and infinitely many with
 fractional weights. All orientations are classified: a three-parameter rational family, of which exactly six have integer
-weights (gap G.101; `Polyfold.example_9_3_5_classification`, `Polyfold.example_9_3_5_integral_ncard`; Findings, items 54, 115). *Checked by
+weights (point G.101; `Polyfold.example_9_3_5_classification`, `Polyfold.example_9_3_5_integral_ncard`; Findings, items 54, 115). *Checked by
 machine (V9.33):* `Polyfold.example_9_3_5`, `Polyfold.example_9_3_5_eq_of_neg`, `Polyfold.orientedLift1_injective`,
 `Polyfold.exampleT2_ne_orientedLift1`.
 
 **Definition 9.3.6 (2017: 9.10) (tame $\Theta$).** $\Theta$ is tame if it has local branching structures on domains with the
 natural $G_x$-action and the properness property whose sheets have tame induced structures (Part I, Definition 2.5.18). The
 consequence that each $M_i$ is a manifold with boundary with corners is formalized for sheets of one dimension, in
-Mathlib's language (gap G.102; `Polyfold.EpGroupoid.TameBranchingStructure.isManifold`; Findings, items 55, 109).
+Mathlib's language (point G.102; `Polyfold.EpGroupoid.TameBranchingStructure.isManifold`; Findings, items 55, 109).
 *Checked by machine (V9.34):* `Polyfold.EpGroupoid.TameBranchingStructure`, `Polyfold.EpGroupoid.IsTameBranched`.
 
 **Lemma 9.3.7 (new in the 2021 edition) (equal tangent spaces, equal degeneracy).** For submanifolds $M_1$, $M_2$ with tame
@@ -415,7 +415,7 @@ $e$.
 
 The convention orients a hyperplane $K \subseteq T_yM$ given $e \notin K$, unchanged by $e \mapsto ce + k$, $c > 0$, $k \in
 K$. That $K = T^R_yM$ and the outward side come from the cones $C_yM$ is formalized: the boundary operation is built from $M$,
-read in a presented chart and chart independent (gap G.103; `Polyfold.MPolyfold.boundaryOp`,
+read in a presented chart and chart independent (point G.103; `Polyfold.MPolyfold.boundaryOp`,
 `Polyfold.MPolyfold.chartVec_image_boundaryCarrier`, `Polyfold.MPolyfold.isOutward_iff_not_mem_partialCone`; Findings, items
 57, 108). *Checked by machine (V9.36):* `Polyfold.MPolyfold.boundaryFrames`,
 `Polyfold.MPolyfold.isOrientedAt_boundaryFrames`, `Polyfold.MPolyfold.boundaryFrames_eq`.
@@ -433,7 +433,7 @@ operation built from the sheets, `Polyfold.EpGroupoid.proposition_9_3_9_boundary
 
 **Definition 9.3.10 (2017: 9.11).** $\hat T_{\partial\Theta}$ is (9.12) on the support and $0$ off it. The boundary
 orientation is continuous along the stratum $\{d_M = 1\}$, and on a face-structured tame sheet it extends to exactly one
-continuous orientation of each closed face, Figure 9.1 (gap G.103;
+continuous orientation of each closed face, Figure 9.1 (point G.103;
 `Polyfold.MPolyfold.SubmanifoldOrientation.exists_continuous_boundaryFrames`,
 `Polyfold.MPolyfold.figure_9_1_existsUnique_faceOrientation`; Findings, items 58, 108, 110). *Checked by machine (V9.38):*
 `Polyfold.EpGroupoid.boundaryLift`.
@@ -442,7 +442,7 @@ continuous orientation of each closed face, Figure 9.1 (gap G.103;
 
 Integration needs that, off a null set, sheets either coincide or meet negligibly. §9.4 makes this precise for
 finite-dimensional manifolds, formalized for Mathlib manifolds with corners and, read in M-polyfold charts, for the sheets
-of an M-polyfold (gap G.105).
+of an M-polyfold (point G.105).
 
 **Definition 9.4.1 (2017: 9.12) (relative tangent spaces and essential points).** For $K \subseteq M$ and $z \in K$,
 $T^K_zM$ is the span of the limits of $\varphi(z_k)/|\varphi(z_k)|$ for $z_k \to z$ in $K \setminus \{z\}$, in a chart
@@ -457,7 +457,7 @@ two crossing lines in $\mathbb R^2$ the essential set is the crossing point. *Ch
 
 **Lemma 9.4.3 (2017: 9.12) (Property (T) after shrinking).** Every oriented local branching structure has, on a smaller
 domain, Property (T): the orientation relation of two sheets with the same tangent space at a common point is the same at
-every common point with the same tangent space. Formalized as stated, with no further hypothesis (gap G.104; Findings,
+every common point with the same tangent space. Formalized as stated, with no further hypothesis (point G.104; Findings,
 items 71, 111). *Checked by machine (V9.41):* `Polyfold.EpGroupoid.OrientedBranchingStructure.lemma_9_4_3`.
 
 **Lemma 9.4.4 (2017: 9.13) (essential points do not depend on the reference sheet).** A point of $K(i, i') = M_i \cap
@@ -466,7 +466,7 @@ M_{i'}$ is essential for $K(i, i') \subseteq M_i$ iff for $K(i, i') \subseteq M_
 *As we read it, this needs sheets of one dimension.* $\mathbb R \times 0$ as a subset of the line is essential at every
 point, as a subset of $\mathbb R^2$ nowhere. For an $n$-dimensional $\Theta$ the text's argument in a chart applies; for the
 $n$-dimensional sheets of an M-polyfold, read in M-polyfold charts, it is proved and gives a `SheetGeometry` with no
-hypothesis (gap G.105; `Polyfold.MPolyfold.lemma_9_4_4_chart`, `Polyfold.MPolyfold.sheetGeometry`; Findings, items 72, 113,
+hypothesis (point G.105; `Polyfold.MPolyfold.lemma_9_4_4_chart`, `Polyfold.MPolyfold.sheetGeometry`; Findings, items 72, 113,
 116). *Checked by machine (V9.42):* `Polyfold.MPolyfold.SheetGeometry`,
 `Polyfold.lemma_9_4_4_mixed_dim`, `Polyfold.graphSheetGeometry`.
 
@@ -521,7 +521,7 @@ $G^{--}$ are tangent but not equivalent (Findings, item 74). *Checked by machine
 ## 7. Measure zero, σ-algebras and isotropy factors (pp. 436–452 (2017 pp. 322–331))
 
 §9.5 integrates sc-differential $n$-forms over an oriented, tame, compact, $n$-dimensional $\Theta$, with $S
-= |\mathrm{supp}(\Theta)|$. The forms of §8.2 are formalized (gaps G.74, G.80), and so is the integration of this section.
+= |\mathrm{supp}(\Theta)|$. The forms of §8.2 are formalized (points G.74, G.80), and so is the integration of this section.
 
 **Definition 9.5.1 (2017: 9.15) (sets of measure zero in $S$).** $A \subseteq S$ has measure zero if every $x \in
 \mathrm{supp}(\Theta)$ has a local branching structure on a suitable $U(x)$ whose preimages $M_i \cap \pi^{-1}(A)$ have
@@ -529,7 +529,7 @@ measure zero in the sheets.
 
 *How this is read.* Measure zero in the sheets is a system of null sets on a class of sheets: a σ-ideal in each sheet,
 local, induced alike by two sheets of the class on their overlap, a nonempty sheet not null in itself. It is instantiated,
-with no hypothesis, by the $n$-dimensional Hausdorff null sets of the chart images (gap G.106; `Polyfold.MPolyfold.IsHNull`,
+with no hypothesis, by the $n$-dimensional Hausdorff null sets of the chart images (point G.106; `Polyfold.MPolyfold.IsHNull`,
 `Polyfold.MPolyfold.sheetNullSets`). "A suitable $U(x)$" is a tame structure, Definition 9.3.6; compactness and orientation
 are not used (Findings, items 80, 116). *Checked by machine (V9.49):* `Polyfold.SheetNullSets`,
 `Polyfold.MPolyfold.SheetMeasureGeometry`, `Polyfold.EpGroupoid.IsMeasureZeroSupp`, `Polyfold.EpGroupoid.HasTameSheetsIn`.
@@ -546,7 +546,7 @@ $\square$
 The text cites the literature. *The transfer property, as we read it, needs one dimension*: the axis $\mathbb R \times 0$ is
 null in the sheet $\mathbb R^2$ and not in itself. So the lemma is proved for sheets of one class, as for the
 $n$-dimensional structures of an $n$-dimensional $\Theta$; that all its structures are $n$-dimensional is Proposition 9.1.12;
-with the Hausdorff null sets it holds as stated (gaps G.97, G.106; `Polyfold.EpGroupoid.lemma_9_5_2_of_isNDimensional`;
+with the Hausdorff null sets it holds as stated (points G.97, G.106; `Polyfold.EpGroupoid.lemma_9_5_2_of_isNDimensional`;
 Findings, items 81, 116). *Checked by machine (V9.50):* `Polyfold.EpGroupoid.lemma_9_5_2`,
 `Polyfold.EpGroupoid.isSigmaIdeal_isMeasureZeroSupp`, `Polyfold.EpGroupoid.not_isMeasureZeroSupp_orbitSupp`,
 `Polyfold.isNull_transfer_mixed_dim`.
@@ -571,7 +571,7 @@ $|U(x)|$ by $\frac{1}{\#G_x} \sum_i \sigma_i \int_{M_i \cap \pi^{-1}(\cdot)} \om
 edition) is the version with $\#G^{\mathrm{eff}}_x$ under LUC. Formalized, with Definition 9.5.6, (9.21)–(9.22) and Lemma 9.5.7,
 for every integration of forms over the oriented sheets and for sc-forms in $\Omega^n_{ep}(X)$ and $\Omega^n_{ep,\infty}(X)$,
 $n\ge1$; "oriented, tame" is read as an oriented tame structure describing $\hat T_\Theta$ at every point, and Remark 9.5.8 has
-no content beyond Lemma 9.5.11 (gap G.107; Findings, item 85). *Checked by machine (V9.66, V9.69):*
+no content beyond Lemma 9.5.11 (point G.107; Findings, item 85). *Checked by machine (V9.66, V9.69):*
 `Polyfold.EpGroupoid.theorem_9_5_4`, `Polyfold.EpGroupoid.theorem_9_5_5`, `Polyfold.EpGroupoid.FormEval.theorem_9_5_4_full`,
 `Polyfold.EpGroupoid.FormEval.theorem_9_5_5_full`, `Polyfold.EpGroupoid.branchedMeasure_eq_setIntegral_mul`.
 
@@ -620,7 +620,7 @@ $\partial M_i$, a set $K \subseteq \partial S = |\mathrm{supp}(\partial\Theta)|$
 are null; $L(\partial S)$ is generated by the Borel sets of $\partial S$ and these sets. The notion does not depend on the
 structures by the proof of Lemma 9.5.2, which here uses the independence of Theorem 9.2.1 through $\partial\Theta$. The
 $(n-1)$-dimensional null sets are the Hausdorff null sets of the chart images, a null-set system with no hypothesis; measure
-zero face by face and a witness with $\partial S \ne \emptyset$ are formalized as well (gap G.108;
+zero face by face and a witness with $\partial S \ne \emptyset$ are formalized as well (point G.108;
 `Polyfold.MPolyfold.boundaryNullSets`, `Polyfold.EpGroupoid.lebesgueSigmaBoundaryH`, `Polyfold.MPolyfold.IsFaceNull`,
 `Polyfold.halfLine_orbitSupp_boundary_nonempty`; Findings, items 83, 117).
 *Checked by machine (V9.52):* `Polyfold.EpGroupoid.IsMeasureZeroBoundary`,
@@ -630,17 +630,17 @@ zero face by face and a witness with $\partial S \ne \emptyset$ are formalized a
 L(\partial S))$ by integrals over the $\partial M_i$ with the boundary orientation; Theorem 9.5.16 (new in the 2021 edition)
 is the effective version. Formalized with the printed local formula, over the boundary sheets $\{d_{M_i} = 1\}$ with the
 orientations $o_{\partial M_i}$; for $n = 1$ the boundary integral is the signed sum of the values at the oriented boundary
-points, and Theorem 9.5.16 assumes LUC, as the text does (gap G.109; Findings, items 85, 117, 119, 120). *Checked by
+points, and Theorem 9.5.16 assumes LUC, as the text does (point G.109; Findings, items 85, 117, 119, 120). *Checked by
 machine (V9.67):* `Polyfold.EP.theorem_9_5_15`, `Polyfold.EP.theorem_9_5_16`, `Polyfold.EP.theorem_9_5_15_dim1_all`,
 `Polyfold.EP.theorem_9_5_16_dim1_all`.
 
 **Theorem 9.5.17 (2017: 9.4) (Stokes' theorem).** If $X$ admits sc-smooth partitions of unity,
 $\mu^{\partial\Theta}_\omega(\partial S) = \mu^{\Theta}_{d\omega}(S)$ for every $(n-1)$-form $\omega$; Theorem 9.5.18 (new
-in the 2021 edition) is the effective version. Formalized as stated, and so is Remark 9.5.20 (gap G.110; Findings, items 85,
+in the 2021 edition) is the effective version. Formalized as stated, and so is Remark 9.5.20 (point G.110; Findings, items 85,
 117, 119–121). *Checked by machine (V9.68, V9.70):* `Polyfold.EP.theorem_9_5_17`, `Polyfold.EP.theorem_9_5_18`,
 `Polyfold.EP.theorem_9_5_17_dim1`, `Polyfold.DimensionJump.remark_9_5_20_stokes`. Remark 9.5.12 discusses open questions and
 has no formal content; Remark 9.5.19, Stokes without partitions of unity, is the text's own open question, nothing to
-formalize beyond the statement `Polyfold.EP.StokesWithoutPartitions` of Chapter 16 (gap G.153).
+formalize beyond the statement `Polyfold.EP.StokesWithoutPartitions` of Chapter 16 (point G.153).
 
 ## 8. Appendix: the proof of Proposition 9.1.12 (pp. 452–457, new in the 2021 edition)
 
@@ -704,11 +704,11 @@ Sections 9.6.2 and 9.6.3 of the appendix discuss open questions on branched ep�
 
 Every hypothesis of the chapter is satisfied by an example, all in Lean (Findings, items 100–102). The hypotheses of the
 forms kept in §§9.2 and 9.6.1 (graph charts, slices, local constancy of the dimension, invariance of domain,
-`TopMultiplicity`, level-1 continuity of frames) are theorems on every M-polyfold (gaps G.93, G.97, G.98, G.100), and have
+`TopMultiplicity`, level-1 continuity of frames) are theorems on every M-polyfold (points G.93, G.97, G.98, G.100), and have
 direct proofs on $\mathbb R^m$: `Polyfold.MPolyfold.hasGraphChartAt_rn`,
 `Polyfold.MPolyfold.hasLocallyConstantDimAt_rn`, `Polyfold.MPolyfold.hasDomainInvarianceAt_rn`,
 `Polyfold.MPolyfold.topMultiplicity_rn`, `Polyfold.hasContinuousLevelOneOn_rn`. `TangentBranchingHyp` holds for every local
-branching structure (gap G.99; `Polyfold.EpGroupoid.tangentBranchingHyp`), and directly for the zero functor
+branching structure (point G.99; `Polyfold.EpGroupoid.tangentBranchingHyp`), and directly for the zero functor
 (`Polyfold.EpGroupoid.tangentBranchingHyp_zero`). Example 9.3.5 has Property (T), graphs in $\mathbb R^2$ form a
 `SheetGeometry` and a `SheetMeasureGeometry`, and every structure on $\mathbb R^n$ restricts to a tame one
 (`Polyfold.propertyT_example935B1`, `Polyfold.graphSheetMeasureGeometry`, `Polyfold.hasTameSheetsIn_trivial_rn`). No witness
@@ -747,13 +747,13 @@ ep-groupoid; the other lemmas, propositions and remarks of §§9.1–9.4 and §9
 forms, among them Remark 9.1.4, Proposition 9.1.9 with Remark 9.1.10, Proposition 9.1.11 read with "uniquely" among local
 decompositions, Lemma 9.4.3 and the boundary geometry of Definitions 9.3.8 and 9.3.10; Lemma 9.5.2 for $n$-dimensional
 $\Theta$; branched integration, Theorems 9.5.4 and 9.5.5 with Lemmas 9.5.7–9.5.11 and Proposition 9.5.13, the boundary
-measures of Theorems 9.5.15 and 9.5.16, Stokes' theorem, Theorems 9.5.17 and 9.5.18, and Remark 9.5.20 (gaps
+measures of Theorems 9.5.15 and 9.5.16, Stokes' theorem, Theorems 9.5.17 and 9.5.18, and Remark 9.5.20 (points
 G.93–G.110). Four uniqueness or independence claims do not
 hold as we read them, each with a counterexample in Lean: Proposition 9.1.11, Definition 9.2.16, Lemma 9.3.4 without
 equidimensionality, and Lemmas 9.4.4 and 9.5.2 across dimensions; and Lemma 9.2.13 is read at boundary points. Not
 formalized, having no formal content: Remark 9.5.12 and Sections 9.6.2 and 9.6.3, on open questions, and Remark 9.5.19, the
-text's own open question, of which only the statement is formalized (gap G.153). The
+text's own open question, of which only the statement is formalized (point G.153). The
 machine-checked statements are listed in `Exposition/Verification.md` (V9.1–V9.70), compared with the text in
 `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`, Part IX. The findings are
 `Exposition/Findings.md`, "Chapter 9", items 1–9, 20–26, 40–46, 50–58, 70–74, 80–85, 90–93 and 100–121 (numbered in blocks;
-the gaps in the numbering are unused numbers).
+the missing numbers in the numbering are unused numbers).

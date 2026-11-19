@@ -75,7 +75,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
 
 ## What the text leaves implicit, and the choices made
 
-* `T_xX` carries no linear structure in Part I (gap G.7), so `T_xM ⊆ T_x^R X` and `T_yM₁ = T_yM₂`
+* `T_xX` carries no linear structure in Part I (point G.7), so `T_xM ⊆ T_x^R X` and `T_yM₁ = T_yM₂`
   are stated in a chart `φ` of `X`: `T_xM` is the tangent space at the level-`1` point `z` over
   `φ(x)` of the chart model `φ(W ∩ M)` of `M` (Remark 4.14), `T_x^R X` is `T_zO ∩ E_z`
   (Definition 2.38 in a chart, `reducedTangentSpaceWith`).  The reduced-tangent condition is
@@ -90,7 +90,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
   condition on `Θ`, to be combined with `IsBranchedEpSubgroupoid`.
 * Lemma 9.3.7: `d_M(y) = dim(T_yM/T_y^R M)` holds in every chart of `X` because the chart of `M`
   induced by `φ` has the partial quadrant of `φ`, so the reduced tangent space of `M` there is
-  `T_yM ∩ E_y`; the text's path argument (2021 Lemma 2.4.9, preprint 2.29, in its path form gap
+  `T_yM ∩ E_y`; the text's path argument (2021 Lemma 2.4.9, preprint 2.29, in its path form point
   G.10) is not needed.  The text's Remark 2.5.9 (`d_X(x) = dim(T_xX/T_x^R X)` for tame `X`) is a
   consequence of 2021 Proposition 2.5.6 (13) (preprint 2.36, `proposition_2_5_6`), here
   `degIndex_eq_quotDim_of_isTame`.
@@ -424,7 +424,7 @@ end SubmanifoldData
 
 variable (P) in
 /-- **Lemma 9.2.13 (2)**: `T_aA ⊆ T_a^R X` at `a ∈ A`, for a smooth finite-dimensional submanifold
-`A`.  As `T_aX` has no linear structure here (gap G.7), the condition is stated in a chart
+`A`.  As `T_aX` has no linear structure here (point G.7), the condition is stated in a chart
 (`IsReducedChart`), for some data, chart, presentation and lift; it then holds for all of them
 (`IsTangentReducedAt.isReducedChart`). -/
 def IsTangentReducedAt (A : Set X) (a : X) : Prop :=
@@ -662,7 +662,7 @@ theorem subDegIndex_eq_of_tangentSpace_eq {A₁ A₂ : Set X} (hA₁ : P.IsSmoot
 
 /-- **2021 Lemma 9.3.7, p. 426 (new in the 2021 edition)**: for a tame M-polyfold `Y`, submanifolds
 `M₁`, `M₂` of the same dimension `k` with tame induced structures and `y ∈ M₁ ∩ M₂`,
-`T_yM₁ = T_yM₂` (stated in a chart `φ` of `Y`, gap G.7) implies `d_{M₁}(y) = d_{M₂}(y)`.  The
+`T_yM₁ = T_yM₂` (stated in a chart `φ` of `Y`, point G.7) implies `d_{M₁}(y) = d_{M₂}(y)`.  The
 tameness of `Y` and the dimension hypothesis are not used (`subDegIndex_eq_of_tangentSpace_eq`). -/
 theorem lemma_9_3_7 (_hP : P.IsTame) {A₁ A₂ : Set X} {k : ℕ} (hA₁ : P.IsSubmanifoldOfDim A₁ k)
     (hA₂ : P.IsSubmanifoldOfDim A₂ k) (ht₁ : P.HasTameInducedStructure A₁)

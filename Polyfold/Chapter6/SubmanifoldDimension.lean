@@ -84,7 +84,7 @@ variable (P : MPolyfold X) in
 dimension of `T_mM`"): `A` has dimension `k` at `a ∈ A` if, for some data `d` of Definition 4.13
 at `a`, some chart `φ` of `X` at `a` and the level-`1` point `z` over `φ(a)`, the tangent space
 `T_aA = T_z(φ(W ∩ A))` (Remark 4.14) has dimension `k`.  `T_aX` carries no linear structure in
-Part I (gap G.7), so the condition is stated in a chart, as Definition 4.16 is; it then holds for
+Part I (point G.7), so the condition is stated in a chart, as Definition 4.16 is; it then holds for
 all charts (`HasDimAt.finrank_eq`), and `k` is unique (`HasDimAt.unique`). -/
 def HasDimAt (A : Set X) (a : X) (k : ℕ) : Prop :=
   a ∈ A ∧ ∃ (d : P.SubmanifoldData A) (φ : MChart X) (z : φ.model.E 1),

@@ -4,7 +4,7 @@ import Polyfold.Chapter4.EuclideanStokes
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): **Stokes' theorem on a
 compact oriented manifold with boundary with corners**, the classical theorem under
-**Theorem 4.4.7** (p. 199; preprint Theorem 4.28, gap G.40) and **Theorem 6.7.1** (p. 277), with
+**Theorem 4.4.7** (p. 199; preprint Theorem 4.28, point G.40) and **Theorem 6.7.1** (p. 277), with
 boundary orientation of **Definition 9.3.8** (p. 427, outward vector first; Definition 9.3.10,
 p. 428, names it the induced orientation).  Numbers and pages are the 2021 text's.
 
@@ -366,7 +366,7 @@ under Theorem 4.4.7, 2021 p. 199, preprint Theorem 4.28, and Theorem 6.7.1): for
 a `C¹` `n`-form `ω` with compact support, `∫_M dω = ∫_{∂M} ω`, the boundary with the induced
 orientation (outward vector first, Definition 9.3.8).  The text's Theorem 4.4.7 is the case of the
 restriction of an sc-differential form to a compact finite-dimensional submanifold `N` of an
-M-polyfold (gap G.80). -/
+M-polyfold (point G.80). -/
 theorem integral_extDeriv_eq_boundaryIntegral (ho : o.IsContinuous (𝓠 (n + 1)) ∞)
     {ω : ManifoldForm (𝓠 (n + 1)) M n} (hω : ContMDiffForm (𝓠 (n + 1)) 1 ω)
     (hc : IsCompact (tsupport ω)) :

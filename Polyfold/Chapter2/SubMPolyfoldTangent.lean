@@ -21,7 +21,7 @@ and `a ∈ W` smooth, the induced map `W → A` is sc-smooth and `Ts(a)T_aX = T_
 
 (1), (2) are `subPolyfold_inclusion_isScSmooth`, `subPolyfold_retraction_isScSmooth`
 (`SubMPolyfold.lean`); (3), (4) in a chart are `proposition_2_3_19_three`, `proposition_2_3_19_four`
-(`Metrizable.lean`).  With the linear structure of `T_xX` (`TangentSpaceLinear.lean`, gap G.7)
+(`Metrizable.lean`).  With the linear structure of `T_xX` (`TangentSpaceLinear.lean`, point G.7)
 and the fibrewise linearity of tangent maps (`TangentMapLinear.lean`), (3) and (4) are stated in
 `T_aX` itself, for `a ∈ A₁` (smoothness is not needed for the linear statements, as in the chart
 form, V2.25):

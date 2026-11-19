@@ -106,7 +106,7 @@ it is `IsLocalDimDecomposition`, and the uniqueness under it is
 
 ## What the text leaves implicit, and the choices made
 
-* "The dimension of `T_aA`": the project's Part I does not make `T_aX` a vector space (gap G.7),
+* "The dimension of `T_aA`": the project's Part I does not make `T_aX` a vector space (point G.7),
   so `HasDimAt` measures the tangent space `T_z(φ(W ∩ A))` of the sub-retract in a chart, as
   Remark 4.14 does.  It asks for *some* data and chart; `HasDimAt.finrank_eq` proves the value is
   the same for *every* data and chart, so no "for all charts" hypothesis is needed; it is

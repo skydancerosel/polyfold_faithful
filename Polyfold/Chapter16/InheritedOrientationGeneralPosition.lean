@@ -259,7 +259,7 @@ theorem OrientationRep.tame_bump_of_polyfold (hc : c.IsTame)
     (c.polyfold.definition_16_1_5_one).1 hbump _ (congrArg StrongPolyfoldBundle.polyfold o.a.hS)⟩
 
 /-- **2021 §16.6, p. 739: the orientation inherited from `(f, o)` along a perturbation in
-general position does not depend on the model of `o`** (gap (a″) of G.175, with boundary).  Let
+general position does not depend on the model of `o`** (point (a″) of G.175, with boundary).  Let
 `c` be a tame strong polyfold bundle whose polyfold admits sc-smooth bump functions (no
 hypothesis on `∂Z`), and `o`, `o'` orientations of `f` on two representatives which correspond
 over a diagram, with tame germ data in the model of `o` and index `m + 1` in both models.  Then

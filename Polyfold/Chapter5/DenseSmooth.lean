@@ -15,7 +15,7 @@ universe u
 namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- The Part I fact that `X_∞` is dense in every `X_m` (2021 p. 289; gap G.73), as a hypothesis. -/
+/-- The Part I fact that `X_∞` is dense in every `X_m` (2021 p. 289; point G.73), as a hypothesis. -/
 def DenseSmooth : Prop := ∀ m, Dense {y : P.Level m | P.levelVal m y ∈ P.smoothSet}
 
 variable {P}

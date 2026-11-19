@@ -99,7 +99,7 @@ a bijection by (2.44).
   unique face of `W` through `x` and `y` with `θ ∩ θ'` open in `θ` (`faceExt_unique`).
 * `L_X` is encoded as a preorder (at most one morphism); the functor goes to `Type u`.
 * In Definition 2.7.11, membership in `U(x, V, θ)` is read as "for some representative".
-* Definition 2.5.19 (3) is stated in a chart (gap G.7: `T_yX` has no linear structure here),
+* Definition 2.5.19 (3) is stated in a chart (point G.7: `T_yX` has no linear structure here),
   for some chart around `y`; it is literally Chapter 4's `IsGeneralPositionRetractAt` condition.
   Its independence of the chart, the text's remark that a tame sub-M-polyfold is tame, and the
   examples A and B in `[0,∞)² × ℝ` are in `Chapter4/TameSub.lean`
@@ -1345,7 +1345,7 @@ theorem hasReducedComplementAt_self {E : ScBanach} {n : ℕ} {W : ScBanach} {C :
 /-- **2021 Definition 2.5.19, p. 63** (new in the 2021 edition), the data at a point: an open
 `V` and an sc-smooth retraction `r : V → V` (a `SubData`, so (1) `r(V) = Y ∩ V`) with
 (2) `d_X(r(x)) = d_X(x)` on `V`, and (3) at every smooth `y ∈ Y ∩ V`, `T_yY` has an
-sc-complement in `T_yX` inside `T_y^R X`.  As `T_yX` carries no linear structure here (gap G.7),
+sc-complement in `T_yX` inside `T_y^R X`.  As `T_yX` carries no linear structure here (point G.7),
 (3) is stated in a chart `φ ∋ y` with a presentation `T` and the level-`1` point `z` over
 `φ(y)`: `HasReducedComplementAt` for `O` and the chart model `Q = φ(W ∩ Y)` of `Y`
 (`W = V ∩ dom φ ∩ r⁻¹(V ∩ dom φ)`, `SubData.shrink`). -/

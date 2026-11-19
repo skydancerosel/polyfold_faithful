@@ -54,7 +54,7 @@ has the same `C` and the same image point.
 * Proposition 2.3.19 (preprint 2.21) (3), (4) (the tangent spaces of `A`) are proved in a chart, as the text proves
   them, in `Metrizable.lean` (`Polyfold.proposition_2_3_19_three`, `Polyfold.proposition_2_3_19_four`); in
   `T_aX` they are `proposition_2_3_19_3_linear`, `proposition_2_3_19_4` (`SubMPolyfoldTangent.lean`) and
-  `proposition_2_3_19_3_sc` (`SubMPolyfoldTangentSc.lean`) (gap G.7).
+  `proposition_2_3_19_3_sc` (`SubMPolyfoldTangentSc.lean`) (point G.7).
 * In Proposition 2.3.19 (preprint 2.21) (2) the map `i⁻¹ ∘ r : V → A` is a total function `X → A` with a junk value
   off `r⁻¹(A)`.
 -/

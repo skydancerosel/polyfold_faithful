@@ -3,7 +3,7 @@ import Polyfold.Chapter9.MultiChartTheorem
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, **Theorems 9.5.4 and 9.5.5** (p. 438; 2017: Theorems 9.2, 9.3), gap
+Part II, Chapter 9, §9.5, **Theorems 9.5.4 and 9.5.5** (p. 438; 2017: Theorems 9.2, 9.3), point
 G.107.  Numbers and pages are the 2021 text's.
 
 # Theorems 9.5.4 and 9.5.5 for every oriented tame structure

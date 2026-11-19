@@ -8,7 +8,7 @@ the last paragraph of the proof of **Theorem 6.6.18** (preprint Theorem 6.41, p.
 §6.7, p. 276, the paragraph before Theorem 6.7.1 (with **Theorem 5.3.10**, preprint
 Theorem 5.18).
 
-# The orientation of a perturbation `f + s` inherited from `f` (gap G.69)
+# The orientation of a perturbation `f + s` inherited from `f` (point G.69)
 
 ## The text, paraphrased
 
@@ -45,7 +45,7 @@ from the orientation `o` of `f`.
 
 ## What this makes unnecessary
 
-* Gap G.69 (the perturbation paragraph of Theorem 6.6.18): the inherited orientation is an
+* Point G.69 (the perturbation paragraph of Theorem 6.6.18): the inherited orientation is an
   orientation of `f + s` in the sense of Definition 6.6.16, not only pointwise
   (`SolutionOrientationCharts.lean` gave `orSectionAdd` and the tangent orientations).
 * The hypotheses `hX : PX.IsTame` and `hP : B.IsProper f` of `theorem_6_6_18` for the orientation
@@ -406,7 +406,7 @@ theorem IsOrientableNbhd.of_sectionAdd (hf : B.IsScFredholmSection f)
   ⟨hN.hasLocalPropagation.of_sectionAdd hf hs, hN.isOpen_U, hN.isOpen_V, hN.subset, hN.mem,
     hN.path⟩
 
-/-- **Gap G.69: an orientation of `f` is an orientation of `f + s`** (Definition 6.6.16): the
+/-- **Point G.69: an orientation of `f` is an orientation of `f + s`** (Definition 6.6.16): the
 map `y ↦ o_y ∈ Or_y^f = Or_y^{f+s}` is a continuous orientation over every orientable
 neighbourhood of `f + s` (an orientable neighbourhood of `f`, `IsOrientableNbhd.of_sectionAdd`;
 push-forwards of `f + s` are push-forwards of `f`, `IsPush.of_sectionAdd`). -/
@@ -463,7 +463,7 @@ theorem isNaturalSolutionOrientation (hf : B.IsScFredholmSectionTame f)
       isLineOrientation_tangentOr_of_isSectionOrientation hf o.2 hx₀ hN hγs hγV hγ0
         fun q hq => hgp (γ q) (hγ0 q hq)
 
-/-- **Theorem 6.6.18 for `f + s`** (the last paragraph of its proof, gap G.69): for an
+/-- **Theorem 6.6.18 for `f + s`** (the last paragraph of its proof, point G.69): for an
 orientation `o` of `f` and an sc⁺-section `s` with `f + s` proper and in general position at its
 zeros, `S_{f+s}` is a compact manifold with boundary with corners in general position with the
 natural orientation given by the inherited orientation `o.sectionAdd hs`. -/
@@ -476,7 +476,7 @@ theorem theorem_6_6_18_sectionAdd (hX : PX.IsTame) (hf : B.IsScFredholmSectionTa
         (o.sectionAdd hs) :=
   theorem_6_6_18 hX (theorem_3_1_18_tame hf hs) hP hgp (o.sectionAdd hs)
 
-/-- **Theorem 5.3.10 with the inherited orientation** (§6.7, p. 276; gap G.69): for an oriented
+/-- **Theorem 5.3.10 with the inherited orientation** (§6.7, p. 276; point G.69): for an oriented
 tame `f` with compact solution set over a tame M-polyfold with bump functions and an auxiliary
 norm `N`, there is an open `U ⊇ S_f` such that `S_{f+s}` is compact for every
 `s ∈ Γ^{+,1}_U(P)`, and a dense subset `O ⊆ Γ^{+,1}_U(P)` (in the pointwise reading of

@@ -50,7 +50,7 @@ diffeomorphic to `[0,∞)`.
 
 ## What the text leaves implicit, and the choices made
 
-* As `T_yX` carries no linear structure in this formalization (gap G.7), (3) is stated in charts
+* As `T_yX` carries no linear structure in this formalization (point G.7), (3) is stated in charts
   (`HasReducedComplementAt`, see `TameSubData`); the chart independence above shows that the
   choice of chart, presentation and retraction does not matter.
 * "Not difficult to see" is read as: the sub-charts of `Y` built on tame charts of `X`

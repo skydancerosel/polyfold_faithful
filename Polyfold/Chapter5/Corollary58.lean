@@ -528,7 +528,7 @@ theorem isScFredholmGerm_sectionShift (hf : B.IsScSmoothSection f) {x : PX.Level
 
 open StrongBundle in
 /-- **Corollary 5.2.5 (preprint 5.8) for `i = 1`: `f¹` is an sc-Fredholm section of `P¹ : Y¹ → X¹`** (Definition
-3.14 with the text's germ reading of Definition 3.1.11 (preprint 3.11); round-trip item V5.14, gap G.41; Findings,
+3.14 with the text's germ reading of Definition 3.1.11 (preprint 3.11); round-trip item V5.14, point G.41; Findings,
 Chapter 5, items 140–149): sc-smooth (`IsScSmoothSection.shift`), regularizing
 (`regularizing_sectionShift`), and an sc-Fredholm germ at every smooth point of `X¹`
 (`isScFredholmGerm_sectionShift`).  The text's "it is a priori clear"; condition (3) of the

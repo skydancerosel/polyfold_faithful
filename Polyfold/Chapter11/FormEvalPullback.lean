@@ -3,7 +3,7 @@ import Polyfold.Chapter11.BranchedEquivalenceTangentOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 11, §11.4 "Equivalences and Integration" (pp. 542–546; 2017: pp. 396–397), gap
+Part II, Chapter 11, §11.4 "Equivalences and Integration" (pp. 542–546; 2017: pp. 396–397), point
 G.131.  Numbers and pages are the 2021 text's.
 
 # Evaluations of forms compatible with the pull-back along an ep-functor

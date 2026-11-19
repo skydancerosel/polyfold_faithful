@@ -4,7 +4,7 @@ import Polyfold.Chapter9.AllStructures
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, **Theorems 9.5.15 and 9.5.16 for `n = 1`** (p. 449; 2017: Theorems 9.4, 9.5), gap
+Part II, §9.5, **Theorems 9.5.15 and 9.5.16 for `n = 1`** (p. 449; 2017: Theorems 9.4, 9.5), point
 G.109, row V9.67.  Numbers and pages are the 2021 text's.
 
 # The local formula for `n = 1` for every oriented tame structure

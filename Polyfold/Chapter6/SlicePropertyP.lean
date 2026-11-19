@@ -2,7 +2,7 @@ import Polyfold.Chapter6.SolutionManifoldFamily
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.4**
-(p. 264; preprint Lemma 6.29, p. 222): **property (P)** for the slices `F_t`.  Gap G.63, row V6.33.
+(p. 264; preprint Lemma 6.29, p. 222): **property (P)** for the slices `F_t`.  Point G.63, row V6.33.
 
 # Property (P) of Lemma 6.6.4 for the slices
 

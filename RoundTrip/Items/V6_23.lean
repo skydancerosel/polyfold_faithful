@@ -32,7 +32,7 @@ chart frame map `(S, t) ↦ (S, t ω_c(S))` is open, and (b) the same for `Q`.  
 `gammaQP` reads `(S, t) ↦ (S, t g(S))` in chart coordinates, and `lemma_6_5_5` (applied to the two
 charts with centre `T` and radius `ε` built from B's hypotheses, with `S` Fredholm on the ball)
 gives the homeomorphism.  The project does
-not formalize Lemma 6.19 (the same gap blocks V6_22 `A → B`), and building it for `⨆`-coinduced
+not formalize Lemma 6.19 (the same difference blocks V6_22 `A → B`), and building it for `⨆`-coinduced
 topologies, plus a `LocalDetChart` from `IsDetChart` and Fredholmness of `S` on the ball, is
 substantial new work, not attempted within the budget.
 

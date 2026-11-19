@@ -2,7 +2,7 @@ import Polyfold.Chapter5.Theorem5315_LocalData
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
-**Theorem 5.3.15** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22).  Gap G.48.
+**Theorem 5.3.15** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22).  Point G.48.
 
 # Theorem 5.3.15: the Morse-type structure
 

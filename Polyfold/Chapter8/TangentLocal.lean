@@ -80,7 +80,7 @@ The source and target maps of the tangent are local sc-diffeomorphisms "by const
   projection `p`.  `Ts(φ)⁻¹` is the inverse of the bijection of fibres of
   `IsLocalScDiffeo.bijOn_tangentFiber`; on a sheet `U(φ)` it is the tangent map of the local inverse
   restricted to the fibre (`IsScDiffeoOn.bijOn_tangentFiber`).  The linear structure of the fibres
-  is not part of Part I's `TangentSpace` (gap G.7), so linearity is not stated.
+  is not part of Part I's `TangentSpace` (point G.7), so linearity is not stated.
 * Lemma 8.1.7 (2017: 8.6)'s "by construction" is `IsLocalScDiffeo.tangentMap`: a sheet of `Tf` around `v` is
   `p⁻¹(U)` for a sheet `U` of `f` around `p(v)`, with inverse the tangent of the local inverse.
   Surjectivity of `Tf` uses that of `f` (`IsLocalScDiffeo.surjective_tangentMap`).

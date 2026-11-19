@@ -3,7 +3,7 @@ import Polyfold.Chapter6.CubeBoundarySlice
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.4**
 (p. 265; preprint Lemma 6.29): **property (P) at every point of `[0, 1]ⁿ`**, boundary and corners
-included, and the paragraph after it.  Gap G.65; row V6.33.
+included, and the paragraph after it.  Point G.65; row V6.33.
 
 # Property (P) on `[0, 1]ⁿ`
 

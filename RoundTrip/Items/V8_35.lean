@@ -36,7 +36,7 @@ functor) and `CoveringExamples.isProperCovering_reflectionLift`.  The constructi
   `BRepaired` only asserts *some* model `(EY, EX, A)`, so even `proposition_8_5_7` for the
   project's `F` would need a transport of the proper-covering property from that model, through
   the identity `EY.PObj ≅ yObjPolyfold` (pinned down by the summand clauses) and `G` vs `ULift G`,
-  including the fibred-product sub-M-polyfolds.  That is effort, not a mathematical gap.
+  including the fibred-product sub-M-polyfolds.  That is effort, not a mathematical difference.
 * Checks: `not_B` passes `#rt_check`; `B_to_A` and `A_to_BRepaired` pass the local
   `#rt_check_fields` (see the section *Checks*), not `#rt_check`/`#rt_check_soft`, which no proof
   mentioning `A` can pass here. -/

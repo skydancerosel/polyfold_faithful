@@ -3,7 +3,7 @@ import Polyfold.Chapter4.Families
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.3, **Theorem 4.3.1**
 (p. 193; preprint: Theorem 4.23, p. 165): **the chart independence of stratified regularity**.
-Closes gap G.36 (Findings, Chapter 4, items 102, 108).
+Settles point G.36 (Findings, Chapter 4, items 102, 108).
 
 # Stratified regular values are intrinsic to `A`
 
@@ -28,7 +28,7 @@ of `P(λ, x) = λ` to the open strata of `A`; this is a notion intrinsic to `A` 
 
 ## What the text leaves implicit, and the choices made
 
-* As `T_zA` and the reduced tangent space have no chart-free linear structure here (gap G.7),
+* As `T_zA` and the reduced tangent space have no chart-free linear structure here (point G.7),
   "intrinsic" is read as "independent of all choices in the product charts".  Only product charts
   `(r ↦ r − a) × φ` are used, as in the definition: they are the charts of `ℝᵐ × X`
   (`MPolyfold.prod`).

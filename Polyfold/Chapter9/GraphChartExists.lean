@@ -3,7 +3,7 @@ import Polyfold.Chapter2.LocalTopology
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5 "Integration and Stokes", pp. 438–445 (gap G.107): every
+Part II, Chapter 9, §9.5 "Integration and Stokes", pp. 438–445 (point G.107): every
 `n`-dimensional submanifold of an M-polyfold is, near each of its points and in a chart of the
 M-polyfold, a graph over `ℝⁿ` (`MPolyfold.exists_graphChart`).  Numbers and pages are the 2021
 text's.
@@ -225,7 +225,7 @@ theorem isClosed_image_of_antilipschitzOn {E F : Type*} [NormedAddCommGroup E] [
   rwa [show range (fun a : s => p a) = p '' s from by
     ext v; simp only [mem_range, Subtype.exists, exists_prop, mem_image]] at this
 
-/-- **Graph charts exist** (for the integrals of §9.5, gap G.107): every point of an
+/-- **Graph charts exist** (for the integrals of §9.5, point G.107): every point of an
 `n`-dimensional submanifold `N` of an M-polyfold has an open neighbourhood `V` such that
 `N ∩ V` has a graph chart: in a chart of the M-polyfold it is a graph over a subset of `ℝⁿ`,
 with a parametrization differentiable for the level-`0` norm. -/

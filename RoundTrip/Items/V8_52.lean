@@ -24,7 +24,7 @@ conjunction of their types, universes at `0` (the point witness has none).
   `proposition_8_1_17_one`, the Proposition 2.3.17 sub-lemmas of `TangentLiftAll.lean`).
 * `A ⇒ B` **fails**: `proposition_8_1_17_two_all` assumes, for every `i`,
   `HasConnectedDenseLevelOneReps (Xⁱ)` (natural representations with `U(x) ∩ X₁` connected and
-  dense, the text's `V(x)`) and that `p : T𝐗ⁱ → (𝐗ⁱ)¹` is open (Part I gap G.8), which `B` does
+  dense, the text's `V(x)`) and that `p : T𝐗ⁱ → (𝐗ⁱ)¹` is open (Part I point G.8), which `B` does
   not have.  With them, `A ⇒ B` is immediate (`A_to_B_of_hyp`).  Both are satisfiable (the point
   witness).
 -/

@@ -4,7 +4,7 @@ import Polyfold.Chapter6.SolutionFaces
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,
 **Theorem 4.4.7** (Stokes, p. 199; preprint Theorem 4.28): the faces `F` of the compact tame
-submanifold `N` as manifolds in their own right (gap G.40, first step).
+submanifold `N` as manifolds in their own right (point G.40, first step).
 
 # A corner structure of dimension `n` on each face
 

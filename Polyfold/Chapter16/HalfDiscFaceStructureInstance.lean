@@ -58,7 +58,7 @@ theorem isFaceStructured_basePoly_one : (basePoly 1).IsFaceStructured :=
   isFaceStructured_of_degIndex_le_one isTame_basePoly_one fun x => by
     rw [degIndex_basePoly_one]; split_ifs <;> norm_num
 
-/-- **Gap A on the half-disc, from the general statement**: for every sc⁺-section `S` over
+/-- **Point A on the half-disc, from the general statement**: for every sc⁺-section `S` over
 `[0, 1] × H` with `F = f̃ + S` proper and in general position, `S_F` is face-structured. -/
 theorem isFaceStructured_halfDisc_interval_cobordism
     {S : (Fin 1 → unitInterval) × H 1 →

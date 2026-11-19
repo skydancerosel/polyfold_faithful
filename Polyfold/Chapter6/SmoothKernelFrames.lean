@@ -4,7 +4,7 @@ import Polyfold.Chapter6.SolutionManifoldFamily
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
-(p. 265; preprint Lemma 6.30, p. 222): **`L` is a smooth vector bundle**.  Gap G.62, rows V6.34,
+(p. 265; preprint Lemma 6.30, p. 222): **`L` is a smooth vector bundle**.  Point G.62, rows V6.34,
 V6.42.
 
 # Smooth frames of the kernels along an sc-smooth family of zeros

@@ -68,7 +68,7 @@ Proposition 2.7.4 (2017: 2.17).
   (Proposition 2.3.15 (2017: 2.5) (3) [2.19 (3)]), and `G_x\TU(x)` by the text's metric `ρ̂` of Lemma 7.3.2 (2017: 7.4)
   (repeated here for a finite group acting by homeomorphisms on a metrizable space, since the
   versions in `OrbitTopology.lean` and `Lift.lean` are private).  The fibrewise linearity of the
-  action is that of `Tφ` (`tangentMorCLE`, `Chapter9/TangentMorphismLinear.lean`; gap G.7) and is
+  action is that of `Tφ` (`tangentMorCLE`, `Chapter9/TangentMorphismLinear.lean`; point G.7) and is
   not restated here.
 * **`|TU(x_z)|` and `|U(x_z)¹|`** are read as the subsets `π_T(TU(x)) ⊆ |TX|` and
   `π₁(U(x)₁) ⊆ |X¹|` with the subspace topologies (`U(x)₁ = U(x) ∩ X₁`, Chapter 7's

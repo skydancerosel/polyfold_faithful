@@ -331,8 +331,8 @@
     "tameness not used"
    ],
    "diff": [
-    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_2_5_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
-    "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; gap G.41).",
+    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_2_5_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; point G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
+    "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; point G.41).",
     "With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter5/MainTheorems.lean`)."
    ]
   },
@@ -377,7 +377,7 @@
    "diff": [
     "$Y^i \\to X^i$ is never defined in the text (it defines $Y[i]$ for $i = 0, 1$). $Y^1$ is read as $Y_{1,1}$ with $(Y^1)_{m,k} = Y_{m+1,k+1}$, the convention of $E^1$ and of $(U \\triangleleft F)^1 = U^1 \\triangleleft F^1$; it is forced by “$f^i$ is obtained by raising the index”: an sc-smooth section maps $X_1$ into $Y_{1,1}$, in general not into $Y_{1,2}$. The fibre of $P^1$ carries the topology of $F_1$, not that of the fibre of $P$; it is a Banach space because a fibre of a strong bundle is, through a chart, a closed subspace of its fibre model (`StrongBundleChart.isBanachable_fiber`) (Findings, Chapter 5, items 140, 141).",
     "“It is a priori clear” hides condition (3) of the filling on level $1$ ($\\ker Dr^1(0) \\to \\ker\\rho^1(0)$ a topological isomorphism), which does not follow from level $0$ alone: an sc-operator can be bijective on level $0$ and not onto on level $1$. It holds for the data of Definition 3.1.11 (preprint 3.11): subtracting the section $z \\mapsto \\Gamma(z, -g(0))$ reduces to $g(0) = 0$ with the same fill defect (Lemma 3.1.20 (preprint 3.17)), Proposition 3.6.5 (preprint 3.52) in sc form makes $Dg(0)$ sc-Fredholm, and its regularity gives the surjectivity on level $1$; the open mapping theorem does the rest (Findings, Chapter 5, items 22, 144). No hypothesis beyond the text’s is added.",
-    "Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is proved as well: the index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`, `isScFredholmGermTame_sectionShift`; Findings, Chapter 5, items 145, 181). $i \\ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; gap G.41).",
+    "Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is proved as well: the index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`, `isScFredholmGermTame_sectionShift`; Findings, Chapter 5, items 145, 181). $i \\ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; point G.41).",
     "In the text’s germ reading of Definition 3.1.11 (preprint 3.11) $s^1$ is an sc⁺-germ on the shifted germ of $s$, and the level-$1$ conjugation uses $g - s$ only near $0$ (Findings, Chapter 3, item 333)."
    ]
   },
@@ -571,7 +571,7 @@
     "complete for $U = \\emptyset$"
    ],
    "diff": [
-    "The text’s “$(\\Gamma^{+,1}_U(P), \\rho)$ is not complete” does not hold as we read it without a hypothesis: for $U = \\emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \\sqrt{x^2 + 1/(j+1)^2}/(2\\sqrt{1 + x^2}))$ form a $\\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; gap G.42).",
+    "The text’s “$(\\Gamma^{+,1}_U(P), \\rho)$ is not complete” does not hold as we read it without a hypothesis: for $U = \\emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \\sqrt{x^2 + 1/(j+1)^2}/(2\\sqrt{1 + x^2}))$ form a $\\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; point G.42).",
     "Only Definition 5.1.1 (1) (preprint 5.1) is used for the metric axioms (symmetry and subadditivity of the fibre norms, $N$ vanishing only at $0_x$); the density statements of Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18) are $\\rho(s, s') \\le \\varepsilon$ (`allowableDist_le_iff`; V5.30, V5.39). Hence “restated” (Findings, Chapter 5, item 47)."
    ]
   },
@@ -623,7 +623,7 @@
     "read in charts"
    ],
    "diff": [
-    "$T_xX$ is used here without a linear structure (Findings, Chapter 5, item 70). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; gap G.7 of Chapter 2, closed); this statement is not restated with it."
+    "$T_xX$ is used here without a linear structure (Findings, Chapter 5, item 70). $T_xX$ carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points (V2.19; point G.7 of Chapter 2, closed); this statement is not restated with it."
    ]
   },
   {
@@ -775,7 +775,7 @@
    ],
    "diff": [
     "\"$N(f(x)) \\le 1$\" is $N(s(x)) \\le 1$; \"$(f, x)$ in good position\" is $(f + s, x)$ (Findings, Chapter 5, item 62).",
-    "$f$ has tame germ data (V3.103), the reading of §5.3's tame strong bundle: the wording of Definition 3.6.3 in the preprint (3.50) and the 2017 text; the 2021 text does not define “tame strong bundle” (gap G.79); a statement with every chart tame would be vacuous (Findings, Chapter 5, items 74, 75)."
+    "$f$ has tame germ data (V3.103), the reading of §5.3's tame strong bundle: the wording of Definition 3.6.3 in the preprint (3.50) and the 2017 text; the 2021 text does not define “tame strong bundle” (point G.79); a statement with every chart tame would be vacuous (Findings, Chapter 5, items 74, 75)."
    ]
   },
   {
@@ -1064,8 +1064,8 @@
    "diff": [
     "The theorem is stated with the book's quantifiers, \\\"arbitrarily small\\\" read as $N(s(x)) \\le \\varepsilon$ for all $x$ (`theorem_5_3_12`); the generic form of the proof is kept (`theorem_5_3_12_param`) (Findings, Chapter 5, item 182).",
     "\"$(f, x)$ in good position\" is $(f + s, x)$ (Findings, Chapter 5, item 87).",
-    "\\\"As before\\\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\\mathbb R \\times \\cdot$, as $\\mathbb R(1, 1)$ in $[0, \\infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, gap G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).",
-    "The dense form is proved too: within $N$-distance $\\varepsilon$ of any $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; gap G.45 closed).",
+    "\\\"As before\\\" would apply the implicit function theorem to $F$ at boundary zeros, where $F$ is in general not in good position: good position is not stable under $\\mathbb R \\times \\cdot$, as $\\mathbb R(1, 1)$ in $[0, \\infty)^2$ shows (`theorem_5_3_12_goodPosition_not_stable`, point G.46); the proof keeps $f + s = f$ near them (Findings, Chapter 5, item 88).",
+    "The dense form is proved too: within $N$-distance $\\varepsilon$ of any $s' \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ there is such an $s$ (`theorem_5_3_12_dense`, from the generic form around a given section `theorem_5_3_12_param_rel`; point G.45 settled).",
     "With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_5_3_12_2021def` (`Chapter5/MainTheorems.lean`).",
     "The book's quantifiers and the 2021 definitions in one statement: `theorem_5_3_12_book_2021def` (`Chapter5/MainTheoremsBookFormTextDefs.lean`), a corollary of `theorem_5_3_12` through `isScFredholmSectionTame2021_iff` and `isGoodPositionGermTame2021_iff`.",
     "Bump functions are read pointwise: `MPolyfold.AdmitsBumpFunctions` asks for $f(x) \\ne 0$, which is stronger than Definition 5.5.2 as printed (\"not identically zero\", `MPolyfold.AdmitsBumpFunctionsWeak`). The two readings agree on sc-Banach spaces and on M-polyfolds built on sc-Hilbert spaces; whether they agree on every M-polyfold is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
@@ -1093,7 +1093,7 @@
     "ends = restrictions"
    ],
    "diff": [
-    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is formalized as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68)."
+    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is formalized as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; point G.47 settled; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68)."
    ]
   },
   {
@@ -1118,7 +1118,7 @@
    ],
    "diff": [
     "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \\ne 0$ (V5.69).",
-    "Theorem 5.3.15 is formalized in its 2021 form, where this hypothesis is supplied (V5.71; gap G.48 closed)."
+    "Theorem 5.3.15 is formalized in its 2021 form, where this hypothesis is supplied (V5.71; point G.48 settled)."
    ]
   },
   {
@@ -1531,7 +1531,7 @@
     "Theorem 5.5.13 proved"
    ],
    "diff": [
-    "The text's \"max\" norm is the supremum. Theorem 5.5.13 (preprint 5.40), cited from [9], is proved (gap G.52 closed) (Findings, Chapter 5, items 114, 117)."
+    "The text's \"max\" norm is the supremum. Theorem 5.5.13 (preprint 5.40), cited from [9], is proved (point G.52 settled) (Findings, Chapter 5, items 114, 117)."
    ]
   },
   {
@@ -1613,7 +1613,7 @@
     "\"Banach\" = `CompleteSpace`"
    ],
    "diff": [
-    "The recorded statement leaves completeness out; `theorem_5_5_16` assumes `CompleteSpace`, the text's \"Banach\". The theorem, cited from [12] and [9], is proved (gap G.53 closed); the route avoids Krein's and the Eberlein–Šmulian theorems and transfinite recursion (Findings, Chapter 5, items 116, 117, 184)."
+    "The recorded statement leaves completeness out; `theorem_5_5_16` assumes `CompleteSpace`, the text's \"Banach\". The theorem, cited from [12] and [9], is proved (point G.53 settled); the route avoids Krein's and the Eberlein–Šmulian theorems and transfinite recursion (Findings, Chapter 5, items 116, 117, 184)."
    ]
   },
   {
@@ -1779,7 +1779,7 @@
     "ends = restrictions"
    ],
    "diff": [
-    "2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\\tau$, $0 < \\tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is formalized on this definition as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; gap G.47 closed; Findings, Chapter 5, items 175, 176)."
+    "2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\\tau$, $0 < \\tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is formalized on this definition as `IsGenCompactHomotopyBetween`, with the ends up to isomorphism (V5.74; point G.47 settled; Findings, Chapter 5, items 175, 176)."
    ]
   },
   {
@@ -1804,7 +1804,7 @@
     "$Z$ algebraic, not shown smooth"
    ],
    "diff": [
-    "The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\\ell$ is non-zero, its smoothness is not part of the statement (Theorem 5.3.15: V5.71, gap G.48 closed; Findings, Chapter 5, items 101, 178)."
+    "The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\\ell$ is non-zero, its smoothness is not part of the statement (Theorem 5.3.15: V5.71, point G.48 settled; Findings, Chapter 5, items 101, 178)."
    ]
   },
   {
@@ -1874,7 +1874,7 @@
     "No added hypothesis. The bump functions on the $X_i$ are not assumed, and of $\\partial X = X_0 \\sqcup X_1$ only $\\partial X \\subseteq X_0 \\cup X_1$ is used. The end problems are the restrictions $f|X_i$ in the pull-back bundles (Definition 5.3.13 (2) as read in V5.68; up to isomorphism, Remark 5.3.14 is V5.73).",
     "\"Morse-type critical points\" (not defined in the text) is read through smooth parametrizations of $S_{f+s_0}$: around every point a parametrization by a subset of $\\mathbb R^n$ with unique derivatives in which a critical point of $t$ is interior with injective Hessian; the clause then holds in every such parametrization (`IsMorseOrRegularPoint.morseClause`). The comparison with the charts of the Mathlib manifold structure of the solution set is not formalized.",
     "The hidden hypothesis $dt(x) \\ne 0$ of V5.42 is supplied by the 2021 Definition 5.3.13 (3) (V5.69). At a zero on $\\partial X$, $t$ has an extremum, so $dt(x)$ vanishes on the reduced tangent space at every degeneracy index; with general position $dt(x) \\ne 0$ on $\\ker f'(x)$ (Findings, Chapter 5, items 101, 178, 183).",
-    "The proof is V5.72 (gap G.48 closed)."
+    "The proof is V5.72 (point G.48 settled)."
    ]
   },
   {
@@ -1952,7 +1952,7 @@
     "orientation: G.66"
    ],
    "diff": [
-    "Reading D2: the text's $[0, 1] \\times X$ is $\\mathbb R^1 \\times X$; \"transversal near $t = 0, 1$\" is general position at the zeros with $t \\notin (a, b)$, and \"$s$ vanishing near $t = 0, 1$\" is $s(t, \\cdot) = 0$ for $t \\notin (c', d')$. The compact solution set of the arc is asked over $[0, 1]$. The orientation of the cobordism is gap G.66."
+    "Reading D2: the text's $[0, 1] \\times X$ is $\\mathbb R^1 \\times X$; \"transversal near $t = 0, 1$\" is general position at the zeros with $t \\notin (a, b)$, and \"$s$ vanishing near $t = 0, 1$\" is $s(t, \\cdot) = 0$ for $t \\notin (c', d')$. The compact solution set of the arc is asked over $[0, 1]$. The orientation of the cobordism is point G.66."
    ]
   },
   {
@@ -2429,7 +2429,7 @@
    "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
    "page": 173,
    "book": "$f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set (\"it is a priori clear that $f^i$ is sc-Fredholm\").",
-   "instead": "**Formalized, for each fixed $i$** (V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. The tame form of the conclusion is proved as well: the index raise of a tame strong bundle chart is tame (V5.13, V5.14). Not formalized: one statement for a family $P^i$ indexed by $i$ (Findings, Chapter 5, items 140–146). The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (gap G.6, closed).",
+   "instead": "**Formalized, for each fixed $i$** (V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. The tame form of the conclusion is proved as well: the index raise of a tame strong bundle chart is tame (V5.13, V5.14). Not formalized: one statement for a family $P^i$ indexed by $i$ (Findings, Chapter 5, items 140–146). The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (point G.6, closed).",
    "decls": [
     "Chapter5/StrongBundleShift · StrongBundle.shift",
     "Chapter5/Corollary58 · IsFillingGerm.germ_shift",
@@ -2470,7 +2470,7 @@
    "label": "§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)",
    "page": 176,
    "book": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\".",
-   "instead": "**Formalized** (V5.73). For an arbitrary sc-Fredholm arc on $\\mathbb R^1 \\times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \\cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2). The orientation of the cobordism is gap G.66.",
+   "instead": "**Formalized** (V5.73). For an arbitrary sc-Fredholm arc on $\\mathbb R^1 \\times X$, in general position near $t = 0, 1$ with compact zeros over $[0, 1]$, a small sc⁺-section vanishing near $t = 0, 1$ makes it in general position at every zero, with compact zeros over $[0, 1]$ (`remark_5_3_8_arc`, from `remark_5_3_8_relative`). The arcs $f_0 + S(t, \\cdot)$ used by Theorem 6.7.1 are `exists_cobordism` and `exists_homotopy_cobordism` (V6.76); the text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ (decision D2). The orientation of the cobordism is point G.66.",
    "decls": [
     "Chapter6/CylinderInterpolation · exists_cobordism",
     "Chapter5/CylinderPerturbation · theorem_5_3_10_relative_hyp",
@@ -2562,7 +2562,7 @@
    "label": "§5.3, Theorem 5.27 (preprint), preprint p. 188",
    "page": 188,
    "book": "For a proper homotopy $f_t$ and perturbations $s_0$, $s_1$ putting $f + s_i$ in good position, there is $s(x, t)$ with $s(\\cdot, i) = s_i$ such that $f + s$ is in good position at all smooth points; its solution set is a compact manifold with corners meeting $\\{i\\} \\times X$ in $S_0$, $S_1$.",
-   "instead": "**Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, gap G.44). For good position at the corner points $\\{i\\} \\times \\partial X$ the step of G.46 would be needed: $\\mathbb R \\times \\ker$ need not be in good position to $[0,\\infty) \\times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).",
+   "instead": "**Nothing to formalize in the 2021 edition**: the theorem is not in it (the preprint leaves the proof to the reader). Its general-position analogue is formalized: `exists_cobordism`, `exists_homotopy_cobordism`, and for an arbitrary sc-Fredholm arc `remark_5_3_8_arc` (V5.73, point G.44). For good position at the corner points $\\{i\\} \\times \\partial X$ the step of G.46 would be needed: $\\mathbb R \\times \\ker$ need not be in good position to $[0,\\infty) \\times C_x$ (`not_isInGoodPosition_prod_diag`); no counterexample to the theorem itself is built (Findings, Chapter 5, items 104, 186).",
    "decls": [
     "Chapter6/CylinderInterpolation · exists_cobordism",
     "Chapter6/ProperHomotopy · exists_homotopy_cobordism",

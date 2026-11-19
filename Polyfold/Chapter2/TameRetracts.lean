@@ -81,7 +81,7 @@ case faces are tame sub-M-polyfolds with `d_X = d_F + 1`; local and global face 
 * Proposition 2.5.6 (preprint 2.36)'s "`C_xO` is a partial quadrant in `T_xO`" and "`T_x^R O` is an sc-subspace"
   are in `Polyfold.Chapter2.PartialCone` (proved directly for tame retracts; that `C_xO` is a
   partial quadrant at every smooth point of every retract is `remark_2_4_8_isPartialQuadrant` in
-  `PartialConeQuadrant.lean`, gap G.11).
+  `PartialConeQuadrant.lean`, point G.11).
 * Proposition 2.5.15 (preprint 2.43)'s "`F` is tame and `d_F = d_O − 1`", Proposition 2.5.16 (preprint 2.44) and the remaining
   statements of Theorem 2.5.17 (preprint 2.45) are in `Polyfold.Chapter2.TameFaces`.
 * Proposition 2.5.20 (preprint 2.46) (fibred products) is in `Polyfold.Chapter2.FibredProduct`.

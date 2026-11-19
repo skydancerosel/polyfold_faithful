@@ -5,7 +5,7 @@ import Polyfold.Chapter7.NaturalRep
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2,
 pp. 373–374: **Proposition 8.2.3** (2017: Proposition 8.1), the Poincaré lemma for
-sc-differential forms on ep-groupoids (gap G.87).  Numbers and pages are the 2021 text's.
+sc-differential forms on ep-groupoids (point G.87).  Numbers and pages are the 2021 text's.
 
 # The Poincaré lemma for sc-differential forms on ep-groupoids
 

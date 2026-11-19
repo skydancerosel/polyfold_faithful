@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "incomparable"
   },
-  "note": "theorem_3_6_8_nearby now assumes the germ reading, which B's whole-chart IsGoodPosData implies; the file compiles unchanged. Result unchanged: the gaps (B's claim for every datum, the conclusion in B's chart versus A's ψ-coordinates, the germ regularity of σ) are not about the whole-chart reading."
+  "note": "theorem_3_6_8_nearby now assumes the germ reading, which B's whole-chart IsGoodPosData implies; the file compiles unchanged. Result unchanged: the differences (B's claim for every datum, the conclusion in B's chart versus A's ψ-coordinates, the germ regularity of σ) are not about the whole-chart reading."
  }
 }

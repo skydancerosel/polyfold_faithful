@@ -3,7 +3,7 @@ import Polyfold.Chapter4.ScFormsNatural
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4, p. 197
 (2017 pp. 149–150; preprint: before Definition 4.27): the exterior derivative
-`d : Ωᵏ(X) → Ωᵏ⁺¹(X¹)` on an M-polyfold `X` (gap G.39).  Applied to the lift `Xⁱ` it is the
+`d : Ωᵏ(X) → Ωᵏ⁺¹(X¹)` on an M-polyfold `X` (point G.39).  Applied to the lift `Xⁱ` it is the
 book's `Ωᵏ(Xⁱ) → Ωᵏ⁺¹(Xⁱ⁺¹)`.
 
 # The exterior derivative on an M-polyfold
@@ -360,7 +360,7 @@ theorem chartForm_extD (hω : P.IsScForm k ω) (y₀ : P.Level 1)
       (whitneyMk_fst_vec q))
 
 /-- **2021 p. 197: `d` maps `Ωᵏ(X)` to `Ωᵏ⁺¹(X¹)`** (2017 p. 150; preprint: before Definition
-4.27; gap G.39): the exterior derivative of an sc-differential `k`-form on `X` is an sc-differential
+4.27; point G.39): the exterior derivative of an sc-differential `k`-form on `X` is an sc-differential
 `(k + 1)`-form on `X¹`.  Its local representatives in the level charts, which cover `X²`, are the
 local exterior derivatives `d(ω_φ)` (`chartForm_extD`), sc-smooth by
 `IsRetractScForm.retractD`. -/

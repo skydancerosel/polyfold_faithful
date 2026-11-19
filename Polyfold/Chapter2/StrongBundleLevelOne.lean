@@ -25,7 +25,7 @@ namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
 
 /-- **The levels of the M-polyfold `X¹` are those of `X` shifted by one**: `(X¹)_m = X_{m+1}`
-(the paragraph after Definition 2.3.8 (preprint 2.14); part of gap G.6). -/
+(the paragraph after Definition 2.3.8 (preprint 2.14); part of point G.6). -/
 theorem mem_shift_levelSet_iff {m : ℕ} (x : PX.Level 1) :
     x ∈ PX.shift.levelSet m ↔ PX.levelVal 1 x ∈ PX.levelSet (m + 1) := by
   obtain ⟨φ, hφ, hx⟩ := PX.exists_isChart_mem_source (PX.levelVal 1 x)

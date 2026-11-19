@@ -6,7 +6,7 @@ import Polyfold.Chapter4.ManifoldOrientation
 # The natural orientation of the solution set as a Mathlib manifold
 
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), **Theorem 6.6.18**
-(p. 275, proof pp. 275–276; preprint Theorem 6.41), the orientation part (gap G.67).
+(p. 275, proof pp. 275–276; preprint Theorem 6.41), the orientation part (point G.67).
 `theorem_6_6_18` gives the natural orientation of `S = f⁻¹(0)` as a family `o_x` of orientations
 of the kernels `ker f'(x)` (`IsNaturalSolutionOrientation`), and `theorem_6_6_18_isManifold`
 makes `S` a Mathlib manifold with boundary and corners (`IsManifold (𝓠 d) ∞ S`).  Here the two

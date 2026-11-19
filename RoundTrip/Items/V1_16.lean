@@ -23,7 +23,7 @@ Same notions on both sides: `B`'s `levelTo f 1 1` is `levelMap f 1` by `rfl`, `B
   outright, `isScDomain_shift'`).  `IsSc1With.shift` additionally names the derivative family
   (`levelDeriv D 1`), which `B` (an `IsSc1` existence statement) does not; on those domains it
   follows too (`B_sc1With_shift_quadrant`: the family given by `B` agrees with `levelDeriv D 1` on
-  `U₂` by uniqueness of derivatives and the density of `E₂` in `E₁`).  So the only gap is the
+  `U₂` by uniqueness of derivatives and the density of `E₂` in `E₁`).  So the only difference is the
   domain class. -/
 
 namespace RoundTrip.V1_16

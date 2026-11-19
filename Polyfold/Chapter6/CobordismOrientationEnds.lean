@@ -332,7 +332,7 @@ theorem paramLift_congr {g g' : X → Y} (h : g = g') (hg : IsSection P g) (hg' 
 
 include hbump in
 /-- **The orientation of the cobordism `S_F`** (2021 Remark 6.6.19, p. 276; proof of
-Theorem 6.7.1, p. 278; gap G.66): `CobordismOrientation` (`InvariantCobordism`) holds for cobordism data between
+Theorem 6.7.1, p. 278; point G.66): `CobordismOrientation` (`InvariantCobordism`) holds for cobordism data between
 `f₀ + s₀` and `f₀ + σ₁ = f₁ + s₁` as soon as the orientation `o₁.sectionAdd` of `f₁ + s₁` has
 the values of `o₀` (`IsInducedSectionOrientation`). The orientation is `cobOr`, given by
 `e ∧ o₀`; on the ends `(0, 1/8) × S₀` and `(7/8, 1) × S₁` it is `e ∧ o_{S_i}`
@@ -366,7 +366,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
 
 /-- **The orientation of the cobordisms of the proof of 2021 Theorem 6.7.1** (Remark 6.6.19,
-p. 276; proof of Theorem 6.7.1, p. 278–279; gap G.66): `CobordismOrientationHyp` holds, for `X`
+p. 276; proof of Theorem 6.7.1, p. 278–279; point G.66): `CobordismOrientationHyp` holds, for `X`
 tame with sc-smooth bump functions. In part (1) both ends carry `o.sectionAdd`; in part (2) the
 right end carries `(o₀.sectionAdd S(1, ·)).sectionAdd s₁`, which has the values of `o₀`. -/
 theorem cobordismOrientationHyp (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) :

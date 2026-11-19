@@ -37,7 +37,7 @@ the functoriality of `f` and `Λ` and the local diffeomorphism `t ∘ s⁻¹` ne
   `φ_*` of the formal sum at `x`.
 * **`theorem_15_1_1_functor`**: for an sc-Fredholm section functor `f`, an sc⁺-multisection `Λ`,
   a morphism `φ` and level-`1` points `x = s(φ)`, `y = t(φ)`:
-  `T(f, Λ)(y) = φ_* T(f, Λ)(x)` in `GrF(y)`.  This closes gap G.144.
+  `T(f, Λ)(y) = φ_* T(f, Λ)(x)` in `GrF(y)`.  This settles point G.144.
 * `grfPush_comp` and `grfPush_unit`-type statements are not needed for the theorem and are not
   formalized; `conjOp_apply` gives the action pointwise.
 
@@ -395,7 +395,7 @@ theorem linSumIntr_transportChart {f : A.Obj → A.W} (hf : A.E.IsScFredholmSect
 
 /-! ### Theorem 15.1.1: the functor property -/
 
-/-- **Theorem 15.1.1 (2017: Theorem 15.1), p. 684, the functor property (gap G.144)**: for an
+/-- **Theorem 15.1.1 (2017: Theorem 15.1), p. 684, the functor property (point G.144)**: for an
 sc-Fredholm section functor `f`, an sc⁺-multisection `Λ` and a morphism `φ : x → y` between
 level-`1` points (in particular between smooth points),
 `T(f, Λ)(y) = φ_* T(f, Λ)(x)` in `GrF(y)`, where `φ_*(∑ σ_L · L) = ∑ σ_L · μ(φ, ·) ∘ L ∘ (Tφ)⁻¹`

@@ -35,7 +35,7 @@ theorem BStrong_to_A : BStrong → A := by
 `AdmitsBumpFunctions` (a bump with `f(x) ≠ 0`).  Deriving A's hypothesis from B's would need a
 bump that is non-zero AT the given point from bumps that are only non-zero somewhere near it; on
 an M-polyfold there are no translations (translation by a non-smooth point is not even sc⁰ on the
-levels), so this is a genuine gap, not glue.  Whether B itself holds in general is unclear. -/
+levels), so this is a genuine difference, not glue.  Whether B itself holds in general is unclear. -/
 
 #rt_check RoundTrip.V5_17.B_to_A [Polyfold.proposition_5_5_3, Polyfold.proposition_5_3_2]
 #rt_check RoundTrip.V5_17.A_to_BStrong [Polyfold.proposition_5_5_3, Polyfold.proposition_5_3_2]

@@ -19,7 +19,7 @@ are definitions (vocabulary).
   `E¹¹…`) with B's level-`m` charts (models `E^m = E.shiftAdd m`, retraction and transitions
   sc-smooth in that structure).  Getting B at level `m ≥ 2` would need Proposition 1.17 iterated
   and transported along `E¹…¹ ≅ E^m` for retractions and retract maps, and the homeomorphism
-  `V_m ≃ O_m` for `levelTopology m`, i.e. the rest of the project's gap G.6: new construction,
+  `V_m ≃ O_m` for `levelTopology m`, i.e. the rest of the project's point G.6: new construction,
   not glue.  Even at `m = 1` B uses `E^1 = E.shiftAdd 1` (levels `E_{1+k}`) where the project uses
   `E¹ = E.shift` (levels `E_{k+1}`); bridging `IsChartB`'s "`(O_1, C_1, E^1)` is a retract" needs a
   retraction in the `E.shiftAdd 1` structure (transport of `ScRetraction`, partial quadrant

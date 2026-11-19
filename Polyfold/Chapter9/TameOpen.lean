@@ -8,7 +8,7 @@ import Polyfold.Chapter9.FormEvalEp
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, Definition 9.3.6 (pp. 425–426) and §9.5, Theorems 9.5.4, 9.5.5 (p. 438;
-2017: Theorems 9.2, 9.3), gap G.107.  Numbers and pages are the 2021 text's.
+2017: Theorems 9.2, 9.3), point G.107.  Numbers and pages are the 2021 text's.
 
 # Open pieces of tame sheets are tame; Theorems 9.5.4 and 9.5.5 for the concrete integral
 

@@ -5,7 +5,7 @@ import Polyfold.Chapter2.TangentMapLinear
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4, p. 198
 (2017 p. 150 and preprint p. 168, after the Stokes theorem, one sentence): the pull-back `f^*`
 of sc-differential forms along an sc-smooth map `f : X → Y` of M-polyfolds, and
-`f^* ∘ d_Y = d_X ∘ f^*` (part of gap G.80).  Numbers and pages are the 2021 text's.
+`f^* ∘ d_Y = d_X ∘ f^*` (part of point G.80).  Numbers and pages are the 2021 text's.
 
 # Pull-back of sc-forms along sc-smooth maps
 

@@ -4,7 +4,7 @@ import Polyfold.Chapter3.LinearizationChartsScG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, **Definition 6.2.1**
 (p. 239; preprint: Definition 6.1, p. 201): **the operators of `Lin(f, x)` are sc-Fredholm, all of
-one index, on every level**.  Closes gap G.64 (Findings, Chapter 6, item 40).
+one index, on every level**.  Settles point G.64 (Findings, Chapter 6, item 40).
 
 # `Lin(f, x)` consists of sc-Fredholm operators
 
@@ -35,7 +35,7 @@ level-`0` operator is `L` read through `(T_zO)₀ = T_zO` and `(K_z)₀ = K_z`
 
 ## Reading
 
-As in `LinSet.lean`, `T_xX` and `Y_x` are read in a chart as `T_zO` and `K_z` (gaps G.6, G.7,
+As in `LinSet.lean`, `T_xX` and `Y_x` are read in a chart as `T_zO` and `K_z` (points G.6, G.7,
 G.13); "sc-Fredholm operator `T_xX → Y_x`" is an sc-Fredholm operator between these sc-subspaces
 with the induced sc-structures (`ScBanach.ofSubspace`), whose level `0` is the member of `Lin(f, x)`.
 No hypothesis is added: smoothness of `x` follows from `(f + s)(x) = 0`.

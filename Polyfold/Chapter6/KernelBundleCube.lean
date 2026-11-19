@@ -4,7 +4,7 @@ import Polyfold.Chapter6.CubeManifold
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
 (p. 265; preprint Lemma 6.30, p. 222): **`L` is a smooth vector bundle over `[0, 1]ⁿ`**.
-Gap G.65, row V6.34.
+Point G.65, row V6.34.
 
 # The bundle `L` over the manifold with corners `[0, 1]ⁿ`
 

@@ -101,7 +101,7 @@ that `f + s₀ + s(λ₀, ·)` is transversal".
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Definitions 5.3.7 and 5.3.9 (preprint 5.15 and 5.17) are stated in `T_xX`** (gap G.7/G.13): here in charts, with the
+* **Definitions 5.3.7 and 5.3.9 (preprint 5.15 and 5.17) are stated in `T_xX`** (point G.7/G.13): here in charts, with the
   linearization `Lin(z)` of `LinearizationCharts.lean`, and for Definition 5.3.9 (preprint 5.17) with the reduced
   tangent space `T^R_zO` of Definition 2.4.7 (preprint 2.27) and the presentation `T` of the partial quadrant.
   The chart independence of Definition 5.3.7 (preprint 5.15) is `IsLinSurjAt.linAt_surjective`; that of Definition
@@ -376,7 +376,7 @@ the linearization `Lin(z) : T_zO → K_z` (`linAt`) is onto, and for every prese
 partial quadrant `C` the kernel `ker Lin(z)` has an sc-complement `B` in `T_zO` contained in the
 reduced tangent space `T^R_zO = T_zO ∩ E_z` (`reducedTangentSpaceWith`, Definitions 2.4.7, 2.5.8 (preprint 2.27, 2.38)):
 an sc-subspace `B` with `(T_zO)_m = (ker Lin(z))_m ⊕ B_m` on every level, the form of Definition
-4.21 in `Chapter4/Submanifolds.lean`.  (The text states the definition in `T_yX`, gap G.7.) -/
+4.21 in `Chapter4/Submanifolds.lean`.  (The text states the definition in `T_yX`, point G.7.) -/
 def StrongBundle.IsGeneralPositionGerm (f : X → Y) (y : X) : Prop :=
   ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : y ∈ c.φ.source) (z : c.φ.model.E 1),
     c.φ.model.E.toBase 1 z = c.φ y ∧

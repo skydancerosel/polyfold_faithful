@@ -10,7 +10,7 @@ the normalized coordinates (Lemma 2 of the argument).**
 
 ## The text, paraphrased
 
-Nothing in the text (the repair of the gap of Finding 100, see `GlobalIFTNearbyOntoLemmas.lean`).
+Nothing in the text (the step of Finding 100, see `GlobalIFTNearbyOntoLemmas.lean`).
 The perturbed section `g + μ ρ(r(·)) λ` of the chart at `x₀` is transported to the normal form of
 Theorem 3.4.2 (preprint 3.38) by the strong bundle isomorphism `Θ = Λ ∘ Ψ` (`Ψ` the conjugation of Definition
 3.11, `Λ = (split, fiber)` the linear change of Theorem 3.4.2 (preprint 3.38)): its push-forward is `G + μ ê_λ`

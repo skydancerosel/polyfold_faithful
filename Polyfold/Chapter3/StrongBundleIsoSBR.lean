@@ -8,7 +8,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2014 p
 §2.6 "Strong Bundles", **Definition 2.6.1, p. 65 (preprint: Definition 2.47, p. 48)** — strong
 bundle maps, **strong bundle isomorphisms** and strong bundle retractions between the trivial
 bundles `U ◁ F` — and **the category `SBR` of local strong bundle retracts with its forgetful
-functors `forget[i]`, pp. 66–67 (preprint p. 50)**.  This closes gap G.14 (rows V2.47 and
+functors `forget[i]`, pp. 66–67 (preprint p. 50)**.  This settles point G.14 (rows V2.47 and
 V2.56: "the category `SBR` and the forgetful functors are not formalized").  Numbers and pages
 are the 2021 text's, the preprint ones in parentheses.
 

@@ -3,7 +3,7 @@ import Polyfold.Chapter4.StokesFaceOrientation
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,
 **Theorem 4.4.7** (Stokes, p. 199; preprint Theorem 4.28): the boundary term `∑_F ∫_F ω`
-(gap G.40, third step), for Mathlib manifolds.
+(point G.40, third step), for Mathlib manifolds.
 
 # The boundary integral is the sum of the face integrals
 

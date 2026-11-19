@@ -5,7 +5,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §3.1
 (p. 89; preprint Theorem 3.18), "readily verified", **with a parameter factor that has
 boundary**: the germ calculus of the product germ `O_Λ × G` for a relatively open `O_Λ` of a
 partial quadrant `C_Λ` of a finite-dimensional `Λ`.  This is the input of the pull-back of an
-sc-Fredholm section to `[0, 1]ⁿ × X` (gap G.65 (a), step 2; the families of Lemmas 6.6.4–6.6.5).
+sc-Fredholm section to `[0, 1]ⁿ × X` (point G.65 (a), step 2; the families of Lemmas 6.6.4–6.6.5).
 
 # The germ calculus with a quadrant parameter
 

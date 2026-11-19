@@ -6,7 +6,7 @@ import Mathlib.MeasureTheory.Function.Jacobian
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5 "Integration and Stokes", pp. 438–445: the data from which the integral
 `∫_K ω|(M, o)` of an sc-differential `n`-form over a measurable subset of an oriented
-`n`-dimensional submanifold is built (gap G.107).  Numbers and pages are the 2021 text's.
+`n`-dimensional submanifold is built (point G.107).  Numbers and pages are the 2021 text's.
 
 # Graph charts of a sheet and the pointwise evaluation of forms
 

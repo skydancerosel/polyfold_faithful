@@ -34,7 +34,7 @@ convex subset of the Fredholm operators `T_xX → Y_x` with the metric of the op
 
 The text's `f − s` with `s(x) = f(x)` is the project's `f + s` with `(f + s)(x) = 0` (`sectionAdd`,
 as in `StrongBundle.IsIndexAt`).  `T_xX` and `Y_x` have no intrinsic linear structure in the project
-(gaps G.6, G.7, G.13), so `Lin(f, x)` is made in a chart; the operators are their level-`0` maps
+(points G.6, G.7, G.13), so `Lin(f, x)` is made in a chart; the operators are their level-`0` maps
 `T_zO → K_z`, which is where the operator-norm metric of p. 219 lives.  The sections `s` are global
 sc⁺-sections; that one exists through `−f(x)` is the hypothesis `B.HasScPlusSectionsThrough` of
 `linSet_nonempty` (true with sc-smooth bump functions, which the text assumes from §6.2 on, and for

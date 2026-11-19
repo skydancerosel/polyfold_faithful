@@ -2,7 +2,7 @@ import Polyfold.Chapter9.DimensionJumpRetract
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the M-polyfold `X`.
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the M-polyfold `X`.
 
 # `X = {(−1,0)} ∪ ((−1,1) × B) ∪ {(1,0)} ⊆ ℝ × ℂ` as an M-polyfold
 

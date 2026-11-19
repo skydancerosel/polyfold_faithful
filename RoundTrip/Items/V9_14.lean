@@ -33,7 +33,7 @@ The two sums agree by `rfl`: `B`'s `sumB` is the project's `tangentSum`.
   (`MPolyfold.metrizableSpace`), so `|supp Θ'|` is paracompact, and the structures restrict to
   every point of `supp Θ'`.  The structures restricted to `W` are structures of `Θ'`, `B`
   applies, and `tangentSum_restrict` returns to `B₁`, `B₂`.
-* `A → B`: not proved; a genuine gap in `A`.  `A` gives the independence on a general
+* `A → B`: not proved; a genuine difference in `A`.  `A` gives the independence on a general
   M-polyfold only under `HasTangentSlicesAt`, `HasGraphChartsAt`, or `HasGraphChartAt` with
   `HasLocallyConstantDimAt` (the content of Proposition 9.2.8 and Lemmas 9.2.9–9.2.11 and of
   Remark 9.1.1).  Those are proved only for `ℝᵐ`, and `B` claims the independence for every

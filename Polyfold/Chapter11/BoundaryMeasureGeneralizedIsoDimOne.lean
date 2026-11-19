@@ -4,7 +4,7 @@ import Polyfold.Chapter11.BoundaryMeasureGeneralizedIso
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4, **Theorems 11.4.4 and 11.4.5 for `n = 1` and a generalized
-isomorphism** (p. 545, new in the 2021 edition), gap G.131.  Numbers and pages are the 2021
+isomorphism** (p. 545, new in the 2021 edition), point G.131.  Numbers and pages are the 2021
 text's.
 
 `BoundaryMeasureGeneralizedIso` for `m = 0`: a generalized isomorphism `f : X → Y` is represented by a

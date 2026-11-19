@@ -4,7 +4,7 @@ import Polyfold.Chapter2.PartialConeQuadrant
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.2, **Remark 4.2.2**
 (p. 184; preprint: Remark 4.14, p. 157), the 2021 wording: **`A` is a manifold near the points
-with `d_A(a) = 0`**.  Gap G.33, row V4.32 (Findings, Chapter 4, items 61, 165).
+with `d_A(a) = 0`**.  Point G.33, row V4.32 (Findings, Chapter 4, items 61, 165).
 
 # Remark 4.2.2 near the points with `d_A = 0`
 

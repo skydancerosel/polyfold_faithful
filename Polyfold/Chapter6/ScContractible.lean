@@ -5,7 +5,7 @@ import Polyfold.Chapter6.UnitIntervalSections
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, p. 263:
 **Proposition 6.6.3 (1)**, "`U′ ⊂ U` is sc-smoothly contractible in `U` to the point `x`"
 (2017 Proposition 6.12 (1); preprint Proposition 6.28 (1): "`U` is sc-smoothly contractible").
-Gap G.61, row V6.32.
+Point G.61, row V6.32.
 
 # Sc-smooth contractibility (Proposition 6.6.3 (1))
 

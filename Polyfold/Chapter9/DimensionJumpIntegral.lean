@@ -2,7 +2,7 @@ import Polyfold.Chapter9.DimensionJumpBranched
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the integrals of the branched
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the integrals of the branched
 ep⁺-subgroupoid `Θ(t, z) = δ₀(z)` of `ℤ/3 ⋉ X`.
 
 # `∮_Θ̂ df = (1/3)(φ(1) − φ(−1))` and the two readings of `∮_{∂Θ̂} f`

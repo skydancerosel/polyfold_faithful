@@ -67,7 +67,7 @@ in coordinates: `t = s ∘ r`, `T_aA = Dt(a)E = Ds(a)T_aO`, and
   sc-subspaces of `E` inside `T_aO` (the sc-structure of `T_aO` at the smooth point `a`).  The
   key identities `Dr(a)Dt(a) = Dt(a) = Dt(a)Dr(a)` come from `r ∘ t = t = t ∘ r`.  Transporting
   to `T_aX` by `Tφ(a)` is not done (the fibres of `TX` carry no sc-structure in this project:
-  gap G.7 of the report).
+  point G.7 of the report).
 -/
 
 open Set Filter Topology Function TopologicalSpace

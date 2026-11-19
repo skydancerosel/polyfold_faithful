@@ -4,7 +4,7 @@ import Polyfold.Chapter10.EquivalenceLR
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,
 pp. 532–535: **Proposition 11.2.8**, **Proposition 11.2.9** (2017: Propositions 11.4, 11.5) and
-**Theorem 11.2.1 (4)** (gap G.129).  Numbers and pages are the 2021 text's.
+**Theorem 11.2.1 (4)** (point G.129).  Numbers and pages are the 2021 text's.
 
 # Forms and the maps of orbit spaces, under the local regularity property
 

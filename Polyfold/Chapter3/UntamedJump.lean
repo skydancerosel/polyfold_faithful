@@ -6,7 +6,7 @@ import Polyfold.Chapter3.Germ
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I: an sc-smooth
 family of projections whose rank jumps, in the weighted sequence space of
 `Chapter1/ScOneNotNormContinuous`.
-Used by `UntamedCounterexample.lean` (gap G.79: 2021 Theorem 3.6.8, p. 136, and 2021
+Used by `UntamedCounterexample.lean` (point G.79: 2021 Theorem 3.6.8, p. 136, and 2021
 Definitions 3.1.4, 3.6.1, 3.6.3 with untamed germ data).
 
 # A moving rank-one projection `π_t`, sc-smooth in `(t, h)` and zero for `t ≤ 0`

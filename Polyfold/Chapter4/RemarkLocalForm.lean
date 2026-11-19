@@ -3,7 +3,7 @@ import Polyfold.Chapter4.SmoothSubmanifoldBasics
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.2, **Remark 4.2.2**
-(p. 184; preprint: Remark 4.14, p. 157): **the local form near `{d_X = 0}`**.  Closes gap G.33
+(p. 184; preprint: Remark 4.14, p. 157): **the local form near `{d_X = 0}`**.  Settles point G.33
 and the narrowing of row V4.32 (Findings, Chapter 4, item 61).
 
 # Remark 4.2.2 near the points with `d_X = 0`

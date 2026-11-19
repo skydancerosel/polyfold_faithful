@@ -37,7 +37,7 @@ structures give the same sum) and a branched ep⁺-subgroupoid, the local branch
 
 ## What is formalized
 
-* **`T_yA` without linear structure** (gap G.7): `MPolyfold.submanifoldTangent P A y`, the
+* **`T_yA` without linear structure** (point G.7): `MPolyfold.submanifoldTangent P A y`, the
   vectors over `y` fixed by `Ts` for the sc⁺-retraction `s` of some data of Definition 4.13
   (Remark 4.14: `T_yA = Ts(y)(T_yX)`).  `mem_submanifoldTangent_iff` (any data computes it,
   through `SubmanifoldData.tmap_eq_of_tmap_eq`: `s' ∘ s = s` near `y` and the chain rule),
@@ -69,7 +69,7 @@ structures give the same sum) and a branched ep⁺-subgroupoid, the local branch
 ## What the text leaves implicit, and the choices made
 
 * The generators of `Gr(x)` are taken to be all subsets `L ⊆ T_xX`: Part I's `T_xX` carries no
-  linear structure here (gap G.7).  The values of `TΘ` are the `T_xMᵢ`, which are
+  linear structure here (point G.7).  The values of `TΘ` are the `T_xMᵢ`, which are
   finite-dimensional subspaces in a chart by Remark 4.14 (`remark_4_2_2`); the linear algebra stays
   in the charts.  Formal sums are finitely supported weights `Set TX →₀ ℚ`, so "`σᵢ · Lᵢ + σⱼ · Lⱼ
   = (σᵢ + σⱼ) · L` for `Lᵢ = Lⱼ = L`" is built in.
@@ -258,7 +258,7 @@ variable (P) in
 vectors over `y` fixed by `Ts` for the sc⁺-retraction `s` of some data of Definition 4.13 at `y`
 (by `SubmanifoldData.tmap_eq_of_tmap_eq` the choice of the data does not matter; the fixed
 vectors of the idempotent `Ts(y)` form its image).  It needs no linear structure on `T_yX`
-(gap G.7).  Its chart description (Remark 4.14 in a chart, `remark_4_2_2`) is not formalized
+(point G.7).  Its chart description (Remark 4.14 in a chart, `remark_4_2_2`) is not formalized
 here. -/
 def submanifoldTangent (A : Set X) (y : X) : Set P.TangentSpace :=
   {α | P.levelVal 1 (P.tangentProj α) = y ∧ ∃ d : P.SubmanifoldData A, y ∈ d.V ∧ d.tmap α = α}
@@ -481,7 +481,7 @@ variable (X) in
 /-- **`Gr(x)`** (2021 p. 409; 2017: p. 297): the finite formal sums `∑ σ_L · L` with rational
 `σ_L ≥ 0`, as finitely supported weights on subsets `L ⊆ T_xX` (the vectors of `L` lie over
 `x`).  The text's generators are the smooth finite-dimensional linear subspaces of `T_xX`; with
-no linear structure on Part I's `T_xX` (gap G.7) we allow all subsets, and the values of `TΘ`
+no linear structure on Part I's `T_xX` (point G.7) we allow all subsets, and the values of `TΘ`
 are the `T_xMᵢ`, which are such subspaces in a chart (Remark 4.14). -/
 def Gr (x : Obj) : Set (Set X.PObj.TangentSpace →₀ ℚ) :=
   {w | (∀ L, 0 ≤ w L) ∧ ∀ L ∈ w.support, ∀ α ∈ L, X.PObj.levelVal 1 (X.PObj.tangentProj α) = x}

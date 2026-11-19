@@ -4,7 +4,7 @@ import Polyfold.Chapter4.ManifoldStokes
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): the boundary points of
 degeneracy index `1` of a manifold with corners and their induced orientation (**Definition
 9.3.8**, p. 427, outward vector first; **Definition 9.3.10**, p. 428), across charts; the
-boundary used in **Theorem 4.4.7** (p. 199, gap G.40) and Theorem 6.7.1 (p. 277).  Numbers and pages
+boundary used in **Theorem 4.4.7** (p. 199, point G.40) and Theorem 6.7.1 (p. 277).  Numbers and pages
 the 2021 text's.
 
 # Chart changes preserve the faces, and the induced orientation

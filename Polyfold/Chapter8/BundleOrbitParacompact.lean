@@ -40,7 +40,7 @@ quotient of a metrizable space by a finite group of homeomorphisms is metrizable
 partition-of-unity form of Smirnov's theorem; no bundle charts are needed, only the continuity of
 `μ`.  `W[1]` is not built as an ep-groupoid in the project; (3), with `|W[1]|` the orbit space
 of the groupoid `(W[1], 𝐗 ₛ×_P W[1])`, is `BundleOrbitParacompactOne.lean` (`proposition_8_4_1`, the
-three conditions equivalent; gap G.86).
+three conditions equivalent; point G.86).
 -/
 
 open Set Function Topology TopologicalSpace Filter

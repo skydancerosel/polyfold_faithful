@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "incomparable"
   },
-  "note": "A gained theorem_3_1_22_linearization_sc (sc-Fredholm on all levels, but only in the data chart and under surjectivity) and switched to the germ reading; B's first clause (every chart, no surjectivity) is now a project theorem outside the row (linAt_isScFredholm, clause_one), but the tameness gap in B's second clause remains, so both directions still fail. Second refresh (2026-11-02, same B): linAt_isScFredholm joined A's declaration list, so clause_one is now derived from the hypothesis A (rt_check against the 6-theorem list); the second clause's tameness gap is unchanged, so both directions still fail."
+  "note": "A gained theorem_3_1_22_linearization_sc (sc-Fredholm on all levels, but only in the data chart and under surjectivity) and switched to the germ reading; B's first clause (every chart, no surjectivity) is now a project theorem outside the row (linAt_isScFredholm, clause_one), but the tameness difference in B's second clause remains, so both directions still fail. Second refresh (2026-11-02, same B): linAt_isScFredholm joined A's declaration list, so clause_one is now derived from the hypothesis A (rt_check against the 6-theorem list); the second clause's tameness difference is unchanged, so both directions still fail."
  }
 }

@@ -4,7 +4,7 @@ import Polyfold.Chapter5.SubtypeValSmooth
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.4, p. 198 (the paragraph
 before Theorem 4.4.7, with (4.7)), and Lemma 4.4.8 (p. 199): sc-forms on an **open subset** of an
-M-polyfold, their restriction, and "`[ω] = [τ]` on `V`" (part of gaps G.80 and G.92).
+M-polyfold, their restriction, and "`[ω] = [τ]` on `V`" (part of points G.80 and G.92).
 
 # Sc-forms on open subsets
 

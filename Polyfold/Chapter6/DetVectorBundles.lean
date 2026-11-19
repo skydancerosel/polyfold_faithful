@@ -4,7 +4,7 @@ import Mathlib.Analysis.Normed.Module.FiniteDimension
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.5, **Lemma 6.5.3**
-(p. 260; preprint Lemma 6.19, p. 216).  Gap G.59, row V6.22.
+(p. 260; preprint Lemma 6.19, p. 216).  Point G.59, row V6.22.
 
 # Determinant line bundles of vector bundles
 

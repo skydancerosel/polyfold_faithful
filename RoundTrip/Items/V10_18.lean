@@ -40,7 +40,7 @@ What is proved here (partial, for the diagnosis):
   structures `PObj`, `PMor`, for `F` an equivalence (`Admissible.of_isEquivalence_left`).
 * `objHomeo`, `morHomeo`: the project's carriers are homeomorphic to `B`'s subtypes, entrywise;
   together with V10_17 (the structure maps of `groupoid F G` are the text's) this locates the
-  whole gap in the M-polyfold structures (iterated vs. triple-product sub-M-polyfold). -/
+  whole difference in the M-polyfold structures (iterated vs. triple-product sub-M-polyfold). -/
 
 namespace RoundTrip.V10_18
 open Polyfold Set Function WeakFibredProduct

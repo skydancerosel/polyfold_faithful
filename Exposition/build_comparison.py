@@ -118,8 +118,9 @@ CHAPTERS = [
             'forms; strong polyfold bundles and sc-Fredholm sections (§16.3, Definition 16.3.3 and the sentence '
             'after it); branched suborbifolds, their integrals and Stokes\' theorem; sc⁺-multisections over '
             'polyfolds (§16.5) and Fredholm theory (§16.6, Theorems 16.6.4, 16.6.6)'),
-    ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
-          'an entry that is proved keeps its number and is marked “formalized”, with the rows that prove it'),
+    ('G', 'Points left to the reader', 'Places where the formal version needs more than a translation of the text: '
+          'a step left to the reader, an example the text does not give, a convention left implicit, or a long argument '
+          'written out in full; each is marked “formalized”, with the rows that settle it, or “nothing to formalize”'),
 ]
 # ------------------------------------------------------------------------------------------------
 

@@ -5,7 +5,7 @@ import Polyfold.Chapter6.MathlibFormsBridge
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,
 **Theorem 4.4.7** (Stokes, p. 199; preprint Theorem 4.28), with the sum over the faces
-(gap G.40).
+(point G.40).
 
 # Stokes' theorem with the sum over the faces
 
@@ -393,7 +393,7 @@ oriented by a continuous tangent orientation `o`, and `ω ∈ Ωⁿ_∞(X)`.  Th
 modelled on `[0,∞)ⁿ` (`faceChartedSpace`) with the induced orientation (`faceOrientation`,
 outward vector first), `ω|_F` the restriction of `ω|_S` along `F ↪ S` (`restrictForm`).
 The added hypotheses: `S` face-structured, and `ω|_S`, `d` read through
-`formsInftyRestrict` (gap G.80). -/
+`formsInftyRestrict` (point G.80). -/
 theorem theorem_4_4_7_hyp {o : TangentOrientation (𝓠 (n + 1)) S (n + 1)}
     (ho : o.IsContinuous (𝓠 (n + 1)) ∞) (ω : (BundledMPolyfold.of PX).formsInfty n) :
     haveI := isManifold_of_eq hcs hch

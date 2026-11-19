@@ -11,7 +11,7 @@ germ.**
 
 ## The text, paraphrased
 
-Nothing in the text: the argument repairs the gap of Finding 100 (see `GlobalIFTNearbyOntoLemmas.lean`).
+Nothing in the text: the argument supplies the step that Finding 100 describes (see `GlobalIFTNearbyOntoLemmas.lean`).
 In the normal form of Theorem 3.4.2 (preprint 3.38) (`ShiftedBasicData`: `g : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` sc-smooth with
 `g¹ = (G₁, w − B(a, w))` a basic germ on the index-raised structure), an sc⁺-perturbation
 `e : O(C̃ ⊕ W, 0) → (ℝᴺ ⊕ W)¹` is added with a real parameter `μ`: the `W`-component of

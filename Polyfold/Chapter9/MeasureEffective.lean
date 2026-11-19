@@ -46,7 +46,7 @@ proof: `T_x = {1}`, so `G_x^eff = G_x` and the normalizing factors agree.
 
 ## What the text leaves implicit, and the choices made
 
-* The measure identities themselves need forms and integrals (gaps G.74, G.80) and are not
+* The measure identities themselves need forms and integrals (points G.74, G.80) and are not
   stated here; only the isotropy orders and the decompositions the proofs rest on are.  They
   are proved for an abstract integration of forms over oriented sheets
   (`OrientedTameStructure.lemma_9_5_9`, `lemma_9_5_10`, `lemma_9_5_11`,

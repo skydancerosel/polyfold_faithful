@@ -25,7 +25,7 @@ paracompact, `♯G^R_x = ♯G^eff_x`.
   - `B_to_A3_of_isLUC`: `A3` for (LUC) `X`, the first half from `B` (2), the second from `B` (1)
     applied to `X_R` (effective by the non-item `isEffective_reducedEpGroupoid`).
   The missing pieces hold outright from non-item lemmas (`A2_outright`: `surjective_reducedπ`;
-  `A3_fst_outright`: the isomorphism `effIsotropyEquivReduced`), which shows that the gap is only
+  `A3_fst_outright`: the isomorphism `effIsotropyEquivReduced`), which shows that the difference is only
   generality, not a mathematical difference on the text's content. -/
 
 namespace RoundTrip.V9_57

@@ -14,11 +14,11 @@ projects into the quadrant).  `A` is the conjunction of the types of `Polyfold.t
 
 Neither direction is proved.  Compared with the earlier items V3_38 (Theorem 3.43), V3_42
 (Corollary 3.47) and V3_48 (Theorem 3.54 (3)), the new `A` records `IsClosed Y` (and `ProjectsInto`),
-which removes **one** of the gaps found there: B's complement is an *sc*-complement, A's only an
+which removes **one** of the differences found there: B's complement is an *sc*-complement, A's only an
 algebraic one; with `Y` closed and the kernel smooth they agree.  This is proved below
 (`isGoodComplementSc_of_closed`, and `le_smooth_of_isInGoodPositionSc`: B's own hypothesis that
 the kernel is in sc-good position makes the kernel smooth), with `isScSplitting_of_isClosed` copied
-from V3_20.  The remaining gaps:
+from V3_20.  The remaining differences:
 
 * `A → B`, (a) Theorem 3.43: B is stated for **every** strong bundle isomorphism `Φ` with
   `(Φ_* f)¹` basic, concluding good position of `K' = ker D(Φ_* f)(0)` and the graph form.  A's

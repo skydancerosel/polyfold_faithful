@@ -56,7 +56,7 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 * **Proposition 8.1.17 (1)** is proved through 2021 Proposition 7.2.21 for `TX`: `(T𝐗)^T` is
   `p⁻¹((𝐗¹)^T)`, closed by (LUC) for `X¹`.  It assumes, as Appendix 7.6.4 does,
   `HasConnectedDenseLevelOneReps` (`U(x) ∩ X₁` connected and dense; the text's `V(x)`), and that
-  `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8; a theorem, `MPolyfold.isOpenMap_tangentProj`, used
+  `p : T𝐗 → 𝐗¹` is open (Part I, point G.8; a theorem, `MPolyfold.isOpenMap_tangentProj`, used
   in `TangentZhouFacts.lean`).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
   `EP.proposition_8_1_17_two_all` in `Chapter8/TangentZhouLevels.lean`, through
   `(TX)ⁱ ≡ T(Xⁱ)` (`EP.tangentLiftEpEquiv`).

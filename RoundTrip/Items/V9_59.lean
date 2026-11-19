@@ -23,7 +23,7 @@ from `RoundTrip/Items/V9_2.lean`), so `IsDimLabelB B dim ↔ ∀ i, IsSubmanifol
   `B`'s domain: `B_to_A_of_branched` (both conjuncts of `A` for branched `Θ`; off `supp Θ` both
   structures are empty).  For general `Θ` `B` says nothing; `A`'s proof does not use the
   branched hypothesis (it is the non-item `topUnion_inter_subset`, a covering argument), so the
-  gap is generality only. -/
+  difference is generality only. -/
 
 namespace RoundTrip.V9_59
 open Polyfold EpGroupoid MPolyfold Set

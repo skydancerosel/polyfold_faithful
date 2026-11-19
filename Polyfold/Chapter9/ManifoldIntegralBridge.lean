@@ -3,7 +3,7 @@ import Polyfold.Chapter9.FormEvalInfty
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, pp. 438–451 (gaps G.107, G.110).  Numbers and pages are the 2021
+Part II, Chapter 9, §9.5, pp. 438–451 (points G.107, G.110).  Numbers and pages are the 2021
 text's.
 
 # The integral over an oriented tame sheet is the manifold integral of Part I

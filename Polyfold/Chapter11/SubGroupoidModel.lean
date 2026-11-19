@@ -6,7 +6,7 @@ import Polyfold.Chapter10.Equivalence
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2, p. 374:
 the saturated neighbourhoods in the proof of **Proposition 8.2.3** (2017: Proposition 8.1)
-(gap G.87); see also Proposition 7.1.22 and Theorem 7.1.13.  Numbers and pages are the 2021
+(point G.87); see also Proposition 7.1.22 and Theorem 7.1.13.  Numbers and pages are the 2021
 text's.
 
 # Restrictions to saturated open sets and the local model `G_x ⋉ U(x) → X|π⁻¹(π(U(x)))`

@@ -4,7 +4,7 @@ import Polyfold.Chapter10.EpFormsFunctor
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,
 pp. 528–532: **Definition 11.2.3** on `Ω*_{ep,∞}`, formula (11.5), **Lemma 11.2.4**,
-**Lemma 11.2.5**, **Lemma 11.2.6** (2017: Definition 11.2, Lemmas 11.2–11.4) (gap G.129).
+**Lemma 11.2.5**, **Lemma 11.2.6** (2017: Definition 11.2, Lemmas 11.2–11.4) (point G.129).
 Numbers and pages are the 2021 text's.
 
 # Push-forward and pull-back along equivalences on `Ω*_{ep,∞}`

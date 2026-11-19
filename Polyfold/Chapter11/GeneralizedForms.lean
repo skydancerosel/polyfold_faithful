@@ -4,7 +4,7 @@ import Polyfold.Chapter10.LocalizationCategory
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,
 pp. 526 and 531–532: **Definition 11.2.7** (2017: Definition 11.3) and **Theorem 11.2.1
-(1)–(3)** (2017: Theorem 11.2) (gap G.129).  Numbers and pages are the 2021 text's.
+(1)–(3)** (2017: Theorem 11.2) (point G.129).  Numbers and pages are the 2021 text's.
 
 # Sc-differential forms along generalized maps
 

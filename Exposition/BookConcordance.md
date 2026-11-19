@@ -29,7 +29,7 @@ two texts. All 279 numbered items of the preprint's Chapters 1–6 are listed; 2
 **Annotation convention** (used in `Findings.md`, in `Chapter1.md`–`Chapter3.md` at the places
 checked against the 2017 text, and in the module docstrings of
 `Polyfold/Chapter3/`–`Chapter6/`): *(book 2017: …)* gives the result of the check
-against arXiv 1707.08941: *unchanged* (the point or gap is in the 2017 text as well), *corrected*,
+against arXiv 1707.08941: *unchanged* (the point is in the 2017 text as well), *corrected*,
 *renumbered* (a citation number of the preprint carried over under the 2017 numbers), or the 2017 statement number and page, e.g.
 *(book 2017: Theorem 3.13, p. 99)*. A general remark such as "statement numbers are the
 preprint's" points here instead: *(book 2017: see `BookConcordance.md`)*.
@@ -133,7 +133,7 @@ Spot checks of statements and proofs that `Findings.md` flags:
   "from [37], Theorem 2.3", no proof); Lemmas 3.14–3.15 (= 3.62–3.63, p. 107; still quoted from [37]);
   the proof of Theorem 3.13 (= 3.54, p. 101: "Property (4) follows from Corollary 3.5 and from the
   following lemma") with the filling, Definition 3.13 (= 3.48, p. 97), whose condition (3) is imposed at
-  the point $0$ only — so the gap of `Findings.md` item 100 is in the 2017 text as well.
+  the point $0$ only — so the step of `Findings.md` item 100 that the text does not spell out is in the 2017 text as well.
 - *Unchanged (the points raised in the notes to the authors):* the sentence
   "$F = C \oplus T(E_m)$" after Definition 1.5 (= 1.8, p. 6); Remark 2.2 (= 2.28, p. 29); the step
   "$\delta$ is a sc$^\infty$-germ near $v_0$" in the proof of Theorem 3.6 (= 3.27, p. 74), whose
@@ -580,7 +580,7 @@ are in the comparison, not here.
 | Definition 7.1 | 225 | V7.1 | `Groupoid.lean` | groupoid, `mor(x, y)`, orbit space $\lvert X\rvert$, $\pi$ (pp. 225–226) |
 | Definition 7.2 | 226 | V7.2 | `Groupoid.lean` | isotropy group $G_x$ |
 | Definition 7.3 | 226 | V7.3 | `EpGroupoid.lean` | ep-groupoid (pp. 226–227); (4) cites "Lemma 2.8 in [38]", in the book Part I's Proposition 2.15 |
-| Definition 7.4 | 227 | V7.5 | `EpGroupoid.lean`, `LocalDiffeo.lean` | $\hat\varphi$; $T\varphi$ only defined (gap G.70) |
+| Definition 7.4 | 227 | V7.5 | `EpGroupoid.lean`, `LocalDiffeo.lean` | $\hat\varphi$; $T\varphi$ only defined (point G.70) |
 | Definition 7.5 | 228 | V7.7 | `EpGroupoid.lean` | induced degeneracy index; the levels before it: V7.6 |
 | Definition 7.6 | 228 | V7.8 | `EpGroupoid.lean`, `LocalDiffeo.lean` | tame ep-groupoid, with the tameness of the morphism M-polyfold |
 | Definition 7.7 | 228 | V7.9 | `EpGroupoid.lean`, `Groupoid.lean` | the category $\mathcal{EP}$; the remark after it (pp. 228–229): V7.10, `Basic.lean`, `NonVacuity.lean` |
@@ -602,7 +602,7 @@ are in the comparison, not here.
 | Lemma 7.3 | 239 | V7.35 | `Effective.lean` | proof p. 240 |
 | Proposition 7.8 | 240 | V7.36 | `Effective.lean` | $X_{reg}$ open and dense |
 | Definition 7.12 | 241 | V7.38 | `Reduced.lean`, `EpGroupoid.lean` | $\mathbf X^T$, $\mathbf X^R$; the subgroup $T_x$ before it: V7.37, `Effective.lean` |
-| Proposition 7.9 | 242 | V7.39 | `Reduced.lean` | $\mathbf X^R$ Hausdorff and paracompact taken as hypotheses (gap G.71) |
+| Proposition 7.9 | 242 | V7.39 | `Reduced.lean` | $\mathbf X^R$ Hausdorff and paracompact taken as hypotheses (point G.71) |
 | Proposition 7.10 | 244 | V7.40 | `Reduced.lean` | the reduced ep-groupoid $X_R$ (p. 243); hypotheses as Proposition 7.9 |
 | Definition 7.13 | 244 | V7.41 | `Reduced.lean`, `Effective.lean` | $G_x^{\mathrm{eff}} = G_x/T_x$ |
 | §7.3 Topological Properties of Ep-Groupoids | 244 | — | — |  |
@@ -661,7 +661,7 @@ are in the comparison, not here.
 The sentence before Remark 7.1 is part of V7.53, the reduced ep-groupoid $X_R$ (p. 243) of V7.40
 and the isotropy $G_x/T_x$ (p. 244) of V7.41. The witnesses that show the hypotheses can hold
 (`NonVacuity.lean`, `ReducedNotHausdorff.lean` and the witnesses in the other files; `Findings.md`,
-Chapter 7, items 100–107) have no V-item of their own. Gaps opened in Chapter 7: G.70 (Definition
+Chapter 7, items 100–107) have no V-item of their own. Points of Chapter 7: G.70 (Definition
 7.4, $T\varphi$ as an sc-isomorphism), G.71 (Propositions 7.9–7.10, $\mathbf X^R$ Hausdorff and
 paracompact; Hausdorffness fails in general, `ReducedNotHausdorff.lean`), G.72 (p. 228, $\lvert
 X_\infty\rvert = \bigcap_k \lvert X_k\rvert$), G.73 (p. 227, $X_\infty$ dense in every $X_k$). `verification/ch07.md` contains no
@@ -681,23 +681,23 @@ formalized and have no V-item.
 |---|---|---|---|---|
 | §8.1 The Tangent of an Ep-Groupoid | 257 | — | — | the tangent data (8.1)–(8.9) (pp. 257–258): V8.1, `Basic.lean` |
 | Theorem 8.1 | 258 | V8.3 | `TangentEp.lean`, `TangentTame.lean` | the tangent ep-groupoid; proved on pp. 263–264 from Lemmas 8.1–8.8 |
-| Lemma 8.1 | 259 | V8.4 | `TangentEp.lean`, `TangentLocal.lean` | in the sheet form of its proof; as printed not formalized (gap G.75) |
+| Lemma 8.1 | 259 | V8.4 | `TangentEp.lean`, `TangentLocal.lean` | in the sheet form of its proof; as printed not formalized (point G.75) |
 | Lemma 8.2 | 259 | V8.5 | `TangentEp.lean` | proof p. 260 |
 | Lemma 8.3 | 260 | V8.6 | `TangentEp.lean` | associativity; proof p. 261 |
 | Lemma 8.4 | 261 | V8.7 | `TangentEp.lean` | units |
 | Lemma 8.5 | 261 | V8.8 | `TangentEp.lean` | inverses; proof ends on p. 262 |
-| Lemma 8.6 | 262 | V8.9 | `TangentEp.lean`, `TangentLocal.lean` | "$m_{T\mathbf X}$ is precisely $Tm$" not formalized (gap G.75) |
+| Lemma 8.6 | 262 | V8.9 | `TangentEp.lean`, `TangentLocal.lean` | "$m_{T\mathbf X}$ is precisely $Tm$" not formalized (point G.75) |
 | Lemma 8.7 | 262 | V8.10 | `TangentEp.lean` | properness; proof ends on p. 263 |
 | Lemma 8.8 | 263 | V8.11 | `TangentTame.lean` | "$Tr$ is a tame retraction" proved from the definitions |
-| Remark 8.1 | 264 | V8.12 | `TangentEp.lean` | pp. 264–265; the linearity of $T\varphi$ not formalized (gaps G.7, G.70) |
+| Remark 8.1 | 264 | V8.12 | `TangentEp.lean` | pp. 264–265; the linearity of $T\varphi$ not formalized (points G.7, G.70) |
 | Theorem 8.2 | 265 | V8.13 | `TangentEp.lean` | proof ends on p. 266 |
 | Theorem 8.3 | 266 | V8.14 | `TangentEp.lean` | the functor $T$, formalized as `EP.{max u 1} ⥤ EP.{max u 1}` |
 | Definition 8.1 | 266 | V8.15 | `Basic.lean`, `NatTrans.lean` | pp. 266–267; $\simeq$ an equivalence relation (p. 267): V8.16 |
 | Proposition 8.1 | 267 | V8.17 | `TangentEp.lean` | proof ends on p. 268 |
 | Theorem 8.4 | 268 | V8.18 | `TangentOrbit.lean` | proved by metrizability; $\lvert TX\rvert$ is metrizable |
 | §8.2 Sc-Differential Forms on Ep-Groupoids | 268 | — | — |  |
-| Definition 8.2 | 268 | — | — | sc-differential forms (pp. 268–269); not formalized (gap G.74) |
-| Definition 8.3 | 270 | — | — | the sc-de Rham complex; not formalized (gap G.74) |
+| Definition 8.2 | 268 | — | — | sc-differential forms (pp. 268–269); not formalized (point G.74) |
+| Definition 8.3 | 270 | — | — | the sc-de Rham complex; not formalized (point G.74) |
 | §8.3 Strong Bundles over Ep-Groupoids | 270 | — | — | strong bundle maps and the pull-back along $s$ (p. 270): V8.19, `StrongBundleMap.lean` |
 | Definition 8.4 | 271 | V8.20 | `EpStrongBundle.lean`, `StrongBundleMap.lean` | with global strong bundle maps (a reading); $\mu(\psi,\cdot)$ (p. 271): V8.21; the functorial picture (pp. 271–272): V8.22 |
 | Definition 8.5 | 273 | V8.23 | `EpStrongBundle.lean`, `StrongBundleMap.lean` |  |
@@ -741,7 +741,7 @@ $\mathrm{Diff}_{sc}$ (p. 279) is part of V8.32. The witnesses that show the hypo
 (`NonVacuity.lean`, `NonVacuityBundle.lean` and the witnesses in the other files; `Findings.md`,
 Chapter 8, items 100–105) have no V-item of their own; the counterexample to Theorem 8.5 (5) as
 printed, `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed` in `NonVacuity.lean`, belongs to
-V8.30. Gaps opened in Chapter 8: G.74 (Definitions 8.2 and 8.3, pp. 268–270, sc-differential forms
+V8.30. Points of Chapter 8: G.74 (Definitions 8.2 and 8.3, pp. 268–270, sc-differential forms
 on ep-groupoids and the sc-de Rham complex) and G.75 (Lemma 8.1 as printed, p. 259, the
 identification $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ with
 $m_{T\mathbf X} = Tm$); G.70 (Definition 7.4, $T\varphi$) is formalized in part, by Remark 8.1.
@@ -1321,7 +1321,7 @@ Rows follow the 2017 order; the preprint column is the number in the table of th
 
 Part III has no preprint. The Lean names and the reports carry the 2021 numbers, with the 2017 numbers in parentheses. The tables below list, chapter by chapter in the order of the 2021 text, the numbered items of Chapters 12–16 that the Lean files formalize, with their 2017 numbers, their 2021 pages and their rows in `verification/`. The 2017 numbers were checked in the 2017 text; in particular Theorem 15.3.7 is Theorem 15.4 of 2017 (Theorem 15.6 there is the canonical orientation theorem, Theorem 15.4.1), and Theorem 15.2.5 is Theorem 15.3 of 2017. Where a Lean docstring gives another 2017 number, the last column says so. The statements were not compared word by word between 2017 and 2021, except where a row says so.
 
-An item can have several rows, one for each part or form of it that is formalized (a sub-item, a reading, a form with the text's hypotheses). A gap number in the Rows column marks an item, or a part of the form of that row, that is not formalized; "G.n closed" in the last column says that the gap is closed by the declarations of the item's rows. Definitions 5.1.4–5.4.1 and Theorem 5.4.2, which Part III uses, are in the Chapter 5 table above.
+An item can have several rows, one for each part or form of it that is formalized (a sub-item, a reading, a form with the text's hypotheses). A point number in the Rows column marks an item, or a part of the form of that row, that is not formalized; "G.n closed" in the last column says that the point is settled by the declarations of the item's rows. Definitions 5.1.4–5.4.1 and Theorem 5.4.2, which Part III uses, are in the Chapter 5 table above.
 
 Not listed are the items new in 2021 without a row of their own here (Remark 15.3.8, Lemma 16.3.2, Definition 16.6.3), the items without a number in either text and the tools: the reflexive 1-fibres, the remark after Definition 13.2.9, the locally finite commensurable sum after Definition 13.4.5, the text before Lemmas 14.2.1 and 14.3.3, the data of §§14.3–14.5, the instance of the setting of §14.4, (14.53) inside the proof of Lemma 14.5.1, the sum over $a$ in the proof of Theorem 14.1.9, the preamble of §14.6, the face good systems of §14.6, the product remark after Definition 15.3.3, the last paragraph of the proof of Corollary 15.3.10 and the parts of the proof of Corollary 15.3.10 (3), the constructions of §16.2, the remark on p. 720, the category PS, the raised polyfolds and the tangent projection, the remarks and constructions of §16.3 between numbered items, the opening of §16.5, (16.8), the claim before Definition 16.6.1 and the text before Theorem 16.6.6. They are rows V12.28, V12.40–V12.48, V13.21, V13.24, V13.56, V14.1, V14.10, V14.14, V14.38–V14.40, V14.45–V14.47, V15.10, V15.17, V15.19, V15.31, V15.39, V15.40, V15.42, V15.44, V15.46–V15.48, V15.53–V15.56, V16.14, V16.16, V16.19, V16.27, V16.29, V16.35, V16.36, V16.38, V16.40, V16.41, V16.45, V16.59, V16.60, V16.63, V16.67, V16.72, V16.75 and V16.80.
 
@@ -1818,7 +1818,7 @@ in the rest of the project):
 - **Definition 5.10** (preprint 5.20, generalized compact homotopy): the data are weaker (Definition 5.3.13).
 - **Lemma 6.3, Propositions 6.6, 6.7 (preprint 6.15), 6.12 (6.28), Lemmas 6.13 (6.30), 6.15 (6.33)**: index equalities, an explicit $H$, explicit hypotheses, tameness and $Y\times[0,1]$-valued sections, a corrected solution-set condition, and the split of Lemma 6.15 into Lemmas 6.6.8 and 6.6.9.
 - **Definition 7.7 and Proposition 7.5**: the remark that sc-smoothness on objects suffices needs continuity on morphisms (level 0), and part (2) of the finite-set proposition has its target corrected (Definitions 7.1.7, Proposition 7.1.15).
-- **Propositions 7.9 and 7.10** (gaps G.71 and the Hausdorff hypothesis on $\mathbf X^R$): in 2021 $\mathbf X^R$ is an M-polyfold, and $(X,\mathbf X^R)$ an ep-groupoid, exactly when the natural topology $T_R$ is Hausdorff (Propositions 7.2.13, Theorem 7.2.14); $T_R$ is Hausdorff iff (LUC) iff $\mathbf X^T$ is closed (Theorem 7.2.22), and Remark 7.2.8 and Appendix 7.6.3 say that this fails in general. This is the hypothesis taken in `Reduced.lean`.
+- **Propositions 7.9 and 7.10** (points G.71 and the Hausdorff hypothesis on $\mathbf X^R$): in 2021 $\mathbf X^R$ is an M-polyfold, and $(X,\mathbf X^R)$ an ep-groupoid, exactly when the natural topology $T_R$ is Hausdorff (Propositions 7.2.13, Theorem 7.2.14); $T_R$ is Hausdorff iff (LUC) iff $\mathbf X^T$ is closed (Theorem 7.2.22), and Remark 7.2.8 and Appendix 7.6.3 say that this fails in general. This is the hypothesis taken in `Reduced.lean`.
 - **Definition 8.10**: condition (0), compatibility of $A$ with the strong bundle data, is stated (Definition 8.5.9).
 - **Unchanged**: Theorem 8.5 (including part (5) as printed, V8.30), Theorem 7.1, the definitions 7.1–7.6 and 7.8–7.11, and all of Chapter 8 apart from Definition 8.10.
 

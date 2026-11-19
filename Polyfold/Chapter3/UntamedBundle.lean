@@ -7,7 +7,7 @@ import Polyfold.Chapter2.TameRetracts
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §3.6:
 **Theorem 3.6.8** (p. 136; 2017: Theorem 3.13; preprint: Theorem 3.54) and **Definitions 3.6.3,
-3.6.6** (pp. 135–136), for the untamed example of `UntamedCounterexample.lean`.  Gap G.79.
+3.6.6** (pp. 135–136), for the untamed example of `UntamedCounterexample.lean`.  Point G.79.
 
 # The untamed example as a strong bundle with a section
 

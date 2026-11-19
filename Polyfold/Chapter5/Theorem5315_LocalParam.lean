@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_Morse
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the local data of
 **Theorem 5.3.15** (p. 223; preprint: Theorem 5.22) from the implicit function theorem
-(Theorem 3.6.8, p. 136), first step.  Gap G.48.
+(Theorem 3.6.8, p. 136), first step.  Point G.48.
 
 # A smooth parametrization from the data of Definition 3.2.1
 

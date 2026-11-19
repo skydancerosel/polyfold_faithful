@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_MorseTransfer
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
 **Theorem 5.3.15 (2)** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22): "Morse-type critical
-point" does not depend on the chart.  Gap G.48.
+point" does not depend on the chart.  Point G.48.
 
 # Independence of the parametrization
 

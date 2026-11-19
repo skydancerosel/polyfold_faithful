@@ -29,12 +29,12 @@ proof of Lemma 2.2.1 (2021 p. 30).
   for a retract `O = r(U)`, `O_m ∩ E_∞` is dense in `O_m`.
 * `MPolyfold.mem_smoothSet_of_chart` and **`MPolyfold.denseSmooth`**: for every M-polyfold `X`
   and every `m`, `X_∞` is dense in `X_m` (with the topology of `X_m`), i.e. Chapter 7's
-  hypothesis `MPolyfold.DenseSmooth` (gap G.73) holds for every M-polyfold;
+  hypothesis `MPolyfold.DenseSmooth` (point G.73) holds for every M-polyfold;
   `MPolyfold.dense_smoothSet` (`X_∞` dense in `X`), `MPolyfold.smoothRegular_iff` (the field
   `denseSmooth` of `SmoothRegular` is automatic).
 * **`EpGroupoid.denseSmooth_obj`**, **`EpGroupoid.denseSmooth_mor`**, `EpGroupoid.p289_dense`:
   the density for the object and the morphism M-polyfold of an ep-groupoid.
-* The filtration of `|X|` (gap G.72): `EpGroupoid.mem_levelSet_of_isomorphic`,
+* The filtration of `|X|` (point G.72): `EpGroupoid.mem_levelSet_of_isomorphic`,
   `π_mem_orbitLevel_iff`, `preimage_orbitLevel` (`π⁻¹(|X_k|) = X_k`), `orbitLevel_zero`,
   `orbitLevel_antitone`, `orbitSmooth` (`|X_∞| = π(X_∞)`), `preimage_orbitSmooth`,
   **`orbitSmooth_eq_iInter`** (`|X_∞| = ⋂_k |X_k|`), `p290_orbit_filtration`.
@@ -140,7 +140,7 @@ theorem preimage_orbitSmooth : X.π ⁻¹' X.orbitSmooth = X.PObj.smoothSet := b
       X.mem_levelSet_of_isomorphic ((X.π_eq_π_iff).1 hyx) (mem_iInter.1 hy k)
   · intro hx; exact ⟨x, hx, rfl⟩
 
-/-- **2021 p. 290 (2017 p. 228), gap G.72**: `|X_∞| = ⋂_k |X_k|`. -/
+/-- **2021 p. 290 (2017 p. 228), point G.72**: `|X_∞| = ⋂_k |X_k|`. -/
 theorem orbitSmooth_eq_iInter : X.orbitSmooth = ⋂ k, X.orbitLevel k := by
   ext z
   obtain ⟨x, rfl⟩ := X.surjective_π z

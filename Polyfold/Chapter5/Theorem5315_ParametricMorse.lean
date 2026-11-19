@@ -3,7 +3,7 @@ import Mathlib
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the last step of
 the proof of **Theorem 5.3.15** (p. 228; 2017: Theorem 5.8; preprint: Theorem 5.22): "the
-parameterized version of Sard's theorem".  Gap G.48.
+parameterized version of Sard's theorem".  Point G.48.
 
 # The parametrized Sard step of the Morse-type theorem
 

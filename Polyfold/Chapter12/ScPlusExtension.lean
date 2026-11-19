@@ -26,7 +26,7 @@ extended to the saturation; an sc-smooth partition of unity for the cover by the
 
 ## What is formalized (namespace `Polyfold.EpStrongBundle`)
 
-* **Definition 12.3.6** (the ep-groupoid form, gap G.137): `IsBoundaryScPlusSection`, the
+* **Definition 12.3.6** (the ep-groupoid form, point G.137): `IsBoundaryScPlusSection`, the
   M-polyfold form of Definition 5.4.1 (`StrongBundle.IsBoundaryScPlusSection`) on the object
   M-polyfold; it does not involve `μ`.  The "sc⁺-section functor of `W|∂X`" of Theorem 12.3.9 is
   `IsBoundaryScPlusSectionFunctor`: in addition `s(t φ) = μ(φ, s(s φ))` for every morphism `φ`

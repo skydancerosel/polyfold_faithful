@@ -62,7 +62,7 @@ the reader.
   `f_*Θ` and `f^*Θ'` (a structure at `y` moved back by the chart `Q = ψ̂ ∘ F` gives one at `x`).
 * The tangent `(Tf)_*` acts on `TΘ : TX → ℚ⁺` as the push-forward of Definition 11.3.1 along the
   tangent generalized isomorphism; `TF` is an equivalence by Theorem 10.1.7.  The tangent sets are
-  Part I's tangent bundles (no linear structure, gap G.7).
+  Part I's tangent bundles (no linear structure, point G.7).
 * "`d_M(x)` is preserved" is read as: `x ∈ ∂M` iff `f(x) ∈ ∂f(M)` (`∂M` of Definition 9.2.16 via
   Remark 9.2.14); Theorem 10.3.19 is not used.
 

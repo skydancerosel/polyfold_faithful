@@ -10,7 +10,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4
 
 (Remark 4.1.3 (preprint 4.3)) "It is possible that `X¹ ≠ X` as M-polyfolds although the underlying sets agree":
 an M-polyfold with `X₀ = X_∞` for which `1₀¹ : X → X¹` is not sc-smooth.  No example is given
-(comparison item V4.6, gap G.31).
+(comparison item V4.6, point G.31).
 
 ## What is formalized
 
@@ -848,7 +848,7 @@ theorem remarkFourThreeData : RemarkFourThreeData ℝ X :=
 
 end RemarkFourThree
 
-/-- **Remark 4.1.3 (preprint 4.3): "`X¹ ≠ X` is possible"** (§4.1, p. 148; comparison item V4.6, gap G.31), at the
+/-- **Remark 4.1.3 (preprint 4.3): "`X¹ ≠ X` is possible"** (§4.1, p. 148; comparison item V4.6, point G.31), at the
 level of retracts: there is an sc-retract `O = r(ℝ ⊕ X)` (the moving rank-one projections of
 `RemarkFourThree.fam` on the weighted sequence space `X`) all of whose points are smooth,
 `O = O_∞`, which is not an sc⁺-retract, i.e. `1₀¹ : O → O¹` is not sc-smooth
@@ -915,7 +915,7 @@ theorem retractPolyfold_smooth_not_toLevelOne (hO : IsScRetract E C O) (o₀ : O
 end RetractPolyfold
 
 /-- **Remark 4.1.3 (preprint 4.3): "`X¹ ≠ X` is possible although the underlying sets agree"** (§4.1, p. 148;
-comparison item V4.6, gap G.31), machine-checked: there is an M-polyfold `X` (a retract
+comparison item V4.6, point G.31), machine-checked: there is an M-polyfold `X` (a retract
 `O ⊆ ℝ ⊕ X` of the moving rank-one projections `RemarkFourThree.fam`, with one chart) with
 `X₀ = X_∞` (every point smooth) for which `1₀¹ : X → X¹` is not sc-smooth; so `X¹ ≠ X` as
 M-polyfolds (`remark_4_1_3_isScDiffeo`: `1₀¹` would otherwise be an sc-diffeomorphism). -/

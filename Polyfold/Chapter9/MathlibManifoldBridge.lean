@@ -10,7 +10,7 @@ Part I, **Definition 4.1.1** (p. 175; 2014 preprint: Definition 4.1, p. 147) and
 (p. 425; 2017: Definition 9.10, p. 314), last sentence: "in particular every `Mᵢ` is a manifold
 with boundary with corners".  Numbers and pages are the 2021 text's, older numbers in parentheses.
 
-# The bridge from corner structures to Mathlib's manifolds with corners (gap G.102)
+# The bridge from corner structures to Mathlib's manifolds with corners (point G.102)
 
 ## The text, paraphrased
 
@@ -40,7 +40,7 @@ Mathlib's notions, `ChartedSpace` and `IsManifold`:
   from `MChart.IsCornerChart.contDiffOn_transition`, Definition 4.1.1's "classically smooth").
 * **Definition 4.1.1 with the dimension `n`**: `MPolyfold.HasCornerStructureOfDim P n` (every
   point lies in a corner chart of dimension `n`); `IsManifoldWithCorners.hasCornerStructureOfDim`.
-* **The bridge** (gap G.102): `MPolyfold.cornerChartedSpace`, a `ChartedSpace (EuclideanQuadrant n)
+* **The bridge** (point G.102): `MPolyfold.cornerChartedSpace`, a `ChartedSpace (EuclideanQuadrant n)
   X`, with `MPolyfold.isManifold_cornerChartedSpace`:
   `IsManifold (modelWithCornersEuclideanQuadrant n) ∞ X`; without boundary
   (`∀ x, d_X(x) = 0`), `MPolyfold.interiorChartedSpace` and
@@ -66,8 +66,8 @@ Mathlib's notions, `ChartedSpace` and `IsManifold`:
     `IsSubmanifoldOfDim.hasCornerStructureOfDim_of_hasTameInducedStructure`,
     `IsSubmanifoldOfDim.isManifold_of_hasTameInducedStructure`, and for the sheets of a tame
     branching structure `EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim`,
-    `EpGroupoid.TameBranchingStructure.isManifold` (row V9.34, gap G.102);
-  - **Lemma 9.4.6 for the sheets of an M-polyfold** (gaps G.105, G.106):
+    `EpGroupoid.TameBranchingStructure.isManifold` (row V9.34, point G.102);
+  - **Lemma 9.4.6 for the sheets of an M-polyfold** (points G.105, G.106):
     `lemma_9_4_6_cornerChartedSpace`, `lemma_9_4_6_sheet`,
     `EpGroupoid.TameBranchingStructure.lemma_9_4_6`: the non-essential points of any `K ⊆ Mᵢ`
     form a Lebesgue null set (Definition 9.4.5, `Polyfold.IsMeasureZero`) in the sheet.
@@ -111,7 +111,7 @@ section Submanifold
 
 variable {A : Set X}
 
-/-- **Theorem 4.2.7 (preprint 4.18) in Mathlib's language** (gap G.102): a tame `X`, an
+/-- **Theorem 4.2.7 (preprint 4.18) in Mathlib's language** (point G.102): a tame `X`, an
 `n`-dimensional smooth submanifold `A` in good position at every point; then `A`, with the
 subspace topology and the charted space `cornerChartedSpace` of its induced corner structure, is a
 smooth manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant n) ∞ A`.
@@ -137,7 +137,7 @@ end Submanifold
 
 /-! ### Theorem 3.2.3: the solution set of the implicit function theorem, in Mathlib's language -/
 
-/-! ### Lemma 9.4.6 for the sheets of an M-polyfold (gaps G.105, G.106) -/
+/-! ### Lemma 9.4.6 for the sheets of an M-polyfold (points G.105, G.106) -/
 
 /-- **Lemma 9.4.6 (2021 p. 431; 2017: Lemma 9.14) for a sheet of an M-polyfold**: on an
 M-polyfold `X` with a corner structure of dimension `n` (a sheet `Mᵢ` with its induced structure,
@@ -274,7 +274,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] {X : EpGroupoid Obj Mor}
   {Θ : Obj → ℚ} {x : Obj}
 
-/-- **Definition 9.3.6, last sentence (gap G.102)**: every sheet `Mᵢ` of a tame local branching
+/-- **Definition 9.3.6, last sentence (point G.102)**: every sheet `Mᵢ` of a tame local branching
 structure of dimension `n` has an induced corner structure of dimension `n`
 (`hasCornerStructureOfDim_of_hasTameInducedStructure`). -/
 theorem TameBranchingStructure.hasCornerStructureOfDim (T : X.TameBranchingStructure Θ x) {n : ℕ}
@@ -284,7 +284,7 @@ theorem TameBranchingStructure.hasCornerStructureOfDim (T : X.TameBranchingStruc
   letI := X.PObj.paracompactSpace_subtype (T.M i)
   (hdim i).hasCornerStructureOfDim_of_hasTameInducedStructure (T.hasTameInducedStructure i)
 
-/-- **Definition 9.3.6, last sentence, in Mathlib's language (gap G.102)**: "in particular every
+/-- **Definition 9.3.6, last sentence, in Mathlib's language (point G.102)**: "in particular every
 `Mᵢ` is a manifold with boundary with corners": each sheet of a tame local branching structure of
 dimension `n`, with the subspace topology and the charted space of its induced corner structure,
 satisfies `IsManifold (modelWithCornersEuclideanQuadrant n) ∞ (Mᵢ)`. -/
@@ -297,7 +297,7 @@ theorem TameBranchingStructure.isManifold (T : X.TameBranchingStructure Θ x) {n
   letI := X.PObj.paracompactSpace_subtype (T.M i)
   MPolyfold.isManifold_cornerChartedSpace _
 
-/-- **Lemma 9.4.6 for the sheets of a tame branching structure** (gaps G.105, G.106): for any
+/-- **Lemma 9.4.6 for the sheets of a tame branching structure** (points G.105, G.106): for any
 `K ⊆ Mᵢ`, the non-essential points `K ∖ K^e` form a Lebesgue null set in the sheet `Mᵢ`. -/
 theorem TameBranchingStructure.lemma_9_4_6 (T : X.TameBranchingStructure Θ x) {n : ℕ}
     (hdim : T.toLocalBranchingStructure.IsOfDim n) (i : T.ι) (K : Set (T.M i)) :

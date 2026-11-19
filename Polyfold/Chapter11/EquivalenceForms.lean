@@ -5,7 +5,7 @@ import Polyfold.Chapter10.WeakFibredProductTheorem
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §11.2,
 pp. 527–529: **Lemma 11.2.2** (2017: Lemma 11.1), **Definition 11.2.3** (2017: Definition 11.2)
-and **Lemma 11.2.4 (3)** (2017: Lemma 11.2) on one level (gap G.129).  Numbers and pages are the
+and **Lemma 11.2.4 (3)** (2017: Lemma 11.2) on one level (point G.129).  Numbers and pages are the
 2021 text's.
 
 # The push-forward of sc-differential forms along an equivalence

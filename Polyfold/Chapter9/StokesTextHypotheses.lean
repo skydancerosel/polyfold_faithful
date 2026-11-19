@@ -2,7 +2,7 @@ import Polyfold.Chapter9.BoundaryCover
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; gaps G.109, G.110; rows V9.67, V9.68).
+Part II, §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; points G.109, G.110; rows V9.67, V9.68).
 Numbers and pages are the 2021 text's.
 
 # Theorems 9.5.15–9.5.18 with the text's hypotheses

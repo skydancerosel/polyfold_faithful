@@ -86,7 +86,7 @@ theorem A_to_B : A → B := by
   that `T_φ` is onto; B always assumes both.
 * `stabIota_bijective` (`ι_φ` is an isomorphism) is not stated in B; on Banach spaces it would follow
   from B's formula (a nonzero map of lines), as would `stab_card_eq` (B's `m + l = n`) and
-  `proposition_6_4_15`, but the generality gap above remains. -/
+  `proposition_6_4_15`, but the generality difference above remains. -/
 
 #rt_check RoundTrip.V6_18.A_to_B [Polyfold.stabIota_bijective, Polyfold.stab_card_eq,
   Polyfold.isCompl_range_stabPi_span, Polyfold.proposition_6_4_15]

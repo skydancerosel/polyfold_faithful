@@ -24,7 +24,7 @@ is an effective ep-groupoid.
 ## What is formalized
 
 An M-polyfold is Hausdorff (Part I, Definition 2.3.4 (2017: 2.8)).  `Reduced.lean` proves Propositions 7.2.10 (2017: 7.9) and
-7.10 with `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` as hypotheses (gap G.71).  This
+7.10 with `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` as hypotheses (point G.71).  This
 file shows that the Hausdorff hypothesis cannot be dropped:
 
 * `O` (`JumpingRetract.O`) is the sc-retract of Remark 4.3's family of moving rank-one projections
@@ -248,7 +248,7 @@ end JumpingRetract
 
 /-- **Propositions 7.9–7.10 need `𝐗^R` Hausdorff**: there is an ep-groupoid (`ℤ/2` acting on the
 dimension-jumping retract of Remark 4.3) whose reduced morphism space `𝐗^R` is not Hausdorff, so
-not an M-polyfold (gap G.71). -/
+not an M-polyfold (point G.71). -/
 theorem exists_not_t2Space_reducedMor :
     ∃ (Obj Mor : Type) (_ : TopologicalSpace Obj) (_ : T2Space Obj) (_ : ParacompactSpace Obj)
       (_ : TopologicalSpace Mor) (_ : T2Space Mor) (_ : ParacompactSpace Mor)

@@ -7,7 +7,7 @@ import Polyfold.Chapter6.PropagationWellDefined
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
 (pp. 264–266; preprint Lemma 6.30): **the stabilized kernels along a family on `[0, 1]ⁿ`, with
-sections over `[0, 1]ⁿ × X`**.  Gap G.65, row V6.42.
+sections over `[0, 1]ⁿ × X`**.  Point G.65, row V6.42.
 
 # The stabilized kernels over `[0, 1]ⁿ`
 

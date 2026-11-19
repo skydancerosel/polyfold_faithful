@@ -4,7 +4,7 @@ import Polyfold.Chapter9.TameOpen
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, **Theorems 9.5.4 and 9.5.5** (p. 438; 2017: Theorems 9.2, 9.3) and
-**Definition 9.5.6** (p. 439), gap G.107.  Numbers and pages are the 2021 text's.
+**Definition 9.5.6** (p. 439), point G.107.  Numbers and pages are the 2021 text's.
 
 # Theorems 9.5.4 and 9.5.5 for sheets covered by several graph charts
 

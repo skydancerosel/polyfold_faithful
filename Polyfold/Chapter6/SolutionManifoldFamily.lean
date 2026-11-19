@@ -4,7 +4,7 @@ import Polyfold.Chapter6.MathlibSolutionSets
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
-(p. 265; preprint Lemma 6.30, p. 222) as a statement about manifolds.  Gap G.62, rows V6.34,
+(p. 265; preprint Lemma 6.30, p. 222) as a statement about manifolds.  Point G.62, rows V6.34,
 V6.42.
 
 # The solution set of the stabilized section near the family of zeros
@@ -41,7 +41,7 @@ bundle over `ℝᵏ × (ℝⁿ × X)` (`paramSection`), and `F` is in general po
 ## Elsewhere, and not formalized
 
 * The fibres `S_t` as manifolds with boundary with corners (from property (P) for the slices
-  `F_t`, gap G.63) are `lemma_6_6_5_fibre_isManifold` (`SlicePropertyP.lean`), and the smooth
+  `F_t`, point G.63) are `lemma_6_6_5_fibre_isManifold` (`SlicePropertyP.lean`), and the smooth
   structure of `L` is `lemma_6_6_5_smoothBundle` (`SmoothKernelFrames.lean`).  That `π` is a
   submersion at the points of `S` off the family is not formalized.  `L_t = ker F'(0, (q, Φ(q))) ∩ {σ = 0}`
   (`linKer_inf_ker_sliceProj_eq_map`) is a continuous family of subspaces (`exists_isStabKernels`),

@@ -7,7 +7,7 @@ import Polyfold.Chapter2.TameFaces
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, Proposition 6.2.2
 (p. 240) and §6.6 (pp. 263–276) (preprint: Proposition 6.2, §6.5): **the interval `[0, 1]` as an
 M-polyfold with boundary** (Definition 2.3.4, preprint 2.13), the domain of the text's sc-smooth
-paths.  Gap G.65 (the M-polyfold `[0, 1]` and its paths); row V3.98 (with
+paths.  Point G.65 (the M-polyfold `[0, 1]` and its paths); row V3.98 (with
 `IndexAlongPathsInterval.lean`).
 
 # `[0, 1]` as an M-polyfold

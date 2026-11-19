@@ -88,7 +88,7 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
 * **The sheet form of condition (4)** in place of `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`.  The
   identification of the tangent of the fibred product with the fibred product of tangents is not
   needed here; it is proved, with `m_{T𝐗} = Tm`, in `TangentFibred.lean`
-  (`isScDiffeoOn_tangentCompPairs`, `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; gap G.75).
+  (`isScDiffeoOn_tangentCompPairs`, `lemma_8_1_2_book`, `lemma_8_1_2_compMul`; point G.75).
   Lemma 8.1.2 (2017: 8.1) is stated in the form the text's proof uses: for a sheet `s : W → V` with
   inverse `σ = (s|U(ψ))⁻¹`, `g(φ') = m(σ(t φ'), φ')` (the text's `m(F(φ'), φ')`) is sc-smooth on
   `t⁻¹(V)` (Chapter 7's `isScSmoothCompSheet`) and `k ∘ h = Tg(h)`.  Lemma 8.1.7 (2017: 8.6)'s (4) is proved in
@@ -105,7 +105,7 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   onto `{(φ, a) | φ ∈ 𝐗₁, a ∈ T_{s φ}X}`.  The M-polyfold structure on the pairs, for which `G` is
   an sc-diffeomorphism, and the triples `(a, φ, b)` are in `TangentPairs.lean`
   (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`).  Linearity of `Tφ` is not
-  treated here: it is `tangentMorCLE` (`Chapter9/TangentMorphismLinear.lean`; gap G.7).
+  treated here: it is `tangentMorCLE` (`Chapter9/TangentMorphismLinear.lean`; point G.7).
 * **Universes.**  Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so the tangent
   functor is `EP.{max u 1} ⥤ EP.{max u 1}` (Lean identifies `max (max u 1) 1` with `max u 1`).
   This is an artifact of the formalization.

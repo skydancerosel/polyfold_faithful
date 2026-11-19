@@ -7,7 +7,7 @@ import Polyfold.Chapter3.TameGermsAddG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §3.6:
 **Theorem 3.6.8** (p. 136; 2017: Theorem 3.13; preprint: Theorem 3.54), **Theorem 3.1.22** (p. 100)
 and **Definitions 3.6.3, 3.6.4, 3.6.6** (pp. 135–136), read with the 2021 filling of
-**Definitions 3.1.4/3.6.1** (pp. 91, 134), which asks only for an sc-smooth retraction.  Gap G.79.
+**Definitions 3.1.4/3.6.1** (pp. 91, 134), which asks only for an sc-smooth retraction.  Point G.79.
 
 # Theorem 3.6.8 with the 2021 (untamed) sc-Fredholm notion: the statement
 

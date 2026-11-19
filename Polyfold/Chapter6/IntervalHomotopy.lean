@@ -5,7 +5,7 @@ import Polyfold.Chapter6.PathsInterval
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 263 and 272:
 **Proposition 6.6.3 (1′) on `[0, 1]`**, the homotopies with fixed end points used in the proof of
 Theorem 6.6.11 and in Theorem 6.6.13, with parameters in `[0, 1]²` (product M-polyfold with
-boundary).  Gap G.65, rows V6.32, V6.48.
+boundary).  Point G.65, rows V6.32, V6.48.
 
 # Homotopies on `[0, 1]²` in a chart
 

@@ -278,7 +278,7 @@ continuation property (so that `T_R` is Hausdorff and the reduced ep-groupoid `X
 `∮_Θ̂ ω = ∫_Θ̂' ω'`, where `(Θ̂', ω')` is the data on `X_R` induced from `(Θ̂, ω)`: `Θ' = Θ`,
 the same orientation, and the same integrals over the oriented sheets
 (`SheetIntegration.toReduced`).  Proved for every `SheetIntegration` (the integrals of forms
-over the sheets, gap G.107). -/
+over the sheets, point G.107). -/
 theorem proposition_9_5_13_2 (𝓘 : X.SheetIntegration G Ω) (hL : X.IsLUC)
     (hΘ : X.IsBranchedEpSubgroupoid Θ) (hcpt : X.IsCompactBranched Θ)
     {T : Obj → X.PObj.OrTangent →₀ ℚ} (hT : X.IsOrientation Θ T)

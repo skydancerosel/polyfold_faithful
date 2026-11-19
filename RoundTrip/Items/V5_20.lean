@@ -59,7 +59,7 @@ implication holds (`A_to_BIntendedStrong`, which also gives B's literal bound at
 `B ⇒ A` is not proved: B speaks only of tame strong bundles over tame `X`
 (`IsTameStrongBundle`), A of every strong bundle (the project's proof uses no tameness); and B's
 literal norm bound is at the given `x` only, where it is vacuous (`s(x) = e`), while A bounds
-`N(s(y))` at every `y`.  The second gap is glue (cut off B's section by a bump `β` with
+`N(s(y))` at every `y`.  The second difference is glue (cut off B's section by a bump `β` with
 `β(x) = 1` supported where `N(s) < N(e) + ε`, using A's strong bumps), the first is a genuine
 generality difference. -/
 

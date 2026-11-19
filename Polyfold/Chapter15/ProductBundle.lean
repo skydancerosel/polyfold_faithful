@@ -3,7 +3,7 @@ import Polyfold.Chapter15.ProductStrongBundle
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, the products remark after
 **Definition 15.3.3** (pp. 692–693; 2017: after Definition 15.3): the product strong bundle
-`W × W' → X × X'` of Part I strong bundles and the product of sections (gap G.160 (a)).
+`W × W' → X × X'` of Part I strong bundles and the product of sections (point G.160 (a)).
 
 # The product strong bundle `W × W' → X × X'`
 

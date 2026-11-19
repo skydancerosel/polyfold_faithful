@@ -2,7 +2,7 @@ import Polyfold.Chapter9.GraphChartTransition
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.3 (Definition 9.3.3, p. 422) and §9.5, pp. 438–445 (gap G.107).
+Part II, Chapter 9, §9.3 (Definition 9.3.3, p. 422) and §9.5, pp. 438–445 (point G.107).
 
 # The sign of the frame of a graph chart for an orientation
 

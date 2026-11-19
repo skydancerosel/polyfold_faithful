@@ -53,7 +53,7 @@ filtration, has the form `Φ(u, h) = (φ(u), Γ(u, h))` with `Γ` linear in `h`,
   of Lemma 1.3.4 (preprint 1.24), `S(E_x) = E'_{S x}`) is proved in `TameFaces.lean`: `minimalSubspaceWith_eq`
   (`E_x` does not depend on `T`) and `ScRetraction.IsTameWith.isTame` (tameness for one
   presentation implies `IsTame`).  The intrinsic description through extended faces is not
-  formalized (gap G.12 of the report).
+  formalized (point G.12 of the report).
 * "Smooth point `x ∈ O`" in Definition 2.5.2 (preprint 2.34) (2) is `x : E 1` with `ι₁ x ∈ O` and `x ∈ E_∞`; the
   tangent space `T_xO = Dr(x)E` is `LinearMap.range (scDeriv U r x)`, and "`E = T_xO ⊕ A` with `A`
   an sc-subspace" is `ScBanach.IsScSplitting`, which asks both summands to be sc-subspaces (as the

@@ -14,11 +14,11 @@ morphism is a linear sc-isomorphism.
 linear isomorphism on level `0`; for smooth `φ` it is an sc-isomorphism.  (Definition 7.1.4) A
 smooth morphism `φ` has the associated local sc-diffeomorphism `φ̂` and its tangent `Tφ`.
 
-## What is formalized (gap G.70 of `Exposition/cmp/ch07.json`, the linear part)
+## What is formalized (point G.70 of `Exposition/cmp/ch07.json`, the linear part)
 
 `TangentMorphism.lean` proved that `Tφ` is a bijection `T_{s(φ)}X → T_{t(φ)}X` given in charts by
 continuous linear maps (`bijOn_tangentMor`, `tangentMor_chart_iso`).  With the linear structure
-of `T_xX` from `Chapter2/TangentSpaceLinear.lean` (gap G.7) this becomes:
+of `T_xX` from `Chapter2/TangentSpaceLinear.lean` (point G.7) this becomes:
 
 * `EpGroupoid.tangentMorFiber hφ hx hy : T_xX → T_yX`, the restriction of `Tφ` to the fibres
   (`x`, `y` the points `s(φ)`, `t(φ)` of `X₁`).
@@ -202,7 +202,7 @@ lemma levelVal_eq_tgt_inv (hx : X.PObj.levelVal 1 x = X.src φ) :
     X.PObj.levelVal 1 x = X.tgt (X.inv φ) := by rw [X.tgt_inv]; exact hx
 
 /-- **`Tφ : T_xX ≃L[ℝ] T_yX` is a bounded linear isomorphism** (2021 p. 289, Definition 7.1.4;
-gap G.70), with inverse `T(φ⁻¹)`, for `φ ∈ 𝐗₁`. -/
+point G.70), with inverse `T(φ⁻¹)`, for `φ ∈ 𝐗₁`. -/
 def tangentMorCLE : X.PObj.tangentFiber x ≃L[ℝ] X.PObj.tangentFiber y :=
   ContinuousLinearEquiv.equivOfInverse (X.tangentMorCLM hφ hx hy)
     (X.tangentMorCLM (X.inv_mem_levelSet_one hφ) (X.levelVal_eq_src_inv hy)
@@ -227,7 +227,7 @@ theorem tangentMorCLE_symm_apply (b : X.PObj.tangentFiber y) :
     ((X.tangentMorCLE hφ hx hy).symm b : X.PObj.TangentSpace) = X.tangentMor (X.inv φ) b.1 :=
   X.tangentMorCLM_apply (X.inv_mem_levelSet_one hφ) _ _ b
 
-/-- **2021 p. 289 (2017 p. 227), gap G.70: `Tφ` is a bounded linear isomorphism
+/-- **2021 p. 289 (2017 p. 227), point G.70: `Tφ` is a bounded linear isomorphism
 `T_{s(φ)}X → T_{t(φ)}X` for `φ ∈ 𝐗₁`**, in the linear structure of Definition 2.3.14: `Tφ` is
 additive, homogeneous, continuous, bijective, with inverse `T(φ⁻¹)`. -/
 theorem definition_7_1_4_linear :
@@ -252,7 +252,7 @@ theorem definition_7_1_4_linear :
 
 /-! ### `Tφ` is an sc-isomorphism for smooth `φ` -/
 
-/-- **2021 Definition 7.1.4 and p. 289 (2017: Definition 7.4, p. 227), gap G.70: for a smooth
+/-- **2021 Definition 7.1.4 and p. 289 (2017: Definition 7.4, p. 227), point G.70: for a smooth
 morphism `φ`, `Tφ : T_{s(φ)}X → T_{t(φ)}X` is an sc-isomorphism.**  In charts `χ` around
 `s(φ)`, `ψ` around `t(φ)`: `Tφ` and `T(φ⁻¹)` are represented on the fibres by sc-operators
 `L : E → E'`, `L' : E' → E`, which restrict to mutually inverse maps between the sc-subspaces

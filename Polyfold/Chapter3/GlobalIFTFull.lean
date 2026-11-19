@@ -60,7 +60,7 @@ complement of `N_v = {n + Dτ(v)n | n ∈ N}` with respect to the partial quadra
   `theorem_3_6_8_ker_eq_tangent_wholeChart` (`GlobalIFTIndex.lean`).  (b) The passage from the chart at `x₀`
   to Definition 3.6.6 (preprint 3.53) at `y` (`IsGoodPositionGermWholeChart f y`): the chart independence of the
   linearization `f'(y)` and of the good position of its kernel (the local form of Definition 2.5.8 (preprint 2.38),
-  gap G.13) is `LinearizationCharts.lean` (`linAt_chart_independence`,
+  point G.13) is `LinearizationCharts.lean` (`linAt_chart_independence`,
   `isGoodPositionGerm_of_chart_dense`, Findings 110–117); the surjectivity of `f'(y)` is not a
   consequence of the surjectivity of `Dg(y)` for the filler `g` at `x₀` (condition (3) of
   Definition 3.1.4 (preprint 3.4) is imposed at `0` only, Finding 100), and is proved with the text's hypotheses by

@@ -4,7 +4,7 @@ import Polyfold.Chapter6.Discrete
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.1, p. 359
 (2017 p. 258): the identification `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗` before **Lemma 8.1.2**
-(2017: Lemma 8.1), and the lemma as printed, `(ψ, k) ∘ (φ, h) = Tm(ψ, φ)(k, h)` (gap G.75).
+(2017: Lemma 8.1), and the lemma as printed, `(ψ, k) ∘ (φ, h) = Tm(ψ, φ)(k, h)` (point G.75).
 
 # The tangent of the fibred product, and `m_{T𝐗} = Tm`
 

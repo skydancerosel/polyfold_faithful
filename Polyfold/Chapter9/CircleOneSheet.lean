@@ -6,7 +6,7 @@ import Polyfold.Chapter9.CoveringFromText
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, **Theorem 9.5.4** (p. 438; 2017: Theorem 9.2) and **Definition 9.5.6**
-(p. 439), gap G.107.  Numbers and pages are the 2021 text's.
+(p. 439), point G.107.  Numbers and pages are the 2021 text's.
 
 # Theorem 9.5.4 for the circle with the whole circle as one sheet
 

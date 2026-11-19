@@ -6,7 +6,7 @@ import Polyfold.Chapter3.Germ
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.5.3, **Lemma 4.5.2**
-(p. 202–203; the Poincaré lemma on a convex set).  Closes the part of gap G.80 on Lemma 4.5.2;
+(p. 202–203; the Poincaré lemma on a convex set).  Closes the part of point G.80 on Lemma 4.5.2;
 with `Poincare448.lean`, Lemma 4.4.8 (`lemma_4_4_8`).
 
 # Lemma 4.5.2

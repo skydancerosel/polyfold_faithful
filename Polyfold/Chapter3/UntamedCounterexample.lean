@@ -6,7 +6,7 @@ import Polyfold.Chapter3.TameGermTransfer
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §3.6:
 **Theorem 3.6.8** (p. 136; 2017: Theorem 3.13; preprint: Theorem 3.54) and the sc-Fredholm germs of
 **Definitions 3.1.4, 3.6.1, 3.6.3** (pp. 91, 134, 135), whose filling asks only for an sc-smooth
-retraction (2017 and preprint: a tame one).  Gap G.79.
+retraction (2017 and preprint: a tame one).  Point G.79.
 
 # Theorem 3.6.8 with untamed germ data: an example where the solution set is a half-line
 

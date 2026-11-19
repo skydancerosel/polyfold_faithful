@@ -5,7 +5,7 @@ import Mathlib.Algebra.Category.ModuleCat.Basic
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2,
 pp. 372–373: the forms `Ω*_{ep,∞}(X)` of an ep-groupoid inside the forms `Ω*_∞(X)` of its object
-M-polyfold (§4.4), and **Definition 8.2.2** as a cochain complex (gap G.74).
+M-polyfold (§4.4), and **Definition 8.2.2** as a cochain complex (point G.74).
 
 # `Ω*_{ep,∞}(X) ⊆ Ω*_∞(X)` and the sc-de Rham complex
 

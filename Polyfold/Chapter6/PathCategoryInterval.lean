@@ -3,7 +3,7 @@ import Polyfold.Chapter6.PathsInterval
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 272–273
 (preprint §6.5, pp. 227–228): **the path category `PX` with paths on `[0, 1]`**.
-Gap G.65, row V6.52.
+Point G.65, row V6.52.
 
 # The category of classes of sc-smooth paths `[0, 1] → X`
 

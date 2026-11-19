@@ -10,7 +10,7 @@ the types of `Polyfold.theorem_3_2_3_loc_of_isRegular` (universe `u_1` at `0`),
 `Polyfold.MPolyfold.theorem_3_2_3_loc_atlas_equiv` (universe `u` at `0`);
 `Polyfold.MPolyfold.IsManifoldWithCornersLoc` is vocabulary.
 
-Neither direction is proved.  The gap is the one found in V3_24 for `theorem_3_2_3_of_isRegular`, unchanged by
+Neither direction is proved.  The difference is the one found in V3_24 for `theorem_3_2_3_of_isRegular`, unchanged by
 the passage to locally constant dimension.
 
 * `A → B` fails at A's hypothesis.  Every theorem of A assumes that each point of `M` carries
@@ -23,7 +23,7 @@ the passage to locally constant dimension.
     `IsScInftyGermAt`, `Dδ(0) = 0` by uniqueness), `TangentGermChart.exists_isRegular_of_locally`
     (not an item theorem here) shrinks it to a datum whose `δ` is sc-smooth on the shrunk `V'`;
     its proof of (a) does not use (b).
-  - (b) is the genuine gap: it holds for some good complement of `N` (the project's
+  - (b) is the genuine difference: it holds for some good complement of `N` (the project's
     `exists_goodComplement_projectsInto`), but not for B's given `Y` (Finding 83:
     `C = [0,∞)³`, `N = ℝ(1,1,1)`, `Y = {x + y − z = 0}`), and replacing `Y` means re-graphing `M`
     over `N` along a new complement (an inverse function theorem on a partial quadrant with a

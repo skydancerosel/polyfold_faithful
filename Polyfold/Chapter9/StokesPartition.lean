@@ -3,7 +3,7 @@ import Polyfold.Chapter9.StokesSheet
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5: **Theorems 9.5.17 and 9.5.18 (Stokes), pp. 449–451** (2017: Theorems
-9.6, 9.7), gap G.110.  Numbers and pages are the 2021 text's.
+9.6, 9.7), point G.110.  Numbers and pages are the 2021 text's.
 
 # Stokes' theorem for the branched integral: the interior side and the partition of unity
 
@@ -42,7 +42,7 @@ oriented structures cover `S`; with `U_0^*` saturated open such that the `U_k^*`
   restricted form over the faces of the manifold with corners `Mᵢ`
   (`OrientedSheet.boundaryIntegral`, `StokesLocalFormulas.lean`), for the tangent orientation
   `bridgeOrientation oᵢ` of the orientation `oᵢ` of Definition 9.3.3.  The measure `μ^∂_ω` on
-  `(∂S, L(∂S))` of Theorems 9.5.15, 9.5.16 (gap G.109) is not used here; `Φ^∂` stands for
+  `(∂S, L(∂S))` of Theorems 9.5.15, 9.5.16 (point G.109) is not used here; `Φ^∂` stands for
   `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  The measure is constructed for
   `n ≥ 2` under a class condition on the boundary sheets in `BoundaryMeasure.lean`, and Stokes'
   theorem with it is `StokesBoundaryMeasure.lean` (`theorem_9_5_17_msheets`).

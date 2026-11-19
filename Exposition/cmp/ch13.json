@@ -285,7 +285,7 @@
     "as stated, at functor level"
    ],
    "diff": [
-    "At functor level: $\\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\\Lambda, U, S]$ are V13.22, V13.23 (gap G.142 closed)."
+    "At functor level: $\\Lambda$ is an `IsScPlusMultisection` (Chapter 11's reading of Definition 13.2.1); the decorated objects $[\\Lambda, U, S]$ are V13.22, V13.23 (point G.142 settled)."
    ]
   },
   {
@@ -1308,7 +1308,7 @@
    "diff": [
     "Definition 13.3.6 includes a good system, so a structurable Λ gives one. The `↔` form shows the hypothesis `Nonempty A.X.GoodSystem` is exactly what is needed. The text takes it from Theorem 13.1.8 ($|X|$ paracompact): `theorem_13_5_3_of_paracompact`. The index set is $I_{x_0}$ everywhere, with zero sections where Λ is trivial. The text uses $\\{*\\}$ there. Between $Z$ and its complement the correspondences are the full ones. These are structures in the sense of D13.3.6, so this is a different choice of witness, not a different statement.",
     "Hidden hypotheses: `Nonempty A.X.GoodSystem`; it is necessary (the `↔` form) and holds for paracompact $|X|$ (`theorem_13_5_3_of_paracompact`, from Theorem 13.1.8). Witness: `nonempty_goodSystem_epSEP_zero` ($\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$). Theorem 13.5.3 as printed assumes no paracompactness, and Chapter 13 has no standing assumption that supplies it; the proof constructs the neighbourhoods itself. Theorem 13.1.8 is where paracompactness enters.",
-    "The hypothesis form `theorem_13_5_3_hyp` (with `hcrit`) and its witness remain as supporting declarations; `hcrit` is not needed (gap G.149 closed)."
+    "The hypothesis form `theorem_13_5_3_hyp` (with `hcrit`) and its witness remain as supporting declarations; `hcrit` is not needed (point G.149 settled)."
    ]
   },
   {
@@ -1373,7 +1373,7 @@
     "$I \\ne \\emptyset$ (implicit)"
    ],
    "diff": [
-    "Hidden hypotheses: $I \\ne \\emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \\emptyset$ the printed formula gives $\\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause assumes that a good system exists, as Theorem 13.5.3 does (V13.46; paracompact $|X|$ via Theorem 13.1.8); gap G.149 is closed.",
+    "Hidden hypotheses: $I \\ne \\emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \\emptyset$ the printed formula gives $\\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause assumes that a good system exists, as Theorem 13.5.3 does (V13.46; paracompact $|X|$ via Theorem 13.1.8); point G.149 is closed.",
     "Existence and uniqueness are as printed. \"Supported in the saturation of $U(x)$\" is read as: $\\Lambda$ is trivial over points not isomorphic to a point of $U(x)$. The first-case formula of the proof is read with $w' = \\mu(\\varphi, w)$, as in Definition 13.5.1 (3). Bump functions and the smoothness of $x$ are not used."
    ]
   },
@@ -1824,7 +1824,7 @@
     "\"canonical\": uniqueness, proved"
    ],
    "diff": [
-    "The project has no strong bundle over the open sub-ep-groupoid $V$; \"$\\Lambda$ structured on $W|V$\" is read as the relative data `StructuredOn A V` (Definitions 13.3.4, 13.3.6 with all indices in $V$, the good-system condition as `IsGoodIn` for $V$, as in `theorem_13_1_7_book`), and \"$\\Lambda$ an sc⁺-multisection on $W|V$\" as `IsScPlusMultisectionOn A V` (functor along morphisms inside $V$, local structures on natural neighbourhoods inside $V$). \"Canonical\" is read as uniqueness among functors on $W$ extending $\\Lambda$, which is proved. No added hypothesis; the data are inhabited (`StructuredTuple.toStructuredOn`, $V = X$, e.g. the zero multisection). Gap G.163 closed."
+    "The project has no strong bundle over the open sub-ep-groupoid $V$; \"$\\Lambda$ structured on $W|V$\" is read as the relative data `StructuredOn A V` (Definitions 13.3.4, 13.3.6 with all indices in $V$, the good-system condition as `IsGoodIn` for $V$, as in `theorem_13_1_7_book`), and \"$\\Lambda$ an sc⁺-multisection on $W|V$\" as `IsScPlusMultisectionOn A V` (functor along morphisms inside $V$, local structures on natural neighbourhoods inside $V$). \"Canonical\" is read as uniqueness among functors on $W$ extending $\\Lambda$, which is proved. No added hypothesis; the data are inhabited (`StructuredTuple.toStructuredOn`, $V = X$, e.g. the zero multisection). Point G.163 closed."
    ]
   }
  ],

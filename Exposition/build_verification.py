@@ -56,13 +56,13 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "of the fibres", ["Chapter8"]),
     ("09", "Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9)", "branched ep⁺-subgroupoids: local branching structures, "
      "the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of "
-     "measure zero and the canonical σ-algebras (integration and Stokes not formalized)", ["Chapter9"]),
+     "measure zero and the canonical σ-algebras, integration and Stokes' theorem", ["Chapter9"]),
     ("10", "Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10)", "equivalences and localization: equivalences of "
      "ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized "
      "maps, strong bundle equivalences, localization in the strong bundle case", ["Chapter10"]),
     ("11", "Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11)", "geometry up to equivalences: the tangent functor and "
      "faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to "
-     "equivalence, coverings and equivalences (sc-differential forms and integration not formalized)", ["Chapter11"]),
+     "equivalence, coverings and equivalences, sc-differential forms and integrals up to equivalence", ["Chapter11"]),
     ("12", "Part III, Ch. 12, §§12.1–12.5 (2017 Chapter 12)", "Fredholm theory in ep-groupoids: sc-Fredholm section "
      "functors, auxiliary norms, the good neighbourhood theorem, continuous partitions of unity, the extension of "
      "auxiliary norms from the boundary, reflexive auxiliary norms, bump functions and sc⁺-section functors, extension "

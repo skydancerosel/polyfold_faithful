@@ -321,7 +321,7 @@ maps are sc-smooth by Proposition 1.2.2 (preprint 1.17) again. So $X_m$ is a spa
 $$X = X_0\supset X_1\supset X_2\supset\cdots\supset X_\infty .$$
 Points of $X_\infty$ are the *smooth points*. The preprint does not say which topology $X_\infty$ carries; we take the one with basis the sets $\varphi^{-1}(W)$, $W$ open in $O_\infty$ for the Fréchet topology of $E_\infty$ (the initial topology of the inclusions $E_\infty\to E_m$, $m\ge0$); equivalently, the initial topology of the inclusions $X_\infty\to X_m$. This is what the metric at the end of the proof of Theorem 2.3.10 (preprint 2.16) describes.
 
-*Checked by machine* for $m = 1$: the charts $(V_1,\varphi,(O_1,C_1,E^1))$ (`Polyfold.MPolyfold.levelChart`) are pairwise compatible (`Polyfold.MPolyfold.levelChart_compatible`, by Proposition 1.2.2 (preprint 1.17) for retracts, `Polyfold.IsScSmoothRetractMap.shift`) and make $X_1$ an M-polyfold $X^1$ (`Polyfold.MPolyfold.shift`). For $m\ge2$ the M-polyfold $X_m$ is the iterate $(X^1)^1\cdots$, whose levels carry the topology and charts of those of $X$ (§9.8, `Polyfold.MPolyfold.shiftLevelHomeomorph`; gap G.6, closed). The topology of $X_\infty$ is the initial topology of the inclusions $X_\infty\to X_m$ (`Polyfold.MPolyfold.smoothLevel_topology_eq`).
+*Checked by machine* for $m = 1$: the charts $(V_1,\varphi,(O_1,C_1,E^1))$ (`Polyfold.MPolyfold.levelChart`) are pairwise compatible (`Polyfold.MPolyfold.levelChart_compatible`, by Proposition 1.2.2 (preprint 1.17) for retracts, `Polyfold.IsScSmoothRetractMap.shift`) and make $X_1$ an M-polyfold $X^1$ (`Polyfold.MPolyfold.shift`). For $m\ge2$ the M-polyfold $X_m$ is the iterate $(X^1)^1\cdots$, whose levels carry the topology and charts of those of $X$ (§9.8, `Polyfold.MPolyfold.shiftLevelHomeomorph`; point G.6, closed). The topology of $X_\infty$ is the initial topology of the inclusions $X_\infty\to X_m$ (`Polyfold.MPolyfold.smoothLevel_topology_eq`).
 
 **Lemma 2.3.9 (preprint 2.15).** The inclusion $X_{m+1}\to X_m$ is continuous.
 
@@ -1694,7 +1694,7 @@ work.
 
 **Remark 2.1.6.** The closure of $V$ in $W$ is then $\mathrm{cl}_X(V)$. The remark proposes the weaker condition with
 $V\subseteq W$ and $\mathrm{cl}_W(V)$ complete. Local completeness implies it. That it is strictly weaker is §9.7
-(gap G.76, closed).
+(point G.76, closed).
 
 **Proposition 2.1.4.** Let $O = r(U)$ be a retract, with the metric of $E_0$. For small $\varepsilon$ the set
 $O\cap\bar B_\varepsilon(x)$ is closed in $E_0$. Indeed, choose $\varepsilon$ with $\bar B_\varepsilon(x)\cap C\subseteq U$; a limit
@@ -1795,7 +1795,7 @@ satisfy two conditions:
 The formalization states the second condition in a chart (V2.78), where it is Chapter 4's
 general-position condition. $Y = X$ is a tame sub-M-polyfold of a tame $X$, with complement $0$. The chart independence of the
 condition, the statement that a tame sub-M-polyfold is tame, and the two examples of the text in $[0,\infty)^2\times\mathbb R$
-are §9.10 (gap G.77, closed).
+are §9.10 (point G.77, closed).
 
 *Checked by machine:* `Polyfold.MPolyfold.HasTameInducedStructure`, `Polyfold.MPolyfold.HasReducedComplementAt`,
 `Polyfold.MPolyfold.TameSubData`, `Polyfold.MPolyfold.IsTameSubMPolyfold`,
@@ -1866,7 +1866,7 @@ $d_X(x)$ points. The tame boundary of Definition 2.7.14, as a continuous map, is
 is a witness: its corner has exactly $n$ preimages.
 
 *Not in this section.* The sc-part of Proposition 2.7.12, the M-polyfold structure of $bX$, parts (2)–(4) of Theorem 2.7.13
-and the iterated boundaries are §9.11, for every representative (gap G.78, closed).
+and the iterated boundaries are §9.11, for every representative (point G.78, closed).
 
 *Checked by machine:*
 - faces and the corner axioms: `Polyfold.TameBoundary.IsCornerIndex`, `Polyfold.MPolyfold.isCornerIndex_degIndex`,
@@ -1901,7 +1901,7 @@ $\mathrm{cl}_X(V)\subseteq W$ is for: it makes a locally complete space regular.
 `Polyfold.RealKTop.isLocallyCompleteRel`, `Polyfold.RealKTop.not_regularSpace`, `Polyfold.RealKTop.not_isLocallyComplete`,
 `Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable` and
 `Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range` (Mathlib has no "$G_\delta$ subsets of complete metric
-spaces are completely metrizable", so the embedding is explicit). Gap G.76 is closed.
+spaces are completely metrizable", so the embedding is explicit). Point G.76 is closed.
 
 ### 9.8 Bundle retractions, the levels of $X^1$, and $T(X^i)\equiv(TX)^i$ (Definition 2.1.16, Theorem 2.3.16, Proposition 2.3.17, pp. 29, 37–42)
 
@@ -1914,13 +1914,13 @@ categories $\mathcal R$ and $\mathcal{BR}$ only name these objects and maps and 
 a homeomorphism between them, for every $m$. In a chart, the level-$m$ lift of the level chart $\varphi^1$ is the
 level-$(m+1)$ lift of $\varphi$, because $(E^1)_m = E_{m+1}$, and level lifts in two charts differ by the level map of the
 transition map. So each iterate $(X^1)^1\cdots$ is $X_m$ with its topology and the charts $(V_m,\varphi,(O_m,C_m,E_m))$,
-as the text says after Definition 2.3.8 (gap G.6, closed).
+as the text says after Definition 2.3.8 (point G.6, closed).
 
 **Theorem 2.3.16.** In a local model $T(O^1) = (TO)^1$, and $T(f^1)$ is the level-$1$ map of $Tf$. For an M-polyfold, the
 models $TO\to O^1$ of $TX$ are bundle retracts, $p : TX\to X^1$ is in each tangent chart the projection onto the level chart
 $\varphi^1$, and the transition maps of the tangent charts are bundle maps covering the level-$1$ transition maps of $X$.
 That is the text's "sc-smooth M-polyfold bundle", read through models and transition maps; the linear structure of $T_xX$
-is V2.19 (gap G.7).
+is V2.19 (point G.7).
 
 **Proposition 2.3.17.** A tangent vector of $X^1$ at $x\in X_2$, read in the level chart $\varphi^1$, is $(\varphi^1(x),h')$
 with $h'\in E_1$; the tuple $(x,\varphi,h')$ defines a point of $TX$, independent of the chart, since
@@ -1936,8 +1936,8 @@ the M-polyfold is bundled with its space.
 
 *Checked by machine:* `Polyfold.ScRetraction.IsBundleRetractionOver`, `Polyfold.IsBundleMapOn`,
 `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver`, `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn`
-(Definition 2.1.16, gap G.5, apart from the categories); `Polyfold.MPolyfold.shiftLevelHomeomorph`,
-`Polyfold.MPolyfold.shift_level_eq` (gap G.6, closed); `Polyfold.theorem_2_3_16`; `Polyfold.proposition_2_3_17`
+(Definition 2.1.16, point G.5, apart from the categories); `Polyfold.MPolyfold.shiftLevelHomeomorph`,
+`Polyfold.MPolyfold.shift_level_eq` (point G.6, closed); `Polyfold.theorem_2_3_16`; `Polyfold.proposition_2_3_17`
 ($i = 1$), `Polyfold.proposition_2_3_17_two` ($i = 2$), `Polyfold.proposition_2_3_17_all` (every $i$), with
 `Polyfold.MPolyfold.tangentShiftEquiv`, `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn`,
 `Polyfold.BundledMPolyfold.tangentLiftEquiv`, `Polyfold.BundledMPolyfold.tangentLiftEquiv_natural`.
@@ -1977,7 +1977,7 @@ of the text hold, for every $W$ in place of $\mathbb R$.
 *Checked by machine:* `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart`,
 `Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure`, `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet`,
 `Polyfold.TameSubExample.not_isTameSubMPolyfold_setB`, `Polyfold.TameSubExample.hasTameInducedStructure_setB`,
-`Polyfold.TameSubExample.examples_A_B`. Gap G.77 is closed; condition (3) is stated in charts (V2.78) and holds in all of them once in one.
+`Polyfold.TameSubExample.examples_A_B`. Point G.77 is closed; condition (3) is stated in charts (V2.78) and holds in all of them once in one.
 
 ### 9.11 The tame M-polyfold $bX$ (Theorem 2.7.13 (2)–(4), Proposition 2.7.12, Definition 2.7.14, pp. 83–84)
 
@@ -2011,7 +2011,7 @@ $n\ge1$, chart data exist, and over the corner $d_{bX} = n-1$.
 `Polyfold.MPolyfold.degIndex_tameBoundaryMap_sub_one`, `Polyfold.MPolyfold.phi_isScDiffeoOn`,
 `Polyfold.MPolyfold.tameBoundaryPolyfold_unique`, `Polyfold.MPolyfold.theorem_2_7_13_structure`;
 `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred`, `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred`,
-`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps`, `Polyfold.MPolyfold.not_surjOn_phiTot` (gap G.78,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps`, `Polyfold.MPolyfold.not_surjOn_phiTot` (point G.78,
 closed); `Polyfold.MPolyfold.definition_2_7_14`, `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth`,
 `Polyfold.MPolyfold.TameMPolyfoldBundle.degIndex_iterMap`, `Polyfold.MPolyfold.TameMPolyfoldBundle.range_iterMap`,
 `Polyfold.MPolyfold.quadrantPolyfold_degIndex_tameBoundary`.

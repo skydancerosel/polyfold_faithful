@@ -450,7 +450,7 @@ theorem HasCornerStructureOfDim.exists_cornerCoords_isInterior (h : P.HasCornerS
   obtain ⟨κ, -, hxκ, hκ⟩ := CornerCoords.exists_mem hχ hc hn hx _root_.isOpen_interior hint
   exact ⟨κ, hxκ, hκ interior_subset⟩
 
-/-- **The bridge, Definition 4.1.1 → Mathlib (gap G.102)**: an M-polyfold with a corner structure
+/-- **The bridge, Definition 4.1.1 → Mathlib (point G.102)**: an M-polyfold with a corner structure
 of dimension `n` is a charted space modelled on the quadrant `[0,∞)ⁿ` (`EuclideanQuadrant n`),
 with the Mathlib charts `CornerCoords.toQuadrantChart` of the coordinate corner charts. -/
 @[instance_reducible]
@@ -460,7 +460,7 @@ def cornerChartedSpace (h : P.HasCornerStructureOfDim n) : ChartedSpace (Euclide
   mem_chart_source x := (h.exists_cornerCoords x).choose_spec
   chart_mem_atlas _ := ⟨_, rfl⟩
 
-/-- **The bridge, Definition 4.1.1 → Mathlib (gap G.102)**: with the charted space
+/-- **The bridge, Definition 4.1.1 → Mathlib (point G.102)**: with the charted space
 `cornerChartedSpace`, `X` is a smooth (`C^∞`) manifold with boundary and corners in Mathlib's
 sense, `IsManifold (modelWithCornersEuclideanQuadrant n) ∞ X` (the transition maps are `C^∞`,
 `CornerCoords.contDiffOn_quadrant_trans`). -/

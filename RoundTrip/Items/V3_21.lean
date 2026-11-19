@@ -13,7 +13,7 @@ universe-polymorphic in `V`, instantiated at `0`).  `QuadrantNormalForm` is a de
   a closed complement otherwise) gives the project's `IsInGoodPosition` (an algebraic complement
   with the same `ε`-property; the level-`0` part of an sc-splitting is an algebraic complement),
   and `proposition_3_1_25` concludes.  `B`'s extra hypothesis `E.IsScSubspace N` is not needed.
-* `B → A` is not proved, and is a genuine generality gap: `A`'s `proposition_3_1_25` allows any
+* `B → A` is not proved, and is a genuine generality difference: `A`'s `proposition_3_1_25` allows any
   finite-dimensional `N` (not necessarily smooth) with a merely ALGEBRAIC good complement, which
   `B` (smooth `N`, sc-complement) does not cover; turning an algebraic good complement into an
   sc-complement with the `ε`-property is possible but is itself the normal-form argument

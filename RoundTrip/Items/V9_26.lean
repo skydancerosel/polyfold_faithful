@@ -22,7 +22,7 @@ proved).
   (`proposition_9_2_15_2`).  With `hind` added to `B`'s hypotheses the implication holds:
   `A_to_BInd` (with `F = ∂Θ` for (3); `F = 0` where `Θ = 0` by the non-item
   `boundaryTheta_eq_zero_of_not_mem_supp`).  `hind` is satisfiable (indicators, `Θ = 1` on
-  `[0, ∞)`, every `Θ` on `ℝⁿ`) and is the content of the text's Theorem 9.2.1, so the gap is
+  `[0, ∞)`, every `Θ` on `ℝⁿ`) and is the content of the text's Theorem 9.2.1, so the difference is
   the unproved Theorem 9.2.1 in general, not a difference of reading.
 * `B → A` is proved.  Functoriality of `∂Θ` (in `isFunctorial_boundaryTheta` and
   `proposition_9_2_15_3`), its nonnegativity and `supp ∂Θ ⊆ ∂X` come from `B` (3): `B`'s `F`

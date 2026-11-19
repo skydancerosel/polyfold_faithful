@@ -6,7 +6,7 @@ import Polyfold.Chapter5.PartitionsOfUnity
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
 **Theorem 5.3.15 (2)** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22): the notion
 "`t : S → [0, 1]` has only Morse-type critical points" for a finite-dimensional submanifold `S`
-of an M-polyfold, and the local genericity statement behind it.  Gap G.48.
+of an M-polyfold, and the local genericity statement behind it.  Point G.48.
 
 # Morse-type critical points on a submanifold of an M-polyfold
 

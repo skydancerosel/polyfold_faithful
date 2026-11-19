@@ -4,7 +4,7 @@ import Polyfold.Chapter11.BoundaryMeasureEquivalenceDimOne
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the boundary integral of
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the boundary integral of
 `Θ(t, z) = δ₀(z)` read in the ep-groupoid `∂X`.
 
 # `∮_{∂Θ̂} f` in `∂X` is `φ(1) − φ(−1)`

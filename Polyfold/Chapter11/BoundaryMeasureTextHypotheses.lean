@@ -4,7 +4,7 @@ import Polyfold.Chapter9.StokesTextHypotheses
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4, **Theorems 11.4.4 and 11.4.5** (p. 545, new in the 2021 edition),
-gap G.131, row V11.29.  Numbers and pages are the 2021 text's.
+point G.131, row V11.29.  Numbers and pages are the 2021 text's.
 
 # Theorems 11.4.4 and 11.4.5 with the text's hypotheses
 

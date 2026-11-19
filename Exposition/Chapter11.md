@@ -3,7 +3,7 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part II, Chapter 11 (arXiv 1707.08941, pp. 375–416), rewritten for a
 first-year graduate student who has read Chapters 7–10 and wants to know which of the structures built on one ep-groupoid can
 be carried to an equivalent one, and why the result does not depend on the choices made. Every formalized statement is
-proved; what is not formalized is marked. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the
+proved; what is not formalized is marked. Where the text leaves a step to the reader or the Lean proof takes a shorter route, the exposition follows the
 Lean. Statement numbers and printed pages are those of the book (Springer 2021), with the 2017 text's in parentheses (see
 `BookConcordance.md`); results new in the 2021 edition are marked as such. Conventions: ep-groupoids, orbit spaces $|X|$, the
 degeneracy index and tameness are those of Chapter 7; the tangent functor, strong bundles over ep-groupoids, auxiliary norms
@@ -148,7 +148,7 @@ The structures on a face are formalized too: each $X_\theta$ agrees near each of
 M-polyfold, so it is a closed saturated sub-M-polyfold and a tame ep-groupoid with $d_X = d_{X_\theta} + 1$
 (`Polyfold.EpGroupoid.proposition_11_1_6_faces`, `Polyfold.EpGroupoid.faceEpGroupoid`), and the restricted diagram gives the
 generalized isomorphisms $[d]_F$, independent of the representative (`Polyfold.EPLocalization.EPLoc.faceIso`,
-`Polyfold.EPLocalization.EPLoc.proposition_11_1_6_faceIso`) (gap G.128). The intersection clause does not hold as we read
+`Polyfold.EPLocalization.EPLoc.proposition_11_1_6_faceIso`) (point G.128). The intersection clause does not hold as we read
 it: in $([0,\infty)^3 \oplus W) \setminus K$ two faces meet in two pieces of an edge, which is not one face of either
 (`Polyfold.FaceMeetExample.not_facesMeetInFaces`); the intersection is a union of faces of each
 (`Polyfold.EpGroupoid.IsEpFaceStructured.facesMeetInUnions`) (Findings, items 6, 9). *Checked by machine (V11.6):*
@@ -192,7 +192,7 @@ equivalence and the invariance under refinement; Definition 11.2.7 (2017: 11.3) 
 G_* \circ F^*$; Propositions 11.2.8 and 11.2.9 (2017: 11.4, 11.5) show that, under the local regularity property, only the
 orbit map matters, by the local families of Proposition 10.1.10.
 
-All of this is formalized, with no added hypothesis (gap G.129; V11.9–V11.13; Findings, items 20–22): the pull-back along
+All of this is formalized, with no added hypothesis (point G.129; V11.9–V11.13; Findings, items 20–22): the pull-back along
 an equivalence is a bijection (`Polyfold.EpFunctor.IsEquivalence.bijective_formPullback`) with inverse the push-forward
 (`Polyfold.EpFunctor.IsEquivalence.formPush`, `Polyfold.EP.epFormsInftyPush`), the text's formula is
 `Polyfold.EpFunctor.IsEquivalence.definition_11_2_3`, and Definition 11.2.7 and Theorem 11.2.1 are
@@ -403,7 +403,7 @@ $\partial\Theta$. The boundary operation of Definition 9.3.8 is preserved by sc-
 (`Polyfold.MPolyfold.boundaryOp_map_tangentMapOn`), so for the intrinsic boundary orientation the theorem holds for the
 generalized isomorphism itself with no transfer hypothesis
 (`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation`,
-`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation`; gap G.130; Findings, item 45). *Checked by machine
+`Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation`; point G.130; Findings, item 45). *Checked by machine
 (V11.25):* `Polyfold.MPolyfold.IsBoundaryTransfer`, `Polyfold.MPolyfold.isBoundaryTransfer_id`,
 `Polyfold.EpFunctor.pushSection_boundaryLift`, `Polyfold.EpFunctor.pullSection_boundaryLift`,
 `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push`, `Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull`.
@@ -424,7 +424,7 @@ effective measures under the local unique continuation property. Remark 11.4.3 (
 related by a generalized isomorphism compatible with $\beta$ give the same integrals. Theorems 11.4.4 (2017: 11.9) and 11.4.5
 (new in the 2021 edition) do the same for the boundary measures.
 
-All of this is formalized, with no added hypothesis, for the canonical, effective and boundary measures of Chapter 9 (gap
+All of this is formalized, with no added hypothesis, for the canonical, effective and boundary measures of Chapter 9 (point
 G.131; V11.27–V11.29; Findings, item 50): `Polyfold.EPLocalization.EPLoc.theorem_11_4_1_pull`, `_push`,
 `Polyfold.EPLocalization.EPLoc.theorem_11_4_2_pull`, `_push`, `Polyfold.EPLocalization.EPLoc.remark_11_4_3`, and
 `Polyfold.EPLocalization.EPLoc.theorem_11_4_4_pull_loc`, `Polyfold.EPLocalization.EPLoc.theorem_11_4_5_pull_loc` with their
@@ -450,7 +450,7 @@ not depend on $e'$ and equals the text's $N'(\Psi(e''))$ for every admissible $e
 induced by $N'$ on $|W'[1]|$, composed with $|D|$ and the quotient map), satisfies (3), is inverse to $[D]_*$, and depends
 only on $|[D]|$. Conditions (1) and (2) hold as well, through the level-$1$ fibre maps of $\mu$ and of a strong bundle
 equivalence and the level-$1$ local inverses, so the proposition holds in full
-(`Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book`; gap G.132).
+(`Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book`; point G.132).
 
 Before the proposition the text derives $[D] = [D']$ from $|[D]| = |[D']|$ under the local regularity property; that is
 Theorem 10.5.7, which does not hold as we read it (Chapter 10). Nothing in §11.5 uses it: the last clause needs only $|[D]| =
@@ -470,7 +470,7 @@ does not depend on the choices and is an sc⁺-multisection.
 *What is proved.* For the functor $\Lambda$: the value does not depend on $w$, $\Phi_*\Lambda$ is a functor, and
 $\Phi^*\Phi_*\Lambda = \Lambda$, $\Phi_*\Phi^*\Lambda' = \Lambda'$; the proof is that of Lemma 11.3.2. The local section
 structures go along $\Phi$ both ways, with 2021 Definition 13.2.1 as `Polyfold.SBLocalization.IsScPlusMultisection`, so the
-lemma holds for sc⁺-multisections (`Polyfold.SBLocalization.lemma_11_5_2_book`; gap G.133). *Checked by machine (V11.31):*
+lemma holds for sc⁺-multisections (`Polyfold.SBLocalization.lemma_11_5_2_book`; point G.133). *Checked by machine (V11.31):*
 `Polyfold.SBLocalization.lemma_11_5_2`, `Polyfold.SBLocalization.pushMult_eq`, `Polyfold.SBLocalization.pullMult_pushMult`.
 
 **Proposition 11.5.3 (2017: 11.7) (multisections under generalized isomorphisms).** $[D]_*\Lambda = \Psi_*\Phi^*\Lambda$ and
@@ -622,13 +622,13 @@ are the classes of diagrams, composed through weak fibred products, with a funct
 \mathcal{PC}(E^{-1})$ that inverts equivalences; the well-definedness of the composition is left to the reader. It is
 formalized: the category is `Polyfold.PCLoc`, the composition is well defined by
 `Polyfold.PC.Diagram.hasCommonRefinement_comp`, and $I$ is `Polyfold.PCLoc.I`, which inverts equivalences
-(`Polyfold.PCLoc.isIso_I_map`) (V11.43; gap G.134; Findings, items 76, 78).
+(`Polyfold.PCLoc.isIso_I_map`) (V11.43; point G.134; Findings, items 76, 78).
 
 *Remark 11.6.9 (2017: 11.4), pp. 563–566.* The remark views a strong bundle over an ep-groupoid and a strong bundle map as
 functors, recalls Definition 8.5.9 of proper strong bundle coverings, and sketches the category of such coverings with its
 equivalences and localization, leaving the details to the reader. Definition 8.5.9 is formalized in Chapter 8
 (`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021`); the category is `Polyfold.SBPC`, with Theorem 11.6.6
-(`Polyfold.SBPC.theorem_11_6_6`) and its localization by diagrams (`Polyfold.SBPCLoc`) (V11.42; gap G.135; Findings, items
+(`Polyfold.SBPC.theorem_11_6_6`) and its localization by diagrams (`Polyfold.SBPCLoc`) (V11.42; point G.135; Findings, items
 76, 77).
 
 ## 8. Witnesses: the hypotheses can hold
@@ -684,6 +684,6 @@ by the root module (not the `WIP_*` files), among them `EpEquivalenceGeometry.le
 `AuxiliaryNormTransport.lean`, `MultisectionLocalStructure.lean`, `CoveringEquivalenceTheorem.lean`,
 `ProperCoveringLocalization.lean` and `StrongBundleCoveringLocalization.lean`. Every statement of §§11.1–11.6 is formalized,
 Theorem 11.3.9 componentwise, several in stronger forms; the intersection clause of Proposition 11.1.6 does not hold as we
-read it, and its form with unions is proved (gaps G.128–G.135). The statements are V11.1–V11.43 of
+read it, and its form with unions is proved (points G.128–G.135). The statements are V11.1–V11.43 of
 `Exposition/Verification.md`, compared in `Exposition/polyfold-beside-lean.html`, retold in `Exposition/ProofByProof.md`;
 findings: `Exposition/Findings.md`, "Chapter 11", items 1–9, 20–22, 30–35, 40–46, 50, 60–61, 70–78, 80–82.

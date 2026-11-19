@@ -4,7 +4,7 @@ import Polyfold.Chapter8.Book
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, products remark after
 **Definition 15.3.3** (pp. 692–693; 2017: after Definition 15.3): the auxiliary norm
-`N × N' = max(N, N')` of the product (gap G.160 (d), first part).
+`N × N' = max(N, N')` of the product (point G.160 (d), first part).
 
 # The product auxiliary norm
 

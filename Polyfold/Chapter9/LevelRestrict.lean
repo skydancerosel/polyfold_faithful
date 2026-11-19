@@ -3,7 +3,7 @@ import Polyfold.Chapter9.FunctionTimesForm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, pp. 449–451 (Theorems 9.5.17, 9.5.18; gap G.110).  Numbers and pages
+Part II, Chapter 9, §9.5, pp. 449–451 (Theorems 9.5.17, 9.5.18; point G.110).  Numbers and pages
 are the 2021 text's.
 
 # The restriction of a class of `Ωⁿ_{ep,∞}(X)` to a tame sheet, at every level

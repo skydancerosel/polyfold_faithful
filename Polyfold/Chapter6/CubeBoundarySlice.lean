@@ -4,7 +4,7 @@ import Polyfold.Chapter6.CubeFamilyLemmas
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, Lemmas 6.6.4–6.6.5
 (pp. 264–265; preprint Lemmas 6.29–6.30) for families on `[0, 1]ⁿ`: **the slices `F_q` at every
 `q ∈ [0, 1]ⁿ` and the product chart centred at `(q, Φ(q))`**, the chart computations behind
-property (P) at boundary points (gap G.65; rows V6.33, V6.34).
+property (P) at boundary points (point G.65; rows V6.33, V6.34).
 
 # Slices over `[0, 1]ⁿ × X` and the centred product chart
 

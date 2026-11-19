@@ -39,7 +39,7 @@ is built for `N₀`, on a neighbourhood of `S_{f₁}` with the margin for `N₀`
 admissible for one `(N, U)`, both ends oriented by `o`) and in part (2) (along a proper oriented
 homotopy, the right end oriented by `o₁ = o₀.sectionAdd S(1, ·)`), and every degree `k`, the
 index-`(k+1)` part `S_F^{k+1}` carries a continuous orientation equal to `e ∧ o_{S_i}` on the two
-product ends `(0, 1/8) × S₀` and `(7/8, 1) × S₁` (Remark 6.6.19; gap G.66).
+product ends `(0, 1/8) × S₀` and `(7/8, 1) × S₁` (Remark 6.6.19; point G.66).
 `CobordismRelativeFormsHyp` says: for every such cobordism, every closed relative form
 `c = (ω, τ)` of degree `k` and integrands `a₀`, `a₁` of `c` on the ends (`IsPsiIntegrand`:
 `a_i = ω|_{S_i} + dγ_i` with `γ_i` extending `−τ|_{∂S_i}`), there is a closed `C^∞` `k`-form `A` on
@@ -78,7 +78,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 variable (B : StrongBundle PX P) (hX : PX.IsTame)
 
 /-- **The orientation of the cobordisms of the proof of 2021 Theorem 6.7.1** (Remark 6.6.19,
-p. 276; proof of Theorem 6.7.1, p. 278–279; gap G.66): `CobordismOrientation` (`InvariantCobordism`) for
+p. 276; proof of Theorem 6.7.1, p. 278–279; point G.66): `CobordismOrientation` (`InvariantCobordism`) for
 * part (1): cobordism data `Ŝ` between `f + s₀` and `f + s₁`, `s₀`, `s₁` admissible for one
   `(N, U)`, both ends oriented by `o`;
 * part (2): cobordism data `Ŝ` between `f₀ + s₀` and `f₀ + (S(1, ·) + s₁) = f₁ + s₁` for a proper
@@ -200,7 +200,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 The statement is that of `theorem_6_7_1_of_indep` (where the trace of each hypothesis to the text
 is given); its hypotheses (A) and (B) are discharged by `psiAt_eq_of_admissible_hyp` and
 `psiAt_eq_of_homotopy_hyp`. What remains are `CobordismOrientationHyp` (the orientation of the
-cobordism `S_F`, Remark 6.6.19, gap G.66) and `CobordismRelativeFormsHyp` (a relative form on
+cobordism `S_F`, Remark 6.6.19, point G.66) and `CobordismRelativeFormsHyp` (a relative form on
 `S_F`), which are steps of the text's proof, not hypotheses of the text. (2) is read as in R-d.
 The same statement without the two hypotheses is `theorem_6_7_1`
 (`Theorem671Final`). -/

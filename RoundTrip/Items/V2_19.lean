@@ -16,7 +16,7 @@ import RoundTrip.Blind.V2_19
   with B's `TφB` (computed with a representative in the chart `φ`), by `tangentChartMap_mk_self`.
 * The topology: `tangentBasis = TfamB`, so the instance is `generateFrom TfamB`.
 * "`T_xX` is a vector space and `Tφ` is linear on it" is NOT in the project (its docstring: the
-  linear structure of `T_xX` is not formalized, gap G.7).  It is proved here: `T_xX` is put in
+  linear structure of `T_xX` is not formalized, point G.7).  It is proved here: `T_xX` is put in
   bijection (`fibreEquiv`) with the subspace `T_{φ₀(x)}O = range Dr(φ₀(x))` through one chart
   `φ₀` (bijectivity: `mk_ofVec_tangentChartMap` and A's `tangentChartMap_mk_ofVec`), the vector
   space structure is transported, and for every chart `φ` around `x`, `α ↦ (Tφ α).2` is

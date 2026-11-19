@@ -2,7 +2,7 @@ import Polyfold.Chapter9.HemisphereStokes
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5: **Theorem 9.5.18 (effective Stokes), p. 450**, gap G.110: a witness
+Part II, Chapter 9, §9.5: **Theorem 9.5.18 (effective Stokes), p. 450**, point G.110: a witness
 with boundary for the hypotheses of the effective version.  Numbers and pages are the 2021 text's.
 
 # The effective Stokes theorem for the closed hemisphere

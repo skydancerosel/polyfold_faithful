@@ -25,7 +25,7 @@ which needs the projection `p : TX → X¹` to be open (Part I, 2021 Proposition
   `(TX)^i`).
 
 Each one is the corresponding theorem of `TangentZhou.lean` or `TangentZhouLevels.lean`, with the
-hypothesis `IsOpenMap tangentProj` (gap G.8) discharged by `MPolyfold.isOpenMap_tangentProj`
+hypothesis `IsOpenMap tangentProj` (point G.8) discharged by `MPolyfold.isOpenMap_tangentProj`
 (`Chapter2/TangentProjOpen.lean`).  The other hypotheses are those of the text's proof:
 (LUC) for `X¹` or (SLUC) for `X`, and `HasConnectedDenseLevelOneReps` (the text's
 `V(x) = U(x) ∩ X₁` connected and dense; satisfiable: `hasConnectedDenseLevelOneReps_point`,

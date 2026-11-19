@@ -11,7 +11,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4
 (Remark 4.1.3 (preprint 4.3)) If `X₀ = X_∞`, the identity `1₀¹ : X → X¹` has the inverse `1₁⁰ : X¹ → X`, which is
 always sc-smooth, so if `1₀¹` is sc-smooth it is an sc-diffeomorphism.  "It is possible that
 `X¹ ≠ X` as M-polyfolds although the underlying sets agree."  No example is given (comparison item
-V4.6, gap G.31; Findings, Chapter 4, items 5, 125).
+V4.6, point G.31; Findings, Chapter 4, items 5, 125).
 
 ## Where an example must come from
 
@@ -362,7 +362,7 @@ whose retract `O` carries a discontinuous lift `O → E₁` (i.e. the topologies
 `O ⊆ E₁` differ) gives an sc-retract `O = O_∞` which is **not** an sc⁺-retract.  By Proposition 4.1.8 (preprint 4.8)
 in charts (`MPolyfold.proposition_4_1_8_chart`, `MPolyfold.isScSmoothMap_toLevelOne_iff`), an
 M-polyfold with a chart onto `O` then has `X₀ = X_∞` on that chart and `1₀¹ : X → X¹` not
-sc-smooth, so `X¹ ≠ X` as M-polyfolds (§4.1, Remark 4.1.3 (preprint 4.3); comparison item V4.6, gap G.31). -/
+sc-smooth, so `X¹ ≠ X` as M-polyfolds (§4.1, Remark 4.1.3 (preprint 4.3); comparison item V4.6, point G.31). -/
 theorem IsLossFamily.not_isScPlusRetract (h : IsLossFamily L)
     (hidem : ∀ p z, L p 0 (L p 0 z) = L p 0 z)
     (hdisc : ¬ ContinuousOn ((ScBanach.const V).prod Z).liftOne (h.retraction hidem).retract) :

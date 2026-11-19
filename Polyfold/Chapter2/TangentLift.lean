@@ -66,7 +66,7 @@ M-polyfolds:
 * `MPolyfold.levelOneEquiv`, `MPolyfold.levelOneEquiv_isScDiffeoOn` (the index raise of an
   sc-diffeomorphism), `MPolyfold.tangentShiftEquivTwo` and `proposition_2_3_17_two`
   (**Proposition 2.3.17**, `i = 2`).
-* Gap G.6 of the report: `MPolyfold.levelLift_transition`, `MPolyfold.levelLift_levelChart` (the
+* Point G.6 of the report: `MPolyfold.levelLift_transition`, `MPolyfold.levelLift_levelChart` (the
   level-`m` lift of the chart `φ¹` of `X¹` is the level-`(m+1)` lift of `φ`),
   `MPolyfold.shiftLevelMap`, `MPolyfold.continuous_shiftLevelMap`,
   `MPolyfold.continuous_shiftLevelInv` (for an arbitrary chart of `X¹`, through the level-`m` maps
@@ -97,7 +97,7 @@ The diagonal example (Remark 2.4.2):
   follows by iteration (`i = 2` is written out, with `levelOneEquiv` as the inductive step); the
   statement for all `i` at once is `proposition_2_3_17_all` in `Chapter2/TangentLiftAll.lean`.
 * `(X¹)^i ≡ (X^i)¹` is an equality for `i = 1`, and for `i = 2` it is `((X¹)¹)¹ = ((X¹)¹)¹`.
-  That the levels of `X¹` carry the topology of the levels of `X` is a separate statement (gap
+  That the levels of `X¹` carry the topology of the levels of `X` is a separate statement (point
   G.6), proved here as `shiftLevelHomeomorph`; Proposition 2.3.17 does not use it.
 * Definition 2.1.16 is stated for the shape of the maps only (`R` on `U ⊕ F`,
   `R(u, v) = (r(u), ρ(u) v)` with `ρ(u)` a continuous linear map); the sc-smoothness is part of the
@@ -792,7 +792,7 @@ theorem _root_.Polyfold.theorem_2_3_16 [ParacompactSpace P.TangentSpace]
       (φ.isScRetract_overlap ψ)
     exact ⟨ρ, fun p hp => (tangentChart_transition hφ α₀ hψ β₀ hp).trans (hρ p hp)⟩
 
-/-! ### The levels of `X¹`: `(X¹)_m ≅ X_{m+1}` (gap G.6) -/
+/-! ### The levels of `X¹`: `(X¹)_m ≅ X_{m+1}` (point G.6) -/
 
 section ShiftLevel
 
@@ -921,7 +921,7 @@ theorem continuous_shiftLevelInv (m : ℕ) : Continuous (P.shiftLevelInv m) := b
       exact h3.2
 
 variable (P) in
-/-- **Gap G.6: the levels of `X¹` are those of `X`** (2021: the paragraph after Definition 2.3.8,
+/-- **Point G.6: the levels of `X¹` are those of `X`** (2021: the paragraph after Definition 2.3.8,
 p. 37; preprint: after Definition 2.14): `(X¹)_m` and `X_{m+1}` are homeomorphic through the
 identity of the underlying points. -/
 def shiftLevelHomeomorph (m : ℕ) : P.shift.Level m ≃ₜ P.Level (m + 1) where
@@ -932,7 +932,7 @@ def shiftLevelHomeomorph (m : ℕ) : P.shift.Level m ≃ₜ P.Level (m + 1) wher
   continuous_toFun := continuous_shiftLevelMap m
   continuous_invFun := continuous_shiftLevelInv m
 
-/-- **Gap G.6** (2021: the paragraph after Definition 2.3.8, p. 37): for every `m`, the level
+/-- **Point G.6** (2021: the paragraph after Definition 2.3.8, p. 37): for every `m`, the level
 `(X¹)_m` of the M-polyfold `X¹` is the level `X_{m+1}` of `X`, with its topology (the homeomorphism
 `shiftLevelHomeomorph` is the identity on points of `X`) and its charts (the level-`m` lift of the
 chart `φ¹` of `X¹` is the level-`(m+1)` lift of `φ`). -/

@@ -48,7 +48,7 @@ oriented by `e ∧ o`.
 
 The orientation inherited from `(f, o)` is read in the model carrying `o` (as in
 `theorem_16_6_6_of_model`).  The hypotheses beyond the text are sc-smooth partitions of unity on
-`Z` and on `[0, 1] × X` of the model (Stokes, Theorems 9.5.17, 9.5.18 as printed; gap G.153).
+`Z` and on `[0, 1] × X` of the model (Stokes, Theorems 9.5.17, 9.5.18 as printed; point G.153).
 Tame germ data are the text's hypothesis under the adopted reading of "strong bundle over a tame
 M-polyfold"; the index is the text's "degree equal to the index".
 -/

@@ -5,7 +5,7 @@ import Mathlib.Analysis.Normed.Module.FiniteDimension
 /-!
 Orientations of finite-dimensional manifolds with corners in Mathlib's language, for the natural
 orientation of the solution set in Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory*
-(Springer 2021), **Theorem 6.6.18** (p. 275; preprint Theorem 6.41) (gap G.67).  Mathlib has no
+(Springer 2021), **Theorem 6.6.18** (p. 275; preprint Theorem 6.41) (point G.67).  Mathlib has no
 orientations of manifolds; this file supplies the two usual forms, for any model with corners
 `I : ModelWithCorners ℝ E H` with `E` finite-dimensional and any charted space `M` on `H`.
 

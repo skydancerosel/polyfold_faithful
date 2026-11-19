@@ -27,7 +27,7 @@ morphism `φ` (`tangentMor_trivialZ3`), while the three morphisms `(g, x)`, `g �
   injective.  This certifies the correction of row **V8.12** (Findings, Chapter 8, item 10).
 
 The linearity of `Tφ` (the text's "linear isomorphism") is not involved: Part I's `T_xX` carries
-no linear structure in the project (gap G.7), and the counterexample uses only that `Tφ` is the
+no linear structure in the project (point G.7), and the counterexample uses only that `Tφ` is the
 identity.
 -/
 

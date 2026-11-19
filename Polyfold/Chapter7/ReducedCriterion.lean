@@ -92,7 +92,7 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   `K = {φ ∈ s⁻¹(cl V) | (s, t)(φ) = (s, t)(q)}` (`(s, t)` is proper on `s⁻¹(cl V)`) has the
   property that every open `N ⊇ K` contains `π⁻¹(O)` for an open `O ∋ q`.  So the instance
   `ParacompactSpace X.ReducedMor` holds outright, and `reducedEpGroupoid` (`Reduced.lean`)
-  needs only `[T2Space X.ReducedMor]`; this settles the paracompactness half of gap G.71.
+  needs only `[T2Space X.ReducedMor]`; this settles the paracompactness half of point G.71.
 * **Lemma 7.2.11 does not hold as we read it without a Hausdorff hypothesis.**  Its conclusion at
   every morphism is equivalent to `T_R` Hausdorff (`isReducedEvenlyCovered_iff_t2Space`), and it
   fails at `(1, o₀)` in `JumpingRetract.X`.  The proof of (3) uses the uniqueness of limits in
@@ -117,7 +117,7 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   `ZhouRetract.lean`, and Zhou's retract itself is `ZhouGroupoid.lean` and
   `ZhouSigma.lean`.
 * Appendix 7.6.4 is formalized for `i = 1` and as sets: the text uses that `U₁(x)` is connected
-  in `X¹` and that `U(x) ∩ X_1` is dense in `U(x)` (the density of `X_1` in `X`, gap G.73;
+  in `X¹` and that `U(x) ∩ X_1` is dense in `U(x)` (the density of `X_1` in `X`, point G.73;
   `Lift.lean` uses `U(x)₁` only with the restricted action); both are explicit hypotheses of
   `levelVal_mem_nonEffectivePart_of_liftOne`, and of (SLUC) only LUC for `X¹` is used.  The
   hypotheses are satisfied by the trivial ep-groupoid of a point (`Examples.pointEpGroupoid`).

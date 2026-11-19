@@ -4,7 +4,7 @@ import Polyfold.Chapter6.CubeGerms
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §3.1, Theorem 3.1.21
 (p. 89; preprint Theorem 3.18) and §6.6 (p. 264): **the pull-back of an sc-Fredholm section to
 `[0, 1]ⁿ × X` is a tame sc-Fredholm section**, the input of Lemmas 6.6.4–6.6.5 for families on
-`[0, 1]ⁿ` (gap G.65 (a), steps 3–4).
+`[0, 1]ⁿ` (point G.65 (a), steps 3–4).
 
 # `f̃(q, x) = ((q, x), f(x))` over `[0, 1]ⁿ × X`
 

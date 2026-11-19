@@ -32,11 +32,11 @@ boundary with corners with a natural orientation.
   `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`) and without instance arguments.
 * `theorem_6_6_17`: Theorem 6.6.17 (`theorem_6_6_17_hyp`) likewise, and without
   `HasConnectedSmoothNbhds`: `MPolyfold.hasConnectedSmoothNbhds` proves it for every M-polyfold
-  (gap G.90).
+  (point G.90).
 * `SectionOrientation`: Definition 6.6.16, the orientations of `f` (`IsSectionOrientation`).
 * `IsNaturalSolutionOrientation`: what "`S` has the natural orientation given by `o`" means:
   the orientations `tangentOr(o_x)` of `T_xS = ker f'(x)` read in charts (1) agree in any two
-  charts through the tangent map of the transition (gap G.68, `tangentOrAt_toChartOr`) and
+  charts through the tangent map of the transition (point G.68, `tangentOrAt_toChartOr`) and
   (2) form an orientation of the kernel line bundle along every sc-smooth path of zeros in an
   orientable neighbourhood (`theorem_6_6_18_hyp`).
 * `theorem_6_6_18`: **Theorem 6.6.18 in the book's shape**: `SolutionSetInGeneralPosition`
@@ -52,7 +52,7 @@ boundary with corners with a natural orientation.
 * The instance arguments `[∀ n, ParacompactSpace ((Fin n → ℝ) × X)]`,
   `[∀ n, ParacompactSpace (pullbackSpace P Prod.snd)]` and their two-parameter versions:
   discharged by the four witnesses above.
-* Gap G.68 in the statement of Theorem 6.6.18 (`IsNaturalSolutionOrientation.chart_indep`).
+* Point G.68 in the statement of Theorem 6.6.18 (`IsNaturalSolutionOrientation.chart_indep`).
 -/
 
 open Module Bundle Topology Set CategoryTheory
@@ -108,7 +108,7 @@ theorem paracompactSpace_rn_rn_pullback (B : StrongBundle PX P) :
 
 namespace MPolyfold
 
-/-- **Connected smooth parts of small neighbourhoods (gap G.90)**: every M-polyfold satisfies
+/-- **Connected smooth parts of small neighbourhoods (point G.90)**: every M-polyfold satisfies
 `MPolyfold.HasConnectedSmoothNbhds`, the hypothesis of property (2) of 2021 Theorem 6.6.17: the
 connected component of `x` in `W` is open (Proposition 2.3.7) and its smooth part is connected
 (`MPolyfold.isPreconnected_smoothVal_preimage`). -/

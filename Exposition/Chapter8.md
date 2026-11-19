@@ -3,12 +3,12 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part II, Chapter 8 (arXiv 1707.08941, pp. 257–289),
 rewritten for a first-year graduate student who has read Chapter 7 and wants to know how velocities, bundles and
 coverings are described for problems with local symmetries. Every formalized statement is proved; what is not
-formalized is marked. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Part II
+formalized is marked. Where the text leaves a step to the reader or the Lean proof takes a shorter route, the exposition follows the Lean. Part II
 has no 2014 preprint: its statement numbers and printed pages are those of the book (Springer 2021), with the 2017
 text's in parentheses (see `BookConcordance.md`). Results of Part I are cited in the same way, by their 2021
 numbers with the 2017 numbers in parentheses; the preprint numbers are in the concordance. Conventions: ep-groupoids, sc-smooth functors, natural
 representations, the index lift $X^1$ and paracompact orbit spaces are those of Chapter 7; $TX$ and $T\mathbf X$ are Part
-I's tangent M-polyfolds, whose fibres $T_xX$ carry the linear structure of Part I's Definition 2.3.14 (gap G.7, V2.19),
+I's tangent M-polyfolds, whose fibres $T_xX$ carry the linear structure of Part I's Definition 2.3.14 (point G.7, V2.19),
 in which every tangent $T\varphi$ of a morphism is a linear isomorphism (V8.12); a "strong bundle map" between strong bundles over M-polyfolds,
 which Part I defines only between local models, is read globally (§6). The findings cited are those of `Findings.md`,
 "Chapter 8".*
@@ -70,7 +70,7 @@ tame retraction" in Lemma 8.1.9 (2017: 8.8), proved from the definitions (§2); 
 (§3); the open embedding $G_x\backslash TU(x)\to|TX|$ (§4); the ep-groupoid of the functorial picture of a strong bundle and
 the equivalence of Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6) (§6); the "one verifies" of Proposition 8.5.7 (2017: 8.3) and of Theorem 8.5.8 (2017: 8.6) (§8). Lemma
 8.1.2 (2017: 8.1) is proved as printed and in the sheet form its proof uses, with the identification of the tangent of the fibred
-product with the fibred product of the tangents (gap G.75, §2). Definitions 8.2.1 and 8.2.2 (2017: 8.2 and 8.3) are formalized (gap G.74, §5).
+product with the fibred product of the tangents (point G.75, §2). Definitions 8.2.1 and 8.2.2 (2017: 8.2 and 8.3) are formalized (point G.74, §5).
 Strong bundle maps between strong bundles over M-polyfolds, which Part I defines only for local models, enter Definition
 8.3.1 (2017: 8.4) and everything after it as a reading (§6). Two restrictions come from the formalization and not from the text: the
 tangent of an ep-groupoid in `Type u` lives in `Type (max u 1)`, so that the tangent functor is
@@ -133,7 +133,7 @@ statements are the text's (Findings, item 4).
 of the multiplication: $(\psi,k)\circ(\varphi,h) = Tm(\psi,\varphi)(k,h)$, where $k = Ts(\psi)^{-1}(Tt(\varphi)(h))$.
 
 *How this is read.* The identification of the tangent of the fibred product with the fibred product of the tangents is
-formalized as an sc-diffeomorphism, with $m_{T\mathbf X} = Tm$ on it (gap G.75; V8.4, `Polyfold.EpGroupoid.isScDiffeoOn_tangentCompPairs`,
+formalized as an sc-diffeomorphism, with $m_{T\mathbf X} = Tm$ on it (point G.75; V8.4, `Polyfold.EpGroupoid.isScDiffeoOn_tangentCompPairs`,
 `Polyfold.EpGroupoid.lemma_8_1_2_compMul`). The lemma is also proved in the form its proof uses. The proof varies $\varphi'$ near $\varphi$ and
 puts $\psi' = F(\varphi') = (s|\mathbf U(\psi))^{-1}(t(\varphi'))$, which makes $m(\psi',\varphi')$ a function of $\varphi'$ alone. Let $s:W\to V$
 be a sheet of $s$ around $\psi$, with inverse $\sigma$, and $g(\varphi') = m(\sigma(t(\varphi')),\varphi')$ on the open set $t^{-1}(V)$; $g$ is
@@ -195,7 +195,7 @@ $\Psi\mapsto T\sigma(t_T\Psi)\circ\Psi$ is $Tg$ by Lemma 8.1.2 (2017: 8.1), sc-s
 condition (4), the multiplication is sc-smooth on $T\mathbf X\,{}_{s_T}{\times}_{t_T}\,T\mathbf X$. $\square$
 
 The text adds that "$m_{T\mathbf X}$ is precisely $Tm$", which uses the identification of Lemma 8.1.2 (2017: 8.1), formalized
-(gap G.75, V8.4); the proof above does not need it (Findings, item 7). *Checked by machine (V8.9):* `Polyfold.EpGroupoid.isLocalScDiffeo_tSrc`,
+(point G.75, V8.4); the proof above does not need it (Findings, item 7). *Checked by machine (V8.9):* `Polyfold.EpGroupoid.isLocalScDiffeo_tSrc`,
 `Polyfold.EpGroupoid.isLocalScDiffeo_tTgt`, `Polyfold.EpGroupoid.surjective_tSrc`, `Polyfold.EpGroupoid.surjective_tTgt`,
 `Polyfold.EpGroupoid.isScSmoothMap_tUnit`, `Polyfold.EpGroupoid.isScSmoothMap_tInv`,
 `Polyfold.EpGroupoid.isScSmoothCompSheet_tangent`, `Polyfold.EpGroupoid.isScSmoothComp_tangent`,
@@ -266,7 +266,7 @@ Lemma 8.1.3 (2017: 8.2). In $G(\varphi,h) = (T\varphi,Ts(h))$ the first entry is
 injective, since distinct morphisms can have the same tangent; for $\mathbb Z/3$ acting trivially on $\mathbb R$ (Chapter 7, §9) the
 three morphisms at a point all have $T\varphi = \mathrm{id}$ (`Polyfold.EpGroupoid.Examples.remark_8_1_10_not_injective`). With the label, $G$ is a bijection onto the
 pairs $(\varphi,a)$ with $\varphi\in\mathbf X_1$ and $a\in T_{s(\varphi)}X$, compatible with the compositions. Also formalized: that $T\varphi$ is a bounded linear
-isomorphism in the linear structure of $T_xX$ (gaps G.7, G.70; `Polyfold.EpGroupoid.tangentMorCLE`), that it is the tangent of
+isomorphism in the linear structure of $T_xX$ (points G.7, G.70; `Polyfold.EpGroupoid.tangentMorCLE`), that it is the tangent of
 $\hat\varphi = t\circ(s|\mathbf U(\varphi))^{-1}$ at $x$ (`Polyfold.EpGroupoid.tangentMor_eq_tangentMapOn_hat`), the M-polyfold structure
 transported along $G$ and the triples $(a,T\varphi,b)$ (`Polyfold.EpGroupoid.remark_8_1_10_scDiffeo`,
 `Polyfold.EpGroupoid.remark_8_1_10_triples`). Places we read: "$T\varphi:T_xX\to T_yY$"
@@ -355,7 +355,7 @@ paracompact. $\square$
 The conclusion is stronger than the text's: $|TX|$ is metrizable. The step shared with the text is the metrizability of
 $|TU(x_z)|$; the regularity of $|TX|$, Michael's theorem and the local bundle model $TO\to O^1$ are not used. The open
 embedding $G_x\backslash TU(x)\to|TX|$, the argument of Proposition 7.1.19 (2017: 7.6) for $TX$, is left implicit in the text. The linearity of the
-action of $G_x$ on the fibres is not restated; the fibres carry the linear structure of Part I's Definition 2.3.14 (gap
+action of $G_x$ on the fibres is not restated; the fibres carry the linear structure of Part I's Definition 2.3.14 (point
 G.7, formalized, V2.19), in which every $T\varphi$ is a linear isomorphism (`Polyfold.EpGroupoid.tangentMorCLE`, V7.5). The metric $\hat\rho$ is set up again in `TangentOrbit.lean` for a
 finite group acting by homeomorphisms on a metrizable space, since Chapter 7's versions are private. The statement
 writes "parcompact", read as "paracompact" (Findings, items 20, 21, 113). *Checked by machine (V8.18):*
@@ -378,9 +378,9 @@ $d\circ d = 0$.
 
 **Definition 8.2.2 (2017: 8.3).** $(\Omega^*_{ep,\infty}(X),d)$ is the sc-de Rham complex of $X$.
 
-*How this is read* (gap G.74, formalized). A form is one of Part I's sc-differential forms on the object M-polyfold
-(Definition 4.4.1, $\oplus^kTX$ read in its charts; gaps G.37–G.39) with $(T\varphi)^*\omega_y = \omega_x$ for the linear $T\varphi$ (gaps G.7,
-G.70), equivalently $s^*\omega = t^*\omega$; the direct limit runs over the index lifts $X^i$ (gap G.6), and the compatibility of $d\omega$
+*How this is read* (point G.74, formalized). A form is one of Part I's sc-differential forms on the object M-polyfold
+(Definition 4.4.1, $\oplus^kTX$ read in its charts; points G.37–G.39) with $(T\varphi)^*\omega_y = \omega_x$ for the linear $T\varphi$ (points G.7,
+G.70), equivalently $s^*\omega = t^*\omega$; the direct limit runs over the index lifts $X^i$ (point G.6), and the compatibility of $d\omega$
 with morphisms is the naturality of $d$ applied to $s$ and $t$. Places we read: Definition 8.2.1 (2017: 8.2) writes "$T\varphi:T_xX\to T_yY$" for
 $T_yX$ (2017 p. 269), as Remark 8.1.10 (2017: 8.1) does; and in the argument that $d\omega$ is compatible with morphisms (2017 p. 269), "$x = s(\varphi)\in U(x_0)\cap X_1$
 and $y = t(\varphi_0)$" has $t(\varphi_0)$ for $t(\varphi)$, the target of the morphism whose tangent follows (Findings, items 110, 114). *Checked by machine (V8.53, V8.54):*
@@ -1011,7 +1011,7 @@ $p(b)$ of $X$. If the tangent of $k$ is the identity, so is $Tg$; by (ZHOU) for 
 $k$ lies in $(T\mathbf X)^T$. $\square$
 
 The step "the tangent of $k$ is the identity, so $Tg$ is" is where the text differentiates (8.16) and uses that $T\tau$ is onto; it
-is proved for every ep-groupoid from the vertical vectors of $T(TX)$, without the surjectivity of $T\tau$ (gap G.88;
+is proved for every ep-groupoid from the vertical vectors of $T(TX)$, without the surjectivity of $T\tau$ (point G.88;
 `Polyfold.EpGroupoid.tangentZhouReflect`, `Polyfold.EpGroupoid.proposition_8_1_16_2021`). As in Chapter 7,
 tangents of isotropy elements are maps of sets, and no linear structure is used (Findings, item 115). *Checked by machine
 (V8.44):* `Polyfold.EpGroupoid.TangentZhouReflect`, `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent`,
@@ -1025,7 +1025,7 @@ Theorem 7.6.7, $(\mathbf X^1)^T = (\mathbf X^T)^1$, and the last step of Proposi
 $(\mathbf X^1)^T$, closed, and $TX$ has LUC by Proposition 7.2.21. $\square$
 
 The hypotheses are those of Theorem 7.6.7 — $U(x)\cap X_1$ connected in $X^1$ and dense in $U(x)$ — and the openness of
-$p:T\mathbf X\to\mathbf X^1$; all three are theorems (gaps G.85, G.73, G.8), so (1) and (2) hold with no added hypothesis
+$p:T\mathbf X\to\mathbf X^1$; all three are theorems (points G.85, G.73, G.8), so (1) and (2) hold with no added hypothesis
 (`Polyfold.EpGroupoid.proposition_8_1_17_one_of_isLUC`, `Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC`). (2) is checked for every $i$, with these hypotheses on every $X^i$: (1) gives LUC
 for $T(X^i)$, and Part I's Proposition 2.3.17 gives $T(X^i)\cong(TX)^i$ as ep-groupoids, by sc-diffeomorphisms of objects and
 morphisms commuting with source and target, which carry LUC by Proposition 7.2.21. Their compatibility with unit, inverse and
@@ -1036,7 +1036,7 @@ V8.52):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`, `Polyfold.EpGroupoid
 
 **Proposition 8.2.3 (Poincaré lemma).** Every object has saturated open neighbourhoods $V\subseteq U$ such that every closed sc-form on $U$
 in the sense of §5 has a primitive on $V$; the proof averages a primitive of Part I's Lemma 4.4.8 over $G_x$. Formalized as
-printed, by the text's proof, with the push-forward of §11.2 along $G_x\ltimes U(x)\to X|\pi^{-1}(\pi(U(x)))$ (gap G.87) (Findings,
+printed, by the text's proof, with the push-forward of §11.2 along $G_x\ltimes U(x)\to X|\pi^{-1}(\pi(U(x)))$ (point G.87) (Findings,
 items 123, 132). *Checked by machine (V8.55):* `Polyfold.EP.proposition_8_2_3`.
 
 **Definition 8.3.5 (auxiliary norm).** For a strong bundle $P:W\to X$ over an ep-groupoid, an auxiliary norm is a continuous
@@ -1055,7 +1055,7 @@ continuous map $|0|:|X|\to|W[0]|$ with left inverse $|P|$, a topological embeddi
 Chapter 7's Theorem 7.3.1 and Smirnov's theorem; so is its subspace $|X|$, which is therefore paracompact. $\square$
 
 The text concludes from closedness instead. The other implications are proved by metrizability, as Theorem 8.1.15, with
-$|W[1]|$ the orbit space of the groupoid $(W[1],\mathbf X\,{}_s{\times}_P\,W[1])$, $W[1]$ not being built as an ep-groupoid (gap G.86;
+$|W[1]|$ the orbit space of the groupoid $(W[1],\mathbf X\,{}_s{\times}_P\,W[1])$, $W[1]$ not being built as an ep-groupoid (point G.86;
 `Polyfold.EpStrongBundle.proposition_8_4_1`, `Polyfold.EpStrongBundle.OrbitSpaceOne`) (Findings, items 118, 127, 133). *Checked by machine (V8.47):*
 `Polyfold.EpStrongBundle.zeroOrbitMap`, `Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap`,
 `Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one`.
@@ -1065,7 +1065,7 @@ strong bundle has the local regularity property if every $x$ has arbitrarily sma
 isomorphism $B$ of $W|U(x)$ with $|B(w)| = |w|$ is $w\mapsto g*w$ for some $g\in G_x$.
 
 The strong bundle isomorphism is read as for Definition 8.5.9 (§9); every strong bundle over a trivial ep-groupoid has the property.
-Proposition 8.4.3, that an effective $X$ with Chapter 7's (LR) gives it to every strong bundle, is formalized (gap G.86;
+Proposition 8.4.3, that an effective $X$ with Chapter 7's (LR) gives it to every strong bundle, is formalized (point G.86;
 `Polyfold.EpStrongBundle.proposition_8_4_3`) (Findings, items 119, 128). *Checked by machine (V8.48):* `Polyfold.EpStrongBundle.natLift`, `Polyfold.EpStrongBundle.IsLR`,
 `Polyfold.EpStrongBundle.isLR_trivial`.
 
@@ -1088,7 +1088,7 @@ Definition 8.5.9 (1), so $B$ is bijective; near every point $B^{-1}(y,v) = \Psi(
 a strong bundle map. $\square$
 
 That $\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is proved for every sc-smooth $F$, and $B$, $B^{-1}$ are
-maps over $Y$ in the sense of Definition 8.3.2 (gap G.89; `Polyfold.EpStrongBundle.pullbackBundle2021`,
+maps over $Y$ in the sense of Definition 8.3.2 (point G.89; `Polyfold.EpStrongBundle.pullbackBundle2021`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full`) (Findings, items 122, 129). *Checked by machine (V8.51):* `Polyfold.EpStrongBundle.pullbackμ`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB`,
@@ -1118,7 +1118,7 @@ conclusion that $|TX|$ is metrizable, proved by metrizability; Theorem 8.5.3 (20
 arrows (as printed, with $t$ on the right, it does not hold as we read it, checked in Lean), proved through Definition 8.5.1
 (3) (2017: 8.8); Theorem 8.5.8 (2017: 8.6) for ep-groupoids in one universe; Lemma 8.1.9 (2017: 8.8) with "$Tr$ is a tame retraction" proved from the definitions; the
 degeneracy remark for tame $X$, $Y$, and as an inequality in general; Definition 8.3.1 (2017: 8.4) and everything after it with global
-strong bundle maps, a reading. Not formalized, without a gap, since nothing depends on them: the linearity of the action
+strong bundle maps, a reading. Not formalized and not recorded as a numbered point, since nothing depends on them: the linearity of the action
 of $G_x$ on $TU(x)$ as a separate statement (the fibres are linear and every $T\varphi$ is a linear isomorphism), the local
 bundle model $TO\to O^1$ of the text's proof of Theorem 8.1.15 (2017: 8.4), the remarks on naturality in Remark 8.5.4 (2017: 8.2) (b), strong bundle
 maps over open subsets of the base, the closing sentence of Definition 8.5.9 (2017: 8.10), the "structure of isomorphism classes"
@@ -1126,9 +1126,9 @@ before Proposition 8.6.4 (2017: 8.4) and the category $\mathrm{Ban}$ of §8.6.2 
 covering functors have one-point fibres. The machine-checked statements are listed in `Exposition/Verification.md`
 (V8.1–V8.55), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 8", items
-1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book.lean`, `TangentZhou.lean`, `TangentZhouLevels.lean`,
+1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the missing numbers in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book.lean`, `TangentZhou.lean`, `TangentZhouLevels.lean`,
 `TangentZhouReflect.lean` and `BundleOrbitParacompactOne.lean`, and, where later chapters are needed, in
 `Chapter10/BundleLocalRegularity.lean`, `Chapter10/PullbackStrongBundle.lean` and `Chapter11/EpPoincareLemma.lean`, verified as
-V8.44–V8.55, together with the gaps G.86–G.89 (Proposition 8.4.1 (1) ⇒ (2), (3) and Proposition 8.4.3; Proposition 8.2.3;
+V8.44–V8.55, together with the points G.86–G.89 (Proposition 8.4.1 (1) ⇒ (2), (3) and Proposition 8.4.3; Proposition 8.2.3;
 Proposition 8.1.16 without `TangentZhouReflect`; $F^*V$ as a strong bundle over $Y$ in Lemma 8.5.10), and their findings are
 items 115–134.

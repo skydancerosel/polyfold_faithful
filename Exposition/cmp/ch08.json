@@ -141,7 +141,7 @@
     "$m_{T\\mathbf X} = Tm$: proved (G.75)"
    ],
    "diff": [
-    "The identification $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$ on it are formalized (gap G.75 closed). The proof uses that $\\pi_2 : \\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X \\to \\mathbf X$ is a local sc-diffeomorphism, so a tangent vector of the fibred product is determined by its base point and $T\\pi_2$, in place of differentiating $s(m(F(\\varphi'), \\varphi')) = s(\\varphi')$. The sheet form `lemma_8_1_2` is the text's proof, with $\\sigma(t(\\varphi'))$ for $F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ (Findings, Chapter 8, items 5, 111, 131).",
+    "The identification $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$ on it are formalized (point G.75 settled). The proof uses that $\\pi_2 : \\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X \\to \\mathbf X$ is a local sc-diffeomorphism, so a tangent vector of the fibred product is determined by its base point and $T\\pi_2$, in place of differentiating $s(m(F(\\varphi'), \\varphi')) = s(\\varphi')$. The sheet form `lemma_8_1_2` is the text's proof, with $\\sigma(t(\\varphi'))$ for $F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ (Findings, Chapter 8, items 5, 111, 131).",
     "The proof writes $s|\\mathbf U(\\varphi \\circ \\psi)$ for $s|\\mathbf U(\\psi \\circ \\varphi)$ (as we read it)."
    ]
   },
@@ -261,10 +261,10 @@
    },
    "chips": [
     "multiplication: Chapter 7’s sheet form",
-    "“$m_{T\\mathbf X} = Tm$”: gap G.75"
+    "“$m_{T\\mathbf X} = Tm$”: point G.75"
    ],
    "diff": [
-    "\"By construction\" is V8.2. The multiplication is proved sc-smooth in Chapter 7's sheet form and from it on the fibred product, not through the identification $m_{T\\mathbf X} = Tm$, which is not formalized (gap G.75) (Findings, Chapter 8, items 7, 111)."
+    "\"By construction\" is V8.2. The multiplication is proved sc-smooth in Chapter 7's sheet form and from it on the fibred product, not through the identification $m_{T\\mathbf X} = Tm$, which is not formalized (point G.75) (Findings, Chapter 8, items 7, 111)."
    ]
   },
   {
@@ -361,7 +361,7 @@
    ],
    "diff": [
     "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective`), so the narrowing is necessary (Findings, Chapter 8, item 10). The verdict stays narrower by the verdict rule: with $T\\varphi$ the bare linear map, the bijectivity of $G$ as printed does not hold as we read it; everything else in the remark is formalized.",
-    "$T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). The M-polyfold structure on the pairs for which $G$ is an sc-diffeomorphism and the triples are formalized (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`); the structure is the natural one of the fibred product $\\mathbf X^1\\,{}_s{\\times}_p\\,TX$, and $G$ is an sc-diffeomorphism for it (Findings, Chapter 8, items 112, 113, 131).",
+    "$T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear`; points G.7 and G.70 settled, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). The M-polyfold structure on the pairs for which $G$ is an sc-diffeomorphism and the triples are formalized (`remark_8_1_10_scDiffeo`, `remark_8_1_10_triples`); the structure is the natural one of the fibred product $\\mathbf X^1\\,{}_s{\\times}_p\\,TX$, and $G$ is an sc-diffeomorphism for it (Findings, Chapter 8, items 112, 113, 131).",
     "The remark writes \"$T\\varphi : T_xX \\to T_yY$\" for $T_yX$, and calls $T\\varphi$ the linearization \"at $x$\" and later \"at $\\varphi$\" (as we read them)."
    ]
   },
@@ -528,7 +528,7 @@
    ],
    "diff": [
     "**Stronger**: $|TX|$ is metrizable. The proof differs from the text's: Smirnov's theorem pulled back along $|p| : |TX| \\to |X^1|$, as for Proposition 7.5.3 (2017: 7.12) (V7.54); the closed paracompact $\\tilde A_z$, the regularity of $|TX|$ and Part I's Proposition 2.7.4 (2017: 2.17; preprint 2.57) are not used (Findings, Chapter 8, item 20).",
-    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used, and the linearity of the action of $G_x$ on $TU(x)$ is not formalized (Findings, Chapter 8, items 21, 104). The tangent spaces carry the linear structure of Definition 2.3.14 (V2.19; gap G.7, closed), and every $T\\varphi$, $\\varphi \\in \\mathbf X_1$, is a linear isomorphism of the tangent spaces (`tangentMorCLE`, V7.5); the linearity of the action on $TU(x)$ is not restated with it.",
+    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used, and the linearity of the action of $G_x$ on $TU(x)$ is not formalized (Findings, Chapter 8, items 21, 104). The tangent spaces carry the linear structure of Definition 2.3.14 (V2.19; point G.7, closed), and every $T\\varphi$, $\\varphi \\in \\mathbf X_1$, is a linear isomorphism of the tangent spaces (`tangentMorCLE`, V7.5); the linearity of the action on $TU(x)$ is not restated with it.",
     "\"parcompact\" in the statement is read as \"paracompact\"."
    ]
   },
@@ -1353,7 +1353,7 @@
     "via vertical vectors of $T(TX)$"
    ],
    "diff": [
-    "As stated. The proof takes a different route. For $v \\in T_xX$, take $u$ with $Ts(u) = v$ and $V = \\mathrm{vert}_k u$. Then $T(Ts)V = \\mathrm{vert}_b v$ and $T(Tt)V = \\mathrm{vert}_b(Tt\\,u)$, and $T(g, h) = \\mathrm{id}$ gives $Tt(u) = v$, i.e. $Tg(v) = v$. This uses only the vertical directions of $T_b(TX)$, on which $T(g, h)$ acts as $Tg$, and needs no surjectivity of $T\\tau$ (gap G.88 closed). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, items 115, 126)."
+    "As stated. The proof takes a different route. For $v \\in T_xX$, take $u$ with $Ts(u) = v$ and $V = \\mathrm{vert}_k u$. Then $T(Ts)V = \\mathrm{vert}_b v$ and $T(Tt)V = \\mathrm{vert}_b(Tt\\,u)$, and $T(g, h) = \\mathrm{id}$ gives $Tt(u) = v$, i.e. $Tg(v) = v$. This uses only the vertical directions of $T_b(TX)$, on which $T(g, h)$ acts as $Tg$, and needs no surjectivity of $T\\tau$ (point G.88 settled). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, items 115, 126)."
    ]
   },
   {
@@ -1383,11 +1383,11 @@
    "chips": [
     "new in the 2021 edition",
     "no added hypothesis (G.8, G.85 closed)",
-    "gap G.88 (closed for (2))"
+    "point G.88 (closed for (2))"
    ],
    "diff": [
-    "Both hypotheses are theorems, the connectedness and density of $U(x) \\cap X_1$ (gaps G.85, G.73 closed) and the openness of $p$ (gap G.8 closed), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_one_of_isLUC`, `EP.proposition_8_1_17_two_all_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_one`, `proposition_8_1_17_two`) (Findings, Chapter 8, item 116).",
-    "(1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ here and for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, in V8.52 (gap G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
+    "Both hypotheses are theorems, the connectedness and density of $U(x) \\cap X_1$ (points G.85, G.73 settled) and the openness of $p$ (point G.8 settled), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_one_of_isLUC`, `EP.proposition_8_1_17_two_all_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_one`, `proposition_8_1_17_two`) (Findings, Chapter 8, item 116).",
+    "(1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ here and for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, in V8.52 (point G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
    ]
   },
   {
@@ -1462,7 +1462,7 @@
     "$|W[1]|$ as an orbit space"
    ],
    "diff": [
-    "(3) is formalized (gap G.86 closed). $W[1]$ is not built as an ep-groupoid in the project; $|W[1]|$ is defined as the orbit space of the groupoid $(W[1], \\mathbf X\\,{}_s{\\times}_P\\,W[1])$ with the quotient topology of the M-polyfold $W[1]$, which is what the statement uses. The proofs of (1) ⇒ (2) and (1) ⇒ (3) follow Theorem 8.1.15, as `TangentOrbit.lean` does for $TX$: $|X|$ is metrizable (Theorem 7.3.1), and Smirnov's theorem is pulled back along $|P|$, with $|P|^{-1}(|U(x)|) \\cong G_x\\backslash W|U(x)$ metrizable (the metric $\\hat\\rho$ of Lemma 7.3.2). The text's invariant metrics on $K$, $O$ and its closed cover $(|W[i]|Q_b|)$ are not needed, only the continuity of $\\mu$. (2) ⇒ (1) goes through metrizability too (Findings, Chapter 8, items 118, 127, 133)."
+    "(3) is formalized (point G.86 settled). $W[1]$ is not built as an ep-groupoid in the project; $|W[1]|$ is defined as the orbit space of the groupoid $(W[1], \\mathbf X\\,{}_s{\\times}_P\\,W[1])$ with the quotient topology of the M-polyfold $W[1]$, which is what the statement uses. The proofs of (1) ⇒ (2) and (1) ⇒ (3) follow Theorem 8.1.15, as `TangentOrbit.lean` does for $TX$: $|X|$ is metrizable (Theorem 7.3.1), and Smirnov's theorem is pulled back along $|P|$, with $|P|^{-1}(|U(x)|) \\cong G_x\\backslash W|U(x)$ metrizable (the metric $\\hat\\rho$ of Lemma 7.3.2). The text's invariant metrics on $K$, $O$ and its closed cover $(|W[i]|Q_b|)$ are not needed, only the continuity of $\\mu$. (2) ⇒ (1) goes through metrizability too (Findings, Chapter 8, items 118, 127, 133)."
    ]
   },
   {
@@ -1604,7 +1604,7 @@
     "G.89 closed"
    ],
    "diff": [
-    "\"Strong bundle isomorphism over the ep-groupoid $Y$\" is read as follows: $B$ and $B^{-1}$ are inverse strong bundle maps of strong bundles over ep-groupoids (Definition 8.3.2), covering the identity functor of $Y$, and $F^*V$ carries the structure `pullbackBundle2021`. The text's sentence that $\\mu_{F^*V}$ \"defines the strong bundle\" over $Y$ is proved for every sc-smooth $F$ (gap G.89 closed) (Findings, Chapter 8, items 122, 129)."
+    "\"Strong bundle isomorphism over the ep-groupoid $Y$\" is read as follows: $B$ and $B^{-1}$ are inverse strong bundle maps of strong bundles over ep-groupoids (Definition 8.3.2), covering the identity functor of $Y$, and $F^*V$ carries the structure `pullbackBundle2021`. The text's sentence that $\\mu_{F^*V}$ \"defines the strong bundle\" over $Y$ is proved for every sc-smooth $F$ (point G.89 settled) (Findings, Chapter 8, items 122, 129)."
    ]
   },
   {
@@ -1641,10 +1641,10 @@
     "new in the 2021 edition",
     "$(TX)^i = T(X^i)$ through $s$, $t$",
     "(SLUC) the only hypothesis",
-    "gap G.88 closed for (2)"
+    "point G.88 settled for (2)"
    ],
    "diff": [
-    "The hypotheses of (1) on every level are theorems (gaps G.85, G.73 and G.8 closed), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all`) (Findings, Chapter 8, item 124).",
+    "The hypotheses of (1) on every level are theorems (points G.85, G.73 and G.8 settled), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all`) (Findings, Chapter 8, item 124).",
     "\\\"Naturally $(TX)^i = T(X^i)$\\\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it (Findings, Chapter 8, item 124)."
    ]
   },
@@ -1681,7 +1681,7 @@
    },
    "chips": [
     "$s^*\\omega = t^*\\omega$ on morphisms",
-    "gap G.74 closed"
+    "point G.74 settled"
    ],
    "diff": [
     "The text proves the compatibility of $d\\omega$ with morphisms through $f = t \\circ (s|\\mathbf U(\\varphi_0))^{-1}$ and $f^* d = d f^*$; here the same naturality of $d$ (`extD_formPullback`) is applied to the global maps $s, t : \\mathbf X \\to X$. The direct limit is Mathlib's `Module.DirectLimit`, the text's $\\bigoplus_i \\Omega^*_{ep}(X^i)/D$. Definition 8.2.1 writes $T_yY$ for $T_yX$ (reading point, Findings, Chapter 8, item 110) (Findings, Chapter 8, item 132)."
@@ -1714,7 +1714,7 @@
    },
    "chips": [
     "subcomplex of Part I’s complex",
-    "gap G.74 closed"
+    "point G.74 settled"
    ],
    "diff": [
     "None beyond Definition 8.2.1 (V8.53). The complex is also given as a `CochainComplex` of `ModuleCat ℝ` (Findings, Chapter 8, item 132)."
@@ -1749,7 +1749,7 @@
    "chips": [
     "new in the 2021 edition",
     "the text’s $k \\ge 1$ as $k + 1$",
-    "gap G.87 closed"
+    "point G.87 settled"
    ],
    "diff": [
     "The proof is the text's, with the averaging and the extension made explicit: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on the translation groupoid $G_x \\ltimes U(x)$ of a natural representation (`NaturalRep.exists_primitive_translation`, from `EP.exists_primitive_of_average`), and the push-forward along the equivalence $G_x \\ltimes U(x) \\to X|\\pi^{-1}(\\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`, Definition 11.2.3), which is the text's $\\sigma(y) = \\psi^*\\tau'(x')$. The text's index $k \\ge 1$ is $k + 1$ here. The file is in Chapter 11 because it uses the push-forward of §11.2 (Findings, Chapter 8, items 123, 132)."
@@ -1826,7 +1826,7 @@
    "label": "§8.2, Proposition 8.2.3, p. 373 (new in the 2021 edition)",
    "page": 373,
    "book": "Poincaré lemma: every object $x$ has saturated open neighbourhoods $V \\subseteq U$ such that for every closed $[\\omega] \\in \\Omega^k_{ep,\\infty}(U)$, $k \\ge 1$, there is $[\\sigma] \\in \\Omega^{k-1}_{ep,\\infty}(V)$ with $d[\\sigma] = [\\omega]$ on $V$; the proof averages a primitive from Lemma 4.4.8 over $G_x$.",
-   "instead": "**Formalized**, as printed, with no added hypothesis: `EP.proposition_8_2_3` gives saturated open $V \\subseteq U \\ni x$ such that every closed class of $\\Omega^{k+1}_{ep,\\infty}(X|U)$ has a primitive in $\\Omega^k_{ep,\\infty}(X|V)$ on $V$ (V8.55). The proof is the text's: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on a natural representation, and the push-forward of §11.2 along the equivalence $G_x \\ltimes U(x) \\to X|\\pi^{-1}(\\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`). The forms of §8.2 are gap G.74, closed (Findings, Chapter 8, items 123, 132).",
+   "instead": "**Formalized**, as printed, with no added hypothesis: `EP.proposition_8_2_3` gives saturated open $V \\subseteq U \\ni x$ such that every closed class of $\\Omega^{k+1}_{ep,\\infty}(X|U)$ has a primitive in $\\Omega^k_{ep,\\infty}(X|V)$ on $V$ (V8.55). The proof is the text's: Lemma 4.4.8 on the object M-polyfold (`EP.proposition_8_2_3_object`), the average over $G_x$ on a natural representation, and the push-forward of §11.2 along the equivalence $G_x \\ltimes U(x) \\to X|\\pi^{-1}(\\pi(U(x)))$ (`EP.isEquivalence_modelFunctor`). The forms of §8.2 are point G.74, closed (Findings, Chapter 8, items 123, 132).",
    "formalized": [
     "V8.55"
    ],

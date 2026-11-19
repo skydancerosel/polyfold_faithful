@@ -6,7 +6,7 @@ import Polyfold.Chapter3.QuadrantInverse
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
 **Theorem 5.3.15** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22), the compactness
-statement and conclusion (1) under the printed hypotheses on the ends.  Gap G.48, piece (A).
+statement and conclusion (1) under the printed hypotheses on the ends.  Point G.48, piece (A).
 
 # Theorem 5.3.15 (1): from the ends to general position on `∂X`
 

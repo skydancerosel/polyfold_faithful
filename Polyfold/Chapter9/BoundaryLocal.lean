@@ -6,7 +6,7 @@ import Polyfold.Chapter9.TameOpen
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, proof of **Theorems 9.5.17 and 9.5.18** (pp. 449–451; 2017: Theorems
-9.6, 9.7), gap G.110.  Numbers and pages are the 2021 text's.
+9.6, 9.7), point G.110.  Numbers and pages are the 2021 text's.
 
 # The boundary measures `μ^∂_ω` are local
 

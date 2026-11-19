@@ -6,7 +6,7 @@ import Polyfold.Chapter9.Boundary
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the ep-groupoid `ℤ/3 ⋉ X` and the
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the ep-groupoid `ℤ/3 ⋉ X` and the
 sub-ep-groupoid `∂X`.
 
 # `ℤ/3 ⋉ X`, its effective isotropy, and the effective isotropy of `∂X`

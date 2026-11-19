@@ -45,7 +45,7 @@ linearization space of `f̂` at `(x, t)`, which is thereby oriented.  The 2014 p
 * Row V6.62: the sign deviation "`(−1)^{dim coker L}`" (Findings, Chapter 6, item 95).  With the
   2021 convention no sign is changed: the text's own map `h ↦ e ∧ h` is continuous in `L`, because
   it differs from the continuous `extDetN` by `(−1)^{ind L}`, which is locally constant.  The row
-  can be read *as printed (2021)*; "at a point" (gap G.66) and "`X × [0, 1]` as `ℝ × X`" remain.
+  can be read *as printed (2021)*; "at a point" (point G.66) and "`X × [0, 1]` as `ℝ × X`" remain.
 
 ## Reading
 

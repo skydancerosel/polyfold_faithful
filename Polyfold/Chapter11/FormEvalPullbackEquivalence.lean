@@ -7,7 +7,7 @@ import Polyfold.Chapter9.FormEvalInfty
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II: Definition 8.2.1 (p. 281), §11.2 (Definition 11.2.3, Lemma 11.2.4, pp. 527–529) and
-§11.4 "Equivalences and Integration" (pp. 542–546), gap G.131.  Numbers and pages are the 2021
+§11.4 "Equivalences and Integration" (pp. 542–546), point G.131.  Numbers and pages are the 2021
 text's.
 
 # The evaluations of forms are compatible with the pull-back along an equivalence

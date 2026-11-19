@@ -4,7 +4,7 @@ import Polyfold.Chapter4.ManifoldOrientation
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): differential forms on a
 finite-dimensional manifold with boundary with corners and their exterior derivative, the global
-layer under **Theorem 4.4.7** (p. 199; preprint Theorem 4.28, Stokes' theorem, gap G.40) and
+layer under **Theorem 4.4.7** (p. 199; preprint Theorem 4.28, Stokes' theorem, point G.40) and
 **Theorem 6.7.1** (p. 277).  Numbers and pages are the 2021 text's.
 
 # Forms on a Mathlib manifold with corners

@@ -4,7 +4,7 @@ import Polyfold.Chapter6.KernelFamily
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
 (p. 265; preprint Lemma 6.30): **`π : S → [0, 1]` is a submersion**, off the family as well.
-Gap G.62, rows V6.34, V6.42.
+Point G.62, rows V6.34, V6.42.
 
 # The projection of the solution set is a submersion near the family
 

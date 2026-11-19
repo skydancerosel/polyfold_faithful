@@ -5,7 +5,7 @@ import Polyfold.Chapter7.Basic
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2,
 pp. 373–374: the averaging step of the proof of **Proposition 8.2.3** (2017: Proposition 8.1)
-for the translation groupoid `G_x ⋉ U(x)` of a natural representation (gap G.87).  Numbers and
+for the translation groupoid `G_x ⋉ U(x)` of a natural representation (point G.87).  Numbers and
 pages are the 2021 text's.
 
 # Averaging on the translation groupoid `G_x ⋉ U(x)`

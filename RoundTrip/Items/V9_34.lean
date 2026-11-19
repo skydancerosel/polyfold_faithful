@@ -25,7 +25,7 @@ sheets of such data are manifolds with boundary with corners.
   which the project does not have as a lemma.  This direction is believed true; it is proof
   effort only.
 * (b) is not in `A`: the project lists "a tame finite-dimensional M-polyfold is a manifold with
-  boundary with corners" as not formalized.  It is a genuine content gap (substantial
+  boundary with corners" as not formalized.  It is a genuine content difference (substantial
   mathematics: the corner charts from the tame retracts).
 * `B_to_A` re-proves `A`'s three theorems outright (they do not use `B`), as copies of the
   project's proofs. -/

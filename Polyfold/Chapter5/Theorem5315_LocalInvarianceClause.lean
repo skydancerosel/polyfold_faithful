@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_LocalData
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
 **Theorem 5.3.15** (p. 223; preprint: Theorem 5.22), conclusion (2): the reading of "Morse-type
-critical points" does not depend on the parametrization.  Gap G.48.
+critical points" does not depend on the parametrization.  Point G.48.
 
 # Independence of the parametrization, with boundary points
 

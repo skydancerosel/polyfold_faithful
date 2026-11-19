@@ -98,7 +98,7 @@
     "structure of a face: `faceEpGroupoid`"
    ],
    "diff": [
-    "A face of $X$ is recorded by its object set and the morphisms with source in it; its sub-M-polyfold and ep-groupoid structure is part of Proposition 11.1.6, formalized (`faceEpGroupoid`, V11.6; gap G.128 closed) (Findings, Chapter 11, item 3)."
+    "A face of $X$ is recorded by its object set and the morphisms with source in it; its sub-M-polyfold and ep-groupoid structure is part of Proposition 11.1.6, formalized (`faceEpGroupoid`, V11.6; point G.128 settled) (Findings, Chapter 11, item 3)."
    ]
   },
   {
@@ -211,7 +211,7 @@
     "one face: counterexample"
    ],
    "diff": [
-    "The clause that two faces meet in a face of each does not hold as we read it. In the face structured trivial ep-groupoid of $([0,\\infty)^3 \\oplus W) \\setminus K$, $K = \\{p_0 + p_1 \\le 1/4,\\ 1 \\le p_2 \\le 2\\}$, the faces $\\{p_0 = 0\\}$ and $\\{p_1 = 0\\}$ meet in two pieces of the edge, which is not one face of either (`FaceMeetExample.not_facesMeetInFaces`). What is proved is that the intersection is a union of faces of each (`facesMeetInUnions`) (gap G.128 closed; Findings, Chapter 11, items 6, 9). Only $X$ is assumed ep-face structured; $Y$ then is (Remark 11.1.7). The bijection $[d]_*$ needs no face structure."
+    "The clause that two faces meet in a face of each does not hold as we read it. In the face structured trivial ep-groupoid of $([0,\\infty)^3 \\oplus W) \\setminus K$, $K = \\{p_0 + p_1 \\le 1/4,\\ 1 \\le p_2 \\le 2\\}$, the faces $\\{p_0 = 0\\}$ and $\\{p_1 = 0\\}$ meet in two pieces of the edge, which is not one face of either (`FaceMeetExample.not_facesMeetInFaces`). What is proved is that the intersection is a union of faces of each (`facesMeetInUnions`) (point G.128 settled; Findings, Chapter 11, items 6, 9). Only $X$ is assumed ep-face structured; $Y$ then is (Remark 11.1.7). The bijection $[d]_*$ needs no face structure."
    ]
   },
   {
@@ -856,7 +856,7 @@
     "`boundaryOp`: $f_*\\hat\\Theta$ tame assumed"
    ],
    "diff": [
-    "With the boundary operation built from the submanifolds (V9.36), Theorem 11.3.9 holds for the generalized isomorphism itself and the intrinsic boundary orientation with no transfer hypothesis (`Chapter11/BoundaryOrientationEquiv.lean`; gap G.130 closed). $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$ as an oriented branched ep⁺-subgroupoid is not formalized, so the theorem is stated componentwise. For `boundaryLift boundaryOp` the tameness of $f_*\\hat\\Theta$ is a hypothesis, since that sc-diffeomorphisms carry tame submanifolds to tame ones is not formalized (Findings, Chapter 11, item 45)."
+    "With the boundary operation built from the submanifolds (V9.36), Theorem 11.3.9 holds for the generalized isomorphism itself and the intrinsic boundary orientation with no transfer hypothesis (`Chapter11/BoundaryOrientationEquiv.lean`; point G.130 settled). $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$ as an oriented branched ep⁺-subgroupoid is not formalized, so the theorem is stated componentwise. For `boundaryLift boundaryOp` the tameness of $f_*\\hat\\Theta$ is a hypothesis, since that sc-diffeomorphisms carry tame submanifolds to tame ones is not formalized (Findings, Chapter 11, item 45)."
    ]
   },
   {
@@ -958,7 +958,7 @@
     "G.131 closed"
    ],
    "diff": [
-    "The statement is the text's, with two choices of data. (1) 'Oriented, tame' is read as in Theorem 9.5.4's Lean form: a structure with sheets in the class of the integrated sheets that describes $\\hat T_\\Theta$ (`FormEval.hcov_of_loc` gives it from the plain oriented tame branching structure; gap G.107 closed). (2) $\\hat\\Theta$ satisfies `HasIndependentTangentSums`, the hypothesis under which Theorem 11.3.5 (Lean) transports orientations; it holds for every $\\Theta$ (`hasIndependentTangentSums`). $f_*$ is computed on the chosen representative `rep f`, as in Chapter 11's `EPLoc.pushTheta`/`pushSection`. For Theorem 11.4.2 the covering hypothesis is Theorem 9.5.5's Lean form (each structure's representation has the property of Definition 7.2.18); under the book's LUC hypothesis this holds for every natural representation (`isLUC_iff_forall_naturalRep`). That $|f|$ maps $\\mathcal L$ onto $\\mathcal L$, used by the text without comment, is proved (`measurable_suppMap`, `measurable_suppInv`; Findings, Chapter 11, item 50)."
+    "The statement is the text's, with two choices of data. (1) 'Oriented, tame' is read as in Theorem 9.5.4's Lean form: a structure with sheets in the class of the integrated sheets that describes $\\hat T_\\Theta$ (`FormEval.hcov_of_loc` gives it from the plain oriented tame branching structure; point G.107 settled). (2) $\\hat\\Theta$ satisfies `HasIndependentTangentSums`, the hypothesis under which Theorem 11.3.5 (Lean) transports orientations; it holds for every $\\Theta$ (`hasIndependentTangentSums`). $f_*$ is computed on the chosen representative `rep f`, as in Chapter 11's `EPLoc.pushTheta`/`pushSection`. For Theorem 11.4.2 the covering hypothesis is Theorem 9.5.5's Lean form (each structure's representation has the property of Definition 7.2.18); under the book's LUC hypothesis this holds for every natural representation (`isLUC_iff_forall_naturalRep`). That $|f|$ maps $\\mathcal L$ onto $\\mathcal L$, used by the text without comment, is proved (`measurable_suppMap`, `measurable_suppInv`; Findings, Chapter 11, item 50)."
    ]
   },
   {
@@ -1064,7 +1064,7 @@
     "G.131 closed"
    ],
    "diff": [
-    "(1) No hypothesis beyond the text's: E7's class hypothesis `hcov` is derived from tameness (`EP.hcov_of_loc`, gap G.109); it passes to the transported subgroupoids (`hcovB_pull`, `hcovB_push`). Every $n \\ge 1$ is covered ($n = 1$ in the `_dim1` theorems, with $\\Omega^0$ integrated over oriented points).",
+    "(1) No hypothesis beyond the text's: E7's class hypothesis `hcov` is derived from tameness (`EP.hcov_of_loc`, point G.109); it passes to the transported subgroupoids (`hcovB_pull`, `hcovB_push`). Every $n \\ge 1$ is covered ($n = 1$ in the `_dim1` theorems, with $\\Omega^0$ integrated over oriented points).",
     "(2) $f_*$ is computed on the representative `rep f`, as for Theorem 11.4.1; 'oriented, tame' is read as for Theorem 11.4.1, and `HasIndependentTangentSums` holds for every $\\Theta$ and is not a hypothesis (Findings, Chapter 11, item 50)."
    ]
   },
@@ -1125,7 +1125,7 @@
     "G.132 closed"
    ],
    "diff": [
-    "The text's choices of $e''$ and $\\Phi(e'') \\to e$ are replaced by a representative of $|D|(|e|)$ in $|W'[1]|$, which agrees with the text's formula (`pullNorm_eq_Ψ`). The text's sentence on $[D] = [D']$ under local regularity is Theorem 10.5.7 (V10.67), which does not hold as we read it; nothing here uses it (gap G.132 closed) (Findings, Chapter 11, items 60, 81)."
+    "The text's choices of $e''$ and $\\Phi(e'') \\to e$ are replaced by a representative of $|D|(|e|)$ in $|W'[1]|$, which agrees with the text's formula (`pullNorm_eq_Ψ`). The text's sentence on $[D] = [D']$ under local regularity is Theorem 10.5.7 (V10.67), which does not hold as we read it; nothing here uses it (point G.132 settled) (Findings, Chapter 11, items 60, 81)."
    ]
   },
   {
@@ -1167,7 +1167,7 @@
     "$\\mathbb Q^+$ read as $\\mathbb Q_{\\ge 0}$"
    ],
    "diff": [
-    "Definition 13.2.1 is formalized here. The local sections are sc⁺-sections on an open set, in the form of `isScPlusSection_iff`. A local representation on any open neighbourhood is shrunk to the domain of a natural representation (Theorem 7.1.13). It is satisfiable (`isScPlusMultisection_zeroMultisection`) (gap G.133 closed) (Findings, Chapter 11, items 61, 82)."
+    "Definition 13.2.1 is formalized here. The local sections are sc⁺-sections on an open set, in the form of `isScPlusSection_iff`. A local representation on any open neighbourhood is shrunk to the domain of a natural representation (Theorem 7.1.13). It is satisfiable (`isScPlusMultisection_zeroMultisection`) (point G.133 settled) (Findings, Chapter 11, items 61, 82)."
    ]
   },
   {
@@ -1205,7 +1205,7 @@
     "“maps” read as isomorphisms"
    ],
    "diff": [
-    "The last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined (gap G.133 closed) (Findings, Chapter 11, items 61, 82)."
+    "The last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined (point G.133 settled) (Findings, Chapter 11, items 61, 82)."
    ]
   },
   {
@@ -1564,7 +1564,7 @@
     "$E_{SBPC}$ read (not defined in the text)"
    ],
    "diff": [
-    "The text defines neither $E_{SBPC}$ nor natural transformations of SBPC morphisms. Our readings: $E_{SBPC}$ = both components strong bundle equivalences (the base-face clause of the first definition, base face in $E_{\\mathcal{PC}}$, is then automatic, `SBPC.equivalences_iff`); a natural transformation = strong bundle natural transformations on both levels whose bases satisfy (11.20). Nothing else differs (gap G.135 closed; Findings, Chapter 11, items 76, 77)."
+    "The text defines neither $E_{SBPC}$ nor natural transformations of SBPC morphisms. Our readings: $E_{SBPC}$ = both components strong bundle equivalences (the base-face clause of the first definition, base face in $E_{\\mathcal{PC}}$, is then automatic, `SBPC.equivalences_iff`); a natural transformation = strong bundle natural transformations on both levels whose bases satisfy (11.20). Nothing else differs (point G.135 settled; Findings, Chapter 11, items 76, 77)."
    ]
   },
   {
@@ -1694,7 +1694,7 @@
    "label": "§11.4, Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017: Theorems 11.8, 11.9, Remark 11.3, pp. 396–399)",
    "page": 542,
    "book": "Generalized isomorphisms transform the canonical measures and the canonical boundary measures (and their effective versions) of oriented compact branched ep⁺-subgroupoids by $|f|$.",
-   "instead": "**Formalized** (V11.27–V11.29; `Chapter11/FormEvalPullback.lean`, `GraphChartsDiffeo.lean`, `FormEvalPullbackEquivalence.lean`, `OrientedStructureDiffeo.lean`, `OrientedStructurePairs.lean`, `MeasureEquivalence.lean`, `MeasureGeneralizedIso.lean`, `EffectiveMeasureEquivalence.lean`, `EffectiveMeasureGeneralizedIso.lean`, `MultiChartSheetsEquivalence.lean`, `BoundarySheetsDiffeo.lean`, `BoundaryMeasureEquivalence.lean`, `BoundaryMeasureGeneralizedIso.lean`). Theorem 11.4.1 and Remark 11.4.3 are formalized for the canonical measures of Theorem 9.5.4 built from the concrete sheet integrals of Chapter 9 (dimension $n\\ge1$, forms $\\Omega^n_{ep,\\infty}$), with no added hypothesis. The proof follows the text: structures are moved along the local sc-diffeomorphisms of an equivalence, (11.12) = (11.13), uniqueness of the glued measure, then $G_*F^*$ for $X \\leftarrow A \\rightarrow Y$; $|f|$ is shown to map $\\mathcal L(|\\mathrm{supp}\\,\\Theta|)$ onto $\\mathcal L(|\\mathrm{supp}\\,f_*\\Theta|)$. Theorem 11.4.2 is formalized in the same way for the effective measures of Theorem 9.5.5 (`EffectiveMeasureEquivalence.lean`, `EffectiveMeasureGeneralizedIso.lean`): under LUC, $\\sharp G_x^{eff} = \\sharp G_y^{eff}$ along the local sc-diffeomorphisms of an equivalence. Theorems 11.4.4 and 11.4.5 are formalized for the boundary measures of Theorems 9.5.15/9.5.16 in their Lean form (`Chapter9/BoundaryMeasure.lean`): the boundary sheets of a moved structure are the moved boundary sheets with the moved boundary orientation, the multi-chart integrals change variables along the local sc-diffeomorphisms, and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$. The class hypothesis `hcov` of Theorems 9.5.15/9.5.16 passes along generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`), which gives forms under it; the theorems also hold with the text's hypotheses only, for every $n \\ge 1$ (`Chapter11/BoundaryMeasureTextHypotheses.lean`, `BoundaryMeasureEquivalenceDimOne.lean`, `BoundaryMeasureGeneralizedIsoDimOne.lean`): $\\hat\\Theta$ compact, branched, oriented and tame in the reading of G.107, with `hcov` derived (gap G.109) (`EPLoc.theorem_11_4_4_pull_loc`, `_push_loc`, `EPLoc.theorem_11_4_5_pull_loc`, `_push_loc` for $n \\ge 2$, the measures being those of Theorems 9.5.15/9.5.16, `EP.boundaryMeasure_eq`); for $n = 1$ the boundary measures of the $n = 1$ Theorems 9.5.15/9.5.16 are transported along equivalences, spans and generalized isomorphisms, a boundary point moving to its image with the same value of the $0$-form and the same orientation sign (`EPLoc.theorem_11_4_4_pull_dim1`, `_push_dim1`, `EPLoc.theorem_11_4_5_pull_dim1`, `_push_dim1`; `OrientedTameStructure.boundarySheetSum_move_dim1`) (Findings, Chapter 11, item 50).",
+   "instead": "**Formalized** (V11.27–V11.29; `Chapter11/FormEvalPullback.lean`, `GraphChartsDiffeo.lean`, `FormEvalPullbackEquivalence.lean`, `OrientedStructureDiffeo.lean`, `OrientedStructurePairs.lean`, `MeasureEquivalence.lean`, `MeasureGeneralizedIso.lean`, `EffectiveMeasureEquivalence.lean`, `EffectiveMeasureGeneralizedIso.lean`, `MultiChartSheetsEquivalence.lean`, `BoundarySheetsDiffeo.lean`, `BoundaryMeasureEquivalence.lean`, `BoundaryMeasureGeneralizedIso.lean`). Theorem 11.4.1 and Remark 11.4.3 are formalized for the canonical measures of Theorem 9.5.4 built from the concrete sheet integrals of Chapter 9 (dimension $n\\ge1$, forms $\\Omega^n_{ep,\\infty}$), with no added hypothesis. The proof follows the text: structures are moved along the local sc-diffeomorphisms of an equivalence, (11.12) = (11.13), uniqueness of the glued measure, then $G_*F^*$ for $X \\leftarrow A \\rightarrow Y$; $|f|$ is shown to map $\\mathcal L(|\\mathrm{supp}\\,\\Theta|)$ onto $\\mathcal L(|\\mathrm{supp}\\,f_*\\Theta|)$. Theorem 11.4.2 is formalized in the same way for the effective measures of Theorem 9.5.5 (`EffectiveMeasureEquivalence.lean`, `EffectiveMeasureGeneralizedIso.lean`): under LUC, $\\sharp G_x^{eff} = \\sharp G_y^{eff}$ along the local sc-diffeomorphisms of an equivalence. Theorems 11.4.4 and 11.4.5 are formalized for the boundary measures of Theorems 9.5.15/9.5.16 in their Lean form (`Chapter9/BoundaryMeasure.lean`): the boundary sheets of a moved structure are the moved boundary sheets with the moved boundary orientation, the multi-chart integrals change variables along the local sc-diffeomorphisms, and $|f|$ maps $\\mathcal L(\\partial S)$ onto $\\mathcal L(\\partial S)$. The class hypothesis `hcov` of Theorems 9.5.15/9.5.16 passes along generalized isomorphisms (`hcovB_pull`, `hcovB_push`, `Diagram.hcovB_pullTheta`, `Diagram.hcovB_pushTheta`), which gives forms under it; the theorems also hold with the text's hypotheses only, for every $n \\ge 1$ (`Chapter11/BoundaryMeasureTextHypotheses.lean`, `BoundaryMeasureEquivalenceDimOne.lean`, `BoundaryMeasureGeneralizedIsoDimOne.lean`): $\\hat\\Theta$ compact, branched, oriented and tame in the reading of G.107, with `hcov` derived (point G.109) (`EPLoc.theorem_11_4_4_pull_loc`, `_push_loc`, `EPLoc.theorem_11_4_5_pull_loc`, `_push_loc` for $n \\ge 2$, the measures being those of Theorems 9.5.15/9.5.16, `EP.boundaryMeasure_eq`); for $n = 1$ the boundary measures of the $n = 1$ Theorems 9.5.15/9.5.16 are transported along equivalences, spans and generalized isomorphisms, a boundary point moving to its image with the same value of the $0$-form and the same orientation sign (`EPLoc.theorem_11_4_4_pull_dim1`, `_push_dim1`, `EPLoc.theorem_11_4_5_pull_dim1`, `_push_dim1`; `OrientedTameStructure.boundarySheetSum_move_dim1`) (Findings, Chapter 11, item 50).",
    "decls": [
     "Chapter11/MeasureGeneralizedIso · EPLocalization.EPLoc.theorem_11_4_1_pull",
     "Chapter11/MeasureGeneralizedIso · EPLocalization.EPLoc.theorem_11_4_1_push",

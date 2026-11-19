@@ -2,7 +2,7 @@ import Polyfold.Chapter9.FaceFrame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; gaps G.109, G.110).  Numbers and pages are
+Part II, §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; points G.109, G.110).  Numbers and pages are
 the 2021 text's.
 
 # The open faces of a corner chart parametrize the boundary stratum

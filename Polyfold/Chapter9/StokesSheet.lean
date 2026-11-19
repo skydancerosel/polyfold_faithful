@@ -4,7 +4,7 @@ import Polyfold.Chapter9.TameOpen
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, proof of Theorem 9.5.18, pp. 450–451 (gap G.110).  Numbers and pages are
+Part II, Chapter 9, §9.5, proof of Theorem 9.5.18, pp. 450–451 (point G.110).  Numbers and pages are
 the 2021 text's.
 
 # Stokes' theorem on the sheets of one `U(x_k)`, for `ω_k = β_k ω`

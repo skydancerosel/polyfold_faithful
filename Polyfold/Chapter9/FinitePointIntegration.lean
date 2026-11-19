@@ -3,7 +3,7 @@ import Polyfold.Chapter9.BoundaryNullSigmaAlgebra
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, Theorems 9.5.15 and 9.5.16 for `n = 1` (p. 449), gap G.109.  Numbers
+Part II, Chapter 9, §9.5, Theorems 9.5.15 and 9.5.16 for `n = 1` (p. 449), point G.109.  Numbers
 and pages are the 2021 text's.
 
 # Integration of `0`-forms over finite sets of oriented points

@@ -3,7 +3,7 @@ import Polyfold.Chapter11.EquivalenceFormsInfty
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2,
 pp. 373–374: the averaging step and the extension step of the proof of **Proposition 8.2.3**
-(2017: Proposition 8.1), in a form for arbitrary ep-groupoids (gap G.87).  Numbers and pages
+(2017: Proposition 8.1), in a form for arbitrary ep-groupoids (point G.87).  Numbers and pages
 are the 2021 text's.
 
 # Averaging primitives over a finite group of symmetries

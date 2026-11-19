@@ -4,7 +4,7 @@ import Polyfold.Chapter9.CircleWitness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, **Theorem 9.5.4** (p. 438; 2017: Theorem 9.2), gap G.107.  Numbers and
+Part II, Chapter 9, §9.5, **Theorem 9.5.4** (p. 438; 2017: Theorem 9.2), point G.107.  Numbers and
 pages are the 2021 text's.
 
 # Theorem 9.5.4 for every structure, from the printed hypotheses; the circle as a witness

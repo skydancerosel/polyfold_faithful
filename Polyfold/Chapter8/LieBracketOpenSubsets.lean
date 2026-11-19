@@ -4,7 +4,7 @@ import Polyfold.Chapter8.TangentLocal
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Appendix 4.5,
 **Lemma 4.5.1** (p. 201, new in the 2021 edition; the proof is left to the reader), for a local
-sc-diffeomorphism between **open subsets** of an M-polyfold (gap G.92, first half).
+sc-diffeomorphism between **open subsets** of an M-polyfold (point G.92, first half).
 
 # Lemma 4.5.1 between open subsets
 

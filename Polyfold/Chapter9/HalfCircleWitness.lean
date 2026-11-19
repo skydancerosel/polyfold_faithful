@@ -4,7 +4,7 @@ import Polyfold.Chapter9.HemisphereStokesEffective
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, **Theorems 9.5.17 and 9.5.18 (Stokes) for `n = 1`** (pp. 449–450), gap
+Part II, Chapter 9, §9.5, **Theorems 9.5.17 and 9.5.18 (Stokes) for `n = 1`** (pp. 449–450), point
 G.110: a witness with nonempty boundary.  Numbers and pages are the 2021 text's.
 
 # A compact oriented `1`-dimensional witness with boundary

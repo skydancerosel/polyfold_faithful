@@ -15,14 +15,14 @@ Proposition 8.1.17 (p. 371).
 Part I about an M-polyfold `X`: `X_∞` is dense in every `X_m` (p. 289); `U ∩ X_∞` is connected for
 a connected open `U`; `p : TX → X¹` is open (Proposition 2.3.15 (2)); two sc-smooth maps agreeing
 near a smooth point in `X_∞` have the same tangent there.  Chapter 7 bundles them as the hypothesis
-`MPolyfold.SmoothRegular` (gap G.85).
+`MPolyfold.SmoothRegular` (point G.85).
 
 ## What is formalized
 
-* **`MPolyfold.smoothRegular`**: every M-polyfold satisfies `SmoothRegular` (gap G.85 closed), from
+* **`MPolyfold.smoothRegular`**: every M-polyfold satisfies `SmoothRegular` (point G.85 settled), from
   `MPolyfold.denseSmooth` (`Chapter7/SmoothPointsDense.lean`), `MPolyfold.smoothConnected`
   (`Chapter8/SmoothConnectedReps.lean`), `MPolyfold.isOpenMap_tangentProj`
-  (`Chapter2/TangentProjOpen.lean`, gap G.8) and `MPolyfold.tangentDeterminedSmooth`
+  (`Chapter2/TangentProjOpen.lean`, point G.8) and `MPolyfold.tangentDeterminedSmooth`
   (`Chapter8/ZhouFacts.lean`).
 * **§7.4 with (ZHOU) as the only hypothesis** (rows V7.90, V7.91, V7.94, V7.102 lose
   `SmoothRegular` and `DenseSmoothTangent`): `proposition_7_4_8_unconditional`
@@ -58,7 +58,7 @@ namespace MPolyfold
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **The Part I facts of 2021 §7.4 (gap G.85)**: every M-polyfold satisfies `SmoothRegular`:
+/-- **The Part I facts of 2021 §7.4 (point G.85)**: every M-polyfold satisfies `SmoothRegular`:
 `X_∞` is dense in every `X_m`, `U ∩ X_∞` is connected for connected open `U`, `p : TX → X¹` is
 open, and sc-smooth maps agreeing near a smooth point have the same tangent there. -/
 theorem smoothRegular : P.SmoothRegular :=

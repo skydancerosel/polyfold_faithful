@@ -4,7 +4,7 @@ import Polyfold.Chapter2.Boundary
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I: the chart
 independence of the linearization `f'(y)` of a section at a zero and of the good position of its
-kernel — the local form of Definition 2.5.8 (preprint 2.38) (gap G.13 of the report) that Definition 3.6.6 (preprint 3.53) and the
+kernel — the local form of Definition 2.5.8 (preprint 2.38) (point G.13 of the report) that Definition 3.6.6 (preprint 3.53) and the
 proof of Theorem 3.6.8 (preprint 3.54) (1) use at the zeros `y` near `x₀` — and the assembly of Definition 3.6.6 (preprint 3.53) at
 such a zero from the data in a chart which is not centred at it.
 
@@ -74,7 +74,7 @@ at `x₀` is repeated at `y` in a chart centred at `y`.
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 3.6.6 (preprint 3.53) is stated in `T_xX`**, where the formalization has no linear structure (gap
+* **Definition 3.6.6 (preprint 3.53) is stated in `T_xX`**, where the formalization has no linear structure (point
   G.7), and `f'(x)` is defined (before Definition 3.1.4 (preprint 3.4)) only at the centre of a chart, through a
   filler; `IsGoodPositionAt` therefore states Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.1.11 (preprint 3.11).
   Neither the independence of `f'(x)` of the chart and the filler nor that of the two conditions
@@ -876,7 +876,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 /-- **The chart independence of the linearization at a zero** (the local form of Definition 2.5.8 (preprint 2.38)
-and gap G.13 for Definition 3.6.6 (preprint 3.53)).  Let `c`, `c'` be strong bundle charts whose transition
+and point G.13 for Definition 3.6.6 (preprint 3.53)).  Let `c`, `c'` be strong bundle charts whose transition
 `Θ = Φ' ∘ Φ⁻¹` is sc-smooth on `[0]` (part of the compatibility of Definition 2.6.4 (preprint 2.50)), `f` a section
 whose principal parts are sc-smooth in both charts, `y` a zero of `f` in both domains and
 `z = φ(y)`, `z' = φ'(y)` on level `1`.  Then there are topological linear isomorphisms
@@ -1491,7 +1491,7 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt_surj_wholeChart (hf : B.IsScSmo
     (fun k _ => hsurj _ (c.mem_K_ρ (c.φ.mapsTo_model y hyV) k)) hker
 
 /-- **The chart independence of the linearization at a zero and of the good position of its
-kernel** (the local form of gap G.13 for Definition 3.6.6 (preprint 3.53)).  For two strong bundle charts `c`,
+kernel** (the local form of point G.13 for Definition 3.6.6 (preprint 3.53)).  For two strong bundle charts `c`,
 `c'` of `P` around a zero `y` of the sc-smooth section `f`, with level-`1` points `z`, `z'` over
 `φ(y)`, `φ'(y)`, the linearizations `L = Lin(z) : T_zO → K_z` and `L' = Lin'(z') : T_{z'}O' →
 K'_{z'}` satisfy: `L` is surjective iff `L'` is; `L` is Fredholm iff `L'` is, with the same index;

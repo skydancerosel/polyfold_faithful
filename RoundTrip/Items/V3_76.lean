@@ -29,7 +29,7 @@ Neither direction is proved.
   `Λ₀ = 𝒮.linIso₀` with target `paramProd (Pn × 𝒮.Cs) 𝒮.XB × paramProd (Q × 𝒮.Zs) 𝒮.XB`
   (`compIso_eq_strongShift`: `Λ₀ ∘ Φ` is a level-`0` iso whose raise is `Γ`), so a further
   transport of the basic germ along linear isomorphisms `Pn × Cs ≃ ℝ^{n'}` would be needed (glue,
-  not attempted since the hypothesis gap already blocks the direction).
+  not attempted since the hypothesis difference already blocks the direction).
 * `B → A` fails: A contains general facts about strong bundle isomorphisms
   (`IsStrongBundleIso.shift`, `.comp`, `.pushforward_comp`, `isStrongBundleIso_prodMap`,
   `linIso_isStrongBundleIso`) for arbitrary sc-Banach spaces and data, which B (a statement about

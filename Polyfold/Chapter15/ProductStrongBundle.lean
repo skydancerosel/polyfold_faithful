@@ -5,7 +5,7 @@ import Polyfold.Chapter2.StrongBundleRestrict
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, the products remark after
 **Definition 15.3.3** and **Remark 15.3.4** (pp. 692–693; 2017: after Definition 15.3), first step:
-the Part I product of strong bundles (gap G.160 (a)).
+the Part I product of strong bundles (point G.160 (a)).
 
 # Products of strong bundles over M-polyfolds
 

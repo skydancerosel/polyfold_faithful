@@ -26,7 +26,7 @@ No direction is proved.
   conclusion is not B's: A's datum is per chart and carries the parametrized (P) of the project
   (general position on `ℝᵏ × ℝ × X` near `[0, 1]`), while B asks for chart-independent choices with
   the fixed-`t` (P) on `ℝᵏ × X` and for `Facts` in every chart (Lemma 6.30 under the text's (P),
-  as in V6_39/V6_42).  These are mathematical gaps (Lemma 6.29 from (4) instead of bump functions;
+  as in V6_39/V6_42).  These are mathematical differences (Lemma 6.29 from (4) instead of bump functions;
   Lemma 6.30 under pointwise (P)), not glue.
 * `B ⇒ A` fails: A's conjuncts are about the project's `IsPush`/`IsStabKernels.push` (restriction
   along affine maps, splitting at the midpoint, existence of an `IsPush` datum), none of which B

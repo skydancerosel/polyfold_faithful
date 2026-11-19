@@ -4,7 +4,7 @@
 1407.3185, pp. 169–199), rewritten for a first-year graduate student who wants to know why a small
 generic perturbation turns a Fredholm problem into one whose solutions form a compact manifold. Every
 formalized statement is proved completely, the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43) included; Theorem 5.27 (preprint;
-not in the 2021 edition) is stated and marked. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and
+not in the 2021 edition) is stated and marked. Where the text leaves a step to the reader or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and
 pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`). Conventions of Chapters
 1–4: $P:Y\to X$ a strong bundle, $Y_{0,1}$ its points of biregularity $(0,1)$, $S_f = f^{-1}(0)$, $\operatorname{Lin}(z)$ the linearization of a
 section in a strong bundle chart at $z$, $T_zO = Dr(z)E$, $T^R_zO = T_zO\cap E_z$; the coordinates of a partial quadrant are $\ell_i$,
@@ -144,8 +144,8 @@ compact solution set.
 
 *What is proved:* compactness on every level (Theorem 5.2.4 (preprint 5.7)) and, for $i = 1$, the chart-level content: the shift $h^1$ of a basic
 germ is a basic germ, $(g-s)^1$ is conjugated to $h^1$ by the index raise $\Psi^1$, and $s^1$ is sc$^+$. The bundle
-$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$) is built with total space $Y_{1,1}$, and $P^i$ for each fixed $i$ by iteration (gap G.41;
-V5.13, V5.14; the levels of the iterated base are those of $X$, Chapter 2, §9.8, gap G.6); one statement for the family of all $P^i$ is not formalized.
+$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$) is built with total space $Y_{1,1}$, and $P^i$ for each fixed $i$ by iteration (point G.41;
+V5.13, V5.14; the levels of the iterated base are those of $X$, Chapter 2, §9.8, point G.6); one statement for the family of all $P^i$ is not formalized.
 
 > **"It is a priori clear that $f^i$ is sc-Fredholm" is not clear.** The filler of $f^1$ needs Definition 3.1.4 (3) (preprint 3.4) on level $1$:
 > $L = (1-\rho(0))Dg(0)$ must map $\ker Dr(0)\cap E_1$ onto $\ker\rho(0)\cap F_1$. Level $0$ does not give it: on $E_m = \{\sum_ke^{2mk}x_k^2<\infty\}$ the shift
@@ -252,7 +252,7 @@ $\ker\operatorname{Lin}_F(\lambda,y)$ projects onto $\mathbb R^m$, so by Lemma 1
 
 *Step F.* For $|\lambda|<\delta/2$, $\lambda\notin CV$, $f+s_\lambda$ is transversal, $S_{f+s_\lambda}$ compact, and Theorem 3.6.10 (preprint 3.56) gives the manifold. $\square$
 
-Sard is used in its stratified form (Chapter 4, §8), which spares showing that the chart models are open. Remark 5.3.6 (preprint 5.14; on [21]) has nothing to formalize (gap G.43); Remark 5.3.8 (preprint 5.16; a cobordism sketch) is formalized
+Sard is used in its stratified form (Chapter 4, §8), which spares showing that the chart models are open. Remark 5.3.6 (preprint 5.14; on [21]) has nothing to formalize (point G.43); Remark 5.3.8 (preprint 5.16; a cobordism sketch) is formalized
 for an arbitrary sc-Fredholm arc (V5.73): `Polyfold.remark_5_3_8_arc`.
 *Checked by machine:* `Polyfold.StrongBundle.IsTransversal`, `Polyfold.exists_spanning_sections`,
 `Polyfold.exists_isOpen_isLinSurjAt_zero_near`, `Polyfold.exists_isOpen_goodPosition_of_isLinSurjAt`,
@@ -369,7 +369,7 @@ germ of the section. Theorem 3.6.11 (preprint 3.57) gives the manifold structure
 functions, $N$ on $Y\to X\times[0,1]$, $U$ adapted to it, and $s_i$ supported in $U_i$, $N_i(s_i)<1$, $f_i+s_i$ in good position ($i = 0,1$), there is an
 sc$^+$-section $s(x,t)$, $N(s)<1$, supported in $U$, $s(\cdot,i) = s_i$, with $f+s$ in good position at all smooth points; its solution
 set is a compact manifold with corners bounded by $S_0$, $S_1$. **Not formalized:** the theorem is not in the 2021 edition and its proof is
-"left to the reader" (gap G.49); its general-position analogue is `Polyfold.remark_5_3_8_arc` (V5.73).
+"left to the reader" (point G.49); its general-position analogue is `Polyfold.remark_5_3_8_arc` (V5.73).
 
 ## 6. Homotopies and Morse functions (pp. 222–228 (preprint pp. 180–186))
 
@@ -384,7 +384,7 @@ $S_f\cap X_\tau$ being closed in $S_f$. The text does not say what $Y|X_t$ is, a
 **Theorem 5.3.15 (preprint 5.22) (Morse-type structure).** Let all M-polyfolds admit bump functions, $f$ be a generalized compact homotopy with
 $\partial X_i = \emptyset$, $(f_i,x)$ in general position at all zeros, $\partial X = X_0\sqcup X_1$, $N$ an auxiliary norm. Then there is $U$ with $S_{f+s}$ compact for
 $s\in\Gamma^{+,1}_U(P)$, and an arbitrarily small $s_0\in\Gamma^{+,1}_U(P)$ vanishing near $\partial X$ with (1) $(f+s_0,x)$ in general position at every zero and
-(2) $t|S_{f+s_0}$ Morse. **Formalized** in its 2021 form (gap G.48; V5.71, V5.72): `Polyfold.theorem_5_3_15`. The proof also needs
+(2) $t|S_{f+s_0}$ Morse. **Formalized** in its 2021 form (point G.48; V5.71, V5.72): `Polyfold.theorem_5_3_15`. The proof also needs
 **$dt(x)\ne0$** at the critical points $x$ of $t|_S$, which the 2021 Definition 5.3.13 (3) supplies (§11).
 
 > **A hidden hypothesis.** The proof takes a one-dimensional smooth $Z$ with $T_xX = Z\oplus\ker dt(x)$. It exists iff $dt(x)\ne0$; if
@@ -417,7 +417,7 @@ The text's graph of $S$, its $j:L\to\mathbb R$ and its case distinction are not 
 **Proposition 5.5.3 (preprint 5.30)** is Proposition 5.3.2 (preprint 5.10). **Definition 5.5.4 (preprint 5.31).** A Banach space has a $C^k$-*bump* if some $C^k$ $f\ne0$ has bounded
 support. **Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton; cited; formalized, V5.75):** the $p$-th power of the $L^p$-norm is $C^\infty$ for even $p$, $C^{p-1}$
 for odd $p$, $C^{[p]}$ otherwise. The ensuing remarks (Sobolev norms; sc-smooth bumps on $W^{1,4}(\Omega)$ with $E_m = W^{1+m,4}(\Omega)$; only
-sc$^1$ for $W^{1,3/2}$) are formalized with the sc-structure on one bounded domain, $(0,1)$ (gap G.51; V5.76):
+sc$^1$ for $W^{1,3/2}$) are formalized with the sc-structure on one bounded domain, $(0,1)$ (point G.51; V5.76):
 `Polyfold.SobolevRemark.remark_5_5_5_W14`, `Polyfold.SobolevRemark.remark_5_5_5_W1_3_2`.
 
 **Definition 5.5.6 (preprint 5.33).** $(O,C,E)$ has the *bump property* if for $x\in O$ and open $U(x)\subset O$ with $\operatorname{cl}_E(U(x))\subset O$ there is an sc-smooth
@@ -632,12 +632,12 @@ one, since $t$ is not onto $[0,1]$.
 
 **Lemma 5.3.16 (preprint 5.23), 2021 reading.** Condition (3) answers the hidden hypothesis of §6: if $dt(x)$ is onto, then $dt(x)\ne0$, so
 a one-dimensional complement $Z$ of $\ker dt(x)$ exists and Lemma 5.3.16 applies. Theorem 5.3.15 (preprint 5.22) itself is
-formalized in this form (gap G.48; V5.71, V5.72).
+formalized in this form (point G.48; V5.71, V5.72).
 
 *Checked by machine:* `Polyfold.lemma_5_3_16`, `Polyfold.theorem_5_3_15`.
 
 *Theorem 5.5.5 (preprint 5.32).* The 2017 and 2021 statements print the exponent $p$ in (1) and (2), which the preprint omits; it is
-formalized as printed (gap G.50; V5.75): `Polyfold.BonicFrampton.theorem_5_5_5`.
+formalized as printed (point G.50; V5.75): `Polyfold.BonicFrampton.theorem_5_5_5`.
 
 The findings are `Exposition/Findings.md`, "Chapter 5", items 170–179.
 

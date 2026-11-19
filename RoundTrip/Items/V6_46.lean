@@ -169,7 +169,7 @@ theorem A_to_B123 : A → B123 := by
 
 /-- `A ⇒ (4)` **for tame germ data**: B's clause (4) with `B.IsScFredholmSectionTame g` in place
 of `B.IsScFredholmSection g` follows from A's `isGeneralPositionGerm_paramSection_of_comp`
-(`ι = Fin.castAdd l`).  This isolates the gap of (4) to the tameness of the germ data. -/
+(`ι = Fin.castAdd l`).  This isolates the difference of (4) to the tameness of the germ data. -/
 theorem A_to_B4_tame (hA : A) {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     {PX : MPolyfold X} {Y : Type} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y]
     {P : Y → X} [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})]
@@ -193,7 +193,7 @@ theorem A_to_B4_tame (hA : A) {X : Type} [TopologicalSpace X] [T2Space X] [Parac
 tame chart, Definition 3.51), while B's (4) assumes `B.IsScFredholmSection g` (Definition 3.14)
 with `PX.IsTame`.  The project has no theorem `PX.IsTame → IsScFredholmSection → IsScFredholmSectionTame`
 (its Chapter 6 always assumes the tame form).  B's `Fgen` is the project's `paramSection` (both
-compute `g(y) + Σ λᵢ σᵢ(y)` in the fibre), so the tameness of the germ data is the only gap in (4).
+compute `g(y) + Σ λᵢ σᵢ(y)` in the fibre), so the tameness of the germ data is the only difference in (4).
 
 `B ⇒ A` is not proved: A has the general locality lemma `isScPlusSection_of_local`, affine (not
 only linear) reparametrizations, and general position for any reindexing `ι : Fin k → Fin m`

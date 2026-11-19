@@ -2,7 +2,7 @@ import Polyfold.Chapter9.ChartAbsIntegral
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5 "Integration and Stokes", pp. 438–445 (gap G.107).  Numbers and pages
+Part II, Chapter 9, §9.5 "Integration and Stokes", pp. 438–445 (point G.107).  Numbers and pages
 are the 2021 text's.
 
 # Sheets covered by several graph charts: countable chart covers and the glued integral

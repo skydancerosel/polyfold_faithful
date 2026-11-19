@@ -76,7 +76,7 @@ at `a` if `T_aA` has in `T_aX` an sc-complement contained in `T_a^R X`.
 
 ## What the text leaves implicit, and the choices made
 
-* `T_xX` carries no linear structure here (gap G.7), so Definitions 4.2.5 and 4.2.10 (preprint 4.16 and 4.21) are stated in a
+* `T_xX` carries no linear structure here (point G.7), so Definitions 4.2.5 and 4.2.10 (preprint 4.16 and 4.21) are stated in a
   chart, as Definition 3.6.6 (preprint 3.53) is (`LinearizationCharts.lean`), and their independence of the chart, of
   the data of Definition 4.2.1 (preprint 4.13) and of the presentation of the partial quadrant is proved; the text
   asserts it implicitly.  The chart form of `T_aA` is the tangent space of the retract `φ(W ∩ A)` of
@@ -1237,7 +1237,7 @@ end SubmanifoldData
 
 /-- **Definition 4.2.5 (preprint 4.16)**: the smooth finite-dimensional submanifold `A` is **in good position at
 `a ∈ A`** if `T_aA` is in good position to the partial cone `C_aX` in `T_aX`.  As `T_aX` carries
-no linear structure here (gap G.7), the condition is stated in a chart (`IsGoodPositionChart`): for
+no linear structure here (point G.7), the condition is stated in a chart (`IsGoodPositionChart`): for
 some data `d` of Definition 4.2.1 (preprint 4.13) at `a`, some chart `φ` of `X` at `a`, some presentation `T` of the
 partial quadrant of `φ` and the level-`1` point `z` over `φ(a)`.  It then holds for all of them
 (`IsGoodPositionAt.isGoodPositionChart`). -/

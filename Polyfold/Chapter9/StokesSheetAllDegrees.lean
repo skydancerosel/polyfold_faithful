@@ -3,7 +3,7 @@ import Polyfold.Chapter9.StokesSheet
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, proof of **Theorems 9.5.17 and 9.5.18 (Stokes), pp. 450–451** (2017:
-Theorems 9.6, 9.7), gap G.110.  Numbers and pages are the 2021 text's.
+Theorems 9.6, 9.7), point G.110.  Numbers and pages are the 2021 text's.
 
 # Stokes on the sheets of one `U(x_k)`, in every dimension `n = m + 1 ≥ 1`
 

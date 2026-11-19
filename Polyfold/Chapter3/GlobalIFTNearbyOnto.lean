@@ -44,7 +44,7 @@ Lemma 3.55."
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-The text's "(4) follows from Corollary 3.41 and Lemma 3.55" has a gap (Finding 100); the
+The text's "(4) follows from Corollary 3.41 and Lemma 3.55" leaves a step to the reader (Finding 100); the
 statement is nevertheless true with Definition 3.1.4 (preprint 3.4) as it stands (Findings 180–189).  The argument
 is an implicit function theorem **at the nearby zero** for the perturbed equation, whose
 infinite-dimensional part is Theorem 3.3.3 (preprint 3.30) for the `λ`-extended contraction germ applied **at the

@@ -9,7 +9,7 @@ through a nearby zero (Lemma 4 and Proposition 7 of the argument).**
 
 ## The text, paraphrased
 
-Nothing in the text (the repair of the gap of Finding 100, see `GlobalIFTNearbyOntoLemmas.lean`).
+Nothing in the text (the step of Finding 100, see `GlobalIFTNearbyOntoLemmas.lean`).
 
 ## What is formalized
 

@@ -3,7 +3,7 @@ import Polyfold.Chapter9.IntegralCovering
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, Theorem 9.5.4 (p. 438), gap G.107.  Numbers and pages are the 2021
+Part II, Chapter 9, §9.5, Theorem 9.5.4 (p. 438), point G.107.  Numbers and pages are the 2021
 text's.
 
 # Compact sheets lie in the class `F.msheets`

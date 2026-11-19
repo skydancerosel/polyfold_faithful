@@ -115,7 +115,7 @@ theorem A_to_B : A → B := by
 
 /-! ### `B → A` without the existence clause (diagnostic)
 
-`B → A` is not proved.  To locate the gap: `B` gives `theorem_3_8_22`, restricted to the blind
+`B → A` is not proved.  To locate the difference: `B` gives `theorem_3_8_22`, restricted to the blind
 coordinates (`V = Fin n → ℝ`, `F = Fin N → ℝ`, `C = quadC n q`), with every clause except
 `f (k + τ k) = 0` (`B_to_A378_without_existence`). -/
 

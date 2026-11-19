@@ -11,7 +11,7 @@ definition, vocabulary): `linAt_paramSection_zero`, `linAt_paramSection`, `scDer
 Refresh 2026-11-02: the three linearization theorems now take `f` an sc-Fredholm section in the
 germ reading (`IsScFredholmSection`; only its sc-smoothness is used, through
 `scDeriv_paramSection_of_isScSmoothSection`), as does B.  The germ reading was not the obstacle
-here: the audit's gap was that A states the formula only in charts centred at the point.
+here: the audit's difference was that A states the formula only in charts centred at the point.
 
 * `A → B` (proved, `A_to_B`): from A's third conjunct `scDeriv_paramSection` (taken as the
   hypothesis instead of `hA : A`: the statement of A's conjunct `linAt_paramSection` contains the

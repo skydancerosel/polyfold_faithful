@@ -30,7 +30,7 @@ sc-diffeomorphism `Φ : T(X¹) → (TX)¹` (`tangentShiftMap_isScSmooth`), which
 * `retractTangentMap_shiftIncl`, `MPolyfold.tangentMap_levelVal_one`: `T(ι) = ι_T`.
 * `MPolyfold.SubmanifoldData.isScPlusRetractionOn_tmap`: `Ts` is an sc⁺-retraction of `TX`.
 * `MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent`: `TA` is a smooth
-  finite-dimensional submanifold of `TX` (gap G.99).
+  finite-dimensional submanifold of `TX` (point G.99).
 * `EpGroupoid.tangentBranchingHyp`, `EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general`:
   Definition 9.2.12 for every branched ep⁺-subgroupoid of an ep-groupoid with paracompact `|X|`.
 
@@ -109,7 +109,7 @@ theorem isScPlusRetractionOn_tmap :
 
 end SubmanifoldData
 
-/-- **`TA` is a smooth finite-dimensional submanifold of `TX`** (gap G.99; for 2021
+/-- **`TA` is a smooth finite-dimensional submanifold of `TX`** (point G.99; for 2021
 Definition 9.2.12, p. 418): near each of its points it is the image `Ts(TV) = TA ∩ TV` of the
 sc⁺-retraction `Ts` (`SubmanifoldData.isScPlusRetractionOn_tmap`,
 `SubmanifoldData.image_tmap`). -/

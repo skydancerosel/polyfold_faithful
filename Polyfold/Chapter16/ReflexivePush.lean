@@ -5,7 +5,7 @@ import Polyfold.Chapter16.PolyfoldAuxNorm
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Definition 16.3.12,
 p. 727 (2017: Definition 16.24), the parenthetical "equivalent structures then also have", with
 Definition 5.1.4, p. 207, and Definition 10.4.1, p. 496: **the push direction**, completing part
-(i) of gap G.166.  Numbers and pages are the 2021 text's.
+(i) of point G.166.  Numbers and pages are the 2021 text's.
 
 # Reflexive `(0, 1)`-fibres are invariant under equivalence
 

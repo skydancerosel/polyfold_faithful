@@ -8,7 +8,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 a
 Part II, Chapter 7, §7.5 "Paracompact Orbit Spaces", the sentence after **Definition 7.5.1**
 (p. 340; 2017: Definition 7.15, p. 249): "It is presently not known whether the property (5) is a
 consequence of the properties (1)–(4)."  Numbers and pages are the 2021 text's, the 2017 ones in
-parentheses.  The project records this open question of the text without a gap (Findings,
+parentheses.  The project records this open question of the text not recorded as a numbered point (Findings,
 Chapter 7, item 113).
 
 # Property (5) does not follow from properties (1)–(4): an ep-groupoid with a non-paracompact

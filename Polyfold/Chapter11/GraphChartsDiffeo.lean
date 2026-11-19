@@ -3,7 +3,7 @@ import Polyfold.Chapter9.TameOpen
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 11, §11.4, pp. 542–546 (gap G.131).  Numbers and pages are the 2021 text's.
+Part II, Chapter 11, §11.4, pp. 542–546 (point G.131).  Numbers and pages are the 2021 text's.
 
 # Graph charts, null sets, Borel sets and tameness under sc-diffeomorphisms between two M-polyfolds
 

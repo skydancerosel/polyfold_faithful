@@ -5,7 +5,7 @@ import Polyfold.Chapter6.OrientationSpace
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 263–276
 (preprint: §6.5, pp. 220–230): **Theorems 6.6.11, 6.6.13 and 6.6.17 for sc-smooth paths
 `φ : [0, 1] → X`** (preprint: Theorems 6.35, 6.37), and `X × [0, 1]` as an M-polyfold with
-boundary.  Part of gap G.65 (decision D2: paths read on `ℝ`): rows V6.48 (Theorem 6.6.11),
+boundary.  Part of point G.65 (decision D2: paths read on `ℝ`): rows V6.48 (Theorem 6.6.11),
 V6.57 (Theorem 6.6.13, in part), V6.71 and V6.75 (Theorem 6.6.17 (3)).
 
 # §6.6 on `[0, 1]`

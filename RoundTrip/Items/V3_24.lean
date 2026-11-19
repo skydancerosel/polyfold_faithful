@@ -18,7 +18,7 @@ Neither direction is proved.
   Definition 3.25 only (`HasTangentGermProperty`: some data at every point, `δ` an sc^∞-germ with
   `k`-dependent neighbourhoods, no condition on `π(O)`), plus tameness of `X`.  B's clause (2) is
   also claimed for *every* datum, A's only for regular data.  `A_to_B_of_allRegular` below shows
-  that this is the only gap: under the extra hypothesis "every datum is regular" A gives B's
+  that this is the only difference: under the extra hypothesis "every datum is regular" A gives B's
   conclusion (tameness of `X` is not needed).
 * `B → A` fails: B needs `X` tame (A's theorems do not assume it; the data only carry a tame
   retract at the points of `M`), B's chart clause gives a chart of `M` on *some* neighbourhood of
@@ -66,7 +66,7 @@ end Glue
 conjunct (`theorem_3_2_3_of_isRegular`; taken alone because the types of A's other conjuncts mention
 `theorem_3_2_3_isSubMPolyfold`, which would trip `#rt_check`) when every
 tangent-germ datum at every point of `M` is regular (`IsRegular`); tameness of `X` is not used.
-So the whole gap `A → B` is the regularity hypothesis of A (and B's chart claim for non-regular
+So the whole difference `A → B` is the regularity hypothesis of A (and B's chart claim for non-regular
 data). -/
 theorem A_to_B_of_allRegular (h327 : type_of% @Polyfold.theorem_3_2_3_of_isRegular.{0}) {X : Type} [TopologicalSpace X] [T2Space X]
     [ParacompactSpace X] (PX : MPolyfold X) (M : Set X) (n : ℕ)

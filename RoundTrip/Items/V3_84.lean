@@ -18,7 +18,7 @@ hypotheses, an open `V ∋ x`, a dimension `d` and the project's data of Definit
 `isGoodPositionGermTame_of_sc` (from V3_94; `B`'s whole-chart good position at `x` gives
 `IsGoodPositionGermTameWholeChart`, hence the germ `IsGoodPositionGermTame`).
 
-Gaps to `A → B` (`B`: the `d`-dimensional tangent germ property of `S(f, V)` at **every** point,
+Mismatches to `A → B` (`B`: the `d`-dimensional tangent germ property of `S(f, V)` at **every** point,
 with `d = dim ker f'(x)` read in every chart):
 * `A` gives the data only at `x` (the item's title); data at the other points of `S` need good
   position at the nearby zeros (Theorem 3.54 (1)) and the local constancy of the dimension

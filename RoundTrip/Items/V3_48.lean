@@ -12,7 +12,7 @@ instantiated at `0`.  Since the germ reading (refresh 2026-11-02) `theorem_3_6_8
 lemmas about good position assume the text's germ reading (`IsGoodPositionGermTame`: filling germ,
 sc⁺-germ); the statements are otherwise as in the audit.
 
-Neither direction is proved; both gaps are genuine, and neither is about the whole-chart reading.
+Neither direction is proved; both differences are genuine, and neither is about the whole-chart reading.
 
 * `A → B`:
   - B's graph claim (3) is stated for **every** good-position datum `(c, g, s, D)` at `x` (the

@@ -3,7 +3,7 @@ import Polyfold.Chapter3.ParamPerturbation
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.5.3, proof of
 **Lemma 4.5.2** (p. 202–203): the analytic input, **sc-smoothness of a parametric integral**.
-Part of gap G.80.
+Part of point G.80.
 
 # Parametric integrals of sc^k maps
 

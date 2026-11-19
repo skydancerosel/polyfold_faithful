@@ -18,7 +18,7 @@ classes isomorphic).
   A's `exists_isomorphic_of_isomorphic` (for `x ≅ x'` and `x' ≅ x`); the rest is bookkeeping with
   the classes.
 * `B ⇒ A` holds only by proving `A` outright (from the non-item `existsUnique_lift`, by the
-  project's arguments); **B is not used**.  The reason is a genuine gap: B's matching condition
+  project's arguments); **B is not used**.  The reason is a genuine difference: B's matching condition
   only constrains *isomorphic* pairs `y ∈ F⁻¹(x)`, `y' ∈ F⁻¹(x')` (and gives equally many classes,
   `q`); it never says that a point of `F⁻¹(x)` has an isomorphic partner in `F⁻¹(x')`.  If no
   such pairs existed, every enumeration `Θ'` of the `q` classes of `F⁻¹(x')` would satisfy B's

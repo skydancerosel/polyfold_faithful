@@ -4,7 +4,7 @@ import Polyfold.Chapter9.StokesLocalFormulas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.3 (Definition 9.3.3, p. 422) and §9.5, pp. 438–451 (gaps G.107, G.110).
+Part II, Chapter 9, §9.3 (Definition 9.3.3, p. 422) and §9.5, pp. 438–451 (points G.107, G.110).
 Numbers and pages are the 2021 text's.
 
 # From the orientations of Definition 9.3.3 to tangent orientations of a tame sheet

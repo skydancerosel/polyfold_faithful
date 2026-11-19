@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_MorseParam
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the proof of
 **Theorem 5.3.15** (pp. 224–228; 2017: Theorem 5.8; preprint: Theorem 5.22): comparison of
-smooth parametrizations.  Gap G.48.
+smooth parametrizations.  Point G.48.
 
 # Regular points, and the transversality in a larger family
 

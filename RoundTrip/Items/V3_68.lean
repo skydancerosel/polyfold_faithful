@@ -10,7 +10,7 @@ conjunction of the types of `Polyfold.theorem_3_1_22`, `Polyfold.theorem_3_1_22_
 instantiated at `0` (`MPolyfold.IsWithoutBoundary` is vocabulary).  The blind statement `B` is
 unchanged.
 
-Neither direction is proved; both gaps are genuine.
+Neither direction is proved; both differences are genuine.
 
 * `A → B`:
   - B's first clause (at **every** zero, in **every** strong bundle chart, `f'(x₀)` is

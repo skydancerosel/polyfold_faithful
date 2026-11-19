@@ -5,7 +5,7 @@ import Polyfold.Chapter10.EquivalenceReduced
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2
 (pp. 372–373) and the functorial part of **Theorem 11.2.1 (1), (2)** (p. 526): the pull-back
 `F^* : Ω*_{ep,∞}(Y) → Ω*_{ep,∞}(X)` of sc-differential forms on ep-groupoids by an sc-smooth
-functor `F : X → Y`, with `d_X ∘ F^* = F^* ∘ d_Y` (gap G.74; used by §11.2, gap G.129).
+functor `F : X → Y`, with `d_X ∘ F^* = F^* ∘ d_Y` (point G.74; used by §11.2, point G.129).
 
 # Pull-back of forms on ep-groupoids by sc-smooth functors
 
@@ -24,7 +24,7 @@ functor `F : X → Y`, with `d_X ∘ F^* = F^* ∘ d_Y` (gap G.74; used by §11.
   (Definition 8.1.13) induce the same map `Ω*_{ep,∞}(Y) → Ω*_{ep,∞}(X)`.
 
 Not treated here: the pull-back by generalized maps and the push-forward by generalized
-isomorphisms of Theorem 11.2.1 (2)–(4) (§11.2, gap G.129), which build on these maps; they are in
+isomorphisms of Theorem 11.2.1 (2)–(4) (§11.2, point G.129), which build on these maps; they are in
 `Chapter11/EquivalenceForms*.lean` and `GeneralizedForms.lean`.
 -/
 

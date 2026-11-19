@@ -11,7 +11,7 @@ import RoundTrip.Blind.V9_11
 `B` says the project's `Gr x`, `GrObj` (with its category instance) and `grProj` are the text's
 objects, with `B`'s `GrB x`: finitely supported `ℚ`-weights (any sign) on sets `L ⊆ T_xX` that
 are finite-dimensional linear subspaces in some chart.  The project's `Gr x` (documented choice,
-gap G.7) has **nonnegative** weights on **arbitrary** subsets `L` of vectors over `x`.
+point G.7) has **nonnegative** weights on **arbitrary** subsets `L` of vectors over `x`.
 
 * `B` is false (`not_B`): in the trivial ep-groupoid of `ℝ⁰` the formal sum `1 · ∅` lies in
   `Gr x` but not in `GrB x` (a chart image of `∅` is empty, a submodule is not).  (Also

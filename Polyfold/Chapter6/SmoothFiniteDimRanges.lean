@@ -2,7 +2,7 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, the bundle `L` of
-Lemma 6.6.5 (p. 265; preprint Lemma 6.30, p. 222), gap G.62: the first analytic inputs for `L` as
+Lemma 6.6.5 (p. 265; preprint Lemma 6.30, p. 222), point G.62: the first analytic inputs for `L` as
 a *smooth* vector bundle.
 
 # sc-smooth maps from finite dimensions, and the regularity of finite-dimensional ranges

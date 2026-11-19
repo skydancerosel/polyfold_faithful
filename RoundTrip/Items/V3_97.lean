@@ -21,9 +21,9 @@ Neither direction is proved.  What is proved from the hypothesis `A`:
 * `chartLinScFredholm_of_isSurjLinOfIndex` (new conjunct
   `linAt_isScFredholm_of_isSurjLinOfIndex`): at a zero of an sc-Fredholm section with
   `IsSurjLinOfIndex f x d`, `f'(x)` is sc-Fredholm of index `d` in every chart in B's sense
-  (`ChartLinScFredholm`).  This closes the audit's "level-0 only" gap of B's (3.19) conjunct.
+  (`ChartLinScFredholm`).  This closes the audit's "level-0 only" difference of B's (3.19) conjunct.
 
-The gaps to `A → B`:
+The mismatches to `A → B`:
 * (3.54) `B` asks for the text's `d`-dimensional tangent germ property of `S(f, V)` at **every**
   point (`HasTangentGermPropertyB`: an sc-complement `Yc` of `N`, one sc-smooth germ `δ`), while
   the project's `TangentGermChart` has a closed algebraic complement and a level/order-dependent

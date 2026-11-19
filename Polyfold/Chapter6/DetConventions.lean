@@ -2,11 +2,11 @@ import Polyfold.Chapter6.Stabilization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §§6.3–6.4: two remarks on
-conventions for determinants.  Gaps G.57 and G.58.
+conventions for determinants.  Points G.57 and G.58.
 
 # Conventions for determinants
 
-## The alternative determinant (after Definition 6.4.1, p. 246; gap G.57)
+## The alternative determinant (after Definition 6.4.1, p. 246; point G.57)
 
 Some authors use `λ(ker T) ⊗ λ(coker(T)*)` in place of `det(T) = λ(ker T) ⊗ λ*(coker T)`; the two
 are naturally isomorphic once `λ*(A)` and `λ(A*)` are identified.  With the identification `ι` of
@@ -18,7 +18,7 @@ Definition 6.3.1 (`iotaDual`, natural by Proposition 6.3.2, `proposition_6_3_2`)
   `(a₁ ∧ … ∧ aₖ) ⊗ (d₁* ∧ … ∧ dₘ*) ↦ (a₁ ∧ … ∧ aₖ) ⊗ (d₁ ∧ … ∧ dₘ)*` for a basis `d` of the cokernel
   and its dual basis; `altFredholmDetEquiv` for a Fredholm operator.
 
-## The identification (6.25), preprint (95) (after Proposition 6.4.15, p. 257; gap G.58)
+## The identification (6.25), preprint (95) (after Proposition 6.4.15, p. 257; point G.58)
 
 * `stdLine n : ℝ ≅ λ(ℝⁿ)`, `1 ↦ e₁ ∧ … ∧ eₙ` (`stdLine_one`), with inverse
   `c₁ ∧ … ∧ cₙ ↦ det([c₁, …, cₙ])` (`stdLine_symm_wedge`), the matrix with columns `cⱼ`;

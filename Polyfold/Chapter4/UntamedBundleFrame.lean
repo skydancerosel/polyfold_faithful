@@ -9,7 +9,7 @@ import Polyfold.Chapter4.LocalStrongBundle
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §3.1 and §3.6:
 **Definitions 3.1.16 = 3.6.4** (sc-Fredholm section, pp. 97, 135) and **Definition 2.6.4** (strong
-bundle charts, p. 67), for the untamed example of `UntamedBundle.lean`.  Gap G.79.
+bundle charts, p. 67), for the untamed example of `UntamedBundle.lean`.  Point G.79.
 
 # The untamed example: germ data at the points `t ≠ 0`, and the section is sc-Fredholm
 

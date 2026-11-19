@@ -23,7 +23,7 @@ was too special; its techniques apply to the general approach of this section.
 
 ## What is formalized
 
-* `MPolyfold.chartVec hφ α`: the chart vector of a tangent vector (gap G.7: `TX` carries no
+* `MPolyfold.chartVec hφ α`: the chart vector of a tangent vector (point G.7: `TX` carries no
   linear structure, so tangent vectors are compared through charts); `chartVec_injOn`,
   `exists_clm_chartVec` (chart changes act by continuous linear maps), `chartVec_tangentMapOn`.
 * `MPolyfold.OrTangent` (dimension, underlying set `L`, positive frames), `chartFrames`,

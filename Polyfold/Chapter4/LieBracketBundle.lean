@@ -5,7 +5,7 @@ import Polyfold.Chapter2.StrongBundlePullback
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.4, **Proposition 4.4.5**
 (p. 196) and Appendix 4.5, **Lemma 4.5.1** (p. 201): the **pull-back bundle `TX|X² → X²`** of which
-the Lie bracket `[A, B]` is an sc-smooth section (gap G.92, second half).
+the Lie bracket `[A, B]` is an sc-smooth section (point G.92, second half).
 
 # The pull-back bundle `TX|X² → X²`
 

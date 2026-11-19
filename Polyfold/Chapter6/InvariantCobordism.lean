@@ -16,7 +16,7 @@ This file proves that identity and, with it, parts (A) and (B) of the proof (`ps
 `InvariantSingle` is the same for `s₀` and `s₁`, and is invariant under proper oriented
 homotopies), modulo two inputs stated as hypotheses here:
 
-* the orientation of `S_F` (gap G.66, Remark 6.6.19) with its product form `e ∧ o` on the ends
+* the orientation of `S_F` (point G.66, Remark 6.6.19) with its product form `e ∧ o` on the ends
   (`CobordismOrientation`);
 * the relative form on `S_F`: a closed form `A = p₁^*ω − dβ` on `S_F` with vanishing face
   restriction that reads as `ω|_{S_i} − dβ_i` on the ends (`CobordismRelativeForms`). This needs
@@ -620,7 +620,7 @@ abbrev cobEndRight (x₀ : ↥(B.solPart f₁ s₁ k)) :
     (hasCornerStructureOfDim_cobPart hX hf₀ hC k) rfl rfl
 
 /-- **The orientation of the cobordism `S_F`** (2021 Remark 6.6.19, p. 276, and the proof of
-Theorem 6.7.1, p. 278; gap G.66): a continuous orientation of `S_F^{k+1}` which on the ends is
+Theorem 6.7.1, p. 278; point G.66): a continuous orientation of `S_F^{k+1}` which on the ends is
 the product `e ∧ o_{S_i}` of the time direction with the orientations `solPartOr` of
 `S₀ = S_{f₀+s₀}` and `S₁ = S_{f₁+s₁}` induced by `o₀`, `o₁` (`ProductEnd.IsEndProductOrientation`
 of `InvariantProductEnds`). Not proved here; proved for the data of Theorem 6.7.1 in

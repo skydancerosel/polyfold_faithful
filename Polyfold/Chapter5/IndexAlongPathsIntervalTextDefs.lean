@@ -5,7 +5,7 @@ import Polyfold.Chapter5.MainTheorems
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, **Proposition 6.2.2**
 (p. 240; preprint: Proposition 6.2) **for sc-smooth paths `φ : [0, 1] → X` and the 2021
 definitions** of the sc-Fredholm section (Definitions 3.6.3 and 3.6.4, p. 135).  Row V3.98 and
-the Proposition 6.2.2 part of gap G.65, in the vocabulary of `MainTheorems.lean`.
+the Proposition 6.2.2 part of point G.65, in the vocabulary of `MainTheorems.lean`.
 
 # Proposition 6.2.2 on `[0, 1]` with the 2021 definitions
 
@@ -27,7 +27,7 @@ All three are `IndexAlongPathsInterval.lean` through the dictionary
 
 * "Tame strong bundle" is read, as in `MainTheorems.lean`, as germ data in tame charts
   (row V3.103); the version with the plain 2021 section `IsScFredholmSection2021` and germ data
-  in arbitrary charts waits for gap G.79, as for paths on `ℝ`.
+  in arbitrary charts waits for point G.79, as for paths on `ℝ`.
 -/
 
 noncomputable section

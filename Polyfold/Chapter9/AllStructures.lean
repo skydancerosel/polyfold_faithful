@@ -4,7 +4,7 @@ import Polyfold.Chapter9.PropertyTShrinking
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, Theorems 9.5.15 and 9.5.16 (p. 449; gap G.109; row V9.67).  Numbers and pages are
+Part II, §9.5, Theorems 9.5.15 and 9.5.16 (p. 449; point G.109; row V9.67).  Numbers and pages are
 the 2021 text's.
 
 # The local formula of Theorems 9.5.15, 9.5.16 for every oriented tame structure

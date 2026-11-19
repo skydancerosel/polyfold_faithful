@@ -28,7 +28,7 @@ sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.2.5 (preprint 5.8)) `f^i
   strong bundle chart is linearly homeomorphic to the closed subspace `K_{φ(x)}` of `F₀`
   (hence Banachable); `StrongBundleChart.continuousOn_proj`.
 * `MPolyfold.mem_shift_levelSet_iff`, `MPolyfold.mem_shift_smoothSet_iff`: **`(X¹)_m = X_{m+1}`**
-  and `(X¹)_∞ = X_∞` (part of gap G.6).
+  and `(X¹)_∞ = X_∞` (part of point G.6).
 * `MPolyfold.IsScSmoothMap.levelOne`: **an sc-smooth map `X → Z` induces an sc-smooth map
   `X¹ → Z¹`** (the text's "raising the index"; Proposition 1.2.2 (preprint 1.17) in level charts).
 * `StrongBundle.ShiftSpace` (**`Y¹ = Y_{1,1}`**, the level `Y[0]_1` with its level topology),

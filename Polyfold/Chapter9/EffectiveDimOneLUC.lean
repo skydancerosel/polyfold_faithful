@@ -3,7 +3,7 @@ import Polyfold.Chapter9.StokesDimOne
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, **Theorems 9.5.16 and 9.5.18 for `n = 1`** (pp. 449–450; 2017:
-Theorems 9.5, 9.7), gaps G.109, G.110.  Numbers and pages are the 2021 text's.
+Theorems 9.5, 9.7), points G.109, G.110.  Numbers and pages are the 2021 text's.
 
 # The effective theorems for `n = 1` with the text's hypothesis "X has LUC"
 

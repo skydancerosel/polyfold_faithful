@@ -4,7 +4,7 @@ import Polyfold.Chapter6.SolutionOrientation
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 275–276:
 **Theorem 6.6.18** (preprint Theorem 6.41, p. 229; 2017: Theorem 6.3), the two points of the
 proof that `SolutionOrientation.lean` leaves open: the tangent orientation does not depend on the
-chart (gap G.68), and the last paragraph, a perturbation `f + s` (gap G.69).
+chart (point G.68), and the last paragraph, a perturbation `f + s` (point G.69).
 
 # The natural orientation of the solution set: charts and perturbations
 
@@ -21,14 +21,14 @@ gives `S_{f+s}` an orientation coming from `o^f`, since `det((f + s)'(x))` is or
   `det(S) ≅ λ(ker S)` commutes with `conjDet A Γ` and `λ(A|ker)`: the empty wedge of the cokernel
   goes to the empty wedge), `conjKerEquivOfMap` and `surjRay_conjDet` (the same on rays, after
   `ker S ≅ N ⊆ V`).
-* **Gap G.68 (chart independence)**: `ChartPoint.linZero_conj` (`f'(x)` read in two chart points
+* **Point G.68 (chart independence)**: `ChartPoint.linZero_conj` (`f'(x)` read in two chart points
   is conjugate by `A = D(τ ∘ r)(z)` and `Γ`, `scDeriv_principal_baseDeriv`);
   `ChartPoint.tangentKerEquiv`, the identification `ker f'(x) ≅ ker f'(x)` of the kernels read in
   `p` and in `p'` by the tangent map of the transition (`coe_tangentKerEquiv`: it is
   `v ↦ D(τ ∘ r)(z) v`); `ChartPoint.orTransfer_surjRay`; `ChartPoint.tangentOr_orTransfer`
   (the tangent orientation in `p'` of the transferred orientation is `λ(tangentKerEquiv)` of the
   one in `p`); and in the chart-free form, for `o ∈ Or_x^f`, `tangentOrAt_toChartOr`.
-* **Gap G.69 (perturbations)**: `sectionAdd_assoc`; `ChartPoint.linSet_sectionAdd`:
+* **Point G.69 (perturbations)**: `sectionAdd_assoc`; `ChartPoint.linSet_sectionAdd`:
   **`Lin(f + s, x) = Lin(f, x)` for every sc⁺-section `s`** (with `s' ↦ s + s'` and
   `s'' ↦ s'' − s`); hence `ChartPoint.orSectionAdd : Or_x^f ≃ Or_x^{f+s}` (`f + s` inherits the
   orientations of `f`, `orSectionAdd_apply`), through `LineOrientation.congrDetOn`.
@@ -46,9 +46,9 @@ gives `S_{f+s}` an orientation coming from `o^f`, since `det((f + s)'(x))` is or
 
 ## What this makes unnecessary
 
-* Gap G.68 ("the compatibility of the tangent orientations read in two charts at the same point
+* Point G.68 ("the compatibility of the tangent orientations read in two charts at the same point
   is not formalized", `SolutionOrientation.lean`): closed by `tangentOrAt_toChartOr`.
-* Gap G.69 ("the perturbation `s` when `f` is not generic, and the orientation of `S_{f+s}` from
+* Point G.69 ("the perturbation `s` when `f` is not generic, and the orientation of `S_{f+s}` from
   `o_f`"): closed at each point (`linSet_sectionAdd`, `orSectionAdd`, `tangentOr_orSectionAdd`,
   `pertTangentOrAt_toChartOr`).  **Not closed**: that the inherited orientations
   `y ↦ orSectionAdd(o_y)` form an orientation of `f + s` in the sense of Definition 6.6.16
@@ -202,7 +202,7 @@ lemma sectionAdd_assoc {f s s' : X → Y} (hf : IsSection P f) (hs : IsSection P
 
 end Assoc
 
-/-! ### The tangent orientation in two chart points (gap G.68) and for `f + s` (gap G.69) -/
+/-! ### The tangent orientation in two chart points (point G.68) and for `f + s` (point G.69) -/
 
 section Charts
 
@@ -302,7 +302,7 @@ theorem tangentOrOf_orTransfer (hf : B.IsScFredholmSection f) {g : X → Y}
     (p'.linZero_surjective hg hx hgL) (p.linZero_conj p' hg hx) (p.map_ker_linZero hg hx)
     (p'.map_ker_linZero hg hx)
 
-/-- **Gap G.68 in chart points**: the tangent orientation in `p'` of the orientation transferred
+/-- **Point G.68 in chart points**: the tangent orientation in `p'` of the orientation transferred
 from `p` is `λ(A|ker)` of the tangent orientation in `p`, `A = D(τ ∘ r)(z)`. -/
 theorem tangentOr_orTransfer (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x)
     (hL : B.IsLinSurjAt f x) (hxs : x ∈ PX.smoothSet) (o : p.Or f hf) :
@@ -310,7 +310,7 @@ theorem tangentOr_orTransfer (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x
       Module.Ray.map (maxPowEquiv (p.tangentKerEquiv p' hf hx)) (p.tangentOr hf hx hL o) :=
   p.tangentOrOf_orTransfer p' hf hf hx hL _ _ hxs o
 
-/-- **Gap G.69: `Lin(f + s, x) = Lin(f, x)`** for an sc⁺-section `s` (2021 Definition 6.2.1;
+/-- **Point G.69: `Lin(f + s, x) = Lin(f, x)`** for an sc⁺-section `s` (2021 Definition 6.2.1;
 preprint Definition 6.1): `s'` for `f + s` gives `s + s'` for `f` (`sectionAdd_assoc`,
 `IsScPlusSection.add`), and `s''` for `f` gives `s'' − s` for `f + s`
 (`sectionAdd_sectionAdd_sectionDiff`, `IsScPlusSection.smul_left`). -/
@@ -387,7 +387,7 @@ theorem toChartOr_eq_orTransfer (hf : B.IsScFredholmSection f) {x : X} (hs : x �
   rw [toChartOr, toChartOr, ← ChartPoint.orTransfer_trans _ (chartPtOf c hc hxc hs) _ hf hs]
   rfl
 
-/-- **Gap G.68: the tangent orientation of `T_xS` does not depend on the chart.** For an
+/-- **Point G.68: the tangent orientation of `T_xS` does not depend on the chart.** For an
 orientation `o ∈ Or_x^f` at a zero `x` with `f'(x)` onto and two charts `c`, `c'` at `x`, the
 orientation `o` read in `c'` gives on `T_xS = ker f'(x)` the image under the tangent map
 `D(τ ∘ r)(z)` of the transition (`tangentKerEquiv`) of the orientation read in `c`. -/
@@ -402,7 +402,7 @@ theorem tangentOrAt_toChartOr (hf : B.IsScFredholmSection f) {x : X} (hs : x ∈
   rw [toChartOr_eq_orTransfer hf hs o hc hc' hxc hxc']
   exact (chartPtOf c hc hxc hs).tangentOr_orTransfer _ hf hx0 hL hs _
 
-/-- **Gap G.69: the orientation of `T_xS_{f+s}` coming from `o ∈ Or_x^f` does not depend on the
+/-- **Point G.69: the orientation of `T_xS_{f+s}` coming from `o ∈ Or_x^f` does not depend on the
 chart** either (`pertTangentOr_orTransfer`). -/
 theorem pertTangentOrAt_toChartOr (hf : B.IsScFredholmSection f) {s : X → Y}
     (hsp : B.IsScPlusSection s) {x : X} (hs : x ∈ PX.smoothSet)

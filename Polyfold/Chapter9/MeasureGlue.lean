@@ -4,7 +4,7 @@ import Polyfold.Chapter9.Measure
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
 **Theorems 9.5.15 and 9.5.16** (canonical boundary measures, p. 449; 2017: Theorems 9.5, 9.6,
 p. 327), and the same step of **Theorems 9.5.4 and 9.5.5** (p. 438): the passage from the local
-formulas to the measure (gap G.109).
+formulas to the measure (point G.109).
 
 # Signed measures from local formulas
 

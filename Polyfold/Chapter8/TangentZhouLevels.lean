@@ -42,7 +42,7 @@ since naturally `(TX)^i = T(X^i)`, every `(TX)^i` has (LUC), i.e. `TX` has (SLUC
   through the characterization of 2021 Proposition 7.2.21 (`𝐗^T` closed).
 * As in `proposition_8_1_17_one`, part (1) is applied to every `X^i` with the hypotheses
   `HasConnectedDenseLevelOneReps` (the text's `V(x) = U(x) ∩ X₁`, connected and dense) and the
-  openness of `p : T𝐗 → 𝐗¹` (Part I, gap G.8) for every `X^i`; both are theorems, and the forms
+  openness of `p : T𝐗 → 𝐗¹` (Part I, point G.8) for every `X^i`; both are theorems, and the forms
   without them are in `TangentZhouFacts.lean` and `Chapter8/SmoothRegularAssembly.lean`.
 -/
 

@@ -39,7 +39,7 @@ homotopy argument as in (1)", p. 279).
   `t ≤ 1/8` and `f₁ + s₁` for `t ≥ 7/8`. `exists_homotopy_cobordism_data`: such `s₀`, `s₁` exist
   inside any given neighbourhoods of `S_{f₀}`, `S_{f₁}`.
 
-The orientation of the cobordism (Remark 6.6.19, gap G.66) is not built here.
+The orientation of the cobordism (Remark 6.6.19, point G.66) is not built here.
 -/
 
 open Set Filter Topology Function

@@ -7,7 +7,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Defin
 and Definition 3.6.3 (p. 135), the sc-Fredholm germ, with Definition 2.5.2 (p. 53), tame
 retractions, and the proofs of Theorems 3.1.22 (p. 100) and 3.6.8 (pp. 136–138) *(2014 preprint:
 Definitions 3.1.11, 3.6.3, 2.5.2 (preprint 3.11, 3.50, 2.34); Theorems 3.1.22, 3.6.8 (preprint 3.19, 3.54))*: **when do the untamed germ data of the 2021
-definitions move to a tame chart?**  Gap G.79 (Findings, Chapter 3, items 199, 350–353, 373, 379).
+definitions move to a tame chart?**  Point G.79 (Findings, Chapter 3, items 199, 350–353, 373, 379).
 
 # Germ data in a chart centred at an interior point of its quadrant are tame germ data
 
@@ -462,7 +462,7 @@ theorem isScFredholmSectionTame_of_interior (hf : B.IsScFredholmSection2021 f)
 `d_C(0) = d_X(x₀)` (Proposition 2.5.6, `degIndex_eq_chartDegIndex_of_isTameRetract`).  Germ data
 of Definition 3.1.11 in a chart with `d_C(0) = 0` are tame germ data
 (`isScFredholmGermTame_of_chart_interior`); germ data in a chart with `d_C(0) ≥ 1` need not be
-tame (`UntamedCorner.isScFredholmGerm2021_not_tame`, gap G.79). -/
+tame (`UntamedCorner.isScFredholmGerm2021_not_tame`, point G.79). -/
 theorem IsScFredholmGermTame.exists_chart_chartDegIndex_eq {x₀ : X}
     (h : B.IsScFredholmGermTame f x₀) :
     ∃ c : StrongBundleChart PX P, B.IsTameChart c ∧ x₀ ∈ c.φ.source ∧ c.φ x₀ = 0 ∧

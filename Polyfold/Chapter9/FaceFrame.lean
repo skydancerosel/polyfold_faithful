@@ -2,7 +2,7 @@ import Polyfold.Chapter9.FaceOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.3, Definition 9.3.8 (p. 427), and §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; gaps
+Part II, §9.3, Definition 9.3.8 (p. 427), and §9.5, Theorems 9.5.15–9.5.18 (pp. 448–451; points
 G.109, G.110).  Numbers and pages are the 2021 text's.
 
 # Face frames of a tame sheet and the density of a form on the boundary stratum

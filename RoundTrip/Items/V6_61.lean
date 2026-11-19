@@ -33,7 +33,7 @@ Neither direction is proved.  The glue that does go through is proved below.
 * B's (2), the non-generic case, is absent from A.  For an sc⁺-perturbation `s` with `f + s`
   proper and generic, `S_{f+s}` is a compact manifold with corners oriented by an orientation `o'`
   of `f + s` induced by `o`.  The project states that this paragraph is not formalized.  It is a
-  genuine gap: an orientation of `f + s` must be built from `o`.
+  genuine difference: an orientation of `f + s` must be built from `o`.
 * `B ⇒ A` also fails.  B gives none of the auxiliary lemmas, nor the extra conclusions of
   `SolutionSetInGeneralPosition` (transversality, general position of `S`, tameness of `S`,
   `d_S = d_X`).

@@ -17,7 +17,7 @@ other listed declarations (`TangentGermChart`, `HasTangentGermProperty`, `IsScIn
   `Dδ(0) = 0` (a derivative family of the sc¹-germ vanishing at `0`) gives the project's
   `fderivWithin δ (N ∩ C) 0 = 0` (`G₁` is a neighbourhood of `0` in `N ∩ C`, which is a partial
   quadrant of `N` by Proposition 3.22, so derivatives are unique).  Tameness is not used.
-* Not proved: project ⇒ text.  Two gaps, both believed true (effort, not a genuine difference):
+* Not proved: project ⇒ text.  Two mismatches, both believed true (effort, not a genuine difference):
   (1) the project's good complement is algebraic + closed, the text's an sc-complement — a closed
   complement of a smooth finite-dimensional `N` is an sc-complement (proved in
   `RoundTrip/Items/V3_20.lean`, `isScSplitting_of_isClosed`);

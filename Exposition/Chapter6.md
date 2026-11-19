@@ -3,13 +3,13 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part I, Chapter 6 (2014 preprint, arXiv
 1407.3185, pp. 200–237), rewritten for a first-year graduate student who wants to know how the solutions of a
 Fredholm problem are counted with signs. Every formalized statement is proved, §6.7 (preprint §6.6) and Theorem 6.7.1 (preprint 6.43)
-included. Where the text leaves a gap or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and
+included. Where the text leaves a step to the reader or the Lean proof takes a shorter route, the exposition follows the Lean. Statement numbers and
 pages are those of the book (Springer 2021), with the preprint's in parentheses; each statement also carries its 2017 number
 in the form "(book 2017: …)" (see `BookConcordance.md`). Conventions of Chapters 1–5: $P:Y\to X$ a strong bundle over a tame
 M-polyfold, $f$ an sc-Fredholm section with tame germ data, $S_f = f^{-1}(0)$, $X_\infty$ the smooth points. A point $x$
 is read at a *chart point* $(c,z)$, with $T_zO = Dr(z)E$ for $T_xX$ and $K_z = \rho(z)F$ for $Y_x$; the text's $f-s$ with
 $s(x) = f(x)$ is written $f+s$ with $(f+s)(x) = 0$. Paths, homotopies and families are maps on $\mathbb R$, $\mathbb R^2$, $\mathbb R^n$ of which
-only $[0,1]$, $[0,1]^2$, $[0,1]^n$ matters (decision D2; gap G.65; Findings, item 102). An orientation of a line is a ray.*
+only $[0,1]$, $[0,1]^2$, $[0,1]^n$ matters (decision D2; point G.65; Findings, item 102). An orientation of a line is a ray.*
 
 ---
 
@@ -53,7 +53,7 @@ At a smooth zero $x$ of an sc-smooth section $f$ the linearization $f'(x) = P_x\
 smooth point with $f(x)\ne0$ HWZ subtract an sc$^+$-section through $f(x)$: in a strong bundle chart with retraction $R$, the
 section $s(y) = R(y,f(x))$ is sc$^+$ because $f(x)$ is a smooth point, and $(f-s)'(x)$ is defined.
 
-*How this is read.* $T_xX$ carries no linear structure in the project; it is read in a chart (gaps G.6, G.7, G.13).
+*How this is read.* $T_xX$ carries no linear structure in the project; it is read in a chart (points G.6, G.7, G.13).
 Everything is done at a *chart point* $p = (c,z)$: a strong bundle chart $c$ of the atlas at $x$, with base retract $O = r(V)$
 in a partial quadrant $C\subseteq E$ and fibre retractions $\rho(y)$ on $F$, and the image $z\in O$ of $x$. The tangent space is $T_zO = Dr(z)E$,
 the fibre is $K_z = \rho(z)F$, and the linearization $(f+s)'(x):T_zO\to K_z$, for $(f+s)(x) = 0$, is the derivative at $z$ of the principal
@@ -81,7 +81,7 @@ space, and $(1-\tau)(L+a)+\tau(L+b) = L+((1-\tau)a+\tau b)$. Nonemptiness needs 
 functions give as above. $\square$
 
 The text also calls the members sc-Fredholm on every level; what the determinant lines use is level $0$, and the
-statement on every level is formalized too (gap G.64; Findings, item 40). *Checked by machine (V6.1):*
+statement on every level is formalized too (point G.64; Findings, item 40). *Checked by machine (V6.1):*
 `Polyfold.ChartPoint.definition_6_2_1_linSet_isScFredholm`,
 `Polyfold.ChartPoint`, `Polyfold.ChartPoint.T`, `Polyfold.ChartPoint.K`, `Polyfold.ChartPoint.linSet`,
 `Polyfold.ChartPoint.mem_linSet_iff`, `Polyfold.ChartPoint.isFredholm_isIndexAt_of_mem_linSet`,
@@ -89,7 +89,7 @@ statement on every level is formalized too (gap G.64; Findings, item 40). *Check
 `Polyfold.ChartPoint.linSet_nonempty`, `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`.
 
 Before Proposition 6.2.2 (preprint 6.2) the text recalls that an M-polyfold is locally path connected and that two smooth points in one
-path component are joined by an sc$^+$-smooth path. Both are formalized (gap G.56): `Polyfold.MPolyfold.paths_before_proposition_6_2_2`;
+path component are joined by an sc$^+$-smooth path. Both are formalized (point G.56): `Polyfold.MPolyfold.paths_before_proposition_6_2_2`;
 for smooth points "in the same path component" is "joined by an sc-smooth path", the reading used throughout
 (`Polyfold.MPolyfold.mem_pathComponent_iff_exists_scPath`; Findings, item 42).
 
@@ -174,7 +174,7 @@ From here $E$, $F$ are real Banach spaces, $T:E\to F$ is bounded and Fredholm, $
 
 **Definition 6.4.1 (preprint 6.7)** *(book 2017: Definition 6.3, p. 189).* $\det(T) = \lambda(\ker T)\otimes\lambda^*(F/R(T))$, a line. Equal operators have identified
 determinants, which matters because $PQT$ and $PT$ below are equal operators written differently. The alternative
-$\lambda(\ker T)\otimes\lambda(\operatorname{coker}(T)^*)$ mentioned after the definition is formalized too (gap G.57; V6.78; Findings, item 10):
+$\lambda(\ker T)\otimes\lambda(\operatorname{coker}(T)^*)$ mentioned after the definition is formalized too (point G.57; V6.78; Findings, item 10):
 `Polyfold.altLinDetEquiv`, `Polyfold.altFredholmDetEquiv`.
 *Checked by machine (V6.8):* `Polyfold.linDet`, `Polyfold.fredholmDet`, `Polyfold.finrank_fredholmDet`,
 `Polyfold.linDetEquivOfEq`.
@@ -270,7 +270,7 @@ $n = \dim\pi(\ker T_\varphi)+\dim\operatorname{coker}T = l+m$, so $\det(\bar c,r
 
 The identity $m+l = n$, which the formula needs, is proved to hold always, and so is the fact that the $r_i$ and $\bar c_j$ form a basis,
 which the text notices; the statement calls $\psi$ "$\varphi$" (as we read it) (Findings, item 9). The identification (95) and the
-maps $V\otimes\lambda(\mathbb R^n)\to V$, $V\otimes\lambda^*(\mathbb R^n)\to V$ after the proposition are formalized too (gap G.58; V6.79): `Polyfold.stdLine`,
+maps $V\otimes\lambda(\mathbb R^n)\to V$, $V\otimes\lambda^*(\mathbb R^n)\to V$ after the proposition are formalized too (point G.58; V6.79): `Polyfold.stdLine`,
 `Polyfold.tensorStdLine`, `Polyfold.tensorStdLineDual`; only (94) is used (Findings, item 10).
 *Checked by machine (V6.18):* `Polyfold.stabIota`, `Polyfold.stabIota_bijective`, `Polyfold.stab_card_eq`,
 `Polyfold.isCompl_range_stabPi_span`, `Polyfold.proposition_6_4_15`.
@@ -313,7 +313,7 @@ chart* is the data $(T,P,Y,\varepsilon)$ of Lemma 6.5.1 (preprint 6.17) with its
 
 **Lemma 6.5.3 (preprint 6.19) and Proposition 6.5.4 (preprint 6.20)** *(book 2017: Lemma 6.9, Proposition 6.8, p. 202).* Lemma 6.5.3 (preprint 6.19) says that exterior powers,
 duals, sums and tensor products of finite-dimensional topological vector bundles are topological vector bundles; it is
-formalized in general for Mathlib vector bundles (gap G.59; V6.22): `Polyfold.DetBundle.lemma_6_5_3`. It is applied only to trivial bundles, and Proposition 6.5.4 (preprint 6.20) (the local determinant
+formalized in general for Mathlib vector bundles (point G.59; V6.22): `Polyfold.DetBundle.lemma_6_5_3`. It is applied only to trivial bundles, and Proposition 6.5.4 (preprint 6.20) (the local determinant
 bundle $\mathrm{DET}(T,P,\varepsilon) = \bigcup_{\|S-T\|<\varepsilon}\{S\}\times\det(PS)$ is a topological line bundle) is proved with explicit frames: for a basis $k_1,\dots,k_n$ of
 $\ker(PT)$ and a basis $e_1,\dots,e_l$ of $F/R(P) = F/R(PS)$,
 $$\omega(S) = \big(k_1(S)\wedge\dots\wedge k_n(S)\big)\otimes(e_1\wedge\dots\wedge e_l)^*,\qquad k_i(S) = k_i+y(k_i,S),$$
@@ -378,7 +378,7 @@ its opposite for $a<0$: the orientation records the sign of the determinant, as 
 
 The text ends §6.5 (preprint §6.4) by remarking that $\mathrm{DET}(E,F)$ is not orientable, and opens §6.6 (preprint §6.5) with the classical case (the
 determinant bundle of a classical Fredholm section over a contractible $U$); both are formalized, the first with added hypotheses
-on $E$, $F$ (gap G.60; V6.80, V6.81; Findings, item 26): `Polyfold.isEmpty_lineOrientation_det_hilbert`, `Polyfold.classicalDet_two_orientations`.
+on $E$, $F$ (point G.60; V6.80, V6.81; Findings, item 26): `Polyfold.isEmpty_lineOrientation_det_hilbert`, `Polyfold.classicalDet_two_orientations`.
 
 ## 5. Orientations at a point and their local propagation (pp. 262–273 (preprint pp. 219–227))
 
@@ -427,7 +427,7 @@ The text's (1) is "$U$ is sc-smoothly contractible", and its (3) is stated for p
 > **(1) is not established for $U$, as we read it.** The proof, in a chart where $O = r(V)$ with $V$ convex, contracts $O$ by
 > $r(ty)$: for $y\in O\subseteq V$, $ty\in V$, and $r(1y) = y$, $r(0) = 0$. It then takes a smaller convex $V'$ and $U = r(V')$, and calls $U$ contractible.
 > But for $y\in U$ the point $r(ty)$ lies in $O$, and in $U$ only if $r(V')\subseteq V'$, which is not stated. What Theorem 6.6.11 (preprint 6.35) uses is that two
-> paths in $U$ with the same end points are homotopic in a larger region where (3) still holds, and that is (1′) (gap G.61;
+> paths in $U$ with the same end points are homotopic in a larger region where (3) still holds, and that is (1′) (point G.61;
 > Findings, item 45). The 2021 form of (1), a smaller $U'$ contractible in $U$, is proved (V6.32): `Polyfold.proposition_6_6_3_one`.
 
 *Proof.* Work in a chart $c$ at $x$, with chart map $\varphi$ (in this proof only) and $u_0 = \varphi(x)$. By the local compactness of $f$ (Chapter 5) $x$ has a compact neighbourhood $N$ of its
@@ -465,7 +465,7 @@ many of these open sets and take all their sections. $\square$
 
 The text states the property (P), that each slice $F_t$ is in general position at $(\varphi(t),0)$, and derives from it the general
 position of $F$ at the points $(t,\varphi(t),0)$, which is what Lemmas 6.6.5 and 6.6.6 (preprint 6.30 and 6.31) use; the conclusion is formalized, and so is (P) itself
-(gap G.63; Findings, item 47). *Checked by machine (V6.33):* `Polyfold.lemma_6_6_4_propertyP`, `Polyfold.isZeroAt_paramSection_zero`,
+(point G.63; Findings, item 47). *Checked by machine (V6.33):* `Polyfold.lemma_6_6_4_propertyP`, `Polyfold.isZeroAt_paramSection_zero`,
 `Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact`, `Polyfold.lemma_6_6_4`.
 
 **Lemma 6.6.5 (preprint 6.30)** *(book 2017: Lemma 6.13, p. 207).* The text: the solution set of $F$ near the points $(t,\varphi(t),0)$ is a manifold with
@@ -474,7 +474,7 @@ over $[0,1]$ with its line bundle $\lambda(L)$. The part used is: for a continuo
 position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a
 continuous family of subspaces of the model space, of dimension the index; and the derivative of an sc-smooth family of
 zeros, read in a chart, lies in the kernel of the linearization. The manifold, the map $\pi$ and the smooth structure of $L$ are
-formalized too (gap G.62; V6.34, V6.42; Findings, item 48). *Checked by machine (V6.34):* `Polyfold.lemma_6_6_5_isManifold`,
+formalized too (point G.62; V6.34, V6.42; Findings, item 48). *Checked by machine (V6.34):* `Polyfold.lemma_6_6_5_isManifold`,
 `Polyfold.lemma_6_6_5_submersion`, `Polyfold.lemma_6_6_5_smoothBundle`,
 `Polyfold.StrongBundle.IsSurjLinOfIndex.finrank_linKer`, `Polyfold.exists_local_frame_linKer`,
 `Polyfold.exists_subspaceFamily_linKer`, `Polyfold.fderiv_mem_linKer`.
@@ -619,13 +619,13 @@ while a push-forward datum needs $f+S = 0$ near $[0,1]$. So the argument runs th
 and $(\tau,t)\mapsto\Phi(\tau,\kappa(t))$ from $\gamma_0\circ\kappa$ to $\gamma_1\circ\kappa$. $\square$
 
 The statement does not introduce $f$, here an sc-Fredholm section with tame germ data, and asks $U$ to be sc-smoothly
-contractible, which as we read it is not shown for $U$ itself (gap G.61); the proof uses (1′) (Findings, item 53). *Checked by machine (V6.48):*
+contractible, which as we read it is not shown for $U$ itself (point G.61); the proof uses (1′) (Findings, item 53). *Checked by machine (V6.48):*
 `Polyfold.push_eq_of_homotopy`, `Polyfold.HasLocalPropagation`, `Polyfold.theorem_6_6_11`.
 
 **Paths in a chart.** For an open $U$ in a chart domain and $x\in U$ there is an open $V\ni x$ in $U$ whose smooth points are pairwise
 joined by sc-smooth paths in $U$ (images of segments under $r$). The concatenation of $\gamma_1$ and $\gamma_2$ is $\gamma_1(\kappa(3s))$ for $s\le1/2$ and $\gamma_2(\kappa(3s-2))$
 for $s>1/2$; it is constant near $s = 1/2$, hence sc-smooth, with the right end points and halves. Reparametrizing by a $C^\infty$ map keeps
-sc-smoothness, and push-forwards compose along concatenations. Smooth points of one component are joined globally as well (gap G.56).
+sc-smoothness, and push-forwards compose along concatenations. Smooth points of one component are joined globally as well (point G.56).
 *Checked by machine (V6.49):* `Polyfold.exists_nhds_scPath`, `Polyfold.concatPath`, `Polyfold.isScSmoothMap_concatPath`,
 `Polyfold.concatPath_half₁`, `Polyfold.concatPath_half₂`, `Polyfold.isScSmoothMap_reparam`,
 `Polyfold.HasLocalPropagation.eq_trans`.
@@ -639,7 +639,7 @@ neighbourhood has exactly two continuous orientations, and every smooth point ha
 propagation property this does not depend on $\gamma$. For a path $\psi$ in $U$ from $y_1$ to $y_2$, $\psi_*o_{y_1} = \psi_*\gamma_{1*}o_x$ is the push-forward along the concatenation of $\gamma_1$ and $\psi$, a path in $U$ from $x$ to $y_2$, hence $o_{y_2}$. A continuous
 orientation is determined by its value at $x$, which is one of two. $\square$
 
-The text's orientable neighbourhood is an open contractible $U$; the pair is used since Proposition 6.6.3 (preprint 6.28) gives (1′) (gap G.61;
+The text's orientable neighbourhood is an open contractible $U$; the pair is used since Proposition 6.6.3 (preprint 6.28) gives (1′) (point G.61;
 Findings, item 54). *Checked by machine (V6.50):* `Polyfold.IsContinuousOrientation`,
 `Polyfold.exists_two_isContinuousOrientation`, `Polyfold.IsOrientableNbhd`, `Polyfold.exists_isOrientableNbhd`.
 
@@ -719,7 +719,7 @@ the dyadic pieces, each of which agrees with the push-forward in a good set by (
 functorial family with (∗) on a cover agrees with the push-forward on every dyadic piece of a fine subdivision, hence
 with the transport. $\square$
 
-(∗) is asked for every open set with the local propagation property, not only for sc-smoothly contractible ones (gap
+(∗) is asked for every open set with the local propagation property, not only for sc-smoothly contractible ones (point
 G.61); $\mathcal O_f$ is read as types and bijections, and "uniquely determined" for the maps on morphisms. The sections through the
 fibre points make every $\mathrm{Or}^f_x$ two-element; bump functions give them (Findings, item 72). *Checked by machine (V6.57):*
 `Polyfold.IsPropagationNbhd`, `Polyfold.orPush`, `Polyfold.orPush_compat`, `Polyfold.IsStarPropertyOn`,
@@ -751,7 +751,7 @@ claims follow since each $\mathrm{Or}^f_x$ has two elements. $\square$
 
 The text calls Definition 6.6.15 (preprint 6.39) "an equivalent version" without proof (Findings, item 73). It writes "$y\in U_\infty$" before any $U$
 is introduced, read as $y\in X_\infty$ (Findings, item 74), and "smooth points in the same path component" is read
-as smooth points joined by an sc-smooth path (gap G.56; Findings, item 73). An orientable neighbourhood is the pair of
+as smooth points joined by an sc-smooth path (point G.56; Findings, item 73). An orientable neighbourhood is the pair of
 Definition 6.6.12 (preprint 6.36) (Findings, item 75). *Checked by machine (V6.58–V6.60):* `Polyfold.scPathSetoid`,
 `Polyfold.IsOrientableSection`, `Polyfold.isOrientableSection_iff_exists`, `Polyfold.IsOrientableSection'`,
 `Polyfold.isOrientableSection'_iff_exists`, `Polyfold.isOrientableSection_iff`, `Polyfold.IsSectionOrientation`,
@@ -777,8 +777,8 @@ orientation of the kernel line bundle. $\square$
 
 "A natural orientation" is read as the tangent orientations with their continuity along the sc-smooth paths of zeros in
 a chart, and "the local prolongation of the orientation on $S$ is the Fredholm one" as the identity of continuation and
-push-forward along such paths (Findings, items 90, 91). Also formalized: an orientation of $S$ as an abstract manifold (gap
-G.67) and the compatibility of the tangent orientations read in two charts at one point (gap G.68) (Findings, item 92):
+push-forward along such paths (Findings, items 90, 91). Also formalized: an orientation of $S$ as an abstract manifold (point
+G.67) and the compatibility of the tangent orientations read in two charts at one point (point G.68) (Findings, item 92):
 `Polyfold.theorem_6_6_18_isManifold`, `Polyfold.theorem_6_6_18_oriented`, `Polyfold.tangentOrAt_toChartOr`.
 *Checked by machine (V6.61):* `Polyfold.theorem_6_6_18_solutionSet`, `Polyfold.tangentSpace_solutionSet_eq_linKer`,
 `Polyfold.ChartPoint.linZero_mem_linSet`, `Polyfold.ChartPoint.linZero_surjective`, `Polyfold.ChartPoint.tangentOr`,
@@ -787,7 +787,7 @@ G.67) and the compatibility of the tangent orientations read in two charts at on
 `Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation`, `Polyfold.theorem_6_6_18_hyp`.
 
 The paragraph after the theorem treats a non-generic $f$: a small sc$^+$-perturbation $s$ supported near $S_f$ makes $S_{f+s}$ a manifold,
-oriented from $o$ because $\det((f+s)'(x))$ is oriented by $\mathrm{DET}(f,x)$, $\mathrm{Lin}(f+s,x) = \mathrm{Lin}(f,x)$. It is formalized (gap G.69; V6.61; Findings,
+oriented from $o$ because $\det((f+s)'(x))$ is oriented by $\mathrm{DET}(f,x)$, $\mathrm{Lin}(f+s,x) = \mathrm{Lin}(f,x)$. It is formalized (point G.69; V6.61; Findings,
 item 93): `Polyfold.ChartPoint.linSet_eq_of_sectionAdd`, `Polyfold.SectionOrientation.sectionAdd`.
 
 **Remark 6.6.19 (preprint 6.42)** *(book 2017: Remark 6.4, p. 214).* For an oriented $(f,o)$ and an sc$^+$-section $s$ of $Y\to X\times[0,1]$, $\hat f(x,t) = f(x)+s(x,t)$ has a
@@ -807,7 +807,7 @@ $\tilde f(t,y) = f(y)$. At the product chart point $(t,z)$, where the tangent sp
 (the text's $\tilde L$ conjugated by the swap of the factors) lies in $\mathrm{Lin}(\hat f,(t,x))$ for every $L\in\mathrm{Lin}(f,x)$, and an orientation $o$ of $\mathrm{DET}(f,x)$
 gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f,(t,x))$ with $\hat o(\hat L)$ the image of $o(L)$ for every $L$; $o\mapsto\hat o$ is injective. Only the
 orientation of $\mathrm{DET}(f,x)$ at the one point is used, and $\mathrm{Lin}(f,x)\ne\emptyset$ (Findings, item 96). That $(t,y)\mapsto\hat o$ is an orientation of
-$\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orientation of $f$, is formalized too (gap G.66; Findings, item 97): `Polyfold.SectionOrientation.prodFirst`.
+$\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orientation of $f$, is formalized too (point G.66; Findings, item 97): `Polyfold.SectionOrientation.prodFirst`.
 *Checked by machine (V6.62):* `Polyfold.extOp`, `Polyfold.isFredholm_extOp`, `Polyfold.extDet`,
 `Polyfold.extDet_wedge_tmul`, `Polyfold.coord_extDet`, `Polyfold.extDetN`, `Polyfold.extDetN_eq_of_surjective`,
 `Polyfold.coord_extDetN`, `Polyfold.LineOrientation.extPull`, `Polyfold.extConjDet`, `Polyfold.ChartPoint.prodPt`,
@@ -816,11 +816,11 @@ $\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orient
 
 ## 7. Invariants (pp. 276–279 (preprint pp. 230–233))
 
-This section is formalized (gap G.55; V6.76). Let $(f,o)$ be oriented and proper over a tame $X$ with sc-smooth bump functions. For an
+This section is formalized (point G.55; V6.76). Let $(f,o)$ be oriented and proper over a tame $X$ with sc-smooth bump functions. For an
 auxiliary norm $N$, Theorem 5.3.10 (preprint 5.18) gives an open $U\supseteq S_f$ such that for every sc$^+$-section $s$ supported in $U$ with $N(s(x))\le1$ the set $S_{f+s}$ is
 compact, and among them sections for which every $(f+s,x)$, $x\in S_{f+s}$, is in general position; HWZ call these *admissible for
 $(N,U)$*, and by §6 their solution sets are oriented compact manifolds with boundary with corners. The notion is
-formalized, `Polyfold.StrongBundle.IsAdmissible`, and satisfiable, `Polyfold.StrongBundle.exists_isAdmissible`; it recalls Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the orientation of $S_{f+s}$ (Theorem 6.6.18 (preprint 6.41)) (gap G.55; Findings,
+formalized, `Polyfold.StrongBundle.IsAdmissible`, and satisfiable, `Polyfold.StrongBundle.exists_isAdmissible`; it recalls Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the orientation of $S_{f+s}$ (Theorem 6.6.18 (preprint 6.41)) (point G.55; Findings,
 item 101). $H^*_{dR}(X,\partial X)$ is the cohomology of $\Omega^*_\infty(X)\oplus\Omega^{*-1}_\infty(\partial X)$ with $d(\omega,\tau) = (d\omega,j^*\omega-d\tau)$, $j:\partial X\to X$ the inclusion (§4.4).
 
 **Theorem 6.7.1 (preprint 6.43)** *(book 2017: Theorem 6.4, p. 215).* Let $P:Y\to X$ be a strong bundle over a tame $X$ with sc-smooth bump functions. A
@@ -841,8 +841,8 @@ The text writes the form on $X\times[0,1]$ as $\bar\omega = p_1^*\omega\wedge p_
 computation needs $p_1^*\omega$ and $p_1^*\tau$ themselves: $p_2^*dt$ restricts to zero on $X\times\{0\}$ and $X\times\{1\}$, and $p_1^*\omega\wedge p_2^*dt$ has degree $n+1$, so its
 integrals over the $n$-dimensional pieces of $\partial S_F$ vanish.
 
-**Checked by machine (gap G.54; V6.76, V6.77):** the theorem and the case $\partial X = \emptyset$, with the sc-differential forms and their
-cohomology of §4.4 (gaps G.37–G.40, G.80) and Stokes' theorem on oriented compact Mathlib manifolds with boundary with corners
+**Checked by machine (point G.54; V6.76, V6.77):** the theorem and the case $\partial X = \emptyset$, with the sc-differential forms and their
+cohomology of §4.4 (points G.37–G.40, G.80) and Stokes' theorem on oriented compact Mathlib manifolds with boundary with corners
 (Findings, item 100): `Polyfold.theorem_6_7_1`, `Polyfold.theorem_6_7_1_noBoundary`. The theorem rests on the
 perturbations of Theorem 5.3.10 (preprint 5.18) and the tangent orientations of Theorem 6.6.18 (preprint 6.41). The bead of §9 is the simplest instance.
 
@@ -980,7 +980,7 @@ that make the diagram of the exact sequences $E(T,P)$ and $E(T,Q)$ of §3 commut
 and $\ker(QT)$, which have the same dimension because $PT$ and $QT$ have the index of $T$ and the same range $H$. Such an $X$ exists
 algebraically: if neither space contains the other, pick $a\in K_2\setminus K_1$ and $b\in K_1\setminus K_2$; then $a+b$ lies in neither, and induction
 on $\dim(K_1+K_2)-\dim K_1$ applies to $K_i+\mathbb R(a+b)$. The text takes $X$ closed; with a closed $X$ its last sentence, that $A_T$ and $B_T$
-depend continuously on $T$, is formalized too (next paragraph; gap G.81, closed).
+depend continuously on $T$, is formalized too (next paragraph; point G.81, closed).
 
 *Checked by machine:* `Polyfold.exists_isCompl_isCompl_of_finrank_eq`, `Polyfold.proposition_6_4_13`.
 
@@ -1024,10 +1024,10 @@ $\mathbb R^n\to X$ is continuous into $X_\infty$, and nearby smooth points are j
 
 Property (2) needs more. A continuous section over $U_\infty$ is locally one of the two sheets, so it is $y\mapsto(y,\pm o_y)$ when $U_\infty$ is
 connected. Every smooth point has arbitrarily small open neighbourhoods $U$ with $U_\infty$
-connected in $X_\infty$; Part I does not state it, and it is proved for every M-polyfold (gap G.90; V6.74): `Polyfold.MPolyfold.hasConnectedSmoothNbhds`. §7.4 uses that $U_\infty$ is connected
-for connected open $U$ (gap G.85), which, as we read it, gives the hypothesis, $X$ being locally path connected (Proposition 2.3.7). Existence and uniqueness of a Hausdorff topology with (1) and (3) need no
+connected in $X_\infty$; Part I does not state it, and it is proved for every M-polyfold (point G.90; V6.74): `Polyfold.MPolyfold.hasConnectedSmoothNbhds`. §7.4 uses that $U_\infty$ is connected
+for connected open $U$ (point G.85), which, as we read it, gives the hypothesis, $X$ being locally path connected (Proposition 2.3.7). Existence and uniqueness of a Hausdorff topology with (1) and (3) need no
 extra hypothesis. The hypotheses on $X$ and $f$ are those under which $\Gamma_f$ is built (§6). The remarks after the theorem — $\pi_f$ as the
-orientation bundle, orientability as a global continuous section, the $\mathbb Z_2$-action and $\det_f$ — are formalized too (gap G.91; V6.82: `Polyfold.isOrientableSection_iff_exists_continuous_section`, `Polyfold.orMulAction`)
+orientation bundle, orientability as a global continuous section, the $\mathbb Z_2$-action and $\det_f$ — are formalized too (point G.91; V6.82: `Polyfold.isOrientableSection_iff_exists_continuous_section`, `Polyfold.orMulAction`)
 (Findings, items 118–121).
 
 *Checked by machine:* `Polyfold.OrSpace`, `Polyfold.IsOrientationTopology`, `Polyfold.orTopology`, `Polyfold.isLocalHomeomorph_orProj`,
@@ -1063,7 +1063,7 @@ chapter (Definitions 6.2.1, 6.3.1, 6.4.1–6.4.3, 6.4.16, 6.5.6, 6.6.2, 6.6.12, 
 Proposition 6.6.3 (preprint 6.28) with (1′) in place of (1), and orientable neighbourhoods as pairs $V\subseteq U$; formula (94) and Remark 6.6.19 (preprint 6.42)
 with the sign $(-1)^{\dim\operatorname{coker}T}$ along families; Theorem 6.6.18 (preprint 6.41) as tangent orientations continuous along the paths of zeros in a
 chart; $T_xX$, $Y_x$, $\mathrm{Lin}(f,x)$, $\mathrm{Or}^f_x$ in chart points, with the transfer between charts. Also formalized: Proposition 6.6.3 (1)
-(preprint 6.28) in its 2021 form (gap G.61); the facts on paths of preprint p. 201 (G.56); the members of $\mathrm{Lin}(f,x)$ as sc-Fredholm on
+(preprint 6.28) in its 2021 form (point G.61); the facts on paths of preprint p. 201 (G.56); the members of $\mathrm{Lin}(f,x)$ as sc-Fredholm on
 every level (G.64); the alternative determinant (G.57); (95) and the maps after Proposition 6.4.15 (preprint 6.15) (G.58); Lemma 6.5.3 (preprint 6.19) in
 general (G.59); the non-orientability of $\mathrm{DET}(E,F)$, with added hypotheses, and the classical case (G.60); Lemma 6.6.5 (preprint 6.30) as a statement about manifolds
 (G.62); property (P) (G.63); paths and families on $[0,1]$ (G.65); Remark 6.6.19 (preprint 6.42) beyond a point (G.66); the orientation of $S$ as

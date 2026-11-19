@@ -3,7 +3,7 @@ import Polyfold.Chapter9.HalfCircleSheet
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the submanifold
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the submanifold
 `M = [−1, 1] × {0}` of the M-polyfold `X` of `DimensionJumpPolyfold.lean`.
 
 # `M = [−1, 1] × {0}` is a tame `1`-dimensional submanifold of `X`

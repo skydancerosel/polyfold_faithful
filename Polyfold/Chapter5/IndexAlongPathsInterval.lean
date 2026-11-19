@@ -5,7 +5,7 @@ import Polyfold.Chapter5.IndexAlongPathsDevice
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, **Proposition 6.2.2**
 (p. 240; preprint: Proposition 6.2, p. 201), **for sc-smooth paths `φ : [0, 1] → X`**, as
-printed: row V3.98 and the Proposition 6.2.2 part of gap G.65 without the narrowing of decision D2
+printed: row V3.98 and the Proposition 6.2.2 part of point G.65 without the narrowing of decision D2
 (paths read on `ℝ`).
 
 # Proposition 6.2.2 on `[0, 1]`

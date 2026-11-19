@@ -1,7 +1,7 @@
 import Polyfold.Chapter9.DimDecompositionUnique
 
 /-!
-# Proposition 9.1.11: existence of the local dimensional decomposition (gap G.96)
+# Proposition 9.1.11: existence of the local dimensional decomposition (point G.96)
 
 2021 Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297), says that a branched
 ep⁺-subgroupoid `Θ` is `Θ_0 + Θ_1 + ⋯` with `Θ_k` a `k`-dimensional branched ep⁺-subgroupoid,
@@ -68,7 +68,7 @@ a chosen *labelled* local branching structure at `y` (one whose `Mᵢ` have cons
   `supp(Θ)` the construction gives it; at points of the closure of `supp(Θ)` outside `supp(Θ)` it
   is derived here from a bound on the dimensions.
 
-## Gap G.96
+## Point G.96
 
 For ep-groupoids whose object space is `ℝᵐ`: `proposition_9_1_11_local_rn`.  In
 general the gluing is `existsUnique_localDimDecomposition`, from its inputs: Proposition

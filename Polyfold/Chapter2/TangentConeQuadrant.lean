@@ -9,7 +9,7 @@ p. 57 (preprint Definition 2.38): for tame `X` and smooth `x`, `C_xX` is a parti
 # `C_xX` as a partial quadrant, and `d_{C_xX}(0_x) = d_X(x)`
 
 `ReducedTangentIntrinsic.lean` defines `T^R_xX` and `C_xX` inside `T_xX` and proves they do not
-depend on the chart (gap G.13, first part).  This file adds the second part.
+depend on the chart (point G.13, first part).  This file adds the second part.
 
 ## What is formalized
 

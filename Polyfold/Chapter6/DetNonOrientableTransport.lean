@@ -5,7 +5,7 @@ import Mathlib.SetTheory.Cardinal.Arithmetic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), the end of §6.5 (p. 262;
-preprint p. 219): the remark that **the line bundle `DET(E, F)` is non-orientable**.  Gap G.60,
+preprint p. 219): the remark that **the line bundle `DET(E, F)` is non-orientable**.  Point G.60,
 transport along isomorphisms of `E` and `F`.
 
 # Orientability of `DET(E, F)` depends only on the isomorphism classes of `E` and `F`

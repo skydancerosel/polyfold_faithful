@@ -18,7 +18,7 @@ whether an sc-Fredholm germ has germ data in a tame chart when the atlas is tame
 a strong bundle chart" centred at `x₀` with a filling `g`, a local sc⁺-section `s` and `g − s`
 conjugated to a basic germ.  (Definition 3.6.3, preprint/2017 form) For a tame strong bundle the
 chart is required to have a tame local bundle; the 2021 Definition 3.6.3 says "strong local bundle",
-and the project reads the phrase "tame strong bundle" of Theorem 3.6.8 ff. this way (gap G.79).
+and the project reads the phrase "tame strong bundle" of Theorem 3.6.8 ff. this way (point G.79).
 (Definition 2.5.2) An sc-smooth retraction `r : U → U`, `U` relatively
 open in the partial quadrant `C`, is tame if `d_C(r(x)) = d_C(x)` on `U` and every tangent space
 `T_xO`, `x ∈ O` smooth, has an sc-complement inside the minimal subspace `E_x`.
@@ -63,7 +63,7 @@ and asked whether this invariant could obstruct moving germ data into a tame cha
   lie in `O × 0` — asks for the injectivity of `(1 − ρ(u))|_{ker ρ(0)}` and of `π|_{(1 − r)(U)}`
   at points `u` close to `0` on level `0` only, where `u ↦ ρ(u)` and `r` are not norm-continuous:
   this is the level-`0` inverse function theorem that the sc-calculus does not provide, the same
-  gap as in Findings item 263 for whole-chart fillings.  That every sc-Fredholm germ has tame
+  difficulty as in Findings item 263 for whole-chart fillings.  That every sc-Fredholm germ has tame
   germ data when the atlas is tame (item 353 (iii)) does not hold:
   `UntamedCorner.isScFredholmGerm2021_not_tame` (`UntamedBundleTheorem.lean`).
 -/

@@ -8,7 +8,7 @@ import Mathlib.GroupTheory.Perm.Fin
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): the Euclidean layer of
 the integration of differential forms used in **Theorem 4.4.7** (p. 199; preprint Theorem 4.28,
-Stokes' theorem, gap G.40), **Theorem 6.7.1** and the branched Stokes theorems of **§9.5**, with
+Stokes' theorem, point G.40), **Theorem 6.7.1** and the branched Stokes theorems of **§9.5**, with
 the boundary orientation of **Definition 9.3.8** (p. 427).  Numbers and pages are the 2021 text's.
 
 # Top-degree forms on `ℝⁿ`: integral, pull-back, change of variables, quadrants and faces

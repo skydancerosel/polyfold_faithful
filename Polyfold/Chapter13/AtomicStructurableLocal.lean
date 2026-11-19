@@ -37,7 +37,7 @@ points not over `|U(x₀)|`.
 `hcrit`, the step "the transported structures fit together through correspondences", is no
 longer needed: `AtomicStructurable` builds the correspondences as in the text and proves
 `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic `Λ`, with
-`theorem_13_5_3_of_paracompact` and `theorem_13_5_5_structurable` (gap G.149, closed).  The
+`theorem_13_5_3_of_paracompact` and `theorem_13_5_5_structurable` (point G.149, closed).  The
 declarations above are kept as supporting declarations.
 -/
 

@@ -4,7 +4,7 @@ import Polyfold.Chapter5.Theorem5315_Ends
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3,
 **Theorem 5.3.15** (p. 223; 2017: Theorem 5.8; preprint: Theorem 5.22), conclusion (2): the
-globalization of the proof (p. 227).  Gap G.48.
+globalization of the proof (p. 227).  Point G.48.
 
 # Theorem 5.3.15 (2): the covering argument
 

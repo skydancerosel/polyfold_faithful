@@ -46,7 +46,7 @@ the prompts before handing them to a model. Four Lean sessions at a time fit on 
 
 ## Status
 
-All 604 non-extra, non-gap items of Chapters 1–11 are audited; see `REPORT.md`. Chapters 1–5 (269
+All 604 non-extra, formalized items of Chapters 1–11 are audited; see `REPORT.md`. Chapters 1–5 (269
 items) were audited against commit 12924a4, Chapter 6 (60 items) against commit 439bc62, Chapter 7
 (64 items, quoted from the 2017 book) against commit 919831f, and Chapters 8–11 (211 items;
 Chapters 9–11 and the 2021-only items of Chapter 8 quoted from the Springer 2021 book) against

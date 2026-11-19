@@ -9,7 +9,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 ## The text, paraphrased
 
 (Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0` ... `f'(y)` is surjective.
-Property (4) follows from Corollary 3.41 and from Lemma 3.55."  The text's argument has a gap
+Property (4) follows from Corollary 3.41 and from Lemma 3.55."  The text's argument leaves a step to the reader
 (Finding 100: Corollary 3.5.3 (preprint 3.41) gives the surjectivity of the *filled* derivative `Dg(z₀)`, and
 passing to the intrinsic linearization needs condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`).  The repair
 (Findings 180–189) solves, for a fixed zero `z₀` and a fixed smooth `λ`, the perturbed equation

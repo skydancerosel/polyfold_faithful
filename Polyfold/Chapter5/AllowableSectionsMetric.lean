@@ -12,7 +12,7 @@ Lemma 5.3.3 (preprint 5.11)): the allowable sections `Γ^{+,1}_U(P)` and the uni
 For an auxiliary norm `N` (Definition 5.1.1 (preprint 5.1)) and an open `U ⊆ X`, `Γ^{+,1}_U(P)` is the set of
 sc⁺-sections `s` with `supp(s) ⊆ U` and `N(s(x)) ≤ 1` for all `x`.  It "becomes a metric space
 with respect to the uniform distance `ρ(s, s') = sup_x N(s(x) − s'(x))`.  The metric space
-`(Γ^{+,1}_U(P), ρ)` is not complete."  No proof or example is given (comparison item V5.21, gap
+`(Γ^{+,1}_U(P), ρ)` is not complete."  No proof or example is given (comparison item V5.21, point
 G.42).
 
 ## What is formalized
@@ -106,7 +106,7 @@ lemma IsAuxNorm.sub_triangle (hN : B.IsAuxNorm N) {x : X} (v w z : B.oneFiber x)
 
 variable (B N U) in
 /-- **The uniform distance `ρ(s, s') = sup_x N(s(x) − s'(x))` on `Γ^{+,1}_U(P)`** (§5.3, p. 174;
-comparison item V5.21, gap G.42). -/
+comparison item V5.21, point G.42). -/
 def allowableDist (s s' : B.allowableSections N U) : ℝ :=
   ⨆ x, B.sectionDistAt N s.2.1 s'.2.1 x
 
@@ -180,7 +180,7 @@ theorem eq_of_allowableDist_eq_zero (hN : B.IsAuxNorm N) {s s' : B.allowableSect
 
 variable (U) in
 /-- **`(Γ^{+,1}_U(P), ρ)` is a metric space** (§5.3, p. 174), for an auxiliary norm `N`
-(comparison item V5.21, gap G.42). -/
+(comparison item V5.21, point G.42). -/
 @[reducible] def allowableMetric (hN : B.IsAuxNorm N) : MetricSpace (B.allowableSections N U) where
   dist := B.allowableDist N U
   dist_self := allowableDist_self hN
@@ -483,7 +483,7 @@ lemma not_differentiableAt_limit :
   rw [h3] at h2
   exact not_differentiableAt_abs_zero h2
 
-/-- **`(Γ^{+,1}_U(P), ρ)` is not complete** (§5.3, p. 174; comparison item V5.21, gap G.42), for the
+/-- **`(Γ^{+,1}_U(P), ρ)` is not complete** (§5.3, p. 174; comparison item V5.21, point G.42), for the
 trivial bundle `ℝ × ℝ → ℝ`, the fibre norm and `U = ℝ`: the allowable sections
 `s_j(x) = (x, √(x² + 1/(j+1)²)/(2√(1 + x²)))` form a `ρ`-Cauchy sequence (`ρ(s_i, s_j) ≤ (ε_i +
 ε_j)/2`) with no limit in `Γ^{+,1}_U(P)`: a limit `s` would have fibre part `|x|/(2√(1 + x²))`
@@ -552,7 +552,7 @@ lemma isScPlusSection_of_isSection_point {s : (Fin 0 → ℝ) → (Fin 0 → ℝ
 
 /-- **Over a point with finite-dimensional fibre, `(Γ^{+,1}_U(P), ρ)` is complete**: it is the
 closed unit ball of `ℝᵏ` (if `U ∋ 0`).  So the text's "not complete" (§5.3, p. 174) needs a
-hypothesis on `X`, `U` and the fibres (comparison item V5.21, gap G.42). -/
+hypothesis on `X`, `U` and the fibres (comparison item V5.21, point G.42). -/
 theorem completeSpace_allowableSections_point (U : Set (Fin 0 → ℝ)) :
     CompleteSpace (StrongBundle.AllowableSpace (B := bundle 0 k) U isAuxNorm_fibNorm) := by
   refine Metric.complete_of_cauchySeq_tendsto fun u hu => ?_

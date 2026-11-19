@@ -3,7 +3,7 @@ import Polyfold.Chapter6.UnitIntervalSections
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6,
 **Proposition 6.6.3 (3) and (4)** (p. 263; preprint Proposition 6.28) **for families on
-`[0, 1]ⁿ`**.  Gap G.65 (a), row V6.32.
+`[0, 1]ⁿ`**.  Point G.65 (a), row V6.32.
 
 # sc⁺-sections over `[0, 1]ⁿ × X` along a family
 

@@ -4,7 +4,7 @@ import Polyfold.Chapter9.TangentSubmanifoldSmooth
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §8.2 (Definition 8.2.1, p. 281) and §9.5, pp. 438–445 (gap G.107).  Numbers and pages
+Part II, §8.2 (Definition 8.2.1, p. 281) and §9.5, pp. 438–445 (point G.107).  Numbers and pages
 are the 2021 text's.
 
 # Smooth finite-dimensional submanifolds and their tangent spaces on the level `X¹`

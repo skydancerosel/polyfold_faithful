@@ -3,7 +3,7 @@ import Polyfold.Chapter4.ManifoldFaceForms
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §4.4,
 **Theorem 4.4.7** (Stokes, p. 199; preprint Theorem 4.28): "whose boundary `∂N`, a union of smooth
-faces `F`, is equipped with the induced orientation" (gap G.40, second step).
+faces `F`, is equipped with the induced orientation" (point G.40, second step).
 
 # The induced orientation of a face
 

@@ -76,12 +76,12 @@ sc-diffeomorphism of `U(x)` onto an open image with `β(x) = x` and `|β(y)| = |
 
 * **No linear structure is needed.**  (ZHOU) asks that `Tg : T_xX → T_xX` be the identity map, a
   statement about the set map `tangentMor g` on the fibre `T_xX` (the project has no linear
-  structure on `T_xX`, gap G.7).  `tangentMor_eq_tΦ` shows that this map is `TΦ(g)` on `T_xX`
+  structure on `T_xX`, point G.7).  `tangentMor_eq_tΦ` shows that this map is `TΦ(g)` on `T_xX`
   for every natural representation, so (ZHOU) agrees with the text's `T ĝ(x) = id`.
 * **Part I facts as hypotheses**, each satisfied by `discretePolyfold Unit` and by every
   M-polyfold on a subsingleton with all points smooth: `DenseSmooth` (`X_∞` dense in every `X_m`,
-  2021 p. 289, gap G.73), `SmoothConnected` (`U ∩ X_∞` connected in `X_∞` for connected open
-  `U`), `IsOpenMap tangentProj` (gap G.8), `TangentDeterminedSmooth` (maps agreeing near a smooth
+  2021 p. 289, point G.73), `SmoothConnected` (`U ∩ X_∞` connected in `X_∞` for connected open
+  `U`), `IsOpenMap tangentProj` (point G.8), `TangentDeterminedSmooth` (maps agreeing near a smooth
   `y` in `X_∞` have the same tangent on `T_yX`), bundled as `SmoothRegular`; and
   `DenseSmoothTangent` (`(T_xX)_∞` dense in `T_xX`) for Lemma 7.4.6.  Lemma 7.4.4 assumes, as its
   proof does, that `U(x) ∩ X₁` is connected in `X¹` and dense in `U(x)`
@@ -533,7 +533,7 @@ namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
 /-- The Part I facts used in §7.4 (2021 pp. 331–340), bundled: `X_∞` dense in every `X_m`,
-`U ∩ X_∞` connected for connected open `U`, `p : TX → X¹` open (gap G.8), and
+`U ∩ X_∞` connected for connected open `U`, `p : TX → X¹` open (point G.8), and
 `TangentDeterminedSmooth`.  Satisfiable: `smoothRegular_discrete_unit`,
 `smoothRegular_of_subsingleton`. -/
 structure SmoothRegular : Prop where

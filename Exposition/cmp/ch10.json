@@ -835,7 +835,7 @@
     "$\\Gamma$ for $\\Gamma^+$: reading point"
    ],
    "diff": [
-    "**The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter5/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).",
+    "**The Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; point G.121 settled), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter5/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).",
     "The second display is read with $\\Gamma^+$ (Findings, Chapter 10, item 44)."
    ]
   },
@@ -1437,7 +1437,7 @@
    ],
    "diff": [
     "Proved in full in V10.60; the narrower form is kept (`OrbitChart.Rel`, the equivalence relation).",
-    "None beyond the gap (Findings, Chapter 10, item 39)."
+    "None beyond the point (Findings, Chapter 10, item 39)."
    ]
   },
   {
@@ -1597,7 +1597,7 @@
     "$|X| \\to |X|$: reading point"
    ],
    "diff": [
-    "The bottom arrow is printed $|X| \\to |X|$, as in (10.24) and after Remark 10.5.3, in both editions; we read $X'$. With the generalized maps $i(P)$, $i(P')$ as vertical arrows, (10.24) commutes in $\\mathcal{EP}(E^{-1})$ (`SDiagram.square_10_24`, `GenSBMap.square_10_24`; gap G.124 closed) (Findings, Chapter 10, item 51)."
+    "The bottom arrow is printed $|X| \\to |X|$, as in (10.24) and after Remark 10.5.3, in both editions; we read $X'$. With the generalized maps $i(P)$, $i(P')$ as vertical arrows, (10.24) commutes in $\\mathcal{EP}(E^{-1})$ (`SDiagram.square_10_24`, `GenSBMap.square_10_24`; point G.124 settled) (Findings, Chapter 10, item 51)."
    ]
   },
   {
@@ -1800,7 +1800,7 @@
     "$\\Gamma$ as a submodule of $\\Pi_x W_x$"
    ],
    "diff": [
-    "**The isomorphism is proved as a linear isomorphism** (`pushforwardEquiv`). $\\Gamma(P, \\mu)$, a set of maps $X \\to W$ in the project, is also realised as a submodule of $\\Pi_x W_x$, which carries the vector space structure of Definition 8.3.4. On $\\mathrm{Fred}$, which is not a vector space, the statement is a bijection (`theorem_10_5_4_fred`; gap G.125 closed) (Findings, Chapter 10, items 55, 73)."
+    "**The isomorphism is proved as a linear isomorphism** (`pushforwardEquiv`). $\\Gamma(P, \\mu)$, a set of maps $X \\to W$ in the project, is also realised as a submodule of $\\Pi_x W_x$, which carries the vector space structure of Definition 8.3.4. On $\\mathrm{Fred}$, which is not a vector space, the statement is a bijection (`theorem_10_5_4_fred`; point G.125 settled) (Findings, Chapter 10, items 55, 73)."
    ]
   },
   {

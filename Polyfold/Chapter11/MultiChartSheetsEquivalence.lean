@@ -4,7 +4,7 @@ import Polyfold.Chapter11.OrientedStructureDiffeo
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4, proof of Theorem 11.4.1 (pp. 543–544; 2017: Theorem 11.8, p. 396),
-gap G.131, with the integration of 2021 §9.5, pp. 438–445.  Numbers and pages are the 2021
+point G.131, with the integration of 2021 §9.5, pp. 438–445.  Numbers and pages are the 2021
 text's.
 
 # Sheets covered by several graph charts, moved between two ep-groupoids

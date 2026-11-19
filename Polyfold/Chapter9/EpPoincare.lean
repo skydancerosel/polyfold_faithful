@@ -4,7 +4,7 @@ import Polyfold.Chapter5.OpenForms
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §8.2,
-**Proposition 8.2.3** (Poincaré Lemma, pp. 373–374; not in the 2017 numbering of gap G.87):
+**Proposition 8.2.3** (Poincaré Lemma, pp. 373–374; not in the 2017 numbering of point G.87):
 the first step of its proof.
 
 # The Poincaré lemma on an ep-groupoid: the step on the object M-polyfold
@@ -28,7 +28,7 @@ saturation of `V'(x)` by the morphisms.
 
 The averaging over `G_x` and the extension to the saturation, hence Proposition 8.2.3 itself,
 use the push-forward of forms along the equivalence `G_x ⋉ U(x) → X|π⁻¹(π(U(x)))` of §11.2:
-`EP.proposition_8_2_3` in `Chapter11/EpPoincareLemma.lean` (gap G.87).
+`EP.proposition_8_2_3` in `Chapter11/EpPoincareLemma.lean` (point G.87).
 -/
 
 set_option maxSynthPendingDepth 3

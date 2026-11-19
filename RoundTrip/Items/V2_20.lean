@@ -14,7 +14,7 @@ B's topology `τB P = generateFrom 𝓑` is the project's instance on `P.Tangent
 
 * `B → A`: every conjunct of A is read off B.
 * `A → B` is NOT proved: B's (2) asserts that `p : TX → X_1` is an OPEN map, which the project
-  does not prove (its docstrings: gap G.8, "openness is not needed and not proved"), and A does not
+  does not prove (its docstrings: point G.8, "openness is not needed and not proved"), and A does not
   contain.  Everything else in B follows from A (`A_to_B_of_isOpenMap`): metrizable/paracompact
   and continuity are A; Hausdorff is the project's instance; "𝓑 is a basis" (closure under
   intersections, also not stated in the project) follows from the tangent charts

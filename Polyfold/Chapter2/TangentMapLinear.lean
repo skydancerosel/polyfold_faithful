@@ -16,7 +16,7 @@ functorial, `Tf : TX → TY` is sc-smooth and covers `f`; in charts `Tf` is `T(�
 `(a, h) ↦ (g(a), Dg(a)h)` (Definition 2.1.14), so on each fibre it is the bounded linear map
 `Dg(φ(x))`, an sc-operator at a smooth `x` (Proposition 1.2.3).
 
-## What is formalized (gaps G.7 and G.70; rows V2.19, V2.21, V2.94)
+## What is formalized (points G.7 and G.70; rows V2.19, V2.21, V2.94)
 
 * `MPolyfold.tangentMapOnFiber hf hxU hxy : T_xX → T_{f(x)}Y`, the restriction of `Tf` to the
   fibres, for a map `f` sc-smooth on an open set `U ∋ x` (Chapter 8's `tangentMapOn`).

@@ -6,7 +6,7 @@ import Polyfold.Chapter4.TameSub
 import Polyfold.Chapter6.RetractTangentShift
 
 /-!
-# Restriction of sc-forms to finite-dimensional sub-M-polyfolds (gap G.80)
+# Restriction of sc-forms to finite-dimensional sub-M-polyfolds (point G.80)
 
 The invariant of 2021 Theorem 6.7.1 (p. 277; preprint Theorem 6.43) integrates the restriction
 `ω|_S` of an sc-differential form `ω ∈ Ωᵏ_∞(X)` (Definition 4.4.2, p. 195) over a solution set `S`,

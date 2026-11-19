@@ -4,7 +4,7 @@ import Polyfold.Chapter11.MeasureGeneralizedIso
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4, **Theorem 11.4.2** (p. 544, new in the 2021 edition) for generalized
-isomorphisms, gap G.131.  Numbers and pages are the 2021 text's.
+isomorphisms, point G.131.  Numbers and pages are the 2021 text's.
 
 # The effective canonical measures along a generalized isomorphism
 

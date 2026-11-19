@@ -3,7 +3,7 @@ import Polyfold.Chapter5.StrongBundleMap
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, products remark after
-**Definition 15.3.3** (pp. 692–693): products of strong bundle maps (gap G.160, a step towards
+**Definition 15.3.3** (pp. 692–693): products of strong bundle maps (point G.160, a step towards
 (b), the structure map `μ × μ'` of the product of strong bundles over ep-groupoids).
 
 # Products of strong bundle maps

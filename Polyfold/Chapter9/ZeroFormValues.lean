@@ -3,7 +3,7 @@ import Polyfold.Chapter9.PointIntegration
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, Theorems 9.5.15–9.5.18 for `n = 1` (pp. 449–451; gaps G.109, G.110): the values
+Part II, §9.5, Theorems 9.5.15–9.5.18 for `n = 1` (pp. 449–451; points G.109, G.110): the values
 of the `0`-forms of `Ω⁰_{ep,∞}(X)` at the smooth points, and the integration of `0`-forms over
 oriented points.  Numbers and pages are the 2021 text's.
 

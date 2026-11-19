@@ -99,7 +99,7 @@ locally constant along the solution set.
 * **The index in the interior case**: the text's Theorem 3.1.22 (preprint 3.19) states `f'(x₀)` sc-Fredholm; as in
   `proposition_3_6_5_wholeChart`, only the level-`0` Fredholm property and index are formalized.
 * **"`ker f'(y) = T_yS(f, U)`"**: `T_yS` as a subspace of `T_yX` (Definition 2.5.8 (preprint 2.38)) is not
-  formalized (gap G.13); the chart form is the image of `ker f'(y)` under the derivative of the
+  formalized (point G.13); the chart form is the image of `ker f'(y)` under the derivative of the
   chart `ψ ∘ ϕ` of the tangent germ data, `Dψ(z)(ker Lin(z)) = N_v`.
 * **Good position and surjectivity when `∂X = ∅`**: Definition 3.6.6 (preprint 3.53) is stated in the chart of
   Definition 3.1.11 (preprint 3.11) with the partial quadrant `C` of the chart, which need not be the whole space

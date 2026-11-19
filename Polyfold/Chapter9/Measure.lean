@@ -85,7 +85,7 @@ for sc-forms (`SheetIntegrationConcrete.lean`, `MultiChartIntegration.lean`: The
 for every `n` are in `BoundaryNullSigmaAlgebra.lean`, and Theorems 9.5.15–9.5.18 with the
 boundary measures, under a class condition on the boundary sheets, in `BoundaryMeasure.lean`
 and `StokesBoundaryMeasure.lean`.  In this file:
-forms, integrals and the measures `μ_ω` (gaps G.74, G.80): Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18,
+forms, integrals and the measures `μ_ω` (points G.74, G.80): Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18,
 Definition 9.5.6, (9.21), (9.22), Lemma 9.5.7 (its combinatorics is `proposition_9_4_10`),
 Remarks 9.5.8, 9.5.12, 9.5.19, 9.5.20.
 -/

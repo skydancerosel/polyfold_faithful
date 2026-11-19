@@ -3,7 +3,7 @@ import Polyfold.Chapter9.DensityLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5 "Integration and Stokes": **(9.22)**, p. 441 (gap G.107).
+Part II, Chapter 9, §9.5 "Integration and Stokes": **(9.22)**, p. 441 (point G.107).
 
 # (9.22): `dμ_τ = f̄ · dμ_ω` for `τ = f · ω`, as an identity of signed measures
 

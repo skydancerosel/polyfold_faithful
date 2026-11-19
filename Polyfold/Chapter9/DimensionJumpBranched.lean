@@ -4,7 +4,7 @@ import Polyfold.Chapter9.HalfCircleWitness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the branched ep⁺-subgroupoid
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the branched ep⁺-subgroupoid
 `Θ(t, z) = δ₀(z)` of `ℤ/3 ⋉ X` and its orientation.
 
 # `Θ = 1_M` is a compact oriented tame branched ep⁺-subgroupoid of `ℤ/3 ⋉ X`

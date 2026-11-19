@@ -2,11 +2,11 @@ import Polyfold.Chapter3.BookItems
 import Polyfold.Chapter3.GoodPositionSc
 
 /-!
-# Corrections as machine-checked counterexamples: Lemma 3.8.6 (2), gap G.46, the set `Σ`
+# Corrections as machine-checked counterexamples: Lemma 3.8.6 (2), point G.46, the set `Σ`
 
 Three places where the project says that a statement of the 2021 text "does not hold as we read
 it" had no direct Lean counterexample: Lemma 3.8.6 (2) at `N = 0` (row V3.120), the boundary step
-of the proof of Theorem 5.3.12 (gap G.46) and the set `Σ` of the proof of Theorem 3.2.3 (row
+of the proof of Theorem 5.3.12 (point G.46) and the set `Σ` of the proof of Theorem 3.2.3 (row
 V3.24).  This file supplies them.
 
 ## Lemma 3.8.6 (2) at `N = 0` (row V3.120)
@@ -18,7 +18,7 @@ V3.24).  This file supplies them.
 is stated directly: `not_lemma_3_8_6_two` is the negation of Lemma 3.8.6 (2) as printed
 (every `E`, every presentation, every `N`), witnessed by `N = 0` in `E = ℝ`, `C = [0, ∞)`.
 
-## Good position is not stable under `ℝ × ·` (gap G.46)
+## Good position is not stable under `ℝ × ·` (point G.46)
 
 The proof of 2021 Theorem 5.3.12, p. 222 (2017: Theorem 5.7; preprint: Theorem 5.19, p. 180),
 applies "as before" the argument of Theorem 5.3.10 to the parametrized section
@@ -39,7 +39,7 @@ instance, machine-checked here:
 
 So "as before" cannot apply the implicit function theorem for sections in good position (2021
 Theorem 3.6.8; preprint 3.54) to `F` at these zeros, and the project's proof of Theorem 5.3.12
-(`theorem_5_3_12_param`) avoids them (row V5.40).  This certifies gap **G.46**.
+(`theorem_5_3_12_param`) avoids them (row V5.40).  This certifies point **G.46**.
 
 ## The set `Σ` of the proof of Theorem 3.2.3 (row V3.24)
 
@@ -132,7 +132,7 @@ theorem not_lemma_3_8_6_two :
   obtain ⟨e, -⟩ := h E₁ 1 (rnSc 0) (ScIso.refl E₁) ⊥ h1 h2 h3
   exact h5.false e
 
-/-! ### Good position is not stable under `ℝ × ·` (gap G.46) -/
+/-! ### Good position is not stable under `ℝ × ·` (point G.46) -/
 
 /-- `ℝ²` with the constant sc-structure. -/
 abbrev E2 : ScBanach := ScBanach.const (Fin 2 → ℝ)
@@ -209,7 +209,7 @@ theorem isInGoodPositionSc_diag : IsInGoodPositionSc E2 corner diag :=
   ⟨isInGoodPosition_diag.interior_nonempty, antidiag,
     isScSplitting_const _ _ _ isCompl_diag_antidiag, isGoodComplement_diag_antidiag.exists_eps⟩
 
-/-- **`ℝ × ℝ(1, 1)` is not in good position to `ℝ × [0, ∞)²`** (gap G.46), not even with an
+/-- **`ℝ × ℝ(1, 1)` is not in good position to `ℝ × [0, ∞)²`** (point G.46), not even with an
 algebraic good complement: the second components of a good complement would lie in
 `[0, ∞)² ∩ −[0, ∞)² = 0`. -/
 theorem not_isInGoodPosition_prod_diag : ¬ IsInGoodPosition E3 cornerProd diagProd := by
@@ -254,7 +254,7 @@ theorem not_isInGoodPosition_prod_diag : ¬ IsInGoodPosition E3 cornerProd diagP
   have e1 : t = 0 := by simpa using h1
   exact one_ne_zero (e0.symm.trans e1)
 
-/-- **Gap G.46, the boundary step of the proof of 2021 Theorem 5.3.12, p. 222 (2017: Theorem 5.7;
+/-- **Point G.46, the boundary step of the proof of 2021 Theorem 5.3.12, p. 222 (2017: Theorem 5.7;
 preprint: Theorem 5.19)**: good position is not stable under products with `ℝ` (Findings, Chapter
 5, item 88).  `ℝ(1, 1)` is in good position to `[0, ∞)²` (with an sc-complement), but
 `ℝ × ℝ(1, 1)` is not in good position to `ℝ × [0, ∞)²`, neither with an

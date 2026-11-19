@@ -16,10 +16,10 @@ tangent space `T^R_xX ⊆ T_xX` and the partial cone `C_xX ⊆ T_xX` are the pre
 2.4.10 they do not depend on the chart.  For tame `X`, `C_xX` is a partial quadrant in `T_xX` and
 `d_X(x) = dim(T_xX / T^R_xX) = d_{C_xX}(0_x)`.
 
-## What is formalized (gap G.13 of `Exposition/cmp/ch02.json`)
+## What is formalized (point G.13 of `Exposition/cmp/ch02.json`)
 
 * `MPolyfold.fiberCoord hφ hx : T_xX →ₗ[ℝ] E`, the linear map `Tφ(x)` followed by the inclusion
-  `T_{φ(x)}O ⊆ E` (through `tangentFiberLinearEquiv`, gap G.7).
+  `T_{φ(x)}O ⊆ E` (through `tangentFiberLinearEquiv`, point G.7).
 * **`MPolyfold.reducedTangentFiber hφ hx T : Submodule ℝ (T_xX)`** (`T^R_xX`) and
   **`MPolyfold.partialConeFiber hφ hx T : Set (T_xX)`** (`C_xX`), defined through the chart `φ`
   and a presentation `T` of its partial quadrant; `mem_reducedTangentFiber_iff`,

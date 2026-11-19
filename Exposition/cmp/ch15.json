@@ -21,7 +21,7 @@
     "summands: all maps; Fredholm: V15.9"
    ],
    "diff": [
-    "Formal sums are finitely supported functions, defined at all level-1 points. That the summands are sc-Fredholm is not part of the type; it is proved for the summands that occur (V15.9, gap G.145 closed); $\\varphi_*$ and $\\mathrm{GrF}(X)$ as a category are not built (gap G.144)."
+    "Formal sums are finitely supported functions, defined at all level-1 points. That the summands are sc-Fredholm is not part of the type; it is proved for the summands that occur (V15.9, point G.145 settled); $\\varphi_*$ and $\\mathrm{GrF}(X)$ as a category are not built (point G.144)."
    ]
   },
   {
@@ -81,7 +81,7 @@
     "Fredholm summands: chart reading, `hft`"
    ],
    "diff": [
-    "The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. The functor property $T(f,\\Lambda)(t\\varphi) = \\varphi_* T(f,\\Lambda)(s\\varphi)$ is proved at all level-1 points (`theorem_15_1_1_functor`, with $\\varphi_*$ = `grfPush`, $T\\varphi$ = Chapter 7's `tangentMorCLE`; gap G.144 closed), where the text speaks of smooth points. The row stays narrower for one reason only: the sc-Fredholm property of the summands is proved in the chart reading for $f$ with Part I's tame germ data (`linearization_summand_isScFredholm`, V15.9; gap G.145 closed).",
+    "The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. The functor property $T(f,\\Lambda)(t\\varphi) = \\varphi_* T(f,\\Lambda)(s\\varphi)$ is proved at all level-1 points (`theorem_15_1_1_functor`, with $\\varphi_*$ = `grfPush`, $T\\varphi$ = Chapter 7's `tangentMorCLE`; point G.144 settled), where the text speaks of smooth points. The row stays narrower for one reason only: the sc-Fredholm property of the summands is proved in the chart reading for $f$ with Part I's tame germ data (`linearization_summand_isScFredholm`, V15.9; point G.145 settled).",
     "Readings (Findings, Chapter 15, items 1, 2): (a) the separation argument runs in the level-1 topology, and the \"weak topology\" of the limit of derivatives is read as pointwise convergence on $E_0$ (the derivatives $D(g \\circ r)$ of an sc¹ map are continuous only from level 1); (b) in the final display, presumably the sum is over $\\{i : f(0) = s_i(0)\\}$, since $f(0) = s_i(0)$ need not hold for all $i$; the proof compares the formal sums of pairs $(s_i(r(y)), D((f - s_i) \\circ r)(y))$. \"Without loss of generality $X = O$\" is the chart change `toIntr_chart_independent`.",
     "The functor property: $x \\in X_1$ forces $\\varphi \\in \\mathbf X_1$ (`mem_levelSet_one_of_src`). Local section structures and charts are carried along the local strong bundle isomorphism `E.morIso φ` of the sheet of $\\varphi$ (`isLocalRepOn_transSec`, `LocalIso.transportChart`); in the carried chart $T\\varphi$ is the identity on chart vectors and the fibre part composes with $\\mu(\\varphi,\\cdot)$ (`toIntr_transportChart`). The functoriality of $\\varphi \\mapsto \\varphi_*$ itself ($(\\psi\\varphi)_* = \\psi_*\\varphi_*$) is not formalized and is not needed for the theorem."
    ]
@@ -395,7 +395,7 @@
    ],
    "diff": [
     "Hidden hypotheses: `hft : A.B.IsScFredholmSectionTame f` (Part I's tame germ data), inherited from Part I's Theorems 3.1.18 and 3.6.8 (rows V3.94, V3.103, V3.105; with the 2021 untamed notion Theorem 3.6.8 does not hold as we read it, V3.130); the text of §15.1–15.2 does not carry it (\"a strong bundle over an ep-groupoid, $f$ an sc-Fredholm section functor\"). Witness: `theorem_15_2_2_hyp_witness` (over $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$, the graph section of $0$ with $\\Lambda_0$); for the global form also `IsTransversal f Λ`, $d_X = 0$ on the support and the paracompactness of $|\\mathrm{supp}|$ (Definition 9.1.2 (1), new in 2021, which the remark does not address), with the witness `remark_15_2_3_isBranchedEpSubgroupoid_hyp_witness`.",
-    "\"Tame\" (Definition 9.3.6) and \"on the ep-groupoid $U(x)$\" are formalized (gaps G.150, G.152 closed). \"The ep-groupoid $U(x)$\" is read as the translation groupoid $G_x \\ltimes U(x)$, which Chapter 7 proves to be an ep-groupoid and which $\\Gamma$ maps fully faithfully onto the full subcategory on $U(x)$ (Theorem 7.1.13 (3); Proposition 7.1.19 identifies the orbit spaces). On it no paracompactness hypothesis is needed. \"With support $M_{U(x)}$\" is the definition of the support."
+    "\"Tame\" (Definition 9.3.6) and \"on the ep-groupoid $U(x)$\" are formalized (points G.150, G.152 settled). \"The ep-groupoid $U(x)$\" is read as the translation groupoid $G_x \\ltimes U(x)$, which Chapter 7 proves to be an ep-groupoid and which $\\Gamma$ maps fully faithfully onto the full subcategory on $U(x)$ (Theorem 7.1.13 (3); Proposition 7.1.19 identifies the orbit spaces). On it no paracompactness hypothesis is needed. \"With support $M_{U(x)}$\" is the definition of the support."
    ]
   },
   {
@@ -459,7 +459,7 @@
    ],
    "diff": [
     "Hidden hypotheses: `hft : A.B.IsScFredholmSectionTame f` (Part I's tame germ data), inherited from Part I's Theorems 3.1.18 and 3.6.8 (rows V3.94, V3.103, V3.105; with the 2021 untamed notion Theorem 3.6.8 does not hold as we read it, V3.130); the text of §15.1–15.2 does not carry it (\"a strong bundle over an ep-groupoid, $f$ an sc-Fredholm section functor\"). Witness: `theorem_15_2_2_hyp_witness` (over $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$, the graph section of $0$ with $\\Lambda_0$).",
-    "\"Tame submanifolds\" and \"tame branched\" (Definition 9.3.6) are `theorem_15_2_5_tame_hyp`, `theorem_15_2_5_restricted_hyp` and `theorem_15_2_5_isTameBranched_hyp` (gap G.150 closed): each $M_j$ is `IsSmoothSubmanifold` (Definition 4.2.1) with a tame induced structure (Definition 2.5.18). The closing variant with $T^R_yX$ (general position) is `theorem_15_2_5_generalPosition_hyp` (gap G.151 closed), with `hX : A.X.IsTame` and `hft`; the hypothesis is at $x$ only, and the conclusion gives general and good position on $U(x)$. Witness: `theorem_15_2_5_generalPosition_hyp_witness`.",
+    "\"Tame submanifolds\" and \"tame branched\" (Definition 9.3.6) are `theorem_15_2_5_tame_hyp`, `theorem_15_2_5_restricted_hyp` and `theorem_15_2_5_isTameBranched_hyp` (point G.150 settled): each $M_j$ is `IsSmoothSubmanifold` (Definition 4.2.1) with a tame induced structure (Definition 2.5.18). The closing variant with $T^R_yX$ (general position) is `theorem_15_2_5_generalPosition_hyp` (point G.151 settled), with `hX : A.X.IsTame` and `hft`; the hypothesis is at $x$ only, and the conclusion gives general and good position on $U(x)$. Witness: `theorem_15_2_5_generalPosition_hyp_witness`.",
     "The witness of `theorem_15_2_5_hyp` with good position at the support points is `theorem_15_2_5_hyp_witness` (good position from `remark_15_3_6_goodPosition_hyp` and `isInGeneralPosition_epSEP_zero`)."
    ]
   },
@@ -713,7 +713,7 @@
     "rest of the remark: G.161"
    ],
    "diff": [
-    "\"Onto\" is read operator by operator, as in Definition 15.3.5. The rest of the remark (good position at $\\partial X$, tame branched ep⁺-subgroupoid) is gap G.161."
+    "\"Onto\" is read operator by operator, as in Definition 15.3.5. The rest of the remark (good position at $\\partial X$, tame branched ep⁺-subgroupoid) is point G.161."
    ]
   },
   {
@@ -800,7 +800,7 @@
     "`hft`; D9.1.2 (1) as `hpar`"
    ],
    "diff": [
-    "`hft` inherited (V15.27). `hpar` is D9.1.2 (1) (new in 2021), not addressed by the remark; it is automatic when $|\\operatorname{supp}|$ is compact, which is the situation of T15.3.7 (V15.29, V15.30). Unlike interior form `remark_15_2_3_isBranchedEpSubgroupoid_hyp`, no $d_X=0$ on the support is needed: boundary points are covered through good position. \"Tame\" (D9.3.6) is `remark_15_3_6_isTameBranched_hyp` (gap G.150 closed)."
+    "`hft` inherited (V15.27). `hpar` is D9.1.2 (1) (new in 2021), not addressed by the remark; it is automatic when $|\\operatorname{supp}|$ is compact, which is the situation of T15.3.7 (V15.29, V15.30). Unlike interior form `remark_15_2_3_isBranchedEpSubgroupoid_hyp`, no $d_X=0$ on the support is needed: boundary points are covered through good position. \"Tame\" (D9.3.6) is `remark_15_3_6_isTameBranched_hyp` (point G.150 settled)."
    ]
   },
   {
@@ -964,9 +964,9 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "`theorem_15_3_7_existence` has the text's hypotheses. The only hypothesis not printed in the theorem is the tame germ data `hft`, inherited from §15.2 (the Part I hypothesis that the rows of §15.2 carry; gap G.140), through which the proof uses Theorem 15.2.5. Neither a good system nor paracompactness of $|X|$ is used, as Remark 15.3.8 says (V15.31).",
+    "`theorem_15_3_7_existence` has the text's hypotheses. The only hypothesis not printed in the theorem is the tame germ data `hft`, inherited from §15.2 (the Part I hypothesis that the rows of §15.2 carry; point G.140), through which the proof uses Theorem 15.2.5. Neither a good system nor paracompactness of $|X|$ is used, as Remark 15.3.8 says (V15.31).",
     "The addendum \"$\\Lambda$ can be taken structurable\": structurable (Definition 13.3.6) contains a good system, so `theorem_15_3_7_of_goodSystem` assumes `Nonempty A.X.GoodSystem`; the conclusion implies it, so the hypothesis is necessary for this part. Theorem 13.1.8 gives it for paracompact $|X|$ (`theorem_15_3_7_of_paracompact`); witness `nonempty_goodSystem_epSEP_zero` and `theorem_15_3_7_statement_epSEP_zero_of_goodSystem` on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$.",
-    "The local constructions use Part I's (i)–(ii) through `isParamOntoVec_iff_isParamGP` ((15.1) with $T^R_xX$ is equivalent to Part I's (i)–(ii) with the full tangent space, read in a tame chart centred at the zero $x$); the parametric transversality is `hasParametricGeneralPosition`. The forms with hypotheses are intermediate steps: `theorem_15_3_7_hyp`, `theorem_15_3_7_of_hyp`, `theorem_15_3_7_of_pointwise`, `theorem_15_3_7_of_local`, and `theorem_15_3_7_of_paramOnto` (a special case of `theorem_15_3_7_of_goodSystem`). Gap G.162 is closed for Theorem 15.3.7.",
+    "The local constructions use Part I's (i)–(ii) through `isParamOntoVec_iff_isParamGP` ((15.1) with $T^R_xX$ is equivalent to Part I's (i)–(ii) with the full tangent space, read in a tame chart centred at the zero $x$); the parametric transversality is `hasParametricGeneralPosition`. The forms with hypotheses are intermediate steps: `theorem_15_3_7_hyp`, `theorem_15_3_7_of_hyp`, `theorem_15_3_7_of_pointwise`, `theorem_15_3_7_of_local`, and `theorem_15_3_7_of_paramOnto` (a special case of `theorem_15_3_7_of_goodSystem`). Point G.162 is closed for Theorem 15.3.7.",
     "Readings fixed in the statement `theorem_15_3_7_statement`: (3) is `IsTransversal` (Definition 15.2.1); (4) is `IsInGeneralPosition` (Definition 15.3.5), as the proof's first sentence says; \"structurable\" is Definition 13.3.6; $U$ is open and saturated (`ControlsCompactness`), where the text says \"a saturated subset\". Readings of the proof: (15.1) with $f'(x)$ read as the operator of $T_{(f,\\Lambda_0)}(x)$ (Definition 15.1.7) and the $t$-derivative of $f-\\sum_jt_js_{ij}$ as $\\tau\\mapsto-\\sum_j\\tau_js_{ij}(x)$ (sign immaterial); the proof's $\\varepsilon_0$ is $1/(\\ell+1)$ in the sup norm of $\\mathbb R^\\ell$; \"a set of measure zero … for $t$ in its complement\" is \"for almost every $t$\"; Sard \"on the intersections of faces\" is Part I's Theorem 4.3.1 (local form) per branch on $\\mathbb R^\\ell \\times O$; the passage from $V(x)$ to its saturation \"by equivariance\" is `isInGeneralPositionAt_of_mor`.",
     "The supporting inequalities the proof uses silently are proved: `pointwiseNorm_multisectionAdd_le` ($N(\\Lambda \\oplus \\Lambda') \\le N(\\Lambda) + N(\\Lambda')$) and `domSupp_multisectionAdd_subset`.",
     "Bump functions are read pointwise: `EpGroupoid.AdmitsBumpFunctionsPointwise` asks for $f(x) \\ne 0$, which is stronger than Definition 12.3.1 as printed (\"not identically zero\", `EpGroupoid.AdmitsBumpFunctions`). By Theorem 12.3.2 (1) each reading is that of the object M-polyfold (`EpGroupoid.theorem_12_3_2_1`, `EpGroupoid.theorem_12_3_2_1_weak`), where the two agree on sc-Banach spaces and on sc-Hilbert models; whether they agree in general is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
@@ -997,7 +997,7 @@
     "`hft` inherited"
    ],
    "diff": [
-    "`hft` inherited; \"tame\" (D9.3.6) is `theorem_15_3_7_in_particular_tame_hyp` (gap G.150 closed). Only (1) (with $h\\le1$), (2) and (4) are used; (3) follows from (4) (`IsInGeneralPosition.surjective`)."
+    "`hft` inherited; \"tame\" (D9.3.6) is `theorem_15_3_7_in_particular_tame_hyp` (point G.150 settled). Only (1) (with $h\\le1$), (2) and (4) are used; (3) follows from (4) (`IsInGeneralPosition.surjective`)."
    ]
   },
   {
@@ -1083,8 +1083,8 @@
     "non-zero boundary datum witnessed"
    ],
    "diff": [
-    "`theorem_15_3_9` has the text's hypotheses; the only hypothesis not printed is the tame germ data of $f$, inherited from §15.2 (gap G.140), as for Theorem 15.3.7 (V15.29). Steps (a)–(e) of the proof are proved: step (a) needs only tameness (tame strong bundle charts exist on every strong bundle over a tame M-polyfold, `SEP.exists_isTameChart`; V15.41), step (b) is Theorem 14.1.9 as stated (V14.8), steps (c)–(d) are V15.45. Gaps G.162 (for Theorem 15.3.9), G.178 and G.179 are closed.",
-    "Readings: \"surjective with respect to intersections of local faces\" = onto on $T^R_xX$ (the smallest intersection of the tangent spaces of the local faces), asked for every sc⁺ extension of $\\Lambda$ and equivalent to the condition for any one extension (`isBoundaryFaceOnto_iff`); \"$U$ a saturated subset\" read open and saturated; $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ a function on $W$ of which only the values over $\\partial X$ enter; \"(U,N)-admissible\" over $\\partial X$ = dom-supp in $U$ and $N(\\Lambda)\\le1$ on $\\partial X$; the index sets of an sc⁺-multisection over $\\partial X$ are nonempty, as Definition 14.1.3 says (`BoundarySymmetricStructure.nonempty`). \"Tame\" in \"tame branched\": `theorem_15_3_7_in_particular_tame_hyp` (gap G.150 closed). The proof gives general position of $\\tilde\\Lambda$; the statement keeps the text's (3) \"onto\".",
+    "`theorem_15_3_9` has the text's hypotheses; the only hypothesis not printed is the tame germ data of $f$, inherited from §15.2 (point G.140), as for Theorem 15.3.7 (V15.29). Steps (a)–(e) of the proof are proved: step (a) needs only tameness (tame strong bundle charts exist on every strong bundle over a tame M-polyfold, `SEP.exists_isTameChart`; V15.41), step (b) is Theorem 14.1.9 as stated (V14.8), steps (c)–(d) are V15.45. Points G.162 (for Theorem 15.3.9), G.178 and G.179 are closed.",
+    "Readings: \"surjective with respect to intersections of local faces\" = onto on $T^R_xX$ (the smallest intersection of the tangent spaces of the local faces), asked for every sc⁺ extension of $\\Lambda$ and equivalent to the condition for any one extension (`isBoundaryFaceOnto_iff`); \"$U$ a saturated subset\" read open and saturated; $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ a function on $W$ of which only the values over $\\partial X$ enter; \"(U,N)-admissible\" over $\\partial X$ = dom-supp in $U$ and $N(\\Lambda)\\le1$ on $\\partial X$; the index sets of an sc⁺-multisection over $\\partial X$ are nonempty, as Definition 14.1.3 says (`BoundarySymmetricStructure.nonempty`). \"Tame\" in \"tame branched\": `theorem_15_3_7_in_particular_tame_hyp` (point G.150 settled). The proof gives general position of $\\tilde\\Lambda$; the statement keeps the text's (3) \"onto\".",
     "Witnesses: `theorem_15_3_9_hypotheses_halfSEP` (boundary, non-zero fibres, a boundary point of the support) and `not_isBoundaryFaceOnto_tangentDisc` (the boundary hypothesis can fail on the same bundle). Weak in one respect: $\\Lambda = 0$ over $\\partial H$ (the boundary domain support is empty), so step (b) extends the zero datum; an instance with $\\mathrm{dom\\text{-}supp}\\,\\Lambda \\cap \\partial X \\ne \\emptyset$ is not built. A witness with a non-zero boundary datum is `theorem_15_3_9_hypotheses_constDatum` (boundary domain support $\\partial H$, the boundary hypothesis non-vacuous at $(0, \\pm1/2)$); weak: trivial ep-groupoid, $U = X$."
    ]
   },
@@ -1117,7 +1117,7 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "The hypotheses not printed in the corollary are those of Theorem 15.3.7 that its proof uses: sc-smooth bump functions (Remark 15.3.2: the text needs them) and the tame germ data of $f$ (inherited, gap G.140). Tameness of $X$ is derived from $d_X \\equiv 0$ (V15.40; gap G.183 closed); the paracompactness of $|X|$ gives the good system of the structurable clause (Theorem 13.1.8). Gap G.162 is closed for Corollary 15.3.10 (1). \"Tame\" branched: `theorem_15_3_7_in_particular_tame_hyp` (V15.30).",
+    "The hypotheses not printed in the corollary are those of Theorem 15.3.7 that its proof uses: sc-smooth bump functions (Remark 15.3.2: the text needs them) and the tame germ data of $f$ (inherited, point G.140). Tameness of $X$ is derived from $d_X \\equiv 0$ (V15.40; point G.183 settled); the paracompactness of $|X|$ gives the good system of the structurable clause (Theorem 13.1.8). Point G.162 is closed for Corollary 15.3.10 (1). \"Tame\" branched: `theorem_15_3_7_in_particular_tame_hyp` (V15.30).",
     "The corollary assumes $d_X \\equiv 0$, so $\\partial X = \\emptyset$ by hypothesis; the witness has non-zero fibres and a nonempty solution set.",
     "Bump functions are read pointwise: `EpGroupoid.AdmitsBumpFunctionsPointwise` asks for $f(x) \\ne 0$, which is stronger than Definition 12.3.1 as printed (\"not identically zero\", `EpGroupoid.AdmitsBumpFunctions`). By Theorem 12.3.2 (1) each reading is that of the object M-polyfold (`EpGroupoid.theorem_12_3_2_1`, `EpGroupoid.theorem_12_3_2_1_weak`), where the two agree on sc-Banach spaces and on sc-Hilbert models; whether they agree in general is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
@@ -1182,7 +1182,7 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "`corollary_15_3_10_3_bump` has the text's hypotheses in the reading of (1): $d_X \\equiv 0$, $|X|$ paracompact, sc-smooth bump functions, $f$ sc-Fredholm with tame germ data (inherited), $(N^i, U^i, \\Lambda^i)$ structurable regular perturbations; $\\tilde N$ and $\\tilde U$ are the existentials of the text. No partitions of unity and no compactness hypothesis beyond the control by $(N^i, U^i)$ enter. Gaps G.162 (for (3)), G.180, G.189 and G.193 are closed.",
+    "`corollary_15_3_10_3_bump` has the text's hypotheses in the reading of (1): $d_X \\equiv 0$, $|X|$ paracompact, sc-smooth bump functions, $f$ sc-Fredholm with tame germ data (inherited), $(N^i, U^i, \\Lambda^i)$ structurable regular perturbations; $\\tilde N$ and $\\tilde U$ are the existentials of the text. No partitions of unity and no compactness hypothesis beyond the control by $(N^i, U^i)$ enter. Points G.162 (for (3)), G.180, G.189 and G.193 are closed.",
     "The text's proof applies Theorem 15.3.9 on $[0,1] \\times X$; along that route (`corollary_15_3_10_3_regular`) partitions of unity on $X$ enter through Theorem 14.1.9 on the cylinder (V15.46). The explicit extension `cylExtension` takes the place of that step; the relative step uses only bump functions. The text's proof does not say how the face condition of the glued data is checked; it follows from the transversality of $(f, \\Lambda^i)$, because $T^R_{(i,x)}\\tilde X = \\{0\\} \\times T_xX$ when $d_X \\equiv 0$ (`isBoundaryFaceOnto_cubeGlue`, V15.47).",
     "Witnesses: $X = \\mathbb R$ has no boundary, as the corollary asks ($d_X \\equiv 0$); the boundary that matters is $\\{0, 1\\} \\times X$, which is nonempty and meets the support. The regular perturbation is joined to itself; the general two-ended form is instantiated on the same example (`corollary_15_3_10_3_collar_epSEP`).",
     "The restriction of $\\tilde\\Theta$ to the ends is V15.48; the last paragraph of the proof, $(N'', U'') = (\\max\\{N, N'\\}, U \\cap U')$, is V15.42.",
@@ -1247,7 +1247,7 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "The orientation is the canonical one of Theorem 15.4.1 (V15.51; gap G.159 closed). Hypotheses not printed in the theorem: sc-smooth partitions of unity on $X$, which Theorem 9.5.17 as printed assumes (their removal is the text's own open question, Remark 9.5.19; gap G.153); the standing hypotheses of Theorem 15.4.1 (bump functions, tame germ data, `HasScPlusSectionsThrough`); the index $k = m + 1$ on the support, the text's $k$. \"Oriented\" is read as in V15.51. (3) is `IsGoodPositionAt` (D15.2.4 reading).",
+    "The orientation is the canonical one of Theorem 15.4.1 (V15.51; point G.159 settled). Hypotheses not printed in the theorem: sc-smooth partitions of unity on $X$, which Theorem 9.5.17 as printed assumes (their removal is the text's own open question, Remark 9.5.19; point G.153); the standing hypotheses of Theorem 15.4.1 (bump functions, tame germ data, `HasScPlusSectionsThrough`); the index $k = m + 1$ on the support, the text's $k$. \"Oriented\" is read as in V15.51. (3) is `IsGoodPositionAt` (D15.2.4 reading).",
     "Witnesses: those of V15.51 (weak for naturality: the morphisms are units).",
     "Bump functions are read pointwise: `MPolyfold.AdmitsBumpFunctions` asks for $f(x) \\ne 0$, which is stronger than Definition 5.5.2 as printed (\"not identically zero\", `MPolyfold.AdmitsBumpFunctionsWeak`). The two readings agree on sc-Banach spaces and on M-polyfolds built on sc-Hilbert spaces; whether they agree on every M-polyfold is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
    ]
@@ -1397,9 +1397,9 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "Proved for the canonical orientations of Definition 15.4.2 with the text's hypotheses and one standing hypothesis: sc-smooth partitions of unity on the object M-polyfold of $X$ (`corollary_15_4_4_oriented_collar`), used only for Stokes on $X$ and on $[0,1] \\times X$ (Theorems 9.5.17, 9.5.18 as printed); their removal is the text's own open question (Remark 9.5.19, gap G.153). Hence the verdict narrower. The invariance of $\\tilde o = e \\wedge o$ under the morphisms of $[0,1] \\times X$ is a theorem (`isOrInvariant_cubeOrientation`, from $\\varphi_* o = o$; gap G.182 closed), and so is the oriented cobordism between two canonically oriented regular perturbations (`hasOrientedCobordism_collar`). Gaps G.159, G.182, G.190 and G.191 are closed. A canonically oriented regular perturbation in general position exists under the hypotheses of the collar form and a compact solution set, the hypothesis of Corollary 15.3.10 (1) (`corollary_15_4_4_wellDefined`; index $0$: `corollary_15_4_4_index_zero_wellDefined`), so (i) and (ii) are about a class that is not empty.",
+    "Proved for the canonical orientations of Definition 15.4.2 with the text's hypotheses and one standing hypothesis: sc-smooth partitions of unity on the object M-polyfold of $X$ (`corollary_15_4_4_oriented_collar`), used only for Stokes on $X$ and on $[0,1] \\times X$ (Theorems 9.5.17, 9.5.18 as printed); their removal is the text's own open question (Remark 9.5.19, point G.153). Hence the verdict narrower. The invariance of $\\tilde o = e \\wedge o$ under the morphisms of $[0,1] \\times X$ is a theorem (`isOrInvariant_cubeOrientation`, from $\\varphi_* o = o$; point G.182 settled), and so is the oriented cobordism between two canonically oriented regular perturbations (`hasOrientedCobordism_collar`). Points G.159, G.182, G.190 and G.191 are closed. A canonically oriented regular perturbation in general position exists under the hypotheses of the collar form and a compact solution set, the hypothesis of Corollary 15.3.10 (1) (`corollary_15_4_4_wellDefined`; index $0$: `corollary_15_4_4_index_zero_wellDefined`), so (i) and (ii) are about a class that is not empty.",
     "Readings: \"$(f, o)$ oriented\" is Definition 6.6.16 together with the invariance of Definition 12.5.4 (`ho`, `hinv`; one hypothesis `definition_12_5_4` in `corollary_15_4_4_of_definition_12_5_4`); tame germ data (`hft`) are the text's hypothesis under the adopted reading of \"tame strong bundle\"; `hsec`, `hsec'` (sc⁺-sections through smooth fibre points) follow from bump functions and appear because `IsCanonicalPerturbation` is stated with them; `hidx` is the index $m + 1$ at every smooth point of $X$, not only on the supports, because $\\tilde\\Theta$ lies over points of $X$ outside $\\mathrm{supp}\\,\\Theta_0 \\cup \\mathrm{supp}\\,\\Theta_1$. The collar form needs no compact $|S_f|$; `corollary_15_4_4_oriented` keeps the text's hypothesis.",
-    "Reading (Findings, item 26): the frame convention \"one positive frame with the $t$-direction first\" is used for sheets of dimension $\\ge 1$; for index $0$ it is read in a signed form: the curve over a point $y$ is oriented by $w$ with $dt(w) = +1$ at a positive point and $dt(w) = -1$ at a negative one (`exists_signed_generator_cubeOrientation`), the orientation of a point read through `frameSign` as in Chapter 9's point integration. With it the index-$0$ case holds with the same standing hypotheses (`corollary_15_4_4_index_zero_oriented`, gap G.188 (c)).",
+    "Reading (Findings, item 26): the frame convention \"one positive frame with the $t$-direction first\" is used for sheets of dimension $\\ge 1$; for index $0$ it is read in a signed form: the curve over a point $y$ is oriented by $w$ with $dt(w) = +1$ at a positive point and $dt(w) = -1$ at a negative one (`exists_signed_generator_cubeOrientation`), the orientation of a point read through `frameSign` as in Chapter 9's point integration. With it the index-$0$ case holds with the same standing hypotheses (`corollary_15_4_4_index_zero_oriented`, point G.188 (c)).",
     "$\\Phi$ on $H^*_{dR}$ is read degree-wise in the degree $m+1=\\dim\\Theta$ as (i)+(ii). The effective version is V15.49.",
     "Witnesses: `TrivialBundle.corollary_15_4_4_hypotheses_circleSection` and `corollary_15_4_4_circleSection` ($\\mathbb R^2 \\times \\mathbb R \\to \\mathbb R^2$, $f(x) = (x, x_0^2 + x_1^2 - 1)$: non-zero fibres, every hypothesis with $m = 0$, a canonical perturbation with the unit circle as support, `exists_isCanonicalPerturbation_circleSection`; collar form `corollary_15_4_4_oriented_collar_circleSection`, with `collar_cobordism_circleSection`); weak: the morphisms are units and $\\partial X = \\emptyset$ (the corollary requires $d_X \\equiv 0$; the boundary that matters is that of $[0,1] \\times X$), and $P_0 = P_1$ there. `TrivialIsotropy.corollary_15_4_4_hypotheses_planeZ3`, `corollary_15_4_4_planeZ3` (the same section over $\\mathbb Z/3$ acting on $\\mathbb R^2$: every isotropy group $\\mathbb Z/3$, not effective, morphisms that are not units, index 1, non-empty support); weak: the action is trivial on the base, $\\partial X = \\emptyset$. `StrongBundleLocalizationExamples.isOrInvariant_cubeOrientation_z3`: the invariance of $\\tilde o$ with non-unit morphisms; weak: the index is $1 - k \\le 0$, so it is not an instance of the corollary. Index 0: `TrivialBundle.corollary_15_4_4_index_zero_two_perturbations` (two canonical perturbations $P_0 \\ne P_1$ with different supports $\\{\\pm1\\}$, $\\{\\pm 1/2\\}$; weak: trivial ep-groupoid, $\\partial X = \\emptyset$), `corollary_15_4_4_index_zero_twoPointSection` and `StrongBundleLocalizationExamples.corollary_15_4_4_index_zero_z3` (isotropy $\\mathbb Z/3$; weak: one canonical perturbation, $\\partial X = \\emptyset$; that both signs occur in the examples is not proved in Lean). Earlier weak witnesses: `HalfSpaceBundle.cubeOrientation_halfSEP` (boundary, units, $d_H \\not\\equiv 0$), `TrivialBundle.exists_matched_kernel_branching_diagSection` (sheets of dimension 0).",
     "Bump functions are read pointwise: `EpGroupoid.AdmitsBumpFunctionsPointwise` asks for $f(x) \\ne 0$, which is stronger than Definition 12.3.1 as printed (\"not identically zero\", `EpGroupoid.AdmitsBumpFunctions`). By Theorem 12.3.2 (1) each reading is that of the object M-polyfold (`EpGroupoid.theorem_12_3_2_1`, `EpGroupoid.theorem_12_3_2_1_weak`), where the two agree on sc-Banach spaces and on sc-Hilbert models; whether they agree in general is not known to us (V5.16; `Chapter5/BumpWeakPointwise.lean`; Findings, Chapter 5, items 41, 160–164, 180)."
@@ -1472,7 +1472,7 @@
    },
    "chips": [],
    "diff": [
-    "None. Gap G.183 closed."
+    "None. Point G.183 closed."
    ]
   },
   {
@@ -1505,7 +1505,7 @@
     "tame bundle charts from tameness"
    ],
    "diff": [
-    "Step (a) holds with no hypothesis beyond the theorem's: tame strong bundle charts exist at every object of a strong bundle over a tame ep-groupoid (`SEP.exists_isTameChart`), which gives `hB`. Without tame bundle charts Definition 14.1.3 (1) would say nothing about the $s_i$, and $N(\\Lambda)$ need not be upper semicontinuous along $\\partial X$; the text uses the semicontinuity without comment. Gap G.177 closed."
+    "Step (a) holds with no hypothesis beyond the theorem's: tame strong bundle charts exist at every object of a strong bundle over a tame ep-groupoid (`SEP.exists_isTameChart`), which gives `hB`. Without tame bundle charts Definition 14.1.3 (1) would say nothing about the $s_i$, and $N(\\Lambda)$ need not be upper semicontinuous along $\\partial X$; the text uses the semicontinuity without comment. Point G.177 closed."
    ]
   },
   {
@@ -1647,7 +1647,7 @@
     "from bump functions alone"
    ],
    "diff": [
-    "\"Argue as in Theorem 15.3.7\" is made precise as relative (15.1) with the branch operators of $\\Lambda_0$. The local families, the Sard step and the compactness step are proved (gap G.178 closed). Readings: \"supported away from $\\partial X$\" is domain support in $U \\setminus \\partial X$, so $\\Lambda' = \\Lambda_0$ over $\\partial X$; the family bound is $N(\\Lambda_t) \\le |t|_1(h - N(\\Lambda_0))$, which gives $N(\\Lambda_0 \\oplus \\Lambda_t) < h$ for $|t|_1 < 1$; relative (15.1) uses every branch of $\\Lambda_0$, and at boundary support points follows from general position of $\\Lambda_0$ with $\\tau = 0$. The proof uses partitions of unity only through their bump functions (`theorem_15_3_7_relative_of_bump`); `hasParametricGeneralPositionRel` needs only $N(\\Lambda_0) \\le 1$ and domain support in $U$, not the compactness of $|S_f|$. Witnesses with boundary and non-zero fibres on the half-plane (above)."
+    "\"Argue as in Theorem 15.3.7\" is made precise as relative (15.1) with the branch operators of $\\Lambda_0$. The local families, the Sard step and the compactness step are proved (point G.178 settled). Readings: \"supported away from $\\partial X$\" is domain support in $U \\setminus \\partial X$, so $\\Lambda' = \\Lambda_0$ over $\\partial X$; the family bound is $N(\\Lambda_t) \\le |t|_1(h - N(\\Lambda_0))$, which gives $N(\\Lambda_0 \\oplus \\Lambda_t) < h$ for $|t|_1 < 1$; relative (15.1) uses every branch of $\\Lambda_0$, and at boundary support points follows from general position of $\\Lambda_0$ with $\\tau = 0$. The proof uses partitions of unity only through their bump functions (`theorem_15_3_7_relative_of_bump`); `hasParametricGeneralPositionRel` needs only $N(\\Lambda_0) \\le 1$ and domain support in $U$, not the compactness of $|S_f|$. Witnesses with boundary and non-zero fibres on the half-plane (above)."
    ]
   },
   {
@@ -1675,7 +1675,7 @@
     "closes G.181"
    ],
    "diff": [
-    "One hypothesis not stated in Corollary 15.3.10: sc-smooth partitions of unity on $X$, for the route through Theorem 15.3.9 on the cylinder (`corollary_15_3_10_3_regular`, V15.34) and for Stokes on the cylinder in Corollary 15.4.4 (V15.37). Corollary 15.3.10 (3) itself is proved without them (`corollary_15_3_10_3_bump`, V15.34). Witness `rnPolyfold_admitsScPartitionsOfUnity` ($\\mathbb R^n$). Gap G.181 is closed."
+    "One hypothesis not stated in Corollary 15.3.10: sc-smooth partitions of unity on $X$, for the route through Theorem 15.3.9 on the cylinder (`corollary_15_3_10_3_regular`, V15.34) and for Stokes on the cylinder in Corollary 15.4.4 (V15.37). Corollary 15.3.10 (3) itself is proved without them (`corollary_15_3_10_3_bump`, V15.34). Witness `rnPolyfold_admitsScPartitionsOfUnity` ($\\mathbb R^n$). Point G.181 is closed."
    ]
   },
   {
@@ -1725,7 +1725,7 @@
     "face condition from transversality"
    ],
    "diff": [
-    "Structurability and the face condition of the glued data are proved from the corollary's hypotheses ($d_X \\equiv 0$, $|X|$ paracompact, $\\Lambda^i$ structurable and transversal) with the inherited tame germ data; gaps G.180 and G.193 are closed. The face condition holds for every sc⁺ extension of the glue, by the slice argument, so it does not use `isBoundaryFaceOnto_iff` (V15.32). The index sets of the glued structure are those of the Definition 13.2.5 structures, so they are nonempty. Only the values of the glue over $t \\in \\{0, 1\\}$ enter.",
+    "Structurability and the face condition of the glued data are proved from the corollary's hypotheses ($d_X \\equiv 0$, $|X|$ paracompact, $\\Lambda^i$ structurable and transversal) with the inherited tame germ data; points G.180 and G.193 are closed. The face condition holds for every sc⁺ extension of the glue, by the slice argument, so it does not use `isBoundaryFaceOnto_iff` (V15.32). The index sets of the glued structure are those of the Definition 13.2.5 structures, so they are nonempty. Only the values of the glue over $t \\in \\{0, 1\\}$ enter.",
     "Witness: `TrivialBundle.isBoundaryFaceOnto_cubeGlue_diagSection` ($\\mathbb R \\times \\mathbb R \\to \\mathbb R$, $f(x) = (x,x)$: non-zero fibres, the face condition tested at the boundary points $(0, 0)$, $(1, 0)$ of the support)."
    ]
   },
@@ -1782,7 +1782,7 @@
     "sets, orbits and weights"
    ],
    "diff": [
-    "These are the set, orbit and weight parts of \"restricts to $\\Theta_i$\" (gap G.190 closed). Good position alone would not give the weights: a point sheet at a boundary point is in good position with $d_M = 0$; the argument uses general position (Definition 15.3.5)."
+    "These are the set, orbit and weight parts of \"restricts to $\\Theta_i$\" (point G.190 settled). Good position alone would not give the weights: a point sheet at a boundary point is in good position with $d_M = 0$; the argument uses general position (Definition 15.3.5)."
    ]
   },
   {
@@ -1839,7 +1839,7 @@
     "as V15.37; LUC on the cylinder from LUC on X"
    ],
    "diff": [
-    "As V15.37: the only hypothesis beyond the text's is the standing one of Stokes, sc-smooth partitions of unity (gap G.153); the invariance of $\\tilde o$ is a theorem (gap G.182 closed). LUC on $[0,1] \\times X$ follows from LUC on $X$ (`isLUC_cubeSEP`; gap G.191 closed). Exact forms are handled in every dimension $m+1 \\ge 1$; index $0$ is in `corollary_15_4_4_index_zero_oriented`. Existence as in V15.37.",
+    "As V15.37: the only hypothesis beyond the text's is the standing one of Stokes, sc-smooth partitions of unity (point G.153); the invariance of $\\tilde o$ is a theorem (point G.182 settled). LUC on $[0,1] \\times X$ follows from LUC on $X$ (`isLUC_cubeSEP`; point G.191 settled). Exact forms are handled in every dimension $m+1 \\ge 1$; index $0$ is in `corollary_15_4_4_index_zero_oriented`. Existence as in V15.37.",
     "Witnesses: those of V15.37 (the effective counts differ from the counts in `corollary_15_4_4_index_zero_z3`, where every isotropy group is $\\mathbb Z/3$); weak as there."
    ]
   },
@@ -1947,7 +1947,7 @@
     "bump functions read pointwise"
    ],
    "diff": [
-    "Proved in Chapter 9's $\\widehat{Gr}(X)$ (gap G.159 closed). Hypotheses of `theorem_15_4_1` beyond the printed theorem: tame germ data (`hft`; the printed hypothesis under the adopted reading of \"tame strong bundle\", V3.103); bump functions (`hbump`), the standing hypothesis of §15.3 (p. 692); `hsec`, sc⁺-sections through the smooth fibre points, which follow from bump functions (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`, V12.22); and a constant index $n$ of $f$ on $\\mathrm{supp}(\\Lambda \\circ f)$ (`hidx`, the dimension of the sheets). Assumption 15.4 does not fix the index, and Definition 9.1.2 allows sheets of different dimensions, so `hidx` is beyond the text: hence the verdict narrower. The form at a chart point, `theorem_15_4_1_lift` (V15.50), needs no index. \"Oriented\" is read as Definition 6.6.16 (`IsSectionOrientation`) together with the invariance of Definition 12.5.4 (`IsOrInvariant`); with Part I's hypotheses the two together are Definition 12.5.4 (`definition_12_5_4_iff`).",
+    "Proved in Chapter 9's $\\widehat{Gr}(X)$ (point G.159 settled). Hypotheses of `theorem_15_4_1` beyond the printed theorem: tame germ data (`hft`; the printed hypothesis under the adopted reading of \"tame strong bundle\", V3.103); bump functions (`hbump`), the standing hypothesis of §15.3 (p. 692); `hsec`, sc⁺-sections through the smooth fibre points, which follow from bump functions (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`, V12.22); and a constant index $n$ of $f$ on $\\mathrm{supp}(\\Lambda \\circ f)$ (`hidx`, the dimension of the sheets). Assumption 15.4 does not fix the index, and Definition 9.1.2 allows sheets of different dimensions, so `hidx` is beyond the text: hence the verdict narrower. The form at a chart point, `theorem_15_4_1_lift` (V15.50), needs no index. \"Oriented\" is read as Definition 6.6.16 (`IsSectionOrientation`) together with the invariance of Definition 12.5.4 (`IsOrInvariant`); with Part I's hypotheses the two together are Definition 12.5.4 (`definition_12_5_4_iff`).",
     "Reading (Findings, item 25): $o_{i,y}$ depends on the operator $(f - s_i)'(y)$, not only on the subspace $T_yM_i$: for $f(x) = x$ on $\\mathbb R$ the sections $s = 0$ and $s' = 2x$ have the same solution set $\\{0\\}$ and the operators $\\mathrm{id}$, $-\\mathrm{id}$, which one $o$ orients oppositely. So the local structures come from local sc⁺-section structures of $\\Lambda$ (`KernelBranching`), and the independence goes through the formal sum of operators of Theorem 15.1.1 (`canonIndependent`), not through Theorem 9.2.1.",
     "Witness weak for naturality: the morphisms of `halfSEP` are units, so `canonNatural` is not tested on a non-trivial morphism (an example would need an oriented section on an ep-groupoid with isotropy).",
     "Naturality under strong bundle equivalences between two bundles (not only under morphisms of one) is proved (`IsCanonicalFor.pullSection`); witnesses weak: `isCanonicalFor_pullSection_negSection` has a non-identity equivalence ($\\varphi = -\\mathrm{id}$) but $\\partial X = \\emptyset$, $\\Lambda' = 0$ and no isotropy; `isCanonicalFor_pullSection_halfDisc` has a boundary point but the identity equivalence. The local-orientation forms still assume bump functions (the canonical orientation is the one of Part I's orientation sets, read through `orOfLoc`). `theorem_15_4_1_of_index_on_paths` asks the index on sc-smooth path components, not on topological components.",
@@ -1993,7 +1993,7 @@
     "in $\\widehat{Gr}(X)$; unique"
    ],
    "diff": [
-    "Read in Chapter 9's $\\widehat{Gr}(X)$ with the readings of V15.51 (\"oriented\"; local structures from local sc⁺-section structures). The oriented tangent spaces $T_y(M_i, o_i)$ are the kernels with the frames of $o_{i,y}$, continuous along $M_i$ (`canonContinuous`; gap G.159 closed)."
+    "Read in Chapter 9's $\\widehat{Gr}(X)$ with the readings of V15.51 (\"oriented\"; local structures from local sc⁺-section structures). The oriented tangent spaces $T_y(M_i, o_i)$ are the kernels with the frames of $o_{i,y}$, continuous along $M_i$ (`canonContinuous`; point G.159 settled)."
    ]
   },
   {
@@ -2103,7 +2103,7 @@
     "product multisections: V15.57"
    ],
    "diff": [
-    "None for the auxiliary norm. Products of sc-Fredholm germs, $\\Lambda \\times \\Lambda'$, admissibility and the domain support are V15.57 (gap G.160 closed)."
+    "None for the auxiliary norm. Products of sc-Fredholm germs, $\\Lambda \\times \\Lambda'$, admissibility and the domain support are V15.57 (point G.160 settled)."
    ]
   },
   {
@@ -2143,7 +2143,7 @@
     "as printed; inclusion sharp"
    ],
    "diff": [
-    "None in the mathematics. `SEP.prod` takes both bundles in one universe, as `SEP` does. The sc-Fredholm notion is the germ reading of Definitions 3.1.11 and 3.1.16 used throughout Part III; tame germ data (Definition 3.6.4) are preserved as well. The inclusion of Remark 15.3.4 is the best possible (`domSupp_prodMult`, `remark_15_3_4_eq_univ`). Gap G.160 is closed with V15.53–V15.56. No hypothesis beyond the factors' properties; every pair of the library's multisection examples is an instance."
+    "None in the mathematics. `SEP.prod` takes both bundles in one universe, as `SEP` does. The sc-Fredholm notion is the germ reading of Definitions 3.1.11 and 3.1.16 used throughout Part III; tame germ data (Definition 3.6.4) are preserved as well. The inclusion of Remark 15.3.4 is the best possible (`domSupp_prodMult`, `remark_15_3_4_eq_univ`). Point G.160 is closed with V15.53–V15.56. No hypothesis beyond the factors' properties; every pair of the library's multisection examples is an instance."
    ]
   },
   {
@@ -2175,7 +2175,7 @@
     "general position and transversality"
    ],
    "diff": [
-    "Not stated in Chapter 15; it makes general position a notion on polyfolds (Chapter 16, gap G.187). The invariance under morphisms (V15.39) is the case of the local isomorphism of a morphism. No hypothesis beyond sc-Fredholm."
+    "Not stated in Chapter 15; it makes general position a notion on polyfolds (Chapter 16, point G.187). The invariance under morphisms (V15.39) is the case of the local isomorphism of a morphism. No hypothesis beyond sc-Fredholm."
    ]
   }
  ],
@@ -2323,7 +2323,7 @@
    "label": "§15.3, Remark 15.3.6, p. 693 (2017: Remark 15.6)",
    "page": 693,
    "book": "At $x \\in \\partial X$, general position gives good position; $\\Lambda \\circ f$ is a tame branched ep⁺-subgroupoid.",
-   "instead": "**Formalized** (V15.27, V15.28; `Chapter15/GoodPositionBranches.lean`): `remark_15_3_6_goodPosition_hyp` (general position gives good position, and general position of each branch $(f - s_i)|_O$ in Part I's sense, at every support point) and `remark_15_3_6_localBranching_hyp`, `remark_15_3_6_isBranchedEpSubgroupoid_hyp` ($\\Lambda \\circ f$ is a branched ep⁺-subgroupoid), with Part I's tame germ data `hft`. \"Tame\" (Definition 9.3.6) is `remark_15_3_6_isTameBranched_hyp` (gap G.150 closed).",
+   "instead": "**Formalized** (V15.27, V15.28; `Chapter15/GoodPositionBranches.lean`): `remark_15_3_6_goodPosition_hyp` (general position gives good position, and general position of each branch $(f - s_i)|_O$ in Part I's sense, at every support point) and `remark_15_3_6_localBranching_hyp`, `remark_15_3_6_isBranchedEpSubgroupoid_hyp` ($\\Lambda \\circ f$ is a branched ep⁺-subgroupoid), with Part I's tame germ data `hft`. \"Tame\" (Definition 9.3.6) is `remark_15_3_6_isTameBranched_hyp` (point G.150 settled).",
    "decls": [
     "Chapter15/GoodPositionBranches · SBLocalization.remark_15_3_6_goodPosition_hyp",
     "Chapter15/GeneralPositionBranched · SBLocalization.remark_15_3_6_localBranching_hyp",
@@ -2340,7 +2340,7 @@
    "label": "§15.3, Theorem 15.3.7, Theorem 15.3.9, Corollary 15.3.10 (1), (3), pp. 694–700 (2017: Theorems 15.4, 15.5, Corollary 15.1)",
    "page": 694,
    "book": "Existence of admissible structurable perturbations in general position, the transversal extension theorem, and regular perturbations over $[0,1] \\times X$ agreeing with $\\Lambda^i$.",
-   "instead": "**Formalized.** Theorem 15.3.7 (V15.29, V15.44; `Chapter15/GeneralPositionExistence`, `GeneralPositionGoodSystem`, `ParamOntoBridge`): `theorem_15_3_7_existence` under the text's hypotheses (tame germ data inherited from §15.2), with no good system and no paracompactness; the structurable form `theorem_15_3_7_of_goodSystem` given a good system (`theorem_15_3_7_of_paracompact`); the bridge `isParamOntoVec_iff_isParamGP`, from which `hasPointwiseParamOnto` and `hasParamOntoOpen` follow.\n\nTheorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExtensionIndependence`): `theorem_15_3_9`, with the text's hypotheses (tame germ data inherited), and `theorem_15_3_9_of_one_extension`. Corollary 15.3.10 (1) (V15.33): `corollary_15_3_10_1`, with the hypotheses of Theorem 15.3.7 (bump functions). Corollary 15.3.10 (3) (V15.34, V15.47, V15.48): `corollary_15_3_10_3_bump`, with the hypotheses of (1); the form through Theorem 15.3.9 on the cylinder, with partitions of unity on $X$, is `corollary_15_3_10_3_regular`. The $[0,1] \\times X$ data are `cubeSEP`, `cubeLiftEp`, `corollary_15_3_10_2` (V15.18, V15.26). The cobordism invariance of Corollary 15.4.4 is V15.37 (gap G.182).",
+   "instead": "**Formalized.** Theorem 15.3.7 (V15.29, V15.44; `Chapter15/GeneralPositionExistence`, `GeneralPositionGoodSystem`, `ParamOntoBridge`): `theorem_15_3_7_existence` under the text's hypotheses (tame germ data inherited from §15.2), with no good system and no paracompactness; the structurable form `theorem_15_3_7_of_goodSystem` given a good system (`theorem_15_3_7_of_paracompact`); the bridge `isParamOntoVec_iff_isParamGP`, from which `hasPointwiseParamOnto` and `hasParamOntoOpen` follow.\n\nTheorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExtensionIndependence`): `theorem_15_3_9`, with the text's hypotheses (tame germ data inherited), and `theorem_15_3_9_of_one_extension`. Corollary 15.3.10 (1) (V15.33): `corollary_15_3_10_1`, with the hypotheses of Theorem 15.3.7 (bump functions). Corollary 15.3.10 (3) (V15.34, V15.47, V15.48): `corollary_15_3_10_3_bump`, with the hypotheses of (1); the form through Theorem 15.3.9 on the cylinder, with partitions of unity on $X$, is `corollary_15_3_10_3_regular`. The $[0,1] \\times X$ data are `cubeSEP`, `cubeLiftEp`, `corollary_15_3_10_2` (V15.18, V15.26). The cobordism invariance of Corollary 15.4.4 is V15.37 (point G.182).",
    "decls": [
     "Chapter15/GeneralPositionAssembly · SBLocalization.theorem_15_3_7_hyp",
     "Chapter15/GeneralPositionAssembly · SBLocalization.theorem_15_3_7_of_hyp",
@@ -2445,7 +2445,7 @@
    "label": "§15.3, proof of Corollary 15.3.10 (3), pp. 699–700 (2017: Corollary 15.1)",
    "page": 699,
    "book": "The structurable regular perturbations $\\Lambda^0$, $\\Lambda^1$ give a structurable multisection over $\\partial([0,1] \\times X) = \\{0,1\\} \\times X$ to which Theorem 15.3.9 applies.",
-   "instead": "**Formalized** (V15.34, V15.47; `Chapter15/CubeLiftScPlus`, `CylinderFaceOnto`, `CylinderExtensionBump`): (a) `isBoundaryStructurable_cubeGlue` (with `cubeLiftFace_holds`, gap G.193); (b) `isBoundaryFaceOnto_cubeGlue` from $d_X \\equiv 0$, tame germ data and the transversality of $(f, \\Lambda^i)$, by the slice argument in the product chart, for every sc⁺ extension (it does not use the independence result of G.179). Corollary 15.3.10 (3) holds from bump functions, with no partitions of unity (`corollary_15_3_10_3_bump`, through the explicit extension `cylExtension` and the collar norm `SEP.collarAuxNorm`). Witness with non-zero fibres and the boundary points $(0,0)$, $(1,0)$ of the support: `TrivialBundle.isBoundaryFaceOnto_cubeGlue_diagSection`.",
+   "instead": "**Formalized** (V15.34, V15.47; `Chapter15/CubeLiftScPlus`, `CylinderFaceOnto`, `CylinderExtensionBump`): (a) `isBoundaryStructurable_cubeGlue` (with `cubeLiftFace_holds`, point G.193); (b) `isBoundaryFaceOnto_cubeGlue` from $d_X \\equiv 0$, tame germ data and the transversality of $(f, \\Lambda^i)$, by the slice argument in the product chart, for every sc⁺ extension (it does not use the independence result of G.179). Corollary 15.3.10 (3) holds from bump functions, with no partitions of unity (`corollary_15_3_10_3_bump`, through the explicit extension `cylExtension` and the collar norm `SEP.collarAuxNorm`). Witness with non-zero fibres and the boundary points $(0,0)$, $(1,0)$ of the support: `TrivialBundle.isBoundaryFaceOnto_cubeGlue_diagSection`.",
    "decls": [
     "Chapter15/CylinderGlue · SBLocalization.corollary_15_3_10_3_glue_hyp",
     "Chapter15/CylinderGlue · SBLocalization.cubeGlue",
@@ -2483,7 +2483,7 @@
    "label": "§15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2); Definition 12.5.4; Remark 6.6.19",
    "page": 703,
    "book": "$\\tilde f$ on $[0, 1] \\times X$ is oriented by the standard orientation of $[0, 1]$ and $o$; with the canonical orientations $\\partial\\tilde\\Theta = \\Theta_1 \\sqcup -\\Theta_0$, hence the invariance of the integrals.",
-   "instead": "**Formalized** (V15.37, V15.49; `Chapter15/CylinderOrientationInvariance`, `CollarCobordismCorollary`, `CylinderCanonicalOrientation`, `CylinderProductOrientation`, `CylinderEndCanonical`, `Chapter12/IntervalProductLocalIso`): the orientation $\\tilde o = e \\wedge o$ of $\\tilde f$ (`cubeOrientation`) is invariant under the morphisms $(t, \\varphi)$ of $[0, 1] \\times X$ whenever $\\varphi_* o = o$ (`isOrInvariant_cubeOrientation`): the local strong bundle isomorphism of $(t, \\varphi)$ is $\\mathrm{id} \\times$ that of $\\varphi$ near $(t, t(\\varphi))$ (`isIntervalProductAt_morIso_cubeSEP`), and its orientation map carries $e \\wedge o$ to $e \\wedge \\varphi_* o$ (`StrongBundle.LocalIso.orVia_ivFirstFun`, `ChartPoint.ivOrFirst₀_conj`). With the canonical orientations $\\partial\\tilde\\Theta = \\Theta_1 \\sqcup -\\Theta_0$, and Corollary 15.4.4 holds for oriented $(f, o)$ (`corollary_15_4_4_oriented`, `corollary_15_4_4_eff_oriented`, `corollary_15_4_4_of_definition_12_5_4`; with the collar norm and partitions of unity only for Stokes, `corollary_15_4_4_oriented_collar`, `corollary_15_4_4_eff_oriented_collar`), the standing hypothesis being the partitions of unity of Stokes (gap G.153). Witnesses: `StrongBundleLocalizationExamples.isOrInvariant_cubeOrientation_z3` (non-unit morphisms; weak: index $\\le 0$, not an instance of the corollary), `TrivialBundle.corollary_15_4_4_circleSection` (weak: units, $\\partial X = \\emptyset$ as the corollary requires), `TrivialIsotropy.corollary_15_4_4_planeZ3` (isotropy $\\mathbb Z/3$, index 1; weak: trivial action on the base).",
+   "instead": "**Formalized** (V15.37, V15.49; `Chapter15/CylinderOrientationInvariance`, `CollarCobordismCorollary`, `CylinderCanonicalOrientation`, `CylinderProductOrientation`, `CylinderEndCanonical`, `Chapter12/IntervalProductLocalIso`): the orientation $\\tilde o = e \\wedge o$ of $\\tilde f$ (`cubeOrientation`) is invariant under the morphisms $(t, \\varphi)$ of $[0, 1] \\times X$ whenever $\\varphi_* o = o$ (`isOrInvariant_cubeOrientation`): the local strong bundle isomorphism of $(t, \\varphi)$ is $\\mathrm{id} \\times$ that of $\\varphi$ near $(t, t(\\varphi))$ (`isIntervalProductAt_morIso_cubeSEP`), and its orientation map carries $e \\wedge o$ to $e \\wedge \\varphi_* o$ (`StrongBundle.LocalIso.orVia_ivFirstFun`, `ChartPoint.ivOrFirst₀_conj`). With the canonical orientations $\\partial\\tilde\\Theta = \\Theta_1 \\sqcup -\\Theta_0$, and Corollary 15.4.4 holds for oriented $(f, o)$ (`corollary_15_4_4_oriented`, `corollary_15_4_4_eff_oriented`, `corollary_15_4_4_of_definition_12_5_4`; with the collar norm and partitions of unity only for Stokes, `corollary_15_4_4_oriented_collar`, `corollary_15_4_4_eff_oriented_collar`), the standing hypothesis being the partitions of unity of Stokes (point G.153). Witnesses: `StrongBundleLocalizationExamples.isOrInvariant_cubeOrientation_z3` (non-unit morphisms; weak: index $\\le 0$, not an instance of the corollary), `TrivialBundle.corollary_15_4_4_circleSection` (weak: units, $\\partial X = \\emptyset$ as the corollary requires), `TrivialIsotropy.corollary_15_4_4_planeZ3` (isotropy $\\mathbb Z/3$, index 1; weak: trivial action on the base).",
    "decls": [
     "Chapter15/CylinderOrientationInvariance · SBLocalization.isOrInvariant_cubeOrientation",
     "Chapter15/CylinderOrientationInvariance · SBLocalization.isIntervalProductAt_morIso_cubeSEP",
@@ -2597,7 +2597,7 @@
    "label": "§15.3, proof of Corollary 15.3.10 (3), pp. 699–700 (2017: Corollary 15.1); (1) of Definition 14.1.3 for the lifted structures",
    "page": 699,
    "book": "The glued data are structurable over $\\partial([0,1] \\times X)$ because the $\\Lambda^i$ are structurable.",
-   "instead": "**Formalized** (V15.47; `Chapter15/CubeLiftScPlus`): `cubeLiftFace_holds : CubeLiftFace A`, from the three items of the gap: the face form on an open set (`isFaceScPlusSectionOn_of_isScPlusSectionOn_open`), the lift sc⁺ on $[0,1] \\times U$ (`isScPlusSectionOn_cubeLiftSec`) and the local representation (`localRepOne_fst_of_mem`); hence `isBoundaryStructurable_cubeGlue` with no further hypothesis.",
+   "instead": "**Formalized** (V15.47; `Chapter15/CubeLiftScPlus`): `cubeLiftFace_holds : CubeLiftFace A`, from the three items of the point: the face form on an open set (`isFaceScPlusSectionOn_of_isScPlusSectionOn_open`), the lift sc⁺ on $[0,1] \\times U$ (`isScPlusSectionOn_cubeLiftSec`) and the local representation (`localRepOne_fst_of_mem`); hence `isBoundaryStructurable_cubeGlue` with no further hypothesis.",
    "decls": [
     "Chapter15/GlueStructurable · SBLocalization.CubeLiftFace",
     "Chapter15/GlueStructurable · SBLocalization.isBoundaryStructurable_of_sides",

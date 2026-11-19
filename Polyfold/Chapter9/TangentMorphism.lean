@@ -46,7 +46,7 @@ and `T_xX` inherits the Banach space structure of `T_{ϕ(x)}O ⊆ E`.
 ## What the text leaves implicit, and the choices made
 
 * **The linear structure of `T_xX` is not in the project** (Part I's `T_xX` is a set of classes,
-  `MPolyfold.tangentFiber`, with no vector space instance: gap G.7).  The text defines it through
+  `MPolyfold.tangentFiber`, with no vector space instance: point G.7).  The text defines it through
   one chart, as the structure transported by `Tϕ : T_xV → T_{ϕ(x)}O`; that it does not depend on
   the chart is the linearity of the transition maps, which the text leaves implicit.  The
   linearity of `Tφ` is therefore stated as the text defines it, in charts: for every chart `χ`
@@ -58,7 +58,7 @@ and `T_xX` inherits the Banach space structure of `T_{ϕ(x)}O ⊆ E`.
   `tangentMor_eq_tangentMapOn_hat` shows that for the chosen sheet it agrees with
   `Tt ∘ (Ts|T_φ𝐗)⁻¹`, which involves no choice.
 * **Elsewhere, and not formalized**: the linearity of `Tφ` is `tangentMorCLE`
-  (`TangentMorphismLinear.lean`; gap G.7).  That `Tφ` is an sc-operator (an sc-isomorphism) for
+  (`TangentMorphismLinear.lean`; point G.7).  That `Tφ` is an sc-operator (an sc-isomorphism) for
   smooth `φ`, for the sc-structure of `T_xX` at smooth `x` (`tangentFiberScIso`,
   `Chapter2/TangentSpaceChartIndependent.lean`), is not formalized.  The facts (3), (4) on
   sub-M-polyfolds after Definition 7.1.21 (row V7.30) concern the linear structure of
@@ -196,7 +196,7 @@ theorem tangentMor_inv_mapsTo {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) :
         rw [X.src_inv]; exact hb)
     rwa [X.tgt_inv] at h
 
-/-- **2021 p. 289 (2017 p. 227), gap G.70**: for `φ ∈ 𝐗₁`, `Tφ` is a bijection
+/-- **2021 p. 289 (2017 p. 227), point G.70**: for `φ ∈ 𝐗₁`, `Tφ` is a bijection
 `T_{s(φ)}X → T_{t(φ)}X`, with inverse `T(φ⁻¹)`. -/
 theorem bijOn_tangentMor {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) :
     BijOn (X.tangentMor φ) (X.tangentFiberAt (X.src φ)) (X.tangentFiberAt (X.tgt φ)) :=
@@ -234,7 +234,7 @@ theorem tangentMor_chart {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) {χ ψ : MC
       MPolyfold.tangentChartMap_tangentMapOn hf hχ hψ hmem, hL,
       (MPolyfold.tangentChartMap_fiber hχ hx ha').1]
 
-/-- **2021 p. 289 (2017 p. 227), gap G.70: `Tφ` is a bounded linear isomorphism on level `0`**,
+/-- **2021 p. 289 (2017 p. 227), point G.70: `Tφ` is a bounded linear isomorphism on level `0`**,
 in the linear structure of Part I's Definition 2.3.14 (read in charts): for `φ ∈ 𝐗₁` and charts
 `χ` around `x = s(φ)`, `ψ` around `y = t(φ)`, `Tφ` and `T(φ⁻¹)` are represented on the fibres by
 continuous linear maps `L : E → E'`, `L' : E' → E`, which restrict to mutually inverse maps

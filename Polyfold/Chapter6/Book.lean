@@ -52,9 +52,9 @@ not change the propagation of orientation; (Lemma 6.6.9, p. 269, new) adding sc�
 * Proposition 6.6.3 (tame `X`; the sc⁺-sections `s`, `q` valued in `Y × [0, 1]`) is covered by
   the existing `proposition_6_6_3` (`OrientableNbhd.lean`), which does not assume tameness and
   reads the sections over `[0, 1] × X` as pull-back sections; (1) (contractibility) is
-  `proposition_6_6_3_one` (`ScContractible.lean`; gap G.61).
+  `proposition_6_6_3_one` (`ScContractible.lean`; point G.61).
 * Lemma 6.6.5 (the solution set near `(t, φ(t), 0)` for points `(t, y, λ)`; 2017: `(t, y, 0)`):
-  the manifold statement is `lemma_6_6_5_isManifold` (`SolutionManifoldFamily.lean`; gap G.62); the family of kernels used later is
+  the manifold statement is `lemma_6_6_5_isManifold` (`SolutionManifoldFamily.lean`; point G.62); the family of kernels used later is
   `exists_subspaceFamily_linKer` (`KernelFamily.lean`), which is not affected by the change.
 * Proposition 6.4.13: the last sentence (`A_T`, `B_T` depend continuously on `T` near `T`) is
   `proposition_6_4_13_continuity` in `Chapter6/BookContinuity.lean`, with a closed common

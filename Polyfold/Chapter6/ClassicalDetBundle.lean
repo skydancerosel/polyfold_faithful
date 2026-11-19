@@ -2,7 +2,7 @@ import Polyfold.Chapter6.DetBundle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), the opening of §6.6
-(p. 262): **the classical case**.  Gap G.60, in part.
+(p. 262): **the classical case**.  Point G.60, in part.
 
 # The determinant line bundle of a classical Fredholm map
 

@@ -29,7 +29,7 @@ factor; that `π` is open is stated without proof.
 * `MPolyfold.proposition_2_3_15_two`: Proposition 2.3.15 (2) in full (continuous and open).
 
 This makes the field `isOpenMap_tangentProj` of Chapter 7's `MPolyfold.SmoothRegular`
-unnecessary and closes gap G.8 (row V2.20, "openness of `p` missing").  The hypotheses
+unnecessary and settles point G.8 (row V2.20, "openness of `p` missing").  The hypotheses
 `IsOpenMap tangentProj` of the §7.4 and §8.1 results can be discharged with
 `MPolyfold.isOpenMap_tangentProj` (`Chapter8/ZhouFacts.lean`, `Chapter8/TangentZhouFacts.lean`).
 -/
@@ -82,7 +82,7 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
 /-- **2021 Proposition 2.3.15 (2), openness** (2014 Proposition 2.19 (2), 2017 Proposition 2.5 (2);
-gap G.8): the projection `p : TX → X¹` of the tangent bundle of an M-polyfold is an open map. -/
+point G.8): the projection `p : TX → X¹` of the tangent bundle of an M-polyfold is an open map. -/
 theorem isOpenMap_tangentProj : IsOpenMap P.tangentProj := by
   intro S hS
   rw [isOpen_iff_mem_nhds]

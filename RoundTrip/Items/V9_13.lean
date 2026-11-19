@@ -23,7 +23,7 @@ are metrizable, hence `U` sequential, so compact traces make `M` closed in `U`),
 * `A → B`: not proved.  `A` gives `B` only under the independence hypothesis:
   `A_to_B_of_hyp : A → Hind → B`, where `Hind` is `HasIndependentTangentSums` for every branched
   `Θ` of every ep-groupoid in `Type`.  Conversely `B → Hind` (`B_to_hyp`).  So `B ⇔ A ∧ Hind`
-  and the gap is exactly `Hind` (Theorem 9.2.1 (1) proper), which the project proves only in
+  and the difference is exactly `Hind` (Theorem 9.2.1 (1) proper), which the project proves only in
   special cases (good points, equidimensional with tangent slices, `ℝᵐ`, from Proposition
   9.1.12).
 * `B → A`: proved.  `grPush_tangentValue` is derived from `B (2)`; `tangentSum_transport` (stated
@@ -145,7 +145,7 @@ theorem tsumB_eq {Θ : Obj → ℚ} {x : Obj} (Bs : X.LocalBranchingStructure Θ
 
 end Dict
 
-/-! ### The gap: the independence hypothesis -/
+/-! ### The difference: the independence hypothesis -/
 
 /-- The independence of `∑ σᵢ T_xMᵢ` for every branched ep⁺-subgroupoid (the hypothesis of the
 project's `theorem_9_2_1`, for all ep-groupoids in `Type`). -/

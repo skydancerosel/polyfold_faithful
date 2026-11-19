@@ -68,7 +68,7 @@ an sc-smooth retraction `r : V → V` with `r(V) = A ∩ V`.
   `X_m` an M-polyfold is proved for `m = 1` in `LevelPolyfold.lean` (`MPolyfold.shift`, through
   Proposition 1.2.2 (preprint 1.17) for retracts, `IsScSmoothRetractMap.shift`); for every `m` the levels
   of `X¹` are those of `X` shifted by one (`MPolyfold.shiftLevelHomeomorph`, `MPolyfold.shift_level_eq` in
-  `TangentLift.lean`; gap G.6).
+  `TangentLift.lean`; point G.6).
 * The tangent bundle `TX` (Definitions 2.17–2.18, Proposition 2.3.15 (preprint 2.19) (1), continuity in (2), `TX`
   as an M-polyfold) is in `TangentBundle.lean`, Proposition 2.3.15 (preprint 2.19) (3) (`Polyfold.proposition_2_3_15_three`)
   in `Metrizable.lean`.  Proposition 2.3.19 (preprint 2.21) (the structure, (1), (2)) is in `SubMPolyfold.lean`;

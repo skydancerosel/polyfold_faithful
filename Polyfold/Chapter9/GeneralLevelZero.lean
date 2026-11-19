@@ -39,15 +39,15 @@ good.
   (`exists_plusRetraction`, `chartTangent_eq_range`, `levelLift_eq_plusLift`,
   `hasDimAt_finrank`), and
   - `isGraphChartAt_goodDirections`, `hasClassGraphChartAt`: the graph representation at every
-    point, with the admissible cone `goodDirections φ x (T_xA)` of each tangent space (gap
+    point, with the admissible cone `goodDirections φ x (T_xA)` of each tangent space (point
     G.97); `isGraphBallAt_of_mem_interior`, `hasGraphBallAt_of_mem_interior`,
     `hasGraphChartAt_of_mem_interior` at interior points, with
     `exists_chart_mem_interior_of_degIndex_eq_zero` (`d_X(x) = 0`);
-  - `hasLocallyConstantDimAt` (Remark 9.1.1, gap G.93): the hypothesis
+  - `hasLocallyConstantDimAt` (Remark 9.1.1, point G.93): the hypothesis
     `HasLocallyConstantDimAt` is no longer needed;
-  - `hasDomainInvarianceAt` (gap G.98): the hypothesis `HasDomainInvarianceAt` of
+  - `hasDomainInvarianceAt` (point G.98): the hypothesis `HasDomainInvarianceAt` of
     `lemma_9_2_7_2` is no longer needed;
-  - `hasContinuousLevelOneOn` (gap G.100): the hypothesis `HasContinuousLevelOneOn` of
+  - `hasContinuousLevelOneOn` (point G.100): the hypothesis `HasContinuousLevelOneOn` of
     `lemma_9_3_4_of_hasGraphBallAt` is no longer needed.
   The Chapter 9 theorems that follow are in `GeneralCorollaries.lean`.
 
@@ -61,7 +61,7 @@ good.
   cone of one tangent space at a time, so here the cone is chosen per tangent space
   (`HasClassGraphChartAt`), and this form holds at every point.  `HasGraphChartAt` and
   `HasGraphBallAt` are proved at interior points.
-* Definition 9.2.12 (`TMᵢ` smooth submanifolds of `TX`, gap G.99) needs the tangent map of an
+* Definition 9.2.12 (`TMᵢ` smooth submanifolds of `TX`, point G.99) needs the tangent map of an
   sc⁺-retraction on `TX`; it is treated in `TangentSubmanifoldSmooth.lean`, and Lemma 9.3.4 at
   boundary points in `GeneralBoundaryPoints.lean`.
 
@@ -1136,7 +1136,7 @@ theorem exists_chart_mem_interior_of_degIndex_eq_zero {x : X} (h : P.degIndex x 
   rw [← hd, h]
 
 /-- **2021 Remark 9.1.1 (p. 402) for a general M-polyfold: the dimension of a smooth
-finite-dimensional submanifold is locally constant** (gap G.93).  In a chart, `dim_y A` is the
+finite-dimensional submanifold is locally constant** (point G.93).  In a chart, `dim_y A` is the
 rank of `Dt` at the lift of `φ(y)` (`hasDimAt_finrank`), which is locally constant along the
 retract (`ScRetraction.eventually_finrank_eq`).  This makes the hypothesis
 `HasLocallyConstantDimAt` unnecessary. -/
@@ -1173,7 +1173,7 @@ theorem _root_.Polyfold.ScRetraction.continuousOn_of_isScPlus {E : ScBanach} {C 
     fun _ hx => (ScRetraction.toBase_plusLift hR hx).symm
 
 /-- **The invariance of domain used in 2021 Lemma 9.2.7(2) (p. 412) for a general M-polyfold**
-(gap G.98): an `n`-dimensional submanifold contained near `y` in another `n`-dimensional one
+(point G.98): an `n`-dimensional submanifold contained near `y` in another `n`-dimensional one
 agrees with it near `y`.  Both are retracts of chart sc⁺-retractions with the same tangent space
 at `y` (equal dimensions), and `ScRetraction.eq_of_range_eq` applies.  This makes the
 hypothesis `HasDomainInvarianceAt` unnecessary. -/
@@ -1257,7 +1257,7 @@ theorem hasDomainInvarianceAt (y : X) (n : ℕ) : P.HasDomainInvarianceAt y n :=
   rw [← this]; exact hpA
 
 /-- **Level-`1` coordinates are continuous along every smooth finite-dimensional submanifold of
-a general M-polyfold** (gap G.100): on `W ∩ A` the lift `levelLift φ 1` is `(1₀¹ ∘ t) ∘ φ`
+a general M-polyfold** (point G.100): on `W ∩ A` the lift `levelLift φ 1` is `(1₀¹ ∘ t) ∘ φ`
 (`levelLift_eq_plusLift`), continuous since `t` is sc⁺.  This makes the hypothesis
 `HasContinuousLevelOneOn` unnecessary. -/
 theorem hasContinuousLevelOneOn {A : Set X} (hA : P.IsSmoothSubmanifold A) :

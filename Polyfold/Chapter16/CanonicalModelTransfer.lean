@@ -350,7 +350,7 @@ theorem isInheritedFrom_of_correspondence_of_boundary_eq_empty
     fun _ _ x hx => absurd hx (hbd' x)
 
 /-- **2021 §16.6, p. 739: the orientation inherited from `(f, o)` does not depend on the model of
-`o`** (gap (a″) of G.175, for `∂Z = ∅`).  Let `Z` admit sc-smooth partitions of unity, `∂Z = ∅`,
+`o`** (point (a″) of G.175, for `∂Z = ∅`).  Let `Z` admit sc-smooth partitions of unity, `∂Z = ∅`,
 and let `o`, `o'` be orientations of `f` on two representatives which correspond over a diagram
 (`Correspondence`), with tame germ data and Fredholm index `m + 1` in both models.  If the
 canonical orientations pull back to canonical orientations on the middle bundle (`hT`, `hT'`),

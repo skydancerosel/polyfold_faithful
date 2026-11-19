@@ -64,7 +64,7 @@ positive for `o_y`, `e` outward pointing; the resulting `o_{∂M}` fits continuo
 
 ## What the text leaves implicit, and the choices made
 
-* `T_yX` carries no linear structure in Part I (gap G.7): `T^R_yX` and `C_yX` are read in a
+* `T_yX` carries no linear structure in Part I (point G.7): `T^R_yX` and `C_yX` are read in a
   presented chart, and shown independent of it.  `T_y∂M` is the set of vectors of `T_yM` lying in
   `T^R_yX` (equivalently `T^R_yM` of the induced structure).
 * "Outward pointing" is read as: in `T_yM`, not in the partial cone `C_yX` (equivalently not in

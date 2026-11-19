@@ -10,7 +10,7 @@ import Polyfold.Chapter2.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.2, p. 240, the
-sentence before **Proposition 6.2.2** (preprint: before Proposition 6.2, p. 201).  Gap G.56,
+sentence before **Proposition 6.2.2** (preprint: before Proposition 6.2, p. 201).  Point G.56,
 row V6.49.
 
 # Smooth points of a component are joined by sc⁺-smooth paths

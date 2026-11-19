@@ -6,7 +6,7 @@ import Polyfold.Chapter11.AuxiliaryNormTransport
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Definitions 16.3.13 and
 16.3.14, Proposition 16.3.16 (2), pp. 727–728 (2017: Definitions 16.25, 16.26, Proposition
 16.5), with Definition 12.2.8 and Proposition 11.5.1: **mixed convergence and reflexive
-auxiliary norms do not depend on the model** (parts (ii) and (iii) of gap G.166).  Numbers and
+auxiliary norms do not depend on the model** (parts (ii) and (iii) of point G.166).  Numbers and
 pages are the 2021 text's.
 
 ## What is formalized

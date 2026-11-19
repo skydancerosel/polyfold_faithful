@@ -5,7 +5,7 @@ import Polyfold.Chapter9.EpFormsObj
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 8, Definition 8.2.1 (p. 281) and Chapter 9, §9.5 (pp. 438–445): the values of
 the sc-differential forms of an ep-groupoid on the tangent vectors of its submanifolds, as the
-datum `EpGroupoid.FormEval` from which the integrals over oriented sheets are built (gap G.107).
+datum `EpGroupoid.FormEval` from which the integrals over oriented sheets are built (point G.107).
 
 # The pointwise evaluation of the sc-differential forms of an ep-groupoid
 

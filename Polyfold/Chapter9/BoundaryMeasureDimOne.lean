@@ -6,7 +6,7 @@ import Polyfold.Chapter9.FiniteTheorem
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, **Theorems 9.5.15 and 9.5.16 for `n = 1`** (p. 449; 2017: Theorems
-9.4, 9.5), gap G.109.  Numbers and pages are the 2021 text's.
+9.4, 9.5), point G.109.  Numbers and pages are the 2021 text's.
 
 # The boundary measures of a `1`-dimensional `Θ̂`
 
@@ -17,7 +17,7 @@ structure into such neighbourhoods, its boundary sheets become empty or single s
 which lie in the class `pointSheets` of the integration over oriented points
 (`PointIntegration.lean`).  So the class condition of Theorems 9.5.15/9.5.16
 (`BoundaryMeasure.lean`) holds for `n = 1` as soon as every point has an oriented
-tame structure describing `T̂Θ` (the reading of "oriented, tame" of gap G.107).
+tame structure describing `T̂Θ` (the reading of "oriented, tame" of point G.107).
 
 * `MPolyfold.boundaryStratum_inter_subset`: `∂₁(A ∩ V) ⊆ ∂₁A ∩ V` for open `V`.
 * **`MPolyfold.exists_isOpen_boundaryStratum_subsingleton`**: a `1`-dimensional tame submanifold
@@ -212,7 +212,7 @@ open EpGroupoid
 variable (A : EP.{u}) {Θ : A.Obj → ℚ} {T : A.Obj → A.X.PObj.OrTangent →₀ ℚ}
 
 /-- **Theorem 9.5.15, 2021 p. 449 (2017: Theorem 9.4), for `n = 1`**: let `Θ̂` be oriented, tame
-(an oriented tame structure describing `T̂Θ` at every point of `supp Θ`, gap G.107), compact and
+(an oriented tame structure describing `T̂Θ` at every point of `supp Θ`, point G.107), compact and
 `1`-dimensional.  There is exactly one linear map `ω ↦ μ_ω^∂` from `Ω⁰_{ep,∞}(X)` to the signed
 measures on `(∂S, L(∂S))` such that `μ_ω^∂(K) = (1/♯G_x) ∑ σᵢ ∫_{Kᵢ} ω|(∂₁Mᵢ, o_{∂Mᵢ})` for every
 oriented tame structure at `x ∈ supp(∂Θ)` describing `T̂Θ` whose nonempty boundary sheets are

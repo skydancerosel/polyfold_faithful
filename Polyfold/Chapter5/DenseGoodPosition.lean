@@ -7,7 +7,7 @@ import Polyfold.Chapter5.GeneralPosition
 the theorem with "an arbitrarily small section `s ∈ Γ^{+,1}_U(P)` satisfying `s(x) = 0` near
 `∂X`"; that statement is `theorem_5_3_12` (`Chapter5/MainTheoremsBookForm.lean`).  Theorems 5.3.5
 and 5.3.10 are stated with a dense set of good perturbations.  This file proves the dense form of
-Theorem 5.3.12 as well (gap G.45).
+Theorem 5.3.12 as well (point G.45).
 
 ## What is formalized
 

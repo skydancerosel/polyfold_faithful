@@ -3,7 +3,7 @@ import Polyfold.Chapter15.ProductBundle
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2021), §15.3, products remark after
 **Definition 15.3.3** (pp. 692–693): the levels `[0]` and `[1]` of the product strong bundle
-`W × W' → X × X'` (gap G.160 (a), continued).
+`W × W' → X × X'` (point G.160 (a), continued).
 
 # The M-polyfolds `(W × W')[0]` and `(W × W')[1]`
 

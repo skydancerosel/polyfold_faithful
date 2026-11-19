@@ -20,9 +20,9 @@ and `IsOpenMap X.PMor.tangentProj` (`p : T𝐗 → 𝐗¹` open).
   `isOpenMap_tangentProj_of_subsingleton` is not a consequence of `B`; re-proved outright.
 * `A → B` (not proved): `B` gives neither `HasConnectedDenseLevelOneReps` nor the openness of
   `p`, and `A`'s (2) covers only `(TX)⁰`, while `B`'s (2) is (LUC) for every `(TX)ⁱ`.  The level
-  gap is glue (the project's `EP.tangentLiftEpEquiv` transports (LUC) from `T(Xⁱ)` to `(TX)ⁱ`),
+  difference is glue (the project's `EP.tangentLiftEpEquiv` transports (LUC) from `T(Xⁱ)` to `(TX)ⁱ`),
   but the two hypotheses are not: the openness of `p` is a Part I fact the project leaves open
-  (gap G.8), and `HasConnectedDenseLevelOneReps` is an assumption of the text's Appendix 7.6.4
+  (point G.8), and `HasConnectedDenseLevelOneReps` is an assumption of the text's Appendix 7.6.4
   (satisfiable, e.g. for the point ep-groupoid; whether it holds for every ep-groupoid is not
   established). -/
 

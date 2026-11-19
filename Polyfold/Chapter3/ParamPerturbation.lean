@@ -114,7 +114,7 @@ Theorem 3.1.22 (preprint 3.19)) The linearization of `f̃(r, x) = f(x) + Σ rᵢ
 * **The linearization after Theorem 3.1.22 (preprint 3.19)** is stated at `(0, x₀)` with `f(x₀) = 0`.  At a
   general `(r₀, x)` the first term is the linearization of `f + Σ r₀ᵢ sᵢ`, not `f'(x)`
   (`linAt_paramSection_wholeChart`).  The formula is stated in the chart form `linAt` (Definition 3.6.6 (preprint 3.53)
-  works in charts, gap G.13); it is the derivative at the centre of the chart and does not need
+  works in charts, point G.13); it is the derivative at the centre of the chart and does not need
   `F(r₀, x) = 0`.
 * Typos in the passage: "a parametrized version of Proposition 3.15" (Theorem 3.1.18 (preprint 3.15)); after
   Theorem 3.1.22 (preprint 3.19), "the sc¹-sections `sᵢ`" (they must be sc⁺, as Theorem 3.1.21 (preprint 3.18) requires and the

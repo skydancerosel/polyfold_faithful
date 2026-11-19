@@ -4,7 +4,7 @@ import Polyfold.Chapter9.MeasureGlue
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
 **Theorems 9.5.17 and 9.5.18** (Stokes' theorem for branched integration, pp. 449–451; 2017:
-Theorems 9.7, 9.8, pp. 327–329): the steps of the proof on pp. 450–451 (gap G.110).
+Theorems 9.7, 9.8, pp. 327–329): the steps of the proof on pp. 450–451 (point G.110).
 
 # Stokes' theorem for branched integration: the proof from the local formulas
 
@@ -60,7 +60,7 @@ the standard Stokes theorem `∫_{(Mᵢ,oᵢ)} dω_k = ∫_{∂(Mᵢ,oᵢ)} ω_k
 
 ## Not in this file
 
-The measures `μ_ω`, `μ^∂_ω` (gaps G.107, G.109) and with them the second and fourth equalities
+The measures `μ_ω`, `μ^∂_ω` (points G.107, G.109) and with them the second and fourth equalities
 (hypotheses here); the forms `β_k ω` (the product of an sc-form with an sc-smooth function, and
 that it vanishes on the sheets off `supp β_k`); Remark 9.5.20.  They are elsewhere: the measures
 `μ_ω` for sc-forms (`SheetIntegrationConcrete.lean`, `MultiChartIntegration.lean`), the forms

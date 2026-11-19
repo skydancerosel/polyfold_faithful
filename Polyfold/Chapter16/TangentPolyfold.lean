@@ -28,7 +28,7 @@ We take `T(Z, c) := |T X₀|` for the chosen structure `(X₀, α₀) = c.out` (
 base point.
 * **`tangentMap_comp`**: (16.5), `Tβ ∘ |Th| = Tα` for every `h : X → Y` with `β ∘ |h| = α`.
 * **`PolyfoldStructure.metrizableSpace`**: a space with a polyfold structure is metrizable (the
-  remark after Definition 16.1.1, gap G.146).
+  remark after Definition 16.1.1, point G.146).
 * **`lemma_16_2_2`**: every `Tα` is a homeomorphism, no other topology makes one of them a
   homeomorphism, and `T(Z, c)` is metrizable (Theorem 8.1.15's proof).
 * **`tangentStructure q hq = (TX, Tα)`**, a polyfold structure on `T(Z, c)` (`|TX|` paracompact by

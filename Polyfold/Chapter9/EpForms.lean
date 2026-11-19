@@ -10,7 +10,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 pp. 372–373: **Definition 8.2.1** (2017: Definition 8.2), the directed system and the direct
 limit `Ω*_{ep,∞}(X)`, the exterior derivative `d[ω] = [dω]` with `d ∘ d = 0`, and
 **Definition 8.2.2** (2017: Definition 8.3), the sc-de Rham complex of an ep-groupoid
-(gap G.74).  Numbers and pages are the 2021 text's.
+(point G.74).  Numbers and pages are the 2021 text's.
 
 # Sc-differential forms on ep-groupoids
 

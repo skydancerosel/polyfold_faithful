@@ -4,7 +4,7 @@ import Polyfold.Chapter5.OrientableNbhd
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6,
 **Proposition 6.6.3 (3) and (4)** (p. 263; preprint Proposition 6.28) **on `[0, 1]`**.
-Gap G.65, row V6.32.
+Point G.65, row V6.32.
 
 # sc⁺-sections over `[0, 1] × X` along a path
 

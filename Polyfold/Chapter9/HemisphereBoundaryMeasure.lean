@@ -3,7 +3,7 @@ import Polyfold.Chapter9.HemisphereWitness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5: **Theorems 9.5.15 and 9.5.17, p. 449**, gaps G.109, G.110: the
+Part II, Chapter 9, §9.5: **Theorems 9.5.15 and 9.5.17, p. 449**, points G.109, G.110: the
 hypotheses of `EP.theorem_9_5_15_class` and `EP.theorem_9_5_17` hold for an example with boundary.
 Numbers and pages are the 2021 text's.
 

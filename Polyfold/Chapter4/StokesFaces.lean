@@ -19,7 +19,7 @@ The text sums over the faces of `∂N` without comment.  The sum is finite:
 (`encard_facesThrough_le`).  Finitely many `U(x_j)` cover, and a face is nonempty.
 
 This is one of the steps towards the text's statement of Theorem 4.4.7 with the faces as manifolds
-in their own right (gap G.40); the integral over a face and the identity with the boundary
+in their own right (point G.40); the integral over a face and the identity with the boundary
 integral of `ManifoldStokes` are `StokesFaceIntegral.lean`
 (`sum_integral_restrictForm_eq_boundaryIntegral`).
 -/

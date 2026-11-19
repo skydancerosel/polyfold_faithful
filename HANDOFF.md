@@ -334,7 +334,7 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 
 - `Chapter1.md` – `Chapter11.md`: the exposition of Parts I–II.
 - `cmp/chNN.json` → `build_comparison.py` → `Comparison.json`, `Comparison.md`, `polyfold-beside-lean.html`: every
-  numbered statement of the book beside the Lean statement, with a verdict (V-rows), and the gaps (G-numbers):
+  numbered statement of the book beside the Lean statement, with a verdict (V-rows), and the points (G-numbers):
   entries of the text that no row covers, each formalized or marked "nothing to formalize".
 - `verification/chNN.md` → `build_verification.py` → `Verification.md` (and `.pdf`): the verified edition, V-items
   and the numbered sign-off items; `build_signoff.py` → `polyfold-signoff.html`, the sign-off page.
@@ -353,7 +353,7 @@ Run the scripts from the project folder with the git shim of §1 on the PATH (`c
 
 ## 4. Status
 
-All 193 gaps are settled: 189 are formalized, and 4 have nothing to formalize (G.34, the question after
+All 193 points are settled: 189 are formalized, and 4 have nothing to formalize (G.34, the question after
 Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; G.153, the text's own question in Remark 9.5.19). The 60
 rows with the verdict "narrower" prove less than the text states; `Exposition/Findings.md` gives the reason for each,
 and `README.md` lists the points that need the authors' reading. Added hypotheses (`_hyp` forms) are listed with

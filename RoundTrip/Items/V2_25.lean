@@ -29,7 +29,7 @@ image of `Ti(a)(T_aA)`.
 
 `A → B` fails for lack of transport, not for a mathematical reason (believed true).  The project
 does not transport Proposition 2.21 (3), (4) from the chart to `T_aX` / `T_aA` (its own header,
-gap G.7).  Doing so is new work on the tangent-bundle API: given `a`, a chart `φ`, the data
+point G.7).  Doing so is new work on the tangent-bundle API: given `a`, a chart `φ`, the data
 `(V, r)` of `A` at `a` and an arbitrary `Q` with (1), (2), one must (i) identify the chart image of
 `T_aX` with `T_{φ(a)}O` (done below, `tangentInChartB_eq`), (ii) apply A to the retraction `R'`
 onto `φ(W)` (`W` the shrunken domain) and `s := φ ∘ r ∘ φ⁻¹` (an sc-smooth idempotent of `φ(W)`

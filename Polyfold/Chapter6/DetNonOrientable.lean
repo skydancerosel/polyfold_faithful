@@ -3,7 +3,7 @@ import Polyfold.Chapter6.ChartTransfer
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), the end of §6.5 (p. 262;
-preprint p. 219): the remark that **the line bundle `DET(E, F)` is non-orientable**.  Gap G.60.
+preprint p. 219): the remark that **the line bundle `DET(E, F)` is non-orientable**.  Point G.60.
 
 # `DET(E, F)` is not orientable
 

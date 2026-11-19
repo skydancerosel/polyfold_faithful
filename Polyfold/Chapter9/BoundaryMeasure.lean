@@ -8,7 +8,7 @@ import Polyfold.Chapter9.GeneralCorollaries
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5, **Theorems 9.5.15 and 9.5.16** (p. 449; 2017: Theorems 9.4, 9.5),
-gap G.109.  Numbers and pages are the 2021 text's.
+point G.109.  Numbers and pages are the 2021 text's.
 
 # The canonical boundary measures `μ_ω^∂` on `(∂S, L(∂S))`
 

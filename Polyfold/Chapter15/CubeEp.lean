@@ -18,7 +18,7 @@ The text's `X̃ = [0, 1] × X` is the product (`EpGroupoid.prod`, `ProductEp`) o
 ep-groupoid of the M-polyfold `[0, 1]` with `X`; the strong bundle `W̃` is the pull-back of `W`
 along the projection functor `X̃ → X` (`SEP.pullbackAlong`, Chapter 10), with fibre `W_x` over
 `(t, x)`; and `f̃(t, x) = ((t, x), f(x))`.  We use Part I's cube `[0, 1]ⁿ = Fin n → [0, 1]`
-(`cubePolyfold`, gap G.65), for which the sc-Fredholm property of `f̃` is proved
+(`cubePolyfold`, point G.65), for which the sc-Fredholm property of `f̃` is proved
 (`StrongBundle.IsScFredholmSectionTame.paramCube`); the text's `[0, 1]` is `n = 1`.
 
 ## What is formalized
@@ -284,7 +284,7 @@ theorem isScSmoothSectionFunctor_cubeLiftEp {f : A.Obj → A.W}
     isFunctorialSection_cubeLiftEp hsm.1 hfun⟩
 
 /-- **`f̃` is an sc-Fredholm section functor** if `f` is one and has Part I's tame germ data
-(`StrongBundle.IsScFredholmSectionTame.paramCube`, gap G.65 (a)). -/
+(`StrongBundle.IsScFredholmSectionTame.paramCube`, point G.65 (a)). -/
 theorem isScFredholmSectionFunctor_cubeLiftEp {f : A.Obj → A.W}
     (hf : A.E.IsScFredholmSectionFunctor f) (hft : A.B.IsScFredholmSectionTame f) :
     (A.cubeSEP n).E.IsScFredholmSectionFunctor (cubeLiftEp (n := n) f hf.1.1.1) := by

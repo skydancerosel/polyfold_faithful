@@ -4,7 +4,7 @@ import Polyfold.Chapter11.GraphChartsDiffeo
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4 "Equivalences and Integration", proof of Theorem 11.4.1 (pp. 543–544;
-2017: Theorem 11.8, p. 396), gap G.131.  Numbers and pages are the 2021 text's.
+2017: Theorem 11.8, p. 396), point G.131.  Numbers and pages are the 2021 text's.
 
 # Oriented tame structures and sheet integrals moved by an sc-diffeomorphism
 

@@ -4,7 +4,7 @@ import Polyfold.Chapter5.OpenForms
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §4.4, **Lemma 4.4.8**
 (Poincaré Lemma, p. 199; proof in §4.5.3, pp. 203–204): the reduction to Lemma 4.5.2 (part of
-gap G.80).
+point G.80).
 
 # The Poincaré Lemma 4.4.8 from its local form 4.5.2
 

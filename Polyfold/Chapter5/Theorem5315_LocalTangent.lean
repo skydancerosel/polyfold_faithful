@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_LocalInvariance
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the local data of
-**Theorem 5.3.15** (p. 223; preprint: Theorem 5.22), second step.  Gap G.48.
+**Theorem 5.3.15** (p. 223; preprint: Theorem 5.22), second step.  Point G.48.
 
 # The tangent vectors of a smooth parametrization of a solution set
 

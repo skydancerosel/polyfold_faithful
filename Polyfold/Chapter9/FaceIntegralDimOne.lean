@@ -3,7 +3,7 @@ import Polyfold.Chapter9.ZeroFormValues
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, §9.5, proof of Theorem 9.5.18 (pp. 450–451; gap G.110) for `n = 1`, with Definition
+Part II, §9.5, proof of Theorem 9.5.18 (pp. 450–451; point G.110) for `n = 1`, with Definition
 9.3.8 (boundary orientation, p. 426) and Part I, Theorem 4.4.7 (p. 199).  Numbers and pages are
 the 2021 text's.
 

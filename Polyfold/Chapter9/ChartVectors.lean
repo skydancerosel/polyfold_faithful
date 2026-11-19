@@ -5,7 +5,7 @@ import Polyfold.Chapter9.SheetEssentialChart
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, Chapter 9, §9.3
 (Definition 9.3.3, p. 422) and §9.5: chart changes along a finite-dimensional submanifold, for
-the integration of forms over oriented sheets (gap G.107).
+the integration of forms over oriented sheets (point G.107).
 
 # Chart vectors along a submanifold, and frames of an oriented tangent space
 -/

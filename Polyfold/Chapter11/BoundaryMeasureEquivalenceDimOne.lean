@@ -5,7 +5,7 @@ import Polyfold.Chapter9.StokesDimOne
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.4, **Theorems 11.4.4 and 11.4.5 for `n = 1`** (p. 545, new in the 2021
-edition), gap G.131.  Numbers and pages are the 2021 text's.
+edition), point G.131.  Numbers and pages are the 2021 text's.
 
 # The boundary measures of a `1`-dimensional `Θ̂` along an equivalence
 

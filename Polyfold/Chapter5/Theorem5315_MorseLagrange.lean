@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_ParametricMorse
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the proof of
 **Theorem 5.3.15** (pp. 224–228; 2017: Theorem 5.8; preprint: Theorem 5.22), the classical
-calculus behind (5.12)–(5.14).  Gap G.48.
+calculus behind (5.12)–(5.14).  Point G.48.
 
 # Critical points on level sets: Lagrange multipliers
 

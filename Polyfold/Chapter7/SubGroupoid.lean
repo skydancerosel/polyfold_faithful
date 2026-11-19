@@ -57,7 +57,7 @@ sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions o
 
 * **Facts (3), (4)** (tangent spaces) are Part I's `proposition_2_3_19_three`, `proposition_2_3_19_four`, in
   a chart; they are not restated for `A` or `𝐀`, since `T_xX` carries no linear structure in
-  Part I (gap G.7).  Nothing below uses them.
+  Part I (point G.7).  Nothing below uses them.
 * **Paracompactness** (an M-polyfold is paracompact, Definition 2.3.4 (2017: 2.8)): the text is silent for `A`
   and `𝐀`; both are subspaces of metrizable spaces (Theorem 2.3.10 (2017: 2.2) [2.16]).  For `𝐀` it is the scoped
   instance `instParacompactSpaceMorOn` (`open scoped Polyfold.EpGroupoid`).  For `A` it is an

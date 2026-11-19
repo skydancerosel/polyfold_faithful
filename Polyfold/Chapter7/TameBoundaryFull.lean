@@ -22,7 +22,7 @@ Theorem 2.7.13.
 `theorem_7_6_9_full` (`TameBoundaryEpStructure.lean`) states the characterization and its
 uniqueness for representatives `(x, V, θ)` whose `V` is centred at `x` (V7.101).  Part I has both
 for every representative (`MPolyfold.phi_isScDiffeoOn_nonCentred`,
-`MPolyfold.tameBoundaryPolyfold_unique_allReps`; gap G.78, closed), and the structures of
+`MPolyfold.tameBoundaryPolyfold_unique_allReps`; point G.78, closed), and the structures of
 the boundary ep-groupoid are Part I's `tameBoundaryPolyfold` of the object and the morphism
 M-polyfold (`bPObj`, `bPMor`).  So:
 

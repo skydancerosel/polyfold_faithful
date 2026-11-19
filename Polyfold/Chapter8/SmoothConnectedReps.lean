@@ -25,11 +25,11 @@ From `Chapter5/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
 (`MPolyfold.denseSmooth`):
 
 * **`MPolyfold.smoothConnected`**: every M-polyfold satisfies `MPolyfold.SmoothConnected`
-  (gap G.85, the connectedness fact of V7.86); `MPolyfold.smoothRegular_iff_tangent`,
+  (point G.85, the connectedness fact of V7.86); `MPolyfold.smoothRegular_iff_tangent`,
   `MPolyfold.smoothRegular_of_tangent`: of the four Part I facts bundled in `SmoothRegular`, only
-  the openness of `p : TX → X¹` (gap G.8) and `TangentDeterminedSmooth` remain.
+  the openness of `p : TX → X¹` (point G.8) and `TangentDeterminedSmooth` remain.
 * **`MPolyfold.hasConnectedSmoothNbhds`**: every M-polyfold satisfies
-  `MPolyfold.HasConnectedSmoothNbhds` (gap G.90; the hypothesis of
+  `MPolyfold.HasConnectedSmoothNbhds` (point G.90; the hypothesis of
   `hasTwoContSections_orTopology` and `theorem_6_6_17_hyp`, rows V6.74, V6.75): the component
   of `x` in `W` is open (Proposition 2.3.7) and connected.  It is proved in
   `Chapter6/OrientationMainClean.lean`, so that the clean `theorem_6_6_17` can use it.
@@ -52,7 +52,7 @@ From `Chapter5/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
   `nonEffectivePart_tangent_eq_of_isOpenMap`, `proposition_8_1_17_one_of_isOpenMap`,
   `EP.proposition_8_1_17_two_of_isOpenMap`, `EP.isLUC_tangent_lift_of_isOpenMap`,
   `EP.proposition_8_1_17_two_all_of_isOpenMap` (Proposition 8.1.17; rows V8.45, V8.52),
-  under the openness of `p` (gap G.8), which is `MPolyfold.isOpenMap_tangentProj`
+  under the openness of `p` (point G.8), which is `MPolyfold.isOpenMap_tangentProj`
   (`Chapter2/TangentProjOpen.lean`); the forms without it are in `SmoothRegularAssembly.lean`.
 * **`EpGroupoid.Examples.JumpingRetract.not_isZhou_of_tangent`**: the example of Appendix 7.6.3
   fails (ZHOU) under two Part I facts (row V7.95); both are theorems
@@ -61,7 +61,7 @@ From `Chapter5/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
 
 The results of §7.4 that take `SmoothRegular` (Propositions 7.4.8, 7.4.10, 7.4.22, Corollary
 7.4.11, Theorems 7.4.13, 7.4.24; rows V7.90, V7.91, V7.94, V7.102) lose two of its four fields
-here; they become unconditional once `isOpenMap_tangentProj` (gap G.8) and
+here; they become unconditional once `isOpenMap_tangentProj` (point G.8) and
 `TangentDeterminedSmooth` are theorems, through `MPolyfold.smoothRegular_of_tangent`.
 
 ## What the text leaves implicit, and the choices made
@@ -83,7 +83,7 @@ namespace MPolyfold
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **The connectedness fact of 2021 §7.4 (gap G.85)**: for every M-polyfold `X` and every
+/-- **The connectedness fact of 2021 §7.4 (point G.85)**: for every M-polyfold `X` and every
 connected open `U ⊆ X`, `U ∩ X_∞` is connected in `X_∞`; Chapter 7's hypothesis
 `MPolyfold.SmoothConnected` holds for every M-polyfold. -/
 theorem smoothConnected : P.SmoothConnected :=
@@ -91,7 +91,7 @@ theorem smoothConnected : P.SmoothConnected :=
 
 
 /-- Of the four Part I facts bundled in `SmoothRegular`, the density of `X_∞` and the
-connectedness of `U ∩ X_∞` hold for every M-polyfold; the openness of `p : TX → X¹` (gap G.8) and
+connectedness of `U ∩ X_∞` hold for every M-polyfold; the openness of `p : TX → X¹` (point G.8) and
 `TangentDeterminedSmooth` remain. -/
 theorem smoothRegular_iff_tangent :
     P.SmoothRegular ↔ IsOpenMap P.tangentProj ∧ P.TangentDeterminedSmooth :=
@@ -189,7 +189,7 @@ theorem corollary_7_6_8_of_imp {Zhou : Prop} (hZ : Zhou) (hSLUC : Zhou → X.lif
 
 /-! ### Proposition 8.1.17 without `HasConnectedDenseLevelOneReps` -/
 
-/-- `(T𝐗)^T = p⁻¹((𝐗¹)^T)` under (LUC) for `X¹`, with `p : T𝐗 → 𝐗¹` open (gap G.8) as the only
+/-- `(T𝐗)^T = p⁻¹((𝐗¹)^T)` under (LUC) for `X¹`, with `p : T𝐗 → 𝐗¹` open (point G.8) as the only
 added hypothesis. -/
 theorem nonEffectivePart_tangent_eq_of_isOpenMap (h : X.liftOne.IsLUC)
     (hp : IsOpenMap X.PMor.tangentProj) :
@@ -197,7 +197,7 @@ theorem nonEffectivePart_tangent_eq_of_isOpenMap (h : X.liftOne.IsLUC)
   X.nonEffectivePart_tangent_eq h X.hasConnectedDenseLevelOneReps hp
 
 /-- **2021 Proposition 8.1.17 (1), p. 371**: if `X¹` has (LUC), so has `TX`; with `p` open
-(gap G.8) as the only added hypothesis (row V8.45). -/
+(point G.8) as the only added hypothesis (row V8.45). -/
 theorem proposition_8_1_17_one_of_isOpenMap (h : X.liftOne.IsLUC)
     (hp : IsOpenMap X.PMor.tangentProj) : X.tangentEpGroupoid.IsLUC :=
   X.proposition_8_1_17_one h X.hasConnectedDenseLevelOneReps hp
@@ -240,12 +240,12 @@ theorem proposition_7_4_18_unconditional (A : EP.{u}) : A.X.IsVSLUC ↔ A.IsSLUC
     fun _ => A.X.exists_naturalRep_levelConnected _
 
 /-- **2021 Proposition 8.1.17 (2), p. 371, for `(TX)⁰`**: (SLUC) for `X` gives (LUC) for `TX`,
-with `p` open (gap G.8) as the only added hypothesis (row V8.45). -/
+with `p` open (point G.8) as the only added hypothesis (row V8.45). -/
 theorem proposition_8_1_17_two_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
     (hp : IsOpenMap A.X.PMor.tangentProj) : A.X.tangentEpGroupoid.IsLUC :=
   EpGroupoid.proposition_8_1_17_two A h A.X.hasConnectedDenseLevelOneReps hp
 
-/-- Under (SLUC) every `T(X^i)` has (LUC), with `p` open for every `X^i` (gap G.8) as the only
+/-- Under (SLUC) every `T(X^i)` has (LUC), with `p` open for every `X^i` (point G.8) as the only
 added hypothesis (row V8.52). -/
 theorem isLUC_tangent_lift_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
     (hp : ∀ i, IsOpenMap (A.lift i).X.PMor.tangentProj) (i : ℕ) :
@@ -253,7 +253,7 @@ theorem isLUC_tangent_lift_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
   A.isLUC_tangent_lift h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps) hp i
 
 /-- **2021 Proposition 8.1.17 (2), p. 371**: if `X` has (SLUC), so has `TX`; with `p` open for
-every `X^i` (gap G.8) as the only added hypothesis (row V8.52). -/
+every `X^i` (point G.8) as the only added hypothesis (row V8.52). -/
 theorem proposition_8_1_17_two_all_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
     (hp : ∀ i, IsOpenMap (A.lift i).X.PMor.tangentProj) : A.tangentEP.IsSLUC :=
   A.proposition_8_1_17_two_all h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps) hp
@@ -263,7 +263,7 @@ end EP
 namespace EpGroupoid.Examples.JumpingRetract
 
 /-- **2021 p. 331**: the ep-groupoid of Appendix 7.6.3 does not satisfy (ZHOU), under two
-Part I facts for its object M-polyfold (`p` open, gap G.8, and
+Part I facts for its object M-polyfold (`p` open, point G.8, and
 `TangentDeterminedSmooth`; both are theorems, see `not_isZhou_unconditional`); the density and connectedness facts are theorems (row V7.95). -/
 theorem not_isZhou_of_tangent (hp : IsOpenMap X.PObj.tangentProj)
     (ht : X.PObj.TangentDeterminedSmooth) : ¬ X.IsZhou :=

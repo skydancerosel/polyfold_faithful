@@ -141,7 +141,7 @@ theorem isFaceStructured_cubeProd (hX : PX.IsTame) (hXfs : PX.IsFaceStructured) 
     ((cubePolyfold 1).prod PX).IsFaceStructured :=
   isFaceStructured_prod (cubePolyfold_isTame 1) hX cubePolyfold_one_isFaceStructured hXfs
 
-/-- **Gap A: the cobordism `S_F` is face-structured** (Definition 2.5.10): for `X` tame and
+/-- **Point A: the cobordism `S_F` is face-structured** (Definition 2.5.10): for `X` tame and
 face-structured and `F = f̃ + S` proper and in general position over `[0, 1] × X`, every point
 of `S_F` lies in exactly `d_{S_F}` faces of `S_F` (Theorem 4.2.11 for the solution set of
 Theorem 6.6.18 in the face-structured `[0, 1] × X`). -/

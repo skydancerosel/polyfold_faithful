@@ -61,7 +61,7 @@ with values in `Z` and `dt(x) ∘ b_τ = τ`; adding an operator with values in 
   compact solution set) is re-derived from the new data.
 * `lemma_5_3_16`: under (3), `dt(x) ≠ 0` on the tangent space `T_zO` of a chart, a
   one-dimensional complement `Z` of its kernel exists, and Lemma 5.3.16 holds (`lemma_5_3_16_preprint`).
-  This supplies the hidden hypothesis `dt(x) ≠ 0` of the existing Lemma 5.3.16 (preprint 5.23) (gap G.48).
+  This supplies the hidden hypothesis `dt(x) ≠ 0` of the existing Lemma 5.3.16 (preprint 5.23) (point G.48).
 * Satisfiability (`isSubmersiveGenCompactHomotopy_witness`): on `ℝ` with the graph section of
   `id` and `t(x) = 1/2 + arctan(x)/π`, all of Definition 5.3.13 holds (the ends are empty).
 

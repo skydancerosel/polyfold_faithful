@@ -3,7 +3,7 @@
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part I, Chapter 4 (2014 preprint, arXiv
 1407.3185, pp. 147–168), rewritten for a first-year graduate student who wants to know when an
 M-polyfold is an ordinary manifold with corners, and why a family of such manifolds has good fibres for
-almost every parameter. Every proof is complete; where the text leaves a gap or the Lean proof takes a shorter
+almost every parameter. Every proof is complete; where the text leaves a step to the reader or the Lean proof takes a shorter
 route, the exposition follows the Lean. Statement numbers and pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`); the readings below were not checked against the book's arXiv version (arXiv
 1707.08941). The conventions of Chapters 1–3 are kept. Since $\lambda$ is the
 parameter of a family, the coordinates of a partial quadrant are written $\ell_i$:
@@ -46,7 +46,7 @@ The formalization departs from the text in five places: charts centred at a poin
 Proposition 4.1.9 (preprint 4.9) claims more than the implicit function theorem of Chapter 3 gives and is proved directly
 (§4); one step of Lemma 4.2.8 (preprint 4.19) does not hold as we read it, and a corrected step is proved (§6); Theorem 4.2.11 (4) (preprint 4.22), without proof in the text, is
 proved (§7); Theorem 4.3.1 (preprint 4.23) does not hold as we read it with ordinary regular values and its finite cover need not exist;
-a corrected form of both is proved (§8). §9 states the text's §4.4 (formalized, gap G.80, §13); §10 works out the sound front.
+a corrected form of both is proved (§8). §9 states the text's §4.4 (formalized, point G.80, §13); §10 works out the sound front.
 
 ---
 
@@ -340,7 +340,7 @@ metrizability; for (4) it says only that the retraction "is the identity on the 
 **Open question (preprint p. 159).** Is a sub-M-polyfold with $A = A_\infty$ and $\dim T_aA$ finite and locally constant a smooth
 finite-dimensional submanifold? HWZ expect not, and ask whether the "T" $\{(x,0):|x|<1\}\cup\{(0,y):0\le y<1\}$ is
 homeomorphic to a retract $O = O_\infty$. For sc$^+$-retracts it is not: an sc$^+$-retract with $C = E$ is a manifold
-(Remark 4.2.2 (preprint 4.14)), and the "T" is not. The question itself is not formalized, being a question (gap G.34); the
+(Remark 4.2.2 (preprint 4.14)), and the "T" is not. The question itself is not formalized, being a question (point G.34); the
 answer for sc$^+$-retracts is checked by machine: `Polyfold.Question424.question_4_2_4_scPlus`.
 
 **Definition 4.2.5 (preprint 4.16).** For tame $X$, $A$ is *in good position at $a$* if $T_aA$ is in good position to the partial quadrant
@@ -575,8 +575,8 @@ edition.)*
 
 ## 9. sc-differential forms and de Rham cohomology (pp. 195–199 (preprint pp. 167–168))
 
-**This section is formalized** in its 2021 form (§13; gap G.80), with the Whitney sum $\oplus^kTX$ read in its charts, the linear $T_xX$ (gap G.7), the
-M-polyfolds $X^i$ with $(TX)^i\cong T(X^i)$ (gap G.6), and Stokes for classical forms on Mathlib manifolds with corners;
+**This section is formalized** in its 2021 form (§13; point G.80), with the Whitney sum $\oplus^kTX$ read in its charts, the linear $T_xX$ (point G.7), the
+M-polyfolds $X^i$ with $(TX)^i\cong T(X^i)$ (point G.6), and Stokes for classical forms on Mathlib manifolds with corners;
 Theorem 4.4.7 (preprint 4.28) has no proof in the text.
 
 **Definition 4.4.1 (preprint 4.25).** An *sc-differential $k$-form* is an sc-smooth $\omega:\oplus^kTX\to\mathbb R$, linear in each argument and
@@ -743,7 +743,7 @@ in every chart, is one.
 "by the natural identification" of $(TX)^i$ with $T(X^i)$. In a local model, for $i = 1$, the identification is
 $T(O^1) = (TO)^1$ — both are the points $(x,h)\in E_2\oplus E_1$ with $Dr(x)h = h$, because the derivative of $r^1$ is the
 level-$1$ restriction of $Dr$ — and the level map $A_1:E_2\to E_1$ is a vector field on $O^1$. On an M-polyfold the identification
-of $T(X^1)$ and $(TX)^1$, and of $T(X^i)$ and $(TX)^i$ for every $i$, is Part I's Proposition 2.3.17 (gap G.6, closed), and the
+of $T(X^1)$ and $(TX)^1$, and of $T(X^i)$ and $(TX)^i$ for every $i$, is Part I's Proposition 2.3.17 (point G.6, closed), and the
 lemma is proved below.
 
 *The second derivative.* For an sc$^2$ map $f$, $z\in U_2$ and $a,b\in E_1$, let $D^2f(z)(a,b)$ be the second component of
@@ -810,9 +810,9 @@ model); `Polyfold.MPolyfold.principalPart`, `Polyfold.MPolyfold.IsScVectorField.
 4.4.5); `Polyfold.lemma_4_5_1` (Lemma 4.5.1); `Polyfold.MPolyfold.raiseIndex`, `Polyfold.lemma_4_4_4` (Lemma 4.4.4,
 $i = 1$); `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.lemma_4_4_4_all` (Lemma 4.4.4, every $i$). The findings are `Exposition/Findings.md`, "Chapter 4", items 160–164.
 
-*Checked by machine (gap G.92):* `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback`, `Polyfold.proposition_4_4_5_section` (the
+*Checked by machine (point G.92):* `Polyfold.MPolyfold.isSubMPolyfold_tangentPullback`, `Polyfold.proposition_4_4_5_section` (the
 pull-back bundle $TX|X^2\to X^2$), `Polyfold.lemma_4_5_1_open` (Lemma 4.5.1 between open subsets of $X$).
-*Checked by machine (gap G.80; V4.80–V4.92, V4.95, V4.96):* Definitions 4.4.1–4.4.2, the exterior derivative
+*Checked by machine (point G.80; V4.80–V4.92, V4.95, V4.96):* Definitions 4.4.1–4.4.2, the exterior derivative
 $d:\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ — in the 2021 text running in the direction §9 proposes — and $d^2 = 0$, Definition 4.4.6,
 Theorem 4.4.7 (in the 2021 text with $\int_N$) and the Poincaré Lemmas 4.4.8 and 4.5.2: `Polyfold.MPolyfold.extD`,
 `Polyfold.MPolyfold.extD_extD`, `Polyfold.BundledMPolyfold.scDeRham`, `Polyfold.MPolyfold.stokes_formsInftyRestrict`,

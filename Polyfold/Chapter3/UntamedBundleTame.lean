@@ -6,7 +6,7 @@ import Polyfold.Chapter2.StrongBundlePullback
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §2.6 and §3.6:
 the phrase "tame strong bundle `Y → X`" of **Definition 3.6.6** and **Theorem 3.6.8** (p. 136) and
 "a tame strong bundle retraction is one for which the retraction `r` is tame" (p. 66), for the
-untamed example of `UntamedBundle.lean`.  Gap G.79.
+untamed example of `UntamedBundle.lean`.  Point G.79.
 
 # The strong bundle of the untamed example is tame
 

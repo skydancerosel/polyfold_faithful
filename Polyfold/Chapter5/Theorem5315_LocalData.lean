@@ -3,7 +3,7 @@ import Polyfold.Chapter5.Theorem5315_LocalTangent
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §5.3, the local data of
 **Theorem 5.3.15** (p. 223; preprint: Theorem 5.22) from the implicit function theorem
-(Theorem 3.6.8, p. 136) and Definition 5.3.13 (3), third step.  Gap G.48.
+(Theorem 3.6.8, p. 136) and Definition 5.3.13 (3), third step.  Point G.48.
 
 # The three local statements (A1)–(A3)
 

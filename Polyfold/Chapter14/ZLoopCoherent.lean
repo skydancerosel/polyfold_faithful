@@ -40,7 +40,7 @@ on `Õ(z') ∩ ∂X`; (4) the sections over `Õ(z'') ∩ ∂X`, `z'' ∈ [z']`, 
 * Proposition 14.4.6 (2) in general (`z₀` in the closure, outside `V̂_a`) is stated as the `Prop`
   `proposition_14_4_6_2_statement` (the printed form, `z_k ∈ V_a`) and `HasThetaLocalEq` (the form
   with `z_k ∈ V̂_a`, which Lemma 14.4.9 (3) uses); `HasThetaLocalEq` implies the printed form.
-  Their proof (the limit loop through the closures, Lemma 14.4.7 and properness) is the gap.
+  Their proof (the limit loop through the closures, Lemma 14.4.7 and properness) is the step left open.
 * `lemma_14_4_9_3_hyp`, `proposition_14_4_10_hyp` (from `HasThetaLocalEq`),
   `ZCoherentNbhdSystem` (Definition 14.4.11), `exists_zCoherentNbhdSystem_hyp`, and
   `lemma_14_4_13_1`, `lemma_14_4_13_2`, `lemma_14_4_13_3`, `lemma_14_4_13_4`,

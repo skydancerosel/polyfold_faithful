@@ -32,7 +32,7 @@ does not hold as we read it).  The definitions (`IsOrientationOfDim`, `HasOrient
   `HasGraphBallAt` and `HasContinuousLevelOneOn`), and the project lists both inputs on general
   M-polyfolds as not formalized (at boundary points only a cone of directions is admissible).
   `hgood` is satisfiable (it holds on all of `ℝᵐ`) but `B` does not supply it.  A second, smaller
-  gap: `B`'s orientations may be represented by sheets of any dimension, `A` needs
+  difference: `B`'s orientations may be represented by sheets of any dimension, `A` needs
   representations with all sheets `n`-dimensional (`IsOrientationOfDim`); for an
   `n`-dimensional `Θ` this should hold (the dimensions of sheets through a point of `supp Θ` are
   forced) but is not a project lemma. -/

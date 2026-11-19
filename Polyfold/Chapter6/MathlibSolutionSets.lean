@@ -67,7 +67,7 @@ Theorem 3.6.8) and `dim ker f'(y) = ind f'(y)` for onto `f'(y)`
   (Proposition 6.2.2, `theorem_3_6_8_index_locally_constant`); the global statements take one index
   `d` for all zeros (the text's "the index of `f`"), the local one (`theorem_3_6_8_isSubmanifoldOfDim`)
   takes none.
-* Gaps G.62 and G.67 (Lemma 6.6.5, Theorem 6.6.18) asked for the solution set as a manifold with
+* Points G.62 and G.67 (Lemma 6.6.5, Theorem 6.6.18) asked for the solution set as a manifold with
   boundary with corners; that part is closed here.  The submersion `π : S → [0, 1]` with its fibres,
   the smooth bundle `L` over `[0, 1]` (G.62), and the orientation of `S` as a Mathlib manifold
   (G.67) are not treated.
@@ -223,7 +223,7 @@ theorem StrongBundle.isSubmanifoldOfDim_solutionSet_of_isTransversal (hX : PX.Is
 
 /-! ### The Mathlib statements -/
 
-/-- **Theorem 5.3.10's conclusion in Mathlib's language** (gaps G.62, G.67, the manifold part): for
+/-- **Theorem 5.3.10's conclusion in Mathlib's language** (points G.62, G.67, the manifold part): for
 a tame `X` and an sc-Fredholm section `f` (tame germ data) of index `d` whose solution set is in
 general position (`SolutionSetInGeneralPosition`), `S = f⁻¹(0)` is compact and, with the charted
 space of its induced corner structure, a smooth manifold with boundary and corners of dimension
@@ -239,7 +239,7 @@ theorem StrongBundle.SolutionSetInGeneralPosition.isManifold (hX : PX.IsTame)
   letI := PX.paracompactSpace_subtype (solutionSet P f)
   ⟨h.2.2.1, MPolyfold.isManifold_cornerChartedSpace _⟩
 
-/-- **Theorem 6.6.18, first sentence, in Mathlib's language** (p. 274; preprint 6.41; gap G.67,
+/-- **Theorem 6.6.18, first sentence, in Mathlib's language** (p. 274; preprint 6.41; point G.67,
 the manifold part): over a tame `X`, for a proper sc-Fredholm section `f` (tame germ data) of index
 `d` with `(f, x)` in general position at every zero, the solution set `S = f⁻¹(0)` is a smooth
 compact manifold with boundary and corners of dimension `d` (`theorem_6_6_18_solutionSet`). -/

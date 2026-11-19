@@ -56,7 +56,7 @@
     "$\\bar\\theta_j$ tame: V14.36 (G.165 closed)"
    ],
    "diff": [
-    "\"Admits the natural $G_x$-action\" is `NatNbhd`. The remark that the $\\bar\\theta_j$ are tame M-polyfolds is V14.36 (gap G.165 closed)."
+    "\"Admits the natural $G_x$-action\" is `NatNbhd`. The remark that the $\\bar\\theta_j$ are tame M-polyfolds is V14.36 (point G.165 settled)."
    ]
   },
   {
@@ -342,7 +342,7 @@
    ],
    "diff": [
     "None in the hypotheses: `theorem_14_1_9_statement` is the book's statement. The two inputs of the proof beyond them follow from the text: tame strong bundle charts at every object (`hB`, the chapter's standing assumption that $W$ is a strong bundle over the tame $X$, as Proposition 14.1.4 reads it) from tameness (`SEP.exists_isTameChart`), and `ChargesBoundary Λ` from $I_x \\ne \\emptyset$, which the factor $1/|I_x|$ of Definition 14.1.3 presumes and the formal definition contains (V14.3). Witness `theorem_14_1_9_constSec` with $\\partial X \\ne \\emptyset$, nonzero fibres and nonempty domain support; weak: the ep-groupoid there is trivial (no isotropy), so it shows that the hypotheses hold together, not the isotropy part of the proof.",
-    "The proof is the text's: §14.2, §14.3, §14.4 (z-loops, coherent systems, Proposition 14.4.14 for the objects of §14.3), Lemma 14.5.1 with (14.53) for the $\\hat V_a$ themselves (no shrinking of the cover is needed), Proposition 14.5.4 and the assembly, Theorem 14.5.5, the size control (gaps G.170, G.171 closed).",
+    "The proof is the text's: §14.2, §14.3, §14.4 (z-loops, coherent systems, Proposition 14.4.14 for the objects of §14.3), Lemma 14.5.1 with (14.53) for the $\\hat V_a$ themselves (no shrinking of the cover is needed), Proposition 14.5.4 and the assembly, Theorem 14.5.5, the size control (points G.170, G.171 settled).",
     "`theorem_14_1_9_hyp` (from the extension statement) and `theorem_14_1_9_of_assembly` (from `AssemblyHyp`) are steps of the proof; their hypotheses hold for every `A` (`theorem_14_1_9_extension_statement_holds`, `assemblyHyp_holds`).",
     "\"$X$ admits sc-smooth partitions of unity\" is read as the M-polyfold of objects (Definition 5.5.1, as printed: \"$X$, viewed as an M-polyfold\"). \"Supported in $\\tilde U$\" is read as `tsupport f ⊆ Ũ`. $N$ is real-valued on $W_{0,1}$ (the project's Definition 8.3.5).",
     "The size control applies the extension with $\\tilde U'=\\{f>0\\}$, which is saturated open, contains $\\text{dom-supp}\\Lambda$ and lies in $\\tilde U$. $G=\\{N(\\Lambda'')<f\\}\\cup(X\\setminus\\text{dom-supp}\\Lambda'')$ is a saturated open set containing $\\partial X$. $\\sigma$ comes from `exists_isScSmoothMap_orbit_urysohn`, with $\\sigma=1$ on $\\partial X$ and $\\sigma=0$ off $G$. $\\Lambda'=\\sigma\\odot\\Lambda''$ is structurable by `lemma_13_3_14_fun`. The text writes $h(|x|)=N(\\Lambda)(x)<f(x)$ for $x\\in\\partial X$; the theorem's hypothesis gives this on $\\text{dom-supp}\\Lambda$, and we read it there.",
@@ -810,7 +810,7 @@
     "statement": "For $a\\in A$ and $z\\in\\hat V_a$: (1) if $i\\sim_{z_0}i'$ then $i\\sim_z i'$ for all $z\\in\\hat V_a$ near $z_0$; (2) if $z_k\\in V_a=\\hat V_a\\cap\\partial X$, $i\\sim_{z_k}i'$ and $z_k\\to z_0\\in\\mathrm{cl}_X(V_a)$, then $s^{0a}_i=s^{0a}_{i'}$ on an open $Q(z_0)\\subseteq U(a)$."
    },
    "lean": {
-    "statement": "Setting `EpGroupoid.ZData X` = `ZSetup` plus `isOpen_V` ($\\hat V_a$ open), `closure_V_subset` ($\\mathrm{cl}_X\\hat V_a\\subseteq\\tilde U(a)$, (14.33)) and `locallyConstant` ($\\hat\\tau_{a,a'}$ locally constant at every $\\varphi$ with $s\\varphi\\in\\hat V_a$, $t\\varphi\\in\\hat V_{a'}$; P14.3.4 with P14.3.8 (4)). Witness `ZData.trivial X` (every ep-groupoid, $A=X$, nonempty: `trivial_zRel`). (1): `ZData.proposition_14_4_6_1 : S.ZRel a z₀ i i' → ∀ᶠ z in 𝓝 z₀, S.ZRel a z i i'`; open-set form `proposition_14_4_6_1_open`; classes `eventually_zClass_subset` ($[i]_{\\sim_{z_0}}\\subseteq[i]_{\\sim_z}$ near $z_0$). Key lemma `ZData.Arc.eventually_srcInv`: a chain with an arc through $\\varphi$ deforms along any sheet $\\mathbf U\\ni\\varphi$: for $z$ near $s(\\varphi)$, $(s|\\mathbf U)^{-1}(z)$ carries a chain with the same arc. Boundary data `SBLocalization.ZSections A S` (sections $s^{0a}_i$, $P\\circ s=\\mathrm{id}$ and (14.45) on $U(a)=\\tilde U(a)\\cap\\partial X$, D14.1.7 (4) for $\\hat\\tau$ along morphisms of $\\hat V_{a,a'}$ with source in $\\partial X$). `ZSections.arc_transport`: $s^b_j(t\\varphi)=\\mu(\\varphi,s^a_i(s\\varphi))$ along chains starting in $\\partial X$; `zRel_sections_eq`: $i\\sim_z i'$, $z\\in V_a$ ⇒ $s^{0a}_i(z)=s^{0a}_{i'}(z)$. (2) at points of $V_a$: `ZSections.proposition_14_4_6_2_of_mem`: $i\\sim_{z_0}i'$, $z_0\\in V_a$ ⇒ $s^{0a}_i=s^{0a}_{i'}$ on a neighbourhood of $z_0$ in $\\partial X$. (2) in general: the `Prop`s `proposition_14_4_6_2_statement D` (as printed) and `HasThetaLocalEq D` (with $z_k\\in\\hat V_a$); `HasThetaLocalEq.proposition_14_4_6_2` (the second implies the first).\n\n(2) in general, proved (`Chapter14/ZLoopSetting`, `ZLoopLimitExists`, `ZLoopLimits`; gap G.168 closed): abstract form `proposition_14_4_6_2_of_limit D L hD : proposition_14_4_6_2_statement D` (the printed form), from `hasThetaLocalEq_of_limit D L hD : HasThetaLocalEq D` (the form with $z_k \\in \\hat V_a$), from `sections_eq_of_theta_closure D L hD ha (hz₀ : z₀ ∈ cl V̂_a ∩ ∂X) (h : (i,i') ∈ Θ_{z₀}) : ∀ᶠ y in 𝓝 z₀, y ∈ ∂X → s^{0a}_i y = s^{0a}_{i'} y`. `L : ZLimitSetting S` names the facts of §14.3 the proof uses (open $\\hat O_{b,c}$ on which $\\hat\\tau_{b,c}$ is locally constant, containing the boundary morphisms from $\\tilde U(b)$ to $\\mathrm{cl}_X\\tilde U(c)$; $\\mathrm{cl}_X\\tilde U(b)$ proper; $(|\\hat V_b|)$ locally finite), `hD : D.CompatNbhd` Definition 14.1.7 (4) for $\\hat\\tau = \\tau^0$. Concrete form for the objects of §14.3: `ZConcrete.proposition_14_4_6_2 C` and `ZConcrete.hasThetaLocalEq C` for every `C : ZConcrete E Q` (V14.39), with no hypothesis beyond the text's data. The proof is the text's: `ZLimitSetting.exists_limitRep` (finitely many $b$ by local finiteness, $K = \\bigcup\\mathrm{cl}\\,\\hat V_b$ proper, the finitely many objects of $K$ isomorphic to $z_0$, Lemma 14.4.7 on them, sheets inside $\\hat O_{b,c}$), `ZLimitRep.arc_transport` (each step of the $z_k$-loop moved to $y'$ along its sheet, $\\hat\\tau$ constant on the connected sheets, `ZLimitRep.tau_eq`), `ZLimitRep.sections_eq`.",
+    "statement": "Setting `EpGroupoid.ZData X` = `ZSetup` plus `isOpen_V` ($\\hat V_a$ open), `closure_V_subset` ($\\mathrm{cl}_X\\hat V_a\\subseteq\\tilde U(a)$, (14.33)) and `locallyConstant` ($\\hat\\tau_{a,a'}$ locally constant at every $\\varphi$ with $s\\varphi\\in\\hat V_a$, $t\\varphi\\in\\hat V_{a'}$; P14.3.4 with P14.3.8 (4)). Witness `ZData.trivial X` (every ep-groupoid, $A=X$, nonempty: `trivial_zRel`). (1): `ZData.proposition_14_4_6_1 : S.ZRel a z₀ i i' → ∀ᶠ z in 𝓝 z₀, S.ZRel a z i i'`; open-set form `proposition_14_4_6_1_open`; classes `eventually_zClass_subset` ($[i]_{\\sim_{z_0}}\\subseteq[i]_{\\sim_z}$ near $z_0$). Key lemma `ZData.Arc.eventually_srcInv`: a chain with an arc through $\\varphi$ deforms along any sheet $\\mathbf U\\ni\\varphi$: for $z$ near $s(\\varphi)$, $(s|\\mathbf U)^{-1}(z)$ carries a chain with the same arc. Boundary data `SBLocalization.ZSections A S` (sections $s^{0a}_i$, $P\\circ s=\\mathrm{id}$ and (14.45) on $U(a)=\\tilde U(a)\\cap\\partial X$, D14.1.7 (4) for $\\hat\\tau$ along morphisms of $\\hat V_{a,a'}$ with source in $\\partial X$). `ZSections.arc_transport`: $s^b_j(t\\varphi)=\\mu(\\varphi,s^a_i(s\\varphi))$ along chains starting in $\\partial X$; `zRel_sections_eq`: $i\\sim_z i'$, $z\\in V_a$ ⇒ $s^{0a}_i(z)=s^{0a}_{i'}(z)$. (2) at points of $V_a$: `ZSections.proposition_14_4_6_2_of_mem`: $i\\sim_{z_0}i'$, $z_0\\in V_a$ ⇒ $s^{0a}_i=s^{0a}_{i'}$ on a neighbourhood of $z_0$ in $\\partial X$. (2) in general: the `Prop`s `proposition_14_4_6_2_statement D` (as printed) and `HasThetaLocalEq D` (with $z_k\\in\\hat V_a$); `HasThetaLocalEq.proposition_14_4_6_2` (the second implies the first).\n\n(2) in general, proved (`Chapter14/ZLoopSetting`, `ZLoopLimitExists`, `ZLoopLimits`; point G.168 settled): abstract form `proposition_14_4_6_2_of_limit D L hD : proposition_14_4_6_2_statement D` (the printed form), from `hasThetaLocalEq_of_limit D L hD : HasThetaLocalEq D` (the form with $z_k \\in \\hat V_a$), from `sections_eq_of_theta_closure D L hD ha (hz₀ : z₀ ∈ cl V̂_a ∩ ∂X) (h : (i,i') ∈ Θ_{z₀}) : ∀ᶠ y in 𝓝 z₀, y ∈ ∂X → s^{0a}_i y = s^{0a}_{i'} y`. `L : ZLimitSetting S` names the facts of §14.3 the proof uses (open $\\hat O_{b,c}$ on which $\\hat\\tau_{b,c}$ is locally constant, containing the boundary morphisms from $\\tilde U(b)$ to $\\mathrm{cl}_X\\tilde U(c)$; $\\mathrm{cl}_X\\tilde U(b)$ proper; $(|\\hat V_b|)$ locally finite), `hD : D.CompatNbhd` Definition 14.1.7 (4) for $\\hat\\tau = \\tau^0$. Concrete form for the objects of §14.3: `ZConcrete.proposition_14_4_6_2 C` and `ZConcrete.hasThetaLocalEq C` for every `C : ZConcrete E Q` (V14.39), with no hypothesis beyond the text's data. The proof is the text's: `ZLimitSetting.exists_limitRep` (finitely many $b$ by local finiteness, $K = \\bigcup\\mathrm{cl}\\,\\hat V_b$ proper, the finitely many objects of $K$ isomorphic to $z_0$, Lemma 14.4.7 on them, sheets inside $\\hat O_{b,c}$), `ZLimitRep.arc_transport` (each step of the $z_k$-loop moved to $y'$ along its sheet, $\\hat\\tau$ constant on the connected sheets, `ZLimitRep.tau_eq`), `ZLimitRep.sections_eq`.",
     "decls": [
      "Chapter14/ZLoopDeform · EpGroupoid.ZData",
      "Chapter14/ZLoopDeform · EpGroupoid.ZData.Arc.eventually_srcInv",
@@ -861,7 +861,7 @@
    ],
    "diff": [
     "(1) is proved as printed. The proof deforms the loop one morphism at a time with the local inverses of $s$ (sheets) and continuity of the multiplication; it does not need Lemma 14.4.7, which the text invokes here.",
-    "(2) is proved as printed (gap G.168 closed), and in a stronger form: for $z_k \\in \\hat V_a$ instead of $z_k \\in V_a$ (the form Lemma 14.4.9 (3) uses, `HasThetaLocalEq`), and at every $z_0 \\in \\mathrm{cl}_X(\\hat V_a) \\cap \\partial X$; the neighbourhood is $O(z_0) \\cap \\partial X$ of Lemma 14.4.7's representation. The $z_0$-loop of the text is not built separately: each step of the $z_k$-loop is moved directly along its sheet, and the composite identity is Lemma 14.4.7 (6) (`comp_srcInv_eq`). The facts of §14.3 used are named (`ZLimitSetting`, `CompatNbhd`) in the abstract form; the concrete form discharges them from Propositions 14.3.4, 14.3.8 and (P5)/(P6)."
+    "(2) is proved as printed (point G.168 settled), and in a stronger form: for $z_k \\in \\hat V_a$ instead of $z_k \\in V_a$ (the form Lemma 14.4.9 (3) uses, `HasThetaLocalEq`), and at every $z_0 \\in \\mathrm{cl}_X(\\hat V_a) \\cap \\partial X$; the neighbourhood is $O(z_0) \\cap \\partial X$ of Lemma 14.4.7's representation. The $z_0$-loop of the text is not built separately: each step of the $z_k$-loop is moved directly along its sheet, and the composite identity is Lemma 14.4.7 (6) (`comp_srcInv_eq`). The facts of §14.3 used are named (`ZLimitSetting`, `CompatNbhd`) in the abstract form; the concrete form discharges them from Propositions 14.3.4, 14.3.8 and (P5)/(P6)."
    ]
   },
   {
@@ -949,7 +949,7 @@
     "(3) proved, at closure points of $\\hat V_a$"
    ],
    "diff": [
-    "(1), (2), (4) as printed ((2) uses Lemma 14.4.5 and continuity of the natural action on $\\tilde U(a)$; (4) the finiteness of $I_a$). (3) is proved from Proposition 14.4.6 (2) in the form `HasThetaLocalEq`, as the text derives it, and `HasThetaLocalEq` is a theorem (`hasThetaLocalEq_of_limit`, `ZConcrete.hasThetaLocalEq`; gap G.168 closed); (3) holds at every $z \\in \\mathrm{cl}_X(\\hat V_a) \\cap \\partial X$."
+    "(1), (2), (4) as printed ((2) uses Lemma 14.4.5 and continuity of the natural action on $\\tilde U(a)$; (4) the finiteness of $I_a$). (3) is proved from Proposition 14.4.6 (2) in the form `HasThetaLocalEq`, as the text derives it, and `HasThetaLocalEq` is a theorem (`hasThetaLocalEq_of_limit`, `ZConcrete.hasThetaLocalEq`; point G.168 settled); (3) holds at every $z \\in \\mathrm{cl}_X(\\hat V_a) \\cap \\partial X$."
    ]
   },
   {
@@ -983,7 +983,7 @@
     "(4) from P14.4.6 (2), proved"
    ],
    "diff": [
-    "(1)–(3) need nothing beyond the setting; (4) comes from Lemma 14.4.9 (3), proved (gap G.168 closed). The text's \"immediate\" includes the orbit-representative construction for (2), which is proved here."
+    "(1)–(3) need nothing beyond the setting; (4) comes from Lemma 14.4.9 (3), proved (point G.168 settled). The text's \"immediate\" includes the orbit-representative construction for (2), which is proved here."
    ]
   },
   {
@@ -1103,7 +1103,7 @@
     "abstract data; concrete objects of §14.3"
    ],
    "diff": [
-    "Stated for abstract data satisfying D14.4.11 (1), (3), (4) and Lemma 14.4.5; the instantiation with the concrete $\\hat V_a$ (P14.3.8), $\\sim$ (`ZRel`, via `ofZSetup`), $\\approx$ and $\\tilde O$ (D14.4.8/P14.4.10) is `ZConcrete.proposition_14_4_14` (V14.39; gaps G.168, G.169 closed). Proof differs: for $z\\in\\mathrm{cl}(V_a)$, one extension (`exists_scPlusSection_extension_of_face`) of the boundary section of a chosen representative of each $\\approx_z$-class (equivalence closure), on $G_z$ with $\\mathrm{cl}\\,G_z\\subseteq\\tilde O(z)$; for $z\\in\\mathrm{cl}(\\hat V_a)\\setminus\\mathrm{cl}(V_a)$, zero sections on a neighbourhood missing $\\mathrm{cl}(V_a)$ (so (4) is needed only as printed); an ordinary partition of unity; then the average over $G_a$ (`avgSection`). The average is equivariant, still extends $s^0$ (which is equivariant), and stays $\\sim$-compatible because $\\sim$ is (Lemma 14.4.5). So D14.4.11 (2) and the orbit-by-orbit construction are not needed. $\\approx_z$ need not be an equivalence relation. \"Symmetric section structure\" is read as Definition 13.2.5 (1) (equivariance); the weights and $\\hat\\Lambda_a$ come in §14.5."
+    "Stated for abstract data satisfying D14.4.11 (1), (3), (4) and Lemma 14.4.5; the instantiation with the concrete $\\hat V_a$ (P14.3.8), $\\sim$ (`ZRel`, via `ofZSetup`), $\\approx$ and $\\tilde O$ (D14.4.8/P14.4.10) is `ZConcrete.proposition_14_4_14` (V14.39; points G.168, G.169 settled). Proof differs: for $z\\in\\mathrm{cl}(V_a)$, one extension (`exists_scPlusSection_extension_of_face`) of the boundary section of a chosen representative of each $\\approx_z$-class (equivalence closure), on $G_z$ with $\\mathrm{cl}\\,G_z\\subseteq\\tilde O(z)$; for $z\\in\\mathrm{cl}(\\hat V_a)\\setminus\\mathrm{cl}(V_a)$, zero sections on a neighbourhood missing $\\mathrm{cl}(V_a)$ (so (4) is needed only as printed); an ordinary partition of unity; then the average over $G_a$ (`avgSection`). The average is equivariant, still extends $s^0$ (which is equivariant), and stays $\\sim$-compatible because $\\sim$ is (Lemma 14.4.5). So D14.4.11 (2) and the orbit-by-orbit construction are not needed. $\\approx_z$ need not be an equivalence relation. \"Symmetric section structure\" is read as Definition 13.2.5 (1) (equivariance); the weights and $\\hat\\Lambda_a$ come in §14.5."
    ]
   },
   {
@@ -1196,7 +1196,7 @@
     "tame face of the M-polyfold $V$"
    ],
    "diff": [
-    "The structure on $\\bar\\theta_i$ is that of a face of the M-polyfold $V$ (Part I's `restrictOpen`, then `subPolyfold`). `isSubMPolyfold` gives the sub-M-polyfold of $X$ on the same set; that the two structures agree is not stated, though both come from the same local face charts. Gap G.165 closed."
+    "The structure on $\\bar\\theta_i$ is that of a face of the M-polyfold $V$ (Part I's `restrictOpen`, then `subPolyfold`). `isSubMPolyfold` gives the sub-M-polyfold of $X$ on the same set; that the two structures agree is not stated, though both come from the same local face charts. Point G.165 closed."
    ]
   },
   {
@@ -1243,7 +1243,7 @@
     "defined along z-arcs"
    ],
    "diff": [
-    "One hypothesis is named: `SuppInSat T`, Lemma 14.5.1 (1) ($\\beta_a \\ne 0$ only on $\\pi^{-1}(\\pi(\\hat V_a))$). It is part of the text's data: the transport input records (14.53) but not this part of Lemma 14.5.1, which is needed for (3) (a point of $\\hat V_b \\cap \\partial X$ outside the saturation of $\\hat V_a$ must have $\\beta_a = 0$); `lemma_14_5_1` gives it (V14.34). The definition is through chains (arcs) rather than single morphisms; it agrees with the text's one-step form (`tsec_of_pairs`), and the chain form gives equivariance and (4) directly. (2) is read as a closed $K \\subseteq \\hat V_a$ off which the section vanishes. Gap G.170 closed."
+    "One hypothesis is named: `SuppInSat T`, Lemma 14.5.1 (1) ($\\beta_a \\ne 0$ only on $\\pi^{-1}(\\pi(\\hat V_a))$). It is part of the text's data: the transport input records (14.53) but not this part of Lemma 14.5.1, which is needed for (3) (a point of $\\hat V_b \\cap \\partial X$ outside the saturation of $\\hat V_a$ must have $\\beta_a = 0$); `lemma_14_5_1` gives it (V14.34). The definition is through chains (arcs) rather than single morphisms; it agrees with the text's one-step form (`tsec_of_pairs`), and the chain form gives equivariance and (4) directly. (2) is read as a closed $K \\subseteq \\hat V_a$ off which the section vanishes. Point G.170 closed."
    ]
   },
   {
@@ -1338,7 +1338,7 @@
     "objects indexed through $\\partial X$ (named)"
    ],
    "diff": [
-    "The setting is the text's; the identification of objects with boundary points is named. The base point $x_0$ only fixes irrelevant values at objects outside $\\partial X$ (all of $A$ lies in $\\partial X$). The index types on $x \\in \\partial X$ are reached through `bdryRetr` and `isoRetr` (a group homomorphism $G_a \\to G_{r(a)}$, the identity of morphisms on $\\partial X$). Gap G.169 closed."
+    "The setting is the text's; the identification of objects with boundary points is named. The base point $x_0$ only fixes irrelevant values at objects outside $\\partial X$ (all of $A$ lies in $\\partial X$). The index types on $x \\in \\partial X$ are reached through `bdryRetr` and `isoRetr` (a group homomorphism $G_a \\to G_{r(a)}$, the identity of morphisms on $\\partial X$). Point G.169 closed."
    ]
   },
   {
@@ -1424,7 +1424,7 @@
     "corner sc⁺ proved (G.184 closed)"
    ],
    "diff": [
-    "\"Good $U_F(x) \\subseteq F$\" is read as $U(x) \\cap F$ for a natural neighbourhood $U(x)$ of $X$ with the properness of Definition 13.1.4 (1); condition (2) of a good system is not part of the data; §14.6 does not use it, a good system of the face ep-groupoid itself exists for an equivalent representative (V14.47), and the glued output of Theorem 14.6.3 carries it. On $F \\cap F'$ the restriction is sc⁺ relative to the corner, read through the charts of $X$ as for $W|F$ (`restrictFace_isCornerRelScPlus`; gap G.184 closed). A representative whose $U_F(x)$ are good inside the face ep-groupoid exists up to equivalence (V14.47)."
+    "\"Good $U_F(x) \\subseteq F$\" is read as $U(x) \\cap F$ for a natural neighbourhood $U(x)$ of $X$ with the properness of Definition 13.1.4 (1); condition (2) of a good system is not part of the data; §14.6 does not use it, a good system of the face ep-groupoid itself exists for an equivalent representative (V14.47), and the glued output of Theorem 14.6.3 carries it. On $F \\cap F'$ the restriction is sc⁺ relative to the corner, read through the charts of $X$ as for $W|F$ (`restrictFace_isCornerRelScPlus`; point G.184 settled). A representative whose $U_F(x)$ are good inside the face ep-groupoid exists up to equivalence (V14.47)."
    ]
   },
   {
@@ -1596,7 +1596,7 @@
     "class level: chosen representative"
    ],
    "diff": [
-    "No added hypothesis: the transport of the face condition, the hypotheses of `proposition_14_1_8_hyp`, is proved (gap G.164 closed). The paracompactness of the orbit spaces is not used, hence stronger. \"Structurable over $\\partial X$\" is `IsBoundaryStructurable` with (1) of Definition 14.1.3 read in every tame strong bundle chart (V14.3). The class-level statement uses the chosen representative of Chapter 10 (`GenSBMap.rep`), as `GenSBMap.pushMult`/`pullMult` do; the pull-back form needs only $X$ tame."
+    "No added hypothesis: the transport of the face condition, the hypotheses of `proposition_14_1_8_hyp`, is proved (point G.164 settled). The paracompactness of the orbit spaces is not used, hence stronger. \"Structurable over $\\partial X$\" is `IsBoundaryStructurable` with (1) of Definition 14.1.3 read in every tame strong bundle chart (V14.3). The class-level statement uses the chosen representative of Chapter 10 (`GenSBMap.rep`), as `GenSBMap.pushMult`/`pullMult` do; the pull-back form needs only $X$ tame."
    ]
   },
   {
@@ -1658,7 +1658,7 @@
     "closes G.171"
    ],
    "diff": [
-    "`hB` (tame strong bundle charts at every object), which Proposition 14.4.14 takes (V14.4, V14.33), follows from tameness (`SEP.exists_isTameChart`); `ChargesBoundary` follows from $I_x \\ne \\emptyset$ (V14.3). With both, `AssemblyHyp A` holds for every `A` (`assemblyHyp_holds`). Gap G.171 is closed by this declaration and `theorem_14_1_9` (V14.8)."
+    "`hB` (tame strong bundle charts at every object), which Proposition 14.4.14 takes (V14.4, V14.33), follows from tameness (`SEP.exists_isTameChart`); `ChargesBoundary` follows from $I_x \\ne \\emptyset$ (V14.3). With both, `AssemblyHyp A` holds for every `A` (`assemblyHyp_holds`). Point G.171 is closed by this declaration and `theorem_14_1_9` (V14.8)."
    ]
   },
   {

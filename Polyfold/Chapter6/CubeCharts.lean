@@ -4,7 +4,7 @@ import Polyfold.Chapter6.CubeSections
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, Lemmas 6.6.4–6.6.5
 (pp. 264–265; preprint Lemmas 6.29–6.30) for families on `[0, 1]ⁿ`: **the charts of `[0, 1]ⁿ`
 centred at every point**, the first input of the pull-back of an sc-Fredholm section to
-`[0, 1]ⁿ × X` (gap G.65 (a), step 1).
+`[0, 1]ⁿ × X` (point G.65 (a), step 1).
 
 # Centred charts of `[0, 1]ⁿ`
 

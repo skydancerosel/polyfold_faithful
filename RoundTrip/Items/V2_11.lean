@@ -9,7 +9,7 @@ import RoundTrip.Blind.V2_11
 `Polyfold.MAtlas.equivalence`, universe instantiated at `0` (B lives in `Type`).  `MAtlas` and
 `MAtlas.Equiv` are definitions (vocabulary); B characterizes them.
 
-The only gap between the project's `MAtlas` (compatibility for ALL pairs, including `φ = φ`) and
+The only difference between the project's `MAtlas` (compatibility for ALL pairs, including `φ = φ`) and
 B's `Set.Pairwise` (distinct pairs) is self-compatibility, which is `MChart.compatible_self`
 (item V2_10, not banned here).
 

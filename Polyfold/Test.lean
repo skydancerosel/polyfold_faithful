@@ -4059,7 +4059,7 @@ Chapter 3, items 280–285) -/
 
 /-! ### Axioms: Chapter5/StrongBundleShift.lean and Chapter5/Corollary58.lean (the shifted strong
 bundle `P¹ : Y¹ → X¹` and Corollary 5.8: `f¹` an sc-Fredholm section of `P¹` with compact solution
-set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, items 140–149) -/
+set, and `f²` on `P²`; round-trip item V5.14, point G.41; Findings Chapter 5, items 140–149) -/
 
 #print axioms IsStrongBundleRetraction.shift
 #print axioms IsStrongBundleRetraction.toBase_strongShift
@@ -13371,7 +13371,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.GenSBMap.proposition_11_5_3_book
 
 -- Chapter 6: Theorem 6.6.18, the orientation of S as a Mathlib manifold (ManifoldOrientation.lean,
--- SolutionSetOrientation.lean; gap G.67)
+-- SolutionSetOrientation.lean; point G.67)
 #print axioms Polyfold.IsOrientedAtlas.chartOf_mem
 #print axioms Polyfold.IsOrientedAtlas.covers
 #print axioms Polyfold.IsOrientedAtlas.det_pos

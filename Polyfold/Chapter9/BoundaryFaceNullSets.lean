@@ -4,7 +4,7 @@ import Polyfold.Chapter9.StokesFaceSum
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5, the paragraph
 before **Definition 9.5.14** (p. 448; 2017: before Definition 9.17, p. 327): `(n-1)`-dimensional
-measure zero in the boundary faces (gap G.108).
+measure zero in the boundary faces (point G.108).
 
 # Measure zero in the boundary faces, and a witness for `L(∂S)`
 
@@ -39,7 +39,7 @@ boundary with corners, and one takes the intersection of the set with every boun
 For `n ≥ 2`, the face-by-face null sets as a `SheetNullSets` on the class of the boundaries `∂Mᵢ`
 of the sheets of a general M-polyfold: its field `isNull_transfer` (two boundaries induce the
 same null sets on their intersection) needs the smooth retractions between sheets, as for
-Lemma 9.5.2 (gap G.106), and sheets need not be face-structured globally.  With
+Lemma 9.5.2 (point G.106), and sheets need not be face-structured globally.  With
 the intrinsic null sets `MPolyfold.IsHNull P (n - 1)` of `SheetNull.lean` and
 `MPolyfold.hNullSets` (`SheetMeasure.lean`) the transfer field is automatic, and a nonempty `∂M`
 of a tame `n`-dimensional sheet is not `(n - 1)`-null

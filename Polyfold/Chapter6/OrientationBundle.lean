@@ -3,7 +3,7 @@ import Polyfold.Chapter6.OrientationSpace
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **the remarks after
 Theorem 6.6.17** (p. 275; new in the 2021 edition): the orientation bundle `π_f : O_f → X_∞`,
-orientability and global continuous sections, the `ℤ₂`-action and `det_f`.  Gap G.91.
+orientability and global continuous sections, the `ℤ₂`-action and `det_f`.  Point G.91.
 
 # The orientation bundle
 

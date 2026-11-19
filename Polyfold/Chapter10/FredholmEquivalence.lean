@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 a
 Part II, Chapter 10, §10.4 and §10.5: **the `Fred` parts of Theorem 10.4.5, p. 500 (2017:
 Theorem 10.8, p. 362) and of Theorem 10.5.4, p. 508 (2017: Theorem 10.9, p. 367)**: `Φ_*`,
 `Φ^*`, `[D]_*` and `[D]^*` map sc-Fredholm section functors to sc-Fredholm section functors.
-This closes gaps G.121 and G.125 and completes rows V10.27 and V10.59; the Part I half (the
+This settles points G.121 and G.125 and completes rows V10.27 and V10.59; the Part I half (the
 invariance of sc-Fredholm germs under local strong bundle isomorphisms) is
 `Chapter5/FredholmPullbackIso.lean`.  Numbers and pages are the 2021 text's, the 2017 ones in
 parentheses.

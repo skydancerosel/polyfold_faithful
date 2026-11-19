@@ -2,7 +2,7 @@ import Polyfold.Chapter9.GraphCoord
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, pp. 438–445 (gap G.107).
+Part II, Chapter 9, §9.5, pp. 438–445 (point G.107).
 
 # Graph charts, null sets and Borel sets under sc-diffeomorphisms
 

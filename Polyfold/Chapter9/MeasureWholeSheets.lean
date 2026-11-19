@@ -4,7 +4,7 @@ import Polyfold.Chapter7.OrbitTopology
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 9, §9.5, proof of Theorem 9.5.18, pp. 450–451 (gap G.110).  Numbers and pages are
+Part II, Chapter 9, §9.5, proof of Theorem 9.5.18, pp. 450–451 (point G.110).  Numbers and pages are
 the 2021 text's.
 
 # The second equality of the display on p. 451

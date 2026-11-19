@@ -17,7 +17,7 @@ statement"), one chapter section (e.g. its §5) and its §12 (sign-off) before w
 - The book: `Exposition/pages/p-NN.png` (book page `b` ≈ image `p-(floor(b/2)+3)`), for Milnor's
   own statement and page. Beware: the scan drops glyphs (see `Exposition/Findings.md`, "About the
   scan").
-- `Exposition/Findings.md` (gaps and slips, with what was confirmed or withdrawn), `README.md`
+- `Exposition/Findings.md` (points and slips, with what was confirmed or withdrawn), `README.md`
   (status table), the expanded chapters `Exposition/ChapterN.md`.
 
 ## Shape of a section

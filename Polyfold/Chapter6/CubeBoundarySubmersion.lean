@@ -3,7 +3,7 @@ import Polyfold.Chapter6.CubePropertyP
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, **Lemma 6.6.5**
 (p. 265; preprint Lemma 6.30): **`π : S → [0, 1]` is a submersion, at boundary points of the
-parameter space**.  Gap G.65; row V6.34.
+parameter space**.  Point G.65; row V6.34.
 
 # `π : S → [0, 1]ⁿ` as a submersion in the corner sense
 

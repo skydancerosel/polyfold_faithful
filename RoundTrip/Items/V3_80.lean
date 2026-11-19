@@ -10,9 +10,9 @@ Lemma 3.55).  `A` is the conjunction of the types of `Polyfold.theorem_3_6_8_nea
 `Polyfold.coordCLMWith` is vocabulary.  Since the germ reading (refresh 2026-11-02)
 `theorem_3_6_8_nearby` assumes the text's germ reading (`IsGoodPositionGermTame`: filling germ,
 sc⁺-germ); `B`'s whole-chart `IsGoodPosData` (`IsFilledVersion`, `IsScSmooth c.U s`) implies it, so
-the hypotheses still match and the gaps below are unchanged.
+the hypotheses still match and the differences below are unchanged.
 
-Neither direction is proved; both gaps are genuine (not proof effort only).
+Neither direction is proved; both differences are genuine (not proof effort only).
 
 * `A → B`:
   - **Quantifier over the data.**  B's claim is made for *every* good-position datum

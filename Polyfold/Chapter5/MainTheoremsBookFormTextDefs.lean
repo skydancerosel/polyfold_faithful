@@ -11,7 +11,7 @@ both theorems with the book's quantifiers for the project's sc-Fredholm notion
 proofs produce (a family `t₁, …, t_m`, `paramSlice`, a null set of parameters).  This file
 combines the two: the book's quantifiers **and** the 2021 notions, so that a reviewer reads one
 statement per theorem and checks only the 2021 definitions (rows V3.108, V3.110 and the reading
-of "tame strong bundle", gap G.79).
+of "tame strong bundle", point G.79).
 
 * `theorem_5_3_10_book_2021def`: `theorem_5_3_10` with `hf` in the 2021 sense.
 * `theorem_5_3_12_book_2021def`: `theorem_5_3_12` with `hf`, the boundary hypothesis and the

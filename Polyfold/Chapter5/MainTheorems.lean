@@ -73,7 +73,7 @@ V3.108, V3.110) and not the project's (V3.13, V3.16):
 
 * **"Tame strong bundle" is read as "germ data in a tame chart"** (`IsTameChart`), as in the
   project's `IsScFredholmSectionTame` (row V3.103); the passage from germ data in an arbitrary
-  compatible chart to germ data in a tame one is open (gap G.79).  The 2021 filling itself asks no
+  compatible chart to germ data in a tame one is open (point G.79).  The 2021 filling itself asks no
   tameness; in a tame chart the two fillings agree, which is why the tame 2021 germ is also the
   2017 germ (`isScFredholmGermTame2021_iff_2017`).
 * The conclusions are the project's; where they mention good position of nearby zeros, they are

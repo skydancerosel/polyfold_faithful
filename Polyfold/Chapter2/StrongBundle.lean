@@ -84,7 +84,7 @@ carries a natural strong bundle structure ("the easy proof is left to the reader
   of `f*Y`); its local content is `isStrongBundleRetract_pullback` here.
 * `P[1] : Y[1] → X` sc-smooth is `StrongBundle.isScSmoothMap_proj1` in `StrongBundleOne.lean`;
   strong bundle isomorphisms, the category `SBR` and the forgetful functors are in
-  `Chapter3/StrongBundleIsoSBR.lean` (gap G.14).
+  `Chapter3/StrongBundleIsoSBR.lean` (point G.14).
 -/
 
 open Set Filter Topology Function

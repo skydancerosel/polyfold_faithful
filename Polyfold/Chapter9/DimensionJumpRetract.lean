@@ -3,7 +3,7 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part II, §9.5,
-**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), gap G.110: the sc-retract behind the
+**Remark 9.5.20** (pp. 451–452; 2017: Remark 9.8), point G.110: the sc-retract behind the
 remark's M-polyfold `X = {(−1,0)} ∪ ((−1,1) × B) ∪ {(1,0)} ⊆ ℝ × ℂ`.
 
 # A retract whose dimension jumps `0 → 3 → 0`

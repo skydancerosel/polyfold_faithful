@@ -49,7 +49,7 @@ is a partial quadrant in `T_xO`.
 ## What the text leaves implicit, and the choices made
 
 * Lemma 2.4.9 (preprint 2.29) in its path formulation is formalized in `TangentConePaths.lean`
-  (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`, `lemma_2_4_9_tangent`; gap G.10, closed), from the
+  (`lemma_2_4_9_reduced`, `lemma_2_4_9_cone`, `lemma_2_4_9_tangent`; point G.10, closed), from the
   sign arguments below.  An sc-smooth path from an interval
   (with the constant sc-structure on `ℝ`) takes values in `O_∞` and has a smooth derivative, so the
   lemma is a statement about smooth vectors and needs the density of the smooth points of
@@ -71,7 +71,7 @@ is a partial quadrant in `T_xO`.
   open subset has the same derivative (`ScRetraction.scDeriv_restrict`).
 * The second statement of Theorem 2.4.12 (preprint 2.31) (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
   quadrant in `T_xO`) holds without its hypothesis: `C_xO` is a partial quadrant at every smooth
-  point of every retract (`remark_2_4_8_isPartialQuadrant` in `PartialConeQuadrant.lean`, gap
+  point of every retract (`remark_2_4_8_isPartialQuadrant` in `PartialConeQuadrant.lean`, point
   G.11).  For tame retracts the conclusion is also proved directly, with explicit smooth lifts:
   `proposition_2_5_6_partialCone` in `PartialCone.lean`.
 -/

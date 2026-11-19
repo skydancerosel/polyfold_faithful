@@ -38,7 +38,7 @@ on which the sheets through a point have one tangent space and two classes of or
 
 ## The choices made
 
-* The sc-differential forms on ep-groupoids (Definition 8.2.1, gap G.74) and the integral of a form
+* The sc-differential forms on ep-groupoids (Definition 8.2.1, point G.74) and the integral of a form
   over a measurable subset of an oriented submanifold of an M-polyfold are not available in the
   repository.  As for the null sets of §9.5 (`SheetNullSets`) and the essential points of §9.4
   (`MPolyfold.SheetGeometry`), they are the data of a structure, `SheetIntegration`; the forms are

@@ -41,7 +41,7 @@ These make the hypotheses `MPolyfold.SmoothConnected` (Chapter 7, `Zhou.lean`),
 `MPolyfold.HasConnectedSmoothNbhds` (Chapter 6, `OrientationSpace.lean`),
 `EpGroupoid.NaturalRep.LevelConnected` and `EpGroupoid.HasConnectedDenseLevelOneReps`
 (`ZhouLevels.lean`, `ReducedCriterion.lean`) theorems; see `Chapter8/SmoothConnectedReps.lean`
-(gaps G.85 and G.90 of the report).
+(points G.85 and G.90 of the report).
 
 ## What the text leaves implicit, and the choices made
 

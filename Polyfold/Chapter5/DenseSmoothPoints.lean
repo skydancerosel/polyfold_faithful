@@ -82,7 +82,7 @@ theorem mem_smoothSet_of_chart {φ : MChart X} (hφ : P.IsChart φ) {x : X} (hx 
     (h : φ x ∈ φ.model.E.smooth) : x ∈ P.smoothSet :=
   mem_iInter.2 fun j => (P.mem_levelSet_iff hφ hx).2 (φ.model.E.mem_smooth_iff.1 h j)
 
-/-- **2021 p. 289 (2017 p. 227), gap G.73**: for every M-polyfold `X` and every `m`, the smooth
+/-- **2021 p. 289 (2017 p. 227), point G.73**: for every M-polyfold `X` and every `m`, the smooth
 points `X_∞` are dense in `X_m` (with the topology of `X_m`).  This is Chapter 7's hypothesis
 `DenseSmooth`. -/
 theorem denseSmooth : P.DenseSmooth := by

@@ -3,7 +3,7 @@ import Mathlib.MeasureTheory.Integral.DivergenceTheorem
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021): **Stokes' theorem on a
-quadrant**, the chart-level case of **Theorem 4.4.7** (p. 199; preprint Theorem 4.28, gap G.40),
+quadrant**, the chart-level case of **Theorem 4.4.7** (p. 199; preprint Theorem 4.28, point G.40),
 of Theorem 6.7.1 and of the branched Stokes theorems of §9.5, with the boundary orientation of
 **Definition 9.3.8** (p. 427, outward normal first).  Numbers and pages are the 2021 text's.
 

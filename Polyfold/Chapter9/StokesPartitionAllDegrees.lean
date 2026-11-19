@@ -4,7 +4,7 @@ import Polyfold.Chapter9.StokesSheetAllDegrees
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.5: **Theorems 9.5.17 and 9.5.18 (Stokes), pp. 449–451** (2017: Theorems
-9.6, 9.7), gap G.110.  Numbers and pages are the 2021 text's.
+9.6, 9.7), point G.110.  Numbers and pages are the 2021 text's.
 
 # Stokes' theorem for the branched integral in every dimension `n = m + 1 ≥ 1`
 
@@ -20,7 +20,7 @@ without the hypothesis `0 < m` (suffix `_all`); the cover and the partition of u
 * **`EP.theorem_9_5_17_boundary_sum_all`**, **`EP.theorem_9_5_18_boundary_sum_all`**,
   **`EP.theorem_9_5_17_of_boundary_all`**, **`EP.theorem_9_5_18_of_boundary_all`**.
 
-As in `StokesPartition.lean`, the measure `μ^∂_ω` of Theorems 9.5.15, 9.5.16 (gap G.109) is not
+As in `StokesPartition.lean`, the measure `μ^∂_ω` of Theorems 9.5.15, 9.5.16 (point G.109) is not
 used here; `Φ^∂` stands for `ω ↦ μ^∂_ω(∂S)` through the two properties used in the proof.  It is
 constructed for `n ≥ 2` under a class condition in `BoundaryMeasure.lean`; Stokes'
 theorem with it: `StokesBoundaryMeasure.lean`.
