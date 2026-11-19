@@ -1,10 +1,11 @@
 # Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory*, in Lean 4
 
-A formalization in Lean 4 and Mathlib of Hofer, Wysocki and Zehnder, *Polyfold and Fredholm Theory*
+A formalization in Lean 4 and Mathlib of Hofer, Wysocki and Zehnder,
+[*Polyfold and Fredholm Theory*](https://doi.org/10.1007/978-3-030-78007-4)
 (Springer, Ergebnisse der Mathematik 72, 2021): Part I (Chapters 1–6), Part II (Chapters 7–11) and
-Part III (Chapters 12–16). The Springer edition is the authority; the reports cite its
-numbers and pages first, with the numbers of the 2014 preprint (Part I) and the 2017 arXiv version
-(Parts II–III) in parentheses. It follows the same method as our formalizations of Milnor
+Part III (Chapters 12–16); Part IV (Chapters 17–19) is being formalized. The Springer edition
+is the authority; the reports cite its numbers and pages first, with the numbers of the 2014
+preprint (Part I) and the 2017 arXiv version (Parts II–III) in parentheses. It follows the same method as our formalizations of Milnor
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)).
 
 The Lean code and the reports were written by Claude models under the direction of the project
@@ -14,7 +15,9 @@ meant is for human readers to confirm; that review has not started.
 ## Status
 
 Every numbered item of the book is compared with its formal version, with a verdict and every
-difference listed. All 193 gaps of the comparison (G.1–G.193) are settled: 189 are formalized, and 4
+difference listed. In 193 places (G.1–G.193) the formal version needs more than a translation of
+the text: a step left to the reader, an example the text does not give, a convention left implicit,
+or a long argument written out in full. All 193 are settled: 189 are formalized, and 4
 have nothing to formalize (a question, a comment on a reference, a preprint theorem absent from the
 2021 text, and the text's own open point in Remark 9.5.19). Where a formal statement is narrower than the book's, the
 comparison names the added hypothesis and shows that it can be satisfied.
@@ -23,11 +26,13 @@ comparison names the added hypothesis and shows that it can be satisfied.
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
-| Part III, *Fredholm Theory in Polyfolds* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorems 16.4.6 and 16.6.6 with sc-smooth partitions of unity for Stokes' theorem (Remark 9.5.19) |
+| Part III, *Fredholm Theory in Ep-Groupoids* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorems 16.4.6 and 16.6.6 with sc-smooth partitions of unity for Stokes' theorem (Remark 9.5.19) |
+| Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Being formalized |
 
 The trusted base, the declarations whose statements a reader has to check, is
-`Exposition/checklist/TrustedBase.lean`; every declaration depends only on the standard axioms
-(`propext`, `Classical.choice`, `Quot.sound`), checked in `Polyfold/Test.lean`.
+`Exposition/checklist/TrustedBase.lean`. Nothing is assumed without proof: every declaration
+depends only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`), checked in
+`Polyfold/Test.lean`.
 
 ## How to build and check it
 
