@@ -14182,3 +14182,887 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     (`hasReflexiveLocalExtensions_of_isTame`), so no hypothesis remains beyond "$n$ reflexive", read as reflexive
     fibres and a reflexive auxiliary norm on the boundary in one model (rows V16.58, V16.78, V16.82). Status: **(a),
     (b), (d) settled; (c) independence over all admissible $\lambda$ not proved**.
+
+## Chapter 17 (Polyfold theory for categories; Lean `Polyfold/Chapter17/`)
+
+*Numbering.* The items of this section are numbered consecutively.
+Statement numbers and pages are those of the Springer edition (2021, pp. 743–842), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch17.md` (V17.1–V17.144); the points are G.194–G.234
+(G.194–G.212, G.214–G.221, G.223–G.227, G.229–G.234 settled; G.213 and G.228 nothing to formalize;
+G.222 formalized in part). Point G.153 (Remark 9.5.19, Chapter 16, item 8) enters in §17.6.
+
+Found while formalizing §§17.1–17.3 (files `Chapter17/LocalUniformizer`, `FunctorialUniformizers`, `PolyfoldConstruction`, `PolyfoldConstructionExamples`, `OverlappingUniformizers`, `ModelProperties`, `ModelPropertiesExamples`, `LevelOneCategory`, `PolyfoldLevels`, `TangentCategory`, `TangentUnifExamples`, `TangentConstruction`, `Subpolyfold`, `SubpolyfoldStructure`).
+
+1. **Lemmas 17.1.9 and 17.2.10 do not hold as we read them; Definition 17.1.8 presumably wants $\hat\Psi$ continuous**
+   *(Definition 17.1.8, p. 747, Lemma 17.1.9, p. 748 (2017: Definition 17.6, Lemma 17.1); Lemma 17.2.10, p. 773 (new in
+   the 2021 edition); Theorem 17.2.17, p. 783 (2017: Theorem 17.4); Remark 17.5.9, p. 817 (2017: Remark 17.5))*.
+   `Chapter17/PolyfoldConstruction.lean`, `PolyfoldConstructionExamples.lean`, `TangentCategory.lean`,
+   `TangentUnifExamples.lean`. Lemma 17.1.9 says that $\hat\Psi(g, p) = (p, \Psi(g, p), g \ast p)$ is an
+   sc-diffeomorphism $G \ltimes O \to M(\Psi, \Psi)$; the proof concludes from $s \circ \hat\Psi = \mathrm{pr}$ that
+   $\hat\Psi$ is a local sc-diffeomorphism, which needs $\hat\Psi$ continuous. Definition 17.1.8 does not tie the
+   M-polyfold structure of $M(\Psi, \Psi)$ to $G \times O$. On $\mathbb Z/3$ acting trivially on $\mathbb R$, with one
+   tame uniformizer centred at $0$ and $M(\Psi, \Psi)$ the M-polyfold $\mathbb Z/3 \times \mathbb R$ transported along a
+   twist that inverts $g$ for $p > 0$, (a)–(c) of Definition 17.1.8 hold and $\hat\Psi$ is not continuous
+   (`Polyfold.GCT.PolyfoldConstruction.z3Construction`, `Polyfold.GCT.PolyfoldConstruction.z3_not_continuous_hat`,
+   `Polyfold.GCT.PolyfoldConstruction.not_lemma_17_1_9`). What holds: $\hat\Psi$ is a bijection with the sheet
+   decomposition, for every polyfold structure (`Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_bijective`,
+   `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_decomposition`), and the full statement when $\hat\Psi$ is continuous
+   (`Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_of_continuous`). Lemma 17.2.10 rests on the last clause of Lemma
+   17.1.9 ($t = g \ast \cdot$ on the sheet through $\hat\Psi(g, q)$): the target of $T\Psi(g, h)$ in (17.39) is
+   $T\Psi(T\sigma(h))$, with $\sigma$ the sheet map, and the lemma needs $\sigma = g \ast \cdot$ near $q$. On
+   $(\mathbb Z/2)^2$ acting on $\mathbb R$ through the first factor, with the factors exchanged over $0$, for
+   $g = (1, -1)$ at $0$ the map $T\sigma$ is $T(y \mapsto -y)$ while $g \ast \cdot$ is the identity (`Polyfold.GCT.PolyfoldConstruction.fstSwapConstruction`,
+   `Polyfold.GCT.PolyfoldConstruction.fstSwap_transMap_hat`, `Polyfold.GCT.PolyfoldConstruction.not_lemma_17_2_10`).
+   Sources, units and composition are respected for every $\Psi$
+   (`Polyfold.GCT.PolyfoldConstruction.lemma_17_2_10_mor`); with $\hat\Psi$ continuous $T\Psi$ is a functor
+   (`Polyfold.GCT.PolyfoldConstruction.lemma_17_2_10_of_continuous`). The two examples differ: in the first every
+   $g \ast \cdot$ is the identity, so Lemma 17.2.10 holds there; the second needs a twist exchanging two isotropy
+   elements with different linearizations. The same condition, $\hat\Psi$ continuous, enters Theorem 17.2.17
+   (`hcont` in `Polyfold.GCT.PolyfoldConstruction.theorem_17_2_17_hyp`), §17.4 from Lemma 17.4.6 on
+   (`Polyfold.GCT.PolyfoldConstruction.HatContinuous`; item 8), the direction "⇒" of Remark 17.5.9
+   (`Polyfold.GCT.PolyfoldConstruction.remark_17_5_9_hyp`; "⇐" holds with no condition,
+   `Polyfold.GCT.PolyfoldConstruction.isOrientationC_of_unif`; whether "⇒" holds without it is open) and the functors
+   $\oplus^k T\Psi$ on morphisms in Proposition 17.6.1 (item 10). Witnesses, none weak:
+   `Polyfold.GCT.PolyfoldConstruction.reflection_lemma_17_1_9` with
+   `Polyfold.GCT.PolyfoldConstruction.reflection_hatSheet_ne` and
+   `Polyfold.GCT.PolyfoldConstruction.reflection_continuous_hat_all` ($x \mapsto -x$ on $\mathbb R$, two sheets),
+   `Polyfold.GCT.PolyfoldConstruction.reflection_lemma_17_2_10`,
+   `Polyfold.GCT.PolyfoldConstruction.sliceConstruction_continuous_hat` (every slice construction, overlapping
+   uniformizers included), `Polyfold.GCT.PolyfoldConstruction.swapConstruction_hatContinuous` (non-empty boundary).
+   Every polyfold structure of a basic construction in Chapter 19 has $\hat\Psi$ continuous
+   (`Polyfold.GroupoidalCategory.BasicConstruction.continuous_hat`). Lemma 17.1.10 and Proposition 17.1.11, which the
+   text derives from Lemma 17.1.9, are proved without the condition (rows V17.11, V17.12). One candidate for the notes
+   to the authors: Definition 17.1.8 presumably intends $\hat\Psi$ continuous (equivalently, the sheets open), as in
+   Chapter 19; (17.40), hence Lemma 17.2.10 and Theorem 17.2.17, use the last clause of Lemma 17.1.9 (rows V17.8,
+   V17.9, V17.47, V17.54, V17.55, V17.71, V17.105, V17.106). Status: **does not hold as we read it; the form with
+   $\hat\Psi$ continuous is proved**.
+
+2. **Proposition 17.1.25 does not hold as we read it** *(Proposition 17.1.25, p. 758 (new in the 2021 edition);
+   Chapter 10, item 58)*. `Chapter17/ModelProperties.lean`, `ModelPropertiesExamples.lean`. The proposition says that
+   under (LUC) every generalized isomorphism $h : X_\Psi \to X_{\Psi'}$ with $|\Gamma_{\Psi'}| \circ |h| = |\Gamma_\Psi|$
+   is $f_{\Psi,\Psi'}$; the proof uses the local regularity property and Theorem 10.3.19. Both readings are formalized
+   and do not hold: on $\mathbb Z/3 \ltimes \mathbb R$ with the trivial action, which satisfies (ZHOU), hence (LUC),
+   (SLUC), (LR), (SLR) (`Polyfold.GCT.PolyfoldConstruction.z3Taut_properties`), the generalized isomorphism through the
+   inversion has the same orbit map as $f_{\Psi,\Psi} = 1$ and differs from it
+   (`Polyfold.GCT.PolyfoldConstruction.z3TautConstruction`, `Polyfold.GCT.PolyfoldConstruction.z3Taut_counterexample`,
+   `Polyfold.GCT.PolyfoldConstruction.not_proposition_17_1_25`,
+   `Polyfold.GCT.PolyfoldConstruction.not_proposition_17_1_25_LR`). This is the pair behind
+   `Polyfold.LocalizationLRCounterexample.not_theorem_10_3_19` (Chapter 10, item 58): a non-effective isotropy acting
+   trivially. What holds: $|h| = |f_{\Psi,\Psi'}|$ always (`Polyfold.GCT.PolyfoldConstruction.orbitMap_eq_comparison`);
+   $h = f_{\Psi,\Psi'}$ under (LR) for an effective target model or an effective $C$
+   (`Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isEffective`,
+   `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isEffective'`), and under (ZHOU) for an effective $C$
+   (`Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isZhou`); (ZHOU) alone does not suffice, since the
+   example satisfies it. Witnesses: `Polyfold.GCT.PolyfoldConstruction.unitTaut_isLR_isEffective` with
+   `Polyfold.GCT.PolyfoldConstruction.unitTaut_proposition_17_1_25` ($\{1\} \ltimes \mathbb R$; weak: trivial
+   isotropy, the only witness of (LR) with effectiveness) and `Polyfold.GCT.PolyfoldConstruction.reflection_isEffective`
+   with `Polyfold.GCT.PolyfoldConstruction.reflection_isLUC` ($\mathbb Z/2 \ltimes \mathbb R$, effective with
+   non-trivial isotropy, for (LUC)). Candidate for the notes to the authors, as a one-line cross reference to Chapter 10,
+   item 58: as Theorem 10.3.19, the proposition needs an effective target (row V17.28). Status: **does not hold as we
+   read it; the effective forms are proved**.
+
+3. **The standing reading $F(\alpha) \ne \emptyset$** *(Definition 17.1.6, p. 746, and p. 752 (2017: Definition 17.5);
+   Proposition 17.3.4, p. 784 (new in the 2021 edition); point G.196)*. `Chapter17/PolyfoldConstruction.lean`,
+   `PolyfoldConstructionExamples.lean`, `Subpolyfold.lean`. Definition 17.1.6 does not exclude $F(\alpha) = \emptyset$,
+   and Definition 17.1.8 does not imply it: $F \equiv \emptyset$ is a polyfold structure on the reflection
+   (`Polyfold.GCT.PolyfoldConstruction.emptyConstruction`,
+   `Polyfold.GCT.PolyfoldConstruction.not_hasUniformizers_empty`). The text uses it without comment, from p. 752 ("we
+   can pick a set of uniformizers … covering") on. We read it as a standing assumption of Part IV, named once
+   (`Polyfold.GCT.UniformizerConstruction.HasUniformizers`, or the footprints covering $|C|$,
+   `Polyfold.GCT.UniformizerConstruction.HasCoveringUniformizers`) and carried as `hU`, `hS`, `hu` or `hc`: in Theorem
+   17.1.28 and the levels $C^i$, in the tangent $TC$ and everything built on it (§17.2, §17.5 from Definition 17.5.6
+   on, §17.6), in "Equivalently" of Definition 17.5.4 (3), and in Proposition 17.8.16 (4) as `unif_hyp` (item 14).
+   Proposition 17.3.4 shows why it is needed: with footprints covering but $F(\alpha) = \emptyset$ exactly on the
+   rationals, the rationals satisfy Definition 17.3.1 and not Definition 17.3.2
+   (`Polyfold.GCT.PolyfoldConstruction.irrationalConstruction`,
+   `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4_empty_family`); with $F(\alpha) \ne \emptyset$ the
+   proposition holds (`Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4`). Definition 17.3.1 can also be read over
+   all uniformizers of $F$, as the text's comment before it suggests; then Proposition 17.3.4 needs only covering
+   footprints (`Polyfold.GCT.PolyfoldConstruction.isSubpolyfold_iff_forall_unif`). Every witness structure of the
+   chapter has uniformizers at every object (e.g.
+   `Polyfold.GCT.PolyfoldConstruction.reflectionConstruction_hasUniformizers`). A reading, not a question for the
+   authors; Chapter 19 takes the same reading (rows V17.6, V17.33–V17.35, V17.47–V17.53, V17.60, V17.98–V17.107,
+   V17.142). Status: **settled as a reading (point G.196 settled)**.
+
+4. **The group of a uniformizer fixes the point over $\alpha$** *(Definition 17.1.3, p. 745 (2017: Definition 17.3);
+   Definition 17.4.5 and "$G$ the isotropy group of $\alpha$", p. 792 (new in the 2021 edition); point G.195)*.
+   `Chapter17/LocalUniformizer.lean`, `TameBoundaryUniformizer.lean`, `TameBoundaryPolyfold.lean`. Definition 17.1.3
+   does not ask $G$ to fix the point $q$ with $\Psi(q) = \alpha$ (equivalently $G \cong G_\alpha$); the proof of Lemma
+   17.1.9 and p. 792 presume it, and the action of $G$ on the faces of $U(\bar o)$ in Definition 17.4.5 needs it. It is
+   `Polyfold.GroupoidalCategory.Uniformizer.IsCentredAt` (with
+   `Polyfold.GroupoidalCategory.Uniformizer.isotropyEquiv`), and for a whole construction
+   `Polyfold.GCT.PolyfoldConstruction.IsCentred`, assumed in §17.4 from Definition 17.4.5 on (`hfix`, `hcent`; not in
+   Lemmas 17.4.10–17.4.18 and not in the diagram of p. 812). Witnesses
+   `Polyfold.GCT.PolyfoldConstruction.swapConstruction_isCentred` ($\mathbb Z/2$ exchanging the two factors of the
+   quadrant; not weak) and `Polyfold.GCT.PolyfoldConstruction.quadrant_isCentred` (weak: trivial group). Uniformizers
+   with a smaller group than $G_\alpha$ are admitted by Definition 17.1.3 and occur in the witnesses (the slices off
+   the diagonal in `Polyfold.GCT.PolyfoldConstruction.swapConstruction`). A reading (rows V17.3, V17.70, V17.71,
+   V17.84–V17.92). Status: **settled as a reading (point G.195 settled)**.
+
+5. **Smaller readings of §§17.1–17.3, and the choices the text leaves open** *(Remark 17.1.7, pp. 746–747 (2017:
+   Remark 17.1); Theorem 17.1.28, p. 766 (2017: Theorem 17.3); Definition 17.1.30, p. 767 (2017: Definition 17.7);
+   Proposition 17.2.5, p. 770 (2017: Proposition 17.2); Theorem 17.2.17, p. 783; Proposition 17.3.6, p. 786 (2017:
+   Proposition 17.6); points G.197, G.205, G.210)*. In Remark 17.1.7 (3) we read $\sigma(\psi, \Psi)$ as
+   $\sigma(\phi, \Psi)$, and (1)–(3) compare data identified along the functoriality of $F$; part (a) has no
+   mathematical content (row V17.7). The functor $d : C \to \mathbb N$ of Definition 17.1.30 is read as a function on
+   objects constant on isomorphism classes (row V17.36). The category $\mathrm{Ban}$ is not built; $\mu_C$ is given by
+   its maps and the functor laws (row V17.42). "Polyfold bundle" in Theorem 17.2.17 is read as the pair of structures
+   $(TF, M)$ on $TC$ and $(F^1, M_{F^1})$ on $C_1$ related by $P$ (row V17.55). Where several uniformizers have the same
+   restriction, lift or face uniformizer ($\Psi \mapsto \Psi^1$ in Theorem 17.1.28, $(TF, M)$, Proposition 17.3.6,
+   Theorem 17.4.26), the ambient transition set is chosen; the text does not claim independence of the choice, and it
+   is not formalized (rows V17.33, V17.54, V17.63, V17.91). Status: **settled as readings**.
+
+Found while formalizing §17.4 (files `Chapter17/TameBoundaryCategory`, `TameBoundaryUniformizer`, `TameBoundaryTransition`, `TameBoundaryTame`, `TameBoundaryTopology`, `TameBoundaryPolyfold`, `TameBoundaryDiagram`).
+
+6. **Lemma 17.4.13: we read "tame" in the sense of Definition 2.5.18** *(the sentence before Lemma 17.4.13 and Lemma
+   17.4.13, p. 798 (new in the 2021 edition); Definitions 2.5.18, 2.5.19, Proposition 2.5.15 – Theorem 2.5.17)*.
+   `Chapter17/TameBoundaryTransition.lean`, `TameBoundaryTame.lean`. The text recalls tame sub-M-polyfolds from
+   Definition 2.5.19 before the lemma. With that pointer taken literally no face of positive codimension qualifies:
+   the set lies in $\{d \ge 1\}$ and meets the closure of $\{d = 0\}$, so a retraction preserving $d$ (Definition
+   2.5.19 (2)) cannot exist; on the quadrant, at the unit over the corner
+   (`Polyfold.GCT.PolyfoldConstruction.lemma_17_4_13_literal`,
+   `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_13_literal_quadrant`, through
+   `Polyfold.MPolyfold.not_isTameSubMPolyfold_of_mem_closure`). We read the faces in the sense the book gives them in
+   Proposition 2.5.15 – Theorem 2.5.17: a sub-M-polyfold whose induced structure is tame (Definition 2.5.18). In that
+   reading the lemma holds (`Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_13`: $M(\Psi,\Psi')^*_{\theta,\theta'}$
+   and $\theta$ have tame induced structures, $s$ carries the set locally onto open pieces of $\theta$, $d = d_O \circ s
+   \ge 1$, and (17.71) is a bijection onto it; with
+   `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.hasTameInducedStructure_transFaceSet`), and it is what the construction
+   of $M(\Psi_\theta, \Psi'_{\theta'})$ uses. Candidate for the notes to the authors, as a one-line remark: the pointer
+   to Definition 2.5.19 presumably means the sense of Definition 2.5.18 and Proposition 2.5.15 (row V17.78). Status:
+   **settled as a reading**.
+
+7. **Definition 17.4.17 and Lemma 17.4.18: we read "for every $z \in Q$"** *(Definition 17.4.17, p. 802, Lemma
+   17.4.18, p. 803 (new in the 2021 edition))*. `Chapter17/TameBoundaryTopology.lean`. The definition calls $Q \subset
+   |bC|$ open when for every $z \in |bC|$ there is a representative with $|\Psi_\theta(A(\bar o))| \subset Q$; taken
+   literally every $z$ lies in $Q$, and $\emptyset$ is not open once $bC$ has an object
+   (`Polyfold.GCT.PolyfoldConstruction.IsBdryOpenLiteral`,
+   `Polyfold.GCT.PolyfoldConstruction.not_isBdryOpenLiteral_empty`,
+   `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_18_literal`, on the quadrant). The proof of Lemma 17.4.18 reads it for
+   $z \in Q$ (it calls $\emptyset$ open and starts "say $z \in Q \cap Q'$"), and so do we
+   (`Polyfold.GCT.PolyfoldConstruction.IsBdryOpen`, `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_18`). "Open
+   $A(\bar o) \subset \theta$" is read as $A \cap \theta$ with $A$ open in $O$, which is equivalent, $\theta$ carrying the
+   subspace topology. A reading, not a question for the authors (rows V17.82, V17.83). Status: **settled as a
+   reading**.
+
+8. **Theorem 17.4.19 and the rest of §17.4: $|bC|$ for $|C|$, and the two conditions** *(Theorem 17.4.19, p. 803;
+   Lemma 17.4.6 – Theorem 17.4.26, pp. 792–812 (new in the 2021 edition); items 1, 4; point G.215)*.
+   `Chapter17/TameBoundaryTopology.lean`, `TameBoundaryPolyfold.lean`, `TameBoundaryDiagram.lean`. In Theorem 17.4.19
+   we read "onto an open subset of $|bC|$" for "of $|C|$", as the clause that follows does
+   (`Polyfold.GCT.PolyfoldConstruction.theorem_17_4_19`); metrizability is proved as in the text's proof of
+   Proposition 17.4.25, through $\sigma : |bC| \to |C|$. From Lemma 17.4.6 on, the statements take $\hat\Psi$
+   continuous (`hc`, item 1) and $G$ fixing $\bar o$ (`hfix`, `hcent`, item 4), the first because $\Psi_\theta(g, x)$
+   is a morphism of $bC$ only when the germ of $\hat\Psi(g, x)$ is $g \ast \cdot$. Theorem 17.4.26 and the diagrams
+   (17.82)–(17.84) are proved with both (`Polyfold.GCT.PolyfoldConstruction.theorem_17_4_26`), the diagram of p. 812
+   with neither. Witness `Polyfold.GCT.PolyfoldConstruction.swapConstruction` with
+   `Polyfold.GCT.PolyfoldConstruction.swapConstruction_hatContinuous` and
+   `Polyfold.GCT.PolyfoldConstruction.swapConstruction_isCentred`: $\mathbb Z/2$ exchanging the two faces at the corner
+   of the quadrant, non-empty boundary, not weak. Not formalized: $G \ltimes \bigsqcup_\theta \theta$ as a groupoid and
+   the disjoint unions of (17.84) as M-polyfolds (the statements are proved componentwise), and the embedding of the
+   two diagrams of p. 812 on morphisms (rows V17.71, V17.73, V17.74, V17.84–V17.93). Status: **settled (point G.215
+   settled), with the conditions of items 1 and 4**.
+
+Found while formalizing §§17.5–17.7 (files `Chapter17/BranchedSubcategory`, `BranchedSupport`, `BranchedTangent`, `BranchedOrientation`, `GrassmannianFunctor`, `CategoryForms`, `CategoryStokes`, `CategoryStokesExamples`, `TameOrientedExamples`, `WhitneySumStructure`, `VectorBundleGCT`, `StrongBundleStructures`, `BundleModel`, `BundleModelStructure`).
+
+9. **§17.5: three readings** *(the identities on p. 813 (2017: §17.4); Definition 17.5.4, p. 813, Definition 17.5.8,
+   p. 817 (2017: Definitions 17.16, 17.18); Proposition 17.5.5, pp. 814–815 (2017: Proposition 17.9); points G.218,
+   G.219)*. `Chapter17/BranchedSubcategory.lean`, `BranchedSupport.lean`, `BranchedOrientation.lean`. The first
+   identity after Proposition 17.5.2 is printed as $f_*(\Gamma')^*\Theta = \Gamma^*\Theta$; since $(\Gamma')^*\Theta$
+   lives on $X'$ and $f : X \to X'$, we read $f_*$ there as $f^*$
+   (`Polyfold.GCT.PolyfoldConstruction.pullTheta_comparison_modelPull`), and the push-forward form
+   $f_*\Gamma^*\Theta = (\Gamma')^*\Theta$ is proved as well
+   (`Polyfold.GCT.PolyfoldConstruction.pushTheta_comparison_modelPull`). In Definition 17.5.8 "for a covering set
+   $\Psi$" is read as "for every covering family". The structure on $|\mathrm{supp}(\Theta)|$ in Proposition 17.5.5 is
+   read as in Proposition 9.1.9 (1), "in a natural way" as the agreement of all induced structures, the orbifold
+   structure up to equivalence. Remark 17.5.9 is item 1 (rows V17.96, V17.99, V17.104, V17.105). Status: **settled as
+   readings (points G.218, G.219 settled)**.
+
+10. **§17.6: the category $\oplus^k TC$ is not built; Theorems 17.6.7 and 17.6.10 with Stokes on the model** *(Proposition 17.6.1, p. 818
+    (2017: Proposition 17.11); Definitions 17.6.2, 17.6.3, pp. 819–820 (2017: Definitions 17.19, 17.20); Theorems
+    17.6.7, p. 823 (2017: Theorem 17.7), and 17.6.10, p. 824 (new in the 2021 edition); points G.222, G.153)*.
+    `Chapter17/WhitneySumStructure.lean`, `CategoryForms.lean`, `CategoryStokes.lean`, `CategoryStokesExamples.lean`,
+    `TameOrientedExamples.lean`. Proposition 17.6.1 is proved on the fibres
+    (`Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1`) and on the transition sets: $M(\oplus^k T\Psi, \oplus^k
+    T\Psi')$ is identified with Part I's Whitney sum, with source and target local sc-diffeomorphisms linear on the
+    fibres, unit and inversion sc-smooth, and metrizable orbit space
+    (`Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1_transition`). The category $\oplus^k TC$ is the $k$-fold fibred
+    power of $P : TC \to C^1$ (`Polyfold.GCT.PolyfoldConstruction.whitneyCategory`), and for continuous $\hat\Psi$ (item 1)
+    $\oplus^k T\Psi$ is a functor on morphisms with the printed formulas
+    (`Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1_functor`; witness
+    `Polyfold.reflection_whitneyUnif_nondegenerate`, $k = 2$ on the reflection). The orbit space $|\oplus^k TC|$ with its
+    topology and the sc-smoothness of the multiplication of the transition sets are not formalized (point G.222); the
+    forms of §17.6 use only the parts proved. A form "$\omega :
+    \oplus^k TC \to \mathbb R$" is read as a family of alternating maps constant along morphisms, and
+    $\Omega^*_\infty(C)$ through the sc-smooth models. Theorems 17.6.7 and 17.6.10 follow, as the text says, from
+    Stokes on the ep-groupoid level, which Theorems 9.5.17, 9.5.18 prove with sc-smooth partitions of unity and Remark
+    9.5.19 leaves open without them (Chapter 16, item 8): they take `hS`, Stokes on the model without partitions of
+    unity, or `hPU`, sc-smooth partitions of unity on the model
+    (`Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_hyp`,
+    `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_hyp`). Witnesses
+    `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_stokes` (a compact oriented arc in the half-plane with $\partial\Theta
+    \ne 0$; weak: trivial group) and `Polyfold.GCT.PolyfoldConstruction.z3Taut_hypotheses_17_6_10` ((LUC), partitions of
+    unity and Stokes on the model; weak: $\mathbb Z/3$ acting trivially) (rows V17.106–V17.109, V17.113, V17.116).
+    Status: **Proposition 17.6.1 in part (point G.222 formalized in part); Theorems 17.6.7, 17.6.10 with the text's own open
+    question as a hypothesis (point G.153)**.
+
+11. **§17.7: three readings and the Chapter 16 structure on the model** *(Definitions 17.7.2–17.7.4, pp. 826–827
+    (2017: Definitions 17.23–17.25); pp. 825, 827–828 (2017: §17.6); points G.226, G.227)*.
+    `Chapter17/VectorBundleGCT.lean`, `StrongBundleStructures.lean`, `BundleModel.lean`, `BundleModelStructure.lean`.
+    In Definition 17.7.2 (2) we read $K_q \to P^{-1}(\Psi(q))$ for $P^{-1}(\Psi(\alpha))$, and "$\bar\Psi$ covers $\Psi$"
+    as $P \circ \bar\Psi = \Psi \circ p$. Definition 17.7.3 prints $\bar\Psi : G \ltimes K \to C$, which we read as
+    $\to E$, as in Definitions 17.7.2 and 17.7.4. In Definition 17.7.4 the strong bundle structure on $M(\bar\Psi,
+    \bar\Psi') \to M(\Psi, \Psi')$ is read as $s^*K$, to which any structure with the printed properties is identified
+    by $\bar s$. The model of a strong polyfold bundle construction, which the text and Chapter 18 use without stating
+    it, is written out (the analogues of Theorem 17.1.14, Lemma 17.1.15 and Theorem 17.1.18). The strong bundle over a
+    polyfold announced on p. 825 is the Chapter 16 structure, built under the conditions of Definition 16.3.1, (ZHOU)
+    and the local regularity property (`hZ`, `hLR` in
+    `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelStructure`); it does not depend on the
+    covering family. Witness `Polyfold.GCT.VectorBundle.ReflectionBundle.reflBundleStructure_nondegenerate` (the
+    reflection, a non-trivial action on non-zero fibres; not weak) (rows V17.119–V17.123). Status: **settled (points
+    G.226, G.227 settled)**.
+
+Found while formalizing §17.8 (files `Chapter17/ProperCoveringModel`, `ProperCoveringUniformizer`, `ProperCoveringSheetUniformizer`, `ProperCoveringSheetCounterexample`, `ProperCoveringSheetEffective`, `ProperCoveringPolyfold`, `ProperCoveringGlobalModel`, `ProperCoveringBranched`, `ProperCoveringTame`; `Chapter19/CoveringOrbitCounterexample`, `ProperCoveringModelExample`).
+
+12. **The sentence after Definition 17.8.1 does not hold as we read it** *(the sentence after Definition 17.8.1, p. 829
+    (2017: Definition 17.26); the Chapter 19 item on Proposition 19.7.18)*. The text says that in all interesting cases
+    $|P| : U(y_i) \to U(z)$ is a homeomorphism and that, in view of Definition 17.8.4, this will even be necessary.
+    Definition 17.8.1 does not ask it, as printed, and Definition 17.8.4 does not force it as we read it:
+    $\mathbb Z/2 \ltimes (\mathbb Z^\times \times \mathbb R) \to \mathbb Z/2 \ltimes \mathbb R$, $(i, x) \mapsto x$, is a
+    connected Definition 17.8.4 model with $\bar o = 0$ fixed by $G$, and its orbit map is $t \mapsto |t|$, not a local
+    homeomorphism (`Polyfold.Chapter19.absCovering_orbitMap_not_isLocalHomeomorph`). The same example is behind the Chapter 19 item on
+    Proposition 19.7.18, which carries the question to the authors (row V17.124). Status: **does not hold as we read it; see the Chapter 19 item on Proposition 19.7.18**.
+
+13. **Remark 17.8.11 (2): we read a connected model** *(Remark 17.8.11, p. 835 (2017: Remark 17.8); pp. 832–834;
+    Proposition 17.8.6, p. 832 (new in the 2021 edition); Lemma 17.8.8, p. 833 (2017: Lemma 17.8))*. `Chapter17/ProperCoveringSheetUniformizer.lean`,
+    `ProperCoveringSheetCounterexample.lean`, `ProperCoveringSheetEffective.lean`. The second part says that the
+    restrictions of $\hat\Psi$ to $G_\alpha \ltimes O_\alpha$, $\alpha \in P^{-1}(\beta)$, are uniformizers. Its notation
+    $O_\alpha$, $G_\alpha \ltimes O_\alpha$ and the action $\varphi \ast$ are those of the construction (17.93)–(17.98),
+    with which a general Definition 17.8.4 model is identified only on pp. 832–834, under "Suppose further that $O$ is
+    connected"; Definition 17.8.10 (1) uses the same notation, and Proposition 17.8.6 shrinks any model to a connected
+    one. We read the remark for a connected model (`hO_conn` in
+    `Polyfold.ProperCoveringUniformizer.remark_17_8_11_two`; witness `Polyfold.remark_17_8_11_two_reflection`, a
+    non-trivial action on both sheets, not weak). The examples show why: with $O$ disconnected, the image of a sheet is
+    the image of no uniformizer, in the weakest sense (`Polyfold.remark_17_8_11_two_disconnected`, $O$ of two points
+    with the trivial action), also with $G \ltimes O$ and the model effective, $O$ two copies of $\mathbb R$
+    (`Polyfold.remark_17_8_11_two_disconnected_effective`). Lemma 17.8.8 and the exercise of p. 834 assume a connected
+    model, as the text does. A reading, not a question for the authors (rows V17.132, V17.134, V17.136). Status:
+    **settled as a reading**.
+
+14. **§17.8: the uniformizer in Proposition 17.8.16 (4), the witnesses of Definition 17.8.13, and what is not formalized**
+    *(Definition 17.8.13, p. 836, Proposition 17.8.16, pp. 839–840, (17.104), p. 838, pp. 840–842 (2017: Definition
+    17.31, Proposition 17.13, §17.7); points G.231–G.234)*. `Chapter17/ProperCoveringBranched.lean`,
+    `ProperCoveringTame.lean`, `ProperCoveringPolyfold.lean`, `ProperCoveringGlobalModel.lean`. In (4) the proof takes
+    "a proper covering uniformizer around $\beta$" at the points of $\mathrm{supp}\,\Theta$; this is `unif_hyp`, the
+    standing reading of item 3 (`Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_four`; witness
+    `Polyfold.proposition_17_8_16_reflection`, $\Theta_0 = 1_{\{0\}}$ on the reflection with two sheets, not weak).
+    "With the induced structures" is read through the uniformizers of $B$ and of $A$; the ep-level pull-back and the
+    paracompactness of the support, not mentioned in the text, are written out (point G.233). The witnesses
+    `Polyfold.z3PolyfoldCoveringFunctor`, `Polyfold.sheetPolyfoldCoveringStructure` of Definition 17.8.13 and of (17.104)
+    have a trivial action on $O$, since a proper covering uniformizer at $\beta$ needs $o_\beta$ fixed by $G$, so for the
+    tautological $\Psi$ of $G \ltimes O$ only fixed points carry one; taking $F(\beta) \ne \emptyset$ only at the fixed
+    point (`Polyfold.sheetFixedPolyfoldCoveringStructure`) gives an effective witness on two sheets over the reflection
+    (`Polyfold.reflectionHatModel_nondegenerate`: $G$ acts effectively and non-trivially on $O$, a non-unit automorphism
+    in $E$ over one in $X$); those of
+    Definitions 17.8.4, 17.8.10 and Remark 17.8.11 use the reflection. $\hat\tau : E \to X$ is a proper covering functor
+    (`Polyfold.ProperPolyfoldCoveringStructure.hatModelFunctor_isProperCovering`; point G.231). The Morita equivalence
+    between the models of two covering families, left to the reader on p. 838, is read as Theorem 17.1.18 reads the
+    comparison of the $X_\Psi$: a generalized isomorphism $\hat f_{c,c'} : E_c \to E_{c'}$ with identity, cocycle and
+    homeomorphic orbit maps, and in addition $[\hat\tau_{c'}] \circ \hat f = f_{c,c'} \circ [\hat\tau_c]$
+    (`Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita`, with the strict zigzag through $E_{c \sqcup c'}$,
+    `Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita_strict`; witness `Polyfold.reflectionHatModel_morita`;
+    point G.232). The
+    strong bundles over proper polyfold covering functors of pp. 840–842 are read through models, as p. 842 indicates
+    (`Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.StrongBundleProperCovering`, Chapter 18; point G.234)
+    (rows V17.138, V17.141–V17.144). Status: **settled**.
+
+15. **Every hypothesis taken in Chapter 17 is satisfiable** *(§§17.1–17.8)*. With witnesses: $F(\alpha) \ne \emptyset$
+    and covering footprints (item 3; every witness structure); $\hat\Psi$ continuous (item 1;
+    `Polyfold.GCT.PolyfoldConstruction.reflection_continuous_hat_all`,
+    `Polyfold.GCT.PolyfoldConstruction.sliceConstruction_continuous_hat`,
+    `Polyfold.GCT.PolyfoldConstruction.swapConstruction_hatContinuous`); centring (item 4;
+    `Polyfold.GCT.PolyfoldConstruction.swapConstruction_isCentred`); effectiveness in Proposition 17.1.25 (item 2; weak
+    for (LR): trivial isotropy); Stokes on the model or partitions of unity in Theorems 17.6.7, 17.6.10 (item 10; weak:
+    trivial group or trivial action); (ZHOU) and the local regularity property for the Chapter 16 structure of §17.7
+    (item 11); a connected model in Remark 17.8.11 (2) (item 13); `unif_hyp` in Proposition 17.8.16 (4) (item 14).
+    Tameness and (ZHOU) are assumed where the text assumes them. Status: **settled**.
+
+## Chapter 18 (Fredholm theory in polyfolds; Lean `Polyfold/Chapter18/`)
+
+*Numbering.* The items of this section are numbered consecutively.
+Statement numbers and pages are those of the Springer edition (2021, pp. 843–861), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch18.md` (V18.1–V18.54); the points are G.235–G.256
+(G.235–G.243, G.245, G.246, G.248, G.250–G.254, G.256 settled; G.244, G.247, G.249 and G.255 invitations, comments or exercises,
+nothing to formalize; G.245 and G.256 settled).
+
+Found while formalizing §18.1 (files `Chapter18/SectionFunctors`, `FredholmSectionFunctors`, `ModelTransfer`, `ModelSectionPushforward`, `Linearization`, `LinearizationSet`, `LinearizationSetLocal`, `LinearizationTransport`, `OpenSubcategory`, `TangentPartialCone`, `GoodPositionIntrinsic`, `ImplicitFunctionTheorem`, `ImplicitFunctionSubcategory`, `AuxiliaryNorms`, `AuxiliaryNormsDirect`, `AuxiliaryNormsBookForm`, `ReflexivePieces`).
+
+1. **Definition 18.1.7 is read with the continuity of Definition 12.2.1, which Lemma 18.1.8 needs** *(Definition
+   18.1.7, p. 846, Lemma 18.1.8, p. 847 (2017: Definition 18.4, Lemma 18.1); point G.241)*.
+   `Chapter18/AuxiliaryNormsDirect.lean`, `AuxiliaryNormsBookForm.lean`. Definition 18.1.7 is introduced as importing
+   the notion of an auxiliary norm from the ep-groupoid context, and its clauses translate those of Definition 12.2.1,
+   except that the continuity of $|N|$ on $|E_{0,1}|$ is not printed. Lemma 18.1.8 ("left to the reader") says that
+   $N$ is an auxiliary norm iff $N \circ \bar\Gamma_{\bar\Psi}$ is one for the model of a covering family. We read
+   Definition 18.1.7 as including this continuity (`IsAuxNormDirect`, with `oneNorm`); with it the lemma holds as an
+   iff (`lemma_18_1_8`, `isAuxNormDirect_iff_isAuxNormFunctor`). The reason for the reading is the literal form: the
+   printed clauses (`IsAuxNormBook`) do not give the continuity, and the direction ⇒ does not hold as we read it for
+   them. On the reflection bundle an invariant $N$ with a jump in the base scale at $|0|$ satisfies the printed clauses
+   and is an auxiliary norm in no model (`reflQ_baseScale_witness`, `isAuxNormBook_reflJump`,
+   `lemma_18_1_8_book_without_continuity`, which negates the weakest form, "for some covering family"). The model
+   condition is exactly the printed form plus the continuity (`isAuxNormIn_iff_isAuxNormBook_continuous`), and ⇐ holds
+   for the printed form (`IsAuxNormIn.isAuxNormBook`). No other passage of the chapter adds the continuity; the
+   statements of §§18.2–18.6 take the auxiliary norms in the read form. Candidate for the notes to the authors, one
+   line: Definition 18.1.7 presumably includes the continuity of $|N|$ on $|E_{0,1}|$ of Definition 12.2.1, which
+   Lemma 18.1.8 needs (rows V18.15, V18.16). Status: **a reading; Lemma 18.1.8 is proved as an iff with it (point
+   G.241 settled)**.
+
+2. **Auxiliary norms are functions on $E$; $|C_{0,1}|$ is read as $|E_{0,1}|$** *(Definition 18.1.7, p. 846, Lemma
+   18.1.8, p. 847, Definition 18.2.4, p. 850, Theorem 18.2.6, p. 851 (2017: Definitions 18.4, 18.10, Lemma 18.1,
+   Theorem 18.4))*. `Chapter18/AuxiliaryNorms.lean`, `AuxiliaryNormsDirect.lean`. Definition 18.1.7 prints
+   $|C_{0,1}|$ in (3), and Lemma 18.1.8, Definition 18.2.4 and Theorem 18.2.6 print $N : C \to [0, \infty]$; we read
+   both as $E$. The set $E_{0,1}$ is not defined for strong polyfold bundles; we read $e \in E_{0,1}$ as $|e| =
+   |\bar\Gamma(w)|$ for some $w \in W_{0,1}$ of a covering model, and $|E_{0,1}|$ with the topology of $|W[1]|$; one
+   model suffices and the topology does not depend on it (`IsOneObj`, `isOneObj_iff`, `EOneOrbit`, `oneTopology_eq`)
+   (rows V18.15, V18.16, V18.26, V18.28). Status: **settled (a reading)**.
+
+3. **Standing readings of the chapter: $\bar F(\alpha) \ne \emptyset$, functors to sets, tame germ data** *(§§18.1–18.6,
+   pp. 843–861)*. `Chapter18/FredholmSectionFunctors.lean`, `ModelTransfer.lean`, `MultisectionFunctors.lean`. (a)
+   Where the text uses a strong bundle uniformizer at every object, we take $\bar F(\alpha) \ne \emptyset$ for every
+   $\alpha$ (`HasStrongBundleUniformizers`), the bundle form of the standing reading $F(\alpha) \ne \emptyset$ of the
+   covering families (the Chapter 17 item on $F(\alpha) \ne \emptyset$); it enters ⇒ of Remark 18.1.2 (c), (18.1),
+   Theorems 18.1.5, 18.2.2 and 18.2.6 and the model-free forms of §§18.4–18.6, with witnesses
+   `reflQ_hasStrongBundleUniformizers` and `halfQ_hasStrongBundleUniformizers`. (b) Functors $E \to [0, \infty]$ and
+   $E \to \mathbb Q^+$ are read as functions constant on isomorphism classes (`IsMorInvariant`), as in Part III. (c)
+   Theorems 18.1.5 and 18.6.1, §18.5 and the form of Theorem 15.3.9 take the germ data of $f$ in a tame chart
+   (`IsScFredholmSectionFunctorTame`), the standing reading of Part III; since $C$ is tame in these statements nothing
+   new enters. Witnesses `isScFredholmSectionFunctorTame_reflDiag` (weak: $\partial C = \emptyset$) and
+   `isScFredholmSectionFunctorTame_halfF` (with boundary) (rows V18.3, V18.4, V18.7, V18.13, V18.51). Status:
+   **settled (standing readings)**.
+
+4. **Definition 18.1.4: the sections $s$ are local, near $q_0$** *(Definition 18.1.4 and the text before it, p. 845
+   (2017: Definition 18.3); point G.237)*. `Chapter18/LinearizationSetLocal.lean`, `LinearizationSet.lean`. The text
+   forms $\mathrm{Lin}(f, \alpha)$ from local sc⁺-sections $s$ defined near $q_0$ with $s(q_0) = f_{\bar\Psi}(q_0)$,
+   taking the linearizations of $f_{\bar\Psi} - s$; we read it so (`IsScPlusSectionOn`, `linOpLoc`, `linSetLocAt`,
+   `linSetLoc`). In this form the claims of the text hold with no hypothesis beyond $\bar F(\alpha) \ne \emptyset$:
+   independence of $\bar\Psi$ (`linSetLoc_eq_linSetLocAt`), one Fredholm index for all elements
+   (`exists_index_linSetLoc`), stability under $\varphi_*$ (`linPush_mem_linSetLoc`), collected in
+   `definition_18_1_4_local`. That two elements differ by an sc⁺-operator is not stated separately; the common index is
+   proved directly. A second form with sc⁺-sections on all of $O$ (`linSet`) needs
+   `HasTransportedScPlusSections` for the independence of $\bar\Psi$ (`definition_18_1_4_hyp`); this hypothesis comes
+   from the global sections, not from the text (witness `reflQ_hasTransportedScPlusSections`, weak: $\partial C =
+   \emptyset$). The linearization is taken at smooth objects, where $T_\alpha C$ is linear (V18.8). Witnesses with the
+   isotropy acting by $-1$: `linPush_reflDiag_neg`, `linPush_reflDiag_neg_local`; with boundary:
+   `definition_18_1_4_local_halfF` (rows V18.8–V18.10). Status: **settled (point G.237 settled)**.
+
+5. **Theorem 18.1.5: good position to the partial cone, (1) on $C_U$, (2) in the model** *(Theorem 18.1.5, Remark
+   18.1.6, p. 846 (2017: Theorem 18.1, Remark 18.2); Remark 17.2.18; points G.239, G.240)*.
+   `Chapter18/OpenSubcategory`, `TangentPartialCone`, `GoodPositionIntrinsic`, `GoodPositionIntrinsicExamples`,
+   `ImplicitFunctionTheorem`, `ImplicitFunctionSubcategory`. "$\ker f'(\alpha)$ is in good position to $C_\alpha C$" is
+   read on $T_\alpha C$, a topological vector space without a preferred norm (`IsInGoodPositionTop`,
+   `IsInGoodPositionToPartialCone`), and shown equivalent to good position of the germ of $f_{\bar\Psi}$ at $q_0$ in a
+   tame chart, Definition 3.6.6 as printed (`isGoodPositionGermTame_localRep_iff`, `isGoodPositionGermTame_iff_tangent`).
+   Conclusion (1) is proved on the full subcategory $C_U$ with its polyfold construction (`openSubConstruction`,
+   `theorem_18_1_5_subcategory`); conclusion (2) at the zeros of $f^{\bar\Psi}$ in the model, not restated on $T_\beta
+   C$ (`theorem_18_1_5`, `theorem_18_1_5_model`); the proof through Theorems 15.2.2, 15.2.5 and 9.1.9 is written out.
+   The hypotheses hold at an interior zero (`theorem_18_1_5_hyp_witness`, weak: $\partial C = \emptyset$) and at the
+   boundary zero $(0, 1)$ of the half-space section (`theorem_18_1_5_intrinsic_hyp_witness`). At the corner $(0, 0)$,
+   whose isotropy is $\mathbb Z/2$, no zero of an invariant section of that bundle satisfies them (the kernel of a
+   surjective derivative is the reduced tangent space, which is not in good position), so the corner witness is for
+   subspaces of $T_\alpha C$ (`isInGoodPositionToPartialCone_corner`). Remark 18.1.6 is `remark_18_1_6` (rows
+   V18.11–V18.14). Status: **settled (points G.239, G.240 settled)**.
+
+6. **Reflexive fibres, Definition 18.1.11 and Theorem 18.1.12** *(Definitions 18.1.9–18.1.11, the paragraphs around
+   them and Theorem 18.1.12, pp. 847–848 (2017: Definitions 18.5–18.7, Theorem 18.2); points G.242–G.244)*.
+   `Chapter18/AuxiliaryNorms.lean`, `AuxiliaryNormsDirect.lean`, `ReflexivePieces.lean`. The sentence after Definition
+   18.1.9 that any sc-smooth model has reflexive $(0, 1)$-fibres is proved: reflexivity in one model gives it in every
+   model (`hasReflexiveFibers_iff_model`) and in each piece $K_\lambda \to O_\lambda$ of a model
+   (`HasReflexiveFibersIn.hasReflexivePieces`, `hasReflexivePieces_iff`), so the condition `HasReflexivePieces` used for
+   Definition 18.1.11 is the text's and is no hypothesis beyond it (`isReflexiveAuxNormDirect_iff_of_hasReflexiveFibers`).
+   The two forms of Definition 18.1.11, with suitable representatives and with the lim inf, agree for invariant $N$
+   (`hasMixedLscReps_iff_hasMixedLsc`). In Theorem 18.1.12 (3) the norm over $\partial C$ is given through a model
+   (`IsBoundaryAuxNormIn`), as Theorem 12.2.13 takes it. The witnesses are finite-dimensional, so reflexivity is
+   automatic in them (`reflPair_hasReflexivePieces`) (rows V18.17–V18.21). Status: **settled (points G.242, G.243
+   settled; G.244 an invitation, nothing to formalize)**.
+
+Found while formalizing §18.2 (files `Chapter18/Compactness`, `CompactnessExamples`).
+
+7. **Remark 18.2.5 and Theorem 18.2.6** *(Remark 18.2.5, p. 850, Theorem 18.2.6, p. 851 (2017: Remark 18.3, Theorem
+   18.4); point G.246)*. `Chapter18/Compactness.lean`. The argument of Remark 18.2.5 uses the lower semicontinuity of a
+   reflexive $N$, and no local compactness is needed (`remark_18_2_5`). All examples of the chapter are
+   finite-dimensional, so no witness has an object off level 1 and the remark has no non-trivial instance here. In
+   Theorem 18.2.6 the tameness `hT` is carried but not used (`theorem_18_2_6`; witnesses `theorem_18_2_6_witness`,
+   weak: $\partial C = \emptyset$, and `theorem_18_2_6_witness_boundary`). Theorem 18.2.2 holds as stated, and the
+   observation after Definition 18.2.3 is proved (`definition_18_2_3_observation`) (rows V18.24, V18.25, V18.27,
+   V18.28). Status: **settled (point G.246 settled)**.
+
+8. **The sentence that a solution object is smooth** *(§18.2, before Definition 18.2.1, p. 849 (2017: §18.2); point
+   G.245)*. The text notes that a solution object is smooth since $f$ is regularizing. It is proved from
+   Remark 18.1.2 (b) in the levels (`remark_18_1_2_b_levels`, V18.6):
+   `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.solution_isSmoothObj` and
+   `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.zeroSet_subset_isSmoothObj` ($S_f \subseteq C_\infty$);
+   the theorems of §18.2 use the zero set directly (rows V18.6, V18.22). Status: **settled (point G.245)**.
+
+Found while formalizing §§18.3–18.4 (files `Chapter18/MultisectionFunctors`, `MultisectionFunctorsExamples`, `MultisectionConstructions`, `PerturbationModelIndependence`, `PerturbationModelIndependenceExamples`, `HalfSpaceBoundaryData`).
+
+9. **Sc⁺-multisection functors through a model; Theorem 18.3.6** *(Definitions 18.3.1, 18.3.3, Remarks 18.3.2,
+   18.3.4, Theorem 18.3.6, pp. 852–853 (2017: Definitions 18.11, 18.12, Remark 18.5, Theorem 18.6; Remark 18.3.4 new
+   in the 2021 edition); §17.8, p. 842; point G.247)*. `Chapter18/MultisectionFunctors.lean`. "For an (a suitable)
+   sc-smooth model" in Definitions 18.3.1 and 18.3.3 is read as "for some covering family"; Remarks 18.3.2 and 18.3.4
+   then give the same for every covering family (`remark_18_3_2`, `remark_18_3_4`). The sc-smooth strong bundle proper
+   covering functor of Theorem 18.3.6 is read through the models, as the text indicates on p. 842: a proper strong
+   bundle covering of Definition 8.5.9 between sc-smooth models with the square of (17.106) commuting up to
+   isomorphism (`StrongBundleProperCovering`, `theorem_18_3_6`). Witness `theorem_18_3_6_witness` (weak: the identity
+   covering `reflIdCovering`) (rows V18.30–V18.37). Status: **settled (readings; G.247 an invitation, nothing to
+   formalize)**.
+
+10. **Theorem 18.4.4: partitions of unity on the object M-polyfold of a model** *(Definition 18.4.1, p. 853, Remark
+    18.4.2, pp. 853–854, Theorem 18.4.4, pp. 855–856 (2017: Definition 18.13, Remark 18.6, Theorem 18.7); points G.248,
+    G.249)*. `Chapter18/MultisectionConstructions.lean`, `PerturbationModelIndependence.lean`,
+    `HalfSpaceBoundaryData.lean`. Definition 18.4.1 asks the property "for an sc-smooth model", and Theorem 18.4.4 is
+    the categorical version of Theorem 14.1.9, which assumes partitions of unity on $X$ viewed as an M-polyfold. We read
+    "$C$ admits sc-smooth partitions of unity" in Theorems 18.4.4 and 15.3.9 as Theorem 14.1.9 uses it: on the object
+    M-polyfold of some model (`HasModelMPolyfoldPartitionsOfUnity`; witnesses
+    `reflQ_hasModelMPolyfoldPartitionsOfUnity`, weak: $\partial C = \emptyset$, and
+    `halfQ_hasModelMPolyfoldPartitionsOfUnity`); with "some model" the theorem is as printed (`theorem_18_4_4`,
+    `theorem_18_4_4_modelFree`). Remark 18.4.2 is proved for partitions of unity in the ep-groupoid sense and for bump
+    functions, and the M-polyfold sense gives the ep-groupoid sense (`remark_18_4_2`); that the M-polyfold sense on the
+    object M-polyfold does not depend on the model is not proved. Structurability over $\partial C$ is read in a model
+    and shown independent of it (`isBoundaryStructurableFunctor_iff`). Boundary witnesses:
+    `theorem_18_4_4_modelFree_witness_boundary` (weak: the datum $\Lambda_0$ has empty domain support) and
+    `theorem_18_4_4_modelFree_witness_constDatum` (domain support the closure of $|\partial C|$, through the corner with
+    isotropy $\mathbb Z/2$). Proposition 18.4.3 and the construction before it are written out, independent of $\varphi$
+    (`proposition_18_4_3`, `proposition_18_4_3_formula`) (rows V18.38–V18.41, V18.53). Status: **settled as printed
+    with the reading (point G.248 settled; G.249 a comment, nothing to formalize); the model independence of the
+    M-polyfold sense is not proved**.
+
+Found while formalizing §18.5 (files `Chapter18/OrientationCategory`, `Orientations`, `OrientationsExamples`, `OrientationWitness`).
+
+11. **§18.5: orientations through a reference model** *(the text before Definition 18.5.1, Definitions 18.5.1, 18.5.2,
+    18.5.4, Remarks 18.5.3, 18.5.5, Proposition 18.5.6, pp. 857–859 (2017: Definitions 18.14–18.16, Remarks 18.7, 18.8,
+    Proposition 18.2); points G.250–G.252)*. `Chapter18/OrientationCategory.lean`, `Orientations.lean`. The two-point
+    set over $\mathrm{DET}(f, \alpha)$ is read as the orientations of the model section at the point $q_\alpha$ of a
+    chosen $\bar\Psi_\alpha \in \bar F(\alpha)$ in a reference model (`DetOr`, `refPt`, `refMor`). This uses the
+    determinant of Part III, and so, as Theorem 6.6.17 does in the models, a tame $C$ with sc-smooth bump functions
+    (`hT`, `hbump`). In Definition 18.5.2 we read $\bar\Gamma^* o$ as $\bar\Psi^* o$, $\Psi(\bar o) = \alpha$ as
+    $\alpha_z$, and "related by continuation" as Definition 6.6.12 (`HasContinuityProperty`, `IsModelContOrOn`). The text
+    gives no topology on $|O_f|$ in Remark 18.5.5; we read it through the reference model, for a topology with the
+    properties of Theorem 6.6.17 (`remark_18_5_5_mp_hyp`, `remark_18_5_5_mpr_hyp`). Remark 18.5.3 is proved as two
+    equivalences (`remark_18_5_3_hyp`) and Proposition 18.5.6 (3) as an iff (`proposition_18_5_6_three_hyp`). Witness
+    `reflDiag_orientation_hyp`, the diagonal section of the reflection bundle, whose isotropy $-1$ acts non-trivially
+    on the fibre (weak: $\partial C = \emptyset$). The half-space bundle has no orientable section functor: $-1$ acts
+    with determinant $-1$ on the tangent space and trivially on the fibre, a property of that example (rows
+    V18.42–V18.49, V18.54). Status: **settled with the readings (points G.250–G.252 settled)**.
+
+12. **The category $\widehat{Gr}_F(C)$** *(§18.5, before Definition 18.5.1, p. 856 (2017: §18.5); point G.256)*. The
+    category of oriented formal sums is the category of elements of the functor $\alpha \mapsto \widehat{Gr}_F(\alpha)$,
+    $\varphi \mapsto \varphi_*$ termwise (`Polyfold.GCT.VectorBundle.GrFHatCat`, `Polyfold.GCT.VectorBundle.grFHatFunctor`),
+    with the projection and the printed morphisms (`Polyfold.GCT.VectorBundle.grFHatProj`,
+    `Polyfold.GCT.VectorBundle.GrFMor`; witness `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_grFHat`). The
+    statements of the chapter do not use it; orientations are treated through $O_f$ (item 11), and the chart-level
+    orientations of $O_f$ are not identified with the rays of the determinant on $\mathrm{Lin}(f, \alpha)$ (row V18.42).
+    Status: **settled (point G.256)**.
+
+Found while formalizing §18.6 (files `Chapter18/Perturbation`, `PerturbationExamples`, `PerturbationModelIndependence`, `PerturbationModelIndependenceExamples`, `PerturbationOrientedSupport`, `PerturbationOrientedWitness`, `HalfSpaceBundleConstruction`, `HalfSpaceWitnesses`).
+
+13. **Theorem 18.6.1: "sc-smooth section functor" read as sc-Fredholm; the proof in a model** *(the preamble of §18.6
+    and Theorem 18.6.1, pp. 860–861 (2017: §18.6, Theorem 18.8); point G.253)*. `Chapter18/Perturbation.lean`,
+    `PerturbationModelIndependence.lean`. The preamble of §18.6 states that the section functors studied are
+    sc-Fredholm, and the proof cites Theorem 15.3.7; we read the "sc-smooth section functor" of Theorem 18.6.1 the same
+    way (`hf`). The proof "in a smooth model" is written out (`theorem_18_6_1_existence`, `theorem_18_6_1_structurable`,
+    `theorem_18_6_1_in_particular`, `theorem_18_6_1`), and (3), (4) do not depend on the model
+    (`isTransversalIn_iff`, `isInGeneralPositionIn_iff`; `theorem_18_6_1_modelFree`). The paragraph before the theorem
+    is proved in each model (`perturbation_orbifoldType`, `perturbation_manifoldType`). Witnesses
+    `theorem_18_6_1_witness`, `theorem_18_6_1_modelFree_witness` (weak: $\partial C = \emptyset$; the isotropy acts
+    non-trivially on the fibre) and `theorem_18_6_1_witness_boundary`, `theorem_18_6_1_modelFree_witness_boundary`
+    ($\partial C \ne \emptyset$; the fibre action is trivial, since with $v \mapsto -v$ the solution set would not be
+    compact) (rows V18.50, V18.51). Status: **settled (point G.253 settled)**.
+
+14. **Theorem 18.6.1, the orientation clause: the Fredholm index on the support** *(Theorem 18.6.1, last sentence, p.
+    861 (2017: Theorem 18.8); Theorem 15.4.3)*. `Chapter18/Perturbation.lean`, `PerturbationOrientedWitness.lean`,
+    `PerturbationOrientedSupport.lean`. The text says that $\Theta = \Lambda \circ f$ is naturally oriented and leaves
+    the dimension tacit; Theorem 15.4.3 states it as the Fredholm index. The orientation clause takes the index $n$ at
+    the points of the support (`hidx`), as in Part III (`theorem_18_6_1_oriented`, `theorem_18_6_1_oriented_modelFree`,
+    `hidx` still in the model). Witnesses `theorem_18_6_1_oriented_witness`, `isIndexAt_reflSingleModel` and
+    `theorem_18_6_1_oriented_witness_support` (support $\{0\}$, $\Theta(0) = 1$) (weak: $\partial C = \emptyset$). Since
+    the half-space bundle is not orientable (item 11), no witness has $\partial C \ne \emptyset$ (row V18.52). Status:
+    **settled (a standing reading); no witness with boundary**.
+
+15. **Theorem 15.3.9 in the polyfold context; the exercises** *(§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6);
+    points G.254, G.255)*. `Chapter18/PerturbationModelIndependence.lean`. `theorem_15_3_9_categorical` carries `hPU`
+    as in item 10 and `hfT` as in item 3, with Theorem 15.3.9's own hypotheses read as functors (`IsBoundaryFaceOntoFunctor`,
+    `isBoundaryFaceOntoFunctor_iff`). As in Part III, the "moreover tame" of Theorem 15.3.9 is not concluded. Witnesses
+    `theorem_15_3_9_categorical_witness` (weak: $\partial C = \emptyset$), `theorem_15_3_9_categorical_witness_boundary`
+    and `theorem_15_3_9_categorical_witness_constDatum`. The two exercises after it, Theorems 5.3.12 and 5.3.15 for
+    ep-groupoids and polyfolds, are not formalized (row V18.53). Status: **settled without "moreover tame" (point G.254
+    settled; G.255 exercises, nothing to formalize)**.
+
+16. **Every hypothesis taken in §§18.1–18.6 is satisfiable** *(§§18.1–18.6)*. `Chapter18/FredholmSectionFunctorsExamples`,
+    `HalfSpaceBundleConstruction`, `HalfSpaceWitnesses`, `HalfSpaceBoundaryData` and the other `*Examples` files. Two
+    witness bundles: the reflection bundle `reflQ` over $\mathbb Z/2 \ltimes \mathbb R$, with $-1$ acting by $v \mapsto
+    -v$ on the fibre and the section `reflDiag` ($\partial C = \emptyset$, orientable), and the half-space bundle `halfQ`
+    over $\mathbb Z/2 \ltimes [0, \infty) \times \mathbb R$, trivial on the fibre, with $f = a^2 + y^2 - 1$ (`halfF`),
+    $\partial C \ne \emptyset$ and a corner with isotropy $\mathbb Z/2$ (`corner_mem_boundarySet`,
+    `exists_ne_unit_corner`). The added and standing hypotheses and their witnesses are named in items 3, 4, 5, 6, 9,
+    10, 11 and 14. Every hypothesis of the theorems of §§18.1–18.4 and 18.6 is witnessed with $\partial C \ne
+    \emptyset$ by the half-space bundle, except the orientation clause of Theorem 18.6.1 (item 14); the hypotheses of
+    §18.5 are witnessed only with $\partial C = \emptyset$ (rows V18.13, V18.21, V18.28, V18.41, V18.51–V18.54). Apart
+    from the literal form of Definition 18.1.7 in Lemma 18.1.8 (item 1), no statement of the chapter is found not to
+    hold. Status: **settled**.
+
+## Chapter 19 (General constructions; Lean `Polyfold/Chapter19/`)
+
+*Numbering.* The items of this section are numbered consecutively.
+Statement numbers and pages are those of the Springer edition (2021, pp. 863–957), with the 2017 text's numbers in
+parentheses. The comparison items are `Exposition/verification/ch19.md` (V19.1–V19.111); the points are G.257–G.275
+(G.257–G.271 and G.275 closed, G.269 in the form §19.8 uses; G.272 and G.274 nothing to formalize; G.273 not stated
+separately).
+
+Found while formalizing §§19.1–19.3 (files `Chapter19/BasicConstruction`, `BasicConstructionExamples`, `NaturalTopology`, `TopologyLemmas`).
+
+1. **Theorem 19.2.2 and the standing reading $F(\alpha) \ne \emptyset$** *(Definition 19.1.3, p. 865, Theorem 19.2.2,
+   p. 869 (2017: Definition 19.3, Theorem 19.1); the standing reading of §17.1)*. `Chapter19/NaturalTopology.lean`,
+   `BasicConstructionExamples.lean`. Theorem 19.2.2 (1) says that the natural collection $T$ of Definition 19.2.1 is a
+   topology; the proof calls $|S| \in T$ clear, which needs every isomorphism class to contain an $\alpha$ with
+   $F(\alpha) \ne \emptyset$. Definition 19.1.3 does not say so, but the text describes $F(\alpha)$ as the choices of
+   uniformizers at $\alpha$, and no example of the text has an empty $F(\alpha)$. We read it as a standing reading,
+   in the weak form that every class meets a uniformizer (`HasClassUniformizers`, weaker than `HasUniformizers`), as
+   for the covering families of Chapter 17. Under it (1)–(5) are proved (`BasicConstruction.theorem_19_2_2_one` …
+   `theorem_19_2_2_five`); unions and non-empty finite intersections need nothing. For $F \equiv \emptyset$ on
+   $\mathbb Z/2 \ltimes \mathbb R$ the collection is $T = \{\emptyset\}$ (`emptyBasic_natOpen_iff`,
+   `theorem_19_2_2_empty_family`); this degenerate case only shows why the reading is needed. The same reading enters
+   Theorem 19.6.8, Proposition 19.6.9, Lemma 19.7.17 and the later statements of §§19.7–19.8 (`hB`, `hU`), and it is a
+   field of Definition 19.8.4 (item 15). Witness `reflectionBasic_hB` (the reflection of $\mathbb R$, a non-trivial
+   effective $\mathbb Z/2$-action) (rows V19.11, V19.12, V19.42, V19.56, V19.57, V19.79, V19.94). Status: **settled
+   (a standing reading)**.
+
+2. **§§19.1–19.3: reading points, the continuity of $\bar\Psi$, and points G.257–G.260** *(Definitions 19.1.2,
+   19.1.5, Remarks 19.1.4, 19.1.8, 19.2.3, Proposition 19.3.7, Lemma 19.3.8, pp. 864–878 (2017: Definition 19.2,
+   Remarks 19.1–19.3; Definition 19.1.5, Proposition 19.3.7 and Lemma 19.3.8 new in the 2021 edition))*.
+   `Chapter19/BasicConstruction.lean`, `NaturalTopology.lean`, `TopologyLemmas.lean`. (a) Definition 19.1.2: "α an
+   object with isotropy group G" is the separate predicate `Uniformizer.IsCentredAt` ($G$ leaves $\bar o$ invariant,
+   so that $G \cong \mathrm{Aut}(\alpha)$ by full faithfulness); nothing in §§19.1–19.5 uses it, so the definition is
+   taken without it, which is more general. (b) In (19.3) (E) the second identity is asked and the first follows;
+   Definition 19.1.5 is read per $h$ (an open $V \ni s(h)$ on which $F_h = F'_h$). (c) Remark 19.1.4: the geometric
+   meaning of $F(\varphi)$ is prose, and no functorial uniformizer construction is given as a witness. (d) The
+   shrinkings of Remark 19.1.8 are constructed (`remark_19_1_8_inv`, `remark_19_1_8_hat`, `remark_19_1_8_unit`,
+   `remark_19_1_8_mul`, `remark_19_1_8_stability`; point G.257). (e) Remark 19.2.3: the glued lines are a basic
+   construction whose natural topology is not Hausdorff; the "natural smooth structures" on its transition sets are
+   those of Theorem 19.5.1 and Corollary 19.5.2, which are proved without the metrizability of $T$ (item 6; point
+   G.258). (f) Proposition 19.3.7: $\bar\Psi : G \times O \to M(\Psi, \Psi)$ is continuous by the special form of (A)
+   (`hatHomeomorph`; point G.259). This is the continuity that Lemma 17.1.9 needs and that Definition 17.1.8 does not
+   state (the Chapter 17 item on Lemma 17.1.9): every uniformizer of a basic construction has $\hat\Psi$ continuous
+   (`BasicConstruction.continuous_hat`), and Theorem 19.5.3 (2) uses Lemma 17.1.9 in that form
+   (`lemma_17_1_9_of_continuous`). (g) Lemma 19.3.8: the choice of $W(h)$ is a general lemma, a Hausdorff space with a
+   local homeomorphism to a regular space is regular (`regularSpace_of_isLocalHomeomorph_of_t2`; point G.260) (rows
+   V19.2, V19.4, V19.6, V19.7, V19.10, V19.13, V19.21, V19.22). Status: **settled (points G.257–G.260 closed)**.
+
+Found while formalizing §19.4 (files `Chapter19/Metrizability`, `MetrizabilityExamples`, `TopologyLemmas`).
+
+3. **Proposition 19.4.2: (v3) read with the limit over $z$** *(Definition 19.4.1, p. 879, Proposition 19.4.2, p. 880
+   (2017: Definition 19.8, Proposition 19.4))*. `Chapter19/Metrizability.lean`, `MetrizabilityExamples.lean`. As
+   printed, (v3) asks that a sequence $(q_k)$ in $U(o)$ with $|\Psi(q_k)| \to z$ have a subsequence converging to a
+   point of $\mathrm{cl}_O(U(o))$; nothing ties the limit to $z$. The proof of (3) ⇒ (1) considers morphisms with
+   source $\Psi(q)$ and target in $\Psi'(O')$, which needs $|\Psi(q)| = z$. We read (v3) with the limit $q$ in the
+   fibre over $z$ (`PropernessV3Lim`); then (v1) ⇔ (v2) ⇔ (v3) (`BasicConstruction.proposition_19_4_2`). As printed,
+   (v3) holds for every basic construction whose domains are locally compact (`propernessV3_of_locallyCompactSpace`),
+   so in finite dimensions it carries no information, and the glued lines of Remark 19.2.3 satisfy it but not (v2)
+   (`gluedBasic_propernessV3`, `gluedBasic_not_propernessV2`, `proposition_19_4_2_v3_without_limit`). (v2) gives (v3)
+   as printed (`proposition_19_4_2_two_three`), and (v3) as printed gives (v2) when $T$ is Hausdorff
+   (`proposition_19_4_2_three_two_hyp`, with `hT`; witness `reflectionBasic_t2Space`); Hausdorffness of $T$ is not a
+   standing assumption of §19.4, since Proposition 19.4.5 derives it from properness. One-line candidate for the notes
+   to the authors: is the limit in (v3) meant to lie over $z$, $|\Psi(q)| = z$? (rows V19.23, V19.24). Status:
+   **settled with the reading**.
+
+4. **Lemma 19.4.3 does not hold as we read it at a point that is not a source** *(Lemma 19.4.3, p. 881 (new in the
+   2021 edition); Proposition 19.4.4, p. 883 (2017: Proposition 19.3); point G.261)*. `Chapter19/Metrizability.lean`,
+   `MetrizabilityExamples.lean`. For every $o \in O$ the lemma gives finitely many $h_i$ and open $U(o)$, $U(h_i)$ with
+   $s : U(h_i) \to U(o)$ a homeomorphism (read as an open embedding with image $U(o)$), such that every $h$ with
+   $s(h) \in U(o)$ lies in some $U(h_i)$; the proof begins with an element $h_0$ with source $o$, "if it exists".
+   For `expBasic`, the line with trivial isotropy and the uniformizers $\Psi_0 = \mathrm{id}$ and
+   $\Psi_e(t) = e^t$ at the points $x > 0$, properness (v2) holds (`expBasic_propernessV2`) and $T$ is metrizable, but
+   at $o = 0$ no element of $M(\Psi_0, \Psi_e)$ has source $0$ while every neighbourhood of $0$ contains a source, so
+   no $U(0)$ has the covering property (`expBasic_not_lemma_19_4_3`, `not_lemma_19_4_3`). The source set
+   $s(M(\Psi, \Psi'))$ is open but in general not closed in $O$; this happens for any two partially overlapping
+   uniformizers, so it does not depend on the trivial isotropy of the example. For $o = s(h)$ the lemma holds, even
+   without properness (`BasicConstruction.lemma_19_4_3_hyp`, with `ho`; witness `expBasic_exists_trans`, weak:
+   trivial isotropy, though between two different uniformizers). The two "easy exercises" of the proof are
+   `Uniformizer.finite_fiber` and `exists_tendsto_subseq_of_tendsto_src` (point G.261). The proof of Proposition
+   19.4.4 applies the lemma at every $o \in O$; covering $s(M(\Psi, \Psi'))$ instead of $O$ is enough, and Proposition
+   19.4.4 holds without properness (item 5), so nothing later rests on the form at non-sources. Candidate for the
+   notes to the authors, as one note with Proposition 19.4.4 (rows V19.25, V19.26, V19.44). Status: **does not hold
+   as we read it; the form at sources is proved (point G.261 closed)**.
+
+5. **§19.4: Proposition 19.4.4 without properness, and the metrization criteria** *(Propositions 19.4.4, 19.4.5,
+   19.4.7, Theorem 19.4.6, Corollary 19.4.8, pp. 883–885 (2017: Propositions 19.3, 19.5, 19.6, Theorem 19.3;
+   Corollary 19.4.8 new in the 2021 edition); point G.262)*. `Chapter19/Metrizability.lean`, `TopologyLemmas.lean`.
+   Every $T_{\Psi,\Psi'}$ is metrizable for every basic construction (`BasicConstruction.metrizableSpace_M`): $s$ is a
+   local homeomorphism onto an open subset of the metrizable $O$ with finitely many sheets over a neighbourhood of
+   every point of its image, so $M(\Psi, \Psi')$ is paracompact, Hausdorff and locally metrizable. This is the 2017
+   form (Proposition 19.3, placed before the properness conditions); the properness condition of the 2021 statement
+   is an unused argument of `proposition_19_4_4`. Proposition 19.4.5 derives that $T$ is Hausdorff from (v2) (the text
+   uses (v1), equivalent by item 3); the averaging is done for a $\beta$ vanishing on the whole orbit $G * \bar o$
+   (`exists_invariant_urysohn`; point G.262). Theorem 19.4.6 (2) and Proposition 19.4.7 go through Part I's
+   `metrizableSpace_of_locally` (Chapter 2), a paracompact form of the Nagata–Smirnov theorem (rows V19.26–V19.30,
+   V19.43, V19.44). Status: **settled (point G.262 closed)**.
+
+Found while formalizing §19.5 (files `Chapter19/PolyfoldStructure`, `PolyfoldStructureGCT`, `PolyfoldStructureExamples`, `CompactNeighbourhoods`, `TopologyLemmasTwo`, `BasicRegularity`, `BasicRegularityPointwise`).
+
+6. **Theorem 19.5.1 without the metrizability of $T$; Theorem 19.5.3 and Remark 19.5.4** *(Theorem 19.5.1, p. 886,
+   Corollary 19.5.2, p. 887, Theorem 19.5.3, Remark 19.5.4, p. 888 (2017: Theorems 19.4, 19.5, Corollary 19.1,
+   Remark 19.7); points G.263, G.264)*. `Chapter19/PolyfoldStructure.lean`, `PolyfoldStructureGCT.lean`,
+   `CompactNeighbourhoods.lean`. The 2021 statement of Theorem 19.5.1 assumes $T$ metrizable (the 2017 statement did
+   not); the M-polyfold structure on $M(\Psi, \Psi')$ needs only the metrizability of item 5, and the hypothesis is an
+   unused argument of `BasicConstruction.theorem_19_5_1`. "Natural" is read as the uniqueness (the only structure for
+   which $s$ is a local sc-diffeomorphism) and the independence of the representative of $\mathcal F$, both proved
+   (`theorem_19_5_1_natural`). Theorem 19.5.3 (2): the polyfold construction is built with the uniformizers of $F$ as
+   local uniformizers and $\hat\Psi$ continuous (item 2 (f)), so Lemma 17.1.9 applies (`toPolyfoldConstruction`; point
+   G.263); every $M(\Psi, \Psi')$ and every model is tame when the domains are (`isTame_transPolyfold`). Remark 19.5.4:
+   a compact set has a metrizable paracompact open neighbourhood (`remark_19_5_4`, through
+   `exists_isOpen_metrizableSpace_of_isCompact`; point G.264), with "the properness condition" read as (v2); the
+   sentence that this is sometimes all one needs is prose (rows V19.31–V19.34, V19.45). Status: **settled (points
+   G.263, G.264 closed)**.
+
+7. **Definitions 19.5.8 and 19.5.10: $G$ read as the isotropy group $G_{\bar o}$, and the levels** *(Definitions
+   19.5.5–19.5.10, Propositions 19.5.7, 19.5.9, 19.5.11, pp. 889–890 (new in the 2021 edition); points G.265–G.268)*.
+   `Chapter19/BasicRegularity.lean`, `BasicRegularityPointwise.lean`. In (LUC) and (LR) for a basic construction we
+   read $G$ as the isotropy group $G_{\bar o}$ (all of $G$ for a centred uniformizer, item 2 (a)), "G-invariant" as
+   $G_{\bar o}$-invariant, "nontrivial open" as non-empty open, and "$G_x$" as $G_{\bar o}$. With "every $g \in G$"
+   taken literally for a uniformizer that is not centred, (LUC) at $\bar o$ is presumably not implied by (ZHOU) (a
+   sketch with $D_4$ acting on $\mathbb R \sqcup \mathbb R$; not formalized), which is the reason for the reading. The
+   levels $(F^i, \mathcal F^i)$ for $S^i$, which the text does not define, are read through the classes of level $i$
+   (`IsLevelClass`, independent of the uniformizer by `mem_levelSet_iff_of_π_eq`) and the raised translation
+   groupoids $(G \ltimes O)^i$ (`EP.liftVal`; point G.266). Propositions 19.5.7 (point G.265), 19.5.9 (point G.267)
+   and 19.5.11 (point G.268) are proved through the piece functors $G \ltimes O \to X_\Psi$, which are full and local
+   sc-diffeomorphisms on objects (`full_pieceFunctor`, `isLocalScDiffeo_pieceFunctor_obj`), and Theorems 7.4.13 and
+   7.4.24 for the translation groupoids; the three propositions take the standing metrizability of $T$ of
+   §19.5 as `hm` (witnesses `reflectionBasic_metrizableSpace`, `z3Basic_metrizableSpace`). Witnesses: (LUC)
+   `reflectionBasic_proposition_19_5_9` (isotropy $\mathbb Z/2$ at $0$); (ZHOU) and (SLUC) `z3Basic_isZhou`,
+   `z3Basic_proposition_19_5_9` (weak: the trivial $\mathbb Z/3$-action on $\mathbb R$, not effective); no witness
+   with an effective non-trivial action is given for (ZHOU) or (SLUC) (rows V19.35–V19.41, V19.45, V19.46). Status:
+   **settled with the readings (points G.265–G.268 closed); the (ZHOU) and (SLUC) witnesses are weak**.
+
+Found while formalizing §19.6 (files `Chapter19/StrongBundleUniformizer`, `StrongBundleTransition`, `StrongBundleTopology`, `StrongBundleTheorem`, `StrongBundleMultiplication`, `StrongBundleAlternative`, `StrongBundleCoherence`, `StrongBundleComparison`, `StrongBundleTransport`, `StrongBundleExamples`).
+
+8. **§19.6: Theorem 19.6.8, Proposition 19.6.9 and three stronger forms** *(Theorem 19.6.8, p. 897, Proposition
+   19.6.9, Definition 19.6.10, p. 898, Lemma 19.6.12, p. 899, Theorem 19.6.13, p. 900 (2017: Theorem 19.6,
+   Proposition 19.7, Theorem 19.8; Lemma 19.6.12 new in the 2021 edition); points G.270, G.271)*.
+   `Chapter19/StrongBundleTopology.lean`, `StrongBundleTheorem.lean`, `StrongBundleMultiplication.lean`. Theorem
+   19.6.8, which the text calls easily verified, is written out under the standing reading of item 1
+   (`BasicStrongBundleConstruction.theorem_19_6_8_one` … `theorem_19_6_8_five`; point G.270). Proposition 19.6.9 is an
+   equivalence in 2021 (2017: only ⇒); the direction ⇐, not argued in the text, restricts the metric along the zero
+   section (`isEmbedding_zeroOrbit`; point G.271), and ⇒ is proved by pulling back along $|P|$
+   (`proposition_19_6_9`) rather than through $X_\Psi$ and Proposition 8.4.1. Lemma 19.6.12 holds without the
+   properness condition (V2): the transition set is locally a product of metrizable sets over the metrizable
+   $M(\Psi, \Psi')$ (`lemma_19_6_12`; the printed form is `lemma_19_6_12_book`). Theorem 19.6.13 holds without the
+   metrizability of $T$, new in 2021 (`BasicStrongBundleConstruction.theorem_19_6_13`; the printed form is
+   `theorem_19_6_13_book`; witness `reflBan_theorem_19_6_13`) (rows V19.56, V19.57, V19.60–V19.62). Status:
+   **settled (points G.270, G.271 closed)**.
+
+9. **§19.6: reading points** *(Definitions 19.6.1, 19.6.4, 19.6.10, Remark 19.6.2, Theorem 19.6.11, (19.15), Remark
+   19.6.14, pp. 891–902 (2017: Definitions 19.9, 19.11, 19.14, Remarks 19.8, 19.9, Theorem 19.7); points G.269,
+   G.272)*. `Chapter19/StrongBundleUniformizer.lean`, `StrongBundleTransition.lean`, `StrongBundleTopology.lean`,
+   `StrongBundleAlternative.lean`. (a) Definition 19.6.1: a uniformizer of $E_\mu$ with the strong bundle structure of
+   (1) as data, "G acts by strong bundle isomorphisms" as each $g * \cdot$ a strong bundle map. (b) Definition 19.6.4
+   is stated as a structure on the base transition data: the lift $\bar F_h$ is determined by $F_h$ (p. 894), (B)–(F)
+   and the source part of (A) hold for every lift, so only (A), the strong bundle isomorphism property, is a field
+   (`BundleTransitionData`); the 2017 text used germs. (c) Definition 19.6.10: $\hat V$ is read as a neighbourhood of
+   $s(\bar h)$ in $K$, and $\bar F_h$ as $\bar F_{p(\bar h)}$, the lift of the transition of the underlying base
+   morphism. (d) Theorem 19.6.11 (6): the map named $m$ is read as the projection $p : M(\bar\Psi, \bar\Psi') \to
+   M(\Psi, \Psi')$, as the sentence after (6) does; the multiplication is (5). (e) In (19.15) the map named source map
+   $t$ is read as the target map $t$. (f) Remark 19.6.2: the variant with a strong bundle $W \to E$ is used in the form
+   Definition 19.8.10 (3) uses, and its zero-section consequence is `SquareUniformizer.remark_19_6_2`; the general
+   variant for $\mathcal S$ alone is not built separately (point G.269). (g) Remark 19.6.14 is an outlook (point G.272,
+   nothing to formalize) (rows V19.48, V19.49, V19.52, V19.58, V19.59, V19.63, V19.64). Status: **settled (point
+   G.269 in the form used; G.272 nothing to formalize)**.
+
+10. **The alternative approach: the two strong bundle structures agree** *(§19.6, pp. 900–903, Definition 19.6.15,
+    p. 902 (new in the 2021 edition))*. `Chapter19/StrongBundleAlternative.lean`, `StrongBundleCoherence.lean`,
+    `StrongBundleComparison.lean`, `StrongBundleTransport.lean`. Structure II is the transport of $s^*K$ along $H$
+    (`StrongBundle.transport`); its topology is the natural topology of the first approach (`coinduced_altHE`), so
+    both approaches use the same space, and $C$ and $H'$ are strong bundle isomorphisms for it
+    (`isStrongBundleIso_altC`, `isStrongBundleIso_altH'`). The comparison diagram on p. 903 draws the source maps
+    $\mathrm I s$, $\mathrm{II} s$, and the sentence after it speaks of the target maps; we read it as the source
+    maps drawn. The text uses that $\mathrm I s$ is a local strong bundle isomorphism "by construction";
+    `comparison_I_II` takes this property for a structure I (`BI`, `hs`, `hloc`), and the printed coherence
+    hypothesis is kept in `comparison_I_II_book`. Coherence holds for every construction built from bundle
+    transition data (`isCoherent_of_bundleTransitionData`), so it is not an extra hypothesis of the main statements.
+    Witnesses `comparison_I_II_hyp_witness` and `reflBan_comparison_I_II` (the reflection $\mathbb Z/2$ on $\mathbb R$
+    with fibre action $-1$: non-trivial isotropy acting non-trivially on the fibre) (rows V19.64–V19.67). Status:
+    **settled**.
+
+Found while formalizing §19.7 (files `Chapter19/CoveringConstruction`, `CoveringTopology`, `CoveringOrbitTopology`, `CoveringOrbitCounterexample`, `ProperCoveringModelExample`, `CoveringLocalStructure`, `CoveringLocalExamples`, `CoveringCounterexamples`, `CoveringMetrizability`, `CoveringPolyfold`, `CoveringPolyfoldExamples`, `CompatibilityExamples`).
+
+11. **Definition 19.7.11: the uniformizers read as compatible (`IsCompatible`)** *(Definition 19.7.11, p. 910 (2017:
+    Definition 19.19); Proposition 19.7.15 (2), p. 915, Definition 19.7.16 and Lemma 19.7.17, p. 916 (new in the 2021
+    edition); Definition 19.6.4 (A); item 15)*. `Chapter19/CoveringTopology.lean`, `CoveringLocalExamples.lean`,
+    `CompatibilityExamples.lean`. Proposition 19.7.15 (2) infers that the top target map $\hat t$ is a local
+    homeomorphism from $\hat\tau' \circ \hat t = t \circ p$ and the bottom maps; that needs $\hat t$ continuous, and
+    the proof of Lemma 19.7.17 uses the continuity of the lifted transition $\hat f$ in the same way. Definitions
+    19.7.3, 19.7.7 and 19.7.11 ask nothing of this kind: $\hat\Psi$ is a functor, $\hat F$ a set-valued assignment, and
+    the topology of $M(\hat\Psi, \hat\Psi')$ is forced by (19.26). The first sentence of §19.7 (p. 905) announces
+    uniformizers that are "sc-smoothly compatible", and the strong bundle version imposes the analogue explicitly
+    (Definition 19.6.4 (A)). We read Definition 19.7.11 with the uniformizers compatible: every lifted target map
+    $\hat t$ is continuous (`CoveringBasicConstruction.IsCompatible`). Since no definition states it, it is an added
+    hypothesis `hC`, and every statement using it carries the `_hyp` suffix: Proposition 19.7.15 (2)–(4) for the
+    target map, the inversion and the multiplication, Lemma 19.7.17, Proposition 19.7.18, Corollary 19.7.20,
+    Propositions 19.7.23, 19.7.24, Theorems 19.7.25, 19.7.28, 19.7.29, Theorem 19.8.6 (5) for $|\mathcal A|$, Lemma
+    19.8.21 and Theorem 19.8.22 except the unit. Proposition 19.7.15 (1), the source map and the unit in Proposition
+    19.7.15 (2), (3), Proposition 19.7.26 and Theorem 19.8.6 (1)–(4) do not use it. Examples satisfying the literal definition show that
+    it is needed. `twistBasic`, with a second member `twistCU` of $\hat F(0)$ whose lift is twisted by $\sigma = -1$ for
+    $|x| > 1$, is not compatible (`not_isCompatible_twistBasic`, `not_continuous_tgtHat_twistBasic`); Proposition
+    19.7.15 (2) does not hold for it (`proposition_19_7_15_two_without_compatible`), nor does Lemma 19.7.17 (2)
+    (`lemma_19_7_17_two_without_compatible`), while Lemma 19.7.17 (1) does (`lemma_19_7_17_one_twistBasic`: the twist
+    is used only over $|0|$, where $\sigma$ is even). `twoBasic`, twisted at the point $2$ of trivial isotropy, has no
+    topology whose open sets are those of Definition 19.7.16 (`lemma_19_7_17_one_without_compatible`). Witnesses of
+    the reading, non-degenerate: `absBasic_isCompatible` (§19.7: $|\mathcal A| \cong \mathbb R$ covers
+    $|\mathcal B| \cong [0, \infty)$ by the absolute value, isotropy $\mathbb Z/2$, two sheets away from $0$),
+    `absFt_isCompatible` (the bundle covering pull-back of §19.8) and `absSqBasic_isCompatible` (the square of §19.8,
+    fibre action $-1$). The note after Definition 19.8.4 indicates that the text reads Definition 19.7.11 without
+    compatibility (item 15), which is why the condition keeps the `_hyp` suffix. One-line candidate for the notes to
+    the authors: Definition 19.7.11 presumably asks the $\hat\Psi \in \hat F$ to be mutually compatible ($\hat t$
+    continuous, as Definition 19.6.4 (A) does for bundles); the inference in Proposition 19.7.15 (2), the topology of
+    Definition 19.7.16 and that of Definition 19.8.20 use it, and the note after Definition 19.8.4 that (1) implies (3)
+    would then need it too (rows V19.73, V19.77–V19.79, V19.83, V19.85, V19.86, V19.88–V19.90, V19.95, V19.97,
+    V19.98, V19.109–V19.111). Status: **settled with the reading, an added hypothesis with non-degenerate witnesses**.
+
+12. **Proposition 19.7.18, Corollary 19.7.20 (3) and Theorem 19.7.25 (4b) do not hold as we read them**
+    *(Proposition 19.7.18, p. 919 (2017: Lemma 19.3), Corollary 19.7.20, p. 921 (2017: Lemma 19.4), Theorem 19.7.25,
+    p. 925 (new in the 2021 edition))*. `Chapter19/CoveringCounterexamples.lean`, `CoveringOrbitCounterexample.lean`,
+    `ProperCoveringModelExample.lean`, `CoveringOrbitTopology.lean`, `CoveringLocalStructure.lean`,
+    `CoveringMetrizability.lean`. Proposition 19.7.18 says that $|P| : |\mathcal A| \to |\mathcal B|$ is a surjective
+    local homeomorphism; the proof rests on $|\hat\tau|$ being one. Corollary 19.7.20 (3) says that
+    $|P| : W(\bar z_i) \to W(z)$ is a homeomorphism; the proof identifies $|G_{a_i} \ltimes V(a_i)|$ with
+    $|G \ltimes O'|$, which needs $G_{a_i} \to G$ onto. Theorem 19.7.25 (4b) says that $|P|$ is injective near each
+    point of a fibre, under the metrizability of $|\mathcal B|$. For `absBasic`,
+    $P : \mathbb Z/2 \ltimes (\mathbb Z^\times \times \mathbb R) \to \mathbb Z/2 \ltimes \mathbb R$, $(i, x) \mapsto x$,
+    with the generator acting by $(i, x) \mapsto (-i, -x)$, every printed hypothesis holds: $P$ is a finite-to-one
+    covering functor (`absCovP_isFiniteToOneCovering`), the models are those of Definition 17.8.4 (global at $0$,
+    slices elsewhere), the class uniformizers exist, and the natural topologies of Definitions 19.2.1 and 19.7.16 are
+    those of $|\mathcal A| \cong \mathbb R$ and $|\mathcal B| \cong [0, \infty)$, metrizable, with $|P|$ the absolute
+    value (`absBasic_natTopA_eq`); the compatibility reading of item 11 holds as well. $|P|$ is not a local
+    homeomorphism at $0$ (`not_proposition_19_7_18`, `not_proposition_19_7_18_natTopA`, and
+    `not_proposition_19_7_18_of_continuous` for every topology on $|\mathcal A|$ making the orbit maps of the
+    uniformizers at $0$ continuous and every topology on $|\mathcal B|$); it is not injective on $|\hat\Psi(V)|$ for
+    any open $V$ around a point of the fibre (`not_corollary_19_7_20_three`), nor on any open set containing
+    $|(1, 0)|$ (`not_theorem_19_7_25_four_b`). The example is the motivating construction after Definition 17.8.3, the
+    generator of $G_0$ lifting to the swap of the two fibre points; no definition asks the isotropy maps
+    $G_a \to G_{P(a)}$ to be onto, and the sentence after Definition 17.8.1 expects Definition 17.8.4 to give the
+    local homeomorphy. What is proved: $|P|$ is continuous, open and surjective with finite fibres, and (19.34) holds,
+    the 2017 form of Proposition 19.7.18 (`proposition_19_7_18_hyp`); $|P|$ is a local homeomorphism where $|\hat\tau|$
+    is one (`isLocalHomeomorphOn_orbitMap_of_τ_hyp`), in particular at the classes of the $a$ for which
+    $G_a \to G_{P(a)}$ is onto (`isLocalHomeomorphOn_orbitMap_of_isotropy_surjective`); this condition is sufficient,
+    not necessary in general (`isotropy_surjective_not_necessary`, a trivial $\mathbb Z/3$-action), and exact for the
+    example (`absP_isLocalHomeomorphOn_iff`). Corollary 19.7.20 (1), (2) are proved, with $|P|$ closed and the fibres
+    evenly covered in the orbit sense (`corollary_19_7_20_hyp`), and so is the rest of Theorem 19.7.25
+    (`theorem_19_7_25_absBasic` for the example). Nothing later rests on the three statements: Propositions 19.7.23,
+    19.7.24 and Theorem 19.7.25 (1)–(4a) use only that $|P|$ is a perfect map (continuous, closed, finite fibres;
+    `paracompactSpace_of_tube`), and Proposition 19.7.26 uses Proposition 19.7.15, not 19.7.18. Candidate for the
+    notes to the authors, the main point of §19.7: $|P|$ is a local homeomorphism at $\bar z$ when the isotropy maps
+    $G_a \to G_{P(a)}$ are onto there; is that condition meant to be part of Definition 17.8.4 or 19.7.3? (rows V19.80,
+    V19.83, V19.85, V19.86, V19.90). Status: **does not hold as we read it; the 2017 form and the form where the
+    isotropy maps are onto are proved**.
+
+13. **The divisibility remark after Lemma 19.7.19 does not hold as we read it** *(the remark after Lemma 19.7.19, p.
+    920 (new in the 2021 edition))*. `Chapter19/CoveringLocalExamples.lean`. The remark says that the number $k$ of
+    classes in $\hat\tau^{-1}(\bar o)$ divides the number $\ell$ of its points. For the connected sheet model
+    `divModel`, $\mathbb Z/2 \ltimes ((\mathbb Z^\times \sqcup \{*\}) \times \mathbb R) \to \mathbb Z/2 \ltimes
+    \mathbb R$ (the reflection on $\mathbb R$, multiplication on $\mathbb Z^\times$, trivial on $*$), $\ell = 3$ and
+    $k = 2$ (`not_remark_19_7_19_divides`). By (19.36) $G$ acts on the fibre, the classes are its orbits, and each has
+    $|G : \mathrm{im}(G_y \to G)|$ elements, so $k$ divides $\ell$ when all classes have the same size. The remark is
+    used nowhere; Corollary 19.7.20 uses only the classes. One-line candidate for the notes to the authors (row
+    V19.82). Status: **does not hold as we read it; not used later**.
+
+14. **§19.7: the connected model of Lemma 19.7.19, other reading points, and the stronger forms** *(Lemma 19.7.19,
+    p. 920, Propositions 19.7.13–19.7.15, pp. 913–915, Propositions 19.7.23, 19.7.24, pp. 923–924, Proposition 19.7.26,
+    p. 926, Theorem 19.7.29, p. 929 (2017: Propositions 19.8–19.10, Theorem 19.10; Lemma 19.7.19 and Propositions
+    19.7.13–19.7.15 new in the 2021 edition))*. `Chapter19/CoveringLocalStructure.lean`, `CoveringConstruction.lean`,
+    `CoveringTopology.lean`, `CoveringMetrizability.lean`, `CoveringPolyfold.lean`, `CoveringPolyfoldExamples.lean`.
+    (a) Lemma 19.7.19: the "connected local ep-groupoid covering model" is read as a connected proper covering model
+    of Definition 17.8.4 (`hO : M.Connected`), the standing reading of Remark 17.8.11 (2) (the Chapter 17 item on
+    Remark 17.8.11); witnesses `absP_properCoveringModel_connected` and the connected `divModel` of item 13. The text's
+    path in $\Sigma_y$ is replaced by a connected set on which the sheet index of the target is constant
+    (`sheetIndex_tgt_liftMor_σ`). (b) "Local covering functor" in Proposition 19.7.14, which is not defined, is read
+    as a finite-to-one covering functor of Definition 19.7.1. (c) In the proofs of Propositions 19.7.15 and 19.7.26,
+    $M(\Psi, \Psi')\,{}_s\!\times_p E$ is read as $M(\Psi, \Psi')\,{}_s\!\times_{\hat\tau} E$, as in Lemma 19.7.10 and
+    Theorem 19.7.29. (d) Propositions 19.7.23, 19.7.24: "$T_{|\mathcal A|}$ satisfies the properness condition" is
+    read as Definition 19.4.1 (2) through the uniformizers $\hat\Psi$ (`PropernessV2A`). (e) Theorem 19.7.29:
+    $\mathcal A$ has no translation-groupoid uniformizers of its own, so "$\mathcal A$ has a natural polyfold
+    structure" is read through Definition 17.8.13, the structure induced through $P$ (`theorem_19_7_29_hyp`). (f)
+    Stronger forms: Proposition 19.7.13 also gives the metrizability of $M(\hat\Psi, \hat\Psi')$ for every
+    finite-to-one covering functor (`metrizableSpace_MHat`); Proposition 19.7.26 characterizes the M-polyfold
+    structure of $M(\hat\Psi, \hat\Psi')$ as the only one for which $p$ is a local sc-diffeomorphism
+    (`isScDiffeoOn_id_of_isLocalScDiffeo_pB`) and uses neither the compatibility reading nor the printed
+    metrizability of $|\mathcal B|$, kept as an unused argument; that metrizability enters Theorems 19.7.28 (2), (3)
+    and 19.7.29. Witness for the polyfold results of §19.7: `absBasic` (`absBasic_covering_polyfold_nondegenerate`,
+    `absBasic_theorem_19_7_29`); it has one member in each $\hat F(\beta)$ (rows V19.75–V19.77, V19.81, V19.85,
+    V19.87–V19.90). Status: **settled**.
+
+Found while formalizing §19.8 (files `Chapter19/CoveringPullbackDiagram`, `CoveringPullbackTheorem`, `CoveringPullbackCoherence`, `CoveringPullbackExamples`, `CoveringSquare`, `CoveringSquareExamples`, `CoveringSquareTheorem`, `CoveringSquareTopology`, `CoveringSquareTopologyExamples`, `CoveringSquareMultiplication`, `CoveringSquareMultiplicationExamples`, `CoveringSquareFibredProper`, `CoveringSquareFibredProperExamples`, `FibredProductCovering`, `CompatibilityExamples`).
+
+15. **The note after Definition 19.8.4: (1) implies (3)** *(Definition 19.8.4 and the note after it, p. 934,
+    Definition 19.8.5, p. 937 (new in the 2021 edition); item 11)*. `Chapter19/CompatibilityExamples.lean`,
+    `CoveringPullbackDiagram.lean`. The note says that (1), with the assumption that $\tilde F$ is a uniformizer
+    construction for $(P, \mu_B)$, implies (3). As printed, with Definition 19.7.11 without compatibility, it holds
+    (`definition_19_8_4_one_implies_three`: $F(\alpha) \ne \emptyset$ on classes gives $\hat F(\beta) \ne \emptyset$
+    on classes). With the compatibility reading of item 11 it does not follow from (1): `twistFt`, whose
+    $\tilde F(0)$ consists of `absPU 0` and `twistPU`, built on `twistCU`, satisfies (1) while its underlying
+    `twistBasic` is not compatible (`definition_19_8_4_one_without_compatible`), and it even has a transition
+    construction of Definition 19.8.4 with coherence (`twistFt_isCoherent`) and a basic construction of Definition
+    19.8.5 that are not compatible (`definition_19_8_4_without_compatible`). So `hC` in Theorem 19.8.6 (5) is a
+    hypothesis beyond Definitions 19.8.4 and 19.8.5. For squares (Lemma 19.8.21, Theorem 19.8.22) it is not derived
+    from Definitions 19.8.13–19.8.15 either: coherence concerns the bottom bundles $M(\Gamma, \Gamma')$, while
+    $\hat t$ depends on the sheets of $\hat\Psi$; no coherent square construction that is not compatible is built.
+    Definition 19.8.4 is formalized with the standing reading of item 1 and (1), (2) as fields, and (3) holds by
+    construction (`PullbackTransitionConstruction`, `definition_19_8_4`). Part of the one-line candidate of item 11
+    (rows V19.94–V19.96). Status: **holds as printed; with the compatibility reading it needs that reading too**.
+
+16. **Theorem 19.8.6: (1)–(4) for every transition construction, and (5)** *(Theorem 19.8.6, pp. 938–939 (new in the
+    2021 edition); point G.273)*. `Chapter19/CoveringPullbackTheorem.lean`, `CoveringPullbackCoherence.lean`,
+    `CoveringPullbackExamples.lean`. (1)–(4) hold for every transition construction, without (1)–(3) of Definition
+    19.8.4 (`theorem_19_8_6_one_four`): $\hat\Gamma$ is fully faithful and injective on objects, $m$ carries the strong
+    bundle structure of Theorem 19.6.13, $p$ is a surjective local sc-diffeomorphism, $U$ is a strong bundle
+    isomorphism for a unique structure on $\hat m$, and $\bar p$ is a surjective local strong bundle isomorphism. (5)
+    is proved for $|\mathcal A|$ and $|\mathcal B|$ (`theorem_19_8_6_hyp`, with `hC` for $|\mathcal A|$) and for
+    $|E_B|$ (`metrizableSpace_natTopEB`); for $|P^*E_B|$ the general square result applies to the square of the
+    pull-back, but the instance is not written out (point G.273). Witness `absFt`, the absolute-value covering with a
+    Banach fibre, coherent and compatible (`absFt_isCoherent`, `absFt_isCompatible`, `absFt_theorem_19_8_6_full`)
+    (rows V19.97, V19.98). Status: **settled except (5) for $|P^*E_B|$ (point G.273, not stated separately)**.
+
+17. **§19.8: covering squares, three reading points, and Theorem 19.8.22** *(Definitions 19.8.8, 19.8.13, 19.8.19,
+    19.8.20, Lemma 19.8.21, Theorem 19.8.22, Remark 19.8.11, pp. 943–957 (2017: Definitions 19.21, 19.23, Theorem
+    19.11; Definitions 19.8.19, 19.8.20, Lemma 19.8.21 and Remark 19.8.11 new in the 2021 edition); points G.274,
+    G.275)*. `Chapter19/CoveringSquare.lean`, `CoveringSquareTheorem.lean`, `CoveringSquareTopology.lean`,
+    `CoveringSquareMultiplication.lean`, `CoveringSquareFibredProper.lean`, `FibredProductCovering.lean`. (a) Definition
+    19.8.8 cites Definition 8.5.1 with $E = G \ltimes O$; the covering model of the base is read as one of Definition
+    17.8.4 throughout, and $\Xi$ as a proper strong bundle covering of Definition 8.5.9 (`StrongEpBundleCoveringModel`).
+    (b) Definition 19.8.13 refers to itself for the notion of uniformizer; it is read as Definition 19.8.10
+    (`SquareUniformizerConstruction`). (c) Definition 19.8.19: the neighbourhoods are read as covering the preimage,
+    $a^{-1}(U(x)) = \bigsqcup_i U(\hat x_i)$, as for proper coverings in Definitions 8.5.1 and 17.8.1
+    (`IsProperStrongBundleCoveringSquare`); the printed form `IsProperStrongBundleCoveringSquareBook` is kept and
+    implied (`IsProperStrongBundleCoveringSquare.toBook`). Lemma 19.8.21, whose proof the text leaves to the reader by
+    reference to Theorem 19.6.8, is written out (`lemma_19_8_21_hyp`, `metrizableSpace_natTopEA`,
+    `continuous_orbitProjA`; point G.275). Theorem 19.8.22: the orbit spaces are metrizable, the $\hat p$-squares are
+    proper strong bundle covering squares, $s$ and $t$ local isomorphisms, the inversion an isomorphism and the unit and
+    multiplication strong bundle maps between squares, stated componentwise (`theorem_19_8_22_hyp`,
+    `theorem_19_8_22_unit`, `theorem_19_8_22_mul_hyp`); the strong bundle structure on the fibred products, which
+    (19.100) uses without spelling it out, is read as the pull-back by $\mathrm{pr}_2$ over the fibred-product
+    sub-M-polyfold, as in §§17.8 and 19.6, and the fibred-product square is proper
+    (`isProperSquare_pbarFP`, from the general `isProperStrongBundleCoveringSquare_fibredProduct`). The only hypothesis beyond the text is `hC` (item 11); the
+    coherence and the metrizability of $|\mathcal B|$ are Definition 19.8.14 (2), (1), the class uniformizers the
+    standing reading, and the unit needs none. Witness `absSqBasic` (`absSqBasic_hypotheses`,
+    `absSqBasic_theorem_19_8_22`): non-trivial isotropy acting by $-1$ on the fibre and a two-sheeted covering away from
+    $0$, the example of item 12, so the theorem is tested where $|P|$ is not a local homeomorphism. Remark 19.8.11
+    points to applications (point G.274, nothing to formalize) (rows V19.100, V19.102, V19.104, V19.108–V19.111).
+    Status: **settled (point G.275 closed; G.274 nothing to formalize)**.
+
+18. **Every hypothesis taken in Chapter 19 is satisfiable** *(§§19.1–19.8)*. With witnesses: the standing reading
+    $F(\alpha) \ne \emptyset$ (`reflectionBasic_hB`, `reflBanBasic_hB`, `absBasic_hasClassUniformizers`); `hT` in
+    Proposition 19.4.2 (`reflectionBasic_t2Space`); `ho` in Lemma 19.4.3 (`expBasic_exists_trans`, weak: trivial
+    isotropy); the metrizability of $T$ in §19.5 (`reflectionBasic_metrizableSpace`, `z3Basic_metrizableSpace`);
+    (ZHOU) and (SLUC) (`z3Basic_isZhou`, weak: trivial action, not effective) and (LUC)
+    (`reflectionBasic_proposition_19_5_9`); the definitions of §19.6 (`reflBanBasic_witness`); the structure I of the
+    comparison (`comparison_I_II_hyp_witness`, `reflBan_comparison_I_II`); the compatibility reading
+    (`absBasic_isCompatible`, `absFt_isCompatible`, `absSqBasic_isCompatible`, non-degenerate); the connected model of
+    Lemma 19.7.19 (`absP_properCoveringModel_connected`); the metrizability of $|\mathcal B|$ in Theorems 19.7.25–19.7.29
+    (`theorem_19_7_25_absBasic`); Definitions 19.8.4, 19.8.5 with coherence (`absFt_isCoherent`) and Definitions
+    19.8.8–19.8.19 (`absSqBasic`, `absSquareU_isProperSquare`). The boundary plays no role in Chapter 19. Status:
+    **settled; the (ZHOU), (SLUC) and `ho` witnesses are weak (item 7, item 4)**.

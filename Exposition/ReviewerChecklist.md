@@ -26,7 +26,8 @@ The second command prints the axioms of every theorem; each must list only `prop
 | Orientation (Chapter 6) | 6 | 68 | 289 |
 | Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 36 | 88 | 205 |
 | Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 118 | 182 |
-| Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 4 | 0 |
+| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 70 | 138 | 360 |
+| Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 3 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
 
@@ -169,7 +170,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V5.31 | §5.3, Definition 5.3.9 (preprint 5.17), p. 220 (preprint p. 177) | `StrongBundle.IsGeneralPositionGerm`, `StrongBundleChart.linKer` |
 | V5.47 | §5.5 (preprint §5.4.2), Definition 5.5.1 (preprint 5.28), p. 229 (preprint p. 192) | `MPolyfold.AdmitsScPartitionsOfUnity`, `MPolyfold.IsScSmoothPartitionOfUnity` |
 | V5.88 | §5.4, Definition 5.4.1, p. 228 (2017: Definition 5.11; not in the preprint) | `StrongBundle.boundarySupport` |
-| V8.2 | §8.1, used without statement on pp. 358–364 (2017 pp. 258–263) | `MPolyfold.tangentMapOn` |
+| V8.2 | §8.1, used without statement on pp. 358–364 (2017 pp. 258–263) | `MPolyfold.tangentMapOn`, `MPolyfold.tangentPreimage` |
 | V12.16 | §12.3, Definition 12.3.6, p. 584 (2017: Definition 12.8) | `EpStrongBundle.IsBoundaryScPlusSection`, `EpStrongBundle.IsBoundaryScPlusSectionFunctor`, `IsScPlusOnFaceNear`, `StrongBundle.IsBoundaryScPlusSection` |
 
 <details><summary>102 helper constants without a row of their own (accessors, coercions, instances)</summary>
@@ -683,7 +684,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
-| V2.111 | §2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42) | `MPolyfold.reducedTangentFiber` |
+| V2.111 | §2.5 (preprint §2.4), Definition 2.5.8 (preprint 2.38), p. 57 (preprint p. 42) | `MPolyfold.partialConeFiber`, `MPolyfold.reducedTangentFiber` |
 | V5.77 | §5.1, Definition 5.1.4, p. 207 (2017: Definition 5.2; not in the preprint) | `IsReflexive`, `StrongBundle.HasReflexiveFibers` |
 | V5.78 | §5.1, Lemma 5.1.5, p. 207 (2017: Lemma 5.2; not in the preprint) | `StrongBundleChart.liftOneSnd` |
 | V5.90 | not in the book (used in §§5.1–5.2 and Part III, §12.2) | `WeakTendsto` |
@@ -866,6 +867,370 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 
 </details>
 
+## Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings
+
+### Statements
+
+| Book | Lean declaration | Comparison row |
+|---|---|---|
+| Prop 17.1.11 | `GCT.PolyfoldConstruction.proposition_17_1_11` (Chapter17/TransitionProperness.lean) | V17.12 |
+| Thm 17.1.14 | `GCT.PolyfoldConstruction.theorem_17_1_14` (Chapter17/ModelEpGroupoid.lean) | V17.16 |
+| Thm 17.1.18 | `GCT.PolyfoldConstruction.theorem_17_1_18` (Chapter17/ModelComparison.lean) | V17.21 |
+| Prop 17.1.23 | `GCT.PolyfoldConstruction.proposition_17_1_23` (Chapter17/ModelProperties.lean) | V17.26 |
+| Prop 17.1.24 | `GCT.PolyfoldConstruction.proposition_17_1_24` (Chapter17/ModelProperties.lean) | V17.27 |
+| Thm 17.1.26 | `GCT.PolyfoldConstruction.theorem_17_1_26` (Chapter17/ModelProperties.lean) | V17.29 |
+| Thm 17.1.27 | `GCT.PolyfoldConstruction.theorem_17_1_27` (Chapter17/ModelComparison.lean) | V17.30 |
+| Thm 17.1.28 | `GCT.PolyfoldConstruction.theorem_17_1_28_gct` (Chapter17/LevelOneCategory.lean) | V17.33 |
+| Thm 17.1.28 | `GCT.PolyfoldConstruction.theorem_17_1_28` (Chapter17/LevelStructures.lean) | V17.33 |
+| Thm 17.1.28 | `GCT.UniformizedPolyfold.theorem_17_1_28_levels` (Chapter17/LevelOrbitSpaces.lean) | V17.34 |
+| Cor 17.1.29 | `GCT.PolyfoldConstruction.corollary_17_1_29_model` (Chapter17/LevelOneCategory.lean) | V17.35 |
+| Cor 17.1.29 | `GCT.PolyfoldConstruction.corollary_17_1_29_of_coveringFamily` (Chapter17/LevelStructures.lean) | V17.35 |
+| Cor 17.1.29 | `GCT.PolyfoldConstruction.corollary_17_1_29` (Chapter17/LevelStructures.lean) | V17.35 |
+| Prop 17.2.4 | `GCT.PolyfoldConstruction.proposition_17_2_4` (Chapter17/TangentVectors.lean) | V17.41 |
+| Prop 17.2.4 | `GCT.PolyfoldConstruction.proposition_17_2_4_banachable` (Chapter17/TangentVectors.lean) | V17.41 |
+| Prop 17.2.4 | `GCT.PolyfoldConstruction.proposition_17_2_4_sc` (Chapter17/TangentVectors.lean) | V17.41 |
+| Prop 17.2.5 | `GCT.PolyfoldConstruction.proposition_17_2_5` (Chapter17/TangentVectors.lean) | V17.42 |
+| Prop 17.2.12 | `GCT.PolyfoldConstruction.proposition_17_2_12` (Chapter17/TangentTransition.lean) | V17.49 |
+| Prop 17.2.14 | `GCT.PolyfoldConstruction.proposition_17_2_14_src_tgt` (Chapter17/TangentTransition.lean) | V17.51 |
+| Prop 17.2.14 | `GCT.PolyfoldConstruction.proposition_17_2_14` (Chapter17/TangentTransitionStructure.lean) | V17.51 |
+| Prop 17.2.15 | `GCT.PolyfoldConstruction.proposition_17_2_15` (Chapter17/TangentTransitionStructure.lean) | V17.52 |
+| Prop 17.2.16 | `GCT.PolyfoldConstruction.proposition_17_2_16` (Chapter17/TangentModel.lean) | V17.53 |
+| Prop 17.3.4 | `GCT.PolyfoldConstruction.proposition_17_3_4` (Chapter17/Subpolyfold.lean) | V17.60 |
+| Prop 17.3.4 | `GCT.PolyfoldConstruction.proposition_17_3_4_of_nonempty` (Chapter17/Subpolyfold.lean) | V17.60 |
+| Prop 17.3.6 | `GCT.PolyfoldConstruction.proposition_17_3_6` (Chapter17/SubpolyfoldStructure.lean) | V17.63 |
+| Prop 17.3.8 | `GCT.PolyfoldConstruction.proposition_17_3_8` (Chapter17/PolyfoldFaces.lean) | V17.65 |
+| Thm 17.4.16 | `GCT.PolyfoldConstruction.theorem_17_4_16` (Chapter17/TameBoundaryTransitionStructure.lean) | V17.81 |
+| Prop 17.5.2 | `GCT.PolyfoldConstruction.proposition_17_5_2_one` (Chapter17/BranchedSubcategory.lean) | V17.95 |
+| Prop 17.5.2 | `GCT.PolyfoldConstruction.proposition_17_5_2_two` (Chapter17/BranchedSubcategory.lean) | V17.95 |
+| Prop 17.5.5 | `GCT.PolyfoldConstruction.proposition_17_5_5_one` (Chapter17/BranchedSupport.lean) | V17.99 |
+| Prop 17.5.5 | `GCT.PolyfoldConstruction.proposition_17_5_5_two` (Chapter17/BranchedSupport.lean) | V17.99 |
+| Prop 17.5.7 | `GCT.PolyfoldConstruction.proposition_17_5_7` (Chapter17/BranchedTangent.lean) | V17.102 |
+| Thm 17.6.4 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4` (Chapter17/CategoryStokes.lean) | V17.110 |
+| Thm 17.6.4 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4_book` (Chapter17/TameOrientedTransfer.lean) | V17.110 |
+| Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6` (Chapter17/CategoryStokes.lean) | V17.112 |
+| Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1` (Chapter17/CategoryStokes.lean) | V17.112 |
+| Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_book` (Chapter17/TameOrientedTransfer.lean) | V17.112 |
+| Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1_book` (Chapter17/TameOrientedTransfer.lean) | V17.112 |
+| Thm 17.6.8 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8` (Chapter17/CategoryStokes.lean) | V17.114 |
+| Thm 17.6.8 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8_book` (Chapter17/TameOrientedTransfer.lean) | V17.114 |
+| Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9` (Chapter17/CategoryStokes.lean) | V17.115 |
+| Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1` (Chapter17/CategoryStokes.lean) | V17.115 |
+| Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_book` (Chapter17/TameOrientedTransfer.lean) | V17.115 |
+| Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1_book` (Chapter17/TameOrientedTransfer.lean) | V17.115 |
+| Prop 17.8.6 | `proposition_17_8_6` (Chapter17/ProperCoveringModelRestrict.lean) | V17.130 |
+| Prop 17.8.15 | `ProperPolyfoldCoveringStructure.proposition_17_8_15` (Chapter17/ProperCoveringPolyfold.lean) | V17.140 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16` (Chapter17/ProperCoveringBranched.lean) | V17.142 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16_one` (Chapter17/ProperCoveringBranched.lean) | V17.142 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16_two` (Chapter17/ProperCoveringBranched.lean) | V17.142 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16_four` (Chapter17/ProperCoveringBranched.lean) | V17.142 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16_three` (Chapter17/ProperCoveringTame.lean) | V17.142 |
+| Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16_branched_tame` (Chapter17/ProperCoveringTame.lean) | V17.142 |
+| Thm 18.1.5 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5` (Chapter18/GoodPositionIntrinsic.lean) | V18.13 |
+| Thm 18.1.5 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory` (Chapter18/ImplicitFunctionSubcategory.lean) | V18.13 |
+| Thm 18.1.5 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model` (Chapter18/ImplicitFunctionTheorem.lean) | V18.13 |
+| Thm 18.1.12 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one` (Chapter18/AuxiliaryNormsDirect.lean) | V18.21 |
+| Thm 18.1.12 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_two` (Chapter18/AuxiliaryNormsDirect.lean) | V18.21 |
+| Thm 18.1.12 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three` (Chapter18/AuxiliaryNormsDirect.lean) | V18.21 |
+| Thm 18.1.12 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three_reflexive` (Chapter18/AuxiliaryNormsDirect.lean) | V18.21 |
+| Thm 18.2.2 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_2` (Chapter18/Compactness.lean) | V18.24 |
+| Thm 18.2.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6` (Chapter18/Compactness.lean) | V18.28 |
+| Thm 18.3.5 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_5` (Chapter18/MultisectionFunctors.lean) | V18.36 |
+| Thm 18.3.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6` (Chapter18/MultisectionFunctors.lean) | V18.37 |
+| Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3` (Chapter18/MultisectionConstructions.lean) | V18.40 |
+| Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula` (Chapter18/MultisectionConstructions.lean) | V18.40 |
+| Thm 18.4.4 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4` (Chapter18/MultisectionConstructions.lean) | V18.41 |
+| Thm 18.4.4 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree` (Chapter18/PerturbationModelIndependence.lean) | V18.41 |
+| Prop 18.5.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp` (Chapter18/Orientations.lean) | V18.49 |
+| Prop 18.5.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp` (Chapter18/Orientations.lean) | V18.49 |
+| Prop 18.5.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp` (Chapter18/Orientations.lean) | V18.49 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_existence` (Chapter18/Perturbation.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_structurable` (Chapter18/Perturbation.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular` (Chapter18/Perturbation.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1` (Chapter18/Perturbation.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree` (Chapter18/PerturbationModelIndependence.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular_modelFree` (Chapter18/PerturbationModelIndependence.lean) | V18.51 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented` (Chapter18/Perturbation.lean) | V18.52 |
+| Thm 18.6.1 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented_modelFree` (Chapter18/PerturbationModelIndependence.lean) | V18.52 |
+| Thm 19.2.2 | `GroupoidalCategory.BasicConstruction.theorem_19_2_2_one` (Chapter19/NaturalTopology.lean) | V19.12 |
+| Thm 19.2.2 | `GroupoidalCategory.BasicConstruction.theorem_19_2_2_two` (Chapter19/NaturalTopology.lean) | V19.12 |
+| Thm 19.2.2 | `GroupoidalCategory.BasicConstruction.theorem_19_2_2_three` (Chapter19/NaturalTopology.lean) | V19.12 |
+| Thm 19.2.2 | `GroupoidalCategory.BasicConstruction.theorem_19_2_2_four` (Chapter19/NaturalTopology.lean) | V19.12 |
+| Thm 19.2.2 | `GroupoidalCategory.BasicConstruction.theorem_19_2_2_five` (Chapter19/NaturalTopology.lean) | V19.12 |
+| Thm 19.3.3 | `GroupoidalCategory.BasicConstruction.theorem_19_3_3` (Chapter19/NaturalTopology.lean) | V19.17 |
+| Prop 19.3.4 | `GroupoidalCategory.BasicConstruction.proposition_19_3_4` (Chapter19/NaturalTopology.lean) | V19.18 |
+| Prop 19.3.4 | `GroupoidalCategory.BasicConstruction.proposition_19_3_4_topology` (Chapter19/NaturalTopology.lean) | V19.18 |
+| Prop 19.3.5 | `GroupoidalCategory.BasicConstruction.proposition_19_3_5` (Chapter19/NaturalTopology.lean) | V19.19 |
+| Prop 19.3.7 | `GroupoidalCategory.BasicConstruction.proposition_19_3_7` (Chapter19/NaturalTopology.lean) | V19.21 |
+| Prop 19.4.2 | `GroupoidalCategory.BasicConstruction.proposition_19_4_2` (Chapter19/Metrizability.lean) | V19.24 |
+| Prop 19.4.2 | `GroupoidalCategory.BasicConstruction.proposition_19_4_2_one_iff_two` (Chapter19/Metrizability.lean) | V19.24 |
+| Prop 19.4.2 | `GroupoidalCategory.BasicConstruction.proposition_19_4_2_two_three` (Chapter19/Metrizability.lean) | V19.24 |
+| Prop 19.4.2 | `GroupoidalCategory.BasicConstruction.proposition_19_4_2_three_two_hyp` (Chapter19/Metrizability.lean) | V19.24 |
+| Prop 19.4.4 | `GroupoidalCategory.BasicConstruction.proposition_19_4_4` (Chapter19/Metrizability.lean) | V19.26 |
+| Prop 19.4.5 | `GroupoidalCategory.BasicConstruction.proposition_19_4_5` (Chapter19/Metrizability.lean) | V19.27 |
+| Thm 19.4.6 | `GroupoidalCategory.BasicConstruction.theorem_19_4_6_one` (Chapter19/Metrizability.lean) | V19.28 |
+| Thm 19.4.6 | `GroupoidalCategory.BasicConstruction.theorem_19_4_6_two` (Chapter19/Metrizability.lean) | V19.28 |
+| Prop 19.4.7 | `GroupoidalCategory.BasicConstruction.proposition_19_4_7` (Chapter19/Metrizability.lean) | V19.29 |
+| Cor 19.4.8 | `GroupoidalCategory.BasicConstruction.corollary_19_4_8` (Chapter19/Metrizability.lean) | V19.30 |
+| Thm 19.5.1 | `GroupoidalCategory.BasicConstruction.theorem_19_5_1` (Chapter19/PolyfoldStructure.lean) | V19.31 |
+| Thm 19.5.1 | `GroupoidalCategory.BasicConstruction.theorem_19_5_1_natural` (Chapter19/PolyfoldStructure.lean) | V19.31 |
+| Cor 19.5.2 | `GroupoidalCategory.BasicConstruction.corollary_19_5_2` (Chapter19/PolyfoldStructure.lean) | V19.32 |
+| Thm 19.5.3 | `GroupoidalCategory.BasicConstruction.theorem_19_5_3_one` (Chapter19/PolyfoldStructureGCT.lean) | V19.33 |
+| Thm 19.5.3 | `GroupoidalCategory.BasicConstruction.theorem_19_5_3_two` (Chapter19/PolyfoldStructureGCT.lean) | V19.33 |
+| Prop 19.5.7 | `GroupoidalCategory.BasicConstruction.proposition_19_5_7` (Chapter19/BasicRegularity.lean) | V19.37 |
+| Prop 19.5.9 | `GroupoidalCategory.BasicConstruction.proposition_19_5_9` (Chapter19/BasicRegularityPointwise.lean) | V19.39 |
+| Prop 19.5.11 | `GroupoidalCategory.BasicConstruction.proposition_19_5_11` (Chapter19/BasicRegularity.lean) | V19.41 |
+| Thm 19.6.8 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one` (Chapter19/StrongBundleTopology.lean) | V19.56 |
+| Thm 19.6.8 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_two` (Chapter19/StrongBundleTopology.lean) | V19.56 |
+| Thm 19.6.8 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_three` (Chapter19/StrongBundleTopology.lean) | V19.56 |
+| Thm 19.6.8 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four` (Chapter19/StrongBundleTopology.lean) | V19.56 |
+| Thm 19.6.8 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five` (Chapter19/StrongBundleTopology.lean) | V19.56 |
+| Prop 19.6.9 | `GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9` (Chapter19/StrongBundleTopology.lean) | V19.57 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_one` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_two` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_three` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_four` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_five` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.11 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_six` (Chapter19/StrongBundleTopology.lean) | V19.59 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_H` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_total` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_s` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_t` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_u` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_inv` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_of_bundleTransitionData` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_book` (Chapter19/StrongBundleTheorem.lean) | V19.61 |
+| Thm 19.6.13 | `GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_m` (Chapter19/StrongBundleMultiplication.lean) | V19.62 |
+| Thm 19.6.13 | `GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_m` (Chapter19/StrongBundleMultiplication.lean) | V19.62 |
+| Prop 19.7.13 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_13` (Chapter19/CoveringTopology.lean) | V19.75 |
+| Prop 19.7.14 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_14` (Chapter19/CoveringTopology.lean) | V19.76 |
+| Prop 19.7.15 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_one` (Chapter19/CoveringTopology.lean) | V19.77 |
+| Prop 19.7.15 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_hyp` (Chapter19/CoveringTopology.lean) | V19.77 |
+| Prop 19.7.23 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_23_hyp` (Chapter19/CoveringMetrizability.lean) | V19.85 |
+| Prop 19.7.24 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_24_hyp` (Chapter19/CoveringMetrizability.lean) | V19.85 |
+| Prop 19.7.26 | `GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_26` (Chapter19/CoveringPolyfold.lean) | V19.87 |
+| Thm 19.7.28 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_one_hyp` (Chapter19/CoveringPolyfold.lean) | V19.88 |
+| Thm 19.7.28 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_two_hyp` (Chapter19/CoveringPolyfold.lean) | V19.88 |
+| Thm 19.7.28 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp` (Chapter19/CoveringPolyfold.lean) | V19.88 |
+| Thm 19.7.29 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp` (Chapter19/CoveringPolyfold.lean) | V19.89 |
+| Thm 19.8.6 | `GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four` (Chapter19/CoveringPullbackTheorem.lean) | V19.97 |
+| Thm 19.8.6 | `GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` (Chapter19/CoveringPullbackTheorem.lean) | V19.97 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_topology_hyp` (Chapter19/CoveringSquareTopology.lean) | V19.110 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_inv_hyp` (Chapter19/CoveringSquareMultiplication.lean) | V19.110 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_unit` (Chapter19/CoveringSquareMultiplication.lean) | V19.110 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_mul_hyp` (Chapter19/CoveringSquareFibredProper.lean) | V19.110 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_inv_hyp` (Chapter19/CoveringSquareFibredProper.lean) | V19.110 |
+| Thm 19.8.22 | `GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_hyp` (Chapter19/CoveringSquareFibredProper.lean) | V19.110 |
+
+### Definition rows (138), in dependency order
+
+| Row | Book | Lean declarations used by the statements |
+|---|---|---|
+| V7.94 | §7.4, Proposition 7.4.22, p. 338, Definition 7.4.23, p. 339, Theorem 7.4.24, p. 340 (new in the 2021 edition) | `EP.IsSLR` |
+| V7.96 | §7.6, Appendix 7.6.5.2, pp. 353–355 (new in the 2021 edition): the maps on $bX$ induced through sheets | `TameBoundary.BTriple.map`, `TameBoundary.IsDHomeoOn`, `TameBoundary.IsDLocalHomeo`, `TameBoundary.IsLiftOf` and 1 more |
+| V9.64 | §9.1, Proposition 9.1.9, p. 405 (2017: Proposition 9.1, p. 294) | `MPolyfold.IsDescentMap`, `MPolyfold.descend` |
+| V10.72 | §10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition) | `StrongBundle.IsLocalIso₂` |
+| V11.30 | §11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399) | `SBLocalization.oneToOrbit` |
+| V13.48 | §13.5, Theorem 13.5.5, p. 633 (2017: Theorem 13.8) | `SBLocalization.AtomicData.mult` |
+| V17.1 | §17.1, Definition 17.1.1, p. 744 (2017: Definition 17.1) | `GCT`, `GroupoidalCategory` |
+| V17.3 | §17.1, Definition 17.1.3, p. 745 (2017: Definition 17.3) | `GCT.LocalUniformizer`, `GCT.LocalUniformizer.IsTame`, `GCT.LocalUniformizer.footprint`, `GroupoidalCategory.Uniformizer` and 2 more |
+| V17.2 | §17.1, Definition 17.1.2, p. 744 (2017: Definition 17.2) | `GroupoidalCategory.Uniformizer.ep` |
+| V17.5 | §17.1, Definition 17.1.5, p. 745 (2017: Definition 17.4) | `GCT.LocalUniformizer.Trans`, `GroupoidStr.TransitionSet` |
+| V17.6 | §17.1, Definition 17.1.6, p. 746 (2017: Definition 17.5), and p. 752 | `GCT.UniformizerConstruction`, `GCT.UniformizerConstruction.CoveringFamily`, `GCT.UniformizerConstruction.HasCoveringUniformizers`, `GCT.UniformizerConstruction.HasUniformizers` |
+| V17.8 | §17.1, Definition 17.1.8, p. 747 (2017: Definition 17.6) | `GCT.PolyfoldConstruction`, `GCT.PolyfoldConstruction.IsTame`, `GCT.PolyfoldConstruction.Tr`, `GCT.PolyfoldConstruction.transPolyfold` and 1 more |
+| V17.9 | §17.1, Lemma 17.1.9, p. 748 (2017: Lemma 17.1) | `GCT.PolyfoldConstruction.hat` |
+| V17.13 | §17.1, Definition 17.1.12, p. 751 (new in the 2021 edition) | `GCT.PolyfoldConstruction.HasPropernessProperty` |
+| V17.14 | §17.1, Lemma 17.1.13, p. 752 (new in the 2021 edition) | `GCT.PolyfoldConstruction.AdmissibleTriple` |
+| V17.15 | §17.1, p. 752, (17.7) (2017: §17.1) | `GCT.PolyfoldConstruction.ModelMor`, `GCT.PolyfoldConstruction.ModelObj`, `GCT.PolyfoldConstruction.modelGroupoid`, `GCT.PolyfoldConstruction.modelMorPolyfold` and 2 more |
+| V17.17 | §17.1, Lemma 17.1.15, p. 754 (2017: Lemma 17.2) | `GCT.PolyfoldConstruction.IsCoveringFamily`, `GCT.PolyfoldConstruction.modelFunctor`, `GCT.PolyfoldConstruction.modelOrbitHomeomorph` |
+| V17.18 | §17.1, Remark 17.1.16, p. 755 (new in the 2021 edition) | `GCT.PolyfoldConstruction.modelPolyfoldStructure` |
+| V17.20 | §17.1, pp. 755–756, (17.14), (17.15) (2017: §17.1) | `GCT.PolyfoldConstruction.compare`, `GCT.PolyfoldConstruction.compareDiagram`, `GCT.PolyfoldConstruction.incl`, `GCT.PolyfoldConstruction.inclLeft` and 3 more |
+| V17.25 | §17.1, Definition 17.1.22, p. 758 (new in the 2021 edition) | `GCT.PolyfoldConstruction.HasModelProperty`, `GCT.PolyfoldConstruction.IsLR`, `GCT.PolyfoldConstruction.IsLUC`, `GCT.PolyfoldConstruction.IsSLR` and 2 more |
+| V17.28 | §17.1, Proposition 17.1.25, p. 758 (new in the 2021 edition) | `GCT.PolyfoldConstruction.Proposition_17_1_25` |
+| V17.32 | §17.1, pp. 765–766 (2017: §17.1) | `GCT.PolyfoldConstruction.HasRegularity`, `GCT.PolyfoldConstruction.regSet`, `GCT.PolyfoldConstruction.regSub` |
+| V17.36 | §17.1, Definition 17.1.30, p. 767 (2017: Definition 17.7) | `GCT.PolyfoldConstruction.boundarySet`, `GCT.PolyfoldConstruction.degIndex` |
+| V17.37 | §17.2, pp. 767–768 (2017: §17.2) | `GCT.PolyfoldConstruction.AdmissibleTriple.sigma`, `GCT.PolyfoldConstruction.transMap`, `GCT.PolyfoldConstruction.transTangent` |
+| V17.38 | §17.2, Lemma 17.2.1, p. 768 (2017: Lemma 17.3) | `GCT.PolyfoldConstruction.TangentRel`, `GCT.PolyfoldConstruction.TangentTuple` |
+| V17.39 | §17.2, Definition 17.2.2, p. 768 (2017: Definition 17.8) | `GCT.PolyfoldConstruction.TangentObj`, `GCT.PolyfoldConstruction.tangentVector` |
+| V17.40 | §17.2, Definition 17.2.3, p. 769 (2017: Definition 17.9) | `GCT.PolyfoldConstruction.TangentSpaceAt`, `GCT.PolyfoldConstruction.tangentChart` |
+| V17.43 | §17.2, Definition 17.2.6, p. 770 (new in the 2021 edition) | `GCT.PolyfoldConstruction.TangentCatMor`, `GCT.PolyfoldConstruction.TangentCatObj`, `GCT.PolyfoldConstruction.tangentCatGroupoid` |
+| V17.44 | §17.2, Lemma 17.2.7, p. 770 (new in the 2021 edition) | `GCT.PolyfoldConstruction.tangentCategory` |
+| V17.45 | §17.2, Remark 17.2.8, pp. 770–771, (17.33), (17.34) (new in the 2021 edition) | `GCT.PolyfoldConstruction.tangentCatProj` |
+| V17.46 | §17.2, Lemma 17.2.9, p. 773, (17.35)–(17.37) (2017: Lemma 17.4) | `GCT.PolyfoldConstruction.tangentUnifObj` |
+| V17.48 | §17.2, Lemma 17.2.11, p. 775, (17.41), (17.42) (2017: Lemma 17.5) | `GCT.PolyfoldConstruction.TTr`, `GCT.PolyfoldConstruction.tangentTrChart` |
+| V17.50 | §17.2, Definition 17.2.13, p. 776 (2017: Definition 17.10, changed) | `GCT.PolyfoldConstruction.TTrM` |
+| V17.57 | §17.3, Definition 17.3.1, p. 784 (2017: Definition 17.11) | `GCT.PolyfoldConstruction.IsSubpolyfold` |
+| V17.58 | §17.3, Definition 17.3.2, p. 784 (2017: Definition 17.12) | `GCT.PolyfoldConstruction.IsSubpolyfoldModel` |
+| V17.61 | §17.3, pp. 785–786 (2017: §17.3) | `GCT.LocalUniformizer.restrict`, `GCT.sub` |
+| V17.62 | §17.3, Lemma 17.3.5, p. 786 (2017: Lemma 17.6) | `GCT.PolyfoldConstruction.restrictTransEquiv`, `GCT.PolyfoldConstruction.restrictTransSet` |
+| V17.64 | §17.3, Definition 17.3.7, pp. 786–787 (2017: Definition 17.13) | `GCT.PolyfoldConstruction.IsFaceStructuredVia`, `GCT.PolyfoldConstruction.IsFaceVia`, `GCT.PolyfoldConstruction.degIndexVia` |
+| V17.66 | §17.4, (17.53)–(17.55) and Definition 17.4.1, pp. 787–788 (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd`, `GCT.PolyfoldConstruction.GoodNbhd.faces` |
+| V17.67 | §17.4, Definition 17.4.2, p. 789, (17.56)–(17.59) (new in the 2021 edition) | `GCT.PolyfoldConstruction.AdmissibleTriple.germMap`, `GCT.PolyfoldConstruction.BObj`, `GCT.PolyfoldConstruction.GermLift` |
+| V17.68 | §17.4, Definition 17.4.3, p. 789, (17.60)–(17.62) (new in the 2021 edition) | `GCT.PolyfoldConstruction.BLift`, `GCT.PolyfoldConstruction.BMor` |
+| V17.69 | §17.4, Definition 17.4.4, p. 791, (17.63) (new in the 2021 edition) | `GCT.PolyfoldConstruction.bdryGroupoid` |
+| V17.70 | §17.4, Definition 17.4.5, p. 792 (new in the 2021 edition) | `GCT.PolyfoldConstruction.faceStabilizer` |
+| V17.71 | §17.4, Lemma 17.4.6, p. 792, (17.64) (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd.faceFunctor`, `GCT.PolyfoldConstruction.GoodNbhd.faceGerm`, `GCT.PolyfoldConstruction.GoodNbhd.faceObj`, `GCT.PolyfoldConstruction.HatContinuous` and 1 more |
+| V17.75 | §17.4, Lemma 17.4.10, p. 797 (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd.FaceTr`, `GCT.PolyfoldConstruction.GoodNbhd.faceTrToTr` |
+| V17.77 | §17.4, Definition 17.4.12, p. 798, (17.70) (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd.transFaceSet` |
+| V17.78 | §17.4, Lemma 17.4.13, p. 798, (17.71)–(17.73) (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd.faceTrEquiv` |
+| V17.79 | §17.4, Definition 17.4.14, p. 800, (17.74) (new in the 2021 edition) | `GCT.PolyfoldConstruction.GoodNbhd.FTr`, `GCT.PolyfoldConstruction.GoodNbhd.faceSubPolyfold`, `GCT.PolyfoldConstruction.GoodNbhd.ftrHomeomorph`, `GCT.PolyfoldConstruction.GoodNbhd.ftrPolyfold` |
+| V17.94 | §17.5, Definition 17.5.1 and the text after it, p. 812 (2017: Definition 17.14) | `GCT.PolyfoldConstruction.IsBranchedSubcategory`, `GCT.PolyfoldConstruction.modelPull`, `GCT.PolyfoldConstruction.modelPush`, `GroupoidFunctor.pushTheta` and 1 more |
+| V17.97 | §17.5, Definition 17.5.3, p. 813 (2017: Definition 17.15) | `GCT.IsCompactBranched`, `GCT.PolyfoldConstruction.IsTameModel`, `GCT.PolyfoldConstruction.IsTameVia` |
+| V17.98 | §17.5, Definition 17.5.4, p. 813 (2017: Definition 17.16) | `GCT.IsManifoldTypeBranched`, `GCT.IsOrbifoldTypeBranched`, `GCT.PolyfoldConstruction.IsTameSubcategory` |
+| V17.100 | §17.5, Definition 17.5.6 and the text before it, pp. 814–815 (2017: Definition 17.17) | `GCT.PolyfoldConstruction.modelTangentTheta` |
+| V17.101 | §17.5, pp. 815–816 (2017: §17.4) | `GCT.PolyfoldConstruction.GrC`, `GCT.PolyfoldConstruction.grPushC`, `GCT.PolyfoldConstruction.tcMove` |
+| V17.108 | §17.6, pp. 819–820, (17.88) (2017: §17.5) | `GCT.PolyfoldConstruction.catFormsInfty` |
+| V17.117 | §17.7, pp. 824–825 (2017: §17.6) | `GroupoidalCategory.BanachFunctor`, `GroupoidalCategory.BanachFunctor.EMor`, `GroupoidalCategory.BanachFunctor.EObj`, `GroupoidalCategory.BanachFunctor.act` and 2 more |
+| V17.118 | §17.7, Definition 17.7.1, p. 825 (2017: Definition 17.22) | `GCT.VectorBundle` |
+| V17.119 | §17.7, Definition 17.7.2, p. 826 (2017: Definition 17.23) | `GCT.VectorBundle.StrongBundleUniformizer`, `GCT.VectorBundle.StrongBundleUniformizerData`, `GCT.VectorBundle.StrongBundleUniformizerData.functor` |
+| V17.120 | §17.7, Definition 17.7.3 and the text after it, pp. 826–827 (2017: Definition 17.24) | `GCT.VectorBundle.StrongBundleUniformizerConstruction`, `GCT.VectorBundle.StrongBundleUniformizerConstruction.Unif`, `GCT.VectorBundle.StrongBundleUniformizerConstruction.baseUnif`, `GCT.VectorBundle.StrongBundleUniformizerData.transAct` |
+| V17.121 | §17.7, Definition 17.7.4 and the list after it, pp. 827–828 (2017: Definition 17.25) | `GCT.VectorBundle.StrongBundleUniformizerConstruction.TransSpace`, `GCT.VectorBundle.StrongBundleUniformizerConstruction.transBundle`, `GCT.VectorBundle.StrongBundleUniformizerConstruction.transT`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction` |
+| V17.122 | §17.7, after Definition 17.7.4, pp. 827–828 (2017: §17.6) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.BundleCoveringFamily`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.ModelW`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleIncl`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFunctor` and 4 more |
+| V17.124 | §17.8, Definition 17.8.1 and p. 829 (2017: Definition 17.26) | `GroupoidFunctor.IsProperCoveringGCT`, `GroupoidFunctor.fibredMor` |
+| V17.128 | §17.8, Definition 17.8.4, p. 831 (2017: Definition 17.28) | `ProperCoveringModel`, `ProperCoveringModel.Connected`, `ProperCoveringModel.fiber` |
+| V17.135 | §17.8, Definition 17.8.10, pp. 834–835 (2017: Definition 17.29) | `ProperCoveringUniformizer` |
+| V17.136 | §17.8, Remark 17.8.11, p. 835 (2017: Remark 17.8) | `ProperCoveringUniformizer.isotropy`, `ProperCoveringUniformizer.toLocalUniformizer` |
+| V17.137 | §17.8, Definition 17.8.12, (17.101), (17.102), pp. 835–836 (2017: Definition 17.30) | `ProperCoveringUniformizer.HatTrans`, `ProperCoveringUniformizer.transMap`, `ProperCoveringUniformizerConstruction`, `ProperCoveringUniformizerConstruction.Unif` and 1 more |
+| V17.138 | §17.8, Definition 17.8.13, p. 836 (2017: Definition 17.31) | `ProperCoveringUniformizerConstruction.baseUnif`, `ProperPolyfoldCoveringFunctor`, `ProperPolyfoldCoveringStructure`, `ProperPolyfoldCoveringStructure.BaseTr` |
+| V17.139 | §17.8, Lemma 17.8.14 and (17.103), pp. 836–837 (2017: Lemma 17.10) | `ProperCoveringUniformizer.TransFibred`, `ProperCoveringUniformizer.fibredTransMap` |
+| V18.1 | §18.1, before Definition 18.1.1, pp. 843–844 (2017: §18.1) | `GCT.VectorBundle.SectionFunctor`, `GCT.VectorBundle.StrongBundleUniformizerData.localRep` |
+| V18.2 | §18.1, before Definition 18.1.1, p. 844 (2017: §18.1) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSection` |
+| V18.3 | §18.1, the functors on $E$ used in §§18.1–18.6, pp. 846–861 (2017: §§18.1–18.6) | `GCT.VectorBundle.IsMorInvariant`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull` |
+| V18.4 | §18.1, Definition 18.1.1, p. 844 (2017: Definition 18.1) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasStrongBundleUniformizers`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctorTame`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScSmoothSectionFunctor` |
+| V18.10 | §18.1, (18.2) and the following paragraph, p. 845 (2017: §18.1) | `GCT.VectorBundle.morFiber` |
+| V18.8 | §18.1, (18.1) and Definition 18.1.3, p. 845 (2017: Definition 18.2) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin` |
+| V18.11 | §18.1, before Theorem 18.1.5, p. 845 (2017: §18.1) | `GCT.PolyfoldConstruction.openSubConstruction`, `GCT.objOver`, `GCT.openSub`, `GCT.restrictTheta` |
+| V18.12 | §18.1, Theorem 18.1.5 with Remark 17.2.18, p. 846 (2017: Theorem 18.1) | `GCT.PolyfoldConstruction.IsInGoodPositionToPartialCone`, `GCT.PolyfoldConstruction.partialCone`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsKernelInGoodPosition`, `IsInGoodPositionTop` |
+| V18.15 | §18.1, Definition 18.1.7, p. 846 (2017: Definition 18.4) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.EOneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.FiberCond`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormDirect` and 5 more |
+| V18.17 | §18.1, Definition 18.1.9 and the following paragraph, p. 847 (2017: Definition 18.5) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibers`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibersIn` |
+| V18.18 | §18.1, Definition 18.1.10, p. 847 (2017: Definition 18.6) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormIn` |
+| V18.20 | §18.1, before Theorem 18.1.12, pp. 847–848 (2017: §18.1) | `GCT.VectorBundle.SectionFunctor.sublevel` |
+| V18.22 | §18.2, (18.3) and the paragraph before Definition 18.2.1, p. 849 (2017: §18.2) | `GCT.VectorBundle.SectionFunctor.zeroSet` |
+| V18.23 | §18.2, Definition 18.2.1, p. 849 (2017: Definition 18.8) | `GCT.VectorBundle.SectionFunctor.HasCompactModuliSpace`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProper`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProperLtInfty` |
+| V18.25 | §18.2, Definition 18.2.3 and the following observation, p. 850 (2017: Definition 18.9) | `GCT.VectorBundle.SectionFunctor.ControlsCompactness` |
+| V18.26 | §18.2, Definition 18.2.4, p. 850 (2017: Definition 18.10) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveLocalCompactness` |
+| V18.30 | §18.3, Definition 18.3.1, p. 852 (2017: Definition 18.11) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionIn` |
+| V18.32 | §18.3, after Remark 18.3.2, p. 852 (2017: §18.3) | `GCT.VectorBundle.pointwiseNormFunctor` |
+| V18.33 | §18.3, Definition 18.3.3, p. 852 (2017: Definition 18.12) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableIn` |
+| V18.35 | §18.3, before Theorem 18.3.5, pp. 852–853 (2017: §18.3) | `GCT.PolyfoldConstruction.IsScSmoothFunctionFunctor`, `GCT.VectorBundle.multisectionFunctorAdd`, `GCT.VectorBundle.multisectionFunctorSmul` |
+| V18.38 | §18.4, Definition 18.4.1, p. 853 (2017: Definition 18.13) | `GCT.PolyfoldConstruction.AdmitsModelBumpFunctions`, `GCT.PolyfoldConstruction.AdmitsModelPartitionsOfUnity` |
+| V18.42 | §18.5, the paragraph before Definition 18.5.1 and Definition 18.5.1, p. 857 (2017: Definition 18.14) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.DetOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refMor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refPt` |
+| V18.43 | §18.5, after Definition 18.5.1, pp. 857–858 (2017: §18.5) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrSectionFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrSection` |
+| V18.44 | §18.5, before Definition 18.5.2, p. 858 (2017: §18.5) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelTransport`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.toRef` |
+| V18.45 | §18.5, Definition 18.5.2, pp. 858–859 (2017: Definition 18.15) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasContinuityProperty`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelContOrOn` |
+| V18.47 | §18.5, Definition 18.5.4, p. 859 (2017: Definition 18.16) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelOrientation`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientable`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientation` |
+| V19.5 | §19.1, p. 865 (2017: §19.1) | `GroupoidStr.TransitionSet.inv`, `GroupoidStr.TransitionSet.mul`, `GroupoidStr.TransitionSet.unit`, `GroupoidalCategory.Uniformizer.Trans` and 1 more |
+| V19.3 | §19.1, Definition 19.1.3, p. 865 (2017: Definition 19.3) | `GroupoidalCategory.UniformizerConstruction`, `GroupoidalCategory.UniformizerConstruction.HasClassUniformizers`, `GroupoidalCategory.UniformizerConstruction.Unif` |
+| V19.6 | §19.1, properties (19.3), pp. 866–867 (2017: §19.1) | `GroupoidalCategory.UniformizerConstruction.TransitionData`, `GroupoidalCategory.UniformizerConstruction.TransitionData.fmap` |
+| V19.7 | §19.1, p. 867, and Definition 19.1.5, p. 867 (new in the 2021 edition) | `GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv`, `GroupoidalCategory.UniformizerConstruction.TransitionData.setoid` |
+| V19.8 | §19.1, Definition 19.1.6, p. 867 (2017: Definition 19.4) | `GroupoidalCategory.UniformizerConstruction.TransitionConstruction` |
+| V19.9 | §19.1, Definition 19.1.7, p. 868 (2017: Definition 19.5) | `GroupoidalCategory.BasicConstruction`, `GroupoidalCategory.BasicConstruction.rep` |
+| V19.11 | §19.2, Definition 19.2.1, p. 869 (2017: Definition 19.6) | `GroupoidalCategory.BasicConstruction.natTop`, `GroupoidalCategory.UniformizerConstruction.NatOpen` |
+| V19.15 | §19.3, Lemma 19.3.1, p. 872 (new in the 2021 edition) | `GroupoidalCategory.UniformizerConstruction.TransitionData.IsOpenTr`, `GroupoidalCategory.UniformizerConstruction.TransitionData.Tr`, `GroupoidalCategory.UniformizerConstruction.TransitionData.topology` |
+| V19.16 | §19.3, Definition 19.3.2, p. 873 (2017: Definition 19.7) | `GroupoidalCategory.BasicConstruction.M`, `GroupoidalCategory.BasicConstruction.trHomeomorph` |
+| V19.23 | §19.4, Definition 19.4.1, p. 879 (2017: Definition 19.8) | `Chapter19.OrbitChartV2`, `Chapter19.OrbitChartV3`, `Chapter19.OrbitChartV3Lim`, `GroupoidalCategory.BasicConstruction.PropernessV1` and 3 more |
+| V19.35 | §19.5, Definition 19.5.5, p. 889 (new in the 2021 edition) | `GroupoidalCategory.Uniformizer.tangentSmul`, `GroupoidalCategory.Uniformizer.toEP` |
+| V19.46 | §19.5 (no numbered item) | `EP.liftVal`, `EpGroupoid.IsLRAt` |
+| V19.38 | §19.5, Definition 19.5.8, p. 889 (new in the 2021 edition) | `GroupoidalCategory.BasicConstruction.IsLUC`, `GroupoidalCategory.BasicConstruction.IsLUCLevel`, `GroupoidalCategory.BasicConstruction.IsLevelClass`, `GroupoidalCategory.BasicConstruction.IsSLUC` and 1 more |
+| V19.36 | §19.5, Definition 19.5.6, p. 889 (new in the 2021 edition) | `GroupoidalCategory.BasicConstruction.IsSmoothClass`, `GroupoidalCategory.BasicConstruction.IsZhou`, `GroupoidalCategory.Uniformizer.IsZhouAt` |
+| V19.40 | §19.5, Definition 19.5.10, p. 890 (new in the 2021 edition) | `GroupoidalCategory.BasicConstruction.IsLR`, `GroupoidalCategory.BasicConstruction.IsLRLevel`, `GroupoidalCategory.BasicConstruction.IsSLR`, `GroupoidalCategory.Uniformizer.IsLRAt` |
+| V19.47 | §19.6, pp. 890–891 (2017: §19.6) | `GroupoidalCategory.BanFunctor`, `GroupoidalCategory.BanFunctor.cat`, `GroupoidalCategory.BanFunctor.orbitProj` |
+| V19.48 | §19.6, Definition 19.6.1, p. 891 (2017: Definition 19.9) | `GroupoidalCategory.StrongBundleStr`, `GroupoidalCategory.StrongBundleUniformizer` |
+| V19.50 | §19.6, Definition 19.6.3, p. 892 (2017: Definition 19.10) | `GroupoidalCategory.StrongBundleUniformizerConstruction`, `GroupoidalCategory.StrongBundleUniformizerConstruction.base`, `GroupoidalCategory.StrongBundleUniformizerConstruction.toE` |
+| V19.51 | §19.6, pp. 892–894, (19.10) (2017: §19.6) | `GroupoidalCategory.StrongBundleStr.proj`, `GroupoidalCategory.StrongBundleUniformizerConstruction.fmapBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.mapBar` |
+| V19.52 | §19.6, Definition 19.6.4, p. 895 (2017: Definition 19.11) | `GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData`, `GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.toETD` |
+| V19.53 | §19.6, Definition 19.6.5, p. 896 (new in the 2021 edition) | `GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction`, `GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toBaseTC`, `GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toETC` |
+| V19.54 | §19.6, Definition 19.6.6, p. 896 (2017: Definition 19.12) | `GroupoidalCategory.BasicStrongBundleConstruction`, `GroupoidalCategory.BasicStrongBundleConstruction.base`, `GroupoidalCategory.BasicStrongBundleConstruction.rep`, `GroupoidalCategory.BasicStrongBundleConstruction.toE` |
+| V19.55 | §19.6, Definition 19.6.7, p. 897 (2017: Definition 19.13) | `GroupoidalCategory.BasicStrongBundleConstruction.BarOpen`, `GroupoidalCategory.BasicStrongBundleConstruction.topE`, `GroupoidalCategory.BasicStrongBundleConstruction.topS` |
+| V19.58 | §19.6, Definition 19.6.10, p. 898 (2017: Definition 19.14) | `GroupoidalCategory.BasicStrongBundleConstruction.MBar` |
+| V19.64 | §19.6, pp. 900–902, (19.14)–(19.17) (2017: §19.6) | `GroupoidalCategory.StrongBundleUniformizerConstruction.SrcPB`, `GroupoidalCategory.StrongBundleUniformizerConstruction.altH`, `GroupoidalCategory.StrongBundleUniformizerConstruction.srcBundle` |
+| V19.66 | §19.6, pp. 901–903 (2017: §19.6) | `StrongBundle.transport` |
+| V19.68 | §19.7, Definition 19.7.1 and Remark 19.7.2, p. 906 (2017: Definition 19.15) | `GroupoidalCategory.IsFiniteToOneCovering`, `GroupoidalCategory.IsFiniteToOneCovering.lift` |
+| V19.69 | §19.7, Definitions 19.7.3 and 19.7.4, pp. 906–907 (2017: Definition 19.16) | `GroupoidalCategory.CoveringUniformizer` |
+| V19.71 | §19.7, Definition 19.7.7 and Remark 19.7.8, p. 908 (2017: Definition 19.18) | `GroupoidalCategory.CoveringUniformizerConstruction`, `GroupoidalCategory.CoveringUniformizerConstruction.toUniformizerConstruction` |
+| V19.72 | §19.7, Lemmas 19.7.9 and 19.7.10, pp. 908–909 (new in the 2021 edition) | `GroupoidalCategory.CoveringUniformizer.Trans`, `GroupoidalCategory.CoveringUniformizer.transMap` |
+| V19.73 | §19.7, Definition 19.7.11, p. 910 (2017: Definition 19.19) | `GroupoidalCategory.CoveringBasicConstruction`, `GroupoidalCategory.CoveringBasicConstruction.HasClassUniformizers`, `GroupoidalCategory.CoveringBasicConstruction.IsCompatible`, `GroupoidalCategory.CoveringBasicConstruction.toBasic` |
+| V19.74 | §19.7, Lemma 19.7.12, p. 911 (new in the 2021 edition) | `GroupoidalCategory.CoveringBasicConstruction.Fib` |
+| V19.79 | §19.7, Definition 19.7.16 and Lemma 19.7.17, p. 916 (new in the 2021 edition) | `GroupoidalCategory.CoveringBasicConstruction.NatOpenA`, `GroupoidalCategory.CoveringBasicConstruction.natTopA` |
+| V19.91 | §19.8, Definition 19.8.1, p. 932 (new in the 2021 edition) | `GroupoidalCategory.BanFunctor.pull`, `GroupoidalCategory.GroupoidAction.groupoid`, `GroupoidalCategory.PullbackUniformizer`, `GroupoidalCategory.StrongBundleOver` |
+| V19.92 | §19.8, Definition 19.8.2, p. 932 (new in the 2021 edition) | `GroupoidalCategory.PullbackUniformizerConstruction`, `GroupoidalCategory.PullbackUniformizerConstruction.hatU`, `GroupoidalCategory.PullbackUniformizerConstruction.toUniformizerConstruction` |
+| V19.93 | §19.8, Lemma 19.8.3, p. 933 (new in the 2021 edition) | `GroupoidalCategory.PullbackUniformizer.gammaHat` |
+| V19.94 | §19.8, Definition 19.8.4, p. 934 (new in the 2021 edition) | `GroupoidalCategory.PullbackUniformizerConstruction.IsCoherent`, `GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction`, `GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction.toCoveringBasicConstruction`, `GroupoidalCategory.PullbackUniformizerConstruction.toCBC` |
+| V19.99 | §19.8, Definition 19.8.7, p. 941 (2017: Definition 19.20) | `GroupoidalCategory.BundleCoveringSquare`, `GroupoidalCategory.BundleCoveringSquare.Phat` |
+| V19.100 | §19.8, Definition 19.8.8 and Remark 19.8.9, p. 943 (2017: Definition 19.21) | `GroupoidalCategory.StrongEpBundleCoveringModel` |
+| V19.101 | §19.8, Definition 19.8.10, p. 943 (2017: Definition 19.22) | `GroupoidalCategory.SquareUniformizer`, `GroupoidalCategory.SquareUniformizer.toPullbackUniformizer`, `GroupoidalCategory.SquareUniformizer.toStrongBundleOver` |
+| V19.104 | §19.8, Definition 19.8.13, p. 948 (2017: Definition 19.23) | `GroupoidalCategory.SquareUniformizerConstruction`, `GroupoidalCategory.SquareUniformizerConstruction.toPullback` |
+| V19.105 | §19.8, Definitions 19.8.14 and 19.8.15, pp. 948–949 (2017: Definition 19.24) | `GroupoidalCategory.SquareBasicConstruction`, `GroupoidalCategory.SquareUniformizerConstruction.CompatibleTransitionConstruction` |
+| V19.106 | §19.8, Lemma 19.8.16 and Definition 19.8.17, pp. 951–952 (new in the 2021 edition) | `GroupoidalCategory.SquareUniformizerConstruction.MSq`, `GroupoidalCategory.SquareUniformizerConstruction.USq`, `GroupoidalCategory.SquareUniformizerConstruction.USqInv`, `GroupoidalCategory.SquareUniformizerConstruction.bundleSq` and 2 more |
+| V19.108 | §19.8, Definition 19.8.19, p. 954 (new in the 2021 edition) | `IsProperStrongBundleCoveringSquare` |
+| V19.109 | §19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition) | `GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA`, `GroupoidalCategory.SquareUniformizerConstruction.natTopEA` |
+
+<details><summary>360 helper constants without a row of their own (accessors, coercions, instances)</summary>
+
+* Chapter16/RaisedPolyfold.lean: `EPLocalization.Diagram.liftOne`, `EPLocalization.EPLoc.liftOneHom`
+* Chapter17/BranchedSubcategory.lean: `GroupoidStr.orbitSupp`
+* Chapter17/BundleModel.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelMor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelObj`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelBase`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelP`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSrc`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSrcPiece`
+* Chapter17/BundleModelComparison.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.BundleCoveringFamily.base`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelMap`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleReindex`
+* Chapter17/CategoryStokes.lean: `GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralDim1Via`, `GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralEffDim1Via`
+* Chapter17/GroupoidalCategory.lean: `GroupoidalCategory.OrbitSpace`, `GroupoidalCategory.π`
+* Chapter17/LevelOneCategory.lean: `GCT.PolyfoldConstruction.levelOneCover`, `GCT.PolyfoldConstruction.levelOneInclusion`, `GCT.PolyfoldConstruction.modelFunctorOne`, `GCT.PolyfoldConstruction.modelOrbitEquivOne`, `GCT.PolyfoldConstruction.orbitInclLevelOne`, `GroupoidFunctor.corestrict`, `GroupoidStr.fullSubInclusion`
+* Chapter17/LevelOrbitSpaces.lean: `EP.liftInclLevel`
+* Chapter17/LevelStructures.lean: `GCT.PolyfoldConstruction.LTr`, `GCT.PolyfoldConstruction.instTopologicalSpaceLTr`, `GCT.PolyfoldConstruction.levelOneData`, `GCT.PolyfoldConstruction.levelOneF`, `GCT.PolyfoldConstruction.levelOneFunctor`, `GCT.PolyfoldConstruction.levelOneMOf`, `GCT.PolyfoldConstruction.levelOneMulAction`, `GCT.PolyfoldConstruction.levelOneTopOf`, `GCT.PolyfoldConstruction.ltrHomeomorph`, `GCT.UniformizedPolyfold.levelEquivSub`, `GCT.UniformizedPolyfold.levelOne`, `GCT.UniformizedPolyfold.levelOrbitEquiv`
+* Chapter17/LocalUniformizer.lean: `GCT.LocalUniformizer.IsAt`, `GCT.LocalUniformizer.obj`, `GroupoidalCategory.Uniformizer.FixesPoint`, `GroupoidalCategory.Uniformizer.hatEquiv`, `GroupoidalCategory.Uniformizer.mor`, `GroupoidalCategory.Uniformizer.obj`
+* Chapter17/ModelComparison.lean: `GCT.PolyfoldConstruction.modelProjLeft`, `GCT.PolyfoldConstruction.modelProjRight`
+* Chapter17/ModelEpGroupoid.lean: `GCT.PolyfoldConstruction.modelMorEquiv`, `GCT.PolyfoldConstruction.modelObjMap`, `GroupoidStr.ofEquiv`
+* Chapter17/PolyfoldConstruction.lean: `GCT.PolyfoldConstruction.CoveringFamily`, `GCT.PolyfoldConstruction.HasCoveringUniformizers`, `GCT.PolyfoldConstruction.HasUniformizers`, `GCT.PolyfoldConstruction.Unif`, `GCT.PolyfoldConstruction.hatInv`, `GCT.PolyfoldConstruction.instTopologicalSpaceTr`, `GCT.PolyfoldConstruction.morPolyfold`, `GCT.PolyfoldConstruction.toTr`, `GCT.Unif`, `GCT.UniformizerConstruction.Unif`
+* Chapter17/PolyfoldConstructionExamples.lean: `MPolyfold.transport`
+* Chapter17/PolyfoldLevels.lean: `GCT.PolyfoldConstruction.IsSmoothObj`
+* Chapter17/ProperCoveringModelRestrict.lean: `ProperCoveringModel.restrictObjPolyfold`
+* Chapter17/ProperCoveringUniformizer.lean: `ProperCoveringUniformizerConstruction.Unif.unif`
+* Chapter17/SigmaStrongBundle.lean: `StrongBundle.sigma`, `StrongBundleChart.sigmaPush`, `pullbackSigmaProj`, `sigmaBundleProj`, `sigmaFiberEquiv`, `sigmaFiber_addCommGroup`, `sigmaFiber_module`, `sigmaLift`, `sigmaStrongBundleAtlas`
+* Chapter17/StrongBundleStructures.lean: `GCT.VectorBundle.StrongBundleUniformizerData.lift`, `GCT.VectorBundle.StrongBundleUniformizerData.mor`, `GCT.VectorBundle.StrongBundleUniformizerData.obj`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.Unif`
+* Chapter17/SubpolyfoldStructure.lean: `GCT.LocalUniformizer.restrictFunctor`, `GCT.LocalUniformizer.restrictMulAction`, `GCT.PolyfoldConstruction.RTr`, `GCT.PolyfoldConstruction.instTopologicalSpaceRTr`, `GCT.PolyfoldConstruction.rtrHomeomorph`, `GCT.PolyfoldConstruction.subF`, `GCT.PolyfoldConstruction.subMOf`, `GCT.PolyfoldConstruction.subTopOf`, `GCT.fullSubGroupoidal`, `GCT.subOrbitMap`, `GroupoidStr.subMulAction`
+* Chapter17/TameBoundaryCategory.lean: `GCT.PolyfoldConstruction.BMor.comp`, `GCT.PolyfoldConstruction.BMor.compOf`, `GCT.PolyfoldConstruction.GoodNbhd.triple`, `GCT.PolyfoldConstruction.bdryRefTr`, `GCT.PolyfoldConstruction.bdryRefUnif`, `GCT.PolyfoldConstruction.refPt`
+* Chapter17/TameBoundaryGerms.lean: `GCT.PolyfoldConstruction.bO`, `GCT.PolyfoldConstruction.germPush`, `GCT.PolyfoldConstruction.hdU`
+* Chapter17/TameBoundaryTransitionStructure.lean: `GCT.PolyfoldConstruction.GoodNbhd.instTopologicalSpaceFTr`
+* Chapter17/TameBoundaryUniformizer.lean: `GCT.PolyfoldConstruction.GoodNbhd.faceMor`, `GCT.PolyfoldConstruction.faceStabilizerAction`, `GCT.PolyfoldConstruction.isoOf`, `GCT.PolyfoldConstruction.ptTr`
+* Chapter17/TangentCategory.lean: `GCT.PolyfoldConstruction.TangentCatMor.comp`, `GCT.PolyfoldConstruction.TangentCatMor.inv`, `GCT.PolyfoldConstruction.TangentCatMor.tgt`, `GCT.PolyfoldConstruction.TangentCatObj.unitMor`, `GCT.PolyfoldConstruction.basePt`, `GCT.PolyfoldConstruction.refMorVec`, `GCT.PolyfoldConstruction.refQ`, `GCT.PolyfoldConstruction.refTr`
+* Chapter17/TangentModel.lean: `GCT.PolyfoldConstruction.modelTMorMk`, `GCT.PolyfoldConstruction.modelTObjMk`, `GCT.PolyfoldConstruction.tangentCover`, `GCT.PolyfoldConstruction.tangentModelMor`, `GCT.PolyfoldConstruction.tangentModelObj`, `GCT.PolyfoldConstruction.tangentModelOrbitEquiv`, `MPolyfold.sigmaTangentComp`, `MPolyfold.sigmaTangentElim`, `MPolyfold.sigmaTangentIdx`
+* Chapter17/TangentTransition.lean: `GCT.PolyfoldConstruction.TTrIndex`, `GCT.PolyfoldConstruction.chartMor`
+* Chapter17/TangentTransitionStructure.lean: `GCT.PolyfoldConstruction.instTopologicalSpaceTTrM`, `GCT.PolyfoldConstruction.tangentLift`, `GCT.PolyfoldConstruction.tangentTrChartExt`, `GCT.PolyfoldConstruction.tangentTrEquiv`, `GCT.PolyfoldConstruction.tangentTrMap`, `GCT.PolyfoldConstruction.toTTrM`, `GCT.PolyfoldConstruction.trBase`, `GCT.PolyfoldConstruction.trTSrc`
+* Chapter17/TangentVectors.lean: `GCT.PolyfoldConstruction.TangentTuple.base`, `GCT.PolyfoldConstruction.TangentTuple.tr`, `GCT.PolyfoldConstruction.instAddCommGroupTangentSpaceAt`, `GCT.PolyfoldConstruction.instModuleRealTangentSpaceAt`, `GCT.PolyfoldConstruction.instTopologicalSpaceTangentSpaceAt`, `GCT.PolyfoldConstruction.morTr`, `GCT.PolyfoldConstruction.pointOf`, `GCT.PolyfoldConstruction.refChart`, `GCT.PolyfoldConstruction.refChartCLE`, `GCT.PolyfoldConstruction.refPoint`, `GCT.PolyfoldConstruction.refUnif`, `GCT.PolyfoldConstruction.tangentSetoid`, `GCT.PolyfoldConstruction.transTangentCLM`, `GCT.PolyfoldConstruction.triple`, `GCT.PolyfoldConstruction.unitTr`
+* Chapter17/TransitionSet.lean: `GroupoidStr.TransitionSet.comp`
+* Chapter17/VectorBundleGCT.lean: `GroupoidalCategory.BanachFunctor.EMor.e`, `GroupoidalCategory.BanachFunctor.EMor.φ`, `GroupoidalCategory.BanachFunctor.base`, `GroupoidalCategory.BanachFunctor.compE`, `GroupoidalCategory.BanachFunctor.compMor`, `GroupoidalCategory.BanachFunctor.invE`, `GroupoidalCategory.BanachFunctor.objMk`, `GroupoidalCategory.BanachFunctor.unitE`, `GroupoidalCategory.sigmaAct`
+* Chapter18/AuxiliaryNorms.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refCoveringFamily`
+* Chapter18/AuxiliaryNormsDirect.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsCompleteNormOn`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.instTopologicalSpaceEOneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneClass`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEmb`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEquiv`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneFiberSet`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneMk`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneTopology`
+* Chapter18/FredholmSectionFunctors.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.adjoin`
+* Chapter18/Linearization.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refBundlePoint`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refBundleUnif`, `GCT.VectorBundle.fiberCast`
+* Chapter18/LinearizationTransport.lean: `StrongBundle.linZeroAt`
+* Chapter18/Orientations.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelInvariant`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.ModelOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.adjoinFamily`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPullOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPushOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refLift`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.sumFamily`
+* Chapter18/TangentPartialCone.lean: `MPolyfold.fiberChartComplement`, `MPolyfold.fiberChartDim`, `MPolyfold.fiberChartPresentation`, `MPolyfold.tangentPartialCone`
+* Chapter19/CoveringConstruction.lean: `GroupoidalCategory.CoveringUniformizer.liftTrans`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif.toUnif`
+* Chapter19/CoveringPolyfold.lean: `GroupoidalCategory.CoveringBasicConstruction.fibSetHomeomorph`, `GroupoidalCategory.CoveringBasicConstruction.gctA`, `GroupoidalCategory.CoveringBasicConstruction.gctB`, `GroupoidalCategory.CoveringBasicConstruction.polyfoldB`, `GroupoidalCategory.CoveringBasicConstruction.toFibSet`, `GroupoidalCategory.CoveringBasicConstruction.unifOf`
+* Chapter19/CoveringPullbackDiagram.lean: `GroupoidalCategory.BanFunctor.pullCLE`, `GroupoidalCategory.BanFunctor.pullLift`, `GroupoidalCategory.BanFunctor.pullMk`, `GroupoidalCategory.BanFunctor.pullMorE`, `GroupoidalCategory.BanFunctor.pullPt`, `GroupoidalCategory.BanFunctor.pullTop`, `GroupoidalCategory.GroupoidAction`, `GroupoidalCategory.GroupoidAction.morComp`, `GroupoidalCategory.GroupoidAction.morInv`, `GroupoidalCategory.PullbackUniformizer.TauW`, `GroupoidalCategory.PullbackUniformizer.TransG`, `GroupoidalCategory.PullbackUniformizer.gammaHatObj`, `GroupoidalCategory.PullbackUniformizer.mG`, `GroupoidalCategory.PullbackUniformizer.str`, `GroupoidalCategory.PullbackUniformizer.tauG`, `GroupoidalCategory.PullbackUniformizer.tauW`, `GroupoidalCategory.PullbackUniformizer.tauWAction`, `GroupoidalCategory.PullbackUniformizer.Γ`, `GroupoidalCategory.PullbackUniformizerConstruction.Unif`, `GroupoidalCategory.PullbackUniformizerConstruction.Unif.toHat`, `GroupoidalCategory.StrongBundleOver.toStr`, `GroupoidalCategory.StrongBundleOver.toUniformizer`
+* Chapter19/CoveringPullbackTheorem.lean: `GroupoidalCategory.PullbackUniformizerConstruction.MBase`, `GroupoidalCategory.PullbackUniformizerConstruction.MG`, `GroupoidalCategory.PullbackUniformizerConstruction.MGHat`, `GroupoidalCategory.PullbackUniformizerConstruction.MGHat.toTrans`, `GroupoidalCategory.PullbackUniformizerConstruction.MHatB`, `GroupoidalCategory.PullbackUniformizerConstruction.PB`, `GroupoidalCategory.PullbackUniformizerConstruction.SrcPB`, `GroupoidalCategory.PullbackUniformizerConstruction.TgtPB`, `GroupoidalCategory.PullbackUniformizerConstruction.Uequiv`, `GroupoidalCategory.PullbackUniformizerConstruction.Uhomeo`, `GroupoidalCategory.PullbackUniformizerConstruction.Uinv`, `GroupoidalCategory.PullbackUniformizerConstruction.altC`, `GroupoidalCategory.PullbackUniformizerConstruction.altH`, `GroupoidalCategory.PullbackUniformizerConstruction.altH'inv`, `GroupoidalCategory.PullbackUniformizerConstruction.altHEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.altHHomeo`, `GroupoidalCategory.PullbackUniformizerConstruction.altHinv`, `GroupoidalCategory.PullbackUniformizerConstruction.basePoly`, `GroupoidalCategory.PullbackUniformizerConstruction.bundleHat`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberGEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberGLin`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberHatEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberHatLin`, `GroupoidalCategory.PullbackUniformizerConstruction.hatPoly`, `GroupoidalCategory.PullbackUniformizerConstruction.instAddCommGroupFiberG`, `GroupoidalCategory.PullbackUniformizerConstruction.instAddCommGroupFiberHat`, `GroupoidalCategory.PullbackUniformizerConstruction.instModuleFiberG`, `GroupoidalCategory.PullbackUniformizerConstruction.instModuleFiberHat`, `GroupoidalCategory.PullbackUniformizerConstruction.instTopologicalSpaceMG`, `GroupoidalCategory.PullbackUniformizerConstruction.instTopologicalSpaceMGHat`, `GroupoidalCategory.PullbackUniformizerConstruction.mGmap`, `GroupoidalCategory.PullbackUniformizerConstruction.mHatMap`, `GroupoidalCategory.PullbackUniformizerConstruction.srcB`, `GroupoidalCategory.PullbackUniformizerConstruction.srcBundle`, `GroupoidalCategory.PullbackUniformizerConstruction.tgtB`, `GroupoidalCategory.PullbackUniformizerConstruction.tgtBundle`, `fiberEquivOver`
+* Chapter19/CoveringSquare.lean: `GroupoidalCategory.BundleCoveringSquare.PhatMor`, `GroupoidalCategory.BundleCoveringSquare.ThetaE`, `GroupoidalCategory.StrongEpBundleCoveringModel.instMulAction`, `GroupoidalCategory.StrongEpBundleCoveringModel.smul`, `GroupoidalCategory.epAction`
+* Chapter19/CoveringSquareMultiplication.lean: `GroupoidalCategory.PullbackUniformizerConstruction.BFP`, `GroupoidalCategory.PullbackUniformizerConstruction.BFPpoly`, `GroupoidalCategory.PullbackUniformizerConstruction.FPG`, `GroupoidalCategory.PullbackUniformizerConstruction.invB`, `GroupoidalCategory.PullbackUniformizerConstruction.invG`, `GroupoidalCategory.PullbackUniformizerConstruction.mulB`, `GroupoidalCategory.PullbackUniformizerConstruction.mulG`, `GroupoidalCategory.PullbackUniformizerConstruction.mulLiftG`, `GroupoidalCategory.PullbackUniformizerConstruction.pr₂B`, `GroupoidalCategory.PullbackUniformizerConstruction.toFPG`, `GroupoidalCategory.PullbackUniformizerConstruction.unitB`, `GroupoidalCategory.PullbackUniformizerConstruction.unitG`, `GroupoidalCategory.SquareUniformizerConstruction.FPSq`, `GroupoidalCategory.SquareUniformizerConstruction.HFP`, `GroupoidalCategory.SquareUniformizerConstruction.HFPpoly`, `GroupoidalCategory.SquareUniformizerConstruction.invH`, `GroupoidalCategory.SquareUniformizerConstruction.invSq`, `GroupoidalCategory.SquareUniformizerConstruction.mulBundleSq`, `GroupoidalCategory.SquareUniformizerConstruction.mulH`, `GroupoidalCategory.SquareUniformizerConstruction.mulPB`, `GroupoidalCategory.SquareUniformizerConstruction.mulSq`, `GroupoidalCategory.SquareUniformizerConstruction.pFP`, `GroupoidalCategory.SquareUniformizerConstruction.pbarFP`, `GroupoidalCategory.SquareUniformizerConstruction.pr₂H`, `GroupoidalCategory.SquareUniformizerConstruction.toFPSq`, `GroupoidalCategory.SquareUniformizerConstruction.unitH`, `GroupoidalCategory.SquareUniformizerConstruction.unitSq`
+* Chapter19/CoveringSquareTheorem.lean: `GroupoidalCategory.SquareUniformizerConstruction.MSq.toTrans`, `GroupoidalCategory.SquareUniformizerConstruction.USqEquiv`, `GroupoidalCategory.SquareUniformizerConstruction.USqHomeo`, `GroupoidalCategory.SquareUniformizerConstruction.Unif`, `GroupoidalCategory.SquareUniformizerConstruction.Unif.toPU`, `GroupoidalCategory.SquareUniformizerConstruction.fiberSqEquiv`, `GroupoidalCategory.SquareUniformizerConstruction.fiberSqLin`, `GroupoidalCategory.SquareUniformizerConstruction.instAddCommGroupFiberSq`, `GroupoidalCategory.SquareUniformizerConstruction.instModuleFiberSq`, `GroupoidalCategory.SquareUniformizerConstruction.instTopologicalSpaceMSq`, `GroupoidalCategory.SquareUniformizerConstruction.srcG`, `GroupoidalCategory.SquareUniformizerConstruction.srcH`, `GroupoidalCategory.SquareUniformizerConstruction.srcSq`, `GroupoidalCategory.StrongEpBundleCoveringModel.fiberCLEXi`, `GroupoidalCategory.StrongEpBundleCoveringModel.liftPt`
+* Chapter19/CoveringSquareTopology.lean: `GroupoidalCategory.PullbackUniformizerConstruction.NatOpenEB`, `GroupoidalCategory.PullbackUniformizerConstruction.tgtGmap`, `GroupoidalCategory.SquareUniformizerConstruction.tgtH`, `GroupoidalCategory.SquareUniformizerConstruction.tgtSq`
+* Chapter19/CoveringTopology.lean: `GroupoidalCategory.CoveringBasicConstruction.FibProdHat`, `GroupoidalCategory.CoveringBasicConstruction.MB`, `GroupoidalCategory.CoveringBasicConstruction.MHat`, `GroupoidalCategory.CoveringBasicConstruction.invHat`, `GroupoidalCategory.CoveringBasicConstruction.mulHat`, `GroupoidalCategory.CoveringBasicConstruction.pB`, `GroupoidalCategory.CoveringBasicConstruction.srcHat`, `GroupoidalCategory.CoveringBasicConstruction.tgtHat`, `GroupoidalCategory.CoveringBasicConstruction.toFib`, `GroupoidalCategory.CoveringBasicConstruction.toMHat`, `GroupoidalCategory.CoveringBasicConstruction.topologicalSpaceMHat`, `GroupoidalCategory.CoveringBasicConstruction.unitHat`
+* Chapter19/NaturalTopology.lean: `GroupoidalCategory.UniformizerConstruction.TransitionData.instTopologicalSpaceTr`, `GroupoidalCategory.UniformizerConstruction.TransitionData.toTr`
+* Chapter19/PolyfoldStructure.lean: `GroupoidalCategory.UniformizerConstruction.TransitionData.SheetSpace`, `GroupoidalCategory.UniformizerConstruction.TransitionData.sheetMap`
+* Chapter19/PolyfoldStructureGCT.lean: `GroupoidalCategory.BasicConstruction.gctF`, `GroupoidalCategory.BasicConstruction.toUnif`
+* Chapter19/StrongBundleAlternative.lean: `GroupoidalCategory.StrongBundleUniformizerConstruction.trSrc`, `GroupoidalCategory.StrongBundleUniformizerConstruction.trTgt`
+* Chapter19/StrongBundleCoherence.lean: `GroupoidalCategory.StrongBundleUniformizerConstruction.trInv`
+* Chapter19/StrongBundleMultiplication.lean: `GroupoidalCategory.StrongBundleUniformizerConstruction.BFP`, `GroupoidalCategory.StrongBundleUniformizerConstruction.BFPpoly`, `GroupoidalCategory.StrongBundleUniformizerConstruction.mulBase`, `GroupoidalCategory.StrongBundleUniformizerConstruction.mulLift`, `GroupoidalCategory.StrongBundleUniformizerConstruction.pr₂BFP`
+* Chapter19/StrongBundleTheorem.lean: `GroupoidalCategory.StrongBundleUniformizerConstruction.MB`, `GroupoidalCategory.StrongBundleUniformizerConstruction.MBpoly`, `GroupoidalCategory.StrongBundleUniformizerConstruction.MS`, `GroupoidalCategory.StrongBundleUniformizerConstruction.altHE`, `GroupoidalCategory.StrongBundleUniformizerConstruction.altHinv`, `GroupoidalCategory.StrongBundleUniformizerConstruction.fiberEquivBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.fiberLinBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.instAddCommGroupFiberBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.instModuleFiberBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.invBar`, `GroupoidalCategory.StrongBundleUniformizerConstruction.projBar`
+* Chapter19/StrongBundleTransition.lean: `GroupoidalCategory.StrongBundleStr.liftMap`, `GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.Equiv`, `GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.projE`, `GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.setoid`
+* Chapter19/StrongBundleTransport.lean: `StrongBundleChart.transport`
+* Chapter19/StrongBundleUniformizer.lean: `GroupoidalCategory.BanFunctor.act`, `GroupoidalCategory.BanFunctor.fiberCast`, `GroupoidalCategory.BanFunctor.groupoidStr`, `GroupoidalCategory.BanFunctor.morComp`, `GroupoidalCategory.BanFunctor.morInv`, `GroupoidalCategory.BanFunctor.proj`, `GroupoidalCategory.BanFunctor.unitPair`, `GroupoidalCategory.StrongBundleStr.lift`, `GroupoidalCategory.StrongBundleStr.liftTgt`, `GroupoidalCategory.StrongBundleStr.toBase`, `GroupoidalCategory.StrongBundleUniformizerConstruction.Unif`, `GroupoidalCategory.StrongBundleUniformizerConstruction.baseUnif`, `GroupoidalCategory.StrongBundleUniformizerConstruction.ofE`, `GroupoidalCategory.StrongBundleUniformizerConstruction.strU`, `GroupoidalCategory.StrongBundleUniformizerConstruction.toEUnif`, `GroupoidalCategory.StrongBundleUniformizerConstruction.toStrongBundleUniformizer`
+* Chapter7/Lift.lean: `EpGroupoid.liftIncl`
+* Chapter8/SigmaPolyfold.lean: `sigmaProj`
+* Chapter9/DescentPolyfold.lean: `MPolyfold.descAtlas`, `MPolyfold.descChart`, `MPolyfold.descCharts`, `MPolyfold.descInv`
+
+</details>
+
 ## Tame boundary (Theorems 2.7.13 and 7.6.9)
 
 ### Statements
@@ -875,12 +1240,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 2.7.13 | `MPolyfold.theorem_2_7_13_book` (Chapter2/BookFormTameBoundary.lean) | V2.89, V2.103 |
 | Thm 7.6.9 | `EpGroupoid.theorem_7_6_9_book` (Chapter7/BookFormTameBoundaryEp.lean) | V7.98 |
 
-### Definition rows (4), in dependency order
+### Definition rows (3), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
 | V2.104 | §2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition) | `MPolyfold.reachSet`, `TameBoundary.phiInv` |
-| V7.96 | §7.6, Appendix 7.6.5.2, pp. 353–355 (new in the 2021 edition): the maps on $bX$ induced through sheets | `TameBoundary.BTriple.map`, `TameBoundary.IsDHomeoOn`, `TameBoundary.IsDLocalHomeo`, `TameBoundary.IsLiftOf` and 1 more |
 | V7.97 | §7.6, Appendix 7.6.5.2, (7.25)–(7.29), pp. 354–355 (new in the 2021 edition) | `EpGroupoid.bComp`, `EpGroupoid.bInv`, `EpGroupoid.bMor`, `EpGroupoid.bObj` and 6 more |
 | V7.100 | §7.6, Theorem 7.6.9 (2), (3), (5), p. 355 (new in the 2021 edition) | `EpGroupoid.bPMor`, `EpGroupoid.bPObj`, `EpGroupoid.boundaryEpGroupoid` |
 

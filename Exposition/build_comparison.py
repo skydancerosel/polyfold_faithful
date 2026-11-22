@@ -33,11 +33,11 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Parts I–III, Chapters 1–16 · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Parts I–IV, Chapters 1–19 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition '
        '(2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the '
-       'book’s arXiv version (1707.08941, “2017”) for Parts II and III, from Chapter 7 on, which have no preprint; the '
+       'book’s arXiv version (1707.08941, “2017”) for Parts II–IV, from Chapter 7 on, which have no preprint; the '
        'correspondence is in Exposition/BookConcordance.md. The right column is the '
        'formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration '
        'to see the Lean it names.')
@@ -46,7 +46,7 @@ OUT_PREVIEW = 'preview-cmp.html'
 OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021), paraphrased, with its numbers and pages, followed in parentheses by those of the 2014 '
-        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Parts II and III, Chapters 7–16, '
+        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Parts II–IV, Chapters 7–19, '
         'which have no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
@@ -118,6 +118,19 @@ CHAPTERS = [
             'forms; strong polyfold bundles and sc-Fredholm sections (§16.3, Definition 16.3.3 and the sentence '
             'after it); branched suborbifolds, their integrals and Stokes\' theorem; sc⁺-multisections over '
             'polyfolds (§16.5) and Fredholm theory (§16.6, Theorems 16.6.4, 16.6.6)'),
+    ('V17', 'Part IV, Chapter 17', 'HWZ Part IV, Chapter 17 §§17.1–17.8, pp. 743–842 (2017 Chapter 17; '
+            'Part IV has no 2014 preprint): groupoidal categories, uniformizers and polyfold constructions, the model '
+            'ep-groupoid $X_\\Psi$ and the comparison maps, the tangent construction, subpolyfolds, the boundary formalism '
+            'for tame polyfolds (new in the 2021 edition), branched ep⁺-subcategories, sc-differential forms and Stokes, strong '
+            'bundle structures and proper covering constructions'),
+    ('V18', 'Part IV, Chapter 18', 'HWZ Part IV, Chapter 18 §§18.1–18.6, pp. 843–861 (2017 Chapter 18; '
+            'Part IV has no 2014 preprint): sc-Fredholm section functors, linearizations and Theorem 18.1.5, auxiliary norms '
+            'and compactness, sc⁺-multisection functors, constructions and extensions, orientations, and the perturbation '
+            'theorem 18.6.1'),
+    ('V19', 'Part IV, Chapter 19', 'HWZ Part IV, Chapter 19 §§19.1–19.8, pp. 863–957 (2017 Chapter 19; '
+            'Part IV has no 2014 preprint): basic constructions, the natural topologies on $|S|$ and on the transition sets, '
+            'metrizability criteria, the polyfold structure for $(S, T)$, the strong bundle version, covering constructions '
+            'and their pull-backs'),
     ('G', 'Points left to the reader', 'Places where the formal version needs more than a translation of the text: '
           'a step left to the reader, an example the text does not give, a convention left implicit, or a long argument '
           'written out in full; each is marked “formalized”, with the rows that settle it, or “nothing to formalize”'),

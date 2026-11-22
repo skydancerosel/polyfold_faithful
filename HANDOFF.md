@@ -1,10 +1,10 @@
-# Handoff: the Polyfold project (HWZ, *Polyfold and Fredholm Theory*, Parts I–III)
+# Handoff: the Polyfold project (HWZ, *Polyfold and Fredholm Theory*, Parts I–IV)
 
 A Lean 4 / Mathlib formalization of Hofer, Wysocki and Zehnder, *Polyfold and Fredholm Theory*
 (Springer 2021), with its reports. `README.md` is the public overview; this file is for whoever works on
 the repository. The Springer edition is the authoritative text: statement numbers and pages are its own,
 followed in parentheses by those of the 2014 preprint (arXiv 1407.3185, Part I) or of the book's arXiv
-version (1707.08941, "2017", Parts II–III); the correspondence is `Exposition/BookConcordance.md`.
+version (1707.08941, "2017", Parts II–IV); the correspondence is `Exposition/BookConcordance.md`.
 
 ## 1. Setup
 
@@ -54,7 +54,7 @@ The public documents describe the final state only.
 
 Top level: `Polyfold.lean` (imports every module), `Polyfold/Test.lean` (`#print axioms` per theorem, one block
 per chapter), `Polyfold/Basic.lean`, `Polyfold/Vendor/MilnorSard/` (Sard's theorem, from the Milnor project),
-`Polyfold/Chapter1/` … `Polyfold/Chapter16/` (one folder per chapter of the book, files named by topic),
+`Polyfold/Chapter1/` … `Polyfold/Chapter19/` (one folder per chapter of the book, files named by topic),
 `RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`),
 `Exposition/` (§3). A file's folder is its place in the dependency order: a file in `Polyfold/ChapterN/` imports
 only chapters ≤ N, so a statement of one chapter that needs the machinery of a later chapter lives in the later
@@ -330,6 +330,53 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 `IndexZeroInheritedCorrespondenceWitness`, and Remark 6.6.19 on the half-disc in `HalfDiscIntervalCobordism`,
 `HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`, `HalfDiscFaceStructureInstance`, `HalfDiscLateralBoundary`.
 
+**Chapter 17** (polyfold theory for groupoidal categories): §17.1 in `GroupoidalCategory`, `TransitionSet`,
+`LocalUniformizer`, `PolyfoldConstruction`, `FunctorialUniformizers`, `TransitionProperness`,
+`PolyfoldConstructionExamples`, `OverlappingUniformizers`, the models in `ModelEpGroupoid`, `ModelEquivalence`,
+`ModelComparison`, `ModelExamples`, `ModelProperties`, `ModelPropertiesExamples`, the levels in `PolyfoldLevels`,
+`AdmissibleTripleBasic`, `LevelOneCategory`, `LevelStructures`, `LevelStructuresExamples`, `LevelOrbitSpaces`; §17.2
+in `TangentVectors`, `TangentCategory`, `TangentTransition`, `TangentTransitionStructure`, `TangentModel`,
+`TangentConstruction`, `TangentUnifExamples`, `TangentModelEquivalence`; §17.3 in `Subpolyfold`, `SubpolyfoldStructure`;
+§17.4 in `PolyfoldFaces`, `TameBoundaryGerms`, `TameBoundaryCategory`, `TameBoundaryUniformizer`,
+`TameBoundaryTransition`, `TameBoundaryTransitionStructure`, `TameBoundaryTopology`, `TameBoundaryPolyfold`,
+`TameBoundaryTame`, `TameBoundaryDiagram`, `TameBoundaryFaceGroupoid`, and strong bundles in `SigmaStrongBundle`,
+`VectorBundleGCT`, `StrongBundleStructures`, `StrongBundleStructuresExamples`, `BundleModel`, `BundleModelComparison`,
+`BundleModelMultiplication`, `BundleModelStructure`; §17.5 in `BranchedSubcategory`, `BranchedSupport`,
+`BranchedTangent`, `BranchedSubcategoryExamples`, `BranchedOrientation`, `BranchedOrientationExamples`,
+`GrassmannianFunctor`; §17.6 in `CategoryForms`, `WhitneySumStructure`, `WhitneySumCategory`, `CategoryStokes`,
+`CategoryStokesExamples`, `TameOrientedTransfer`, `TameOrientedExamples`; §17.8 in `ProperCoveringStructure`,
+`ProperCoveringModel`, `ProperCoveringModelRestrict`, `ProperCoveringLift`, `ProperCoveringModelIso`,
+`ProperCoveringUniformizer`, `ProperCoveringPolyfold`, `ProperCoveringBranched`, `ProperCoveringSheetUniformizer`,
+`ProperCoveringSheetCounterexample`, `ProperCoveringSheetEffective`, `ProperCoveringTame`, `ProperCoveringGlobalModel`,
+`ProperCoveringGlobalFunctor`, `ProperCoveringMorita`, `ProperCoveringReflection`. From other chapters:
+`Chapter4/TangentWhitneySum`, `Chapter8/TangentWhitneyLocal`, `Chapter8/ProperCoveringFibredMap`.
+
+**Chapter 18** (Fredholm theory in polyfolds): §18.1 in `SectionFunctors`, `FredholmSectionFunctors`, `ModelTransfer`,
+`FredholmSectionFunctorsExamples`, `LinearizationTransport`, `Linearization`, `LinearizationSet`,
+`LinearizationSetExamples`, `LinearizationSetLocal`, `LinearizationSetLocalExamples`, `ImplicitFunctionTheorem`,
+`ImplicitFunctionTheoremExamples`, `ImplicitFunctionSubcategory`, `OpenSubcategory`, `OpenSubcategoryExamples`,
+`ModelSectionPushforward`, `TangentPartialCone`, `TangentPartialConeExamples`, `GoodPositionIntrinsic`,
+`GoodPositionIntrinsicExamples`, `AuxiliaryNormsBookForm`, `AuxiliaryNormsDirectExamples`, `ReflexivePieces`; §18.2 in
+`AuxiliaryNorms`, `AuxiliaryNormsDirect`, `Compactness`, `CompactnessExamples`, `SolutionRegularity`; §§18.3–18.4 in `MultisectionFunctors`,
+`MultisectionFunctorsExamples`, `MultisectionConstructions`; §18.5 in `Orientations`, `OrientationsExamples`,
+`OrientationCategory`, `OrientationWitness`; §18.6 in `Perturbation`, `PerturbationExamples`, `PerturbationModelIndependence`,
+`PerturbationModelIndependenceExamples`, `PerturbationOrientedSupport`, `PerturbationOrientedWitness`; the half-space
+witness bundles in `HalfSpaceBundleConstruction`, `HalfSpaceWitnesses`, `HalfSpaceBoundaryData`.
+
+**Chapter 19** (the basic construction): §§19.1–19.2 in `BasicConstruction`, `NaturalTopology`,
+`BasicConstructionExamples`; §§19.3–19.4 in `TopologyLemmas`, `Metrizability`, `MetrizabilityExamples`; §19.5 in
+`PolyfoldStructure`, `PolyfoldStructureGCT`, `PolyfoldStructureExamples`, `BasicRegularity`, `BasicRegularityPointwise`,
+`TopologyLemmasTwo`, `CompactNeighbourhoods`; §19.6 in `StrongBundleUniformizer`, `StrongBundleTransition`,
+`StrongBundleTopology`, `StrongBundleExamples`, `StrongBundleAlternative`, `StrongBundleTransport`,
+`StrongBundleCoherence`, `StrongBundleTheorem`, `StrongBundleComparison`, `StrongBundleMultiplication`; §19.7 in
+`ProperCoveringModelExample`, `CoveringConstruction`, `CoveringTopology`, `CoveringOrbitTopology`,
+`CoveringOrbitCounterexample`, `CoveringCounterexamples`, `CoveringLocalStructure`, `CoveringMetrizability`,
+`CoveringLocalExamples`, `CoveringPolyfold`, `CoveringPolyfoldExamples`; §19.8 in `CoveringPullbackDiagram`,
+`CoveringPullbackTheorem`, `CoveringPullbackExamples`, `CoveringPullbackCoherence`, `CoveringSquare`,
+`CoveringSquareTheorem`, `CoveringSquareExamples`, `CoveringSquareTopology`, `CoveringSquareTopologyExamples`,
+`CoveringSquareMultiplication`, `CoveringSquareMultiplicationExamples`, `FibredProductCovering`,
+`CoveringSquareFibredProper`, `CoveringSquareFibredProperExamples`, `CompatibilityExamples`.
+
 ## 3. The reports (`Exposition/`)
 
 - `Chapter1.md` – `Chapter11.md`: the exposition of Parts I–II.
@@ -353,8 +400,12 @@ Run the scripts from the project folder with the git shim of §1 on the PATH (`c
 
 ## 4. Status
 
-All 193 points are settled: 189 are formalized, and 4 have nothing to formalize (G.34, the question after
-Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; G.153, the text's own question in Remark 9.5.19). The 60
+Of the 275 points, 262 are formalized and 12 have nothing to formalize (G.34, the question after
+Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; G.153, the text's own question in Remark 9.5.19; in Part IV
+G.213, G.228, G.244, G.247, G.249, G.255, G.272, G.274: remarks, comments, invitations and exercises). G.222 (the
+Whitney sum $\oplus^k TC$ of Proposition 17.6.1) is formalized in part: the category and the functors
+$\oplus^k T\Psi$ on morphisms are built; the orbit space $|\oplus^k TC|$ with its topology and the sc-smoothness of
+the multiplication of $M(\oplus^k T\Psi, \oplus^k T\Psi')$ are not. The 60
 rows with the verdict "narrower" prove less than the text states; `Exposition/Findings.md` gives the reason for each,
 and `README.md` lists the points that need the authors' reading. Added hypotheses (`_hyp` forms) are listed with
 their witnesses in the rows that cite them.

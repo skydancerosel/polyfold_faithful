@@ -1,6 +1,6 @@
 # Polyfold Theory beside Lean
 
-*Every result of the book beside the statement the machine actually checked. The left column is Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition (2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the book’s arXiv version (1707.08941, “2017”) for Parts II and III, from Chapter 7 on, which have no preprint; the correspondence is in Exposition/BookConcordance.md. The right column is the formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration to see the Lean it names.*
+*Every result of the book beside the statement the machine actually checked. The left column is Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition (2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the book’s arXiv version (1707.08941, “2017”) for Parts II–IV, from Chapter 7 on, which have no preprint; the correspondence is in Exposition/BookConcordance.md. The right column is the formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration to see the Lean it names.*
 
 Left: the statement as the book states it. Right: the statement proved in Lean, with the hypotheses written out. Each declaration is given with its file and line.
 
@@ -26270,6 +26270,5758 @@ Existence (`Chapter16/InheritedPerturbationExists`): **`theorem_16_6_6_index_zer
 *What differs.*
 - No hypothesis beyond the text's (compactness, tameness of dimension 0; tameness of a pull-back follows, `isPointTame_pull`). Point sheets are no restriction (`isPointTame_iff`), so the counts are defined for every compact $\hat\theta$ tame of dimension 0 in the sense of Chapter 16 (`pointIntegralOfTame`). The 0-dimensional integral is defined outside Chapter 11's `FormEval` frame, which assumes $n > 0$.
 
+## Part IV, Chapter 17
+
+*HWZ Part IV, Chapter 17 §§17.1–17.8, pp. 743–842 (2017 Chapter 17; Part IV has no 2014 preprint): groupoidal categories, uniformizers and polyfold constructions, the model ep-groupoid $X_\Psi$ and the comparison maps, the tangent construction, subpolyfolds, the boundary formalism for tame polyfolds (new in the 2021 edition), branched ep⁺-subcategories, sc-differential forms and Stokes, strong bundle structures and proper covering constructions*
+
+### V17.1. Definition 17.1.1 (2017: 17.1), groupoidal categories with a metrizable orbit topology (GCT)
+
+*as in the book* · as stated · objects: a type
+
+**HWZ (§17.1, Definition 17.1.1, p. 744 (2017: Definition 17.1)).** A GCT is a category $C$ whose isomorphism classes form a set $|C|$, with finite hom-sets, all morphisms isomorphisms, and a metrizable topology on $|C|$.
+
+**Proved in Lean.** `GroupoidalCategory` (objects and morphisms in `Type u`, a `GroupoidStr` (all morphisms invertible), `finite_mor` for every pair of objects) and `GCT` (adds a topology on the orbit space and `MetrizableSpace`); `GroupoidalCategory.translation` for $G \ltimes O$. Witness `GCT.reflection` ($\mathbb Z/2 \ltimes \mathbb R$, $x \mapsto -x$), with an automorphism of $0$ other than the unit (`reflection_exists_ne_unit`).
+
+- `Polyfold.GroupoidalCategory` — Polyfold/Chapter17/GroupoidalCategory.lean, line 65
+- `Polyfold.GCT` — Polyfold/Chapter17/GroupoidalCategory.lean, line 102
+- `Polyfold.GroupoidalCategory.translation` — Polyfold/Chapter17/GroupoidalCategory.lean, line 90
+- `Polyfold.GCT.reflection` — Polyfold/Chapter17/GroupoidalCategory.lean, line 154
+- `Polyfold.GCT.reflection_exists_ne_unit` — Polyfold/Chapter17/GroupoidalCategory.lean, line 158
+
+*What differs.*
+- We read the class of objects as a type in the universe of the M-polyfolds used later, so (1), $|C|$ a set, holds automatically.
+
+### V17.2. Definition 17.1.2 (2017: 17.2), the translation groupoid $G \ltimes O$
+
+*as in the book* · as stated · G.194 closed
+
+**HWZ (§17.1, Definition 17.1.2, p. 744 (2017: Definition 17.2)).** For a finite group $G$ acting by sc-diffeomorphisms on an M-polyfold $O$, $G \ltimes O$ is an ep-groupoid ("one easily verifies") and $G \backslash O$ is metrizable.
+
+**Proved in Lean.** `definition_17_1_2`: Chapter 7's `actionEpGroupoid` has the translation groupoid as its groupoid, and its orbit space is metrizable (`metrizableSpace_translation_orbitSpace`, the averaged metric of Chapter 8 transported along the orbit homeomorphism); `GCT.translation` is $G \ltimes O$ as a GCT, `Uniformizer.ep` the ep-groupoid of a uniformizer.
+
+- `Polyfold.definition_17_1_2` — Polyfold/Chapter17/GroupoidalCategory.lean, line 133
+- `Polyfold.metrizableSpace_translation_orbitSpace` — Polyfold/Chapter17/GroupoidalCategory.lean, line 122
+- `Polyfold.GCT.translation` — Polyfold/Chapter17/GroupoidalCategory.lean, line 141
+- `Polyfold.GroupoidalCategory.Uniformizer.ep` — Polyfold/Chapter17/LocalUniformizer.lean, line 149
+
+*What differs.*
+- $\gamma : G \to \mathrm{Diff}_{sc}(O)$ is a `MulAction` with every $g \ast \cdot$ sc-smooth, $G$ discrete. The "easily verifies" is point G.194.
+
+### V17.3. Definition 17.1.3 (2017: 17.3), local uniformizers, footprints, tameness
+
+*restated* · (3): open embedding · centring: `IsCentredAt` (G.195)
+
+**HWZ (§17.1, Definition 17.1.3, p. 745 (2017: Definition 17.3)).** A local uniformizer at $\alpha$ is a functor $\Psi : G \ltimes O \to C$, injective on objects, fully faithful, with $\alpha$ in the image and $|\Psi|$ a homeomorphism onto an open subset of $|C|$ (the footprint); it is tame if $O$ is tame.
+
+**Proved in Lean.** `GroupoidalCategory.Uniformizer` (M-polyfold $O$, finite discrete $G$ acting sc-smoothly, a functor `functor` injective on objects, full and faithful) and `GCT.LocalUniformizer` (adds that $|\Psi|$ is an open embedding); "at $\alpha$" is the predicate `IsAt`; `footprint`, `isOpen_footprint`, `IsTame`. `IsCentredAt` ($G$ fixes a point over $\alpha$), with `isotropyEquiv` ($G \cong G_\alpha$ then). Witnesses `LocalUniformizer.tautological` and the reflection uniformizer, centred at $0$ with a non-trivial action, tame (`reflection_isCentredAt`, `reflection_isTame`).
+
+- `Polyfold.GroupoidalCategory.Uniformizer` — Polyfold/Chapter17/LocalUniformizer.lean, line 103
+- `Polyfold.GCT.LocalUniformizer` — Polyfold/Chapter17/LocalUniformizer.lean, line 363
+- `Polyfold.GroupoidalCategory.Uniformizer.IsAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 154
+- `Polyfold.GCT.LocalUniformizer.footprint` — Polyfold/Chapter17/LocalUniformizer.lean, line 382
+- `Polyfold.GCT.LocalUniformizer.isOpen_footprint` — Polyfold/Chapter17/LocalUniformizer.lean, line 385
+- `Polyfold.GCT.LocalUniformizer.IsTame` — Polyfold/Chapter17/LocalUniformizer.lean, line 413
+- `Polyfold.GroupoidalCategory.Uniformizer.IsCentredAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 161
+- `Polyfold.GroupoidalCategory.Uniformizer.isotropyEquiv` — Polyfold/Chapter17/LocalUniformizer.lean, line 193
+- `Polyfold.GCT.LocalUniformizer.tautological` — Polyfold/Chapter17/LocalUniformizer.lean, line 429
+- `Polyfold.GCT.LocalUniformizer.reflection_isCentredAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 460
+- `Polyfold.GCT.LocalUniformizer.reflection_isTame` — Polyfold/Chapter17/LocalUniformizer.lean, line 469
+
+*What differs.*
+- "At $\alpha$" is a predicate on the uniformizer, not a field. The definition does not ask $G$ to fix the point over $\alpha$ (equivalently $G = G_\alpha$), which the proof of Lemma 17.1.9 and p. 792 presume; this is `IsCentredAt`, used where the text uses it (point G.195). The 2017 condition that $O$ be paracompact is part of the M-polyfold here, as in the 2021 footnote.
+
+### V17.4. Remark 17.1.4, a uniformizer as an ep-groupoid structure on a full subcategory
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Remark 17.1.4, p. 745 (new in the 2021 edition)).** A local uniformizer gives the small full subcategory on its image the structure of an ep-groupoid.
+
+**Proved in Lean.** `Uniformizer.remark_17_1_4`: there is a functor from $G \ltimes O$ to the full subcategory on the image of $\Psi$, bijective on objects and on morphisms, over $\Psi$.
+
+- `Polyfold.GroupoidalCategory.Uniformizer.remark_17_1_4` — Polyfold/Chapter17/LocalUniformizer.lean, line 219
+
+*What differs.*
+- The ep-groupoid structure is the one transported along this isomorphism of groupoids.
+
+### V17.5. Definition 17.1.5 (2017: 17.4), the transition set $M(\Psi, \Psi')$ and its structure maps
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Definition 17.1.5, p. 745 (2017: Definition 17.4)).** $M(\Psi,\Psi') = \{(q, \phi, q') : \phi : \Psi(q) \to \Psi'(q')\}$, with source, target, unit, inversion and multiplication maps.
+
+**Proved in Lean.** `GroupoidStr.TransitionSet` (fields `src`, `mor`, `tgt` with the two compatibilities), equal to the weak fibred product of the text by `equivWeakFibredProduct`; `unit`, `inv`, `comp`, `mul` (on the fibred product, `mul_eq_comp`) with the groupoid laws (`comp_assoc` and its companions); `LocalUniformizer.Trans`.
+
+- `Polyfold.GroupoidStr.TransitionSet` — Polyfold/Chapter17/TransitionSet.lean, line 61
+- `Polyfold.GroupoidStr.TransitionSet.equivWeakFibredProduct` — Polyfold/Chapter17/TransitionSet.lean, line 79
+- `Polyfold.GroupoidStr.TransitionSet.comp_assoc` — Polyfold/Chapter17/TransitionSet.lean, line 142
+- `Polyfold.GroupoidStr.TransitionSet.mul_eq_comp` — Polyfold/Chapter17/TransitionSet.lean, line 132
+- `Polyfold.GCT.LocalUniformizer.Trans` — Polyfold/Chapter17/LocalUniformizer.lean, line 379
+
+*What differs.*
+- None. No M-polyfold structure is assumed at this point; it is part of Definition 17.1.8.
+
+### V17.6. Definition 17.1.6 (2017: 17.5), uniformizer constructions; the standing reading $F(\alpha) \ne \emptyset$
+
+*hypotheses explicit* · F(α) ≠ ∅: standing reading (G.196)
+
+**HWZ (§17.1, Definition 17.1.6, p. 746 (2017: Definition 17.5), and p. 752).** A uniformizer construction associates to every object $\alpha$ a set $F(\alpha)$ of local uniformizers at $\alpha$; on p. 752 a set of uniformizers covering $|C|$ is picked.
+
+**Proved in Lean.** `GCT.UniformizerConstruction` ($F$ and `isAt`); `HasUniformizers` ($F(\alpha) \ne \emptyset$ for every $\alpha$), `HasCoveringUniformizers` (the footprints cover $|C|$), `CoveringFamily` (a family indexed by a type of the universe of $C$), `exists_coveringFamily_iff`, `hasCoveringUniformizers_of_hasUniformizers`. `emptyConstruction` ($F \equiv \emptyset$) satisfies Definition 17.1.8, with `not_hasUniformizers_empty`, `not_hasCoveringUniformizers_empty`.
+
+- `Polyfold.GCT.UniformizerConstruction` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 114
+- `Polyfold.GCT.UniformizerConstruction.HasUniformizers` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 128
+- `Polyfold.GCT.UniformizerConstruction.HasCoveringUniformizers` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 132
+- `Polyfold.GCT.UniformizerConstruction.CoveringFamily` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 136
+- `Polyfold.GCT.UniformizerConstruction.exists_coveringFamily_iff` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 153
+- `Polyfold.GCT.UniformizerConstruction.hasCoveringUniformizers_of_hasUniformizers` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 144
+- `Polyfold.GCT.PolyfoldConstruction.emptyConstruction` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 571
+- `Polyfold.GCT.PolyfoldConstruction.not_hasUniformizers_empty` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 586
+- `Polyfold.GCT.PolyfoldConstruction.not_hasCoveringUniformizers_empty` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 591
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`HasUniformizers`), or the footprints covering $|C|$ (`HasCoveringUniformizers`), where the text picks uniformizers (p. 752 and later). We read it as a standing assumption of Part IV.
+- The definition does not exclude $F(\alpha) = \emptyset$; `emptyConstruction` shows that Definition 17.1.8 does not imply it. The text uses it without comment (p. 752; Propositions 17.2.4, 17.3.4; Chapter 19). It is named once and carried as `hU`, `hS` or `hc` (point G.196).
+
+### V17.7. Remark 17.1.7 (2017: 17.1), functorial uniformizer constructions and transport data
+
+*restated* · (b), (c), (1)–(3) formalized · G.197 closed
+
+**HWZ (§17.1, Remark 17.1.7, pp. 746–747 (2017: Remark 17.1)).** Often $F$ is a functor $C \to \mathrm{SET}$; an isomorphism gives a bijection $F(\alpha) \to F(\alpha')$ and transport data $\sigma, \gamma, \tau$, which in many cases satisfy compatibilities (1)–(3).
+
+**Proved in Lean.** `UniformizerConstruction.Functorial` and `remark_17_1_7` ($F(\phi)$ is a bijection $F(\alpha) \to F(\alpha')$); `LocalUniformizer.TransportData` ($\gamma, \sigma, \tau$) with the square `TransportData.mor_eq` and composition `TransportData.comp`; `Functorial.TransportSystem`, `Compatible` ((1)–(3)) and `remark_17_1_7_compatible_iff` (compatibility iff the data of $\phi' \circ \phi$ is the composite). Witnesses `reflectionFunctorial`, `reflectionTransport` with $\sigma \ne \mathrm{id}$ (`reflectionTransport_σ_ne`), `reflectionTransportSystem_compatible`, and `not_compatibleSigma_reflectionConst` ((1) is a genuine condition).
+
+- `Polyfold.GCT.UniformizerConstruction.Functorial` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 60
+- `Polyfold.GCT.UniformizerConstruction.remark_17_1_7` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 70
+- `Polyfold.GCT.LocalUniformizer.TransportData` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 89
+- `Polyfold.GCT.LocalUniformizer.TransportData.mor_eq` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 120
+- `Polyfold.GCT.LocalUniformizer.TransportData.comp` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 88
+- `Polyfold.GCT.UniformizerConstruction.Functorial.TransportSystem` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 154
+- `Polyfold.GCT.UniformizerConstruction.Functorial.TransportSystem.Compatible` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 203
+- `Polyfold.GCT.UniformizerConstruction.Functorial.TransportSystem.remark_17_1_7_compatible_iff` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 209
+- `Polyfold.GCT.reflectionFunctorial` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 176
+- `Polyfold.GCT.LocalUniformizer.reflectionTransport_σ_ne` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 159
+- `Polyfold.GCT.reflectionTransportSystem_compatible` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 251
+- `Polyfold.GCT.not_compatibleSigma_reflectionConst` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 270
+
+*What differs.*
+- (1)–(3) compare data over $F(\phi' \circ \phi)(\Psi)$ and $F(\phi')(F(\phi)(\Psi))$, identified along the functoriality of $F$. In (3) we read $\sigma(\psi, \Psi)$ as $\sigma(\phi, \Psi)$. Part (a) (a recipe with set-many choices) has no mathematical content (point G.197).
+
+### V17.8. Definition 17.1.8 (2017: 17.6), polyfold structures $(F, M)$ on a GCT
+
+*as in the book* · (a)–(c) as printed
+
+**HWZ (§17.1, Definition 17.1.8, p. 747 (2017: Definition 17.6)).** A polyfold structure is a uniformizer construction $F$ with M-polyfold structures on every $M(\Psi,\Psi')$ such that (a) $s, t$ are local sc-diffeomorphisms, (b) $u, \iota$ are sc-smooth, (c) $m$ is sc-smooth; it is tame if all $O$ are tame.
+
+**Proved in Lean.** `GCT.PolyfoldConstruction` (fields for (a), (b), (c); (c) is `MPolyfold.IsScSmoothOnFibredProduct`, sc-smoothness on the fibred product $M(\Psi',\Psi'') \,{}_s\!\times_t M(\Psi,\Psi')$ with its sub-M-polyfold structure); `IsTame`; `CategoryPolyfold`; the transition M-polyfolds `Tr`, `transPolyfold` and the `tr*` lemmas (`isLocalScDiffeo_trSrc`, `isScSmoothMap_trMul`). Witnesses: `twistConstruction` (any finite group acting sc-smoothly, $M(\Psi,\Psi)$ transported along a twist), `reflectionConstruction` (tame), `sliceConstruction` and `overlapConstruction` (three overlapping uniformizers on $\mathbb Z/2 \ltimes \mathbb R$, two of them at $3/2$ with different groups, `overlap_two_uniformizers`; tame).
+
+- `Polyfold.GCT.PolyfoldConstruction` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 173
+- `Polyfold.MPolyfold.IsScSmoothOnFibredProduct` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 95
+- `Polyfold.GCT.PolyfoldConstruction.IsTame` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 259
+- `Polyfold.CategoryPolyfold` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 448
+- `Polyfold.GCT.PolyfoldConstruction.Tr` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 207
+- `Polyfold.GCT.PolyfoldConstruction.transPolyfold` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 214
+- `Polyfold.GCT.PolyfoldConstruction.isLocalScDiffeo_trSrc` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 223
+- `Polyfold.GCT.PolyfoldConstruction.isScSmoothMap_trMul` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 250
+- `Polyfold.GCT.PolyfoldConstruction.twistConstruction` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 339
+- `Polyfold.GCT.PolyfoldConstruction.reflectionConstruction` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 431
+- `Polyfold.GCT.PolyfoldConstruction.reflectionConstruction_isTame` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 440
+- `Polyfold.GCT.PolyfoldConstruction.sliceConstruction` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 650
+- `Polyfold.GCT.PolyfoldConstruction.overlapConstruction` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 783
+- `Polyfold.GCT.PolyfoldConstruction.overlapConstruction_isTame` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 795
+- `Polyfold.GCT.PolyfoldConstruction.overlap_two_uniformizers` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 836
+
+*What differs.*
+- Every field is the printed condition. The definition does not tie the topology of $M(\Psi,\Psi)$ to $G \times O$; Lemma 17.1.9 (V17.9) shows the consequence.
+
+### V17.9. Lemma 17.1.9 (2017: 17.1), $\hat\Psi : G \ltimes O \to M(\Psi,\Psi)$ is an sc-diffeomorphism
+
+*narrower* · does not hold as we read it · holds for $\hat\Psi$ continuous · bijection and sheets: unconditional
+
+**HWZ (§17.1, Lemma 17.1.9, p. 748 (2017: Lemma 17.1)).** For $\Psi \in F(\alpha)$, $\hat\Psi(g, p) = (p, \Psi(g,p), g \ast p)$ is an sc-diffeomorphism $G \times O \to M(\Psi,\Psi)$; $M(\Psi,\Psi)$ is the disjoint union of the open sets $U(q,g,q)$, on which $t = g \ast s$.
+
+**Proved in Lean.** Does not hold as we read it: `not_lemma_17_1_9 : ¬ ∀ C S Ψ, IsScDiffeoOn … (S.hat Ψ) (S.hatInv Ψ) univ univ`. Witness `z3Construction`: $\mathbb Z/3$ acting trivially on $\mathbb R$, one tame uniformizer centred at $0$ with $G = G_0$, and $M(\Psi,\Psi)$ the M-polyfold $\mathbb Z/3 \times \mathbb R$ transported along $(g,p) \mapsto (p, \beta(g,p), p)$ with $\beta(g,p) = g$ for $p \le 0$ and $g^{-1}$ for $p > 0$; (a)–(c) hold and $\hat\Psi$ is not continuous (`z3_not_continuous_hat`). What holds: `lemma_17_1_9_bijective` and `lemma_17_1_9_decomposition` (the sheets `hatSheet` partition $M(\Psi,\Psi)$ with $t = g \ast s$ on each), with no hypothesis; `lemma_17_1_9_of_continuous`: if $\hat\Psi$ is continuous, it is an sc-diffeomorphism, the sheets are open and $s$ is an sc-diffeomorphism on each.
+
+- `Polyfold.GCT.PolyfoldConstruction.hat` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 321
+- `Polyfold.GCT.PolyfoldConstruction.hatSheet` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 337
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_bijective` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 333
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_decomposition` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 342
+- `Polyfold.GCT.PolyfoldConstruction.not_lemma_17_1_9` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 553
+- `Polyfold.GCT.PolyfoldConstruction.z3Construction` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 532
+- `Polyfold.GCT.PolyfoldConstruction.z3_not_continuous_hat` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 546
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_of_continuous` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 412
+- `Polyfold.GCT.PolyfoldConstruction.reflection_lemma_17_1_9` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 448
+- `Polyfold.GCT.PolyfoldConstruction.reflection_hatSheet_ne` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 462
+- `Polyfold.GCT.PolyfoldConstruction.sliceConstruction_continuous_hat` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 697
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous (`lemma_17_1_9_of_continuous`); witnesses `reflection_lemma_17_1_9` with `reflection_hatSheet_ne` (non-trivial $\mathbb Z/2$-action, two sheets) and `sliceConstruction_continuous_hat` (every slice construction, overlapping uniformizers included).
+- The printed statement does not hold as we read it (Findings, Chapter 17, item 1): the proof's step "$s \circ \hat\Psi = \mathrm{pr}$, so $\hat\Psi$ is a local sc-diffeomorphism" needs $\hat\Psi$ continuous. Definition 17.1.8 presumably intends $\hat\Psi$ continuous, which every polyfold structure built in Chapter 19 satisfies. The same point is behind Lemma 17.2.10 (V17.47). Lemma 17.1.10 and Proposition 17.1.11, which the text derives from 17.1.9, are proved without it (V17.11, V17.12).
+
+### V17.10. The bound on p. 749: at most $\sharp G'$ elements of $M(\Psi,\Psi')$ over a point
+
+*stronger* · equality when non-empty
+
+**HWZ (§17.1, p. 749 (new in the 2021 edition)).** For fixed $q$ there are at most $\sharp G'$ elements $(q, \phi, p) \in M(\Psi,\Psi')$.
+
+**Proved in Lean.** `Uniformizer.fiberEquiv` ($G'$ is in bijection with the fibre of $s$ through a given element), `ncard_fiber_eq` (the fibre has exactly $\sharp G'$ elements when non-empty), `ncard_fiber_le`, `finite_fiber`.
+
+- `Polyfold.GroupoidalCategory.Uniformizer.fiberEquiv` — Polyfold/Chapter17/LocalUniformizer.lean, line 285
+- `Polyfold.GroupoidalCategory.Uniformizer.ncard_fiber_eq` — Polyfold/Chapter17/LocalUniformizer.lean, line 328
+- `Polyfold.GroupoidalCategory.Uniformizer.ncard_fiber_le` — Polyfold/Chapter17/LocalUniformizer.lean, line 335
+- `Polyfold.GroupoidalCategory.Uniformizer.finite_fiber` — Polyfold/Chapter17/LocalUniformizer.lean, line 320
+
+*What differs.*
+- An equality for non-empty fibres.
+
+### V17.11. Lemma 17.1.10, convergent subsequences in $M(\Psi,\Psi')$
+
+*stronger* · no continuity of $\hat\Psi$ needed
+
+**HWZ (§17.1, Lemma 17.1.10, p. 749 (new in the 2021 edition)).** If $(q_k, \phi_k, q'_k) \in M(\Psi,\Psi')$ with $q_k \to q$ and $q'_k \to q'$, a subsequence converges in $M(\Psi,\Psi')$ to some $(q, \phi, q')$.
+
+**Proved in Lean.** `lemma_17_1_10`: under the two convergences there are $a$ with $s(a) = q$, $t(a) = q'$ and a strictly monotone subsequence converging to $a$; `exists_mor_of_tendsto`, `eq_sheet_of_src_mem` (near a point of $O$ every element of $M(\Psi,\Psi')$ lies on one of $\sharp G'$ local sections of $s$).
+
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_10` — Polyfold/Chapter17/TransitionProperness.lean, line 175
+- `Polyfold.GCT.PolyfoldConstruction.exists_mor_of_tendsto` — Polyfold/Chapter17/TransitionProperness.lean, line 109
+- `Polyfold.GCT.PolyfoldConstruction.eq_sheet_of_src_mem` — Polyfold/Chapter17/TransitionProperness.lean, line 126
+
+*What differs.*
+- Proved for every polyfold structure, without continuity of $\hat\Psi$: a counting argument over the fibres of p. 749 replaces the use of Lemma 17.1.9.
+
+### V17.12. Proposition 17.1.11, the properness property
+
+*stronger* · every polyfold structure
+
+**HWZ (§17.1, Proposition 17.1.11, p. 750 (new in the 2021 edition)).** Every $q \in O$ has an open neighbourhood $U(q)$ such that $t : s^{-1}(\overline{U(q)}) \to O'$ is proper for every $\Psi'$.
+
+**Proved in Lean.** `proposition_17_1_11 : S.HasPropernessProperty`, for every polyfold structure; tool `GroupoidStr.exists_subseq_tendsto_smul`; witness `reflection_hasPropernessProperty`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_11` — Polyfold/Chapter17/TransitionProperness.lean, line 212
+- `Polyfold.GroupoidStr.exists_subseq_tendsto_smul` — Polyfold/Chapter17/TransitionProperness.lean, line 60
+- `Polyfold.GCT.PolyfoldConstruction.reflection_hasPropernessProperty` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 475
+
+*What differs.*
+- "Proper" is `IsProperMap` of $t$ restricted to $s^{-1}(\overline{U(q)})$; $U(q)$ is chosen before $\Psi'$, as printed. No continuity of $\hat\Psi$ is used (V17.11).
+
+### V17.13. Definition 17.1.12, the properness property of $C$
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Definition 17.1.12, p. 751 (new in the 2021 edition)).** The property of Proposition 17.1.11 is called the properness property.
+
+**Proved in Lean.** `HasPropernessProperty`; `definition_17_1_12` (it holds, by Proposition 17.1.11).
+
+- `Polyfold.GCT.PolyfoldConstruction.HasPropernessProperty` — Polyfold/Chapter17/TransitionProperness.lean, line 204
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_12` — Polyfold/Chapter17/TransitionProperness.lean, line 278
+
+### V17.14. Lemma 17.1.13, transitions of natural source-type charts are the identity
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Lemma 17.1.13, p. 752 (new in the 2021 edition)).** For two natural source-type charts $s_i : U(o_i,\phi_i,o_i') \to U(o_i)$ the transition $s_2 \circ s_1^{-1}$ is the identity; likewise for target-type charts.
+
+**Proved in Lean.** `AdmissibleTriple` (the open sets of (17.6) with $s$, $t$ sc-diffeomorphisms on them), `exists_admissibleTriple` (one through every element), `lemma_17_1_13` (both transition maps are the identity on the overlap).
+
+- `Polyfold.GCT.PolyfoldConstruction.AdmissibleTriple` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 276
+- `Polyfold.GCT.PolyfoldConstruction.exists_admissibleTriple` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 294
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_13` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 305
+
+### V17.15. The paragraph on p. 752: the structure maps of $X = \bigsqcup O_\lambda$ and $\mathbf X = \bigsqcup M(\Psi_\lambda,\Psi_{\lambda'})$
+
+*as in the book* · any family · G.198 closed
+
+**HWZ (§17.1, p. 752, (17.7) (2017: §17.1)).** For a covering family, on $X$ and $\mathbf X$ the maps $s, t$ are local sc-diffeomorphisms, $\iota$ an sc-diffeomorphism, $u$ and $m$ sc-smooth.
+
+**Proved in Lean.** `ModelObj` $= \Sigma_\lambda O_\lambda$, `ModelMor` $= \Sigma_{(\lambda,\lambda')} M(\Psi_\lambda, \Psi_{\lambda'})$, the groupoid `modelGroupoid` (through `GroupoidStr.pullback`, composition of Definition 17.1.5), the sigma M-polyfolds `modelObjPolyfold`, `modelMorPolyfold` (Chapter 8); `isLocalScDiffeo_modelSrc`, `_modelTgt`, `isScDiffeoOn_modelInv`, `isScSmoothMap_modelUnit`, `isScSmoothComp_model`.
+
+- `Polyfold.GCT.PolyfoldConstruction.ModelObj` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 326
+- `Polyfold.GCT.PolyfoldConstruction.ModelMor` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 329
+- `Polyfold.GCT.PolyfoldConstruction.modelGroupoid` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 346
+- `Polyfold.GroupoidStr.pullback` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 106
+- `Polyfold.GCT.PolyfoldConstruction.modelObjPolyfold` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 394
+- `Polyfold.GCT.PolyfoldConstruction.modelMorPolyfold` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 397
+- `Polyfold.GCT.PolyfoldConstruction.isLocalScDiffeo_modelSrc` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 403
+- `Polyfold.GCT.PolyfoldConstruction.isLocalScDiffeo_modelTgt` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 410
+- `Polyfold.GCT.PolyfoldConstruction.isScDiffeoOn_modelInv` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 434
+- `Polyfold.GCT.PolyfoldConstruction.isScSmoothMap_modelUnit` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 417
+- `Polyfold.GCT.PolyfoldConstruction.isScSmoothComp_model` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 527
+
+*What differs.*
+- Built for any family $\Psi$; the covering condition enters with Lemma 17.1.15. "$\mathbf X\,{}_s\!\times_t \mathbf X$ has a natural M-polyfold structure" is the sub-M-polyfold structure of Proposition 2.5.20; $m$ is shown sc-smooth on the sheets of $s$, piece by piece from Definition 17.1.8 (c) (point G.198).
+
+### V17.16. Theorem 17.1.14 (2017: 17.1), $X_\Psi$ is an ep-groupoid
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Theorem 17.1.14, p. 753 (2017: Theorem 17.1)).** For a covering family $\Psi$, $X_\Psi$ is an ep-groupoid, tame if $(F, M)$ is tame.
+
+**Proved in Lean.** `theorem_17_1_14 c`: there is an ep-groupoid with groupoid `modelGroupoid`, object and morphism M-polyfolds the sigma M-polyfolds, tame if `S.IsTame`; it is `modelEpGroupoid`, `modelEP`; the properness of Definition 7.1.3 is `exists_isProperMap_model` (from Proposition 17.1.11 and `isProperMap_domRestrict_sigmaMap`), tameness `isTame_modelEpGroupoid`.
+
+- `Polyfold.GCT.PolyfoldConstruction.modelEpGroupoid` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 583
+- `Polyfold.GCT.PolyfoldConstruction.modelEP` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 595
+- `Polyfold.GCT.PolyfoldConstruction.exists_isProperMap_model` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 537
+- `Polyfold.isProperMap_domRestrict_sigmaMap` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 163
+- `Polyfold.GCT.PolyfoldConstruction.isTame_modelEpGroupoid` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 603
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_14` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 612
+
+*What differs.*
+- The text's sequence argument for properness is replaced by "closed map with compact fibres", with the neighbourhood $U(q_{\lambda_0}) \subset O_{\lambda_0}$ as in the text. Properness needs no continuity of $\hat\Psi$ (V17.12).
+
+### V17.17. Lemma 17.1.15 (2017: 17.2), $\Gamma_\Psi : X_\Psi \to C$ is an equivalence and $|\Gamma_\Psi|$ a homeomorphism
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Lemma 17.1.15, p. 754 (2017: Lemma 17.2)).** The functor $\Gamma_\Psi$ of (17.10) is an equivalence of categories and $|\Gamma_\Psi| : |X_\Psi| \to |C|$ is a homeomorphism.
+
+**Proved in Lean.** `modelFunctor` ((17.10)); full and faithful for any family (`modelFunctor_full`, `_faithful`), essentially surjective and with $|\Gamma_\Psi|$ a homeomorphism for a covering family (`modelFunctor_essSurj`, `isHomeomorph_modelOrbitMap`, `lemma_17_1_15_of_isCovering`); `lemma_17_1_15 c`; `modelOrbitHomeomorph`.
+
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctor` — Polyfold/Chapter17/ModelEquivalence.lean, line 120
+- `Polyfold.GCT.PolyfoldConstruction.IsCoveringFamily` — Polyfold/Chapter17/ModelEquivalence.lean, line 134
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctor_full` — Polyfold/Chapter17/ModelEquivalence.lean, line 140
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctor_faithful` — Polyfold/Chapter17/ModelEquivalence.lean, line 146
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctor_essSurj` — Polyfold/Chapter17/ModelEquivalence.lean, line 153
+- `Polyfold.GCT.PolyfoldConstruction.isHomeomorph_modelOrbitMap` — Polyfold/Chapter17/ModelEquivalence.lean, line 189
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_15_of_isCovering` — Polyfold/Chapter17/ModelEquivalence.lean, line 199
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_15` — Polyfold/Chapter17/ModelEquivalence.lean, line 206
+- `Polyfold.GCT.PolyfoldConstruction.modelOrbitHomeomorph` — Polyfold/Chapter17/ModelEquivalence.lean, line 212
+
+*What differs.*
+- $C$ carries no M-polyfold structure, so $\Gamma_\Psi$ is a functor of groupoids and "equivalence" is Mathlib's `Functor.IsEquivalence`.
+
+### V17.18. Remark 17.1.16, $|X_\Psi|$ metrizable; under (ZHOU) a polyfold structure on $|C|$
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Remark 17.1.16, p. 755 (new in the 2021 edition)).** $|X_\Psi|$ is metrizable (hence paracompact); if $X_\Psi$ satisfies (ZHOU), $(X_\Psi, |\Gamma_\Psi|)$ is a polyfold structure on $|C|$ in the sense of Definition 16.1.1.
+
+**Proved in Lean.** `remark_17_1_16 c`: $|X_\Psi|$ metrizable and paracompact (`metrizableSpace_modelOrbitSpace`, `hasParacompactOrbitSpace_model`), and for (ZHOU) of $X_\Psi$ the Chapter 16 structure `modelPolyfoldStructure c hZ` has model $X_\Psi$ and homeomorphism $|\Gamma_\Psi|$.
+
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_modelOrbitSpace` — Polyfold/Chapter17/ModelEquivalence.lean, line 223
+- `Polyfold.GCT.PolyfoldConstruction.hasParacompactOrbitSpace_model` — Polyfold/Chapter17/ModelEquivalence.lean, line 228
+- `Polyfold.GCT.PolyfoldConstruction.modelPolyfoldStructure` — Polyfold/Chapter17/ModelEquivalence.lean, line 235
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_1_16` — Polyfold/Chapter17/ModelEquivalence.lean, line 241
+
+*What differs.*
+- (ZHOU) is assumed, as in the text.
+
+### V17.19. Definition 17.1.17, weak polyfold structures; the weak structure $(X_\Psi, |\Gamma_\Psi|)$, (17.13)
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Definition 17.1.17, p. 755 (new in the 2021 edition)).** A weak polyfold structure on a paracompact space $Z$ is an ep-groupoid $X$ with a homeomorphism $|X| \to Z$ (no (ZHOU)).
+
+**Proved in Lean.** `WeakPolyfoldStructure` (fields `X`, `β`), `.metrizableSpace`, `.toOrbitChart`; every polyfold structure is one (`PolyfoldStructure.toWeakPolyfoldStructure`); `weakStructure c` is (17.13), on $|C|$, which is paracompact (`GCT.paracompactSpace_orbitSpace`).
+
+- `Polyfold.WeakPolyfoldStructure` — Polyfold/Chapter17/ModelEquivalence.lean, line 68
+- `Polyfold.WeakPolyfoldStructure.metrizableSpace` — Polyfold/Chapter17/ModelEquivalence.lean, line 90
+- `Polyfold.WeakPolyfoldStructure.toOrbitChart` — Polyfold/Chapter17/ModelEquivalence.lean, line 95
+- `Polyfold.PolyfoldStructure.toWeakPolyfoldStructure` — Polyfold/Chapter17/ModelEquivalence.lean, line 100
+- `Polyfold.GCT.PolyfoldConstruction.weakStructure` — Polyfold/Chapter17/ModelEquivalence.lean, line 253
+- `Polyfold.GCT.paracompactSpace_orbitSpace` — Polyfold/Chapter17/ModelEquivalence.lean, line 109
+
+### V17.20. The construction on pp. 755–756: the inclusions $A, A'$, the fibred product and the diagram (17.15)
+
+*as in the book* · as stated · G.199 closed
+
+**HWZ (§17.1, pp. 755–756, (17.14), (17.15) (2017: §17.1)).** The inclusions $A : X_\Psi \to X_{\Psi''}$, $A' : X_{\Psi'} \to X_{\Psi''}$ into the model of $\Psi'' = \Psi \sqcup \Psi'$ are equivalences ("one readily verifies"), $\Gamma_\Psi = \Gamma_{\Psi''} \circ A$, and the weak fibred product gives the diagram $d$ of (17.15) with $|\Gamma_{\Psi'}| \circ |[d]| = |\Gamma_\Psi|$.
+
+**Proved in Lean.** `modelMap`, `incl`, `inclLeft` ($A$), `inclRight` ($A'$), `isEquivalence_inclLeft`, `isEquivalence_inclRight`, `modelFunctor_comp_inclLeft`; `admissible_incl`, `modelFibredProduct`, `compareDiagram` ((17.15)), `compare` ((17.14)); `compare_comp_incl` (independence of the enlarging family).
+
+- `Polyfold.GCT.PolyfoldConstruction.modelMap` — Polyfold/Chapter17/ModelComparison.lean, line 86
+- `Polyfold.GCT.PolyfoldConstruction.incl` — Polyfold/Chapter17/ModelComparison.lean, line 142
+- `Polyfold.GCT.PolyfoldConstruction.inclLeft` — Polyfold/Chapter17/ModelComparison.lean, line 195
+- `Polyfold.GCT.PolyfoldConstruction.inclRight` — Polyfold/Chapter17/ModelComparison.lean, line 199
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_inclLeft` — Polyfold/Chapter17/ModelComparison.lean, line 205
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_inclRight` — Polyfold/Chapter17/ModelComparison.lean, line 210
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctor_comp_inclLeft` — Polyfold/Chapter17/ModelComparison.lean, line 217
+- `Polyfold.GCT.PolyfoldConstruction.admissible_incl` — Polyfold/Chapter17/ModelComparison.lean, line 231
+- `Polyfold.GCT.PolyfoldConstruction.modelFibredProduct` — Polyfold/Chapter17/ModelComparison.lean, line 238
+- `Polyfold.GCT.PolyfoldConstruction.compareDiagram` — Polyfold/Chapter17/ModelComparison.lean, line 252
+- `Polyfold.GCT.PolyfoldConstruction.compare` — Polyfold/Chapter17/ModelComparison.lean, line 259
+- `Polyfold.GCT.PolyfoldConstruction.compare_comp_incl` — Polyfold/Chapter17/ModelComparison.lean, line 267
+
+*What differs.*
+- $\Psi \sqcup \Psi'$ is indexed by the sum of the index types, so for $\Psi = \Psi'$ every uniformizer appears twice, as the text presumably intends (point G.199).
+
+### V17.21. Theorem 17.1.18 (2017: 17.2), the canonical generalized isomorphisms $f_{\Psi,\Psi'}$
+
+*as in the book* · as stated · G.200 closed
+
+**HWZ (§17.1, Theorem 17.1.18, p. 756 (2017: Theorem 17.2)).** For covering families $\Psi, \Psi', \Psi''$: $f_{\Psi,\Psi'}$ is a generalized isomorphism with $f_{\Psi,\Psi} = 1$, $f_{\Psi',\Psi''} \circ f_{\Psi,\Psi'} = f_{\Psi,\Psi''}$, $|\Gamma_{\Psi'}| \circ |f_{\Psi,\Psi'}| = |\Gamma_\Psi|$, and $|f_{\Psi,\Psi'}|$ is a homeomorphism; each $(X_\Psi, |\Gamma_\Psi|)$ is a weak polyfold structure.
+
+**Proved in Lean.** `comparison c c'` (the class of (17.15) in $\mathcal{EP}(E^{-1})$); `theorem_17_1_18 c c' c''`: `isGeneralizedIso_comparison`, `comparison_self`, `comparison_comp`, `orbitMap_comparison`, `isHomeomorph_orbitMap_comparison`. Witnesses `reflection_comparison` (one copy against two copies of the reflection uniformizer; $\tau(p) = (-1, 0) \ne$ unit) and `overlap_comparison` (one uniformizer against three overlapping ones).
+
+- `Polyfold.GCT.PolyfoldConstruction.comparison` — Polyfold/Chapter17/ModelComparison.lean, line 303
+- `Polyfold.GCT.PolyfoldConstruction.isGeneralizedIso_comparison` — Polyfold/Chapter17/ModelComparison.lean, line 333
+- `Polyfold.GCT.PolyfoldConstruction.comparison_self` — Polyfold/Chapter17/ModelComparison.lean, line 314
+- `Polyfold.GCT.PolyfoldConstruction.comparison_comp` — Polyfold/Chapter17/ModelComparison.lean, line 319
+- `Polyfold.GCT.PolyfoldConstruction.orbitMap_comparison` — Polyfold/Chapter17/ModelComparison.lean, line 340
+- `Polyfold.GCT.PolyfoldConstruction.isHomeomorph_orbitMap_comparison` — Polyfold/Chapter17/ModelComparison.lean, line 361
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_18` — Polyfold/Chapter17/ModelComparison.lean, line 378
+- `Polyfold.GCT.PolyfoldConstruction.reflection_comparison` — Polyfold/Chapter17/ModelExamples.lean, line 97
+- `Polyfold.GCT.PolyfoldConstruction.overlap_comparison` — Polyfold/Chapter17/ModelExamples.lean, line 156
+
+*What differs.*
+- The identities are equalities in $\mathcal{EP}(E^{-1})$ (Definition 10.3.12). The weak polyfold structures are V17.19. The 2017 conclusion that $|C|$ is a paracompact polyfold is not part of the 2021 statement; it is Theorem 17.1.26 under (ZHOU) (V17.29). The discussion before the theorem is point G.200.
+
+### V17.22. Remark 17.1.19, the two squares of Theorem 17.1.18
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Remark 17.1.19, p. 757 (new in the 2021 edition)).** For a representative diagram of $f_{\Psi,\Psi'}$, every object $x$ of $X_\Psi$ is connected by a morphism to $F(a)$ with $\Gamma_\Psi(x) \cong \Gamma_{\Psi'}(G(a))$ ("with the obvious care").
+
+**Proved in Lean.** `remark_17_1_19 c c' d hd x`: for every diagram $d$ representing $f_{\Psi,\Psi'}$ and every $x$, some $a$ and $\phi : F(a) \to x$ with $\Gamma_\Psi(x)$ isomorphic to $\Gamma_{\Psi'}(G(a))$.
+
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_1_19` — Polyfold/Chapter17/ModelComparison.lean, line 392
+
+*What differs.*
+- The squares commute up to isomorphism, which is the "obvious care".
+
+### V17.23. Definition 17.1.20, the covering category $\mathrm{COV}_C$
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Definition 17.1.20, p. 757 (new in the 2021 edition)).** $\mathrm{COV}_C$ has the covering families as objects and exactly one morphism between any two (a connected simple system).
+
+**Proved in Lean.** `CoveringCategory` (the codiscrete category on `CoveringFamily`); `definition_17_1_20`: a connected simple system, every morphism an isomorphism, the only endomorphism the identity.
+
+- `Polyfold.GCT.PolyfoldConstruction.CoveringCategory` — Polyfold/Chapter17/ModelComparison.lean, line 518
+- `Polyfold.IsConnectedSimpleSystem` — Polyfold/Chapter17/ModelComparison.lean, line 524
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_20` — Polyfold/Chapter17/ModelComparison.lean, line 533
+
+### V17.24. Definition 17.1.21, the natural embedding $\mathrm{COV}_C \to \mathcal{EP}(E^{-1})$
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Definition 17.1.21, p. 757 (new in the 2021 edition)).** $\Psi \mapsto X_\Psi$, $(\Psi \to \Psi') \mapsto f_{\Psi,\Psi'}$ is a functor into $\mathcal{EP}(E^{-1})$.
+
+**Proved in Lean.** `coveringEmbedding : S.CoveringCategory ⥤ EPLoc`; `definition_17_1_21`: on objects $X_\Psi$, on morphisms `comparison`, every image a generalized isomorphism.
+
+- `Polyfold.GCT.PolyfoldConstruction.coveringEmbedding` — Polyfold/Chapter17/ModelComparison.lean, line 541
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_21` — Polyfold/Chapter17/ModelComparison.lean, line 549
+
+*What differs.*
+- Functoriality is Theorem 17.1.18's $f_{\Psi,\Psi} = 1$ and cocycle.
+
+### V17.25. Definition 17.1.22, (LR), (SLR), (LUC), (SLUC) and (ZHOU) for $C$
+
+*as in the book* · as stated · G.201 closed
+
+**HWZ (§17.1, Definition 17.1.22, p. 758 (new in the 2021 edition)).** $C$ has one of the properties (LR), (SLR), (LUC), (SLUC), (ZHOU) if the model $X_\Psi$ of some covering set has it; by Theorem 10.3.21 the choice does not matter.
+
+**Proved in Lean.** `HasModelProperty` (some covering family's model has the property) with `IsLR`, `IsSLR`, `IsLUC`, `IsSLUC`, `IsZhou`; for a property invariant under generalized isomorphisms (`IsGenIsoInvariant`, Theorem 10.3.21) one covering family decides it (`hasModelProperty_iff`); `definition_17_1_22 c`: each of the five holds for $C$ iff it holds for $X_\Psi$ of the given covering family. For a translation GCT with its tautological structure (`tautConstruction`) the properties are those of $K \ltimes U$ (`tautConstruction_hasModelProperty_iff`).
+
+- `Polyfold.GCT.PolyfoldConstruction.HasModelProperty` — Polyfold/Chapter17/ModelProperties.lean, line 108
+- `Polyfold.GCT.PolyfoldConstruction.IsGenIsoInvariant` — Polyfold/Chapter17/ModelProperties.lean, line 83
+- `Polyfold.GCT.PolyfoldConstruction.hasModelProperty_iff` — Polyfold/Chapter17/ModelProperties.lean, line 120
+- `Polyfold.GCT.PolyfoldConstruction.IsLR` — Polyfold/Chapter17/ModelProperties.lean, line 130
+- `Polyfold.GCT.PolyfoldConstruction.IsSLR` — Polyfold/Chapter17/ModelProperties.lean, line 134
+- `Polyfold.GCT.PolyfoldConstruction.IsLUC` — Polyfold/Chapter17/ModelProperties.lean, line 138
+- `Polyfold.GCT.PolyfoldConstruction.IsSLUC` — Polyfold/Chapter17/ModelProperties.lean, line 142
+- `Polyfold.GCT.PolyfoldConstruction.IsZhou` — Polyfold/Chapter17/ModelProperties.lean, line 146
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_22` — Polyfold/Chapter17/ModelProperties.lean, line 155
+- `Polyfold.GCT.PolyfoldConstruction.tautConstruction` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.tautConstruction_hasModelProperty_iff` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 199
+
+*What differs.*
+- The invariance under the $f_{\Psi,\Psi'}$ that the text uses ("in the obvious way") is proved from Theorem 17.1.18 and Chapter 10 (point G.201).
+
+### V17.26. Proposition 17.1.23, (ZHOU) implies (LUC), (SLUC), (LR), (SLR)
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Proposition 17.1.23, p. 758 (new in the 2021 edition)).** If $C$ satisfies (ZHOU), it has (LUC), (SLUC), (LR) and (SLR) (Theorems 7.4.13, 7.4.24).
+
+**Proved in Lean.** `proposition_17_1_23 (h : S.IsZhou) : S.IsLUC ∧ S.IsSLUC ∧ S.IsLR ∧ S.IsSLR`; `IsZhou.model`, `IsLR.model` (the property for every covering family).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_23` — Polyfold/Chapter17/ModelProperties.lean, line 168
+- `Polyfold.GCT.PolyfoldConstruction.IsZhou.model` — Polyfold/Chapter17/ModelProperties.lean, line 184
+- `Polyfold.GCT.PolyfoldConstruction.IsLR.model` — Polyfold/Chapter17/ModelProperties.lean, line 188
+
+*What differs.*
+- The text cites Theorems 7.4.13 and 7.4.24 without a proof; the citation is carried out on one model (point G.201).
+
+### V17.27. Proposition 17.1.24, every model has the properties of $C$
+
+*as in the book* · as stated
+
+**HWZ (§17.1, Proposition 17.1.24, p. 758 (new in the 2021 edition)).** If $C$ has one of (LR), (SLR), (LUC), (SLUC), (ZHOU), then $X_\Psi$ has it for every covering set $\Psi$.
+
+**Proved in Lean.** `proposition_17_1_24 c`: the five implications for the model of the covering family `c`; `HasModelProperty.forall`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_24` — Polyfold/Chapter17/ModelProperties.lean, line 176
+- `Polyfold.GCT.PolyfoldConstruction.HasModelProperty.forall` — Polyfold/Chapter17/ModelProperties.lean, line 114
+
+*What differs.*
+- A citation of Theorem 10.3.21 in the text (point G.201).
+
+### V17.28. Proposition 17.1.25, uniqueness of $f_{\Psi,\Psi'}$ under (LUC)
+
+*narrower* · does not hold as we read it · effective forms proved · cf. Theorem 10.3.19
+
+**HWZ (§17.1, Proposition 17.1.25, p. 758 (new in the 2021 edition)).** If $C$ has (LUC), every generalized isomorphism $h : X_\Psi \to X_{\Psi'}$ with $|\Gamma_{\Psi'}| \circ |h| = |\Gamma_\Psi|$ equals $f_{\Psi,\Psi'}$; the proof uses Theorem 10.3.19.
+
+**Proved in Lean.** Does not hold as we read it: `not_proposition_17_1_25 : ¬ Proposition_17_1_25` (the printed (LUC) form) and `not_proposition_17_1_25_LR : ¬ Proposition_17_1_25_LR` (the (LR) form its proof uses). Witness `z3TautConstruction`: $\mathbb Z/3 \ltimes \mathbb R$ with the trivial action and the tautological structure; it satisfies (ZHOU), hence (LUC), (SLUC), (LR), (SLR) (`z3Taut_properties`), and for the one-element covering family the generalized isomorphism through the inversion satisfies $|\Gamma_\Psi| \circ |h| = |\Gamma_\Psi|$ and differs from $f_{\Psi,\Psi} = 1$ (`z3Taut_counterexample`); the model is not effective (`not_isEffective_z3Taut`). What holds: $|h| = |f_{\Psi,\Psi'}|$ always (`orbitMap_eq_comparison`); $h = f_{\Psi,\Psi'}$ under (LR) when $X_{\Psi'}$ is effective (`proposition_17_1_25_of_isEffective`), under (LR) when $C$ is effective (`proposition_17_1_25_of_isEffective'`, with `IsEffective`), and under (ZHOU) when $C$ is effective (`proposition_17_1_25_of_isZhou`).
+
+- `Polyfold.GCT.PolyfoldConstruction.Proposition_17_1_25` — Polyfold/Chapter17/ModelProperties.lean, line 215
+- `Polyfold.GCT.PolyfoldConstruction.Proposition_17_1_25_LR` — Polyfold/Chapter17/ModelProperties.lean, line 225
+- `Polyfold.GCT.PolyfoldConstruction.not_proposition_17_1_25` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 296
+- `Polyfold.GCT.PolyfoldConstruction.not_proposition_17_1_25_LR` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 302
+- `Polyfold.GCT.PolyfoldConstruction.z3TautConstruction` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 213
+- `Polyfold.GCT.PolyfoldConstruction.z3Taut_properties` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 224
+- `Polyfold.GCT.PolyfoldConstruction.z3Taut_counterexample` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 267
+- `Polyfold.GCT.PolyfoldConstruction.not_isEffective_z3Taut` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 233
+- `Polyfold.GCT.PolyfoldConstruction.orbitMap_eq_comparison` — Polyfold/Chapter17/ModelProperties.lean, line 201
+- `Polyfold.GCT.PolyfoldConstruction.IsEffective` — Polyfold/Chapter17/ModelProperties.lean, line 150
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isEffective` — Polyfold/Chapter17/ModelProperties.lean, line 236
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isEffective'` — Polyfold/Chapter17/ModelProperties.lean, line 247
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_25_of_isZhou` — Polyfold/Chapter17/ModelProperties.lean, line 257
+- `Polyfold.GCT.PolyfoldConstruction.unitTaut_isLR_isEffective` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 425
+- `Polyfold.GCT.PolyfoldConstruction.unitTaut_proposition_17_1_25` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 436
+- `Polyfold.GCT.PolyfoldConstruction.reflection_isEffective` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 389
+- `Polyfold.GCT.PolyfoldConstruction.reflection_isLUC` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 394
+
+*What differs.*
+- Hidden hypotheses: effectiveness of $C$ (`IsEffective`) or of the target model. Witnesses: `unitTaut_isLR_isEffective` with `unitTaut_proposition_17_1_25` ($\{1\} \ltimes \mathbb R$; (LR) and effectiveness together, weak: trivial isotropy) and `reflection_isEffective` with `reflection_isLUC` ($\mathbb Z/2 \ltimes \mathbb R$, effective with non-trivial isotropy).
+- The proposition does not hold as we read it, under either the (LUC) or the (LR) reading (Findings, Chapter 17, item 2). It rests on Theorem 10.3.19, which does not hold as we read it for non-effective targets (Findings, Chapter 10, item 58); the effective forms are those of Chapter 10.
+
+### V17.29. Theorem 17.1.26, the class $c_C$ of polyfold structures on $|C|$ under (ZHOU)
+
+*as in the book* · as stated · G.202 closed
+
+**HWZ (§17.1, Theorem 17.1.26, p. 759 (new in the 2021 edition)).** If $C$ satisfies (ZHOU), the metrizable space $|C|$ carries a natural equivalence class $c_C$ of polyfold structures (Definition 16.1.1), giving $(C, F, M) \mapsto (|C|, c_C)$.
+
+**Proved in Lean.** `theorem_17_1_26 (h : S.IsZhou)`: $|C|$ is metrizable and, for every covering family, $X_\Psi$ satisfies (ZHOU) and the structure `modelPolyfoldStructure` (model $X_\Psi$, homeomorphism $|\Gamma_\Psi|$) has class `polyfoldClass h`; any two of these structures are equivalent (`modelPolyfoldStructure_equiv`, through $f_{\Psi,\Psi'}$), `polyfoldClass_eq`. Witness `z3Taut_polyfoldClass` ($\mathbb Z/3 \ltimes \mathbb R$).
+
+- `Polyfold.GCT.PolyfoldConstruction.modelPolyfoldStructure_equiv` — Polyfold/Chapter17/ModelProperties.lean, line 269
+- `Polyfold.GCT.PolyfoldConstruction.polyfoldClass` — Polyfold/Chapter17/ModelProperties.lean, line 276
+- `Polyfold.GCT.PolyfoldConstruction.polyfoldClass_eq` — Polyfold/Chapter17/ModelProperties.lean, line 280
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_26` — Polyfold/Chapter17/ModelProperties.lean, line 289
+- `Polyfold.GCT.PolyfoldConstruction.z3Taut_polyfoldClass` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 240
+
+*What differs.*
+- The theorem summarizes the paragraph before it; the equivalence of the structures is Theorem 17.1.18 (point G.202).
+
+### V17.30. Theorem 17.1.27 (2017: Remark 17.2), the canonical natural transformation $\tau : \Gamma \circ \pi_1 \to \Gamma' \circ \pi_2$
+
+*stronger* · natural isomorphism
+
+**HWZ (§17.1, Theorem 17.1.27, pp. 759–761, (17.17)–(17.19) (2017: Remark 17.2)).** On the weak fibred product $X \times_{X''} X'$ for $\Psi'' = \Psi \sqcup \Psi'$, $\tau(q_\lambda, (q_\lambda, \phi'', q_{\mu'}), q_{\mu'}) = \phi''$ is a natural transformation between the equivalences $\Gamma \circ \pi_1$ and $\Gamma' \circ \pi_2$.
+
+**Proved in Lean.** `theorem_17_1_27 c c'`: `modelFunctorLeft` ($\Gamma \circ \pi_1$) and `modelFunctorRight` ($\Gamma' \circ \pi_2$) are equivalences of categories, and there is $\tau$ between them, an isomorphism, with $\tau(p) = \phi''$ (`canonicalNatTrans`, `canonicalNatTrans_app`); the objects of the fibred product are identified with $\bigsqcup M(\Psi_\lambda, \Psi_{\mu'})$ (`fibredProductObjEquiv`, (17.18)); `isEquivalence_modelFunctorLeft`. Witness: in `reflection_comparison` (V17.21) $\tau(p) = (-1, 0)$, not a unit.
+
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctorLeft` — Polyfold/Chapter17/ModelComparison.lean, line 418
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctorRight` — Polyfold/Chapter17/ModelComparison.lean, line 423
+- `Polyfold.GCT.PolyfoldConstruction.canonicalNatTrans` — Polyfold/Chapter17/ModelComparison.lean, line 442
+- `Polyfold.GCT.PolyfoldConstruction.canonicalNatTrans_app` — Polyfold/Chapter17/ModelComparison.lean, line 460
+- `Polyfold.GCT.PolyfoldConstruction.fibredProductObjEquiv` — Polyfold/Chapter17/ModelComparison.lean, line 497
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_modelFunctorLeft` — Polyfold/Chapter17/ModelComparison.lean, line 465
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_27` — Polyfold/Chapter17/ModelComparison.lean, line 485
+
+*What differs.*
+- $\tau$ is moreover a natural isomorphism. $C$ carries no M-polyfold structure, so $\tau$ is a natural transformation of functors of categories. The 2017 text had this as a remark.
+
+### V17.31. The composition of comparison diagrams on pp. 761–765, (17.20)–(17.30), and $\mathrm{COV}_C$ revisited
+
+*restated* · composition in EP(E⁻¹) · G.203 closed
+
+**HWZ (§17.1, pp. 761–765, (17.20)–(17.30) (2017: §17.1)).** Fibred products of three comparison diagrams simplify, along either path, to the diagram associated to $\Psi \sqcup \Psi'''$; so the unique morphism of $\mathrm{COV}_C$ is identified with $d_{\Psi,\Psi'}$ and composition is compatible with the embedding into $\mathcal{EP}(E^{-1})$.
+
+**Proved in Lean.** `compare_comp_incl`: for every family $\Phi$ containing $\Psi$ and $\Psi'$, $i(\Psi' \to \Phi) \circ f_{\Psi,\Psi'} = i(\Psi \to \Phi)$ in $\mathcal{EP}(E^{-1})$; hence `comparison_comp` ($f_{\Psi',\Psi''} \circ f_{\Psi,\Psi'} = f_{\Psi,\Psi''}$) and the functor `coveringEmbedding` (`definition_17_1_21`).
+
+- `Polyfold.GCT.PolyfoldConstruction.compare_comp_incl` — Polyfold/Chapter17/ModelComparison.lean, line 267
+- `Polyfold.GCT.PolyfoldConstruction.comparison_comp` — Polyfold/Chapter17/ModelComparison.lean, line 319
+- `Polyfold.GCT.PolyfoldConstruction.coveringEmbedding` — Polyfold/Chapter17/ModelComparison.lean, line 541
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_21` — Polyfold/Chapter17/ModelComparison.lean, line 549
+
+*What differs.*
+- The associativity of the simplifications (17.30) is not written out on the level of diagrams; the composition law it serves is proved in $\mathcal{EP}(E^{-1})$ by comparing both sides with the inclusion into one larger family (point G.203).
+
+### V17.32. Regularity of objects, $mI(\alpha)$ and the filtration $C_\infty \to \dots \to C_i \to \dots \to C_0 = C$
+
+*as in the book* · as stated · G.204 closed
+
+**HWZ (§17.1, pp. 765–766 (2017: §17.1)).** An object $\alpha = \Psi(q)$ has regularity $i$ if $q \in O_i$, independently of $\Psi \in F(\alpha)$ and invariant under isomorphism; $mI(\alpha)$ is the maximal regularity; the full subcategories $C_i$ form a filtration descending to orbits.
+
+**Proved in Lean.** `HasRegularity m α`; `hasRegularity_iff` and `regularity_eq_of_mem` (for every uniformizer and every point over an isomorphic object, the regularity is that of the point); `HasRegularity.of_isomorphic`, `HasRegularity.mono`, `hasRegularity_zero`; `maxRegularity` ($mI$, in $\mathbb N \cup \{\infty\}$) with `maxRegularity_eq`; `regSet m` ($C_m$), `regSetInf` ($C_\infty$), `regSet_antitone`, `regSet_zero`, the full subcategories `regSub` with inclusions `regIncl`, saturated (`isSaturated_regSet`); in a model, `hasRegularity_modelFunctor_obj`.
+
+- `Polyfold.GCT.PolyfoldConstruction.HasRegularity` — Polyfold/Chapter17/PolyfoldLevels.lean, line 112
+- `Polyfold.GCT.PolyfoldConstruction.hasRegularity_iff` — Polyfold/Chapter17/PolyfoldLevels.lean, line 119
+- `Polyfold.GCT.PolyfoldConstruction.regularity_eq_of_mem` — Polyfold/Chapter17/PolyfoldLevels.lean, line 127
+- `Polyfold.GCT.PolyfoldConstruction.HasRegularity.of_isomorphic` — Polyfold/Chapter17/PolyfoldLevels.lean, line 134
+- `Polyfold.GCT.PolyfoldConstruction.HasRegularity.mono` — Polyfold/Chapter17/PolyfoldLevels.lean, line 144
+- `Polyfold.GCT.PolyfoldConstruction.hasRegularity_zero` — Polyfold/Chapter17/PolyfoldLevels.lean, line 160
+- `Polyfold.GCT.PolyfoldConstruction.maxRegularity` — Polyfold/Chapter17/PolyfoldLevels.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.maxRegularity_eq` — Polyfold/Chapter17/PolyfoldLevels.lean, line 177
+- `Polyfold.GCT.PolyfoldConstruction.regSet` — Polyfold/Chapter17/PolyfoldLevels.lean, line 203
+- `Polyfold.GCT.PolyfoldConstruction.regSetInf` — Polyfold/Chapter17/PolyfoldLevels.lean, line 206
+- `Polyfold.GCT.PolyfoldConstruction.regSet_antitone` — Polyfold/Chapter17/PolyfoldLevels.lean, line 208
+- `Polyfold.GCT.PolyfoldConstruction.regSet_zero` — Polyfold/Chapter17/PolyfoldLevels.lean, line 217
+- `Polyfold.GCT.PolyfoldConstruction.regSub` — Polyfold/Chapter17/PolyfoldLevels.lean, line 232
+- `Polyfold.GCT.PolyfoldConstruction.regIncl` — Polyfold/Chapter17/PolyfoldLevels.lean, line 253
+- `Polyfold.GCT.PolyfoldConstruction.isSaturated_regSet` — Polyfold/Chapter17/PolyfoldLevels.lean, line 221
+- `Polyfold.GCT.PolyfoldConstruction.hasRegularity_modelFunctor_obj` — Polyfold/Chapter17/PolyfoldLevels.lean, line 266
+
+*What differs.*
+- The regularity is defined through any uniformizer whose image meets the isomorphism class; that it does not depend on the choice is proved from $s$, $t$ being local sc-diffeomorphisms, as the text indicates (point G.204).
+
+### V17.33. Theorem 17.1.28 (2017: 17.3), $C_1$ is a GCT with the polyfold structure $(F^1, M_{F^1})$
+
+*restated* · (F¹, M_F¹) built · G.205 closed
+
+**HWZ (§17.1, Theorem 17.1.28, p. 766 (2017: Theorem 17.3)).** The full subcategory $C_1$ is a GCT and carries the polyfold structure $(F^1, M_{F^1})$ with $F^1(\alpha) = \{\Psi^1\}$ and $M_{F^1}(\Psi^1, \Psi'^1) = (M(\Psi,\Psi'))^1$ ("obvious").
+
+**Proved in Lean.** `theorem_17_1_28_gct hc`: `levelOneGCT` has groupoid $C_1$ (`regSub 1`) and the topology `levelOneTopology` for which every $|\Gamma^1_\Psi| : |X^1_\Psi| \to |C_1|$ is a homeomorphism (`isHomeomorph_modelOrbitEquivOne`), metrizable (`metrizableSpace_levelOne`), with $|C_1| \to |C|$ continuous and injective onto the image of $C_1$. `theorem_17_1_28 hc`: `levelOneConstruction` has $F^1(\alpha) = \{\Psi^1 : \Psi \in F(\alpha)\}$ (`levelOneUnif`, $O^1$ with the shifted structure, an open embedding on orbits by `isOpenEmbedding_levelOneFunctor`), and $M_{F^1}(L, L')$ is identified with $(M(\Psi,\Psi'))^1$ by a bijective local sc-diffeomorphism compatible with $\phi$, $s$, $t$ (`levelOneTransEquiv`, `ltrPolyfold`). Also `levelOne_hasRegularity_iff`, `levelOne_hasUniformizers`; under (ZHOU), the class on $|C^1|$ (`levelOnePolyfoldClass`) and $|C^1| \cong (|C|, c_C)^1$ (`levelOneHomeomorphRaised`).
+
+- `Polyfold.GCT.PolyfoldConstruction.levelOneTopology` — Polyfold/Chapter17/LevelOneCategory.lean, line 252
+- `Polyfold.GCT.PolyfoldConstruction.isHomeomorph_modelOrbitEquivOne` — Polyfold/Chapter17/LevelOneCategory.lean, line 256
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_levelOne` — Polyfold/Chapter17/LevelOneCategory.lean, line 279
+- `Polyfold.GCT.PolyfoldConstruction.levelOneGCT` — Polyfold/Chapter17/LevelOneCategory.lean, line 301
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28_gct` — Polyfold/Chapter17/LevelOneCategory.lean, line 316
+- `Polyfold.GCT.PolyfoldConstruction.levelOneUnif` — Polyfold/Chapter17/LevelStructures.lean, line 272
+- `Polyfold.GCT.PolyfoldConstruction.isOpenEmbedding_levelOneFunctor` — Polyfold/Chapter17/LevelStructures.lean, line 233
+- `Polyfold.GCT.PolyfoldConstruction.levelOneTransEquiv` — Polyfold/Chapter17/LevelStructures.lean, line 304
+- `Polyfold.GCT.PolyfoldConstruction.ltrPolyfold` — Polyfold/Chapter17/LevelStructures.lean, line 353
+- `Polyfold.GCT.PolyfoldConstruction.levelOneConstruction` — Polyfold/Chapter17/LevelStructures.lean, line 627
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28` — Polyfold/Chapter17/LevelStructures.lean, line 725
+- `Polyfold.GCT.PolyfoldConstruction.levelOne_hasRegularity_iff` — Polyfold/Chapter17/LevelStructures.lean, line 686
+- `Polyfold.GCT.PolyfoldConstruction.levelOne_hasUniformizers` — Polyfold/Chapter17/LevelStructures.lean, line 702
+- `Polyfold.GCT.PolyfoldConstruction.levelOnePolyfoldClass` — Polyfold/Chapter17/LevelOneCategory.lean, line 346
+- `Polyfold.GCT.PolyfoldConstruction.levelOneHomeomorphRaised` — Polyfold/Chapter17/LevelOneCategory.lean, line 359
+
+*What differs.*
+- Hidden hypotheses: footprints covering $|C|$ (`hc : S.HasCoveringUniformizers`), the standing reading of V17.6; witness `z3Taut_hasCoveringUniformizers`.
+- $\Psi \mapsto \Psi^1$ need not be injective, so $M_{F^1}(L, L')$ is built from one chosen $\Psi$ with $L = \Psi^1$. The topology of $|C_1|$ is the one of p. 766, from $|X^1|$; the "obvious" verification is point G.205.
+
+### V17.34. The levels $C^{i+1} := (C^i)^1$ and the metrizable topology on $|C_i|$
+
+*as in the book* · all levels · G.204 closed
+
+**HWZ (§17.1, pp. 765–766 (2017: §17.1)).** $|C_i|$ has a natural metrizable topology from $|X^i|$, and $C^{i+1} := (C^i)^1$.
+
+**Proved in Lean.** `GCT.UniformizedPolyfold` (a GCT with a polyfold structure and $F(\alpha) \ne \emptyset$), `level` ($C^{i+1} = (C^i)^1$), `levelIncl` ($C^i \to C$, injective with image $C_i$: `range_levelIncl_obj`, `level_spec`); `levelTopology` on $|C_i|$, metrizable (`metrizableSpace_level`); `theorem_17_1_28_levels c i`: $|\Gamma^i_\Psi| : |X^i_\Psi| \to |C_i|$ (`modelFunctorLevel`) is a homeomorphism for every covering family, the topology is the coinduced one (`isHomeomorph_modelOrbitLevel`, `levelTopology_eq_coinduced`), $|X^i|$ is metrizable (`EP.metrizableSpace_lift_orbitSpace`), and the lifted comparisons are generalized isomorphisms compatible with them (`EPLoc.liftHomLevel`, `exists_levelModel_comparison`); under (ZHOU), `levelPolyfoldStructure`, `levelPolyfoldStructure_equiv` (with `EP.isZhou_lift`). Witnesses `z3Uniformized_level`, `z3Uniformized_levelOrbit`.
+
+- `Polyfold.GCT.UniformizedPolyfold` — Polyfold/Chapter17/LevelStructures.lean, line 1081
+- `Polyfold.GCT.UniformizedPolyfold.level` — Polyfold/Chapter17/LevelStructures.lean, line 1103
+- `Polyfold.GCT.UniformizedPolyfold.levelIncl` — Polyfold/Chapter17/LevelStructures.lean, line 1113
+- `Polyfold.GCT.UniformizedPolyfold.range_levelIncl_obj` — Polyfold/Chapter17/LevelStructures.lean, line 1147
+- `Polyfold.GCT.UniformizedPolyfold.level_spec` — Polyfold/Chapter17/LevelStructures.lean, line 1222
+- `Polyfold.GCT.UniformizedPolyfold.levelTopology` — Polyfold/Chapter17/LevelStructures.lean, line 1192
+- `Polyfold.GCT.UniformizedPolyfold.metrizableSpace_level` — Polyfold/Chapter17/LevelStructures.lean, line 1203
+- `Polyfold.GCT.UniformizedPolyfold.isHomeomorph_modelOrbitLevel` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 397
+- `Polyfold.GCT.UniformizedPolyfold.levelTopology_eq_coinduced` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 407
+- `Polyfold.GCT.UniformizedPolyfold.theorem_17_1_28_levels` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 465
+- `Polyfold.GCT.UniformizedPolyfold.levelPolyfoldStructure` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 437
+- `Polyfold.GCT.UniformizedPolyfold.levelPolyfoldStructure_equiv` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 453
+- `Polyfold.GCT.UniformizedPolyfold.exists_levelModel_comparison` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 295
+- `Polyfold.GCT.PolyfoldConstruction.modelFunctorLevel` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 213
+- `Polyfold.EP.metrizableSpace_lift_orbitSpace` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 143
+- `Polyfold.EP.isZhou_lift` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 148
+- `Polyfold.EPLocalization.EPLoc.liftHomLevel` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.z3Uniformized_level` — Polyfold/Chapter17/LevelStructuresExamples.lean, line 52
+- `Polyfold.GCT.PolyfoldConstruction.z3Uniformized_levelOrbit` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 491
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$, carried in `GCT.UniformizedPolyfold` (the standing reading, V17.6); witness `z3Uniformized`.
+- Iterating $C \mapsto C^1$ needs $F(\alpha) \ne \emptyset$ at each level, which `levelOne_hasUniformizers` supplies. The text's route through "paracompact, Hausdorff and locally metrizable" is replaced by the homeomorphism with the metrizable $|X^i|$ (point G.204).
+
+### V17.35. Corollary 17.1.29, (ZHOU), (SLUC), (SLR) pass to $C^1$
+
+*as in the book* · as stated · all levels · G.206 closed
+
+**HWZ (§17.1, Corollary 17.1.29, p. 766 (new in the 2021 edition)).** If $C$ satisfies (ZHOU), (SLUC) or (SLR), so does $C^1$.
+
+**Proved in Lean.** `corollary_17_1_29 (hu : S.HasUniformizers)`: the three implications for `levelOneConstruction`; `corollary_17_1_29_of_coveringFamily` (for the model of every covering family of $F^1$), `corollary_17_1_29_model` (for $X^1_\Psi$), through the equivalence `levelOneModelFunctor` (`isEquivalence_levelOneModelFunctor`); for all levels `UniformizedPolyfold.level_properties`. Witness `z3Taut_levelOne`.
+
+- `Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29_model` — Polyfold/Chapter17/LevelOneCategory.lean, line 385
+- `Polyfold.GCT.PolyfoldConstruction.levelOneModelFunctor` — Polyfold/Chapter17/LevelStructures.lean, line 883
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_levelOneModelFunctor` — Polyfold/Chapter17/LevelStructures.lean, line 1014
+- `Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29_of_coveringFamily` — Polyfold/Chapter17/LevelStructures.lean, line 1048
+- `Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29` — Polyfold/Chapter17/LevelStructures.lean, line 1062
+- `Polyfold.GCT.UniformizedPolyfold.level_properties` — Polyfold/Chapter17/LevelStructures.lean, line 1234
+- `Polyfold.GCT.PolyfoldConstruction.z3Taut_levelOne` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 321
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hu`), the standing reading (V17.6).
+- The text derives it from the ep-groupoid case; the covering families of $F^1$ need not come from covering families of $F$, which is why the proof passes through the equivalence of models (point G.206).
+
+### V17.36. Definition 17.1.30 (2017: 17.7), the degeneracy functor $d$ and the boundary $\partial C$
+
+*restated* · independent of Ψ · ∂C ≠ ∅ witness
+
+**HWZ (§17.1, Definition 17.1.30, p. 767 (2017: Definition 17.7)).** $d(\alpha) := d_O(q)$ for $\Psi \in F(\alpha)$ with $\Psi(q) = \alpha$; $\partial C$ is the full subcategory of objects with $d \ge 1$.
+
+**Proved in Lean.** `degIndex`; `definition_17_1_30`: $d(\alpha) = d_O(q)$ for every $\Psi \in F(\alpha)$ and $q$ over $\alpha$, `degIndex_eq` (any uniformizer through an isomorphic object), `degIndex_eq_of_iso` (constant on isomorphism classes); `boundarySet`, `boundary` ($\partial C$), saturated (`isSaturated_boundarySet`); under (ZHOU) it is the degeneracy index of $(|C|, c_C)$ (`degIndex_polyfoldClass`). Witness `cornerTautConstruction` ($\{1\} \ltimes [0,\infty)$): $d(0) = 1$, $\partial C \ne \emptyset$.
+
+- `Polyfold.GCT.PolyfoldConstruction.degIndex` — Polyfold/Chapter17/PolyfoldLevels.lean, line 284
+- `Polyfold.GCT.PolyfoldConstruction.degIndex_eq` — Polyfold/Chapter17/PolyfoldLevels.lean, line 292
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_30` — Polyfold/Chapter17/PolyfoldLevels.lean, line 301
+- `Polyfold.GCT.PolyfoldConstruction.degIndex_eq_of_iso` — Polyfold/Chapter17/PolyfoldLevels.lean, line 308
+- `Polyfold.GCT.PolyfoldConstruction.boundarySet` — Polyfold/Chapter17/PolyfoldLevels.lean, line 327
+- `Polyfold.GCT.PolyfoldConstruction.boundary` — Polyfold/Chapter17/PolyfoldLevels.lean, line 330
+- `Polyfold.GCT.PolyfoldConstruction.isSaturated_boundarySet` — Polyfold/Chapter17/PolyfoldLevels.lean, line 334
+- `Polyfold.GCT.PolyfoldConstruction.degIndex_polyfoldClass` — Polyfold/Chapter17/PolyfoldLevels.lean, line 343
+- `Polyfold.GCT.PolyfoldConstruction.cornerTautConstruction` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 361
+- `Polyfold.GCT.PolyfoldConstruction.cornerTaut_degIndex_zero` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 370
+- `Polyfold.GCT.PolyfoldConstruction.cornerTaut_boundarySet_nonempty` — Polyfold/Chapter17/ModelPropertiesExamples.lean, line 377
+
+*What differs.*
+- "Functor $d : C \to \mathbb N$" is read as a function on objects constant on isomorphism classes (a functor to the discrete category $\mathbb N$).
+
+### V17.37. The maps $\sigma$ and $T\sigma$ of a transition element (pp. 767–768)
+
+*as in the book* · as stated
+
+**HWZ (§17.2, pp. 767–768 (2017: §17.2)).** For $(q, \phi, q') \in M(\Psi,\Psi')$, $\sigma = t \circ (s|U)^{-1} : U(q) \to U(q')$ is an sc-diffeomorphism; $T\sigma$ acts on tangent vectors.
+
+**Proved in Lean.** `AdmissibleTriple.sigma`, `isScDiffeoOn_sigma`; `transMap a` ($T\sigma$ for $a \in M(\Psi,\Psi')$, independent of the admissible triple: `transMap_eq`), `transMap_unit`, `transMap_comp` ($T\sigma$ of a composite is the composite), `transTangent` (the fibrewise continuous linear isomorphism).
+
+- `Polyfold.GCT.PolyfoldConstruction.AdmissibleTriple.sigma` — Polyfold/Chapter17/TangentVectors.lean, line 99
+- `Polyfold.GCT.PolyfoldConstruction.AdmissibleTriple.isScDiffeoOn_sigma` — Polyfold/Chapter17/TangentVectors.lean, line 105
+- `Polyfold.GCT.PolyfoldConstruction.transMap` — Polyfold/Chapter17/TangentVectors.lean, line 156
+- `Polyfold.GCT.PolyfoldConstruction.transMap_eq` — Polyfold/Chapter17/TangentVectors.lean, line 163
+- `Polyfold.GCT.PolyfoldConstruction.transMap_unit` — Polyfold/Chapter17/TangentVectors.lean, line 196
+- `Polyfold.GCT.PolyfoldConstruction.transMap_comp` — Polyfold/Chapter17/TangentVectors.lean, line 220
+- `Polyfold.GCT.PolyfoldConstruction.transTangent` — Polyfold/Chapter17/TangentVectors.lean, line 360
+
+*What differs.*
+- Independence of the neighbourhoods chosen is proved (Lemma 17.1.13).
+
+### V17.38. Lemma 17.2.1 (2017: 17.3), $\sim$ on the tuples $(\alpha, \Psi, h)$ is an equivalence relation
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Lemma 17.2.1, p. 768 (2017: Lemma 17.3)).** For $\alpha$ of regularity at least 1, $(\alpha,\Psi,h) \sim (\alpha,\Psi',h')$ iff $T\sigma(h) = h'$ is an equivalence relation.
+
+**Proved in Lean.** `TangentTuple α`, `TangentRel α`; `lemma_17_2_1 α : Equivalence (S.TangentRel α)`.
+
+- `Polyfold.GCT.PolyfoldConstruction.TangentTuple` — Polyfold/Chapter17/TangentVectors.lean, line 426
+- `Polyfold.GCT.PolyfoldConstruction.TangentRel` — Polyfold/Chapter17/TangentVectors.lean, line 452
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_1` — Polyfold/Chapter17/TangentVectors.lean, line 455
+
+### V17.39. Definition 17.2.2 (2017: 17.8), tangent vectors $[\alpha, \Psi, h]$
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Definition 17.2.2, p. 768 (2017: Definition 17.8)).** A tangent vector at $\alpha \in C_1$ is a class $[\alpha,\Psi,h]$.
+
+**Proved in Lean.** `tangentVector` (the class), `tangentVector_eq_iff`; `TangentObj α` (regularity at least 1 and $F(\alpha) \ne \emptyset$), `tangentObj_iff`.
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentVector` — Polyfold/Chapter17/TangentVectors.lean, line 478
+- `Polyfold.GCT.PolyfoldConstruction.tangentVector_eq_iff` — Polyfold/Chapter17/TangentVectors.lean, line 481
+- `Polyfold.GCT.PolyfoldConstruction.TangentObj` — Polyfold/Chapter17/TangentVectors.lean, line 507
+- `Polyfold.GCT.PolyfoldConstruction.tangentObj_iff` — Polyfold/Chapter17/TangentCategory.lean, line 170
+
+### V17.40. Definition 17.2.3 (2017: 17.9), the tangent space $T_\alpha C$
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Definition 17.2.3, p. 769 (2017: Definition 17.9)).** $T_\alpha C$ is the set of classes $[\alpha,\Psi,h]$, a vector space with $[\alpha,\Psi,h] + \lambda[\alpha,\Psi,k] = [\alpha,\Psi,h+\lambda k]$.
+
+**Proved in Lean.** `TangentSpaceAt α` with the vector space structure transported along the bijection `tangentChart` ($S_\Psi$); `definition_17_2_3`: the printed formula, for every $\Psi \in F(\alpha)$.
+
+- `Polyfold.GCT.PolyfoldConstruction.TangentSpaceAt` — Polyfold/Chapter17/TangentVectors.lean, line 474
+- `Polyfold.GCT.PolyfoldConstruction.tangentChart` — Polyfold/Chapter17/TangentVectors.lean, line 518
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_2_3` — Polyfold/Chapter17/TangentVectors.lean, line 646
+
+*What differs.*
+- The structure is transported along one reference uniformizer and is the same for every $\Psi$ (V17.41).
+
+### V17.41. Proposition 17.2.4 (2017: 17.1), $T_\alpha C$ is Banachable; sc-Banachable for smooth $\alpha$
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Proposition 17.2.4, p. 769 (2017: Proposition 17.1)).** $T_\alpha C$ is a Banachable space, $S_\Psi : T_\alpha C \to T_qO$ a topological linear isomorphism with $S_{\Psi'} \circ S_\Psi^{-1} = T\sigma(q)$; for smooth $\alpha$ it is sc-Banachable.
+
+**Proved in Lean.** `proposition_17_2_4`: $S_\Psi$ is a continuous linear equivalence (`tangentChartCLE`) and $S_{\Psi'} \circ S_\Psi^{-1}$ is $T\sigma$ of $(q, 1_\alpha, q')$; `proposition_17_2_4_banachable`: the norm from any chart (`tangentNormedAddCommGroup`) gives the topology and is complete; `proposition_17_2_4_sc`: for smooth $\alpha$, the levels of the chart form an sc-subspace and the transitions are sc-operators.
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentChartCLE` — Polyfold/Chapter17/TangentVectors.lean, line 618
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4` — Polyfold/Chapter17/TangentVectors.lean, line 634
+- `Polyfold.GCT.PolyfoldConstruction.tangentNormedAddCommGroup` — Polyfold/Chapter17/TangentVectors.lean, line 660
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4_banachable` — Polyfold/Chapter17/TangentVectors.lean, line 670
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4_sc` — Polyfold/Chapter17/TangentVectors.lean, line 690
+
+*What differs.*
+- "Banachable" is a topological vector space whose topology comes from a complete norm; the sc-Banachable structure is read through the charts ("using an obvious definition").
+
+### V17.42. Proposition 17.2.5 (2017: 17.2), the functor $\mu_C : C_1 \to \mathrm{Ban}$, $T\phi$
+
+*restated* · functor laws · Ban not built
+
+**HWZ (§17.2, Proposition 17.2.5, p. 770, (17.32) (2017: Proposition 17.2)).** $\alpha \mapsto T_\alpha C$, $\phi \mapsto T\phi$ is a well-defined functor $C_1 \to \mathrm{Ban}$.
+
+**Proved in Lean.** `tangentMorAt` ($T\phi$ through a uniformizer at the target; `tangentMorAt_indep`), `tangentMorCLE` (a continuous linear isomorphism); `proposition_17_2_5`: it is given by every uniformizer, $T1_\alpha = \mathrm{id}$ and $T(\psi \circ \phi) = T\psi \circ T\phi$.
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentMorAt` — Polyfold/Chapter17/TangentVectors.lean, line 750
+- `Polyfold.GCT.PolyfoldConstruction.tangentMorAt_indep` — Polyfold/Chapter17/TangentVectors.lean, line 769
+- `Polyfold.GCT.PolyfoldConstruction.tangentMorCLE` — Polyfold/Chapter17/TangentVectors.lean, line 822
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_5` — Polyfold/Chapter17/TangentVectors.lean, line 847
+
+*What differs.*
+- The category $\mathrm{Ban}$ is not built; $\mu_C$ is given by its object and morphism maps with the functor laws.
+
+### V17.43. Definition 17.2.6, the tangent category $TC$
+
+*restated* · reference uniformizer · identified with the book's objects
+
+**HWZ (§17.2, Definition 17.2.6, p. 770 (new in the 2021 edition)).** Objects of $TC$ are the tangent vectors at objects of $C_1$; morphisms are $([\alpha,\Psi,h], \phi, T\phi([\alpha,\Psi,h]))$ with $s(\phi) = \alpha$.
+
+**Proved in Lean.** `TangentCatObj` (an object $\alpha$ of $C_1$ and a vector in the fibre of a reference uniformizer), `TangentCatMor`, `tangentCatGroupoid`; `tangentCatObjEquiv` identifies the objects with the pairs $(\alpha, e)$, $e \in T_\alpha C$, `tangentCatMorEquiv`; `definition_17_2_6`: the target of a morphism is $T\phi$ of its source.
+
+- `Polyfold.GCT.PolyfoldConstruction.TangentCatObj` — Polyfold/Chapter17/TangentCategory.lean, line 198
+- `Polyfold.GCT.PolyfoldConstruction.TangentCatMor` — Polyfold/Chapter17/TangentCategory.lean, line 236
+- `Polyfold.GCT.PolyfoldConstruction.tangentCatGroupoid` — Polyfold/Chapter17/TangentCategory.lean, line 331
+- `Polyfold.GCT.PolyfoldConstruction.tangentCatObjEquiv` — Polyfold/Chapter17/TangentCategory.lean, line 416
+- `Polyfold.GCT.PolyfoldConstruction.tangentCatMorEquiv` — Polyfold/Chapter17/TangentCategory.lean, line 433
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_2_6` — Polyfold/Chapter17/TangentCategory.lean, line 443
+
+*What differs.*
+- The book's objects, classes over all uniformizers, live one universe up; they are represented in the fibre of one reference uniformizer per object and identified with the book's description by `tangentCatObjEquiv`.
+
+### V17.44. Lemma 17.2.7, $TC$ is a groupoidal category
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Lemma 17.2.7, p. 770 (new in the 2021 edition)).** $TC$ is a groupoidal category.
+
+**Proved in Lean.** `tangentCategory : GroupoidalCategory`; `lemma_17_2_7`: its groupoid is `tangentCatGroupoid`, with finite hom-sets (`finite_tangentCatMor`).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentCategory` — Polyfold/Chapter17/TangentCategory.lean, line 397
+- `Polyfold.GCT.PolyfoldConstruction.finite_tangentCatMor` — Polyfold/Chapter17/TangentCategory.lean, line 385
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_7` — Polyfold/Chapter17/TangentCategory.lean, line 406
+
+*What differs.*
+- $TC$ lives in the universe `max u 1`.
+
+### V17.45. Remark 17.2.8, $TC$ through $\mu_C$; the projection $P : TC \to C_1$, (17.33)–(17.34)
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Remark 17.2.8, pp. 770–771, (17.33), (17.34) (new in the 2021 edition)).** Equivalently, objects $(\alpha, e)$ with $e \in \mu_C(\alpha)$ and morphisms $(\phi, e)$; $P([\alpha,\Psi,h]) = \alpha$ defines a functor $P : TC \to C_1$.
+
+**Proved in Lean.** `remarkMorEquiv` (the morphisms of $TC$ are the pairs $(\phi, e)$), `remark_17_2_8` (source $(s\phi, e)$, target $(t\phi, T\phi\, e)$); `tangentCatProj` ($P$).
+
+- `Polyfold.GCT.PolyfoldConstruction.remarkMorEquiv` — Polyfold/Chapter17/TangentCategory.lean, line 463
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_2_8` — Polyfold/Chapter17/TangentCategory.lean, line 490
+- `Polyfold.GCT.PolyfoldConstruction.tangentCatProj` — Polyfold/Chapter17/TangentCategory.lean, line 509
+
+### V17.46. Lemma 17.2.9 (2017: 17.4), $T\Psi : TO \to TC$ is well defined, (17.35)–(17.37)
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Lemma 17.2.9, p. 773, (17.35)–(17.37) (2017: Lemma 17.4)).** $T\Psi(h) = [\Psi(\tau(h)), \Psi', T\sigma(h)]$ does not depend on the choice of $\Psi' \in F(\Psi(\tau(h)))$.
+
+**Proved in Lean.** `tangentUnifObj` ((17.36), through the reference uniformizer), `lemma_17_2_9` (any two choices $\Psi_1, \Psi_2$ give the same class), `tangentUnifObj_spec`; the action of $G$ on $TO$ (`Uniformizer.tangentMulAction`) and $G \ltimes TO$ (`tangentTranslation`).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnifObj` — Polyfold/Chapter17/TangentCategory.lean, line 542
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_9` — Polyfold/Chapter17/TangentCategory.lean, line 554
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnifObj_spec` — Polyfold/Chapter17/TangentCategory.lean, line 570
+- `Polyfold.GroupoidalCategory.Uniformizer.tangentMulAction` — Polyfold/Chapter17/TangentCategory.lean, line 87
+- `Polyfold.GCT.PolyfoldConstruction.tangentTranslation` — Polyfold/Chapter17/TangentCategory.lean, line 584
+
+### V17.47. Lemma 17.2.10, $T\Psi : G \ltimes TO \to TC$ is a functor
+
+*narrower* · does not hold as we read it · holds for $\hat\Psi$ continuous · same point as 17.1.9
+
+**HWZ (§17.2, Lemma 17.2.10, p. 773 (new in the 2021 edition)).** For $\Psi \in F(\alpha)$, $T\Psi : G \ltimes TO \to TC$, $(g, h) \mapsto (T\Psi(h), \Psi(g, \tau h), \cdot)$, is a well-defined functor.
+
+**Proved in Lean.** Does not hold as we read it: `not_lemma_17_2_10` (the target of $T\Psi(g, h)$ is not always $T\Psi(g \ast h)$). Witness `fstSwapConstruction`: $(\mathbb Z/2)^2$ on $\mathbb R$ with a structure for which $T\sigma$ along $\hat\Psi(g, \cdot)$ is not $g \ast \cdot$ (`fstSwap_transMap_hat`). What holds: `tangentUnifMor` always respects sources, units and composition (`lemma_17_2_10_mor`), with `tangentUnifMor_tgt`; if $\hat\Psi$ is continuous, $T\sigma$ along $\hat\Psi(g,\cdot)$ is $g \ast \cdot$ (`transMap_hat_of_continuous`) and $T\Psi$ is a functor (`tangentUnifFunctor`, `lemma_17_2_10_of_continuous`).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnifMor` — Polyfold/Chapter17/TangentCategory.lean, line 594
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_10_mor` — Polyfold/Chapter17/TangentCategory.lean, line 684
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnifMor_tgt` — Polyfold/Chapter17/TangentUnifExamples.lean, line 73
+- `Polyfold.GCT.PolyfoldConstruction.not_lemma_17_2_10` — Polyfold/Chapter17/TangentUnifExamples.lean, line 253
+- `Polyfold.GCT.PolyfoldConstruction.fstSwapConstruction` — Polyfold/Chapter17/TangentUnifExamples.lean, line 170
+- `Polyfold.GCT.PolyfoldConstruction.fstSwap_transMap_hat` — Polyfold/Chapter17/TangentUnifExamples.lean, line 230
+- `Polyfold.GCT.PolyfoldConstruction.transMap_hat_of_continuous` — Polyfold/Chapter17/TangentCategory.lean, line 629
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnifFunctor` — Polyfold/Chapter17/TangentCategory.lean, line 673
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_10_of_continuous` — Polyfold/Chapter17/TangentCategory.lean, line 698
+- `Polyfold.GCT.PolyfoldConstruction.reflectionTangentUnifFunctor` — Polyfold/Chapter17/TangentCategory.lean, line 708
+- `Polyfold.GCT.PolyfoldConstruction.reflection_lemma_17_2_10` — Polyfold/Chapter17/TangentCategory.lean, line 714
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous (`hc`), and $F(\alpha) \ne \emptyset$ (`hU`, the standing reading). Witness `reflection_lemma_17_2_10` with `reflectionTangentUnifFunctor` ($\mathbb Z/2 \ltimes \mathbb R$, non-trivial action).
+- The same point as Lemma 17.1.9 (V17.9; Findings, Chapter 17, item 1): Definition 17.1.8 presumably intends $\hat\Psi$ continuous, under which the lemma holds.
+
+### V17.48. Lemma 17.2.11 (2017: 17.5), the maps (17.42) into $M(T\Psi_1, T\Psi_2)$
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Lemma 17.2.11, p. 775, (17.41), (17.42) (2017: Lemma 17.5)).** (1) Every element of $M(T\Psi_1, T\Psi_2)$ lies in the image of a map $k \mapsto (k, \Phi_k, T\sigma(k))$ (17.42) based on some $(o,\phi,o')$ of level at least 1. (2) Two such maps whose images meet have the identity as transition map.
+
+**Proved in Lean.** `TTr hU Ψ₁ Ψ₂` ($M(T\Psi_1, T\Psi_2)$), `tangentTrChart` ((17.42) for an admissible triple); `lemma_17_2_11` = `lemma_17_2_11_one` ∧ `lemma_17_2_11_two` ((2): equal at a point, the two maps agree on a neighbourhood of its base point).
+
+- `Polyfold.GCT.PolyfoldConstruction.TTr` — Polyfold/Chapter17/TangentTransition.lean, line 151
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrChart` — Polyfold/Chapter17/TangentTransition.lean, line 196
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_11_one` — Polyfold/Chapter17/TangentTransition.lean, line 220
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_11_two` — Polyfold/Chapter17/TangentTransition.lean, line 239
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_2_11` — Polyfold/Chapter17/TangentTransition.lean, line 277
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hU`), standing reading.
+- "(1) is obvious" is proved.
+
+### V17.49. Proposition 17.2.12, the topology on $M(T\Psi_1, T\Psi_2)$
+
+*as in the book* · existence and uniqueness
+
+**HWZ (§17.2, Proposition 17.2.12, p. 776 (new in the 2021 edition)).** There is a unique topology on $M(T\Psi_1, T\Psi_2)$ making the maps (17.42) homeomorphisms onto open sets.
+
+**Proved in Lean.** `tangentTrTopology` (`chartTopology` of the maps (17.42)); `proposition_17_2_12`: every map (17.42) is an open embedding, and any topology with this property is `tangentTrTopology` (`eq_chartTopology`).
+
+- `Polyfold.chartTopology` — Polyfold/Chapter17/TangentTransition.lean, line 73
+- `Polyfold.eq_chartTopology` — Polyfold/Chapter17/TangentTransition.lean, line 94
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrTopology` — Polyfold/Chapter17/TangentTransition.lean, line 320
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_12` — Polyfold/Chapter17/TangentTransition.lean, line 327
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hU`).
+
+### V17.50. Definition 17.2.13 (2017: 17.10), the natural topology
+
+*as in the book* · as stated
+
+**HWZ (§17.2, Definition 17.2.13, p. 776 (2017: Definition 17.10, changed)).** The topology of Proposition 17.2.12 is the natural topology on $M(T\Psi_1, T\Psi_2)$.
+
+**Proved in Lean.** `tangentTrTopology`; `TTrM` ($M(T\Psi_1, T\Psi_2)$ with it).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrTopology` — Polyfold/Chapter17/TangentTransition.lean, line 320
+- `Polyfold.GCT.PolyfoldConstruction.TTrM` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 127
+
+*What differs.*
+- The 2017 definition gave the topology differently; the 2021 form is formalized.
+
+### V17.51. Proposition 17.2.14 (2017: 17.3), the natural topology is metrizable; $s, t, \iota, u, m$
+
+*as in the book* · as stated · G.207 closed
+
+**HWZ (§17.2, Proposition 17.2.14, pp. 776–781 (2017: Proposition 17.3)).** The natural topology is metrizable, $s$ and $t$ are local homeomorphisms, $\iota$ a homeomorphism, $u$ and $m$ continuous ("details to the reader").
+
+**Proved in Lean.** `proposition_17_2_14`: `TTrM` is metrizable (`metrizableSpace_TTrM`), $s, t$ local homeomorphisms (`proposition_17_2_14_src_tgt`), $\iota$ a homeomorphism, $u$ and $m$ continuous. The key is `tangentTrHomeomorph`, a homeomorphism $TM(\Psi_1,\Psi_2) \cong M(T\Psi_1, T\Psi_2)$ for the natural topology.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14_src_tgt` — Polyfold/Chapter17/TangentTransition.lean, line 416
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrHomeomorph` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 266
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_TTrM` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 282
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 552
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hU`).
+- The text's Nagata–Smirnov argument is replaced by the homeomorphism with Part I's tangent space of the M-polyfold $M(\Psi_1,\Psi_2)$, which is metrizable. The details left to the reader are point G.207.
+
+### V17.52. Proposition 17.2.15 (2017: 17.4), the natural M-polyfold structure on $M(T\Psi, T\Psi')$
+
+*as in the book* · as stated · G.208 closed
+
+**HWZ (§17.2, Proposition 17.2.15, p. 781 (2017: Proposition 17.4)).** $M(T\Psi, T\Psi')$ has a natural M-polyfold structure with the maps (17.42) as charts; $s, t$ are local sc-diffeomorphisms, $\iota$ an sc-diffeomorphism, $u$ and $m$ sc-smooth.
+
+**Proved in Lean.** `tangentTrPolyfold` (transported from $TM(\Psi,\Psi')$); `proposition_17_2_15`: the maps (17.42) are sc-diffeomorphisms onto open sets (`isScDiffeoOn_tangentTrChartExt`), $s, t$ local sc-diffeomorphisms (`tangentTr_isLocalScDiffeo_src`), $\iota$ an sc-diffeomorphism, $u$ and $m$ sc-smooth (`tangentTr_isScSmoothMap_mul`).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrPolyfold` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 291
+- `Polyfold.GCT.PolyfoldConstruction.isScDiffeoOn_tangentTrChartExt` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 327
+- `Polyfold.GCT.PolyfoldConstruction.tangentTr_isLocalScDiffeo_src` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 357
+- `Polyfold.GCT.PolyfoldConstruction.tangentTr_isScSmoothMap_mul` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 439
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_15` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 585
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hU`).
+- "Natural" is read as: the maps (17.42) are sc-diffeomorphisms onto open sets; the structure is the transport of $TM(\Psi,\Psi')$, for which this is proved (point G.208).
+
+### V17.53. Proposition 17.2.16 (2017: 17.5), $|TC|$ is metrizable, $TC$ a GCT, $|P|$ continuous; $T\Gamma$, (17.52)
+
+*stronger* · independent of Ψ · G.209 closed
+
+**HWZ (§17.2, Proposition 17.2.16, pp. 782–783, (17.52) (2017: Proposition 17.5)).** $|TC|$ carries a natural metrizable topology (from $|TX_\Psi|$ via $T\Gamma$, independent of $\Psi$), $TC$ is a GCT and $|P| : |TC| \to |C_1|$ is continuous.
+
+**Proved in Lean.** `tangentModelFunctor` ($T\Gamma : TX_\Psi \to TC$, (17.52)); `proposition_17_2_16`: for every covering family $T\Gamma$ is full, faithful, essentially surjective, and $|T\Gamma|$ a homeomorphism for `tangentOrbitTopology` (`isHomeomorph_tangentModelOrbitEquiv`); the topology is metrizable (`metrizableSpace_tangentOrbit`); `tangentGCT`; $|P|$ continuous (`continuous_orbitMap_tangentCatProj`).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentModelFunctor` — Polyfold/Chapter17/TangentModel.lean, line 232
+- `Polyfold.GCT.PolyfoldConstruction.tangentOrbitTopology` — Polyfold/Chapter17/TangentModel.lean, line 388
+- `Polyfold.GCT.PolyfoldConstruction.isHomeomorph_tangentModelOrbitEquiv` — Polyfold/Chapter17/TangentModel.lean, line 404
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_tangentOrbit` — Polyfold/Chapter17/TangentModel.lean, line 436
+- `Polyfold.GCT.PolyfoldConstruction.tangentGCT` — Polyfold/Chapter17/TangentModel.lean, line 478
+- `Polyfold.GCT.PolyfoldConstruction.continuous_orbitMap_tangentCatProj` — Polyfold/Chapter17/TangentModel.lean, line 458
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_16` — Polyfold/Chapter17/TangentModel.lean, line 490
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hU`).
+- $T\Gamma$ is moreover an equivalence of categories. In (17.52) "$\Psi \in F(\alpha)$" is the reference uniformizer (Lemma 17.2.9). The independence of the covering family ("easily verified") goes through $\Psi \sqcup \Psi'$ and Theorem 10.1.7 (point G.209).
+
+### V17.54. The construction on p. 783: the uniformizers $T\Psi$, $TF$, the bundle maps $M(T\Psi_1, T\Psi_2) \to M(\Psi_1^1, \Psi_2^1)$ and the models
+
+*narrower* · (TF, M) built · models: T(X_Ψ) · G.210 closed
+
+**HWZ (§17.2, p. 783 (2017: §17.2)).** $TF(\alpha)$ consists of all $T\Psi$, $\Psi \in F(\alpha)$, over $\Psi^1$; $|T\Psi|$ is a homeomorphism onto an open set, $T\Psi$ is fibrewise a topological linear isomorphism, and $M(T\Psi_1, T\Psi_2) \to M(\Psi_1^1, \Psi_2^1)$ is a bundle; $TF_P = TF \circ P$.
+
+**Proved in Lean.** `tangentUnif hc` ($T\Psi$ as a local uniformizer of `tangentGCT`; `isOpenEmbedding_tangentUnifFunctor`), `tangentF` ($TF_P$), `tangentData` (a $\Psi$ with $L = T\Psi$), `tangentConstruction` (the polyfold structure, `tangentConstruction_hasUniformizers`), `tangentTrBundleProj` with `isScSmoothMap_tangentTrBundleProj` (the sc-smooth map $M(T\Psi,T\Psi') \to M(\Psi^1,\Psi'^1)$ over $s$, $t$, $\phi$); `CoveringFamily.union`. The models: `tangentModelIsoFunctor` $X^{TF}_\Phi \to T(X_{\Psi})$ for $\Psi = $ `tangentFamilyData` $\Phi$ is an isomorphism of ep-groupoids compatible with the functors to $TC$ (`isEquivalence_tangentModelIsoFunctor`, `tangentModelIso_spec`), and `tangentModel_equivalence` for the reference cover `tangentRefCover`. Witness `reflectionTangentFamily_isotropy` (a non-trivial isotropy morphism of the model of $TF$ goes to a non-unit of $T(X_\Psi)$).
+
+- `Polyfold.GCT.PolyfoldConstruction.tangentUnif` — Polyfold/Chapter17/TangentConstruction.lean, line 165
+- `Polyfold.GCT.PolyfoldConstruction.isOpenEmbedding_tangentUnifFunctor` — Polyfold/Chapter17/TangentConstruction.lean, line 125
+- `Polyfold.GCT.PolyfoldConstruction.tangentF` — Polyfold/Chapter17/TangentConstruction.lean, line 185
+- `Polyfold.GCT.PolyfoldConstruction.tangentData` — Polyfold/Chapter17/TangentConstruction.lean, line 203
+- `Polyfold.GCT.PolyfoldConstruction.tangentConstruction` — Polyfold/Chapter17/TangentConstruction.lean, line 292
+- `Polyfold.GCT.PolyfoldConstruction.tangentConstruction_hasUniformizers` — Polyfold/Chapter17/TangentConstruction.lean, line 317
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrBundleProj` — Polyfold/Chapter17/TangentConstruction.lean, line 364
+- `Polyfold.GCT.PolyfoldConstruction.isScSmoothMap_tangentTrBundleProj` — Polyfold/Chapter17/TangentConstruction.lean, line 372
+- `Polyfold.GCT.PolyfoldConstruction.CoveringFamily.union` — Polyfold/Chapter17/TangentModel.lean, line 392
+- `Polyfold.GCT.PolyfoldConstruction.tangentModelIsoFunctor` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 258
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_tangentModelIsoFunctor` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 402
+- `Polyfold.GCT.PolyfoldConstruction.tangentModelIso_spec` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 443
+- `Polyfold.GCT.PolyfoldConstruction.tangentRefCover` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 492
+- `Polyfold.GCT.PolyfoldConstruction.tangentFamilyData` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 155
+- `Polyfold.GCT.PolyfoldConstruction.tangentModel_equivalence` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 509
+- `Polyfold.GCT.PolyfoldConstruction.reflectionTangentFamily_isotropy` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 614
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous for every $\Psi$ (`hcont`), as in Lemma 17.2.10, and `hU`. Witness `reflection_continuous_hat_all`.
+- $TF$ is indexed through $P$, the text's $TF_P$; $M(L, L')$ is built from the chosen $\Psi = $ `tangentData L`. For a covering family $\Phi$ of $TF$ the family $\Psi$ need not cover $|C|$ (only the image of $C_1$); the isomorphism of models holds for every $\Phi$ (point G.210).
+
+### V17.55. Theorem 17.2.17 (2017: 17.4), the tangent polyfold and the polyfold bundle $P : TC \to C_1$
+
+*narrower* · Ψ̂ continuous · polyfold bundle: read
+
+**HWZ (§17.2, Theorem 17.2.17, p. 783 (2017: Theorem 17.4)).** There is a natural construction of $TC$ and of a polyfold structure $(TF, M)$ for $P : TC \to C_1$.
+
+**Proved in Lean.** `theorem_17_2_17_hyp hU hcont`: `tangentGCT` has groupoid $TC$; `tangentConstruction` has uniformizers at every object, $TF(\beta) = \{T\Psi : \Psi \in F(P\beta)\}$; $P \circ T\Psi = \Psi^1 \circ (\mathrm{Id} \ltimes \tau)$ on objects and morphisms; $T\Psi$ is fibrewise $S_\Psi^{-1}$; the maps $M(T\Psi, T\Psi') \to M(\Psi^1, \Psi'^1)$ are sc-smooth and compatible with $s$, $t$, $\phi$; $|P|$ is continuous.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_2_17_hyp` — Polyfold/Chapter17/TangentConstruction.lean, line 397
+- `Polyfold.GCT.PolyfoldConstruction.reflectionTangentConstruction` — Polyfold/Chapter17/TangentConstruction.lean, line 448
+- `Polyfold.GCT.PolyfoldConstruction.reflection_theorem_17_2_17` — Polyfold/Chapter17/TangentConstruction.lean, line 458
+- `Polyfold.GCT.PolyfoldConstruction.reflection_continuous_hat_all` — Polyfold/Chapter17/TangentConstruction.lean, line 441
+- `Polyfold.GCT.PolyfoldConstruction.sliceConstruction_continuous_hat` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 697
+
+*What differs.*
+- Hidden hypotheses: `hcont : ∀ Ψ, Continuous (S.hat Ψ)` (as in Lemmas 17.1.9 and 17.2.10). Witnesses `reflection_continuous_hat_all` with `reflectionTangentConstruction`, `reflection_theorem_17_2_17` ($\mathbb Z/2 \ltimes \mathbb R$, non-trivial isotropy; its structure has one uniformizer at each point), and `sliceConstruction_continuous_hat` (every slice construction, overlapping uniformizers included).
+- "Polyfold bundle" is read as the pair of structures $(TF, M)$ on $TC$ and $(F^1, M_{F^1})$ on $C_1$ related by $P$ as listed; no strong bundle structure is involved. The hypothesis on $\hat\Psi$ is the one of Lemma 17.2.10 (V17.47), which the construction of $T\Psi$ needs (point G.210).
+
+### V17.56. Remark 17.2.18 (2017: 17.3), the partial cone $C_\alpha C$ and the reduced tangent space $T^R_\alpha C$
+
+*restated* · independent of Ψ · dim quotient = d(α) · G.211 closed
+
+**HWZ (§17.2, Remark 17.2.18, p. 784 (2017: Remark 17.3)).** For smooth $\alpha$, $C_\alpha C \subset T_\alpha C$ and $T^R_\alpha C$ are defined as for M-polyfolds and pushed forward by $T\Gamma$; for tame $C$ the partial cone is a partial quadrant.
+
+**Proved in Lean.** `partialCone α`, `reducedTangent α` (through a reference uniformizer); `partialCone_eq`, `reducedTangent_eq`: for every $\Psi \in F(\alpha)$, chart and presentation of the partial quadrant, they are $S_\Psi^{-1}$ of those of $O$; `finrank_quotient_reducedTangent_eq_degIndex`: $\dim(T_\alpha C / T^R_\alpha C) = d(\alpha)$ for tame $C$. Witness `partialCone_corner` (the corner of $\mathbb Z/2 \ltimes [0,\infty) \times \mathbb R$, with a non-trivial automorphism).
+
+- `Polyfold.GCT.PolyfoldConstruction.partialCone` — Polyfold/Chapter18/TangentPartialCone.lean, line 256
+- `Polyfold.GCT.PolyfoldConstruction.partialCone_eq` — Polyfold/Chapter18/TangentPartialCone.lean, line 275
+- `Polyfold.GCT.PolyfoldConstruction.reducedTangent` — Polyfold/Chapter18/TangentPartialCone.lean, line 262
+- `Polyfold.GCT.PolyfoldConstruction.reducedTangent_eq` — Polyfold/Chapter18/TangentPartialCone.lean, line 298
+- `Polyfold.GCT.PolyfoldConstruction.finrank_quotient_reducedTangent_eq_degIndex` — Polyfold/Chapter18/TangentPartialCone.lean, line 311
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.partialCone_corner` — Polyfold/Chapter18/TangentPartialConeExamples.lean, line 45
+
+*What differs.*
+- Defined through the charts $S_\Psi$ rather than through a model and $T\Gamma$; the two agree since $T\Gamma$ is built from the same $T\sigma$. Good position is used for $\ker f'(\alpha)$ in Chapter 18 (point G.211).
+
+### V17.57. Definition 17.3.1 (2017: 17.11), subpolyfolds
+
+*as in the book* · as stated
+
+**HWZ (§17.3, Definition 17.3.1, p. 784 (2017: Definition 17.11)).** A subpolyfold is a saturated full subcategory $A$ such that for $\alpha \in A$ and $\Psi \in F(\alpha)$ the set $A_\Psi \subset O$ of points mapped into $A$ is a sub-M-polyfold of $O$.
+
+**Proved in Lean.** `IsSubpolyfold A`: $A$ saturated and $\Psi^{-1}(A)$ a sub-M-polyfold of $O$ for every $\alpha \in A$, $\Psi \in F(\alpha)$; `IsSubpolyfold.isSubMPolyfold` (then for every uniformizer, given $F \ne \emptyset$ on $A$). Witnesses `reflection_isSubpolyfold_zero`, `overlap_isSubpolyfold_zero` ($\{0\}$) and `reflection_not_isSubpolyfold_rat` (the rationals are not one).
+
+- `Polyfold.GCT.PolyfoldConstruction.IsSubpolyfold` — Polyfold/Chapter17/Subpolyfold.lean, line 274
+- `Polyfold.GCT.PolyfoldConstruction.IsSubpolyfold.isSubMPolyfold` — Polyfold/Chapter17/Subpolyfold.lean, line 363
+- `Polyfold.GCT.PolyfoldConstruction.reflection_isSubpolyfold_zero` — Polyfold/Chapter17/Subpolyfold.lean, line 479
+- `Polyfold.GCT.PolyfoldConstruction.overlap_isSubpolyfold_zero` — Polyfold/Chapter17/Subpolyfold.lean, line 501
+- `Polyfold.GCT.PolyfoldConstruction.reflection_not_isSubpolyfold_rat` — Polyfold/Chapter17/Subpolyfold.lean, line 548
+
+*What differs.*
+- "Saturated full subcategory" is a saturated set of objects; $A_\Psi$ is read as $\Psi^{-1}(A)$, the largest set with $\Psi(A_\Psi) \subset A$.
+
+### V17.58. Definition 17.3.2 (2017: 17.12), subpolyfolds through a model
+
+*as in the book* · as stated
+
+**HWZ (§17.3, Definition 17.3.2, p. 784 (2017: Definition 17.12)).** A saturated full subcategory $A$ is a subpolyfold if for a suitable sc-smooth model $X_\Psi$ the preimage of $A$ under $\Gamma_\Psi$ is an ep-subgroupoid (Definition 7.1.21).
+
+**Proved in Lean.** `IsSubpolyfoldModel A`: $A$ saturated and, for some covering family, $\Gamma_\Psi^{-1}(A)$ an ep-subgroupoid of $X_\Psi$; `isEpSubgroupoid_preimage_modelFunctor_iff` (iff every $\Psi_\lambda^{-1}(A)$ is a sub-M-polyfold of $O_\lambda$).
+
+- `Polyfold.GCT.PolyfoldConstruction.IsSubpolyfoldModel` — Polyfold/Chapter17/Subpolyfold.lean, line 281
+- `Polyfold.GCT.PolyfoldConstruction.isEpSubgroupoid_preimage_modelFunctor_iff` — Polyfold/Chapter17/Subpolyfold.lean, line 304
+
+*What differs.*
+- "A suitable sc-smooth model" is the model of a covering family (p. 752).
+
+### V17.59. Remark 17.3.3 (2017: 17.4), the model in Definition 17.3.2 does not matter
+
+*as in the book* · as stated
+
+**HWZ (§17.3, Remark 17.3.3, p. 784 (2017: Remark 17.4, changed)).** The choice of $X_\Psi$ in Definition 17.3.2 does not matter.
+
+**Proved in Lean.** `remark_17_3_3`: under Definition 17.3.2, $\Gamma_{\Psi'}^{-1}(A)$ is an ep-subgroupoid for every covering family; `isSubpolyfoldModel_iff_forall`.
+
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_3_3` — Polyfold/Chapter17/Subpolyfold.lean, line 382
+- `Polyfold.GCT.PolyfoldConstruction.isSubpolyfoldModel_iff_forall` — Polyfold/Chapter17/Subpolyfold.lean, line 391
+
+*What differs.*
+- Proved directly, without Proposition 17.3.4 and without $F(\alpha) \ne \emptyset$.
+
+### V17.60. Proposition 17.3.4, Definitions 17.3.1 and 17.3.2 are equivalent
+
+*hypotheses explicit* · F(α) ≠ ∅: standing reading · G.196 closed
+
+**HWZ (§17.3, Proposition 17.3.4, p. 784 (new in the 2021 edition)).** Definitions 17.3.1 and 17.3.2 are equivalent.
+
+**Proved in Lean.** `proposition_17_3_4 (hS : S.HasUniformizers) A : S.IsSubpolyfold A ↔ S.IsSubpolyfoldModel A`; `proposition_17_3_4_of_nonempty` (needs footprints covering $|C|$ and $F \ne \emptyset$ on $A$ only); `isSubpolyfold_iff_forall_unif` (then $\Psi^{-1}(A)$ is a sub-M-polyfold for every uniformizer); `isSubpolyfold_of_isSubpolyfoldModel` (17.3.2 ⇒ 17.3.1, the text's local argument), `isSubMPolyfold_of_isCoveringFamily`. `proposition_17_3_4_empty_family`: on $\mathbb Z/2 \ltimes \mathbb R$ with a structure whose footprints cover but with $F(\alpha) = \emptyset$ exactly on the rationals (`irrationalConstruction`), the rationals (`ratPoints`) satisfy 17.3.1 but not 17.3.2.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4` — Polyfold/Chapter17/Subpolyfold.lean, line 418
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4_of_nonempty` — Polyfold/Chapter17/Subpolyfold.lean, line 408
+- `Polyfold.GCT.PolyfoldConstruction.isSubpolyfold_iff_forall_unif` — Polyfold/Chapter17/Subpolyfold.lean, line 426
+- `Polyfold.GCT.PolyfoldConstruction.isSubpolyfold_of_isSubpolyfoldModel` — Polyfold/Chapter17/Subpolyfold.lean, line 399
+- `Polyfold.GCT.PolyfoldConstruction.isSubMPolyfold_of_isCoveringFamily` — Polyfold/Chapter17/Subpolyfold.lean, line 350
+- `Polyfold.GCT.PolyfoldConstruction.irrationalConstruction` — Polyfold/Chapter17/Subpolyfold.lean, line 556
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4_empty_family` — Polyfold/Chapter17/Subpolyfold.lean, line 568
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hS`), the standing reading (V17.6); with it the witness is every structure with uniformizers, e.g. `reflectionConstruction`.
+- The direction 17.3.1 ⇒ 17.3.2 needs a uniformizer at each object of $A$ meeting a model, which $F(\alpha) \ne \emptyset$ supplies; `proposition_17_3_4_empty_family` shows why we read it so (point G.196).
+
+### V17.61. The restricted uniformizers $\Psi_A : G \ltimes A_\Psi \to A$ and the GCT $A$ (pp. 785–786)
+
+*as in the book* · as stated · level-wise: not formalized
+
+**HWZ (§17.3, pp. 785–786 (2017: §17.3)).** $\Psi_A$ is injective on objects and fully faithful; $|\Psi_A|$ is a homeomorphism onto an open set and the vertical maps $|G \ltimes A_\Psi| \to |G \ltimes O|$, $|A| \to |C|$ are topological embeddings.
+
+**Proved in Lean.** `GCT.sub A` (the full subcategory, $|A|$ with the subspace topology; `isEmbedding_subOrbitMap`), `GroupoidStr.isEmbedding_orbitMap_translationSub` (the left vertical map), `LocalUniformizer.restrict` ($\Psi_A$, on $A_\Psi$ with its sub-M-polyfold structure) with `isOpenEmbedding_orbitMap_restrictFunctor`.
+
+- `Polyfold.GCT.sub` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 112
+- `Polyfold.GCT.isEmbedding_subOrbitMap` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 124
+- `Polyfold.GroupoidStr.isEmbedding_orbitMap_translationSub` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 159
+- `Polyfold.GCT.LocalUniformizer.restrict` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 313
+- `Polyfold.GCT.LocalUniformizer.isOpenEmbedding_orbitMap_restrictFunctor` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 266
+
+*What differs.*
+- The level-wise statement of p. 786 is not formalized.
+
+### V17.62. Lemma 17.3.5 (2017: 17.6), $M(\Psi_A, \Psi'_A)$ is a sub-M-polyfold of $M(\Psi, \Psi')$
+
+*as in the book* · as stated
+
+**HWZ (§17.3, Lemma 17.3.5, p. 786 (2017: Lemma 17.6)).** $M(\Psi_A, \Psi'_A)$ is a sub-M-polyfold of $M(\Psi, \Psi')$.
+
+**Proved in Lean.** `restrictTransSet` ($s^{-1}(A_\Psi)$), `isSubMPolyfold_restrictTransSet`, `restrictTransEquiv` ($M(\Psi_A,\Psi'_A) \cong$ `restrictTransSet`); `lemma_17_3_5`: a sub-M-polyfold, equal to $t^{-1}(A_{\Psi'})$, carried by $s$ locally onto $A_\Psi$, and the image of the injection $(o,\phi,o') \mapsto (o,\phi,o')$.
+
+- `Polyfold.GCT.PolyfoldConstruction.restrictTransSet` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 381
+- `Polyfold.GCT.PolyfoldConstruction.isSubMPolyfold_restrictTransSet` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 395
+- `Polyfold.GCT.PolyfoldConstruction.restrictTransEquiv` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 408
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_3_5` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 581
+
+### V17.63. Proposition 17.3.6 (2017: 17.6), the induced polyfold structure $(F_A, M)$
+
+*restated* · (F_A, M) built · choice via subData
+
+**HWZ (§17.3, Proposition 17.3.6, p. 786 (2017: Proposition 17.6)).** A subpolyfold $A$, as a GCT, inherits a natural polyfold structure $(F_A, M)$.
+
+**Proved in Lean.** `subConstruction hS` on `GCT.sub A`; `proposition_17_3_6`: $F_A(\alpha) = \{\Psi_A : \Psi \in F(\alpha)\}$ (`mem_subF_iff`), and $M_{F_A}(L, L')$ is identified with the restricted transition set of a chosen $\Psi$ with $L = \Psi_A$ (`subData`, `rtrPolyfold`) by a bijective local sc-diffeomorphism compatible with $\phi$, $s$, $t$. Witness `reflection_subConstruction` ($A = \{0\}$ in $\mathbb Z/2 \ltimes \mathbb R$, with the non-trivial group).
+
+- `Polyfold.GCT.PolyfoldConstruction.rtrPolyfold` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 452
+- `Polyfold.GCT.PolyfoldConstruction.subData` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 627
+- `Polyfold.GCT.PolyfoldConstruction.subConstruction` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 754
+- `Polyfold.GCT.PolyfoldConstruction.mem_subF_iff` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 783
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_6` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 797
+- `Polyfold.GCT.PolyfoldConstruction.reflection_subConstruction` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 834
+
+*What differs.*
+- When two uniformizers have the same restriction the text does not say which ambient $M(\Psi, \Psi')$ gives $M(\Psi_A, \Psi'_A)$ its structure; one is chosen and every statement holds for it. That the structure does not depend on the choice is not claimed by the text and not formalized.
+
+### V17.64. Definition 17.3.7 (2017: 17.13), faces and face-structured polyfolds; faces of $X_\Psi$ and of $C$
+
+*as in the book* · as stated · G.212 closed
+
+**HWZ (§17.3, Definition 17.3.7, pp. 786–787 (2017: Definition 17.13)).** For tame $C$, a face is the full subcategory on the closure $\theta$ of a connected component of $\{d_{|C|} = 1\}$; $C$ is face-structured if every $z$ lies in exactly $d(z)$ faces. The faces of $X_\Psi$ and $C$ correspond, and $C$ is face-structured iff any model is.
+
+**Proved in Lean.** `degIndexVia c` ($d_{|C|}$ through $|\Gamma_c|$; independent of `c`: `degIndexVia_eq`; equal to $d$ of Definition 17.1.30: `degIndexVia_π`); `IsFaceVia`, `IsFaceStructuredVia` (tameness included); `isFaceVia_iff_isFaceIn`; `isFaceVia_iff_isOrbitFace` (faces of $C$ are those of every model); `isFaceStructuredVia_iff (hT)` (face-structured iff a model is).
+
+- `Polyfold.GCT.PolyfoldConstruction.degIndexVia` — Polyfold/Chapter17/PolyfoldFaces.lean, line 72
+- `Polyfold.GCT.PolyfoldConstruction.degIndexVia_eq` — Polyfold/Chapter17/PolyfoldFaces.lean, line 82
+- `Polyfold.GCT.PolyfoldConstruction.degIndexVia_π` — Polyfold/Chapter17/PolyfoldFaces.lean, line 123
+- `Polyfold.GCT.PolyfoldConstruction.IsFaceVia` — Polyfold/Chapter17/PolyfoldFaces.lean, line 135
+- `Polyfold.GCT.PolyfoldConstruction.IsFaceStructuredVia` — Polyfold/Chapter17/PolyfoldFaces.lean, line 146
+- `Polyfold.GCT.PolyfoldConstruction.isFaceVia_iff_isFaceIn` — Polyfold/Chapter17/PolyfoldFaces.lean, line 157
+- `Polyfold.GCT.PolyfoldConstruction.isFaceVia_iff_isOrbitFace` — Polyfold/Chapter17/PolyfoldFaces.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.isFaceStructuredVia_iff` — Polyfold/Chapter17/PolyfoldFaces.lean, line 185
+
+*What differs.*
+- The correspondence of faces, which the text derives from the discussion after Definition 11.1.3, is proved through the invariance of $d$ under generalized isomorphisms (point G.212).
+
+### V17.65. Proposition 17.3.8 (2017: 17.7), faces of a face-structured polyfold are subpolyfolds
+
+*as in the book* · as stated
+
+**HWZ (§17.3, Proposition 17.3.8, p. 787 (2017: Proposition 17.7)).** If the tame $C$ is face-structured, every face is a subpolyfold.
+
+**Proved in Lean.** `proposition_17_3_8 c hF hθ`: for face-structured $C$ and a face $\theta$, $\pi^{-1}(\theta)$ satisfies Definitions 17.3.2 and 17.3.1. Witness `quadrant_proposition_17_3_8` (`quadrantConstruction`: the trivial group on $[0,\infty)^2 \oplus W$; tame, face-structured, $d = 2$ at the corner, two faces through it, each a subpolyfold).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_8` — Polyfold/Chapter17/PolyfoldFaces.lean, line 206
+- `Polyfold.GCT.PolyfoldConstruction.quadrantConstruction` — Polyfold/Chapter17/PolyfoldFaces.lean, line 238
+- `Polyfold.GCT.PolyfoldConstruction.quadrant_proposition_17_3_8` — Polyfold/Chapter17/PolyfoldFaces.lean, line 279
+
+*What differs.*
+- Both definitions of a subpolyfold are proved; the 17.3.1 form needs no $F(\alpha) \ne \emptyset$ here (point G.212).
+
+### V17.66. Good open neighbourhoods (17.53)–(17.55) and Definition 17.4.1, the faces $F_{U(\bar o)}$
+
+*as in the book* · as stated
+
+**HWZ (§17.4, (17.53)–(17.55) and Definition 17.4.1, pp. 787–788 (new in the 2021 edition)).** For $\Psi$ at $\alpha$ with $\Psi(\bar o) = \alpha$ and a good open neighbourhood $U(\bar o) \subset \partial O$, $F_{U(\bar o)}$ is the set of faces of $U(\bar o)$; there are $d_O(\bar o)$ of them, through $\bar o$, covering $U(\bar o)$.
+
+**Proved in Lean.** `GoodNbhd Ψ o` (Definition 14.1.2 for $G \ltimes O$: a natural neighbourhood $V$ with (17.53)); `GoodNbhd.bdry` ($U(\bar o) = V \cap \partial O$), `GoodNbhd.faces`, `GoodNbhd.encard_faces`; `definition_17_4_1`: every face contains $\bar o$ and lies in $U(\bar o)$, their union is $U(\bar o)$ (17.55), there are $d_O(\bar o)$ of them, and they depend only on $U(\bar o)$; `exists_goodNbhd` (inside any neighbourhood, for tame $O$ and $\bar o \in \partial O$).
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 100
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faces` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 109
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.bdry` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 112
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.encard_faces` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 175
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_4_1` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 218
+- `Polyfold.GCT.PolyfoldConstruction.exists_goodNbhd` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 227
+
+*What differs.*
+- The faces of $U(\bar o)$ are the $\theta_i$ of (17.53) (4), the faces of $V$ in the sense of Definition 2.7.6.
+
+### V17.67. Definition 17.4.2, the objects of $bC$, (17.56)–(17.59)
+
+*restated* · face germs · BObj ≃ classes
+
+**HWZ (§17.4, Definition 17.4.2, p. 789, (17.56)–(17.59) (new in the 2021 edition)).** The objects of $bC$ are the classes $[\alpha, \Psi, U(\bar o), \theta]$ of the tuples under (17.58); $[\alpha,\Psi,U(\bar o),\theta] \mapsto \alpha$ is the forgetful map (17.59).
+
+**Proved in Lean.** `BdryTuple` (the tuples (17.57)), `BdryTuple.Equiv` and `bdryTupleSetoid` ((17.56), (17.58), on face germs through `GermLift`, `germLift_unique`, `AdmissibleTriple.germMap`); `BookObj` (the classes); `BObj` (an object $\alpha$ with a face germ at the point of a reference uniformizer); `definition_17_4_2`: two tuples have the same class iff (17.58), and `bookObjEquiv : BookObj ≃ BObj` preserves the map to $C$ (17.59).
+
+- `Polyfold.GCT.PolyfoldConstruction.BdryTuple` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 292
+- `Polyfold.GCT.PolyfoldConstruction.BdryTuple.Equiv` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 322
+- `Polyfold.GCT.PolyfoldConstruction.bdryTupleSetoid` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 366
+- `Polyfold.GCT.PolyfoldConstruction.GermLift` — Polyfold/Chapter17/TameBoundaryGerms.lean, line 260
+- `Polyfold.GCT.PolyfoldConstruction.germLift_unique` — Polyfold/Chapter17/TameBoundaryGerms.lean, line 287
+- `Polyfold.GCT.PolyfoldConstruction.AdmissibleTriple.germMap` — Polyfold/Chapter17/TameBoundaryGerms.lean, line 78
+- `Polyfold.GCT.PolyfoldConstruction.BookObj` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 373
+- `Polyfold.GCT.PolyfoldConstruction.BObj` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 400
+- `Polyfold.GCT.PolyfoldConstruction.bookObjEquiv` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 510
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_4_2` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 527
+
+*What differs.*
+- Hidden hypotheses: $F(\alpha) \ne \emptyset$ (`hS`) for the reference uniformizer, the standing reading.
+- "$\theta$ and $\theta'$ correspond near $\bar o$, $\bar o'$ under $f$" is read on face germs. The classes live one universe up; $bC$ is built on `BObj`, identified with them by `bookObjEquiv`.
+
+### V17.68. Definition 17.4.3, the morphisms of $bC$, (17.60)–(17.62)
+
+*stronger* · unique lift
+
+**HWZ (§17.4, Definition 17.4.3, p. 789, (17.60)–(17.62) (new in the 2021 edition)).** A morphism $([\alpha,\Psi,U(\bar o),\theta], \phi, [\alpha',\Psi',U'(\bar o'),\theta'])$ has $\phi : \alpha \to \alpha'$ whose local sc-diffeomorphism carries $\theta$ to $\theta'$ near $\bar o$.
+
+**Proved in Lean.** `BLift` (the condition in the reference uniformizers; `bLift_iff_tuple`: in any representatives), `BMor`; `definition_17_4_3`: `BLift` is the printed condition on the tuples, and over each $\phi$ with source $\alpha$ there is exactly one target (`existsUnique_bLift`).
+
+- `Polyfold.GCT.PolyfoldConstruction.BLift` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 554
+- `Polyfold.GCT.PolyfoldConstruction.existsUnique_bLift` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 626
+- `Polyfold.GCT.PolyfoldConstruction.bLift_iff_tuple` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 634
+- `Polyfold.GCT.PolyfoldConstruction.BMor` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 717
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_4_3` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 706
+
+*What differs.*
+- The target is determined by the source and $\phi$.
+
+### V17.69. Definition 17.4.4, the morphism class and the forgetful functor $B_C : bC \to \partial C$, (17.63)
+
+*stronger* · d(α) objects over α
+
+**HWZ (§17.4, Definition 17.4.4, p. 791, (17.63) (new in the 2021 edition)).** The morphisms form the class of $bC$; $\Phi \mapsto \phi$ with (17.59) is the forgetful functor $B_C : bC \to \partial C$; over $\alpha$ there are $d(\alpha)$ objects.
+
+**Proved in Lean.** `bdryGroupoid`, `bdryCategory` (a groupoidal category); `bdryFunctor : bC → ∂C`, `bdryFunctorC : bC → C`; `definition_17_4_4`: finite hom-sets, $B_C$ maps $\Phi$ to $\phi$ and is faithful; `encard_obj_preimage`: exactly $d(\alpha)$ objects over $\alpha$.
+
+- `Polyfold.GCT.PolyfoldConstruction.bdryGroupoid` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 753
+- `Polyfold.GCT.PolyfoldConstruction.bdryCategory` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 815
+- `Polyfold.GCT.PolyfoldConstruction.bdryFunctor` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 839
+- `Polyfold.GCT.PolyfoldConstruction.bdryFunctorC` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 856
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_4_4` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 888
+- `Polyfold.GCT.PolyfoldConstruction.encard_obj_preimage` — Polyfold/Chapter17/TameBoundaryCategory.lean, line 866
+
+*What differs.*
+- $B_C$ is moreover faithful.
+
+### V17.70. Definition 17.4.5, $G_\theta$; the reading that $G$ fixes $\bar o$
+
+*hypotheses explicit* · G fixes ō: reading (G.195)
+
+**HWZ (§17.4, Definition 17.4.5, p. 792 (new in the 2021 edition)).** $G_\theta$ is the subgroup of $G$ fixing $\theta$; elements of $G$ may move one face to another.
+
+**Proved in Lean.** `faceStabilizer Ψ θ`; `GoodNbhd.smul_mem_faces`, `GoodNbhd.faceAction` ($G$ acts on $F_{U(\bar o)}$); `definition_17_4_5`: $G_\theta$ is the stabilizer for this action. `IsCentred` (every $\Psi \in F(\alpha)$ is centred at $\alpha$), `IsCentred.fixesPoint`.
+
+- `Polyfold.GCT.PolyfoldConstruction.faceStabilizer` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.smul_mem_faces` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 157
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceAction` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 163
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_4_5` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 179
+- `Polyfold.GCT.PolyfoldConstruction.IsCentred` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 121
+- `Polyfold.GCT.PolyfoldConstruction.IsCentred.fixesPoint` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 128
+
+*What differs.*
+- Hidden hypotheses: $G$ fixes $\bar o$ (`hfix`, from `IsCentred`), our reading of "$G$ the isotropy group of $\alpha$" (p. 792). Witnesses `swapConstruction_isCentred` ($\mathbb Z/2$ exchanging the two factors of the quadrant, genuine) and `quadrant_isCentred` (trivial group, weak).
+- Definition 17.1.3 does not ask for it; the action of $G$ on the faces of $U(\bar o)$ needs it (point G.195).
+
+### V17.71. Lemma 17.4.6, $\Psi_\theta : G_\theta \ltimes \theta \to bC$ is injective on objects and fully faithful; (17.64)
+
+*narrower* · Ψ̂ continuous, G fixes ō
+
+**HWZ (§17.4, Lemma 17.4.6, p. 792, (17.64) (new in the 2021 edition)).** The functor $\Psi_\theta : G_\theta \ltimes \theta \to bC$ is injective on objects and fully faithful.
+
+**Proved in Lean.** `GoodNbhd.faceGerm`, `faceObj` ($\Psi_\theta(x)$, through `ptObj`), `display_17_64` ((17.64): the class of $x$ is that of the face germ of any good neighbourhood at any uniformizer over $\Psi(x)$), `faceFunctor`; `lemma_17_4_6`: injective on objects, full and faithful; `exists_smul_of_bLift`. Witness `quadrant_tameBoundaryUniformizer_witness`.
+
+- `Polyfold.GCT.PolyfoldConstruction.ptObj` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 257
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceGerm` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 370
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceObj` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 465
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_64` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 824
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceFunctor` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 544
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.exists_smul_of_bLift` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 518
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_6` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 569
+- `Polyfold.GCT.PolyfoldConstruction.quadrant_tameBoundaryUniformizer_witness` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 969
+- `Polyfold.GCT.PolyfoldConstruction.HatContinuous` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 126
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous (`hc : S.HatContinuous`) and $G$ fixing $\bar o$ (`hfix`). Witnesses `swapConstruction_hatContinuous`, `swapConstruction_isCentred` (non-trivial group) and the quadrant (trivial group, weak).
+- That $\Psi_\theta(g, x)$ is a morphism of $bC$ uses that the germ of $\hat\Psi(g, x)$ is $g \ast \cdot$, the conclusion of Lemma 17.1.9, which holds for $\hat\Psi$ continuous (V17.9). Fullness is proved from the $G$-invariance of $U(\bar o)$ instead of the printed open–closed argument.
+
+### V17.72. Remark 17.4.7, motivation: the configuration of faces and functor diagrams (17.66)
+
+*nothing to formalize* · nothing to formalize · G.213
+
+**HWZ (§17.4, Remark 17.4.7, pp. 794–795, (17.66) (new in the 2021 edition)).** Elements of $G$ exchanging faces carry numerical information; in applications (SFT) one meets diagrams $C \leftarrow bC \to SC$ with a proper covering functor.
+
+**Proved in Lean.** Nothing to formalize: the remark motivates the construction and describes applications.
+
+
+*What differs.*
+- No mathematical assertion (point G.213).
+
+### V17.73. Lemma 17.4.8, the images $|\Psi_\theta(\theta)|$ are equal or disjoint
+
+*narrower* · with criterion
+
+**HWZ (§17.4, Lemma 17.4.8, p. 795 (new in the 2021 edition)).** For $\theta, \theta' \in F_{U(\bar o)}$, either $|\Psi_\theta(\theta)| = |\Psi_{\theta'}(\theta')|$ or they are disjoint.
+
+**Proved in Lean.** `GoodNbhd.faceImage`; `lemma_17_4_8`: equal or disjoint, and equal iff $g\theta = \theta'$ for some $g \in G$.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceImage` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 587
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_8` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 602
+
+*What differs.*
+- Hidden hypotheses: as in V17.71 (`hc`, `hfix`).
+- The images agree exactly when some $g$ maps $\theta$ to $\theta'$.
+
+### V17.74. Lemma 17.4.9, $\bar\Psi$ (17.65) is injective on objects; (17.67)–(17.69)
+
+*narrower* · object and morphism maps · G.214
+
+**HWZ (§17.4, Lemma 17.4.9, pp. 795–797, (17.65)–(17.69) (new in the 2021 edition)).** $\bar\Psi : G \ltimes \bigsqcup_\theta \theta \to bC$ is injective on objects; $|\bar\Psi|$ identifies $G \backslash \bigsqcup \theta$ (via the "obvious homeomorphism" (17.69)) with $|B_C|^{-1}(|\Psi(U(\bar o))|)$.
+
+**Proved in Lean.** `GoodNbhd.barObj`; `lemma_17_4_9`: `barObj` is injective, the morphisms `smulMor` are determined by $g$, and every morphism of $bC$ between two such objects is some `smulMor`; `barOrbitMap_injective`; `display_17_68` (the image is $|B_C|^{-1}(|\Psi(U(\bar o))|)$) and `display_17_69` (the bijection of $G \backslash \bigsqcup \theta$ onto it).
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.barObj` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 639
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_9` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 649
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.barOrbitMap_injective` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 690
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_68` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 734
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_69` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 766
+
+*What differs.*
+- Hidden hypotheses: as in V17.71.
+- $G \ltimes \bigsqcup \theta$ is not built as a groupoid; the lemma is stated for the object map and the morphisms $g \ast \cdot$. In (17.69) the homeomorphism $\bigsqcup_i |\theta_i| \to G \backslash \bigsqcup \theta$ is used as an identification of sets; the topology of $|bC|$ comes later (point G.214).
+
+### V17.75. Lemma 17.4.10, elements of $M(\Psi_\theta, \Psi'_{\theta'})$ and of $M(\Psi, \Psi')$
+
+*as in the book* · as stated
+
+**HWZ (§17.4, Lemma 17.4.10, p. 797 (new in the 2021 edition)).** (1) For $(x, \Phi, x') \in M(\Psi_\theta, \Psi'_{\theta'})$ the map $f$ of $(x,\phi,x')$ carries $\theta$ to $\theta'$ near $x$. (2) Conversely such an $(x,\phi,x')$ comes from an element of $M(\Psi_\theta, \Psi'_{\theta'})$.
+
+**Proved in Lean.** `GoodNbhd.FaceTr` ($M(\Psi_\theta, \Psi'_{\theta'})$), `faceTrToTr`; `lemma_17_4_10`: (1) on face germs, (2) the morphism of $bC$ and the element of `FaceTr` over it.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.FaceTr` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 849
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceTrToTr` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 855
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_10` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 866
+
+*What differs.*
+- Read on face germs.
+
+### V17.76. Lemma 17.4.11, empty $M(\Psi, \Psi')_{U,U'}$ gives empty face transition sets
+
+*as in the book* · as stated
+
+**HWZ (§17.4, Lemma 17.4.11, p. 798 (new in the 2021 edition)).** If $M(\Psi,\Psi')_{U,U'} = \emptyset$ then every $M(\Psi_\theta, \Psi'_{\theta'})$ is empty.
+
+**Proved in Lean.** `GoodNbhd.trUU`; `lemma_17_4_11`.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.trUU` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 888
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_11` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 892
+
+### V17.77. Definition 17.4.12, $M(\Psi, \Psi')^*_{\theta,\theta'}$, (17.70)
+
+*as in the book* · as stated
+
+**HWZ (§17.4, Definition 17.4.12, p. 798, (17.70) (new in the 2021 edition)).** $h = (x,\phi,x')$ lies in $M(\Psi,\Psi')^*_{\theta,\theta'}$ iff $x \in \theta$, $x' \in \theta'$ and $h_*\theta = \theta'$.
+
+**Proved in Lean.** `GoodNbhd.transFaceSet`; `definition_17_4_12`: it lies in $M(\Psi,\Psi')_{U,U'}$, every element with source in $\theta$ lies in exactly one of them, and it is the image of $M(\Psi_\theta,\Psi'_{\theta'})$.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.transFaceSet` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 903
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.definition_17_4_12` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 912
+
+*What differs.*
+- $h_*\theta = \theta'$ is read on face germs.
+
+### V17.78. Lemma 17.4.13, $M(\Psi,\Psi')^*_{\theta,\theta'}$ is a tame sub-M-polyfold; the bijection (17.71)
+
+*restated* · faces: Def. 2.5.18 reading · literal 2.5.19: no face qualifies
+
+**HWZ (§17.4, Lemma 17.4.13, p. 798, (17.71)–(17.73) (new in the 2021 edition)).** $M(\Psi,\Psi')^*_{\theta,\theta'}$ is a tame sub-M-polyfold of $M(\Psi,\Psi')$ and $(x, \Phi, x') \mapsto (x, \phi, x')$ is a bijection $M(\Psi_\theta,\Psi'_{\theta'}) \to M(\Psi,\Psi')^*_{\theta,\theta'}$.
+
+**Proved in Lean.** `GoodNbhd.lemma_17_4_13`: $M(\Psi,\Psi')^*_{\theta,\theta'}$ and $\theta$ have tame induced structures (`hasTameInducedStructure_transFaceSet`, `hasTameInducedStructure_face`, from `MPolyfold.hasTameInducedStructure_of_isFaceIn`); it is a sub-M-polyfold, $\mathcal O \cap s^{-1}(\theta)$ with $\mathcal O$ open, carried by $s$ locally onto open pieces of $\theta$ (`exists_sheet_transFaceSet`), with $d = d_O \circ s \ge 1$ (`degIndex_tr`); (17.71) is injective with this image (`faceTrEquiv`); with `lemma_17_4_13_subMPolyfold`. `lemma_17_4_13_literal`, `lemma_17_4_13_literal_quadrant`: with the pointer to Definition 2.5.19 taken literally, no such set is a tame sub-M-polyfold (quadrant, at the unit over the corner; `MPolyfold.not_isTameSubMPolyfold_of_mem_closure`).
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_13` — Polyfold/Chapter17/TameBoundaryTame.lean, line 254
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_13_subMPolyfold` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 440
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_13_literal` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 504
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_13_literal_quadrant` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 478
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.hasTameInducedStructure_transFaceSet` — Polyfold/Chapter17/TameBoundaryTame.lean, line 220
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.hasTameInducedStructure_face` — Polyfold/Chapter17/TameBoundaryTame.lean, line 204
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceTrEquiv` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 423
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.exists_sheet_transFaceSet` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 301
+- `Polyfold.GCT.PolyfoldConstruction.degIndex_tr` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 229
+- `Polyfold.MPolyfold.hasTameInducedStructure_of_isFaceIn` — Polyfold/Chapter17/TameBoundaryTame.lean, line 170
+- `Polyfold.MPolyfold.not_isTameSubMPolyfold_of_mem_closure` — Polyfold/Chapter17/TameBoundaryTransition.lean, line 210
+
+*What differs.*
+- We read the faces in the sense of Definition 2.5.18, the sense the book gives faces in Proposition 2.5.15 – Theorem 2.5.17; the tameness is that of the induced structure, which is what the construction of $M(\Psi_\theta, \Psi'_{\theta'})$ uses. With Definition 2.5.19 (2) taken literally no face of positive codimension qualifies, since the set lies in $\{d \ge 1\}$ and meets the closure of $\{d = 0\}$ (Findings, Chapter 17, item 6).
+
+### V17.79. Definition 17.4.14, the natural M-polyfold structure on $M(\Psi_\theta, \Psi'_{\theta'})$; (17.74)
+
+*as in the book* · as stated · tame
+
+**HWZ (§17.4, Definition 17.4.14, p. 800, (17.74) (new in the 2021 edition)).** The natural M-polyfold structure on $M(\Psi_\theta, \Psi'_{\theta'})$ is the one making (17.74) an sc-diffeomorphism onto $M(\Psi,\Psi')^*_{\theta,\theta'}$.
+
+**Proved in Lean.** `GoodNbhd.FTr` (with the topology of `ftrHomeomorph`), `ftrPolyfold` (the transported structure), `ftr_isScDiffeoOn_homeomorph` ((17.74) is an sc-diffeomorphism), `isTame_ftrPolyfold` (tame); `faceSubPolyfold` (the face $\theta$ as an M-polyfold).
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.FTr` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 141
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.ftrHomeomorph` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 150
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.ftrPolyfold` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 173
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.ftr_isScDiffeoOn_homeomorph` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 196
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.isTame_ftrPolyfold` — Polyfold/Chapter17/TameBoundaryTame.lean, line 277
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceSubPolyfold` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 107
+
+### V17.80. Lemma 17.4.15, the structure maps of $M(\Psi_\theta, \Psi'_{\theta'})$
+
+*as in the book* · as stated
+
+**HWZ (§17.4, Lemma 17.4.15, p. 801 (new in the 2021 edition)).** $s$ and $t$ are local sc-diffeomorphisms onto $\theta$, $\theta'$; the inversion is an sc-diffeomorphism, the unit and the multiplication are sc-smooth.
+
+**Proved in Lean.** `GoodNbhd.lemma_17_4_15`; the multiplication on the fibred product `ftr_isScSmoothMap_mul`.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_15` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 402
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.ftr_isScSmoothMap_mul` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 338
+
+### V17.81. Theorem 17.4.16, all structure maps are sc-smooth
+
+*as in the book* · as stated
+
+**HWZ (§17.4, Theorem 17.4.16, p. 801 (new in the 2021 edition)).** For the natural structures on the $M(\Psi_\theta, \Psi'_{\theta'})$ all structure maps are sc-smooth and $s, t$ local sc-diffeomorphisms.
+
+**Proved in Lean.** `theorem_17_4_16` (for all good neighbourhoods and faces).
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_4_16` — Polyfold/Chapter17/TameBoundaryTransitionStructure.lean, line 430
+
+### V17.82. Definition 17.4.17, the topology $T_{bC}$ on $|bC|$
+
+*restated* · reading: z ∈ Q
+
+**HWZ (§17.4, Definition 17.4.17, p. 802 (new in the 2021 edition)).** $Q \subset |bC|$ is open if for every element $z$ there is a representative and an open $A(\bar o) \subset \theta$ with $|\Psi_\theta(A(\bar o))| \subset Q$.
+
+**Proved in Lean.** `BOrbit` ($|bC|$), `faceImageOn`; `IsBdryOpen` (for every $z \in Q$), `IsBdryOpenLiteral` (for every $z \in |bC|$, as printed); `bdryTopology`, `isOpen_bdry_iff`, `IsBdryOpen.exists_nhds`.
+
+- `Polyfold.GCT.PolyfoldConstruction.BOrbit` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 102
+- `Polyfold.GCT.PolyfoldConstruction.faceImageOn` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 177
+- `Polyfold.GCT.PolyfoldConstruction.IsBdryOpen` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 186
+- `Polyfold.GCT.PolyfoldConstruction.IsBdryOpenLiteral` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 193
+- `Polyfold.GCT.PolyfoldConstruction.bdryTopology` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 215
+- `Polyfold.GCT.PolyfoldConstruction.isOpen_bdry_iff` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 235
+- `Polyfold.GCT.PolyfoldConstruction.IsBdryOpen.exists_nhds` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 201
+
+*What differs.*
+- We read "for every $z \in Q$", as the proof of Lemma 17.4.18 does; with $z \in |bC|$ taken literally $\emptyset$ would not be open (V17.83). "Open $A(\bar o) \subset \theta$" is read as $A \cap \theta$ with $A$ open in $O$ (Findings, Chapter 17, item 7).
+
+### V17.83. Lemma 17.4.18, $T_{bC}$ is a topology; the sets $|\Psi_\theta(A(\bar o))|$ are open
+
+*as in the book* · as stated, z ∈ Q reading
+
+**HWZ (§17.4, Lemma 17.4.18, p. 803 (new in the 2021 edition)).** $T_{bC}$ is a topology on $|bC|$, and the sets $|\Psi_\theta(A(\bar o))|$, $A(\bar o) \subset \theta$ open, are open.
+
+**Proved in Lean.** `lemma_17_4_18` (the open sets are the `IsBdryOpen` ones, and every `faceImageOn` of an open set is open; `isOpen_faceImageOn`); `not_isBdryOpenLiteral_empty` (as printed, $\emptyset$ is not open once $bC$ has an object), `lemma_17_4_18_literal` (on the quadrant).
+
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_18` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 253
+- `Polyfold.GCT.PolyfoldConstruction.isOpen_faceImageOn` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 238
+- `Polyfold.GCT.PolyfoldConstruction.not_isBdryOpenLiteral_empty` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 261
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_18_literal` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 613
+
+*What differs.*
+- Under the reading of V17.82; the topology axioms use Lemma 17.4.13 for the local sc-diffeomorphism $\bar f$.
+
+### V17.84. Theorem 17.4.19, $|bC|$ is metrizable and $|\Psi_\theta|$ a homeomorphism onto an open set
+
+*narrower* · reading: |bC| for |C| · Ψ̂ continuous, centred
+
+**HWZ (§17.4, Theorem 17.4.19, p. 803 (new in the 2021 edition)).** $(|bC|, T_{bC})$ is metrizable, and for every representative $|\Psi_\theta| : G_\theta \backslash \theta \to |\Psi_\theta(\theta)|$ is a homeomorphism onto an open subset of $|C|$.
+
+**Proved in Lean.** `theorem_17_4_19 hc hcent`: $|bC|$ is metrizable (`metrizableSpace_bdryOrbit`), and $|\Psi_\theta(\theta)|$ is open with $|\Psi_\theta|$ an open embedding onto it. Through (17.79): `GoodNbhd.metrizableSpace_bdrySigma_preimage`, `isEmpty_bdrySigma_preimage_compl`, `metrizableSpace_of_isOpen_cover`.
+
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_bdryOrbit` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 472
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_4_19` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 495
+- `Polyfold.metrizableSpace_of_isOpen_cover` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 62
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.metrizableSpace_bdrySigma_preimage` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 433
+- `Polyfold.GCT.PolyfoldConstruction.isEmpty_bdrySigma_preimage_compl` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 458
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous (`hc`) and every uniformizer centred (`hcent : S.IsCentred`). Witnesses `swapConstruction_hatContinuous`, `swapConstruction_isCentred` (non-trivial group) and the quadrant (weak).
+- We read "onto an open subset of $|bC|$" for "of $|C|$", as the clause that follows does. Metrizability is proved as in the text's proof of Proposition 17.4.25: $\sigma$ is continuous into the metrizable $|C|$ and every point of $|C|$ has a neighbourhood with metrizable $\sigma$-preimage (Findings, Chapter 17, item 8).
+
+### V17.85. Lemma 17.4.20, $|\Psi_\theta|$ is a homeomorphism onto an open subset of $|bC|$, (17.75)
+
+*narrower* · as stated
+
+**HWZ (§17.4, Lemma 17.4.20, p. 803, (17.75) (new in the 2021 edition)).** $\Psi_\theta$ induces on orbit spaces a homeomorphism onto an open subset of $|bC|$.
+
+**Proved in Lean.** `GoodNbhd.lemma_17_4_20 hc hfix`: $|\Psi_\theta|$ is an open embedding; `range_faceFunctor_orbitMap` (its image is $|\Psi_\theta(\theta)|$), `metrizableSpace_faceOrbitSpace`.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_20` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 299
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.range_faceFunctor_orbitMap` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 336
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.metrizableSpace_faceOrbitSpace` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 292
+
+*What differs.*
+- Hidden hypotheses: as in V17.71.
+
+### V17.86. Corollary 17.4.21, $|bC|$ is locally metrizable
+
+*narrower* · as stated
+
+**HWZ (§17.4, Corollary 17.4.21, p. 804 (new in the 2021 edition)).** The topology on $|bC|$ is locally metrizable.
+
+**Proved in Lean.** `corollary_17_4_21 hc hcent z`: an open metrizable neighbourhood of every point.
+
+- `Polyfold.GCT.PolyfoldConstruction.corollary_17_4_21` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 367
+
+*What differs.*
+- Hidden hypotheses: as in V17.84.
+
+### V17.87. Lemma 17.4.22, $\sigma : |bC| \to |C|$ is continuous and closed, (17.76)
+
+*narrower* · as stated
+
+**HWZ (§17.4, Lemma 17.4.22, p. 804, (17.76) (new in the 2021 edition)).** The forgetful map $\sigma : |bC| \to |\partial C| \subset |C|$ is continuous and maps closed sets to closed sets.
+
+**Proved in Lean.** `bdrySigma` ($\sigma$, the orbit map of $B_C$); `lemma_17_4_22` = `continuous_bdrySigma` ∧ `isClosedMap_bdrySigma`.
+
+- `Polyfold.GCT.PolyfoldConstruction.bdrySigma` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 379
+- `Polyfold.GCT.PolyfoldConstruction.continuous_bdrySigma` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 385
+- `Polyfold.GCT.PolyfoldConstruction.isClosedMap_bdrySigma` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 541
+- `Polyfold.GCT.PolyfoldConstruction.lemma_17_4_22` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 597
+
+*What differs.*
+- Hidden hypotheses: as in V17.84.
+
+### V17.88. Proposition 17.4.23, $|bC|$ is Hausdorff
+
+*narrower* · as stated
+
+**HWZ (§17.4, Proposition 17.4.23, p. 805 (new in the 2021 edition)).** The topology on $|bC|$ is Hausdorff.
+
+**Proved in Lean.** `proposition_17_4_23 hc hcent : T2Space (BOrbit hT hS)`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_4_23` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 507
+
+*What differs.*
+- Hidden hypotheses: as in V17.84.
+- Obtained from metrizability (V17.84).
+
+### V17.89. Proposition 17.4.24, $|bC|$ is regular
+
+*narrower* · as stated
+
+**HWZ (§17.4, Proposition 17.4.24, p. 805 (new in the 2021 edition)).** $(|bC|, T_{bC})$ is regular.
+
+**Proved in Lean.** `proposition_17_4_24 hc hcent : RegularSpace (BOrbit hT hS)`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_4_24` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 514
+
+*What differs.*
+- Hidden hypotheses: as in V17.84.
+- Obtained from metrizability.
+
+### V17.90. Proposition 17.4.25, $|bC|$ is paracompact; (17.77)–(17.80)
+
+*narrower* · as stated
+
+**HWZ (§17.4, Proposition 17.4.25, pp. 806–809, (17.77)–(17.80) (new in the 2021 edition)).** $(|bC|, T_{bC})$ is paracompact.
+
+**Proved in Lean.** `proposition_17_4_25 hc hcent : ParacompactSpace (BOrbit hT hS)`; the ingredients of (17.79) are in V17.84.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_4_25` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 521
+
+*What differs.*
+- Hidden hypotheses: as in V17.84.
+- The text's argument through $\sigma$ and the finite disjoint unions (17.79) is used for metrizability, from which paracompactness follows.
+
+### V17.91. Theorem 17.4.26, the tame boundary $bC$ is a GCT with the polyfold structure $(F_{bC}, M)$
+
+*narrower* · Ψ̂ continuous, centred · tame · G.215 closed
+
+**HWZ (§17.4, Theorem 17.4.26, p. 809 (new in the 2021 edition)).** For a tame polyfold $(C, F, M)$, the tame boundary category $bC$ is a GCT with a natural polyfold structure $(F_{bC}, M)$.
+
+**Proved in Lean.** `bdryGCT` (the GCT $bC$ with $T_{bC}$), `FaceData` and `FaceData.unif` ($\Psi_\theta$ as a local uniformizer), `bdryF` ($F_{bC}$: all $\Psi_\theta$ over all choices), `bdryConstruction`; `theorem_17_4_26`: $F_{bC}(\bar\alpha) \ne \emptyset$ (`hasUniformizers_bdryConstruction`), $F_{bC}(\bar\alpha)$ is the set of the $\Psi_\theta$ with $\Psi_\theta(\bar o) = \bar\alpha$, and $M_{F_{bC}}(L, L')$ is identified with $M(\Psi,\Psi')^*_{\theta,\theta'}$ for the data chosen for $L$, $L'$ (`faceDataOf`) by a bijective local sc-diffeomorphism compatible with $\phi$, $s$, $t$; tame (`bdryConstruction_isTame`, `theorem_17_4_26_tame`). Witnesses `swapConstruction` ($\mathbb Z/2 \ltimes [0,\infty)^2 \oplus W$ exchanging the factors): `swap_tameBoundary_witness` (two faces at the corner exchanged by $G$, with the same image), `swap_theorem_17_4_26`, `swap_theorem_17_4_26_tame`.
+
+- `Polyfold.GCT.PolyfoldConstruction.bdryGCT` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 80
+- `Polyfold.GCT.PolyfoldConstruction.FaceData` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 87
+- `Polyfold.GCT.PolyfoldConstruction.FaceData.unif` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 103
+- `Polyfold.GCT.PolyfoldConstruction.bdryF` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 122
+- `Polyfold.GCT.PolyfoldConstruction.faceDataOf` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 132
+- `Polyfold.GCT.PolyfoldConstruction.bdryConstruction` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 232
+- `Polyfold.GCT.PolyfoldConstruction.hasUniformizers_bdryConstruction` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 282
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_4_26` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 304
+- `Polyfold.GCT.PolyfoldConstruction.bdryConstruction_isTame` — Polyfold/Chapter17/TameBoundaryTame.lean, line 291
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_4_26_tame` — Polyfold/Chapter17/TameBoundaryTame.lean, line 299
+- `Polyfold.GCT.PolyfoldConstruction.swapConstruction` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 526
+- `Polyfold.GCT.PolyfoldConstruction.swapConstruction_isCentred` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 558
+- `Polyfold.GCT.PolyfoldConstruction.swapConstruction_hatContinuous` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 555
+- `Polyfold.GCT.PolyfoldConstruction.swap_tameBoundary_witness` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 627
+- `Polyfold.GCT.PolyfoldConstruction.swap_theorem_17_4_26` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 670
+- `Polyfold.GCT.PolyfoldConstruction.swap_theorem_17_4_26_tame` — Polyfold/Chapter17/TameBoundaryTame.lean, line 316
+
+*What differs.*
+- Hidden hypotheses: $\hat\Psi$ continuous (`hc`), every uniformizer centred (`hcent`), tameness and $F(\alpha) \ne \emptyset$. Witness `swapConstruction` (`swapConstruction_hatContinuous`, `swapConstruction_isCentred`; non-trivial group, non-empty boundary).
+- The transition M-polyfolds are those of Definition 17.4.14 for the data chosen for each $L = \Psi_\theta$; that the result does not depend on this choice is not formalized. The theorem summarizes the preceding construction (point G.215).
+
+### V17.92. The diagrams (17.82)–(17.84): $\Theta$, $\hat\Psi : \Theta \to bC$, $F : \Theta \to G \ltimes O$
+
+*narrower* · Θ as a model · G.215 closed
+
+**HWZ (§17.4, pp. 809–811, (17.81)–(17.84) (new in the 2021 edition)).** $\Theta = \bigsqcup \theta$ with morphisms $\bigsqcup M(\Psi_\theta, \Psi_{\theta'})$ is a tame ep-groupoid; $\hat\Psi : \Theta \to bC$ and the forgetful $F : \Theta \to G \ltimes O$ (sc-smooth) make (17.82) commute; with $V(\bar o)$, $|B|^{-1}(|\Psi(V)|) = |\hat\Psi(\Theta)|$ (17.83); for two such diagrams $M(\hat\Psi, \hat\Psi') \to M(\Psi, \Psi')$ is an sc-smooth local embedding (17.84).
+
+**Proved in Lean.** `GoodNbhd.display_17_82` (the inclusion $\theta \to O$ is sc-smooth, $B \circ \Psi_\theta = \Psi$ on objects, $M(\Psi_\theta, \Psi_{\theta'}) \to M(\Psi,\Psi)$ sc-smooth and over $\phi$); `display_17_83` (the faces cover $U(\bar o)$ and $\sigma^{-1}(|\Psi(V)|) = \bigcup |\Psi_\theta(\theta)|$); `display_17_84` (injective onto $M(\Psi,\Psi')^*_{\theta,\theta'}$, a local sc-diffeomorphism onto it, sc-smooth into $M(\Psi,\Psi')$); `ftrIncl_isScSmoothMap`. $\Theta$: `faceConstruction` on $bC$ with the $\Psi_\theta$ of the fixed $U(\bar o)$, its model `faceThetaEp` (tame), `faceHat` ($\hat\Psi$, full and faithful), `faceForget` ($F$, an ep-functor), `display_17_82_Theta` ((17.82) commutes). Witness `swap_display_17_82_Theta` (two faces over the corner with the same image under $F$).
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_82` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 386
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_83` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 399
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_84` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 358
+- `Polyfold.GCT.PolyfoldConstruction.ftrIncl_isScSmoothMap` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 74
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceConstruction` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 136
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceThetaEp` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 205
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceHat` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 210
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.faceForget` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 235
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_82_Theta` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 311
+- `Polyfold.GCT.PolyfoldConstruction.swap_display_17_82_Theta` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 381
+
+*What differs.*
+- Hidden hypotheses: as in V17.91.
+- $\Theta$ is read as the model ep-groupoid of the construction with the uniformizers $\Psi_\theta$ for the fixed $U(\bar o)$, and $G \ltimes O$ as the model of the one-element family. "$F$ surjective on objects" in (17.83) is read as onto $U(\bar o) = V(\bar o) \cap \partial O$. (17.84) is stated for one pair of faces; the disjoint unions are not formed as M-polyfolds (point G.215).
+
+### V17.93. The diagram on pp. 811–812: $b\Gamma : bX \to bC$ over $\Gamma : X \to C$
+
+*restated* · square commutes · equivalences · reindexing: objects
+
+**HWZ (§17.4, pp. 811–812 (new in the 2021 edition)).** For a covering family the horizontal arrows $b\Gamma : bX \to bC$ and $\Gamma : X \to C$ are equivalences and the square with the tame boundary functors commutes; two covering sets embed into the diagram of their union.
+
+**Proved in Lean.** `bdryModelObj`, `bdryModelFunctor` ($b\Gamma$); `diagram_bX_bC c`: $bX$ is tame, the square commutes (`bdryModelFunctor_square`), $b\Gamma$ and $\Gamma$ are equivalences (`bdryModelFunctor_isEquivalence`), $|b\Gamma|$ is bijective (`bijective_orbitMap_bdryModelFunctor`) and $|\Gamma|$ a homeomorphism; on objects $b\Gamma$ commutes with the reindexing functors (`bdryModelObj_modelMap`). Witness `swap_diagram_bX_bC` ($bX \ne \emptyset$).
+
+- `Polyfold.GCT.PolyfoldConstruction.bdryModelObj` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 199
+- `Polyfold.GCT.PolyfoldConstruction.bdryModelFunctor` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 312
+- `Polyfold.GCT.PolyfoldConstruction.bdryModelFunctor_square` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 357
+- `Polyfold.GCT.PolyfoldConstruction.bdryModelFunctor_isEquivalence` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 446
+- `Polyfold.GCT.PolyfoldConstruction.bijective_orbitMap_bdryModelFunctor` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 453
+- `Polyfold.GCT.PolyfoldConstruction.bdryModelObj_modelMap` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 489
+- `Polyfold.GCT.PolyfoldConstruction.diagram_bX_bC` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 511
+- `Polyfold.GCT.PolyfoldConstruction.swap_diagram_bX_bC` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 537
+
+*What differs.*
+- Hidden hypotheses: tameness and `hS`; no continuity or centring needed.
+- $bX$ is read as the tame boundary ep-groupoid of $X = X_\Psi$ (Theorem 7.6.9) and $F$ as its forgetful ep-functor; the replacement of $O$ by $V(\bar o)$ is not needed. The compatibility with the reindexing functors is proved on objects; on morphisms it is not formalized.
+
+### V17.94. Definition 17.5.1 (2017: 17.14), branched ep⁺-subcategories, the covering-set sentence and $\Gamma^*$, $\Gamma_*$
+
+*as in the book* · as stated · covering-set sentence proved · Γ_* well defined
+
+**HWZ (§17.5, Definition 17.5.1 and the text after it, p. 812 (2017: Definition 17.14)).** $\Theta : C \to \mathbb Q^+$ is a branched ep⁺-subcategory if $\Theta \circ \Psi$ is a branched ep⁺-subgroupoid for every $\Psi \in F(\alpha)$; it suffices to check a covering set. $\Gamma^*\Theta = \Theta \circ \Gamma$, and $\Gamma_*\Theta(\alpha) = \Theta(x)$ for $\varphi : \Gamma(x) \to \alpha$, well defined.
+
+**Proved in Lean.** `IsBranchedSubcategory Θ` for `Θ : C.Obj → ℚ`, with the fields `nonneg`, `isFunctorial` (constant along morphisms) and `isBranched : ∀ α, ∀ Ψ ∈ S.F α, Ψ.ep.IsBranchedEpSubgroupoid (Θ ∘ Ψ.obj)`. The covering-set sentence: `definition_17_5_1_covering (hc : S.IsCoveringFamily Φ) : S.IsBranchedSubcategory Θ ↔ (∀ α, 0 ≤ Θ α) ∧ IsFunctorial Θ ∧ ∀ i, (Φ i).1.ep.IsBranchedEpSubgroupoid (Θ ∘ (Φ i).1.obj)`, through `isBranchedEpSubgroupoid_unif_of_isCoveringFamily` and `localBranching_of_tr` (a local branching structure moves along a transition set). `modelPull Ψ Θ = Θ ∘ Γ_Ψ` and `modelPush Ψ Θ = Γ_Ψ.pushTheta Θ`, where `pushTheta` picks an object of the source isomorphic to the given one; `pushTheta_eq (hF : Full) (hΘ : IsFunctorial Θ) (h : Isomorphic (F.obj x) y) : F.pushTheta Θ y = Θ x` says the value does not depend on the choice.
+
+- `Polyfold.GCT.PolyfoldConstruction.IsBranchedSubcategory` — Polyfold/Chapter17/BranchedSubcategory.lean, line 260
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_5_1_covering` — Polyfold/Chapter17/BranchedSubcategory.lean, line 353
+- `Polyfold.GCT.PolyfoldConstruction.isBranchedEpSubgroupoid_unif_of_isCoveringFamily` — Polyfold/Chapter17/BranchedSubcategory.lean, line 326
+- `Polyfold.GCT.PolyfoldConstruction.localBranching_of_tr` — Polyfold/Chapter17/BranchedSubcategory.lean, line 283
+- `Polyfold.GCT.PolyfoldConstruction.IsBranchedSubcategory.unif` — Polyfold/Chapter17/BranchedSubcategory.lean, line 366
+- `Polyfold.GCT.PolyfoldConstruction.modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 375
+- `Polyfold.GCT.PolyfoldConstruction.modelPush` — Polyfold/Chapter17/BranchedSubcategory.lean, line 379
+- `Polyfold.GroupoidFunctor.pushTheta` — Polyfold/Chapter17/BranchedSubcategory.lean, line 152
+- `Polyfold.GroupoidFunctor.pushTheta_eq` — Polyfold/Chapter17/BranchedSubcategory.lean, line 159
+- `Polyfold.GroupoidFunctor.isFunctorial_pushTheta` — Polyfold/Chapter17/BranchedSubcategory.lean, line 185
+- `Polyfold.GroupoidStr.IsFunctorial` — Polyfold/Chapter17/BranchedSubcategory.lean, line 98
+
+*What differs.*
+- $\mathbb Q^+$ is read as `ℚ` with `nonneg`, and "functor $C \to \mathbb Q^+$" as `IsFunctorial` (the target is discrete). The covering-set sentence and the well-definedness of $\Gamma_*$ are proved (points G.216, G.217 settled).
+
+### V17.95. Proposition 17.5.2 (2017: 17.8), push-forward and pull-back along $\Gamma_\Psi$
+
+*as in the book* · as stated
+
+**HWZ (§17.5, Proposition 17.5.2, p. 813 (2017: Proposition 17.8)).** (1) If $\Theta$ is a branched ep⁺-subgroupoid of $X_\Psi$, then $(\Gamma_\Psi)_*\Theta$ is a branched ep⁺-subcategory. (2) If $\Theta$ is a branched ep⁺-subcategory, then $\Gamma_\Psi^*\Theta$ is a branched ep⁺-subgroupoid.
+
+**Proved in Lean.** `proposition_17_5_2_one (hc : S.IsCoveringFamily Ψ) (h : (S.modelEP Ψ).X.IsBranchedEpSubgroupoid Θ) : S.IsBranchedSubcategory (S.modelPush Ψ Θ)`; `proposition_17_5_2_two (h : S.IsBranchedSubcategory Θ) : (S.modelEP Ψ).X.IsBranchedEpSubgroupoid (S.modelPull Ψ Θ)`; `isBranchedEpSubgroupoid_modelPull_iff` (for a covering family, an iff); `modelPull_modelPush`, `modelPush_modelPull` ($\Gamma^*$ and $\Gamma_*$ are inverse on functorial functions).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_one` — Polyfold/Chapter17/BranchedSubcategory.lean, line 493
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_two` — Polyfold/Chapter17/BranchedSubcategory.lean, line 475
+- `Polyfold.GCT.PolyfoldConstruction.isBranchedEpSubgroupoid_modelPull_iff` — Polyfold/Chapter17/BranchedSubcategory.lean, line 443
+- `Polyfold.GCT.PolyfoldConstruction.modelPull_modelPush` — Polyfold/Chapter17/BranchedSubcategory.lean, line 479
+- `Polyfold.GCT.PolyfoldConstruction.modelPush_modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 483
+
+*What differs.*
+- The text calls both facts obvious (point G.218 settled).
+
+### V17.96. The identities on p. 813 for two covering families
+
+*restated* · first identity read with f^* · push form proved too
+
+**HWZ (§17.5, after Proposition 17.5.2, p. 813 (2017: §17.4)).** For two covering families with $f : X \to X'$: $f_*(\Gamma')^*\Theta = \Gamma^*\Theta$ and $\Gamma_*\Theta' = \Gamma'_* f_*\Theta'$.
+
+**Proved in Lean.** For the canonical generalized isomorphism `S.comparison c c'` ($f : X \to X'$ of Theorem 17.1.18) and functorial `Θ`: `pullTheta_comparison_modelPull : pullTheta (S.comparison c c') (S.modelPull c'.Ψ Θ) = S.modelPull c.Ψ Θ` ($f^*(\Gamma')^*\Theta = \Gamma^*\Theta$); `pushTheta_comparison_modelPull : EPLoc.pushTheta (S.comparison c c') (S.modelPull c.Ψ Θ) = S.modelPull c'.Ψ Θ` ($f_*\Gamma^*\Theta = (\Gamma')^*\Theta$); for functorial `Θ'` on $X$, `modelPush_pushTheta_comparison : S.modelPush c.Ψ Θ' = S.modelPush c'.Ψ (EPLoc.pushTheta (S.comparison c c') Θ')` ($\Gamma_*\Theta' = \Gamma'_* f_*\Theta'$); `image_modelOrbitMap_orbitSupp` (the supports correspond under $|\Gamma|$).
+
+- `Polyfold.GCT.PolyfoldConstruction.pullTheta_comparison_modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 528
+- `Polyfold.GCT.PolyfoldConstruction.pushTheta_comparison_modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 538
+- `Polyfold.GCT.PolyfoldConstruction.modelPush_pushTheta_comparison` — Polyfold/Chapter17/BranchedSubcategory.lean, line 548
+- `Polyfold.GCT.PolyfoldConstruction.image_modelOrbitMap_orbitSupp` — Polyfold/Chapter17/BranchedSubcategory.lean, line 568
+
+*What differs.*
+- The first identity is printed as $f_*(\Gamma')^*\Theta = \Gamma^*\Theta$; since $(\Gamma')^*\Theta$ lives on $X'$ and $f : X \to X'$, we read $f_*$ there as the pull-back $f^*$, and the push-forward form $f_*\Gamma^*\Theta = (\Gamma')^*\Theta$ is proved as well. Point G.218 settled.
+
+### V17.97. Definition 17.5.3 (2017: 17.15), compact and tame branched ep⁺-subcategories
+
+*as in the book* · as stated · independence proved
+
+**HWZ (§17.5, Definition 17.5.3, p. 813 (2017: Definition 17.15)).** (1) $\Theta$ is compact if $|\mathrm{supp}(\Theta)|$ is compact. (2) $\Theta$ is tame if $\Gamma^*\Theta$ is tame for a suitable covering family; this is well defined.
+
+**Proved in Lean.** (1) `C.IsCompactBranched Θ` (`|supp Θ|` compact in `|C|`), and `isCompactBranched_iff_model c (hΘ : IsFunctorial Θ) : C.IsCompactBranched Θ ↔ (S.modelEP c.Ψ).X.IsCompactBranched (S.modelPull c.Ψ Θ)`. (2) `IsTameVia c Θ` (the pull-back to the model of `c` is tame, Definition 9.3.6), `IsTameModel` (for some covering family); the well-definedness `definition_17_5_3_two (hΘ) (c c') : S.IsTameVia c Θ ↔ S.IsTameVia c' Θ`, and `IsTameModel.forall`.
+
+- `Polyfold.GCT.IsCompactBranched` — Polyfold/Chapter17/BranchedSubcategory.lean, line 589
+- `Polyfold.GCT.PolyfoldConstruction.isCompactBranched_iff_model` — Polyfold/Chapter17/BranchedSubcategory.lean, line 611
+- `Polyfold.GCT.PolyfoldConstruction.IsTameVia` — Polyfold/Chapter17/BranchedSubcategory.lean, line 622
+- `Polyfold.GCT.PolyfoldConstruction.IsTameModel` — Polyfold/Chapter17/BranchedSubcategory.lean, line 627
+- `Polyfold.GCT.PolyfoldConstruction.IsTameModel.forall` — Polyfold/Chapter17/BranchedSubcategory.lean, line 642
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_5_3_two` — Polyfold/Chapter17/BranchedSubcategory.lean, line 633
+
+*What differs.*
+- The sentence that tameness does not depend on the covering family is proved (`definition_17_5_3_two`, from Chapter 11's invariance of tameness under the generalized isomorphism $f$).
+
+### V17.98. Definition 17.5.4 (2017: 17.16), manifold-type, orbifold-type and tame
+
+*hypotheses explicit* · F(α) ≠ ∅ for "Equivalently" · two tameness notions agree
+
+**HWZ (§17.5, Definition 17.5.4, p. 813 (2017: Definition 17.16)).** (1) Manifold-type: at most one morphism between objects of the support, values 0 and 1. (2) Orbifold-type: values 0 and 1. (3) Tame: $\Theta \circ \Psi$ tame for $\alpha \in \mathrm{supp}(\Theta)$, $\Psi \in F(\alpha)$; equivalently $\Theta \circ \Gamma$ tame on a model.
+
+**Proved in Lean.** (1), (2) on `C`: `C.IsManifoldTypeBranched Θ`, `C.IsOrbifoldTypeBranched Θ`, equivalent to the same notions (Definition 9.1.8) on any model (`isManifoldType_modelPull_iff`, `isOrbifoldType_modelPull_iff`). (3) `IsTameSubcategory Θ` (for `α ∈ supp Θ` and `Ψ ∈ F(α)`, `Θ ∘ Ψ` tame), and "Equivalently": `definition_17_5_4_three (hU : S.HasUniformizers) (hΘ) (c) : S.IsTameSubcategory Θ ↔ S.IsTameVia c Θ` (with `isTameBranched_iff_exists` of Chapter 9 for the restriction to a natural representation). Witnesses: `reflectionThetaC` ($\mathbb Z/2$ reflection, $\Theta = 1_{\{0\}}$; branched, of orbifold-type, not of manifold-type) and `unitThetaC` (of manifold-type).
+
+- `Polyfold.GCT.IsManifoldTypeBranched` — Polyfold/Chapter17/BranchedSubcategory.lean, line 598
+- `Polyfold.GCT.IsOrbifoldTypeBranched` — Polyfold/Chapter17/BranchedSubcategory.lean, line 594
+- `Polyfold.GCT.PolyfoldConstruction.isManifoldType_modelPull_iff` — Polyfold/Chapter17/BranchedSubcategory.lean, line 674
+- `Polyfold.GCT.PolyfoldConstruction.isOrbifoldType_modelPull_iff` — Polyfold/Chapter17/BranchedSubcategory.lean, line 660
+- `Polyfold.GCT.PolyfoldConstruction.IsTameSubcategory` — Polyfold/Chapter17/BranchedSubcategory.lean, line 653
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_5_4_three` — Polyfold/Chapter17/BranchedSubcategory.lean, line 728
+- `Polyfold.EpGroupoid.isTameBranched_iff_exists` — Polyfold/Chapter17/BranchedSubcategory.lean, line 213
+- `Polyfold.GCT.PolyfoldConstruction.reflectionThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 41
+- `Polyfold.GCT.PolyfoldConstruction.isBranchedSubcategory_reflectionThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 46
+- `Polyfold.GCT.PolyfoldConstruction.isOrbifoldTypeBranched_reflectionThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 59
+- `Polyfold.GCT.PolyfoldConstruction.not_isManifoldTypeBranched_reflectionThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 68
+- `Polyfold.GCT.PolyfoldConstruction.unitThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 89
+- `Polyfold.GCT.PolyfoldConstruction.isBranchedSubcategory_unitThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 143
+- `Polyfold.GCT.PolyfoldConstruction.isManifoldTypeBranched_unitThetaC` — Polyfold/Chapter17/BranchedSubcategoryExamples.lean, line 155
+
+*What differs.*
+- Under $F(\alpha) \ne \emptyset$ the two definitions of tameness, Definitions 17.5.3 (2) and 17.5.4 (3), agree.
+
+### V17.99. Proposition 17.5.5 (2017: 17.9), the structure on $|\mathrm{supp}(\Theta)|$
+
+*restated* · read as in Proposition 9.1.9 · orbifold case written out
+
+**HWZ (§17.5, Proposition 17.5.5, p. 814 (2017: Proposition 17.9)).** (1) For manifold-type $\Theta$, $|\mathrm{supp}(\Theta)|$ is naturally a smooth finite-dimensional manifold. (2) For orbifold-type $\Theta$ it carries a natural orbifold structure (details left to the reader).
+
+**Proved in Lean.** `suppHomeomorph c hΘ : |supp(Γ^*Θ)| ≃ₜ |supp Θ|`. (1) `proposition_17_5_5_one (hΘ) (hm : C.IsManifoldTypeBranched Θ)`: for every covering family an M-polyfold structure on `|supp(Γ^*Θ)|` with `IsSuppStructure` (Proposition 9.1.9 (1)) exists, and any two such structures, for any two covering families, give the same structure on `|supp Θ|` (the identity is an sc-diffeomorphism after transport along `suppHomeomorph`). (2) `proposition_17_5_5_two (hΘ) (ho : C.IsOrbifoldTypeBranched Θ)`: on every model the support is an ep-subgroupoid and a smooth submanifold whose orbit space is homeomorphic to `|supp Θ|` compatibly with $|\Gamma|$, and for two covering families there are equivalences from one ep-groupoid with an orbifold-type `ΘA` onto both restrictions.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_one` — Polyfold/Chapter17/BranchedSupport.lean, line 269
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_two` — Polyfold/Chapter17/BranchedSupport.lean, line 295
+- `Polyfold.GCT.PolyfoldConstruction.suppHomeomorph` — Polyfold/Chapter17/BranchedSupport.lean, line 224
+- `Polyfold.GCT.PolyfoldConstruction.suppHomeomorph_orbitSuppMap` — Polyfold/Chapter17/BranchedSupport.lean, line 235
+- `Polyfold.GCT.PolyfoldConstruction.paracompactSpace_orbitSuppC` — Polyfold/Chapter17/BranchedSupport.lean, line 213
+- `Polyfold.EpGroupoid.IsSuppStructure` — Polyfold/Chapter17/BranchedSupport.lean, line 76
+- `Polyfold.EpGroupoid.exists_isSuppStructure` — Polyfold/Chapter17/BranchedSupport.lean, line 85
+- `Polyfold.EPLocalization.EPLoc.orbitSuppMap` — Polyfold/Chapter17/BranchedSupport.lean, line 112
+- `Polyfold.EPLocalization.EPLoc.isScSmoothOn_orbitSuppMap` — Polyfold/Chapter17/BranchedSupport.lean, line 150
+- `Polyfold.EPLocalization.EPLoc.restrictSupp_orbifold` — Polyfold/Chapter17/BranchedSupport.lean, line 126
+
+*What differs.*
+- "Smooth manifold" is read as in Proposition 9.1.9 (1) and Remark 9.1.10; "in a natural way" as the statement that all induced structures agree; the orbifold structure is read up to equivalence. The paracompactness of $|\mathrm{supp}\,\Theta|$ holds (`paracompactSpace_orbitSuppC`). The orbifold case, left to the reader, is written out (point G.219 settled).
+
+### V17.100. Definition 17.5.6 (2017: 17.17), the tangent $T\Theta$
+
+*hypotheses explicit* · F(α) ≠ ∅ · via the union of two families
+
+**HWZ (§17.5, Definition 17.5.6 and the text before it, pp. 814–815 (2017: Definition 17.17)).** The tangent $T\Theta$ of a branched ep⁺-subcategory, defined through a model and independent of it.
+
+**Proved in Lean.** `tangentThetaVia hU c.Ψ Θ` is the push-forward to `TC` of Chapter 9's $T(\Gamma^*\Theta)$ on the model; `definition_17_5_6 (hΘ) (c c') : S.tangentThetaVia hU c.Ψ Θ = S.tangentThetaVia hU c'.Ψ Θ`; `branchedTangent hU Θ` ($T\Theta$), `branchedTangent_eq` (computed on any covering family), `branchedTangent_tangentUnifObj` (its pull-back by $T\Psi$ is $T(\Theta \circ \Psi)$), `branchedTangent_nonneg`, `isFunctorial_branchedTangent`.
+
+- `Polyfold.GCT.PolyfoldConstruction.modelTangentTheta` — Polyfold/Chapter17/BranchedTangent.lean, line 105
+- `Polyfold.GCT.PolyfoldConstruction.tangentThetaVia` — Polyfold/Chapter17/BranchedTangent.lean, line 109
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_5_6` — Polyfold/Chapter17/BranchedTangent.lean, line 174
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangent` — Polyfold/Chapter17/BranchedTangent.lean, line 182
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangent_eq` — Polyfold/Chapter17/BranchedTangent.lean, line 186
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangent_tangentUnifObj` — Polyfold/Chapter17/BranchedTangent.lean, line 200
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangent_comp_tangentModelObj` — Polyfold/Chapter17/BranchedTangent.lean, line 191
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangent_nonneg` — Polyfold/Chapter17/BranchedTangent.lean, line 211
+- `Polyfold.GCT.PolyfoldConstruction.isFunctorial_branchedTangent` — Polyfold/Chapter17/BranchedTangent.lean, line 216
+
+*What differs.*
+- The text compares two covering families through $Tf$; the Lean compares both with the union of the two families, of which both models are summands (same conclusion).
+
+### V17.101. The functors $\nu$ and $\mathrm{Gr}(C) \to C_\infty$, pp. 815–816
+
+*restated* · SET = Type · L_ν = category of elements
+
+**HWZ (§17.5, pp. 815–816 (2017: §17.4)).** The functor $\nu : C_\infty \to \mathrm{SET}$, $\alpha \mapsto \mathrm{Gr}(\alpha)$, and the Grassmannian $\mathrm{Gr}(C) = L_\nu$ with its projection to $C_\infty$.
+
+**Proved in Lean.** `GrC α` (formal sums with non-negative rational weights of subsets of $T_\alpha C$), `grPushC φ` (the action of a morphism, through `tcMove`); `grFunctorC : C_∞ ⥤ Type` ($\nu$), and the Grassmannian $\mathrm{Gr}(C) = L_\nu$ as Mathlib's category of elements; `tangentSectionFunctorC` (the section functor $T\Theta : C_\infty \to \mathrm{Gr}(C)$ of a branched ep⁺-subcategory) with `tangentSectionFunctorC_comp_π` (a section of the projection).
+
+- `Polyfold.GCT.PolyfoldConstruction.GrC` — Polyfold/Chapter17/BranchedTangent.lean, line 274
+- `Polyfold.GCT.PolyfoldConstruction.grPushC` — Polyfold/Chapter17/BranchedTangent.lean, line 279
+- `Polyfold.GCT.PolyfoldConstruction.tcMove` — Polyfold/Chapter17/BranchedTangent.lean, line 231
+- `Polyfold.GCT.PolyfoldConstruction.grFunctorC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 270
+- `Polyfold.GCT.PolyfoldConstruction.tangentSectionFunctorC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 347
+- `Polyfold.GCT.PolyfoldConstruction.tangentSectionFunctorC_comp_π` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 363
+- `Polyfold.GCT.PolyfoldConstruction.smoothObjVal` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 180
+- `Polyfold.GCT.PolyfoldConstruction.smoothMorVal` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 186
+
+*What differs.*
+- $\mathrm{SET}$ is Mathlib's `Type`, $C_\infty$ is the full subgroupoid of smooth objects, and $L_\nu$ is the category of elements `ν.Elements`; $\mathrm{Gr}(\alpha)$ is read as in Chapter 9 (point G.7).
+
+### V17.102. Proposition 17.5.7 (2017: 17.10) and (17.86), the section functor $T\Theta$
+
+*hypotheses explicit* · F(α) ≠ ∅ · proof written out
+
+**HWZ (§17.5, Proposition 17.5.7 and (17.86), p. 816 (2017: Proposition 17.10)).** $T\Theta$ defines a section functor $C_\infty \to \mathrm{Gr}(C)$, given on a model by (17.86); the proof is left to the reader.
+
+**Proved in Lean.** `modelGrPush_tangentValue_eq (hΘ) (hα : S.TangentObj α) …`: for two objects $x, x'$ of the model and morphisms $\varphi : \Gamma(x) \to \alpha$, $\varphi' : \Gamma(x') \to \alpha$ the pushed tangent values agree ((17.86): well defined). `proposition_17_5_7 (hΘ)`: `branchedTangentSection hU Θ α ∈ S.GrC α` on `TangentObj`; it is computed on every covering family by (17.86); it is natural along every morphism (`grPushC χ`); and it is the only family with the (17.86) property for some covering family.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_7` — Polyfold/Chapter17/BranchedTangent.lean, line 497
+- `Polyfold.GCT.PolyfoldConstruction.modelGrPush` — Polyfold/Chapter17/BranchedTangent.lean, line 323
+- `Polyfold.GCT.PolyfoldConstruction.modelGrPush_tangentValue_eq` — Polyfold/Chapter17/BranchedTangent.lean, line 366
+- `Polyfold.GCT.PolyfoldConstruction.tangentSectionVia` — Polyfold/Chapter17/BranchedTangent.lean, line 331
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangentSection` — Polyfold/Chapter17/BranchedTangent.lean, line 489
+
+*What differs.*
+- $C_\infty$ is read through `TangentObj` (objects of $C^1$ with $F(\alpha) \ne \emptyset$), which contains the smooth objects. The proof left to the reader is written out (point G.220 settled).
+
+### V17.103. The oriented Grassmannian $\widehat{\mathrm{Gr}}(C)$, the forgetful map (17.87) and the pull-back $T\Gamma^*\hat T$, pp. 816–817
+
+*restated* · oriented subspaces as in Chapter 9
+
+**HWZ (§17.5, pp. 816–817 (2017: §17.4)).** The oriented Grassmannian $\widehat{\mathrm{Gr}}(C)$, the forgetful functor $f$ of (17.87), and the pull-back $T\Gamma^*\hat T$ of a section.
+
+**Proved in Lean.** `OrTC` (oriented finite-dimensional subsets of the fibres of `TC`, as Chapter 9's `OrTangent`), `GrHatC α`, `grForgetC w := w.mapDomain OrTC.carrier` ((17.87)), `grHatPushC`; the functor `grHatFunctorC` ($\hat\nu$), the natural transformation `grForgetNatC` and the functor `grForgetFunctorC` over $C_\infty$; `orTCPull`, `sectionPull` ($T\Gamma^*\hat T$: preimages of carriers and frames under $T\Gamma(x)$).
+
+- `Polyfold.GCT.PolyfoldConstruction.OrTC` — Polyfold/Chapter17/BranchedTangent.lean, line 549
+- `Polyfold.GCT.PolyfoldConstruction.GrHatC` — Polyfold/Chapter17/BranchedTangent.lean, line 560
+- `Polyfold.GCT.PolyfoldConstruction.grForgetC` — Polyfold/Chapter17/BranchedTangent.lean, line 566
+- `Polyfold.GCT.PolyfoldConstruction.grHatPushC` — Polyfold/Chapter17/BranchedTangent.lean, line 575
+- `Polyfold.GCT.PolyfoldConstruction.orTCPull` — Polyfold/Chapter17/BranchedTangent.lean, line 581
+- `Polyfold.GCT.PolyfoldConstruction.sectionPull` — Polyfold/Chapter17/BranchedTangent.lean, line 591
+- `Polyfold.GCT.PolyfoldConstruction.grHatFunctorC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 282
+- `Polyfold.GCT.PolyfoldConstruction.grForgetNatC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 304
+- `Polyfold.GCT.PolyfoldConstruction.grForgetFunctorC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 334
+- `Polyfold.GCT.PolyfoldConstruction.grForgetFunctorC_comp_π` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 338
+
+*What differs.*
+- An oriented subspace is a set with a dimension and a set of positive frames; that the pull-backs are oriented subspaces of the right dimension is part of the orientation condition of V17.104.
+
+### V17.104. Definition 17.5.8 (2017: 17.18), orientations of branched ep⁺-subcategories
+
+*hypotheses explicit* · "a covering set" read as every family · F(α) ≠ ∅
+
+**HWZ (§17.5, Definition 17.5.8, p. 817 (2017: Definition 17.18)).** An orientation of $\Theta$ is a section functor $\hat T_\Theta$ of $\widehat{\mathrm{Gr}}(C)$ with $f \circ \hat T_\Theta = T\Theta$ whose pull-back to the model of a covering set is an orientation (Definition 9.3.2).
+
+**Proved in Lean.** `IsOrientationC hU Θ T` for `T : C.Obj → S.OrTC →₀ ℚ`, with the fields `mem` (values in $\widehat{\mathrm{Gr}}$ on smooth objects), `natural` (along morphisms), `lifts` (`grForgetC (T α) = branchedTangentSection hU Θ α`, i.e. $f \circ \hat T_\Theta = T\Theta$) and the model condition (Definition 9.3.2 for `sectionPull` on every covering family). As a functor: `orientationSectionC` with `orientationSectionC_comp_π` and `orientationSectionCForgetIso` ($f \circ \hat T_\Theta \cong T\Theta$). `isOrientationC_zero`: $\Theta = 0$ has an orientation. Witnesses: `pointOrientationC` (two orientations of a point, `pointOrientationC_ne`), `isOrientationC_reflection` (the reflection, a non-trivial group), `isOrientationC_unitTaut`.
+
+- `Polyfold.GCT.PolyfoldConstruction.IsOrientationC` — Polyfold/Chapter17/BranchedTangent.lean, line 601
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_zero` — Polyfold/Chapter17/BranchedTangent.lean, line 620
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangentSection_zero` — Polyfold/Chapter17/BranchedTangent.lean, line 610
+- `Polyfold.GCT.PolyfoldConstruction.orientationSectionC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 372
+- `Polyfold.GCT.PolyfoldConstruction.orientationSectionC_comp_π` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 386
+- `Polyfold.GCT.PolyfoldConstruction.orientationSectionC_forget_obj` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 403
+- `Polyfold.GCT.PolyfoldConstruction.orientationSectionCForgetIso` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 411
+- `Polyfold.GCT.PolyfoldConstruction.reflection_orientationSectionC` — Polyfold/Chapter17/GrassmannianFunctor.lean, line 436
+- `Polyfold.GCT.PolyfoldConstruction.pointTangentC` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 55
+- `Polyfold.GCT.PolyfoldConstruction.pointOrientationC` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 63
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_pointOrientationC` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 308
+- `Polyfold.GCT.PolyfoldConstruction.pointOrientationC_ne` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 320
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_reflection` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 339
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_unitTaut` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 346
+- `Polyfold.GCT.PolyfoldConstruction.tautConstruction_hasUniformizers` — Polyfold/Chapter17/BranchedOrientationExamples.lean, line 47
+
+*What differs.*
+- "For a covering set $\Psi$" is read as "for every covering family".
+
+### V17.105. Remark 17.5.9 (2017: 17.5), orientations through uniformizers
+
+*narrower* · "⇐" as stated · "⇒" with every Ψ̂ continuous
+
+**HWZ (§17.5, Remark 17.5.9, p. 817 (2017: Remark 17.5)).** The model condition in Definition 17.5.8 can be replaced by: $T\Psi^*\hat T_\Theta$ is an orientation of $\Theta \circ \Psi$ for $\alpha \in \mathrm{supp}(\Theta)$, $\Psi \in F(\alpha)$.
+
+**Proved in Lean.** "⇐": `isOrientationC_of_unif (hΘ) hmem hnat hlifts (hunif : ∀ α, 0 < Θ α → ∀ Ψ (hΨ : Ψ ∈ S.F α), Ψ.ep.IsOrientation (Θ ∘ Ψ.obj) (S.unifSectionPull hU ⟨Ψ, α, hΨ⟩ T)) : S.IsOrientationC hU Θ T`, with no further condition. "⇒": `unif_of_isOrientationC` gives the pointwise clauses of Definition 9.3.2 on every uniformizer; the full iff is `remark_17_5_9_hyp (hcont : ∀ Ψ : S.Unif, Continuous (S.hat Ψ)) (hΘ)`. Witness of `hcont`: `reflection_continuous_hat_all` (the reflection, a non-trivial group action; not weak).
+
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_5_9_hyp` — Polyfold/Chapter17/BranchedOrientation.lean, line 743
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_of_unif` — Polyfold/Chapter17/BranchedOrientation.lean, line 721
+- `Polyfold.GCT.PolyfoldConstruction.unif_of_isOrientationC` — Polyfold/Chapter17/BranchedOrientation.lean, line 694
+- `Polyfold.GCT.PolyfoldConstruction.isOrientation_unif_of_isOrientationC` — Polyfold/Chapter17/BranchedOrientation.lean, line 712
+- `Polyfold.GCT.PolyfoldConstruction.isOrientation_model_of_unif` — Polyfold/Chapter17/BranchedOrientation.lean, line 648
+- `Polyfold.GCT.PolyfoldConstruction.unifOrPull` — Polyfold/Chapter17/BranchedOrientation.lean, line 324
+- `Polyfold.GCT.PolyfoldConstruction.unifSectionPull` — Polyfold/Chapter17/BranchedOrientation.lean, line 331
+- `Polyfold.GCT.PolyfoldConstruction.hasOrientedRepAt_model_of_unif` — Polyfold/Chapter17/BranchedOrientation.lean, line 392
+- `Polyfold.GCT.PolyfoldConstruction.hasOrientedRepAt_unif_of_model` — Polyfold/Chapter17/BranchedOrientation.lean, line 413
+- `Polyfold.GCT.PolyfoldConstruction.branchedTangentSection_eq_unif` — Polyfold/Chapter17/BranchedOrientation.lean, line 627
+- `Polyfold.EpGroupoid.HasOrientedRepAt` — Polyfold/Chapter17/BranchedOrientation.lean, line 130
+- `Polyfold.EpGroupoid.isOrientation_of_hasOrientedRepAt` — Polyfold/Chapter17/BranchedOrientation.lean, line 168
+- `Polyfold.GCT.PolyfoldConstruction.reflection_continuous_hat_all` — Polyfold/Chapter17/TangentConstruction.lean, line 441
+
+*What differs.*
+- The naturality clause of Definition 9.3.2 on $G \ltimes O$ uses Lemma 17.2.10 on morphisms, which holds for continuous $\hat\Psi$ and does not hold as we read it in general (Findings, Chapter 17, item 1, where Definition 17.1.8 presumably wants $\hat\Psi$ continuous). Whether "⇒" holds without `hcont` is open; the other clauses hold for every uniformizer. Point G.221 settled.
+
+### V17.106. Proposition 17.6.1 (2017: 17.11), the Whitney sum $\oplus^k TC \to C^1$
+
+*narrower* · category and functors built · |⊕ᵏTC| not formalized
+
+**HWZ (§17.6, Proposition 17.6.1, p. 818 (2017: Proposition 17.11)).** The $k$-fold Whitney sum $\oplus^k TC \to C^1$ has a natural structure of a polyfold bundle (proof sketch, details easily verified).
+
+**Proved in Lean.** On the fibres: `proposition_17_6_1 (hU) (b : S.Tr Ψ Ψ')`: the maps $\oplus^k T\Psi$ (`whitneyUnifTangent`) are compatible with the transition maps. On the transition sets: `WTrM hU Ψ₁ Ψ₂ k` ($M(\oplus^k T\Psi, \oplus^k T\Psi')$, $k$-tuples of morphisms of $TC$ over one morphism of $C^1$), identified by `whitneyTrHomeomorph` with Part I's Whitney sum of $TM(\Psi, \Psi') \to M(\Psi, \Psi')^1$ (`MPolyfold.whitneySum_bundle`, Section 4.4); `proposition_17_6_1_transition`: this is an sc-diffeomorphism, `WTrM` is metrizable, the base map is sc-smooth, and source and target are local sc-diffeomorphisms which are linear isomorphisms on the fibres; unit and inversion are sc-smooth. The orbit space of $G \ltimes \oplus^k TO$ is metrizable (`metrizableSpace_whitneyOrbit`). Witness `reflection_whitneyTr_nondegenerate` (a transition element over the reflection moving its source). The category: `whitneyCategory` ($\oplus^k TC$ as the $k$-fold fibred power of $P : TC \to C^1$, a groupoidal category with $\oplus^0 TC = C^1$ and $\oplus^1 TC = TC$); for continuous $\hat\Psi$, `proposition_17_6_1_functor`: $\oplus^k T\Psi : G \ltimes \oplus^k TO \to \oplus^k TC$ (`whitneyUnifFunctor`) is a functor with the printed formulas and $\oplus^k P \circ \oplus^k T\Psi = \Psi^1 \circ \oplus^k p$. Witness `reflection_whitneyUnif_nondegenerate` ($k = 2$ on the reflection).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1` — Polyfold/Chapter17/CategoryForms.lean, line 335
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1_transition` — Polyfold/Chapter17/WhitneySumStructure.lean, line 443
+- `Polyfold.GCT.PolyfoldConstruction.whitneyUnifTangent` — Polyfold/Chapter17/CategoryForms.lean, line 323
+- `Polyfold.GCT.PolyfoldConstruction.unifTangent` — Polyfold/Chapter17/CategoryForms.lean, line 267
+- `Polyfold.GCT.PolyfoldConstruction.unifTangent_transTangent` — Polyfold/Chapter17/CategoryForms.lean, line 272
+- `Polyfold.GCT.PolyfoldConstruction.WTrM` — Polyfold/Chapter17/WhitneySumStructure.lean, line 147
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTrHomeomorph` — Polyfold/Chapter17/WhitneySumStructure.lean, line 179
+- `Polyfold.GCT.PolyfoldConstruction.metrizableSpace_WTrM` — Polyfold/Chapter17/WhitneySumStructure.lean, line 223
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTrPolyfold` — Polyfold/Chapter17/WhitneySumStructure.lean, line 232
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTr_isLocalScDiffeo_src` — Polyfold/Chapter17/WhitneySumStructure.lean, line 327
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTr_isLocalScDiffeo_tgt` — Polyfold/Chapter17/WhitneySumStructure.lean, line 333
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTr_bijective_fiber_src` — Polyfold/Chapter17/WhitneySumStructure.lean, line 340
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTr_isScSmoothMap_unit` — Polyfold/Chapter17/WhitneySumStructure.lean, line 386
+- `Polyfold.GCT.PolyfoldConstruction.whitneyTr_isScDiffeoOn_inv` — Polyfold/Chapter17/WhitneySumStructure.lean, line 425
+- `Polyfold.GroupoidalCategory.Uniformizer.whitneyMulAction` — Polyfold/Chapter17/WhitneySumStructure.lean, line 94
+- `Polyfold.GroupoidalCategory.Uniformizer.metrizableSpace_whitneyOrbit` — Polyfold/Chapter17/WhitneySumStructure.lean, line 127
+- `Polyfold.GCT.PolyfoldConstruction.reflection_whitneyTr_nondegenerate` — Polyfold/Chapter17/WhitneySumStructure.lean, line 507
+- `Polyfold.MPolyfold.whitneySum_bundle` — Polyfold/Chapter4/TangentWhitneySum.lean, line 635
+- `Polyfold.MPolyfold.whitneyPolyfold` — Polyfold/Chapter4/TangentWhitneySum.lean, line 511
+- `Polyfold.MPolyfold.IsLocalScDiffeo.whitneyMapOf` — Polyfold/Chapter8/TangentWhitneyLocal.lean, line 164
+- `Polyfold.GCT.PolyfoldConstruction.whitneyCategory` — Polyfold/Chapter17/WhitneySumCategory.lean, line 365
+- `Polyfold.GCT.PolyfoldConstruction.whitneyUnifFunctor` — Polyfold/Chapter17/WhitneySumCategory.lean, line 458
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1_functor` — Polyfold/Chapter17/WhitneySumCategory.lean, line 510
+- `Polyfold.reflection_whitneyUnif_nondegenerate` — Polyfold/Chapter17/WhitneySumCategory.lean, line 534
+
+*What differs.*
+- The functors $\oplus^k T\Psi$ on morphisms are built for continuous $\hat\Psi$ (the reading of Lemma 17.2.10, V17.105). The orbit space $|\oplus^k TC|$ with its topology and the sc-smoothness of the multiplication of $M(\oplus^k T\Psi, \oplus^k T\Psi')$ are not formalized (point G.222, formalized in part). The parts the forms below use are proved.
+
+### V17.107. The independence on p. 819 and Definition 17.6.2 (2017: 17.19), sc-differential forms on $C$
+
+*hypotheses explicit* · F(α) ≠ ∅ · covering-set sentence proved
+
+**HWZ (§17.6, Definition 17.6.2 and the sentence before it, p. 819 (2017: Definition 17.19)).** A functor $\omega : \oplus^k TC \to \mathbb R$, skew-symmetric and linear, is an sc-differential $k$-form if $\omega_\Psi$ is sc-smooth for a covering set; then it is so for every uniformizer.
+
+**Proved in Lean.** `CatAltForm k` (alternating `k`-linear maps on each $T_\alpha C$), `IsFunctorialForm ω` (constant along the morphisms of $\oplus^k TC$), `unifRep hU ω Ψ` ($\omega_\Psi = \Psi^*\omega$ on $O$). The sentence on p. 819: `unifRep_mem_scForms_of_isCoveringFamily (hU) (hω) (hΦ : S.IsCoveringFamily Φ) (h : ∀ i, unifRep ω (Φ i) ∈ scForms k) (Ψ) : unifRep ω Ψ ∈ scForms k` (through `formPullback_trSrc_unifRep` and `isScForm_of_formPullback_cover`). `catForms hU k` uses every uniformizer, and `definition_17_6_2 : ω ∈ S.catForms hU k ↔ S.IsFunctorialForm ω ∧ ∃ c, ∀ i, S.unifRep hU ω (c.Ψ i) ∈ (c.Ψ i).1.P.scForms k` is the printed form. `catConstForm` (constant functions are 0-forms).
+
+- `Polyfold.GCT.PolyfoldConstruction.TObj` — Polyfold/Chapter17/CategoryForms.lean, line 244
+- `Polyfold.GCT.PolyfoldConstruction.CatAltForm` — Polyfold/Chapter17/CategoryForms.lean, line 250
+- `Polyfold.GCT.PolyfoldConstruction.IsFunctorialForm` — Polyfold/Chapter17/CategoryForms.lean, line 254
+- `Polyfold.GCT.PolyfoldConstruction.unifRep` — Polyfold/Chapter17/CategoryForms.lean, line 347
+- `Polyfold.GCT.PolyfoldConstruction.formPullback_trSrc_unifRep` — Polyfold/Chapter17/CategoryForms.lean, line 371
+- `Polyfold.GCT.PolyfoldConstruction.unifRep_mem_scForms_of_isCoveringFamily` — Polyfold/Chapter17/CategoryForms.lean, line 404
+- `Polyfold.GCT.PolyfoldConstruction.catForms` — Polyfold/Chapter17/CategoryForms.lean, line 431
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_6_2` — Polyfold/Chapter17/CategoryForms.lean, line 441
+- `Polyfold.GCT.PolyfoldConstruction.catConstForm` — Polyfold/Chapter17/CategoryForms.lean, line 449
+- `Polyfold.GCT.PolyfoldConstruction.catConstForm_mem` — Polyfold/Chapter17/CategoryForms.lean, line 452
+- `Polyfold.MPolyfold.formPullback_injective_of_cover` — Polyfold/Chapter17/CategoryForms.lean, line 113
+- `Polyfold.MPolyfold.isScForm_of_formPullback_cover` — Polyfold/Chapter17/CategoryForms.lean, line 127
+
+*What differs.*
+- "A functor $\omega : \oplus^k TC \to \mathbb R$, skew-symmetric and linear in each argument" is read as a family of alternating maps constant along morphisms; "$\omega_\Psi$ sc-smooth" as an sc-differential form on $O$ (Definition 4.4.1). The sentence that smoothness for a covering set gives it for every uniformizer is proved (point G.223 settled).
+
+### V17.108. The levels $C^i$, the direct limit $\Omega^k_\infty(C)$ and $d$ with (17.88), pp. 819–820
+
+*restated* · read through the models · d well defined, d∘d = 0
+
+**HWZ (§17.6, pp. 819–820, (17.88) (2017: §17.5)).** The levels $C^i$, $\Omega^k(C) \to \Omega^k(C^1) \to \dots$, the direct limit $\Omega^k_\infty(C)$, the exterior derivative with (17.88), and $d \circ d = 0$.
+
+**Proved in Lean.** `catFormsInfty k`: families $[\omega_\Psi] \in \Omega^k_{\infty,\mathrm{ep}}(X_\Psi)$ over all covering families, compatible with the pull-backs along the canonical generalized isomorphisms $f_{\Psi,\Psi'}$; `catFormsInftyEquiv c₀ k : S.catFormsInfty k ≃ₗ[ℝ] (S.modelEP c₀.Ψ).epFormsInfty k` (any one model determines the class, through `formsPullback_comparison_modelFormInfty`, `formGlue`, `sigmaForm`); `catFormsInftyD` ($d[\omega] = [\Gamma_* d(\Gamma^*\omega)]$, computed on each model), `catFormsInftyD_catFormsInftyD : d (d ω) = 0`; `catFormsToInfty hU k : catForms hU k → catFormsInfty k` and `catFormsInftyD_catFormsToInfty` ((17.88): on each model $d$ of the class of $\omega$ is the class of $d\,\Gamma^*\omega$).
+
+- `Polyfold.GCT.PolyfoldConstruction.modelRep` — Polyfold/Chapter17/CategoryForms.lean, line 467
+- `Polyfold.GCT.PolyfoldConstruction.modelRep_mem_epForms` — Polyfold/Chapter17/CategoryForms.lean, line 495
+- `Polyfold.GCT.PolyfoldConstruction.modelFormInfty` — Polyfold/Chapter17/CategoryForms.lean, line 516
+- `Polyfold.GCT.PolyfoldConstruction.formsPullback_comparison_modelFormInfty` — Polyfold/Chapter17/CategoryForms.lean, line 550
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInfty` — Polyfold/Chapter17/CategoryForms.lean, line 594
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyEquiv` — Polyfold/Chapter17/CategoryForms.lean, line 609
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD` — Polyfold/Chapter17/CategoryForms.lean, line 622
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD_catFormsInftyD` — Polyfold/Chapter17/CategoryForms.lean, line 635
+- `Polyfold.GCT.PolyfoldConstruction.catFormsToInfty` — Polyfold/Chapter17/CategoryForms.lean, line 648
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD_catFormsToInfty` — Polyfold/Chapter17/CategoryForms.lean, line 662
+- `Polyfold.MPolyfold.formGlue` — Polyfold/Chapter17/CategoryForms.lean, line 162
+- `Polyfold.MPolyfold.sigmaForm` — Polyfold/Chapter17/CategoryForms.lean, line 202
+
+*What differs.*
+- The direct limit over the levels $C^i$ is read through the sc-smooth models, as the second definition of $d$ on p. 820 does; the forms $\Omega^k(C^i)$ for $i \ge 1$ are not formalized separately, and $\Omega^k(C)$ enters through `catFormsToInfty`. $d$ is well defined and $d \circ d = 0$ (point G.224 settled).
+
+### V17.109. Definition 17.6.3 (2017: 17.20), the de Rham complex $(\Omega^*_\infty(C), d)$
+
+*restated* · through the models
+
+**HWZ (§17.6, Definition 17.6.3, p. 820 (2017: Definition 17.20)).** The de Rham complex $(\Omega^*_\infty(C), d)$ of a polyfold.
+
+**Proved in Lean.** `definition_17_6_3`: $d \circ d = 0$; for every covering family `catFormsInftyEquiv c₀` intertwines `catFormsInftyD` with $d$ of $\Omega^*_{\infty,\mathrm{ep}}(X_\Psi)$; and the components on two covering families are related by `formsPullback (S.comparison c c')`.
+
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_6_3` — Polyfold/Chapter17/CategoryForms.lean, line 672
+
+*What differs.*
+- As in V17.108.
+
+### V17.110. Theorem 17.6.4 (2017: 17.5) and (17.89), the integral over a tame oriented compact $\hat\Theta$
+
+*restated* · orientation through models · n ≥ 1
+
+**HWZ (§17.6, Theorem 17.6.4 and (17.89), p. 821 (2017: Theorem 17.5)).** For $[\omega] \in \Omega^n_\infty(C)$ and $\hat\Theta$ tame, oriented, compact, of dimension $n$, the integral (17.89) over a model does not depend on the covering family.
+
+**Proved in Lean.** `OrientedSubcategory` (a branched ep⁺-subcategory with an orientation of $\Gamma_\Psi^*\Theta$ on every model, compatible with $f_{\Psi,\Psi'}^*$; `toOriented`, `pull_toOriented`, `ofModel`); `IsTameOrientedVia c n`. `theorem_17_6_4 (c c') (hn : 0 < n) (hcpt : C.IsCompactBranched A.Θ) (hloc) (hloc') (ω) : A.integralVia c hn hcpt hloc ω = A.integralVia c' hn hcpt hloc' ω`. Tameness moves between families (`isTameOrientedVia_of_family`, via `exists_tame_pull`; `isTameOrientedVia_iff`), so `IsTameOriented n` (some family) is equivalent to every family (`isTameOriented_iff_forall`), `integral` is defined on $C$, `integral_eq_integralVia`, and `theorem_17_6_4_book` needs tameness on one family only.
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory` — Polyfold/Chapter17/CategoryStokes.lean, line 206
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.toOriented` — Polyfold/Chapter17/CategoryStokes.lean, line 221
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.pull_toOriented` — Polyfold/Chapter17/CategoryStokes.lean, line 229
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.ofModel` — Polyfold/Chapter17/CategoryStokes.lean, line 499
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.IsTameOrientedVia` — Polyfold/Chapter17/CategoryStokes.lean, line 242
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.integralVia` — Polyfold/Chapter17/CategoryStokes.lean, line 247
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4` — Polyfold/Chapter17/CategoryStokes.lean, line 256
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.isTameOrientedVia_of_family` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 97
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.isTameOrientedVia_iff` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 105
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.IsTameOriented` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 111
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.isTameOriented_iff_forall` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 113
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.integral` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 210
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.integral_eq_integralVia` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 214
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 162
+- `Polyfold.EPLocalization.OrientedBranched.exists_tame_pull` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 76
+
+*What differs.*
+- The orientation is read through the models (the oriented Grassmannian of $TC$ enters only through the models); "tame, oriented, of dimension $n$" is Chapter 9's notion on the model; $n \ge 1$ (Chapter 11's integration frame).
+
+### V17.111. Definition 17.6.5 (2017: 17.21), the boundary $\partial\Theta$
+
+*as in the book* · as stated
+
+**HWZ (§17.6, Definition 17.6.5, p. 822 (2017: Definition 17.21)).** The boundary $\partial\Theta$, defined through a model by Theorem 11.3.8, does not depend on the model.
+
+**Proved in Lean.** `boundaryVia c` (the push-forward of $\partial(\Gamma^*\Theta)$ of Theorem 11.3.8 on the model), `definition_17_6_5 (c c') : A.boundaryVia c = A.boundaryVia c'`, `modelPull_boundaryVia` (its pull-back is the boundary on the model).
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.boundaryVia` — Polyfold/Chapter17/CategoryStokes.lean, line 296
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.definition_17_6_5` — Polyfold/Chapter17/CategoryStokes.lean, line 301
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.modelPull_boundaryVia` — Polyfold/Chapter17/CategoryStokes.lean, line 312
+
+### V17.112. Theorem 17.6.6 (2017: 17.6), the boundary integral
+
+*as in the book* · as stated · n = 1 separately
+
+**HWZ (§17.6, Theorem 17.6.6, p. 822 (2017: Theorem 17.6)).** The boundary integral $\int_{\partial\hat\Theta}$ of $[\omega] \in \Omega^{n-1}_\infty(C)$ does not depend on the covering family.
+
+**Proved in Lean.** `theorem_17_6_6 (c c') (hm : 0 < m) (hcpt) (hloc : A.IsTameOrientedVia c (m + 1)) (hloc') (ω : S.catFormsInfty m) : A.boundaryIntegralVia c hm hcpt hloc ω = A.boundaryIntegralVia c' hm hcpt hloc' ω`; `theorem_17_6_6_dim1` for $n = 1$; the forms on $C$ `theorem_17_6_6_book`, `theorem_17_6_6_dim1_book`.
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralVia` — Polyfold/Chapter17/CategoryStokes.lean, line 325
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6` — Polyfold/Chapter17/CategoryStokes.lean, line 332
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1` — Polyfold/Chapter17/CategoryStokes.lean, line 349
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegral` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 220
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 169
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 177
+
+*What differs.*
+- The text's $n \ge 2$ is $m = n - 1 \ge 1$; $n = 1$ uses the boundary measures of Theorem 9.5.15 (`_dim1`). The "similar arguments" are written out (point G.225 settled).
+
+### V17.113. Theorem 17.6.7 (2017: 17.7), Stokes' theorem
+
+*narrower* · ep-level Stokes or partitions of unity · point G.153
+
+**HWZ (§17.6, Theorem 17.6.7 and (17.90), p. 823 (2017: Theorem 17.7)).** Stokes: $\int_{\hat\Theta} d[\omega] = \int_{\partial\hat\Theta} [\omega]$ (17.90); the proof is immediate from the ep-groupoid case.
+
+**Proved in Lean.** `theorem_17_6_7_of_epStokes (c) (hS : (S.modelEP c.Ψ).StokesWithoutPartitions) (hm : 0 < m) (hcpt) (hloc) (ω) : A.integralVia c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralVia c hm hcpt hloc ω`; `theorem_17_6_7_hyp` with `hPU : (S.modelEP c.Ψ).X.HasScPartitionsOfUnity` in place of `hS`; `_dim1_` forms for $n = 1$; on $C$: `theorem_17_6_7_book (c₀) (hS) … (h : A.IsTameOriented (m + 1))`, `theorem_17_6_7_book_hyp`, `theorem_17_6_7_dim1_book`. Witness: `halfPlaneArc_stokes` (a compact oriented arc in the half-plane with $\mathrm{supp}\,\Theta \ne \emptyset$ and $\partial\Theta \ne 0$, `halfPlaneArc_properties`, `halfPlaneArc_boundaryVia_eq_one`; the model has sc-smooth partitions of unity; weak: trivial group).
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_of_epStokes` — Polyfold/Chapter17/CategoryStokes.lean, line 404
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_hyp` — Polyfold/Chapter17/CategoryStokes.lean, line 415
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_of_epStokes` — Polyfold/Chapter17/CategoryStokes.lean, line 425
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_hyp` — Polyfold/Chapter17/CategoryStokes.lean, line 434
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_of_epStokes_of_family` — Polyfold/Chapter17/CategoryStokes.lean, line 445
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 279
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_book_hyp` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 290
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 299
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneConstruction` — Polyfold/Chapter17/TameOrientedExamples.lean, line 59
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneFamily` — Polyfold/Chapter17/TameOrientedExamples.lean, line 65
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc` — Polyfold/Chapter17/TameOrientedExamples.lean, line 142
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_properties` — Polyfold/Chapter17/TameOrientedExamples.lean, line 249
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_isTameOriented` — Polyfold/Chapter17/TameOrientedExamples.lean, line 190
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_boundaryVia_eq_one` — Polyfold/Chapter17/TameOrientedExamples.lean, line 195
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneModel_hasScPartitionsOfUnity` — Polyfold/Chapter17/TameOrientedExamples.lean, line 227
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_stokes` — Polyfold/Chapter17/TameOrientedExamples.lean, line 270
+
+*What differs.*
+- The text's proof is immediate from Stokes on the ep-groupoid level, which Theorems 9.5.17, 9.5.18 prove with sc-smooth partitions of unity and Remark 9.5.19 leaves open without them; as in Theorem 16.4.6 this is a hypothesis (point G.153, nothing to formalize).
+
+### V17.114. Theorem 17.6.8 (new in the 2021 edition), the effective integral under (LUC)
+
+*as in the book* · as stated
+
+**HWZ (§17.6, Theorem 17.6.8, p. 823 (new in the 2021 edition)).** Under (LUC), the effective integral over a compact tame oriented $\hat\Theta$ does not depend on the covering family.
+
+**Proved in Lean.** `isLUC_model (hL : S.IsLUC) c` ((LUC) of Definition 17.1.22 passes to every model); `theorem_17_6_8 (hL) (c c') (hn) (hcpt) (hloc) (hloc') (ω) : A.integralEffVia hL c hn hcpt hloc ω = A.integralEffVia hL c' hn hcpt hloc' ω`; `integralEff`, `theorem_17_6_8_book`.
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.isLUC_model` — Polyfold/Chapter17/CategoryStokes.lean, line 265
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.integralEffVia` — Polyfold/Chapter17/CategoryStokes.lean, line 269
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8` — Polyfold/Chapter17/CategoryStokes.lean, line 278
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.integralEff` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 242
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 184
+- `Polyfold.GCT.PolyfoldConstruction.halfPlane_isLUC` — Polyfold/Chapter17/TameOrientedExamples.lean, line 217
+- `Polyfold.GCT.PolyfoldConstruction.halfPlaneArc_stokes_eff` — Polyfold/Chapter17/TameOrientedExamples.lean, line 281
+
+*What differs.*
+- As V17.110 (point G.225 settled).
+
+### V17.115. Theorem 17.6.9 (new in the 2021 edition), the effective boundary integral under (LUC)
+
+*as in the book* · as stated · n = 1 separately
+
+**HWZ (§17.6, Theorem 17.6.9, p. 824 (new in the 2021 edition)).** Under (LUC), the effective boundary integral is well defined.
+
+**Proved in Lean.** `theorem_17_6_9 (hL) (c c') (hm : 0 < m) (hcpt) (hloc) (hloc') (ω) : A.boundaryIntegralEffVia hL c hm hcpt hloc ω = A.boundaryIntegralEffVia hL c' hm hcpt hloc' ω`; `theorem_17_6_9_dim1`; `theorem_17_6_9_book`, `theorem_17_6_9_dim1_book`.
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralEffVia` — Polyfold/Chapter17/CategoryStokes.lean, line 359
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9` — Polyfold/Chapter17/CategoryStokes.lean, line 367
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1` — Polyfold/Chapter17/CategoryStokes.lean, line 387
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 191
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 199
+
+*What differs.*
+- As V17.112 (point G.225 settled).
+
+### V17.116. Theorem 17.6.10 (new in the 2021 edition), the effective Stokes theorem (17.92)
+
+*narrower* · ep-level Stokes or partitions of unity · point G.153
+
+**HWZ (§17.6, Theorem 17.6.10 and (17.92), p. 824 (new in the 2021 edition)).** Effective Stokes under (LUC): (17.92).
+
+**Proved in Lean.** `theorem_17_6_10_hyp (hL : S.IsLUC) (c) (hPU) (hm) (hcpt) (hloc) (ω) : A.integralEffVia hL c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralEffVia hL c hm hcpt hloc ω`, `theorem_17_6_10_of_epStokes` (with `hS`); on $C$ `theorem_17_6_10_book`, `theorem_17_6_10_book_hyp`, `theorem_17_6_10_dim1_book`. Witnesses: `z3Taut_hypotheses_17_6_10` ($\mathbb Z/3 \ltimes \mathbb R$: (LUC), sc-smooth partitions of unity and `StokesWithoutPartitions` on the model; weak: trivial action) and `halfPlaneArc_stokes_eff` (weak: trivial group).
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_of_epStokes` — Polyfold/Chapter17/CategoryStokes.lean, line 457
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_hyp` — Polyfold/Chapter17/CategoryStokes.lean, line 467
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 311
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book_hyp` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 322
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_book` — Polyfold/Chapter17/TameOrientedTransfer.lean, line 331
+- `Polyfold.GCT.PolyfoldConstruction.z3Model_hasScPartitionsOfUnity` — Polyfold/Chapter17/CategoryStokesExamples.lean, line 38
+- `Polyfold.GCT.PolyfoldConstruction.z3Model_stokesWithoutPartitions` — Polyfold/Chapter17/CategoryStokesExamples.lean, line 53
+- `Polyfold.GCT.PolyfoldConstruction.z3Taut_hypotheses_17_6_10` — Polyfold/Chapter17/CategoryStokesExamples.lean, line 59
+
+*What differs.*
+- As V17.113 (point G.153).
+
+### V17.117. The functor $\mu$, the GCT $E_\mu$ and the projection $P$, pp. 824–825
+
+*as in the book* · Ban over ℝ
+
+**HWZ (§17.7, pp. 824–825 (2017: §17.6)).** For $\mu : C \to \mathrm{Ban}$ the GCT $E_\mu$ of pairs $(\alpha, e)$, morphisms $(\varphi, e)$, and the projection $P : E \to C$ with Banach space fibres.
+
+**Proved in Lean.** `BanachFunctor C` ($\mu : C \to \mathrm{Ban}$, with `act` the action of morphisms); `EObj` (pairs $(\alpha, e)$, $e \in \mu(\alpha)$), `EMor` (pairs $(\varphi, e)$, $e \in \mu(s\varphi)$), `groupoid`, `finite_mor`, `toGroupoidalCategory` ($E_\mu$ is a GCT), `proj` ($P$); `fiberEquiv`, `morFiberEquiv` (the fibres over an object and over a morphism are the Banach spaces $\mu(\alpha)$, $\mu(s\varphi)$).
+
+- `Polyfold.GroupoidalCategory.BanachFunctor` — Polyfold/Chapter17/VectorBundleGCT.lean, line 69
+- `Polyfold.GroupoidalCategory.BanachFunctor.EObj` — Polyfold/Chapter17/VectorBundleGCT.lean, line 97
+- `Polyfold.GroupoidalCategory.BanachFunctor.EMor` — Polyfold/Chapter17/VectorBundleGCT.lean, line 106
+- `Polyfold.GroupoidalCategory.BanachFunctor.act` — Polyfold/Chapter17/VectorBundleGCT.lean, line 124
+- `Polyfold.GroupoidalCategory.BanachFunctor.groupoid` — Polyfold/Chapter17/VectorBundleGCT.lean, line 227
+- `Polyfold.GroupoidalCategory.BanachFunctor.finite_mor` — Polyfold/Chapter17/VectorBundleGCT.lean, line 289
+- `Polyfold.GroupoidalCategory.BanachFunctor.toGroupoidalCategory` — Polyfold/Chapter17/VectorBundleGCT.lean, line 304
+- `Polyfold.GroupoidalCategory.BanachFunctor.proj` — Polyfold/Chapter17/VectorBundleGCT.lean, line 308
+- `Polyfold.GroupoidalCategory.BanachFunctor.fiberEquiv` — Polyfold/Chapter17/VectorBundleGCT.lean, line 322
+- `Polyfold.GroupoidalCategory.BanachFunctor.morFiberEquiv` — Polyfold/Chapter17/VectorBundleGCT.lean, line 333
+
+*What differs.*
+- $\mathrm{Ban}$ is read as real Banach spaces with topological linear isomorphisms.
+
+### V17.118. Definition 17.7.1 (2017: 17.22), vector bundle GCTs
+
+*as in the book* · as stated
+
+**HWZ (§17.7, Definition 17.7.1, p. 825 (2017: Definition 17.22)).** A vector bundle GCT: $\mu : C \to \mathrm{Ban}$ and a metrizable topology on $|E_\mu|$ with (1) $P^{-1}(\alpha) \to |E|$ continuous and (2) $|P|$ surjective, continuous and open.
+
+**Proved in Lean.** `structure VectorBundle C extends BanachFunctor` with the topology `topE` on `|E|`, `metrizableE`, and the fields `continuous_fiber` ((1)), `surjective_orbitProj`, `continuous_orbitProj`, `isOpenMap_orbitProj` ((2)). Witness `reflV` (the reflection acting on $\mathbb R \times \mathbb R$; `reflV_map_ne`: $\mu$ of the non-unit morphism is not the identity).
+
+- `Polyfold.GCT.VectorBundle` — Polyfold/Chapter17/VectorBundleGCT.lean, line 355
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflV` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 295
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflV_map_ne` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 486
+
+### V17.119. Definition 17.7.2 (2017: 17.23), strong bundle uniformizers
+
+*restated* · read Ψ(q) for Ψ(α) in (2) · covering read as P∘Ψ̄ = Ψ∘p
+
+**HWZ (§17.7, Definition 17.7.2, p. 826 (2017: Definition 17.23)).** A strong bundle uniformizer $\bar\Psi : G \ltimes K \to E$ covering $\Psi \in F(\alpha)$: (1) a strong bundle with a $G$-action; (2) fully faithful, fibrewise Banach isomorphisms $K_q \to P^{-1}(\Psi(\alpha))$; (3) $|\bar\Psi|$ a homeomorphism onto $|P|^{-1}(U)$.
+
+**Proved in Lean.** `StrongBundleUniformizerData`: a uniformizer `base` $\Psi$, the strong bundle $p : K \to O$ with the $G$-action by strong bundle maps over the action on $O$ ((1)), and fibre maps $K_q \to P^{-1}(\Psi(q))$ that are Banach space isomorphisms ((2)); the functor $\bar\Psi$ is built from them (`functor`), and full faithfulness and injectivity on objects follow (`full`, `faithful`, `obj_injective`). `StrongBundleUniformizer` adds (3): `isOpenEmbedding_orbitMap` and `range_orbitMap` ($|\bar\Psi|(|K|) = |P|^{-1}(U)$), with `footprint`, `footprint_eq`. Witness `reflUnif` (`reflUnif_witness`: a non-trivial group action and non-zero fibres).
+
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData` — Polyfold/Chapter17/StrongBundleStructures.lean, line 112
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.functor` — Polyfold/Chapter17/StrongBundleStructures.lean, line 165
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.full` — Polyfold/Chapter17/StrongBundleStructures.lean, line 237
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.faithful` — Polyfold/Chapter17/StrongBundleStructures.lean, line 229
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.obj_injective` — Polyfold/Chapter17/StrongBundleStructures.lean, line 197
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizer` — Polyfold/Chapter17/StrongBundleStructures.lean, line 256
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizer.footprint` — Polyfold/Chapter17/StrongBundleStructures.lean, line 268
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizer.footprint_eq` — Polyfold/Chapter17/StrongBundleStructures.lean, line 270
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflUnif` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 342
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflUnif_witness` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 524
+
+*What differs.*
+- "$\bar\Psi$ covers $\Psi$" is read as $P \circ \bar\Psi = \Psi \circ p$, so that $\bar\Psi$ is determined by its fibre maps; (2) prints $K_q \to P^{-1}(\Psi(\alpha))$, which we read as $P^{-1}(\Psi(q))$; "an action by strong bundle isomorphisms" is read as strong bundle maps over the action on $O$ (their inverses are of the same kind).
+
+### V17.120. Definition 17.7.3 (2017: 17.24), compatible strong bundle uniformizer constructions, and the transition sets $M(\bar\Psi, \bar\Psi')$
+
+*restated* · read E for C · structural maps written out
+
+**HWZ (§17.7, Definition 17.7.3 and the text after it, pp. 826–827 (2017: Definition 17.24)).** A compatible strong bundle uniformizer construction $\bar F$, $\bar\Psi : G \ltimes K \to C$ with $(\alpha, 0)$ in the image and $\Psi \in F(\alpha)$; the transition sets $M(\bar\Psi, \bar\Psi')$ with the structural maps left to the reader.
+
+**Proved in Lean.** `StrongBundleUniformizerConstruction` (`F : C.Obj → Set V.StrongBundleUniformizer`, `base_mem : ∀ α, ∀ Ψ ∈ F α, Ψ.base ∈ S.F α`); "(α, 0) in the image": `exists_obj_eq_zero`, `exists_zero_mem`. The transition set `Trans` ($(k, (\varphi, \bar\Psi(k)), k')$), the natural map `transBase` to $M(\Psi, \Psi')$, `transEquiv` (with the pull-back $s^*K$), and the structural maps `transAct` with `transAct_unit`, `transAct_comp`, `transAct_inv`, fibrewise linear. Witness `reflUC`.
+
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction` — Polyfold/Chapter17/StrongBundleStructures.lean, line 399
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.Unif` — Polyfold/Chapter17/StrongBundleStructures.lean, line 410
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.baseUnif` — Polyfold/Chapter17/StrongBundleStructures.lean, line 413
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.exists_zero_mem` — Polyfold/Chapter17/StrongBundleStructures.lean, line 419
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizer.exists_obj_eq_zero` — Polyfold/Chapter17/StrongBundleStructures.lean, line 274
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.Trans` — Polyfold/Chapter17/StrongBundleStructures.lean, line 292
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transBase` — Polyfold/Chapter17/StrongBundleStructures.lean, line 298
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct` — Polyfold/Chapter17/StrongBundleStructures.lean, line 309
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transEquiv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 341
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct_unit` — Polyfold/Chapter17/StrongBundleStructures.lean, line 362
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct_comp` — Polyfold/Chapter17/StrongBundleStructures.lean, line 369
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct_inv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 382
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflUC` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 356
+
+*What differs.*
+- The definition prints $\bar\Psi : G \ltimes K \to C$, which we read as $\bar\Psi : G \ltimes K \to E$ (as in Definitions 17.7.2, 17.7.4); "(α, 0) is in the image" then holds for every strong bundle uniformizer at $\alpha$. The structural maps left to the reader are written out (point G.226 settled).
+
+### V17.121. Definition 17.7.4 (2017: 17.25), strong polyfold bundle constructions, and the list of structural maps, pp. 827–828
+
+*restated* · structure read as s*K · list proved from t̄
+
+**HWZ (§17.7, Definition 17.7.4 and the list after it, pp. 827–828 (2017: Definition 17.25)).** A strong polyfold bundle construction: strong bundle structures on $M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$ for which all structural maps are strong bundle maps, with the list $s, t, \iota, u, m$.
+
+**Proved in Lean.** `StrongPolyfoldBundleConstruction` extends the uniformizer construction by `isStrongBundleMap_trans` ($\bar t : M(\bar\Psi, \bar\Psi') \to K'$ a strong bundle map covering $t$) and `isLocalStrongBundleIso_trans`; the strong bundle $M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$ is `transBundle` on `TransSpace` ($= s^*K$). The list: $\bar s$ is a local strong bundle isomorphism (`isLocalStrongBundleIso_src`); $\bar\iota$ (`transInv`, `isStrongBundleMap_inv`, `transInv_transInv`); $\bar u$ (`transUnit`, `isStrongBundleMap_unit`); $\bar m$ on the fibred product (`TransFP`, `transFPPolyfold`, `transFPBundle`, `transMul`, `isStrongBundleMap_transMul`; in the text's form `BarFP`, `barFPEquiv`, `transMulBar`, `transMulBar_eq`, and `transT_transMul`: $\bar t \circ \bar m$ is $\bar t$ applied twice). Witness `reflQ` (`isStrongBundleMap_transMul_reflection`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction` — Polyfold/Chapter17/StrongBundleStructures.lean, line 465
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.TransSpace` — Polyfold/Chapter17/StrongBundleStructures.lean, line 425
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.transBundle` — Polyfold/Chapter17/StrongBundleStructures.lean, line 438
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.transT` — Polyfold/Chapter17/StrongBundleStructures.lean, line 444
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.isLocalStrongBundleIso_src` — Polyfold/Chapter17/StrongBundleStructures.lean, line 449
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transInv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 491
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isStrongBundleMap_inv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 505
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transInv_transInv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 495
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transUnit` — Polyfold/Chapter17/StrongBundleStructures.lean, line 513
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isStrongBundleMap_unit` — Polyfold/Chapter17/StrongBundleStructures.lean, line 521
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.TransFP` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 66
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transFPPolyfold` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 90
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transFPBundle` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 122
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transMul` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 138
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isStrongBundleMap_transMul` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 147
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.BarFP` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 157
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.barFPEquiv` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 170
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transMulBar` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 190
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transMulBar_eq` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 196
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transT_transMul` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 217
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 467
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.isStrongBundleMap_transMul_reflection` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 241
+
+*What differs.*
+- The strong bundle structure on $M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$ is read as the pull-back $s^*K$: a structure for which $\bar s$ is a strong bundle map and a fibrewise isomorphism, as the text requires, is identified with $s^*K$ by $\bar s$. The properties of $\bar s$, $\bar\iota$, $\bar u$, $\bar m$ listed for the reader are proved from the two conditions on $\bar t$.
+
+### V17.122. The model $W_{\bar\Psi} \to X_\Psi$ of a strong polyfold bundle construction: the analogues of Theorem 17.1.14, Lemma 17.1.15 and Theorem 17.1.18
+
+*not in the book* · not in the book · analogues of 17.1.14/15/18
+
+**HWZ (§17.7, after Definition 17.7.4, pp. 827–828 (2017: §17.6)).** (Implicit.) The sc-smooth models of a strong polyfold bundle construction, used from Chapter 18 on.
+
+**Proved in Lean.** For a family $\bar\Psi$: the strong bundle $W_{\bar\Psi} \to X_\Psi$ over the model of Theorem 17.1.14 (`ModelW`, `modelBundle`, `modelMu`, `modelEpStrongBundle`, `modelSEP`; `theorem_17_1_14_bundle`), the functor $\bar\Gamma : W_{\bar\Psi} \to E$ over $\Gamma_\Psi$ (`bundleModelFunctor`, fibrewise `bundleModelFiber`), an equivalence with $|\bar\Gamma|$ a homeomorphism for a covering family (`bundleModelFunctor_isEquivalence`, `isHomeomorph_bundleModelOrbitMap`, `lemma_17_1_15_bundle`); for two covering families the canonical generalized strong bundle isomorphism (`bundleComparison`, through `bundleIncl`, `bundleCompare`), with `theorem_17_1_18_bundle : IsGeneralizedIso (Q.bundleComparison c c') ∧ baseFunctor.map (Q.bundleComparison c c') = S.comparison c.base c'.base ∧ Q.bundleComparison c c = 𝟙 _ ∧ … ∧ IsHomeomorph (orbitMap (Q.bundleComparison c c'))`. Witnesses `reflPair_bundleModel`, `refl_bundleComparison` (two strong bundle uniformizers over the reflection).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.ModelW` — Polyfold/Chapter17/BundleModel.lean, line 79
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelBundle` — Polyfold/Chapter17/BundleModel.lean, line 98
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelMu` — Polyfold/Chapter17/BundleModel.lean, line 111
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelEpStrongBundle` — Polyfold/Chapter17/BundleModel.lean, line 207
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSEP` — Polyfold/Chapter17/BundleModel.lean, line 217
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_17_1_14_bundle` — Polyfold/Chapter17/BundleModel.lean, line 428
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFunctor` — Polyfold/Chapter17/BundleModel.lean, line 251
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFiber` — Polyfold/Chapter17/BundleModel.lean, line 288
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFunctor_isEquivalence` — Polyfold/Chapter17/BundleModel.lean, line 401
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isHomeomorph_bundleModelOrbitMap` — Polyfold/Chapter17/BundleModel.lean, line 408
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_17_1_15_bundle` — Polyfold/Chapter17/BundleModel.lean, line 442
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleIncl` — Polyfold/Chapter17/BundleModelComparison.lean, line 235
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equivalences_bundleIncl` — Polyfold/Chapter17/BundleModelComparison.lean, line 260
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleCompare` — Polyfold/Chapter17/BundleModelComparison.lean, line 324
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleCompare_comp_incl` — Polyfold/Chapter17/BundleModelComparison.lean, line 331
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.BundleCoveringFamily` — Polyfold/Chapter17/BundleModelComparison.lean, line 369
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleComparison` — Polyfold/Chapter17/BundleModelComparison.lean, line 386
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleComparison_self` — Polyfold/Chapter17/BundleModelComparison.lean, line 397
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleComparison_comp` — Polyfold/Chapter17/BundleModelComparison.lean, line 402
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isGeneralizedIso_bundleComparison` — Polyfold/Chapter17/BundleModelComparison.lean, line 420
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.baseFunctor_map_bundleComparison` — Polyfold/Chapter17/BundleModelComparison.lean, line 438
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orbitMap_bundleComparison` — Polyfold/Chapter17/BundleModelComparison.lean, line 454
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_17_1_18_bundle` — Polyfold/Chapter17/BundleModelComparison.lean, line 485
+- `Polyfold.SEP.equivalences_of_isStrongBundleIsoOn` — Polyfold/Chapter17/BundleModelComparison.lean, line 78
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflPair` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 554
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflPair_bundleModel` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 572
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.refl_bundleComparison` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 601
+
+*What differs.*
+- The text uses the sc-smooth models of a strong polyfold bundle construction without stating their construction (Chapter 18 relies on them); the analogues of Theorem 17.1.14, Lemma 17.1.15 and Theorem 17.1.18 are written out (point G.227 settled).
+
+### V17.123. The strong polyfold bundle structure of Chapter 16 on the model
+
+*not in the book* · with (ZHOU) and (LR) · independent of the family
+
+**HWZ (§17.7, the remark before Definition 17.7.1 ("the structure of a strong bundle over a polyfold"), p. 825, with Definition 16.3.1 (2017: §17.6)).** (Implicit.) A strong polyfold bundle construction defines the structure of a strong bundle over a polyfold.
+
+**Proved in Lean.** `bundleModelStructure (hZ : S.IsZhou) (c) (hLR : (Q.modelSEP c.Ψ).E.IsLRLocal) : StrongPolyfoldBundleStructure V.proj.orbitMap` (Definition 16.3.1, through `bundleModelOrbitHomeomorph`); `bundleModelStructure_equiv`: two covering families give equivalent structures; `bundleModelBundle`, `bundleModelBundle_eq` (the strong polyfold bundle of Chapter 16); `isLRLocal_of_isEffective` ((LR) for an effective model). Witness `reflBundleStructure_nondegenerate` (the reflection is (ZHOU), `reflection_isZhou`; a non-trivial action on non-zero fibres).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelOrbitHomeomorph` — Polyfold/Chapter17/BundleModelStructure.lean, line 170
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isLRLocal_of_isEffective` — Polyfold/Chapter17/BundleModelStructure.lean, line 181
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelStructure` — Polyfold/Chapter17/BundleModelStructure.lean, line 190
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelStructure_equiv` — Polyfold/Chapter17/BundleModelStructure.lean, line 202
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelBundle` — Polyfold/Chapter17/BundleModelStructure.lean, line 216
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelBundle_eq` — Polyfold/Chapter17/BundleModelStructure.lean, line 221
+- `Polyfold.GCT.PolyfoldConstruction.reflection_isZhou` — Polyfold/Chapter17/BundleModelStructure.lean, line 131
+- `Polyfold.GCT.PolyfoldConstruction.reflection_properties` — Polyfold/Chapter17/BundleModelStructure.lean, line 137
+- `Polyfold.EpGroupoid.Examples.isZhou_reflection` — Polyfold/Chapter17/BundleModelStructure.lean, line 79
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflBundleStructure` — Polyfold/Chapter17/BundleModelStructure.lean, line 245
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflBundleStructure_nondegenerate` — Polyfold/Chapter17/BundleModelStructure.lean, line 267
+
+*What differs.*
+- The text announces that the construction gives a strong bundle over a polyfold; with the conditions of Definition 16.3.1 the Chapter 16 structure is built and does not depend on the covering family.
+
+### V17.124. Definition 17.8.1 (2017: 17.26), proper covering functors of GCTs, and the sentence after it, p. 829
+
+*as in the book* · as stated · p. 829 sentence: not as read
+
+**HWZ (§17.8, Definition 17.8.1 and p. 829 (2017: Definition 17.26)).** $P : A \to B$ is a proper covering functor of GCTs if (1) $|P|$ is continuous and surjective, (2) $P$ is finite-to-one and surjective on objects, (3) $|P|^{-1}(U(z)) = \sqcup U(y_i)$, (4) $\varphi \mapsto (P(\varphi), s(\varphi))$ is a bijection. In interesting cases $|P| : U(y_i) \to U(z)$ is a homeomorphism, which Definition 17.8.4 will make necessary.
+
+**Proved in Lean.** `structure IsProperCoveringGCT F` with `continuous_orbitMap`, `surjective_orbitMap` ((1)), `finite_fiber`, `surjective_obj` ((2)), `evenlyCovered` ((3): for $z \in |B|$ the fibre $|F|^{-1}(z)$ is finite, with an open $U(z)$ and pairwise disjoint open $U(y_i)$ whose union is $|F|^{-1}(U(z))$) and `bijective_fibredMor` ((4)). Witnesses `isProperCoveringGCT_sheet` (sheets $G \ltimes (S \times O) \to G \ltimes O$), `isProperCoveringGCT_reflectionSheets` (two sheets over the reflection, `ncard_orbitFiber_reflectionSheets`). The sentence after the definition: `absP_properCoveringModel` is a connected Definition 17.8.4 model (`absP_properCoveringModel_connected`) whose orbit map is $t \mapsto |t|$ and not a local homeomorphism (`absCovering_orbitMap_not_isLocalHomeomorph`).
+
+- `Polyfold.GroupoidFunctor.IsProperCoveringGCT` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 64
+- `Polyfold.GroupoidFunctor.fibredMor` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 56
+- `Polyfold.sheetGCT` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 91
+- `Polyfold.sheetGCTFunctor` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 94
+- `Polyfold.isProperCoveringGCT_sheet` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 127
+- `Polyfold.isProperCoveringGCT_reflectionSheets` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 180
+- `Polyfold.ncard_orbitFiber_reflectionSheets` — Polyfold/Chapter17/ProperCoveringStructure.lean, line 185
+- `Polyfold.Chapter19.absP_properCoveringModel` — Polyfold/Chapter19/ProperCoveringModelExample.lean, line 43
+- `Polyfold.Chapter19.absP_properCoveringModel_connected` — Polyfold/Chapter19/ProperCoveringModelExample.lean, line 52
+- `Polyfold.Chapter19.absCovering_orbitMap_not_isLocalHomeomorph` — Polyfold/Chapter19/CoveringOrbitCounterexample.lean, line 497
+
+*What differs.*
+- The finiteness of $|P|^{-1}(z)$ is included in (3), and nothing asks $|P| : U(y_i) \to U(z)$ to be a homeomorphism, as printed. The text adds that in view of Definition 17.8.4 this will even be necessary; Definition 17.8.4 does not force it as we read it (the example above), the point of Proposition 19.7.18 (Findings, Chapter 19, the item on Proposition 19.7.18).
+
+### V17.125. Remark 17.8.2 (2017: 17.6), uniformizer constructions recalled
+
+*nothing to formalize* · nothing to formalize
+
+**HWZ (§17.8, Remark 17.8.2, p. 829 (2017: Remark 17.6)).** A recollection of what a uniformizer construction does.
+
+**Proved in Lean.** None.
+
+
+*What differs.*
+- A recollection of the picture behind a uniformizer construction, with no statement (point G.228, nothing to formalize).
+
+### V17.126. Definition 17.8.3 (2017: 17.27), pointed M-polyfolds and the data (i), (ii)
+
+*as in the book* · as stated
+
+**HWZ (§17.8, Definition 17.8.3 and the data after it, pp. 829–830 (2017: Definition 17.27)).** $\mathrm{Diff}^*_{sc}$, pointed M-polyfolds and pointed sc-diffeomorphisms, with the data (i), (ii) of a pointed geometric lift of $P_\beta$ (17.93).
+
+**Proved in Lean.** `PointedMPolyfoldCat` (objects $(O, o)$; morphisms `PointedScDiffeo`), the forgetful functor `PointedMPolyfoldCat.forget : Diff*_sc → Diff_sc`; `PointedGeometricLift f` for $f : A_\beta \to G_\beta \ltimes \{\beta\}$ (the data (i), (ii)), `toGeometricLift` (Definition 8.5.5 after forgetting the points), `basePt` ($o_\beta$), `smul_basePt` ($g * o_\beta = o_\beta$), `τy_pt` ($\tau_\alpha(o_\alpha) = o_\beta$).
+
+- `Polyfold.PointedMPolyfoldCat` — Polyfold/Chapter17/ProperCoveringLift.lean, line 67
+- `Polyfold.PointedScDiffeo` — Polyfold/Chapter17/ProperCoveringLift.lean, line 75
+- `Polyfold.PointedMPolyfoldCat.forget` — Polyfold/Chapter17/ProperCoveringLift.lean, line 103
+- `Polyfold.PointedMPolyfoldCat.map_pt` — Polyfold/Chapter17/ProperCoveringLift.lean, line 107
+- `Polyfold.PointedGeometricLift` — Polyfold/Chapter17/ProperCoveringLift.lean, line 116
+- `Polyfold.PointedGeometricLift.toGeometricLift` — Polyfold/Chapter17/ProperCoveringLift.lean, line 129
+- `Polyfold.PointedGeometricLift.basePt` — Polyfold/Chapter17/ProperCoveringLift.lean, line 135
+- `Polyfold.PointedGeometricLift.smul_basePt` — Polyfold/Chapter17/ProperCoveringLift.lean, line 139
+- `Polyfold.PointedGeometricLift.τy_pt` — Polyfold/Chapter17/ProperCoveringLift.lean, line 143
+
+*What differs.*
+- $G_\beta \ltimes \{\beta\}$ is `SingleObj G`, as in Definition 8.5.5.
+
+### V17.127. The construction (17.93)–(17.98) and its "trivial exercise", pp. 829–831
+
+*as in the book* · exercise written out
+
+**HWZ (§17.8, (17.93)–(17.98), pp. 829–831 (2017: §17.7)).** The construction (17.94)–(17.98) of $E$ and $\hat\tau$ from the data; a trivial exercise shows $\hat\tau$ is a proper covering model.
+
+**Proved in Lean.** `pointedModel L hf`: $\hat\tau : E \to G \ltimes O$ of (17.94)–(17.98) (Chapter 8's `geometricLiftSource`, `geometricLiftFunctor`) is a proper covering model (Definition 17.8.4) with distinguished point $o_\beta$ and $U(\langle\alpha, o_\alpha\rangle) = O_\alpha$; `pointedModel_fiber` ($\hat\tau^{-1}(o_\beta) = \{o_\alpha\}$, (17.96)); `pointed_isProperCovering` (Definition 8.5.1). Witness `pointedModel_reflection` (`pointedModel_reflection_nondegenerate`: a non-trivial action).
+
+- `Polyfold.pointedModel` — Polyfold/Chapter17/ProperCoveringLift.lean, line 205
+- `Polyfold.pointedModel_fiber` — Polyfold/Chapter17/ProperCoveringLift.lean, line 230
+- `Polyfold.pointed_isProperCovering` — Polyfold/Chapter17/ProperCoveringLift.lean, line 240
+- `Polyfold.PointedGeometricLift.isScDiffeoOn_obj_summand` — Polyfold/Chapter17/ProperCoveringLift.lean, line 172
+- `Polyfold.pointedModel_reflection` — Polyfold/Chapter17/ProperCoveringLift.lean, line 294
+- `Polyfold.pointedModel_reflection_nondegenerate` — Polyfold/Chapter17/ProperCoveringLift.lean, line 296
+
+*What differs.*
+- "Finitely many objects" are `Fintype` instances, $G$ finite and discrete, $A_\beta$ nonempty (from the surjectivity in Definition 17.8.1 (2)). The trivial exercise is written out (point G.229 settled).
+
+### V17.128. Definition 17.8.4 (2017: 17.28), proper covering models
+
+*as in the book* · as stated · no finiteness of the fibre
+
+**HWZ (§17.8, Definition 17.8.4, p. 831 (2017: Definition 17.28)).** A proper covering model $\hat\tau : E \to G \ltimes O$ with $\bar o$ fixed: (1) a surjective local sc-diffeomorphism on objects, (2) sheets $U(y)$ over $\hat\tau^{-1}(\bar o)$, (3) $\Gamma$ an sc-diffeomorphism; connected if $O$ is.
+
+**Proved in Lean.** `structure ProperCoveringModel (τ : EpFunctor E (actionEpGroupoid hP))`: the distinguished point `pt` fixed by $G$, (1) $\hat\tau$ a surjective local sc-diffeomorphism on objects, (2) the sheets $U(y)$, $y \in \hat\tau^{-1}(\bar o)$, pairwise disjoint, covering, each mapped sc-diffeomorphically onto $O$, (3) $\Gamma$ an sc-diffeomorphism; `Connected` (`ConnectedSpace O`), `fiber`, `isOpen_U`, `sheetIndex`. Witnesses `sheetModel` ($G \ltimes (S \times O) \to G \ltimes O$, diagonal action), `sheetModel_units` (two sheets of the reflection; connected, a non-trivial action).
+
+- `Polyfold.ProperCoveringModel` — Polyfold/Chapter17/ProperCoveringModel.lean, line 107
+- `Polyfold.ProperCoveringModel.Connected` — Polyfold/Chapter17/ProperCoveringModel.lean, line 139
+- `Polyfold.ProperCoveringModel.fiber` — Polyfold/Chapter17/ProperCoveringModel.lean, line 142
+- `Polyfold.ProperCoveringModel.isOpen_U` — Polyfold/Chapter17/ProperCoveringModel.lean, line 146
+- `Polyfold.ProperCoveringModel.sheetIndex` — Polyfold/Chapter17/ProperCoveringModel.lean, line 173
+- `Polyfold.sheetEp` — Polyfold/Chapter17/ProperCoveringModel.lean, line 541
+- `Polyfold.sheetFunctor` — Polyfold/Chapter17/ProperCoveringModel.lean, line 545
+- `Polyfold.sheetModel` — Polyfold/Chapter17/ProperCoveringModel.lean, line 594
+- `Polyfold.sheetModel_fiber` — Polyfold/Chapter17/ProperCoveringModel.lean, line 620
+- `Polyfold.sheetModel_units` — Polyfold/Chapter17/ProperCoveringModel.lean, line 655
+- `Polyfold.sheetModel_units_connected` — Polyfold/Chapter17/ProperCoveringModel.lean, line 658
+- `Polyfold.sheetModel_units_nontrivial` — Polyfold/Chapter17/ProperCoveringModel.lean, line 661
+
+*What differs.*
+- The definition does not ask $\hat\tau^{-1}(\bar o)$ to be finite, and we read it without it (V17.129).
+
+### V17.129. Remark 17.8.5 (2017: 17.7), comparison with Definition 8.5.1
+
+*not in the book* · iff the fibre is finite
+
+**HWZ (§17.8, Remark 17.8.5, p. 831 (2017: Remark 17.7)).** Compare with Definition 8.5.1 and Theorems 8.5.3, 8.5.8.
+
+**Proved in Lean.** `remark_17_8_5 : τ.IsProperCovering ↔ M.fiber.Finite`; `ofIsProperCovering` (a proper covering functor with a $G$-fixed point and the sheet decomposition is a model); `sheetModel_int_not_isProperCovering` ($\mathbb Z$ sheets: a connected model with infinite fibre that is not a proper covering functor of Definition 8.5.1).
+
+- `Polyfold.ProperCoveringModel.remark_17_8_5` — Polyfold/Chapter17/ProperCoveringModel.lean, line 243
+- `Polyfold.ProperCoveringModel.isProperCovering` — Polyfold/Chapter17/ProperCoveringModel.lean, line 220
+- `Polyfold.ProperCoveringModel.ofIsProperCovering` — Polyfold/Chapter17/ProperCoveringModel.lean, line 501
+- `Polyfold.sheetFunctor_isProperCovering` — Polyfold/Chapter17/ProperCoveringModel.lean, line 626
+- `Polyfold.sheetModel_int` — Polyfold/Chapter17/ProperCoveringModel.lean, line 672
+- `Polyfold.sheetModel_int_not_isProperCovering` — Polyfold/Chapter17/ProperCoveringModel.lean, line 678
+
+*What differs.*
+- The remark asks for a comparison; the formalized comparison: the two notions agree exactly when the fibre over $\bar o$ is finite, which holds in the construction (17.93)–(17.98) and in Definition 17.8.10.
+
+### V17.130. Proposition 17.8.6 (new in the 2021 edition) and (17.99), connected restrictions
+
+*as in the book* · as stated · connected sets for paths
+
+**HWZ (§17.8, Proposition 17.8.6 and (17.99), pp. 831–832 (new in the 2021 edition)).** A proper covering model can be restricted to a connected one on a $G$-invariant neighbourhood of $\bar o$; the component $C$ of $\bar o$ is $G$-invariant (17.99).
+
+**Proved in Lean.** `proposition_17_8_6 (M) (hU : IsOpen U) (hpt : M.pt ∈ U) : ∃ O' (hO' : IsOpen O') (hpt'), O' ⊆ U ∧ IsConnected O' ∧ ∀ [ParacompactSpace O'] [ParacompactSpace (τ.obj ⁻¹' O')], ∃ M' : ProperCoveringModel (M.restrictFunctor O' hO'), M'.pt = ⟨M.pt, hpt'⟩ ∧ M'.Connected` (with `O'` a `SubMulAction G O`); `exists_connected_restriction` (the connected component $C$ of $\bar o$ is $G$-invariant, open, and gives a connected model, (17.99)); `restrictModel`, `restrictModel_connected`, `invariantComponent`.
+
+- `Polyfold.proposition_17_8_6` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 463
+- `Polyfold.exists_connected_restriction` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 479
+- `Polyfold.ProperCoveringModel.restrictModel` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 311
+- `Polyfold.ProperCoveringModel.restrictFunctor` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 161
+- `Polyfold.ProperCoveringModel.restrictSource` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 152
+- `Polyfold.ProperCoveringModel.restrictModel_connected` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 359
+- `Polyfold.invariantComponent` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 406
+- `Polyfold.isConnected_invariantComponent` — Polyfold/Chapter17/ProperCoveringModelRestrict.lean, line 435
+
+*What differs.*
+- "$g * C = C$" is proved with connected sets in place of paths.
+
+### V17.131. Lemma 17.8.7 (2017: 17.7), the sheet indices are locally constant
+
+*stronger* · for every model
+
+**HWZ (§17.8, Lemma 17.8.7, p. 833 (2017: Lemma 17.7)).** $\psi \mapsto (y_{s(\psi)}, y_{t(\psi)})$ is locally constant.
+
+**Proved in Lean.** `lemma_17_8_7 : IsLocallyConstant fun ψ => (M.sheetIndex (E.src ψ), M.sheetIndex (E.tgt ψ))`; `groupIndex` ($g_\psi$ with $\hat\tau(\psi) = (g_\psi, \cdot)$), locally constant and multiplicative; `liftMor`, `baseMor`.
+
+- `Polyfold.ProperCoveringModel.lemma_17_8_7` — Polyfold/Chapter17/ProperCoveringModel.lean, line 250
+- `Polyfold.ProperCoveringModel.groupIndex` — Polyfold/Chapter17/ProperCoveringModel.lean, line 263
+- `Polyfold.ProperCoveringModel.isLocallyConstant_groupIndex` — Polyfold/Chapter17/ProperCoveringModel.lean, line 274
+- `Polyfold.ProperCoveringModel.groupIndex_comp` — Polyfold/Chapter17/ProperCoveringModel.lean, line 279
+- `Polyfold.ProperCoveringModel.groupIndex_unit` — Polyfold/Chapter17/ProperCoveringModel.lean, line 285
+- `Polyfold.ProperCoveringModel.liftMor` — Polyfold/Chapter17/ProperCoveringModel.lean, line 331
+- `Polyfold.ProperCoveringModel.baseMor` — Polyfold/Chapter17/ProperCoveringModel.lean, line 356
+
+*What differs.*
+- Proved for every model, without the connectedness of $O$ assumed on p. 832.
+
+### V17.132. Lemma 17.8.8 (2017: 17.8), the components $\mathbf E^\varphi$
+
+*as in the book* · as stated · connected sets for paths
+
+**HWZ (§17.8, Lemma 17.8.8, p. 833 (2017: Lemma 17.8)).** Distinct $\varphi, \varphi' \in \mathbf A_{\bar o}$ have disjoint $\mathbf E^\varphi$, $\mathbf E^{\varphi'}$, and these cover the morphisms.
+
+**Proved in Lean.** `lemma_17_8_8 (hO : M.Connected) : (E.morOn M.fiber).PairwiseDisjoint (fun φ => connectedComponent φ) ∧ ⋃ φ ∈ E.morOn M.fiber, connectedComponent φ = univ`; `constant_on_component` (sheet indices and $g$ constant on $\mathbf E^\varphi$).
+
+- `Polyfold.ProperCoveringModel.lemma_17_8_8` — Polyfold/Chapter17/ProperCoveringModel.lean, line 414
+- `Polyfold.ProperCoveringModel.constant_on_component` — Polyfold/Chapter17/ProperCoveringModel.lean, line 396
+- `Polyfold.ProperCoveringModel.mem_connectedComponent_baseMor` — Polyfold/Chapter17/ProperCoveringModel.lean, line 370
+- `Polyfold.ProperCoveringModel.eq_of_mem_morOn_fiber` — Polyfold/Chapter17/ProperCoveringModel.lean, line 406
+
+*What differs.*
+- The paths of the proof are replaced by connected sets; $\mathbf E^\varphi$ is the connected component, which is also the path component.
+
+### V17.133. Lemma 17.8.9 (2017: 17.9) and the maps $\varphi *$, p. 834
+
+*stronger* · on more than E^φ
+
+**HWZ (§17.8, Lemma 17.8.9 and the text after it, p. 834 (2017: Lemma 17.9)).** On $\mathbf E^\varphi$, $\varphi : y \to y'$: $t(\psi) = \sigma_{y'}(g_\varphi * \hat\tau(s(\psi)))$; the maps $\varphi *$.
+
+**Proved in Lean.** `lemma_17_8_9 (hφ : φ ∈ E.morOn M.fiber) (hψ : ψ ∈ connectedComponent φ) : E.tgt ψ = M.σ (E.tgt φ) (M.groupIndex φ • τ.obj (E.src ψ))`; `fiberAct φ` ($\varphi * : U(s\varphi) \to U(t\varphi)$), an sc-diffeomorphism, with `fiberAct_comp`, `fiberAct_unit`.
+
+- `Polyfold.ProperCoveringModel.lemma_17_8_9` — Polyfold/Chapter17/ProperCoveringModel.lean, line 429
+- `Polyfold.ProperCoveringModel.fiberAct` — Polyfold/Chapter17/ProperCoveringModel.lean, line 437
+- `Polyfold.ProperCoveringModel.fiberAct_mem_U` — Polyfold/Chapter17/ProperCoveringModel.lean, line 439
+- `Polyfold.ProperCoveringModel.isScDiffeoOn_fiberAct` — Polyfold/Chapter17/ProperCoveringModel.lean, line 453
+- `Polyfold.ProperCoveringModel.fiberAct_comp` — Polyfold/Chapter17/ProperCoveringModel.lean, line 485
+- `Polyfold.ProperCoveringModel.fiberAct_unit` — Polyfold/Chapter17/ProperCoveringModel.lean, line 491
+
+*What differs.*
+- The identity holds on every $\psi$ with the same sheet indices and $g_\psi = g_\varphi$; on $\mathbf E^\varphi$ these hold (`constant_on_component`), so no connectedness is needed for the identity itself.
+
+### V17.134. The "easy exercise" of p. 834: the model is isomorphic to the one built from $A$, $B$, $\tau$
+
+*as in the book* · exercise written out
+
+**HWZ (§17.8, p. 834 (2017: §17.7)).** It is an easy exercise that the model built from $A$, $B$, $\tau$ is isomorphic to the given one.
+
+**Proved in Lean.** For a connected model, the functors $A$, $B$, the natural transformation $\tau$ built from the $\varphi *$ (`modelA`, `modelB`, `modelτ`, the pointed lift `modelLift` over `coveringD`, a covering functor), and `easy_exercise (hO : M.Connected)`: the object and morphism maps `objMap`, `morMap` from the construction (17.94)–(17.98) to $E$ are sc-diffeomorphisms compatible with source, target, composition, units and with $\hat\tau$. Witness `easy_exercise_units` (two sheets of the reflection).
+
+- `Polyfold.ProperCoveringModel.easy_exercise` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 423
+- `Polyfold.ProperCoveringModel.FibD` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 72
+- `Polyfold.ProperCoveringModel.coveringD` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 75
+- `Polyfold.ProperCoveringModel.isCoveringFunctor_coveringD` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 94
+- `Polyfold.ProperCoveringModel.modelA` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 142
+- `Polyfold.ProperCoveringModel.modelB` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 167
+- `Polyfold.ProperCoveringModel.modelτ` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 189
+- `Polyfold.ProperCoveringModel.modelLift` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 195
+- `Polyfold.ProperCoveringModel.objMap` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 232
+- `Polyfold.ProperCoveringModel.morMap` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 244
+- `Polyfold.easy_exercise_units` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 460
+
+*What differs.*
+- The isomorphism is written out (point G.230 settled).
+
+### V17.135. Definition 17.8.10 (2017: 17.29), proper covering uniformizers
+
+*as in the book* · as stated
+
+**HWZ (§17.8, Definition 17.8.10, pp. 834–835 (2017: Definition 17.29)).** A proper covering uniformizer $(\hat\Psi, \Psi)$ at $\beta$ with model $\hat\tau : E \to G \ltimes O_\beta$ and conditions (1)–(4).
+
+**Proved in Lean.** `structure ProperCoveringUniformizer P β`: a uniformizer $\Psi$ of $B$ (fully faithful, injective on objects) with $\Psi(o_\beta) = \beta$, an ep-groupoid $E$, a model $\hat\tau : E \to G \ltimes O$ (`ProperCoveringModel`), the functor $\hat\Psi$ (`hat`), and (1) $\hat\Psi$ maps $\hat\tau^{-1}(o_\beta)$ bijectively onto $P^{-1}(\beta)$, (2) $\hat\Psi$ fully faithful, injective on objects, $P \circ \hat\Psi = \Psi \circ \hat\tau$, (3) $P^{-1}(\Psi(O))$ is the image of $\hat\Psi$, (4) $|\Psi|$ and $|\hat\Psi|$ open embeddings onto $U$ and $|P|^{-1}(U)$. Witnesses `sheetUniformizer` and `reflectionSheetUniformizer` (`reflectionSheetUniformizer_nondegenerate`: two sheets, a non-trivial action).
+
+- `Polyfold.ProperCoveringUniformizer` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 98
+- `Polyfold.sheetUniformizer` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 341
+- `Polyfold.reflectionSheetUniformizer` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 407
+- `Polyfold.reflectionSheetUniformizer_nondegenerate` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 414
+
+*What differs.*
+- "With isotropy $G = G_\beta$" is a consequence (V17.136); the distinguished points $o_\alpha$ are the points of $\hat\tau^{-1}(o_\beta)$.
+
+### V17.136. Remark 17.8.11 (2017: 17.8), $\Psi$ is a uniformizer and the sheets of $\hat\Psi$ are uniformizers
+
+*hypotheses explicit* · second part for a connected model · literal form: counterexamples
+
+**HWZ (§17.8, Remark 17.8.11, p. 835 (2017: Remark 17.8)).** $\Psi$ is a uniformizer, $\hat\Psi$ is not; the restrictions of $\hat\Psi$ to $G_\alpha \ltimes O_\alpha$, $\alpha \in P^{-1}(\beta)$, are uniformizers.
+
+**Proved in Lean.** First part: `toLocalUniformizer` ($\Psi$ is a local uniformizer of Definition 17.1.3), `isCentredAt`, `isotropy` ($G \cong G_\beta$). Second part: `remark_17_8_11_two (hPc : P.IsProperCoveringGCT) (hα : P.obj α = β) : ∃ y ∈ U.model.fiber, U.hat.obj y = α ∧ ∃ Φ : A.LocalUniformizer, Φ.toUniformizer.IsCentredAt α ∧ range Φ.functor.obj = U.hat.obj '' U.model.U y ∧ Φ.G = U.E.Isotropy y`, for a connected model (`hO_conn : U.model.Connected`), through `sheetIncl` ($G_y \ltimes O \to E$, fully faithful, image $U(y)$, an open embedding on orbit spaces). Witness `remark_17_8_11_two_reflection` (both sheet uniformizers have a non-trivial action). Without connectedness: `remark_17_8_11_two_disconnected` ($O$ of two points, trivial action: the image $\hat\Psi(U(y))$ of a sheet is the image of no uniformizer, in the weakest sense) and `remark_17_8_11_two_disconnected_effective` (the same with $G \ltimes O$ and $E$ effective, $O$ two copies of $\mathbb R$).
+
+- `Polyfold.ProperCoveringUniformizer.toLocalUniformizer` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 150
+- `Polyfold.ProperCoveringUniformizer.isCentredAt` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 160
+- `Polyfold.ProperCoveringUniformizer.isotropy` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 166
+- `Polyfold.ProperCoveringUniformizer.footprint_toLocalUniformizer` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 170
+- `Polyfold.ProperCoveringModel.sheetIsotropyHom` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 85
+- `Polyfold.ProperCoveringModel.injective_sheetIsotropyHom` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 94
+- `Polyfold.ProperCoveringModel.sheetGroupoid` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 101
+- `Polyfold.ProperCoveringModel.sheetIncl` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 125
+- `Polyfold.ProperCoveringModel.sheetIncl_full` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 190
+- `Polyfold.ProperCoveringModel.sheetIncl_faithful` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 199
+- `Polyfold.ProperCoveringModel.range_sheetIncl_obj` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 167
+- `Polyfold.ProperCoveringModel.isOpenEmbedding_orbitMap_sheetIncl` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 223
+- `Polyfold.ProperCoveringUniformizer.sheetUniformizerAt` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 271
+- `Polyfold.ProperCoveringUniformizer.sheetLocalUniformizerAt` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 336
+- `Polyfold.ProperCoveringUniformizer.remark_17_8_11_two` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 347
+- `Polyfold.remark_17_8_11_two_reflection` — Polyfold/Chapter17/ProperCoveringSheetUniformizer.lean, line 367
+- `Polyfold.GroupoidalCategory.not_exists_uniformizer_range` — Polyfold/Chapter17/ProperCoveringSheetCounterexample.lean, line 64
+- `Polyfold.TwistedSheet.model` — Polyfold/Chapter17/ProperCoveringSheetCounterexample.lean, line 219
+- `Polyfold.TwistedSheet.unif` — Polyfold/Chapter17/ProperCoveringSheetCounterexample.lean, line 291
+- `Polyfold.remark_17_8_11_two_disconnected` — Polyfold/Chapter17/ProperCoveringSheetCounterexample.lean, line 380
+- `Polyfold.isEffective_sheetEp_units` — Polyfold/Chapter17/ProperCoveringSheetEffective.lean, line 72
+- `Polyfold.TwistedLine.model` — Polyfold/Chapter17/ProperCoveringSheetEffective.lean, line 206
+- `Polyfold.TwistedLine.unif` — Polyfold/Chapter17/ProperCoveringSheetEffective.lean, line 524
+- `Polyfold.TwistedLine.isEffective_E` — Polyfold/Chapter17/ProperCoveringSheetEffective.lean, line 579
+- `Polyfold.remark_17_8_11_two_disconnected_effective` — Polyfold/Chapter17/ProperCoveringSheetEffective.lean, line 653
+
+*What differs.*
+- We read the second part for a connected model, the setting of its notation $O_\alpha$, $G_\alpha \ltimes O_\alpha$ and of the action $\varphi *$ (pp. 832–834, "Suppose further that $O$ is connected"; Proposition 17.8.6 shrinks any model to a connected one); the examples above show that the literal form, with a disconnected $O$, is the reason for the reading.
+
+### V17.137. Definition 17.8.12 (2017: 17.30), proper covering uniformizer constructions, (17.101) and (17.102)
+
+*as in the book* · as stated
+
+**HWZ (§17.8, Definition 17.8.12, (17.101), (17.102), pp. 835–836 (2017: Definition 17.30)).** A proper covering uniformizer construction $F$; the transition sets (17.101) and the map $p$ (17.102).
+
+**Proved in Lean.** `ProperCoveringUniformizerConstruction P` (the sets $F(\beta)$), the induced uniformizer construction of $B$ (`toUniformizerConstruction`); `HatTrans U U'` ($M(\hat\Psi, \hat\Psi') = \{(e, \varphi, e')\}$, (17.101)) and `transMap` ($p(e, \varphi, e') = (\hat\tau(e), P(\varphi), \hat\tau'(e'))$, (17.102)). Witness `sheetConstruction` (all $G$-fixed points).
+
+- `Polyfold.ProperCoveringUniformizerConstruction` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 297
+- `Polyfold.ProperCoveringUniformizerConstruction.Unif` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 306
+- `Polyfold.ProperCoveringUniformizerConstruction.toUniformizerConstruction` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 315
+- `Polyfold.ProperCoveringUniformizerConstruction.mem_toUniformizerConstruction` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 321
+- `Polyfold.ProperCoveringUniformizer.HatTrans` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 184
+- `Polyfold.ProperCoveringUniformizer.transMap` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 190
+- `Polyfold.ProperCoveringUniformizer.transMap_src` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 198
+- `Polyfold.ProperCoveringUniformizer.transMap_mor` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 201
+- `Polyfold.ProperCoveringUniformizer.transMap_tgt` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 204
+- `Polyfold.sheetConstruction` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 383
+- `Polyfold.sheetConstruction_nonempty` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 391
+
+*What differs.*
+- The functor $F : B \to \mathrm{SET}$ is read on objects, as for Definition 17.1.6; $F(\beta)$ may be empty there, and the statements that need a uniformizer at $\beta$ say so (V17.142).
+
+### V17.138. Definition 17.8.13 (2017: 17.31), proper polyfold covering structures and functors
+
+*as in the book* · as stated · witness: trivial action
+
+**HWZ (§17.8, Definition 17.8.13, p. 836 (2017: Definition 17.31)).** A proper polyfold covering structure $(F, M)$: M-polyfold structures on the transition sets making $A$, $B$ polyfolds with $p$ a local sc-diffeomorphism; proper polyfold covering functors.
+
+**Proved in Lean.** `structure ProperPolyfoldCoveringStructure`: a proper covering uniformizer construction, a polyfold structure `SB` of $B$ whose uniformizers are the $\Psi$ of $F$ (`SB_F`), M-polyfolds `MH U U'` on the $M(\hat\Psi, \hat\Psi')$ with the conditions of Definition 17.1.8, and `isLocalScDiffeo_p` ($p$ a local sc-diffeomorphism); `ProperPolyfoldCoveringFunctor A B`. Witnesses `sheetPolyfoldCoveringStructure` and `z3PolyfoldCoveringFunctor` (two sheets of $\mathbb Z/3 \ltimes \mathbb R$; `z3PolyfoldCoveringFunctor_nondegenerate`: $F(\beta) \ne \emptyset$ for every $\beta$, fibres of two points; weak: trivial action). Effective witness `reflectionPolyfoldCoveringFunctor` with `sheetFixedPolyfoldCoveringStructure` (two sheets over the reflection $\mathbb Z/2 \ltimes \mathbb R$, $F(\beta) \ne \emptyset$ only at the fixed point; an effective, non-trivial action; not weak).
+
+- `Polyfold.ProperPolyfoldCoveringStructure` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 122
+- `Polyfold.ProperPolyfoldCoveringFunctor` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 164
+- `Polyfold.ProperPolyfoldCoveringStructure.BaseTr` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 179
+- `Polyfold.ProperCoveringUniformizerConstruction.baseUnif` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 103
+- `Polyfold.sheetPolyfoldCoveringStructure` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 427
+- `Polyfold.z3PolyfoldCoveringFunctor` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 463
+- `Polyfold.z3PolyfoldCoveringFunctor_nondegenerate` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 472
+- `Polyfold.reflectionPolyfoldCoveringFunctor` — Polyfold/Chapter17/ProperCoveringReflection.lean, line 117
+- `Polyfold.sheetFixedPolyfoldCoveringStructure` — Polyfold/Chapter17/ProperCoveringReflection.lean, line 82
+
+*What differs.*
+- "$A$ and $B$ become polyfolds" is read for $B$ as a polyfold structure (Definition 17.1.8) on the $\Psi$, and for $A$ as the conditions of Definition 17.1.8 for the $M(\hat\Psi, \hat\Psi')$ (the $\hat\Psi$ are not uniformizers, Remark 17.8.11). The witnesses have a trivial action on $O$: a proper covering uniformizer at $\beta$ needs $o_\beta$ fixed by $G$, so for the tautological $\Psi$ of $G \ltimes O$ only fixed points carry one.
+
+### V17.139. Lemma 17.8.14 (2017: 17.10), the bijection (17.103)
+
+*as in the book* · as stated
+
+**HWZ (§17.8, Lemma 17.8.14 and (17.103), pp. 836–837 (2017: Lemma 17.10)).** $M(\hat\Psi, \hat\Psi') \to M(\Psi, \Psi')\,{}_s\!\times_{\hat\tau} E$, $(e, \varphi, e') \mapsto (p(e, \varphi, e'), e)$, is a well-defined bijection (17.103).
+
+**Proved in Lean.** `lemma_17_8_14 (U') : Bijective (fibredTransMap U U')` for `hPc : P.IsProperCoveringGCT`, where `fibredTransMap : HatTrans U U' → TransFibred U U'`, $(e, \varphi, e') \mapsto (p(e, \varphi, e'), e)$, into $M(\Psi, \Psi')\,{}_s\!\times_{\hat\tau} E$; the inverse `fibredTransInv`.
+
+- `Polyfold.ProperCoveringUniformizer.lemma_17_8_14` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 273
+- `Polyfold.ProperCoveringUniformizer.TransFibred` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 210
+- `Polyfold.ProperCoveringUniformizer.fibredTransMap` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 215
+- `Polyfold.ProperCoveringUniformizer.injective_fibredTransMap` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 239
+- `Polyfold.ProperCoveringUniformizer.exists_fibredTransMap_eq` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 252
+- `Polyfold.ProperCoveringUniformizer.fibredTransInv` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 278
+- `Polyfold.ProperCoveringUniformizer.exists_lift` — Polyfold/Chapter17/ProperCoveringUniformizer.lean, line 229
+
+### V17.140. Proposition 17.8.15 (2017: 17.12), (17.103) is an sc-diffeomorphism
+
+*as in the book* · as stated · general form in Chapter 8
+
+**HWZ (§17.8, Proposition 17.8.15, pp. 837–838 (2017: Proposition 17.12)).** For a proper polyfold covering functor the bijection (17.103) is an sc-diffeomorphism.
+
+**Proved in Lean.** `proposition_17_8_15 (hPc) (U U')`: the map $(e, \varphi, e') \mapsto (p(e, \varphi, e'), e)$ is an sc-diffeomorphism of `MH U U'` onto the fibred-product sub-M-polyfold of $M(\Psi, \Psi') \times E$; `isLocalScDiffeo_fstOfFibredProduct`. The general form for every sc-smooth functor of ep-groupoids: `isLocalScDiffeo_fibredMap` ($L_F$ is a local sc-diffeomorphism) and `isScDiffeo_fibredMap_iff_bijective` (Chapter 8).
+
+- `Polyfold.ProperPolyfoldCoveringStructure.proposition_17_8_15` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 185
+- `Polyfold.MPolyfold.isLocalScDiffeo_fstOfFibredProduct` — Polyfold/Chapter17/ProperCoveringPolyfold.lean, line 79
+- `Polyfold.EpFunctor.isLocalScDiffeo_fibredMap` — Polyfold/Chapter8/ProperCoveringFibredMap.lean, line 67
+- `Polyfold.EpFunctor.isScDiffeo_fibredMap_iff_bijective` — Polyfold/Chapter8/ProperCoveringFibredMap.lean, line 111
+
+*What differs.*
+- The fibred product carries Part I's fibred-product sub-M-polyfold structure.
+
+### V17.141. The sc-smooth model $\hat\tau : E \to X$ and the square (17.104), p. 838
+
+*as in the book* · as stated
+
+**HWZ (§17.8, (17.104) and the text before it, p. 838 (2017: §17.7)).** For a covering family, $E$ and $X$ are ep-groupoids and $\hat\tau$ extends to a proper covering functor (one easily verifies), with equivalences $\hat\Gamma$, $\Gamma$ in (17.104).
+
+**Proved in Lean.** For a family `Uf`: `hatEpGroupoid Uf hPc`, `hatEP` ($E = (\sqcup E_\lambda, \sqcup M(\hat\Psi_\lambda, \hat\Psi_{\lambda'}))$ is an ep-groupoid; properness from Proposition 17.1.11 through Proposition 17.8.15, `exists_isProperMap_hatTr`), `hatModelFunctor` ($\hat\tau : E \to X$, sc-smooth), `hatFunctor` ($\hat\Gamma$), `baseFunctor` ($\Gamma$), the square `square_obj`, `square_mor`; `hatFunctor_isEquivalence` and `isHomeomorph_hatOrbitMap` when the $\Psi_\lambda$ cover $|B|$; `hatModelFunctor_isProperCovering : (S.hatModelFunctor Uf hPc).IsProperCovering` (Definition 8.5.1, for any family; through `bijective_hatModel_fibredMap`, `isScDiffeo_hatModel_fibredMap`, `evenlyCovered_sigmaMap`, `isProperCovering_iff_bijective`). Witnesses `z3HatModel_nondegenerate`, `z3HatModel_isProperCovering` (two sheets of $\mathbb Z/3 \ltimes \mathbb R$: an object of $E$ with a non-unit automorphism, a fibre of two points). Effective witness `reflectionHatModel_nondegenerate` (two sheets over the reflection $\mathbb Z/2 \ltimes \mathbb R$, through `sheetFixedPolyfoldCoveringStructure`, Definition 17.8.13 with $F(\beta) \ne \emptyset$ only at the fixed point: $G$ acts effectively and non-trivially on $O$, a non-unit automorphism in $E$ over one in $X$, a fibre of $\hat\tau$ of two points).
+
+- `Polyfold.ProperPolyfoldCoveringStructure.HatTr` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 85
+- `Polyfold.ProperPolyfoldCoveringStructure.hatGroupoid` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 156
+- `Polyfold.ProperPolyfoldCoveringStructure.hatObjPolyfold` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 197
+- `Polyfold.ProperPolyfoldCoveringStructure.hatMorPolyfold` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 200
+- `Polyfold.ProperPolyfoldCoveringStructure.exists_isProperMap_hatTr` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 330
+- `Polyfold.ProperPolyfoldCoveringStructure.exists_isProperMap_hatModel` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 429
+- `Polyfold.ProperPolyfoldCoveringStructure.hatEpGroupoid` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 474
+- `Polyfold.ProperPolyfoldCoveringStructure.hatEP` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 486
+- `Polyfold.ProperPolyfoldCoveringStructure.baseEP` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 495
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModelFunctor` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 514
+- `Polyfold.ProperPolyfoldCoveringStructure.hatFunctor` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 555
+- `Polyfold.ProperPolyfoldCoveringStructure.baseFunctor` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 565
+- `Polyfold.ProperPolyfoldCoveringStructure.square_obj` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 569
+- `Polyfold.ProperPolyfoldCoveringStructure.square_mor` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 575
+- `Polyfold.ProperPolyfoldCoveringStructure.hatFunctor_isEquivalence` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 613
+- `Polyfold.ProperPolyfoldCoveringStructure.isHomeomorph_hatOrbitMap` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 652
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModelFunctor_isProperCovering` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 259
+- `Polyfold.ProperPolyfoldCoveringStructure.bijective_hatModel_fibredMap` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 222
+- `Polyfold.ProperPolyfoldCoveringStructure.isScDiffeo_hatModel_fibredMap` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 244
+- `Polyfold.MPolyfold.evenlyCovered_sigmaMap` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 115
+- `Polyfold.EpFunctor.isProperCovering_iff_bijective` — Polyfold/Chapter8/ProperCoveringFibredMap.lean, line 133
+- `Polyfold.z3HatFam_isCoveringFamily` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 678
+- `Polyfold.z3HatModel_nondegenerate` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 698
+- `Polyfold.z3HatModel_isProperCovering` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 275
+- `Polyfold.sheetFixedPolyfoldCoveringStructure` — Polyfold/Chapter17/ProperCoveringReflection.lean, line 82
+- `Polyfold.reflectionHatModel_nondegenerate` — Polyfold/Chapter17/ProperCoveringReflection.lean, line 193
+
+*What differs.*
+- "Natural pair of equivalences" is read as for $\Gamma_\Psi$ in Lemma 17.1.15 (equivalences of categories with orbit maps homeomorphisms). "One easily verifies" that $\hat\tau$ is a proper covering functor is written out (point G.231 settled). The Morita equivalence relating different covering families is V17.144.
+
+### V17.142. Proposition 17.8.16 (2017: 17.13), pull-backs of branched ep⁺-subcategories along proper polyfold covering functors
+
+*hypotheses explicit* · (4) with F(β) ≠ ∅ · local form of the proof
+
+**HWZ (§17.8, Proposition 17.8.16, pp. 839–840 (2017: Proposition 17.13)).** For a proper polyfold covering functor $P$ and a branched ep⁺-subcategory $\Theta$ of $B$, $P^*\Theta$ is branched; (1) manifold-type, (2) orbifold-type, (3) tameness and (4) compactness are preserved.
+
+**Proved in Lean.** `IsBranchedBase Θ` (Definition 17.5.1 on $B$ through the $\Psi$ of $F$), `IsBranchedHat Θ'` (on $A$ through the $\hat\Psi$). `proposition_17_8_16 (hPc) (hΘ : F.IsBranchedBase Θ) : F.IsBranchedHat (Θ ∘ P.obj)`; (1) `proposition_17_8_16_one` (manifold-type), (2) `proposition_17_8_16_two` (orbifold-type), (3) `proposition_17_8_16_three (hPc) (hΘ : F.IsTameBase Θ) : F.IsTameHat (Θ ∘ P.obj)`, (4) `proposition_17_8_16_four (hPc) (hΘ) (unif_hyp : ∀ β, 0 < Θ β → (F.F β).Nonempty) (hc : IsCompact (π '' {β | 0 < Θ β})) : IsCompact (π '' {α | 0 < Θ (P.obj α)})`; `orbitSupp_comp_eq_preimage` ($|\mathrm{supp}(\Theta \circ P)| = |P|^{-1}(|\mathrm{supp}\,\Theta|)$). The ep-level easy exercise for a proper covering functor $\tau$ (Definition 8.5.1): `isBranchedEpSubgroupoid_pullbackTheta`, `isTameBranched_pullbackTheta`, with `isProperMap_orbitMap` and `paracompactSpace_of_isProperMap` (the paracompactness of $|\mathrm{supp}(\tau^*\Theta)|$ asked by Definition 9.1.2 (1)). Witnesses `proposition_17_8_16_reflection` ($\Theta_0 = 1_{\{0\}}$ on the reflection and the two-sheet construction: branched, compact, of manifold-type, `unif_hyp` holds, value 1 at both lifts of 0) and `proposition_17_8_16_three_reflection` (tame, isotropy $\mathbb Z/2$ on the support).
+
+- `Polyfold.ProperCoveringUniformizerConstruction.IsBranchedBase` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 358
+- `Polyfold.ProperCoveringUniformizerConstruction.IsBranchedHat` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 366
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 377
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_one` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 392
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_two` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 410
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_four` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 438
+- `Polyfold.ProperCoveringUniformizerConstruction.orbitSupp_comp_eq_preimage` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 414
+- `Polyfold.ProperCoveringUniformizerConstruction.IsTameBase` — Polyfold/Chapter17/ProperCoveringTame.lean, line 96
+- `Polyfold.ProperCoveringUniformizerConstruction.IsTameHat` — Polyfold/Chapter17/ProperCoveringTame.lean, line 101
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_three` — Polyfold/Chapter17/ProperCoveringTame.lean, line 109
+- `Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_branched_tame` — Polyfold/Chapter17/ProperCoveringTame.lean, line 117
+- `Polyfold.ProperCoveringUniformizer.isProperCovering_τ` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 329
+- `Polyfold.ProperCoveringUniformizer.comp_hat_eq_pullbackTheta` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 340
+- `Polyfold.EpFunctor.IsProperCovering.isProperMap_orbitMap` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 266
+- `Polyfold.EpFunctor.IsProperCovering.isBranchedEpSubgroupoid_pullbackTheta` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 276
+- `Polyfold.EpFunctor.IsProperCovering.isManifoldType_pullbackTheta` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 293
+- `Polyfold.EpFunctor.IsProperCovering.isCompactBranched_pullbackTheta` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 306
+- `Polyfold.EpFunctor.IsProperCovering.isTameBranched_pullbackTheta` — Polyfold/Chapter17/ProperCoveringTame.lean, line 70
+- `Polyfold.paracompactSpace_of_isProperMap` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 98
+- `Polyfold.proposition_17_8_16_reflection` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 500
+- `Polyfold.isTameBranched_reflectionTheta` — Polyfold/Chapter17/ProperCoveringTame.lean, line 134
+- `Polyfold.proposition_17_8_16_three_reflection` — Polyfold/Chapter17/ProperCoveringTame.lean, line 150
+
+*What differs.*
+- "With the induced structures" is read through the uniformizers $\Psi$ of $B$ and $\hat\Psi$ of $A$ (the local form of the text's proof $P^*\Theta = \hat\Gamma^*(\hat\tau^*(\Gamma^*\Theta))$; the global model (17.104) is not needed). (4) uses a proper covering uniformizer at the points of $\mathrm{supp}\,\Theta$ ("we take a proper covering uniformizer around $\beta$"), which is `unif_hyp`, the standing reading $F(\beta) \ne \emptyset$; the sequence argument is replaced by ultrafilters. The easy exercise and the paracompactness, which the text does not mention, are written out (point G.233 settled).
+
+### V17.143. Strong bundles over proper polyfold covering functors, pp. 840–842
+
+*restated* · read through models (Ch. 18)
+
+**HWZ (§17.8, pp. 840–842, (17.105), (17.106) (2017: §17.7)).** Strong bundles over a proper polyfold covering functor, (17.105), (17.106), modelled by proper strong bundle coverings (Definition 8.5.9); the details are left to the reader.
+
+**Proved in Lean.** `structure StrongBundleProperCovering Q' Q` (Chapter 18): a functor $\tilde P : E' \to E$ covering $P : C' \to C$, sc-smooth models $\bar\Gamma' : W' \to E'$, $\bar\Gamma : W \to E$ of covering families, a functor $F$ of the base models, a map $A : W' \to W$ with `isProper : IsProperStrongBundleCovering2021 … F A` (Definition 8.5.9), and `comm : Γ̄ ∘ A ≅ P̃ ∘ Γ̄'`. Witness `reflIdCovering` (the identity of the reflection bundle; weak: the identity covering), used in `theorem_18_3_6_witness`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.StrongBundleProperCovering` — Polyfold/Chapter18/MultisectionFunctors.lean, line 549
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflIdCovering` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 180
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_3_6_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 193
+
+*What differs.*
+- The text leaves the definition to the reader; it is read through models, as p. 842 indicates ("$\tilde W$ and $W$ are strong bundles over ep-groupoids and $A$ is a proper strong bundle covering functor in the sense of Definition 8.5.9"). The strong bundle uniformizer constructions over $\tilde P$ (Definitions 17.8.10–17.8.13 with strong bundle maps) are not formalized separately; the reading settles point G.234.
+
+### V17.144. The Morita equivalence between the models of two covering families, p. 838
+
+*hypotheses explicit* · read as Theorem 17.1.18 · compatible with τ̂
+
+**HWZ (§17.8, before (17.104), p. 838 (2017: §17.7)).** Different covering families give proper covering functors related by some kind of Morita equivalence; the details are left to the reader.
+
+**Proved in Lean.** For covering families $c, c'$ of the structure (`CoveringFamily`: proper covering uniformizers whose base uniformizers cover $B$): `hatModel_morita`: the comparison $\hat f_{c,c'} : E_c \to E_{c'}$ (`hatComparison`, through the weak fibred product over $E_{c \sqcup c'}$) is a generalized isomorphism with $\hat f_{c,c} = 1$, the cocycle identity, $|\hat\Gamma_{c'}| \circ |\hat f| = |\hat\Gamma_c|$ and $|\hat f|$ a homeomorphism, and $[\hat\tau_{c'}] \circ \hat f = f_{c,c'} \circ [\hat\tau_c]$ with $f$ the comparison of Theorem 17.1.18 (V17.21); `hatModel_morita_strict`: the zigzag $E_c \to E_{c \sqcup c'} \leftarrow E_{c'}$ of sc-smooth equivalences over $X_c \to X_{c \sqcup c'} \leftarrow X_{c'}$ with commuting squares. Witness `reflectionHatModel_morita` (the two-sheet construction over the reflection, effective action).
+
+- `Polyfold.ProperPolyfoldCoveringStructure.CoveringFamily` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 347
+- `Polyfold.ProperPolyfoldCoveringStructure.hatComparison` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 364
+- `Polyfold.ProperPolyfoldCoveringStructure.hatComparison_self` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 375
+- `Polyfold.ProperPolyfoldCoveringStructure.hatComparison_comp` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 380
+- `Polyfold.ProperPolyfoldCoveringStructure.isGeneralizedIso_hatComparison` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 398
+- `Polyfold.ProperPolyfoldCoveringStructure.hatComparison_comp_hatModel` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 405
+- `Polyfold.ProperPolyfoldCoveringStructure.isHomeomorph_orbitMap_hatComparison` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 434
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 455
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita_strict` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 476
+- `Polyfold.reflectionHatModel_morita` — Polyfold/Chapter17/ProperCoveringReflection.lean, line 266
+
+*What differs.*
+- "Some kind of Morita equivalence", left to the reader, is read as Theorem 17.1.18 reads the comparison of the $X_\Psi$ (a generalized isomorphism, identity and cocycle, homeomorphic orbit maps), with in addition the compatibility with $\hat\tau$ and the base comparison (point G.232 settled).
+
+## Part IV, Chapter 18
+
+*HWZ Part IV, Chapter 18 §§18.1–18.6, pp. 843–861 (2017 Chapter 18; Part IV has no 2014 preprint): sc-Fredholm section functors, linearizations and Theorem 18.1.5, auxiliary norms and compactness, sc⁺-multisection functors, constructions and extensions, orientations, and the perturbation theorem 18.6.1*
+
+### V18.1. Section functors and their local representatives
+
+*as in the book* · as stated
+
+**HWZ (§18.1, before Definition 18.1.1, pp. 843–844 (2017: §18.1)).** A section functor $f$ of $P : E \to C$ has $P \circ f = \mathrm{Id}$; for $\bar\Psi \in \bar F(\alpha)$ over $\Psi$ the local representative $f_{\bar\Psi}$ satisfies $\bar\Psi \circ f_{\bar\Psi} = f \circ \Psi$ and is $G$-equivariant.
+
+**Proved in Lean.** `structure SectionFunctor` (a functor $C \to E$ with $P \circ f = \mathrm{Id}$, `toGroupoidFunctor`, `toFun_eq_act`); `StrongBundleUniformizerData.localRep` with `obj_localRep` ($\bar\Psi \circ f_{\bar\Psi} = f \circ \Psi$), `localRep_smul` ($G$-equivariance) and `localRep_transAct` (compatibility with the transition morphisms).
+
+- `Polyfold.GCT.VectorBundle.SectionFunctor` — Polyfold/Chapter18/SectionFunctors.lean, line 69
+- `Polyfold.GCT.VectorBundle.SectionFunctor.toGroupoidFunctor` — Polyfold/Chapter18/SectionFunctors.lean, line 86
+- `Polyfold.GCT.VectorBundle.SectionFunctor.toFun_eq_act` — Polyfold/Chapter18/SectionFunctors.lean, line 123
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.localRep` — Polyfold/Chapter18/SectionFunctors.lean, line 139
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.obj_localRep` — Polyfold/Chapter18/SectionFunctors.lean, line 148
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.localRep_smul` — Polyfold/Chapter18/SectionFunctors.lean, line 157
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.localRep_transAct` — Polyfold/Chapter18/SectionFunctors.lean, line 174
+
+*What differs.*
+- None.
+
+### V18.2. The section of a sc-smooth model and the change of model
+
+*restated* · change of model proved
+
+**HWZ (§18.1, before Definition 18.1.1, p. 844 (2017: §18.1)).** A covering family gives the sc-smooth model $W_{\bar\Psi} \to X_\Psi$; $f$ induces the section $f_{\bar\Psi}$ of the model, compatible with $\bar\Gamma$ and $\Gamma$.
+
+**Proved in Lean.** `modelSection c.Ψ f` is a section functor of the model (`isFunctorialSection_modelSection`), with $\bar\Gamma \circ f_{\bar\Psi} = f \circ \Gamma$ (`bundleModelFunctor_obj_modelSection`), determined by this (`modelSection_eq_of`), with `orbitMap_modelSection` and the pull-back and push-forward forms (`pullback_modelSection`, `pushforward_modelSection`). Along the comparison isomorphism of two covering families the push-forward of one model section is the other (`pushforward_bundleComparison_modelSection`, for sc-smooth $f$) and conversely (`pullback_bundleComparison_modelSection`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 195
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isFunctorialSection_modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 225
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFunctor_obj_modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 208
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSection_eq_of` — Polyfold/Chapter18/SectionFunctors.lean, line 214
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orbitMap_modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 247
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullback_modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 269
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushforward_modelSection` — Polyfold/Chapter18/SectionFunctors.lean, line 279
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushforward_bundleComparison_modelSection` — Polyfold/Chapter18/ModelSectionPushforward.lean, line 94
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullback_bundleComparison_modelSection` — Polyfold/Chapter18/ModelSectionPushforward.lean, line 127
+
+*What differs.*
+- The text uses the model section and its independence of the model throughout the chapter; both are stated and proved here.
+
+### V18.3. Functors on $E$ and the transfer to models
+
+*not in the book* · tool for the formalization
+
+**HWZ (§18.1, the functors on $E$ used in §§18.1–18.6, pp. 846–861 (2017: §§18.1–18.6)).** Auxiliary norms $N : E \to [0, \infty]$ and sc⁺-multisection functors $\Lambda : E \to \mathbb Q^+$ are functors, read on orbit spaces through $|N|$ and $|\Lambda|$.
+
+**Proved in Lean.** `IsMorInvariant` (constant on isomorphism classes, the reading of a functor to a set), `orbitFun` (the induced map on orbit spaces), `bundlePull` and `bundlePush` (along $\bar\Gamma$, with `bundlePull_comparison` between two models) and `bundleOrbitEquiv` ($|W_{\bar\Psi}| \cong |E|$).
+
+- `Polyfold.GCT.VectorBundle.IsMorInvariant` — Polyfold/Chapter18/ModelTransfer.lean, line 61
+- `Polyfold.GCT.VectorBundle.orbitFun` — Polyfold/Chapter18/ModelTransfer.lean, line 70
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull` — Polyfold/Chapter18/ModelTransfer.lean, line 103
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePush` — Polyfold/Chapter18/ModelTransfer.lean, line 151
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_comparison` — Polyfold/Chapter18/ModelTransfer.lean, line 134
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleOrbitEquiv` — Polyfold/Chapter18/ModelTransfer.lean, line 145
+
+*What differs.*
+- A tool: functors to $[0, \infty]$ and $\mathbb Q^+$ are read as invariant maps on objects, as in Part III.
+
+### V18.4. Definition 18.1.1 (2017: 18.1), sc-Fredholm section functors
+
+*as in the book* · as stated · tame germ data: separate notion
+
+**HWZ (§18.1, Definition 18.1.1, p. 844 (2017: Definition 18.1)).** $f$ is an sc-Fredholm (sc-smooth) section functor if for every object $\alpha$ and every $\bar\Psi \in \bar F(\alpha)$ the local representative $f_{\bar\Psi}$ is an sc-Fredholm (sc-smooth) section.
+
+**Proved in Lean.** `IsScFredholmSectionFunctor`, `IsScSmoothSectionFunctor`: for every $\alpha$ and every $\bar\Psi \in \bar F(\alpha)$, `localRep` is sc-Fredholm (sc-smooth); `isScFredholmSectionFunctor_iff_unif` restates it over all uniformizers. `IsScFredholmSectionFunctorTame` takes the germ data in a tame chart (the standing reading); `IsRegularizing`; `HasStrongBundleUniformizers` ($\bar F(\alpha) \ne \emptyset$).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctor` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 276
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScSmoothSectionFunctor` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 280
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSectionFunctor_iff_unif` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 298
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctorTame` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 285
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsRegularizing` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 290
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasStrongBundleUniformizers` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 296
+
+*What differs.*
+- The tame form, germ data in a tame chart, is a separate definition, used where Part III's theorems need it.
+
+### V18.5. Remark 18.1.2 (a) (2017: 18.1 (a)), one covering family suffices
+
+*as in the book* · as stated · point G.235 settled
+
+**HWZ (§18.1, Remark 18.1.2 (a), p. 844 (2017: Remark 18.1)).** It suffices to check Definition 18.1.1 for the uniformizers of one covering family; equivalently, $f$ is sc-Fredholm iff the induced section of an sc-smooth model is (an easy exercise).
+
+**Proved in Lean.** `remark_18_1_2_a (c)`: $f$ is sc-Fredholm iff each $(c.\Psi\,i)$-representative is; the same for sc-smooth and tame (`remark_18_1_2_a_smooth`, `remark_18_1_2_a_tame`). In the model: `remark_18_1_2_a_model` and its `_smooth`, `_tame` forms, with `isScFredholm_model_iff_model` (one model iff another) and `isScFredholmSection_of_covering`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 411
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_smooth` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 419
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_tame` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 426
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 435
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model_smooth` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 441
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model_tame` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 447
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholm_model_iff_model` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 454
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSection_of_covering` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 389
+
+*What differs.*
+- The exercise is proved (point G.235 settled).
+
+### V18.6. Remark 18.1.2 (b) (2017: 18.1 (b)), sc-Fredholm section functors are regularizing
+
+*as in the book* · as stated
+
+**HWZ (§18.1, Remark 18.1.2 (b), p. 844 (2017: Remark 18.1)).** An sc-Fredholm section functor is regularizing: $f(\alpha)$ on level $m+1$ forces $\alpha$ on level $m+1$.
+
+**Proved in Lean.** `remark_18_1_2_b (hf) : IsRegularizing f`, with the level form `remark_18_1_2_b_levels`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_b` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 462
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_b_levels` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 467
+
+*What differs.*
+- None.
+
+### V18.7. Remark 18.1.2 (c) (2017: 18.1 (c)), the characterization by germs
+
+*hypotheses explicit* · ⇒ with $\bar F(\alpha) \ne \emptyset$
+
+**HWZ (§18.1, Remark 18.1.2 (c), p. 844 (2017: Remark 18.1)).** $f$ is sc-Fredholm iff it is sc-smooth, regularizing, and its local representatives have sc-Fredholm germs at smooth points.
+
+**Proved in Lean.** `remark_18_1_2_c (hF) : IsScFredholmSectionFunctor f ↔ IsScSmoothSectionFunctor f ∧ IsRegularizing f ∧ HasFredholmGerms f`; `HasFredholmGerms`; the direction ⇐ without `hF` (`isScFredholmSectionFunctor_of_germs`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_c` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 533
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasFredholmGerms` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 481
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSectionFunctor_of_germs` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 520
+
+*What differs.*
+- The germ condition is read at every object through a uniformizer, so ⇒ uses $\bar F(\alpha) \ne \emptyset$, the standing reading.
+
+### V18.8. (18.1) and Definition 18.1.3 (2017: 18.2), the linearization
+
+*hypotheses explicit* · point G.236 settled
+
+**HWZ (§18.1, (18.1) and Definition 18.1.3, p. 845 (2017: Definition 18.2)).** At a smooth $\alpha$ with $f(\alpha) = 0$ the linearization $f'(\alpha) : T_\alpha C \to E_\alpha$ is defined by (18.1) through $f_{\bar\Psi}'(q_0)$; it does not depend on $\bar\Psi$.
+
+**Proved in Lean.** `sectionLin` (the operator (18.1) for one $\bar\Psi$), `sectionLin_indep` and `equation_18_1` (independence of $\bar\Psi$), `linearization (hf) α (h0) (hne)` and `definition_18_1_3`; `linZeroAt_transTangent` (the transition maps); `surjective_linearization_iff` (onto iff $f_{\bar\Psi}'(q_0)$ is onto).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin` — Polyfold/Chapter18/Linearization.lean, line 192
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin_indep` — Polyfold/Chapter18/Linearization.lean, line 215
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_1` — Polyfold/Chapter18/Linearization.lean, line 281
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization` — Polyfold/Chapter18/Linearization.lean, line 264
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_3` — Polyfold/Chapter18/Linearization.lean, line 272
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linZeroAt_transTangent` — Polyfold/Chapter18/LinearizationTransport.lean, line 286
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.surjective_linearization_iff` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 325
+
+*What differs.*
+- The text states the independence of $\bar\Psi$; it is proved (point G.236 settled).
+
+### V18.9. Definition 18.1.4 (2017: 18.3), the linearizations $\mathrm{Lin}(f, \alpha)$
+
+*restated* · local sc⁺-sections · global form: transported sc⁺-sections · point G.237 settled
+
+**HWZ (§18.1, Definition 18.1.4, p. 845 (2017: Definition 18.3)).** At smooth $\alpha$, $\mathrm{Lin}(f, \alpha)$ is the set of linearizations of $f_{\bar\Psi} - s$ for local sc⁺-sections $s$ with $s(q_0) = f_{\bar\Psi}(q_0)$, transported to $\alpha$; its elements differ by sc⁺-operators, have the same index and do not depend on $\bar\Psi$.
+
+**Proved in Lean.** Local form, no hypothesis: `linSetLoc` from sc⁺-sections defined near $q_0$ (`IsScPlusSectionOn`, `linOpLoc`, `linSetLocAt`), with `definition_18_1_4_local (hF)`: $\mathrm{Lin}_{glob} \subseteq \mathrm{Lin}$, independence of $\bar\Psi$ (`linSetLoc_eq_linSetLocAt`), one finite index for all elements (`exists_index_linSetLoc`, the local index) and stability under $\varphi_*$ (`linPush_mem_linSetLoc`, `exists_linZeroLoc_transAct`). Global form: `linSet` from global sc⁺-sections (`linOp`, `linSetAt`, `mem_linSet_iff`, `linSetAt_index`), with `definition_18_1_4_hyp` under `HasTransportedScPlusSections` (`linSetAt_subset_hyp`, `linSet_eq_linSetAt_hyp`, `exists_index_linSet_hyp`, `linPush_mem_linSet_hyp`). Witnesses: `definition_18_1_4_reflDiag`, `definition_18_1_4_local_reflDiag`, `linPush_reflDiag_neg`, `linPush_reflDiag_neg_local` (the isotropy acts by $-1$), `definition_18_1_4_local_halfF`.
+
+- `Polyfold.StrongBundle.IsScPlusSectionOn` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 129
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linOpLoc` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 602
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLocAt` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 618
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLoc` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 629
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet_subset_linSetLoc` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 684
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLoc_eq_linSetLocAt` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 957
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_index_linSetLoc` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 969
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_mem_linSetLoc` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 1010
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_linZeroLoc_transAct` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 840
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_local` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 1024
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linOp` — Polyfold/Chapter18/LinearizationSet.lean, line 298
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt` — Polyfold/Chapter18/LinearizationSet.lean, line 312
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.mem_linSet_iff` — Polyfold/Chapter18/LinearizationSet.lean, line 320
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt_index` — Polyfold/Chapter18/LinearizationSet.lean, line 345
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasTransportedScPlusSections` — Polyfold/Chapter18/LinearizationSet.lean, line 390
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt_subset_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 552
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet_eq_linSetAt_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 580
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_index_linSet_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 593
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_mem_linSet_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 633
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 647
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.definition_18_1_4_reflDiag` — Polyfold/Chapter18/LinearizationSetExamples.lean, line 95
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.definition_18_1_4_local_reflDiag` — Polyfold/Chapter18/LinearizationSetLocalExamples.lean, line 45
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.linPush_reflDiag_neg` — Polyfold/Chapter18/LinearizationSetExamples.lean, line 117
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.linPush_reflDiag_neg_local` — Polyfold/Chapter18/LinearizationSetLocalExamples.lean, line 69
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.definition_18_1_4_local_halfF` — Polyfold/Chapter18/LinearizationSetLocalExamples.lean, line 90
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_hasTransportedScPlusSections` — Polyfold/Chapter18/LinearizationSetExamples.lean, line 61
+
+*What differs.*
+- We read $s$ as a local sc⁺-section near $q_0$ (the text says local) and "$f_{\bar\Psi} - s$" with $s(q_0) = f_{\bar\Psi}(q_0)$. That the elements differ by sc⁺-operators is not stated separately: the same index is proved as the local index. The claims of the text are proved (point G.237 settled; Findings, Chapter 18, item 4).
+
+### V18.10. (18.2) and the push-forward $\varphi_*$
+
+*as in the book* · as stated · point G.238 settled
+
+**HWZ (§18.1, (18.2) and the following paragraph, p. 845 (2017: §18.1)).** For a smooth morphism $\varphi : \alpha \to \alpha'$ between zeros, $\hat\varphi \circ f'(\alpha) = f'(\alpha') \circ T\varphi$ (18.2); $\varphi_* L = \hat\varphi \circ L \circ T\varphi^{-1}$ maps $\mathrm{Lin}(f, \alpha)$ to $\mathrm{Lin}(f, \alpha')$, and clearly $(\varphi'\varphi)_* = \varphi'_*\varphi_*$, $(1_\alpha)_* = \mathrm{Id}$.
+
+**Proved in Lean.** `morFiber` ($\hat\varphi$), `toFun_eq_zero_of_mor` (zeros along morphisms), `equation_18_2` and `equation_18_2_comp`; `linPush` with `linPush_unit`, `linPush_comp`, `linPush_linearization` ($\varphi_* f'(\alpha) = f'(\alpha')$); `linSet`, `linearization_mem_linSet`.
+
+- `Polyfold.GCT.VectorBundle.morFiber` — Polyfold/Chapter18/Linearization.lean, line 81
+- `Polyfold.GCT.VectorBundle.SectionFunctor.toFun_eq_zero_of_mor` — Polyfold/Chapter18/Linearization.lean, line 126
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2` — Polyfold/Chapter18/Linearization.lean, line 294
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2_comp` — Polyfold/Chapter18/Linearization.lean, line 327
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush` — Polyfold/Chapter18/Linearization.lean, line 340
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_unit` — Polyfold/Chapter18/Linearization.lean, line 362
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_comp` — Polyfold/Chapter18/Linearization.lean, line 373
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_linearization` — Polyfold/Chapter18/Linearization.lean, line 346
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet` — Polyfold/Chapter18/Linearization.lean, line 394
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization_mem_linSet` — Polyfold/Chapter18/Linearization.lean, line 405
+
+*What differs.*
+- The "clearly" is proved (point G.238 settled).
+
+### V18.11. The full subcategory $C_U$
+
+*as in the book* · as stated
+
+**HWZ (§18.1, before Theorem 18.1.5, p. 845 (2017: §18.1)).** For an open $U \subseteq |C|$, $C_U$ is the full subcategory of objects with $|\alpha| \in U$.
+
+**Proved in Lean.** `objOver`, `openSub` (the full subcategory), `openSubHomeomorph` ($|C_U| \cong U$), `restrictTheta`; the polyfold construction on $C_U$ (`openSubConstruction`, `mem_openSubConstruction_F_iff`, `LocalUniformizer.restrictOver`), tame if $C$ is (`isTame_openSubConstruction`), with branched subcategories restricting (`openSub_isBranchedSubcategory`). Witness: `openSubConstruction_reflection`.
+
+- `Polyfold.GCT.objOver` — Polyfold/Chapter18/OpenSubcategory.lean, line 73
+- `Polyfold.GCT.openSub` — Polyfold/Chapter18/OpenSubcategory.lean, line 77
+- `Polyfold.GCT.openSubHomeomorph` — Polyfold/Chapter18/OpenSubcategory.lean, line 114
+- `Polyfold.GCT.restrictTheta` — Polyfold/Chapter18/OpenSubcategory.lean, line 126
+- `Polyfold.GCT.PolyfoldConstruction.openSubConstruction` — Polyfold/Chapter18/OpenSubcategory.lean, line 276
+- `Polyfold.GCT.PolyfoldConstruction.mem_openSubConstruction_F_iff` — Polyfold/Chapter18/OpenSubcategory.lean, line 283
+- `Polyfold.GCT.LocalUniformizer.restrictOver` — Polyfold/Chapter18/OpenSubcategory.lean, line 158
+- `Polyfold.GCT.PolyfoldConstruction.isTame_openSubConstruction` — Polyfold/Chapter18/OpenSubcategory.lean, line 298
+- `Polyfold.GCT.PolyfoldConstruction.openSub_isBranchedSubcategory` — Polyfold/Chapter18/OpenSubcategory.lean, line 307
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.openSubConstruction_reflection` — Polyfold/Chapter18/OpenSubcategoryExamples.lean, line 41
+
+*What differs.*
+- The polyfold structure on $C_U$, which Theorem 18.1.5 (1) uses, is constructed.
+
+### V18.12. Good position to the boundary, as Theorem 18.1.5 uses it (Remark 17.2.18)
+
+*restated* · intrinsic, on $T_\alpha C$
+
+**HWZ (§18.1, Theorem 18.1.5 with Remark 17.2.18, p. 846 (2017: Theorem 18.1)).** The kernel of $f'(\alpha)$ is in good position to the partial cone $C_\alpha C$ of Remark 17.2.18.
+
+**Proved in Lean.** The partial cone and the reduced tangent space (`partialCone`, `reducedTangent`, `partialCone_eq`, `reducedTangent_eq`, `finrank_quotient_reducedTangent_eq_degIndex`, `partialCone_ne_univ`); `IsInGoodPositionToPartialCone` with `isInGoodPositionToPartialCone_iff` and `not_isInGoodPositionToPartialCone_of_le_reducedTangent`; `IsKernelInGoodPosition`, equivalent to good position of the germ of $f_{\bar\Psi}$ at $q_0$ (`isGoodPositionGermTame_localRep_iff`, from `StrongBundle.isGoodPositionGermTame_iff_tangent`, Definition 3.6.6 as printed; `IsInGoodPositionTop`, `isInGoodPositionTop_iff_norm`). Witnesses: `partialCone_corner`, `isInGoodPositionToPartialCone_corner`.
+
+- `Polyfold.GCT.PolyfoldConstruction.partialCone` — Polyfold/Chapter18/TangentPartialCone.lean, line 256
+- `Polyfold.GCT.PolyfoldConstruction.reducedTangent` — Polyfold/Chapter18/TangentPartialCone.lean, line 262
+- `Polyfold.GCT.PolyfoldConstruction.partialCone_eq` — Polyfold/Chapter18/TangentPartialCone.lean, line 275
+- `Polyfold.GCT.PolyfoldConstruction.reducedTangent_eq` — Polyfold/Chapter18/TangentPartialCone.lean, line 298
+- `Polyfold.GCT.PolyfoldConstruction.finrank_quotient_reducedTangent_eq_degIndex` — Polyfold/Chapter18/TangentPartialCone.lean, line 311
+- `Polyfold.GCT.PolyfoldConstruction.partialCone_ne_univ` — Polyfold/Chapter18/TangentPartialCone.lean, line 327
+- `Polyfold.GCT.PolyfoldConstruction.IsInGoodPositionToPartialCone` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 514
+- `Polyfold.GCT.PolyfoldConstruction.isInGoodPositionToPartialCone_iff` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 520
+- `Polyfold.GCT.PolyfoldConstruction.not_isInGoodPositionToPartialCone_of_le_reducedTangent` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 555
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsKernelInGoodPosition` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 619
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isGoodPositionGermTame_localRep_iff` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 643
+- `Polyfold.StrongBundle.isGoodPositionGermTame_iff_tangent` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 464
+- `Polyfold.IsInGoodPositionTop` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 59
+- `Polyfold.isInGoodPositionTop_iff_norm` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 127
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.partialCone_corner` — Polyfold/Chapter18/TangentPartialConeExamples.lean, line 45
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.isInGoodPositionToPartialCone_corner` — Polyfold/Chapter18/GoodPositionIntrinsicExamples.lean, line 180
+
+*What differs.*
+- Good position is stated on $T_\alpha C$ and shown equivalent to the model condition of Part I.
+
+### V18.13. Theorem 18.1.5 (2017: 18.1), the implicit function theorem
+
+*hypotheses explicit* · tame germ data · (2) in the model · point G.239 settled
+
+**HWZ (§18.1, Theorem 18.1.5, p. 846 (2017: Theorem 18.1)).** $C$ tame, $f$ sc-Fredholm, $f(\alpha) = 0$, $f'(\alpha)$ onto with kernel in good position: there is an open $U \ni |\alpha|$ such that (1) $\Theta : C_U \to \{0,1\}$, $1$ exactly on zeros, is a tame orbifold-type ep⁺-subcategory, and (2) at zeros $\beta$ in $C_U$ $f'(\beta)$ is onto with kernel in good position; the support of $\Theta$ is a smooth submanifold (Note).
+
+**Proved in Lean.** `theorem_18_1_5 (hf hft h0 hne hsurj hker)`: a natural representative $R$ with image open around $\pi(\alpha)$, $\Theta = $ `zeroIndicator` of orbifold type, $\Theta \circ \Gamma$ the zero multisection of $f^{\bar\Psi}$, a tame branching structure and good position at the zeros, the zero set a $G$-invariant smooth submanifold. On $C_U$: `theorem_18_1_5_subcategory` (branched, orbifold type, tame, $\Theta_U = 1$ iff zero). In the model: `theorem_18_1_5_model`. The Note: `theorem_18_1_5_note`. Witnesses: `theorem_18_1_5_hyp_witness`, `theorem_18_1_5_hyp_applies`, `theorem_18_1_5_subcategory_hyp_applies` (interior zero), `theorem_18_1_5_intrinsic_hyp_witness`, `theorem_18_1_5_intrinsic_hyp_applies` (a boundary zero).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 663
+- `Polyfold.GCT.VectorBundle.SectionFunctor.zeroIndicator` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 133
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory` — Polyfold/Chapter18/ImplicitFunctionSubcategory.lean, line 83
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 353
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_note` — Polyfold/Chapter18/ImplicitFunctionSubcategory.lean, line 146
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_hyp_witness` — Polyfold/Chapter18/ImplicitFunctionTheoremExamples.lean, line 62
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_hyp_applies` — Polyfold/Chapter18/ImplicitFunctionTheoremExamples.lean, line 78
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_subcategory_hyp_applies` — Polyfold/Chapter18/OpenSubcategoryExamples.lean, line 52
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_5_intrinsic_hyp_witness` — Polyfold/Chapter18/GoodPositionIntrinsicExamples.lean, line 258
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_5_intrinsic_hyp_applies` — Polyfold/Chapter18/GoodPositionIntrinsicExamples.lean, line 287
+
+*What differs.*
+- Conclusion (2) is proved at the zeros of $f^{\bar\Psi}$ in the model (good position of the germ), not restated on $T_\beta C$. The proof through Theorems 15.2.2, 15.2.5 and 9.1.9 is written out (point G.239 settled). At the corner of the half-space bundle no zero satisfies the hypotheses (Findings, Chapter 18, item 5).
+
+### V18.14. Remark 18.1.6 (2017: 18.2), $\Theta$ as $\Lambda_0 \circ f$
+
+*as in the book* · as stated · point G.240 settled
+
+**HWZ (§18.1, Remark 18.1.6, p. 846 (2017: Remark 18.2)).** $\Theta = \Lambda_0 \circ f$ for the sc⁺-multisection functor $\Lambda_0$ equal to $1$ on the zero section; this is the general shape we shall see.
+
+**Proved in Lean.** `zeroFunctor` ($\Lambda_0$); `remark_18_1_6`: invariant, $\Theta = \Lambda_0 \circ f$, its pull-back is the zero multisection (`bundlePull_zeroFunctor`), an sc⁺-multisection; `remark_18_1_6_goodPosition` (Theorem 18.1.5 in this form).
+
+- `Polyfold.GCT.VectorBundle.zeroFunctor` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 117
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 227
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_zeroFunctor` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 182
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6_goodPosition` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 276
+
+*What differs.*
+- The forward reference is proved (point G.240 settled).
+
+### V18.15. Definition 18.1.7 (2017: 18.4), auxiliary norms
+
+*hypotheses explicit* · continuity of Definition 12.2.1 · $|C_{0,1}|$ read as $|E_{0,1}|$
+
+**HWZ (§18.1, Definition 18.1.7, p. 846 (2017: Definition 18.4)).** An auxiliary norm $N : E \to [0, \infty]$ is a functor, $\infty$ off $E_{0,1}$, a complete norm on the $(0,1)$-fibres, with $N(e_k) \to 0$ for $e_k \to 0_\alpha$ (conditions (1)–(3)).
+
+**Proved in Lean.** Two forms on $E$: `IsAuxNormBook` (invariant, $\infty$ off $E_{0,1}$, the fibre condition `FiberCond`, convergence to $0$) and `IsAuxNormDirect` (with the continuity of $|N|$ on $|E_{0,1}|$, `oneNorm`, as in Definition 12.2.1). The $(0,1)$-objects: `IsOneObj`, `isOneObj_iff`, `EOneOrbit`, `oneTopology_eq`. In a model: `modelNorm`, `IsAuxNormIn` (Definition 12.2.1 for $\bar\Gamma^* N$), `IsAuxNormFunctor` (in some model), `IsAuxNormIn.of_comparison` and `isAuxNormFunctor_iff_model` (every model).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 547
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormDirect` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 560
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.FiberCond` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 393
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneNorm` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 535
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOneObj` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 171
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isOneObj_iff` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 177
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.EOneOrbit` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 279
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneTopology_eq` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 272
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelNorm` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 126
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormIn` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 133
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 142
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormIn.of_comparison` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 240
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormFunctor_iff_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 263
+
+*What differs.*
+- We read $|C_{0,1}|$ in the printed definition as $|E_{0,1}|$, and Definition 18.1.7 as including the continuity of Definition 12.2.1, which Lemma 18.1.8 needs (V18.16; Findings, Chapter 18, items 1, 2).
+
+### V18.16. Lemma 18.1.8 (2017: 18.1), auxiliary norms through a model
+
+*narrower* · with continuity of |N| · printed form: does not hold as we read it · point G.241 settled
+
+**HWZ (§18.1, Lemma 18.1.8, p. 847 (2017: Lemma 18.1)).** $N$ is an auxiliary norm iff $\bar\Gamma^* N$ is an auxiliary norm on the model, for a covering family (an easy lemma left to the reader).
+
+**Proved in Lean.** `lemma_18_1_8 (c) : IsAuxNormDirect N ↔ IsAuxNormIn c.Ψ N`; `isAuxNormDirect_iff_isAuxNormFunctor`. For the printed form, `isAuxNormIn_iff_isAuxNormBook_continuous`: the model condition is the printed form plus continuity of `oneNorm`. Without the continuity ⇒ does not hold as we read it: `lemma_18_1_8_book_without_continuity` (on the reflection bundle `reflQ_baseScale_witness`, `isAuxNormBook_reflJump`, a jump in the base scale; `IsAuxNormBook.baseScale`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_18_1_8` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 781
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormDirect_iff_isAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 787
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_iff_isAuxNormBook_continuous` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 176
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.lemma_18_1_8_book_without_continuity` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 321
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook.baseScale` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 106
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_baseScale_witness` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 306
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.isAuxNormBook_reflJump` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 292
+
+*What differs.*
+- The text prints $N : C \to [0, \infty]$, read as $E$. With the continuity of Definition 12.2.1 the lemma holds as an iff (point G.241 settled); for the printed Definition 18.1.7 the direction ⇒ does not hold as we read it. Definition 18.1.7 presumably includes this continuity (Findings, Chapter 18, item 1).
+
+### V18.17. Definition 18.1.9 (2017: 18.5) and the following paragraph, reflexive $(0,1)$-fibres
+
+*as in the book* · as stated · point G.242 settled
+
+**HWZ (§18.1, Definition 18.1.9 and the following paragraph, p. 847 (2017: Definition 18.5)).** $P$ has reflexive $(0,1)$-fibres if an sc-smooth model has; then any sc-smooth model has.
+
+**Proved in Lean.** `HasReflexiveFibersIn` (one model), `HasReflexiveFibers` (every covering model), `hasReflexiveFibers_iff_model` (one model iff every model); `HasReflexivePieces`, implied (`hasReflexivePieces_iff`, `HasReflexiveFibersIn.hasReflexivePieces`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibersIn` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 271
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibers` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 275
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveFibers_iff_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 284
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexivePieces` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 1061
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexivePieces_iff` — Polyfold/Chapter18/ReflexivePieces.lean, line 103
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibersIn.hasReflexivePieces` — Polyfold/Chapter18/ReflexivePieces.lean, line 98
+
+*What differs.*
+- The paragraph after the definition (the model does not matter) is proved (point G.242 settled).
+
+### V18.18. Definition 18.1.10 (2017: 18.6), reflexive auxiliary norms
+
+*as in the book* · as stated
+
+**HWZ (§18.1, Definition 18.1.10, p. 847 (2017: Definition 18.6)).** An auxiliary norm is reflexive if its pull-back to an sc-smooth model is reflexive (Definition 12.2.8).
+
+**Proved in Lean.** `IsReflexiveAuxNormIn`, `IsReflexiveAuxNormFunctor`, `isReflexiveAuxNormFunctor_iff_model` (one model iff every model).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormIn` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 291
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 296
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormFunctor_iff_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 313
+
+*What differs.*
+- None.
+
+### V18.19. Definition 18.1.11 (2017: 18.7), suitable representatives
+
+*hypotheses explicit* · both forms equivalent
+
+**HWZ (§18.1, Definition 18.1.11, p. 847 (2017: Definition 18.7)).** Reflexivity in terms of $E$: for $|e_k| \to |e|$ in the mixed sense there are suitable representatives, alternatively $|N|(|e|) \le \liminf |N|(|e_k|)$.
+
+**Proved in Lean.** `MixedTendstoOne` (mixed convergence), `HasMixedLscReps` (with representatives) and `HasMixedLsc` (on orbits), equivalent for invariant $N$ (`hasMixedLscReps_iff_hasMixedLsc`); `IsReflexiveAuxNormDirect` with `isReflexiveAuxNormDirect_iff`; a reflexive auxiliary norm in a model gives it (`IsReflexiveAuxNormFunctor.isReflexiveAuxNormDirect`), and conversely with reflexive fibres (`isReflexiveAuxNormDirect_iff_of_hasReflexiveFibers`, `isReflexiveAuxNormDirect_iff_hyp`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.MixedTendstoOne` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 947
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasMixedLscReps` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 957
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasMixedLsc` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 965
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasMixedLscReps_iff_hasMixedLsc` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 974
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormDirect` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 990
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 995
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormFunctor.isReflexiveAuxNormDirect` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 1049
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff_of_hasReflexiveFibers` — Polyfold/Chapter18/ReflexivePieces.lean, line 117
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff_hyp` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 1114
+
+*What differs.*
+- The two forms in the text are shown equivalent; the comparison with Definition 18.1.10 uses reflexive fibres, as the text does.
+
+### V18.20. The paragraph before Theorem 18.1.12, push-forward of auxiliary norms
+
+*as in the book* · as stated · point G.243 settled
+
+**HWZ (§18.1, before Theorem 18.1.12, pp. 847–848 (2017: §18.1)).** An auxiliary norm $n$ on a model pushes forward to an auxiliary norm $N$ for $P$, reflexive if $n$ is; $|X|$ is paracompact since $|C|$ is; so auxiliary norms exist (Theorems 12.2.7, 12.2.11, 12.2.13), and the model does not matter.
+
+**Proved in Lean.** `pushNormFun`, `extendNorm`, `isAuxNormIn_pushNormFun`, `isReflexiveAuxNormIn_pushNormFun`; `hasParacompactOrbitSpace_model`; `exists_isAuxNormFunctor`, `exists_isReflexiveAuxNormFunctor`; `image_auxLe_eq` (sublevel sets correspond; `SectionFunctor.sublevel`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushNormFun` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 370
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.extendNorm` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 336
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_pushNormFun` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 391
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormIn_pushNormFun` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 400
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasParacompactOrbitSpace_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 408
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 418
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isReflexiveAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 426
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.image_auxLe_eq` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 455
+- `Polyfold.GCT.VectorBundle.SectionFunctor.sublevel` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 97
+
+*What differs.*
+- The paragraph is proved (point G.243 settled).
+
+### V18.21. Theorem 18.1.12 (2017: 18.2), existence and extension of auxiliary norms
+
+*hypotheses explicit* · norm over $\partial C$ given in a model
+
+**HWZ (§18.1, Theorem 18.1.12, p. 848 (2017: Theorem 18.2)).** (1) Auxiliary norms exist; (2) with reflexive $(0,1)$-fibres, every auxiliary norm lies between two reflexive ones; (3) $C$ tame: an auxiliary norm over $\partial C$ extends to $E$, reflexive if it is and the fibres are.
+
+**Proved in Lean.** `theorem_18_1_12_one (hF)`; `theorem_18_1_12_two (c) (hB) (hN')`: $N_1 \le N' \le N_2$ reflexive; `theorem_18_1_12_three (c) (hT) (hN : IsBoundaryAuxNormIn c N)` and `theorem_18_1_12_three_reflexive` (`IsBoundaryAuxNormIn`, `IsReflexiveBoundaryAuxNormIn`). Witnesses: `reflQ_exists_isAuxNormDirect`, `reflQ_exists_isAuxNormBook`, `reflQ_exists_isReflexiveAuxNormDirect`, `reflQ_isReflexiveAuxNormDirect_iff`, `reflPair_hasReflexivePieces`, `reflQ_theorem_18_1_12_two`, `reflQ_theorem_18_1_12_three`, `reflQ_theorem_18_1_12_three_reflexive` (weak: $\partial C = \emptyset$); `theorem_18_1_12_three_witness_boundary`, `theorem_18_1_12_three_reflexive_witness_boundary`, `isAuxNormFunctor_halfNorm` ($\partial C \ne \emptyset$).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 801
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_two` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 809
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 912
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three_reflexive` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 924
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryAuxNormIn` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 840
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveBoundaryAuxNormIn` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 853
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_exists_isAuxNormDirect` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 39
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_exists_isAuxNormBook` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 43
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_exists_isReflexiveAuxNormDirect` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 55
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_isReflexiveAuxNormDirect_iff` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 61
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflPair_hasReflexivePieces` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 49
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_two` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 67
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_three` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 77
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_three_reflexive` — Polyfold/Chapter18/AuxiliaryNormsDirectExamples.lean, line 88
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_12_three_witness_boundary` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 677
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_12_three_reflexive_witness_boundary` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 695
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.isAuxNormFunctor_halfNorm` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 450
+
+*What differs.*
+- In (3) the norm over $\partial C$ is given through a model (`IsBoundaryAuxNormIn`), as Theorem 12.2.13 takes it. "We leave it to the reader to transport other results" is a comment (point G.244, nothing to formalize).
+
+### V18.22. (18.3) and the solution category $S_f$
+
+*restated* · solutions smooth: G.245 settled
+
+**HWZ (§18.2, (18.3) and the paragraph before Definition 18.2.1, p. 849 (2017: §18.2)).** The solution category $S_f$ is the full subcategory of zeros of $f$; $|S_f|$ corresponds to the solution set of the model (18.3); since $f$ is regularizing, a solution object is smooth.
+
+**Proved in Lean.** `SectionFunctor.zeroSet`, `isZeroAt_modelSection_iff`, `modelSolutionSet`, `image_solutionSet_modelSection` (the diagram (18.3)), `isCompact_zeroSet_iff` (compactness through the model). That a solution object is smooth: `isSmoothObj_of_mem_zeroSet` (by Remark 18.1.2 (b) in the levels), `solution_isSmoothObj` ($f(\alpha) = 0$ and $\bar F(\alpha) \ne \emptyset$ give $\alpha \in C_\infty$) and `zeroSet_subset_isSmoothObj` ($S_f \subseteq C_\infty$); witness `reflDiag_zeroSet_subset_isSmoothObj`.
+
+- `Polyfold.GCT.VectorBundle.SectionFunctor.zeroSet` — Polyfold/Chapter18/ModelTransfer.lean, line 89
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isZeroAt_modelSection_iff` — Polyfold/Chapter18/ModelTransfer.lean, line 191
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSolutionSet` — Polyfold/Chapter18/ModelTransfer.lean, line 210
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.image_solutionSet_modelSection` — Polyfold/Chapter18/ModelTransfer.lean, line 218
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isCompact_zeroSet_iff` — Polyfold/Chapter18/ModelTransfer.lean, line 242
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isSmoothObj_of_mem_zeroSet` — Polyfold/Chapter18/SolutionRegularity.lean, line 61
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.solution_isSmoothObj` — Polyfold/Chapter18/SolutionRegularity.lean, line 95
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.zeroSet_subset_isSmoothObj` — Polyfold/Chapter18/SolutionRegularity.lean, line 103
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_zeroSet_subset_isSmoothObj` — Polyfold/Chapter18/SolutionRegularity.lean, line 116
+
+*What differs.*
+- $S_f$ is the set of zeros, with orbit space its image in $|C|$. That a solution object is smooth is proved from Remark 18.1.2 (b) in the levels (point G.245 settled).
+
+### V18.23. Definition 18.2.1 (2017: 18.8), compact moduli space, proper, proper$<\infty$
+
+*as in the book* · as stated
+
+**HWZ (§18.2, Definition 18.2.1, p. 849 (2017: Definition 18.8)).** (1) $|S_f|$ compact; (2) proper: $|S_f|$ compact and for every auxiliary norm a neighbourhood $U$ with $\{|N| \circ |f| \le 1\} \cap U$ relatively compact; (3) proper$<\infty$: the same for every $C < \infty$.
+
+**Proved in Lean.** `SectionFunctor.HasCompactModuliSpace` (`IsCompact (π '' zeroSet)`), `IsProper`, `IsProperLtInfty` (for every `IsAuxNormFunctor`).
+
+- `Polyfold.GCT.VectorBundle.SectionFunctor.HasCompactModuliSpace` — Polyfold/Chapter18/Compactness.lean, line 99
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProper` — Polyfold/Chapter18/Compactness.lean, line 136
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProperLtInfty` — Polyfold/Chapter18/Compactness.lean, line 144
+
+*What differs.*
+- The 2021 definition is stated for sc-smooth section functors and adds (2), (3); the definitions are taken for any section functor and used for sc-Fredholm ones.
+
+### V18.24. Theorem 18.2.2 (2017: 18.3), compact moduli space iff proper iff proper$<\infty$
+
+*hypotheses explicit* · $\bar F(\alpha) \ne \emptyset$
+
+**HWZ (§18.2, Theorem 18.2.2, p. 850 (2017: Theorem 18.3)).** For an sc-Fredholm section functor the three conditions of Definition 18.2.1 are equivalent (from Theorem 12.4.2).
+
+**Proved in Lean.** `theorem_18_2_2 (hF) (hf) : TFAE [HasCompactModuliSpace, IsProper, IsProperLtInfty]`. Witnesses: `reflDiag_hasCompactModuliSpace`, `reflDiag_isProper`, `reflDiag_isProperLtInfty`, `halfF_hasCompactModuliSpace`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_2` — Polyfold/Chapter18/Compactness.lean, line 200
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_hasCompactModuliSpace` — Polyfold/Chapter18/CompactnessExamples.lean, line 111
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_isProper` — Polyfold/Chapter18/CompactnessExamples.lean, line 117
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_isProperLtInfty` — Polyfold/Chapter18/CompactnessExamples.lean, line 122
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfF_hasCompactModuliSpace` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 133
+
+*What differs.*
+- None.
+
+### V18.25. Definition 18.2.3 (2017: 18.9) and the observation, controlling compactness
+
+*as in the book* · as stated · point G.246 settled
+
+**HWZ (§18.2, Definition 18.2.3 and the following observation, p. 850 (2017: Definition 18.9)).** $(N, U)$ controls compactness if $\mathrm{cl}\{z \in U : |N||f|(z) \le 1\}$ is compact; strongly if moreover $U$ is a neighbourhood of $|S_f|$ with closure conditions; a pair that controls compactness gives one that strongly controls it.
+
+**Proved in Lean.** `SectionFunctor.ControlsCompactness`, `SectionFunctor.StronglyControlsCompactness`; `definition_18_2_3_observation (hF hf hS hN)`: controls for some $U$ iff strongly controls for some $U'$; `exists_stronglyControlsCompactness_subset`. Witnesses: `reflDiag_stronglyControlsCompactness`, `halfF_controlsCompactness_halfNorm`.
+
+- `Polyfold.GCT.VectorBundle.SectionFunctor.ControlsCompactness` — Polyfold/Chapter18/Compactness.lean, line 103
+- `Polyfold.GCT.VectorBundle.SectionFunctor.StronglyControlsCompactness` — Polyfold/Chapter18/Compactness.lean, line 108
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_2_3_observation` — Polyfold/Chapter18/Compactness.lean, line 239
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_stronglyControlsCompactness_subset` — Polyfold/Chapter18/Compactness.lean, line 224
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_stronglyControlsCompactness` — Polyfold/Chapter18/CompactnessExamples.lean, line 128
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfF_controlsCompactness_halfNorm` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 471
+
+*What differs.*
+- The 2021 definition adds "strongly controls"; the observation is proved (point G.246 settled).
+
+### V18.26. Definition 18.2.4 (2017: 18.10), reflexive local compactness
+
+*as in the book* · $N : C \to$ read as $E$
+
+**HWZ (§18.2, Definition 18.2.4, p. 850 (2017: Definition 18.10)).** $f$ has the reflexive local compactness property for a reflexive auxiliary norm $N$, the local form of Definition 12.4.5.
+
+**Proved in Lean.** `HasReflexiveLocalCompactness`; `hasReflexiveLocalCompactness_of_locallyCompact`. Witnesses: `reflDiag_hasReflexiveLocalCompactness`, `halfF_hasReflexiveLocalCompactness`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveLocalCompactness` — Polyfold/Chapter18/Compactness.lean, line 258
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveLocalCompactness_of_locallyCompact` — Polyfold/Chapter18/CompactnessExamples.lean, line 53
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_hasReflexiveLocalCompactness` — Polyfold/Chapter18/CompactnessExamples.lean, line 138
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfF_hasReflexiveLocalCompactness` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 516
+
+*What differs.*
+- The text prints $N : C \to [0, \infty]$, read as $E$.
+
+### V18.27. Remark 18.2.5 (2017: 18.3), points not on level 1
+
+*hypotheses explicit* · uses lower semicontinuity
+
+**HWZ (§18.2, Remark 18.2.5, p. 850 (2017: Remark 18.3)).** At an object not on level 1, $N(f(\alpha)) = \infty$, and a neighbourhood of $|\alpha|$ misses the sublevel set and has compact closure.
+
+**Proved in Lean.** `remark_18_2_5 (hF hB hf hN) (hα)`: $N(f\alpha) = \top$ and an open $U \ni \pi\alpha$ with $U \cap$ `sublevel` $= \emptyset$ and compact closure.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_2_5` — Polyfold/Chapter18/Compactness.lean, line 279
+
+*What differs.*
+- The argument of the text uses the lower semicontinuity of a reflexive $N$; no local compactness is needed. All examples here are finite-dimensional, so no witness has an object off level 1 (Findings, Chapter 18, item 7).
+
+### V18.28. Theorem 18.2.6 (2017: 18.4), extending a controlling neighbourhood
+
+*hypotheses explicit* · $N : C \to$ read as $E$
+
+**HWZ (§18.2, Theorem 18.2.6, p. 851 (2017: Theorem 18.4)).** With a reflexive auxiliary norm and reflexive local compactness, an open $U_b$ of $|\partial C|$ controlling compactness of $\partial f$ extends to $U$ with $U \cap |\partial C| = U_b$ controlling compactness (from Theorem 12.4.6).
+
+**Proved in Lean.** `theorem_18_2_6 (hF) (hT) (hB) (hN) (hf hS hlc) (hUb hSUb hcpt)`: $\exists U$, $U \cap \pi(\partial C) = U_b$, `ControlsCompactness N U`; `mem_boundary_model_iff`. Witnesses: `reflection_boundarySet`, `theorem_18_2_6_witness` (weak: $\partial C = \emptyset$), `theorem_18_2_6_witness_boundary` ($\partial C \ne \emptyset$).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6` — Polyfold/Chapter18/Compactness.lean, line 338
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.mem_boundary_model_iff` — Polyfold/Chapter18/Compactness.lean, line 319
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_boundarySet` — Polyfold/Chapter18/CompactnessExamples.lean, line 144
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_2_6_witness` — Polyfold/Chapter18/CompactnessExamples.lean, line 155
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_2_6_witness_boundary` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 579
+
+*What differs.*
+- The text prints $N : C \to \dots$, read as $E$. The hypothesis `hT` is carried but not used.
+
+### V18.29. Remark 18.2.7 (2017: 18.4), norms given only over the boundary
+
+*nothing to formalize* · prose
+
+**HWZ (§18.2, Remark 18.2.7, p. 851 (2017: Remark 18.4)).** When $N$ is first given only over $E|\partial C$, one extends it by Theorem 18.1.12 (3) and then extends $U$ by Theorem 18.2.6.
+
+**Proved in Lean.** Commentary. The two steps are `theorem_18_1_12_three` (V18.21) and `theorem_18_2_6` (V18.28).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 912
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6` — Polyfold/Chapter18/Compactness.lean, line 338
+
+*What differs.*
+- None.
+
+### V18.30. Definition 18.3.1 (2017: 18.11), sc⁺-multisection functors
+
+*as in the book* · as stated
+
+**HWZ (§18.3, Definition 18.3.1, p. 852 (2017: Definition 18.11)).** A functor $\Lambda : E \to \mathbb Q^+$ is an sc⁺-multisection functor if $\bar\Gamma^*\Lambda$ is an sc⁺-multisection of an sc-smooth model.
+
+**Proved in Lean.** `IsScPlusMultisectionIn` (in a model), `IsScPlusMultisectionFunctor` (invariant and in some model); `bundlePull_eq_pullMult`, `isWFunctor_bundlePull`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionIn` — Polyfold/Chapter18/MultisectionFunctors.lean, line 208
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionFunctor` — Polyfold/Chapter18/MultisectionFunctors.lean, line 214
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_eq_pullMult` — Polyfold/Chapter18/MultisectionFunctors.lean, line 232
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isWFunctor_bundlePull` — Polyfold/Chapter18/MultisectionFunctors.lean, line 200
+
+*What differs.*
+- None.
+
+### V18.31. Remark 18.3.2 (2017: 18.5), the model does not matter
+
+*as in the book* · as stated
+
+**HWZ (§18.3, Remark 18.3.2, p. 852 (2017: Remark 18.5)).** Definition 18.3.1 does not depend on the choice of the sc-smooth model.
+
+**Proved in Lean.** `remark_18_3_2 (c)`: sc⁺-multisection functor iff invariant and an sc⁺-multisection in the model of $c$; `IsScPlusMultisectionIn.of_comparison`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_2` — Polyfold/Chapter18/MultisectionFunctors.lean, line 262
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionIn.of_comparison` — Polyfold/Chapter18/MultisectionFunctors.lean, line 250
+
+*What differs.*
+- The invitation in the introduction of §18.3 to treat the remaining concepts is a comment (point G.247, nothing to formalize).
+
+### V18.32. The pointwise norm $N(\Lambda)$
+
+*as in the book* · as stated
+
+**HWZ (§18.3, after Remark 18.3.2, p. 852 (2017: §18.3)).** $N(\Lambda)(\alpha)$ is the maximum of $N(e)$ over $e$ in the fibre with $\Lambda(e) > 0$.
+
+**Proved in Lean.** `pointwiseNormFunctor` (a supremum), `pointwiseNormFunctor_tgt`, `pointwiseNorm_bundlePull` (the model's $N(\Lambda)$), `pointwiseNormFunctor_isGreatest` (the supremum is a maximum, attained, finite set).
+
+- `Polyfold.GCT.VectorBundle.pointwiseNormFunctor` — Polyfold/Chapter18/MultisectionFunctors.lean, line 147
+- `Polyfold.GCT.VectorBundle.pointwiseNormFunctor_tgt` — Polyfold/Chapter18/MultisectionFunctors.lean, line 151
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pointwiseNorm_bundlePull` — Polyfold/Chapter18/MultisectionFunctors.lean, line 382
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pointwiseNormFunctor_isGreatest` — Polyfold/Chapter18/MultisectionFunctors.lean, line 433
+
+*What differs.*
+- None.
+
+### V18.33. Definition 18.3.3 (2017: 18.12), structurable sc⁺-multisection functors
+
+*as in the book* · as stated
+
+**HWZ (§18.3, Definition 18.3.3, p. 852 (2017: Definition 18.12)).** $\Lambda$ is structurable if $\bar\Gamma^*\Lambda$ is structurable in an sc-smooth model.
+
+**Proved in Lean.** `IsStructurableIn`, `IsStructurableFunctor`, `IsStructurableIn.of_comparison`, `IsStructurableFunctor.isScPlusMultisectionFunctor`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableIn` — Polyfold/Chapter18/MultisectionFunctors.lean, line 269
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableFunctor` — Polyfold/Chapter18/MultisectionFunctors.lean, line 274
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableIn.of_comparison` — Polyfold/Chapter18/MultisectionFunctors.lean, line 281
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableFunctor.isScPlusMultisectionFunctor` — Polyfold/Chapter18/MultisectionFunctors.lean, line 298
+
+*What differs.*
+- None.
+
+### V18.34. Remark 18.3.4 (new in the 2021 edition), structurability is intrinsic
+
+*as in the book* · as stated
+
+**HWZ (§18.3, Remark 18.3.4, p. 852 (new in the 2021 edition; 2017: the sentence after Definition 18.12)).** As in Section 13.4, structurability does not depend on the model.
+
+**Proved in Lean.** `remark_18_3_4`: structurable iff invariant and structurable in the model of any covering family.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_4` — Polyfold/Chapter18/MultisectionFunctors.lean, line 293
+
+*What differs.*
+- None.
+
+### V18.35. Sums $\Lambda_1 \oplus \Lambda_2$ and products $\beta \odot \Lambda$
+
+*as in the book* · as stated
+
+**HWZ (§18.3, before Theorem 18.3.5, pp. 852–853 (2017: §18.3)).** The sum of two sc⁺-multisection functors and the product with an sc-smooth function functor $\beta$, defined as in §13.3.
+
+**Proved in Lean.** `multisectionFunctorAdd`, `multisectionFunctorSmul` with `isMorInvariant_multisectionFunctorAdd`, `isMorInvariant_multisectionFunctorSmul`, `bundlePull_multisectionFunctorAdd`, `bundlePull_multisectionFunctorSmul`; `PolyfoldConstruction.IsScSmoothFunctionFunctor`; `isScPlusMultisectionFunctor_add_smul`.
+
+- `Polyfold.GCT.VectorBundle.multisectionFunctorAdd` — Polyfold/Chapter18/MultisectionFunctors.lean, line 106
+- `Polyfold.GCT.VectorBundle.multisectionFunctorSmul` — Polyfold/Chapter18/MultisectionFunctors.lean, line 113
+- `Polyfold.GCT.VectorBundle.isMorInvariant_multisectionFunctorAdd` — Polyfold/Chapter18/MultisectionFunctors.lean, line 117
+- `Polyfold.GCT.VectorBundle.isMorInvariant_multisectionFunctorSmul` — Polyfold/Chapter18/MultisectionFunctors.lean, line 129
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_multisectionFunctorAdd` — Polyfold/Chapter18/MultisectionFunctors.lean, line 306
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_multisectionFunctorSmul` — Polyfold/Chapter18/MultisectionFunctors.lean, line 328
+- `Polyfold.GCT.PolyfoldConstruction.IsScSmoothFunctionFunctor` — Polyfold/Chapter18/MultisectionFunctors.lean, line 479
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScPlusMultisectionFunctor_add_smul` — Polyfold/Chapter18/MultisectionFunctors.lean, line 506
+
+*What differs.*
+- None.
+
+### V18.36. Theorem 18.3.5 (2017: 18.5), sums and products of structurable ones
+
+*as in the book* · as stated
+
+**HWZ (§18.3, Theorem 18.3.5, p. 853 (2017: Theorem 18.5)).** $\Lambda_1 \oplus \Lambda_2$ and $\beta \odot \Lambda_1$ are structurable if $\Lambda_1$, $\Lambda_2$ are (from §13.3).
+
+**Proved in Lean.** `theorem_18_3_5 (h₁ h₂ hβ)`. Witness: `theorem_18_3_5_witness`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_5` — Polyfold/Chapter18/MultisectionFunctors.lean, line 526
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_3_5_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 166
+
+*What differs.*
+- None.
+
+### V18.37. Theorem 18.3.6 (2017: 18.6), pull-back by a proper covering functor
+
+*restated* · covering read through the models
+
+**HWZ (§18.3, Theorem 18.3.6, p. 853 (2017: Theorem 18.6)).** For an sc-smooth strong bundle proper covering functor $\tilde P$ over $\tilde C \to C$ and structurable $\Lambda$, $\tilde P^*\Lambda$ is structurable (from Theorem 13.4.4).
+
+**Proved in Lean.** `StrongBundleProperCovering Q' Q` (the covering functor with its models), `theorem_18_3_6 (P) (h)`: $\Lambda \circ \tilde P$ is structurable. Witnesses: `reflIdCovering`, `theorem_18_3_6_witness` (weak: the identity covering).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.StrongBundleProperCovering` — Polyfold/Chapter18/MultisectionFunctors.lean, line 549
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6` — Polyfold/Chapter18/MultisectionFunctors.lean, line 575
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflIdCovering` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 180
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_3_6_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 193
+
+*What differs.*
+- We read the sc-smooth strong bundle proper covering functor of §17.8 through models, as the text indicates on p. 842: a proper strong bundle covering of Definition 8.5.9 between sc-smooth models with the square of (17.106) commuting up to isomorphism (Findings, Chapter 18, item 9). The witness is weak.
+
+### V18.38. Definition 18.4.1 (2017: 18.13), partitions of unity and bump functions
+
+*as in the book* · as stated
+
+**HWZ (§18.4, Definition 18.4.1, p. 853 (2017: Definition 18.13)).** $C$ admits sc-smooth partitions of unity (bump functions) if an sc-smooth model does.
+
+**Proved in Lean.** `PolyfoldConstruction.AdmitsModelPartitionsOfUnity` (Definition 7.5.5 in a model), `PolyfoldConstruction.AdmitsModelBumpFunctions` (Definition 12.3.1, pointwise). Witnesses: `reflection_admitsModelPartitionsOfUnity`, `reflection_admitsModelBumpFunctions`, `halfS_admitsModelBumpFunctions`.
+
+- `Polyfold.GCT.PolyfoldConstruction.AdmitsModelPartitionsOfUnity` — Polyfold/Chapter18/MultisectionConstructions.lean, line 98
+- `Polyfold.GCT.PolyfoldConstruction.AdmitsModelBumpFunctions` — Polyfold/Chapter18/MultisectionConstructions.lean, line 103
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_admitsModelPartitionsOfUnity` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 122
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_admitsModelBumpFunctions` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 128
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfS_admitsModelBumpFunctions` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 183
+
+*What differs.*
+- None.
+
+### V18.39. Remark 18.4.2 (2017: 18.6), the model does not matter
+
+*as in the book* · as stated
+
+**HWZ (§18.4, Remark 18.4.2, pp. 853–854 (2017: Remark 18.6)).** Partitions of unity and bump functions are preserved by generalized isomorphisms, so the model does not matter; M-polyfold partitions of unity on the model give ep-groupoid ones.
+
+**Proved in Lean.** `remark_18_4_2 (c)`: Definition 18.4.1 iff in the model of $c$, for both notions, and partitions of unity on the object M-polyfold give them in the ep-groupoid sense; `remark_18_4_2_generalizedIso`; `hasScPartitionsOfUnity_model_iff`, `admitsBumpFunctionsPointwise_model_iff`.
+
+- `Polyfold.GCT.PolyfoldConstruction.remark_18_4_2` — Polyfold/Chapter18/MultisectionConstructions.lean, line 126
+- `Polyfold.GCT.PolyfoldConstruction.remark_18_4_2_generalizedIso` — Polyfold/Chapter18/MultisectionConstructions.lean, line 138
+- `Polyfold.GCT.PolyfoldConstruction.hasScPartitionsOfUnity_model_iff` — Polyfold/Chapter18/MultisectionConstructions.lean, line 108
+- `Polyfold.GCT.PolyfoldConstruction.admitsBumpFunctionsPointwise_model_iff` — Polyfold/Chapter18/MultisectionConstructions.lean, line 115
+
+*What differs.*
+- The M-polyfold notion on the object M-polyfold, which Theorem 14.1.9 uses, is not compared between two models (`HasModelMPolyfoldPartitionsOfUnity`, V18.41).
+
+### V18.40. The construction on p. 854 and Proposition 18.4.3 (2017: 18.1)
+
+*as in the book* · as stated · point G.248 settled
+
+**HWZ (§18.4, the construction before Proposition 18.4.3 and Proposition 18.4.3, pp. 854–855 (2017: Proposition 18.1)).** With sc-smooth bump functions, a local sc⁺-section near $q_0$ and a bump function give an sc⁺-multisection functor $\Lambda$, independent of the choice of $\varphi$, with $\Lambda(e) > 0$, atomic in the model and structurable (easy proof left to the reader, from 13.5.3).
+
+**Proved in Lean.** `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)`: $\exists \Lambda$, sc⁺-multisection functor, $0 < \Lambda(e)$, atomic in the model, structurable; `proposition_18_4_3_formula` (the formula); its independence of $\varphi$ through `AtomicData.isWFunctor_mult`. Witness: `proposition_18_4_3_witness`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_atomicData` — Polyfold/Chapter18/MultisectionConstructions.lean, line 185
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3` — Polyfold/Chapter18/MultisectionConstructions.lean, line 206
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula` — Polyfold/Chapter18/MultisectionConstructions.lean, line 233
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.proposition_18_4_3_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 146
+
+*What differs.*
+- The independence of $\varphi$ and the proof left to the reader are written out (point G.248 settled). The paragraph after it (sums and push-forwards, details left to the reader) is a comment (point G.249).
+
+### V18.41. Theorem 18.4.4 (2017: 18.7), the ∂-extension theorem
+
+*hypotheses explicit* · partitions of unity as 14.1.9 uses them
+
+**HWZ (§18.4, Theorem 18.4.4, pp. 855–856 (2017: Theorem 18.7)).** $C$ tame with sc-smooth partitions of unity, $N$ an auxiliary norm, $\Lambda$ structurable over $\partial C$ with domain support in an open $U$, $\beta$ continuous with support in $U$ and $N(\Lambda) < \beta$ over the boundary: there is a structurable $\Lambda'$ with $N(\Lambda') \le \beta$, domain support in $U$, equal to $\Lambda$ over $\partial C$.
+
+**Proved in Lean.** In a model: `theorem_18_4_4 (c) (hT) (hPU) (hN : IsAuxNormIn) (hΛ)`, with `orbitDomSupp`, `orbitBoundaryDomSupp`. Free of the model: `theorem_18_4_4_modelFree (hT) (hPU : HasModelMPolyfoldPartitionsOfUnity) (hN : IsAuxNormFunctor) (hΛ : IsBoundaryStructurableFunctor)`; `IsBoundaryStructurableIn`, `IsBoundaryStructurableFunctor`, `IsBoundaryStructurableIn.of_comparison`, `isBoundaryStructurableFunctor_iff` (Proposition 14.1.8, one model iff every model). Witnesses: `theorem_18_4_4_witness`, `theorem_18_4_4_modelFree_witness`, `reflQ_hasModelMPolyfoldPartitionsOfUnity` (weak: $\partial C = \emptyset$); `halfQ_hasModelMPolyfoldPartitionsOfUnity`, `theorem_18_4_4_modelFree_witness_boundary` (weak: $\Lambda_0$, empty domain support), `theorem_18_4_4_modelFree_witness_constDatum` (domain support the closure of $|\partial C|$, through the corner with isotropy $\mathbb Z/2$), `constFunctor`, `isBoundaryStructurableFunctor_constFunctor`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4` — Polyfold/Chapter18/MultisectionConstructions.lean, line 410
+- `Polyfold.GCT.VectorBundle.orbitDomSupp` — Polyfold/Chapter18/MultisectionConstructions.lean, line 266
+- `Polyfold.GCT.VectorBundle.orbitBoundaryDomSupp` — Polyfold/Chapter18/MultisectionConstructions.lean, line 272
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 377
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableIn` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 332
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableFunctor` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 340
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableIn.of_comparison` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 346
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isBoundaryStructurableFunctor_iff` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 356
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasModelMPolyfoldPartitionsOfUnity` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 366
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_4_4_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 212
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_4_4_modelFree_witness` — Polyfold/Chapter18/PerturbationModelIndependenceExamples.lean, line 96
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ_hasModelMPolyfoldPartitionsOfUnity` — Polyfold/Chapter18/PerturbationModelIndependenceExamples.lean, line 69
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfQ_hasModelMPolyfoldPartitionsOfUnity` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 179
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_4_4_modelFree_witness_boundary` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 336
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_4_4_modelFree_witness_constDatum` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 499
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.constFunctor` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 255
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.isBoundaryStructurableFunctor_constFunctor` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 301
+
+*What differs.*
+- Definition 18.4.1 is read as Theorem 14.1.9 uses it, on the object M-polyfold (Findings, Chapter 18, item 10). Structurability over $\partial C$ is read in a model and shown independent of it.
+
+### V18.42. The orientation category $O_f$ and Definition 18.5.1 (2017: 18.14)
+
+*hypotheses explicit* · tame, bump functions (Thm 6.6.17)
+
+**HWZ (§18.5, the paragraph before Definition 18.5.1 and Definition 18.5.1, p. 857 (2017: Definition 18.14)).** For smooth $\alpha$, $\mathrm{Lin}(f, \alpha)$ is contractible and $\mathrm{DET}(f, \alpha)$ has two orientations; $O_f$ has objects $(\alpha, o)$ and morphisms $(\varphi, o)$ from $(s(\varphi), o)$ to $(t(\varphi), \varphi_* o)$, fibring over $C_\infty$.
+
+**Proved in Lean.** `DetOr` (the two orientations at $\alpha$, through a reference model), `orPush` with `orPush_unit`, `orPush_comp`; `OrCatObj`, `OrCatMor` and `definition_18_5_1_hyp` (source and target); `refPt`, `refMor`; `orPush_bijective_two` (two orientations, $\varphi_*$ a bijection). The category $\widehat{Gr}_F(C) \to C_\infty$ of p. 856: `GrFHatCat`, the category of elements of `grFHatFunctor` ($\alpha \mapsto$ the $\mathbb Q^+$-formal sums of oriented sc-Fredholm operators $T_\alpha C \to E_\alpha$, $\varphi \mapsto \varphi_*$ termwise, functor laws proved), with $\hat\pi$ (`grFHatProj`) and the printed morphisms $(\varphi, \hat L)$ (`GrFMor`, every morphism is one); the elements of $\mathrm{Lin}(f, \alpha)$ as sc-Fredholm operators with their two orientations (`linFredOp`, `orFredPush_linOrLift`). Witness `reflection_grFHat`. The chart-level orientations `DetOr` are not identified with the rays of the determinant on $\mathrm{Lin}(f, \alpha)$.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.DetOr` — Polyfold/Chapter18/Orientations.lean, line 720
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush` — Polyfold/Chapter18/Orientations.lean, line 733
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_unit` — Polyfold/Chapter18/Orientations.lean, line 756
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_comp` — Polyfold/Chapter18/Orientations.lean, line 763
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrCatObj` — Polyfold/Chapter18/Orientations.lean, line 782
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrCatMor` — Polyfold/Chapter18/Orientations.lean, line 790
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_5_1_hyp` — Polyfold/Chapter18/Orientations.lean, line 807
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.refPt` — Polyfold/Chapter18/Orientations.lean, line 696
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.refMor` — Polyfold/Chapter18/Orientations.lean, line 726
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_bijective_two` — Polyfold/Chapter18/Orientations.lean, line 814
+- `Polyfold.GCT.VectorBundle.grFHatFunctor` — Polyfold/Chapter18/OrientationCategory.lean, line 696
+- `Polyfold.GCT.VectorBundle.GrFHatCat` — Polyfold/Chapter18/OrientationCategory.lean, line 726
+- `Polyfold.GCT.VectorBundle.grFHatProj` — Polyfold/Chapter18/OrientationCategory.lean, line 730
+- `Polyfold.GCT.VectorBundle.GrFMor` — Polyfold/Chapter18/OrientationCategory.lean, line 770
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linFredOp` — Polyfold/Chapter18/OrientationCategory.lean, line 829
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orFredPush_linOrLift` — Polyfold/Chapter18/OrientationCategory.lean, line 879
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_grFHat` — Polyfold/Chapter18/OrientationCategory.lean, line 924
+
+*What differs.*
+- The orientations are read through the determinant of Part III in a reference model, which needs a tame $C$ with sc-smooth bump functions as in Theorem 6.6.17 (Findings, Chapter 18, item 11). The category $\widehat{Gr}_F(C)$ is built (point G.256 settled).
+
+### V18.43. Section functors of $\sigma$ and the obstruction from isotropy
+
+*as in the book* · as stated
+
+**HWZ (§18.5, after Definition 18.5.1, pp. 857–858 (2017: §18.5)).** $\sigma$ restricted to each fibre is a two-point bijection; a section functor $o$ of $\sigma$ satisfies $o_{t(\varphi)} = \varphi_* o_{s(\varphi)}$, so an isotropy $g$ with $g_* o = -o$ is an obstruction.
+
+**Proved in Lean.** `OrSection`, `IsOrSectionFunctor`; `not_exists_isOrSectionFunctor`: an isotropy $g$ with $g_*\omega \ne \omega$ excludes section functors; `Polyfold.otherOr` (the opposite orientation), `isModelOrientation_otherOr`. Witnesses: `reflDiag_orPush_isotropy`, `reflDiag_orPush_isotropy_eq` ($g_* = \mathrm{Id}$ for the diagonal section), `EpStrongBundle.orMor_eq_self_of_bijective`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrSection` — Polyfold/Chapter18/Orientations.lean, line 824
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrSectionFunctor` — Polyfold/Chapter18/Orientations.lean, line 827
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.not_exists_isOrSectionFunctor` — Polyfold/Chapter18/Orientations.lean, line 835
+- `Polyfold.otherOr` — Polyfold/Chapter18/Orientations.lean, line 187
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isModelOrientation_otherOr` — Polyfold/Chapter18/Orientations.lean, line 1216
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_orPush_isotropy` — Polyfold/Chapter18/OrientationsExamples.lean, line 61
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_orPush_isotropy_eq` — Polyfold/Chapter18/OrientationWitness.lean, line 585
+- `Polyfold.EpStrongBundle.orMor_eq_self_of_bijective` — Polyfold/Chapter18/OrientationWitness.lean, line 211
+
+*What differs.*
+- None.
+
+### V18.44. The push-forward $\bar\Psi_*$ of orientations and the germ identity
+
+*as in the book* · as stated · point G.250 settled
+
+**HWZ (§18.5, before Definition 18.5.2, p. 858 (2017: §18.5)).** $\bar\Psi_*$ maps sc-Fredholm operators at $q$ to those at $\Psi(q)$ and orientations to orientations, with inverse $\bar\Psi^*$; $o_{\bar\Psi} = \bar\Psi^* o$, and for a morphism $\Phi$, $\bar\Phi^* o_{\bar\Psi'} = o_{\bar\Psi}$ near $\bar q$.
+
+**Proved in Lean.** `toRef`, `catOf` (between section functors of $\sigma$ and invariant model orientations, `isOrSectionFunctor_catOf`), `pullCat` ($\bar\Gamma^* o$ in a model), `inclPullOr_pullCat`, `modelTransport` (between two models); `pullCat_germ` (the germ identity).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.toRef` — Polyfold/Chapter18/Orientations.lean, line 867
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.catOf` — Polyfold/Chapter18/Orientations.lean, line 873
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isOrSectionFunctor_catOf` — Polyfold/Chapter18/Orientations.lean, line 876
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat` — Polyfold/Chapter18/Orientations.lean, line 967
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPullOr_pullCat` — Polyfold/Chapter18/Orientations.lean, line 977
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelTransport` — Polyfold/Chapter18/Orientations.lean, line 480
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat_germ` — Polyfold/Chapter18/Orientations.lean, line 1308
+
+*What differs.*
+- The paragraph and the germ identity are proved (point G.250 settled).
+
+### V18.45. Definition 18.5.2 (2017: 18.15), the continuity property
+
+*restated* · $\bar\Gamma^* o$ read as $\bar\Psi^* o$
+
+**HWZ (§18.5, Definition 18.5.2, pp. 858–859 (2017: Definition 18.15)).** A section functor $o$ of $\sigma$ has the continuity property if, for every $z$, representative $\alpha_z$, $\bar\Psi \in \bar F(\alpha_z)$ and $\bar o$ over $\alpha_z$, the orientations $\bar\Gamma^* o$ of $f_{\bar\Psi}$ are related by continuation near $\bar o$.
+
+**Proved in Lean.** `HasContinuityProperty`: for every smooth $\alpha$, $\bar\Psi \in \bar F(\alpha)$ and $q$ with $\Psi(q) = \alpha$, a continuous orientation (Definition 6.6.12) of the pulled-back orientations on a neighbourhood of $q$ in the model of $R \sqcup \{\bar\Psi\}$; `IsModelContOrOn`. Witness: `exists_isModelContOrOn_reflDiag`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasContinuityProperty` — Polyfold/Chapter18/Orientations.lean, line 1004
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelContOrOn` — Polyfold/Chapter18/Orientations.lean, line 555
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.exists_isModelContOrOn_reflDiag` — Polyfold/Chapter18/OrientationWitness.lean, line 472
+
+*What differs.*
+- We read $\bar\Gamma^* o$ as $\bar\Psi^* o$, $\Psi(\bar o) = \alpha$ as $\alpha_z$, and "related by continuation" as Definition 6.6.12 (Findings, Chapter 18, item 11).
+
+### V18.46. Remark 18.5.3 (2017: 18.7), one check per orbit and one model
+
+*stronger* · both reductions as iffs
+
+**HWZ (§18.5, Remark 18.5.3, p. 859 (2017: Remark 18.7)).** The definition checks a set of objects per orbit; it suffices to check one representative, and in any model.
+
+**Proved in Lean.** `remark_18_5_3_hyp (ho)`: the continuity property iff continuity in every model (`IsModelContOrOn` on all of the model), and iff the form with one representative per orbit (`HasContinuityPropertyRep`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_3_hyp` — Polyfold/Chapter18/Orientations.lean, line 1100
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasContinuityPropertyRep` — Polyfold/Chapter18/Orientations.lean, line 1051
+
+*What differs.*
+- Both reductions are proved as equivalences.
+
+### V18.47. Definition 18.5.4 (2017: 18.16), orientations of $f$
+
+*as in the book* · as stated
+
+**HWZ (§18.5, Definition 18.5.4, p. 859 (2017: Definition 18.16)).** An orientation of $f$ is a section functor of $\sigma$ with the continuity property; $f$ is orientable if one exists.
+
+**Proved in Lean.** `IsOrientation` (`IsOrSectionFunctor` and `HasContinuityProperty`), `IsOrientable`; `exists_two_orientations` (at least two, differing at every smooth $\alpha$). In the model: `IsModelOrientation`, `isModelOrientation_iff`. Witnesses: `reflDiag_isOrientable`, `reflDiag_exists_two_orientations`, `reflDiag_two_orientations`, `exists_isModelOrientation_reflDiag`, `reflection_isSmoothObj`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientation` — Polyfold/Chapter18/Orientations.lean, line 1014
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientable` — Polyfold/Chapter18/Orientations.lean, line 1018
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_two_orientations` — Polyfold/Chapter18/Orientations.lean, line 1228
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelOrientation` — Polyfold/Chapter18/Orientations.lean, line 567
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isModelOrientation_iff` — Polyfold/Chapter18/Orientations.lean, line 1191
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_isOrientable` — Polyfold/Chapter18/OrientationWitness.lean, line 566
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_exists_two_orientations` — Polyfold/Chapter18/OrientationWitness.lean, line 573
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_two_orientations` — Polyfold/Chapter18/OrientationsExamples.lean, line 75
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.exists_isModelOrientation_reflDiag` — Polyfold/Chapter18/OrientationWitness.lean, line 556
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_isSmoothObj` — Polyfold/Chapter18/OrientationsExamples.lean, line 38
+
+*What differs.*
+- None.
+
+### V18.48. Remark 18.5.5 (2017: 18.8), $|\sigma|$ is $2:1$ with a continuous section
+
+*hypotheses explicit* · topology of Theorem 6.6.17 · point G.251 settled
+
+**HWZ (§18.5, Remark 18.5.5, p. 859 (2017: Remark 18.8)).** For orientable $f$, $|\sigma| : |O_f| \to |C_\infty|$ is $2:1$ and an orientation gives a continuous section; conversely (left to the reader).
+
+**Proved in Lean.** `remark_18_5_5_mp_hyp (ht) (h)` and `remark_18_5_5_mpr_hyp (ht) (h₁) (hs) (hsc)`, with $|\sigma|$ read as the orbit map of $\sigma$ in the reference model, for a topology `t` with the properties of Theorem 6.6.17 (`IsOrientationTopology`).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mp_hyp` — Polyfold/Chapter18/Orientations.lean, line 1251
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mpr_hyp` — Polyfold/Chapter18/Orientations.lean, line 1275
+
+*What differs.*
+- The text gives no topology on $|O_f|$; we read it through the reference model (point G.251 settled).
+
+### V18.49. Proposition 18.5.6 (2017: 18.2), orientations through models
+
+*stronger* · (3) as an iff · point G.252 settled
+
+**HWZ (§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)).** (1) $f$ is orientable iff $f_{\bar\Psi}$ is, for a model; (2) an orientation of $f$ gives orientations of the models; (3) model orientations $o$, $o'$ come from one orientation of $f$ iff they correspond under the comparison (left to the reader, along Theorem 12.5.7).
+
+**Proved in Lean.** `proposition_18_5_6_one_hyp (c)`, `proposition_18_5_6_two_hyp`, `proposition_18_5_6_three_hyp (c c' ho ho')`: $(\exists O, \bar\Gamma_c^* O = o \wedge \bar\Gamma_{c'}^* O = o')$ iff `modelTransport c' c o' = o`. Witness: `reflDiag_orientation_hyp`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp` — Polyfold/Chapter18/Orientations.lean, line 1142
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp` — Polyfold/Chapter18/Orientations.lean, line 1153
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp` — Polyfold/Chapter18/Orientations.lean, line 1170
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_orientation_hyp` — Polyfold/Chapter18/OrientationsExamples.lean, line 49
+
+*What differs.*
+- (3) is proved as an iff (point G.252 settled; Findings, Chapter 18, item 11).
+
+### V18.50. The paragraph before Theorem 18.6.1, orbifold- and manifold-type supports
+
+*hypotheses explicit* · sc-Fredholm, tame germ data
+
+**HWZ (§18.6, the paragraph before Theorem 18.6.1, p. 860 (2017: §18.6)).** With $(N, U)$ controlling compactness there are many small structurable $\Lambda$ with $\Theta = \Lambda \circ f$ compact, supported in $U$, transversal, in general position; for $\{0,1\}$-valued $\Lambda$ the support is a compact orbifold, a manifold if there is at most one morphism between objects, oriented if $f$ is.
+
+**Proved in Lean.** `perturbation_orbifoldType` (orbifold type: compact, the support a smooth submanifold in every model, with an ep-subgroupoid) and `perturbation_manifoldType` (manifold type: an M-polyfold structure on the support in every model); `controlsCompactness_model`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.perturbation_orbifoldType` — Polyfold/Chapter18/Perturbation.lean, line 482
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.perturbation_manifoldType` — Polyfold/Chapter18/Perturbation.lean, line 510
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.controlsCompactness_model` — Polyfold/Chapter18/Perturbation.lean, line 164
+
+*What differs.*
+- The preamble says sc-Fredholm; we read the "sc-smooth" of Theorem 18.6.1 the same way. The orbifold and manifold structures are proved in each model; the oriented case is V18.52.
+
+### V18.51. Theorem 18.6.1 (2017: 18.8), the perturbation theorem
+
+*hypotheses explicit* · sc-Fredholm, tame germ data · model-free form · point G.253 settled
+
+**HWZ (§18.6, Theorem 18.6.1, pp. 860–861 (2017: Theorem 18.8)).** $C$ tame with sc-smooth bump functions, $f$ with compact $|S_f|$, $(N, U)$ controlling compactness, $h : C \to (0, 1]$ continuous: there is an sc⁺-multisection functor $\Lambda$ with (1) $N(\Lambda) < h$, (2) domain support in $C_U$, (3) $T(f, \Lambda)$ onto on $\mathrm{supp}(\Lambda \circ f)$, (4) kernels in general position; in particular $\Lambda \circ f$ is compact, tame and branched; $\Lambda$ can be taken structurable.
+
+**Proved in Lean.** `theorem_18_6_1_existence (c hT hbump hf hfT hS hN hcc hh hh01)` ((1)–(4), (3)–(4) as `IsTransversalIn`, `IsInGeneralPositionIn` in the model of $c$), `exists_push_of_model`, `theorem_18_6_1_structurable`, `theorem_18_6_1_in_particular` (branched, compact, tame in the model), `theorem_18_6_1` (all together). Free of the model, with `hF`: `theorem_18_6_1_modelFree`, `theorem_18_6_1_in_particular_modelFree`, through `isTransversalIn_iff`, `isInGeneralPositionIn_iff`, `IsTransversalFunctor`, `IsInGeneralPositionFunctor`, `isTransversalFunctor_iff_forall`, `isInGeneralPositionFunctor_iff_forall`. `PolyfoldConstruction.IsContinuousFunctionFunctor`. Witnesses: `theorem_18_6_1_witness`, `theorem_18_6_1_modelFree_witness`, `reflection_isContinuousFunctionFunctor_one` (weak: $\partial C = \emptyset$); `theorem_18_6_1_witness_boundary`, `theorem_18_6_1_modelFree_witness_boundary` ($\partial C \ne \emptyset$).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_existence` — Polyfold/Chapter18/Perturbation.lean, line 201
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsTransversalIn` — Polyfold/Chapter18/Perturbation.lean, line 151
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsInGeneralPositionIn` — Polyfold/Chapter18/Perturbation.lean, line 156
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_push_of_model` — Polyfold/Chapter18/Perturbation.lean, line 249
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_structurable` — Polyfold/Chapter18/Perturbation.lean, line 286
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular` — Polyfold/Chapter18/Perturbation.lean, line 348
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1` — Polyfold/Chapter18/Perturbation.lean, line 391
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 402
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular_modelFree` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 421
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isTransversalIn_iff` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 210
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isInGeneralPositionIn_iff` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 220
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsTransversalFunctor` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 273
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsInGeneralPositionFunctor` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 280
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isTransversalFunctor_iff_forall` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 307
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isInGeneralPositionFunctor_iff_forall` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 314
+- `Polyfold.GCT.PolyfoldConstruction.IsContinuousFunctionFunctor` — Polyfold/Chapter18/Perturbation.lean, line 96
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_witness` — Polyfold/Chapter18/PerturbationExamples.lean, line 43
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_modelFree_witness` — Polyfold/Chapter18/PerturbationModelIndependenceExamples.lean, line 46
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_isContinuousFunctionFunctor_one` — Polyfold/Chapter18/PerturbationExamples.lean, line 36
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_6_1_witness_boundary` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 198
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_18_6_1_modelFree_witness_boundary` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 229
+
+*What differs.*
+- The text prints "sc-smooth section functor"; we read sc-Fredholm, as the preamble of §18.6 does (Findings, Chapter 18, item 13). The proof "in a smooth model" is written out, with the independence of the model (point G.253 settled).
+
+### V18.52. Theorem 18.6.1 (2017: 18.8), the orientation clause
+
+*hypotheses explicit* · index on the support · no witness with $\partial C \ne \emptyset$
+
+**HWZ (§18.6, Theorem 18.6.1, last sentence, p. 861 (2017: Theorem 18.8)).** If $f$ is oriented by $o_f$, the tame branched ep⁺-subcategory $\Theta = \Lambda \circ f$ is naturally oriented.
+
+**Proved in Lean.** `theorem_18_6_1_oriented (… ho … hgp hidx)`: an oriented subcategory $O$ with $O.\Theta = \Lambda \circ f$ and the canonical orientation of Part III on the smooth part of the model; free of the model `theorem_18_6_1_oriented_modelFree` (`hidx` still in the model). Witnesses: `theorem_18_6_1_oriented_witness`, `theorem_18_6_1_oriented_witness_support` (support $\{0\}$, $\Theta(0) = 1$), `isIndexAt_reflSingleModel` (weak: $\partial C = \emptyset$).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented` — Polyfold/Chapter18/Perturbation.lean, line 422
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented_modelFree` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 438
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_oriented_witness` — Polyfold/Chapter18/PerturbationOrientedWitness.lean, line 82
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_oriented_witness_support` — Polyfold/Chapter18/PerturbationOrientedSupport.lean, line 230
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.isIndexAt_reflSingleModel` — Polyfold/Chapter18/PerturbationOrientedWitness.lean, line 55
+
+*What differs.*
+- The index is a hypothesis, as in Part III. The half-space bundle is not orientable (V18.54), so no witness has $\partial C \ne \emptyset$.
+
+### V18.53. Theorem 15.3.9 in the polyfold context
+
+*hypotheses explicit* · "moreover tame" not concluded · point G.254 settled
+
+**HWZ (§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)).** Theorem 15.3.9, extension of a perturbation given over $\partial C$, can easily be brought into the polyfold context.
+
+**Proved in Lean.** `theorem_15_3_9_categorical (hT hPU hf hfT hS hN hcc hΛ hdomU hN1 hh hh01 hNh hon)`: a structurable $\Lambda'$ equal to $\Lambda$ over $\partial C$, domain support in $U$, $N(\Lambda') < h$, transversal, $\Lambda' \circ f$ branched and compact; `IsBoundaryFaceOntoFunctor`, `isBoundaryFaceOntoFunctor_iff`, `SBLocalization.isBoundaryFaceOnto_pullback_iff`. Witnesses: `theorem_15_3_9_categorical_witness` (weak: $\partial C = \emptyset$), `theorem_15_3_9_categorical_witness_boundary`, `theorem_15_3_9_categorical_witness_constDatum`, `isBoundaryFaceOntoFunctor_halfF`, `isBoundaryFaceOntoFunctor_constFunctor`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_15_3_9_categorical` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 476
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryFaceOntoFunctor` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 288
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isBoundaryFaceOntoFunctor_iff` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 322
+- `Polyfold.SBLocalization.isBoundaryFaceOnto_pullback_iff` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 91
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.theorem_15_3_9_categorical_witness` — Polyfold/Chapter18/PerturbationModelIndependenceExamples.lean, line 121
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_15_3_9_categorical_witness_boundary` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 464
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.theorem_15_3_9_categorical_witness_constDatum` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 609
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.isBoundaryFaceOntoFunctor_halfF` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 448
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.isBoundaryFaceOntoFunctor_constFunctor` — Polyfold/Chapter18/HalfSpaceBoundaryData.lean, line 586
+
+*What differs.*
+- As in Part III, the "moreover tame" of Theorem 15.3.9 is not concluded (point G.254 settled for the rest). The two exercises after it are not formalized (point G.255).
+
+### V18.54. The witness bundles
+
+*not in the book* · witnesses
+
+**HWZ (witnesses for §§18.1–18.6, pp. 843–861).** (No statement; the bundles on which the hypotheses of the chapter are witnessed.)
+
+**Proved in Lean.** The reflection bundle `reflQ`: $\mathbb Z/2 \ltimes \mathbb R$, fibre $\mathbb R$ with $-1$ acting by $v \mapsto -v$, the section `reflDiag` $x \mapsto (x, x)$, $\partial C = \emptyset$; it is orientable (V18.47). The half-space bundle `halfQ` over `halfS`: $\mathbb Z/2 \ltimes [0, \infty) \times \mathbb R$, trivial action on the fibre, $f = a^2 + y^2 - 1$ (`halfF`), $\partial C \ne \emptyset$, a corner with isotropy $\mathbb Z/2$ (`corner_mem_boundarySet`, `exists_ne_unit_corner`, `halfF_zeroSet`, `topPoint_mem_zeroSet_boundarySet`). The $-1$ acts with determinant $-1$ on the tangent space and trivially on the fibre, so `halfQ` has no orientable section functor.
+
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflQ` — Polyfold/Chapter17/StrongBundleStructuresExamples.lean, line 467
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag` — Polyfold/Chapter18/FredholmSectionFunctorsExamples.lean, line 46
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfQ` — Polyfold/Chapter18/HalfSpaceBundleConstruction.lean, line 584
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfS` — Polyfold/Chapter18/HalfSpaceBundleConstruction.lean, line 265
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfF` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 85
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.corner_mem_boundarySet` — Polyfold/Chapter18/HalfSpaceBundleConstruction.lean, line 618
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.exists_ne_unit_corner` — Polyfold/Chapter18/HalfSpaceBundleConstruction.lean, line 623
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.halfF_zeroSet` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 122
+- `Polyfold.GCT.VectorBundle.HalfSpaceReflection.topPoint_mem_zeroSet_boundarySet` — Polyfold/Chapter18/HalfSpaceWitnesses.lean, line 140
+
+*What differs.*
+- Witnesses only.
+
+## Part IV, Chapter 19
+
+*HWZ Part IV, Chapter 19 §§19.1–19.8, pp. 863–957 (2017 Chapter 19; Part IV has no 2014 preprint): basic constructions, the natural topologies on $|S|$ and on the transition sets, metrizability criteria, the polyfold structure for $(S, T)$, the strong bundle version, covering constructions and their pull-backs*
+
+### V19.1. Definition 19.1.1 (2017: 19.1), groupoidal categories
+
+*as in the book* · as stated
+
+**HWZ (§19.1, Definition 19.1.1, p. 863 (2017: Definition 19.1)).** A groupoidal category is a category in which every morphism is an isomorphism and between any two objects there are only finitely many morphisms.
+
+**Proved in Lean.** A groupoidal category is Chapter 17's `GroupoidalCategory` (Definition 17.1.1): a groupoid structure on `Obj`, `Mor` with finite morphism sets between any two objects; `definition_19_1_1` spells out that every morphism is invertible and that the morphism sets are finite.
+
+- `Polyfold.GroupoidalCategory` — Polyfold/Chapter17/GroupoidalCategory.lean, line 65
+- `Polyfold.GroupoidalCategory.definition_19_1_1` — Polyfold/Chapter19/BasicConstruction.lean, line 102
+
+*What differs.*
+- The text's remark that the orbit space is a set is a Lean type `C.OrbitSpace`.
+
+### V19.2. Definition 19.1.2 (2017: 19.2), uniformizers at an object
+
+*restated* · isotropy condition: IsCentredAt · not used in §§19.1–19.5
+
+**HWZ (§19.1, Definition 19.1.2, p. 864 (2017: Definition 19.2)).** For an object $\alpha$ with isotropy group $G$, a uniformizer at $\alpha$ is a functor $\Psi : G \ltimes O \to S$ from a translation groupoid, injective on objects and fully faithful, with $\Psi(\bar o) = \alpha$ for some $\bar o$.
+
+**Proved in Lean.** `Uniformizer`: an M-polyfold `O` with a finite group `G` acting by sc-diffeomorphisms and a functor $G \ltimes O \to S$, injective on objects and fully faithful; `IsAt α` is (3), some $\bar o$ with $\Psi(\bar o) = \alpha$.
+
+- `Polyfold.GroupoidalCategory.Uniformizer` — Polyfold/Chapter17/LocalUniformizer.lean, line 103
+- `Polyfold.GroupoidalCategory.Uniformizer.IsAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 154
+- `Polyfold.GroupoidalCategory.Uniformizer.IsCentredAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 161
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.IsCentred` — Polyfold/Chapter19/BasicConstruction.lean, line 143
+
+*What differs.*
+- "α an object with isotropy group G" is the separate predicate `IsCentredAt` ($G$ fixes $\bar o$, so that $G \cong \mathrm{Aut}(\alpha)$ by full faithfulness) and `IsCentred` for a whole construction; nothing in §§19.1–19.5 needs it, so the definition is taken without it, which is more general. As the text says, no topology is required; the domain `O` is Hausdorff and paracompact as an M-polyfold.
+
+### V19.3. Definition 19.1.3 (2017: 19.3), uniformizer constructions
+
+*as in the book* · as stated · F(α) ≠ ∅ separate: V19.12
+
+**HWZ (§19.1, Definition 19.1.3, p. 865 (2017: Definition 19.3)).** A uniformizer construction is a functor $F : S^- \to \mathrm{SET}$ assigning to every object $\alpha$ a set $F(\alpha)$ of uniformizers at $\alpha$.
+
+**Proved in Lean.** A uniformizer construction is a family `F α` of uniformizers at α (field `isAt`); `Unif` is the type of pairs $(\Psi, \alpha)$ with $\Psi \in F(\alpha)$. `HasUniformizers` ($F(\alpha) \ne \emptyset$ for all α) implies `HasClassUniformizers` (every class meets an α with $F(\alpha) \ne \emptyset$).
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction` — Polyfold/Chapter19/BasicConstruction.lean, line 115
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.Unif` — Polyfold/Chapter19/BasicConstruction.lean, line 128
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.HasUniformizers` — Polyfold/Chapter19/BasicConstruction.lean, line 131
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.HasClassUniformizers` — Polyfold/Chapter19/BasicConstruction.lean, line 135
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.HasUniformizers.hasClassUniformizers` — Polyfold/Chapter19/BasicConstruction.lean, line 137
+
+*What differs.*
+- A functor $S^- \to \mathrm{SET}$ is a family indexed by objects. The non-emptiness is not part of the definition here; it is the hypothesis of V19.12.
+
+### V19.4. Remark 19.1.4 (2017: 19.1), $F$ as a functor on $S$
+
+*as in the book* · as stated · geometric meaning: prose
+
+**HWZ (§19.1, Remark 19.1.4, p. 865 (2017: Remark 19.1)).** In most applications $F$ is a functor on $S$: a morphism $\varphi : \alpha \to \alpha'$ gives a bijection $F(\varphi) : F(\alpha) \to F(\alpha')$, often with a geometric meaning.
+
+**Proved in Lean.** `Functorial`: maps $F(\varphi) : F(\alpha) \to F(\alpha')$ with $F(1_\alpha) = \mathrm{id}$ and $F(\varphi' \circ \varphi) = F(\varphi') \circ F(\varphi)$; `remark_19_1_4`: each $F(\varphi)$ is a bijection.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.Functorial` — Polyfold/Chapter19/BasicConstruction.lean, line 147
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.remark_19_1_4` — Polyfold/Chapter19/BasicConstruction.lean, line 157
+
+*What differs.*
+- The geometric meaning of $F(\varphi)$ is prose. Nothing later uses the functoriality.
+
+### V19.5. The transition sets and the structure maps $s, t, u, \iota, m$, p. 865
+
+*as in the book* · as stated
+
+**HWZ (§19.1, p. 865 (2017: §19.1)).** For $\Psi \in F(\alpha)$, $\Psi' \in F(\alpha')$ the transition set $M(\Psi, \Psi')$ is the weak fibred product of $\Psi$ and $\Psi'$, with the structure maps $s, t, u, \iota, m$ and $\bar\Psi(g, o) = (o, \Psi(g, o), g * o)$.
+
+**Proved in Lean.** $M(\Psi, \Psi')$ is the weak fibred product, triples $(o, \varphi, o')$ with $\varphi : \Psi(o) \to \Psi'(o')$ (Chapter 17's `TransitionSet`, fields `src`, `mor`, `tgt`), with the unit, the inversion and the multiplication; $\bar\Psi(g, o) = (o, \Psi(g, o), g * o)$ is `hat`.
+
+- `Polyfold.GroupoidStr.TransitionSet` — Polyfold/Chapter17/TransitionSet.lean, line 61
+- `Polyfold.GroupoidStr.TransitionSet.unit` — Polyfold/Chapter17/TransitionSet.lean, line 90
+- `Polyfold.GroupoidStr.TransitionSet.inv` — Polyfold/Chapter17/TransitionSet.lean, line 94
+- `Polyfold.GroupoidStr.TransitionSet.mul` — Polyfold/Chapter17/TransitionSet.lean, line 110
+- `Polyfold.GroupoidStr.TransitionSet.mul_eq_comp` — Polyfold/Chapter17/TransitionSet.lean, line 132
+- `Polyfold.GroupoidalCategory.Uniformizer.Trans` — Polyfold/Chapter17/LocalUniformizer.lean, line 253
+- `Polyfold.GroupoidalCategory.Uniformizer.hat` — Polyfold/Chapter17/LocalUniformizer.lean, line 257
+
+*What differs.*
+- none.
+
+### V19.6. Properties (19.3) (A)–(F) of transition data, pp. 866–867
+
+*as in the book* · as stated · first identity of (E) derived
+
+**HWZ (§19.1, properties (19.3), pp. 866–867 (2017: §19.1)).** Transition data assign to every $h \in M(\Psi, \Psi')$ a germ $F_h : (V(o), o) \to (M(\Psi, \Psi'), h)$ with $s \circ F_h = \mathrm{id}$, satisfying (A)–(F): the special form on $M(\Psi, \Psi)$, $t \circ F_h$ an sc-diffeomorphism, compatibility with $u$, $\iota$, $m$, and a Hausdorff property.
+
+**Proved in Lean.** `TransitionData`: for every $h \in M(\Psi, \Psi')$ an open `dom` $V(o) \ni s(h)$ and a germ `map` $F_h : V(o) \to M(\Psi, \Psi')$ with $s \circ F_h = \mathrm{id}$, $F_h(s(h)) = h$; (A) the special form on $M(\Psi, \Psi)$ (`map_hat`), (B) $f_h = t \circ F_h$ an sc-diffeomorphism onto an open set (`diffeo`), (C) `identity`, (D) `inversion`, (E) `multiplication`, (F) the Hausdorff property (`hausdorff`), and the stability under restriction to $V(o)$ (`stability`). `fmap` is $f_h$; the first identity of (E), $f_{h'} \circ f_h = f_{m(h', h)}$, follows from the second (`mul_fmap`).
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData` — Polyfold/Chapter19/BasicConstruction.lean, line 176
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.fmap` — Polyfold/Chapter19/BasicConstruction.lean, line 226
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.fmap_src` — Polyfold/Chapter19/BasicConstruction.lean, line 228
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.continuousOn_fmap` — Polyfold/Chapter19/BasicConstruction.lean, line 231
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_image_fmap` — Polyfold/Chapter19/BasicConstruction.lean, line 235
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_fmap_restrict` — Polyfold/Chapter19/BasicConstruction.lean, line 244
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.exists_nbhd_fmap` — Polyfold/Chapter19/BasicConstruction.lean, line 261
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.mul_fmap` — Polyfold/Chapter19/BasicConstruction.lean, line 272
+
+*What differs.*
+- (D) and (E) are stated on the domains where both sides are defined, as the text intends.
+
+### V19.7. Restriction of transition data, p. 867, and Definition 19.1.5 (new in the 2021 edition), equivalence
+
+*as in the book* · as stated · read per h
+
+**HWZ (§19.1, p. 867, and Definition 19.1.5, p. 867 (new in the 2021 edition)).** Restricting the germs to smaller open neighbourhoods gives transition data as good as the original (p. 867); two transition data are equivalent if suitable restrictions coincide (Definition 19.1.5).
+
+**Proved in Lean.** Replacing every $V(o)$ by a smaller open $Q(o) \ni o$ gives transition data (`restrict`); $F \sim F'$ if for every $h$ there is an open $V \ni s(h)$ in both domains with $F_h = F'_h$ on $V$; this is an equivalence relation, and a restriction is equivalent to the original.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.restrict` — Polyfold/Chapter19/BasicConstruction.lean, line 286
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv` — Polyfold/Chapter19/BasicConstruction.lean, line 313
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.equiv_refl` — Polyfold/Chapter19/BasicConstruction.lean, line 317
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv.symm` — Polyfold/Chapter19/BasicConstruction.lean, line 320
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv.trans` — Polyfold/Chapter19/BasicConstruction.lean, line 324
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.setoid` — Polyfold/Chapter19/BasicConstruction.lean, line 333
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.equiv_restrict` — Polyfold/Chapter19/BasicConstruction.lean, line 339
+
+*What differs.*
+- "Restrictions to suitable smaller neighbourhoods coincide" is read per $h$.
+
+### V19.8. Definition 19.1.6 (2017: 19.4), transition constructions
+
+*as in the book* · as stated · 2017: the data itself
+
+**HWZ (§19.1, Definition 19.1.6, p. 867 (2017: Definition 19.4)).** A transition construction for $F$ is an equivalence class of transition data.
+
+**Proved in Lean.** `TransitionConstruction := Quotient TransitionData.setoid`.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionConstruction` — Polyfold/Chapter19/BasicConstruction.lean, line 431
+
+*What differs.*
+- In 2017 a transition construction was the data itself; in 2021 it is an equivalence class, as here.
+
+### V19.9. Definition 19.1.7 (2017: 19.5), basic constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.1, Definition 19.1.7, p. 868 (2017: Definition 19.5)).** A basic construction for $S$ is a pair $(F, \mathcal F)$ of a uniformizer construction and a transition construction.
+
+**Proved in Lean.** A pair `U` (uniformizer construction) and `𝓕` (transition construction); `rep` is a chosen representative, with `⟦B.rep⟧ = B.𝓕`.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction` — Polyfold/Chapter19/BasicConstruction.lean, line 438
+- `Polyfold.GroupoidalCategory.BasicConstruction.rep` — Polyfold/Chapter19/BasicConstruction.lean, line 449
+- `Polyfold.GroupoidalCategory.BasicConstruction.mk_rep` — Polyfold/Chapter19/BasicConstruction.lean, line 451
+
+*What differs.*
+- Every later notion is shown not to depend on the representative (V19.15, V19.31).
+
+### V19.10. Remark 19.1.8 (2017: 19.2), the properties after shrinking
+
+*as in the book* · as stated · G.257
+
+**HWZ (§19.1, Remark 19.1.8, p. 868 (2017: Remark 19.2)).** After shrinking, the properties of transition data hold on open neighbourhoods $V(o)$, $V(o')$, $V(o'')$ on which the $f_h$ are sc-diffeomorphisms.
+
+**Proved in Lean.** On suitable open neighbourhoods: $f_h : V(o) \to V(o')$ is an sc-diffeomorphism with $F_{\iota(h)}(f_h(q)) = \iota(F_h(q))$; for $h = \bar\Psi(g, o)$, $f_h(q) = g * q$ and $F_h(q) = \bar\Psi(g, q)$; $F_{u(o)} = u$; the two identities of (E) on $V(o)$; the stability.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_inv` — Polyfold/Chapter19/BasicConstruction.lean, line 350
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_hat` — Polyfold/Chapter19/BasicConstruction.lean, line 364
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_unit` — Polyfold/Chapter19/BasicConstruction.lean, line 374
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_mul` — Polyfold/Chapter19/BasicConstruction.lean, line 383
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_stability` — Polyfold/Chapter19/BasicConstruction.lean, line 417
+
+*What differs.*
+- The shrinkings are written out (point G.257).
+
+### V19.11. Definition 19.2.1 (2017: 19.6), the natural topology
+
+*as in the book* · as stated
+
+**HWZ (§19.2, Definition 19.2.1, p. 869 (2017: Definition 19.6)).** $T$ consists of the $U \subset |S|$ such that every $z \in U$ is $|\alpha_z|$ with $\Psi \in F(\alpha_z)$ and an open $V(\bar o)$, $\Psi(\bar o) = \alpha_z$, with $|\Psi(V(\bar o))| \subset U$.
+
+**Proved in Lean.** `NatOpen W`: every $z \in W$ is $|\alpha_z|$ with some $\Psi \in F(\alpha_z)$ and an open $V \ni \bar o$, $\Psi(\bar o) = \alpha_z$, with $|\Psi(V)| \subset W$; it depends only on $F$ (`natOpen_empty`, `natOpen_sUnion`), while intersections need a representative of $\mathcal F$ (`natOpen_inter`), as the text notes; `natOpen_univ_iff`: $|S|$ is in $T$ iff `HasClassUniformizers`; `natTop hB` is the topology.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.NatOpen` — Polyfold/Chapter19/NaturalTopology.lean, line 107
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.natOpen_empty` — Polyfold/Chapter19/NaturalTopology.lean, line 111
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.natOpen_sUnion` — Polyfold/Chapter19/NaturalTopology.lean, line 113
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.natOpen_inter` — Polyfold/Chapter19/NaturalTopology.lean, line 133
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.natOpen_univ_iff` — Polyfold/Chapter19/NaturalTopology.lean, line 120
+- `Polyfold.GroupoidalCategory.BasicConstruction.natTop` — Polyfold/Chapter19/NaturalTopology.lean, line 158
+- `Polyfold.GroupoidalCategory.BasicConstruction.isOpen_natTop_iff` — Polyfold/Chapter19/NaturalTopology.lean, line 164
+
+*What differs.*
+- none.
+
+### V19.12. Theorem 19.2.2 (2017: 19.1), the natural topology is a locally metrizable topology
+
+*hypotheses explicit* · F(α) ≠ ∅ in every class (reading) · F ≡ ∅: T = {∅}
+
+**HWZ (§19.2, Theorem 19.2.2, p. 869 (2017: Theorem 19.1)).** (1) $T$ is a topology on $|S|$; (2) $|\Psi(V)|$ is open for $V \subset O$ open; (3) $|\Psi| : G\backslash O \to |S|$ is a homeomorphism onto an open neighbourhood of $|\alpha|$; (4) every point has a countable neighbourhood basis; (5) every point has a metrizable open neighbourhood.
+
+**Proved in Lean.** Under `hB : HasClassUniformizers`: (1) $T$ is a topology; (2) $|\Psi(V)|$ is open for $V$ open; (3) $|\Psi| : G\backslash O \to |S|$ is an open embedding with $|\alpha|$ in its image; (4) $T$ is first countable; (5) every point has an open metrizable neighbourhood.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_one` — Polyfold/Chapter19/NaturalTopology.lean, line 170
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_two` — Polyfold/Chapter19/NaturalTopology.lean, line 177
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_three` — Polyfold/Chapter19/NaturalTopology.lean, line 212
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_four` — Polyfold/Chapter19/NaturalTopology.lean, line 267
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_five` — Polyfold/Chapter19/NaturalTopology.lean, line 256
+- `Polyfold.GroupoidalCategory.BasicConstruction.continuous_π_obj` — Polyfold/Chapter19/NaturalTopology.lean, line 193
+- `Polyfold.GroupoidalCategory.theorem_19_2_2_empty_family` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 345
+- `Polyfold.GroupoidalCategory.emptyBasic_natOpen_iff` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 333
+
+*What differs.*
+- We read a uniformizer construction as having $F(\alpha) \ne \emptyset$ in every isomorphism class, the standing reading of §17.1 (Findings, Chapter 19, item 1); the proof of (2) and (3) chooses $\Psi' \in F(\alpha')$. Without it, for $F \equiv \emptyset$ the collection $T$ is $\{\emptyset\}$ and does not contain $|S|$ (`emptyBasic_natOpen_iff`), so (1) needs it (`theorem_19_2_2_empty_family`). (5) gives (4) as the text says; (5) uses the metrizability of $G\backslash O$ (`Polyfold.metrizableSpace_translation_orbitSpace`).
+- Hidden hypotheses: `hB`, the reading below.
+
+### V19.13. Remark 19.2.3 (2017: 19.3), a natural topology that is not Hausdorff
+
+*as in the book* · as stated · example written out · G.258
+
+**HWZ (§19.2, Remark 19.2.3, p. 870 (2017: Remark 19.3)).** $T$ need not be Hausdorff: two lines $\mathbb R \times \{\pm 1\}$ with morphisms between $(x, -1)$ and $(x, 1)$ for $x > 0$; $|(0, -1)|$ and $|(0, 1)|$ cannot be separated.
+
+**Proved in Lean.** The text's example, two lines $\mathbb R \times \{\pm 1\}$ glued along $x > 0$, with the uniformizers $\Psi_{\pm 1}$ and trivial isotropy: `gluedBasic` is a basic construction, centred, with $F(\alpha) \ne \emptyset$; `remark_19_2_3 : ¬ T2Space` for its natural topology ($|(0, -1)| \ne |(0, 1)|$ cannot be separated).
+
+- `Polyfold.GroupoidalCategory.remark_19_2_3` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 630
+- `Polyfold.GroupoidalCategory.gluedBasic` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 604
+- `Polyfold.GroupoidalCategory.gluedBasic_hasUniformizers` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 606
+- `Polyfold.GroupoidalCategory.gluedBasic_isCentred` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 609
+- `Polyfold.GroupoidalCategory.gluedLines_π_ne` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 475
+- `Polyfold.GroupoidalCategory.gluedBasic_natOpen` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 613
+
+*What differs.*
+- The transition data are written out from keyed data (`Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.ofKey`). The "natural smooth structures" on the four transition sets are the general ones of V19.31, which need no hypothesis (point G.258). The example is new in 2021.
+
+### V19.14. Remark 19.2.4 (2017: 19.4), Hausdorff, regular and second countable gives a GCT
+
+*as in the book* · as stated
+
+**HWZ (§19.2, Remark 19.2.4, p. 872 (2017: Remark 19.4)).** If $T$ is Hausdorff, regular and second countable, $(S, T)$ is a GCT and Chapters 17 and 18 apply.
+
+**Proved in Lean.** If $T$ is Hausdorff, regular and second countable it is metrizable (Urysohn), and `toGCT` is the GCT $(S, T)$; `isOrbitChart`: $|\Psi|$ is an orbit chart.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.remark_19_2_4` — Polyfold/Chapter19/NaturalTopology.lean, line 279
+- `Polyfold.GroupoidalCategory.BasicConstruction.isOrbitChart` — Polyfold/Chapter19/NaturalTopology.lean, line 240
+- `Polyfold.GroupoidalCategory.BasicConstruction.toGCT` — Polyfold/Chapter19/NaturalTopology.lean, line 287
+
+*What differs.*
+- The text's "locally metrizable" is V19.12 (5).
+- Hidden hypotheses: `hB`, as in V19.12.
+
+### V19.15. Lemma 19.3.1 (new in the 2021 edition), the topology $T^F_{\Psi,\Psi'}$ does not depend on $F$
+
+*as in the book* · as stated
+
+**HWZ (§19.3, Lemma 19.3.1, p. 872 (new in the 2021 edition)).** For a representative $F$ of $\mathcal F$ the collection $T^F_{\Psi,\Psi'}$ of $W \subset M(\Psi, \Psi')$ with $F_h(V) \subset W$ for a neighbourhood $V$ of $o$, for every $h \in W$, does not depend on the representative.
+
+**Proved in Lean.** `IsOpenTr W`: every $h \in W$ has an open $V \subset V(o)$ with $F_h(V) \subset W$; it is a topology; `lemma_19_3_1`: for equivalent $F_1$, $F_2$ the two collections are equal.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.IsOpenTr` — Polyfold/Chapter19/NaturalTopology.lean, line 309
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenTr_topology` — Polyfold/Chapter19/NaturalTopology.lean, line 313
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.topology` — Polyfold/Chapter19/NaturalTopology.lean, line 329
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.Tr` — Polyfold/Chapter19/NaturalTopology.lean, line 336
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_tr_iff` — Polyfold/Chapter19/NaturalTopology.lean, line 340
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenTr_of_equiv` — Polyfold/Chapter19/NaturalTopology.lean, line 343
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.lemma_19_3_1` — Polyfold/Chapter19/NaturalTopology.lean, line 355
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionConstruction.topology` — Polyfold/Chapter19/NaturalTopology.lean, line 741
+
+*What differs.*
+- The text's "two representatives of $\mathcal F$" are two equivalent transition data; the topology descends to the quotient (`TransitionConstruction.topology`).
+
+### V19.16. Definition 19.3.2 (2017: 19.7), the natural topology $T_{\Psi,\Psi'}$
+
+*as in the book* · as stated
+
+**HWZ (§19.3, Definition 19.3.2, p. 873 (2017: Definition 19.7)).** The natural topology $T_{\Psi,\Psi'}$ on $M(\Psi, \Psi')$ is $T^F_{\Psi,\Psi'}$ for any representative $F$.
+
+**Proved in Lean.** `M Ψ Ψ'` is $M(\Psi, \Psi')$ with the topology of `B.rep`; for every representative $F$ of $\mathcal F$ it is $T^F_{\Psi,\Psi'}$ (`definition_19_3_2`, `trHomeomorph`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.M` — Polyfold/Chapter19/NaturalTopology.lean, line 757
+- `Polyfold.GroupoidalCategory.BasicConstruction.definition_19_3_2` — Polyfold/Chapter19/NaturalTopology.lean, line 761
+- `Polyfold.GroupoidalCategory.BasicConstruction.isOpen_M_iff` — Polyfold/Chapter19/NaturalTopology.lean, line 772
+- `Polyfold.GroupoidalCategory.BasicConstruction.trHomeomorph` — Polyfold/Chapter19/NaturalTopology.lean, line 778
+
+*What differs.*
+- none.
+
+### V19.17. Theorem 19.3.3 (2017: 19.2), the transition sets
+
+*as in the book* · as stated · 2017: metrizable, no (6)
+
+**HWZ (§19.3, Theorem 19.3.3, p. 873 (2017: Theorem 19.2)).** $T_{\Psi,\Psi'}$ is regular, Hausdorff and locally metrizable; $s$, $t$ are local homeomorphisms, $u$, $m$ continuous, $\iota$ a homeomorphism, and $\bar\Psi : G \times O \to M(\Psi, \Psi)$ a homeomorphism.
+
+**Proved in Lean.** $T_{\Psi,\Psi'}$ is regular, Hausdorff and locally metrizable; (1) $s$ and (2) $t$ are local homeomorphisms, (3) $u$ is continuous, (4) $\iota$ is a homeomorphism, (5) $m$ is continuous on the fibred product, (6) $\bar\Psi : G \times O \to M(\Psi, \Psi)$ is a homeomorphism.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_3_3` — Polyfold/Chapter19/NaturalTopology.lean, line 846
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.t2Space` — Polyfold/Chapter19/NaturalTopology.lean, line 451
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.regularSpace` — Polyfold/Chapter19/NaturalTopology.lean, line 726
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.exists_isOpen_metrizableSpace` — Polyfold/Chapter19/NaturalTopology.lean, line 731
+
+*What differs.*
+- The 2017 text said "metrizable" and had no (6); the 2021 statement is the one proved, and metrizability is V19.26.
+
+### V19.18. Proposition 19.3.4 (2017: 19.1), the germs are open embeddings
+
+*as in the book* · as stated
+
+**HWZ (§19.3, Proposition 19.3.4, p. 874 (2017: Proposition 19.1)).** The germs $F_h$ map open sets to open sets and are homeomorphisms onto open subsets; $T_{\Psi,\Psi'}$ is Hausdorff.
+
+**Proved in Lean.** For every representative $F$: (1) $F_h(W)$ is open for $W \subset V(o)$ open; (2) $F_h$ is continuous and an open embedding of $V(o)$; (3) $T_{\Psi,\Psi'}$ is Hausdorff.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_4` — Polyfold/Chapter19/NaturalTopology.lean, line 791
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_4_topology` — Polyfold/Chapter19/NaturalTopology.lean, line 806
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_image_map` — Polyfold/Chapter19/NaturalTopology.lean, line 375
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.continuousOn_map` — Polyfold/Chapter19/NaturalTopology.lean, line 414
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenEmbedding_restrict_map` — Polyfold/Chapter19/NaturalTopology.lean, line 446
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.sheet` — Polyfold/Chapter19/NaturalTopology.lean, line 420
+
+*What differs.*
+- none.
+
+### V19.19. Proposition 19.3.5 (2017: 19.2), the structure maps
+
+*as in the book* · as stated
+
+**HWZ (§19.3, Proposition 19.3.5, p. 875 (2017: Proposition 19.2)).** $s$ and $t$ are local homeomorphisms, $u$ and $m$ are continuous and $\iota$ is a homeomorphism.
+
+**Proved in Lean.** $s$, $t$ are local homeomorphisms, $u$ is continuous, $\iota$ a homeomorphism, $m : M(\Psi', \Psi'')\,{}_s\!\times_t M(\Psi, \Psi') \to M(\Psi, \Psi'')$ continuous.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_5` — Polyfold/Chapter19/NaturalTopology.lean, line 814
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_src` — Polyfold/Chapter19/NaturalTopology.lean, line 463
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_tgt` — Polyfold/Chapter19/NaturalTopology.lean, line 506
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.continuous_unit` — Polyfold/Chapter19/NaturalTopology.lean, line 511
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.invHomeomorph` — Polyfold/Chapter19/NaturalTopology.lean, line 496
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.FibProd` — Polyfold/Chapter19/NaturalTopology.lean, line 522
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.mulMap` — Polyfold/Chapter19/NaturalTopology.lean, line 527
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.continuous_mulMap` — Polyfold/Chapter19/NaturalTopology.lean, line 601
+
+*What differs.*
+- The domain of $m$ is the fibred product with the subspace topology (`FibProd`).
+
+### V19.20. Remark 19.3.6 (2017: 19.5), $u$ an open embedding and $m$ a local homeomorphism
+
+*as in the book* · as stated
+
+**HWZ (§19.3, Remark 19.3.6, pp. 875–876 (2017: Remark 19.5)).** (a) The unit $u$ is an open embedding; (b) $m$ is a local homeomorphism.
+
+**Proved in Lean.** (a) $u : O \to M(\Psi, \Psi)$ is an open embedding; (b) $m$ is a local homeomorphism.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.remark_19_3_6_a` — Polyfold/Chapter19/NaturalTopology.lean, line 825
+- `Polyfold.GroupoidalCategory.BasicConstruction.remark_19_3_6_b` — Polyfold/Chapter19/NaturalTopology.lean, line 831
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenEmbedding_unit` — Polyfold/Chapter19/NaturalTopology.lean, line 673
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_mulMap` — Polyfold/Chapter19/NaturalTopology.lean, line 644
+
+*What differs.*
+- none.
+
+### V19.21. Proposition 19.3.7 (new in the 2021 edition), $\bar\Psi$ is a homeomorphism
+
+*as in the book* · as stated · continuity from (A): G.259
+
+**HWZ (§19.3, Proposition 19.3.7, p. 877 (new in the 2021 edition)).** $\bar\Psi : G \times O \to M(\Psi, \Psi)$ is a homeomorphism.
+
+**Proved in Lean.** $\bar\Psi : G \times O \to M(\Psi, \Psi)$ is a homeomorphism.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_7` — Polyfold/Chapter19/NaturalTopology.lean, line 835
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph` — Polyfold/Chapter19/NaturalTopology.lean, line 689
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph_apply` — Polyfold/Chapter19/NaturalTopology.lean, line 720
+
+*What differs.*
+- The continuity of $\bar\Psi$ comes from the special form (A) of the germs on $M(\Psi, \Psi)$ (point G.259). Compare Lemma 17.1.9, where a continuity assumption on $\hat\Psi$ is needed (`Polyfold.GCT.PolyfoldConstruction.not_lemma_17_1_9`); in a basic construction it is automatic.
+
+### V19.22. Lemma 19.3.8 (new in the 2021 edition), $T_{\Psi,\Psi'}$ is regular
+
+*as in the book* · as stated · G.260
+
+**HWZ (§19.3, Lemma 19.3.8, p. 878 (new in the 2021 edition)).** The topology $T_{\Psi,\Psi'}$ is regular.
+
+**Proved in Lean.** $M(\Psi, \Psi')$ is regular: a Hausdorff space with a local homeomorphism to a regular space is regular.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.lemma_19_3_8` — Polyfold/Chapter19/NaturalTopology.lean, line 840
+- `Polyfold.Chapter19.regularSpace_of_isLocalHomeomorph_of_t2` — Polyfold/Chapter19/TopologyLemmas.lean, line 95
+
+*What differs.*
+- The choice of $W(h)$ with $W(h) \cap A = \emptyset$ is made by the general lemma (point G.260).
+
+### V19.23. Definition 19.4.1 (2017: 19.8), the properness conditions (v1)–(v3)
+
+*as in the book* · as stated · (v3) with limit: separate
+
+**HWZ (§19.4, Definition 19.4.1, p. 879 (2017: Definition 19.8)).** Three properness conditions: (v1) sequences with sources near $o$ and convergent targets have convergent subsequences; (v2) $\mathrm{cl}\,|\Psi(U(o))| \subset |\Psi(O)|$; (v3) $|\Psi(q_k)| \to z$ with $q_k \in U(o)$ gives a subsequence convergent in $\mathrm{cl}_O(U(o))$.
+
+**Proved in Lean.** (v1): for $\Psi$ and $o$ an open $U(o)$ such that for every $\Psi'$ every sequence in $M(\Psi, \Psi')$ with sources in $U$ and convergent targets has a convergent subsequence; (v2): an open $U(o)$ with $\mathrm{cl}\,|\Psi(U)| \subset |\Psi(O)|$; (v3) as printed: $|\Psi(q_k)| \to z$ for $q_k \in U$ gives a subsequence convergent in $\mathrm{cl}_O(U)$; `PropernessV3Lim` adds that the limit $q$ satisfies $|\Psi(q)| = z$.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.PropernessV1` — Polyfold/Chapter19/Metrizability.lean, line 393
+- `Polyfold.GroupoidalCategory.BasicConstruction.PropernessV2` — Polyfold/Chapter19/Metrizability.lean, line 401
+- `Polyfold.GroupoidalCategory.BasicConstruction.PropernessV3` — Polyfold/Chapter19/Metrizability.lean, line 409
+- `Polyfold.GroupoidalCategory.BasicConstruction.PropernessV3Lim` — Polyfold/Chapter19/Metrizability.lean, line 415
+- `Polyfold.Chapter19.OrbitChartV2` — Polyfold/Chapter19/TopologyLemmas.lean, line 317
+- `Polyfold.Chapter19.OrbitChartV3` — Polyfold/Chapter19/TopologyLemmas.lean, line 323
+- `Polyfold.Chapter19.OrbitChartV3Lim` — Polyfold/Chapter19/Metrizability.lean, line 111
+- `Polyfold.Chapter19.TransitionV1` — Polyfold/Chapter19/TopologyLemmas.lean, line 419
+
+*What differs.*
+- (v1) chooses $U(o)$ before $\Psi'$, as printed. (v2) and (v3) are stated for the natural topology, so they take `hB`.
+
+### V19.24. Proposition 19.4.2 (2017: 19.4), the properness conditions are equivalent
+
+*restated* · (v3) read with the limit · printed (v3) weaker
+
+**HWZ (§19.4, Proposition 19.4.2, p. 880 (2017: Proposition 19.4)).** The three properness conditions are equivalent.
+
+**Proved in Lean.** `proposition_19_4_2`: (v1) ↔ (v2) and (v2) ↔ (v3) with the limit; (v2) implies (v3) as printed (`proposition_19_4_2_two_three`); for $T$ Hausdorff, (v3) as printed implies (v2) (`proposition_19_4_2_three_two_hyp`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2` — Polyfold/Chapter19/Metrizability.lean, line 516
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_one_iff_two` — Polyfold/Chapter19/Metrizability.lean, line 504
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_two_three` — Polyfold/Chapter19/Metrizability.lean, line 509
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_three_two_hyp` — Polyfold/Chapter19/Metrizability.lean, line 522
+- `Polyfold.GroupoidalCategory.BasicConstruction.propernessV3_of_locallyCompactSpace` — Polyfold/Chapter19/Metrizability.lean, line 531
+- `Polyfold.GroupoidalCategory.proposition_19_4_2_v3_without_limit` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 138
+- `Polyfold.GroupoidalCategory.gluedBasic_propernessV3` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 100
+- `Polyfold.GroupoidalCategory.gluedBasic_not_propernessV2` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 109
+
+*What differs.*
+- We read (v3) with the limit $q$ in the fibre over $z$, $|\Psi(q)| = z$, which the proof of (3) ⇒ (1) uses (Findings, Chapter 19, item 3). As printed, (v3) holds for every basic construction whose domains are locally compact (`propernessV3_of_locallyCompactSpace`), and the glued lines of Remark 19.2.3 satisfy it but not (v2) (`gluedBasic_propernessV3`, `gluedBasic_not_propernessV2`), so the printed form is not equivalent to the others (`proposition_19_4_2_v3_without_limit`).
+- Hidden hypotheses: none for the main form; `hT` for the printed (v3) ⇒ (v2).
+
+### V19.25. Lemma 19.4.3 (new in the 2021 edition), finitely many sheets over a neighbourhood
+
+*narrower* · does not hold as we read it · holds at sources · no properness needed there
+
+**HWZ (§19.4, Lemma 19.4.3, p. 881 (new in the 2021 edition)).** Under properness, for $o \in O$ there are finitely many $h_i$ and open $U(o)$, $U(h_i)$ with $s : U(h_i) \to U(o)$ a homeomorphism, covering every $h$ with $s(h) \in U(o)$.
+
+**Proved in Lean.** For $o$ the source of some element of $M(\Psi, \Psi')$: finitely many $h_i$, an open $U(o)$ and open $U(h_i)$ with $s : U(h_i) \to U(o)$ a homeomorphism, covering every $h$ with $s(h) \in U(o)$; no properness is needed for this form.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.lemma_19_4_3_hyp` — Polyfold/Chapter19/Metrizability.lean, line 545
+- `Polyfold.GroupoidalCategory.not_lemma_19_4_3` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 407
+- `Polyfold.GroupoidalCategory.expBasic` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 351
+- `Polyfold.GroupoidalCategory.expBasic_not_lemma_19_4_3` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 382
+- `Polyfold.GroupoidalCategory.expBasic_propernessV2` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 365
+- `Polyfold.GroupoidalCategory.Uniformizer.finite_fiber` — Polyfold/Chapter17/LocalUniformizer.lean, line 320
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.exists_tendsto_subseq_of_tendsto_src` — Polyfold/Chapter19/Metrizability.lean, line 240
+
+*What differs.*
+- The lemma does not hold as we read it for an $o$ that is not a source (Findings, Chapter 19, item 4): for `expBasic`, the line with trivial isotropy and the uniformizers $\Psi_0 = \mathrm{id}$ and $\Psi_e(t) = e^t$ at the points $x > 0$, properness (v2) holds and $T$ is metrizable, but at $o = 0$ no element of $M(\Psi_0, \Psi_e)$ has source $0$ while every neighbourhood of $0$ contains a source, so no $U(0)$ has the covering property (`expBasic_not_lemma_19_4_3`, `not_lemma_19_4_3`). The proof treats the case of a source; Proposition 19.4.4 uses the lemma only there, so nothing downstream is affected (V19.26). The two "easy exercises" of the proof are `finite_fiber` and `exists_tendsto_subseq_of_tendsto_src` (point G.261).
+- Hidden hypotheses: `ho : ∃ h, s(h) = o`.
+
+### V19.26. Proposition 19.4.4 (2017: 19.3), the transition sets are metrizable
+
+*stronger* · without properness · 2017 form
+
+**HWZ (§19.4, Proposition 19.4.4, p. 883 (2017: Proposition 19.3)).** Under properness every $T_{\Psi,\Psi'}$ is metrizable.
+
+**Proved in Lean.** Every $T_{\Psi,\Psi'}$ is metrizable: $s$ is a local homeomorphism onto an open subset of the metrizable $O$ with finitely many sheets over a neighbourhood of every point of its image, so $M(\Psi, \Psi')$ is paracompact, and it is Hausdorff and locally metrizable.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_4` — Polyfold/Chapter19/Metrizability.lean, line 593
+- `Polyfold.GroupoidalCategory.BasicConstruction.metrizableSpace_M` — Polyfold/Chapter19/Metrizability.lean, line 588
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.metrizableSpace` — Polyfold/Chapter19/Metrizability.lean, line 339
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.exists_nbhd_eq_map` — Polyfold/Chapter19/Metrizability.lean, line 303
+- `Polyfold.Chapter19.metrizableSpace_of_isLocalHomeomorph_of_finiteSheets` — Polyfold/Chapter19/TopologyLemmas.lean, line 208
+- `Polyfold.Chapter19.paracompactSpace_of_isLocalHomeomorph_of_finiteSheets` — Polyfold/Chapter19/TopologyLemmas.lean, line 142
+
+*What differs.*
+- The properness condition of the 2021 statement is not needed (`metrizableSpace_M`); `proposition_19_4_4` keeps it as an unused argument. The 2017 text (Proposition 19.3, placed before the properness conditions) stated it without them, the form proved here.
+
+### V19.27. Proposition 19.4.5 (2017: 19.5), properness gives a Hausdorff, completely regular $T$
+
+*as in the book* · as stated · averaging: G.262
+
+**HWZ (§19.4, Proposition 19.4.5, p. 884 (2017: Proposition 19.5)).** Under properness $T$ is Hausdorff and completely regular.
+
+**Proved in Lean.** Under (v2), $T$ is Hausdorff and completely regular, from a general statement on spaces covered by orbit charts $G\backslash O \to Z$ with (v2).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_5` — Polyfold/Chapter19/Metrizability.lean, line 609
+- `Polyfold.GroupoidalCategory.BasicConstruction.isOrbitChart_unif` — Polyfold/Chapter19/Metrizability.lean, line 420
+- `Polyfold.GroupoidalCategory.BasicConstruction.exists_unif_π_eq` — Polyfold/Chapter19/Metrizability.lean, line 601
+- `Polyfold.Chapter19.t2Space_of_orbitCharts` — Polyfold/Chapter19/TopologyLemmas.lean, line 612
+- `Polyfold.Chapter19.completelyRegularSpace_of_orbitCharts` — Polyfold/Chapter19/TopologyLemmas.lean, line 623
+- `Polyfold.Chapter19.exists_invariant_urysohn` — Polyfold/Chapter19/TopologyLemmas.lean, line 496
+
+*What differs.*
+- The averaging of $\beta$ is written out: $\beta$ is chosen vanishing on the orbit $G * \bar o$ and then averaged (point G.262).
+- Hidden hypotheses: `hB`, as in V19.12.
+
+### V19.28. Theorem 19.4.6 (2017: 19.3), the metrization criteria
+
+*as in the book* · as stated
+
+**HWZ (§19.4, Theorem 19.4.6, p. 885 (2017: Theorem 19.3)).** Under properness, $T$ second countable or paracompact is metrizable.
+
+**Proved in Lean.** Under (v2): (1) second countable gives metrizable (Urysohn); (2) paracompact gives metrizable (`Polyfold.metrizableSpace_of_locally`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_4_6_one` — Polyfold/Chapter19/Metrizability.lean, line 620
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_4_6_two` — Polyfold/Chapter19/Metrizability.lean, line 631
+- `Polyfold.Chapter19.metrizableSpace_of_orbitCharts_secondCountable` — Polyfold/Chapter19/TopologyLemmas.lean, line 633
+- `Polyfold.Chapter19.metrizableSpace_of_orbitCharts_paracompact` — Polyfold/Chapter19/TopologyLemmas.lean, line 642
+
+*What differs.*
+- none.
+- Hidden hypotheses: `hB`.
+
+### V19.29. Proposition 19.4.7 (2017: 19.6), metrizable iff properness and paracompact
+
+*as in the book* · as stated
+
+**HWZ (§19.4, Proposition 19.4.7, p. 885 (2017: Proposition 19.6)).** $T$ is metrizable iff properness holds and $T$ is paracompact.
+
+**Proved in Lean.** $T$ is metrizable iff (v2) holds and $T$ is paracompact.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_7` — Polyfold/Chapter19/Metrizability.lean, line 642
+- `Polyfold.Chapter19.paracompact_and_orbitChartV2_of_metrizableSpace` — Polyfold/Chapter19/TopologyLemmas.lean, line 653
+
+*What differs.*
+- none.
+- Hidden hypotheses: `hB`.
+
+### V19.30. Corollary 19.4.8 (new in the 2021 edition), $T$ metrizable gives metrizable transition sets
+
+*as in the book* · as stated
+
+**HWZ (§19.4, Corollary 19.4.8, p. 885 (new in the 2021 edition)).** If $T$ is metrizable, every $T_{\Psi,\Psi'}$ is metrizable.
+
+**Proved in Lean.** If $T$ is metrizable, every $T_{\Psi,\Psi'}$ is metrizable, by the proof of the text (Propositions 19.4.7 and 19.4.4).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_4_8` — Polyfold/Chapter19/Metrizability.lean, line 653
+- `Polyfold.GroupoidalCategory.BasicConstruction.metrizableSpace_natTop_of_surjective` — Polyfold/Chapter19/Metrizability.lean, line 659
+
+*What differs.*
+- By V19.26 the conclusion holds without the hypothesis. `metrizableSpace_natTop_of_surjective`: a uniformizer whose orbit map is onto makes $T$ metrizable (used for the witnesses).
+- Hidden hypotheses: `hB`.
+
+### V19.31. Theorem 19.5.1 (2017: 19.4), the natural M-polyfold structure on $M(\Psi, \Psi')$
+
+*stronger* · without metrizability of T · unique, independent of F
+
+**HWZ (§19.5, Theorem 19.5.1, p. 886 (2017: Theorem 19.4)).** If $T$ is metrizable, the metrizable space $M(\Psi, \Psi')$ has a natural M-polyfold structure for which $s$ and $t$ are local sc-diffeomorphisms.
+
+**Proved in Lean.** `transPolyfold`: an M-polyfold structure on $M(\Psi, \Psi')$ for which $s$ and $t$ are local sc-diffeomorphisms, each $F_h : V(o) \to F_h(V(o))$ is an sc-diffeomorphism, and $\bar\Psi$ is an sc-diffeomorphism; `theorem_19_5_1_natural`: it is the only structure for which $s$ is a local sc-diffeomorphism, and every representative of $\mathcal F$ gives the same structure.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1` — Polyfold/Chapter19/PolyfoldStructure.lean, line 457
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1_natural` — Polyfold/Chapter19/PolyfoldStructure.lean, line 475
+- `Polyfold.GroupoidalCategory.BasicConstruction.transPolyfold` — Polyfold/Chapter19/PolyfoldStructure.lean, line 450
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.transPolyfold` — Polyfold/Chapter19/PolyfoldStructure.lean, line 271
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.sheetPolyfold` — Polyfold/Chapter19/PolyfoldStructure.lean, line 168
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalScDiffeo_src` — Polyfold/Chapter19/PolyfoldStructure.lean, line 296
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalScDiffeo_tgt` — Polyfold/Chapter19/PolyfoldStructure.lean, line 306
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_map` — Polyfold/Chapter19/PolyfoldStructure.lean, line 313
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_hatHomeomorph` — Polyfold/Chapter19/PolyfoldStructure.lean, line 386
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_of_equiv` — Polyfold/Chapter19/PolyfoldStructure.lean, line 377
+
+*What differs.*
+- The metrizability of $T$ assumed in 2021 is not used (an unused argument); the metrizability of $M(\Psi, \Psi')$ is V19.26, and the 2017 statement had no such assumption. We read "natural" as the uniqueness and the independence of the representative, both proved.
+- Hidden hypotheses: `hB`.
+
+### V19.32. Corollary 19.5.2 (2017: 19.1), the structure maps are sc-smooth
+
+*as in the book* · as stated
+
+**HWZ (§19.5, Corollary 19.5.2, p. 887 (2017: Corollary 19.1)).** With their natural M-polyfold structures all structure maps of the transition sets are sc-smooth.
+
+**Proved in Lean.** $u$, $\iota$ and $m$ are sc-smooth, $m$ on the fibred product (`IsScSmoothOnFibredProduct`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_5_2` — Polyfold/Chapter19/PolyfoldStructure.lean, line 488
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_unit` — Polyfold/Chapter19/PolyfoldStructure.lean, line 399
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_inv` — Polyfold/Chapter19/PolyfoldStructure.lean, line 407
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_mul` — Polyfold/Chapter19/PolyfoldStructure.lean, line 416
+
+*What differs.*
+- As for V19.31, no metrizability is needed.
+
+### V19.33. Theorem 19.5.3 (2017: 19.5), the polyfold structure of a basic construction
+
+*as in the book* · as stated · tame M and models · G.263
+
+**HWZ (§19.5, Theorem 19.5.3, p. 888 (2017: Theorem 19.5)).** (1) Properness and second countable or paracompact give $T$ metrizable, so $(S, T)$ is a GCT. (2) If $T$ is metrizable there is a natural polyfold structure $(F, M)$, tame when the domains are tame.
+
+**Proved in Lean.** (1) Under (v2), second countable or paracompact gives $T$ metrizable, so $(S, T)$ is a GCT. (2) For $T$ metrizable, `toPolyfoldConstruction hm` is a polyfold construction (Definition 17.1.8) for $(S, T)$: its uniformizers are those of $F$, its $M(\Psi, \Psi')$ the structures of V19.31, the footprints cover $|S|$, $\hat\Psi$ is an sc-diffeomorphism; if the domains are tame, $(F, M)$, every $M(\Psi, \Psi')$ and every model $X_\Psi$ are tame. The models are equivalent to $S$ and to each other (Lemma 17.1.15, Theorem 17.1.18).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_3_one` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 79
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_3_two` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 169
+- `Polyfold.GroupoidalCategory.BasicConstruction.toGCTOfMetrizable` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 71
+- `Polyfold.GroupoidalCategory.BasicConstruction.toLocalUniformizer` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 88
+- `Polyfold.GroupoidalCategory.BasicConstruction.toPolyfoldConstruction` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 120
+- `Polyfold.GroupoidalCategory.BasicConstruction.continuous_hat` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 153
+- `Polyfold.GroupoidalCategory.BasicConstruction.hasCoveringUniformizers_toPolyfoldConstruction` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 142
+- `Polyfold.GroupoidalCategory.BasicConstruction.isEquivalence_modelFunctor` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 198
+- `Polyfold.GroupoidalCategory.BasicConstruction.isGeneralizedIso_comparison` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 206
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.isTame_transPolyfold` — Polyfold/Chapter19/PolyfoldStructure.lean, line 392
+
+*What differs.*
+- The 2021 statement splits the 2017 one into (1) and (2), as here. $\hat\Psi$ is continuous (`continuous_hat`), so Lemma 17.1.9 applies in the form `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_of_continuous`. The step "in view of the discussion in this section" is written out (point G.263).
+- Hidden hypotheses: `hB`.
+
+### V19.34. Remark 19.5.4 (2017: 19.7), compact sets have metrizable neighbourhoods
+
+*as in the book* · as stated · G.264
+
+**HWZ (§19.5, Remark 19.5.4, p. 888 (2017: Remark 19.7)).** After properness, $T$ is completely regular, Hausdorff and locally metrizable, a compact $K$ has a paracompact metrizable open neighbourhood, and second countable or paracompact $T$ gives a polyfold construction, tame for tame domains.
+
+**Proved in Lean.** Under (v2): $T$ is Hausdorff, completely regular and locally metrizable; every compact $K \subset |S|$ has an open neighbourhood $U(K)$ that is metrizable and paracompact; second countable or paracompact gives $T$ metrizable, and with tame domains the polyfold construction is tame.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.remark_19_5_4` — Polyfold/Chapter19/CompactNeighbourhoods.lean, line 60
+- `Polyfold.Chapter19.exists_isOpen_metrizableSpace_of_isCompact` — Polyfold/Chapter19/TopologyLemmasTwo.lean, line 79
+- `Polyfold.Chapter19.exists_bump_of_isOpen` — Polyfold/Chapter19/TopologyLemmasTwo.lean, line 50
+
+*What differs.*
+- The neighbourhood $U(K)$ is constructed (point G.264).
+- Hidden hypotheses: `hB`.
+
+### V19.35. Definition 19.5.5 (new in the 2021 edition), the linearizations $Tg$
+
+*as in the book* · as stated
+
+**HWZ (§19.5, Definition 19.5.5, p. 889 (new in the 2021 edition)).** For $g \in G$ fixing $\bar o$, $Tg$ is the linearization $T\hat g(\bar o)$ of $\hat g$ at $\bar o$.
+
+**Proved in Lean.** For $g$ fixing $\bar o$, $Tg = T\hat g(\bar o)$ maps $T_{\bar o}O$ to itself, with inverse $Tg^{-1}$, and is Chapter 7's tangent map of the morphism $(g, \bar o)$ of $G \ltimes O$.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.definition_19_5_5` — Polyfold/Chapter19/BasicRegularity.lean, line 511
+- `Polyfold.GroupoidalCategory.Uniformizer.toEP` — Polyfold/Chapter19/BasicRegularity.lean, line 343
+- `Polyfold.GroupoidalCategory.Uniformizer.tangentSmul` — Polyfold/Chapter19/BasicRegularity.lean, line 346
+- `Polyfold.GroupoidalCategory.Uniformizer.tangentMor_ep_eq` — Polyfold/Chapter19/BasicRegularity.lean, line 350
+
+*What differs.*
+- "$\hat g$ fixes $\bar o$" is a hypothesis on $g$, as for $g \in G_{\bar o}$.
+
+### V19.36. Definition 19.5.6 (new in the 2021 edition), (ZHOU) for a basic construction
+
+*as in the book* · as stated
+
+**HWZ (§19.5, Definition 19.5.6, p. 889 (new in the 2021 edition)).** (ZHOU): for every smooth $z$ some $\Psi \in F(\alpha_z)$ such that $Tg = \mathrm{id}$ implies $\hat g$ is the identity near $\bar o$.
+
+**Proved in Lean.** For every smooth $z$ there are $\alpha_z$, $\Psi \in F(\alpha_z)$ and $\bar o$ with $\Psi(\bar o) = \alpha_z$ such that every $g$ fixing $\bar o$ with $Tg = \mathrm{id}$ is the identity near $\bar o$; this is Chapter 7's (ZHOU) of $G \ltimes O$ at $\bar o$ (`isZhouAt_iff`). Smoothness of a class does not depend on the uniformizer (`mem_smoothSet_iff_of_π_eq`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsZhou` — Polyfold/Chapter19/BasicRegularity.lean, line 536
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsSmoothClass` — Polyfold/Chapter19/BasicRegularity.lean, line 489
+- `Polyfold.GroupoidalCategory.BasicConstruction.mem_smoothSet_iff_of_π_eq` — Polyfold/Chapter19/BasicRegularity.lean, line 504
+- `Polyfold.GroupoidalCategory.Uniformizer.IsZhouAt` — Polyfold/Chapter19/BasicRegularity.lean, line 357
+- `Polyfold.GroupoidalCategory.Uniformizer.isZhouAt_iff` — Polyfold/Chapter19/BasicRegularity.lean, line 363
+
+*What differs.*
+- none.
+
+### V19.37. Proposition 19.5.7 (new in the 2021 edition), (ZHOU) passes to the polyfold
+
+*as in the book* · as stated · G.265
+
+**HWZ (§19.5, Proposition 19.5.7, p. 889 (new in the 2021 edition)).** For $T$ metrizable, (ZHOU) of the basic construction gives (ZHOU) of the polyfold $(S, F, M)$.
+
+**Proved in Lean.** For $T$ metrizable, (ZHOU) of $(F, \mathcal F)$ gives (ZHOU) of the polyfold $(S, F, M)$ (Definition 17.1.22); conversely (ZHOU) of the polyfold gives Chapter 7's (ZHOU) for every $G \ltimes O$ of $F$.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_7` — Polyfold/Chapter19/BasicRegularity.lean, line 584
+- `Polyfold.GroupoidalCategory.BasicConstruction.isZhou_toEP_of_isZhou` — Polyfold/Chapter19/BasicRegularity.lean, line 622
+
+*What differs.*
+- The text calls it obvious; the proof through the piece functors $G \ltimes O \to X_\Psi$ is written out (point G.265).
+- Hidden hypotheses: `hB`; `hm`, the standing metrizability of §19.5.
+
+### V19.38. Definition 19.5.8 (new in the 2021 edition), (LUC) and (SLUC) for a basic construction
+
+*restated* · G read as G_ō · levels: raised groupoids · G.266
+
+**HWZ (§19.5, Definition 19.5.8, p. 889 (new in the 2021 edition)).** (LUC): for every $z$ some $\Psi \in F(\alpha_z)$ and a $G$-invariant open $U(\bar o)$ on which every $\hat g$ that is the identity on a nontrivial open subset is the identity; (SLUC): (LUC) for all $(F^i, \mathcal F^i)$.
+
+**Proved in Lean.** (LUC): for every $z$ some $\Psi \in F(\alpha_z)$ and an open $U \ni \bar o$ invariant under $G_{\bar o}$ such that every $g \in G_{\bar o}$ that is the identity on a non-empty open $V \subset U$ is the identity on $U$; this is Chapter 7's (LUC) of $G \ltimes O$ at $\bar o$ (`isLUCAt_iff`). (SLUC): (LUC) at every level $i$, for the classes of level $i$ (`IsLevelClass`) and the raised groupoid $(G \ltimes O)^i$.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLUC` — Polyfold/Chapter19/BasicRegularity.lean, line 542
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLUCLevel` — Polyfold/Chapter19/BasicRegularity.lean, line 549
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsSLUC` — Polyfold/Chapter19/BasicRegularity.lean, line 556
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLevelClass` — Polyfold/Chapter19/BasicRegularity.lean, line 485
+- `Polyfold.GroupoidalCategory.BasicConstruction.mem_levelSet_iff_of_π_eq` — Polyfold/Chapter19/BasicRegularity.lean, line 494
+- `Polyfold.GroupoidalCategory.Uniformizer.IsLUCAt` — Polyfold/Chapter19/BasicRegularity.lean, line 384
+- `Polyfold.GroupoidalCategory.Uniformizer.isLUCAt_iff` — Polyfold/Chapter19/BasicRegularity.lean, line 391
+
+*What differs.*
+- We read $G$ as the isotropy group $G_{\bar o}$ (it is all of $G$ for a centred uniformizer), "nontrivial open" as non-empty open, and $(F^i, \mathcal F^i)$ for $S^i$, which the text does not define, as the raised translation groupoids (point G.266); levels do not depend on the uniformizer (`mem_levelSet_iff_of_π_eq`). With "every $g \in G$" taken literally for a uniformizer that is not centred, (LUC) is presumably not implied by (ZHOU) (not formalized).
+
+### V19.39. Proposition 19.5.9 (new in the 2021 edition), (LUC) and (SLUC) pass to the polyfold
+
+*as in the book* · as stated · no proof given: G.267
+
+**HWZ (§19.5, Proposition 19.5.9, p. 890 (new in the 2021 edition)).** For $T$ metrizable, (LUC), resp. (SLUC), of the basic construction gives (LUC), resp. (SLUC), of the polyfold.
+
+**Proved in Lean.** For $T$ metrizable, (LUC), resp. (SLUC), of $(F, \mathcal F)$ gives (LUC), resp. (SLUC), of the polyfold (Definition 17.1.22); for (SLUC) the models of the families of each level are compared with one model by the generalized isomorphisms of Theorem 17.1.18.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_9` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 339
+- `Polyfold.GroupoidalCategory.BasicConstruction.exists_isLUC_lift_model` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 287
+- `Polyfold.GroupoidalCategory.BasicConstruction.isLUCLevel_zero_of_isLUC` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 331
+- `Polyfold.EP.isGenIsoInvariant_isLUC_lift` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 266
+
+*What differs.*
+- The text gives no proof; it is written out (point G.267).
+- Hidden hypotheses: `hB`; `hm`.
+
+### V19.40. Definition 19.5.10 (new in the 2021 edition), (LR) and (SLR) for a basic construction
+
+*restated* · G_x read as G_ō · levels: raised groupoids
+
+**HWZ (§19.5, Definition 19.5.10, p. 890 (new in the 2021 edition)).** (LR): for every $z$ some $\Psi \in F(\alpha_z)$ with arbitrarily small invariant $U(\bar o)$ on which every sc-diffeomorphism preserving orbits is $q \mapsto g * q$; (SLR): (LR) for all $(F^i, \mathcal F^i)$.
+
+**Proved in Lean.** (LR): for every $z$ some $\Psi \in F(\alpha_z)$ with arbitrarily small invariant open $U(\bar o)$ such that every sc-diffeomorphism $\beta$ of $U(\bar o)$ with $|\beta(q)| = |q|$ is $q \mapsto g * q$ for some $g \in G_{\bar o}$; (SLR): (LR) for $(G \ltimes O)^i$ at every level.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLR` — Polyfold/Chapter19/BasicRegularity.lean, line 560
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLRLevel` — Polyfold/Chapter19/BasicRegularity.lean, line 566
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsSLR` — Polyfold/Chapter19/BasicRegularity.lean, line 573
+- `Polyfold.GroupoidalCategory.Uniformizer.IsLRAt` — Polyfold/Chapter19/BasicRegularity.lean, line 425
+- `Polyfold.GroupoidalCategory.Uniformizer.isLRAt_of_isLRAt` — Polyfold/Chapter19/BasicRegularity.lean, line 432
+
+*What differs.*
+- We read "$G_x$" as $G_{\bar o}$ and the invariance under $G_{\bar o}$, and the levels as in V19.38 (point G.266).
+
+### V19.41. Proposition 19.5.11 (new in the 2021 edition), (ZHOU) gives (SLUC) and (SLR)
+
+*hypotheses explicit* · T metrizable (standing, §19.5) · G.268
+
+**HWZ (§19.5, Proposition 19.5.11, p. 890 (new in the 2021 edition)).** (ZHOU) of the basic construction implies (SLUC) and (SLR).
+
+**Proved in Lean.** (ZHOU) for $(F, \mathcal F)$ gives (SLUC), (SLR), and at level 0 (LUC) and (LR).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_11` — Polyfold/Chapter19/BasicRegularity.lean, line 640
+- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 147
+- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 152
+
+*What differs.*
+- The standing assumption of §19.5 that $T$ is metrizable is an argument; the proof goes through Proposition 19.5.7 and Theorems 7.4.13 and 7.4.24 for the translation groupoids, the text's "considerations in the ep-groupoid case" (point G.268).
+- Hidden hypotheses: `hB`; `hm`, the standing metrizability of §19.5.
+
+### V19.42. Witnesses: keyed transition data and basic constructions from translation groupoids
+
+*not in the book* · witnesses
+
+**HWZ (§§19.1–19.2 (no numbered item)).** No numbered item: witnesses for the definitions of §§19.1–19.2.
+
+**Proved in Lean.** `ofKey` builds transition data from a choice of keys; `translationBasic` is the basic construction of a translation groupoid with its tautological uniformizer; `reflectionBasic` ($\mathbb Z/2$ acting on $\mathbb R$ by reflection): $F(\alpha) \ne \emptyset$, a non-trivial action, centred at $0$, and Theorem 19.2.2 for it; `z3Basic` (the trivial $\mathbb Z/3$-action on $\mathbb R$): centred, $|G| = 3$; `emptyBasic`: $F \equiv \emptyset$.
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.ofKey` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 100
+- `Polyfold.GroupoidalCategory.translationBasic` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 240
+- `Polyfold.GroupoidalCategory.translationBasic_hasUniformizers` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 244
+- `Polyfold.GroupoidalCategory.reflectionBasic` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 256
+- `Polyfold.GroupoidalCategory.reflectionBasic_witness` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 261
+- `Polyfold.GroupoidalCategory.reflectionBasic_theorem_19_2_2` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 273
+- `Polyfold.GroupoidalCategory.z3Basic` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 282
+- `Polyfold.GroupoidalCategory.z3Basic_isCentred` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 288
+- `Polyfold.GroupoidalCategory.emptyBasic` — Polyfold/Chapter19/BasicConstructionExamples.lean, line 329
+
+*What differs.*
+- Witnesses for Definitions 19.1.3–19.1.7 and for V19.12.
+
+### V19.43. Topology of orbit charts
+
+*not in the book* · tools
+
+**HWZ (§§19.3–19.4 (no numbered item)).** No numbered item: the general topology behind §§19.3–19.4.
+
+**Proved in Lean.** General statements behind §§19.3–19.4: orbit charts $G\backslash O \to Z$ (continuous, open, with the orbit relation), the forms (v2), (v3), (v3) with limit for one chart and their implications, Hausdorff and completely regular spaces covered by charts, local homeomorphisms with finitely many sheets; with witnesses.
+
+- `Polyfold.Chapter19.IsOrbitChart` — Polyfold/Chapter19/TopologyLemmas.lean, line 230
+- `Polyfold.Chapter19.IsOrbitChart.homeomorph` — Polyfold/Chapter19/TopologyLemmas.lean, line 280
+- `Polyfold.Chapter19.IsOrbitChart.t2Space_range` — Polyfold/Chapter19/TopologyLemmas.lean, line 286
+- `Polyfold.Chapter19.IsOrbitChart.metrizableSpace_range` — Polyfold/Chapter19/TopologyLemmas.lean, line 308
+- `Polyfold.Chapter19.IsOrbitChart.orbitChartV3_of_v2` — Polyfold/Chapter19/TopologyLemmas.lean, line 371
+- `Polyfold.Chapter19.IsOrbitChart.orbitChartV2_of_v3` — Polyfold/Chapter19/TopologyLemmas.lean, line 379
+- `Polyfold.Chapter19.IsOrbitChart.orbitChartV2_of_regularSpace` — Polyfold/Chapter19/TopologyLemmas.lean, line 395
+- `Polyfold.Chapter19.IsOrbitChart.orbitChartV3Lim_of_v2` — Polyfold/Chapter19/Metrizability.lean, line 164
+- `Polyfold.Chapter19.orbitChartV2_of_v3Lim` — Polyfold/Chapter19/Metrizability.lean, line 173
+- `Polyfold.Chapter19.orbitChartV3_of_locallyCompactSpace` — Polyfold/Chapter19/Metrizability.lean, line 186
+- `Polyfold.Chapter19.isClosed_range_of_transitionV1` — Polyfold/Chapter19/TopologyLemmas.lean, line 426
+- `Polyfold.Chapter19.t2Space_of_forall_closure_subset_t2` — Polyfold/Chapter19/TopologyLemmas.lean, line 472
+- `Polyfold.Chapter19.exists_isOpen_metrizableSpace_of_isLocalHomeomorph` — Polyfold/Chapter19/TopologyLemmas.lean, line 129
+- `Polyfold.Chapter19.isLocalHomeomorph_codRestrict` — Polyfold/Chapter19/Metrizability.lean, line 197
+- `Polyfold.Chapter19.isOrbitChart_quotientMk` — Polyfold/Chapter19/TopologyLemmas.lean, line 665
+- `Polyfold.Chapter19.orbitCharts_witness_reflection` — Polyfold/Chapter19/TopologyLemmas.lean, line 678
+- `Polyfold.Chapter19.finiteSheets_witness_snd` — Polyfold/Chapter19/TopologyLemmas.lean, line 691
+
+*What differs.*
+- Tools, stated for arbitrary spaces.
+
+### V19.44. Witnesses for §19.4
+
+*not in the book* · witnesses
+
+**HWZ (§19.4 (no numbered item)).** No numbered item: witnesses for §19.4.
+
+**Proved in Lean.** `reflectionBasic` satisfies `hB` and (v2), and its $T$ is Hausdorff and metrizable; the glued lines satisfy neither (v1) nor (v2); `expBasic` satisfies `hB`, (v2), has metrizable $T$, and $M(\Psi_0, \Psi_e)$ has an element with source $1$.
+
+- `Polyfold.GroupoidalCategory.reflectionBasic_hB` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 69
+- `Polyfold.GroupoidalCategory.reflectionBasic_metrizableSpace` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 73
+- `Polyfold.GroupoidalCategory.reflectionBasic_propernessV2` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 82
+- `Polyfold.GroupoidalCategory.reflectionBasic_t2Space` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 87
+- `Polyfold.GroupoidalCategory.gluedBasic_hB` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 96
+- `Polyfold.GroupoidalCategory.gluedBasic_not_propernessV1` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 130
+- `Polyfold.GroupoidalCategory.expBasic_hB` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 353
+- `Polyfold.GroupoidalCategory.expBasic_metrizableSpace` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 358
+- `Polyfold.GroupoidalCategory.expBasic_exists_trans` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 376
+
+*What differs.*
+- Witnesses for the hypotheses of V19.24, V19.25, V19.27–V19.30.
+
+### V19.45. Witnesses for §19.5
+
+*not in the book* · witnesses · (ZHOU), (SLUC) witness weak
+
+**HWZ (§19.5 (no numbered item)).** No numbered item: witnesses for §19.5.
+
+**Proved in Lean.** Theorems 19.5.1, 19.5.3, Corollary 19.5.2 and Remark 19.5.4 for the reflection, with tame domains; (LUC) for the reflection and its passage to the polyfold; (ZHOU) for the trivial $\mathbb Z/3$-action, every class smooth, and Propositions 19.5.7, 19.5.9 ((SLUC)) and 19.5.11 for it.
+
+- `Polyfold.GroupoidalCategory.reflectionBasic_theorem_19_5_1` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 47
+- `Polyfold.GroupoidalCategory.reflectionBasic_corollary_19_5_2` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 56
+- `Polyfold.GroupoidalCategory.reflectionBasic_theorem_19_5_3_one` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 65
+- `Polyfold.GroupoidalCategory.reflectionBasic_isTame` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 75
+- `Polyfold.GroupoidalCategory.reflectionBasic_theorem_19_5_3_two_tame` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 80
+- `Polyfold.GroupoidalCategory.reflectionBasic_isLUC` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 89
+- `Polyfold.GroupoidalCategory.reflectionBasic_remark_19_5_4` — Polyfold/Chapter19/CompactNeighbourhoods.lean, line 83
+- `Polyfold.GroupoidalCategory.reflectionBasic_proposition_19_5_9` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 355
+- `Polyfold.GroupoidalCategory.z3Basic_hB` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 102
+- `Polyfold.GroupoidalCategory.z3Basic_metrizableSpace` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 106
+- `Polyfold.GroupoidalCategory.z3Basic_isSmoothClass` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 114
+- `Polyfold.GroupoidalCategory.z3Basic_isZhou` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 122
+- `Polyfold.GroupoidalCategory.z3Basic_proposition_19_5_7` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 130
+- `Polyfold.GroupoidalCategory.z3Basic_proposition_19_5_9` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 365
+- `Polyfold.GroupoidalCategory.z3Basic_proposition_19_5_11` — Polyfold/Chapter19/PolyfoldStructureExamples.lean, line 134
+
+*What differs.*
+- The (ZHOU) and (SLUC) witnesses are weak: the action is trivial and not effective.
+
+### V19.46. Pointwise (ZHOU), (LUC), (LR) and their transport
+
+*not in the book* · tools
+
+**HWZ (§19.5 (no numbered item)).** No numbered item: pointwise regularity conditions and their transport.
+
+**Proved in Lean.** Chapter 7's (ZHOU), (LR), (LUC) at a point, equivalent to the global forms when they hold at every point; their transport along full functors that are local sc-diffeomorphisms on objects, such as the piece functors $G \ltimes O \to X_\Psi$ and the raised functors; sc-smoothness through a local sc-diffeomorphism.
+
+- `Polyfold.EpGroupoid.IsZhouAt` — Polyfold/Chapter19/BasicRegularity.lean, line 102
+- `Polyfold.EpGroupoid.isZhou_iff_forall_isZhouAt` — Polyfold/Chapter19/BasicRegularity.lean, line 107
+- `Polyfold.EpGroupoid.IsLRAt` — Polyfold/Chapter19/BasicRegularity.lean, line 110
+- `Polyfold.EpGroupoid.isLR_iff_forall_isLRAt` — Polyfold/Chapter19/BasicRegularity.lean, line 115
+- `Polyfold.EpGroupoid.IsLUCAt` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 79
+- `Polyfold.EpGroupoid.isLUC_iff_forall_isLUCAt` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 81
+- `Polyfold.EpFunctor.isZhouAt_of_isZhouAt` — Polyfold/Chapter19/BasicRegularity.lean, line 130
+- `Polyfold.EpFunctor.isZhouAt_of_isZhouAt_obj` — Polyfold/Chapter19/BasicRegularity.lean, line 180
+- `Polyfold.EpFunctor.isLUCAt_obj` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 145
+- `Polyfold.EpFunctor.full_liftOne` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 187
+- `Polyfold.EP.liftVal` — Polyfold/Chapter19/BasicRegularity.lean, line 310
+- `Polyfold.EP.exists_liftVal_eq_of_mem` — Polyfold/Chapter19/BasicRegularity.lean, line 327
+- `Polyfold.EP.isLocalScDiffeo_liftFunctor` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 211
+- `Polyfold.EP.full_liftFunctor` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 216
+- `Polyfold.GCT.PolyfoldConstruction.full_pieceFunctor` — Polyfold/Chapter19/BasicRegularity.lean, line 451
+- `Polyfold.GCT.PolyfoldConstruction.isLocalScDiffeo_pieceFunctor_obj` — Polyfold/Chapter19/BasicRegularity.lean, line 469
+- `Polyfold.MPolyfold.IsLocalScDiffeo.of_comp_surjective` — Polyfold/Chapter19/PolyfoldStructure.lean, line 100
+- `Polyfold.MPolyfold.isScSmoothMap_of_isLocalScDiffeo_comp` — Polyfold/Chapter19/PolyfoldStructure.lean, line 118
+
+*What differs.*
+- Tools for V19.37, V19.39, V19.41.
+
+### V19.47. The functor $\mu : \mathcal S \to \mathrm{Ban}$ and the category $E_\mu$ (§19.6, before Definition 19.6.1)
+
+*as in the book* · as stated
+
+**HWZ (§19.6, pp. 890–891 (2017: §19.6)).** A functor $\mu$ from $\mathcal S$ to Banach spaces defines the category $E_\mu$ and the projection $P : E_\mu \to \mathcal S$.
+
+**Proved in Lean.** `BanFunctor S` is a functor from the groupoidal category $\mathcal S$ to Banach spaces; `BanFunctor.cat` is the category $E_\mu$ of pairs $(\alpha, e)$, $e \in \mu(\alpha)$, with morphisms $(\varphi, e)$; `liftEquiv` identifies the morphisms over $\varphi$ with $\mu(s(\varphi))$; `orbitProj` is $|P| : |E_\mu| \to |\mathcal S|$ and `zeroOrbit` the zero section, with $|P| \circ 0 = \mathrm{id}$ (`orbitProj_zeroOrbit`).
+
+- `Polyfold.GroupoidalCategory.BanFunctor` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 103
+- `Polyfold.GroupoidalCategory.BanFunctor.cat` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 322
+- `Polyfold.GroupoidalCategory.BanFunctor.liftEquiv` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 193
+- `Polyfold.GroupoidalCategory.BanFunctor.orbitProj` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 366
+- `Polyfold.GroupoidalCategory.BanFunctor.zeroOrbit` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 398
+- `Polyfold.GroupoidalCategory.BanFunctor.orbitProj_zeroOrbit` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 404
+
+### V19.48. Definition 19.6.1 (2017: Definition 19.9), strong bundle uniformizers
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Definition 19.6.1, p. 891 (2017: Definition 19.9)).** A strong bundle uniformizer is a fully faithful functor $\bar\Psi : G \ltimes K \to E_\mu$, injective on objects, linear on fibres, covering a uniformizer $\Psi$ of $\mathcal S$.
+
+**Proved in Lean.** `StrongBundleStr` is the translation-groupoid strong bundle $G \ltimes K \to G \ltimes O$ of (1); `StrongBundleUniformizer` is a uniformizer $\bar\Psi : G \ltimes K \to E_\mu$ covering a uniformizer $\Psi$ of $\mathcal S$, with (2) and (3) as `definition_19_6_1_two` and `definition_19_6_1_three`. The base functor is determined by $\bar\Psi$ (`toBase_obj_eq`, `toBase_mor_eq`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleStr` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 420
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizer` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 514
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizer.definition_19_6_1_two` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 528
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizer.definition_19_6_1_three` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 537
+- `Polyfold.GroupoidalCategory.StrongBundleStr.toBase_obj_eq` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 495
+- `Polyfold.GroupoidalCategory.StrongBundleStr.toBase_mor_eq` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 500
+
+### V19.49. Remark 19.6.2 (2017: Remark 19.8), strong bundle uniformizers with $W \to E$ models
+
+*restated* · read through Definition 19.8.10 · general variant: G.269
+
+**HWZ (§19.6, Remark 19.6.2, p. 892 (2017: Remark 19.8)).** The definition extends to models $W \to E$ given by strong bundles over ep-groupoids; the zero sections correspond.
+
+**Proved in Lean.** `SquareUniformizer.remark_19_6_2`: for the uniformizers of a bundle covering square (Definition 19.8.10) the zero sections correspond, $\hat\Gamma(0_{\hat e}) = (\hat\Psi(\hat e), 0)$. The general variant with a strong bundle $W \to E$ in place of $G \ltimes K \to G \ltimes O$ is the one used in Definition 19.8.10 (3); it is not built separately (point G.269).
+
+- `Polyfold.GroupoidalCategory.SquareUniformizer.remark_19_6_2` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 775
+
+*What differs.*
+- The remark is used in §19.8, where Definition 19.8.10 (3) reads through it; its zero-section consequence is proved there. The general variant is not stated separately (point G.269).
+
+### V19.50. Definition 19.6.3 (2017: Definition 19.10), strong bundle uniformizer constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Definition 19.6.3, p. 892 (2017: Definition 19.10)).** A functor $\bar F : \mathcal S^- \to \mathrm{SET}$ on the objects assigning sets of strong bundle uniformizers; it induces $F$ for $\mathcal S$.
+
+**Proved in Lean.** `StrongBundleUniformizerConstruction` assigns to every object $\alpha$ a set $\bar F(\alpha)$ of strong bundle uniformizers at $\alpha$, each with its structure (1); the text's functor is on the object category $\mathcal S^-$, so there is no functoriality condition; `base` is the induced uniformizer construction $F$ for $\mathcal S$ and `toE` the one for $E_\mu$; $\bar F$ has uniformizers at every class iff $F$ has (`hasClassUniformizers_toE_iff`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 550
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.base` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 574
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.toE` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 588
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.hasClassUniformizers_toE_iff` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 619
+
+### V19.51. The structure maps of $P : E_\mu \to \mathcal S$ and the maps $\bar F_h$ (§19.6, pp. 892–894, (19.10))
+
+*as in the book* · as stated
+
+**HWZ (§19.6, pp. 892–894, (19.10) (2017: §19.6)).** The lifted transition maps $\bar F_h$ over $F_h$, defined by (19.10).
+
+**Proved in Lean.** `StrongBundleStr.proj` is the map $p : M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$, $p(a, \varphi, a') = (p(a), \varphi, p'(a'))$, compatible with source, target, unit, inversion and multiplication (`proj_comp` and its companions); its fibre over $(o, \varphi, o')$ is in bijection with $K_o$ (`projFiberEquiv`). For a transition $h$ of the base, `mapBar` and `fmapBar` are the lifted maps $\bar F_h$ of (19.10), lying over $F_h$ (`proj_mapBar`, `p_fmapBar`) and determined by the condition of (19.10) (`mapBar_eq_iff`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleStr.proj` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 661
+- `Polyfold.GroupoidalCategory.StrongBundleStr.projFiberEquiv` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 766
+- `Polyfold.GroupoidalCategory.StrongBundleStr.proj_comp` — Polyfold/Chapter19/StrongBundleUniformizer.lean, line 754
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.mapBar` — Polyfold/Chapter19/StrongBundleTransition.lean, line 149
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.fmapBar` — Polyfold/Chapter19/StrongBundleTransition.lean, line 154
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.proj_mapBar` — Polyfold/Chapter19/StrongBundleTransition.lean, line 166
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.p_fmapBar` — Polyfold/Chapter19/StrongBundleTransition.lean, line 171
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.mapBar_eq_iff` — Polyfold/Chapter19/StrongBundleTransition.lean, line 180
+
+### V19.52. Definition 19.6.4 (2017: Definition 19.11), transition constructions for $P$
+
+*restated* · (B)–(F) proved for every lift · (A) is the field
+
+**HWZ (§19.6, Definition 19.6.4, p. 895 (2017: Definition 19.11)).** Transition data $\bar F_h$ on neighbourhoods $V(o)$ of a representative, which are strong bundle isomorphisms with properties (A)–(F).
+
+**Proved in Lean.** Conditions (B)–(F) are proved for every lift $\bar F_h$ of a base transition (`definition_19_6_4_B` … `_F`), and the source part of (A) likewise (`definition_19_6_4_A_src`, `_A_hat`). `BundleTransitionData` is a base transition datum whose lift is a local strong bundle isomorphism (condition (A), field `IsLocalIso₂`), with restriction, the equivalence of data (`equiv_iff`) and the induced transition datum for $E_\mu$ (`toETD`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_A_src` — Polyfold/Chapter19/StrongBundleTransition.lean, line 175
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_A_hat` — Polyfold/Chapter19/StrongBundleTransition.lean, line 199
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_B` — Polyfold/Chapter19/StrongBundleTransition.lean, line 219
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_C` — Polyfold/Chapter19/StrongBundleTransition.lean, line 226
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_D` — Polyfold/Chapter19/StrongBundleTransition.lean, line 235
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_E` — Polyfold/Chapter19/StrongBundleTransition.lean, line 247
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_F` — Polyfold/Chapter19/StrongBundleTransition.lean, line 271
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData` — Polyfold/Chapter19/StrongBundleTransition.lean, line 293
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.equiv_iff` — Polyfold/Chapter19/StrongBundleTransition.lean, line 341
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.toETD` — Polyfold/Chapter19/StrongBundleTransition.lean, line 377
+
+*What differs.*
+- The definition is stated as a structure on the base transition data: (B)–(F) are consequences of the lift, so only (A), the strong bundle isomorphism property, is a field. The 2017 text used germs.
+
+### V19.53. Definition 19.6.5 (new in the 2021 edition), strong bundle transition constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Definition 19.6.5, p. 896 (new in the 2021 edition)).** A transition construction for $\bar F$ consisting of bundle transition data, covering a transition construction for $F$.
+
+**Proved in Lean.** `StrongBundleTransitionConstruction`, with the underlying transition construction of the base (`toBaseTC`) and the one for $E_\mu$ (`toETC`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction` — Polyfold/Chapter19/StrongBundleTransition.lean, line 465
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toBaseTC` — Polyfold/Chapter19/StrongBundleTransition.lean, line 472
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toETC` — Polyfold/Chapter19/StrongBundleTransition.lean, line 478
+
+### V19.54. Definition 19.6.6 (2017: Definition 19.12), basic strong bundle constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Definition 19.6.6, p. 896 (2017: Definition 19.12)).** A pair $(\bar F, \bar{\mathcal F})$ of a strong bundle uniformizer construction and a transition construction.
+
+**Proved in Lean.** `BasicStrongBundleConstruction` is the pair $(\bar F, \bar{\mathcal F})$; `base` is the underlying basic construction for $\mathcal S$, `toE` the one for $E_\mu$ and `rep` the chosen representatives.
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction` — Polyfold/Chapter19/StrongBundleTransition.lean, line 489
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.base` — Polyfold/Chapter19/StrongBundleTransition.lean, line 500
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.toE` — Polyfold/Chapter19/StrongBundleTransition.lean, line 503
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.rep` — Polyfold/Chapter19/StrongBundleTransition.lean, line 506
+
+### V19.55. Definition 19.6.7 (2017: Definition 19.13), the topology $\bar T$ on $|E_\mu|$
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Definition 19.6.7, p. 897 (2017: Definition 19.13)).** $\bar T$ consists of the subsets $U$ of $|E|$ such that each point has a uniformizer and a neighbourhood $\hat V$ in $K$ with $|\bar\Psi(\hat V)| \subset U$.
+
+**Proved in Lean.** `BarOpen U`: every point of $U$ has a uniformizer $\bar\Psi$ and a neighbourhood $\hat V$ in $K$ with $|\bar\Psi(\hat V)| \subset U$ (`definition_19_6_7`); `topE` is the topology on $|E_\mu|$ these sets form and `topS` the natural topology of the base; `isOpen_topE_iff` says the open sets are exactly the `BarOpen` sets.
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.BarOpen` — Polyfold/Chapter19/StrongBundleTopology.lean, line 136
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.definition_19_6_7` — Polyfold/Chapter19/StrongBundleTopology.lean, line 143
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.topE` — Polyfold/Chapter19/StrongBundleTopology.lean, line 128
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.topS` — Polyfold/Chapter19/StrongBundleTopology.lean, line 124
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.isOpen_topE_iff` — Polyfold/Chapter19/StrongBundleTopology.lean, line 153
+
+### V19.56. Theorem 19.6.8 (2017: Theorem 19.6), the natural topology on $|E_\mu|$
+
+*hypotheses explicit* · F(α) ≠ ∅ (standing reading) · proof written out: G.270
+
+**HWZ (§19.6, Theorem 19.6.8, p. 897 (2017: Theorem 19.6)).** (1) $\bar T$ is a topology; (2) images of open sets are open; (3) $|\bar\Psi|$ is a homeomorphism onto an open set; (4) $|P|^{-1}(V)$ is metrizable for small $V$; (5) $|P|$ is continuous.
+
+**Proved in Lean.** With `hB : B.base.U.HasClassUniformizers`: (1) `BarOpen` contains `univ` and is closed under finite intersections and arbitrary unions; (2) $|\bar\Psi(\hat W)|$ is open for $\hat W$ open; (3) $|\bar\Psi|$ is a homeomorphism onto an open set; (4) every $z \in |\mathcal S|$ has an open $V \ni z$ with $|P|^{-1}(V)$ metrizable; (5) $|P|$ is continuous.
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one` — Polyfold/Chapter19/StrongBundleTopology.lean, line 158
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_two` — Polyfold/Chapter19/StrongBundleTopology.lean, line 167
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_three` — Polyfold/Chapter19/StrongBundleTopology.lean, line 175
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four` — Polyfold/Chapter19/StrongBundleTopology.lean, line 183
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five` — Polyfold/Chapter19/StrongBundleTopology.lean, line 199
+
+*What differs.*
+- The hypothesis `hB` is the standing reading for covering families (Theorem 19.2.2). The proof, which the text calls easily verified, is written out (point G.270).
+
+### V19.57. Proposition 19.6.9 (2017: Proposition 19.7), metrizability of $|E_\mu|$
+
+*hypotheses explicit* · F(α) ≠ ∅ (standing reading) · ⇐ via the zero section: G.271
+
+**HWZ (§19.6, Proposition 19.6.9, p. 898 (2017: Proposition 19.7)).** $\bar T$ is metrizable if and only if $T$ is metrizable.
+
+**Proved in Lean.** `proposition_19_6_9 (hB) : MetrizableSpace[topS] ↔ MetrizableSpace[topE]`. The direction ⇐ uses that the zero section is a continuous embedding (`continuous_zeroOrbit`, `isEmbedding_zeroOrbit`).
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9` — Polyfold/Chapter19/StrongBundleTopology.lean, line 254
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.continuous_zeroOrbit` — Polyfold/Chapter19/StrongBundleTopology.lean, line 222
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.isEmbedding_zeroOrbit` — Polyfold/Chapter19/StrongBundleTopology.lean, line 244
+
+*What differs.*
+- The 2021 statement is an equivalence (2017: only ⇒). The direction ⇐ is not argued in the text; it is the zero section (point G.271). The direction ⇒ is proved by a route different from the text's, which goes through $X_\Psi$ and Proposition 8.4.1.
+
+### V19.58. Definition 19.6.10 (2017: Definition 19.14), the topology on $M(\bar\Psi, \bar\Psi')$
+
+*restated* · V̂ a neighbourhood of s(h̄) · F̄_h read as F̄_{p(h̄)}
+
+**HWZ (§19.6, Definition 19.6.10, p. 898 (2017: Definition 19.14)).** $\bar T_{\bar\Psi,\bar\Psi'}$ consists of the $\hat W$ such that each $\bar h$ has a neighbourhood $\hat V$ with $\bar F_h(\hat V) \subset \hat W$.
+
+**Proved in Lean.** `MBar` is the transition set $M(\bar\Psi, \bar\Psi')$; `BarOpenTr W`: every $\bar h \in W$ has a neighbourhood $\hat V$ of $s(\bar h)$ in $K$ with $\bar F_{p(\bar h)}(\hat V) \subset W$ (`definition_19_6_10`); `topology_MBar` is the topology these sets form.
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.BarOpenTr` — Polyfold/Chapter19/StrongBundleTopology.lean, line 272
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.definition_19_6_10` — Polyfold/Chapter19/StrongBundleTopology.lean, line 280
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.MBar` — Polyfold/Chapter19/StrongBundleTopology.lean, line 285
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.topology_MBar` — Polyfold/Chapter19/StrongBundleTopology.lean, line 289
+
+*What differs.*
+- We read $\hat V$ as a neighbourhood of $s(\bar h)$ in $K$ and $\bar F_h$ as $\bar F_{p(\bar h)}$, the lift of the transition of the underlying base morphism.
+
+### V19.59. Theorem 19.6.11 (2017: Theorem 19.7), topology of $M(\bar\Psi, \bar\Psi')$
+
+*restated* · (6): the map read as p
+
+**HWZ (§19.6, Theorem 19.6.11, p. 898 (2017: Theorem 19.7)).** $\bar T_{\bar\Psi,\bar\Psi'}$ is a locally metrizable regular Hausdorff topology; $s$, $t$ local homeomorphisms, $u$ and the multiplication continuous, $\iota$ a homeomorphism, and the map to $M(\Psi,\Psi')$ continuous.
+
+**Proved in Lean.** `theorem_19_6_11`: the sets of Definition 19.6.10 form a topology which is regular, Hausdorff and locally metrizable; (1) $s$ and (2) $t$ are local homeomorphisms, (3) the unit map is continuous, (4) the inversion is a homeomorphism (a `Homeomorph`), (5) the multiplication is continuous, and (6) the projection to $M(\Psi, \Psi')$ is continuous (`_one` … `_six`).
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11` — Polyfold/Chapter19/StrongBundleTopology.lean, line 295
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_one` — Polyfold/Chapter19/StrongBundleTopology.lean, line 307
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_two` — Polyfold/Chapter19/StrongBundleTopology.lean, line 312
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_three` — Polyfold/Chapter19/StrongBundleTopology.lean, line 317
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_four` — Polyfold/Chapter19/StrongBundleTopology.lean, line 323
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_five` — Polyfold/Chapter19/StrongBundleTopology.lean, line 331
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_six` — Polyfold/Chapter19/StrongBundleTopology.lean, line 338
+
+*What differs.*
+- In (6) we read the map named $m$ as the projection $p : M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$, as the sentence after (6) does; the multiplication is item (5).
+
+### V19.60. Lemma 19.6.12 (new in the 2021 edition), metrizability of $M(\bar\Psi, \bar\Psi')$
+
+*stronger* · unconditional · printed form: lemma_19_6_12_book
+
+**HWZ (§19.6, Lemma 19.6.12, p. 899 (new in the 2021 edition)).** If the underlying construction satisfies the properness condition, $\bar T_{\bar\Psi,\bar\Psi'}$ is metrizable.
+
+**Proved in Lean.** `lemma_19_6_12 : MetrizableSpace (B.MBar Ψ Ψ')` with no hypothesis; `lemma_19_6_12_book (hB) (_hv : B.base.PropernessV2 hB)` is the printed form with the properness condition (V2), which it does not use.
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.lemma_19_6_12` — Polyfold/Chapter19/StrongBundleTopology.lean, line 371
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.lemma_19_6_12_book` — Polyfold/Chapter19/StrongBundleTopology.lean, line 376
+
+*What differs.*
+- The printed hypothesis (V2) is not needed: the transition set is metrizable unconditionally, since it is locally a product of metrizable sets over the metrizable $M(\Psi, \Psi')$. The printed form is kept as `lemma_19_6_12_book`.
+
+### V19.61. Theorem 19.6.13 (2017: Theorem 19.8), strong bundle structure on $M(\bar\Psi, \bar\Psi')$
+
+*stronger* · T metrizable not needed · printed form: theorem_19_6_13_book
+
+**HWZ (§19.6, Theorem 19.6.13, p. 900 (2017: Theorem 19.8)).** If $T$ is metrizable, $M(\bar\Psi,\bar\Psi') \to M(\Psi,\Psi')$ has a natural strong bundle structure for which $s$, $t$ are local strong bundle isomorphisms and $u$, $\iota$, $m$ are strong bundle maps.
+
+**Proved in Lean.** `bundleBar` is the strong bundle $M(\bar\Psi, \bar\Psi') \to M(\Psi, \Psi')$ transported along $H$ (`altHHomeo`, a homeomorphism). `Theorem_19_6_13_Statement` collects: $H$ is a strong bundle isomorphism from $s^*K$ onto `bundleBar` covering the identity (`theorem_19_6_13_H`), and the total space carries the natural M-polyfold structure of $M(\bar\Psi, \bar\Psi')$ (`_total`); $\bar s$ and $\bar t$ are local strong bundle isomorphisms (`_s`, `_t`, with local forms), the unit is a strong bundle map (`_u`), the inversion a strong bundle isomorphism (`_inv`). `BSB.theorem_19_6_13` proves it for every pair with no hypothesis; `theorem_19_6_13_book (hB) (_hT : MetrizableSpace[topS])` is the printed form.
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.bundleBar` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 262
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.Theorem_19_6_13_Statement` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 393
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_H` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 271
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_total` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 278
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_s` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 295
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_t` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 319
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_u` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 347
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_inv` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 380
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_of_bundleTransitionData` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 413
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altHHomeo` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 223
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isScSmoothMap_projBar` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 143
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 438
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_book` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 443
+
+*What differs.*
+- The metrizability of $T$ (new in 2021) is not needed for the strong bundle structure; the printed form is `theorem_19_6_13_book`. The multiplication part is V19.62. Witness `reflBan_theorem_19_6_13`.
+
+### V19.62. Theorem 19.6.13, the multiplication map (2017: Theorem 19.8)
+
+*as in the book* · as stated
+
+**HWZ (§19.6, Theorem 19.6.13, p. 900 (2017: Theorem 19.8)).** The multiplication map is a strong bundle map.
+
+**Proved in Lean.** `mulBundle` is the strong bundle over the fibred product $M(\Psi', \Psi'') \,{}_s\!\times_t M(\Psi, \Psi')$, `mBar` the multiplication; `theorem_19_6_13_m`: it is a strong bundle map. Witness `reflBan_theorem_19_6_13` for the $\mathbb Z/2$-example.
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.mulBundle` — Polyfold/Chapter19/StrongBundleMultiplication.lean, line 116
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.mBar` — Polyfold/Chapter19/StrongBundleMultiplication.lean, line 130
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_m` — Polyfold/Chapter19/StrongBundleMultiplication.lean, line 136
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_m` — Polyfold/Chapter19/StrongBundleMultiplication.lean, line 175
+- `Polyfold.GroupoidalCategory.reflBan_theorem_19_6_13` — Polyfold/Chapter19/StrongBundleTheorem.lean, line 453
+
+### V19.63. Remark 19.6.14 (2017: Remark 19.9), outlook
+
+*nothing to formalize* · prose
+
+**HWZ (§19.6, Remark 19.6.14, p. 900 (2017: Remark 19.9)).** An outlook on the use of the construction.
+
+**Proved in Lean.** Nothing to formalize: the remark describes how the construction will be used (point G.272).
+
+
+*What differs.*
+- None.
+
+### V19.64. The alternative approach, (19.14)–(19.17) (§19.6, pp. 900–902)
+
+*restated* · source map t read as target map t
+
+**HWZ (§19.6, pp. 900–902, (19.14)–(19.17) (2017: §19.6)).** $H : s^*K \to M(\bar\Psi,\bar\Psi')$, $H' : t^*K' \to M(\bar\Psi,\bar\Psi')$ and $C = H'^{-1} H$.
+
+**Proved in Lean.** `srcBundle` and `tgtBundle` are the pull-backs $s^*K$ and $t^*K'$ (on `SrcPB`, `TgtPB`); `altH` and `altH'` are the bijections $H$ and $H'$ of (19.14) and (19.15) (`altH_bijective`); `altC` is $C = H'^{-1} \circ H$ of (19.17), a bijection over the identity (`altC_eq`, `pullbackProj_altC`, `altC_bijective`).
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.SrcPB` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 96
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.TgtPB` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 101
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.srcBundle` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 124
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.tgtBundle` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 137
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altH` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 152
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altH'` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 156
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altH_bijective` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 177
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altC` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 202
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altC_eq` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 211
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.pullbackProj_altC` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 217
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altC_bijective` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 222
+
+*What differs.*
+- In (19.15) we read the map named source map $t$ as the target map $t$.
+
+### V19.65. Definition 19.6.15 (new in the 2021 edition), coherence
+
+*as in the book* · as stated · automatic for 19.6.4 data
+
+**HWZ (§19.6, Definition 19.6.15, p. 902 (new in the 2021 edition)).** $(\bar F, \bar{\mathcal F})$ has the coherence property if the maps $C$ of (19.17) are strong bundle isomorphisms.
+
+**Proved in Lean.** `IsCoherent`: every $C$ is a strong bundle isomorphism (`definition_19_6_15`). `altA` is the map $A$ of (19.18), a strong bundle isomorphism (`isStrongBundleIso_altA`); $C$ is one iff the composite with $A$ is (`altC_iso_iff_altA_comp`), so coherence is equivalent to the form `IsCoherentA` (`isCoherent_iff_isCoherentA`). Lifts of bundle transition data are always coherent (`isCoherent_of_bundleTransitionData`). Witness `reflBan_isCoherent`.
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.IsCoherent` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 232
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_15` — Polyfold/Chapter19/StrongBundleAlternative.lean, line 237
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isCoherent_of_bundleTransitionData` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 211
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altA` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 237
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altA` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 264
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.altC_iso_iff_altA_comp` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 272
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.IsCoherentA` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 293
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isCoherent_iff_isCoherentA` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 299
+- `Polyfold.GroupoidalCategory.reflBan_isCoherent` — Polyfold/Chapter19/StrongBundleCoherence.lean, line 311
+
+*What differs.*
+- Coherence holds automatically for constructions of Definition 19.6.4 (`isCoherent_of_bundleTransitionData`).
+
+### V19.66. The alternative approach: structures I and II agree (§19.6, pp. 901–903)
+
+*hypotheses explicit* · I given with s̄ locally an isomorphism · printed form: comparison_I_II_book
+
+**HWZ (§19.6, pp. 901–903 (2017: §19.6)).** The structure obtained from $s^*K$ through $H$ agrees with the one obtained from $t^*K'$ through $H'$ under coherence, and with the structure of Theorem 19.6.13.
+
+**Proved in Lean.** Structure II is the transport of $s^*K$ along $H$ (`StrongBundle.transport`, `isStrongBundleIso_transport`; the topology is coinduced, `coinduced_altHE`). $C$ and $H'$ are strong bundle isomorphisms for it (`isStrongBundleIso_altC`, `isStrongBundleIso_altH'`). `comparison_I_II (BI hs hloc)`: a strong bundle structure I on $M(\bar\Psi, \bar\Psi')$ for which $\bar s$ is a strong bundle map and locally an isomorphism agrees with II; `comparison_I_II_book (_hcoh : IsCoherent …)` is the printed form. Witnesses `comparison_I_II_hyp_witness`, `reflBan_comparison_I_II`.
+
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.coinduced_altHE` — Polyfold/Chapter19/StrongBundleComparison.lean, line 86
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_id_of_altH` — Polyfold/Chapter19/StrongBundleComparison.lean, line 94
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altC` — Polyfold/Chapter19/StrongBundleComparison.lean, line 114
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altH'` — Polyfold/Chapter19/StrongBundleComparison.lean, line 137
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_id_of_altH_altH'` — Polyfold/Chapter19/StrongBundleComparison.lean, line 163
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II` — Polyfold/Chapter19/StrongBundleComparison.lean, line 179
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II_book` — Polyfold/Chapter19/StrongBundleComparison.lean, line 208
+- `Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II_hyp_witness` — Polyfold/Chapter19/StrongBundleComparison.lean, line 219
+- `Polyfold.GroupoidalCategory.reflBan_comparison_I_II` — Polyfold/Chapter19/StrongBundleComparison.lean, line 235
+- `Polyfold.StrongBundle.transport` — Polyfold/Chapter19/StrongBundleTransport.lean, line 200
+- `Polyfold.StrongBundle.isStrongBundleIso_transport` — Polyfold/Chapter19/StrongBundleTransport.lean, line 333
+- `Polyfold.StrongBundle.isStrongBundleIso_id_of_isStrongBundleIsoOn` — Polyfold/Chapter19/StrongBundleTransport.lean, line 524
+
+*What differs.*
+- The comparison is stated for a structure I with the local property the text uses; the printed coherence hypothesis is kept in `comparison_I_II_book`. The witness has non-trivial isotropy and a non-trivial fibre action.
+
+### V19.67. Witness for §19.6: the reflection on $\mathbb R$
+
+*not in the book* · witness, non-trivial isotropy
+
+**HWZ (§19.6 (no counterpart in the text), p. 890).** No counterpart: a witness for the hypotheses of §19.6.
+
+**Proved in Lean.** `reflBan`: the groupoid $\mathbb Z/2 \ltimes \mathbb R$ with fibre $\mathbb R$ on which the generator acts by $-1$; `reflBanU`, `reflBanBTD` and `reflBanBasic` are its uniformizer construction, bundle transition data and basic construction. The lifts are non-trivial (`reflBan_lift_ne`, `reflBan_fmapBar_neg`); the hypotheses of the section hold (`reflBanBasic_hB`, `reflBanBasic_metrizable`, `reflBanBasic_witness`).
+
+- `Polyfold.GroupoidalCategory.reflBan` — Polyfold/Chapter19/StrongBundleExamples.lean, line 101
+- `Polyfold.GroupoidalCategory.reflBanU` — Polyfold/Chapter19/StrongBundleExamples.lean, line 211
+- `Polyfold.GroupoidalCategory.reflBanBTD` — Polyfold/Chapter19/StrongBundleExamples.lean, line 311
+- `Polyfold.GroupoidalCategory.reflBanBasic` — Polyfold/Chapter19/StrongBundleExamples.lean, line 328
+- `Polyfold.GroupoidalCategory.reflBan_lift_ne` — Polyfold/Chapter19/StrongBundleExamples.lean, line 127
+- `Polyfold.GroupoidalCategory.reflBan_fmapBar_neg` — Polyfold/Chapter19/StrongBundleExamples.lean, line 348
+- `Polyfold.GroupoidalCategory.reflBanBasic_hB` — Polyfold/Chapter19/StrongBundleExamples.lean, line 331
+- `Polyfold.GroupoidalCategory.reflBanBasic_metrizable` — Polyfold/Chapter19/StrongBundleExamples.lean, line 336
+- `Polyfold.GroupoidalCategory.reflBanBasic_witness` — Polyfold/Chapter19/StrongBundleExamples.lean, line 359
+
+*What differs.*
+- Not in the book: a non-degenerate instance (non-trivial isotropy acting non-trivially on the fibre) for the hypotheses used in §19.6.
+
+### V19.68. Definition 19.7.1 (2017: Definition 19.15), finite-to-one covering functors, and Remark 19.7.2 (2017: Remark 19.10)
+
+*as in the book* · as stated
+
+**HWZ (§19.7, Definition 19.7.1 and Remark 19.7.2, p. 906 (2017: Definition 19.15)).** $P : \mathcal A \to \mathcal B$ is a finite-to-one covering functor if it is finite-to-one on objects and morphisms lift uniquely with prescribed source.
+
+**Proved in Lean.** `IsFiniteToOneCovering P`: $P$ is finite-to-one on objects and every morphism $\varphi$ with $s(\varphi) = P(\alpha)$ has a unique lift with source $\alpha$ (`lift`, `existsUnique_lift`). `remark_19_7_2`: the identity functor is a finite-to-one covering functor.
+
+- `Polyfold.GroupoidalCategory.IsFiniteToOneCovering` — Polyfold/Chapter19/CoveringConstruction.lean, line 96
+- `Polyfold.GroupoidalCategory.IsFiniteToOneCovering.lift` — Polyfold/Chapter19/CoveringConstruction.lean, line 111
+- `Polyfold.GroupoidalCategory.IsFiniteToOneCovering.existsUnique_lift` — Polyfold/Chapter19/CoveringConstruction.lean, line 142
+- `Polyfold.GroupoidalCategory.remark_19_7_2` — Polyfold/Chapter19/CoveringConstruction.lean, line 151
+
+### V19.69. Definition 19.7.3 (2017: Definition 19.16), uniformizers for $P$, and Definition 19.7.4 (2017: Definition 19.17)
+
+*as in the book* · as stated
+
+**HWZ (§19.7, Definitions 19.7.3 and 19.7.4, pp. 906–907 (2017: Definition 19.16)).** A uniformizer for $P$ at $\beta$ is a pair $(\Psi, \hat\Psi)$ over a covering model, fitting into a commutative diagram with the stated properties.
+
+**Proved in Lean.** `CoveringUniformizer P β` is a pair $(\Psi, \hat\Psi)$ with a proper covering model (`model : ProperCoveringModel`, Definition 17.8.4) and the cartesian squares on objects and morphisms (`cartesian_obj`, `cartesian_mor`); `definition_19_7_4` collects the conditions of Definition 19.7.4, and `obj_eq`, `mor_eq` the commutativity of (19.22).
+
+- `Polyfold.GroupoidalCategory.CoveringUniformizer` — Polyfold/Chapter19/CoveringConstruction.lean, line 168
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.definition_19_7_4` — Polyfold/Chapter19/CoveringConstruction.lean, line 221
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.obj_eq` — Polyfold/Chapter19/CoveringConstruction.lean, line 241
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.mor_eq` — Polyfold/Chapter19/CoveringConstruction.lean, line 247
+
+### V19.70. Lemma 19.7.5 (2017: Lemma 19.1), and Remark 19.7.6 (2017: Remark 19.11)
+
+*as in the book* · as stated
+
+**HWZ (§19.7, Lemma 19.7.5 and Remark 19.7.6, pp. 907–908 (2017: Lemma 19.1)).** $\Psi$ is determined by $\hat\Psi$ and the covering model.
+
+**Proved in Lean.** `lemma_19_7_5`: two uniformizers $\Psi_1, \Psi_2$ of $\mathcal B$ with $P \circ \hat\Psi = \Psi_i \circ \tau$ for the same covering model and $\hat\Psi$ are equal; `CoveringUniformizer.remark_19_7_6`: so $\Psi$ is determined by $\hat\Psi$.
+
+- `Polyfold.GroupoidalCategory.lemma_19_7_5` — Polyfold/Chapter19/CoveringConstruction.lean, line 268
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.remark_19_7_6` — Polyfold/Chapter19/CoveringConstruction.lean, line 287
+
+### V19.71. Definition 19.7.7 (2017: Definition 19.18), covering uniformizer constructions, and Remark 19.7.8 (2017: Remark 19.12)
+
+*as in the book* · as stated
+
+**HWZ (§19.7, Definition 19.7.7 and Remark 19.7.8, p. 908 (2017: Definition 19.18)).** A uniformizer construction for $P$, inducing one for $\mathcal B$.
+
+**Proved in Lean.** `CoveringUniformizerConstruction` assigns sets $\hat F(\beta)$ of uniformizers for $P$; `toUniformizerConstruction` is the induced construction $F$ for $\mathcal B$ of (19.24); `remark_19_7_8`: the base uniformizers of $\hat F(\beta)$ lie in $F(\beta)$ and are centred at $\beta$, and every element of $F(\beta)$ is one.
+
+- `Polyfold.GroupoidalCategory.CoveringUniformizerConstruction` — Polyfold/Chapter19/CoveringConstruction.lean, line 300
+- `Polyfold.GroupoidalCategory.CoveringUniformizerConstruction.toUniformizerConstruction` — Polyfold/Chapter19/CoveringConstruction.lean, line 311
+- `Polyfold.GroupoidalCategory.CoveringUniformizerConstruction.remark_19_7_8` — Polyfold/Chapter19/CoveringConstruction.lean, line 335
+
+### V19.72. Lemma 19.7.9 (new in the 2021 edition), and Lemma 19.7.10 (2017: Lemma 19.2)
+
+*as in the book* · as stated
+
+**HWZ (§19.7, Lemmas 19.7.9 and 19.7.10, pp. 908–909 (new in the 2021 edition)).** The map $p : M(\hat\Psi, \hat\Psi') \to M(\Psi,\Psi')$ is surjective with finite fibres; Lemma 19.7.10 identifies $M(\hat\Psi, \hat\Psi')$ with a fibred set.
+
+**Proved in Lean.** `CoveringUniformizer.Trans` is the transition set $M(\hat\Psi, \hat\Psi')$, `transMap` the map $p$ to $M(\Psi, \Psi')$; `lemma_19_7_9`: $p$ is surjective with finite fibres, and on the fibre over $h$ the source map is a bijection onto $\tau^{-1}(s(h))$; `lemma_19_7_10`: the map to the fibred set is bijective (`transEquiv`).
+
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.Trans` — Polyfold/Chapter19/CoveringConstruction.lean, line 350
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.transMap` — Polyfold/Chapter19/CoveringConstruction.lean, line 357
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.lemma_19_7_9` — Polyfold/Chapter19/CoveringConstruction.lean, line 443
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.lemma_19_7_10` — Polyfold/Chapter19/CoveringConstruction.lean, line 471
+- `Polyfold.GroupoidalCategory.CoveringUniformizer.transEquiv` — Polyfold/Chapter19/CoveringConstruction.lean, line 478
+
+### V19.73. Definition 19.7.11 (2017: Definition 19.19), basic constructions for $P$
+
+*hypotheses explicit* · IsCompatible: reading of l. 44572 · _hyp suffix
+
+**HWZ (§19.7, Definition 19.7.11, p. 910 (2017: Definition 19.19)).** $(\hat F, \mathcal F)$ with $\mathcal F$ a transition construction for the underlying $F$.
+
+**Proved in Lean.** `CoveringBasicConstruction` is the pair $(\hat F, \mathcal F)$ with `toBasic` the basic construction for $\mathcal B$; `HasClassUniformizers` the standing reading $F(\alpha) \ne \emptyset$; `IsCompatible`: for all uniformizers the lifted target maps $\hat t$ are continuous.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction` — Polyfold/Chapter19/CoveringConstruction.lean, line 494
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toBasic` — Polyfold/Chapter19/CoveringConstruction.lean, line 506
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.HasClassUniformizers` — Polyfold/Chapter19/CoveringConstruction.lean, line 512
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.IsCompatible` — Polyfold/Chapter19/CoveringTopology.lean, line 314
+
+*What differs.*
+- We read the definition as asking that the uniformizers $\hat\Psi$ be compatible with the transitions (the continuity of $\hat t$), as l. 44572 and Definition 19.6.4 (A) suggest; the literal definition does not ask it, and without it Proposition 19.7.15 (2) and Lemma 19.7.17 do not hold as we read them (V19.78). The hypothesis carries the `_hyp` suffix in every statement that uses it.
+
+### V19.74. Lemma 19.7.12 (new in the 2021 edition), the fibred product $M(\Psi, \Psi')\,{}_s\!\times_{\hat\tau} E$
+
+*as in the book* · as stated · also metrizable
+
+**HWZ (§19.7, Lemma 19.7.12, p. 911 (new in the 2021 edition)).** With the natural topology on $M(\Psi,\Psi')$, the fibred product $M(\Psi,\Psi')\,{}_s\!\times_{\hat\tau} E$ is locally metrizable and regular Hausdorff.
+
+**Proved in Lean.** `Fib x y` is the fibred product $M(\Psi, \Psi')\,{}_s\!\times_{\hat\tau} E$ of (19.26); `lemma_19_7_12`: it is locally metrizable, regular and Hausdorff. It is moreover metrizable, as a subspace of $M(\Psi, \Psi') \times E$ (`metrizableSpace_fib`).
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.Fib` — Polyfold/Chapter19/CoveringTopology.lean, line 158
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_12` — Polyfold/Chapter19/CoveringTopology.lean, line 197
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.metrizableSpace_fib` — Polyfold/Chapter19/CoveringTopology.lean, line 189
+
+*What differs.*
+- The formalization also gives the metrizability of the fibred product (`metrizableSpace_fib`).
+
+### V19.75. Proposition 19.7.13 (new in the 2021 edition), metrizability of $M(\hat\Psi, \hat\Psi')$
+
+*stronger* · also metrizable
+
+**HWZ (§19.7, Proposition 19.7.13, p. 913 (new in the 2021 edition)).** $M(\hat\Psi,\hat\Psi')$ has a natural regular Hausdorff, locally metrizable topology, uniquely characterized by the canonical map to $M(\Psi,\Psi')\,{}_s\!\times_{\hat\tau} E$ being a homeomorphism.
+
+**Proved in Lean.** `proposition_19_7_13 (hP)`: the canonical map to the fibred product of Lemma 19.7.12 is a homeomorphism (`fibHomeomorph`), the topology is the only one with this property, it is regular, Hausdorff and locally metrizable, and $M(\hat\Psi,\hat\Psi')$ is metrizable (`metrizableSpace_MHat`).
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.fibHomeomorph` — Polyfold/Chapter19/CoveringTopology.lean, line 205
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_13` — Polyfold/Chapter19/CoveringTopology.lean, line 234
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.metrizableSpace_MHat` — Polyfold/Chapter19/CoveringTopology.lean, line 226
+
+*What differs.*
+- In addition, $M(\hat\Psi,\hat\Psi')$ is metrizable, with no hypothesis beyond $P$ being a finite-to-one covering functor.
+
+### V19.76. Proposition 19.7.14 (new in the 2021 edition)
+
+*restated* · "local covering functor" read as Def 19.7.1
+
+**HWZ (§19.7, Proposition 19.7.14, p. 914 (new in the 2021 edition)).** The map $p : M(\hat\Psi,\hat\Psi') \to M(\Psi,\Psi')$ is a surjective local homeomorphism, for a local covering functor.
+
+**Proved in Lean.** `proposition_19_7_14`, using that the projections of a fibred product along a local homeomorphism are local homeomorphisms (`isLocalHomeomorph_fibredFst`, `isLocalHomeomorph_fibredSnd`).
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_14` — Polyfold/Chapter19/CoveringTopology.lean, line 265
+- `Polyfold.Chapter19.isLocalHomeomorph_fibredFst` — Polyfold/Chapter19/CoveringTopology.lean, line 82
+- `Polyfold.Chapter19.isLocalHomeomorph_fibredSnd` — Polyfold/Chapter19/CoveringTopology.lean, line 127
+
+*What differs.*
+- We read "local covering functor" as a finite-to-one covering functor in the sense of Definition 19.7.1.
+
+### V19.77. Proposition 19.7.15 (new in the 2021 edition), the structure maps
+
+*hypotheses explicit* · t̂, ι̂, m̂ with IsCompatible (_hyp) · ₛ×_p E read as ₛ×_τ̂ E
+
+**HWZ (§19.7, Proposition 19.7.15, p. 915 (new in the 2021 edition)).** (1) The topology on $M(\hat\Psi,\hat\Psi')$ is natural; (2) $\hat s$, $\hat t$ are local homeomorphisms; (3) $\hat\iota$ is a homeomorphism and $\hat u$ continuous; (4) $\hat m$ is a local homeomorphism.
+
+**Proved in Lean.** `proposition_19_7_15_one`: (1) without compatibility. `proposition_19_7_15_hyp (hP) (hC : Bh.IsCompatible)`: $p$ is a surjective local homeomorphism and $M(\hat\Psi,\hat\Psi')$ is homeomorphic to the set of (19.26); $\hat s$ and $\hat t$ are local homeomorphisms; the inversion is a homeomorphism and the unit continuous; the multiplication is a local homeomorphism; $M(\hat\Psi,\hat\Psi')$ and $M(\Psi,\Psi')$ are metrizable.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_one` — Polyfold/Chapter19/CoveringTopology.lean, line 276
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_srcHat` — Polyfold/Chapter19/CoveringTopology.lean, line 290
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.continuous_unitHat` — Polyfold/Chapter19/CoveringTopology.lean, line 330
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_tgtHat` — Polyfold/Chapter19/CoveringTopology.lean, line 318
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.invHatHomeomorph` — Polyfold/Chapter19/CoveringTopology.lean, line 356
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_mulHat` — Polyfold/Chapter19/CoveringTopology.lean, line 395
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_hyp` — Polyfold/Chapter19/CoveringTopology.lean, line 408
+
+*What differs.*
+- The target map in (2), the inversion in (3) and the multiplication in (4) use `IsCompatible`, the reading of Definition 19.7.11; without it, the target map need not be continuous (V19.78). Part (1), the source map in (2) and the unit in (3) do not use it. We read $\,{}_s\!\times_p E$ in the proof as ${}_s\!\times_{\hat\tau} E$.
+
+### V19.78. Compatibility is needed: the twisted and doubled examples (§19.7, Proposition 19.7.15 (2) and Lemma 19.7.17)
+
+*not in the book* · reason for the IsCompatible reading
+
+**HWZ (§19.7, Proposition 19.7.15 (2), p. 915, and Lemma 19.7.17, p. 916 (new in the 2021 edition)).** No counterpart: examples satisfying the literal Definition 19.7.11 without the compatibility reading.
+
+**Proved in Lean.** `twistBasic` (built from `twistCU`, a uniformizer whose lift is twisted by $\sigma = -1$ for $|x| > 1$) satisfies the literal Definition 19.7.11 but not `IsCompatible` (`not_isCompatible_twistBasic`): its lifted target map is not continuous (`not_continuous_tgtHat_twistBasic`), so Proposition 19.7.15 (2) does not hold for it (`proposition_19_7_15_two_without_compatible`); Lemma 19.7.17 (1) still holds for it (`lemma_19_7_17_one_twistBasic`) but (2) does not (`lemma_19_7_17_two_without_compatible`). `twoBasic` (the twist at 2) has no topology of Definition 19.7.16 (`lemma_19_7_17_one_without_compatible`).
+
+- `Polyfold.GroupoidalCategory.twistCU` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 71
+- `Polyfold.GroupoidalCategory.twistBasic` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 146
+- `Polyfold.GroupoidalCategory.not_isCompatible_twistBasic` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 216
+- `Polyfold.GroupoidalCategory.not_continuous_tgtHat_twistBasic` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 179
+- `Polyfold.GroupoidalCategory.proposition_19_7_15_two_without_compatible` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 209
+- `Polyfold.GroupoidalCategory.twoBasic` — Polyfold/Chapter19/CompatibilityExamples.lean, line 401
+- `Polyfold.GroupoidalCategory.lemma_19_7_17_one_without_compatible` — Polyfold/Chapter19/CompatibilityExamples.lean, line 586
+- `Polyfold.GroupoidalCategory.lemma_19_7_17_two_without_compatible` — Polyfold/Chapter19/CompatibilityExamples.lean, line 269
+- `Polyfold.GroupoidalCategory.lemma_19_7_17_one_twistBasic` — Polyfold/Chapter19/CompatibilityExamples.lean, line 228
+
+*What differs.*
+- Not in the book. These examples are the reason for the reading of Definition 19.7.11 (V19.73); they satisfy every printed hypothesis of Definition 19.7.11 (Findings, Chapter 19, item 11).
+
+### V19.79. Definition 19.7.16 (new in the 2021 edition), the topology on $|\mathcal A|$, and Lemma 19.7.17 (new in the 2021 edition)
+
+*hypotheses explicit* · IsCompatible (_hyp) · F(α) ≠ ∅ (standing reading)
+
+**HWZ (§19.7, Definition 19.7.16 and Lemma 19.7.17, p. 916 (new in the 2021 edition)).** The sets $\hat T$ form a topology on $|\mathcal A|$ for which the uniformizers induce open embeddings.
+
+**Proved in Lean.** `NatOpenA`: the sets of Definition 19.7.16; `natTopA hP hC hU` the topology they form. `lemma_19_7_17_one_hyp (hP) (hC) (hU)`: (1) `NatOpenA` is a topology, and every class lies in the image of a uniformizer whose orbit map is an open embedding; `lemma_19_7_17_two_hyp`: (2), with `isOpen_image_hat`, `continuous_π_hat`, `exists_nbhd_hat`.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.NatOpenA` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 80
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.natTopA` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 182
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_17_one_hyp` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 257
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_17_two_hyp` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 234
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isOpen_image_hat` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 191
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.continuous_π_hat` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 206
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.exists_nbhd_hat` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 138
+
+*What differs.*
+- The lemma uses `IsCompatible`, the reading of Definition 19.7.11; the examples of V19.78 show it is needed.
+
+### V19.80. Proposition 19.7.18 (2017: Lemma 19.3), $|P|$
+
+*narrower* · local homeomorphism: not as we read it · 2017 form proved · local homeo where G_a → G_P(a) onto
+
+**HWZ (§19.7, Proposition 19.7.18, p. 919 (2017: Lemma 19.3)).** $|P| : |\mathcal A| \to |\mathcal B|$ is a surjective local homeomorphism with finite fibres, and (19.34) holds.
+
+**Proved in Lean.** Does not hold as we read it: `not_proposition_19_7_18` (with `_natTopA`, `_of_continuous`): for `absBasic` ($|\mathcal A| \cong \mathbb R$, $|\mathcal B| \cong [0,\infty)$, $|P|$ the absolute value) $|P|$ is not a local homeomorphism at $0$ (`absCovering_orbitMap_not_isLocalHomeomorph`). `proposition_19_7_18_hyp (hP) (hC) (hU)`: $|P|$ is continuous, open and surjective with finite fibres, and (19.34) holds. `isLocalHomeomorphOn_orbitMap_of_τ_hyp` with (19.35) (`orbitMap_hat_comm`), and `isLocalHomeomorphOn_orbitMap_of_isotropy_surjective`: $|P|$ is a local homeomorphism at the classes of $a$ where $G_a \to G_{P(a)}$ is onto; this is not necessary in general (`isotropy_surjective_not_necessary`), and for the example it is exact (`absP_isLocalHomeomorphOn_iff`).
+
+- `Polyfold.GroupoidalCategory.not_proposition_19_7_18` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 591
+- `Polyfold.GroupoidalCategory.not_proposition_19_7_18_natTopA` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 604
+- `Polyfold.GroupoidalCategory.not_proposition_19_7_18_of_continuous` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 614
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_18_hyp` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 363
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorphOn_orbitMap_of_τ_hyp` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 385
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.orbitMap_hat_comm` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 374
+- `Polyfold.Chapter19.isLocalHomeomorphOn_orbitMap_of_isotropy_surjective` — Polyfold/Chapter19/CoveringOrbitCounterexample.lean, line 137
+- `Polyfold.Chapter19.absP_isLocalHomeomorphOn_iff` — Polyfold/Chapter19/CoveringOrbitCounterexample.lean, line 538
+- `Polyfold.Chapter19.isotropy_surjective_not_necessary` — Polyfold/Chapter19/CoveringOrbitCounterexample.lean, line 580
+- `Polyfold.Chapter19.absCovering_orbitMap_not_isLocalHomeomorph` — Polyfold/Chapter19/CoveringOrbitCounterexample.lean, line 497
+
+*What differs.*
+- The local homeomorphism property does not hold as we read it (Findings, Chapter 19, item 12): the example satisfies every hypothesis, including the compatibility reading. The 2017 form (continuous and open) is proved, with finite fibres and (19.34); the local homeomorphism property holds at the points where the isotropy map is onto, which is sufficient.
+
+### V19.81. Lemma 19.7.19 (new in the 2021 edition), the sheets of a connected covering model
+
+*restated* · connected model of Def 17.8.4
+
+**HWZ (§19.7, Lemma 19.7.19, p. 920 (new in the 2021 edition)).** For a connected local ep-groupoid covering model, points of the fibre are isomorphic iff their sheets have the same image.
+
+**Proved in Lean.** `ProperCoveringModel.lemma_19_7_19 (hO : M.Connected)`: for $y, y'$ in the fibre, $y$ and $y'$ are isomorphic iff their sheets have the same image in the orbit space; the sheets are `cutSheet`.
+
+- `Polyfold.ProperCoveringModel.lemma_19_7_19` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 177
+- `Polyfold.ProperCoveringModel.cutSheet` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 95
+- `Polyfold.ProperCoveringModel.sheetIndex_tgt_liftMor_σ` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 108
+
+*What differs.*
+- We read the connected local ep-groupoid covering model as a connected proper covering model in the sense of Definition 17.8.4, as in Remark 17.8.11 (2).
+
+### V19.82. The divisibility remark after Lemma 19.7.19 (§19.7, p. 920, new in the 2021 edition)
+
+*narrower* · k ∤ ℓ in an example · not used later
+
+**HWZ (§19.7, after Lemma 19.7.19, p. 920 (new in the 2021 edition)).** The number $k$ of classes divides the number $\ell$ of fibre points.
+
+**Proved in Lean.** Does not hold as we read it: `not_remark_19_7_19_divides`: for the connected model `divModel` the fibre has $\ell = 3$ points and $k = 2$ orbit classes, and $2 \nmid 3$. Each class has $|G : \mathrm{im}\, G_y|$ elements, so the counts need not divide one another.
+
+- `Polyfold.GroupoidalCategory.not_remark_19_7_19_divides` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 269
+- `Polyfold.GroupoidalCategory.divModel` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 230
+
+*What differs.*
+- The divisibility does not hold as we read it; it is not used later (Findings, Chapter 19, item 13).
+
+### V19.83. Corollary 19.7.20 (2017: Lemma 19.4), local structure of $|P|$
+
+*narrower* · (3) not as we read it · (1), (2) proved; |P| closed
+
+**HWZ (§19.7, Corollary 19.7.20, p. 921 (2017: Lemma 19.4)).** (1)–(2) small $G$-invariant neighbourhoods and models over them; (3) $|P|^{-1}(|G \ltimes O'|)$ is a disjoint union of copies $|G_{a_i} \ltimes V(a_i)| \cong |G \ltimes O'|$.
+
+**Proved in Lean.** `corollary_19_7_20_hyp (hP) (hC) (hU)`: (1) and (2), with `exists_isOpen_preimage_subset`, `isClosedMap_orbitMap` and `evenlyCovered_orbitMap`. (3) does not hold as we read it: `not_corollary_19_7_20_three` (the absolute-value example).
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.corollary_19_7_20_hyp` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 340
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.exists_isOpen_preimage_subset` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 420
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isClosedMap_orbitMap` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 435
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.evenlyCovered_orbitMap` — Polyfold/Chapter19/CoveringLocalStructure.lean, line 453
+- `Polyfold.GroupoidalCategory.not_corollary_19_7_20_three` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 637
+
+*What differs.*
+- (3) does not hold as we read it (Findings, Chapter 19, item 12): the proof's identification $|G_{a_i} \ltimes V(a_i)| \cong |G \ltimes O'|$ needs $G_{a_i} = G$. (1) and (2) are proved; $|P|$ is closed and the fibres are evenly covered in the orbit sense.
+
+### V19.84. Lemma 19.7.21 (new in the 2021 edition), and Remark 19.7.22 (new in the 2021 edition)
+
+*as in the book* · as stated · transition sets: no (V2) needed
+
+**HWZ (§19.7, Lemma 19.7.21 and Remark 19.7.22, pp. 922–923 (new in the 2021 edition)).** Consequences of the properness condition (V2) for $|\mathcal B|$ and the transition sets; the remark relates metrizability to (V2) and paracompactness.
+
+**Proved in Lean.** `lemma_19_7_21 (hP) (hU)`: under (V2) $|\mathcal B|$ is regular, Hausdorff and locally metrizable, and the transition sets $M(\Psi,\Psi')$, $M(\hat\Psi,\hat\Psi')$ are metrizable with no hypothesis; `remark_19_7_22`: $|\mathcal B|$ is metrizable iff (V2) holds and $|\mathcal B|$ is paracompact, and then the transition sets are metrizable.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_21` — Polyfold/Chapter19/CoveringOrbitTopology.lean, line 420
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.remark_19_7_22` — Polyfold/Chapter19/CoveringMetrizability.lean, line 180
+
+*What differs.*
+- The metrizability of the transition sets holds without (V2).
+
+### V19.85. Proposition 19.7.23 (2017: Proposition 19.9), and Proposition 19.7.24 (2017: Proposition 19.10), properness and paracompactness
+
+*hypotheses explicit* · IsCompatible (_hyp) · perfect-map route, not 19.7.20 (3)
+
+**HWZ (§19.7, Propositions 19.7.23 and 19.7.24, pp. 923–924 (2017: Proposition 19.9)).** (V2) for $\mathcal A$ iff for $\mathcal B$; $|\mathcal A|$ paracompact iff $|\mathcal B|$ is.
+
+**Proved in Lean.** `proposition_19_7_23_hyp (hP) (hC) (hU) : PropernessV2A ↔ toBasic.PropernessV2`; `proposition_19_7_24_hyp : ParacompactSpace[natTopA] ↔ ParacompactSpace[natTop]`, through the perfect-map lemmas `paracompactSpace_of_tube` and `paracompactSpace_of_tube_of_isOpenMap`.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.PropernessV2A` — Polyfold/Chapter19/CoveringMetrizability.lean, line 192
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_23_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 212
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_24_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 250
+- `Polyfold.Chapter19.paracompactSpace_of_tube` — Polyfold/Chapter19/CoveringMetrizability.lean, line 87
+- `Polyfold.Chapter19.paracompactSpace_of_tube_of_isOpenMap` — Polyfold/Chapter19/CoveringMetrizability.lean, line 123
+
+*What differs.*
+- Both hold as printed under the compatibility reading. The proof uses that $|P|$ is a perfect map (continuous, closed, finite fibres) and does not use Corollary 19.7.20 (3).
+
+### V19.86. Theorem 19.7.25 (new in the 2021 edition), the topology of $|\mathcal A|$
+
+*narrower* · (4b) not as we read it · (1)–(3), (4a) proved
+
+**HWZ (§19.7, Theorem 19.7.25, p. 925 (new in the 2021 edition)).** (1) $|\mathcal A|$ metrizable; (2) topologies on $\mathcal A$, $\mathcal B$; (3) $P$ a proper covering functor; (4) each fibre has disjoint neighbourhoods on which $|P|$ is injective.
+
+**Proved in Lean.** With `hP`, `hC`, `hU`: (1) `theorem_19_7_25_one_hyp` (with `hm`, $|\mathcal B|$ metrizable): $|\mathcal A|$ is metrizable, $|P|$ continuous and surjective (via `t2Space_natTopA`, `exists_metrizable_nhds_natTopA`); (2) `theorem_19_7_25_two_hyp`: the groupoidal categories with topology `toGCTA`, `toGCTB`; (3) `theorem_19_7_25_three_hyp`: $P$ is a proper covering functor of Definition 17.8.1; (4a) `theorem_19_7_25_four_a_hyp`: finite fibres, each evenly covered by disjoint open sets. (4b) does not hold as we read it: `not_theorem_19_7_25_four_b`. Witness `theorem_19_7_25_absBasic`.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_one_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 302
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.t2Space_natTopA` — Polyfold/Chapter19/CoveringMetrizability.lean, line 268
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.exists_metrizable_nhds_natTopA` — Polyfold/Chapter19/CoveringMetrizability.lean, line 279
+- `Polyfold.Chapter19.t2Space_of_disjoint_fibre_nhds` — Polyfold/Chapter19/CoveringMetrizability.lean, line 151
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toGCTA` — Polyfold/Chapter19/CoveringMetrizability.lean, line 316
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toGCTB` — Polyfold/Chapter19/CoveringMetrizability.lean, line 324
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_two_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 333
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_three_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 344
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_four_a_hyp` — Polyfold/Chapter19/CoveringMetrizability.lean, line 358
+- `Polyfold.GroupoidalCategory.not_theorem_19_7_25_four_b` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 663
+- `Polyfold.GroupoidalCategory.theorem_19_7_25_absBasic` — Polyfold/Chapter19/CoveringLocalExamples.lean, line 289
+
+*What differs.*
+- (4b), the injectivity of $|P|$ near each point of the fibre, does not hold as we read it (Findings, Chapter 19, item 12): for the absolute value no neighbourhood of $0$ has $|P|$ injective. This is the same point as Proposition 19.7.18. The rest is proved under the compatibility reading.
+
+### V19.87. Proposition 19.7.26 (2017: Proposition 19.8), polyfold structures on the transition sets
+
+*stronger* · unique structure with p local sc-diffeo · no IsCompatible; metrizability unused
+
+**HWZ (§19.7, Proposition 19.7.26, p. 926 (2017: Proposition 19.8)).** If $|\mathcal B|$ is metrizable, $M(\hat\Psi,\hat\Psi')$ has a natural M-polyfold structure for which $p$ is a local sc-diffeomorphism.
+
+**Proved in Lean.** `fibSet` is the set of (19.26), a sub-M-polyfold (`isSubMPolyfold_fibSet`, `fibPolyfold`); `hatPolyfold` is the M-polyfold structure on $M(\hat\Psi,\hat\Psi')$ transported along (19.26) (`isScDiffeoOn_toFibSet`), for which $p$ is a local sc-diffeomorphism (`isLocalScDiffeo_pB`), the unique such structure (`isScDiffeoOn_id_of_isLocalScDiffeo_pB`), tame when the model of the base uniformizer is (`isTame_basePolyfold`, `isTame_hatPolyfold`). `proposition_19_7_26 (hU) (_hm)` collects it.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.basePolyfold` — Polyfold/Chapter19/CoveringPolyfold.lean, line 128
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.fibSet` — Polyfold/Chapter19/CoveringPolyfold.lean, line 141
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isSubMPolyfold_fibSet` — Polyfold/Chapter19/CoveringPolyfold.lean, line 147
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.fibPolyfold` — Polyfold/Chapter19/CoveringPolyfold.lean, line 154
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.hatPolyfold` — Polyfold/Chapter19/CoveringPolyfold.lean, line 186
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isScDiffeoOn_toFibSet` — Polyfold/Chapter19/CoveringPolyfold.lean, line 215
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isLocalScDiffeo_pB` — Polyfold/Chapter19/CoveringPolyfold.lean, line 226
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isScDiffeoOn_id_of_isLocalScDiffeo_pB` — Polyfold/Chapter19/CoveringPolyfold.lean, line 238
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isTame_basePolyfold` — Polyfold/Chapter19/CoveringPolyfold.lean, line 363
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.isTame_hatPolyfold` — Polyfold/Chapter19/CoveringPolyfold.lean, line 369
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_26` — Polyfold/Chapter19/CoveringPolyfold.lean, line 387
+
+*What differs.*
+- The M-polyfold structure is characterized: it is the unique one making $p$ a local sc-diffeomorphism. Neither `IsCompatible` nor the metrizability of $|\mathcal B|$ is used.
+
+### V19.88. Definition 19.7.27 (new in the 2021 edition), and Theorem 19.7.28 (new in the 2021 edition), polyfold covering structures
+
+*hypotheses explicit* · IsCompatible (_hyp)
+
+**HWZ (§19.7, Definition 19.7.27 and Theorem 19.7.28, p. 928 (new in the 2021 edition)).** A basic construction for $P$ with $|\mathcal B|$ metrizable defines a proper polyfold covering structure.
+
+**Proved in Lean.** `definition_19_7_27` as stated. With `hP`, `hC`, `hU`, `hm`: (1) `theorem_19_7_28_one_hyp`; (2) `theorem_19_7_28_two_hyp` for the categories with topology `gctA`, `gctB`; (3) `theorem_19_7_28_three_hyp`: the proper polyfold covering structure `toProperPolyfoldCoveringStructure` (with `toProperCoveringUniformizer`, `ofProperCoveringUniformizer` and `toProperCoveringConstruction`) has exactly the given uniformizers, the base structure of the basic construction and the M-polyfolds of Proposition 19.7.26; `toProperPolyfoldCoveringFunctor` is the resulting functor.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.definition_19_7_27` — Polyfold/Chapter19/CoveringPolyfold.lean, line 417
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_one_hyp` — Polyfold/Chapter19/CoveringPolyfold.lean, line 438
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_two_hyp` — Polyfold/Chapter19/CoveringPolyfold.lean, line 695
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp` — Polyfold/Chapter19/CoveringPolyfold.lean, line 712
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toProperCoveringUniformizer` — Polyfold/Chapter19/CoveringPolyfold.lean, line 513
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.ofProperCoveringUniformizer` — Polyfold/Chapter19/CoveringPolyfold.lean, line 575
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toProperCoveringConstruction` — Polyfold/Chapter19/CoveringPolyfold.lean, line 625
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toProperPolyfoldCoveringStructure` — Polyfold/Chapter19/CoveringPolyfold.lean, line 663
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.toProperPolyfoldCoveringFunctor` — Polyfold/Chapter19/CoveringPolyfold.lean, line 686
+
+*What differs.*
+- Proved under the compatibility reading of Definition 19.7.11.
+
+### V19.89. Theorem 19.7.29 (2017: Theorem 19.10), the polyfold structure on $\mathcal A$
+
+*restated* · read via Def 17.8.13 · IsCompatible (_hyp)
+
+**HWZ (§19.7, Theorem 19.7.29, p. 929 (2017: Theorem 19.10)).** $\mathcal A$ has a natural polyfold structure for which $P$ is a covering functor of polyfolds.
+
+**Proved in Lean.** `theorem_19_7_29_hyp` (under the section's `hP`, `hC`, `hU`, `hm`), with the maps `fibredMorP`, `gammaHat` and `gammaFib`: the polyfold structure on $\mathcal A$ in the sense of Definition 17.8.13, for which $P$ is a proper covering functor of polyfolds.
+
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp` — Polyfold/Chapter19/CoveringPolyfold.lean, line 753
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.fibredMorP` — Polyfold/Chapter19/CoveringPolyfold.lean, line 731
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.gammaHat` — Polyfold/Chapter19/CoveringPolyfold.lean, line 735
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.gammaFib` — Polyfold/Chapter19/CoveringPolyfold.lean, line 738
+
+*What differs.*
+- We read "$\mathcal A$ has a natural polyfold structure" through Definition 17.8.13: $\mathcal A$ has no translation-groupoid uniformizers of its own, so its structure is the one induced through $P$.
+
+### V19.90. Witness for §19.7: the absolute value
+
+*not in the book* · witness, non-degenerate
+
+**HWZ (§19.7 (no counterpart in the text), p. 905).** No counterpart: a witness for the hypotheses of §19.7.
+
+**Proved in Lean.** `absBasic`: $P : \mathbb Z/2 \ltimes (\mathbb Z^\times \times \mathbb R) \to \mathbb Z/2 \ltimes \mathbb R$, with $|\mathcal A| \cong \mathbb R$, $|\mathcal B| \cong [0,\infty)$ and $|P|$ the absolute value. It is compatible (`absBasic_isCompatible`), has uniformizers at every class, its topology is the usual one (`absBasic_natTopA_eq`), and it satisfies Proposition 19.7.26, Theorem 19.7.28 (1) and (3) (`absPolyfoldCoveringFunctor`, the proper polyfold covering functor of (3)) and Theorem 19.7.29, non-degenerately (`absBasic_covering_polyfold_nondegenerate`).
+
+- `Polyfold.GroupoidalCategory.absBasic` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 431
+- `Polyfold.GroupoidalCategory.absBasic_isCompatible` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 449
+- `Polyfold.GroupoidalCategory.absBasic_hasClassUniformizers` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 434
+- `Polyfold.GroupoidalCategory.absBasic_natTopA_eq` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 556
+- `Polyfold.GroupoidalCategory.absCovP_isFiniteToOneCovering` — Polyfold/Chapter19/CoveringCounterexamples.lean, line 269
+- `Polyfold.GroupoidalCategory.absBasic_covering_polyfold_nondegenerate` — Polyfold/Chapter19/CoveringPolyfoldExamples.lean, line 97
+- `Polyfold.GroupoidalCategory.absBasic_proposition_19_7_26` — Polyfold/Chapter19/CoveringPolyfoldExamples.lean, line 56
+- `Polyfold.GroupoidalCategory.absBasic_theorem_19_7_28_one` — Polyfold/Chapter19/CoveringPolyfoldExamples.lean, line 67
+- `Polyfold.GroupoidalCategory.absBasic_theorem_19_7_29` — Polyfold/Chapter19/CoveringPolyfoldExamples.lean, line 80
+- `Polyfold.GroupoidalCategory.absPolyfoldCoveringFunctor` — Polyfold/Chapter19/CoveringPolyfoldExamples.lean, line 89
+
+*What differs.*
+- Not in the book: a non-degenerate witness for the compatibility reading (non-trivial isotropy, a two-sheeted covering away from $0$). The same example shows Proposition 19.7.18 and Theorem 19.7.25 (4b) do not hold as we read them.
+
+### V19.91. Definition 19.8.1 (new in the 2021 edition), uniformizers for bundle covering pull-backs
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Definition 19.8.1, p. 932 (new in the 2021 edition)).** A triple $(\Psi, \hat\Psi, \Gamma)$: a uniformizer for $P$ and a strong bundle uniformizer for $P_B$ fitting into (19.45).
+
+**Proved in Lean.** `StrongBundleOver` is a strong bundle uniformizer over a given $(\Psi, \hat\Psi)$ fitting into (19.45) (`obj_eq`, (19.46)); `PullbackUniformizer` is the triple $(\Psi, \hat\Psi, \Gamma)$ (`definition_19_8_1`, `toStrongBundleUniformizer`). `BanFunctor.pull` is $\mu_B \circ P$ and `GroupoidAction.groupoid` the translation groupoid of an action.
+
+- `Polyfold.GroupoidalCategory.StrongBundleOver` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 380
+- `Polyfold.GroupoidalCategory.StrongBundleOver.obj_eq` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 456
+- `Polyfold.GroupoidalCategory.PullbackUniformizer` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 468
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.definition_19_8_1` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 495
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.toStrongBundleUniformizer` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 487
+- `Polyfold.GroupoidalCategory.BanFunctor.pull` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 144
+- `Polyfold.GroupoidalCategory.GroupoidAction.groupoid` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 311
+
+### V19.92. Definition 19.8.2 (new in the 2021 edition), uniformizer constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Definition 19.8.2, p. 932 (new in the 2021 edition)).** A functor $\tilde F$ assigning sets of uniformizers $(\Psi,\hat\Psi,\Gamma)$; it induces $F$, $\bar F$ and $\hat F$.
+
+**Proved in Lean.** `PullbackUniformizerConstruction` assigns sets $\tilde F(\beta)$; it induces $F$ (`toUniformizerConstruction`), $\bar F$ (`barF`) and $\hat F$ (`hatU`), as in (1)–(3) of the text (`definition_19_8_2`).
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 727
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.hatU` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 739
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.toUniformizerConstruction` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 743
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.barF` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 747
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_2` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 751
+
+### V19.93. Lemma 19.8.3 (new in the 2021 edition), and the functor $\hat\Gamma$ of (19.55)
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Lemma 19.8.3, p. 933 (new in the 2021 edition)).** For $(w, (\varphi, A(w)), w') \in M(\Gamma,\Gamma')$: $s(\varphi) = \Psi(e)$, $t(\varphi) = \Psi'(e')$, $Q(w) = e$, $Q'(w') = e'$ and $A'(w') = \mu_B(\varphi)(A(w))$.
+
+**Proved in Lean.** `lemma_19_8_3`: the relations (19.48) for an element of $M(\Gamma, \Gamma')$. `gammaHat` is the functor $\hat\Gamma : \tau^*W \to P^*E_B$ of (19.55), injective on objects, full and faithful, fitting into (19.61) (`gammaHat_comm`).
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.lemma_19_8_3` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 518
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.gammaHat` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 612
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.injective_gammaHat` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 663
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.full_gammaHat` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 685
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.faithful_gammaHat` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 670
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.gammaHat_comm` — Polyfold/Chapter19/CoveringPullbackDiagram.lean, line 713
+
+### V19.94. Definition 19.8.4 (new in the 2021 edition), transition constructions
+
+*hypotheses explicit* · F(α) ≠ ∅ field · IsCompatible separate
+
+**HWZ (§19.8, Definition 19.8.4, p. 934 (new in the 2021 edition)).** A transition construction $\mathcal F$ for $F$ such that (1) $T_{|B|}$ is metrizable, (2) $(\bar F, \mathcal F)$ is coherent, (3) $(\hat F, \mathcal F)$ is a basic construction for $P$.
+
+**Proved in Lean.** `PullbackTransitionConstruction`: a transition construction $\mathcal F$ for $F$ with fields `hasClassUniformizers` (the standing reading), `metrizable` ((1), $T_{|B|}$ metrizable) and `isCoherent` ((2), coherence of $(\bar F, \mathcal F)$, `PUC.IsCoherent`); (3) is `toCoveringBasicConstruction` (the construction `toCBC` for $P$) (`definition_19_8_4`).
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 237
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.IsCoherent` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 226
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.toCBC` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 140
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction.toCoveringBasicConstruction` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 251
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_4` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 258
+
+*What differs.*
+- The standing reading is a field. The compatibility reading of Definition 19.7.11 is not part of the definition; the results that use it take it as `hC` (V19.95).
+
+### V19.95. The note after Definition 19.8.4: (1) implies (3) (§19.8, p. 934)
+
+*restated* · holds as printed · IsCompatible not implied
+
+**HWZ (§19.8, after Definition 19.8.4, p. 934 (new in the 2021 edition)).** (1) and the assumption that $\tilde F$ is a uniformizer construction imply (3).
+
+**Proved in Lean.** `definition_19_8_4_one_implies_three`: as printed, (1) and $\tilde F$ give (3). `definition_19_8_4_one_without_compatible` and `definition_19_8_4_without_compatible`: a construction satisfying Definitions 19.8.4 and 19.8.5 need not satisfy the compatibility reading.
+
+- `Polyfold.GroupoidalCategory.definition_19_8_4_one_implies_three` — Polyfold/Chapter19/CompatibilityExamples.lean, line 692
+- `Polyfold.GroupoidalCategory.definition_19_8_4_one_without_compatible` — Polyfold/Chapter19/CompatibilityExamples.lean, line 711
+- `Polyfold.GroupoidalCategory.definition_19_8_4_without_compatible` — Polyfold/Chapter19/CompatibilityExamples.lean, line 864
+
+*What differs.*
+- The note holds as printed. With the compatibility reading of Definition 19.7.11 it would need that reading too, since the examples show it does not follow from (1) (Findings, Chapter 19, item 15).
+
+### V19.96. Definition 19.8.5 (new in the 2021 edition), basic constructions
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Definition 19.8.5, p. 937 (new in the 2021 edition)).** $(\tilde F, \mathcal F)$ is a basic construction for the bundle covering pull-back.
+
+**Proved in Lean.** `PullbackBasicConstruction` is the pair $(\tilde F, \mathcal F)$ (`definition_19_8_5`).
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.PullbackBasicConstruction` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 267
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_5` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 274
+
+### V19.97. Theorem 19.8.6 (new in the 2021 edition), bundle covering pull-backs
+
+*hypotheses explicit* · (1)–(4) for any transition construction · (5) for |A|: IsCompatible (_hyp) · |P*E_B|: G.273
+
+**HWZ (§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)).** For uniformizers from a basic construction: $\hat\Gamma$ fully faithful; (1) M-polyfold and strong bundle structures; (2) $p$ a surjective local sc-diffeomorphism; (3) $U$ a strong bundle isomorphism for a unique structure on $\hat m$; (4) $\bar p$ a surjective local strong bundle isomorphism; (5) the orbit spaces of $\mathcal A$, $\mathcal B$, $E_B$, $P^*E_B$ are metrizable.
+
+**Proved in Lean.** `theorem_19_8_6_one_four` (any transition construction): $\hat\Gamma$ is fully faithful and injective on objects; (1) $m$ has the strong bundle structure `bundleG` (via `isStrongBundleIso_altH`); (2) $p$ (`pBmap`) is a surjective local sc-diffeomorphism; (3) $U$ (`Umap`) onto the pull-back `pullBundle` is a strong bundle isomorphism for a unique structure on $\hat m$ (`isStrongBundleIso_U`, `bundleHat_unique`); (4) $\bar p$ (`pbarMap`, `mGmap_pbarMap`) is a surjective local strong bundle isomorphism. `theorem_19_8_6_hyp (T) (hC)` adds (5) for $|\mathcal A|$ and $|\mathcal B|$; for $|E_B|$ it is `metrizableSpace_natTopEB`. The structure maps of $M(\Gamma, \Gamma')$ are local strong bundle isomorphisms or strong bundle maps (`isLocalStrongBundleIso_tgtGmap`, `isStrongBundleIso_invG`, `isStrongBundleMap_unitG`, `isStrongBundleMap_mulG`).
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 552
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 598
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.bundleG` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 338
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_altH` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 343
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.pBmap` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 364
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.pullBundle` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 380
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.Umap` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 422
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_U` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 506
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.bundleHat_unique` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 513
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.pbarMap` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 408
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.mGmap_pbarMap` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 416
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_pbar` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 522
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isLocalStrongBundleIso_pbar` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 529
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.surjective_pbar` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 539
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.natTopEB` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 368
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopEB` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 460
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isLocalStrongBundleIso_tgtGmap` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 267
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_invG` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 162
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_unitG` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 192
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.mulBundleG` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 245
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_mulG` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 268
+
+*What differs.*
+- (1)–(4) hold for every transition construction, without (1)–(3) of Definition 19.8.4. (5) for $|\mathcal A|$ uses the compatibility reading. (5) for $|P^*E_B|$ is not stated separately (point G.273).
+
+### V19.98. Witness for the bundle covering pull-back: the absolute value with a fibre
+
+*not in the book* · witness, non-degenerate
+
+**HWZ (§19.8 (no counterpart in the text), p. 930).** No counterpart: a witness for the hypotheses of Theorem 19.8.6.
+
+**Proved in Lean.** `absFt`: the absolute-value covering of V19.90 with a Banach fibre over $\mathcal B$; `absFtTransition` and `absFtBasic` its transition and basic constructions. It is coherent (`absFt_isCoherent`) and compatible (`absFt_isCompatible`), and Theorem 19.8.6 holds for it in full (`absFt_theorem_19_8_6_full`, `absFt_metrizableSpace_natTopEB`).
+
+- `Polyfold.GroupoidalCategory.absFt` — Polyfold/Chapter19/CoveringPullbackExamples.lean, line 185
+- `Polyfold.GroupoidalCategory.absFtTransition` — Polyfold/Chapter19/CoveringPullbackCoherence.lean, line 280
+- `Polyfold.GroupoidalCategory.absFtBasic` — Polyfold/Chapter19/CoveringPullbackCoherence.lean, line 289
+- `Polyfold.GroupoidalCategory.absFt_isCoherent` — Polyfold/Chapter19/CoveringPullbackCoherence.lean, line 265
+- `Polyfold.GroupoidalCategory.absFt_isCompatible` — Polyfold/Chapter19/CoveringPullbackCoherence.lean, line 292
+- `Polyfold.GroupoidalCategory.absFt_theorem_19_8_6_full` — Polyfold/Chapter19/CoveringPullbackCoherence.lean, line 299
+- `Polyfold.GroupoidalCategory.absFt_metrizableSpace_natTopEB` — Polyfold/Chapter19/CoveringSquareTopologyExamples.lean, line 118
+
+*What differs.*
+- Not in the book: a non-degenerate witness for Definitions 19.8.4, 19.8.5 and the compatibility reading.
+
+### V19.99. Definition 19.8.7 (2017: Definition 19.20), bundle covering squares
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Definition 19.8.7, p. 941 (2017: Definition 19.20)).** The diagram of (19.70)–(19.71) given by $P$, $\mu_A$, $\mu_B$ and $\Theta : \mu_A \to \mu_B \circ P$.
+
+**Proved in Lean.** `BundleCoveringSquare`: $P : \mathcal A \to \mathcal B$, $\mu_A$, $\mu_B$ and $\Theta : \mu_A \to \mu_B \circ P$; `Phat` is $\hat P : E_A \to E_B$ of (19.69) (`definition_19_8_7`); `ofPull` is the square of a pull-back. Witness `reflAbsSquare` (with a non-trivial fibre action, `reflAbsSquare_act_neg`).
+
+- `Polyfold.GroupoidalCategory.BundleCoveringSquare` — Polyfold/Chapter19/CoveringSquare.lean, line 93
+- `Polyfold.GroupoidalCategory.BundleCoveringSquare.Phat` — Polyfold/Chapter19/CoveringSquare.lean, line 138
+- `Polyfold.GroupoidalCategory.BundleCoveringSquare.definition_19_8_7` — Polyfold/Chapter19/CoveringSquare.lean, line 158
+- `Polyfold.GroupoidalCategory.BundleCoveringSquare.ofPull` — Polyfold/Chapter19/CoveringSquare.lean, line 176
+- `Polyfold.GroupoidalCategory.reflAbsSquare` — Polyfold/Chapter19/CoveringPullbackExamples.lean, line 239
+- `Polyfold.GroupoidalCategory.reflAbsSquare_act_neg` — Polyfold/Chapter19/CoveringPullbackExamples.lean, line 245
+
+### V19.100. Definition 19.8.8 (2017: Definition 19.21), strong ep-bundle covering models, and Remark 19.8.9 (new in the 2021 edition)
+
+*restated* · covering model of Def 17.8.4
+
+**HWZ (§19.8, Definition 19.8.8 and Remark 19.8.9, p. 943 (2017: Definition 19.21)).** The diagram $K$ of (19.72) with the listed properties.
+
+**Proved in Lean.** `StrongEpBundleCoveringModel`: the diagram $K$ of (19.72) with $\Xi$ a proper strong bundle covering in the sense of Definition 8.5.9 and (19.75) (`xi_mu`); `definition_19_8_8`, `remark_19_8_9`. Witness `PullbackUniformizer.coveringModel`.
+
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel` — Polyfold/Chapter19/CoveringSquare.lean, line 225
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel.xi_mu` — Polyfold/Chapter19/CoveringSquare.lean, line 339
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel.definition_19_8_8` — Polyfold/Chapter19/CoveringSquare.lean, line 344
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel.remark_19_8_9` — Polyfold/Chapter19/CoveringSquare.lean, line 354
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.coveringModel` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 159
+
+*What differs.*
+- The covering model of the base is read as one of Definition 17.8.4 throughout; the text cites Definition 8.5.1 with $E = G \ltimes O$.
+
+### V19.101. Definition 19.8.10 (2017: Definition 19.22), uniformizers for bundle covering squares
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Definition 19.8.10, p. 943 (2017: Definition 19.22)).** A uniformizer $\hat\Gamma : K \to E$ consists of $\Psi$, $\hat\Psi$, $\Gamma$, $\hat\Gamma$ with the listed properties.
+
+**Proved in Lean.** `SquareUniformizer`: a functor $\hat\Gamma : K \to E$ with the four component uniformizers (`toStrongBundleOver`, `toPullbackUniformizer`), the conditions of the definition (`definition_19_8_10`) and the relations (19.82) (`relations_19_82`). A pull-back uniformizer gives one (`PullbackUniformizer.toSquare`). Witness `absSquareU`, non-degenerate (`absSquareU_nondegenerate`).
+
+- `Polyfold.GroupoidalCategory.SquareUniformizer` — Polyfold/Chapter19/CoveringSquare.lean, line 373
+- `Polyfold.GroupoidalCategory.SquareUniformizer.toStrongBundleOver` — Polyfold/Chapter19/CoveringSquare.lean, line 413
+- `Polyfold.GroupoidalCategory.SquareUniformizer.toPullbackUniformizer` — Polyfold/Chapter19/CoveringSquare.lean, line 430
+- `Polyfold.GroupoidalCategory.SquareUniformizer.definition_19_8_10` — Polyfold/Chapter19/CoveringSquare.lean, line 465
+- `Polyfold.GroupoidalCategory.SquareUniformizer.relations_19_82` — Polyfold/Chapter19/CoveringSquare.lean, line 477
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.toSquare` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 194
+- `Polyfold.GroupoidalCategory.absSquareU` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 229
+- `Polyfold.GroupoidalCategory.absSquareU_nondegenerate` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 242
+
+### V19.102. Remark 19.8.11 (new in the 2021 edition), applications
+
+*nothing to formalize* · prose
+
+**HWZ (§19.8, Remark 19.8.11, p. 944 (new in the 2021 edition)).** Applications of the construction.
+
+**Proved in Lean.** Nothing to formalize: the remark points to applications (point G.274).
+
+
+*What differs.*
+- None.
+
+### V19.103. Lemma 19.8.12 (new in the 2021 edition), $\hat\Gamma$ determines the uniformizer
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Lemma 19.8.12, p. 946 (new in the 2021 edition)).** $\hat\Gamma : \hat W \to E_A$ determines $\Psi$, $\hat\Psi$, $\Gamma$, and these determine $\hat\Gamma$.
+
+**Proved in Lean.** `lemma_19_8_12`: $\hat\Gamma$ determines $\Psi$, $\hat\Psi$ and $\Gamma$, and these determine $\hat\Gamma$; `formula_19_84` is (19.84).
+
+- `Polyfold.GroupoidalCategory.SquareUniformizer.lemma_19_8_12` — Polyfold/Chapter19/CoveringSquare.lean, line 501
+- `Polyfold.GroupoidalCategory.SquareUniformizer.formula_19_84` — Polyfold/Chapter19/CoveringSquare.lean, line 534
+
+### V19.104. Definition 19.8.13 (2017: Definition 19.23), uniformizer constructions for squares
+
+*restated* · self-citation read as Def 19.8.10
+
+**HWZ (§19.8, Definition 19.8.13, p. 948 (2017: Definition 19.23)).** A functor $\tilde F$ assigning sets of uniformizers for $E$.
+
+**Proved in Lean.** `SquareUniformizerConstruction` assigns sets of square uniformizers; `toPullback` is the induced pull-back construction (`definition_19_8_13`). Witness `absSqFt`.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 313
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.toPullback` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 323
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.definition_19_8_13` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 346
+- `Polyfold.GroupoidalCategory.absSqFt` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 270
+
+*What differs.*
+- The definition's reference to itself for the notion of uniformizer is read as a reference to Definition 19.8.10.
+
+### V19.105. Definition 19.8.14 (2017: Definition 19.24), compatible transition constructions, and Definition 19.8.15 (new in the 2021 edition)
+
+*as in the book* · as stated · IsCompatible separate
+
+**HWZ (§19.8, Definitions 19.8.14 and 19.8.15, pp. 948–949 (2017: Definition 19.24)).** A transition construction with (1) $T_{|B|}$ metrizable, (2) coherence, (3) a basic construction for $P$; a basic construction for $E$ is the pair.
+
+**Proved in Lean.** `CompatibleTransitionConstruction`: conditions (1)–(3) of Definition 19.8.14 (`definition_19_8_14`); `SquareBasicConstruction` the pair $(\tilde F, \mathcal F)$ (`definition_19_8_15`). Witnesses `absSqTransition`, `absSqBasic`.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.CompatibleTransitionConstruction` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 355
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.definition_19_8_14` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 359
+- `Polyfold.GroupoidalCategory.SquareBasicConstruction` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 370
+- `Polyfold.GroupoidalCategory.definition_19_8_15` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 383
+- `Polyfold.GroupoidalCategory.absSqTransition` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 282
+- `Polyfold.GroupoidalCategory.absSqBasic` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 288
+
+### V19.106. Lemma 19.8.16 (new in the 2021 edition), and Definition 19.8.17 (new in the 2021 edition), the strong bundle structure on $M(\hat\Gamma, \hat\Gamma')$
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Lemma 19.8.16 and Definition 19.8.17, pp. 951–952 (new in the 2021 edition)).** $U : M(\hat\Gamma, \hat\Gamma') \to p^*M(\Gamma,\Gamma')$ is a canonical bijection, fibrewise linear over the identity; it defines the strong bundle structure on $\hat m$.
+
+**Proved in Lean.** `MSq` is $M(\hat\Gamma, \hat\Gamma')$ with $\hat m$ (`mSq`) and $\bar p$ (`pbarSq`); `lemma_19_8_16`: $U$ (`USq`, inverse `USqInv`) is a bijection onto $p^*M(\Gamma, \Gamma')$, fibrewise linear over the identity (using `isStrongBundleIso_liftK`). `bundleSq` is the structure of Definition 19.8.17, the unique one making $U$ a strong bundle isomorphism (`isStrongBundleIso_USq`, `bundleSq_unique`).
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.MSq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 396
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.mSq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 409
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.pbarSq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 420
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.USq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 435
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.USqInv` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 441
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_16` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 495
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel.isStrongBundleIso_liftK` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 264
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.bundleSq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 555
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.isStrongBundleIso_USq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 561
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.bundleSq_unique` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 568
+
+### V19.107. Lemma 19.8.18 (new in the 2021 edition), the map $S$
+
+*as in the book* · as stated
+
+**HWZ (§19.8, Lemma 19.8.18, p. 953 (new in the 2021 edition)).** $S : p^*M(\Gamma,\Gamma') \to \hat W$ is a local strong bundle isomorphism over $\hat s$.
+
+**Proved in Lean.** `SMap` is $S$ of (19.93); `lemma_19_8_18`: it is a local strong bundle isomorphism fitting into the diagram; `isLocalStrongBundleIso_srcSq` is the resulting property of the source map.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.SMap` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 675
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_18` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 697
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.isLocalStrongBundleIso_srcSq` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 726
+
+### V19.108. Definition 19.8.19 (new in the 2021 edition), proper strong bundle covering squares
+
+*restated* · read with a⁻¹(U(x)) = ⊔ U(x̂ᵢ) · printed form kept
+
+**HWZ (§19.8, Definition 19.8.19, p. 954 (new in the 2021 edition)).** $a$ a surjective local sc-diffeomorphism with finite fibres, neighbourhoods $U(\hat x_i)$ mapped sc-diffeomorphically onto $U(x)$, and $\hat a$ a strong bundle isomorphism over them.
+
+**Proved in Lean.** `IsProperStrongBundleCoveringSquareBook` is the printed definition; `IsProperStrongBundleCoveringSquare` the read form, which adds $a^{-1}(U(x)) = \bigsqcup_i U(\hat x_i)$; `toBook` gives the printed form. Models are proper squares (`isProperSquare`; witness `absSquareU_isProperSquare`).
+
+- `Polyfold.IsProperStrongBundleCoveringSquare` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 138
+- `Polyfold.IsProperStrongBundleCoveringSquareBook` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 126
+- `Polyfold.IsProperStrongBundleCoveringSquare.toBook` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 150
+- `Polyfold.GroupoidalCategory.StrongEpBundleCoveringModel.isProperSquare` — Polyfold/Chapter19/CoveringSquareTheorem.lean, line 273
+- `Polyfold.GroupoidalCategory.absSquareU_isProperSquare` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 262
+
+*What differs.*
+- We read the neighbourhoods as covering the preimage, $a^{-1}(U(x)) = \bigsqcup_i U(\hat x_i)$, as for proper coverings in Definition 17.8.1 and as the typical examples satisfy; the printed form is kept and implied.
+
+### V19.109. Definition 19.8.20 (new in the 2021 edition), the topology on $|E_A|$, and Lemma 19.8.21 (new in the 2021 edition)
+
+*hypotheses explicit* · IsCompatible (_hyp) · proof written out: G.275
+
+**HWZ (§19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition)).** $\bar T_A$ defines a metrizable topology on $|E_A|$ for which $|P_A|$ is continuous.
+
+**Proved in Lean.** `NatOpenEA`: the sets $\bar T_A$ of Definition 19.8.20; `lemma_19_8_21_hyp (hcoh) (hC) (hU) (hm)`: they form a topology `natTopEA`, metrizable (`metrizableSpace_natTopEA`), for which $|P_A|$ is continuous (`continuous_orbitProjA`). Witness `absSqBasic_lemma_19_8_21`.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 634
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.natTopEA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 731
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 896
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.metrizableSpace_natTopEA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 871
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.continuous_orbitProjA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 830
+- `Polyfold.GroupoidalCategory.absSqBasic_lemma_19_8_21` — Polyfold/Chapter19/CoveringSquareTopologyExamples.lean, line 68
+
+*What differs.*
+- The only hypothesis beyond the text is the compatibility reading. The proof, which the text leaves to the reader by reference to Theorem 19.6.8, is written out (point G.275).
+
+### V19.110. Theorem 19.8.22 (2017: Theorem 19.11), strong bundle covering
+
+*hypotheses explicit* · IsCompatible (_hyp) · complete form: theorem_19_8_22_hyp
+
+**HWZ (§19.8, Theorem 19.8.22, p. 956 (2017: Theorem 19.11)).** The orbit spaces of $\mathcal A$, $E_A$, $\mathcal B$, $E_B$ are metrizable; $M(\hat\Gamma,\hat\Gamma') \to M(\hat\Psi,\hat\Psi')$ is a strong bundle forming a proper strong bundle covering square; $s$, $t$ local isomorphisms, $\iota$ an isomorphism, unit and multiplication strong bundle maps between proper squares.
+
+**Proved in Lean.** `SquareBasicConstruction.theorem_19_8_22_hyp (Bs) (hC)`: the orbit spaces of $\mathcal A$, $E_B$, $E_A$ (and $\mathcal B$) are metrizable; for all uniformizers the square $(\hat m, m, \bar p, p)$ is a proper strong bundle covering square (`isProperSquare_pbarSq`); $s$ and $t$ are local isomorphisms of proper squares (`theorem_19_8_22_topology_hyp`), the inversion an isomorphism (`theorem_19_8_22_inv_hyp`), the unit (`theorem_19_8_22_unit`, no hypothesis) and the multiplication (`theorem_19_8_22_mul_hyp`, `isStrongBundleMap_mul_and_faces`, on the fibred products `isProperSquare_pbarFP`) strong bundle maps. The fibred-product step is general: `isProperStrongBundleCoveringSquare_fibredProduct`, `MPolyfold.isLocalScDiffeo_fibredProductMap`, `isProperStrongBundleCoveringSquare_of_sheets`.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.isProperSquare_pbarSq` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 917
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_topology_hyp` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 939
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_inv_hyp` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 690
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_unit` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 716
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.isStrongBundleMap_mul_and_faces` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 738
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.isProperSquare_pbarFP` — Polyfold/Chapter19/CoveringSquareFibredProper.lean, line 168
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_mul_hyp` — Polyfold/Chapter19/CoveringSquareFibredProper.lean, line 189
+- `Polyfold.GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_inv_hyp` — Polyfold/Chapter19/CoveringSquareFibredProper.lean, line 228
+- `Polyfold.GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_hyp` — Polyfold/Chapter19/CoveringSquareFibredProper.lean, line 268
+- `Polyfold.isProperStrongBundleCoveringSquare_fibredProduct` — Polyfold/Chapter19/FibredProductCovering.lean, line 274
+- `Polyfold.MPolyfold.isLocalScDiffeo_fibredProductMap` — Polyfold/Chapter19/FibredProductCovering.lean, line 80
+- `Polyfold.isProperStrongBundleCoveringSquare_of_sheets` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 92
+
+*What differs.*
+- The only hypothesis beyond the text is the compatibility reading; the unit needs none. The multiplication and fibred-product statements, for which the text gives no separate argument, are written out with the read form of Definition 19.8.19 (V19.108).
+
+### V19.111. Witness for §19.8: the absolute-value square
+
+*not in the book* · witness, non-degenerate
+
+**HWZ (§19.8 (no counterpart in the text), p. 930).** No counterpart: a witness for the hypotheses of Theorem 19.8.22.
+
+**Proved in Lean.** `absSqBasic` (from `reflAbsSquare` and `absSquareU`): the hypotheses of Theorem 19.8.22 hold (`absSqBasic_hypotheses`, `absSqBasic_isCompatible`, `absSqBasic_definition_19_8_15`), and the theorem holds for it (`absSqBasic_theorem_19_8_22`, `_structure`, `_fibredProper`).
+
+- `Polyfold.GroupoidalCategory.absSqBasic_hypotheses` — Polyfold/Chapter19/CoveringSquareTopologyExamples.lean, line 55
+- `Polyfold.GroupoidalCategory.absSqBasic_isCompatible` — Polyfold/Chapter19/CoveringSquareTopologyExamples.lean, line 41
+- `Polyfold.GroupoidalCategory.absSqBasic_definition_19_8_15` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 292
+- `Polyfold.GroupoidalCategory.absSqBasic_theorem_19_8_22` — Polyfold/Chapter19/CoveringSquareTopologyExamples.lean, line 87
+- `Polyfold.GroupoidalCategory.absSqBasic_theorem_19_8_22_structure` — Polyfold/Chapter19/CoveringSquareMultiplicationExamples.lean, line 42
+- `Polyfold.GroupoidalCategory.absSqBasic_theorem_19_8_22_fibredProper` — Polyfold/Chapter19/CoveringSquareFibredProperExamples.lean, line 58
+
+*What differs.*
+- Not in the book: a non-degenerate witness (non-trivial isotropy acting by $-1$ on the fibre, a two-sheeted covering away from $0$).
+
 ## Points left to the reader
 
 *Places where the formal version needs more than a translation of the text: a step left to the reader, an example the text does not give, a convention left implicit, or a long argument written out in full; each is marked “formalized”, with the rows that settle it, or “nothing to formalize”*
@@ -30021,4 +35773,938 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 - `Polyfold.StrongPolyfoldBundle.isInheritedFromPoint_of_diagram` — Polyfold/Chapter16/IndexZeroInheritedCorrespondence.lean, line 218
 - `Polyfold.StrongBundleLocalizationExamples.theorem_16_6_6_index_zero_correspondence_z3` — Polyfold/Chapter16/IndexZeroInheritedCorrespondenceWitness.lean, line 135
 - `Polyfold.StrongBundleLocalizationExamples.pullOr_ofHom_z3InvHom` — Polyfold/Chapter16/IndexZeroInheritedCorrespondenceWitness.lean, line 66
+
+### G.194. The translation groupoid is an ep-groupoid ("one easily verifies")
+
+*formalized* · proved in V17.2
+
+**HWZ (§17.1, Definition 17.1.2, p. 744 (2017: Definition 17.2)).** $G \ltimes O$ is an ep-groupoid and $G \backslash O$ is metrizable, left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.2): `definition_17_1_2` and `metrizableSpace_translation_orbitSpace`, from Chapter 7's `actionEpGroupoid` and Chapter 8's averaged metric.
+
+- `Polyfold.definition_17_1_2` — Polyfold/Chapter17/GroupoidalCategory.lean, line 133
+- `Polyfold.metrizableSpace_translation_orbitSpace` — Polyfold/Chapter17/GroupoidalCategory.lean, line 122
+
+### G.195. The group of a uniformizer fixes the point over $\alpha$ ("$G$ the isotropy group")
+
+*formalized* · proved in V17.3 · proved in V17.70
+
+**HWZ (§17.1, Definition 17.1.3, p. 745, and §17.4, p. 792).** Definition 17.1.3 does not ask that $G$ fix $\bar o$; the proof of Lemma 17.1.9 and the action of $G$ on the faces of $U(\bar o)$ on p. 792 presume it.
+
+**Proved in Lean.** **Formalized** (V17.3, V17.70): `Uniformizer.IsCentredAt` with `isotropyEquiv` ($G \cong G_\alpha$), and `IsCentred`, assumed in §17.4 from Definition 17.4.5 on. Witnesses `swapConstruction_isCentred` (non-trivial group) and `quadrant_isCentred` (trivial group).
+
+- `Polyfold.GroupoidalCategory.Uniformizer.IsCentredAt` — Polyfold/Chapter17/LocalUniformizer.lean, line 161
+- `Polyfold.GroupoidalCategory.Uniformizer.isotropyEquiv` — Polyfold/Chapter17/LocalUniformizer.lean, line 193
+- `Polyfold.GCT.PolyfoldConstruction.IsCentred` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 121
+- `Polyfold.GCT.PolyfoldConstruction.swapConstruction_isCentred` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 558
+
+### G.196. $F(\alpha) \ne \emptyset$ (an implicit convention)
+
+*formalized* · proved in V17.6 · proved in V17.60
+
+**HWZ (§17.1, Definition 17.1.6, p. 746, p. 752, and §17.3, Proposition 17.3.4, p. 784).** A uniformizer construction may have $F(\alpha) = \emptyset$; the text picks uniformizers at every object (p. 752 and later).
+
+**Proved in Lean.** **Formalized** (V17.6, V17.60): `HasUniformizers`, `HasCoveringUniformizers`, as standing hypotheses; `emptyConstruction` satisfies Definition 17.1.8 without them, and `proposition_17_3_4_empty_family` shows that Proposition 17.3.4 needs the reading.
+
+- `Polyfold.GCT.UniformizerConstruction.HasUniformizers` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 128
+- `Polyfold.GCT.UniformizerConstruction.HasCoveringUniformizers` — Polyfold/Chapter17/PolyfoldConstruction.lean, line 132
+- `Polyfold.GCT.PolyfoldConstruction.emptyConstruction` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 571
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4_empty_family` — Polyfold/Chapter17/Subpolyfold.lean, line 568
+
+### G.197. Functorial uniformizer constructions and the compatibilities (1)–(3)
+
+*formalized* · proved in V17.7
+
+**HWZ (§17.1, Remark 17.1.7, pp. 746–747 (2017: Remark 17.1)).** (a) a recipe for building $F$; (b), (c) the bijections and the transport data; (1)–(3) compatibilities holding "in many cases".
+
+**Proved in Lean.** **Formalized** (V17.7): (b), (c), (1)–(3) by `Functorial`, `remark_17_1_7`, `TransportData`, `TransportSystem.Compatible` and `remark_17_1_7_compatible_iff`, with the witnesses `reflectionTransportSystem_compatible` and `not_compatibleSigma_reflectionConst`. (a) has no mathematical content.
+
+- `Polyfold.GCT.UniformizerConstruction.remark_17_1_7` — Polyfold/Chapter17/FunctorialUniformizers.lean, line 70
+- `Polyfold.GCT.UniformizerConstruction.Functorial.TransportSystem.remark_17_1_7_compatible_iff` — Polyfold/Chapter17/OverlappingUniformizers.lean, line 209
+
+### G.198. The structure maps of $X = \bigsqcup O_\lambda$ and $\mathbf X$ (p. 752)
+
+*formalized* · proved in V17.15
+
+**HWZ (§17.1, p. 752 (2017: §17.1)).** $s, t$ local sc-diffeomorphisms, $u$, $\iota$, $m$ sc-smooth on the disjoint unions, with $\mathbf X\,{}_s\!\times_t \mathbf X$ having "a natural M-polyfold structure".
+
+**Proved in Lean.** **Formalized** (V17.15): `isLocalScDiffeo_modelSrc`, `isScDiffeoOn_modelInv`, `isScSmoothMap_modelUnit`, `isScSmoothComp_model`.
+
+- `Polyfold.GCT.PolyfoldConstruction.isScSmoothComp_model` — Polyfold/Chapter17/ModelEpGroupoid.lean, line 527
+
+### G.199. The inclusions $A$, $A'$ are equivalences ("one readily verifies")
+
+*formalized* · proved in V17.20
+
+**HWZ (§17.1, p. 755 (2017: §17.1)).** $A : X_\Psi \to X_{\Psi''}$ and $A' : X_{\Psi'} \to X_{\Psi''}$ are equivalences of ep-groupoids.
+
+**Proved in Lean.** **Formalized** (V17.20): `isEquivalence_inclLeft`, `isEquivalence_inclRight`, `modelFunctor_comp_inclLeft`.
+
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_inclLeft` — Polyfold/Chapter17/ModelComparison.lean, line 205
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_inclRight` — Polyfold/Chapter17/ModelComparison.lean, line 210
+
+### G.200. Theorem 17.1.18 as a summary of pp. 755–756 ("one also verifies")
+
+*formalized* · proved in V17.21
+
+**HWZ (§17.1, Theorem 17.1.18, p. 756 (2017: Theorem 17.2)).** The theorem summarizes the preceding construction; $|\Gamma_{\Psi'}| \circ |[d]| = |\Gamma_\Psi|$, $f_{\Psi,\Psi} = 1$ and the cocycle identity are not proved separately.
+
+**Proved in Lean.** **Formalized** (V17.21): `theorem_17_1_18`, with `comparison_self`, `comparison_comp`, `orbitMap_comparison`.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_18` — Polyfold/Chapter17/ModelComparison.lean, line 378
+
+### G.201. Properties of $C$ through its models (Definition 17.1.22, Propositions 17.1.23, 17.1.24)
+
+*formalized* · proved in V17.25 · proved in V17.26 · proved in V17.27
+
+**HWZ (§17.1, Definition 17.1.22, Propositions 17.1.23, 17.1.24, p. 758).** The properties are defined "in the obvious way"; Propositions 17.1.23 and 17.1.24 are citations of Theorems 7.4.13, 7.4.24 and 10.3.21.
+
+**Proved in Lean.** **Formalized** (V17.25, V17.26, V17.27): `hasModelProperty_iff`, `definition_17_1_22`, `proposition_17_1_23`, `proposition_17_1_24`.
+
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_1_22` — Polyfold/Chapter17/ModelProperties.lean, line 155
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_23` — Polyfold/Chapter17/ModelProperties.lean, line 168
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_1_24` — Polyfold/Chapter17/ModelProperties.lean, line 176
+
+### G.202. Theorem 17.1.26 from the paragraph before it
+
+*formalized* · proved in V17.29
+
+**HWZ (§17.1, Theorem 17.1.26, p. 759).** Under (ZHOU) the structures $(X_\Psi, |\Gamma_\Psi|)$ are equivalent; no separate proof.
+
+**Proved in Lean.** **Formalized** (V17.29): `modelPolyfoldStructure_equiv`, `polyfoldClass_eq`, `theorem_17_1_26`.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_26` — Polyfold/Chapter17/ModelProperties.lean, line 289
+
+### G.203. The associativity of the simplifications (17.24)–(17.30)
+
+*formalized* · proved in V17.31
+
+**HWZ (§17.1, pp. 761–765 (2017: §17.1)).** Fibred products of three comparison diagrams simplify along either path to the same diagram.
+
+**Proved in Lean.** **Formalized** (V17.31): the composition law it serves, `comparison_comp`, through `compare_comp_incl`, in $\mathcal{EP}(E^{-1})$ rather than on diagrams.
+
+- `Polyfold.GCT.PolyfoldConstruction.compare_comp_incl` — Polyfold/Chapter17/ModelComparison.lean, line 267
+- `Polyfold.GCT.PolyfoldConstruction.comparison_comp` — Polyfold/Chapter17/ModelComparison.lean, line 319
+
+### G.204. Regularity is well defined; $|C_i|$ is metrizable
+
+*formalized* · proved in V17.32 · proved in V17.34
+
+**HWZ (§17.1, pp. 765–766 (2017: §17.1)).** The regularity does not depend on $\Psi \in F(\alpha)$ and is invariant under isomorphism; $|C_i|$ has a natural metrizable topology ("see Section 7.3").
+
+**Proved in Lean.** **Formalized** (V17.32, V17.34): `hasRegularity_iff`, `HasRegularity.of_isomorphic`, `UniformizedPolyfold.metrizableSpace_level`, `UniformizedPolyfold.theorem_17_1_28_levels`.
+
+- `Polyfold.GCT.PolyfoldConstruction.hasRegularity_iff` — Polyfold/Chapter17/PolyfoldLevels.lean, line 119
+- `Polyfold.GCT.UniformizedPolyfold.theorem_17_1_28_levels` — Polyfold/Chapter17/LevelOrbitSpaces.lean, line 465
+
+### G.205. Theorem 17.1.28 ("the following result is obvious")
+
+*formalized* · proved in V17.33
+
+**HWZ (§17.1, Theorem 17.1.28, p. 766 (2017: Theorem 17.3)).** $C_1$ is a GCT with the polyfold structure $(F^1, M_{F^1})$; no proof.
+
+**Proved in Lean.** **Formalized** (V17.33): `theorem_17_1_28_gct`, `theorem_17_1_28`, `levelOne_hasUniformizers`.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28_gct` — Polyfold/Chapter17/LevelOneCategory.lean, line 316
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28` — Polyfold/Chapter17/LevelStructures.lean, line 725
+
+### G.206. Corollary 17.1.29 from the ep-groupoid case
+
+*formalized* · proved in V17.35
+
+**HWZ (§17.1, Corollary 17.1.29, p. 766).** (ZHOU), (SLUC), (SLR) pass to $C^1$ "from results established in the ep-groupoid case".
+
+**Proved in Lean.** **Formalized** (V17.35): `corollary_17_1_29` through the equivalence of models `isEquivalence_levelOneModelFunctor`; all levels `UniformizedPolyfold.level_properties`.
+
+- `Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29` — Polyfold/Chapter17/LevelStructures.lean, line 1062
+- `Polyfold.GCT.PolyfoldConstruction.isEquivalence_levelOneModelFunctor` — Polyfold/Chapter17/LevelStructures.lean, line 1014
+
+### G.207. Proposition 17.2.14 ("we leave the details to the reader")
+
+*formalized* · proved in V17.51
+
+**HWZ (§17.2, Proposition 17.2.14, p. 778 (2017: Proposition 17.3)).** Continuity of $\iota$, $u$, $m$ and the metrizability argument are left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.51): `proposition_17_2_14`, through `tangentTrHomeomorph` rather than Nagata–Smirnov.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 552
+- `Polyfold.GCT.PolyfoldConstruction.tangentTrHomeomorph` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 266
+
+### G.208. Proposition 17.2.15 ("we leave the details to the reader")
+
+*formalized* · proved in V17.52
+
+**HWZ (§17.2, Proposition 17.2.15, p. 781 (2017: Proposition 17.4)).** The M-polyfold structure and the sc-smoothness of the structure maps are left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.52): `proposition_17_2_15`, `tangentTrPolyfold`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_15` — Polyfold/Chapter17/TangentTransitionStructure.lean, line 585
+
+### G.209. The topology of $|TC|$ does not depend on the covering family ("easily verified")
+
+*formalized* · proved in V17.53
+
+**HWZ (§17.2, Proposition 17.2.16, p. 783 (2017: Proposition 17.5)).** The metrizable topology on $|TC|$ from $|TX_\Psi|$ is independent of $\Psi$.
+
+**Proved in Lean.** **Formalized** (V17.53): `proposition_17_2_16` ($|T\Gamma_\Psi|$ a homeomorphism for every covering family).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_2_16` — Polyfold/Chapter17/TangentModel.lean, line 490
+
+### G.210. The polyfold structure $(TF, M)$ and Theorem 17.2.17 ("summarizing the construction")
+
+*formalized* · proved in V17.54 · proved in V17.55
+
+**HWZ (§17.2, p. 783, Theorem 17.2.17 (2017: Theorem 17.4)).** $TF(\alpha)$, the bundle maps $M(T\Psi_1, T\Psi_2) \to M(\Psi_1^1, \Psi_2^1)$ and the polyfold bundle structure are described, not proved.
+
+**Proved in Lean.** **Formalized** (V17.54, V17.55): `tangentConstruction`, `theorem_17_2_17_hyp` (with $\hat\Psi$ continuous), `tangentModel_equivalence`.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_2_17_hyp` — Polyfold/Chapter17/TangentConstruction.lean, line 397
+- `Polyfold.GCT.PolyfoldConstruction.tangentModel_equivalence` — Polyfold/Chapter17/TangentModelEquivalence.lean, line 509
+
+### G.211. The partial cone of a polyfold ("in the obvious way")
+
+*formalized* · proved in V17.56
+
+**HWZ (§17.2, Remark 17.2.18, p. 784 (2017: Remark 17.3)).** $C_\alpha C$ and $T^R_\alpha C$ are defined in a model and pushed forward by $T\Gamma$.
+
+**Proved in Lean.** **Formalized** (V17.56): `partialCone`, `reducedTangent`, `partialCone_eq`, `reducedTangent_eq`, `finrank_quotient_reducedTangent_eq_degIndex`.
+
+- `Polyfold.GCT.PolyfoldConstruction.partialCone_eq` — Polyfold/Chapter18/TangentPartialCone.lean, line 275
+- `Polyfold.GCT.PolyfoldConstruction.finrank_quotient_reducedTangent_eq_degIndex` — Polyfold/Chapter18/TangentPartialCone.lean, line 311
+
+### G.212. Faces of $X_\Psi$ and of $C$ correspond; Proposition 17.3.8
+
+*formalized* · proved in V17.64 · proved in V17.65
+
+**HWZ (§17.3, Definition 17.3.7, Proposition 17.3.8, pp. 786–787 (2017: Definition 17.13, Proposition 17.7)).** The correspondence follows "from the discussion after Definition 11.1.3"; Proposition 17.3.8 has no proof.
+
+**Proved in Lean.** **Formalized** (V17.64, V17.65): `isFaceVia_iff_isOrbitFace`, `isFaceStructuredVia_iff`, `proposition_17_3_8`.
+
+- `Polyfold.GCT.PolyfoldConstruction.isFaceVia_iff_isOrbitFace` — Polyfold/Chapter17/PolyfoldFaces.lean, line 172
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_8` — Polyfold/Chapter17/PolyfoldFaces.lean, line 206
+
+### G.213. Remark 17.4.7 (motivation)
+
+*nothing to formalize*
+
+**HWZ (§17.4, Remark 17.4.7, pp. 794–795).** Why the configuration of faces is kept, and functor diagrams in applications.
+
+**Proved in Lean.** **Nothing to formalize: a motivating remark** (V17.72).
+
+
+### G.214. The "obvious homeomorphism" (17.69)
+
+*formalized* · proved in V17.74 · proved in V17.85
+
+**HWZ (§17.4, p. 797, (17.69)).** $\bigsqcup_i |\theta_i| \to G \backslash \bigsqcup_\theta \theta$ is an obvious homeomorphism.
+
+**Proved in Lean.** **Formalized** (V17.74, V17.85): the bijection `display_17_69`; the topological statement is Lemma 17.4.20, `GoodNbhd.lemma_17_4_20`.
+
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_69` — Polyfold/Chapter17/TameBoundaryUniformizer.lean, line 766
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.lemma_17_4_20` — Polyfold/Chapter17/TameBoundaryTopology.lean, line 299
+
+### G.215. Theorem 17.4.26 and the diagrams of pp. 809–812
+
+*formalized* · proved in V17.91 · proved in V17.92 · proved in V17.93
+
+**HWZ (§17.4, Theorem 17.4.26, pp. 809–812).** Theorem 17.4.26 summarizes the construction; the sc-smoothness of $F$ and the diagrams (17.82)–(17.84) and on p. 812 are described.
+
+**Proved in Lean.** **Formalized** (V17.91, V17.92, V17.93): `theorem_17_4_26`, `GoodNbhd.display_17_82_Theta`, `GoodNbhd.display_17_84`, `diagram_bX_bC`.
+
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_4_26` — Polyfold/Chapter17/TameBoundaryPolyfold.lean, line 304
+- `Polyfold.GCT.PolyfoldConstruction.GoodNbhd.display_17_82_Theta` — Polyfold/Chapter17/TameBoundaryFaceGroupoid.lean, line 311
+- `Polyfold.GCT.PolyfoldConstruction.diagram_bX_bC` — Polyfold/Chapter17/TameBoundaryDiagram.lean, line 511
+
+### G.216. The branched property only has to be checked for a covering set
+
+*formalized* · proved in V17.94
+
+**HWZ (§17.5, after Definition 17.5.1, p. 812 (2017: Definition 17.14)).** If $\Theta \circ \Psi_\lambda$ is branched for a covering set $(\Psi_\lambda)$, then $\Theta \circ \Psi$ is branched for every $\Psi$ from $F$.
+
+**Proved in Lean.** **Formalized** (V17.94): `definition_17_5_1_covering`, through `isBranchedEpSubgroupoid_unif_of_isCoveringFamily` and `localBranching_of_tr`.
+
+- `Polyfold.GCT.PolyfoldConstruction.definition_17_5_1_covering` — Polyfold/Chapter17/BranchedSubcategory.lean, line 353
+- `Polyfold.GCT.PolyfoldConstruction.isBranchedEpSubgroupoid_unif_of_isCoveringFamily` — Polyfold/Chapter17/BranchedSubcategory.lean, line 326
+- `Polyfold.GCT.PolyfoldConstruction.localBranching_of_tr` — Polyfold/Chapter17/BranchedSubcategory.lean, line 283
+
+### G.217. The push-forward $\Gamma_*\Theta$ is well defined
+
+*formalized* · proved in V17.94
+
+**HWZ (§17.5, after Definition 17.5.1, p. 812 (2017: §17.4)).** One easily verifies that $(\Gamma_*\Theta)(\alpha) = \Theta(x)$, for $\varphi : \Gamma(x) \to \alpha$, does not depend on $x$ and $\varphi$.
+
+**Proved in Lean.** **Formalized** (V17.94): `GroupoidFunctor.pushTheta_eq` (for a full functor and a functorial $\Theta$), `isFunctorial_pushTheta`.
+
+- `Polyfold.GroupoidFunctor.pushTheta_eq` — Polyfold/Chapter17/BranchedSubcategory.lean, line 159
+- `Polyfold.GroupoidFunctor.isFunctorial_pushTheta` — Polyfold/Chapter17/BranchedSubcategory.lean, line 185
+
+### G.218. Proposition 17.5.2 and the identities on p. 813
+
+*formalized* · proved in V17.95 · proved in V17.96
+
+**HWZ (§17.5, Proposition 17.5.2 and after it, p. 813 (2017: Proposition 17.8)).** The facts of Proposition 17.5.2 are called obvious, and the identities $f_*(\Gamma')^*\Theta = \Gamma^*\Theta$, $\Gamma_*\Theta' = \Gamma'_*f_*\Theta'$ are left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.95, V17.96): `proposition_17_5_2_one`, `proposition_17_5_2_two`, `pullTheta_comparison_modelPull` (the first identity read with $f^*$), `pushTheta_comparison_modelPull`, `modelPush_pushTheta_comparison`.
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_one` — Polyfold/Chapter17/BranchedSubcategory.lean, line 493
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_two` — Polyfold/Chapter17/BranchedSubcategory.lean, line 475
+- `Polyfold.GCT.PolyfoldConstruction.pullTheta_comparison_modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 528
+- `Polyfold.GCT.PolyfoldConstruction.pushTheta_comparison_modelPull` — Polyfold/Chapter17/BranchedSubcategory.lean, line 538
+- `Polyfold.GCT.PolyfoldConstruction.modelPush_pushTheta_comparison` — Polyfold/Chapter17/BranchedSubcategory.lean, line 548
+
+### G.219. The orbifold structure on the support in Proposition 17.5.5
+
+*formalized* · proved in V17.99
+
+**HWZ (§17.5, Proposition 17.5.5, pp. 814–815 (2017: Proposition 17.9)).** For orbifold-type $\Theta$ the natural orbifold structure on $|\mathrm{supp}(\Theta)|$: details are left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.99): `proposition_17_5_5_two`, with `restrictSupp_orbifold` (independence up to equivalence).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_two` — Polyfold/Chapter17/BranchedSupport.lean, line 295
+- `Polyfold.EPLocalization.EPLoc.restrictSupp_orbifold` — Polyfold/Chapter17/BranchedSupport.lean, line 126
+
+### G.220. Proposition 17.5.7, left to the reader
+
+*formalized* · proved in V17.102
+
+**HWZ (§17.5, Proposition 17.5.7, p. 816 (2017: Proposition 17.10)).** $T\Theta$ defines a section functor $C_\infty \to \mathrm{Gr}(C)$; the straightforward proof is left to the reader.
+
+**Proved in Lean.** **Formalized** (V17.102): `proposition_17_5_7`, `modelGrPush_tangentValue_eq` ((17.86)).
+
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_5_7` — Polyfold/Chapter17/BranchedTangent.lean, line 497
+- `Polyfold.GCT.PolyfoldConstruction.modelGrPush_tangentValue_eq` — Polyfold/Chapter17/BranchedTangent.lean, line 366
+
+### G.221. Remark 17.5.9, stated without proof
+
+*formalized* · proved in V17.105
+
+**HWZ (§17.5, Remark 17.5.9, p. 817 (2017: Remark 17.5)).** The model condition of Definition 17.5.8 can be replaced by the condition on uniformizers; no proof is given.
+
+**Proved in Lean.** **Formalized** (V17.105): `isOrientationC_of_unif` ("⇐", no further condition), `unif_of_isOrientationC`, and `remark_17_5_9_hyp` (the iff when every $\hat\Psi$ is continuous).
+
+- `Polyfold.GCT.PolyfoldConstruction.isOrientationC_of_unif` — Polyfold/Chapter17/BranchedOrientation.lean, line 721
+- `Polyfold.GCT.PolyfoldConstruction.unif_of_isOrientationC` — Polyfold/Chapter17/BranchedOrientation.lean, line 694
+- `Polyfold.GCT.PolyfoldConstruction.remark_17_5_9_hyp` — Polyfold/Chapter17/BranchedOrientation.lean, line 743
+
+### G.222. The category $\oplus^k TC$ of Proposition 17.6.1
+
+*formalized* · proved in V17.106
+
+**HWZ (§17.6, Proposition 17.6.1, p. 818 (2017: Proposition 17.11)).** The Whitney sum $\oplus^k TC \to C^1$ as a category with a polyfold bundle structure: the functors $\oplus^k T\Psi$ on morphisms, the orbit space $|\oplus^k TC|$ and the multiplication of $M(\oplus^k T\Psi, \oplus^k T\Psi')$.
+
+**Proved in Lean.** **Formalized in part** (V17.106): $\oplus^k TC$ is a groupoidal category (`whitneyCategory`) and, for continuous $\hat\Psi$, $\oplus^k T\Psi$ is a functor on morphisms with the printed formulas (`proposition_17_6_1_functor`); the fibre maps and the transition M-polyfolds are proved. The orbit space $|\oplus^k TC|$ with its topology and the sc-smoothness of the multiplication of $M(\oplus^k T\Psi, \oplus^k T\Psi')$ are not formalized.
+
+- `Polyfold.GCT.PolyfoldConstruction.whitneyCategory` — Polyfold/Chapter17/WhitneySumCategory.lean, line 365
+- `Polyfold.GCT.PolyfoldConstruction.whitneyUnifFunctor` — Polyfold/Chapter17/WhitneySumCategory.lean, line 458
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_6_1_functor` — Polyfold/Chapter17/WhitneySumCategory.lean, line 510
+
+### G.223. Smoothness of forms for a covering set implies it for every uniformizer
+
+*formalized* · proved in V17.107
+
+**HWZ (§17.6, before Definition 17.6.2, p. 819 (2017: §17.5)).** If $\omega_{\Psi_\lambda}$ is sc-smooth for a covering set, then $\omega_\Psi$ is sc-smooth for every $\Psi$.
+
+**Proved in Lean.** **Formalized** (V17.107): `unifRep_mem_scForms_of_isCoveringFamily`, through `formPullback_trSrc_unifRep` and `MPolyfold.isScForm_of_formPullback_cover`.
+
+- `Polyfold.GCT.PolyfoldConstruction.unifRep_mem_scForms_of_isCoveringFamily` — Polyfold/Chapter17/CategoryForms.lean, line 404
+- `Polyfold.GCT.PolyfoldConstruction.formPullback_trSrc_unifRep` — Polyfold/Chapter17/CategoryForms.lean, line 371
+- `Polyfold.MPolyfold.isScForm_of_formPullback_cover` — Polyfold/Chapter17/CategoryForms.lean, line 127
+
+### G.224. The exterior derivative on $\Omega^*_\infty(C)$
+
+*formalized* · proved in V17.108
+
+**HWZ (§17.6, pp. 819–820, (17.88) (2017: §17.5)).** $d$ on the direct limit is well defined, given on a model by (17.88), and $d \circ d = 0$.
+
+**Proved in Lean.** **Formalized** (V17.108): `catFormsInftyD`, `catFormsInftyD_catFormsInftyD`, `catFormsInftyD_catFormsToInfty`, with $\Omega^*_\infty(C)$ read through the models (`catFormsInftyEquiv`).
+
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD` — Polyfold/Chapter17/CategoryForms.lean, line 622
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD_catFormsInftyD` — Polyfold/Chapter17/CategoryForms.lean, line 635
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyD_catFormsToInfty` — Polyfold/Chapter17/CategoryForms.lean, line 662
+- `Polyfold.GCT.PolyfoldConstruction.catFormsInftyEquiv` — Polyfold/Chapter17/CategoryForms.lean, line 609
+
+### G.225. The similar arguments for Theorems 17.6.6, 17.6.8, 17.6.9
+
+*formalized* · proved in V17.112 · proved in V17.114 · proved in V17.115
+
+**HWZ (§17.6, Theorems 17.6.6, 17.6.8, 17.6.9, pp. 822–824 (2017: Theorem 17.6)).** The proofs are said to follow by arguments similar to Theorem 17.6.4.
+
+**Proved in Lean.** **Formalized** (V17.112, V17.114, V17.115): `theorem_17_6_6`, `theorem_17_6_6_dim1`, `theorem_17_6_8`, `theorem_17_6_9`, `theorem_17_6_9_dim1`.
+
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6` — Polyfold/Chapter17/CategoryStokes.lean, line 332
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1` — Polyfold/Chapter17/CategoryStokes.lean, line 349
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8` — Polyfold/Chapter17/CategoryStokes.lean, line 278
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9` — Polyfold/Chapter17/CategoryStokes.lean, line 367
+- `Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1` — Polyfold/Chapter17/CategoryStokes.lean, line 387
+
+### G.226. The structural maps of $M(\bar\Psi, \bar\Psi')$
+
+*formalized* · proved in V17.120 · proved in V17.121
+
+**HWZ (§17.7, after Definition 17.7.3, pp. 826–827 (2017: §17.6)).** We leave it to the reader to write down all the usual structural maps of the transition sets $M(\bar\Psi, \bar\Psi')$, fibrewise linear.
+
+**Proved in Lean.** **Formalized** (V17.120, V17.121): `transBase`, `transAct` with `transAct_unit`, `transAct_comp`, `transAct_inv`; `isLocalStrongBundleIso_src`, `transInv`, `transUnit`, `transMul` with their strong bundle properties.
+
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transBase` — Polyfold/Chapter17/StrongBundleStructures.lean, line 298
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct` — Polyfold/Chapter17/StrongBundleStructures.lean, line 309
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerData.transAct_comp` — Polyfold/Chapter17/StrongBundleStructures.lean, line 369
+- `Polyfold.GCT.VectorBundle.StrongBundleUniformizerConstruction.isLocalStrongBundleIso_src` — Polyfold/Chapter17/StrongBundleStructures.lean, line 449
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transInv` — Polyfold/Chapter17/StrongBundleStructures.lean, line 491
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transUnit` — Polyfold/Chapter17/StrongBundleStructures.lean, line 513
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.transMul` — Polyfold/Chapter17/BundleModelMultiplication.lean, line 138
+
+### G.227. The sc-smooth model of a strong polyfold bundle construction
+
+*formalized* · proved in V17.122 · proved in V17.123
+
+**HWZ (§17.7, after Definition 17.7.4, pp. 827–828 (2017: §17.6)).** (Implicit.) The model $W_{\bar\Psi} \to X_\Psi$, its equivalence to $E \to C$ and the comparison of two models, as in Theorem 17.1.14, Lemma 17.1.15 and Theorem 17.1.18.
+
+**Proved in Lean.** **Formalized** (V17.122, V17.123): `theorem_17_1_14_bundle`, `lemma_17_1_15_bundle`, `theorem_17_1_18_bundle`; with (ZHOU) and (LR) the Chapter 16 structure `bundleModelStructure`, independent of the family.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_17_1_14_bundle` — Polyfold/Chapter17/BundleModel.lean, line 428
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_17_1_15_bundle` — Polyfold/Chapter17/BundleModel.lean, line 442
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_17_1_18_bundle` — Polyfold/Chapter17/BundleModelComparison.lean, line 485
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelStructure` — Polyfold/Chapter17/BundleModelStructure.lean, line 190
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelStructure_equiv` — Polyfold/Chapter17/BundleModelStructure.lean, line 202
+
+### G.228. Remark 17.8.2
+
+*nothing to formalize*
+
+**HWZ (§17.8, Remark 17.8.2, p. 829 (2017: Remark 17.6)).** A recollection of the picture behind a uniformizer construction and of geometric lifts.
+
+**Proved in Lean.** **Nothing to formalize**: the remark has no statement. Geometric lifts are Chapter 8's (Definition 8.5.5); their pointed form is V17.126.
+
+
+### G.229. The trivial exercise of (17.93)–(17.98)
+
+*formalized* · proved in V17.127
+
+**HWZ (§17.8, (17.94)–(17.98), pp. 830–831 (2017: §17.7)).** The construction from a pointed geometric lift gives a proper covering model; a trivial exercise.
+
+**Proved in Lean.** **Formalized** (V17.127): `pointedModel`, `pointedModel_fiber`, `pointed_isProperCovering`.
+
+- `Polyfold.pointedModel` — Polyfold/Chapter17/ProperCoveringLift.lean, line 205
+- `Polyfold.pointedModel_fiber` — Polyfold/Chapter17/ProperCoveringLift.lean, line 230
+- `Polyfold.pointed_isProperCovering` — Polyfold/Chapter17/ProperCoveringLift.lean, line 240
+
+### G.230. The easy exercise of p. 834
+
+*formalized* · proved in V17.134
+
+**HWZ (§17.8, after Lemma 17.8.9, p. 834 (2017: §17.7)).** For a connected model, the model constructed from the functors $A$, $B$ and the transformation $\tau$ is isomorphic to the given one.
+
+**Proved in Lean.** **Formalized** (V17.134): `ProperCoveringModel.easy_exercise`, witness `easy_exercise_units`.
+
+- `Polyfold.ProperCoveringModel.easy_exercise` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 423
+- `Polyfold.easy_exercise_units` — Polyfold/Chapter17/ProperCoveringModelIso.lean, line 460
+
+### G.231. The model $\hat\tau : E \to X$ is a proper covering functor
+
+*formalized* · proved in V17.141
+
+**HWZ (§17.8, before (17.104), p. 838 (2017: §17.7)).** As previously seen $E$ and $X$ are ep-groupoids, and one easily verifies that $\hat\tau$ extends to a proper covering functor.
+
+**Proved in Lean.** **Formalized** (V17.141): `hatEpGroupoid`, `hatModelFunctor`, `hatModelFunctor_isProperCovering`, `hatFunctor_isEquivalence`, `isHomeomorph_hatOrbitMap`.
+
+- `Polyfold.ProperPolyfoldCoveringStructure.hatEpGroupoid` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 474
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModelFunctor` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 514
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModelFunctor_isProperCovering` — Polyfold/Chapter17/ProperCoveringGlobalFunctor.lean, line 259
+- `Polyfold.ProperPolyfoldCoveringStructure.hatFunctor_isEquivalence` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 613
+- `Polyfold.ProperPolyfoldCoveringStructure.isHomeomorph_hatOrbitMap` — Polyfold/Chapter17/ProperCoveringGlobalModel.lean, line 652
+
+### G.232. The Morita equivalence between the models of two covering families
+
+*formalized* · proved in V17.144
+
+**HWZ (§17.8, before (17.104), p. 838 (2017: §17.7)).** Different covering families give proper covering functors related by some kind of Morita equivalence; the details are left to the reader.
+
+**Proved in Lean.** **Formalized** as a reading (V17.144): the comparison $\hat f_{c,c'} : E_c \to E_{c'}$ is a generalized isomorphism with identity, cocycle and homeomorphic orbit maps, compatible with $\hat\tau$ and the comparison of Theorem 17.1.18 (`hatModel_morita`), with the strict zigzag through $E_{c \sqcup c'}$ (`hatModel_morita_strict`).
+
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 455
+- `Polyfold.ProperPolyfoldCoveringStructure.hatModel_morita_strict` — Polyfold/Chapter17/ProperCoveringMorita.lean, line 476
+
+### G.233. The ep-level pull-back in the proof of Proposition 17.8.16
+
+*formalized* · proved in V17.142
+
+**HWZ (§17.8, proof of Proposition 17.8.16, p. 839 (2017: Proposition 17.13)).** It is an easy exercise that the pull-back of a branched ep⁺-subgroupoid by a proper covering functor of ep-groupoids is branched (tameness as well).
+
+**Proved in Lean.** **Formalized** (V17.142): `EpFunctor.IsProperCovering.isBranchedEpSubgroupoid_pullbackTheta`, `isTameBranched_pullbackTheta`, with the paracompactness of the support from `isProperMap_orbitMap` and `paracompactSpace_of_isProperMap`.
+
+- `Polyfold.EpFunctor.IsProperCovering.isBranchedEpSubgroupoid_pullbackTheta` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 276
+- `Polyfold.EpFunctor.IsProperCovering.isTameBranched_pullbackTheta` — Polyfold/Chapter17/ProperCoveringTame.lean, line 70
+- `Polyfold.EpFunctor.IsProperCovering.isProperMap_orbitMap` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 266
+- `Polyfold.paracompactSpace_of_isProperMap` — Polyfold/Chapter17/ProperCoveringBranched.lean, line 98
+
+### G.234. Strong bundles over proper polyfold covering functors
+
+*formalized* · proved in V17.143
+
+**HWZ (§17.8, pp. 840–842 (2017: §17.7)).** Strong bundle uniformizer constructions over a proper covering, with all maps in the transition sets strong bundle maps; the remaining details are left to the reader (with a pointer to Section 19.8).
+
+**Proved in Lean.** **Formalized** as a reading (V17.143): Chapter 18's `StrongBundleProperCovering`, a proper strong bundle covering of models (Definition 8.5.9) compatible with $\tilde P$, as p. 842 indicates. The uniformizer constructions over $\tilde P$ themselves are not formalized separately.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.StrongBundleProperCovering` — Polyfold/Chapter18/MultisectionFunctors.lean, line 549
+
+### G.235. Remark 18.1.2 (a): one covering family suffices (an easy exercise)
+
+*formalized* · proved in V18.5
+
+**HWZ (§18.1, Remark 18.1.2 (a), p. 844 (2017: Remark 18.1)).** Checking Definition 18.1.1 on one covering family, or on one sc-smooth model, suffices; left as an easy exercise.
+
+**Proved in Lean.** **Formalized** (V18.5): `remark_18_1_2_a`, `remark_18_1_2_a_model` and their sc-smooth and tame forms.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 411
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model` — Polyfold/Chapter18/FredholmSectionFunctors.lean, line 435
+
+### G.236. (18.1): the linearization does not depend on $\bar\Psi$
+
+*formalized* · proved in V18.8
+
+**HWZ (§18.1, (18.1), p. 845 (2017: §18.1)).** The operator (18.1) does not depend on the choice of $\bar\Psi$.
+
+**Proved in Lean.** **Formalized** (V18.8): `sectionLin_indep`, `equation_18_1`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin_indep` — Polyfold/Chapter18/Linearization.lean, line 215
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_1` — Polyfold/Chapter18/Linearization.lean, line 281
+
+### G.237. Definition 18.1.4: index and independence of $\mathrm{Lin}(f, \alpha)$
+
+*formalized* · proved in V18.9
+
+**HWZ (§18.1, Definition 18.1.4, p. 845 (2017: Definition 18.3)).** The elements of $\mathrm{Lin}(f, \alpha)$ have the same index and the set does not depend on $\bar\Psi$.
+
+**Proved in Lean.** **Formalized** (V18.9): `definition_18_1_4_local` with no hypothesis beyond the setting ($\alpha \in C^1$ with $\bar F(\alpha) \ne \emptyset$, and the same at the target for $\varphi_*$); the global form `definition_18_1_4_hyp`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_local` — Polyfold/Chapter18/LinearizationSetLocal.lean, line 1024
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_hyp` — Polyfold/Chapter18/LinearizationSet.lean, line 647
+
+### G.238. (18.2) and the functoriality of $\varphi_*$ ("clearly")
+
+*formalized* · proved in V18.10
+
+**HWZ (§18.1, (18.2), p. 845 (2017: §18.1)).** $\hat\varphi \circ f'(\alpha) = f'(\alpha') \circ T\varphi$, and clearly $(\varphi'\varphi)_* = \varphi'_*\varphi_*$, $(1_\alpha)_* = \mathrm{Id}$.
+
+**Proved in Lean.** **Formalized** (V18.10): `equation_18_2`, `linPush_comp`, `linPush_unit`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2` — Polyfold/Chapter18/Linearization.lean, line 294
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_comp` — Polyfold/Chapter18/Linearization.lean, line 373
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_unit` — Polyfold/Chapter18/Linearization.lean, line 362
+
+### G.239. Theorem 18.1.5: the proof
+
+*formalized* · proved in V18.11 · proved in V18.12 · proved in V18.13
+
+**HWZ (§18.1, Theorem 18.1.5, p. 846 (2017: Theorem 18.1)).** The proof refers to Theorems 15.2.2, 15.2.5 and 9.1.9.
+
+**Proved in Lean.** **Formalized** (V18.11, V18.12, V18.13): `theorem_18_1_5`, `theorem_18_1_5_subcategory`, `theorem_18_1_5_model`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5` — Polyfold/Chapter18/GoodPositionIntrinsic.lean, line 663
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory` — Polyfold/Chapter18/ImplicitFunctionSubcategory.lean, line 83
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 353
+
+### G.240. Remark 18.1.6: $\Theta = \Lambda_0 \circ f$
+
+*formalized* · proved in V18.14
+
+**HWZ (§18.1, Remark 18.1.6, p. 846 (2017: Remark 18.2)).** $\Theta$ has the form $\Lambda_0 \circ f$, as we shall see in general.
+
+**Proved in Lean.** **Formalized** (V18.14): `remark_18_1_6`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6` — Polyfold/Chapter18/ImplicitFunctionTheorem.lean, line 227
+
+### G.241. Lemma 18.1.8 (left to the reader)
+
+*formalized* · proved in V18.16
+
+**HWZ (§18.1, Lemma 18.1.8, p. 847 (2017: Lemma 18.1)).** $N$ is an auxiliary norm iff its pull-back to a model is; an easy lemma left to the reader.
+
+**Proved in Lean.** **Formalized** (V18.16): `lemma_18_1_8`, with the continuity of Definition 12.2.1 in Definition 18.1.7; for the printed form `lemma_18_1_8_book_without_continuity`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_18_1_8` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 781
+- `Polyfold.GCT.VectorBundle.ReflectionBundle.lemma_18_1_8_book_without_continuity` — Polyfold/Chapter18/AuxiliaryNormsBookForm.lean, line 321
+
+### G.242. After Definition 18.1.9: any sc-smooth model has reflexive $(0,1)$-fibres
+
+*formalized* · proved in V18.17
+
+**HWZ (§18.1, after Definition 18.1.9, p. 847 (2017: §18.1)).** If one sc-smooth model has reflexive $(0,1)$-fibres, any sc-smooth model has.
+
+**Proved in Lean.** **Formalized** (V18.17): `hasReflexiveFibers_iff_model`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveFibers_iff_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 284
+
+### G.243. Before Theorem 18.1.12: push-forward and existence of auxiliary norms
+
+*formalized* · proved in V18.20
+
+**HWZ (§18.1, before Theorem 18.1.12, pp. 847–848 (2017: §18.1)).** An auxiliary norm on a model pushes forward to one for $P$, reflexive if it is; $|X|$ is paracompact; the model does not matter.
+
+**Proved in Lean.** **Formalized** (V18.20): `isAuxNormIn_pushNormFun`, `isReflexiveAuxNormIn_pushNormFun`, `hasParacompactOrbitSpace_model`, `exists_isAuxNormFunctor`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_pushNormFun` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 391
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormIn_pushNormFun` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 400
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasParacompactOrbitSpace_model` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 408
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isAuxNormFunctor` — Polyfold/Chapter18/AuxiliaryNorms.lean, line 418
+
+### G.244. After Theorem 18.1.12: other results on auxiliary norms
+
+*nothing to formalize*
+
+**HWZ (§18.1, after Theorem 18.1.12, p. 848 (2017: §18.1)).** The reader may transport other results on auxiliary norms from the ep-groupoid case.
+
+**Proved in Lean.** **Nothing to formalize: an invitation.** The results the chapter uses are V18.15–V18.21.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one` — Polyfold/Chapter18/AuxiliaryNormsDirect.lean, line 801
+
+### G.245. Before Definition 18.2.1: a solution object is smooth
+
+*formalized* · proved in V18.22
+
+**HWZ (§18.2, before Definition 18.2.1, p. 849 (2017: §18.2)).** Since $f$ is regularizing, a solution object is smooth.
+
+**Proved in Lean.** **Formalized** (V18.22): `isSmoothObj_of_mem_zeroSet`, `solution_isSmoothObj`, `zeroSet_subset_isSmoothObj` ($S_f \subseteq C_\infty$), from Remark 18.1.2 (b) in the levels.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.isSmoothObj_of_mem_zeroSet` — Polyfold/Chapter18/SolutionRegularity.lean, line 61
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.solution_isSmoothObj` — Polyfold/Chapter18/SolutionRegularity.lean, line 95
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.zeroSet_subset_isSmoothObj` — Polyfold/Chapter18/SolutionRegularity.lean, line 103
+
+### G.246. After Definition 18.2.3: controlling compactness gives strongly controlling
+
+*formalized* · proved in V18.25
+
+**HWZ (§18.2, after Definition 18.2.3, p. 850 (2017: §18.2)).** A pair controlling compactness can be shrunk to one strongly controlling it.
+
+**Proved in Lean.** **Formalized** (V18.25): `definition_18_2_3_observation`, `exists_stronglyControlsCompactness_subset`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_2_3_observation` — Polyfold/Chapter18/Compactness.lean, line 239
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_stronglyControlsCompactness_subset` — Polyfold/Chapter18/Compactness.lean, line 224
+
+### G.247. §18.3: the remaining concepts
+
+*nothing to formalize*
+
+**HWZ (§18.3, introduction, p. 851 (2017: §18.3)).** The main notions are transported; the reader may deal with the remaining concepts.
+
+**Proved in Lean.** **Nothing to formalize: an invitation.** The notions the chapter uses are V18.30–V18.37.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_2` — Polyfold/Chapter18/MultisectionFunctors.lean, line 262
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_4` — Polyfold/Chapter18/MultisectionFunctors.lean, line 293
+
+### G.248. Proposition 18.4.3 and the construction before it (easy proof left to the reader)
+
+*formalized* · proved in V18.40
+
+**HWZ (§18.4, the construction on p. 854 and Proposition 18.4.3, pp. 854–855 (2017: Proposition 18.1)).** The construction does not depend on the choice of $\varphi$; the easy proof of the proposition is left to the reader.
+
+**Proved in Lean.** **Formalized** (V18.40): `proposition_18_4_3`, `proposition_18_4_3_formula`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3` — Polyfold/Chapter18/MultisectionConstructions.lean, line 206
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula` — Polyfold/Chapter18/MultisectionConstructions.lean, line 233
+
+### G.249. After Proposition 18.4.3: sums and push-forwards (details left to the reader)
+
+*nothing to formalize*
+
+**HWZ (§18.4, after Proposition 18.4.3, p. 855 (2017: §18.4)).** Sums of the local constructions and push-forwards from a model give a wealth of possibilities; details left to the reader.
+
+**Proved in Lean.** **Nothing to formalize: a comment.** What the chapter uses of it: `exists_push_of_model` (V18.51), the sums of V18.35 and Theorem 18.4.4 (V18.41).
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_push_of_model` — Polyfold/Chapter18/Perturbation.lean, line 249
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4` — Polyfold/Chapter18/MultisectionConstructions.lean, line 410
+
+### G.250. Before Definition 18.5.2: $\bar\Psi_*$ and the germ identity
+
+*formalized* · proved in V18.44
+
+**HWZ (§18.5, before Definition 18.5.2, p. 858 (2017: §18.5)).** $\bar\Psi_*$ is a bijection on orientations with inverse $\bar\Psi^*$, and $\bar\Phi^* o_{\bar\Psi'} = o_{\bar\Psi}$ near $\bar q$.
+
+**Proved in Lean.** **Formalized** (V18.44): `pullCat_germ`, `modelTransport`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat_germ` — Polyfold/Chapter18/Orientations.lean, line 1308
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelTransport` — Polyfold/Chapter18/Orientations.lean, line 480
+
+### G.251. Remark 18.5.5 (left to the reader)
+
+*formalized* · proved in V18.48
+
+**HWZ (§18.5, Remark 18.5.5, p. 859 (2017: Remark 18.8)).** For orientable $f$, $|\sigma|$ is $2:1$ with a continuous section from an orientation, and conversely.
+
+**Proved in Lean.** **Formalized** (V18.48): `remark_18_5_5_mp_hyp`, `remark_18_5_5_mpr_hyp`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mp_hyp` — Polyfold/Chapter18/Orientations.lean, line 1251
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mpr_hyp` — Polyfold/Chapter18/Orientations.lean, line 1275
+
+### G.252. Proposition 18.5.6 (left to the reader)
+
+*formalized* · proved in V18.49
+
+**HWZ (§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)).** The proof goes along the lines of Theorem 12.5.7 and is left to the reader.
+
+**Proved in Lean.** **Formalized** (V18.49): `proposition_18_5_6_one_hyp`, `proposition_18_5_6_two_hyp`, `proposition_18_5_6_three_hyp`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp` — Polyfold/Chapter18/Orientations.lean, line 1142
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp` — Polyfold/Chapter18/Orientations.lean, line 1153
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp` — Polyfold/Chapter18/Orientations.lean, line 1170
+
+### G.253. Theorem 18.6.1: the proof in a smooth model
+
+*formalized* · proved in V18.51 · proved in V18.52
+
+**HWZ (§18.6, Theorem 18.6.1, p. 861 (2017: Theorem 18.8)).** The theorem follows from Theorem 15.3.7 by studying the question in a smooth model.
+
+**Proved in Lean.** **Formalized** (V18.51, V18.52): `theorem_18_6_1`, `theorem_18_6_1_modelFree`, `theorem_18_6_1_oriented`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1` — Polyfold/Chapter18/Perturbation.lean, line 391
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 402
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented` — Polyfold/Chapter18/Perturbation.lean, line 422
+
+### G.254. Theorem 15.3.9 in the polyfold context
+
+*formalized* · proved in V18.53
+
+**HWZ (§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)).** Theorem 15.3.9 can easily be brought into the polyfold context.
+
+**Proved in Lean.** **Formalized** (V18.53): `theorem_15_3_9_categorical`, without the "moreover tame", as in Part III.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_15_3_9_categorical` — Polyfold/Chapter18/PerturbationModelIndependence.lean, line 476
+
+### G.255. Exercises: Theorems 5.3.12 and 5.3.15 for ep-groupoids and polyfolds
+
+*nothing to formalize*
+
+**HWZ (§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)).** As exercises, versions of Theorem 5.3.12 and of Theorem 5.3.15 for ep-groupoids and in the categorical context.
+
+**Proved in Lean.** **Nothing to formalize: exercises.** Not formalized.
+
+
+### G.256. The category $\widehat{Gr}_F(C)$ of oriented formal sums
+
+*formalized* · proved in V18.42
+
+**HWZ (§18.5, before Definition 18.5.1, p. 856 (2017: §18.5)).** For smooth $\alpha$, finite non-negative rational formal sums of oriented sc-Fredholm operators $T_\alpha C \to E_\alpha$ form a category fibring over $C_\infty$, with morphisms $(\varphi, \hat L)$ and $\varphi_*$ acting termwise.
+
+**Proved in Lean.** **Formalized** (V18.42): `GrFHatCat` (the category of elements of `grFHatFunctor`, $\varphi_*$ termwise), the projection `grFHatProj` and the printed morphisms `GrFMor`. Its link to the chart-level orientations `DetOr` of $O_f$ is not formalized.
+
+- `Polyfold.GCT.VectorBundle.grFHatFunctor` — Polyfold/Chapter18/OrientationCategory.lean, line 696
+- `Polyfold.GCT.VectorBundle.GrFHatCat` — Polyfold/Chapter18/OrientationCategory.lean, line 726
+- `Polyfold.GCT.VectorBundle.grFHatProj` — Polyfold/Chapter18/OrientationCategory.lean, line 730
+- `Polyfold.GCT.VectorBundle.GrFMor` — Polyfold/Chapter18/OrientationCategory.lean, line 770
+
+### G.257. The shrinkings of Remark 19.1.8
+
+*formalized* · proved in V19.10
+
+**HWZ (§19.1, Remark 19.1.8, p. 868 (2017: Remark 19.2)).** The properties of transition data hold on suitable smaller open neighbourhoods; the shrinkings are left to the reader.
+
+**Proved in Lean.** **Formalized** (V19.10): the neighbourhoods are constructed in `remark_19_1_8_inv`, `remark_19_1_8_hat`, `remark_19_1_8_unit`, `remark_19_1_8_mul` and `remark_19_1_8_stability` (`BasicConstruction.lean`).
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_inv` — Polyfold/Chapter19/BasicConstruction.lean, line 350
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_mul` — Polyfold/Chapter19/BasicConstruction.lean, line 383
+
+### G.258. The natural smooth structures in the example of Remark 19.2.3
+
+*formalized* · proved in V19.13 · proved in V19.31 · proved in V19.32
+
+**HWZ (§19.2, Remark 19.2.3, p. 870 (2017: Remark 19.3)).** The four transition sets of the example have natural smooth structures for which the structure maps have the expected smoothness; not shown.
+
+**Proved in Lean.** **Formalized** (V19.13, V19.31, V19.32): Theorem 19.5.1 and Corollary 19.5.2 are proved without the metrizability of $T$, so they apply to the glued lines: `theorem_19_5_1`, `corollary_19_5_2` for every basic construction with `hB`, here `gluedBasic_hB`.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1` — Polyfold/Chapter19/PolyfoldStructure.lean, line 457
+- `Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_5_2` — Polyfold/Chapter19/PolyfoldStructure.lean, line 488
+- `Polyfold.GroupoidalCategory.gluedBasic_hB` — Polyfold/Chapter19/MetrizabilityExamples.lean, line 96
+
+### G.259. The continuity of $\bar\Psi$ in Proposition 19.3.7
+
+*formalized* · proved in V19.21
+
+**HWZ (§19.3, Proposition 19.3.7, p. 877 (new in the 2021 edition)).** The proof uses that $\bar\Psi$ is continuous.
+
+**Proved in Lean.** **Formalized** (V19.21): the continuity follows from the special form (A) of the germs on $M(\Psi, \Psi)$ (`hatHomeomorph`). In a polyfold construction of Chapter 17 it is a separate condition (`not_lemma_17_1_9`).
+
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph` — Polyfold/Chapter19/NaturalTopology.lean, line 689
+- `Polyfold.GCT.PolyfoldConstruction.not_lemma_17_1_9` — Polyfold/Chapter17/PolyfoldConstructionExamples.lean, line 553
+
+### G.260. The choice of $W(h)$ in Lemma 19.3.8
+
+*formalized* · proved in V19.22
+
+**HWZ (§19.3, Lemma 19.3.8, p. 878 (new in the 2021 edition)).** The proof chooses an open $W(h)$ with $W(h) \cap A = \emptyset$ for a closed $A$ not containing $h$.
+
+**Proved in Lean.** **Formalized** (V19.22): a general lemma, a Hausdorff space with a local homeomorphism to a regular space is regular (`regularSpace_of_isLocalHomeomorph_of_t2`).
+
+- `Polyfold.Chapter19.regularSpace_of_isLocalHomeomorph_of_t2` — Polyfold/Chapter19/TopologyLemmas.lean, line 95
+
+### G.261. The two easy exercises in the proof of Lemma 19.4.3
+
+*formalized* · proved in V19.25
+
+**HWZ (§19.4, Lemma 19.4.3, p. 881 (new in the 2021 edition)).** Only finitely many elements of $M(\Psi, \Psi')$ have a given source, and a convergence statement for sequences of sources; left as easy exercises.
+
+**Proved in Lean.** **Formalized** (V19.25): `Uniformizer.finite_fiber` (Chapter 17) and `exists_tendsto_subseq_of_tendsto_src` (`Metrizability.lean`).
+
+- `Polyfold.GroupoidalCategory.Uniformizer.finite_fiber` — Polyfold/Chapter17/LocalUniformizer.lean, line 320
+- `Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.exists_tendsto_subseq_of_tendsto_src` — Polyfold/Chapter19/Metrizability.lean, line 240
+
+### G.262. The averaging of $\beta$ in Proposition 19.4.5
+
+*formalized* · proved in V19.27
+
+**HWZ (§19.4, Proposition 19.4.5, p. 884 (2017: Proposition 19.5)).** A function $\beta$ with $\beta(\bar o) = 0$ and $\beta = 1$ off $V$ may be assumed $G$-invariant, perhaps by averaging.
+
+**Proved in Lean.** **Formalized** (V19.27): `exists_invariant_urysohn` chooses $\beta$ vanishing on the whole orbit $G * \bar o$ and then averages it over $G$.
+
+- `Polyfold.Chapter19.exists_invariant_urysohn` — Polyfold/Chapter19/TopologyLemmas.lean, line 496
+
+### G.263. Theorem 19.5.3 from the discussion of the section
+
+*formalized* · proved in V19.33
+
+**HWZ (§19.5, Theorem 19.5.3, p. 888 (2017: Theorem 19.5)).** The theorem is concluded in view of the discussion in the section.
+
+**Proved in Lean.** **Formalized** (V19.33): the polyfold construction is built (`toPolyfoldConstruction`), with the uniformizers of $F$ as local uniformizers (`toLocalUniformizer`), covering footprints and $\hat\Psi$ continuous (`continuous_hat`), so Lemma 17.1.9 applies; tameness through `isTame_transPolyfold`.
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.toPolyfoldConstruction` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 120
+- `Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_3_two` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 169
+- `Polyfold.GroupoidalCategory.BasicConstruction.continuous_hat` — Polyfold/Chapter19/PolyfoldStructureGCT.lean, line 153
+
+### G.264. Metrizable neighbourhoods of compact sets in Remark 19.5.4
+
+*formalized* · proved in V19.34
+
+**HWZ (§19.5, Remark 19.5.4, p. 888 (2017: Remark 19.7)).** A compact $K \subset |S|$ has a paracompact, hence metrizable, open neighbourhood; not shown.
+
+**Proved in Lean.** **Formalized** (V19.34): `remark_19_5_4`, through `exists_isOpen_metrizableSpace_of_isCompact` (`TopologyLemmasTwo.lean`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.remark_19_5_4` — Polyfold/Chapter19/CompactNeighbourhoods.lean, line 60
+- `Polyfold.Chapter19.exists_isOpen_metrizableSpace_of_isCompact` — Polyfold/Chapter19/TopologyLemmasTwo.lean, line 79
+
+### G.265. Proposition 19.5.7, called obvious
+
+*formalized* · proved in V19.37
+
+**HWZ (§19.5, Proposition 19.5.7, p. 889 (new in the 2021 edition)).** (ZHOU) of the basic construction gives (ZHOU) of the polyfold; stated as an obvious result.
+
+**Proved in Lean.** **Formalized** (V19.37): through the piece functors $G \ltimes O \to X_\Psi$, full and local sc-diffeomorphisms on objects (`full_pieceFunctor`, `isLocalScDiffeo_pieceFunctor_obj`, `isZhouAt_of_isZhouAt`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_7` — Polyfold/Chapter19/BasicRegularity.lean, line 584
+- `Polyfold.GCT.PolyfoldConstruction.full_pieceFunctor` — Polyfold/Chapter19/BasicRegularity.lean, line 451
+- `Polyfold.EpFunctor.isZhouAt_of_isZhouAt` — Polyfold/Chapter19/BasicRegularity.lean, line 130
+
+### G.266. The levels $(F^i, \mathcal F^i)$ for $S^i$
+
+*formalized* · proved in V19.38 · proved in V19.40
+
+**HWZ (§19.5, Definitions 19.5.8, 19.5.10, pp. 889–890 (new in the 2021 edition)).** (SLUC) and (SLR) refer to basic constructions $(F^i, \mathcal F^i)$ for $S^i$, which are not defined.
+
+**Proved in Lean.** **Formalized** (V19.38, V19.40): an implicit convention, read through the classes of level $i$ (`IsLevelClass`) and the raised translation groupoids $(G \ltimes O)^i$ (`EP.liftVal`); levels do not depend on the uniformizer (`mem_levelSet_iff_of_π_eq`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLevelClass` — Polyfold/Chapter19/BasicRegularity.lean, line 485
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLUCLevel` — Polyfold/Chapter19/BasicRegularity.lean, line 549
+- `Polyfold.GroupoidalCategory.BasicConstruction.IsLRLevel` — Polyfold/Chapter19/BasicRegularity.lean, line 566
+- `Polyfold.GroupoidalCategory.BasicConstruction.mem_levelSet_iff_of_π_eq` — Polyfold/Chapter19/BasicRegularity.lean, line 494
+
+### G.267. Proposition 19.5.9 without proof
+
+*formalized* · proved in V19.39
+
+**HWZ (§19.5, Proposition 19.5.9, p. 890 (new in the 2021 edition)).** (LUC), (SLUC) pass from the basic construction to the polyfold; no proof is given.
+
+**Proved in Lean.** **Formalized** (V19.39): `proposition_19_5_9`, the raised models compared with one model by the generalized isomorphisms of Theorem 17.1.18 (`exists_isLUC_lift_model`, `isGenIsoInvariant_isLUC_lift`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_9` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 339
+- `Polyfold.GroupoidalCategory.BasicConstruction.exists_isLUC_lift_model` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 287
+- `Polyfold.EP.isGenIsoInvariant_isLUC_lift` — Polyfold/Chapter19/BasicRegularityPointwise.lean, line 266
+
+### G.268. Proposition 19.5.11 from the ep-groupoid case
+
+*formalized* · proved in V19.41
+
+**HWZ (§19.5, Proposition 19.5.11, p. 890 (new in the 2021 edition)).** The proposition follows from the considerations in the ep-groupoid case.
+
+**Proved in Lean.** **Formalized** (V19.41): through Proposition 19.5.7, `isZhou_toEP_of_isZhou` and Theorems 7.4.13, 7.4.24 for the translation groupoids (`theorem_7_4_13_all_of_isZhou`, `theorem_7_4_24_all_of_isZhou`).
+
+- `Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_11` — Polyfold/Chapter19/BasicRegularity.lean, line 640
+- `Polyfold.GroupoidalCategory.BasicConstruction.isZhou_toEP_of_isZhou` — Polyfold/Chapter19/BasicRegularity.lean, line 622
+- `Polyfold.EP.theorem_7_4_13_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 147
+- `Polyfold.EP.theorem_7_4_24_all_of_isZhou` — Polyfold/Chapter8/SmoothRegularAssembly.lean, line 152
+
+### G.269. Strong bundle uniformizers with $W \to E$ models (Remark 19.6.2)
+
+*formalized* · proved in V19.49 · proved in V19.101
+
+**HWZ (§19.6, Remark 19.6.2, p. 892 (2017: Remark 19.8)).** The definition of strong bundle uniformizers extends to models given by a strong bundle $W \to E$ over an ep-groupoid.
+
+**Proved in Lean.** **Formalized in the form used**: the variant enters through Definition 19.8.10 (3), and its zero-section consequence is `SquareUniformizer.remark_19_6_2`. The general variant for $\mathcal S$ alone is not built separately, since §19.8 is its only use.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizer.remark_19_6_2` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 775
+- `Polyfold.GroupoidalCategory.SquareUniformizer.definition_19_8_10` — Polyfold/Chapter19/CoveringSquare.lean, line 465
+
+### G.270. The proof of Theorem 19.6.8 ("easily verified")
+
+*formalized* · proved in V19.56
+
+**HWZ (§19.6, Theorem 19.6.8, p. 897 (2017: Theorem 19.6)).** The statements (1)–(5) are said to follow easily from the continuity of $p : K \to O$, as an analogue of Theorem 19.2.2.
+
+**Proved in Lean.** **Formalized** in full: `theorem_19_6_8_one` … `theorem_19_6_8_five` (`StrongBundleTopology`).
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one` — Polyfold/Chapter19/StrongBundleTopology.lean, line 158
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four` — Polyfold/Chapter19/StrongBundleTopology.lean, line 183
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five` — Polyfold/Chapter19/StrongBundleTopology.lean, line 199
+
+### G.271. The direction ⇐ of Proposition 19.6.9
+
+*formalized* · proved in V19.57
+
+**HWZ (§19.6, Proposition 19.6.9, p. 898 (2017: Proposition 19.7)).** The 2021 statement is an equivalence; the text argues the direction from $T$ to $\bar T$.
+
+**Proved in Lean.** **Formalized**: `proposition_19_6_9`; the direction ⇐ restricts the metric along the zero section (`isEmbedding_zeroOrbit`).
+
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9` — Polyfold/Chapter19/StrongBundleTopology.lean, line 254
+- `Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.isEmbedding_zeroOrbit` — Polyfold/Chapter19/StrongBundleTopology.lean, line 244
+
+### G.272. Remark 19.6.14 (outlook)
+
+*nothing to formalize*
+
+**HWZ (§19.6, Remark 19.6.14, p. 900 (2017: Remark 19.9)).** An outlook on how the construction is used.
+
+**Proved in Lean.** **Nothing to formalize**: the remark contains no statement.
+
+
+### G.273. Metrizability of $|P^*E_B|$ in Theorem 19.8.6 (5)
+
+*formalized* · proved in V19.97 · proved in V19.109
+
+**HWZ (§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)).** The natural topologies on the orbit spaces of $\mathcal A$, $\mathcal B$, $E_B$ and $P^*E_B$ are all metrizable.
+
+**Proved in Lean.** **Not stated separately**: (5) is proved for $|\mathcal A|$, $|\mathcal B|$ (`theorem_19_8_6_hyp`) and $|E_B|$ (`metrizableSpace_natTopEB`). For $|P^*E_B|$ the general square result applies to the square of the pull-back (`BundleCoveringSquare.ofPull` with `PullbackUniformizer.toSquare`, then Lemma 19.8.21), but the instance is not written out.
+
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 598
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopEB` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 460
+- `Polyfold.GroupoidalCategory.BundleCoveringSquare.ofPull` — Polyfold/Chapter19/CoveringSquare.lean, line 176
+- `Polyfold.GroupoidalCategory.PullbackUniformizer.toSquare` — Polyfold/Chapter19/CoveringSquareExamples.lean, line 194
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 896
+
+### G.274. Remark 19.8.11 (applications)
+
+*nothing to formalize*
+
+**HWZ (§19.8, Remark 19.8.11, p. 944 (new in the 2021 edition)).** Applications of the construction, for instance to stable maps.
+
+**Proved in Lean.** **Nothing to formalize**: the remark contains no statement.
+
+
+### G.275. The proof of Lemma 19.8.21 (by the proof of Theorem 19.6.8)
+
+*formalized* · proved in V19.109
+
+**HWZ (§19.8, Lemma 19.8.21, p. 956 (new in the 2021 edition)).** The definition of the topology is the same as Definition 19.6.7, and the proof of Theorem 19.6.8 can be followed.
+
+**Proved in Lean.** **Formalized**: `lemma_19_8_21_hyp`, with `metrizableSpace_natTopEA` and `continuous_orbitProjA` (`CoveringSquareTopology`), under the compatibility reading.
+
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 896
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.metrizableSpace_natTopEA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 871
+- `Polyfold.GroupoidalCategory.SquareUniformizerConstruction.continuous_orbitProjA` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 830
 

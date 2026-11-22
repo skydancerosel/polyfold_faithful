@@ -1,4 +1,4 @@
-# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Part I, Chapters 1–6; Part II, Chapters 7–8; Part III, Chapters 12–16)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Part I, Chapters 1–6; Part II, Chapters 7–8; Part III, Chapters 12–16; Part IV, Chapters 17–19)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
@@ -1821,6 +1821,399 @@ in the rest of the project):
 - **Propositions 7.9 and 7.10** (points G.71 and the Hausdorff hypothesis on $\mathbf X^R$): in 2021 $\mathbf X^R$ is an M-polyfold, and $(X,\mathbf X^R)$ an ep-groupoid, exactly when the natural topology $T_R$ is Hausdorff (Propositions 7.2.13, Theorem 7.2.14); $T_R$ is Hausdorff iff (LUC) iff $\mathbf X^T$ is closed (Theorem 7.2.22), and Remark 7.2.8 and Appendix 7.6.3 say that this fails in general. This is the hypothesis taken in `Reduced.lean`.
 - **Definition 8.10**: condition (0), compatibility of $A$ with the strong bundle data, is stated (Definition 8.5.9).
 - **Unchanged**: Theorem 8.5 (including part (5) as printed, V8.30), Theorem 7.1, the definitions 7.1–7.6 and 7.8–7.11, and all of Chapter 8 apart from Definition 8.10.
+
+## The Springer edition (2021), Part IV, Chapters 17–19
+
+Part IV (*Fredholm Theory in Groupoidal Categories*) has no preprint; the comparison is between the
+2017 arXiv text (pp. 573–684) and the Springer edition (pp. 743–957), with the 2021 text as the
+authoritative one. As for Chapters 1–8, nothing of the book text is quoted beyond a few words.
+
+**Method.** The numbered items (Definition, Lemma, Proposition, Theorem, Corollary, Remark, Example)
+of Chapters 17–19 were extracted from the `pdftotext -layout` texts of both versions with their pages
+and aligned chapter by chapter, in order, by the text of the statement. Every pair whose statement text
+agreed to less than about 85 %, and every item without a partner, was then read in both texts; for the
+remaining pairs a word-by-word difference of the statements was read. Three lines of the 2021 text that
+begin with an item name but are cross-references were discarded. Pages are printed pages, read off the
+running heads. The 2017 text numbers each kind separately within a chapter (Definition 17.1, Remark
+17.1, Lemma 17.1, …); the 2021 text has one counter per section. Status as in the tables for Chapters
+1–8: `same` = the statement is unchanged up to editorial wording (a remark in brackets records an
+editorial change such as a hypothesis written into the statement), `changed: …` = the mathematical
+content differs, `absent` = no counterpart as a numbered item. The comparison is of statements, not of
+proofs. A row-by-row list with the line numbers of the items in `sources/HWZ-Book-2021.txt` was kept
+with the working notes; it is not part of the repository.
+
+### Structural differences
+
+- **A new section §17.4, Boundary Formalism for Tame Polyfolds** (pp. 787–811, 26 numbered items): the
+  tame boundary category $bC$ of a tame polyfold $C$, its topology and its polyfold structure
+  (Theorem 17.4.26). The 2017 sections 17.4–17.7 are §§17.5–17.8 in 2021. Chapters 18 and 19 keep their
+  sections; §19.4 is retitled "Metrizability Criteria".
+- **§17.1 expanded**: the properness property (Lemma 17.1.10 to Lemma 17.1.13), weak polyfold
+  structures, the covering category and the properties (LR), (SLR), (LUC), (SLUC), (ZHOU) for a polyfold
+  $(C,F,M)$ (Remark 17.1.16 to Theorem 17.1.26); 2017 Remark 17.2 is Theorem 17.1.27 with a proof.
+- **§17.6**: branched integration and Stokes' theorem under (LUC) (Theorems 17.6.8–17.6.10).
+- **§18.2**: the compactness notions proper and proper$_{<\infty}$ and their equivalence for sc-Fredholm
+  section functors (Definition 18.2.1, Theorem 18.2.2), as in Chapter 5.
+- **Chapter 19, topology of the transition sets**: in 2021 the natural topology on $M(\Psi,\Psi')$ is
+  regular Hausdorff and locally metrizable (Theorem 19.3.3, Lemma 19.3.8); it is metrizable under the
+  properness condition (Proposition 19.4.4) or when the natural topology $T$ on $|S|$ is metrizable
+  (Corollary 19.4.8), and the polyfold results (Theorems 19.5.1, 19.5.3, 19.6.13, 19.7.29) assume $T$
+  metrizable. The 2017 text states metrizability of $M(\Psi,\Psi')$ without these hypotheses (Theorem
+  19.2, Proposition 19.3).
+- **Chapter 19, constructions**: a transition construction is an equivalence class of transition data
+  under restriction (Definitions 19.1.5, 19.1.6, 19.6.5); (ZHOU), (LUC), (LR) for basic constructions
+  (Definitions 19.5.6–19.5.10); coherent data for strong bundles (Definition 19.6.15).
+- **§19.7 and §19.8 rewritten**: a basic construction for a covering functor $P$ uses one transition
+  construction on $B$ (Definition 19.7.11); the topological results (Lemma 19.7.12 to Theorem 19.7.25)
+  precede the smooth ones (Proposition 19.7.26 to Theorem 19.7.29). §19.8 adds bundle covering pull-backs
+  (Definitions 19.8.1–19.8.5, Theorem 19.8.6), a basic construction for a bundle covering square
+  (Definitions 19.8.13–19.8.15) and the topology on $|E_A|$ (Definition 19.8.20, Lemma 19.8.21).
+- **Appendix A, Construction Cheatsheet** (2021 pp. 959–), new: a summary of Chapter 19 with its own
+  numbered items (Remark A.1.1, Theorem A.1.2, …), which are not counted here.
+- **Section titles**, 2017 against 2021:
+
+| Ch. | arXiv 1707.08941 | p. | Springer 2021 | p. |
+|---|---|---|---|---|
+| 17 | 17 Polyfold Theory for Categories | 573 | 17 Polyfold Theory for Categories | 743 |
+| 17 | 17.1 Polyfold Structures and Categories | 573 | 17.1 (same title) | 744 |
+| 17 | 17.2 Tangent Construction | 582 | 17.2 (same title) | 767 |
+| 17 | 17.3 Subpolyfolds | 592 | 17.3 (same title) | 784 |
+| 17 | — |  | 17.4 Boundary Formalism for Tame Polyfolds (new) | 787 |
+| 17 | 17.4 Branched Ep$^+$-Subcategories | 594 | 17.5 (same title) | 812 |
+| 17 | 17.5 Sc-Differential Forms and Stokes | 599 | 17.6 (same title) | 817 |
+| 17 | 17.6 Strong Bundle Structures | 605 | 17.7 (same title) | 824 |
+| 17 | 17.7 Proper Covering Constructions | 609 | 17.8 (same title) | 828 |
+| 18 | 18 Fredholm Theory in Polyfolds | 623 | 18 Fredholm Theory in Polyfolds | 843 |
+| 18 | 18.1 Basic Concepts | 624 | 18.1 (same title) | 844 |
+| 18 | 18.2 Compactness Properties | 628 | 18.2 (same title) | 849 |
+| 18 | 18.3 Sc$^+$-Multisection Functors | 631 | 18.3 (same title) | 851 |
+| 18 | 18.4 Constructions and Extensions | 632 | 18.4 (same title) | 853 |
+| 18 | 18.5 Orientations | 634 | 18.5 (same title) | 856 |
+| 18 | 18.6 Perturbation Theory | 638 | 18.6 (same title) | 860 |
+| 19 | 19 General Constructions | 641 | 19 General Constructions | 863 |
+| 19 | 19.1 The Basic Constructions | 641 | 19.1 (same title) | 863 |
+| 19 | 19.2 The Natural Topology $T$ for $\lvert S\rvert$ | 645 | 19.2 (same title) | 869 |
+| 19 | 19.3 The Natural Topology for $M(\Psi,\Psi')$ | 647 | 19.3 (same title) | 872 |
+| 19 | 19.4 Metrizability Criterion for $T$ | 651 | 19.4 Metrizability Criteria | 879 |
+| 19 | 19.5 The Polyfold Structure for $(S,T)$ | 655 | 19.5 (same title) | 886 |
+| 19 | 19.6 A Strong Bundle Version | 658 | 19.6 (same title) | 890 |
+| 19 | 19.7 Covering Constructions | 665 | 19.7 (same title) | 905 |
+| 19 | 19.8 Covering Constructions for Strong Bundles | 675 | 19.8 (same title) | 930 |
+| — | — |  | Appendix A Construction Cheatsheet (new) | 959 |
+
+### Concordance tables, Chapters 17–19
+
+Rows follow the 2017 order. Where the 2021 order differs, the 2021 number shows it: 2017 Remark 17.2
+is Theorem 17.1.27, Proposition 19.3 is Proposition 19.4.4, Proposition 19.8 is Proposition 19.7.26.
+
+#### Chapter 17 (2021 pp. 743–842; arXiv 1707.08941 pp. 573–622)
+
+| arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|
+| Definition 17.1 | Definition 17.1.1 | 744 | same |
+| Definition 17.2 | Definition 17.1.2 | 744 | same |
+| Definition 17.3 | Definition 17.1.3 | 745 | same (2017 condition (2), $O$ paracompact, is now a footnote: an M-polyfold is paracompact by definition; (3), (4) become (2), (3)) |
+| Definition 17.4 | Definition 17.1.5 | 745 | same (adds "is a morphism") |
+| Definition 17.5 | Definition 17.1.6 | 746 | same |
+| Remark 17.1 | Remark 17.1.7 | 746 | same |
+| Definition 17.6 | Definition 17.1.8 | 747 | same |
+| Lemma 17.1 | Lemma 17.1.9 | 748 | same |
+| Theorem 17.1 | Theorem 17.1.14 | 753 | same (the heading carries a title) |
+| Lemma 17.2 | Lemma 17.1.15 | 754 | same |
+| Theorem 17.2 | Theorem 17.1.18 | 756 | changed: adds the functor $\Gamma_\Psi$, the rules $f_{\Psi',\Psi''}\circ f_{\Psi,\Psi'}=f_{\Psi,\Psi''}$, $f_{\Psi,\Psi}=1$, and the weak polyfold structures $(X_\Psi,\lvert \Gamma_\Psi\rvert )$; the 2017 conclusion that $\lvert C\rvert $ is a paracompact polyfold is not part of the statement (a polyfold structure on $\lvert C\rvert $ under (ZHOU) is Theorem 17.1.26) |
+| Remark 17.2 | Theorem 17.1.27 | 759 | changed: the remark is stated as a theorem with a proof ("Canonical natural transformation") |
+| Theorem 17.3 | Theorem 17.1.28 | 766 | same |
+| Definition 17.7 | Definition 17.1.30 | 767 | same |
+| Lemma 17.3 | Lemma 17.2.1 | 768 | same (the hypothesis that $\alpha$ has regularity at least 1 is in the statement) |
+| Definition 17.8 | Definition 17.2.2 | 768 | same |
+| Definition 17.9 | Definition 17.2.3 | 769 | same |
+| Proposition 17.1 | Proposition 17.2.4 | 769 | same (Banachable, sc-Banachable) |
+| Proposition 17.2 | Proposition 17.2.5 | 770 | same |
+| Lemma 17.4 | Lemma 17.2.9 | 773 | same ($T_\Psi$ on $TO$; the level-1 hypothesis is in the statement) |
+| Lemma 17.5 | Lemma 17.2.11 | 775 | same (wording of (1)) |
+| Definition 17.10 | Definition 17.2.13 | 776 | changed: the natural topology is the one on $M(T\Psi_1,T\Psi_2)$ (2017: $M(\Psi_1,\Psi_2)$) |
+| Proposition 17.3 | Proposition 17.2.14 | 776 | same |
+| Proposition 17.4 | Proposition 17.2.15 | 781 | same |
+| Proposition 17.5 | Proposition 17.2.16 | 782 | same |
+| Theorem 17.4 | Theorem 17.2.17 | 783 | same |
+| Remark 17.3 | Remark 17.2.18 | 784 | same |
+| Definition 17.11 | Definition 17.3.1 | 784 | same |
+| Definition 17.12 | Definition 17.3.2 | 784 | same |
+| Remark 17.4 | Remark 17.3.3 | 784 | changed: the equivalence of the two definitions is proved (Proposition 17.3.4); the 2017 text leaves it to the reader |
+| Lemma 17.6 | Lemma 17.3.5 | 786 | same |
+| Proposition 17.6 | Proposition 17.3.6 | 786 | same |
+| Definition 17.13 | Definition 17.3.7 | 786 | same |
+| Proposition 17.7 | Proposition 17.3.8 | 787 | same |
+| Definition 17.14 | Definition 17.5.1 | 812 | same |
+| Proposition 17.8 | Proposition 17.5.2 | 813 | same |
+| Definition 17.15 | Definition 17.5.3 | 813 | same |
+| Definition 17.16 | Definition 17.5.4 | 813 | same |
+| Proposition 17.9 | Proposition 17.5.5 | 814 | same |
+| Definition 17.17 | Definition 17.5.6 | 815 | same |
+| Proposition 17.10 | Proposition 17.5.7 | 816 | same |
+| Definition 17.18 | Definition 17.5.8 | 817 | same |
+| Remark 17.5 | Remark 17.5.9 | 817 | same |
+| Proposition 17.11 | Proposition 17.6.1 | 818 | same |
+| Definition 17.19 | Definition 17.6.2 | 819 | same |
+| Definition 17.20 | Definition 17.6.3 | 820 | same |
+| Theorem 17.5 | Theorem 17.6.4 | 821 | same |
+| Definition 17.21 | Definition 17.6.5 | 822 | same |
+| Theorem 17.6 | Theorem 17.6.6 | 822 | same |
+| Theorem 17.7 | Theorem 17.6.7 | 823 | same |
+| Definition 17.22 | Definition 17.7.1 | 825 | same |
+| Definition 17.23 | Definition 17.7.2 | 826 | same |
+| Definition 17.24 | Definition 17.7.3 | 826 | same |
+| Definition 17.25 | Definition 17.7.4 | 827 | same |
+| Definition 17.26 | Definition 17.8.1 | 828 | same (in (3) the $y_i$ are all of $\lvert P\rvert ^{-1}(z)$ and the union is written as disjoint) |
+| Remark 17.6 | Remark 17.8.2 | 829 | same |
+| Definition 17.27 | Definition 17.8.3 | 829 | same |
+| Definition 17.28 | Definition 17.8.4 | 831 | same |
+| Remark 17.7 | Remark 17.8.5 | 831 | same |
+| Lemma 17.7 | Lemma 17.8.7 | 833 | same |
+| Lemma 17.8 | Lemma 17.8.8 | 833 | same |
+| Lemma 17.9 | Lemma 17.8.9 | 834 | same |
+| Definition 17.29 | Definition 17.8.10 | 834 | same |
+| Remark 17.8 | Remark 17.8.11 | 835 | same |
+| Definition 17.30 | Definition 17.8.12 | 835 | same |
+| Definition 17.31 | Definition 17.8.13 | 836 | same |
+| Lemma 17.10 | Lemma 17.8.14 | 836 | same |
+| Proposition 17.12 | Proposition 17.8.15 | 837 | same |
+| Proposition 17.13 | Proposition 17.8.16 | 839 | same |
+
+#### Chapter 18 (2021 pp. 843–862; arXiv 1707.08941 pp. 623–640)
+
+| arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|
+| Definition 18.1 | Definition 18.1.1 | 844 | same |
+| Remark 18.1 | Remark 18.1.2 | 844 | same |
+| Definition 18.2 | Definition 18.1.3 | 845 | same (the hypothesis $f(\alpha)=0$ is in the statement) |
+| Definition 18.3 | Definition 18.1.4 | 845 | same |
+| Theorem 18.1 | Theorem 18.1.5 | 846 | same (the heading carries a title) |
+| Remark 18.2 | Remark 18.1.6 | 846 | same |
+| Definition 18.4 | Definition 18.1.7 | 846 | same |
+| Lemma 18.1 | Lemma 18.1.8 | 847 | same |
+| Definition 18.5 | Definition 18.1.9 | 847 | same |
+| Definition 18.6 | Definition 18.1.10 | 847 | same |
+| Definition 18.7 | Definition 18.1.11 | 847 | same |
+| Theorem 18.2 | Theorem 18.1.12 | 848 | same |
+| Definition 18.8 | Definition 18.2.1 | 849 | changed: stated for sc-smooth section functors; adds (2) proper and (3) proper$_{<\infty}$ |
+| Theorem 18.3 | Theorem 18.2.2 | 850 | changed: the equivalence of compact moduli space, proper and proper$_{<\infty}$ (2017: the closure condition for a given auxiliary norm) |
+| Definition 18.9 | Definition 18.2.3 | 850 | changed: adds "strongly controls compactness" (every constant $0<C<\infty$) |
+| Definition 18.10 | Definition 18.2.4 | 850 | same |
+| Remark 18.3 | Remark 18.2.5 | 850 | same |
+| Theorem 18.4 | Theorem 18.2.6 | 851 | same |
+| Remark 18.4 | Remark 18.2.7 | 851 | same |
+| Definition 18.11 | Definition 18.3.1 | 852 | same |
+| Remark 18.5 | Remark 18.3.2 | 852 | same |
+| Definition 18.12 | Definition 18.3.3 | 852 | same |
+| Theorem 18.5 | Theorem 18.3.5 | 853 | same |
+| Theorem 18.6 | Theorem 18.3.6 | 853 | same |
+| Definition 18.13 | Definition 18.4.1 | 853 | same |
+| Remark 18.6 | Remark 18.4.2 | 853 | same |
+| Proposition 18.1 | Proposition 18.4.3 | 855 | same (the hypotheses on $P$, $\alpha$, $e$ are in the statement) |
+| Theorem 18.7 | Theorem 18.4.4 | 855 | same (the heading carries a title) |
+| Definition 18.14 | Definition 18.5.1 | 857 | same |
+| Definition 18.15 | Definition 18.5.2 | 858 | same |
+| Remark 18.7 | Remark 18.5.3 | 859 | same |
+| Definition 18.16 | Definition 18.5.4 | 859 | same |
+| Remark 18.8 | Remark 18.5.5 | 859 | same |
+| Proposition 18.2 | Proposition 18.5.6 | 859 | same |
+| Theorem 18.8 | Theorem 18.6.1 | 860 | changed: the multisection functor is $\Lambda:E\to\mathbb Q^+$ (2017: $\Lambda:C\to\mathbb Q^+$) |
+
+#### Chapter 19 (2021 pp. 863–957; arXiv 1707.08941 pp. 641–684)
+
+| arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|
+| Definition 19.1 | Definition 19.1.1 | 863 | same |
+| Definition 19.2 | Definition 19.1.2 | 864 | same |
+| Definition 19.3 | Definition 19.1.3 | 865 | same |
+| Remark 19.1 | Remark 19.1.4 | 865 | same |
+| Definition 19.4 | Definition 19.1.6 | 867 | changed: a transition construction is an equivalence class of transition data under restriction (Definition 19.1.5) |
+| Definition 19.5 | Definition 19.1.7 | 868 | same |
+| Remark 19.2 | Remark 19.1.8 | 868 | same (stated for a representative) |
+| Definition 19.6 | Definition 19.2.1 | 869 | same (names $T$ the natural topology) |
+| Theorem 19.1 | Theorem 19.2.2 | 869 | same |
+| Remark 19.3 | Remark 19.2.3 | 870 | changed: adds an example in which $T$ is not Hausdorff |
+| Remark 19.4 | Remark 19.2.4 | 872 | same |
+| Definition 19.7 | Definition 19.3.2 | 873 | same (stated for a representative) |
+| Theorem 19.2 | Theorem 19.3.3 | 873 | changed: $T_{\Psi,\Psi'}$ is regular Hausdorff and locally metrizable (2017: metrizable); adds (6), $\bar\Psi:G\times O\to M(\Psi,\Psi)$ is a homeomorphism |
+| Proposition 19.1 | Proposition 19.3.4 | 874 | same (stated for a representative; (2) on all of $V(o)$) |
+| Proposition 19.2 | Proposition 19.3.5 | 875 | same |
+| Remark 19.5 | Remark 19.3.6 | 875 | same (stated for a representative) |
+| Proposition 19.3 | Proposition 19.4.4 | 883 | changed: the metrizability of $T_{\Psi,\Psi'}$ is now proved under the properness condition (2017: §19.3, without it) |
+| Remark 19.6 | — | — | absent: the summary remark at the end of §19.3; in 2021 the transition sets are regular Hausdorff and locally metrizable (Theorem 19.3.3), and their metrizability is taken up in §19.4 (running text) |
+| Definition 19.8 | Definition 19.4.1 | 879 | same ("property" becomes "condition"; $M(\Psi,\Psi')$ is called a topological space, 2017: metrizable space) |
+| Proposition 19.4 | Proposition 19.4.2 | 880 | same ("property" becomes "condition") |
+| Proposition 19.5 | Proposition 19.4.5 | 884 | same ("property" becomes "condition") |
+| Theorem 19.3 | Theorem 19.4.6 | 885 | same |
+| Proposition 19.6 | Proposition 19.4.7 | 885 | same ("property" becomes "condition") |
+| Theorem 19.4 | Theorem 19.5.1 | 886 | changed: $T$ is assumed metrizable |
+| Corollary 19.1 | Corollary 19.5.2 | 887 | same |
+| Theorem 19.5 | Theorem 19.5.3 | 888 | changed: split into (1) properness and second countable or paracompact give a metrizable $T$, (2) the polyfold structure for metrizable $T$ |
+| Remark 19.7 | Remark 19.5.4 | 888 | changed: the transition-set topologies are no longer called metrizable; $T$ is completely regular, Hausdorff and locally metrizable |
+| Definition 19.9 | Definition 19.6.1 | 891 | same |
+| Remark 19.8 | Remark 19.6.2 | 892 | same |
+| Definition 19.10 | Definition 19.6.3 | 892 | same |
+| Definition 19.11 | Definition 19.6.4 | 895 | changed: stated with maps on neighbourhoods $V(o)$ of a representative (2017: germs) |
+| Definition 19.12 | Definition 19.6.6 | 896 | same |
+| Definition 19.13 | Definition 19.6.7 | 897 | same |
+| Theorem 19.6 | Theorem 19.6.8 | 897 | same |
+| Proposition 19.7 | Proposition 19.6.9 | 898 | changed: $T$ is metrizable if and only if $\bar T$ is (2017: "if") |
+| Definition 19.14 | Definition 19.6.10 | 898 | same |
+| Theorem 19.7 | Theorem 19.6.11 | 898 | changed: the topologies are locally metrizable and regular Hausdorff (2017: metrizable) |
+| Theorem 19.8 | Theorem 19.6.13 | 900 | changed: $T$ is assumed metrizable |
+| Theorem 19.9 | — | — | absent: the content is split between Proposition 19.6.9 ($\bar T$ metrizable if and only if $T$ is) and Theorem 19.6.13 (the strong bundle structure on the transition sets, for metrizable $T$) |
+| Remark 19.9 | Remark 19.6.14 | 900 | same |
+| Definition 19.15 | Definition 19.7.1 | 906 | same |
+| Remark 19.10 | Remark 19.7.2 | 906 | same (cross-references to Definition 17.8.1) |
+| Definition 19.16 | Definition 19.7.3 | 906 | same |
+| Definition 19.17 | Definition 19.7.4 | 907 | changed: on objects, the $e\in E$ with $(\hat\tau(e),\hat\Psi(e))=(o,a)$ is required to be unique |
+| Lemma 19.1 | Lemma 19.7.5 | 907 | same |
+| Remark 19.11 | Remark 19.7.6 | 908 | same |
+| Definition 19.18 | Definition 19.7.7 | 908 | same |
+| Remark 19.12 | Remark 19.7.8 | 908 | same |
+| Lemma 19.2 | Lemma 19.7.10 | 909 | same |
+| Definition 19.19 | Definition 19.7.11 | 910 | changed: a basic construction for $P$ is $(\hat F,\mathcal F)$ with $\mathcal F$ a transition construction on $B$ (2017: $P$-compatible transition constructions on both kinds of transition sets) |
+| Proposition 19.8 | Proposition 19.7.26 | 926 | changed: $\lvert B\rvert $ is assumed metrizable; the M-polyfold structure of $M(\hat\Psi,\hat\Psi')$ is characterized by $p$; placed after the topological results |
+| Lemma 19.3 | Proposition 19.7.18 | 919 | changed: $\lvert P\rvert $ is a surjective local homeomorphism (2017: continuous and open) |
+| Lemma 19.4 | Corollary 19.7.20 | 921 | changed: stated as a corollary, with a connected $G$-invariant neighbourhood $O_0$ and $\hat\tau^{-1}(O_0)$ a disjoint union |
+| Proposition 19.9 | Proposition 19.7.23 | 923 | same (for a finite-to-one covering functor with a basic construction, 2017: proper covering functor; "property" becomes "condition") |
+| Proposition 19.10 | Proposition 19.7.24 | 924 | same (for a finite-to-one covering functor with a basic construction, 2017: proper covering functor) |
+| Theorem 19.10 | Theorem 19.7.29 | 929 | changed: the hypothesis is that $\lvert B\rvert $ is metrizable (2017: properness and paracompactness for $\lvert A\rvert $ or $\lvert B\rvert $) |
+| Definition 19.20 | Definition 19.8.7 | 941 | same |
+| Definition 19.21 | Definition 19.8.8 | 943 | same (renamed "strong ep-bundle covering model") |
+| Definition 19.22 | Definition 19.8.10 | 943 | same (the diagrams of (1)–(3) are displayed) |
+| Definition 19.23 | Definition 19.8.13 | 948 | same |
+| Definition 19.24 | Definition 19.8.14 | 948 | changed: one transition construction on $B$ with (1) metrizable $T_{\lvert B\rvert }$, (2) coherence, (3) a basic construction for $P$ (2017: four transition constructions with compatibilities) |
+| Theorem 19.11 | Theorem 19.8.22 | 956 | changed: no separate properness and paracompactness hypothesis (the metrizability of $T_{\lvert B\rvert }$ is part of Definition 19.8.14); the conclusion is stated with proper strong bundle covering squares (the heading carries a title) |
+
+### Items of the 2021 text in Chapters 17–19 without a 2017 counterpart
+
+Listed by section with a one-line paraphrase (the item's number and page in the 2021 text); "2017:
+running text" means that the content is in the 2017 text, but not as a numbered item.
+
+**Chapter 17** (52 items)
+
+- §17.1 Polyfold Structures and Categories
+  - Remark 17.1.4 (p. 745): a local uniformizer gives a small full subcategory the structure of an ep-groupoid
+  - Lemma 17.1.10 (p. 749): sequences in $M(\Psi,\Psi')$ over convergent sequences in $O$, $O'$ have convergent subsequences
+  - Proposition 17.1.11 (p. 750): neighbourhoods $U(q)$ with $t:s^{-1}(\mathrm{cl}\,U(q))\to O'$ proper
+  - Definition 17.1.12 (p. 751): the properness property of $C$ (2017: argued in the proof of Theorem 17.1)
+  - Lemma 17.1.13 (p. 752): transition maps between natural source-type (target-type) charts are the identity
+  - Remark 17.1.16 (p. 755): $X_\Psi$ has a paracompact orbit space; with (ZHOU), $(X_\Psi,|\Gamma_\Psi|)$ is a polyfold structure
+  - Definition 17.1.17 (p. 755): weak polyfold structure $(X,\beta)$
+  - Remark 17.1.19 (p. 757): the diagrams behind Theorem 17.1.18
+  - Definition 17.1.20 (p. 757): the covering category $\mathrm{COV}_C$
+  - Definition 17.1.21 (p. 757): the natural embedding of $\mathrm{COV}_C$ into the ep-groupoids
+  - Definition 17.1.22 (p. 758): (LR), (SLR), (LUC), (SLUC), (ZHOU) for $C$
+  - Proposition 17.1.23 (p. 758): (ZHOU) implies (LUC), (SLUC), (LR), (SLR)
+  - Proposition 17.1.24 (p. 758): these properties then hold for every covering set
+  - Proposition 17.1.25 (p. 758): under (LUC) a generalized isomorphism $h$ with $|\Gamma_{\Psi'}|\circ|h|=|\Gamma_\Psi|$ is $f_{\Psi,\Psi'}$
+  - Theorem 17.1.26 (p. 759): under (ZHOU), $|C|$ carries a natural equivalence class of polyfold structures
+  - Corollary 17.1.29 (p. 766): $C^1$ inherits (ZHOU), (SLUC), (SLR)
+- §17.2 Tangent Construction
+  - Definition 17.2.6 (p. 770): the tangent category $TC$ (2017: running text before Lemma 17.4)
+  - Lemma 17.2.7 (p. 770): $TC$ is a groupoidal category
+  - Remark 17.2.8 (p. 770): an alternative construction of $TC$ from $\mu_C$
+  - Lemma 17.2.10 (p. 773): $T_\Psi:G\ltimes TO\to TC$ is a functor
+  - Proposition 17.2.12 (p. 776): the unique topology on $M(T\Psi_1,T\Psi_2)$ making the local maps homeomorphisms onto open sets
+- §17.3 Subpolyfolds
+  - Proposition 17.3.4 (p. 784): Definitions 17.3.1 and 17.3.2 are equivalent
+- §17.4 Boundary Formalism for Tame Polyfolds (new section), pp. 787–811: all 26 items (17.4.1–17.4.26) are new: the faces $F_{U(\bar o)}$ of good neighbourhoods (Definition 17.4.1), the tame boundary category $bC$ with its objects and morphisms (Definitions 17.4.2–17.4.4), the face stabilizers $G_\theta$ (Definition 17.4.5) the functors $\Psi_\theta$ and $\bar\Psi$ (Lemmas 17.4.6, 17.4.8, 17.4.9), Remark 17.4.7, the transition sets $M(\Psi_\theta,\Psi'_{\theta'})$ and their M-polyfold structures (Lemmas 17.4.10, 17.4.11, 17.4.13, 17.4.15, Definitions 17.4.12, 17.4.14, Theorem 17.4.16), the topology on $|bC|$ (Definition 17.4.17, Lemmas 17.4.18, 17.4.20, 17.4.22 (the map $\sigma$), Theorem 17.4.19, Corollary 17.4.21; Hausdorff, regular, paracompact: Propositions 17.4.23–17.4.25), and the polyfold structure of $bC$ (Theorem 17.4.26).
+- §17.6 Sc-Differential Forms and Stokes
+  - Theorem 17.6.8 (p. 823): under (LUC), the branched integral over $\hat\Theta$ with compact support is independent of the covering family
+  - Theorem 17.6.9 (p. 824): under (LUC), the integral over $\partial\hat\Theta$ is well defined
+  - Theorem 17.6.10 (p. 824): Effective Stokes Theorem, under (LUC)
+- §17.8 Proper Covering Constructions
+  - Proposition 17.8.6 (p. 832): shrinking a proper covering model to a connected one
+
+**Chapter 18** (1 items)
+
+- §18.3 Sc$^+$-Multisection Functors
+  - Remark 18.3.4 (p. 852): structurability does not depend on the sc-smooth model (2017: sentence after Definition 18.12)
+
+**Chapter 19** (45 items)
+
+- §19.1 The Basic Constructions
+  - Definition 19.1.5 (p. 867): equivalence of transition data by restriction
+- §19.3 The Natural Topology for $M(\Psi,\Psi')$
+  - Lemma 19.3.1 (p. 872): $T_{\Psi,\Psi'}$ does not depend on the representative of the transition construction
+  - Proposition 19.3.7 (p. 877): $\bar\Psi:G\times O\to M(\Psi,\Psi)$ is a homeomorphism
+  - Lemma 19.3.8 (p. 878): $T_{\Psi,\Psi'}$ is regular
+- §19.4 Metrizability Criteria
+  - Lemma 19.4.3 (p. 881): local structure of $M(\Psi,\Psi')$ over $U(o)$ under the properness condition
+  - Corollary 19.4.8 (p. 885): $T$ metrizable implies every $T_{\Psi,\Psi'}$ metrizable
+- §19.5 The Polyfold Structure for $(S,T)$
+  - Definition 19.5.5 (p. 889): the maps $Tg$ at a smooth object
+  - Definition 19.5.6 (p. 889): (ZHOU) for a basic construction
+  - Proposition 19.5.7 (p. 889): (ZHOU) for $(F,\mathcal F)$ gives (ZHOU) for the polyfold
+  - Definition 19.5.8 (p. 889): (LUC) for a basic construction
+  - Proposition 19.5.9 (p. 890): (LUC) for $(F,\mathcal F)$ gives (LUC) for the polyfold
+  - Definition 19.5.10 (p. 890): (LR) for a basic construction
+  - Proposition 19.5.11 (p. 890): (ZHOU) implies (SLUC) and (SLR)
+- §19.6 A Strong Bundle Version
+  - Definition 19.6.5 (p. 896): a strong bundle transition construction is an equivalence class of bundle transition data
+  - Lemma 19.6.12 (p. 899): the properness condition for $(F,\mathcal F)$ gives a metrizable $\bar T_{\bar\Psi,\bar\Psi'}$
+  - Definition 19.6.15 (p. 902): coherent data $(\bar F,\mathcal F)$
+- §19.7 Covering Constructions
+  - Lemma 19.7.9 (p. 908): $p$ is surjective with finite fibres
+  - Lemma 19.7.12 (p. 911): $M(\Psi,\Psi')\,{}_s\!\times_{\hat\tau}E$ is locally metrizable and regular Hausdorff
+  - Proposition 19.7.13 (p. 913): the natural topology on $M(\hat\Psi,\hat\Psi')$ (the topological part of 2017 Proposition 19.8)
+  - Proposition 19.7.14 (p. 914): $p:M(\hat\Psi,\hat\Psi')\to M(\Psi,\Psi')$ is a surjective local homeomorphism
+  - Proposition 19.7.15 (p. 915): properties of the structural maps of $M(\hat\Psi,\hat\Psi')$
+  - Definition 19.7.16 (p. 916): the collection $T_{|A|}$
+  - Lemma 19.7.17 (p. 916): $T_{|A|}$ is a locally metrizable topology
+  - Lemma 19.7.19 (p. 920): $y\sim y'$ if and only if $|U(y)|=|U(y')|$
+  - Lemma 19.7.21 (p. 922): separation properties of the natural topologies on $|B|$ and $|A|$
+  - Remark 19.7.22 (p. 923): metrizability of $|B|$ is the properness condition plus paracompactness
+  - Theorem 19.7.25 (p. 925): Topological Result about $|P|$
+  - Definition 19.7.27 (p. 928): the structural commutative diagrams
+  - Theorem 19.7.28 (p. 928): Polyfold Results for $P$
+- §19.8 Covering Constructions for Strong Bundles
+  - Definition 19.8.1 (p. 932): uniformizer for a bundle covering pull-back $(P,\mu_B)$
+  - Definition 19.8.2 (p. 932): uniformizer construction for $(P,\mu_B)$
+  - Lemma 19.8.3 (p. 933): the elements of $M(\Gamma,\Gamma')$
+  - Definition 19.8.4 (p. 934): transition construction for $(P,\mu_B)$
+  - Definition 19.8.5 (p. 937): basic construction for $(P,\mu_B)$
+  - Theorem 19.8.6 (p. 938): the natural functor associated to a uniformizer of $(P,\mu_B)$
+  - Remark 19.8.9 (p. 943): the word "model" in "strong ep-bundle covering model"
+  - Remark 19.8.11 (p. 944): how uniformizers are built in applications
+  - Lemma 19.8.12 (p. 946): $\hat\Gamma$ determines $\Psi$, $\hat\Psi$, $\Gamma$
+  - Definition 19.8.15 (p. 949): basic construction for a bundle covering square
+  - Lemma 19.8.16 (p. 951): the canonical bijection $U_{\hat\Gamma,\hat\Gamma'}$
+  - Definition 19.8.17 (p. 952): the natural strong bundle structure on $M(\hat\Gamma,\hat\Gamma')\to M(\hat\Psi,\hat\Psi')$
+  - Lemma 19.8.18 (p. 953): $S$ is a local strong bundle isomorphism
+  - Definition 19.8.19 (p. 954): a class of commutative diagrams of strong bundles over M-polyfolds
+  - Definition 19.8.20 (p. 956): the collection $\bar T_A$
+  - Lemma 19.8.21 (p. 956): $\bar T_A$ is a metrizable topology on $|E_A|$
+### Summary, Chapters 17–19
+
+| Ch. | 2017 items | same | changed | absent | 2021-only | 2021 items |
+|---|---|---|---|---|---|---|
+| 17 | 69 | 65 | 4 | 0 | 52 | 121 |
+| 18 | 35 | 31 | 4 | 0 | 1 | 36 |
+| 19 | 62 | 41 | 19 | 2 | 45 | 105 |
+| 17–19 | 166 | 137 | 27 | 2 | 98 | 262 |
+
+Of the 262 numbered items of the 2021 text, 164 have a 2017 counterpart and 98 are new (26 of them in
+the new §17.4); 2 of the 166 numbered items of the 2017 text have no 2021 counterpart (Remark 19.6,
+Theorem 19.9).
+
+### What a reader of the 2017 statements should know
+
+- **Theorem 17.2** (Theorem 17.1.18): the conclusion is a weak polyfold structure $(X_\Psi,|\Gamma_\Psi|)$
+  on $|C|$ for each covering set; a polyfold structure on $|C|$ in the sense of Definition 16.1.1 is
+  obtained under (ZHOU) (Theorem 17.1.26).
+- **Definition 18.8 and Theorem 18.3** (Definition 18.2.1, Theorem 18.2.2): compactness of $|S_f|$,
+  properness and proper$_{<\infty}$ are equivalent for sc-Fredholm section functors.
+- **Chapter 19**: the transition sets $M(\Psi,\Psi')$ are regular Hausdorff and locally metrizable;
+  their metrizability, and the M-polyfold and polyfold structures built on it, are stated in 2021 under
+  the properness condition or for a metrizable natural topology $T$ (Theorem 19.3.3, Propositions
+  19.4.4, 19.4.7, Theorems 19.5.1, 19.5.3, 19.6.13, 19.7.29, 19.8.22).
+- **Changed in Chapters 17 and 18**: besides the items above, Definition 17.2.13 (the natural topology
+  on $M(T\Psi_1,T\Psi_2)$), Remark 17.3.3 with the new Proposition 17.3.4, Definition 18.2.3 (strong
+  control of compactness) and Theorem 18.6.1 ($\Lambda:E\to\mathbb Q^+$); the other statements of
+  these two chapters are unchanged.
 
 ## Marks in the report sources
 

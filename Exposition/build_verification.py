@@ -84,15 +84,25 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "equivalence, bump functions and partitions of unity, the degeneracy index, the boundary, tameness; the tangent "
      "polyfold and sc-differential forms; strong polyfold bundles; branched suborbifolds and Stokes' theorem; "
      "sc⁺-multisections and Fredholm theory over polyfolds", ["Chapter16"]),
+    ("17", "Part IV, Ch. 17, §§17.1–17.8 (2017 Chapter 17)", "polyfold theory for categories: groupoidal "
+     "categories, uniformizers and polyfold constructions, the model ep-groupoid and its comparison maps, the tangent "
+     "construction, subpolyfolds, the boundary formalism for tame polyfolds, branched ep⁺-subcategories, sc-differential "
+     "forms and Stokes, strong bundle structures, proper covering constructions", ["Chapter17"]),
+    ("18", "Part IV, Ch. 18, §§18.1–18.6 (2017 Chapter 18)", "Fredholm theory in polyfolds: sc-Fredholm section "
+     "functors and their linearizations, auxiliary norms and compactness, sc⁺-multisection functors, constructions and "
+     "extensions, orientations, perturbation theory", ["Chapter18"]),
+    ("19", "Part IV, Ch. 19, §§19.1–19.8 (2017 Chapter 19)", "general constructions: basic constructions, the natural "
+     "topologies, metrizability criteria, the polyfold structure, the strong bundle version, covering constructions and "
+     "their pull-backs", ["Chapter19"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, of Chapters 7–11 of Part II and of Part III (in progress), of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, of Chapters 7–11 of Part II, of Part III and of Part IV, of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
-for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Parts II and III, which have no preprint, the book's
+for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Parts II–IV, which have no preprint, the book's
 arXiv version, 1707.08941 ("2017"); a page that could not be located in the Springer text is given in the old
 numbering only, marked as such. The V- and G-numbers are the project's own, and the Lean names carry the preprint's
 (Part I) and the 2017 (Part II) numbers; `Exposition/BookConcordance.md` gives the correspondence). That

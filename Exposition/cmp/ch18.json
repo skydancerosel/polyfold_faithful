@@ -1,0 +1,1875 @@
+{
+ "items": [
+  {
+   "id": "V18.1",
+   "title": "Section functors and their local representatives",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, before Definition 18.1.1, pp. 843–844 (2017: §18.1)",
+    "page": 843,
+    "statement": "A section functor $f$ of $P : E \\to C$ has $P \\circ f = \\mathrm{Id}$; for $\\bar\\Psi \\in \\bar F(\\alpha)$ over $\\Psi$ the local representative $f_{\\bar\\Psi}$ satisfies $\\bar\\Psi \\circ f_{\\bar\\Psi} = f \\circ \\Psi$ and is $G$-equivariant."
+   },
+   "lean": {
+    "statement": "`structure SectionFunctor` (a functor $C \\to E$ with $P \\circ f = \\mathrm{Id}$, `toGroupoidFunctor`, `toFun_eq_act`); `StrongBundleUniformizerData.localRep` with `obj_localRep` ($\\bar\\Psi \\circ f_{\\bar\\Psi} = f \\circ \\Psi$), `localRep_smul` ($G$-equivariance) and `localRep_transAct` (compatibility with the transition morphisms).",
+    "decls": [
+     "Chapter18/SectionFunctors · GCT.VectorBundle.SectionFunctor",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.SectionFunctor.toGroupoidFunctor",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.SectionFunctor.toFun_eq_act",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongBundleUniformizerData.localRep",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongBundleUniformizerData.obj_localRep",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongBundleUniformizerData.localRep_smul",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongBundleUniformizerData.localRep_transAct"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.2",
+   "title": "The section of a sc-smooth model and the change of model",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.1, before Definition 18.1.1, p. 844 (2017: §18.1)",
+    "page": 844,
+    "statement": "A covering family gives the sc-smooth model $W_{\\bar\\Psi} \\to X_\\Psi$; $f$ induces the section $f_{\\bar\\Psi}$ of the model, compatible with $\\bar\\Gamma$ and $\\Gamma$."
+   },
+   "lean": {
+    "statement": "`modelSection c.Ψ f` is a section functor of the model (`isFunctorialSection_modelSection`), with $\\bar\\Gamma \\circ f_{\\bar\\Psi} = f \\circ \\Gamma$ (`bundleModelFunctor_obj_modelSection`), determined by this (`modelSection_eq_of`), with `orbitMap_modelSection` and the pull-back and push-forward forms (`pullback_modelSection`, `pushforward_modelSection`). Along the comparison isomorphism of two covering families the push-forward of one model section is the other (`pushforward_bundleComparison_modelSection`, for sc-smooth $f$) and conversely (`pullback_bundleComparison_modelSection`).",
+    "decls": [
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSection",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isFunctorialSection_modelSection",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleModelFunctor_obj_modelSection",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSection_eq_of",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orbitMap_modelSection",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullback_modelSection",
+     "Chapter18/SectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushforward_modelSection",
+     "Chapter18/ModelSectionPushforward · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushforward_bundleComparison_modelSection",
+     "Chapter18/ModelSectionPushforward · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullback_bundleComparison_modelSection"
+    ]
+   },
+   "chips": [
+    "change of model proved"
+   ],
+   "diff": [
+    "The text uses the model section and its independence of the model throughout the chapter; both are stated and proved here."
+   ]
+  },
+  {
+   "id": "V18.3",
+   "title": "Functors on $E$ and the transfer to models",
+   "verdict": "extra",
+   "book": {
+    "label": "§18.1, the functors on $E$ used in §§18.1–18.6, pp. 846–861 (2017: §§18.1–18.6)",
+    "page": 846,
+    "statement": "Auxiliary norms $N : E \\to [0, \\infty]$ and sc⁺-multisection functors $\\Lambda : E \\to \\mathbb Q^+$ are functors, read on orbit spaces through $|N|$ and $|\\Lambda|$."
+   },
+   "lean": {
+    "statement": "`IsMorInvariant` (constant on isomorphism classes, the reading of a functor to a set), `orbitFun` (the induced map on orbit spaces), `bundlePull` and `bundlePush` (along $\\bar\\Gamma$, with `bundlePull_comparison` between two models) and `bundleOrbitEquiv` ($|W_{\\bar\\Psi}| \\cong |E|$).",
+    "decls": [
+     "Chapter18/ModelTransfer · GCT.VectorBundle.IsMorInvariant",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.orbitFun",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePush",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_comparison",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundleOrbitEquiv"
+    ]
+   },
+   "chips": [
+    "tool for the formalization"
+   ],
+   "diff": [
+    "A tool: functors to $[0, \\infty]$ and $\\mathbb Q^+$ are read as invariant maps on objects, as in Part III."
+   ]
+  },
+  {
+   "id": "V18.4",
+   "title": "Definition 18.1.1 (2017: 18.1), sc-Fredholm section functors",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Definition 18.1.1, p. 844 (2017: Definition 18.1)",
+    "page": 844,
+    "statement": "$f$ is an sc-Fredholm (sc-smooth) section functor if for every object $\\alpha$ and every $\\bar\\Psi \\in \\bar F(\\alpha)$ the local representative $f_{\\bar\\Psi}$ is an sc-Fredholm (sc-smooth) section."
+   },
+   "lean": {
+    "statement": "`IsScFredholmSectionFunctor`, `IsScSmoothSectionFunctor`: for every $\\alpha$ and every $\\bar\\Psi \\in \\bar F(\\alpha)$, `localRep` is sc-Fredholm (sc-smooth); `isScFredholmSectionFunctor_iff_unif` restates it over all uniformizers. `IsScFredholmSectionFunctorTame` takes the germ data in a tame chart (the standing reading); `IsRegularizing`; `HasStrongBundleUniformizers` ($\\bar F(\\alpha) \\ne \\emptyset$).",
+    "decls": [
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctor",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScSmoothSectionFunctor",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSectionFunctor_iff_unif",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctorTame",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsRegularizing",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasStrongBundleUniformizers"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "tame germ data: separate notion"
+   ],
+   "diff": [
+    "The tame form, germ data in a tame chart, is a separate definition, used where Part III's theorems need it."
+   ]
+  },
+  {
+   "id": "V18.5",
+   "title": "Remark 18.1.2 (a) (2017: 18.1 (a)), one covering family suffices",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Remark 18.1.2 (a), p. 844 (2017: Remark 18.1)",
+    "page": 844,
+    "statement": "It suffices to check Definition 18.1.1 for the uniformizers of one covering family; equivalently, $f$ is sc-Fredholm iff the induced section of an sc-smooth model is (an easy exercise)."
+   },
+   "lean": {
+    "statement": "`remark_18_1_2_a (c)`: $f$ is sc-Fredholm iff each $(c.\\Psi\\,i)$-representative is; the same for sc-smooth and tame (`remark_18_1_2_a_smooth`, `remark_18_1_2_a_tame`). In the model: `remark_18_1_2_a_model` and its `_smooth`, `_tame` forms, with `isScFredholm_model_iff_model` (one model iff another) and `isScFredholmSection_of_covering`.",
+    "decls": [
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_smooth",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_tame",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model_smooth",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model_tame",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholm_model_iff_model",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSection_of_covering"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.235 settled"
+   ],
+   "diff": [
+    "The exercise is proved (point G.235 settled)."
+   ]
+  },
+  {
+   "id": "V18.6",
+   "title": "Remark 18.1.2 (b) (2017: 18.1 (b)), sc-Fredholm section functors are regularizing",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Remark 18.1.2 (b), p. 844 (2017: Remark 18.1)",
+    "page": 844,
+    "statement": "An sc-Fredholm section functor is regularizing: $f(\\alpha)$ on level $m+1$ forces $\\alpha$ on level $m+1$."
+   },
+   "lean": {
+    "statement": "`remark_18_1_2_b (hf) : IsRegularizing f`, with the level form `remark_18_1_2_b_levels`.",
+    "decls": [
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_b",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_b_levels"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.7",
+   "title": "Remark 18.1.2 (c) (2017: 18.1 (c)), the characterization by germs",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, Remark 18.1.2 (c), p. 844 (2017: Remark 18.1)",
+    "page": 844,
+    "statement": "$f$ is sc-Fredholm iff it is sc-smooth, regularizing, and its local representatives have sc-Fredholm germs at smooth points."
+   },
+   "lean": {
+    "statement": "`remark_18_1_2_c (hF) : IsScFredholmSectionFunctor f ↔ IsScSmoothSectionFunctor f ∧ IsRegularizing f ∧ HasFredholmGerms f`; `HasFredholmGerms`; the direction ⇐ without `hF` (`isScFredholmSectionFunctor_of_germs`).",
+    "decls": [
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_c",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasFredholmGerms",
+     "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScFredholmSectionFunctor_of_germs"
+    ]
+   },
+   "chips": [
+    "⇒ with $\\bar F(\\alpha) \\ne \\emptyset$"
+   ],
+   "diff": [
+    "The germ condition is read at every object through a uniformizer, so ⇒ uses $\\bar F(\\alpha) \\ne \\emptyset$, the standing reading."
+   ]
+  },
+  {
+   "id": "V18.8",
+   "title": "(18.1) and Definition 18.1.3 (2017: 18.2), the linearization",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, (18.1) and Definition 18.1.3, p. 845 (2017: Definition 18.2)",
+    "page": 845,
+    "statement": "At a smooth $\\alpha$ with $f(\\alpha) = 0$ the linearization $f'(\\alpha) : T_\\alpha C \\to E_\\alpha$ is defined by (18.1) through $f_{\\bar\\Psi}'(q_0)$; it does not depend on $\\bar\\Psi$."
+   },
+   "lean": {
+    "statement": "`sectionLin` (the operator (18.1) for one $\\bar\\Psi$), `sectionLin_indep` and `equation_18_1` (independence of $\\bar\\Psi$), `linearization (hf) α (h0) (hne)` and `definition_18_1_3`; `linZeroAt_transTangent` (the transition maps); `surjective_linearization_iff` (onto iff $f_{\\bar\\Psi}'(q_0)$ is onto).",
+    "decls": [
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin_indep",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_1",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_3",
+     "Chapter18/LinearizationTransport · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linZeroAt_transTangent",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.surjective_linearization_iff"
+    ]
+   },
+   "chips": [
+    "point G.236 settled"
+   ],
+   "diff": [
+    "The text states the independence of $\\bar\\Psi$; it is proved (point G.236 settled)."
+   ]
+  },
+  {
+   "id": "V18.9",
+   "title": "Definition 18.1.4 (2017: 18.3), the linearizations $\\mathrm{Lin}(f, \\alpha)$",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.1, Definition 18.1.4, p. 845 (2017: Definition 18.3)",
+    "page": 845,
+    "statement": "At smooth $\\alpha$, $\\mathrm{Lin}(f, \\alpha)$ is the set of linearizations of $f_{\\bar\\Psi} - s$ for local sc⁺-sections $s$ with $s(q_0) = f_{\\bar\\Psi}(q_0)$, transported to $\\alpha$; its elements differ by sc⁺-operators, have the same index and do not depend on $\\bar\\Psi$."
+   },
+   "lean": {
+    "statement": "Local form, no hypothesis: `linSetLoc` from sc⁺-sections defined near $q_0$ (`IsScPlusSectionOn`, `linOpLoc`, `linSetLocAt`), with `definition_18_1_4_local (hF)`: $\\mathrm{Lin}_{glob} \\subseteq \\mathrm{Lin}$, independence of $\\bar\\Psi$ (`linSetLoc_eq_linSetLocAt`), one finite index for all elements (`exists_index_linSetLoc`, the local index) and stability under $\\varphi_*$ (`linPush_mem_linSetLoc`, `exists_linZeroLoc_transAct`). Global form: `linSet` from global sc⁺-sections (`linOp`, `linSetAt`, `mem_linSet_iff`, `linSetAt_index`), with `definition_18_1_4_hyp` under `HasTransportedScPlusSections` (`linSetAt_subset_hyp`, `linSet_eq_linSetAt_hyp`, `exists_index_linSet_hyp`, `linPush_mem_linSet_hyp`). Witnesses: `definition_18_1_4_reflDiag`, `definition_18_1_4_local_reflDiag`, `linPush_reflDiag_neg`, `linPush_reflDiag_neg_local` (the isotropy acts by $-1$), `definition_18_1_4_local_halfF`.",
+    "decls": [
+     "Chapter18/LinearizationSetLocal · StrongBundle.IsScPlusSectionOn",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linOpLoc",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLocAt",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLoc",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet_subset_linSetLoc",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetLoc_eq_linSetLocAt",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_index_linSetLoc",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_mem_linSetLoc",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_linZeroLoc_transAct",
+     "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_local",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linOp",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.mem_linSet_iff",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt_index",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasTransportedScPlusSections",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSetAt_subset_hyp",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet_eq_linSetAt_hyp",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_index_linSet_hyp",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_mem_linSet_hyp",
+     "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_hyp",
+     "Chapter18/LinearizationSetExamples · GCT.VectorBundle.ReflectionBundle.definition_18_1_4_reflDiag",
+     "Chapter18/LinearizationSetLocalExamples · GCT.VectorBundle.ReflectionBundle.definition_18_1_4_local_reflDiag",
+     "Chapter18/LinearizationSetExamples · GCT.VectorBundle.ReflectionBundle.linPush_reflDiag_neg",
+     "Chapter18/LinearizationSetLocalExamples · GCT.VectorBundle.ReflectionBundle.linPush_reflDiag_neg_local",
+     "Chapter18/LinearizationSetLocalExamples · GCT.VectorBundle.HalfSpaceReflection.definition_18_1_4_local_halfF",
+     "Chapter18/LinearizationSetExamples · GCT.VectorBundle.ReflectionBundle.reflQ_hasTransportedScPlusSections"
+    ]
+   },
+   "chips": [
+    "local sc⁺-sections",
+    "global form: transported sc⁺-sections",
+    "point G.237 settled"
+   ],
+   "diff": [
+    "We read $s$ as a local sc⁺-section near $q_0$ (the text says local) and \"$f_{\\bar\\Psi} - s$\" with $s(q_0) = f_{\\bar\\Psi}(q_0)$. That the elements differ by sc⁺-operators is not stated separately: the same index is proved as the local index. The claims of the text are proved (point G.237 settled; Findings, Chapter 18, item 4)."
+   ]
+  },
+  {
+   "id": "V18.10",
+   "title": "(18.2) and the push-forward $\\varphi_*$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, (18.2) and the following paragraph, p. 845 (2017: §18.1)",
+    "page": 845,
+    "statement": "For a smooth morphism $\\varphi : \\alpha \\to \\alpha'$ between zeros, $\\hat\\varphi \\circ f'(\\alpha) = f'(\\alpha') \\circ T\\varphi$ (18.2); $\\varphi_* L = \\hat\\varphi \\circ L \\circ T\\varphi^{-1}$ maps $\\mathrm{Lin}(f, \\alpha)$ to $\\mathrm{Lin}(f, \\alpha')$, and clearly $(\\varphi'\\varphi)_* = \\varphi'_*\\varphi_*$, $(1_\\alpha)_* = \\mathrm{Id}$."
+   },
+   "lean": {
+    "statement": "`morFiber` ($\\hat\\varphi$), `toFun_eq_zero_of_mor` (zeros along morphisms), `equation_18_2` and `equation_18_2_comp`; `linPush` with `linPush_unit`, `linPush_comp`, `linPush_linearization` ($\\varphi_* f'(\\alpha) = f'(\\alpha')$); `linSet`, `linearization_mem_linSet`.",
+    "decls": [
+     "Chapter18/Linearization · GCT.VectorBundle.morFiber",
+     "Chapter18/Linearization · GCT.VectorBundle.SectionFunctor.toFun_eq_zero_of_mor",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2_comp",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_unit",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_comp",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_linearization",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linSet",
+     "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization_mem_linSet"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.238 settled"
+   ],
+   "diff": [
+    "The \"clearly\" is proved (point G.238 settled)."
+   ]
+  },
+  {
+   "id": "V18.11",
+   "title": "The full subcategory $C_U$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, before Theorem 18.1.5, p. 845 (2017: §18.1)",
+    "page": 845,
+    "statement": "For an open $U \\subseteq |C|$, $C_U$ is the full subcategory of objects with $|\\alpha| \\in U$."
+   },
+   "lean": {
+    "statement": "`objOver`, `openSub` (the full subcategory), `openSubHomeomorph` ($|C_U| \\cong U$), `restrictTheta`; the polyfold construction on $C_U$ (`openSubConstruction`, `mem_openSubConstruction_F_iff`, `LocalUniformizer.restrictOver`), tame if $C$ is (`isTame_openSubConstruction`), with branched subcategories restricting (`openSub_isBranchedSubcategory`). Witness: `openSubConstruction_reflection`.",
+    "decls": [
+     "Chapter18/OpenSubcategory · GCT.objOver",
+     "Chapter18/OpenSubcategory · GCT.openSub",
+     "Chapter18/OpenSubcategory · GCT.openSubHomeomorph",
+     "Chapter18/OpenSubcategory · GCT.restrictTheta",
+     "Chapter18/OpenSubcategory · GCT.PolyfoldConstruction.openSubConstruction",
+     "Chapter18/OpenSubcategory · GCT.PolyfoldConstruction.mem_openSubConstruction_F_iff",
+     "Chapter18/OpenSubcategory · GCT.LocalUniformizer.restrictOver",
+     "Chapter18/OpenSubcategory · GCT.PolyfoldConstruction.isTame_openSubConstruction",
+     "Chapter18/OpenSubcategory · GCT.PolyfoldConstruction.openSub_isBranchedSubcategory",
+     "Chapter18/OpenSubcategoryExamples · GCT.VectorBundle.ReflectionBundle.openSubConstruction_reflection"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The polyfold structure on $C_U$, which Theorem 18.1.5 (1) uses, is constructed."
+   ]
+  },
+  {
+   "id": "V18.12",
+   "title": "Good position to the boundary, as Theorem 18.1.5 uses it (Remark 17.2.18)",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.1, Theorem 18.1.5 with Remark 17.2.18, p. 846 (2017: Theorem 18.1)",
+    "page": 846,
+    "statement": "The kernel of $f'(\\alpha)$ is in good position to the partial cone $C_\\alpha C$ of Remark 17.2.18."
+   },
+   "lean": {
+    "statement": "The partial cone and the reduced tangent space (`partialCone`, `reducedTangent`, `partialCone_eq`, `reducedTangent_eq`, `finrank_quotient_reducedTangent_eq_degIndex`, `partialCone_ne_univ`); `IsInGoodPositionToPartialCone` with `isInGoodPositionToPartialCone_iff` and `not_isInGoodPositionToPartialCone_of_le_reducedTangent`; `IsKernelInGoodPosition`, equivalent to good position of the germ of $f_{\\bar\\Psi}$ at $q_0$ (`isGoodPositionGermTame_localRep_iff`, from `StrongBundle.isGoodPositionGermTame_iff_tangent`, Definition 3.6.6 as printed; `IsInGoodPositionTop`, `isInGoodPositionTop_iff_norm`). Witnesses: `partialCone_corner`, `isInGoodPositionToPartialCone_corner`.",
+    "decls": [
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.partialCone",
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.reducedTangent",
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.partialCone_eq",
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.reducedTangent_eq",
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.finrank_quotient_reducedTangent_eq_degIndex",
+     "Chapter18/TangentPartialCone · GCT.PolyfoldConstruction.partialCone_ne_univ",
+     "Chapter18/GoodPositionIntrinsic · GCT.PolyfoldConstruction.IsInGoodPositionToPartialCone",
+     "Chapter18/GoodPositionIntrinsic · GCT.PolyfoldConstruction.isInGoodPositionToPartialCone_iff",
+     "Chapter18/GoodPositionIntrinsic · GCT.PolyfoldConstruction.not_isInGoodPositionToPartialCone_of_le_reducedTangent",
+     "Chapter18/GoodPositionIntrinsic · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsKernelInGoodPosition",
+     "Chapter18/GoodPositionIntrinsic · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isGoodPositionGermTame_localRep_iff",
+     "Chapter18/GoodPositionIntrinsic · StrongBundle.isGoodPositionGermTame_iff_tangent",
+     "Chapter18/GoodPositionIntrinsic · IsInGoodPositionTop",
+     "Chapter18/GoodPositionIntrinsic · isInGoodPositionTop_iff_norm",
+     "Chapter18/TangentPartialConeExamples · GCT.VectorBundle.HalfSpaceReflection.partialCone_corner",
+     "Chapter18/GoodPositionIntrinsicExamples · GCT.VectorBundle.HalfSpaceReflection.isInGoodPositionToPartialCone_corner"
+    ]
+   },
+   "chips": [
+    "intrinsic, on $T_\\alpha C$"
+   ],
+   "diff": [
+    "Good position is stated on $T_\\alpha C$ and shown equivalent to the model condition of Part I."
+   ]
+  },
+  {
+   "id": "V18.13",
+   "title": "Theorem 18.1.5 (2017: 18.1), the implicit function theorem",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, Theorem 18.1.5, p. 846 (2017: Theorem 18.1)",
+    "page": 846,
+    "statement": "$C$ tame, $f$ sc-Fredholm, $f(\\alpha) = 0$, $f'(\\alpha)$ onto with kernel in good position: there is an open $U \\ni |\\alpha|$ such that (1) $\\Theta : C_U \\to \\{0,1\\}$, $1$ exactly on zeros, is a tame orbifold-type ep⁺-subcategory, and (2) at zeros $\\beta$ in $C_U$ $f'(\\beta)$ is onto with kernel in good position; the support of $\\Theta$ is a smooth submanifold (Note)."
+   },
+   "lean": {
+    "statement": "`theorem_18_1_5 (hf hft h0 hne hsurj hker)`: a natural representative $R$ with image open around $\\pi(\\alpha)$, $\\Theta = $ `zeroIndicator` of orbifold type, $\\Theta \\circ \\Gamma$ the zero multisection of $f^{\\bar\\Psi}$, a tame branching structure and good position at the zeros, the zero set a $G$-invariant smooth submanifold. On $C_U$: `theorem_18_1_5_subcategory` (branched, orbifold type, tame, $\\Theta_U = 1$ iff zero). In the model: `theorem_18_1_5_model`. The Note: `theorem_18_1_5_note`. Witnesses: `theorem_18_1_5_hyp_witness`, `theorem_18_1_5_hyp_applies`, `theorem_18_1_5_subcategory_hyp_applies` (interior zero), `theorem_18_1_5_intrinsic_hyp_witness`, `theorem_18_1_5_intrinsic_hyp_applies` (a boundary zero).",
+    "decls": [
+     "Chapter18/GoodPositionIntrinsic · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.SectionFunctor.zeroIndicator",
+     "Chapter18/ImplicitFunctionSubcategory · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model",
+     "Chapter18/ImplicitFunctionSubcategory · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_note",
+     "Chapter18/ImplicitFunctionTheoremExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_hyp_witness",
+     "Chapter18/ImplicitFunctionTheoremExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_hyp_applies",
+     "Chapter18/OpenSubcategoryExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_1_5_subcategory_hyp_applies",
+     "Chapter18/GoodPositionIntrinsicExamples · GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_5_intrinsic_hyp_witness",
+     "Chapter18/GoodPositionIntrinsicExamples · GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_5_intrinsic_hyp_applies"
+    ]
+   },
+   "chips": [
+    "tame germ data",
+    "(2) in the model",
+    "point G.239 settled"
+   ],
+   "diff": [
+    "Conclusion (2) is proved at the zeros of $f^{\\bar\\Psi}$ in the model (good position of the germ), not restated on $T_\\beta C$. The proof through Theorems 15.2.2, 15.2.5 and 9.1.9 is written out (point G.239 settled). At the corner of the half-space bundle no zero satisfies the hypotheses (Findings, Chapter 18, item 5)."
+   ]
+  },
+  {
+   "id": "V18.14",
+   "title": "Remark 18.1.6 (2017: 18.2), $\\Theta$ as $\\Lambda_0 \\circ f$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Remark 18.1.6, p. 846 (2017: Remark 18.2)",
+    "page": 846,
+    "statement": "$\\Theta = \\Lambda_0 \\circ f$ for the sc⁺-multisection functor $\\Lambda_0$ equal to $1$ on the zero section; this is the general shape we shall see."
+   },
+   "lean": {
+    "statement": "`zeroFunctor` ($\\Lambda_0$); `remark_18_1_6`: invariant, $\\Theta = \\Lambda_0 \\circ f$, its pull-back is the zero multisection (`bundlePull_zeroFunctor`), an sc⁺-multisection; `remark_18_1_6_goodPosition` (Theorem 18.1.5 in this form).",
+    "decls": [
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.zeroFunctor",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_zeroFunctor",
+     "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6_goodPosition"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.240 settled"
+   ],
+   "diff": [
+    "The forward reference is proved (point G.240 settled)."
+   ]
+  },
+  {
+   "id": "V18.15",
+   "title": "Definition 18.1.7 (2017: 18.4), auxiliary norms",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, Definition 18.1.7, p. 846 (2017: Definition 18.4)",
+    "page": 846,
+    "statement": "An auxiliary norm $N : E \\to [0, \\infty]$ is a functor, $\\infty$ off $E_{0,1}$, a complete norm on the $(0,1)$-fibres, with $N(e_k) \\to 0$ for $e_k \\to 0_\\alpha$ (conditions (1)–(3))."
+   },
+   "lean": {
+    "statement": "Two forms on $E$: `IsAuxNormBook` (invariant, $\\infty$ off $E_{0,1}$, the fibre condition `FiberCond`, convergence to $0$) and `IsAuxNormDirect` (with the continuity of $|N|$ on $|E_{0,1}|$, `oneNorm`, as in Definition 12.2.1). The $(0,1)$-objects: `IsOneObj`, `isOneObj_iff`, `EOneOrbit`, `oneTopology_eq`. In a model: `modelNorm`, `IsAuxNormIn` (Definition 12.2.1 for $\\bar\\Gamma^* N$), `IsAuxNormFunctor` (in some model), `IsAuxNormIn.of_comparison` and `isAuxNormFunctor_iff_model` (every model).",
+    "decls": [
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormDirect",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.FiberCond",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneNorm",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOneObj",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isOneObj_iff",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.EOneOrbit",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneTopology_eq",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelNorm",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormIn",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormFunctor",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormIn.of_comparison",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormFunctor_iff_model"
+    ]
+   },
+   "chips": [
+    "continuity of Definition 12.2.1",
+    "$|C_{0,1}|$ read as $|E_{0,1}|$"
+   ],
+   "diff": [
+    "We read $|C_{0,1}|$ in the printed definition as $|E_{0,1}|$, and Definition 18.1.7 as including the continuity of Definition 12.2.1, which Lemma 18.1.8 needs (V18.16; Findings, Chapter 18, items 1, 2)."
+   ]
+  },
+  {
+   "id": "V18.16",
+   "title": "Lemma 18.1.8 (2017: 18.1), auxiliary norms through a model",
+   "verdict": "narrower",
+   "book": {
+    "label": "§18.1, Lemma 18.1.8, p. 847 (2017: Lemma 18.1)",
+    "page": 847,
+    "statement": "$N$ is an auxiliary norm iff $\\bar\\Gamma^* N$ is an auxiliary norm on the model, for a covering family (an easy lemma left to the reader)."
+   },
+   "lean": {
+    "statement": "`lemma_18_1_8 (c) : IsAuxNormDirect N ↔ IsAuxNormIn c.Ψ N`; `isAuxNormDirect_iff_isAuxNormFunctor`. For the printed form, `isAuxNormIn_iff_isAuxNormBook_continuous`: the model condition is the printed form plus continuity of `oneNorm`. Without the continuity ⇒ does not hold as we read it: `lemma_18_1_8_book_without_continuity` (on the reflection bundle `reflQ_baseScale_witness`, `isAuxNormBook_reflJump`, a jump in the base scale; `IsAuxNormBook.baseScale`).",
+    "decls": [
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_18_1_8",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormDirect_iff_isAuxNormFunctor",
+     "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_iff_isAuxNormBook_continuous",
+     "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.ReflectionBundle.lemma_18_1_8_book_without_continuity",
+     "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook.baseScale",
+     "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.ReflectionBundle.reflQ_baseScale_witness",
+     "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.ReflectionBundle.isAuxNormBook_reflJump"
+    ]
+   },
+   "chips": [
+    "with continuity of |N|",
+    "printed form: does not hold as we read it",
+    "point G.241 settled"
+   ],
+   "diff": [
+    "The text prints $N : C \\to [0, \\infty]$, read as $E$. With the continuity of Definition 12.2.1 the lemma holds as an iff (point G.241 settled); for the printed Definition 18.1.7 the direction ⇒ does not hold as we read it. Definition 18.1.7 presumably includes this continuity (Findings, Chapter 18, item 1)."
+   ]
+  },
+  {
+   "id": "V18.17",
+   "title": "Definition 18.1.9 (2017: 18.5) and the following paragraph, reflexive $(0,1)$-fibres",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Definition 18.1.9 and the following paragraph, p. 847 (2017: Definition 18.5)",
+    "page": 847,
+    "statement": "$P$ has reflexive $(0,1)$-fibres if an sc-smooth model has; then any sc-smooth model has."
+   },
+   "lean": {
+    "statement": "`HasReflexiveFibersIn` (one model), `HasReflexiveFibers` (every covering model), `hasReflexiveFibers_iff_model` (one model iff every model); `HasReflexivePieces`, implied (`hasReflexivePieces_iff`, `HasReflexiveFibersIn.hasReflexivePieces`).",
+    "decls": [
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibersIn",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibers",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveFibers_iff_model",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexivePieces",
+     "Chapter18/ReflexivePieces · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexivePieces_iff",
+     "Chapter18/ReflexivePieces · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveFibersIn.hasReflexivePieces"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.242 settled"
+   ],
+   "diff": [
+    "The paragraph after the definition (the model does not matter) is proved (point G.242 settled)."
+   ]
+  },
+  {
+   "id": "V18.18",
+   "title": "Definition 18.1.10 (2017: 18.6), reflexive auxiliary norms",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, Definition 18.1.10, p. 847 (2017: Definition 18.6)",
+    "page": 847,
+    "statement": "An auxiliary norm is reflexive if its pull-back to an sc-smooth model is reflexive (Definition 12.2.8)."
+   },
+   "lean": {
+    "statement": "`IsReflexiveAuxNormIn`, `IsReflexiveAuxNormFunctor`, `isReflexiveAuxNormFunctor_iff_model` (one model iff every model).",
+    "decls": [
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormIn",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormFunctor",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormFunctor_iff_model"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.19",
+   "title": "Definition 18.1.11 (2017: 18.7), suitable representatives",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, Definition 18.1.11, p. 847 (2017: Definition 18.7)",
+    "page": 847,
+    "statement": "Reflexivity in terms of $E$: for $|e_k| \\to |e|$ in the mixed sense there are suitable representatives, alternatively $|N|(|e|) \\le \\liminf |N|(|e_k|)$."
+   },
+   "lean": {
+    "statement": "`MixedTendstoOne` (mixed convergence), `HasMixedLscReps` (with representatives) and `HasMixedLsc` (on orbits), equivalent for invariant $N$ (`hasMixedLscReps_iff_hasMixedLsc`); `IsReflexiveAuxNormDirect` with `isReflexiveAuxNormDirect_iff`; a reflexive auxiliary norm in a model gives it (`IsReflexiveAuxNormFunctor.isReflexiveAuxNormDirect`), and conversely with reflexive fibres (`isReflexiveAuxNormDirect_iff_of_hasReflexiveFibers`, `isReflexiveAuxNormDirect_iff_hyp`).",
+    "decls": [
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.MixedTendstoOne",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasMixedLscReps",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasMixedLsc",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasMixedLscReps_iff_hasMixedLsc",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormDirect",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveAuxNormFunctor.isReflexiveAuxNormDirect",
+     "Chapter18/ReflexivePieces · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff_of_hasReflexiveFibers",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormDirect_iff_hyp"
+    ]
+   },
+   "chips": [
+    "both forms equivalent"
+   ],
+   "diff": [
+    "The two forms in the text are shown equivalent; the comparison with Definition 18.1.10 uses reflexive fibres, as the text does."
+   ]
+  },
+  {
+   "id": "V18.20",
+   "title": "The paragraph before Theorem 18.1.12, push-forward of auxiliary norms",
+   "verdict": "same",
+   "book": {
+    "label": "§18.1, before Theorem 18.1.12, pp. 847–848 (2017: §18.1)",
+    "page": 848,
+    "statement": "An auxiliary norm $n$ on a model pushes forward to an auxiliary norm $N$ for $P$, reflexive if $n$ is; $|X|$ is paracompact since $|C|$ is; so auxiliary norms exist (Theorems 12.2.7, 12.2.11, 12.2.13), and the model does not matter."
+   },
+   "lean": {
+    "statement": "`pushNormFun`, `extendNorm`, `isAuxNormIn_pushNormFun`, `isReflexiveAuxNormIn_pushNormFun`; `hasParacompactOrbitSpace_model`; `exists_isAuxNormFunctor`, `exists_isReflexiveAuxNormFunctor`; `image_auxLe_eq` (sublevel sets correspond; `SectionFunctor.sublevel`).",
+    "decls": [
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pushNormFun",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.extendNorm",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_pushNormFun",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormIn_pushNormFun",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasParacompactOrbitSpace_model",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isAuxNormFunctor",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isReflexiveAuxNormFunctor",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.image_auxLe_eq",
+     "Chapter18/AuxiliaryNorms · GCT.VectorBundle.SectionFunctor.sublevel"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.243 settled"
+   ],
+   "diff": [
+    "The paragraph is proved (point G.243 settled)."
+   ]
+  },
+  {
+   "id": "V18.21",
+   "title": "Theorem 18.1.12 (2017: 18.2), existence and extension of auxiliary norms",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.1, Theorem 18.1.12, p. 848 (2017: Theorem 18.2)",
+    "page": 848,
+    "statement": "(1) Auxiliary norms exist; (2) with reflexive $(0,1)$-fibres, every auxiliary norm lies between two reflexive ones; (3) $C$ tame: an auxiliary norm over $\\partial C$ extends to $E$, reflexive if it is and the fibres are."
+   },
+   "lean": {
+    "statement": "`theorem_18_1_12_one (hF)`; `theorem_18_1_12_two (c) (hB) (hN')`: $N_1 \\le N' \\le N_2$ reflexive; `theorem_18_1_12_three (c) (hT) (hN : IsBoundaryAuxNormIn c N)` and `theorem_18_1_12_three_reflexive` (`IsBoundaryAuxNormIn`, `IsReflexiveBoundaryAuxNormIn`). Witnesses: `reflQ_exists_isAuxNormDirect`, `reflQ_exists_isAuxNormBook`, `reflQ_exists_isReflexiveAuxNormDirect`, `reflQ_isReflexiveAuxNormDirect_iff`, `reflPair_hasReflexivePieces`, `reflQ_theorem_18_1_12_two`, `reflQ_theorem_18_1_12_three`, `reflQ_theorem_18_1_12_three_reflexive` (weak: $\\partial C = \\emptyset$); `theorem_18_1_12_three_witness_boundary`, `theorem_18_1_12_three_reflexive_witness_boundary`, `isAuxNormFunctor_halfNorm` ($\\partial C \\ne \\emptyset$).",
+    "decls": [
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_two",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three_reflexive",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryAuxNormIn",
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsReflexiveBoundaryAuxNormIn",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_exists_isAuxNormDirect",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_exists_isAuxNormBook",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_exists_isReflexiveAuxNormDirect",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_isReflexiveAuxNormDirect_iff",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflPair_hasReflexivePieces",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_two",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_three",
+     "Chapter18/AuxiliaryNormsDirectExamples · GCT.VectorBundle.ReflectionBundle.reflQ_theorem_18_1_12_three_reflexive",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_12_three_witness_boundary",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.theorem_18_1_12_three_reflexive_witness_boundary",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.isAuxNormFunctor_halfNorm"
+    ]
+   },
+   "chips": [
+    "norm over $\\partial C$ given in a model"
+   ],
+   "diff": [
+    "In (3) the norm over $\\partial C$ is given through a model (`IsBoundaryAuxNormIn`), as Theorem 12.2.13 takes it. \"We leave it to the reader to transport other results\" is a comment (point G.244, nothing to formalize)."
+   ]
+  },
+  {
+   "id": "V18.22",
+   "title": "(18.3) and the solution category $S_f$",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.2, (18.3) and the paragraph before Definition 18.2.1, p. 849 (2017: §18.2)",
+    "page": 849,
+    "statement": "The solution category $S_f$ is the full subcategory of zeros of $f$; $|S_f|$ corresponds to the solution set of the model (18.3); since $f$ is regularizing, a solution object is smooth."
+   },
+   "lean": {
+    "statement": "`SectionFunctor.zeroSet`, `isZeroAt_modelSection_iff`, `modelSolutionSet`, `image_solutionSet_modelSection` (the diagram (18.3)), `isCompact_zeroSet_iff` (compactness through the model). That a solution object is smooth: `isSmoothObj_of_mem_zeroSet` (by Remark 18.1.2 (b) in the levels), `solution_isSmoothObj` ($f(\\alpha) = 0$ and $\\bar F(\\alpha) \\ne \\emptyset$ give $\\alpha \\in C_\\infty$) and `zeroSet_subset_isSmoothObj` ($S_f \\subseteq C_\\infty$); witness `reflDiag_zeroSet_subset_isSmoothObj`.",
+    "decls": [
+     "Chapter18/ModelTransfer · GCT.VectorBundle.SectionFunctor.zeroSet",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isZeroAt_modelSection_iff",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelSolutionSet",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.image_solutionSet_modelSection",
+     "Chapter18/ModelTransfer · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isCompact_zeroSet_iff",
+     "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isSmoothObj_of_mem_zeroSet",
+     "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.solution_isSmoothObj",
+     "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.zeroSet_subset_isSmoothObj",
+     "Chapter18/SolutionRegularity · GCT.VectorBundle.ReflectionBundle.reflDiag_zeroSet_subset_isSmoothObj"
+    ]
+   },
+   "chips": [
+    "solutions smooth: G.245 settled"
+   ],
+   "diff": [
+    "$S_f$ is the set of zeros, with orbit space its image in $|C|$. That a solution object is smooth is proved from Remark 18.1.2 (b) in the levels (point G.245 settled)."
+   ]
+  },
+  {
+   "id": "V18.23",
+   "title": "Definition 18.2.1 (2017: 18.8), compact moduli space, proper, proper$<\\infty$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.2, Definition 18.2.1, p. 849 (2017: Definition 18.8)",
+    "page": 849,
+    "statement": "(1) $|S_f|$ compact; (2) proper: $|S_f|$ compact and for every auxiliary norm a neighbourhood $U$ with $\\{|N| \\circ |f| \\le 1\\} \\cap U$ relatively compact; (3) proper$<\\infty$: the same for every $C < \\infty$."
+   },
+   "lean": {
+    "statement": "`SectionFunctor.HasCompactModuliSpace` (`IsCompact (π '' zeroSet)`), `IsProper`, `IsProperLtInfty` (for every `IsAuxNormFunctor`).",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.SectionFunctor.HasCompactModuliSpace",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProper",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsProperLtInfty"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The 2021 definition is stated for sc-smooth section functors and adds (2), (3); the definitions are taken for any section functor and used for sc-Fredholm ones."
+   ]
+  },
+  {
+   "id": "V18.24",
+   "title": "Theorem 18.2.2 (2017: 18.3), compact moduli space iff proper iff proper$<\\infty$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.2, Theorem 18.2.2, p. 850 (2017: Theorem 18.3)",
+    "page": 850,
+    "statement": "For an sc-Fredholm section functor the three conditions of Definition 18.2.1 are equivalent (from Theorem 12.4.2)."
+   },
+   "lean": {
+    "statement": "`theorem_18_2_2 (hF) (hf) : TFAE [HasCompactModuliSpace, IsProper, IsProperLtInfty]`. Witnesses: `reflDiag_hasCompactModuliSpace`, `reflDiag_isProper`, `reflDiag_isProperLtInfty`, `halfF_hasCompactModuliSpace`.",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_2",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_hasCompactModuliSpace",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_isProper",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_isProperLtInfty",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfF_hasCompactModuliSpace"
+    ]
+   },
+   "chips": [
+    "$\\bar F(\\alpha) \\ne \\emptyset$"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.25",
+   "title": "Definition 18.2.3 (2017: 18.9) and the observation, controlling compactness",
+   "verdict": "same",
+   "book": {
+    "label": "§18.2, Definition 18.2.3 and the following observation, p. 850 (2017: Definition 18.9)",
+    "page": 850,
+    "statement": "$(N, U)$ controls compactness if $\\mathrm{cl}\\{z \\in U : |N||f|(z) \\le 1\\}$ is compact; strongly if moreover $U$ is a neighbourhood of $|S_f|$ with closure conditions; a pair that controls compactness gives one that strongly controls it."
+   },
+   "lean": {
+    "statement": "`SectionFunctor.ControlsCompactness`, `SectionFunctor.StronglyControlsCompactness`; `definition_18_2_3_observation (hF hf hS hN)`: controls for some $U$ iff strongly controls for some $U'$; `exists_stronglyControlsCompactness_subset`. Witnesses: `reflDiag_stronglyControlsCompactness`, `halfF_controlsCompactness_halfNorm`.",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.SectionFunctor.ControlsCompactness",
+     "Chapter18/Compactness · GCT.VectorBundle.SectionFunctor.StronglyControlsCompactness",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_2_3_observation",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_stronglyControlsCompactness_subset",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_stronglyControlsCompactness",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.halfF_controlsCompactness_halfNorm"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.246 settled"
+   ],
+   "diff": [
+    "The 2021 definition adds \"strongly controls\"; the observation is proved (point G.246 settled)."
+   ]
+  },
+  {
+   "id": "V18.26",
+   "title": "Definition 18.2.4 (2017: 18.10), reflexive local compactness",
+   "verdict": "same",
+   "book": {
+    "label": "§18.2, Definition 18.2.4, p. 850 (2017: Definition 18.10)",
+    "page": 850,
+    "statement": "$f$ has the reflexive local compactness property for a reflexive auxiliary norm $N$, the local form of Definition 12.4.5."
+   },
+   "lean": {
+    "statement": "`HasReflexiveLocalCompactness`; `hasReflexiveLocalCompactness_of_locallyCompact`. Witnesses: `reflDiag_hasReflexiveLocalCompactness`, `halfF_hasReflexiveLocalCompactness`.",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasReflexiveLocalCompactness",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveLocalCompactness_of_locallyCompact",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_hasReflexiveLocalCompactness",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfF_hasReflexiveLocalCompactness"
+    ]
+   },
+   "chips": [
+    "$N : C \\to$ read as $E$"
+   ],
+   "diff": [
+    "The text prints $N : C \\to [0, \\infty]$, read as $E$."
+   ]
+  },
+  {
+   "id": "V18.27",
+   "title": "Remark 18.2.5 (2017: 18.3), points not on level 1",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.2, Remark 18.2.5, p. 850 (2017: Remark 18.3)",
+    "page": 850,
+    "statement": "At an object not on level 1, $N(f(\\alpha)) = \\infty$, and a neighbourhood of $|\\alpha|$ misses the sublevel set and has compact closure."
+   },
+   "lean": {
+    "statement": "`remark_18_2_5 (hF hB hf hN) (hα)`: $N(f\\alpha) = \\top$ and an open $U \\ni \\pi\\alpha$ with $U \\cap$ `sublevel` $= \\emptyset$ and compact closure.",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_2_5"
+    ]
+   },
+   "chips": [
+    "uses lower semicontinuity"
+   ],
+   "diff": [
+    "The argument of the text uses the lower semicontinuity of a reflexive $N$; no local compactness is needed. All examples here are finite-dimensional, so no witness has an object off level 1 (Findings, Chapter 18, item 7)."
+   ]
+  },
+  {
+   "id": "V18.28",
+   "title": "Theorem 18.2.6 (2017: 18.4), extending a controlling neighbourhood",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.2, Theorem 18.2.6, p. 851 (2017: Theorem 18.4)",
+    "page": 851,
+    "statement": "With a reflexive auxiliary norm and reflexive local compactness, an open $U_b$ of $|\\partial C|$ controlling compactness of $\\partial f$ extends to $U$ with $U \\cap |\\partial C| = U_b$ controlling compactness (from Theorem 12.4.6)."
+   },
+   "lean": {
+    "statement": "`theorem_18_2_6 (hF) (hT) (hB) (hN) (hf hS hlc) (hUb hSUb hcpt)`: $\\exists U$, $U \\cap \\pi(\\partial C) = U_b$, `ControlsCompactness N U`; `mem_boundary_model_iff`. Witnesses: `reflection_boundarySet`, `theorem_18_2_6_witness` (weak: $\\partial C = \\emptyset$), `theorem_18_2_6_witness_boundary` ($\\partial C \\ne \\emptyset$).",
+    "decls": [
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.mem_boundary_model_iff",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.reflection_boundarySet",
+     "Chapter18/CompactnessExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_2_6_witness",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.theorem_18_2_6_witness_boundary"
+    ]
+   },
+   "chips": [
+    "$N : C \\to$ read as $E$"
+   ],
+   "diff": [
+    "The text prints $N : C \\to \\dots$, read as $E$. The hypothesis `hT` is carried but not used."
+   ]
+  },
+  {
+   "id": "V18.29",
+   "title": "Remark 18.2.7 (2017: 18.4), norms given only over the boundary",
+   "verdict": "nothing",
+   "book": {
+    "label": "§18.2, Remark 18.2.7, p. 851 (2017: Remark 18.4)",
+    "page": 851,
+    "statement": "When $N$ is first given only over $E|\\partial C$, one extends it by Theorem 18.1.12 (3) and then extends $U$ by Theorem 18.2.6."
+   },
+   "lean": {
+    "statement": "Commentary. The two steps are `theorem_18_1_12_three` (V18.21) and `theorem_18_2_6` (V18.28).",
+    "decls": [
+     "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three",
+     "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.30",
+   "title": "Definition 18.3.1 (2017: 18.11), sc⁺-multisection functors",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, Definition 18.3.1, p. 852 (2017: Definition 18.11)",
+    "page": 852,
+    "statement": "A functor $\\Lambda : E \\to \\mathbb Q^+$ is an sc⁺-multisection functor if $\\bar\\Gamma^*\\Lambda$ is an sc⁺-multisection of an sc-smooth model."
+   },
+   "lean": {
+    "statement": "`IsScPlusMultisectionIn` (in a model), `IsScPlusMultisectionFunctor` (invariant and in some model); `bundlePull_eq_pullMult`, `isWFunctor_bundlePull`.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionIn",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionFunctor",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_eq_pullMult",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isWFunctor_bundlePull"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.31",
+   "title": "Remark 18.3.2 (2017: 18.5), the model does not matter",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, Remark 18.3.2, p. 852 (2017: Remark 18.5)",
+    "page": 852,
+    "statement": "Definition 18.3.1 does not depend on the choice of the sc-smooth model."
+   },
+   "lean": {
+    "statement": "`remark_18_3_2 (c)`: sc⁺-multisection functor iff invariant and an sc⁺-multisection in the model of $c$; `IsScPlusMultisectionIn.of_comparison`.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_2",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScPlusMultisectionIn.of_comparison"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The invitation in the introduction of §18.3 to treat the remaining concepts is a comment (point G.247, nothing to formalize)."
+   ]
+  },
+  {
+   "id": "V18.32",
+   "title": "The pointwise norm $N(\\Lambda)$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, after Remark 18.3.2, p. 852 (2017: §18.3)",
+    "page": 852,
+    "statement": "$N(\\Lambda)(\\alpha)$ is the maximum of $N(e)$ over $e$ in the fibre with $\\Lambda(e) > 0$."
+   },
+   "lean": {
+    "statement": "`pointwiseNormFunctor` (a supremum), `pointwiseNormFunctor_tgt`, `pointwiseNorm_bundlePull` (the model's $N(\\Lambda)$), `pointwiseNormFunctor_isGreatest` (the supremum is a maximum, attained, finite set).",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.pointwiseNormFunctor",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.pointwiseNormFunctor_tgt",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pointwiseNorm_bundlePull",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pointwiseNormFunctor_isGreatest"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.33",
+   "title": "Definition 18.3.3 (2017: 18.12), structurable sc⁺-multisection functors",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, Definition 18.3.3, p. 852 (2017: Definition 18.12)",
+    "page": 852,
+    "statement": "$\\Lambda$ is structurable if $\\bar\\Gamma^*\\Lambda$ is structurable in an sc-smooth model."
+   },
+   "lean": {
+    "statement": "`IsStructurableIn`, `IsStructurableFunctor`, `IsStructurableIn.of_comparison`, `IsStructurableFunctor.isScPlusMultisectionFunctor`.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableIn",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableFunctor",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableIn.of_comparison",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsStructurableFunctor.isScPlusMultisectionFunctor"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.34",
+   "title": "Remark 18.3.4 (new in the 2021 edition), structurability is intrinsic",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, Remark 18.3.4, p. 852 (new in the 2021 edition; 2017: the sentence after Definition 18.12)",
+    "page": 852,
+    "statement": "As in Section 13.4, structurability does not depend on the model."
+   },
+   "lean": {
+    "statement": "`remark_18_3_4`: structurable iff invariant and structurable in the model of any covering family.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_4"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.35",
+   "title": "Sums $\\Lambda_1 \\oplus \\Lambda_2$ and products $\\beta \\odot \\Lambda$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, before Theorem 18.3.5, pp. 852–853 (2017: §18.3)",
+    "page": 853,
+    "statement": "The sum of two sc⁺-multisection functors and the product with an sc-smooth function functor $\\beta$, defined as in §13.3."
+   },
+   "lean": {
+    "statement": "`multisectionFunctorAdd`, `multisectionFunctorSmul` with `isMorInvariant_multisectionFunctorAdd`, `isMorInvariant_multisectionFunctorSmul`, `bundlePull_multisectionFunctorAdd`, `bundlePull_multisectionFunctorSmul`; `PolyfoldConstruction.IsScSmoothFunctionFunctor`; `isScPlusMultisectionFunctor_add_smul`.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.multisectionFunctorAdd",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.multisectionFunctorSmul",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.isMorInvariant_multisectionFunctorAdd",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.isMorInvariant_multisectionFunctorSmul",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_multisectionFunctorAdd",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.bundlePull_multisectionFunctorSmul",
+     "Chapter18/MultisectionFunctors · GCT.PolyfoldConstruction.IsScSmoothFunctionFunctor",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isScPlusMultisectionFunctor_add_smul"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.36",
+   "title": "Theorem 18.3.5 (2017: 18.5), sums and products of structurable ones",
+   "verdict": "same",
+   "book": {
+    "label": "§18.3, Theorem 18.3.5, p. 853 (2017: Theorem 18.5)",
+    "page": 853,
+    "statement": "$\\Lambda_1 \\oplus \\Lambda_2$ and $\\beta \\odot \\Lambda_1$ are structurable if $\\Lambda_1$, $\\Lambda_2$ are (from §13.3)."
+   },
+   "lean": {
+    "statement": "`theorem_18_3_5 (h₁ h₂ hβ)`. Witness: `theorem_18_3_5_witness`.",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_5",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_3_5_witness"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.37",
+   "title": "Theorem 18.3.6 (2017: 18.6), pull-back by a proper covering functor",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.3, Theorem 18.3.6, p. 853 (2017: Theorem 18.6)",
+    "page": 853,
+    "statement": "For an sc-smooth strong bundle proper covering functor $\\tilde P$ over $\\tilde C \\to C$ and structurable $\\Lambda$, $\\tilde P^*\\Lambda$ is structurable (from Theorem 13.4.4)."
+   },
+   "lean": {
+    "statement": "`StrongBundleProperCovering Q' Q` (the covering functor with its models), `theorem_18_3_6 (P) (h)`: $\\Lambda \\circ \\tilde P$ is structurable. Witnesses: `reflIdCovering`, `theorem_18_3_6_witness` (weak: the identity covering).",
+    "decls": [
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.StrongBundleProperCovering",
+     "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.reflIdCovering",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_3_6_witness"
+    ]
+   },
+   "chips": [
+    "covering read through the models"
+   ],
+   "diff": [
+    "We read the sc-smooth strong bundle proper covering functor of §17.8 through models, as the text indicates on p. 842: a proper strong bundle covering of Definition 8.5.9 between sc-smooth models with the square of (17.106) commuting up to isomorphism (Findings, Chapter 18, item 9). The witness is weak."
+   ]
+  },
+  {
+   "id": "V18.38",
+   "title": "Definition 18.4.1 (2017: 18.13), partitions of unity and bump functions",
+   "verdict": "same",
+   "book": {
+    "label": "§18.4, Definition 18.4.1, p. 853 (2017: Definition 18.13)",
+    "page": 853,
+    "statement": "$C$ admits sc-smooth partitions of unity (bump functions) if an sc-smooth model does."
+   },
+   "lean": {
+    "statement": "`PolyfoldConstruction.AdmitsModelPartitionsOfUnity` (Definition 7.5.5 in a model), `PolyfoldConstruction.AdmitsModelBumpFunctions` (Definition 12.3.1, pointwise). Witnesses: `reflection_admitsModelPartitionsOfUnity`, `reflection_admitsModelBumpFunctions`, `halfS_admitsModelBumpFunctions`.",
+    "decls": [
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.AdmitsModelPartitionsOfUnity",
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.AdmitsModelBumpFunctions",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.reflection_admitsModelPartitionsOfUnity",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.reflection_admitsModelBumpFunctions",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfS_admitsModelBumpFunctions"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.39",
+   "title": "Remark 18.4.2 (2017: 18.6), the model does not matter",
+   "verdict": "same",
+   "book": {
+    "label": "§18.4, Remark 18.4.2, pp. 853–854 (2017: Remark 18.6)",
+    "page": 853,
+    "statement": "Partitions of unity and bump functions are preserved by generalized isomorphisms, so the model does not matter; M-polyfold partitions of unity on the model give ep-groupoid ones."
+   },
+   "lean": {
+    "statement": "`remark_18_4_2 (c)`: Definition 18.4.1 iff in the model of $c$, for both notions, and partitions of unity on the object M-polyfold give them in the ep-groupoid sense; `remark_18_4_2_generalizedIso`; `hasScPartitionsOfUnity_model_iff`, `admitsBumpFunctionsPointwise_model_iff`.",
+    "decls": [
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.remark_18_4_2",
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.remark_18_4_2_generalizedIso",
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.hasScPartitionsOfUnity_model_iff",
+     "Chapter18/MultisectionConstructions · GCT.PolyfoldConstruction.admitsBumpFunctionsPointwise_model_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The M-polyfold notion on the object M-polyfold, which Theorem 14.1.9 uses, is not compared between two models (`HasModelMPolyfoldPartitionsOfUnity`, V18.41)."
+   ]
+  },
+  {
+   "id": "V18.40",
+   "title": "The construction on p. 854 and Proposition 18.4.3 (2017: 18.1)",
+   "verdict": "same",
+   "book": {
+    "label": "§18.4, the construction before Proposition 18.4.3 and Proposition 18.4.3, pp. 854–855 (2017: Proposition 18.1)",
+    "page": 855,
+    "statement": "With sc-smooth bump functions, a local sc⁺-section near $q_0$ and a bump function give an sc⁺-multisection functor $\\Lambda$, independent of the choice of $\\varphi$, with $\\Lambda(e) > 0$, atomic in the model and structurable (easy proof left to the reader, from 13.5.3)."
+   },
+   "lean": {
+    "statement": "`exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)`: $\\exists \\Lambda$, sc⁺-multisection functor, $0 < \\Lambda(e)$, atomic in the model, structurable; `proposition_18_4_3_formula` (the formula); its independence of $\\varphi$ through `AtomicData.isWFunctor_mult`. Witness: `proposition_18_4_3_witness`.",
+    "decls": [
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_atomicData",
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3",
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.proposition_18_4_3_witness"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.248 settled"
+   ],
+   "diff": [
+    "The independence of $\\varphi$ and the proof left to the reader are written out (point G.248 settled). The paragraph after it (sums and push-forwards, details left to the reader) is a comment (point G.249)."
+   ]
+  },
+  {
+   "id": "V18.41",
+   "title": "Theorem 18.4.4 (2017: 18.7), the ∂-extension theorem",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.4, Theorem 18.4.4, pp. 855–856 (2017: Theorem 18.7)",
+    "page": 855,
+    "statement": "$C$ tame with sc-smooth partitions of unity, $N$ an auxiliary norm, $\\Lambda$ structurable over $\\partial C$ with domain support in an open $U$, $\\beta$ continuous with support in $U$ and $N(\\Lambda) < \\beta$ over the boundary: there is a structurable $\\Lambda'$ with $N(\\Lambda') \\le \\beta$, domain support in $U$, equal to $\\Lambda$ over $\\partial C$."
+   },
+   "lean": {
+    "statement": "In a model: `theorem_18_4_4 (c) (hT) (hPU) (hN : IsAuxNormIn) (hΛ)`, with `orbitDomSupp`, `orbitBoundaryDomSupp`. Free of the model: `theorem_18_4_4_modelFree (hT) (hPU : HasModelMPolyfoldPartitionsOfUnity) (hN : IsAuxNormFunctor) (hΛ : IsBoundaryStructurableFunctor)`; `IsBoundaryStructurableIn`, `IsBoundaryStructurableFunctor`, `IsBoundaryStructurableIn.of_comparison`, `isBoundaryStructurableFunctor_iff` (Proposition 14.1.8, one model iff every model). Witnesses: `theorem_18_4_4_witness`, `theorem_18_4_4_modelFree_witness`, `reflQ_hasModelMPolyfoldPartitionsOfUnity` (weak: $\\partial C = \\emptyset$); `halfQ_hasModelMPolyfoldPartitionsOfUnity`, `theorem_18_4_4_modelFree_witness_boundary` (weak: $\\Lambda_0$, empty domain support), `theorem_18_4_4_modelFree_witness_constDatum` (domain support the closure of $|\\partial C|$, through the corner with isotropy $\\mathbb Z/2$), `constFunctor`, `isBoundaryStructurableFunctor_constFunctor`.",
+    "decls": [
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4",
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.orbitDomSupp",
+     "Chapter18/MultisectionConstructions · GCT.VectorBundle.orbitBoundaryDomSupp",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableIn",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableFunctor",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryStructurableIn.of_comparison",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isBoundaryStructurableFunctor_iff",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasModelMPolyfoldPartitionsOfUnity",
+     "Chapter18/MultisectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_4_4_witness",
+     "Chapter18/PerturbationModelIndependenceExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_4_4_modelFree_witness",
+     "Chapter18/PerturbationModelIndependenceExamples · GCT.VectorBundle.ReflectionBundle.reflQ_hasModelMPolyfoldPartitionsOfUnity",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfQ_hasModelMPolyfoldPartitionsOfUnity",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.theorem_18_4_4_modelFree_witness_boundary",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.theorem_18_4_4_modelFree_witness_constDatum",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.constFunctor",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.isBoundaryStructurableFunctor_constFunctor"
+    ]
+   },
+   "chips": [
+    "partitions of unity as 14.1.9 uses them"
+   ],
+   "diff": [
+    "Definition 18.4.1 is read as Theorem 14.1.9 uses it, on the object M-polyfold (Findings, Chapter 18, item 10). Structurability over $\\partial C$ is read in a model and shown independent of it."
+   ]
+  },
+  {
+   "id": "V18.42",
+   "title": "The orientation category $O_f$ and Definition 18.5.1 (2017: 18.14)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.5, the paragraph before Definition 18.5.1 and Definition 18.5.1, p. 857 (2017: Definition 18.14)",
+    "page": 857,
+    "statement": "For smooth $\\alpha$, $\\mathrm{Lin}(f, \\alpha)$ is contractible and $\\mathrm{DET}(f, \\alpha)$ has two orientations; $O_f$ has objects $(\\alpha, o)$ and morphisms $(\\varphi, o)$ from $(s(\\varphi), o)$ to $(t(\\varphi), \\varphi_* o)$, fibring over $C_\\infty$."
+   },
+   "lean": {
+    "statement": "`DetOr` (the two orientations at $\\alpha$, through a reference model), `orPush` with `orPush_unit`, `orPush_comp`; `OrCatObj`, `OrCatMor` and `definition_18_5_1_hyp` (source and target); `refPt`, `refMor`; `orPush_bijective_two` (two orientations, $\\varphi_*$ a bijection). The category $\\widehat{Gr}_F(C) \\to C_\\infty$ of p. 856: `GrFHatCat`, the category of elements of `grFHatFunctor` ($\\alpha \\mapsto$ the $\\mathbb Q^+$-formal sums of oriented sc-Fredholm operators $T_\\alpha C \\to E_\\alpha$, $\\varphi \\mapsto \\varphi_*$ termwise, functor laws proved), with $\\hat\\pi$ (`grFHatProj`) and the printed morphisms $(\\varphi, \\hat L)$ (`GrFMor`, every morphism is one); the elements of $\\mathrm{Lin}(f, \\alpha)$ as sc-Fredholm operators with their two orientations (`linFredOp`, `orFredPush_linOrLift`). Witness `reflection_grFHat`. The chart-level orientations `DetOr` are not identified with the rays of the determinant on $\\mathrm{Lin}(f, \\alpha)$.",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.DetOr",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_unit",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_comp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrCatObj",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrCatMor",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_5_1_hyp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.refPt",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.refMor",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orPush_bijective_two",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.grFHatFunctor",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.GrFHatCat",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.grFHatProj",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.GrFMor",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linFredOp",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.StrongPolyfoldBundleConstruction.orFredPush_linOrLift",
+     "Chapter18/OrientationCategory · GCT.VectorBundle.ReflectionBundle.reflection_grFHat"
+    ]
+   },
+   "chips": [
+    "tame, bump functions (Thm 6.6.17)"
+   ],
+   "diff": [
+    "The orientations are read through the determinant of Part III in a reference model, which needs a tame $C$ with sc-smooth bump functions as in Theorem 6.6.17 (Findings, Chapter 18, item 11). The category $\\widehat{Gr}_F(C)$ is built (point G.256 settled)."
+   ]
+  },
+  {
+   "id": "V18.43",
+   "title": "Section functors of $\\sigma$ and the obstruction from isotropy",
+   "verdict": "same",
+   "book": {
+    "label": "§18.5, after Definition 18.5.1, pp. 857–858 (2017: §18.5)",
+    "page": 857,
+    "statement": "$\\sigma$ restricted to each fibre is a two-point bijection; a section functor $o$ of $\\sigma$ satisfies $o_{t(\\varphi)} = \\varphi_* o_{s(\\varphi)}$, so an isotropy $g$ with $g_* o = -o$ is an obstruction."
+   },
+   "lean": {
+    "statement": "`OrSection`, `IsOrSectionFunctor`; `not_exists_isOrSectionFunctor`: an isotropy $g$ with $g_*\\omega \\ne \\omega$ excludes section functors; `Polyfold.otherOr` (the opposite orientation), `isModelOrientation_otherOr`. Witnesses: `reflDiag_orPush_isotropy`, `reflDiag_orPush_isotropy_eq` ($g_* = \\mathrm{Id}$ for the diagonal section), `EpStrongBundle.orMor_eq_self_of_bijective`.",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.OrSection",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrSectionFunctor",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.not_exists_isOrSectionFunctor",
+     "Chapter18/Orientations · otherOr",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isModelOrientation_otherOr",
+     "Chapter18/OrientationsExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_orPush_isotropy",
+     "Chapter18/OrientationWitness · GCT.VectorBundle.ReflectionBundle.reflDiag_orPush_isotropy_eq",
+     "Chapter18/OrientationWitness · EpStrongBundle.orMor_eq_self_of_bijective"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.44",
+   "title": "The push-forward $\\bar\\Psi_*$ of orientations and the germ identity",
+   "verdict": "same",
+   "book": {
+    "label": "§18.5, before Definition 18.5.2, p. 858 (2017: §18.5)",
+    "page": 858,
+    "statement": "$\\bar\\Psi_*$ maps sc-Fredholm operators at $q$ to those at $\\Psi(q)$ and orientations to orientations, with inverse $\\bar\\Psi^*$; $o_{\\bar\\Psi} = \\bar\\Psi^* o$, and for a morphism $\\Phi$, $\\bar\\Phi^* o_{\\bar\\Psi'} = o_{\\bar\\Psi}$ near $\\bar q$."
+   },
+   "lean": {
+    "statement": "`toRef`, `catOf` (between section functors of $\\sigma$ and invariant model orientations, `isOrSectionFunctor_catOf`), `pullCat` ($\\bar\\Gamma^* o$ in a model), `inclPullOr_pullCat`, `modelTransport` (between two models); `pullCat_germ` (the germ identity).",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.toRef",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.catOf",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isOrSectionFunctor_catOf",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPullOr_pullCat",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelTransport",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat_germ"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "point G.250 settled"
+   ],
+   "diff": [
+    "The paragraph and the germ identity are proved (point G.250 settled)."
+   ]
+  },
+  {
+   "id": "V18.45",
+   "title": "Definition 18.5.2 (2017: 18.15), the continuity property",
+   "verdict": "restated",
+   "book": {
+    "label": "§18.5, Definition 18.5.2, pp. 858–859 (2017: Definition 18.15)",
+    "page": 858,
+    "statement": "A section functor $o$ of $\\sigma$ has the continuity property if, for every $z$, representative $\\alpha_z$, $\\bar\\Psi \\in \\bar F(\\alpha_z)$ and $\\bar o$ over $\\alpha_z$, the orientations $\\bar\\Gamma^* o$ of $f_{\\bar\\Psi}$ are related by continuation near $\\bar o$."
+   },
+   "lean": {
+    "statement": "`HasContinuityProperty`: for every smooth $\\alpha$, $\\bar\\Psi \\in \\bar F(\\alpha)$ and $q$ with $\\Psi(q) = \\alpha$, a continuous orientation (Definition 6.6.12) of the pulled-back orientations on a neighbourhood of $q$ in the model of $R \\sqcup \\{\\bar\\Psi\\}$; `IsModelContOrOn`. Witness: `exists_isModelContOrOn_reflDiag`.",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasContinuityProperty",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelContOrOn",
+     "Chapter18/OrientationWitness · GCT.VectorBundle.ReflectionBundle.exists_isModelContOrOn_reflDiag"
+    ]
+   },
+   "chips": [
+    "$\\bar\\Gamma^* o$ read as $\\bar\\Psi^* o$"
+   ],
+   "diff": [
+    "We read $\\bar\\Gamma^* o$ as $\\bar\\Psi^* o$, $\\Psi(\\bar o) = \\alpha$ as $\\alpha_z$, and \"related by continuation\" as Definition 6.6.12 (Findings, Chapter 18, item 11)."
+   ]
+  },
+  {
+   "id": "V18.46",
+   "title": "Remark 18.5.3 (2017: 18.7), one check per orbit and one model",
+   "verdict": "stronger",
+   "book": {
+    "label": "§18.5, Remark 18.5.3, p. 859 (2017: Remark 18.7)",
+    "page": 859,
+    "statement": "The definition checks a set of objects per orbit; it suffices to check one representative, and in any model."
+   },
+   "lean": {
+    "statement": "`remark_18_5_3_hyp (ho)`: the continuity property iff continuity in every model (`IsModelContOrOn` on all of the model), and iff the form with one representative per orbit (`HasContinuityPropertyRep`).",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_3_hyp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasContinuityPropertyRep"
+    ]
+   },
+   "chips": [
+    "both reductions as iffs"
+   ],
+   "diff": [
+    "Both reductions are proved as equivalences."
+   ]
+  },
+  {
+   "id": "V18.47",
+   "title": "Definition 18.5.4 (2017: 18.16), orientations of $f$",
+   "verdict": "same",
+   "book": {
+    "label": "§18.5, Definition 18.5.4, p. 859 (2017: Definition 18.16)",
+    "page": 859,
+    "statement": "An orientation of $f$ is a section functor of $\\sigma$ with the continuity property; $f$ is orientable if one exists."
+   },
+   "lean": {
+    "statement": "`IsOrientation` (`IsOrSectionFunctor` and `HasContinuityProperty`), `IsOrientable`; `exists_two_orientations` (at least two, differing at every smooth $\\alpha$). In the model: `IsModelOrientation`, `isModelOrientation_iff`. Witnesses: `reflDiag_isOrientable`, `reflDiag_exists_two_orientations`, `reflDiag_two_orientations`, `exists_isModelOrientation_reflDiag`, `reflection_isSmoothObj`.",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientation",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsOrientable",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_two_orientations",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelOrientation",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isModelOrientation_iff",
+     "Chapter18/OrientationWitness · GCT.VectorBundle.ReflectionBundle.reflDiag_isOrientable",
+     "Chapter18/OrientationWitness · GCT.VectorBundle.ReflectionBundle.reflDiag_exists_two_orientations",
+     "Chapter18/OrientationsExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_two_orientations",
+     "Chapter18/OrientationWitness · GCT.VectorBundle.ReflectionBundle.exists_isModelOrientation_reflDiag",
+     "Chapter18/OrientationsExamples · GCT.VectorBundle.ReflectionBundle.reflection_isSmoothObj"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V18.48",
+   "title": "Remark 18.5.5 (2017: 18.8), $|\\sigma|$ is $2:1$ with a continuous section",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.5, Remark 18.5.5, p. 859 (2017: Remark 18.8)",
+    "page": 859,
+    "statement": "For orientable $f$, $|\\sigma| : |O_f| \\to |C_\\infty|$ is $2:1$ and an orientation gives a continuous section; conversely (left to the reader)."
+   },
+   "lean": {
+    "statement": "`remark_18_5_5_mp_hyp (ht) (h)` and `remark_18_5_5_mpr_hyp (ht) (h₁) (hs) (hsc)`, with $|\\sigma|$ read as the orbit map of $\\sigma$ in the reference model, for a topology `t` with the properties of Theorem 6.6.17 (`IsOrientationTopology`).",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mp_hyp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mpr_hyp"
+    ]
+   },
+   "chips": [
+    "topology of Theorem 6.6.17",
+    "point G.251 settled"
+   ],
+   "diff": [
+    "The text gives no topology on $|O_f|$; we read it through the reference model (point G.251 settled)."
+   ]
+  },
+  {
+   "id": "V18.49",
+   "title": "Proposition 18.5.6 (2017: 18.2), orientations through models",
+   "verdict": "stronger",
+   "book": {
+    "label": "§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)",
+    "page": 859,
+    "statement": "(1) $f$ is orientable iff $f_{\\bar\\Psi}$ is, for a model; (2) an orientation of $f$ gives orientations of the models; (3) model orientations $o$, $o'$ come from one orientation of $f$ iff they correspond under the comparison (left to the reader, along Theorem 12.5.7)."
+   },
+   "lean": {
+    "statement": "`proposition_18_5_6_one_hyp (c)`, `proposition_18_5_6_two_hyp`, `proposition_18_5_6_three_hyp (c c' ho ho')`: $(\\exists O, \\bar\\Gamma_c^* O = o \\wedge \\bar\\Gamma_{c'}^* O = o')$ iff `modelTransport c' c o' = o`. Witness: `reflDiag_orientation_hyp`.",
+    "decls": [
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp",
+     "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp",
+     "Chapter18/OrientationsExamples · GCT.VectorBundle.ReflectionBundle.reflDiag_orientation_hyp"
+    ]
+   },
+   "chips": [
+    "(3) as an iff",
+    "point G.252 settled"
+   ],
+   "diff": [
+    "(3) is proved as an iff (point G.252 settled; Findings, Chapter 18, item 11)."
+   ]
+  },
+  {
+   "id": "V18.50",
+   "title": "The paragraph before Theorem 18.6.1, orbifold- and manifold-type supports",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.6, the paragraph before Theorem 18.6.1, p. 860 (2017: §18.6)",
+    "page": 860,
+    "statement": "With $(N, U)$ controlling compactness there are many small structurable $\\Lambda$ with $\\Theta = \\Lambda \\circ f$ compact, supported in $U$, transversal, in general position; for $\\{0,1\\}$-valued $\\Lambda$ the support is a compact orbifold, a manifold if there is at most one morphism between objects, oriented if $f$ is."
+   },
+   "lean": {
+    "statement": "`perturbation_orbifoldType` (orbifold type: compact, the support a smooth submanifold in every model, with an ep-subgroupoid) and `perturbation_manifoldType` (manifold type: an M-polyfold structure on the support in every model); `controlsCompactness_model`.",
+    "decls": [
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.perturbation_orbifoldType",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.perturbation_manifoldType",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.controlsCompactness_model"
+    ]
+   },
+   "chips": [
+    "sc-Fredholm, tame germ data"
+   ],
+   "diff": [
+    "The preamble says sc-Fredholm; we read the \"sc-smooth\" of Theorem 18.6.1 the same way. The orbifold and manifold structures are proved in each model; the oriented case is V18.52."
+   ]
+  },
+  {
+   "id": "V18.51",
+   "title": "Theorem 18.6.1 (2017: 18.8), the perturbation theorem",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.6, Theorem 18.6.1, pp. 860–861 (2017: Theorem 18.8)",
+    "page": 860,
+    "statement": "$C$ tame with sc-smooth bump functions, $f$ with compact $|S_f|$, $(N, U)$ controlling compactness, $h : C \\to (0, 1]$ continuous: there is an sc⁺-multisection functor $\\Lambda$ with (1) $N(\\Lambda) < h$, (2) domain support in $C_U$, (3) $T(f, \\Lambda)$ onto on $\\mathrm{supp}(\\Lambda \\circ f)$, (4) kernels in general position; in particular $\\Lambda \\circ f$ is compact, tame and branched; $\\Lambda$ can be taken structurable."
+   },
+   "lean": {
+    "statement": "`theorem_18_6_1_existence (c hT hbump hf hfT hS hN hcc hh hh01)` ((1)–(4), (3)–(4) as `IsTransversalIn`, `IsInGeneralPositionIn` in the model of $c$), `exists_push_of_model`, `theorem_18_6_1_structurable`, `theorem_18_6_1_in_particular` (branched, compact, tame in the model), `theorem_18_6_1` (all together). Free of the model, with `hF`: `theorem_18_6_1_modelFree`, `theorem_18_6_1_in_particular_modelFree`, through `isTransversalIn_iff`, `isInGeneralPositionIn_iff`, `IsTransversalFunctor`, `IsInGeneralPositionFunctor`, `isTransversalFunctor_iff_forall`, `isInGeneralPositionFunctor_iff_forall`. `PolyfoldConstruction.IsContinuousFunctionFunctor`. Witnesses: `theorem_18_6_1_witness`, `theorem_18_6_1_modelFree_witness`, `reflection_isContinuousFunctionFunctor_one` (weak: $\\partial C = \\emptyset$); `theorem_18_6_1_witness_boundary`, `theorem_18_6_1_modelFree_witness_boundary` ($\\partial C \\ne \\emptyset$).",
+    "decls": [
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_existence",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsTransversalIn",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsInGeneralPositionIn",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_push_of_model",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_structurable",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular",
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular_modelFree",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isTransversalIn_iff",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isInGeneralPositionIn_iff",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsTransversalFunctor",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsInGeneralPositionFunctor",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isTransversalFunctor_iff_forall",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isInGeneralPositionFunctor_iff_forall",
+     "Chapter18/Perturbation · GCT.PolyfoldConstruction.IsContinuousFunctionFunctor",
+     "Chapter18/PerturbationExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_witness",
+     "Chapter18/PerturbationModelIndependenceExamples · GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_modelFree_witness",
+     "Chapter18/PerturbationExamples · GCT.VectorBundle.ReflectionBundle.reflection_isContinuousFunctionFunctor_one",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.theorem_18_6_1_witness_boundary",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.theorem_18_6_1_modelFree_witness_boundary"
+    ]
+   },
+   "chips": [
+    "sc-Fredholm, tame germ data",
+    "model-free form",
+    "point G.253 settled"
+   ],
+   "diff": [
+    "The text prints \"sc-smooth section functor\"; we read sc-Fredholm, as the preamble of §18.6 does (Findings, Chapter 18, item 13). The proof \"in a smooth model\" is written out, with the independence of the model (point G.253 settled)."
+   ]
+  },
+  {
+   "id": "V18.52",
+   "title": "Theorem 18.6.1 (2017: 18.8), the orientation clause",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.6, Theorem 18.6.1, last sentence, p. 861 (2017: Theorem 18.8)",
+    "page": 861,
+    "statement": "If $f$ is oriented by $o_f$, the tame branched ep⁺-subcategory $\\Theta = \\Lambda \\circ f$ is naturally oriented."
+   },
+   "lean": {
+    "statement": "`theorem_18_6_1_oriented (… ho … hgp hidx)`: an oriented subcategory $O$ with $O.\\Theta = \\Lambda \\circ f$ and the canonical orientation of Part III on the smooth part of the model; free of the model `theorem_18_6_1_oriented_modelFree` (`hidx` still in the model). Witnesses: `theorem_18_6_1_oriented_witness`, `theorem_18_6_1_oriented_witness_support` (support $\\{0\\}$, $\\Theta(0) = 1$), `isIndexAt_reflSingleModel` (weak: $\\partial C = \\emptyset$).",
+    "decls": [
+     "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented_modelFree",
+     "Chapter18/PerturbationOrientedWitness · GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_oriented_witness",
+     "Chapter18/PerturbationOrientedSupport · GCT.VectorBundle.ReflectionBundle.theorem_18_6_1_oriented_witness_support",
+     "Chapter18/PerturbationOrientedWitness · GCT.VectorBundle.ReflectionBundle.isIndexAt_reflSingleModel"
+    ]
+   },
+   "chips": [
+    "index on the support",
+    "no witness with $\\partial C \\ne \\emptyset$"
+   ],
+   "diff": [
+    "The index is a hypothesis, as in Part III. The half-space bundle is not orientable (V18.54), so no witness has $\\partial C \\ne \\emptyset$."
+   ]
+  },
+  {
+   "id": "V18.53",
+   "title": "Theorem 15.3.9 in the polyfold context",
+   "verdict": "explicit",
+   "book": {
+    "label": "§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)",
+    "page": 861,
+    "statement": "Theorem 15.3.9, extension of a perturbation given over $\\partial C$, can easily be brought into the polyfold context."
+   },
+   "lean": {
+    "statement": "`theorem_15_3_9_categorical (hT hPU hf hfT hS hN hcc hΛ hdomU hN1 hh hh01 hNh hon)`: a structurable $\\Lambda'$ equal to $\\Lambda$ over $\\partial C$, domain support in $U$, $N(\\Lambda') < h$, transversal, $\\Lambda' \\circ f$ branched and compact; `IsBoundaryFaceOntoFunctor`, `isBoundaryFaceOntoFunctor_iff`, `SBLocalization.isBoundaryFaceOnto_pullback_iff`. Witnesses: `theorem_15_3_9_categorical_witness` (weak: $\\partial C = \\emptyset$), `theorem_15_3_9_categorical_witness_boundary`, `theorem_15_3_9_categorical_witness_constDatum`, `isBoundaryFaceOntoFunctor_halfF`, `isBoundaryFaceOntoFunctor_constFunctor`.",
+    "decls": [
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_15_3_9_categorical",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsBoundaryFaceOntoFunctor",
+     "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isBoundaryFaceOntoFunctor_iff",
+     "Chapter18/PerturbationModelIndependence · SBLocalization.isBoundaryFaceOnto_pullback_iff",
+     "Chapter18/PerturbationModelIndependenceExamples · GCT.VectorBundle.ReflectionBundle.theorem_15_3_9_categorical_witness",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.theorem_15_3_9_categorical_witness_boundary",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.theorem_15_3_9_categorical_witness_constDatum",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.isBoundaryFaceOntoFunctor_halfF",
+     "Chapter18/HalfSpaceBoundaryData · GCT.VectorBundle.HalfSpaceReflection.isBoundaryFaceOntoFunctor_constFunctor"
+    ]
+   },
+   "chips": [
+    "\"moreover tame\" not concluded",
+    "point G.254 settled"
+   ],
+   "diff": [
+    "As in Part III, the \"moreover tame\" of Theorem 15.3.9 is not concluded (point G.254 settled for the rest). The two exercises after it are not formalized (point G.255)."
+   ]
+  },
+  {
+   "id": "V18.54",
+   "title": "The witness bundles",
+   "verdict": "extra",
+   "book": {
+    "label": "witnesses for §§18.1–18.6, pp. 843–861",
+    "page": 843,
+    "statement": "(No statement; the bundles on which the hypotheses of the chapter are witnessed.)"
+   },
+   "lean": {
+    "statement": "The reflection bundle `reflQ`: $\\mathbb Z/2 \\ltimes \\mathbb R$, fibre $\\mathbb R$ with $-1$ acting by $v \\mapsto -v$, the section `reflDiag` $x \\mapsto (x, x)$, $\\partial C = \\emptyset$; it is orientable (V18.47). The half-space bundle `halfQ` over `halfS`: $\\mathbb Z/2 \\ltimes [0, \\infty) \\times \\mathbb R$, trivial action on the fibre, $f = a^2 + y^2 - 1$ (`halfF`), $\\partial C \\ne \\emptyset$, a corner with isotropy $\\mathbb Z/2$ (`corner_mem_boundarySet`, `exists_ne_unit_corner`, `halfF_zeroSet`, `topPoint_mem_zeroSet_boundarySet`). The $-1$ acts with determinant $-1$ on the tangent space and trivially on the fibre, so `halfQ` has no orientable section functor.",
+    "decls": [
+     "Chapter17/StrongBundleStructuresExamples · GCT.VectorBundle.ReflectionBundle.reflQ",
+     "Chapter18/FredholmSectionFunctorsExamples · GCT.VectorBundle.ReflectionBundle.reflDiag",
+     "Chapter18/HalfSpaceBundleConstruction · GCT.VectorBundle.HalfSpaceReflection.halfQ",
+     "Chapter18/HalfSpaceBundleConstruction · GCT.VectorBundle.HalfSpaceReflection.halfS",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfF",
+     "Chapter18/HalfSpaceBundleConstruction · GCT.VectorBundle.HalfSpaceReflection.corner_mem_boundarySet",
+     "Chapter18/HalfSpaceBundleConstruction · GCT.VectorBundle.HalfSpaceReflection.exists_ne_unit_corner",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.halfF_zeroSet",
+     "Chapter18/HalfSpaceWitnesses · GCT.VectorBundle.HalfSpaceReflection.topPoint_mem_zeroSet_boundarySet"
+    ]
+   },
+   "chips": [
+    "witnesses"
+   ],
+   "diff": [
+    "Witnesses only."
+   ]
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 235,
+   "title": "Remark 18.1.2 (a): one covering family suffices (an easy exercise)",
+   "label": "§18.1, Remark 18.1.2 (a), p. 844 (2017: Remark 18.1)",
+   "page": 844,
+   "book": "Checking Definition 18.1.1 on one covering family, or on one sc-smooth model, suffices; left as an easy exercise.",
+   "instead": "**Formalized** (V18.5): `remark_18_1_2_a`, `remark_18_1_2_a_model` and their sc-smooth and tame forms.",
+   "formalized": [
+    "V18.5"
+   ],
+   "decls": [
+    "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a",
+    "Chapter18/FredholmSectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_2_a_model"
+   ]
+  },
+  {
+   "g": 236,
+   "title": "(18.1): the linearization does not depend on $\\bar\\Psi$",
+   "label": "§18.1, (18.1), p. 845 (2017: §18.1)",
+   "page": 845,
+   "book": "The operator (18.1) does not depend on the choice of $\\bar\\Psi$.",
+   "instead": "**Formalized** (V18.8): `sectionLin_indep`, `equation_18_1`.",
+   "formalized": [
+    "V18.8"
+   ],
+   "decls": [
+    "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin_indep",
+    "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_1"
+   ]
+  },
+  {
+   "g": 237,
+   "title": "Definition 18.1.4: index and independence of $\\mathrm{Lin}(f, \\alpha)$",
+   "label": "§18.1, Definition 18.1.4, p. 845 (2017: Definition 18.3)",
+   "page": 845,
+   "book": "The elements of $\\mathrm{Lin}(f, \\alpha)$ have the same index and the set does not depend on $\\bar\\Psi$.",
+   "instead": "**Formalized** (V18.9): `definition_18_1_4_local` with no hypothesis beyond the setting ($\\alpha \\in C^1$ with $\\bar F(\\alpha) \\ne \\emptyset$, and the same at the target for $\\varphi_*$); the global form `definition_18_1_4_hyp`.",
+   "formalized": [
+    "V18.9"
+   ],
+   "decls": [
+    "Chapter18/LinearizationSetLocal · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_local",
+    "Chapter18/LinearizationSet · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_1_4_hyp"
+   ]
+  },
+  {
+   "g": 238,
+   "title": "(18.2) and the functoriality of $\\varphi_*$ (\"clearly\")",
+   "label": "§18.1, (18.2), p. 845 (2017: §18.1)",
+   "page": 845,
+   "book": "$\\hat\\varphi \\circ f'(\\alpha) = f'(\\alpha') \\circ T\\varphi$, and clearly $(\\varphi'\\varphi)_* = \\varphi'_*\\varphi_*$, $(1_\\alpha)_* = \\mathrm{Id}$.",
+   "instead": "**Formalized** (V18.10): `equation_18_2`, `linPush_comp`, `linPush_unit`.",
+   "formalized": [
+    "V18.10"
+   ],
+   "decls": [
+    "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.equation_18_2",
+    "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_comp",
+    "Chapter18/Linearization · GCT.VectorBundle.StrongPolyfoldBundleConstruction.linPush_unit"
+   ]
+  },
+  {
+   "g": 239,
+   "title": "Theorem 18.1.5: the proof",
+   "label": "§18.1, Theorem 18.1.5, p. 846 (2017: Theorem 18.1)",
+   "page": 846,
+   "book": "The proof refers to Theorems 15.2.2, 15.2.5 and 9.1.9.",
+   "instead": "**Formalized** (V18.11, V18.12, V18.13): `theorem_18_1_5`, `theorem_18_1_5_subcategory`, `theorem_18_1_5_model`.",
+   "formalized": [
+    "V18.11",
+    "V18.12",
+    "V18.13"
+   ],
+   "decls": [
+    "Chapter18/GoodPositionIntrinsic · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5",
+    "Chapter18/ImplicitFunctionSubcategory · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory",
+    "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model"
+   ]
+  },
+  {
+   "g": 240,
+   "title": "Remark 18.1.6: $\\Theta = \\Lambda_0 \\circ f$",
+   "label": "§18.1, Remark 18.1.6, p. 846 (2017: Remark 18.2)",
+   "page": 846,
+   "book": "$\\Theta$ has the form $\\Lambda_0 \\circ f$, as we shall see in general.",
+   "instead": "**Formalized** (V18.14): `remark_18_1_6`.",
+   "formalized": [
+    "V18.14"
+   ],
+   "decls": [
+    "Chapter18/ImplicitFunctionTheorem · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_1_6"
+   ]
+  },
+  {
+   "g": 241,
+   "title": "Lemma 18.1.8 (left to the reader)",
+   "label": "§18.1, Lemma 18.1.8, p. 847 (2017: Lemma 18.1)",
+   "page": 847,
+   "book": "$N$ is an auxiliary norm iff its pull-back to a model is; an easy lemma left to the reader.",
+   "instead": "**Formalized** (V18.16): `lemma_18_1_8`, with the continuity of Definition 12.2.1 in Definition 18.1.7; for the printed form `lemma_18_1_8_book_without_continuity`.",
+   "formalized": [
+    "V18.16"
+   ],
+   "decls": [
+    "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.lemma_18_1_8",
+    "Chapter18/AuxiliaryNormsBookForm · GCT.VectorBundle.ReflectionBundle.lemma_18_1_8_book_without_continuity"
+   ]
+  },
+  {
+   "g": 242,
+   "title": "After Definition 18.1.9: any sc-smooth model has reflexive $(0,1)$-fibres",
+   "label": "§18.1, after Definition 18.1.9, p. 847 (2017: §18.1)",
+   "page": 847,
+   "book": "If one sc-smooth model has reflexive $(0,1)$-fibres, any sc-smooth model has.",
+   "instead": "**Formalized** (V18.17): `hasReflexiveFibers_iff_model`.",
+   "formalized": [
+    "V18.17"
+   ],
+   "decls": [
+    "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasReflexiveFibers_iff_model"
+   ]
+  },
+  {
+   "g": 243,
+   "title": "Before Theorem 18.1.12: push-forward and existence of auxiliary norms",
+   "label": "§18.1, before Theorem 18.1.12, pp. 847–848 (2017: §18.1)",
+   "page": 848,
+   "book": "An auxiliary norm on a model pushes forward to one for $P$, reflexive if it is; $|X|$ is paracompact; the model does not matter.",
+   "instead": "**Formalized** (V18.20): `isAuxNormIn_pushNormFun`, `isReflexiveAuxNormIn_pushNormFun`, `hasParacompactOrbitSpace_model`, `exists_isAuxNormFunctor`.",
+   "formalized": [
+    "V18.20"
+   ],
+   "decls": [
+    "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isAuxNormIn_pushNormFun",
+    "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isReflexiveAuxNormIn_pushNormFun",
+    "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.hasParacompactOrbitSpace_model",
+    "Chapter18/AuxiliaryNorms · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_isAuxNormFunctor"
+   ]
+  },
+  {
+   "g": 244,
+   "title": "After Theorem 18.1.12: other results on auxiliary norms",
+   "label": "§18.1, after Theorem 18.1.12, p. 848 (2017: §18.1)",
+   "page": 848,
+   "book": "The reader may transport other results on auxiliary norms from the ep-groupoid case.",
+   "instead": "**Nothing to formalize: an invitation.** The results the chapter uses are V18.15–V18.21.",
+   "nothing": true,
+   "decls": [
+    "Chapter18/AuxiliaryNormsDirect · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one"
+   ],
+   "formalized": []
+  },
+  {
+   "g": 245,
+   "title": "Before Definition 18.2.1: a solution object is smooth",
+   "label": "§18.2, before Definition 18.2.1, p. 849 (2017: §18.2)",
+   "page": 849,
+   "book": "Since $f$ is regularizing, a solution object is smooth.",
+   "instead": "**Formalized** (V18.22): `isSmoothObj_of_mem_zeroSet`, `solution_isSmoothObj`, `zeroSet_subset_isSmoothObj` ($S_f \\subseteq C_\\infty$), from Remark 18.1.2 (b) in the levels.",
+   "decls": [
+    "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.isSmoothObj_of_mem_zeroSet",
+    "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.solution_isSmoothObj",
+    "Chapter18/SolutionRegularity · GCT.VectorBundle.StrongPolyfoldBundleConstruction.zeroSet_subset_isSmoothObj"
+   ],
+   "formalized": [
+    "V18.22"
+   ]
+  },
+  {
+   "g": 246,
+   "title": "After Definition 18.2.3: controlling compactness gives strongly controlling",
+   "label": "§18.2, after Definition 18.2.3, p. 850 (2017: §18.2)",
+   "page": 850,
+   "book": "A pair controlling compactness can be shrunk to one strongly controlling it.",
+   "instead": "**Formalized** (V18.25): `definition_18_2_3_observation`, `exists_stronglyControlsCompactness_subset`.",
+   "formalized": [
+    "V18.25"
+   ],
+   "decls": [
+    "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.definition_18_2_3_observation",
+    "Chapter18/Compactness · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_stronglyControlsCompactness_subset"
+   ]
+  },
+  {
+   "g": 247,
+   "title": "§18.3: the remaining concepts",
+   "label": "§18.3, introduction, p. 851 (2017: §18.3)",
+   "page": 851,
+   "book": "The main notions are transported; the reader may deal with the remaining concepts.",
+   "instead": "**Nothing to formalize: an invitation.** The notions the chapter uses are V18.30–V18.37.",
+   "nothing": true,
+   "decls": [
+    "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_2",
+    "Chapter18/MultisectionFunctors · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_3_4"
+   ],
+   "formalized": []
+  },
+  {
+   "g": 248,
+   "title": "Proposition 18.4.3 and the construction before it (easy proof left to the reader)",
+   "label": "§18.4, the construction on p. 854 and Proposition 18.4.3, pp. 854–855 (2017: Proposition 18.1)",
+   "page": 855,
+   "book": "The construction does not depend on the choice of $\\varphi$; the easy proof of the proposition is left to the reader.",
+   "instead": "**Formalized** (V18.40): `proposition_18_4_3`, `proposition_18_4_3_formula`.",
+   "formalized": [
+    "V18.40"
+   ],
+   "decls": [
+    "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3",
+    "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula"
+   ]
+  },
+  {
+   "g": 249,
+   "title": "After Proposition 18.4.3: sums and push-forwards (details left to the reader)",
+   "label": "§18.4, after Proposition 18.4.3, p. 855 (2017: §18.4)",
+   "page": 855,
+   "book": "Sums of the local constructions and push-forwards from a model give a wealth of possibilities; details left to the reader.",
+   "instead": "**Nothing to formalize: a comment.** What the chapter uses of it: `exists_push_of_model` (V18.51), the sums of V18.35 and Theorem 18.4.4 (V18.41).",
+   "nothing": true,
+   "decls": [
+    "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_push_of_model",
+    "Chapter18/MultisectionConstructions · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4"
+   ],
+   "formalized": []
+  },
+  {
+   "g": 250,
+   "title": "Before Definition 18.5.2: $\\bar\\Psi_*$ and the germ identity",
+   "label": "§18.5, before Definition 18.5.2, p. 858 (2017: §18.5)",
+   "page": 858,
+   "book": "$\\bar\\Psi_*$ is a bijection on orientations with inverse $\\bar\\Psi^*$, and $\\bar\\Phi^* o_{\\bar\\Psi'} = o_{\\bar\\Psi}$ near $\\bar q$.",
+   "instead": "**Formalized** (V18.44): `pullCat_germ`, `modelTransport`.",
+   "formalized": [
+    "V18.44"
+   ],
+   "decls": [
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.pullCat_germ",
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.modelTransport"
+   ]
+  },
+  {
+   "g": 251,
+   "title": "Remark 18.5.5 (left to the reader)",
+   "label": "§18.5, Remark 18.5.5, p. 859 (2017: Remark 18.8)",
+   "page": 859,
+   "book": "For orientable $f$, $|\\sigma|$ is $2:1$ with a continuous section from an orientation, and conversely.",
+   "instead": "**Formalized** (V18.48): `remark_18_5_5_mp_hyp`, `remark_18_5_5_mpr_hyp`.",
+   "formalized": [
+    "V18.48"
+   ],
+   "decls": [
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mp_hyp",
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.remark_18_5_5_mpr_hyp"
+   ]
+  },
+  {
+   "g": 252,
+   "title": "Proposition 18.5.6 (left to the reader)",
+   "label": "§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)",
+   "page": 859,
+   "book": "The proof goes along the lines of Theorem 12.5.7 and is left to the reader.",
+   "instead": "**Formalized** (V18.49): `proposition_18_5_6_one_hyp`, `proposition_18_5_6_two_hyp`, `proposition_18_5_6_three_hyp`.",
+   "formalized": [
+    "V18.49"
+   ],
+   "decls": [
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp",
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp",
+    "Chapter18/Orientations · GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp"
+   ]
+  },
+  {
+   "g": 253,
+   "title": "Theorem 18.6.1: the proof in a smooth model",
+   "label": "§18.6, Theorem 18.6.1, p. 861 (2017: Theorem 18.8)",
+   "page": 861,
+   "book": "The theorem follows from Theorem 15.3.7 by studying the question in a smooth model.",
+   "instead": "**Formalized** (V18.51, V18.52): `theorem_18_6_1`, `theorem_18_6_1_modelFree`, `theorem_18_6_1_oriented`.",
+   "formalized": [
+    "V18.51",
+    "V18.52"
+   ],
+   "decls": [
+    "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1",
+    "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree",
+    "Chapter18/Perturbation · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented"
+   ]
+  },
+  {
+   "g": 254,
+   "title": "Theorem 15.3.9 in the polyfold context",
+   "label": "§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)",
+   "page": 861,
+   "book": "Theorem 15.3.9 can easily be brought into the polyfold context.",
+   "instead": "**Formalized** (V18.53): `theorem_15_3_9_categorical`, without the \"moreover tame\", as in Part III.",
+   "formalized": [
+    "V18.53"
+   ],
+   "decls": [
+    "Chapter18/PerturbationModelIndependence · GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_15_3_9_categorical"
+   ]
+  },
+  {
+   "g": 255,
+   "title": "Exercises: Theorems 5.3.12 and 5.3.15 for ep-groupoids and polyfolds",
+   "label": "§18.6, after Theorem 18.6.1, p. 861 (2017: §18.6)",
+   "page": 861,
+   "book": "As exercises, versions of Theorem 5.3.12 and of Theorem 5.3.15 for ep-groupoids and in the categorical context.",
+   "instead": "**Nothing to formalize: exercises.** Not formalized.",
+   "nothing": true,
+   "decls": [],
+   "formalized": []
+  },
+  {
+   "g": 256,
+   "title": "The category $\\widehat{Gr}_F(C)$ of oriented formal sums",
+   "label": "§18.5, before Definition 18.5.1, p. 856 (2017: §18.5)",
+   "page": 856,
+   "book": "For smooth $\\alpha$, finite non-negative rational formal sums of oriented sc-Fredholm operators $T_\\alpha C \\to E_\\alpha$ form a category fibring over $C_\\infty$, with morphisms $(\\varphi, \\hat L)$ and $\\varphi_*$ acting termwise.",
+   "instead": "**Formalized** (V18.42): `GrFHatCat` (the category of elements of `grFHatFunctor`, $\\varphi_*$ termwise), the projection `grFHatProj` and the printed morphisms `GrFMor`. Its link to the chart-level orientations `DetOr` of $O_f$ is not formalized.",
+   "decls": [
+    "Chapter18/OrientationCategory · GCT.VectorBundle.grFHatFunctor",
+    "Chapter18/OrientationCategory · GCT.VectorBundle.GrFHatCat",
+    "Chapter18/OrientationCategory · GCT.VectorBundle.grFHatProj",
+    "Chapter18/OrientationCategory · GCT.VectorBundle.GrFMor"
+   ],
+   "formalized": [
+    "V18.42"
+   ]
+  }
+ ]
+}

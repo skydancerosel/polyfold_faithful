@@ -2,10 +2,10 @@
 
 A formalization in Lean 4 and Mathlib of Hofer, Wysocki and Zehnder,
 [*Polyfold and Fredholm Theory*](https://doi.org/10.1007/978-3-030-78007-4)
-(Springer, Ergebnisse der Mathematik 72, 2021): Part I (Chapters 1–6), Part II (Chapters 7–11) and
-Part III (Chapters 12–16); Part IV (Chapters 17–19) is being formalized. The Springer edition
+(Springer, Ergebnisse der Mathematik 72, 2021): Part I (Chapters 1–6), Part II (Chapters 7–11),
+Part III (Chapters 12–16) and Part IV (Chapters 17–19). The Springer edition
 is the authority; the reports cite its numbers and pages first, with the numbers of the 2014
-preprint (Part I) and the 2017 arXiv version (Parts II–III) in parentheses. It follows the same method as our formalizations of Milnor
+preprint (Part I) and the 2017 arXiv version (Parts II–IV) in parentheses. It follows the same method as our formalizations of Milnor
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)).
 
 The Lean code and the reports were written by Claude models under the direction of the project
@@ -15,11 +15,13 @@ meant is for human readers to confirm; that review has not started.
 ## Status
 
 Every numbered item of the book is compared with its formal version, with a verdict and every
-difference listed. In 193 places (G.1–G.193) the formal version needs more than a translation of
+difference listed. In 275 places (G.1–G.275) the formal version needs more than a translation of
 the text: a step left to the reader, an example the text does not give, a convention left implicit,
-or a long argument written out in full. All 193 are settled: 189 are formalized, and 4
-have nothing to formalize (a question, a comment on a reference, a preprint theorem absent from the
-2021 text, and the text's own open point in Remark 9.5.19). Where a formal statement is narrower than the book's, the
+or a long argument written out in full. 262 are formalized and 12 have nothing to formalize (questions,
+comments, remarks that motivate or look ahead, exercises, a preprint theorem absent from the 2021 text, and the
+text's own open point in Remark 9.5.19). One is formalized in part: for the Whitney sum `⊕ᵏTC` of
+Proposition 17.6.1, the category and its functors are built, its orbit space and the sc-smoothness of its
+multiplication are not. Where a formal statement is narrower than the book's, the
 comparison names the added hypothesis and shows that it can be satisfied.
 
 | | Chapters | State |
@@ -27,7 +29,7 @@ comparison names the added hypothesis and shows that it can be satisfied.
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
 | Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
 | Part III, *Fredholm Theory in Ep-Groupoids* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorems 16.4.6 and 16.6.6 with sc-smooth partitions of unity for Stokes' theorem (Remark 9.5.19) |
-| Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Being formalized |
+| Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Formalized; the main theorems proved, Theorems 17.1.18, 18.6.1, 19.5.1 and 19.6.13 included; Theorems 17.6.7 and 17.6.10 with Stokes' theorem on the model or sc-smooth partitions of unity (Remark 9.5.19) |
 
 The trusted base, the declarations whose statements a reader has to check, is
 `Exposition/checklist/TrustedBase.lean`. Nothing is assumed without proof: every declaration
@@ -123,7 +125,9 @@ A web browser is enough: no Lean and no GitHub account are needed.
      integral over the part of the boundary with `0 < t < 1`, a limit of cut-off integrals, for a
      tame `X` with or without faces;
    * the frame convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4) is read in a
-     signed form.
+     signed form;
+   * in Part IV a covering family has a uniformizer at every object, `F(α) ≠ ∅` (§17.1, Proposition 17.3.4,
+     Theorem 19.2.2), and condition (v3) of Definition 19.4.1 asks for a limit in the fibre over `z`.
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
 4. **Where our reading needed a condition the text does not print.** In each case the statement with
@@ -148,6 +152,14 @@ A web browser is enough: no Lean and no GitHub account are needed.
 | Proposition 11.1.6, p. 524 | The intersection of two faces as a union of faces |
 | Theorem 14.6.3 with Definition 13.3.8, p. 682 | The equivalence also compares the sections, as p. 682 uses it |
 | §§16.1–16.3, pp. 707–723 | An effective target, as for Theorem 10.3.19 |
+| Lemmas 17.1.9 and 17.2.10, pp. 748, 773 | `Ψ̂` continuous in Definition 17.1.8 |
+| Proposition 17.1.25, p. 758 | Details in the Findings, Chapter 17 |
+| Lemma 17.4.13, p. 798 | Tame in the sense of Definition 2.5.18 |
+| Lemma 18.1.8, p. 847 | The continuity of Definition 12.2.1 in Definition 18.1.7 |
+| Lemma 19.4.3, p. 881 | Details in the Findings, Chapter 19 |
+| Definition 19.7.11, p. 910 | Compatible uniformizers, as in Definition 19.6.4 (A) |
+| Proposition 19.7.18, Corollary 19.7.20 (3), Theorem 19.7.25 (4b), pp. 919–926 | Details in the Findings, Chapter 19 |
+| The remark after Lemma 19.7.19, p. 920 | Details in the Findings, Chapter 19 |
 
 ## Open questions
 

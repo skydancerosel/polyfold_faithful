@@ -730,6 +730,608 @@
    ]
   },
   {
+   "key": "partIV",
+   "title": "Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings",
+   "mains": [
+    [
+     "Prop 17.1.11",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_11"
+    ],
+    [
+     "Thm 17.1.14",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_14"
+    ],
+    [
+     "Thm 17.1.18",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_18"
+    ],
+    [
+     "Prop 17.1.23",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_23"
+    ],
+    [
+     "Prop 17.1.24",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_24"
+    ],
+    [
+     "Thm 17.1.26",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_26"
+    ],
+    [
+     "Thm 17.1.27",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_27"
+    ],
+    [
+     "Thm 17.1.28",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28_gct"
+    ],
+    [
+     "Thm 17.1.28",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28"
+    ],
+    [
+     "Thm 17.1.28",
+     "Polyfold.GCT.UniformizedPolyfold.theorem_17_1_28_levels"
+    ],
+    [
+     "Cor 17.1.29",
+     "Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29_model"
+    ],
+    [
+     "Cor 17.1.29",
+     "Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29_of_coveringFamily"
+    ],
+    [
+     "Cor 17.1.29",
+     "Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29"
+    ],
+    [
+     "Prop 17.2.4",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4"
+    ],
+    [
+     "Prop 17.2.4",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4_banachable"
+    ],
+    [
+     "Prop 17.2.4",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_4_sc"
+    ],
+    [
+     "Prop 17.2.5",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_5"
+    ],
+    [
+     "Prop 17.2.12",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_12"
+    ],
+    [
+     "Prop 17.2.14",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14_src_tgt"
+    ],
+    [
+     "Prop 17.2.14",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14"
+    ],
+    [
+     "Prop 17.2.15",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_15"
+    ],
+    [
+     "Prop 17.2.16",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_16"
+    ],
+    [
+     "Prop 17.3.4",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4"
+    ],
+    [
+     "Prop 17.3.4",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4_of_nonempty"
+    ],
+    [
+     "Prop 17.3.6",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_6"
+    ],
+    [
+     "Prop 17.3.8",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_8"
+    ],
+    [
+     "Thm 17.4.16",
+     "Polyfold.GCT.PolyfoldConstruction.theorem_17_4_16"
+    ],
+    [
+     "Prop 17.5.2",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_one"
+    ],
+    [
+     "Prop 17.5.2",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_2_two"
+    ],
+    [
+     "Prop 17.5.5",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_one"
+    ],
+    [
+     "Prop 17.5.5",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_two"
+    ],
+    [
+     "Prop 17.5.7",
+     "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_7"
+    ],
+    [
+     "Thm 17.6.4",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4"
+    ],
+    [
+     "Thm 17.6.4",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4_book"
+    ],
+    [
+     "Thm 17.6.6",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6"
+    ],
+    [
+     "Thm 17.6.6",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1"
+    ],
+    [
+     "Thm 17.6.6",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_book"
+    ],
+    [
+     "Thm 17.6.6",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1_book"
+    ],
+    [
+     "Thm 17.6.8",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8"
+    ],
+    [
+     "Thm 17.6.8",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8_book"
+    ],
+    [
+     "Thm 17.6.9",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9"
+    ],
+    [
+     "Thm 17.6.9",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1"
+    ],
+    [
+     "Thm 17.6.9",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_book"
+    ],
+    [
+     "Thm 17.6.9",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1_book"
+    ],
+    [
+     "Prop 17.8.6",
+     "Polyfold.proposition_17_8_6"
+    ],
+    [
+     "Prop 17.8.15",
+     "Polyfold.ProperPolyfoldCoveringStructure.proposition_17_8_15"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_one"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_two"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_four"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_three"
+    ],
+    [
+     "Prop 17.8.16",
+     "Polyfold.ProperCoveringUniformizerConstruction.proposition_17_8_16_branched_tame"
+    ],
+    [
+     "Thm 18.1.5",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5"
+    ],
+    [
+     "Thm 18.1.5",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory"
+    ],
+    [
+     "Thm 18.1.5",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_model"
+    ],
+    [
+     "Thm 18.1.12",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_one"
+    ],
+    [
+     "Thm 18.1.12",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_two"
+    ],
+    [
+     "Thm 18.1.12",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three"
+    ],
+    [
+     "Thm 18.1.12",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_three_reflexive"
+    ],
+    [
+     "Thm 18.2.2",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_2"
+    ],
+    [
+     "Thm 18.2.6",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6"
+    ],
+    [
+     "Thm 18.3.5",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_5"
+    ],
+    [
+     "Thm 18.3.6",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6"
+    ],
+    [
+     "Prop 18.4.3",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3"
+    ],
+    [
+     "Prop 18.4.3",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula"
+    ],
+    [
+     "Thm 18.4.4",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4"
+    ],
+    [
+     "Thm 18.4.4",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree"
+    ],
+    [
+     "Prop 18.5.6",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp"
+    ],
+    [
+     "Prop 18.5.6",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_two_hyp"
+    ],
+    [
+     "Prop 18.5.6",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_three_hyp"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_existence"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_structurable"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_modelFree"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_in_particular_modelFree"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented"
+    ],
+    [
+     "Thm 18.6.1",
+     "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented_modelFree"
+    ],
+    [
+     "Thm 19.2.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_one"
+    ],
+    [
+     "Thm 19.2.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_two"
+    ],
+    [
+     "Thm 19.2.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_three"
+    ],
+    [
+     "Thm 19.2.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_four"
+    ],
+    [
+     "Thm 19.2.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_2_2_five"
+    ],
+    [
+     "Thm 19.3.3",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_3_3"
+    ],
+    [
+     "Prop 19.3.4",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_4"
+    ],
+    [
+     "Prop 19.3.4",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_4_topology"
+    ],
+    [
+     "Prop 19.3.5",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_5"
+    ],
+    [
+     "Prop 19.3.7",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_7"
+    ],
+    [
+     "Prop 19.4.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2"
+    ],
+    [
+     "Prop 19.4.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_one_iff_two"
+    ],
+    [
+     "Prop 19.4.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_two_three"
+    ],
+    [
+     "Prop 19.4.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2_three_two_hyp"
+    ],
+    [
+     "Prop 19.4.4",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_4"
+    ],
+    [
+     "Prop 19.4.5",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_5"
+    ],
+    [
+     "Thm 19.4.6",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_4_6_one"
+    ],
+    [
+     "Thm 19.4.6",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_4_6_two"
+    ],
+    [
+     "Prop 19.4.7",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_7"
+    ],
+    [
+     "Cor 19.4.8",
+     "Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_4_8"
+    ],
+    [
+     "Thm 19.5.1",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1"
+    ],
+    [
+     "Thm 19.5.1",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1_natural"
+    ],
+    [
+     "Cor 19.5.2",
+     "Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_5_2"
+    ],
+    [
+     "Thm 19.5.3",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_3_one"
+    ],
+    [
+     "Thm 19.5.3",
+     "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_3_two"
+    ],
+    [
+     "Prop 19.5.7",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_7"
+    ],
+    [
+     "Prop 19.5.9",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_9"
+    ],
+    [
+     "Prop 19.5.11",
+     "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_11"
+    ],
+    [
+     "Thm 19.6.8",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one"
+    ],
+    [
+     "Thm 19.6.8",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_two"
+    ],
+    [
+     "Thm 19.6.8",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_three"
+    ],
+    [
+     "Thm 19.6.8",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four"
+    ],
+    [
+     "Thm 19.6.8",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five"
+    ],
+    [
+     "Prop 19.6.9",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_one"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_two"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_three"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_four"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_five"
+    ],
+    [
+     "Thm 19.6.11",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_six"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_H"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_total"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_s"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_t"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_u"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_inv"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_of_bundleTransitionData"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_book"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_m"
+    ],
+    [
+     "Thm 19.6.13",
+     "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_m"
+    ],
+    [
+     "Prop 19.7.13",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_13"
+    ],
+    [
+     "Prop 19.7.14",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_14"
+    ],
+    [
+     "Prop 19.7.15",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_one"
+    ],
+    [
+     "Prop 19.7.15",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_hyp"
+    ],
+    [
+     "Prop 19.7.23",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_23_hyp"
+    ],
+    [
+     "Prop 19.7.24",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_24_hyp"
+    ],
+    [
+     "Prop 19.7.26",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_26"
+    ],
+    [
+     "Thm 19.7.28",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_one_hyp"
+    ],
+    [
+     "Thm 19.7.28",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_two_hyp"
+    ],
+    [
+     "Thm 19.7.28",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp"
+    ],
+    [
+     "Thm 19.7.29",
+     "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp"
+    ],
+    [
+     "Thm 19.8.6",
+     "Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four"
+    ],
+    [
+     "Thm 19.8.6",
+     "Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_topology_hyp"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_inv_hyp"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_unit"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_mul_hyp"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_inv_hyp"
+    ],
+    [
+     "Thm 19.8.22",
+     "Polyfold.GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_hyp"
+    ]
+   ]
+  },
+  {
    "key": "tame",
    "title": "Tame boundary (Theorems 2.7.13 and 7.6.9)",
    "mains": [

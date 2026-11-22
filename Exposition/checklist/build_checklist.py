@@ -17,7 +17,7 @@ CMP = os.path.join(os.path.dirname(HERE), 'cmp', 'ch%02d.json')
 spec = json.load(open(SPEC))
 tiers = [t['key'] for t in spec['tiers']]
 rows = {}; decl2rows = collections.defaultdict(list); rowidx = {}
-for n in range(1, 17):
+for n in range(1, 20):
     if not os.path.exists(CMP % n): continue
     for x in json.load(open(CMP % n))['items']:
         rowidx[x['id']] = len(rows); rows[x['id']] = x

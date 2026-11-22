@@ -1,0 +1,3313 @@
+{
+ "items": [
+  {
+   "id": "V19.1",
+   "title": "Definition 19.1.1 (2017: 19.1), groupoidal categories",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Definition 19.1.1, p. 863 (2017: Definition 19.1)",
+    "page": 863,
+    "statement": "A groupoidal category is a category in which every morphism is an isomorphism and between any two objects there are only finitely many morphisms."
+   },
+   "lean": {
+    "statement": "A groupoidal category is Chapter 17's `GroupoidalCategory` (Definition 17.1.1): a groupoid structure on `Obj`, `Mor` with finite morphism sets between any two objects; `definition_19_1_1` spells out that every morphism is invertible and that the morphism sets are finite.",
+    "decls": [
+     "Chapter17/GroupoidalCategory · GroupoidalCategory",
+     "Chapter19/BasicConstruction · GroupoidalCategory.definition_19_1_1"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's remark that the orbit space is a set is a Lean type `C.OrbitSpace`."
+   ]
+  },
+  {
+   "id": "V19.2",
+   "title": "Definition 19.1.2 (2017: 19.2), uniformizers at an object",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.1, Definition 19.1.2, p. 864 (2017: Definition 19.2)",
+    "page": 864,
+    "statement": "For an object $\\alpha$ with isotropy group $G$, a uniformizer at $\\alpha$ is a functor $\\Psi : G \\ltimes O \\to S$ from a translation groupoid, injective on objects and fully faithful, with $\\Psi(\\bar o) = \\alpha$ for some $\\bar o$."
+   },
+   "lean": {
+    "statement": "`Uniformizer`: an M-polyfold `O` with a finite group `G` acting by sc-diffeomorphisms and a functor $G \\ltimes O \\to S$, injective on objects and fully faithful; `IsAt α` is (3), some $\\bar o$ with $\\Psi(\\bar o) = \\alpha$.",
+    "decls": [
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer",
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.IsAt",
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.IsCentredAt",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.IsCentred"
+    ]
+   },
+   "chips": [
+    "isotropy condition: IsCentredAt",
+    "not used in §§19.1–19.5"
+   ],
+   "diff": [
+    "\"α an object with isotropy group G\" is the separate predicate `IsCentredAt` ($G$ fixes $\\bar o$, so that $G \\cong \\mathrm{Aut}(\\alpha)$ by full faithfulness) and `IsCentred` for a whole construction; nothing in §§19.1–19.5 needs it, so the definition is taken without it, which is more general. As the text says, no topology is required; the domain `O` is Hausdorff and paracompact as an M-polyfold."
+   ]
+  },
+  {
+   "id": "V19.3",
+   "title": "Definition 19.1.3 (2017: 19.3), uniformizer constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Definition 19.1.3, p. 865 (2017: Definition 19.3)",
+    "page": 865,
+    "statement": "A uniformizer construction is a functor $F : S^- \\to \\mathrm{SET}$ assigning to every object $\\alpha$ a set $F(\\alpha)$ of uniformizers at $\\alpha$."
+   },
+   "lean": {
+    "statement": "A uniformizer construction is a family `F α` of uniformizers at α (field `isAt`); `Unif` is the type of pairs $(\\Psi, \\alpha)$ with $\\Psi \\in F(\\alpha)$. `HasUniformizers` ($F(\\alpha) \\ne \\emptyset$ for all α) implies `HasClassUniformizers` (every class meets an α with $F(\\alpha) \\ne \\emptyset$).",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.Unif",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.HasUniformizers",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.HasClassUniformizers",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.HasUniformizers.hasClassUniformizers"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "F(α) ≠ ∅ separate: V19.12"
+   ],
+   "diff": [
+    "A functor $S^- \\to \\mathrm{SET}$ is a family indexed by objects. The non-emptiness is not part of the definition here; it is the hypothesis of V19.12."
+   ]
+  },
+  {
+   "id": "V19.4",
+   "title": "Remark 19.1.4 (2017: 19.1), $F$ as a functor on $S$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Remark 19.1.4, p. 865 (2017: Remark 19.1)",
+    "page": 865,
+    "statement": "In most applications $F$ is a functor on $S$: a morphism $\\varphi : \\alpha \\to \\alpha'$ gives a bijection $F(\\varphi) : F(\\alpha) \\to F(\\alpha')$, often with a geometric meaning."
+   },
+   "lean": {
+    "statement": "`Functorial`: maps $F(\\varphi) : F(\\alpha) \\to F(\\alpha')$ with $F(1_\\alpha) = \\mathrm{id}$ and $F(\\varphi' \\circ \\varphi) = F(\\varphi') \\circ F(\\varphi)$; `remark_19_1_4`: each $F(\\varphi)$ is a bijection.",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.Functorial",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.remark_19_1_4"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "geometric meaning: prose"
+   ],
+   "diff": [
+    "The geometric meaning of $F(\\varphi)$ is prose. Nothing later uses the functoriality."
+   ]
+  },
+  {
+   "id": "V19.5",
+   "title": "The transition sets and the structure maps $s, t, u, \\iota, m$, p. 865",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, p. 865 (2017: §19.1)",
+    "page": 865,
+    "statement": "For $\\Psi \\in F(\\alpha)$, $\\Psi' \\in F(\\alpha')$ the transition set $M(\\Psi, \\Psi')$ is the weak fibred product of $\\Psi$ and $\\Psi'$, with the structure maps $s, t, u, \\iota, m$ and $\\bar\\Psi(g, o) = (o, \\Psi(g, o), g * o)$."
+   },
+   "lean": {
+    "statement": "$M(\\Psi, \\Psi')$ is the weak fibred product, triples $(o, \\varphi, o')$ with $\\varphi : \\Psi(o) \\to \\Psi'(o')$ (Chapter 17's `TransitionSet`, fields `src`, `mor`, `tgt`), with the unit, the inversion and the multiplication; $\\bar\\Psi(g, o) = (o, \\Psi(g, o), g * o)$ is `hat`.",
+    "decls": [
+     "Chapter17/TransitionSet · GroupoidStr.TransitionSet",
+     "Chapter17/TransitionSet · GroupoidStr.TransitionSet.unit",
+     "Chapter17/TransitionSet · GroupoidStr.TransitionSet.inv",
+     "Chapter17/TransitionSet · GroupoidStr.TransitionSet.mul",
+     "Chapter17/TransitionSet · GroupoidStr.TransitionSet.mul_eq_comp",
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.Trans",
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.hat"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.6",
+   "title": "Properties (19.3) (A)–(F) of transition data, pp. 866–867",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, properties (19.3), pp. 866–867 (2017: §19.1)",
+    "page": 866,
+    "statement": "Transition data assign to every $h \\in M(\\Psi, \\Psi')$ a germ $F_h : (V(o), o) \\to (M(\\Psi, \\Psi'), h)$ with $s \\circ F_h = \\mathrm{id}$, satisfying (A)–(F): the special form on $M(\\Psi, \\Psi)$, $t \\circ F_h$ an sc-diffeomorphism, compatibility with $u$, $\\iota$, $m$, and a Hausdorff property."
+   },
+   "lean": {
+    "statement": "`TransitionData`: for every $h \\in M(\\Psi, \\Psi')$ an open `dom` $V(o) \\ni s(h)$ and a germ `map` $F_h : V(o) \\to M(\\Psi, \\Psi')$ with $s \\circ F_h = \\mathrm{id}$, $F_h(s(h)) = h$; (A) the special form on $M(\\Psi, \\Psi)$ (`map_hat`), (B) $f_h = t \\circ F_h$ an sc-diffeomorphism onto an open set (`diffeo`), (C) `identity`, (D) `inversion`, (E) `multiplication`, (F) the Hausdorff property (`hausdorff`), and the stability under restriction to $V(o)$ (`stability`). `fmap` is $f_h$; the first identity of (E), $f_{h'} \\circ f_h = f_{m(h', h)}$, follows from the second (`mul_fmap`).",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.fmap",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.fmap_src",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.continuousOn_fmap",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_image_fmap",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_fmap_restrict",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.exists_nbhd_fmap",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.mul_fmap"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "first identity of (E) derived"
+   ],
+   "diff": [
+    "(D) and (E) are stated on the domains where both sides are defined, as the text intends."
+   ]
+  },
+  {
+   "id": "V19.7",
+   "title": "Restriction of transition data, p. 867, and Definition 19.1.5 (new in the 2021 edition), equivalence",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, p. 867, and Definition 19.1.5, p. 867 (new in the 2021 edition)",
+    "page": 867,
+    "statement": "Restricting the germs to smaller open neighbourhoods gives transition data as good as the original (p. 867); two transition data are equivalent if suitable restrictions coincide (Definition 19.1.5)."
+   },
+   "lean": {
+    "statement": "Replacing every $V(o)$ by a smaller open $Q(o) \\ni o$ gives transition data (`restrict`); $F \\sim F'$ if for every $h$ there is an open $V \\ni s(h)$ in both domains with $F_h = F'_h$ on $V$; this is an equivalence relation, and a restriction is equivalent to the original.",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.restrict",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.equiv_refl",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv.symm",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.Equiv.trans",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.setoid",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.equiv_restrict"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "read per h"
+   ],
+   "diff": [
+    "\"Restrictions to suitable smaller neighbourhoods coincide\" is read per $h$."
+   ]
+  },
+  {
+   "id": "V19.8",
+   "title": "Definition 19.1.6 (2017: 19.4), transition constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Definition 19.1.6, p. 867 (2017: Definition 19.4)",
+    "page": 867,
+    "statement": "A transition construction for $F$ is an equivalence class of transition data."
+   },
+   "lean": {
+    "statement": "`TransitionConstruction := Quotient TransitionData.setoid`.",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionConstruction"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "2017: the data itself"
+   ],
+   "diff": [
+    "In 2017 a transition construction was the data itself; in 2021 it is an equivalence class, as here."
+   ]
+  },
+  {
+   "id": "V19.9",
+   "title": "Definition 19.1.7 (2017: 19.5), basic constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Definition 19.1.7, p. 868 (2017: Definition 19.5)",
+    "page": 868,
+    "statement": "A basic construction for $S$ is a pair $(F, \\mathcal F)$ of a uniformizer construction and a transition construction."
+   },
+   "lean": {
+    "statement": "A pair `U` (uniformizer construction) and `𝓕` (transition construction); `rep` is a chosen representative, with `⟦B.rep⟧ = B.𝓕`.",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.BasicConstruction",
+     "Chapter19/BasicConstruction · GroupoidalCategory.BasicConstruction.rep",
+     "Chapter19/BasicConstruction · GroupoidalCategory.BasicConstruction.mk_rep"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "Every later notion is shown not to depend on the representative (V19.15, V19.31)."
+   ]
+  },
+  {
+   "id": "V19.10",
+   "title": "Remark 19.1.8 (2017: 19.2), the properties after shrinking",
+   "verdict": "same",
+   "book": {
+    "label": "§19.1, Remark 19.1.8, p. 868 (2017: Remark 19.2)",
+    "page": 868,
+    "statement": "After shrinking, the properties of transition data hold on open neighbourhoods $V(o)$, $V(o')$, $V(o'')$ on which the $f_h$ are sc-diffeomorphisms."
+   },
+   "lean": {
+    "statement": "On suitable open neighbourhoods: $f_h : V(o) \\to V(o')$ is an sc-diffeomorphism with $F_{\\iota(h)}(f_h(q)) = \\iota(F_h(q))$; for $h = \\bar\\Psi(g, o)$, $f_h(q) = g * q$ and $F_h(q) = \\bar\\Psi(g, q)$; $F_{u(o)} = u$; the two identities of (E) on $V(o)$; the stability.",
+    "decls": [
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_inv",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_hat",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_unit",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_mul",
+     "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_stability"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "G.257"
+   ],
+   "diff": [
+    "The shrinkings are written out (point G.257)."
+   ]
+  },
+  {
+   "id": "V19.11",
+   "title": "Definition 19.2.1 (2017: 19.6), the natural topology",
+   "verdict": "same",
+   "book": {
+    "label": "§19.2, Definition 19.2.1, p. 869 (2017: Definition 19.6)",
+    "page": 869,
+    "statement": "$T$ consists of the $U \\subset |S|$ such that every $z \\in U$ is $|\\alpha_z|$ with $\\Psi \\in F(\\alpha_z)$ and an open $V(\\bar o)$, $\\Psi(\\bar o) = \\alpha_z$, with $|\\Psi(V(\\bar o))| \\subset U$."
+   },
+   "lean": {
+    "statement": "`NatOpen W`: every $z \\in W$ is $|\\alpha_z|$ with some $\\Psi \\in F(\\alpha_z)$ and an open $V \\ni \\bar o$, $\\Psi(\\bar o) = \\alpha_z$, with $|\\Psi(V)| \\subset W$; it depends only on $F$ (`natOpen_empty`, `natOpen_sUnion`), while intersections need a representative of $\\mathcal F$ (`natOpen_inter`), as the text notes; `natOpen_univ_iff`: $|S|$ is in $T$ iff `HasClassUniformizers`; `natTop hB` is the topology.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.NatOpen",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.natOpen_empty",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.natOpen_sUnion",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.natOpen_inter",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.natOpen_univ_iff",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.natTop",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.isOpen_natTop_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.12",
+   "title": "Theorem 19.2.2 (2017: 19.1), the natural topology is a locally metrizable topology",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.2, Theorem 19.2.2, p. 869 (2017: Theorem 19.1)",
+    "page": 869,
+    "statement": "(1) $T$ is a topology on $|S|$; (2) $|\\Psi(V)|$ is open for $V \\subset O$ open; (3) $|\\Psi| : G\\backslash O \\to |S|$ is a homeomorphism onto an open neighbourhood of $|\\alpha|$; (4) every point has a countable neighbourhood basis; (5) every point has a metrizable open neighbourhood."
+   },
+   "lean": {
+    "statement": "Under `hB : HasClassUniformizers`: (1) $T$ is a topology; (2) $|\\Psi(V)|$ is open for $V$ open; (3) $|\\Psi| : G\\backslash O \\to |S|$ is an open embedding with $|\\alpha|$ in its image; (4) $T$ is first countable; (5) every point has an open metrizable neighbourhood.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_2_2_one",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_2_2_two",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_2_2_three",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_2_2_four",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_2_2_five",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.continuous_π_obj",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.theorem_19_2_2_empty_family",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.emptyBasic_natOpen_iff"
+    ]
+   },
+   "chips": [
+    "F(α) ≠ ∅ in every class (reading)",
+    "F ≡ ∅: T = {∅}"
+   ],
+   "diff": [
+    "We read a uniformizer construction as having $F(\\alpha) \\ne \\emptyset$ in every isomorphism class, the standing reading of §17.1 (Findings, Chapter 19, item 1); the proof of (2) and (3) chooses $\\Psi' \\in F(\\alpha')$. Without it, for $F \\equiv \\emptyset$ the collection $T$ is $\\{\\emptyset\\}$ and does not contain $|S|$ (`emptyBasic_natOpen_iff`), so (1) needs it (`theorem_19_2_2_empty_family`). (5) gives (4) as the text says; (5) uses the metrizability of $G\\backslash O$ (`Polyfold.metrizableSpace_translation_orbitSpace`).",
+    "Hidden hypotheses: `hB`, the reading below."
+   ]
+  },
+  {
+   "id": "V19.13",
+   "title": "Remark 19.2.3 (2017: 19.3), a natural topology that is not Hausdorff",
+   "verdict": "same",
+   "book": {
+    "label": "§19.2, Remark 19.2.3, p. 870 (2017: Remark 19.3)",
+    "page": 870,
+    "statement": "$T$ need not be Hausdorff: two lines $\\mathbb R \\times \\{\\pm 1\\}$ with morphisms between $(x, -1)$ and $(x, 1)$ for $x > 0$; $|(0, -1)|$ and $|(0, 1)|$ cannot be separated."
+   },
+   "lean": {
+    "statement": "The text's example, two lines $\\mathbb R \\times \\{\\pm 1\\}$ glued along $x > 0$, with the uniformizers $\\Psi_{\\pm 1}$ and trivial isotropy: `gluedBasic` is a basic construction, centred, with $F(\\alpha) \\ne \\emptyset$; `remark_19_2_3 : ¬ T2Space` for its natural topology ($|(0, -1)| \\ne |(0, 1)|$ cannot be separated).",
+    "decls": [
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.remark_19_2_3",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.gluedBasic",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.gluedBasic_hasUniformizers",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.gluedBasic_isCentred",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.gluedLines_π_ne",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.gluedBasic_natOpen"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "example written out",
+    "G.258"
+   ],
+   "diff": [
+    "The transition data are written out from keyed data (`Polyfold.GroupoidalCategory.UniformizerConstruction.TransitionData.ofKey`). The \"natural smooth structures\" on the four transition sets are the general ones of V19.31, which need no hypothesis (point G.258). The example is new in 2021."
+   ]
+  },
+  {
+   "id": "V19.14",
+   "title": "Remark 19.2.4 (2017: 19.4), Hausdorff, regular and second countable gives a GCT",
+   "verdict": "same",
+   "book": {
+    "label": "§19.2, Remark 19.2.4, p. 872 (2017: Remark 19.4)",
+    "page": 872,
+    "statement": "If $T$ is Hausdorff, regular and second countable, $(S, T)$ is a GCT and Chapters 17 and 18 apply."
+   },
+   "lean": {
+    "statement": "If $T$ is Hausdorff, regular and second countable it is metrizable (Urysohn), and `toGCT` is the GCT $(S, T)$; `isOrbitChart`: $|\\Psi|$ is an orbit chart.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.remark_19_2_4",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.isOrbitChart",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.toGCT"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's \"locally metrizable\" is V19.12 (5).",
+    "Hidden hypotheses: `hB`, as in V19.12."
+   ]
+  },
+  {
+   "id": "V19.15",
+   "title": "Lemma 19.3.1 (new in the 2021 edition), the topology $T^F_{\\Psi,\\Psi'}$ does not depend on $F$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Lemma 19.3.1, p. 872 (new in the 2021 edition)",
+    "page": 872,
+    "statement": "For a representative $F$ of $\\mathcal F$ the collection $T^F_{\\Psi,\\Psi'}$ of $W \\subset M(\\Psi, \\Psi')$ with $F_h(V) \\subset W$ for a neighbourhood $V$ of $o$, for every $h \\in W$, does not depend on the representative."
+   },
+   "lean": {
+    "statement": "`IsOpenTr W`: every $h \\in W$ has an open $V \\subset V(o)$ with $F_h(V) \\subset W$; it is a topology; `lemma_19_3_1`: for equivalent $F_1$, $F_2$ the two collections are equal.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.IsOpenTr",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenTr_topology",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.topology",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.Tr",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_tr_iff",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenTr_of_equiv",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.lemma_19_3_1",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionConstruction.topology"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's \"two representatives of $\\mathcal F$\" are two equivalent transition data; the topology descends to the quotient (`TransitionConstruction.topology`)."
+   ]
+  },
+  {
+   "id": "V19.16",
+   "title": "Definition 19.3.2 (2017: 19.7), the natural topology $T_{\\Psi,\\Psi'}$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Definition 19.3.2, p. 873 (2017: Definition 19.7)",
+    "page": 873,
+    "statement": "The natural topology $T_{\\Psi,\\Psi'}$ on $M(\\Psi, \\Psi')$ is $T^F_{\\Psi,\\Psi'}$ for any representative $F$."
+   },
+   "lean": {
+    "statement": "`M Ψ Ψ'` is $M(\\Psi, \\Psi')$ with the topology of `B.rep`; for every representative $F$ of $\\mathcal F$ it is $T^F_{\\Psi,\\Psi'}$ (`definition_19_3_2`, `trHomeomorph`).",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.M",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.definition_19_3_2",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.isOpen_M_iff",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.trHomeomorph"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.17",
+   "title": "Theorem 19.3.3 (2017: 19.2), the transition sets",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Theorem 19.3.3, p. 873 (2017: Theorem 19.2)",
+    "page": 873,
+    "statement": "$T_{\\Psi,\\Psi'}$ is regular, Hausdorff and locally metrizable; $s$, $t$ are local homeomorphisms, $u$, $m$ continuous, $\\iota$ a homeomorphism, and $\\bar\\Psi : G \\times O \\to M(\\Psi, \\Psi)$ a homeomorphism."
+   },
+   "lean": {
+    "statement": "$T_{\\Psi,\\Psi'}$ is regular, Hausdorff and locally metrizable; (1) $s$ and (2) $t$ are local homeomorphisms, (3) $u$ is continuous, (4) $\\iota$ is a homeomorphism, (5) $m$ is continuous on the fibred product, (6) $\\bar\\Psi : G \\times O \\to M(\\Psi, \\Psi)$ is a homeomorphism.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.theorem_19_3_3",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.t2Space",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.regularSpace",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.exists_isOpen_metrizableSpace"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "2017: metrizable, no (6)"
+   ],
+   "diff": [
+    "The 2017 text said \"metrizable\" and had no (6); the 2021 statement is the one proved, and metrizability is V19.26."
+   ]
+  },
+  {
+   "id": "V19.18",
+   "title": "Proposition 19.3.4 (2017: 19.1), the germs are open embeddings",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Proposition 19.3.4, p. 874 (2017: Proposition 19.1)",
+    "page": 874,
+    "statement": "The germs $F_h$ map open sets to open sets and are homeomorphisms onto open subsets; $T_{\\Psi,\\Psi'}$ is Hausdorff."
+   },
+   "lean": {
+    "statement": "For every representative $F$: (1) $F_h(W)$ is open for $W \\subset V(o)$ open; (2) $F_h$ is continuous and an open embedding of $V(o)$; (3) $T_{\\Psi,\\Psi'}$ is Hausdorff.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.proposition_19_3_4",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.proposition_19_3_4_topology",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpen_image_map",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.continuousOn_map",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenEmbedding_restrict_map",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.sheet"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.19",
+   "title": "Proposition 19.3.5 (2017: 19.2), the structure maps",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Proposition 19.3.5, p. 875 (2017: Proposition 19.2)",
+    "page": 875,
+    "statement": "$s$ and $t$ are local homeomorphisms, $u$ and $m$ are continuous and $\\iota$ is a homeomorphism."
+   },
+   "lean": {
+    "statement": "$s$, $t$ are local homeomorphisms, $u$ is continuous, $\\iota$ a homeomorphism, $m : M(\\Psi', \\Psi'')\\,{}_s\\!\\times_t M(\\Psi, \\Psi') \\to M(\\Psi, \\Psi'')$ continuous.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.proposition_19_3_5",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_src",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_tgt",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.continuous_unit",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.invHomeomorph",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.FibProd",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.mulMap",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.continuous_mulMap"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The domain of $m$ is the fibred product with the subspace topology (`FibProd`)."
+   ]
+  },
+  {
+   "id": "V19.20",
+   "title": "Remark 19.3.6 (2017: 19.5), $u$ an open embedding and $m$ a local homeomorphism",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Remark 19.3.6, pp. 875–876 (2017: Remark 19.5)",
+    "page": 875,
+    "statement": "(a) The unit $u$ is an open embedding; (b) $m$ is a local homeomorphism."
+   },
+   "lean": {
+    "statement": "(a) $u : O \\to M(\\Psi, \\Psi)$ is an open embedding; (b) $m$ is a local homeomorphism.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.remark_19_3_6_a",
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.remark_19_3_6_b",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isOpenEmbedding_unit",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalHomeomorph_mulMap"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.21",
+   "title": "Proposition 19.3.7 (new in the 2021 edition), $\\bar\\Psi$ is a homeomorphism",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Proposition 19.3.7, p. 877 (new in the 2021 edition)",
+    "page": 877,
+    "statement": "$\\bar\\Psi : G \\times O \\to M(\\Psi, \\Psi)$ is a homeomorphism."
+   },
+   "lean": {
+    "statement": "$\\bar\\Psi : G \\times O \\to M(\\Psi, \\Psi)$ is a homeomorphism.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.proposition_19_3_7",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph",
+     "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph_apply"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "continuity from (A): G.259"
+   ],
+   "diff": [
+    "The continuity of $\\bar\\Psi$ comes from the special form (A) of the germs on $M(\\Psi, \\Psi)$ (point G.259). Compare Lemma 17.1.9, where a continuity assumption on $\\hat\\Psi$ is needed (`Polyfold.GCT.PolyfoldConstruction.not_lemma_17_1_9`); in a basic construction it is automatic."
+   ]
+  },
+  {
+   "id": "V19.22",
+   "title": "Lemma 19.3.8 (new in the 2021 edition), $T_{\\Psi,\\Psi'}$ is regular",
+   "verdict": "same",
+   "book": {
+    "label": "§19.3, Lemma 19.3.8, p. 878 (new in the 2021 edition)",
+    "page": 878,
+    "statement": "The topology $T_{\\Psi,\\Psi'}$ is regular."
+   },
+   "lean": {
+    "statement": "$M(\\Psi, \\Psi')$ is regular: a Hausdorff space with a local homeomorphism to a regular space is regular.",
+    "decls": [
+     "Chapter19/NaturalTopology · GroupoidalCategory.BasicConstruction.lemma_19_3_8",
+     "Chapter19/TopologyLemmas · Chapter19.regularSpace_of_isLocalHomeomorph_of_t2"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "G.260"
+   ],
+   "diff": [
+    "The choice of $W(h)$ with $W(h) \\cap A = \\emptyset$ is made by the general lemma (point G.260)."
+   ]
+  },
+  {
+   "id": "V19.23",
+   "title": "Definition 19.4.1 (2017: 19.8), the properness conditions (v1)–(v3)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.4, Definition 19.4.1, p. 879 (2017: Definition 19.8)",
+    "page": 879,
+    "statement": "Three properness conditions: (v1) sequences with sources near $o$ and convergent targets have convergent subsequences; (v2) $\\mathrm{cl}\\,|\\Psi(U(o))| \\subset |\\Psi(O)|$; (v3) $|\\Psi(q_k)| \\to z$ with $q_k \\in U(o)$ gives a subsequence convergent in $\\mathrm{cl}_O(U(o))$."
+   },
+   "lean": {
+    "statement": "(v1): for $\\Psi$ and $o$ an open $U(o)$ such that for every $\\Psi'$ every sequence in $M(\\Psi, \\Psi')$ with sources in $U$ and convergent targets has a convergent subsequence; (v2): an open $U(o)$ with $\\mathrm{cl}\\,|\\Psi(U)| \\subset |\\Psi(O)|$; (v3) as printed: $|\\Psi(q_k)| \\to z$ for $q_k \\in U$ gives a subsequence convergent in $\\mathrm{cl}_O(U)$; `PropernessV3Lim` adds that the limit $q$ satisfies $|\\Psi(q)| = z$.",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.PropernessV1",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.PropernessV2",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.PropernessV3",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.PropernessV3Lim",
+     "Chapter19/TopologyLemmas · Chapter19.OrbitChartV2",
+     "Chapter19/TopologyLemmas · Chapter19.OrbitChartV3",
+     "Chapter19/Metrizability · Chapter19.OrbitChartV3Lim",
+     "Chapter19/TopologyLemmas · Chapter19.TransitionV1"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "(v3) with limit: separate"
+   ],
+   "diff": [
+    "(v1) chooses $U(o)$ before $\\Psi'$, as printed. (v2) and (v3) are stated for the natural topology, so they take `hB`."
+   ]
+  },
+  {
+   "id": "V19.24",
+   "title": "Proposition 19.4.2 (2017: 19.4), the properness conditions are equivalent",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.4, Proposition 19.4.2, p. 880 (2017: Proposition 19.4)",
+    "page": 880,
+    "statement": "The three properness conditions are equivalent."
+   },
+   "lean": {
+    "statement": "`proposition_19_4_2`: (v1) ↔ (v2) and (v2) ↔ (v3) with the limit; (v2) implies (v3) as printed (`proposition_19_4_2_two_three`); for $T$ Hausdorff, (v3) as printed implies (v2) (`proposition_19_4_2_three_two_hyp`).",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_2",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_2_one_iff_two",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_2_two_three",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_2_three_two_hyp",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.propernessV3_of_locallyCompactSpace",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.proposition_19_4_2_v3_without_limit",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.gluedBasic_propernessV3",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.gluedBasic_not_propernessV2"
+    ]
+   },
+   "chips": [
+    "(v3) read with the limit",
+    "printed (v3) weaker"
+   ],
+   "diff": [
+    "We read (v3) with the limit $q$ in the fibre over $z$, $|\\Psi(q)| = z$, which the proof of (3) ⇒ (1) uses (Findings, Chapter 19, item 3). As printed, (v3) holds for every basic construction whose domains are locally compact (`propernessV3_of_locallyCompactSpace`), and the glued lines of Remark 19.2.3 satisfy it but not (v2) (`gluedBasic_propernessV3`, `gluedBasic_not_propernessV2`), so the printed form is not equivalent to the others (`proposition_19_4_2_v3_without_limit`).",
+    "Hidden hypotheses: none for the main form; `hT` for the printed (v3) ⇒ (v2)."
+   ]
+  },
+  {
+   "id": "V19.25",
+   "title": "Lemma 19.4.3 (new in the 2021 edition), finitely many sheets over a neighbourhood",
+   "verdict": "narrower",
+   "book": {
+    "label": "§19.4, Lemma 19.4.3, p. 881 (new in the 2021 edition)",
+    "page": 881,
+    "statement": "Under properness, for $o \\in O$ there are finitely many $h_i$ and open $U(o)$, $U(h_i)$ with $s : U(h_i) \\to U(o)$ a homeomorphism, covering every $h$ with $s(h) \\in U(o)$."
+   },
+   "lean": {
+    "statement": "For $o$ the source of some element of $M(\\Psi, \\Psi')$: finitely many $h_i$, an open $U(o)$ and open $U(h_i)$ with $s : U(h_i) \\to U(o)$ a homeomorphism, covering every $h$ with $s(h) \\in U(o)$; no properness is needed for this form.",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.lemma_19_4_3_hyp",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.not_lemma_19_4_3",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic_not_lemma_19_4_3",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic_propernessV2",
+     "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.finite_fiber",
+     "Chapter19/Metrizability · GroupoidalCategory.UniformizerConstruction.TransitionData.exists_tendsto_subseq_of_tendsto_src"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "holds at sources",
+    "no properness needed there"
+   ],
+   "diff": [
+    "The lemma does not hold as we read it for an $o$ that is not a source (Findings, Chapter 19, item 4): for `expBasic`, the line with trivial isotropy and the uniformizers $\\Psi_0 = \\mathrm{id}$ and $\\Psi_e(t) = e^t$ at the points $x > 0$, properness (v2) holds and $T$ is metrizable, but at $o = 0$ no element of $M(\\Psi_0, \\Psi_e)$ has source $0$ while every neighbourhood of $0$ contains a source, so no $U(0)$ has the covering property (`expBasic_not_lemma_19_4_3`, `not_lemma_19_4_3`). The proof treats the case of a source; Proposition 19.4.4 uses the lemma only there, so nothing downstream is affected (V19.26). The two \"easy exercises\" of the proof are `finite_fiber` and `exists_tendsto_subseq_of_tendsto_src` (point G.261).",
+    "Hidden hypotheses: `ho : ∃ h, s(h) = o`."
+   ]
+  },
+  {
+   "id": "V19.26",
+   "title": "Proposition 19.4.4 (2017: 19.3), the transition sets are metrizable",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.4, Proposition 19.4.4, p. 883 (2017: Proposition 19.3)",
+    "page": 883,
+    "statement": "Under properness every $T_{\\Psi,\\Psi'}$ is metrizable."
+   },
+   "lean": {
+    "statement": "Every $T_{\\Psi,\\Psi'}$ is metrizable: $s$ is a local homeomorphism onto an open subset of the metrizable $O$ with finitely many sheets over a neighbourhood of every point of its image, so $M(\\Psi, \\Psi')$ is paracompact, and it is Hausdorff and locally metrizable.",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_4",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.metrizableSpace_M",
+     "Chapter19/Metrizability · GroupoidalCategory.UniformizerConstruction.TransitionData.metrizableSpace",
+     "Chapter19/Metrizability · GroupoidalCategory.UniformizerConstruction.TransitionData.exists_nbhd_eq_map",
+     "Chapter19/TopologyLemmas · Chapter19.metrizableSpace_of_isLocalHomeomorph_of_finiteSheets",
+     "Chapter19/TopologyLemmas · Chapter19.paracompactSpace_of_isLocalHomeomorph_of_finiteSheets"
+    ]
+   },
+   "chips": [
+    "without properness",
+    "2017 form"
+   ],
+   "diff": [
+    "The properness condition of the 2021 statement is not needed (`metrizableSpace_M`); `proposition_19_4_4` keeps it as an unused argument. The 2017 text (Proposition 19.3, placed before the properness conditions) stated it without them, the form proved here."
+   ]
+  },
+  {
+   "id": "V19.27",
+   "title": "Proposition 19.4.5 (2017: 19.5), properness gives a Hausdorff, completely regular $T$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.4, Proposition 19.4.5, p. 884 (2017: Proposition 19.5)",
+    "page": 884,
+    "statement": "Under properness $T$ is Hausdorff and completely regular."
+   },
+   "lean": {
+    "statement": "Under (v2), $T$ is Hausdorff and completely regular, from a general statement on spaces covered by orbit charts $G\\backslash O \\to Z$ with (v2).",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_5",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.isOrbitChart_unif",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.exists_unif_π_eq",
+     "Chapter19/TopologyLemmas · Chapter19.t2Space_of_orbitCharts",
+     "Chapter19/TopologyLemmas · Chapter19.completelyRegularSpace_of_orbitCharts",
+     "Chapter19/TopologyLemmas · Chapter19.exists_invariant_urysohn"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "averaging: G.262"
+   ],
+   "diff": [
+    "The averaging of $\\beta$ is written out: $\\beta$ is chosen vanishing on the orbit $G * \\bar o$ and then averaged (point G.262).",
+    "Hidden hypotheses: `hB`, as in V19.12."
+   ]
+  },
+  {
+   "id": "V19.28",
+   "title": "Theorem 19.4.6 (2017: 19.3), the metrization criteria",
+   "verdict": "same",
+   "book": {
+    "label": "§19.4, Theorem 19.4.6, p. 885 (2017: Theorem 19.3)",
+    "page": 885,
+    "statement": "Under properness, $T$ second countable or paracompact is metrizable."
+   },
+   "lean": {
+    "statement": "Under (v2): (1) second countable gives metrizable (Urysohn); (2) paracompact gives metrizable (`Polyfold.metrizableSpace_of_locally`).",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.theorem_19_4_6_one",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.theorem_19_4_6_two",
+     "Chapter19/TopologyLemmas · Chapter19.metrizableSpace_of_orbitCharts_secondCountable",
+     "Chapter19/TopologyLemmas · Chapter19.metrizableSpace_of_orbitCharts_paracompact"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none.",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.29",
+   "title": "Proposition 19.4.7 (2017: 19.6), metrizable iff properness and paracompact",
+   "verdict": "same",
+   "book": {
+    "label": "§19.4, Proposition 19.4.7, p. 885 (2017: Proposition 19.6)",
+    "page": 885,
+    "statement": "$T$ is metrizable iff properness holds and $T$ is paracompact."
+   },
+   "lean": {
+    "statement": "$T$ is metrizable iff (v2) holds and $T$ is paracompact.",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.proposition_19_4_7",
+     "Chapter19/TopologyLemmas · Chapter19.paracompact_and_orbitChartV2_of_metrizableSpace"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none.",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.30",
+   "title": "Corollary 19.4.8 (new in the 2021 edition), $T$ metrizable gives metrizable transition sets",
+   "verdict": "same",
+   "book": {
+    "label": "§19.4, Corollary 19.4.8, p. 885 (new in the 2021 edition)",
+    "page": 885,
+    "statement": "If $T$ is metrizable, every $T_{\\Psi,\\Psi'}$ is metrizable."
+   },
+   "lean": {
+    "statement": "If $T$ is metrizable, every $T_{\\Psi,\\Psi'}$ is metrizable, by the proof of the text (Propositions 19.4.7 and 19.4.4).",
+    "decls": [
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.corollary_19_4_8",
+     "Chapter19/Metrizability · GroupoidalCategory.BasicConstruction.metrizableSpace_natTop_of_surjective"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "By V19.26 the conclusion holds without the hypothesis. `metrizableSpace_natTop_of_surjective`: a uniformizer whose orbit map is onto makes $T$ metrizable (used for the witnesses).",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.31",
+   "title": "Theorem 19.5.1 (2017: 19.4), the natural M-polyfold structure on $M(\\Psi, \\Psi')$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.5, Theorem 19.5.1, p. 886 (2017: Theorem 19.4)",
+    "page": 886,
+    "statement": "If $T$ is metrizable, the metrizable space $M(\\Psi, \\Psi')$ has a natural M-polyfold structure for which $s$ and $t$ are local sc-diffeomorphisms."
+   },
+   "lean": {
+    "statement": "`transPolyfold`: an M-polyfold structure on $M(\\Psi, \\Psi')$ for which $s$ and $t$ are local sc-diffeomorphisms, each $F_h : V(o) \\to F_h(V(o))$ is an sc-diffeomorphism, and $\\bar\\Psi$ is an sc-diffeomorphism; `theorem_19_5_1_natural`: it is the only structure for which $s$ is a local sc-diffeomorphism, and every representative of $\\mathcal F$ gives the same structure.",
+    "decls": [
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.theorem_19_5_1",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.theorem_19_5_1_natural",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.transPolyfold",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.transPolyfold",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.sheetPolyfold",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalScDiffeo_src",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isLocalScDiffeo_tgt",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_map",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_hatHomeomorph",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScDiffeoOn_of_equiv"
+    ]
+   },
+   "chips": [
+    "without metrizability of T",
+    "unique, independent of F"
+   ],
+   "diff": [
+    "The metrizability of $T$ assumed in 2021 is not used (an unused argument); the metrizability of $M(\\Psi, \\Psi')$ is V19.26, and the 2017 statement had no such assumption. We read \"natural\" as the uniqueness and the independence of the representative, both proved.",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.32",
+   "title": "Corollary 19.5.2 (2017: 19.1), the structure maps are sc-smooth",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Corollary 19.5.2, p. 887 (2017: Corollary 19.1)",
+    "page": 887,
+    "statement": "With their natural M-polyfold structures all structure maps of the transition sets are sc-smooth."
+   },
+   "lean": {
+    "statement": "$u$, $\\iota$ and $m$ are sc-smooth, $m$ on the fibred product (`IsScSmoothOnFibredProduct`).",
+    "decls": [
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.corollary_19_5_2",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_unit",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_inv",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isScSmoothMap_mul"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "As for V19.31, no metrizability is needed."
+   ]
+  },
+  {
+   "id": "V19.33",
+   "title": "Theorem 19.5.3 (2017: 19.5), the polyfold structure of a basic construction",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Theorem 19.5.3, p. 888 (2017: Theorem 19.5)",
+    "page": 888,
+    "statement": "(1) Properness and second countable or paracompact give $T$ metrizable, so $(S, T)$ is a GCT. (2) If $T$ is metrizable there is a natural polyfold structure $(F, M)$, tame when the domains are tame."
+   },
+   "lean": {
+    "statement": "(1) Under (v2), second countable or paracompact gives $T$ metrizable, so $(S, T)$ is a GCT. (2) For $T$ metrizable, `toPolyfoldConstruction hm` is a polyfold construction (Definition 17.1.8) for $(S, T)$: its uniformizers are those of $F$, its $M(\\Psi, \\Psi')$ the structures of V19.31, the footprints cover $|S|$, $\\hat\\Psi$ is an sc-diffeomorphism; if the domains are tame, $(F, M)$, every $M(\\Psi, \\Psi')$ and every model $X_\\Psi$ are tame. The models are equivalent to $S$ and to each other (Lemma 17.1.15, Theorem 17.1.18).",
+    "decls": [
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.theorem_19_5_3_one",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.theorem_19_5_3_two",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.toGCTOfMetrizable",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.toLocalUniformizer",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.toPolyfoldConstruction",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.continuous_hat",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.hasCoveringUniformizers_toPolyfoldConstruction",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.isEquivalence_modelFunctor",
+     "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.isGeneralizedIso_comparison",
+     "Chapter19/PolyfoldStructure · GroupoidalCategory.UniformizerConstruction.TransitionData.isTame_transPolyfold"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "tame M and models",
+    "G.263"
+   ],
+   "diff": [
+    "The 2021 statement splits the 2017 one into (1) and (2), as here. $\\hat\\Psi$ is continuous (`continuous_hat`), so Lemma 17.1.9 applies in the form `Polyfold.GCT.PolyfoldConstruction.lemma_17_1_9_of_continuous`. The step \"in view of the discussion in this section\" is written out (point G.263).",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.34",
+   "title": "Remark 19.5.4 (2017: 19.7), compact sets have metrizable neighbourhoods",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Remark 19.5.4, p. 888 (2017: Remark 19.7)",
+    "page": 888,
+    "statement": "After properness, $T$ is completely regular, Hausdorff and locally metrizable, a compact $K$ has a paracompact metrizable open neighbourhood, and second countable or paracompact $T$ gives a polyfold construction, tame for tame domains."
+   },
+   "lean": {
+    "statement": "Under (v2): $T$ is Hausdorff, completely regular and locally metrizable; every compact $K \\subset |S|$ has an open neighbourhood $U(K)$ that is metrizable and paracompact; second countable or paracompact gives $T$ metrizable, and with tame domains the polyfold construction is tame.",
+    "decls": [
+     "Chapter19/CompactNeighbourhoods · GroupoidalCategory.BasicConstruction.remark_19_5_4",
+     "Chapter19/TopologyLemmasTwo · Chapter19.exists_isOpen_metrizableSpace_of_isCompact",
+     "Chapter19/TopologyLemmasTwo · Chapter19.exists_bump_of_isOpen"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "G.264"
+   ],
+   "diff": [
+    "The neighbourhood $U(K)$ is constructed (point G.264).",
+    "Hidden hypotheses: `hB`."
+   ]
+  },
+  {
+   "id": "V19.35",
+   "title": "Definition 19.5.5 (new in the 2021 edition), the linearizations $Tg$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Definition 19.5.5, p. 889 (new in the 2021 edition)",
+    "page": 889,
+    "statement": "For $g \\in G$ fixing $\\bar o$, $Tg$ is the linearization $T\\hat g(\\bar o)$ of $\\hat g$ at $\\bar o$."
+   },
+   "lean": {
+    "statement": "For $g$ fixing $\\bar o$, $Tg = T\\hat g(\\bar o)$ maps $T_{\\bar o}O$ to itself, with inverse $Tg^{-1}$, and is Chapter 7's tangent map of the morphism $(g, \\bar o)$ of $G \\ltimes O$.",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.definition_19_5_5",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.toEP",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.tangentSmul",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.tangentMor_ep_eq"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "\"$\\hat g$ fixes $\\bar o$\" is a hypothesis on $g$, as for $g \\in G_{\\bar o}$."
+   ]
+  },
+  {
+   "id": "V19.36",
+   "title": "Definition 19.5.6 (new in the 2021 edition), (ZHOU) for a basic construction",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Definition 19.5.6, p. 889 (new in the 2021 edition)",
+    "page": 889,
+    "statement": "(ZHOU): for every smooth $z$ some $\\Psi \\in F(\\alpha_z)$ such that $Tg = \\mathrm{id}$ implies $\\hat g$ is the identity near $\\bar o$."
+   },
+   "lean": {
+    "statement": "For every smooth $z$ there are $\\alpha_z$, $\\Psi \\in F(\\alpha_z)$ and $\\bar o$ with $\\Psi(\\bar o) = \\alpha_z$ such that every $g$ fixing $\\bar o$ with $Tg = \\mathrm{id}$ is the identity near $\\bar o$; this is Chapter 7's (ZHOU) of $G \\ltimes O$ at $\\bar o$ (`isZhouAt_iff`). Smoothness of a class does not depend on the uniformizer (`mem_smoothSet_iff_of_π_eq`).",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsZhou",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsSmoothClass",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.mem_smoothSet_iff_of_π_eq",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.IsZhouAt",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.isZhouAt_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "none."
+   ]
+  },
+  {
+   "id": "V19.37",
+   "title": "Proposition 19.5.7 (new in the 2021 edition), (ZHOU) passes to the polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Proposition 19.5.7, p. 889 (new in the 2021 edition)",
+    "page": 889,
+    "statement": "For $T$ metrizable, (ZHOU) of the basic construction gives (ZHOU) of the polyfold $(S, F, M)$."
+   },
+   "lean": {
+    "statement": "For $T$ metrizable, (ZHOU) of $(F, \\mathcal F)$ gives (ZHOU) of the polyfold $(S, F, M)$ (Definition 17.1.22); conversely (ZHOU) of the polyfold gives Chapter 7's (ZHOU) for every $G \\ltimes O$ of $F$.",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.proposition_19_5_7",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.isZhou_toEP_of_isZhou"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "G.265"
+   ],
+   "diff": [
+    "The text calls it obvious; the proof through the piece functors $G \\ltimes O \\to X_\\Psi$ is written out (point G.265).",
+    "Hidden hypotheses: `hB`; `hm`, the standing metrizability of §19.5."
+   ]
+  },
+  {
+   "id": "V19.38",
+   "title": "Definition 19.5.8 (new in the 2021 edition), (LUC) and (SLUC) for a basic construction",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.5, Definition 19.5.8, p. 889 (new in the 2021 edition)",
+    "page": 889,
+    "statement": "(LUC): for every $z$ some $\\Psi \\in F(\\alpha_z)$ and a $G$-invariant open $U(\\bar o)$ on which every $\\hat g$ that is the identity on a nontrivial open subset is the identity; (SLUC): (LUC) for all $(F^i, \\mathcal F^i)$."
+   },
+   "lean": {
+    "statement": "(LUC): for every $z$ some $\\Psi \\in F(\\alpha_z)$ and an open $U \\ni \\bar o$ invariant under $G_{\\bar o}$ such that every $g \\in G_{\\bar o}$ that is the identity on a non-empty open $V \\subset U$ is the identity on $U$; this is Chapter 7's (LUC) of $G \\ltimes O$ at $\\bar o$ (`isLUCAt_iff`). (SLUC): (LUC) at every level $i$, for the classes of level $i$ (`IsLevelClass`) and the raised groupoid $(G \\ltimes O)^i$.",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLUC",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLUCLevel",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsSLUC",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLevelClass",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.mem_levelSet_iff_of_π_eq",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.IsLUCAt",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.isLUCAt_iff"
+    ]
+   },
+   "chips": [
+    "G read as G_ō",
+    "levels: raised groupoids",
+    "G.266"
+   ],
+   "diff": [
+    "We read $G$ as the isotropy group $G_{\\bar o}$ (it is all of $G$ for a centred uniformizer), \"nontrivial open\" as non-empty open, and $(F^i, \\mathcal F^i)$ for $S^i$, which the text does not define, as the raised translation groupoids (point G.266); levels do not depend on the uniformizer (`mem_levelSet_iff_of_π_eq`). With \"every $g \\in G$\" taken literally for a uniformizer that is not centred, (LUC) is presumably not implied by (ZHOU) (not formalized)."
+   ]
+  },
+  {
+   "id": "V19.39",
+   "title": "Proposition 19.5.9 (new in the 2021 edition), (LUC) and (SLUC) pass to the polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§19.5, Proposition 19.5.9, p. 890 (new in the 2021 edition)",
+    "page": 890,
+    "statement": "For $T$ metrizable, (LUC), resp. (SLUC), of the basic construction gives (LUC), resp. (SLUC), of the polyfold."
+   },
+   "lean": {
+    "statement": "For $T$ metrizable, (LUC), resp. (SLUC), of $(F, \\mathcal F)$ gives (LUC), resp. (SLUC), of the polyfold (Definition 17.1.22); for (SLUC) the models of the families of each level are compared with one model by the generalized isomorphisms of Theorem 17.1.18.",
+    "decls": [
+     "Chapter19/BasicRegularityPointwise · GroupoidalCategory.BasicConstruction.proposition_19_5_9",
+     "Chapter19/BasicRegularityPointwise · GroupoidalCategory.BasicConstruction.exists_isLUC_lift_model",
+     "Chapter19/BasicRegularityPointwise · GroupoidalCategory.BasicConstruction.isLUCLevel_zero_of_isLUC",
+     "Chapter19/BasicRegularityPointwise · EP.isGenIsoInvariant_isLUC_lift"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "no proof given: G.267"
+   ],
+   "diff": [
+    "The text gives no proof; it is written out (point G.267).",
+    "Hidden hypotheses: `hB`; `hm`."
+   ]
+  },
+  {
+   "id": "V19.40",
+   "title": "Definition 19.5.10 (new in the 2021 edition), (LR) and (SLR) for a basic construction",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.5, Definition 19.5.10, p. 890 (new in the 2021 edition)",
+    "page": 890,
+    "statement": "(LR): for every $z$ some $\\Psi \\in F(\\alpha_z)$ with arbitrarily small invariant $U(\\bar o)$ on which every sc-diffeomorphism preserving orbits is $q \\mapsto g * q$; (SLR): (LR) for all $(F^i, \\mathcal F^i)$."
+   },
+   "lean": {
+    "statement": "(LR): for every $z$ some $\\Psi \\in F(\\alpha_z)$ with arbitrarily small invariant open $U(\\bar o)$ such that every sc-diffeomorphism $\\beta$ of $U(\\bar o)$ with $|\\beta(q)| = |q|$ is $q \\mapsto g * q$ for some $g \\in G_{\\bar o}$; (SLR): (LR) for $(G \\ltimes O)^i$ at every level.",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLR",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLRLevel",
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsSLR",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.IsLRAt",
+     "Chapter19/BasicRegularity · GroupoidalCategory.Uniformizer.isLRAt_of_isLRAt"
+    ]
+   },
+   "chips": [
+    "G_x read as G_ō",
+    "levels: raised groupoids"
+   ],
+   "diff": [
+    "We read \"$G_x$\" as $G_{\\bar o}$ and the invariance under $G_{\\bar o}$, and the levels as in V19.38 (point G.266)."
+   ]
+  },
+  {
+   "id": "V19.41",
+   "title": "Proposition 19.5.11 (new in the 2021 edition), (ZHOU) gives (SLUC) and (SLR)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.5, Proposition 19.5.11, p. 890 (new in the 2021 edition)",
+    "page": 890,
+    "statement": "(ZHOU) of the basic construction implies (SLUC) and (SLR)."
+   },
+   "lean": {
+    "statement": "(ZHOU) for $(F, \\mathcal F)$ gives (SLUC), (SLR), and at level 0 (LUC) and (LR).",
+    "decls": [
+     "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.proposition_19_5_11",
+     "Chapter8/SmoothRegularAssembly · EP.theorem_7_4_13_all_of_isZhou",
+     "Chapter8/SmoothRegularAssembly · EP.theorem_7_4_24_all_of_isZhou"
+    ]
+   },
+   "chips": [
+    "T metrizable (standing, §19.5)",
+    "G.268"
+   ],
+   "diff": [
+    "The standing assumption of §19.5 that $T$ is metrizable is an argument; the proof goes through Proposition 19.5.7 and Theorems 7.4.13 and 7.4.24 for the translation groupoids, the text's \"considerations in the ep-groupoid case\" (point G.268).",
+    "Hidden hypotheses: `hB`; `hm`, the standing metrizability of §19.5."
+   ]
+  },
+  {
+   "id": "V19.42",
+   "title": "Witnesses: keyed transition data and basic constructions from translation groupoids",
+   "verdict": "extra",
+   "book": {
+    "label": "§§19.1–19.2 (no numbered item)",
+    "page": null,
+    "statement": "No numbered item: witnesses for the definitions of §§19.1–19.2."
+   },
+   "lean": {
+    "statement": "`ofKey` builds transition data from a choice of keys; `translationBasic` is the basic construction of a translation groupoid with its tautological uniformizer; `reflectionBasic` ($\\mathbb Z/2$ acting on $\\mathbb R$ by reflection): $F(\\alpha) \\ne \\emptyset$, a non-trivial action, centred at $0$, and Theorem 19.2.2 for it; `z3Basic` (the trivial $\\mathbb Z/3$-action on $\\mathbb R$): centred, $|G| = 3$; `emptyBasic`: $F \\equiv \\emptyset$.",
+    "decls": [
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.UniformizerConstruction.TransitionData.ofKey",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.translationBasic",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.translationBasic_hasUniformizers",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.reflectionBasic",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.reflectionBasic_witness",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.reflectionBasic_theorem_19_2_2",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.z3Basic",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.z3Basic_isCentred",
+     "Chapter19/BasicConstructionExamples · GroupoidalCategory.emptyBasic"
+    ]
+   },
+   "chips": [
+    "witnesses"
+   ],
+   "diff": [
+    "Witnesses for Definitions 19.1.3–19.1.7 and for V19.12."
+   ]
+  },
+  {
+   "id": "V19.43",
+   "title": "Topology of orbit charts",
+   "verdict": "extra",
+   "book": {
+    "label": "§§19.3–19.4 (no numbered item)",
+    "page": null,
+    "statement": "No numbered item: the general topology behind §§19.3–19.4."
+   },
+   "lean": {
+    "statement": "General statements behind §§19.3–19.4: orbit charts $G\\backslash O \\to Z$ (continuous, open, with the orbit relation), the forms (v2), (v3), (v3) with limit for one chart and their implications, Hausdorff and completely regular spaces covered by charts, local homeomorphisms with finitely many sheets; with witnesses.",
+    "decls": [
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.homeomorph",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.t2Space_range",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.metrizableSpace_range",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.orbitChartV3_of_v2",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.orbitChartV2_of_v3",
+     "Chapter19/TopologyLemmas · Chapter19.IsOrbitChart.orbitChartV2_of_regularSpace",
+     "Chapter19/Metrizability · Chapter19.IsOrbitChart.orbitChartV3Lim_of_v2",
+     "Chapter19/Metrizability · Chapter19.orbitChartV2_of_v3Lim",
+     "Chapter19/Metrizability · Chapter19.orbitChartV3_of_locallyCompactSpace",
+     "Chapter19/TopologyLemmas · Chapter19.isClosed_range_of_transitionV1",
+     "Chapter19/TopologyLemmas · Chapter19.t2Space_of_forall_closure_subset_t2",
+     "Chapter19/TopologyLemmas · Chapter19.exists_isOpen_metrizableSpace_of_isLocalHomeomorph",
+     "Chapter19/Metrizability · Chapter19.isLocalHomeomorph_codRestrict",
+     "Chapter19/TopologyLemmas · Chapter19.isOrbitChart_quotientMk",
+     "Chapter19/TopologyLemmas · Chapter19.orbitCharts_witness_reflection",
+     "Chapter19/TopologyLemmas · Chapter19.finiteSheets_witness_snd"
+    ]
+   },
+   "chips": [
+    "tools"
+   ],
+   "diff": [
+    "Tools, stated for arbitrary spaces."
+   ]
+  },
+  {
+   "id": "V19.44",
+   "title": "Witnesses for §19.4",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.4 (no numbered item)",
+    "page": null,
+    "statement": "No numbered item: witnesses for §19.4."
+   },
+   "lean": {
+    "statement": "`reflectionBasic` satisfies `hB` and (v2), and its $T$ is Hausdorff and metrizable; the glued lines satisfy neither (v1) nor (v2); `expBasic` satisfies `hB`, (v2), has metrizable $T$, and $M(\\Psi_0, \\Psi_e)$ has an element with source $1$.",
+    "decls": [
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.reflectionBasic_hB",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.reflectionBasic_metrizableSpace",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.reflectionBasic_propernessV2",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.reflectionBasic_t2Space",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.gluedBasic_hB",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.gluedBasic_not_propernessV1",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic_hB",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic_metrizableSpace",
+     "Chapter19/MetrizabilityExamples · GroupoidalCategory.expBasic_exists_trans"
+    ]
+   },
+   "chips": [
+    "witnesses"
+   ],
+   "diff": [
+    "Witnesses for the hypotheses of V19.24, V19.25, V19.27–V19.30."
+   ]
+  },
+  {
+   "id": "V19.45",
+   "title": "Witnesses for §19.5",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.5 (no numbered item)",
+    "page": null,
+    "statement": "No numbered item: witnesses for §19.5."
+   },
+   "lean": {
+    "statement": "Theorems 19.5.1, 19.5.3, Corollary 19.5.2 and Remark 19.5.4 for the reflection, with tame domains; (LUC) for the reflection and its passage to the polyfold; (ZHOU) for the trivial $\\mathbb Z/3$-action, every class smooth, and Propositions 19.5.7, 19.5.9 ((SLUC)) and 19.5.11 for it.",
+    "decls": [
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_theorem_19_5_1",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_corollary_19_5_2",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_theorem_19_5_3_one",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_isTame",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_theorem_19_5_3_two_tame",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.reflectionBasic_isLUC",
+     "Chapter19/CompactNeighbourhoods · GroupoidalCategory.reflectionBasic_remark_19_5_4",
+     "Chapter19/BasicRegularityPointwise · GroupoidalCategory.reflectionBasic_proposition_19_5_9",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_hB",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_metrizableSpace",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_isSmoothClass",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_isZhou",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_proposition_19_5_7",
+     "Chapter19/BasicRegularityPointwise · GroupoidalCategory.z3Basic_proposition_19_5_9",
+     "Chapter19/PolyfoldStructureExamples · GroupoidalCategory.z3Basic_proposition_19_5_11"
+    ]
+   },
+   "chips": [
+    "witnesses",
+    "(ZHOU), (SLUC) witness weak"
+   ],
+   "diff": [
+    "The (ZHOU) and (SLUC) witnesses are weak: the action is trivial and not effective."
+   ]
+  },
+  {
+   "id": "V19.46",
+   "title": "Pointwise (ZHOU), (LUC), (LR) and their transport",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.5 (no numbered item)",
+    "page": null,
+    "statement": "No numbered item: pointwise regularity conditions and their transport."
+   },
+   "lean": {
+    "statement": "Chapter 7's (ZHOU), (LR), (LUC) at a point, equivalent to the global forms when they hold at every point; their transport along full functors that are local sc-diffeomorphisms on objects, such as the piece functors $G \\ltimes O \\to X_\\Psi$ and the raised functors; sc-smoothness through a local sc-diffeomorphism.",
+    "decls": [
+     "Chapter19/BasicRegularity · EpGroupoid.IsZhouAt",
+     "Chapter19/BasicRegularity · EpGroupoid.isZhou_iff_forall_isZhouAt",
+     "Chapter19/BasicRegularity · EpGroupoid.IsLRAt",
+     "Chapter19/BasicRegularity · EpGroupoid.isLR_iff_forall_isLRAt",
+     "Chapter19/BasicRegularityPointwise · EpGroupoid.IsLUCAt",
+     "Chapter19/BasicRegularityPointwise · EpGroupoid.isLUC_iff_forall_isLUCAt",
+     "Chapter19/BasicRegularity · EpFunctor.isZhouAt_of_isZhouAt",
+     "Chapter19/BasicRegularity · EpFunctor.isZhouAt_of_isZhouAt_obj",
+     "Chapter19/BasicRegularityPointwise · EpFunctor.isLUCAt_obj",
+     "Chapter19/BasicRegularityPointwise · EpFunctor.full_liftOne",
+     "Chapter19/BasicRegularity · EP.liftVal",
+     "Chapter19/BasicRegularity · EP.exists_liftVal_eq_of_mem",
+     "Chapter19/BasicRegularityPointwise · EP.isLocalScDiffeo_liftFunctor",
+     "Chapter19/BasicRegularityPointwise · EP.full_liftFunctor",
+     "Chapter19/BasicRegularity · GCT.PolyfoldConstruction.full_pieceFunctor",
+     "Chapter19/BasicRegularity · GCT.PolyfoldConstruction.isLocalScDiffeo_pieceFunctor_obj",
+     "Chapter19/PolyfoldStructure · MPolyfold.IsLocalScDiffeo.of_comp_surjective",
+     "Chapter19/PolyfoldStructure · MPolyfold.isScSmoothMap_of_isLocalScDiffeo_comp"
+    ]
+   },
+   "chips": [
+    "tools"
+   ],
+   "diff": [
+    "Tools for V19.37, V19.39, V19.41."
+   ]
+  },
+  {
+   "id": "V19.47",
+   "title": "The functor $\\mu : \\mathcal S \\to \\mathrm{Ban}$ and the category $E_\\mu$ (§19.6, before Definition 19.6.1)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, pp. 890–891 (2017: §19.6)",
+    "page": 890,
+    "statement": "A functor $\\mu$ from $\\mathcal S$ to Banach spaces defines the category $E_\\mu$ and the projection $P : E_\\mu \\to \\mathcal S$."
+   },
+   "lean": {
+    "statement": "`BanFunctor S` is a functor from the groupoidal category $\\mathcal S$ to Banach spaces; `BanFunctor.cat` is the category $E_\\mu$ of pairs $(\\alpha, e)$, $e \\in \\mu(\\alpha)$, with morphisms $(\\varphi, e)$; `liftEquiv` identifies the morphisms over $\\varphi$ with $\\mu(s(\\varphi))$; `orbitProj` is $|P| : |E_\\mu| \\to |\\mathcal S|$ and `zeroOrbit` the zero section, with $|P| \\circ 0 = \\mathrm{id}$ (`orbitProj_zeroOrbit`).",
+    "decls": [
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor.cat",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor.liftEquiv",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor.orbitProj",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor.zeroOrbit",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.BanFunctor.orbitProj_zeroOrbit"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.48",
+   "title": "Definition 19.6.1 (2017: Definition 19.9), strong bundle uniformizers",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.1, p. 891 (2017: Definition 19.9)",
+    "page": 891,
+    "statement": "A strong bundle uniformizer is a fully faithful functor $\\bar\\Psi : G \\ltimes K \\to E_\\mu$, injective on objects, linear on fibres, covering a uniformizer $\\Psi$ of $\\mathcal S$."
+   },
+   "lean": {
+    "statement": "`StrongBundleStr` is the translation-groupoid strong bundle $G \\ltimes K \\to G \\ltimes O$ of (1); `StrongBundleUniformizer` is a uniformizer $\\bar\\Psi : G \\ltimes K \\to E_\\mu$ covering a uniformizer $\\Psi$ of $\\mathcal S$, with (2) and (3) as `definition_19_6_1_two` and `definition_19_6_1_three`. The base functor is determined by $\\bar\\Psi$ (`toBase_obj_eq`, `toBase_mor_eq`).",
+    "decls": [
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizer",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizer.definition_19_6_1_two",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizer.definition_19_6_1_three",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr.toBase_obj_eq",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr.toBase_mor_eq"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.49",
+   "title": "Remark 19.6.2 (2017: Remark 19.8), strong bundle uniformizers with $W \\to E$ models",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.6, Remark 19.6.2, p. 892 (2017: Remark 19.8)",
+    "page": 892,
+    "statement": "The definition extends to models $W \\to E$ given by strong bundles over ep-groupoids; the zero sections correspond."
+   },
+   "lean": {
+    "statement": "`SquareUniformizer.remark_19_6_2`: for the uniformizers of a bundle covering square (Definition 19.8.10) the zero sections correspond, $\\hat\\Gamma(0_{\\hat e}) = (\\hat\\Psi(\\hat e), 0)$. The general variant with a strong bundle $W \\to E$ in place of $G \\ltimes K \\to G \\ltimes O$ is the one used in Definition 19.8.10 (3); it is not built separately (point G.269).",
+    "decls": [
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.SquareUniformizer.remark_19_6_2"
+    ]
+   },
+   "chips": [
+    "read through Definition 19.8.10",
+    "general variant: G.269"
+   ],
+   "diff": [
+    "The remark is used in §19.8, where Definition 19.8.10 (3) reads through it; its zero-section consequence is proved there. The general variant is not stated separately (point G.269)."
+   ]
+  },
+  {
+   "id": "V19.50",
+   "title": "Definition 19.6.3 (2017: Definition 19.10), strong bundle uniformizer constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.3, p. 892 (2017: Definition 19.10)",
+    "page": 892,
+    "statement": "A functor $\\bar F : \\mathcal S^- \\to \\mathrm{SET}$ on the objects assigning sets of strong bundle uniformizers; it induces $F$ for $\\mathcal S$."
+   },
+   "lean": {
+    "statement": "`StrongBundleUniformizerConstruction` assigns to every object $\\alpha$ a set $\\bar F(\\alpha)$ of strong bundle uniformizers at $\\alpha$, each with its structure (1); the text's functor is on the object category $\\mathcal S^-$, so there is no functoriality condition; `base` is the induced uniformizer construction $F$ for $\\mathcal S$ and `toE` the one for $E_\\mu$; $\\bar F$ has uniformizers at every class iff $F$ has (`hasClassUniformizers_toE_iff`).",
+    "decls": [
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizerConstruction",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizerConstruction.base",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizerConstruction.toE",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleUniformizerConstruction.hasClassUniformizers_toE_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.51",
+   "title": "The structure maps of $P : E_\\mu \\to \\mathcal S$ and the maps $\\bar F_h$ (§19.6, pp. 892–894, (19.10))",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, pp. 892–894, (19.10) (2017: §19.6)",
+    "page": 892,
+    "statement": "The lifted transition maps $\\bar F_h$ over $F_h$, defined by (19.10)."
+   },
+   "lean": {
+    "statement": "`StrongBundleStr.proj` is the map $p : M(\\bar\\Psi, \\bar\\Psi') \\to M(\\Psi, \\Psi')$, $p(a, \\varphi, a') = (p(a), \\varphi, p'(a'))$, compatible with source, target, unit, inversion and multiplication (`proj_comp` and its companions); its fibre over $(o, \\varphi, o')$ is in bijection with $K_o$ (`projFiberEquiv`). For a transition $h$ of the base, `mapBar` and `fmapBar` are the lifted maps $\\bar F_h$ of (19.10), lying over $F_h$ (`proj_mapBar`, `p_fmapBar`) and determined by the condition of (19.10) (`mapBar_eq_iff`).",
+    "decls": [
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr.proj",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr.projFiberEquiv",
+     "Chapter19/StrongBundleUniformizer · GroupoidalCategory.StrongBundleStr.proj_comp",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.mapBar",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.fmapBar",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.proj_mapBar",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.p_fmapBar",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.mapBar_eq_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.52",
+   "title": "Definition 19.6.4 (2017: Definition 19.11), transition constructions for $P$",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.6, Definition 19.6.4, p. 895 (2017: Definition 19.11)",
+    "page": 895,
+    "statement": "Transition data $\\bar F_h$ on neighbourhoods $V(o)$ of a representative, which are strong bundle isomorphisms with properties (A)–(F)."
+   },
+   "lean": {
+    "statement": "Conditions (B)–(F) are proved for every lift $\\bar F_h$ of a base transition (`definition_19_6_4_B` … `_F`), and the source part of (A) likewise (`definition_19_6_4_A_src`, `_A_hat`). `BundleTransitionData` is a base transition datum whose lift is a local strong bundle isomorphism (condition (A), field `IsLocalIso₂`), with restriction, the equivalence of data (`equiv_iff`) and the induced transition datum for $E_\\mu$ (`toETD`).",
+    "decls": [
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_A_src",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_A_hat",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_B",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_C",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_D",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_E",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_4_F",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.equiv_iff",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.BundleTransitionData.toETD"
+    ]
+   },
+   "chips": [
+    "(B)–(F) proved for every lift",
+    "(A) is the field"
+   ],
+   "diff": [
+    "The definition is stated as a structure on the base transition data: (B)–(F) are consequences of the lift, so only (A), the strong bundle isomorphism property, is a field. The 2017 text used germs."
+   ]
+  },
+  {
+   "id": "V19.53",
+   "title": "Definition 19.6.5 (new in the 2021 edition), strong bundle transition constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.5, p. 896 (new in the 2021 edition)",
+    "page": 896,
+    "statement": "A transition construction for $\\bar F$ consisting of bundle transition data, covering a transition construction for $F$."
+   },
+   "lean": {
+    "statement": "`StrongBundleTransitionConstruction`, with the underlying transition construction of the base (`toBaseTC`) and the one for $E_\\mu$ (`toETC`).",
+    "decls": [
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toBaseTC",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.StrongBundleUniformizerConstruction.StrongBundleTransitionConstruction.toETC"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.54",
+   "title": "Definition 19.6.6 (2017: Definition 19.12), basic strong bundle constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.6, p. 896 (2017: Definition 19.12)",
+    "page": 896,
+    "statement": "A pair $(\\bar F, \\bar{\\mathcal F})$ of a strong bundle uniformizer construction and a transition construction."
+   },
+   "lean": {
+    "statement": "`BasicStrongBundleConstruction` is the pair $(\\bar F, \\bar{\\mathcal F})$; `base` is the underlying basic construction for $\\mathcal S$, `toE` the one for $E_\\mu$ and `rep` the chosen representatives.",
+    "decls": [
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.BasicStrongBundleConstruction",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.BasicStrongBundleConstruction.base",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.BasicStrongBundleConstruction.toE",
+     "Chapter19/StrongBundleTransition · GroupoidalCategory.BasicStrongBundleConstruction.rep"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.55",
+   "title": "Definition 19.6.7 (2017: Definition 19.13), the topology $\\bar T$ on $|E_\\mu|$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.7, p. 897 (2017: Definition 19.13)",
+    "page": 897,
+    "statement": "$\\bar T$ consists of the subsets $U$ of $|E|$ such that each point has a uniformizer and a neighbourhood $\\hat V$ in $K$ with $|\\bar\\Psi(\\hat V)| \\subset U$."
+   },
+   "lean": {
+    "statement": "`BarOpen U`: every point of $U$ has a uniformizer $\\bar\\Psi$ and a neighbourhood $\\hat V$ in $K$ with $|\\bar\\Psi(\\hat V)| \\subset U$ (`definition_19_6_7`); `topE` is the topology on $|E_\\mu|$ these sets form and `topS` the natural topology of the base; `isOpen_topE_iff` says the open sets are exactly the `BarOpen` sets.",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.BarOpen",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.definition_19_6_7",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.topE",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.topS",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.isOpen_topE_iff"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.56",
+   "title": "Theorem 19.6.8 (2017: Theorem 19.6), the natural topology on $|E_\\mu|$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.6, Theorem 19.6.8, p. 897 (2017: Theorem 19.6)",
+    "page": 897,
+    "statement": "(1) $\\bar T$ is a topology; (2) images of open sets are open; (3) $|\\bar\\Psi|$ is a homeomorphism onto an open set; (4) $|P|^{-1}(V)$ is metrizable for small $V$; (5) $|P|$ is continuous."
+   },
+   "lean": {
+    "statement": "With `hB : B.base.U.HasClassUniformizers`: (1) `BarOpen` contains `univ` and is closed under finite intersections and arbitrary unions; (2) $|\\bar\\Psi(\\hat W)|$ is open for $\\hat W$ open; (3) $|\\bar\\Psi|$ is a homeomorphism onto an open set; (4) every $z \\in |\\mathcal S|$ has an open $V \\ni z$ with $|P|^{-1}(V)$ metrizable; (5) $|P|$ is continuous.",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_two",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_three",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five"
+    ]
+   },
+   "chips": [
+    "F(α) ≠ ∅ (standing reading)",
+    "proof written out: G.270"
+   ],
+   "diff": [
+    "The hypothesis `hB` is the standing reading for covering families (Theorem 19.2.2). The proof, which the text calls easily verified, is written out (point G.270)."
+   ]
+  },
+  {
+   "id": "V19.57",
+   "title": "Proposition 19.6.9 (2017: Proposition 19.7), metrizability of $|E_\\mu|$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.6, Proposition 19.6.9, p. 898 (2017: Proposition 19.7)",
+    "page": 898,
+    "statement": "$\\bar T$ is metrizable if and only if $T$ is metrizable."
+   },
+   "lean": {
+    "statement": "`proposition_19_6_9 (hB) : MetrizableSpace[topS] ↔ MetrizableSpace[topE]`. The direction ⇐ uses that the zero section is a continuous embedding (`continuous_zeroOrbit`, `isEmbedding_zeroOrbit`).",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.continuous_zeroOrbit",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.isEmbedding_zeroOrbit"
+    ]
+   },
+   "chips": [
+    "F(α) ≠ ∅ (standing reading)",
+    "⇐ via the zero section: G.271"
+   ],
+   "diff": [
+    "The 2021 statement is an equivalence (2017: only ⇒). The direction ⇐ is not argued in the text; it is the zero section (point G.271). The direction ⇒ is proved by a route different from the text's, which goes through $X_\\Psi$ and Proposition 8.4.1."
+   ]
+  },
+  {
+   "id": "V19.58",
+   "title": "Definition 19.6.10 (2017: Definition 19.14), the topology on $M(\\bar\\Psi, \\bar\\Psi')$",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.6, Definition 19.6.10, p. 898 (2017: Definition 19.14)",
+    "page": 898,
+    "statement": "$\\bar T_{\\bar\\Psi,\\bar\\Psi'}$ consists of the $\\hat W$ such that each $\\bar h$ has a neighbourhood $\\hat V$ with $\\bar F_h(\\hat V) \\subset \\hat W$."
+   },
+   "lean": {
+    "statement": "`MBar` is the transition set $M(\\bar\\Psi, \\bar\\Psi')$; `BarOpenTr W`: every $\\bar h \\in W$ has a neighbourhood $\\hat V$ of $s(\\bar h)$ in $K$ with $\\bar F_{p(\\bar h)}(\\hat V) \\subset W$ (`definition_19_6_10`); `topology_MBar` is the topology these sets form.",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.BarOpenTr",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.definition_19_6_10",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.MBar",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.topology_MBar"
+    ]
+   },
+   "chips": [
+    "V̂ a neighbourhood of s(h̄)",
+    "F̄_h read as F̄_{p(h̄)}"
+   ],
+   "diff": [
+    "We read $\\hat V$ as a neighbourhood of $s(\\bar h)$ in $K$ and $\\bar F_h$ as $\\bar F_{p(\\bar h)}$, the lift of the transition of the underlying base morphism."
+   ]
+  },
+  {
+   "id": "V19.59",
+   "title": "Theorem 19.6.11 (2017: Theorem 19.7), topology of $M(\\bar\\Psi, \\bar\\Psi')$",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.6, Theorem 19.6.11, p. 898 (2017: Theorem 19.7)",
+    "page": 898,
+    "statement": "$\\bar T_{\\bar\\Psi,\\bar\\Psi'}$ is a locally metrizable regular Hausdorff topology; $s$, $t$ local homeomorphisms, $u$ and the multiplication continuous, $\\iota$ a homeomorphism, and the map to $M(\\Psi,\\Psi')$ continuous."
+   },
+   "lean": {
+    "statement": "`theorem_19_6_11`: the sets of Definition 19.6.10 form a topology which is regular, Hausdorff and locally metrizable; (1) $s$ and (2) $t$ are local homeomorphisms, (3) the unit map is continuous, (4) the inversion is a homeomorphism (a `Homeomorph`), (5) the multiplication is continuous, and (6) the projection to $M(\\Psi, \\Psi')$ is continuous (`_one` … `_six`).",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_one",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_two",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_three",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_four",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_five",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_11_six"
+    ]
+   },
+   "chips": [
+    "(6): the map read as p"
+   ],
+   "diff": [
+    "In (6) we read the map named $m$ as the projection $p : M(\\bar\\Psi, \\bar\\Psi') \\to M(\\Psi, \\Psi')$, as the sentence after (6) does; the multiplication is item (5)."
+   ]
+  },
+  {
+   "id": "V19.60",
+   "title": "Lemma 19.6.12 (new in the 2021 edition), metrizability of $M(\\bar\\Psi, \\bar\\Psi')$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.6, Lemma 19.6.12, p. 899 (new in the 2021 edition)",
+    "page": 899,
+    "statement": "If the underlying construction satisfies the properness condition, $\\bar T_{\\bar\\Psi,\\bar\\Psi'}$ is metrizable."
+   },
+   "lean": {
+    "statement": "`lemma_19_6_12 : MetrizableSpace (B.MBar Ψ Ψ')` with no hypothesis; `lemma_19_6_12_book (hB) (_hv : B.base.PropernessV2 hB)` is the printed form with the properness condition (V2), which it does not use.",
+    "decls": [
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.lemma_19_6_12",
+     "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.lemma_19_6_12_book"
+    ]
+   },
+   "chips": [
+    "unconditional",
+    "printed form: lemma_19_6_12_book"
+   ],
+   "diff": [
+    "The printed hypothesis (V2) is not needed: the transition set is metrizable unconditionally, since it is locally a product of metrizable sets over the metrizable $M(\\Psi, \\Psi')$. The printed form is kept as `lemma_19_6_12_book`."
+   ]
+  },
+  {
+   "id": "V19.61",
+   "title": "Theorem 19.6.13 (2017: Theorem 19.8), strong bundle structure on $M(\\bar\\Psi, \\bar\\Psi')$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.6, Theorem 19.6.13, p. 900 (2017: Theorem 19.8)",
+    "page": 900,
+    "statement": "If $T$ is metrizable, $M(\\bar\\Psi,\\bar\\Psi') \\to M(\\Psi,\\Psi')$ has a natural strong bundle structure for which $s$, $t$ are local strong bundle isomorphisms and $u$, $\\iota$, $m$ are strong bundle maps."
+   },
+   "lean": {
+    "statement": "`bundleBar` is the strong bundle $M(\\bar\\Psi, \\bar\\Psi') \\to M(\\Psi, \\Psi')$ transported along $H$ (`altHHomeo`, a homeomorphism). `Theorem_19_6_13_Statement` collects: $H$ is a strong bundle isomorphism from $s^*K$ onto `bundleBar` covering the identity (`theorem_19_6_13_H`), and the total space carries the natural M-polyfold structure of $M(\\bar\\Psi, \\bar\\Psi')$ (`_total`); $\\bar s$ and $\\bar t$ are local strong bundle isomorphisms (`_s`, `_t`, with local forms), the unit is a strong bundle map (`_u`), the inversion a strong bundle isomorphism (`_inv`). `BSB.theorem_19_6_13` proves it for every pair with no hypothesis; `theorem_19_6_13_book (hB) (_hT : MetrizableSpace[topS])` is the printed form.",
+    "decls": [
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.bundleBar",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.Theorem_19_6_13_Statement",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_H",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_total",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_s",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_t",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_u",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_inv",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_of_bundleTransitionData",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.altHHomeo",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.StrongBundleUniformizerConstruction.isScSmoothMap_projBar",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_book"
+    ]
+   },
+   "chips": [
+    "T metrizable not needed",
+    "printed form: theorem_19_6_13_book"
+   ],
+   "diff": [
+    "The metrizability of $T$ (new in 2021) is not needed for the strong bundle structure; the printed form is `theorem_19_6_13_book`. The multiplication part is V19.62. Witness `reflBan_theorem_19_6_13`."
+   ]
+  },
+  {
+   "id": "V19.62",
+   "title": "Theorem 19.6.13, the multiplication map (2017: Theorem 19.8)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Theorem 19.6.13, p. 900 (2017: Theorem 19.8)",
+    "page": 900,
+    "statement": "The multiplication map is a strong bundle map."
+   },
+   "lean": {
+    "statement": "`mulBundle` is the strong bundle over the fibred product $M(\\Psi', \\Psi'') \\,{}_s\\!\\times_t M(\\Psi, \\Psi')$, `mBar` the multiplication; `theorem_19_6_13_m`: it is a strong bundle map. Witness `reflBan_theorem_19_6_13` for the $\\mathbb Z/2$-example.",
+    "decls": [
+     "Chapter19/StrongBundleMultiplication · GroupoidalCategory.StrongBundleUniformizerConstruction.mulBundle",
+     "Chapter19/StrongBundleMultiplication · GroupoidalCategory.StrongBundleUniformizerConstruction.mBar",
+     "Chapter19/StrongBundleMultiplication · GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_m",
+     "Chapter19/StrongBundleMultiplication · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_13_m",
+     "Chapter19/StrongBundleTheorem · GroupoidalCategory.reflBan_theorem_19_6_13"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.63",
+   "title": "Remark 19.6.14 (2017: Remark 19.9), outlook",
+   "verdict": "nothing",
+   "book": {
+    "label": "§19.6, Remark 19.6.14, p. 900 (2017: Remark 19.9)",
+    "page": 900,
+    "statement": "An outlook on the use of the construction."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: the remark describes how the construction will be used (point G.272).",
+    "decls": []
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V19.64",
+   "title": "The alternative approach, (19.14)–(19.17) (§19.6, pp. 900–902)",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.6, pp. 900–902, (19.14)–(19.17) (2017: §19.6)",
+    "page": 900,
+    "statement": "$H : s^*K \\to M(\\bar\\Psi,\\bar\\Psi')$, $H' : t^*K' \\to M(\\bar\\Psi,\\bar\\Psi')$ and $C = H'^{-1} H$."
+   },
+   "lean": {
+    "statement": "`srcBundle` and `tgtBundle` are the pull-backs $s^*K$ and $t^*K'$ (on `SrcPB`, `TgtPB`); `altH` and `altH'` are the bijections $H$ and $H'$ of (19.14) and (19.15) (`altH_bijective`); `altC` is $C = H'^{-1} \\circ H$ of (19.17), a bijection over the identity (`altC_eq`, `pullbackProj_altC`, `altC_bijective`).",
+    "decls": [
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.SrcPB",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.TgtPB",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.srcBundle",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.tgtBundle",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altH",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altH'",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altH_bijective",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altC",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altC_eq",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.pullbackProj_altC",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.altC_bijective"
+    ]
+   },
+   "chips": [
+    "source map t read as target map t"
+   ],
+   "diff": [
+    "In (19.15) we read the map named source map $t$ as the target map $t$."
+   ]
+  },
+  {
+   "id": "V19.65",
+   "title": "Definition 19.6.15 (new in the 2021 edition), coherence",
+   "verdict": "same",
+   "book": {
+    "label": "§19.6, Definition 19.6.15, p. 902 (new in the 2021 edition)",
+    "page": 902,
+    "statement": "$(\\bar F, \\bar{\\mathcal F})$ has the coherence property if the maps $C$ of (19.17) are strong bundle isomorphisms."
+   },
+   "lean": {
+    "statement": "`IsCoherent`: every $C$ is a strong bundle isomorphism (`definition_19_6_15`). `altA` is the map $A$ of (19.18), a strong bundle isomorphism (`isStrongBundleIso_altA`); $C$ is one iff the composite with $A$ is (`altC_iso_iff_altA_comp`), so coherence is equivalent to the form `IsCoherentA` (`isCoherent_iff_isCoherentA`). Lifts of bundle transition data are always coherent (`isCoherent_of_bundleTransitionData`). Witness `reflBan_isCoherent`.",
+    "decls": [
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.IsCoherent",
+     "Chapter19/StrongBundleAlternative · GroupoidalCategory.StrongBundleUniformizerConstruction.definition_19_6_15",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.isCoherent_of_bundleTransitionData",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.altA",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altA",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.altC_iso_iff_altA_comp",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.IsCoherentA",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.StrongBundleUniformizerConstruction.isCoherent_iff_isCoherentA",
+     "Chapter19/StrongBundleCoherence · GroupoidalCategory.reflBan_isCoherent"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "automatic for 19.6.4 data"
+   ],
+   "diff": [
+    "Coherence holds automatically for constructions of Definition 19.6.4 (`isCoherent_of_bundleTransitionData`)."
+   ]
+  },
+  {
+   "id": "V19.66",
+   "title": "The alternative approach: structures I and II agree (§19.6, pp. 901–903)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.6, pp. 901–903 (2017: §19.6)",
+    "page": 901,
+    "statement": "The structure obtained from $s^*K$ through $H$ agrees with the one obtained from $t^*K'$ through $H'$ under coherence, and with the structure of Theorem 19.6.13."
+   },
+   "lean": {
+    "statement": "Structure II is the transport of $s^*K$ along $H$ (`StrongBundle.transport`, `isStrongBundleIso_transport`; the topology is coinduced, `coinduced_altHE`). $C$ and $H'$ are strong bundle isomorphisms for it (`isStrongBundleIso_altC`, `isStrongBundleIso_altH'`). `comparison_I_II (BI hs hloc)`: a strong bundle structure I on $M(\\bar\\Psi, \\bar\\Psi')$ for which $\\bar s$ is a strong bundle map and locally an isomorphism agrees with II; `comparison_I_II_book (_hcoh : IsCoherent …)` is the printed form. Witnesses `comparison_I_II_hyp_witness`, `reflBan_comparison_I_II`.",
+    "decls": [
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.coinduced_altHE",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_id_of_altH",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altC",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_altH'",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.isStrongBundleIso_id_of_altH_altH'",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II_book",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.StrongBundleUniformizerConstruction.comparison_I_II_hyp_witness",
+     "Chapter19/StrongBundleComparison · GroupoidalCategory.reflBan_comparison_I_II",
+     "Chapter19/StrongBundleTransport · StrongBundle.transport",
+     "Chapter19/StrongBundleTransport · StrongBundle.isStrongBundleIso_transport",
+     "Chapter19/StrongBundleTransport · StrongBundle.isStrongBundleIso_id_of_isStrongBundleIsoOn"
+    ]
+   },
+   "chips": [
+    "I given with s̄ locally an isomorphism",
+    "printed form: comparison_I_II_book"
+   ],
+   "diff": [
+    "The comparison is stated for a structure I with the local property the text uses; the printed coherence hypothesis is kept in `comparison_I_II_book`. The witness has non-trivial isotropy and a non-trivial fibre action."
+   ]
+  },
+  {
+   "id": "V19.67",
+   "title": "Witness for §19.6: the reflection on $\\mathbb R$",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.6 (no counterpart in the text)",
+    "page": 890,
+    "statement": "No counterpart: a witness for the hypotheses of §19.6."
+   },
+   "lean": {
+    "statement": "`reflBan`: the groupoid $\\mathbb Z/2 \\ltimes \\mathbb R$ with fibre $\\mathbb R$ on which the generator acts by $-1$; `reflBanU`, `reflBanBTD` and `reflBanBasic` are its uniformizer construction, bundle transition data and basic construction. The lifts are non-trivial (`reflBan_lift_ne`, `reflBan_fmapBar_neg`); the hypotheses of the section hold (`reflBanBasic_hB`, `reflBanBasic_metrizable`, `reflBanBasic_witness`).",
+    "decls": [
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBan",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanU",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanBTD",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanBasic",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBan_lift_ne",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBan_fmapBar_neg",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanBasic_hB",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanBasic_metrizable",
+     "Chapter19/StrongBundleExamples · GroupoidalCategory.reflBanBasic_witness"
+    ]
+   },
+   "chips": [
+    "witness, non-trivial isotropy"
+   ],
+   "diff": [
+    "Not in the book: a non-degenerate instance (non-trivial isotropy acting non-trivially on the fibre) for the hypotheses used in §19.6."
+   ]
+  },
+  {
+   "id": "V19.68",
+   "title": "Definition 19.7.1 (2017: Definition 19.15), finite-to-one covering functors, and Remark 19.7.2 (2017: Remark 19.10)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Definition 19.7.1 and Remark 19.7.2, p. 906 (2017: Definition 19.15)",
+    "page": 906,
+    "statement": "$P : \\mathcal A \\to \\mathcal B$ is a finite-to-one covering functor if it is finite-to-one on objects and morphisms lift uniquely with prescribed source."
+   },
+   "lean": {
+    "statement": "`IsFiniteToOneCovering P`: $P$ is finite-to-one on objects and every morphism $\\varphi$ with $s(\\varphi) = P(\\alpha)$ has a unique lift with source $\\alpha$ (`lift`, `existsUnique_lift`). `remark_19_7_2`: the identity functor is a finite-to-one covering functor.",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.IsFiniteToOneCovering",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.IsFiniteToOneCovering.lift",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.IsFiniteToOneCovering.existsUnique_lift",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.remark_19_7_2"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.69",
+   "title": "Definition 19.7.3 (2017: Definition 19.16), uniformizers for $P$, and Definition 19.7.4 (2017: Definition 19.17)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Definitions 19.7.3 and 19.7.4, pp. 906–907 (2017: Definition 19.16)",
+    "page": 906,
+    "statement": "A uniformizer for $P$ at $\\beta$ is a pair $(\\Psi, \\hat\\Psi)$ over a covering model, fitting into a commutative diagram with the stated properties."
+   },
+   "lean": {
+    "statement": "`CoveringUniformizer P β` is a pair $(\\Psi, \\hat\\Psi)$ with a proper covering model (`model : ProperCoveringModel`, Definition 17.8.4) and the cartesian squares on objects and morphisms (`cartesian_obj`, `cartesian_mor`); `definition_19_7_4` collects the conditions of Definition 19.7.4, and `obj_eq`, `mor_eq` the commutativity of (19.22).",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.definition_19_7_4",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.obj_eq",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.mor_eq"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.70",
+   "title": "Lemma 19.7.5 (2017: Lemma 19.1), and Remark 19.7.6 (2017: Remark 19.11)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Lemma 19.7.5 and Remark 19.7.6, pp. 907–908 (2017: Lemma 19.1)",
+    "page": 907,
+    "statement": "$\\Psi$ is determined by $\\hat\\Psi$ and the covering model."
+   },
+   "lean": {
+    "statement": "`lemma_19_7_5`: two uniformizers $\\Psi_1, \\Psi_2$ of $\\mathcal B$ with $P \\circ \\hat\\Psi = \\Psi_i \\circ \\tau$ for the same covering model and $\\hat\\Psi$ are equal; `CoveringUniformizer.remark_19_7_6`: so $\\Psi$ is determined by $\\hat\\Psi$.",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.lemma_19_7_5",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.remark_19_7_6"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.71",
+   "title": "Definition 19.7.7 (2017: Definition 19.18), covering uniformizer constructions, and Remark 19.7.8 (2017: Remark 19.12)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Definition 19.7.7 and Remark 19.7.8, p. 908 (2017: Definition 19.18)",
+    "page": 908,
+    "statement": "A uniformizer construction for $P$, inducing one for $\\mathcal B$."
+   },
+   "lean": {
+    "statement": "`CoveringUniformizerConstruction` assigns sets $\\hat F(\\beta)$ of uniformizers for $P$; `toUniformizerConstruction` is the induced construction $F$ for $\\mathcal B$ of (19.24); `remark_19_7_8`: the base uniformizers of $\\hat F(\\beta)$ lie in $F(\\beta)$ and are centred at $\\beta$, and every element of $F(\\beta)$ is one.",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizerConstruction",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizerConstruction.toUniformizerConstruction",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizerConstruction.remark_19_7_8"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.72",
+   "title": "Lemma 19.7.9 (new in the 2021 edition), and Lemma 19.7.10 (2017: Lemma 19.2)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Lemmas 19.7.9 and 19.7.10, pp. 908–909 (new in the 2021 edition)",
+    "page": 908,
+    "statement": "The map $p : M(\\hat\\Psi, \\hat\\Psi') \\to M(\\Psi,\\Psi')$ is surjective with finite fibres; Lemma 19.7.10 identifies $M(\\hat\\Psi, \\hat\\Psi')$ with a fibred set."
+   },
+   "lean": {
+    "statement": "`CoveringUniformizer.Trans` is the transition set $M(\\hat\\Psi, \\hat\\Psi')$, `transMap` the map $p$ to $M(\\Psi, \\Psi')$; `lemma_19_7_9`: $p$ is surjective with finite fibres, and on the fibre over $h$ the source map is a bijection onto $\\tau^{-1}(s(h))$; `lemma_19_7_10`: the map to the fibred set is bijective (`transEquiv`).",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.Trans",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.transMap",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.lemma_19_7_9",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.lemma_19_7_10",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringUniformizer.transEquiv"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.73",
+   "title": "Definition 19.7.11 (2017: Definition 19.19), basic constructions for $P$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.7, Definition 19.7.11, p. 910 (2017: Definition 19.19)",
+    "page": 910,
+    "statement": "$(\\hat F, \\mathcal F)$ with $\\mathcal F$ a transition construction for the underlying $F$."
+   },
+   "lean": {
+    "statement": "`CoveringBasicConstruction` is the pair $(\\hat F, \\mathcal F)$ with `toBasic` the basic construction for $\\mathcal B$; `HasClassUniformizers` the standing reading $F(\\alpha) \\ne \\emptyset$; `IsCompatible`: for all uniformizers the lifted target maps $\\hat t$ are continuous.",
+    "decls": [
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringBasicConstruction",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringBasicConstruction.toBasic",
+     "Chapter19/CoveringConstruction · GroupoidalCategory.CoveringBasicConstruction.HasClassUniformizers",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.IsCompatible"
+    ]
+   },
+   "chips": [
+    "IsCompatible: reading of l. 44572",
+    "_hyp suffix"
+   ],
+   "diff": [
+    "We read the definition as asking that the uniformizers $\\hat\\Psi$ be compatible with the transitions (the continuity of $\\hat t$), as l. 44572 and Definition 19.6.4 (A) suggest; the literal definition does not ask it, and without it Proposition 19.7.15 (2) and Lemma 19.7.17 do not hold as we read them (V19.78). The hypothesis carries the `_hyp` suffix in every statement that uses it."
+   ]
+  },
+  {
+   "id": "V19.74",
+   "title": "Lemma 19.7.12 (new in the 2021 edition), the fibred product $M(\\Psi, \\Psi')\\,{}_s\\!\\times_{\\hat\\tau} E$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Lemma 19.7.12, p. 911 (new in the 2021 edition)",
+    "page": 911,
+    "statement": "With the natural topology on $M(\\Psi,\\Psi')$, the fibred product $M(\\Psi,\\Psi')\\,{}_s\\!\\times_{\\hat\\tau} E$ is locally metrizable and regular Hausdorff."
+   },
+   "lean": {
+    "statement": "`Fib x y` is the fibred product $M(\\Psi, \\Psi')\\,{}_s\\!\\times_{\\hat\\tau} E$ of (19.26); `lemma_19_7_12`: it is locally metrizable, regular and Hausdorff. It is moreover metrizable, as a subspace of $M(\\Psi, \\Psi') \\times E$ (`metrizableSpace_fib`).",
+    "decls": [
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.Fib",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_12",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.metrizableSpace_fib"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "also metrizable"
+   ],
+   "diff": [
+    "The formalization also gives the metrizability of the fibred product (`metrizableSpace_fib`)."
+   ]
+  },
+  {
+   "id": "V19.75",
+   "title": "Proposition 19.7.13 (new in the 2021 edition), metrizability of $M(\\hat\\Psi, \\hat\\Psi')$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.7, Proposition 19.7.13, p. 913 (new in the 2021 edition)",
+    "page": 913,
+    "statement": "$M(\\hat\\Psi,\\hat\\Psi')$ has a natural regular Hausdorff, locally metrizable topology, uniquely characterized by the canonical map to $M(\\Psi,\\Psi')\\,{}_s\\!\\times_{\\hat\\tau} E$ being a homeomorphism."
+   },
+   "lean": {
+    "statement": "`proposition_19_7_13 (hP)`: the canonical map to the fibred product of Lemma 19.7.12 is a homeomorphism (`fibHomeomorph`), the topology is the only one with this property, it is regular, Hausdorff and locally metrizable, and $M(\\hat\\Psi,\\hat\\Psi')$ is metrizable (`metrizableSpace_MHat`).",
+    "decls": [
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.fibHomeomorph",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_13",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.metrizableSpace_MHat"
+    ]
+   },
+   "chips": [
+    "also metrizable"
+   ],
+   "diff": [
+    "In addition, $M(\\hat\\Psi,\\hat\\Psi')$ is metrizable, with no hypothesis beyond $P$ being a finite-to-one covering functor."
+   ]
+  },
+  {
+   "id": "V19.76",
+   "title": "Proposition 19.7.14 (new in the 2021 edition)",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.7, Proposition 19.7.14, p. 914 (new in the 2021 edition)",
+    "page": 914,
+    "statement": "The map $p : M(\\hat\\Psi,\\hat\\Psi') \\to M(\\Psi,\\Psi')$ is a surjective local homeomorphism, for a local covering functor."
+   },
+   "lean": {
+    "statement": "`proposition_19_7_14`, using that the projections of a fibred product along a local homeomorphism are local homeomorphisms (`isLocalHomeomorph_fibredFst`, `isLocalHomeomorph_fibredSnd`).",
+    "decls": [
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_14",
+     "Chapter19/CoveringTopology · Chapter19.isLocalHomeomorph_fibredFst",
+     "Chapter19/CoveringTopology · Chapter19.isLocalHomeomorph_fibredSnd"
+    ]
+   },
+   "chips": [
+    "\"local covering functor\" read as Def 19.7.1"
+   ],
+   "diff": [
+    "We read \"local covering functor\" as a finite-to-one covering functor in the sense of Definition 19.7.1."
+   ]
+  },
+  {
+   "id": "V19.77",
+   "title": "Proposition 19.7.15 (new in the 2021 edition), the structure maps",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.7, Proposition 19.7.15, p. 915 (new in the 2021 edition)",
+    "page": 915,
+    "statement": "(1) The topology on $M(\\hat\\Psi,\\hat\\Psi')$ is natural; (2) $\\hat s$, $\\hat t$ are local homeomorphisms; (3) $\\hat\\iota$ is a homeomorphism and $\\hat u$ continuous; (4) $\\hat m$ is a local homeomorphism."
+   },
+   "lean": {
+    "statement": "`proposition_19_7_15_one`: (1) without compatibility. `proposition_19_7_15_hyp (hP) (hC : Bh.IsCompatible)`: $p$ is a surjective local homeomorphism and $M(\\hat\\Psi,\\hat\\Psi')$ is homeomorphic to the set of (19.26); $\\hat s$ and $\\hat t$ are local homeomorphisms; the inversion is a homeomorphism and the unit continuous; the multiplication is a local homeomorphism; $M(\\hat\\Psi,\\hat\\Psi')$ and $M(\\Psi,\\Psi')$ are metrizable.",
+    "decls": [
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_one",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_srcHat",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.continuous_unitHat",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_tgtHat",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.invHatHomeomorph",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorph_mulHat",
+     "Chapter19/CoveringTopology · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_hyp"
+    ]
+   },
+   "chips": [
+    "t̂, ι̂, m̂ with IsCompatible (_hyp)",
+    "ₛ×_p E read as ₛ×_τ̂ E"
+   ],
+   "diff": [
+    "The target map in (2), the inversion in (3) and the multiplication in (4) use `IsCompatible`, the reading of Definition 19.7.11; without it, the target map need not be continuous (V19.78). Part (1), the source map in (2) and the unit in (3) do not use it. We read $\\,{}_s\\!\\times_p E$ in the proof as ${}_s\\!\\times_{\\hat\\tau} E$."
+   ]
+  },
+  {
+   "id": "V19.78",
+   "title": "Compatibility is needed: the twisted and doubled examples (§19.7, Proposition 19.7.15 (2) and Lemma 19.7.17)",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.7, Proposition 19.7.15 (2), p. 915, and Lemma 19.7.17, p. 916 (new in the 2021 edition)",
+    "page": 915,
+    "statement": "No counterpart: examples satisfying the literal Definition 19.7.11 without the compatibility reading."
+   },
+   "lean": {
+    "statement": "`twistBasic` (built from `twistCU`, a uniformizer whose lift is twisted by $\\sigma = -1$ for $|x| > 1$) satisfies the literal Definition 19.7.11 but not `IsCompatible` (`not_isCompatible_twistBasic`): its lifted target map is not continuous (`not_continuous_tgtHat_twistBasic`), so Proposition 19.7.15 (2) does not hold for it (`proposition_19_7_15_two_without_compatible`); Lemma 19.7.17 (1) still holds for it (`lemma_19_7_17_one_twistBasic`) but (2) does not (`lemma_19_7_17_two_without_compatible`). `twoBasic` (the twist at 2) has no topology of Definition 19.7.16 (`lemma_19_7_17_one_without_compatible`).",
+    "decls": [
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.twistCU",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.twistBasic",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.not_isCompatible_twistBasic",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.not_continuous_tgtHat_twistBasic",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.proposition_19_7_15_two_without_compatible",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.twoBasic",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.lemma_19_7_17_one_without_compatible",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.lemma_19_7_17_two_without_compatible",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.lemma_19_7_17_one_twistBasic"
+    ]
+   },
+   "chips": [
+    "reason for the IsCompatible reading"
+   ],
+   "diff": [
+    "Not in the book. These examples are the reason for the reading of Definition 19.7.11 (V19.73); they satisfy every printed hypothesis of Definition 19.7.11 (Findings, Chapter 19, item 11)."
+   ]
+  },
+  {
+   "id": "V19.79",
+   "title": "Definition 19.7.16 (new in the 2021 edition), the topology on $|\\mathcal A|$, and Lemma 19.7.17 (new in the 2021 edition)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.7, Definition 19.7.16 and Lemma 19.7.17, p. 916 (new in the 2021 edition)",
+    "page": 916,
+    "statement": "The sets $\\hat T$ form a topology on $|\\mathcal A|$ for which the uniformizers induce open embeddings."
+   },
+   "lean": {
+    "statement": "`NatOpenA`: the sets of Definition 19.7.16; `natTopA hP hC hU` the topology they form. `lemma_19_7_17_one_hyp (hP) (hC) (hU)`: (1) `NatOpenA` is a topology, and every class lies in the image of a uniformizer whose orbit map is an open embedding; `lemma_19_7_17_two_hyp`: (2), with `isOpen_image_hat`, `continuous_π_hat`, `exists_nbhd_hat`.",
+    "decls": [
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.NatOpenA",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.natTopA",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_17_one_hyp",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_17_two_hyp",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.isOpen_image_hat",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.continuous_π_hat",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.exists_nbhd_hat"
+    ]
+   },
+   "chips": [
+    "IsCompatible (_hyp)",
+    "F(α) ≠ ∅ (standing reading)"
+   ],
+   "diff": [
+    "The lemma uses `IsCompatible`, the reading of Definition 19.7.11; the examples of V19.78 show it is needed."
+   ]
+  },
+  {
+   "id": "V19.80",
+   "title": "Proposition 19.7.18 (2017: Lemma 19.3), $|P|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§19.7, Proposition 19.7.18, p. 919 (2017: Lemma 19.3)",
+    "page": 919,
+    "statement": "$|P| : |\\mathcal A| \\to |\\mathcal B|$ is a surjective local homeomorphism with finite fibres, and (19.34) holds."
+   },
+   "lean": {
+    "statement": "Does not hold as we read it: `not_proposition_19_7_18` (with `_natTopA`, `_of_continuous`): for `absBasic` ($|\\mathcal A| \\cong \\mathbb R$, $|\\mathcal B| \\cong [0,\\infty)$, $|P|$ the absolute value) $|P|$ is not a local homeomorphism at $0$ (`absCovering_orbitMap_not_isLocalHomeomorph`). `proposition_19_7_18_hyp (hP) (hC) (hU)`: $|P|$ is continuous, open and surjective with finite fibres, and (19.34) holds. `isLocalHomeomorphOn_orbitMap_of_τ_hyp` with (19.35) (`orbitMap_hat_comm`), and `isLocalHomeomorphOn_orbitMap_of_isotropy_surjective`: $|P|$ is a local homeomorphism at the classes of $a$ where $G_a \\to G_{P(a)}$ is onto; this is not necessary in general (`isotropy_surjective_not_necessary`), and for the example it is exact (`absP_isLocalHomeomorphOn_iff`).",
+    "decls": [
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.not_proposition_19_7_18",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.not_proposition_19_7_18_natTopA",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.not_proposition_19_7_18_of_continuous",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_18_hyp",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.isLocalHomeomorphOn_orbitMap_of_τ_hyp",
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.orbitMap_hat_comm",
+     "Chapter19/CoveringOrbitCounterexample · Chapter19.isLocalHomeomorphOn_orbitMap_of_isotropy_surjective",
+     "Chapter19/CoveringOrbitCounterexample · Chapter19.absP_isLocalHomeomorphOn_iff",
+     "Chapter19/CoveringOrbitCounterexample · Chapter19.isotropy_surjective_not_necessary",
+     "Chapter19/CoveringOrbitCounterexample · Chapter19.absCovering_orbitMap_not_isLocalHomeomorph"
+    ]
+   },
+   "chips": [
+    "local homeomorphism: not as we read it",
+    "2017 form proved",
+    "local homeo where G_a → G_P(a) onto"
+   ],
+   "diff": [
+    "The local homeomorphism property does not hold as we read it (Findings, Chapter 19, item 12): the example satisfies every hypothesis, including the compatibility reading. The 2017 form (continuous and open) is proved, with finite fibres and (19.34); the local homeomorphism property holds at the points where the isotropy map is onto, which is sufficient."
+   ]
+  },
+  {
+   "id": "V19.81",
+   "title": "Lemma 19.7.19 (new in the 2021 edition), the sheets of a connected covering model",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.7, Lemma 19.7.19, p. 920 (new in the 2021 edition)",
+    "page": 920,
+    "statement": "For a connected local ep-groupoid covering model, points of the fibre are isomorphic iff their sheets have the same image."
+   },
+   "lean": {
+    "statement": "`ProperCoveringModel.lemma_19_7_19 (hO : M.Connected)`: for $y, y'$ in the fibre, $y$ and $y'$ are isomorphic iff their sheets have the same image in the orbit space; the sheets are `cutSheet`.",
+    "decls": [
+     "Chapter19/CoveringLocalStructure · ProperCoveringModel.lemma_19_7_19",
+     "Chapter19/CoveringLocalStructure · ProperCoveringModel.cutSheet",
+     "Chapter19/CoveringLocalStructure · ProperCoveringModel.sheetIndex_tgt_liftMor_σ"
+    ]
+   },
+   "chips": [
+    "connected model of Def 17.8.4"
+   ],
+   "diff": [
+    "We read the connected local ep-groupoid covering model as a connected proper covering model in the sense of Definition 17.8.4, as in Remark 17.8.11 (2)."
+   ]
+  },
+  {
+   "id": "V19.82",
+   "title": "The divisibility remark after Lemma 19.7.19 (§19.7, p. 920, new in the 2021 edition)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§19.7, after Lemma 19.7.19, p. 920 (new in the 2021 edition)",
+    "page": 920,
+    "statement": "The number $k$ of classes divides the number $\\ell$ of fibre points."
+   },
+   "lean": {
+    "statement": "Does not hold as we read it: `not_remark_19_7_19_divides`: for the connected model `divModel` the fibre has $\\ell = 3$ points and $k = 2$ orbit classes, and $2 \\nmid 3$. Each class has $|G : \\mathrm{im}\\, G_y|$ elements, so the counts need not divide one another.",
+    "decls": [
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.not_remark_19_7_19_divides",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.divModel"
+    ]
+   },
+   "chips": [
+    "k ∤ ℓ in an example",
+    "not used later"
+   ],
+   "diff": [
+    "The divisibility does not hold as we read it; it is not used later (Findings, Chapter 19, item 13)."
+   ]
+  },
+  {
+   "id": "V19.83",
+   "title": "Corollary 19.7.20 (2017: Lemma 19.4), local structure of $|P|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§19.7, Corollary 19.7.20, p. 921 (2017: Lemma 19.4)",
+    "page": 921,
+    "statement": "(1)–(2) small $G$-invariant neighbourhoods and models over them; (3) $|P|^{-1}(|G \\ltimes O'|)$ is a disjoint union of copies $|G_{a_i} \\ltimes V(a_i)| \\cong |G \\ltimes O'|$."
+   },
+   "lean": {
+    "statement": "`corollary_19_7_20_hyp (hP) (hC) (hU)`: (1) and (2), with `exists_isOpen_preimage_subset`, `isClosedMap_orbitMap` and `evenlyCovered_orbitMap`. (3) does not hold as we read it: `not_corollary_19_7_20_three` (the absolute-value example).",
+    "decls": [
+     "Chapter19/CoveringLocalStructure · GroupoidalCategory.CoveringBasicConstruction.corollary_19_7_20_hyp",
+     "Chapter19/CoveringLocalStructure · GroupoidalCategory.CoveringBasicConstruction.exists_isOpen_preimage_subset",
+     "Chapter19/CoveringLocalStructure · GroupoidalCategory.CoveringBasicConstruction.isClosedMap_orbitMap",
+     "Chapter19/CoveringLocalStructure · GroupoidalCategory.CoveringBasicConstruction.evenlyCovered_orbitMap",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.not_corollary_19_7_20_three"
+    ]
+   },
+   "chips": [
+    "(3) not as we read it",
+    "(1), (2) proved; |P| closed"
+   ],
+   "diff": [
+    "(3) does not hold as we read it (Findings, Chapter 19, item 12): the proof's identification $|G_{a_i} \\ltimes V(a_i)| \\cong |G \\ltimes O'|$ needs $G_{a_i} = G$. (1) and (2) are proved; $|P|$ is closed and the fibres are evenly covered in the orbit sense."
+   ]
+  },
+  {
+   "id": "V19.84",
+   "title": "Lemma 19.7.21 (new in the 2021 edition), and Remark 19.7.22 (new in the 2021 edition)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.7, Lemma 19.7.21 and Remark 19.7.22, pp. 922–923 (new in the 2021 edition)",
+    "page": 922,
+    "statement": "Consequences of the properness condition (V2) for $|\\mathcal B|$ and the transition sets; the remark relates metrizability to (V2) and paracompactness."
+   },
+   "lean": {
+    "statement": "`lemma_19_7_21 (hP) (hU)`: under (V2) $|\\mathcal B|$ is regular, Hausdorff and locally metrizable, and the transition sets $M(\\Psi,\\Psi')$, $M(\\hat\\Psi,\\hat\\Psi')$ are metrizable with no hypothesis; `remark_19_7_22`: $|\\mathcal B|$ is metrizable iff (V2) holds and $|\\mathcal B|$ is paracompact, and then the transition sets are metrizable.",
+    "decls": [
+     "Chapter19/CoveringOrbitTopology · GroupoidalCategory.CoveringBasicConstruction.lemma_19_7_21",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.remark_19_7_22"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "transition sets: no (V2) needed"
+   ],
+   "diff": [
+    "The metrizability of the transition sets holds without (V2)."
+   ]
+  },
+  {
+   "id": "V19.85",
+   "title": "Proposition 19.7.23 (2017: Proposition 19.9), and Proposition 19.7.24 (2017: Proposition 19.10), properness and paracompactness",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.7, Propositions 19.7.23 and 19.7.24, pp. 923–924 (2017: Proposition 19.9)",
+    "page": 923,
+    "statement": "(V2) for $\\mathcal A$ iff for $\\mathcal B$; $|\\mathcal A|$ paracompact iff $|\\mathcal B|$ is."
+   },
+   "lean": {
+    "statement": "`proposition_19_7_23_hyp (hP) (hC) (hU) : PropernessV2A ↔ toBasic.PropernessV2`; `proposition_19_7_24_hyp : ParacompactSpace[natTopA] ↔ ParacompactSpace[natTop]`, through the perfect-map lemmas `paracompactSpace_of_tube` and `paracompactSpace_of_tube_of_isOpenMap`.",
+    "decls": [
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.PropernessV2A",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_23_hyp",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_24_hyp",
+     "Chapter19/CoveringMetrizability · Chapter19.paracompactSpace_of_tube",
+     "Chapter19/CoveringMetrizability · Chapter19.paracompactSpace_of_tube_of_isOpenMap"
+    ]
+   },
+   "chips": [
+    "IsCompatible (_hyp)",
+    "perfect-map route, not 19.7.20 (3)"
+   ],
+   "diff": [
+    "Both hold as printed under the compatibility reading. The proof uses that $|P|$ is a perfect map (continuous, closed, finite fibres) and does not use Corollary 19.7.20 (3)."
+   ]
+  },
+  {
+   "id": "V19.86",
+   "title": "Theorem 19.7.25 (new in the 2021 edition), the topology of $|\\mathcal A|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§19.7, Theorem 19.7.25, p. 925 (new in the 2021 edition)",
+    "page": 925,
+    "statement": "(1) $|\\mathcal A|$ metrizable; (2) topologies on $\\mathcal A$, $\\mathcal B$; (3) $P$ a proper covering functor; (4) each fibre has disjoint neighbourhoods on which $|P|$ is injective."
+   },
+   "lean": {
+    "statement": "With `hP`, `hC`, `hU`: (1) `theorem_19_7_25_one_hyp` (with `hm`, $|\\mathcal B|$ metrizable): $|\\mathcal A|$ is metrizable, $|P|$ continuous and surjective (via `t2Space_natTopA`, `exists_metrizable_nhds_natTopA`); (2) `theorem_19_7_25_two_hyp`: the groupoidal categories with topology `toGCTA`, `toGCTB`; (3) `theorem_19_7_25_three_hyp`: $P$ is a proper covering functor of Definition 17.8.1; (4a) `theorem_19_7_25_four_a_hyp`: finite fibres, each evenly covered by disjoint open sets. (4b) does not hold as we read it: `not_theorem_19_7_25_four_b`. Witness `theorem_19_7_25_absBasic`.",
+    "decls": [
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_one_hyp",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.t2Space_natTopA",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.exists_metrizable_nhds_natTopA",
+     "Chapter19/CoveringMetrizability · Chapter19.t2Space_of_disjoint_fibre_nhds",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.toGCTA",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.toGCTB",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_two_hyp",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_three_hyp",
+     "Chapter19/CoveringMetrizability · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_25_four_a_hyp",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.not_theorem_19_7_25_four_b",
+     "Chapter19/CoveringLocalExamples · GroupoidalCategory.theorem_19_7_25_absBasic"
+    ]
+   },
+   "chips": [
+    "(4b) not as we read it",
+    "(1)–(3), (4a) proved"
+   ],
+   "diff": [
+    "(4b), the injectivity of $|P|$ near each point of the fibre, does not hold as we read it (Findings, Chapter 19, item 12): for the absolute value no neighbourhood of $0$ has $|P|$ injective. This is the same point as Proposition 19.7.18. The rest is proved under the compatibility reading."
+   ]
+  },
+  {
+   "id": "V19.87",
+   "title": "Proposition 19.7.26 (2017: Proposition 19.8), polyfold structures on the transition sets",
+   "verdict": "stronger",
+   "book": {
+    "label": "§19.7, Proposition 19.7.26, p. 926 (2017: Proposition 19.8)",
+    "page": 926,
+    "statement": "If $|\\mathcal B|$ is metrizable, $M(\\hat\\Psi,\\hat\\Psi')$ has a natural M-polyfold structure for which $p$ is a local sc-diffeomorphism."
+   },
+   "lean": {
+    "statement": "`fibSet` is the set of (19.26), a sub-M-polyfold (`isSubMPolyfold_fibSet`, `fibPolyfold`); `hatPolyfold` is the M-polyfold structure on $M(\\hat\\Psi,\\hat\\Psi')$ transported along (19.26) (`isScDiffeoOn_toFibSet`), for which $p$ is a local sc-diffeomorphism (`isLocalScDiffeo_pB`), the unique such structure (`isScDiffeoOn_id_of_isLocalScDiffeo_pB`), tame when the model of the base uniformizer is (`isTame_basePolyfold`, `isTame_hatPolyfold`). `proposition_19_7_26 (hU) (_hm)` collects it.",
+    "decls": [
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.basePolyfold",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.fibSet",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isSubMPolyfold_fibSet",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.fibPolyfold",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.hatPolyfold",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isScDiffeoOn_toFibSet",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isLocalScDiffeo_pB",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isScDiffeoOn_id_of_isLocalScDiffeo_pB",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isTame_basePolyfold",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.isTame_hatPolyfold",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_26"
+    ]
+   },
+   "chips": [
+    "unique structure with p local sc-diffeo",
+    "no IsCompatible; metrizability unused"
+   ],
+   "diff": [
+    "The M-polyfold structure is characterized: it is the unique one making $p$ a local sc-diffeomorphism. Neither `IsCompatible` nor the metrizability of $|\\mathcal B|$ is used."
+   ]
+  },
+  {
+   "id": "V19.88",
+   "title": "Definition 19.7.27 (new in the 2021 edition), and Theorem 19.7.28 (new in the 2021 edition), polyfold covering structures",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.7, Definition 19.7.27 and Theorem 19.7.28, p. 928 (new in the 2021 edition)",
+    "page": 928,
+    "statement": "A basic construction for $P$ with $|\\mathcal B|$ metrizable defines a proper polyfold covering structure."
+   },
+   "lean": {
+    "statement": "`definition_19_7_27` as stated. With `hP`, `hC`, `hU`, `hm`: (1) `theorem_19_7_28_one_hyp`; (2) `theorem_19_7_28_two_hyp` for the categories with topology `gctA`, `gctB`; (3) `theorem_19_7_28_three_hyp`: the proper polyfold covering structure `toProperPolyfoldCoveringStructure` (with `toProperCoveringUniformizer`, `ofProperCoveringUniformizer` and `toProperCoveringConstruction`) has exactly the given uniformizers, the base structure of the basic construction and the M-polyfolds of Proposition 19.7.26; `toProperPolyfoldCoveringFunctor` is the resulting functor.",
+    "decls": [
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.definition_19_7_27",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_one_hyp",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_two_hyp",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.toProperCoveringUniformizer",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.ofProperCoveringUniformizer",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.toProperCoveringConstruction",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.toProperPolyfoldCoveringStructure",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.toProperPolyfoldCoveringFunctor"
+    ]
+   },
+   "chips": [
+    "IsCompatible (_hyp)"
+   ],
+   "diff": [
+    "Proved under the compatibility reading of Definition 19.7.11."
+   ]
+  },
+  {
+   "id": "V19.89",
+   "title": "Theorem 19.7.29 (2017: Theorem 19.10), the polyfold structure on $\\mathcal A$",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.7, Theorem 19.7.29, p. 929 (2017: Theorem 19.10)",
+    "page": 929,
+    "statement": "$\\mathcal A$ has a natural polyfold structure for which $P$ is a covering functor of polyfolds."
+   },
+   "lean": {
+    "statement": "`theorem_19_7_29_hyp` (under the section's `hP`, `hC`, `hU`, `hm`), with the maps `fibredMorP`, `gammaHat` and `gammaFib`: the polyfold structure on $\\mathcal A$ in the sense of Definition 17.8.13, for which $P$ is a proper covering functor of polyfolds.",
+    "decls": [
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.fibredMorP",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.gammaHat",
+     "Chapter19/CoveringPolyfold · GroupoidalCategory.CoveringBasicConstruction.gammaFib"
+    ]
+   },
+   "chips": [
+    "read via Def 17.8.13",
+    "IsCompatible (_hyp)"
+   ],
+   "diff": [
+    "We read \"$\\mathcal A$ has a natural polyfold structure\" through Definition 17.8.13: $\\mathcal A$ has no translation-groupoid uniformizers of its own, so its structure is the one induced through $P$."
+   ]
+  },
+  {
+   "id": "V19.90",
+   "title": "Witness for §19.7: the absolute value",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.7 (no counterpart in the text)",
+    "page": 905,
+    "statement": "No counterpart: a witness for the hypotheses of §19.7."
+   },
+   "lean": {
+    "statement": "`absBasic`: $P : \\mathbb Z/2 \\ltimes (\\mathbb Z^\\times \\times \\mathbb R) \\to \\mathbb Z/2 \\ltimes \\mathbb R$, with $|\\mathcal A| \\cong \\mathbb R$, $|\\mathcal B| \\cong [0,\\infty)$ and $|P|$ the absolute value. It is compatible (`absBasic_isCompatible`), has uniformizers at every class, its topology is the usual one (`absBasic_natTopA_eq`), and it satisfies Proposition 19.7.26, Theorem 19.7.28 (1) and (3) (`absPolyfoldCoveringFunctor`, the proper polyfold covering functor of (3)) and Theorem 19.7.29, non-degenerately (`absBasic_covering_polyfold_nondegenerate`).",
+    "decls": [
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.absBasic",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.absBasic_isCompatible",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.absBasic_hasClassUniformizers",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.absBasic_natTopA_eq",
+     "Chapter19/CoveringCounterexamples · GroupoidalCategory.absCovP_isFiniteToOneCovering",
+     "Chapter19/CoveringPolyfoldExamples · GroupoidalCategory.absBasic_covering_polyfold_nondegenerate",
+     "Chapter19/CoveringPolyfoldExamples · GroupoidalCategory.absBasic_proposition_19_7_26",
+     "Chapter19/CoveringPolyfoldExamples · GroupoidalCategory.absBasic_theorem_19_7_28_one",
+     "Chapter19/CoveringPolyfoldExamples · GroupoidalCategory.absBasic_theorem_19_7_29",
+     "Chapter19/CoveringPolyfoldExamples · GroupoidalCategory.absPolyfoldCoveringFunctor"
+    ]
+   },
+   "chips": [
+    "witness, non-degenerate"
+   ],
+   "diff": [
+    "Not in the book: a non-degenerate witness for the compatibility reading (non-trivial isotropy, a two-sheeted covering away from $0$). The same example shows Proposition 19.7.18 and Theorem 19.7.25 (4b) do not hold as we read them."
+   ]
+  },
+  {
+   "id": "V19.91",
+   "title": "Definition 19.8.1 (new in the 2021 edition), uniformizers for bundle covering pull-backs",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definition 19.8.1, p. 932 (new in the 2021 edition)",
+    "page": 932,
+    "statement": "A triple $(\\Psi, \\hat\\Psi, \\Gamma)$: a uniformizer for $P$ and a strong bundle uniformizer for $P_B$ fitting into (19.45)."
+   },
+   "lean": {
+    "statement": "`StrongBundleOver` is a strong bundle uniformizer over a given $(\\Psi, \\hat\\Psi)$ fitting into (19.45) (`obj_eq`, (19.46)); `PullbackUniformizer` is the triple $(\\Psi, \\hat\\Psi, \\Gamma)$ (`definition_19_8_1`, `toStrongBundleUniformizer`). `BanFunctor.pull` is $\\mu_B \\circ P$ and `GroupoidAction.groupoid` the translation groupoid of an action.",
+    "decls": [
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.StrongBundleOver",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.StrongBundleOver.obj_eq",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.definition_19_8_1",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.toStrongBundleUniformizer",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.BanFunctor.pull",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.GroupoidAction.groupoid"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.92",
+   "title": "Definition 19.8.2 (new in the 2021 edition), uniformizer constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definition 19.8.2, p. 932 (new in the 2021 edition)",
+    "page": 932,
+    "statement": "A functor $\\tilde F$ assigning sets of uniformizers $(\\Psi,\\hat\\Psi,\\Gamma)$; it induces $F$, $\\bar F$ and $\\hat F$."
+   },
+   "lean": {
+    "statement": "`PullbackUniformizerConstruction` assigns sets $\\tilde F(\\beta)$; it induces $F$ (`toUniformizerConstruction`), $\\bar F$ (`barF`) and $\\hat F$ (`hatU`), as in (1)–(3) of the text (`definition_19_8_2`).",
+    "decls": [
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizerConstruction",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizerConstruction.hatU",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizerConstruction.toUniformizerConstruction",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizerConstruction.barF",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_2"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.93",
+   "title": "Lemma 19.8.3 (new in the 2021 edition), and the functor $\\hat\\Gamma$ of (19.55)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Lemma 19.8.3, p. 933 (new in the 2021 edition)",
+    "page": 933,
+    "statement": "For $(w, (\\varphi, A(w)), w') \\in M(\\Gamma,\\Gamma')$: $s(\\varphi) = \\Psi(e)$, $t(\\varphi) = \\Psi'(e')$, $Q(w) = e$, $Q'(w') = e'$ and $A'(w') = \\mu_B(\\varphi)(A(w))$."
+   },
+   "lean": {
+    "statement": "`lemma_19_8_3`: the relations (19.48) for an element of $M(\\Gamma, \\Gamma')$. `gammaHat` is the functor $\\hat\\Gamma : \\tau^*W \\to P^*E_B$ of (19.55), injective on objects, full and faithful, fitting into (19.61) (`gammaHat_comm`).",
+    "decls": [
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.lemma_19_8_3",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.gammaHat",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.injective_gammaHat",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.full_gammaHat",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.faithful_gammaHat",
+     "Chapter19/CoveringPullbackDiagram · GroupoidalCategory.PullbackUniformizer.gammaHat_comm"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.94",
+   "title": "Definition 19.8.4 (new in the 2021 edition), transition constructions",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.8, Definition 19.8.4, p. 934 (new in the 2021 edition)",
+    "page": 934,
+    "statement": "A transition construction $\\mathcal F$ for $F$ such that (1) $T_{|B|}$ is metrizable, (2) $(\\bar F, \\mathcal F)$ is coherent, (3) $(\\hat F, \\mathcal F)$ is a basic construction for $P$."
+   },
+   "lean": {
+    "statement": "`PullbackTransitionConstruction`: a transition construction $\\mathcal F$ for $F$ with fields `hasClassUniformizers` (the standing reading), `metrizable` ((1), $T_{|B|}$ metrizable) and `isCoherent` ((2), coherence of $(\\bar F, \\mathcal F)$, `PUC.IsCoherent`); (3) is `toCoveringBasicConstruction` (the construction `toCBC` for $P$) (`definition_19_8_4`).",
+    "decls": [
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.IsCoherent",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.toCBC",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.PullbackTransitionConstruction.toCoveringBasicConstruction",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_4"
+    ]
+   },
+   "chips": [
+    "F(α) ≠ ∅ field",
+    "IsCompatible separate"
+   ],
+   "diff": [
+    "The standing reading is a field. The compatibility reading of Definition 19.7.11 is not part of the definition; the results that use it take it as `hC` (V19.95)."
+   ]
+  },
+  {
+   "id": "V19.95",
+   "title": "The note after Definition 19.8.4: (1) implies (3) (§19.8, p. 934)",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.8, after Definition 19.8.4, p. 934 (new in the 2021 edition)",
+    "page": 934,
+    "statement": "(1) and the assumption that $\\tilde F$ is a uniformizer construction imply (3)."
+   },
+   "lean": {
+    "statement": "`definition_19_8_4_one_implies_three`: as printed, (1) and $\\tilde F$ give (3). `definition_19_8_4_one_without_compatible` and `definition_19_8_4_without_compatible`: a construction satisfying Definitions 19.8.4 and 19.8.5 need not satisfy the compatibility reading.",
+    "decls": [
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.definition_19_8_4_one_implies_three",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.definition_19_8_4_one_without_compatible",
+     "Chapter19/CompatibilityExamples · GroupoidalCategory.definition_19_8_4_without_compatible"
+    ]
+   },
+   "chips": [
+    "holds as printed",
+    "IsCompatible not implied"
+   ],
+   "diff": [
+    "The note holds as printed. With the compatibility reading of Definition 19.7.11 it would need that reading too, since the examples show it does not follow from (1) (Findings, Chapter 19, item 15)."
+   ]
+  },
+  {
+   "id": "V19.96",
+   "title": "Definition 19.8.5 (new in the 2021 edition), basic constructions",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definition 19.8.5, p. 937 (new in the 2021 edition)",
+    "page": 937,
+    "statement": "$(\\tilde F, \\mathcal F)$ is a basic construction for the bundle covering pull-back."
+   },
+   "lean": {
+    "statement": "`PullbackBasicConstruction` is the pair $(\\tilde F, \\mathcal F)$ (`definition_19_8_5`).",
+    "decls": [
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.PullbackBasicConstruction",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.definition_19_8_5"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.97",
+   "title": "Theorem 19.8.6 (new in the 2021 edition), bundle covering pull-backs",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)",
+    "page": 938,
+    "statement": "For uniformizers from a basic construction: $\\hat\\Gamma$ fully faithful; (1) M-polyfold and strong bundle structures; (2) $p$ a surjective local sc-diffeomorphism; (3) $U$ a strong bundle isomorphism for a unique structure on $\\hat m$; (4) $\\bar p$ a surjective local strong bundle isomorphism; (5) the orbit spaces of $\\mathcal A$, $\\mathcal B$, $E_B$, $P^*E_B$ are metrizable."
+   },
+   "lean": {
+    "statement": "`theorem_19_8_6_one_four` (any transition construction): $\\hat\\Gamma$ is fully faithful and injective on objects; (1) $m$ has the strong bundle structure `bundleG` (via `isStrongBundleIso_altH`); (2) $p$ (`pBmap`) is a surjective local sc-diffeomorphism; (3) $U$ (`Umap`) onto the pull-back `pullBundle` is a strong bundle isomorphism for a unique structure on $\\hat m$ (`isStrongBundleIso_U`, `bundleHat_unique`); (4) $\\bar p$ (`pbarMap`, `mGmap_pbarMap`) is a surjective local strong bundle isomorphism. `theorem_19_8_6_hyp (T) (hC)` adds (5) for $|\\mathcal A|$ and $|\\mathcal B|$; for $|E_B|$ it is `metrizableSpace_natTopEB`. The structure maps of $M(\\Gamma, \\Gamma')$ are local strong bundle isomorphisms or strong bundle maps (`isLocalStrongBundleIso_tgtGmap`, `isStrongBundleIso_invG`, `isStrongBundleMap_unitG`, `isStrongBundleMap_mulG`).",
+    "decls": [
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.bundleG",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_altH",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.pBmap",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.pullBundle",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.Umap",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_U",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.bundleHat_unique",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.pbarMap",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.mGmap_pbarMap",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_pbar",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.isLocalStrongBundleIso_pbar",
+     "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.surjective_pbar",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.PullbackUniformizerConstruction.natTopEB",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopEB",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.PullbackUniformizerConstruction.isLocalStrongBundleIso_tgtGmap",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleIso_invG",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_unitG",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.PullbackUniformizerConstruction.mulBundleG",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_mulG"
+    ]
+   },
+   "chips": [
+    "(1)–(4) for any transition construction",
+    "(5) for |A|: IsCompatible (_hyp)",
+    "|P*E_B|: G.273"
+   ],
+   "diff": [
+    "(1)–(4) hold for every transition construction, without (1)–(3) of Definition 19.8.4. (5) for $|\\mathcal A|$ uses the compatibility reading. (5) for $|P^*E_B|$ is not stated separately (point G.273)."
+   ]
+  },
+  {
+   "id": "V19.98",
+   "title": "Witness for the bundle covering pull-back: the absolute value with a fibre",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.8 (no counterpart in the text)",
+    "page": 930,
+    "statement": "No counterpart: a witness for the hypotheses of Theorem 19.8.6."
+   },
+   "lean": {
+    "statement": "`absFt`: the absolute-value covering of V19.90 with a Banach fibre over $\\mathcal B$; `absFtTransition` and `absFtBasic` its transition and basic constructions. It is coherent (`absFt_isCoherent`) and compatible (`absFt_isCompatible`), and Theorem 19.8.6 holds for it in full (`absFt_theorem_19_8_6_full`, `absFt_metrizableSpace_natTopEB`).",
+    "decls": [
+     "Chapter19/CoveringPullbackExamples · GroupoidalCategory.absFt",
+     "Chapter19/CoveringPullbackCoherence · GroupoidalCategory.absFtTransition",
+     "Chapter19/CoveringPullbackCoherence · GroupoidalCategory.absFtBasic",
+     "Chapter19/CoveringPullbackCoherence · GroupoidalCategory.absFt_isCoherent",
+     "Chapter19/CoveringPullbackCoherence · GroupoidalCategory.absFt_isCompatible",
+     "Chapter19/CoveringPullbackCoherence · GroupoidalCategory.absFt_theorem_19_8_6_full",
+     "Chapter19/CoveringSquareTopologyExamples · GroupoidalCategory.absFt_metrizableSpace_natTopEB"
+    ]
+   },
+   "chips": [
+    "witness, non-degenerate"
+   ],
+   "diff": [
+    "Not in the book: a non-degenerate witness for Definitions 19.8.4, 19.8.5 and the compatibility reading."
+   ]
+  },
+  {
+   "id": "V19.99",
+   "title": "Definition 19.8.7 (2017: Definition 19.20), bundle covering squares",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definition 19.8.7, p. 941 (2017: Definition 19.20)",
+    "page": 941,
+    "statement": "The diagram of (19.70)–(19.71) given by $P$, $\\mu_A$, $\\mu_B$ and $\\Theta : \\mu_A \\to \\mu_B \\circ P$."
+   },
+   "lean": {
+    "statement": "`BundleCoveringSquare`: $P : \\mathcal A \\to \\mathcal B$, $\\mu_A$, $\\mu_B$ and $\\Theta : \\mu_A \\to \\mu_B \\circ P$; `Phat` is $\\hat P : E_A \\to E_B$ of (19.69) (`definition_19_8_7`); `ofPull` is the square of a pull-back. Witness `reflAbsSquare` (with a non-trivial fibre action, `reflAbsSquare_act_neg`).",
+    "decls": [
+     "Chapter19/CoveringSquare · GroupoidalCategory.BundleCoveringSquare",
+     "Chapter19/CoveringSquare · GroupoidalCategory.BundleCoveringSquare.Phat",
+     "Chapter19/CoveringSquare · GroupoidalCategory.BundleCoveringSquare.definition_19_8_7",
+     "Chapter19/CoveringSquare · GroupoidalCategory.BundleCoveringSquare.ofPull",
+     "Chapter19/CoveringPullbackExamples · GroupoidalCategory.reflAbsSquare",
+     "Chapter19/CoveringPullbackExamples · GroupoidalCategory.reflAbsSquare_act_neg"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.100",
+   "title": "Definition 19.8.8 (2017: Definition 19.21), strong ep-bundle covering models, and Remark 19.8.9 (new in the 2021 edition)",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.8, Definition 19.8.8 and Remark 19.8.9, p. 943 (2017: Definition 19.21)",
+    "page": 943,
+    "statement": "The diagram $K$ of (19.72) with the listed properties."
+   },
+   "lean": {
+    "statement": "`StrongEpBundleCoveringModel`: the diagram $K$ of (19.72) with $\\Xi$ a proper strong bundle covering in the sense of Definition 8.5.9 and (19.75) (`xi_mu`); `definition_19_8_8`, `remark_19_8_9`. Witness `PullbackUniformizer.coveringModel`.",
+    "decls": [
+     "Chapter19/CoveringSquare · GroupoidalCategory.StrongEpBundleCoveringModel",
+     "Chapter19/CoveringSquare · GroupoidalCategory.StrongEpBundleCoveringModel.xi_mu",
+     "Chapter19/CoveringSquare · GroupoidalCategory.StrongEpBundleCoveringModel.definition_19_8_8",
+     "Chapter19/CoveringSquare · GroupoidalCategory.StrongEpBundleCoveringModel.remark_19_8_9",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.PullbackUniformizer.coveringModel"
+    ]
+   },
+   "chips": [
+    "covering model of Def 17.8.4"
+   ],
+   "diff": [
+    "The covering model of the base is read as one of Definition 17.8.4 throughout; the text cites Definition 8.5.1 with $E = G \\ltimes O$."
+   ]
+  },
+  {
+   "id": "V19.101",
+   "title": "Definition 19.8.10 (2017: Definition 19.22), uniformizers for bundle covering squares",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definition 19.8.10, p. 943 (2017: Definition 19.22)",
+    "page": 943,
+    "statement": "A uniformizer $\\hat\\Gamma : K \\to E$ consists of $\\Psi$, $\\hat\\Psi$, $\\Gamma$, $\\hat\\Gamma$ with the listed properties."
+   },
+   "lean": {
+    "statement": "`SquareUniformizer`: a functor $\\hat\\Gamma : K \\to E$ with the four component uniformizers (`toStrongBundleOver`, `toPullbackUniformizer`), the conditions of the definition (`definition_19_8_10`) and the relations (19.82) (`relations_19_82`). A pull-back uniformizer gives one (`PullbackUniformizer.toSquare`). Witness `absSquareU`, non-degenerate (`absSquareU_nondegenerate`).",
+    "decls": [
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer",
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.toStrongBundleOver",
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.toPullbackUniformizer",
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.definition_19_8_10",
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.relations_19_82",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.PullbackUniformizer.toSquare",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSquareU",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSquareU_nondegenerate"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.102",
+   "title": "Remark 19.8.11 (new in the 2021 edition), applications",
+   "verdict": "nothing",
+   "book": {
+    "label": "§19.8, Remark 19.8.11, p. 944 (new in the 2021 edition)",
+    "page": 944,
+    "statement": "Applications of the construction."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: the remark points to applications (point G.274).",
+    "decls": []
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V19.103",
+   "title": "Lemma 19.8.12 (new in the 2021 edition), $\\hat\\Gamma$ determines the uniformizer",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Lemma 19.8.12, p. 946 (new in the 2021 edition)",
+    "page": 946,
+    "statement": "$\\hat\\Gamma : \\hat W \\to E_A$ determines $\\Psi$, $\\hat\\Psi$, $\\Gamma$, and these determine $\\hat\\Gamma$."
+   },
+   "lean": {
+    "statement": "`lemma_19_8_12`: $\\hat\\Gamma$ determines $\\Psi$, $\\hat\\Psi$ and $\\Gamma$, and these determine $\\hat\\Gamma$; `formula_19_84` is (19.84).",
+    "decls": [
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.lemma_19_8_12",
+     "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.formula_19_84"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.104",
+   "title": "Definition 19.8.13 (2017: Definition 19.23), uniformizer constructions for squares",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.8, Definition 19.8.13, p. 948 (2017: Definition 19.23)",
+    "page": 948,
+    "statement": "A functor $\\tilde F$ assigning sets of uniformizers for $E$."
+   },
+   "lean": {
+    "statement": "`SquareUniformizerConstruction` assigns sets of square uniformizers; `toPullback` is the induced pull-back construction (`definition_19_8_13`). Witness `absSqFt`.",
+    "decls": [
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.toPullback",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.definition_19_8_13",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSqFt"
+    ]
+   },
+   "chips": [
+    "self-citation read as Def 19.8.10"
+   ],
+   "diff": [
+    "The definition's reference to itself for the notion of uniformizer is read as a reference to Definition 19.8.10."
+   ]
+  },
+  {
+   "id": "V19.105",
+   "title": "Definition 19.8.14 (2017: Definition 19.24), compatible transition constructions, and Definition 19.8.15 (new in the 2021 edition)",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Definitions 19.8.14 and 19.8.15, pp. 948–949 (2017: Definition 19.24)",
+    "page": 948,
+    "statement": "A transition construction with (1) $T_{|B|}$ metrizable, (2) coherence, (3) a basic construction for $P$; a basic construction for $E$ is the pair."
+   },
+   "lean": {
+    "statement": "`CompatibleTransitionConstruction`: conditions (1)–(3) of Definition 19.8.14 (`definition_19_8_14`); `SquareBasicConstruction` the pair $(\\tilde F, \\mathcal F)$ (`definition_19_8_15`). Witnesses `absSqTransition`, `absSqBasic`.",
+    "decls": [
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.CompatibleTransitionConstruction",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.definition_19_8_14",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareBasicConstruction",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.definition_19_8_15",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSqTransition",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSqBasic"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "IsCompatible separate"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.106",
+   "title": "Lemma 19.8.16 (new in the 2021 edition), and Definition 19.8.17 (new in the 2021 edition), the strong bundle structure on $M(\\hat\\Gamma, \\hat\\Gamma')$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Lemma 19.8.16 and Definition 19.8.17, pp. 951–952 (new in the 2021 edition)",
+    "page": 951,
+    "statement": "$U : M(\\hat\\Gamma, \\hat\\Gamma') \\to p^*M(\\Gamma,\\Gamma')$ is a canonical bijection, fibrewise linear over the identity; it defines the strong bundle structure on $\\hat m$."
+   },
+   "lean": {
+    "statement": "`MSq` is $M(\\hat\\Gamma, \\hat\\Gamma')$ with $\\hat m$ (`mSq`) and $\\bar p$ (`pbarSq`); `lemma_19_8_16`: $U$ (`USq`, inverse `USqInv`) is a bijection onto $p^*M(\\Gamma, \\Gamma')$, fibrewise linear over the identity (using `isStrongBundleIso_liftK`). `bundleSq` is the structure of Definition 19.8.17, the unique one making $U$ a strong bundle isomorphism (`isStrongBundleIso_USq`, `bundleSq_unique`).",
+    "decls": [
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.MSq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.mSq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.pbarSq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.USq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.USqInv",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_16",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.StrongEpBundleCoveringModel.isStrongBundleIso_liftK",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.bundleSq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.isStrongBundleIso_USq",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.bundleSq_unique"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.107",
+   "title": "Lemma 19.8.18 (new in the 2021 edition), the map $S$",
+   "verdict": "same",
+   "book": {
+    "label": "§19.8, Lemma 19.8.18, p. 953 (new in the 2021 edition)",
+    "page": 953,
+    "statement": "$S : p^*M(\\Gamma,\\Gamma') \\to \\hat W$ is a local strong bundle isomorphism over $\\hat s$."
+   },
+   "lean": {
+    "statement": "`SMap` is $S$ of (19.93); `lemma_19_8_18`: it is a local strong bundle isomorphism fitting into the diagram; `isLocalStrongBundleIso_srcSq` is the resulting property of the source map.",
+    "decls": [
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.SMap",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_18",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.SquareUniformizerConstruction.isLocalStrongBundleIso_srcSq"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V19.108",
+   "title": "Definition 19.8.19 (new in the 2021 edition), proper strong bundle covering squares",
+   "verdict": "restated",
+   "book": {
+    "label": "§19.8, Definition 19.8.19, p. 954 (new in the 2021 edition)",
+    "page": 954,
+    "statement": "$a$ a surjective local sc-diffeomorphism with finite fibres, neighbourhoods $U(\\hat x_i)$ mapped sc-diffeomorphically onto $U(x)$, and $\\hat a$ a strong bundle isomorphism over them."
+   },
+   "lean": {
+    "statement": "`IsProperStrongBundleCoveringSquareBook` is the printed definition; `IsProperStrongBundleCoveringSquare` the read form, which adds $a^{-1}(U(x)) = \\bigsqcup_i U(\\hat x_i)$; `toBook` gives the printed form. Models are proper squares (`isProperSquare`; witness `absSquareU_isProperSquare`).",
+    "decls": [
+     "Chapter19/CoveringSquareTheorem · IsProperStrongBundleCoveringSquare",
+     "Chapter19/CoveringSquareTheorem · IsProperStrongBundleCoveringSquareBook",
+     "Chapter19/CoveringSquareTheorem · IsProperStrongBundleCoveringSquare.toBook",
+     "Chapter19/CoveringSquareTheorem · GroupoidalCategory.StrongEpBundleCoveringModel.isProperSquare",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSquareU_isProperSquare"
+    ]
+   },
+   "chips": [
+    "read with a⁻¹(U(x)) = ⊔ U(x̂ᵢ)",
+    "printed form kept"
+   ],
+   "diff": [
+    "We read the neighbourhoods as covering the preimage, $a^{-1}(U(x)) = \\bigsqcup_i U(\\hat x_i)$, as for proper coverings in Definition 17.8.1 and as the typical examples satisfy; the printed form is kept and implied."
+   ]
+  },
+  {
+   "id": "V19.109",
+   "title": "Definition 19.8.20 (new in the 2021 edition), the topology on $|E_A|$, and Lemma 19.8.21 (new in the 2021 edition)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition)",
+    "page": 956,
+    "statement": "$\\bar T_A$ defines a metrizable topology on $|E_A|$ for which $|P_A|$ is continuous."
+   },
+   "lean": {
+    "statement": "`NatOpenEA`: the sets $\\bar T_A$ of Definition 19.8.20; `lemma_19_8_21_hyp (hcoh) (hC) (hU) (hm)`: they form a topology `natTopEA`, metrizable (`metrizableSpace_natTopEA`), for which $|P_A|$ is continuous (`continuous_orbitProjA`). Witness `absSqBasic_lemma_19_8_21`.",
+    "decls": [
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.natTopEA",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.metrizableSpace_natTopEA",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.continuous_orbitProjA",
+     "Chapter19/CoveringSquareTopologyExamples · GroupoidalCategory.absSqBasic_lemma_19_8_21"
+    ]
+   },
+   "chips": [
+    "IsCompatible (_hyp)",
+    "proof written out: G.275"
+   ],
+   "diff": [
+    "The only hypothesis beyond the text is the compatibility reading. The proof, which the text leaves to the reader by reference to Theorem 19.6.8, is written out (point G.275)."
+   ]
+  },
+  {
+   "id": "V19.110",
+   "title": "Theorem 19.8.22 (2017: Theorem 19.11), strong bundle covering",
+   "verdict": "explicit",
+   "book": {
+    "label": "§19.8, Theorem 19.8.22, p. 956 (2017: Theorem 19.11)",
+    "page": 956,
+    "statement": "The orbit spaces of $\\mathcal A$, $E_A$, $\\mathcal B$, $E_B$ are metrizable; $M(\\hat\\Gamma,\\hat\\Gamma') \\to M(\\hat\\Psi,\\hat\\Psi')$ is a strong bundle forming a proper strong bundle covering square; $s$, $t$ local isomorphisms, $\\iota$ an isomorphism, unit and multiplication strong bundle maps between proper squares."
+   },
+   "lean": {
+    "statement": "`SquareBasicConstruction.theorem_19_8_22_hyp (Bs) (hC)`: the orbit spaces of $\\mathcal A$, $E_B$, $E_A$ (and $\\mathcal B$) are metrizable; for all uniformizers the square $(\\hat m, m, \\bar p, p)$ is a proper strong bundle covering square (`isProperSquare_pbarSq`); $s$ and $t$ are local isomorphisms of proper squares (`theorem_19_8_22_topology_hyp`), the inversion an isomorphism (`theorem_19_8_22_inv_hyp`), the unit (`theorem_19_8_22_unit`, no hypothesis) and the multiplication (`theorem_19_8_22_mul_hyp`, `isStrongBundleMap_mul_and_faces`, on the fibred products `isProperSquare_pbarFP`) strong bundle maps. The fibred-product step is general: `isProperStrongBundleCoveringSquare_fibredProduct`, `MPolyfold.isLocalScDiffeo_fibredProductMap`, `isProperStrongBundleCoveringSquare_of_sheets`.",
+    "decls": [
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.isProperSquare_pbarSq",
+     "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_topology_hyp",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_inv_hyp",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_unit",
+     "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.SquareUniformizerConstruction.isStrongBundleMap_mul_and_faces",
+     "Chapter19/CoveringSquareFibredProper · GroupoidalCategory.SquareUniformizerConstruction.isProperSquare_pbarFP",
+     "Chapter19/CoveringSquareFibredProper · GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_mul_hyp",
+     "Chapter19/CoveringSquareFibredProper · GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_inv_hyp",
+     "Chapter19/CoveringSquareFibredProper · GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_hyp",
+     "Chapter19/FibredProductCovering · isProperStrongBundleCoveringSquare_fibredProduct",
+     "Chapter19/FibredProductCovering · MPolyfold.isLocalScDiffeo_fibredProductMap",
+     "Chapter19/CoveringSquareTopology · isProperStrongBundleCoveringSquare_of_sheets"
+    ]
+   },
+   "chips": [
+    "IsCompatible (_hyp)",
+    "complete form: theorem_19_8_22_hyp"
+   ],
+   "diff": [
+    "The only hypothesis beyond the text is the compatibility reading; the unit needs none. The multiplication and fibred-product statements, for which the text gives no separate argument, are written out with the read form of Definition 19.8.19 (V19.108)."
+   ]
+  },
+  {
+   "id": "V19.111",
+   "title": "Witness for §19.8: the absolute-value square",
+   "verdict": "extra",
+   "book": {
+    "label": "§19.8 (no counterpart in the text)",
+    "page": 930,
+    "statement": "No counterpart: a witness for the hypotheses of Theorem 19.8.22."
+   },
+   "lean": {
+    "statement": "`absSqBasic` (from `reflAbsSquare` and `absSquareU`): the hypotheses of Theorem 19.8.22 hold (`absSqBasic_hypotheses`, `absSqBasic_isCompatible`, `absSqBasic_definition_19_8_15`), and the theorem holds for it (`absSqBasic_theorem_19_8_22`, `_structure`, `_fibredProper`).",
+    "decls": [
+     "Chapter19/CoveringSquareTopologyExamples · GroupoidalCategory.absSqBasic_hypotheses",
+     "Chapter19/CoveringSquareTopologyExamples · GroupoidalCategory.absSqBasic_isCompatible",
+     "Chapter19/CoveringSquareExamples · GroupoidalCategory.absSqBasic_definition_19_8_15",
+     "Chapter19/CoveringSquareTopologyExamples · GroupoidalCategory.absSqBasic_theorem_19_8_22",
+     "Chapter19/CoveringSquareMultiplicationExamples · GroupoidalCategory.absSqBasic_theorem_19_8_22_structure",
+     "Chapter19/CoveringSquareFibredProperExamples · GroupoidalCategory.absSqBasic_theorem_19_8_22_fibredProper"
+    ]
+   },
+   "chips": [
+    "witness, non-degenerate"
+   ],
+   "diff": [
+    "Not in the book: a non-degenerate witness (non-trivial isotropy acting by $-1$ on the fibre, a two-sheeted covering away from $0$)."
+   ]
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 257,
+   "title": "The shrinkings of Remark 19.1.8",
+   "label": "§19.1, Remark 19.1.8, p. 868 (2017: Remark 19.2)",
+   "page": 868,
+   "book": "The properties of transition data hold on suitable smaller open neighbourhoods; the shrinkings are left to the reader.",
+   "instead": "**Formalized** (V19.10): the neighbourhoods are constructed in `remark_19_1_8_inv`, `remark_19_1_8_hat`, `remark_19_1_8_unit`, `remark_19_1_8_mul` and `remark_19_1_8_stability` (`BasicConstruction.lean`).",
+   "formalized": [
+    "V19.10"
+   ],
+   "decls": [
+    "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_inv",
+    "Chapter19/BasicConstruction · GroupoidalCategory.UniformizerConstruction.TransitionData.remark_19_1_8_mul"
+   ]
+  },
+  {
+   "g": 258,
+   "title": "The natural smooth structures in the example of Remark 19.2.3",
+   "label": "§19.2, Remark 19.2.3, p. 870 (2017: Remark 19.3)",
+   "page": 870,
+   "book": "The four transition sets of the example have natural smooth structures for which the structure maps have the expected smoothness; not shown.",
+   "instead": "**Formalized** (V19.13, V19.31, V19.32): Theorem 19.5.1 and Corollary 19.5.2 are proved without the metrizability of $T$, so they apply to the glued lines: `theorem_19_5_1`, `corollary_19_5_2` for every basic construction with `hB`, here `gluedBasic_hB`.",
+   "formalized": [
+    "V19.13",
+    "V19.31",
+    "V19.32"
+   ],
+   "decls": [
+    "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.theorem_19_5_1",
+    "Chapter19/PolyfoldStructure · GroupoidalCategory.BasicConstruction.corollary_19_5_2",
+    "Chapter19/MetrizabilityExamples · GroupoidalCategory.gluedBasic_hB"
+   ]
+  },
+  {
+   "g": 259,
+   "title": "The continuity of $\\bar\\Psi$ in Proposition 19.3.7",
+   "label": "§19.3, Proposition 19.3.7, p. 877 (new in the 2021 edition)",
+   "page": 877,
+   "book": "The proof uses that $\\bar\\Psi$ is continuous.",
+   "instead": "**Formalized** (V19.21): the continuity follows from the special form (A) of the germs on $M(\\Psi, \\Psi)$ (`hatHomeomorph`). In a polyfold construction of Chapter 17 it is a separate condition (`not_lemma_17_1_9`).",
+   "formalized": [
+    "V19.21"
+   ],
+   "decls": [
+    "Chapter19/NaturalTopology · GroupoidalCategory.UniformizerConstruction.TransitionData.hatHomeomorph",
+    "Chapter17/PolyfoldConstructionExamples · GCT.PolyfoldConstruction.not_lemma_17_1_9"
+   ]
+  },
+  {
+   "g": 260,
+   "title": "The choice of $W(h)$ in Lemma 19.3.8",
+   "label": "§19.3, Lemma 19.3.8, p. 878 (new in the 2021 edition)",
+   "page": 878,
+   "book": "The proof chooses an open $W(h)$ with $W(h) \\cap A = \\emptyset$ for a closed $A$ not containing $h$.",
+   "instead": "**Formalized** (V19.22): a general lemma, a Hausdorff space with a local homeomorphism to a regular space is regular (`regularSpace_of_isLocalHomeomorph_of_t2`).",
+   "formalized": [
+    "V19.22"
+   ],
+   "decls": [
+    "Chapter19/TopologyLemmas · Chapter19.regularSpace_of_isLocalHomeomorph_of_t2"
+   ]
+  },
+  {
+   "g": 261,
+   "title": "The two easy exercises in the proof of Lemma 19.4.3",
+   "label": "§19.4, Lemma 19.4.3, p. 881 (new in the 2021 edition)",
+   "page": 881,
+   "book": "Only finitely many elements of $M(\\Psi, \\Psi')$ have a given source, and a convergence statement for sequences of sources; left as easy exercises.",
+   "instead": "**Formalized** (V19.25): `Uniformizer.finite_fiber` (Chapter 17) and `exists_tendsto_subseq_of_tendsto_src` (`Metrizability.lean`).",
+   "formalized": [
+    "V19.25"
+   ],
+   "decls": [
+    "Chapter17/LocalUniformizer · GroupoidalCategory.Uniformizer.finite_fiber",
+    "Chapter19/Metrizability · GroupoidalCategory.UniformizerConstruction.TransitionData.exists_tendsto_subseq_of_tendsto_src"
+   ]
+  },
+  {
+   "g": 262,
+   "title": "The averaging of $\\beta$ in Proposition 19.4.5",
+   "label": "§19.4, Proposition 19.4.5, p. 884 (2017: Proposition 19.5)",
+   "page": 884,
+   "book": "A function $\\beta$ with $\\beta(\\bar o) = 0$ and $\\beta = 1$ off $V$ may be assumed $G$-invariant, perhaps by averaging.",
+   "instead": "**Formalized** (V19.27): `exists_invariant_urysohn` chooses $\\beta$ vanishing on the whole orbit $G * \\bar o$ and then averages it over $G$.",
+   "formalized": [
+    "V19.27"
+   ],
+   "decls": [
+    "Chapter19/TopologyLemmas · Chapter19.exists_invariant_urysohn"
+   ]
+  },
+  {
+   "g": 263,
+   "title": "Theorem 19.5.3 from the discussion of the section",
+   "label": "§19.5, Theorem 19.5.3, p. 888 (2017: Theorem 19.5)",
+   "page": 888,
+   "book": "The theorem is concluded in view of the discussion in the section.",
+   "instead": "**Formalized** (V19.33): the polyfold construction is built (`toPolyfoldConstruction`), with the uniformizers of $F$ as local uniformizers (`toLocalUniformizer`), covering footprints and $\\hat\\Psi$ continuous (`continuous_hat`), so Lemma 17.1.9 applies; tameness through `isTame_transPolyfold`.",
+   "formalized": [
+    "V19.33"
+   ],
+   "decls": [
+    "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.toPolyfoldConstruction",
+    "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.theorem_19_5_3_two",
+    "Chapter19/PolyfoldStructureGCT · GroupoidalCategory.BasicConstruction.continuous_hat"
+   ]
+  },
+  {
+   "g": 264,
+   "title": "Metrizable neighbourhoods of compact sets in Remark 19.5.4",
+   "label": "§19.5, Remark 19.5.4, p. 888 (2017: Remark 19.7)",
+   "page": 888,
+   "book": "A compact $K \\subset |S|$ has a paracompact, hence metrizable, open neighbourhood; not shown.",
+   "instead": "**Formalized** (V19.34): `remark_19_5_4`, through `exists_isOpen_metrizableSpace_of_isCompact` (`TopologyLemmasTwo.lean`).",
+   "formalized": [
+    "V19.34"
+   ],
+   "decls": [
+    "Chapter19/CompactNeighbourhoods · GroupoidalCategory.BasicConstruction.remark_19_5_4",
+    "Chapter19/TopologyLemmasTwo · Chapter19.exists_isOpen_metrizableSpace_of_isCompact"
+   ]
+  },
+  {
+   "g": 265,
+   "title": "Proposition 19.5.7, called obvious",
+   "label": "§19.5, Proposition 19.5.7, p. 889 (new in the 2021 edition)",
+   "page": 889,
+   "book": "(ZHOU) of the basic construction gives (ZHOU) of the polyfold; stated as an obvious result.",
+   "instead": "**Formalized** (V19.37): through the piece functors $G \\ltimes O \\to X_\\Psi$, full and local sc-diffeomorphisms on objects (`full_pieceFunctor`, `isLocalScDiffeo_pieceFunctor_obj`, `isZhouAt_of_isZhouAt`).",
+   "formalized": [
+    "V19.37"
+   ],
+   "decls": [
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.proposition_19_5_7",
+    "Chapter19/BasicRegularity · GCT.PolyfoldConstruction.full_pieceFunctor",
+    "Chapter19/BasicRegularity · EpFunctor.isZhouAt_of_isZhouAt"
+   ]
+  },
+  {
+   "g": 266,
+   "title": "The levels $(F^i, \\mathcal F^i)$ for $S^i$",
+   "label": "§19.5, Definitions 19.5.8, 19.5.10, pp. 889–890 (new in the 2021 edition)",
+   "page": 889,
+   "book": "(SLUC) and (SLR) refer to basic constructions $(F^i, \\mathcal F^i)$ for $S^i$, which are not defined.",
+   "instead": "**Formalized** (V19.38, V19.40): an implicit convention, read through the classes of level $i$ (`IsLevelClass`) and the raised translation groupoids $(G \\ltimes O)^i$ (`EP.liftVal`); levels do not depend on the uniformizer (`mem_levelSet_iff_of_π_eq`).",
+   "formalized": [
+    "V19.38",
+    "V19.40"
+   ],
+   "decls": [
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLevelClass",
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLUCLevel",
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.IsLRLevel",
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.mem_levelSet_iff_of_π_eq"
+   ]
+  },
+  {
+   "g": 267,
+   "title": "Proposition 19.5.9 without proof",
+   "label": "§19.5, Proposition 19.5.9, p. 890 (new in the 2021 edition)",
+   "page": 890,
+   "book": "(LUC), (SLUC) pass from the basic construction to the polyfold; no proof is given.",
+   "instead": "**Formalized** (V19.39): `proposition_19_5_9`, the raised models compared with one model by the generalized isomorphisms of Theorem 17.1.18 (`exists_isLUC_lift_model`, `isGenIsoInvariant_isLUC_lift`).",
+   "formalized": [
+    "V19.39"
+   ],
+   "decls": [
+    "Chapter19/BasicRegularityPointwise · GroupoidalCategory.BasicConstruction.proposition_19_5_9",
+    "Chapter19/BasicRegularityPointwise · GroupoidalCategory.BasicConstruction.exists_isLUC_lift_model",
+    "Chapter19/BasicRegularityPointwise · EP.isGenIsoInvariant_isLUC_lift"
+   ]
+  },
+  {
+   "g": 268,
+   "title": "Proposition 19.5.11 from the ep-groupoid case",
+   "label": "§19.5, Proposition 19.5.11, p. 890 (new in the 2021 edition)",
+   "page": 890,
+   "book": "The proposition follows from the considerations in the ep-groupoid case.",
+   "instead": "**Formalized** (V19.41): through Proposition 19.5.7, `isZhou_toEP_of_isZhou` and Theorems 7.4.13, 7.4.24 for the translation groupoids (`theorem_7_4_13_all_of_isZhou`, `theorem_7_4_24_all_of_isZhou`).",
+   "formalized": [
+    "V19.41"
+   ],
+   "decls": [
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.proposition_19_5_11",
+    "Chapter19/BasicRegularity · GroupoidalCategory.BasicConstruction.isZhou_toEP_of_isZhou",
+    "Chapter8/SmoothRegularAssembly · EP.theorem_7_4_13_all_of_isZhou",
+    "Chapter8/SmoothRegularAssembly · EP.theorem_7_4_24_all_of_isZhou"
+   ]
+  },
+  {
+   "g": 269,
+   "title": "Strong bundle uniformizers with $W \\to E$ models (Remark 19.6.2)",
+   "label": "§19.6, Remark 19.6.2, p. 892 (2017: Remark 19.8)",
+   "page": 892,
+   "book": "The definition of strong bundle uniformizers extends to models given by a strong bundle $W \\to E$ over an ep-groupoid.",
+   "instead": "**Formalized in the form used**: the variant enters through Definition 19.8.10 (3), and its zero-section consequence is `SquareUniformizer.remark_19_6_2`. The general variant for $\\mathcal S$ alone is not built separately, since §19.8 is its only use.",
+   "formalized": [
+    "V19.49",
+    "V19.101"
+   ],
+   "decls": [
+    "Chapter19/CoveringSquareMultiplication · GroupoidalCategory.SquareUniformizer.remark_19_6_2",
+    "Chapter19/CoveringSquare · GroupoidalCategory.SquareUniformizer.definition_19_8_10"
+   ]
+  },
+  {
+   "g": 270,
+   "title": "The proof of Theorem 19.6.8 (\"easily verified\")",
+   "label": "§19.6, Theorem 19.6.8, p. 897 (2017: Theorem 19.6)",
+   "page": 897,
+   "book": "The statements (1)–(5) are said to follow easily from the continuity of $p : K \\to O$, as an analogue of Theorem 19.2.2.",
+   "instead": "**Formalized** in full: `theorem_19_6_8_one` … `theorem_19_6_8_five` (`StrongBundleTopology`).",
+   "formalized": [
+    "V19.56"
+   ],
+   "decls": [
+    "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_one",
+    "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_four",
+    "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.theorem_19_6_8_five"
+   ]
+  },
+  {
+   "g": 271,
+   "title": "The direction ⇐ of Proposition 19.6.9",
+   "label": "§19.6, Proposition 19.6.9, p. 898 (2017: Proposition 19.7)",
+   "page": 898,
+   "book": "The 2021 statement is an equivalence; the text argues the direction from $T$ to $\\bar T$.",
+   "instead": "**Formalized**: `proposition_19_6_9`; the direction ⇐ restricts the metric along the zero section (`isEmbedding_zeroOrbit`).",
+   "formalized": [
+    "V19.57"
+   ],
+   "decls": [
+    "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9",
+    "Chapter19/StrongBundleTopology · GroupoidalCategory.BasicStrongBundleConstruction.isEmbedding_zeroOrbit"
+   ]
+  },
+  {
+   "g": 272,
+   "title": "Remark 19.6.14 (outlook)",
+   "label": "§19.6, Remark 19.6.14, p. 900 (2017: Remark 19.9)",
+   "page": 900,
+   "book": "An outlook on how the construction is used.",
+   "instead": "**Nothing to formalize**: the remark contains no statement.",
+   "formalized": [],
+   "decls": [],
+   "nothing": true
+  },
+  {
+   "g": 273,
+   "title": "Metrizability of $|P^*E_B|$ in Theorem 19.8.6 (5)",
+   "label": "§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)",
+   "page": 938,
+   "book": "The natural topologies on the orbit spaces of $\\mathcal A$, $\\mathcal B$, $E_B$ and $P^*E_B$ are all metrizable.",
+   "instead": "**Not stated separately**: (5) is proved for $|\\mathcal A|$, $|\\mathcal B|$ (`theorem_19_8_6_hyp`) and $|E_B|$ (`metrizableSpace_natTopEB`). For $|P^*E_B|$ the general square result applies to the square of the pull-back (`BundleCoveringSquare.ofPull` with `PullbackUniformizer.toSquare`, then Lemma 19.8.21), but the instance is not written out.",
+   "formalized": [
+    "V19.97",
+    "V19.109"
+   ],
+   "decls": [
+    "Chapter19/CoveringPullbackTheorem · GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp",
+    "Chapter19/CoveringSquareTopology · GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopEB",
+    "Chapter19/CoveringSquare · GroupoidalCategory.BundleCoveringSquare.ofPull",
+    "Chapter19/CoveringSquareExamples · GroupoidalCategory.PullbackUniformizer.toSquare",
+    "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp"
+   ]
+  },
+  {
+   "g": 274,
+   "title": "Remark 19.8.11 (applications)",
+   "label": "§19.8, Remark 19.8.11, p. 944 (new in the 2021 edition)",
+   "page": 944,
+   "book": "Applications of the construction, for instance to stable maps.",
+   "instead": "**Nothing to formalize**: the remark contains no statement.",
+   "formalized": [],
+   "decls": [],
+   "nothing": true
+  },
+  {
+   "g": 275,
+   "title": "The proof of Lemma 19.8.21 (by the proof of Theorem 19.6.8)",
+   "label": "§19.8, Lemma 19.8.21, p. 956 (new in the 2021 edition)",
+   "page": 956,
+   "book": "The definition of the topology is the same as Definition 19.6.7, and the proof of Theorem 19.6.8 can be followed.",
+   "instead": "**Formalized**: `lemma_19_8_21_hyp`, with `metrizableSpace_natTopEA` and `continuous_orbitProjA` (`CoveringSquareTopology`), under the compatibility reading.",
+   "formalized": [
+    "V19.109"
+   ],
+   "decls": [
+    "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.lemma_19_8_21_hyp",
+    "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.metrizableSpace_natTopEA",
+    "Chapter19/CoveringSquareTopology · GroupoidalCategory.SquareUniformizerConstruction.continuous_orbitProjA"
+   ]
+  }
+ ]
+}
