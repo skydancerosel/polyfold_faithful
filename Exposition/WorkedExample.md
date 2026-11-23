@@ -1,3 +1,5 @@
+*The typeset version is `Exposition/WorkedExample.pdf` (source in `Exposition/worked-example/`).*
+
 # A worked example: the orbifold ℂ/ℤ₅ and the section z ↦ z²
 
 Theorem 16.6.6 (p. 739) for Fredholm index 0, carried out on one small polyfold, from the ep-groupoid

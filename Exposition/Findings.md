@@ -21,8 +21,41 @@ each kind of statement separately *(book 2017: see `BookConcordance.md`)*.
 superscripts are flattened or displaced (a primed symbol `U 0` for $U'$, `Rk` for $\mathbb R^k$,
 an integral sign printed as `Z`), fractions are split over lines, and a `−` can land on a neighbouring
 operand. A formula whose sign or exponent seems not to fit is therefore treated as
-a defect of the extraction unless the surrounding text is unambiguous; such items are marked
+an artefact of the extraction unless the surrounding text is unambiguous; such items are marked
 *(text?)* below.
+
+## Conventions made explicit
+
+Where our reading of the text uses a convention or a condition that the text does not print, the
+statement with it is proved and, in most cases, a small example in Lean shows why it is used; a different reading
+on our side may make it unnecessary, and the chapter sections below give the details.
+
+| Where | What our reading uses |
+|---|---|
+| Definition 1.1.9, p. 8; §5.3, p. 217 | Details in the Findings, Chapters 1 and 5 |
+| Remark 2.4.8, p. 47 | We have not found an example for the remark |
+| (2.44) and Proposition 2.7.12, pp. 82–84 | `V` centred at `x` |
+| Proof of Theorem 3.2.3, p. 107 | Another route for one step |
+| Theorem 3.6.8 (2), p. 136 | "Tame strong bundle" as in the 2014 and 2017 versions |
+| Lemma 3.8.1, p. 145 | Details in the Findings, Chapter 3 |
+| Theorem 4.3.1 and the formula for `dω`, pp. 193–201 | Sign and bracket conventions (Findings, Chapter 4) |
+| Theorems 5.5.7 and 5.5.10, pp. 231–232 | Details of the proofs (Findings, Chapter 5) |
+| Before Remark 6.4.6, p. 248; `DET(E, F)`, p. 262 | Details in the Findings, Chapter 6 |
+| Lemma 7.2.11 (3), p. 315 | `T_R` Hausdorff, the setting of Theorem 7.2.14 |
+| Proposition 9.1.11, pp. 407–408 | Uniqueness among the decompositions the proof builds |
+| Lemmas 9.3.4, 9.4.4, 9.5.2 | Sheets of one dimension |
+| Theorems 10.3.19 and 10.5.7, pp. 493, 508 | An effective target |
+| Proposition 11.1.6, p. 524 | The intersection of two faces as a union of faces |
+| Theorem 14.6.3 with Definition 13.3.8, p. 682 | The equivalence also compares the sections, as p. 682 uses it |
+| §§16.1–16.3, pp. 707–723 | An effective target, as for Theorem 10.3.19 |
+| Lemmas 17.1.9 and 17.2.10, pp. 748, 773 | `Ψ̂` continuous in Definition 17.1.8 |
+| Proposition 17.1.25, p. 758 | Details in the Findings, Chapter 17 |
+| Lemma 17.4.13, p. 798 | Tame in the sense of Definition 2.5.18 |
+| Lemma 18.1.8, p. 847 | The continuity of Definition 12.2.1 in Definition 18.1.7 |
+| Lemma 19.4.3, p. 881 | Details in the Findings, Chapter 19 |
+| Definition 19.7.11, p. 910 | Compatible uniformizers, as in Definition 19.6.4 (A) |
+| Proposition 19.7.18, Corollary 19.7.20 (3), Theorem 19.7.25 (4b), pp. 919–926 | Details in the Findings, Chapter 19 |
+| The remark after Lemma 19.7.19, p. 920 | Details in the Findings, Chapter 19 |
 
 ## §1.1 Sc-structures (Chapter 1; Lean `Polyfold/Chapter1/`)
 

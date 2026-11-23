@@ -14,12 +14,16 @@ meant is for human readers to confirm; that review has not started.
 
 ## Status
 
-Every numbered item of the book is compared with its formal version, with a verdict and every
-difference listed. In 275 places (G.1–G.275) the formal version needs more than a translation of
-the text: a step left to the reader, an example the text does not give, a convention left implicit,
-or a long argument written out in full. 264 are formalized and 11 have nothing to formalize (questions,
-comments, remarks that motivate or look ahead, exercises, and a preprint theorem absent from the 2021 text). Where a formal statement is narrower than the book's, the
-comparison names the added hypothesis and shows that it can be satisfied.
+All four parts of the book, Chapters 1–19, are formalized, and the main theorems are proved. Lean
+checks every proof: there is no `sorry`, and every declaration depends only on Lean's standard axioms
+(`propext`, `Classical.choice`, `Quot.sound`), checked in `Polyfold/Test.lean`.
+
+**A worked example** ([`Exposition/WorkedExample.pdf`](Exposition/WorkedExample.pdf), also as
+[`Exposition/WorkedExample.md`](Exposition/WorkedExample.md)) carries Theorem 16.6.6 through on one
+small polyfold: the orbifold ℂ/ℤ₅ with the section z ↦ z² of weight 2. No single-valued equivariant
+perturbation makes it transversal, so multisections are needed. Every hypothesis of Theorem 16.6.6
+holds together, and the invariant is 2/5; the same holds with an infinite-dimensional sc-Hilbert
+factor.
 
 | | Chapters | State |
 |---|---|---|
@@ -28,10 +32,15 @@ comparison names the added hypothesis and shows that it can be satisfied.
 | Part III, *Fredholm Theory in Ep-Groupoids* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9, 16.4.6 and 16.5.7 as printed; Theorem 15.4.3 and Corollary 15.4.4 with the standing assumptions of §15.3 and no partitions of unity; Theorem 16.6.6 over all admissible perturbations, with no bump functions and no partitions of unity, the hypotheses in the model of the orientation being tame germ data and the index |
 | Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Formalized; the main theorems proved, Theorems 17.1.18, 18.6.1, 19.5.1 and 19.6.13 included; Theorems 17.6.7 and 17.6.10 as printed |
 
+Every numbered item of the book is compared with its formal version, with a verdict and every
+difference listed. Where the formal version needs more than a translation of the text (a step left
+to the reader, an example the text does not give, a convention left implicit, or a long argument
+written out in full), the comparison records it (G.1–G.275) and says how it is formalized. Where a
+formal statement is narrower than the book's, the comparison names the added hypothesis and shows
+that it can be satisfied.
+
 The trusted base, the declarations whose statements a reader has to check, is
-`Exposition/checklist/TrustedBase.lean`. Nothing is assumed without proof: every declaration
-depends only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`), checked in
-`Polyfold/Test.lean`.
+`Exposition/checklist/TrustedBase.lean`. Nothing is assumed without proof.
 
 ## How to build and check it
 
@@ -62,13 +71,12 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 
 | Document | What it is |
 |---|---|
-| `Exposition/ReviewerSummary.md` | **Start here: the first hour.** The core definitions, one Lean statement for each main theorem with its verdict, and the readings we adopted, on a few screens. |
-| `Exposition/ReviewerChecklist.md` | **The full list.** The statements and definitions a person has to check (Lean checks the rest), in tiers. |
+| `Exposition/ReviewerChecklist.md` | **Start here.** The statements and definitions a person has to check (Lean checks the rest), in tiers. |
 | `Exposition/polyfold-beside-lean.html`, `Exposition/Comparison.md` | The comparison: every statement of the book beside its formal version, with the verdict (same, hypotheses explicit, stronger, narrower, restated, …) and every difference. |
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
 | `Exposition/Findings.md` | Points left to the reader, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
-| `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor. |
+| `Exposition/WorkedExample.pdf`, `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
@@ -129,36 +137,9 @@ A web browser is enough: no Lean and no GitHub account are needed.
      Theorem 19.2.2), and condition (v3) of Definition 19.4.1 asks for a limit in the fibre over `z`.
 3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
    is marked in the comparison and retold in ProofByProof.
-4. **Where our reading needed a condition the text does not print.** In each case the statement with
-   the condition is proved, and a small example in Lean shows why we used it. A different reading on
-   our side may well make the condition unnecessary; the Findings give the details.
-
-| Where | What our reading uses |
-|---|---|
-| Definition 1.1.9, p. 8; §5.3, p. 217 | Details in the Findings, Chapters 1 and 5 |
-| Remark 2.4.8, p. 47 | We have not found an example for the remark |
-| (2.44) and Proposition 2.7.12, pp. 82–84 | `V` centred at `x` |
-| Proof of Theorem 3.2.3, p. 107 | Another route for one step |
-| Theorem 3.6.8 (2), p. 136 | "Tame strong bundle" as in the 2014 and 2017 versions |
-| Lemma 3.8.1, p. 145 | Details in the Findings, Chapter 3 |
-| Theorem 4.3.1 and the formula for `dω`, pp. 193–201 | Sign and bracket conventions (Findings, Chapter 4) |
-| Theorems 5.5.7 and 5.5.10, pp. 231–232 | Details of the proofs (Findings, Chapter 5) |
-| Before Remark 6.4.6, p. 248; `DET(E, F)`, p. 262 | Details in the Findings, Chapter 6 |
-| Lemma 7.2.11 (3), p. 315 | `T_R` Hausdorff, the setting of Theorem 7.2.14 |
-| Proposition 9.1.11, pp. 407–408 | Uniqueness among the decompositions the proof builds |
-| Lemmas 9.3.4, 9.4.4, 9.5.2 | Sheets of one dimension |
-| Theorems 10.3.19 and 10.5.7, pp. 493, 508 | An effective target |
-| Proposition 11.1.6, p. 524 | The intersection of two faces as a union of faces |
-| Theorem 14.6.3 with Definition 13.3.8, p. 682 | The equivalence also compares the sections, as p. 682 uses it |
-| §§16.1–16.3, pp. 707–723 | An effective target, as for Theorem 10.3.19 |
-| Lemmas 17.1.9 and 17.2.10, pp. 748, 773 | `Ψ̂` continuous in Definition 17.1.8 |
-| Proposition 17.1.25, p. 758 | Details in the Findings, Chapter 17 |
-| Lemma 17.4.13, p. 798 | Tame in the sense of Definition 2.5.18 |
-| Lemma 18.1.8, p. 847 | The continuity of Definition 12.2.1 in Definition 18.1.7 |
-| Lemma 19.4.3, p. 881 | Details in the Findings, Chapter 19 |
-| Definition 19.7.11, p. 910 | Compatible uniformizers, as in Definition 19.6.4 (A) |
-| Proposition 19.7.18, Corollary 19.7.20 (3), Theorem 19.7.25 (4b), pp. 919–926 | Details in the Findings, Chapter 19 |
-| The remark after Lemma 19.7.19, p. 920 | Details in the Findings, Chapter 19 |
+4. **Conventions made explicit.** Where the text leaves a convention or a condition implicit, the
+   formalization makes it explicit and proves the statement with it; each case is recorded with its
+   reason and, in most cases, a small example in the Findings (section *Conventions made explicit*).
 
 ## Open questions
 
