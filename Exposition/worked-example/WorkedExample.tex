@@ -19,7 +19,7 @@
 
 % Lean declaration names: monospace, line breaks after dots and underscores.
 \DeclareUrlCommand\lean{\def\UrlFont{\ttfamily\upshape}}
-\renewcommand{\UrlBreaks}{\do\.\do\_}
+\renewcommand{\UrlBreaks}{\do\.\do\_\do\/}
 \renewcommand{\UrlBigBreaks}{}
 % A small grey reference to the Lean declaration, set flush right at the end of a statement.
 \newcommand{\leanref}[1]{\par\nopagebreak
@@ -34,6 +34,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{recall}[theorem]{From the book}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -45,6 +46,14 @@
 \newcommand{\ZZ}{\Z/5}
 \newcommand{\abs}[1]{\lvert #1\rvert}
 \newcommand{\card}{\sharp}
+\newcommand{\Lin}{\operatorname{Lin}}
+\newcommand{\DET}{\operatorname{DET}}
+\newcommand{\Or}{\operatorname{Or}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\domsupp}{\operatorname{dom-supp}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\coker}{\operatorname{coker}}
 
 \title{A worked example: the orbifold $\C/\Z_5$ and the section $z\mapsto z^2$}
 \author{}
@@ -57,391 +66,1208 @@ H.~Hofer, K.~Wysocki, E.~Zehnder, \emph{Polyfold and Fredholm Theory}, Springer,
 \noindent
 This note carries out Theorem 16.6.6 (p.~739) of \emph{Polyfold and Fredholm Theory} for Fredholm
 index $0$ on one small polyfold: the orbit space $\C/\Z_5$ of the action of the fifth roots of unity,
-with the bundle of weight $2$ and the section $z\mapsto z^2$. Every step is made explicit, from the
-ep-groupoid and its strong bundle, through the hypotheses of the theorem, the choice of an admissible
-sc$^+$-multisection and the canonical orientation of the perturbed solution set, to the value of the
-invariant, which is $2/5$. The example is small, but it is a genuine orbifold case: no single-valued
-equivariant perturbation is transversal, so the multisections of the book are needed. A second version
-adds an infinite-dimensional factor with strictly nested levels, so that sc-calculus and sc-Fredholm
-theory enter in earnest; the same conclusions hold there. All statements below are machine-checked
-in Lean~4 with Mathlib, without unproved assumptions and with only the standard axioms
-(propositional extensionality, choice, quotient soundness). Book references use the numbering and
-pages of the 2021 edition. Lean names refer to the namespace
-\lean{Polyfold.Examples.OrbifoldSquare} unless written in full; the files are in
-\lean{Polyfold/Examples/}, and the appendix lists them.
+with the bundle of weight $2$ and the section $z\mapsto z^2$. Every hypothesis is checked against the
+definition in the book, from the ep-groupoid and its strong bundle, through the orientation of the
+section, the choice of an admissible sc$^+$-multisection and the canonical orientation of the perturbed
+solution set, to the value of the invariant, which is $2/5$. The example is small, but it is a genuine
+orbifold case: no single-valued equivariant perturbation is transversal, so the multisections of the
+book are needed. A second version adds an infinite-dimensional factor with strictly nested levels, so
+that sc-calculus and sc-Fredholm theory enter in earnest; the same conclusions hold there.
+
+All statements below are machine-checked in Lean~4 with Mathlib, without unproved assumptions and
+with only the standard axioms (propositional extensionality, choice, quotient soundness). The proofs
+given here are complete for the example itself. Where a step is an instance of a general theorem of
+the library, the theorem is stated in \S\ref{sec:lemmas} with a proof or with an outline naming the
+results of the book it rests on. Where the formal proof takes a different route from the one written
+here, we say so.
+
+\paragraph{Conventions.} Book references use the numbering and pages of the 2021 edition, for instance
+``Definition 15.3.5 (p.~693)''. Each check first recalls the definition of the book in a few lines and
+then verifies it. We identify $\C$ with $\R^2$ as a real vector space; ``smooth'' means $C^\infty$. The
+group $G=\ZZ$ is written additively. Lean names refer to the namespace
+\lean{Polyfold.Examples.OrbifoldSquare} unless written in full; those of \S\ref{sec:inf} are in
+\lean{Polyfold.Examples.OrbifoldSquareInf}. The files of the example are in \lean{Polyfold/Examples/},
+and the appendix lists them.
 
 %======================================================================
-\section{The example}
+\section{The example}\label{sec:example}
 
-Let $\zeta=e^{2\pi i/5}$ and let $G=\ZZ$ act on $\C$ by $j\cdot z=\zeta^j z$.
+Let $\zeta=e^{2\pi i/5}$ and let $G=\ZZ$ act on $\C$ by $g\cdot z=\zeta^g z$.
 
-\paragraph{The ep-groupoid.}
-$X=G\ltimes\C$ is the action groupoid: its objects are the points of $\C$, its morphisms are the pairs
-$(j,z)\in G\times\C$, with source $z$ and target $\zeta^j z$. The sc-structure on $\C$ is the constant
-one, $\C_m=\C$ for all $m$. The groupoid $X$ is étale and proper; it is effective, the isotropy group of
-$0$ is $G_0\cong\ZZ$, and every $z\neq0$ has trivial isotropy. Its orbit space $Z=\abs{X}=\C/\Z_5$ is a
-polyfold without boundary.
+\subsection{The ep-groupoid}
 
-\paragraph{The strong bundle.}
-$W=\C\times\C\to\C$, $(z,w)\mapsto z$, with the constant double filtration $W_{m,k}=\C\times\C$ and the
-action of weight $2$,
-\[
-  j\cdot(z,w)=(\zeta^j z,\ \zeta^{2j}w).
-\]
-It descends to a strong polyfold bundle $p\colon Y=\abs{W}\to Z$.
+\begin{recall}[Definitions 1.1.1, 7.1.3, 7.2.1, 7.4.5]\label{rec:epgroupoid}
+An \emph{sc-structure} on a Banach space $E$ is a decreasing sequence $E=E_0\supset E_1\supset\cdots$
+of Banach spaces such that every inclusion $E_{m+1}\to E_m$ is compact and $E_\infty=\bigcap_m E_m$ is
+dense in every $E_m$ (Definition 1.1.1, p.~4). An \emph{ep-groupoid} (Definition 7.1.3, pp.~288--289)
+is a groupoid $(X,\mathbf X)$ whose object set and morphism set are M-polyfolds such that
+\begin{enumerate}[label=(\arabic*)]
+\item the source and target maps $s,t\colon\mathbf X\to X$ are local sc-diffeomorphisms (étale);
+\item the unit map and the inverse map are sc-smooth;
+\item every $x\in X$ has an open neighbourhood $V(x)$ such that $t\colon s^{-1}(\cl_X V(x))\to X$ is
+  proper;
+\item the multiplication $\mathbf X\,{}_s{\times}_t\,\mathbf X\to\mathbf X$ is sc-smooth.
+\end{enumerate}
+It is \emph{effective} (Definition 7.2.1, p.~307) if for every $x$, every $g\in G_x\setminus\{1_x\}$ and
+every open neighbourhood $\mathcal U(g)$ there is $\psi\in\mathcal U(g)$ with $s(\psi)\neq t(\psi)$; an
+object with $G_x=\{1_x\}$ is \emph{regular}. It satisfies the \emph{Zhou condition} (Definition 7.4.5,
+p.~331) if for every smooth $x$ and $g\in G_x$ whose linearization $Tg\colon T_xX\to T_xX$ is the
+identity, $g$ lies in the subgroup $T_x\subset G_x$ of elements acting trivially near $x$.
+\end{recall}
 
-\paragraph{The section.}
-$f(z)=(z,z^2)$. It is equivariant, since $(\zeta^j z)^2=\zeta^{2j}z^2$, and so defines a section of
-$p$. Its linearization at $z$ is the real-linear map $h\mapsto 2zh$ of $\C=\R^2$; hence $f$ is
-sc-Fredholm with tame germ data, of index $2-2=0$ at every point. The solution set is
-$S_f=\{0\}$, which is compact.
+The objects of $X=G\ltimes\C$ are the points of $\C$, with the constant sc-structure $\C_m=\C$; the
+morphisms are the pairs $(g,z)\in G\times\C$, with source $z$ and target $\zeta^g z$. Composition is
+$(h,\zeta^g z)\circ(g,z)=(g+h,z)$, the unit at $z$ is $(0,z)$ and the inverse of $(g,z)$ is
+$(-g,\zeta^g z)$.
 
-\paragraph{Auxiliary norm and orientation.}
-The auxiliary norm is $N(z,w)=\abs{w}$ on $W_{0,1}$, which is invariant under the action, and descends to
-an auxiliary norm $n$ on $Y$. We take $U=Z$. For $y\in\C$, the linearization at $y$ of $f-s$, where $s$
-is the constant sc$^+$-section with $s(y)=f(y)$, is multiplication by $2y$; for $y\neq0$ it is a
-complex-linear isomorphism of $\C$. For an isomorphism $T$ the determinant line is canonically $\R$, and
-an orientation of it is \emph{positive} if it is the orientation of $1$. We write $o$ for the continuous
-orientation of $f$ (Definition 16.6.5, p.~739) that is positive at these complex-linear isomorphisms.
-
-%======================================================================
-\section{Why multisections are needed}
-
-A single-valued sc$^+$-section of $W$ compatible with the morphisms has the form $s(z)=(z,\psi(z))$ with
-$\psi$ of class $C^1$ and $\psi(\zeta z)=\zeta^2\psi(z)$. Its multisection is the characteristic function
-of the graph of $s$.
-
-\begin{proposition}\label{prop:obstruction}
-For every such $s$ we have $s(0)=f(0)$, so $0$ remains a solution of the perturbed problem, and
-$(f-s)'(0)$ is not onto. In particular the multisection of $s$ is not in general position with $f$
-at $0$.
-\leanref{\lean{not_isTransversalAt_sectionMulti}, \lean{linear_eq_zero_of_equivariant}}
+\begin{proposition}\label{prop:epgroupoid}
+$X=G\ltimes\C$ is an ep-groupoid with tame object space and without boundary. It is effective; the
+isotropy group of $0$ is $G_0=\{(g,0)\}\cong\ZZ$, every $z\neq0$ is regular, and $X$ satisfies the Zhou
+condition. Its orbit space $Z=\abs X=\C/\Z_5$ is paracompact.
+\leanref{\lean{X5}, \lean{Polyfold.EpGroupoid.Examples.actionEpGroupoid}, \lean{isEffective_X5},
+\lean{isotropyZeroEquiv}, \lean{isRegular_X5_iff}, \lean{isZhou_X5}, \lean{hasParacompactOrbitSpace_X5}}
 \end{proposition}
 
 \begin{proof}
-At $z=0$ the relation $\psi(\zeta z)=\zeta^2\psi(z)$ gives $\psi(0)=\zeta^2\psi(0)$; since
-$\zeta^2\neq1$, $\psi(0)=0$, and $f(0)=(0,0)=s(0)$. Since $f'(0)=0$, the linearization is
-$(f-s)'(0)=-D\psi(0)=:L$, a real-linear map of $\C$ satisfying $L(\zeta h)=\zeta^2L(h)$. Write
-$L(h)=ah+b\bar h$ with $a,b\in\C$. Then
+\emph{The sc-structure.} With $\C_m=\C$ for every $m$, the inclusions are the identity of a
+finite-dimensional space, hence compact, and $\C_\infty=\C$ is dense in each level. The object space is
+the sc-Banach space $\C$ itself, an M-polyfold with the identity as retraction; the identity is a tame
+retraction (Definition 2.5.2, p.~53), and $\C$ has no boundary since the partial quadrant is all of $\C$.
+The morphism space $G\times\C$ is the disjoint union of the five sheets $\{g\}\times\C$.
+
+(1) On the sheet $\{g\}\times\C$ the source is $(g,z)\mapsto z$ and the target is
+$(g,z)\mapsto\zeta^g z$, a real-linear isomorphism of $\C$; both are sc-diffeomorphisms onto $\C$.
+
+(2) The unit $z\mapsto(0,z)$ and the inverse $(g,z)\mapsto(-g,\zeta^g z)$ are smooth on every sheet.
+
+(3) The map $(g,z)\mapsto(g,\zeta^g z)$ is a homeomorphism of $G\times\C$, and the projection
+$G\times\C\to\C$ is proper because $G$ is finite. Hence $t$ is proper on $G\times\C$, and in particular
+on $s^{-1}(\cl V)=G\times\cl V$ for every open $V$.
+
+(4) The fibred product consists of pairs $((h,\zeta^g z),(g,z))$; it is the disjoint union of copies of
+$\C$ indexed by $(g,h)$, and the multiplication $((h,\zeta^g z),(g,z))\mapsto(g+h,z)$ is the identity in
+$z$ on each copy.
+
+\emph{Isotropy.} $(g,z)$ is an isotropy morphism iff $\zeta^g z=z$, that is iff $g=0$ or $z=0$. So
+$G_0=G\times\{0\}\cong\ZZ$ and $G_z=\{(0,z)\}$ for $z\neq0$.
+
+\emph{Effectiveness.} Only $x=0$ has non-trivial isotropy. Let $g\neq0$ and let $\mathcal U$ be an open
+neighbourhood of $(g,0)$. It contains $(g,y)$ for small $y\neq0$, and $s(g,y)=y\neq\zeta^g y=t(g,y)$.
+
+\emph{Zhou condition.} Since $X$ is effective, $T_x=\{1_x\}$ for every $x$ (Lean:
+\lean{trivialSubgroup_X5}). For $x\neq0$ there is nothing to check. For $x=0$ and $g\in G$, the
+linearization of $z\mapsto\zeta^g z$ at $0$ is multiplication by $\zeta^g$ on $T_0\C=\C$, which is the
+identity only for $g=0$.
+
+\emph{Orbit space.} $Z$ is the quotient of the second countable metrizable space $\C$ by a finite group,
+hence second countable and, by the metrizability criterion Corollary 7.3.6 (p.~326), metrizable; so it
+is paracompact (Lean: \lean{Polyfold.EpGroupoid.Examples.hasParacompactOrbitSpace_action}).
+\end{proof}
+
+\subsection{The strong bundle}
+
+\begin{recall}[Section 2.6, Definition 8.3.1]\label{rec:strongbundle}
+For sc-Banach spaces $U$ and $F$ the local strong bundle $U\triangleleft F\to U$ carries the double
+filtration $(U\triangleleft F)_{m,k}=U_m\oplus F_k$, $0\le k\le m+1$ (Section 2.6, p.~65). A
+\emph{strong bundle over the ep-groupoid} $X$ (Definition 8.3.1, p.~375) is a strong bundle
+$P\colon W\to X$ over the object M-polyfold together with a strong bundle map
+$\mu\colon\mathbf X\,{}_s{\times}_P\,W\to W$ covering $t$, with $P(\mu(\varphi,w))=t(\varphi)$, such that
+(1) $\mu$ is a surjective local sc-diffeomorphism and linear on fibres; (2) $\mu(1_x,w)=w$;
+(3) $\mu(\psi\circ\gamma,w)=\mu(\psi,\mu(\gamma,w))$.
+\end{recall}
+
+Let $W=\C\times\C\to\C$, $(z,w)\mapsto z$, be the trivial bundle $\C\triangleleft\C$ with the constant
+levels, so that $W_{m,k}=\C\times\C$ for all $m,k$, and let
+\[
+  \mu\bigl((g,z),(z,w)\bigr)=(\zeta^g z,\ \zeta^{2g}w),
+\]
+the action of weight $2$ on the fibre.
+
+\begin{proposition}\label{prop:bundle}
+$(P,\mu)$ is a strong bundle over $X$. It has the local regularity property, and
+$((P,\mu),\id,\id)$ is a strong polyfold bundle structure on $p\colon Y=\abs W\to Z$.
+\leanref{\lean{actW}, \lean{isStrongBundleMap_actW}, \lean{mu}, \lean{isLocalScDiffeo_mu}, \lean{E5},
+\lean{A5}, \lean{isLRLocal_E5}, \lean{sqStructure}, \lean{sqBundle}}
+\end{proposition}
+
+\begin{proof}
+The fibred product is $\{((g,z),(z,w))\}\cong G\times\C\times\C$. On the sheet of $g$, $\mu$ is the
+real-linear isomorphism $(z,w)\mapsto(\zeta^g z,\zeta^{2g}w)$ of $\C\times\C$. It preserves the (constant)
+double filtration, so it is a strong bundle map; it is a local sc-diffeomorphism, already onto on one
+sheet, and linear on the fibres. This is (1). Property (2) is the case $g=0$, and (3) is
+$\zeta^{2(g+h)}=\zeta^{2h}\zeta^{2g}$.
+
+The local regularity property LR of $X$ (Definition 7.4.19, p.~337) follows from the Zhou condition by
+Proposition 7.4.22 (p.~338). Since $X$ is effective, Proposition 8.4.3 (p.~382) gives the local
+regularity of the bundle (Definition 8.4.2, p.~382). A strong polyfold bundle structure
+(Definition 16.3.1, pp.~721--722) consists of a strong bundle over an ep-groupoid satisfying the Zhou
+condition, with paracompact orbit space and the local regularity of the bundle, together with
+homeomorphisms of the orbit spaces onto $Y$ and $Z$; here we take $Y=\abs W$, $Z=\abs X$ and the
+identities. All requirements were verified above and in Proposition~\ref{prop:epgroupoid}.
+\end{proof}
+
+\subsection{The section}
+
+\begin{recall}[Definitions 3.1.4, 3.1.7, 3.6.3, 3.6.4, 12.1.1]\label{rec:fredholm}
+Let $K=R(U\triangleleft F)\to O$ be a strong local bundle with retraction $R(u,h)=(r(u),\rho(u)h)$ and
+$r(0)=0$. A section germ $(f,0)$ of $K\to O$ has a \emph{filling} $g\colon U\to F$ (Definition 3.1.4,
+p.~91) if (1) $f=g$ on $O$ near $0$; (2) $g(y)=\rho(r(y))g(y)$ for $y$ near $0$ implies $y\in O$; and
+(3) the linearization at $0$ of $y\mapsto[1-\rho(r(y))]g(y)$, restricted to $\ker Dr(0)$, is an
+isomorphism $\ker Dr(0)\to\ker\rho(0)$. A \emph{basic germ} (Definition 3.1.7, p.~94) is an sc-smooth
+germ $b\colon(C,0)\to\R^N\oplus W$, with $C=[0,\infty)^k\oplus\R^{n-k}\oplus W$ and $b(0)=0$, whose
+$W$-component has the form $w-B(a,w)$ with $B$ a contraction of arbitrarily small constant on every
+level near $0$. A germ $(f,x)$ at a smooth point $x$ is an \emph{sc-Fredholm germ}
+(Definition 3.6.3, p.~135) if in some strong bundle chart around $x$ it has a filling $g$ and there is a
+local sc$^+$-section $s$ with $s(0)=g(0)$ such that $g-s$ is conjugate near $0$ to a basic germ. A
+section is \emph{sc-Fredholm} (Definition 3.6.4, p.~135) if it is \emph{regularizing}
+($x\in X_m$ and $f(x)\in Y_{m,m+1}$ imply $x\in X_{m+1}$) and its germ at every smooth point is
+sc-Fredholm. An \emph{sc-Fredholm section functor} (Definition 12.1.1, p.~566) is a section functor of a
+strong bundle over an ep-groupoid that is an sc-Fredholm section of $P$.
+\end{recall}
+
+In the formalization, Definition 3.6.3 is read in a \emph{tame} strong bundle chart, one whose base
+retraction is tame (Definition 2.5.2, p.~53); we call the data of Definition 3.6.3 in such a chart
+\emph{tame germ data} (Lean: \lean{Polyfold.StrongBundle.IsScFredholmGermTame},
+\lean{Polyfold.StrongBundle.IsTameChart}).
+
+Write $q(z)=z^2$ and let
+\[
+  f(z)=(z,q(z))=(z,z^2).
+\]
+
+\begin{proposition}\label{prop:fredholm}
+$f$ is an sc-Fredholm section functor of $(P,\mu)$, with tame germ data at every point. Its solution set
+is $\{0\}$.
+\leanref{\lean{sqSection}, \lean{sqSection_smul}, \lean{isScFredholmSectionFunctor_sqSection},
+\lean{isScFredholmSectionTame_sqSection}, \lean{Polyfold.TrivialBundle.germData_graphSection},
+\lean{Polyfold.TrivialBundle.isConjugateToBasicGerm_of_contDiff}}
+\end{proposition}
+
+\begin{proof}
+\emph{Functor.} For a morphism $(g,z)$,
+$\mu((g,z),f(z))=(\zeta^g z,\zeta^{2g}z^2)=(\zeta^g z,(\zeta^g z)^2)=f(\zeta^g z)$, so $f$ commutes
+with the morphisms.
+
+\emph{Regularity and sc-smoothness.} All levels are equal, so $x\in X_{m+1}$ for every $x$ and $f$ is
+regularizing. A smooth map between spaces whose levels are all equal is sc-smooth (Lean:
+\lean{Polyfold.isScSmooth_of_bijective_toBase}).
+
+\emph{Germ data at $x_0\in\C$.} Every point is smooth. Take the chart $\Phi(x,v)=(x-x_0,v)$ covering
+$x\mapsto x-x_0$, onto the local strong bundle $\C\triangleleft\C$ with $R=\id$, so $r=\id$ and
+$\rho\equiv\id$. Its base retraction is tame. The local section is $u\mapsto(u,q(u+x_0))$. We take as
+filling the principal part itself, $g(u)=q(u+x_0)$: in Definition 3.1.4, (1) is an equality, (2) holds
+because $O=U$, and in (3) both $\ker Dr(0)$ and $\ker\rho(0)$ are $0$. The constant section
+$s\equiv q(x_0)$ is an sc$^+$-section, since all levels of the fibre are equal, and $s(0)=g(0)$. The
+difference
+\[
+  (g-s)(u)=q(u+x_0)-q(x_0)
+\]
+vanishes at $0$ and is a basic germ with $n=N=2$, $k=0$ and $W=0$: its $W$-component is $0=w-B$ with
+$w\in W=0$ and $B=0$, and the estimate of Definition 3.1.7 is empty. (The formal proof writes the model
+as $\R^2\oplus W$ and conjugates by $\Psi(u,v)=((u,0),(v,0))$; this changes nothing.)
+
+\emph{Solutions.} $f(z)=0$ in the fibre means $z^2=0$, that is $z=0$.
+\end{proof}
+
+\begin{recall}[Definition 6.2.1]\label{rec:index}
+For an sc-Fredholm section $f$ and a smooth point $x$, the \emph{linearizations} of $f$ at $x$ form the
+set $\Lin(f,x)=\{(f-s)'(x)+a\}$, where $s$ is an sc$^+$-section with $s(x)=f(x)$ and $a\colon
+T_xX\to Y_x$ runs through the sc$^+$-operators (p.~239). All these operators are sc-Fredholm of the
+same index, the \emph{index of $f$ at $x$}. In Lean (\lean{Polyfold.StrongBundle.IsIndexAt}) this reads:
+there is an sc$^+$-section $s$ with $(f+s)(x)=0$ such that $(f+s)'(x)$ has index $i$ in every strong
+bundle chart.
+\end{recall}
+
+\begin{proposition}\label{prop:index}
+$f$ has index $0$ at every point.
+\leanref{\lean{isIndexAt_sqSection}}
+\end{proposition}
+
+\begin{proof}
+At $x_0$ take the constant section $s(z)=(z,-x_0^2)$. Then $(f+s)(x_0)=0$ and $(f+s)'(x_0)$ is the
+real-linear map $h\mapsto 2x_0h$ of $\R^2$, whose index is $\dim\ker-\dim\coker=0$ by rank--nullity.
+\end{proof}
+
+The section $f$ is a functor, so it induces a section $\abs f$ of $p$ (Definition 16.3.18, p.~729),
+which is an sc-Fredholm section of the strong polyfold bundle with representative $(W,f)$
+(Definition 16.6.1, p.~736). Since $X$ has no boundary, $\partial Z=\emptyset$ (Lean:
+\lean{sqRep}, \lean{sqFredholmSection}, \lean{sqBundle_boundary_eq_empty}).
+
+\subsection{The orientation}\label{sec:orientation}
+
+\begin{recall}[Chapter 6 and Section 12.5]\label{rec:orientation}
+For a Fredholm operator $T$ let $\det(T)=\lambda(\ker T)\otimes\lambda^*(\coker T)$, with
+$\lambda(V)=\Lambda^{\max}V$ (Definition 6.4.1, p.~246). Over the convex set $\Lin(f,x)$ these lines form
+a line bundle $\DET(f,x)$ (Proposition 6.6.1, p.~263), and an \emph{orientation of $(f,x)$} is one of
+the two orientations of $\DET(f,x)$ (Definition 6.6.2, p.~263); we write $\Or^f_x$ for this two-element
+set. Section 6.6 transports orientations along sc-smooth paths: for a path $\varphi$ one chooses
+sc$^+$-sections $s$ with $s(\varphi(t),t)=f(\varphi(t))$ and finitely many $s_1,\dots,s_k$ with
+property~(P) of Lemma 6.6.4 (p.~265); the kernels $L_t$ of the stabilized operators form a vector
+bundle over $[0,1]$, and the exact sequences (6.27) give isomorphisms $\Phi_{E_t}$ from
+$\det((f-s(\cdot,t))'(\varphi(t)))$ to $\lambda(L_t)\otimes\lambda^*(\R^k)$ (pp.~266--267), independent
+of the choices by Proposition 6.6.7 (p.~267). This yields the local propagation of
+Theorem 6.6.11 (p.~272) and the functor $\Gamma_f$ from the path category $P_X$ (smooth points;
+classes of sc-smooth paths up to sc-smooth homotopy with fixed ends) to the orientations,
+Theorem 6.6.13 (p.~273). An \emph{orientation} of $f$ (Definition 6.6.16, p.~274) is a continuous
+section of $\Or^f\to X_\infty$ for the topology of Theorem 6.6.17 (p.~275). Over an ep-groupoid
+(Definition 12.5.4, p.~594) it must in addition satisfy $\varphi_*o_{s(\varphi)}=o_{t(\varphi)}$ for
+every smooth morphism $\varphi$, the push-forward being that of Theorem 12.5.3 (p.~594). For a
+polyfold section an orientation is one for a representative (Definition 16.6.5, p.~739).
+\end{recall}
+
+\paragraph{Positivity at isomorphisms.}
+Let $L\in\Lin(f,x)$ be an isomorphism. Then $\ker L=0$ and $\coker L=0$, so
+$\det(L)=\lambda(0)\otimes\lambda^*(0)=\R\otimes\R^*$, which is canonically $\R$; equivalently, as on
+pp.~701--702 of the book, $\det(L)$ is identified with $\lambda(\ker L)=\Lambda^0(0)=\R$. An element
+$o\in\Or^f_x$ restricts to an orientation of the line $\det(L)$.
+
+\begin{definition}\label{def:positive}
+$o\in\Or^f_x$ is \emph{positive at the isomorphism $L\in\Lin(f,x)$} if the orientation of
+$\lambda(\ker L)=\Lambda^0(0)=\R$ induced by $o$ is the ray of $1$, the empty wedge.
+\end{definition}
+
+Of the two elements of $\Or^f_x$ exactly one is positive at a given isomorphism $L$, since the two
+induce opposite orientations of $\det(L)$ (Lean: \lean{Polyfold.ChartPoint.IsPos},
+\lean{Polyfold.ChartPoint.isPos_or_isPos}). In the formalization the induced orientation of $\ker L$ is
+\lean{Polyfold.ChartPoint.orKer} and the positivity is read in a chart; it does not depend on the
+chart (\lean{Polyfold.isPosOr_iff_chart}).
+
+For $y\in\C$ let $s_y$ be the constant section $z\mapsto(z,y^2)$. Then $(f-s_y)(y)=0$ and
+$(f-s_y)'(y)$ is $h\mapsto2yh$, an isomorphism for $y\neq0$.
+
+\begin{proposition}[Existence]\label{prop:orexists}
+$f$ has a continuous orientation over $\C$ (Definition 6.6.16) which is positive at $(f-s_1)'(1)=2$.
+\leanref{\lean{exists_isContOrOn_sqSection}, \lean{Polyfold.exists_continuous_orSec_of_hom_eq},
+\lean{Polyfold.PathCat.hom_eq_rn}, \lean{exists_isContOrOn_isPosAt}}
+\end{proposition}
+
+\begin{proof}
+Two sc-smooth paths in $\C$ with the same end points are sc-smoothly homotopic with fixed ends by the
+straight-line homotopy, so the path category $P_{\C}$ has at most one morphism between any two points.
+Choose $o_0\in\Or^f_0$ and set $o_y=\Gamma_f([\varphi])(o_0)$ for any path $\varphi$ from $0$ to $y$; this
+does not depend on $\varphi$. Thus $f$ is orientable (Definition 6.6.14, p.~274), and the section
+$y\mapsto o_y$ is continuous for the topology of Theorem 6.6.17. If $o$ is not positive at $2$, the
+opposite orientation $y\mapsto -o_y$ (the other element of each $\Or^f_y$) is again continuous and is
+positive at $2$.
+\end{proof}
+
+\begin{proposition}[Positivity]\label{prop:orpositive}
+Let $o$ be a continuous orientation of $f$ positive at $(f-s_1)'(1)$. Then $o$ is positive at
+$(f-s_y)'(y)=2y$ for every $y\neq0$.
+\leanref{\lean{IsPosAt}, \lean{isPosAt_iff}, \lean{famSection}, \lean{isPosAt_sqOrientationPos}}
+\end{proposition}
+
+\begin{proof}
+Choose $w\in\C$ with $e^w=y$ and let $\gamma(t)=e^{tw}$, a smooth path in $\C\setminus\{0\}$ from $1$ to
+$y$. On $\R\times\C$ consider the section $S(t,x)=(x,-\gamma(t)^2)$ of the pulled-back bundle; it is an
+sc$^+$-section, being smooth with values in a fibre whose levels are all equal (Lean:
+\lean{isScPlusSection_famSection}). For every $t$, $(f+S_t)(\gamma(t))=\gamma(t)^2-\gamma(t)^2=0$, and
+$(f+S_t)'(\gamma(t))$ is $h\mapsto2\gamma(t)h$, an isomorphism since $\gamma(t)\neq0$. By
+Lemma~\ref{lem:path}, $o$ is positive at $(f+S_1)'(\gamma(1))=(f-s_y)'(y)$ iff it is positive at
+$(f+S_0)'(\gamma(0))=(f-s_1)'(1)$.
+\end{proof}
+
+\begin{proposition}[Invariance]\label{prop:orinvariant}
+Every continuous orientation $o$ of $f$ over $\C$ satisfies $\varphi_*o_{s(\varphi)}=o_{t(\varphi)}$ for
+every morphism $\varphi$ of $X$, and so is an orientation of the section functor $f$ in the sense of
+Definition 12.5.4.
+\leanref{\lean{orMor_zero}, \lean{equiv_apply_apply_of_two}, \lean{isOrInvariant_of_isContOrOn},
+\lean{definition_12_5_4_sqOrientationPos}}
+\end{proposition}
+
+\begin{proof}
+\emph{At the isotropy of $0$.} For $g\in G$ the push-forward along $(g,0)$ is a permutation $e_g$ of the
+two-element set $\Or^f_0$. The push-forward is compatible with composition and is the identity along
+units, so $e_g^5=e_{5g}=e_0=\id$. A permutation of a two-element set satisfies $e^2=\id$, hence
+$e_g=e_g^5=\id$.
+
+\emph{Along a sheet.} Let $g\in G$. By Theorem 12.5.3 the map $\Or^f\to X_\infty$ is a two-sheeted local
+homeomorphism and the local push-forward $\hat\Phi_*$ along the sheet of $(g,z)$ carries continuous
+local sections to continuous local sections. Near $t(g,z)$ the sections $o$ and $\hat\Phi_*o$ are two
+continuous sections of this double cover over a connected neighbourhood, so they agree either everywhere
+or nowhere there. Hence the set of $z\in\C$ for which invariance holds at $(g,z)$ is open and closed. It
+contains $0$, and $\C$ is connected, so it is all of $\C$. Lemma~\ref{lem:inv} is the general form of
+this argument.
+\end{proof}
+
+By Propositions~\ref{prop:orexists}--\ref{prop:orinvariant} there is an orientation $o$ of $f$ in the
+sense of Definition 12.5.4 which is positive at $2y$ for every $y\neq0$; we keep it from now on (Lean:
+\lean{sqOrientationPos}). Together with the representative $(W,f)$ it is an orientation of the
+polyfold section $\abs f$ (Definition 16.6.5; Lean: \lean{sqOrientationRepPos}). The library also
+contains an orientation \lean{sqOrientation}, with representative \lean{sqOrientationRep}, chosen by
+Proposition~\ref{prop:orexists} without the normalization at $2$.
+
+\begin{remark}
+Over the space $L(\R^2,\R^2)$ of all real-linear maps, the canonical identification $\det(L)=\R$ at
+isomorphisms changes sign between the two components of the invertible maps. Hence $o$ is positive
+exactly at the isomorphisms of positive determinant, the complex-linear ones among them. This
+description is not used and is not part of the formal development.
+\end{remark}
+
+%======================================================================
+\section{Multisections}\label{sec:multi}
+
+\subsection{Why multisections are needed}
+
+\begin{recall}[Definitions 13.2.1, 15.1.7, 15.2.1]\label{rec:multisection}
+An \emph{sc$^+$-multisection} (Definition 13.2.1, pp.~607--608) is a functor $\Lambda\colon W\to\Q^+$,
+so $\Lambda(\mu(\varphi,w))=\Lambda(w)$, such that every $x_0$ has an open neighbourhood $U(x_0)$, with
+the natural action of $G_{x_0}$ (Theorem 7.1.13, p.~293), carrying sc$^+$-sections $s_1,\dots,s_k$ and
+weights $\sigma_i\in\Q$, $\sigma_i>0$, with $\sum\sigma_i=1$ and
+$\Lambda(w)=\sum_{\{i:\,w=s_i(P(w))\}}\sigma_i$ over $U(x_0)$. The \emph{linearization} of
+$\Lambda\circ f$ at $x\in\supp(\Lambda\circ f)$ is the formal sum
+$T_{(f,\Lambda)}(x)=\sum_{\{i:\,f(x)=s_i(x)\}}\sigma_i\,(f-s_i)'(x)$, independent of the local
+structure (Theorem 15.1.1, p.~684; Definition 15.1.7, p.~687). $(f,\Lambda)$ is \emph{transversal at
+$x$} if all operators occurring in $T_{(f,\Lambda)}(x)$ are surjective (Definition 15.2.1, p.~688).
+\end{recall}
+
+A single-valued sc$^+$-section functor $s$ of $W$ defines the sc$^+$-multisection $\Lambda_s$ with one
+branch of weight $1$: $\Lambda_s(w)=1$ if $w=s(P(w))$ and $0$ otherwise.
+
+\begin{proposition}\label{prop:obstruction}
+Let $s$ be an sc$^+$-section functor of $W$. Then $s(0)=f(0)$, so $0\in\supp(\Lambda_s\circ f)$, and
+$(f,\Lambda_s)$ is not transversal at $0$. Since $X$ has no boundary, $(f,\Lambda_s)$ is therefore not in
+general position (Definition~15.3.5, recalled in \S\ref{sec:genpos}).
+\leanref{\lean{not_isTransversalAt_sectionMulti}, \lean{exists_contDiff_of_isScPlusSection},
+\lean{eq_zero_of_rot_sq_fixed}, \lean{fderiv_sub_eq_zero_of_equivariant},
+\lean{linear_eq_zero_of_equivariant}}
+\end{proposition}
+
+\begin{proof}
+An sc$^+$-section of the trivial bundle with constant levels is the graph $s(z)=(z,\psi(z))$ of a smooth
+map $\psi\colon\C\to\C$. That $s$ is a functor means $\mu((g,z),s(z))=s(\zeta^g z)$, that is
+$\psi(\zeta z)=\zeta^2\psi(z)$. At $z=0$ this gives $\psi(0)=\zeta^2\psi(0)$; since $\zeta^2\neq1$,
+$\psi(0)=0=f(0)$, and $\Lambda_s(f(0))=1>0$. The only operator in $T_{(f,\Lambda_s)}(0)$ is
+$(f-s)'(0)=Dq(0)-D\psi(0)=-D\psi(0)=:L$, a real-linear map of $\C$. Differentiating
+$\psi(\zeta z)=\zeta^2\psi(z)$ at $0$ gives $L(\zeta h)=\zeta^2L(h)$. Write $L(h)=ah+b\bar h$ with
+$a,b\in\C$. Then
 \[
   L(\zeta h)=a\zeta h+b\zeta^{-1}\bar h,\qquad \zeta^2L(h)=a\zeta^2h+b\zeta^2\bar h,
 \]
 and comparing coefficients, $a(\zeta-\zeta^2)=0$ and $b(\zeta^{-1}-\zeta^2)=0$. As
 $2\not\equiv\pm1\pmod 5$, both factors are non-zero, so $a=b=0$ and $L=0$, which is not onto $\C$.
+
+For the last sentence: with $\partial X=\emptyset$ the reduced tangent space at $0$ is all of $T_0\C$
+(\S\ref{sec:genpos}), so general position at $0$ asks exactly that $L$ be onto.
 \end{proof}
 
-The obstruction disappears for multisections. For $c\in\C$, $c\neq0$, let
+The formal statement is the transversality statement; the reformulation in terms of general position is
+the one-line remark at the end of the proof.
+
+\subsection{The five-branch multisection}
+
+For $c\in\C$ let $s_j(z)=(z,\zeta^{2j}c)$, $j\in\ZZ$, and
 \[
-  \Lambda_c(z,w)=\tfrac15\,\card\{\,j\in\ZZ : w=\zeta^{2j}c\,\},
+  \Lambda_c(z,w)=\sum_{j\in\ZZ}\tfrac15\,[\,w=\zeta^{2j}c\,]
+  =\tfrac15\,\card\{\,j\in\ZZ : w=\zeta^{2j}c\,\}.
 \]
-the multisection with the five constant branches $s_j(z)=(z,\zeta^{2j}c)$, $j\in\ZZ$, each of weight
-$1/5$. Since $2$ is prime to $5$, the values $\zeta^{2j}c$ are the five points of $\mu_5c$, and the
-action permutes the branches, $j\cdot s_k = s_{j+k}\circ(\zeta^j\,\cdot)$. Thus $\Lambda_c$ is an
-sc$^+$-multisection, and it descends to an sc$^+$-multisection $\lambda_c$ of $p$ (Definition 16.5.1,
-p.~733).
+Since $2$ is prime to $5$, $j\mapsto\zeta^{2j}$ is a bijection of $\ZZ$ onto the fifth roots of unity;
+for $c\neq0$ the values $\zeta^{2j}c$ are distinct, and $\Lambda_c(z,w)=1/5$ if $w^5=c^5$ and $0$
+otherwise.
+
+\begin{proposition}\label{prop:multisection}
+For every $c\in\C$, $\Lambda_c$ is an sc$^+$-multisection of $(P,\mu)$, with the local section structure
+$(s_j)_{j\in\ZZ}$, weights $1/5$, on all of $\C$. The morphisms permute the branches:
+$\mu((g,z),s_j(z))=s_{j+g}(\zeta^g z)$. It induces an sc$^+$-multisection $\lambda_c$ of the polyfold
+bundle $p$, with $\lambda_c([z,w])=\Lambda_c(z,w)$ (Definition 16.5.1, p.~733).
+\leanref{\lean{branchVal}, \lean{branch}, \lean{actW_branch}, \lean{Λ5}, \lean{isWFunctor_Λ5},
+\lean{isLocalRepOn_Λ5}, \lean{isScPlusMultisection_Λ5},
+\lean{Polyfold.SBLocalization.hasLocalSectionStructure_of_isLocalRepOn}, \lean{t5}}
+\end{proposition}
+
+\begin{proof}
+\emph{Functor.} $\Lambda_c(\mu((g,z),(z,w)))=\Lambda_c(\zeta^g z,\zeta^{2g}w)$, and
+$\zeta^{2g}w=\zeta^{2j}c$ iff $w=\zeta^{2(j-g)}c$; so $j\mapsto j-g$ is a bijection between the two
+index sets and the values agree.
+
+\emph{Branches.} Each $s_j$ is a constant graph section, hence an sc$^+$-section (the fibre has constant
+levels); the weights are positive with sum $5\cdot\frac15=1$; and
+$\Lambda_c(w)=\sum_{\{j:\,w=s_j(P(w))\}}\frac15$ for every $w\in W$, which is the definition. This is a
+local representation on the open set $\C$. By Theorem 7.1.13 every $x_0$ has a neighbourhood $U(x_0)$
+with the natural $G_{x_0}$-action, and the restriction of the representation to it is a local section
+structure in the sense of Definition 13.2.1.
+
+\emph{Permutation.} $\mu((g,z),s_j(z))=(\zeta^g z,\zeta^{2g}\zeta^{2j}c)=s_{j+g}(\zeta^g z)$.
+
+\emph{Descent.} By the functor property $\Lambda_c$ is constant on orbits of $W$, so
+$\lambda_c(\abs w)=\Lambda_c(w)$ is well defined on $Y=\abs W$, and $(\lambda_c,\id,W,\Lambda_c)$ is a
+representative as required in Definition 16.5.1.
+\end{proof}
+
+\begin{proposition}\label{prop:solutions}
+$\Lambda_c(f(y))>0$ iff $y^2=\zeta^{2j}c$ for some $j$. If $c\neq0$, this $j$ is unique and
+$\Lambda_c(f(y))=1/5$. For $c=r^2$, $r\neq0$, the solutions are the ten points $\pm\zeta^jr$; they form the
+two orbits of $r$ and of $-r$, which are distinct, and each solution is regular.
+\leanref{\lean{Λ5_sqSection_pos_iff}, \lean{Λ5_sqSection_eq}, \lean{Λ5_sqSection_pos_iff_orbit},
+\lean{π_ne_π_neg}, \lean{isRegular_of_Λ5_pos}}
+\end{proposition}
+
+\begin{proof}
+$f(y)=(y,y^2)$ lies on the branch $s_j$ iff $y^2=\zeta^{2j}c$; for $c\neq0$ the $\zeta^{2j}c$ are
+distinct, so exactly one $j$ occurs and the weight is $1/5$. If $c=r^2$, then $y^2=\zeta^{2j}r^2$ iff
+$y=\pm\zeta^jr=\zeta^j(\pm r)$. The orbits of $r$ and $-r$ are distinct because $-r=\zeta^gr$ would give
+$\zeta^g=-1$, and $-1$ is not a fifth root of unity. The solutions are non-zero, hence regular by
+Proposition~\ref{prop:epgroupoid}.
+\end{proof}
+
+\subsection{General position}\label{sec:genpos}
+
+\begin{recall}[Definitions 2.5.8, 15.3.5]
+For a smooth point $x$ of an M-polyfold the \emph{reduced tangent space} $T^R_xX$ is defined in
+Definition 2.5.8 (p.~57); at a point with $d_X(x)=0$, in particular at every point of a polyfold without
+boundary, it is all of $T_xX$. $(f,\Lambda)$ is \emph{in general position} (Definition 15.3.5, p.~693) if
+for every $x\in\supp(\Lambda\circ f)$ and every operator $L_i$ occurring in
+$T_{(f,\Lambda)}(x)=\sum\sigma_iL_i$ the restriction $L_i|T^R_xX\colon T^R_xX\to W_x$ is surjective.
+\end{recall}
+
+\begin{proposition}\label{prop:genpos}
+For $c\neq0$, $(f,\Lambda_c)$ is in general position, and so is the polyfold pair $(\abs f,\lambda_c)$.
+\leanref{\lean{mem_reducedTangentFiber_of_univ}, \lean{surjective_fderiv_sq_sub_const},
+\lean{isInGeneralPosition_Λ5}, \lean{isInGeneralPositionWith_t5}}
+\end{proposition}
+
+\begin{proof}
+Let $y\in\supp(\Lambda_c\circ f)$. By Proposition~\ref{prop:solutions}, $f(y)=s_j(y)$ for exactly one
+$j$, and $T_{(f,\Lambda_c)}(y)=\frac15(f-s_j)'(y)$. Since $s_j$ is constant, $(f-s_j)'(y)$ is
+$h\mapsto2yh$, and $y\neq0$ because $y^2=\zeta^{2j}c\neq0$. So it is onto $\C=W_y$, and
+$T^R_y\C=T_y\C$. For the polyfold pair, general position is required in a model
+(Lean: \lean{Polyfold.StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith}), and $(W,f,\Lambda_c)$ is
+one.
+\end{proof}
+
+\subsection{Auxiliary norm, compactness control, and control of \texorpdfstring{$\lambda_c$}{lambda}}
+
+\begin{recall}[Definitions 8.3.5, 15.3.1, 15.3.3, 16.3.9, 16.6.3]\label{rec:norm}
+An \emph{auxiliary norm} (Definition 8.3.5, p.~379; again Definition 12.2.1, p.~570) is a continuous
+$N\colon W_{0,1}\to[0,\infty)$ such that (1) $N$ restricts to a complete norm on every fibre; (2) if
+$P(h_k)$ converges to $x$ and $N(h_k)\to0$, then $h_k\to0_x$ in $W_{0,1}$; (3) $N(\mu(\varphi,k))=N(k)$.
+On a strong polyfold bundle an auxiliary norm is one induced from a representative
+(Definition 16.3.9, p.~726). For a saturated open $U\supset S_f$, $(N,U)$ \emph{controls compactness}
+(Definition 15.3.1, p.~691) if $\{x\in U: N(f(x))\le1\}$ has an orbit space with compact closure in
+$\abs X$; for polyfolds, $(n,U)$ controls compactness if $\cl_Z\{z\in U: n(f(z))\le1\}$ is compact
+(Definition 16.6.3, pp.~736--737). An sc$^+$-multisection $\Lambda$ is \emph{$(N,U)$-admissible}
+(Definition 15.3.3, p.~692) if $N(\Lambda)\le1$ (Definition 13.2.3, p.~608) and every $x$ with
+$(t\Lambda)(f(x))>0$ for some $t\in[-1,1]$ lies in $U$; the text after Definition 15.3.3 notes that
+$\domsupp(\Lambda)\subset U$ together with $N(\Lambda)\le1$ suffices.
+\end{recall}
+
+Theorem 16.6.6 speaks of an sc$^+$-multisection $\lambda$ \emph{controlled by $(n,U)$}. We read this as
+the sufficient condition just quoted, transported to the polyfold:
+\[
+  n(\lambda)(z)\le1\ \text{for all } z\in Z\qquad\text{and}\qquad \domsupp(\lambda)\subset U,
+\]
+with $n(\lambda)(z)=\max\{n(y):p(y)=z,\ \lambda(y)>0\}$ as in (16.8) (p.~733) and the domain support of
+Definition 16.5.2 (p.~733) (Lean: \lean{Polyfold.StrongPolyfoldBundle.ScPlusMultisection.IsControlledBy}).
+
+Let $N(z,w)=\abs w$ on $W_{0,1}=\C\times\C$ and let $n$ be the induced function on $Y$. We take $U=Z$.
+
+\begin{proposition}\label{prop:norm}
+$N$ is an auxiliary norm of $(P,\mu)$ and $n$ is an auxiliary norm of $p$. The pair $(N,\C)$ controls the
+compactness of $f$, and $(n,Z)$ controls the compactness of $\abs f$. For $\abs c\le1$, $\lambda_c$ is
+controlled by $(n,Z)$, and $\Lambda_c$ is $(N,\C)$-admissible.
+\leanref{\lean{N5}, \lean{isAuxNorm_N5}, \lean{n5}, \lean{isAuxNorm_n5},
+\lean{controlsCompactness_sqSection_univ}, \lean{controlsCompactness_n5},
+\lean{pointwiseNorm_Λ5_le}, \lean{isControlledBy_t5}}
+\end{proposition}
+
+\begin{proof}
+$N$ is continuous. (1) On the fibre over $z$ it is the modulus of $\C$, a complete norm. (2) If
+$z_k\to z$ and $\abs{w_k}\to0$ then $(z_k,w_k)\to(z,0)$. (3)
+$N(\mu((g,z),(z,w)))=\abs{\zeta^{2g}w}=\abs w$. By (3), $N$ is constant on orbits and induces $n$ on
+$Y$.
+
+$N(f(z))=\abs{z}^2$, so $\{z: N(f(z))\le1\}$ is the closed unit disc. Its image in $Z$ is compact, hence
+closed, so it is its own closure in $Z$.
+
+For $\abs c\le1$, every point of $\supp\Lambda_c$ over $z$ is some $s_j(z)$, with
+$N(s_j(z))=\abs{\zeta^{2j}c}=\abs c\le1$; so $N(\Lambda_c)\le1$ and $n(\lambda_c)\le1$. The domain
+support lies in $Z=U$ and in $\C$, trivially. Admissibility of $\Lambda_c$ is then the remark after
+Definition 15.3.3.
+\end{proof}
 
 %======================================================================
-\section{What is proved}
+\section{Theorem 16.6.6 for the example}\label{sec:theorem}
 
-An sc$^+$-multisection $\lambda$ of $p$ is called \emph{admissible} if it is controlled by $(n,U)$
-(Definition 16.5.4, p.~734) and $(f,\lambda)$ is in general position (Definition 15.3.5, p.~690), as in
-Theorem 16.6.6. The perturbed solution set $\theta=\lambda\circ f$ then has dimension $0$; with the
-canonical orientation $\hat\theta$ inherited from $(f,o)$ (Theorem 15.4.1 and Definition 15.4.2,
-pp.~701--702), the invariant of index $0$ is the branched integral $\int_{\hat\theta}\tau$ of a closed
-$0$-form $\tau$ (Definition 9.5.6, p.~439, for $n=0$), which we call the \emph{count}.
+\begin{recall}[Theorem 16.6.6, p.~739]
+Let $p\colon Y\to Z$ be a strong polyfold bundle with $\partial Z=\emptyset$ and $f$ an oriented
+sc-Fredholm section of index $k$ with compact solution set. Let $n$ be an auxiliary norm and $U$ an open
+neighbourhood of $S_f$ such that $(n,U)$ controls compactness. Then for an sc$^+$-multisection $\lambda$
+controlled by $(n,U)$ with $(f,\lambda)$ in general position, the branched integrals $\int_{\hat\theta}\tau$
+and $\oint_{\hat\theta}\tau$ of a closed sc-differential $k$-form $\tau$ are well defined and independent
+of $\lambda$; here $\hat\theta$ is $\theta=\lambda\circ f$ with the orientation inherited from $f$.
+\end{recall}
 
-\begin{theorem}\label{thm:hyp}
-The hypotheses of Theorem 16.6.6 for index $0$ hold for $(p,f,o,n,U)$: $\partial Z=\emptyset$, the
-solution set of $f$ is compact, $n$ is an auxiliary norm, $U=Z$ is open, $(n,U)$ controls compactness,
-and the orientation $o$ is given on a model with tame germ data and index $0$. Consequently the
-conclusion of Theorem 16.6.6 holds for this polyfold bundle and section.
-\leanref{\lean{theorem_16_6_6_hypotheses}, \lean{theorem_16_6_6_sq}}
-\end{theorem}
-
-\begin{proof}[Sketch]
-$\C$ has no boundary and $S_f=\{0\}$. The norm $N$ is continuous on $W_{0,1}$, restricts to a norm on
-each fibre and is invariant. For compactness control: $N(f(z))\le1$ means $\abs{z}^2\le1$, a compact
-set. The model of $o$ is the graph section $z\mapsto(z,z^2)$ of a smooth map between finite-dimensional
-spaces, which is sc-Fredholm of index $0$ with tame germ data.
-\end{proof}
-
-\begin{theorem}\label{thm:admissible}
-For $0<\abs c\le1$ the multisection $\lambda_c$ is admissible, and its perturbed solution set carries
-the canonical orientation of $(f,o)$. Any two admissible perturbations with the canonical orientation
-have the same count of a closed $0$-form $\tau$; that common value is the count over $\lambda_c$, for
-every $0<\abs c\le1$.
-\leanref{\lean{exists_canonical_t5}, \lean{count_eq_of_isAdmissible}, \lean{exists_unique_count}}
-\end{theorem}
-
-\begin{proof}[Sketch]
-Every branch has norm $N(s_j(z))=\abs c\le1$, and the domain support lies in $U=Z$, so $\lambda_c$ is
-controlled by $(n,Z)$. A perturbed solution is a $y$ with $y^2=\zeta^{2j}c$ for some $j$; then
-$y\neq0$ and $(f-s_j)'(y)$ is multiplication by $2y$, which is onto; there is no boundary. Hence
-$(f,\lambda_c)$ is in general position, and Theorem 15.4.1 provides the canonical orientation. The
-independence statement is Theorem 16.6.6 for index $0$, applied through Theorem~\ref{thm:hyp}.
-\end{proof}
-
-\begin{theorem}\label{thm:count}
-For every admissible perturbation with the canonical orientation of $(f,o)$, the count of the constant
-form $1$ is
+For $k=0$ the inherited orientation is the canonical orientation of Theorem 15.4.1 and
+Definition 15.4.2 (p.~702): if near $x$ the multisection has the local structure $(s_i,\sigma_i)$, then
 \[
-  \int_{\hat\theta}1=\frac25 .
+  \hat T(y)=\sum_{\{i:\,f(y)=s_i(y)\}}\sigma_i\cdot\bigl(\ker(f-s_i)'(y),\,o_{i,y}\bigr),
 \]
-\leanref{\lean{count_eq_two_fifths}, \lean{count_eq_two_fifths_all}}
+where $o_{i,y}$ is the orientation of $\lambda(\ker(f-s_i)'(y))$ induced by $o_y$ through the
+identification $\lambda(\ker L)=\det(L)$ for surjective $L$. The sheets $M_i=\{f=s_i\}$ have tangent
+spaces $\ker(f-s_i)'(y)$, of dimension $0$ here, and $\hat\theta=(\theta,\hat T)$ is an oriented branched
+suborbifold of dimension $0$ (Definitions 9.1.2, p.~402, and 9.3.2, p.~423). For a $0$-form $\tau$ the
+\emph{count} is the branched integral of Definition 9.5.6 (p.~439) for $n=0$,
+\[
+  \int_{\hat\theta}\tau=\mu^{\hat\theta}_\tau\bigl(\abs{\supp\theta}\bigr),
+\]
+with the measure of Theorem 9.5.4 (p.~438); its effective version $\oint_{\hat\theta}\tau$ uses the
+measure of Theorem 9.5.5 (pp.~438--439). In Lean, the count and effective count are
+\lean{Polyfold.PolyfoldClass.PointSuborbifold.count} and \lean{Polyfold.PolyfoldClass.PointSuborbifold.countEff}; a perturbation $\lambda$ is
+\emph{admissible} when it is controlled by $(n,U)$ and $(\abs f,\lambda)$ is in general position, the
+two conditions of Theorem 16.6.6 (Lean:
+\lean{Polyfold.StrongPolyfoldBundle.PointOrientedPerturbation.IsAdmissible}). The formal version of the
+theorem for index $0$ is \lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_statement}:
+under the hypotheses, for every orientation and any two admissible perturbations with the inherited
+orientation, the counts and the effective counts of every closed $0$-form agree.
+
+\begin{theorem}[The hypotheses]\label{thm:hyp}
+For $(p,\abs f,o,n,U=Z)$:
+\begin{enumerate}[label=(\alph*)]
+\item $\partial Z=\emptyset$;
+\item the solution set $S_{\abs f}$ is compact;
+\item $n$ is an auxiliary norm, and $U=Z$ is an open neighbourhood of $S_{\abs f}$;
+\item $(n,Z)$ controls compactness;
+\item the representative $(W,f)$ of the orientation has tame germ data at every smooth point, and index
+  $0$ at every smooth point.
+\end{enumerate}
+\leanref{\lean{theorem_16_6_6_hypotheses}, \lean{canonicalGermInput_sqOrientationRep},
+\lean{canonicalGermInput_sqOrientationRepPos}, \lean{Polyfold.StrongPolyfoldBundle.CanonicalGermInput}}
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:admissible} it suffices to compute with $\lambda_1$, and the constant form $1$ is
-closed (Lemma~\ref{lem:const}). The perturbed solutions are the $y$ with $y^2=\zeta^{2j}$, that is
-$y=\pm\zeta^j$: ten points, forming the two orbits of $1$ and of $-1$, which are different points of
-$Z$ because $-1$ is not a fifth root of unity. Each of them has trivial isotropy, being non-zero. Each
-lies on exactly one branch: $y^2$ determines $j$, as the $\zeta^{2j}$ are distinct. So the weight at
-each solution is $\Lambda_1(f(y))=1/5$.
+(a) Proposition~\ref{prop:epgroupoid}: the object space $\C$ has no boundary. (b) $S_{\abs f}$ is the
+single point $[0]$ by Proposition~\ref{prop:fredholm}. (c) Proposition~\ref{prop:norm}; $Z$ is open in
+itself. (d) Proposition~\ref{prop:norm}. (e) Propositions~\ref{prop:fredholm} and~\ref{prop:index}.
+Condition (e) concerns only the representative, so it holds for $o$ and for the unnormalized
+orientation alike; the formal statement \lean{theorem_16_6_6_hypotheses} records it for
+\lean{sqOrientationRep}, and \lean{canonicalGermInput_sqOrientationRepPos} for $o$.
+\end{proof}
 
-At such a point the sheet has dimension $0$, and by Lemma~\ref{lem:sign} the sign of the canonical
-orientation is $+1$ exactly when $o$ is positive at $(f-s_j)'(y)$. Since $s_j$ is constant, this is
-multiplication by $2y$, a complex-linear isomorphism, at which $o$ is positive by construction. The
-signed weight at each solution is therefore $+1/5$. The formula for a finite orbit support
-(Lemma~\ref{lem:finite}), with one representative of each orbit, gives
+Condition (e) is the form in which the library uses the hypothesis ``$f$ oriented, of index $k$'': the
+germ data of Definition 3.6.3 in tame charts, and the index at every smooth point. With it the library
+proves Theorem 16.6.6 for index $0$ in the following form.
+
+\begin{theorem}[The conclusion]\label{thm:conclusion}
+For every orientation of $\abs f$ whose representative satisfies (e), any two admissible perturbations
+whose perturbed solution sets carry the canonical orientation have the same count and the same effective
+count of every closed $0$-form on $Z$.
+\leanref{\lean{theorem_16_6_6_sq},
+\lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_unconditional}}
+\end{theorem}
+
+\begin{proof}[Outline]
+This is the library theorem applied to the hypotheses of Theorem~\ref{thm:hyp}. Its proof follows the
+argument for Corollary 15.4.4 (p.~703). Two admissible perturbations $\lambda_0,\lambda_1$ with canonical
+orientations are joined by an oriented, compact, tame branched suborbifold of dimension $1$ over
+$[0,1]\times Z$, built on a saturated neighbourhood of the compact set where both are controlled, and
+oriented by Theorem 15.4.1 and Theorem 15.4.3 (p.~702). Its oriented boundary is $\hat\theta_1-\hat\theta_0$.
+Stokes' theorem (Theorem 9.5.17, p.~449, and Theorem 9.5.18, p.~450, for the effective integral) applied
+to the pull-back of the closed form $\tau$ then gives equal counts. The library obtains the
+perturbations on the cylinder from the germ data in (e) and does not use bump functions on $Z$ (Lean:
+\lean{Polyfold.SBLocalization.pointCount_eq_of_isTransversalPerturbation_restr},
+\lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_count_eq_unconditional}). We do not
+reproduce this general proof here.
+\end{proof}
+
+\begin{theorem}[Admissible perturbations]\label{thm:admissible}
+For $0<\abs c\le1$ the multisection $\lambda_c$ is admissible, and $\theta=\lambda_c\circ\abs f$ carries the
+canonical orientation $\hat T$ of $(\abs f,o)$, which makes it a compact, tame, oriented branched
+suborbifold of dimension $0$. Any two admissible perturbations with the canonical orientation of
+$(\abs f,o)$ have the same count and effective count of every closed $0$-form.
+\leanref{\lean{exists_canonical_t5_pos}, \lean{count_eq_of_isAdmissible_pos},
+\lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_solutionSet_noBumps}}
+\end{theorem}
+
+\begin{proof}
+Admissibility is Propositions~\ref{prop:norm} and~\ref{prop:genpos}. Write $\Theta=\Lambda_c\circ f$. By
+Proposition~\ref{prop:solutions}, $\supp\Theta$ consists of the ten points $y$ with $y^{10}=c^5$, and
+$\Theta(y)=1/5$ there. Near such a $y$ the solution set of $f=s_j$ ($j$ the unique branch through $y$)
+is the single point $\{y\}$, because $(f-s_j)'(y)=2y$ is an isomorphism; this is a submanifold of
+dimension $0$, and $\Theta=\frac15\cdot\mathbf 1_{\{y\}}$ near $y$ is a local branching structure as in
+Definition 9.1.2. The support is finite, hence compact, and tameness (Definition 9.3.6, p.~425) is a
+condition at boundary points, of which there are none. The canonical orientation is
+$\hat T(y)=\frac15\cdot(0,o_{j,y})$, where $o_{j,y}$ is the orientation of $\lambda(0)=\R$ induced by
+$o_y$ at the isomorphism $(f-s_j)'(y)=2y$; by Proposition~\ref{prop:orpositive} it is the positive one.
+It is the orientation of Theorem 15.4.1, and the local formula (9.9) of Definition 9.3.2 holds with the
+single sheet $\{y\}$. The last sentence is Theorem~\ref{thm:conclusion} for $o$.
+
+The formal proof does not use the explicit description: it applies the library theorem
+\lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_solutionSet_noBumps}, which produces for
+every admissible perturbation the branched suborbifold (as in Theorem 15.4.3) and its canonical
+orientation (as in Theorem 15.4.1, read as \lean{Polyfold.SBLocalization.IsCanonicalFor} with the
+kernel description \lean{Polyfold.SBLocalization.KernelBranching}). The signs are identified afterwards
+by Lemma~\ref{lem:sign}.
+\end{proof}
+
+\begin{theorem}[The count]\label{thm:count}
+For every admissible perturbation with the canonical orientation of $(\abs f,o)$, the count of the
+constant form $1$ is
 \[
-  \int_{\hat\theta}1=\frac1{\card G_1}\cdot\frac15\cdot1+\frac1{\card G_{-1}}\cdot\frac15\cdot1
-  =\frac15+\frac15=\frac25 .\qedhere
+  \int_{\hat\theta}1=\frac25 .
+\]
+Such perturbations exist: the $\lambda_c$, $0<\abs c\le1$.
+\leanref{\lean{count_t5_pos}, \lean{positiveZeros_sqOrientationRepPos}, \lean{signedWeight_canonical_eq},
+\lean{count_eq_two_fifths}, \lean{count_eq_two_fifths_all}}
+\end{theorem}
+
+\begin{proof}
+The constant form $1$ is closed (Lemma~\ref{lem:const}; Lean: \lean{sqOne}, \lean{d_sqOne}). By
+Theorem~\ref{thm:admissible} the count is the same for all admissible perturbations with the canonical
+orientation, so it suffices to compute it for $\lambda_1$, that is $c=r^2$ with $r=1$.
+
+By Proposition~\ref{prop:solutions} the support of $\Theta=\Lambda_1\circ f$ is the ten points
+$\pm\zeta^j$, the orbits of $1$ and of $-1$, which are distinct; each has trivial isotropy, and
+$\Theta=1/5$ at each. We apply Lemma~\ref{lem:finite} to the set of representatives $\{1,-1\}$: it lies in
+$\supp\Theta$, its two points have different orbits, and their orbits cover the orbit support. So
+\[
+  \int_{\hat\theta}1=\frac1{\card G_1}\,\varepsilon\bigl(\hat T(1)\bigr)\cdot1
+  +\frac1{\card G_{-1}}\,\varepsilon\bigl(\hat T(-1)\bigr)\cdot1,
+\]
+where $\varepsilon$ is the signed weight. At $y=\pm1$ the only branch through $f(y)$ is $s_0$, and
+$(f-s_0)'(y)=2y$ is an isomorphism at which $o$ is positive (Proposition~\ref{prop:orpositive}). By
+Lemma~\ref{lem:sign} the signed weight is $\varepsilon(\hat T(y))=\Lambda_1(f(y))=1/5$. With
+$\card G_{\pm1}=1$,
+\[
+  \int_{\hat\theta}1=\frac15+\frac15=\frac25 .\qedhere
 \]
 \end{proof}
 
 \begin{remark}
 The value agrees with the local degree $2$ of $z\mapsto z^2$ at $0$ divided by the order $5$ of the
-isotropy group $G_0$. This description of the answer is a remark; it is not one of the formal
-statements.
-\end{remark}
-
-\begin{remark}
-The existence of $o$ rests on Lemma~\ref{lem:path}: any two points $y_0,y_1\neq0$ are joined by a path
-$t\mapsto y_0e^{tw}$ in $\C\setminus\{0\}$, along which the linearizations $2y_0e^{tw}$ are isomorphisms,
-so positivity at one of them is carried to all. The formal development
-records $o$, its model and the positivity at all perturbed solutions
-(\lean{sqOrientationPos}, \lean{sqOrientationRepPos}, \lean{positiveZeros_sqOrientationRepPos}).
+isotropy group $G_0$. Since $X$ is effective and the solutions have trivial isotropy, the effective
+isotropy groups in Theorem 9.5.5 are trivial as well, and the same computation gives
+$\oint_{\hat\theta}1=2/5$. Neither statement is among the formal ones: the library proves that the
+effective count is independent of the perturbation, and states the value $2/5$ for the count
+$\int_{\hat\theta}$.
 \end{remark}
 
 %======================================================================
-\section{The infinite-dimensional version}
+\section{The infinite-dimensional version}\label{sec:inf}
 
-To let the sc-calculus of Part~I, the shift of the strong bundle and sc-Fredholm theory in infinite
-dimensions enter, the example is crossed with an sc-Hilbert space whose levels are strictly nested
-(namespace \lean{Polyfold.Examples.OrbifoldSquareInf}).
+In the example above every level is $\C$. To let the sc-calculus of Part~I, the shifted levels of strong
+bundles and sc-Fredholm theory in infinite dimensions enter, we cross it with an sc-Hilbert space whose
+levels are strictly nested.
 
-\paragraph{The sc-Hilbert space.}
+\subsection{The sc-Hilbert space}
+
 Let $H$ be the space of real sequences $x=(x_k)_{k\ge0}$ with the levels
 \[
-  H_m=\Bigl\{x:\ \abs{x}_m^2=\sum_{k\ge0}(k+1)^{2m}x_k^2<\infty\Bigr\}.
+  H_m=\Bigl\{x:\ \abs{x}_m^2=\sum_{k\ge0}(k+1)^{2m}x_k^2<\infty\Bigr\},\qquad m\ge0 .
 \]
-The inclusions $H_{m+1}\to H_m$ are compact (the weights $(k+1)^{-1}$ tend to $0$) and not onto; the
-smooth points $H_\infty=\bigcap_m H_m$ are dense in every level. The sequence $x_k=1/(k+1)$ lies in $H_0$
-and not in $H_1$, so not every object is smooth.
-\leanref{\lean{Polyfold.Examples.WeightedEllTwo.H},
-\lean{Polyfold.Examples.WeightedEllTwo.not_surjective_inclLevel},
-\lean{Polyfold.Examples.WeightedEllTwo.harmH_not_mem_smooth}, \lean{exists_not_mem_smoothSet}}
 
-\paragraph{The polyfold bundle.}
-The ep-groupoid is $(G\ltimes\C)\times H$, with $G$ acting trivially on $H$. The strong bundle has fibre
-$\C\times H$, of weight $2$ on $\C$ and trivial on $H$, with the double filtration
-$(\C\times H)_{m,k}=\C\times H_k$ over level $m$, $0\le k\le m+1$. The section is
+\begin{proposition}\label{prop:H}
+$(H_m)_{m\ge0}$ is an sc-structure on $H_0$ (Definition 1.1.1). Every inclusion $H_{m+1}\to H_m$ is
+injective and not onto; for instance $x_k=1/(k+1)$ lies in $H_0$ but not in $H_1$, so not every point of
+$H_0$ is smooth.
+\leanref{\lean{Polyfold.Examples.WeightedEllTwo.isCompactOperator_incl},
+\lean{Polyfold.Examples.WeightedEllTwo.H},
+\lean{Polyfold.Examples.WeightedEllTwo.not_surjective_inclLevel},
+\lean{Polyfold.Examples.WeightedEllTwo.harmH_not_mem_smooth}}
+\end{proposition}
+
+\begin{proof}
+\emph{Levels.} The map $x\mapsto((k+1)^mx_k)_k$ is an isometry of $H_m$ onto $\ell^2$, so each $H_m$ is a
+Hilbert space, and $H_{m+1}\subset H_m$ with $\abs x_m\le\abs x_{m+1}$.
+
+\emph{Compactness.} In these coordinates, the inclusion $H_{m+1}\to H_m$ becomes the diagonal operator
+$D=\operatorname{diag}(1/(k+1))$ on $\ell^2$. Let $D_K$ keep the first $K$ coordinates of $Dy$ and set the
+others to $0$. $D_K$ has finite rank and $\lVert D-D_K\rVert=\sup_{k\ge K}1/(k+1)=1/(K+1)\to0$; a norm
+limit of finite-rank operators is compact. (Lean: \lean{Polyfold.Examples.WeightedEllTwo.dg},
+\lean{Polyfold.Examples.WeightedEllTwo.isCompactOperator_dg_wTrunc},
+\lean{Polyfold.Examples.WeightedEllTwo.tendsto_dg_wTrunc}.)
+
+\emph{Density.} A finitely supported sequence lies in every $H_m$, hence in $H_\infty$. For $x\in H_m$ the
+truncations $x^{(K)}=(x_0,\dots,x_{K-1},0,\dots)$ satisfy
+$\abs{x-x^{(K)}}_m^2=\sum_{k\ge K}(k+1)^{2m}x_k^2\to0$, the tail of a convergent series.
+
+\emph{Not onto.} $x_k=(k+1)^{-m-1}$ has $\abs x_m^2=\sum(k+1)^{-2}<\infty$ and
+$\abs x_{m+1}^2=\sum1=\infty$; for $m=0$ this is $x_k=1/(k+1)$. Injectivity is clear.
+\end{proof}
+
+$H_0$ is a separable Hilbert space, so it has smooth bump functions and is second countable (Lean:
+\lean{Polyfold.Examples.WeightedEllTwo.hasContDiffBump_level_zero},
+\lean{Polyfold.Examples.WeightedEllTwo.secondCountableTopology_level_zero}); these give the bump
+functions and the paracompactness used below.
+
+\subsection{The polyfold bundle and the section}
+
+The ep-groupoid is $X^\infty=(G\ltimes\C)\times H$, the product of $X$ with $H$ regarded as an
+ep-groupoid with only identity morphisms; so the morphisms are $((g,z),e)\colon(z,e)\to(\zeta^gz,e)$. The
+strong bundle is $W^\infty=(\C\triangleleft\C)\times(H\triangleleft H)$, with fibre $\C\times H_0$ and
+double filtration $\C\times H_k$ over level $m$, $0\le k\le m+1$; the morphisms act by $\zeta^{2g}$ on
+the $\C$-factor of the fibre and trivially on the $H$-factor. The section is
 \[
-  F(z,e)=\bigl((z,e),(z^2,e)\bigr).
+  F(z,e)=\bigl((z,z^2),(e,e)\bigr).
 \]
-Its $H$-part is the identity of $H$, which is sc-Fredholm with tame germ data (it is conjugate to a
-basic germ), so $F$ is sc-Fredholm of index $0$. The auxiliary norm is
-$N\bigl((z,e),(w,h)\bigr)=\max(\abs w,\abs h_1)$, built from the $H_1$-norm of the fibre; its unit ball
-is precompact in $H_0$ because the inclusion $H_1\to H_0$ is compact, and this is what gives compactness
-control. The orientation is the continuous one positive at the isomorphisms $(2z,\mathrm{id})$,
-$z\ne0$.
-\leanref{\lean{infBundle}, \lean{isScFredholmSectionTame_idSec}, \lean{isConjugateToBasicGerm_id},
-\lean{isIndexAt_sqInf}}
+
+\begin{proposition}\label{prop:infbundle}
+$X^\infty$ is an ep-groupoid with tame object space $\C\times H$ and no boundary. It is effective, the
+isotropy of $(0,e)$ is $\ZZ$ and all other objects are regular, it satisfies the Zhou condition, and its
+orbit space $(\C/\Z_5)\times H$ is paracompact. $W^\infty$ is a strong bundle over $X^\infty$ with the
+local regularity property, and it gives a strong polyfold bundle $p^\infty$ over
+$Z^\infty=(\C/\Z_5)\times H$ with $\partial Z^\infty=\emptyset$. Not every object is smooth.
+\leanref{\lean{Ainf}, \lean{isRegular_Xinf_iff}, \lean{isEffective_Xinf}, \lean{inclFunctor},
+\lean{isZhou_Xinf}, \lean{hasParacompactOrbitSpace_Xinf}, \lean{isLRLocal_Einf}, \lean{infStructure},
+\lean{infBundle}, \lean{infBundle_boundary_eq_empty}, \lean{exists_not_mem_smoothSet}}
+\end{proposition}
+
+\begin{proof}
+The ep-groupoid axioms hold factorwise: on each sheet $\{g\}\times\C\times H$ the source and target are
+$(z,e)\mapsto(z,e)$ and $(z,e)\mapsto(\zeta^gz,e)$, and properness, smoothness of the structure maps
+and the strong bundle axioms of From the book~\ref{rec:strongbundle} are checked as in
+Propositions~\ref{prop:epgroupoid} and~\ref{prop:bundle}, the $H$-factor contributing identities. The
+object space $\C\times H_0$ is an sc-Hilbert space, a tame M-polyfold without boundary. The isotropy of
+$(z,e)$ is that of $z$ in $X$, so it is $\ZZ$ for $z=0$ and trivial otherwise; effectiveness follows as
+in Proposition~\ref{prop:epgroupoid}, using the morphisms $((g,y),e)$, $y\neq0$. For the Zhou condition
+at a smooth $(0,e)$: the linearization of $g$ is $(v,h)\mapsto(\zeta^gv,h)$, the identity only for
+$g=0$; formally this is read off along the inclusion $z\mapsto(z,e)$ of $X$ into $X^\infty$, which is a
+functor (\lean{inclFunctor}). The orbit space is the product of the metrizable spaces $\C/\Z_5$ and
+$H_0$. Local regularity follows from Propositions 7.4.22 and 8.4.3 as before. The point $(0,x)$ with
+$x_k=1/(k+1)$ is not smooth, by Proposition~\ref{prop:H}.
+\end{proof}
+
+\begin{proposition}\label{prop:inffredholm}
+The section $e\mapsto(e,e)$ of $H\triangleleft H$ is sc-Fredholm with tame germ data, and $F$ is an
+sc-Fredholm section functor of $W^\infty$ with tame germ data, of index $0$ at every smooth point. Its
+solution set is $\{(0,0)\}$.
+\leanref{\lean{idSec}, \lean{isConjugateToBasicGerm_id}, \lean{isScFredholmSectionTame_idSec},
+\lean{isScFredholmSectionFunctor_idSec}, \lean{isScFredholmSectionFunctor_sqInf},
+\lean{isScFredholmSectionTame_sqInf}, \lean{isIndexAt_sqInf}, \lean{solutionSet_sqInf}}
+\end{proposition}
+
+\begin{proof}
+\emph{The identity part.} The principal part $e\mapsto e$ is sc-linear, hence sc-smooth. It is
+regularizing: if $e\in H_m$ and $(e,e)\in(H\triangleleft H)_{m,m+1}$, the fibre component $e$ lies in
+$H_{m+1}$, so $e\in H_{m+1}$. At a smooth point $e_0\in H_\infty$ take the chart
+$(e,h)\mapsto(e-e_0,h)$ onto $H\triangleleft H$, whose retraction is the identity and hence tame. The
+local principal part is $v\mapsto v+e_0$. As in Proposition~\ref{prop:fredholm} it is its own filling,
+since with $R=\id$ the three conditions of Definition 3.1.4 are trivial (Lean:
+\lean{Polyfold.isFilling2021_of_R_eq_self}). The constant section $s\equiv e_0$ is an sc$^+$-section
+because $e_0\in H_\infty$: on level $m$ it takes values in $H_{m+1}$, indeed in every level, and is
+constant (Lean: \lean{constSec}, \lean{isScPlusSection_constSec}). Then $(g-s)(v)=v$, which is a basic
+germ with $n=N=0$, $W=H$ and $B=0$. The formal proof obtains the conjugation from the splitting used in
+the proof of Lemma 4.1.11 (p.~179), with finite-dimensional part $0$.
+
+\emph{The product.} The $\C$-part is Proposition~\ref{prop:fredholm}. The product of two sc-Fredholm
+section functors is an sc-Fredholm section functor of the product bundle, as used in the text after
+Definition 15.3.3 (p.~692) (Lean: \lean{Polyfold.SBLocalization.isScFredholmSectionFunctor_prodMap});
+the tame germ data are the products of the germ data of the factors.
+
+\emph{Index.} At a smooth point $(z_0,e_0)$ let
+$s(z,e)=\bigl((z,\,z-z_0-z^2),\,(e,\,-e_0)\bigr)$. Its $\C$-part is a smooth section with values in a
+finite-dimensional fibre, and its $H$-part is constant at a smooth point, so $s$ is an sc$^+$-section.
+$(F+s)(z,e)=((z,z-z_0),(e,e-e_0))$ vanishes at $(z_0,e_0)$ with linearization the identity of
+$\C\times H$, whose index is $0$ (Lean: \lean{fredholmIndex_eq_zero_of_bijective}).
+
+\emph{Solutions.} $F(z,e)=0$ iff $z^2=0$ and $e=0$.
+\end{proof}
+
+\begin{proposition}\label{prop:infnorm}
+$N^\infty((z,w),(e,h))=\max(\abs w,\abs h_1)$, defined on $W^\infty_{0,1}$ where $h\in H_1$, is an
+auxiliary norm, and $(N^\infty,\C\times H)$ controls the compactness of $F$; the induced $n^\infty$
+controls the compactness of $\abs F$ with $U=Z^\infty$.
+\leanref{\lean{NH}, \lean{isAuxNorm_NH}, \lean{Ninf}, \lean{isAuxNorm_Ninf},
+\lean{controlsCompactness_idSec}, \lean{Polyfold.SBLocalization.ControlsCompactness.prod},
+\lean{controlsCompactness_sqInf_univ}, \lean{isAuxNorm_ninf}, \lean{controlsCompactness_ninf}}
+\end{proposition}
+
+\begin{proof}
+For $N_H(e,h)=\abs h_1$: (1) on the fibre of $W_{0,1}$, which is $H_1$, it is the complete norm of $H_1$;
+(2) if the base points converge and $\abs{h_k}_1\to0$, then $h_k\to0$ in $H_1$; (3) the morphisms act
+trivially on $H$. The maximum of auxiliary norms of the two factors is an auxiliary norm of the product,
+as in the text after Definition 15.3.3. The set where $N^\infty(F(z,e))\le1$ is
+$\{\abs z\le1\}\times\{e\in H_1:\abs e_1\le1\}$. The second factor is the image of the closed unit ball of
+$H_1$ under the compact inclusion $H_1\to H_0$, so its closure in $H_0$ is compact. The product of the
+two closures is compact, and so is its image in the orbit space.
+\end{proof}
+
+\subsection{Orientation, perturbation and count}
+
+\begin{proposition}\label{prop:inforientation}
+$F$ has an orientation $o^\infty$ in the sense of Definition 12.5.4 which is positive at the
+isomorphisms $(F-F(y,0))'(y,0)=(2y,\id)$ for every $y\neq0$.
+\leanref{\lean{scHomotopic_inf}, \lean{PathCat.hom_eq_inf}, \lean{exists_isContOrOn_sqInf},
+\lean{IsPosAtInf}, \lean{isPosAtInf_iff}, \lean{infOrientationPos}, \lean{isPosAtInf_infOrientationPos},
+\lean{orMor_zero_inf}, \lean{isOrInvariant_of_isContOrOn_inf}, \lean{definition_12_5_4_infOrientationPos},
+\lean{infOrientationRepPos}}
+\end{proposition}
+
+\begin{proof}
+The proofs of Propositions~\ref{prop:orexists}--\ref{prop:orinvariant} apply with the following
+changes. \emph{Existence:} two sc-smooth paths in $\C\times H$ with the same ends are sc-smoothly
+homotopic with fixed ends by the straight-line homotopy, which is sc-smooth because the space is linear.
+\emph{Positivity:} use the path $t\mapsto(e^{tw},0)$ and the sc$^+$-section
+$(t,(x,e))\mapsto((x,-e^{2tw}),(e,0))$ of the pulled-back bundle; the linearizations along the path are
+$(2e^{tw},\id)$, isomorphisms of $\C\times H$, and Lemma~\ref{lem:path} applies (Lean:
+\lean{famInf}, \lean{negConstInf}, \lean{bijective_stabT_sqInf}). Normalize at $(1,0)$ as before.
+\emph{Invariance:} for a morphism $((g,z),e)$ with smooth source and target, the family
+$t\mapsto((g,tz),e)$, $t\in[0,1]$, is a connected family of morphisms with smooth sources and targets.
+By Lemma~\ref{lem:inv} invariance at $t=1$ is equivalent to invariance at $t=0$, which holds by the
+two-element argument of Proposition~\ref{prop:orinvariant}. Definition 12.5.4 asks for invariance only
+at smooth morphisms, so morphisms with non-smooth ends impose nothing.
+\end{proof}
+
+For $c\in\C$ let $\Lambda^\infty_c$ be the multisection with the five branches
+$s^\infty_j(z,e)=((z,\zeta^{2j}c),(e,0))$, each of weight $1/5$; equivalently,
+$\Lambda^\infty_c((z,w),(e,h))=\Lambda_c(z,w)$ if $h=0$ and $0$ otherwise (Lean: \lean{branchInf},
+\lean{Λinf}, \lean{Λinf_eq}).
 
 \begin{theorem}\label{thm:inf}
-For the bundle $(G\ltimes\C)\times H$ and the section $F$:
+For the bundle $p^\infty$ and the section $\abs F$ with the orientation $o^\infty$ and $(n^\infty,Z^\infty)$:
 \begin{enumerate}[label=(\roman*)]
-\item every hypothesis of Theorem 16.6.6 for index $0$ holds as stated, and so does its conclusion;
-\item for $0<\abs c\le1$ the five-branch multisection with branches $(\zeta^{2j}c,0)$, $j\in\ZZ$, of
-  weight $1/5$, is admissible and carries the canonical orientation;
-\item every admissible perturbation with the canonical orientation has count
+\item every hypothesis of Theorem 16.6.6 for index $0$ holds, in the form of Theorem~\ref{thm:hyp}, and
+  so does its conclusion, in the form of Theorem~\ref{thm:conclusion};
+\item for $0<\abs c\le1$ the multisection $\lambda^\infty_c$ induced by $\Lambda^\infty_c$ is admissible and
+  its perturbed solution set carries the canonical orientation;
+\item every admissible perturbation with the canonical orientation of $(\abs F,o^\infty)$ has count
   $\int_{\hat\theta}1=2/5$.
 \end{enumerate}
 \leanref{\lean{theorem_16_6_6_hypotheses_inf}, \lean{theorem_16_6_6_inf},
-\lean{isInGeneralPosition_Λinf}, \lean{exists_canonical_tinf}, \lean{count_eq_two_fifths_inf},
-\lean{count_eq_two_fifths_inf_all}}
+\lean{isScPlusMultisection_Λinf}, \lean{isInGeneralPosition_Λinf}, \lean{isControlledBy_tinf},
+\lean{exists_canonical_tinf}, \lean{count_eq_of_isAdmissible_inf}, \lean{count_tinf_pos},
+\lean{count_eq_two_fifths_inf}, \lean{count_eq_two_fifths_inf_all}}
 \end{theorem}
 
-\begin{proof}[Sketch]
-The perturbed solutions are the $(y,0)$ with $y^2=\zeta^{2j}c$; at each the linearization is
-$(2y,\mathrm{id})$, an isomorphism of $\C\times H$. The count reduces to the finite-dimensional one:
-two orbits, trivial isotropy, weight $1/5$, sign $+1$.
+\begin{proof}
+(i) $\partial Z^\infty=\emptyset$ and the auxiliary norm are Propositions~\ref{prop:infbundle}
+and~\ref{prop:infnorm}; the solution set $\{[(0,0)]\}$ is compact (Proposition~\ref{prop:inffredholm});
+compactness control is Proposition~\ref{prop:infnorm}; tame germ data and index $0$ are
+Proposition~\ref{prop:inffredholm}. The conclusion is the library theorem of
+Theorem~\ref{thm:conclusion}.
+
+(ii) \emph{Multisection.} As in Proposition~\ref{prop:multisection}: $\Lambda^\infty_c$ is a functor
+because the morphisms permute the branches, $((g,z),e)$ carrying $s^\infty_j(z,e)$ to
+$s^\infty_{j+g}(\zeta^gz,e)$; the branches are sc$^+$-sections, their $\C$-parts being constant in a
+finite-dimensional fibre and their $H$-parts zero; the weights sum to $1$.
+\emph{Solutions.} $F(y,e)=s^\infty_j(y,e)$ iff $y^2=\zeta^{2j}c$ and $e=0$. So the solutions are the
+$(y,0)$ with $y$ as in Proposition~\ref{prop:solutions}, each on exactly one branch, with weight $1/5$.
+\emph{General position.} At $(y,0)$, $(F-s^\infty_j)'(y,0)$ is $(h,k)\mapsto(2yh,k)$, an isomorphism of
+$\C\times H$ since $y\neq0$; there is no boundary. \emph{Control.} Every branch has
+$N^\infty=\max(\abs c,0)\le1$, and the domain support lies in $Z^\infty$. The canonical orientation is
+then obtained as in Theorem~\ref{thm:admissible}.
+
+(iii) By (i) it suffices to compute with $c=1$. The solutions are the ten points $(\pm\zeta^j,0)$,
+forming the orbits of $(1,0)$ and $(-1,0)$, which are distinct and regular (Lean:
+\lean{π_ne_π_neg_inf}, \lean{isRegular_of_Λinf_pos}, \lean{Λinf_sqInf_eq}). At each, the only branch is
+$s^\infty_0$ and $o^\infty$ is positive at $(2y,\id)$ (Proposition~\ref{prop:inforientation}), so by
+Lemma~\ref{lem:sign} the signed weight is $1/5$ (Lean: \lean{signedWeight_canonical_eq_inf}). The constant
+form $1$ is closed (Lemma~\ref{lem:const}; Lean: \lean{infOne}, \lean{d_infOne}), and
+Lemma~\ref{lem:finite} with representatives $(1,0),(-1,0)$ gives $\frac15+\frac15=\frac25$.
 \end{proof}
 
-The proposition of \S2 is stated for the finite-dimensional example. In the product an equivariant
-sc$^+$-section need not vanish on the $H$-component; the obstruction sits on the $\C$-component.
-
 %======================================================================
-\section{General lemmas obtained on the way}
+\section{General lemmas}\label{sec:lemmas}
 
-The following hold for any strong bundle over an ep-groupoid, or any polyfold, and are used above.
+The following statements hold for any strong bundle over an ep-groupoid, or any polyfold, and are used
+above. They were proved for the example but are stated in the library in general.
 
 \begin{lemma}[Counts over finitely many orbits]\label{lem:finite}
 Let $\hat\Theta=(\Theta,\hat T)$ be an oriented, tame, compact branched ep$^+$-subgroupoid of
-dimension $0$, and let $s$ be a finite set of points of $\operatorname{supp}\Theta$ with pairwise
-different orbits whose orbits cover the orbit support. Then for every $0$-form $\omega$,
+dimension $0$, and let $s$ be a finite subset of $\supp\Theta$ whose points have pairwise different
+orbits and whose orbits cover the orbit support $\abs{\supp\Theta}$. Then for every $0$-form $\omega$,
 \[
   \int_{\hat\Theta}\omega=\sum_{x\in s}\frac1{\card G_x}\,\varepsilon\bigl(\hat T(x)\bigr)\,\omega(x),
 \]
-where $\varepsilon(\hat T(x))$ is the signed weight of $\hat T(x)$: the sum of the weights of the
-branches through $x$, each with the sign of its orientation. This is Definition 9.5.6 (p.~439) for
-$n=0$.
+where $\varepsilon(\hat T(x))$, the \emph{signed weight}, is the sum of the weights of the oriented
+tangent spaces in $\hat T(x)$, each with the sign of its orientation.
 \leanref{\lean{Polyfold.EP.pointBranchedIntegral_eq_sum},
-\lean{Polyfold.SBLocalization.PointSolution.count_eq_sum}}
+\lean{Polyfold.SBLocalization.PointSolution.count_eq_sum}, \lean{Polyfold.EpGroupoid.signedWeight}}
 \end{lemma}
 
+\begin{proof}
+By Definition 9.5.6, $\int_{\hat\Theta}\omega=\mu(\abs{\supp\Theta})$ for the signed measure
+$\mu=\mu^{\hat\Theta}_\omega$ of Theorem 9.5.4. The orbit support is the finite disjoint union of the
+singletons $\{\abs x\}$, $x\in s$, so by additivity $\int_{\hat\Theta}\omega=\sum_{x\in s}\mu(\{\abs x\})$.
+Let $x\in s$ and choose an oriented local branching structure $(M_i,o_i,\sigma_i)_{i\in I}$ on a neighbourhood
+$U(x)$ with the natural $G_x$-action. Each $M_i$ is a submanifold of dimension $0$; after shrinking
+$U(x)$ (keeping it $G_x$-invariant) we may assume that every $M_i$ meeting $\{x\}$ is $\{x\}$ and that
+the other sheets are empty. Theorem 9.5.4 with $K=\{\abs x\}$ gives
+\[
+  \mu(\{\abs x\})=\frac1{\card G_x}\sum_{i\in I}\sigma_i\int_{K_i}\omega|(M_i,o_i).
+\]
+The integral of a $0$-form over the oriented point $(\{x\},o_i)$ is $\varepsilon_i\,\omega(x)$, where
+$\varepsilon_i=\pm1$ is the sign of $o_i$. By (9.9) in Definition 9.3.2,
+$\hat T(x)=\sum_i\sigma_i\,T_x(M_i,o_i)$, so $\sum_i\sigma_i\varepsilon_i=\varepsilon(\hat T(x))$. In the
+formalization an oriented point is positive when its empty frame is a positive frame
+(Lean: \lean{Polyfold.EpGroupoid.frameSign}).
+\end{proof}
+
 \begin{lemma}[$d$ of constants]\label{lem:const}
-On every M-polyfold, the constant $0$-forms are closed: $d\,c=0$. The same holds on ep-groupoids.
+On every M-polyfold the constant $0$-forms are closed: $d\,c=0$. The same holds for the sc-differential
+forms on an ep-groupoid.
 \leanref{\lean{Polyfold.MPolyfold.extD_constForm}, \lean{Polyfold.EP.epFormsInftyD_constFormInfty}}
 \end{lemma}
 
 \begin{proof}
-A constant form is the pull-back of a form on the point $\R^0$ by the constant map, $d$ commutes with
-pull-back, and every $1$-form on $\R^0$ vanishes.
+A constant $0$-form is the pull-back, by the constant map to a point $\R^0$, of a $0$-form on $\R^0$
+(Lean: \lean{Polyfold.MPolyfold.constForm_eq_formPullback}). The exterior derivative of sc-differential
+forms (Section 4.4, p.~195) commutes with pull-back by sc-smooth maps, and every $1$-form on $\R^0$
+vanishes. On an ep-groupoid the forms are the forms on the object M-polyfold that are invariant under
+the morphisms; a constant form is invariant, and $d$ is computed on the object space.
 \end{proof}
 
 \begin{lemma}[The sign in dimension $0$]\label{lem:sign}
-In the setting of Theorem 15.4.1 (pp.~701--702), let $y$ lie on a sheet $M_i$ of dimension $0$. The
-sign of the oriented tangent space $(T_yM_i,o_{i,y})$ is $+1$ if and only if $o_y$ is positive at the
-isomorphism $(f-s_i)'(y)$. If $o_y$ is positive at every branch through $y$, then the signed weight of
-$\hat T(y)$ equals $\Lambda(f(y))$.
+In the setting of Theorem 15.4.1, let $y$ lie on a sheet $M_i=\{f=s_i\}$ of dimension $0$. The oriented
+tangent space $(T_yM_i,o_{i,y})$ is positive if and only if $o_y$ is positive at the isomorphism
+$(f-s_i)'(y)$ (Definition~\ref{def:positive}). If $o_y$ is positive at every $(f-s_i)'(y)$ with
+$f(y)=s_i(y)$, then $\varepsilon(\hat T(y))=\Lambda(f(y))$.
 \leanref{\lean{Polyfold.SBLocalization.KernelBranching.frameSign_orTangent_eq_one_iff},
 \lean{Polyfold.SBLocalization.IsCanonicalFor.signedWeight_eq}}
 \end{lemma}
 
+\begin{proof}
+Since $T_yM_i=\ker(f-s_i)'(y)$ has dimension $0$ and $(f-s_i)'(y)$ is onto, it is an isomorphism. By
+Theorem 15.4.1 the orientation $o_{i,y}$ of $T_yM_i$ is the orientation of
+$\lambda(\ker(f-s_i)'(y))=\Lambda^0(0)=\R$ that corresponds to $o_y$ under
+$\lambda(\ker L)=\lambda(\ker L)\otimes\R^*=\det(L)$. The oriented point is positive iff this orientation
+is the ray of the empty wedge $1$, which is Definition~\ref{def:positive}. For the second statement,
+Theorem 15.4.1 gives $\hat T(y)=\sum_{\{i:\,f(y)=s_i(y)\}}\sigma_i\,(T_yM_i,o_{i,y})$, all signs are $+1$,
+and $\sum_{\{i:\,f(y)=s_i(y)\}}\sigma_i=\Lambda(f(y))$ by the local representation of
+Definition 13.2.1.
+\end{proof}
+
 \begin{lemma}[Positivity along paths]\label{lem:path}
-Let $o$ be a continuous orientation of a tame sc-Fredholm section and let $q\mapsto(f+S_q)'(\gamma_q)$,
-$q\in[0,1]$, be a family of isomorphisms along an sc-smooth path $\gamma$, with $S$ an sc$^+$-section of
-the pulled-back bundle and $(f+S_q)(\gamma_q)=0$. Then $o$ is positive at $(f+S_0)'(\gamma_0)$ if and
-only if it is positive at $(f+S_1)'(\gamma_1)$. The proof uses the local orientation propagation of
-Theorems 6.6.11 and 6.6.13 (pp.~272--273).
-\leanref{\lean{Polyfold.IsPosOr}, \lean{Polyfold.isPosOr_iff_of_path}}
+Let $X$ be a tame M-polyfold admitting sc-smooth bump functions, $f$ an sc-Fredholm section with tame
+germ data of a strong bundle in which every vector over a smooth point lies on an sc$^+$-section, and $o$ a continuous orientation of $f$ over an open set $U'$. Let $\gamma$ be an sc-smooth
+path with $\gamma([0,1])\subset U'$, and $S$ an sc$^+$-section of the pull-back of the bundle to
+$\R\times X$ such that $(f+S_q)(\gamma(q))=0$ for $q$ near $[0,1]$ and $(f+S_q)'(\gamma(q))$ is an
+isomorphism for $q\in[0,1]$. Then $o$ is positive at $(f+S_0)'(\gamma(0))$ if and only if it is positive
+at $(f+S_1)'(\gamma(1))$.
+\leanref{\lean{Polyfold.IsPosOr}, \lean{Polyfold.isPosOr_iff_of_path},
+\lean{Polyfold.SubspaceFamily.cont_emptyRay}}
 \end{lemma}
 
+\begin{proof}[Outline]
+It suffices to show that positivity at $(f+S_q)'(\gamma(q))$ is locally constant in $q\in[0,1]$; then it
+is constant, $[0,1]$ being connected. By Theorem 6.6.11 every point $\gamma(q_0)$ has a neighbourhood in
+which orientations are propagated along paths by the construction recalled in
+From the book~\ref{rec:orientation}, and continuity of $o$ means that $o$ is carried along by this propagation.
+Restrict to a subinterval $J\ni q_0$ with $\gamma(J)$ in such a neighbourhood. Use the sections
+$S_q$ in the role of $s(\cdot,t)$, and take $k=0$ stabilizing sections: property~(P) of Lemma 6.6.4 asks
+for surjectivity, which holds because the operators $(f+S_q)'(\gamma(q))$ are isomorphisms; their kernels are
+$0$, so the condition at the boundary is empty. The kernel bundle is then $L_q=0$, the exact sequence (6.27)
+is $0\to0\to0\to0\to0$, and $\Phi_{E_q}$ is the canonical identification of $\det((f+S_q)'(\gamma(q)))$
+with $\lambda(0)=\R$. The propagation is the continuation of orientations in the line bundle
+$\lambda(L)=[0,1]\times\R$, which keeps the ray of the empty wedge $1$ (Lean:
+\lean{Polyfold.SubspaceFamily.cont_emptyRay}). So the orientation transported from $q_0$ to $q\in J$ is
+positive iff it was positive at $q_0$, and by continuity of $o$ it is $o_{\gamma(q)}$.
+\end{proof}
+
 \begin{lemma}[Invariance of continuous orientations]\label{lem:inv}
-Let $o$ be a continuous orientation over an ep-groupoid whose objects need not all be smooth. Along a
-continuous family of morphisms $\gamma\colon T\to X_1$ with $T$ connected and smooth sources and targets,
-the condition that $o$ is invariant at $\gamma(t)$ does not depend on $t$.
-\leanref{\lean{Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous}}
+Let $o$ be a continuous orientation of an sc-Fredholm section functor with tame germ data over all of
+$X$, whose objects need not all be smooth. Along a continuous family $\gamma\colon T\to\mathbf X$ of
+morphisms with $T$ connected and with smooth sources and targets, the condition
+$\gamma(t)_*o_{s(\gamma(t))}=o_{t(\gamma(t))}$ either holds for every $t$ or for none.
+\leanref{\lean{Polyfold.EpStrongBundle.eventually_isOrInvariantAt_iff_of_smooth},
+\lean{Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous}}
 \end{lemma}
+
+\begin{proof}
+Let $\sigma$ be a morphism with smooth source and target and let $\hat\Phi$ be the local push-forward
+along the sheet of $\sigma$ (Theorem 12.5.3; p.~594 for the formula). By Theorem 12.5.3, $\hat\Phi_*o$ and
+$o$ are continuous sections of the two-sheeted local homeomorphism $\Or^f\to X_\infty$ near
+$t(\sigma)$. On a connected neighbourhood of $t(\sigma)$ in $X_\infty$, which exists since $X_\infty$ is
+locally connected, two continuous sections of a double cover agree everywhere or nowhere. So for every
+$\sigma'$ near $\sigma$ on the same sheet, with smooth source and target, invariance at $\sigma'$ is
+equivalent to invariance at $\sigma$. The set of $t\in T$ at which invariance holds at $\gamma(t)$ is
+therefore open, and so is its complement; $T$ is connected.
+\end{proof}
 
 %======================================================================
 \section{Remarks on scope}
 
 \begin{enumerate}[label=(\arabic*)]
 \item The first example is $\C$ with all levels equal, so its sc-structure is constant. The version of
-  \S4 adds an infinite-dimensional factor with strictly nested levels, on which the section is the
-  identity.
-\item The orientation $o$ is chosen as the continuous orientation positive at the complex-linear
-  isomorphisms. The library also contains an orientation \lean{sqOrientation}, one of the two
-  continuous orientations, chosen without this normalization; its identification with $o$ is not part
-  of the formal development, and the value of the count is stated for $o$. Theorems~\ref{thm:hyp}
-  and~\ref{thm:admissible} are stated for both (\lean{canonicalGermInput_sqOrientationRepPos},
-  \lean{exists_canonical_t5_pos}, \lean{count_eq_of_isAdmissible_pos}).
-\item The description of $2/5$ as degree over isotropy order is not a formal statement, and the
-  obstruction of Proposition~\ref{prop:obstruction} is stated for the finite-dimensional example only.
+  \S\ref{sec:inf} adds an infinite-dimensional factor with strictly nested levels, on which the section is
+  the identity.
+\item The orientation $o$ is the continuous orientation positive at $(f-s_1)'(1)=2$, hence at all
+  $2y$, $y\neq0$. The library also contains an orientation \lean{sqOrientation}, one of the two
+  continuous orientations, chosen without this normalization; its identification with $o$ is not part of
+  the formal development. Theorem~\ref{thm:hyp}~(e) and Theorem~\ref{thm:conclusion} hold for every
+  orientation whose representative is $(W,f)$, and the existence and independence statements of
+  Theorem~\ref{thm:admissible} are stated for both (\lean{exists_canonical_t5}, \lean{count_eq_of_isAdmissible},
+  \lean{exists_unique_count} for \lean{sqOrientationRep}; \lean{exists_canonical_t5_pos},
+  \lean{count_eq_of_isAdmissible_pos} for $o$). The value $2/5$ is stated for $o$.
+\item The value $2/5$ is stated for the count $\int_{\hat\theta}1$. For the effective count the library
+  proves independence of the perturbation, but its value is not a formal statement.
+\item ``Controlled by $(n,U)$'' in Theorem 16.6.6 is read as $n(\lambda)\le1$ and
+  $\domsupp(\lambda)\subset U$, the sufficient condition for admissibility stated after
+  Definition 15.3.3.
+\item Proposition~\ref{prop:obstruction} is stated formally as the statement that $(f,\Lambda_s)$ is not transversal at $0$ in
+  the sense of Definition 15.2.1, for the finite-dimensional example only; the reformulation in terms of
+  general position is the remark in its proof.
+\item The description of $2/5$ as degree over isotropy order, and the remark that $o$ is positive
+  exactly at the isomorphisms of positive determinant, are not formal statements.
 \end{enumerate}
 
 %======================================================================
 \appendix
 \section{Statements and Lean declarations}
 
-Files are in \lean{Polyfold/Examples/}; names written without a namespace are in
-\lean{Polyfold.Examples.OrbifoldSquare}, and those of \S4 in \lean{Polyfold.Examples.OrbifoldSquareInf}.
+Files are in \lean{Polyfold/Examples/} unless a directory is given; names written without a namespace are
+in \lean{Polyfold.Examples.OrbifoldSquare}, and those of \S\ref{sec:inf} in
+\lean{Polyfold.Examples.OrbifoldSquareInf}.
 
 {\footnotesize
 \renewcommand{\arraystretch}{1.15}
 \setlength{\tabcolsep}{4pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}
-                    >{\raggedright\arraybackslash}p{0.46\textwidth}
-                    >{\raggedright\arraybackslash}p{0.27\textwidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}
+                    >{\raggedright\arraybackslash}p{0.41\textwidth}
+                    >{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
 \toprule
 Statement & Lean declarations & File\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-§1 $G\ltimes\C$, the weight-$2$ bundle, $z\mapsto z^2$
-  & \lean{X5}, \lean{E5}, \lean{A5}, \lean{sqSection}
-  & \lean{OrbifoldSquareBundle}\\
-§1 effective; isotropy $\ZZ$ at $0$; the polyfold bundle and section
-  & \lean{isEffective_X5}, \lean{isotropyZeroEquiv}, \lean{isRegular_X5_iff}, \lean{sqBundle},
-    \lean{sqFredholmSection}
+Prop.~\ref{prop:epgroupoid}, the action groupoid
+  & \lean{X5}, \lean{Polyfold.EpGroupoid.Examples.actionEpGroupoid},
+    \lean{Polyfold.EpGroupoid.Examples.hasParacompactOrbitSpace_action}
+  & \lean{OrbifoldSquareBundle}, \lean{Chapter7/NonVacuity}\\
+Prop.~\ref{prop:epgroupoid}, isotropy, effective, Zhou
+  & \lean{isEffective_X5}, \lean{isotropyZeroEquiv}, \lean{isRegular_X5_iff}, \lean{trivialSubgroup_X5},
+    \lean{isZhou_X5}, \lean{hasParacompactOrbitSpace_X5}
   & \lean{OrbifoldSquareStructure}\\
-§1 sc-Fredholm, index $0$
-  & \lean{isScFredholmSectionFunctor_sqSection}, \lean{isIndexAt_sqSection}
-  & \lean{OrbifoldSquareOrientation}\\
-§1 an orientation with tame germ data and index $0$
-  & \lean{sqOrientationRep}, \lean{canonicalGermInput_sqOrientationRep}
-  & \lean{OrbifoldSquareOrientation}\\
-Prop.~\ref{prop:obstruction}, the linear algebra
-  & \lean{linear_eq_zero_of_equivariant}
-  & \lean{OrbifoldSquareAlgebra}\\
+Prop.~\ref{prop:bundle}
+  & \lean{actW}, \lean{isStrongBundleMap_actW}, \lean{mu}, \lean{isLocalScDiffeo_mu}, \lean{E5},
+    \lean{A5}
+  & \lean{OrbifoldSquareBundle}\\
+Prop.~\ref{prop:bundle}, the polyfold bundle
+  & \lean{isLRLocal_E5}, \lean{sqStructure}, \lean{sqBundle}
+  & \lean{OrbifoldSquareStructure}\\
+Prop.~\ref{prop:fredholm}
+  & \lean{sqSection}, \lean{sqSection_smul}, \lean{isScFredholmSectionFunctor_sqSection}
+  & \lean{OrbifoldSquareBundle}\\
+Prop.~\ref{prop:fredholm}, tame germ data
+  & \lean{isScFredholmSectionTame_sqSection}, \lean{Polyfold.TrivialBundle.germData_graphSection},
+    \lean{Polyfold.TrivialBundle.isConjugateToBasicGerm_of_contDiff},
+    \lean{Polyfold.isScSmooth_of_bijective_toBase}
+  & \lean{OrbifoldSquareOrientation}, \lean{Chapter3/NonVacuity}\\
+Prop.~\ref{prop:index}; the polyfold section
+  & \lean{isIndexAt_sqSection}; \lean{sqRep}, \lean{sqFredholmSection}, \lean{sqBundle_boundary_eq_empty}
+  & \lean{OrbifoldSquareOrientation}, \lean{OrbifoldSquareStructure}\\
+Def.~\ref{def:positive}
+  & \lean{Polyfold.ChartPoint.IsPos}, \lean{Polyfold.ChartPoint.isPos_or_isPos}, \lean{Polyfold.isPosOr_iff_chart}
+  & \lean{SignDimZeroPush}\\
+Prop.~\ref{prop:orexists}
+  & \lean{exists_isContOrOn_sqSection}, \lean{Polyfold.exists_continuous_orSec_of_hom_eq},
+    \lean{Polyfold.PathCat.hom_eq_rn}, \lean{exists_isContOrOn_isPosAt}
+  & \lean{OrbifoldSquareOrientation}, \lean{Chapter12/OrientationGeneralizedIsoOriented},
+    \lean{OrbifoldSquareSign}\\
+Prop.~\ref{prop:orpositive}
+  & \lean{IsPosAt}, \lean{isPosAt_iff}, \lean{famSection}, \lean{isScPlusSection_famSection},
+    \lean{isPosAt_sqOrientationPos}
+  & \lean{OrbifoldSquareSign}\\
+Prop.~\ref{prop:orinvariant}; the orientation $o$
+  & \lean{orMor_zero}, \lean{equiv_apply_apply_of_two}, \lean{isOrInvariant_of_isContOrOn};
+    \lean{sqOrientationPos}, \lean{definition_12_5_4_sqOrientationPos}, \lean{sqOrientationRepPos}
+  & \lean{OrbifoldSquareOrientation}, \lean{OrbifoldSquareSign}\\
 Prop.~\ref{prop:obstruction}
-  & \lean{not_isTransversalAt_sectionMulti}
+  & \lean{not_isTransversalAt_sectionMulti}, \lean{exists_contDiff_of_isScPlusSection},
+    \lean{fderiv_sub_eq_zero_of_equivariant}
   & \lean{OrbifoldSquare}\\
-§2 auxiliary norm; the multisection $\lambda_c$
-  & \lean{isAuxNorm_n5}, \lean{controlsCompactness_n5}, \lean{Λ5}, \lean{t5},
-    \lean{isScPlusMultisection_Λ5}, \lean{isInGeneralPosition_Λ5}, \lean{isControlledBy_t5}
+Prop.~\ref{prop:obstruction}, the linear algebra
+  & \lean{eq_zero_of_rot_sq_fixed}, \lean{linear_eq_zero_of_equivariant}
+  & \lean{OrbifoldSquareAlgebra}\\
+Props.~\ref{prop:multisection}--\ref{prop:genpos}
+  & \lean{branchVal}, \lean{branch}, \lean{actW_branch}, \lean{Λ5}, \lean{isWFunctor_Λ5},
+    \lean{isLocalRepOn_Λ5}, \lean{isScPlusMultisection_Λ5}, \lean{t5}, \lean{Λ5_sqSection_pos_iff},
+    \lean{mem_reducedTangentFiber_of_univ}, \lean{surjective_fderiv_sq_sub_const},
+    \lean{isInGeneralPosition_Λ5}, \lean{isInGeneralPositionWith_t5}
+  & \lean{OrbifoldSquarePerturbation}\\
+Prop.~\ref{prop:solutions}
+  & \lean{Λ5_sqSection_eq}, \lean{Λ5_sqSection_pos_iff_orbit}, \lean{π_ne_π_neg},
+    \lean{isRegular_of_Λ5_pos}
+  & \lean{OrbifoldSquare}\\
+Prop.~\ref{prop:norm}
+  & \lean{N5}, \lean{isAuxNorm_N5}, \lean{n5}, \lean{isAuxNorm_n5}, \lean{controlsCompactness_sqSection_univ},
+    \lean{controlsCompactness_n5}, \lean{pointwiseNorm_Λ5_le}, \lean{isControlledBy_t5}
   & \lean{OrbifoldSquarePerturbation}\\
 Thm.~\ref{thm:hyp}
-  & \lean{theorem_16_6_6_hypotheses}, \lean{theorem_16_6_6_sq}
-  & \lean{OrbifoldSquare}\\
+  & \lean{theorem_16_6_6_hypotheses}, \lean{canonicalGermInput_sqOrientationRep},
+    \lean{canonicalGermInput_sqOrientationRepPos}
+  & \lean{OrbifoldSquare}, \lean{OrbifoldSquareOrientation}, \lean{OrbifoldSquareSign}\\
+Thm.~\ref{thm:conclusion}
+  & \lean{theorem_16_6_6_sq},
+    \lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_unconditional},
+    \lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_count_eq_unconditional}
+  & \lean{OrbifoldSquare}, \lean{Chapter16/IndexZeroNoBumpsUnconditional}\\
 Thm.~\ref{thm:admissible}
-  & \lean{exists_canonical_t5}, \lean{count_eq_of_isAdmissible}, \lean{exists_unique_count}
-  & \lean{OrbifoldSquare}\\
-Thm.~\ref{thm:count}, the two orbits
-  & \lean{Λ5_sqSection_pos_iff_orbit}, \lean{π_ne_π_neg}, \lean{isRegular_of_Λ5_pos},
-    \lean{Λ5_sqSection_eq}
-  & \lean{OrbifoldSquare}\\
+  & \lean{exists_canonical_t5_pos}, \lean{count_eq_of_isAdmissible_pos};
+    \lean{exists_canonical_t5}, \lean{count_eq_of_isAdmissible}, \lean{exists_unique_count}
+  & \lean{OrbifoldSquareSign}; \lean{OrbifoldSquare}\\
 Thm.~\ref{thm:count}, the count as a sum over orbits; the form $1$
-  & \lean{count_t5}, \lean{sqOne}, \lean{d_sqOne}
-  & \lean{OrbifoldSquareCount}\\
-Thm.~\ref{thm:count}, the orientation $o$ and the signs
-  & \lean{sqOrientationPos}, \lean{sqOrientationRepPos}, \lean{positiveZeros_sqOrientationRepPos}
+  & \lean{count_t5_pos}, \lean{sqOne}, \lean{d_sqOne}
+  & \lean{OrbifoldSquareSign}, \lean{OrbifoldSquareCount}\\
+Thm.~\ref{thm:count}, the signs
+  & \lean{signedWeight_canonical_eq}, \lean{positiveZeros_sqOrientationRepPos}
   & \lean{OrbifoldSquareSign}\\
 Thm.~\ref{thm:count}
   & \lean{count_eq_two_fifths}, \lean{count_eq_two_fifths_all}
   & \lean{OrbifoldSquareSign}\\
-§4 the weighted $\ell^2$ space
-  & \lean{Polyfold.Examples.WeightedEllTwo.H},
+Prop.~\ref{prop:H}
+  & \lean{Polyfold.Examples.WeightedEllTwo.isCompactOperator_incl},
+    \lean{Polyfold.Examples.WeightedEllTwo.H},
     \lean{Polyfold.Examples.WeightedEllTwo.not_surjective_inclLevel},
     \lean{Polyfold.Examples.WeightedEllTwo.harmH_not_mem_smooth}
   & \lean{WeightedEllTwo}\\
+Prop.~\ref{prop:infbundle}
+  & \lean{Ainf}, \lean{isEffective_Xinf}, \lean{isZhou_Xinf}, \lean{hasParacompactOrbitSpace_Xinf},
+    \lean{isLRLocal_Einf}, \lean{infBundle}, \lean{infBundle_boundary_eq_empty},
+    \lean{exists_not_mem_smoothSet}
+  & \lean{OrbifoldSquareInfBundle}, \lean{OrbifoldSquareInfStructure}, \lean{OrbifoldSquareInf}\\
+Prop.~\ref{prop:inffredholm}
+  & \lean{isConjugateToBasicGerm_id}, \lean{isScFredholmSectionTame_idSec},
+    \lean{isScFredholmSectionFunctor_sqInf}, \lean{isIndexAt_sqInf}, \lean{solutionSet_sqInf}
+  & \lean{OrbifoldSquareInfFredholm}\\
+Prop.~\ref{prop:infnorm}
+  & \lean{NH}, \lean{Ninf}, \lean{isAuxNorm_Ninf}, \lean{controlsCompactness_sqInf_univ},
+    \lean{Polyfold.SBLocalization.ControlsCompactness.prod}
+  & \lean{OrbifoldSquareInfNorm}\\
+Prop.~\ref{prop:inforientation}
+  & \lean{PathCat.hom_eq_inf}, \lean{infOrientationPos}, \lean{isPosAtInf_infOrientationPos},
+    \lean{orMor_zero_inf}, \lean{definition_12_5_4_infOrientationPos}, \lean{infOrientationRepPos}
+  & \lean{OrbifoldSquareInfPaths}, \lean{OrbifoldSquareInfPositive}, \lean{OrbifoldSquareInfOrientation}\\
 Thm.~\ref{thm:inf}
-  & \lean{theorem_16_6_6_hypotheses_inf}, \lean{theorem_16_6_6_inf},
-    \lean{count_eq_two_fifths_inf}, \lean{count_eq_two_fifths_inf_all}
+  & \lean{theorem_16_6_6_hypotheses_inf}, \lean{theorem_16_6_6_inf}, \lean{exists_canonical_tinf},
+    \lean{count_eq_of_isAdmissible_inf}
+  & \lean{OrbifoldSquareInfOrientation}\\
+Thm.~\ref{thm:inf}, the perturbation
+  & \lean{Λinf}, \lean{isScPlusMultisection_Λinf}, \lean{isInGeneralPosition_Λinf},
+    \lean{isControlledBy_tinf}
+  & \lean{OrbifoldSquareInfPerturbation}\\
+Thm.~\ref{thm:inf}, the count
+  & \lean{count_tinf_pos}, \lean{signedWeight_canonical_eq_inf}, \lean{count_eq_two_fifths_inf},
+    \lean{count_eq_two_fifths_inf_all}
   & \lean{OrbifoldSquareInf}\\
 Lemma~\ref{lem:finite}
   & \lean{Polyfold.EP.pointBranchedIntegral_eq_sum},
     \lean{Polyfold.SBLocalization.PointSolution.count_eq_sum}
   & \lean{PointCountFiniteSupport}\\
 Lemma~\ref{lem:const}
-  & \lean{Polyfold.MPolyfold.extD_constForm}
+  & \lean{Polyfold.MPolyfold.extD_constForm}, \lean{Polyfold.EP.epFormsInftyD_constFormInfty}
   & \lean{ConstantFormClosed}\\
 Lemma~\ref{lem:sign}
   & \lean{Polyfold.SBLocalization.KernelBranching.frameSign_orTangent_eq_one_iff},
     \lean{Polyfold.SBLocalization.IsCanonicalFor.signedWeight_eq}
   & \lean{SignDimZeroFrames}\\
-Lemma~\ref{lem:sign}, rank $0$: the continuation keeps the empty-wedge ray
-  & \lean{Polyfold.SubspaceFamily.cont_emptyRay}
-  & \lean{SignDimZeroLinear}\\
 Lemma~\ref{lem:path}
   & \lean{Polyfold.IsPosOr}, \lean{Polyfold.isPosOr_iff_of_path}
   & \lean{SignDimZeroPush}\\
+Lemma~\ref{lem:path}, rank $0$: the continuation keeps the empty-wedge ray
+  & \lean{Polyfold.SubspaceFamily.cont_emptyRay}
+  & \lean{SignDimZeroLinear}\\
 Lemma~\ref{lem:inv}
-  & \lean{Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous}
+  & \lean{Polyfold.EpStrongBundle.eventually_isOrInvariantAt_iff_of_smooth},
+    \lean{Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous}
   & \lean{OrInvariantSmooth}\\
+\S\ref{sec:theorem}, the formal statement of Theorem 16.6.6
+  & \lean{Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_polyfold_statement},
+    \lean{Polyfold.StrongPolyfoldBundle.PointOrientedPerturbation.IsAdmissible},
+    \lean{Polyfold.StrongPolyfoldBundle.ScPlusMultisection.IsControlledBy},
+    \lean{Polyfold.StrongPolyfoldBundle.CanonicalGermInput}
+  & \lean{Chapter16/IndexZeroPolyfoldTheorem}, \lean{Chapter16/PolyfoldFredholmSections},
+    \lean{Chapter16/InvariantNoBumps}\\
 \end{longtable}
 }
 

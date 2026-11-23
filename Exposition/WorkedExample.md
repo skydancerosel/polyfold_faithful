@@ -1,4 +1,5 @@
-*The typeset version is `Exposition/WorkedExample.pdf` (source in `Exposition/worked-example/`).*
+*The typeset version, with a complete proof of every step against the definitions of the book, is
+`Exposition/WorkedExample.pdf` (source in `Exposition/worked-example/`). This page is a summary.*
 
 # A worked example: the orbifold ℂ/ℤ₅ and the section z ↦ z²
 
@@ -105,8 +106,7 @@ sc-calculus of Part I, the strong bundle shift and sc-Fredholm theory in infinit
   (`Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous`, in `OrInvariantSmooth`).
 
 That no equivariant single-valued perturbation is transversal is stated for the finite-dimensional
-example only; here an equivariant sc⁺-section need not vanish on the H-component, and the obstruction
-lives on the ℂ-component.
+example only.
 
 ## Limits
 
