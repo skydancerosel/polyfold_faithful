@@ -245,7 +245,7 @@
     "statement": "For the category with object M-polyfold $TX$ and morphism M-polyfold $T\\mathbf X$, the source and target maps $s_{T\\mathbf X}$, $t_{T\\mathbf X}$ are surjective local sc-diffeomorphisms and all structure maps are sc-smooth. (Proof: $s_{T\\mathbf X}$ and $t_{T\\mathbf X}$ are local sc-diffeomorphisms by construction; $1_q$ depends sc-smoothly on $q$; the inversion is the tangent of $\\iota$, hence an sc-diffeomorphism; the fibred product $T\\mathbf X\\,{}_{s_{T\\mathbf X}}{\\times}_{t_{T\\mathbf X}}\\,T\\mathbf X$ is an M-polyfold, and the multiplication $((\\psi, k), (\\varphi, h)) \\mapsto (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1}Ts(\\varphi)(h))$ is sc-smooth by inspection; alternatively, the tangent of $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ is naturally identified with this fibred product and $m_{T\\mathbf X}$ is precisely $Tm$.)"
    },
    "lean": {
-    "statement": "`lemma_8_1_7`: $Ts$ and $Tt$ are surjective local sc-diffeomorphisms (`isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`, `surjective_tTgt`), $Tu$ and $T\\iota$ are sc-smooth (`isScSmoothMap_tUnit`, `isScSmoothMap_tInv`), and the multiplication is sc-smooth in Chapter 7's sheet form (`isScSmoothCompSheet_tangent`) and hence on the fibred product $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ (`isScSmoothComp_tangent`, by `isScSmoothComp_iff_sheet`).",
+    "statement": "`lemma_8_1_7`: $Ts$ and $Tt$ are surjective local sc-diffeomorphisms (`isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`, `surjective_tTgt`), $Tu$ and $T\\iota$ are sc-smooth (`isScSmoothMap_tUnit`, `isScSmoothMap_tInv`), and the multiplication is sc-smooth in Chapter 7's sheet form (`isScSmoothCompSheet_tangent`) and hence on the fibred product $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ (`isScSmoothComp_tangent`, by `isScSmoothComp_iff_sheet`). The text's alternative is formalized separately (V8.4): the identification $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ is an sc-diffeomorphism (`isScDiffeoOn_tangentCompPairs`), and through it $m_{T\\mathbf X} = Tm$ (`lemma_8_1_2_compMul`).",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.isLocalScDiffeo_tSrc",
      "Chapter8/TangentEp · EpGroupoid.isLocalScDiffeo_tTgt",
@@ -256,15 +256,17 @@
      "Chapter8/TangentEp · EpGroupoid.isScSmoothCompSheet_tangent",
      "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent",
      "Chapter8/TangentEp · EpGroupoid.lemma_8_1_7",
-     "Chapter7/EpGroupoid · isScSmoothComp_iff_sheet"
+     "Chapter7/EpGroupoid · isScSmoothComp_iff_sheet",
+     "Chapter8/TangentFibred · EpGroupoid.isScDiffeoOn_tangentCompPairs",
+     "Chapter8/TangentFibred · EpGroupoid.lemma_8_1_2_compMul"
     ]
    },
    "chips": [
     "multiplication: Chapter 7’s sheet form",
-    "“$m_{T\\mathbf X} = Tm$”: point G.75"
+    "“$m_{T\\mathbf X} = Tm$”: V8.4 (point G.75 settled)"
    ],
    "diff": [
-    "\"By construction\" is V8.2. The multiplication is proved sc-smooth in Chapter 7's sheet form and from it on the fibred product, not through the identification $m_{T\\mathbf X} = Tm$, which is not formalized (point G.75) (Findings, Chapter 8, items 7, 111)."
+    "\"By construction\" is V8.2. The multiplication is proved sc-smooth in Chapter 7's sheet form and from it on the fibred product, not through the identification $m_{T\\mathbf X} = Tm$. That identification is formalized as well and not used here: $v \\mapsto (T\\pi_1 v, T\\pi_2 v)$ is an sc-diffeomorphism onto $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ (`isScDiffeoOn_tangentCompPairs`), and the multiplication of $T\\mathbf X$ is $Tm$ through it (`lemma_8_1_2_compMul`; V8.4, point G.75 settled) (Findings, Chapter 8, items 7, 111, 131)."
    ]
   },
   {
@@ -499,7 +501,7 @@
     "statement": "If $X$ is an ep-groupoid with paracompact orbit space $|X|$, then the tangent ep-groupoid $TX$ has a paracompact orbit space $|TX|$ as well. (Proof: $|X^1|$ is paracompact; for $z \\in |X^1|$ with representative $x_z$ take $U(x_z)$ with the natural $G_{x_z}$-action such that $TU(x_z)$ is, as a bundle over $U(x_z)_1$, sc-isomorphic to a local bundle model $TO \\to O^1$ with an sc-smooth bundle action of $G_{x_z}$; then $|TU(x_z)|$ and $|U(x_z)_1|$ are metrizable. A locally finite closed subcover $(A_z)$ of $(|U(x_z)_1|)$ gives a locally finite covering $(\\tilde A_z)$ of $|TX|$ by closed paracompact sets, and $|TX|$, a regular Hausdorff space, is paracompact by the topological Proposition 2.7.4 (2017: 2.17).)"
    },
    "lean": {
-    "statement": "`theorem_8_1_15`: if $|X|$ is paracompact, so is $|TX|$; `metrizableSpace_tangent_orbitSpace`: $|TX|$ is then **metrizable**. The proof: the map $|p| : |TX| \\to |X^1|$ (`tangentOrbitProj`, `continuous_tangentOrbitProj`, `preimage_tangentOrbitProj_image`); for a natural representation, the action of $G_x$ on $TU(x)$ (`NaturalRep.tangentU`, `NaturalRep.tΦ`, `NaturalRep.isScDiffeoOn_tΦ`, `NaturalRep.tangentMulAction`, `NaturalRep.tΓ`, `NaturalRep.tangent_π_eq_iff`), the open embedding $G_x\\backslash TU(x) \\to |TX|$ (`NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`, `NaturalRep.range_tangentOrbitQuotientMap`), the metrizable $|TU(x)| = |p|^{-1}(|U(x)_1|)$ (`NaturalRep.image_tangentU_eq_preimage`, `NaturalRep.metrizableSpace_image_tangentU`, `NaturalRep.metrizableSpace_image_liftU`), and Smirnov's theorem pulled back along $|p|$ (Part I's `metrizableSpace_of_pullback`). `hasParacompactOrbitSpace_tangent_trivial`: the tangent of the trivial ep-groupoid of an M-polyfold.",
+    "statement": "`theorem_8_1_15`: if $|X|$ is paracompact, so is $|TX|$; `metrizableSpace_tangent_orbitSpace`: $|TX|$ is then **metrizable**. The proof: the map $|p| : |TX| \\to |X^1|$ (`tangentOrbitProj`, `continuous_tangentOrbitProj`, `preimage_tangentOrbitProj_image`); for a natural representation, the action of $G_x$ on $TU(x)$ (`NaturalRep.tangentU`, `NaturalRep.tΦ`, `NaturalRep.isScDiffeoOn_tΦ`, `NaturalRep.tangentMulAction`, `NaturalRep.tΓ`, `NaturalRep.tangent_π_eq_iff`), the open embedding $G_x\\backslash TU(x) \\to |TX|$ (`NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`, `NaturalRep.range_tangentOrbitQuotientMap`), the metrizable $|TU(x)| = |p|^{-1}(|U(x)_1|)$ (`NaturalRep.image_tangentU_eq_preimage`, `NaturalRep.metrizableSpace_image_tangentU`, `NaturalRep.metrizableSpace_image_liftU`), and Smirnov's theorem pulled back along $|p|$ (Part I's `metrizableSpace_of_pullback`). `hasParacompactOrbitSpace_tangent_trivial`: the tangent of the trivial ep-groupoid of an M-polyfold. The action of $G_x$ on $TU(x)$ is linear on the fibres: for $g \\in G_x$ and $y \\in U(x) \\cap X_1$, $v \\mapsto g \\cdot v$ is a bounded linear isomorphism $T_yX \\to T_{\\Phi(g)y}X$ with inverse the action of $g^{-1}$ (`NaturalRep.tangentSmulCLM`, `NaturalRep.tangentSmulCLE`, `NaturalRep.tangentMulAction_linear`); witness at every $x \\in X_1$: `exists_naturalRep_tangentMulAction_linear`.",
     "decls": [
      "Chapter8/TangentOrbit · EpGroupoid.tangentOrbitProj",
      "Chapter8/TangentOrbit · EpGroupoid.continuous_tangentOrbitProj",
@@ -518,17 +520,22 @@
      "Chapter8/TangentOrbit · EpGroupoid.metrizableSpace_tangent_orbitSpace",
      "Chapter8/TangentOrbit · EpGroupoid.theorem_8_1_15",
      "Chapter8/TangentOrbit · EpGroupoid.hasParacompactOrbitSpace_tangent_trivial",
-     "Chapter2/Metrizable · metrizableSpace_of_pullback"
+     "Chapter2/Metrizable · metrizableSpace_of_pullback",
+     "Chapter8/TangentOrbitLinear · EpGroupoid.NaturalRep.tangentSmulCLM",
+     "Chapter8/TangentOrbitLinear · EpGroupoid.NaturalRep.tangentSmulCLE",
+     "Chapter8/TangentOrbitLinear · EpGroupoid.NaturalRep.tangentMulAction_linear",
+     "Chapter8/TangentOrbitLinear · EpGroupoid.exists_naturalRep_tangentMulAction_linear"
     ]
    },
    "chips": [
     "$|TX|$ metrizable",
     "by metrizability, as Proposition 7.5.3",
-    "open embedding $G_x\\backslash TU(x)$ proved"
+    "open embedding $G_x\\backslash TU(x)$ proved",
+    "action of $G_x$ linear on fibres"
    ],
    "diff": [
     "**Stronger**: $|TX|$ is metrizable. The proof differs from the text's: Smirnov's theorem pulled back along $|p| : |TX| \\to |X^1|$, as for Proposition 7.5.3 (2017: 7.12) (V7.54); the closed paracompact $\\tilde A_z$, the regularity of $|TX|$ and Part I's Proposition 2.7.4 (2017: 2.17; preprint 2.57) are not used (Findings, Chapter 8, item 20).",
-    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used, and the linearity of the action of $G_x$ on $TU(x)$ is not formalized (Findings, Chapter 8, items 21, 104). The tangent spaces carry the linear structure of Definition 2.3.14 (V2.19; point G.7, closed), and every $T\\varphi$, $\\varphi \\in \\mathbf X_1$, is a linear isomorphism of the tangent spaces (`tangentMorCLE`, V7.5); the linearity of the action on $TU(x)$ is not restated with it.",
+    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used. The tangent spaces carry the linear structure of Definition 2.3.14 (V2.19; point G.7, closed), every $T\\varphi$, $\\varphi \\in \\mathbf X_1$, is a linear isomorphism of the tangent spaces (`tangentMorCLE`, V7.5), and the action of $G_x$ on $TU(x)$ is linear on the fibres in this structure (`NaturalRep.tangentMulAction_linear`); the proof of the theorem does not use the linearity (Findings, Chapter 8, items 21, 104).",
     "\"parcompact\" in the statement is read as \"paracompact\"."
    ]
   },
@@ -821,7 +828,7 @@
     "statement": "The sc-diffeomorphism $\\mathbf Y \\to \\mathbf X\\,{}_s{\\times}_F\\,Y$, $\\varphi \\mapsto (F(\\varphi), s(\\varphi))$, preserves the degeneracy index, so $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$. The fibred product is a sub-M-polyfold of $\\mathbf X \\times Y$, which has the degeneracy index $d_{\\mathbf X \\times Y}(\\varphi, y) = d_{\\mathbf X}(\\varphi) + d_Y(y)$. Since $F$ and $s$ are local sc-diffeomorphisms, $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X}(F(\\varphi)) + d_Y(s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$, hence $d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = \\tfrac12\\,d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$: the fibred product lies in a particular position in the full product."
    },
    "lean": {
-    "statement": "`IsProperCovering.degIndex_fibredMap`: $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$, by Part I's invariance of the degeneracy index under sc-diffeomorphisms (`proposition_2_4_4`); `IsProperCovering.degIndex_mor`: $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$. In general, `IsProperCovering.degIndex_prod_fibredMap_le`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$, from Part I's `MPolyfold.degIndex_prod_le`. **For tame $X$ and $Y$**, `IsProperCovering.degIndex_prod_fibredMap`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$ and $2\\,d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$, from Part I's product formula for tame M-polyfolds (`MPolyfold.isTame_prod`).",
+    "statement": "`IsProperCovering.degIndex_fibredMap`: $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$, by Part I's invariance of the degeneracy index under sc-diffeomorphisms (`proposition_2_4_4`); `IsProperCovering.degIndex_mor`: $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$. In general, `IsProperCovering.degIndex_prod_fibredMap_le`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$, from Part I's `MPolyfold.degIndex_prod_le`. **For tame $X$ and $Y$**, `IsProperCovering.degIndex_prod_fibredMap`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$ and $2\\,d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$, from Part I's product formula for tame M-polyfolds (`MPolyfold.isTame_prod`). **Without tameness**, `IsProperCovering.degIndex_prod_fibredMap_of_isDegSharpAt`: the same two equalities whenever the lower bound of Theorem 2.4.12 is attained at $F(\\varphi) \\in \\mathbf X$ and at $s(\\varphi) \\in Y$ (`MPolyfold.IsDegSharpAt`: some chart, retraction $r$ onto its retract $O$, presentation of its partial quadrant and level-$1$ point $z$ over the image have $d(x) \\le \\dim(T_zO / T^R_zO)$). Through `MPolyfold.degIndex_prod_of_isDegSharpAt`: at two such points $d_{X \\times Y}(x, y) = d_X(x) + d_Y(y)$ and $(x, y)$ is again such a point (Theorem 2.4.12 in the product chart and `quotDim_prod`). Such points: the points of a chart with tame retraction whose image is smooth (`isDegSharpAt_of_isTameWith`), and the points with $d = 0$ whose chart image has level $1$ (`isDegSharpAt_of_degIndex_eq_zero`). **For all M-polyfolds**, `MPolyfold.max_degIndex_le_degIndex_prod`: $\\max(d_X(x), d_Y(y)) \\le d_{X \\times Y}(x, y) \\le d_X(x) + d_Y(y)$ (`MPolyfold.degIndex_le_degIndex_prod_left`, `_right`: for smooth $y'$ the slice $X \\times \\{y'\\}$ is a sub-M-polyfold sc-diffeomorphic to $X$, `MPolyfold.isSubMPolyfold_sliceLeft`, `MPolyfold.isScDiffeoOn_sliceLeft`); the product formula where one index is $0$ (`MPolyfold.degIndex_prod_of_degIndex_eq_zero_right`, `_left`); the slice criterion `MPolyfold.degIndex_prod_of_exists_slice` (one $y'$ with $d_{X \\times Y}(x, y') + d_Y(y) \\le d_{X \\times Y}(x, y)$ gives the formula at $(x, y)$; an iff when $Y$ has a point of index $0$, `MPolyfold.degIndex_prod_iff_exists_slice`). Consequences: `IsProperCovering.degIndex_le_degIndex_prod_fibredMap`: $d_{\\mathbf Y}(\\varphi) \\le d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$; `IsProperCovering.degIndex_prod_fibredMap_of_degIndex_eq_zero`: both equalities where $d_{\\mathbf Y}(\\varphi) = 0$; `IsProperCovering.two_mul_degIndex_fibredMap_eq_iff`: the second equality at $\\varphi$ iff the product formula at $(F(\\varphi), s(\\varphi))$. **One point smooth, the bound attained at the other** (`Chapter8/DegIndexProductSmooth`): `ScRetraction.exists_degIndexWith_add_quotDim_le` (in a retract with retraction $r$ and $z \\in O_1$, every neighbourhood of $z$ contains $q = r(z + t u)$, $u$ with all quadrant coordinates $1$, with $d_C(q) + \\dim(T_zO / T^R_zO) \\le d_C(z)$); `ScRetraction.IsDiffeoGerm.quotDim_le_quotDim` ($\\dim(T_zO / T^R_zO)$ does not decrease along a germ of sc-diffeomorphisms, Proposition 2.4.10); `MPolyfold.exists_chartDegIndex_add_le` (at a point $y$ attaining the bound, in every chart around $y$ the index drops by $d_Y(y)$ at points arbitrarily close to $y$); `MPolyfold.degIndex_prod_of_mem_smoothSet_of_isDegSharpAt`, `MPolyfold.degIndex_prod_of_isDegSharpAt_of_mem_smoothSet`: $d_{X \\times Y}(x, y) = d_X(x) + d_Y(y)$ when one point is smooth and the bound is attained at the other, with no tameness and no condition on the charts at the smooth point; `MPolyfold.isDegSharpAt_of_isTame_of_mem_smoothSet` (a smooth point of a tame M-polyfold attains the bound) and `MPolyfold.degIndex_prod_of_mem_smoothSet_of_isTame` ($X$ arbitrary, $x$ smooth, $Y$ tame, $y$ smooth; for instance $Y = [0, \\infty)$, $y = 0$); the reductions `MPolyfold.degIndex_prod_of_frequently` (the formula at $(x, y)$ from $d_X(x) + d_Y(y) \\le d_{X \\times Y}(p)$ at points $p$ arbitrarily close to $(x, y)$, Lemma 2.4.3), `MPolyfold.degIndex_prod_of_frequently_smooth`, `MPolyfold.degIndex_prod_of_frequently_smoothSet_of_isDegSharpAt` (an arbitrary $x$ with $d_X(x) \\le d_X(x')$ at smooth $x'$ arbitrarily close to $x$, and $y$ attaining the bound); `IsProperCovering.degIndex_prod_fibredMap_of_mem_smoothSet`: both equalities at every $\\varphi$ with $F(\\varphi)$ smooth and the bound attained at $s(\\varphi)$. **One point on level $1$, the bound attained at the other** (`Chapter8/DegIndexProductLevelOne`): `IsSc1With.eventually_zeroCoord_imp_along_cone` (for an sc¹ map, a quadrant coordinate vanishing at the image of $x + t e$ for small $t > 0$ vanishes at the image of $x$ and has nonpositive derivative along $e$), `degIndexWith_add_card_le_of_zeroCoord`, `ScRetraction.IsDiffeoGerm.quotDim_le_card_of_dominated` (Proposition 2.4.10); `MPolyfold.degIndex_prod_of_mem_levelSet_of_isDegSharpAt`: $d_{X \\times Y}(x, y) = d_X(x) + d_Y(y)$ for $x \\in X_1$ and $y$ attaining the bound, since in a chart $\\chi$ realizing $d_{X \\times Y}(x, y)$ the curve $t \\mapsto \\chi(x, y_t)$, $y_t = \\psi^{-1}(r'(\\psi(y) + t u))$, is differentiable at $t = 0$, $(\\varphi(x), \\psi(y) + t u)$ being a level-$1$ curve; `MPolyfold.degIndex_prod_swap`, `MPolyfold.isScDiffeoOn_prodSwap` and the mirror `MPolyfold.degIndex_prod_of_isDegSharpAt_of_mem_levelSet`; the reduction `MPolyfold.degIndex_prod_of_frequently_levelSet_of_isDegSharpAt` (an arbitrary $x$ with $d_X(x) \\le d_X(x')$ at level-$1$ points $x'$ arbitrarily close to $x$); `IsProperCovering.degIndex_prod_fibredMap_of_mem_levelSet`: both equalities at every $\\varphi$ with $F(\\varphi)$ on level $1$ and the bound attained at $s(\\varphi)$.",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_fibredMap",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_mor",
@@ -829,16 +836,54 @@
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_prod_fibredMap",
      "Chapter2/FibredProduct · MPolyfold.degIndex_prod_le",
      "Chapter2/FibredProduct · MPolyfold.isTame_prod",
-     "Chapter2/DegeneracyIndex · proposition_2_4_4"
+     "Chapter2/DegeneracyIndex · proposition_2_4_4",
+     "Chapter8/DegIndexProduct · MPolyfold.IsDegSharpAt",
+     "Chapter8/DegIndexProduct · quotDim_prod",
+     "Chapter8/DegIndexProduct · MPolyfold.degIndex_prod_of_isDegSharpAt",
+     "Chapter8/DegIndexProduct · MPolyfold.isDegSharpAt_of_isTameWith",
+     "Chapter8/DegIndexProduct · MPolyfold.isDegSharpAt_of_degIndex_eq_zero",
+     "Chapter8/DegIndexProduct · EpFunctor.IsProperCovering.degIndex_prod_fibredMap_of_isDegSharpAt",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.isSubMPolyfold_sliceLeft",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.isScDiffeoOn_sliceLeft",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_le_degIndex_prod_left",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_le_degIndex_prod_right",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.max_degIndex_le_degIndex_prod",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_prod_of_degIndex_eq_zero_right",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_prod_of_degIndex_eq_zero_left",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_prod_of_exists_slice",
+     "Chapter8/DegIndexProductGeneral · MPolyfold.degIndex_prod_iff_exists_slice",
+     "Chapter8/DegIndexProductGeneral · EpFunctor.IsProperCovering.degIndex_le_degIndex_prod_fibredMap",
+     "Chapter8/DegIndexProductGeneral · EpFunctor.IsProperCovering.degIndex_prod_fibredMap_of_degIndex_eq_zero",
+     "Chapter8/DegIndexProductGeneral · EpFunctor.IsProperCovering.two_mul_degIndex_fibredMap_eq_iff",
+     "Chapter8/DegIndexProductSmooth · ScRetraction.exists_degIndexWith_add_quotDim_le",
+     "Chapter8/DegIndexProductSmooth · ScRetraction.IsDiffeoGerm.quotDim_le_quotDim",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.exists_chartDegIndex_add_le",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_mem_smoothSet_of_isDegSharpAt",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_isDegSharpAt_of_mem_smoothSet",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.isDegSharpAt_of_isTame_of_mem_smoothSet",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_mem_smoothSet_of_isTame",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_frequently",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_frequently_smooth",
+     "Chapter8/DegIndexProductSmooth · MPolyfold.degIndex_prod_of_frequently_smoothSet_of_isDegSharpAt",
+     "Chapter8/DegIndexProductSmooth · EpFunctor.IsProperCovering.degIndex_prod_fibredMap_of_mem_smoothSet",
+     "Chapter8/DegIndexProductLevelOne · IsSc1With.eventually_zeroCoord_imp_along_cone",
+     "Chapter8/DegIndexProductLevelOne · degIndexWith_add_card_le_of_zeroCoord",
+     "Chapter8/DegIndexProductLevelOne · ScRetraction.IsDiffeoGerm.quotDim_le_card_of_dominated",
+     "Chapter8/DegIndexProductLevelOne · MPolyfold.degIndex_prod_of_mem_levelSet_of_isDegSharpAt",
+     "Chapter8/DegIndexProductLevelOne · MPolyfold.isScDiffeoOn_prodSwap",
+     "Chapter8/DegIndexProductLevelOne · MPolyfold.degIndex_prod_swap",
+     "Chapter8/DegIndexProductLevelOne · MPolyfold.degIndex_prod_of_isDegSharpAt_of_mem_levelSet",
+     "Chapter8/DegIndexProductLevelOne · MPolyfold.degIndex_prod_of_frequently_levelSet_of_isDegSharpAt",
+     "Chapter8/DegIndexProductLevelOne · EpFunctor.IsProperCovering.degIndex_prod_fibredMap_of_mem_levelSet"
     ]
    },
    "chips": [
-    "hidden: $X$, $Y$ tame",
-    "in general only $\\le$"
+    "hidden: $X$, $Y$ tame, the bound of Theorem 2.4.12 attained at both points, or one point on level $1$ and the bound attained at the other, or $d_{\\mathbf Y}(\\varphi) = 0$",
+    "elsewhere $d_{\\mathbf Y} \\le d_{\\mathbf X \\times Y} \\le 2\\,d_{\\mathbf Y}$"
    ],
    "diff": [
-    "**Hidden hypothesis**: the product formula $d_{\\mathbf X \\times Y} = d_{\\mathbf X} + d_Y$, which Part I proves for tame M-polyfolds; Part I's Proposition 2.5.20 (2017: 2.15; preprint 2.46) states its formula $d = \\tfrac12 d_{X \\times Y}$ for tame $X$, $Y$ (Findings, Chapter 8, item 51).",
-    "**Narrower**: the first equality and $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$ hold in general, the other two for tame $X$, $Y$; in general only $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$ is proved. Whether equality holds without tameness is open in the project: Part I proves the product formula only for tame M-polyfolds, and the minimum of Definition 2.4.1 over the non-product charts of $\\mathbf X \\times Y$ is not controlled; restricted to a slice, such a chart gives an sc-smooth embedding of $\\mathbf X$, not a chart of it."
+    "**Hidden hypothesis**: the product formula $d_{\\mathbf X \\times Y} = d_{\\mathbf X} + d_Y$, which Part I proves for tame M-polyfolds and which holds without tameness at pairs of points attaining the lower bound of Theorem 2.4.12 (`MPolyfold.degIndex_prod_of_isDegSharpAt`) at a point on level $1$ paired with a point attaining that bound (`MPolyfold.degIndex_prod_of_mem_levelSet_of_isDegSharpAt`, `MPolyfold.degIndex_prod_of_isDegSharpAt_of_mem_levelSet`, with the smooth case `MPolyfold.degIndex_prod_of_mem_smoothSet_of_isDegSharpAt`), and wherever one of the two indices is $0$ (`MPolyfold.degIndex_prod_of_degIndex_eq_zero_right`, `_left`); Part I's Proposition 2.5.20 (2017: 2.15; preprint 2.46) states its formula $d = \\tfrac12 d_{X \\times Y}$ for tame $X$, $Y$ (Findings, Chapter 8, item 51).",
+    "**Narrower**: the first equality and $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$ hold in general, the other two for tame $X$, $Y$ and, without tameness, at every $\\varphi$ at which $F(\\varphi)$ and $s(\\varphi)$ attain the bound of Theorem 2.4.12 (`IsProperCovering.degIndex_prod_fibredMap_of_isDegSharpAt`), and at every $\\varphi$ with $d_{\\mathbf Y}(\\varphi) = 0$, with no tameness and no condition on the charts (`IsProperCovering.degIndex_prod_fibredMap_of_degIndex_eq_zero`). In general $d_{\\mathbf Y}(\\varphi) \\le d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$ (`IsProperCovering.degIndex_le_degIndex_prod_fibredMap`): for a smooth point $y'$ the slice $\\mathbf X \\times \\{y'\\}$ is a sub-M-polyfold sc-diffeomorphic to $\\mathbf X$, so a chart of $\\mathbf X \\times Y$ restricts on it to a chart of the slice (Lemma 2.4.6), and $d_{\\mathbf X} \\le d_{\\mathbf X \\times Y}$ at all points (`MPolyfold.degIndex_le_degIndex_prod_left`). The second equality at $\\varphi$ is equivalent to the product formula at $(F(\\varphi), s(\\varphi))$ (`IsProperCovering.two_mul_degIndex_fibredMap_eq_iff`), and the product formula at $(x, y)$ to a drop of the index of $\\mathbf X \\times Y$ by $d_Y(y)$ between $(x, y)$ and some point of the slice $\\{x\\} \\times Y$ (`MPolyfold.degIndex_prod_iff_exists_slice`, when $Y$ has a point of index $0$). Both equalities also hold at every $\\varphi$ with $F(\\varphi)$ smooth (and, below, on level $1$) and the bound attained at $s(\\varphi)$ (`IsProperCovering.degIndex_prod_fibredMap_of_mem_smoothSet`): at a point $y$ attaining the bound the index drops by $d_Y(y)$ near $y$ in every chart (`MPolyfold.exists_chartDegIndex_add_le`), in particular in the chart of the slice $\\{x\\} \\times Y$ given by a chart of $X \\times Y$ realizing $d_{X \\times Y}(x, y)$ at a smooth $x$, which is the drop of the slice criterion (`MPolyfold.degIndex_prod_of_mem_smoothSet_of_isDegSharpAt`). The smoothness of $F(\\varphi)$ weakens to level $1$ (`IsProperCovering.degIndex_prod_fibredMap_of_mem_levelSet`): for $x \\in X_1$ the curve $t \\mapsto \\chi(x, y_t)$ in a chart $\\chi$ realizing $d_{X \\times Y}(x, y)$ is differentiable at $t = 0$, so at least $d_Y(y)$ of the coordinates vanishing at $\\chi(x, y)$ become positive along it and Proposition 2.4.10 gives $d_X(x) + d_Y(y) \\le d_{X \\times Y}(x, y)$ (`MPolyfold.degIndex_prod_of_mem_levelSet_of_isDegSharpAt`). The formula holds for an arbitrary $x$ and a $y$ attaining the bound as soon as $d_X(x)$ is attained at level-$1$ points arbitrarily close to $x$ (`MPolyfold.degIndex_prod_of_frequently_levelSet_of_isDegSharpAt`). Open in the project, with no counterexample known to us: the formula at an $x$ on level $0$ only, where that curve need not be differentiable, and the product formula at pairs of points at neither of which the bound of Theorem 2.4.12 is attained; for the remark, equality at a $\\varphi$ with $d_{\\mathbf Y}(\\varphi) > 0$ outside these cases, that is, such a drop along $\\{F(\\varphi)\\} \\times Y$ there."
    ]
   },
   {

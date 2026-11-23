@@ -17,19 +17,16 @@ meant is for human readers to confirm; that review has not started.
 Every numbered item of the book is compared with its formal version, with a verdict and every
 difference listed. In 275 places (G.1–G.275) the formal version needs more than a translation of
 the text: a step left to the reader, an example the text does not give, a convention left implicit,
-or a long argument written out in full. 262 are formalized and 12 have nothing to formalize (questions,
-comments, remarks that motivate or look ahead, exercises, a preprint theorem absent from the 2021 text, and the
-text's own open point in Remark 9.5.19). One is formalized in part: for the Whitney sum `⊕ᵏTC` of
-Proposition 17.6.1, the category and its functors are built, its orbit space and the sc-smoothness of its
-multiplication are not. Where a formal statement is narrower than the book's, the
+or a long argument written out in full. 264 are formalized and 11 have nothing to formalize (questions,
+comments, remarks that motivate or look ahead, exercises, and a preprint theorem absent from the 2021 text). Where a formal statement is narrower than the book's, the
 comparison names the added hypothesis and shows that it can be satisfied.
 
 | | Chapters | State |
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
-| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses |
-| Part III, *Fredholm Theory in Ep-Groupoids* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9 and 16.5.7 as printed; Corollary 15.4.4 and Theorems 16.4.6 and 16.6.6 with sc-smooth partitions of unity for Stokes' theorem (Remark 9.5.19) |
-| Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Formalized; the main theorems proved, Theorems 17.1.18, 18.6.1, 19.5.1 and 19.6.13 included; Theorems 17.6.7 and 17.6.10 with Stokes' theorem on the model or sc-smooth partitions of unity (Remark 9.5.19) |
+| Part II, *Ep-Groupoids* | 7–11 | Formalized, including branched integration and Stokes' theorem (Theorems 9.5.15–9.5.18) with the text's hypotheses, and on every ep-groupoid without partitions of unity, as Remark 9.5.19 expects |
+| Part III, *Fredholm Theory in Ep-Groupoids* | 12–16 | Formalized; the main theorems proved, Theorems 14.1.9, 15.3.9, 16.4.6 and 16.5.7 as printed; Theorem 15.4.3 and Corollary 15.4.4 with the standing assumptions of §15.3 and no partitions of unity; Theorem 16.6.6 over all admissible perturbations, with no bump functions and no partitions of unity, the hypotheses in the model of the orientation being tame germ data and the index |
+| Part IV, *Fredholm Theory in Groupoidal Categories* | 17–19 | Formalized; the main theorems proved, Theorems 17.1.18, 18.6.1, 19.5.1 and 19.6.13 included; Theorems 17.6.7 and 17.6.10 as printed |
 
 The trusted base, the declarations whose statements a reader has to check, is
 `Exposition/checklist/TrustedBase.lean`. Nothing is assumed without proof: every declaration
@@ -170,10 +167,14 @@ None of these is a hypothesis of a theorem here; each is stated precisely in the
 * Does a weak bump function (Definition 5.5.2, p. 229) give one non-zero at a given point of a general
   M-polyfold?
 * Is the index locally constant along the zero set for germ data that are not tame?
-* Is there a single family `P^i` for all `i` in Corollary 5.2.5 (p. 213)?
 * The text's own Question 4.2.4 (p. 187).
-* The text's own open point in Remark 9.5.19: Stokes' theorem on ep-groupoids without partitions of
-  unity, on which Theorem 16.4.6 as printed rests (stated in Lean as `EP.StokesWithoutPartitions`).
+
+Remark 9.5.19 (p. 451) expects that sc-smooth partitions of unity are "very likely not needed" for
+Stokes' theorem on ep-groupoids. It holds without them on every ep-groupoid, along the route the remark
+sketches (`EP.stokesWithoutPartitions_all`), and Theorems 16.4.6, 17.6.7 and 17.6.10 hold as printed with it.
+
+Corollary 5.2.5 (p. 213) holds for one family `P^i : Y^i → X^i` indexed by `i`, with `P^{i+1} = (P^i)^1`
+(`BundledStrongBundle.corollary_5_2_5_family`).
 
 On the text's question on p. 340, whether property (5) of Definition 7.1.3 follows from (1)–(4): as
 we read the definition, the Čech groupoid of a Prüfer-type surface with uncountably many charts

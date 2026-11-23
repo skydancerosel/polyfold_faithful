@@ -1846,7 +1846,7 @@
     "statement": "$P_f : f^*Y \\to Z$ carries a natural structure of a strong bundle over $Z$ (\\\"the easy proof is left to the reader\\\")."
    },
    "lean": {
-    "statement": "For a strong bundle $P : Y \\to X$ and an sc-smooth $f : Z \\to X$: $f^*Y$ is paracompact (it is metrizable, $Z$ and $Y[0]$ being metrizable by Theorem 2.3.10 (preprint 2.16)), $P_f$ is a continuous surjection, its fibres $P_f^{-1}(z) \\cong P^{-1}(f(z))$ are Banachable, and the pulled-back charts $\\Phi_f(z, y) = (\\psi(z), \\mathrm{pr}_F\\Phi(y))$, with the strong bundle retractions $R_g(w, h) = (r_Z(w), \\Gamma(g(r_Z(w)), h))$, $g = \\varphi \\circ f \\circ \\psi^{-1}$, form a strong bundle atlas; so $P_f$ is a strong bundle with this atlas. Locally: $R_g$ is a strong bundle retraction with image $\\{(w, h) : w \\in O_Z, (g(w), h) \\in K\\}$; the transition maps of pulled-back charts are $(w, h) \\mapsto (\\psi_2\\psi_1^{-1}(w), \\mathrm{pr}_F(\\Phi_2\\Phi_1^{-1})(g_1(w), h))$, sc-smooth on $[0]$ and $[1]$.",
+    "statement": "For a strong bundle $P : Y \\to X$ and an sc-smooth $f : Z \\to X$: $f^*Y$ is paracompact (it is metrizable, $Z$ and $Y[0]$ being metrizable by Theorem 2.3.10 (preprint 2.16)), $P_f$ is a continuous surjection, its fibres $P_f^{-1}(z) \\cong P^{-1}(f(z))$ are Banachable, and the pulled-back charts $\\Phi_f(z, y) = (\\psi(z), \\mathrm{pr}_F\\Phi(y))$, with the strong bundle retractions $R_g(w, h) = (r_Z(w), \\Gamma(g(r_Z(w)), h))$, $g = \\varphi \\circ f \\circ \\psi^{-1}$, form a strong bundle atlas; so $P_f$ is a strong bundle with this atlas. Locally: $R_g$ is a strong bundle retraction with image $\\{(w, h) : w \\in O_Z, (g(w), h) \\in K\\}$; the transition maps of pulled-back charts are $(w, h) \\mapsto (\\psi_2\\psi_1^{-1}(w), \\mathrm{pr}_F(\\Phi_2\\Phi_1^{-1})(g_1(w), h))$, sc-smooth on $[0]$ and $[1]$. The projection $P' : f^*Y \\to Y$ is a strong bundle map covering $f$ (`StrongBundle.isStrongBundleMap_pullbackProj'`): linear on the fibres, sc-smooth on $[0]$ (`StrongBundle.isScSmoothMap_pullbackProj'`), mapping $(f^*Y)_{0,1} = \\{(z, y) : y \\in Y_{0,1}\\}$ into $Y_{0,1}$ (`StrongBundle.mem_oneSet_pullback_iff`, `StrongBundle.mapsTo_oneSet_pullbackProj'`) and sc-smooth on $[1]$ (`StrongBundle.isScSmoothMap_one_pullbackProj'`); its fibre maps are `pullbackFiberCLE` (`StrongBundle.fiberMap_pullbackProj'`).",
     "decls": [
      "Chapter2/StrongBundlePullback · proposition_2_6_8",
      "Chapter2/StrongBundlePullback · pullbackAtlas",
@@ -1861,18 +1861,25 @@
      "Chapter2/StrongBundle · pullbackRetraction",
      "Chapter2/StrongBundle · isStrongBundleRetraction_pullback",
      "Chapter2/StrongBundle · pullback_image",
-     "Chapter2/StrongBundle · isStrongBundleRetract_pullback"
+     "Chapter2/StrongBundle · isStrongBundleRetract_pullback",
+     "Chapter5/StrongBundleMap · StrongBundle.mem_oneSet_pullback_iff",
+     "Chapter5/StrongBundleMap · StrongBundle.mapsTo_oneSet_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothMap_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.isScSmoothMap_one_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.isStrongBundleMap_pullbackProj'",
+     "Chapter5/StrongBundleMap · StrongBundle.fiberMap_pullbackProj'"
     ]
    },
    "verdict": "explicit",
    "chips": [
     "paracompactness of $f^*Y$ proved",
-    "atlas of all pulled-back charts"
+    "atlas of all pulled-back charts",
+    "$P' : f^*Y \\to Y$ a strong bundle map"
    ],
    "diff": [
     "\\\"Natural structure\\\" is the atlas of all pulled-back charts; any two are compatible, so it involves no choice.",
     "The paracompactness of $f^*Y$, required by Definition 2.6.5 (preprint 2.51) and not mentioned in the text, is proved from Theorem 2.3.10 (preprint 2.16) for $Z$ and $Y[0]$.",
-    "“Natural” presumably also says that $P' : f^*Y \\to Y$ is a strong bundle map (sc-smooth on $[0]$ and $[1]$); that is not formalized. In the charts $\\Phi_f$, $\\Phi$ it is $(w, h) \\mapsto (g(w), h)$ on $K_g$ (Findings, Chapter 2, item 51; round-trip item V2.61)."
+    "“Natural” presumably also says that $P' : f^*Y \\to Y$ is a strong bundle map (sc-smooth on $[0]$ and $[1]$); this is proved (`StrongBundle.isStrongBundleMap_pullbackProj'`, with fibre maps `pullbackFiberCLE`, `StrongBundle.fiberMap_pullbackProj'`), strong bundle maps between strong bundles over M-polyfolds being read as in V8.19, since Part I defines them only between local models. In the charts $\\Phi_f$, $\\Phi$ it is $(w, h) \\mapsto (g(w), h)$ on $K_g$ (Findings, Chapter 2, item 51; round-trip item V2.61)."
    ]
   },
   {

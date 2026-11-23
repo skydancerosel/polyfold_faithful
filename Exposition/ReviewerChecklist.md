@@ -24,9 +24,9 @@ The second command prints the axioms of every theorem; each must list only `prop
 |---|---|---|---|
 | Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 28 | 96 | 102 |
 | Orientation (Chapter 6) | 6 | 68 | 289 |
-| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 36 | 88 | 205 |
-| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 118 | 182 |
-| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 70 | 138 | 360 |
+| Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 37 | 88 | 205 |
+| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 118 | 187 |
+| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 72 | 138 | 363 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 3 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -409,8 +409,13 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 9.5.16 | `EP.theorem_9_5_16_dim1_all` (Chapter9/AllStructuresDimOne.lean) | V9.67 |
 | Thm 9.5.17 | `EP.theorem_9_5_17` (Chapter9/StokesTextHypotheses.lean) | V9.68 |
 | Thm 9.5.17 | `EP.theorem_9_5_17_dim1` (Chapter9/StokesDimOne.lean) | V9.68 |
+| Thm 9.5.17 | `EP.theorem_9_5_17_all` (Chapter9/StokesLocalPartitions.lean) | V9.71, V16.28 |
+| Thm 9.5.17 | `EP.theorem_9_5_17_dim1_all` (Chapter9/StokesLocalPartitionsDimOne.lean) | V9.71, V16.28 |
 | Thm 9.5.18 | `EP.theorem_9_5_18` (Chapter9/StokesTextHypotheses.lean) | V9.68 |
 | Thm 9.5.18 | `EP.theorem_9_5_18_dim1_isLUC` (Chapter9/EffectiveDimOneLUC.lean) | V9.68 |
+| Thm 9.5.18 | `EP.theorem_9_5_18_all` (Chapter9/StokesLocalPartitions.lean) | V9.71, V16.28 |
+| Thm 9.5.18 | `EP.theorem_9_5_18_dim1_all` (Chapter9/StokesLocalPartitionsDimOne.lean) | V9.71, V16.28 |
+| Rem 9.5.19 | `EP.stokesWithoutPartitions_all` (Chapter16/StokesUnconditional.lean) | V9.71, V16.28, V17.113 |
 | Rem 9.5.20 | `DimensionJump.remark_9_5_20_two_readings` (Chapter11/DimensionJumpBoundaryIntegral.lean) | V9.70 |
 | Thm 10.1.7 | `EpFunctor.theorem_10_1_7` (Chapter10/Equivalence.lean) | V10.7 |
 | Thm 10.2.2 | `WeakFibredProduct.theorem_10_2_2` (Chapter10/WeakFibredProductTheorem.lean) | V10.19 |
@@ -617,6 +622,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Def 16.2.3 | `PolyfoldClass.definition_16_2_3` (Chapter16/TangentPolyfold.lean) | V16.18 |
 | Thm 16.2.6 | `PolyfoldClass.theorem_16_2_6_complex` (Chapter16/PolyfoldForms.lean) | V16.21 |
 | Thm 16.4.6 | `PolyfoldClass.OrientedRep.theorem_16_4_6_of_epStokes` (Chapter16/StokesWithoutPartitions.lean) | V16.28 |
+| Thm 16.4.6 | `PolyfoldClass.OrientedRep.theorem_16_4_6_all` (Chapter16/StokesUnconditional.lean) | V16.28 |
 | Thm 12.2.13 | `EpStrongBundle.theorem_12_2_13` (Chapter12/ReflexiveLocalExtension.lean) | V12.34 |
 | Prop 13.3.19 | `SBLocalization.proposition_13_3_19` (Chapter13/LocallyFiniteStructurable.lean) | — |
 | Prop 13.3.19 | `SBLocalization.proposition_13_3_19_of_paracompact` (Chapter13/LocallyFiniteStructurable.lean) | — |
@@ -635,6 +641,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 15.1.1 | `SBLocalization.linearization_eq_zero` (Chapter15/LinearizationIntrinsic.lean) | V15.3 |
 | Thm 15.1.1 | `SBLocalization.theorem_15_1_1_intrinsic` (Chapter15/LinearizationIntrinsic.lean) | V15.2 |
 | Thm 15.4.3 | `SBLocalization.theorem_15_4_3` (Chapter15/CanonicalOrientationStokes.lean) | V15.36 |
+| Thm 15.4.3 | `SBLocalization.theorem_15_4_3_all` (Chapter15/CollarCobordismUnconditional.lean) | V15.36 |
 | Thm 16.2.4 | `PolyfoldClass.theorem_16_2_4` (Chapter16/TangentFunctor.lean) | V16.34 |
 | Thm 16.3.15 | `StrongPolyfoldBundle.theorem_16_3_15_one` (Chapter16/PolyfoldAuxNorm.lean) | V16.54 |
 | Thm 16.3.17 | `StrongPolyfoldBundle.theorem_16_3_17_one` (Chapter16/PolyfoldAuxNorm.lean) | V16.57 |
@@ -669,6 +676,12 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_oriented` (Chapter16/IndexZeroCylinder.lean) | V15.37, V15.49 |
 | Cor 15.4.4 | `SBLocalization.corollary_15_4_4_wellDefined` (Chapter15/CanonicalPerturbationExists.lean) | V15.37, V15.49 |
 | Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_wellDefined` (Chapter16/InheritedPerturbationExists.lean) | V15.37, V15.49 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_oriented_collar_all` (Chapter15/CollarCobordismUnconditional.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_oriented_all` (Chapter16/IndexZeroUnconditional.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_wellDefined_all` (Chapter15/CollarCobordismUnconditional.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_wellDefined_all` (Chapter16/IndexZeroUnconditional.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.integral_eq_of_isTransversalPerturbation` (Chapter15/AdmissibleCobordism.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.pointCount_eq_of_isTransversalPerturbation` (Chapter16/IndexZeroAllAdmissible.lean) | V15.37 |
 | Prop 16.3.16 | `StrongPolyfoldBundle.proposition_16_3_16_two` (Chapter16/MixedTransfer.lean) | V16.56 |
 | Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7` (Chapter16/PolyfoldBoundaryExtension.lean) | V16.71 |
 | Def 16.6.5 | `StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal` (Chapter16/OrientationOrbitMapIndependence.lean) | V8.48, V16.77 |
@@ -679,6 +692,14 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_canonical_wellDefined` (Chapter16/InheritedPerturbationExists.lean) | V16.78 |
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined` (Chapter16/InheritedPerturbationExists.lean) | V16.82 |
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_canonical_solutionSet` (Chapter16/InheritedPerturbationExists.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_all_admissible` (Chapter16/InvariantAllAdmissible.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_all_admissible_wellDefined` (Chapter16/InvariantAllAdmissible.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible` (Chapter16/IndexZeroAllAdmissible.lean) | V16.82 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_wellDefined` (Chapter16/IndexZeroAllAdmissible.lean) | V16.82 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_all_admissible_unconditional` (Chapter16/InvariantNoBumpsUnconditional.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_wellDefined_unconditional` (Chapter16/InvariantNoBumpsUnconditional.lean) | V16.78 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_unconditional` (Chapter16/IndexZeroNoBumpsUnconditional.lean) | V16.82 |
+| Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined_unconditional` (Chapter16/IndexZeroNoBumpsUnconditional.lean) | V16.82 |
 
 ### Definition rows (118), in dependency order
 
@@ -763,17 +784,18 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.1 | §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1) | `PolyfoldStructure` |
 | V16.2 | §16.1, Definition 16.1.2, p. 707 (2017: Definition 16.2) | `PolyfoldStructure.Equiv`, `PolyfoldStructure.setoid` |
 | V16.4 | §16.1, Definition 16.1.3, p. 707 (2017: Definition 16.3) | `PolyfoldClass` |
+| V16.20 | §16.2, Definition 16.2.5, p. 720 (2017: Definition 16.15) | `PolyfoldClass.FormRep`, `PolyfoldClass.FormRep.Rel`, `PolyfoldClass.ScForm`, `PolyfoldClass.ScForm.equivStructure` and 3 more |
+| V16.22 | §16.4, Definition 16.4.1, p. 730 (2017: Definition 16.29) | `PolyfoldClass.BranchedRep`, `PolyfoldClass.BranchedRep.Rel`, `PolyfoldClass.BranchedSuborbifold`, `PolyfoldClass.BranchedSuborbifold.toFun` |
+| V16.25 | §16.4, Definition 16.4.4, pp. 730–731 (2017: Definition 16.31) | `PolyfoldClass.OrientedRep`, `PolyfoldClass.OrientedRep.Rel`, `PolyfoldClass.OrientedSuborbifold`, `PolyfoldClass.OrientedSuborbifold.toBranched` |
+| V16.23 | §16.4, Definition 16.4.2, p. 730, and p. 729 (2017: Definition 16.30) | `PolyfoldClass.BranchedSuborbifold.HasRepProperty`, `PolyfoldClass.BranchedSuborbifold.IsCompact`, `PolyfoldClass.OrientedSuborbifold.IsTameOriented` |
+| V16.27 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4) | `PolyfoldClass.OrientedRep.IsTameOriented`, `PolyfoldClass.OrientedRep.boundaryIntegral`, `PolyfoldClass.OrientedRep.integral`, `PolyfoldClass.OrientedRep.integralEff` and 2 more |
+| V16.83 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4); Definition 9.5.6 for $n = 0$ | `EP.pointBranchedIntegral`, `EP.pointBranchedIntegralEff`, `EpGroupoid.IsPointTame`, `PolyfoldClass.OrientedSuborbifold.pointIntegral` and 2 more |
 | V16.6 | §16.1, Definition 16.1.5, p. 708 (2017: Definition 16.4) | `PolyfoldClass.AdmitsScPartitionsOfUnity` |
 | V16.9 | §16.1, Definition 16.1.14, p. 712 (2017: Definition 16.9) | `PolyfoldClass.degIndex` |
 | V16.10 | §16.1, Definition 16.1.17, p. 713 (2017: Definition 16.11) | `PolyfoldClass.boundary` |
 | V16.12 | §16.1, Definition 16.1.20, p. 714 (2017: Definition 16.12) | `PolyfoldClass.IsTame` |
 | V16.15 | §16.2, Lemma 16.2.1, p. 716 (2017: Lemma 16.3) | `EPLocalization.EPLoc.tangentHom` |
 | V16.16 | §16.2, pp. 716–718 (2017: §16.2) | `PolyfoldClass.TangentSpace`, `PolyfoldClass.tangentHomeomorph`, `PolyfoldClass.tangentMap` |
-| V16.20 | §16.2, Definition 16.2.5, p. 720 (2017: Definition 16.15) | `PolyfoldClass.FormRep`, `PolyfoldClass.FormRep.Rel`, `PolyfoldClass.ScForm`, `PolyfoldClass.ScForm.equivStructure` and 3 more |
-| V16.22 | §16.4, Definition 16.4.1, p. 730 (2017: Definition 16.29) | `PolyfoldClass.BranchedRep`, `PolyfoldClass.BranchedRep.Rel`, `PolyfoldClass.BranchedSuborbifold`, `PolyfoldClass.BranchedSuborbifold.toFun` |
-| V16.25 | §16.4, Definition 16.4.4, pp. 730–731 (2017: Definition 16.31) | `PolyfoldClass.OrientedRep`, `PolyfoldClass.OrientedRep.Rel`, `PolyfoldClass.OrientedSuborbifold`, `PolyfoldClass.OrientedSuborbifold.toBranched` |
-| V16.23 | §16.4, Definition 16.4.2, p. 730, and p. 729 (2017: Definition 16.30) | `PolyfoldClass.BranchedSuborbifold.HasRepProperty`, `PolyfoldClass.BranchedSuborbifold.IsCompact`, `PolyfoldClass.OrientedSuborbifold.IsTameOriented` |
-| V16.27 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4) | `PolyfoldClass.OrientedRep.IsTameOriented`, `PolyfoldClass.OrientedRep.boundaryIntegral`, `PolyfoldClass.OrientedRep.integral`, `PolyfoldClass.OrientedRep.integralEff` and 2 more |
 | V16.33 | §16.1, Definition 16.1.11, p. 711 (2017: Definition 16.8) | `EffPolyfold`, `PolyfoldClass.IsEffective` |
 | V16.29 | §16.1, before Definition 16.1.6, p. 709 (2017: §16.1) | `PSHom`, `PSHom.IsIdIso`, `PSHom.comp`, `PSHom.id` |
 | V16.30 | §16.1, Definition 16.1.6, p. 710 (2017: Definition 16.5) | `PSHom.Equiv`, `PolyfoldClass.MapRep`, `PolyfoldClass.MapRep.setoid` |
@@ -801,9 +823,8 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.74 | §16.6, Definition 16.6.2, p. 736 (2017: Definition 16.41) | `StrongPolyfoldBundle.ScSection.HasCompactSolutionSet`, `StrongPolyfoldBundle.ScSection.solutionSet` |
 | V16.75 | §16.6, Definition 16.6.3, pp. 736–737 (new in 2021) | `StrongPolyfoldBundle.ScSection.ControlsCompactness`, `StrongPolyfoldBundle.ScSection.IsProper`, `StrongPolyfoldBundle.ScSection.IsProperLtInfty`, `StrongPolyfoldBundle.ScSection.sublevel` |
 | V16.80 | §16.6, p. 739, before Theorem 16.6.6 (2017: before Theorem 16.8) | `StrongPolyfoldBundle.IsPerturbedSuborbifold`, `StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith`, `StrongPolyfoldBundle.perturbedFun`, `StrongPolyfoldBundle.perturbedRep` |
-| V16.83 | §16.4, after Definition 16.4.5, p. 732 (2017: §16.4); Definition 9.5.6 for $n = 0$ | `EP.pointBranchedIntegral`, `EP.pointBranchedIntegralEff`, `EpGroupoid.IsPointTame`, `PolyfoldClass.OrientedSuborbifold.pointIntegral` and 2 more |
 
-<details><summary>182 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>187 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * ?.lean: `EpGroupoid.isLocalScDiffeo_id`
 * Chapter10/FredholmEquivalence.lean: `EpGroupoid.actPair`, `EpStrongBundle.sectionAct`, `StrongBundle.IsStrongBundleIsoOn.toLocalIso`
@@ -839,12 +860,14 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter14/LinearizationModel.lean: `Linearization15.linSumModelMap`
 * Chapter14/StructurabilityCriterion.lean: `SBLocalization.CriterionData`
 * Chapter14/TransportStatement.lean: `SBLocalization.TransportInput`, `SBLocalization.proposition_14_5_4_statement`
+* Chapter15/AdmissibleCylinderEnds.lean: `SBLocalization.OrientedSolution.integral`
 * Chapter15/CanonicalOrientation.lean: `SBLocalization.KernelBranching.FramesContinuous`, `SBLocalization.KernelBranching.chart`, `SBLocalization.KernelBranching.frames`, `SBLocalization.KernelBranching.orTangent`, `SBLocalization.KernelBranching.orient`, `SBLocalization.KernelBranching.pt`, `SBLocalization.KernelBranching.toOrientedTame`, `SBLocalization.kerFrames`
 * Chapter15/CubeAuxNorm.lean: `SEP.cubeCoord`, `SEP.cubeTime`
 * Chapter15/CubeEp.lean: `SEP.cubeEP`, `SEP.cubeVal`
 * Chapter15/KernelBranching.lean: `SBLocalization.KernelBranching.s`
 * Chapter15/LinearizationIntrinsic.lean: `SBLocalization.chartOp`
 * Chapter16/BranchedSuborbifold.lean: `PolyfoldClass.BranchedRep.setoid`, `PolyfoldClass.BranchedRep.toFun`, `PolyfoldClass.OrientedRep.setoid`, `PolyfoldClass.OrientedRep.toBranchedRep`
+* Chapter16/IndexZeroAllAdmissible.lean: `SBLocalization.PointSolution.count`, `SBLocalization.PointSolution.countEff`, `StrongPolyfoldBundle.solutionPointRep`, `StrongPolyfoldBundle.solutionPointSuborbifold`
 * Chapter16/IndexZeroInvariant.lean: `SBLocalization.PointPerturbation.count`, `SBLocalization.PointPerturbation.countEff`
 * Chapter16/IndexZeroPolyfoldTheorem.lean: `PolyfoldClass.PointSuborbifold.count`, `PolyfoldClass.PointSuborbifold.countEff`, `StrongPolyfoldBundle.IsInheritedFromPoint`, `StrongPolyfoldBundle.PointOrientedPerturbation.IsAdmissible`, `StrongPolyfoldBundle.pointMultisection`, `StrongPolyfoldBundle.pointSuborbifold`, `StrongPolyfoldBundle.toPointOrientedPerturbation`
 * Chapter16/InheritedPerturbationExists.lean: `StrongPolyfoldBundle.ModelSolutionSet.orientedRep`, `StrongPolyfoldBundle.ModelSolutionSet.toCompact`, `StrongPolyfoldBundle.ModelSolutionSet.toOrientedPerturbation`
@@ -911,12 +934,16 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1` (Chapter17/CategoryStokes.lean) | V17.112 |
 | Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_book` (Chapter17/TameOrientedTransfer.lean) | V17.112 |
 | Thm 17.6.6 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1_book` (Chapter17/TameOrientedTransfer.lean) | V17.112 |
+| Thm 17.6.7 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_book_all` (Chapter16/StokesUnconditional.lean) | V17.113 |
+| Thm 17.6.7 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_book_all` (Chapter16/StokesUnconditional.lean) | V17.113 |
 | Thm 17.6.8 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8` (Chapter17/CategoryStokes.lean) | V17.114 |
 | Thm 17.6.8 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8_book` (Chapter17/TameOrientedTransfer.lean) | V17.114 |
 | Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9` (Chapter17/CategoryStokes.lean) | V17.115 |
 | Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1` (Chapter17/CategoryStokes.lean) | V17.115 |
 | Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_book` (Chapter17/TameOrientedTransfer.lean) | V17.115 |
 | Thm 17.6.9 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1_book` (Chapter17/TameOrientedTransfer.lean) | V17.115 |
+| Thm 17.6.10 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book_all` (Chapter16/StokesUnconditional.lean) | V17.116 |
+| Thm 17.6.10 | `GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_book_all` (Chapter16/StokesUnconditional.lean) | V17.116 |
 | Prop 17.8.6 | `proposition_17_8_6` (Chapter17/ProperCoveringModelRestrict.lean) | V17.130 |
 | Prop 17.8.15 | `ProperPolyfoldCoveringStructure.proposition_17_8_15` (Chapter17/ProperCoveringPolyfold.lean) | V17.140 |
 | Prop 17.8.16 | `ProperCoveringUniformizerConstruction.proposition_17_8_16` (Chapter17/ProperCoveringBranched.lean) | V17.142 |
@@ -1080,7 +1107,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V17.98 | §17.5, Definition 17.5.4, p. 813 (2017: Definition 17.16) | `GCT.IsManifoldTypeBranched`, `GCT.IsOrbifoldTypeBranched`, `GCT.PolyfoldConstruction.IsTameSubcategory` |
 | V17.100 | §17.5, Definition 17.5.6 and the text before it, pp. 814–815 (2017: Definition 17.17) | `GCT.PolyfoldConstruction.modelTangentTheta` |
 | V17.101 | §17.5, pp. 815–816 (2017: §17.4) | `GCT.PolyfoldConstruction.GrC`, `GCT.PolyfoldConstruction.grPushC`, `GCT.PolyfoldConstruction.tcMove` |
-| V17.108 | §17.6, pp. 819–820, (17.88) (2017: §17.5) | `GCT.PolyfoldConstruction.catFormsInfty` |
+| V17.108 | §17.6, pp. 819–820, (17.88) (2017: §17.5) | `GCT.PolyfoldConstruction.catFormsInfty`, `GCT.PolyfoldConstruction.catFormsInftyD` |
 | V17.117 | §17.7, pp. 824–825 (2017: §17.6) | `GroupoidalCategory.BanachFunctor`, `GroupoidalCategory.BanachFunctor.EMor`, `GroupoidalCategory.BanachFunctor.EObj`, `GroupoidalCategory.BanachFunctor.act` and 2 more |
 | V17.118 | §17.7, Definition 17.7.1, p. 825 (2017: Definition 17.22) | `GCT.VectorBundle` |
 | V17.119 | §17.7, Definition 17.7.2, p. 826 (2017: Definition 17.23) | `GCT.VectorBundle.StrongBundleUniformizer`, `GCT.VectorBundle.StrongBundleUniformizerData`, `GCT.VectorBundle.StrongBundleUniformizerData.functor` |
@@ -1166,7 +1193,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V19.108 | §19.8, Definition 19.8.19, p. 954 (new in the 2021 edition) | `IsProperStrongBundleCoveringSquare` |
 | V19.109 | §19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition) | `GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA`, `GroupoidalCategory.SquareUniformizerConstruction.natTopEA` |
 
-<details><summary>360 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>363 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * Chapter16/RaisedPolyfold.lean: `EPLocalization.Diagram.liftOne`, `EPLocalization.EPLoc.liftOneHom`
 * Chapter17/BranchedSubcategory.lean: `GroupoidStr.orbitSupp`
@@ -1192,6 +1219,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter17/TameBoundaryGerms.lean: `GCT.PolyfoldConstruction.bO`, `GCT.PolyfoldConstruction.germPush`, `GCT.PolyfoldConstruction.hdU`
 * Chapter17/TameBoundaryTransitionStructure.lean: `GCT.PolyfoldConstruction.GoodNbhd.instTopologicalSpaceFTr`
 * Chapter17/TameBoundaryUniformizer.lean: `GCT.PolyfoldConstruction.GoodNbhd.faceMor`, `GCT.PolyfoldConstruction.faceStabilizerAction`, `GCT.PolyfoldConstruction.isoOf`, `GCT.PolyfoldConstruction.ptTr`
+* Chapter17/TameOrientedTransfer.lean: `GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralDim1`, `GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralEff`, `GCT.PolyfoldConstruction.OrientedSubcategory.boundaryIntegralEffDim1`
 * Chapter17/TangentCategory.lean: `GCT.PolyfoldConstruction.TangentCatMor.comp`, `GCT.PolyfoldConstruction.TangentCatMor.inv`, `GCT.PolyfoldConstruction.TangentCatMor.tgt`, `GCT.PolyfoldConstruction.TangentCatObj.unitMor`, `GCT.PolyfoldConstruction.basePt`, `GCT.PolyfoldConstruction.refMorVec`, `GCT.PolyfoldConstruction.refQ`, `GCT.PolyfoldConstruction.refTr`
 * Chapter17/TangentModel.lean: `GCT.PolyfoldConstruction.modelTMorMk`, `GCT.PolyfoldConstruction.modelTObjMk`, `GCT.PolyfoldConstruction.tangentCover`, `GCT.PolyfoldConstruction.tangentModelMor`, `GCT.PolyfoldConstruction.tangentModelObj`, `GCT.PolyfoldConstruction.tangentModelOrbitEquiv`, `MPolyfold.sigmaTangentComp`, `MPolyfold.sigmaTangentElim`, `MPolyfold.sigmaTangentIdx`
 * Chapter17/TangentTransition.lean: `GCT.PolyfoldConstruction.TTrIndex`, `GCT.PolyfoldConstruction.chartMor`

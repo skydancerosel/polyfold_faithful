@@ -51,7 +51,7 @@ M-polyfold `X` with compact solution set.  Then `f^i` is an sc-Fredholm section 
   charts of `P¹`) is not stated: the tameness of the shifted charts is not proved (see
   `StrongBundleShift.lean`).
 * **`i ≥ 2`**: by iteration of `StrongBundle.shift` for every fixed `i` (`corollary_5_2_5_two` for
-  `i = 2`); a uniform family indexed by `i` is not formalized.
+  `i = 2`); the uniform family indexed by `i` is `corollary_5_2_5_family` (`ShiftFamily.lean`).
 -/
 
 open Set Filter Topology Function

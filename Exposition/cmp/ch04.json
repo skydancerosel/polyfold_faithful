@@ -1812,22 +1812,24 @@
     "statement": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$; proved in Appendix 4.5 (the earlier texts quote it from another paper, as a vector field on $X^1$)."
    },
    "lean": {
-    "statement": "`proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \\to TX$ (`lieBracket`) is given in every chart $\\psi$ by $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \\to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.",
+    "statement": "`proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \\to TX$ (`lieBracket`) is given in every chart $\\psi$ by $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \\to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$. In the text's form: the pull-back bundle $TX|X^2$ is a sub-M-polyfold of $X^2 \\times TX$ (`MPolyfold.isSubMPolyfold_tangentPullback`), and $x \\mapsto (x, [A, B](x))$ is an sc-smooth section of it (`proposition_4_4_5_section`; V4.76).",
     "decls": [
      "Chapter4/BookFormLieBracket · MPolyfold.proposition_4_4_5_book",
      "Chapter2/VectorFields · proposition_4_4_5_local",
      "Chapter2/VectorFields · isScSmooth_scDeriv_apply",
      "Chapter2/VectorFields · levelMap_shift_shift_eq",
-     "Chapter2/VectorFields · levelMap_comp_shift_eq"
+     "Chapter2/VectorFields · levelMap_comp_shift_eq",
+     "Chapter4/LieBracketBundle · MPolyfold.isSubMPolyfold_tangentPullback",
+     "Chapter4/LieBracketBundle · proposition_4_4_5_section"
     ]
    },
    "chips": [
     "the usual formula in every chart",
     "a map $X^2 \\to TX$, as V4.76",
-    "pull-back bundle: G.92"
+    "pull-back bundle: V4.76 (G.92 settled)"
    ],
    "diff": [
-    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion, as in V4.76, with which this row is merged; the pull-back bundle is not built (point G.92). Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, is V4.74, V4.75 and V4.77 (point G.38, closed). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, items 155, 166)."
+    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion, as in V4.76, with which this row is merged; the pull-back bundle $TX|X^2$ is also built, as a sub-M-polyfold of $X^2 \\times TX$ (`isSubMPolyfold_tangentPullback`), and $[A, B]$ is an sc-smooth section of it, the text's form (`proposition_4_4_5_section`; point G.92 settled). Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, is V4.74, V4.75 and V4.77 (point G.38, closed). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, items 155, 166)."
    ]
   },
   {
@@ -2105,7 +2107,7 @@
     "statement": "An sc-differential $k$-form on $X$ is an sc-smooth map $\\omega : \\oplus_kTX \\to \\mathbb R$ which is linear in each argument and skew-symmetric; these forms make up the vector space $\\Omega^k(X)$."
    },
    "lean": {
-    "statement": "`MPolyfold.IsScForm P k ω`: $\\omega$ is a family of alternating $k$-linear maps on the tangent spaces $T_xX$, $x \\in X^1$, whose representative `chartForm hφ ω` on $\\oplus_kTO$ ($\\omega_\\varphi(T\\varphi\\,\\alpha) = \\omega(x)(\\alpha)$, `chartForm_eq`) is sc-smooth in every chart $\\varphi$ of the maximal atlas. By `isScForm_of_cover` a covering family of charts suffices (chart change: `chartForm_transition`). `MPolyfold.scForms P k` is the vector space $\\Omega^k(X)$; witnesses: $0$ and the constant $0$-forms (`constForm_mem_scForms`). In a local model the notion is `IsRetractScForm`, and `IsScForm.isRetractScForm` says that the representatives are local forms.",
+    "statement": "`MPolyfold.IsScForm P k ω`: $\\omega$ is a family of alternating $k$-linear maps on the tangent spaces $T_xX$, $x \\in X^1$, whose representative `chartForm hφ ω` on $\\oplus_kTO$ ($\\omega_\\varphi(T\\varphi\\,\\alpha) = \\omega(x)(\\alpha)$, `chartForm_eq`) is sc-smooth in every chart $\\varphi$ of the maximal atlas. By `isScForm_of_cover` a covering family of charts suffices (chart change: `chartForm_transition`). `MPolyfold.scForms P k` is the vector space $\\Omega^k(X)$; witnesses: $0$ and the constant $0$-forms (`constForm_mem_scForms`), and a nonzero $1$-form: for the coordinate function $f(y) = y$ on the M-polyfold $\\mathbb R$ (`FormsWitness.coordForm`, `FormsWitness.coordForm_mem_scForms`), $df(x)(\\alpha) = h$ where $T\\varphi^1(\\alpha) = (\\varphi(x), h)$ (`FormsWitness.extD_coordForm_apply`), so $df \\in \\Omega^1(\\mathbb R^1)$ and $df \\ne 0$ (`FormsWitness.exists_extD_coordForm_ne_zero`). In a local model the notion is `IsRetractScForm`, and `IsScForm.isRetractScForm` says that the representatives are local forms.",
     "decls": [
      "Chapter4/ScForms · MPolyfold.IsScForm",
      "Chapter4/ScForms · MPolyfold.chartForm",
@@ -2115,16 +2117,20 @@
      "Chapter4/ScForms · MPolyfold.scForms",
      "Chapter4/ScForms · MPolyfold.constForm_mem_scForms",
      "Chapter4/ScForms · IsRetractScForm",
-     "Chapter4/ScForms · MPolyfold.IsScForm.isRetractScForm"
+     "Chapter4/ScForms · MPolyfold.IsScForm.isRetractScForm",
+     "Chapter5/ExteriorDerivativeWitness · FormsWitness.coordForm",
+     "Chapter5/ExteriorDerivativeWitness · FormsWitness.coordForm_mem_scForms",
+     "Chapter5/ExteriorDerivativeWitness · FormsWitness.extD_coordForm_apply",
+     "Chapter5/ExteriorDerivativeWitness · FormsWitness.exists_extD_coordForm_ne_zero"
     ]
    },
    "chips": [
     "read in the charts $\\oplus_kT\\varphi$",
-    "witness: constant $0$-forms",
+    "witness: constant $0$-forms, and $df \\ne 0$ in degree $1$",
     "point G.37 settled"
    ],
    "diff": [
-    "\"Linear in each argument and skew-symmetric\" is built into the type (Mathlib's alternating maps on $T_xX$, a linear space by V2.19). \"Sc-smooth on $\\oplus_kTX$\" is read in the charts $\\oplus_kT\\varphi$ (V4.80), for every chart of the maximal atlas; a covering family suffices, so the quantifier over all charts is not vacuous. There is no nonzero witness for $k \\ge 1$ (a natural one, $df$, is not built) (Findings, Chapter 4, item 168)."
+    "\"Linear in each argument and skew-symmetric\" is built into the type (Mathlib's alternating maps on $T_xX$, a linear space by V2.19). \"Sc-smooth on $\\oplus_kTX$\" is read in the charts $\\oplus_kT\\varphi$ (V4.80), for every chart of the maximal atlas; a covering family suffices, so the quantifier over all charts is not vacuous. A nonzero witness in degree $1$ is $df$ for $f(y) = y$ on $\\mathbb R$, a form on $\\mathbb R^1$ (`FormsWitness.exists_extD_coordForm_ne_zero`, `Chapter5/ExteriorDerivativeWitness.lean`) (Findings, Chapter 4, item 168)."
    ]
   },
   {
@@ -2949,7 +2955,7 @@
    "label": "§4.4, Proposition 4.4.5, p. 196, and Appendix 4.5, Lemma 4.5.1, p. 201 (2021)",
    "page": 201,
    "book": "(New in the 2021 edition.) Lemma 4.5.1: a local sc-diffeomorphism $\\varphi : X \\to X$ that relates two vector fields relates their brackets. Proposition 4.4.5: the bracket is an sc-smooth section of the pull-back $TX|X^2 \\to X^2$ of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$.",
-   "instead": "**Formalized** (V4.76, V4.77). Lemma 4.5.1 holds for every sc-smooth map $f : X \\to Y$ (V4.77) and for maps between open subsets ($U, U'$ Part I's open sub-M-polyfolds, `lemma_4_5_1_open`, `lemma_4_5_1_open_ambient`; the bracket is local, `lieBracket_restrictOpen`), in particular for a local sc-diffeomorphism between open subsets of $X$. The pull-back bundle $TX|X^2 = \\{(x, \\alpha) \\in X^2 \\times TX \\mid p(\\alpha) = x\\}$ is a sub-M-polyfold of $X^2 \\times TX$ (`isSubMPolyfold_tangentPullback`), with sc-smooth projection to $X^2$ and fibres $T_xX$; $[A, B]$ is an sc-smooth section of it (`proposition_4_4_5_section`), and Lemma 4.5.1 holds for the sections with the bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`). The text gives $TX|X^2$ no structure; the sub-M-polyfold structure is used (Findings, Chapter 4, item 163).",
+   "instead": "**Formalized** (V4.72, V4.76, V4.77). Lemma 4.5.1 holds for every sc-smooth map $f : X \\to Y$ (V4.77) and for maps between open subsets ($U, U'$ Part I's open sub-M-polyfolds, `lemma_4_5_1_open`, `lemma_4_5_1_open_ambient`; the bracket is local, `lieBracket_restrictOpen`), in particular for a local sc-diffeomorphism between open subsets of $X$. The pull-back bundle $TX|X^2 = \\{(x, \\alpha) \\in X^2 \\times TX \\mid p(\\alpha) = x\\}$ is a sub-M-polyfold of $X^2 \\times TX$ (`isSubMPolyfold_tangentPullback`), with sc-smooth projection to $X^2$ and fibres $T_xX$; $[A, B]$ is an sc-smooth section of it (`proposition_4_4_5_section`), and Lemma 4.5.1 holds for the sections with the bundle map $(f_2, Tf)$ (`lemma_4_5_1_section`). The text gives $TX|X^2$ no structure; the sub-M-polyfold structure is used (Findings, Chapter 4, item 163).",
    "decls": [
     "Chapter2/VectorFieldsGlobal · lemma_4_5_1",
     "Chapter2/VectorFieldsGlobal · proposition_4_4_5",
@@ -2961,6 +2967,7 @@
     "Chapter4/LieBracketBundle · lemma_4_5_1_section"
    ],
    "formalized": [
+    "V4.72",
     "V4.76",
     "V4.77"
    ]

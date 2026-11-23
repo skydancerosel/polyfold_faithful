@@ -75,7 +75,9 @@ effective Stokes**) `∮_Θ̂ d[ω] = ∮_{∂Θ̂} [ω]` (17.92).
   (Theorems 9.5.17, 9.5.18), which assume sc-smooth partitions of unity; Remark 9.5.19 leaves their
   removal open.  As in `Chapter16/StokesWithoutPartitions.lean` the theorems are stated from the
   ep-level assertion `EP.StokesWithoutPartitions` for the model (`_of_epStokes`), and with the
-  extra hypothesis that the model admits sc-smooth partitions of unity (`_hyp`).
+  extra hypothesis that the model admits sc-smooth partitions of unity (`_hyp`).  The ep-level
+  assertion holds for every ep-groupoid (`EP.stokesWithoutPartitions_all`), so the theorems hold as
+  printed: `Chapter16/StokesUnconditional.lean` (`theorem_17_6_7_all`, `theorem_17_6_10_all`, …).
 * (LUC) for `C` is Definition 17.1.22 (`S.IsLUC`), which gives (LUC) on every model.
 -/
 

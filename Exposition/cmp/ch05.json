@@ -306,7 +306,7 @@
   },
   {
    "id": "V5.13",
-   "title": "Corollary 5.2.5 (preprint 5.8): $f^i$ sc-Fredholm on $P^i$, with compact solution set",
+   "title": "Corollary 5.2.5 (preprint 5.8): $f^i$ sc-Fredholm on $P^i$, with compact solution set, for all $i$",
    "verdict": "stronger",
    "book": {
     "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
@@ -314,7 +314,7 @@
     "statement": "Over a tame $X$, if $f^{-1}(0)$ is compact, then $f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set."
    },
    "lean": {
-    "statement": "`corollary_5_2_5`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_2_5_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_2_5` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$. With tame germ data: `corollary_5_2_5_tame` (and `corollary_5_2_5_tame_two`).",
+    "statement": "`corollary_5_2_5`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_2_5_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$. `BundledStrongBundle.corollary_5_2_5_family`: for the family `BundledStrongBundle.lift` ($P^0 = P$, $P^{i+1} = (P^i)^1$, strong bundles bundled with their base and total space) and the sections `BundledStrongBundle.sectionLift` ($f^0 = f$, $f^{i+1} = (f^i)^1$), for every $i$, $f^i$ is an sc-Fredholm section of $P^i$ with compact solution set; for $i = 1, 2$ this statement is literally that of `corollary_5_2_5` and `corollary_5_2_5_two` (`BundledStrongBundle.corollary525_of_one_iff`, `BundledStrongBundle.corollary525_of_two_iff`, by `Iff.rfl`). `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$. With tame germ data: `corollary_5_2_5_tame` (and `corollary_5_2_5_tame_two`; for all $i$, `BundledStrongBundle.corollary_5_2_5_tame_family`).",
     "decls": [
      "Chapter5/Corollary58 · corollary_5_2_5",
      "Chapter5/Corollary58 · corollary_5_2_5_two",
@@ -322,16 +322,25 @@
      "Chapter5/Compactness · isCompact_solutionSet_level",
      "Chapter5/ShiftTameResearch · corollary_5_2_5_tame",
      "Chapter5/MainTheorems · corollary_5_2_5_2021def",
-     "Chapter5/ShiftTameResearch · corollary_5_2_5_tame_two"
+     "Chapter5/ShiftTameResearch · corollary_5_2_5_tame_two",
+     "Chapter5/ShiftFamily · BundledStrongBundle.lift",
+     "Chapter5/ShiftFamily · BundledStrongBundle.sectionLift",
+     "Chapter5/ShiftFamily · BundledStrongBundle.corollary_5_2_5_family",
+     "Chapter5/ShiftFamily · BundledStrongBundle.corollary_5_2_5_tame_family",
+     "Chapter5/ShiftFamily · BundledStrongBundle.corollary525_of_one_iff",
+     "Chapter5/ShiftFamily · BundledStrongBundle.corollary525_of_two_iff",
+     "Chapter5/ShiftFamily · BundledStrongBundle.range_baseIncl",
+     "Chapter5/ShiftFamily · BundledStrongBundle.range_totalIncl",
+     "Chapter5/ShiftFamily · BundledStrongBundle.solutionSet_sectionLift"
     ]
    },
    "chips": [
     "$P^i$ read as the iterate of $P^1$",
-    "$i = 1, 2$ stated, each $i$ by iteration",
+    "all $i$ on one family $P^i$",
     "tameness not used"
    ],
    "diff": [
-    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_2_5_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; point G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
+    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_2_5` is stated for every strong bundle, so it iterates: the strong bundles $P^i$, bundled with their base and total space, form one family indexed by $i$ (`BundledStrongBundle.lift`), and `BundledStrongBundle.corollary_5_2_5_family` states the corollary for all $i$ at once; for $i = 1, 2$ its statement is that of `corollary_5_2_5` and `corollary_5_2_5_two`. The text’s $X^i = X_i$, $Y^i = Y_{i,i}$, $f^i = f|_{X_i}$ hold through the inclusions of the underlying points, not as equalities of types: the ranges are $X_i$ and $Y_{i,i}$ (`BundledStrongBundle.range_baseIncl`, `BundledStrongBundle.range_totalIncl`; levels $(X^i)_m = X_{m+i}$, $(Y^i)_{m,k} = Y_{m+i,k+i}$ for $k \\le m + 1$), and the zeros of $f^i$ are those of $f$ in $X_i$ (`BundledStrongBundle.solutionSet_sectionLift`). The base of $P^2$ is $(X^1)^1$, whose topology is that of $X_2$ (V2.93; point G.6, closed); a homeomorphism $X^i \\cong X_i$ for general $i$ is not stated. The compact solution set is also proved on every level $X_i$ directly.",
     "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (Findings, Chapter 5, items 140–146; point G.41).",
     "With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_5_2_5_2021def` (`Chapter5/MainTheorems.lean`)."
    ]
@@ -553,7 +562,7 @@
     "statement": "$\\Gamma^{+,1}_U(P)$: the $s \\in \\Gamma^+(P)$ with $\\operatorname{supp}(s) \\subseteq U$ and $N(s(x)) \\le 1$ for all $x$, a metric space for $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$, not complete."
    },
    "lean": {
-    "statement": "`allowableSections N U`; `sectionDistAt`: $N(s(x) - s'(x))$ in the fibre $(Y_{0,1})_x$. `allowableDist`: $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$, finite ($\\rho \\le 2$); for an auxiliary norm $N$ a metric on $\\Gamma^{+,1}_U(P)$ (`allowableMetric`), with $\\rho(s, s') \\le \\varepsilon$ iff $N(s(x) - s'(x)) \\le \\varepsilon$ for all $x$. Not complete for the trivial bundle $\\mathbb R \\times \\mathbb R \\to \\mathbb R$ with $N(x, v) = |v|$ and $U = \\mathbb R$ (`TrivialBundle.not_completeSpace_allowableSections`); complete for $U = \\emptyset$, for every bundle and auxiliary norm (`completeSpace_allowableSections_empty`), and over a point with fibre $\\mathbb R^k$ (`TrivialBundle.completeSpace_allowableSections_point`).",
+    "statement": "`allowableSections N U`; `sectionDistAt`: $N(s(x) - s'(x))$ in the fibre $(Y_{0,1})_x$. `allowableDist`: $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$, finite ($\\rho \\le 2$); for an auxiliary norm $N$ a metric on $\\Gamma^{+,1}_U(P)$ (`allowableMetric`), with $\\rho(s, s') \\le \\varepsilon$ iff $N(s(x) - s'(x)) \\le \\varepsilon$ for all $x$. Not complete for the trivial bundle $\\mathbb R \\times \\mathbb R \\to \\mathbb R$ with $N(x, v) = |v|$ and $U = \\mathbb R$ (`TrivialBundle.not_completeSpace_allowableSections`); complete for $U = \\emptyset$, for every bundle and auxiliary norm (`completeSpace_allowableSections_empty`), and over a point with fibre $\\mathbb R^k$ (`TrivialBundle.completeSpace_allowableSections_point`). For every trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ with $N(x, v) = |v|$ and every $U$: not complete if $n, k \\ge 1$ and $U$ has an interior point (`TrivialBundle.not_completeSpace_allowableSections_of_mem_interior`), and complete if and only if $n = 0$, $k = 0$ or $U$ has empty interior (`TrivialBundle.completeSpace_allowableSections_iff`); in the last two cases the space is $\\{0\\}$ (`TrivialBundle.subsingleton_allowableSections_of_interior_eq_empty`, `TrivialBundle.subsingleton_allowableSections_fibre_zero`).",
     "decls": [
      "Chapter5/BumpFunctions · StrongBundle.allowableSections",
      "Chapter5/Transversality · StrongBundle.sectionDistAt",
@@ -562,16 +571,20 @@
      "Chapter5/AllowableSectionsMetric · StrongBundle.allowableDist_le_iff",
      "Chapter5/AllowableSectionsMetric · TrivialBundle.not_completeSpace_allowableSections",
      "Chapter5/AllowableSectionsMetric · StrongBundle.completeSpace_allowableSections_empty",
-     "Chapter5/AllowableSectionsMetric · TrivialBundle.completeSpace_allowableSections_point"
+     "Chapter5/AllowableSectionsMetric · TrivialBundle.completeSpace_allowableSections_point",
+     "Chapter5/AllowableSectionsIncomplete · TrivialBundle.not_completeSpace_allowableSections_of_mem_interior",
+     "Chapter5/AllowableSectionsIncomplete · TrivialBundle.completeSpace_allowableSections_iff",
+     "Chapter5/AllowableSectionsIncomplete · TrivialBundle.subsingleton_allowableSections_of_interior_eq_empty",
+     "Chapter5/AllowableSectionsIncomplete · TrivialBundle.subsingleton_allowableSections_fibre_zero"
     ]
    },
    "chips": [
     "“not complete” read as “in general”",
-    "not complete over $\\mathbb R$ (an example)",
+    "$\\mathbb R^n \\times \\mathbb R^k$: not complete iff $n, k \\ge 1$, $\\operatorname{int} U \\ne \\emptyset$",
     "complete for $U = \\emptyset$"
    ],
    "diff": [
-    "The text’s “$(\\Gamma^{+,1}_U(P), \\rho)$ is not complete” does not hold as we read it without a hypothesis: for $U = \\emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \\sqrt{x^2 + 1/(j+1)^2}/(2\\sqrt{1 + x^2}))$ form a $\\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; point G.42).",
+    "The text’s “$(\\Gamma^{+,1}_U(P), \\rho)$ is not complete” does not hold as we read it without a hypothesis: for $U = \\emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \\sqrt{x^2 + 1/(j+1)^2}/(2\\sqrt{1 + x^2}))$ form a $\\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. Multiplied by a smooth bump function at an interior point $a$ of $U$ (with $t = x_1 - a_1$ and the fibre vector $e_1$), the example works for every trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ with $n, k \\ge 1$; if $U$ has empty interior every allowable section of a trivial bundle vanishes. So for the trivial bundles the space is not complete exactly when $n, k \\ge 1$ and $U$ has an interior point; for an open $U$, the text’s setting, exactly when $U \\ne \\emptyset$, $n, k \\ge 1$. That non-completeness holds for a general strong bundle whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero is expected by the same mechanism (bump functions and sc⁺-sections nonzero at the point) and is not formalized (Findings, Chapter 5, items 150–154; point G.42).",
     "Only Definition 5.1.1 (1) (preprint 5.1) is used for the metric axioms (symmetry and subadditivity of the fibre norms, $N$ vanishing only at $0_x$); the density statements of Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18) are $\\rho(s, s') \\le \\varepsilon$ (`allowableDist_le_iff`; V5.30, V5.39). Hence “restated” (Findings, Chapter 5, item 47)."
    ]
   },
@@ -2429,12 +2442,13 @@
    "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
    "page": 173,
    "book": "$f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set (\"it is a priori clear that $f^i$ is sc-Fredholm\").",
-   "instead": "**Formalized, for each fixed $i$** (V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. The tame form of the conclusion is proved as well: the index raise of a tame strong bundle chart is tame (V5.13, V5.14). Not formalized: one statement for a family $P^i$ indexed by $i$ (Findings, Chapter 5, items 140–146). The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (point G.6, closed).",
+   "instead": "**Formalized** (V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and every $i$ at once on the family $P^{i+1} = (P^i)^1$ (`BundledStrongBundle.corollary_5_2_5_family`). The tame form of the conclusion is proved as well: the index raise of a tame strong bundle chart is tame (V5.13, V5.14). (Findings, Chapter 5, items 140–146, 181.) The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (point G.6, closed).",
    "decls": [
     "Chapter5/StrongBundleShift · StrongBundle.shift",
     "Chapter5/Corollary58 · IsFillingGerm.germ_shift",
     "Chapter5/Corollary58 · corollary_5_2_5",
-    "Chapter5/Corollary58 · corollary_5_2_5_two"
+    "Chapter5/Corollary58 · corollary_5_2_5_two",
+    "Chapter5/ShiftFamily · BundledStrongBundle.corollary_5_2_5_family"
    ],
    "formalized": [
     "V5.13",
@@ -2446,12 +2460,14 @@
    "label": "§5.3, preprint p. 174",
    "page": 174,
    "book": "$\\Gamma^{+,1}_U(P)$ \"becomes a metric space with respect to the uniform distance $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$. The metric space $(\\Gamma^{+,1}_U(P), \\rho)$ is not complete.\"",
-   "instead": "**Formalized, with an added hypothesis** (V5.21). $\\rho$ is a metric on $\\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\\rho \\le 2$); the density statements $N(s(x) - s'(x)) \\le \\varepsilon$ of V5.30, V5.39 are $\\rho(s, s') \\le \\varepsilon$. “Not complete” is proved for the trivial bundle $\\mathbb R \\times \\mathbb R \\to \\mathbb R$ ($N(x, v) = |v|$, $U = \\mathbb R$) and does not hold as we read it without a hypothesis: the space is complete for $U = \\emptyset$ and over a point with finite-dimensional fibre. Not formalized: a general sufficient condition for non-completeness, and the identification of the metric completion with the sections of Remark 5.3.4 (preprint 5.12) (V5.22) (Findings, Chapter 5, items 150–153).",
+   "instead": "**Formalized, with an added hypothesis** (V5.21). $\\rho$ is a metric on $\\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\\rho \\le 2$); the density statements $N(s(x) - s'(x)) \\le \\varepsilon$ of V5.30, V5.39 are $\\rho(s, s') \\le \\varepsilon$. “Not complete” does not hold as we read it without a hypothesis: the space is complete for $U = \\emptyset$ and over a point with finite-dimensional fibre. For the trivial bundles $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ ($N(x, v) = |v|$) it is not complete if and only if $n, k \\ge 1$ and $U$ has an interior point (`TrivialBundle.completeSpace_allowableSections_iff`), so for an open $U$ exactly when $U \\ne \\emptyset$. Not formalized: non-completeness for general strong bundles over M-polyfolds, and the identification of the metric completion with the sections of Remark 5.3.4 (preprint 5.12) (V5.22) (Findings, Chapter 5, items 150–154).",
    "decls": [
     "Chapter5/AllowableSectionsMetric · StrongBundle.allowableMetric",
     "Chapter5/AllowableSectionsMetric · TrivialBundle.not_completeSpace_allowableSections",
     "Chapter5/AllowableSectionsMetric · StrongBundle.completeSpace_allowableSections_empty",
-    "Chapter5/AllowableSectionsMetric · TrivialBundle.completeSpace_allowableSections_point"
+    "Chapter5/AllowableSectionsMetric · TrivialBundle.completeSpace_allowableSections_point",
+    "Chapter5/AllowableSectionsIncomplete · TrivialBundle.not_completeSpace_allowableSections_of_mem_interior",
+    "Chapter5/AllowableSectionsIncomplete · TrivialBundle.completeSpace_allowableSections_iff"
    ],
    "formalized": [
     "V5.21"

@@ -828,7 +828,7 @@
     "statement": "For oriented tame branched ep⁺-subgroupoids, $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$ and $\\partial(f^*\\hat\\Theta') = f^*(\\partial\\hat\\Theta')$; the proof is left to the reader."
    },
    "lean": {
-    "statement": "For a generalized isomorphism $f$ itself: $f_*(\\partial\\Theta) = \\partial(f_*\\Theta)$ and $f_*\\hat T_{\\partial\\Theta} = \\hat T_{\\partial(f_*\\Theta)}$, and likewise for $f^*$, with $\\hat T_{\\partial\\Theta}$ the intrinsic `boundaryOrientation` of Definition 9.3.10 (V9.38), for every section $\\hat T_\\Theta$ of $\\widehat{\\mathrm{Gr}}$ and no boundary-transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`; they take no hypothesis on $\\Theta$: the independence of tangent sums is discharged by `hasIndependentTangentSums`, V9.14); also for a representative diagram (`Diagram.pushSection_boundaryOrientation`, `Diagram.pullSection_boundaryOrientation`). sc-diffeomorphisms and equivalences move the boundary operation (`boundaryOp_map_tangentMapOn`, `EpFunctor.isReducedBoundaryTransfer_tangentMor`). With Chapter 9's `boundaryLift boundaryOp`: for oriented tame $\\hat\\Theta$ with $f_*\\hat\\Theta$ tame (`EPLoc.theorem_11_3_9_push_boundaryOp`, `EPLoc.theorem_11_3_9_pull_boundaryOp`; witness on Example 9.3.5; these two take the independence of tangent sums as a hypothesis, used for Theorem 11.3.5, which holds for every $\\Theta$ by `hasIndependentTangentSums`). The form for a representative with boundary operations that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity), is kept (`theorem_11_3_9_push`, `theorem_11_3_9_pull`); `IsReducedBoundaryTransfer.isBoundaryTransfer` gives that hypothesis for `boundaryOp` when $f$ carries tangent sets of tame submanifolds to such (`CarriesTameTangents`, witness `carriesTameTangents_id`).",
+    "statement": "For a generalized isomorphism $f$ itself: $f_*(\\partial\\Theta) = \\partial(f_*\\Theta)$ and $f_*\\hat T_{\\partial\\Theta} = \\hat T_{\\partial(f_*\\Theta)}$, and likewise for $f^*$, with $\\hat T_{\\partial\\Theta}$ the intrinsic `boundaryOrientation` of Definition 9.3.10 (V9.38), for every section $\\hat T_\\Theta$ of $\\widehat{\\mathrm{Gr}}$ and no boundary-transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`; they take no hypothesis on $\\Theta$: the independence of tangent sums is discharged by `hasIndependentTangentSums`, V9.14); also for a representative diagram (`Diagram.pushSection_boundaryOrientation`, `Diagram.pullSection_boundaryOrientation`). sc-diffeomorphisms and equivalences move the boundary operation (`boundaryOp_map_tangentMapOn`, `EpFunctor.isReducedBoundaryTransfer_tangentMor`). With Chapter 9's `boundaryLift boundaryOp`: for oriented tame $\\hat\\Theta$ with $f_*\\hat\\Theta$ tame (`EPLoc.theorem_11_3_9_push_boundaryOp`, `EPLoc.theorem_11_3_9_pull_boundaryOp`; witness on Example 9.3.5; these two take the independence of tangent sums as a hypothesis, used for Theorem 11.3.5, which holds for every $\\Theta$ by `hasIndependentTangentSums`). The form for a representative with boundary operations that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity), is kept (`theorem_11_3_9_push`, `theorem_11_3_9_pull`); `IsReducedBoundaryTransfer.isBoundaryTransfer` gives that hypothesis for `boundaryOp` when $f$ carries tangent sets of tame submanifolds to such (`CarriesTameTangents`, witness `carriesTameTangents_id`). In the text's pair form: $\\hat\\Theta = (\\Theta, \\hat T_\\Theta)$ and $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$, the abbreviation after Definition 9.3.10, are `OrientedBranched.toPair` and `OrientedBranched.boundary`, with values in `OrientedPair` and the componentwise `OrientedPair.push`, `OrientedPair.pull` of Definition 11.3.6 (`toPair_push`, `toPair_pull`); `OrientedBranched.theorem_11_3_9_push_pair`: $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$, and `OrientedBranched.theorem_11_3_9_pull_pair`: $\\partial(f^*\\hat\\Theta') = f^*(\\partial\\hat\\Theta')$, for every oriented branched ep⁺-subgroupoid, tameness not used. For oriented tame $\\hat\\Theta$ (`OrientedTameBranched`, Definition 9.3.6): `OrientedTameBranched.theorem_11_3_9_push`, `OrientedTameBranched.theorem_11_3_9_pull`, with $\\hat T_{\\partial\\Theta}$ Chapter 9's boundary lift of `boundaryOp` on $X_\\infty$ (`OrientedTameBranched.boundary_snd_eq_boundaryLift`). Witness: `example935OrientedTame` (Example 9.3.5 on $\\mathbb R^2$, oriented and tame) and `theorem_11_3_9_push_pair_example935` (along the identity).",
     "decls": [
      "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation",
      "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation",
@@ -847,16 +847,31 @@
      "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.pushSection_boundaryLift",
      "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.pullSection_boundaryLift",
      "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push",
-     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_pull"
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_pull",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedPair",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedPair.push",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedPair.pull",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.toPair",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.boundary",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.toPair_push",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.toPair_pull",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.theorem_11_3_9_push_pair",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.theorem_11_3_9_pull_pair",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedTameBranched",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedTameBranched.boundary_snd_eq_boundaryLift",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedTameBranched.theorem_11_3_9_push",
+     "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedTameBranched.theorem_11_3_9_pull",
+     "Chapter11/OrientedBoundaryPair · EpGroupoid.Examples.example935OrientedTame",
+     "Chapter11/OrientedBoundaryPair · EpGroupoid.Examples.theorem_11_3_9_push_pair_example935"
     ]
    },
    "chips": [
-    "componentwise",
+    "pairs $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$, as the text abbreviates",
     "intrinsic boundary orientation: no hyp.",
     "`boundaryOp`: $f_*\\hat\\Theta$ tame assumed"
    ],
    "diff": [
-    "With the boundary operation built from the submanifolds (V9.36), Theorem 11.3.9 holds for the generalized isomorphism itself and the intrinsic boundary orientation with no transfer hypothesis (`Chapter11/BoundaryOrientationEquiv.lean`; point G.130 settled). $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$ as an oriented branched ep⁺-subgroupoid is not formalized, so the theorem is stated componentwise. For `boundaryLift boundaryOp` the tameness of $f_*\\hat\\Theta$ is a hypothesis, since that sc-diffeomorphisms carry tame submanifolds to tame ones is not formalized (Findings, Chapter 11, item 45)."
+    "With the boundary operation built from the submanifolds (V9.36), Theorem 11.3.9 holds for the generalized isomorphism itself and the intrinsic boundary orientation with no transfer hypothesis (`Chapter11/BoundaryOrientationEquiv.lean`; point G.130 settled). $\\partial\\hat\\Theta$ is the pair $(\\partial\\Theta, \\hat T_{\\partial\\Theta})$, as the text abbreviates it after Definition 9.3.10 (p. 428), and the theorem is stated for such pairs (`OrientedBranched.theorem_11_3_9_push_pair`, `OrientedBranched.theorem_11_3_9_pull_pair`, `Chapter11/OrientedBoundaryPair.lean`) and componentwise; that $\\partial\\Theta$ is itself a branched ep⁺-subgroupoid with orientation $\\hat T_{\\partial\\Theta}$, which the text does not state, is not formalized. The witness on Example 9.3.5 is along the identity (weak). For `boundaryLift boundaryOp` the tameness of $f_*\\hat\\Theta$ is a hypothesis, since that sc-diffeomorphisms carry tame submanifolds to tame ones is not formalized (Findings, Chapter 11, item 45)."
    ]
   },
   {
@@ -1674,7 +1689,7 @@
    "label": "§11.3, Theorem 11.3.9, p. 542 (2017: Theorem 11.7, p. 395)",
    "page": 542,
    "book": "The boundary orientation $\\hat T_{\\partial\\Theta}$ of Definition 9.3.10 is carried by generalized isomorphisms: $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$, independently of the representative.",
-   "instead": "**Formalized** (V11.25), for the intrinsic boundary orientation. sc-diffeomorphisms preserve $T^R_xX$, $C_xX$, the reduced codimension and the boundary operation of Definition 9.3.8 (`boundaryOp_map_tangentMapOn`), and so do equivalences and the fibre inverses (`EpFunctor.isReducedBoundaryTransfer_tangentMor`, `EpFunctor.isReducedBoundaryTransfer_fibreInv`); \\\"$d_M(x)$ is preserved\\\" is read for the reduced codimension of $T_xM$, which for tame $M$ is $d_M(x)$. So Theorem 11.3.9 holds for the generalized isomorphism itself, with $\\hat T_{\\partial\\Theta}$ = `boundaryOrientation` (Definition 9.3.10, V9.38), with no transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`). For Chapter 9's `boundaryLift boundaryOp` it takes the tameness of $f_*\\hat\\Theta$ (`EPLoc.theorem_11_3_9_push_boundaryOp`), and `IsBoundaryTransfer` for `boundaryOp` takes `CarriesTameTangents`, since the restriction of sc-diffeomorphisms to tame sub-M-polyfolds is not formalized (Findings, Chapter 11, item 45).",
+   "instead": "**Formalized** (V11.25), for the intrinsic boundary orientation. sc-diffeomorphisms preserve $T^R_xX$, $C_xX$, the reduced codimension and the boundary operation of Definition 9.3.8 (`boundaryOp_map_tangentMapOn`), and so do equivalences and the fibre inverses (`EpFunctor.isReducedBoundaryTransfer_tangentMor`, `EpFunctor.isReducedBoundaryTransfer_fibreInv`); \\\"$d_M(x)$ is preserved\\\" is read for the reduced codimension of $T_xM$, which for tame $M$ is $d_M(x)$. So Theorem 11.3.9 holds for the generalized isomorphism itself, with $\\hat T_{\\partial\\Theta}$ = `boundaryOrientation` (Definition 9.3.10, V9.38), with no transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`), and in the text's form for the pairs $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$ (`OrientedBranched.theorem_11_3_9_push_pair`, `OrientedBranched.theorem_11_3_9_pull_pair`). For Chapter 9's `boundaryLift boundaryOp` it takes the tameness of $f_*\\hat\\Theta$ (`EPLoc.theorem_11_3_9_push_boundaryOp`), and `IsBoundaryTransfer` for `boundaryOp` takes `CarriesTameTangents`, since the restriction of sc-diffeomorphisms to tame sub-M-polyfolds is not formalized (Findings, Chapter 11, item 45).",
    "decls": [
     "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push",
@@ -1682,7 +1697,9 @@
     "Chapter11/BoundaryOrientationEquiv · EpFunctor.isReducedBoundaryTransfer_tangentMor",
     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation",
     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation",
-    "Chapter11/BoundaryOrientationEquiv · MPolyfold.CarriesTameTangents"
+    "Chapter11/BoundaryOrientationEquiv · MPolyfold.CarriesTameTangents",
+    "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.theorem_11_3_9_push_pair",
+    "Chapter11/OrientedBoundaryPair · EPLocalization.OrientedBranched.theorem_11_3_9_pull_pair"
    ],
    "formalized": [
     "V11.25"

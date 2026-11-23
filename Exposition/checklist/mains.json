@@ -290,12 +290,32 @@
      "Polyfold.EP.theorem_9_5_17_dim1"
     ],
     [
+     "Thm 9.5.17",
+     "Polyfold.EP.theorem_9_5_17_all"
+    ],
+    [
+     "Thm 9.5.17",
+     "Polyfold.EP.theorem_9_5_17_dim1_all"
+    ],
+    [
      "Thm 9.5.18",
      "Polyfold.EP.theorem_9_5_18"
     ],
     [
      "Thm 9.5.18",
      "Polyfold.EP.theorem_9_5_18_dim1_isLUC"
+    ],
+    [
+     "Thm 9.5.18",
+     "Polyfold.EP.theorem_9_5_18_all"
+    ],
+    [
+     "Thm 9.5.18",
+     "Polyfold.EP.theorem_9_5_18_dim1_all"
+    ],
+    [
+     "Rem 9.5.19",
+     "Polyfold.EP.stokesWithoutPartitions_all"
     ],
     [
      "Rem 9.5.20",
@@ -616,6 +636,10 @@
      "Polyfold.SBLocalization.theorem_15_4_3"
     ],
     [
+     "Thm 15.4.3",
+     "Polyfold.SBLocalization.theorem_15_4_3_all"
+    ],
+    [
      "Cor 15.4.4",
      "Polyfold.SBLocalization.corollary_15_4_4_oriented_collar"
     ],
@@ -630,6 +654,30 @@
     [
      "Cor 15.4.4",
      "Polyfold.SBLocalization.corollary_15_4_4_index_zero_wellDefined"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_oriented_collar_all"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_index_zero_oriented_all"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_wellDefined_all"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.corollary_15_4_4_index_zero_wellDefined_all"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.integral_eq_of_isTransversalPerturbation"
+    ],
+    [
+     "Cor 15.4.4",
+     "Polyfold.SBLocalization.pointCount_eq_of_isTransversalPerturbation"
     ],
     [
      "Prop 16.1.4",
@@ -688,6 +736,10 @@
      "Polyfold.PolyfoldClass.OrientedRep.theorem_16_4_6_of_epStokes"
     ],
     [
+     "Thm 16.4.6",
+     "Polyfold.PolyfoldClass.OrientedRep.theorem_16_4_6_all"
+    ],
+    [
      "Thm 16.5.7",
      "Polyfold.StrongPolyfoldBundle.theorem_16_5_7"
     ],
@@ -726,6 +778,38 @@
     [
      "Thm 16.6.6",
      "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_canonical_solutionSet"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_all_admissible"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_all_admissible_wellDefined"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_wellDefined"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_all_admissible_unconditional"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_wellDefined_unconditional"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_unconditional"
+    ],
+    [
+     "Thm 16.6.6",
+     "Polyfold.StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined_unconditional"
     ]
    ]
   },
@@ -886,6 +970,14 @@
      "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6_dim1_book"
     ],
     [
+     "Thm 17.6.7",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_book_all"
+    ],
+    [
+     "Thm 17.6.7",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_book_all"
+    ],
+    [
      "Thm 17.6.8",
      "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_8"
     ],
@@ -908,6 +1000,14 @@
     [
      "Thm 17.6.9",
      "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_9_dim1_book"
+    ],
+    [
+     "Thm 17.6.10",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book_all"
+    ],
+    [
+     "Thm 17.6.10",
+     "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_book_all"
     ],
     [
      "Prop 17.8.6",

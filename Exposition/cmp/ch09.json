@@ -2445,11 +2445,13 @@
     "text's hypotheses only",
     "all $n \\ge 1$",
     "witnesses: hemisphere, half-circle",
-    "Remark 9.5.20: V9.70"
+    "Remark 9.5.20: V9.70",
+    "no partitions of unity: V9.71"
    ],
    "diff": [
     "No hypothesis beyond the text's: tameness is read as in Theorem 9.5.4 (an oriented tame structure at each point, `hloc`, G.107), and the class condition `hcovS` of the forms with a class hypothesis is derived (`EP.hcovS_of_loc`). The integrals of §9.5 are realized on one graph chart (interior sheets) and on countably many graph charts (boundary sheets); for $n = 1$ the boundary measure is the signed sum of the values of $\\omega$ at the oriented boundary points (`_dim1`).",
-    "Remark 9.5.20 is V9.70: the M-polyfold $X$ with $\\partial X = \\{(\\pm1,0)\\}$, $\\Theta$ with its orientation, $\\oint_{\\hat\\Theta}df = \\frac13(\\phi(1)-\\phi(-1))$, the boundary integral with the weights of $X$ in agreement with Stokes' theorem, and the integral read in the ep-groupoid $\\partial X$, $\\phi(1)-\\phi(-1)$ (point G.110 settled; Findings, Chapter 9, items 85, 117, 119–121)."
+    "Remark 9.5.20 is V9.70: the M-polyfold $X$ with $\\partial X = \\{(\\pm1,0)\\}$, $\\Theta$ with its orientation, $\\oint_{\\hat\\Theta}df = \\frac13(\\phi(1)-\\phi(-1))$, the boundary integral with the weights of $X$ in agreement with Stokes' theorem, and the integral read in the ep-groupoid $\\partial X$, $\\phi(1)-\\phi(-1)$ (point G.110 settled; Findings, Chapter 9, items 85, 117, 119–121).",
+    "Without `hPU`: the same statements hold for every ep-groupoid, with partitions of unity near $\\mathrm{supp}\\,\\Theta$ only (V9.71, Remark 9.5.19; point G.153 settled; Findings, Chapter 9, item 122)."
    ]
   },
   {
@@ -2549,6 +2551,83 @@
    "diff": [
     "The text says only that $X$ can be given an M-polyfold structure; the structure is our choice, one chart into a retract in $\\mathbb R^2\\oplus c_0\\oplus c_0$ (the rank-one family of Remark 4.3 over the quarter circle). $f(t,z) = \\phi(t)$ is realized as $\\psi\\circ u$ for a smooth $\\psi : \\mathbb R \\to \\mathbb R$ (`DimensionJump.exists_contDiff_comp_eq`), $u$ a coordinate on $M$; every $\\phi$ smooth near $[-1,1]$ has this form. The integrals are computed from the local formula of Theorem 9.5.5 with two oriented tame structures on invariant open sets and two invariant cut-offs, without sc-smooth partitions of unity of $\\mathbb Z_3\\ltimes X$. The integral \"in $\\partial X$\" is read as the 0-dimensional effective branched integral of $\\partial\\hat\\Theta$ in the ep-groupoid $\\partial X$, the case $n = 0$ of Definition 9.5.6 built for it (Findings, Chapter 9, items 120, 121).",
     "The claims of the remark hold as we read them; nothing is found not to hold. Not degenerate: $\\partial S = \\partial X \\ne \\emptyset$ with both boundary signs, $\\#G^{\\rm eff} = 3$ on $M$ but $1$ in $\\partial X$, infinite-dimensional ends of $X$, and the values $-4/3 \\ne -4$ (`DimensionJump.remark_9_5_20_nondegenerate`, `DimensionJump.remark_9_5_20_two_readings_ne`); every hypothesis of the integrals is discharged by a named theorem."
+   ]
+  },
+  {
+   "id": "V9.71",
+   "title": "Remark 9.5.19: Stokes without partitions of unity",
+   "verdict": "stronger",
+   "book": {
+    "label": "§9.5, Remark 9.5.19, p. 451 (2017: the sentence after Theorem 9.4, p. 328)",
+    "page": 451,
+    "statement": "The hypothesis of Theorems 9.5.17 and 9.5.18 that $X$ admits sc-smooth partitions of unity is very likely not needed; it enters through the standard proof of Stokes' theorem. The modification is left to the reader: the measures can be defined locally from the local branching structures, and partitions of unity defined on $\\mathrm{supp}(\\Theta)$ should suffice."
+   },
+   "lean": {
+    "statement": "`EP.theorem_9_5_17_all (hm : 0 < m) hΘ hcpt hT hloc ω`: for every ep-groupoid $X$, $\\Theta$ branched and compact with an orientation $T$, `hloc` and $\\omega \\in \\Omega^m_{ep,\\infty}(X)$, $m \\ge 1$: `tameBranchedIntegral` $(d\\omega)$ = `EP.boundaryMeasure` $\\omega$ (univ), $\\int_{\\hat\\Theta} d\\omega = \\mu^{\\partial\\hat\\Theta}_\\omega(\\partial S)$; `EP.theorem_9_5_18_all (hm) (hLUC : X.IsLUC) …` with `tameBranchedIntegralEff` and `EP.boundaryMeasureEff`; $n = 1$: `EP.theorem_9_5_17_dim1_all hΘ hcpt hT hloc ω` and `EP.theorem_9_5_18_dim1_all` (its `hloc` with LUC on the $U(x)$, as `EP.theorem_9_5_18_dim1`). Together `EP.stokesWithoutPartitions_all (A : EP) : A.StokesWithoutPartitions`; for polyfolds `PolyfoldClass.hasEpStokes_all`. The route: partitions of unity near $\\mathrm{supp}\\,\\Theta$, `EP.hasLocalPartitions : A.HasLocalPartitions` (a saturated open $W \\supseteq \\mathrm{supp}\\,\\Theta$, $\\beta_k$ sc-smooth on $W$ and orbit-constant with $\\sum\\beta_k = 1$ on $W$ and supports in $N(x_k)^*$, a continuous orbit-constant cut-off $\\chi$ equal to $1$ near $\\mathrm{supp}\\,\\Theta$ with support in $W$), built from Hahn–Banach bumps in a chart (`LocalPart.exists_contDiff_separating`, `LocalPart.exists_local_bump`), averaged over the isotropy (`LocalPart.exists_average`) and extended by invariance (`LocalPart.exists_orbit_bump`), with `LocalPart.exists_cutoff`; the pieces $\\beta_k\\omega$, $d(\\beta_k\\omega)$ as forms of $X|W$ with the values $\\chi\\cdot a$ (`EP.subEval`, `EP.LocalFormSystem`, `EP.LocalPartition.nonempty_localFormSystem`); the display on p. 451 with them (`EP.stokes_of_localFormSystems`, `EP.stokesEff_of_localFormSystems`), the measures of the two spaces of forms compared by `EpGroupoid.measure_univ_eq_cross` and `EpGroupoid.boundaryMeasure_univ_eq_cross`; $n = 1$ with functions near $\\mathrm{supp}\\,\\Theta$ (`EP.LocalFormSystemDimOne`, `EP.stokes_of_localFormSystemsDimOne`, `EP.stokesEff_of_localFormSystemsDimOne`).",
+    "decls": [
+     "Chapter9/StokesLocalPartitions · EP.theorem_9_5_17_all",
+     "Chapter9/StokesLocalPartitions · EP.theorem_9_5_18_all",
+     "Chapter9/StokesLocalPartitionsDimOne · EP.theorem_9_5_17_dim1_all",
+     "Chapter9/StokesLocalPartitionsDimOne · EP.theorem_9_5_18_dim1_all",
+     "Chapter16/StokesUnconditional · EP.stokesWithoutPartitions_all",
+     "Chapter16/StokesUnconditional · PolyfoldClass.hasEpStokes_all",
+     "Chapter9/LocalPartitions · EP.LocalPartition",
+     "Chapter9/LocalPartitions · EP.HasLocalPartitions",
+     "Chapter9/LocalPartitionsBump · LocalPart.exists_contDiff_separating",
+     "Chapter9/LocalPartitionsBump · LocalPart.isScSmoothOn_chart_contDiff",
+     "Chapter9/LocalPartitionsBump · LocalPart.exists_local_bump",
+     "Chapter9/LocalPartitionsExtension · LocalPart.exists_isCompact_nhds_supp",
+     "Chapter9/LocalPartitionsExtension · LocalPart.exists_average",
+     "Chapter9/LocalPartitionsExtension · LocalPart.isScSmoothOn_orbitExtension",
+     "Chapter9/LocalPartitionsExtension · LocalPart.exists_orbit_bump",
+     "Chapter9/LocalPartitionsExtension · LocalPart.exists_orbit_cutoff",
+     "Chapter9/LocalPartitionsConstruction · LocalPart.exists_cutoff",
+     "Chapter9/LocalPartitionsConstruction · EP.hasLocalPartitions",
+     "Chapter9/LocalFormsSub · EP.subRetract",
+     "Chapter9/LocalFormsSub · EP.isScDiffeoOn_subRetract",
+     "Chapter9/LocalFormsSub · EP.subEval",
+     "Chapter9/LocalFormsSub · EP.subEval_pullback",
+     "Chapter9/LocalFormsPush · EpGroupoid.FormEval.pushCut",
+     "Chapter9/LocalFormsStokes · EP.subSmul",
+     "Chapter9/LocalFormsStokes · EP.subEval_stokes_sheet",
+     "Chapter9/LocalFormsSheets · EP.integ_d_smul_eq_msInteg_sheet",
+     "Chapter9/LocalFormSystem · EP.LocalFormSystem",
+     "Chapter9/LocalFormsSystem · EP.LocalPartition.localFormSystem",
+     "Chapter9/LocalFormsSystem · EP.LocalPartition.nonempty_localFormSystem",
+     "Chapter9/StokesLocalFormsStructures · EpGroupoid.IsChartBounded",
+     "Chapter9/StokesLocalFormsStructures · EpGroupoid.IsChartBounded.mem_sheets",
+     "Chapter9/StokesLocalFormsStructures · EpGroupoid.IsBoundedBoundary",
+     "Chapter9/StokesLocalFormsStructures · EpGroupoid.OrientedTameStructure.exists_restrict_all",
+     "Chapter9/StokesLocalFormsCompare · signedMeasure_univ_eq_of_local",
+     "Chapter9/StokesLocalFormsCompare · EpGroupoid.measure_univ_eq_cross",
+     "Chapter9/StokesLocalFormsCompare · EpGroupoid.boundaryMeasure_univ_eq_cross",
+     "Chapter9/StokesLocalForms · EP.stokes_of_localFormSystem",
+     "Chapter9/StokesLocalForms · EP.stokes_of_localFormSystems",
+     "Chapter9/StokesLocalForms · EP.stokesEff_of_localFormSystems",
+     "Chapter9/LocalFormSystemDimOne · EP.LocalFormSystemDimOne",
+     "Chapter9/LocalFormSystemDimOne · EP.LocalFormSystemDimOne.pointIntegration",
+     "Chapter9/LocalFormsDimOneSub · EP.subVal0",
+     "Chapter9/LocalFormsDimOneSub · EP.subEval_stokes_sheet_dim1",
+     "Chapter9/LocalFormsDimOneSheets · EP.integ_d_smul_eq_pointInteg_sheet",
+     "Chapter9/LocalFormsDimOneSystem · EP.LocalPartition.localFormSystemDimOne",
+     "Chapter9/LocalFormsDimOneSystem · EP.LocalPartition.nonempty_localFormSystemDimOne",
+     "Chapter9/StokesLocalFormsDimOne · EpGroupoid.OrientedTameStructure.exists_restrict_all_dim1",
+     "Chapter9/StokesLocalFormsDimOne · EpGroupoid.boundaryMeasure_univ_eq_crossI",
+     "Chapter9/StokesLocalFormsDimOne · EP.stokes_of_localFormSystemDimOne",
+     "Chapter9/StokesLocalFormsDimOne · EP.stokes_of_localFormSystemsDimOne",
+     "Chapter9/StokesLocalFormsDimOne · EP.stokesEff_of_localFormSystemsDimOne"
+    ]
+   },
+   "chips": [
+    "every ep-groupoid, no partitions of unity",
+    "all $n \\ge 1$, effective form under LUC",
+    "partitions of unity near supp Θ only",
+    "bumps from continuous linear functionals",
+    "forms on $X|W$ with a cut-off $\\chi$"
+   ],
+   "diff": [
+    "Stronger than Theorems 9.5.17 and 9.5.18 as printed: the hypothesis that $X$ admits sc-smooth partitions of unity is removed, as the remark expects; no hypothesis is added, so the witnesses of V9.68 (the closed hemisphere, also with LUC, and the closed half-circle) apply. The route is the remark's: the measures are defined locally from the branching structures, and the partitions of unity are needed near $\\mathrm{supp}\\,\\Theta$ only.",
+    "Since a general sc-Banach space need not carry sc-smooth functions of bounded support, the $\\beta_k$ are sc-smooth on a saturated open neighbourhood $W$ of the compact $\\mathrm{supp}\\,\\Theta$, not on $X$: in a chart they are products of smooth functions of finitely many continuous linear functionals, restricted to a small open set. The pieces $\\beta_k\\omega$ are then forms of $X|W$, given values on all tangent vectors of $X$ by the continuous cut-off $\\chi$; where $\\chi = 1$, in particular on $\\mathrm{supp}\\,\\Theta$, they have the values of the forms of $X$, and the first and last equalities of the display compare the measures of the two spaces of forms. Consequences: Theorem 16.4.6 and Theorems 17.6.7, 17.6.10 as printed (V17.113, V17.116) (point G.153 settled; Findings, Chapter 9, item 122)."
    ]
   }
  ],

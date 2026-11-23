@@ -17,7 +17,10 @@ leaves the modification to the reader.  As we read it, Theorem 16.4.6 without pa
 therefore rests on the point that Remark 9.5.19 leaves open; what the text proves is the case
 with partitions of unity (`PolyfoldClass.OrientedRep.theorem_16_4_6_hyp` and its three companions).
 
-This file states the open point and derives the printed theorem from it.
+This file states the point and derives the printed theorem from it.  The point itself is proved
+for every ep-groupoid in `Chapter16/StokesUnconditional.lean` (`EP.stokesWithoutPartitions_all`),
+along the route the remark sketches: partitions of unity on a neighbourhood of `supp Θ` only
+(`Chapter9/LocalPartitions*.lean`, `Chapter9/StokesLocalPartitions*.lean`).
 
 * `EP.StokesWithoutPartitions A`: the assertion of Remark 9.5.19 for one ep-groupoid, i.e.
   Theorems 9.5.17, 9.5.18 (`m ≥ 1`) and their `n = 1` forms for `X` without partitions of unity

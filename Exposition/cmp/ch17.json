@@ -1685,29 +1685,44 @@
   },
   {
    "id": "V17.61",
-   "title": "The restricted uniformizers $\\Psi_A : G \\ltimes A_\\Psi \\to A$ and the GCT $A$ (pp. 785–786)",
+   "title": "The restricted uniformizers $\\Psi_A : G \\ltimes A_\\Psi \\to A$, the GCT $A$, the level-wise embeddings and local faces (pp. 785–786)",
    "verdict": "same",
    "book": {
     "label": "§17.3, pp. 785–786 (2017: §17.3)",
     "page": 785,
-    "statement": "$\\Psi_A$ is injective on objects and fully faithful; $|\\Psi_A|$ is a homeomorphism onto an open set and the vertical maps $|G \\ltimes A_\\Psi| \\to |G \\ltimes O|$, $|A| \\to |C|$ are topological embeddings."
+    "statement": "$\\Psi_A$ is injective on objects and fully faithful; $|\\Psi_A|$ is a homeomorphism onto an open set and the vertical maps $|G \\ltimes A_\\Psi| \\to |G \\ltimes O|$, $|A| \\to |C|$ are topological embeddings, even level-wise. Typical subpolyfolds are local faces, or faces if $C$ is face-structured."
    },
    "lean": {
-    "statement": "`GCT.sub A` (the full subcategory, $|A|$ with the subspace topology; `isEmbedding_subOrbitMap`), `GroupoidStr.isEmbedding_orbitMap_translationSub` (the left vertical map), `LocalUniformizer.restrict` ($\\Psi_A$, on $A_\\Psi$ with its sub-M-polyfold structure) with `isOpenEmbedding_orbitMap_restrictFunctor`.",
+    "statement": "`GCT.sub A` (the full subcategory, $|A|$ with the subspace topology; `isEmbedding_subOrbitMap`), `GroupoidStr.isEmbedding_orbitMap_translationSub` (the left vertical map), `LocalUniformizer.restrict` ($\\Psi_A$, on $A_\\Psi$ with its sub-M-polyfold structure) with `isOpenEmbedding_orbitMap_restrictFunctor`. Level-wise, the left vertical map: `MPolyfold.mem_subPolyfold_levelSet_iff` ($A_m = A \\cap X_m$ for the induced structure), `MPolyfold.isEmbedding_subLevelIncl` ($A_m \\to X_m$ is a topological embedding), `GroupoidStr.isEmbedding_orbitMap_translationMap` (an equivariant embedding $B \\to O$ gives an embedding $|G \\ltimes B| \\to |G \\ltimes O|$), hence `MPolyfold.isEmbedding_orbitMap_levelSub` and, for $\\Psi_A$, `GCT.LocalUniformizer.isEmbedding_orbitMap_restrict_level`: for every $m$, $|G \\ltimes (A_\\Psi)_m| \\to |G \\ltimes O_m|$ is a topological embedding. Level-wise, the right vertical map: `hasRegularity_sub_iff` (an object of $A$ has the same regularity for $(F_A, M)$ as in $C$), `subRegOrbitMap` ($|A_m| \\to |C_m|$, injective), `UniformizedPolyfold.isOpenEmbedding_levelFunctor` (for $\\alpha \\in C_m$ and $\\Psi \\in F(\\alpha)$, $|\\Psi_m| : |G \\ltimes O_m| \\to |C_m|$ is an open embedding for the topology of p. 766, through the lift of $\\Psi$ to $C^m$), and `isEmbedding_subRegOrbitMap hu hS m`: for every $m$, $|A_m| \\to |C_m|$ is a topological embedding, $|A_m|$ and $|C_m|$ carrying the topologies of p. 766 for $(F_A, M)$ and $(F, M)$. Local faces: `isSubpolyfold_of_isFaceIn hu hT c hV hθ`: for a tame $C$ with $F(\\alpha) \\ne \\emptyset$, an open face-structured $V \\subset |C|$ and a face $\\theta$ of $V$, the full subcategory $\\pi^{-1}(\\theta)$ is a subpolyfold of $C$; for $V = |C|$ this is Proposition 17.3.8 (V17.65).",
     "decls": [
      "Chapter17/SubpolyfoldStructure · GCT.sub",
      "Chapter17/SubpolyfoldStructure · GCT.isEmbedding_subOrbitMap",
      "Chapter17/SubpolyfoldStructure · GroupoidStr.isEmbedding_orbitMap_translationSub",
      "Chapter17/SubpolyfoldStructure · GCT.LocalUniformizer.restrict",
-     "Chapter17/SubpolyfoldStructure · GCT.LocalUniformizer.isOpenEmbedding_orbitMap_restrictFunctor"
+     "Chapter17/SubpolyfoldStructure · GCT.LocalUniformizer.isOpenEmbedding_orbitMap_restrictFunctor",
+     "Chapter17/SubpolyfoldLevels · MPolyfold.mem_subPolyfold_levelSet_iff",
+     "Chapter17/SubpolyfoldLevels · MPolyfold.isEmbedding_subLevelIncl",
+     "Chapter17/SubpolyfoldLevels · GroupoidStr.isEmbedding_orbitMap_translationMap",
+     "Chapter17/SubpolyfoldLevels · MPolyfold.isEmbedding_orbitMap_levelSub",
+     "Chapter17/SubpolyfoldLevels · GCT.LocalUniformizer.isEmbedding_orbitMap_restrict_level",
+     "Chapter17/SubpolyfoldLevels · MPolyfold.isEmbedding_orbitMap_levelSub_univ",
+     "Chapter17/SubpolyfoldLevels · GCT.PolyfoldConstruction.hasRegularity_sub_iff",
+     "Chapter17/SubpolyfoldLevels · GCT.PolyfoldConstruction.subRegOrbitMap",
+     "Chapter17/SubpolyfoldLevels · GCT.UniformizedPolyfold.isOpenEmbedding_levelFunctor",
+     "Chapter17/SubpolyfoldLevels · GCT.PolyfoldConstruction.isEmbedding_subRegOrbitMap",
+     "Chapter17/SubpolyfoldLevels · GCT.PolyfoldConstruction.reflection_isEmbedding_subRegOrbitMap",
+     "Chapter18/SubpolyfoldLocalFaces · GCT.PolyfoldConstruction.isSubpolyfold_of_isFaceIn",
+     "Chapter18/SubpolyfoldLocalFaces · GCT.PolyfoldConstruction.quadrant_isSubpolyfold_of_isFaceIn"
     ]
    },
    "chips": [
     "as stated",
-    "level-wise: not formalized"
+    "level-wise: level topologies",
+    "local faces: open face-structured V"
    ],
    "diff": [
-    "The level-wise statement of p. 786 is not formalized."
+    "Hidden hypotheses: `hu` ($F(\\alpha) \\ne \\emptyset$, the standing reading, V17.6) for the right vertical map and the local faces. Witnesses `reflection_isEmbedding_subRegOrbitMap` ($A = \\{0\\}$ in $\\mathbb Z/2 \\ltimes \\mathbb R$, every $m$, $|A_m|$ non-empty), `isEmbedding_orbitMap_levelSub_univ` (the left vertical map for $A = X$, any group acting by sc-smooth maps) and `quadrant_isSubpolyfold_of_isFaceIn` (the quadrant polyfold, a face through the corner; weak: $V = |C|$, the case of Proposition 17.3.8, with the trivial group).",
+    "\"Level-wise\" is read with the level topologies of Definition 2.3.8 on $(A_\\Psi)_m$ and $O_m$, and with the topologies of p. 766 on $|A_m|$ and $|C_m|$ (transported from the GCTs $A^m$ and $C^m$). \"Local face\" is read as in Part I, a face of an open face-structured subset of $|C|$ for the degeneracy index $d_{|C|}$; tameness is the setting of faces in Definition 17.3.7."
    ]
   },
   {
@@ -2937,7 +2952,7 @@
     "statement": "The $k$-fold Whitney sum $\\oplus^k TC \\to C^1$ has a natural structure of a polyfold bundle (proof sketch, details easily verified)."
    },
    "lean": {
-    "statement": "On the fibres: `proposition_17_6_1 (hU) (b : S.Tr Ψ Ψ')`: the maps $\\oplus^k T\\Psi$ (`whitneyUnifTangent`) are compatible with the transition maps. On the transition sets: `WTrM hU Ψ₁ Ψ₂ k` ($M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$, $k$-tuples of morphisms of $TC$ over one morphism of $C^1$), identified by `whitneyTrHomeomorph` with Part I's Whitney sum of $TM(\\Psi, \\Psi') \\to M(\\Psi, \\Psi')^1$ (`MPolyfold.whitneySum_bundle`, Section 4.4); `proposition_17_6_1_transition`: this is an sc-diffeomorphism, `WTrM` is metrizable, the base map is sc-smooth, and source and target are local sc-diffeomorphisms which are linear isomorphisms on the fibres; unit and inversion are sc-smooth. The orbit space of $G \\ltimes \\oplus^k TO$ is metrizable (`metrizableSpace_whitneyOrbit`). Witness `reflection_whitneyTr_nondegenerate` (a transition element over the reflection moving its source). The category: `whitneyCategory` ($\\oplus^k TC$ as the $k$-fold fibred power of $P : TC \\to C^1$, a groupoidal category with $\\oplus^0 TC = C^1$ and $\\oplus^1 TC = TC$); for continuous $\\hat\\Psi$, `proposition_17_6_1_functor`: $\\oplus^k T\\Psi : G \\ltimes \\oplus^k TO \\to \\oplus^k TC$ (`whitneyUnifFunctor`) is a functor with the printed formulas and $\\oplus^k P \\circ \\oplus^k T\\Psi = \\Psi^1 \\circ \\oplus^k p$. Witness `reflection_whitneyUnif_nondegenerate` ($k = 2$ on the reflection).",
+    "statement": "On the fibres: `proposition_17_6_1 (hU) (b : S.Tr Ψ Ψ')`: the maps $\\oplus^k T\\Psi$ (`whitneyUnifTangent`) are compatible with the transition maps. On the transition sets: `WTrM hU Ψ₁ Ψ₂ k` ($M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$, $k$-tuples of morphisms of $TC$ over one morphism of $C^1$), identified by `whitneyTrHomeomorph` with Part I's Whitney sum of $TM(\\Psi, \\Psi') \\to M(\\Psi, \\Psi')^1$ (`MPolyfold.whitneySum_bundle`, Section 4.4); `proposition_17_6_1_transition`: this is an sc-diffeomorphism, `WTrM` is metrizable, the base map is sc-smooth, and source and target are local sc-diffeomorphisms which are linear isomorphisms on the fibres; unit and inversion are sc-smooth. The orbit space of $G \\ltimes \\oplus^k TO$ is metrizable (`metrizableSpace_whitneyOrbit`). The category: `whitneyCategory` ($\\oplus^k TC$ as the $k$-fold fibred power of $P : TC \\to C^1$, a groupoidal category with $\\oplus^0 TC = C^1$ and $\\oplus^1 TC = TC$); for continuous $\\hat\\Psi$, `proposition_17_6_1_functor`: $\\oplus^k T\\Psi : G \\ltimes \\oplus^k TO \\to \\oplus^k TC$ (`whitneyUnifFunctor`) is a functor with the printed formulas and $\\oplus^k P \\circ \\oplus^k T\\Psi = \\Psi^1 \\circ \\oplus^k p$. The GCT, for continuous $\\hat\\Psi$: `whitneyOrbitTopology` (the final topology of the maps $|\\oplus^k T\\Psi|$), for which every $|\\oplus^k T\\Psi|$ is an open embedding (`isOpenEmbedding_whitneyOrbitChart`) and which is the only such topology (`eq_whitneyOrbitTopology`); it is metrizable (`metrizableSpace_whitneyOrbitTopology`), and `whitneyGCT` is $\\oplus^k TC$ with it, with the local uniformizers $\\oplus^k T\\Psi$ (`whitneyUnif`). The polyfold structure: `wtrNPolyfold` (Part I's Whitney sum carried to $M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$), whose multiplication is sc-smooth on the fibred product (`wtrN_isScSmoothMap_mul`); `whitneyConstruction`, $(\\oplus^k TF, M)$ with $\\oplus^k TF(\\beta) = \\{\\oplus^k T\\Psi : \\Psi \\in F(\\oplus^k P(\\beta))\\}$, non-empty at every object (`whitneyConstruction_hasUniformizers`). The bundle: `whitneyTrBundleProj` ($M(\\oplus^k T\\Psi, \\oplus^k T\\Psi') \\to M(\\Psi^1, \\Psi'^1)$, sc-smooth by `isScSmoothMap_whitneyTrBundleProj`, compatible with $s$, $t$ and the morphisms) and $|\\oplus^k P| : |\\oplus^k TC| \\to |C^1|$ continuous (`continuous_orbitMap_whitneyCatProj`). `proposition_17_6_1_hyp hU hcont k` collects: `whitneyGCT` has groupoid $\\oplus^k TC$; the uniqueness of the topology; `whitneyConstruction` has uniformizers at every object, with $\\oplus^k TF(\\beta)$ as above; $\\oplus_k TM(\\Psi, \\Psi') \\to M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$ is an sc-diffeomorphism; $\\oplus^k P \\circ \\oplus^k T\\Psi = \\Psi^1 \\circ \\oplus^k p$; $\\oplus^k T\\Psi$ is $T\\Psi$ in each entry; $|\\oplus^k P|^{-1}$ of the footprint of $\\Psi^1$ is the footprint of $\\oplus^k T\\Psi$; the bundle projections are sc-smooth and compatible with $s$, $t$ and the morphisms; $|\\oplus^k P|$ is continuous.",
     "decls": [
      "Chapter17/CategoryForms · GCT.PolyfoldConstruction.proposition_17_6_1",
      "Chapter17/WhitneySumStructure · GCT.PolyfoldConstruction.proposition_17_6_1_transition",
@@ -2962,15 +2977,31 @@
      "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.whitneyCategory",
      "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.whitneyUnifFunctor",
      "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.proposition_17_6_1_functor",
-     "Chapter17/WhitneySumCategory · reflection_whitneyUnif_nondegenerate"
+     "Chapter17/WhitneySumCategory · reflection_whitneyUnif_nondegenerate",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyOrbitTopology",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.isOpenEmbedding_whitneyOrbitChart",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.eq_whitneyOrbitTopology",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.metrizableSpace_whitneyOrbitTopology",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyGCT",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyUnif",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.wtrNPolyfold",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.wtrN_isScSmoothMap_mul",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyConstruction",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyConstruction_hasUniformizers",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyTrBundleProj",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.isScSmoothMap_whitneyTrBundleProj",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.continuous_orbitMap_whitneyCatProj",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.proposition_17_6_1_hyp",
+     "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.reflection_proposition_17_6_1"
     ]
    },
    "chips": [
-    "category and functors built",
-    "|⊕ᵏTC| not formalized"
+    "Ψ̂ continuous",
+    "polyfold bundle: read"
    ],
    "diff": [
-    "The functors $\\oplus^k T\\Psi$ on morphisms are built for continuous $\\hat\\Psi$ (the reading of Lemma 17.2.10, V17.105). The orbit space $|\\oplus^k TC|$ with its topology and the sc-smoothness of the multiplication of $M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$ are not formalized (point G.222, formalized in part). The parts the forms below use are proved."
+    "Hidden hypotheses: `hU`; `hcont : ∀ Ψ, Continuous (S.hat Ψ)` (as in Theorem 17.2.17, V17.55) for the functors $\\oplus^k T\\Psi$ on morphisms and what is built on them. Witnesses `reflection_whitneyTr_nondegenerate` (a transition element over the reflection moving its source), `reflection_whitneyUnif_nondegenerate` and `reflection_proposition_17_6_1` ($k = 2$ on $\\mathbb Z/2 \\ltimes \\mathbb R$, every $\\hat\\Psi$ continuous by `reflection_continuous_hat_all`: $(\\oplus^2 TF, M)$ has uniformizers at every object, and $\\oplus^2 T\\Psi_0$ sends $(-1, (e, e))$ to a morphism whose source and target differ; non-trivial isotropy).",
+    "The hypothesis on $\\hat\\Psi$ is the one of Theorem 17.2.17 (V17.55) and Lemma 17.2.10 (V17.47), which the functors $\\oplus^k T\\Psi$ on morphisms need. \"Polyfold bundle\" is read as for Theorem 17.2.17: the structures $(\\oplus^k TF, M)$ on $\\oplus^k TC$ and $(F^1, M_{F^1})$ on $C^1$ related by $\\oplus^k P$ as listed, fibrewise linear in each entry; no strong bundle structure is involved. \"Clearly $\\oplus^k TC$ is a GCT\" is read with the topology on $|\\oplus^k TC|$ for which every $|\\oplus^k T\\Psi|$ is an open embedding, which exists and is unique; for $k = 1$ it is not compared with the topology of $|TC|$ (V17.53). As for $(TF, M)$ (V17.54), $M(L, L')$ uses a chosen $\\Psi$ with $L = \\oplus^k T\\Psi$."
    ]
   },
   {
@@ -3153,15 +3184,20 @@
   {
    "id": "V17.113",
    "title": "Theorem 17.6.7 (2017: 17.7), Stokes' theorem",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§17.6, Theorem 17.6.7 and (17.90), p. 823 (2017: Theorem 17.7)",
     "page": 823,
     "statement": "Stokes: $\\int_{\\hat\\Theta} d[\\omega] = \\int_{\\partial\\hat\\Theta} [\\omega]$ (17.90); the proof is immediate from the ep-groupoid case."
    },
    "lean": {
-    "statement": "`theorem_17_6_7_of_epStokes (c) (hS : (S.modelEP c.Ψ).StokesWithoutPartitions) (hm : 0 < m) (hcpt) (hloc) (ω) : A.integralVia c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralVia c hm hcpt hloc ω`; `theorem_17_6_7_hyp` with `hPU : (S.modelEP c.Ψ).X.HasScPartitionsOfUnity` in place of `hS`; `_dim1_` forms for $n = 1$; on $C$: `theorem_17_6_7_book (c₀) (hS) … (h : A.IsTameOriented (m + 1))`, `theorem_17_6_7_book_hyp`, `theorem_17_6_7_dim1_book`. Witness: `halfPlaneArc_stokes` (a compact oriented arc in the half-plane with $\\mathrm{supp}\\,\\Theta \\ne \\emptyset$ and $\\partial\\Theta \\ne 0$, `halfPlaneArc_properties`, `halfPlaneArc_boundaryVia_eq_one`; the model has sc-smooth partitions of unity; weak: trivial group).",
+    "statement": "`theorem_17_6_7_all (c) (hm : 0 < m) (hcpt) (hloc : A.IsTameOrientedVia c (m + 1)) (ω : S.catFormsInfty m) : A.integralVia c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralVia c hm hcpt hloc ω`, on every covering family; `theorem_17_6_7_dim1_all` for $n = 1$; for the integrals on $C$: `theorem_17_6_7_book_all (c₀) (hm) (hcpt) (h : A.IsTameOriented (m + 1)) (ω) : A.integral _ hcpt h (S.catFormsInftyD m ω) = A.boundaryIntegral hm hcpt h ω`, `theorem_17_6_7_dim1_book_all` ($c₀$ any covering family). These are `theorem_17_6_7_of_epStokes (c) (hS : (S.modelEP c.Ψ).StokesWithoutPartitions) …` and `theorem_17_6_7_book (c₀) (hS) …` with `hS` given by `EP.stokesWithoutPartitions_all` (Remark 9.5.19, V9.71). Steps: `theorem_17_6_7_of_epStokes_of_family`; with `hPU : (S.modelEP c.Ψ).X.HasScPartitionsOfUnity` in place of `hS`: `theorem_17_6_7_hyp`, `theorem_17_6_7_book_hyp`; the `_dim1_` forms. Witness: `halfPlaneArc_stokes` (a compact oriented arc in the half-plane with $\\mathrm{supp}\\,\\Theta \\ne \\emptyset$ and $\\partial\\Theta \\ne 0$, `halfPlaneArc_properties`, `halfPlaneArc_boundaryVia_eq_one`; weak: trivial group).",
     "decls": [
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_book_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_book_all",
+     "Chapter16/StokesUnconditional · EP.stokesWithoutPartitions_all",
      "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_of_epStokes",
      "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_hyp",
      "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_dim1_of_epStokes",
@@ -3181,11 +3217,14 @@
     ]
    },
    "chips": [
-    "ep-level Stokes or partitions of unity",
-    "point G.153"
+    "as stated",
+    "Stokes on the model: every ep-groupoid",
+    "n = 1 separately",
+    "point G.153 settled"
    ],
    "diff": [
-    "The text's proof is immediate from Stokes on the ep-groupoid level, which Theorems 9.5.17, 9.5.18 prove with sc-smooth partitions of unity and Remark 9.5.19 leaves open without them; as in Theorem 16.4.6 this is a hypothesis (point G.153, nothing to formalize)."
+    "As printed. The text's proof is immediate from Stokes on the ep-groupoid level, which Theorems 9.5.17, 9.5.18 prove with sc-smooth partitions of unity and Remark 9.5.19 expects without them; it holds for every ep-groupoid (`EP.stokesWithoutPartitions_all`, V9.71; point G.153 settled), so the theorem holds on every covering family and for the integrals on $C$ with the text's hypotheses only. The forms with `hS` (`_of_epStokes`) and with `hPU` (`_hyp`) are steps of the proof.",
+    "The text's $n \\ge 2$ is $m = n - 1 \\ge 1$; $n = 1$ uses the boundary measures of Theorem 9.5.15 for $n = 1$ (`_dim1_all`)."
    ]
   },
   {
@@ -3246,15 +3285,20 @@
   {
    "id": "V17.116",
    "title": "Theorem 17.6.10 (new in the 2021 edition), the effective Stokes theorem (17.92)",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§17.6, Theorem 17.6.10 and (17.92), p. 824 (new in the 2021 edition)",
     "page": 824,
     "statement": "Effective Stokes under (LUC): (17.92)."
    },
    "lean": {
-    "statement": "`theorem_17_6_10_hyp (hL : S.IsLUC) (c) (hPU) (hm) (hcpt) (hloc) (ω) : A.integralEffVia hL c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralEffVia hL c hm hcpt hloc ω`, `theorem_17_6_10_of_epStokes` (with `hS`); on $C$ `theorem_17_6_10_book`, `theorem_17_6_10_book_hyp`, `theorem_17_6_10_dim1_book`. Witnesses: `z3Taut_hypotheses_17_6_10` ($\\mathbb Z/3 \\ltimes \\mathbb R$: (LUC), sc-smooth partitions of unity and `StokesWithoutPartitions` on the model; weak: trivial action) and `halfPlaneArc_stokes_eff` (weak: trivial group).",
+    "statement": "`theorem_17_6_10_all (hL : S.IsLUC) (c) (hm : 0 < m) (hcpt) (hloc : A.IsTameOrientedVia c (m + 1)) (ω) : A.integralEffVia hL c _ hcpt hloc (S.catFormsInftyD m ω) = A.boundaryIntegralEffVia hL c hm hcpt hloc ω`, on every covering family; `theorem_17_6_10_dim1_all` for $n = 1$; for the integrals on $C$: `theorem_17_6_10_book_all (hL) (c₀) (hm) (hcpt) (h : A.IsTameOriented (m + 1)) (ω) : A.integralEff hL _ hcpt h (S.catFormsInftyD m ω) = A.boundaryIntegralEff hL hm hcpt h ω`, `theorem_17_6_10_dim1_book_all`. These are `theorem_17_6_10_of_epStokes`, `theorem_17_6_10_dim1_of_epStokes`, `theorem_17_6_10_book`, `theorem_17_6_10_dim1_book` with `hS` given by `EP.stokesWithoutPartitions_all` (V9.71); with `hPU` in place of `hS`: `theorem_17_6_10_hyp`, `theorem_17_6_10_book_hyp`. Witnesses: `z3Taut_hypotheses_17_6_10` ($\\mathbb Z/3 \\ltimes \\mathbb R$: (LUC), sc-smooth partitions of unity and `StokesWithoutPartitions` on the model; weak: trivial action) and `halfPlaneArc_stokes_eff` (weak: trivial group).",
     "decls": [
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book_all",
+     "Chapter16/StokesUnconditional · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_book_all",
+     "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_dim1_of_epStokes",
      "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_of_epStokes",
      "Chapter17/CategoryStokes · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_hyp",
      "Chapter17/TameOrientedTransfer · GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_10_book",
@@ -3266,11 +3310,13 @@
     ]
    },
    "chips": [
-    "ep-level Stokes or partitions of unity",
-    "point G.153"
+    "as stated",
+    "(LUC) of C, as the text",
+    "n = 1 separately",
+    "point G.153 settled"
    ],
    "diff": [
-    "As V17.113 (point G.153)."
+    "As V17.113: as printed, since Stokes on the ep-groupoid level holds for every ep-groupoid without sc-smooth partitions of unity (V9.71; point G.153 settled); the effective form on the model uses (LUC) on every model, which (LUC) of $C$ gives (`isLUC_model`)."
    ]
   },
   {
@@ -4607,14 +4653,20 @@
    "label": "§17.6, Proposition 17.6.1, p. 818 (2017: Proposition 17.11)",
    "page": 818,
    "book": "The Whitney sum $\\oplus^k TC \\to C^1$ as a category with a polyfold bundle structure: the functors $\\oplus^k T\\Psi$ on morphisms, the orbit space $|\\oplus^k TC|$ and the multiplication of $M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$.",
-   "instead": "**Formalized in part** (V17.106): $\\oplus^k TC$ is a groupoidal category (`whitneyCategory`) and, for continuous $\\hat\\Psi$, $\\oplus^k T\\Psi$ is a functor on morphisms with the printed formulas (`proposition_17_6_1_functor`); the fibre maps and the transition M-polyfolds are proved. The orbit space $|\\oplus^k TC|$ with its topology and the sc-smoothness of the multiplication of $M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$ are not formalized.",
+   "instead": "**Formalized** (V17.106), with $\\hat\\Psi$ continuous, the reading of Theorem 17.2.17: $\\oplus^k TC$ is a groupoidal category (`whitneyCategory`) with the functors $\\oplus^k T\\Psi$ (`proposition_17_6_1_functor`); $|\\oplus^k TC|$ carries the only topology for which the $|\\oplus^k T\\Psi|$ are open embeddings, and it is metrizable (`whitneyGCT`, `eq_whitneyOrbitTopology`); the multiplication of $M(\\oplus^k T\\Psi, \\oplus^k T\\Psi')$ is sc-smooth (`wtrN_isScSmoothMap_mul`), giving the polyfold structure `whitneyConstruction` over $C^1$ (`proposition_17_6_1_hyp`; witness `reflection_proposition_17_6_1`).",
    "formalized": [
     "V17.106"
    ],
    "decls": [
     "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.whitneyCategory",
     "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.whitneyUnifFunctor",
-    "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.proposition_17_6_1_functor"
+    "Chapter17/WhitneySumCategory · GCT.PolyfoldConstruction.proposition_17_6_1_functor",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyGCT",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.eq_whitneyOrbitTopology",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.wtrN_isScSmoothMap_mul",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.whitneyConstruction",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.proposition_17_6_1_hyp",
+    "Chapter17/WhitneySumPolyfold · GCT.PolyfoldConstruction.reflection_proposition_17_6_1"
    ]
   },
   {

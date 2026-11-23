@@ -123,12 +123,13 @@ From other chapters: `TameSub`, `BookFormTameSub` (Chapter 2), `NonVacuityG`, `U
 `PartitionsOfUnity`, `HilbertPartitionsOfUnity`, `SeparablePartitionsOfUnity`, `WCGPartitionsOfUnity`,
 `AmirLindenstrauss`, `BonicFrampton`, `Torunczyk`, `ProjectionalResolution`, `LocallyFiniteBases`,
 `ReflexiveCompactness`, `ReflexiveFibres`, `WeakSequentialCompactness`, `StrongBundleShift`,
-`SmoothLevelContinuity`; transversality and general position in
+`ShiftFamily` (the family `P^i` of Corollary 5.2.5), `SmoothLevelContinuity`; transversality and general position in
 `Transversality`, `GeneralPosition`, `DenseGoodPosition`, `Corollary58`,
 `FredholmArcPerturbation`, `CylinderPerturbation`; homotopy in `Homotopy`, `CompactHomotopyIso`; Theorem 5.3.15
 in the `Theorem5315_*` files; the Sobolev spaces on cubes in the `SobolevCube*`, `SobolevRemark*` and
 `LpWeightedProduct` files; the printed forms in `MainTheoremsBookForm`, `MainTheoremsBookFormTextDefs`, `Book`,
-`ApproxPropertyEveryChart`.
+`ApproxPropertyEveryChart`. The allowable sections of trivial bundles: `AllowableSectionsIncomplete`; a non-zero
+1-form `df` (§4.4): `ExteriorDerivativeWitness`.
 From other chapters: `SmoothPaths`, `TangentConePaths` (Chapter 2); the index along paths and its local constancy
 in the `IndexAlongPaths*` and `IndexLocallyConstant*` files, `BookFormIFT`, `MainTheorems`, `RestrictOpen`,
 `SolutionTangentKernel`, `FredholmPullbackIso`, `GermReadingAliases` (Chapter 3); `OpenForms`, `Poincare448`,
@@ -181,8 +182,9 @@ From other chapters: `BoundaryFormsPullback`, `StokesFaceCharts` (Chapter 4), `C
 `GeometricLift`, `GeometricLiftEmpty`,
 `BundleOrbitParacompact`, `BundleOrbitParacompactOne`, `ProperCovering`, `ProperCoveringLocal`,
 `SigmaPolyfold`, `NonVacuity`, `NonVacuityBundle`; the tangent ep-groupoid in `TangentEp`, `TangentEpNotInjective`,
-`TangentFibred`, `TangentLocal`, `TangentOrbit`, `TangentPairs`, `TangentTame`, `TangentVertical` and the
-`TangentZhou*` files; `Book`.
+`TangentFibred`, `TangentLocal`, `TangentOrbit`, `TangentOrbitLinear`, `TangentPairs`, `TangentTame`, `TangentVertical`,
+`TangentWhitneyLocal` and the `TangentZhou*` files; condition (3) of a proper covering functor in
+`ProperCoveringFibredMap`; the degeneracy index of `X ×_F Y` in `DegIndexProduct`, `DegIndexProductGeneral`, `DegIndexProductSmooth`, `DegIndexProductLevelOne`; `Book`.
 From other chapters: `LieBracketOpenSubsets` (Chapter 4); `SmoothConnectedReps`, `SmoothRegularAssembly`, `ZhouFacts`,
 `ZhouGroupoid`, `ZhouLevels`, `ZhouSigma` and, for the tangent maps of §7.4, `ZhouTangent` (Chapter 7).
 
@@ -208,6 +210,13 @@ decompositions in `DimDecompositionExists`, `DimDecompositionUnique`, `Dimension
 `PropertyTShrinking`. Remark 9.5.20 in `DimensionJumpSheet`,
 `DimensionJumpBranched`, `DimensionJumpIntegral`, `DimensionZeroIntegral` (the boundary integral in Chapter 11,
 `DimensionJumpBoundaryIntegral`).
+Theorems 9.5.17 and 9.5.18 without partitions of unity (Remark 9.5.19, point G.153): functions summing to $1$ near
+`supp Θ` in `LocalPartitions`, `LocalPartitionsBump`, `LocalPartitionsExtension`, `LocalPartitionsConstruction`; the
+forms `β_k ω` in `LocalFormsPush`, `LocalFormsSub`, `LocalFormsSheets`, `LocalFormsStokes`, `LocalFormsSystem`,
+`LocalFormSystem`, and in dimension 1 `LocalFormsDimOneSub`, `LocalFormsDimOneSheets`, `LocalFormsDimOneSystem`,
+`LocalFormSystemDimOne`; the proof of p. 451 with them in `StokesLocalForms`, `StokesLocalFormsCompare`,
+`StokesLocalFormsStructures`, `StokesLocalFormsDimOne`; the theorems in `StokesLocalPartitions`,
+`StokesLocalPartitionsDimOne`. Finitely many bump functions near a compact part of `|X|`: `BumpsNearCompact`.
 The boundary integral of the cobordism `S_F ⊆ [0, 1] × X` of Chapter 6 (ends, signs, lateral faces):
 `BoundaryEndFaces`, `IntervalBoundaryDecomposition`, `IntervalEndSigns`, `IntervalCobordismFaceStructure` (on
 `StokesFaceSum`); without faces, the lateral term as a limit of cut-off integrals: `EndFaceChartPairs`,
@@ -240,7 +249,8 @@ files, `BoundaryOrientationEquiv`, `BoundarySheetsDiffeo`, `GraphChartsDiffeo`, 
 `OrientedStructureDiffeo`, `OrientedStructurePairs`; forms in `GeneralizedForms`, `EquivalenceForms`,
 `EquivalenceFormsInfty`, `EpFormsWedge`, `EpPoincareLemma`, `FormAveraging`, `FormDescent`, `FormEvalPullback`,
 `FormEvalPullbackEquivalence`, `OrbitForms`, `TranslationAverage`. `ChartDomainOrientation` (orientations on chart
-domains), `DimensionJumpBoundaryIntegral` (Remark 9.5.20 on `∂X`).
+domains), `DimensionJumpBoundaryIntegral` (Remark 9.5.20 on `∂X`), `OrientedBoundaryPair` (Theorem 11.3.9 for
+oriented pairs).
 
 **Chapter 12** (Fredholm theory in ep-groupoids): auxiliary norms and extensions in `AuxNormEp`, `AuxNormExtension`,
 `AuxNormLocalExtension`, `ReflexiveAuxNormEp`, `ReflexiveAuxNormExtension`, `ReflexiveLocalExtension`,
@@ -290,8 +300,9 @@ relative case (Theorem 15.3.9) in `RelativeFamilies`, `RelativeParametric`, `Rel
 `TameWitness`, `RestrictedEp`; the cylinder $[0,1] \times X$ in `Cylinder`, `CylinderEnds`, `CylinderGlue`,
 `CylinderPartitions`, `CylinderCobordism`, `CubeEp`, `CubeLift`, `CubeAuxNorm`, `CutoffFunctor`, `GlueStructurable`;
 products in the `Product*` files; the invariants in `PerturbedStokesInvariants`. The relative step in `RelativeSeeds`,
-`RelativeSeedFamilies`, `RelativeLocalFamilies`, `RelativeStepBump`, `BoundaryExtensionIndependence`,
-`BoundaryFrameCriterion`, `TransversalExtensionCorollaries`, `TransversalExtensionWitness`, `FaceOntoCorollaries`; the
+`RelativeSeedFamilies`, `RelativeLocalFamilies`, `RelativeStepBump`, `RelativeStepSeeds`, `BumpsNearControlledSet`,
+`BoundaryExtensionIndependence`, `BoundaryFrameCriterion`, `TransversalExtensionCorollaries`, `TransversalExtensionWitness`,
+`FaceOntoCorollaries`; the
 canonical orientation (Theorem 15.4.1, Definition 15.4.2) in `KernelBranching`, `KernelBranchingIndex`,
 `BranchKernelTangent`, `KernelChartChange`, `KernelFramesPerturbed`, `CanonicalOrientation`,
 `CanonicalOrientationStokes`, the `CanonicalLift*` files, `LinearizationLocalIso`, `EmbeddedSubmanifolds`,
@@ -304,7 +315,24 @@ Corollary 15.4.4 with the cylinder orientation: `CylinderOrientationInvariance`,
 index 0 `CylinderPointFrames`, `CylinderPointEnds`; the canonical orientation under strong bundle equivalences:
 `CanonicalOrientationEquivalence`, `CanonicalOrientationPullback`, `TransversalityEquivalence`; local orientations:
 `CanonicalOrientationLocal`, `CanonicalOrientationOrientedSection`; witnesses: `SingleSectionMultisection`,
-`TransversalExtensionBoundaryDatum`.
+`TransversalExtensionBoundaryDatum`. The category `GrF(X)` of §15.1: `GrFCategory`; canonically oriented regular
+perturbations exist: `CanonicalPerturbationExists`. Theorem 15.4.3 and Corollary 15.4.4 without partitions of unity:
+`CanonicalOrientationUnconditional`, `CollarCobordismUnconditional`; over all transversal perturbations, the cylinder
+over arbitrary ends: `AdmissibleRelativeStep`, `AdmissibleCylinderExtension`, `AdmissibleCylinderEnds`,
+`AdmissibleCobordism`. Without bump functions on $X$: the orientation chain in `CanonicalLiftContinuityLocal`,
+`CanonicalLiftContinuityLocalFrames`, `CanonicalLiftContinuityLocalKer`, `CylinderOrientationLocal`,
+`CylinderOrientationLocalConj`, `CylinderOrientationLocalIso`, `CylinderFrameConventionLocal`,
+`CylinderFrameConventionLocalOps`, `CylinderFrameConventionLocalPt`, `CylinderFrameConventionLocalRestr`,
+`CylinderFrameConventionLocalSlice`, `CubeSectionsThrough`; the relative step and Corollary 15.4.4 from local families
+in `RelativeStepFamilies`, `AdmissibleCobordismLocal`; the restriction to a saturated open set in `RestrictedBundle`,
+`RestrictedBundleCompactness`, `RestrictedBundleGeneralPosition`, `RestrictedOrientation`,
+`RestrictedOrientationCanonical`, `RestrictedOrientationCanonSum`, `RestrictedIntegral`, `RestrictedIntegralCore`,
+`RestrictedIntegralSolution`, `RestrictedCobordism`; the local families on the restricted cylinder:
+`RestrictedSeedsAtomic`, `RestrictedSeedsBump`, `RestrictedSeedsCone`, `RestrictedSeedsCut`, `RestrictedSeedsPre`,
+`RestrictedSeedsTransfer`, `RestrictedSeedsCompare`, `RestrictedSeedsCompare2`, `RestrictedSeedsNatRep`,
+`RestrictedSeedsLocal`, `RestrictedSeedsInclusion`, `RestrictedSeedsAssembly` (a second proof in `RestrictedSeedsCentre`,
+`RestrictedSeedsLift`, `RestrictedSeedsFinal0`, `RestrictedSeedsFinal`); for index 0 `IndexZeroNoBumpsFrames`,
+`IndexZeroNoBumpsEnds`.
 
 **Chapter 16** (polyfolds): `PolyfoldStructure`, `PolyfoldExamples`, `PolyfoldMaps`, `RaisedPolyfold`,
 `TangentPolyfold`, `TangentFunctor`, `TangentLemma`, `TangentEffective`, `CompositionCounterexample`,
@@ -328,7 +356,17 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 `HalfSpaceIsotropyOrientedSection`, `HalfSpaceLocalOrientation`, `CanonicalModelTransferWitness`,
 `CanonicalOrientationPullbackWitness`, `InheritedOrientationGeneralPositionWitness`,
 `IndexZeroInheritedCorrespondenceWitness`, and Remark 6.6.19 on the half-disc in `HalfDiscIntervalCobordism`,
-`HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`, `HalfDiscFaceStructureInstance`, `HalfDiscLateralBoundary`.
+`HalfDiscCobordismFaces`, `HalfDiscBoundaryIntegral`, `HalfDiscFaceStructureInstance`, `HalfDiscLateralBoundary`;
+the zero section: `ZeroSectionWitness`.
+Without partitions of unity: Theorem 16.4.6 as printed, and Theorems 17.6.7 and 17.6.10 as printed, in
+`StokesUnconditional`; the boundary integrals and Theorem 16.6.6 in `InvariantUnconditional`, for index 0 in
+`IndexZeroUnconditional`, its independence of the model in `CorrespondenceUnconditional`. Existence for every
+admissible perturbation: `InheritedPerturbationExists`. Theorem 16.6.6 over all admissible perturbations:
+`InvariantAllAdmissible`, for index 0 `IndexZeroAllAdmissible`; witnesses `InvariantAllAdmissibleWitness`,
+`IndexZeroNormOneWitness`. Theorem 16.6.6 without bump functions in the model of the orientation: `InvariantNoBumps`,
+`InvariantNoBumpsUnconditional`, for index 0 `IndexZeroNoBumpsPointPull`, `IndexZeroNoBumpsCobordism`,
+`IndexZeroNoBumpsRestr`, `IndexZeroNoBumpsUnconditional`; the orientation of Definition 16.6.5 made with local
+sc⁺-sections: `OrientationRepLocalNoBumps`, `OrientationRepLocalNoBumpsCover`.
 
 **Chapter 17** (polyfold theory for groupoidal categories): §17.1 in `GroupoidalCategory`, `TransitionSet`,
 `LocalUniformizer`, `PolyfoldConstruction`, `FunctorialUniformizers`, `TransitionProperness`,
@@ -336,14 +374,14 @@ Theorem 16.6.6 from the cylinder: `CanonicalIntegralInvariance`, `IndexZeroCylin
 `ModelComparison`, `ModelExamples`, `ModelProperties`, `ModelPropertiesExamples`, the levels in `PolyfoldLevels`,
 `AdmissibleTripleBasic`, `LevelOneCategory`, `LevelStructures`, `LevelStructuresExamples`, `LevelOrbitSpaces`; §17.2
 in `TangentVectors`, `TangentCategory`, `TangentTransition`, `TangentTransitionStructure`, `TangentModel`,
-`TangentConstruction`, `TangentUnifExamples`, `TangentModelEquivalence`; §17.3 in `Subpolyfold`, `SubpolyfoldStructure`;
-§17.4 in `PolyfoldFaces`, `TameBoundaryGerms`, `TameBoundaryCategory`, `TameBoundaryUniformizer`,
+`TangentConstruction`, `TangentUnifExamples`, `TangentModelEquivalence`; §17.3 in `Subpolyfold`, `SubpolyfoldStructure`,
+`SubpolyfoldLevels` (and `Chapter18/SubpolyfoldLocalFaces`, which uses an open subcategory of §18.1); §17.4 in `PolyfoldFaces`, `TameBoundaryGerms`, `TameBoundaryCategory`, `TameBoundaryUniformizer`,
 `TameBoundaryTransition`, `TameBoundaryTransitionStructure`, `TameBoundaryTopology`, `TameBoundaryPolyfold`,
 `TameBoundaryTame`, `TameBoundaryDiagram`, `TameBoundaryFaceGroupoid`, and strong bundles in `SigmaStrongBundle`,
 `VectorBundleGCT`, `StrongBundleStructures`, `StrongBundleStructuresExamples`, `BundleModel`, `BundleModelComparison`,
 `BundleModelMultiplication`, `BundleModelStructure`; §17.5 in `BranchedSubcategory`, `BranchedSupport`,
 `BranchedTangent`, `BranchedSubcategoryExamples`, `BranchedOrientation`, `BranchedOrientationExamples`,
-`GrassmannianFunctor`; §17.6 in `CategoryForms`, `WhitneySumStructure`, `WhitneySumCategory`, `CategoryStokes`,
+`GrassmannianFunctor`; §17.6 in `CategoryForms`, `WhitneySumStructure`, `WhitneySumCategory`, `WhitneySumPolyfold`, `CategoryStokes` (as printed in `Chapter16/StokesUnconditional`),
 `CategoryStokesExamples`, `TameOrientedTransfer`, `TameOrientedExamples`; §17.8 in `ProperCoveringStructure`,
 `ProperCoveringModel`, `ProperCoveringModelRestrict`, `ProperCoveringLift`, `ProperCoveringModelIso`,
 `ProperCoveringUniformizer`, `ProperCoveringPolyfold`, `ProperCoveringBranched`, `ProperCoveringSheetUniformizer`,
@@ -400,12 +438,13 @@ Run the scripts from the project folder with the git shim of §1 on the PATH (`c
 
 ## 4. Status
 
-Of the 275 points, 262 are formalized and 12 have nothing to formalize (G.34, the question after
-Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; G.153, the text's own question in Remark 9.5.19; in Part IV
+Of the 275 points, 264 are formalized and 11 have nothing to formalize (G.34, the question after
+Proposition 4.2.3; Remark 5.3.6; preprint Theorem 5.27; in Part IV
 G.213, G.228, G.244, G.247, G.249, G.255, G.272, G.274: remarks, comments, invitations and exercises). G.222 (the
-Whitney sum $\oplus^k TC$ of Proposition 17.6.1) is formalized in part: the category and the functors
-$\oplus^k T\Psi$ on morphisms are built; the orbit space $|\oplus^k TC|$ with its topology and the sc-smoothness of
-the multiplication of $M(\oplus^k T\Psi, \oplus^k T\Psi')$ are not. The 60
+Whitney sum $\oplus^k TC$ of Proposition 17.6.1) is formalized with $\hat\Psi$ continuous, the hypothesis of
+Theorem 17.2.17. G.153 (Remark 9.5.19, Stokes on ep-groupoids without partitions of unity) is formalized along the
+route the remark sketches, so Theorems 16.4.6, 17.6.7 and 17.6.10 hold as printed, and Theorem 16.6.6 holds over all
+admissible perturbations, with no bump functions and no partitions of unity. The 79
 rows with the verdict "narrower" prove less than the text states; `Exposition/Findings.md` gives the reason for each,
 and `README.md` lists the points that need the authors' reading. Added hypotheses (`_hyp` forms) are listed with
 their witnesses in the rows that cite them.
