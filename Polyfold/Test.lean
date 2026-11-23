@@ -33060,4 +33060,222 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.orFredPush_linOrLift
 #print axioms Polyfold.GCT.VectorBundle.ReflectionBundle.reflection_grFHat
 
+-- Examples: the orbifold ℂ/ℤ₅ with the weight-2 section z ↦ z²
+
+-- Examples/OrbifoldSquareAlgebra.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.cE_rot
+#print axioms Polyfold.Examples.OrbifoldSquare.cE_sq
+#print axioms Polyfold.Examples.OrbifoldSquare.contDiff_sq
+#print axioms Polyfold.Examples.OrbifoldSquare.eq_zero_of_rot_sq_fixed
+#print axioms Polyfold.Examples.OrbifoldSquare.fderiv_sq
+#print axioms Polyfold.Examples.OrbifoldSquare.hasFDerivAt_sq
+#print axioms Polyfold.Examples.OrbifoldSquare.isPrimitiveRoot_ζ
+#print axioms Polyfold.Examples.OrbifoldSquare.linear_eq_zero_of_equivariant
+#print axioms Polyfold.Examples.OrbifoldSquare.norm_ζ
+#print axioms Polyfold.Examples.OrbifoldSquare.norm_χ
+#print axioms Polyfold.Examples.OrbifoldSquare.rot_apply
+#print axioms Polyfold.Examples.OrbifoldSquare.rot_eq_self_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.rot_mul
+#print axioms Polyfold.Examples.OrbifoldSquare.rot_one
+#print axioms Polyfold.Examples.OrbifoldSquare.sq.eq_1
+#print axioms Polyfold.Examples.OrbifoldSquare.sq_eq_zero_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.sq_rot
+#print axioms Polyfold.Examples.OrbifoldSquare.surjective_rot
+#print axioms Polyfold.Examples.OrbifoldSquare.ζ_ne_zero
+#print axioms Polyfold.Examples.OrbifoldSquare.ζ_pow_eq_one_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.ζ_pow_five
+#print axioms Polyfold.Examples.OrbifoldSquare.χ.eq_1
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_eq_one_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_mul
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_ne_zero
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_ofAdd_one
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_one
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_pow_five
+#print axioms Polyfold.Examples.OrbifoldSquare.χ_sq_eq_one_iff
+
+-- Examples/OrbifoldSquareBundle.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.E5_μ
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_actW_inv
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_apply
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_inv_actW
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_mul
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_one
+#print axioms Polyfold.Examples.OrbifoldSquare.contDiff_smul
+#print axioms Polyfold.Examples.OrbifoldSquare.instParacompactSpaceElemProdG5ForallFinOfNatNatRealPullbackSpaceProjSrcX5
+#print axioms Polyfold.Examples.OrbifoldSquare.isLocalScDiffeo_mu
+#print axioms Polyfold.Examples.OrbifoldSquare.isScFredholmSectionFunctor_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isScSmoothMap_smul
+#print axioms Polyfold.Examples.OrbifoldSquare.isStrongBundleMap_actW
+#print axioms Polyfold.Examples.OrbifoldSquare.isStrongBundleMap_mu
+#print axioms Polyfold.Examples.OrbifoldSquare.isZeroAt_sqSection_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.smul_def
+#print axioms Polyfold.Examples.OrbifoldSquare.smul_eq_self_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.smul_zero5
+#print axioms Polyfold.Examples.OrbifoldSquare.sqSection_smul
+
+-- Examples/OrbifoldSquareStructure.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.X5.eq_1
+#print axioms Polyfold.Examples.OrbifoldSquare.eq_zero_of_isotropy
+#print axioms Polyfold.Examples.OrbifoldSquare.hasParacompactOrbitSpace_X5
+#print axioms Polyfold.Examples.OrbifoldSquare.isEffective_X5
+#print axioms Polyfold.Examples.OrbifoldSquare.isLRLocal_E5
+#print axioms Polyfold.Examples.OrbifoldSquare.isRegular_X5_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.isZhou_X5
+#print axioms Polyfold.Examples.OrbifoldSquare.levelVal_tangentProj_zeroTangent
+#print axioms Polyfold.Examples.OrbifoldSquare.sqBundle_boundary_eq_empty
+#print axioms Polyfold.Examples.OrbifoldSquare.tangentChartMap_tangentMap_smul
+#print axioms Polyfold.Examples.OrbifoldSquare.tangentChartMap_zeroTangent
+#print axioms Polyfold.Examples.OrbifoldSquare.trivialSubgroup_X5
+#print axioms Polyfold.Examples.OrbifoldSquare.zeroVec_mem
+#print axioms Polyfold.Examples.OrbifoldSquare.π_sqSection_eq
+
+-- Examples/OrbifoldSquareOrientation.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.admitsBumpFunctions_A5
+#print axioms Polyfold.Examples.OrbifoldSquare.canonicalGermInput_sqOrientationRep
+#print axioms Polyfold.Examples.OrbifoldSquare.definition_12_5_4_sqOrientation
+#print axioms Polyfold.Examples.OrbifoldSquare.equiv_apply_apply_of_two
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_isContOrOn_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.hasScPlusSectionsThrough_A5
+#print axioms Polyfold.Examples.OrbifoldSquare.isIndexAt_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isOrInvariant_of_isContOrOn
+#print axioms Polyfold.Examples.OrbifoldSquare.isOrientationTopology_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isScFredholmSectionTame_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isSectionOrientation_sqOrientation
+#print axioms Polyfold.Examples.OrbifoldSquare.isTame_A5
+#print axioms Polyfold.Examples.OrbifoldSquare.mem_smoothSet_A5
+#print axioms Polyfold.Examples.OrbifoldSquare.orMor_zero
+
+-- Examples/OrbifoldSquarePerturbation.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.N5_oneMk
+#print axioms Polyfold.Examples.OrbifoldSquare.actW_branch
+#print axioms Polyfold.Examples.OrbifoldSquare.branchVal.eq_1
+#print axioms Polyfold.Examples.OrbifoldSquare.branchVal_injective
+#print axioms Polyfold.Examples.OrbifoldSquare.branchVal_ne_zero
+#print axioms Polyfold.Examples.OrbifoldSquare.branch_apply
+#print axioms Polyfold.Examples.OrbifoldSquare.cE_branchVal
+#print axioms Polyfold.Examples.OrbifoldSquare.controlsCompactness_n5
+#print axioms Polyfold.Examples.OrbifoldSquare.controlsCompactness_sqSection_univ
+#print axioms Polyfold.Examples.OrbifoldSquare.eq_branch_actW_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.hasCompactSolutionSet_sqFredholmSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isAuxNorm_N5
+#print axioms Polyfold.Examples.OrbifoldSquare.isAuxNorm_N5_bundle
+#print axioms Polyfold.Examples.OrbifoldSquare.isAuxNorm_n5
+#print axioms Polyfold.Examples.OrbifoldSquare.isControlledBy_t5
+#print axioms Polyfold.Examples.OrbifoldSquare.isInGeneralPositionWith_t5
+#print axioms Polyfold.Examples.OrbifoldSquare.isInGeneralPosition_Λ5
+#print axioms Polyfold.Examples.OrbifoldSquare.isLocalRepOn_Λ5
+#print axioms Polyfold.Examples.OrbifoldSquare.isScPlusMultisection_Λ5
+#print axioms Polyfold.Examples.OrbifoldSquare.isScPlusSection_branch
+#print axioms Polyfold.Examples.OrbifoldSquare.isWFunctor_Λ5
+#print axioms Polyfold.Examples.OrbifoldSquare.mem_reducedTangentFiber_of_univ
+#print axioms Polyfold.Examples.OrbifoldSquare.normOf_n5
+#print axioms Polyfold.Examples.OrbifoldSquare.norm_cE_branchVal
+#print axioms Polyfold.Examples.OrbifoldSquare.pointwiseNorm_Λ5_le
+#print axioms Polyfold.Examples.OrbifoldSquare.rot_branchVal
+#print axioms Polyfold.Examples.OrbifoldSquare.sqSection_eq_branch_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.surjective_fderiv_sq_sub_const
+#print axioms Polyfold.Examples.OrbifoldSquare.Λ5_pos_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.Λ5_sqSection_pos_iff
+
+-- Examples/OrbifoldSquare.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.count_eq_of_isAdmissible
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_canonical_t5
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_contDiff_of_isScPlusSection
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_unique_count
+#print axioms Polyfold.Examples.OrbifoldSquare.fderiv_sub_eq_zero_of_equivariant
+#print axioms Polyfold.Examples.OrbifoldSquare.isRegular_of_Λ5_pos
+#print axioms Polyfold.Examples.OrbifoldSquare.not_isTransversalAt_graph
+#print axioms Polyfold.Examples.OrbifoldSquare.not_isTransversalAt_sectionMulti
+#print axioms Polyfold.Examples.OrbifoldSquare.theorem_16_6_6_hypotheses
+#print axioms Polyfold.Examples.OrbifoldSquare.theorem_16_6_6_sq
+#print axioms Polyfold.Examples.OrbifoldSquare.Λ5_sqSection_eq
+#print axioms Polyfold.Examples.OrbifoldSquare.Λ5_sqSection_pos_iff_orbit
+#print axioms Polyfold.Examples.OrbifoldSquare.π_ne_π_neg
+
+-- Examples/PointCountFiniteSupport.lean
+#print axioms Polyfold.EP.localMeasure_point
+#print axioms Polyfold.EP.pointBranchedIntegral_eq_sum
+#print axioms Polyfold.EP.sheetSum_point
+#print axioms Polyfold.EpGroupoid.signedWeight_single
+#print axioms Polyfold.EpGroupoid.signedWeight_sum
+#print axioms Polyfold.SBLocalization.PointSolution.count_eq_sum
+#print axioms Polyfold.signedMeasure_coe_finset
+
+-- Examples/OrbifoldSquareCount.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.card_isotropy_of_isRegular
+#print axioms Polyfold.Examples.OrbifoldSquare.count_eq_two_fifths_of_positiveZeros
+#print axioms Polyfold.Examples.OrbifoldSquare.count_t5
+#print axioms Polyfold.Examples.OrbifoldSquare.d_sqOne
+#print axioms Polyfold.Examples.OrbifoldSquare.sqEval_sqOne
+#print axioms Polyfold.Examples.OrbifoldSquare.sqOne.eq_1
+
+-- Examples/ConstantFormClosed.lean
+#print axioms Polyfold.EP.constFormInfty.eq_1
+#print axioms Polyfold.EP.epFormsInftyD_constFormInfty
+#print axioms Polyfold.EP.zeroFormEval_constFormInfty
+#print axioms Polyfold.MPolyfold.constForm_eq_formPullback
+#print axioms Polyfold.MPolyfold.extD_constForm
+#print axioms Polyfold.MPolyfold.extD_eq_zero_of_point
+
+-- Examples/SignDimZeroLinear.lean
+#print axioms Polyfold.SubspaceFamily.cont_emptyRay
+#print axioms Polyfold.SubspaceFamily.isLineOrientation_emptyRayAt
+#print axioms Polyfold.maxPowEquiv_emptyWedge
+#print axioms Polyfold.ray_map_maxPowEquiv_emptyRay
+#print axioms Polyfold.wedge_eq_emptyWedge
+
+-- Examples/SignDimZeroPush.lean
+#print axioms Polyfold.ChartPoint.IsPos.bijective
+#print axioms Polyfold.ChartPoint.IsPos.orTransfer
+#print axioms Polyfold.ChartPoint.bijective_stabT_of_bijective
+#print axioms Polyfold.ChartPoint.injective_of_map_ker_eq_bot
+#print axioms Polyfold.ChartPoint.isPos_iff
+#print axioms Polyfold.ChartPoint.isPos_or_isPos
+#print axioms Polyfold.ChartPoint.map_ker_eq_bot
+#print axioms Polyfold.ChartPoint.stabT_transferT
+#print axioms Polyfold.IsStabKernels.isPos_push_iff
+#print axioms Polyfold.IsStabKernels.orRay_eq_emptyRayAt_iff
+#print axioms Polyfold.SubspaceFamily.emptyRayAt.congr_simp
+#print axioms Polyfold.isPosOr_congr
+#print axioms Polyfold.isPosOr_congr_pt
+#print axioms Polyfold.isPosOr_iff_chart
+#print axioms Polyfold.isPosOr_iff_of_path
+#print axioms Polyfold.isPosOr_iff_of_path_local
+#print axioms Polyfold.isStabKernels_botFamily
+
+-- Examples/SignDimZeroFrames.lean
+#print axioms Polyfold.ChartPoint.orKer_eq_emptyRay_iff_isPos
+#print axioms Polyfold.SBLocalization.IsCanonicalFor.signedWeight_eq
+#print axioms Polyfold.SBLocalization.KernelBranching.exists_subOp_eq
+#print axioms Polyfold.SBLocalization.KernelBranching.frameSign_orTangent_eq_one_iff
+#print axioms Polyfold.SBLocalization.chartFrames_nonempty_iff
+#print axioms Polyfold.SBLocalization.frameSign_linOrTangent_eq_one_iff
+#print axioms Polyfold.SBLocalization.subOp_eq_stabT
+
+-- Examples/OrbifoldSquareSign.lean
+#print axioms Polyfold.Examples.OrbifoldSquare.bijective_stabT_sqSection
+#print axioms Polyfold.Examples.OrbifoldSquare.canonicalGermInput_sqOrientationRepPos
+#print axioms Polyfold.Examples.OrbifoldSquare.count_eq_of_isAdmissible_pos
+#print axioms Polyfold.Examples.OrbifoldSquare.count_eq_two_fifths
+#print axioms Polyfold.Examples.OrbifoldSquare.count_eq_two_fifths_all
+#print axioms Polyfold.Examples.OrbifoldSquare.count_t5_pos
+#print axioms Polyfold.Examples.OrbifoldSquare.definition_12_5_4_sqOrientationPos
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_canonical_t5_pos
+#print axioms Polyfold.Examples.OrbifoldSquare.exists_isContOrOn_isPosAt
+#print axioms Polyfold.Examples.OrbifoldSquare.injective_rot
+#print axioms Polyfold.Examples.OrbifoldSquare.isContOrOn_sqOrientationPos
+#print axioms Polyfold.Examples.OrbifoldSquare.isPosAt_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.isPosAt_sqOrientationPos
+#print axioms Polyfold.Examples.OrbifoldSquare.isScPlusSection_famSection
+#print axioms Polyfold.Examples.OrbifoldSquare.isScPlusSection_negConst
+#print axioms Polyfold.Examples.OrbifoldSquare.isZeroAt_negConst
+#print axioms Polyfold.Examples.OrbifoldSquare.isZeroAt_negConst_iff
+#print axioms Polyfold.Examples.OrbifoldSquare.positiveZeros_sqOrientationRepPos
+#print axioms Polyfold.Examples.OrbifoldSquare.pullbackSlice_famSection
+#print axioms Polyfold.Examples.OrbifoldSquare.sectionAdd_graphSection
+#print axioms Polyfold.Examples.OrbifoldSquare.sectionAdd_negConst
+#print axioms Polyfold.Examples.OrbifoldSquare.signedWeight_canonical_eq
+#print axioms Polyfold.Examples.OrbifoldSquare.sq_symm_eq_branchVal_zero
+#print axioms Polyfold.Examples.OrbifoldSquare.subSec_graphSection_const
+
 end Polyfold

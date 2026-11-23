@@ -67,6 +67,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
 | `Exposition/Findings.md` | Points left to the reader, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
+| `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |

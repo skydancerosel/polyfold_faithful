@@ -1460,3 +1460,16 @@ import Polyfold.Chapter16.IndexZeroNoBumpsRestr
 import Polyfold.Chapter16.IndexZeroNoBumpsUnconditional
 import Polyfold.Chapter16.InvariantNoBumpsUnconditional
 import Polyfold.Chapter8.DegIndexProductLevelOne
+import Polyfold.Examples.OrbifoldSquareAlgebra
+import Polyfold.Examples.OrbifoldSquareBundle
+import Polyfold.Examples.OrbifoldSquareStructure
+import Polyfold.Examples.OrbifoldSquareOrientation
+import Polyfold.Examples.OrbifoldSquarePerturbation
+import Polyfold.Examples.OrbifoldSquare
+import Polyfold.Examples.PointCountFiniteSupport
+import Polyfold.Examples.OrbifoldSquareCount
+import Polyfold.Examples.ConstantFormClosed
+import Polyfold.Examples.SignDimZeroLinear
+import Polyfold.Examples.SignDimZeroPush
+import Polyfold.Examples.SignDimZeroFrames
+import Polyfold.Examples.OrbifoldSquareSign

@@ -55,6 +55,7 @@ The public documents describe the final state only.
 Top level: `Polyfold.lean` (imports every module), `Polyfold/Test.lean` (`#print axioms` per theorem, one block
 per chapter), `Polyfold/Basic.lean`, `Polyfold/Vendor/MilnorSard/` (Sard's theorem, from the Milnor project),
 `Polyfold/Chapter1/` … `Polyfold/Chapter19/` (one folder per chapter of the book, files named by topic),
+`Polyfold/Examples/` (the worked example, below),
 `RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`),
 `Exposition/` (§3). A file's folder is its place in the dependency order: a file in `Polyfold/ChapterN/` imports
 only chapters ≤ N, so a statement of one chapter that needs the machinery of a later chapter lives in the later
@@ -415,6 +416,23 @@ witness bundles in `HalfSpaceBundleConstruction`, `HalfSpaceWitnesses`, `HalfSpa
 `CoveringSquareMultiplication`, `CoveringSquareMultiplicationExamples`, `FibredProductCovering`,
 `CoveringSquareFibredProper`, `CoveringSquareFibredProperExamples`, `CompatibilityExamples`.
 
+**Examples** (the worked example, imported after Chapter 16; page `Exposition/WorkedExample.md`): the orbifold
+ℤ/5 ⋉ ℂ with the strong bundle of weight 2 and the section z ↦ z², index 0, in `OrbifoldSquareAlgebra`,
+`OrbifoldSquareBundle`, `OrbifoldSquareStructure`, `OrbifoldSquareOrientation`, `OrbifoldSquarePerturbation`,
+`OrbifoldSquare`, `OrbifoldSquareCount`, `OrbifoldSquareSign` (namespace Polyfold.Examples.OrbifoldSquare).
+No equivariant single-valued sc⁺-perturbation is transversal (`not_isTransversalAt_sectionMulti`); every hypothesis
+of Theorem 16.6.6 for index 0 holds (`theorem_16_6_6_hypotheses`); the five-branch multisection with weights 1/5 is
+admissible (`exists_canonical_t5`); and the count is 2/5 for every admissible perturbation with the canonical
+orientation, for the orientation positive at the complex-linear isomorphisms (`count_eq_two_fifths`,
+`count_eq_two_fifths_all`). General lemmas in the same folder, in the library's namespaces: counts over finitely
+many orbits in `PointCountFiniteSupport` (`EP.pointBranchedIntegral_eq_sum`, `PointSolution.count_eq_sum`); d of a
+constant 0-form in `ConstantFormClosed` (`MPolyfold.extD_constForm`); the sign of the canonical orientation of
+Theorem 15.4.1 in dimension 0 in `SignDimZeroLinear`, `SignDimZeroPush`, `SignDimZeroFrames`
+(`isPosOr_iff_of_path`, `KernelBranching.frameSign_orTangent_eq_one_iff`, `IsCanonicalFor.signedWeight_eq`).
+Limits: finite-dimensional (ℂ, all
+levels equal); `sqOrientationPos` is not proved equal to `sqOrientation`. The Chapter 15 and 16 reports cite the
+example as a witness for the index-0 statements (V15.37, V15.51, V16.82; Findings, Chapter 16, items 25 and 26).
+
 ## 3. The reports (`Exposition/`)
 
 - `Chapter1.md` – `Chapter11.md`: the exposition of Parts I–II.
@@ -427,6 +445,7 @@ witness bundles in `HalfSpaceBundleConstruction`, `HalfSpaceWitnesses`, `HalfSpa
   `polyfold-proof-by-proof.html`: the proofs retold step by step, with trace tags checked by `check_trace.py`.
 - `Findings.md`: reading points, hidden hypotheses and counterexamples to our readings, numbered per chapter.
 - `BookConcordance.md`: numbers and pages of the 2014, 2017 and 2021 texts side by side.
+- `WorkedExample.md`: the worked example ℂ/ℤ₅ with z ↦ z² (`Polyfold/Examples/`), written by hand.
 - `checklist/` (`TrustedBase.lean`, `graph.tsv`, `mains.json`, `mains.tsv`, `build_checklist.py`) →
   `ReviewerChecklist.md`: the definitions and main statements a reviewer must read, in tiers.
 - `STYLE.md`, `REVIEW.md`, `VERIFY.md`, `PBP.md`: conventions of the reports, from the Milnor project.

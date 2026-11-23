@@ -14334,7 +14334,8 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     the correspondence relates `z3OrientationRep` to itself, $o = o'$, so the iff and the count equality are
     tautological as conclusions and the witness shows only that the hypotheses can hold together; $\partial Z =
     \emptyset$); with no partitions of unity `theorem_16_6_6_correspondence_all` and
-    `theorem_16_6_6_index_zero_correspondence_all` (rows V16.78, V16.80, V16.82, V16.83). Status: **settled (points
+    `theorem_16_6_6_index_zero_correspondence_all` (rows V16.78, V16.80, V16.82, V16.83). For index 0 over an
+    effective ep-groupoid with nontrivial isotropy, see the worked example in item 26. Status: **settled (points
     G.175, G.187, G.188 settled)**.
 
 26. **Theorem 16.6.6: existence, the solution set of every admissible $\lambda$, and all admissible $\lambda$; Theorem
@@ -14424,7 +14425,16 @@ Found while formalizing §16.6 (files `Chapter16/OrientationRepresentatives`, `O
     `TrivialBundle.theorem_16_6_6_all_admissible_hypotheses_circle`, `theorem_16_6_6_all_admissible_circle` (weak: units
     only, the perturbation built regular; no example has a $\lambda$ that is not structurable);
     `TrivialBundle.corollary_15_4_4_index_zero_norm_one` ($N(\Lambda) = 1$, in a model; weak: trivial ep-groupoid,
-    $\partial X = \emptyset$; the polyfold form for index 0 has no instance of its own). (d) Theorem 16.3.17 (2) is stated for the tame polyfold of the text
+    $\partial X = \emptyset$; the polyfold form for index 0 has no instance of its own). For index 0 the main forms
+    have a witness with an effective ep-groupoid, nontrivial isotropy and a perturbation that is not single-valued,
+    the worked example of `Exposition/WorkedExample.md`: over $\mathbb Z/5 \ltimes \mathbb C$ (isotropy $\mathbb Z/5$
+    at $0$), the fibre $\mathbb C$ of weight 2 and $f(z) = (z, z^2)$, every hypothesis holds
+    (`Polyfold.Examples.OrbifoldSquare.theorem_16_6_6_hypotheses`), no equivariant single-valued sc⁺-perturbation is
+    transversal (`Polyfold.Examples.OrbifoldSquare.not_isTransversalAt_sectionMulti`), the multisection with five
+    branches of weight 1/5 is admissible (`Polyfold.Examples.OrbifoldSquare.exists_canonical_t5`), and every
+    admissible perturbation with the canonical orientation has count 2/5, for the orientation positive at the
+    complex-linear isomorphisms (`Polyfold.Examples.OrbifoldSquare.count_eq_two_fifths`); finite-dimensional,
+    $\partial Z = \emptyset$. (d) Theorem 16.3.17 (2) is stated for the tame polyfold of the text
     (`theorem_16_3_17_two`): the reflexive local step of Theorem 12.2.13 is a theorem for tame models
     (`hasReflexiveLocalExtensions_of_isTame`), so no hypothesis remains beyond "$n$ reflexive", read as reflexive
     fibres and a reflexive auxiliary norm on the boundary in one model (rows V16.58, V16.78, V16.82). Status: **(a),
