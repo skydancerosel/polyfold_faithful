@@ -67,7 +67,7 @@ python3 Exposition/build_signoff.py         # polyfold-signoff.html
 Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `lake` call or
 `Exposition/` script.
 
-## The reviewer's path
+## Reading guide
 
 | Document | What it is |
 |---|---|
@@ -105,41 +105,8 @@ A web browser is enough: no Lean and no GitHub account are needed.
    in the notes box.
 4. **Stop whenever you like.** Ticks and notes are kept in your browser; **unsigned only** hides what
    you have ticked.
-5. **Send it back** with **Export SIGNOFF.md** and email the file to whoever invited you.
-   **Import…** reloads it, for example on another computer.
-
-## What a reviewer is most needed for
-
-1. **The definitions**: sc-structures, retracts and M-polyfolds, strong bundles, sc-Fredholm germs and
-   sections, ep-groupoids, branched ep⁺-subgroupoids, sc⁺-multisections, polyfolds. Are they the
-   authors' notions? Lean cannot tell a definition that differs from the authors' in a detail, so
-   this is where a mismatch is hardest to see.
-2. **The readings we had to choose**, each recorded in the Findings with its reason:
-   * sc-smooth germs live on neighbourhoods whose levels may shrink with the level (Definitions 3.1.4,
-     3.1.6, 3.1.11);
-   * "tame strong bundle" (used from Theorem 3.6.8 on, not defined in the 2021 text) is read as the
-     2014 and 2017 versions define it, and the germ data of §§3.6, 6.2, 6.6 and 12.5 are taken in a
-     tame chart;
-   * bump functions are read pointwise, `f(x) ≠ 0` (Definitions 5.3.1, 12.3.1);
-   * index sets of structured multisections are non-empty, as the factor `1/|I_x|` of Definitions
-     13.2.5 and 14.1.3 presumes;
-   * the equivalence of Definition 13.3.8, as Definition 14.6.2 and Theorem 14.6.3 use it, also
-     compares the sections, as the step on p. 682 states;
-   * the strong polyfold bundle structure (Definition 16.3.1) carries local regularity as printed in
-     Definition 8.4.2 (`IsLRLocal`); the form for strong bundle maps of `W` (`IsLR`) follows from it,
-     and whether the two agree is not known to us (Findings, Chapter 8);
-   * the lateral term of Stokes' theorem on the cobordism over `[0, 1] × X` (Remark 6.6.19) is the
-     integral over the part of the boundary with `0 < t < 1`, a limit of cut-off integrals, for a
-     tame `X` with or without faces;
-   * the frame convention for the 1-dimensional cobordism of index 0 (Corollary 15.4.4) is read in a
-     signed form;
-   * in Part IV a covering family has a uniformizer at every object, `F(α) ≠ ∅` (§17.1, Proposition 17.3.4,
-     Theorem 19.2.2), and condition (v3) of Definition 19.4.1 asks for a limit in the fibre over `z`.
-3. **The arguments we supplied** where a proof step could not be completed from the text alone. Each
-   is marked in the comparison and retold in ProofByProof.
-4. **Conventions made explicit.** Where the text leaves a convention or a condition implicit, the
-   formalization makes it explicit and proves the statement with it; each case is recorded with its
-   reason and, in most cases, a small example in the Findings (section *Conventions made explicit*).
+5. **Save it** with **Export SIGNOFF.md**: keep the file, or send it to the maintainer of this
+   project. **Import…** reloads it, for example on another computer.
 
 ## Open questions
 

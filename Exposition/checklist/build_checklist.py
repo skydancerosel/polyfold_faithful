@@ -105,8 +105,8 @@ w('Lean checks every proof. What it cannot check is whether the definitions and 
   '(`Exposition/Comparison.md`, or `polyfold-beside-lean.html` in a browser), which gives the book text in '
   'paraphrase, the Lean declarations and the verdict.\n\n'
   'The readings the formalization had to choose (sc-smooth germs on neighbourhoods that may shrink with the level, '
-  'the tame reading of "tame strong bundle", …) are part of these definitions; the README lists them under '
-  '*What a reviewer is most needed for*, and `Findings.md` gives the reason for each.\n\n')
+  'the tame reading of "tame strong bundle", …) are part of these definitions; `Findings.md` '
+  'lists them, each with its reason.\n\n')
 w('## Before reading: the machine checks\n\n')
 w('```bash\nlake build Polyfold\n```\n\n```bash\nlake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean\n```\n\n'
   'The second command prints the axioms of every theorem; each must list only `propext`, `Classical.choice` and '

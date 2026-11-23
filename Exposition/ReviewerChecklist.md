@@ -4,7 +4,7 @@
 
 Lean checks every proof. What it cannot check is whether the definitions and the statements say what the book says. This page lists exactly those items, in tiers: a reviewer who signs off a tier checks its statements and its definition rows, and nothing else. Each row id (V3.14, …) is an entry of the comparison page (`Exposition/Comparison.md`, or `polyfold-beside-lean.html` in a browser), which gives the book text in paraphrase, the Lean declarations and the verdict.
 
-The readings the formalization had to choose (sc-smooth germs on neighbourhoods that may shrink with the level, the tame reading of "tame strong bundle", …) are part of these definitions; the README lists them under *What a reviewer is most needed for*, and `Findings.md` gives the reason for each.
+The readings the formalization had to choose (sc-smooth germs on neighbourhoods that may shrink with the level, the tame reading of "tame strong bundle", …) are part of these definitions; `Findings.md` lists them, each with its reason.
 
 ## Before reading: the machine checks
 
