@@ -76,11 +76,40 @@ These hold for any strong bundle or ep-groupoid and are used by the example.
   (`Polyfold.SBLocalization.IsCanonicalFor.signedWeight_eq`). Positivity is carried along any
   sc-smooth path of isomorphisms (`Polyfold.isPosOr_iff_of_path`, by Theorems 6.6.11 and 6.6.13).
 
+## The infinite-dimensional version
+
+The same example crossed with an sc-Hilbert space whose levels are strictly nested, so that the
+sc-calculus of Part I, the strong bundle shift and sc-Fredholm theory in infinite dimensions all enter
+(namespace Polyfold.Examples.OrbifoldSquareInf).
+
+* **The sc-Hilbert space** `Polyfold.Examples.WeightedEllTwo.H`: H_m = {x : Σ (k+1)^{2m} x_k² < ∞}.
+  The inclusions H_{m+1} → H_m are compact and not onto
+  (`Polyfold.Examples.WeightedEllTwo.not_surjective_inclLevel`,
+  `Polyfold.Examples.WeightedEllTwo.harmH_not_mem_smooth`); not every object is smooth
+  (`exists_not_mem_smoothSet`).
+* **The polyfold bundle** `infBundle`: the ep-groupoid (ℤ/5 ⋉ ℂ) × H, with ℤ/5 acting trivially on H,
+  the strong bundle with fibre ℂ (weight 2) × H and its double filtration, and the section
+  (z, e) ↦ (z², e). The H-part is the identity, sc-Fredholm with tame germ data
+  (`isScFredholmSectionTame_idSec`, `isConjugateToBasicGerm_id`), and the index is 0 (`isIndexAt_sqInf`).
+* **Every hypothesis of Theorem 16.6.6 for index 0 holds** as stated (`theorem_16_6_6_hypotheses_inf`,
+  `theorem_16_6_6_inf`). The auxiliary norm is the H₁-norm on the fibre, whose unit ball is precompact
+  in H₀ because the inclusion is compact.
+* **The five-branch multisection** with branches (ζ^{2j}c, 0) is admissible (`isInGeneralPosition_Λinf`,
+  `exists_canonical_tinf`), and **the count is 2/5** for every admissible perturbation with the
+  canonical orientation (**`count_eq_two_fifths_inf`**, `count_eq_two_fifths_inf_all`), for the
+  orientation positive at the isomorphisms (2z, id), z ≠ 0.
+* A general lemma on the way: invariance of a continuous orientation under the morphisms on
+  ep-groupoids whose objects are not all smooth
+  (`Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous`, in `OrInvariantSmooth`).
+
+That no equivariant single-valued perturbation is transversal is stated for the finite-dimensional
+example only; here an equivariant sc⁺-section need not vanish on the H-component, and the obstruction
+lives on the ℂ-component.
+
 ## Limits
 
-* The example is finite-dimensional: ℂ with every level equal, so the sc-structure is constant. It
-  exercises the definitions and theorems of Parts II and III on a polyfold with isotropy; it does not
-  test the infinite-dimensional sc-calculus of Part I.
+* The first example is ℂ with every level equal, so its sc-structure is constant; the version above
+  adds an infinite-dimensional factor with strictly nested levels, on which the section is the identity.
 * The orientation `sqOrientationPos` is chosen as the continuous orientation positive at the
   complex-linear isomorphisms. The library also has `sqOrientation`, one of the two continuous
   orientations chosen without that normalization; that the two agree is not proved. Items 1 and 2 are
@@ -107,3 +136,7 @@ These hold for any strong bundle or ep-groupoid and are used by the example.
 | `Polyfold.SubspaceFamily.cont_emptyRay` | `SignDimZeroLinear` | rank 0: the continuation keeps the empty-wedge ray |
 | `Polyfold.IsPosOr`, `Polyfold.isPosOr_iff_of_path` | `SignDimZeroPush` | positivity at an isomorphism, carried along paths |
 | `Polyfold.SBLocalization.KernelBranching.frameSign_orTangent_eq_one_iff`, `Polyfold.SBLocalization.IsCanonicalFor.signedWeight_eq` | `SignDimZeroFrames` | the sign of the canonical orientation in dimension 0 |
+| `Polyfold.Examples.WeightedEllTwo.H`, `Polyfold.Examples.WeightedEllTwo.not_surjective_inclLevel` | `WeightedEllTwo` | the weighted ℓ² sc-Hilbert space with strictly nested levels |
+| `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_hypotheses_inf`, `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_inf` | `OrbifoldSquareInf` | Theorem 16.6.6 for index 0 on (ℤ/5 ⋉ ℂ) × H |
+| **`Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf`**, `Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf_all` | `OrbifoldSquareInf` | the count is 2/5 with the infinite-dimensional factor |
+| `Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous` | `OrInvariantSmooth` | invariance of continuous orientations when not every object is smooth |

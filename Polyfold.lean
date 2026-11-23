@@ -1473,3 +1473,15 @@ import Polyfold.Examples.SignDimZeroLinear
 import Polyfold.Examples.SignDimZeroPush
 import Polyfold.Examples.SignDimZeroFrames
 import Polyfold.Examples.OrbifoldSquareSign
+import Polyfold.Examples.WeightedEllTwo
+import Polyfold.Examples.OrbifoldSquareInfBundle
+import Polyfold.Examples.OrbifoldSquareInfFredholm
+import Polyfold.Examples.OrbifoldSquareInfNorm
+import Polyfold.Examples.OrbifoldSquareInfStructure
+import Polyfold.Examples.OrbifoldSquareInfPaths
+import Polyfold.Examples.OrInvariantSmooth
+import Polyfold.Examples.OrbifoldSquareInfSection
+import Polyfold.Examples.OrbifoldSquareInfPerturbation
+import Polyfold.Examples.OrbifoldSquareInfPositive
+import Polyfold.Examples.OrbifoldSquareInfOrientation
+import Polyfold.Examples.OrbifoldSquareInf

@@ -429,8 +429,15 @@ many orbits in `PointCountFiniteSupport` (`EP.pointBranchedIntegral_eq_sum`, `Po
 constant 0-form in `ConstantFormClosed` (`MPolyfold.extD_constForm`); the sign of the canonical orientation of
 Theorem 15.4.1 in dimension 0 in `SignDimZeroLinear`, `SignDimZeroPush`, `SignDimZeroFrames`
 (`isPosOr_iff_of_path`, `KernelBranching.frameSign_orTangent_eq_one_iff`, `IsCanonicalFor.signedWeight_eq`).
-Limits: finite-dimensional (ℂ, all
-levels equal); `sqOrientationPos` is not proved equal to `sqOrientation`. The Chapter 15 and 16 reports cite the
+The infinite-dimensional version (namespace Polyfold.Examples.OrbifoldSquareInf): the weighted ℓ² sc-Hilbert space
+in `WeightedEllTwo`; the product (ℤ/5 ⋉ ℂ) × H with the section (z, e) ↦ (z², e) in `OrbifoldSquareInfBundle`,
+`OrbifoldSquareInfFredholm`, `OrbifoldSquareInfNorm`, `OrbifoldSquareInfStructure`, `OrbifoldSquareInfPaths`,
+`OrbifoldSquareInfSection`, `OrbifoldSquareInfPerturbation`, `OrbifoldSquareInfPositive`,
+`OrbifoldSquareInfOrientation`, `OrbifoldSquareInf`; every hypothesis of Theorem 16.6.6 for index 0 holds
+(`theorem_16_6_6_hypotheses_inf`) and the count is 2/5 (`count_eq_two_fifths_inf`); the general lemma
+`EpStrongBundle.isOrInvariantAt_iff_of_continuous` in `OrInvariantSmooth`.
+Limits: the non-transversality of single-valued perturbations is stated for the finite-dimensional example;
+`sqOrientationPos` is not proved equal to `sqOrientation`. The Chapter 15 and 16 reports cite the
 example as a witness for the index-0 statements (V15.37, V15.51, V16.82; Findings, Chapter 16, items 25 and 26).
 
 ## 3. The reports (`Exposition/`)
