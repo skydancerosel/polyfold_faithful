@@ -18,8 +18,8 @@ All four parts of the book, Chapters 1–19, are formalized, and the main theore
 checks every proof: there is no `sorry`, and every declaration depends only on Lean's standard axioms
 (`propext`, `Classical.choice`, `Quot.sound`), checked in `Polyfold/Test.lean`.
 
-**A worked example** ([`Exposition/WorkedExample.pdf`](Exposition/WorkedExample.pdf), also as
-[`Exposition/WorkedExample.md`](Exposition/WorkedExample.md)) carries Theorem 16.6.6 through on one
+**A worked example** ([`Exposition/WorkedExample-Mathematics.pdf`](Exposition/WorkedExample-Mathematics.pdf);
+with references to the Lean proofs, [`Exposition/WorkedExample.pdf`](Exposition/WorkedExample.pdf)) carries Theorem 16.6.6 through on one
 small polyfold: the orbifold ℂ/ℤ₅ with the section z ↦ z² of weight 2. No single-valued equivariant
 perturbation makes it transversal, so multisections are needed. Every hypothesis of Theorem 16.6.6
 holds together, and the invariant is 2/5; the same holds with an infinite-dimensional sc-Hilbert
@@ -76,7 +76,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
 | `Exposition/Findings.md` | Points left to the reader, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
-| `Exposition/WorkedExample.pdf`, `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor. |
+| `Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` with the Lean references, summary in `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |

@@ -1,5 +1,6 @@
 *The typeset version, with a complete proof of every step against the definitions of the book, is
-`Exposition/WorkedExample.pdf` (source in `Exposition/worked-example/`). This page is a summary.*
+`Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` is the same note with
+references to the Lean proofs (sources in `Exposition/worked-example/`). This page is a summary.*
 
 # A worked example: the orbifold ℂ/ℤ₅ and the section z ↦ z²
 
