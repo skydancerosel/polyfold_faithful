@@ -41,7 +41,6 @@ open TrivialBundle EpGroupoid EpGroupoid.Examples StrongBundle MPolyfold StrongP
 
 variable {G : Type} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {n : ℕ} [DistribMulAction G (Fin n → ℝ)] [SMulCommClass G ℝ (Fin n → ℝ)]
-  [FaithfulSMul G (Fin n → ℝ)]
   (σ : G →* ((Fin n → ℝ) →L[ℝ] (Fin n → ℝ))) {φ : (Fin n → ℝ) → (Fin n → ℝ)}
 
 /-! ### The constant form `1` -/

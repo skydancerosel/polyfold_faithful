@@ -109,31 +109,43 @@ sc-calculus of Part I, the strong bundle shift and sc-Fredholm theory in infinit
 That no equivariant single-valued perturbation is transversal is stated for the finite-dimensional
 example only.
 
-## The classical case: linear quotients of ℝⁿ
+## The classical case: linear quotients
 
-The computation extends to every finite group acting linearly on ℝⁿ (namespace
-Polyfold.Examples.Classical, files in `Polyfold/Examples/Classical/`). Let G act linearly and faithfully
-on ℝⁿ by ρ, let σ be a second linear action of G on the fibre ℝⁿ with det ρ(g) · det σ(g) > 0, and let
-φ : ℝⁿ → ℝⁿ be smooth, proper and equivariant, φ(ρ(g)x) = σ(g)φ(x). Take the polyfold bundle
-|G ⋉ (ℝⁿ × ℝⁿ)| → ℝⁿ/G, the section x ↦ (x, φ(x)), the auxiliary norm N(w) = Σ_g |σ(g)w|, and the
-orientation positive at the linearizations of positive determinant.
+The computation extends to every finite group acting linearly on an oriented vector space (namespace
+Polyfold.Examples.Classical, files in `Polyfold/Examples/Classical/`). Let V, W be oriented real vector
+spaces of the same dimension n ≥ 1, let G act linearly on V by ρ and on W by σ with
+det ρ(g) · det σ(g) > 0, let K = ker ρ (the action need not be faithful), and let φ : V → W be smooth,
+proper and equivariant. Take the polyfold bundle |G ⋉ (V × W)| → V/G, the section x ↦ (x, φ(x)), the
+auxiliary norm N(w) = Σ_g |σ(g)w|, and the orientation positive at the linearizations that preserve
+orientation.
 
 * **Every hypothesis of Theorem 16.6.6 for index 0 holds** (`theorem_16_6_6_hypotheses_classical`).
+  The local regularity of the bundle (Definition 8.4.2) is proved directly for these actions, with no
+  condition on σ restricted to K (`isLRLocal_EG`).
 * For a regular value c of φ with N(c) ≤ 1, the multisection with one branch σ(g)c of weight 1/|G| for
   each g is admissible and carries the canonical orientation, and **for every admissible perturbation
-  with the canonical orientation the count of 1 is**
+  with the canonical orientation**
 
-  (1/|G|) · Σ_{x ∈ φ⁻¹(c)} sign det Dφ(x)
+  count = (1/|G|) · Σ_{x ∈ φ⁻¹(c)} sign Dφ(x),  effective count = (1/|G/K|) · Σ_{x ∈ φ⁻¹(c)} sign Dφ(x)
 
-  (**`count_eq_classicalCount`**). The right-hand side is a finite sum of signs of Jacobian
-  determinants, classically the degree of φ divided by |G|. Isotropy is allowed.
+  (**`count_eq_classicalCount`**, **`NonEffective.count_countEff_eq_classicalCount`**, and for oriented
+  V, W **`NonEffective.Oriented.count_countEff_eq_orientedClassicalCount`**, whose hypotheses and right
+  side use Mathlib notions only). Here sign Dφ(x) = ±1 as Dφ(x) preserves or reverses orientation; the
+  sum is classically the degree of φ. Isotropy is allowed. If σ is nontrivial on K, a regular value has
+  empty preimage and both counts are 0 (`NonEffective.preimage_eq_empty_of_ne_one`).
 * **Cyclic quotients of ℂ**: for ℤ/p acting on ℂ, z ↦ z^k with fibre weight k gives k/p
   (`Cyclic.count_powMap`; k = 2, p = 5 gives 2/5, `Cyclic.count_pow_two_five`), and z ↦ z̄^k with fibre
-  weight −k gives −k/p (`Cyclic.count_conjPowMap`), which tests the sign conventions.
+  weight −k gives −k/p (`Cyclic.count_conjPowMap`), which tests the sign conventions. For ℤ/2 × ℤ/p with
+  ℤ/2 acting trivially, z^k gives count k/(2p) and effective count k/p
+  (`NonEffective.Witness.count_countEff_powMap`).
+* **With the infinite-dimensional factor** H, G acting trivially on it and the section
+  (x, e) ↦ (φ(x), e), the count is the same classical count, for a faithful action
+  (`Product.count_eq_classicalCount_product`, `Product.count_powMap_product`).
 
 The proof counts orbits: an orbit in the perturbed solution set, with isotropy G_x and N_x branches
-through f(x), contributes (1/|G_x|) · (N_x/|G|) · sign det Dφ(x), and contains exactly N_x/|G_x| points
-of φ⁻¹(c), all with the same sign because det ρ(g) · det σ(g) > 0.
+through f(x), contributes (1/|G_x|) · (N_x/|G|) · sign Dφ(x), and contains exactly N_x/|G_x| points of
+φ⁻¹(c), all with the same sign because det ρ(g) · det σ(g) > 0. The effective count uses 1/|G_x/K|
+instead of 1/|G_x|.
 
 ## Limits
 
@@ -145,10 +157,9 @@ of φ⁻¹(c), all with the same sign because det ρ(g) · det σ(g) > 0.
   stated for `sqOrientationRep` and repeated for `sqOrientationRepPos`
   (`canonicalGermInput_sqOrientationRepPos`, `exists_canonical_t5_pos`, `count_eq_of_isAdmissible_pos`).
   The value of the count for `sqOrientation` is not stated.
-* The classical case is stated for ℝⁿ with its standard basis; finite-dimensional V and W with chosen
-  bases reduce to it, but that reduction is not written in Lean. Faithfulness of the action is used for
-  the local regularity of the bundle, which comes from Proposition 8.4.3 (p. 382), stated for effective
-  ep-groupoids.
+* In the classical case for oriented V and W, the identifications with ℝⁿ are parameters, and the
+  bound N(c) ≤ 1 is stated for the norm they induce; dimension 0 is not covered. The version with the
+  infinite-dimensional factor assumes a faithful action.
 
 ## Main declarations
 
@@ -173,5 +184,8 @@ of φ⁻¹(c), all with the same sign because det ρ(g) · det σ(g) > 0.
 | `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_hypotheses_inf`, `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_inf` | `OrbifoldSquareInf` | Theorem 16.6.6 for index 0 on (ℤ/5 ⋉ ℂ) × H |
 | **`Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf`**, `Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf_all` | `OrbifoldSquareInf` | the count is 2/5 with the infinite-dimensional factor |
 | `Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous` | `OrInvariantSmooth` | invariance of continuous orientations when not every object is smooth |
-| **`Polyfold.Examples.Classical.count_eq_classicalCount`**, `Polyfold.Examples.Classical.theorem_16_6_6_hypotheses_classical`, `Polyfold.Examples.Classical.classicalCount` | `Classical/Main`, `Classical/ClassicalSum` | the classical case: the count is (1/\|G\|) Σ sign det Dφ over φ⁻¹(c) |
-| `Polyfold.Examples.Classical.Cyclic.count_powMap`, `Polyfold.Examples.Classical.Cyclic.count_pow_two_five`, `Polyfold.Examples.Classical.Cyclic.count_conjPowMap` | `Classical/Corollaries` | ℂ/ℤₚ: z^k gives k/p, z̄^k gives −k/p |
+| **`Polyfold.Examples.Classical.count_eq_classicalCount`**, `Polyfold.Examples.Classical.theorem_16_6_6_hypotheses_classical`, `Polyfold.Examples.Classical.classicalCount`, `Polyfold.Examples.Classical.isLRLocal_EG` | `Classical/Main`, `Classical/ClassicalSum`, `Classical/Structure` | the classical case: the count is (1/\|G\|) Σ sign det Dφ over φ⁻¹(c) |
+| **`Polyfold.Examples.Classical.NonEffective.count_countEff_eq_classicalCount`**, `Polyfold.Examples.Classical.NonEffective.preimage_eq_empty_of_ne_one` | `Classical/NonEffectiveEffCount` | the effective count is (1/\|G/K\|) Σ sign det Dφ |
+| **`Polyfold.Examples.Classical.NonEffective.Oriented.count_countEff_eq_orientedClassicalCount`**, `Polyfold.Examples.Classical.Oriented.orientedSign` | `Classical/OrientedTransport`, `Classical/OrientedNonEffective` | oriented V, W, in Mathlib terms |
+| `Polyfold.Examples.Classical.Cyclic.count_powMap`, `Polyfold.Examples.Classical.Cyclic.count_pow_two_five`, `Polyfold.Examples.Classical.Cyclic.count_conjPowMap`, `Polyfold.Examples.Classical.NonEffective.Witness.count_countEff_powMap` | `Classical/Corollaries`, `Classical/NonEffectiveWitness` | ℂ/ℤₚ: z^k gives k/p, z̄^k gives −k/p; with a trivially acting ℤ/2, k/(2p) and k/p |
+| `Polyfold.Examples.Classical.Product.count_eq_classicalCount_product`, `Polyfold.Examples.Classical.Product.count_powMap_product` | `Classical/ProductMain` | the same count with the infinite-dimensional factor |

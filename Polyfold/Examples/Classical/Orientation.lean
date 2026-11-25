@@ -94,7 +94,6 @@ open TrivialBundle EpGroupoid.Examples StrongBundle MPolyfold StrongPolyfoldBund
 
 variable {G : Type} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {n : ℕ} [DistribMulAction G (Fin n → ℝ)] [SMulCommClass G ℝ (Fin n → ℝ)]
-  [FaithfulSMul G (Fin n → ℝ)]
   (σ : G →* ((Fin n → ℝ) →L[ℝ] (Fin n → ℝ))) {φ : (Fin n → ℝ) → (Fin n → ℝ)}
 
 /-! ### The identity at `y` -/
@@ -421,7 +420,7 @@ theorem isPosOr_clOrientation_iff (hφ : ContDiff ℝ ∞ φ)
 
 /-! ### Invariance under the morphisms -/
 
-omit [Fintype G] [FaithfulSMul G (Fin n → ℝ)] in
+omit [Fintype G] in
 /-- `det ρ(g) · det ρ(g⁻¹) = 1`. -/
 theorem det_rhoL_mul_inv (g : G) :
     LinearMap.det (rhoL (n := n) g : (Fin n → ℝ) →ₗ[ℝ] (Fin n → ℝ)) *

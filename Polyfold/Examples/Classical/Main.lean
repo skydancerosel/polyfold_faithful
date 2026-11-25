@@ -5,10 +5,11 @@ import Polyfold.Examples.Classical.Count
 
 Theorem 16.6.6, 2021 p. 739, for Fredholm index `0`, for the sc-Fredholm section
 `|x| ↦ |(x, φ x)|` of the strong polyfold bundle `|ℝⁿ × ℝⁿ| → ℝⁿ/G`: `G` a finite group acting
-linearly and faithfully on `ℝⁿ`, `σ` a fibre action with `det ρ(g) · det σ(g) > 0`, and
-`φ : ℝⁿ → ℝⁿ` a proper equivariant `C^∞` map, `φ (g • x) = σ g (φ x)`.  The count of the constant
-form `1` for every admissible perturbation with the canonical orientation is the classical count
-`(1/♯G) · ∑_{x ∈ φ⁻¹(c)} sign det Dφ(x)`, for any regular value `c` with `gNorm σ c ≤ 1`.
+linearly on `ℝⁿ` (not necessarily faithfully), `σ` a fibre action with
+`det ρ(g) · det σ(g) > 0`, and `φ : ℝⁿ → ℝⁿ` a proper equivariant `C^∞` map,
+`φ (g • x) = σ g (φ x)`.  The count of the constant form `1` for every admissible perturbation
+with the canonical orientation is the classical count `(1/♯G) · ∑_{x ∈ φ⁻¹(c)} sign det Dφ(x)`,
+for any regular value `c` with `gNorm σ c ≤ 1`.
 
 ## What is formalized (namespace `Polyfold.Examples.Classical`)
 
@@ -37,7 +38,6 @@ open TrivialBundle EpGroupoid EpGroupoid.Examples StrongBundle MPolyfold StrongP
 
 variable {G : Type} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {n : ℕ} [DistribMulAction G (Fin n → ℝ)] [SMulCommClass G ℝ (Fin n → ℝ)]
-  [FaithfulSMul G (Fin n → ℝ)]
   (σ : G →* ((Fin n → ℝ) →L[ℝ] (Fin n → ℝ))) {φ : (Fin n → ℝ) → (Fin n → ℝ)}
 
 /-- **The hypotheses of Theorem 16.6.6 (2021 p. 739, index `0`) for the section
@@ -59,7 +59,8 @@ theorem theorem_16_6_6_hypotheses_classical (hφ : ContDiff ℝ ∞ φ)
     canonicalGermInput_clOrientationRep σ hφ heq hdet⟩
 
 /-- **Theorem 16.6.6 (2021 p. 739, index `0`) for a proper equivariant map of `ℝⁿ`: the count is
-the classical count.**  Let `G` act linearly and faithfully on `ℝⁿ`, `σ` be a fibre action with
+the classical count.**  Let `G` act linearly on `ℝⁿ` (not necessarily faithfully), `σ` be a
+fibre action with
 `det ρ(g) · det σ(g) > 0`, `φ` a proper equivariant `C^∞` map and `c` a regular value of `φ`
 with `gNorm σ c ≤ 1`.  Then
 1. the multisection `Λ` of the constant branches `x ↦ σ g c`, weight `1/♯G` each, takes the

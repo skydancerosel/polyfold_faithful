@@ -33619,6 +33619,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Examples.Path.pullback_BH_snd
 #print axioms Polyfold.Examples.Path.strongBundleChart_φ_ne_cubeChart
 
+
 -- Examples/Classical/Setup.lean
 #print axioms Polyfold.Examples.Classical.EG_μ
 #print axioms Polyfold.Examples.Classical.actW_actW_inv
@@ -33643,10 +33644,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Examples/Classical/Structure.lean
 #print axioms Polyfold.Examples.Classical.admitsBumpFunctions_AG
 #print axioms Polyfold.Examples.Classical.baseVec_mem
+#print axioms Polyfold.Examples.Classical.card_effIsotropy
 #print axioms Polyfold.Examples.Classical.card_isotropy
+#print axioms Polyfold.Examples.Classical.card_trivialSubgroup
 #print axioms Polyfold.Examples.Classical.clBundle_boundary_eq_empty
+#print axioms Polyfold.Examples.Classical.exists_eq_actW_of_π_eq
+#print axioms Polyfold.Examples.Classical.exists_eq_forall_of_forall_exists
+#print axioms Polyfold.Examples.Classical.exists_regular_mem
 #print axioms Polyfold.Examples.Classical.exists_smul_ne
 #print axioms Polyfold.Examples.Classical.fst_ne_one_of_isotropy
+#print axioms Polyfold.Examples.Classical.fst_smul_eq
 #print axioms Polyfold.Examples.Classical.hasParacompactOrbitSpace_XG
 #print axioms Polyfold.Examples.Classical.hasScPlusSectionsThrough_AG
 #print axioms Polyfold.Examples.Classical.isEffective_XG
@@ -33656,10 +33663,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Examples.Classical.isTame_AG
 #print axioms Polyfold.Examples.Classical.isZhou_XG
 #print axioms Polyfold.Examples.Classical.levelVal_tangentProj_baseTangent
+#print axioms Polyfold.Examples.Classical.mem_baseKernel
+#print axioms Polyfold.Examples.Classical.mem_baseKernel_of_isOpen
+#print axioms Polyfold.Examples.Classical.mem_fixSubmodule
 #print axioms Polyfold.Examples.Classical.mem_smoothSet_AG
+#print axioms Polyfold.Examples.Classical.mem_trivialSubgroup_iff
+#print axioms Polyfold.Examples.Classical.natLift_eq
 #print axioms Polyfold.Examples.Classical.tangentChartMap_baseTangent
 #print axioms Polyfold.Examples.Classical.tangentChartMap_tangentMap_smul
 #print axioms Polyfold.Examples.Classical.trivialSubgroup_XG
+#print axioms Polyfold.Examples.Classical.Γ_eq
+#print axioms Polyfold.Examples.Classical.Φ_eq
 #print axioms Polyfold.Examples.Classical.π_fSec_eq
 
 -- Examples/Classical/Perturbation.lean
@@ -33899,5 +33913,283 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Examples.Classical.Cyclic.count_conjPowMap
 #print axioms Polyfold.Examples.Classical.Cyclic.count_powMap
 #print axioms Polyfold.Examples.Classical.Cyclic.count_pow_two_five
+
+-- Examples/Classical/NonEffectiveEffCount.lean
+#print axioms Polyfold.Examples.Classical.NonEffective.card_isotropy_div_card_effIsotropy
+#print axioms Polyfold.Examples.Classical.NonEffective.countEff_eq_mul
+#print axioms Polyfold.Examples.Classical.NonEffective.countEff_tG_eq
+#print axioms Polyfold.Examples.Classical.NonEffective.count_countEff_eq_classicalCount
+#print axioms Polyfold.Examples.Classical.NonEffective.pointBranchedIntegralEff_eq_sum
+#print axioms Polyfold.Examples.Classical.NonEffective.preimage_eq_empty_of_ne_one
+#print axioms Polyfold.Examples.Classical.XG.congr_simp
+
+-- Examples/Classical/NonEffectiveWitness.lean
+#print axioms Polyfold.Examples.Classical.Cyclic.tc.congr_simp
+#print axioms Polyfold.Examples.Classical.Cyclic.σk.congr_simp
+#print axioms Polyfold.Examples.Classical.Cyclic.χHom.congr_simp
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.card_G2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.card_baseKernel_G2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.classicalCount_powMap_c₂
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.count_countEff_powMap
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.c₂.eq_1
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.c₂_eq_smul
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.gNorm_σ2_c₂
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.hdet_σ2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.instSMulCommClass2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.isLRLocal_EG_σ2n
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.powMap_eq_c₂_iff
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.powMap_smul2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.preimage_powMap_c₂
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.smul_def2
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.surjective_fderiv_powMap_c₂
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.tc2_ne_zero
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.σ2_apply
+#print axioms Polyfold.Examples.Classical.NonEffective.Witness.σ2n.eq_1
+
+-- Examples/Classical/OrientedTransport.lean
+#print axioms Polyfold.Examples.Classical.Oriented.bijective_of_det_ne_zero
+#print axioms Polyfold.Examples.Classical.Oriented.classicalCount_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.contDiff_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.det_rhoL_tAct
+#print axioms Polyfold.Examples.Classical.Oriented.det_tσ
+#print axioms Polyfold.Examples.Classical.Oriented.exists_positive_equiv
+#print axioms Polyfold.Examples.Classical.Oriented.fderiv_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.gNorm_tσ
+#print axioms Polyfold.Examples.Classical.Oriented.hdet_transport
+#print axioms Polyfold.Examples.Classical.Oriented.isCompact_preimage_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.orientation_map_trans
+#print axioms Polyfold.Examples.Classical.Oriented.orientedSign_eq_sign_det
+#print axioms Polyfold.Examples.Classical.Oriented.orientedSign_eq_sign_det'
+#print axioms Polyfold.Examples.Classical.Oriented.preimage_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.surjective_fderiv_tφ
+#print axioms Polyfold.Examples.Classical.Oriented.tAct_faithfulSMul
+#print axioms Polyfold.Examples.Classical.Oriented.tAct_smulCommClass
+#print axioms Polyfold.Examples.Classical.Oriented.tAct_smul_def
+#print axioms Polyfold.Examples.Classical.Oriented.tσ_apply
+#print axioms Polyfold.Examples.Classical.Oriented.tφ_apply
+#print axioms Polyfold.Examples.Classical.Oriented.tφ_smul
+
+-- Examples/Classical/OrientedMain.lean
+#print axioms Polyfold.Examples.Classical.Oriented.count_eq_orientedClassicalCount
+#print axioms Polyfold.Examples.Classical.Oriented.count_eq_orientedClassicalCount_of
+
+-- Examples/Classical/OrientedWitness.lean
+#print axioms Complex.orientation.eq_1
+#print axioms Polyfold.Examples.Classical.Cyclic.c₀.congr_simp
+#print axioms Polyfold.Examples.Classical.Oriented.cC.congr_simp
+#print axioms Polyfold.Examples.Classical.Oriented.cC.eq_1
+#print axioms Polyfold.Examples.Classical.Oriented.contDiff_powC
+#print axioms Polyfold.Examples.Classical.Oriented.count_powC
+#print axioms Polyfold.Examples.Classical.Oriented.det_mulC
+#print axioms Polyfold.Examples.Classical.Oriented.eC_cC
+#print axioms Polyfold.Examples.Classical.Oriented.eC_σC_cC
+#print axioms Polyfold.Examples.Classical.Oriented.hdet_ρC_σC
+#print axioms Polyfold.Examples.Classical.Oriented.injective_ρC
+#print axioms Polyfold.Examples.Classical.Oriented.isCompact_preimage_powC
+#print axioms Polyfold.Examples.Classical.Oriented.mulC_apply
+#print axioms Polyfold.Examples.Classical.Oriented.orientation_map_eC
+#print axioms Polyfold.Examples.Classical.Oriented.orientedClassicalCount_powC
+#print axioms Polyfold.Examples.Classical.Oriented.powC.eq_1
+#print axioms Polyfold.Examples.Classical.Oriented.powC_smul
+#print axioms Polyfold.Examples.Classical.Oriented.sum_norm_σC_le
+#print axioms Polyfold.Examples.Classical.Oriented.surjective_fderiv_powC
+#print axioms Polyfold.Examples.Classical.Oriented.tφ_eC_powC
+#print axioms Polyfold.Examples.Classical.Oriented.ρC.congr_simp
+#print axioms Polyfold.Examples.Classical.Oriented.ρC_apply
+#print axioms Polyfold.Examples.Classical.Oriented.σC.congr_simp
+#print axioms Polyfold.Examples.Classical.Oriented.σC_apply
+
+-- Examples/Classical/OrientedNonEffective.lean
+#print axioms Polyfold.Examples.Classical.NonEffective.Oriented.card_baseKernel_tAct
+#print axioms Polyfold.Examples.Classical.NonEffective.Oriented.count_countEff_eq_orientedClassicalCount
+#print axioms Polyfold.Examples.Classical.NonEffective.Oriented.mem_baseKernel_tAct_iff
+
+-- Examples/Classical/ProductSetup.lean
+#print axioms Polyfold.Examples.Classical.Product.AP_X
+#print axioms Polyfold.Examples.Classical.Product.admitsBumpFunctions_AP
+#print axioms Polyfold.Examples.Classical.Product.card_isotropy
+#print axioms Polyfold.Examples.Classical.Product.degIndex_AP
+#print axioms Polyfold.Examples.Classical.Product.hasContDiffBump_prodP
+#print axioms Polyfold.Examples.Classical.Product.hasParacompactOrbitSpace_XP
+#print axioms Polyfold.Examples.Classical.Product.hasScPlusSectionsThrough_AP
+#print axioms Polyfold.Examples.Classical.Product.instParaObjP₁
+#print axioms Polyfold.Examples.Classical.Product.instParaObjP₂
+#print axioms Polyfold.Examples.Classical.Product.instParaWP₁
+#print axioms Polyfold.Examples.Classical.Product.instParaWP₂
+#print axioms Polyfold.Examples.Classical.Product.instParacompactMorP
+#print axioms Polyfold.Examples.Classical.Product.instParacompactPullbackP
+#print axioms Polyfold.Examples.Classical.Product.isEffective_XP
+#print axioms Polyfold.Examples.Classical.Product.isLRLocal_EP
+#print axioms Polyfold.Examples.Classical.Product.isTame_AP
+#print axioms Polyfold.Examples.Classical.Product.isZhou_XP
+#print axioms Polyfold.Examples.Classical.Product.isotropy_eq_one
+#print axioms Polyfold.Examples.Classical.Product.isotropy_val
+#print axioms Polyfold.Examples.Classical.Product.prBundle_boundary_eq_empty
+#print axioms Polyfold.Examples.Classical.Product.π_eq_π_iff
+
+-- Examples/Classical/ProductSection.lean
+#print axioms Polyfold.Examples.Classical.Product.controlsCompactness_fP_univ
+#print axioms Polyfold.Examples.Classical.Product.controlsCompactness_nP
+#print axioms Polyfold.Examples.Classical.Product.fP_apply
+#print axioms Polyfold.Examples.Classical.Product.hasCompactSolutionSet_prFredholmSection
+#print axioms Polyfold.Examples.Classical.Product.isAuxNorm_NP
+#print axioms Polyfold.Examples.Classical.Product.isAuxNorm_nP
+#print axioms Polyfold.Examples.Classical.Product.isIndexAt_fP
+#print axioms Polyfold.Examples.Classical.Product.isIndexAt_fP_mk
+#print axioms Polyfold.Examples.Classical.Product.isScFredholmSectionFunctor_fP
+#print axioms Polyfold.Examples.Classical.Product.isScFredholmSectionFunctor_fP_and
+#print axioms Polyfold.Examples.Classical.Product.isScFredholmSectionTame_fP
+#print axioms Polyfold.Examples.Classical.Product.isZeroAt_fP_iff
+#print axioms Polyfold.Examples.Classical.Product.mem_smoothSet_AP_iff
+#print axioms Polyfold.Examples.Classical.Product.mem_smoothSet_mk_h0P
+#print axioms Polyfold.Examples.Classical.Product.normOf_nP
+#print axioms Polyfold.Examples.Classical.Product.normW_NP_zero
+#print axioms Polyfold.Examples.Classical.Product.solutionSet_fP
+#print axioms Polyfold.Examples.Classical.Product.π_fP_eq
+
+-- Examples/Classical/ProductPerturbation.lean
+#print axioms Polyfold.Examples.Classical.Product.branchP_apply
+#print axioms Polyfold.Examples.Classical.Product.eq_branchP_iff
+#print axioms Polyfold.Examples.Classical.Product.isControlledBy_tP
+#print axioms Polyfold.Examples.Classical.Product.isInGeneralPositionWith_tP
+#print axioms Polyfold.Examples.Classical.Product.isInGeneralPosition_ΛP
+#print axioms Polyfold.Examples.Classical.Product.isLocalRepOn_ΛP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusMultisection_ΛP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_branchP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_negP
+#print axioms Polyfold.Examples.Classical.Product.isWFunctor_ΛP
+#print axioms Polyfold.Examples.Classical.Product.mem_hitSet_of_ΛP_pos
+#print axioms Polyfold.Examples.Classical.Product.mem_reducedTangentFiber_of_univ_P
+#print axioms Polyfold.Examples.Classical.Product.pointwiseNorm_ΛP_le
+#print axioms Polyfold.Examples.Classical.Product.subSec_branchP
+#print axioms Polyfold.Examples.Classical.Product.ΛP_eq
+#print axioms Polyfold.Examples.Classical.Product.ΛP_fP
+#print axioms Polyfold.Examples.Classical.Product.ΛP_fP_eq
+#print axioms Polyfold.Examples.Classical.Product.ΛP_fP_pos_iff
+#print axioms Polyfold.Examples.Classical.Product.ΛP_pos_iff
+
+-- Examples/Classical/ProductDetSign.lean
+#print axioms Polyfold.Examples.Classical.Product.basis_det_comp_endo'
+#print axioms Polyfold.Examples.Classical.Product.bijective_blk
+#print axioms Polyfold.Examples.Classical.Product.bijective_of_bijective_blk
+#print axioms Polyfold.Examples.Classical.Product.bijective_smul
+#print axioms Polyfold.Examples.Classical.Product.blk_apply
+#print axioms Polyfold.Examples.Classical.Product.chartDet.congr_simp
+#print axioms Polyfold.Examples.Classical.Product.chartDet.eq_1
+#print axioms Polyfold.Examples.Classical.Product.chartDet_blk
+#print axioms Polyfold.Examples.Classical.Product.chartDet_ne_zero
+#print axioms Polyfold.Examples.Classical.Product.conjDet_detUnit'
+#print axioms Polyfold.Examples.Classical.Product.continuous_blk
+#print axioms Polyfold.Examples.Classical.Product.coord_detUnit'
+#print axioms Polyfold.Examples.Classical.Product.coord_detUnit'_eq
+#print axioms Polyfold.Examples.Classical.Product.detEquivOfSurjective_detUnit'
+#print axioms Polyfold.Examples.Classical.Product.detUnit'.eq_1
+#print axioms Polyfold.Examples.Classical.Product.detUnit'_ne_zero
+#print axioms Polyfold.Examples.Classical.Product.exists_ball_unitRay_iff
+#print axioms Polyfold.Examples.Classical.Product.finiteDimensional_coker_of_surjective
+#print axioms Polyfold.Examples.Classical.Product.finiteDimensional_ker_of_injective
+#print axioms Polyfold.Examples.Classical.Product.finrank_ker_of_injective'
+#print axioms Polyfold.Examples.Classical.Product.isGoodLeftProj_blk
+#print axioms Polyfold.Examples.Classical.Product.isPos_iff_blk
+#print axioms Polyfold.Examples.Classical.Product.isPos_iff_blk_of_isPos
+#print axioms Polyfold.Examples.Classical.Product.isPos_iff_eq_unitRay'
+#print axioms Polyfold.Examples.Classical.Product.map_detEquivOfSurjective_unitRay'
+#print axioms Polyfold.Examples.Classical.Product.mem_ker_projW_blk
+#print axioms Polyfold.Examples.Classical.Product.norm_blk_sub_le
+#print axioms Polyfold.Examples.Classical.Product.projW_apply
+#print axioms Polyfold.Examples.Classical.Product.range_projW
+#print axioms Polyfold.Examples.Classical.Product.ray_eq_unitRay_iff_blk
+#print axioms Polyfold.Examples.Classical.Product.ray_eq_unitRay_iff_chart
+#print axioms Polyfold.Examples.Classical.Product.ray_map_conjDet_unitRay'
+#print axioms Polyfold.Examples.Classical.Product.surjRay_unitRay'
+#print axioms Polyfold.Examples.Classical.Product.unitAt_iff
+#print axioms Polyfold.Examples.Classical.Product.unitAt_smul_iff
+#print axioms Polyfold.Examples.Classical.Product.unitRay'.congr_simp
+#print axioms Polyfold.Examples.Classical.Product.unitRay'.eq_1
+
+-- Examples/Classical/ProductCharts.lean
+#print axioms Polyfold.Examples.Classical.Product.baseDeriv_movPtP
+#print axioms Polyfold.Examples.Classical.Product.baseDeriv_resPtP
+#print axioms Polyfold.Examples.Classical.Product.bijective_stabT_P
+#print axioms Polyfold.Examples.Classical.Product.blk_mem_linSet
+#print axioms Polyfold.Examples.Classical.Product.chP_apply
+#print axioms Polyfold.Examples.Classical.Product.coe_kEquivP_symm
+#print axioms Polyfold.Examples.Classical.Product.coe_tEquivP_symm
+#print axioms Polyfold.Examples.Classical.Product.exists_srcInv_eqP
+#print axioms Polyfold.Examples.Classical.Product.fiberMap_movPtP
+#print axioms Polyfold.Examples.Classical.Product.fiberMap_resPtP
+#print axioms Polyfold.Examples.Classical.Product.isChart_chP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_gP
+#print axioms Polyfold.Examples.Classical.Product.isZeroAt_gP
+#print axioms Polyfold.Examples.Classical.Product.kEquivP_apply
+#print axioms Polyfold.Examples.Classical.Product.mem_stdPtP_K
+#print axioms Polyfold.Examples.Classical.Product.mem_stdPtP_T
+#print axioms Polyfold.Examples.Classical.Product.morKx_eq_conjP
+#print axioms Polyfold.Examples.Classical.Product.morKx_stdP
+#print axioms Polyfold.Examples.Classical.Product.morKx_stdP'
+#print axioms Polyfold.Examples.Classical.Product.morTx_eq_conjP
+#print axioms Polyfold.Examples.Classical.Product.morTx_stdP
+#print axioms Polyfold.Examples.Classical.Product.morTx_stdP'
+#print axioms Polyfold.Examples.Classical.Product.orKEquivP_apply
+#print axioms Polyfold.Examples.Classical.Product.orKEquivP_stabT
+#print axioms Polyfold.Examples.Classical.Product.orTEquivP_apply
+#print axioms Polyfold.Examples.Classical.Product.principal_chP
+#print axioms Polyfold.Examples.Classical.Product.r_chP
+#print axioms Polyfold.Examples.Classical.Product.resPtP_sub
+#print axioms Polyfold.Examples.Classical.Product.scDeriv_eq_of_eqOn_nhds
+#print axioms Polyfold.Examples.Classical.Product.scDeriv_r_stdPtP
+#print axioms Polyfold.Examples.Classical.Product.stabT_eq_blk
+#print axioms Polyfold.Examples.Classical.Product.stabT_stdP
+#print axioms Polyfold.Examples.Classical.Product.stdPtP_K
+#print axioms Polyfold.Examples.Classical.Product.stdPtP_T
+#print axioms Polyfold.Examples.Classical.Product.symm_baseChart
+#print axioms Polyfold.Examples.Classical.Product.tEquivP_apply
+
+-- Examples/Classical/ProductPaths.lean
+#print axioms Polyfold.Examples.Classical.Product.PathCat.hom_eq_AP
+#print axioms Polyfold.Examples.Classical.Product.contDiff_fst_and_isScSmooth_snd_AP
+#print axioms Polyfold.Examples.Classical.Product.isScSmoothMap_rn_AP
+#print axioms Polyfold.Examples.Classical.Product.scHomotopic_AP
+
+-- Examples/Classical/ProductOrientation.lean
+#print axioms Polyfold.Examples.Classical.Product.bijective_sigma_comp_rho_inv
+#print axioms Polyfold.Examples.Classical.Product.bijective_stabT_idSecP
+#print axioms Polyfold.Examples.Classical.Product.canonicalGermInput_prOrientationRep
+#print axioms Polyfold.Examples.Classical.Product.definition_12_5_4_prOrientation
+#print axioms Polyfold.Examples.Classical.Product.det_sigma_mul_rho_inv_pos
+#print axioms Polyfold.Examples.Classical.Product.exists_isContOrOn_isPosIdP
+#print axioms Polyfold.Examples.Classical.Product.isContOrOn_prOrientation
+#print axioms Polyfold.Examples.Classical.Product.isOrInvariant_prOrientation
+#print axioms Polyfold.Examples.Classical.Product.isOrientationTopology_fP
+#print axioms Polyfold.Examples.Classical.Product.isPosIdP_iff
+#print axioms Polyfold.Examples.Classical.Product.isPosIdP_prOrientation
+#print axioms Polyfold.Examples.Classical.Product.isPosOr_iff_det_of_isPosIdP
+#print axioms Polyfold.Examples.Classical.Product.isPosOr_prOrientation_iff
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_basisP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_famP
+#print axioms Polyfold.Examples.Classical.Product.isScPlusSection_idSecP
+#print axioms Polyfold.Examples.Classical.Product.isZeroAt_idSecP
+#print axioms Polyfold.Examples.Classical.Product.linMor_blkP
+#print axioms Polyfold.Examples.Classical.Product.morTx_symm_stdP
+#print axioms Polyfold.Examples.Classical.Product.orKEquivP_blk
+#print axioms Polyfold.Examples.Classical.Product.orMor_zero_eqP
+#print axioms Polyfold.Examples.Classical.Product.pullbackSlice_famP
+#print axioms Polyfold.Examples.Classical.Product.sectionAdd_gP
+#print axioms Polyfold.Examples.Classical.Product.sigma_apply_sigma
+
+-- Examples/Classical/ProductCount.lean
+#print axioms Polyfold.Examples.Classical.Product.count_tP_eq_classicalCount
+#print axioms Polyfold.Examples.Classical.Product.d_prOne
+#print axioms Polyfold.Examples.Classical.Product.exists_canonical_tP
+#print axioms Polyfold.Examples.Classical.Product.prEval_prOne
+#print axioms Polyfold.Examples.Classical.Product.prOne.eq_1
+#print axioms Polyfold.Examples.Classical.Product.signedWeight_prCanonical
+
+-- Examples/Classical/ProductMain.lean
+#print axioms Polyfold.Examples.Classical.Product.count_conjPowMap_product
+#print axioms Polyfold.Examples.Classical.Product.count_eq_classicalCount_product
+#print axioms Polyfold.Examples.Classical.Product.count_powMap_product
+#print axioms Polyfold.Examples.Classical.Product.count_pow_two_five_product
+#print axioms Polyfold.Examples.Classical.Product.theorem_16_6_6_hypotheses_product
 
 end Polyfold
