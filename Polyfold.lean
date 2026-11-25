@@ -1496,3 +1496,15 @@ import Polyfold.Examples.Path.PartI_MPolyfold
 import Polyfold.Examples.Path.PartI_ScOne
 import Polyfold.Examples.Path.PartI_Sections
 import Polyfold.Examples.Path.PartI_StrongBundle
+import Polyfold.Examples.Classical.Setup
+import Polyfold.Examples.Classical.Structure
+import Polyfold.Examples.Classical.Perturbation
+import Polyfold.Examples.Classical.DetSign
+import Polyfold.Examples.Classical.MorphismCharts
+import Polyfold.Examples.Classical.SignedWeight
+import Polyfold.Examples.Classical.ClassicalSum
+import Polyfold.Examples.Classical.Orientation
+import Polyfold.Examples.Classical.Count
+import Polyfold.Examples.Classical.Main
+import Polyfold.Examples.Classical.CyclicData
+import Polyfold.Examples.Classical.Corollaries

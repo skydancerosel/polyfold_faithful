@@ -25,6 +25,10 @@ perturbation makes it transversal, so multisections are needed. Every hypothesis
 holds together, and the invariant is 2/5; the same holds with an infinite-dimensional sc-Hilbert
 factor.
 
+**The classical case** (same documents, last section): for a finite group G acting linearly on ℝⁿ, a
+proper equivariant map φ and a regular value c, the invariant of Theorem 16.6.6 is the classical count
+(1/|G|) · Σ_{x ∈ φ⁻¹(c)} sign det Dφ(x). For z ↦ zᵏ on ℂ/ℤₚ it is k/p, and for z ↦ z̄ᵏ it is −k/p.
+
 | | Chapters | State |
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
@@ -77,7 +81,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
 | `Exposition/Findings.md` | Points left to the reader, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
-| `Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` with the Lean references, summary in `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor. |
+| `Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` with the Lean references, summary in `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor; and the classical case, a finite group acting linearly on ℝⁿ, where the invariant is the signed count of solutions divided by the order of the group. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |

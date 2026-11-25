@@ -109,6 +109,32 @@ sc-calculus of Part I, the strong bundle shift and sc-Fredholm theory in infinit
 That no equivariant single-valued perturbation is transversal is stated for the finite-dimensional
 example only.
 
+## The classical case: linear quotients of ℝⁿ
+
+The computation extends to every finite group acting linearly on ℝⁿ (namespace
+Polyfold.Examples.Classical, files in `Polyfold/Examples/Classical/`). Let G act linearly and faithfully
+on ℝⁿ by ρ, let σ be a second linear action of G on the fibre ℝⁿ with det ρ(g) · det σ(g) > 0, and let
+φ : ℝⁿ → ℝⁿ be smooth, proper and equivariant, φ(ρ(g)x) = σ(g)φ(x). Take the polyfold bundle
+|G ⋉ (ℝⁿ × ℝⁿ)| → ℝⁿ/G, the section x ↦ (x, φ(x)), the auxiliary norm N(w) = Σ_g |σ(g)w|, and the
+orientation positive at the linearizations of positive determinant.
+
+* **Every hypothesis of Theorem 16.6.6 for index 0 holds** (`theorem_16_6_6_hypotheses_classical`).
+* For a regular value c of φ with N(c) ≤ 1, the multisection with one branch σ(g)c of weight 1/|G| for
+  each g is admissible and carries the canonical orientation, and **for every admissible perturbation
+  with the canonical orientation the count of 1 is**
+
+  (1/|G|) · Σ_{x ∈ φ⁻¹(c)} sign det Dφ(x)
+
+  (**`count_eq_classicalCount`**). The right-hand side is a finite sum of signs of Jacobian
+  determinants, classically the degree of φ divided by |G|. Isotropy is allowed.
+* **Cyclic quotients of ℂ**: for ℤ/p acting on ℂ, z ↦ z^k with fibre weight k gives k/p
+  (`Cyclic.count_powMap`; k = 2, p = 5 gives 2/5, `Cyclic.count_pow_two_five`), and z ↦ z̄^k with fibre
+  weight −k gives −k/p (`Cyclic.count_conjPowMap`), which tests the sign conventions.
+
+The proof counts orbits: an orbit in the perturbed solution set, with isotropy G_x and N_x branches
+through f(x), contributes (1/|G_x|) · (N_x/|G|) · sign det Dφ(x), and contains exactly N_x/|G_x| points
+of φ⁻¹(c), all with the same sign because det ρ(g) · det σ(g) > 0.
+
 ## Limits
 
 * The first example is ℂ with every level equal, so its sc-structure is constant; the version above
@@ -119,6 +145,10 @@ example only.
   stated for `sqOrientationRep` and repeated for `sqOrientationRepPos`
   (`canonicalGermInput_sqOrientationRepPos`, `exists_canonical_t5_pos`, `count_eq_of_isAdmissible_pos`).
   The value of the count for `sqOrientation` is not stated.
+* The classical case is stated for ℝⁿ with its standard basis; finite-dimensional V and W with chosen
+  bases reduce to it, but that reduction is not written in Lean. Faithfulness of the action is used for
+  the local regularity of the bundle, which comes from Proposition 8.4.3 (p. 382), stated for effective
+  ep-groupoids.
 
 ## Main declarations
 
@@ -143,3 +173,5 @@ example only.
 | `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_hypotheses_inf`, `Polyfold.Examples.OrbifoldSquareInf.theorem_16_6_6_inf` | `OrbifoldSquareInf` | Theorem 16.6.6 for index 0 on (ℤ/5 ⋉ ℂ) × H |
 | **`Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf`**, `Polyfold.Examples.OrbifoldSquareInf.count_eq_two_fifths_inf_all` | `OrbifoldSquareInf` | the count is 2/5 with the infinite-dimensional factor |
 | `Polyfold.EpStrongBundle.isOrInvariantAt_iff_of_continuous` | `OrInvariantSmooth` | invariance of continuous orientations when not every object is smooth |
+| **`Polyfold.Examples.Classical.count_eq_classicalCount`**, `Polyfold.Examples.Classical.theorem_16_6_6_hypotheses_classical`, `Polyfold.Examples.Classical.classicalCount` | `Classical/Main`, `Classical/ClassicalSum` | the classical case: the count is (1/\|G\|) Σ sign det Dφ over φ⁻¹(c) |
+| `Polyfold.Examples.Classical.Cyclic.count_powMap`, `Polyfold.Examples.Classical.Cyclic.count_pow_two_five`, `Polyfold.Examples.Classical.Cyclic.count_conjPowMap` | `Classical/Corollaries` | ℂ/ℤₚ: z^k gives k/p, z̄^k gives −k/p |

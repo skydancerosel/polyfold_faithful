@@ -60,7 +60,9 @@ section, the choice of an admissible sc$^+$-multisection and the canonical orien
 solution set, to the value of the invariant, which is $2/5$. The example is small, but it is a genuine
 orbifold case: no single-valued equivariant perturbation is transversal, so the multisections of the
 book are needed. A second version adds an infinite-dimensional factor with strictly nested levels, so
-that sc-calculus and sc-Fredholm theory enter in earnest; the same conclusions hold there.
+that sc-calculus and sc-Fredholm theory enter in earnest; the same conclusions hold there. A last
+section extends the computation to every finite group acting linearly on $\R^n$: the invariant is the
+classical signed count of solutions divided by the order of the group.
 
 The proofs given here are complete for the example itself. The conclusion is obtained by applying
 Theorem 16.6.6 to the hypotheses verified here. Where a step is an instance of a general statement, that
@@ -839,6 +841,112 @@ $s^\infty_0$ and $o^\infty$ is positive at $(2y,\id)$ (Proposition~\ref{prop:inf
 Lemma~\ref{lem:sign} the signed weight is $1/5$. The constant form $1$ is closed (Lemma~\ref{lem:const}),
 and Lemma~\ref{lem:finite} with representatives $(1,0),(-1,0)$ gives $\frac15+\frac15=\frac25$.
 \end{proof}
+
+%======================================================================
+\section{The classical case: linear quotients of \texorpdfstring{$\R^n$}{R^n}}\label{sec:classical}
+
+The computation of \S\ref{sec:theorem} extends to every finite group acting linearly on $\R^n$, and the
+invariant of Theorem 16.6.6 is then the classical signed count of solutions, divided by the order of
+the group.
+
+\paragraph{Data.} Let $G$ be a finite group acting linearly and faithfully on $\R^n$ by $\rho$, let
+$\sigma\colon G\to GL(\R^n)$ be a second linear action, and assume
+\[
+  \det\rho(g)\cdot\det\sigma(g)>0\qquad\text{for all }g\in G .
+\]
+Let $\varphi\colon\R^n\to\R^n$ be smooth, proper (preimages of compact sets are compact) and
+equivariant, $\varphi(\rho(g)x)=\sigma(g)\varphi(x)$. As in \S\ref{sec:example}, $X=G\ltimes\R^n$ is the
+translation groupoid with constant sc-structure, which is effective since the action is faithful; the
+strong bundle is $G\ltimes(\R^n\times\R^n)\to G\ltimes\R^n$ with $g\cdot(x,w)=(\rho(g)x,\sigma(g)w)$; the
+section is $f(x)=(x,\varphi(x))$; the auxiliary norm is $N(w)=\sum_{g\in G}\abs{\sigma(g)w}$ for a fixed norm $\abs{\cdot}$ on $\R^n$, which is
+$G$-invariant; $U=Z$; and the orientation $o$ is the one positive at the linearizations of positive
+determinant, for the standard basis of $\R^n$. For $c\in\R^n$ let
+\[
+  \Lambda_c(x,w)=\frac1{\card G}\,\card\{g\in G:\ w=\sigma(g)c\},
+\]
+the multisection with one constant branch $s_g(x)=\sigma(g)c$ of weight $1/\card G$ for each $g\in G$.
+The example of \S\ref{sec:example} is the case $G=\ZZ$, $n=2$, $\varphi(z)=z^2$.
+
+\begin{theorem}[The classical count]\label{thm:classical}
+\begin{enumerate}[label=(\alph*)]
+\item $(p,\abs f,o,N,Z)$ satisfies the hypotheses of Theorem 16.6.6 with $k=0$, in the form of
+  Theorem~\ref{thm:hyp}.
+\item Let $c$ be a regular value of $\varphi$ with $N(c)\le1$. Then $\lambda_c$ is an admissible
+  perturbation, and $\Lambda_c\circ\abs f$ carries the canonical orientation of $(\abs f,o)$.
+\item For every admissible perturbation with the canonical orientation of $(\abs f,o)$, and every regular
+  value $c$ of $\varphi$ with $N(c)\le1$,
+  \[
+    \int_{\hat\theta}1=\frac1{\card G}\sum_{x\in\varphi^{-1}(c)}\operatorname{sign}\det D\varphi(x).
+  \]
+\end{enumerate}
+\end{theorem}
+
+The right-hand side is a finite sum of signs of Jacobian determinants; classically it is the degree of
+the proper map $\varphi$ divided by $\card G$. Isotropy is allowed: points with nontrivial stabilizer may
+lie in $\varphi^{-1}(c)$.
+
+\begin{proof}
+(a) As in Theorem~\ref{thm:hyp}: $\R^n$ has no boundary; the solution set $\varphi^{-1}(0)/G$ is compact
+because $\varphi$ is proper; $N$ is a $G$-invariant norm on the fibres, hence an auxiliary norm, and
+$(N,Z)$ controls compactness because $\varphi$ is proper; the levels are constant and the linearizations
+$D\varphi(x)\colon\R^n\to\R^n$ have index $0$, so the germ data are tame and the index is $0$.
+
+(b) The branches are smooth and permuted by $G$: $\sigma(h)s_g(x)=s_{hg}(\rho(h)x)$, so $\Lambda_c$ is an
+sc$^+$-multisection. Its value at $f(x)$ is $\Lambda_c(f(x))=N_x/\card G$, where
+$N_x=\card\{g:\varphi(x)=\sigma(g)c\}$. Every branch has norm $N(\sigma(g)c)=N(c)\le1$, so $\lambda_c$ is
+controlled by $(N,Z)$. If $f(x)=s_g(x)$, then $(f-s_g)'(x)=D\varphi(x)$. Differentiating the equivariance
+gives
+\begin{equation}\label{eq:equivD}
+  D\varphi(\rho(h)x)\circ\rho(h)=\sigma(h)\circ D\varphi(x),
+\end{equation}
+and with $h=g^{-1}$ the point $\rho(g^{-1})x$ lies in $\varphi^{-1}(c)$, so $D\varphi(x)$ is onto because
+$c$ is a regular value. Hence $(\abs f,\lambda_c)$ is in general position. The canonical orientation
+exists by Theorem 15.4.1, as in Theorem~\ref{thm:admissible}.
+
+(c) By (a), (b) and Theorem 16.6.6 it suffices to compute the count for $\lambda_c$. The support of
+$\Theta=\Lambda_c\circ f$ is $\bigcup_g\varphi^{-1}(\sigma(g)c)=G\cdot\varphi^{-1}(c)$, which is finite since
+$\varphi$ is proper and $c$ is regular. At $x\in\supp\Theta$ every branch through $f(x)$ has
+linearization $D\varphi(x)$, an isomorphism; by Lemma~\ref{lem:sign} and the choice of $o$, each sheet is
+positive if $\det D\varphi(x)>0$ and negative otherwise, so the signed weight is
+$\varepsilon(\hat T(x))=\operatorname{sign}\det D\varphi(x)\cdot N_x/\card G$. Let $s$ contain one point
+of each orbit in $\supp\Theta$. Lemma~\ref{lem:finite} gives
+\[
+  \int_{\hat\theta}1=\frac1{\card G}\sum_{x\in s}\frac{N_x}{\card G_x}\operatorname{sign}\det D\varphi(x).
+\]
+Fix $x\in s$. A point $\rho(h)x$ of its orbit lies in $\varphi^{-1}(c)$ iff $\varphi(x)=\sigma(h^{-1})c$, which
+holds for exactly $N_x$ elements $h$; each point of the orbit is $\rho(h)x$ for exactly $\card G_x$
+elements $h$. So the orbit of $x$ contains exactly $N_x/\card G_x$ points of $\varphi^{-1}(c)$. Taking
+determinants in \eqref{eq:equivD} gives
+$\det D\varphi(\rho(h)x)\cdot\det\rho(h)=\det\sigma(h)\cdot\det D\varphi(x)$, and since
+$\det\rho(h)\det\sigma(h)>0$, the sign of $\det D\varphi$ is the same at all these points. Summing over
+the orbits, which cover $\varphi^{-1}(c)$, gives the formula.
+\end{proof}
+
+\begin{corollary}[Cyclic quotients of $\C$]\label{cor:cyclic}
+Let $G=\Z/p$ act on $\C$ by $\zeta=e^{2\pi i/p}$, and let $k\ge1$.
+\begin{enumerate}[label=(\alph*)]
+\item For $\varphi(z)=z^k$, with $\sigma(j)w=\zeta^{jk}w$, the count is $k/p$. For $k=2$, $p=5$ this is the
+  value $2/5$ of Theorem~\ref{thm:count}.
+\item For $\varphi(z)=\bar z^{\,k}$, with $\sigma(j)w=\zeta^{-jk}w$, the count is $-k/p$.
+\end{enumerate}
+In both cases admissible perturbations with the canonical orientation exist.
+\end{corollary}
+
+\begin{proof}
+Rotations have determinant $1$, so the determinant condition holds, and both maps are smooth, proper and
+equivariant. Take $c>0$ real and small enough that $N(c)\le1$; it is a regular value, and $\varphi^{-1}(c)$ consists of
+$k$ points. For $z^k$ the Jacobian determinant is $\abs{kz^{k-1}}^2>0$; for $\bar z^{\,k}$, the
+composition of $z^k$ with complex conjugation, it is $-\abs{kz^{k-1}}^2<0$. Theorem~\ref{thm:classical}
+gives $k/p$ and $-k/p$.
+\end{proof}
+
+\begin{remark}
+Corollary~\ref{cor:cyclic}(b) tests the sign conventions: composing with complex conjugation reverses
+the sign of every Jacobian determinant, and the invariant changes sign. The faithfulness of the action is used only for the strong bundle:
+its local regularity (Definition 8.4.2, p.~382) is obtained from Proposition 8.4.3 (p.~382), which
+assumes an effective ep-groupoid. The count formula itself allows isotropy. The theorem is stated for $\R^n$ with its standard
+basis; a finite-dimensional $V$ and $W$ with chosen bases reduce to this case.
+\end{remark}
 
 %======================================================================
 \section{General lemmas}\label{sec:lemmas}
