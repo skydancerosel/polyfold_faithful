@@ -15,7 +15,7 @@ A whole-book version of this list, in tiers, is `Exposition/ReviewerChecklist.md
 | V16.78 | §16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8) | `StrongPolyfoldBundle.theorem_16_6_6_wellDefined_unconditional` (Chapter16/InvariantNoBumpsUnconditional.lean) |
 | V16.82 | §16.6, Theorem 16.6.6, p. 739 (2017: Theorem 16.8) | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined_unconditional` (Chapter16/IndexZeroNoBumpsUnconditional.lean) |
 
-Read the statement first: it names the notions the definitions below make precise.
+Read the statement first: it names the notions the definitions below make precise. One hypothesis is written out that the quoted statement leaves to the definitions: “$f$ oriented sc-Fredholm” is read with tame germ data of the model section at every smooth point, as Definition 3.6.3 (p. 135) asks of the germs of a tame strong bundle, together with the Fredholm index; both are the fields of `CanonicalGermInput` (row V3.103 below; Findings, Chapter 3, item 191).
 
 ## 2. Read first: where the formal definition differs from the text (49 rows)
 

@@ -143,7 +143,11 @@ w('A whole-book version of this list, in tiers, is `Exposition/ReviewerChecklist
 w('## 1. The statement\n\n| Row | Book | Lean declaration |\n|---|---|---|\n')
 for q, rs in rootrows.items():
     w(f"| {q} | {esc(rows[q]['book']['label'])} | " + ', '.join(f'`{short(r)}` ({fileof(mains[r][1])})' for r in rs) + ' |\n')
-w('\nRead the statement first: it names the notions the definitions below make precise.\n\n')
+w('\nRead the statement first: it names the notions the definitions below make precise. '
+  'One hypothesis is written out that the quoted statement leaves to the definitions: “$f$ oriented '
+  'sc-Fredholm” is read with tame germ data of the model section at every smooth point, as Definition 3.6.3 '
+  '(p. 135) asks of the germs of a tame strong bundle, together with the Fredholm index; both are the fields '
+  'of `CanonicalGermInput` (row V3.103 below; Findings, Chapter 3, item 191).\n\n')
 RISKY = ('explicit', 'stronger', 'narrower', 'extra')
 risky = sorted((q for q in defrows if rows[q]['verdict'] in RISKY), key=lambda q: (rowlevel[q], rowidx[q]))
 EXF = os.path.join(HERE, 'path_examples.tsv')
