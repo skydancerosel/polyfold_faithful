@@ -1,0 +1,12 @@
+{
+ "id": "V13_53",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A is theorem_13_4_4 ∧ theorem_13_4_4_structured at universe 0 (B is on SEP.{0}). theorem_13_4_4 is B verbatim: same IsProperStrongBundleCovering2021 hypothesis, same IsStructurable, and Λ ∘ Φ is fun w => Λ (Φ w) by definition. A also states the structured form (a map of structured sc⁺-multisections with forget (pull L) = forget L ∘ Φ, pull [T] = [pullTuple T P], I_y = I_{F(y)}, τ_{y,y'}(φ) = τ_{F(y),F(y')}(F(φ))), which goes beyond the text's one-line statement and does not follow from B; B_to_A proves it outright from the general pull-back machinery (PullMap.pullStructured, forget_pullStructured, pullStructured_mk, not items of V13_53). The text's 'Φ^*Λ is structurable' is the same in both.",
+ "B_issue": null,
+ "overlap": "rt_check passes on both directions. rt_overlap B_to_A: 864 shared project theorems. A_to_B uses only theorem_13_4_4 from A. B_to_A shares the vocabulary of the statements (strong bundles, ep-groupoids, StructuredTuple, ofCovering's proof fields) and, for the structured conjunct proved outright, the PullMap machinery (exists_isLocalRepOn_pull, PullData lemmas, pullTuple_equiv and its inputs) that the project's proof of theorem_13_4_4_structured also uses.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

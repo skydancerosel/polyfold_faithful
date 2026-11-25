@@ -1,0 +1,12 @@
+{
+ "id": "V13_52",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 25 listed theorems at universe 0 (continuousAt_of_mor and mapsTo_connectedComponentIn at .{0,0}); B is on SEP.{0}. The main conjunct theorem_13_4_3 gives IsStructurable A (pushMult F hF Λ). B states the same claim for every Λ' with Λ'(w') = Λ(w) whenever Φ(w) ≅ w'. A_to_B: such a Λ' equals pushMult F hF Λ, because pushMult evaluates Λ at the chosen w with Φ(w) ≅ w' (exists_iso). B_to_A: apply B to Λ' := pushMult F hF Λ, whose defining property is pushMult_eq (Chapter 11, using that Λ is a functor). theorem_13_4_3_structured is rfl. The other 23 conjuncts do not follow from B: fibAct_comp/unit, the PushChart and IsPushNbhd lemmas, liftMor_*, pushSec_compat and isDiffeoComponent_push are proof steps. They are re-proved outright by copying the project's proofs (suffix _rt). On the theorem itself the two statements say the same.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement mentions pushTuple / pushDecoration / pushTau / pushGood / pushNbhd / pushStructure, whose proof fields use banned helpers (fibAct_comp, pushSec_eq, isScPlusSectionOn_pushSec, liftMor_*, isDiffeoComponent_push, ...). #rt_check_soft is used and passes on both directions, with the banned names reached only through those definitions' proof fields. rt_overlap B_to_A: 1068 shared project theorems. They are the strong-bundle / ep-groupoid / transport-chart machinery in the statements plus the non-item lemmas of the copied proofs (TransportChart lemmas, transportSection_of_mem, isScPlusSectionOn_transportSection, PullMap.covers, exists_natNbhd_isProperSubset, isDiffeoComponent_iff_injOn) and pushMult_eq.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,14 @@
+{
+ "id": "V14_37",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 22 listed theorems at universe 0 (SuppInSat, bsec, tsec are vocabulary); B is on SEP.{0}. A ⇒ B: from B's data (ZConcrete C, cut-offs β with C.BetaSpec β, local extensions sh) a TransportInput over C.toZData.toZSetup is built as in the project's ZConcrete.transportInput (with B's sh), SuppInSat comes from tsupport β_a ⊆ saturation V̂_a, and st := T.tsec a; each of B's clauses is one of A's conjuncts (isScPlusSectionOn_tsec, tsec_equivariant, tsec_of_arc+bsec_eq for (1), closure_support_β for (2), tsec_boundary, tsec_compat+rel_of_sat, tsec_of_pairs, tsec_of_not_reach for (6)). On the main conjunct the two statements differ: TransportInput.proposition_14_5_4 gives some sections with (1)–(4) (and hence B's transport clause (5), proved in main_to_B5), but not B's clause (6), that the sections vanish at points of V̂_b reached by no morphism from V̂_a; the text states this ('are 0 where no such φ exists'), and in A it appears only as tsec_of_not_reach about the explicit tsec. B ⇒ A is not proved: A's conjuncts are about an arbitrary TransportInput over an arbitrary ZSetup (any β with SuppInSat, any ŝ satisfying the conclusion of Proposition 14.4.14), while B covers only the §14.3 data with Lemma 14.5.1 cut-offs under the standing hypotheses; the remaining conjuncts are facts about the project's construction (IndexCorr, sectionSmul, bsec, tsec), not consequences of B.",
+ "B_issue": "B reads 'compact support in V̂_a' as: the closure of {y ∈ V̂_a | s̃ᵃ_{a,i}(y) ≠ 0} lies in V̂_a (compactness dropped, as in the project's (2)); this is equivalent to the project's '∃ closed K ⊆ V̂_a with s̃ = 0 on V̂_a \\ K'.",
+ "overlap": "rt_check OK on A_to_B and on main_to_B5. rt_overlap A_to_B: 557 shared project theorems, all statement vocabulary (ZSetup/NatNbhd/NaturalRep/IndexDiagram field lemmas, IndexCorr.ind, fibAct_unit, strong-bundle and M-polyfold machinery behind IsScPlusSectionOn and sectionSmul); the glue reuses the non-banned ZConcrete lemmas isProper, closure_support_subset and exists_mor_of_ne_zero (as in ZConcrete.transportInput). IndexCorr.sat_of_pairs (a conjunct) is re-proved locally for the s0_compat field.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.TransportInput.proposition_14_5_4", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable"},
+ "blind_exposure": "The writer of B had seen (via #print of vocabulary) the project's proposition_14_5_4_statement before writing B; B's clauses (1)–(4) follow its shape closely, while (5)–(6) were added from the text's description of the construction."
+}

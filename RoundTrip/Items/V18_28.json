@@ -1,0 +1,13 @@
+{
+ "id": "V18_28",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "UNIVERSES: theorem_18_2_6 and mem_boundary_model_iff at universe 0; the three witnesses have none. The two statements differ in hypotheses: theorem_18_2_6 assumes, besides B's hypotheses, F̄(α) ≠ ∅ for every object, S.IsTame (kept from the text and not used in its proof) and that f has a compact moduli space (|S_f| compact); the conclusions agree. B ⇒ A is proved (B_to_main, and B_to_A with mem_boundary_model_iff, reflection_boundarySet and the two witnesses re-proved with their own proofs, theorem_18_2_6 replaced by B); A gives B with the three hypotheses added (A_to_Bplus). A ⇒ B is not proved and is not expected to hold, chiefly because of the compact moduli space: (N, U) controlling compactness forces |S_f| ⊆ U ∩ {|N|∘|f| ≤ 1} into a compact set, so for the zero section of a bundle over a polyfold without boundary with non-compact |S_f| (Ub = ∅, reflexive local compactness holding locally) no such U exists. A formal sketch through the empty structure: the trivial groupoid on ℕ with |C| discrete, V α = ℝ, empty S and Q (no covering family, so every N is a reflexive auxiliary norm and the fibre and Fredholm conditions are vacuous; ∂C = ∅ since degIndex = 0), f the zero section: reflexive local compactness holds with U(z) = {z}, Ub = ∅ meets the hypotheses, and U ⊇ |S_f| = ℕ with closure(U) compact is impossible. This not_B was not formalized.",
+ "B_issue": "B omits the hypothesis that f has a compact moduli space (|S_f| compact), under which the text's Theorem 18.2.6 and Definition 18.2.3 are stated (the summary in the blind statement does not mention it), and the standing hypothesis F̄(α) ≠ ∅; without the first, B's conclusion is not expected to hold (sketch in why). Tameness, which B left out, is not needed by the project's proof.",
+ "overlap": "rt_overlap B_to_A: 3299 shared project theorems, from the statements (strong bundle, model and half-space vocabulary in the witness types) and the lemmas of the copied proofs (definition_17_1_30, rnPolyfold_degIndex, isSaturated_boundarySet, degIndex_modelFunctor_obj, the reflection and half-space witness lemmas). #rt_check passes for B_to_A, B_to_main, A_to_Bplus.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_6", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

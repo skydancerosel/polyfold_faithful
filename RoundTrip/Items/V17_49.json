@@ -1,0 +1,13 @@
+{
+ "id": "V17_49",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes: eq_chartTopology at 0,0,0 and proposition_17_2_12 at 0 (B is on GCT.{0}). Both sides say that exactly one topology on M(TΨ₁, TΨ₂) makes every map (17.42) an open embedding, one map for every o ∈ M(Ψ₁, Ψ₂) and every admissible triple at o. A also names that topology: tangentTrTopology, the final topology of the maps. A_to_B takes τ := tangentTrTopology, and existence and uniqueness come from proposition_17_2_12. B_to_A identifies B's unique τ with tangentTrTopology. It uses a copy of the generic eq_chartTopology together with Lemma 17.2.11 (1) (lemma_17_2_11_one: the maps (17.42) cover M(TΨ₁, TΨ₂)); uniqueness is then B's. The extra conjunct eq_chartTopology is a general topology lemma, not about the GCT. B cannot give it, so it is re-proved outright (eq_chartTopology', the project's argument copied); that part of B_to_A does not use the hypothesis.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 640 shared project theorems. Most are the statement vocabulary (M-polyfolds, tangent spaces, admissible triples, TTr). The proof-relevant shared ones are isOpen_chartTopology_iff, which the copied eq_chartTopology argument uses, and lemma_17_2_11_one (covering by the maps (17.42)) with its dependencies, which proposition_17_2_12's proof also uses. Plain #rt_check passes on A_to_B, B_to_A, main_to_B and B_to_main.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_12", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

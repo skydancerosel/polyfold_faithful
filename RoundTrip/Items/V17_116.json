@@ -1,0 +1,13 @@
+{
+ "id": "V17_116",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSE: the polyfold theorems at u = 0 (B lives on GCT.{0}); the Z/3 witnesses have no universe parameter. B is effective Stokes (17.92) on the model of every covering family on which Θ̂ is tame oriented of dimension m+1, for m >= 1 and for n = 1. That is exactly theorem_17_6_10_all and theorem_17_6_10_dim1_all, so A_to_B projects. The _of_epStokes, _hyp, _book, _book_hyp, _dim1_book and _all forms on C follow from B: the extra hypotheses (ep-level Stokes or sc-smooth partitions of unity on a model) are dropped. The integrals on C (integralEff, boundaryIntegralEff(Dim1)) are by definition the integrals on the family chosen by IsTameOriented; the boundary side is moved to that family with boundaryIntegralEff(Dim1)_eq_...Via (Theorem 17.6.9, not an item theorem). The three Z/3 witnesses (partitions of unity on the model, ep-level Stokes, (LUC)) are facts about one example and do not follow from B; they are re-proved outright by the project's proofs. The two statements say the same thing; the witnesses only show the hypotheses of the conditional forms are satisfiable.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 5675 shared project theorems. Mostly the statement vocabulary (integralEffVia, boundaryIntegralEffVia, toOriented, isLUC_model, the Chapter 9/11 measure machinery). The rest are the lemmas of the copied witness proofs: corollary_7_6_6_unconditional, rnPolyfold_one_hilbert_hypothesis, z3Taut_properties, stokesWithoutPartitions_of_hasScPartitionsOfUnity (and through it theorem_9_5_18 and its pieces). They also include theorem_17_6_9, theorem_17_6_9_dim1 and boundaryIntegralEff(Dim1)_eq_...Via, used to move the boundary integral on C to the chosen family; the item proofs use these too. Plain #rt_check passes on main_A_to_B, main_B_to_A, A_to_B and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "theorem_17_6_10_all together with theorem_17_6_10_dim1_all (cases m >= 1 and n = 1 of (17.92), compared jointly as AMain)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

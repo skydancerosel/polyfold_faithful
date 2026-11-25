@@ -1,0 +1,12 @@
+{
+ "id": "V12_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: all of A's theorems are taken at universe 0 (isAuxNorm_glueNorm.{0,0}, the partition-of-unity index type in Type). The main conjunct theorem_12_2_2 is B verbatim, without B's instance hypothesis [ParacompactSpace (pullbackSpace P X.src)]; A_to_B ignores that instance, and B_to_A supplies it from StrongBundle.paracompactSpace_pullback. SEP.theorem_12_2_2 is the bundled form. The other five conjuncts (isLocalAuxNorm_avgNorm, avgNorm_actOne, isLocalAuxNorm_transNorm, transNorm_μ, isAuxNorm_glueNorm) are the proof's averaging, transport and gluing steps; they are not content of the theorem and do not follow from B, so B_to_A re-proves them outright by copying the project's proofs, which rest only on non-item lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 745 shared project theorems. Almost all are the strong-bundle / ep-groupoid infrastructure reached through the statements (charts, retractions, pullbacks, SEP instance fields). The proof-specific ones come from the copied building blocks: transNorm_eq_of, continuousOn_transNorm, isFiberSeminorm_transNorm, tendsto_transNorm, isFiberSeminorm_comp_actOne, actOne_Γ_mul/one/mem, partition_eq_zero_of_not_mem, glue_term_nonneg, IsFiberSeminorm.finset_sum, isAuxNorm_of_tendsto, and paracompactSpace_pullback. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V17_81",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Both sides use the project's M(Ψ_θ, Ψ'_{θ'}) = GoodNbhd.FTr with ftrPolyfold (Definition 17.4.14), faces with faceSubPolyfold, and the generic transition-set maps s, t, ι, u, m, under IsTame and HasUniformizers. A (theorem_17_4_16 at universe 0) quantifies over all uniformizers, ANY points o with good neighbourhoods V and faces θ ∈ V.faces. B quantifies over FaceData, whose point ō is fixed by G (the text's Ψ_θ, with G the isotropy group). A_to_B specializes A to the data of d, d', d''; B's src/tgt/inv/unit/mul unfold to A's maps, and the proof arguments of IsScSmoothOnFibredProduct agree by proof irrelevance. B_to_A does not use B: B is silent at points o not fixed by G, so A is re-proved outright from the non-item Lemma 17.4.15 pieces ftr_isLocalScDiffeo_src/tgt and ftr_isScSmoothMap_inv/unit/mul. The two statements differ only in that A also covers good neighbourhoods of non-fixed points, a harmless generalization of the text's setting.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B and B_to_A. rt_overlap B_to_A: 999 shared project theorems: the ftr_* lemmas of Lemma 17.4.15 (B_to_A is the project's proof), the transFaceSet / faceSubPolyfold / sub-M-polyfold machinery and the transport lemmas.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_4_16 (the only conjunct)", "A_to_B": "proved", "B_to_A": "proved", "relation": "A_stronger", "note": "same as the item: B_to_A only outright."}
+}

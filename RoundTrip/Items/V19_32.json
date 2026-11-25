@@ -1,0 +1,13 @@
+{
+ "id": "V19_32",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Universes at 0. A: corollary_19_5_2 (u, ι, m sc-smooth for B.rep's structure transPolyfold, with no hypothesis on T) and the TransitionData-level isScSmoothMap_unit/inv/mul (any transition data). B: for every family N of natural structures on the M(Ψ,Ψ') of any representative F, under HasClassUniformizers and T metrizable, s, t, u, ι are sc-smooth, s is a local sc-diffeomorphism and m is sc-smooth on the fibred product. A_to_B uses only the main conjunct: in a natural structure s is a local sc-diffeomorphism (the F_h are its local inverses), so the identity from N's structure to transPolyfold is an sc-diffeomorphism (non-item uniqueness lemma), and F vs B.rep are related by isScDiffeoOn_of_equiv; u and ι then come from corollary_19_5_2, while m is shown on N's own fibred product by s ∘ m = s ∘ pr₂ (the project's argument) rather than transported. B_to_A: the two statements differ: A has no HasClassUniformizers or metrizability hypothesis, B assumes both; under them B gives the main conjunct (B_to_main_under, using the family of the project's structures, natural by isScDiffeoOn_map). B also adds s, t sc-smooth and s a local sc-diffeomorphism, which are Theorem 19.5.1.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 615 shared project theorems; B_to_main_under: 606. They are the descent machinery of transPolyfold (reached through isScDiffeoOn_id_of_isLocalScDiffeo_src, isLocalScDiffeo_src/tgt, isScDiffeoOn_of_equiv, isScDiffeoOn_map, which are not item theorems here), the sub-M-polyfold fibred product API (isSubMPolyfold_fibredProduct, subPolyfold_inclusion_isScSmooth, isScSmoothMap_snd), isScSmoothMap_of_isLocalScDiffeo_comp, continuous_mulMap, and Chapter 2 sc-calculus.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_5_2", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V16_78",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is the conjunction of 150 theorem types (universes at 0); its main form is theorem_16_6_6_wellDefined_unconditional (with integral_eq_ and all_admissible_unconditional). A => B: the main form assumes CanonicalGermInput o (m+1) = tame germ data of the representative F (IsScFredholmSectionTame) plus index m+1, while B assumes the index only. With tameness added, the main form gives B (A_to_Btame, proved, rt_check OK), so this is the only gap in that direction. Tameness does not follow from the 2021 sc-Fredholm notion even when the boundary is empty (UntamedCorner.isScFredholmGerm2021_not_tame). That example has no orientation topology, so it is not an OrientationRep; whether an OrientationRep with empty boundary forces tame germ data is not settled in the project, and the project treats tameness as an added standing hypothesis. B => A: B implies the ∫-content of the main form under its hypotheses (B_to_AmainInt, proved, rt_check OK; the text's compact solution set is added, which A's main form does not assume). B does not state three things A states: the effective integral ∮ (independence of λ and [τ]-dependence), [τ]-dependence for every θ̂ and every τ (Stokes with empty boundary), and about 140 auxiliary conjuncts (intermediate steps, witnesses, ep-groupoid Stokes and cobordism lemmas). The last is a structural difference, not a difference about the theorem. Main-form hypotheses are satisfiable together: hyps_satisfiable takes the circle section, where CanonicalGermInput holds in index 1 and an admissible canonically oriented θ̂ (IsCanonicalSolutionSet) exists.",
+ "B_issue": null,
+ "overlap": "#rt_check OK for A_to_Btame and B_to_AmainInt (A_to_B and B_to_A themselves are not proved). rt_overlap B_to_AmainInt: 5358 shared project theorems. All come from the vocabulary in the statements (proof fields of OrientationRep, SectionRep, OrientedPerturbation, ScForm and the like); the proof itself only repackages B's conjuncts.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

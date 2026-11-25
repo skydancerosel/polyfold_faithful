@@ -1,0 +1,13 @@
+{
+ "id": "V17_140",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: proposition_17_8_15 at u = 0 (B lives on GCT.{0}); the general lemmas isLocalScDiffeo_fstOfFibredProduct at {0,0,0} and EpFunctor.isLocalScDiffeo_fibredMap, isScDiffeo_fibredMap_iff_bijective at {0,0}. The main conjunct says Φ = (17.103) is an sc-diffeomorphism (IsScDiffeoOn ... Φ g univ univ for some g) onto the fibred-product sub-M-polyfold of M(Ψ,Ψ') × E. That sub-M-polyfold is built from isSubMPolyfold_fibredProduct' (τ̂ a local sc-diffeomorphism). B writes the same thing out: p and s sc-smooth, Φ bijective, and every left inverse of Φ sc-smooth on the fibred product built from isSubMPolyfold_fibredProduct (s a local sc-diffeomorphism). IsSubMPolyfold is a Prop, so the two sub-M-polyfold structures are the same term. A_to_B: bijectivity from left_inv/right_inv. Any left inverse of a bijection equals A's g, which is sc-smooth. p and s are sc-smooth by the structure fields isLocalScDiffeo_p and isLocalScDiffeo_src (part of the setting). B_to_A: g := the inverse of the bijection. Φ is sc-smooth into the sub-M-polyfold from p and s (prodMk, isScSmoothOn_subPolyfold_of_val), and g is sc-smooth by B. The three general lemmas (π₁ of a fibred product and L_F local sc-diffeomorphisms; Definition 8.5.1 (3) iff L_F bijective) are about arbitrary M-polyfolds and ep-functors and do not follow from B. They are re-proved outright by the project's proofs. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 488 shared project theorems. Most are the statement vocabulary (sub-M-polyfold, fibred product, chart and transition-set machinery, ProperPolyfoldCoveringStructure fields). The rest are the lemmas of the copied proofs of the three general conjuncts: isScDiffeoOn_fst_fibredProduct, isLocalScDiffeo_of_comp_eq, isLocalScDiffeo_sndOfFibredProduct, EpFunctor.continuous_fibredMap, IsLocalScDiffeo.isScDiffeoOn_of_bijective. main_B_to_A and main_A_to_B do not use the item proof's argument (lemma_17_8_14 bijectivity, local diffeomorphism of Φ); B supplies bijectivity and the inverse's smoothness directly. Plain #rt_check passes on main_A_to_B, main_B_to_A, A_to_B and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "ProperPolyfoldCoveringStructure.proposition_17_8_15", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

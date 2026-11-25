@@ -1,0 +1,21 @@
+{
+ "id": "V17_26",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. The main conjunct proposition_17_1_23 is B verbatim (both use the project's IsZhou/IsLUC/IsSLUC/IsLR/IsSLR: some covering family's model has the property). The extra conjuncts IsZhou.model and IsLR.model (a property of one model holds for every model) do not follow from B; in B_to_A they come from the non-item HasModelProperty.forall with isGenIsoInvariant_isZhou/isLR (f_{Ψ,Ψ'} is a generalized isomorphism, Theorem 10.3.21). The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1667 shared project theorems, almost all through HasModelProperty.forall (isGeneralizedIso_comparison, theorem_10_3_21_all, the EP(E⁻¹) and model ep-groupoid machinery: proposition_10_1_16, proposition_10_3_16, isEquivalence_modelMap, ...). The B_to_main direction uses nothing. Plain #rt_check passes on A_to_B, B_to_A, main_to_B, B_to_main.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_23",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

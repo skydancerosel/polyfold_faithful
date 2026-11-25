@@ -1,0 +1,13 @@
+{
+ "id": "V19_18",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A is BasicConstruction.proposition_19_3_4 (for a representative F of B.𝓕: F_h(W) open, F_h continuous on V(o) and an open embedding, all into B.M = B.rep.Tr, and B.M Hausdorff), proposition_19_3_4_topology (T^F has the axioms of a topology) and the transition-data lemmas isOpen_image_map, continuousOn_map, isOpenEmbedding_restrict_map for arbitrary F. B states, for arbitrary transition data F, that images of open W ⊆ V(o) are open in F.Tr, that the restriction of F_h to V(o) is an open embedding, and that F.Tr is Hausdorff. A_to_B takes (1), (2) from the transition-data conjuncts and Hausdorff from proposition_19_3_4 for ⟨U, ⟦F⟧⟩, transported along trHomeomorph (Lemma 19.3.1). B_to_A transports B along trHomeomorph for proposition_19_3_4 and gets continuity on V(o) from the open embedding; proposition_19_3_4_topology is the axioms of the instance on F.Tr and is proved without B (B takes the topology as given, which is where the text's first assertion lives). The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 30 shared project theorems, structural: Equiv.symm/trans, equiv_refl, isOpenTr_of_equiv, lemma_19_3_1, isOpen_M_iff, isOpen_tr_iff, mk_rep (all through trHomeomorph), isOpenTr_topology (the instance's axioms), isOpen_dom, mem_dom and proof fields.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_4", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent", "note": "main_to_B applies the main conjunct to ⟨U, ⟦F⟧⟩ with F itself as representative and transports along trHomeomorph; B_to_main instantiates B at F and at B.rep. Both pass #rt_check."}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V19_17",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A is BasicConstruction.theorem_19_3_3 (on B.M = B.rep.Tr: regular, Hausdorff, locally metrizable; s, t local homeomorphisms; u, m continuous; ι and Ψ̄ : G × O → M(Ψ,Ψ) homeomorphisms) plus the transition-data lemmas t2Space, regularSpace, exists_isOpen_metrizableSpace for arbitrary F. B states the same list on F.Tr for every representative F of B.𝓕. A_to_B takes the separation and local metrizability from the transition-data conjuncts and transports the structure-map clauses of theorem_19_3_3 from B.rep to F along trHomeomorph (the identity; T^F = T^{rep} by Lemma 19.3.1). B_to_A instantiates B at B.rep (mk_rep) for theorem_19_3_3, and at the basic construction ⟨U, ⟦F⟧⟩ for the transition-data lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 41 shared project theorems, structural only: GroupoidStr/translation/TransitionSet proof fields, TransitionData.topology fields, isOpenTr_topology, isOpen_dom, mem_dom, Equiv.symm/trans, equiv_refl, mulMap proof, mk_rep.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_3_3", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent", "note": "main_to_B transports every clause from B.rep to an arbitrary representative F along trHomeomorph (regularity via IsInducing.regularSpace, Hausdorff via IsEmbedding.t2Space, local metrizability via preimages); B_to_main instantiates B at B.rep. Both pass #rt_check."}
+}

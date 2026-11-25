@@ -1,0 +1,13 @@
+{
+ "id": "V16_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe 0 for all of A's theorems (B lives in Type). A is theorem_16_2_6_complex (d on representatives, d ∘ d = 0, the representative isomorphism), d_mk, d_comp_d, MapRep.pullback_eq_of_equiv, ScMap.pullback_mk, d_comp_pullback, pullback_id, pullback_mk_comp, pullback_comp and theorem_16_2_6_pullback. B is d on representatives, d ∘ d = 0, the pull-back formula f̂^*[(τ, (Y, β))] = [(𝔣^*τ, (X, α))] for every representative, and d ∘ f̂^* = f̂^* ∘ d. A_to_B reads B's four conjuncts off d_mk, d_comp_d, pullback_mk and d_comp_pullback. B_to_A: the same four from B; the representative isomorphism is rfl; pullback_eq_of_equiv follows from B's formula (each representative's MapRep.pullback equals the pull-back of its class); pullback_id, pullback_mk_comp and pullback_comp follow from B's formula with the Chapter 11 lemmas formsPullback_id, formsPullback_comp and ScMap.comp_mk. The extra functoriality conjuncts of A are consequences of B's representative formula, so the two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "HARNESS: ScMap.pullback is a Quotient.lift whose well-definedness argument is the banned MapRep.pullback_eq_of_equiv, inline in the definition's body (not abstracted as ScMap.pullback._proof_N). A and B both mention ScMap.pullback, so plain #rt_check and #rt_check_soft fail on every direction (plain failure recorded with #guard_msgs). A local #rt_check_opaque (as in V7_5: #rt_check without following the value of ScMap.pullback) passes on A_to_B, B_to_A, main_A_to_B and main_B_to_A. rt_overlap B_to_A: 2134 shared project theorems, almost all from the bodies of the definitions in the statements (ep-groupoid forms, M-polyfold and ep-localization machinery); the proof's own non-item lemmas are formsPullback_id, formsPullback_comp, ScMap.comp_mk, ScMap.exists_rep, ScForm.mk_toStructure, ScForm.toStructure_mk.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "no single conjunct: the text's claim is theorem_16_2_6_complex ∧ theorem_16_2_6_pullback (the complex and the pull-back); compared jointly as Amain", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

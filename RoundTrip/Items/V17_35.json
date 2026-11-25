@@ -1,0 +1,13 @@
+{
+ "id": "V17_35",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universe u := 0. The two statements differ in the hypothesis on F: B assumes only HasCoveringUniformizers (the footprints of F cover |C|), A's corollary_17_1_29 assumes HasUniformizers (F(α) ≠ ∅ for every α), and A's corollary_17_1_29_of_coveringFamily concludes only for a given covering family L of F¹. 'C¹ satisfies P' (Definition 17.1.22) asks for a covering family of F¹, and F¹(α) contains only lifts Ψ¹ of uniformizers Ψ ∈ F(α) with α of regularity 1. Under hc alone all uniformizers of F may be attached at objects of regularity 0 but not 1 (possible once the local models are infinite-dimensional) while C_1 ≠ ∅; then F¹ ≡ ∅, |C¹| has no covering family and C¹ has none of the properties, so B's conclusion is not available from A (we believe B does not hold in that generality; no example was built). B_to_A: corollary_17_1_29_of_coveringFamily, corollary_17_1_29 and level_properties follow from B (HasModelProperty.forall transports the property to every covering family of F¹; HasUniformizers gives hc; induction on i); the model form, the equivalence X_L → X_Ψ¹ and the ℤ/3 witness are re-proved outright by copying the project's proofs from non-item lemmas.",
+ "B_issue": "B takes HasCoveringUniformizers as the standing hypothesis; with it the conclusion 'C¹ satisfies P' needs a covering family of F¹, which hc does not provide (uniformizers attached only at objects of regularity 0). The text's setting presupposes F(α) ≠ ∅ for every α (the project's HasUniformizers), under which A and B agree.",
+ "overlap": "rt_overlap B_to_A: 2548 shared project theorems, mostly the statement machinery: levelOneConstruction and its proof fields (levelOneUnif, isOpenEmbedding_levelOneFunctor, metrizableSpace_levelOne, levelOneInclOf_spec, levelOneMulOf/InvOf/UnitOf/TgtOf/ParaOf). Shared proof lemmas of the copied parts: proposition_17_1_24, proposition_17_1_23, PolyfoldStructure.liftOne_isZhou, EP.lift_succ, EpFunctor.lemma_10_1_2, levelOneModelFunctor_faithful/full/essSurj, isLocalScDiffeo_levelOneModelFunctor_obj, levelOnePolyfoldClass_eq, raiseIncl_levelOneHomeomorphRaised.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.corollary_17_1_29", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

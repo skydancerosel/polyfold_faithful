@@ -1,0 +1,13 @@
+{
+ "id": "V19_19",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A is BasicConstruction.proposition_19_3_5 (s, t local homeomorphisms, u and m continuous, ι a homeomorphism, for M(Ψ,Ψ') = B.rep.Tr of a basic construction) together with the transition-data lemmas isLocalHomeomorph_src/tgt, continuous_unit, continuous_mulMap for arbitrary transition data F. B states the same five properties for every transition data F with the topology T^F (F.Tr). A_to_B takes the transition-data conjuncts directly; for ι it applies proposition_19_3_5 to the basic construction ⟨U, ⟦F⟧⟩ and conjugates by trHomeomorph (the identity map, T^F = T^{rep} by Lemma 19.3.1). B_to_A instantiates B at F := B.rep. The two statements say the same thing; the only difference is bookkeeping (representative versus arbitrary transition data), bridged by Lemma 19.3.1.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 37 shared project theorems, all structural: GroupoidStr/translation/TransitionSet proof fields, TransitionData.topology fields, isOpenTr_topology, isOpen_dom, mem_dom, Equiv.symm/trans, equiv_refl, setoid proof, mulMap proof. No mathematical lemma of the item's proofs is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_5", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent", "note": "main_to_B transports every clause (s, t, u, m, ι) from B.rep of ⟨U, ⟦F⟧⟩ to F along trHomeomorph (Lemma 19.3.1); B_to_main instantiates B at B.rep. Both pass #rt_check."}
+}

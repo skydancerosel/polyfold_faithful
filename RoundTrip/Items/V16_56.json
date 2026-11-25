@@ -1,0 +1,13 @@
+{
+ "id": "V16_56",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is proposition_16_3_16_two (the printed statement: reflexive 1-fibres, reflexive auxiliary norm n, y_k mixed convergent to y in some model, n(y) ≤ liminf n(y_k) in EReal) together with mixedTendsto_iff_forall (model independence of Definition 16.3.14) and proposition_16_3_16_two_of_mem (the inequality with mixed convergence read in one structure S in which n is represented by a reflexive auxiliary norm). B is the main conjunct with the extra hypotheses y_k, y ∈ Y01; these follow from mixed convergence (the representatives give y_k = Γ(|w_k|)), so B and the main conjunct are equivalent. The two side conjuncts do not follow from B (one is about the notion only; the other has no hypothesis ⟦S⟧ = c with reflexive 1-fibres, so B does not apply); they are re-proved outright from non-item lemmas (mixedTendstoIn_of_equiv, HasReflexiveFibers.of_mem, theorem_12_2_11_exists, the le_liminf field). They are proof-level variants, not extra content of the proposition.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A, Amain_to_B, B_to_Amain. rt_overlap B_to_A: 2032 shared project theorems: the vocabulary of the statements (strong polyfold bundle structures, ep-strong bundles, mixed convergence) plus the non-item lemmas of the two re-proved side conjuncts (mixedTendstoIn_of_equiv and its transfer lemmas, theorem_12_2_11_exists).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.proposition_16_3_16_two", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

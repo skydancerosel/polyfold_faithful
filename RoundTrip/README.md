@@ -1,4 +1,4 @@
-# Round-trip audit of Part I and Part II, Chapters 7–11 — method and how to run it
+# Round-trip audit of the statements — method and how to run it
 
 Modelled on `Morse/RoundTrip/` of [`math_faithful`](https://github.com/skydancerosel/math_faithful) (see its `REPORT.md` for the method in detail). The audit checks
 the *statements* of the comparison (`Exposition/cmp/*.json`): for each item, an independent model
@@ -45,6 +45,13 @@ the prompts before handing them to a model. Four Lean sessions at a time fit on 
 (`lake env lean RoundTrip/Items/<ID>.lean` for every item: no error, no `rt_check FAIL`).
 
 ## Status
+
+The main statements of Parts III and IV (129 rows: the statement rows of the tiers `partIII` and
+`partIV` of `Exposition/checklist/mains.tsv`, Chapters 12–19 and V8.48) are audited by the same method
+against commit e1d5ad6; see `REPORT-III-IV.md`. Most differences found there come from readings the
+comparison already records (tame germ data, Findings Ch. 3 item 191; the compatibility reading of
+Definition 19.7.11; F(α) ≠ ∅; a chosen representative in §17), from the blind writer's reading, or from
+formal statements more general than the text.
 
 All 604 non-extra, formalized items of Chapters 1–11 are audited; see `REPORT.md`. Chapters 1–5 (269
 items) were audited against commit 12924a4, Chapter 6 (60 items) against commit 439bc62, Chapter 7

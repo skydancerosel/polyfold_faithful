@@ -1,0 +1,12 @@
+{
+ "id": "V12_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (.{0,0} for the Part I lemmas exists_localExtension_of_isTame, isLocalAuxNorm_retractNorm, retractNorm_eq and IsLocalAuxNorm.mono). The main conjunct theorem_12_2_7 has the same hypotheses as B (X tame, |X| paracompact, N an auxiliary norm over ∂X in the sense of IsAuxNormOn) and the same conclusion (an auxiliary norm of W equal to N over ∂X). B also carries the instance [ParacompactSpace (pullbackSpace P X.src)]; A_to_B ignores it and B_to_A supplies it from StrongBundle.paracompactSpace_pullback. The remaining conjuncts are proof pieces that do not follow from B: theorem_12_2_7_hyp drops tameness in favour of the local-extension hypothesis, and the local step needs no paracompactness of |X|. They are re-proved outright by copying the project's proofs, which rest only on non-item lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1046 shared project theorems. These are mostly the M-polyfold / strong-bundle / ep-groupoid infrastructure in the statements, plus the lemmas of the copied proofs: the boundaryShift/minCoord lemmas, IsTame.exists_chart, degIndex_eq_chartDegIndex_of_isTameWith, the retractNorm lemmas (retractNorm_toOne, isFiberSeminorm_retractNorm, retractNorm_eq_of_fix, chartFibMap lemmas, oneChartOf lemmas), and Theorem 12.2.2's avgNorm/transNorm/glueNorm lemmas with theorem_12_2_2 (used for the witness). Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

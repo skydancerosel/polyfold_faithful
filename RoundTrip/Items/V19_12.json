@@ -1,0 +1,13 @@
+{
+ "id": "V19_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. Both sides assume HasClassUniformizers (every class meets an object with F(α) ≠ ∅). A is theorem_19_2_2_one…five and continuous_π_obj for natTop (open sets = NatOpen), plus the example theorem_19_2_2_empty_family and its lemma emptyBasic_natOpen_iff (for F ≡ ∅, T = {∅}). B phrases (1) as 'generateFrom T has exactly T as open sets' and (2)–(5) for that topology; its (3) uses Mathlib's MulAction.orbitRel.Quotient G O with a map e satisfying e[q] = |Ψ(q)|, where A uses the orbit space of the translation groupoid and Ψ.functor.orbitMap; a homeomorphism orbH identifies the two quotients. A_to_B builds the topology from theorem_19_2_2_one, identifies it with generateFrom T, and transfers (2)–(5) (e = orbitMap ∘ orbH). B_to_A gets the axioms of T and generateFrom T = natTop from B's (1), transfers (2)–(5), and gets orbitMap = e ∘ orbH⁻¹ and continuous_π_obj = continuity of e ∘ [·]. The two example conjuncts concern the construction F ≡ ∅, outside B's hypothesis; they are re-proved outright (two lines, from natOpen_empty), so B_to_A does not use B for them. On the text's claim the two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 82 shared project theorems. Structural (GroupoidStr/translation/TransitionSet proof fields, Uniformizer fields, Isomorphic.refl/symm/trans) plus natOpen_univ_iff, natOpen_inter, natOpen_sUnion, exists_nbhd_fmap, fmap/map lemmas: these are reached because A's statement mentions natTop, whose axiom fields are proved with them; B_to_A never calls them for content. natOpen_empty and emptyUnif_elim come from the re-proved F ≡ ∅ example.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "no single conjunct: theorem_19_2_2_one ∧ two ∧ three ∧ four ∧ five (the text's five clauses)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent", "note": "main_to_B and B_to_main (both pass #rt_check) compare B with the conjunction of the five clause theorems, without continuous_π_obj and the F ≡ ∅ example."}
+}

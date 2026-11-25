@@ -1,0 +1,23 @@
+{
+ "id": "V14_43",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 36 listed theorems at universe 0 (continuousOn_snd_comp_of_isFaceScPlusSectionOn at .{0}; the FaceCorner/QuadrantBundle examples have no universe parameter); B is on SEP.{0}. B's first part is Theorem 14.6.3 for a compatible assignment of classes (IsCompatibleAssignment: Definition 14.6.2 with the equivalence of Definition 13.3.8, which compares functors, index sets and correspondences but not sections), asking for a structured Λ̃ over ∂X with Λ|F = Λ_F. As we read it B does not hold: on the project's corner example W = X × ℝ² → X = [0,∞)² × ℝ (tame, face-structured) the assignment Λt is compatible, yet no functor agreeing with the Λ_F over the faces is an sc⁺-multisection over ∂X (signs ±(h(t),x₂) and ±(g(t),x₁) cannot be matched continuously around the corner). not_B re-proves this without the item's theorems (copies of isEpFace_subset_coord, exists_isEpFace_mem_of_part, continuousOn_snd_comp_of_isFaceScPlusSectionOn, subset_Z_one, isCompatibleAssignment_Λt, not_isBoundaryScPlusMultisection_of_eq_on_faces from non-item lemmas); classStatement_to_notB shows A's own conjunct not_theorem_14_6_3_class_statement refutes B, so the two sides agree on the corner. Hence A ⇒ B does not hold (not_A_to_B) and B ⇒ A holds only ex falso. The project's statements of Theorem 14.6.3 that hold require the faces' representatives to agree with their sections on F ∩ F' (CompatibleFaceData, SectionCompatibleFaceData/Families, IsSecCompatibleAssignment on classes modulo the equivalence with sections), the property the text uses on p. 682; B's extension part (Theorem 14.1.9) is not reached because the first part already has no witness.",
+ "B_issue": "B's compatibility hypothesis is the project's IsCompatibleAssignment (classes modulo Definition 13.3.8, sections not compared), the literal reading of Definition 14.6.2; under it the conclusion does not hold at the corner example. B's extension clause uses the hypotheses of the project's theorem_14_1_9_statement.",
+ "overlap": "rt_check OK on not_B, B_to_main and classStatement_to_notB. Every term mentioning A reaches CompatibleFaceData.Λg_eq, τg_eq, Φ_eq and RelTuple.Equiv.cast_smul through the bodies of the vocabulary definitions CompatibleFaceData.S and CompatibleFaceData.tau (used directly in structure fields, not as _proof_ terms), so #rt_check and #rt_check_soft cannot pass on B_to_A or A_to_notB (recorded with #guard_msgs, dropping the messages); their content is carried by not_B and classStatement_to_notB. rt_overlap not_B: 1338 shared project theorems: the corner example's non-banned helpers (φ₁_eq_or, signMulti_congr, exists_sign_of_signMulti_ne_zero, exists_sign_endpoints, path₁/path₂ lemmas, hfun/gfun, contDiff_germMap, signTuple), Example 11.1.4 and the quadrant face machinery (dq_eq_one_iff, faceAt_subset_coord_eq_zero, exists_isFaceIn_univ_preimage), chart₀ and the strong-bundle/natural-representation vocabulary. not_B depends on propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.IsSecCompatibleAssignment.theorem_14_6_3",
+  "A_to_B": "failed",
+  "B_to_A": "proved",
+  "relation": "A_narrower",
+  "note": "main holds and B does not, so main ⇒ B does not hold; B ⇒ main only ex falso (B_to_main, rt_check OK). The hypotheses differ: main assumes compatibility of classes modulo the equivalence with sections (FaceSecMultisection, IsSecCompatibleAssignment), B the equivalence without sections."
+ },
+ "blind_exposure": "The writer of B took the hypotheses of the extension part (Theorem 14.1.9: paracompact orbit space, partitions of unity, auxiliary norm N, saturated Ũ, f) from the project's theorem_14_1_9_statement. This does not affect the verdict: B is refuted through its first part."
+}

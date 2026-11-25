@@ -1,0 +1,13 @@
+{
+ "id": "V19_61",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Universes at 0. From theorem_19_6_13_of_bundleTransitionData, Kb := bundleBar F̄ satisfies every clause of B except the multiplication (main_A_to_B_noMul): A's local-isomorphism clauses for s and t omit 'U, U′ open', which follows from IsStrongBundleIsoOn.isScDiffeoOn_base (IsScSmoothOn contains IsOpen), and ι is an isomorphism, hence a map. B's multiplication clause is not among this item's theorems (it is item V19_62's theorem_19_6_13_m); A_and_m_to_B proves A ∧ (type of theorem_19_6_13_m) ⇒ B, so the gap in A ⇒ B is only this split across items. B ⇒ A is not proved and differs in content: B is existential (some structure Kb) and holds only under HasClassUniformizers and metrizability of T, for representatives of Bs.𝓕, while A is about the specific structure bundleBar (H a strong bundle isomorphism, total space the natural M-polyfold M(Ψ̄, Ψ̄′), ι an isomorphism, p sc-smooth) for every F̄ with no hypothesis. The two statements differ: A says more about a specific structure and drops the metrizability hypothesis; B includes the multiplication.",
+ "B_issue": null,
+ "overlap": "No B_to_A, so no rt_overlap. HARNESS: bundleBar's statement reaches the banned isScSmoothMap_projBar through the proof fields of altHHomeo, so plain #rt_check does not pass on main_A_to_B_noMul (recorded with #guard_msgs); #rt_check_soft passes for main_A_to_B_noMul and A_and_m_to_B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_of_bundleTransitionData (the Theorem_19_6_13_Statement for every F̄; theorem_19_6_13_book is the same statement for Bs.rep under the text's hypotheses)", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable"}
+}

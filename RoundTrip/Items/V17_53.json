@@ -1,0 +1,13 @@
+{
+ "id": "V17_53",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe u = 0 (B is on GCT.{0}). A_to_B takes T := tangentOrbitTopology hU. B's extra hypothesis hc is not needed: the project derives it from hU, and levelOneGCT hc carries levelOneTopology hc. B_to_A: B's T makes |TΓ_Ψ| a homeomorphism for the project's chosen covering family, so T is the coinduced topology, which is tangentOrbitTopology (eq_tangentOrbitTopology). All topological conjuncts of A then come from B. A also states that TΓ_Ψ is full, faithful and essentially surjective (proposition_17_2_16). These are not topological claims and B does not contain them; they are taken from the non-item lemmas tangentModelFunctor_full/_faithful/_essSurj. The topological content is the same on both sides.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement (proposition_17_2_16) contains (S.tangentGCT hU).toGroupoidStr = S.tangentCatGroupoid. The definition tangentGCT fills its metrizable field directly with the banned metrizableSpace_tangentOrbit, and that is not abstracted as a _proof_ field. So every term whose type mentions A reaches metrizableSpace_tangentOrbit and, through it, isHomeomorph_tangentModelOrbitEquiv. #rt_check reports it on A_to_B and B_to_A, and #rt_check_soft reports it on B_to_A (recorded with #guard_msgs). The proofs themselves avoid the banned theorems. To show this, both directions are re-proved for A_core: A with that conjunct removed (it holds by rfl; A_iff_A_core). A_core_to_B, B_to_A_core, main_core_to_B and B_to_main_core all pass plain #rt_check. rt_overlap B_to_A_core: 1904 shared project theorems. They are the vocabulary of the statements (TC, the model ep-groupoid, tangent orbit spaces, levelOneTopology) plus tangentModelFunctor_full/_faithful/_essSurj, which the proof uses for the non-topological conjuncts.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_16", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V12_20",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at .{0,0} (objects/morphisms and total space in Type). The main conjunct theorem_12_4_2 is a List.TFAE [proper, compact solution set, proper<∞] for an sc-Fredholm section functor over an ep-groupoid with paracompact |X|. B states the same as two equivalences, with f ∈ E.fredholmSectionFunctors, which is E.IsScFredholmSectionFunctor f by definition. B also carries the instance [ParacompactSpace (pullbackSpace P X.src)]; B_to_A supplies it from StrongBundle.paracompactSpace_pullback. The other conjuncts are proof parts that do not follow from B, since they assume no paracompactness of |X| (the project's proof never uses that hypothesis). They are re-proved outright by copying the project's proofs, which rest only on non-item lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 585 shared project theorems. These are mostly the strong-bundle / sc-Fredholm / ep-groupoid infrastructure in the statements. The proof-specific ones come from the copied parts: exists_nbhd_isCompact_closure_bdd, IsAuxNorm.exists_norm_liftOne_le, toBase_liftOne_snd, mem_smoothSet_of_isZeroAt, exists_oneVal_eq_μ, proposition_7_1_8, π_eq_π_iff, continuous_π and surjective_π. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

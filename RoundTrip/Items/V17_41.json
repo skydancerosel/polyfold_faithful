@@ -1,0 +1,13 @@
+{
+ "id": "V17_41",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe u := 0. A concerns the project's own structure on T_αC (instances through a reference chart, under Fact (TangentObj α)): every S_Ψ is the map of a ≃L[ℝ] with S_{Ψ'} ∘ S_Ψ⁻¹ = Tσ(q) (proposition_17_2_4), the norm through any (Ψ, chart) induces the topology and is complete, and for smooth α every model T_{φ(q)}O is an sc-subspace and the chart changes are restrictions of sc-operators L : E₀ → E'₀ on the whole ambient spaces. B asserts that some linear/topological structure exists with T_αC Banachable, all S_Ψ topological linear isomorphisms with the stated transitions, and (smooth α) an sc-Banach space E with e : T_αC ≃L E₀ such that every Tφ ∘ S_Ψ ∘ e⁻¹ is levelwise a topological linear isomorphism onto T_{φ(q)}O ∩ F_m. A_to_B: E := T_{φ₀(q₀)}O with the induced filtration (ScBanach.ofSubspace, from A's sc-subspace claim); the sc-operators L, L' of A in both directions restrict on each level to mutually inverse continuous maps (built with equivOfInverse); Banachable via the chart into the closed subspace T_{φ₀(q₀)}O; transTangent and transTangentCLM share the underlying map. B_to_A is proved without using B: B does not mention the project's instances, and A holds outright from non-item lemmas (coe_tangentChartCLE, tangentChart_symm_trans, copies of the Banach and sc proofs). A's sc-operator extension of the transitions to all of E₀ is more than B states, but it holds outright.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 741 shared project theorems: the tangent-vector construction (TangentSpaceAt, tangentChart, refChart instances: transMap_unitTr_self/congr, unitTr_comp, tangentChart_symm_trans, transTangentCLM_apply), the Chapter 2 tangent-fibre lemmas (tangentFiberEquiv, tangentChartMap_*, mem_tangentFiberModel) and those of the copied sc proof (regularity_eq_of_mem, isScSubspace_tangentFiberModel, exists_clm_tangentMapOnFiber, tangentMapOnCLM_eq).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "no single conjunct: B is the conjunction of proposition_17_2_4 (charts and transitions), proposition_17_2_4_banachable (Banachable) and proposition_17_2_4_sc (sc-Banachable); A_to_B uses all three (the Banachable part through proposition_17_2_4's isomorphism and the chart, not through the norm statement)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

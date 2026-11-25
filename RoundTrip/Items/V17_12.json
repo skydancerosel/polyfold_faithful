@@ -1,0 +1,21 @@
+{
+ "id": "V17_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0 (B is stated for GCT.{0}). A is proposition_17_1_11 (S.HasPropernessProperty), the proof-step lemma GroupoidStr.exists_subseq_tendsto_smul and the example reflection_hasPropernessProperty. HasPropernessProperty unfolds to B (B's srcT/tgtT are the project's a.src/a.tgt by definition), so main_to_B and B_to_main are one-liners and the example is B at reflectionConstruction. exists_subseq_tendsto_smul (finite-group convergence lifting along a subsequence) is a proof step, not a consequence of B; in B_to_A it is re-proved outright by copying the project's proof. The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 620 shared project theorems, all from the statements (GCT/uniformizer/transition-set machinery, TranslationTwist and the reflection construction of the example) and from the copied proof of exists_subseq_tendsto_smul (GroupoidStr.isOpenMap_π_translation, π_eq_π_iff). Plain #rt_check passes on A_to_B, B_to_A, main_to_B, B_to_main.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_11",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

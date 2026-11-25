@@ -1,0 +1,21 @@
+{
+ "id": "V18_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: theorem_18_3_5 is taken at universe 0 (B lives in GCT.{0}). A is theorem_18_3_5 (for structurable Λ₁, Λ₂ and an sc-smooth functor β, Λ₁ ⊕ Λ₂ and β ⊙ Λ₁ are structurable, stated jointly) together with the reflection-bundle example theorem_18_3_5_witness. B states the same two closures as two separate clauses with the project's vocabulary. A_to_B specializes theorem_18_3_5 (β := 0 for the sum clause, Λ₂ := Λ₁ for the product clause). B_to_A recombines the two clauses; the example takes the non-trivial structurable Λ of proposition_18_4_3_witness (not an item theorem), β = 2 sc-smooth by isScSmoothMap_real_const, and applies B on reflQ.",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B, B_to_A, main_to_B, B_to_main. rt_overlap B_to_A: 2608 shared project theorems, essentially all from proposition_18_4_3_witness (the atomic construction of §13.5 and the reflection-bundle setup) used to supply the example's Λ; the clauses of theorem_18_3_5 themselves come from B.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_5",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

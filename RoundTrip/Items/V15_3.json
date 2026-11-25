@@ -1,0 +1,13 @@
+{
+ "id": "V15_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universe 0) is linearization_eq_zero (T(f,Λ)(x) = 0 where Λ(f(x)) = 0, at every x ∈ X₁), its chart form remark_15_1_2, and the two model lemmas remark_15_1_2_model and mem_support_linSumModel_iff. A_to_B: B (a) follows from linearization_eq_zero together with linearization_eq (T(f,Λ) is the formal sum of any local structure and chart), and B (b) from nonempty_localLinData and the same two facts. B ⇒ A does not go through B: the two statements differ in that A's linearization_eq_zero and remark_15_1_2 hold for an arbitrary Λ : W → ℚ≥0 (only f sc-Fredholm is assumed), while B assumes Λ is an sc⁺-multisection functor, and the model lemmas are statements about sc-Banach models that B does not mention. B_to_A is therefore proved by re-proving the four conjuncts outright (copies of the project's short proofs, from non-item lemmas such as IsLocalRepOn.count_eq and linSumModel_apply), without using B; restricted to sc⁺-multisections, linearization_eq_zero follows from B (b) with T := linearization f Λ (main_B_to_A_multisection).",
+ "B_issue": null,
+ "overlap": "#rt_check passes for A_to_B, B_to_A, main_A_to_B and main_B_to_A_multisection. rt_overlap B_to_A: 437 shared project theorems, almost all the strong-bundle chart and sc-calculus machinery in the statements; the Chapter 14/15 ones are IsLocalRepOn.count_eq, apply_localSection, linSumModel_apply, ite_iff_congr and the LocalLinData fields, used by the copied proofs.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.linearization_eq_zero", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger", "note": "main_A_to_B: linearization_eq_zero ⇒ B. From B, linearization_eq_zero follows for sc⁺-multisections Λ (main_B_to_A_multisection); the conjunct itself holds for arbitrary Λ, which B does not cover."}
+}

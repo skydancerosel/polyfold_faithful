@@ -1,0 +1,13 @@
+{
+ "id": "V19_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A = corollary_19_4_8 (natTop metrizable gives MetrizableSpace (B.M Ψ Ψ')) and metrizableSpace_natTop_of_surjective (a uniformizer with |Ψ| onto makes T metrizable). B: for every representative F of 𝓕, T = generateFrom NatOpen metrizable gives F.Tr Ψ Ψ' metrizable. Glue: under HasClassUniformizers B's natT equals natTop (generateFrom of a topology's open sets), and F.Tr Ψ Ψ' ≃ₜ B.M Ψ Ψ' (trHomeomorph, Lemma 19.3.1); B_to_A takes F = B.rep. The second conjunct (surjective uniformizer) is an extra project lemma not in the text's statement; it is re-proved outright by the project's argument from non-item lemmas (theorem_19_2_2_three, metrizableSpace_translation_orbitSpace). The main conjunct is equivalent to B.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 509 shared project theorems, all from the outright copy of metrizableSpace_natTop_of_surjective (theorem_19_2_2_three, the M-polyfold / sc-calculus machinery behind metrizableSpace_translation_orbitSpace) and natTop's proof fields; main_A_to_B and main_B_to_A only use natT = natTop and trHomeomorph.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.corollary_19_4_8", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V19_39",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A: proposition_19_5_9 ((LUC), resp. (SLUC), of the basic construction gives (LUC), resp. (SLUC), of the project's structure toPolyfoldConstruction hm) plus the proof steps exists_isLUC_lift_model (a level-i (LUC) gives (LUC) of the i-th lift of some model), isLUCLevel_zero_of_isLUC and EP.isGenIsoInvariant_isLUC_lift. B: the same implications for EVERY natural polyfold structure P (uniformizer sets those of F, M(Ψ,Ψ') carrying T_{Ψ,Ψ'}). A_to_B uses A's conjuncts isLUCLevel_zero_of_isLUC and isGenIsoInvariant_isLUC_lift; the model step is shown directly for the natural P (the project's argument with the covering family taken in P through naturality; Ψ̂ is continuous since M(Ψ,Ψ) carries T_{Ψ,Ψ}). The main conjunct alone does not reach another natural P: that would need an equivalence between the models of P and of toPolyfoldConstruction (same objects and morphisms, equal topologies, identity sc-diffeomorphisms on morphisms), not proved here, so main A_to_B is recorded as failed (believed true, effort only). B_to_A: B at P = toPolyfoldConstruction (natural: definitional plus Lemma 19.3.1) gives the main conjunct; the step lemmas are not in B and are re-proved outright. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1589 shared project theorems; A_to_B: 1622. Chapter 17's model machinery (modelEpGroupoid, model comparison, isGeneralizedIso_comparison of Theorem 17.1.18), the lift machinery (liftFunctor, exists_liftMor, isLUCAt_obj, isLUCAt_of_isomorphic), the piece functor lemmas, Proposition 10.1.16 and the sc-calculus underneath; B_to_A additionally reaches toPolyfoldConstruction's proof fields.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_9", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

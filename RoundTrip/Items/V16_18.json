@@ -1,0 +1,22 @@
+{
+ "id": "V16_18",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: all four theorems at 0 (T(Z,c) : Type 1). A: tangentStructure_equiv, definition_16_2_3, tangent_paracompact, tangent_isZhou. B builds (TX, Tα) itself (TStr) from the three conditions of Definition 16.1.1 and states (1) the conditions hold, (2) all TStr are equivalent, (3) each lies in c.tangent. TStr c q hq h1 h2 h3 = tangentStructure q hq by rfl. A_to_B: (1) from tangent_paracompact, tangent_isZhou and the non-item lemma isHomeomorph_tangentMap (A lists no statement that Tα is a homeomorphism; it sits inside the definition tangentStructure); (2) tangentStructure_equiv; (3) definition_16_2_3. B_to_A: paracompactness and (ZHOU) for p from B(1) with c := ⟦p⟧, tangentStructure_equiv from B(2), definition_16_2_3 from B(3). Same content.",
+ "B_issue": null,
+ "overlap": "HARNESS: plain #rt_check and #rt_check_soft both fail on A_to_B and B_to_A (recorded with #guard_msgs), reaching tangent_paracompact and tangent_isZhou. Reason: A's statement mentions the definitions tangentStructure (via tangentStructure_equiv, definition_16_2_3) and tangent, and B's statement mentions c.tangent; the fields paracompact := q.tangent_paracompact and isZhou := q.tangent_isZhou of tangentStructure are plain constants, not abstracted into _proof_N, so #rt_check_soft does not separate them. To show this is the only route, the file defines tStr' (tangentStructure with the proof fields from the non-item theorem_8_1_15 and proposition_8_1_16_2021), A' and B' (A and B with tangentStructure/tangent replaced by the copy), proves A' = A and B' = B by rfl, and proves A'_to_B' and B'_to_A' with the same proofs: both pass plain #rt_check. rt_overlap B_to_A: 1513 (B'_to_A': 1510) shared project theorems, the tangent ep-groupoid, (ZHOU), Theorem 8.1.15 and EPLoc machinery inside the statements.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "none",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "No single conjunct is the main one: B is the conjunction of the structure conditions (tangent_paracompact, tangent_isZhou, plus Tα homeomorphism), the mutual equivalence (tangentStructure_equiv) and membership in Tc (definition_16_2_3); the comparison is with the full A."
+ }
+}

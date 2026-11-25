@@ -1,0 +1,21 @@
+{
+ "id": "V19_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0; t2Space_of_orbitCharts and completelyRegularSpace_of_orbitCharts at .{0,0,0,1} (index type B.U.Unif : Type 1, where proposition_19_4_5 uses them), exists_invariant_urysohn at .{0,0}. A = proposition_19_4_5 (HasClassUniformizers, (v2) ⇒ natTop Hausdorff and completely regular) ∧ isOrbitChart_unif ∧ exists_unif_π_eq ∧ the three abstract lemmas (orbit-chart Hausdorffness, complete regularity, the invariant Urysohn function). B: for every representative F, (v1) for F ⇒ natT = generateFrom NatOpen is T2 and CompletelyRegular. Glue: natT = natTop; V1 F ⇔ PropernessV1 (isOpen_M_iff, Lemma 19.3.1); (v1) ⇒ (v2) by propernessV3Lim_of_v1 and propernessV2_of_v3Lim, (v2) ⇒ (v1) by a copy of propernessV3Lim_of_v2 (the original goes through the item's isOrbitChart_unif) and propernessV1_of_v3Lim. The main conjunct and B are equivalent. The other five conjuncts are proof steps B cannot give; they are re-proved outright by copying the project's proofs (with IsOrbitChart.exists_urysohn copied too, since it uses the item's exists_invariant_urysohn).",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 139 shared project theorems: natTop's proof fields, BasicConstruction.isOrbitChart and the (v1)/(v2) step lemmas (exists_nbhd_fmap, exists_tendsto_subseq_of_tendsto_src, theorem_19_2_2_four, MPolyfold.metrizableSpace), and, from the copied proofs, t2Space_of_forall_closure_subset_t2, IsOrbitChart.isOpen_range / t2Space_range / apply_smul / orbitChartV3Lim_of_v2. All four #rt_check pass.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_5",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

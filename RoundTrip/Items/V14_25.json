@@ -1,0 +1,12 @@
+{
+ "id": "V14_25",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 32 listed theorems at universe 0 (tendsto_comp_of_eventually and eq_of_isPreconnected at .{0,0}); B is on SEP.{0}. A_to_B: B (1) is ZData.proposition_14_4_6_1_open for S = C.toZData; B (2) is ZConcrete.proposition_14_4_6_2 C, since z_k → z₀ with z_k ∈ ∂X, i ∼_{z_k} i' puts z₀ in the closure of {y ∈ ∂X | i ∼_y i'}, and the eventual statement gives an open O ∋ z₀; B's standing hypotheses (tame, paracompact, partitions of unity) and z₀ ∈ cl_X(V_a) are not needed. B_to_A: the two statements differ in scope: A states (1) for every ZData on every ep-groupoid and (2) for ZConcrete data without the standing hypotheses of Theorem 14.1.9, at every closure point of {y ∈ ∂X | i ∼_y i'}; B asks those hypotheses, speaks only of the concrete data, and only of sequential limits (closure and sequential closure agree only under first countability, not available as an instance). A also contains the intermediate statements of the proof (ZLimitSetting, ZLimitRep, HasThetaLocalEq, sheet lemmas), which do not follow from B. So A says more than B; the difference is in generality, not in the claim at the concrete data.",
+ "B_issue": null,
+ "overlap": "rt_check passes on A_to_B (uses A's conjuncts proposition_14_4_6_1_open and ZConcrete.proposition_14_4_6_2 only through the hypothesis). No B_to_A, so no rt_overlap.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

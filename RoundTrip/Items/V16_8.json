@@ -1,0 +1,22 @@
+{
+ "id": "V16_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: degIndex_eq and lemma_16_1_13 at 0. A: d_{(X,β)}(z) = d_X(x) whenever β(|x|) = z (degIndex_eq), and p ∼ q ⇒ d_p = d_q (lemma_16_1_13), with d_{(X,β)} := d_{|X|} ∘ β⁻¹. B states the lemma through the defining formula: p ∼ q and β_p(|x|) = β_q(|x'|) ⇒ d_X(x) = d_{X'}(x'). A_to_B: degIndex_eq on both sides and lemma_16_1_13. B_to_A: degIndex_eq from B applied to p ∼ p (Equiv.refl) with a representative of β⁻¹ z; lemma_16_1_13 from B with representatives of β_p⁻¹ z and β_q⁻¹ z. The two say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 766 shared project theorems, all from the equivalence-relation machinery of PolyfoldStructure.Equiv (Equiv.refl → OrbitChart.Rel, EPLoc composition and generalized-isomorphism lemmas); the proof's key lemma EPLoc.degIndexOrbit_orbitMap is not used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.PolyfoldStructure.lemma_16_1_13",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "Amain_to_B uses lemma_16_1_13 and the definitional unfolding d_{(X,β)}(β|x|) = d_X(x); B_to_Amain from B."
+ }
+}

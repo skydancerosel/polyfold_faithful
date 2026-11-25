@@ -1,0 +1,22 @@
+{
+ "id": "V17_65",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Both sides read d_{|C|}, faces and face-structured through the model X_c of a covering family c (IsFaceVia c, IsFaceStructuredVia c), and B's Def1 is the project's IsSubpolyfold. A_to_B is the second component of proposition_17_3_8 (B's extra hypothesis IsTame is already part of IsFaceStructuredVia). proposition_17_3_8 also asserts the Definition 17.3.2 form (IsSubpolyfoldModel), which B does not state and which does not follow from Definition 17.3.1 without F(α) ≠ ∅ on the face (cf. V17_60). B_to_A therefore takes the 17.3.1 half from B and re-proves the 17.3.2 half from the non-item lemmas isFaceStructuredVia_iff, isFaceVia_iff_isOrbitFace and EpGroupoid.isEpSubgroupoid_faceObj (faces of the face-structured model are ep-subgroupoids, Ch. 11). The quadrant witness is rebuilt the same way, with its subpolyfold claim taken from B. The extra 17.3.2 half is A's additional content (the text treats the two definitions as equivalent by Proposition 17.3.4, which needs F(α) ≠ ∅), so A is the stronger statement; both directions are proved, B_to_A with that half re-proved.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A and B_to_main. rt_overlap B_to_A: 1574 shared project theorems: the face/degeneracy-index machinery (isFaceStructuredVia_iff, isFaceVia_iff_isOrbitFace, degIndexVia_*, TameBoundary.isFaceStructuredOpen_univ_iff), EpGroupoid.isEpSubgroupoid_faceObj and its Ch. 11 dependencies, and the quadrant lemmas (quadrantPolyfold_isTame, isFaceStructuredOpen_quadrant, quadrantPolyfold_degIndex_zero), all also used by the item's proofs.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_8",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "A_stronger",
+  "note": "main ⇒ B via its 17.3.1 component; B ⇒ main uses B for 17.3.1 and re-proves the 17.3.2 component (B_to_main)."
+ }
+}

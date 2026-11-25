@@ -1,0 +1,13 @@
+{
+ "id": "V15_2",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universe 0; wsum_pair_eq_of_isLocal at universes 0) is the conjunction of thirty theorems: structure and chart independence of the formal sum (theorem_15_1_1_intrinsic, theorem_15_1_1, chart independence lemmas), linearization_eq, nonempty_localLinData, the functor property theorem_15_1_1_functor, and proof-step lemmas (transport of local sections along morphisms, sc-Fredholm summands, the separation lemma, the model form). A_to_B takes T := linearization f Λ: the functor law is theorem_15_1_1_functor, (2) is linearization_eq, (1) comes from the weighted count IsLocalRepOn.count_eq, and uniqueness at smooth points from nonempty_localLinData and linearization_eq; only these four conjuncts are used (Aused_to_B). B ⇒ A does not go through: the two statements differ in that B speaks only about smooth points (X_∞, as the statement file says) and about sc⁺-multisections Λ, while A's well-definedness and functor statements hold at every level-1 point, theorem_15_1_1_intrinsic and theorem_15_1_1 for any Λ having the two local structures; A also contains proof-step lemmas B does not mention. From B, the main conjunct follows at smooth points for sc⁺-multisections (main_B_to_A_smooth).",
+ "B_issue": null,
+ "overlap": "HARNESS: plain #rt_check on A_to_B / Aused_to_B lists mem_levelSet_one_of_src, which is not used by the proof: it occurs as a proof term inside the statement of theorem_15_1_1_functor (linearization f Λ y = grfPush φ (mem_levelSet_one_of_src hx) …), so every term mentioning A reaches it (recorded with #guard_msgs). With mem_levelSet_one_of_src left out of the list, #rt_check passes on Aused_to_B and #rt_check_soft passes on A_to_B, the latter reaching the other banned theorems only through the proof fields of linearizationFunctor (and GrFHom.comp/id, grfProj), which A's statement mentions. main_B_to_A_smooth passes plain #rt_check. No B_to_A, so no rt_overlap.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.theorem_15_1_1_intrinsic", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "theorem_15_1_1_intrinsic (independence of the formal sum of the structure and chart, at all of X₁, any Λ) gives the uniqueness and (2) of B, but not the functor property, which is the separate conjunct theorem_15_1_1_functor (and existence needs nonempty_localLinData). From B the conjunct follows only at smooth points and for sc⁺-multisections (main_B_to_A_smooth)."}
+}

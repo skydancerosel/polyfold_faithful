@@ -1,0 +1,21 @@
+{
+ "id": "V18_37",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: theorem_18_3_6 is taken at universe 0. B uses the project's StrongBundleProperCovering as its notion of sc-smooth strong bundle proper covering functor and writes P̃^*Λ as fun e => Λ (P̃.obj e), which is Λ ∘ P̃.obj definitionally; so B and theorem_18_3_6 are the same statement up to argument order. A also contains the example theorem_18_3_6_witness; B_to_A obtains it from the structurable Λ of proposition_18_4_3_witness (not an item theorem) and B applied to reflIdCovering (a definition of the item).",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B, B_to_A, main_to_B, B_to_main. rt_overlap B_to_A: 2638 shared project theorems, from proposition_18_4_3_witness and the reflIdCovering definition (its isProper field); the main clause comes from B.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

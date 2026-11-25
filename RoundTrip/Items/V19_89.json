@@ -1,0 +1,13 @@
+{
+ "id": "V19_89",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "The two statements differ in a hypothesis and in content. A (theorem_19_7_29_hyp) assumes Bh.IsCompatible, which B does not (it is not automatic: the project's not_isCompatible_twistBasic). Even under IsCompatible, A asserts only Nonempty (ProperPolyfoldCoveringFunctor gctA gctB). It does not say that the functor is P or that its polyfold structure of B is the one of (F, 𝓕), which is B's content, so A does not give B. Under IsCompatible, B's conclusion does hold through the project's definition toProperPolyfoldCoveringFunctor, but that is not a consequence of A. In the other direction, B gives A's Nonempty conjunct (B_to_nonempty, proved, rt_check OK). It does not give the rest of A: HasCoveringUniformizers of the polyfold construction of B, the open embeddings |Ψ̂| with T_{|A|} and their covering of |A|, the sheet-model identities of each Ψ̂, and the fibred-product description of M(Ψ̂,Ψ̂') through gammaFib.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_nonempty: 1167 shared project theorems: proof fields of the covering constructions reached by unfolding gctA/gctB (fibHomeomorph, toPolyfoldConstruction, NatRepConstruction, ProperCoveringModel) and M-polyfold infrastructure; the item theorem is not used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "The only theorem of the item; same comparison as for A."}
+}

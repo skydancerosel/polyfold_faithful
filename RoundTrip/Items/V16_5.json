@@ -1,0 +1,23 @@
+{
+ "id": "V16_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: all of A's theorems at 0. A is proposition_16_1_4 (both parts), its halves, and proof-step lemmas on arbitrary ep-groupoid equivalences and M-polyfolds. The partition halves are the same statement on both sides (Definition 7.5.5, EpGroupoid.HasScPartitionsOfUnity) and each direction takes them from the hypothesis. The bump halves are about different notions: A uses the object M-polyfold in the pointwise reading (f(x) ≠ 0, Definition 5.3.1 as read by the project), B uses Definition 12.3.1 as printed (EpGroupoid.AdmitsBumpFunctions: saturated U, invariant f, f not identically zero), which by the non-item lemma theorem_12_3_2_1_weak is the weak reading on the object M-polyfold. Whether weak implies pointwise is open in the project (BumpWeakPointwise.lean), so neither bump half follows from the other: A_to_B proves B's (weak) bump half outright, redoing the project's argument for the weak reading (new lemma weakBumpAt: a weak bump point is carried back along an sc-diffeomorphism of open sets; then the local sc-diffeomorphisms F and ψ̂; then iff_of_isGeneralizedIso). B_to_A re-proves the pointwise bump half and the proof-step lemmas (which concern arbitrary ep-groupoid equivalences, beyond B's polyfold structures) by copies of the project's proofs. So both statements hold and imply each other, but only the partition halves are linked through the hypothesis; the two bump halves are separate true statements. The project's file note that Definition 12.3.1 is equivalent to the pointwise object reading 'by theorem_12_3_2_1' refers to the pointwise reading of 12.3.1; the printed 12.3.1 corresponds to the weak reading (theorem_12_3_2_1_weak), and its invariance is now also proved here.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 846 shared project theorems: the EPLoc / generalized-isomorphism machinery under PolyfoldStructure.Equiv, plus the lemmas of the copied proofs: iff_of_isGeneralizedIso, IsEquivalence.exists_iso, isLocalScDiffeo_obj, IsLocalScDiffeo.exists_isScDiffeoOn_hat, IsScDiffeoOn.restrict, isScSmoothMap_real_of_locally, isHomeomorph_orbitMap, orbitDescend, preimage_closure_π, orbitPullback and its lemmas. No banned theorem is reached (plain #rt_check passes on all four directions).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "partial_hypothesis_use": "A_to_B uses the hypothesis only for the partition half (bump half proved outright); B_to_A uses it only for proposition_16_1_4_two and the partition half of proposition_16_1_4 (all other conjuncts re-proved outright).",
+ "main": {
+  "decl": "Polyfold.PolyfoldStructure.proposition_16_1_4",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "Amain_to_B / B_to_Amain; partition halves through the hypothesis, bump halves (weak for B, pointwise for A) proved outright; the bump notions differ (Definition 12.3.1 as printed vs pointwise Definition 5.3.1 on objects)."
+ }
+}

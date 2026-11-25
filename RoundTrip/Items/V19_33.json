@@ -1,0 +1,21 @@
+{
+ "id": "V19_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. (1): B reads properness as (v1) (PropernessV1), the project's theorem_19_5_3_one uses (v2) (PropernessV2 hB); under HasClassUniformizers they are equivalent by the non-item proposition_19_4_2_one_iff_two, so (1) matches in both directions. (2): A states facts about the specific definition toPolyfoldConstruction hm (uniformizers = F, M = transPolyfold, covering, Lemma 17.1.9 for Ψ̂, tameness of (F, M), of every M(Ψ,Ψ') and of every model X_Ψ for tame domains); B asks for some polyfold structure with uniformizer sets those of F and M(Ψ,Ψ') carrying T_{Ψ,Ψ'}, tame when the domains are tame. A_to_B: toPolyfoldConstruction is natural in B's sense (definitional, plus Lemma 19.3.1 for an arbitrary representative), tameness from theorem_19_5_3_two. B_to_A uses B for (1) and for the tameness of toPolyfoldConstruction (B's tame natural structure has the same uniformizer sets, and IsTame depends only on them); the remaining parts of theorem_19_5_3_two and the side lemmas (continuous_hat, covering, isEquivalence_modelFunctor, isGeneralizedIso_comparison, isTame_transPolyfold) are re-proved outright from non-item lemmas (they are extra detail of the project, not in B). B reads properness as (v1); this matches the project's (v2) by Proposition 19.4.2 under HasClassUniformizers.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1384 shared project theorems; A_to_B: 1250. Mostly the definition toPolyfoldConstruction (its fields use isLocalScDiffeo_src/tgt, isScSmoothMap_unit/inv/mul, transPolyfold's descent machinery) and Chapter 17's model machinery (lemma_17_1_9_of_continuous, lemma_17_1_15, theorem_17_1_18, isTame_modelEpGroupoid) in the outright copies, plus theorem_19_2_2_three, proposition_19_4_2_one_iff_two and lemma_19_3_1.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "no single conjunct: the text's (1) and (2) are theorem_19_5_3_one and theorem_19_5_3_two; compared as their conjunction (main_A_to_B, main_B_to_A)",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

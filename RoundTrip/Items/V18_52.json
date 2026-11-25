@@ -1,0 +1,13 @@
+{
+ "id": "V18_52",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Universes at 0. A is theorem_18_6_1_oriented (model c), theorem_18_6_1_oriented_modelFree and three reflection-bundle witnesses. A → B: A assumes (i) an index hypothesis hidx (f has Fredholm index n at every point of supp(Λ ∘ f) in a model, for one n, the dimension the text leaves implicit) and (ii) the model form IsAuxNormFunctor N, where B has no index hypothesis and the printed IsAuxNormBook N (strictly weaker in the project). Both are satisfiable (the witnesses). Beyond that the two statements use different notions of 'oriented': A produces an OrientedSubcategory (compatible orientations of Γ^*Θ on every covering model, pp. 820–821, canonical in the model c), B asks for a section T̂Θ with IsOrientationC (Definition 17.5.8 on C). The project has no lemma passing from the first to the second; that would descend model orientations to the tangent category of C, which is substantial mathematics. main_partial (passes #rt_check) proves A's conclusion under B's hypotheses plus (i) and (ii). B → A: A's hypotheses are weaker (no transversality (3), only N(Λ) ≤ 1, no continuous h), and A names the orientation (canonical in the model, IsCanonicalFor), which B's bare existence cannot supply; the witnesses are concrete facts outside B.",
+ "B_issue": "B formalizes 'naturally oriented' only as existence of an orientation (IsOrientationC); naturality and the construction from o_f are not captured, as B's author notes.",
+ "overlap": "No B_to_A, so no #rt_overlap. main_partial uses only the main conjunct, ENNReal order lemmas and the vocabulary.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "main": {"decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_6_1_oriented_modelFree", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "main ⇒ B needs hidx and IsAuxNormFunctor (extra hypotheses of main) and a passage OrientedSubcategory → IsOrientationC (not in the project). B ⇒ main is not available: main has weaker hypotheses (no (3), N(Λ) ≤ 1) and a stronger conclusion (the specific canonical orientation)."}
+}

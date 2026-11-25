@@ -1,0 +1,14 @@
+{
+ "id": "V14_44",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 29 listed theorems at universe 0 (IsScPlusOnFaceNear.of_restrict has no universe parameter); B is on SEP.{0}. A ⇒ B uses only the class-level conjuncts GenSBMap.proposition_14_1_8 (f̄_*Λ structurable over ∂X', for X and X' tame) and GenSBMap.proposition_14_1_8_pullMult (f̄^*Λ' structurable over ∂X, for X tame); B's operations are the project's GenSBMap.pushMult/pullMult, so this is direct. B ⇒ A is not proved: the two statements differ in standing hypotheses, B also assuming |X| and |X'| paracompact (not a consequence of tameness), and the pull-back part of A needing only X tame. So the project states Proposition 14.1.8 with fewer hypotheses than the text. The remaining conjuncts are about representatives W ←Φ V →Ψ W' (SDiagram, with the middle tame), single strong bundle equivalences (PullMap, pushMult F), the hypotheses FacePull_hyp/FacePush_hyp and their proofs, and local face-wise sc⁺ lemmas; B concerns classes only and does not give them.",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B and main_to_B. rt_overlap A_to_B: 789 shared project theorems, all from the statement vocabulary: the class-level operations GenSBMap.pushMult/pullMult (choice of representative, isEquivalence_rep_Ψ, PullMap.ofEquivalence, fiberEquiv), strong bundle equivalences/isomorphisms, IsBoundaryStructurable and the M-polyfold/strong-bundle chart machinery; none is a step of the proof of Proposition 14.1.8.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.GenSBMap.proposition_14_1_8 (with its companion GenSBMap.proposition_14_1_8_pullMult)", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"},
+ "blind_exposure": null
+}

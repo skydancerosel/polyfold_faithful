@@ -1,0 +1,13 @@
+{
+ "id": "V19_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A = proposition_19_3_7 (for a basic construction B and Ψ in B.U, a homeomorphism G × O ≃ₜ B.M Ψ Ψ = B.rep.Tr Ψ Ψ whose map is Ψ̄ = hat) ∧ hatHomeomorph_apply (the definitional formula of the vocabulary's hatHomeomorph). B states the same for every uniformizer construction U and every transition data F, with the topology T^F_{Ψ,Ψ}. A_to_B: every F represents the basic construction (U, ⟦F⟧), and B.rep's topology agrees with T^F (trHomeomorph, Lemma 19.3.1), so the homeomorphism of A composed with trHomeomorph⁻¹ gives B. B_to_A: take F = B.rep; the second conjunct is rfl (it is a definitional unfolding of vocabulary, not content of the text's claim). The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 90 shared project theorems, all reached through the proof fields of the vocabulary definitions in A's statement (hatHomeomorph._proof_*, TransitionData.topology, map_hat, GroupoidStr basics); B_to_A itself only applies B to B.rep. All four #rt_check (A_to_B, B_to_A, main_A_to_B, main_B_to_A) pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_3_7", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

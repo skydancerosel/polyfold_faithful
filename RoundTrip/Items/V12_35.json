@@ -1,0 +1,12 @@
+{
+ "id": "V12_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (.{0,0} or .{0,0,0}; the partition-of-unity index type in Type). The main conjunct theorem_12_3_9 assumes B.IsTameBundle (X tame and a tame strong bundle chart around every object), B assumes X.IsTame; the charts follow from X.IsTame by the non-item StrongBundle.exists_isTameChart, so the hypotheses agree. The norm clauses differ only in form: B's hypothesis N(s x) < δ is stated with ∃ h : s x ∈ W_{0,1}, A's with ∀ h (equivalent on ∂X, where the boundary section takes values in W_{0,1}); B's bound B.AuxLe is ∃ h, A's is ∀ h (equivalent for sc⁺-sections, which take values in W_{0,1}). B's extra instance [ParacompactSpace (pullbackSpace P X.src)] is ignored in A_to_B and supplied in B_to_A from StrongBundle.paracompactSpace_pullback. The other conjuncts (the cores exists_extension(_bounded)_of_tameCharts, which need neither tameness of X nor paracompact |X|, the local step, the averaging, the gluing and support lemmas, the trivial-bundle witness) are proof steps that do not follow from B; they are re-proved outright by copying the project's proofs, which rest only on non-item lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1328 shared project theorems. These are mostly the M-polyfold / strong-bundle / ep-groupoid infrastructure in the statements, plus the lemmas of the copied proofs: StrongBundle.exists_local_extension and proposition_12_3_7_of_faces_at (the Part I local step), proposition_5_5_3 (bump functions), theorem_12_3_2_1, remark_12_3_5, natExtension_eq, the natTerm / sectionSum / sectionSmul lemmas, exists_invariant_nhds_of_isOpen, isBoundaryScPlusSectionFunctor_fiberZero, and the trivial-bundle facts for the witness (rnPolyfold_isTame, TrivialBundle.isTameChart_chart, theorem_7_5_7_hypotheses_rn). Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

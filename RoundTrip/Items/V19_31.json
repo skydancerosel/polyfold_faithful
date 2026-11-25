@@ -1,0 +1,13 @@
+{
+ "id": "V19_31",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A: theorem_19_5_1 (for B.rep's structure transPolyfold: s, t local sc-diffeomorphisms, each F_h an sc-diffeomorphism onto its image, Ψ̄ : G × O → M(Ψ,Ψ) an sc-diffeomorphism), theorem_19_5_1_natural (uniqueness among structures with s a local sc-diffeomorphism; independence of the representative), and the TransitionData-level lemmas. B: for every representative F, M(Ψ,Ψ') is metrizable and carries some structure P with every F_h an sc-diffeomorphism onto an open set and s, t local sc-diffeomorphisms. A_to_B uses only the main conjunct: T^F = T^{B.rep} (Lemma 19.3.1) lets B.transPolyfold be moved to F.Tr along the equality of topologies, and B's naturality holds for any structure in which s is a local sc-diffeomorphism (s ∘ F_h = id, F_h continuous). B's metrizability is the project instance TransitionData.metrizableSpace (true without T metrizable), so that conjunct does not use the hypothesis. B_to_A does NOT use B: A pins the specific definition transPolyfold while B is existential; passing from B's P to transPolyfold needs the uniqueness argument, which itself needs that s is a local sc-diffeomorphism for transPolyfold, so A's statements are re-proved outright from non-item lemmas (descent along (h,q) ↦ F_h(q)). The two statements say the same thing; A adds uniqueness and representative-independence, which are provable outright.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 700 shared project theorems; A_to_B: 676. Both are the descent / sheet machinery of transPolyfold (isDescentMap_sheetMap, isLocalScDiffeo_sheetMap/Src/Tgt, MPolyfold.descend, of_comp_surjective, isLocalScDiffeo_of_comp_eq) plus Chapter 2 M-polyfold calculus and the natural-topology lemmas (lemma_19_3_1, isOpen_image_map, continuousOn_map, src_map, metrizableSpace). B_to_A is a near copy of the project's proofs, as expected for an outright re-proof.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_5_1", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

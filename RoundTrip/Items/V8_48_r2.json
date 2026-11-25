@@ -1,0 +1,14 @@
+{
+ "id": "V8_48_r2",
+ "refresh_of": "V8_48",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "The blind notion IsLRB is exactly the project's IsLRLocal (proved: IsSBIsoOnB ↔ StrongBundle.IsLocalIsoOn and IsoW ↔ equality of orbits), and IsLRB implies the project's IsLR (proved). B has two clauses: (i) IsLR ↔ IsLRB for every strong bundle, and (ii) Proposition 8.4.3 with IsLRB. Clause (ii) follows from A's proposition_8_4_3_isLRLocal once the project's standing instance [ParacompactSpace (pullbackSpace P X.src)] is available (proved as A_to_B_ii_of_inst); B does not assume that instance. Clause (i) in the direction IsLR → IsLRB amounts to IsLR → IsLRLocal (extending a strong bundle isomorphism of W|U(x) to a strong bundle map of all of W); A contains only the germ form IsLR.isLRGerm under HasLocalIsoExtension, so A_to_B is not obtained. B_to_A: A also contains Proposition 10.4.7 for germs, the two orientation transport theorems, the halfSEP and z3SEP examples and helper lemmas, none of which follows from B.",
+ "B_issue": "Clause (i) of B identifies the text's Definition 8.4.2 with the project's IsLR (strong bundle maps of all of W). The project's reading of the printed definition is IsLRLocal, which is provably the same as B's IsLRB; IsLR is the weaker property (IsLRB → IsLR holds, the converse is not established).",
+ "overlap": "rt_overlap B_to_Amain: 458 shared project theorems, all M-polyfold / strong bundle / ep-groupoid infrastructure from unfolding the statements (charts, retractions, IsScDiffeoOn.congr_left, EpStrongBundle.μ lemmas, GroupoidStr.π_eq_π_iff); no item theorem. rt_check OK for B_to_Amain, A_to_B_ii_of_inst and isLR_of_isLRB.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.EpStrongBundle.proposition_8_4_3_isLRLocal", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower", "note": "B ⇒ main (B_to_Amain). main does not give clause (i) of B (IsLR → IsLRB) and gives clause (ii) only under the standing paracompactness instance of pullbackSpace P X.src, which main assumes and B does not."}
+}

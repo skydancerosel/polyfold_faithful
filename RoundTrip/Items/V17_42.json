@@ -1,0 +1,13 @@
+{
+ "id": "V17_42",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universe 0. The two statements differ only on objects without tangent spaces. B asks for a family Tφ : T_αC → T_α'C for EVERY morphism φ : α → α', including when T_α'C is empty. A (tangentMorAt_indep, proposition_17_2_5) speaks only of α and α' with TangentObj, i.e. regularity ≥ 1 and F ≠ ∅. Definition 17.1.8 does not require F(α) ≠ ∅, nor that F be invariant under isomorphism. not_B uses singleConstruction on the reflection GCT: F(1) = {Ψ₀} and F(x) = ∅ otherwise. There T_1C ≠ ∅ and T_{-1}C = ∅, but (-1, 1) : 1 → -1 is a morphism, so B does not hold. With HasUniformizers (F(α) ≠ ∅ for all α, which the text presupposes), A gives B (A_to_B_hU, proved from A's conjuncts). B_to_A: B's T agrees with tangentMorAt for every choice of Ψ'. This follows from injectivity of S_Ψ' and the chart form of (17.31) for tangentMorAt (tangentChart_tangentMorAt, proved here). Independence of Ψ' and the three parts of proposition_17_2_5 then come from B, through the non-item coe_tangentMorCLE.",
+ "B_issue": "B quantifies Tφ over all morphisms of C, without the hypothesis F(α) ≠ ∅ for all α (HasUniformizers) that the text presupposes, and B_hU adds it. In the degenerate case where F(α) ≠ ∅ = F(α') for isomorphic α, α', no map T_αC → T_α'C = ∅ exists, so B is unsatisfiable there (not_B). Under HasUniformizers, A implies B (A_to_B_hU).",
+ "overlap": "rt_overlap B_to_A: 724 shared project theorems. Most are statement vocabulary (tangent spaces, charts, transition sets). The proof-relevant shared ones are coe_tangentMorCLE, transMap_comp', transMap_unitTr_congr, transMap_unitTr_self, base_transMap, tangentVector_surjective and tangentObj_of_tangentSpaceAt, which the project's proof of proposition_17_2_5 also uses. Plain #rt_check passes on B_to_A, B_to_main, not_B and A_to_B_hU.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_5", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

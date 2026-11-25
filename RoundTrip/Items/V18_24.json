@@ -1,0 +1,13 @@
+{
+ "id": "V18_24",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "UNIVERSES: theorem_18_2_2 at universe 0; the four witnesses have none. The two statements differ by one hypothesis: theorem_18_2_2 assumes F̄(α) ≠ ∅ for every object (HasStrongBundleUniformizers, which supplies a covering family and so a model), B does not. B ⇒ A is proved (B_to_A: the TFAE from B's two equivalences; the witnesses re-proved with their own proofs, theorem_18_2_2 replaced by B), and A gives B with that hypothesis added (A_to_Bhf, and Bhf_to_main for the converse). A ⇒ B is not proved and is not expected to hold: without uniformizers there is no covering family, so IsAuxNormFunctor holds for every N (N = 0 included) and IsScFredholmSectionFunctor is vacuous; then 'proper' asks for an open U ⊇ |S_f| with closure(U) compact, which does not exist when |C| is not locally compact. A sketch: the trivial groupoid on ℚ with |C| = ℚ, V α = ℝ, empty S and Q, f(α) = (α, 0) at α = 0 and (α, 1) elsewhere: |S_f| = {0} is compact, but no neighbourhood of 0 in ℚ has compact closure. This not_B was not formalized (it needs a vector bundle GCT over the empty structure).",
+ "B_issue": "B omits the standing hypothesis that every object has a strong bundle uniformizer (F̄(α) ≠ ∅); the formal vocabulary B builds on allows the empty construction, in which every N counts as an auxiliary norm, and then B's (1) ⇒ (2) is not expected to hold (sketch in why). With the hypothesis added, B is exactly A's theorem_18_2_2.",
+ "overlap": "rt_overlap B_to_A: 1269 shared project theorems, from the statements (strong bundle and model vocabulary in the witness types) and the copied witness proof of halfF_hasCompactModuliSpace (halfF_zeroSet, quadrant_isClosed, isCompact_halfDiscMap_zero) and reflDiag_zeroSet. #rt_check passes for B_to_A, A_to_Bhf, Bhf_to_main.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_2_2", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

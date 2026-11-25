@@ -1,0 +1,22 @@
+{
+ "id": "V16_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: lemma_16_1_19 at 0. A is the ↔ form (p ∼ q ⇒ (X tame ↔ Y tame)); B is the text's one-directional form. A_to_B takes the forward half; B_to_A gets the backward half from B applied to q ∼ p (Equiv.symm). Same statement.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 746 shared project theorems, all from the equivalence-relation machinery of PolyfoldStructure.Equiv (Equiv.symm → OrbitChart.Rel.symm, EPLoc generalized-isomorphism lemmas); IsEquivalence.isTame_iff and iff_of_isGeneralizedIso are not used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.PolyfoldStructure.lemma_16_1_19",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "A is this single conjunct."
+ }
+}

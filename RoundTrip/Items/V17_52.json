@@ -1,0 +1,13 @@
+{
+ "id": "V17_52",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "Universe 0. A is about one specific structure: the project's tangentTrPolyfold, which is Part I's TM(Ψ₁, Ψ₂) transported along the identification with M(TΨ₁, TΨ₂). The witnessing charts are tangentTrChartExt with inverse s, and the target is the Ts⁻¹-preimage of the sheet. B only asks that SOME M-polyfold structure exist on (M(TΨ₁, TΨ₂), natTop) with the maps (17.42) as charts and with the structure maps having the stated properties. A_to_B takes the project's structure as that witness (natTop is definitionally tangentTrTopology), after showing that the project's target set is the range of the map (17.42). B_to_A would need the following: two M-polyfold structures on the same space that share a covering atlas of maps (17.42) have the identity sc-smooth both ways (on each chart range it is chart ∘ chart⁻¹, and sc-smoothness is local). Each property in A would then have to be transported along that identity, including sc-smoothness of m on the fibred-product sub-M-polyfold. This is true but is substantial M-polyfold glue, so the direction is not proved. The two statements describe the same structure: B is the text's existence statement, and A is the project's construction of it.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statements of tangentTr_isScSmoothMap_mul and proposition_17_2_15 contain the banned tangentTr_isLocalScDiffeo_src as a term, because IsScSmoothOnFibredProduct takes the local-sc-diffeomorphism proof of s as an argument. So every term whose type mentions A, or the main conjunct, reaches it from the statement, not from the proof. #rt_check reports it on A_to_B and main_to_B, and #rt_check_soft reports it on A_to_B (recorded with #guard_msgs). No other banned declaration is reached. rt_overlap A_to_B: 799 shared project theorems, all from the statement vocabulary (no B_to_A to compare). The proof of A_to_B uses only A's conjuncts and IsScDiffeoOn/IsScSmoothOn fields.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_15", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"}
+}

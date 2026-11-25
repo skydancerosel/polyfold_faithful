@@ -1,0 +1,13 @@
+{
+ "id": "V16_24",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe 0 for all of A's theorems. A_to_B: (0), (M1), (O1), (O2) come from proposition_16_4_3_supp/_manifold/_orbifold (with definition_16_4_2_manifold/_orbifold to pass from θ to each representative), and (M2) from proposition_16_4_3_naturality_all after identifying B's e, g with suppTransition. B's (O3), the equivalence of the orbifold structures X|supp Θ and X'|supp Θ' of two representatives by a generalized isomorphism compatible with α, α', has no counterpart in A; it was proved outright (lemma o3) by restricting a representative diagram to the supports (EpFunctor.restrictSub, IsEquivalence.restrictSub, theorem_10_3_10), so the two statements differ there only in what is stated, not in what holds. B_to_A: supp, manifold, orbifold, naturality_self and naturality come from B; the transition lemmas, isScSmoothOn_suppTransition and naturality_all were re-proved outright (copied project proofs). The last two say more than B: they cover orbifold-type representatives with arbitrary induced structures, while B's (M2) assumes θ of manifold type.",
+ "B_issue": null,
+ "overlap": "HARNESS: A mentions suppTransition, which is built from the definition proposition_16_4_3_homeomorph; that definition's abstracted proof field is the banned proposition_16_4_3_supp. So plain #rt_check fails on A_to_B, B_to_A and main_B_to_A (recorded with #guard_msgs), and #rt_check_soft passes on all three, the banned theorem reached only through proposition_16_4_3_homeomorph. rt_overlap B_to_A: 1097 shared project theorems. They are mostly the M-polyfold / ep-groupoid machinery under the statements, plus the lemmas of the copied proof of isScSmoothOn_suppTransition: restrictSub, IsEquivalence.restrictSub, isEquivalence_rep_Φ, isBranchedEpSubgroupoid_pullbackTheta, isEpSubgroupoid_supp_of_isOrbifoldType, pushforwardTheta_obj, IsScSmoothOn.of_locally/comp, orbitMap_orbitMap_F.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "no single conjunct; taken as proposition_16_4_3_supp ∧ _manifold ∧ _orbifold ∧ proposition_16_4_3_naturality (Amain)", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower", "note": "Amain → B is not proved at (M2): proposition_16_4_3_naturality gives SOME induced structures PZ, PZ' with sc-diffeomorphic transition, while B asks it for ALL induced structures. Getting there would need the uniqueness of the induced structure (two structures making supp Θ → |supp Θ| a local sc-diffeomorphism agree up to the identity). That is believed true, so this is proof effort only; the full A has it as naturality_all. (O3) is proved outright as in the full direction."}
+}

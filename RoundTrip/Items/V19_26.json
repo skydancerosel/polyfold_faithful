@@ -1,0 +1,13 @@
+{
+ "id": "V19_26",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "Universes at 0 (sheet lemmas at .{0,0}). A = proposition_19_4_4 (HasClassUniformizers, (v2) ⇒ B.M Ψ Ψ' metrizable) ∧ metrizableSpace_M and TransitionData.metrizableSpace (metrizable for every basic construction / every transition data, no properness) ∧ exists_nbhd_eq_map and the two finite-sheets lemmas (proof steps). B: for every representative F, (v1) for F ⇒ every F.Tr Ψ Ψ' metrizable. A_to_B follows from TransitionData.metrizableSpace without using (v1). B_to_A: the main conjunct follows from B ((v2) ⇒ (v1) by proposition_19_4_2_one_iff_two, F = B.rep), but the properness-free conjuncts and the proof-step lemmas do not: B assumes (v1), A proves metrizability without it. These conjuncts are true (the project proves them), so the failure is proof effort (they would have to be re-proved outright, ~150 lines of Smirnov/sheet arguments), not a difference in the text's claim. Main conjunct alone: B ⇒ proposition_19_4_4 holds; proposition_19_4_4 ⇒ B holds only under HasClassUniformizers (main_A_to_B_of_hB), since proposition_19_4_4 takes hB and B does not (B's (v1) does not involve T).",
+ "B_issue": null,
+ "overlap": "rt_overlap main_B_to_A: shared project theorems are the proposition_19_4_2_one_iff_two chain (isOrbitChart, exists_nbhd_fmap, exists_tendsto_subseq_of_tendsto_src, theorem_19_2_2_four, MPolyfold.metrizableSpace) and the isOpen_M_iff / lemma_19_3_1 glue. #rt_check passes for A_to_B, main_A_to_B_of_hB, main_B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_4", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

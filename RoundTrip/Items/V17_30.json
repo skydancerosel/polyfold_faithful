@@ -1,0 +1,13 @@
+{
+ "id": "V17_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe u := 0. A is theorem_17_1_27 (Γ ∘ π₁ and Γ' ∘ π₂ are equivalences, and some τ : Γ ∘ π₁ ⟶ Γ' ∘ π₂ is an isomorphism with (τ.app p).1 = φ''), isEquivalence_modelFunctorLeft (the same for arbitrary covering index families) and canonicalNatTrans_app (a rfl fact about the vocabulary definition canonicalNatTrans). B states the two equivalences and a natural transformation with τ.app o = homMk φ''. A_to_B: the components agree by Subtype.ext. B_to_A: B's τ is an isomorphism because C is a groupoid (NatIso.isIso_of_isIso_app); isEquivalence_modelFunctorLeft follows from B applied to the covering families ⟨ι, Ψ, hΨ⟩, ⟨ι', Ψ', hΨ'⟩; canonicalNatTrans_app holds by rfl. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 880 shared project theorems, the machinery in the statements (the model ep-groupoids, the weak fibred product modelFibredProduct and its projections, whose definitions need isEquivalence_inclRight / Admissible.of_isEquivalence_right, proposition_17_1_11, src/tgt_canonical in the proof fields of canonicalNatTrans). No step of the proofs beyond rfl, Subtype.ext and NatIso.isIso_of_isIso_app.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_27", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

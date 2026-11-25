@@ -1,0 +1,22 @@
+{
+ "id": "V14_48",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the six listed theorems at universe 0 (lemma_14_5_2, definition_13_4_5_boundary, isFaceScPlusSectionOn_sectionSum at .{0,0}; the half-space witness has none); B is on SEP.{0}. A ⇒ B: the Lemma 14.5.2 part of B follows from the conjunct lemma_14_5_2 with ι = C.Aset (local finiteness and ∑ᶠ β_a = 1 on ∂X transferred from C.BetaSpec β to the subtype; sections smulOver T, equal to sectionSmul (β a) s⁰ˣᵢ on U⁰(x); class equality by Quotient.sound). B's Remark 14.5.3 part is a pair of explicit formulas for Λ_a (the count μ(φ, β_a s⁰ᵃᵢ) for points reached from V_a ∩ ∂X; the trivial multisection where nothing from V̂_a arrives); these are proved directly from smulOver, Sections.countAt_fibAct and tsupport β_a ⊆ saturation V̂_a, without A's remark_14_5_3. The two readings of Remark 14.5.3 differ: the project states it as a uniqueness property (any structure over the same data whose sections agree with β_a s⁰ᵃᵢ on V and vanish off its saturation has the sections of Λ̃_a and functor Λ_a over ∂X), B as formulas; both are consequences of the construction. B ⇒ A is not proved: lemma_14_5_2 holds for any structured tuple and any locally finite family of invariant sc-smooth β with ∑ β = 1 on ∂X, while B only treats the cut-offs of Lemma 14.5.1 for the §14.3 data under the standing hypotheses (tame, paracompact, partitions of unity); the uniqueness remark, Over.s_eq_of_eqOn, definition_13_4_5_boundary, isFaceScPlusSectionOn_sectionSum and the half-space witness are not consequences of B.",
+ "B_issue": null,
+ "overlap": "HARNESS: B's statement mentions Over.lfSum, whose sections lfSections use the banned isFaceScPlusSectionOn_sectionSum in a proof field, so plain #rt_check does not pass on both A_to_B and main_to_B; #rt_check_soft passes on both ('reaches isFaceScPlusSectionOn_sectionSum only through the proof fields of BoundaryCommData.lfSections'). rt_overlap A_to_B: 1169 shared project theorems: statement vocabulary (BoundaryCommData/Sections/Over fields, lfSections and its support lemmas, IndexCorr/IndexDiagram counting lemmas, strong-bundle and M-polyfold machinery) plus Sections.countAt_fibAct, smulOver_s_apply and Over.rep, which the Remark formulas use; none of the six banned theorems is used outside lfSections' proof field.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.BoundaryCommData.lemma_14_5_2",
+  "A_to_B": "proved",
+  "B_to_A": "failed",
+  "relation": "A_stronger"
+ },
+ "blind_exposure": null
+}

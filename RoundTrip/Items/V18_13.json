@@ -1,0 +1,13 @@
+{
+ "id": "V18_13",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "UNIVERSES: A's four general theorems at universe 0; the five witnesses have no universe. The two statements differ in their hypotheses: every theorem of A assumes tame germ data Q.IsScFredholmSectionFunctorTame f (hft: each representative is an sc-Fredholm section with germ data in a tame chart) and does not assume S.IsTame, while B assumes S.IsTame and Q.IsScFredholmSectionFunctor f; the project has no lemma giving hft from these, so A ⇒ B needs hft as an extra hypothesis, and B ⇒ A cannot supply S.IsTame. With hft added, A gives B's (1) (Θ|C_U branched, tame, orbifold-type, for an open U ∋ |α|) and the Note (A_to_Bpart, through theorem_18_1_5_subcategory at the reference uniformizer Ψ̄_α with its level-1 point and isGoodPositionGermTame_localRep_iff, and theorem_18_1_5_note). B's clause (2) (f'(β) onto with kernel in good position at every zero β over U) is not derived: A states it in the model (each such β is isomorphic to Γ(y), y ∈ U(x₀), with (f^Ψ̄, Λ₀) in good position at y), and moving it to f'(β) needs model-to-germ good position, the localRep criterion at Γ(y) and transport along the isomorphism (equation_18_2 and invariance of good position to the partial cone), which is proof effort. B ⇒ A does not go through either, because A's conjuncts are model-level (a natural representation U(x₀) in X_Ψ, branching structures and good position at its points, theorem_18_1_5_model's extra conclusions, and the witness facts), which B's C_U-level statement does not give.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_Bpart: 2915 shared project theorems; they come from A's statement (the proof fields of the M-polyfold, strong bundle and model vocabulary its types mention) and from the glue lemmas refBundleUnif_mem, obj_refBundlePoint and isGoodPositionGermTame_localRep_iff, which theorem_18_1_5 also uses. #rt_check passes for A_to_Bpart and main_to_Bpart_noNote.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_5_subcategory", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "main_to_Bpart_noNote proves B's (1) from this conjunct alone given hft; B's Note needs theorem_18_1_5_note in addition, and B's (2) is not derived (as above). B does not give the main conjunct: it is stated for an arbitrary family Ψ̄ and a point q₀ with germ good position, concludes a natural representation in the model, and does not assume S.IsTame."}
+}

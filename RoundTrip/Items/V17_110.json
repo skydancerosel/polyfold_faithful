@@ -1,0 +1,22 @@
+{
+ "id": "V17_110",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0 (the models of a GCT.{0} are in EP.{0}; exists_tame_pull taken at 0). A is theorem_17_6_4 (two covering families on both of which Θ̂ is tame oriented of dimension n give the same integral (17.89), n ≥ 1, |supp Θ| compact), the transfer isTameOrientedVia_of_family / _iff / isTameOriented_iff_forall (tame oriented on one model iff on every model), integral_eq_integralVia, theorem_17_6_4_book (hypothesis on one family), pull_toOriented (f^*Θ̂_Ψ' = Θ̂_Ψ) and the ep-groupoid lemma exists_tame_pull. B is (a) tame oriented on some model ⇒ on every model, and (b) independence of the integral, both for n ≥ 1 and compact |supp Θ|. A_to_B: (a) from isTameOrientedVia_of_family, (b) from theorem_17_6_4. B_to_A: theorem_17_6_4, integral_eq_integralVia (integral unfolds to integralVia at the chosen family) and theorem_17_6_4_book come from B (b). The transfer conjuncts and the two lemmas hold for every n and without compactness, while B (a) assumes n ≥ 1 and compactness; they are re-proved outright by copying the project's proofs from non-item lemmas (Diagram.hcov_pullTheta, FormEval.hcov_of_tameOpen, pullTheta_comparison_modelPull, OrientedBranched.ext'). These are proof steps of the theorem, so the two statements say the same thing on the text's claim.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statement of theorem_17_6_4_book contains the proof term A.isTameOrientedVia_of_family c' c hloc (an item theorem; its proof uses pull_toOriented and exists_tame_pull), so every term whose type mentions A or Main reaches these three banned theorems (both #rt_check and #rt_check_soft report them, since it is not a _proof_ field). As in V10_42, A' and Main' replace that proof term by the copy of_family'; A = A' and Main = Main' hold by rfl (proof irrelevance), and A_to_B := A'_to_B, B_to_A := B_to_A', main_to_B, B_to_main are point-free. Plain #rt_check passes on all four. rt_overlap B_to_A: 3221 shared project theorems: the statement vocabulary (toOriented, catFormsInfty, tameBranchedIntegral, model ep-groupoids, comparison isomorphisms) plus the lemmas of the copied proofs (Diagram.hcov_pullTheta, FormEval.hcov_of_tameOpen, EP.epFormsInftyEval_isPullback, pullTheta_comparison_modelPull, OrientedBranched.ext').",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_4_book",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "B part (b) follows from the main conjunct by proof irrelevance; B part (a) (transfer of tameness to every family) is not stated by the main conjunct and is supplied in main_to_B by the re-proved transfer of_family' (no hypothesis used for it); the main conjunct's statement already presupposes that transfer through the proof term it contains."
+ }
+}

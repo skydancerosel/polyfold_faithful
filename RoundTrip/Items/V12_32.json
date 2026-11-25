@@ -1,0 +1,12 @@
+{
+ "id": "V12_32",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (.{0,0} for mixedLscAt_glueNorm and isReflexiveAuxNorm_glueNorm, index type in Type). The main conjunct theorem_12_2_11 has B's three clauses verbatim: existence, rescaling by a functorial continuous f > 0, and the reflexive sandwich N₁ ≤ N' ≤ N₂. The hypotheses differ only in order. B's extra instance [ParacompactSpace (pullbackSpace P X.src)] is ignored in A_to_B and supplied in B_to_A from StrongBundle.paracompactSpace_pullback. theorem_12_2_11_exists and theorem_12_2_11_sandwich are read off from B. theorem_12_2_11_mul assumes neither reflexive fibres nor paracompact |X|, so it is slightly stronger than B's second clause; it equals the non-item remark_12_2_12_1. The four proof steps (mixedLscAt_avgNorm/transNorm/glueNorm, isReflexiveAuxNorm_glueNorm) are re-proved outright by copying the project's proofs. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 660 shared project theorems. These are mostly the strong-bundle / ep-groupoid / mixed-convergence infrastructure in the statements. The proof-specific ones are remark_12_2_12_1 (for the _mul conjunct) and the lemmas of the copied steps: mixedLscAt_comp_actOne, mixedLscAt_finset_sum, MixedLscAt.const_mul/mul_comp/congr, mixedLscAt_of_nonpos, transNorm_eq_of, isAuxNorm_glueNorm, glue_term_nonneg, partition_eq_zero_of_not_mem and isReflexiveAuxNorm_of_mixedLscAt. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

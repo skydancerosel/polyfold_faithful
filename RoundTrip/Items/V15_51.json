@@ -1,0 +1,22 @@
+{
+ "id": "V15_51",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = the conjunction of 50 theorems at universe 0. A_to_B: the main conjunct theorem_15_4_1 gives IsCanonicalFor of canonicalOrientation only under three hypotheses B does not have: sc-smooth bump functions (AdmitsBumpFunctions), tame germ data (IsScFredholmSectionTame f), and a constant index n on supp(Λ∘f); B has no index hypothesis at all. B's (a), local kernel structures (exists_kernelBranching), also needs hft. B_to_A: the main conjunct does not presuppose that Θ is branched, while B does. B then yields only some orientation T that agrees with the kernel sums at smooth points. IsCanonicalFor additionally needs continuity of the frames along the sheets and sheet dimension n; these are the item theorems KernelBranching.framesContinuous and KernelBranching.dim_eq_of_isIndexAt, the substance of Theorem 15.4.1, and would have to be re-proved. The remaining conjuncts are transfer lemmas, pull-back statements and examples.",
+ "B_issue": null,
+ "overlap": "No direction proved, so #rt_overlap was not run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.theorem_15_4_1",
+  "A_to_B": "failed",
+  "B_to_A": "failed",
+  "relation": "incomparable",
+  "note": "A-main has extra hypotheses: hbump, hft and a constant index on the support. B has an extra presupposition (Θ branched) and draws its conclusion for any index profile. B_to_A would need re-proving the frame-continuity and dimension lemmas."
+ }
+}

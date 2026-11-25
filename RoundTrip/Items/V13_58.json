@@ -1,0 +1,12 @@
+{
+ "id": "V13_58",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the four listed theorems at universe 0 (B is on SEP.{0}). The two statements differ in the atomic notion: A gives the summands as IsAtomicOn (U(x_j) a NatNbhd of the good system: an invariant open subset of a natural-representation domain, not required connected), B asks IsAtomic (U(x) the connected domain of a natural representation with the properness property). IsAtomic ⇒ IsAtomicOn holds (IsAtomic.isAtomicOn), the converse is not available (points of other components of U(x) are not reachable from the component of x), so A_to_B stops there; all other clauses of B follow from A by glue (c := ofTuple T, o := Over.ofTuple T, J := X; A_to_B_on in the file, rt_check OK). B is believed to hold, but would need the construction rerun inside connected invariant neighbourhoods with proper closure, not glue. B_to_A: A's main conjunct theorem_13_5_7 decomposes every structured tuple T over T's own data, keeping its sections on every U(x), and indexes the family by X; B gives only some common data c and an arbitrary index type J, so A's per-tuple and X-indexed form does not follow (reindexing a J-family by X is not a renaming when several summands share a point or X is finite).",
+ "B_issue": null,
+ "overlap": "No direction proved. The partial A_to_B_on (B with IsAtomicOn for IsAtomic) passes rt_check, using only A's hypothesis theorem_13_5_7_book.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

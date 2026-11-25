@@ -1,0 +1,13 @@
+{
+ "id": "V16_71",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (universe 0) is theorem_16_5_7 with side conjuncts isStructurableNe_iff, the ep-level theorem_14_1_9, tsupport_comp_subset_preimage', theorem_16_5_7_hyp and its witness. The two statements differ only in the partition-of-unity hypothesis: the main conjunct assumes that the object M-polyfold of every model S ∈ c̄ admits sc-smooth partitions of unity for arbitrary open covers (MPolyfold.AdmitsScPartitionsOfUnity), while B assumes c.polyfold.AdmitsScPartitionsOfUnity (Definition 16.1.5 (2): some model admits them in the ep-groupoid sense of Definition 7.5.5, saturated covers and invariant partitions). Theorem 7.5.7 (orbit space paracompact) turns A's hypothesis into B's, so B ⇒ A holds; all other hypotheses and the conclusion agree verbatim. A ⇒ B is proved with B's hypothesis replaced by A's (A_to_Bpu), so this is the only gap. Closing it needs ep-groupoid partitions of unity ⇒ M-polyfold partitions of unity of the object space (invariant bumps near the fixed point x of a local uniformizer, then paracompactness of the object space); we believe this holds but it is a real argument that the project does not contain. Side conjuncts in B ⇒ A: the main conjunct and theorem_16_5_7_hyp come from B; isStructurableNe_iff, tsupport_comp_subset_preimage', theorem_14_1_9 (from theorem_14_1_9_charged and SEP.exists_isTameChart) and the witness are re-proved outright from non-item lemmas.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on B_to_A, B_to_Amain, A_to_Bpu, B_to_Bpu (A_to_B itself not proved). rt_overlap B_to_A: 3361 shared project theorems: vocabulary of the statements (multisections over polyfold bundles, boundary multisections) plus theorem_14_1_9_charged and its Chapter 14 machinery (used to re-prove the ep-level theorem_14_1_9 conjunct outright), theorem_7_5_7, and the zero-multisection lemmas of the witness.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.theorem_16_5_7", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

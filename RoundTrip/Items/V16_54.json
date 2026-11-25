@@ -1,0 +1,13 @@
+{
+ "id": "V16_54",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is theorem_16_3_15_one ∧ theorem_16_3_15_two at universe 0. Both sides use the same project vocabulary (HasReflexiveFibers, IsAuxNorm, IsReflexiveAuxNorm, Y01), and B is the conjunction of the two conclusions under the common hypothesis HasReflexiveFibers, with n₁ ≤ n ≤ n₂ read pointwise on Y01 exactly as in theorem_16_3_15_two. Both directions are repackaging of the hypothesis.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on both directions. rt_overlap B_to_A: 1543 shared project theorems, all proof fields of the vocabulary in the statements (StrongPolyfoldBundle, its structures and ep-strong bundles); the proof only splits and reassembles conjunctions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "no single main conjunct: B states (1) and (2) together, which are theorem_16_3_15_one and theorem_16_3_15_two; the comparison with the whole A is the main comparison", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

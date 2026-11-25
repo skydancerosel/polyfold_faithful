@@ -1,0 +1,21 @@
+{
+ "id": "V17_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. The main conjunct proposition_17_1_24 and B differ only in where ∀ c sits (outside the five implications in A, inside each in B). The other conjunct HasModelProperty.forall (any property invariant under generalized isomorphisms passes from one model to every model) is more general than B, which names five properties; in B_to_A it is re-proved outright by the project's two-line proof (isGeneralizedIso_comparison, not an item theorem here). The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1334 shared project theorems, through isGeneralizedIso_comparison in the copied proof of HasModelProperty.forall and the statements (EP(E⁻¹) localization, model ep-groupoids). Plain #rt_check passes on A_to_B, B_to_A, main_to_B, B_to_main.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_1_24",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

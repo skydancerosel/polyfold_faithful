@@ -1,0 +1,13 @@
+{
+ "id": "V19_57",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A's main conjunct proposition_19_6_9 says Metrizable(|S|, T) ↔ Metrizable(|E|, topE hB); B says Metrizable(|E|, generateFrom BarOpen) ↔ Metrizable(|S|, natTop). The two topologies on |E| coincide (gen_eq, from the non-item isOpen_topE_iff), so the statements are the same up to swapping the sides of the iff. The other two conjuncts (continuity and embedding of the zero section |S| → |E|) are steps of the proof that B does not contain; they are re-proved outright by copying the project's proofs from non-item lemmas (continuous_π_obj, isScSmoothSection_fiberZero, theorem_19_6_8_five, LeftInverse.isEmbedding).",
+ "B_issue": null,
+ "overlap": "rt_check OK for main_A_to_B, A_to_B, main_B_to_A, B_to_A. rt_overlap B_to_A: 554 shared project theorems: the statement vocabulary (natTop, toE, BarOpen) plus the lemmas of the copied zero-section proofs (theorem_19_6_8_five, continuous_π_obj, isScSmoothSection_fiberZero and the strong bundle machinery under them).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicStrongBundleConstruction.proposition_19_6_9", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V17_63",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is mem_subF_iff, proposition_17_3_6 and reflection_subConstruction, all about the project's subConstruction hS: F_A(α) = {Ψ_A | Ψ ∈ F(α)} and M(L, L') identified (bijective local sc-diffeomorphism) with the sub-M-polyfold s⁻¹(A_Ψ) ⊆ M(Ψ, Ψ') for the representatives Ψ = subData L, Ψ' = subData L' chosen by Classical.choose. B asks for some structure S_A with the same F_A whose M(Ψ_A, Ψ'_A) is identified with s⁻¹(A_Ψ) ⊆ M(Ψ, Ψ') (homeomorphism, sc-smooth both ways) for EVERY pair Ψ, Ψ' of F with those restrictions. The two statements differ there: two uniformizers of F that agree on A_Ψ but differ off it have the same restriction Ψ_A, and S's transition data M(Ψ₁, ·), M(Ψ₂, ·) are independent data whose topologies over A no axiom relates; so A ⇒ B would need a uniqueness statement for transition structures (or injectivity of Ψ ↦ Ψ_A) that neither side contains, and it is not clear that B holds in general. B_to_A does not use B: A is re-proved outright from the non-item lemmas subInclOf_spec, subData_eq and the definition of subF (B says nothing about the specific subConstruction).",
+ "B_issue": "B quantifies the M-compatibility over every representative Ψ of a restricted uniformizer Ψ_A, which is stronger than the text's construction needs (the text tacitly treats Ψ ↦ Ψ_A as recovering Ψ). With the quantification restricted to one representative per Ψ_A (as the project's subData does), B would follow from A.",
+ "overlap": "#rt_check OK on B_to_A and B_to_main. rt_overlap B_to_A: 989 shared project theorems: the whole subpolyfold-structure machinery (rtr_* lemmas, subInclOf_spec, restrictTransEquiv, LocalUniformizer.restrict, sub-M-polyfold lemmas) and the reflection witness, i.e. the item's own proof copied minus the banned mem_subF_iff.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_6", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower", "note": "B_to_main proved outright (does not use B). main ⇒ B not proved: main identifies M(L, L') only with the chosen representatives subData L, subData L'; B needs every representative."}
+}

@@ -1,0 +1,22 @@
+{
+ "id": "V17_99",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universe 0. A is proposition_17_5_5_one / _two plus the ep-groupoid lemmas (exists_isSuppStructure, isScSmoothOn_orbitSuppMap, restrictSupp_orbifold), suppHomeomorph_orbitSuppMap and the paracompactness instance. B_to_A is proved. Part (1) comes from B's manifold part: the single structure PZ on |supp Θ| makes the two transported structures sc-diffeomorphic through id, by composing with isScDiffeoOn_transport. Part (2)'s first half comes from B's (O1)/(O2), and the other conjuncts are re-proved from non-item lemmas. A ⇒ B is proved when S has a covering family (A_to_B_of_nonempty). In that proof, B's structure is the transport of one model's structure, image_modelOrbitMap_orbitSupp gives the image claim, and the generalized isomorphism of (O3) is [X_Ψ|supp ← A|supp ΘA → X_Ψ'|supp], built by restricting the equivalences F, Φ of part (2) (theorem_10_3_10). Without a covering family the two statements differ. The project's PolyfoldConstruction allows that case (F(α) may be empty), and A then says nothing, while B's manifold part still asks for an M-polyfold structure on |supp Θ|, which can be any metrizable space (Θ ≡ 1 on a GCT with only identities). That claim need not hold, for example for a space that is not locally path-connected. This was not formalized.",
+ "B_issue": "B's manifold part (∃ PZ on |supp Θ|, then ∀ covering families) is unconditional, so for polyfold constructions without any covering family, which the project's PolyfoldConstruction admits and the text's setting does not consider, it asks for an M-polyfold structure on |supp Θ| with no model to induce it. Under 'S has a covering family' B is what the text says.",
+ "overlap": "HARNESS: the statement of proposition_17_5_5_one contains the item theorem paracompactSpace_orbitSuppC as an instance argument, not as a _proof_ field. One' restates it with the copy paraC' (priority high), A' is A with One', and A = A' and Main = Main' hold by rfl. B_to_A, A_to_B_of_nonempty, main_to_B_of_nonempty and B_to_main are point-free transports, and plain #rt_check passes on all four. rt_overlap B_to_A: 1543 shared project theorems. They are the statement vocabulary (suppHomeomorph, transport, IsSuppStructure, sub-ep-groupoids, EPLoc) plus the lemmas of the copied proofs: proposition_9_1_9_one, EpFunctor.restrictSub and IsEquivalence.restrictSub, isEquivalence_rep_Φ, orbitMap_eq_rep, pullTheta_comparison_modelPull, orbitMap_comparison, isScDiffeoOn_transport and image_modelOrbitMap_orbitSupp.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_5_one together with proposition_17_5_5_two (parts (1) and (2))",
+  "A_to_B": "failed",
+  "B_to_A": "proved",
+  "relation": "A_narrower",
+  "note": "main_to_B_of_nonempty proves Main ⇒ B for polyfold constructions with a covering family; B_to_main is unconditional. The only gap is the degenerate no-covering-family case described in why."
+ }
+}

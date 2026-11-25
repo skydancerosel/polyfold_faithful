@@ -1,0 +1,12 @@
+{
+ "id": "V12_26",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (the half-space example has no universe). The conjunct proposition_12_5_6_of_loc is B up to wording: the same hypotheses (tame X, bump functions, tame Fredholm germ data, sc⁺-sections through smooth fibre points, the paracompactness instances), the same topology orTopology (orLocalTransport …) on O_f, definition_12_5_4 is B's orientation (continuous orSec o plus invariance), and IsTwoToOne is B's 'exactly two preimages' (isTwoToOneB_iff, set algebra). A_to_B uses that conjunct, and B_to_A_main derives it back from B, so on the theorem as printed the two statements agree. B_to_A is not proved because the other conjuncts are more general than B and do not follow from it: proposition_12_5_6_loc, _mp_loc and _mpr_loc state the proposition for the local-orientation model O_f^loc, which needs no bump functions and no sc⁺-sections through fibre points; proposition_12_5_6_mp holds for every topology on O_f; mpr_invariant needs no topology; mpr_hyp/mpr_hyp' and the comparison lemmas (isTwoToOne_iff_loc, orbitSection_iff_loc, orbitProjLoc_orbitLocHomeomorph) carry the explicit relation s|x| = |(x, o_x)| and the identification of the two models; the half-space example is a concrete instance. Getting them from B would mean re-proving the local-model theory of §12.5.",
+ "B_issue": null,
+ "overlap": "B_to_A_main (only the main conjunct): rt_overlap reports 4411 shared project theorems; nearly all are reached through the statement itself (orTopology (orLocalTransport …), whose definition carries the Part I orientation machinery: Theorem 6.6.11, orPush, determinant and chart lemmas). The proof itself is B applied to the hypotheses plus isTwoToOneB_iff. Plain #rt_check passes on A_to_B and B_to_A_main.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V13_59",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the seven listed theorems at universe 0 (B is on SEP.{0}). A_to_B: |V| = |X| is π '' V = univ (π_eq_π_iff); (1) is proposition_13_4_2 (1) verbatim; for (2) B's O, given only for x ∉ V, is extended by univ on V, and A's equalities hI of index types give B's bijections e q := Equiv.cast (hI q), under which the correspondences agree by map_cast_symm. B_to_A: B's Λ̄ is extendMult V L.Λ by B's uniqueness. In (2) the two statements differ in form: B identifies I_q with I^L_q (q ∈ V) by equivariant bijections, A asks equality of the index types. B's tuple is relabelled (I'_x := I^L_x on V, sections s_{e(κ)} via SymmetricStructureOn.reindex, τ' = τ.map e⁻¹ e'⁻¹, transported G_x-action; Definitions 13.3.4/13.3.6 carry over by sat_map, map_biact, map_ofPerm, map_swap), which gives A's equality form; so the two forms say the same. The helper conjuncts (isWFunctor_extendMult, extendMult_eq, eq_extendMult for an arbitrary Λ, isPushNbhd_unit, isScPlusMultisection_extendMult for an arbitrary family of charts, the structurability corollary) do not follow from B and are re-proved outright by copying the project's proofs. B's possible issue (keeping the given U(q), good only in V, inside a good system of X) does not arise: A proves the same with the given U(q).",
+ "B_issue": null,
+ "overlap": "rt_check passes on A_to_B. HARNESS: plain #rt_check on B_to_A reaches isWFunctor_extendMult and extendMult_eq only through the proof fields of the definition ExtChart.sym, used by the copied proof of isScPlusMultisection_extendMult (recorded with #guard_msgs); #rt_check_soft passes. rt_overlap B_to_A: 1005 shared project theorems: the strong-bundle / ep-groupoid / sc machinery in the statements, the push-chart lemmas behind ExtChart.sym (IsPushNbhd.*, PullMap.*, fibAct_comp), the IndexDiagram/IndexCorr relabelling lemmas, StructuredOn.nonempty_I, extendMult_congr, exists_mem_of_π_image, IsWFunctorOn.eq_of_π_eq.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

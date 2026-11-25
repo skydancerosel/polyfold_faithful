@@ -1,0 +1,13 @@
+{
+ "id": "V17_29",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe u := 0. A is modelPolyfoldStructure_equiv (any two structures (X_Ψ, |Γ_Ψ|) are equivalent), polyfoldClass_eq (every covering family represents c_C), theorem_17_1_26 (|C| metrizable and, for every covering family, X_Ψ is (ZHOU) and [(X_Ψ, |Γ_Ψ|)] = c_C) and the ℤ/3 witness. B says: under (ZHOU) there is one class cl containing (X_Ψ, |Γ_Ψ|) for every covering family. A_to_B takes cl := polyfoldClass h and uses theorem_17_1_26; B's structure is modelPolyfoldStructure up to proofs (rfl). B_to_A: two covering families have the same class cl, so their structures are equivalent (Quotient.exact); polyfoldClass h is the class of the family h.choose, hence equals cl; the witness is the instance for ℤ/3 ⋉ ℝ. The two statements say the same thing; A's extra conjuncts are restatements of B's uniqueness.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 2122 shared project theorems, almost all statement-level machinery (EP, M-polyfolds, the model X_Ψ, proof fields of definitions). Item-relevant shared lemmas: lemma_17_1_15 (|Γ_Ψ| homeomorphism, used through modelOrbitHomeomorph), hasParacompactOrbitSpace_model, isGeneralizedIso_comparison (through IsZhou.model, which transports (ZHOU) between models), z3Taut_properties.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_26", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

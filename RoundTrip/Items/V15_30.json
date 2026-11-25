@@ -1,0 +1,7 @@
+{"id": "V15_30", "A_to_B": "failed", "B_to_A": "failed", "not_B": false, "relation": "incomparable", "effort_only": false,
+ "why": "The main conjunct theorem_15_3_7_in_particular_tame_hyp assumes the project's tame-germ hypothesis A.B.IsScFredholmSectionTame f, which B's hypotheses (X tame, bump functions, f an sc-Fredholm section functor) do not give; with that hypothesis added to B (Btame), A => Btame is proved (A_to_Btame, main_to_Btame). Conversely the main conjunct needs neither X tame, nor bump functions, nor transversality, and only N(Λ) ≤ 1 instead of N(Λ) < h ≤ 1, so it covers cases B does not; the six other conjuncts are proof steps (closedness and compactness of |supp(Λ∘f)|) that B does not state.",
+ "B_issue": null,
+ "overlap": "no B_to_A direction proved; #rt_overlap not run",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "partial": {"A_to_Btame": "proved (Btame = B plus A.B.IsScFredholmSectionTame f); uses the hypothesis A"},
+ "main": {"decl": "Polyfold.SBLocalization.theorem_15_3_7_in_particular_tame_hyp", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable"}}

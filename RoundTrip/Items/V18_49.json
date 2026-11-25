@@ -1,0 +1,21 @@
+{
+ "id": "V18_49",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: the three proposition_18_5_6 theorems are taken at universe 0. B uses the project's orientation vocabulary and the same extra hypotheses (hF, hT, hbump, hfT). Clause (1) is identical. For (2), A states the pull-backs to two families c and c', B to one c for all c. For (3), A reads 'correspond under the comparison' as modelTransport c' c o' = o and B as modelTransport c c' m = m'. The left-hand sides agree up to swapping the conjuncts pullCat c O = m ∧ pullCat c' O = m', so each form is the other with (c, m) and (c', m') exchanged. The example reflDiag_orientation_hyp is closed and does not follow from B; B_to_A re-proves it from the same non-item lemmas (reflectionConstruction_isTame, reflection_admitsModelBumpFunctions, isScFredholmSectionFunctor_reflDiag, reflDiag_nondegenerate, ...).",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B, B_to_A, main_to_B, B_to_main. rt_overlap B_to_A: 6229 shared project theorems, from the example conjunct reflDiag_orientation_hyp (re-proved outright: the reflection bundle, the Fredholm property of reflDiag, tameness, bump functions); the three clauses of Proposition 18.5.6 come from B.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "proposition_18_5_6_one_hyp ∧ proposition_18_5_6_two_hyp ∧ proposition_18_5_6_three_hyp (Amain in the .lean file; the proposition is split over three theorems, no single conjunct is the main one)",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

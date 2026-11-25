@@ -1,0 +1,13 @@
+{
+ "id": "V19_87",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Universe 0. A = isSubMPolyfold_fibSet, isScDiffeoOn_toFibSet, isLocalScDiffeo_pB, isScDiffeoOn_id_of_isLocalScDiffeo_pB, isTame_basePolyfold, isTame_hatPolyfold and the main proposition_19_7_26 (basePolyfold, fibSet, fibPolyfold, hatPolyfold are vocabulary). A_to_B (also from proposition_19_7_26 alone, main_A_to_B): the structure is the project's hatPolyfold, transported from the sub-M-polyfold M(Ψ, Ψ') ₛ×_τ̂ E along (19.26); T2 and paracompactness from the non-item t2Space_MHat, paracompactSpace_MHat; B's HasClassUniformizers for F gives the project's one for F̂, and the metrizability hypotheses agree (natTop of a proof-irrelevant argument); A needs no metrizability. B is existential (some M-polyfold structure with p a local sc-diffeomorphism) and does not pin 'natural'. A adds content about the specific hatPolyfold that B does not give: uniqueness (any structure making p a local sc-diffeomorphism is sc-diffeomorphic to hatPolyfold by the identity), ⟨p, s⟩ an sc-diffeomorphism onto the fibred-product sub-M-polyfold, that sub-M-polyfold property, and tameness. A holds outright, so B ⇒ A could only be proved without using B.",
+ "B_issue": null,
+ "overlap": "No #rt_overlap (B_to_A not proved). HARNESS: A's statements mention fibPolyfold/hatPolyfold, whose body uses the banned isSubMPolyfold_fibSet directly (fibPolyfold := subPolyfold (isSubMPolyfold_fibSet x y)), not through an abstracted _proof_ field, so plain #rt_check and #rt_check_soft both fail on A_to_B with only that name (recorded with #guard_msgs). A local #rt_check_except (rtCollect with fibPolyfold and hatPolyfold not unfolded) passes on A_to_B and main_A_to_B: p's local sc-diffeomorphism is taken from A's hypothesis, and no item theorem is used otherwise.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_26", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"}
+}

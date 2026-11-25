@@ -1,0 +1,21 @@
+{
+ "id": "V17_112",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A is theorem_17_6_6 (degree m ≥ 1, Θ̂ of dimension m + 1) and theorem_17_6_6_dim1 (n = 1): the boundary integral on two covering families, on both of which Θ̂ is compact tame oriented, agree; plus the _book forms with the hypothesis on one family and the second family's tameness supplied by isTameOrientedVia_of_family. B is exactly the conjunction of the two cases of theorem_17_6_6 / _dim1 (same definitions boundaryIntegralVia, boundaryIntegralDim1Via). A_to_B is a specialization; B_to_A gives the two theorems directly and the _book forms by instantiating B's second tameness hypothesis with the proof term of the statement. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "Plain #rt_check passes on A_to_B, B_to_A, main_to_B and B_to_main (isTameOrientedVia_of_family, which occurs in the _book statements, is not an item theorem here). rt_overlap B_to_A: 4508 shared project theorems, all from the statement vocabulary (boundaryMeasure, boundaryBranchedMeasureDim1, toOriented, catFormsInfty, isTameOrientedVia_of_family in the _book statements, and the M-polyfold / ep-groupoid machinery under them); the proofs themselves are one-line instantiations.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_6 together with theorem_17_6_6_dim1 (the two cases n ≥ 2 and n = 1; B is their conjunction)",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

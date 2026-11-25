@@ -1,0 +1,13 @@
+{
+ "id": "V19_28",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0; the abstract lemmas at .{0,0,0,1} (index type B.U.Unif : Type 1, where theorem_19_4_6_one/two use them). A = theorem_19_4_6_one ((v2) ∧ second countable ⇒ natTop metrizable) ∧ theorem_19_4_6_two ((v2) ∧ paracompact ⇒ metrizable) ∧ the abstract orbit-chart versions (Urysohn, Smirnov). B: for every representative F, (v1) for F and (natT second countable ∨ paracompact) ⇒ natT metrizable. Glue: natT = natTop under HasClassUniformizers; V1 F ⇔ PropernessV1 (isOpen_M_iff, Lemma 19.3.1); PropernessV1 ⇔ PropernessV2 by proposition_19_4_2_one_iff_two (outside this item). The pair (1), (2) is equivalent to B (split / join the disjunction). The abstract conjuncts are proof steps B cannot give; they are re-proved outright by the project's short arguments from the non-item completelyRegularSpace_of_orbitCharts, t2Space_of_orbitCharts and metrizableSpace_of_locally.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 151 shared project theorems: natTop's proof fields, the one_iff_two chain (isOrbitChart, exists_nbhd_fmap, theorem_19_2_2_four, MPolyfold.metrizableSpace) and, from the copied abstract proofs, completelyRegularSpace_of_orbitCharts, t2Space_of_orbitCharts, IsOrbitChart.isOpen_range / metrizableSpace_range / exists_urysohn, metrizableSpace_of_locally. All four #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "no single conjunct: the pair Polyfold.GroupoidalCategory.BasicConstruction.theorem_19_4_6_one ∧ theorem_19_4_6_two (B's disjunction covers both); compared as `Main` in the .lean file", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V18_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: theorem_18_1_12_one/two/three/three_reflexive at universe 0; the eleven witnesses have none. (2), (3) and the reflexive (3) match: A states them for a given covering family c, B with ∃ c in the hypothesis of (3) and without c in (2); when no covering family exists, IsReflexiveAuxNormFunctor holds vacuously and N₁ = 0, N₂ = ⊤ do it. The two statements differ in (1): A's theorem_18_1_12_one assumes F̄(α) ≠ ∅ for every α (HasStrongBundleUniformizers) and concludes Definition 18.1.7 in the direct form (IsAuxNormDirect), while B's (1) has no hypothesis and concludes the model reading IsAuxNormFunctor. B ⇒ A's (1) goes through the reference covering family and Lemma 18.1.8 (IsAuxNormIn.isAuxNormDirect). A's (1) does not give B's (1) when no F̄(α) is assumed nonempty, so in A_to_B B's (1) is proved directly: from any covering family, Theorem 12.2.2 in its model pushed forward (the argument of exists_isAuxNormFunctor), and vacuously when there is none; that clause does not use A. The witnesses in B_to_A are re-proved with their own proofs, the item's theorems replaced by B's clauses.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 3150 shared project theorems; nearly all come from the statements (proof fields of the strong bundle, model and aux-norm vocabulary of the witnesses' types), plus the lemmas of the copied witness proofs (reflQ_exists_isAuxNormFunctor, reflQ_exists_isReflexiveAuxNormFunctor, isReflexiveAuxNormDirect_iff_hyp, hasReflexiveFibers_of_atlas, isAuxNormIn_halfNorm, boundaryOnly lemmas, exists_isReflexiveAuxNormFunctor, IsAuxNormIn.isAuxNormDirect). #rt_check passes for A_to_B, B_to_A, main_to_B2, B2_to_main.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "none single: Theorem 18.1.12 has three parts (theorem_18_1_12_one, _two, _three, _three_reflexive); compared for (2): Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_1_12_two against B's (2)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

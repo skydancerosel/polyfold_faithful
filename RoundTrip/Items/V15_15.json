@@ -1,0 +1,13 @@
+{
+ "id": "V15_15",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_15_2_5_hyp together with its tame, restricted, general-position and global variants, the one-branch lemma, general-position lemmas and three witnesses. A ⇒ B: the two statements differ in two hypotheses. Every perturbation statement of A assumes A.B.IsScFredholmSectionTame f (tame germ data at every smooth point), which B's hypotheses (X tame, f sc-Fredholm functor, Λ sc⁺-multisection) do not give. The global statement theorem_15_2_5_isTameBranched_hyp also assumes |supp(Λ ∘ f)| paracompact, which B's conclusion (IsBranchedEpSubgroupoid includes it) asserts. With both added to B (Btame), A ⇒ Btame is proved: the tame Mᵢ and weights come from theorem_15_2_5_tame_hyp, reindexed by Fin k and cut to a natural representation inside the U(x) of theorem_15_2_5_hyp (resp. theorem_15_2_5_generalPosition_hyp), which supplies (2). B ⇒ A does not go through: B assumes X tame and speaks only of boundary points, with Mᵢ not tied to sections, while theorem_15_2_5_hyp holds over any ep-groupoid at any point in good position and names the Mᵢ as the solution sets {f = sᵢ} of a local sc⁺-structure, with T(f,Λ) given by the formula in a chart and only branches through f(x) meeting f; A also has proof-step lemmas and witnesses that B does not mention.",
+ "B_issue": null,
+ "overlap": "#rt_check passes for A_to_Btame and main_A_to_Btame (only the conjuncts theorem_15_2_5_hyp, isGoodPositionAt_of_isInGeneralPositionAt, theorem_15_2_5_generalPosition_hyp, theorem_15_2_5_tame_hyp and theorem_15_2_5_isTameBranched_hyp of A are used, plus non-item lemmas exists_naturalRep_shrink, mem_smoothSet_of_pos, IsSmoothSubmanifold.inter_isOpen, HasTameInducedStructure.inter_isOpen and isProperMap_inclusion_iff). No B_to_A, so no rt_overlap.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.theorem_15_2_5_hyp", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "theorem_15_2_5_hyp alone does not give B even with the tame hypothesis added: it gives the Mᵢ as smooth submanifolds but not their tame induced structure (that is theorem_15_2_5_tame_hyp), and says nothing about the global tame branched conclusion or general position. B does not give theorem_15_2_5_hyp, which works at all points over any ep-groupoid and ties the Mᵢ to the sections sᵢ."}
+}

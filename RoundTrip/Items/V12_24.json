@@ -1,0 +1,12 @@
+{
+ "id": "V12_24",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (the UntamedCorner and HalfSpaceBundle examples have none). A_to_B: clauses (1)-(3) of B are proved from A's conjunct theorem_12_5_3_hyp (theorem A_to_B123: local homeomorphism via isLocalHomeomorph_orProj, two-point fibres from the hyp's fibre clause and Set.ncard_pair, transport sections via exists_isContOrOn and continuousOn_orSec). Clause (4) of B quantifies over an arbitrary sheet S and an arbitrary continuous local section τ, while A's push statements (theorem_12_5_3_push_hyp, pullOrx_morIso_eq_orMor) are about the chosen sheet X.sheetAt σ and a continuous orientation o (IsContOrOn); deriving (4) needs glue we did not complete: τ agrees locally with orSec o (eventually_eq_orSec_of_continuousOn), the inverses of t on S and on sheetAt ψ agree near t ψ, and the target set is open. We believe this direction holds; it is proof effort only. B_to_A: the two statements differ: A also contains the local-model versions (theorem_12_5_3_loc, push_loc, orProj_two_loc, theorem_6_6_17_loc), which need no bump functions or sc⁺-sections, the uniqueness of the orientation topology (∃! in theorem_12_5_3_hyp; B only names orTopology), the untamed-corner example showing the conclusion need not hold without tameness, the half-space example, and comparison lemmas between the two models; none follows from B without re-proving §12.5, so this is a genuine difference.",
+ "B_issue": null,
+ "overlap": "A_to_B123 (clauses (1)-(3) only): rt_overlap reports 5768 shared project theorems, nearly all reached through the statements (topO / orTopology (orLocalTransport …) and Part I orientation machinery). Plain and soft #rt_check on A_to_B123 report three banned names (Dom.transportLoc_eq, UntamedCorner.isScFredholmSectionFunctor_sec, eqOn_morIso_of_functor); these are exactly the names reached by the statement A itself (stmtA check), occurring as proof arguments inside the types of A's conjuncts; recorded with #guard_msgs. The proof part123, taking only theorem_12_5_3_hyp's type as hypothesis, passes the plain check.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

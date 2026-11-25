@@ -1,0 +1,13 @@
+{
+ "id": "V19_62",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Universes at 0. A's main conjunct SBUC.theorem_19_6_13_m says that for every bundle transition data F̄, mBar is a strong bundle map mulBundle → bundleBar covering mulBase; mulBundle is bundleBar.pullback of pr₂, so by proof irrelevance it is B's (Kb Ψ Ψ′).pullback hpr for Kb = bundleBar. A ⇒ B takes Kb := bundleBar; B's extra 'natural structure' clause (s̄, t̄ local strong bundle isomorphisms over open sets) is not in this item and comes from the non-item theorem_19_6_13_of_bundleTransitionData (item V19_61), with openness from IsStrongBundleIsoOn.isScDiffeoOn_base. B ⇒ A is not proved and the two statements differ: B is existential (some Kb with the natural property) and holds only under HasClassUniformizers and metrizability of T, for representatives of Bs.𝓕, while A is about the specific bundleBar/mulBundle for every F̄ with no hypothesis, plus the whole Theorem 19.6.13 statement for the reflection example. Under hB and metrizability, B's Kb could be identified with bundleBar by the project's comparison_I_II, but the hypothesis-free cases remain outside B.",
+ "B_issue": null,
+ "overlap": "No B_to_A, so no rt_overlap. rt_check OK for main_A_to_B and A_to_B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.GroupoidalCategory.StrongBundleUniformizerConstruction.theorem_19_6_13_m", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"}
+}

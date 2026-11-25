@@ -1,0 +1,13 @@
+{
+ "id": "V17_115",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSE: A at u = 0 (B lives on GCT.{0}). A is theorem_17_6_9 (degree m >= 1, Θ̂ tame oriented of dimension m+1 on both covering families), theorem_17_6_9_dim1 (n = 1), and the _book forms with the tameness hypothesis on the first family only. B is exactly the conjunction of theorem_17_6_9 and theorem_17_6_9_dim1 (same vocabulary boundaryIntegralEffVia / boundaryIntegralEffDim1Via, same hypotheses), so A_to_B projects and B_to_A is the identity up to argument order. The _book forms follow from B because the second family's tameness is supplied by isTameOrientedVia_of_family (not an item theorem) and B quantifies over it. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 4592 shared project theorems. They are the proof fields and lemmas under the statement vocabulary (boundaryIntegralEffVia, boundaryMeasureEff, toOriented, isLUC_model, catFormsInfty, the Chapter 9/11 measure machinery), plus isTameOrientedVia_of_family, which appears in the statements of the _book forms. The round-trip proofs use no lemma of the item proofs beyond these (the item proofs' key step boundaryMeasureEff_pull_univ is not used). Plain #rt_check passes on all four lemmas.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "theorem_17_6_9 together with theorem_17_6_9_dim1 (the text's claim covers n >= 2 and n = 1; the item splits them into two conjuncts, compared jointly as AMain)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

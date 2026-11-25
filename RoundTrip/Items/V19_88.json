@@ -1,0 +1,13 @@
+{
+ "id": "V19_88",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "The two statements differ in a hypothesis: A's theorem_19_7_28_one/two/three_hyp all assume Bh.IsCompatible (every top target map t̂ : M(Ψ̂,Ψ̂') → E' continuous), which B does not assume; the project's twistBasic shows it is not automatic (not_isCompatible_twistBasic), while absBasic satisfies it. Under IsCompatible, A gives B's conclusion (A_to_B_of_compatible, proved and rt_check OK, using A): T_{|A|} = generateFrom NatOpenA equals natTopA, S = toProperPolyfoldCoveringStructure, and its members are exactly toProperCoveringUniformizer Ψ̂ for Ψ̂ ∈ F̂(β). Whether B holds without IsCompatible is not settled here. B's correspondence identifies members only through Ψ and the image of objects, so for twistBasic the untwisted member could serve for the twisted one. In the other direction, B gives theorem_19_7_28_two_hyp (B_to_two, proved). The rest of A (the algebraic identities of definition_19_7_27, the local sc-diffeomorphism properties of the project's hatPolyfold in one_hyp, and three_hyp's exact identification with the project's construction) is about particular objects that B's existential structure does not determine.",
+ "B_issue": "B renders 'defines' by matching uniformizers only in Ψ and in Set.range of the object map of Ψ̂. This does not distinguish two members of F̂(β) with the same Ψ and the same image, such as absCU 0 and twistCU of the project's twistBasic, and it says nothing about the M-polyfold structures of the M(Ψ̂,Ψ̂').",
+ "overlap": "rt_overlap B_to_two: 1171 shared project theorems: proof fields of the project's covering constructions (fibHomeomorph, toPolyfoldConstruction, NatRepConstruction, subChart, ProperCoveringModel) reached by unfolding the GCTs gctA/gctB, plus M-polyfold infrastructure; no item theorem (rt_check OK for B_to_two and A_to_B_of_compatible).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp", "A_to_B": "failed", "B_to_A": "failed", "relation": "incomparable", "note": "three_hyp assumes IsCompatible (B does not); conversely it identifies the structure with the project's construction, which B's existential does not give."}
+}

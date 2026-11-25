@@ -1,0 +1,13 @@
+{
+ "id": "V16_58",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_16_3_17_two with three side conjuncts: theorem_16_3_17_two_hyp (reflexive local step hloc assumed instead of tameness), its satisfiability witness, and the ep-level local step EpStrongBundle.hasReflexiveLocalExtensions_of_isTame. The main conjunct assumes c tame, IsAuxNormBoundary n and one structure S ∈ c̄ that has reflexive 1-fibres and in which normOf n is a reflexive auxiliary norm over ∂X. B assumes c.polyfold.IsTame (= c.IsTame by definition), c.HasReflexiveFibers (in some structure) and IsAuxNormBoundary n with some S ∈ c̄ in which normOf n is reflexive over ∂X. The two hypotheses differ only in whether the reflexive fibres sit in the same structure as the reflexive norm, and HasReflexiveFibers.of_mem (every structure then has them) closes that gap; the conclusions coincide. The side conjuncts do not follow from B (the _hyp form has no tameness); they are re-proved outright from non-item lemmas (theorem_12_2_13_hyp, exists_reflexiveLocalExtension_of_isTame, theorem_12_2_11_exists, the descend lemmas).",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A, Amain_to_B, B_to_Amain. rt_overlap B_to_A: 2265 shared project theorems: vocabulary of the statements plus the non-item lemmas of the re-proved side conjuncts (theorem_12_2_13_hyp and its partition-of-unity machinery, the local reflexive extension of Chapter 12, theorem_12_2_11_exists).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_two", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

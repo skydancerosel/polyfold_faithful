@@ -1,0 +1,21 @@
+{
+ "id": "V17_114",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSE: A at u = 0 (B lives on GCT.{0}; the half-plane example has no universe parameter). B is exactly theorem_17_6_8: under (LUC), the effective integral integralEffVia over a compact Θ̂ that is tame oriented of dimension n >= 1 on two covering families takes the same value on both. A_to_B projects, and main_B_to_A is the identity up to argument order. theorem_17_6_8_book (hypothesis on the first family only) follows from B with isTameOrientedVia_of_family. The other conjuncts are facts of the setting or of one example, not the independence claim. isLUC_model ((LUC) on C gives (LUC) on every model) and halfPlane_isLUC are re-proved by the project's one-line proofs. halfPlaneArc_stokes_eff (effective Stokes for the half-circle) is re-proved from the ep-level EP.stokesWithoutPartitions_all on the family chosen by IsTameOriented, without B. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "HARNESS: (1) The vocabulary definition integralEffVia is built with the banned isLUC_model, abstracted as integralEffVia._proof_1. B itself mentions integralEffVia, so plain #rt_check reports isLUC_model on every statement involving it. #rt_check_soft passes on main_A_to_B, main_B_to_A and book_of_B ('OK with review', only through integralEffVia's proof field), and fully on stokes_eff_dim1_on_C. Plain #rt_check passes on isLUC_model' and halfPlane_isLUC'. (2) The statement of halfPlaneArc_stokes_eff contains the banned theorem halfPlane_isLUC as a proof argument of integralEff. A's body therefore mentions it directly, not through a _proof_N field, and #rt_check_soft reports it on A_to_B and B_to_A (recorded with #guard_msgs). The proofs do not use it: A_to_B and B_to_A are assembled only from the lemmas above, which avoid it. rt_overlap B_to_A: 5638 shared project theorems. They are the statement vocabulary (integralEffVia, tameBranchedIntegralEff, toOriented, the Chapter 9/11 measure machinery) plus the lemmas of the copied one-line proofs: isGenIsoInvariant_isLUC, arc_isLUC, isEquivalence_halfPlaneModelFunctor. The ep-level Stokes used for the half-plane conjunct (stokesWithoutPartitions_all) is not shared; the item proof goes through stokesWithoutPartitions_of_hasScPartitionsOfUnity.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "theorem_17_6_8",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

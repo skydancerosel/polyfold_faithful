@@ -1,0 +1,13 @@
+{
+ "id": "V17_51",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe 0 (B is on GCT.{0}). The two statements coincide up to definitional unfolding. B's natTop, the supremum of the topologies coinduced by all maps (17.42), is definitionally the project's tangentTrTopology, the chartTopology of the same family indexed by Σ o, AdmissibleTriple o. NT, TTr and TTrM are the same type. B's fibred product {p // s p.1 = t p.2} is ↥(fibredProduct s t) with the same subspace topology, and B's mul is TransitionSet.mul up to the proof of composability. Each of B's six conjuncts is a conjunct of proposition_17_2_14, and conversely; the src/tgt lemma and the metrizability instance are repeated pieces of it.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 635 shared project theorems. All come from the statement vocabulary: the proofs are only projections and repackaging, with no project lemmas invoked. Plain #rt_check passes on A_to_B, B_to_A, main_to_B and B_to_main.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_2_14", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

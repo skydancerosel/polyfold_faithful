@@ -1,0 +1,13 @@
+{
+ "id": "V19_75",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe 0. A = proposition_19_7_13 ∧ metrizableSpace_MHat (fibHomeomorph is a definition, vocabulary). A_to_B: B's topology is the project's topologicalSpaceMHat (induced by toFib); homeomorphism, uniqueness (a homeomorphism with underlying map toFib gives IsHomeomorph toFib), regularity, T2 and local metrizability come from proposition_19_7_13. B_to_A: B's topology t makes toFib a homeomorphism, hence inducing, so t = induced toFib = topologicalSpaceMHat; the clauses of proposition_19_7_13 are then B's, and the global metrizability that A adds (also metrizableSpace_MHat) follows from toFib being an embedding into Fib, which is metrizable by the non-item Lemma 19.7.12 instance metrizableSpace_fib (M(Ψ, Ψ') metrizable by Proposition 19.4.4). So A's extra 'metrizable' clause is a consequence of B together with the earlier lemma, and the two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 563 shared project theorems, all from the non-item metrizableSpace_fib -> BasicConstruction.metrizableSpace_M chain (Proposition 19.4.4: uniformizer, transition-data and sub-M-polyfold machinery) and the definitions Fib/toFib; no item theorem is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_13", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

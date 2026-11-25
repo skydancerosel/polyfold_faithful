@@ -1,0 +1,13 @@
+{
+ "id": "V19_77",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universe 0. A = proposition_19_7_15_one, isLocalHomeomorph_srcHat, continuous_unitHat, and, under the added hypothesis IsCompatible (every top target map t̂ is continuous), isLocalHomeomorph_tgtHat, isLocalHomeomorph_mulHat and the main proposition_19_7_15_hyp (invHatHomeomorph is vocabulary). B states (1)-(4) with no compatibility hypothesis. The two statements differ: B asserts that t̂ is a local homeomorphism for every covering basic construction, and this does not hold for the project's twistBasic (two members of F̂(0) over the same Ψ, twisted against each other; non-item proposition_19_7_15_two_without_compatible), so not_B is proved and A → B cannot hold (not_A_to_B). B_to_A is proved using B's clauses for ŝ, t̂ (IsCompatible discarded), ι̂, m̂; B has no clause for p, and A's (1) (p surjective local homeomorphism, (19.26) a homeomorphism) and the metrizability clauses come from the non-item proposition_19_7_14, fibHomeomorph, metrizableSpace_MHat; continuous_unitHat (stated for any P) is re-proved outright. Restricted to compatible constructions the two agree in the direction A ⇒ B (A_to_BC, proved): B's 'natural' clause (1), read as the target description (p, t̂) being a homeomorphism onto M(Ψ, Ψ') ₜ×_τ̂' E', is (ι × id) ∘ (19.26) ∘ ι̂, a composition of homeomorphisms once ι̂ is one.",
+ "B_issue": "B reads (1) 'the topology is natural' as the target description being a homeomorphism (the blind author flags this reading as doubtful); the project reads (1) as p being a surjective local homeomorphism and (19.26) a homeomorphism. Under IsCompatible both readings hold.",
+ "overlap": "rt_overlap B_to_A: 609 shared project theorems: the statements' vocabulary (T_{Ψ,Ψ'} via transition data and sub-M-polyfold machinery, Fib/toFib, metrizableSpace_M) plus the non-item proposition_19_7_14, fibHomeomorph, metrizableSpace_MHat, isLocalHomeomorph_τ, rep.continuous_unit and transMap_unit used for the clauses B does not give.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_15_hyp", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

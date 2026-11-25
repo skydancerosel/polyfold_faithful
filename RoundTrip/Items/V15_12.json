@@ -1,0 +1,13 @@
+{
+ "id": "V15_12",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (universe 0) is theorem_15_2_2_hyp with the one-branch lemma exists_branch_interior, two continuity facts and the witness theorem_15_2_2_hyp_witness. The two statements differ in one hypothesis: theorem_15_2_2_hyp assumes in addition A.B.IsScFredholmSectionTame f (germ data in tame charts at every smooth point of X, a global condition, satisfiable by the witness), which B's hypotheses (f sc-Fredholm functor, Λ sc⁺-multisection, x interior and transversal) do not give, e.g. when X has boundary points without tame charts. With that hypothesis added to B, A ⇒ B is proved (A_to_Btame; the tame hypothesis is also what makes the sheet points smooth, via mem_smoothSet_of_eq). B ⇒ A is proved: B's U(x) is shrunk into a chart domain and away from the branches with sᵢ(x) ≠ f(x), and (1), (2), (a)–(e) restrict; the one-branch lemma, the continuity facts and the witness are not consequences of B and are re-proved outright from non-item lemmas. B is believed to hold as stated (the interior implicit function theorem does not need tameness), but deriving it from A would require that theorem without the tame germ hypothesis.",
+ "B_issue": null,
+ "overlap": "#rt_check passes for B_to_A, main_B_to_A and A_to_Btame. rt_overlap B_to_A: 3003 shared project theorems; almost all come from the copied exists_branch_interior, which calls exists_solutionSet_interior (the Part I implicit function theorem route: subRestrict, isScFredholmSectionTame_subRestrict, chartOnto_of_isLinSurjAt_subRestrict, …), and from the copied witness (zeroMultisection, graphSection). main_B_to_A itself uses only exists_naturalRep_shrink, IsSmoothSubmanifold.inter_isOpen, isProperMap_inclusion_iff and chart restriction.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.SBLocalization.theorem_15_2_2_hyp", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower", "note": "main_B_to_A: B ⇒ theorem_15_2_2_hyp. main_A_to_Btame: theorem_15_2_2_hyp ⇒ B with the tame hypothesis A.B.IsScFredholmSectionTame f added."}
+}

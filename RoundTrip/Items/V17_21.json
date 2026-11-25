@@ -1,0 +1,21 @@
+{
+ "id": "V17_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0 (the two examples have no universe parameter). The first five clauses of B are theorem_17_1_18 (and its five pieces). B's sixth clause, |Γ_Ψ| a homeomorphism (the reading of '(X_Ψ, |Γ_Ψ|) is a weak polyfold structure'), is not among A's conjuncts; A_to_B gets it from the non-item modelOrbitHomeomorph (Lemma 17.1.15). B_to_A: the general conjuncts are B; the examples reflection_comparison and overlap_comparison are B at those constructions, except the last clause of reflection_comparison (an object of the weak fibred product whose canonical morphism is (-1,0), not the unit), which B does not mention and which is re-proved outright from fibredProductObjEquiv (the project's proof). The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1335 shared project theorems, all from the statements: the EP(E⁻¹) localization and weak fibred product machinery behind comparison (Diagram.admissible, isEquivalence_wfpMap, mapMid_aux), the model ep-groupoid and Γ_Ψ (modelFunctor_faithful/essSurj), and the reflection/overlap constructions of the examples. Plain #rt_check passes on A_to_B, B_to_A, main_to_B, B_to_main.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_18",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

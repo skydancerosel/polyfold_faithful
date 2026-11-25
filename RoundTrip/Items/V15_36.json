@@ -1,0 +1,22 @@
+{
+ "id": "V15_36",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = the conjunction of 26 theorems at universe 0. A_to_B: the conjuncts that give Θ branched and compact and the canonical orientation assume tame germ data (A.B.IsScFredholmSectionTame f), and the orientation ones also assume sc-smooth bump functions on X (A.X.PObj.AdmitsBumpFunctions); B grants neither. B also claims things no conjunct gives: Θ tame (IsTameBranched), and Stokes in index 1 with the canonical orientation (the dim1 conjuncts take the orientation as input), plus its effective form. B_to_A: the main conjunct theorem_15_4_3_all assumes the index m+1 only at the points of supp(Λ∘f), while B needs it at every smooth object, so B cannot be applied. The two statements differ here: A covers sections whose index is constant only on the support. Even with a global index, A is about the specific canonicalOrientation and B about some P.T with IsCanonicalFor. Moving the integrals between them would need the item theorem IsCanonicalPerturbation.integral_eq to be re-proved. The other conjuncts are proof steps and variants.",
+ "B_issue": null,
+ "overlap": "No direction proved, so #rt_overlap was not run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.theorem_15_4_3_all",
+  "A_to_B": "failed",
+  "B_to_A": "failed",
+  "relation": "incomparable",
+  "note": "A-main additionally assumes hbump, hft; B additionally assumes the index at every smooth object (A-main: on the support only). |S_f| compact, needed by B, follows from (N,U) controlling compactness (proved in V15_37/V15_49). B additionally concludes tameness, index-1 and effective Stokes."
+ }
+}

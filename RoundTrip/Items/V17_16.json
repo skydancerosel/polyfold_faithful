@@ -1,0 +1,21 @@
+{
+ "id": "V17_16",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0 (isProperMap_domRestrict_sigmaMap at .{0,0,0,0}). The main conjunct theorem_17_1_14 and B both say: for a covering family there is an EpGroupoid with groupoid modelGroupoid and M-polyfolds modelObjPolyfold, modelMorPolyfold, tame if S is tame. B also pins src/tgt of modelGroupoid, which hold by rfl; EpGroupoid.IsTame is PObj.IsTame, so the tame clauses match after rewriting along X.PObj = modelObjPolyfold. The helper conjuncts exists_isProperMap_model and isTame_modelEpGroupoid are stated for an arbitrary family Ψ (not only a covering family), and isProperMap_domRestrict_sigmaMap is pure topology, so B does not give them. In B_to_A they are re-proved outright by copying the project's proofs (from proposition_17_1_11, continuous_trTgt, MPolyfold.isTame_sigma_iff). The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement mentions modelEpGroupoid (in isTame_modelEpGroupoid), whose field exists_isProperMap is the banned exists_isProperMap_model itself, passed as a plain constant rather than an abstracted _proof_N, so #rt_check_soft does not apply; through it the banned isProperMap_domRestrict_sigmaMap is reached too. So #rt_check does not pass on A_to_B and B_to_A for exactly these two names (recorded with #guard_msgs). A'-pattern as in V11_38: modelEpGroupoid' is a copy with the same data and its properness field from the local copy exists_isProperMap_model' (equal to modelEpGroupoid by rfl). A' is A with that constant replaced by the elaborator replace_modelEpGroupoid%, A = A' by rfl. A'_to_B, B_to_A', main_to_B and B_to_main pass plain #rt_check; A_to_B and B_to_A are transports along A_eq_A'. rt_overlap B_to_A': 616 shared project theorems: the model ep-groupoid structure maps in the statements (isLocalScDiffeo_modelSrc/Tgt, isScSmoothMap_modelInv, ...) and the lemmas of the copied properness proof (proposition_17_1_11, eq_sheet_of_src_mem, continuous_trTgt).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_14",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V19_37",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. A: proposition_19_5_7 ((ZHOU) of the basic construction gives (ZHOU) of the project's structure toPolyfoldConstruction hm) and isZhou_toEP_of_isZhou ((ZHOU) of that structure gives Chapter 7's (ZHOU) of every G ⋉ O). B: for EVERY natural polyfold structure P (uniformizer sets those of F, M(Ψ,Ψ') carrying T_{Ψ,Ψ'}), (ZHOU) of the basic construction gives P.IsZhou. A_to_B: from A, every G ⋉ O has (ZHOU); for a natural P, a covering family built from HasClassUniformizers and the piece functors G ⋉ O → X_Ψ (full, local sc-diffeomorphisms on objects, Ψ̂ continuous because M(Ψ,Ψ) carries T_{Ψ,Ψ}) give (ZHOU) of P's model. The main conjunct alone also gives B, with the step isZhou_toEP_of_isZhou replaced by its outright copy. B_to_A: B at P = toPolyfoldConstruction (natural: definitional plus Lemma 19.3.1) gives the main conjunct; isZhou_toEP_of_isZhou, a converse step not contained in B, is re-proved outright from non-item lemmas (IsZhou.model, isZhouAt_of_isZhouAt_obj). The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1941 shared project theorems; A_to_B: 1342. They are Chapter 17's model machinery (modelEpGroupoid, IsZhou.model, isGenIsoInvariant_isZhou, model comparison and equivalence lemmas), the piece functor lemmas (full_pieceFunctor, isLocalScDiffeo_pieceFunctor_obj, isZhouAt_of_isZhouAt and _obj), toPolyfoldConstruction's proof fields and the sc-calculus underneath.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_7", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

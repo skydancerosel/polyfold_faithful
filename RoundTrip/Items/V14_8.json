@@ -1,0 +1,12 @@
+{
+ "id": "V14_8",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 59 listed theorems at universe 0 (StrongBundle.exists_isTameChart at .{0,0}; the half-space example has no universe parameter); B is on SEP.{0}. On the theorem itself the two statements differ in the partition-of-unity hypothesis: theorem_14_1_9_statement assumes the object M-polyfold admits sc-smooth partitions of unity (every open cover), B assumes the ep-groupoid notion of Definition 7.5.5 (saturated covers, invariant partitions). With |X| paracompact the first gives the second (theorem_7_5_7), so B implies the main conjunct theorem_14_1_9 (B_to_main, rt_check OK; f's invariance is only written in the other order), and A gives B when the M-polyfold hypothesis is added (A_to_B_of_pu, rt_check OK). A ⇒ B would need invariant partitions to give non-invariant ones, which is not available; the project's proof uses non-invariant cut-offs on non-saturated sets (exists_scSmooth_cutoff, AssemblyInput.exists_cutoff), so this is a genuine difference in hypotheses, not glue. B_to_A as a whole is not proved because the other 58 conjuncts are intermediate statements of the §§14.3–14.5 construction (AssemblyInput.*, sizeControl, AssemblyHyp), pointwiseNorm/saturation helpers and the half-space example; they do not follow from B and copying them would copy the whole Chapter 14 proof.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement mentions AssemblyInput.crit, whose field isOpen_V := D.isOpen_critV is a banned theorem used directly (not an abstracted _proof_ field), so no term mentioning A passes #rt_check or #rt_check_soft; the partial A ⇒ B is therefore stated from the conjunct theorem_14_1_9 alone (A_to_B_of_pu; an `example` derives it from A). rt_check passes on B_to_main and A_to_B_of_pu. rt_overlap B_to_main: 674 shared project theorems, all from the statement vocabulary (strong bundles, ep-groupoids, sc-structures) and theorem_7_5_7's partition-of-unity construction (orbit Urysohn, orbitPullback).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

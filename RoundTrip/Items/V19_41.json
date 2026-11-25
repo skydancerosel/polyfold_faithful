@@ -1,0 +1,13 @@
+{
+ "id": "V19_41",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "Universes at 0. The two statements differ in one hypothesis: A's main conjunct proposition_19_5_11 assumes that the topology T on |S| is metrizable (the project reads §19.5's standing assumption into the proposition), while B assumes only HasClassUniformizers and (ZHOU). A's conclusion is (SLUC) ∧ (SLR) ∧ (LUC) ∧ (LR); the last two are the level-0 cases of the first two, so B ⇒ A goes through (every class is a level-0 class by levelSet_zero, (G ⋉ O)⁰ = G ⋉ O by rfl, isLUCAt_iff, isLRAt_of_isLRAt). The two Chapter 7 conjuncts (theorem_7_4_13/24_all_of_isZhou, arbitrary ep-groupoids) lie outside B and are re-proved outright from the non-item theorem_7_4_13_all / theorem_7_4_24_all with denseSmoothTangent and smoothRegular. A ⇒ B is not proved: the project obtains (ZHOU) of every translation groupoid G ⋉ O through the polyfold (S, F, M) (Proposition 19.5.7, isZhou_toEP_of_isZhou), which needs metrizability; without it one would have to transfer the Zhou condition between uniformizers directly along the transition maps f_h, a local argument we believe goes through but which is new mathematics here.",
+ "B_issue": null,
+ "overlap": "rt_check OK for main_B_to_A and B_to_A. rt_overlap B_to_A: 1166 shared project theorems: the Chapter 7 machinery behind theorem_7_4_13_all / theorem_7_4_24_all (used to re-prove the two Chapter 7 conjuncts, which the banned *_of_isZhou wrappers call), the natural-representation lemmas, isLUCAt_iff and isLRAt_of_isLRAt, and the M-polyfold basics.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_5_11", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower"}
+}

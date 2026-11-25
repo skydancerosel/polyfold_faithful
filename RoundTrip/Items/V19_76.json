@@ -1,0 +1,13 @@
+{
+ "id": "V19_76",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universe 0. A = proposition_19_7_14 ∧ Chapter19.isLocalHomeomorph_fibredFst ∧ isLocalHomeomorph_fibredSnd. B's topology on M(Ψ̂, Ψ̂') (induced by toFib) is by definition the project's topologicalSpaceMHat, and both state 'pB is surjective and a local homeomorphism' for a finite-to-one covering functor and a covering basic construction, with no further hypothesis; the main conjunct and B differ only in the order of the two clauses. The two point-set lemmas of A (projections of a fibred product along a local homeomorphism are local homeomorphisms) are general topology, proof steps not stated in the text; they do not follow from B and are re-proved outright in B_to_A (the project's Mathlib-only proofs, copied). The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 466 shared project theorems; all come from the statements' vocabulary (the topology T_{Ψ,Ψ'} of M(Ψ, Ψ') via transition data and sub-M-polyfold machinery, Fib/toFib), since B_to_A itself only repackages B and copies the two point-set proofs (Mathlib only).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.GroupoidalCategory.CoveringBasicConstruction.proposition_19_7_14", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

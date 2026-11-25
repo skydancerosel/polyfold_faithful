@@ -1,0 +1,12 @@
+{
+ "id": "V12_34",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A's theorems are taken at universe 0 (.{0,0} for the Part I lemmas; the trivial-bundle witnesses have no universe parameter). Both sides add the hypothesis that |X| is paracompact, which the printed statement does not name; the project's proof and B's blind reading both take it from the partition of unity of Theorem 12.2.11. With that, theorem_12_2_13 and B have the same hypotheses up to order: reflexive 1-fibres, X tame, |X| paracompact, N reflexive over ∂X (IsReflexiveAuxNormOn). They also have the same conclusion: a reflexive auxiliary norm equal to N over ∂X. B also carries the instance [ParacompactSpace (pullbackSpace P X.src)]; A_to_B ignores it and B_to_A supplies it from StrongBundle.paracompactSpace_pullback. The remaining conjuncts are proof pieces and satisfiability witnesses that do not follow from B: theorem_12_2_13_hyp needs no tameness, the Part I local step needs no |X|, and the witnesses are concrete. They are re-proved outright by copying the project's proofs, which rest only on non-item lemmas. The two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1320 shared project theorems. These are mostly the M-polyfold / strong-bundle / ep-groupoid / mixed-convergence infrastructure in the statements, plus the lemmas of the copied proofs: exists_retraction_boundary, isLocalAuxNorm_retractNorm and retractNorm_eq (items of V12_9, allowed here), chartFibMap and oneChartOf lemmas, weakTendsto_of_bounded_of_tendsto, MixedTendsto.weakTendsto_of_isChart, mixedLscAt_avgNorm/transNorm and isReflexiveAuxNorm_glueNorm (items of V12_32, allowed here), theorem_12_2_11_exists, the IsLocalAuxNorm.mono / tgt_mem_boundary_iff / isOpen_compl_boundary lemmas, and the trivial-bundle facts (hasReflexiveFibers_bundle, isTame_trivial_rn). Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

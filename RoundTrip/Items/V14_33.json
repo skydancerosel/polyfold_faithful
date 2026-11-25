@@ -1,0 +1,14 @@
+{
+ "id": "V14_33",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the nine listed theorems at universe 0 (glueSection_congr_at at .{0,0}); B is on SEP.{0}. A ⇒ B uses only the conjunct ZConcrete.proposition_14_4_14: its hypothesis hB (a tame strong bundle chart about every object) follows from B's A.X.IsTame by SEP.exists_isTameChart, and the conclusions match by definition (C.toZData.V = C.Vh, C.toZSections.s a i = (T.dec.S (bdryRetr C.x₀ a)).s i, same ZRel and G_a-action). B ⇒ A is not proved: the main conjunct assumes only hB and sc-smooth partitions of unity, while B also assumes |X| paracompact and X tame. Paracompactness of |X| does not follow from hB or from the data C, and tameness from hB would need an equivalent atlas assembled from the base charts of tame bundle charts (no such lemma). So the two statements differ only in standing hypotheses: the project states Proposition 14.4.14 with fewer of them. The remaining eight conjuncts are intermediate steps of the proof (the general version for any CoherentNbhdSystem, the _of_hyp/_of_limit forms, coherentNbhdSystem_hyp, exists_local_piece, eqvGen_s0, glueSection_congr_at, ZConcrete.isFaceScPlus); B does not give them.",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B and main_to_B. rt_overlap A_to_B: 917 shared project theorems, all from the statement vocabulary (ZConcrete/ZData/CorrExtension/IndexCorr/BoundaryDecoration structure fields and _proof_ terms, M-polyfold and strong-bundle chart machinery) and from SEP.exists_isTameChart (pullback charts, tame retractions), which the project's proof also uses; none is a step of the Proposition 14.4.14 construction.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "Polyfold.SBLocalization.ZConcrete.proposition_14_4_14", "A_to_B": "proved", "B_to_A": "failed", "relation": "A_stronger"},
+ "blind_exposure": null
+}

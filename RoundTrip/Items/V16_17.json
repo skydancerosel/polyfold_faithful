@@ -1,0 +1,22 @@
+{
+ "id": "V16_17",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: lemma_16_2_2 at 0 (T(Z,c) : Type 1). A: (i) every Tα is a homeomorphism for the instance topology tangentSpaceTopology; (ii) any topology making ONE Tα a homeomorphism is the instance; (iii) the instance is metrizable. B: there is exactly one topology making EVERY Tα a homeomorphism, and every such topology is metrizable. A_to_B: τ := the instance, uniqueness by (ii) at c.out, metrizability via (ii) then (iii). B_to_A: B does not name its topology, so the link 'the instance makes every Tα a homeomorphism' comes from the non-item lemma isHomeomorph_tangentMap (the same lemma the project's proof of (i) uses); (ii) from B's uniqueness after showing one Tα homeomorphic ⇒ all are (Tβ = Tα ∘ |Th|, tangentMap_comp, isGeneralizedIso_tangentHom); (iii) from B's metrizability. A's uniqueness clause is formally stronger (one Tα instead of all) but follows, so the two say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1258 shared project theorems: the tangent-ep-groupoid / EPLoc machinery in the statements plus isHomeomorph_tangentMap (used by lemma_16_2_2 for (i) and by B_to_A for the link between B's topology and the instance), tangentMap_comp, ScForm.exists_iso. Metrizability is taken from B, not from metrizableSpace_tangent_orbitSpace.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.PolyfoldClass.lemma_16_2_2",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent",
+  "note": "A is this single conjunct."
+ }
+}

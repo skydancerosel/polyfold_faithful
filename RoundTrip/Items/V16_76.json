@@ -1,0 +1,13 @@
+{
+ "id": "V16_76",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_16_6_4: List.TFAE [HasCompactSolutionSet, IsProper, IsProperLtInfty] for s.1, s an sc-Fredholm section. B states the same with the project's definitions as two biconditionals, with (f : c.ScSection) = f.1; the directions are TFAE bookkeeping (List.TFAE.out, tfae_finish). Both sides use the project's IsProper and IsProperLtInfty, which carry the conjunct 'S(f) compact' explicitly; this does not change the content, since S(f) is a closed subset of the compact closure of the sublevel set (n(0) = 0 ≤ 1).",
+ "B_issue": null,
+ "overlap": "#rt_check OK on both directions. rt_overlap B_to_A: 1656 shared project theorems, all proof fields of the vocabulary in the statements (strong polyfold bundles, sc-sections, Fredholm sections); the proof only converts between TFAE and two biconditionals.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.theorem_16_6_4", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V16_28",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Universe 0 (the three witnesses have none). A_to_B: the class integrals ∫_θ̂ and ∮_θ̂ are computed on every compact tame oriented representative (OrientedSuborbifold.integral_eq / integralEff_eq), so B's equations are A's theorem_16_4_6_all / _eff_all / _dim1_all / _eff_dim1_all; B's existence clause comes from θ.out. B_to_A is not proved, and this is a difference in content: A also contains Stokes' theorem on the ep-groupoid level for every ep-groupoid (EP.stokesWithoutPartitions_all, EP.theorem_9_5_17_all, _18_all, _17_dim1_all, _18_dim1_all; Remark 9.5.19, Theorems 9.5.17–9.5.18 without partitions of unity). B speaks only of polyfolds, whose ep-groupoids have a paracompact orbit space and satisfy (ZHOU), so for any other ep-groupoid there is nothing to apply B to; those conjuncts would have to be re-proved outright (the Chapter 9 Stokes theorems). The polyfold-level conjuncts (_of_epStokes, _hyp, _both_*, hasEpStokes_all for polyfold models) are believed derivable from B; the main conjuncts are proved equivalent to B.",
+ "B_issue": null,
+ "overlap": "Plain #rt_check passes on A_to_B, main_A_to_B and main_B_to_A. rt_overlap main_B_to_A: 4418 shared project theorems. They are essentially the branched-integration and boundary-measure machinery (Chapters 9–11) under the definitions of integral / boundaryIntegral and the proofs of OrientedSuborbifold.integral_eq (tameBranchedIntegral_pull, ScForm.toStructure_eq_formsPullback) and isNDimensional_of_loc. No item theorem is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {"decl": "no single conjunct: the four unconditional identities theorem_16_4_6_all ∧ _eff_all ∧ _dim1_all ∧ _eff_dim1_all (Amain)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

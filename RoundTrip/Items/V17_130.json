@@ -1,0 +1,13 @@
+{
+ "id": "V17_130",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A at u = v = 0 (B takes G, O, ObjE, MorE : Type). proposition_17_8_6 gives, for every open U ∋ ō, an open G-invariant connected O' ⊆ U containing ō. For every choice of the paracompactness instances it also gives a connected proper covering model on the restriction with distinguished point ō. B's first part is the same without the model. A_to_B drops the model. B_to_A supplies it with the vocabulary construction restrictModel; it is connected because O' is. B's second part ((17.99) for the component of ō in ⋂_g g⁻¹U) is the smul_mem' field of the vocabulary definition invariantComponent, not a conjunct of A. exists_connected_restriction ((17.99) with U = O) follows from B's second part at U = univ, with openness from MPolyfold.isOpen_connectedComponentIn. restrictModel_connected and isConnected_invariantComponent are one-line facts, re-proved outright. The two statements say the same thing; the content of B not visible in A's conjuncts sits in the vocabulary (restrictModel, invariantComponent).",
+ "B_issue": "B does not mention the restricted proper covering model. It states only the existence of the open G-invariant connected neighbourhood O' (the author's stated choice, to avoid quantifying paracompactness instances on the subtypes). That the restriction is a connected proper covering model is the vocabulary construction restrictModel in both directions. Its second part is the invariance of connectedComponentIn (⋂_g g⁻¹U) ō for every open U ∋ ō, slightly more general than the text's U = O.",
+ "overlap": "rt_overlap B_to_A: 603 shared project theorems. They are the proof fields of the vocabulary (restrictModel._proof_N, restrictFunctor._proof_N, subEpGroupoid, fullSub, translation, the sub-M-polyfold and chart machinery) plus MPolyfold.isOpen_connectedComponentIn and mem_invariantCore, used in the copied one-line proofs. Plain #rt_check passes on main_A_to_B, main_B_to_A, A_to_B and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "proposition_17_8_6 (main_A_to_B obtains B's (17.99) part from the vocabulary invariantComponent, not from the conjunct)", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

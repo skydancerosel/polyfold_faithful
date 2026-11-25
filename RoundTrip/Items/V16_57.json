@@ -1,0 +1,13 @@
+{
+ "id": "V16_57",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_16_3_17_one with three side lemmas: mem_boundary_iff (points of Y01 over ∂Z are the Γ(|e|) with P(e) ∈ ∂X), IsAuxNorm.isAuxNormBoundary (an auxiliary norm restricts to one over ∂Z) and theorem_16_3_17_one_witness (the hypothesis can be met). B uses the project's own IsAuxNormBoundary, and c.IsTame is by definition c.polyfold.IsTame, so B and theorem_16_3_17_one are the same statement (both directions are application). The side lemmas do not follow from B; they are re-proved outright from non-item lemmas (PolyfoldClass.mem_boundary_iff, p_Γ, IsAuxNorm.isAuxNormOn, proposition_16_3_10). The hypotheses of the main conjunct are satisfiable (the witness lemma, on every tame bundle).",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A, Amain_to_B, B_to_Amain. rt_overlap B_to_A: 2067 shared project theorems: vocabulary of the statements (strong polyfold bundles, their polyfolds and boundaries, ep-level auxiliary norms) and the non-item lemmas of the re-proved side conjuncts (proposition_16_3_10, PolyfoldClass.mem_boundary_iff).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.theorem_16_3_17_one", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

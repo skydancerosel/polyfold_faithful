@@ -1,0 +1,22 @@
+{
+ "id": "V17_102",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Universe 0. A is proposition_17_5_7 together with modelGrPush_tangentValue_eq. The parts of proposition_17_5_7 are (1) TΘ(α) ∈ Gr(α), (2) TΘ(α) = Tφ(TΓ(TΓ^*Θ(x))) for every covering family, every x and every φ : Γ(x) → α, (3) naturality TΘ(tχ) = ν(χ)(TΘ(sχ)), and (4) uniqueness. All four are stated for every α ∈ C¹, that is with regularity ≥ 1 and F(α) ≠ ∅. B asks for a functor F : C_∞ → Gr(C) with π ∘ F = 1 whose value at α equals tangentSectionVia c α for every covering family c. A_to_B builds F from (1) and (3), as the project's tangentSectionFunctorC does. The values come from (2), applied at the point and morphism chosen inside tangentSectionVia. B_to_A does not follow, and the two statements differ in A's favour. A covers objects of C¹ outside C_∞, about which B says nothing. A also gives (17.86) for every representative (x, φ) (modelGrPush_tangentValue_eq), while B only pins down the value at the representative chosen in tangentSectionVia. These are statements the project proves beyond the text's C_∞ section functor; they are not missing proof effort.",
+ "B_issue": null,
+ "overlap": "Plain #rt_check passes on A_to_B and main_to_B. B_to_A is not attempted beyond the diagnosis, so the template's #rt_overlap B_to_A is replaced by #rt_overlap A_to_B: 886 shared project theorems. They are the vocabulary of the statements (grFunctorC, GrC, tangentSectionVia, modelGrPush, regSubInf) plus GroupoidFunctor.essSurj_iff, modelFunctor_essSurj, tangentObj_smoothObjVal, src/tgt_smoothMorVal and grPushC, which the functor construction uses.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_5_7",
+  "A_to_B": "proved",
+  "B_to_A": "failed",
+  "relation": "A_stronger",
+  "note": "main_to_B uses only proposition_17_5_7; B ⇒ main is not proved, for the same reasons (C¹ versus C_∞, and every representative (x, φ) in (2) versus the chosen one)."
+ }
+}

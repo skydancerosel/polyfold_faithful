@@ -1,0 +1,12 @@
+{
+ "id": "V13_51",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the 21 listed theorems at universe 0 (biact_compHom.{0,0,0,0,0}, ofPerm_compHom.{0,0,0}, isOpen_setOf_eq_of_src.{0,0}); B is on SEP.{0}. The main conjuncts say what B says. B (a) is theorem_13_4_1 (pullMult F Λ' is Λ' ∘ F.Φ.obj by definition). B (b) is the Λ clause of theorem_13_4_1_structured. B (c) is pullTuple_equiv at PullMap.ofEquivalence hF. Conversely, B (b) and (c) give theorem_13_4_1_structured: the map is Quotient.lift of T' ↦ [pullTuple T' P], well defined by (c), and forget comes from (b); I_x and τ are rfl. The existence of an adapted good system (exists_pullData) is not stated in B. That existence and the 19 helper conjuncts, which are proof steps stated for general pull-back data, equivalences and proper coverings alike, do not follow from B. They are re-proved outright by copying the project's proofs (suffix _rt). On the theorem itself the two statements say the same.",
+ "B_issue": null,
+ "overlap": "HARNESS: both statements mention PullMap.pullTuple / pullTau / pullStructure / pullStructured / somePullData, whose proof fields are proved with banned helpers (covers, eq_of_obj_eq, obj_fibAct, pullSec_eq_iff, isScPlusSectionOn_pullSec, isWFunctor_pull, isScPlusMultisection_pull, exists_isPullNbhd, isDiffeoComponent_of_isPull, IsPullNbhd.mor_biact, exists_pullData, biact_compHom, ofPerm_compHom, pullTuple_equiv, isOpen_setOf_eq_of_src). So #rt_check_soft is used; it passes on both directions with those reached only through those definitions' proof fields. rt_overlap B_to_A: 980 shared project theorems. They are the strong-bundle / ep-groupoid / good-system machinery in the statements plus the non-item lemmas of the copied proofs (P_pullSec, obj_pullSec, fiberEquiv_apply, isLocalScDiffeo_obj, mem_morBetween, mapsTo_connectedComponentIn, IsPullNbhd.Φ_eq, exists_natNbhd_isProperSubset, exists_restrict_subset, GoodSystem.exists_subset_inter, isDiffeoComponent_iff_injOn).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

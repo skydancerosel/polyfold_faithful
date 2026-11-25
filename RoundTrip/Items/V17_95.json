@@ -1,0 +1,13 @@
+{
+ "id": "V17_95",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "B's X_Ψ = S.modelEpGroupoid c.Ψ is the project's (S.modelEP c.Ψ).X by rfl. Its push/pull are the project's modelPush/modelPull, and branched ep⁺-subcategory is IsBranchedSubcategory. A_to_B applies proposition_17_5_2_one at c.cover and proposition_17_5_2_two at c.Ψ. In B_to_A, part (1) comes from B at the covering family ⟨ι, Ψ, hc⟩. The two statements differ in scope: A's (2) holds for every family of uniformizers from F, and B's only for covering families. A family need not extend to a covering one, since S is not assumed to have covering footprints. So (2), the summand-wise criterion isBranchedEpSubgroupoid_modelPull_iff and the identities modelPull_modelPush and modelPush_modelPull are re-proved from non-item lemmas: localBranching_summand, localBranching_of_summand, mem_smoothSet_model_iff, IsBranchedSubcategory.unif and GroupoidFunctor.pushTheta_comp_obj(_eq). Only part (1) uses B. A's extra content is the generalization of (2) to arbitrary families plus intermediate steps.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A, main_to_B and B_to_main. rt_overlap B_to_A: 857 shared project theorems. They are the model ep-groupoid and branched-ep⁺ machinery (localBranching_summand/of_summand, mem_smoothSet_model_iff, paracompactSpace_model_subset, isFunctorial_modelPull, pushTheta lemmas, modelFunctor_essSurj), which the item's proofs also use.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "proposition_17_5_2_one ∧ proposition_17_5_2_two (the two parts; checked as RoundTrip.V17_95.Main)", "A_to_B": "proved", "B_to_A": "proved", "relation": "A_stronger", "note": "main_to_B direct. B_to_main gets (1) from B and re-proves (2) for arbitrary, not necessarily covering, families from non-item lemmas."}
+}

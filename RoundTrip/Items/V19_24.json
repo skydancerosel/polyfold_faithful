@@ -1,0 +1,21 @@
+{
+ "id": "V19_24",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universes at 0. A = proposition_19_4_2 ((v1) ⇔ (v2) ⇔ (v3Lim), (v3) read with the limit p of the subsequence in the fibre, |Ψ(p)| = z) ∧ one_iff_two ∧ two_three ((v2) ⇒ (v3) as printed) ∧ three_two_hyp ((v3) as printed ⇒ (v2) when T is Hausdorff) ∧ propernessV3_of_locallyCompactSpace ∧ proposition_19_4_2_v3_without_limit ∧ the gluedBasic facts. B: for every representative F, (v1) ⇔ (v2) and (v2) ⇔ (v3) with (v3) as printed (no |Ψ(p)| = z). The two statements differ in (v3): with the printed (v3), (v3) ⇒ (v2) does not hold for gluedBasic (Remark 19.2.3, domains ℝ: (v3) holds by local compactness, (v2) does not at Ψ_+, o = 0), so not_B is proved and A ⇒ B does not hold (not_A_to_B). B ⇒ A holds only ex falso. What A gives of B: (v1) ⇔ (v2) and (v2) ⇒ (v3) (A_to_B_part); A's equivalence uses the fibre reading (v3Lim), which the text's proof of (3) ⇒ (1) uses.",
+ "B_issue": "B formalizes (v3) as printed, as its own note flags (no condition |Ψ(p)| = z on the limit); with that reading the statement does not hold (gluedBasic). With the limit in the fibre it agrees with the project's proposition_19_4_2.",
+ "overlap": "B_to_A is ex falso from not_B, which re-proves the gluedBasic facts from non-item lemmas (orbitChartV3_of_locallyCompactSpace, gluedBasic_natOpen, gluedLines_π_eq_iff, exists_pos_mem_of_isOpen, gluedU_mem); #rt_check passes for B_to_A, main_B_to_A and A_to_B_part (A_to_B_part uses A's conjuncts only through the hypothesis). rt_overlap B_to_A: 447 shared project theorems, all from the gluedBasic construction (gluedData, the M-polyfold structure of ℝ, sc-calculus behind it) and orbitChartV3_of_locallyCompactSpace, shared with gluedBasic_propernessV3 / gluedBasic_not_propernessV2.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GroupoidalCategory.BasicConstruction.proposition_19_4_2",
+  "A_to_B": "failed",
+  "B_to_A": "proved",
+  "relation": "A_narrower"
+ }
+}

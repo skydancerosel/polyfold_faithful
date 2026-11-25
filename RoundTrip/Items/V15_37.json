@@ -1,0 +1,23 @@
+{
+ "id": "V15_37",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = the conjunction of 135 theorems at universe 0. A_to_B: every conjunct that yields a canonically oriented regular perturbation, or the well-definedness of the integral on cohomology, assumes three things B does not grant: tame germ data (IsScFredholmSectionTame f), sc-smooth bump functions or partitions of unity on X, and (A.cubeSEP 1).B.HasScPlusSectionsThrough. B_to_A: A contains proof steps (cube orientations, matched kernels, local end identities, cylinder boundary measures), examples on specific bundles, and existence of perturbations in general position, none of which follows from B. Main conjunct corollary_15_4_4_oriented_collar_all: B ⇒ it is proved (B_to_main). That conjunct has no |S_f|-compactness hypothesis; compactness is recovered from any regular perturbation, because (N,U) controlling compactness makes |S_f| a closed subset of a compact set. For corollary_15_4_4_wellDefined_all the two statements differ: B gives its well-definedness half but only a canonically oriented regular perturbation, not one in general position.",
+ "B_issue": null,
+ "overlap": "#rt_overlap on the main-conjunct lemma B_to_main against all item theorems: 4058 shared project theorems. Almost all come from the vocabulary of the statements (branched integrals, ep-forms, orientations, OrientedRegularPerturbation, and the proof fields of those definitions). The proof's own steps are isClosed_solutionSet, EpGroupoid.isClosed_image_π_of_isSaturated, isSaturated_iff, EpStrongBundle.μ_fiberZero, IsAuxNorm.auxLe_fiberZero, paracompactSpace_rn_prod/pullback and epFormsInftyD_epFormsInftyD. #rt_check B_to_main passes against the full banned list. tameBranchedIntegral(Eff)_zero, which is on the item list, was re-proved locally.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "blind_exposure": "The blind writer of V15_37 accidentally read the vocabulary entry of the project's corollary_15_4_4_statement. B nevertheless states the corollary through an existential Φ on epDeRham, not through that definition.",
+ "main": {
+  "decl": "Polyfold.SBLocalization.corollary_15_4_4_oriented_collar_all",
+  "A_to_B": "failed",
+  "B_to_A": "proved",
+  "relation": "A_narrower",
+  "note": "B_to_main proved, #rt_check OK, uses the hypothesis hB. The converse is not proved: the conjunct assumes hft, hbump and hsec', and states no existence, effective or index-0 claim."
+ }
+}

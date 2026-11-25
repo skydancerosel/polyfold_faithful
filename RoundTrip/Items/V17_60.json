@@ -1,0 +1,13 @@
+{
+ "id": "V17_60",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B's Def1/Def2 are the project's IsSubpolyfold/IsSubpolyfoldModel (Iff.rfl). B asks for the equivalence under HasCoveringUniformizers alone (footprints cover |C|), while the project's proposition_17_3_4 assumes HasUniformizers (F(α) ≠ ∅ for every α) and proposition_17_3_4_of_nonempty assumes covering footprints plus F(α) ≠ ∅ on A. The two statements differ exactly there: A contains proposition_17_3_4_empty_family, a universe-0 structure (F', M) on ℤ/2 ⋉ ℝ with F'(x) = ∅ at rational x and covering footprints, where the rational points satisfy Definition 17.3.1 vacuously but not 17.3.2. not_B re-derives this from the project's vocabulary (irrationalConstruction, irrationalUnif, ratPoints) and the non-item lemmas isSubMPolyfold_of_forall_tr, not_isSubMPolyfold_ratPoints; so A → B does not hold (not_A_to_B) and B → A holds ex falso. The 17.3.2 ⇒ 17.3.1 direction needs no hypothesis on both sides; only 17.3.1 ⇒ 17.3.2 needs F(α) ≠ ∅ on A, which the blind reading's covering hypothesis does not supply.",
+ "B_issue": "B's standing hypothesis HasCoveringUniformizers is weaker than the text's tacit F(α) ≠ ∅ (the choice of covering families, p. 752, presumes a uniformizer at every object); with it, Definition 17.3.1 can hold vacuously at objects without uniformizers, and B does not hold (not_B). With HasUniformizers in place of HasCoveringUniformizers, B is the project's proposition_17_3_4.",
+ "overlap": "#rt_check OK on not_B, B_to_A and B_to_main. rt_overlap B_to_A (ex falso through not_B): 845 shared project theorems: the M-polyfold/sub-M-polyfold machinery, the model ep-groupoid lemmas (isEpSubgroupoid_preimage_modelFunctor_iff), isSubMPolyfold_of_forall_tr and the reflection/rational-points witnesses (reflectionUnif_footprint, reflection_isSaturated_ratPoints, not_isSubMPolyfold_ratPoints), which the item's empty_family proof also uses.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "main": {"decl": "Polyfold.GCT.PolyfoldConstruction.proposition_17_3_4 (equivalence under HasUniformizers)", "A_to_B": "failed", "B_to_A": "proved", "relation": "A_narrower", "note": "B_to_main proved using B (HasUniformizers ⇒ HasCoveringUniformizers via hasCoveringUniformizers_of_hasUniformizers). main ⇒ B does not hold since B does not hold (not_B); the main conjunct is B restricted to structures with F(α) ≠ ∅ everywhere."}
+}

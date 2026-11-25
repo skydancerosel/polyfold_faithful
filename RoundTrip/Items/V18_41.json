@@ -1,0 +1,21 @@
+{
+ "id": "V18_41",
+ "A_to_B": "false",
+ "B_to_A": "failed",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B is not provable as stated: not_B is proved. B's auxiliary norm is IsAuxNormBook (Definition 18.1.7's printed clauses, no continuity of |N|), while A (theorem_18_4_4_modelFree, universe 0) takes IsAuxNormFunctor (an auxiliary norm, with continuity, in every covering model). On the half-space bundle ℤ/2 ⋉ (H × ℝ), N(α,w) = a(|α|)·|w| with a = 1 on |∂C| and a = 2 elsewhere satisfies IsAuxNormBook. With Λ = Λ_v (v = −3/4), U = |C| and β = 1, every hypothesis of B holds. But any structurable Λ' equal to Λ over ∂C has a continuous model pointwise norm (≥ 3/4 at the corner), and N(Λ') ≤ 1 forces it ≤ 1/2 at the interior points (|t|, 0). The two statements also differ in three other ways. (i) B asks N(Λ) < β at every object of ∂C, which forces β > 0 on ∂C; A asks it only over |dom-supp(Λ)|. (ii) B assumes HasStrongBundleUniformizers; A does not. (iii) B uses ep-groupoid partitions of unity (AdmitsModelPartitionsOfUnity, saturated covers); A uses M-polyfold partitions of unity of a covering model, which imply the former but are not known to follow from it. Because of (i) and (ii), B ⇒ A does not hold in substance either; it holds only vacuously, by not_B, and is not included.",
+ "B_issue": "B takes the auxiliary norm as IsAuxNormBook (printed clauses without continuity). With that reading the conclusion can be impossible: not_B gives a counterexample on the half-space bundle with a norm that jumps by a factor 2 off |∂C|. This parallels the project's lemma_18_1_8_book_without_continuity. Reading the norm as IsAuxNormFunctor or IsAuxNormDirect avoids this. B's hypothesis N(Λ) < β on all of ∂C (flagged by its author) is a second, independent narrowing.",
+ "overlap": "rt_check OK on not_B, against all eleven item theorems. isBoundaryStructurableFunctor_constFunctor is an item theorem, so its proof was copied as isBSF_constFunctor from non-item lemmas (isBoundaryStructurable_sectionMulti_of_isWFunctor, bundlePull_constFunctor, isScPlusSection_modelConstSec). rt_overlap not_B: 3481 shared project theorems. They cover the half-space bundle setup, IsAuxNormBook.baseScale, isAuxNormIn_halfNorm, remark_18_4_2, remark_18_3_4, continuous_pointwiseNorm, pointwiseNorm_bundlePull_of_ne_top, mem_boundarySet_iff and isSaturated_boundarySet.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree",
+  "A_to_B": "failed",
+  "B_to_A": "failed",
+  "relation": "incomparable"
+ }
+}

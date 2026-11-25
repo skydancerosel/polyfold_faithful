@@ -1,0 +1,21 @@
+{
+ "id": "V17_113",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Universes at 0. B is (17.90) on the model of every covering family on which Θ̂ is compact tame oriented of dimension m + 1: integralVia c (d[ω]) = boundaryIntegralVia c ω (m ≥ 1) and = boundaryIntegralDim1Via c ω (n = 1). This is exactly theorem_17_6_7_all ∧ theorem_17_6_7_dim1_all (main_to_B, B_to_main). A also contains the forms with extra hypotheses (_of_epStokes, _hyp, _of_epStokes_of_family) and the forms for the integrals on C (_book, _book_hyp, _dim1_book, _book_all, _dim1_book_all; integral unfolds to integralVia at the family chosen by the tameness proof). All of these follow from B. Two kinds of conjunct do not follow from B. One is EP.stokesWithoutPartitions_all, Stokes on the ep-groupoid level for every ep-groupoid (including the effective (LUC) forms). The other is the half-plane example facts: properties, tameness, ∂Θ = 1 at an end point, and partitions of unity on the model. These are re-proved outright from non-item lemmas: Chapter 9's theorem_9_5_17_all / theorem_9_5_18_all / _dim1_all, and the copied proofs of the example. The example's Stokes identity halfPlaneArc_stokes is derived from B. These extra conjuncts are the ep-groupoid case that the text's proof cites, plus a non-degenerate witness for the hypotheses, so the two statements agree on the text's claim.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statement of halfPlaneArc_stokes contains the proof term halfPlaneArc_isTameOriented, which is an item theorem and not a _proof_ field. Every term whose type mentions A therefore reaches it. As in V10_42, A' restates that conjunct (StokesHP') with the copy halfPlaneArc_isTameOriented'. A = A' holds by rfl, and A_to_B := A'_to_B and B_to_A := B_to_A' are point-free. Plain #rt_check passes on A_to_B, B_to_A, main_to_B and B_to_main. stokesHP'_of_B needs maxHeartbeats 2000000, because the defeq integral = integralVia on the concrete half-plane GCT is slow. rt_overlap B_to_A: 6004 shared project theorems. They are the statement vocabulary (integrals, boundary measures, catFormsInfty/D, the half-plane construction) plus the lemmas of the outright re-proofs: EP.theorem_9_5_17_all, theorem_9_5_18_all and their dim1 forms (ep-level Stokes), halfPlaneArc_isTameOrientedVia, ofModel_isTameOrientedVia, halfPlaneModel_hloc, definition_17_6_5, EpGroupoid.theorem_7_5_7 and pushTheta_comparison_modelPull.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.OrientedSubcategory.theorem_17_6_7_all together with theorem_17_6_7_dim1_all (B is their conjunction)",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}
