@@ -1485,3 +1485,14 @@ import Polyfold.Examples.OrbifoldSquareInfPerturbation
 import Polyfold.Examples.OrbifoldSquareInfPositive
 import Polyfold.Examples.OrbifoldSquareInfOrientation
 import Polyfold.Examples.OrbifoldSquareInf
+import Polyfold.Examples.Path.Orientation_Linear
+import Polyfold.Examples.Path.Orientation_Space
+import Polyfold.Examples.Path.PartIII_Linearization
+import Polyfold.Examples.Path.PartII_Chapter10
+import Polyfold.Examples.Path.PartII_Chapter7
+import Polyfold.Examples.Path.PartII_Chapter9
+import Polyfold.Examples.Path.PartI_Fredholm
+import Polyfold.Examples.Path.PartI_MPolyfold
+import Polyfold.Examples.Path.PartI_ScOne
+import Polyfold.Examples.Path.PartI_Sections
+import Polyfold.Examples.Path.PartI_StrongBundle

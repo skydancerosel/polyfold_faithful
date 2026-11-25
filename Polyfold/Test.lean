@@ -33478,4 +33478,145 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Examples.OrbifoldSquareInf.π_eq_of_Λinf_pos
 #print axioms Polyfold.Examples.OrbifoldSquareInf.π_pt_ne
 
+-- Examples/Path/Orientation_Linear.lean
+#print axioms Polyfold.Examples.Path.conjDet_neg_fstR
+#print axioms Polyfold.Examples.Path.conj_neg_fstR
+#print axioms Polyfold.Examples.Path.detGenR_ne_zero
+#print axioms Polyfold.Examples.Path.exists_two_lineOrientation_trivial
+#print axioms Polyfold.Examples.Path.finrank_ker_fstR
+#print axioms Polyfold.Examples.Path.isFredholm_of_mem_segL2
+#print axioms Polyfold.Examples.Path.isFredholm_smul_id
+#print axioms Polyfold.Examples.Path.isGoodLeftProj_fstL2
+#print axioms Polyfold.Examples.Path.isIdempotentElem_projL2
+#print axioms Polyfold.Examples.Path.kerVecR.eq_1
+#print axioms Polyfold.Examples.Path.ker_projL2
+#print axioms Polyfold.Examples.Path.lemma_6_5_1_fst
+#print axioms Polyfold.Examples.Path.not_finiteDimensional_L2
+#print axioms Polyfold.Examples.Path.not_isFredholm_fstL2
+#print axioms Polyfold.Examples.Path.not_isGoodLeftProj_zero
+#print axioms Polyfold.Examples.Path.not_isLineOrientation_sign
+#print axioms Polyfold.Examples.Path.proposition_6_6_1_segment
+#print axioms Polyfold.Examples.Path.signRay.eq_1
+#print axioms Polyfold.Examples.Path.signVal_ne_zero
+#print axioms Polyfold.Examples.Path.surjective_fstR
+
+-- Examples/Path/Orientation_Space.lean
+#print axioms Polyfold.Examples.Path.harm_not_mem_oneSet_BH
+#print axioms Polyfold.Examples.Path.not_isOrientationTopology_top
+#print axioms Polyfold.Examples.Path.not_isOrientationTopology_top_sq
+#print axioms Polyfold.Examples.Path.toBase_one_eq_incl
+
+-- Examples/Path/PartIII_Linearization.lean
+#print axioms Polyfold.Examples.Path.isScFredholmSectionTame_subRestrict_sq
+#print axioms Polyfold.Examples.Path.isotropy_ne_one_sq
+#print axioms Polyfold.Examples.Path.nonempty_univ_A5
+#print axioms Polyfold.Examples.Path.paracompactSpace_pullback_univ_A5
+#print axioms Polyfold.Examples.Path.paracompactSpace_univ_A5
+#print axioms Polyfold.Examples.Path.theorem_15_1_1_functor_sq
+
+-- Examples/Path/PartII_Chapter10.lean
+#print axioms Polyfold.Examples.Path.admissible_reflIncl
+#print axioms Polyfold.Examples.Path.example935Oriented_pull_push
+#print axioms Polyfold.Examples.Path.exists_obj_reflIncl_iff
+#print axioms Polyfold.Examples.Path.mem_smoothSet_rn1
+#print axioms Polyfold.Examples.Path.not_admissible_reflConst
+#print axioms Polyfold.Examples.Path.not_isEquivalence_reflIncl
+#print axioms Polyfold.Examples.Path.not_isGeneralizedIso_constDiagram
+#print axioms Polyfold.Examples.Path.not_isLocalScDiffeo_reflConst
+#print axioms Polyfold.Examples.Path.pullTheta_constDiagram
+
+-- Examples/Path/PartII_Chapter7.lean
+#print axioms Polyfold.Examples.Path.g0_ne_one
+#print axioms Polyfold.Examples.Path.norm_three
+#print axioms Polyfold.Examples.Path.v7_17_X5_exists_naturalRep
+#print axioms Polyfold.Examples.Path.v7_17_X5_Φ_eq
+#print axioms Polyfold.Examples.Path.v7_17_X5_Φ_faithful
+#print axioms Polyfold.Examples.Path.v7_17_sections_of_not_isPreconnected
+#print axioms Polyfold.Examples.Path.v7_37_X5_g0_not_mem_trivialSet
+#print axioms Polyfold.Examples.Path.v7_80_isLUC_X5
+#print axioms Polyfold.Examples.Path.v7_84_X5_hasLUC
+#print axioms Polyfold.Examples.Path.v7_84_jumping_exists_not_hasLUC
+#print axioms Polyfold.Examples.Path.v8_19_map_zero
+#print axioms Polyfold.Examples.Path.v8_19_not_isStrongBundleMap_shift
+#print axioms Polyfold.Examples.Path.v8_2_X5_tangent_src
+
+-- Examples/Path/PartII_Chapter9.lean
+#print axioms Polyfold.Examples.Path.card_isotropy_X5_of_ne_zero
+#print axioms Polyfold.Examples.Path.card_isotropy_X5_zero
+#print axioms Polyfold.Examples.Path.v9_13_tangentSum_origin
+#print axioms Polyfold.Examples.Path.v9_2_axis_isNDimensional_one_not_zero
+#print axioms Polyfold.Examples.Path.v9_50_axis_orbitSupp_not_null
+#print axioms Polyfold.Examples.Path.v9_54_X5_count_center
+#print axioms Polyfold.Examples.Path.v9_54_X5_count_free
+#print axioms Polyfold.Examples.Path.v9_54_X5_exists
+#print axioms Polyfold.Examples.Path.v9_66_axis_not_isCompactBranched
+#print axioms Polyfold.Examples.Path.zero_mem_supp_axis2
+
+-- Examples/Path/PartI_Fredholm.lean
+#print axioms Polyfold.Examples.Path.fredholmIndex_one
+#print axioms Polyfold.Examples.Path.fredholmIndex_one_add_incl
+#print axioms Polyfold.Examples.Path.hasFiniteIndex_of_finiteDimensional
+#print axioms Polyfold.Examples.Path.linIndex_eq_finrank_sub
+#print axioms Polyfold.Examples.Path.linIndex_fst
+#print axioms Polyfold.Examples.Path.linIndex_fst_comp_inl
+#print axioms Polyfold.Examples.Path.linIndex_inl
+#print axioms Polyfold.Examples.Path.linIndex_shift_ltwo
+#print axioms Polyfold.Examples.Path.not_hasFiniteIndex_zero
+
+-- Examples/Path/PartI_MPolyfold.lean
+#print axioms Polyfold.Examples.Path.degIndex_HQ_prod
+#print axioms Polyfold.Examples.Path.degIndex_diag
+#print axioms Polyfold.Examples.Path.h0_mem_levelSet_one
+#print axioms Polyfold.Examples.Path.hpt_harmH_not_mem_levelSet_one
+#print axioms Polyfold.Examples.Path.image_RpChart
+#print axioms Polyfold.Examples.Path.instParacompactSpaceElemProdHQoFibredProductId
+#print axioms Polyfold.Examples.Path.instParacompactSpaceProdHQo
+#print axioms Polyfold.Examples.Path.isChart_RpChart
+#print axioms Polyfold.Examples.Path.isScSmoothMap_diag_inclusion
+#print axioms Polyfold.Examples.Path.isScSmoothMap_liftR_iff
+#print axioms Polyfold.Examples.Path.isScSmoothMap_liftR_sq
+#print axioms Polyfold.Examples.Path.isSubMPolyfold_diag
+#print axioms Polyfold.Examples.Path.metrizable_PH
+#print axioms Polyfold.Examples.Path.not_isScSmoothMap_const_harm
+#print axioms Polyfold.Examples.Path.not_isScSmoothMap_liftR_abs
+#print axioms Polyfold.Examples.Path.not_isSubMPolyfold_harm
+#print axioms Polyfold.Examples.Path.rep_liftR
+#print axioms Polyfold.Examples.Path.retract_id_Rc
+#print axioms Polyfold.Examples.Path.tangentMap_liftR_comp
+
+-- Examples/Path/PartI_ScOne.lean
+#print axioms Polyfold.Examples.Path.isSc1_const_iff
+#print axioms Polyfold.Examples.Path.not_isSc1_abs
+#print axioms Polyfold.Examples.Path.relOpen_univ_Rc
+#print axioms Polyfold.Examples.Path.scDeriv_const_eq_fderiv
+#print axioms Polyfold.Examples.Path.tangentMap_const
+#print axioms Polyfold.Examples.Path.tangentMap_sq
+
+-- Examples/Path/PartI_Sections.lean
+#print axioms Polyfold.Examples.Path.isFillingGerm_id_sq
+#print axioms Polyfold.Examples.Path.isScFredholmSection_param_idSec
+#print axioms Polyfold.Examples.Path.isStrongBundleRetraction_id_Rc
+#print axioms Polyfold.Examples.Path.isTameChart_chH
+#print axioms Polyfold.Examples.Path.linAt_const_one_exp
+#print axioms Polyfold.Examples.Path.linAt_id_Rc
+#print axioms Polyfold.Examples.Path.linAt_sq_sub_one
+
+-- Examples/Path/PartI_StrongBundle.lean
+#print axioms Polyfold.Examples.Path.cubeHomeo_apply
+#print axioms Polyfold.Examples.Path.cube_surjective
+#print axioms Polyfold.Examples.Path.instParacompactSpaceElemProdForallFinOfNatNatRealHObjLvlHUnivPullbackSpaceProjSnd
+#print axioms Polyfold.Examples.Path.instParacompactSpaceProdForallFinOfNatNatRealHObj
+#print axioms Polyfold.Examples.Path.isChart_chH
+#print axioms Polyfold.Examples.Path.isScSmoothSectionGerm_idSec
+#print axioms Polyfold.Examples.Path.isZeroAt_idSec_add_constSec_iff
+#print axioms Polyfold.Examples.Path.not_differentiableAt_cubeRoot
+#print axioms Polyfold.Examples.Path.not_isChart_cubeChart
+#print axioms Polyfold.Examples.Path.not_isScSmoothSectionGerm_idSec_harm
+#print axioms Polyfold.Examples.Path.not_mem_oneSet_BH_harm
+#print axioms Polyfold.Examples.Path.oneSet_BH_props
+#print axioms Polyfold.Examples.Path.principal_idSec_add_constSec
+#print axioms Polyfold.Examples.Path.principal_sec
+#print axioms Polyfold.Examples.Path.pullback_BH_snd
+#print axioms Polyfold.Examples.Path.strongBundleChart_φ_ne_cubeChart
+
 end Polyfold

@@ -96,13 +96,13 @@ unmapped = sorted((x for x in cone if x not in decl2rows), key=lambda x: (mod[x]
 
 # where the worked example checks a definition: section titles of the plain note citing its number
 tex = open(TEX).read()
-secs = [(m.start(), m.group(2)) for m in re.finditer(r'\\(sub)?section\*?\{([^}]*)\}', tex)]
+secs = [(m.start(), m.group(2)) for m in re.finditer(r'\\(sub)?section\*?\{((?:[^{}]|\{[^{}]*\})*)\}', tex)]
 def section_at(pos):
     t = None
     for s, title in secs:
         if s <= pos: t = title
     return t
-def clean(t): return re.sub(r'\$([^$]*)\$', r'\1', t).replace('\\C', 'ℂ').replace('\\ell', 'ℓ')
+def clean(t): return re.sub(r'\$([^$]*)\$', r'\1', re.sub(r'\\texorpdfstring\{([^{}]*)\}\{([^{}]*)\}', r'\1', t)).replace('\\C', 'ℂ').replace('\\ell', 'ℓ').replace('\\lambda', 'λ')
 def example_refs(q):
     nums = re.findall(r'(?:Definition|Definitions|Theorem|Proposition|Lemma|Remark) ((?:\d+\.){2}\d+)', rows[q]['book']['label'])
     found = []
@@ -136,25 +136,69 @@ w(f'This page lists exactly those items for the two formal versions of the theor
   f'of lower levels, so a reader who goes top to bottom always knows the notions a row is built from. '
   f'Each row id (V3.14, …) is an entry of the comparison page (`Exposition/Comparison.md`, or '
   f'`polyfold-beside-lean.html` in a browser), which gives the book text, the Lean declarations and the '
-  f'verdict. The last column names the section of the worked example '
-  f'(`Exposition/WorkedExample-Mathematics.pdf`) where the definition is checked on the orbifold ℂ/ℤ₅.\n\n')
+  f'verdict. The column *Examples* names the section of the worked example '
+  f'(`Exposition/WorkedExample-Mathematics.pdf`) where the definition is used on the orbifold ℂ/ℤ₅, and the '
+  f'Lean examples and non-examples of the definition, where there are any.\n\n')
 w('A whole-book version of this list, in tiers, is `Exposition/ReviewerChecklist.md`.\n\n')
 w('## 1. The statement\n\n| Row | Book | Lean declaration |\n|---|---|---|\n')
 for q, rs in rootrows.items():
     w(f"| {q} | {esc(rows[q]['book']['label'])} | " + ', '.join(f'`{short(r)}` ({fileof(mains[r][1])})' for r in rs) + ' |\n')
 w('\nRead the statement first: it names the notions the definitions below make precise.\n\n')
-w('## 2. The definitions, leaves first\n\n')
+RISKY = ('explicit', 'stronger', 'narrower', 'extra')
+risky = sorted((q for q in defrows if rows[q]['verdict'] in RISKY), key=lambda q: (rowlevel[q], rowidx[q]))
+EXF = os.path.join(HERE, 'path_examples.tsv')
+examples = collections.defaultdict(list)          # row -> [(Lean declaration, kind, what it shows)]
+if os.path.exists(EXF):
+    for line in open(EXF):
+        if line.strip() and not line.startswith('#'):
+            q, d, k, t = line.rstrip('\n').split('\t')[:4]
+            t = re.sub(r'^(existing|reused)\s*:\s*', '', t.strip(), flags=re.I).rstrip('. ')
+            examples[q].append((d, k, t[:1].upper() + t[1:]))
+lc = lambda t: t[:1].lower() + t[1:] if len(t) > 1 and t[1].islower() else t
+KINDS = (('example', 'Example'), ('non-example', 'Non-example'), ('property', 'Property'))
+def excell(q):
+    parts = []
+    ex = example_refs(q)
+    if ex: parts.append('In the worked example: ' + '; '.join(ex) + '.')
+    for k, lab in KINDS:
+        xs = [t for d, kk, t in examples[q] if kk == k]
+        if xs: parts.append(f'{lab}: {lc(xs[0])}' + (f' (+{len(xs) - 1})' if len(xs) > 1 else '') + '.')
+    return esc(' '.join(parts))
+w(f'## 2. Read first: where the formal definition differs from the text ({len(risky)} rows)\n\n'
+  'Most rows below say what the book says, in the book\'s order (verdict *as in the book*) or in an equivalent '
+  'form (*restated*). The rows of this section differ more: a hypothesis the text leaves implicit is written '
+  'out (*hypotheses explicit*), the formal notion is stronger or narrower than the text\'s, or the row is a '
+  'construction the text uses without a numbered statement (*extra*). A mismatch is most likely here, so these '
+  'rows come first; the column *What differs* is the short summary of the comparison page.\n\n'
+  '| Row | Book | Level | Verdict | What differs | Examples |\n|---|---|---|---|---|---|\n')
+for q in risky:
+    w(f"| {q} | {esc(title(q))} | {rowlevel[q]} | {VERD[rows[q]['verdict']]} | "
+      f"{esc('; '.join(rows[q].get('chips', [])))} | {excell(q)} |\n")
+w('\n## 3. All definitions, leaves first\n\n'
+  'Rows of section 2 are marked ◆.\n\n')
 for lv in range(nlev):
     rs = sorted((q for q in defrows if rowlevel[q] == lv), key=lambda q: rowidx[q])
     if not rs: continue
-    w(f'### Level {lv} ({len(rs)} row{"s" if len(rs) != 1 else ""})\n\n| Row | Book | Page | Verdict | In the worked example |\n|---|---|---|---|---|\n')
+    w(f'### Level {lv} ({len(rs)} row{"s" if len(rs) != 1 else ""})\n\n| Row | Book | Page | Verdict | Examples |\n|---|---|---|---|---|\n')
     for q in rs:
-        ex = example_refs(q)
-        w(f"| {q} | {esc(title(q))} | {page(q)} | {VERD.get(rows[q]['verdict'], rows[q]['verdict'])} | "
-          f"{esc('; '.join(ex)) if ex else ''} |\n")
+        mark = ' ◆' if q in risky else ''
+        w(f"| {q}{mark} | {esc(title(q))} | {page(q)} | {VERD.get(rows[q]['verdict'], rows[q]['verdict'])} | "
+          f"{excell(q)} |\n")
     w('\n')
+if examples:
+    w('## 4. The examples in Lean\n\n'
+      'Every example, non-example and property cited above, with its Lean declaration (files in '
+      '`Polyfold/Examples/Path/` or earlier in the library). Lean has checked each one, with only the standard '
+      'axioms. Sections 2 and 3 show the first of each kind; the number in parentheses counts the others.\n\n')
+    for q in risky + [q for q in defrows if q not in risky and examples[q]]:
+        if not examples[q]: continue
+        w(f"**{q}**, {esc(title(q))}\n\n")
+        for k, lab in KINDS:
+            for d, kk, t in examples[q]:
+                if kk == k: w(f'* {lab}: {t} (`{short(d)}`)\n')
+        w('\n')
 if unmapped:
-    w(f'## 3. Helper definitions without a row of their own ({len(unmapped)})\n\n'
+    w(f'## 5. Helper definitions without a row of their own ({len(unmapped)})\n\n'
       'Accessors, coercions, instances and auxiliary constructions that the statement reaches but that have no '
       'numbered counterpart in the book. Each is short; they are listed by file.\n\n<details><summary>The list</summary>\n\n')
     byf = collections.defaultdict(list)
@@ -165,4 +209,5 @@ if unmapped:
 open(OUT, 'w').write(''.join(out))
 print('cone constants', len(cone), 'statement rows', len(rootrows), 'definition rows', len(defrows),
       'levels', nlev, 'helpers', len(unmapped),
-      'rows with example section', sum(1 for q in defrows if example_refs(q)))
+      'rows with example section', sum(1 for q in defrows if example_refs(q)), 'risky', len(risky),
+      'risky with Lean examples', sum(1 for q in risky if examples[q]))

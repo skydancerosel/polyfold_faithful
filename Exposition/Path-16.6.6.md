@@ -4,7 +4,7 @@
 
 Lean checks every proof. To trust Theorem 16.6.6 (p. 739), a reader therefore checks two things and nothing else: that the formal statement says what the book says, and that every definition the statement uses, directly or through other definitions, is the book's notion. The lemmas and the proof in between are checked by Lean.
 
-This page lists exactly those items for the two formal versions of the theorem (index `m + 1` and index 0): 2 statement rows, then 229 definition rows in 28 levels, leaves first. A row of level 0 uses no other row on this page; a row of level k uses only rows of lower levels, so a reader who goes top to bottom always knows the notions a row is built from. Each row id (V3.14, …) is an entry of the comparison page (`Exposition/Comparison.md`, or `polyfold-beside-lean.html` in a browser), which gives the book text, the Lean declarations and the verdict. The last column names the section of the worked example (`Exposition/WorkedExample-Mathematics.pdf`) where the definition is checked on the orbifold ℂ/ℤ₅.
+This page lists exactly those items for the two formal versions of the theorem (index `m + 1` and index 0): 2 statement rows, then 229 definition rows in 28 levels, leaves first. A row of level 0 uses no other row on this page; a row of level k uses only rows of lower levels, so a reader who goes top to bottom always knows the notions a row is built from. Each row id (V3.14, …) is an entry of the comparison page (`Exposition/Comparison.md`, or `polyfold-beside-lean.html` in a browser), which gives the book text, the Lean declarations and the verdict. The column *Examples* names the section of the worked example (`Exposition/WorkedExample-Mathematics.pdf`) where the definition is used on the orbifold ℂ/ℤ₅, and the Lean examples and non-examples of the definition, where there are any.
 
 A whole-book version of this list, in tiers, is `Exposition/ReviewerChecklist.md`.
 
@@ -17,27 +17,85 @@ A whole-book version of this list, in tiers, is `Exposition/ReviewerChecklist.md
 
 Read the statement first: it names the notions the definitions below make precise.
 
-## 2. The definitions, leaves first
+## 2. Read first: where the formal definition differs from the text (49 rows)
+
+Most rows below say what the book says, in the book's order (verdict *as in the book*) or in an equivalent form (*restated*). The rows of this section differ more: a hypothesis the text leaves implicit is written out (*hypotheses explicit*), the formal notion is stronger or narrower than the text's, or the row is a construction the text uses without a numbered statement (*extra*). A mismatch is most likely here, so these rows come first; the column *What differs* is the short summary of the comparison page.
+
+| Row | Book | Level | Verdict | What differs | Examples |
+|---|---|---|---|---|---|
+| V1.28 | The Fredholm index and its invariance under compact perturbations | 0 | extra | not in Mathlib; additivity under composition; homotopy $u + tk$, not Kato's proof | Example: the projection R^2 -> R has index 1 (+3). Non-example: the zero map of the infinite-dimensional space N ->0 R has no finite index. Property: between finite-dimensional spaces the index of any linear map is dim E - dim F (+4). |
+| V3.6 | The section algebra and the sum rule | 0 | extra | not stated in the text; first use of the [1]-compatibility | Example: sum rule: e -> (e, e) plus e -> (e, b) has principal part z -> z + b. Property: that sum vanishes exactly at e = -b (+1). |
+| V6.20 | Lemma 6.5.1 | 0 | stronger | $T$ need not be Fredholm | Example: lemma 6.5.1 holds for the projection ℝ × ℓ² → ℝ with P = 1, Y = ℝ × 0, an operator that is not Fredholm. Non-example: the projection ℝ × ℓ² → ℝ is not Fredholm (its kernel 0 × ℓ² is infinite-dimensional) (+1). |
+| V6.29 | Orientations of line bundles over simply connected bases | 0 | extra | the theorem contractibility needs; lifting criterion | In the worked example: The orientation. Example: the trivial line bundle ℝ × ℝ → ℝ has exactly two orientations. Non-example: the ray field of ℝ × ℝ → ℝ that is positive on [0,∞) and negative on (−∞,0) is not an orientation (+1). Property: over a connected base two orientations that agree on one fibre agree everywhere. |
+| V1.13 | Sc¹ maps and the tangent map | 2 | hypotheses explicit | the family $Df$ is explicit; uniqueness of $Df(x)$ proved; finite dim. and compact-open: V1.34–V1.35; not norm continuous: a $c_0$ example | Example: for f(x) = x^2, Tf(x, h) = (x^2, 2xh) (+1). Non-example: X -> \|x\| is sc0 but not sc1. Property: on R with the constant sc-structure, sc1 is C1 (+4). |
+| V6.30 | Proposition 6.6.1: $\mathrm{DET}$ over a convex set of Fredholm operators | 5 | stronger | any nonempty convex $C$ | In the worked example: The orientation. Example: DET over the segment {t·1 : 1 ≤ t ≤ 2} of Fredholm operators of ℓ² is a line bundle with exactly two orientations (+1). Non-example: DET(ℓ², ℓ²) over all Fredholm operators (not a convex set) has no orientation. |
+| V3.7 | Definition 3.1.4: fillers | 6 | hypotheses explicit | sc¹ of the map in (3) required; principal parts only | In the worked example: The section; The polyfold bundle and the section. Example: for the identity retraction of R <\| R, g(x) = x^2 fills itself (+1). Non-example: A tame compatible chart in which no map fills any principal part (ker Dr(0) /= 0, rho(0) = 1). Property: the map in (3) is an sc1 germ for every sc-smooth germ g. |
+| V3.78 | The linearization at a zero in charts, and its chart independence | 7 | extra | presupposed by the text; at zeros only; transition smooth on $[0]$ only | In the worked example: General position. Example: at the zero 1 of k(x) = x^2 - 1 the linearization is h -> 2h. Non-example: away from zeros: the section x -> (x, 1) has linearization 0 in one chart and h -> e^z h in the chart (x,h) -> (x, e^x h). Property: for the identity retraction of R <\| R the linearization at z of k is h -> k'(z) h (+1). |
+| V2.13 | Definition 2.3.8: sc-smooth maps between M-polyfolds | 10 | hypotheses explicit | continuity a field; on open subsets $U$ | Example: X -> x^2 is an sc-smooth map of the M-polyfold R. Non-example: X -> \|x\| is continuous but not sc-smooth on the M-polyfold R (+1). Property: A map of the M-polyfold R (one chart) is sc-smooth iff it is C-infinity (+2). |
+| V2.52 | Products of M-polyfolds (exposition Lemma 4.D) | 10 | extra | used silently in the text; additivity needs tameness; in general $\le$ | Example: for X = [0,inf) + H: d_X(0) = 1, X x X is tame and d_{X x X}(0,0) = 2. Property: D_{X x Y} <= d_X + d_Y for arbitrary X, Y (+1). |
+| V2.57 | Definition 2.6.4: strong bundle charts, compatibility, atlases | 10 | hypotheses explicit | $\varphi$ a chart of $X$; $[1]$-transition condition stated; equivalence relation; charts restrict | Example: the chart (x, h) -> (x, h) of U <\| F is a strong bundle chart compatible with the atlas. Non-example: X -> cube root is a homeomorphism of R onto the retract R but not a chart of the M-polyfold R (+1). Property: equivalence of strong bundle atlases is an equivalence relation. |
+| V2.17 | Theorem 2.3.10: $X$, $X_m$ and $X_\infty$ are metrizable | 11 | hypotheses explicit | no added hypothesis; topology of $X_\infty$ defined; Smirnov via pulled-back partitions | Example: for the M-polyfold H: H, H_1 and H_infinity are metrizable, and H_infinity is not all of H. Property: the topology of X_infinity is the initial topology of the inclusions into the X_m. |
+| V2.64 | The space $Y[1]$ and the inclusion $Y[1] \to Y[0]$ | 11 | extra | not in the text; paracompact by Smirnov | Example: for H <\| H: (0, 0) is in Y[1], Y[1] is metrizable, Y[1] -> Y[0] is sc-smooth. Non-example: (e, (1/(k+1))) is not in Y[1] for H <\| H. Property: (e, h) is in Y[1] iff h is in H_1. |
+| V4.6 | Remark 4.1.3: $1_1^0$, $1_0^1$, and the constant structure | 11 | stronger | “$X^1 \ne X$”: an example (G.31); $X = X_1$ in place of $X_0 = X_\infty$; even the topologies of $X$, $X^1$ differ | Example: an M-polyfold with X_0 = X_∞ for which 1_0^1 : X → X^1 is not sc-smooth, so X^1 ≠ X (+1). Property: for a finite-dimensional V the constant structure satisfies (const V)^1 = const V and the lift is the identity (+1). |
+| V2.24 | Proposition 2.3.19 (1), (2): the M-polyfold structure of a sub-M-polyfold | 12 | hypotheses explicit | subspace topology on $A$; paracompactness: instance argument | Example: the diagonal of X x X, X = [0,inf) + H, is a sub-M-polyfold. Non-example: the single non-smooth point (1/(k+1)) of H is not a sub-M-polyfold. Property: the inclusion of the diagonal into X x X is sc-smooth. |
+| V2.53 | Proposition 2.5.20: fibred products | 12 | stronger | $d = d_Y$ (and $d_X = d_Y$) without tameness; inverse of $\pi_2$ corrected | Example: the fibred product of id and id on X = [0,inf) + H has d = 1 at the corner, half of d_{X x X} = 2. Property: D of the fibred product equals d_Y, without tameness. |
+| V2.61 | Proposition 2.6.8: the pull-back of a strong bundle is a strong bundle | 12 | hypotheses explicit | paracompactness of $f^*Y$ proved; atlas of all pulled-back charts; $P' : f^*Y \to Y$ a strong bundle map | Example: the pull-back of H <\| H along R x H -> H is a strong bundle with the pulled-back charts, and its projection to H <\| H is a strong bundle map. |
+| V3.5 | Definition 3.1.3: sc-smooth section germs | 12 | hypotheses explicit | chart compatible with the atlas | Example: E -> (e, e) on H <\| H is an sc-smooth section germ at 0. Non-example: it is not an sc-smooth section germ at the non-smooth point (1/(k+1)). Property: equivalent atlases have the same compatible charts, so the notion is atlas independent (+1). |
+| V5.2 | The fibre $(Y_{0,1})_x$ and its chart norm $\|\cdot\|_1$ | 12 | extra | fibre built, not assumed; $\|h\|_1$ depends on the chart | Example: in the bundle H ◁ H over the weighted ℓ² space, (Y_{0,1})_x is complete for the chart norm \|·\|_1. Non-example: the vector (1/(k+1))_k of the fibre over 0 of H ◁ H is not in (Y_{0,1})_0, a proper subspace. Property: the chart norm \|h\|_1 is the H_1-norm of the level-1 lift of h (+1). |
+| V8.19 | Strong bundle maps over M-polyfolds and the pull-back along $s$ | 12 | extra | global strong bundle maps: a reading; pull-back: Part I’s, properties added | In the worked example: The strong bundle. Example: (z, w) ↦ (ζ^g z, ζ^{2g} w) is a strong bundle map of ℂ × ℂ → ℂ covering z ↦ ζ^g z (+2). Non-example: the fibre translation (x, v) ↦ (x, v + e), e ≠ 0, covers the identity but is not a strong bundle map. Property: A strong bundle map of trivial bundles sends the zero of each fibre to the zero of the image fibre (+3). |
+| V2.22 | The tangent map $Tf : TX \to TY$ and the chain rule | 13 | extra | defined only implicitly in the text | In the worked example: General position. Example: for f(x) = x^2 on the M-polyfold R: T(f o f) = Tf o Tf and Tf covers f. Property: T(id) = id (+1). |
+| V3.91 | Theorem 3.1.21: parametrized perturbations | 13 | stronger | no tameness; “readily verified”: proved; translation charts of $\mathbb R^n$ | Example: theorem 3.1.21 for e -> (e, e) on H <\| H and the sc+-section e -> (e, b): F(r, e) = (e, e + rb) is sc-Fredholm on the pull-back over R x H. Property: theorem 3.1.21 without tameness. |
+| V3.103 | Definitions 3.6.3, 3.6.4 and 3.6.6 in a tame chart | 13 | hypotheses explicit | the hypotheses of §3.6; tame chart of the germ data; 2021: reading of “tame strong bundle”; satisfiable; filler chart-bound | In the worked example: The section; Theorem 16.6.6 for the example. Example: the chart (e, h) -> (e, h) of H <\| H is a tame strong bundle chart (+1). Non-example: A strong bundle retraction whose base retraction is not tame. Property: tame germ data are germ data (+1). |
+| V8.2 | Tangents of maps defined on open sets and of local sc-diffeomorphisms | 13 | extra | Part I: tangents of global maps only; built from the charts | Example: for ℤ/5 ⋉ ℂ, the tangent of the source map s is a surjective local sc-diffeomorphism (+2). Property: for a globally sc-smooth map, the tangent on an open set agrees with Part I's tangent (+2). |
+| V7.17 | Theorem 7.1.13: the natural representation of $G_x$ | 14 | stronger | $U$ connected; $\Gamma$ sc-smooth slice by slice; a datum, not a hypothesis | In the worked example: Why multisections are needed; The five-branch multisection. Example: in ℤ/5 ⋉ ℂ, G_0 has five elements and a natural representation by rotations exists inside every neighbourhood of 0. Non-example: on a disconnected open U ∋ 0, two continuous sections of s through ζ at 0 differ, so connectedness is what pins Γ down. Property: every natural representation of G_0 in ℤ/5 ⋉ ℂ is the rotation action y ↦ ζ^g y (+3). |
+| V9.2 | Remark 9.1.1 and the last paragraph of Definition 9.1.2, the dimension of a submanifold and $n$-dimensional $\Theta$ | 14 | narrower | dimension measured in a chart; local constancy: every M-polyfold; footnote: $\Theta \ne 0$; G.93 closed | In the worked example: Theorem 16.6.6 for the example. Example: 1_L (L the x-axis of ℝ²) is 1-dimensional and not 0-dimensional (+1). Non-example: the zero functor is both 0- and 1-dimensional, so the footnote needs Theta nonzero. Property: A nonzero n-dimensional Theta has only the one dimension n (+3). |
+| V7.37 | The subgroup $T_x$ of the elements acting trivially | 15 | stronger | one $N$ for every $U(x)$ inside it; intrinsic: $s = t$ near $g$; $\varphi T_x \varphi^{-1} = T_y$ proved | Example: in ℤ/5 ⋉ ℂ every T_x is trivial, although G_0 ≅ ℤ/5 (+1). Non-example: the generator ζ of G_0 in ℤ/5 ⋉ ℂ is an isotropy element not in T_0. Property: intrinsic form: g ∈ T_x iff s = t near g in the morphism space (+3). |
+| V7.80 | Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property | 15 | stronger | new in the 2021 edition; independent of the natural representation; satisfiable, also non-effective | Example: ℤ/5 ⋉ ℂ has the local unique continuation property (+2). Non-example: some ep-groupoid does not have the local unique continuation property (Remark 7.2.19) (+1). Property: the property does not depend on the choice of U(x): it holds iff every natural representation has it (+1). |
+| V7.84 | Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3 | 15 | stronger | new in the 2021 edition; every natural representation | Example: every natural representation of ℤ/5 ⋉ ℂ, of any size, has the property of Definition 7.4.1. Non-example: in the ep-groupoid of Remark 7.2.19 some natural representation lacks the property. Property: proposition 7.4.2: under (LUC) a larger natural representation has the property (+3). |
+| V9.13 | Theorem 9.2.1, the tangent section $T_\Theta$ | 15 | hypotheses explicit | independence proved: `theorem_9_2_1_general`; functoriality by transport | Example: two branching structures at 0 in ℝ² with no common sheet near 0 have the same tangent sum. Non-example: the sheets of two structures for one Theta need not agree near the point, so independence is not automatic. Property: every branched Theta has a tangent section T_Theta with pi o T_Theta = Id and no extra hypothesis (+2). |
+| V6.53 | Transferring orientations between chart points | 16 | extra | chart-free objects compared in charts | In the worked example: The orientation. Property: the transfer det(S) ≅ det(S) with A = −1, Γ = −1 is −1 on det of the projection ℝ × ℝ → ℝ: chart changes can reverse orientation (+3). |
+| V10.18 | Theorem 10.2.2, $X \times_Y Z$ is an ep-groupoid | 16 | stronger | $F$ local sc-diffeo on objects suffices; triple-product structures (G.116 closed); properness read with closure | Example: the inclusion of the trivial groupoid R into Z/2 ⋉ R gives an admissible pair, though neither functor is an equivalence (+3). Non-example: two constant functors of Z/2 ⋉ R form a pair that is not admissible (+1). Property: objects of R ×_{Z/2 ⋉ R} R over (x, z) exist exactly when z = x or z = -x (+3). |
+| V9.50 | Lemma 9.5.2, measure zero does not depend on the choice | 17 | hypotheses explicit | $n$-dimensional $\Theta$: all structures; across dimensions: does not hold as read; null sets: Hausdorff measure in charts | Example: the axis of ℝ² has 2-dimensional measure zero. Non-example: the same axis does not have 1-dimensional measure zero (+2). Property: the measure-zero sets of an n-dimensional Theta form a sigma-ideal (+1). |
+| V9.52 | Definition 9.5.14 and measure zero in $\partial S$, p. 448 | 17 | hypotheses explicit | uses the independence (Thm 9.2.1); boundary null sets: Hausdorff, all n | Example: for Theta = 1 on the half-line, the boundary support is nonempty (+1). Non-example: the boundary support of the half-line is not null (+2). Property: the boundary support is contained in the support (+1). |
+| V11.21 | Theorem 11.3.5, orientations under generalized isomorphisms | 17 | hypotheses explicit | Theorem 9.2.1’s independence assumed; carried to $f_*\Theta$, $f^*\Theta'$ | Example: the oriented branched ep⁺-subgroupoid of Example 9.3.5 on R², pushed forward along the identity class (+1). Property: pulling back the pushed-forward oriented structure of Example 9.3.5 returns it (+1). |
+| V6.48 | Theorem 6.6.11: local propagation | 18 | narrower | the section $f$ supplied; contractibility: 2021 form (G.61); (1′) and a reparametrization; paths on $[0, 1]$: `_interval`; text's hypotheses: `theorem_6_6_11_loc`; bump functions read pointwise | In the worked example: The orientation; General lemmas. Example: local propagation for the graph section of a smooth map over the half space [0,∞) × ℝ^m, fibres ℝ^k, k ≠ 0 (+1). Non-example: with germ data not covering a tame retraction, the index jumps along a path through a corner and no neighbourhood has local propagation. Property: push-forwards along two paths joined by an sc-smooth homotopy with fixed end points agree (+1). |
+| V9.66 | Theorems 9.5.4 and 9.5.5, Definition 9.5.6, (9.21) and Lemma 9.5.7, for an integration of forms over the sheets | 18 | hypotheses explicit | sc-forms: countably many graph charts; "oriented, tame" read as hloc; forms: a vector space $\Omega$ | In the worked example: Theorem 16.6.6 for the example; General lemmas. Example: 1 on the unit circle is compact, tame, 1-dimensional and oriented, with all hypotheses of Theorem 9.5.4 (+3). Non-example: 1_L is 1-dimensional and branched but not compact, so outside Theorem 9.5.4. Property: there is exactly one linear map to signed measures given locally by the 1/#G_x formula (+1). |
+| V9.54 | Lemma 9.5.9, restrictions in the $G_x$-case: the isotropy and set part | 19 | hypotheses explicit | measure identity for a SheetIntegration; isotropy and set part proved; sheets in countably many graph charts | Example: in ℤ/5 ⋉ ℂ at x = 0 and y nonzero: stabilizer trivial and #(G_x/H)#G_y = 5*1 = 5 (+2). Property: #(G_x/H)#G_y = #G_x for every natural representation (+3). |
+| V11.16 | Push-forward and pull-back along generalized maps, pp. 536–537 | 19 | stronger | $f^*$ for every generalized map; Theorem 10.3.19 not used | Example: pulling Θ₀ = 1_{0} back along the generalized map given by the constant functor at 0 gives the constant function 1 (+2). Property: that generalized map is not a generalized isomorphism, so f^* is used beyond isomorphisms (+2). |
+| V15.10 | Local sc⁺-sections and $f - s$ on $W\|_O$ (prerequisite for §15.2) | 19 | extra | tame germ data | Example: for f(z) = z² and the constant sc⁺-section s(z) = (z, −b), f − s is sc-Fredholm with tame germ data on W\|_ℂ. Property: for a constant sc⁺-section s, f − s is f plus a constant section. |
+| V6.71 | The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17 | 20 | hypotheses explicit | $X_\infty$: topology of Theorem 2.3.10; local propagation = `orPush` on segments; paths on $\mathbb R$; on $[0, 1]$: V6.75 | In the worked example: The orientation. Example: for f(z) = z² on ℤ/5 ⋉ ℂ, O_f carries a topology with Hausdorff, (1), (2), (3). Non-example: over a nonempty X_∞ the indiscrete topology on O_f never has the properties of Theorem 6.6.17 (not Hausdorff) (+1). Property: each fibre Or_x^f of π_f : O_f → X_∞ has exactly two points. |
+| V9.70 | Remark 9.5.20: the effective isotropy of a boundary point, and the two readings of the boundary integral | 20 | hypotheses explicit | M-polyfold structure: our choice; $\phi$ smooth near $[-1, 1]$; $-4/3$ in $X$, $-4$ in $\partial X$ | Example: the integral of df over Theta-hat is -4/3 with the weights of X. Non-example: the integral read in the boundary groupoid is -4, not -4/3. Property: #G^eff is 3 at the boundary points read in X and 1 read in the boundary (+2). |
+| V10.58 | the push-forward along a diagram and its independence of the representative | 20 | stronger | the text's step as printed; any two diagrams with the same \|D\| | Example: over Z/3 × R ⇉ R, the diagrams [1] and [Inv] have the same \|D\| and the same push-forward of sections (+1). Non-example: [1] and [Inv] have equal \|D\| but are different classes, so no chain of refinements links them. Property: the diagram through Inv and the identity diagram induce the same map of orbit spaces (+2). |
+| V15.2 | Theorem 15.1.1, the linearization $T(f,\Lambda)$ is well defined | 20 | narrower | well-definedness: stronger; functor property: level-1 points (stronger); Fredholm summands: chart reading, `hft`; section functor $X_1 \to \mathrm{GrF}(X)$ | In the worked example: Why multisections are needed. Example: T(f,Λ5 c)(g·z) = (g,z)_* T(f,Λ5 c)(z) for every morphism of ℤ/5 ⋉ ℂ, f(z) = z². Non-example: no equivariant single-valued sc⁺-perturbation of z² is transversal at 0, which is why multisections are needed. Property: the isotropy morphisms (g,0), g ≠ 1, are not units, so the functor property is tested off the units (+2). |
+| V15.51 | Theorem 15.4.1, the canonical oriented lift of $T_\Theta$ | 20 | narrower | index $n$ on supp: not in Assumption 15.4; in $\widehat{Gr}(X)$ and at a chart point; weak: naturality on units only; bump functions read pointwise | In the worked example: Theorem 16.6.6 for the example; General lemmas. Example: the hypotheses of Theorem 15.4.1 hold on a half-space bundle with boundary (+1). Property: each perturbed zero of Λ5(r²) has signed weight +1/5 for the canonical orientation (+1). |
+| V6.73 | Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff | 21 | extra | construction left to the reader; any transport data | In the worked example: The orientation. Example: the constructed topology on O_f for f(z) = z² is Hausdorff with π_f a local homeomorphism. Non-example: the indiscrete topology on the same O_f is not Hausdorff. Property: for any local transport data the topology on O_f is Hausdorff (+1). |
+| V16.59 | The zero $0_z$ of a fibre of $p$ | 24 | hypotheses explicit | model independence proved; zero section built (V16.81; G.167 settled); witness on $\|\mathbb R \times \mathbb R\| \to \|\mathbb R\|$ | In the worked example: The section. Example: the zero section z ↦ 0_z of \|ℝ × ℝ\| → \|ℝ\| as an sc⁺-section. Property: its function is z ↦ 0_z (+3). |
+| V16.80 | The text before Theorem 16.6.6: $\theta = \lambda \circ f$ is a branched suborbifold | 25 | hypotheses explicit | generic: one model = every model; orientation: independent of the model | In the worked example: Auxiliary norm, compactness control, and control of λ_c; Theorem 16.6.6 for the example; Orientation, perturbation and count; Remarks on scope. Example: theorem 16.6.6 for f(z) = z² on ℤ/5 ⋉ ℂ (+2). Non-example: A single-valued sc⁺-section functor of ℤ/5 ⋉ ℂ is never transversal to z² at 0. Property: general position in one model is general position in every model (+1). |
+| V16.77 | Definition 16.6.5, orientations of sc-Fredholm sections | 27 | hypotheses explicit | Part I's hypotheses on one representative; independent of 𝔄 and of the diagram; rests on Proposition 10.4.7; bump functions read pointwise | In the worked example: The orientation. Example: an orientation of f(z) = z² on ℤ/5 ⋉ ℂ, a base with isotropy (+2). Property: the orientation of one representative transports to exactly one orientation of every other (+1). |
+
+## 3. All definitions, leaves first
+
+Rows of section 2 are marked ◆.
 
 ### Level 0 (11 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V1.1 | Sc-structures, sc-Banach spaces, sums and level shifts | p. 5 | restated | The ep-groupoid; The sc-Hilbert space |
-| V1.28 | The Fredholm index and its invariance under compact perturbations |  | extra |  |
+| V1.1 | Sc-structures, sc-Banach spaces, sums and level shifts | p. 5 | restated | In the worked example: The ep-groupoid; The sc-Hilbert space. |
+| V1.28 ◆ | The Fredholm index and its invariance under compact perturbations |  | extra | Example: the projection R^2 -> R has index 1 (+3). Non-example: the zero map of the infinite-dimensional space N ->0 R has no finite index. Property: between finite-dimensional spaces the index of any linear map is dim E - dim F (+4). |
 | V2.60 | Definition 2.6.7: the pull-back bundle | p. 69 | as in the book |  |
-| V3.6 | The section algebra and the sum rule | p. 98 | extra |  |
+| V3.6 ◆ | The section algebra and the sum rule | p. 98 | extra | Example: sum rule: e -> (e, e) plus e -> (e, b) has principal part z -> z + b. Property: that sum vanishes exactly at e = -b (+1). |
 | V6.2 | The determinant lines $\lambda(E)$, $\lambda^*(E)$ and the maps $\lambda(\Phi)$ | pp. 241–243 | as in the book |  |
 | V6.10 | Definition 6.4.3: good left-projections and their order |  | as in the book |  |
-| V6.20 | Lemma 6.5.1 | p. 258 | stronger |  |
-| V6.29 | Orientations of line bundles over simply connected bases |  | extra | The orientation |
+| V6.20 ◆ | Lemma 6.5.1 | p. 258 | stronger | Example: lemma 6.5.1 holds for the projection ℝ × ℓ² → ℝ with P = 1, Y = ℝ × 0, an operator that is not Fredholm. Non-example: the projection ℝ × ℓ² → ℝ is not Fredholm (its kernel 0 × ℓ² is infinite-dimensional) (+1). |
+| V6.29 ◆ | Orientations of line bundles over simply connected bases |  | extra | In the worked example: The orientation. Example: the trivial line bundle ℝ × ℝ → ℝ has exactly two orientations. Non-example: the ray field of ℝ × ℝ → ℝ that is positive on [0,∞) and negative on (−∞,0) is not an orientation (+1). Property: over a connected base two orientations that agree on one fibre agree everywhere. |
 | V6.32 | Proposition 6.6.3: the neighbourhoods $U(x)$ | p. 263 | restated |  |
 | V6.40 | The stabilization sign $(-1)^{\dim\operatorname{coker}T}$ | p. 256 | restated |  |
 | V7.1 | Definition 7.1.1: groupoids, $\mathrm{mor}(x, y)$ and the orbit space $\|X\|$ | pp. 287–288 | restated |  |
 
 ### Level 1 (12 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V1.2 | Sc-operators and sc-isomorphisms | p. 6 | restated |  |
 | V1.4 | Sc-subspaces, sc-complements, sc-splittings | p. 7 | restated |  |
@@ -45,7 +103,7 @@ Read the statement first: it names the notions the definitions below make precis
 | V1.12 | The tangent of a tuple | p. 9 | as in the book |  |
 | V2.55 | Definition 2.6.2: local strong bundle retracts and $K[i]$ | pp. 65–67 | restated |  |
 | V6.5 | Four-term exact sequences and the isomorphism $\Phi_E$ of (91) |  | as in the book |  |
-| V6.8 | Definition 6.4.1: the determinant $\det(T)$ | p. 246 | as in the book | The orientation |
+| V6.8 | Definition 6.4.1: the determinant $\det(T)$ | p. 246 | as in the book | In the worked example: The orientation. |
 | V6.21 | Lemma 6.5.2: the kernels $\ker(PS)$ form a trivial bundle | p. 259 | restated |  |
 | V6.35 | Continuous families of subspaces and their determinant lines | pp. 264–266 | restated |  |
 | V6.45 | Lemma 6.6.8: adding sections does not change the push-forward | p. 267 | restated |  |
@@ -54,11 +112,11 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 2 (8 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V1.3 | Sc⁺-operators are sc-compact | p. 7 | as in the book |  |
 | V1.10 | Partial quadrants and the tuples $(U, C, E)$ | p. 9 | as in the book |  |
-| V1.13 | Sc¹ maps and the tangent map | pp. 10 | hypotheses explicit |  |
+| V1.13 ◆ | Sc¹ maps and the tangent map | pp. 10 | hypotheses explicit | Example: for f(x) = x^2, Tf(x, h) = (x^2, 2xh) (+1). Non-example: X -> \|x\| is sc0 but not sc1. Property: on R with the constant sc-structure, sc1 is C1 (+4). |
 | V2.39 | Definition 2.5.1: $C_e$ and $E_e$ | p. 53 | restated |  |
 | V3.1 | Definition 3.1.1: sc-germs of neighbourhoods | p. 89 | restated |  |
 | V6.12 | Proposition 6.4.10: the exact sequence $E(T, P)$ | p. 249 | as in the book |  |
@@ -67,7 +125,7 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 3 (5 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V1.14 | Sc^k and sc-smooth maps | p. 10 | as in the book |  |
 | V1.21 | The degeneracy index of a partial quadrant | p. 14 | as in the book |  |
@@ -77,45 +135,45 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 4 (4 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.1 | Sc-smooth retractions | p. 21 | as in the book |  |
-| V3.10 | Definition 3.1.7: basic germs | p. 94 | restated | The section |
+| V3.10 | Definition 3.1.7: basic germs | p. 94 | restated | In the worked example: The section. |
 | V6.18 | Proposition 6.4.15: the isomorphism $\iota_\varphi : \det(T) \to \det(T_\varphi)$ | p. 257 | restated |  |
 | V6.24 | $\mathrm{DET}(E, F)$ and the charts $\gamma_{(T,P,\varepsilon)}$ |  | restated |  |
 
 ### Level 5 (7 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.2 | Sc-smooth retracts | p. 22 | as in the book |  |
 | V2.3 | Proposition 2.1.11: the tangent of a retract does not depend on the retraction | p. 26 | as in the book |  |
 | V2.9 | Proposition 2.3.1: open subsets and images of retractions are retracts | p. 33 | restated |  |
-| V2.40 | Definition 2.5.2: tame retractions and tame retracts | pp. 53–54 | restated | The ep-groupoid; The section |
+| V2.40 | Definition 2.5.2: tame retractions and tame retracts | pp. 53–54 | restated | In the worked example: The ep-groupoid; The section. |
 | V2.54 | Definition 2.6.1: $U \triangleleft F$, strong bundle maps and retractions | p. 65 | restated |  |
-| V6.30 | Proposition 6.6.1: $\mathrm{DET}$ over a convex set of Fredholm operators | p. 263 | stronger | The orientation |
+| V6.30 ◆ | Proposition 6.6.1: $\mathrm{DET}$ over a convex set of Fredholm operators | p. 263 | stronger | In the worked example: The orientation. Example: DET over the segment {t·1 : 1 ≤ t ≤ 2} of Fredholm operators of ℓ² is a line bundle with exactly two orientations (+1). Non-example: DET(ℓ², ℓ²) over all Fredholm operators (not a convex set) has no orientation. |
 | V6.39 | Continuation and the isomorphisms $\Phi_{E_t}$ | pp. 265–269 | restated |  |
 
 ### Level 6 (3 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.4 | Definition 2.1.12: the tangent $TO$ of a retract | p. 26 | as in the book |  |
 | V2.6 | Definition 2.1.14: sc-smooth maps between retracts and the tangent map | pp. 27–28 | restated |  |
-| V3.7 | Definition 3.1.4: fillers | p. 91 | hypotheses explicit | The section; The polyfold bundle and the section |
+| V3.7 ◆ | Definition 3.1.4: fillers | p. 91 | hypotheses explicit | In the worked example: The section; The polyfold bundle and the section. Example: for the identity retraction of R <\| R, g(x) = x^2 fills itself (+1). Non-example: A tame compatible chart in which no map fills any principal part (ker Dr(0) /= 0, rho(0) = 1). Property: the map in (3) is an sc1 germ for every sc-smooth germ g. |
 
 ### Level 7 (4 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.8 | The tangent functor on retracts | pp. 27–30 | restated |  |
 | V2.10 | Definition 2.3.2: charts and their compatibility | pp. 34 | restated |  |
-| V3.78 | The linearization at a zero in charts, and its chart independence | p. 136 | extra | General position |
+| V3.78 ◆ | The linearization at a zero in charts, and its chart independence | p. 136 | extra | In the worked example: General position. Example: at the zero 1 of k(x) = x^2 - 1 the linearization is h -> 2h. Non-example: away from zeros: the section x -> (x, 1) has linearization 0 in one chart and h -> e^z h in the chart (x,h) -> (x, e^x h). Property: for the identity retraction of R <\| R the linearization at z of k is h -> k'(z) h (+1). |
 | V4.80 | The Whitney sum $\oplus_kTX$, in the local models | p. 195 | restated |  |
 
 ### Level 8 (3 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.11 | Definition 2.3.3: sc-smooth atlases and their equivalence | p. 35 | as in the book |  |
 | V4.75 | Principal parts in a chart; the bracket does not depend on the chart | p. 201 | as in the book |  |
@@ -123,114 +181,114 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 9 (1 row)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.12 | Definition 2.3.4: M-polyfolds | p. 35 | restated |  |
 
 ### Level 10 (8 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V2.13 | Definition 2.3.8: sc-smooth maps between M-polyfolds | p. 37 | hypotheses explicit |  |
+| V2.13 ◆ | Definition 2.3.8: sc-smooth maps between M-polyfolds | p. 37 | hypotheses explicit | Example: X -> x^2 is an sc-smooth map of the M-polyfold R. Non-example: X -> \|x\| is continuous but not sc-smooth on the M-polyfold R (+1). Property: A map of the M-polyfold R (one chart) is sc-smooth iff it is C-infinity (+2). |
 | V2.14 | The filtration $X_m$ of an M-polyfold |  | restated |  |
 | V2.26 | Definition 2.4.1: the degeneracy index $d_X$ | p. 44 | restated |  |
 | V2.43 | Definition 2.5.7: tame M-polyfolds | p. 57 | as in the book |  |
-| V2.52 | Products of M-polyfolds (exposition Lemma 4.D) |  | extra |  |
-| V2.57 | Definition 2.6.4: strong bundle charts, compatibility, atlases | pp. 67–68 | hypotheses explicit |  |
+| V2.52 ◆ | Products of M-polyfolds (exposition Lemma 4.D) |  | extra | Example: for X = [0,inf) + H: d_X(0) = 1, X x X is tame and d_{X x X}(0,0) = 2. Property: D_{X x Y} <= d_X + d_Y for arbitrary X, Y (+1). |
+| V2.57 ◆ | Definition 2.6.4: strong bundle charts, compatibility, atlases | pp. 67–68 | hypotheses explicit | Example: the chart (x, h) -> (x, h) of U <\| F is a strong bundle chart compatible with the atlas. Non-example: X -> cube root is a homeomorphism of R onto the retract R but not a chart of the M-polyfold R (+1). Property: equivalence of strong bundle atlases is an equivalence relation. |
 | V2.96 | Proposition 2.3.17 for $i = 2$; raising the index of an sc-diffeomorphism | p. 42 | restated |  |
 | V9.43 | Definition 9.4.5, sets of measure zero | p. 431 | restated |  |
 
 ### Level 11 (11 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.16 | The level $X^1$ is an M-polyfold |  | restated |  |
-| V2.17 | Theorem 2.3.10: $X$, $X_m$ and $X_\infty$ are metrizable | p. 37 | hypotheses explicit |  |
+| V2.17 ◆ | Theorem 2.3.10: $X$, $X_m$ and $X_\infty$ are metrizable | p. 37 | hypotheses explicit | Example: for the M-polyfold H: H, H_1 and H_infinity are metrizable, and H_infinity is not all of H. Property: the topology of X_infinity is the initial topology of the inclusions into the X_m. |
 | V2.18 | Definition 2.3.12: tangent vectors in a chart | pp. 38–39 | restated |  |
 | V2.23 | Definition 2.3.18: sub-M-polyfolds | p. 42 | as in the book |  |
 | V2.28 | Proposition 2.4.4: $d_X$ is invariant under sc-diffeomorphism germs | p. 45 | restated |  |
 | V2.58 | Definition 2.6.5: strong bundles; $Y[0]$, $Y[1]$, $P[0]$, $P[1]$ and $Y_{m,k}$ |  | restated |  |
-| V2.64 | The space $Y[1]$ and the inclusion $Y[1] \to Y[0]$ | p. 68 | extra |  |
+| V2.64 ◆ | The space $Y[1]$ and the inclusion $Y[1] \to Y[0]$ | p. 68 | extra | Example: for H <\| H: (0, 0) is in Y[1], Y[1] is metrizable, Y[1] -> Y[0] is sc-smooth. Non-example: (e, (1/(k+1))) is not in Y[1] for H <\| H. Property: (e, h) is in Y[1] iff h is in H_1. |
 | V3.68 | Theorem 3.1.22: the implicit function theorem, interior case (narrower form) | p. 100 | restated |  |
-| V4.6 | Remark 4.1.3: $1_1^0$, $1_0^1$, and the constant structure | p. 176 | stronger |  |
+| V4.6 ◆ | Remark 4.1.3: $1_1^0$, $1_0^1$, and the constant structure | p. 176 | stronger | Example: an M-polyfold with X_0 = X_∞ for which 1_0^1 : X → X^1 is not sc-smooth, so X^1 ≠ X (+1). Property: for a finite-dimensional V the constant structure satisfies (const V)^1 = const V and the lift is the identity (+1). |
 | V4.77 | Lemma 4.5.1 on M-polyfolds: sc-smooth maps relate brackets | p. 201 | restated |  |
-| V6.56 | Transport along paths from local push-forwards | p. 273 | restated | The orientation |
+| V6.56 | Transport along paths from local push-forwards | p. 273 | restated | In the worked example: The orientation. |
 
 ### Level 12 (10 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.19 | Definition 2.3.14: the tangent space $TX$ | pp. 39 | restated |  |
-| V2.24 | Proposition 2.3.19 (1), (2): the M-polyfold structure of a sub-M-polyfold | pp. 42–44 | hypotheses explicit |  |
-| V2.53 | Proposition 2.5.20: fibred products | pp. 63–64 | stronger |  |
+| V2.24 ◆ | Proposition 2.3.19 (1), (2): the M-polyfold structure of a sub-M-polyfold | pp. 42–44 | hypotheses explicit | Example: the diagonal of X x X, X = [0,inf) + H, is a sub-M-polyfold. Non-example: the single non-smooth point (1/(k+1)) of H is not a sub-M-polyfold. Property: the inclusion of the diagonal into X x X is sc-smooth. |
+| V2.53 ◆ | Proposition 2.5.20: fibred products | pp. 63–64 | stronger | Example: the fibred product of id and id on X = [0,inf) + H has d = 1 at the corner, half of d_{X x X} = 2. Property: D of the fibred product equals d_Y, without tameness. |
 | V2.59 | Definition 2.6.6: sections of a strong bundle | p. 68 | restated |  |
-| V2.61 | Proposition 2.6.8: the pull-back of a strong bundle is a strong bundle | p. 69 | hypotheses explicit |  |
-| V3.5 | Definition 3.1.3: sc-smooth section germs | p. 91 | hypotheses explicit |  |
+| V2.61 ◆ | Proposition 2.6.8: the pull-back of a strong bundle is a strong bundle | p. 69 | hypotheses explicit | Example: the pull-back of H <\| H along R x H -> H is a strong bundle with the pulled-back charts, and its projection to H <\| H is a strong bundle map. |
+| V3.5 ◆ | Definition 3.1.3: sc-smooth section germs | p. 91 | hypotheses explicit | Example: E -> (e, e) on H <\| H is an sc-smooth section germ at 0. Non-example: it is not an sc-smooth section germ at the non-smooth point (1/(k+1)). Property: equivalent atlases have the same compatible charts, so the notion is atlas independent (+1). |
 | V4.9 | Definition 4.1.4: sc⁺-retractions | p. 176 | restated |  |
-| V5.2 | The fibre $(Y_{0,1})_x$ and its chart norm $\|\cdot\|_1$ |  | extra |  |
-| V8.19 | Strong bundle maps over M-polyfolds and the pull-back along $s$ | pp. 373–396 | extra | The strong bundle |
+| V5.2 ◆ | The fibre $(Y_{0,1})_x$ and its chart norm $\|\cdot\|_1$ |  | extra | Example: in the bundle H ◁ H over the weighted ℓ² space, (Y_{0,1})_x is complete for the chart norm \|·\|_1. Non-example: the vector (1/(k+1))_k of the fibre over 0 of H ◁ H is not in (Y_{0,1})_0, a proper subspace. Property: the chart norm \|h\|_1 is the H_1-norm of the level-1 lift of h (+1). |
+| V8.19 ◆ | Strong bundle maps over M-polyfolds and the pull-back along $s$ | pp. 373–396 | extra | In the worked example: The strong bundle. Example: (z, w) ↦ (ζ^g z, ζ^{2g} w) is a strong bundle map of ℂ × ℂ → ℂ covering z ↦ ζ^g z (+2). Non-example: the fibre translation (x, v) ↦ (x, v + e), e ≠ 0, covers the identity but is not a strong bundle map. Property: A strong bundle map of trivial bundles sends the zero of each fibre to the zero of the image fibre (+3). |
 | V10.27 | Theorem 10.4.5: push-forward and pull-back of section functors | pp. 500–501 | restated |  |
 
 ### Level 13 (18 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V2.21 | $TX$ is an M-polyfold and $p : TX \to X^1$ is sc-smooth | p. 39 | restated |  |
-| V2.22 | The tangent map $Tf : TX \to TY$ and the chain rule |  | extra | General position |
+| V2.22 ◆ | The tangent map $Tf : TX \to TY$ and the chain rule |  | extra | In the worked example: General position. Example: for f(x) = x^2 on the M-polyfold R: T(f o f) = Tf o Tf and Tf covers f. Property: T(id) = id (+1). |
 | V2.78 | Definitions 2.5.18 and 2.5.19: tame sub-M-polyfolds | p. 62 | restated |  |
 | V2.94 | Theorem 2.3.16: $p : TX \to X^1$ as an sc-smooth bundle | p. 40 | restated |  |
 | V2.95 | Proposition 2.3.17 for $i = 1$: $T(X^1) \equiv (TX)^1$ | p. 42 | restated |  |
-| V2.111 | Definition 2.5.8: $T^R_xX$ and $C_xX$ of an M-polyfold; $C_xX$ a partial quadrant, $d_X(x) = d_{C_xX}(0_x)$ | p. 57 | restated | General position |
+| V2.111 | Definition 2.5.8: $T^R_xX$ and $C_xX$ of an M-polyfold; $C_xX$ a partial quadrant, $d_X(x) = d_{C_xX}(0_x)$ | p. 57 | restated | In the worked example: General position. |
 | V3.13 | Definition 3.1.11: sc-Fredholm germs | p. 96 | restated |  |
-| V3.91 | Theorem 3.1.21: parametrized perturbations | p. 100 | stronger |  |
-| V3.98 | The Fredholm index along the solution set and along paths (Definition 6.2.1, Proposition 6.2.2) | pp. 237–240 | restated | The section |
-| V3.103 | Definitions 3.6.3, 3.6.4 and 3.6.6 in a tame chart | p. 135 | hypotheses explicit | The section; Theorem 16.6.6 for the example |
+| V3.91 ◆ | Theorem 3.1.21: parametrized perturbations | p. 100 | stronger | Example: theorem 3.1.21 for e -> (e, e) on H <\| H and the sc+-section e -> (e, b): F(r, e) = (e, e + rb) is sc-Fredholm on the pull-back over R x H. Property: theorem 3.1.21 without tameness. |
+| V3.98 | The Fredholm index along the solution set and along paths (Definition 6.2.1, Proposition 6.2.2) | pp. 237–240 | restated | In the worked example: The section. |
+| V3.103 ◆ | Definitions 3.6.3, 3.6.4 and 3.6.6 in a tame chart | p. 135 | hypotheses explicit | In the worked example: The section; Theorem 16.6.6 for the example. Example: the chart (e, h) -> (e, h) of H <\| H is a tame strong bundle chart (+1). Non-example: A strong bundle retraction whose base retraction is not tame. Property: tame germ data are germ data (+1). |
 | V4.29 | Definition 4.2.1: smooth finite-dimensional submanifolds | p. 184 | as in the book |  |
 | V4.81 | Definition 4.4.1: sc-differential $k$-forms | p. 195 | restated |  |
 | V4.89 | The pull-back $f^*$ and $f^*\circ d_Y = d_X\circ f^*$ (p. 198) | p. 198 | as in the book |  |
 | V5.3 | Definition 5.1.1: auxiliary norms | p. 205 | restated |  |
-| V6.1 | Definition 6.2.1: the space $\mathrm{Lin}(f, x)$ of linearizations | p. 239 | restated | The section |
-| V7.3 | Definition 7.1.3: ep-groupoids | pp. 288 | restated | The ep-groupoid |
-| V8.2 | Tangents of maps defined on open sets and of local sc-diffeomorphisms | pp. 358–364 | extra |  |
+| V6.1 | Definition 6.2.1: the space $\mathrm{Lin}(f, x)$ of linearizations | p. 239 | restated | In the worked example: The section. |
+| V7.3 | Definition 7.1.3: ep-groupoids | pp. 288 | restated | In the worked example: The ep-groupoid. |
+| V8.2 ◆ | Tangents of maps defined on open sets and of local sc-diffeomorphisms | pp. 358–364 | extra | Example: for ℤ/5 ⋉ ℂ, the tangent of the source map s is a surjective local sc-diffeomorphism (+2). Property: for a globally sc-smooth map, the tangent on an open set agrees with Part I's tangent (+2). |
 | V8.37 | Definition 8.5.9: proper strong bundle covering functors | p. 394 | restated |  |
 
 ### Level 14 (15 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V3.45 | Definitions 3.6.3 and 3.6.4: sc-Fredholm germs and sections of a tame strong bundle (restated) | p. 135 | as in the book | The section; Theorem 16.6.6 for the example |
+| V3.45 | Definitions 3.6.3 and 3.6.4: sc-Fredholm germs and sections of a tame strong bundle (restated) | p. 135 | as in the book | In the worked example: The section; Theorem 16.6.6 for the example. |
 | V4.82 | The directed system (4.4) and Definition 4.4.2: $\Omega^k_\infty(X)$, $\Omega^*_\infty(X)$ | p. 195 | as in the book |  |
 | V4.85 | The exterior derivative $d : \Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$ on an M-polyfold | p. 197 | restated |  |
 | V7.5 | Definition 7.1.4: the local sc-diffeomorphism $\hat\varphi$ and the tangent $T\varphi$ |  | restated |  |
 | V7.7 | Definition 7.1.5: the induced degeneracy index $d_{\|X\|}$ | p. 290 | as in the book |  |
 | V7.9 | Definition 7.1.7: the category $\mathcal{EP}$ | p. 290 | restated |  |
-| V7.17 | Theorem 7.1.13: the natural representation of $G_x$ | p. 293 | stronger | Why multisections are needed; The five-branch multisection |
+| V7.17 ◆ | Theorem 7.1.13: the natural representation of $G_x$ | p. 293 | stronger | In the worked example: Why multisections are needed; The five-branch multisection. Example: in ℤ/5 ⋉ ℂ, G_0 has five elements and a natural representation by rotations exists inside every neighbourhood of 0. Non-example: on a disconnected open U ∋ 0, two continuous sections of s through ζ at 0 differ, so connectedness is what pins Γ down. Property: every natural representation of G_0 in ℤ/5 ⋉ ℂ is the rotation action y ↦ ζ^g y (+3). |
 | V7.52 | Proposition 7.3.9: index lifting | p. 327 | restated |  |
 | V7.53 | Definition 7.5.1: paracompact orbit spaces; Remark 7.5.2 | p. 340 | restated |  |
 | V7.59 | Definition 7.5.8: proper subsets and the properness property | p. 342 | as in the book |  |
 | V8.1 | The tangent data (8.1)–(8.9): $T(X, \mathbf X)$ and its structure maps | pp. 357–359 | restated |  |
-| V8.20 | Definition 8.3.1: strong bundles over ep-groupoids | p. 375 | restated | The strong bundle |
-| V9.1 | Definition 9.1.2, branched ep⁺-subgroupoids | p. 402 | restated | Theorem 16.6.6 for the example |
-| V9.2 | Remark 9.1.1 and the last paragraph of Definition 9.1.2, the dimension of a submanifold and $n$-dimensional $\Theta$ | p. 402 | narrower | Theorem 16.6.6 for the example |
+| V8.20 | Definition 8.3.1: strong bundles over ep-groupoids | p. 375 | restated | In the worked example: The strong bundle. |
+| V9.1 | Definition 9.1.2, branched ep⁺-subgroupoids | p. 402 | restated | In the worked example: Theorem 16.6.6 for the example. |
+| V9.2 ◆ | Remark 9.1.1 and the last paragraph of Definition 9.1.2, the dimension of a submanifold and $n$-dimensional $\Theta$ | p. 402 | narrower | In the worked example: Theorem 16.6.6 for the example. Example: 1_L (L the x-axis of ℝ²) is 1-dimensional and not 0-dimensional (+1). Non-example: the zero functor is both 0- and 1-dimensional, so the footnote needs Theta nonzero. Property: A nonzero n-dimensional Theta has only the one dimension n (+3). |
 | V9.12 | the tangent space $T_yM$ of a submanifold, set form and chart form | p. 409 | restated |  |
 
 ### Level 15 (18 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V6.31 | Definition 6.6.2: $\mathrm{DET}(f, x)$, $\mathrm{Or}^f_x$ and the category $\mathcal O_f$ | p. 263 | restated | The orientation |
-| V7.37 | The subgroup $T_x$ of the elements acting trivially | p. 310 | stronger |  |
-| V7.80 | Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property | p. 321 | stronger |  |
-| V7.84 | Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3 | p. 328 | stronger |  |
+| V6.31 | Definition 6.6.2: $\mathrm{DET}(f, x)$, $\mathrm{Or}^f_x$ and the category $\mathcal O_f$ | p. 263 | restated | In the worked example: The orientation. |
+| V7.37 ◆ | The subgroup $T_x$ of the elements acting trivially | p. 310 | stronger | Example: in ℤ/5 ⋉ ℂ every T_x is trivial, although G_0 ≅ ℤ/5 (+1). Non-example: the generator ζ of G_0 in ℤ/5 ⋉ ℂ is an isotropy element not in T_0. Property: intrinsic form: g ∈ T_x iff s = t near g in the morphism space (+3). |
+| V7.80 ◆ | Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property | p. 321 | stronger | Example: ℤ/5 ⋉ ℂ has the local unique continuation property (+2). Non-example: some ep-groupoid does not have the local unique continuation property (Remark 7.2.19) (+1). Property: the property does not depend on the choice of U(x): it holds iff every natural representation has it (+1). |
+| V7.84 ◆ | Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3 | p. 328 | stronger | Example: every natural representation of ℤ/5 ⋉ ℂ, of any size, has the property of Definition 7.4.1. Non-example: in the ep-groupoid of Remark 7.2.19 some natural representation lacks the property. Property: proposition 7.4.2: under (LUC) a larger natural representation has the property (+3). |
 | V8.3 | Theorem 8.1.1: the tangent ep-groupoid $T(X, \mathbf X)$ | p. 359 | restated |  |
 | V8.15 | Definition 8.1.13: natural transformations and natural equivalence | p. 367 | as in the book |  |
-| V8.22 | The functorial picture: the ep-groupoid $(W, \mathbf W)$ | pp. 375–377 | restated | The strong bundle |
+| V8.22 | The functorial picture: the ep-groupoid $(W, \mathbf W)$ | pp. 375–377 | restated | In the worked example: The strong bundle. |
 | V8.26 | Definition 8.3.4: section functors | pp. 379 | restated |  |
-| V8.46 | Definition 8.3.5: auxiliary norms on strong bundles over ep-groupoids | p. 379 | restated | Auxiliary norm, compactness control, and control of \texorpdfstring{\lambda_c |
+| V8.46 | Definition 8.3.5: auxiliary norms on strong bundles over ep-groupoids | p. 379 | restated | In the worked example: Auxiliary norm, compactness control, and control of λ_c. |
 | V9.6 | Definition 9.1.6, closed and compact $\Theta$ | p. 404 | as in the book |  |
-| V9.13 | Theorem 9.2.1, the tangent section $T_\Theta$ | p. 409 | hypotheses explicit |  |
+| V9.13 ◆ | Theorem 9.2.1, the tangent section $T_\Theta$ | p. 409 | hypotheses explicit | Example: two branching structures at 0 in ℝ² with no common sheet near 0 have the same tangent sum. Non-example: the sheets of two structures for one Theta need not agree near the point, so independence is not automatic. Property: every branched Theta has a tangent section T_Theta with pi o T_Theta = Id and no extra hypothesis (+2). |
 | V9.29 | the category $\widehat{\mathrm{Gr}}(X)$ and oriented tangent spaces, p. 422 | p. 422 | restated |  |
-| V9.34 | Definition 9.3.6, tame $\Theta$ | p. 425 | restated | Theorem 16.6.6 for the example |
+| V9.34 | Definition 9.3.6, tame $\Theta$ | p. 425 | restated | In the worked example: Theorem 16.6.6 for the example. |
 | V10.1 | Definition 10.1.1, equivalences and the class $E$ | p. 461 | as in the book |  |
 | V10.15 | Proposition 10.1.18, (SLUC) under equivalences | p. 476 | as in the book |  |
 | V10.17 | Definition 10.2.1, the weak fibred product | p. 477 | restated |  |
@@ -239,45 +297,45 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 16 (13 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V6.41 | The push-forward $o_1 = \varphi_*o_0$ along stabilized kernels |  | restated |  |
-| V6.53 | Transferring orientations between chart points | p. 273 | extra | The orientation |
+| V6.53 ◆ | Transferring orientations between chart points | p. 273 | extra | In the worked example: The orientation. Property: the transfer det(S) ≅ det(S) with A = −1, Γ = −1 is −1 on det of the projection ℝ × ℝ → ℝ: chart changes can reverse orientation (+3). |
 | V7.41 | The isotropy of $X_R$ and Definition 7.2.15: the effective isotropy group | p. 319 | as in the book |  |
-| V7.88 | Definitions 7.4.5 and 7.4.7: (ZHOU), $T_x^\infty$ and (ZHOU') | p. 331 | restated | The ep-groupoid |
+| V7.88 | Definitions 7.4.5 and 7.4.7: (ZHOU), $T_x^\infty$ and (ZHOU') | p. 331 | restated | In the worked example: The ep-groupoid. |
 | V8.13 | Theorem 8.1.11: the tangent of an sc-smooth functor | pp. 365–367 | as in the book |  |
 | V8.24 | Definition 8.3.3: strong bundle functors | p. 378 | restated |  |
 | V8.53 | Definition 8.2.1: sc-differential forms on ep-groupoids, $\Omega^k_{ep}(X)$ and $\Omega^*_{ep,\infty}(X)$ | pp. 372–373 | as in the book |  |
-| V9.30 | Definition 9.3.2, orientations of $\Theta$ | p. 423 | restated | Theorem 16.6.6 for the example; General lemmas |
+| V9.30 | Definition 9.3.2, orientations of $\Theta$ | p. 423 | restated | In the worked example: Theorem 16.6.6 for the example; General lemmas. |
 | V9.49 | Definition 9.5.1, sets of measure zero in $S = \|\mathrm{supp}(\Theta)\|$ | p. 437 | restated |  |
-| V10.18 | Theorem 10.2.2, $X \times_Y Z$ is an ep-groupoid | p. 477 | stronger |  |
+| V10.18 ◆ | Theorem 10.2.2, $X \times_Y Z$ is an ep-groupoid | p. 477 | stronger | Example: the inclusion of the trivial groupoid R into Z/2 ⋉ R gives an admissible pair, though neither functor is an equivalence (+3). Non-example: two constant functors of Z/2 ⋉ R form a pair that is not admissible (+1). Property: objects of R ×_{Z/2 ⋉ R} R over (x, z) exist exactly when z = x or z = -x (+3). |
 | V10.28 | Definition 10.4.8, natural equivalence of strong bundle functors | p. 502 | restated |  |
 | V10.33 | Definition 10.3.1, diagrams and refinements | p. 484 | restated |  |
-| V15.50 | Oriented formal sums $\widehat{Gr}_F(x)$ | p. 701 | restated | Theorem 16.6.6 for the example; General lemmas |
+| V15.50 | Oriented formal sums $\widehat{Gr}_F(x)$ | p. 701 | restated | In the worked example: Theorem 16.6.6 for the example; General lemmas. |
 
 ### Level 17 (12 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V6.43 | Push-forward data along paths |  | restated |  |
 | V8.54 | Definition 8.2.2: the sc-de Rham complex $(\Omega^*_{ep,\infty}(X), d)$ | p. 373 | as in the book |  |
-| V9.50 | Lemma 9.5.2, measure zero does not depend on the choice | p. 437 | hypotheses explicit |  |
+| V9.50 ◆ | Lemma 9.5.2, measure zero does not depend on the choice | p. 437 | hypotheses explicit | Example: the axis of ℝ² has 2-dimensional measure zero. Non-example: the same axis does not have 1-dimensional measure zero (+2). Property: the measure-zero sets of an n-dimensional Theta form a sigma-ideal (+1). |
 | V9.51 | Definition 9.5.3 and the remark after it, the σ-algebra $L(S)$ | p. 438 | restated |  |
-| V9.52 | Definition 9.5.14 and measure zero in $\partial S$, p. 448 | p. 448 | hypotheses explicit |  |
+| V9.52 ◆ | Definition 9.5.14 and measure zero in $\partial S$, p. 448 | p. 448 | hypotheses explicit | Example: for Theta = 1 on the half-line, the boundary support is nonempty (+1). Non-example: the boundary support of the half-line is not null (+2). Property: the boundary support is contained in the support (+1). |
 | V10.19 | Theorem 10.2.2, $F$ an equivalence | pp. 477–478 | as in the book |  |
 | V10.22 | Definition 10.4.1, strong bundle equivalences | p. 496 | restated |  |
 | V10.35 | Definition 10.3.3, common refinements | p. 485 | as in the book |  |
 | V10.38 | Lemma 10.3.6, the orbit map of a diagram | p. 488 | as in the book |  |
 | V11.10 | Lemma 11.2.2 and Definition 11.2.3, forms along an equivalence | p. 527 | restated |  |
-| V11.21 | Theorem 11.3.5, orientations under generalized isomorphisms | p. 539 | hypotheses explicit |  |
+| V11.21 ◆ | Theorem 11.3.5, orientations under generalized isomorphisms | p. 539 | hypotheses explicit | Example: the oriented branched ep⁺-subgroupoid of Example 9.3.5 on R², pushed forward along the identity class (+1). Property: pulling back the pushed-forward oriented structure of Example 9.3.5 returns it (+1). |
 | V16.1 | Definition 16.1.1, polyfold structures | p. 705 | as in the book |  |
 
 ### Level 18 (6 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V6.48 | Theorem 6.6.11: local propagation | pp. 271–273 | narrower | The orientation; General lemmas |
-| V9.66 | Theorems 9.5.4 and 9.5.5, Definition 9.5.6, (9.21) and Lemma 9.5.7, for an integration of forms over the sheets | p. 438 | hypotheses explicit | Theorem 16.6.6 for the example; General lemmas |
+| V6.48 ◆ | Theorem 6.6.11: local propagation | pp. 271–273 | narrower | In the worked example: The orientation; General lemmas. Example: local propagation for the graph section of a smooth map over the half space [0,∞) × ℝ^m, fibres ℝ^k, k ≠ 0 (+1). Non-example: with germ data not covering a tame retraction, the index jumps along a path through a corner and no neighbourhood has local propagation. Property: push-forwards along two paths joined by an sc-smooth homotopy with fixed end points agree (+1). |
+| V9.66 ◆ | Theorems 9.5.4 and 9.5.5, Definition 9.5.6, (9.21) and Lemma 9.5.7, for an integration of forms over the sheets | p. 438 | hypotheses explicit | In the worked example: Theorem 16.6.6 for the example; General lemmas. Example: 1 on the unit circle is compact, tame, 1-dimensional and oriented, with all hypotheses of Theorem 9.5.4 (+3). Non-example: 1_L is 1-dimensional and branched but not compact, so outside Theorem 9.5.4. Property: there is exactly one linear map to signed measures given locally by the 1/#G_x formula (+1). |
 | V10.23 | the pull-back and the push-forward, (10.15)–(10.17) and (10.22) | pp. 496–498 | restated |  |
 | V10.31 | Definition 10.4.11, the category $\mathcal{SEP}$ | p. 503 | restated |  |
 | V10.37 | Definition 10.3.5, equivalence of diagrams | p. 486 | restated |  |
@@ -285,110 +343,500 @@ Read the statement first: it names the notions the definitions below make precis
 
 ### Level 19 (11 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V6.57 | Theorem 6.6.13: the functor $\Gamma_f$ |  | restated | The orientation |
-| V8.48 | Definition 8.4.2: the local regularity property of a strong bundle | p. 382 | as in the book | The strong bundle |
-| V9.54 | Lemma 9.5.9, restrictions in the $G_x$-case: the isotropy and set part | p. 442 | hypotheses explicit |  |
+| V6.57 | Theorem 6.6.13: the functor $\Gamma_f$ |  | restated | In the worked example: The orientation. |
+| V8.48 | Definition 8.4.2: the local regularity property of a strong bundle | p. 382 | as in the book | In the worked example: The strong bundle. |
+| V9.54 ◆ | Lemma 9.5.9, restrictions in the $G_x$-case: the isotropy and set part | p. 442 | hypotheses explicit | Example: in ℤ/5 ⋉ ℂ at x = 0 and y nonzero: stabilizer trivial and #(G_x/H)#G_y = 5*1 = 5 (+2). Property: #(G_x/H)#G_y = #G_x for every natural representation (+3). |
 | V9.67 | Theorems 9.5.15 and 9.5.16, the canonical boundary measures | p. 449 | restated |  |
 | V10.39 | Definition 10.3.7, the map $\|[d]\|$ | p. 488 | as in the book |  |
 | V10.41 | Definition 10.3.9, generalized maps and isomorphisms | p. 489 | as in the book |  |
 | V10.51 | the diagrams of strong bundles, refinements and equivalence | p. 504 | as in the book |  |
-| V11.16 | Push-forward and pull-back along generalized maps, pp. 536–537 | pp. 536–537 | stronger |  |
+| V11.16 ◆ | Push-forward and pull-back along generalized maps, pp. 536–537 | pp. 536–537 | stronger | Example: pulling Θ₀ = 1_{0} back along the generalized map given by the constant functor at 0 gives the constant function 1 (+2). Property: that generalized map is not a generalized isomorphism, so f^* is used beyond isomorphisms (+2). |
 | V11.31 | Multisection functors along a strong bundle equivalence; Lemma 11.5.2 | p. 548 | restated |  |
 | V15.1 | The preamble of §15.1: $\mathrm{GrF}(x)$, $\varphi_*$ and the category $\mathrm{GrF}(X)$ | p. 683 | restated |  |
-| V15.10 | Local sc⁺-sections and $f - s$ on $W\|_O$ (prerequisite for §15.2) | p. 689 | extra |  |
+| V15.10 ◆ | Local sc⁺-sections and $f - s$ on $W\|_O$ (prerequisite for §15.2) | p. 689 | extra | Example: for f(z) = z² and the constant sc⁺-section s(z) = (z, −b), f − s is sc-Fredholm with tame germ data on W\|_ℂ. Property: for a constant sc⁺-section s, f − s is f plus a constant section. |
 
 ### Level 20 (11 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V6.55 | $\mathrm{Or}^f_x$ in a chosen chart |  | restated | The orientation |
-| V6.71 | The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17 | pp. 274–275 | hypotheses explicit | The orientation |
-| V9.70 | Remark 9.5.20: the effective isotropy of a boundary point, and the two readings of the boundary integral | pp. 451–452 | hypotheses explicit |  |
+| V6.55 | $\mathrm{Or}^f_x$ in a chosen chart |  | restated | In the worked example: The orientation. |
+| V6.71 ◆ | The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17 | pp. 274–275 | hypotheses explicit | In the worked example: The orientation. Example: for f(z) = z² on ℤ/5 ⋉ ℂ, O_f carries a topology with Hausdorff, (1), (2), (3). Non-example: over a nonempty X_∞ the indiscrete topology on O_f never has the properties of Theorem 6.6.17 (not Hausdorff) (+1). Property: each fibre Or_x^f of π_f : O_f → X_∞ has exactly two points. |
+| V9.70 ◆ | Remark 9.5.20: the effective isotropy of a boundary point, and the two readings of the boundary integral | pp. 451–452 | hypotheses explicit | Example: the integral of df over Theta-hat is -4/3 with the weights of X. Non-example: the integral read in the boundary groupoid is -4, not -4/3. Property: #G^eff is 3 at the boundary points read in X and 1 read in the boundary (+2). |
 | V10.43 | Proposition 10.3.11, $\|g \circ f\| = \|g\| \circ \|f\|$ | p. 490 | as in the book |  |
 | V10.52 | $[D]$ covers $[d]$; the map $\|[D]\|$ | p. 504 | as in the book |  |
 | V10.56 | Definition 10.5.2, generalized strong bundle isomorphisms | p. 506 | as in the book |  |
-| V10.58 | the push-forward along a diagram and its independence of the representative | p. 507 | stronger |  |
+| V10.58 ◆ | the push-forward along a diagram and its independence of the representative | p. 507 | stronger | Example: over Z/3 × R ⇉ R, the diagrams [1] and [Inv] have the same \|D\| and the same push-forward of sections (+1). Non-example: [1] and [Inv] have equal \|D\| but are different classes, so no chain of refinements links them. Property: the diagram through Inv and the identity diagram induce the same map of orbit spaces (+2). |
 | V11.12 | Definition 11.2.7, forms along generalized maps | p. 532 | as in the book |  |
 | V11.20 | Lemma 11.3.4 with (11.8) and (11.9), section functors of $\widehat{Gr}$ | p. 539 | restated |  |
-| V15.2 | Theorem 15.1.1, the linearization $T(f,\Lambda)$ is well defined | pp. 684–687 | narrower | Why multisections are needed |
-| V15.51 | Theorem 15.4.1, the canonical oriented lift of $T_\Theta$ | p. 702 | narrower | Theorem 16.6.6 for the example; General lemmas |
+| V15.2 ◆ | Theorem 15.1.1, the linearization $T(f,\Lambda)$ is well defined | pp. 684–687 | narrower | In the worked example: Why multisections are needed. Example: T(f,Λ5 c)(g·z) = (g,z)_* T(f,Λ5 c)(z) for every morphism of ℤ/5 ⋉ ℂ, f(z) = z². Non-example: no equivariant single-valued sc⁺-perturbation of z² is transversal at 0, which is why multisections are needed. Property: the isotropy morphisms (g,0), g ≠ 1, are not units, so the functor property is tested off the units (+2). |
+| V15.51 ◆ | Theorem 15.4.1, the canonical oriented lift of $T_\Theta$ | p. 702 | narrower | In the worked example: Theorem 16.6.6 for the example; General lemmas. Example: the hypotheses of Theorem 15.4.1 hold on a half-space bundle with boundary (+1). Property: each perturbed zero of Λ5(r²) has signed weight +1/5 for the canonical orientation (+1). |
 
 ### Level 21 (9 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V6.73 | Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff | p. 275 | extra | The orientation |
+| V6.73 ◆ | Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff | p. 275 | extra | In the worked example: The orientation. Example: the constructed topology on O_f for f(z) = z² is Hausdorff with π_f a local homeomorphism. Non-example: the indiscrete topology on the same O_f is not Hausdorff. Property: for any local transport data the topology on O_f is Hausdorff (+1). |
 | V10.59 | Theorem 10.5.4: push-forward along a generalized strong bundle isomorphism | pp. 507–508 | restated |  |
 | V11.22 | Definition 11.3.6 and (11.10), oriented branched ep⁺-subgroupoids | p. 541 | restated |  |
 | V12.22 | Lemma 12.5.1, morphisms act on the linearizations | p. 592 | restated |  |
 | V12.23 | Definition 12.5.2, the orientation bundle $O_f$ | p. 593 | restated |  |
-| V15.8 | Definition 15.1.7, the linearization of $\Lambda \circ f$ | p. 687 | restated | Why multisections are needed |
-| V15.52 | Definition 15.4.2, the canonical orientation $\hat T_{((f,o),\Lambda)}$ | p. 702 | restated | Theorem 16.6.6 for the example |
+| V15.8 | Definition 15.1.7, the linearization of $\Lambda \circ f$ | p. 687 | restated | In the worked example: Why multisections are needed. |
+| V15.52 | Definition 15.4.2, the canonical orientation $\hat T_{((f,o),\Lambda)}$ | p. 702 | restated | In the worked example: Theorem 16.6.6 for the example. |
 | V16.2 | Definition 16.1.2, equivalent polyfold structures | p. 707 | as in the book |  |
 | V16.39 | Definition 16.3.3, equivalence of strong polyfold bundle structures | pp. 722–723 | as in the book |  |
 
 ### Level 22 (6 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V11.32 | Proposition 11.5.3, multisection functors along generalized strong bundle isomorphisms | p. 548 | restated |  |
-| V12.25 | Definition 12.5.4, orientations of sc-Fredholm functors | p. 594 | restated | The orientation; Orientation, perturbation and count |
-| V15.24 | Definition 15.3.5, general position | p. 693 | restated | Why multisections are needed; General position |
+| V12.25 | Definition 12.5.4, orientations of sc-Fredholm functors | p. 594 | restated | In the worked example: The orientation; Orientation, perturbation and count. |
+| V15.24 | Definition 15.3.5, general position | p. 693 | restated | In the worked example: Why multisections are needed; General position. |
 | V16.4 | Definition 16.1.3, polyfolds | p. 707 | as in the book |  |
 | V16.8 | Lemma 16.1.13, the degeneracy index does not depend on the structure | p. 712 | as in the book |  |
 | V16.42 | Definition 16.3.4, strong polyfold bundles | p. 723 | as in the book |  |
 
 ### Level 23 (7 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V16.9 | Definition 16.1.14, the degeneracy index of a polyfold | p. 712 | as in the book |  |
 | V16.20 | Definition 16.2.5, sc-differential forms on a polyfold | p. 720 | as in the book |  |
 | V16.22 | Definition 16.4.1, branched suborbifolds of a polyfold | p. 730 | as in the book |  |
 | V16.41 | The polyfold induced by a strong polyfold bundle | p. 723 | as in the book |  |
-| V16.48 | Definition 16.3.9 and (16.7), auxiliary norms | p. 726 | restated | Auxiliary norm, compactness control, and control of \texorpdfstring{\lambda_c |
-| V16.60 | The relation of sections before Definition 16.3.18 | pp. 728–729 | as in the book | The section |
-| V16.64 | Definition 16.5.1, sc⁺-multisections of a strong polyfold bundle | p. 733 | as in the book | The five-branch multisection |
+| V16.48 | Definition 16.3.9 and (16.7), auxiliary norms | p. 726 | restated | In the worked example: Auxiliary norm, compactness control, and control of λ_c. |
+| V16.60 | The relation of sections before Definition 16.3.18 | pp. 728–729 | as in the book | In the worked example: The section. |
+| V16.64 | Definition 16.5.1, sc⁺-multisections of a strong polyfold bundle | p. 733 | as in the book | In the worked example: The five-branch multisection. |
 
 ### Level 24 (5 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V16.10 | Definition 16.1.17, the boundary of a polyfold | p. 713 | as in the book |  |
 | V16.21 | Theorem 16.2.6, the de Rham complex of a polyfold | p. 721 | as in the book |  |
 | V16.25 | Definition 16.4.4, oriented branched suborbifolds | pp. 730–731 | as in the book |  |
-| V16.59 | The zero $0_z$ of a fibre of $p$ | p. 728 | hypotheses explicit | The section |
-| V16.61 | Definition 16.3.18, sc-smooth sections | p. 729 | as in the book | The section |
+| V16.59 ◆ | The zero $0_z$ of a fibre of $p$ | p. 728 | hypotheses explicit | In the worked example: The section. Example: the zero section z ↦ 0_z of \|ℝ × ℝ\| → \|ℝ\| as an sc⁺-section. Property: its function is z ↦ 0_z (+3). |
+| V16.61 | Definition 16.3.18, sc-smooth sections | p. 729 | as in the book | In the worked example: The section. |
 
 ### Level 25 (7 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
 | V16.23 | Definition 16.4.2, closed, compact, manifold-type, orbifold-type, tame | p. 730 | as in the book |  |
 | V16.27 | The integrals on p. 732 and their independence of the representative | p. 732 | restated |  |
-| V16.65 | Definition 16.5.2, the domain support | p. 733 | restated | Auxiliary norm, compactness control, and control of \texorpdfstring{\lambda_c |
+| V16.65 | Definition 16.5.2, the domain support | p. 733 | restated | In the worked example: Auxiliary norm, compactness control, and control of λ_c. |
 | V16.67 | (16.8), the function $n(\lambda)$ | p. 733 | as in the book |  |
-| V16.72 | The claim before Definition 16.6.1: sc-Fredholm in one representative, in all | p. 735 | as in the book | The section |
+| V16.72 | The claim before Definition 16.6.1: sc-Fredholm in one representative, in all | p. 735 | as in the book | In the worked example: The section. |
 | V16.74 | Definition 16.6.2, compact solution sets | p. 736 | as in the book |  |
-| V16.80 | The text before Theorem 16.6.6: $\theta = \lambda \circ f$ is a branched suborbifold | p. 739 | hypotheses explicit | Auxiliary norm, compactness control, and control of \texorpdfstring{\lambda_c; Theorem 16.6.6 for the example; Orientation, perturbation and count; Remarks on scope |
+| V16.80 ◆ | The text before Theorem 16.6.6: $\theta = \lambda \circ f$ is a branched suborbifold | p. 739 | hypotheses explicit | In the worked example: Auxiliary norm, compactness control, and control of λ_c; Theorem 16.6.6 for the example; Orientation, perturbation and count; Remarks on scope. Example: theorem 16.6.6 for f(z) = z² on ℤ/5 ⋉ ℂ (+2). Non-example: A single-valued sc⁺-section functor of ℤ/5 ⋉ ℂ is never transversal to z² at 0. Property: general position in one model is general position in every model (+1). |
 
 ### Level 26 (3 rows)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V16.73 | Definition 16.6.1, sc-Fredholm sections | p. 736 | as in the book | The section |
-| V16.75 | Definition 16.6.3 (new in 2021), proper and proper$<\infty$ sections | pp. 736–737 | as in the book | Auxiliary norm, compactness control, and control of \texorpdfstring{\lambda_c |
-| V16.83 | The integrals on p. 732 in dimension $0$ and their independence of the representative | p. 732 | as in the book | Theorem 16.6.6 for the example; General lemmas |
+| V16.73 | Definition 16.6.1, sc-Fredholm sections | p. 736 | as in the book | In the worked example: The section. |
+| V16.75 | Definition 16.6.3 (new in 2021), proper and proper$<\infty$ sections | pp. 736–737 | as in the book | In the worked example: Auxiliary norm, compactness control, and control of λ_c. |
+| V16.83 | The integrals on p. 732 in dimension $0$ and their independence of the representative | p. 732 | as in the book | In the worked example: Theorem 16.6.6 for the example; General lemmas. |
 
 ### Level 27 (1 row)
 
-| Row | Book | Page | Verdict | In the worked example |
+| Row | Book | Page | Verdict | Examples |
 |---|---|---|---|---|
-| V16.77 | Definition 16.6.5, orientations of sc-Fredholm sections | p. 739 | hypotheses explicit | The orientation |
+| V16.77 ◆ | Definition 16.6.5, orientations of sc-Fredholm sections | p. 739 | hypotheses explicit | In the worked example: The orientation. Example: an orientation of f(z) = z² on ℤ/5 ⋉ ℂ, a base with isotropy (+2). Property: the orientation of one representative transports to exactly one orientation of every other (+1). |
 
-## 3. Helper definitions without a row of their own (273)
+## 4. The examples in Lean
+
+Every example, non-example and property cited above, with its Lean declaration (files in `Polyfold/Examples/Path/` or earlier in the library). Lean has checked each one, with only the standard axioms. Sections 2 and 3 show the first of each kind; the number in parentheses counts the others.
+
+**V1.28**, The Fredholm index and its invariance under compact perturbations
+
+* Example: The projection R^2 -> R has index 1 (`Examples.Path.linIndex_fst`)
+* Example: The inclusion R -> R^2 has index -1 (`Examples.Path.linIndex_inl`)
+* Example: A shift of l2(N), onto with one-dimensional kernel, has index 1 (`Examples.Path.linIndex_shift_ltwo`)
+* Example: On l2(N), 1 + K with K x = (x_k/(k+1)) compact is Fredholm of index 0 (`Examples.Path.fredholmIndex_one_add_incl`)
+* Non-example: The zero map of the infinite-dimensional space N ->0 R has no finite index (`Examples.Path.not_hasFiniteIndex_zero`)
+* Property: Between finite-dimensional spaces the index of any linear map is dim E - dim F (`Examples.Path.linIndex_eq_finrank_sub`)
+* Property: Additivity under composition: ind(fst o inl) = ind(inl) + ind(fst) = 0 (`Examples.Path.linIndex_fst_comp_inl`)
+* Property: The identity of a Banach space has index 0 (`Examples.Path.fredholmIndex_one`)
+* Property: Ind(v o u) = ind(u) + ind(v) for maps of finite index (`linIndex_comp`)
+* Property: Ind(u + k) = ind(u) for u Fredholm and k compact (`fredholmIndex_add_isCompactOperator`)
+
+**V3.6**, The section algebra and the sum rule
+
+* Example: Sum rule: e -> (e, e) plus e -> (e, b) has principal part z -> z + b (`Examples.Path.principal_idSec_add_constSec`)
+* Property: That sum vanishes exactly at e = -b (`Examples.Path.isZeroAt_idSec_add_constSec_iff`)
+* Property: An sc+-section is sc-smooth into K[1] in every compatible chart (uses the [1]-compatibility) (`StrongBundle.IsScPlusSection.isScSmoothRetractMap_one`)
+
+**V6.20**, Lemma 6.5.1
+
+* Example: Lemma 6.5.1 holds for the projection ℝ × ℓ² → ℝ with P = 1, Y = ℝ × 0, an operator that is not Fredholm (`Examples.Path.lemma_6_5_1_fst`)
+* Non-example: The projection ℝ × ℓ² → ℝ is not Fredholm (its kernel 0 × ℓ² is infinite-dimensional) (`Examples.Path.not_isFredholm_fstL2`)
+* Non-example: The identity is not a good left-projection for 0 : ℝ → ℝ, so the hypothesis P ∈ Π_T has content (`Examples.Path.not_isGoodLeftProj_zero`)
+
+**V6.29**, Orientations of line bundles over simply connected bases
+
+* Example: The trivial line bundle ℝ × ℝ → ℝ has exactly two orientations (`Examples.Path.exists_two_lineOrientation_trivial`)
+* Non-example: The ray field of ℝ × ℝ → ℝ that is positive on [0,∞) and negative on (−∞,0) is not an orientation (`Examples.Path.not_isLineOrientation_sign`)
+* Non-example: A nowhere-zero section that returns as −v around a loop rules out every orientation (the Möbius obstruction) (`isEmpty_lineOrientation_of_loop`)
+* Property: Over a connected base two orientations that agree on one fibre agree everywhere (`LineOrientation.eq_of_apply_eq`)
+
+**V1.13**, Sc¹ maps and the tangent map
+
+* Example: For f(x) = x^2, Tf(x, h) = (x^2, 2xh) (`Examples.Path.tangentMap_sq`)
+* Example: F(t,x)_k = cos(kt) x_k on R + weighted c0 is sc1 with an explicit derivative family (`ScOneExample.isSc1With`)
+* Non-example: X -> |x| is sc0 but not sc1 (`Examples.Path.not_isSc1_abs`)
+* Property: On R with the constant sc-structure, sc1 is C1 (`Examples.Path.isSc1_const_iff`)
+* Property: There the chosen derivative family Df is the usual derivative (`Examples.Path.scDeriv_const_eq_fderiv`)
+* Property: There Tf(x, h) = (f(x), f'(x) h) (`Examples.Path.tangentMap_const`)
+* Property: For that f no derivative family is norm continuous on E_1 (`ScOneExample.not_continuousOn_of_isSc1With`)
+* Property: The derivative family is unique on U_1 where U_1 has unique differentiability (`IsSc1.scDeriv_eqOn`)
+
+**V6.30**, Proposition 6.6.1: $\mathrm{DET}$ over a convex set of Fredholm operators
+
+* Example: DET over the segment {t·1 : 1 ≤ t ≤ 2} of Fredholm operators of ℓ² is a line bundle with exactly two orientations (`Examples.Path.proposition_6_6_1_segment`)
+* Example: For finite-dimensional E, F, DET over all of L(E,F) (a convex set containing non-invertible operators) has exactly two orientations (`exists_two_lineOrientation_det_of_finiteDimensional`)
+* Non-example: DET(ℓ², ℓ²) over all Fredholm operators (not a convex set) has no orientation (`isEmpty_lineOrientation_det_ltwo`)
+
+**V3.7**, Definition 3.1.4: fillers
+
+* Example: For the identity retraction of R <| R, g(x) = x^2 fills itself (`Examples.Path.isFillingGerm_id_sq`)
+* Example: A filling for the non-tame retraction r(a,b) = (0,b) of a corner (`CornerFilling.isFilling2021_gc`)
+* Non-example: A tame compatible chart in which no map fills any principal part (ker Dr(0) /= 0, rho(0) = 1) (`TrivialBundle.not_isFillingGerm_evenBundleChart`)
+* Property: The map in (3) is an sc1 germ for every sc-smooth germ g (`fillDefect_isScSmoothGerm`)
+
+**V3.78**, The linearization at a zero in charts, and its chart independence
+
+* Example: At the zero 1 of k(x) = x^2 - 1 the linearization is h -> 2h (`Examples.Path.linAt_sq_sub_one`)
+* Non-example: Away from zeros: the section x -> (x, 1) has linearization 0 in one chart and h -> e^z h in the chart (x,h) -> (x, e^x h) (`Examples.Path.linAt_const_one_exp`)
+* Property: For the identity retraction of R <| R the linearization at z of k is h -> k'(z) h (`Examples.Path.linAt_id_Rc`)
+* Property: At a zero the linearizations in two charts are conjugate (`StrongBundle.linAt_chart_independence`)
+
+**V2.13**, Definition 2.3.8: sc-smooth maps between M-polyfolds
+
+* Example: X -> x^2 is an sc-smooth map of the M-polyfold R (`Examples.Path.isScSmoothMap_liftR_sq`)
+* Non-example: X -> |x| is continuous but not sc-smooth on the M-polyfold R (`Examples.Path.not_isScSmoothMap_liftR_abs`)
+* Non-example: On the M-polyfold H the constant map to (1/(k+1)) is continuous but not sc-smooth (levels not preserved) (`Examples.Path.not_isScSmoothMap_const_harm`)
+* Property: A map of the M-polyfold R (one chart) is sc-smooth iff it is C-infinity (`Examples.Path.isScSmoothMap_liftR_iff`)
+* Property: Sc-smooth maps preserve the levels X_m (`MPolyfold.IsScSmoothMap.mapsTo_levelSet`)
+* Property: Compositions of sc-smooth maps are sc-smooth (`MPolyfold.IsScSmoothMap.comp`)
+
+**V2.52**, Products of M-polyfolds (exposition Lemma 4.D)
+
+* Example: For X = [0,inf) + H: d_X(0) = 1, X x X is tame and d_{X x X}(0,0) = 2 (`Examples.Path.degIndex_HQ_prod`)
+* Property: D_{X x Y} <= d_X + d_Y for arbitrary X, Y (`MPolyfold.degIndex_prod_le`)
+* Property: For tame X, Y the product is tame and d_{X x Y} = d_X + d_Y (`MPolyfold.isTame_prod`)
+
+**V2.57**, Definition 2.6.4: strong bundle charts, compatibility, atlases
+
+* Example: The chart (x, h) -> (x, h) of U <| F is a strong bundle chart compatible with the atlas (`LocalBundle.isChart_chart`)
+* Non-example: X -> cube root is a homeomorphism of R onto the retract R but not a chart of the M-polyfold R (`Examples.Path.not_isChart_cubeChart`)
+* Non-example: Hence no strong bundle chart of R <| R -> R has that base homeomorphism (`Examples.Path.strongBundleChart_φ_ne_cubeChart`)
+* Property: Equivalence of strong bundle atlases is an equivalence relation (`StrongBundleAtlas.equivalence`)
+
+**V2.17**, Theorem 2.3.10: $X$, $X_m$ and $X_\infty$ are metrizable
+
+* Example: For the M-polyfold H: H, H_1 and H_infinity are metrizable, and H_infinity is not all of H (`Examples.Path.metrizable_PH`)
+* Property: The topology of X_infinity is the initial topology of the inclusions into the X_m (`MPolyfold.smoothLevel_topology_eq`)
+
+**V2.64**, The space $Y[1]$ and the inclusion $Y[1] \to Y[0]$
+
+* Example: For H <| H: (0, 0) is in Y[1], Y[1] is metrizable, Y[1] -> Y[0] is sc-smooth (`Examples.Path.oneSet_BH_props`)
+* Non-example: (e, (1/(k+1))) is not in Y[1] for H <| H (`Examples.Path.not_mem_oneSet_BH_harm`)
+* Property: (e, h) is in Y[1] iff h is in H_1 (`Examples.OrbifoldSquareInf.mem_oneSet_BH`)
+
+**V4.6**, Remark 4.1.3: $1_1^0$, $1_0^1$, and the constant structure
+
+* Example: An M-polyfold with X_0 = X_∞ for which 1_0^1 : X → X^1 is not sc-smooth, so X^1 ≠ X (`remark_4_1_3_example`)
+* Example: The M-polyfold of the example is a retract O = O_∞ that is not an sc⁺-retract (`remark_4_1_3_retract_example`)
+* Property: For a finite-dimensional V the constant structure satisfies (const V)^1 = const V and the lift is the identity (`remark_4_1_3_const`)
+* Property: If X = X_1 and 1_0^1 is sc-smooth, it is an sc-diffeomorphism with inverse 1_1^0 (`MPolyfold.remark_4_1_3_isScDiffeo`)
+
+**V2.24**, Proposition 2.3.19 (1), (2): the M-polyfold structure of a sub-M-polyfold
+
+* Example: The diagonal of X x X, X = [0,inf) + H, is a sub-M-polyfold (`Examples.Path.isSubMPolyfold_diag`)
+* Non-example: The single non-smooth point (1/(k+1)) of H is not a sub-M-polyfold (`Examples.Path.not_isSubMPolyfold_harm`)
+* Property: The inclusion of the diagonal into X x X is sc-smooth (`Examples.Path.isScSmoothMap_diag_inclusion`)
+
+**V2.53**, Proposition 2.5.20: fibred products
+
+* Example: The fibred product of id and id on X = [0,inf) + H has d = 1 at the corner, half of d_{X x X} = 2 (`Examples.Path.degIndex_diag`)
+* Property: D of the fibred product equals d_Y, without tameness (`MPolyfold.proposition_2_5_20`)
+
+**V2.61**, Proposition 2.6.8: the pull-back of a strong bundle is a strong bundle
+
+* Example: The pull-back of H <| H along R x H -> H is a strong bundle with the pulled-back charts, and its projection to H <| H is a strong bundle map (`Examples.Path.pullback_BH_snd`)
+
+**V3.5**, Definition 3.1.3: sc-smooth section germs
+
+* Example: E -> (e, e) on H <| H is an sc-smooth section germ at 0 (`Examples.Path.isScSmoothSectionGerm_idSec`)
+* Non-example: It is not an sc-smooth section germ at the non-smooth point (1/(k+1)) (`Examples.Path.not_isScSmoothSectionGerm_idSec_harm`)
+* Property: Equivalent atlases have the same compatible charts, so the notion is atlas independent (`StrongBundle.isChart_congr`)
+* Property: An sc-smooth germ that is sc-smooth on no neighbourhood (germ reading is weaker than whole chart) (`exists_isScSmoothGerm_not_isScSmooth`)
+
+**V5.2**, The fibre $(Y_{0,1})_x$ and its chart norm $\|\cdot\|_1$
+
+* Example: In the bundle H ◁ H over the weighted ℓ² space, (Y_{0,1})_x is complete for the chart norm |·|_1 (`Examples.OrbifoldSquareInf.isCompleteFiberNorm_NH`)
+* Non-example: The vector (1/(k+1))_k of the fibre over 0 of H ◁ H is not in (Y_{0,1})_0, a proper subspace (`Examples.Path.harm_not_mem_oneSet_BH`)
+* Property: The chart norm |h|_1 is the H_1-norm of the level-1 lift of h (`Examples.OrbifoldSquareInf.NH_toOne`)
+* Property: The |·|_1 norms of two charts are locally uniformly comparable (`StrongBundle.exists_norm_liftOne_le_mul`)
+
+**V8.19**, Strong bundle maps over M-polyfolds and the pull-back along $s$
+
+* Example: (z, w) ↦ (ζ^g z, ζ^{2g} w) is a strong bundle map of ℂ × ℂ → ℂ covering z ↦ ζ^g z (`Examples.OrbifoldSquare.isStrongBundleMap_actW`)
+* Example: Μ((g, z), w) = g · w is a strong bundle map from the pull-back along s to ℂ × ℂ → ℂ (`Examples.OrbifoldSquare.isStrongBundleMap_mu`)
+* Example: The strong bundle ℂ × ℂ → ℂ over ℤ/5 ⋉ ℂ built from the pull-back along s (`Examples.OrbifoldSquare.E5`)
+* Non-example: The fibre translation (x, v) ↦ (x, v + e), e ≠ 0, covers the identity but is not a strong bundle map (`Examples.Path.v8_19_not_isStrongBundleMap_shift`)
+* Property: A strong bundle map of trivial bundles sends the zero of each fibre to the zero of the image fibre (`Examples.Path.v8_19_map_zero`)
+* Property: The projection from the pull-back along f is a strong bundle map over f (`StrongBundle.isStrongBundleMap_pullbackProj'`)
+* Property: Along a local sc-diffeomorphism such as s, the projection from the pull-back is a local sc-diffeomorphism (`StrongBundle.isLocalScDiffeo_pullbackProj'`)
+* Property: Strong bundle maps compose (`StrongBundle.IsStrongBundleMap.comp`)
+
+**V2.22**, The tangent map $Tf : TX \to TY$ and the chain rule
+
+* Example: For f(x) = x^2 on the M-polyfold R: T(f o f) = Tf o Tf and Tf covers f (`Examples.Path.tangentMap_liftR_comp`)
+* Property: T(id) = id (`MPolyfold.tangentMap_id`)
+* Property: The chain rule T(g o f) = Tg o Tf (`MPolyfold.tangentMap_comp`)
+
+**V3.91**, Theorem 3.1.21: parametrized perturbations
+
+* Example: Theorem 3.1.21 for e -> (e, e) on H <| H and the sc+-section e -> (e, b): F(r, e) = (e, e + rb) is sc-Fredholm on the pull-back over R x H (`Examples.Path.isScFredholmSection_param_idSec`)
+* Property: Theorem 3.1.21 without tameness (`theorem_3_1_21'`)
+
+**V3.103**, Definitions 3.6.3, 3.6.4 and 3.6.6 in a tame chart
+
+* Example: The chart (e, h) -> (e, h) of H <| H is a tame strong bundle chart (`Examples.Path.isTameChart_chH`)
+* Example: E -> (e, e) on H <| H is sc-Fredholm with tame germ data (satisfiable) (`Examples.OrbifoldSquareInf.isScFredholmSectionTame_idSec`)
+* Non-example: A strong bundle retraction whose base retraction is not tame (`CornerFilling.not_isTame_r`)
+* Property: Tame germ data are germ data (`StrongBundle.IsScFredholmGermTame.isScFredholmGerm`)
+* Property: Tame germ data need a compatible tame chart, not a chart of the atlas (`TrivialBundle.tame_atlas_no_germData_in_atlas_chart`)
+
+**V8.2**, Tangents of maps defined on open sets and of local sc-diffeomorphisms
+
+* Example: For ℤ/5 ⋉ ℂ, the tangent of the source map s is a surjective local sc-diffeomorphism (`Examples.Path.v8_2_X5_tangent_src`)
+* Example: In K ⋉ U the tangent of the morphism (k, x), built from the local inverse of s, is T(k ·) (`EpGroupoid.Examples.action_tangentMor_eq`)
+* Example: The tangent of the morphism ζ at 0 in ℤ/5 ⋉ ℂ moves a tangent vector (ZHOU) (`Examples.OrbifoldSquare.isZhou_X5`)
+* Property: For a globally sc-smooth map, the tangent on an open set agrees with Part I's tangent (`MPolyfold.tangentMapOn_eq_tangentMap`)
+* Property: Chain rule for tangents of maps defined on open sets (`MPolyfold.tangentMapOn_comp`)
+* Property: The tangent of a local sc-diffeomorphism is bijective on every tangent fibre (`MPolyfold.IsLocalScDiffeo.bijOn_tangentFiber`)
+
+**V7.17**, Theorem 7.1.13: the natural representation of $G_x$
+
+* Example: In ℤ/5 ⋉ ℂ, G_0 has five elements and a natural representation by rotations exists inside every neighbourhood of 0 (`Examples.Path.v7_17_X5_exists_naturalRep`)
+* Non-example: On a disconnected open U ∋ 0, two continuous sections of s through ζ at 0 differ, so connectedness is what pins Γ down (`Examples.Path.v7_17_sections_of_not_isPreconnected`)
+* Property: Every natural representation of G_0 in ℤ/5 ⋉ ℂ is the rotation action y ↦ ζ^g y (`Examples.Path.v7_17_X5_Φ_eq`)
+* Property: In ℤ/5 ⋉ ℂ the natural action of G_0 is faithful: only g = 1 is the identity on U(0) (`Examples.Path.v7_17_X5_Φ_faithful`)
+* Property: In any translation groupoid K ⋉ U, every natural representation is the given action (`EpGroupoid.Examples.action_Φ_eq`)
+* Property: Γ is a bijection of G_x × U onto the morphisms between points of U (`EpGroupoid.NaturalRep.bijOn_Γ`)
+
+**V9.2**, Remark 9.1.1 and the last paragraph of Definition 9.1.2, the dimension of a submanifold and $n$-dimensional $\Theta$
+
+* Example: 1_L (L the x-axis of ℝ²) is 1-dimensional and not 0-dimensional (`Examples.Path.v9_2_axis_isNDimensional_one_not_zero`)
+* Example: 1_L is a 1-dimensional branched ep+-subgroupoid of ℝ² (`EpGroupoid.indicator_axis2_branched`)
+* Non-example: The zero functor is both 0- and 1-dimensional, so the footnote needs Theta nonzero (`EpGroupoid.definition_9_1_2_footnote_zero`)
+* Property: A nonzero n-dimensional Theta has only the one dimension n (`EpGroupoid.definition_9_1_2_footnote_of_ne_zero`)
+* Property: The dimension of a submanifold at a point is unique (`MPolyfold.HasDimAt.unique`)
+* Property: The dimension is the rank of the tangent map of the chart retraction (`MPolyfold.hasDimAt_finrank`)
+* Property: The dimension is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`)
+
+**V7.37**, The subgroup $T_x$ of the elements acting trivially
+
+* Example: In ℤ/5 ⋉ ℂ every T_x is trivial, although G_0 ≅ ℤ/5 (`Examples.OrbifoldSquare.trivialSubgroup_X5`)
+* Example: For ℤ/3 acting trivially on ℝ, T_x is all of G_x (`EpGroupoid.Examples.trivialSubgroup_trivialZ3`)
+* Non-example: The generator ζ of G_0 in ℤ/5 ⋉ ℂ is an isotropy element not in T_0 (`Examples.Path.v7_37_X5_g0_not_mem_trivialSet`)
+* Property: Intrinsic form: g ∈ T_x iff s = t near g in the morphism space (`EpGroupoid.mem_trivialSet_iff_eventually`)
+* Property: Conjugation by a morphism φ : x → y carries T_x onto T_y (`EpGroupoid.map_isotropyConj_trivialSubgroup`)
+* Property: X is effective iff every T_x is trivial (`EpGroupoid.isEffective_iff_trivialSubgroup_eq_bot`)
+* Property: In K ⋉ U, g ∈ T_x iff g acts as the identity near x (`EpGroupoid.Examples.action_mem_trivialSet_iff`)
+
+**V7.80**, Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property
+
+* Example: ℤ/5 ⋉ ℂ has the local unique continuation property (`Examples.Path.v7_80_isLUC_X5`)
+* Example: A non-effective ep-groupoid (ℤ/3 acting trivially on ℝ) has the property (`EpGroupoid.Examples.isLUC_trivialZ3`)
+* Example: ℤ/2 acting on ℝ by reflection has the property (`EpGroupoid.Examples.isLUC_reflection`)
+* Non-example: Some ep-groupoid does not have the local unique continuation property (Remark 7.2.19) (`EpGroupoid.Examples.remark_7_2_19`)
+* Non-example: The jumping-retract ep-groupoid of Remark 7.2.19 does not have the property (`EpGroupoid.Examples.JumpingRetract.not_isLUC`)
+* Property: The property does not depend on the choice of U(x): it holds iff every natural representation has it (`EpGroupoid.isLUC_iff_forall_naturalRep`)
+* Property: Every effective ep-groupoid has the property (`EpGroupoid.isLUC_of_isEffective`)
+
+**V7.84**, Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3
+
+* Example: Every natural representation of ℤ/5 ⋉ ℂ, of any size, has the property of Definition 7.4.1 (`Examples.Path.v7_84_X5_hasLUC`)
+* Non-example: In the ep-groupoid of Remark 7.2.19 some natural representation lacks the property (`Examples.Path.v7_84_jumping_exists_not_hasLUC`)
+* Property: Proposition 7.4.2: under (LUC) a larger natural representation has the property (`EpGroupoid.proposition_7_4_2`)
+* Property: Remark 7.4.3: under (LUC) every natural representation has it, and one exists inside every open set (`EpGroupoid.remark_7_4_3`)
+* Property: The index lift X^0 is X (`EP.lift_zero`)
+* Property: X^(i+1) is X^i raised once (`EP.lift_succ`)
+
+**V9.13**, Theorem 9.2.1, the tangent section $T_\Theta$
+
+* Example: Two branching structures at 0 in ℝ² with no common sheet near 0 have the same tangent sum (`Examples.Path.v9_13_tangentSum_origin`)
+* Non-example: The sheets of two structures for one Theta need not agree near the point, so independence is not automatic (`EpGroupoid.remark_9_1_3_b`)
+* Property: Every branched Theta has a tangent section T_Theta with pi o T_Theta = Id and no extra hypothesis (`EpGroupoid.theorem_9_2_1_general`)
+* Property: Tangent sums of any two local branching structures agree, for every Theta (`EpGroupoid.hasIndependentTangentSums`)
+* Property: T_Theta vanishes off the support (`EpGroupoid.tangentValue_eq_zero`)
+
+**V6.53**, Transferring orientations between chart points
+
+* Property: The transfer det(S) ≅ det(S) with A = −1, Γ = −1 is −1 on det of the projection ℝ × ℝ → ℝ: chart changes can reverse orientation (`Examples.Path.conjDet_neg_fstR`)
+* Property: Transferring an orientation from a chart point to itself is the identity (`ChartPoint.orTransfer_self`)
+* Property: Transfers between three chart points compose (cocycle rule) (`ChartPoint.orTransfer_trans`)
+* Property: Positivity of an orientation on an isomorphism in Lin(f,x) is preserved by the transfer between chart points (`ChartPoint.IsPos.orTransfer`)
+
+**V10.18**, Theorem 10.2.2, $X \times_Y Z$ is an ep-groupoid
+
+* Example: The inclusion of the trivial groupoid R into Z/2 ⋉ R gives an admissible pair, though neither functor is an equivalence (`Examples.Path.admissible_reflIncl`)
+* Example: The weak fibred product R ×_{Z/2 ⋉ R} R is an ep-groupoid (`Examples.Path.reflInclProduct`)
+* Example: The weak fibred product of id and -id on Z/2 ⋉ R² is nonempty, with both projections equivalences (`WeakFibredProduct.Examples.remark_10_2_3_negFunctor`)
+* Example: The pair groupoid of Z over the point gives a nonempty weak fibred product whose projection is an equivalence (`WeakFibredProduct.Examples.theorem_10_2_2_pairToPoint`)
+* Non-example: Two constant functors of Z/2 ⋉ R form a pair that is not admissible (`Examples.Path.not_admissible_reflConst`)
+* Non-example: A constant map R → R is not a local sc-diffeomorphism (its image is not open) (`Examples.Path.not_isLocalScDiffeo_reflConst`)
+* Property: Objects of R ×_{Z/2 ⋉ R} R over (x, z) exist exactly when z = x or z = -x (`Examples.Path.exists_obj_reflIncl_iff`)
+* Property: The inclusion R into Z/2 ⋉ R is not an equivalence: 1 and -1 share an orbit only in the target (`Examples.Path.not_isEquivalence_reflIncl`)
+* Property: For an equivalence F, the projection to Z is an equivalence and F∘πX is naturally equivalent to G∘πZ (`WeakFibredProduct.theorem_10_2_2`)
+* Property: Properness holds for every pair F, G, read with the closure of the neighbourhood (`WeakFibredProduct.exists_isProperMap`)
+
+**V9.50**, Lemma 9.5.2, measure zero does not depend on the choice
+
+* Example: The axis of ℝ² has 2-dimensional measure zero (`isHNull_mixed_dim`)
+* Non-example: The same axis does not have 1-dimensional measure zero (`isHNull_mixed_dim`)
+* Non-example: Without one dimension the transfer of null sets between sheets does not hold (`isNull_transfer_mixed_dim`)
+* Non-example: |supp 1_L| does not have 1-dimensional measure zero (`Examples.Path.v9_50_axis_orbitSupp_not_null`)
+* Property: The measure-zero sets of an n-dimensional Theta form a sigma-ideal (`EpGroupoid.isSigmaIdeal_isMeasureZeroH`)
+* Property: Measure zero in one branching structure gives measure zero in all (`EpGroupoid.lemma_9_5_2_of_isNDimensional`)
+
+**V9.52**, Definition 9.5.14 and measure zero in $\partial S$, p. 448
+
+* Example: For Theta = 1 on the half-line, the boundary support is nonempty (`halfLine_orbitSupp_boundary_nonempty`)
+* Example: On the half-line a set is null in the boundary iff it misses the boundary support (`halfLine_isMeasureZeroBoundary_iff`)
+* Non-example: The boundary support of the half-line is not null (`halfLine_not_isMeasureZeroBoundary`)
+* Non-example: A face is not a face-by-face null set (`MPolyfold.not_isFaceNull_face`)
+* Non-example: A nonempty boundary of an n-dimensional tame sheet is not (n-1)-null (`MPolyfold.not_isHNull_submanifoldBoundary`)
+* Property: The boundary support is contained in the support (`EpGroupoid.orbitSupp_boundaryTheta_subset`)
+* Property: Boundary measure zero in one structure gives it in every structure of the class (`EpGroupoid.isMeasureZeroBoundaryAll_of`)
+
+**V11.21**, Theorem 11.3.5, orientations under generalized isomorphisms
+
+* Example: The oriented branched ep⁺-subgroupoid of Example 9.3.5 on R², pushed forward along the identity class (`EpGroupoid.Examples.example935Oriented_push`)
+* Example: An orientation of an arc pushed forward along a non-identity equivalence into the half-plane model is again an orientation (`GCT.PolyfoldConstruction.isOrientation_halfPlaneModelT`)
+* Property: Pulling back the pushed-forward oriented structure of Example 9.3.5 returns it (`Examples.Path.example935Oriented_pull_push`)
+* Property: (g ∘ f)_* Θ̂ = g_* f_* Θ̂ for oriented branched ep⁺-subgroupoids (`EPLocalization.OrientedBranched.push_comp`)
+
+**V6.48**, Theorem 6.6.11: local propagation
+
+* Example: Local propagation for the graph section of a smooth map over the half space [0,∞) × ℝ^m, fibres ℝ^k, k ≠ 0 (`HalfSpaceBundle.theorem_6_6_11_halfSpace`)
+* Example: The same witness for the local form theorem_6_6_11_loc (`HalfSpaceBundle.theorem_6_6_11_loc_halfSpace`)
+* Non-example: With germ data not covering a tame retraction, the index jumps along a path through a corner and no neighbourhood has local propagation (`UntamedCorner.theorem_6_6_11_untamed_not`)
+* Property: Push-forwards along two paths joined by an sc-smooth homotopy with fixed end points agree (`push_eq_of_homotopy`)
+* Property: The theorem for paths on [0,1] (`theorem_6_6_11_interval`)
+
+**V9.66**, Theorems 9.5.4 and 9.5.5, Definition 9.5.6, (9.21) and Lemma 9.5.7, for an integration of forms over the sheets
+
+* Example: 1 on the unit circle is compact, tame, 1-dimensional and oriented, with all hypotheses of Theorem 9.5.4 (`EpGroupoid.circle_witness`)
+* Example: Theorem 9.5.4 gives a unique branched integral for the unit circle (`EpGroupoid.circle_theorem_9_5_4_full`)
+* Example: Integration over oriented points is a sheet integration in dimension 0 (`EpGroupoid.pointIntegration`)
+* Example: A branched integral of Theorem 9.5.5 with the nonzero value -4/3 (`DimensionJump.remark_9_5_20_nondegenerate`)
+* Non-example: 1_L is 1-dimensional and branched but not compact, so outside Theorem 9.5.4 (`Examples.Path.v9_66_axis_not_isCompactBranched`)
+* Property: There is exactly one linear map to signed measures given locally by the 1/#G_x formula (`EpGroupoid.theorem_9_5_4`)
+* Property: Two finite families of oriented sheets describing the same data give the same integral (9.20) (`EpGroupoid.SheetIntegration.sum_integ_eq_sum_integ`)
+
+**V9.54**, Lemma 9.5.9, restrictions in the $G_x$-case: the isotropy and set part
+
+* Example: In ℤ/5 ⋉ ℂ at x = 0 and y nonzero: stabilizer trivial and #(G_x/H)#G_y = 5*1 = 5 (`Examples.Path.v9_54_X5_count_free`)
+* Example: In ℤ/5 ⋉ ℂ at x = y = 0: stabilizer is all of G_x and the count is 1*5 = 5 (`Examples.Path.v9_54_X5_count_center`)
+* Example: ℤ/5 ⋉ ℂ has a natural representation at 0 containing a point y nonzero (`Examples.Path.v9_54_X5_exists`)
+* Property: #(G_x/H)#G_y = #G_x for every natural representation (`EpGroupoid.NaturalRep.card_quotient_stabilizer_mul_card_isotropy`)
+* Property: Y has small open neighbourhoods V invariant under H and disjoint from their other translates (`EpGroupoid.NaturalRep.exists_slice`)
+* Property: The translates of the slice by coset representatives are disjoint (`EpGroupoid.NaturalRep.pairwise_disjoint_image_Φ_out`)
+* Property: The local measures on U(x) and on V agree (`EpGroupoid.OrientedTameStructure.lemma_9_5_9`)
+
+**V11.16**, Push-forward and pull-back along generalized maps, pp. 536–537
+
+* Example: Pulling Θ₀ = 1_{0} back along the generalized map given by the constant functor at 0 gives the constant function 1 (`Examples.Path.pullTheta_constDiagram`)
+* Example: Pushing Θ₀ forward along the covering isomorphism of Z/2 ⋉ R gives a branched ep⁺-subgroupoid, and pulling it back returns Θ₀ (`EpGroupoid.Examples.pushTheta_reflectionCoverDiagram`)
+* Example: The pull-back of Θ₀ to the two-set covering takes the value 1 at two different objects (`EpGroupoid.Examples.pullbackTheta_reflectionCover_two_points`)
+* Property: That generalized map is not a generalized isomorphism, so f^* is used beyond isomorphisms (`Examples.Path.not_isGeneralizedIso_constDiagram`)
+* Property: (g ∘ f)^* = f^* ∘ g^* for all generalized maps (`EPLocalization.EPLoc.pullTheta_comp`)
+* Property: F^* f_* Θ = Θ for a generalized isomorphism (`EPLocalization.EPLoc.pullTheta_pushTheta`)
+
+**V15.10**, Local sc⁺-sections and $f - s$ on $W\|_O$ (prerequisite for §15.2)
+
+* Example: For f(z) = z² and the constant sc⁺-section s(z) = (z, −b), f − s is sc-Fredholm with tame germ data on W|_ℂ (`Examples.Path.isScFredholmSectionTame_subRestrict_sq`)
+* Property: For a constant sc⁺-section s, f − s is f plus a constant section (`Examples.OrbifoldSquare.subSec_graphSection_const`)
+
+**V6.71**, The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17
+
+* Example: For f(z) = z² on ℤ/5 ⋉ ℂ, O_f carries a topology with Hausdorff, (1), (2), (3) (`Examples.OrbifoldSquare.isOrientationTopology_sqSection`)
+* Non-example: Over a nonempty X_∞ the indiscrete topology on O_f never has the properties of Theorem 6.6.17 (not Hausdorff) (`Examples.Path.not_isOrientationTopology_top`)
+* Non-example: The indiscrete topology on O_f for f(z) = z² is not an orientation topology (`Examples.Path.not_isOrientationTopology_top_sq`)
+* Property: Each fibre Or_x^f of π_f : O_f → X_∞ has exactly two points (`exists_two_orx`)
+
+**V9.70**, Remark 9.5.20: the effective isotropy of a boundary point, and the two readings of the boundary integral
+
+* Example: The integral of df over Theta-hat is -4/3 with the weights of X (`DimensionJump.remark_9_5_20_nondegenerate`)
+* Non-example: The integral read in the boundary groupoid is -4, not -4/3 (`DimensionJump.remark_9_5_20_two_readings_ne`)
+* Property: #G^eff is 3 at the boundary points read in X and 1 read in the boundary (`DimensionJump.remark_9_5_20_effIsotropy`)
+* Property: The integral of da over Theta-hat is (a(1,0) - a(-1,0))/3 (`DimensionJump.remark_9_5_20_integral`)
+* Property: The effective boundary measure has the same value (Stokes) (`DimensionJump.remark_9_5_20_stokes`)
+
+**V10.58**, the push-forward along a diagram and its independence of the representative
+
+* Example: Over Z/3 × R ⇉ R, the diagrams [1] and [Inv] have the same |D| and the same push-forward of sections (`StrongBundleLocalizationExamples.pushforward_inv_eq_pushforward_id`)
+* Example: Pushing forward along the refinement W' ← (-id)*W' → W' of the identity gives the identity on sections (`StrongBundleLocalizationExamples.pushforward_foldDiagram`)
+* Non-example: [1] and [Inv] have equal |D| but are different classes, so no chain of refinements links them (`StrongBundleLocalizationExamples.remark_10_5_5`)
+* Property: The diagram through Inv and the identity diagram induce the same map of orbit spaces (`StrongBundleLocalizationExamples.orbitMap_ofHom_z3InvHom`)
+* Property: Pushing forward along the identity diagram is the identity on section functors (`SBLocalization.SDiagram.pushforward_id`)
+* Property: Two diagrams with the same |D| have the same push-forward (`SBLocalization.SDiagram.pushforward_eq_of_orbitMap_eq`)
+
+**V15.2**, Theorem 15.1.1, the linearization $T(f,\Lambda)$ is well defined
+
+* Example: T(f,Λ5 c)(g·z) = (g,z)_* T(f,Λ5 c)(z) for every morphism of ℤ/5 ⋉ ℂ, f(z) = z² (`Examples.Path.theorem_15_1_1_functor_sq`)
+* Non-example: No equivariant single-valued sc⁺-perturbation of z² is transversal at 0, which is why multisections are needed (`Examples.OrbifoldSquare.not_isTransversalAt_graph`)
+* Property: The isotropy morphisms (g,0), g ≠ 1, are not units, so the functor property is tested off the units (`Examples.Path.isotropy_ne_one_sq`)
+* Property: (ψφ)_* = ψ_* φ_* on GrF (`SBLocalization.grfPush_comp`)
+* Property: (1_x)_* is the identity on GrF(x) (`SBLocalization.grfPush_unit`)
+
+**V15.51**, Theorem 15.4.1, the canonical oriented lift of $T_\Theta$
+
+* Example: The hypotheses of Theorem 15.4.1 hold on a half-space bundle with boundary (`HalfSpaceBundle.theorem_15_4_1_hypotheses_halfSEP`)
+* Example: On ℤ/5 ⋉ ℂ with isotropy, the five-branch perturbation t5 c has a canonical point solution set for the orientation sqOrientationRep (`Examples.OrbifoldSquare.exists_canonical_t5`)
+* Property: Each perturbed zero of Λ5(r²) has signed weight +1/5 for the canonical orientation (`Examples.OrbifoldSquare.positiveZeros_sqOrientationRepPos`)
+* Property: The canonical orientation is natural under the strong bundle equivalence −id (`CanonicalOrientationPullbackExamples.isCanonicalFor_pullSection_negSection`)
+
+**V6.73**, Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff
+
+* Example: The constructed topology on O_f for f(z) = z² is Hausdorff with π_f a local homeomorphism (`Examples.OrbifoldSquare.isOrientationTopology_sqSection`)
+* Non-example: The indiscrete topology on the same O_f is not Hausdorff (`Examples.Path.not_isOrientationTopology_top_sq`)
+* Property: For any local transport data the topology on O_f is Hausdorff (`t2Space_orTopology`)
+* Property: For any local transport data π_f : O_f → X_∞ is a local homeomorphism (`isLocalHomeomorph_orProj`)
+
+**V16.59**, The zero $0_z$ of a fibre of $p$
+
+* Example: The zero section z ↦ 0_z of |ℝ × ℝ| → |ℝ| as an sc⁺-section (`TrivialBundle.zeroSection_epPolyfoldBundle`)
+* Property: Its function is z ↦ 0_z (`TrivialBundle.toFun_zeroSection_epPolyfoldBundle`)
+* Property: Its solution set is all of |ℝ|, nonempty (`TrivialBundle.solutionSet_zeroSection_epPolyfoldBundle`)
+* Property: Equivalent models give the same 0_z (`StrongPolyfoldBundleStructure.zeroAt_eq_of_equiv`)
+* Property: Γ|w| = 0_z exactly when w is the zero of its fibre, so non-zero vectors are not 0_z (`StrongPolyfoldBundleStructure.Γ_π_eq_zeroAt_iff`)
+
+**V16.80**, The text before Theorem 16.6.6: $\theta = \lambda \circ f$ is a branched suborbifold
+
+* Example: Theorem 16.6.6 for f(z) = z² on ℤ/5 ⋉ ℂ (`Examples.OrbifoldSquare.theorem_16_6_6_sq`)
+* Example: The five-branch perturbation t5 c, c ≠ 0, is in general position (`Examples.OrbifoldSquare.isInGeneralPositionWith_t5`)
+* Example: A canonically oriented perturbation in general position over the half-plane whose support meets the boundary (`HalfSpaceBundle.isInheritedFrom_generalPosition_halfDisc`)
+* Non-example: A single-valued sc⁺-section functor of ℤ/5 ⋉ ℂ is never transversal to z² at 0 (`Examples.OrbifoldSquare.not_isTransversalAt_sectionMulti`)
+* Property: General position in one model is general position in every model (`StrongPolyfoldBundle.FredholmSection.isInGeneralPositionWith_iff_forall`)
+* Property: A branched suborbifold is determined by its function θ (`PolyfoldClass.BranchedSuborbifold.toFun_injective`)
+
+**V16.77**, Definition 16.6.5, orientations of sc-Fredholm sections
+
+* Example: An orientation of f(z) = z² on ℤ/5 ⋉ ℂ, a base with isotropy (`Examples.OrbifoldSquare.sqOrientationRep`)
+* Example: An orientation of a graph section over the half space, with boundary and non-zero fibres (`HalfSpaceBundle.halfOrientationRep`)
+* Example: An orientation over a non-effective base (`StrongBundleLocalizationExamples.z3OrientationRep`)
+* Property: The orientation of one representative transports to exactly one orientation of every other (`HalfSpaceBundle.exists_unique_transport_halfSpace`)
+* Property: The topological and local forms of orientability agree under Part I's hypotheses (`StrongPolyfoldBundle.FredholmSection.isOrientable_iff_isOrientableLoc`)
+
+## 5. Helper definitions without a row of their own (273)
 
 Accessors, coercions, instances and auxiliary constructions that the statement reaches but that have no numbered counterpart in the book. Each is short; they are listed by file.
 
