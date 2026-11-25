@@ -1956,7 +1956,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V2.53. Proposition 2.5.20 (preprint 2.46): fibred products
 
-*stronger* · $d = d_Y$ (and $d_X = d_Y$) without tameness · inverse of $\pi_2$ corrected
+*stronger* · $d = d_Y$ (and $d_X = d_Y$) without tameness · the inverse of $\pi_2$ written out
 
 **HWZ (§2.5 (preprint §2.4), Proposition 2.5.20 (preprint 2.46), pp. 63–64 (preprint pp. 46–47)).** For a local sc-diffeomorphism $f : X \to Z$ and an sc-smooth $g : Y \to Z$, $X {}_f\times_g Y$ is a sub-M-polyfold of $X \times Y$; if $Y$ is tame, so is the fibred product, with $d(x, y) = d_Y(y)$; with both maps local sc-diffeomorphisms and both spaces tame, $d = \frac12 d_{X \times Y} = d_X(x) = d_Y(y)$.
 

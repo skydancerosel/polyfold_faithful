@@ -2896,7 +2896,7 @@
    "verdict": "stronger",
    "chips": [
     "$d = d_Y$ (and $d_X = d_Y$) without tameness",
-    "inverse of $\\pi_2$ corrected"
+    "the inverse of $\\pi_2$ written out"
    ],
    "diff": [
     "$d_{X {}_f\\times_g Y} = d_Y \\circ \\pi_2$, and in the last statement $d = d_X = d_Y$, hold for arbitrary $X$, $Y$ (Proposition 2.4.4 (preprint 2.24) along $\\pi_2$, $\\pi_1$); tameness is used only for $d_{X \\times Y} = d_X + d_Y$ (V2.52), stated as $2d = d_{X \\times Y}$.",
