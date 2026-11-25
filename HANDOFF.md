@@ -455,6 +455,8 @@ example as a witness for the index-0 statements (V15.37, V15.51, V16.82; Finding
 - `WorkedExample.md`: the worked example ℂ/ℤ₅ with z ↦ z² (`Polyfold/Examples/`), written by hand.
 - `checklist/` (`TrustedBase.lean`, `graph.tsv`, `mains.json`, `mains.tsv`, `build_checklist.py`) →
   `ReviewerChecklist.md`: the definitions and main statements a reviewer must read, in tiers.
+  `build_path.py` → `Path-16.6.6.md`: the same for Theorem 16.6.6 alone, the definition rows in levels,
+  leaves first; run it after `build_checklist.py`.
 - `STYLE.md`, `REVIEW.md`, `VERIFY.md`, `PBP.md`: conventions of the reports, from the Milnor project.
 - `RoundTrip/` (outside `Exposition/`): the round-trip audit of the statements of Chapters 1–11; method and how to
   rerun it in `RoundTrip/README.md`, results in `RoundTrip/REPORT.md`.

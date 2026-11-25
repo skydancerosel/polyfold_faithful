@@ -72,6 +72,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | Document | What it is |
 |---|---|
 | `Exposition/ReviewerChecklist.md` | **Start here.** The statements and definitions a person has to check (Lean checks the rest), in tiers. |
+| `Exposition/Path-16.6.6.md` | Checking one theorem: what a reader checks to trust Theorem 16.6.6, the statement first and then the definitions it uses, leaves first. |
 | `Exposition/polyfold-beside-lean.html`, `Exposition/Comparison.md` | The comparison: every statement of the book beside its formal version, with the verdict (same, hypotheses explicit, stronger, narrower, restated, …) and every difference. |
 | `Exposition/Verification.pdf` | The verified edition: the same items as a document, each ending in the sentence to confirm. |
 | `Exposition/ProofByProof.pdf` | Every formal proof retold as mathematics, each step tagged with the Lean declaration that checks it. |
