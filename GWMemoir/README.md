@@ -1,0 +1,50 @@
+# The polyfolds of Gromov–Witten theory
+
+Lean formalization of H. Hofer, K. Wysocki, E. Zehnder, *Applications of Polyfold Theory I: The
+Polyfolds of Gromov–Witten Theory*, Memoirs AMS 248, no. 1179 (2017) ("the memoir"), built on the
+formalization of *Polyfold and Fredholm Theory* (Springer 2021) in [`Polyfold/`](../Polyfold).
+It is a separate Lean library (`lake build GWMemoir`); nothing in `Polyfold/` imports it.
+
+Statements carry the memoir's labels (`memoir_theorem_2_46`, `memoir_lemma_5_12`, …) and are proved
+from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound` are used.
+
+## Contents
+
+| file | memoir | what is proved |
+|---|---|---|
+| `Recollections.lean` | §2.2, Prop 2.53 | the sc-calculus recollections, as abbreviations of or equivalences with the book's definitions; Lemma 2.35, Props 2.41 and 2.53 as printed |
+| `RecollectionsFredholm.lean` | §2.3 | Fredholm germs and sections; Thm 2.46 as printed |
+| `PolyfoldStructures.lean` | Defs 2.28–2.38 | polyfold and strong polyfold bundle structures against Defs 16.1.1 and 16.3.1 of the book |
+| `FredholmSections.lean` | Ch. 4 | Defs 4.1–4.4, the abstract part of Thm 4.6, Props 4.22, 4.24, 4.26 |
+| `Orientation.lean`, `OrientationHomotopy.lean` | App. 5.10 | orientations of sc-Fredholm sections in the memoir's Hilbert-space form: Defs 5.8–5.10, Lemmas 5.11–5.15, Thm 5.16, 5.17–5.26 for X without boundary |
+| `Skeleton.lean` | Ch. 1, 3 | the target (Q, ω, J), nodal surfaces and stability (Defs 1.2, 1.3), stable maps (Def 1.4), the sc-scale of the model spaces; Thms 3.13 and 3.22 as named statements; Thm 3.22 gives a metrizable orbit space |
+
+## Readings and comparisons with the book
+
+- **Thm 2.46.** The book's Theorem 3.1.22 assumes d_X ≡ 0; the memoir does not. The memoir's basic
+  germs (Def 2.43) have no quadrant factor, and the conjugating isomorphism keeps the degeneracy index
+  at 0, so every point carrying a Fredholm germ has d_X = 0: the theorem holds as printed.
+- **Def 2.44.** The filler is taken after subtracting the sc⁺-germ (Def 3.1.11 of the book: before). A
+  memoir germ is a tame germ of the book (through Prop 2.42).
+- **Def 2.22.** Read literally, condition (2) gives tameness condition (2) of Def 2.5.2; for C = E the
+  local models are the sc-retracts.
+- **Defs 2.29 and 2.38.** The memoir's structures do not ask for (ZHOU) or the local regularity of Def
+  8.4.2. Paracompactness of the orbit space follows from that of Z; (ZHOU) does not follow (ℤˣ acting on
+  the space of Appendix 7.6.3 of the book). Equivalence through a third structure agrees with the book's
+  generalized isomorphisms.
+- **Def 2.37 (3).** The side condition s(t) = p(e) is read as s(g) = p(e), under which μ(g, e) is defined.
+- **Def 4.4.** "Proper" (compact solution set) agrees with Def 16.6.3 for Fredholm sections (Thm 16.6.4).
+- **Prop 4.26.** In (3), x is taken on level m+1 and small on level m, as in Thm 3.7.1 of the book.
+- **Lemma 5.12.** With orthogonal projections, as in the memoir, the common lower bound exists; with
+  the book's bounded projections (Lemma 6.4.9) it need not.
+- **Def 5.9.** The memoir's construction with D* and d*∘γ corresponds to the book's (6.4) under ι.
+- **Lemma 5.24.** For X without boundary it follows from Thm 6.6.13 of the book, with tame germ data
+  for f and bump functions.
+
+## Not yet formalized
+
+The analysis and geometry the memoir draws on beyond the book: Deligne–Mumford spaces, weighted Sobolev
+spaces on half-cylinders and the sc-smoothness of gluing and anti-gluing (Thms 2.49, 2.50, 2.55, 2.57;
+Lemma 2.48, Prop 2.51), elliptic regularity for ∂̄_J, the index theorem, Gromov compactness, and the
+results resting on them (Thms 1.6–1.12, 3.13, 3.22, Props 4.8, 4.23). Also Lemma 5.20 beyond a single
+chart, Defs 5.25 and 5.27–5.32, and the abstract parts of Appendix 5.11 after Lemma 5.37.

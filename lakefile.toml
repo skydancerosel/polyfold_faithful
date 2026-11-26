@@ -20,3 +20,8 @@ name = "Polyfold"
 # Round-trip audit of the comparison's statements (not part of the default target).
 [[lean_lib]]
 name = "RoundTrip"
+
+# Formalization of HWZ, Applications of Polyfold Theory I: The Polyfolds of Gromov-Witten Theory
+# (Memoirs AMS 248, 2017), built on the book (not part of the default target).
+[[lean_lib]]
+name = "GWMemoir"

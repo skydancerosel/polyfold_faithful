@@ -95,6 +95,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` with the Lean references, summary in `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor; and the classical case, a finite group acting linearly on an oriented vector space, where the invariant is the signed count of solutions divided by the order of the group. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
 | `RoundTrip/README.md`, `RoundTrip/REPORT.md`, `RoundTrip/REPORT-III-IV.md` | The round-trip audit of the statements: the method, how to run it, and the results item by item. |
+| `GWMemoir/README.md` | The Gromov–Witten memoir (HWZ, Memoirs AMS 2017), a separate library on top of the book: its abstract statements in its own form, the concrete objects, and the readings. |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
 
