@@ -20,6 +20,14 @@ import GWMemoir.GluingSplicing
 import GWMemoir.NeckOperators
 import GWMemoir.GluingLevels
 import GWMemoir.GluingIso
+import GWMemoir.Scales
+import GWMemoir.SectionSpaces
+import GWMemoir.LocalAddition
+import GWMemoir.CauchyRiemann
+import GWMemoir.Bundle
+import GWMemoir.CauchyRiemannSection
+import GWMemoir.CauchyRiemannFredholm
+import GWMemoir.Invariants
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in

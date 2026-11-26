@@ -25,6 +25,13 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `SphereStability.lean` | Def 1.3 | the sphere with three marked points is stable: every automorphism is the identity (Liouville in a stereographic chart) |
 | `NodalPair.lean` | Defs 1.2–1.4 | two spheres joined at a node, with four marked points, and a constant stable map on it; charts and tangent coordinates of disjoint unions of manifolds |
 | `HalfCylinders.lean` | §2.4 | weighted Sobolev spaces on half-cylinders and finite cylinders as restrictions of the cylinder spaces of `Polyfold/Chapter1`, and their sc-structure |
+| `Scales.lean` | §2.4 | the scales H^{ℓ+m,δ_m} for every offset ℓ; Thm 2.50 (1): hat gluing for fixed a is an sc-isomorphism (Thm 2.50 (2) stated) |
+| `SectionSpaces.lean` | §3.1 | the section spaces H^{3,δ₀}_c(S, u*TQ) and E_u inside a finite product of disc and neck pieces; completeness and density of smooth sections stated |
+| `LocalAddition.lean` | Def 3.6 | the exponential map read as a local addition affine in the charts; that the geodesic exponential is one is stated |
+| `CauchyRiemann.lean`, `CauchyRiemannSection.lean` | §4.2 | ∂̄_J on stable maps, its naturality under isomorphisms, and the section functor it defines |
+| `Bundle.lean` | Prop 3.39, Thm 1.10 | the strong polyfold bundle W → Z from the named Prop 3.39 |
+| `CauchyRiemannFredholm.lean` | Thm 1.11 | from the named Props 4.7, 4.23, 4.25: ∂̄_J is an sc-Fredholm section with tame germs, its solution set the classes of J-holomorphic stable maps |
+| `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
 ## Readings and comparisons with the book
@@ -58,6 +65,18 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   gluing parameters range over B_{1/2}, and only R ≥ 2 is used. The average [h]_R is read as the trace
   ∫_{S¹} h(R, t) dt. In the display before (2.11), the shifted term h⁻(s − R, t − R) is read with second
   argument t − ϑ. Prop 2.51 is read in a chart flat on ‖ψ‖ < 2.
+- **Thm 2.50.** The domain printed as E is read as F.
+- **The exponential map (Def 3.6).** Read as a local addition affine in the charts ψ_w, a wider class
+  than geodesic exponentials; as we read the proof of Thm 3.13, the exponential map enters only through
+  properties this reading keeps.
+- **Components (Thm 1.12).** A component is a full subcategory of stable maps closed under isomorphism;
+  a class A enters through its energy ω(A).
+- **How Thms 1.10–1.12 are reached.** The bundle W → Z is taken in the form of Chapter 17.7 of the book
+  (Prop 3.39 stated there), the fibres of W are identified with Banach spaces through a structure
+  `FibreIdentification` whose non-degenerate instance needs the fibre spaces of the bundle, not yet
+  built, and the evaluation maps go to a polyfold class standing for M_{g,m} × Q^m. Until those are in
+  place, Thms 1.10–1.12 are proved for every instance of these data, and it is not yet shown that the GW
+  data form one.
 
 ## Not yet formalized
 
