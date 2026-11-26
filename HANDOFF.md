@@ -55,8 +55,8 @@ The public documents describe the final state only.
 Top level: `Polyfold.lean` (imports every module), `Polyfold/Test.lean` (`#print axioms` per theorem, one block
 per chapter), `Polyfold/Basic.lean`, `Polyfold/Vendor/MilnorSard/` (Sard's theorem, from the Milnor project),
 `Polyfold/Chapter1/` … `Polyfold/Chapter19/` (one folder per chapter of the book, files named by topic),
-`Polyfold/Examples/` (the worked example, below),
-`RoundTrip/` (the round-trip audit: `REPORT.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`),
+`Polyfold/Examples/` (the worked example and the classical case, below; the examples of the path page in `Path/`; the counterexample of Findings Ch. 17 item 16 in `EveryUniformizer/`),
+`RoundTrip/` (the round-trip audit: `REPORT.md`, `REPORT-III-IV.md`, `Items/`, `Blind/`, `harness/`, `Check.lean`),
 `Exposition/` (§3). A file's folder is its place in the dependency order: a file in `Polyfold/ChapterN/` imports
 only chapters ≤ N, so a statement of one chapter that needs the machinery of a later chapter lives in the later
 chapter's folder, and a file that needs nothing beyond an earlier chapter sits in that earlier folder. "From other
@@ -460,8 +460,9 @@ example as a witness for the index-0 statements (V15.37, V15.51, V16.82; Finding
   examples, non-examples and properties come from `path_examples.tsv` (Lean files in
   `Polyfold/Examples/Path/`).
 - `STYLE.md`, `REVIEW.md`, `VERIFY.md`, `PBP.md`: conventions of the reports, from the Milnor project.
-- `RoundTrip/` (outside `Exposition/`): the round-trip audit of the statements of Chapters 1–11; method and how to
-  rerun it in `RoundTrip/README.md`, results in `RoundTrip/REPORT.md`.
+- `RoundTrip/` (outside `Exposition/`): the round-trip audit of the statements of Chapters 1–11 and of the main
+  statements of Parts III–IV; method and how to rerun it in `RoundTrip/README.md`, results in `RoundTrip/REPORT.md`
+  and `RoundTrip/REPORT-III-IV.md` (refreshed items in `Items/<ID>_r2.*`).
 
 Run the scripts from the project folder with the git shim of §1 on the PATH (`check_names.py` calls lake, and
 `check_trace.py` reads Mathlib's sources in `.lake/packages/mathlib`).

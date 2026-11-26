@@ -115,7 +115,7 @@ hypotheses or more cases); the text's claim follows. *Verdict*: the row says *st
 
 ## Refreshed items
 
-Eight items were audited again on their blind statements after the project added the forms below (`Items/<ID>_r2.*`, field `refresh_of`); the counts above use the refreshed results.
+Nine items were audited again on their blind statements after the project added the forms below (`Items/<ID>_r2.*`, field `refresh_of`); the counts above use the refreshed results.
 
 - **V13.58** (Theorem 13.5.7): the summands are atomic in the sense of Definition 13.5.1 (`theorem_13_5_7_isAtomic_sum`, `Chapter13/Theorem1357Atomic`). A ⇒ B and main ⇔ B proved: match.
 - **V14.8** (Theorem 14.1.9): with `EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`, B's ep-groupoid partitions of unity give the M-polyfold partitions of unity the text and the project assume. A ⇒ B and main ⇔ B proved: *Row*.

@@ -31,6 +31,15 @@ Theorem 16.6.6 is the classical count (1/|G|) · Σ_{x ∈ φ⁻¹(c)} sign Dφ(
 the same sum over |G/K|, K the subgroup acting trivially. For z ↦ zᵏ on ℂ/ℤₚ it is k/p, and for
 z ↦ z̄ᵏ it is −k/p; the same holds with an infinite-dimensional factor.
 
+**The statements, checked from the book alone** ([`RoundTrip/`](RoundTrip/README.md)). For every formalized statement
+of Chapters 1–11 and the main statements of Parts III and IV, a model shown only the book's statement
+wrote it in Lean, and a separate prover compared it with the project's statement in Lean, with a check that
+the comparison does not use the theorems being compared. Where the two differ, the difference is a reading
+the comparison records (for example tame germ data, Definition 3.6.3), the blind writer's reading, or a
+formal statement more general than the book's. Theorem 17.1.28 and Proposition 17.3.6 hold for one
+uniformizer per lift; for every pair they do not hold as we read Definition 17.1.8 (Findings, Chapter 17,
+item 16).
+
 | | Chapters | State |
 |---|---|---|
 | Part I, *Basic Theory in M-Polyfolds* | 1–6 | Formalized; the main theorems proved, Theorems 5.3.15 and 6.7.1 included |
@@ -85,6 +94,7 @@ Where `lake` cannot run `git`, put a working `git` first on `PATH` before any `l
 | `Exposition/Findings.md` | Points left to the reader, hypotheses we made explicit, the readings chosen and the examples behind them, with what was done about each. |
 | `Exposition/WorkedExample-Mathematics.pdf`; `Exposition/WorkedExample.pdf` with the Lean references, summary in `Exposition/WorkedExample.md` | A worked example: the orbifold ℂ/ℤ₅ with the section z ↦ z², where multisections are needed and the invariant of Theorem 16.6.6 is 2/5, also with an infinite-dimensional sc-Hilbert factor; and the classical case, a finite group acting linearly on an oriented vector space, where the invariant is the signed count of solutions divided by the order of the group. |
 | `Exposition/polyfold-signoff.html` | The sign-off list (below). |
+| `RoundTrip/README.md`, `RoundTrip/REPORT.md`, `RoundTrip/REPORT-III-IV.md` | The round-trip audit of the statements: the method, how to run it, and the results item by item. |
 | `Exposition/Chapter1.md` … `Chapter11.md` | An expanded exposition of Parts I–II with complete proofs, for a first-year graduate student. |
 | `Exposition/BookConcordance.md` | The 2014, 2017 and 2021 numberings side by side. |
 

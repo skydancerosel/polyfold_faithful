@@ -48,9 +48,11 @@ the prompts before handing them to a model. Four Lean sessions at a time fit on 
 
 The main statements of Parts III and IV (129 rows: the statement rows of the tiers `partIII` and
 `partIV` of `Exposition/checklist/mains.tsv`, Chapters 12–19 and V8.48) are audited by the same method
-against commit e1d5ad6; see `REPORT-III-IV.md`. Most differences found there come from readings the
+against commit e1d5ad6, nine items again after the project added the forms they asked for
+(`Items/<ID>_r2.*`); see `REPORT-III-IV.md`. Most differences found there come from readings the
 comparison already records (tame germ data, Findings Ch. 3 item 191; the compatibility reading of
-Definition 19.7.11; F(α) ≠ ∅; a chosen representative in §17), from the blind writer's reading, or from
+Definition 19.7.11; F(α) ≠ ∅; a chosen representative in §17, which as we read Definition 17.1.8 cannot be
+replaced by every pair, Findings Ch. 17 item 16), from the blind writer's reading, or from
 formal statements more general than the text.
 
 All 604 non-extra, formalized items of Chapters 1–11 are audited; see `REPORT.md`. Chapters 1–5 (269
