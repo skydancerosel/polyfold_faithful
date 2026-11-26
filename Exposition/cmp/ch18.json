@@ -1365,7 +1365,7 @@
   {
    "id": "V18.49",
    "title": "Proposition 18.5.6 (2017: 18.2), orientations through models",
-   "verdict": "stronger",
+   "verdict": "restated",
    "book": {
     "label": "§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)",
     "page": 859,
@@ -1385,7 +1385,7 @@
     "point G.252 settled"
    ],
    "diff": [
-    "(3) is proved as an iff (point G.252 settled; Findings, Chapter 18, item 11)."
+    "(3) is proved as an iff; the relation \"correspond under the comparison\" is symmetric, and each direction is the other with the two models exchanged (point G.252 settled; Findings, Chapter 18, item 11)."
    ]
   },
   {

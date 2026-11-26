@@ -253,7 +253,7 @@
   {
    "id": "V16.11",
    "title": "Lemma 16.1.19 (2017: 16.2), tameness is invariant",
-   "verdict": "stronger",
+   "verdict": "restated",
    "book": {
     "label": "§16.1, Lemma 16.1.19, p. 714 (2017: Lemma 16.2)",
     "page": 714,
@@ -269,7 +269,7 @@
     "an iff"
    ],
    "diff": [
-    "An iff, trivially by symmetry."
+    "An iff; the converse direction is the text's statement applied to $q \\sim p$ (symmetry), so the two say the same."
    ]
   },
   {
@@ -1993,6 +1993,10 @@
    "lean": {
     "statement": "**`StrongPolyfoldBundle.theorem_16_5_7 (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) (hn : c.IsAuxNorm n) (s : BoundaryMultisection c) (hs : s.IsStructurable) …`** (`Chapter16/PolyfoldBoundaryExtension.lean`): Theorem 16.5.7 as printed, with Definition 16.5.6 as stated; conclusion: a structurable `t` with $n(t) \\le f$, `t.domSupp ⊆ U`, $t = s$ over $\\partial Z$. Proof: `theorem_16_5_7_hyp`, Theorem 16.5.7 from `h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A`, with `h1419` discharged in every model by `theorem_14_1_9` (V14.8). `BoundaryMultisection.isStructurableNe_iff`: a structurable representative charging every boundary fibre exists exactly when $s$ is structurable (the index sets of Definition 14.1.3 are non-empty). Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).",
     "decls": [
+     "Chapter16/Theorem1657Def1615 · StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5",
+     "Chapter16/Theorem1657Def1615 · StrongPolyfoldBundle.admitsScPartitionsOfUnity_iff_models",
+     "Chapter16/Theorem1657Def1615 · StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5_witness",
+     "Chapter7/ObjectPartitionsOfUnity · EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity",
      "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.theorem_16_5_7",
      "Chapter16/PolyfoldBoundaryExtension · StrongPolyfoldBundle.BoundaryMultisection.isStructurableNe_iff",
      "Chapter14/BoundaryExtensionTheorem · SBLocalization.theorem_14_1_9",
@@ -2003,10 +2007,11 @@
    },
    "chips": [
     "as printed",
-    "Theorem 14.1.9 in every model"
+    "Definition 16.1.5 (2) as the hypothesis",
+    "= partitions of unity in every model"
    ],
    "diff": [
-    "Readings only: partitions of unity are asked in every model, the form Theorem 14.1.9 uses (by Definition 16.1.5 (2) a property of $c$); \"support\" is read as `tsupport`. The model witnesses of Theorem 14.1.9 with $\\partial X \\ne \\emptyset$ and non-zero fibres are those of V14.8; `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle."
+    "Readings only. The hypothesis is the text's, Definition 16.1.5 (2) (`c.polyfold.AdmitsScPartitionsOfUnity`), in `theorem_16_5_7_def_16_1_5`; it is equivalent to sc-smooth partitions of unity of the object M-polyfold of every model, the form Theorem 14.1.9 uses (`admitsScPartitionsOfUnity_iff_models`): ep-groupoid partitions of unity (Definition 7.5.5) give M-polyfold partitions of unity of the object space (`EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`), and Theorem 7.5.7 gives the converse. \"Support\" is read as `tsupport`. The model witnesses of Theorem 14.1.9 with $\\partial X \\ne \\emptyset$ and non-zero fibres are those of V14.8; `theorem_16_5_7_hyp_witness` shows the hypotheses on $\\lambda$, $\\tilde U$, $f$ jointly satisfiable on every tame bundle, and `theorem_16_5_7_def_16_1_5_witness` gives the theorem on a bundle with isotropy $\\mathbb Z/3$."
    ]
   },
   {

@@ -1527,3 +1527,12 @@ import Polyfold.Chapter18.MultisectionConstructionTextRep
 import Polyfold.Chapter18.MultisectionConstructionTextLam
 import Polyfold.Chapter18.MultisectionConstructionTextAtomic
 import Polyfold.Chapter18.MultisectionConstructionText
+import Polyfold.Chapter7.ObjectPartitionsOfUnity
+import Polyfold.Chapter13.Theorem1357Atomic
+import Polyfold.Chapter16.Corollary1544NoSections
+import Polyfold.Chapter16.Corollary1544NoSectionsDeRham
+import Polyfold.Chapter16.Theorem1657Def1615
+import Polyfold.Chapter17.EveryUniformizerGauge
+import Polyfold.Chapter17.EveryUniformizerSub
+import Polyfold.Chapter19.CoveringContent
+import Polyfold.Examples.EveryUniformizer.Level

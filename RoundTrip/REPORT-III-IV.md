@@ -30,11 +30,13 @@ Against the expected relation from the verdict (*same / explicit / restated* →
 
 | | match | partial | mismatch | unresolved | n |
 |---|---|---|---|---|---|
-| all items | 63 | 5 | 61 | 0 | 129 |
+| all items | 74 | 4 | 51 | 0 | 129 |
 
-No item is unresolved. Of the 61 mismatches, 9 are rows marked *stronger* or *narrower* where B
-and A came out equivalent, 5 differ only through extra conjuncts of the row, 12 have A more general
-than the text, 17 differ in the formal statement, and 18 differ only in the blind writer's reading.
+No item is unresolved. Of the 51 mismatches, 2 are rows marked *stronger* or *narrower* where B
+and A came out equivalent, 6 differ only through extra conjuncts of the row, 12 have A more general
+than the text, 11 differ in the formal statement, and 20 differ only in the blind writer's reading.
+These counts include the refreshed items and the verdicts revised after the first pass (see
+*Refreshed items* below); the two tables that follow are those of the first pass.
 
 Proved directions (vacuous directions not counted): both 66, A ⇒ B only 20, B ⇒ A only 10,
 neither 26; for 7 items `not_B` is proved or A ⇒ B is shown not to hold (B does not hold as the blind
@@ -83,20 +85,16 @@ conjuncts of the row; the main conjunct agrees. *General*: A is more general tha
 hypotheses or more cases); the text's claim follows. *Verdict*: the row says *stronger* or
 *narrower*; the round trip finds the two the same.
 
-**Statement (17)**
+**Statement (11)**
 - V8.48 (r2): the project's `IsLR` checks only strong bundle maps of all of W; the text's (LR) is the project's `IsLRLocal` (proved equal to B's notion), which implies `IsLR`; Proposition 8.4.3 holds for `IsLRLocal` (B ⇒ main proved).
-- V14.8: Theorem 14.1.9 assumes partitions of unity of the object M-polyfold; the ep-groupoid notion of Definition 7.5.5 is weaker; B ⇒ main proved, A ⇒ B with the project's hypothesis. The text (p. 646) asks for the same: "X, viewed as an M-polyfold, admits sc-smooth partitions of unity"; the comparison's quote, which the blind writer saw, shortened this and now has the text's wording.
-- V15.37, V15.49: besides tame germ data (see *Reading*), Corollary 15.4.4 assumes `HasScPlusSectionsThrough` on [0,1] × X; B ⇒ main proved.
-- V16.71: Theorem 16.5.7 assumes M-polyfold partitions of unity in every model; the text has Definition 16.1.5 (2); B ⇒ A proved, the converse is believed to hold.
 - V16.78, V16.82: tame germ data in every form of Theorem 16.6.6 (above).
-- V17.33: the identification M_{F¹}(Ψ¹, Ψ'¹) = M(Ψ, Ψ')¹ is stated for the one Ψ chosen by `levelOneData`, the text's for every Ψ.
-- V17.63: the same for the restriction to A (`subData` picks the representative).
 - V18.41: with Definition 18.1.7's printed clauses alone (no continuity of the norm) the conclusion does not hold (`not_B`, half-space bundle); the project reads "auxiliary norm" with continuity in every model.
 - V19.24: with (v3) as printed (no condition |Ψ(p)| = z on the limit), (v3) does not give (v2) (`not_B`, `gluedBasic`); the project reads the limit in the fibre.
 - V19.77: the project adds `IsCompatible` (every t̂ continuous); without it (2) does not hold (`not_B`, `twistBasic`); with it A ⇒ B proved.
-- V19.85, V19.88, V19.89, V19.97, V19.110: `IsCompatible` added; with it A ⇒ B proved for V19.85, V19.88, V19.110; V19.89's A states only that some covering functor exists, V19.97's A nothing on |P*E_B|.
+- V19.85, V19.88, V19.89, V19.97, V19.110: `IsCompatible` added; with it A ⇒ B proved (V19.89 and V19.97 through the refreshed items).
 
-**Reading (18)**
+**Reading (20)**
+- V15.37, V15.49 (refreshed): B leaves out tame germ data and the sc-smooth bump functions that §15.3 assumes throughout (p. 692); with both added, B and the main forms are equivalent.
 - V15.29, V15.32, V15.33, V15.34, V15.36, V18.13, V18.51: B reads "sc-Fredholm" over a tame base without tame germ data; the project reads it with them (Findings 191, Definition 3.6.3). Also: V15.29 the pointwise reading of bump functions; V15.32 dom-supp over ∂X; V15.33–34 the bump and partition hypotheses the quote leaves out; V18.51 the printed auxiliary norm.
 - V15.2: B reads the section over X_∞ literally; A holds on X₁.
 - V16.77: B leaves out the tameness under which Definition 16.6.5 and Theorem 12.5.7 are stated.
@@ -105,15 +103,26 @@ hypotheses or more cases); the text's claim follows. *Verdict*: the row says *st
 - V18.52: B renders "naturally oriented" as existence of an orientation; A needs the index on the support and orients the models.
 - V19.41: B leaves out the metrizability standing in §19.5.
 
-**Row (5)**: V12.24, V12.26, V12.39 (Loc versions, uniqueness of the topology, examples), V16.28 (Stokes for every ep-groupoid), V18.40 (the construction in a covering model and its identification with the construction of p. 854); the main conjunct agrees with B.
+**Row (6)**: V12.24, V12.26, V12.39 (Loc versions, uniqueness of the topology, examples), V16.28 (Stokes for every ep-groupoid), V18.40 (the construction in a covering model and its identification with the construction of p. 854), V14.8 (refreshed: ep-groupoid partitions of unity give M-polyfold partitions of unity of the object space, so B's hypothesis gives the text's); the main conjunct agrees with B.
 
 **General (12)**: V14.25, V14.33, V14.37, V14.48 (any §14.3 data, fewer hypotheses; V14.37 states the clause "0 where no morphism arrives" as a separate lemma), V15.3 (any Λ), V17.52 (one specific structure, where B asks for some structure), V17.65, V17.81, V17.95, V17.102 (all objects of C¹, any point, any family), V19.32, V19.62 (no metrizability or `HasClassUniformizers`).
 
-**Verdict (9)**: V13.51, V16.11, V17.12, V17.30, V17.53, V18.49, V19.31, V19.75 (*stronger*), V16.34 (*narrower*): the blind writer read the text in the project's form, or the extra part follows by symmetry or from B.
+**Verdict (2)**: V19.31 (*stronger*: the formal statement drops the 2021 hypothesis that T is metrizable; the blind writer kept it, and B ⇒ A holds through the project's lemmas), V16.34 (*narrower*: the text asks for a functor on all polyfolds, which do not form a category as we read Definition 16.1.10; B is stated on representatives). The other seven rows of the first pass (V13.51, V16.11, V17.12, V17.30, V18.49, V19.75 now *restated*, V17.53 now *hypotheses explicit*) now match: the extra part follows by symmetry, from the groupoid structure, or from a lemma of the text.
 
 **V18.40.** The row now lists Proposition 18.4.3 for the text's Λ, built in one strong bundle uniformizer (`proposition_18_4_3_text`, `proposition_18_4_3_cutoff`, `Chapter18/MultisectionConstructionText`); the main conjunct `proposition_18_4_3_cutoff` and B are the same statement (both directions proved), and A ⇒ B is proved. The construction in a covering model, which A also lists, is the same functor (`TextData.textLam_eq`).
 
-**Partial (5)**: V13.58, V15.15, V15.30, V15.51, V19.61 (incomparable on *stronger* / *narrower* rows).
+**Partial (4)**: V15.15, V15.30, V15.51, V19.61 (incomparable on *stronger* / *narrower* rows).
+
+## Refreshed items
+
+Eight items were audited again on their blind statements after the project added the forms below (`Items/<ID>_r2.*`, field `refresh_of`); the counts above use the refreshed results.
+
+- **V13.58** (Theorem 13.5.7): the summands are atomic in the sense of Definition 13.5.1 (`theorem_13_5_7_isAtomic_sum`, `Chapter13/Theorem1357Atomic`). A ⇒ B and main ⇔ B proved: match.
+- **V14.8** (Theorem 14.1.9): with `EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`, B's ep-groupoid partitions of unity give the M-polyfold partitions of unity the text and the project assume. A ⇒ B and main ⇔ B proved: *Row*.
+- **V15.37, V15.49** (Corollary 15.4.4): the hypothesis on sc⁺-sections of [0,1] × X follows from bump functions (`hasScPlusSectionsThrough_cubeSEP_of_bump`), and the corollary is stated as maps on de Rham cohomology (`corollary_15_4_4_deRham`, `_eff_deRham`, `Chapter16/Corollary1544NoSections*`). B ⇒ main proved; with tame germ data and bump functions added to B, main ⇔ B: *Reading*.
+- **V16.71** (Theorem 16.5.7): proved under Definition 16.1.5 (2) (`theorem_16_5_7_def_16_1_5`), through ep-groupoid partitions of unity ⇒ M-polyfold partitions of unity of the object space (`EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`). Both directions proved: match.
+- **V17.33, V17.63** (Theorem 17.1.28, Proposition 17.3.6): B, the identification for every pair of uniformizers, does not hold as we read Definition 17.1.8 (`theorem_17_1_28_not_every_pair`, `proposition_17_3_6_not_every_pair`; Findings, Chapter 17, item 16); `not_B` proved. The rows are now *narrower* (the statement holds for one representative): match.
+- **V19.89, V19.97** (Theorems 19.7.29, 19.8.6): P itself is the covering functor with the structure of (F, 𝓕) (`theorem_19_7_29_content`), and (5) holds for all four orbit spaces (`theorem_19_8_6_five_hyp`; point G.273); with `IsCompatible`, A ⇒ B proved: *Statement* (the compatibility reading).
 
 ## Notes
 
@@ -132,4 +141,4 @@ which.
 
 **Checks.** Every item file was recompiled at e1d5ad6 with
 `lake env lean -DmaxSynthPendingDepth=3 RoundTrip/Items/<ID>.lean` after `lake build
-RoundTrip.Blind.<ID>`: no error, no `sorry`, no unrecorded `rt_check` failure. `Items/V18_40` was recompiled again after the construction of p. 854 in one uniformizer was added.
+RoundTrip.Blind.<ID>`: no error, no `sorry`, no unrecorded `rt_check` failure. `Items/V18_40` was recompiled again after the construction of p. 854 in one uniformizer was added, and the refreshed items after their new forms.

@@ -21306,7 +21306,7 @@ With the hypothesis as printed (the domain supports form a locally finite family
 
 ### V13.51. Theorem 13.4.1 (2017: 13.3), the pull-back along a strong bundle equivalence is structurable
 
-*stronger* · canonical structure: independence proved
+*restated* · canonical structure: independence proved
 
 **HWZ (§13.4, Theorem 13.4.1, pp. 621–622 (2017: Theorem 13.3)).** For a strong bundle equivalence $\Phi:W\to W'$ covering $F:X\to X'$ and structurable $\Lambda'$, $\Phi^*\Lambda'=\Lambda'\circ\Phi$ is structurable; a structured $\Lambda'$ gives a canonical structure on $\Phi^*\Lambda'$.
 
@@ -21527,12 +21527,16 @@ With the hypothesis as printed (the domain supports form a locally finite family
 
 ### V13.58. Theorem 13.5.7 (2017: 13.10), a structurable sc⁺-multisection is a locally finite sum of atomic ones
 
-*stronger* · every structured lift · paracompactness of $|X|$ not used
+*stronger* · every structured lift · atomic summands (Definition 13.5.1) · paracompactness of $|X|$ not used
 
 **HWZ (§13.5, Theorem 13.5.7, p. 635 (2017: Theorem 13.10)).** $|X|$ paracompact, $X$ with sc-smooth partitions of unity, $\Lambda$ structurable: there is a locally finite family of commensurable structured $[\Lambda_j,\mathcal U,S_j,\tau]$, each $\Lambda_j$ atomic, with $[\Lambda,\mathcal U,S,\tau]=\bigoplus^c_j[\Lambda_j,\mathcal U,S_j,\tau]$.
 
 **Proved in Lean.** `theorem_13_5_7 (hpu : A.X.HasScPartitionsOfUnity) (T : StructuredTuple A)`: there are `Λf : A.Obj → A.W → ℚ≥0`, `o : ∀ j, (CommData.ofTuple T).Over (Λf j)`, `hlf : IsLocallyFiniteFamily Λf` with `∀ j, IsAtomicOn A (Λf j)`, `CommData.lfSum o hlf = T.Λ`, the sum's sections equal $T$'s on every $U(x)$, and `(CommData.Over.lfSum o hlf).toStructured = ⟦T⟧`. `theorem_13_5_7_book (_hpara : HasParacompactOrbitSpace) (hpu) (hΛ : IsStructurable A Λ)`: some $T$ with `T.Λ = Λ` and such a family. Proof as in the text: $O_x\ni|x|$ open with $\mathrm{cl}O_x\subseteq|U(x)|$ (`exists_orbit_nbhd`, regularity of $|X|$, L7.3.5), a partition of unity $(\beta_x)$ subordinate to $\pi^{-1}(O_x)$, $\Lambda_j=\beta_j\odot\Lambda$ with data $\beta_j s^x_i$ (`CommData.smulFunOver`, from `smulFun`/`Tau.smulFun`), atomic at $x_j=j$ with $V=U(j)\cap\pi^{-1}(O_j)$ (closure inside $U(j)$ by `lemma_13_1_1`), $\sum_j\beta_j=1$. Helper `multisectionSmulFun_of_eq_zero`.
 
+- `Polyfold.SBLocalization.theorem_13_5_7_isAtomic` — Polyfold/Chapter13/Theorem1357Atomic.lean, line 109
+- `Polyfold.SBLocalization.theorem_13_5_7_isAtomic_book` — Polyfold/Chapter13/Theorem1357Atomic.lean, line 221
+- `Polyfold.SBLocalization.theorem_13_5_7_isAtomic_sum` — Polyfold/Chapter13/Theorem1357Atomic.lean, line 235
+- `Polyfold.SBLocalization.connRep` — Polyfold/Chapter13/Theorem1357Atomic.lean, line 77
 - `Polyfold.SBLocalization.CommData.smulFunOver` — Polyfold/Chapter13/AtomicSum.lean, line 145
 - `Polyfold.SBLocalization.multisectionSmulFun_of_eq_zero` — Polyfold/Chapter13/AtomicSum.lean, line 158
 - `Polyfold.SBLocalization.exists_orbit_nbhd` — Polyfold/Chapter13/AtomicSum.lean, line 165
@@ -21540,7 +21544,7 @@ With the hypothesis as printed (the domain supports form a locally finite family
 - `Polyfold.SBLocalization.theorem_13_5_7_book` — Polyfold/Chapter13/AtomicSum.lean, line 284
 
 *What differs.*
-- For every structured lift $T$ (the text: "a structured lift"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. Atomic is `IsAtomicOn` (V13.57). With `IsAtomic` the statement would need connected natural-rep domains in the good system, which `GoodSystem` does not give. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\beta_j)$.
+- For every structured lift $T$ (the text: "a structured lift"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. The summands are atomic in the sense of Definition 13.5.1 (`IsAtomic`, `theorem_13_5_7_isAtomic`): the proof's $V_j$ is taken inside the connected component of $x_j$ in $U(x_j)$, the domain of a natural representation with the $\Phi$, $\Gamma$ of $U(x_j)$ and the properness property (`connRep`). The text's form, with common data and an index type $J$, is `theorem_13_5_7_isAtomic_sum`; the forms with `IsAtomicOn` (V13.57) are kept. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\beta_j)$.
 
 ### V13.59. Proposition 13.4.2 (2017: 13.6), extension of a structured sc⁺-multisection from $V$ with $|V| = |X|$
 
@@ -21855,6 +21859,7 @@ The assembly (`Chapter14/ExtensionAssembly.lean`): `theorem_14_1_9_extension_sta
 - "$X$ admits sc-smooth partitions of unity" is read as the M-polyfold of objects (Definition 5.5.1, as printed: "$X$, viewed as an M-polyfold"). "Supported in $\tilde U$" is read as `tsupport f ⊆ Ũ`. $N$ is real-valued on $W_{0,1}$ (the project's Definition 8.3.5).
 - The size control applies the extension with $\tilde U'=\{f>0\}$, which is saturated open, contains $\text{dom-supp}\Lambda$ and lies in $\tilde U$. $G=\{N(\Lambda'')<f\}\cup(X\setminus\text{dom-supp}\Lambda'')$ is a saturated open set containing $\partial X$. $\sigma$ comes from `exists_isScSmoothMap_orbit_urysohn`, with $\sigma=1$ on $\partial X$ and $\sigma=0$ off $G$. $\Lambda'=\sigma\odot\Lambda''$ is structurable by `lemma_13_3_14_fun`. The text writes $h(|x|)=N(\Lambda)(x)<f(x)$ for $x\in\partial X$; the theorem's hypothesis gives this on $\text{dom-supp}\Lambda$, and we read it there.
 - In the assembly the size-control cut-off $\sigma$ is folded into the sections before Theorem 14.5.5 is applied (the text multiplies $\Lambda'$ afterwards), and the points away from the closed saturated set $C$ off which every transported section vanishes are covered by invariant cores of natural neighbourhoods (the text uses $|x| \notin \bigcup|\hat V_b|$). Everything else is the text's construction.
+- Partitions of unity of the ep-groupoid in the sense of Definition 7.5.5 give the M-polyfold partitions of unity of the object space that the theorem assumes (`EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`), so the theorem also holds under the ep-groupoid form.
 
 ### V14.9. Remark 14.1.10 (2017: 14.3), the proof of Theorem 14.1.9 is involved
 
@@ -23878,7 +23883,7 @@ Further forms: `theorem_15_4_3_of_definition_12_5_4`, `theorem_15_4_3_of_index_o
 
 ### V15.37. Corollary 15.4.4 (2017: 15.2), the invariant $\Phi_{(f,o)}$ on de Rham cohomology
 
-*hypotheses explicit* · Stokes: no partitions of unity (G.153 settled) · all transversal perturbations, N(Λ) ≤ 1 · oriented cobordism: a theorem · index 0: signed frame convention · witnesses: isotropy ℤ/3, P₀ ≠ P₁ · existence: proved · bump functions read pointwise
+*hypotheses explicit* · as maps on de Rham cohomology · no hypothesis on sc⁺-sections of [0,1] × X · Stokes: no partitions of unity (G.153 settled) · all transversal perturbations, N(Λ) ≤ 1 · oriented cobordism: a theorem · index 0: signed frame convention · witnesses: isotropy ℤ/3, P₀ ≠ P₁ · existence: proved · bump functions read pointwise
 
 **HWZ (§15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2)).** $d_X\equiv0$, $|X|$ paracompact, $|S_f|$ compact, $o$ an orientation: there is a well-defined $\Phi_{(f,o)}:H^*_{dR}(X)\to\mathbb R$, $\Phi([\omega])=\int_{(\Lambda\circ f,o)}\omega$ for a regular perturbation; effective version with LUC. Proof left to the reader.
 
@@ -23896,6 +23901,14 @@ The forms with steps as hypotheses: `OrientedRegularPerturbation A f m` (regular
 
 Existence (`Chapter15/CanonicalPerturbationExists`): **`corollary_15_4_4_exists`** (the hypotheses of `corollary_15_4_4_oriented_collar` with bump functions in place of `hPU` and without `hsec'`, and hS : compact solution set): a regular perturbation in general position with the canonical orientation, `IsCanonicalPerturbation` (Theorem 12.2.2, `exists_controlsCompactness` and `corollary_15_3_10_1`, through `exists_isRegularPerturbation_isInGeneralPosition`; `isGoodPositionAt_of_isInGeneralPosition`: Definition 15.3.5 gives Definition 15.2.4). **`corollary_15_4_4_wellDefined`**: the hypotheses of `corollary_15_4_4_oriented_collar` and hS give that existence together with `corollary_15_4_4_statement`. Index $0$ (`Chapter16/InheritedPerturbationExists`): `corollary_15_4_4_index_zero_exists`, **`corollary_15_4_4_index_zero_wellDefined`** (the hypotheses of `corollary_15_4_4_index_zero_oriented`, existence and equal counts).
 
+- `Polyfold.SBLocalization.corollary_15_4_4_deRham` — Polyfold/Chapter16/Corollary1544NoSectionsDeRham.lean, line 112
+- `Polyfold.SBLocalization.corollary_15_4_4_index_zero_deRham` — Polyfold/Chapter16/Corollary1544NoSectionsDeRham.lean, line 180
+- `Polyfold.SBLocalization.corollary_15_4_4_deRham_planeZ3` — Polyfold/Chapter16/Corollary1544NoSectionsDeRham.lean, line 240
+- `Polyfold.SBLocalization.hasScPlusSectionsThrough_cubeSEP_of_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 69
+- `Polyfold.SBLocalization.corollary_15_4_4_oriented_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 91
+- `Polyfold.SBLocalization.corollary_15_4_4_wellDefined_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 131
+- `Polyfold.SBLocalization.corollary_15_4_4_loc_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 151
+- `Polyfold.SBLocalization.integral_eq_of_isTransversalPerturbation_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 185
 - `Polyfold.SBLocalization.corollary_15_4_4_oriented_collar` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 259
 - `Polyfold.SBLocalization.corollary_15_4_4_collar` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 195
 - `Polyfold.SBLocalization.corollary_15_4_4_collar_of_admits` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 219
@@ -24057,7 +24070,7 @@ Existence (`Chapter15/CanonicalPerturbationExists`): **`corollary_15_4_4_exists`
 - `Polyfold.TrivialBundle.corollary_15_4_4_index_zero_norm_one` — Polyfold/Chapter16/IndexZeroNormOneWitness.lean, line 190
 
 *What differs.*
-- Proved for the canonical orientations of Definition 15.4.2 with the text's hypotheses (`corollary_15_4_4_oriented_collar_all`): sc-smooth bump functions on $X$, the standing assumption of §15.3 (p. 692) under which Corollary 15.3.10, which the corollary cites, is stated; no partitions of unity, Stokes on $X$ and on $[0,1] \times X$ holding without them (Remark 9.5.19, V9.71; point G.153 settled). The forms with partitions of unity on the object M-polyfold of $X$ (`corollary_15_4_4_oriented_collar`) remain. The invariance of $\tilde o = e \wedge o$ under the morphisms of $[0,1] \times X$ is a theorem (`isOrInvariant_cubeOrientation`, from $\varphi_* o = o$; point G.182 settled), and so is the oriented cobordism between two canonically oriented regular perturbations (`hasOrientedCobordism_collar`). Points G.159, G.182, G.190 and G.191 are closed. A canonically oriented regular perturbation in general position exists under the hypotheses of the collar form and a compact solution set, the hypothesis of Corollary 15.3.10 (1) (`corollary_15_4_4_wellDefined_all`, with no partitions of unity, and `corollary_15_4_4_wellDefined`; index $0$: `corollary_15_4_4_index_zero_wellDefined_all`, `corollary_15_4_4_index_zero_wellDefined`), so (i) and (ii) are about a class that is not empty.
+- Stated as the text states it, as maps $\Phi_{(f,o)}$ on $H^k_{dR}(X)$ with $\Phi[\omega] = \int_P \omega$ for every canonically oriented regular perturbation $P$ and closed $\omega$, one such $P$ existing (`corollary_15_4_4_deRham`, `corollary_15_4_4_index_zero_deRham`; witness `corollary_15_4_4_deRham_planeZ3`). No hypothesis on sc⁺-sections of $[0,1] \times X$ is asked: it follows from the sc-smooth bump functions on $X$ (`hasScPlusSectionsThrough_cubeSEP_of_bump`; the `_bump` forms). The hypotheses are the text's, with tame germ data (the reading of "oriented sc-Fredholm", Definition 3.6.3) and sc-smooth bump functions (the standing assumption of §15.3, p. 692). Proved for the canonical orientations of Definition 15.4.2 with the text's hypotheses (`corollary_15_4_4_oriented_collar_all`): sc-smooth bump functions on $X$, the standing assumption of §15.3 (p. 692) under which Corollary 15.3.10, which the corollary cites, is stated; no partitions of unity, Stokes on $X$ and on $[0,1] \times X$ holding without them (Remark 9.5.19, V9.71; point G.153 settled). The forms with partitions of unity on the object M-polyfold of $X$ (`corollary_15_4_4_oriented_collar`) remain. The invariance of $\tilde o = e \wedge o$ under the morphisms of $[0,1] \times X$ is a theorem (`isOrInvariant_cubeOrientation`, from $\varphi_* o = o$; point G.182 settled), and so is the oriented cobordism between two canonically oriented regular perturbations (`hasOrientedCobordism_collar`). Points G.159, G.182, G.190 and G.191 are closed. A canonically oriented regular perturbation in general position exists under the hypotheses of the collar form and a compact solution set, the hypothesis of Corollary 15.3.10 (1) (`corollary_15_4_4_wellDefined_all`, with no partitions of unity, and `corollary_15_4_4_wellDefined`; index $0$: `corollary_15_4_4_index_zero_wellDefined_all`, `corollary_15_4_4_index_zero_wellDefined`), so (i) and (ii) are about a class that is not empty.
 - Beyond the text's regular perturbations: closed forms have the same integral over the canonically oriented solution sets of any two transversal perturbations with $N(\Lambda) \le 1$, not assumed structurable (`integral_eq_of_isTransversalPerturbation`; index $0$: `pointCount_eq_of_isTransversalPerturbation`), the cylinder being joined over arbitrary transversal ends (`corollary_15_3_10_3_transversal`). Witness with $N(\Lambda) = 1$: `TrivialBundle.corollary_15_4_4_index_zero_norm_one` ($f(x) = (x, x^2 - 1)$ over $\mathbb R$, $\Lambda_u$ the multisection of $u(x) = (x, 1)$, $N(\Lambda_u) \equiv 1$, $\sqrt 2$ in the support, not a regular perturbation by `not_isRegularPerturbation_unitMulti`, with the same counts as a regular one; weak: trivial ep-groupoid, $\partial X = \emptyset$, index $0$, and $\Lambda_u$ is structurable; no witness with a non-structurable perturbation is built).
 - Readings: "$(f, o)$ oriented" is Definition 6.6.16 together with the invariance of Definition 12.5.4 (`ho`, `hinv`; one hypothesis `definition_12_5_4` in `corollary_15_4_4_of_definition_12_5_4`); tame germ data (`hft`) are the text's hypothesis under the adopted reading of "tame strong bundle"; `hsec`, `hsec'` (sc⁺-sections through smooth fibre points) follow from bump functions and appear because `IsCanonicalPerturbation` is stated with them; `hidx` is the index $m + 1$ at every smooth point of $X$, not only on the supports, because $\tilde\Theta$ lies over points of $X$ outside $\mathrm{supp}\,\Theta_0 \cup \mathrm{supp}\,\Theta_1$. The collar form needs no compact $|S_f|$; `corollary_15_4_4_oriented` keeps the text's hypothesis.
 - Reading (Findings, item 26): the frame convention "one positive frame with the $t$-direction first" is used for sheets of dimension $\ge 1$; for index $0$ it is read in a signed form: the curve over a point $y$ is oriented by $w$ with $dt(w) = +1$ at a positive point and $dt(w) = -1$ at a negative one (`exists_signed_generator_cubeOrientation`), the orientation of a point read through `frameSign` as in Chapter 9's point integration. With it the index-$0$ case holds with the same standing hypotheses (`corollary_15_4_4_index_zero_oriented`, point G.188 (c)).
@@ -24359,7 +24372,7 @@ Weights (`Chapter15/CylinderEndWeights`, `GeneralPositionBoundaryWeight`): **`bo
 
 ### V15.49. Corollary 15.4.4 (2017: 15.2), effective version
 
-*hypotheses explicit* · as V15.37; no partitions of unity (G.153 settled) · LUC on the cylinder from LUC on X
+*hypotheses explicit* · as maps on de Rham cohomology · no hypothesis on sc⁺-sections of [0,1] × X · as V15.37; no partitions of unity (G.153 settled) · LUC on the cylinder from LUC on X
 
 **HWZ (§15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2)).** With the local unique continuation property, $\Phi^{\rm eff}_{(f,o)}([\omega]) = \oint_{(\Lambda\circ f, o)}\omega$ is well defined.
 
@@ -24367,6 +24380,11 @@ Weights (`Chapter15/CylinderEndWeights`, `GeneralPositionBoundaryWeight`): **`bo
 
 The forms with partitions of unity: **`corollary_15_4_4_eff_oriented_collar`** (`Chapter15/CollarCobordismCorollary`; the hypotheses of `corollary_15_4_4_oriented_collar`, `hLUC` on $X$ and `hLUCC` on $[0,1] \times X$, which `isLUC_cubeSEP` gives from `hLUC`): `corollary_15_4_4_eff_statement A f m hLUC (IsCanonicalPerturbation hf.2 hsec o)` (exact forms give 0; closed forms have equal $\oint$); `corollary_15_4_4_eff_collar`, `corollary_15_4_4_eff_collar_of_admits`, `hasOrientedCobordismEff_collar`; with the interpolated norm and compact $|S_f|$: **`corollary_15_4_4_eff_oriented`** (`Chapter15/CylinderOrientationInvariance`); local orientations: `corollary_15_4_4_eff_loc`; index $0$: the effective counts in `corollary_15_4_4_index_zero_oriented` (V15.37). Intermediate: `corollary_15_4_4_eff_canonicalOrientation` (`EpGroupoid.isLUC_cubeProd`, `Chapter15/CubeLUC`). Effective end identities: $\sharp G^{\rm eff}_{(q,x)} = \sharp G^{\rm eff}_x$ (`EpGroupoid.card_effIsotropy_cubeProd`), `isLocalEndIdentityEff_of_matched`, `isCylinderBoundaryEffOf_of_matched`, `isLocalEndIdentityEff_of_structures` (the local formula `EP.boundaryMeasureEff_spec`), `isCylinderBoundaryEffOf_of_local`, `corollary_15_4_4_eff_of_canonical`, `corollary_15_4_4_eff_of_local_ends`, `corollary_15_4_4_eff_of_or`. The forms with the cobordism as hypothesis: `OrientedRegularPerturbation.integralEff hLUC P`, `HasOrientedCobordismEff`, **`corollary_15_4_4_eff_statement A f m hLUC Can`**, **`corollary_15_4_4_eff_hyp`** (hPU, hLUC, hd, pairwise `HasOrientedCobordismEff`), from `integralEff_eq_of_cobordism` (Theorem 9.5.18 on $Y$), `integralEff_d_eq_zero_of_degIndex_eq_zero` (Theorem 9.5.18 and its dimension-1 form) and `tameBranchedIntegralEff_zero`; `hasOrientedCobordismEff_refl`. Cylinder forms: `IsCylinderBoundaryEffOf`, `hasOrientedCobordismEff_of_cylinder`, `CylinderOrientationEffStatement`, `corollary_15_4_4_eff_cylinder_hyp`. Existence of a canonically oriented regular perturbation in general position: `corollary_15_4_4_exists`, `corollary_15_4_4_wellDefined` (V15.37); index $0$, with the effective counts: `corollary_15_4_4_index_zero_wellDefined`.
 
+- `Polyfold.SBLocalization.corollary_15_4_4_eff_deRham` — Polyfold/Chapter16/Corollary1544NoSectionsDeRham.lean, line 156
+- `Polyfold.SBLocalization.corollary_15_4_4_index_zero_eff_deRham` — Polyfold/Chapter16/Corollary1544NoSectionsDeRham.lean, line 215
+- `Polyfold.SBLocalization.corollary_15_4_4_eff_oriented_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 109
+- `Polyfold.SBLocalization.corollary_15_4_4_eff_loc_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 166
+- `Polyfold.SBLocalization.integralEff_eq_of_isTransversalPerturbation_bump` — Polyfold/Chapter16/Corollary1544NoSections.lean, line 212
 - `Polyfold.SBLocalization.corollary_15_4_4_eff_oriented_collar` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 269
 - `Polyfold.SBLocalization.corollary_15_4_4_eff_collar` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 206
 - `Polyfold.SBLocalization.corollary_15_4_4_eff_collar_of_admits` — Polyfold/Chapter15/CollarCobordismCorollary.lean, line 228
@@ -24417,7 +24435,7 @@ The forms with partitions of unity: **`corollary_15_4_4_eff_oriented_collar`** (
 - `Polyfold.SBLocalization.Adm.boundaryMeasureEff_cylEnd_of_local` — Polyfold/Chapter15/AdmissibleCobordism.lean, line 56
 
 *What differs.*
-- As V15.37: the text's hypotheses, with sc-smooth bump functions (the standing assumption of §15.3) and no partitions of unity (point G.153 settled); the forms with partitions of unity remain; the invariance of $\tilde o$ is a theorem (point G.182 settled). LUC on $[0,1] \times X$ follows from LUC on $X$ (`isLUC_cubeSEP`; point G.191 settled). Exact forms are handled in every dimension $m+1 \ge 1$; index $0$ is in `corollary_15_4_4_index_zero_oriented`. Existence as in V15.37.
+- Stated as the text states it, as maps $\Phi_{(f,o)}$, $\Phi^{eff}_{(f,o)}$ on $H^k_{dR}(X)$ with $\Phi[\omega] = \int_P \omega$ for every canonically oriented regular perturbation $P$ and closed $\omega$, one such $P$ existing (`corollary_15_4_4_eff_deRham`, `corollary_15_4_4_index_zero_eff_deRham`). No hypothesis on sc⁺-sections of $[0,1] \times X$ is asked: it follows from the sc-smooth bump functions on $X$ (`hasScPlusSectionsThrough_cubeSEP_of_bump`; the `_bump` forms). The hypotheses are the text's, with tame germ data (the reading of "oriented sc-Fredholm", Definition 3.6.3) and sc-smooth bump functions (the standing assumption of §15.3, p. 692). As V15.37: the text's hypotheses, with sc-smooth bump functions (the standing assumption of §15.3) and no partitions of unity (point G.153 settled); the forms with partitions of unity remain; the invariance of $\tilde o$ is a theorem (point G.182 settled). LUC on $[0,1] \times X$ follows from LUC on $X$ (`isLUC_cubeSEP`; point G.191 settled). Exact forms are handled in every dimension $m+1 \ge 1$; index $0$ is in `corollary_15_4_4_index_zero_oriented`. Existence as in V15.37.
 - Witnesses: those of V15.37 (the effective counts differ from the counts in `corollary_15_4_4_index_zero_z3`, where every isotropy group is $\mathbb Z/3$); weak as there.
 
 ### V15.50. Oriented formal sums $\widehat{Gr}_F(x)$ (2017: before Theorem 15.6)
@@ -24847,7 +24865,7 @@ For an orientation made with local sc⁺-sections: `canonicalOrientationLoc`, `i
 
 ### V16.11. Lemma 16.1.19 (2017: 16.2), tameness is invariant
 
-*stronger* · an iff
+*restated* · an iff
 
 **HWZ (§16.1, Lemma 16.1.19, p. 714 (2017: Lemma 16.2)).** If $(X, \alpha) \sim (Y, \beta)$ and $X$ is tame, so is $Y$.
 
@@ -24856,7 +24874,7 @@ For an orientation made with local sc⁺-sections: `canonicalOrientationLoc`, `i
 - `Polyfold.PolyfoldStructure.lemma_16_1_19` — Polyfold/Chapter16/PolyfoldStructure.lean, line 167
 
 *What differs.*
-- An iff, trivially by symmetry.
+- An iff; the converse direction is the text's statement applied to $q \sim p$ (symmetry), so the two say the same.
 
 ### V16.12. Definition 16.1.20 (2017: 16.12), tame polyfolds
 
@@ -26088,12 +26106,16 @@ Continuity (`Chapter16/NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq`
 
 ### V16.71. Theorem 16.5.7 (2017: 16.6), the ∂-extension theorem for polyfolds
 
-*as in the book* · as printed · Theorem 14.1.9 in every model
+*as in the book* · as printed · Definition 16.1.5 (2) as the hypothesis · = partitions of unity in every model
 
 **HWZ (§16.5, Theorem 16.5.7, p. 735 (2017: Theorem 16.6)).** Tame $Z$ with sc-smooth partitions of unity, $\lambda$ structurable over $\partial Z$, $\tilde U\supseteq$ dom-supp open, $f\ge0$ continuous, support in $\tilde U$, $n(\lambda)<f$ on dom-supp: there is a structurable $\lambda'$ with $n(\lambda')\le f$, dom-supp$(\lambda')\subseteq\tilde U$, $\lambda'=\lambda$ over $\partial Z$.
 
 **Proved in Lean.** **`StrongPolyfoldBundle.theorem_16_5_7 (hc : c.IsTame) (hPU : ∀ S, ⟦S⟧ = c → S.A.X.PObj.AdmitsScPartitionsOfUnity) (hn : c.IsAuxNorm n) (s : BoundaryMultisection c) (hs : s.IsStructurable) …`** (`Chapter16/PolyfoldBoundaryExtension.lean`): Theorem 16.5.7 as printed, with Definition 16.5.6 as stated; conclusion: a structurable `t` with $n(t) \le f$, `t.domSupp ⊆ U`, $t = s$ over $\partial Z$. Proof: `theorem_16_5_7_hyp`, Theorem 16.5.7 from `h1419 : ∀ S, ⟦S⟧ = c → theorem_14_1_9_statement S.A`, with `h1419` discharged in every model by `theorem_14_1_9` (V14.8). `BoundaryMultisection.isStructurableNe_iff`: a structurable representative charging every boundary fibre exists exactly when $s$ is structurable (the index sets of Definition 14.1.3 are non-empty). Witness `theorem_16_5_7_hyp_witness` (the λ, Ũ, f hypotheses are jointly satisfiable on every tame bundle).
 
+- `Polyfold.StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5` — Polyfold/Chapter16/Theorem1657Def1615.lean, line 75
+- `Polyfold.StrongPolyfoldBundle.admitsScPartitionsOfUnity_iff_models` — Polyfold/Chapter16/Theorem1657Def1615.lean, line 62
+- `Polyfold.StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5_witness` — Polyfold/Chapter16/Theorem1657Def1615.lean, line 88
+- `Polyfold.EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity` — Polyfold/Chapter7/ObjectPartitionsOfUnity.lean, line 297
 - `Polyfold.StrongPolyfoldBundle.theorem_16_5_7` — Polyfold/Chapter16/PolyfoldBoundaryExtension.lean, line 121
 - `Polyfold.StrongPolyfoldBundle.BoundaryMultisection.isStructurableNe_iff` — Polyfold/Chapter16/PolyfoldBoundaryExtension.lean, line 56
 - `Polyfold.SBLocalization.theorem_14_1_9` — Polyfold/Chapter14/BoundaryExtensionTheorem.lean, line 246
@@ -26102,7 +26124,7 @@ Continuity (`Chapter16/NormLamContinuous.lean`): `IsLocalRepOn.pointwiseNorm_eq`
 - `Polyfold.StrongPolyfoldBundle.theorem_16_5_7_hyp_witness` — Polyfold/Chapter16/PolyfoldMultisections.lean, line 542
 
 *What differs.*
-- Readings only: partitions of unity are asked in every model, the form Theorem 14.1.9 uses (by Definition 16.1.5 (2) a property of $c$); "support" is read as `tsupport`. The model witnesses of Theorem 14.1.9 with $\partial X \ne \emptyset$ and non-zero fibres are those of V14.8; `theorem_16_5_7_hyp_witness` shows the hypotheses on $\lambda$, $\tilde U$, $f$ jointly satisfiable on every tame bundle.
+- Readings only. The hypothesis is the text's, Definition 16.1.5 (2) (`c.polyfold.AdmitsScPartitionsOfUnity`), in `theorem_16_5_7_def_16_1_5`; it is equivalent to sc-smooth partitions of unity of the object M-polyfold of every model, the form Theorem 14.1.9 uses (`admitsScPartitionsOfUnity_iff_models`): ep-groupoid partitions of unity (Definition 7.5.5) give M-polyfold partitions of unity of the object space (`EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity`), and Theorem 7.5.7 gives the converse. "Support" is read as `tsupport`. The model witnesses of Theorem 14.1.9 with $\partial X \ne \emptyset$ and non-zero fibres are those of V14.8; `theorem_16_5_7_hyp_witness` shows the hypotheses on $\lambda$, $\tilde U$, $f$ jointly satisfiable on every tame bundle, and `theorem_16_5_7_def_16_1_5_witness` gives the theorem on a bundle with isotropy $\mathbb Z/3$.
 
 ### V16.72. The claim before Definition 16.6.1: sc-Fredholm in one representative, in all
 
@@ -26921,7 +26943,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V17.12. Proposition 17.1.11, the properness property
 
-*stronger* · every polyfold structure
+*restated* · every polyfold structure
 
 **HWZ (§17.1, Proposition 17.1.11, p. 750 (new in the 2021 edition)).** Every $q \in O$ has an open neighbourhood $U(q)$ such that $t : s^{-1}(\overline{U(q)}) \to O'$ is proper for every $\Psi'$.
 
@@ -27235,7 +27257,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V17.30. Theorem 17.1.27 (2017: Remark 17.2), the canonical natural transformation $\tau : \Gamma \circ \pi_1 \to \Gamma' \circ \pi_2$
 
-*stronger* · natural isomorphism
+*restated* · natural isomorphism
 
 **HWZ (§17.1, Theorem 17.1.27, pp. 759–761, (17.17)–(17.19) (2017: Remark 17.2)).** On the weak fibred product $X \times_{X''} X'$ for $\Psi'' = \Psi \sqcup \Psi'$, $\tau(q_\lambda, (q_\lambda, \phi'', q_{\mu'}), q_{\mu'}) = \phi''$ is a natural transformation between the equivalences $\Gamma \circ \pi_1$ and $\Gamma' \circ \pi_2$.
 
@@ -27250,7 +27272,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 - `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_27` — Polyfold/Chapter17/ModelComparison.lean, line 485
 
 *What differs.*
-- $\tau$ is moreover a natural isomorphism. $C$ carries no M-polyfold structure, so $\tau$ is a natural transformation of functors of categories. The 2017 text had this as a remark.
+- $\tau$ is moreover a natural isomorphism, which holds for every natural transformation here since $C$ is a groupoid. $C$ carries no M-polyfold structure, so $\tau$ is a natural transformation of functors of categories. The 2017 text had this as a remark.
 
 ### V17.31. The composition of comparison diagrams on pp. 761–765, (17.20)–(17.30), and $\mathrm{COV}_C$ revisited
 
@@ -27298,7 +27320,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V17.33. Theorem 17.1.28 (2017: 17.3), $C_1$ is a GCT with the polyfold structure $(F^1, M_{F^1})$
 
-*restated* · (F¹, M_F¹) built · G.205 closed
+*narrower* · (F¹, M_F¹) built · G.205 closed · one representative per lift
 
 **HWZ (§17.1, Theorem 17.1.28, p. 766 (2017: Theorem 17.3)).** The full subcategory $C_1$ is a GCT and carries the polyfold structure $(F^1, M_{F^1})$ with $F^1(\alpha) = \{\Psi^1\}$ and $M_{F^1}(\Psi^1, \Psi'^1) = (M(\Psi,\Psi'))^1$ ("obvious").
 
@@ -27319,10 +27341,12 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 - `Polyfold.GCT.PolyfoldConstruction.levelOne_hasUniformizers` — Polyfold/Chapter17/LevelStructures.lean, line 702
 - `Polyfold.GCT.PolyfoldConstruction.levelOnePolyfoldClass` — Polyfold/Chapter17/LevelOneCategory.lean, line 346
 - `Polyfold.GCT.PolyfoldConstruction.levelOneHomeomorphRaised` — Polyfold/Chapter17/LevelOneCategory.lean, line 359
+- `Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28_not_every_pair` — Polyfold/Examples/EveryUniformizer/Level.lean, line 216
 
 *What differs.*
 - Hidden hypotheses: footprints covering $|C|$ (`hc : S.HasCoveringUniformizers`), the standing reading of V17.6; witness `z3Taut_hasCoveringUniformizers`.
 - $\Psi \mapsto \Psi^1$ need not be injective, so $M_{F^1}(L, L')$ is built from one chosen $\Psi$ with $L = \Psi^1$. The topology of $|C_1|$ is the one of p. 766, from $|X^1|$; the "obvious" verification is point G.205.
+- The text writes $M_{F^1}(\Psi^1, \Psi'^1) := (M(\Psi, \Psi'))^1$, which presupposes that $M(\Psi, \Psi')^1$ depends only on $\Psi^1, \Psi'^1$. As we read Definition 17.1.8, two uniformizers with the same lift can carry transition structures that differ over the common set, and for every pair the identification does not hold as we read it (`theorem_17_1_28_not_every_pair`; Findings, Chapter 17, item 16). It holds for the representative chosen by `levelOneData` (`theorem_17_1_28`).
 
 ### V17.34. The levels $C^{i+1} := (C^i)^1$ and the metrizable topology on $|C_i|$
 
@@ -27659,7 +27683,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V17.53. Proposition 17.2.16 (2017: 17.5), $|TC|$ is metrizable, $TC$ a GCT, $|P|$ continuous; $T\Gamma$, (17.52)
 
-*stronger* · independent of Ψ · G.209 closed
+*hypotheses explicit* · independent of Ψ · G.209 closed
 
 **HWZ (§17.2, Proposition 17.2.16, pp. 782–783, (17.52) (2017: Proposition 17.5)).** $|TC|$ carries a natural metrizable topology (from $|TX_\Psi|$ via $T\Gamma$, independent of $\Psi$), $TC$ is a GCT and $|P| : |TC| \to |C_1|$ is continuous.
 
@@ -27853,7 +27877,7 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V17.63. Proposition 17.3.6 (2017: 17.6), the induced polyfold structure $(F_A, M)$
 
-*restated* · (F_A, M) built · choice via subData
+*narrower* · (F_A, M) built · choice via subData
 
 **HWZ (§17.3, Proposition 17.3.6, p. 786 (2017: Proposition 17.6)).** A subpolyfold $A$, as a GCT, inherits a natural polyfold structure $(F_A, M)$.
 
@@ -27865,9 +27889,10 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 - `Polyfold.GCT.PolyfoldConstruction.mem_subF_iff` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 783
 - `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_6` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 797
 - `Polyfold.GCT.PolyfoldConstruction.reflection_subConstruction` — Polyfold/Chapter17/SubpolyfoldStructure.lean, line 834
+- `Polyfold.GCT.PolyfoldConstruction.proposition_17_3_6_not_every_pair` — Polyfold/Chapter17/EveryUniformizerSub.lean, line 178
 
 *What differs.*
-- When two uniformizers have the same restriction the text does not say which ambient $M(\Psi, \Psi')$ gives $M(\Psi_A, \Psi'_A)$ its structure; one is chosen and every statement holds for it. That the structure does not depend on the choice is not claimed by the text and not formalized.
+- When two uniformizers have the same restriction the text does not say which ambient $M(\Psi, \Psi')$ gives $M(\Psi_A, \Psi'_A)$ its structure; one is chosen and every statement holds for it. The structure can depend on the choice: two uniformizers that agree on $A_\Psi$ can induce different structures on $s^{-1}(A_\Psi)$, and for every pair the identification does not hold as we read it (`proposition_17_3_6_not_every_pair`; Findings, Chapter 17, item 16).
 
 ### V17.64. Definition 17.3.7 (2017: 17.13), faces and face-structured polyfolds; faces of $X_\Psi$ and of $C$
 
@@ -30442,7 +30467,7 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 
 ### V18.49. Proposition 18.5.6 (2017: 18.2), orientations through models
 
-*stronger* · (3) as an iff · point G.252 settled
+*restated* · (3) as an iff · point G.252 settled
 
 **HWZ (§18.5, Proposition 18.5.6, p. 859 (2017: Proposition 18.2)).** (1) $f$ is orientable iff $f_{\bar\Psi}$ is, for a model; (2) an orientation of $f$ gives orientations of the models; (3) model orientations $o$, $o'$ come from one orientation of $f$ iff they correspond under the comparison (left to the reader, along Theorem 12.5.7).
 
@@ -30454,7 +30479,7 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 - `Polyfold.GCT.VectorBundle.ReflectionBundle.reflDiag_orientation_hyp` — Polyfold/Chapter18/OrientationsExamples.lean, line 49
 
 *What differs.*
-- (3) is proved as an iff (point G.252 settled; Findings, Chapter 18, item 11).
+- (3) is proved as an iff; the relation "correspond under the comparison" is symmetric, and each direction is the other with the two models exchanged (point G.252 settled; Findings, Chapter 18, item 11).
 
 ### V18.50. The paragraph before Theorem 18.6.1, orbifold- and manifold-type supports
 
@@ -31859,7 +31884,7 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 
 ### V19.75. Proposition 19.7.13 (new in the 2021 edition), metrizability of $M(\hat\Psi, \hat\Psi')$
 
-*stronger* · also metrizable
+*restated* · also metrizable
 
 **HWZ (§19.7, Proposition 19.7.13, p. 913 (new in the 2021 edition)).** $M(\hat\Psi,\hat\Psi')$ has a natural regular Hausdorff, locally metrizable topology, uniquely characterized by the canonical map to $M(\Psi,\Psi')\,{}_s\!\times_{\hat\tau} E$ being a homeomorphism.
 
@@ -31870,7 +31895,7 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 - `Polyfold.GroupoidalCategory.CoveringBasicConstruction.metrizableSpace_MHat` — Polyfold/Chapter19/CoveringTopology.lean, line 226
 
 *What differs.*
-- In addition, $M(\hat\Psi,\hat\Psi')$ is metrizable, with no hypothesis beyond $P$ being a finite-to-one covering functor.
+- In addition, $M(\hat\Psi,\hat\Psi')$ is metrizable, with no hypothesis beyond $P$ being a finite-to-one covering functor; this follows from the text's statement, since the topology is induced by an embedding into the metrizable space of Lemma 19.7.12.
 
 ### V19.76. Proposition 19.7.14 (new in the 2021 edition)
 
@@ -32114,19 +32139,21 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 
 ### V19.89. Theorem 19.7.29 (2017: Theorem 19.10), the polyfold structure on $\mathcal A$
 
-*restated* · read via Def 17.8.13 · IsCompatible (_hyp)
+*restated* · read via Def 17.8.13 · IsCompatible (_hyp) · P is the covering functor
 
 **HWZ (§19.7, Theorem 19.7.29, p. 929 (2017: Theorem 19.10)).** $\mathcal A$ has a natural polyfold structure for which $P$ is a covering functor of polyfolds.
 
 **Proved in Lean.** `theorem_19_7_29_hyp` (under the section's `hP`, `hC`, `hU`, `hm`), with the maps `fibredMorP`, `gammaHat` and `gammaFib`: the polyfold structure on $\mathcal A$ in the sense of Definition 17.8.13, for which $P$ is a proper covering functor of polyfolds.
 
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_content` — Polyfold/Chapter19/CoveringContent.lean, line 103
+- `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_functor` — Polyfold/Chapter19/CoveringContent.lean, line 87
 - `Polyfold.GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp` — Polyfold/Chapter19/CoveringPolyfold.lean, line 753
 - `Polyfold.GroupoidalCategory.CoveringBasicConstruction.fibredMorP` — Polyfold/Chapter19/CoveringPolyfold.lean, line 731
 - `Polyfold.GroupoidalCategory.CoveringBasicConstruction.gammaHat` — Polyfold/Chapter19/CoveringPolyfold.lean, line 735
 - `Polyfold.GroupoidalCategory.CoveringBasicConstruction.gammaFib` — Polyfold/Chapter19/CoveringPolyfold.lean, line 738
 
 *What differs.*
-- We read "$\mathcal A$ has a natural polyfold structure" through Definition 17.8.13: $\mathcal A$ has no translation-groupoid uniformizers of its own, so its structure is the one induced through $P$.
+- We read "$\mathcal A$ has a natural polyfold structure" through Definition 17.8.13: $\mathcal A$ has no translation-groupoid uniformizers of its own, so its structure is the one induced through $P$. Under the compatibility reading, $P$ itself is a proper polyfold covering functor whose polyfold structure on $\mathcal B$ is that of $(F, \mathcal F)$, and the topology on $|\mathcal A|$ generated by the natural open sets is metrizable (`theorem_19_7_29_content`; the functor is `toProperPolyfoldCoveringFunctor`, `theorem_19_7_29_functor`).
 
 ### V19.90. Witness for §19.7: the absolute value
 
@@ -32240,12 +32267,14 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 
 ### V19.97. Theorem 19.8.6 (new in the 2021 edition), bundle covering pull-backs
 
-*hypotheses explicit* · (1)–(4) for any transition construction · (5) for |A|: IsCompatible (_hyp) · |P*E_B|: G.273
+*hypotheses explicit* · (1)–(4) for any transition construction · (5) for |A|: IsCompatible (_hyp) · (5) for |P*E_B| (G.273 settled)
 
 **HWZ (§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)).** For uniformizers from a basic construction: $\hat\Gamma$ fully faithful; (1) M-polyfold and strong bundle structures; (2) $p$ a surjective local sc-diffeomorphism; (3) $U$ a strong bundle isomorphism for a unique structure on $\hat m$; (4) $\bar p$ a surjective local strong bundle isomorphism; (5) the orbit spaces of $\mathcal A$, $\mathcal B$, $E_B$, $P^*E_B$ are metrizable.
 
 **Proved in Lean.** `theorem_19_8_6_one_four` (any transition construction): $\hat\Gamma$ is fully faithful and injective on objects; (1) $m$ has the strong bundle structure `bundleG` (via `isStrongBundleIso_altH`); (2) $p$ (`pBmap`) is a surjective local sc-diffeomorphism; (3) $U$ (`Umap`) onto the pull-back `pullBundle` is a strong bundle isomorphism for a unique structure on $\hat m$ (`isStrongBundleIso_U`, `bundleHat_unique`); (4) $\bar p$ (`pbarMap`, `mGmap_pbarMap`) is a surjective local strong bundle isomorphism. `theorem_19_8_6_hyp (T) (hC)` adds (5) for $|\mathcal A|$ and $|\mathcal B|$; for $|E_B|$ it is `metrizableSpace_natTopEB`. The structure maps of $M(\Gamma, \Gamma')$ are local strong bundle isomorphisms or strong bundle maps (`isLocalStrongBundleIso_tgtGmap`, `isStrongBundleIso_invG`, `isStrongBundleMap_unitG`, `isStrongBundleMap_mulG`).
 
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_five_hyp` — Polyfold/Chapter19/CoveringContent.lean, line 233
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopPull` — Polyfold/Chapter19/CoveringContent.lean, line 223
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 552
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 598
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.bundleG` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 338
@@ -32269,7 +32298,7 @@ In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.isStrongBundleMap_mulG` — Polyfold/Chapter19/CoveringSquareMultiplication.lean, line 268
 
 *What differs.*
-- (1)–(4) hold for every transition construction, without (1)–(3) of Definition 19.8.4. (5) for $|\mathcal A|$ uses the compatibility reading. (5) for $|P^*E_B|$ is not stated separately (point G.273).
+- (1)–(4) hold for every transition construction, without (1)–(3) of Definition 19.8.4. (5) holds for $|\mathcal B|$ and $|E_B|$ as printed; for $|\mathcal A|$ and $|P^*E_B|$ it holds under the compatibility reading (`theorem_19_8_6_five_hyp`; for $|P^*E_B|$, with the topology generated by its natural open sets, this is Lemma 19.8.21 for the square of $(P, \mu_B)$; point G.273 settled).
 
 ### V19.98. Witness for the bundle covering pull-back: the absolute value with a fibre
 
@@ -37191,8 +37220,10 @@ Theorem 15.3.9 (V15.32, V15.45; `Chapter15/RelativeLocalFamilies`, `BoundaryExte
 
 **HWZ (§19.8, Theorem 19.8.6, p. 938 (new in the 2021 edition)).** The natural topologies on the orbit spaces of $\mathcal A$, $\mathcal B$, $E_B$ and $P^*E_B$ are all metrizable.
 
-**Proved in Lean.** **Not stated separately**: (5) is proved for $|\mathcal A|$, $|\mathcal B|$ (`theorem_19_8_6_hyp`) and $|E_B|$ (`metrizableSpace_natTopEB`). For $|P^*E_B|$ the general square result applies to the square of the pull-back (`BundleCoveringSquare.ofPull` with `PullbackUniformizer.toSquare`, then Lemma 19.8.21), but the instance is not written out.
+**Proved in Lean.** (5) is proved for all four orbit spaces in `theorem_19_8_6_five_hyp`: for $|\mathcal B|$ and $|E_B|$ as printed, for $|\mathcal A|$ and $|P^*E_B|$ under the compatibility reading. For $|P^*E_B|$, with the topology generated by its natural open sets (`NatOpenPull`), it is Lemma 19.8.21 for the square of the pull-back (`toSq`, `BundleCoveringSquare.ofPull`). Witness: `absFt_theorem_19_8_6_five`.
 
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_five_hyp` — Polyfold/Chapter19/CoveringContent.lean, line 233
+- `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopPull` — Polyfold/Chapter19/CoveringContent.lean, line 223
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` — Polyfold/Chapter19/CoveringPullbackTheorem.lean, line 598
 - `Polyfold.GroupoidalCategory.PullbackUniformizerConstruction.metrizableSpace_natTopEB` — Polyfold/Chapter19/CoveringSquareTopology.lean, line 460
 - `Polyfold.GroupoidalCategory.BundleCoveringSquare.ofPull` — Polyfold/Chapter19/CoveringSquare.lean, line 176

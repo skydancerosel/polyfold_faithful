@@ -1,0 +1,23 @@
+{
+ "id": "V17_33_r2",
+ "refresh_of": "V17_33",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Universe u := 0. A is the first pass's seven theorems plus theorem_17_1_28_not_every_pair (Polyfold/Examples/EveryUniformizer/Level.lean). B asks, for some polyfold structure S₁ on C¹ with F¹(α) = {Ψ¹ | Ψ ∈ F(α)}, that M_{S₁}(Ψ¹, Ψ'¹) → M(Ψ, Ψ')¹ be a homeomorphism and an sc-diffeomorphism for EVERY pair Ψ, Ψ'. As we read Definition 17.1.8 this does not hold: on C = ℤ/3 ⋉ H (H the weighted ℓ², trivial action) the structure gaugeConstruction has two uniformizers Ψ_false ≠ Ψ_true in F(h0) (h0 of level 1) that agree on the points of level 1 (Ψ_false¹ = Ψ_true¹) and whose transition structures are induced by ρ(a) = (k · γ(Ψ')(q)⁻¹ · γ(Ψ)(q), q) with a gauge γ(Ψ_true) = harmGauge discontinuous on H_1. If both identifications for (Ψ_false, Ψ_false) and (Ψ_false, Ψ_true) were homeomorphisms for one S₁, the gauge would be continuous on H_1. not_B re-does this from the non-item lemmas; main_to_notB and A_to_notB derive ¬B from A's main theorem; not_A_to_B; B_to_A and B_to_main hold ex falso. The text's construction presupposes that M(Ψ, Ψ')¹ depends only on the lifts Ψ¹, Ψ'¹; the statement holds for one representative per lift (theorem_17_1_28, levelOneData).",
+ "B_issue": null,
+ "overlap": "HARNESS (as in the first pass): plain #rt_check fails on not_B only because B mentions levelOneGCT and levelOneUnif, whose bodies reference metrizableSpace_levelOne, isOpenEmbedding_levelOneFunctor and (via modelOrbitHomeomorphOne) isHomeomorph_modelOrbitEquivOne directly; recorded with #guard_msgs. The local #rt_check_except_defs (these three bodies not unfolded) passes on not_B, main_to_notB, A_to_notB, B_to_A, B_to_main. rt_overlap not_B: 1759 shared project theorems, the Part I weighted-ℓ² chart lemmas, the level-one machinery of LevelStructures and the gauge construction; no item theorem. not_B axioms: propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.GCT.PolyfoldConstruction.theorem_17_1_28_not_every_pair",
+  "A_to_B": "false",
+  "B_to_A": "proved",
+  "relation": "A_narrower",
+  "note": "main ⇒ ¬B (main_to_notB); B ⇒ main ex falso (B_to_main)."
+ }
+}

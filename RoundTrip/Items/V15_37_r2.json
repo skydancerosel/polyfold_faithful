@@ -1,0 +1,32 @@
+{
+ "id": "V15_37_r2",
+ "refresh_of": "V15_37",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = the types of the 17 theorems of Chapter16/Corollary1544NoSections* and of the row's 135 theorems (universe 0). The new theorems derive (A.cubeSEP 1).B.HasScPlusSectionsThrough from sc-smooth bump functions on X (hasScPlusSectionsThrough_cubeSEP_of_bump: Theorem 12.3.2 (1), admitsBumpFunctions_prod_cube, AdmitsBumpFunctions.hasScPlusSectionsThrough) and state the corollary as maps on H^k_dR(X) = EP.epDeRham (corollary_15_4_4_deRham, corollary_15_4_4_index_zero_deRham). Main conjuncts ⇒ B with two added hypotheses (Bplus: tame germ data hft, sc-smooth bump functions hbump) and Bplus ⇒ main conjuncts are proved, so the main conjuncts are exactly Bplus; B ⇒ main conjuncts is proved. A_to_B: not proved, since existence of a canonically oriented regular perturbation is proved only under hft and hbump, which B does not grant (Corollary 15.4.4 names neither; §15.3, p. 692, assumes bump functions throughout). B_to_A: not proved (A contains proof steps, examples, existence in general position).",
+ "B_issue": null,
+ "overlap": "Not run. B_to_main, main_to_Bplus and Bplus_to_main unfold to the hypotheses (paracompactSpace_rn_prod, paracompactSpace_rn_pullback for B's instance arguments) and use no item theorem; #rt_check passes against the full banned list (A's 152 theorems).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.corollary_15_4_4_deRham ∧ Polyfold.SBLocalization.corollary_15_4_4_index_zero_deRham",
+  "A_to_B": "failed",
+  "B_to_A": "proved",
+  "relation": "A_narrower",
+  "note": "B_to_main proved. main_to_Bplus and Bplus_to_main proved: the main conjuncts are B with hft (tame germ data) and hbump (sc-smooth bump functions on X) added; A_to_Bplus proved. No hypothesis on sc⁺-sections of [0,1] × X remains."
+ },
+ "Bplus": {
+  "main_to_Bplus": "proved",
+  "Bplus_to_main": "proved",
+  "A_to_Bplus": "proved",
+  "added_hypotheses": [
+   "A.B.IsScFredholmSectionTame f",
+   "A.X.AdmitsBumpFunctionsPointwise"
+  ]
+ }
+}

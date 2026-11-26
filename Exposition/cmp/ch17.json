@@ -322,7 +322,7 @@
   {
    "id": "V17.12",
    "title": "Proposition 17.1.11, the properness property",
-   "verdict": "stronger",
+   "verdict": "restated",
    "book": {
     "label": "§17.1, Proposition 17.1.11, p. 750 (new in the 2021 edition)",
     "page": 750,
@@ -809,7 +809,7 @@
   {
    "id": "V17.30",
    "title": "Theorem 17.1.27 (2017: Remark 17.2), the canonical natural transformation $\\tau : \\Gamma \\circ \\pi_1 \\to \\Gamma' \\circ \\pi_2$",
-   "verdict": "stronger",
+   "verdict": "restated",
    "book": {
     "label": "§17.1, Theorem 17.1.27, pp. 759–761, (17.17)–(17.19) (2017: Remark 17.2)",
     "page": 759,
@@ -831,7 +831,7 @@
     "natural isomorphism"
    ],
    "diff": [
-    "$\\tau$ is moreover a natural isomorphism. $C$ carries no M-polyfold structure, so $\\tau$ is a natural transformation of functors of categories. The 2017 text had this as a remark."
+    "$\\tau$ is moreover a natural isomorphism, which holds for every natural transformation here since $C$ is a groupoid. $C$ carries no M-polyfold structure, so $\\tau$ is a natural transformation of functors of categories. The 2017 text had this as a remark."
    ]
   },
   {
@@ -901,7 +901,7 @@
   {
    "id": "V17.33",
    "title": "Theorem 17.1.28 (2017: 17.3), $C_1$ is a GCT with the polyfold structure $(F^1, M_{F^1})$",
-   "verdict": "restated",
+   "verdict": "narrower",
    "book": {
     "label": "§17.1, Theorem 17.1.28, p. 766 (2017: Theorem 17.3)",
     "page": 766,
@@ -924,16 +924,19 @@
      "Chapter17/LevelStructures · GCT.PolyfoldConstruction.levelOne_hasRegularity_iff",
      "Chapter17/LevelStructures · GCT.PolyfoldConstruction.levelOne_hasUniformizers",
      "Chapter17/LevelOneCategory · GCT.PolyfoldConstruction.levelOnePolyfoldClass",
-     "Chapter17/LevelOneCategory · GCT.PolyfoldConstruction.levelOneHomeomorphRaised"
+     "Chapter17/LevelOneCategory · GCT.PolyfoldConstruction.levelOneHomeomorphRaised",
+     "Examples/EveryUniformizer/Level · GCT.PolyfoldConstruction.theorem_17_1_28_not_every_pair"
     ]
    },
    "chips": [
     "(F¹, M_F¹) built",
-    "G.205 closed"
+    "G.205 closed",
+    "one representative per lift"
    ],
    "diff": [
     "Hidden hypotheses: footprints covering $|C|$ (`hc : S.HasCoveringUniformizers`), the standing reading of V17.6; witness `z3Taut_hasCoveringUniformizers`.",
-    "$\\Psi \\mapsto \\Psi^1$ need not be injective, so $M_{F^1}(L, L')$ is built from one chosen $\\Psi$ with $L = \\Psi^1$. The topology of $|C_1|$ is the one of p. 766, from $|X^1|$; the \"obvious\" verification is point G.205."
+    "$\\Psi \\mapsto \\Psi^1$ need not be injective, so $M_{F^1}(L, L')$ is built from one chosen $\\Psi$ with $L = \\Psi^1$. The topology of $|C_1|$ is the one of p. 766, from $|X^1|$; the \"obvious\" verification is point G.205.",
+    "The text writes $M_{F^1}(\\Psi^1, \\Psi'^1) := (M(\\Psi, \\Psi'))^1$, which presupposes that $M(\\Psi, \\Psi')^1$ depends only on $\\Psi^1, \\Psi'^1$. As we read Definition 17.1.8, two uniformizers with the same lift can carry transition structures that differ over the common set, and for every pair the identification does not hold as we read it (`theorem_17_1_28_not_every_pair`; Findings, Chapter 17, item 16). It holds for the representative chosen by `levelOneData` (`theorem_17_1_28`)."
    ]
   },
   {
@@ -1457,7 +1460,7 @@
   {
    "id": "V17.53",
    "title": "Proposition 17.2.16 (2017: 17.5), $|TC|$ is metrizable, $TC$ a GCT, $|P|$ continuous; $T\\Gamma$, (17.52)",
-   "verdict": "stronger",
+   "verdict": "explicit",
    "book": {
     "label": "§17.2, Proposition 17.2.16, pp. 782–783, (17.52) (2017: Proposition 17.5)",
     "page": 782,
@@ -1751,7 +1754,7 @@
   {
    "id": "V17.63",
    "title": "Proposition 17.3.6 (2017: 17.6), the induced polyfold structure $(F_A, M)$",
-   "verdict": "restated",
+   "verdict": "narrower",
    "book": {
     "label": "§17.3, Proposition 17.3.6, p. 786 (2017: Proposition 17.6)",
     "page": 786,
@@ -1765,7 +1768,8 @@
      "Chapter17/SubpolyfoldStructure · GCT.PolyfoldConstruction.subConstruction",
      "Chapter17/SubpolyfoldStructure · GCT.PolyfoldConstruction.mem_subF_iff",
      "Chapter17/SubpolyfoldStructure · GCT.PolyfoldConstruction.proposition_17_3_6",
-     "Chapter17/SubpolyfoldStructure · GCT.PolyfoldConstruction.reflection_subConstruction"
+     "Chapter17/SubpolyfoldStructure · GCT.PolyfoldConstruction.reflection_subConstruction",
+     "Chapter17/EveryUniformizerSub · GCT.PolyfoldConstruction.proposition_17_3_6_not_every_pair"
     ]
    },
    "chips": [
@@ -1773,7 +1777,7 @@
     "choice via subData"
    ],
    "diff": [
-    "When two uniformizers have the same restriction the text does not say which ambient $M(\\Psi, \\Psi')$ gives $M(\\Psi_A, \\Psi'_A)$ its structure; one is chosen and every statement holds for it. That the structure does not depend on the choice is not claimed by the text and not formalized."
+    "When two uniformizers have the same restriction the text does not say which ambient $M(\\Psi, \\Psi')$ gives $M(\\Psi_A, \\Psi'_A)$ its structure; one is chosen and every statement holds for it. The structure can depend on the choice: two uniformizers that agree on $A_\\Psi$ can induce different structures on $s^{-1}(A_\\Psi)$, and for every pair the identification does not hold as we read it (`proposition_17_3_6_not_every_pair`; Findings, Chapter 17, item 16)."
    ]
   },
   {

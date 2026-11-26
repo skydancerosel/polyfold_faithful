@@ -1486,7 +1486,7 @@
   {
    "id": "V13.51",
    "title": "Theorem 13.4.1 (2017: 13.3), the pull-back along a strong bundle equivalence is structurable",
-   "verdict": "stronger",
+   "verdict": "restated",
    "book": {
     "label": "§13.4, Theorem 13.4.1, pp. 621–622 (2017: Theorem 13.3)",
     "page": 621,
@@ -1775,6 +1775,10 @@
    "lean": {
     "statement": "`theorem_13_5_7 (hpu : A.X.HasScPartitionsOfUnity) (T : StructuredTuple A)`: there are `Λf : A.Obj → A.W → ℚ≥0`, `o : ∀ j, (CommData.ofTuple T).Over (Λf j)`, `hlf : IsLocallyFiniteFamily Λf` with `∀ j, IsAtomicOn A (Λf j)`, `CommData.lfSum o hlf = T.Λ`, the sum's sections equal $T$'s on every $U(x)$, and `(CommData.Over.lfSum o hlf).toStructured = ⟦T⟧`. `theorem_13_5_7_book (_hpara : HasParacompactOrbitSpace) (hpu) (hΛ : IsStructurable A Λ)`: some $T$ with `T.Λ = Λ` and such a family. Proof as in the text: $O_x\\ni|x|$ open with $\\mathrm{cl}O_x\\subseteq|U(x)|$ (`exists_orbit_nbhd`, regularity of $|X|$, L7.3.5), a partition of unity $(\\beta_x)$ subordinate to $\\pi^{-1}(O_x)$, $\\Lambda_j=\\beta_j\\odot\\Lambda$ with data $\\beta_j s^x_i$ (`CommData.smulFunOver`, from `smulFun`/`Tau.smulFun`), atomic at $x_j=j$ with $V=U(j)\\cap\\pi^{-1}(O_j)$ (closure inside $U(j)$ by `lemma_13_1_1`), $\\sum_j\\beta_j=1$. Helper `multisectionSmulFun_of_eq_zero`.",
     "decls": [
+     "Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic",
+     "Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic_book",
+     "Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic_sum",
+     "Chapter13/Theorem1357Atomic · SBLocalization.connRep",
      "Chapter13/AtomicSum · SBLocalization.CommData.smulFunOver",
      "Chapter13/AtomicSum · SBLocalization.multisectionSmulFun_of_eq_zero",
      "Chapter13/AtomicSum · SBLocalization.exists_orbit_nbhd",
@@ -1784,10 +1788,11 @@
    },
    "chips": [
     "every structured lift",
+    "atomic summands (Definition 13.5.1)",
     "paracompactness of $|X|$ not used"
    ],
    "diff": [
-    "For every structured lift $T$ (the text: \"a structured lift\"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. Atomic is `IsAtomicOn` (V13.57). With `IsAtomic` the statement would need connected natural-rep domains in the good system, which `GoodSystem` does not give. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\\beta_j)$."
+    "For every structured lift $T$ (the text: \"a structured lift\"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. The summands are atomic in the sense of Definition 13.5.1 (`IsAtomic`, `theorem_13_5_7_isAtomic`): the proof's $V_j$ is taken inside the connected component of $x_j$ in $U(x_j)$, the domain of a natural representation with the $\\Phi$, $\\Gamma$ of $U(x_j)$ and the properness property (`connRep`). The text's form, with common data and an index type $J$, is `theorem_13_5_7_isAtomic_sum`; the forms with `IsAtomicOn` (V13.57) are kept. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\\beta_j)$."
    ]
   },
   {

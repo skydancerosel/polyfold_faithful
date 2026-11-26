@@ -1,0 +1,19 @@
+{
+ "id": "V13_58_r2",
+ "refresh_of": "V13_58",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "UNIVERSES: A is the conjunction of the four theorems of the row and of the three theorems of Chapter13/Theorem1357Atomic (theorem_13_5_7_isAtomic, theorem_13_5_7_isAtomic_book, theorem_13_5_7_isAtomic_sum) at universe 0; B is on SEP.{0}. The new theorems rerun the construction of the proof with the partition of unity subordinate to π⁻¹(O_x), cl(O_x) ⊆ |Uᶜ(x)|, where Uᶜ(x) is the connected component of x in the good system's U(x) (connRep: a natural representation with the Φ, Γ of U(x), with the properness property from that of cl U(x)); V_j = Uᶜ(x_j) ∩ π⁻¹(O_j) has closure in Uᶜ(x_j) by Lemma 13.1.1, and the sections β_j·sˣᵢ restrict to Uᶜ(x_j). So every summand is IsAtomic, as B asks. The main conjunct theorem_13_5_7_isAtomic_sum is B's statement at universe 0 (common data c, a structure o of Λ over c, a family indexed by J : Type), so main_to_B and B_to_main are each one application and A_to_B follows. B_to_A: theorem_13_5_7 and theorem_13_5_7_isAtomic decompose every structured tuple T over T's own data, keeping its sections on every U(x), with the family indexed by X; B gives only some common data and an arbitrary index type, so these conjuncts do not follow.",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B (all seven conjuncts banned), main_to_B and B_to_main (the three new theorems banned). The proofs only apply the hypothesis.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "main": {
+  "decl": "Polyfold.SBLocalization.theorem_13_5_7_isAtomic_sum",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}

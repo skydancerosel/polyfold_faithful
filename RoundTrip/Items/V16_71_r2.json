@@ -1,0 +1,14 @@
+{
+ "id": "V16_71_r2",
+ "refresh_of": "V16_71",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is V16_71's six theorems plus theorem_16_5_7_def_16_1_5 (Theorem 16.5.7 with c.polyfold.AdmitsScPartitionsOfUnity, Definition 16.1.5 (2)), EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity and theorem_16_5_7_def_16_1_5_witness. The new Chapter 7 lemma proves that an ep-groupoid with sc-smooth partitions of unity (Definition 7.5.5) has an object M-polyfold admitting sc-smooth partitions of unity (Definition 5.5.1), with no hypothesis on |X|: local sc-smooth Urysohn functions inside a natural representation (split the G_x-orbit of y into points in W and outside W, cut an invariant partition of the saturated cover {π⁻¹π(B(y))} ∪ {X ∖ π⁻¹π(C)} down to the part P(y) ⊆ W of the saturation inside U(x)), then global Urysohn functions by paracompactness of the object space and the bump-covering construction of Theorem 5.5.10. With Proposition 16.1.4 (2) this turns Definition 16.1.5 (2) into the models' hypothesis of theorem_16_5_7, so the main conjunct theorem_16_5_7_def_16_1_5 has exactly B's hypotheses and conclusion (main_to_B, B_to_main one application each). B_to_A: the Theorem 16.5.7 conjuncts and theorem_16_5_7_hyp from B (Theorem 7.5.7 in one model for the models' form); the Chapter 7 conjunct from the non-item exists_isScSmoothMap_urysohn_of_hasScPartitionsOfUnity; isStructurableNe_iff, tsupport_comp_subset_preimage', theorem_14_1_9 and the two witnesses re-proved outright from non-item lemmas.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on A_to_B, B_to_A (all nine conjuncts banned), main_to_B, B_to_main (theorem_16_5_7, theorem_16_5_7_hyp, theorem_16_5_7_def_16_1_5, admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity banned). rt_overlap B_to_A: 3745 shared project theorems: the statements' vocabulary, theorem_14_1_9_charged and its Chapter 14 machinery, theorem_7_5_7, the zero-multisection lemmas, and the non-item Chapter 7 lemmas exists_local_urysohn, exists_split, exists_isScSmoothMap_urysohn_of_hasScPartitionsOfUnity.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "main": {"decl": "Polyfold.StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5", "A_to_B": "proved", "B_to_A": "proved", "relation": "equivalent"}
+}

@@ -25,8 +25,8 @@ The second command prints the axioms of every theorem; each must list only `prop
 | Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality | 28 | 96 | 102 |
 | Orientation (Chapter 6) | 6 | 68 | 289 |
 | Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 37 | 88 | 205 |
-| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 118 | 187 |
-| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 72 | 139 | 374 |
+| Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 119 | 188 |
+| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 72 | 139 | 375 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 3 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -490,7 +490,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V8.35 | §8.5 (2017 §8.4), Proposition 8.5.7 (2017: 8.3) and its proof, pp. 389–391 (2017 pp. 281–282) | `EpGroupoid.Examples.actionEpGroupoid`, `GeometricLift.YMor`, `GeometricLift.YObj`, `GeometricLift.sourceStr` and 5 more |
 | V8.37 | §8.5 (2017 §8.4), Definition 8.5.9 (2017: 8.10), p. 394 (2017 p. 285) | `EpFunctor.fibredSnd`, `EpStrongBundle.fibredLift`, `StrongBundle.IsStrongBundleIsoOn`, `StrongBundle.IsStrongBundleIsoOn.fiberEquiv` |
 | V8.53 | §8.2, Definition 8.2.1 (2017: 8.2) and the paragraphs after it, pp. 372–373 (2017 pp. 268–269) | `EP.epForms`, `EP.epFormsInfty`, `EP.epFormsInftyD`, `EP.epFormsMap` and 2 more |
-| V8.54 | §8.2, Definition 8.2.2 (2017: 8.3), p. 373 (2017 p. 270) | `EP.epFormsInftyPullback` |
+| V8.54 | §8.2, Definition 8.2.2 (2017: 8.3), p. 373 (2017 p. 270) | `EP.epDeRham`, `EP.epFormsInftyPullback` |
 | V9.1 | §9.1, Definition 9.1.2, p. 402 (2017: Definition 9.1, p. 292) | `EpGroupoid.IsBranchedEpSubgroupoid`, `EpGroupoid.IsFunctorial`, `EpGroupoid.LocalBranchingStructure`, `EpGroupoid.orbitSupp` and 1 more |
 | V9.2 | §9.1, Remark 9.1.1, p. 402 (2017: Remark 9.1, p. 291), and Definition 9.1.2, last paragraph, p. 402 | `EpGroupoid.IsNDimensional`, `EpGroupoid.LocalBranchingStructure.IsOfDim`, `MPolyfold.HasDimAt`, `MPolyfold.IsSubmanifoldOfDim` |
 | V9.6 | §9.1, Definition 9.1.6, p. 404 (2017: Definition 9.2, p. 293) | `EpGroupoid.IsClosedBranched`, `EpGroupoid.IsCompactBranched` |
@@ -631,6 +631,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 13.4.4 | `SBLocalization.theorem_13_4_4` (Chapter13/MultisectionPullback.lean) | V13.53 |
 | Thm 13.5.3 | `SBLocalization.theorem_13_5_3` (Chapter13/AtomicStructurable.lean) | — |
 | Thm 13.5.7 | `SBLocalization.theorem_13_5_7` (Chapter13/AtomicSum.lean) | V13.58 |
+| Thm 13.5.7 | `SBLocalization.theorem_13_5_7_isAtomic_sum` (Chapter13/Theorem1357Atomic.lean) | V13.58 |
 | Thm 14.1.6 | `EpGroupoid.theorem_14_1_6_hyp` (Chapter14/BoundaryMultisection.lean) | — |
 | Prop 14.4.14 | `SBLocalization.proposition_14_4_14` (Chapter14/CoherentExtension.lean) | — |
 | Prop 14.4.14 | `SBLocalization.ZConcrete.proposition_14_4_14` (Chapter14/ZLoopSetting.lean) | V14.33 |
@@ -682,8 +683,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_wellDefined_all` (Chapter16/IndexZeroUnconditional.lean) | V15.37 |
 | Cor 15.4.4 | `SBLocalization.integral_eq_of_isTransversalPerturbation` (Chapter15/AdmissibleCobordism.lean) | V15.37 |
 | Cor 15.4.4 | `SBLocalization.pointCount_eq_of_isTransversalPerturbation` (Chapter16/IndexZeroAllAdmissible.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_deRham` (Chapter16/Corollary1544NoSectionsDeRham.lean) | V15.37 |
+| Cor 15.4.4 | `SBLocalization.corollary_15_4_4_index_zero_deRham` (Chapter16/Corollary1544NoSectionsDeRham.lean) | V15.37 |
 | Prop 16.3.16 | `StrongPolyfoldBundle.proposition_16_3_16_two` (Chapter16/MixedTransfer.lean) | V16.56 |
 | Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7` (Chapter16/PolyfoldBoundaryExtension.lean) | V16.71 |
+| Thm 16.5.7 | `StrongPolyfoldBundle.theorem_16_5_7_def_16_1_5` (Chapter16/Theorem1657Def1615.lean) | V16.71 |
 | Def 16.6.5 | `StrongPolyfoldBundle.OrientationRep.exists_unique_transport_of_isLRLocal` (Chapter16/OrientationOrbitMapIndependence.lean) | V8.48, V16.77 |
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_canonical` (Chapter16/CanonicalIntegralInvariance.lean) | V16.78 |
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_correspondence` (Chapter16/InheritedOrientationGeneralPosition.lean) | V16.78 |
@@ -701,7 +705,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_all_admissible_unconditional` (Chapter16/IndexZeroNoBumpsUnconditional.lean) | V16.82 |
 | Thm 16.6.6 | `StrongPolyfoldBundle.theorem_16_6_6_index_zero_wellDefined_unconditional` (Chapter16/IndexZeroNoBumpsUnconditional.lean) | V16.82 |
 
-### Definition rows (118), in dependency order
+### Definition rows (119), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
@@ -774,11 +778,12 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V15.11 | §15.2, Definition 15.2.1, p. 688 (2017: Definition 15.2) | `SBLocalization.IsOntoAt`, `SBLocalization.IsOntoAtLevel`, `SBLocalization.IsTransversal`, `SBLocalization.IsTransversalAt` |
 | V15.14 | §15.2, Definition 15.2.4, p. 689 (2017: Definition 15.3) | `SBLocalization.IsBranchGoodPosition`, `SBLocalization.IsGoodPositionAt` |
 | V15.17 | not in the book as a numbered item (used after Definition 15.3.3, in Remark 15.3.4, Corollaries 15.3.10, 15.4.4) | `EpGroupoid.prod`, `EpGroupoid.prodSnd`, `GroupoidStr.prod` |
-| V15.18 | §15.3, Corollary 15.3.10 (2) and its proof, p. 699 (2017: Corollary 15.1) | `EpGroupoid.cubeProd`, `EpGroupoid.cubeProj`, `SEP.cubeLiftEp`, `SEP.cubeSEP` |
+| V15.18 | §15.3, Corollary 15.3.10 (2) and its proof, p. 699 (2017: Corollary 15.1) | `EpGroupoid.cubeIncl`, `EpGroupoid.cubeOrbitMap`, `EpGroupoid.cubeProd`, `EpGroupoid.cubeProj` and 2 more |
 | V15.20 | §15.3, Definition 15.3.1, p. 691 (2017: Definition 15.4) | `SBLocalization.ControlsCompactness` |
 | V15.22 | §15.3, Definition 15.3.3, p. 692 (2017: Definition 15.5) | `SBLocalization.IsAdmissible` |
 | V15.24 | §15.3, Definition 15.3.5, p. 693 (2017: Definition 15.6) | `SBLocalization.IsInGeneralPosition` |
 | V15.26 | §15.3, Corollary 15.3.10 (2), p. 699, and the first step of its proof, pp. 699–700 (2017: Corollary 15.1 (2)) | `SEP.cubeAuxNorm` |
+| V15.48 | §15.3, proof of Corollary 15.3.10 (3), p. 700 (2017: Corollary 15.1) | `EpGroupoid.cylEnd`, `EpGroupoid.cylOrbitTime` |
 | V15.50 | §15.4, before Theorem 15.4.1, p. 701 (2017: before Theorem 15.6) | `ChartPoint.OrLin` |
 | V15.52 | §15.4, Definition 15.4.2, p. 702 (2017: Definition 15.7) | `ChartPoint.orKer`, `ChartPoint.orKerOrientation`, `SBLocalization.IsCanonicalFor`, `SBLocalization.IsCanonicalPerturbation` and 1 more |
 | V16.1 | §16.1, Definition 16.1.1, p. 705 (2017: Definition 16.1) | `PolyfoldStructure` |
@@ -824,7 +829,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V16.75 | §16.6, Definition 16.6.3, pp. 736–737 (new in 2021) | `StrongPolyfoldBundle.ScSection.ControlsCompactness`, `StrongPolyfoldBundle.ScSection.IsProper`, `StrongPolyfoldBundle.ScSection.IsProperLtInfty`, `StrongPolyfoldBundle.ScSection.sublevel` |
 | V16.80 | §16.6, p. 739, before Theorem 16.6.6 (2017: before Theorem 16.8) | `StrongPolyfoldBundle.IsPerturbedSuborbifold`, `StrongPolyfoldBundle.ScSection.IsInGeneralPositionWith`, `StrongPolyfoldBundle.perturbedFun`, `StrongPolyfoldBundle.perturbedRep` |
 
-<details><summary>187 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>188 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * ?.lean: `EpGroupoid.isLocalScDiffeo_id`
 * Chapter10/FredholmEquivalence.lean: `EpGroupoid.actPair`, `EpStrongBundle.sectionAct`, `StrongBundle.IsStrongBundleIsoOn.toLocalIso`
@@ -886,6 +891,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter6/TransportSpaceEquiv.lean: `LocalTransport.Intertwines`, `LocalTransport.Intertwines.totalEquiv`, `LocalTransport.Intertwines.totalHomeomorph`
 * Chapter7/Groupoid.lean: `GroupoidStr.trivial`
 * Chapter8/EpStrongBundle.lean: `EpStrongBundle.sectionPair`
+* Chapter9/EpForms.lean: `EP.epFormsInftyDRange`
 * Chapter9/SupportManifold.lean: `EpGroupoid.orbitSuppProj`
 
 </details>
@@ -1043,8 +1049,10 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 19.7.28 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_two_hyp` (Chapter19/CoveringPolyfold.lean) | V19.88 |
 | Thm 19.7.28 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_28_three_hyp` (Chapter19/CoveringPolyfold.lean) | V19.88 |
 | Thm 19.7.29 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_hyp` (Chapter19/CoveringPolyfold.lean) | V19.89 |
+| Thm 19.7.29 | `GroupoidalCategory.CoveringBasicConstruction.theorem_19_7_29_content` (Chapter19/CoveringContent.lean) | V19.89 |
 | Thm 19.8.6 | `GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_one_four` (Chapter19/CoveringPullbackTheorem.lean) | V19.97 |
 | Thm 19.8.6 | `GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_hyp` (Chapter19/CoveringPullbackTheorem.lean) | V19.97 |
+| Thm 19.8.6 | `GroupoidalCategory.PullbackUniformizerConstruction.theorem_19_8_6_five_hyp` (Chapter19/CoveringContent.lean) | V19.97 |
 | Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_topology_hyp` (Chapter19/CoveringSquareTopology.lean) | V19.110 |
 | Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_inv_hyp` (Chapter19/CoveringSquareMultiplication.lean) | V19.110 |
 | Thm 19.8.22 | `GroupoidalCategory.SquareUniformizerConstruction.theorem_19_8_22_unit` (Chapter19/CoveringSquareMultiplication.lean) | V19.110 |
@@ -1196,7 +1204,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V19.108 | §19.8, Definition 19.8.19, p. 954 (new in the 2021 edition) | `IsProperStrongBundleCoveringSquare` |
 | V19.109 | §19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition) | `GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA`, `GroupoidalCategory.SquareUniformizerConstruction.natTopEA` |
 
-<details><summary>374 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>375 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * Chapter16/RaisedPolyfold.lean: `EPLocalization.Diagram.liftOne`, `EPLocalization.EPLoc.liftOneHom`
 * Chapter17/BranchedSubcategory.lean: `GroupoidStr.orbitSupp`
@@ -1240,6 +1248,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter18/Orientations.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelInvariant`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.ModelOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.adjoinFamily`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPullOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPushOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refLift`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.sumFamily`
 * Chapter18/TangentPartialCone.lean: `MPolyfold.fiberChartComplement`, `MPolyfold.fiberChartDim`, `MPolyfold.fiberChartPresentation`, `MPolyfold.tangentPartialCone`
 * Chapter19/CoveringConstruction.lean: `GroupoidalCategory.CoveringUniformizer.liftTrans`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif.toUnif`
+* Chapter19/CoveringContent.lean: `GroupoidalCategory.PullbackUniformizerConstruction.NatOpenPull`
 * Chapter19/CoveringPolyfold.lean: `GroupoidalCategory.CoveringBasicConstruction.fibSetHomeomorph`, `GroupoidalCategory.CoveringBasicConstruction.gctA`, `GroupoidalCategory.CoveringBasicConstruction.gctB`, `GroupoidalCategory.CoveringBasicConstruction.polyfoldB`, `GroupoidalCategory.CoveringBasicConstruction.toFibSet`, `GroupoidalCategory.CoveringBasicConstruction.unifOf`
 * Chapter19/CoveringPullbackDiagram.lean: `GroupoidalCategory.BanFunctor.pullCLE`, `GroupoidalCategory.BanFunctor.pullLift`, `GroupoidalCategory.BanFunctor.pullMk`, `GroupoidalCategory.BanFunctor.pullMorE`, `GroupoidalCategory.BanFunctor.pullPt`, `GroupoidalCategory.BanFunctor.pullTop`, `GroupoidalCategory.GroupoidAction`, `GroupoidalCategory.GroupoidAction.morComp`, `GroupoidalCategory.GroupoidAction.morInv`, `GroupoidalCategory.PullbackUniformizer.TauW`, `GroupoidalCategory.PullbackUniformizer.TransG`, `GroupoidalCategory.PullbackUniformizer.gammaHatObj`, `GroupoidalCategory.PullbackUniformizer.mG`, `GroupoidalCategory.PullbackUniformizer.str`, `GroupoidalCategory.PullbackUniformizer.tauG`, `GroupoidalCategory.PullbackUniformizer.tauW`, `GroupoidalCategory.PullbackUniformizer.tauWAction`, `GroupoidalCategory.PullbackUniformizer.Γ`, `GroupoidalCategory.PullbackUniformizerConstruction.Unif`, `GroupoidalCategory.PullbackUniformizerConstruction.Unif.toHat`, `GroupoidalCategory.StrongBundleOver.toStr`, `GroupoidalCategory.StrongBundleOver.toUniformizer`
 * Chapter19/CoveringPullbackTheorem.lean: `GroupoidalCategory.PullbackUniformizerConstruction.MBase`, `GroupoidalCategory.PullbackUniformizerConstruction.MG`, `GroupoidalCategory.PullbackUniformizerConstruction.MGHat`, `GroupoidalCategory.PullbackUniformizerConstruction.MGHat.toTrans`, `GroupoidalCategory.PullbackUniformizerConstruction.MHatB`, `GroupoidalCategory.PullbackUniformizerConstruction.PB`, `GroupoidalCategory.PullbackUniformizerConstruction.SrcPB`, `GroupoidalCategory.PullbackUniformizerConstruction.TgtPB`, `GroupoidalCategory.PullbackUniformizerConstruction.Uequiv`, `GroupoidalCategory.PullbackUniformizerConstruction.Uhomeo`, `GroupoidalCategory.PullbackUniformizerConstruction.Uinv`, `GroupoidalCategory.PullbackUniformizerConstruction.altC`, `GroupoidalCategory.PullbackUniformizerConstruction.altH`, `GroupoidalCategory.PullbackUniformizerConstruction.altH'inv`, `GroupoidalCategory.PullbackUniformizerConstruction.altHEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.altHHomeo`, `GroupoidalCategory.PullbackUniformizerConstruction.altHinv`, `GroupoidalCategory.PullbackUniformizerConstruction.basePoly`, `GroupoidalCategory.PullbackUniformizerConstruction.bundleHat`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberGEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberGLin`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberHatEquiv`, `GroupoidalCategory.PullbackUniformizerConstruction.fiberHatLin`, `GroupoidalCategory.PullbackUniformizerConstruction.hatPoly`, `GroupoidalCategory.PullbackUniformizerConstruction.instAddCommGroupFiberG`, `GroupoidalCategory.PullbackUniformizerConstruction.instAddCommGroupFiberHat`, `GroupoidalCategory.PullbackUniformizerConstruction.instModuleFiberG`, `GroupoidalCategory.PullbackUniformizerConstruction.instModuleFiberHat`, `GroupoidalCategory.PullbackUniformizerConstruction.instTopologicalSpaceMG`, `GroupoidalCategory.PullbackUniformizerConstruction.instTopologicalSpaceMGHat`, `GroupoidalCategory.PullbackUniformizerConstruction.mGmap`, `GroupoidalCategory.PullbackUniformizerConstruction.mHatMap`, `GroupoidalCategory.PullbackUniformizerConstruction.srcB`, `GroupoidalCategory.PullbackUniformizerConstruction.srcBundle`, `GroupoidalCategory.PullbackUniformizerConstruction.tgtB`, `GroupoidalCategory.PullbackUniformizerConstruction.tgtBundle`, `fiberEquivOver`

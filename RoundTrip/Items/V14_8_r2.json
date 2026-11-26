@@ -1,0 +1,22 @@
+{
+ "id": "V14_8_r2",
+ "refresh_of": "V14_8",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "B assumes ep-groupoid partitions of unity (Definition 7.5.5); theorem_14_1_9 assumes M-polyfold partitions of unity of the object space, as the text does. The project now proves that the first give the second (EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity), so A (the first pass's A with that lemma) gives B, and with the first pass's B_to_main the main conjunct and B are equivalent. B does not state A's proof steps and examples, so B_to_A is not claimed.",
+ "B_issue": null,
+ "overlap": "rt_check OK on A_to_B and main_to_B (theorem_14_1_9 and the lemma banned); B_to_main is the first pass's, with its rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "main": {
+  "decl": "Polyfold.SBLocalization.theorem_14_1_9 ∧ EpGroupoid.admitsScPartitionsOfUnity_of_hasScPartitionsOfUnity (Amain)",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
+ }
+}
