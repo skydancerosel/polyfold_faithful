@@ -21,7 +21,11 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `Groupoid.lean` | §3.1 | the groupoid of stable maps and their isomorphisms, as the groupoidal category of Definition 19.1.1 of the book |
 | `Witnesses.lean` | Defs 1.1–1.4 | the sphere with its standard complex structure and holomorphic stereographic charts; the sphere with three marked points and the sphere with one node; constant stable maps into any target |
 | `Reductions.lean`, `ReductionsRegularity.lean` | Thm 3.13, §3.5 | transition data from Thm 3.13; (ZHOU), effectiveness and tameness for faithful linear actions; Z is metrizable with (ZHOU) and carries a polyfold structure, given Prop 3.10, Thms 1.6, 3.13, 3.22 as named statements |
-| `FilledSection.lean` | Props 4.7–4.8 | Prop 4.8 from Props 4.7, 4.23 and 4.25, through Prop 4.26 |
+| `FilledSection.lean`, `FredholmGerm.lean` | Props 4.7–4.8 | Prop 4.8 from Props 4.7, 4.23 and 4.25, through Prop 4.26; Prop 4.8 gives the sc-Fredholm germ property (Def 3.1.11 of the book) |
+| `SphereStability.lean` | Def 1.3 | the sphere with three marked points is stable: every automorphism is the identity (Liouville in a stereographic chart) |
+| `NodalPair.lean` | Defs 1.2–1.4 | two spheres joined at a node, with four marked points, and a constant stable map on it; charts and tangent coordinates of disjoint unions of manifolds |
+| `HalfCylinders.lean` | §2.4 | weighted Sobolev spaces on half-cylinders and finite cylinders as restrictions of the cylinder spaces of `Polyfold/Chapter1`, and their sc-structure |
+| `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
 ## Readings and comparisons with the book
 
@@ -49,13 +53,17 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   and composition, and each object maps to finitely many uniformizers (the locally finite refinement of
   §3.5). Prop 3.10, the existence of good uniformizers at every object, is a hypothesis of the final
   statement: without it the conclusions of Thms 3.13 and 3.22 would hold for an empty family.
+- **Gluing (§2.4).** The spaces on half-cylinders and on the finite cylinders Z_a are taken as
+  restrictions of the cylinder spaces; the equivalence with the intrinsic norms is not formalized. The
+  gluing parameters range over B_{1/2}, and only R ≥ 2 is used. The average [h]_R is read as the trace
+  ∫_{S¹} h(R, t) dt. In the display before (2.11), the shifted term h⁻(s − R, t − R) is read with second
+  argument t − ϑ. Prop 2.51 is read in a chart flat on ‖ψ‖ < 2.
 
 ## Not yet formalized
 
 The analysis and geometry the memoir draws on beyond the book: Deligne–Mumford spaces, weighted Sobolev
-spaces on half-cylinders and the sc-smoothness of gluing and anti-gluing (Thms 2.49, 2.50, 2.55, 2.57;
-Lemma 2.48, Prop 2.51), elliptic regularity for ∂̄_J, the index theorem, Gromov compactness, and the
+the sc-smoothness of gluing and anti-gluing in the gluing parameter (Thm 2.49 (2), stated as a named
+proposition; Thms 2.50, 2.55, 2.57), elliptic regularity for ∂̄_J, the index theorem, Gromov compactness, and the
 results resting on them (Thms 1.6–1.12, 3.13, 3.22, Props 3.10, 4.7, 4.23, 4.25, stated here as named
-propositions). Also the stability of the three-pointed sphere, two spheres joined at a node, the step
-from Prop 4.8 to the sc-Fredholm property of ∂̄_J, Lemma 5.20 beyond a single chart, Defs 5.25 and
+propositions). Also the section spaces H^{3,δ₀}_c(S, u*TQ), Lemma 5.20 beyond a single chart, Defs 5.25 and
 5.27–5.32, and the abstract parts of Appendix 5.11 after Lemma 5.37.
