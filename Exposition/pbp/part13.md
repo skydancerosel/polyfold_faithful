@@ -47,13 +47,13 @@ Chapter 13 (Springer 2021, pp. 599–636; 2017 numbers in parentheses) builds th
 - Theorem 13.5.3 is narrower by one added hypothesis, that a good system exists. It is necessary, since structurability includes a good system, and paracompactness of $|X|$ supplies it (§XIII.26).
 - Theorems 13.5.4 and 13.5.6 are narrower only through the pointwise reading of "admits sc-smooth bump functions"; in other respects their conclusions are stronger (§§XIII.27, XIII.29).
 - Theorem 13.5.5 is narrower by $I \neq \emptyset$, which the printed formula presupposes. Its last clause carries the same good-system hypothesis as Theorem 13.5.3 (§XIII.28).
-- Theorem 13.5.7 is proved in a stronger form: for every structured lift, with partitions of unity and without the paracompactness of $|X|$ (§XIII.30).
+- Theorem 13.5.7 is proved in a stronger form: for every structured lift, with partitions of unity and without the paracompactness of $|X|$. It is proved with pieces atomic on neighbourhoods with the natural action, and also with pieces atomic in the sense of Definition 13.5.1, on connected domains (§XIII.30).
 - Remark 13.5.2 is prose.
 
 *Points.* The points G.141 (Theorem 13.1.7 as printed), G.142 (decorated sc⁺-multisections and their algebra), G.143 (no inverses), G.148 (Proposition 13.3.19), G.149 (Theorem 13.5.3 and the last clause of Theorem 13.5.5) and G.163 (Proposition 13.4.2) are all closed. No statement of Chapter 13 was found that does not hold as we read it.
 
 **Four decisions that shape the chapter.**
-1. *Neighbourhoods with the natural action.* The project's natural representation of $G_x$ (Theorem 7.1.13, Part VII) has a connected domain. The invariant subsets of §13.1 need not be connected. A neighbourhood with the natural action is therefore a natural representation together with an open $U \ni x$ inside its domain, invariant under every $\Phi(g)$ ⟦Chapter13/GoodSystem · EpGroupoid.NatNbhd⟧. In this reading every claim of §13.1 that an invariant open subset carries the natural action holds as printed, and the good systems of §13.1 are made of such neighbourhoods. Definitions 13.2.5 and 13.5.1, which predate the good systems in the formalization, ask for the connected domain of a natural representation, the reading of Chapter 11. The structures on good systems (§§XIII.9–XIII.10) and the atomic pieces of Theorem 13.5.7 (§XIII.30) are therefore formalized on neighbourhoods with the natural action.
+1. *Neighbourhoods with the natural action.* The project's natural representation of $G_x$ (Theorem 7.1.13, Part VII) has a connected domain. The invariant subsets of §13.1 need not be connected. A neighbourhood with the natural action is therefore a natural representation together with an open $U \ni x$ inside its domain, invariant under every $\Phi(g)$ ⟦Chapter13/GoodSystem · EpGroupoid.NatNbhd⟧. In this reading every claim of §13.1 that an invariant open subset carries the natural action holds as printed, and the good systems of §13.1 are made of such neighbourhoods. Definitions 13.2.5 and 13.5.1, which predate the good systems in the formalization, ask for the connected domain of a natural representation, the reading of Chapter 11. The structures on good systems (§§XIII.9–XIII.10) are therefore formalized on neighbourhoods with the natural action. Theorem 13.5.7 is proved both with pieces atomic on such neighbourhoods and with pieces atomic on connected domains, as Definition 13.5.1 asks (§XIII.30).
 2. *Components named by a point.* A component of $\mathcal U(x, x')$ is the connected component in $\mathcal U(x, x')$ of one of its morphisms, and it is empty if the morphism is not in $\mathcal U(x, x')$. No statement needs a separate index set of components, and many statements need no membership hypothesis.
 3. *Multisections as functors, structures as data.* An sc⁺-multisection is a functor $\Lambda : W \to \mathbb Q^+$ satisfying Chapter 11's predicate, with local section structures on open sets ⟦Chapter11/MultisectionLocalStructure · SBLocalization.IsScPlusMultisection⟧ ⟦Chapter11/MultisectionLocalStructure · SBLocalization.IsLocalRepOn⟧. Decorations, structures and structured tuples are data attached to it. The decorated and structured multisections of the text are quotients of the data by the equivalences of Definitions 13.2.8 and 13.3.8.
 4. *Index sets are types.* The text writes equalities of index sets: $I'_x = \{*\}$ and $I'_x = I_x$ in Proposition 13.3.15, $I_x = I'_x$ in Definition 13.3.8, $K_x = \prod_lK^l_x$ in Proposition 13.3.19. The formalization has types with bijections between them, and compares correspondences after relabelling along the bijections. Where the text asks two index sets to be equal (Definitions 13.3.8 and 13.4.5), the formalization asks for an equality of types and compares the correspondences through it.
@@ -118,6 +118,7 @@ The hypotheses the text states and the formalization keeps without using:
 - `AtomicStructurableLocal`: the local alternative of the proof of Theorem 13.5.3, and the form of Theorems 13.5.3 and 13.5.5 with structurability as a parameter.
 - `AtomicStructurable`: the data and the structure of the proof of Theorem 13.5.3; Theorem 13.5.3; the last clause of Theorem 13.5.5.
 - `AtomicSum`: atomic data on a neighbourhood with the natural action; Theorem 13.5.7.
+- `Theorem1357Atomic`: the natural representation on a connected component; Theorem 13.5.7 with summands atomic in the sense of Definition 13.5.1.
 
 **Conventions.** Throughout, $X$ is an ep-groupoid with source and target maps $s$, $t$, composition $\circ$, inversion $\varphi \mapsto \varphi^{-1}$ and orbit map $\pi : X \to |X|$. The isotropy group $G_x$ is finite (Proposition 7.1.12, Part VII). A natural representation of $G_x$ (Theorem 7.1.13, Part VII) on an open connected $U \ni x$ consists of sc-diffeomorphisms $\Phi(g) : U \to U$ and morphisms $\Gamma(g, z) : z \to \Phi(g)(z)$. Every morphism between two points of $U$ is $\Gamma(g, z)$ for exactly one $g$. We write $g * z = \Phi(g)(z)$. For $U, U' \subset X$,
 $$\mathcal U(U, U') = \{\varphi : s(\varphi) \in U,\ t(\varphi) \in U'\}$$
@@ -1311,7 +1312,7 @@ The text does not say this. It matters for Theorem 13.5.5 (§XIII.28).
 - So *the zero multisection is atomic*, at every point ⟦Chapter13/AtomicMultisection · SBLocalization.isAtomic_zeroMultisection⟧.
 
 **Atomic on a neighbourhood with the natural action** (extra) ⟦Chapter13/AtomicSum · SBLocalization.AtomicDataOn⟧ ⟦Chapter13/AtomicSum · SBLocalization.IsAtomicOn⟧. This is Definition 13.5.1 with $U(x)$ a neighbourhood with the natural action (§XIII.1) and proper closure, in place of the domain of a natural representation.
-- The sets of a good system are of this kind, and they need not be connected. Theorem 13.5.7 produces atomic pieces on such sets, so it needs this reading (§XIII.30).
+- The sets of a good system are of this kind, and they need not be connected. The first proof of Theorem 13.5.7 produces atomic pieces on such sets. A second proof shrinks them to connected components and gives pieces atomic in the sense of Definition 13.5.1 (§XIII.30).
 - The count ⟦Chapter13/AtomicSum · SBLocalization.AtomicDataOn.count⟧, reachability ⟦Chapter13/AtomicSum · SBLocalization.AtomicDataOn.Reach⟧ and condition (3) ⟦Chapter13/AtomicSum · SBLocalization.AtomicDataOn.IsRelated⟧ are as above.
 - Atomic data on the domain of a natural representation are atomic data in this sense ⟦Chapter13/AtomicSum · SBLocalization.AtomicData.toOn⟧: the domain with the representation is a neighbourhood with the natural action. So atomic implies atomic in this sense ⟦Chapter13/AtomicSum · SBLocalization.IsAtomic.isAtomicOn⟧, and the zero multisection is a witness.
 
@@ -1611,6 +1612,26 @@ such that
 - the paracompactness of $|X|$ is not used, since regularity of $|X|$, which every ep-groupoid has, suffices for the shrinking.
 
 The text's refinement $(V_j)_{j \in J}$ with points $x_j$ is replaced by the index set $X$ itself, with $V_j = O_j$. The atomic pieces are atomic on neighbourhoods with the natural action, the extra reading of Definition 13.5.1. The sets of a good system need not be domains of natural representations.
+
+**With atomic summands in the sense of Definition 13.5.1** ⟦Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic⟧. The pieces above are atomic on the sets $U(x_j)$ of the good system, which need not be connected. Rerunning the proof with a partition of unity subordinate to smaller sets makes every $\Lambda_j$ atomic on the connected domain of a natural representation with the properness property, which is Definition 13.5.1 as formalized (§XIII.25). The rest of the statement is unchanged: the family is indexed by $X$, it lies over the data of $T$, its commensurable sum is $\Lambda$, its sections are those of $T$ on every $U(x)$, and its structured class is that of $T$.
+
+*Tools.*
+- *The connected component is invariant* ⟦Chapter13/Theorem1357Atomic · SBLocalization.mapsTo_Φ_connectedComponentIn⟧. For $g$ in the isotropy of $x$, $\Phi(g)$ maps the component $U^c(x)$ of $x$ in $U(x)$ into itself: the image of $U^c(x)$ is preconnected, contained in $U(x)$, and contains $\Phi(g)(x) = x$.
+- *The natural representation on $U^c(x)$* ⟦Chapter13/Theorem1357Atomic · SBLocalization.connRep⟧. The restriction of the natural representation of $U(x)$, with the same $\Phi$ and $\Gamma$, to the open connected invariant set $U^c(x) \ni x$ ⟦Chapter13/Theorem1357Atomic · SBLocalization.connRep_U_subset⟧. It has the properness property when $\operatorname{cl}U(x)$ is proper, since $\operatorname{cl}U^c(x)$ is a closed subset of it ⟦Chapter13/Theorem1357Atomic · SBLocalization.hasPropernessProperty_connRep⟧.
+- *Shrinking inside an open set* ⟦Chapter13/Theorem1357Atomic · SBLocalization.exists_orbit_nbhd_of_isOpen⟧. For open $U \ni x$ there is an open $O \ni |x|$ in $|X|$ with $\operatorname{cl}O \subset |U|$: $|U|$ is open by Proposition 7.1.8, and $|X|$ is regular.
+
+*Proof.*
+1. *Smaller sets.* For each $x$ take $O_x$ with $\operatorname{cl}O_x \subset |U^c(x)|$, and a partition of unity of functors $(\beta_j)_{j \in X}$ subordinate to the saturated cover $\pi^{-1}(O_x)$.
+2. *The pieces, local finiteness, the sections, the sum.* Steps 2–5 of the proof above, word for word: $\Lambda_j = \beta_j \odot \Lambda$ with data $\beta_js^x_i$ over $c$.
+3. *Each piece is atomic* at $x_j = j$, on $U^c(j)$:
+   - the natural representation $U^c(j)$, with the properness property by the second tool;
+   - $V = U^c(j) \cap \pi^{-1}(O_j)$, open and invariant, with $\operatorname{cl}V \subset U^c(j)$ by Lemma 13.1.1 applied to $U^c(j)$;
+   - the sections $\beta_js^j_i$ restricted to $U^c(j)$, equivariant and vanishing on $U^c(j) \setminus V$, where $\beta_j = 0$;
+   - condition (3) at points of $U^c(j)$ reached by a morphism is the count of $\Lambda_j$ transported along it;
+   - off the saturation of $U^c(j)$, $\beta_j = 0$, because $\operatorname{cl}O_j \subset |U^c(j)|$; so $\Lambda_j$ is trivial there.
+4. *The classes are equal*, as in step 7 above.
+
+*For a structurable $\Lambda$* ⟦Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic_book⟧: $\Lambda$ has a structured lift $T$ which is the commensurable sum of a locally finite family of atomic pieces, with the same class. *In the form of the text* ⟦Chapter13/Theorem1357Atomic · SBLocalization.theorem_13_5_7_isAtomic_sum⟧: there are common data $c = (\mathcal U, I_x, \tau)$, a structure of $\Lambda$ over $c$, and a locally finite family $(\Lambda_j)_{j \in J}$ over $c$, each atomic, with $\bigoplus^c_j\Lambda_j = \Lambda$ and $\bigoplus^c_j[\Lambda_j, \mathcal U, S_j, \tau] = [\Lambda, \mathcal U, S, \tau]$. In both, the paracompactness of $|X|$ is a hypothesis of the text kept and not used.
 
 ### XIII.31 What is not formalized
 
