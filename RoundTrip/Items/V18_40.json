@@ -1,21 +1,21 @@
 {
  "id": "V18_40",
- "A_to_B": "failed",
+ "A_to_B": "proved",
  "B_to_A": "failed",
  "not_B": false,
- "relation": "incomparable",
- "effort_only": true,
- "why": "The two statements differ in kind. A (proposition_18_4_3, universe 0) is an existence statement in a model: for a covering family c and a smooth w over a smooth point of X_Ψ with Γ̄(w) ≅ e, SOME Λ is an sc⁺-multisection functor with Λ(e) > 0, Γ̄^*Λ atomic in the model of c, structurable; exists_atomicData and proposition_18_4_3_formula describe that Λ through a natural representation of G_x in the model. B asserts these properties for the explicit function lam of p. 854, built in one strong bundle uniformizer Ψ̄ from a given local sc⁺-section s and every sc-smooth bump β : O → [0,1] with small support, plus independence of the choice of (q, φ) and atomicity in the model of every family c ⊔ {Ψ̄}. A_to_B would need the whole proof for lam (A says nothing about that function). B_to_A would need, from the model data, a uniformizer with a local sc⁺-section through e and a bump on O (A's bump hypothesis is stated in a model), the hypothesis HasStrongBundleUniformizers that A does not assume, atomicity in the model of c rather than c ⊔ {Ψ̄}, and the AtomicData conjuncts, about which B is silent. Both directions are believed to hold mathematically; each would re-prove substantial parts of §13.5/§17, so neither was attempted.",
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The row now lists, beside the construction in a covering model, the construction of p. 854 in one strong bundle uniformizer (Chapter18/MultisectionConstructionText). Its main form proposition_18_4_3_cutoff states Proposition 18.4.3 for the text's Λ with s₁ = β·s; its functions cutoffValue, CutoffLift, cutoffLam have the same bodies as B's phiValue, IsLift, lam, and its hypotheses are B's, so main_to_B and B_to_main are each one application. B says nothing about the other conjuncts (exists_atomicData, proposition_18_4_3, proposition_18_4_3_formula in a covering model, the identification TextData.textLam_eq, the satisfiability proposition_18_4_3_text_exists, the example proposition_18_4_3_witness), so B_to_A is not claimed.",
  "B_issue": null,
- "overlap": "No direction proved, so no #rt_check/#rt_overlap; the file records A and A_holds only. B_to_A could be obtained vacuously by copying the project's proofs of all four conjuncts, which would not compare anything and was not done.",
+ "overlap": "rt_check OK on A_to_B, main_to_B, B_to_main (the nine conjuncts banned for A_to_B; proposition_18_4_3_text and proposition_18_4_3_cutoff for the main directions). The proofs only apply the hypothesis.",
  "uses_hypothesis": {
-  "A_to_B": false,
+  "A_to_B": true,
   "B_to_A": false
  },
  "main": {
-  "decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3",
-  "A_to_B": "failed",
-  "B_to_A": "failed",
-  "relation": "incomparable"
+  "decl": "Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_cutoff",
+  "A_to_B": "proved",
+  "B_to_A": "proved",
+  "relation": "equivalent"
  }
 }

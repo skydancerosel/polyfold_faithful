@@ -30,21 +30,21 @@ Against the expected relation from the verdict (*same / explicit / restated* →
 
 | | match | partial | mismatch | unresolved | n |
 |---|---|---|---|---|---|
-| all items | 63 | 5 | 60 | 1 | 129 |
+| all items | 63 | 5 | 61 | 0 | 129 |
 
-Unresolved: V18.40 (below). Of the 60 mismatches, 9 are rows marked *stronger* or *narrower* where B
-and A came out equivalent, 4 differ only through extra conjuncts of the row, 12 have A more general
+No item is unresolved. Of the 61 mismatches, 9 are rows marked *stronger* or *narrower* where B
+and A came out equivalent, 5 differ only through extra conjuncts of the row, 12 have A more general
 than the text, 17 differ in the formal statement, and 18 differ only in the blind writer's reading.
 
-Proved directions (vacuous directions not counted): both 66, A ⇒ B only 19, B ⇒ A only 10,
-neither 27; for 7 items `not_B` is proved or A ⇒ B is shown not to hold (B does not hold as the blind
+Proved directions (vacuous directions not counted): both 66, A ⇒ B only 20, B ⇒ A only 10,
+neither 26; for 7 items `not_B` is proved or A ⇒ B is shown not to hold (B does not hold as the blind
 writer read the text).
 
 Provers' judgement of content, by verdict:
 
 | | equivalent | A_stronger | A_narrower | incomparable | n |
 |---|---|---|---|---|---|
-| same | 45 | 8 | 3 | 2 | 58 |
+| same | 45 | 9 | 3 | 1 | 58 |
 | explicit | 6 | 1 | 7 | 17 | 31 |
 | restated | 6 | 7 | 5 | 1 | 19 |
 | stronger | 8 | 3 | 0 | 2 | 13 |
@@ -105,13 +105,13 @@ hypotheses or more cases); the text's claim follows. *Verdict*: the row says *st
 - V18.52: B renders "naturally oriented" as existence of an orientation; A needs the index on the support and orients the models.
 - V19.41: B leaves out the metrizability standing in §19.5.
 
-**Row (4)**: V12.24, V12.26, V12.39 (Loc versions, uniqueness of the topology, examples), V16.28 (Stokes for every ep-groupoid); the main conjunct agrees with B.
+**Row (5)**: V12.24, V12.26, V12.39 (Loc versions, uniqueness of the topology, examples), V16.28 (Stokes for every ep-groupoid), V18.40 (the construction in a covering model and its identification with the construction of p. 854); the main conjunct agrees with B.
 
 **General (12)**: V14.25, V14.33, V14.37, V14.48 (any §14.3 data, fewer hypotheses; V14.37 states the clause "0 where no morphism arrives" as a separate lemma), V15.3 (any Λ), V17.52 (one specific structure, where B asks for some structure), V17.65, V17.81, V17.95, V17.102 (all objects of C¹, any point, any family), V19.32, V19.62 (no metrizability or `HasClassUniformizers`).
 
 **Verdict (9)**: V13.51, V16.11, V17.12, V17.30, V17.53, V18.49, V19.31, V19.75 (*stronger*), V16.34 (*narrower*): the blind writer read the text in the project's form, or the extra part follows by symmetry or from B.
 
-**Unresolved**: V18.40. A (Proposition 18.4.3) says some Λ exists in a model; B characterises the explicit function of p. 854 for every small bump; either direction would re-prove much of §13.5 and §17.
+**V18.40.** The row now lists Proposition 18.4.3 for the text's Λ, built in one strong bundle uniformizer (`proposition_18_4_3_text`, `proposition_18_4_3_cutoff`, `Chapter18/MultisectionConstructionText`); the main conjunct `proposition_18_4_3_cutoff` and B are the same statement (both directions proved), and A ⇒ B is proved. The construction in a covering model, which A also lists, is the same functor (`TextData.textLam_eq`).
 
 **Partial (5)**: V13.58, V15.15, V15.30, V15.51, V19.61 (incomparable on *stronger* / *narrower* rows).
 
@@ -132,4 +132,4 @@ which.
 
 **Checks.** Every item file was recompiled at e1d5ad6 with
 `lake env lean -DmaxSynthPendingDepth=3 RoundTrip/Items/<ID>.lean` after `lake build
-RoundTrip.Blind.<ID>`: no error, no `sorry`, no unrecorded `rt_check` failure.
+RoundTrip.Blind.<ID>`: no error, no `sorry`, no unrecorded `rt_check` failure. `Items/V18_40` was recompiled again after the construction of p. 854 in one uniformizer was added.

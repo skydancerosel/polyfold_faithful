@@ -26,7 +26,7 @@ The second command prints the axioms of every theorem; each must list only `prop
 | Orientation (Chapter 6) | 6 | 68 | 289 |
 | Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds | 37 | 88 | 205 |
 | Part III: Fredholm theory in ep-groupoids, good systems, sc⁺-multisections, extension from the boundary, transversality, polyfolds | 52 | 118 | 187 |
-| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 72 | 138 | 363 |
+| Part IV: polyfolds and strong bundles from groupoidal categories, Fredholm sections, the basic construction, coverings | 72 | 139 | 374 |
 | Tame boundary (Theorems 2.7.13 and 7.6.9) | 2 | 3 | 0 |
 
 A later tier assumes the earlier ones: its definition rows are only those its statements need beyond the earlier tiers.
@@ -965,6 +965,8 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 18.3.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6` (Chapter18/MultisectionFunctors.lean) | V18.37 |
 | Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3` (Chapter18/MultisectionConstructions.lean) | V18.40 |
 | Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula` (Chapter18/MultisectionConstructions.lean) | V18.40 |
+| Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_text` (Chapter18/MultisectionConstructionText.lean) | V18.40 |
+| Prop 18.4.3 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_cutoff` (Chapter18/MultisectionConstructionText.lean) | V18.40 |
 | Thm 18.4.4 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4` (Chapter18/MultisectionConstructions.lean) | V18.41 |
 | Thm 18.4.4 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree` (Chapter18/PerturbationModelIndependence.lean) | V18.41 |
 | Prop 18.5.6 | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp` (Chapter18/Orientations.lean) | V18.49 |
@@ -1050,7 +1052,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 19.8.22 | `GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_inv_hyp` (Chapter19/CoveringSquareFibredProper.lean) | V19.110 |
 | Thm 19.8.22 | `GroupoidalCategory.SquareBasicConstruction.theorem_19_8_22_hyp` (Chapter19/CoveringSquareFibredProper.lean) | V19.110 |
 
-### Definition rows (138), in dependency order
+### Definition rows (139), in dependency order
 
 | Row | Book | Lean declarations used by the statements |
 |---|---|---|
@@ -1127,6 +1129,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V18.4 | §18.1, Definition 18.1.1, p. 844 (2017: Definition 18.1) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.HasStrongBundleUniformizers`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctor`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScFredholmSectionFunctorTame`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsScSmoothSectionFunctor` |
 | V18.10 | §18.1, (18.2) and the following paragraph, p. 845 (2017: §18.1) | `GCT.VectorBundle.morFiber` |
 | V18.8 | §18.1, (18.1) and Definition 18.1.3, p. 845 (2017: Definition 18.2) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.linearization`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.sectionLin` |
+| V18.9 | §18.1, Definition 18.1.4, p. 845 (2017: Definition 18.3) | `StrongBundle.IsScPlusSectionOn` |
 | V18.11 | §18.1, before Theorem 18.1.5, p. 845 (2017: §18.1) | `GCT.PolyfoldConstruction.openSubConstruction`, `GCT.objOver`, `GCT.openSub`, `GCT.restrictTheta` |
 | V18.12 | §18.1, Theorem 18.1.5 with Remark 17.2.18, p. 846 (2017: Theorem 18.1) | `GCT.PolyfoldConstruction.IsInGoodPositionToPartialCone`, `GCT.PolyfoldConstruction.partialCone`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsKernelInGoodPosition`, `IsInGoodPositionTop` |
 | V18.15 | §18.1, Definition 18.1.7, p. 846 (2017: Definition 18.4) | `GCT.VectorBundle.StrongPolyfoldBundleConstruction.EOneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.FiberCond`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormBook`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsAuxNormDirect` and 5 more |
@@ -1193,7 +1196,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V19.108 | §19.8, Definition 19.8.19, p. 954 (new in the 2021 edition) | `IsProperStrongBundleCoveringSquare` |
 | V19.109 | §19.8, Definition 19.8.20 and Lemma 19.8.21, p. 956 (new in the 2021 edition) | `GroupoidalCategory.SquareUniformizerConstruction.NatOpenEA`, `GroupoidalCategory.SquareUniformizerConstruction.natTopEA` |
 
-<details><summary>363 helper constants without a row of their own (accessors, coercions, instances)</summary>
+<details><summary>374 helper constants without a row of their own (accessors, coercions, instances)</summary>
 
 * Chapter16/RaisedPolyfold.lean: `EPLocalization.Diagram.liftOne`, `EPLocalization.EPLoc.liftOneHom`
 * Chapter17/BranchedSubcategory.lean: `GroupoidStr.orbitSupp`
@@ -1228,10 +1231,12 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 * Chapter17/TransitionSet.lean: `GroupoidStr.TransitionSet.comp`
 * Chapter17/VectorBundleGCT.lean: `GroupoidalCategory.BanachFunctor.EMor.e`, `GroupoidalCategory.BanachFunctor.EMor.φ`, `GroupoidalCategory.BanachFunctor.base`, `GroupoidalCategory.BanachFunctor.compE`, `GroupoidalCategory.BanachFunctor.compMor`, `GroupoidalCategory.BanachFunctor.invE`, `GroupoidalCategory.BanachFunctor.objMk`, `GroupoidalCategory.BanachFunctor.unitE`, `GroupoidalCategory.sigmaAct`
 * Chapter18/AuxiliaryNorms.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refCoveringFamily`
-* Chapter18/AuxiliaryNormsDirect.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsCompleteNormOn`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.instTopologicalSpaceEOneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneClass`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEmb`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEquiv`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneFiberSet`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneMk`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneTopology`
+* Chapter18/AuxiliaryNormsDirect.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.BundleCoveringFamily.withUnif`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsCompleteNormOn`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.instTopologicalSpaceEOneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneClass`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEmb`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneEquiv`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneFiberSet`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneMk`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneOrbit`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.oneTopology`
 * Chapter18/FredholmSectionFunctors.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.adjoin`
 * Chapter18/Linearization.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refBundlePoint`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refBundleUnif`, `GCT.VectorBundle.fiberCast`
 * Chapter18/LinearizationTransport.lean: `StrongBundle.linZeroAt`
+* Chapter18/MultisectionConstructionText.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.CutoffLift`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.cutoffLam`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.cutoffObj`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.cutoffValue`
+* Chapter18/MultisectionConstructionTextLam.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.TextReach`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.textLam`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.textLamK`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.textLift`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.textTranslate`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.textValue`
 * Chapter18/Orientations.lean: `GCT.VectorBundle.StrongPolyfoldBundleConstruction.IsModelInvariant`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.ModelOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.adjoinFamily`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPullOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.inclPushOr`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.refLift`, `GCT.VectorBundle.StrongPolyfoldBundleConstruction.sumFamily`
 * Chapter18/TangentPartialCone.lean: `MPolyfold.fiberChartComplement`, `MPolyfold.fiberChartDim`, `MPolyfold.fiberChartPresentation`, `MPolyfold.tangentPartialCone`
 * Chapter19/CoveringConstruction.lean: `GroupoidalCategory.CoveringUniformizer.liftTrans`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif`, `GroupoidalCategory.CoveringUniformizerConstruction.Unif.toUnif`

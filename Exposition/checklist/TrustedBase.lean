@@ -281,6 +281,8 @@ def mains : List (String × String) := [
   ("partIV|Thm 18.3.6", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_3_6"),
   ("partIV|Prop 18.4.3", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3"),
   ("partIV|Prop 18.4.3", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula"),
+  ("partIV|Prop 18.4.3", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_text"),
+  ("partIV|Prop 18.4.3", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_cutoff"),
   ("partIV|Thm 18.4.4", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4"),
   ("partIV|Thm 18.4.4", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.theorem_18_4_4_modelFree"),
   ("partIV|Prop 18.5.6", "GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_5_6_one_hyp"),

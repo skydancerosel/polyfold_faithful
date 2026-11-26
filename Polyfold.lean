@@ -1523,3 +1523,7 @@ import Polyfold.Examples.Classical.ProductPaths
 import Polyfold.Examples.Classical.ProductOrientation
 import Polyfold.Examples.Classical.ProductCount
 import Polyfold.Examples.Classical.ProductMain
+import Polyfold.Chapter18.MultisectionConstructionTextRep
+import Polyfold.Chapter18.MultisectionConstructionTextLam
+import Polyfold.Chapter18.MultisectionConstructionTextAtomic
+import Polyfold.Chapter18.MultisectionConstructionText

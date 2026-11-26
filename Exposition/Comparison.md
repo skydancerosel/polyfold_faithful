@@ -30257,19 +30257,26 @@ Worked example (`Examples/OrbifoldSquare`, `OrbifoldSquareSign`; `Exposition/Wor
 
 ### V18.40. The construction on p. 854 and Proposition 18.4.3 (2017: 18.1)
 
-*as in the book* · as stated · point G.248 settled
+*as in the book* · as stated · the construction in one uniformizer · point G.248 settled
 
 **HWZ (§18.4, the construction before Proposition 18.4.3 and Proposition 18.4.3, pp. 854–855 (2017: Proposition 18.1)).** With sc-smooth bump functions, a local sc⁺-section near $q_0$ and a bump function give an sc⁺-multisection functor $\Lambda$, independent of the choice of $\varphi$, with $\Lambda(e) > 0$, atomic in the model and structurable (easy proof left to the reader, from 13.5.3).
 
-**Proved in Lean.** `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)`: $\exists \Lambda$, sc⁺-multisection functor, $0 < \Lambda(e)$, atomic in the model, structurable; `proposition_18_4_3_formula` (the formula); its independence of $\varphi$ through `AtomicData.isWFunctor_mult`. Witness: `proposition_18_4_3_witness`.
+**Proved in Lean.** **The construction of p. 854 in one strong bundle uniformizer** (`Chapter18/MultisectionConstructionText`): `textLam Ψ̄ s₁` is the text's $\Lambda$, $\Lambda(\bar\Psi(h)) = |G|^{-1}\cdot\#\{g \mid s_g(p(h)) = h\}$ for the translates $s_g(g * q) = g * s_1(q)$, extended along the morphisms into $\Psi(O)$ and by $1_{e=0}$ elsewhere; `textLam_indep` (independent of the choice of $(q, \varphi)$); **`proposition_18_4_3_text`** (there is an open $W \ni \bar q$ such that for every invariant $V \subseteq W$ and every sc⁺-section $s_1$ vanishing off $V$: $\Lambda$ is an sc⁺-multisection functor, $\Lambda(\bar\Psi(s_1(\bar q))) > 0$, $\bar\Gamma^*\Lambda$ is atomic in the model of $c \sqcup \{\bar\Psi\}$ for every covering family $c$, and $\Lambda$ is structurable); `proposition_18_4_3_text_exists` (with sc-smooth bump functions such an $s_1$ with $s_1(\bar q) = \bar h$ exists); `proposition_18_4_3_cutoff` (the same for $s_1 = \beta s$, a local sc⁺-section $s$ and a bump $\beta$); `TextData.textLam_eq` ($\Lambda$ is the functor of `proposition_18_4_3` for atomic data built from the uniformizer).
 
+In a covering model: `exists_atomicData`; `proposition_18_4_3 (c hbump hx hw he)`: $\exists \Lambda$, sc⁺-multisection functor, $0 < \Lambda(e)$, atomic in the model, structurable; `proposition_18_4_3_formula` (the formula); its independence of $\varphi$ through `AtomicData.isWFunctor_mult`. Witness: `proposition_18_4_3_witness`.
+
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.textLam_indep` — Polyfold/Chapter18/MultisectionConstructionText.lean, line 77
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_text` — Polyfold/Chapter18/MultisectionConstructionText.lean, line 191
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_text_exists` — Polyfold/Chapter18/MultisectionConstructionText.lean, line 251
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_cutoff` — Polyfold/Chapter18/MultisectionConstructionText.lean, line 431
+- `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.TextData.textLam_eq` — Polyfold/Chapter18/MultisectionConstructionText.lean, line 178
 - `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.exists_atomicData` — Polyfold/Chapter18/MultisectionConstructions.lean, line 185
 - `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3` — Polyfold/Chapter18/MultisectionConstructions.lean, line 206
 - `Polyfold.GCT.VectorBundle.StrongPolyfoldBundleConstruction.proposition_18_4_3_formula` — Polyfold/Chapter18/MultisectionConstructions.lean, line 233
 - `Polyfold.GCT.VectorBundle.ReflectionBundle.proposition_18_4_3_witness` — Polyfold/Chapter18/MultisectionFunctorsExamples.lean, line 146
 
 *What differs.*
-- The independence of $\varphi$ and the proof left to the reader are written out (point G.248 settled). The paragraph after it (sums and push-forwards, details left to the reader) is a comment (point G.249).
+- The construction is carried out as the text gives it, in one strong bundle uniformizer $\bar\Psi \in \bar F(\alpha)$, and Proposition 18.4.3 is proved for that $\Lambda$ (`proposition_18_4_3_text`); it is the functor of the covering-model form `proposition_18_4_3` for atomic data built from $\bar\Psi$ (`TextData.textLam_eq`). "Pick $V$" is read as "for $V$ small enough" (every invariant $V \subseteq W$, $W$ chosen first), and "atomic in a suitable model" as atomic in the model of every covering family containing $\bar\Psi$. For a uniformizer not centred at $\bar q$, the stabilizer $G_{\bar q}$ takes the place of $G$ in the invariance of $V$; the formula of p. 854 is used unchanged. The independence of $\varphi$ and the proof left to the reader are written out (point G.248 settled). The paragraph after it (sums and push-forwards, details left to the reader) is a comment (point G.249).
 
 ### V18.41. Theorem 18.4.4 (2017: 18.7), the ∂-extension theorem
 
