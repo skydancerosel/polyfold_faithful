@@ -18,6 +18,10 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `FredholmSections.lean` | Ch. 4 | Defs 4.1–4.4, the abstract part of Thm 4.6, Props 4.22, 4.24, 4.26 |
 | `Orientation.lean`, `OrientationHomotopy.lean` | App. 5.10 | orientations of sc-Fredholm sections in the memoir's Hilbert-space form: Defs 5.8–5.10, Lemmas 5.11–5.15, Thm 5.16, 5.17–5.26 for X without boundary |
 | `Skeleton.lean` | Ch. 1, 3 | the target (Q, ω, J), nodal surfaces and stability (Defs 1.2, 1.3), stable maps (Def 1.4), the sc-scale of the model spaces; Thms 3.13 and 3.22 as named statements; Thm 3.22 gives a metrizable orbit space |
+| `Groupoid.lean` | §3.1 | the groupoid of stable maps and their isomorphisms, as the groupoidal category of Definition 19.1.1 of the book |
+| `Witnesses.lean` | Defs 1.1–1.4 | the sphere with its standard complex structure and holomorphic stereographic charts; the sphere with three marked points and the sphere with one node; constant stable maps into any target |
+| `Reductions.lean`, `ReductionsRegularity.lean` | Thm 3.13, §3.5 | transition data from Thm 3.13; (ZHOU), effectiveness and tameness for faithful linear actions; Z is metrizable with (ZHOU) and carries a polyfold structure, given Prop 3.10, Thms 1.6, 3.13, 3.22 as named statements |
+| `FilledSection.lean` | Props 4.7–4.8 | Prop 4.8 from Props 4.7, 4.23 and 4.25, through Prop 4.26 |
 
 ## Readings and comparisons with the book
 
@@ -40,11 +44,18 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 - **Def 5.9.** The memoir's construction with D* and d*∘γ corresponds to the book's (6.4) under ι.
 - **Lemma 5.24.** For X without boundary it follows from Thm 6.6.13 of the book, with tame germ data
   for f and bump functions.
+- **Thm 3.13 ⇒ transition data.** The reduction uses two properties of the uniformizers, which the
+  construction of §3 is to supply: the core-smoothness class is closed under the group action, inverses
+  and composition, and each object maps to finitely many uniformizers (the locally finite refinement of
+  §3.5). Prop 3.10, the existence of good uniformizers at every object, is a hypothesis of the final
+  statement: without it the conclusions of Thms 3.13 and 3.22 would hold for an empty family.
 
 ## Not yet formalized
 
 The analysis and geometry the memoir draws on beyond the book: Deligne–Mumford spaces, weighted Sobolev
 spaces on half-cylinders and the sc-smoothness of gluing and anti-gluing (Thms 2.49, 2.50, 2.55, 2.57;
 Lemma 2.48, Prop 2.51), elliptic regularity for ∂̄_J, the index theorem, Gromov compactness, and the
-results resting on them (Thms 1.6–1.12, 3.13, 3.22, Props 4.8, 4.23). Also Lemma 5.20 beyond a single
-chart, Defs 5.25 and 5.27–5.32, and the abstract parts of Appendix 5.11 after Lemma 5.37.
+results resting on them (Thms 1.6–1.12, 3.13, 3.22, Props 3.10, 4.7, 4.23, 4.25, stated here as named
+propositions). Also the stability of the three-pointed sphere, two spheres joined at a node, the step
+from Prop 4.8 to the sc-Fredholm property of ∂̄_J, Lemma 5.20 beyond a single chart, Defs 5.25 and
+5.27–5.32, and the abstract parts of Appendix 5.11 after Lemma 5.37.

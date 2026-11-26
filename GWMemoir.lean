@@ -5,6 +5,11 @@ import GWMemoir.FredholmSections
 import GWMemoir.Orientation
 import GWMemoir.OrientationHomotopy
 import GWMemoir.Skeleton
+import GWMemoir.Groupoid
+import GWMemoir.Witnesses
+import GWMemoir.Reductions
+import GWMemoir.ReductionsRegularity
+import GWMemoir.FilledSection
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in
