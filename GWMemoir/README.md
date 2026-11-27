@@ -33,6 +33,7 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `CauchyRiemannFredholm.lean` | Thm 1.11 | from the named Props 4.7, 4.23, 4.25: ∂̄_J is an sc-Fredholm section with tame germs, its solution set the classes of J-holomorphic stable maps |
 | `Fibres.lean`, `FibreRepresentation.lean`, `FibreInstance.lean` | §1.2 | the fibres of W: forms of class (2+m, δ_m) inside a finite product over an atlas (completeness and density stated); ∂̄_J of a constant map is 0; the fibre representation and its instances |
 | `Evaluation.lean`, `EvaluationForms.lean` | Thm 1.12 | finite-dimensional manifolds and their products as polyfolds, smooth forms as sc-forms (closed to closed), ev : Z → Q^m (its sc-smoothness on uniformizers stated), and Thm 1.12 for closed forms on Q^m |
+| `ConstantBase.lean`, `ConstantInstance.lean` | Thms 1.10, 1.11 | on the constant maps from the three-pointed sphere: the uniformizer construction, with Prop 3.10, Thms 1.6, 3.13, 3.22 proved, the polyfold structure on Z ≅ Q, and Thms 1.10 and 1.11 with the base and fibre hypotheses discharged |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -80,9 +81,13 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 - **How Thms 1.10–1.12 are reached.** The bundle W → Z is taken in the form of Chapter 17.7 of the book
   (Prop 3.39 stated there). The fibre hypotheses of Thm 1.11 hold on the constant maps from the sphere
   with three marked points with no named proposition (`memoir_theorem_1_11_fibre_nonvacuous`), and on
-  stable maps without nodes given the change-of-coordinates bound `AllPullbackBounded`. The uniformizer
-  construction (Def 19.1.3 of the book) with Thms 3.13, 3.22, 1.6 and the vector bundle structure (Def
-  17.7.1) are not yet instantiated for the GW data; Thms 1.10–1.12 are proved for every instance of them.
+  stable maps without nodes given the change-of-coordinates bound `AllPullbackBounded`. On the constant
+  maps from that sphere the uniformizer construction (Def 19.1.3 of the book) is built and every named
+  proposition of the base is proved (`ConstantBase.lean`). That piece has no nodes and no gluing, so it
+  checks how the statements fit together, not the memoir's analysis; and Props 4.7, 4.23, 4.25 have no
+  instance on it as we read them, because its base is finite-dimensional while the fibres are not. For
+  the GW data near nonconstant maps, the uniformizer construction and the vector bundle structure (Def
+  17.7.1) are not yet instantiated; Thms 1.10–1.12 are proved for every instance of them.
 
 ## Not yet formalized
 

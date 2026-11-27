@@ -33,6 +33,8 @@ import GWMemoir.FibreRepresentation
 import GWMemoir.FibreInstance
 import GWMemoir.Evaluation
 import GWMemoir.EvaluationForms
+import GWMemoir.ConstantBase
+import GWMemoir.ConstantInstance
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in
