@@ -419,7 +419,7 @@ omit [FiniteDimensional ℝ E] [IsManifold 𝓘(ℝ, E) ∞ Q] in
 theorem NodalSurface.isClassNear_const {m : ℕ} (X : NodalSurface m)
     {φ : OpenPartialHomeomorph X.S ℂ} {x : X.S} (hφ : X.IsHolChart φ x) (ht : φ.target = univ)
     (k : ℕ) (δ : ℝ) (q : Q) : X.IsClassNear (E := E) k δ (fun _ => q) x := by
-  refine ⟨φ, hφ, 0, fun _ _ => ⟨φ.map_target (by rw [ht]; trivial), mem_extChartAt_source q⟩,
+  refine ⟨φ, hφ, 0, fun _ _ => ⟨by rw [ht]; trivial, mem_extChartAt_source q⟩,
     fun ℓ => ?_⟩
   convert memH_cutoff_mul_const k δ 0 using 1
   funext p

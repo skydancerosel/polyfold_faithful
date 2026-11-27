@@ -42,6 +42,9 @@ import GWMemoir.CompletenessForms
 import GWMemoir.ChartChange
 import GWMemoir.ChartChangeInstances
 import GWMemoir.ChartChangeDensity
+import GWMemoir.FormsDensity
+import GWMemoir.CompletenessNodes
+import GWMemoir.SectionAtlasNodes
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in

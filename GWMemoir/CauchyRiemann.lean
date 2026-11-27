@@ -281,11 +281,12 @@ theorem formInPolar_zero (u : X.S → Q) (φ : OpenPartialHomeomorph X.S ℂ) (x
   map_zero (tangentCoordChange 𝓘(ℝ, E) _ _ _)
 
 /-- **`ξ` is of class `(k, δ)` at the nodal point `x`** (Memoir p. 7), as for maps
-(`IsClassNear`): in holomorphic polar coordinates at `x` and the chart of `Q` at `u(x)`, a
-cut-off of `formInPolar` lies in `H^{k,δ}(ℝ × S¹)`. -/
+(`IsClassNear`): in honest holomorphic polar coordinates at `x` (`e^{-2π(s+it)}` in the image of
+the chart for `s ≥ s₀`) and the chart of `Q` at `u(x)`, a cut-off of `formInPolar` lies in
+`H^{k,δ}(ℝ × S¹)`. -/
 def IsFormClassNear (k : ℕ) (δ : ℝ) (u : X.S → Q) (ξ : X.S → E2 →L[ℝ] E) (x : X.S) : Prop :=
   ∃ φ, X.IsHolChart φ x ∧ ∃ s₀ : ℝ,
-    (∀ p : ℝ × ℝ, s₀ ≤ p.1 → X.polar φ p ∈ φ.source ∧
+    (∀ p : ℝ × ℝ, s₀ ≤ p.1 → expPolar p ∈ φ.target ∧
       u (X.polar φ p) ∈ (extChartAt 𝓘(ℝ, E) (u x)).source) ∧
     ∀ ℓ : E →L[ℝ] ℝ, MemH k δ fun p => Real.smoothTransition (p.1 - s₀) *
       ℓ (X.formInPolar u ξ φ x p)

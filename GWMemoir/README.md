@@ -26,7 +26,7 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `NodalPair.lean` | Defs 1.2–1.4 | two spheres joined at a node, with four marked points, and a constant stable map on it; charts and tangent coordinates of disjoint unions of manifolds |
 | `HalfCylinders.lean` | §2.4 | weighted Sobolev spaces on half-cylinders and finite cylinders as restrictions of the cylinder spaces of `Polyfold/Chapter1`, and their sc-structure |
 | `Scales.lean` | §2.4 | the scales H^{ℓ+m,δ_m} for every offset ℓ; Thm 2.50 (1): hat gluing for fixed a is an sc-isomorphism (Thm 2.50 (2) stated) |
-| `SectionSpaces.lean` | §3.1 | the section spaces H^{3,δ₀}_c(S, u*TQ) and E_u inside a finite product of disc and neck pieces; completeness and density of smooth sections stated |
+| `SectionSpaces.lean` | §3.1 | the section spaces H^{3,δ₀}_c(S, u*TQ) and E_u inside a finite product of disc and neck pieces, the neck pieces in holomorphic polar coordinates (Def 1.1) |
 | `LocalAddition.lean` | Def 3.6 | the exponential map read as a local addition affine in the charts; that the geodesic exponential is one is stated |
 | `CauchyRiemann.lean`, `CauchyRiemannSection.lean` | §4.2 | ∂̄_J on stable maps, its naturality under isomorphisms, and the section functor it defines |
 | `Bundle.lean` | Prop 3.39, Thm 1.10 | the strong polyfold bundle W → Z from the named Prop 3.39 |
@@ -37,6 +37,8 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `ConstantBundle.lean`, `PullbackBounded.lean` | Thm 1.10 | the vector bundle (Def 17.7.1 of the book) over the constant maps from the three-pointed sphere, read in one atlas; the change-of-atlas bound reduced to a bounded operator on the block spaces |
 | `Completeness.lean`, `CompletenessForms.lean` | §§1.2, 3.1 | the embedding H^{2,δ}(ℝ × S¹) ⊂ C⁰; completeness of the section and constraint spaces for surfaces without nodes and of the fibres of W in general; density reduced to density of the smooth points on every level |
 | `ChartChange.lean`, `ChartChangeInstances.lean`, `ChartChangeDensity.lean` | §§1.2, 3.1 | v ↦ a·(v∘ψ) is bounded on H^{k,δ} for every k and commutes with the inclusions; with it, the change-of-atlas bound and density of smooth sections for constant maps on surfaces without nodes, in particular the three-pointed sphere |
+| `CompletenessNodes.lean`, `SectionAtlasNodes.lean` | §3.1 | completeness of the section and constraint spaces with nodes, for every continuous map and atlas; every stable map has an atlas (instance: the sphere with one node) |
+| `FormsDensity.lean` | §1.2 | the matrix of j in a disc chart is smooth; density of smooth forms for constant maps on surfaces without nodes, in particular the three-pointed sphere |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 

@@ -143,6 +143,19 @@ open Polyfold.CylinderSobolev
 variable {E : Type} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
   {Q : Type} [TopologicalSpace Q] [ChartedSpace E Q] [IsManifold 𝓘(ℝ, E) ∞ Q]
 
+/-- The exponential coordinate `e^{-2π(s + it)}` of positive polar coordinates. -/
+def expPolar (p : ℝ × ℝ) : ℂ := Complex.exp (-2 * Real.pi * ((p.1 : ℂ) + (p.2 : ℂ) * Complex.I))
+
+lemma continuous_expPolar : Continuous expPolar := by
+  unfold expPolar; fun_prop
+
+lemma expPolar_add_one (s t : ℝ) : expPolar (s, t + 1) = expPolar (s, t) := by
+  simp only [expPolar]
+  have : -2 * Real.pi * ((s : ℂ) + ((t + 1 : ℝ) : ℂ) * Complex.I) =
+      -2 * Real.pi * ((s : ℂ) + (t : ℂ) * Complex.I) + (-1 : ℤ) * (2 * Real.pi * Complex.I) := by
+    push_cast; ring
+  rw [this, Complex.exp_add, Complex.exp_int_mul_two_pi_mul_I, mul_one]
+
 namespace NodalSurface
 
 variable {m : ℕ} (X : NodalSurface m)
@@ -157,12 +170,32 @@ def IsHolChart (φ : OpenPartialHomeomorph X.S ℂ) (x : X.S) : Prop :=
 def polar (φ : OpenPartialHomeomorph X.S ℂ) : ℝ × ℝ → X.S := fun p =>
   φ.symm (Complex.exp (-2 * Real.pi * ((p.1 : ℂ) + (p.2 : ℂ) * Complex.I)))
 
+lemma polar_eq (φ : OpenPartialHomeomorph X.S ℂ) (p : ℝ × ℝ) :
+    X.polar φ p = φ.symm (expPolar p) := rfl
+
+lemma polar_mem_source {φ : OpenPartialHomeomorph X.S ℂ} {p : ℝ × ℝ}
+    (hp : expPolar p ∈ φ.target) : X.polar φ p ∈ φ.source :=
+  φ.map_target hp
+
+lemma polar_add_one (φ : OpenPartialHomeomorph X.S ℂ) (s t : ℝ) :
+    X.polar φ (s, t + 1) = X.polar φ (s, t) := by
+  rw [polar_eq, polar_eq, expPolar_add_one]
+
+/-- Honest polar coordinates are continuous: if `e^{-2π(s+it)} ∈ φ.target` for `s ≥ s₀`, then
+`σ` is continuous on `s ≥ s₀`. -/
+lemma continuousOn_polar {φ : OpenPartialHomeomorph X.S ℂ} {s₀ : ℝ}
+    (h : ∀ p : ℝ × ℝ, s₀ ≤ p.1 → expPolar p ∈ φ.target) :
+    ContinuousOn (X.polar φ) {p | s₀ ≤ p.1} :=
+  φ.continuousOn_symm.comp continuous_expPolar.continuousOn fun p hp => h p hp
+
 /-- **Memoir Definition 1.1**: `u` is of class `(k, δ)` near `x`: in polar coordinates at `x`
 and the chart of `Q` at `u(x)` (centred), `e^{δs}`-weighted weak derivatives up to order `k` are
-`L²` on `[s₀, ∞) × S¹`; written with the project's `H^{k,δ}(ℝ × S¹)` and a cut-off. -/
+`L²` on `[s₀, ∞) × S¹`; written with the project's `H^{k,δ}(ℝ × S¹)` and a cut-off.  The polar
+coordinates are honest ones: `e^{-2π(s+it)}` lies in the image of the chart for `s ≥ s₀`, so `σ`
+is continuous there (`continuousOn_polar`) and `σ(s, t) → x` as `s → ∞`. -/
 def IsClassNear (k : ℕ) (δ : ℝ) (u : X.S → Q) (x : X.S) : Prop :=
   ∃ φ, X.IsHolChart φ x ∧ ∃ s₀ : ℝ,
-    (∀ p : ℝ × ℝ, s₀ ≤ p.1 → X.polar φ p ∈ φ.source ∧
+    (∀ p : ℝ × ℝ, s₀ ≤ p.1 → expPolar p ∈ φ.target ∧
       u (X.polar φ p) ∈ (extChartAt 𝓘(ℝ, E) (u x)).source) ∧
     ∀ ℓ : E →L[ℝ] ℝ, MemH k δ fun p => Real.smoothTransition (p.1 - s₀) *
       ℓ (extChartAt 𝓘(ℝ, E) (u x) (u (X.polar φ p)) - extChartAt 𝓘(ℝ, E) (u x) (u x))

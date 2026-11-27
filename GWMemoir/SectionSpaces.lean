@@ -17,7 +17,8 @@ complete norms".  We write this as follows.
 * `finPiSc F`: the finite product of sc-Banach spaces (levels `∏ᵢ (F i)_m`, sup norm).
 * `SectionAtlas X u`: a fixed choice of the semi-norms: disc charts placed in the strip
   `ℝ × (0,1)` as in `IsHlocNear` (centre `z`, scale `ε`), avoiding the nodal points, and at every
-  nodal point a holomorphic chart with polar coordinates from `s₀` on, as in `IsClassNear`; the
+  nodal point a holomorphic chart with honest polar coordinates from `s₀` on
+  (`e^{-2π(s+it)}` in the image of the chart, so `σ` is continuous there), as in `IsClassNear`; the
   regions where the cut-offs are `1` cover `S`.  The trivialization of `u*TQ` on a piece is the
   tangent coordinate change of `Q` to the chart at `u(z)`; vectors are taken in coordinates of a
   basis of `E`, so that every block is real-valued.
@@ -131,8 +132,10 @@ structure SectionAtlas where
   hol : Fin nn → OpenPartialHomeomorph X.S ℂ
   s0 : Fin nn → ℝ
   isHol : ∀ j, X.IsHolChart (hol j) (node j)
+  /-- Honest polar coordinates: `e^{-2π(s+it)}` lies in the image of the chart for `s ≥ s₀`, so
+  `σ` is continuous there (`SectionAtlas.continuousOn_polar`). -/
   neck_chart : ∀ j (p : ℝ × ℝ), s0 j ≤ p.1 →
-    X.polar (hol j) p ∈ (hol j).source ∧
+    expPolar p ∈ (hol j).target ∧
       u (X.polar (hol j) p) ∈ (extChartAt 𝓘(ℝ, E) (u (node j))).source
   node_nodal : ∀ j, ∃ q ∈ X.nodes, node j ∈ q
   nodal_node : ∀ q ∈ X.nodes, ∀ x ∈ q, ∃ j, node j = x
@@ -142,6 +145,15 @@ structure SectionAtlas where
 
 variable {X u}
 variable (A : SectionAtlas (E := E) X u)
+
+lemma SectionAtlas.polar_mem_source (j : Fin A.nn) {p : ℝ × ℝ} (hp : A.s0 j ≤ p.1) :
+    X.polar (A.hol j) p ∈ (A.hol j).source :=
+  X.polar_mem_source (A.neck_chart j p hp).1
+
+/-- The polar coordinates of a neck chart are continuous on `s ≥ s₀`. -/
+lemma SectionAtlas.continuousOn_polar (j : Fin A.nn) :
+    ContinuousOn (X.polar (A.hol j)) {p | A.s0 j ≤ p.1} :=
+  X.continuousOn_polar fun p hp => (A.neck_chart j p hp).1
 
 /-- The `k`-th coordinate in the fixed basis of `E`. -/
 abbrev crd (k : Fin (Module.finrank ℝ E)) : E →ₗ[ℝ] ℝ := (Module.finBasis ℝ E).coord k

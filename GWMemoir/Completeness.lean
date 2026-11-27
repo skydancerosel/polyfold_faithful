@@ -31,10 +31,8 @@ The limit of representatives and the propositions themselves are in
 `GWMemoir.CompletenessForms` (`exists_limit_section`, `sectionsClosed_of_nodes_empty`,
 `constraintsClosed_of_nodes_empty`).
 
-At nodal points the neck blocks lie in `H^{3,δ₀}(ℝ × S¹)`, also covered by the embedding.  Not
-done there: the continuity of the neck representatives (the atlas asks `σ(s, t) ∈ φ.source` for
-`s ≥ s₀`, not `e^{-2π(s+it)} ∈ φ.target`, so `σ` need not be continuous on that range), and the
-continuity of the limit at the nodal point itself.
+At nodal points the neck blocks lie in `H^{3,δ₀}(ℝ × S¹)`, also covered by the embedding; the
+nodal case of the propositions is in `GWMemoir.CompletenessNodes`.
 -/
 
 set_option maxSynthPendingDepth 3

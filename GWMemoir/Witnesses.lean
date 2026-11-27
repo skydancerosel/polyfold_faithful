@@ -693,7 +693,7 @@ theorem sphereNode_isClassNear_const (k : ℕ) (δ : ℝ) (q : Q) (s : ℝ) (hs 
     show s * (x : E3) 2 ≠ 1
     rw [h2]; nlinarith
   refine ⟨holChart s hs, ⟨hsrc, ?_, fun y hy => holChart_holo s hs y hy⟩, 0,
-    fun _ _ => ⟨(holChart s hs).map_target (mem_univ _), mem_extChartAt_source q⟩, fun ℓ => ?_⟩
+    fun _ _ => ⟨mem_univ _, mem_extChartAt_source q⟩, fun ℓ => ?_⟩
   · show stereoC s x = 0
     simp [stereoC, h0, h1]
   · convert memH_cutoff_mul_const k δ 0 using 1
