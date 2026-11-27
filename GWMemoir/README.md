@@ -52,6 +52,8 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `NeckTestForms.lean` | Prop 4.23 at a = 0, Thm 4.6 | **at a constant map from two spheres joined at a node, for 0 < δ₀ < 2π, D is Fredholm and onto, of index dim E, with kernel the constants** (`linCRN_isFredholm_twoSpheres_uncond`), with no named proposition. Thm 4.6 at genus 0, A = 0 counts dim E + 2; the 2 is the gluing parameter a, on which the section is flat at a constant map |
 | `LevelsNodesOp.lean`, `LevelsNodesEstimate.lean`, `LevelsNodesDense.lean`, `LevelsNodesOnto.lean`, `LevelsNodesFredholm.lean` | Props 4.7, 4.8, 4.23, 4.25 | at the same constant map, for weights 0 < δ₀ < δ₁ < … < 2π: D is an sc-operator on the levels H^{3+m,δ_m}_c → H^{2+m,δ_m}, the estimate and dense range hold on every level, D is onto on every level and regular from level to level, so D is sc-Fredholm, Props 4.7, 4.23, 4.25, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u (`twoSpheres_levels_uncond`), with no named proposition; witness δ_m = π − 1/(m+2) |
 | `NodeWeightBound.lean` | §3.1 p. 49, §4 | at the same constant map, for E ≠ 0 and δ₀ > 0: D is onto exactly when δ₀ < 2π (`linCRN_surjective_iff_twoSpheres`). For δ₀ ≥ 2π the form ∂̄(χ·z·e) lies in the fibre but not in the range of D |
+| `GlueFilledFibre.lean`, `GlueFilledReflect.lean`, `GlueFilledOps.lean`, `GlueFilledK.lean`, `GlueFilled.lean` | (4.4)–(4.6), (4.18) | near the same constant map, for a gluing parameter 0 < |a| < a₀: the linearized filled section is D_a = hatScale_a ∘ (D + K_a), where K_a, the commutator of ∂̄ with gluing, is supported in |s − R/2| ≤ 1 and raises the level; D_a is sc-Fredholm of index dim E, Fredholm of that index on every level, with the constants in its kernel (`filledOp_isScFredholm`). The glued and anti-glued equations are stated with the commutator written out; the printed form of (4.18) follows from D = ½∂̄ on the node pair and the Leibniz rule for ⊕_a, not yet formalized. The factor ½ on pp. 103, 117 is taken as printed, and ⊕̂_a(h⁺, h⁻) on p. 117 is read as ⊕_a |
+| `GluingUniform.lean`, `GluingUniformEst.lean`, `GluingUniformPi.lean`, `GluingUniformConst.lean` | §4.3, Props 4.13, 4.14 | the centred norms (4.7), (4.8); Props 4.13, 4.14 with constants independent of a for 0 < |a| < 1/2; ‖π_a‖ and ‖π̂_a‖ bounded independently of a (π_a for δ_m > 0) |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -113,6 +115,10 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   pp. 58 and 104: for δ₀ ≥ 2π a smooth section near a node is not of class (3, δ₀)
   (`not_mem_sectionSpace_of_two_pi_le`), and D at a constant map is not onto
   (`linCRN_surjective_iff_twoSpheres`).
+- **The norms of §4.3.** In the G^a_m norm (p. 108) the factor e^{δ_m R} is read in front of both
+  terms, as in its use on p. 172, (5.51); with the factor on the Z_a term only, the upper bounds of
+  Props 4.13, 4.14 hold and the lower bounds do not hold as we read it (`GluingUniformEst.lean`). The
+  index m + 2 there is read as m + 3, the level being H^{3+m}.
 
 ## Not yet formalized
 

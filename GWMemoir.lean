@@ -82,6 +82,15 @@ import GWMemoir.LevelsNodesDense
 import GWMemoir.LevelsNodesOnto
 import GWMemoir.LevelsNodesFredholm
 import GWMemoir.NodeWeightBound
+import GWMemoir.GlueFilledFibre
+import GWMemoir.GlueFilledReflect
+import GWMemoir.GlueFilledOps
+import GWMemoir.GlueFilledK
+import GWMemoir.GlueFilled
+import GWMemoir.GluingUniform
+import GWMemoir.GluingUniformEst
+import GWMemoir.GluingUniformPi
+import GWMemoir.GluingUniformConst
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in
