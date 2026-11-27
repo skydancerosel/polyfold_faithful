@@ -45,6 +45,7 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `LinearModel.lean`, `LinearModelFredholm.lean` | Props 4.7, 4.8, 4.23, 4.25 | for a section of the local bundle given by a linear sc-operator T: Prop 4.25 always, Prop 4.7 when T is regularizing, Props 4.23 and 4.8 when T is sc-Fredholm. Instance: at a constant map from the three-pointed sphere into a linear target with constant J, ∂̄_J(q+ξ) = Dξ on the base H^{3,δ₀}, D is an sc-operator on the levels H^{3+n,δ_n} → H^{2+n,δ_n}, Fredholm on level 0, and Prop 4.25 holds; given elliptic regularity from each level to the next (`LevelRegularity`, named), D is sc-Fredholm, Props 4.7, 4.23, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u. The data exist on ℝ² with its standard J |
 | `LevelRegularityEstimate.lean`, `LevelRegularityDense.lean`, `LevelRegularitySphere.lean` | Props 4.7, 4.8, 4.23 | at the same constant map: the elliptic estimate and dense range on every level, so D is onto H^{3+m,δ_m} → H^{2+m,δ_m} for each m and `LevelRegularity` holds (for 0 < δ₀); hence D is sc-Fredholm, Props 4.7, 4.23, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u, with no named proposition |
 | `NeckEstimate.lean` | §4.3, Prop 4.15 | on the cylinder ℝ × S¹ with weight δ, for 0 < δ < 2π and J² = −1: ‖r‖_{H^{m+1,δ}} ≤ C‖(∂_s + J∂_t) r‖_{H^{m,δ}} on n-tuples, for every m, with no lower-order term; also for tuples vanishing for s ≤ 0. The constant comes from the gap min(δ, 2π − δ) on circles; instance δ = π |
+| `CokernelNodesNeck.lean`, `CokernelNodes.lean` | §3.1 p. 66, §4 | at a constant map from two spheres joined at a node: a section smooth near the node lies in H^{3,δ₀}_c for 0 ≤ δ₀ < 2π, by the decay O(e^{−2πs}) in the polar chart; ∂̄ξ = η is solvable in H^{3,δ₀}_c, one sphere at a time with the constants matched at the node. For δ₀ ≥ 2π the smooth section c + χ·z·e has no representative in the blocks |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -102,6 +103,9 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   domain in that case. For
   the GW data near nonconstant maps, the uniformizer construction and the vector bundle structure (Def
   17.7.1) are not yet instantiated; Thms 1.10–1.12 are proved for every instance of them.
+- **The weights.** The bound 0 < δ_m < 2π, printed on p. 49 "for all m ≥ 1", is read for m ≥ 0, as on
+  pp. 58 and 104: for δ₀ ≥ 2π a smooth section near a node is not of class (3, δ₀)
+  (`not_mem_sectionSpace_of_two_pi_le`).
 
 ## Not yet formalized
 
