@@ -91,6 +91,13 @@ import GWMemoir.GluingUniform
 import GWMemoir.GluingUniformEst
 import GWMemoir.GluingUniformPi
 import GWMemoir.GluingUniformConst
+import GWMemoir.NeckModelsSolve
+import GWMemoir.NeckModels
+import GWMemoir.NeckNegTests
+import GWMemoir.NeckNegTuple
+import GWMemoir.NeckNegWeight
+import GWMemoir.NeckNegSpaces
+import GWMemoir.NeckNegOnto
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in
