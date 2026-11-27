@@ -31,6 +31,8 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `CauchyRiemann.lean`, `CauchyRiemannSection.lean` | §4.2 | ∂̄_J on stable maps, its naturality under isomorphisms, and the section functor it defines |
 | `Bundle.lean` | Prop 3.39, Thm 1.10 | the strong polyfold bundle W → Z from the named Prop 3.39 |
 | `CauchyRiemannFredholm.lean` | Thm 1.11 | from the named Props 4.7, 4.23, 4.25: ∂̄_J is an sc-Fredholm section with tame germs, its solution set the classes of J-holomorphic stable maps |
+| `Fibres.lean`, `FibreRepresentation.lean`, `FibreInstance.lean` | §1.2 | the fibres of W: forms of class (2+m, δ_m) inside a finite product over an atlas (completeness and density stated); ∂̄_J of a constant map is 0; the fibre representation and its instances |
+| `Evaluation.lean`, `EvaluationForms.lean` | Thm 1.12 | finite-dimensional manifolds and their products as polyfolds, smooth forms as sc-forms (closed to closed), ev : Z → Q^m (its sc-smoothness on uniformizers stated), and Thm 1.12 for closed forms on Q^m |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -71,12 +73,16 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   properties this reading keeps.
 - **Components (Thm 1.12).** A component is a full subcategory of stable maps closed under isomorphism;
   a class A enters through its energy ω(A).
+- **Fibres of W.** A fibre element of W is a form along u, and the Banach fibre sees it through its
+  local representatives. A form that is nonzero at a single point has zero representatives, so the
+  fibre map is injective only on continuous forms (`not_factor_of_injOn_fibreElements`);
+  `FibreRepresentation` asks for exactly that, and Thm 1.11 uses that ∂̄_J u is continuous.
 - **How Thms 1.10–1.12 are reached.** The bundle W → Z is taken in the form of Chapter 17.7 of the book
-  (Prop 3.39 stated there), the fibres of W are identified with Banach spaces through a structure
-  `FibreIdentification` whose non-degenerate instance needs the fibre spaces of the bundle, not yet
-  built, and the evaluation maps go to a polyfold class standing for M_{g,m} × Q^m. Until those are in
-  place, Thms 1.10–1.12 are proved for every instance of these data, and it is not yet shown that the GW
-  data form one.
+  (Prop 3.39 stated there). The fibre hypotheses of Thm 1.11 hold on the constant maps from the sphere
+  with three marked points with no named proposition (`memoir_theorem_1_11_fibre_nonvacuous`), and on
+  stable maps without nodes given the change-of-coordinates bound `AllPullbackBounded`. The uniformizer
+  construction (Def 19.1.3 of the book) with Thms 3.13, 3.22, 1.6 and the vector bundle structure (Def
+  17.7.1) are not yet instantiated for the GW data; Thms 1.10–1.12 are proved for every instance of them.
 
 ## Not yet formalized
 

@@ -28,6 +28,11 @@ import GWMemoir.Bundle
 import GWMemoir.CauchyRiemannSection
 import GWMemoir.CauchyRiemannFredholm
 import GWMemoir.Invariants
+import GWMemoir.Fibres
+import GWMemoir.FibreRepresentation
+import GWMemoir.FibreInstance
+import GWMemoir.Evaluation
+import GWMemoir.EvaluationForms
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in

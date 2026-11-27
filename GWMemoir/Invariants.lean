@@ -129,20 +129,20 @@ variable {C : GroupoidalCategory.{1}} {U : C.UniformizerConstruction} {CS : CSPr
   {V : (gwGCT h310 H hCS hPF h322 h16).VectorBundle}
   {Fb : V.StrongBundleUniformizerConstruction (gwPolyfoldConstruction h310 H hCS hPF h322 h16)}
   {h339 : Proposition_3_39 Fb} {L : StableMapLabel om m k δ C}
-  {ιV : FibreIdentification L V.toBanachFunctor J k' δ'}
+  {ιV : FibreRepresentation om m k δ L V.toBanachFunctor J k' δ'} {hd : DbarInDom ιV}
   {c : (ofProposition_3_39 Fb h339).BundleCoveringFamily}
 
-variable (hTF hLF Fb h339 ιV c) in
+variable (hTF hLF Fb h339 ιV hd c) in
 /-- **Gromov compactness** (memoir p. 9, Remark 4.10): the solution set of `∂̄_J` on the
 component is compact. -/
-def GromovCompactness (h : CRProps Fb h339 ιV c) : Prop :=
-  (dbarSection hTF hLF Fb h339 ιV c h).1.HasCompactSolutionSet
+def GromovCompactness (h : CRProps Fb h339 ιV hd c) : Prop :=
+  (dbarSection hTF hLF Fb h339 ιV hd c h).1.HasCompactSolutionSet
 
 /-- **The index formula of Memoir Theorem 4.6** (p. 101, Riemann–Roch): the Fredholm index of
 the representative of the orientation is `d` at every smooth point, `d = 2n(1 − g) + 2c₁(A) +
 6g − 6 + 2k` on `Z_{g,k,A}`. -/
-def Index_4_6 {h : CRProps Fb h339 ιV c} (o : OrientationRep (dbarSection hTF hLF Fb h339 ιV c h))
-    (d : ℕ) : Prop :=
+def Index_4_6 {h : CRProps Fb h339 ιV hd c}
+    (o : OrientationRep (dbarSection hTF hLF Fb h339 ιV hd c h)) (d : ℕ) : Prop :=
   ∀ x ∈ o.a.S.A.X.PObj.smoothSet, o.a.S.A.B.IsIndexAt o.a.F x (d : ℤ)
 
 /-- **Memoir Theorem 1.12, primary form, from the named propositions** (p. 9; 2021 Theorem
@@ -151,21 +151,22 @@ Theorem 4.6 on the model functor with index `m' + 1`, sc-smooth bump functions a
 and an sc-smooth map `ev : Z → W'`: admissible perturbations of `∂̄_J` exist, and
 `∫_{S(∂̄_J, λ)} ev^*τ` is the same for any two of them and depends only on the class of the
 closed form `τ`. -/
-theorem memoir_theorem_1_12 (h : CRProps Fb h339 ιV c)
+theorem memoir_theorem_1_12 (h : CRProps Fb h339 ιV hd c)
     (hbump : (gwBundle hTF hLF Fb h339 c).polyfold.AdmitsBumpFunctions)
     (hbd : (gwBundle hTF hLF Fb h339 c).polyfold.boundary = ∅)
-    (hcs : GromovCompactness hTF hLF Fb h339 ιV c h)
-    {m' : ℕ} (o : OrientationRep (dbarSection hTF hLF Fb h339 ιV c h))
+    (hcs : GromovCompactness hTF hLF Fb h339 ιV hd c h)
+    {m' : ℕ} (o : OrientationRep (dbarSection hTF hLF Fb h339 ιV hd c h))
     (ho : o.a = sectionRepOfFunctor (gwStructure hTF hLF Fb h339 c) rfl _
       (dbarFunctor_mem_fredholm h).1)
     (hidx : Index_4_6 o (m' + 1))
     {W' : Type 1} [TopologicalSpace W'] {d : PolyfoldClass W'}
     (ev : ScMap (gwBundle hTF hLF Fb h339 c).polyfold d) :
     ∃ (n : V.groupoid.OrbitSpace → ℝ) (U' : Set C.OrbitSpace),
-      (dbarSection hTF hLF Fb h339 ιV c h).1.ControlsCompactness n U' ∧
-      (∃ P : OrientedPerturbation (dbarSection hTF hLF Fb h339 ιV c h).1 m', P.IsAdmissible n U' ∧
+      (dbarSection hTF hLF Fb h339 ιV hd c h).1.ControlsCompactness n U' ∧
+      (∃ P : OrientedPerturbation (dbarSection hTF hLF Fb h339 ιV hd c h).1 m',
+        P.IsAdmissible n U' ∧
         IsInheritedFrom (fun o P => IsCanonicalPerturbation o.hF.2 o.hsec o.o P) o P) ∧
-      ∀ P₀ P₁ : OrientedPerturbation (dbarSection hTF hLF Fb h339 ιV c h).1 m',
+      ∀ P₀ P₁ : OrientedPerturbation (dbarSection hTF hLF Fb h339 ιV hd c h).1 m',
         P₀.IsAdmissible n U' →
         IsInheritedFrom (fun o P => IsCanonicalPerturbation o.hF.2 o.hsec o.o P) o P₀ →
         P₁.IsAdmissible n U' →
@@ -175,7 +176,7 @@ theorem memoir_theorem_1_12 (h : CRProps Fb h339 ιV c)
             P₁.integral (ScMap.pullback ev (m' + 1) τ) := by
   have htame : o.a.S.A.B.IsScFredholmSectionTame o.a.F := by
     rw [ho]
-    exact (memoir_theorem_1_11 hTF hLF Fb h339 ιV c h).1
+    exact (memoir_theorem_1_11 hTF hLF Fb h339 ιV hd c h).1
   exact invariant_wellDefined hbump hbd hcs ⟨htame, hidx⟩ ev
 
 end GW
