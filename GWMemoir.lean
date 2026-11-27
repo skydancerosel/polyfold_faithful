@@ -55,6 +55,9 @@ import GWMemoir.CokernelSphereDense
 import GWMemoir.EllipticEstimate
 import GWMemoir.EllipticEstimateSphere
 import GWMemoir.LinearCRSphereFredholm
+import GWMemoir.ConstraintIndex
+import GWMemoir.LinearModel
+import GWMemoir.LinearModelFredholm
 
 /-! HWZ, *Applications of Polyfold Theory I: The Polyfolds of Gromov–Witten Theory* (Memoirs AMS
 248, no. 1179, 2017), built on the formalization of *Polyfold and Fredholm Theory* (2021) in
