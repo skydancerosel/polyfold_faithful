@@ -51,6 +51,7 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `LinearCRNodesDenseGeo.lean`, `LinearCRNodesDenseCoef.lean`, `LinearCRNodesDenseOp.lean`, `LinearCRNodesDenseRep.lean`, `LinearCRNodesDense.lean` | §4, App. 5.3 | the dense range of D at the same constant map, for 0 < δ₀ < 2π: the change of charts Φ on the fibre blocks represents the glued form and is the identity on the fibre, so smooth forms are dense and each is hit by D. The input `NeckTestForms` (forms on the necks with prescribed test-function representatives whose glued anti-linear part is smooth in the sphere charts) is proved in `NeckTestForms.lean`, and the atlas carrying the hypotheses exists (`exists_glueAtlas_twoSpheres`) |
 | `NeckTestForms.lean` | Prop 4.23 at a = 0, Thm 4.6 | **at a constant map from two spheres joined at a node, for 0 < δ₀ < 2π, D is Fredholm and onto, of index dim E, with kernel the constants** (`linCRN_isFredholm_twoSpheres_uncond`), with no named proposition. Thm 4.6 at genus 0, A = 0 counts dim E + 2; the 2 is the gluing parameter a, on which the section is flat at a constant map |
 | `LevelsNodesOp.lean`, `LevelsNodesEstimate.lean`, `LevelsNodesDense.lean`, `LevelsNodesOnto.lean`, `LevelsNodesFredholm.lean` | Props 4.7, 4.8, 4.23, 4.25 | at the same constant map, for weights 0 < δ₀ < δ₁ < … < 2π: D is an sc-operator on the levels H^{3+m,δ_m}_c → H^{2+m,δ_m}, the estimate and dense range hold on every level, D is onto on every level and regular from level to level, so D is sc-Fredholm, Props 4.7, 4.23, 4.25, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u (`twoSpheres_levels_uncond`), with no named proposition; witness δ_m = π − 1/(m+2) |
+| `NodeWeightBound.lean` | §3.1 p. 49, §4 | at the same constant map, for E ≠ 0 and δ₀ > 0: D is onto exactly when δ₀ < 2π (`linCRN_surjective_iff_twoSpheres`). For δ₀ ≥ 2π the form ∂̄(χ·z·e) lies in the fibre but not in the range of D |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -110,7 +111,8 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   17.7.1) are not yet instantiated; Thms 1.10–1.12 are proved for every instance of them.
 - **The weights.** The bound 0 < δ_m < 2π, printed on p. 49 "for all m ≥ 1", is read for m ≥ 0, as on
   pp. 58 and 104: for δ₀ ≥ 2π a smooth section near a node is not of class (3, δ₀)
-  (`not_mem_sectionSpace_of_two_pi_le`).
+  (`not_mem_sectionSpace_of_two_pi_le`), and D at a constant map is not onto
+  (`linCRN_surjective_iff_twoSpheres`).
 
 ## Not yet formalized
 
