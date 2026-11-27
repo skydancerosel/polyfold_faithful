@@ -43,6 +43,7 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
 | `CauchyTransform.lean`, `CokernelSphere.lean`, `CokernelSphereDense.lean`, `EllipticEstimate.lean`, `EllipticEstimateSphere.lean`, `LinearCRSphereFredholm.lean` | §4, App. 5.3 | at a constant map from the three-pointed sphere: ∂̄ξ = η solved on the Riemann sphere (Cauchy transform in each chart, glued), the range of D dense, the elliptic estimate ‖ξ‖_{H³} ≤ C(‖Dξ‖_{H²} + ‖ξ‖_{L²}); so D is Fredholm and onto, of index dim E, with no named proposition |
 | `ConstraintIndex.lean` | Def 3.6, Thm 4.6 | with constraints ξ(z_l) ∈ H_l at distinct points, D is Fredholm of index dim E − Σ codim H_l; ξ = 0 at the three marked points gives index −2 dim E. The memoir's constraints sit at a stabilization set Σ whose points each complement the image of Tu(z) (Def 3.6 (4), (7)); at a constant map Tu(z) = 0, so Σ = ∅ and the index is dim E, as in Thm 4.6 at genus 0 with A = 0 |
 | `LinearModel.lean`, `LinearModelFredholm.lean` | Props 4.7, 4.8, 4.23, 4.25 | for a section of the local bundle given by a linear sc-operator T: Prop 4.25 always, Prop 4.7 when T is regularizing, Props 4.23 and 4.8 when T is sc-Fredholm. Instance: at a constant map from the three-pointed sphere into a linear target with constant J, ∂̄_J(q+ξ) = Dξ on the base H^{3,δ₀}, D is an sc-operator on the levels H^{3+n,δ_n} → H^{2+n,δ_n}, Fredholm on level 0, and Prop 4.25 holds; given elliptic regularity from each level to the next (`LevelRegularity`, named), D is sc-Fredholm, Props 4.7, 4.23, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u. The data exist on ℝ² with its standard J |
+| `LevelRegularityEstimate.lean`, `LevelRegularityDense.lean`, `LevelRegularitySphere.lean` | Props 4.7, 4.8, 4.23 | at the same constant map: the elliptic estimate and dense range on every level, so D is onto H^{3+m,δ_m} → H^{2+m,δ_m} for each m and `LevelRegularity` holds (for 0 < δ₀); hence D is sc-Fredholm, Props 4.7, 4.23, 4.8 hold and ∂̄_J is an sc-Fredholm germ at u, with no named proposition |
 | `Invariants.lean` | Thm 1.12 | with Gromov compactness, the index and an orientation (named), an admissible perturbation exists and ∫ ev*τ over its solution set depends neither on the perturbation nor on τ up to an exact form |
 | `Gluing.lean`, `GluingLemma248.lean`, `GluingSplicing.lean`, `NeckOperators.lean`, `GluingLevels.lean`, `GluingIso.lean` | §2.4 | gluing, anti-gluing and hat gluing; Lemma 2.48 and (2.6)–(2.12); Thm 2.49 (1): for fixed a, the total gluing map is an sc-isomorphism on every level; the projections π_a; Prop 2.51 |
 
@@ -95,8 +96,9 @@ from the book's Lean results. Only `propext`, `Classical.choice` and `Quot.sound
   proposition of the base is proved (`ConstantBase.lean`). That piece has no nodes and no gluing, so it
   checks how the statements fit together, not the memoir's analysis; and Props 4.7, 4.23, 4.25 have no
   instance on it as we read them, because its base is finite-dimensional while the fibres are not. They
-  have one on the base H^{3,δ₀} at a constant map into a linear target (`LinearModelFredholm.lean`),
-  given level-to-level elliptic regularity; there is no gluing and no moduli of the domain in that case. For
+  have one on the base H^{3,δ₀} at a constant map into a linear target (`LinearModelFredholm.lean`,
+  `LevelRegularitySphere.lean`), with no named proposition; there is no gluing and no moduli of the
+  domain in that case. For
   the GW data near nonconstant maps, the uniformizer construction and the vector bundle structure (Def
   17.7.1) are not yet instantiated; Thms 1.10–1.12 are proved for every instance of them.
 
